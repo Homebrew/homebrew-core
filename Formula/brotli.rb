@@ -1,15 +1,15 @@
 class Brotli < Formula
-  desc "Generic-purpose lossless compression algorithm by Google."
+  desc "Generic-purpose lossless compression algorithm by Google"
   homepage "https://github.com/google/brotli"
-  url "https://github.com/google/brotli/archive/v1.0.1.tar.gz"
-  sha256 "6870f9c2c63ef58d7da36e5212a3e1358427572f6ac5a8b5a73a815cf3e0c4a6"
+  url "https://github.com/google/brotli/archive/v1.0.3.tar.gz"
+  sha256 "7948154166ef8556f8426a4ede219aaa98a81a5baffe1f7cf2523fa67d59cd1c"
   head "https://github.com/google/brotli.git"
 
   bottle do
     cellar :any
-    sha256 "6144a0ca96854448af4ff96c06a0e4aba23266f9283851e787cfa0b2a3cb2c49" => :high_sierra
-    sha256 "5d2597581c6af21f4bb53f2966c3cbd7a203305a66b6697b44664326f625e0e2" => :sierra
-    sha256 "d559e3e3c1b2efab8727b04d51805eccdbf5215353b5a2d0603a3d1f878854d7" => :el_capitan
+    sha256 "5b1ea08d06845a2d11516b5ccab54fa42f9716f72d893ae87920527a044c9ae4" => :high_sierra
+    sha256 "ba9bbd43aa4219408c007166005651568b03da3a4fc6590a5b7e4e45585e537c" => :sierra
+    sha256 "3cdd9cb0eeada350c4047f52007c4cba157b5d0411b3bfa00100cf641696518a" => :el_capitan
   end
 
   depends_on "cmake" => :build

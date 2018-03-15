@@ -1,14 +1,13 @@
 class Dwarf < Formula
   desc "Object file manipulation tool"
   homepage "https://github.com/elboza/dwarf-ng/"
-  url "https://github.com/elboza/dwarf-ng/archive/dwarf-0.3.2.tar.gz"
-  sha256 "dc3db5273c02f0b05beedada0a3935af0c60c011d7213f37c39f43ce088f9436"
+  url "https://github.com/elboza/dwarf-ng/archive/dwarf-0.4.0.tar.gz"
+  sha256 "a64656f53ded5166041ae25cc4b1ad9ab5046a5c4d4c05b727447e73c0d83da0"
 
   bottle do
-    sha256 "ef1d01f93b35c4661d08b9a8a710cd99092a533735c646db2e205c8f2db93b95" => :high_sierra
-    sha256 "84c3d641587619c55073a819edf62b23a6437aeed72075e257272df685e226aa" => :sierra
-    sha256 "053fba2171b46fe1d9fd22f52ca5eee61e462682e2b9340c671505e5351fd5d6" => :el_capitan
-    sha256 "1a798403cb54f055465e16fe67e7db63dd693ee993d0a871c32c6f143621d7f3" => :yosemite
+    sha256 "47af5ca1f6349c0d8c49f1ef72cbed7fbaa6e91c263c8a284afd841e8ced56f9" => :high_sierra
+    sha256 "69a1b11620f73e519cf6abade5a23e478a4c7c44cd4fbc9996b05c464c53e8d7" => :sierra
+    sha256 "042c140300ff583047ec5f51e3877b4ecf22a3c25a6108c11ae067b9e525d05b" => :el_capitan
   end
 
   depends_on "flex"
@@ -24,7 +23,7 @@ class Dwarf < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
 
       int main(int argc, char *argv[]) {
@@ -32,7 +31,7 @@ class Dwarf < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test"
-    output = shell_output("#{bin}/dwarf -c 'print $mac' test")
-    assert_equal "magic: 0xfeedfacf (-17958193)", output.lines[1].chomp
+    output = shell_output("#{bin}/dwarf -c 'pp $mac' test")
+    assert_equal "magic: 0xfeedfacf (-17958193)", output.lines[0].chomp
   end
 end

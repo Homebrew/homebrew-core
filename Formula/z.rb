@@ -13,7 +13,7 @@ class Z < Formula
     man1.install "z.1"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For Bash or Zsh, put something like this in your $HOME/.bashrc or $HOME/.zshrc:
       . #{etc}/profile.d/z.sh
     EOS

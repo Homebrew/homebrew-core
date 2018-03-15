@@ -32,7 +32,7 @@ class Awf < Formula
   end
 
   test do
-    assert (bin/"awf-gtk2").exist?
-    assert (bin/"awf-gtk3").exist?
+    assert_predicate bin/"awf-gtk2", :exist?
+    assert_predicate bin/"awf-gtk3", :exist?
   end
 end

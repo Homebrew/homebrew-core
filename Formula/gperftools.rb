@@ -1,15 +1,14 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
-  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6.1/gperftools-2.6.1.tar.gz"
-  sha256 "38b467eb42a028f253d227fbc428263cb39e6c8687c047466aa2ce5bb4699d81"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.6.3/gperftools-2.6.3.tar.gz"
+  sha256 "314b2ff6ed95cc0763704efb4fb72d0139e1c381069b9e17a619006bee8eee9f"
 
   bottle do
     cellar :any
-    sha256 "1e6f41b6d61d05c1b48170218c90eda9822dc46cb3d69b6e7fb86bfd9613f4e1" => :high_sierra
-    sha256 "fffac00b0bbf99aaa18fa437acb9204740ba8ab7cfdc1783a57d4d3d1af49ed3" => :sierra
-    sha256 "eb634b147019b9b57fbe8b1daa709a74b95f2693b299b5bfd141cf63f01c18e4" => :el_capitan
-    sha256 "74c85f5058535c1fd211e71ffe664f99d64aa392b4e56d4fa06c172900b2d9c2" => :yosemite
+    sha256 "0d36f2291e12318c900358e5c5b38d1322533173d66cc64ec17e404333b40a70" => :high_sierra
+    sha256 "498699638aa7e06c11c7ceee5b7c4bb96eaffa02ef0fe043b22140fe5f22c575" => :sierra
+    sha256 "d91d9e54d3522a3c6aca928660d6521455fa2ddc21e766e8f386fd58ebaac17b" => :el_capitan
   end
 
   head do
@@ -21,6 +20,9 @@ class Gperftools < Formula
   end
 
   def install
+    # Fix "error: unknown type name 'mach_port_t'"
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
 
     system "autoreconf", "-fiv" if build.head?
@@ -31,7 +33,7 @@ class Gperftools < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <gperftools/tcmalloc.h>
 

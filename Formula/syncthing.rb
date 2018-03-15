@@ -2,15 +2,15 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-      :tag => "v0.14.38",
-      :revision => "a9aa375109184f0c124f8a1575c58baa2656a61b"
+      :tag => "v0.14.45",
+      :revision => "7a92f6c6b18230f74cc347f937fe81b44da6c9ee"
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "026e16ffdc78e8fa4438ef9c23a62311a541456a97a0634f33b0786b7fd4b515" => :high_sierra
-    sha256 "de583ce477da137ac9642aba355b2171925c213e7766505658687451063baaef" => :sierra
-    sha256 "e4243ee9bb3b69dac48a5d1b630e08a6b1792d1c4e9093d834ca73bca7cc6033" => :el_capitan
+    sha256 "755cc87b75930c4e70832a4e2a68a14c47a0b8db9a793c7e30ce4fddf5bb8247" => :high_sierra
+    sha256 "c6fcc77c10d38ab9ea8c31cd26add6f6e7fc419ae137209b807ade3ca5318ead" => :sierra
+    sha256 "a3e7d4c687dd7ff485c6f85581130e1c3391c329ab76efbfd7161c146f81b401" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class Syncthing < Formula
 
   plist_options :manual => "syncthing"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -1,20 +1,16 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.12.3/logrotate-3.12.3.tar.gz"
-  sha256 "435a3f9a534a37e11657532a090f6bf521d8696bdf9cb799a360c1750ba3aea9"
+  url "https://github.com/logrotate/logrotate/releases/download/3.14.0/logrotate-3.14.0.tar.gz"
+  sha256 "9bb62355ecf26997d994498658781a40fcd117b3e9d2872362db504b98df5c47"
 
   bottle do
-    sha256 "b8f261bc65fc43cdffd6db04842e856089d1fac34e69a3d617ef750ea8d5e543" => :high_sierra
-    sha256 "c71cc8692bdd28fcf4ba25002d1177a9f60e3c68cbe1fecc46d16a1cb56ec58f" => :sierra
-    sha256 "809a917ade7e1e83bfd871f87be42a9001d0b082190e2ea5ca77c8b840598c0c" => :el_capitan
-    sha256 "d7bbd4bdbe2de2730ee27c92fc215e7d6fecb0c1ff0daa3baecb46f904b8a10d" => :yosemite
+    sha256 "fb7c69ba0723255b69a48402deacc16ba6395ff69bd258f709c412cee4b70dc9" => :high_sierra
+    sha256 "d295638d3dd9bb6cadaaaa84afda9a2542d529e83727f944ffddb4d8683c3ccf" => :sierra
+    sha256 "c53babb6bca4886b76933bee0c55efac35ed23352af83b8755975e79b1d94cd8" => :el_capitan
   end
 
   depends_on "popt"
-
-  # Adapt the default config for Homebrew
-  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -31,7 +27,7 @@ class Logrotate < Formula
 
   plist_options :manual => "logrotate"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -59,44 +55,13 @@ class Logrotate < Formula
 
   test do
     (testpath/"test.log").write("testlograndomstring")
-    (testpath/"testlogrotate.conf").write <<-EOS.undent
-        #{testpath}/test.log {
+    (testpath/"testlogrotate.conf").write <<~EOS
+      #{testpath}/test.log {
         size 1
         copytruncate
-    }
+      }
     EOS
     system "#{sbin}/logrotate", "-s", "logstatus", "testlogrotate.conf"
     assert(File.size?("test.log").nil?, "File is not zero length!")
   end
 end
-
-__END__
-diff --git i/examples/logrotate-default w/examples/logrotate-default
-index 56e9103..c61a33a 100644
---- i/examples/logrotate-default
-+++ w/examples/logrotate-default
-@@ -14,23 +14,7 @@ dateext
- # uncomment this if you want your log files compressed
- #compress
- 
--# RPM packages drop log rotation information into this directory
-+# Homebrew packages drop log rotation information into this directory
- include /etc/logrotate.d
- 
--# no packages own wtmp and btmp -- we'll rotate them here
--/var/log/wtmp {
--    missingok
--    monthly
--    create 0664 root utmp
--    minsize 1M
--    rotate 1
--}
--
--/var/log/btmp {
--    missingok
--    monthly
--    create 0600 root utmp
--    rotate 1
--}
--
- # system-specific logs may be also be configured here.

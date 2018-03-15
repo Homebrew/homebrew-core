@@ -30,7 +30,7 @@ class Lolcode < Formula
 
   test do
     path = testpath/"test.lol"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       HAI 1.2
       CAN HAS STDIO?
       VISIBLE "HAI WORLD"

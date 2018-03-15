@@ -1,15 +1,17 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.49/gwyddion-2.49.tar.gz"
-  sha256 "48446bc2c6680d61c16b3f637e57e09f4de631c6b80bc2b20f424f66cc896c1c"
+  url "http://gwyddion.net/download/2.50/gwyddion-2.50.tar.gz"
+  sha256 "f3834dae31d9bf696e8d59e2aa79a373a30d5f6caa6033601d2f9d57afa154f3"
+  revision 1
 
   bottle do
-    sha256 "54219b3018cb2ae1491e894097de93fd4793a2ced553f1ed5c374d563bdd163d" => :high_sierra
-    sha256 "54947cfef227f47304cfcd026eab9e8f870c6e4fc9caad0cc4b2d026b77d4713" => :sierra
-    sha256 "44f3afedf022ae6928247c87f433f360775cbc8e025f164a0d9d909fe847040b" => :el_capitan
-    sha256 "2f01f30e749a596a3d7c13daa7961bd209e58a818b997960554fd72df4383335" => :yosemite
+    sha256 "2ed8543022428b822bb0dac471903457148a7a358fb1d38e09afb1f98be46415" => :high_sierra
+    sha256 "d62de4048a135e8f8683d3d319bce0019fb6e140fad4576a5a370b87e26b0d8e" => :sierra
+    sha256 "659a1211206d02ba4e967643925fe6fcd12ee0cd1f0d647961d76c243baed079" => :el_capitan
   end
+
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
@@ -19,14 +21,13 @@ class Gwyddion < Formula
   depends_on "libxml2"
   depends_on "minizip"
 
-  depends_on :python => :optional
-  depends_on "pygtk" if build.with? "python"
-  depends_on "gtksourceview" if build.with? "python"
+  depends_on "python@2" => :optional
+  depends_on "pygtk" if build.with? "python@2"
+  depends_on "gtksourceview" if build.with? "python@2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-desktop-file-update",
-                          "--enable-module-bundling=no",
                           "--prefix=#{prefix}",
                           "--with-html-dir=#{doc}"
     system "make", "install"
@@ -34,7 +35,7 @@ class Gwyddion < Formula
 
   test do
     system "#{bin}/gwyddion", "--version"
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libgwyddion/gwyddion.h>
 
       int main(int argc, char *argv[]) {

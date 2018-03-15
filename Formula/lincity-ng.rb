@@ -44,13 +44,14 @@ class LincityNg < Formula
     rm_rf ["#{pkgshare}/applications", "#{pkgshare}/pixmaps"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     If you have problem with fullscreen, try running in windowed mode:
       lincity-ng -w
     EOS
   end
 
   test do
+    (testpath/".lincity-ng").mkpath
     assert_match /lincity-ng version #{version}$/, shell_output("#{bin}/lincity-ng --version")
   end
 end

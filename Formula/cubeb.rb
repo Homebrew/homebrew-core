@@ -1,5 +1,5 @@
 class Cubeb < Formula
-  desc "Cross-platform audio library."
+  desc "Cross-platform audio library"
   homepage "https://github.com/kinetiknz/cubeb"
   url "https://github.com/kinetiknz/cubeb/archive/cubeb-0.2.tar.gz"
   sha256 "cac10876da4fa3b3d2879e0c658d09e8a258734562198301d99c1e8228e66907"
@@ -30,7 +30,7 @@ class Cubeb < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <cubeb/cubeb.h>
 

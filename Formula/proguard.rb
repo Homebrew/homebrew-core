@@ -1,8 +1,8 @@
 class Proguard < Formula
   desc "Java class file shrinker, optimizer, and obfuscator"
   homepage "https://proguard.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/proguard/proguard/5.3/proguard5.3.tar.gz"
-  sha256 "8f185c343dcc4504b3c496bdbf870feba3523abe7cec060b44bbacd1fc2da955"
+  url "https://downloads.sourceforge.net/project/proguard/proguard/6.0/proguard6.0.tar.gz"
+  sha256 "fcbcff3c9ff8bb661f94d47c6612d9ff88e9db4f6ed47f817cac65e34bbcd170"
 
   bottle :unneeded
 
@@ -14,7 +14,7 @@ class Proguard < Formula
   end
 
   test do
-    expect = <<-EOS.undent
+    expect = <<~EOS
       ProGuard, version #{version}
       Usage: java proguard.ProGuard [options ...]
     EOS

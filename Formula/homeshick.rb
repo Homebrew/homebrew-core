@@ -25,7 +25,7 @@ class Homeshick < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       To enable the `homeshick cd <CASTLE>` command, you need to
       `export HOMESHICK_DIR=#{opt_prefix}`
       and
@@ -33,7 +33,7 @@ class Homeshick < Formula
       in your $HOME/.bashrc
     EOS
     if build.with? "csh"
-      s += <<-EOS.undent
+      s += <<~EOS
         and
         `alias homeshick source "#{opt_bin}/homeshick.csh"`
         in your $HOME/.cshrc
@@ -43,7 +43,7 @@ class Homeshick < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<-EOS.undent
+    (testpath/"test.sh").write <<~EOS
       #!/bin/sh
       export HOMESHICK_DIR="#{opt_prefix}"
       source "#{opt_prefix}/homeshick.sh"

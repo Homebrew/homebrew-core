@@ -30,7 +30,7 @@ class Libtool < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     In order to prevent conflicts with Apple's own libtool we have prepended a "g"
     so, you have instead: glibtool and glibtoolize.
     EOS
@@ -38,7 +38,7 @@ class Libtool < Formula
 
   test do
     system "#{bin}/glibtool", "execute", "/usr/bin/true"
-    (testpath/"hello.c").write <<-EOS
+    (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() { puts("Hello, world!"); return 0; }
     EOS

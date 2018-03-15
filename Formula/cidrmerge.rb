@@ -20,7 +20,7 @@ class Cidrmerge < Formula
   end
 
   test do
-    input = <<-EOS.undent
+    input = <<~EOS
       10.1.1.0/24
       10.1.1.1/32
       192.1.4.5/32

@@ -5,14 +5,14 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-1.19.2.4/pandoc-1.19.2.4.tar.gz"
-  sha256 "bbe08c1f7fcfea98b899f9956c04159d493a26f65d3350aa6579aa5b93203556"
+  url "https://hackage.haskell.org/package/pandoc-2.1.2/pandoc-2.1.2.tar.gz"
+  sha256 "dc0b26eff61c6eed2e00927fa2c6b966ca758dea1596f3049cc70ae8b650eb65"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 "5a4e56b970e59984fda8cf03c3d89ce6a100f28aa7defaf2da28f68498419902" => :high_sierra
-    sha256 "e5fcff4739015b69fc513900e20a8d1130a98bb29ae7770f02d4832e80841729" => :sierra
-    sha256 "bfdaf40b035d17d9323d3bf736d433b109f1cf4942a9c2e2b211d065f49ae51f" => :el_capitan
+    sha256 "b4b46e5f6be33de5810282abff8e791e5d7a299d9034181d141267e748e54b5c" => :high_sierra
+    sha256 "4ed83a74100cfdf80fbf4c604fbd97d41a037b3db41f074ffdca831626968749" => :sierra
+    sha256 "175fd83ffef287801fbfff5b3222dce11060287f27532b55aa0e06ebc98dcc7c" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
@@ -28,12 +28,12 @@ class Pandoc < Formula
   end
 
   test do
-    input_markdown = <<-EOS.undent
+    input_markdown = <<~EOS
       # Homebrew
 
       A package manager for humans. Cats should take a look at Tigerbrew.
     EOS
-    expected_html = <<-EOS.undent
+    expected_html = <<~EOS
       <h1 id="homebrew">Homebrew</h1>
       <p>A package manager for humans. Cats should take a look at Tigerbrew.</p>
     EOS

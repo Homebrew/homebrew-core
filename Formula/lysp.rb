@@ -3,14 +3,13 @@ class Lysp < Formula
   homepage "http://www.piumarta.com/software/lysp/"
   url "http://www.piumarta.com/software/lysp/lysp-1.1.tar.gz"
   sha256 "436a8401f8a5cc4f32108838ac89c0d132ec727239d6023b9b67468485509641"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "a77bc33a80d02bd6c65e79e309c30e919f38ab4325f12a24c8ef6ac9e84f527e" => :high_sierra
-    sha256 "2df5511a5b16985ed83a970676d5b036b3d0da71ea10111efa062ee25fe645c3" => :sierra
-    sha256 "b2f49069f38198ed4310157fcc1b29c04d3a84e6580ac3d27592aea2f8414f70" => :el_capitan
-    sha256 "7115864fbe2c8578657afc60736ee1c0de91712524c874bccece4f18eae1c06a" => :yosemite
+    sha256 "c5bac7fdb03d9f6cf682e3accb11a6f3d66f73646290f748f70a092dc8a22aaf" => :high_sierra
+    sha256 "5c9f575cdef03223be2d182bd687ba327c512c46ebaabd3195016ef1937e2f0b" => :sierra
+    sha256 "b5e4678d23246d60439074f6bf41c57a2f8c2a43718eff304c710073a176971a" => :el_capitan
   end
 
   depends_on "bdw-gc"
@@ -32,7 +31,7 @@ class Lysp < Formula
   end
 
   test do
-    (testpath/"test.l").write <<-EOS.undent
+    (testpath/"test.l").write <<~EOS
       (define println (subr (dlsym "printlnSubr")))
       (define + (subr (dlsym "addSubr")))
       (println (+ 40 2))

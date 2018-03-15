@@ -1,19 +1,18 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nco/nco-4.6.8.tar.gz"
-  sha256 "d818a9e4026d5cc5b4372a212ef3385449a757ee00b807ae9b91741bc79a545b"
+  url "https://downloads.sourceforge.net/project/nco/nco-4.7.3.tar.gz"
+  sha256 "c79fcfc291976466070e0da04c9ea57924feb7f41e4d89a27f313c465e42b381"
 
   bottle do
     cellar :any
-    sha256 "7c4b404a3611918fd18a898b1b3eef21276cf07dc833d0a34e0784a8d10d75d6" => :high_sierra
-    sha256 "8dafcb37843026036c796d8d9ceee983b1deed0e25e0101e6cc59129b7d12f89" => :sierra
-    sha256 "04bd384a4acde8da237bb53fd6c72d1b2476d9745938cfb0c5a334d199deea9c" => :el_capitan
-    sha256 "d511728b6e740e7b9c865263bd46ecf2be02d49d0e6313a086d9cd66ebbfc809" => :yosemite
+    sha256 "ba0586276dcd8216c92e1b667664ecc485c91396caf761e094b7bfd1ace447a7" => :high_sierra
+    sha256 "7de2fbd91043617bd1a5865bf9f7fbea5f2c82b99eae70989550b3eb8d49f6be" => :sierra
+    sha256 "18bd84803a3021374a4f143a76fae14b6805d2c905fc8a26b3a7a06e275b86d8" => :el_capitan
   end
 
   head do
-    url "https://github.com/czender/nco.git"
+    url "https://github.com/nco/nco.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -45,7 +44,7 @@ class Nco < Formula
 
   test do
     testpath.install resource("example_nc")
-    assert_match "Root record dimension 0: name = time, size = 180",
-                 shell_output("#{bin}/ncks -M WMI_Lear.nc")
+    output = shell_output("#{bin}/ncks --json -M WMI_Lear.nc")
+    assert_match "\"time\": 180", output
   end
 end

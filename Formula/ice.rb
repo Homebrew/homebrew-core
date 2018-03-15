@@ -3,13 +3,19 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.7.0.tar.gz"
   sha256 "809fff14a88a7de1364c846cec771d0d12c72572914e6cc4fb0b2c1861c4a1ee"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "d458dacba532a611e88672698d3839a6be2b6f9905e11f2506d08c7c620fbd2d" => :high_sierra
-    sha256 "4021c2f953aee4b244355df6b9313fbbf9507f298c61e60cb6e981103a35ba08" => :sierra
-    sha256 "81f4423f5b0683f6cd75df4ab26333e336ff42c81276025c5c1b684a50a6c2e8" => :el_capitan
-    sha256 "dffea0545e1f0482b1a923f36b5531b28d604076d4314fd86bf82c6180376c2e" => :yosemite
+    sha256 "f0f7026dee2641341b7ad0afdb2171b3fc9346780cfd41d43d68e000a413ef9e" => :high_sierra
+    sha256 "8f88952025f7617e3e9b3812524b9ee05d58c7439f0c2b309a45a6ac9f6cb1fe" => :sierra
+    sha256 "5cfc10f845ecf06b9177e1ec7223513e977bb70680a756b906b3b6beaf045bc6" => :el_capitan
+  end
+
+  # Xcode 9 support
+  patch do
+    url "https://github.com/zeroc-ice/ice/commit/3a55ebb51b8914b60d308a0535d9abf97567138d.patch?full_index=1"
+    sha256 "d95e76acebdae69edf3622f5141ea32bbbd5844be7c29d88e6e985d14a5d5dd4"
   end
 
   #
@@ -27,6 +33,7 @@ class Ice < Formula
   depends_on :macos => :mavericks
 
   def install
+    ENV.O2 # Os causes performance issues
     # Ensure Gradle uses a writable directory even in sandbox mode
     ENV["GRADLE_USER_HOME"] = "#{buildpath}/.gradle"
 
@@ -44,7 +51,7 @@ class Ice < Formula
   end
 
   test do
-    (testpath / "Hello.ice").write <<-EOS.undent
+    (testpath / "Hello.ice").write <<~EOS
       module Test
       {
           interface Hello
@@ -53,7 +60,7 @@ class Ice < Formula
           }
       }
     EOS
-    (testpath / "Test.cpp").write <<-EOS.undent
+    (testpath / "Test.cpp").write <<~EOS
       #include <Ice/Ice.h>
       #include <Hello.h>
 

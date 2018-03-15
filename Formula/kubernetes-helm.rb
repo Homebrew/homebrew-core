@@ -2,19 +2,18 @@ class KubernetesHelm < Formula
   desc "The Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/kubernetes/helm.git",
-      :tag => "v2.6.1",
-      :revision => "bbc1f71dc03afc5f00c6ac84b9308f8ecb4f39ac"
+      :tag => "v2.8.2",
+      :revision => "a80231648a1473929271764b920a8e346f6de844"
   head "https://github.com/kubernetes/helm.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a030c0ea9f980cdd4523b4cab0f013bec529ce6225117492c55a924871163bb7" => :high_sierra
-    sha256 "aac19ad1d1d3ff9c015b7f7556a8e8cd12bf0807ac8e2e8c915513a89c3b2477" => :sierra
-    sha256 "49b6eca7c0dc1d77f496c8e616da32f53fb13eafbdfd49a499bb259543cd6f15" => :el_capitan
-    sha256 "f364169da5dee273b9a05fbb77cbd0a9fa508508edcbea224311a69754648e95" => :yosemite
+    sha256 "c105b8e5e29febdaa4e71d4d418550f87d13a75d6585b84e93958c2409ef2723" => :high_sierra
+    sha256 "101dff96d86c4725437619fc8c1b3691cdcefdddfeacd230559fde2e256f479f" => :sierra
+    sha256 "ea87d059e4eadb526c3dd12857a4f07cae0080af538a656d04f6617f7cb191b1" => :el_capitan
   end
 
-  depends_on :hg => :build
+  depends_on "mercurial" => :build
   depends_on "go" => :build
   depends_on "glide" => :build
 
@@ -28,19 +27,14 @@ class KubernetesHelm < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Bootstap build
       system "make", "bootstrap"
-
-      # Make binary
       system "make", "build"
+
       bin.install "bin/helm"
       bin.install "bin/tiller"
-
-      # Install man pages
       man1.install Dir["docs/man/man1/*"]
-
-      # Install bash completion
       bash_completion.install "scripts/completions.bash" => "helm"
+      prefix.install_metafiles
     end
   end
 

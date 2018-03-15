@@ -20,7 +20,7 @@ class Mktorrent < Formula
   end
 
   test do
-    (testpath/"test.txt").write <<-EOS.undent
+    (testpath/"test.txt").write <<~EOS
       Injustice anywhere is a threat to justice everywhere.
     EOS
 

@@ -24,7 +24,7 @@ class Lean < Formula
   end
 
   test do
-    (testpath/"hello.lean").write <<-EOS.undent
+    (testpath/"hello.lean").write <<~EOS
       def id' {α : Type} (x : α) : α := x
 
       inductive tree (α : Type) : Type

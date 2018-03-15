@@ -14,6 +14,7 @@ class Libwbxml < Formula
   end
 
   option "with-docs", "Build the documentation with Doxygen and Graphviz"
+  option "with-verbose", "Build with verbose logging support"
   deprecated_option "docs" => "with-docs"
 
   depends_on "cmake" => :build
@@ -32,6 +33,7 @@ class Libwbxml < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DBUILD_DOCUMENTATION=ON" if build.with? "docs"
+      args << "-DWBXML_LIB_VERBOSE=ON" if build.with? "verbose"
       system "cmake", "..", *args
       system "make", "install"
     end

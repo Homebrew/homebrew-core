@@ -22,14 +22,14 @@ class Ser2net < Formula
     etc.install "ser2net.conf"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To configure ser2net, edit the example configuration in #{etc}/ser2net.conf
     EOS
   end
 
   plist_options :manual => "ser2net -p 12345"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

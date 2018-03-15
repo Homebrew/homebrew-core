@@ -33,7 +33,7 @@ class Mdk < Formula
   test do
     ENV["LANG"] = "en_US.UTF-8"
 
-    (testpath/"hello.mixal").write <<-EOS.undent
+    (testpath/"hello.mixal").write <<~EOS
       *                                                        (1)
       * hello.mixal: say "hello world" in MIXAL                (2)
       *                                                        (3)
@@ -51,7 +51,7 @@ class Mdk < Formula
     system "#{bin}/mixasm", "hello"
     output = `#{bin}/mixvm -r hello`
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       Program loaded. Start address: 1000
       Running ...
       MIXAL HELLO WORLDXXX

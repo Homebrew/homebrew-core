@@ -24,7 +24,7 @@ class SimpleTiles < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <simple-tiles/simple_tiles.h>
 
       int main(){

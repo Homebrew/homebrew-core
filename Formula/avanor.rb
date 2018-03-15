@@ -25,7 +25,7 @@ class Avanor < Formula
 
   test do
     script = (testpath/"script.exp")
-    script.write <<-EOS.undent
+    script.write <<~EOS
       #!/usr/bin/expect -f
       set timeout 10
       spawn avanor

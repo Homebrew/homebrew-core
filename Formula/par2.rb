@@ -1,15 +1,21 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
   homepage "https://github.com/Parchive/par2cmdline"
-  url "https://github.com/Parchive/par2cmdline/releases/download/v0.7.1/par2cmdline-0.7.1.tar.bz2"
-  sha256 "65bd96b96aece0c280025c2d4345a68e4d63f25fd408b4f617c033a2ff6196cd"
+  url "https://github.com/Parchive/par2cmdline/releases/download/v0.8.0/par2cmdline-0.8.0.tar.bz2"
+  sha256 "496430e185f2d82e54245a0554341a1826f06c5e673fa12a10f176c7f9b42964"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31a957c561a13a9d5444d40d7c852faa50ecc7407b352d2b4a76f42e8bcccbcf" => :high_sierra
-    sha256 "4f2d07227766ffce968051c244487b013fb45b6087e5fc8e0ca87a2783b8aa1e" => :sierra
-    sha256 "d1f338d977a9b5f7f9c4cae67d39c0fcb3f42c822ef498676342afd22c07ae7a" => :el_capitan
-    sha256 "bcf16976c9cee1d00ac73b19b59ae972508f8e354c94c8b9f40f3c403357044c" => :yosemite
+    sha256 "569f6c3227a6e65de30991c3b921e321cb3b5e4e85e341042b2e3fcb00d2685e" => :high_sierra
+    sha256 "85ca540e5daeb33c115c6cc37ae2bcb52b4db822679471ccf31598125f475d63" => :sierra
+    sha256 "d6e135782c3e4279e2233cba53d5fc62dc6ea3b5c8f0d2c07c653cc66cac2bcd" => :el_capitan
+  end
+
+  option "with-openmp", "Build with OpenMP multithreading support"
+
+  if build.with? "openmp"
+    depends_on "gcc"
+    fails_with :clang
   end
 
   def install

@@ -1,17 +1,22 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0f.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1-1.1.0f.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0f.tar.gz"
-  sha256 "12f746f3f2493b2f39da7ecf63d7ee19c6ac9ec6a4fcd8c229da8a522cb12765"
+  url "https://www.openssl.org/source/openssl-1.1.0g.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1-1.1.0g.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0g.tar.gz"
+  sha256 "de4d501267da39310905cb6dc8c6121f7a2cad45a7707f76df828fe1b85073af"
+  revision 1
   version_scheme 1
 
   bottle do
-    sha256 "462d236b6ca0a613241f38b9959768cb56e25987c0478140727751c51daff612" => :high_sierra
-    sha256 "131d4094a2714686a12b74cc653a80a0d9dc1dccf881675bd936ab31bdb6e06b" => :sierra
-    sha256 "88937e60df7629f63786d10f8afa1742611eb70eb1365b287b548eab51322864" => :el_capitan
-    sha256 "da7a695cb6b0ab30cb8cc3cf3d95186e7d9964713d66b920717e54d2dad0feea" => :yosemite
+    sha256 "6c6b3d283398a443549a7f3df072c4fb0b6053cef4c99245149f44c01e977284" => :high_sierra
+    sha256 "b0d78618e300fd5fceb5bf98001d41175bb8dcfdc1fc9239ecfa8838dc7e95c1" => :sierra
+    sha256 "54fda601f3bce5881e6b834966eb5f04090d5ed6b150d2efc7ea4e26de6446b7" => :el_capitan
+  end
+
+  devel do
+    url "https://www.openssl.org/source/openssl-1.1.1-pre2.tar.gz"
+    sha256 "33dbda4a90345d256942fb5316967efd90df4f2373578c7b56c90062fe21fc9c"
   end
 
   keg_only :versioned_formula
@@ -21,11 +26,7 @@ class OpensslAT11 < Formula
   # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
   # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
   # The MacOS ML tag is same hack as the way we handle most :python deps.
-  if build.with? "test"
-    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
-  else
-    depends_on :perl => "5.10"
-  end
+  depends_on "perl" if build.with?("test") && MacOS.version <= :mountain_lion
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
@@ -91,7 +92,7 @@ class OpensslAT11 < Formula
     (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A CA file has been bootstrapped using certificates from the system
     keychain. To add additional certificates, place .pem files in
       #{openssldir}/certs
@@ -103,7 +104,7 @@ class OpensslAT11 < Formula
 
   test do
     # Make sure the necessary .cnf file exists, otherwise OpenSSL gets moody.
-    assert (HOMEBREW_PREFIX/"etc/openssl@1.1/openssl.cnf").exist?,
+    assert_predicate HOMEBREW_PREFIX/"etc/openssl@1.1/openssl.cnf", :exist?,
             "OpenSSL requires the .cnf file for some functionality"
 
     # Check OpenSSL itself functions as expected.

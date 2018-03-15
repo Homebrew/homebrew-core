@@ -2,17 +2,17 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "5.1.2",
-      :revision => "a55d6d382c47e0feac50f25d93e260e2b8d6cb37"
+      :tag => "5.2.1",
+      :revision => "21107b1de6180cf5644e512e67e4d60a0d115ac4"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
     cellar :any
-    sha256 "d8acad4fd19b2e9e34e3e87fa9238c50535e299160da4e48d05a0342bffddf2e" => :high_sierra
-    sha256 "2607116727b5f63799627de2613fc51967c0fe6b767a00edd4278739059e2b17" => :sierra
+    sha256 "bb8de04d9fa6e153a15268ad1b1c901e08288087fa76bad72829877488ab1cf8" => :high_sierra
+    sha256 "129d086e2cca6ce4d204ad3a699524e48c5e8eee0c67f0d698a94ac8fa3d7d77" => :sierra
   end
 
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.0", :build]
 
   def install
     # Disable swiftlint Build Phase to avoid build errors if versions mismatch

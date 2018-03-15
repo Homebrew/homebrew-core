@@ -1,18 +1,18 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
-  homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.0/gnuplot-5.2.0.tar.gz"
-  sha256 "7dfe6425a1a6b9349b1fb42dae46b2e52833b13e807a78a613024d6a99541e43"
+  homepage "http://www.gnuplot.info/"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.2/gnuplot-5.2.2.tar.gz"
+  sha256 "a416d22f02bdf3873ef82c5eb7f8e94146795811ef808e12b035ada88ef7b1a1"
+  revision 1
 
   bottle do
-    sha256 "bfd640f5695bacc875b063b4a2290b319d0da85372c4d1c10ffba4794a2d2210" => :high_sierra
-    sha256 "8c43e0b7e86325aee11a7bd6d49fbc7ca18480d592b806061a45a6a5d9c30545" => :sierra
-    sha256 "d070515c0ef22f4a74f93854ba4ad62c142d2c2d1e0088d9186356853e32ebf5" => :el_capitan
-    sha256 "cbc87c7746aeb65acf5231d3114672bf003c1a4583b12be229de586310a83ab1" => :yosemite
+    sha256 "1523a40b075f76d80ac32274a4b896ba5d11075e5cd0601fbdb8c524f9f8d8cb" => :high_sierra
+    sha256 "bd4e2e49fec4afa21df5c5d9c976818eb8928376a2d482c493c6d2098c034e16" => :sierra
+    sha256 "2c2689aee797c5539bfee0fefef7e11cdbe3c8c063ca4057a8a2261087d380cf" => :el_capitan
   end
 
   head do
-    url ":pserver:anonymous:@gnuplot.cvs.sourceforge.net:/cvsroot/gnuplot", :using => :cvs
+    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -99,7 +99,7 @@ class Gnuplot < Formula
 
   def caveats
     if build.with? "aquaterm"
-      <<-EOS.undent
+      <<~EOS
         AquaTerm support will only be built into Gnuplot if the standard AquaTerm
         package from SourceForge has already been installed onto your system.
         If you subsequently remove AquaTerm, you will need to uninstall and then
@@ -109,11 +109,11 @@ class Gnuplot < Formula
   end
 
   test do
-    system "#{bin}/gnuplot", "-e", <<-EOS.undent
+    system "#{bin}/gnuplot", "-e", <<~EOS
       set terminal dumb;
       set output "#{testpath}/graph.txt";
       plot sin(x);
     EOS
-    File.exist? testpath/"graph.txt"
+    assert_predicate testpath/"graph.txt", :exist?
   end
 end

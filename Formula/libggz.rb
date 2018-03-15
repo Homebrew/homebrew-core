@@ -1,7 +1,9 @@
 class Libggz < Formula
-  desc "The libggz library wraps many common low-level functions."
+  desc "The libggz library wraps many common low-level functions"
   homepage "http://dev.ggzgamingzone.org/libraries/libggz/"
-  url "http://mirrors.ibiblio.org/ggzgamingzone/ggz/0.0.14.1/libggz-0.0.14.1.tar.gz"
+  url "https://mirrors.dotsrc.org/ggzgamingzone/ggz/0.0.14.1/libggz-0.0.14.1.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libggz-0.0.14.1.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libggz/libggz-0.0.14.1.tar.gz"
   sha256 "54301052a327f2ff3f2d684c5b1d7920e8601e13f4f8d5f1d170e5a7c9585e85"
 
   bottle do
@@ -30,29 +32,29 @@ class Libggz < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
-     #include <string.h>
+    (testpath/"test.c").write <<~EOS
+      #include <string.h>
 
-     #include <ggz.h>
+      #include <ggz.h>
 
-     int main(void)
-     {
-       int errs = 0;
-       char *teststr, *instr, *outstr;
+      int main(void)
+      {
+        int errs = 0;
+        char *teststr, *instr, *outstr;
 
-       teststr = "&quot; >< &&amp";
-       instr = teststr;
-       outstr = ggz_xml_escape(instr);
-       instr = ggz_xml_unescape(outstr);
-       if(strcmp(instr, teststr)) {
-         errs++;
-       }
-       ggz_free(instr);
-       ggz_free(outstr);
-       ggz_memory_check();
+        teststr = "&quot; >< &&amp";
+        instr = teststr;
+        outstr = ggz_xml_escape(instr);
+        instr = ggz_xml_unescape(outstr);
+        if(strcmp(instr, teststr)) {
+          errs++;
+        }
+        ggz_free(instr);
+        ggz_free(outstr);
+        ggz_memory_check();
 
-       return errs;
-     }
+        return errs;
+      }
     EOS
     system ENV.cc, "test.c", ENV.cppflags, "-L/usr/lib", "-L#{lib}", "-lggz", "-o", "test"
     system "./test"

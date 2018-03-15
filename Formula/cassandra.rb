@@ -1,40 +1,39 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.0/apache-cassandra-3.11.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/3.11.0/apache-cassandra-3.11.0-bin.tar.gz"
-  sha256 "d597b99b402bd2cf925033519db9e58340acb893fd83d600d904ba4041d44fa7"
+  url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.2/apache-cassandra-3.11.2-bin.tar.gz"
+  sha256 "e922770ad95d5288d42442c3cfa1475938597b38418b7be5c4234a9de388c720"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f304cf3030740ee48890139d4a5b6d71e1b57a02af5dbece3a9343aab8dbbdc9" => :high_sierra
-    sha256 "007c79e7089c54d9f02fbae09680058f8b8ea812e93cc14eec0d159d459af985" => :sierra
-    sha256 "cddd83cf00439208b7b87aa1985832ec230014a8d2ea89c0a2874c43befffaa8" => :el_capitan
-    sha256 "cf55f9fea8c9182aca20821ea698951b0714a6a1fdcb0baac909a4b95e3efa52" => :yosemite
+    sha256 "9609704a7870ee077dc3edf67da2488a0877f0124542b5a7e80dc7a52d3704e7" => :high_sierra
+    sha256 "3f62e647a3dd80bfcff060e5122df5b6a60440e7fca02ad51b416620698361cf" => :sierra
+    sha256 "ff780a2b88ae8a3a619aa0a9429570a94ef6fe40c008392e5b046a7e3799dc2a" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "cython"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/28/4f/889339f38da415e49cff15b21ab27becbf4c017c79fbfdeca663f5b33b36/setuptools-36.4.0.zip"
-    sha256 "2758b0270fe8ceec42f336ee5b411e60dc8579febc27bb3ba9b794dc7f0239ae"
+    url "https://files.pythonhosted.org/packages/e0/02/2b14188e06ddf61e5b462e216b15d893e8472fca28b1b0c5d9272ad7e87c/setuptools-38.5.2.zip"
+    sha256 "8246123e984cadf687163bdcd1bb58eb325e2891b066e1f0224728a41c8d9064"
   end
 
   resource "futures" do
-    url "https://files.pythonhosted.org/packages/cc/26/b61e3a4eb50653e8a7339d84eeaa46d1e93b92951978873c220ae64d0733/futures-3.1.1.tar.gz"
-    sha256 "51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd"
+    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
+    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "thrift" do
-    url "https://files.pythonhosted.org/packages/a3/ea/84a41e03f1ab14fb314c8bcf1c451090efa14c5cdfb9797d1079f502b54e/thrift-0.10.0.zip"
-    sha256 "b7f6c09155321169af03f9fb20dc15a4a0c7481e7c334a5ba8f7f0d864633209"
+    url "https://files.pythonhosted.org/packages/c6/b4/510617906f8e0c5660e7d96fbc5585113f83ad547a3989b80297ac72a74c/thrift-0.11.0.tar.gz"
+    sha256 "7d59ac4fdcb2c58037ebd4a9da5f9a49e3e034bf75b3f26d9fe48ba3d8806e6b"
   end
 
   resource "cql" do
@@ -43,8 +42,8 @@ class Cassandra < Formula
   end
 
   resource "cassandra-driver" do
-    url "https://files.pythonhosted.org/packages/5a/96/a5b2458a0483d3cefdf13064d40119754c1552ea34b7f0e8c6e03e66eb0a/cassandra-driver-3.11.0.tar.gz"
-    sha256 "643bed0fac08ee91630f0f35556bb62c3b4b007c20d4e6e8d349f769ea648150"
+    url "https://files.pythonhosted.org/packages/2d/77/2e344b58ffe8b11271735c1ee88fa668c897c5b72ed1913067dd86e1a966/cassandra-driver-3.13.0.tar.gz"
+    sha256 "61b670fb2ba95d51d91fa7b589aae3666df494713f5d1ed78bb5c510778d77f0"
   end
 
   def install
@@ -126,7 +125,7 @@ class Cassandra < Formula
 
   plist_options :manual => "cassandra -f"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -151,7 +150,8 @@ class Cassandra < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cassandra -v")
-    # This is enough to error out if env script is broken/insufficient.
-    system bin/"cqlsh", "--version"
+
+    output = shell_output("#{bin}/cqlsh localhost 2>&1", 1)
+    assert_match "Connection error", output
   end
 end

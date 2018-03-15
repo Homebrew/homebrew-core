@@ -36,7 +36,7 @@ class Vc4asm < Formula
   end
 
   test do
-    (testpath/"test.qasm").write <<-EOS.undent
+    (testpath/"test.qasm").write <<~EOS
       mov -, sacq(9)
       add r0, r4, ra1.unpack8b
       add.unpack8ai r0, r4, ra1

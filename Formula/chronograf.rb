@@ -1,17 +1,17 @@
 require "language/node"
 
 class Chronograf < Formula
-  desc "Open source monitoring and visualization UI for the TICK stack."
+  desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.3.8.2.tar.gz"
-  sha256 "67df47af1a8a3d28342f7083eed0e738d0ea451f7dbd6b31676d685adfadd732"
+  url "https://github.com/influxdata/chronograf/archive/1.4.2.3.tar.gz"
+  sha256 "1e241eba7557c6f61c599c060a3286ddd661e6ddd1abeeeb88b45d8bedca70e4"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c97463f9e52219759b7942cb75f3e8b4beba3c88e335b816e6e84ab614945ba" => :high_sierra
-    sha256 "ee07c0412d1d29cdbebfe7c9ed6ecf41e39f53d2911a53a0fdc4cea2a245be2d" => :sierra
-    sha256 "ff595f62c504de3652d81adc396a8b1a282152054da71c00ea469f0d4412feab" => :el_capitan
+    sha256 "9f6cc67956ab00edc975c5bad1cdb88aeeda74bdd986e3c5498309d2d9abc7ac" => :high_sierra
+    sha256 "60b4d87c2fd5b70935b9900a9ed1d65a6d5f379da8a45dd822a28f91264f1b45" => :sierra
+    sha256 "90dfc7d99381ea850bb0c56eb02f1000bd4f4b9fa7304540c7088c6b3ff18280" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -32,12 +32,13 @@ class Chronograf < Formula
       system "make", ".jssrc"
       system "make", "chronograf"
       bin.install "chronograf"
+      prefix.install_metafiles
     end
   end
 
   plist_options :manual => "chronograf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

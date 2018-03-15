@@ -33,7 +33,7 @@ class Hunspell < Formula
     pkgshare.install "tests"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Dictionary files (*.aff and *.dic) should be placed in
     ~/Library/Spelling/ or /Library/Spelling/.  Homebrew itself
     provides no dictionaries for Hunspell, but you can download

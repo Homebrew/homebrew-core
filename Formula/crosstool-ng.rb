@@ -3,13 +3,13 @@ class CrosstoolNg < Formula
   homepage "http://crosstool-ng.org"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.23.0.tar.xz"
   sha256 "68a43ea98ccf9cb345cb6eec494a497b224fee24c882e8c14c6713afbbe79196"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "2e6df99ebde627f3ca8b8309724fb132baa749ddae237d4f4fc8b5e03f34c06c" => :high_sierra
-    sha256 "bda4c02b605a79fa980bf8df055d3b9d1a7da01f4212a98ebc79a5ccc57649a3" => :sierra
-    sha256 "67563525dbf2cc4a8cf60da1e398474609c1aa8f0ef3d8ac68d318064aba4c28" => :el_capitan
-    sha256 "c119b94b8b4782935e7c2968d195cddcfd2faa089768c0a0bf84dfcb8d5713cc" => :yosemite
+    sha256 "54205dfad10ed81d0cb31692e852b5742a938a6a54b7e116e5820d3a0d6dded2" => :high_sierra
+    sha256 "185f1d5981772306bac468ca496555140c761137e771955c1d63800dae894559" => :sierra
+    sha256 "d3aebb66365f24fde4fd67a4ec13eb72c0f21e94904853e39003b7b05c53bad5" => :el_capitan
   end
 
   depends_on "help2man" => :build
@@ -27,6 +27,7 @@ class CrosstoolNg < Formula
 
   def install
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
+    ENV["MAKE"] = "/usr/bin/make" # prevent hardcoding make path from superenv
 
     system "./configure", "--prefix=#{prefix}"
 

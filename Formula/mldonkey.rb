@@ -16,17 +16,20 @@ class Mldonkey < Formula
 
   depends_on "camlp4" => :build
   depends_on "ocaml" => :build
+  depends_on "ocaml-num" => :build
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "libpng"
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+
     ENV.deparallelize
 
     # Fix compiler selection
     ENV["OCAMLC"] = "#{HOMEBREW_PREFIX}/bin/ocamlc.opt -cc #{ENV.cc}"
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--disable-magic"
     system "make", "install"
   end
 

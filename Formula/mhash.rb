@@ -21,7 +21,7 @@ class Mhash < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "mhash.h"
       int main() {
         MHASH td;

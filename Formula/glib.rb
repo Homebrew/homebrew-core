@@ -1,13 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.54/glib-2.54.0.tar.xz"
-  sha256 "fe22998ff0394ec31e6e5511c379b74011bee61a4421bca7fcab223dfbe0fc6a"
+  url "https://download.gnome.org/sources/glib/2.56/glib-2.56.0.tar.xz"
+  sha256 "ecef6e17e97b8d9150d0e8a4b3edee1ac37331213b8a2a87a083deea408a0fc7"
 
   bottle do
-    sha256 "a273e1a2a709ee897feab679ebf088fe308d796dbe54ca589d9dd5b8de981809" => :high_sierra
-    sha256 "bfeb6d10a3e46eb8529716a5ce3bb772415085278f5daa17d2f6cd25a489cc3b" => :sierra
-    sha256 "7fd194b14cc5558cde76abbe17e017b5b7f3139b16b27e635313ff138945da9b" => :el_capitan
+    sha256 "ee188301bc3d9475980a751427eee07fe8a6badb837be8164b18aa747a547b61" => :high_sierra
+    sha256 "87e534316b8e79fd85b6f4912859825f1236508e9639c9aa18f8c45a59ae7d4f" => :sierra
+    sha256 "0de8df1c692760b24fe51d1ebe92231eee151a18aaf0d5a533da960da2953815" => :el_capitan
   end
 
   option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
@@ -35,15 +35,15 @@ class Glib < Formula
   # to unrelated issues in GCC, but improves the situation.
   # Patch submitted upstream: https://bugzilla.gnome.org/show_bug.cgi?id=672777
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/13efbb2/glib/gio.patch"
-    sha256 "628f8ea171a29c67fb06461ce4cfe549846b8fe64d83466e18e225726615b997"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0f8183e5f8a78dfe6394f5592006383499de725d/glib/gio.patch"
+    sha256 "b4cc0c2d9ef308de2229e496bcd9523f28bd7f6f83452b5e5b9d7807c48e6ea4"
   end
 
   # Revert some bad macOS specific commits
   # https://bugzilla.gnome.org/show_bug.cgi?id=780271
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/73738ca/glib/revert-appinfo-contenttype.patch"
-    sha256 "675369c6d956b5533865178a2a78a6b2dcb921fbcfd81d35e92fc1592323e5e4"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0f8183e5f8a78dfe6394f5592006383499de725d/glib/revert-appinfo-contenttype.patch"
+    sha256 "3a848cc0061ed9b5cf1a96b177a094a807c7a0b3436d4f813861ad56bea9547b"
   end
 
   def install
@@ -99,7 +99,7 @@ class Glib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <string.h>
       #include <glib.h>
 

@@ -1,19 +1,18 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2017/sqlite-autoconf-3200100.tar.gz"
-  version "3.20.1"
-  sha256 "ec66595b29bc0798b023a5122021ea646ab4fa9e2f735937c5426feeba950742"
+  url "https://sqlite.org/2018/sqlite-autoconf-3220000.tar.gz"
+  version "3.22.0"
+  sha256 "2824ab1238b706bc66127320afbdffb096361130e23291f26928a027b885c612"
 
   bottle do
     cellar :any
-    sha256 "29b9881626c793c4367207b81baf5ec4b861876f0fda5c43bcb33a6afaa2510e" => :high_sierra
-    sha256 "119ca919d8434fd483b4ed86b221211e7e82f0bb2930dbae30ef66ca4d126394" => :sierra
-    sha256 "2043f5f369b2426559b43ce7d044dbe9dff77f1b5e4658115f5cec14b0d6b183" => :el_capitan
-    sha256 "aacc35512504252349a7c11be0e96fdf03a0b440f0a34a7486a284e3abc1855f" => :yosemite
+    sha256 "b6fe12786c578292ca438c4b2566057c920440b1a67bdb9f3d587e9934b2882f" => :high_sierra
+    sha256 "1991efa6bad8e34d3622a095b2f0a2af5bdc0753c76a8e08958eb401ff5a546f" => :sierra
+    sha256 "acca504cba184af8c8d7c0ad3eedb6d3bbb534ff372bd8a1785152ae0ecb9d37" => :el_capitan
   end
 
-  keg_only :provided_by_osx, "macOS provides an older sqlite3"
+  keg_only :provided_by_macos, "macOS provides an older sqlite3"
 
   option "with-docs", "Install HTML documentation"
   option "without-rtree", "Disable the R*Tree index module"
@@ -26,6 +25,7 @@ class Sqlite < Formula
   option "with-dbstat", "Enable the 'dbstat' virtual table"
   option "with-json1", "Enable the JSON1 extension"
   option "with-session", "Enable the session extension"
+  option "with-soundex", "Enable the SOUNDEX function"
 
   depends_on "readline" => :recommended
   depends_on "icu4c" => :optional
@@ -37,9 +37,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://www.sqlite.org/2017/sqlite-doc-3200100.zip"
-    version "3.20.1"
-    sha256 "0caf410e604411fd925c699d5fcb1d846f9297cdf2e18251eceb3e5708301e85"
+    url "https://sqlite.org/2018/sqlite-doc-3220000.zip"
+    version "3.22.0"
+    sha256 "34763f0c90e94e5b5fd78d699209d28ef4b409279a9ce796c16b2b653a761343"
   end
 
   def install
@@ -55,6 +55,7 @@ class Sqlite < Formula
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_DBSTAT_VTAB=1" if build.with? "dbstat"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1" if build.with? "json1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_PREUPDATE_HOOK=1 -DSQLITE_ENABLE_SESSION=1" if build.with? "session"
+    ENV.append "CPPFLAGS", "-DSQLITE_SOUNDEX" if build.with? "soundex"
 
     if build.with? "icu4c"
       icu4c = Formula["icu4c"]
@@ -90,7 +91,7 @@ class Sqlite < Formula
   def caveats
     s = ""
     if build.with? "functions"
-      s += <<-EOS.undent
+      s += <<~EOS
         Usage instructions for applications calling the sqlite3 API functions:
 
           In your application, call sqlite3_enable_load_extension(db,1) to
@@ -113,7 +114,7 @@ class Sqlite < Formula
       user_history = "~/.sqlite_history"
       user_history_path = File.expand_path(user_history)
       if File.exist?(user_history_path) && File.read(user_history_path).include?("\\040")
-        s += <<-EOS.undent
+        s += <<~EOS
           Homebrew has detected an existing SQLite history file that was created
           with the editline library. The current version of this formula is
           built with Readline. To back up and convert your history file so that
@@ -131,7 +132,7 @@ class Sqlite < Formula
 
   test do
     path = testpath/"school.sql"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       create table students (name text, age integer);
       insert into students (name, age) values ('Bob', 14);
       insert into students (name, age) values ('Sue', 12);

@@ -1,7 +1,7 @@
 class Soci < Formula
   desc "Database access library for C++"
   homepage "https://soci.sourceforge.io/"
-  url "https://download.sourceforge.net/project/soci/soci/soci-3.2.3/soci-3.2.3.zip"
+  url "https://downloads.sourceforge.net/project/soci/soci/soci-3.2.3/soci-3.2.3.zip"
   sha256 "ab0f82873b0c5620e0e8eb2ff89abad6517571fd63bae4bdcac64dd767ac9a05"
 
   bottle do
@@ -21,10 +21,6 @@ class Soci < Formula
   depends_on "boost" => [:build, :optional]
   depends_on "sqlite" if MacOS.version <= :snow_leopard
 
-  def translate(a)
-    (a == "pg") ? "postgresql" : a
-  end
-
   fails_with :clang do
     build 421
     cause "Template oddities"
@@ -33,9 +29,10 @@ class Soci < Formula
   def install
     args = std_cmake_args + %w[.. -DWITH_SQLITE3:BOOL=ON]
 
-    %w[boost mysql oracle odbc pg].each do |a|
-      bool = build.with?(a) ? "ON" : "OFF"
-      args << "-DWITH_#{translate(a).upcase}:BOOL=#{bool}"
+    %w[boost mysql oracle odbc pg].each do |arg|
+      arg_var = (arg == "pg") ? "postgresql" : arg
+      bool = build.with?(arg) ? "ON" : "OFF"
+      args << "-DWITH_#{arg_var.upcase}:BOOL=#{bool}"
     end
 
     mkdir "build" do

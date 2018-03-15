@@ -1,6 +1,6 @@
 class VorbisTools < Formula
   desc "Ogg Vorbis CODEC tools"
-  homepage "http://vorbis.com/"
+  homepage "https://github.com/xiph/vorbis-tools"
   url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
   sha256 "a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc"
   revision 1
@@ -39,7 +39,7 @@ class VorbisTools < Formula
 
   test do
     system bin/"oggenc", test_fixtures("test.wav"), "-o", "test.ogg"
-    assert File.exist?("test.ogg")
+    assert_predicate testpath/"test.ogg", :exist?
     output = shell_output("#{bin}/ogginfo test.ogg")
     assert_match "20.625000 kb/s", output
   end

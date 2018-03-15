@@ -1,19 +1,18 @@
 class Fpc < Formula
   desc "Free Pascal: multi-architecture Pascal compiler"
   homepage "https://www.freepascal.org/"
-  url "https://downloads.sourceforge.net/project/freepascal/Source/3.0.2/fpc-3.0.2.source.tar.gz"
-  sha256 "67fccddf5da992356f4e90d836444750ce9363608c7db8e38c077f710fcb6258"
+  url "https://downloads.sourceforge.net/project/freepascal/Source/3.0.4/fpc-3.0.4.source.tar.gz"
+  sha256 "69b3b7667b72b6759cf27226df5eb54112ce3515ff5efb79d95ac14bac742845"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d6cd48a25cf2af28866aebbcd7b8be9c1a5b2f5228ff35bed59b791d96062ef" => :high_sierra
-    sha256 "79462df36eb732e04c7d5c1d1782ff24dc6ac533b6ec5629965b47fe603c8616" => :sierra
-    sha256 "20886e1135ad520727087fb8ab9d3b2bf49b7ea275f8af725b9d3bf17bab4aba" => :el_capitan
-    sha256 "946ccb4fb90ef1809111003f1b2da68dddd599f8c73c450e95aa3cd948e86c8e" => :yosemite
+    sha256 "82a121567c94e70b63f92873a6a269cb612a15b344d77218b88444febb3d4924" => :high_sierra
+    sha256 "c7ba05c852bbd1a5737f6b020239353708188f545fe9700159c5b8484fcfc568" => :sierra
+    sha256 "cae838ddb6452c345bcd3779c057a152071c12db666fe2d8a934c78c3d210244" => :el_capitan
   end
 
   resource "bootstrap" do
-    url "ftp://ftp.freepascal.org/pub/fpc/dist/3.0.0/bootstrap/x86_64-macosx-10.7-ppcx64.tar.bz2"
+    url "https://downloads.sourceforge.net/project/freepascal/Bootstrap/3.0.0/x86_64-macosx-10.7-ppcx64.tar.bz2"
     sha256 "a67ef5def356d122a4692e21b209c328f6d46deef4539f4d4506c3dc1eecb4b0"
   end
 
@@ -35,7 +34,7 @@ class Fpc < Formula
   end
 
   test do
-    hello = <<-EOS.undent
+    hello = <<~EOS
       program Hello;
       uses GL;
       begin

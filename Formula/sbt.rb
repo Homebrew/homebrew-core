@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
-  homepage "http://www.scala-sbt.org"
-  url "https://github.com/sbt/sbt/releases/download/v1.0.2/sbt-1.0.2.tgz"
-  sha256 "c3f063d8122d87f0d80b25221d76b0a164e9247d35190f31ec360edcb4352ef0"
+  homepage "https://www.scala-sbt.org/"
+  url "https://github.com/sbt/sbt/releases/download/v1.1.1/sbt-1.1.1.tgz"
+  sha256 "8a9072155578f06c861be406e7f9fe989b3770d8da4069dd3cb5ad6c6d25c03b"
 
   bottle :unneeded
 
@@ -17,7 +17,7 @@ class Sbt < Formula
     libexec.install "bin", "lib"
     etc.install "conf/sbtopts"
 
-    (bin/"sbt").write <<-EOS.undent
+    (bin/"sbt").write <<~EOS
       #!/bin/sh
       if [ -f "$HOME/.sbtconfig" ]; then
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
@@ -27,7 +27,7 @@ class Sbt < Formula
     EOS
   end
 
-  def caveats;  <<-EOS.undent
+  def caveats;  <<~EOS
     You can use $SBT_OPTS to pass additional JVM options to SBT:
        SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 

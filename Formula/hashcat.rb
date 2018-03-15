@@ -1,19 +1,17 @@
 class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
-  url "https://hashcat.net/files/hashcat-3.6.0.tar.gz"
   # Note the mirror will return 301 until the version becomes outdated.
-  mirror "https://hashcat.net/files_legacy/hashcat-3.6.0.tar.gz"
-  sha256 "3ef7550a4fbd083e583a1dc1e482f1476a36ad95c340b64b3e50cd68f06ef088"
+  url "https://hashcat.net/files/hashcat-4.1.0.tar.gz"
+  mirror "https://hashcat.net/files_legacy/hashcat-4.1.0.tar.gz"
+  sha256 "bd23997153c5a8c8b35da3931ff74a808561399de3f3e07058ff4d2f8617119c"
   version_scheme 1
-
   head "https://github.com/hashcat/hashcat.git"
 
   bottle do
-    sha256 "3914d565db914d88388da81649a040da53cf89cd23b4fe56937f9b66278d903d" => :high_sierra
-    sha256 "dae4e47155597707b4b3a4fec6cfb07f41c4c14bbb082a5aa1c976f63d04f842" => :sierra
-    sha256 "c2b3ff55dbf3b1727dcdc109b43d5f7277495d320235621d08e24cce2d633635" => :el_capitan
-    sha256 "dbcfaade00d07347efccf5f8e1966bc3ad249b7c4f95649ada5c5e2796854afa" => :yosemite
+    sha256 "64c94a9eff257fda38a37f0dfcde9b88074e5ca1fe63a91cca2128983777f536" => :high_sierra
+    sha256 "437cac49dbd5807c757a9613356c02705e237b57ef3b246e827635f086c5289c" => :sierra
+    sha256 "8d7aa78dac5d730e10be563651d9955bc82d1a8ab63860af844454618876be00" => :el_capitan
   end
 
   depends_on "gnu-sed" => :build
@@ -24,6 +22,7 @@ class Hashcat < Formula
   depends_on :macos => :yosemite
 
   def install
+    system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
     system "make", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
   end
 

@@ -11,14 +11,14 @@ class ZshHistorySubstringSearch < Formula
   end
 
   def caveats
-    <<-EOS.undent
-    To activate the history search, add the following at the end of your .zshrc:
+    <<~EOS
+      To activate the history search, add the following at the end of your .zshrc:
 
-      source #{HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+        source #{HOMEBREW_PREFIX}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
-    You will also need to force reload of your .zshrc:
+      You will also need to force reload of your .zshrc:
 
-      source ~/.zshrc
+        source ~/.zshrc
     EOS
   end
 

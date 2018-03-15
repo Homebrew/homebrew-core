@@ -32,13 +32,13 @@ class Magnetix < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Install games in the following directory:
       ~/Library/Application Support/magnetiX/
     EOS
   end
 
   test do
-    File.executable? "#{prefix}/magnetiX.app/Contents/MacOS/magnetiX"
+    assert_predicate prefix/"magnetiX.app/Contents/MacOS/magnetiX", :executable?
   end
 end

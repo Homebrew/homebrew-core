@@ -55,7 +55,7 @@ class Ganglia < Formula
     (var/"lib/ganglia/rrds").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     If you didn't have a default config file, one was created here:
       #{etc}/gmond.conf
     EOS
@@ -67,7 +67,7 @@ class Ganglia < Formula
         exec bin/"gmetad", "--pid-file=#{testpath}/pid"
       end
       sleep 2
-      File.exist? testpath/"pid"
+      assert_predicate testpath/"pid", :exist?
     ensure
       Process.kill "TERM", pid
       Process.wait pid

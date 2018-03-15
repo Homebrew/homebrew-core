@@ -29,7 +29,7 @@ class Lightning < Formula
 
   test do
     # from https://www.gnu.org/software/lightning/manual/lightning.html#incr
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <lightning.h>
       static jit_state_t *_jit;

@@ -1,46 +1,37 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0189.tar.gz"
-  version "0.189"
-  sha256 "bd1b1e152e4b17aab331c7c9709b7b39a289b63d189ecc32aaeb75ed6de2d2fb"
+  url "https://github.com/mamedev/mame/archive/mame0195.tar.gz"
+  version "0.195"
+  sha256 "b18d0e23ecf6b218c43a6770213c850b3c605ead9d29301de34101ed14c28a57"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "433a5280533c5b93f3b807c4d6e39351c9d0d562ef11220141a99ade5d35df80" => :high_sierra
-    sha256 "059e81a3331188c64173136f2b1080cb429c87e5f7d711fbcdb335792c5c2f58" => :sierra
-    sha256 "b067e5a453bde59c4fb65444dad06946d096fa39ed7ee20de82450e541c1db38" => :el_capitan
-    sha256 "6c80fcef18c2228972615510a51f5fce99d3825b206e304437fc53a1e20dc351" => :yosemite
+    sha256 "d1c047e4fae53ca8939fbcefaa32e2f5d4da8f40d29242b012550d8e39cab40d" => :high_sierra
+    sha256 "ca2dddf314d0810e3459c6ee364764b7457e8d69b147a2570df60b7ec4955a50" => :sierra
+    sha256 "df5792d89a5476b5c36f3a41c7368a53c8df7d5860452918102cb4e7e59bf7c2" => :el_capitan
   end
 
   depends_on :macos => :yosemite
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "sdl2"
-  depends_on "expat"
   depends_on "jpeg"
   depends_on "flac"
+  depends_on "lua"
   depends_on "sqlite"
   depends_on "portmidi"
   depends_on "portaudio"
   depends_on "utf8proc"
 
-  # Needs compiler and library support C++14.
+  # Need C++ compiler and standard library support C++14.
   needs :cxx14
 
   # jpeg 9 compatibility
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b7053a/mame/jpeg9.patch"
     sha256 "be8095e1b519f17ac4b9e6208f2d434e47346d8b4a8faf001b68749aac3efd20"
-  end
-
-  # Patch for Xcode 9: https://github.com/mamedev/mame/issues/2598
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/7ab58e7967/mame/xcode9.patch"
-      sha256 "2d7d0ffa9adbee780ce584403f4c2a7386b5edb097321efafc1778fc0200573d"
-    end
   end
 
   def install
@@ -50,7 +41,7 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_JPEG=1",
                    "USE_SYSTEM_LIB_FLAC=1",
-                   "USE_SYSTEM_LIB_LUA=", # Homebrew's lua@5.3 can't build with MAME yet.
+                   "USE_SYSTEM_LIB_LUA=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_PORTAUDIO=1",

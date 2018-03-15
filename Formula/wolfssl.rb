@@ -1,17 +1,16 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
-  url "https://github.com/wolfSSL/wolfssl/archive/v3.12.0-stable.tar.gz"
-  version "3.12.0"
-  sha256 "2ca3ad32d6d2311a614be7384a4d08d63e03116a251030738e5c003a3bf7fa8c"
+  url "https://github.com/wolfSSL/wolfssl/archive/v3.13.0-stable.tar.gz"
+  version "3.13.0"
+  sha256 "3bafeb0cb7eaff80002ba3f7cbb70023757bcc35fc4d82181945b143f1f927c6"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
     cellar :any
-    sha256 "c24e235a2e609d5a3ccb47f4917c8b763d5823b0436eda8fc11cd760b033156b" => :high_sierra
-    sha256 "9957c537991e8773b169f5296944c2d479aa2fe3813072bcf63e8908a43d45a4" => :sierra
-    sha256 "e33a4184197241fc6679ced004d83ad3ff1c1702f4f12b688cf53930e68b1770" => :el_capitan
-    sha256 "34edbb8c861280155a26142cebc2f2d1a36bd38322564e5a997386ac27e550a0" => :yosemite
+    sha256 "a69bca9ea961cbc8ab86726dc5fdf5fd1c3d78782dfca1032256d3d25b995f54" => :high_sierra
+    sha256 "3d975638a7ed02e35398d9ab7deb58cb9b3bbf3286f68e1cc0e9b0202b3278c9" => :sierra
+    sha256 "16a11f09ba8a10157561c6254a8ea48ad603bcbde66c69057cd42142f4a64618" => :el_capitan
   end
 
   option "without-test", "Skip compile-time tests"
@@ -75,6 +74,7 @@ class Wolfssl < Formula
       --enable-sha512
       --enable-sni
       --enable-supportedcurves
+      --enable-tls13
     ]
 
     if MacOS.prefer_64_bit?

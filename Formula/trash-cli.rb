@@ -14,7 +14,7 @@ class TrashCli < Formula
     sha256 "92c6ab8dc868bad029103c897ccdc5a04e6e0f6809dfd2759c58aa390a7d5e8f" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   conflicts_with "trash", :because => "both install a `trash` binary"
 
@@ -24,8 +24,8 @@ class TrashCli < Formula
 
   test do
     touch "testfile"
-    assert File.exist?("testfile")
+    assert_predicate testpath/"testfile", :exist?
     system bin/"trash-put", "testfile"
-    assert !File.exist?("testfile")
+    refute_predicate testpath/"testfile", :exist?
   end
 end

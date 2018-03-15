@@ -17,13 +17,15 @@ class Redland < Formula
   option "with-php", "Build with php support"
   option "with-ruby", "Build with ruby support"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "pkg-config" => :build
   depends_on "raptor"
   depends_on "rasqal"
   depends_on "unixodbc"
   depends_on "sqlite" => :recommended
   depends_on "berkeley-db" => :optional
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
 
   resource "bindings" do
     url "http://download.librdf.org/source/redland-bindings-1.0.17.1.tar.gz"
@@ -77,7 +79,7 @@ class Redland < Formula
           args << "--with-ruby-arch-install-dir=#{ruby_arch_install_dir}"
         end
 
-        if build.with? "python"
+        if build.with? "python@2"
           ENV["PYTHON_LIB"] = lib/"python2.7/site-packages"
           args << "--with-python"
         end
@@ -104,14 +106,14 @@ class Redland < Formula
     s = ""
 
     if build.with? "php"
-      s += <<-EOS.undent
+      s += <<~EOS
         You may need to add the following line to php.ini:
           extension="#{HOMEBREW_PREFIX}/lib/php/extensions/redland.dylib"
       EOS
     end
 
     if build.with? "ruby"
-      s += <<-EOS.undent
+      s += <<~EOS
         You may need to add the Ruby bindings to your RUBYLIB from:
           #{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       EOS

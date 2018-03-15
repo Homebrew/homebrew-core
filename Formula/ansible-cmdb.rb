@@ -1,12 +1,12 @@
 class AnsibleCmdb < Formula
   desc "Generates static HTML overview page from Ansible facts"
   homepage "https://github.com/fboender/ansible-cmdb"
-  url "https://github.com/fboender/ansible-cmdb/releases/download/1.22/ansible-cmdb-1.22.zip"
-  sha256 "c012d46a0f782d7443c6b230194d5afde1e3f72915869a43b119304800c916fc"
+  url "https://github.com/fboender/ansible-cmdb/releases/download/1.26.1/ansible-cmdb-1.26.1.zip"
+  sha256 "d26977ec026e5ba202c857f048802a9369bee21925f24fd2edde79bee8122c32"
 
   bottle :unneeded
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "libyaml"
 
   def install

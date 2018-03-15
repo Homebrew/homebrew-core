@@ -1,16 +1,14 @@
 class Libmspub < Formula
   desc "Interpret and import Microsoft Publisher content"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libmspub"
-  url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.2.tar.xz"
-  sha256 "b0baabf82d20c08ad000e80fa02154ce2f2ffde1ee60240d6e3a917c3b35560f"
-  revision 5
+  url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.4.tar.xz"
+  sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
 
   bottle do
     cellar :any
-    sha256 "bad09b3cc4ebdabd4e2160683d97878d3568f67625c682fb2a50084f0e66b5a6" => :high_sierra
-    sha256 "667954cf7d852f4db33db4f1bb0cc38a620e5450bae1fc278da95ba2d0f51f2e" => :sierra
-    sha256 "1d40e6c8b2f62691dca7761ecb97b15a3bce8f3e8638b3df05057e61d063cfc7" => :el_capitan
-    sha256 "6e9c31fdf773518e58be86f562f1a39dde473c29c5fcdb0263fec08bf64f22a7" => :yosemite
+    sha256 "5a33e78d2a68ef51409d5a92ebf45f87e3fc1bd9184a311a26ed45d02f7ade3a" => :high_sierra
+    sha256 "c9c690c4824d1c3ecde285b0a1ee4ea12ff1b865d89f5464231fabb56059df11" => :sierra
+    sha256 "4190a96b84c49c9b325ca2a432b5ad3b99dab9601cdfd525b5664d19618c5518" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -31,14 +29,14 @@ class Libmspub < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
-    #include <librevenge-stream/librevenge-stream.h>
-    #include <libmspub/MSPUBDocument.h>
-    int main() {
-        librevenge::RVNGStringStream docStream(0, 0);
-        libmspub::MSPUBDocument::isSupported(&docStream);
-        return 0;
-    }
+    (testpath/"test.cpp").write <<~EOS
+      #include <librevenge-stream/librevenge-stream.h>
+      #include <libmspub/MSPUBDocument.h>
+      int main() {
+          librevenge::RVNGStringStream docStream(0, 0);
+          libmspub::MSPUBDocument::isSupported(&docStream);
+          return 0;
+      }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-lrevenge-stream-0.0",
                     "-I#{Formula["librevenge"].include}/librevenge-0.0",

@@ -33,7 +33,7 @@ class Mtr < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     mtr requires root privileges so you will need to run `sudo mtr`.
     You should be certain that you trust any software you grant root privileges.
     EOS

@@ -1,16 +1,13 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/stone_soup-0.19.5.tar.xz"
-  # Note the mirror will return 404 until the version becomes outdated.
-  mirror "https://crawl.develz.org/release/0.19/stone_soup-0.19.5.tar.xz"
-  sha256 "3c34787cf752d48789102e170ff7360ddcdd79bd55a4e0feb9894e517b274069"
+  url "https://crawl.develz.org/release/0.21/stone_soup-0.21.1.tar.xz"
+  sha256 "4aa309cf27ed1df56bb24be7e07099d3e2b47f9f0bc9d53d2377849a42ccbee3"
 
   bottle do
-    sha256 "d4f430a646dd6f09bdc6d5c267817793da1d74019978d274fec7b5a10b73627e" => :high_sierra
-    sha256 "4f89fb7977808eae1f0d2e6e4314a732ad2087426ed9997a68959a3f15be2604" => :sierra
-    sha256 "eed4194a19fbb4d3652ece83aac7c161ae8fa58c4db90fb886fce53a39bccafe" => :el_capitan
-    sha256 "dd817ca11daadcef30e964a6d80dc8f150cfb32837cdba605def22fb38121265" => :yosemite
+    sha256 "5f7b2cd8ee4e2c0b08a4ef9c0e6935395062133379eac64df21cdf5af2320505" => :high_sierra
+    sha256 "c27d34ef368192a7ba8f851224d0daadd5c7f6df626e8560d54fb07450293e5f" => :sierra
+    sha256 "daa52de0abc98a3d3143239edea0d407d8847e6d8fc3bd5231e7e2df1cf68658" => :el_capitan
   end
 
   option "with-tiles", "Enable graphic tiles and sound"

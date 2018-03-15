@@ -20,7 +20,7 @@ class Tinycdb < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <fcntl.h>
       #include <cdb.h>

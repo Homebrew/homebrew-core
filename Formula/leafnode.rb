@@ -18,7 +18,7 @@ class Leafnode < Formula
     (prefix/"homebrew.mxcl.texpire.plist").write texpire_plist
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For starting fetchnews and texpire, create links,
       ln -s #{opt_prefix}/homebrew.mxcl.{fetchnews,texpire}.plist ~/Library/LaunchAgents
     And to start the services,
@@ -28,7 +28,7 @@ class Leafnode < Formula
 
   plist_options :manual => "leafnode"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -59,7 +59,7 @@ class Leafnode < Formula
     EOS
   end
 
-  def fetchnews_plist; <<-EOS.undent
+  def fetchnews_plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -79,7 +79,7 @@ class Leafnode < Formula
     EOS
   end
 
-  def texpire_plist; <<-EOS.undent
+  def texpire_plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

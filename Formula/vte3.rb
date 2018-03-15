@@ -1,14 +1,13 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.48/vte-0.48.3.tar.xz"
-  sha256 "a3a9fb182740b392a45cd3f46fa61a985f68bb6b1817b52daec22034c46158c3"
+  url "https://download.gnome.org/sources/vte/0.52/vte-0.52.0.tar.xz"
+  sha256 "d5ae72dddd57af493afa10ca2a290f284e588021b0bd8aaaa63dbb75de7c0567"
 
   bottle do
-    sha256 "f5322df36878d8813e3b07e265c6b1e180c642f7e08bc1ade63c7eabee92af6a" => :high_sierra
-    sha256 "8842dcd716c9da4c6f5457e86fb2acd09392a59e0132a228cc28d86d5f5a0d74" => :sierra
-    sha256 "603cc866fb2824d0fb865263be677f4916b0ba1ffa8545766fd0af0df0514c13" => :el_capitan
-    sha256 "ac33fed772fdce76ef4dc2bb8dd1e75bd211daa42542bf3865ef300035e829ee" => :yosemite
+    sha256 "e36ff88ba45c7675746fb916d3b74f595c2170365ba967ec967a3a71a6578163" => :high_sierra
+    sha256 "8025a59cddadd943d0a13b346973c27b7ee61fda363398ac9f14cf6869feef45" => :sierra
+    sha256 "61cd6f380a42f41bf069c5426d57e7cd28c1b63627311d36640dd544f7bc13da" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -34,7 +33,7 @@ class Vte3 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <vte/vte.h>
 
       int main(int argc, char *argv[]) {

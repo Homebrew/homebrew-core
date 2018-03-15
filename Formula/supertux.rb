@@ -9,9 +9,10 @@ class Supertux < Formula
 
   bottle do
     cellar :any
-    sha256 "b2adbb17603f0027eff4e33a21d587d92190817d3a4ba8c85b408edd783edf39" => :sierra
-    sha256 "eda941a8dfa53421cab3e1760cccd11915897c42dc0a0ad5ad59aeadb8b6d0fc" => :el_capitan
-    sha256 "6a3a313ad4592b866dab92d916705c7ba7fbff224f9fb269a221293b89f9d3f0" => :yosemite
+    rebuild 1
+    sha256 "66385b85ba64e6ce35f5d74e9c2304e73795b977b75f814ff4eeb55cbfccba0b" => :high_sierra
+    sha256 "fbde2e2249a89401fd9893b095857b283c4a7a3a4ab9dec47b8c30d2030d0268" => :sierra
+    sha256 "c66b6e14fc23160f5024ad7790286ec0bcb7f8ed262ce6c400dc8757c1c16ba8" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -29,6 +30,15 @@ class Supertux < Formula
   patch do
     url "https://github.com/SuperTux/supertux/commit/47a353e2981161e2da12492822fe88d797af2fec.diff?full_index=1"
     sha256 "2b12aeead4f425a0626051e246a9f6d527669624803d53d6d0b5758e51099059"
+  end
+
+  # Fix compilation issue with Xcode 9
+  # https://github.com/SuperTux/supertux/issues/762
+  # using Squirrel's patch
+  # https://github.com/albertodemichelis/squirrel/commit/a3a78eec
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/834e41a/supertux/squirrel_xcode9.patch"
+    sha256 "1830dcb88f635f611aa3236abdaee75b53293df407ebc8214f31635a75876831"
   end
 
   needs :cxx11

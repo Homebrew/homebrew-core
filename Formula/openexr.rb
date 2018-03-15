@@ -1,6 +1,6 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
-  homepage "http://www.openexr.com/"
+  homepage "https://www.openexr.com/"
   url "https://savannah.nongnu.org/download/openexr/openexr-2.2.0.tar.gz"
   sha256 "36a012f6c43213f840ce29a8b182700f6cf6b214bea0d5735594136b44914231"
 

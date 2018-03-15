@@ -50,7 +50,7 @@ class Sfml < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "Time.hpp"
       int main() {
         sf::Time t1 = sf::milliseconds(10);

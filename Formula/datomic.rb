@@ -1,15 +1,22 @@
 class Datomic < Formula
   desc "Database separating transactions, storage and queries"
-  homepage "http://www.datomic.com/"
-  url "https://my.datomic.com/downloads/free/0.9.5561"
-  sha256 "50f67065f9ca43ab71d27b60fa68d3aae7d818095accc76bdfbb529fba1fac90"
-  revision 1
+  homepage "https://www.datomic.com/"
+  url "https://my.datomic.com/downloads/free/0.9.5656"
+  sha256 "e277da74fcb8d6589fcc4c9d5a2b781a3158618290a9c7511a0d6f0e7119dd55"
 
   bottle :unneeded
 
   depends_on :java
 
   def install
+    inreplace "config/samples/free-transactor-template.properties" do |s|
+      s.gsub! "# data-dir=data", "data-dir=#{var}/lib/datomic/"
+      s.gsub! "# log-dir=log", "log-dir=#{var}/lib/datomic/log"
+    end
+
+    # install free-transactor properties
+    (etc/"datomic").install "config/samples/free-transactor-template.properties" => "free-transactor.properties"
+
     libexec.install Dir["*"]
     (bin/"datomic").write_env_script libexec/"bin/datomic", Language::Java.java_home_env
 
@@ -19,16 +26,6 @@ class Datomic < Formula
 
     # create directory for datomic data and logs
     (var/"lib/datomic").mkpath
-
-    # install free-transactor properties
-    data = var/"lib/datomic"
-    (etc/"datomic").mkpath
-    (etc/"datomic").install libexec/"config/samples/free-transactor-template.properties" => "free-transactor.properties"
-
-    inreplace "#{etc}/datomic/free-transactor.properties" do |s|
-      s.gsub! "# data-dir=data", "data-dir=#{data}/"
-      s.gsub! "# log-dir=log", "log-dir=#{data}/log"
-    end
   end
 
   def post_install
@@ -37,18 +34,18 @@ class Datomic < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       All commands have been installed with the prefix "datomic-".
 
       We agreed to the Datomic Free Edition License for you:
-        http://www.datomic.com/datomic-free-edition-license.html
+        https://my.datomic.com/downloads/free
       If this is unacceptable you should uninstall.
     EOS
   end
 
   plist_options :manual => "transactor #{HOMEBREW_PREFIX}/etc/datomic/free-transactor.properties"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -77,7 +74,7 @@ class Datomic < Formula
 
   test do
     IO.popen("#{bin}/datomic-repl", "r+") do |pipe|
-      assert_equal "Clojure 1.9.0-alpha14", pipe.gets.chomp
+      assert_equal "Clojure 1.9.0-RC1", pipe.gets.chomp
       pipe.puts "^C"
       pipe.close_write
       pipe.close

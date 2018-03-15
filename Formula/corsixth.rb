@@ -1,25 +1,15 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  revision 1
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.61.tar.gz"
+  sha256 "b8e19743cd499436dce58af67479997e621fe50e21e31f08f440d2303e11f5d6"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
-  stable do
-    url "https://github.com/CorsixTH/CorsixTH/archive/v0.60.tar.gz"
-    sha256 "f5ff7839b6469f1da39804de1df0a86e57b45620c26f044a1700e43d8da19ce9"
-
-    # Applies the upstream patch prioritising newer Luas over older ones.
-    patch do
-      url "https://github.com/CorsixTH/CorsixTH/commit/46420b76.patch?full_index=1"
-      sha256 "024b4fad24d3427fe3050499eeaa2da95adc76f2a80df5ea3fe6ac363b545396"
-    end
-  end
   bottle do
     cellar :any
-    sha256 "5e338a006640ff951d2d087317daeae35936b159465ab180b0132eba69b2f412" => :high_sierra
-    sha256 "ce70fb520401ead2b042a2322887a4e04d84ff3ee94ff0895df63603930570b8" => :sierra
-    sha256 "b3c2a857a44b0072b0499767f9bfe5c7ef562038351481ab4c647f48e52bbc4f" => :el_capitan
-    sha256 "879015e727a6decec4d24f65d810890caa766107339e81f1e6c6b96a70e1b944" => :yosemite
+    sha256 "6ed1751a2ddcfa5ffcbeeb40797b30d59ccbec494c5f6e9e5d66d35393ac5943" => :high_sierra
+    sha256 "bc67037ff45a70573990e1203857bd74642f08d15846364143d3c4a4bb602ee9" => :sierra
+    sha256 "fd4afc63d1915ab1d7cf66c962e3ea58ca8959d8fe3f95a88e6158c30efce544" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -46,8 +36,8 @@ class Corsixth < Formula
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
 
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.2/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.2/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
 
     resources.each do |r|
       r.stage do
@@ -55,14 +45,10 @@ class Corsixth < Formula
       end
     end
 
-    # Ensures it uses the intended Lua (5.2) rather than 5.1/5.3 or
-    # attempting to use a combination of two Luas, which can happen.
-    inreplace "CMake/FindLua.cmake" do |s|
-      s.gsub! "lua53 lua5.3 lua-5.3 liblua.5.3.dylib", ""
-      s.gsub! "include/lua53 include/lua5.3 include/lua-5.3", "include"
-    end
-
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}",
+                         "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib",
+                         "-DLUA_PROGRAM_PATH=#{Formula["lua"].opt_bin}/lua",
+                         *std_cmake_args
     system "make"
     prefix.install "CorsixTH/CorsixTH.app"
 
@@ -73,6 +59,6 @@ class Corsixth < Formula
   test do
     app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
     assert_includes MachO::Tools.dylibs(app),
-                    "#{Formula["lua"].opt_lib}/liblua.5.2.dylib"
+                    "#{Formula["lua"].opt_lib}/liblua.5.3.dylib"
   end
 end

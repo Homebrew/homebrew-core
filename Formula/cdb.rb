@@ -22,7 +22,7 @@ class Cdb < Formula
   test do
     record = "+4,8:test->homebrew\n\n"
     pipe_output("#{bin}/cdbmake db dbtmp", record, 0)
-    assert File.exist? "db"
+    assert_predicate testpath/"db", :exist?
     assert_equal(record,
                  pipe_output("#{bin}/cdbdump", (testpath/"db").binread, 0))
   end

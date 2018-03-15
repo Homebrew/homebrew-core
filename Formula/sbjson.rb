@@ -28,11 +28,11 @@ class Sbjson < Formula
   end
 
   test do
-    (testpath/"in.json").write <<-EOS.undent
+    (testpath/"in.json").write <<~EOS
       [true,false,"string",42.001e3,[],{}]
     EOS
 
-    (testpath/"unwrapped.json").write <<-EOS.undent
+    (testpath/"unwrapped.json").write <<~EOS
       true
       false
       "string"

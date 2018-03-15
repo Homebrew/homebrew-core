@@ -1,26 +1,26 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.1/QScintilla_gpl-2.10.1.tar.gz"
-  sha256 "97f98a9d91f908db6ce37fecc6d241d955b388a1c487173b60726cba9a3dfa64"
-  revision 1
+  url "https://dl.bintray.com/homebrew/mirror/qscintilla2-2.10.3.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.3/QScintilla_gpl-2.10.3.tar.gz"
+  sha256 "d2657a68e7699d37209ff97db965de7c67884d99b33066d0ba457e6f39b581e7"
 
   bottle do
-    sha256 "f22239207011ada7af69ef94115390122fd2e709155c3cc75467c198a1785190" => :high_sierra
-    sha256 "2145a9138de0eb4dc7d1c2cb2741ad8d5e4bd43eafa27040d61b5be9c1898d28" => :sierra
-    sha256 "cb8eb0c2017e0868b5308fd8cfff8602f7bc6f3ae775fdebfa17c3f51b0b3268" => :el_capitan
-    sha256 "17974d5e54f96706a354d84ab684bede51c043834c970dfe67a673cb45840bdf" => :yosemite
+    cellar :any
+    sha256 "b8bebd4e23df01914dc3acf908cd919eca071900a7f5e8d5e98ccfa32f3ca5db" => :high_sierra
+    sha256 "d6f9f44899525e5b8b4bdbe37df4973d2f4889d9183e0a7fde0f161a2650ab6b" => :sierra
+    sha256 "b4e7f9645bbf4c91987a492bf7a05bf1b25094827b4a59bcc304e4bc4aee6676" => :el_capitan
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
-  option "without-python", "Do not build Python bindings"
-  option "without-python3", "Do not build Python3 bindings"
+  option "without-python", "Do not build Python3 bindings"
+  option "without-python@2", "Do not build Python2 bindings"
 
   depends_on "pyqt"
   depends_on "qt"
   depends_on "sip"
-  depends_on :python => :recommended
-  depends_on :python3 => :recommended
+  depends_on "python" => :recommended
+  depends_on "python@2" => :recommended
 
   def install
     spec = (ENV.compiler == :clang && MacOS.version >= :mavericks) ? "macx-clang" : "macx-g++"
@@ -48,7 +48,7 @@ class Qscintilla2 < Formula
     # Add qscintilla2 features search path, since it is not installed in Qt keg's mkspecs/features/
     ENV["QMAKEFEATURES"] = prefix/"data/mkspecs/features"
 
-    if build.with?("python") || build.with?("python3")
+    if build.with?("python") || build.with?("python@2")
       cd "Python" do
         Language::Python.each_python(build) do |python, version|
           (share/"sip").mkpath
@@ -85,7 +85,7 @@ class Qscintilla2 < Formula
   end
 
   test do
-    (testpath/"test.py").write <<-EOS.undent
+    (testpath/"test.py").write <<~EOS
       import PyQt5.Qsci
       assert("QsciLexer" in dir(PyQt5.Qsci))
     EOS

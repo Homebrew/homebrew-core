@@ -30,7 +30,7 @@ class Libmodplug < Formula
   test do
     # First a basic test just that we can link on the library
     # and call an initialization method.
-    (testpath/"test_null.cpp").write <<-EOS.undent
+    (testpath/"test_null.cpp").write <<~EOS
       #include "libmodplug/modplug.h"
       int main() {
         ModPlugFile* f = ModPlug_Load((void*)0, 0);
@@ -48,7 +48,7 @@ class Libmodplug < Formula
     # Second, acquire an actual music file from a popular internet
     # source and attempt to parse it.
     resource("testmod").stage testpath
-    (testpath/"test_mod.cpp").write <<-EOS.undent
+    (testpath/"test_mod.cpp").write <<~EOS
       #include "libmodplug/modplug.h"
       #include <fstream>
       #include <sstream>

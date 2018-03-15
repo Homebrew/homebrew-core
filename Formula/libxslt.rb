@@ -1,16 +1,14 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "http://xmlsoft.org/sources/libxslt-1.1.29.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.29.tar.gz"
-  sha256 "b5976e3857837e7617b29f2249ebb5eeac34e249208d31f1fbf7a6ba7a4090ce"
+  url "http://xmlsoft.org/sources/libxslt-1.1.32.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxslt/libxslt-1.1.32.tar.gz"
+  sha256 "526ecd0abaf4a7789041622c3950c0e7f2c4c8835471515fd77eec684a355460"
 
   bottle do
-    sha256 "416db372bec4192ac1e165df2ddf953d65487bfc6c284e850a3780478ff86f81" => :high_sierra
-    sha256 "1723ec2f62678ee51231605fd6a38f392312f80f4c2754da2763870bccb032ab" => :sierra
-    sha256 "b77dfef558e110a710cae786918e1be56ffa6815c1f7f241f5d69e31a2ca5a24" => :el_capitan
-    sha256 "353119ea7d1be30141944cf716b76df941e7f776209c15217607cbced8ca5f14" => :yosemite
-    sha256 "03aecde25d5312258ba0d752f7fb04573b6be93ab784ef41a555de15af333541" => :mavericks
+    sha256 "502430d08fb7c8d0462ca5421b66caee4d9b8e39f3c7460c2bfca91be37091f9" => :high_sierra
+    sha256 "5d68588f3afbdd93022aeaf81b9c6403c0c6b8aac24e5ba25a195c5ec5bad7e5" => :sierra
+    sha256 "66854da0ffbb83f60863c23b985e5522037db4957aca70e2b49346a243a30991" => :el_capitan
   end
 
   head do
@@ -24,7 +22,7 @@ class Libxslt < Formula
     patch :DATA
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "libxml2"
 
@@ -45,7 +43,7 @@ class Libxslt < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To allow the nokogiri gem to link against this libxslt run:
       gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
     EOS

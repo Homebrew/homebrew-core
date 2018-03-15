@@ -1,5 +1,5 @@
 class ArtifactoryCliGo < Formula
-  desc "Provides a command-line interface for Artifactory."
+  desc "Provides a command-line interface for Artifactory"
   homepage "https://github.com/JFrogDev/artifactory-cli-go"
   url "https://github.com/JFrogDev/artifactory-cli-go/archive/1.3.0.tar.gz"
   sha256 "29ba6b4cc46456caad300500050548fc0ad157fde102059e0778f0d68a35f4ba"

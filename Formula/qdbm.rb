@@ -26,7 +26,7 @@ class Qdbm < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <depot.h>
       #include <stdlib.h>
       #include <stdio.h>

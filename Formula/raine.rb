@@ -7,9 +7,10 @@ class Raine < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "96054d8afda56526daab2c49fcc87d85e687ee2087ad025f8cdc466bc083181c" => :sierra
-    sha256 "ad427985e72a23625b57c08fdc89153657dd4cb16a0c5871f49c83c341bdb0b2" => :el_capitan
-    sha256 "f49a86cad77fc9cd9a5e3b7f1548f62acc264b1bd4729d7cd5908553b3bdf0b8" => :yosemite
+    rebuild 1
+    sha256 "5c3d0fa6dcef53ac42e2ca4b54ae91f4cbbdf83e3614056c3c6b58a2b6083db2" => :high_sierra
+    sha256 "74e67059ae1ba9105c47aef4d46b871273023c2778f2cc939e9e6e2dd9020114" => :sierra
+    sha256 "6cbc1585005c114105d1dfc758b3e522df63970086a79feaefeb8c496bf041e8" => :el_capitan
   end
 
   def configure_args(package)
@@ -65,8 +66,8 @@ class Raine < Formula
   end
 
   resource "libpng" do
-    url "https://download.sourceforge.net/libpng/libpng-1.6.31.tar.xz"
-    mirror "ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-1.6.31.tar.xz"
+    url "https://downloads.sourceforge.net/project/libpng/libpng16/older-releases/1.6.31/libpng-1.6.31.tar.xz"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libpng/libpng-1.6.31.tar.xz"
     sha256 "232a602de04916b2b5ce6f901829caf419519e6a16cc9cd7c1c91187d3ee8b41"
   end
 
@@ -116,6 +117,15 @@ class Raine < Formula
   resource "muparser" do
     url "https://github.com/beltoforion/muparser/archive/v2.2.5.tar.gz"
     sha256 "0666ef55da72c3e356ca85b6a0084d56b05dd740c3c21d26d372085aa2c6e708"
+  end
+
+  # Fix build for Xcode 9 with upstream commit
+  # https://github.com/zelurker/raine/pull/13
+  if DevelopmentTools.clang_build_version >= 900
+    patch do
+      url "https://github.com/zelurker/raine/commit/662cad1b.patch?full_index=1"
+      sha256 "08ec83482318d9e58713f272ca882b5d658c03fd8df24bdb0008a56fa3310dd2"
+    end
   end
 
   def install

@@ -1,16 +1,15 @@
 class CodesignRequirement < Requirement
-  include FileUtils
   fatal true
 
   satisfy(:build_env => false) do
-    mktemp do
-      cp "/usr/bin/false", "llvm_check"
+    FileUtils.mktemp do
+      FileUtils.cp "/usr/bin/false", "llvm_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
     end
   end
 
   def message
-    <<-EOS.undent
+    <<~EOS
       lldb_codesign identity must be available to build with LLDB.
       See: https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt
     EOS
@@ -127,9 +126,11 @@ class LlvmAT4 < Formula
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
-  option "with-python", "Build bindings against custom Python"
+  option "with-python@2", "Build bindings against Homebrew's Python 2"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
+
+  deprecated_option "with-python" => "with-python@2"
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "libffi" => :recommended
@@ -144,9 +145,9 @@ class LlvmAT4 < Formula
   end
 
   if MacOS.version <= :snow_leopard
-    depends_on :python
+    depends_on "python@2"
   else
-    depends_on :python => :optional
+    depends_on "python@2" => :optional
   end
   depends_on "cmake" => :build
 
@@ -170,6 +171,10 @@ class LlvmAT4 < Formula
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
+    if build.with? "python@2"
+      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+    end
+
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
@@ -179,7 +184,7 @@ class LlvmAT4 < Formula
     (buildpath/"tools/polly").install resource("polly")
 
     if build.with? "lldb"
-      if build.with? "python"
+      if build.with? "python@2"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
         pylib = "#{pyhome}/lib/libpython2.7.dylib"
@@ -232,7 +237,7 @@ class LlvmAT4 < Formula
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
 
-    if build.with?("lldb") && build.with?("python")
+    if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
       args << "-DPYTHON_LIBRARY=#{pylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
@@ -275,7 +280,7 @@ class LlvmAT4 < Formula
 
   def caveats
     if build_libcxx?
-      <<-EOS.undent
+      <<~EOS
         To use the bundled libc++ please add the following LDFLAGS:
           LDFLAGS="-L#{opt_lib} -Wl,-rpath,#{opt_lib}"
       EOS
@@ -285,7 +290,7 @@ class LlvmAT4 < Formula
   test do
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
 
-    (testpath/"omptest.c").write <<-EOS.undent
+    (testpath/"omptest.c").write <<~EOS
       #include <stdlib.h>
       #include <stdio.h>
       #include <omp.h>
@@ -305,7 +310,7 @@ class LlvmAT4 < Formula
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
-    expected_result = <<-EOS.undent
+    expected_result = <<~EOS
       Hello from thread 0, nthreads 4
       Hello from thread 1, nthreads 4
       Hello from thread 2, nthreads 4
@@ -313,7 +318,7 @@ class LlvmAT4 < Formula
     EOS
     assert_equal expected_result.strip, sorted_testresult.strip
 
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
 
       int main()
@@ -323,7 +328,7 @@ class LlvmAT4 < Formula
       }
     EOS
 
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <iostream>
 
       int main()

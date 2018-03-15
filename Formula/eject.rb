@@ -21,7 +21,7 @@ class Eject < Formula
   end
 
   test do
-    (testpath/"view.xib").write <<-EOS.undent
+    (testpath/"view.xib").write <<~EOS
       <?xml version="1.0" encoding="UTF-8" standalone="no"?>
       <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
           <dependencies>
@@ -40,7 +40,7 @@ class Eject < Formula
       </document>
     EOS
 
-    swift = <<-EOS.undent
+    swift = <<~EOS
       // Create Views
       let view = UIView()
       view.autoresizingMask = [.flexibleHeight, .flexibleWidth]

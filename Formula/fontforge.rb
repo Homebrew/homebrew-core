@@ -29,7 +29,7 @@ class Fontforge < Formula
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
   depends_on "libuninameslist" => :optional
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   # Remove for > 20170731
   # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
@@ -75,7 +75,7 @@ class Fontforge < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula only installs the command line utilities.
 
     FontForge.app can be downloaded directly from the website:
@@ -89,7 +89,7 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    system "python", "-c", "import fontforge; fontforge.font()"
+    ENV.append_path "PYTHONPATH", lib/"python2.7/site-packages"
+    system "python2.7", "-c", "import fontforge; fontforge.font()"
   end
 end

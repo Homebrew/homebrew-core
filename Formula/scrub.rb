@@ -35,6 +35,6 @@ class Scrub < Formula
 
     output = shell_output("#{bin}/scrub -r -p dod #{path}")
     assert_match "scrubbing #{path}", output
-    assert !File.exist?(path)
+    refute_predicate path, :exist?
   end
 end

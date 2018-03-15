@@ -1,17 +1,15 @@
 class Dos2unix < Formula
   desc "Convert text between DOS, UNIX, and Mac formats"
   homepage "https://waterlan.home.xs4all.nl/dos2unix.html"
-  url "https://waterlan.home.xs4all.nl/dos2unix/dos2unix-7.3.5.tar.gz"
-  mirror "https://fossies.org/linux/misc/dos2unix-7.3.5.tar.gz"
-  mirror "https://ftp.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/dos2unix-7.3.5.tar.gz"
-  sha256 "a72caa2fb5cb739403315472fe522eda41aabab2a02ad6f5589639330af262e5"
+  url "https://waterlan.home.xs4all.nl/dos2unix/dos2unix-7.4.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/dos2unix-7.4.0.tar.gz"
+  sha256 "bac765abdbd95cdd87a71989d4382c32cf3cbfeee2153f0086cb9cf18261048a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3b00b64960d7105183319cdc577152cd366b207b95996a0f4ce3d12730f9be3" => :high_sierra
-    sha256 "2adbb06b9540a4f51320966d0b33c1a283cf062e0815783d224c16acc8baf12c" => :sierra
-    sha256 "8564e8a0c5fdf5ca3e8f6c19143c3b5641d066dd27873f0b901f878a566b4ec7" => :el_capitan
-    sha256 "a75761f15f052f836e743d68e9125deecb49dacc839f831e90c99e2fcca5f45c" => :yosemite
+    sha256 "6aca83a413b4c2b2645e7a17e02dcae91c4f0ae9d2dba430e8083266e5a06482" => :high_sierra
+    sha256 "51ccc96a8757320d073beb4ed224a65130c454bbe249c58157c5921e8ed9fe2c" => :sierra
+    sha256 "e0d2b2e99417be33b385a47f847e8838dc75b2ccdb5277b1d9ba031c4fe55b23" => :el_capitan
   end
 
   option "with-gettext", "Build with Native Language Support"

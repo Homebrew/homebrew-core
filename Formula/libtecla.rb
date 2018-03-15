@@ -21,7 +21,7 @@ class Libtecla < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <locale.h>
       #include <libtecla.h>
 

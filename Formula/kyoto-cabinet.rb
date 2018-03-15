@@ -14,7 +14,7 @@ class KyotoCabinet < Formula
 
   fails_with :clang do
     build 421
-    cause <<-EOS.undent
+    cause <<~EOS
       Kyoto-cabinet relies on GCC atomic intrinsics, but Clang does not
       implement them for non-integer types.
     EOS

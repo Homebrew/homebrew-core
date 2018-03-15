@@ -54,7 +54,8 @@ class Nagios < Formula
                           "--with-nagios-group='#{group}'",
                           "--with-command-user=#{user}",
                           "--with-command-group=_www",
-                          "--with-httpd-conf=#{share}"
+                          "--with-httpd-conf=#{share}",
+                          "--disable-libtool"
     system "make", "all"
     system "make", "install"
 
@@ -72,7 +73,7 @@ class Nagios < Formula
     inreplace config, "brew", ENV["USER"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     First we need to create a command dir using superhuman powers:
 
       mkdir -p #{nagios_var}/rw
@@ -106,7 +107,7 @@ class Nagios < Formula
 
   plist_options :startup => true, :manual => "nagios #{HOMEBREW_PREFIX}/etc/nagios/nagios.cfg"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

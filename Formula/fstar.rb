@@ -45,6 +45,8 @@ class Fstar < Formula
     inreplace "opamroot/compilers/4.05.0/4.05.0/4.05.0.comp",
       '["./configure"', '["./configure" "-no-graph"' # Avoid X11
 
+    system "opam", "switch", "4.05.0"
+
     if build.stable?
       system "opam", "config", "exec", "opam", "install", "batteries=2.7.0",
              "zarith=1.5", "yojson=1.4.0", "pprint=20140424", "stdint=0.4.2",
@@ -57,7 +59,7 @@ class Fstar < Formula
     system "opam", "config", "exec", "--", "make", "-C", "src/ocaml-output"
 
     (libexec/"bin").install "bin/fstar.exe"
-    (bin/"fstar.exe").write <<-EOS.undent
+    (bin/"fstar.exe").write <<~EOS
       #!/bin/sh
       #{libexec}/bin/fstar.exe --smt #{libexec}/bin/z3 --fstar_home #{prefix} "$@"
     EOS
@@ -76,7 +78,7 @@ class Fstar < Formula
     prefix.install_symlink libexec/"src"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     F* code can be extracted to OCaml code.
     To compile the generated OCaml code, you must install
     some packages from the OPAM package manager:

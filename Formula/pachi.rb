@@ -43,7 +43,7 @@ class Pachi < Formula
 
   def caveats
     return if build.without?("patterns") || build.without?("book")
-    <<-EOS.undent
+    <<~EOS
       This formula also downloads additional data, such as opening books
       and pattern files. They are stored in #{opt_pkgshare}.
 

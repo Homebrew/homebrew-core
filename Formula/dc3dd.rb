@@ -4,11 +4,12 @@ class Dc3dd < Formula
   url "https://downloads.sourceforge.net/project/dc3dd/dc3dd/7.2.646/dc3dd%207.2.646/dc3dd-7.2.646.zip",
       :using => :nounzip
   sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
+  revision 1
 
   bottle do
-    sha256 "ea20a6b8c2bff1bcf2d43b528e77144ba37e610a91a772563b72acbf75259535" => :sierra
-    sha256 "21e646934e7c069a618a0b0e8b1db82b8982efe9cdc2863ce1ad4e5892cfcd81" => :el_capitan
-    sha256 "4490bf1b4ece003cce7a89fb0ab3e1aa570543ac2c8c08d76a76060ba4546daf" => :yosemite
+    sha256 "1b509e74c2a309676eefcd37fd82de1f4646395123e0cbdb38715598e2ea6fef" => :high_sierra
+    sha256 "2f7f30890920cddd8b35c5b0f0c0c27fd3f4d3528e18156f8ae86ed9b144b9aa" => :sierra
+    sha256 "9455b48212360afa374b22a5387604d310abb5dbfa90818d8745753b22d8a367" => :el_capitan
   end
 
   depends_on "gettext"
@@ -35,6 +36,12 @@ class Dc3dd < Formula
       system "make"
       system "make", "install"
     end
+
+    # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
+    # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
+    inreplace "lib/vasnprintf.c",
+              "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) || ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
+              "# if !(defined __APPLE__ && defined __MACH__)"
 
     chmod 0555, ["build-aux/install-sh", "configure"]
 

@@ -1,13 +1,13 @@
 class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://www.sysdig.org/"
-  url "https://github.com/draios/sysdig/archive/0.18.0.tar.gz"
-  sha256 "9caab6b4ef4a6d9f9ded8f79b1fcbe34a918c61b6f3b5a15d803f0f25e73497a"
+  url "https://github.com/draios/sysdig/archive/0.20.0.tar.gz"
+  sha256 "e1f7e824831a9b902f6df0e818c41bdfc21175398d58318d7892df9c601e7e96"
 
   bottle do
-    sha256 "2562686c9fbf72e30bd5997f6f8ac1185f775db3fd848ce1df58dedb1b163787" => :high_sierra
-    sha256 "de446ec074d4803b9a35585ca67ab43d588155ad3697f704279c2364c1891b35" => :sierra
-    sha256 "7d81bf6b318e79cd620c644d0eaaf150f8c8ac5eb8120ea7df4d2a671f8d2838" => :el_capitan
+    sha256 "e4a6c6d3fdc2e2af66ef4a187dea9a1eef21726efffc6898d1489a1bcc4325b2" => :high_sierra
+    sha256 "f860f82acc1405a29e181582ed1abf6daeb99623e6186dd90e20e20ef7b10cde" => :sierra
+    sha256 "583116ada7e9981e62a776f8aa3aae66ac912e3a5c5b0da1f33da9dad98da520" => :el_capitan
   end
 
   depends_on "cmake" => :build

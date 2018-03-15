@@ -52,12 +52,13 @@ class Corectl < Formula
 
       bin.install Dir["bin/*"]
 
+      prefix.install_metafiles
       man1.install Dir["documentation/man/*.1"]
       pkgshare.install "examples"
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Starting with 0.7 "corectl" has a client/server architecture. So before you
     can use the "corectl" cli, you have to start the server daemon:
 

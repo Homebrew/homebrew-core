@@ -60,7 +60,7 @@ class Putty < Formula
   end
 
   test do
-    (testpath/"command.sh").write <<-EOS.undent
+    (testpath/"command.sh").write <<~EOS
       #!/usr/bin/expect -f
       set timeout -1
       spawn #{bin}/puttygen -t rsa -b 4096 -q -o test.key
@@ -74,6 +74,6 @@ class Putty < Formula
     chmod 0755, testpath/"command.sh"
 
     system "./command.sh"
-    assert File.exist?("test.key")
+    assert_predicate testpath/"test.key", :exist?
   end
 end

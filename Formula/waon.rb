@@ -27,6 +27,6 @@ class Waon < Formula
   test do
     system "say", "check one two", "-o", testpath/"test.aiff"
     system "#{bin}/waon", "-i", testpath/"test.aiff", "-o", testpath/"output.midi"
-    assert (testpath/"output.midi").exist?
+    assert_predicate testpath/"output.midi", :exist?
   end
 end

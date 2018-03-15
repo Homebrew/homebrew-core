@@ -30,7 +30,7 @@ class Portaudio < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "portaudio.h"
 
@@ -39,7 +39,7 @@ class Portaudio < Formula
       }
     EOS
 
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include "portaudiocpp/System.hxx"
 

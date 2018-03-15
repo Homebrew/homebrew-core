@@ -1,15 +1,14 @@
 class Enigma < Formula
   desc "Puzzle game inspired by Oxyd and Rock'n'Roll"
-  homepage "http://www.nongnu.org/enigma/"
+  homepage "https://www.nongnu.org/enigma/"
   url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
   sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "5a788728bde916cc18f8a4c1cfe9323d2aacdfac416096ac082fb37d0c2ee93a" => :high_sierra
-    sha256 "5ba45be931b9299227ad05850080a1409e5695655958b77aaf379d32e789fef2" => :sierra
-    sha256 "32ee5ea2d062e859e76924184e10b43dc8530023884c517186a2572419ca844f" => :el_capitan
-    sha256 "d71f474a79bc613cf655a07433d0c559607037a2f872caf31960d2aa714d618a" => :yosemite
+    sha256 "d00d19d13e31219622722d1a04221a7e2d3384e3e20461f485748fe459e70992" => :high_sierra
+    sha256 "091ff76622615f2f0b032f575cb26818b89e00c218339941002258f4b9671593" => :sierra
+    sha256 "69f1d58856a1ba69f930e3926e8d797bfbd75036b767f29ba4e8e81c50a09095" => :el_capitan
   end
 
   head do
@@ -23,7 +22,7 @@ class Enigma < Formula
   depends_on "imagemagick" => :build
   depends_on "sdl"
   depends_on "sdl_image"
-  depends_on "sdl_mixer" => "with-libmikmod"
+  depends_on "sdl_mixer"
   depends_on "sdl_ttf"
   depends_on "freetype"
   depends_on "libpng"
@@ -31,7 +30,17 @@ class Enigma < Formula
   depends_on "gettext"
   depends_on "enet"
 
+  needs :cxx11
+
+  # See https://github.com/Enigma-Game/Enigma/pull/8
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/enigma/c%2B%2B11.patch"
+    sha256 "5870bb761dbba508e998fc653b7b05a130f9afe84180fa21667e7c2271ccb677"
+  end
+
   def install
+    ENV.cxx11
+
     system "./autogen.sh" if build.head?
 
     inreplace "configure" do |s|

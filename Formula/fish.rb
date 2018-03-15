@@ -1,47 +1,50 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-
-  stable do
-    url "https://github.com/fish-shell/fish-shell/releases/download/2.6.0/fish-2.6.0.tar.gz"
-    mirror "https://fishshell.com/files/2.6.0/fish-2.6.0.tar.gz"
-    sha256 "7ee5bbd671c73e5323778982109241685d58a836e52013e18ee5d9f2e638fdfb"
-  end
+  url "https://github.com/fish-shell/fish-shell/releases/download/2.7.1/fish-2.7.1.tar.gz"
+  mirror "https://fishshell.com/files/2.7.1/fish-2.7.1.tar.gz"
+  sha256 "e42bb19c7586356905a58578190be792df960fa81de35effb1ca5a5a981f0c5a"
 
   bottle do
-    sha256 "f763473b4f907d5869565c210a94760753f27f0d2a0d2ae203499a6f0041f86e" => :high_sierra
-    sha256 "c40e50463f8c2c3f6a7112117aead0cd367dcabd460f5c477cd84eb90f7ca9fa" => :sierra
-    sha256 "0e96903e4fdd6a58dfd9e96a920e33056919f952de2dfecd9e4122db5a29b036" => :el_capitan
-    sha256 "b9ce33c6f9066e4f72a8e2870f1113cf7c89d7975fd77be5a97358398f30221b" => :yosemite
+    sha256 "b75d873885ecfe3a6e28e8de9a7f292b03c3fb3ebedd3d6ac7a74219148af04e" => :high_sierra
+    sha256 "20e6c49692cef13eaadd8ee94e9831557130d449405fe12bfd9403659865f5b3" => :sierra
+    sha256 "017610f146a161b4383b905a675ac935568a721ed042c3f41f97aaa7f4b5037b" => :el_capitan
   end
 
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    depends_on "cmake" => :build
     depends_on "doxygen" => :build
   end
 
   depends_on "pcre2"
 
   def install
-    system "autoreconf", "--no-recursive" if build.head?
-
-    # In Homebrew's 'superenv' sed's path will be incompatible, so
-    # the correct path is passed into configure here.
-    args = %W[
-      --prefix=#{prefix}
-      --with-extra-functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
-      --with-extra-completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
-      --with-extra-confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
-      SED=/usr/bin/sed
-    ]
-    system "./configure", *args
+    if build.head?
+      args = %W[
+        -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
+        -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
+        -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
+        -DSED=/usr/bin/sed
+      ]
+      system "cmake", ".", *std_cmake_args, *args
+    else
+      # In Homebrew's 'superenv' sed's path will be incompatible, so
+      # the correct path is passed into configure here.
+      args = %W[
+        --prefix=#{prefix}
+        --with-extra-functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
+        --with-extra-completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
+        --with-extra-confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
+        SED=/usr/bin/sed
+      ]
+      system "./configure", *args
+    end
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You will need to add:
       #{HOMEBREW_PREFIX}/bin/fish
     to /etc/shells.

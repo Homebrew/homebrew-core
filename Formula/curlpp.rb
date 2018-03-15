@@ -1,6 +1,6 @@
 class Curlpp < Formula
   desc "C++ wrapper for libcURL"
-  homepage "http://www.curlpp.org"
+  homepage "https://www.curlpp.org/"
   url "https://github.com/jpbarrette/curlpp/archive/v0.8.1.tar.gz"
   sha256 "97e3819bdcffc3e4047b6ac57ca14e04af85380bd93afe314bee9dd5c7f46a0a"
 
@@ -23,7 +23,7 @@ class Curlpp < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <curlpp/cURLpp.hpp>
       #include <curlpp/Easy.hpp>
       #include <curlpp/Options.hpp>

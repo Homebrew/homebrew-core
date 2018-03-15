@@ -2,24 +2,18 @@ class GlobusToolkit < Formula
   desc "Toolkit used for building grids"
   homepage "https://www.globus.org/toolkit/"
   # Note: Stable distributions have an even minor version number (e.g. 5.0.3)
-  url "http://toolkit.globus.org/ftppub/gt6/installers/src/globus_toolkit-6.0.1477634051.tar.gz"
-  sha256 "582fda929675f7e579dd7301d253cd27d4d2f2e91ec74f052a50af52ef2d161c"
+  url "https://downloads.globus.org/toolkit/gt6/stable/installers/src/globus_toolkit-6.0.1506371041.tar.gz"
+  sha256 "77911b143a0bee937ecd7ca9d5c646c0d0bf82756bbe5e831bf281d05c0e7bb9"
 
   bottle do
-    sha256 "919e6d3c7664dc0ba6745b3121aec2e9ca40c4097f526b6c026cdb916dcbedac" => :sierra
-    sha256 "fc8f89ee1a07796f846360b5559b3515f2e6f8a9278c6a801176e324d3f2fae2" => :el_capitan
-    sha256 "2bdfe7e4d4479ade4f764f6ad9373904a21df72fc8d9e18713d9442c39ecb704" => :yosemite
+    sha256 "be2982e801761c61955f9ac4ec7390fc860bb9049001d722dcd2feef4f35ad78" => :high_sierra
+    sha256 "ea777b778a8c90f71f0e56e44a3a6e1eb4708647102ebccf983b4ed4945615c4" => :sierra
+    sha256 "792897db1d326a27b8185ad49fdddbea89b6b12203a056b9f0eeb91b57bbc93f" => :el_capitan
   end
 
-  option "with-test", "Test the toolkit when installing"
-  deprecated_option "with-check" => "with-test"
-
-  depends_on "openssl"
-  depends_on "libtool" => :run
   depends_on "pkg-config" => :build
-
-  # Fix for "error: use of undeclared identifier 'VIS_CSTYLE'"
-  patch :DATA if DevelopmentTools.clang_build_version >= 800
+  depends_on "libtool" => :run
+  depends_on "openssl"
 
   def install
     ENV.deparallelize
@@ -29,7 +23,6 @@ class GlobusToolkit < Formula
                           "--mandir=#{man}",
                           "--disable-dependency-tracking"
     system "make"
-    system "make", "check" if build.with? "test"
     system "make", "install"
     bins = Dir["#{libexec}/bin/*"].select { |f| File.executable? f }
     bin.write_exec_script bins
@@ -39,16 +32,3 @@ class GlobusToolkit < Formula
     system "#{bin}/globusrun", "-help"
   end
 end
-
-__END__
-diff --git a/gsi_openssh/source/openbsd-compat/vis.h b/gsi_openssh/source/openbsd-compat/vis.h
-index d1286c9..4f55f9e 100644
---- a/gsi_openssh/source/openbsd-compat/vis.h
-+++ b/gsi_openssh/source/openbsd-compat/vis.h
-@@ -34,6 +34,7 @@
-
- /* OPENBSD ORIGINAL: include/vis.h */
-
-+#include_next <vis.h>
- #include "includes.h"
- #if !defined(HAVE_STRNVIS) || defined(BROKEN_STRNVIS)

@@ -28,7 +28,7 @@ class XarMackyle < Formula
   test do
     touch "testfile.txt"
     system libexec/"bin/xar", "-cv", "testfile.txt", "-f", "test.xar"
-    assert File.exist?("test.xar")
+    assert_predicate testpath/"test.xar", :exist?
     assert_match /testfile.txt/, shell_output("#{libexec}/bin/xar -tv -f test.xar")
   end
 end

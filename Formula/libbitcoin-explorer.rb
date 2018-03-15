@@ -1,14 +1,14 @@
 class LibbitcoinExplorer < Formula
   desc "Bitcoin command-line tool"
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
-  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.3.0.tar.gz"
-  sha256 "029dc350497bdaad4d8559f7954405011b9e1b996aa4d4cc124f650e2eca00a6"
+  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.5.0.tar.gz"
+  sha256 "630cffd577c0d10345b44ce8160f4604519b0ca69bf201f524f104c207b930aa"
   revision 1
 
   bottle do
-    sha256 "ca6920514bcafa96a00c92807fe87d3474ae1f3d8c76910f834550ce27fe91cd" => :high_sierra
-    sha256 "91845eda68475507c89b50ba45dceffc100c6720b2b829779c397da7acbc5523" => :sierra
-    sha256 "fc9cc0234615c8dfe49ee3da0be3e281440787c6c7f8938c67e756a59c704f08" => :el_capitan
+    sha256 "3ddae418ea3aac1c567e041b38275bc49720a8f221ace3c666a0fc6b16895762" => :high_sierra
+    sha256 "4b57fd07c6ca90d2f029853fca8b1ff8c1e5989860ed2312e0c062578a6fec20" => :sierra
+    sha256 "dca3ed395418f3f20c1956ece3de05fd384e44ab175c72b009781bf85731f8f1" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -16,34 +16,22 @@ class LibbitcoinExplorer < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libbitcoin"
+  depends_on "libbitcoin-network"
   depends_on "zeromq"
 
-  resource "libbitcoin-network" do
-    url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.3.0.tar.gz"
-    sha256 "cab9142d2b94019c824365c0b39d7e31dbc9aaeb98c6b4bf22ce32b829395c19"
-  end
-
   resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.3.0.tar.gz"
-    sha256 "7902de78b4c646daf2012e04bb7967784f67a6372a8a8d3c77417dabcc4b617d"
+    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.5.0.tar.gz"
+    sha256 "9deac6908489e2d59fb9f89c895c49b00e01902d5fdb661f67d4dbe45b22af76"
   end
 
   resource "libbitcoin-client" do
-    url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.3.0.tar.gz"
-    sha256 "ac22793201a269789a5d10e92333a2f59e887256c87c2e72b20ccd023d618757"
+    url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.5.0.tar.gz"
+    sha256 "bafa26647f334ecad04fc4bbef507a1954d7e0682f07bd38b90ab66dba5fe0d2"
   end
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("libbitcoin-network").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
 
     resource("libbitcoin-protocol").stage do
       system "./autogen.sh"
@@ -66,6 +54,8 @@ class LibbitcoinExplorer < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    bash_completion.install "data/bx"
   end
 
   test do

@@ -5,18 +5,18 @@ class Passpie < Formula
   homepage "https://github.com/marcwebbie/passpie"
   url "https://files.pythonhosted.org/packages/7a/e5/f808549a4ae369ed1d97795e6039085d38ec4244aa953fac3cb870c66fbc/passpie-1.6.0.tar.gz"
   sha256 "8d4371b89d02469d7f2cc4e79480f6f1c80dde81da33d2968c9a212d704a2213"
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "089cfe7bd2908d169253c19fce56f306d3505faf601b9c93e01fe28094de9fd6" => :high_sierra
-    sha256 "50f942dcce1aa20d7a5167c454cb903050f2fa01442426564ff7e532c658d91a" => :sierra
-    sha256 "fc100e320f2714dc99e95a694250eb5d6a66fa87b8ab77e7cde1a20de25b03b2" => :el_capitan
-    sha256 "e4e295b7e25bf48f1664bd0e1023c1e5fda8e2b2044b4e742f2f54730c8e267b" => :yosemite
+    sha256 "c76cf8962d2cef65aa5a59672e58be1ad0fd74f48ef94608f34275800f243d29" => :high_sierra
+    sha256 "858a53fbd86235af38263ff97b7f283f434fe59623f6bf170845fc51a0ebc0c7" => :sierra
+    sha256 "9676b9237428cd46ce1fcfb42b7911ebf96a7df2535e936bb60d3f57507db8f4" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :gpg
+  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "gnupg"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"

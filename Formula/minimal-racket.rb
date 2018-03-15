@@ -1,14 +1,13 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/6.10/racket-minimal-6.10-src-builtpkgs.tgz"
-  sha256 "832496dad6c05121842ef3eec852505b658600653a40bbf9fe7d82dac9f7013d"
+  url "https://mirror.racket-lang.org/installers/6.12/racket-minimal-6.12-src-builtpkgs.tgz"
+  sha256 "295a422d60af2a3186a18783d033c167eeed07b936c79f404d25123a0209d683"
 
   bottle do
-    sha256 "79b4896b31b9f904be17b660ec07d1d6d17b973dfd4c4cc00efbfd8c6baa309c" => :high_sierra
-    sha256 "157869883a0c58d1e4c7d158a008d6d0f8c690fcde8cd4094dd14e96c22a1708" => :sierra
-    sha256 "d158e1b77c03295313f3561b25ed6aa88dd86e5f9a60f2cccb520127153b958a" => :el_capitan
-    sha256 "b1555c46dab215aebe4eb1d840b37d188794ce1a2765000aa216bdb5684474aa" => :yosemite
+    sha256 "f863ac881446d44be42d60a5e829210fb7f9b120b9814c21494d49005e57f1c4" => :high_sierra
+    sha256 "af1e60551ecb5b89671af7520089fae9e748c1e4f7d17787e936011868ee87da" => :sierra
+    sha256 "2646b2e1bbb97bc7af8f16d30f17ac4e3df0bbc61a460feac6a4278f66cf8311" => :el_capitan
   end
 
   # these two files are amended when (un)installing packages
@@ -46,7 +45,7 @@ class MinimalRacket < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This is a minimal Racket distribution.
     If you want to build the DrRacket IDE, you may run
       raco pkg install --auto drracket
@@ -63,7 +62,7 @@ class MinimalRacket < Formula
     # show that the config file isn't malformed
     output = shell_output("'#{bin}/raco' pkg config")
     assert $CHILD_STATUS.success?
-    assert_match Regexp.new(<<-EOS.undent), output
+    assert_match Regexp.new(<<~EOS), output
       ^name:
         #{version}
       catalogs:

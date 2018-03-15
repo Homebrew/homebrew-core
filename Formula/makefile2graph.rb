@@ -26,7 +26,7 @@ class Makefile2graph < Formula
   end
 
   test do
-    (testpath/"Makefile").write <<-EOS.undent
+    (testpath/"Makefile").write <<~EOS
       all: foo
       all: bar
       foo: ook

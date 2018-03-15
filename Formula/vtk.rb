@@ -1,19 +1,19 @@
 class Vtk < Formula
-  desc "Toolkit for 3D computer graphics, image processing, and visualization."
+  desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.0/VTK-8.0.1.tar.gz"
-  sha256 "49107352923dea6de05a7b4c3906aaf98ef39c91ad81c383136e768dcf304069"
-
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
+  sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "82ffb47c5d65a168ffc2fe0aa22bcf72a04b666cd62501f538829b64240a142b" => :high_sierra
-    sha256 "fc0c622b9cbe231f6bd6ae06f6ab39ccef01f95b28238439d8cf02041a56204b" => :sierra
-    sha256 "3aa06ce8d7e3f1d781d56018f2daaea1705b9440c5b5b6eabb826dfe946749c3" => :el_capitan
-    sha256 "0ec79613df46e73d166fe6341c5697ea9f6f84be1f933c0d334c436b8481148e" => :yosemite
+    sha256 "bd0c1cacabb157928251455e38dff513fb9ea68865ddef7c623e91cb20722713" => :high_sierra
+    sha256 "a4eb2f81607d7c9ab1643cbf8b07607cb2b3ac62033c875f3488c642103cdc06" => :sierra
+    sha256 "9e8ab70c3e26b72de63bda9bead81582876c2b2830ff1bf9f2808dc9c2960b7c" => :el_capitan
   end
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "boost"
@@ -23,8 +23,8 @@ class Vtk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "netcdf"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
   depends_on "qt" => :optional
   depends_on "pyqt" if build.with? "qt"
 
@@ -60,12 +60,12 @@ class Vtk < Formula
     end
 
     mkdir "build" do
-      if build.with?("python3") && build.with?("python")
+      if build.with?("python") && build.with?("python@2")
         # VTK Does not support building both python 2 and 3 versions
         odie "VTK: Does not support building both python 2 and 3 wrappers"
-      elsif build.with?("python") || build.with?("python3")
-        python_executable = `which python`.strip if build.with? "python"
-        python_executable = `which python3`.strip if build.with? "python3"
+      elsif build.with?("python") || build.with?("python@2")
+        python_executable = `which python3`.strip if build.with? "python"
+        python_executable = `which python2.7`.strip if build.with? "python@2"
 
         python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
         python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
@@ -101,7 +101,7 @@ class Vtk < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Even without the --with-qt option, you can display native VTK render windows
     from python. Alternatively, you can integrate the RenderWindowInteractor
     in PyQt5, Tk or Wx at runtime. Read more:
@@ -110,17 +110,20 @@ class Vtk < Formula
   end
 
   test do
-    (testpath/"version.cpp").write <<-EOS
+    vtk_include = Dir[opt_include/"vtk-*"].first
+    major, minor = vtk_include.match(/.*-(.*)$/)[1].split(".")
+
+    (testpath/"version.cpp").write <<~EOS
       #include <vtkVersion.h>
       #include <assert.h>
       int main(int, char *[]) {
-        assert (vtkVersion::GetVTKMajorVersion()==8);
-        assert (vtkVersion::GetVTKMinorVersion()==0);
+        assert (vtkVersion::GetVTKMajorVersion()==#{major});
+        assert (vtkVersion::GetVTKMinorVersion()==#{minor});
         return EXIT_SUCCESS;
       }
     EOS
 
-    system ENV.cxx, "version.cpp", "-I#{opt_include}/vtk-8.0"
+    system ENV.cxx, "-std=c++11", "version.cpp", "-I#{vtk_include}"
     system "./a.out"
     system "#{bin}/vtkpython", "-c", "exit()"
   end

@@ -1,6 +1,6 @@
 class Mongrel2 < Formula
   desc "Application, language, and network architecture agnostic web server"
-  homepage "http://mongrel2.org/"
+  homepage "https://mongrel2.org/"
   head "https://github.com/mongrel2/mongrel2.git", :branch => "develop"
 
   stable do

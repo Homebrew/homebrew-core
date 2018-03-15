@@ -25,12 +25,12 @@ class Cppi < Formula
   end
 
   test do
-    test = <<-EOS.undent
+    test = <<~EOS
       #ifdef TEST
       #include <homebrew.h>
       #endif
     EOS
-    assert_equal <<-EOS.undent, pipe_output("#{bin}/cppi", test, 0)
+    assert_equal <<~EOS, pipe_output("#{bin}/cppi", test, 0)
       #ifdef TEST
       # include <homebrew.h>
       #endif

@@ -3,15 +3,14 @@ class Ecl < Formula
   homepage "https://common-lisp.net/project/ecl/"
   url "https://common-lisp.net/project/ecl/static/files/release/ecl-16.1.3.tgz"
   sha256 "76a585c616e8fa83a6b7209325a309da5bc0ca68e0658f396f49955638111254"
-  revision 1
+  revision 3
 
   head "https://gitlab.com/embeddable-common-lisp/ecl.git"
 
   bottle do
-    sha256 "cbc9e5cc823e969e9de13fcd93a9044d326964f64512055d1815d7adb85cec81" => :high_sierra
-    sha256 "bd2c5fc4ca15b1e71156a3183bf2cf49c326b994c8f9f81b0f94fd9eb0960005" => :sierra
-    sha256 "6f99f513efcf23a4b1e71b2c8e188e8f41fe976cccf2da855aa1285c35924131" => :el_capitan
-    sha256 "75ee54632fbb5d6b81787e483d847162194eeb8bbe60059fea87f8bdda9c8e8c" => :yosemite
+    sha256 "9afd54b532ae1f1ee3d62b32323007cc736def18f7dde363b19ee9cbf67364fa" => :high_sierra
+    sha256 "c4a7bf602fd2ce4a265cee2944cc0aa57829f9b2d965c1c54da4a905ee8cdf41" => :sierra
+    sha256 "2c27794e63438b4e4cb0aaaf8924d6586f2774c29f06b01429d569fec742e55d" => :el_capitan
   end
 
   depends_on "bdw-gc"
@@ -29,7 +28,7 @@ class Ecl < Formula
   end
 
   test do
-    (testpath/"simple.cl").write <<-EOS.undent
+    (testpath/"simple.cl").write <<~EOS
       (write-line (write-to-string (+ 2 2)))
     EOS
     assert_equal "4", shell_output("#{bin}/ecl -shell #{testpath}/simple.cl").chomp

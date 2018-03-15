@@ -27,7 +27,7 @@ class Libwebm < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <mkvwriter.hpp>
       int main()
       {

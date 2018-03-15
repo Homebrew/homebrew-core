@@ -53,7 +53,7 @@ class Bibclean < Formula
   end
 
   test do
-    (testpath/"test.bib").write <<-EOS.undent
+    (testpath/"test.bib").write <<~EOS
       @article{small,
       author = {Test, T.},
       title = {Test},

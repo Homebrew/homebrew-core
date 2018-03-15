@@ -24,7 +24,7 @@ class Drake < Formula
 
   test do
     # count lines test
-    (testpath/"Drakefile").write <<-EOS.undent
+    (testpath/"Drakefile").write <<~EOS
       find_lines <- [shell]
         echo 'drake' > $OUTPUT
 

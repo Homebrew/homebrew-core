@@ -3,12 +3,12 @@ class Mosquitto < Formula
   homepage "https://mosquitto.org/"
   url "https://mosquitto.org/files/source/mosquitto-1.4.14.tar.gz"
   sha256 "156b1fa731d12baad4b8b22f7b6a8af50ba881fc711b81e9919ec103cf2942d1"
+  revision 2
 
   bottle do
-    sha256 "7ea0a7982a2d47760203fe11841f3ba4a66bc0f8521836d24de79dbf6aeb21c9" => :high_sierra
-    sha256 "01ff6c3a66361786dc44681b57dcc7990298a9b316768025fa131398a8eca51c" => :sierra
-    sha256 "4533adf7814abcccdf7cb7a0833f1c0b6208d0eb5137ed71fe9c7a18a8803857" => :el_capitan
-    sha256 "747266868ed02a667fe56f04ed6df028eb893e8dc5227b4e859a6c50ff6188e6" => :yosemite
+    sha256 "db6cc90bff7409aa2d287a9e090458fc5ffd2ef882c6d38efee28bfe9bc43bae" => :high_sierra
+    sha256 "88a6fd908f71fdf46ed19f0baa7154759751227c92234afe30ba27bf218db653" => :sierra
+    sha256 "d3195ebbcd82c77b56a0e65c1752ae803d5593d2a39b665e0524c853a0520878" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +29,7 @@ class Mosquitto < Formula
     (var/"mosquitto").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     mosquitto has been installed with a default configuration file.
     You can make changes to the configuration by editing:
         #{etc}/mosquitto/mosquitto.conf
@@ -38,7 +38,7 @@ class Mosquitto < Formula
 
   plist_options :manual => "mosquitto -c #{HOMEBREW_PREFIX}/etc/mosquitto/mosquitto.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

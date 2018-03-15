@@ -33,7 +33,7 @@ class Libspiro < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <spiroentrypoints.h>
       #include <bezctx.h>
 

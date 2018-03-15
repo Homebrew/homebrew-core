@@ -1,13 +1,13 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://repo.varnish-cache.org/source/varnish-5.1.3.tar.gz"
-  sha256 "7439c93ca581340f3722b8c790160f46dc6c5328188e4c0bc233c42f3f04a54e"
+  url "https://varnish-cache.org/_downloads/varnish-5.2.1.tgz"
+  sha256 "b8452c9d78c16f78c8cfd1c1a1e696523bf64b7721c330150dcc0852459014b3"
 
   bottle do
-    sha256 "3da94cec48747b30b6b079cc4b8ac1e763c6d6ba6a63e3483e9e7c4df29d1805" => :sierra
-    sha256 "f379607a4d3906491941c496750b73e7d057de652f78ba38684e485c13b060cf" => :el_capitan
-    sha256 "e6adeeb0044b9e664ee2bac06b90b76e9fbd7826e1d4ccc3d11872e10d5a64ca" => :yosemite
+    sha256 "382cd91df3dcb06cb4e741036e061f64bf42cc8f22615baf2c3c88c5e6796dce" => :high_sierra
+    sha256 "4376d9964660db9e28b1075560bfec753d0bfd5c04fbbf9c6f2c2d9eb9d29088" => :sierra
+    sha256 "508da7c537c4d41c9a4af5e5c8faceec47c7768bf5e9542806514f3f718a2f2b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -19,13 +19,14 @@ class Varnish < Formula
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}"
     system "make", "install"
-    (etc+"varnish").install "etc/example.vcl" => "default.vcl"
-    (var+"varnish").mkpath
+    (etc/"varnish").install "etc/example.vcl" => "default.vcl"
+    (var/"varnish").mkpath
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/varnishd -n #{HOMEBREW_PREFIX}/var/varnish -f #{HOMEBREW_PREFIX}/etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080 -F"
 
-  def plist; <<-EOS.undent
+  def plist
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">

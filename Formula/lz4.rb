@@ -1,16 +1,15 @@
 class Lz4 < Formula
   desc "Extremely Fast Compression algorithm"
   homepage "http://www.lz4.org/"
-  url "https://github.com/lz4/lz4/archive/v1.8.0.tar.gz"
-  sha256 "2ca482ea7a9bb103603108b5a7510b7592b90158c151ff50a28f1ca8389fccf6"
+  url "https://github.com/lz4/lz4/archive/v1.8.1.2.tar.gz"
+  sha256 "12f3a9e776a923275b2dc78ae138b4967ad6280863b77ff733028ce89b8123f9"
   head "https://github.com/lz4/lz4.git"
 
   bottle do
     cellar :any
-    sha256 "f2fb292bafe98e31654fc85c7a032529c12a4d2139cf96d1211411106618a025" => :high_sierra
-    sha256 "1168e44a252b92853ce8fe24976c0198bc2a252678d36c4d5fd999e6e95bc417" => :sierra
-    sha256 "42f1aa22230648e0fe1dc738d6cf6649b35a9f5b5255322418de601347c7848c" => :el_capitan
-    sha256 "5abd84100b170b6b8650f46639edb181fefda11ffd582c46dcdc72580ac1913b" => :yosemite
+    sha256 "472dea7a05a86e60471ec27ffe7093fba8144aa0e739fedcdb48149467c16573" => :high_sierra
+    sha256 "63aa9e636110cfc2c192613458a84caa7cfab3f5a5056f8bb5805761e6fb548d" => :sierra
+    sha256 "dab46e035b3c580c4ab4bcb1b546b1d2ea8dbea1c5e2788532a2fbd84b930dcd" => :el_capitan
   end
 
   def install

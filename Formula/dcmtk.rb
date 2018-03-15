@@ -1,20 +1,14 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "http://dicom.offis.de/dcmtk.php.en"
-
-  # Current snapshot used for stable now (using - instead of _ in the version field).
-  url "http://dicom.offis.de/download/dcmtk/snapshot/dcmtk-3.6.1_20170228.tar.gz"
-  mirror "http://dicom.offis.de/download/dcmtk/snapshot/old/dcmtk-3.6.1_20170228.tar.gz"
-  version "3.6.1-20170228"
-  sha256 "8de2f2ae70f71455288ec85c96a2579391300c7462f69a4a6398e9ec51779c11"
-  revision 1
-  head "git://git.dcmtk.org/dcmtk.git"
+  url "http://dicom.offis.de/download/dcmtk/dcmtk363/dcmtk-3.6.3.tar.gz"
+  sha256 "63c373929f610653f10cbb8218ec643804eec6f842d3889d2b46a227da1ed530"
+  head "http://git.dcmtk.org/dcmtk.git"
 
   bottle do
-    sha256 "b900c5ddef45596eb7d51b5bc4c504595c25acd011b7627b9c54282187c3130b" => :high_sierra
-    sha256 "c16eed98ab93d05889a73c2f8ced0528f79e18bd2b2f6ffd614b3783c2799559" => :sierra
-    sha256 "4f108d543ab8301041dbb39f1cae4db40d794acf52dc682d1c090ee98b9bec45" => :el_capitan
-    sha256 "bd2ccb04c0f419299ecece817e4d46da7b8cbe5b1636ee25c460fc628d55ea13" => :yosemite
+    sha256 "ebc1492ba0b008c2d84e84cce1be2da9eb9210ffa8809bcfc710a0bcf35d5575" => :high_sierra
+    sha256 "c7771b2deb50e919f2b332d532f7f81bd67331a2350aea85f7f61658a70b5b15" => :sierra
+    sha256 "586903834cdc7bbc4ffc7adb5478b63fb80df1f95b1a631a8b41d5b54bbc275f" => :el_capitan
   end
 
   option "with-docs", "Install development libraries/headers and HTML docs"

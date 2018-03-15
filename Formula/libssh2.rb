@@ -21,7 +21,7 @@ class Libssh2 < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
 
   def install
     args = %W[
@@ -41,7 +41,7 @@ class Libssh2 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libssh2.h>
 
       int main(void)

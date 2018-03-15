@@ -1,5 +1,5 @@
 class Libstatgrab < Formula
-  desc "Provides cross-platform access to statistics about the system."
+  desc "Provides cross-platform access to statistics about the system"
   homepage "https://www.i-scream.org/libstatgrab/"
   url "https://ftp.i-scream.org/pub/i-scream/libstatgrab/libstatgrab-0.91.tar.gz"
   mirror "https://www.mirrorservice.org/pub/i-scream/libstatgrab/libstatgrab-0.91.tar.gz"

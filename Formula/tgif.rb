@@ -19,7 +19,7 @@ class Tgif < Formula
   end
 
   test do
-    (testpath/"test.obj").write <<-EOS.undent
+    (testpath/"test.obj").write <<~EOS
       %TGIF 4.2.5
       state(0,37,100.000,0,0,0,16,1,9,1,1,0,0,1,0,1,0,'Courier',0,80640,0,0,0,10,0,0,1,1,0,16,0,0,1,1,1,1,1088,1408,1,0,2880,0).
       %
@@ -52,6 +52,6 @@ class Tgif < Formula
 
     EOS
     system "#{bin}/tgif", "-print", "-text", "-quiet", "test.obj"
-    assert File.exist?("test.txt")
+    assert_predicate testpath/"test.txt", :exist?
   end
 end

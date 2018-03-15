@@ -16,8 +16,13 @@ class BoostPythonAT159 < Formula
 
   option :cxx11
 
-  option "without-python", "Build without python 2 support"
-  depends_on :python3 => :optional
+  option "without-python@2", "Build without python 2 support"
+
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
+
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
 
   if build.cxx11?
     depends_on "boost@1.59" => "c++11"
@@ -64,7 +69,7 @@ class BoostPythonAT159 < Formula
       open("user-config.jam", "w") do |file|
         # Force boost to compile with the desired compiler
         file.write "using darwin : : #{ENV.cxx} ;\n"
-        file.write <<-EOS.undent
+        file.write <<~EOS
           using python : #{version}
                        : #{python}
                        : #{py_include}
@@ -79,13 +84,13 @@ class BoostPythonAT159 < Formula
                      "python=#{version}", *args
     end
 
-    lib.install Dir["stage-python3/lib/*py*"] if build.with?("python3")
-    lib.install Dir["stage-python/lib/*py*"] if build.with?("python")
+    lib.install Dir["stage-python3/lib/*py*"] if build.with?("python")
+    lib.install Dir["stage-python/lib/*py*"] if build.with?("python@2")
     doc.install Dir["libs/python/doc/*"]
   end
 
   test do
-    (testpath/"hello.cpp").write <<-EOS.undent
+    (testpath/"hello.cpp").write <<~EOS
       #include <boost/python.hpp>
       char const* greet() {
         return "Hello, world!";

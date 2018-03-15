@@ -1,15 +1,13 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.1/zabbix-3.4.1.tar.gz"
-  sha256 "faaf1a1569ec6b4674d80e707904197c8b568f2b4660f636c28d0c42af471fd4"
-  revision 1
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.7/zabbix-3.4.7.tar.gz"
+  sha256 "ae0f5c7da3886aa3184a1c39ba455e801cdc4356ba16bf68339aee0947366289"
 
   bottle do
-    sha256 "f664c3d8c3c2261ae2bc9c88a77e67663b73ed71f9e5ada3ceb12bd1e9c6b95a" => :high_sierra
-    sha256 "9bb20f95f976c1958d2d030a781026f64c460fbbda4e4a362191bd3e3f3d1ac1" => :sierra
-    sha256 "993d194bb566b4d75c8c06847aab201428b20a6c83ed214acd7e3516e6d030d3" => :el_capitan
-    sha256 "ead5866cfdb01b73bf908f316a14ad8613b11db36de0025e7b3e4abf250cfa19" => :yosemite
+    sha256 "2f70c012c23d6e657d4063bf24ac8877b529a8d912836ec5c0a547e7af16adad" => :high_sierra
+    sha256 "001704ed90cb3428b98ed4a2f7e181f551051fb33c06bc508b1141fe205cefdc" => :sierra
+    sha256 "0b017ad578ed5d07df5526c863a89dc5d0332863d9625358a1833b7fdd4cd1dc" => :el_capitan
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
@@ -22,8 +20,8 @@ class Zabbix < Formula
   depends_on "pcre"
 
   if build.with? "server-proxy"
-    depends_on :mysql => :optional
-    depends_on :postgresql if build.without? "mysql"
+    depends_on "mysql" => :optional
+    depends_on "postgresql" if build.without? "mysql"
     depends_on "fping"
     depends_on "libevent"
     depends_on "libssh2"
@@ -35,12 +33,14 @@ class Zabbix < Formula
   end
 
   def install
+    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}/zabbix
       --enable-agent
-      --with-iconv=#{MacOS.sdk_path}/usr
+      --with-iconv=#{sdk}/usr
       --with-libpcre=#{Formula["pcre"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
     ]

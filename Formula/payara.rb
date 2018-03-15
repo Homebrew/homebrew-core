@@ -1,12 +1,12 @@
 class Payara < Formula
   desc "Java EE application server forked from GlassFish"
   homepage "https://www.payara.fish"
-  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/4.1.2.173/payara-4.1.2.173.zip"
-  sha256 "944fae8fa38e83cf291e6176152827113a4733174096c49a2cf3d218ba1ad7f2"
+  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/4.1.2.174/payara-4.1.2.174.zip"
+  sha256 "50460b818a63a25777e5c1514d1c39ecccd7f8170ed9d6a2f1c7c6192173e017"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   conflicts_with "glassfish", :because => "both install the same scripts"
 
@@ -18,10 +18,11 @@ class Payara < Formula
                              "AS_INSTALL=#{libexec}/glassfish"
 
     libexec.install Dir["*"]
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You may want to add the following to your .bash_profile:
       export GLASSFISH_HOME=#{opt_libexec}/glassfish
       export PATH=${PATH}:${GLASSFISH_HOME}/bin
@@ -30,7 +31,7 @@ class Payara < Formula
 
   plist_options :manual => "asadmin start-domain --verbose domain1"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

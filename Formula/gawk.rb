@@ -1,18 +1,17 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftp.gnu.org/gnu/gawk/gawk-4.1.4.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.1.4.tar.xz"
-  sha256 "53e184e2d0f90def9207860531802456322be091c7b48f23fdc79cda65adc266"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.1.tar.xz"
+  sha256 "d1119785e746d46a8209d28b2de404a57f983aa48670f4e225531d3bdc175551"
 
   bottle do
-    sha256 "134a5f89ce5dfe833968c2fc1046563326e96a4662479e023808f0be2954bbf5" => :high_sierra
-    sha256 "370e7a490801595a484c347da99d8b6dce58d63f8581962cd6d16552e5a4992f" => :sierra
-    sha256 "71d2f6ec3359647298cc0867b88653078ba933b09b139dcd00d76fe763ccb1bb" => :el_capitan
-    sha256 "bc8bd37d3761403f22bf3937097c67d8e76e914c90abfa577fd7e17af337057a" => :yosemite
+    sha256 "617115fcba047189d0a86aad82382768fec90a49c9d86f2fb944aec440ea64b2" => :high_sierra
+    sha256 "f60a61f057eefb9114f8080460fdb31d71b1f3fd6dd6daf855f380dfb4ae4fa1" => :sierra
+    sha256 "aacfd8339f28ace56c4145cddd18986b050a14f408cdceb90d05eeb1bcf08590" => :el_capitan
   end
 
+  depends_on "gettext"
   depends_on "mpfr"
   depends_on "readline"
 

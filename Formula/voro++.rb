@@ -20,7 +20,7 @@ class Voroxx < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "voro++.hh"
       double rnd() { return double(rand())/RAND_MAX; }
       int main() {
@@ -33,6 +33,6 @@ class Voroxx < Formula
     system ENV.cxx, "test.cpp", "-I#{include}/voro++", "-L#{lib}",
                     "-lvoro++"
     system "./a.out"
-    assert File.exist?("test.gnu")
+    assert_predicate testpath/"test.gnu", :exist?
   end
 end

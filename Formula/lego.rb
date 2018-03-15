@@ -3,15 +3,15 @@ require "language/go"
 class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://github.com/xenolf/lego"
-  url "https://github.com/xenolf/lego/archive/v0.4.0.tar.gz"
-  sha256 "2768fe44bc7a31e8ee3779983142143f5db4aee43548f89f3531f23ee402dd87"
+  url "https://github.com/xenolf/lego/archive/v0.4.1.tar.gz"
+  sha256 "365802c02a7f7106370525444c18af53f010153631f27b7cbeb1b4574631f3e7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d5f056de2a87fbf77e3b003c95843d6fa67c7e782d2790ba6392576057b9838c" => :high_sierra
-    sha256 "f9348f9407c17a0bf50fdad5bcffe9b5d03080941a8cb41dc1a08db2ba6ba909" => :sierra
-    sha256 "22243249747c1fa0e179b6de70827c5ca0bc020c5e712585153a845c59569d10" => :el_capitan
-    sha256 "2f227bd2838da0b180fe20be6b1bc6f1705c29af297a34d6537dae6efbec6268" => :yosemite
+    rebuild 1
+    sha256 "31e0fc916eeba7f0d9afbd97737f5826d4cfcbda2398a005b8cedeec0902b274" => :high_sierra
+    sha256 "2bf5ebd638eb8f6b3780c19020d2afa39b67aae6b50899fd91ec42e09b7d9898" => :sierra
+    sha256 "73ba30cadb748f5ca76c1757634857af3ead4e1407a8c024d53d8eabbccff9f4" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -61,6 +61,11 @@ class Lego < Formula
         :revision => "8b777c170cfd377aa16bb4368f093017dddef3f9"
   end
 
+  go_resource "github.com/exoscale/egoscale" do
+    url "https://github.com/exoscale/egoscale.git",
+        :revision => "325740036187ddae3a5b74be00fbbc70011c4d96"
+  end
+
   go_resource "github.com/google/go-querystring" do
     url "https://github.com/google/go-querystring.git",
         :revision => "53e6ce116135b80d037921a7fdd5138cf32d7a8a"
@@ -76,14 +81,14 @@ class Lego < Formula
         :revision => "d95f6f91b1fb339a53fc438df7289cd85756193b"
   end
 
-  go_resource "github.com/pyr/egoscale" do
-    url "https://github.com/pyr/egoscale.git",
-        :revision => "987e683a7552f34ee586217d1cc8507d52e80ab9"
-  end
-
   go_resource "github.com/rainycape/memcache" do
     url "https://github.com/rainycape/memcache.git",
         :revision => "1031fa0ce2f20c1c0e1e1b51951d8ea02c84fa05"
+  end
+
+  go_resource "github.com/stretchr/testify" do
+    url "https://github.com/stretchr/testify.git",
+        :revision => "890a5c3458b43e6104ff5da8dfa139d013d77544"
   end
 
   go_resource "github.com/timewasted/linode" do

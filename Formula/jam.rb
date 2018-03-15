@@ -21,11 +21,11 @@ class Jam < Formula
   end
 
   test do
-    (testpath/"Jamfile").write <<-EOS.undent
+    (testpath/"Jamfile").write <<~EOS
       Main jamtest : jamtest.c ;
     EOS
 
-    (testpath/"jamtest.c").write <<-EOS.undent
+    (testpath/"jamtest.c").write <<~EOS
       #include <stdio.h>
 
       int main(void)

@@ -31,13 +31,13 @@ class Opensyobon < Formula
     system "make"
     pkgshare.install "SyobonAction"
     pkgshare.install resource("data")
-    (bin/"SyobonAction").write <<-EOS.undent
+    (bin/"SyobonAction").write <<~EOS
       #!/bin/sh
       cd "#{pkgshare}" && exec ./SyobonAction "$@"
       EOS
   end
 
   test do
-    File.executable? "#{pkgshare}/SyobonAction"
+    assert_predicate pkgshare/"SyobonAction", :executable?
   end
 end

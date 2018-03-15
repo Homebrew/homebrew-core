@@ -1,21 +1,19 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "https://www.sdaoden.eu/downloads/s-nail-14.9.3.tar.gz"
-  sha256 "9048abe94c8b732ddefcd70b9f6052da16977de76b07598790e4c763e97f911d"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.9.tar.gz"
+  sha256 "cdbd278b634f32df80f22d0a3fc7e59b0d5f3d41a19fef4638efcb6c2d198490"
 
   bottle do
-    sha256 "bab3491cd174beab7597ac7009237def73badd8e0b403712d1970f1c7c6a2978" => :high_sierra
-    sha256 "a60e73ba770df3fc445e4d08930c44f6754e144a605cd6e359566dc3f37b2533" => :sierra
-    sha256 "ae1b9a1f45d5719dd2aaf3eeddee2391b86dc0691f4d4aadbd5f79f829ef8b91" => :el_capitan
-    sha256 "d8241de6c64e399204671dc5b11018c3fdb3e08d55a11b73f401567d84f92155" => :yosemite
+    sha256 "619cd4365432f51fb6d7b83af256eaa120b11cb78994d6d28b63963419f408df" => :high_sierra
+    sha256 "207b3ab750207534d1ca4dc80a92e9db7e1ab6d96fc0d4a11877606f606abff3" => :sierra
+    sha256 "97fa9566dc4de2ba1b2d688a5651aebb07cd2c8a21227e68e698c370aeb052f1" => :el_capitan
   end
 
   depends_on "libidn"
   depends_on "openssl"
 
   def install
-    mv "INSTALL", "INSTALL.txt" # remove for > 14.9.3
     system "make", "OPT_AUTOCC=no",
                    "CC=#{ENV.cc}",
                    "cc_maxtopt=1",
@@ -35,7 +33,7 @@ class SNail < Formula
     date1 = Utils.popen_read("date", "-r", "844221007", "+%a %b %e %T %Y")
     date2 = Utils.popen_read("date", "-r", "844221007", "+%a, %d %b %Y %T %z")
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       From reproducible_build #{date1.chomp}
       Date: #{date2.chomp}
       To:

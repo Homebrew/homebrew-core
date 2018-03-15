@@ -1,17 +1,16 @@
 class Openjazz < Formula
   desc "Open source Jazz Jackrabit engine"
   homepage "http://www.alister.eu/jazz/oj/"
-  url "http://www.alister.eu/jazz/oj/OpenJazz-src-160214.zip"
-  sha256 "8178731e005188a8e87174af26f767b7a1815c06b3bd9b8156440ecea4d7b10a"
+  url "https://github.com/AlisterT/openjazz/releases/download/20171024/openjazz-20171024.tar.xz"
+  sha256 "ee1f2441a8a63cfe9ef11978e0635ccdacd847bc7b00781e363d422aa5770e3b"
 
   head "https://github.com/AlisterT/openjazz.git"
 
   bottle do
     cellar :any
-    sha256 "f761bace57cb19a1505b252736ab9c1ea069000858a294b0aad9e35679fe9829" => :high_sierra
-    sha256 "e5cecf43b5022ad8ed9eecef1ad221c5fcda9f7ee346c3543ad665d082c226aa" => :sierra
-    sha256 "35720ec4dc158b49f9b537033a72c4ca53a529b68de5ca577ff0e8df4ae102ab" => :el_capitan
-    sha256 "557b67389c325c2377555fd2fd6495acab7df376d03db2ab8cfa7d539c1da4ed" => :yosemite
+    sha256 "62b93e7a0ed388a47d9a1944bd0f6f80494daefe43ea214b954b8765eed52c17" => :high_sierra
+    sha256 "25a095ffa552d3dda2f45371b496dfe8b774b89447f9f05d1468984bd7b72cd6" => :sierra
+    sha256 "02c8a404534878c4321f2f3021a9226d54b4385c1f4b16a60b04f08db8a08786" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -25,7 +24,7 @@ class Openjazz < Formula
   # services to distribute this game by modem as long as no files are altered
   # or removed."
   resource "shareware" do
-    url "http://image.dosgamesarchive.com/games/jazz.zip"
+    url "https://image.dosgamesarchive.com/games/jazz.zip"
     sha256 "ed025415c0bc5ebc3a41e7a070551bdfdfb0b65b5314241152d8bd31f87c22da"
   end
 
@@ -44,10 +43,10 @@ class Openjazz < Formula
     system "make", "install"
 
     # Default game lookup path is the OpenJazz binary's location
-    (bin/"OpenJazz").write <<-EOS.undent
-    #!/bin/sh
+    (bin/"OpenJazz").write <<~EOS
+      #!/bin/sh
 
-    exec "#{pkgshare}/OpenJazz" "$@"
+      exec "#{pkgshare}/OpenJazz" "$@"
     EOS
 
     resource("shareware").stage do
@@ -55,7 +54,7 @@ class Openjazz < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The shareware version of Jazz Jackrabbit has been installed.
     You can install the full version by copying the game files to:
       #{pkgshare}

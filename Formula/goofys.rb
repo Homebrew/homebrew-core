@@ -4,29 +4,28 @@ class Goofys < Formula
   desc "Filey-System interface to Amazon S3"
   homepage "https://github.com/kahing/goofys"
   url "https://github.com/kahing/goofys.git",
-      :tag => "v0.0.17",
-      :revision => "3d40e98b163a797e800550a30e950dc06f7229b1"
+      :tag => "v0.19.0",
+      :revision => "943e017724ea820eb4185419ef3c41d6f921a324"
   head "https://github.com/kahing/goofys.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c404ec2ec1fb719bf9ccddd33e870710c95c7d137fd150624ed9c4487e4e65a" => :high_sierra
-    sha256 "0aadab7b39adbda711676f4f3da0fea7cf6d64e3d95e8386166df760904690c3" => :sierra
-    sha256 "0d507abec9d46417d3f28ef78c7d8879b26e728026ae3ab7a39989d514a5dae0" => :el_capitan
-    sha256 "786d318dba4292b4dbb3ebda22fbf96fab1dace9c71ed430a3e6939816088f74" => :yosemite
+    sha256 "d708238d9bb052cf595749580af1706860e81818ea135b9d7de045ed0e21b914" => :high_sierra
+    sha256 "1e8cd32b9160837052a9da63e315a85d120ebe6b131b4b85784e03b22da2fcaa" => :sierra
+    sha256 "87db731108b8d838376750c335aa98048ad4b8e157b0b1cd0ceec1a151a0c513" => :el_capitan
   end
 
   depends_on "go" => :build
   depends_on :osxfuse
 
-  go_resource "github.com/codegangsta/cli" do
-    url "https://github.com/codegangsta/cli.git",
-        :revision => "f017f86fccc5a039a98f23311f34fdf78b014f78"
-  end
-
   go_resource "github.com/jacobsa/fuse" do
     url "https://github.com/jacobsa/fuse.git",
-        :revision => "fe7f3a55dcaa3a8f3d5ff6a85b16b62b7a2c446c"
+        :revision => "c4e473376f7d5be650b11657ded3afb1cd80ad7c"
+  end
+
+  go_resource "github.com/jinzhu/copier" do
+    url "https://github.com/jinzhu/copier.git",
+        :revision => "db4671f3a9b8df855e993f7c94ec5ef1ffb0a23b"
   end
 
   go_resource "github.com/kardianos/osext" do
@@ -36,32 +35,37 @@ class Goofys < Formula
 
   go_resource "github.com/sevlyar/go-daemon" do
     url "https://github.com/sevlyar/go-daemon.git",
-        :revision => "298c54b0e0ae32ec2c6674fee8b60d2fefa4ae7e"
+        :revision => "e49ef56654f54139c4dc0285f973f74e9649e729"
   end
 
   go_resource "github.com/shirou/gopsutil" do
     url "https://github.com/shirou/gopsutil.git",
-        :revision => "a452de7c734a0fa0f16d2e5725b0fa5934d9fbec"
+        :revision => "2ae56c34ce208b38309ab1618fc82866a1051811"
   end
 
   go_resource "github.com/sirupsen/logrus" do
     url "https://github.com/sirupsen/logrus.git",
-        :revision => "89742aefa4b206dcf400792f3bd35b542998eb3b"
+        :revision => "d682213848ed68c0a260ca37d6dd5ace8423f5ba"
+  end
+
+  go_resource "github.com/urfave/cli" do
+    url "https://github.com/urfave/cli.git",
+        :revision => "75104e932ac2ddb944a6ea19d9f9f26316ff1145"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "81e90905daefcd6fd217b62423c0908922eadb30"
+        :revision => "0fcca4842a8d74bfddc2c96a073bd2a4d2a7a2e8"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "66aacef3dd8a676686c7ae3716979581e8b03c47"
+        :revision => "434ec0c7fe3742c984919a691b2018a6e9694425"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "7ddbeae9ae08c6a06a59597f0c9edbc5ff2444ce"
+        :revision => "d38bf781f16e180a1b2ad82697d2f81d7b7ecfac"
   end
 
   def install

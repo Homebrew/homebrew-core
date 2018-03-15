@@ -1,15 +1,26 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://hisham.hm/htop/"
-  url "https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
-  sha256 "179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487"
+  revision 2
+
+  stable do
+    url "https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
+    sha256 "179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487"
+
+    # Running htop can lead to system freezes on macOS 10.13
+    # https://github.com/hishamhm/htop/issues/682
+    if MacOS.version >= :high_sierra
+      patch do
+        url "https://github.com/hishamhm/htop/commit/b2771218.patch?full_index=1"
+        sha256 "3369f8aed21706d809db062f25fd46bf9c0677712a624697bc5415aa45d5d104"
+      end
+    end
+  end
 
   bottle do
-    sha256 "74bfbb9dd0ff5d1268274c83e67a2a3cef674a04914f30e6bffcf23e9008de73" => :high_sierra
-    sha256 "555ff188b1990fb0a5b4634beef196ed1fb843336b99cac33d0291d592d93233" => :sierra
-    sha256 "b13e6457905778a75d2627e1586e14ab20920001bed16b84c1fb64a258715741" => :el_capitan
-    sha256 "f50fd11325a34da989c268f1e4bb998c4b8415079c23a95c267088e9576bef3e" => :yosemite
-    sha256 "785c2806efe12a008c2fc958f567501e2931d2457261eed721ffae374f989498" => :mavericks
+    sha256 "4e65d1d92ef616935ee5b6e498e05ad92e733ced3a41a408c2b30ce7a6b5a1ed" => :high_sierra
+    sha256 "4e9fe44dc41ca415f3465b8445d06df7ed319ca50522758dc44298daff9d9de5" => :sierra
+    sha256 "adf2b63b4fa6d96efc9cfb7c5726d14f5b70a6f38c8e7cea38e0befd26c6ca7f" => :el_capitan
   end
 
   head do
@@ -18,13 +29,12 @@ class Htop < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
   end
 
   option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)"
 
   depends_on "ncurses" => :optional
-
-  conflicts_with "htop-osx", :because => "both install an `htop` binary"
 
   def install
     system "./autogen.sh" if build.head?
@@ -32,7 +42,7 @@ class Htop < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     htop requires root privileges to correctly display all running processes,
     so you will need to run `sudo htop`.
     You should be certain that you trust any software you grant root privileges.

@@ -12,7 +12,7 @@ class Funcoeszz < Formula
     bin.install "funcoeszz-#{version}.sh" => "funcoeszz"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To use this software add to your profile:
       export ZZPATH="#{opt_bin}/funcoeszz"
       source "$ZZPATH"

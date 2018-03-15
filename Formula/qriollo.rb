@@ -1,5 +1,5 @@
 class Qriollo < Formula
-  desc "Impure functional language, based on Rioplatense Spanish."
+  desc "Impure functional language, based on Rioplatense Spanish"
   homepage "https://qriollo.github.io"
   url "https://qriollo.github.io/Qriollo-0.91.tar.gz"
   sha256 "c8357af8254a082d8e4da1de1bbf13bee27cfde8adb31ea0a5a0966bfbb7b28d"
@@ -22,7 +22,7 @@ class Qriollo < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       The standard module "Chamuyo.q" has been placed in:
         #{lib}/chamuyo
     EOS
@@ -30,7 +30,7 @@ class Qriollo < Formula
 
   test do
     test_file_name = "HolaMundo.q"
-    (testpath/test_file_name).write <<-EOS.undent
+    (testpath/test_file_name).write <<~EOS
       enchufar Chamuyo
       el programa es
          escupir "Hola mundo\n"

@@ -3,13 +3,12 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
-  revision 3
+  revision 6
 
   bottle do
-    sha256 "09f9a818113700df3f5b2721ae73266888fc7fb1c4d15ce5c7644d9851bb11a6" => :high_sierra
-    sha256 "fd1079300b056e1babd7820ede1bb59ebf51e6feaefcff1df52d906269ca0236" => :sierra
-    sha256 "5db8c34b82c98308f3404858e960cb5ce70234a3a4e94136284de2fb919c4bc2" => :el_capitan
-    sha256 "3fa016f851209471fdcbf5dab38da3260238d5f8c2f6057d02ae415ea7c85c8c" => :yosemite
+    sha256 "f144539eb1107b00dbc7577439559bd18a80d5cc3f7679bba85ca272fa8e4234" => :high_sierra
+    sha256 "6cf0d3096e50121a1412582d6e30e80dfd01cae1a4502f50cc875c8363ebb9bc" => :sierra
+    sha256 "3cecf172b1c5ab6cd90fb83117de92715862424f7436166b2ad5abbcbfa2b168" => :el_capitan
   end
 
   option "with-big-integer", "Use 64 bit precision instead of arbitrary precision for performance"

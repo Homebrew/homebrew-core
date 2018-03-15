@@ -19,8 +19,8 @@ class SafeRm < Formula
     touch foo
     touch bar
     system "#{bin}/safe-rm", foo
-    assert !File.exist?(foo)
+    refute_predicate foo, :exist?
     shell_output("#{bin}/safe-rm #{bar} 2>&1", 64)
-    assert File.exist?(bar)
+    assert_predicate bar, :exist?
   end
 end

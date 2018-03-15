@@ -22,7 +22,7 @@ class I2util < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <I2util/util.h>
       #include <string.h>
       int main() {

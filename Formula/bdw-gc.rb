@@ -1,15 +1,14 @@
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "http://www.hboehm.info/gc/"
-  url "http://www.hboehm.info/gc/gc_source/gc-7.6.0.tar.gz"
-  sha256 "a14a28b1129be90e55cd6f71127ffc5594e1091d5d54131528c24cd0c03b7d90"
+  url "https://github.com/ivmai/bdwgc/releases/download/v7.6.4/gc-7.6.4.tar.gz"
+  sha256 "b94c1f2535f98354811ee644dccab6e84a0cf73e477ca03fb5a3758fb1fecd1c"
 
   bottle do
-    sha256 "a6511c1691d84794accb76a7a984cd62a3d14c7970af0e5b850f28ab140fad5f" => :high_sierra
-    sha256 "fcbf63ca7801f54e098335ba3f7968bbcdf600e30ac878c68d61061d5923b9f1" => :sierra
-    sha256 "939e43625f304cc5d315f28147db4323da910e7ade2efddea01fade0c56faf48" => :el_capitan
-    sha256 "a49e8aaa7f869a5c7dec0d4e38bb02f6be7e82a45341953f3e761716e3836ef2" => :yosemite
-    sha256 "392bb21f15af6c0ea2a9edfe0641362672e9d7ce8d9fee121e6a64e6081f79b0" => :mavericks
+    cellar :any
+    sha256 "9e4cca3ae473e36efa75c33f41de6be4fa354e37e5a1ff9e577015c4c9523c70" => :high_sierra
+    sha256 "5f9c96e3ec026360cedad1488121bfd4bcd79dcb1476548ddcda77e7368b5641" => :sierra
+    sha256 "32db63b2c9695a0707a7fad6fdd4b843f1803b92d5272eef4855a4b6c261dc6a" => :el_capitan
   end
 
   head do
@@ -34,7 +33,7 @@ class BdwGc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <stdio.h>
       #include "gc.h"

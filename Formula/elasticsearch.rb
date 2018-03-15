@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.1.tar.gz"
-  sha256 "006f9cb3886877df845e3c3dea8a688777fb739a862d3afe1a113c16a732715f"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.2.tar.gz"
+  sha256 "b26e3546784b39ce3eacc10411e68ada427c5764bcda3064e9bb284eca907983"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -11,7 +11,7 @@ class Elasticsearch < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -34,52 +34,46 @@ class Elasticsearch < Formula
     # Install everything else into package directory
     libexec.install "bin", "config", "lib", "modules"
 
+    inreplace libexec/"bin/elasticsearch-env",
+              "if [ -z \"$ES_PATH_CONF\" ]; then ES_PATH_CONF=\"$ES_HOME\"/config; fi",
+              "if [ -z \"$ES_PATH_CONF\" ]; then ES_PATH_CONF=\"#{etc}/elasticsearch\"; fi"
+
     # Set up Elasticsearch for local development:
     inreplace "#{libexec}/config/elasticsearch.yml" do |s|
       # 1. Give the cluster a unique name
       s.gsub!(/#\s*cluster\.name\: .*/, "cluster.name: #{cluster_name}")
 
       # 2. Configure paths
-      s.sub!(%r{#\s*path\.data: /path/to.+$}, "path.data: #{var}/elasticsearch/")
+      s.sub!(%r{#\s*path\.data: /path/to.+$}, "path.data: #{var}/lib/elasticsearch/")
       s.sub!(%r{#\s*path\.logs: /path/to.+$}, "path.logs: #{var}/log/elasticsearch/")
-    end
-
-    inreplace "#{libexec}/bin/elasticsearch.in.sh" do |s|
-      # Configure ES_HOME
-      s.sub!(%r{#\!/bin/bash\n}, "#!/bin/bash\n\nES_HOME=#{libexec}")
-    end
-
-    inreplace "#{libexec}/bin/elasticsearch-plugin" do |s|
-      # Add the proper ES_CLASSPATH configuration
-      s.sub!(/SCRIPT="\$0"/, %Q(SCRIPT="$0"\nES_CLASSPATH=#{libexec}/lib))
-      # Replace paths to use libexec instead of lib
-      s.gsub!(%r{\$ES_HOME/lib/}, "$ES_CLASSPATH/")
     end
 
     # Move config files into etc
     (etc/"elasticsearch").install Dir[libexec/"config/*"]
-    (etc/"elasticsearch/scripts").mkdir unless File.exist?(etc/"elasticsearch/scripts")
     (libexec/"config").rmtree
 
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch"]
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch-plugin"]
+    bin.install libexec/"bin/elasticsearch",
+                libexec/"bin/elasticsearch-keystore",
+                libexec/"bin/elasticsearch-plugin",
+                libexec/"bin/elasticsearch-translog"
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   def post_install
     # Make sure runtime directories exist
-    (var/"elasticsearch/#{cluster_name}").mkpath
+    (var/"lib/elasticsearch/#{cluster_name}").mkpath
     (var/"log/elasticsearch").mkpath
     ln_s etc/"elasticsearch", libexec/"config"
-    (libexec/"plugins").mkdir
+    (var/"elasticsearch/plugins").mkpath
+    ln_s var/"elasticsearch/plugins", libexec/"plugins"
   end
 
   def caveats
-    s = <<-EOS.undent
-      Data:    #{var}/elasticsearch/#{cluster_name}/
+    s = <<~EOS
+      Data:    #{var}/lib/elasticsearch/#{cluster_name}/
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
-      Plugins: #{libexec}/plugins/
+      Plugins: #{var}/elasticsearch/plugins/
       Config:  #{etc}/elasticsearch/
-      plugin script: #{libexec}/bin/elasticsearch-plugin
     EOS
 
     s
@@ -87,7 +81,8 @@ class Elasticsearch < Formula
 
   plist_options :manual => "elasticsearch"
 
-  def plist; <<-EOS.undent
+  def plist
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
@@ -117,14 +112,46 @@ class Elasticsearch < Formula
   end
 
   test do
-    system "#{libexec}/bin/elasticsearch-plugin", "list"
-    pid = "#{testpath}/pid"
+    require "socket"
+
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    system "#{bin}/elasticsearch-plugin", "list"
+    pid = testpath/"pid"
     begin
-      system "#{bin}/elasticsearch", "-d", "-p", pid, "-Epath.data=#{testpath}/data"
+      system "#{bin}/elasticsearch", "-d", "-p", pid, "-Epath.data=#{testpath}/data", "-Ehttp.port=#{port}"
       sleep 10
-      system "curl", "-XGET", "localhost:9200/"
+      system "curl", "-XGET", "localhost:#{port}/"
     ensure
-      Process.kill(9, File.read(pid).to_i)
+      Process.kill(9, pid.read.to_i)
+    end
+
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    (testpath/"config/elasticsearch.yml").write <<~EOS
+      path.data: #{testpath}/data
+      path.logs: #{testpath}/logs
+      node.name: test-es-path-conf
+      http.port: #{port}
+    EOS
+
+    cp etc/"elasticsearch/jvm.options", "config"
+    cp etc/"elasticsearch/log4j2.properties", "config"
+
+    ENV["ES_PATH_CONF"] = testpath/"config"
+    pid = testpath/"pid"
+    begin
+      system "#{bin}/elasticsearch", "-d", "-p", pid
+      sleep 10
+      system "curl", "-XGET", "localhost:#{port}/"
+      output = shell_output("curl -s -XGET localhost:#{port}/_cat/nodes")
+      assert_match "test-es-path-conf", output
+    ensure
+      Process.kill(9, pid.read.to_i)
     end
   end
 end

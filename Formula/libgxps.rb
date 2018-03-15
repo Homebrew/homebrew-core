@@ -61,20 +61,20 @@ class Libgxps < Formula
       (testpath/"_rels/"),
     ]
 
-    (testpath/"FixedDocumentSequence.fdseq").write <<-EOS.undent
+    (testpath/"FixedDocumentSequence.fdseq").write <<~EOS
       <FixedDocumentSequence>
       <DocumentReference Source="/Documents/1/FixedDocument.fdoc"/>
       </FixedDocumentSequence>
       EOS
-    (testpath/"Documents/1/FixedDocument.fdoc").write <<-EOS.undent
+    (testpath/"Documents/1/FixedDocument.fdoc").write <<~EOS
       <FixedDocument>
       <PageContent Source="/Documents/1/Pages/1.fpage"/>
       </FixedDocument>
       EOS
-    (testpath/"Documents/1/Pages/1.fpage").write <<-EOS.undent
+    (testpath/"Documents/1/Pages/1.fpage").write <<~EOS
       <FixedPage Width="1" Height="1" xml:lang="und" />
       EOS
-    (testpath/"_rels/.rels").write <<-EOS.undent
+    (testpath/"_rels/.rels").write <<~EOS
       <Relationships>
       <Relationship Target="/FixedDocumentSequence.fdseq" Type="http://schemas.microsoft.com/xps/2005/06/fixedrepresentation"/>
       </Relationships>
@@ -84,7 +84,7 @@ class Libgxps < Formula
       "Documents/1/_rels/FixedDocument.fdoc.rels",
       "Documents/1/Pages/_rels/1.fpage.rels",
     ].each do |f|
-      (testpath/f).write <<-EOS.undent
+      (testpath/f).write <<~EOS
         <Relationships />
         EOS
     end

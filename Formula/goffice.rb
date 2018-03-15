@@ -1,14 +1,13 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.35.tar.xz"
-  sha256 "c19001afca09dc5446e06605a113d81a57124018a09c5889aeebba16cf1d5738"
+  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.39.tar.xz"
+  sha256 "73f23fbf05f3fa98343208b751db04b31a7ff743c2d828e1a0a130c566f1bc4f"
 
   bottle do
-    sha256 "b86ad28a7a0ce1fbb9df591a72414865e216e3d3fb2f89e60997f0ec4b2940da" => :high_sierra
-    sha256 "cec7000c218b139929f572e126c5f6b20acec58e1e2059513ca9e0b2b31de622" => :sierra
-    sha256 "60abc1461b63b81854a83de1f5d511e0bae3979eb4c005701ab420430d7f60a4" => :el_capitan
-    sha256 "8d2425d629338d26aecb057b43b41732fffe32b75d82d2cf8ec1f39378c4df07" => :yosemite
+    sha256 "09128377974ff2281e49f0bad9f59ad1211a53319bbfcacd42f7ac692868363e" => :high_sierra
+    sha256 "94aa4cb8956653bad2bc7b5b193077ceeb2f9369da2d9c68eaf659e17daba5ae" => :sierra
+    sha256 "c7ba1789dcc801bd5dfd028fded66d2ec429c7882f547d7f40626c68f6a433ed" => :el_capitan
   end
 
   head do
@@ -42,7 +41,7 @@ class Goffice < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <goffice/goffice.h>
       int main()
       {

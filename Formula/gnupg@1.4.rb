@@ -44,7 +44,7 @@ class GnupgAT14 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula does not install either `gpg` or `gpgv` executables into
     the PATH.
 
@@ -63,7 +63,7 @@ class GnupgAT14 < Formula
   end
 
   test do
-    (testpath/"batchgpg").write <<-EOS.undent
+    (testpath/"batchgpg").write <<~EOS
       Key-Type: RSA
       Key-Length: 2048
       Subkey-Type: RSA

@@ -1,17 +1,16 @@
 class Bartycrouch < Formula
-  desc "Incrementally update your Strings files."
+  desc "Incrementally update your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
-  url "https://github.com/Flinesoft/BartyCrouch/archive/3.8.1.tar.gz"
-  sha256 "4cc815085c214fb5a28abb840d78258b4682f0e977f1ee07b8420449d79e44cb"
+  url "https://github.com/Flinesoft/BartyCrouch/archive/3.11.1.tar.gz"
+  sha256 "49d53741608c1076bf74b7da2ab5e854762712fe5656b89a496fb0261e7ad3f0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9aa54402947d494f8d111a462fc5412790d22ad878f7cf75b0c1ee2724515b84" => :high_sierra
-    sha256 "69ce157192d8a7464094978f151bffe5df81e27c9f813c74a0cebed9b5dd924c" => :sierra
-    sha256 "d18ce7fd273cbf95e231983c613b1c4c4bc12b41353b5ad866b8e803e5653bf6" => :el_capitan
+    sha256 "04d8bb53a3e5469dc89aa4fad740a36ddebe66a8d0fa8025a7aacc74b7875620" => :high_sierra
+    sha256 "cc048beb703aeb1d0ec26acfe16969c65cc0d160a44dde0eab04287f618443c5" => :sierra
   end
 
-  depends_on :xcode => ["8.0", :build]
+  depends_on :xcode => ["9.0", :build]
 
   def install
     xcodebuild "-project", "BartyCrouch.xcodeproj",
@@ -24,19 +23,19 @@ class Bartycrouch < Formula
   end
 
   test do
-    (testpath/"Test.swift").write <<-EOS.undent
-    import Foundation
+    (testpath/"Test.swift").write <<~EOS
+      import Foundation
 
-    class Test {
-      func test() {
-          NSLocalizedString("test", comment: "")
+      class Test {
+        func test() {
+            NSLocalizedString("test", comment: "")
+        }
       }
-    }
     EOS
 
-    (testpath/"en.lproj/Localizable.strings").write <<-EOS.undent
-    /* No comment provided by engineer. */
-    "oldKey" = "Some translation";
+    (testpath/"en.lproj/Localizable.strings").write <<~EOS
+      /* No comment provided by engineer. */
+      "oldKey" = "Some translation";
     EOS
 
     system bin/"bartycrouch", "code", "-p", testpath, "-l", testpath, "-a"

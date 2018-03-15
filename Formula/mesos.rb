@@ -1,14 +1,14 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.3.0/mesos-1.3.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.3.0/mesos-1.3.0.tar.gz"
-  sha256 "a081f126134b59dcd935521a3fb3d1e13925a1c60a27a517fc63a48c3d2dffab"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.4.1/mesos-1.4.1.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.4.1/mesos-1.4.1.tar.gz"
+  sha256 "5973795a739c9fa8f1d56b7d0ab1e71e015d5915ffdefb46484ac6546306f4b0"
 
   bottle do
-    sha256 "2ab3b2548b2b7544f688cefca1a5e16afd075a532b4773a3a432dff289e7f950" => :high_sierra
-    sha256 "7f6e46afb9daf74f61c7229f59a72ad9020464a8bec5d6e3727c50a42c6a82be" => :yosemite
-    sha256 "8669a1a4165203bd787b555983394cccf5f94306eb80fbdf15475c99129d398f" => :el_capitan_or_later
+    sha256 "195f50fc08a37e33d15acd35715c8d0b4d9ff64e56d9df80741604e5651369c5" => :high_sierra
+    sha256 "8eb662939c096d7c4e0bfd22da8ab2bf2567d8c33f3fc544baf837c7331327f8" => :sierra
+    sha256 "107472f6f13a35567688866e8bf9c06c727e8a1b03da31e907387ec0a424b641" => :el_capitan
   end
 
   depends_on :java => "1.7+"
@@ -83,7 +83,7 @@ class Mesos < Formula
     # work around distutils abusing CC instead of using CXX
     # https://issues.apache.org/jira/browse/MESOS-799
     # https://github.com/Homebrew/homebrew/pull/37087
-    native_patch = <<-EOS.undent
+    native_patch = <<~EOS
       import os
       os.environ["CC"] = os.environ["CXX"]
       os.environ["LDFLAGS"] = "@LIBS@"
@@ -100,7 +100,7 @@ class Mesos < Formula
     # skip build javadoc because Homebrew's setting user.home in _JAVA_OPTIONS
     # would trigger maven-javadoc-plugin bug.
     # https://issues.apache.org/jira/browse/MESOS-3482
-    maven_javadoc_patch = <<-EOS.undent
+    maven_javadoc_patch = <<~EOS
       <properties>
         <maven.javadoc.skip>true</maven.javadoc.skip>
       </properties>
@@ -197,7 +197,7 @@ class Mesos < Formula
     end
     Process.kill("TERM", master)
     Process.kill("TERM", agent)
-    assert File.exist?("#{testpath}/executed")
+    assert_predicate testpath/"executed", :exist?
     system "python", "-c", "import mesos.native"
   end
 end

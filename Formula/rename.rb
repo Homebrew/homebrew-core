@@ -25,7 +25,7 @@ class Rename < Formula
   test do
     touch "foo.doc"
     system "#{bin}/rename -s .doc .txt *.d*"
-    assert !File.exist?("foo.doc")
-    assert File.exist?("foo.txt")
+    refute_predicate testpath/"foo.doc", :exist?
+    assert_predicate testpath/"foo.txt", :exist?
   end
 end

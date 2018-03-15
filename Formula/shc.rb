@@ -20,7 +20,7 @@ class Shc < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<-EOS.undent
+    (testpath/"test.sh").write <<~EOS
       #!/bin/sh
       echo hello
       exit 0

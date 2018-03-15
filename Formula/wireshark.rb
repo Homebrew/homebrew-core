@@ -1,16 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.4.1.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.4.1.tar.xz"
-  sha256 "02ddbcf9b10f9dfa1e36eec00fe00cb5b5ce8e07203843baf056ac7909911fcd"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.4.5.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.4.5.tar.xz"
+  sha256 "b3b2ec29fba0f4a3a590438abe4054e56f19108d440fc2d61492db9d8ff16fd7"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    rebuild 1
-    sha256 "7661156d22495b9f0162007b071b33d6ba49feee388185762d5a0fdf85cbbb45" => :high_sierra
-    sha256 "4e0227dfb8fc1fe6718134db8f808bd102e635167c512e0a40ee5dbab572103d" => :sierra
-    sha256 "5dde96577da3591c3338658ce15f3d8ac4ad1e943bf1c10cef602ad10ac65d53" => :el_capitan
+    sha256 "ca1e31fd7fb531c14964f26025b590fab0da494d6a9e1edf4cd8802a22fc78f0" => :high_sierra
+    sha256 "88d2140282819858d64da7439a632ffa4d6657625d0b029690114fe05915899e" => :sierra
+    sha256 "472614e31560886bc1adcca76767a7876d9fda034f6912abe8fb30681994e051" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"
@@ -103,7 +102,7 @@ class Wireshark < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     This formula only installs the command-line utilities by default.
 
     Wireshark.app can be downloaded directly from the website:

@@ -1,16 +1,15 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "http://tile38.com"
-  url "https://github.com/tidwall/tile38/archive/1.9.1.tar.gz"
-  sha256 "58ea936660105e5bcceedc05e9a4382bb9696d4f7a84edfe83cad09734a2164d"
+  url "https://github.com/tidwall/tile38/archive/1.11.0.tar.gz"
+  sha256 "09c33a73d55a6d9d115d4c7a4f3ba252fa93e87f7cf63fa906db07a4fe023d33"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2d3df688127a085ad14f81dd9cbad43218360b893b58673128c64fbb5708ae3" => :high_sierra
-    sha256 "6b50ff3c6d0d7ccc7e4d22947e77795fedeed4dee0bd81b8f8090e6b9cd91791" => :sierra
-    sha256 "858bfb5f4b5e4fd3fc8d1e6abbaf11b3d4edc4d7cda9f2c65a207379271f41ff" => :el_capitan
-    sha256 "a56ee5e85dc8d70f9cfb83abea0ef41ff0f59b3ffdeb9aaf1203f76b8bea592e" => :yosemite
+    sha256 "67f90f4d90b1c0af906073507870dfdc542971fb76733899a7949c7bdc9679d4" => :high_sierra
+    sha256 "62d823d18cc17cb608f123d8beba1fcc0ff1e9cb45710e5b0226367916e049e6" => :sierra
+    sha256 "54d67f5ede1b92aa270c153cadfd8c8384a70d1a8075549e09c5cf05135b7aaa" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -32,7 +31,7 @@ class Tile38 < Formula
     datadir.mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Data directory created at #{datadir}. To start the server:
         tile38-server -d #{datadir}
 

@@ -1,16 +1,14 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
-  url "https://github.com/fhunleth/fwup/releases/download/v0.15.4/fwup-0.15.4.tar.gz"
-  sha256 "0594ae5dd1014a610881b21289a8415c8b78ea012d2a5567d57f986625669167"
-  revision 1
+  url "https://github.com/fhunleth/fwup/releases/download/v1.0.0/fwup-1.0.0.tar.gz"
+  sha256 "4211042be90ea130d52271f321d39ab164fc410bdc769e38ab44daf04e1b4a95"
 
   bottle do
     cellar :any
-    sha256 "a2692d08a3908d069bd564d1062b85e647c4915054997b2df6986dd794885564" => :high_sierra
-    sha256 "082a2a2355ccf742ee41444aa0acc53e35aa895194ba31cd9d60df2c3eff338e" => :sierra
-    sha256 "a972b47210a86cd761cfd95d00f59b29838420d387bb491410f72fad85c190cd" => :el_capitan
-    sha256 "9a2ed135cf9292c118169c698db7a0a50df45d06551a081c55553228c69c0524" => :yosemite
+    sha256 "65333ec43ee41271ef08b1718988d9f6d8f7cf828ce8b82bcb1032e9c7f9f780" => :high_sierra
+    sha256 "ed8421e355a86f97aa1a4ec492aa13104e95385222bd61467ec7e0bef43fd4dd" => :sierra
+    sha256 "5795d3b77a3e115423a4766cfea0845c3eb81265fa2b20d41439e9682d99f6e3" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -25,7 +23,7 @@ class Fwup < Formula
 
   test do
     system bin/"fwup", "-g"
-    assert File.exist?("fwup-key.priv"), "Failed to create fwup-key.priv!"
-    assert File.exist?("fwup-key.pub"), "Failed to create fwup-key.pub!"
+    assert_predicate testpath/"fwup-key.priv", :exist?, "Failed to create fwup-key.priv!"
+    assert_predicate testpath/"fwup-key.pub", :exist?, "Failed to create fwup-key.pub!"
   end
 end

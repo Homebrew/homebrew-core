@@ -14,7 +14,7 @@ class Aspell < Formula
   end
 
   devel do
-    url "ftp://alpha.gnu.org/gnu/aspell/aspell-0.60.7-rc1.tar.gz"
+    url "https://alpha.gnu.org/gnu/aspell/aspell-0.60.7-rc1.tar.gz"
     sha256 "86b5662f24316142f70c5890787bdc5596625ca3604dfe85926ee61f27f2365e"
     version "0.60.7-20170129"
   end

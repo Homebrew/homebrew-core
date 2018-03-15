@@ -1,16 +1,14 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.80.tar.gz"
-  sha256 "20863db018d69c33648bdedcdc9d81d818b9064cc4333f0d4dc45e114bd0f000"
+  url "https://github.com/danmar/cppcheck/archive/1.82.tar.gz"
+  sha256 "524444a678e63dee247fd8d2fe3194317c07f2aa65de31a41aa2eb0553bbdc7f"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    rebuild 1
-    sha256 "49540982e80ff4eed01a02f1e6b623e449fe16c7e587ab80f361fbc247375834" => :high_sierra
-    sha256 "53738447b9ea8ffac2f20e7c7f70d307476d0bb40a2180777980cb3e530c5a41" => :sierra
-    sha256 "8acde65a4d657e14bdfc41337d2492cc948809f8ad42d7100524fba590635999" => :el_capitan
-    sha256 "6658c569c7db35bf75bda4987f71dec24011b6f7d7b8ec1f073a17b9e9309306" => :yosemite
+    sha256 "8d2b4fc80fb472a5fc89c5c491002f608d281ea5850513dd93cf88fec2bcae87" => :high_sierra
+    sha256 "818c27d2f4ee0817a3e71b44766a007ef807280ae284240386e0fd1d5d8705ef" => :sierra
+    sha256 "6117886623ab7a9de60bfd4a46770a65c9a2e11a90e9babe9419f04d918a68dc" => :el_capitan
   end
 
   option "without-rules", "Build without rules (no pcre dependency)"
@@ -62,7 +60,7 @@ class Cppcheck < Formula
   test do
     # Execution test with an input .cpp file
     test_cpp_file = testpath/"test.cpp"
-    test_cpp_file.write <<-EOS.undent
+    test_cpp_file.write <<~EOS
       #include <iostream>
       using namespace std;
 
@@ -90,7 +88,7 @@ class Cppcheck < Formula
 
     # Test the "out of bounds" check
     test_cpp_file_check = testpath/"testcheck.cpp"
-    test_cpp_file_check.write <<-EOS.undent
+    test_cpp_file_check.write <<~EOS
       int main()
       {
       char a[10];
@@ -111,7 +109,7 @@ class Cppcheck < Formula
     assert_parse_message = "Error: sampleaddon.py: failed: can't parse the #{name} dump."
 
     sample_addon_file = testpath/"sampleaddon.py"
-    sample_addon_file.write <<-EOS.undent
+    sample_addon_file.write <<~EOS
       #!/usr/bin/env python
       """A simple test addon for #{name}, prints function names and token count"""
       import sys
@@ -135,8 +133,8 @@ class Cppcheck < Formula
 
     system "#{bin}/cppcheck", "--dump", test_cpp_file
     test_cpp_file_dump = "#{test_cpp_file}.dump"
-    assert File.exist? test_cpp_file_dump
-    python_addon_output = shell_output "python #{sample_addon_file} #{test_cpp_file_dump}"
-    assert_match "#{expect_function_names}\n#{expect_token_count}", python_addon_output
+    assert_predicate testpath/test_cpp_file_dump, :exist?
+    output = shell_output("python #{sample_addon_file} #{test_cpp_file_dump}")
+    assert_match "#{expect_function_names}\n#{expect_token_count}", output
   end
 end

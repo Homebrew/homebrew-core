@@ -1,8 +1,8 @@
 class Scalaenv < Formula
   desc "Command-line tool to manage Scala environments"
   homepage "https://github.com/scalaenv/scalaenv"
-  url "https://github.com/scalaenv/scalaenv/archive/version/0.0.15.tar.gz"
-  sha256 "546858bf3b7c2864fc78c5f6624ab786f8781331ce5b62232efdc332c1b3ff15"
+  url "https://github.com/scalaenv/scalaenv/archive/version/0.1.0.tar.gz"
+  sha256 "544182049b53c75699dd3238f95357ed50f84e8ef641452ab8fbae060e883916"
   head "https://github.com/scalaenv/scalaenv.git"
 
   bottle :unneeded
@@ -12,7 +12,7 @@ class Scalaenv < Formula
     prefix.install "bin", "completions", "libexec"
     prefix.install "plugins" => "default-plugins"
 
-    %w[scalaenv-install].each do |cmd|
+    %w[scalaenv-install scalaenv-uninstall scala-build].each do |cmd|
       bin.install_symlink "#{prefix}/default-plugins/scala-install/bin/#{cmd}"
     end
   end

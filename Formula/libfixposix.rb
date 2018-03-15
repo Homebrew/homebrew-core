@@ -29,7 +29,7 @@ class Libfixposix < Formula
   end
 
   test do
-    (testpath/"mxstemp.c").write <<-EOS.undent
+    (testpath/"mxstemp.c").write <<~EOS
       #include <stdio.h>
 
       #include <lfp.h>

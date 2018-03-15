@@ -32,7 +32,7 @@ class Luaradio < Formula
 
   test do
     (testpath/"hello").write("Hello, world!")
-    (testpath/"test.lua").write <<-EOS.undent
+    (testpath/"test.lua").write <<~EOS
       local radio = require('radio')
 
       local PrintBytes = radio.block.factory("PrintBytes")

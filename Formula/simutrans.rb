@@ -34,7 +34,7 @@ class Simutrans < Formula
   end
 
   resource "text" do
-    url "http://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip"
+    url "https://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip"
     sha256 "202816f67750cfb9decdfca3bacfebbc5bfc3474c8703239418edc093ce3774d"
   end
 

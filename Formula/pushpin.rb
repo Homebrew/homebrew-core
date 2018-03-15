@@ -1,15 +1,14 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
-  homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.16.0.tar.bz2"
-  sha256 "6f66603d0415697eaf94fa41fa68dbf8f19a28d101a9cf17a835c2b931bc5496"
+  homepage "https://pushpin.org/"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.17.2.tar.bz2"
+  sha256 "f30c12b147d39c52617403b40f11737a14020dc93f223faa7214d73db8af1d77"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "efd6b18aff8f05b2dd5d597f15fcfaa59f2a372f2789e900214cd6f16f2ad631" => :high_sierra
-    sha256 "eb1cbde67dac20d60b19d0df7e86c91294a5bc2548a8df826d4c40fb97995d56" => :sierra
-    sha256 "3bac87de514c9f806ce759c2ebc77ca87112b79c9ebe494d477429879b843845" => :el_capitan
-    sha256 "c188940d042aa529613c7340c265be2fe8fba9b6fc87c181b32d69b8cc316902" => :yosemite
+    sha256 "33219cdbd31298f00209282e5ff588187245f7a5a5652c39263717a372e9b290" => :high_sierra
+    sha256 "2233ed69e470f3cf507ff933bb8eb78783b5e8523673fa9b8ad09418b6426a72" => :sierra
+    sha256 "2ee66b7f78d4b25641651f34151adbd1a07b89441a5e1930796e6337fc56807b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -37,11 +36,11 @@ class Pushpin < Formula
       s.gsub! "logdir=#{HOMEBREW_PREFIX}/var/log/pushpin", "logdir=#{testpath}/var/log/pushpin"
     end
 
-    routesfile.write <<-EOS.undent
+    routesfile.write <<~EOS
       * localhost:10080
     EOS
 
-    runfile.write <<-EOS.undent
+    runfile.write <<~EOS
       import urllib2
       import threading
       from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer

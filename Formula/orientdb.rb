@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.com/"
-  url "https://orientdb.com/download.php?file=orientdb-community-importers-2.2.27.tar.gz"
-  sha256 "a368db8b1fc82613475d7b23d293d741cc012753d1d81cef1d399bddce1b7657"
+  url "https://orientdb.com/download.php?file=orientdb-community-importers-2.2.29.tar.gz"
+  sha256 "ed6e65b18fed70ace3afa780a125100a19899e9b18f4d6e9bc1111e7ee88d752"
 
   bottle :unneeded
 
@@ -15,7 +15,7 @@ class Orientdb < Formula
     libexec.install Dir["*"]
 
     inreplace "#{libexec}/config/orientdb-server-config.xml", "</properties>",
-       <<-EOS.undent
+       <<~EOS
          <entry name="server.database.path" value="#{var}/db/orientdb" />
          </properties>
        EOS
@@ -48,7 +48,7 @@ class Orientdb < Formula
     system "#{bin}/orientdb", "stop"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The OrientDB root password was set to 'orientdb'. To reset it:
       https://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
     EOS
@@ -56,7 +56,7 @@ class Orientdb < Formula
 
   plist_options :manual => "orientdb start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

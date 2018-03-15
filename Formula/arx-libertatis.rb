@@ -76,7 +76,7 @@ class ArxLibertatis < Formula
   end
 
   def caveats
-    if build.with? "innoextract"; then <<-EOS.undent
+    if build.with? "innoextract"; then <<~EOS
       This package only contains the Arx Libertatis binary, not the game data.
       To play Arx Fatalis you will need to obtain the game from GOG.com and install
       the game data with:

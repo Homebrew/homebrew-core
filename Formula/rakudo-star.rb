@@ -1,14 +1,13 @@
 class RakudoStar < Formula
   desc "Perl 6 compiler"
   homepage "http://rakudo.org/"
-  url "https://rakudo.perl6.org/downloads/star/rakudo-star-2017.07.tar.gz"
-  sha256 "c8558f619d440add88120387cf9447b5b795532c69ba27e07af0cc69a5e350b3"
+  url "https://rakudo.perl6.org/downloads/star/rakudo-star-2018.01.tar.gz"
+  sha256 "8f0290f409307c45a107360e7883f2fad3c19aa995133ab53e6f36ae9452d351"
 
   bottle do
-    sha256 "f059d692769442861f7733a18a9786777204cb20e4d9e604816eec33dee8ba7a" => :high_sierra
-    sha256 "4e31d5b909b4cb378fa9d7954eb441d0d6d87634cb441ebe47be7c367f94c37f" => :sierra
-    sha256 "23e2b96d1edc0f41a1957d2233475169c711470b6181c9a52ec9d20d9ca040e7" => :el_capitan
-    sha256 "f3c595ddda395ab96d36723acf939250bd597fbce98276c7e7547916d8b515b9" => :yosemite
+    sha256 "e90c8e08dc6236adbef651d7767fe9230c13cceacee39655707fadc7c92965f4" => :high_sierra
+    sha256 "7fafda1950b60283b2b85b607f2251e42917c727775d7c47cdeeed5feef2fe87" => :sierra
+    sha256 "c5bf17dcfa36cd061fc70b7a5a5ae7e46273ecc87d84bdf65412f98105da135b" => :el_capitan
   end
 
   option "with-jvm", "Build also for jvm as an alternate backend."

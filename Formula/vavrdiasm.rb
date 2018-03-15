@@ -37,7 +37,7 @@ class Vavrdiasm < Formula
     # Compiled with avra:
     ## avra file.S && mv file.S.hex file.hex
 
-    (testpath/"file.hex").write <<-EOS.undent
+    (testpath/"file.hex").write <<~EOS
       :020000020000FC
       :040000000EEF1FEFF1
       :00000001FF

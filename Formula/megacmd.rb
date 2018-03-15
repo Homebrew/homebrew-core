@@ -1,45 +1,27 @@
-require "language/go"
-
 class Megacmd < Formula
   desc "Command-line client for mega.co.nz storage service"
   homepage "https://github.com/t3rm1n4l/megacmd"
-  url "https://github.com/t3rm1n4l/megacmd/archive/0.012.tar.gz"
-  sha256 "804861f2a7a36eef53a7310e52627e790fa9de66acf8565f697089389d2709a0"
-  revision 1
-
+  url "https://github.com/t3rm1n4l/megacmd/archive/0.013.tar.gz"
+  sha256 "f76e14678f2da8547545c2702406e27983e0a72263ef629b3ee4db226b94f6ae"
   head "https://github.com/t3rm1n4l/megacmd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4e5e6ab6ca66acfcb3939a2c5db97e382ae82e0bc041d4f0a407ed43ec05ce7" => :high_sierra
-    sha256 "687bd1592022813007d5e538bcc80286bdcace57e3a5bb90dc544d78e764ba79" => :sierra
-    sha256 "5fcd5e53a5daeebc80de7db5007493609d441894a92eaeca5fee7d1eab60577d" => :el_capitan
-    sha256 "30517310990db7dfc62be36b1142e8094a1d80f49e0d52cf32e22091e03fb44b" => :yosemite
-    sha256 "f04e476d5ece8703aef3e9db7d12bc7b1825222e70060ee20b4980b74f63e52e" => :mavericks
+    rebuild 1
+    sha256 "ba3d3ef2da44dfae8f4c332873a3326b63ce4e6ea888d67603c61f3250fb5f42" => :high_sierra
+    sha256 "b0f70b42422e2afe1f29b7384f915dce7a20abc0f22954e6f51c4afd8eeac614" => :sierra
+    sha256 "28f5287ae40edf0e2694d881476abe4a7967b0a9f2e6a3299be49bec6b25f471" => :el_capitan
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/t3rm1n4l/go-humanize" do
-    url "https://github.com/t3rm1n4l/go-humanize.git",
-        :revision => "e7ed15be05eb554fbaa83ac9b335556d6390fb9f"
-  end
-
-  go_resource "github.com/t3rm1n4l/go-mega" do
-    url "https://github.com/t3rm1n4l/go-mega.git",
-        :revision => "551abb8f1c87053be3f24282d198a6614c0ca14f"
-  end
-
-  go_resource "github.com/t3rm1n4l/megacmd" do
-    url "https://github.com/t3rm1n4l/megacmd.git",
-        :revision => "d7f3f3a2427cc52b71cad90b26889e2a33fc3565"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"megacmd"
+    (buildpath/"src/github.com/t3rm1n4l/megacmd").install buildpath.children
+    cd "src/github.com/t3rm1n4l/megacmd" do
+      system "go", "build", "-o", bin/"megacmd"
+      prefix.install_metafiles
+    end
   end
 
   test do

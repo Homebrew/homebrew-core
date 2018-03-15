@@ -25,7 +25,7 @@ class Cunit < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <string.h>
       #include "CUnit/Basic.h"

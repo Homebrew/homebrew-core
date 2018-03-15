@@ -1,7 +1,7 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
-  homepage "http://www.rsyslog.com"
-  url "http://www.rsyslog.com/files/download/rsyslog/rsyslog-7.4.5.tar.gz"
+  homepage "https://www.rsyslog.com/"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-7.4.5.tar.gz"
   sha256 "f5e46e9324e366f20368162b4f561cf7a76fecb4aa0570edcaaa49e9f8c2fe70"
 
   bottle do
@@ -33,6 +33,35 @@ class Rsyslog < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+  end
+
+  plist_options :manual => "rsyslogd -f #{HOMEBREW_PREFIX}/etc/rsyslog.conf -i #{HOMEBREW_PREFIX}/var/run/rsyslogd.pid"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>KeepAlive</key>
+        <true/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/rsyslogd</string>
+          <string>-n</string>
+          <string>-f</string>
+          <string>#{etc}/rsyslog.conf</string>
+          <string>-i</string>
+          <string>#{var}/run/rsyslogd.pid</string>
+        </array>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/rsyslogd.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/rsyslogd.log</string>
+      </dict>
+    </plist>
+    EOS
   end
 end
 

@@ -13,7 +13,7 @@ class Ld64 < Formula
     sha256 "e8da7e6c25c4966420cb0aaf2b2b144f769b8e974365e102c7afa9b3bda70488" => :leopard
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
     "ld64 is an updated version of the ld shipped by Apple"
 
   depends_on MaximumMacOSRequirement => :snow_leopard

@@ -1,24 +1,19 @@
 class Dssim < Formula
-  desc "RGBA Structural Similarity C implementation (with a Rust API)"
+  desc "RGBA Structural Similarity Rust implementation"
   homepage "https://github.com/pornel/dssim"
-  url "https://github.com/pornel/dssim/archive/1.3.2.tar.gz"
-  sha256 "2e79f8cf7cb7681f7f3244364662ce4723739745201217d85243bbc709124e63"
+  url "https://github.com/pornel/dssim/archive/2.9.7.tar.gz"
+  sha256 "4ee60e125efae43f49bf9c4ca849f9cef2b1f86ee1d538da84907faae853eeeb"
 
   bottle do
-    cellar :any
-    sha256 "f1eb2a6f9a2dabe6613943d12255017c6af64c7adcfc24f882c772d477de605c" => :high_sierra
-    sha256 "140f682a13b7fc63fa094dde9df6088a377e8317d30e0f208ffb0513e2baed26" => :sierra
-    sha256 "46ff2909894a5d0ec443a84e16b87e6fe746bd53c816091002dde0da15581222" => :el_capitan
-    sha256 "b5e6df645abb73ab9b1227d87039397f6acc56c63f422bebc13d7e29a0c9d56f" => :yosemite
-    sha256 "51756e74240d03c87a79ff0e14e494d249701d4069ea336b529b47a179c469d3" => :mavericks
+    sha256 "cd9660967e876f49480ae7f8f1486ebd7f752edf2a22621b03f2b6bc8bf07f73" => :high_sierra
+    sha256 "923949599d0070fbe2c6938f5847ed6df69097921897ce118d7e9cc8ef48cb40" => :sierra
+    sha256 "34f0204a20f42a08c375b831669e8fdf8b2a8e54a77298f5c35a75403b1c69c7" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "libpng"
+  depends_on "rust" => :build
 
   def install
-    system "make"
-    bin.install "bin/dssim"
+    system "cargo", "install", "--root", prefix
   end
 
   test do

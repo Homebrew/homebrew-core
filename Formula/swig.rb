@@ -21,19 +21,19 @@ class Swig < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       int add(int x, int y)
       {
         return x + y;
       }
     EOS
-    (testpath/"test.i").write <<-EOS.undent
+    (testpath/"test.i").write <<~EOS
       %module test
       %inline %{
       extern int add(int x, int y);
       %}
     EOS
-    (testpath/"run.rb").write <<-EOS.undent
+    (testpath/"run.rb").write <<~EOS
       require "./test"
       puts Test.add(1, 1)
     EOS

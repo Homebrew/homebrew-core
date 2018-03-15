@@ -7,7 +7,7 @@ class Trace2html < Formula
 
   bottle :unneeded
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     libexec.install Dir["*"]
@@ -17,6 +17,6 @@ class Trace2html < Formula
   test do
     touch "test.json"
     system "#{bin}/trace2html", "test.json"
-    assert File.exist?("test.html")
+    assert_predicate testpath/"test.html", :exist?
   end
 end

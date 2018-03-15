@@ -37,8 +37,8 @@ class Ffmpegthumbnailer < Formula
     png = test_fixtures("test.png")
     system f.to_s, "-loop", "1", "-i", png.to_s, "-c:v", "libx264", "-t", "30",
                    "-pix_fmt", "yuv420p", "v.mp4"
-    assert File.exist?("v.mp4"), "Failed to generate source video!"
+    assert_predicate testpath/"v.mp4", :exist?, "Failed to generate source video!"
     system "#{bin}/ffmpegthumbnailer", "-i", "v.mp4", "-o", "out.jpg"
-    assert File.exist?("out.jpg"), "Failed to create thumbnail!"
+    assert_predicate testpath/"out.jpg", :exist?, "Failed to create thumbnail!"
   end
 end

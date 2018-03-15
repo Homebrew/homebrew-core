@@ -13,7 +13,7 @@ class Yuicompressor < Formula
 
   test do
     path = testpath/"test.js"
-    path.write <<-EOS
+    path.write <<~EOS
       var i = 1;      // foo
       console.log(i); // bar
     EOS

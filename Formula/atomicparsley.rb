@@ -35,4 +35,11 @@ class Atomicparsley < Formula
                           "--disable-universal"
     system "make", "install"
   end
+
+  test do
+    cp test_fixtures("test.m4a"), testpath/"file.m4a"
+    system "#{bin}/atomicparsley", testpath/"file.m4a", "--artist", "Homebrew", "--overWrite"
+    output = shell_output("#{bin}/atomicparsley file.m4a --textdata")
+    assert_match "Homebrew", output
+  end
 end

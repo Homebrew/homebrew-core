@@ -1,15 +1,15 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.5.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.5.7.tar.gz"
-  sha256 "d9c08fa524f9499b54241cb2d72f8a7df01453b6d5e012a63784ded08e3acd32"
+  url "https://ftp.gnu.org/gnu/global/global-6.6.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.2.tar.gz"
+  sha256 "43c64711301c2caf40dc56d7b91dd03d2b882a31fa31812bf20de0c8fb2e717f"
+  revision 1
 
   bottle do
-    sha256 "19706df6e1e9494e3c5f69a8eda4cd04a01e793fadefa17ac7ed949a8c250232" => :high_sierra
-    sha256 "cc5c5987a2bc21c05092e15b5d793c10ab71c532eb6e4d938b7688129f653483" => :sierra
-    sha256 "899dd6664ab239fd6a3d4d01066c216644d06716c3359227e76f6da7f49525d7" => :el_capitan
-    sha256 "f9f1c4729c8f5aaaae72e0b2becc6a082d48d779201119fc0633a5b4d51daa17" => :yosemite
+    sha256 "edda8dcf4e58e9fde59fa4aa144581b73f61c1bf4ff2357c2bb8d5c4814eaf56" => :high_sierra
+    sha256 "e16018befb94709f6bbdca2e7c6b1e2314b6aa9bd0d0ff98070a63a0d0be6bf8" => :sierra
+    sha256 "b7369855f9cbc9f4443e4f0ff2e180fc3dcf9f16579165b189c848d04c75820c" => :el_capitan
   end
 
   head do
@@ -75,12 +75,12 @@ class Global < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
-       int c2func (void) { return 0; }
-       void cfunc (void) {int cvar = c2func(); }")
+    (testpath/"test.c").write <<~EOS
+      int c2func (void) { return 0; }
+      void cfunc (void) {int cvar = c2func(); }")
     EOS
     if build.with?("pygments") || build.with?("ctags")
-      (testpath/"test.py").write <<-EOS
+      (testpath/"test.py").write <<~EOS
         def py2func ():
              return 0
         def pyfunc ():

@@ -21,7 +21,7 @@ class Libilbc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <ilbc.h>
       #include <stdio.h>
 

@@ -19,7 +19,7 @@ class Pgpdump < Formula
   end
 
   test do
-    (testpath/"sig.pgp").write <<-EOS.undent
+    (testpath/"sig.pgp").write <<~EOS
       -----BEGIN PGP MESSAGE-----
       Version: GnuPG v1.2.6 (NetBSD)
       Comment: For info see https://www.gnupg.org

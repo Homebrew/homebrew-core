@@ -1,15 +1,14 @@
 class Icoutils < Formula
   desc "Create and extract MS Windows icons and cursors"
-  homepage "http://www.nongnu.org/icoutils/"
-  url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.0.tar.bz2"
-  sha256 "17234d6e922f5dcd2dc8351a4b3535a2f348bb9b92c17ca3e438132147019ca6"
+  homepage "https://www.nongnu.org/icoutils/"
+  url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.3.tar.bz2"
+  sha256 "17abe02d043a253b68b47e3af69c9fc755b895db68fdc8811786125df564c6e0"
 
   bottle do
     cellar :any
-    sha256 "556da22536c6be8a8e3b5602d47e5ef47dcbcec5394b9ff4b7517dea19f4cb6c" => :high_sierra
-    sha256 "e610d5929aebf62ea55523c0b78086421ee1d986629f5e3d17da3db256dccff1" => :sierra
-    sha256 "1c90d46e62314b26aa041cac0c1fc8ac118a8cb99ccfd13c0480490409c19f12" => :el_capitan
-    sha256 "99093a0aa622a30d769ed6ac558e35e7621658c4210266f56a00bf9a4b36efb4" => :yosemite
+    sha256 "50b8adff5f3364626026d19fba9a0c9fef8cf93104b8d6907bcbe8a5f4a136c2" => :high_sierra
+    sha256 "1a3656f2fcf778aa32eb734a60dfceccd5e1a702fa6558b11b33cc6f44aeba99" => :sierra
+    sha256 "fb93eb5cfa6b222e77ec07569f501fcc03143e9decf306ebd21e9d1c6d304bce" => :el_capitan
   end
 
   depends_on "libpng"

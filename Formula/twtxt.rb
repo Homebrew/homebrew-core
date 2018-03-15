@@ -1,48 +1,62 @@
 class Twtxt < Formula
-  desc "Decentralised, minimalist microblogging service for hackers."
+  desc "Decentralised, minimalist microblogging service for hackers"
   homepage "https://github.com/buckket/twtxt"
-  url "https://github.com/buckket/twtxt/archive/v1.2.1.tar.gz"
-  sha256 "d16fe169b2f5800a60d2ed3d9b876e50fe45f2c0b46730d60a7b489bbc2c4e6a"
-  revision 1
+  url "https://github.com/buckket/twtxt/archive/v1.2.3.tar.gz"
+  sha256 "73b9d4988f96cc969c0c50ece0e9df12f7385735db23190e40c0d5e16f7ccd8c"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72d663641dabe4c973c218d68f635fb9719d6d1a1e78c989b2411d76e77460a2" => :high_sierra
-    sha256 "e40e94774534f2fdc8b126549f33c129ab9bc3d0f82a4b218c658c9000785384" => :sierra
-    sha256 "f51ba9c2d2dd460612bd2caf3948551ed5e12e427c475274ba019e9ffccf0adc" => :el_capitan
-    sha256 "04c6664cf013338bc7cb7a40ac65e9a3b183ed3fcf6fa908e572560d52e510f3" => :yosemite
+    sha256 "9d8568efc50dbb4d9a4563d01d852755c87088220e4704bb0d867cc91a980306" => :high_sierra
+    sha256 "e2acb2fa1cd36efa4de3a739406c38bc5b778d00e4d0a74c359a6fb1167b4322" => :sierra
+    sha256 "f1a2d991ea0e742dd12092c521cb8d886a4c6800b2d1d2aaeefa325f642d6eab" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
 
   resource "aiohttp" do
-    url "https://pypi.python.org/packages/source/a/aiohttp/aiohttp-0.21.2.tar.gz"
-    sha256 "991e574309815036ca36889a8917005bb795522acd2ba9cc870e07c260c092b5"
+    url "https://files.pythonhosted.org/packages/1e/d4/c1206b016b42a0b223aadb559318966b64ec27e5406bed79c36356e62082/aiohttp-2.2.5.tar.gz"
+    sha256 "af5bfdd164256118a0a306b3f7046e63207d1f8cba73a67dcc0bd858dcfcd3bc"
+  end
+
+  resource "async_timeout" do
+    url "https://files.pythonhosted.org/packages/6f/cc/ff80612164fe68bf97767052c5c783a033165df7d47a41ae5c1cc5ea480b/async-timeout-1.4.0.tar.gz"
+    sha256 "983891535b1eca6ba82b9df671c8abff53c804fce3fa630058da5bbbda500340"
   end
 
   resource "chardet" do
-    url "https://pypi.python.org/packages/source/c/chardet/chardet-2.3.0.tar.gz"
-    sha256 "e53e38b3a4afe6d1132de62b7400a4ac363452dc5dfcf8d88e8e0cce663c68aa"
+    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
+    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
   resource "click" do
-    url "https://pypi.python.org/packages/source/c/click/click-6.3.tar.gz"
-    sha256 "b720d9faabe193287b71e3c26082b0f249501288e153b7e7cfce3bb87ac8cc1c"
+    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
+    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
   resource "humanize" do
-    url "https://pypi.python.org/packages/source/h/humanize/humanize-0.5.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/8c/e0/e512e4ac6d091fc990bbe13f9e0378f34cf6eecd1c6c268c9e598dcf5bb9/humanize-0.5.1.tar.gz"
     sha256 "a43f57115831ac7c70de098e6ac46ac13be00d69abbf60bdcac251344785bb19"
   end
 
+  resource "multidict" do
+    url "https://files.pythonhosted.org/packages/68/a6/d241f9d1ed5ca55a819329c2f98c6833a2d8f25463bc03c44039cd13639c/multidict-3.2.0.tar.gz"
+    sha256 "e27a7a95317371c15ecda7206f6e8c144f10a337bb2c3e61b5176deafbb88cb2"
+  end
+
   resource "python-dateutil" do
-    url "https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.5.0.tar.gz"
-    sha256 "c1f7a66b0021bd7b206cc60dd47ecc91b931cdc5258972dc56b25186fa9a96a5"
+    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
+    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
   end
 
   resource "six" do
-    url "https://pypi.python.org/packages/source/s/six/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  end
+
+  resource "yarl" do
+    url "https://files.pythonhosted.org/packages/26/8b/e335a45600953cbaaa57e7f276eb8d89128898f11de63c47ecb97e32d29e/yarl-0.12.0.tar.gz"
+    sha256 "fc0f71ffdce882b4d4b287b0b3a68d9f2557ab14cc2c10ce4df714c42512cbde"
   end
 
   def install
@@ -61,19 +75,21 @@ class Twtxt < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
+  # If the test needs to be updated, more users can be found here:
+  # https://github.com/mdom/we-are-twtxt/blob/master/we-are-twtxt.txt
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
-    (testpath/"config").write <<-EOS.undent
+    (testpath/"config").write <<~EOS
       [twtxt]
       nick = homebrew
       twtfile = twtxt.txt
       [following]
-      twtxt = https://buckket.org/twtxt_news.txt
+      abliss = https://abliss.keybase.pub/twtxt.txt#7a778276dd852edc65217e759cba637a28b4426b
     EOS
-    (testpath/"twtxt.txt").write <<-EOS.undent
+    (testpath/"twtxt.txt").write <<~EOS
       2016-02-05T18:00:56.626750+00:00  Homebrew speaks!
     EOS
-    assert_match "Fiat Lux!", shell_output("#{bin}/twtxt -c config timeline")
+    assert_match "PGP", shell_output("#{bin}/twtxt -c config timeline")
   end
 end

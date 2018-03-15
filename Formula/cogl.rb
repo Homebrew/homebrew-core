@@ -70,7 +70,7 @@ class Cogl < Formula
     doc.install "examples"
   end
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <cogl/cogl.h>
 
       int main()

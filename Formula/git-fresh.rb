@@ -1,8 +1,8 @@
 class GitFresh < Formula
   desc "Utility to keep git repos fresh"
   homepage "https://github.com/imsky/git-fresh"
-  url "https://github.com/imsky/git-fresh/archive/v1.10.1.tar.gz"
-  sha256 "7c90b6c918c51ef605f2faa60d0e15d804a29fc825965f78175be1aae423b415"
+  url "https://github.com/imsky/git-fresh/archive/v1.11.0.tar.gz"
+  sha256 "b8504e633c679b5112fc7ccfea354c4ceb01f9d6aa681abf09dc7c9564a7e38f"
 
   bottle :unneeded
 

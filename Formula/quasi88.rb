@@ -28,7 +28,7 @@ class Quasi88 < Formula
     bin.install "quasi88.sdl" => "quasi88"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You will need to place ROM and disk files.
     Default arguments for the directories are:
       -romdir ~/quasi88/rom/

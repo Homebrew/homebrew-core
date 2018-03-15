@@ -22,7 +22,7 @@ class Lolcat < Formula
   end
 
   test do
-    (testpath/"test.txt").write <<-EOS.undent
+    (testpath/"test.txt").write <<~EOS
       This is
       a test
     EOS

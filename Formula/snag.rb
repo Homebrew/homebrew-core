@@ -26,7 +26,7 @@ class Snag < Formula
   end
 
   test do
-    (testpath/".snag.yml").write <<-EOS.undent
+    (testpath/".snag.yml").write <<~EOS
       build:
         - touch #{testpath}/snagged
       verbose: true
@@ -40,6 +40,6 @@ class Snag < Formula
       Process.kill "TERM", pid
       Process.wait pid
     end
-    File.exist? testpath/"snagged"
+    assert_predicate testpath/"snagged", :exist?
   end
 end

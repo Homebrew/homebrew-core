@@ -45,7 +45,7 @@ class Ngspice < Formula
   end
 
   test do
-    (testpath/"test.cir").write <<-EOS.undent
+    (testpath/"test.cir").write <<~EOS
       RC test circuit
       v1 1 0 1
       r1 1 2 1

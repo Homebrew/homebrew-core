@@ -3,18 +3,20 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/9e/3f/28518ed1f5701ba42299c7243caacfa188dac495278de54592069ac43c10/ipython-6.2.0.tar.gz"
-  sha256 "81b0d6936f87002e6972eccc7e4085f5c2d0673decff22724b53cf34809ffacf"
+  url "https://files.pythonhosted.org/packages/fa/50/974211502bd72873728d44c3013fe79875c819c8fb69f778bcfd67bc7d38/ipython-6.2.1.tar.gz"
+  sha256 "51c158a6c8b899898d1c91c6b51a34110196815cc905f9be0fa5878e19355608"
+  revision 3
   head "https://github.com/ipython/ipython.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "34bf30f3e8ab4cfcf5c551b885b2f2eddd02feaf3240930655f0a3506a205df3" => :high_sierra
-    sha256 "24b9ec7c8dbc14aad48ba5b72f222f8e3f518014c2fc2f5d5e1a7a64fa5fcecb" => :sierra
-    sha256 "c648cb3cf445db02a0d1508a099abfd31531a41ee558f6b85d2c9ac812d78110" => :el_capitan
+    cellar :any
+    sha256 "a5e6032062cc9e357889f7354d1ae3f03ea903d100acd7ce2871b0d2dad941c5" => :high_sierra
+    sha256 "1d2dad5274977035e1d782acf72e608682954ef59a60ec7f8876594b02f43972" => :sierra
+    sha256 "925664f64b6ee85baa00b827325cc64379c5ec01f0538e3682efd9a3cce49580" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
+  depends_on "zeromq"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"
@@ -37,8 +39,8 @@ class Ipython < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/80/b9/4e9b0b999deeec8a91cb84e567380853a842e6c387c9d39b8fc9a49953fa/jedi-0.10.2.tar.gz"
-    sha256 "7abb618cac6470ebbd142e59c23daec5e6e063bfcecc8a43a037d2ab57276f4e"
+    url "https://files.pythonhosted.org/packages/08/8d/34b133dfa210b55e7efaa8b09c736a8f4383fcda0b6487fc43a1db3c7ee7/jedi-0.11.0.tar.gz"
+    sha256 "f6d5973573e76b1fd2ea75f6dcd6445d02d41ff3af5fc61b275b4e323d1dd396"
   end
 
   resource "jupyter_client" do
@@ -49,6 +51,11 @@ class Ipython < Formula
   resource "jupyter_core" do
     url "https://files.pythonhosted.org/packages/2f/39/5138f975100ce14d150938df48a83cd852a3fd8e24b1244f4113848e69e2/jupyter_core-4.3.0.tar.gz"
     sha256 "a96b129e1641425bf057c3d46f4f44adce747a7d60107e8ad771045c36514d40"
+  end
+
+  resource "parso" do
+    url "https://files.pythonhosted.org/packages/32/f4/9f1ee3fc5f7a23aee6454feeadef423ef1aed405208135e81620b4e3ba77/parso-0.1.0.tar.gz"
+    sha256 "c5279916bb417aa2bf634648ff895cf35dce371d7319744884827bfad06f8d7b"
   end
 
   resource "pexpect" do
@@ -92,8 +99,8 @@ class Ipython < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "tornado" do
@@ -138,8 +145,10 @@ class Ipython < Formula
     end
 
     # install kernel
-    system libexec/"bin/ipython", "kernel", "install", "--prefix", share
-    inreplace share/"share/jupyter/kernels/python3/kernel.json", "]", <<-EOS.undent
+    kernel_dir = Dir.mktmpdir
+    system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
+    (share/"jupyter/kernels/python3").install Dir["#{kernel_dir}/share/jupyter/kernels/python3/*"]
+    inreplace share/"jupyter/kernels/python3/kernel.json", "]", <<~EOS
       ],
       "env": {
         "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
@@ -148,7 +157,8 @@ class Ipython < Formula
   end
 
   def post_install
-    (etc/"jupyter/kernels/python3").install Dir[share/"share/jupyter/kernels/python3/*"]
+    rm_rf etc/"jupyter/kernels/python3"
+    (etc/"jupyter/kernels/python3").install Dir[share/"jupyter/kernels/python3/*"]
   end
 
   test do

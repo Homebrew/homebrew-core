@@ -1,33 +1,34 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/3.26/baobab-3.26.0.tar.xz"
-  sha256 "ca07c18c8582f6c2fcb54b414f0b9057ebe53e54296c3ce9ccee44b78e86b2db"
+  url "https://download.gnome.org/sources/baobab/3.28/baobab-3.28.0.tar.xz"
+  sha256 "530bb269e19d1f9f562fab90377eda8ce3c3efd521e4d569f7c40e56fa3e5d63"
 
   bottle do
-    rebuild 1
-    sha256 "8872a4c6700fd712af0f376e2be4cb8daa87629e3c8848a645a6447a3469010c" => :high_sierra
-    sha256 "b66a35615da0b1b04463df2e63ffe2a9256cff1bf63a00c8f1e71ab8ac7c5428" => :sierra
-    sha256 "675f9a11696972a6cc4e6f918830995fc884d50cfd4a1f032787e19e1bf508bb" => :el_capitan
+    cellar :any
+    sha256 "941b9ab6b3cf479355a678115d0a2e8e771e76815341402dc457439715e76a09" => :high_sierra
+    sha256 "1526e3b5330de4afad90337aa055968a5771c1d4888d8709b4b96a8757688dfa" => :sierra
+    sha256 "ca01848bb1e6f29393816c6fe44380d685dbeae673ff7896897172ecb027519c" => :el_capitan
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
+  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
   depends_on "itstool" => :build
-  depends_on "libxml2" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "vala" => :build
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
   depends_on "adwaita-icon-theme"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
-    system "make", "install"
+    # stop meson_post_install.py from doing what needs to be done in the post_install step
+    ENV["DESTDIR"] = "/"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   def post_install

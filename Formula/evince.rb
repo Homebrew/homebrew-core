@@ -1,14 +1,13 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.26/evince-3.26.0.tar.xz"
-  sha256 "79567bdb743cf0c3ed7b638da32afc9b850298f9b4edd532455df4a7e2a4c9d8"
+  url "https://download.gnome.org/sources/evince/3.28/evince-3.28.0.tar.xz"
+  sha256 "fa23264b65e140afb8ec27b070a277bda748d9d4a86788240d9f3514346573a8"
 
   bottle do
-    rebuild 1
-    sha256 "c9ac9f8fad22885258f3c94a14680c6b69201f1400e7d3462c619482408df6b6" => :high_sierra
-    sha256 "0854d73415e9bd442fcda1d63f6e29ca7656ae308322ecb966aec90d1d76aee8" => :sierra
-    sha256 "f336abb515cf3537eb6a486f02c7386261c40a323359c9634b4abf09bb995032" => :el_capitan
+    sha256 "d13c75365f1b12982e0163bdff174af4cd2be3122bc4fe85cdef0f183aecdc85" => :high_sierra
+    sha256 "b9aa704d9279a1ac1ec96cbcba43ea1fb1f07ee9fee4155c7561e3ea6af7d8b1" => :sierra
+    sha256 "cd58488cec1b23b0463f0a6d8602c2be4fa9d940db24dce5c54c149a6a074e81" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -24,7 +23,7 @@ class Evince < Formula
   depends_on "gobject-introspection"
   depends_on "shared-mime-info"
   depends_on "djvulibre"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     # Fix build failure "ar: illegal option -- D"

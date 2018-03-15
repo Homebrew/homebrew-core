@@ -53,7 +53,7 @@ class Qwt < Formula
     s = ""
 
     if build.with? "qwtmathml"
-      s += <<-EOS.undent
+      s += <<~EOS
         The qwtmathml library contains code of the MML Widget from the Qt solutions package.
         Beside the Qwt license you also have to take care of its license:
         #{opt_prefix}/qtmmlwidget-license
@@ -64,7 +64,7 @@ class Qwt < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <qwt_plot_curve.h>
       int main() {
         QwtPlotCurve *curve1 = new QwtPlotCurve("Curve 1");

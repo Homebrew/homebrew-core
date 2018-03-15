@@ -1,20 +1,20 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://download.gnome.org/sources/graphene/1.6/graphene-1.6.0.tar.xz"
-  sha256 "c3a9910f8dd298c1459d1f3c699ddf2e7440f9e561bfcbef59ae784400e27b5d"
+  url "https://download.gnome.org/sources/graphene/1.6/graphene-1.6.2.tar.xz"
+  sha256 "8f7d1984c06aefe3b47a668c12ad9f3db0bcb2d09c55e6267b82a90f6b10d961"
+  revision 1
 
   bottle do
-    sha256 "8bd3cbebbd244603447606001998454111ba5592686329550b109bb08c055eb6" => :high_sierra
-    sha256 "26643b04ec0aa93a3fbc0560f0cc99a24a1894ed94a2d1b48a8a70612ef5f891" => :sierra
-    sha256 "ef1e66271b468a48bc6fc18de2bdbdc40c87bdbc51d319f8af0509b107af537c" => :el_capitan
-    sha256 "437949adfe70b32ae7145f853b3b133b21aa3df25f5cd5fc52c8f13ef931d094" => :yosemite
+    sha256 "4ed91e3d415e97cbb88432448e67199b74738705b5a859a6db1577cb1eab1441" => :high_sierra
+    sha256 "08f58d77c34cdef2b11f4195e17d929438678a8ee1c98d8243cb3386c5d5c5f5" => :sierra
+    sha256 "fb90bbbabde61e65bd5ef9afd48348bc855ffd418252b715b2e84b4d0a2de3ff" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gobject-introspection"
-  depends_on "python3"
+  depends_on "python"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -26,7 +26,7 @@ class Graphene < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <graphene-gobject.h>
 
       int main(int argc, char *argv[]) {

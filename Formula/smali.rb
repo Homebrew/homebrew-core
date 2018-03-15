@@ -1,14 +1,14 @@
 class Smali < Formula
   desc "Assembler/disassembler for Android's Java VM implementation"
   homepage "https://github.com/JesusFreke/smali"
-  url "https://bitbucket.org/JesusFreke/smali/downloads/smali-2.2.1.jar"
-  sha256 "cd01517b5c4dde417ef5802b727ded7605d3ab512db504f943a9730f707df1e4"
+  url "https://bitbucket.org/JesusFreke/smali/downloads/smali-2.2.2.jar"
+  sha256 "5ec0ce98146d36c5826f1fbf362180a0a264ce0a31d50b8c24833975b47d98e6"
 
   bottle :unneeded
 
   resource "baksmali-jar" do
-    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.2.1.jar"
-    sha256 "83c672439e9f7211d192273192e1ee496e4e13dd5e6e11e0fa312e2870b48b74"
+    url "https://bitbucket.org/JesusFreke/smali/downloads/baksmali-2.2.2.jar"
+    sha256 "cf7484d8c090fedfa9cd35215144ffabda43c30afd35e00b57c1cf53bde4c66f"
   end
 
   resource "baksmali" do
@@ -39,17 +39,17 @@ class Smali < Formula
   test do
     # From examples/HelloWorld/HelloWorld.smali in Smali project repo.
     # See https://bitbucket.org/JesusFreke/smali/src/2d8cbfe6bc2d8ff2fcd7a0bf432cc808d842da4a/examples/HelloWorld/HelloWorld.smali?at=master
-    (testpath/"input.smali").write <<-EOS.undent
-    .class public LHelloWorld;
-    .super Ljava/lang/Object;
+    (testpath/"input.smali").write <<~EOS
+      .class public LHelloWorld;
+      .super Ljava/lang/Object;
 
-    .method public static main([Ljava/lang/String;)V
-      .registers 2
-      sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
-      const-string v1, "Hello World!"
-      invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
-      return-void
-    .end method
+      .method public static main([Ljava/lang/String;)V
+        .registers 2
+        sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;
+        const-string v1, "Hello World!"
+        invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V
+        return-void
+      .end method
     EOS
 
     system bin/"smali", "assemble", "-o", "classes.dex", "input.smali"

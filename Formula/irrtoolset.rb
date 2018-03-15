@@ -14,7 +14,7 @@ class Irrtoolset < Formula
   end
 
   head do
-    url "svn://irrtoolset.isc.org/trunk"
+    url "https://github.com/irrtoolset/irrtoolset.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

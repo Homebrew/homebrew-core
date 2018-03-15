@@ -25,6 +25,6 @@ class Puzzles < Formula
   end
 
   test do
-    File.executable? prefix/"Puzzles.app/Contents/MacOS/puzzles"
+    assert_predicate prefix/"Puzzles.app/Contents/MacOS/puzzles", :executable?
   end
 end

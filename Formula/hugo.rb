@@ -1,25 +1,25 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/gohugoio/hugo/archive/v0.27.1.tar.gz"
-  sha256 "b357b4e3edd8934dbbbc6a04b57a36c07f1923ac3891b6f822fadd48ccaaeaba"
+  url "https://github.com/gohugoio/hugo/archive/v0.37.1.tar.gz"
+  sha256 "32ceca3bfcda80109ebd16b0cfdeb40c6b6fb1fe86976abdbd0fbce2e6492172"
   head "https://github.com/gohugoio/hugo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dabda325baceb3cf124f8668f4ddf8c647b75f6a6ff18bda1bfbffac61a8c0e5" => :high_sierra
-    sha256 "48ca69a7dadd85d291daee742fb49c9538a3bf471cbbed115ee4e67452bc1bf2" => :sierra
-    sha256 "6735bd1bdf904b6aac26c0ba6637aa41e6be57cccde3fafed50be17caf1c74ab" => :el_capitan
+    sha256 "017939ba21c6b5e88ebb49e4b5f728656a1ab62cadf704a3d1792d8b1ff980c4" => :high_sierra
+    sha256 "df82e9fe961e4076cd1bdf4ff6a5365011edee5256583549a71229b247c2902f" => :sierra
+    sha256 "cf6133f0c53d323f5e6a6a991fea91137637c5104d61d7f5ed7716ec7a6ed206" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "govendor" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/gohugoio/hugo").install buildpath.children
     cd "src/github.com/gohugoio/hugo" do
-      system "govendor", "sync"
+      system "dep", "ensure"
       system "go", "build", "-o", bin/"hugo", "main.go"
 
       # Build bash completion
@@ -38,6 +38,6 @@ class Hugo < Formula
   test do
     site = testpath/"hops-yeast-malt-water"
     system "#{bin}/hugo", "new", "site", site
-    assert File.exist?("#{site}/config.toml")
+    assert_predicate testpath/"#{site}/config.toml", :exist?
   end
 end

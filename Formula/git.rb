@@ -1,14 +1,14 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://www.kernel.org/pub/software/scm/git/git-2.14.2.tar.xz"
-  sha256 "50e9723996114ad1eec4dda89960d9fe34461749ae42031008a261fedd03c7a1"
+  url "https://www.kernel.org/pub/software/scm/git/git-2.16.2.tar.xz"
+  sha256 "5560578bd21468d98637f41515c165d32f69caff0838b8989dee5ce10022c717"
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    sha256 "aeee88fe952395662443823da8defc89740f7f63199dfd52cb0ae570b85ebdf4" => :high_sierra
-    sha256 "cde6194d8988226cf213a5903821004d0844960fee3695d9553b009b473ab41a" => :sierra
-    sha256 "f7388986a241ac6f82b02254e965e0f854985e1f4d55ca108cbbd84f04735268" => :el_capitan
+    sha256 "0222b2e2fef8adff1feb479c003987c392c7a4eb9b23eccd6160d56aa732e1c2" => :high_sierra
+    sha256 "7770770f5f29100a9b9142239d1dc2a8d68d457c4d3ef1fcfc0f694ba2e9f8d4" => :sierra
+    sha256 "206d2a21710b4b4d914343f531529c74234f668950dc89788492cb9f6242c4cb" => :el_capitan
   end
 
   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
@@ -39,20 +39,20 @@ class Git < Formula
 
   if build.with? "subversion"
     depends_on "subversion"
-    depends_on :perl => ["5.6", :recommended]
+    depends_on "perl" => :recommended
   else
-    option "with-perl", "Build against a custom Perl rather than system default"
-    depends_on :perl => ["5.6", :optional]
+    option "with-perl", "Build against Homebrew's Perl rather than system default"
+    depends_on "perl" => :optional
   end
 
   resource "html" do
-    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.14.2.tar.xz"
-    sha256 "a36661e81e5b21e788cd84e11860bcd0cafa402eff06e6371415a5a0e0b80dfb"
+    url "https://www.kernel.org/pub/software/scm/git/git-htmldocs-2.16.2.tar.xz"
+    sha256 "dbaf94de882e6ad6827a79935e6982021f0908bd7cccf984d3130fc77ecccb19"
   end
 
   resource "man" do
-    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.14.2.tar.xz"
-    sha256 "6dd350d1e9d00159a549f0fad08a9f954b1d12576fc8d5865fbed9dee15105fc"
+    url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.16.2.tar.xz"
+    sha256 "42eee5134cc8b3b64c736025edfbfee86c2ecb76e37980a0aff26c86b5abcb05"
   end
 
   def install
@@ -113,12 +113,14 @@ class Git < Formula
 
     system "make", "install", *args
 
+    git_core = libexec/"git-core"
+
     # Install the macOS keychain credential helper
     cd "contrib/credential/osxkeychain" do
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
-      bin.install "git-credential-osxkeychain"
+      git_core.install "git-credential-osxkeychain"
       system "make", "clean"
     end
 
@@ -130,7 +132,7 @@ class Git < Formula
     # Install the netrc credential helper
     cd "contrib/credential/netrc" do
       system "make", "test"
-      bin.install "git-credential-netrc"
+      git_core.install "git-credential-netrc"
     end
 
     # Install git-subtree
@@ -138,15 +140,15 @@ class Git < Formula
       system "make", "CC=#{ENV.cc}",
                      "CFLAGS=#{ENV.cflags}",
                      "LDFLAGS=#{ENV.ldflags}"
-      bin.install "git-subtree"
+      git_core.install "git-subtree"
     end
 
     if build.with? "persistent-https"
       cd "contrib/persistent-https" do
         system "make"
-        bin.install "git-remote-persistent-http",
-                    "git-remote-persistent-https",
-                    "git-remote-persistent-https--proxy"
+        git_core.install "git-remote-persistent-http",
+                         "git-remote-persistent-https",
+                         "git-remote-persistent-https--proxy"
       end
     end
 
@@ -185,7 +187,7 @@ class Git < Formula
 
     # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
-    (buildpath/"gitconfig").write <<-EOS.undent
+    (buildpath/"gitconfig").write <<~EOS
       [credential]
       \thelper = osxkeychain
     EOS

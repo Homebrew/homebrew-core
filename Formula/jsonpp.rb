@@ -12,7 +12,7 @@ class Jsonpp < Formula
   end
 
   test do
-    expected = <<-EOS.undent.chomp
+    expected = <<~EOS.chomp
       {
         "foo": "bar",
         "baz": "qux"

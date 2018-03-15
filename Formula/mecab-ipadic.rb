@@ -38,14 +38,15 @@ class MecabIpadic < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
-     To enable mecab-ipadic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
-       dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/ipadic
+  def caveats
+    <<~EOS
+      To enable mecab-ipadic dictionary, add to #{HOMEBREW_PREFIX}/etc/mecabrc:
+        dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/ipadic
     EOS
   end
 
   test do
-    (testpath/"mecabrc").write <<-EOS.undent
+    (testpath/"mecabrc").write <<~EOS
       dicdir = #{HOMEBREW_PREFIX}/lib/mecab/dic/ipadic
     EOS
 

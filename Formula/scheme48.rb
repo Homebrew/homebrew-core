@@ -22,11 +22,11 @@ class Scheme48 < Formula
   end
 
   test do
-    (testpath/"hello.scm").write <<-EOS.undent
+    (testpath/"hello.scm").write <<~EOS
       (display "Hello, World!") (newline)
     EOS
 
-    expected = <<-EOS.undent
+    expected = <<~EOS
       Hello, World!\#{Unspecific}
 
       \#{Unspecific}

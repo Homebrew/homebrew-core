@@ -1,19 +1,19 @@
 class Kotlin < Formula
   desc "Statically typed programming language for the JVM"
   homepage "https://kotlinlang.org/"
-  url "https://github.com/JetBrains/kotlin/releases/download/v1.1.50/kotlin-compiler-1.1.50.zip"
-  sha256 "b5106298e10a934f11685b1c80e47a5b4960c039100d5640bb4a285e32a8c707"
+  url "https://github.com/JetBrains/kotlin/releases/download/v1.2.30/kotlin-compiler-1.2.30.zip"
+  sha256 "4d6965877301d44241ca6de36480140992dc8a6b1c1884baeb5239ce2c43e071"
 
   bottle :unneeded
 
   def install
-    libexec.install %w[bin lib]
+    libexec.install "bin", "build.txt", "lib"
     rm Dir["#{libexec}/bin/*.bat"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
-    (testpath/"test.kt").write <<-EOS.undent
+    (testpath/"test.kt").write <<~EOS
       fun main(args: Array<String>) {
         println("Hello World!")
       }

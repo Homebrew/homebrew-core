@@ -28,7 +28,7 @@ class Gupnp < Formula
 
   test do
     system bin/"gupnp-binding-tool", "--help"
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libgupnp/gupnp-control-point.h>
 
       static GMainLoop *main_loop;

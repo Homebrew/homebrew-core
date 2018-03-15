@@ -24,7 +24,7 @@ class SblimSfcc < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cimc/cimc.h>
       int main()
       {

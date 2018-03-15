@@ -21,7 +21,7 @@ class Mmix < Formula
   end
 
   test do
-    (testpath/"hello.mms").write <<-EOS.undent
+    (testpath/"hello.mms").write <<~EOS
             LOC  Data_Segment
             GREG @
       txt   BYTE "Hello world!",0

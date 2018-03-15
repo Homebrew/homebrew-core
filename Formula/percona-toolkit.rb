@@ -1,31 +1,30 @@
 class PerconaToolkit < Formula
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.0.4/source/tarball/percona-toolkit-3.0.4.tar.gz"
-  sha256 "fa3e34bdcb272edf95a5e9e4a14c9d111e35427eca3232a37fe7c1632ed3b43f"
+  url "https://www.percona.com/downloads/percona-toolkit/3.0.7/source/tarball/percona-toolkit-3.0.7.tar.gz"
+  sha256 "40f1a2241fb3ac1049e43ea75056f02d8af48c1eb731b48a4b564a054f8227e3"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
     cellar :any
-    sha256 "77aa3723b88f855b37e6c0676237a6644f3bb70ecf9cbb0f878522694e8be463" => :high_sierra
-    sha256 "a9841215e8be6769718ba5cc9a7d64f7acb473f4a29309236bb8e2082bc1f634" => :sierra
-    sha256 "ab892ddb81ae7ef729ab6a9d877d0902aebedebfcafb254ffc66a25780de085c" => :el_capitan
-    sha256 "cd53523240673a8db3180c45907aaae5d81067fb59f3f66fe35030671a942223" => :yosemite
+    sha256 "c29f188515733b37e205ef3784593abd9c1b5d573ebbc4e682bf0cf86253bad8" => :high_sierra
+    sha256 "61f3da20a55546c69c3654f6a7655399eb8016b5f6bc65ff5e04aadf050175f9" => :sierra
+    sha256 "5e473591e46fe26e157c9c5c559f2478eb3d27b9c20034ef524232db794b50ee" => :el_capitan
   end
 
-  depends_on :mysql
+  depends_on "mysql"
   depends_on "openssl"
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
-    sha256 "629f865e8317f52602b2f2efd2b688002903d2e4bbcba5427cb6188b043d6f99"
+    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
-    sha256 "12271b5cee49943bbdde430eef58f1fe64ba6561980b22c69585e08fc977dc6d"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.97001.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.97001.tar.gz"
+    sha256 "e277d9385633574923f48c297e1b8acad3170c69fa590e31fa466040fc6f8f5a"
   end
 
   def install

@@ -1,5 +1,5 @@
 class Fsql < Formula
-  desc "Search through your filesystem with SQL-esque queries."
+  desc "Search through your filesystem with SQL-esque queries"
   homepage "https://github.com/kshvmdn/fsql"
   url "https://github.com/kshvmdn/fsql/archive/v0.3.1.tar.gz"
   sha256 "b88110426a60aa2c48f7b4e52e117a899d43d1bba2614346b729234cd4bd9184"

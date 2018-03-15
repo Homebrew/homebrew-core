@@ -1,6 +1,6 @@
 class Reclass < Formula
   desc "Recursive external node classification"
-  homepage "http://reclass.pantsfullofunix.net/"
+  homepage "https://reclass.pantsfullofunix.net/"
   url "https://github.com/madduck/reclass/archive/reclass-1.4.1.tar.gz"
   sha256 "48271fcd3b37d8945047ed70c478b387f87ffef2fd209fe028761724ed2f97fb"
   head "https://github.com/madduck/reclass.git"
@@ -15,7 +15,7 @@ class Reclass < Formula
     sha256 "7c63989f940dc69a54c8e1eebb1d14a1ea04141a4a806354ed1ad338c8d4ea6b" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python2.7/site-packages"

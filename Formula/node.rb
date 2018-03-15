@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.5.0/node-v8.5.0.tar.xz"
-  sha256 "e1cde5d8e5049e7e1b61aef128f26162059d885dc8cab5014bf5cbf693f75c3c"
+  url "https://nodejs.org/dist/v9.8.0/node-v9.8.0.tar.xz"
+  sha256 "0706bb49e4fa5fa64c6c51941becb4b3854a6c0335425d7312bc086c37b41eac"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "ac2a852b51b31659620bd2a9b92a4189409f776a28113f68b245b30415d951f4" => :high_sierra
-    sha256 "19d2e1d94b81b30869cc3257cf7b3dbeb2dab504caee2f10e3939dcc6e7bc4b1" => :sierra
-    sha256 "a7ff7cf8a499f60cfbd6adb92ebd29c2aa2868c31da540223ef536371645bab9" => :el_capitan
+    sha256 "30bb35f2f6a6d7cde6194164549b87e63deb1fffa2e750d57a510cb5262db58f" => :high_sierra
+    sha256 "2baa6fa3c25d4d5c756be9be985f14e12eb954d4812aca4794be256e4f23d3c3" => :sierra
+    sha256 "8e8fe430186e531e8753669ebd11dbf4da6cea7ca38fbcb3cc46fcffd4a3d9b0" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -19,7 +19,7 @@ class Node < Formula
 
   deprecated_option "enable-debug" => "with-debug"
 
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
@@ -35,8 +35,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.3.0.tgz"
-    sha256 "dd96ece7cbd6186a51ca0a5ab7e1de0113333429603ec2ccb6259e0bef2e03eb"
+    url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
+    sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
   end
 
   def install
@@ -100,14 +100,17 @@ class Node < Formula
       cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
-    npm_root = node_modules/"npm"
-    npmrc = npm_root/"npmrc"
-    npmrc.atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    npmrc = <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python
+    EOS
+    (node_modules/"npm/npmrc").atomic_write npmrc
+    (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
   end
 
   def caveats
     if build.without? "npm"
-      <<-EOS.undent
+      <<~EOS
         Homebrew has NOT installed npm. If you later install it, you should supplement
         your NODE_PATH with the npm module folder:
           #{HOMEBREW_PREFIX}/lib/node_modules
@@ -133,14 +136,14 @@ class Node < Formula
       ENV.prepend_path "PATH", opt_bin
       ENV.delete "NVM_NODEJS_ORG_MIRROR"
       assert_equal which("node"), opt_bin/"node"
-      assert (HOMEBREW_PREFIX/"bin/npm").exist?, "npm must exist"
-      assert (HOMEBREW_PREFIX/"bin/npm").executable?, "npm must be executable"
+      assert_predicate HOMEBREW_PREFIX/"bin/npm", :exist?, "npm must exist"
+      assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
-      assert (HOMEBREW_PREFIX/"bin/npx").exist?, "npx must exist"
-      assert (HOMEBREW_PREFIX/"bin/npx").executable?, "npx must be executable"
-      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --cache=#{HOMEBREW_CACHE}/npm_cache cowsay hello")
+      assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
+      assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
+      assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
     end
   end
 end

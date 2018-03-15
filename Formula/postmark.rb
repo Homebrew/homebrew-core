@@ -21,7 +21,7 @@ class Postmark < Formula
   end
 
   test do
-    (testpath/"config").write <<-EOS.undent
+    (testpath/"config").write <<~EOS
       set transactions 50
       set location #{testpath}
       run

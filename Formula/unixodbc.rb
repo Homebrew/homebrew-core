@@ -1,19 +1,19 @@
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
-  url "https://downloads.sourceforge.net/project/unixodbc/unixODBC/2.3.4/unixODBC-2.3.4.tar.gz"
-  mirror "ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz"
-  sha256 "2e1509a96bb18d248bf08ead0d74804957304ff7c6f8b2e5965309c632421e39"
+  url "http://www.unixodbc.org/unixODBC-2.3.5.tar.gz"
+  sha256 "760972e05cc6361aee49d676fb7da8244e0f3a225cd4d3449a951378551b495b"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "67d8a07e5abf3f964101d94911321271ebd755076f4a39f73657b826619b88df" => :high_sierra
-    sha256 "b3117348129272e966e9fd3e37f29ccdffbf9a0dde9d8e2691a3185feaae92ff" => :sierra
-    sha256 "78bb1bb4468cb34d0acf6566ecaad6535a9b77ff7a740bafd2ed91e1d7812c70" => :el_capitan
-    sha256 "82f217f67f78a6dab125b77558e99f9ee18227f991ab8d842e881e83d0c7d917" => :yosemite
+    sha256 "df1bc9fd3d8f42f9c28be234ef8b088428e593ebb3cdea770eff46bbbabed3b3" => :high_sierra
+    sha256 "d3ed41256b2d4cf0e6dc827aa9a99af06db96d870cb99bfd9f89eef519381d0d" => :sierra
+    sha256 "4000a04bcd306d0ce55cacff24bc6a6e3592c20be42c0ce5ce3a9171a00cf5f2" => :el_capitan
   end
 
-  keg_only "Shadows system iODBC header files" if MacOS.version < :mavericks
+  depends_on "libtool" => :run
+
+  keg_only "shadows system iODBC header files" if MacOS.version < :mavericks
 
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
@@ -21,6 +21,7 @@ class Unixodbc < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
                           "--enable-static",
                           "--enable-gui=no"
     system "make", "install"

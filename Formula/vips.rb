@@ -1,18 +1,16 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/jcupitt/libvips"
-  url "https://github.com/jcupitt/libvips/releases/download/v8.5.8/vips-8.5.8.tar.gz"
-  sha256 "07a3b8966a816a834dd60dc1745ae1930f3bbe604e826986a5a2bbd7f45c5426"
+  url "https://github.com/jcupitt/libvips/releases/download/v8.6.3/vips-8.6.3.tar.gz"
+  sha256 "f85adbb9f5f0f66b34a40fd2d2e60d52f6e992831f54af706db446f582e10992"
 
   bottle do
-    sha256 "4cbcc738766cf392a0458f8e2f6f78df7193a4c6a23425a0498b47cdd9ca1286" => :high_sierra
-    sha256 "6f18a2e5a7cf90c137d809258e5ffaf29ac1e8f1dd2ccce4f08edf9c99585d95" => :sierra
-    sha256 "2c5c1c232a6060df5f260acc718a49949409200f36a2cd74809f227ee45a693d" => :el_capitan
-    sha256 "309b17ea3fc099591ecd5c70b56657a0d31a8bb36713e7ab876b1565cc37e7a6" => :yosemite
+    sha256 "25f44ca911e94f5590407365eb7a04faaf973bfa8be8979f889b91a6b559256b" => :high_sierra
+    sha256 "236d724ea332f2081c58ae0aed377daf655698c84971284843db4f119c1f6ac0" => :sierra
+    sha256 "618ad45f5acc03cdf7f77439956d8e1ba948efc4a88eb452b85ca1c73ba80af4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on "fftw"
   depends_on "fontconfig"
   depends_on "gettext"
   depends_on "giflib"
@@ -27,8 +25,9 @@ class Vips < Formula
   depends_on "little-cms2"
   depends_on "orc"
   depends_on "pango"
-  depends_on "poppler"
   depends_on "pygobject3"
+  depends_on "fftw" => :recommended
+  depends_on "poppler" => :recommended
   depends_on "graphicsmagick" => :optional
   depends_on "imagemagick" => :optional
   depends_on "jpeg-turbo" => :optional

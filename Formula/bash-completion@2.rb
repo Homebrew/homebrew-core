@@ -25,7 +25,7 @@ class BashCompletionAT2 < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following to your ~/.bash_profile:
       if [ -f #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion ]; then
         . #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion

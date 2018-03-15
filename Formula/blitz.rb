@@ -33,4 +33,21 @@ class Blitz < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"testfile.cpp").write <<~EOS
+      #include <blitz/array.h>
+      #include <cstdlib>
+      using namespace blitz;
+      int main(){
+        Array<float,2> A(3,1);
+        A = 17, 2, 97;
+        cout << "A = " << A << endl;
+        return 0;}
+      EOS
+    system ENV.cxx, "testfile.cpp", "-o", "testfile"
+    output = shell_output("./testfile")
+    var = "/A\ =\ \(0,2\)\ x\ \(0,0\)\n\[\ 17\ \n\ \ 2\ \n\ \ 97\ \]\n\n/"
+    assert_match output, var
+  end
 end

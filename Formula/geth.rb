@@ -1,27 +1,26 @@
 class Geth < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://ethereum.github.io/go-ethereum/"
-  url "https://github.com/ethereum/go-ethereum/archive/v1.6.7.tar.gz"
-  sha256 "3e2a75b55ee8f04f238682164a7a255cae7a1f939893c5c97c2adcf48d7d4d49"
+  url "https://github.com/ethereum/go-ethereum/archive/v1.8.2.tar.gz"
+  sha256 "9e3b744d347f326b7e21b697379173df102139dc13210b9ef55c1ff9659e8843"
   head "https://github.com/ethereum/go-ethereum.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "482c28166ec0f0a3c30bf0e4a46c35229f6a5db4332b6f52ae00699756a8c110" => :high_sierra
-    sha256 "31dd16120f0f1bac73c78290269dd368c407f832bfbc72f297fd951647793f39" => :sierra
-    sha256 "4c7422b68122e556784543239933e9562a0a465aaac2b32ab3da63495aea6a85" => :el_capitan
-    sha256 "cd1e48eda14f089b9360d391e24f0224f289f212150ae4e9bc5698bfe01e6a8b" => :yosemite
+    sha256 "751881b275e7fb4c00e243929061ab053cefb227914dad000b7e2650aac4c927" => :high_sierra
+    sha256 "f766ded804de2820a084efb76cb71d4ae0807f43484b184041d8d60890c77935" => :sierra
+    sha256 "18a78ca758d85b2b081cb3bd6068f21c739b9d02834f92bed25c482aa3c9b4fb" => :el_capitan
   end
 
   depends_on "go" => :build
 
   def install
-    system "make", "geth"
-    bin.install "build/bin/geth"
+    system "make", "all"
+    bin.install Dir["build/bin/*"]
   end
 
   test do
-    (testpath/"genesis.json").write <<-EOS.undent
+    (testpath/"genesis.json").write <<~EOS
       {
         "config": {
           "homesteadBlock": 10

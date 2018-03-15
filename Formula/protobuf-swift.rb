@@ -1,21 +1,23 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Swift"
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/3.0.23.tar.gz"
-  sha256 "276ed362c440ebcfe258b1ccf38160983ec518a29855f35c0bf38b4a5fd38068"
+  url "https://github.com/alexeyxo/protobuf-swift/archive/4.0.1.tar.gz"
+  sha256 "098434ab76cc489c92100c0352d4476259737ed925d2c98d267848e7c8be80aa"
 
   bottle do
     cellar :any
-    sha256 "b63992b3a2b97651b710581680a611564105c36d4e974e54224922a73032736c" => :high_sierra
-    sha256 "0f74a058dd5e3ca763f3839e94981322c9c4e543bcc236b311cc20d0c88f18c0" => :sierra
-    sha256 "82030ac115812cf23eb628fbff924c38d28ae4349aee20105821d34e81a3a971" => :el_capitan
-    sha256 "e0a8201e45fb731000f2c3b08b4d8dc8f6ae1eaf7754c9638e081f2462f403b1" => :yosemite
+    sha256 "77b09439860f53d4899c8df8a27e004f57ec900266f04afe25ebbf2d86daddbf" => :high_sierra
+    sha256 "10edd63a5c5a366884365ea2d0f4dcf4e8f39f099348989e6e61c71ee98cb08f" => :sierra
+    sha256 "b044fd727cfa69e55d34e050d7be4798c8b54bff5494244a2cafb43b216ac107" => :el_capitan
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "protobuf"
+
+  conflicts_with "swift-protobuf",
+    :because => "both install `protoc-gen-swift` binaries"
 
   def install
     system "protoc", "-Iplugin/compiler",
@@ -29,7 +31,7 @@ class ProtobufSwift < Formula
   end
 
   test do
-    testdata = <<-EOS.undent
+    testdata = <<~EOS
       syntax = "proto3";
       enum Flavor {
         CHOCOLATE = 0;

@@ -18,7 +18,7 @@ class Scriptcs < Formula
     script_file = "scriptcs.sh"
     system "sh", "./build_brew.sh"
     libexec.install Dir["src/ScriptCs/bin/Release/*"]
-    (libexec/script_file).write <<-EOS.undent
+    (libexec/script_file).write <<~EOS
       #!/bin/bash
       mono #{libexec}/scriptcs.exe $@
     EOS

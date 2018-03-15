@@ -13,7 +13,7 @@ class Autopsy < Formula
   # fixes weird configure script that wouldn't work nicely with homebrew
   patch :DATA
 
-  def autcfg; <<-EOS.undent
+  def autcfg; <<~EOS
     # Autopsy configuration settings
 
     # when set to 1, the server will stop after it receives no
@@ -59,7 +59,7 @@ class Autopsy < Formula
     bin.install "base/autopsy.base" => "autopsy"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By default, the evidence locker is in:
       #{var}/lib/autopsy
     EOS

@@ -1,14 +1,13 @@
 class Strongswan < Formula
   desc "VPN based on IPsec"
   homepage "https://www.strongswan.org"
-  url "https://download.strongswan.org/strongswan-5.6.0.tar.bz2"
-  sha256 "a14dc0d92634ed52730bfc76a76db30943a28ed3c65a560066e1e9f785827b13"
+  url "https://download.strongswan.org/strongswan-5.6.2.tar.bz2"
+  sha256 "e0a60a30ebf3c534c223559e1686497a21ded709a5d605c5123c2f52bcc22e92"
 
   bottle do
-    sha256 "c6241f48a9eac3d3f77ebaf44057a8a4fe37cc1592340e8bde2577c1ad894b16" => :high_sierra
-    sha256 "61461a200f859adc1f2130151b14ea2f960ba9f7c042b74027888508a72ed762" => :sierra
-    sha256 "ef21438d02abb2571c4e0a5f974e7b65220e63a8c5a37e743a09482e3877624a" => :el_capitan
-    sha256 "1359184d5e990d3bad261037ba409d7ee5944971bdf771bef14ddb1be3fb7bf2" => :yosemite
+    sha256 "48f2e53c4525ebcd34a0f90e6ff7449ac87e289a79da136d4db2bb1fb2bf92ee" => :high_sierra
+    sha256 "11b4f357405eb1fcdacd2dc69bc54775170405ff4346e803de511b53d5c5d161" => :sierra
+    sha256 "894be0c9cab897e2c5a1d6f8ce2fe5cacc8cf17e4d99ab449fdc56b3e1539d81" => :el_capitan
   end
 
   head do
@@ -81,14 +80,14 @@ class Strongswan < Formula
   end
 
   def caveats
-    msg = <<-EOS.undent
+    msg = <<~EOS
       strongSwan's configuration files are placed in:
         #{etc}
 
       You will have to run both "ipsec" and "charon-cmd" with "sudo".
     EOS
     if build.with? "suite-b"
-      msg += <<-EOS.undent
+      msg += <<~EOS
 
         If you previously ran strongSwan without Suite B support it might be
         required to execute "sudo sysctl -w net.inet.ipsec.esp_port=0" in order

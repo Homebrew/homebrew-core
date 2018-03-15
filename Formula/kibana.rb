@@ -4,25 +4,25 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.6.1",
-      :revision => "d1e7b4cfb06c4d9156fb1e691853b36ff5801d57"
+      :tag => "v6.2.2",
+      :revision => "24d8d9d6e66efdf6c3686b47641b1a8513de6d3e"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "502ef5adae7d8aa455eb51a26c7911778f1086de855fc14a3e0c39744cc9721f" => :high_sierra
-    sha256 "dc1c7cbf5b8a5b0c653e5fdd07603d4723b8cdeaf2ae525b013e43b74d8ee77e" => :sierra
-    sha256 "eee133fe2b4e83897c31befdd3e5010e7bfcdd1b06e05dbc8f4adbb0318ee406" => :el_capitan
+    sha256 "6c87a2af00440c561cc7422740ffa85eed2336d00afb528eb41b937a976c7f14" => :high_sierra
+    sha256 "54aa514aa6c63020a323573d3fff3f73231bd981aa6ca5920e3dda36ad370c3c" => :sierra
+    sha256 "ba6031f2eb4dfedd446104ac5f4b45e35f2d2c28c5fa9b3abd6231231c7a20b2" => :el_capitan
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.11.1/node-v6.11.1.tar.xz"
-    sha256 "6f6655b85919aa54cb045a6d69a226849802fcc26491d0db4ce59873e41cc2b8"
+    url "https://github.com/nodejs/node.git",
+        :tag => "v6.12.2",
+        :revision => "381f5ec383dbb164cf3edd1a9de1811cf1cfdc65"
   end
 
   def install
     resource("node").stage do
       system "./configure", "--prefix=#{libexec}/node"
-      system "make", "test"
       system "make", "install"
     end
 
@@ -55,7 +55,7 @@ class Kibana < Formula
     (prefix/"plugins").mkdir
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Config: #{etc}/kibana/
     If you wish to preserve your plugins upon upgrade, make a copy of
     #{opt_prefix}/plugins before upgrading, and copy it into the
@@ -65,7 +65,7 @@ class Kibana < Formula
 
   plist_options :manual => "kibana"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">

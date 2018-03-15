@@ -1,44 +1,32 @@
 class Angband < Formula
   desc "Dungeon exploration game"
   homepage "http://rephial.org/"
-  url "http://rephial.org/downloads/4.1/angband-4.1.0.tar.gz"
-  sha256 "ea52266e52b66d6bf2ab3728b3bc6c7c3875130973430021e31bf56000c0df8b"
+  url "http://rephial.org/downloads/4.1/angband-4.1.2.tar.gz"
+  sha256 "30bc0979e0845cdc43de2a8f65c4d54d03d24d402b32b8589fbbc368ccfa0e2a"
   head "https://github.com/angband/angband.git"
 
   bottle do
-    sha256 "40e581e4e548e5fc1cba2e445fb934164c0525db8c10f28efddd046428eef89b" => :high_sierra
-    sha256 "87585187f01fa753e59d6b6f804c1436c96c356c6f82878d5f57c3e54d80d4ce" => :sierra
-    sha256 "4aa7a0f0218a488f89b5b6a8068d51f32c6331f02aaf360c35690e52f0d337ff" => :el_capitan
-    sha256 "0733eb9c331522191a5017cf3fa3d20c5acb9da308db825bd9aba7dba43b3b3f" => :yosemite
+    sha256 "1a601dc2d55ebb76c448068c0e324bded5e9791ca0f9775489cee44985a47cbf" => :high_sierra
+    sha256 "a1f526b26f8acf8600eca8ef6299fc8920d42cb00c268e1b9e7d68b3d857fdd6" => :sierra
+    sha256 "332680a711469ba08246a73bfdea5e82ddac47cad0db0cd9dfedc4c93dfcd3ed" => :el_capitan
   end
 
   option "with-cocoa", "Install Cocoa app"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "sdl" => :optional
-  if build.with? "sdl"
-    depends_on "sdl_image"
-    depends_on "sdl_ttf"
-    depends_on "sdl_mixer" => "with-smpeg"
-  end
 
   def install
     ENV["NCURSES_CONFIG"] = "#{MacOS.sdk_path}/usr/bin/ncurses5.4-config"
     system "./autogen.sh"
-    args = %W[
-      --prefix=#{prefix}
-      --bindir=#{bin}
-      --libdir=#{libexec}
-      --enable-curses
-      --disable-ncursestest
-      --disable-sdltest
-      --disable-x11
-      --with-ncurses-prefix=#{MacOS.sdk_path}/usr
-    ]
-    args << "--enable-sdl" if build.with? "sdl"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--bindir=#{bin}",
+                          "--libdir=#{libexec}",
+                          "--enable-curses",
+                          "--disable-ncursestest",
+                          "--disable-sdltest",
+                          "--disable-x11",
+                          "--with-ncurses-prefix=#{MacOS.sdk_path}/usr"
     system "make"
     system "make", "install"
 

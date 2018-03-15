@@ -4,19 +4,19 @@ class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://github.com/pimutils/vdirsyncer.git",
-      :tag => "0.16.2",
-      :revision => "1da0bd1cdd745d1e60f4c31fba2288f984eda926"
+      :tag => "0.16.4",
+      :revision => "c63e55d0201fbfed23287216e7f8e19ff34d5ac3"
+  revision 2
   head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "283b409780a2014426496375aa698e9a5bbdd0703056fb9b1d801f97b75061d5" => :high_sierra
-    sha256 "fd94c0cb0877b1952b7a9357b18acca192d68571c39b8b50aa0d1b2c292ebfda" => :sierra
-    sha256 "419b1b07223d00147e341661b7160e11140967270b48a1f7ec40f9a84579d8ac" => :el_capitan
-    sha256 "4ccea7799bbe26786cb68c5fcb0b515ff03c3c3ce8bd38654bce715f9cac1e5b" => :yosemite
+    sha256 "5de37a39897eb93ce937ad22777ecb6edf048b78e6bdbbfad3fa15e1ead4eba0" => :high_sierra
+    sha256 "4b22001ed657a4baec1128b2d2071ac05bade38f91e5d015485ccb134ef6e2a8" => :sierra
+    sha256 "0d8646e753606b5ec7a76a2cebfe19741f9c92fe84f159896f0103dd8228f504" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
 
   def install
     venv = virtualenv_create(libexec, "python3")
@@ -40,7 +40,7 @@ class Vdirsyncer < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    (testpath/".config/vdirsyncer/config").write <<-EOS.undent
+    (testpath/".config/vdirsyncer/config").write <<~EOS
       [general]
       status_path = "#{testpath}/.vdirsyncer/status/"
       [pair contacts]
@@ -56,7 +56,7 @@ class Vdirsyncer < Formula
       path = "~/.contacts/b/"
       fileext = ".vcf"
     EOS
-    (testpath/".contacts/a/foo/092a1e3b55.vcf").write <<-EOS.undent
+    (testpath/".contacts/a/foo/092a1e3b55.vcf").write <<~EOS
       BEGIN:VCARD
       VERSION:3.0
       EMAIL;TYPE=work:username@example.org

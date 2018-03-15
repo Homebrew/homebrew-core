@@ -1,14 +1,13 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.10.0.tar.gz"
-  sha256 "3517b68bff71924f179609eb51dd2fe66d78653646528cdf8edf2370ff047c80"
+  url "https://github.com/fail2ban/fail2ban/archive/0.10.2.tar.gz"
+  sha256 "1c1a969137c56f7e8b90e5f14d78b80214d34d67209787bfddc8d5804ceb29cc"
 
   bottle do
-    sha256 "126df67c8b1f6ed5ad4284fa375a792775cefe614b09502f80b15b1232ab3611" => :high_sierra
-    sha256 "9b116287cbc7a0382bb31523f60986c6b3106b367a0f59e2bc4b98b7efd4d39d" => :sierra
-    sha256 "9b116287cbc7a0382bb31523f60986c6b3106b367a0f59e2bc4b98b7efd4d39d" => :el_capitan
-    sha256 "9b116287cbc7a0382bb31523f60986c6b3106b367a0f59e2bc4b98b7efd4d39d" => :yosemite
+    sha256 "7df5e20adee94e05e17d2c0075cf96dc737dff1322840ee285002b10b1a0d412" => :high_sierra
+    sha256 "458009f5e2af3925a076cfaa79c19497515e6133a467fc03ee54ef6f30588b47" => :sierra
+    sha256 "5d371a874cea2e19f5af3f8a0e2533cc740e6fb847bc9c533af52b12ecff582d" => :el_capitan
   end
 
   depends_on "help2man" => :build
@@ -81,7 +80,7 @@ class Fail2ban < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Before using Fail2Ban for the first time you should edit the jail
       configuration and enable the jails that you want to use, for instance
       ssh-ipfw. Also, make sure that they point to the correct configuration
@@ -104,7 +103,8 @@ class Fail2ban < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">

@@ -23,10 +23,10 @@ class IosClassGuard < Formula
   end
 
   test do
-    (testpath/"crashdump").write <<-EOS.undent
+    (testpath/"crashdump").write <<~EOS
       1   MYAPP                           0x0006573a -[C03B setR02:] + 42
     EOS
-    (testpath/"symbols.json").write <<-EOS.undent
+    (testpath/"symbols.json").write <<~EOS
       {
         "C03B" : "MyViewController",
         "setR02" : "setRightButtons"

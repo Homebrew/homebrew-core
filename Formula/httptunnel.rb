@@ -26,7 +26,7 @@ class Httptunnel < Formula
     sleep 2
 
     begin
-      assert File.exist?("#{testpath}/pid")
+      assert_predicate testpath/"pid", :exist?
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid

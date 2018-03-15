@@ -2,16 +2,15 @@ class MinioMc < Formula
   desc "ls, cp, mkdir, diff and rsync for filesystems and object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-    :tag => "RELEASE.2017-06-15T03-38-43Z",
-    :revision => "631f7fc194fe0ad8d26cb16ca264ca6665fcd151"
-  version "20170615033843"
+    :tag => "RELEASE.2018-02-09T23-07-36Z",
+    :revision => "3987f1405aa7a0faaff019cc3b55da4ded9ebbe5"
+  version "20180209230736"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b9dc081db0b4f72cad2a5c569c60271de5b2453e1ffd5e3985cd70f7fea6bc0b" => :high_sierra
-    sha256 "ca3cb52fd8f8aae955d386d07aac0371f2b50fb7a21eb4f2386da269932d5405" => :sierra
-    sha256 "e0704974e3071a859c5927a90d47cfabbc341531aaaaf466fda32abdaa4dd005" => :el_capitan
-    sha256 "2fbb282c1986ab5cdedfd475523b068891f0b03af16a310fe0db5905d96d00dc" => :yosemite
+    sha256 "0b64fe23aeba096e83e205d42380161223bb11cab73b62cd16eda4f40177df9c" => :high_sierra
+    sha256 "dd2d1b50d1790bf537269d364526062715652b10b07164433deaf425a4ae908e" => :sierra
+    sha256 "afe2f636e9c1b7b1f2c7c25cc07032edcde2f68c3c5d57887a6830e48fd58117" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -33,7 +32,7 @@ class MinioMc < Formula
         minio_commit = `git rev-parse HEAD`.chomp
         proj = "github.com/minio/mc"
 
-        system "go", "build", "-o", buildpath/"mc", "-ldflags", <<-EOS.undent
+        system "go", "build", "-o", buildpath/"mc", "-ldflags", <<~EOS
           -X #{proj}/cmd.Version=#{minio_version}
           -X #{proj}/cmd.ReleaseTag=#{minio_release}
           -X #{proj}/cmd.CommitID=#{minio_commit}
@@ -42,10 +41,11 @@ class MinioMc < Formula
     end
 
     bin.install buildpath/"mc"
+    prefix.install_metafiles
   end
 
   test do
     system bin/"mc", "mb", testpath/"test"
-    assert File.exist?(testpath/"test")
+    assert_predicate testpath/"test", :exist?
   end
 end

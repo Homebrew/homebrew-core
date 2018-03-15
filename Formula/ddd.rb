@@ -7,9 +7,10 @@ class Ddd < Formula
   revision 1
 
   bottle do
-    sha256 "c37e9851b799befc425280b8e62e2c7b12dc79ecf46eaed9e740f9e2ef87d373" => :sierra
-    sha256 "0effedf657591027f917ea1dd048e32e136da61490ba64a51e1b8dddad17acdf" => :el_capitan
-    sha256 "9753fcc17d509faf60b8566da742c8eaaefc2e52e5d360366b6fa827a61c733b" => :yosemite
+    rebuild 1
+    sha256 "381ae07c96a67534b05a03ca72741d99aa3437a01c0fef603336ea218c470df9" => :high_sierra
+    sha256 "af12e95b5b4326906236559a40f6715e896d164d5c18d9448384e0e22d089abf" => :sierra
+    sha256 "68864faf1967b400bc5df5809ab9ee03a0d632f3736071131dd5469be715c58f" => :el_capitan
   end
 
   depends_on "openmotif"
@@ -28,6 +29,13 @@ class Ddd < Formula
   patch do
     url "https://savannah.gnu.org/patch/download.php?file_id=31132"
     sha256 "f3683f23c4b4ff89ba701660031d4b5ef27594076f6ef68814903ff3141f6714"
+  end
+
+  # Patch to fix compilation with Xcode 9
+  # https://savannah.gnu.org/bugs/?52175
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/a71fa9f4/devel/ddd/files/patch-unknown-type-name-a_class.diff"
+    sha256 "c187a024825144f186f0cf9cd175f3e972bb84590e62079793d0182cb15ca183"
   end
 
   def install

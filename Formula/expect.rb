@@ -1,14 +1,14 @@
 class Expect < Formula
   desc "Program that can automate interactive applications"
   homepage "https://expect.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/expect/Expect/5.45/expect5.45.tar.gz"
-  sha256 "b28dca90428a3b30e650525cdc16255d76bb6ccd65d448be53e620d95d5cc040"
+  url "https://downloads.sourceforge.net/project/expect/Expect/5.45.4/expect5.45.4.tar.gz"
+  sha256 "49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34"
 
   bottle do
-    sha256 "f49994bf93a0d51de030ef15a07c8b31c7abd04241054cc831cbbdeb442b81b4" => :high_sierra
-    sha256 "25b09bc0dbb7c9550df75b6d6d84c7c5444bbb9ea508fb19f043f01b1c2b0f90" => :sierra
-    sha256 "53c9bc7b8884ac782dcd374d66192e9e60e33e478568593df029bf6e65667b31" => :el_capitan
-    sha256 "ffe25ca3a637bee0ff0bb49ce17283d2f64d6c1e1636db3c4c4de08badbd6bb0" => :yosemite
+    rebuild 1
+    sha256 "a0c6ffe797dc0bbe512b628819acee67a7a9b00573b6433fe0672285d41a9df1" => :high_sierra
+    sha256 "fc9ad781caaf8d45f47a87d4303645faa2e600852c73fd5432f0be2e588e95f2" => :sierra
+    sha256 "4fcb163b1b1e7e209b632c43ba03106ca1c4e4d6a745260b813d28a803581e58" => :el_capitan
   end
 
   option "with-threads", "Build with multithreading support"
@@ -23,13 +23,6 @@ class Expect < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
-  # Fix Tcl private header detection.
-  # https://sourceforge.net/p/expect/patches/17/
-  patch do
-    url "https://sourceforge.net/p/expect/patches/17/attachment/expect_detect_tcl_private_header_os_x_mountain_lion.patch"
-    sha256 "bfce1856da9aaf5bcb89673da3be4f96611658cb05d5fbbba3f5287e359ff686"
-  end
 
   def install
     args = %W[

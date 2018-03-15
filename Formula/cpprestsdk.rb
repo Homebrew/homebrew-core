@@ -1,17 +1,16 @@
 class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
   homepage "https://github.com/Microsoft/cpprestsdk"
-  url "https://github.com/Microsoft/cpprestsdk/archive/v2.9.1.tar.gz"
-  sha256 "537358760acd782f4d2ed3a85d92247b4fc423aff9c85347dc31dbb0ab9bab16"
+  url "https://github.com/Microsoft/cpprestsdk/archive/v2.10.2.tar.gz"
+  sha256 "fb0b611007732d8de9528bc37bd67468e7ef371672f89c88f225f73cdc4ffcf1"
 
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "3a528882d8a502bbe86cdef438616391dd536b1f417f09ea47163e04727e7569" => :high_sierra
-    sha256 "35da0bc8f94e1faca8c2d0972d354f2fe15141383157cd5c63205a1d74928c74" => :sierra
-    sha256 "fd091b4222e5c2e512d23c2c86b8f6a3b5064b4bd024b2a154a28e53b11dd1b6" => :el_capitan
-    sha256 "cd0b08daf4d0e02334d57d38e62254a95c82f554011a52ab914da953e5a226e9" => :yosemite
+    sha256 "d14bed2a2b49d91649d9fc8aa9708b1dc37b3c5b2b8bffcbdda79c2df8542319" => :high_sierra
+    sha256 "f72554353c248a4f479be76e8382fef549c9abb2690445adb6bcb49d8f867bd1" => :sierra
+    sha256 "53b4cdfd9b0b964a1803920d02ae066a4ddb2be58e68477d34906ba44048e52a" => :el_capitan
   end
 
   depends_on "boost"
@@ -24,7 +23,7 @@ class Cpprestsdk < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<-EOS.undent
+    (testpath/"test.cc").write <<~EOS
       #include <iostream>
       #include <cpprest/http_client.h>
       int main() {

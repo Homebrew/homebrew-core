@@ -1,17 +1,16 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-4.0.0.tar.gz"
-  sha256 "6b8b183a8409829ca92c71854cc1abed45f04ccfb7f14c08211f4edf571fa577"
+  url "https://www.openinfosecfoundation.org/download/suricata-4.0.4.tar.gz"
+  sha256 "617e83b6e20b03aa7d5e05a980d3cb6d2810ec18a6f15a36bf66c81c9c0a2abb"
 
   bottle do
-    sha256 "900f56e06aef404b4dfa7ad12ddfdbaf286e37e594cb1ef509f55b855cc5d26e" => :high_sierra
-    sha256 "79a7a7846db0c3aec47923b9aec4748b4e4141a1b0cdb5f253958334c967d54b" => :sierra
-    sha256 "7cde635c3f02771ba54bbb84b159241b6b943bbca067089612e1f6fac113ccc4" => :el_capitan
-    sha256 "ea417dd96e5afb175768483229eb101800b67e0825ea899b9e0b66a0c32d4368" => :yosemite
+    sha256 "d01576e7a951c8909a2193e758ca7d19b5d47d818547172317d4e47a63b08245" => :high_sierra
+    sha256 "45581acbe7020a50fea0dc1fb72a71739053b1ad12f493f10b20b2a910809c9f" => :sierra
+    sha256 "76b6f1235a829f6744181f82ed216a31060b1e266cbdb519d78629416b46b18a" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "libmagic"
   depends_on "libnet"
@@ -31,8 +30,8 @@ class Suricata < Formula
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/source/s/simplejson/simplejson-3.11.1.tar.gz"
-    sha256 "01a22d49ddd9a168b136f26cac87d9a335660ce07aa5c630b8e3607d6f4325e7"
+    url "https://files.pythonhosted.org/packages/source/s/simplejson/simplejson-3.13.2.tar.gz"
+    sha256 "4c4ecf20e054716cc1e5a81cadc44d3f4027108d8dd0861d8b1e3bd7a32d4f0a"
   end
 
   def install
@@ -77,7 +76,7 @@ class Suricata < Formula
     if build.with? "hiredis"
       hiredis = Formula["hiredis"]
       args << "--enable-hiredis"
-      args << "--with-libjansson-includes=#{hiredis.opt_include}"
+      args << "--with-libhiredis-includes=#{hiredis.opt_include}"
       args << "--with-libhiredis-libraries=#{hiredis.opt_lib}"
     end
     system "./configure", *args

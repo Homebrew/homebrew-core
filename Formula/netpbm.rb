@@ -3,22 +3,17 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3044
-  else
-    url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 3044
-  end
-  version "10.73.14"
+  url "svn://svn.code.sf.net/p/netpbm/code/stable", :revision => 3154
+  version "10.73.18"
   version_scheme 1
 
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    sha256 "b53cab9171a126529a9ab9d9e175daffa2dd7eb1aa3306b47efccfc3fdabf4b3" => :high_sierra
-    sha256 "0ca108d31bfc6e1a8589ec437772d08dd9c29cd090b640c0fae7e3deb5c550c6" => :sierra
-    sha256 "2413a8d4e01fe8df09467ccf11001bc143312ed347f6b0bdc95c3841e0490e3f" => :el_capitan
-    sha256 "cf7a8c90735bdb22001b4f8b1fddf0a7f532f7209d390c4b88a5f29140f48344" => :yosemite
+    sha256 "9b067be48ab266bf848ce40ca6537c47a9b3289d6efd68f571f0b8740ba77a59" => :high_sierra
+    sha256 "643dd3415c96de3201ee9ed1856672690e18a5db8206c302dfbda59a4aa92bd4" => :sierra
+    sha256 "d12e3868feb8ff8b161d2b46896875d510fac2bf71ac715558fb222a0c461187" => :el_capitan
   end
 
   depends_on "libtiff"
@@ -26,7 +21,15 @@ class Netpbm < Formula
   depends_on "jpeg"
   depends_on "libpng"
 
+  conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
+
   def install
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|
@@ -69,6 +72,6 @@ class Netpbm < Formula
     fwrite = Utils.popen_read("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
     (testpath/"test.pam").write fwrite
     system "#{bin}/pamdice", "test.pam", "-outstem", testpath/"testing"
-    assert File.exist?("testing_0_0.")
+    assert_predicate testpath/"testing_0_0.", :exist?
   end
 end

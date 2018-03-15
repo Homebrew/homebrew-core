@@ -1,21 +1,24 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3410.tar.gz"
-  mirror "ftp://heasarc.gsfc.nasa.gov/software/fitsio/c/cfitsio3410.tar.gz"
-  version "3.410"
-  sha256 "a556ac7ea1965545dcb4d41cfef8e4915eeb8c0faa1b52f7ff70870f8bb5734c"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3430.tar.gz"
+  mirror "https://fossies.org/linux/misc/cfitsio3430.tar.gz"
+  version "3.430"
+  sha256 "14905b6f91ef64a34c90ec771d21a8f6da81d8ce083680c7c41651576087cf1d"
 
   bottle do
     cellar :any
-    sha256 "747fb428a1dddfe61be0c3ded3d7210ee8000add63899c4a0821c79981743d68" => :high_sierra
-    sha256 "a72624afaa8ea443c369bb0488fc1c9777c0eb69406366abe5fb8baa9535cc1c" => :sierra
-    sha256 "3fed2108f06719ca7661466ae8cdaf9a8a1c36fd45e44472377e66ff483b62f6" => :el_capitan
-    sha256 "113ce9d721d80abc9d09aa5e4e947ee62a618c16e47510a3c2e58ae97211d5ac" => :yosemite
+    sha256 "84372c9e31b2c424aa3afaab1c0cf2719582246c796833e1b90d4880612af546" => :high_sierra
+    sha256 "5aff04139b4335dd316c61cd6493cb03431774ec1e782213c973a57fe7d21a0a" => :sierra
+    sha256 "af24391c95ac73b8af80fb8a1963dee17cff144252285bac29f631fa5cfd43e2" => :el_capitan
   end
 
+  option "with-reentrant", "Build with support for concurrency"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    args = ["--prefix=#{prefix}"]
+    args << "--enable-reentrant" if build.with? "reentrant"
+    system "./configure", *args
     system "make", "shared"
     system "make", "install"
     (pkgshare/"testprog").install Dir["testprog*"]

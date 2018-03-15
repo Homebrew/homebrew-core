@@ -1,20 +1,20 @@
 class OpencvAT2 < Formula
   desc "Open source computer vision library"
-  homepage "http://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/2.4.13.2.tar.gz"
-  sha256 "4b00c110e6c54943cbbb7cf0d35c5bc148133ab2095ee4aaa0ac0a4f67c58080"
-  revision 2
+  homepage "https://opencv.org/"
+  url "https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz"
+  sha256 "6ecbeea11f68356b748e35f758f4406067d3a2f6339e4582c63373fa6c3f5a72"
 
   bottle do
-    sha256 "db402b1fbfc0ae68dd024fc78f63ad4232a64300a8c40b32cb39668d1c8637b2" => :high_sierra
-    sha256 "53cfcc3c43d671f32a7723e369c3501d65218f4084d9d2fa633671cf14c8381b" => :sierra
-    sha256 "2e52fa5d66acd5ab9c676d9444d9939659fdd9e2e15d7d196a842f2b6102e9c6" => :el_capitan
-    sha256 "c51746b88173a1ca76d231e5679675bf40f26b5fe89ec1d15ce9d302c460b26f" => :yosemite
+    sha256 "0b6f327f3f5ddd5365d62b44163c9d6957cf912cd04b3e6a8ea6e2d874b30fa2" => :high_sierra
+    sha256 "f43fb606dc912ed80603c06e9bf082c233b994ab05990f5bdeb568ed84cc2884" => :sierra
+    sha256 "5fe75e59452df9c0c0d1deb58d3bf0c6ec75aa1c2e6f67bd90005a3efb4cd531" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -24,8 +24,8 @@ class OpencvAT2 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on "numpy" if build.with? "python"
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "numpy" if build.with? "python@2"
 
   def install
     jpeg = Formula["jpeg"]
@@ -53,9 +53,9 @@ class OpencvAT2 < Formula
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
     ]
 
-    args << "-DBUILD_opencv_python=" + (build.with?("python") ? "ON" : "OFF")
+    args << "-DBUILD_opencv_python=" + (build.with?("python@2") ? "ON" : "OFF")
 
-    if build.with? "python"
+    if build.with? "python@2"
       py_prefix = `python-config --prefix`.chomp
       py_lib = "#{py_prefix}/lib"
       args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.dylib"
@@ -81,7 +81,7 @@ class OpencvAT2 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <opencv/cv.h>
       #include <iostream>
       int main() {
@@ -94,6 +94,6 @@ class OpencvAT2 < Formula
 
     ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
     assert_match version.to_s,
-                 shell_output("python -c 'import cv2; print(cv2.__version__)'")
+                 shell_output("python2.7 -c 'import cv2; print(cv2.__version__)'")
   end
 end

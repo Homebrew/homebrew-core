@@ -1,11 +1,12 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "http://ks.lamiral.info/imapsync/"
-  url "https://imapsync.lamiral.info/dist/imapsync-1.836.tgz"
+  url "https://imapsync.lamiral.info/dist2/imapsync-1.836.tgz"
   # Note the mirror will return 404 until the version becomes outdated.
-  mirror "https://imapsync.lamiral.info/dist/old_releases/1.836/imapsync-1.836.tgz"
+  mirror "https://imapsync.lamiral.info/dist2/old_releases/1.836/imapsync-1.836.tgz"
+  mirror "https://dl.bintray.com/homebrew/mirror/imapsync-1.836.tgz"
   sha256 "f1736582ea246776193d8695695c434520498c3c98fc9ba25fbc4e84fd112e7c"
-  head "https://pagure.io/imapsync.git"
+  head "https://github.com/imapsync/imapsync.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +23,6 @@ class Imapsync < Formula
 
   resource "File::Copy::Recursive" do
     url "https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.38.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.38.tar.gz"
     sha256 "84ccbddf3894a88a2c2b6be68ff6ef8960037803bb36aa228b31944cfdf6deeb"
   end
 

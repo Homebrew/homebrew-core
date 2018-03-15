@@ -1,15 +1,14 @@
 class PerconaServerAT56 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.37-82.2/source/tarball/percona-server-5.6.37-82.2.tar.gz"
-  version "5.6.37-82.2"
-  sha256 "3cf04b64c8bf5b9cc1ea1a68c54ba77a4709d9c9051314e70a4cbd4c904da702"
+  url "https://www.percona.com/downloads/Percona-Server-5.6/Percona-Server-5.6.39-83.1/source/tarball/percona-server-5.6.39-83.1.tar.gz"
+  version "5.6.39-83.1"
+  sha256 "48939062738cd5e7769381e31ec581492317ff48c19d0b7ce362e0e61b5d01e2"
 
   bottle do
-    sha256 "2eca6a7f69f893abeadf61df5eccc97510099686275140f1934e5ee8122c202f" => :high_sierra
-    sha256 "a5dc522f52d0c853b2ff04291884156111729f67379b24fa7d7022bcd3347632" => :sierra
-    sha256 "a9ba8cad6f5237e783ad3495206f3ba63365fff78048e34008f23cdd500a2c90" => :el_capitan
-    sha256 "ef56b2abe4ad121257e62cc4178c459dc034407b18ffc06bea6cf39c60d7286b" => :yosemite
+    sha256 "4721a4848f088e8dc1c9d5d2b922b90c28855894a60ebcbb25a41a366fcf854c" => :high_sierra
+    sha256 "2eeb81c41ddf49663247c3c966b34d6bb05383a8f059fb2aa48a09ef6a7c15e0" => :sierra
+    sha256 "0f0fd06fe7616b708756f208954557deb3cf0c39c3731ae1a886243ab88653dc" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -112,7 +111,7 @@ class PerconaServerAT56 < Formula
     mv "#{bin}/mysqlaccess.conf", libexec
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -131,7 +130,7 @@ class PerconaServerAT56 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
 
@@ -144,7 +143,7 @@ class PerconaServerAT56 < Formula
 
   plist_options :manual => "mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

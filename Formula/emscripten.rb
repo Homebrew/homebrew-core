@@ -3,35 +3,25 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.37.18.tar.gz"
-    sha256 "884639710a18f085a6257ffda33aa6df7ea358378a92e7f02499883b32f548cc"
+    url "https://github.com/kripken/emscripten/archive/1.37.36.tar.gz"
+    sha256 "b2694e911ea7901f0afdcca74f0f38fe52d1e534358c14051552ba845083e43b"
 
-    emscripten_tag = version.to_s
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/#{emscripten_tag}.tar.gz"
-      sha256 "cd310b0c75ed79e3b5a426cc6c0470f658a29d45ce5d059cdba8fc2a2b3a7206"
+      url "https://github.com/kripken/emscripten-fastcomp/archive/1.37.36.tar.gz"
+      sha256 "9491b3136cdf8799506fa6a7c8c8648b0ab9bfb17d7965950ff02434d0ff802d"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/#{emscripten_tag}.tar.gz"
-      sha256 "4653e5e5628a7f6731d7a30e0f462cd38e423741b57c360ab40423b5d44b603b"
-    end
-
-    # Fix for when /usr/bin/env python resolves to python 3.x.
-    # Submitted upstream on 2017-08-27:
-    # https://github.com/kripken/emscripten/pull/5534
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/8de3e51/emscripten/emscripten-resolve-symlinks.patch"
-      sha256 "d34cec4c1a33e67465b94993ae836ded727cbe0bb9e2c31e73b4cd22d6995234"
+      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.37.36.tar.gz"
+      sha256 "3b727be7779d4c6152cace41a1b67d7c43a06c4f5f7e3bffea7300d013323f99"
     end
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "4b943607343ed923775e18041e084c07191b087c61add7233be8df06ed24f665" => :sierra
-    sha256 "c7ebea5722f9bbb0342455c29b015f0a5a05864652df156cc65abd960e795adf" => :el_capitan
-    sha256 "991e6c66e68c32973515ef2623022cfa84a051d2d357d72c42e04d7894740397" => :yosemite
+    sha256 "b802c4e077d0431417357c925eb8a6bf0331bf675a966cfc8484c77119e42bba" => :high_sierra
+    sha256 "79f6fbe651af93b36461c02fb3d9a03abe25d0d319c8305f1e7b54570ae56169" => :sierra
+    sha256 "4c1ace0e74a0632b0eec69e1e8436af74e51af23120d9384747972d05be2806e" => :el_capitan
   end
 
   head do
@@ -48,7 +38,7 @@ class Emscripten < Formula
 
   needs :cxx11
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "cmake" => :build
   depends_on "node"
   depends_on "closure-compiler" => :optional
@@ -95,7 +85,7 @@ class Emscripten < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Manually set LLVM_ROOT to
       #{opt_libexec}/llvm/bin
     and comment out BINARYEN_ROOT

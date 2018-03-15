@@ -21,7 +21,7 @@ class Termbox < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <termbox.h>
       int main() {
         // we can't test other functions because the CI test runs in a

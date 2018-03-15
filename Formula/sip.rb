@@ -1,25 +1,24 @@
 class Sip < Formula
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.3/sip-4.19.3.tar.gz"
-  sha256 "740df844f80cc45dcc9b23294a92492923bc403ce88e68c35783f27c177c4b74"
-  revision 3
+  url "https://dl.bintray.com/homebrew/mirror/sip-4.19.8.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.8/sip-4.19.8.tar.gz"
+  sha256 "7eaf7a2ea7d4d38a56dd6d2506574464bddf7cf284c960801679942377c297bc"
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
-    cellar :any
-    sha256 "141af12ca43225941e7682a60899da8144e043074085296155a1933e7a1419d1" => :high_sierra
-    sha256 "e166999ef5f7fdd13f58c73ee04cb256747d429cab28ca5e4e70cd00a7d427a7" => :sierra
-    sha256 "eb2d545c43da3dffd20d14c6847c63be8104b17cd43c32f079e54fcc9f69b850" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "a4a747e8e6e0b47741ba37ccf7be88a40e4e3121ec548a87ba140984fe5d6692" => :high_sierra
+    sha256 "103cd99e0fd0d66c9b62ea9d337ac4041f974db9ff61ca75cc3d536724015bb6" => :sierra
+    sha256 "c6d16f8ff60dbdd7c93db20d541a35df48811238820c74059bc80b493cd86746" => :el_capitan
   end
 
-  depends_on :python => :recommended
-  depends_on :python3 => :recommended
+  depends_on "python" => :recommended
+  depends_on "python@2" => :recommended
 
   def install
-    if build.without?("python3") && build.without?("python")
-      odie "sip: --with-python3 must be specified when using --without-python"
-    end
+    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
 
     if build.head?
       # Link the Mercurial repository into the download directory so
@@ -47,13 +46,13 @@ class Sip < Formula
     (HOMEBREW_PREFIX/"share/sip").mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The sip-dir for Python is #{HOMEBREW_PREFIX}/share/sip.
   EOS
   end
 
   test do
-    (testpath/"test.h").write <<-EOS.undent
+    (testpath/"test.h").write <<~EOS
       #pragma once
       class Test {
       public:
@@ -61,7 +60,7 @@ class Sip < Formula
         void test();
       };
     EOS
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "test.h"
       #include <iostream>
       Test::Test() {}
@@ -70,7 +69,7 @@ class Sip < Formula
         std::cout << "Hello World!" << std::endl;
       }
     EOS
-    (testpath/"test.sip").write <<-EOS.undent
+    (testpath/"test.sip").write <<~EOS
       %Module test
       class Test {
       %TypeHeaderCode
@@ -81,14 +80,14 @@ class Sip < Formula
         void test();
       };
     EOS
-    (testpath/"generate.py").write <<-EOS.undent
+    (testpath/"generate.py").write <<~EOS
       from sipconfig import SIPModuleMakefile, Configuration
       m = SIPModuleMakefile(Configuration(), "test.build")
       m.extra_libs = ["test"]
       m.extra_lib_dirs = ["."]
       m.generate()
     EOS
-    (testpath/"run.py").write <<-EOS.undent
+    (testpath/"run.py").write <<~EOS
       from test import Test
       t = Test()
       t.test()

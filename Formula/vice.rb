@@ -65,7 +65,7 @@ class Vice < Formula
     bin.install_symlink Dir[prefix/"tools/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Apps for these emulators have been installed to #{opt_prefix}.
   EOS
   end

@@ -1,28 +1,26 @@
 class Ratfor < Formula
   desc "Rational Fortran"
   homepage "http://www.dgate.org/ratfor/"
-  url "http://www.dgate.org/ratfor/tars/ratfor-1.02.tar.gz"
-  sha256 "daf2971df48c3b3908c6788c4c6b3cdfb4eaad21ec819eee70a060956736ea1c"
+  url "http://www.dgate.org/ratfor/tars/ratfor-1.03.tar.gz"
+  sha256 "d77497cd0856aad43e0d122f04aef4965994b744f1af9ab1237d7cd6849d139c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2743bf8e19207d091c78dd3678684d11d3ade82e6ac92e5889276298dad96888" => :high_sierra
-    sha256 "dd664eb57c726232601a1ca211a6f8a10a29313fc91334f749517e8920fed203" => :sierra
-    sha256 "6998ed33f7547a097ced8ce5407756c50145d21ece1c8cd3474e6c9eeefd89c7" => :el_capitan
-    sha256 "2d368db5719c280340140998d525279a5f5178c0acccdecc7281f38f3d07c563" => :yosemite
-    sha256 "0544b9e974932e28f090aad1c54dd0c6708ebf1d7a0d3657a150cdb4fdb0cf36" => :mavericks
+    sha256 "e26348fdb8d1f44321bcb7cef4f69c48c9d16cad5fec96b421b9fd1030bf1529" => :high_sierra
+    sha256 "46728e56e09c117379d3d588eafe15aa9f7ecd18055e3d7ae34d437b130bde30" => :sierra
+    sha256 "78444ca50e14d07eb52c827c9760f706acf4745d467fae4d2e05953a7c921b95" => :el_capitan
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    system "make", "check"
     system "make", "install"
   end
 
   test do
-    (testpath/"test.r").write <<-EOS.undent
+    (testpath/"test.r").write <<~EOS
       integer x,y
       x=1; y=2
       if(x == y)
@@ -52,8 +50,7 @@ class Ratfor < Formula
     EOS
 
     system "#{bin}/ratfor", "-o", "test.f", testpath/"test.r"
-    ENV.fortran
-    system ENV.fc, "test.f", "-o", "test"
+    system "gfortran", "test.f", "-o", "test"
     system "./test"
   end
 end

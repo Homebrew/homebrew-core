@@ -1,20 +1,19 @@
 class Gopass < Formula
   desc "The slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://www.justwatch.com/gopass"
-  url "https://www.justwatch.com/gopass/releases/1.3.2/gopass-1.3.2.tar.gz"
-  sha256 "83eb409ed683b6e574680e70272977299e5741b1a7e82c835f0dea9485063aba"
+  url "https://github.com/justwatchcom/gopass/releases/download/v1.6.11/gopass-1.6.11.tar.gz"
+  sha256 "de5b27f81649548292dc83da98e8e46b9b92d8b0bb012797dee44b3207090c67"
   head "https://github.com/justwatchcom/gopass.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "59a5cd330e6df3bdfc5da666c2c5d6edd8612137fc196a605879c7d1707e723b" => :high_sierra
-    sha256 "05223f9c31e3aed7bf3f483eaa41159d8f1e2755fe1dd0fb24837e0ef4a13e29" => :sierra
-    sha256 "afea43d98e86969f9c7424099e63ff67cfcf5a834ef09b4db28285e43ce222e5" => :el_capitan
-    sha256 "8b2c1ce0392083f76a98cf0a7a13f1209c6476b4eb7ecff07fb075f9e9fb0f35" => :yosemite
+    sha256 "a0c8b277458ec7369475c49082342f5e262e00f1e74f780df778eb9ecfee0c32" => :high_sierra
+    sha256 "72cc9bfdf7f790c84d1e01734c371f8dc84ec2aa522f9b431c4fa4facd2c26d0" => :sierra
+    sha256 "4562c8565ea8be8d38a6755fae8e44a634d567003f52bfffc3da09e276a5e34e" => :el_capitan
   end
 
   depends_on "go" => :build
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   def install
     ENV["GOPATH"] = buildpath
@@ -33,7 +32,7 @@ class Gopass < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gopass version")
 
-    (testpath/"batch.gpg").write <<-EOS.undent
+    (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA
       Key-Length: 2048
       Subkey-Type: RSA
@@ -49,7 +48,7 @@ class Gopass < Formula
 
       system bin/"gopass", "init", "--nogit", "testing@foo.bar"
       system bin/"gopass", "generate", "Email/other@foo.bar", "15"
-      assert File.exist?(".password-store/Email/other@foo.bar.gpg")
+      assert_predicate testpath/".password-store/Email/other@foo.bar.gpg", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
       system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",

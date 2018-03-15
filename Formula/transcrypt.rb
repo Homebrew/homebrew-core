@@ -18,7 +18,7 @@ class Transcrypt < Formula
     system "git", "init"
     system bin/"transcrypt", "--password", "guest", "--yes"
 
-    (testpath/".gitattributes").atomic_write <<-EOS.undent
+    (testpath/".gitattributes").atomic_write <<~EOS
       sensitive_file  filter=crypt diff=crypt
     EOS
     (testpath/"sensitive_file").write "secrets"

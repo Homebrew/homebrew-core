@@ -39,7 +39,7 @@ class RedisAT28 < Formula
 
   plist_options :manual => "redis28-server #{HOMEBREW_PREFIX}/etc/redis28.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -68,7 +68,7 @@ class RedisAT28 < Formula
 
   test do
     # This previously wasn't bottled. Make sure it is.
-    assert File.exist?(HOMEBREW_PREFIX/"etc/redis28.conf")
+    assert_predicate HOMEBREW_PREFIX/"etc/redis28.conf", :exist?
 
     system "#{bin}/redis28-server", "--version"
   end

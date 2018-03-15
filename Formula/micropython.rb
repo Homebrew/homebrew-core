@@ -2,30 +2,35 @@ class Micropython < Formula
   desc "Python implementation for microcontrollers and constrained systems"
   homepage "https://www.micropython.org/"
   url "https://github.com/micropython/micropython.git",
-      :tag => "v1.9.2",
-      :revision => "1f78e7a43130acfa4bedf16c1007a1b0f37c75c3"
+      :tag => "v1.9.3",
+      :revision => "fe45d78b1edd6d2202c3544797885cb0b12d4f03"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d16a53faf668461116e45bbdf13ab5088da593796740ecaa750640f37fd0cdf2" => :high_sierra
-    sha256 "25cd2023b375d3068ab6089b1650b2add72fa90cd404751999b07493065db1b5" => :sierra
-    sha256 "ca1125dcd670566e2717882049a09317fff47ca6fea3c9a832f3f5fd75919fba" => :el_capitan
-    sha256 "9e2fd90b2938fc9003a15e67d2fe67c5de31806aaf05e048de21c5ce86dce98c" => :yosemite
+    sha256 "e071d65ec654f528a26cf020a94072b17aeaf08385115d524e6c6139d16b6ab3" => :high_sierra
+    sha256 "14cd46105046e82ede775f2fd1eab21dbb4a8a7506361f5de98845791b56b106" => :sierra
+    sha256 "a485feb6b215857d7870d56c21bceab55e16bfd85ad48d296f3a79842388d7e8" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "libffi" # Requires libffi v3 closure API; macOS version is too old
 
   def install
-    cd "unix" do
+    cd "ports/unix" do
       system "make", "axtls"
-      system "make", "install", "PREFIX=#{prefix}", "V=1"
+      system "make", "install", "PREFIX=#{prefix}"
+    end
+
+    cd "mpy-cross" do
+      system "make"
+      bin.install "mpy-cross"
     end
   end
 
   test do
     # Test the FFI module
-    (testpath/"ffi-hello.py").write <<-EOS.undent
+    (testpath/"ffi-hello.py").write <<~EOS
       import ffi
 
       libc = ffi.open("libc.dylib")
@@ -33,6 +38,7 @@ class Micropython < Formula
       printf("Hello!\\n")
     EOS
 
+    system bin/"mpy-cross", "ffi-hello.py"
     system bin/"micropython", "ffi-hello.py"
   end
 end

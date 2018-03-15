@@ -1,17 +1,18 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://live.gnome.org/LibSoup"
-  url "https://download.gnome.org/sources/libsoup/2.60/libsoup-2.60.0.tar.xz"
-  sha256 "b324edbecda0884143c0853b4a2bd5bd37fb3761f12f293c621ff34b9acdc84c"
+  url "https://download.gnome.org/sources/libsoup/2.62/libsoup-2.62.0.tar.xz"
+  sha256 "ab7c7ae8d19d0a27ab3b6ae21599cec8c7f7b773b3f2b1090c5daf178373aaac"
 
   bottle do
-    sha256 "bd1c389205c94741b879ad653eb68225a33a60b3e6ad96adc927d78ffe9f7757" => :high_sierra
-    sha256 "57eb359d16313371a3d23862a33d9d7e98d7298f06a6d9a292942092221a002c" => :sierra
-    sha256 "b510a0a1707187667e3371b3c76d40a33d8f37c0791374d8a94d34d3391bcb0b" => :el_capitan
+    sha256 "7ba6b794770667e6e61a77a2f512fb25a3fb73e349fc2c31487136e821653445" => :high_sierra
+    sha256 "8ef9b47b41cbac735978006d04dcd11c38b3242038a67523261ba49d8bdcf0e6" => :sierra
+    sha256 "a4c5cc47384ccc7e4d7b9144d17976ac03c202df809a1e10724c6486327cba48" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "python" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "sqlite"
@@ -38,7 +39,7 @@ class Libsoup < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libsoup/soup.h>
 
       int main(int argc, char *argv[]) {

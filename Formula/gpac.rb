@@ -47,6 +47,6 @@ class Gpac < Formula
 
   test do
     system "#{bin}/MP4Box", "-add", test_fixtures("test.mp3"), "#{testpath}/out.mp4"
-    File.exist? "#{testpath}/out.mp4"
+    assert_predicate testpath/"out.mp4", :exist?
   end
 end

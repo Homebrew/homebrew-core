@@ -23,7 +23,7 @@ class Liblzf < Formula
 
   test do
     # Adapted from bench.c in the liblzf source
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <string.h>
       #include <stdlib.h>

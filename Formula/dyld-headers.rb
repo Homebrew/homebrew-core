@@ -6,7 +6,7 @@ class DyldHeaders < Formula
 
   bottle :unneeded
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   def install
     include.install Dir["include/*"]

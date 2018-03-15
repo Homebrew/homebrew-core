@@ -26,7 +26,7 @@ class Libgnomecanvasmm < Formula
     system "make", "install"
   end
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <libgnomecanvasmm.h>
 
       int main(int argc, char *argv[]) {

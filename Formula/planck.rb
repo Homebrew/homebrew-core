@@ -1,19 +1,20 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/2.7.3.tar.gz"
-  sha256 "16a620c33bc15c2f74ce1e80726c55c85f634443c9675c0c08292a964eb01780"
+  url "https://github.com/mfikes/planck/archive/2.11.0.tar.gz"
+  sha256 "5eb997639d5303c51ab45c7b23c2db7f5a5bafffe5a5b17803521528bef7e92b"
+  revision 1
   head "https://github.com/mfikes/planck.git"
 
   bottle do
     cellar :any
-    sha256 "c4e92092104c111b2346bf3e5fee555ef61989fa3f6785b032ab7f5f06a3ffce" => :high_sierra
-    sha256 "19a7cc443730c7d944a93d648cfe9b51f39217a74a7ab0fb93243f9a0d0c88ae" => :sierra
-    sha256 "947c188b94b40e0cc23cc07066bc4c9cd4b69894f89312c3770baf2df79b0206" => :el_capitan
-    sha256 "d2e1b047ef7a0de1f4763a8a18d11882be72cd56f5f3e75133d7b000acbfa3c9" => :yosemite
+    sha256 "251737581e344598c0b9138d243899a0e08ae940084388ba3a23474938015b13" => :high_sierra
+    sha256 "5fbc1bbad070e0b24a4ada2013c629a9fae110d7600411d350324a2a4aa36a67" => :sierra
+    sha256 "431bcc466939eae736db3f6212b2eb768b4ce18cf80c493a78f116a94758735d" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on :java => ["1.8", :build]
   depends_on "pkg-config" => :build
   depends_on "leiningen" => :build
   depends_on :xcode => :build
@@ -22,6 +23,9 @@ class Planck < Formula
   depends_on :macos => :mavericks
 
   def install
+    cmd = Language::Java.java_home_cmd("1.8")
+    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
+
     system "./script/build-sandbox"
     bin.install "planck-c/build/planck"
   end

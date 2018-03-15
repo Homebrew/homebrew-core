@@ -1,16 +1,15 @@
 class Glpk < Formula
   desc "Library for Linear and Mixed-Integer Programming"
   homepage "https://www.gnu.org/software/glpk/"
-  url "https://ftp.gnu.org/gnu/glpk/glpk-4.63.tar.gz"
-  mirror "https://ftpmirror.gnu.org/glpk/glpk-4.63.tar.gz"
-  sha256 "914d27f1a51c2bf4a51f1bd4a507f875fcca99db7b219380b836a25b29b3e7f6"
+  url "https://ftp.gnu.org/gnu/glpk/glpk-4.65.tar.gz"
+  mirror "https://ftpmirror.gnu.org/glpk/glpk-4.65.tar.gz"
+  sha256 "4281e29b628864dfe48d393a7bedd781e5b475387c20d8b0158f329994721a10"
 
   bottle do
     cellar :any
-    sha256 "cf81b5c532d726bb08ae3ebb5c22e7ad763334ecc586b4ec7eafeba49b9a8dc4" => :high_sierra
-    sha256 "c5491836b25e7fe78f37d56b72406f9dabf9caeec8ea97e1b4b0356ab228fd6c" => :sierra
-    sha256 "af604b5830e07dafadc57b26b84c352d6de62904dfb2587dcdc6a201601d8cda" => :el_capitan
-    sha256 "ea544cd7cc6b81e513909ac35825cd4b67ae5d7500d2553dad3eb679939d7f71" => :yosemite
+    sha256 "5c0b4a34749c6e60bf9aa39f175ca907bab774f89a1b8a1697f3f5d02d493f2a" => :high_sierra
+    sha256 "3cbe0b40e3852414560a4929da0ee050fc8fa424b56b3ea756f853ce274b9a3a" => :sierra
+    sha256 "90ba265eb683981e612faae96318b662558e828a99a89200a29df93006d34084" => :el_capitan
   end
 
   depends_on "gmp"
@@ -23,7 +22,7 @@ class Glpk < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOF.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "glpk.h"
 
@@ -32,7 +31,7 @@ class Glpk < Formula
         printf("%s", glp_version());
         return 0;
       }
-    EOF
+    EOS
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lglpk", "-o", "test"
     assert_match version.to_s, shell_output("./test")
   end

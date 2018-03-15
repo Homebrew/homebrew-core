@@ -23,7 +23,7 @@ class Procmail < Formula
 
   test do
     path = testpath/"test.mail"
-    path.write <<-EOS.undent
+    path.write <<~EOS
       From alice@example.net Tue Sep 15 15:33:41 2015
       Date: Tue, 15 Sep 2015 15:33:41 +0200
       From: Alice <alice@example.net>

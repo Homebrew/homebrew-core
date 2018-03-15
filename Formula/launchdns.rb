@@ -23,7 +23,7 @@ class Launchdns < Formula
     (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To have *.localhost resolved to 127.0.0.1:
       sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
     EOS
@@ -31,7 +31,7 @@ class Launchdns < Formula
 
   plist_options :manual => "launchdns"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

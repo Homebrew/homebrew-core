@@ -1,9 +1,8 @@
 class SbtAT013 < Formula
   desc "Build tool for Scala projects"
-  homepage "http://www.scala-sbt.org"
-  url "https://dl.bintray.com/homebrew/mirror/sbt-0.13.16"
-  mirror "https://cocl.us/sbt01316tgz"
-  sha256 "22729580a581e966259267eda4d937a2aecad86848f8a82fcc716dcae8dc760c"
+  homepage "https://www.scala-sbt.org/"
+  url "https://github.com/sbt/sbt/releases/download/v0.13.17/sbt-0.13.17.tgz"
+  sha256 "25f782ccb2ad6d54e13ce6cec0afa3d2328874c508d68ee34e2f742e99f2c847"
 
   bottle :unneeded
 
@@ -13,14 +12,14 @@ class SbtAT013 < Formula
 
   def install
     inreplace "bin/sbt" do |s|
-      s.gsub! 'etc_sbt_opts_file="${sbt_home}/conf/sbtopts"', "etc_sbt_opts_file=\"#{etc}/sbtopts\""
+      s.gsub! 'etc_sbt_opts_file="/etc/sbt/sbtopts"', "etc_sbt_opts_file=\"#{etc}/sbtopts\""
       s.gsub! "/etc/sbt/sbtopts", "#{etc}/sbtopts"
     end
 
     libexec.install "bin", "lib"
     etc.install "conf/sbtopts"
 
-    (bin/"sbt").write <<-EOS.undent
+    (bin/"sbt").write <<~EOS
       #!/bin/sh
       if [ -f "$HOME/.sbtconfig" ]; then
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
@@ -30,7 +29,7 @@ class SbtAT013 < Formula
     EOS
   end
 
-  def caveats;  <<-EOS.undent
+  def caveats;  <<~EOS
     You can use $SBT_OPTS to pass additional JVM options to SBT:
        SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 

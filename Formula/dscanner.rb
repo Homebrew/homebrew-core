@@ -1,17 +1,16 @@
 class Dscanner < Formula
-  desc "Analyses e.g. the style and syntax of D code."
+  desc "Analyses e.g. the style and syntax of D code"
   homepage "https://github.com/dlang-community/Dscanner"
   url "https://github.com/dlang-community/Dscanner.git",
-    :tag => "v0.4.0",
-    :revision => "87e42ae1941aeda81cc8e6c4343ab3c8d77036cd"
+      :tag => "v0.4.2",
+      :revision => "401ee0e7c27fa78a032d4962baf81ec57d8a7b8f"
 
   head "https://github.com/dlang-community/Dscanner.git"
 
   bottle do
-    sha256 "bc3c0bc25628531eb5a5f0273c861c3f3c8cfcea0d3c79464be315db53243fde" => :high_sierra
-    sha256 "cee064b929cb506b88e7bed826e94ec8b8ffbf04e19767f6c10a8a816007978b" => :sierra
-    sha256 "01f7abb878de76d8d6617c285edbe035e11c5ea35964b9d79edab28c96429cc2" => :el_capitan
-    sha256 "c7ab84fde1c0551f7a61b2e833cb62c085923680a614a6a1ce5101143753eff8" => :yosemite
+    sha256 "04e5862c31ac11af72748a3e0cdb7ed8eea987827ad1f837934337063319b51f" => :high_sierra
+    sha256 "f7b0a22b635f52dcd29d8321ba475a5ef0e88e68d279f60aea45f4296f6d2c0a" => :sierra
+    sha256 "149d51495c147fab645186071409ef1ef860fd0661ce829c093aa8f320cc8299" => :el_capitan
   end
 
   depends_on "dmd" => :build
@@ -22,7 +21,7 @@ class Dscanner < Formula
   end
 
   test do
-    (testpath/"test.d").write <<-EOS.undent
+    (testpath/"test.d").write <<~EOS
       import std.stdio;
       void main(string[] args)
       {

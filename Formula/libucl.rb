@@ -36,7 +36,7 @@ class Libucl < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <fstream>
       #include <iostream>
       #include <string>
@@ -55,7 +55,7 @@ class Libucl < Formula
         assert(obj[std::string("section")][std::string("flag")].bool_value());
       }
     EOS
-    (testpath/"test.cfg").write <<-EOS.undent
+    (testpath/"test.cfg").write <<~EOS
       foo = bar;
       section {
         flag = true;

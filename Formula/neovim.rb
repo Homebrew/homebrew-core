@@ -1,34 +1,15 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
+  url "https://github.com/neovim/neovim/archive/v0.2.2.tar.gz"
+  sha256 "a838ee07cc9a2ef8ade1b31a2a4f2d5e9339e244ade68e64556c1f4b40ccc5ed"
   revision 1
-
-  stable do
-    url "https://github.com/neovim/neovim/archive/v0.2.0.tar.gz"
-    sha256 "72e263f9d23fe60403d53a52d4c95026b0be428c1b9c02b80ab55166ea3f62b5"
-
-    depends_on "luajit" => :build
-
-    # Remove for > 0.2.0
-    # Upstream commit from 7 Jul 2017 "Prefer the static jemalloc library by default on OSX"
-    # See https://github.com/neovim/neovim/pull/6979
-    patch do
-      url "https://github.com/neovim/neovim/commit/35fad15c8907f741ce21779393e4377de753e4f9.patch?full_index=1"
-      sha256 "b156fdc92a3850eca3047620087f25a021800b729a3c30fd0164404b2ff7848b"
-    end
-  end
+  head "https://github.com/neovim/neovim.git"
 
   bottle do
-    sha256 "a382d197011bc49c374a915e6d5d8a98d07a92cccf7aa79032a873a578734f0c" => :high_sierra
-    sha256 "6d0cbbaadd947b428f29fb28ba0f492f2d84a71d981ad22cf00032036118ddf9" => :sierra
-    sha256 "fdb74c70048d2c9232525ab652464d9818d0134442c855168f399ab2dd9504a7" => :el_capitan
-    sha256 "f563c067954a4c5f98ad2b01ee3219e5d1666f7000917474186127122cf5cc76" => :yosemite
-  end
-
-  head do
-    url "https://github.com/neovim/neovim.git"
-
-    depends_on "luajit"
+    sha256 "86b8181d2d6c96a6ecbac8414087456631cabdb27e6d36fee9f2e9c723fe99ad" => :high_sierra
+    sha256 "c2e551578f36847121dd8cdcdfd3de9abf5836906658e166ab6e5d71ba805de5" => :sierra
+    sha256 "4e193b9c000868ece51cd256fb9831423381969fbc53212f18484b5b2cba187a" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -39,9 +20,10 @@ class Neovim < Formula
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
+  depends_on "luajit"
   depends_on "msgpack"
   depends_on "unibilium"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "lpeg" do
     url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.1-1.src.rock", :using => :nounzip

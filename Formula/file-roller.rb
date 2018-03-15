@@ -1,20 +1,20 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.26/file-roller-3.26.0.tar.xz"
-  sha256 "75147fe2439178b01e70ca5d7abe10b05e7500249eeaa3caf5d86df94c2afd60"
+  url "https://download.gnome.org/sources/file-roller/3.28/file-roller-3.28.0.tar.xz"
+  sha256 "c17139b46dd4c566ae70a7e3cb930b16e46597c7f9931757fcab900e5015f696"
 
   bottle do
-    rebuild 1
-    sha256 "051a7c8b8e5ce48383f08909e894a332191009ef43a882595d15ec54e421eb23" => :high_sierra
-    sha256 "05c4548d387d5f7059b630f049c7739e6b9fb0d53a985e057bb0f1eaa4454de2" => :sierra
-    sha256 "025c624d012e4238e131215bdfb299a2ac97d7f5b2ba6be5e2bd1ade4d430667" => :el_capitan
+    sha256 "3fddc816c4cf74e2279e386a7fbccdb94b5833eac2254836ba939e3f7e24092f" => :high_sierra
+    sha256 "220069c1e8a5720f5609be2e2c175bc0bd3d2f94a1356536323052486f0551e3" => :sierra
+    sha256 "e941c0933f7777391a8b1a3721368182f9aea4e97611150ec84e4abcc7a02654" => :el_capitan
   end
 
+  depends_on "meson" => :build
+  depends_on "python" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "libxml2" => :build
   depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "libmagic"
@@ -22,31 +22,17 @@ class FileRoller < Formula
   depends_on "hicolor-icon-theme"
   depends_on "adwaita-icon-theme"
 
-  # Add linked-library dependencies
-  depends_on "atk"
-  depends_on "cairo"
-  depends_on "gdk-pixbuf"
-  depends_on "gettext"
-  depends_on "glib"
-  depends_on "pango"
-
   def install
-    # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
-    # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
-    # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
-    inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
-
     ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
     ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile",
-                          "--disable-packagekit",
-                          "--enable-magic"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
-    system "make", "install"
+    # stop meson_post_install.py from doing what needs to be done in the post_install step
+    ENV["DESTDIR"] = ""
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "-Dpackagekit=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   def post_install

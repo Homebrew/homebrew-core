@@ -26,7 +26,7 @@ class Ry < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Please add to your profile:
       which ry &>/dev/null && eval "$(ry setup)"
 
@@ -40,6 +40,6 @@ class Ry < Formula
     ENV["RY_RUBIES"] = testpath/"rubies"
 
     system bin/"ry", "ls"
-    assert File.exist?(testpath/"rubies")
+    assert_predicate testpath/"rubies", :exist?
   end
 end

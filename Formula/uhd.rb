@@ -1,22 +1,20 @@
 class Uhd < Formula
-  desc "Hardware driver for all USRP devices."
+  desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/release_003_010_002_000.tar.gz"
-  sha256 "7f96d00ed8a1458b31add31291fae66afc1fed47e1dffd886dffa71a8281fabe"
-  revision 1
+  url "https://github.com/EttusResearch/uhd/archive/release_003_010_003_000.tar.gz"
+  sha256 "3b621f96c4a2257df4444aff597ce16657b65ba4b8f1201e65623ce10bfdace0"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "aa08fa06aebb4e3bf05a17d20af2e3cce53e7f31a746a5e89428fd1f0febf83d" => :high_sierra
-    sha256 "eaa1134c0ec3f29780e8f391233dc6e147a5fc90848bce46b8f82326fc832728" => :sierra
-    sha256 "9896625583be332fe6ba6a8b898d027e8b42e533308eb88e1a361ed48c14120e" => :el_capitan
-    sha256 "362332407e28fef3bb1e53b358d1d011d1ef4e9ba81681dd70bef91bba7752b0" => :yosemite
+    sha256 "245550d923c9058796f17296515762b7ad34ded179745d5c66dd9c150c13b846" => :high_sierra
+    sha256 "58dabe92dc5729d76b1d0ba4ca4d4c73bd53e871a244e7bfd942c6f1f06d82d3" => :sierra
+    sha256 "f18253d20888935ce17dadd58b1c310d7a6cd7aadae1e94b40e2968fc89a24b8" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "doxygen" => [:build, :optional]
   depends_on "gpsd" => :optional
 

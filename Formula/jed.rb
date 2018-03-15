@@ -1,7 +1,7 @@
 class Jed < Formula
   desc "Powerful editor for programmers"
-  homepage "http://www.jedsoft.org/jed/"
-  url "http://www.jedsoft.org/releases/jed/jed-0.99-19.tar.gz"
+  homepage "https://www.jedsoft.org/jed/"
+  url "https://www.jedsoft.org/releases/jed/jed-0.99-19.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/j/jed/jed_0.99.19.orig.tar.gz"
   sha256 "5eed5fede7a95f18b33b7b32cb71be9d509c6babc1483dd5c58b1a169f2bdf52"
 

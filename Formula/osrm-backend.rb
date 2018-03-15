@@ -1,16 +1,16 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.11.0.tar.gz"
-  sha256 "de95e00933c0ac040bac65c24d6b9ced5c580a115f9e50ce3948f78993f4636b"
-  revision 2
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.14.2.tar.gz"
+  sha256 "ccdb877f92a16ec97f8d73cceb8e925d8521d5d20a3ef7d54cfa4756e304dd54"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
     cellar :any
-    sha256 "087f5651f995107f20601b4c2073a45586a30fb2a73d45549531d9ad376720d2" => :high_sierra
-    sha256 "aab42a51469749653a0fd75fa40f6b2fab6e0c489d19a0fa7f967ad335ba2e02" => :sierra
-    sha256 "15cd577db66de3f303f552cf3f45afce63eb3b48222e7fbf4d97f97e617932c8" => :el_capitan
+    sha256 "000e1c178df9aeab521b6ae223e3b8ad73e0bad3ca078c000fcea9d041aa7ea5" => :high_sierra
+    sha256 "3c45c4049f1581381bc0a726f8821ae8054845561fea36ab725cf2be2329f0cc" => :sierra
+    sha256 "7d42e66c3184173b85876c9d6e555ed9313bac500575680685ef47fa2ac25a87" => :el_capitan
   end
 
   # "invalid use of non-static data member 'offset'"
@@ -35,29 +35,29 @@ class OsrmBackend < Formula
   end
 
   test do
-    (testpath/"test.osm").write <<-EOS.undent
-    <?xml version="1.0" encoding="UTF-8"?>
-    <osm version="0.6">
-     <bounds minlat="54.0889580" minlon="12.2487570" maxlat="54.0913900" maxlon="12.2524800"/>
-     <node id="1" lat="54.0901746" lon="12.2482632" user="a" uid="46882" visible="true" version="1" changeset="676636" timestamp="2008-09-21T21:37:45Z"/>
-     <node id="2" lat="54.0906309" lon="12.2441924" user="a" uid="36744" visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"/>
-     <node id="3" lat="52.0906309" lon="12.2441924" user="a" uid="36744" visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"/>
-     <way id="10" user="a" uid="55988" visible="true" version="5" changeset="4142606" timestamp="2010-03-16T11:47:08Z">
-      <nd ref="1"/>
-      <nd ref="2"/>
-      <tag k="highway" v="unclassified"/>
-     </way>
-    </osm>
+    (testpath/"test.osm").write <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <osm version="0.6">
+       <bounds minlat="54.0889580" minlon="12.2487570" maxlat="54.0913900" maxlon="12.2524800"/>
+       <node id="1" lat="54.0901746" lon="12.2482632" user="a" uid="46882" visible="true" version="1" changeset="676636" timestamp="2008-09-21T21:37:45Z"/>
+       <node id="2" lat="54.0906309" lon="12.2441924" user="a" uid="36744" visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"/>
+       <node id="3" lat="52.0906309" lon="12.2441924" user="a" uid="36744" visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"/>
+       <way id="10" user="a" uid="55988" visible="true" version="5" changeset="4142606" timestamp="2010-03-16T11:47:08Z">
+        <nd ref="1"/>
+        <nd ref="2"/>
+        <tag k="highway" v="unclassified"/>
+       </way>
+      </osm>
     EOS
 
-    (testpath/"tiny-profile.lua").write <<-EOS.undent
-    function way_function (way, result)
-      result.forward_mode = mode.driving
-      result.forward_speed = 1
-    end
+    (testpath/"tiny-profile.lua").write <<~EOS
+      function way_function (way, result)
+        result.forward_mode = mode.driving
+        result.forward_speed = 1
+      end
     EOS
     safe_system "#{bin}/osrm-extract", "test.osm", "--profile", "tiny-profile.lua"
     safe_system "#{bin}/osrm-contract", "test.osrm"
-    assert File.exist?("#{testpath}/test.osrm"), "osrm-extract generated no output!"
+    assert_predicate testpath/"test.osrm", :exist?, "osrm-extract generated no output!"
   end
 end

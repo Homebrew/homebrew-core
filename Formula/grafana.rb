@@ -1,15 +1,15 @@
 class Grafana < Formula
-  desc "Gorgeous metric visualizations and dashboards for timeseries databases."
+  desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v4.5.1.tar.gz"
-  sha256 "a2b27f8f81185f7779d73c0aa610348813424ac02829a1c0450cd24970d7411d"
+  url "https://github.com/grafana/grafana/archive/v5.0.2.tar.gz"
+  sha256 "7473877e4b8d4f06a16b3b7dd9f8c5d26e6bc95bba42f19ff67add4c3f978109"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7fd3c66cf9454defc4cbe56b5007cc2f1726aaffa5ff8f6389cea61c9ae3e33d" => :high_sierra
-    sha256 "4d59a6f23fdb58c694919e4c74f9c57a1d24915326a20dda56892f399a2db22a" => :sierra
-    sha256 "dfab60aa374dd9dcd9bf38eff60e1b33ac9e075fcf2b0c213d014b01f82f7782" => :el_capitan
+    sha256 "2ec57f8b41bd2b77da5503b294bfafc58d50234d1d18c6358caf16274d6149d5" => :high_sierra
+    sha256 "ecd9f505b817814e26d96efbccb8a7861a23fecfb9b95f3d0871078f1f185638" => :sierra
+    sha256 "107339bc4a943a35a04da932182c26fcfa1e68805af62605517abb85a5f5eddf" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -37,8 +37,8 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor"
-      pkgshare.install "public_gen" => "public"
+      pkgshare.install "conf", "vendor", "public"
+      prefix.install_metafiles
     end
   end
 
@@ -49,7 +49,7 @@ class Grafana < Formula
 
   plist_options :manual => "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -108,7 +108,11 @@ class Grafana < Formula
     end
     Dir.chdir(pkgshare)
 
-    res = PTY.spawn(bin/"grafana-server", "cfg:default.paths.logs=#{logdir}", "cfg:default.paths.data=#{datadir}", "cfg:default.paths.plugins=#{plugdir}", "cfg:default.server.http_port=50100")
+    res = PTY.spawn(bin/"grafana-server",
+      "cfg:default.paths.logs=#{logdir}",
+      "cfg:default.paths.data=#{datadir}",
+      "cfg:default.paths.plugins=#{plugdir}",
+      "cfg:default.server.http_port=50100")
     r = res[0]
     w = res[1]
     pid = res[2]

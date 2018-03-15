@@ -27,11 +27,12 @@ class Dlite < Formula
     cd path do
       system "make", "dlite"
       bin.install "dlite"
+      prefix.install_metafiles
     end
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Installing and upgrading dlite with brew does not automatically
       install or upgrade the dlite daemon and virtual machine.
     EOS

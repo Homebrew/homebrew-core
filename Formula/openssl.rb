@@ -4,20 +4,19 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2l.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2l.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2l.tar.gz"
-  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2l.tar.gz"
-  sha256 "ce07195b659e75f4e1db43552860070061f156a98bb37b672b101ba6e3ddf30c"
+  url "https://www.openssl.org/source/openssl-1.0.2n.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2n.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2n.tar.gz"
+  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2n.tar.gz"
+  sha256 "370babb75f278c39e0c50e8c4e7493bc0f18db6867478341a832a982fd15a8fe"
 
   bottle do
-    sha256 "cc92b67189d6df7315c083da142599faa9848563011e7f5314a0dc36cf03be4c" => :high_sierra
-    sha256 "b9a6d41e2889890de8db396c2c2809711baff4272494eb4011c6473f099ba4f1" => :sierra
-    sha256 "8650d9af7937c232b54b3229ac86f0fc141799040564d57488f70caeed1b4ee4" => :el_capitan
-    sha256 "d1bc6fd09adc76f099f810f3bfe2b96baf87219432ca0a104fafac48ffaa88b6" => :yosemite
+    sha256 "6d3f21c1f60c5fd77df43eb470fbe753ab030b565c9360ebb7335377cb13e047" => :high_sierra
+    sha256 "a2446c29a356d0348380ce9f32120c6fe5e39d2a2dd01b076540e13279db32e7" => :sierra
+    sha256 "fa3baf756b1f1ee919675137284dde4ed45b5e5109f0c351f65ee811db6c7d43" => :el_capitan
   end
 
-  keg_only :provided_by_osx,
+  keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
   option "without-test", "Skip build-time tests (not recommended)"
@@ -100,7 +99,7 @@ class Openssl < Formula
     (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A CA file has been bootstrapped using certificates from the SystemRoots
     keychain. To add additional certificates (e.g. the certificates added in
     the System keychain), place .pem files in
@@ -113,7 +112,7 @@ class Openssl < Formula
 
   test do
     # Make sure the necessary .cnf file exists, otherwise OpenSSL gets moody.
-    assert (HOMEBREW_PREFIX/"etc/openssl/openssl.cnf").exist?,
+    assert_predicate HOMEBREW_PREFIX/"etc/openssl/openssl.cnf", :exist?,
             "OpenSSL requires the .cnf file for some functionality"
 
     # Check OpenSSL itself functions as expected.

@@ -3,18 +3,20 @@ class IpythonAT5 < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/14/7c/bbc1e749e1739208324af3f05ac7256985e21fc5f24d3c8da20aae844ad0/ipython-5.5.0.tar.gz"
   sha256 "66469e894d1f09d14a1f23b971a410af131daa9ad2a19922082e02e0ddfd150f"
+  revision 4
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ae425193d80458be12d4cf13fc44d5ead3b6bda0c47c3512555609703fd31cdf" => :high_sierra
-    sha256 "f86cf0340662c30f3ff45fea3c9f74eac096b8c4bd76548e655a6eaabe0c4398" => :sierra
-    sha256 "4a71d74fabc23a50d13701830269406c105ab8c517cd3f8ffa288d2e349af6d1" => :el_capitan
+    cellar :any
+    sha256 "ea19da8fc990a9f834d46149715134e044e03bf685392cb4b33af1700b3106e8" => :high_sierra
+    sha256 "3a3353f66e20228a549e75e5ad8d27d25337a1b1a771a436b5323c2b665c65ae" => :sierra
+    sha256 "cd399393e4aea98dfc635a33ccc2d79bf59a91c730d35e1e8e597f3eecfbe74d" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  depends_on :python
+  depends_on "python@2"
+  depends_on "zeromq"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"
@@ -168,17 +170,24 @@ class IpythonAT5 < Formula
     end
 
     # install kernel
-    system libexec/"bin/ipython", "kernel", "install", "--prefix", share
-    inreplace share/"share/jupyter/kernels/python2/kernel.json", "]", <<-EOS.undent
-      ],
-      "env": {
-        "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
-      }
-    EOS
+    kernel_dir = Dir.mktmpdir
+    system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
+    (share/"jupyter/kernels/python2").install Dir["#{kernel_dir}/share/jupyter/kernels/python2/*"]
+    inreplace share/"jupyter/kernels/python2/kernel.json" do |s|
+      s.gsub! "\"argv\": [\n  \"/usr/bin/python\",",
+              "\"argv\": [\n  \"#{Formula["python@2"].opt_bin}/python2\","
+      s.gsub! "]", <<~EOS
+        ],
+        "env": {
+          "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
+        }
+      EOS
+    end
   end
 
   def post_install
-    (etc/"jupyter/kernels/python2").install Dir[share/"share/jupyter/kernels/python2/*"]
+    rm_rf etc/"jupyter/kernels/python2"
+    (etc/"jupyter/kernels/python2").install Dir[share/"jupyter/kernels/python2/*"]
   end
 
   test do

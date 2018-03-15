@@ -1,16 +1,14 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.1.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/h/html-xml-utils/html-xml-utils_7.1.orig.tar.gz"
-  sha256 "ec0efd2263b864bb7e0ae5c59f02c43c5d8aebd0e1c0d2bfce391e665766d56e"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.6.tar.gz"
+  sha256 "75f810ec1aee60c62b9f25a79f048fc510b63797c271349030deaf8480be2751"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb03ea1bb3658075026732e8bcdaa1cb620f3720bbca9efa36ea9dca221d6b18" => :high_sierra
-    sha256 "df82c4fbbac299f07207b286680c03a734283a1c5b7dad95ce32af2dc062419f" => :sierra
-    sha256 "b45407684af8cc1756bafc6a5b18d816b061bd0900517d45fc13648bd597743c" => :el_capitan
-    sha256 "80243f59807c769f5695322dc6a04aa1cae19818c7994068c8c5c029b60fb410" => :yosemite
+    sha256 "64176b3356d26c3467dfb182a28d4724fee74181191e8e719c93f705cc6a1329" => :high_sierra
+    sha256 "043e115bd9135d1d0ebe9cbceae1c2c8b826abea8b845d99b91fa8252622ab5e" => :sierra
+    sha256 "7ad2d1091290328f64ac652e8180d89646b7479dcbad4c37b38846442ca1682c" => :el_capitan
   end
 
   def install

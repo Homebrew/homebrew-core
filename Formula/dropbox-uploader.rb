@@ -11,7 +11,7 @@ class DropboxUploader < Formula
   end
 
   test do
-    (testpath/".dropbox_uploader").write <<-EOS.undent
+    (testpath/".dropbox_uploader").write <<~EOS
       APPKEY=a
       APPSECRET=b
       ACCESS_LEVEL=sandbox

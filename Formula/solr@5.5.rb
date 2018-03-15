@@ -1,24 +1,23 @@
 class SolrAT55 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/5.5.0/solr-5.5.0.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/5.5.0/solr-5.5.0.tgz"
-  sha256 "c5fa5cb996fe1432e09bb2f6053ffbeb095436db4a77e9c6488b531db726b04d"
+  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/5.5.4/solr-5.5.4.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/5.5.4/solr-5.5.4.tgz"
+  sha256 "c1528e4afc9a0b8e7e5be0a16f40bb4080f410d502cd63b4447d448c49e9f500"
 
   bottle :unneeded
+
+  keg_only :versioned_formula
 
   depends_on :java
 
   skip_clean "example/logs"
 
   def install
+    bin.install %w[bin/solr bin/post bin/oom_solr.sh]
+    pkgshare.install "bin/solr.in.sh"
+    prefix.install %w[example server]
     libexec.install Dir["*"]
-    bin.install "#{libexec}/bin/solr"
-    bin.install "#{libexec}/bin/post"
-    bin.install "#{libexec}/bin/oom_solr.sh"
-    share.install "#{libexec}/bin/solr.in.sh"
-    prefix.install "#{libexec}/example"
-    prefix.install "#{libexec}/server"
 
     # Fix the classpath for the post tool
     inreplace "#{bin}/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
@@ -33,9 +32,10 @@ class SolrAT55 < Formula
     end
   end
 
-  plist_options :manual => "solr start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/solr@5.5/bin/solr start"
 
-  def plist; <<-EOS.undent
+  def plist
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">

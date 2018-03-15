@@ -1,5 +1,5 @@
 class Wu < Formula
-  desc "CLI that retrieves weather data from Weather Underground."
+  desc "CLI that retrieves weather data from Weather Underground"
   homepage "https://github.com/sramsay/wu"
   url "https://github.com/sramsay/wu/archive/3.10.0.tar.gz"
   sha256 "0934771cdd04cb4c38b45190dbfa97fa8b3aafaf53ea75152f070c97de850223"

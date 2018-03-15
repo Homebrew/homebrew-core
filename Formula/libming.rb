@@ -30,7 +30,7 @@ class Libming < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-'EOS'.undent
+    (testpath/"test.c").write <<~'EOS'
       #include <ming.h>
       int main() {
         Ming_setScale(40.0);

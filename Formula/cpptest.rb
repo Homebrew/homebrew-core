@@ -22,7 +22,7 @@ class Cpptest < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <assert.h>
       #include <cpptest.h>
 

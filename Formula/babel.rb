@@ -26,11 +26,11 @@ class Babel < Formula
   end
 
   test do
-    (testpath/"script.js").write <<-EOS.undent
+    (testpath/"script.js").write <<~EOS
       [1,2,3].map(n => n + 1);
     EOS
 
     system bin/"babel", "script.js", "--out-file", "script-compiled.js"
-    assert File.exist?("script-compiled.js"), "script-compiled.js was not generated"
+    assert_predicate testpath/"script-compiled.js", :exist?, "script-compiled.js was not generated"
   end
 end

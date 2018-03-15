@@ -1,14 +1,14 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "http://www.audiocoding.com/faad2.html"
-  url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.8.0/faad2-2.8.3.tar.gz"
-  sha256 "9e4fd094080c27f6f419f3fe1fce369621b9469de396e126405153784134da00"
+  url "https://downloads.sourceforge.net/project/faac/faad2-src/faad2-2.8.0/faad2-2.8.8.tar.gz"
+  sha256 "985c3fadb9789d2815e50f4ff714511c79c2710ac27a4aaaf5c0c2662141426d"
 
   bottle do
     cellar :any
-    sha256 "40909a4ad9969a5a2634678fe44b1aacb076abf159b6006c16746d91e61b9a79" => :high_sierra
-    sha256 "7c3d0b7c58da02be5a2a9e0764e64aecc04083a8bd2b69399af472b4ac843252" => :sierra
-    sha256 "65c4ff67358a9f81bbc9b137c77960d95721807c44b2feacc9a7bcd50ce842c7" => :el_capitan
+    sha256 "e8872363a2fda9a3c9872ef697e517c638e54e2af5238d9e94b30e34ecdc505e" => :high_sierra
+    sha256 "f05989cbd9630fc37c962fc28ff29ec48a5fa7b71fe4ff9e520db6add1d0f09e" => :sierra
+    sha256 "94205432c0187c2ccef411b05934b8db57512bd80b53c8f9c00f3792ee478684" => :el_capitan
   end
 
   def install

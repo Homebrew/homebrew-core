@@ -27,7 +27,7 @@ class Ffe < Formula
 
   test do
     (testpath/"source").write "EArthur Guinness   25"
-    (testpath/"test.rc").write <<-EOS.undent
+    (testpath/"test.rc").write <<~EOS
       structure personel_fix {
         type fixed
         record employee {

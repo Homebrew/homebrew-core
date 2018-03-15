@@ -16,7 +16,7 @@ class Npush < Formula
   def install
     system "make"
     pkgshare.install ["npush", "levels"]
-    (bin/"npush").write <<-EOS.undent
+    (bin/"npush").write <<~EOS
       #!/bin/sh
       cd "#{pkgshare}" && exec ./npush $@
       EOS

@@ -1,15 +1,15 @@
 class Todolist < Formula
-  desc "Very fast, simple task manager for the command-line, based upon GTD."
+  desc "Very fast, simple task manager for the command-line, based upon GTD"
   homepage "http://todolist.site"
-  url "https://github.com/gammons/todolist/archive/0.7.tar.gz"
-  sha256 "3f9a3dc24b826d423a501741ce24bf7a286ea8b4a2cf7739f9731b59892c3584"
+  url "https://github.com/gammons/todolist/archive/0.8.tar.gz"
+  sha256 "3c70dfb5e331cc636bd22fc686223faa34459a1b5e18d6b53557a14dff7a2b23"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22269a2051b13030b25761b5598d66f18746df836b3096929e5ccf3cba79d6be" => :high_sierra
-    sha256 "ce52f46de9c0a6199b8e249b81a2b7e4c721af584b6c3b9da940752d3dc6a0b2" => :sierra
-    sha256 "ad92cc8acf856f2a608f2d34e93987a6dd56d7cf8b670687a327d385a3f5fcb5" => :el_capitan
-    sha256 "5feccfa0c2443dba0c8cbbd42bf8cec23211e77a7661dccf663d00b92399ebe3" => :yosemite
+    rebuild 1
+    sha256 "3b4b8d23cb5b1fd8dd1bad37cf27688ec151d3e79e3b593e0ed49b5c7511a8a7" => :high_sierra
+    sha256 "8aeeaa40bf1a97facb75fc2f559c0f5534b576061758476ea5538e32be3000fe" => :sierra
+    sha256 "80d0eac56e379fea4c651cc9e38ae07dac6bfd3464b7b31153a47c74da9b35cb" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -24,7 +24,7 @@ class Todolist < Formula
 
   test do
     system bin/"todolist", "init"
-    assert File.exist?(".todos.json")
+    assert_predicate testpath/".todos.json", :exist?
     add_task = shell_output("#{bin}/todolist add learn the Tango")
     assert_match /Todo.* added/, add_task
   end

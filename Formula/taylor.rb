@@ -1,5 +1,5 @@
 class Taylor < Formula
-  desc "Measure Swift code metrics and get reports in Xcode and Jenkins."
+  desc "Measure Swift code metrics and get reports in Xcode and Jenkins"
   homepage "https://github.com/yopeso/Taylor/"
   url "https://github.com/yopeso/Taylor/archive/0.2.3.tar.gz"
   sha256 "027c7e98d752ad57d2714a1c148d2b044d91a33ced18cd1bf2d82a020788bdd2"

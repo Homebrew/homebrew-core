@@ -1,53 +1,51 @@
 class Taisei < Formula
   desc "Clone of Touhou Project shoot-em-up games"
   homepage "https://taisei-project.org/"
-  url "https://github.com/laochailan/taisei/archive/v1.0a.tar.gz"
-  version "1.0a"
-  sha256 "1561c84c9fd8b9c7a91b864bdfc07fb811bb6da5c54cf32a2b6bd63de5f8f3ff"
+  url "https://github.com/taisei-project/taisei.git",
+      :tag => "v1.2",
+      :revision => "46fb0f894ad269528ac7fda533c7994eddd9b758"
+  revision 1
 
   bottle do
-    sha256 "555821b3df9e7cf8d5917e581e80f236dbabd95c886edececaeb9986b4ea903c" => :high_sierra
-    sha256 "e41fc7a5c28ca97217135e413af393e05d09b7a4a2131a0fb292f9873f6bb326" => :sierra
-    sha256 "4382fbd49e142c1fd318169ee8c91f1fff390c516b2f5fc5c6d975b330f8f472" => :el_capitan
-    sha256 "3d5fa72700737fa76e87e21e6176b32f88ef4f5d464a2a0b4fa4b98b8509251b" => :yosemite
+    sha256 "162eb10eaf78191aeb474f75095cb35b5840dd4b4ad1e0452ec65ab19590cf80" => :high_sierra
+    sha256 "0065ca15927c95e455dd3a42c4cc1dfcb9365069c914a8d1bffca11e41dbde00" => :sierra
+    sha256 "b9eae75e261940cba3bf33aec8fea1904c6de4648a0dea1f32f517289e0d9a1d" => :el_capitan
   end
 
-  depends_on "cmake" => :build
-  depends_on "freealut"
-  depends_on "freetype"
-  depends_on "libpng"
-  depends_on "openal-soft" # OpenAL.framework gave ALUT state error
-  depends_on "sdl"
-  depends_on "sdl_ttf"
+  # Yes, these are all build deps; the game copies them into the app bundle,
+  # and doesn't require the Homebrew versions at runtime.
+  depends_on "freetype" => :build
+  depends_on "libpng" => :build
+  depends_on "libzip" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python" => :build
+  depends_on "sdl2" => :build
+  depends_on "sdl2_mixer" => :build
+  depends_on "sdl2_ttf" => :build
 
-  # Fix newline at end of file to match master
+  # Fixes a bug in the .app bundle build script.
+  # # Will be in the next release.
   patch do
-    url "https://github.com/laochailan/taisei/commit/779ff58684b1f229aedfcc03bfc6ac7aac17bf6a.diff?full_index=1"
-    sha256 "8c3a8d2fa9be35df5212b8ea5d54e7d97a0ad09ef7b78078d8a33803f6913373"
-  end
-
-  # Fix missing inline symbols
-  patch do
-    url "https://github.com/laochailan/taisei/commit/0f78b1a7eb05aa741541ca56559d7a3f381b57e2.diff?full_index=1"
-    sha256 "d3ab0ae7b2dad63f4a33af699218e905df1193e43857ae44181c5fc015168f93"
-  end
-
-  # Support Mac OS X build
-  patch do
-    url "https://github.com/laochailan/taisei/commit/be8be15.patch?full_index=1"
-    sha256 "1830a52cb39020c349f681c8af459f96561c72466e279ec0fd08d2f2f096c516"
+    url "https://github.com/taisei-project/taisei/commit/68b0d4f5c6f2015704e1ed1b4098be1c4336db74.patch?full_index=1"
+    sha256 "cb1f79826e632a61daa271cb59d0a80ab77dea876d384c381ab66d5eb9b9bd27"
   end
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
+      system "meson", "--prefix=#{prefix}", "-Ddocs=false", ".."
+      system "ninja"
+      system "ninja", "install"
     end
-    (share/"applications").rmtree
-    (share/"icons").rmtree
   end
 
   def caveats
     "Sound may not work."
+  end
+
+  test do
+    output = shell_output("#{prefix}/Taisei.app/Contents/MacOS/Taisei -h", 1)
+    assert_match "Touhou clone", output
   end
 end

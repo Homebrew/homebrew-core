@@ -1,23 +1,24 @@
 class PhoronixTestSuite < Formula
-  desc "Open-source automated testing/benchmarking software."
+  desc "Open-source automated testing/benchmarking software"
   homepage "https://www.phoronix-test-suite.com/"
-  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v7.2.1.tar.gz"
-  sha256 "b235f2cfd2f4891a3aea83114d5766879303c3f95ae9b661eda7aa59cb17c381"
+  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v7.8.0.tar.gz"
+  sha256 "7064b0b5428a99a4709780300aa4fc4d3c482326e74174689d1defd6a3588b69"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "9ffc35ffe7794b546806b5554a228296f495a398239636cf32a2eeace9c48eee" => :high_sierra
-    sha256 "a0342ec359f6be0bbfec1918f6e58684d66ef7fb05ed35e0f25bad527475fd30" => :sierra
-    sha256 "152a7ddddb515433d728f7d969c895da9b4c464518550d0ea6ba20755ea8f8c3" => :el_capitan
-    sha256 "152a7ddddb515433d728f7d969c895da9b4c464518550d0ea6ba20755ea8f8c3" => :yosemite
-  end
+  bottle :unneeded
 
   def install
+    ENV["DESTDIR"] = buildpath/"dest"
     system "./install-sh", prefix
-    bash_completion.install "./pts-core/static/bash_completion"
+    prefix.install (buildpath/"dest/#{prefix}").children
+    bash_completion.install "dest/#{prefix}/../etc/bash_completion.d/phoronix-test-suite"
+  end
+
+  # 7.4.0 installed files in the formula's rack so clean up the mess.
+  def post_install
+    rm_rf [prefix/"../etc", prefix/"../usr"]
   end
 
   test do
-    assert_match "Trysil", shell_output("#{bin}/phoronix-test-suite version | grep -v ^$")
+    assert_match version.to_s, shell_output("#{bin}/phoronix-test-suite version")
   end
 end

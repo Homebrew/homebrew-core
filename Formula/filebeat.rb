@@ -1,15 +1,15 @@
 class Filebeat < Formula
   desc "File harvester to ship log files to Elasticsearch or Logstash"
   homepage "https://www.elastic.co/products/beats/filebeat"
-  url "https://github.com/elastic/beats/archive/v5.6.1.tar.gz"
-  sha256 "3534ef7a3833ae85aef53a12580520b5d85feaa1408289ea37a6ebff5a2fda0a"
+  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
+  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1bd9fbd1318bee3de9e0a1dcb9cc1b693c23d3d1c766b010d7c926879c8c6af2" => :high_sierra
-    sha256 "a85fd00a851b12b450c8e65e25c245432ef8ffc1dac328a6ea3f3623b1642dfd" => :sierra
-    sha256 "9087f94c26d0b3e85d2bdaea2608613bd496530eaddc1b3dcb70deb782768617" => :el_capitan
+    sha256 "452dfc74f6fb8bc0db672a9f0aeac875f133f74428460ff5e90c83e9b784bd74" => :high_sierra
+    sha256 "18f6a3dcee99bb27938b0ceff3ede0f1a11cbcb0c123fdb229142caf983b18ea" => :sierra
+    sha256 "efa963c66bfd69ee503b9f0011b5e733a93b7fcac7e1971ac18ee4fdd3b33894" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -30,7 +30,7 @@ class Filebeat < Formula
 
     prefix.install_metafiles gopath/"src/github.com/elastic/beats"
 
-    (bin/"filebeat").write <<-EOS.undent
+    (bin/"filebeat").write <<~EOS
       #!/bin/sh
       exec #{libexec}/filebeat -path.config #{etc}/filebeat -path.home #{prefix} -path.logs #{var}/log/filebeat -path.data #{var}/filebeat $@
     EOS
@@ -38,7 +38,7 @@ class Filebeat < Formula
 
   plist_options :manual => "filebeat"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -59,14 +59,13 @@ class Filebeat < Formula
     log_file = testpath/"test.log"
     touch log_file
 
-    (testpath/"filebeat.yml").write <<-EOS.undent
+    (testpath/"filebeat.yml").write <<~EOS
       filebeat:
         prospectors:
           -
             paths:
               - #{log_file}
             scan_frequency: 0.1s
-      filebeat.idle_timeout: 0.1s
       output:
         file:
           path: #{testpath}
@@ -81,7 +80,7 @@ class Filebeat < Formula
       log_file.append_lines "foo bar baz"
       sleep 5
 
-      assert File.exist? testpath/"filebeat"
+      assert_predicate testpath/"filebeat", :exist?
     ensure
       Process.kill("TERM", filebeat_pid)
     end

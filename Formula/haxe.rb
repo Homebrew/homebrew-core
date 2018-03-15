@@ -2,14 +2,14 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      :tag => "3.4.3",
-      :revision => "e24c990d58f2ccff5e5add8369602bb729bcdfab"
+      :tag => "3.4.7",
+      :revision => "bb7b827a9c135fbfd066da94109a728351b87b92"
 
   bottle do
     cellar :any
-    sha256 "f8744f5b9b6bd78beac33ed9f42f087edf195023361997127a87f5e86aa4a6ab" => :high_sierra
-    sha256 "165161d050573f4a7a083ead8686424b1cb1fdf0ec13910dbe6418c5d9b8a9fc" => :sierra
-    sha256 "5c1b387666ef82b9709ead193f21291b3793a93b70da58c0026d578ff4a0310e" => :el_capitan
+    sha256 "2b58281f88a611b0ae4b9a0b1b0fe6e09182f4a71d5b23fb333660527b37bacc" => :high_sierra
+    sha256 "5c5c995444cc9e33aa26fcccbf652623ab6ac3006a33eb0bb1d6ce89b02fb5c0" => :sierra
+    sha256 "c57c9af6070a2d33401dac05d8b78c4059a95a3c7e212a9595fb5f49d3208a6a" => :el_capitan
   end
 
   head do
@@ -24,6 +24,8 @@ class Haxe < Formula
   depends_on "pcre"
 
   def install
+    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
+
     # Build requires targets to be built in specific order
     ENV.deparallelize
 
@@ -56,7 +58,7 @@ class Haxe < Formula
     bin.install_symlink lib/"haxe/haxe"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Add the following line to your .bashrc or equivalent:
       export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
     EOS

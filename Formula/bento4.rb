@@ -1,15 +1,15 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.0-618.tar.gz"
-  version "1.5.0-618"
-  sha256 "7dfb9200f36b252aeb39eb179e3e2e1f3c44600b4dc8ef654a80da26abcb9ade"
+  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.1-622.tar.gz"
+  version "1.5.1-622"
+  sha256 "60492b9b644a2cfce7af3d82a6277e34d3e906221339cd54fcfae831fff0535d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "508efcd868dbca5fb8c0c097d13f20b468e2e85936e6148e66247b8ae283d01b" => :high_sierra
-    sha256 "8bb6a41d88fa6c21e5d6ac86482aa232986cf7bd8298ec525e4640b5aab81cc7" => :sierra
-    sha256 "c5e4cdb5623d116bb302f179040286337ba34a8a0a1906f6e26ee95aa57ee9ee" => :el_capitan
+    sha256 "c144ec1b23c260a6e6e6877e06fc83d1e770eb1bb4cdef8395519ca0bcd9605c" => :high_sierra
+    sha256 "df1e97c429bdc9b040ad016bf100f4ebe65208478e01d44a32a8375d909dabf5" => :sierra
+    sha256 "2c2bd127d09f36e6bda52794abb8afb8a8d335e6d19de5758867b73a14f43957" => :el_capitan
   end
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"

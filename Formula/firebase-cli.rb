@@ -3,14 +3,15 @@ require "language/node"
 class FirebaseCli < Formula
   desc "Firebase command-line tools"
   homepage "https://firebase.google.com/docs/cli/"
-  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-3.12.0.tgz"
-  sha256 "d4dd900039c30393c5ae0c69f70872aa41b5c00fed5798d5204166210a74d327"
+  url "https://registry.npmjs.org/firebase-tools/-/firebase-tools-3.17.6.tgz"
+  sha256 "cbedf66f0a84f7e3d444cab7f67b17f4565fd26540cdc1d231eb3cb6c7c0d12e"
   head "https://github.com/firebase/firebase-tools.git"
 
   bottle do
-    sha256 "053e60f3a2b0da613835f98c80ef9fc781078e7dbab0be470264c80c9417e31a" => :high_sierra
-    sha256 "582bb25ea4d7fbbde42ffb0282dd40ade2157c23de612546f049071bd0be7277" => :sierra
-    sha256 "6c25c041eccffb7459fe141c354574a9d11993b007aa528a384fa055c70e03d7" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "e178949fd0962c31d300fda96d3982cbc008d032a4f1dc3b8a2bcd8d33d7038f" => :high_sierra
+    sha256 "eee7b512050caa3fb6c56b4335128e16ed7ee330809bf211461c395e13bb2817" => :sierra
+    sha256 "3b5327357923e414133fc85636974bc6a79ca7bde9d47cc5c7a91fb3ef1e8dd2" => :el_capitan
   end
 
   depends_on "node"
@@ -21,7 +22,7 @@ class FirebaseCli < Formula
   end
 
   test do
-    (testpath/"test.exp").write <<-EOS.undent
+    (testpath/"test.exp").write <<~EOS
       spawn #{bin}/firebase login:ci --no-localhost
       expect "Paste"
     EOS

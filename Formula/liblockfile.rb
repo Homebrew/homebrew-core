@@ -32,8 +32,8 @@ class Liblockfile < Formula
 
   test do
     system bin/"dotlockfile", "-l", "locked"
-    assert File.exist?("locked")
+    assert_predicate testpath/"locked", :exist?
     system bin/"dotlockfile", "-u", "locked"
-    assert !File.exist?("locked")
+    refute_predicate testpath/"locked", :exist?
   end
 end

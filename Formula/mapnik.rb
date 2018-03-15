@@ -1,19 +1,19 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "http://www.mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.13/mapnik-v3.0.13.tar.bz2"
-  sha256 "d6213d514a0e3cd84d9bfcb6d97208d169ffcaae1f36250f6555655cdfe57bcc"
-  revision 2
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.19/mapnik-v3.0.19.tar.bz2"
+  sha256 "5bf17afaf456e63021a4c948e25cf5e756782ef369226441a1e436adc3e790e9"
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
     cellar :any
-    sha256 "06cd21f436068a442ed4daa7a1f93d59db4df52bd87ec28b049ace74cbefa9b1" => :sierra
-    sha256 "0ab280e43c1abd8ee15feb50b457a3278d87aa7449dfbdb7fbf92b9150359e97" => :el_capitan
-    sha256 "034d086b1af7a43e6844a3015162595d7ac2bfc49cfbe023b5b57b296bd181c2" => :yosemite
+    sha256 "f41d9cb363acd3db3def9574e1a83b973ec95bb403d8284172aa7d282043ca60" => :high_sierra
+    sha256 "7ea965c66cc3978fab4754f6aa3bc064eda4f16c2b669b57dc96796439765955" => :sierra
+    sha256 "4183d1662c44bb8efad476472b94ea8c85c387bbac8e8382e1f04865937f94e8" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "boost"
   depends_on "freetype"
   depends_on "harfbuzz"
   depends_on "libpng"
@@ -26,23 +26,15 @@ class Mapnik < Formula
   depends_on "postgresql" => :optional
   depends_on "cairo" => :optional
 
-  if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
-
   needs :cxx11
-
-  # Upstream issue from 18 Jul 2017 "3.0.15 build failure with icu-59"
-  # See https://github.com/mapnik/mapnik/issues/3729
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/baacb3b/mapnik/3.0.13-icu4c-59.patch"
-    sha256 "b8c6d1e7477893b0024f4b79410b4499dd6fc7991d7d233a902b3a5e627854b7"
-  end
 
   def install
     ENV.cxx11
+
+    # Work around "error: no member named 'signbit' in the global namespace"
+    # encountered when trying to detect boost regex in configure
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+
     icu = Formula["icu4c"].opt_prefix
     boost = Formula["boost"].opt_prefix
     proj = Formula["proj"].opt_prefix

@@ -1,14 +1,13 @@
 class FuseEmulator < Formula
   desc "Free Unix Spectrum Emulator"
   homepage "https://fuse-emulator.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.4.0/fuse-1.4.0.tar.gz"
-  sha256 "75ac811534c7e352f238b1959a7f6478661bc4103f96dd1166ec395ad7523d97"
+  url "https://downloads.sourceforge.net/project/fuse-emulator/fuse/1.5.1/fuse-1.5.1.tar.gz"
+  sha256 "5e99a67776e39534130235cb79d23d7678c44f39a864d157fdc5c4063291bd3c"
 
   bottle do
-    sha256 "de6e7b0aecc2f5fc306ab4b646fd38b64371bf3a834bf68dee959a443e38221b" => :high_sierra
-    sha256 "f48633892f33176cd6ee9c9c2b430283fae9c6c23f4daf1cded2c95c1c3dcfe2" => :sierra
-    sha256 "4a54fba8bb31b603d7496416d8b37f2be12cb7b2c56a022cd67224c9c1d88292" => :el_capitan
-    sha256 "270841c1a593c468409e05df66e31af51ffb4278ffa7e4b07a8864bb0c22e5bb" => :yosemite
+    sha256 "c484a593e10bc3a8fc1d466558dff2f7151deeeeab5fca6be157e038fc0f7c2d" => :high_sierra
+    sha256 "89caf335f2e92cabee257ae393c19014528cc4bf022a16f7a6af7241ac535067" => :sierra
+    sha256 "88808eb47ab7b776552e3b2f8adc8c147d0e6d8e389eef6abf296dbc6bd2f7dd" => :el_capitan
   end
 
   head do

@@ -16,12 +16,12 @@ class Sickbeard < Formula
   end
 
   resource "Markdown" do
-    url "https://pypi.python.org/packages/source/M/Markdown/Markdown-2.4.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/M/Markdown/Markdown-2.4.1.tar.gz"
     sha256 "812ec5249f45edc31330b7fb06e52aaf6ab2d83aa27047df7cb6837ef2d269b6"
   end
 
   resource "Cheetah" do
-    url "https://pypi.python.org/packages/source/C/Cheetah/Cheetah-2.4.4.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/C/Cheetah/Cheetah-2.4.4.tar.gz"
     sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
   end
 
@@ -46,7 +46,7 @@ class Sickbeard < Formula
 
   plist_options :manual => "sickbeard"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -68,7 +68,7 @@ class Sickbeard < Formula
     EOS
   end
 
-  def startup_script; <<-EOS.undent
+  def startup_script; <<~EOS
     #!/bin/bash
     export PYTHONPATH="#{libexec}/lib/python2.7/site-packages:$PYTHONPATH"
     python "#{libexec}/SickBeard.py"\

@@ -24,7 +24,7 @@ class Libssh < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libssh/libssh.h>
       #include <stdlib.h>
       int main()

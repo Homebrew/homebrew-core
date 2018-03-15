@@ -1,14 +1,13 @@
 class Loc < Formula
   desc "Count lines of code quickly"
   homepage "https://github.com/cgag/loc"
-  url "https://github.com/cgag/loc/archive/v0.3.4.tar.gz"
-  sha256 "01fd16f0f82e016da95c5ad66a0390372ca1bf1ded9981a7a1f004e4a50bb804"
+  url "https://github.com/cgag/loc/archive/v0.4.1.tar.gz"
+  sha256 "1e8403fd9a3832007f28fb389593cd6a572f719cd95d85619e7bbcf3dbea18e5"
 
   bottle do
-    rebuild 1
-    sha256 "fda06bef80d81001ce119d7095cf6f06e2d3bdc4d940848fd52b5f68740dd5c6" => :high_sierra
-    sha256 "71e85c59da5729deeca005b793ade159a5b33e77ba2cbd65c622dca26226c6fc" => :sierra
-    sha256 "b1a5522f89a1ebf4154b3746eb9d5b8fada1b3167517731632423ac152b6b7be" => :el_capitan
+    sha256 "2c66f5b54d8769dd96f34992db4dd6fc5d84344ce16553f2ee47c6fc6818a861" => :high_sierra
+    sha256 "276bb55a29fa8e24a968376e040a648aefac8710e968c507040a12a2d5979edd" => :sierra
+    sha256 "c3a745729bbcbb8fbda867e82946ce3d20078beca4bb08265ceb6467691ca0da" => :el_capitan
   end
 
   depends_on "rust" => :build
@@ -19,7 +18,7 @@ class Loc < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <stdio.h>
       int main() {
         println("Hello World");

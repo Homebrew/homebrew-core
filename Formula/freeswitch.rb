@@ -4,13 +4,13 @@ class Freeswitch < Formula
   url "https://freeswitch.org/stash/scm/fs/freeswitch.git",
       :tag => "v1.6.19",
       :revision => "7a77e0bb2ca875cb977b1e698a1783e575d96563"
+  revision 2
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
-    sha256 "1fc8c300d9d1589286197ad1fc61b33906787bf32e5ed4d1c342c97c2acd0368" => :high_sierra
-    sha256 "d1086826c4aac6ba2fe94d01c0e318154ecc206a94dd214cc4fb23b755803fe2" => :sierra
-    sha256 "33098470d1a183e818aee08cd3686a11d6a20cb77f661c9b153c3cd86c2bdda4" => :el_capitan
-    sha256 "34a4df18d070a69f355df949f6a64f9e0f9cfeb45fbc7ef1eb14ebfd6016f931" => :yosemite
+    sha256 "78670263f7413b56d7308f02311fd901dcbbdf7a67da92add4f93ed1b7cdb392" => :high_sierra
+    sha256 "580ccaf5ac6f6d8518cec9718b5310077c436950b95d14ee5a6cdebdb9a582ca" => :sierra
+    sha256 "9fcd5b9cb4606c180c2507d4cb454f95c8bb4d01d9bfce4aec1fef5b5b0f6a36" => :el_capitan
   end
 
   option "without-moh", "Do not install music-on-hold"
@@ -24,8 +24,6 @@ class Freeswitch < Formula
   depends_on "pkg-config" => :build
   depends_on "apr-util" => :build
   depends_on "yasm" => :build
-
-  depends_on "curl"
   depends_on "jpeg"
   depends_on "openssl"
   depends_on "pcre"
@@ -145,6 +143,8 @@ class Freeswitch < Formula
   #------------------------ End sound file resources --------------------------
 
   def install
+    ENV["ac_cv_lib_lzma_lzma_code"] = "no" # prevent opportunistic linkage to xz
+
     # avoid a dependency on ldns to prevent OpenSSL version conflicts
     inreplace "build/modules.conf.in", "applications/mod_enum",
                                        "#applications/mod_enum"
@@ -206,7 +206,7 @@ class Freeswitch < Formula
 
   plist_options :manual => "freeswitch -nc --nonat"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

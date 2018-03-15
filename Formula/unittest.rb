@@ -17,5 +17,10 @@ class Unittest < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "test/unittesttest"
+  end
+
+  test do
+    system "#{pkgshare}/unittesttest"
   end
 end

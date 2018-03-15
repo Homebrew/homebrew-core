@@ -22,7 +22,7 @@ class Qxmpp < Formula
   end
 
   test do
-    (testpath/"test.pro").write <<-EOS.undent
+    (testpath/"test.pro").write <<~EOS
       TEMPLATE     = app
       CONFIG      += console
       CONFIG      -= app_bundle
@@ -34,7 +34,7 @@ class Qxmpp < Formula
       LIBS        += -lqxmpp
     EOS
 
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <qxmpp/QXmppClient.h>
       int main() {
         QXmppClient client;
@@ -44,7 +44,7 @@ class Qxmpp < Formula
 
     system "#{Formula["qt"].bin}/qmake", "test.pro"
     system "make"
-    assert File.exist?("test"), "test output file does not exist!"
+    assert_predicate testpath/"test", :exist?, "test output file does not exist!"
     system "./test"
   end
 end

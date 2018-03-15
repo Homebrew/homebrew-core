@@ -1,16 +1,14 @@
 class Sslmate < Formula
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
-  url "https://packages.sslmate.com/other/sslmate-1.5.1.tar.gz"
-  sha256 "533d05e483d06460876916bfe2a9b33be4e8b6212b1f46e96ab4dc9e8e87c660"
+  url "https://packages.sslmate.com/other/sslmate-1.6.0.tar.gz"
+  sha256 "daa861fd55ba625e1ad622d5f5b60602fbc3bdfc3ad461ebfd12530b665beafa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd6db21a26f2737e4fbe4d63b99672094555889c9ee84061ea526f77c4f8aff7" => :high_sierra
-    sha256 "3cd6d3bac1fca9ef4a59386e9d99b29feb1db59ef3bba66fcbcffb731d32961d" => :sierra
-    sha256 "1a6eee4531f266aee87c4aefb08fb3502a34b0d456e10321cff709e63f418f43" => :el_capitan
-    sha256 "96bb8413c6470f541f915990db5fe2f0af4aa090e222f72f7fc742cced366379" => :yosemite
-    sha256 "82bb8875b57ec02333edf569e9a1634c688c82238c3831e25d94029178868856" => :mavericks
+    sha256 "c2cacac22c95bb5ea161e0a3e1e0ead170d58a12de8f9f2706463cf033fba664" => :high_sierra
+    sha256 "c2cacac22c95bb5ea161e0a3e1e0ead170d58a12de8f9f2706463cf033fba664" => :sierra
+    sha256 "c2cacac22c95bb5ea161e0a3e1e0ead170d58a12de8f9f2706463cf033fba664" => :el_capitan
   end
 
   option "without-route53", "Disable support for Route 53 DNS approval"
@@ -21,13 +19,11 @@ class Sslmate < Formula
 
     resource "URI" do
       url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.67.tar.gz"
-      mirror "http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/URI-1.67.tar.gz"
       sha256 "ab7f5fbc80da4ed9c46d63ed956c68a09e83dae30f20c2778c3e056d41883f9d"
     end
 
     resource "Term::ReadKey" do
       url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.32.tar.gz"
-      mirror "http://search.cpan.org/CPAN/authors/id/J/JS/JSTOWE/TermReadKey-2.32.tar.gz"
       sha256 "58b90e8908e686d03a161590c1dd870e8a1b005715ca8e6d5080a32459e1e9f8"
     end
   end
@@ -41,10 +37,10 @@ class Sslmate < Formula
   end
 
   if build.with? "route53"
-    depends_on :python if MacOS.version <= :snow_leopard
+    depends_on "python@2" if MacOS.version <= :snow_leopard
 
     resource "boto" do
-      url "https://pypi.python.org/packages/source/b/boto/boto-2.38.0.tar.gz"
+      url "https://files.pythonhosted.org/packages/source/b/boto/boto-2.38.0.tar.gz"
       sha256 "d9083f91e21df850c813b38358dc83df16d7f253180a1344ecfedce24213ecf2"
     end
   end

@@ -1,24 +1,23 @@
 class GribApi < Formula
   desc "Encode and decode grib messages (editions 1 and 2)"
   homepage "https://software.ecmwf.int/wiki/display/GRIB/Home"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.23.1.orig.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.23.1.orig.tar.xz"
-  sha256 "d4945012e552b6d3c5e2473efbde8954e076be1e469a8bf882260db62311e53b"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.25.0.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.25.0.orig.tar.xz"
+  sha256 "da405e35f90e441326835f1f7fa788b365604bb925919c90ce21f4618b86e78f"
 
   bottle do
-    sha256 "bceb83137b03aedf80e37d98da9829f5ed719fdd1c48a3344e2bea3a1fa7a35c" => :high_sierra
-    sha256 "6eb7c05946db59782de2e1de07bad94c40d48d316205b600cfb531d5e2d9b51b" => :sierra
-    sha256 "9d814bcdf72889206362c31ba50257488c150007602891da924c9a31c97cd8e0" => :el_capitan
-    sha256 "b4a2345386c804f28c08a2a539d0c106a70a5192c0a3fe08d1c2e278880d814b" => :yosemite
+    sha256 "bf8b35820e6db50ca17785a07d5a9ffc0a555dc43e0f81b553312a9e9c5a2b3c" => :high_sierra
+    sha256 "63d5fbee47c4d0407aaed221feed1ad3401fce53e95a4f31ddd0ef8b667ebf38" => :sierra
+    sha256 "32dc30952cbc7ab991b214c6d06280cacfffa1bd63f70004ea56cc79123749e9" => :el_capitan
   end
 
   option "with-static", "Build static instead of shared library."
 
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "jasper" => :recommended
   depends_on "libpng" => :optional
-  depends_on :fortran
 
   def install
     # Fix "no member named 'inmem_' in 'jas_image_t'"

@@ -2,24 +2,28 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.521",
-      :revision => "858f7512cf3b4e39c0f4e8de5a13eee0e1e138fb"
+      :tag => "v0.570",
+      :revision => "9f603ed9e6ac2a7f80f22b4e9719797a3bbb5215"
   head "https://github.com/python/mypy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8207479495483c64cc8afba5601e2fa39387addac40543d3d8ca44931928c6a8" => :high_sierra
-    sha256 "7952339760f6b000890303e5b406550ff0ceeb939dcaf2729aa80cad4263880a" => :sierra
-    sha256 "453f964e8baec4161eeaec56d23cc926b561deedd07c8a32d5fba88e018e770b" => :el_capitan
-    sha256 "0dd45349792469d6544f4ac2ef41c6d1a6d2fc984dbb8ef0ed2782e8a6caa269" => :yosemite
+    sha256 "caf5b131f1c519a9c815a942b57a63a6a69068ecebb70d7c7f25b7319725e3a7" => :high_sierra
+    sha256 "3746ad652a897a3d6b592d9dd204ef5b4ba29df1534bd8758cbf13a752939f38" => :sierra
+    sha256 "19b2c66bceef0b341be51f6f2d20110dd13272e7ec14f0eef19da1db983fd317" => :el_capitan
   end
 
   option "without-sphinx-doc", "Don't build documentation"
 
   deprecated_option "without-docs" => "without-sphinx-doc"
 
-  depends_on :python3
+  depends_on "python"
   depends_on "sphinx-doc" => [:build, :recommended]
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/e2/e1/600326635f97fee89bf8426fef14c5c29f4849c79f68fd79f433d8c1bd96/psutil-5.4.3.tar.gz"
+    sha256 "e2467e9312c2fa191687b89ff4bc2ad8843be4af6fb4dc95a7cc5f7d7a327b18"
+  end
 
   resource "sphinx_rtd_theme" do
     url "https://files.pythonhosted.org/packages/8b/e5/b1933472424b30affb0a8cea8f0ef052a31ada96e5d1823911d7f4bfdf8e/sphinx_rtd_theme-0.2.4.tar.gz"
@@ -27,8 +31,8 @@ class Mypy < Formula
   end
 
   resource "typed-ast" do
-    url "https://files.pythonhosted.org/packages/6c/8c/308968906916c5523c3a0e5ecb8ba8d79b8baf67f05faf1dffcb2a78ae7e/typed-ast-1.0.4.tar.gz"
-    sha256 "73f09aac0119f6664a3f471a1ec1c9b719f572bc9212913cea96a78b22c2e96e"
+    url "https://files.pythonhosted.org/packages/52/cf/2ebc7d282f026e21eed4987e42e10964a077c13cfc168b42f3573a7f178c/typed-ast-1.1.0.tar.gz"
+    sha256 "57fe287f0cdd9ceaf69e7b71a2e94a24b5d268b35df251a88fef5cc241bf73aa"
   end
 
   def install
@@ -66,7 +70,7 @@ class Mypy < Formula
   end
 
   test do
-    (testpath/"broken.py").write <<-EOS.undent
+    (testpath/"broken.py").write <<~EOS
       def p() -> None:
         print('hello')
       a = p()

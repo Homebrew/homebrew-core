@@ -1,18 +1,15 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.0.0/sshguard-2.0.0.tar.gz"
-  sha256 "e87c6c4a6dddf06f440ea76464eb6197869c0293f0a60ffa51f8a6a0d7b0cb06"
-  revision 1
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.1.0/sshguard-2.1.0.tar.gz"
+  sha256 "21252a4834ad8408df384ee4ddf468624aa9de9cead5afde1c77380a48cf028a"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e764fa15ad0d10efc397f903615ef1c6507574938d9ccc2f57b1fd32ad949e39" => :high_sierra
-    sha256 "87d6c9a576f06394b76c57837e1fdd700a48a58a720a546acc013818eb341e79" => :sierra
-    sha256 "dc712e331dd208b919076b5c4317809f081a274460dde1c3fd3d0226463fe32f" => :el_capitan
-    sha256 "dd5cfdc92ff81e8dc725ed3e263e0e1358149a3298bb9803c39a50d045e17421" => :yosemite
+    sha256 "eb13c51b65f9007163ade54a5f01699da82b4ba3c225af30a57ed05593bfe60e" => :high_sierra
+    sha256 "63b4d94b319432258792e9d00a0474c11c1bc37fe19deee1c7ee62f2980c982d" => :sierra
+    sha256 "4231ea2fbff92a76b72e8f3707e4600451e9315740cd5864c54641dc8bd75857" => :el_capitan
   end
 
   head do
@@ -30,11 +27,13 @@ class Sshguard < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     system "make", "install"
+    inreplace man8/"sshguard.8", "%PREFIX%/etc/", "#{etc}/"
     cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
     inreplace "examples/sshguard.conf" do |s|
       s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-#{firewall}\""
       if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
+        s.gsub! %q{\"sshd\")'"}, %q{"sshd")'"}
       else
         s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
       end
@@ -51,7 +50,7 @@ class Sshguard < Formula
   end
 
   def caveats
-    if MacOS.version >= :lion then <<-EOS.undent
+    if MacOS.version >= :lion then <<~EOS
       Add the following lines to /etc/pf.conf to block entries in the sshguard
       table (replace $ext_if with your WAN interface):
 
@@ -65,7 +64,7 @@ class Sshguard < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -86,6 +85,13 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match "SSHGuard #{version}", shell_output("#{sbin}/sshguard -v 2>&1")
+    require "pty"
+    PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
+      begin
+        assert_equal "SSHGuard #{version}", r.read.strip
+      ensure
+        Process.wait pid
+      end
+    end
   end
 end

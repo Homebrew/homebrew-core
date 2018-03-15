@@ -1,16 +1,16 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/mupdf-1.11-source.tar.gz"
-  sha256 "209474a80c56a035ce3f4958a63373a96fad75c927c7b1acdc553fc85855f00a"
+  url "https://mupdf.com/downloads/mupdf-1.12.0-source.tar.gz"
+  sha256 "5c6353a82f1512f4f5280cf69a3725d1adac9c8b22377ec2a447c4fc45528755"
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3627c8c61926a81077e86fc77095323f77ae108e7bb923e7ab33121b9af44f93" => :high_sierra
-    sha256 "db79eda74b6e0aee69a92859a72a9cbb9a4497ff7fbdb73bce2af1984b93b1a3" => :sierra
-    sha256 "a05de229404807b12a302da6d85141701d6b31e528ae4dbb612ad53d65b73221" => :el_capitan
-    sha256 "4a6fda775162b101b4fe907bda57277fcb19514aaa4ae434ef6ad155ee72e649" => :yosemite
+    rebuild 1
+    sha256 "4b9122fa576b3bb24754016fa9dad09113dcbe0fe982cff3341d0f8d718fae25" => :high_sierra
+    sha256 "a9745c00b9efe835197f89e973f4b25698567c011aa1fdf3052c586ba3503a87" => :sierra
+    sha256 "771078a7ae9a600933d1f38ff80389b7bc158e8aecde9c9c7bf7aecddc75e7a8" => :el_capitan
   end
 
   depends_on :x11
@@ -20,15 +20,11 @@ class Mupdf < Formula
     :because => "mupdf and mupdf-tools install the same binaries."
 
   def install
-    # Work around bug: https://bugs.ghostscript.com/show_bug.cgi?id=697842
-    inreplace "Makerules", "RANLIB_CMD := xcrun", "RANLIB_CMD = xcrun"
-
     system "make", "install",
            "build=release",
            "verbose=yes",
            "CC=#{ENV.cc}",
-           "prefix=#{prefix}",
-           "HAVE_GLFW=no" # Do not build OpenGL viewer: https://bugs.ghostscript.com/show_bug.cgi?id=697842
+           "prefix=#{prefix}"
     bin.install_symlink "mutool" => "mudraw"
   end
 

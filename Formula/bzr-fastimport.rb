@@ -15,7 +15,7 @@ class BzrFastimport < Formula
     sha256 "fab457013d0f24e2d88b2dd76ad72d6b0101b9356e231bb0255b71866d318259" => :mountain_lion
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "bazaar"
 
   resource "python-fastimport" do
@@ -31,8 +31,8 @@ class BzrFastimport < Formula
     (share/"bazaar/plugins/fastimport").install Dir["*"]
   end
 
-  def caveats; <<-EOS.undent
-    In order to use this plugin you must set your PYTHONPATH in your ~/.bashrc:
+  def caveats; <<~EOS
+    In order to use this plugin you must set your PYTHONPATH in your #{shell_profile}:
 
       export PYTHONPATH="#{opt_libexec}/vendor/lib/python2.7/site-packages:$PYTHONPATH"
 

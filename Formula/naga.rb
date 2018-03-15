@@ -18,6 +18,6 @@ class Naga < Formula
   end
 
   test do
-    File.exist? "#{bin}/naga"
+    assert_predicate bin/"naga", :exist?
   end
 end

@@ -2,15 +2,17 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-      :tag => "v1.0.21",
-      :revision => "8d953288babe6bf320a390113cbca0f314607272"
+      :tag => "v1.1.0",
+      :revision => "599ca7e520e1c34625f9cda3d87cdf73346ce0fd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07319212d43a5d37b0823b3a1e9a55bf722a49eacd1d93b73e04ec0965311f24" => :high_sierra
-    sha256 "f012bdbb9b0fdcc93ba7d985178e9ca1df05e96eebb873c98435c37ad7b27fae" => :sierra
-    sha256 "8fa89a95797a0e4f360c548716526e2bece4be8fcd394c109bfb3e82883cdb79" => :el_capitan
+    sha256 "85e5e00d45d219a89ade2d984d154db8fa2456ea6d288a6bdc7e95556703c0e7" => :high_sierra
+    sha256 "b525274128bcbc05bccddd697da56eca01f4ce71dc1dab01b8faf3d01ec82173" => :sierra
+    sha256 "f6f8898a22dca7eba5bc1ef9077b3bfb82c3167cedf863fb82df7f151d02e5c9" => :el_capitan
   end
+
+  depends_on "ruby" if MacOS.version <= :sierra
 
   resource "arrayfields" do
     url "https://rubygems.org/gems/arrayfields-4.9.2.gem"
@@ -35,11 +37,6 @@ class Braid < Formula
   resource "map" do
     url "https://rubygems.org/gems/map-6.6.0.gem"
     sha256 "153a6f384515b14085805f5839d318f9d3c9dab676f341340fa4300150373cbc"
-  end
-
-  resource "open4" do
-    url "https://rubygems.org/gems/open4-1.3.4.gem"
-    sha256 "a1df037310624ecc1ea1d81264b11c83e96d0c3c1c6043108d37d396dcd0f4b1"
   end
 
   def install

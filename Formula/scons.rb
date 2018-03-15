@@ -1,14 +1,14 @@
 class Scons < Formula
   desc "Substitute for classic 'make' tool with autoconf/automake functionality"
   homepage "http://www.scons.org"
-  url "https://downloads.sourceforge.net/project/scons/scons/3.0.0/scons-3.0.0.tar.gz"
-  sha256 "0f532f405b98c60b731d231b3c503ab5bf47d89a6f66f70cb62c9249e9f45216"
+  url "https://downloads.sourceforge.net/project/scons/scons/3.0.1/scons-3.0.1.tar.gz"
+  sha256 "24475e38d39c19683bc88054524df018fe6949d70fbd4c69e298d39a0269f173"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d4495f68be68e5a6756a326914c0b1046921e95cbea330b604319f27bb4fc1f" => :high_sierra
-    sha256 "962065c07692369e009d8377f9ee19f2043d07d631093eb7f8aba6f55bccd5bd" => :sierra
-    sha256 "962065c07692369e009d8377f9ee19f2043d07d631093eb7f8aba6f55bccd5bd" => :el_capitan
+    sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :high_sierra
+    sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :sierra
+    sha256 "c791b4905477a5fbc33345cef5e412807ffc90ba6ea35bfc9a263f542702aa1c" => :el_capitan
   end
 
   def install
@@ -32,7 +32,7 @@ class Scons < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       int main()
       {

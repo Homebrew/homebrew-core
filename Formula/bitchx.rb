@@ -31,7 +31,7 @@ class Bitchx < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     On case-sensitive filesytems, it is necessary to run `BitchX` not `bitchx`.
     For best visual appearance, your terminal emulator may need:
     * Character encoding set to Western (ISO Latin 1).

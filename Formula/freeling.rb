@@ -3,13 +3,12 @@ class Freeling < Formula
   homepage "http://nlp.lsi.upc.edu/freeling/"
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.0/FreeLing-4.0.tar.gz"
   sha256 "c79d21c5af215105ba16eb69ee75b589bf7d41abce86feaa40757513e33c6ecf"
-  revision 6
+  revision 8
 
   bottle do
-    sha256 "50eaf967e34770372cc6a948c6dbf03848bba0909e9dcbd2905115dbc5649b61" => :high_sierra
-    sha256 "3df68f616ee8f3fbaccce1590801b3d7ded18be3f156b1516203eb5d95598313" => :sierra
-    sha256 "547a6ba6bd77707c482c73657df14a7bce784bcf03f0b3fdfee7ab3cbcb85086" => :el_capitan
-    sha256 "c9e6a2cc3fe69b02c2db31c942ec41cbd5a85b69688cd7f5b4a69cccc18508f8" => :yosemite
+    sha256 "5a8a54e6fec19fc08e012942e7956d9052dc8d0e948d4420802bbbe32d42f8fd" => :high_sierra
+    sha256 "9377df49e3b5a89954f251d3d6a382adf7a67fef8657c5dd10ff8705da5dc524" => :sierra
+    sha256 "4aeb8e5fc2a7f18394f1aebce4896c59379f8dc9f6d6e4e5b86e0b2f0fe58aa5" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -88,7 +87,7 @@ class Freeling < Formula
   end
 
   test do
-    expected = <<-EOS.undent
+    expected = <<~EOS
       Hello hello NN 1
       world world NN 1
     EOS

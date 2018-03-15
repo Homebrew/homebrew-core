@@ -33,7 +33,7 @@ class ClutterGtk < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <clutter-gtk/clutter-gtk.h>
 
       int main(int argc, char *argv[]) {

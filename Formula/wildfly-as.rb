@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "http://wildfly.org/"
-  url "https://download.jboss.org/wildfly/10.1.0.Final/wildfly-10.1.0.Final.tar.gz"
-  sha256 "80781609be387045273f974662dadf7f64ad43ee93395871429bc6b7786ec8bc"
+  url "https://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.tar.gz"
+  sha256 "a2f5fb4187369196003e31eb086f0a1f7bfc0645a3a61a53ed20ab5853481e71"
 
   bottle :unneeded
 
@@ -15,7 +15,7 @@ class WildflyAs < Formula
     mkdir_p libexec/"standalone/log"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The home of WildFly Application Server #{version} is:
       #{opt_libexec}
     You may want to add the following to your .bash_profile:
@@ -26,7 +26,7 @@ class WildflyAs < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/wildfly-as/libexec/bin/standalone.sh --server-config=standalone.xml"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

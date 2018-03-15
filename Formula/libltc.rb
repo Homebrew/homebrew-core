@@ -18,7 +18,7 @@ class Libltc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       // stripped-down copy of:
       // https://raw.githubusercontent.com/x42/libltc/87d45b3/tests/example_encode.c
       #include <stdio.h>

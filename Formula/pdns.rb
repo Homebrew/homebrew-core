@@ -1,13 +1,13 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.0.4.tar.bz2"
-  sha256 "d974ab89de69477c7f581a3233bc731eacbb43d479291e472b2c531c83b6d763"
+  url "https://downloads.powerdns.com/releases/pdns-4.1.1.tar.bz2"
+  sha256 "08d388321c8a2c24ebe8d7e539f34a0ba2c0973313c168a1b5ecf507e4fb04ba"
 
   bottle do
-    sha256 "e30011fbb145b6f218f162446110bdc9fc2e97042ee9e3579d1a76042f49c2f2" => :sierra
-    sha256 "ed5aa3cc7ad6be4eaf2014e55a2710421f26a810538205a7b66b146e7f36649b" => :el_capitan
-    sha256 "f0129da95db9a27333c4c047ecaa0407a60c83a755a71137d54328f564c204b6" => :yosemite
+    sha256 "470c9841912c8c2ef96c69c8426b4cfc17d10277c978c193015261d677c87651" => :high_sierra
+    sha256 "857cb0232f168326f27f696b9ba2c1c1fe6577b21dcbca4f2179cdcae379704d" => :sierra
+    sha256 "1e22069fb9c9b263a75f2361602d87923f72094225fa27ba4662b3a8bd1f2566" => :el_capitan
   end
 
   head do
@@ -30,11 +30,15 @@ class Pdns < Formula
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
-  depends_on :postgresql => :optional
+  depends_on "postgresql" => :optional
 
   def install
+    # Fix "configure: error: cannot find boost/program_options.hpp"
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     args = %W[
       --prefix=#{prefix}
+      --sysconfdir=#{etc}/powerdns
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
@@ -58,7 +62,7 @@ class Pdns < Formula
 
   plist_options :manual => "pdns_server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -3,21 +3,20 @@ class Pgplot < Formula
   homepage "http://www.astro.caltech.edu/~tjp/pgplot/"
   url "ftp://ftp.astro.caltech.edu/pub/pgplot/pgplot522.tar.gz"
   mirror "https://distfiles.macports.org/pgplot/pgplot522.tar.gz"
-  mirror "ftp://ftp.us.horde.org/pub/linux/gentoo/distro/distfiles/pgplot522.tar.gz"
+  mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "81ed79200c9c31c4b86d9e6590b0161ce1b3b475fc3f424a2aeb56619cc95ae3" => :high_sierra
-    sha256 "06c11d0278bfcdbd7300ebcd71b71cee4d73ffab5c894b6c140e6ac7aa64758d" => :sierra
-    sha256 "ef4a6c5d3d9cd5883c94245b1c2158058aaba6df1bda14b0cf60b45b6585bc8b" => :el_capitan
-    sha256 "74aeb46030d7c3c6c6e3bdbae94bf6525c8c5adfa8d41474f2764fc83e0a3ab2" => :yosemite
+    sha256 "fa50b8dc562ae8e2311640f8158564c1552a31cfdc9aed960129e4ec7f1804a1" => :high_sierra
+    sha256 "511d11937071d598d49eb9ed1ad959bfcd377a378825b63564790b5146b90dee" => :sierra
+    sha256 "53e71eff08e868a148f06c1624e94c3156e504cb8e9101aec9db22410fe0101e" => :el_capitan
   end
 
-  depends_on :x11
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "libpng"
+  depends_on :x11
 
   # from MacPorts: https://trac.macports.org/browser/trunk/dports/graphics/pgplot/files
   patch :p0 do
@@ -33,8 +32,6 @@ class Pgplot < Formula
   def install
     ENV.deparallelize
     ENV.append "CPPFLAGS", "-DPG_PPU"
-    # allow long lines in the fortran code (for long homebrew PATHs)
-    ENV.append "FCFLAGS", "-ffixed-line-length-none"
 
     # re-hardcode the share dir
     inreplace "src/grgfil.f", "/usr/local/pgplot", share
@@ -44,14 +41,14 @@ class Pgplot < Formula
     inreplace "drivers/pndriv.c", "setjmp(png_ptr->jmpbuf)", "setjmp(png_jmpbuf(png_ptr))"
 
     # configure options
-    (buildpath/"sys_darwin/homebrew.conf").write <<-EOS.undent
+    (buildpath/"sys_darwin/homebrew.conf").write <<~EOS
       XINCL="#{ENV.cppflags}"
       MOTIF_INCL=""
       ATHENA_INCL=""
       TK_INCL=""
       RV_INCL=""
-      FCOMPL="#{ENV.fc}"
-      FFLAGC="#{ENV.fcflags}"
+      FCOMPL="gfortran"
+      FFLAGC="-ffixed-line-length-none"
       FFLAGD=""
       CCOMPL="#{ENV.cc}"
       CFLAGC="#{ENV.cppflags}"
@@ -63,13 +60,13 @@ class Pgplot < Formula
       TK_LIBS=""
       RANLIB="#{which "ranlib"}"
       SHARED_LIB="libpgplot.dylib"
-      SHARED_LD="#{ENV.fc} -dynamiclib -single_module $LDFLAGS -lX11 -install_name libpgplot.dylib"
+      SHARED_LD="gfortran -dynamiclib -single_module $LDFLAGS -lX11 -install_name libpgplot.dylib"
       SHARED_LIB_LIBS="#{ENV.ldflags} -lpng -lX11"
       MCOMPL=""
       MFLAGC=""
       SYSDIR="$SYSDIR"
       CSHARED_LIB="libcpgplot.dylib"
-      CSHARED_LD="#{ENV.fc} -dynamiclib -single_module $LDFLAGS -lX11"
+      CSHARED_LD="gfortan -dynamiclib -single_module $LDFLAGS -lX11"
       EOS
 
     mkdir "build" do
@@ -94,26 +91,27 @@ class Pgplot < Formula
   end
 
   test do
-    (testpath/"test.f90").write <<-EOS.undent
-      PROGRAM SIMPLE
-      INTEGER I, IER, PGBEG
-      REAL XR(100), YR(100)
-      REAL XS(5), YS(5)
-      data XS/1.,2.,3.,4.,5./
-      data YS/1.,4.,9.,16.,25./
-      IER = PGBEG(0,'?',1,1)
-      IF (IER.NE.1) STOP
-      CALL PGENV(0.,10.,0.,20.,0,1)
-      CALL PGLAB('(x)', '(y)', 'A Simple Graph')
-      CALL PGPT(5,XS,YS,9)
-      DO 10 I=1,60
-          XR(I) = 0.1*I
-          YR(I) = XR(I)**2
-   10 CONTINUE
-      CALL PGLINE(60,XR,YR)
-      CALL PGEND
-      END
+    (testpath/"test.f90").write <<~EOS
+         PROGRAM SIMPLE
+         INTEGER I, IER, PGBEG
+         REAL XR(100), YR(100)
+         REAL XS(5), YS(5)
+         data XS/1.,2.,3.,4.,5./
+         data YS/1.,4.,9.,16.,25./
+         IER = PGBEG(0,'?',1,1)
+         IF (IER.NE.1) STOP
+         CALL PGENV(0.,10.,0.,20.,0,1)
+         CALL PGLAB('(x)', '(y)', 'A Simple Graph')
+         CALL PGPT(5,XS,YS,9)
+         DO 10 I=1,60
+             XR(I) = 0.1*I
+             YR(I) = XR(I)**2
+      10 CONTINUE
+         CALL PGLINE(60,XR,YR)
+         CALL PGEND
+         END
     EOS
-    system "gfortran", "-o", "test", "test.f90", "-L#{lib}", "-lpgplot", "-lX11", "-L/usr/X11/lib", "-I/usr/X11/include"
+    system "gfortran", "-o", "test", "test.f90", "-I/usr/X11/include",
+           "-L/usr/X11/lib", "-L#{lib}", "-lpgplot", "-lX11"
   end
 end

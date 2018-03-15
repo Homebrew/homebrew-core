@@ -30,7 +30,7 @@ class Unpaper < Formula
   end
 
   test do
-    (testpath/"test.pbm").write <<-EOS.undent
+    (testpath/"test.pbm").write <<~EOS
       P1
       6 10
       0 0 0 0 1 0
@@ -45,6 +45,6 @@ class Unpaper < Formula
       0 0 0 0 0 0
     EOS
     system bin/"unpaper", testpath/"test.pbm", testpath/"out.pbm"
-    File.exist? testpath/"out.pbm"
+    assert_predicate testpath/"out.pbm", :exist?
   end
 end

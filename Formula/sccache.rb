@@ -1,26 +1,29 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/0.2.1.tar.gz"
-  sha256 "b142afa412260a706af9df8fd831928b5d86faa10b208ab5daad30a9cfb318b2"
+  url "https://github.com/mozilla/sccache/archive/0.2.6.tar.gz"
+  sha256 "201f4e75307da7ebceed7375a4ffbdcc91c333d5bba06ea07676485685fd4ed6"
   head "https://github.com/mozilla/sccache.git"
 
   bottle do
-    sha256 "3ebd09f4a69a469fb913e446f18830bf390065e54ac4d65500b623857ccca4d1" => :high_sierra
-    sha256 "c5a38b08cd4062753359bc3d08cfbbeaaba2b9e0a367cfa6bdeccf14ef4c0697" => :sierra
-    sha256 "0ecca586f9be067fd8740a0f758029183beabf44a8f1ba20668e91cd25e449e7" => :el_capitan
-    sha256 "20232467c2fb91032a313a819fde0e44115f3191ddde6b6b3889a8ef02e0af3e" => :yosemite
+    sha256 "5d0500e016fbc93d4939a433b885ec9a2eb0d8307b1c1bc43de46f7356bfdb17" => :high_sierra
+    sha256 "b562291098b0a464249f947614105e565e847b3b3b4590beee38a1035fdf152c" => :sierra
+    sha256 "39d0e84cd978d2113fcc6638a9646ea42088f38391eb46c31d03adbfda61794b" => :el_capitan
   end
 
   depends_on "rust" => :build
+  depends_on "openssl"
 
   def install
+    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
+    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
+
     system "cargo", "build", "--release", "--features", "all"
     bin.install "target/release/sccache"
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <stdio.h>
       int main() {
         puts("Hello, world!");

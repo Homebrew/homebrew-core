@@ -1,16 +1,14 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.10/matio-1.5.10.tar.gz"
-  sha256 "41209918cebd8cc87a4aa815fed553610911be558f027aee54af8b599c78b501"
-  revision 2
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.12/matio-1.5.12.tar.gz"
+  sha256 "8695e380e465056afa5b5e20128935afe7d50e03830f9f7778a72e1e1894d8a9"
 
   bottle do
     cellar :any
-    sha256 "a551925229dd610754116f453f72a504545568f82836af1d4fd9f974b7916819" => :high_sierra
-    sha256 "26b8710ae06c3026ecd0118e67480bf1bda821a833515c3fb203642a933f955b" => :sierra
-    sha256 "42e3a6488ccacbcdcf774c8f46cc6809d3b78d9774f21b5304606cc088205202" => :el_capitan
-    sha256 "6aeb9ddcac1d873b51f290efa268c3c1f810778aa77e666796b7c1d08e60e775" => :yosemite
+    sha256 "43b0e6cfd7de1e3b7d2d8417a362c1959f95f591083c1324e1b4321a4dfbb87c" => :high_sierra
+    sha256 "955dc30b86226f916b5634d2d1778df5ac2fedb7518f31d2bcf33dbda9807260" => :sierra
+    sha256 "5b75630b6704777e1c66fc34c75b16fd887f8f59375fa1b53242279261f865d2" => :el_capitan
   end
 
   depends_on "hdf5"
@@ -35,7 +33,7 @@ class Libmatio < Formula
 
   test do
     testpath.install resource("test_mat_file")
-    (testpath/"mat.c").write <<-'EOS'.undent
+    (testpath/"mat.c").write <<~'EOS'
       #include <stdlib.h>
       #include <matio.h>
       int main(int argc, char **argv) {

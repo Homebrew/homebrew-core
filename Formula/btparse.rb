@@ -23,7 +23,7 @@ class Btparse < Formula
   end
 
   test do
-    (testpath/"test.bib").write <<-EOS.undent
+    (testpath/"test.bib").write <<~EOS
       @article{mxcl09,
         title={{H}omebrew},
         author={{H}owell, {M}ax},

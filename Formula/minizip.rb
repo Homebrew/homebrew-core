@@ -35,7 +35,7 @@ class Minizip < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Minizip headers installed in 'minizip' subdirectory, since they conflict
       with the venerable 'unzip' library.
     EOS

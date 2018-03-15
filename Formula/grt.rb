@@ -24,7 +24,7 @@ class Grt < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <GRT/GRT.h>
       int main() {
         GRT::GestureRecognitionPipeline pipeline;

@@ -3,11 +3,12 @@ class Grc < Formula
   homepage "http://korpus.juls.savba.sk/~garabik/software/grc.html"
   url "https://github.com/garabik/grc/archive/v1.11.1.tar.gz"
   sha256 "9ae4bcc9186d6856e861d5b0e29b7b14db3f14e6b643e2df0076c104a94dbcba"
+  revision 2
   head "https://github.com/garabik/grc.git"
 
   bottle :unneeded
 
-  depends_on :python3
+  depends_on "python"
 
   conflicts_with "cc65", :because => "both install `grc` binaries"
 
@@ -35,7 +36,7 @@ class Grc < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     New shell sessions will use GRC if you add the relevant file to your profile e.g.:
       . #{etc}/grc.bashrc
     EOS

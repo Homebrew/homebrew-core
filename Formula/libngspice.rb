@@ -39,7 +39,7 @@ class Libngspice < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <cstdlib>
       #include <ngspice/sharedspice.h>
       int ng_exit(int status, bool immediate, bool quitexit, int ident, void *userdata) {

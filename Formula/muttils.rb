@@ -1,5 +1,5 @@
 class Muttils < Formula
-  desc "Provides utilities for use with console mail clients, eg. Mutt."
+  desc "Provides utilities for use with console mail clients, eg. Mutt"
   homepage "https://bitbucket.org/blacktrash/muttils/"
   url "https://bitbucket.org/blacktrash/muttils/get/1.3.tar.gz"
   sha256 "c8b456b660461441de8927ccff7e9f444894d6550d0777ed7bd160b8f9caddbf"
@@ -15,9 +15,7 @@ class Muttils < Formula
     sha256 "63e819c0bb96a56ed0f159ab816aeac84805a52333bd23298a17cd2abddcb17b" => :mountain_lion
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
-  conflicts_with "talk-filters", :because => "both install `wrap` binaries"
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"

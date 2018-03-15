@@ -1,13 +1,13 @@
 class Dar < Formula
   desc "Backup directory tree and files"
   homepage "http://dar.linux.free.fr/doc/index.html"
-  url "https://downloads.sourceforge.net/project/dar/dar/2.5.12/dar-2.5.12.tar.gz"
-  sha256 "19bd60000a681a20386ee079b9a6ea05028020053eaeddbff175a8d22563fba2"
+  url "https://downloads.sourceforge.net/project/dar/dar/2.5.14/dar-2.5.14-bis.tar.gz"
+  sha256 "a5e744f04dde0b3af28f36deccaf274906e1cb29688b9f8bef7c62578b3d6de9"
 
   bottle do
-    sha256 "b6b2929c2e6e3c9f87b92d8ba3f26723f70b1b9b67f7a78c2af80781d0609b7f" => :high_sierra
-    sha256 "1a6daa86d3cdc0250ddb5cb4a5146f1da10f5ae4bb174bf6297a60f49d04f5c5" => :sierra
-    sha256 "6fddbae4c61b7c31719dd563cb74b7169aad8fe657bf440831e231e1a3ffab33" => :el_capitan
+    sha256 "d9d0a90712f3fe179767ea5caf79a46f4b57702a09b8a55e030e99fab002c800" => :high_sierra
+    sha256 "ece73e9dd56771993d6b8aedba32e0035b60866aec58ce85ae70197be1c5d43c" => :sierra
+    sha256 "098d2cb0df8236d49a08a11ff0c3fa77ea8817baa2880ac8c473bb816318bf29" => :el_capitan
   end
 
   option "with-doxygen", "build libdar API documentation and html man page"

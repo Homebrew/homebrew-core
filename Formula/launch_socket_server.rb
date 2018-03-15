@@ -26,7 +26,7 @@ class LaunchSocketServer < Formula
   plist_options :startup => true
 
   def plist
-    <<-EOS.undent
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
@@ -70,7 +70,7 @@ class LaunchSocketServer < Formula
     launch_port = 9272
     echo_port = 6752
 
-    (testpath/"launch_socket_server.plist").write <<-EOS.undent
+    (testpath/"launch_socket_server.plist").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
@@ -110,7 +110,7 @@ class LaunchSocketServer < Formula
       </plist>
     EOS
 
-    (testpath/"echo_server.rb").write <<-EOS.undent
+    (testpath/"echo_server.rb").write <<~EOS
       require "socket"
 
       server = TCPServer.new("127.0.0.1", "#{echo_port}")

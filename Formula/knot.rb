@@ -1,14 +1,13 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.5.4.tar.xz"
-  sha256 "3fde76e9084b75df374709cb73a8289f77c6a95b7ccff8584d7423566faa24f0"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.6.5.tar.xz"
+  sha256 "33cd676706e2baeb37cf3879ccbc91a1e1cd1ee5d7a082adff4d1e753ce49d46"
 
   bottle do
-    sha256 "247ce5a4ea3ed364f94ac479d9f8bba60e916d07eb02836aee1b8cccc234cd6e" => :high_sierra
-    sha256 "0ea96d7cab1d6fc5a5a27b7c8bd09eb06d57bb4410fb927ab59b6c669d16bf22" => :sierra
-    sha256 "7778870c9a846abc9aa4241949c064e2debb93d70f8991e9b656a966a479de5b" => :el_capitan
-    sha256 "406164093d4b32a939c4a42f17f8966c4535b6a2c82531792538ad58259fa8cc" => :yosemite
+    sha256 "d972c47af7dd0af6f6b993679fdad536a5608880f1e6a1c8be75aa60488ab1f1" => :high_sierra
+    sha256 "a08a3a161f845c3c3fdde06c62b2edaca3ba32610b9abffb51e28c1559709b4a" => :sierra
+    sha256 "1d24871eb07b2b143d310c2753406f33d19a21c79a0f7bea6afc60dadb706fdc" => :el_capitan
   end
 
   head do
@@ -59,7 +58,7 @@ class Knot < Formula
     (var/"knot").mkpath
   end
 
-  def knot_conf; <<-EOS.undent
+  def knot_conf; <<~EOS
     server:
       rundir: "#{var}/knot"
       listen: [ "0.0.0.0@53", "::@53" ]
@@ -79,7 +78,7 @@ class Knot < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

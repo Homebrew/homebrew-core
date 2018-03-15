@@ -1,14 +1,14 @@
 class FfmpegAT28 < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-2.8.11.tar.bz2"
-  sha256 "9987e0f6b1f66311390f807a0c18ad9c90652b5097cff17b3dcbeabdd89f8d32"
+  url "https://ffmpeg.org/releases/ffmpeg-2.8.13.tar.bz2"
+  sha256 "df9b98cb584a004ce8e29b4c954cfb8d9e45dac52b4c6d036f25dfbaa3086778"
+  revision 2
 
   bottle do
-    sha256 "181042c8e78918de8b81b076744a8f925f9c4fff349fbbd14c0d959e2124cb79" => :high_sierra
-    sha256 "e031f023b70ad0e7357dbfaf36bc5a9de82c5f678c5d41f39ed5f76edd6aaa61" => :sierra
-    sha256 "dd85334c99ee8f2af3cf57a11d8af01c63e2ef3127742b141915713d49868e0a" => :el_capitan
-    sha256 "991871ed17f2912831eb9157e912a1c6748ba2f573ac982a5ad8bf2932313ac3" => :yosemite
+    sha256 "aa356ed2a33d8a1bfc32c1541b42a666ce24201709b82fbbf4f24bcf418735bf" => :high_sierra
+    sha256 "280d377b3853063069f174efae5fa7d00fba939bb05090e6ed1e3bf51c97e0a2" => :sierra
+    sha256 "4081321d6ca435f867efeab84e8ae1bb8b1f87263a7a2936043cc9e91e0413e6" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -18,6 +18,7 @@ class FfmpegAT28 < Formula
   option "without-libvo-aacenc", "Disable VisualOn AAC encoder"
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
+  option "without-securetransport", "Disable use of SecureTransport"
 
   option "with-rtmpdump", "Enable RTMP protocol"
   option "with-libass", "Enable ASS/SSA subtitle format"
@@ -131,6 +132,7 @@ class FfmpegAT28 < Formula
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libdcadec" if build.with? "dcadec"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
+    args << "--disable-securetransport" if build.without? "securetransport"
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
@@ -178,7 +180,7 @@ class FfmpegAT28 < Formula
   end
 
   def caveats
-    if build.without? "faac" then <<-EOS.undent
+    if build.without? "faac" then <<~EOS
       FFmpeg has been built without libfaac for licensing reasons;
       libvo-aacenc is used by default.
       To install with libfaac, you can:
@@ -198,6 +200,6 @@ class FfmpegAT28 < Formula
     # Create an example mp4 file
     system "#{bin}/ffmpeg", "-y", "-filter_complex",
         "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
-    assert (testpath/"video.mp4").exist?
+    assert_predicate testpath/"video.mp4", :exist?
   end
 end

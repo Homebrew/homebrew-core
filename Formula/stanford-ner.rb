@@ -1,5 +1,5 @@
 class StanfordNer < Formula
-  desc "Stanford NLP Group's implementation of a Named Entity Recognizer."
+  desc "Stanford NLP Group's implementation of a Named Entity Recognizer"
   homepage "https://nlp.stanford.edu/software/CRF-NER.shtml"
   url "https://nlp.stanford.edu/software/stanford-ner-2015-04-20.zip"
   version "3.5.2"

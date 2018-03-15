@@ -1,19 +1,20 @@
 class Asciinema < Formula
   desc "Record and share terminal sessions"
   homepage "https://asciinema.org"
-  url "https://github.com/asciinema/asciinema/archive/v1.4.0.tar.gz"
-  sha256 "841a55b0f51988d5e155e99badbd6ce5cf3b43cca2ba15cd20c971a19719dc9a"
+  url "https://dl.bintray.com/homebrew/mirror/asciinema-2.0.0.tar.gz"
+  mirror "https://github.com/asciinema/asciinema/archive/v2.0.0.tar.gz"
+  sha256 "65224d8dcc8c579fd678fff83ea89eecfd35a1d2ca853ee6fcf27d2f7b5e3205"
+  revision 1
   head "https://github.com/asciinema/asciinema.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb365467441ca7fb242c015264dcf94ffd4c7dc322007c69cecb78215b5db88f" => :high_sierra
-    sha256 "bb083c12bf50fe56b223784cb761a6dcefd55cefaac138815912c85102c43153" => :sierra
-    sha256 "e95c895bee1ee5c1f852e06522104489807510f157843ef10ea1d68a84318634" => :el_capitan
-    sha256 "e95c895bee1ee5c1f852e06522104489807510f157843ef10ea1d68a84318634" => :yosemite
+    sha256 "e62bce26a2aa18ec65a865eb3f13eca36ed7f382ee5331243424a7608ad3439f" => :high_sierra
+    sha256 "e62bce26a2aa18ec65a865eb3f13eca36ed7f382ee5331243424a7608ad3439f" => :sierra
+    sha256 "e62bce26a2aa18ec65a865eb3f13eca36ed7f382ee5331243424a7608ad3439f" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
 
   def install
     xy = Language::Python.major_minor_version "python3"

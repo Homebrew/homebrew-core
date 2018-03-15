@@ -38,7 +38,7 @@ class Dnsrend < Formula
     libexec.install "dnsrend"
     doc.install "README"
 
-    (bin/"dnsrend").write <<-EOS.undent
+    (bin/"dnsrend").write <<~EOS
       #!/bin/sh
       /usr/bin/env perl -Tw -I "#{libexec}/lib/perl5" #{libexec}/dnsrend "$@"
     EOS

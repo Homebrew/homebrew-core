@@ -13,6 +13,8 @@ class Bde < Formula
     sha256 "0a4219cc1a605d20000b22d6a8c1977216b60d99278a8b92553ac30f14b6c595" => :mavericks
   end
 
+  depends_on "python@2" if MacOS.version <= :snow_leopard
+
   resource "bde-tools" do
     url "https://github.com/bloomberg/bde-tools/archive/v1.0.tar.gz"
     sha256 "9b3936fecef23f8c072e62208d2068decfd13d144b771125afc9e0fb9ad16d30"
@@ -29,7 +31,7 @@ class Bde < Formula
   test do
     # bde tests are incredibly performance intensive
     # test below does a simple sanity check for linking against bsl.
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <bsl/bsl_string.h>
       #include <bsl/bslma_default.h>
       int main() {

@@ -44,7 +44,7 @@ class Wellington < Formula
 
   test do
     s = "div { p { color: red; } }"
-    expected = <<-EOS.undent
+    expected = <<~EOS
       /* line 1, stdin */
       div p {
         color: red; }

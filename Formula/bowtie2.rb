@@ -1,13 +1,14 @@
 class Bowtie2 < Formula
   desc "Fast and sensitive gapped read aligner"
   homepage "https://bowtie-bio.sourceforge.io/"
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.3.3.tar.gz"
-  sha256 "7d4d455a4af70d02a1ae4ce1a0b21b7d3018737dd197579e1a5612a5c01887c8"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.3.4.1.tar.gz"
+  sha256 "872f2580221dcc9bb4a8e3d04e032c168883c4c529d0733e3d94fe693f7732b2"
 
   bottle do
-    sha256 "3fe6f32e4b86211b5f2ba0f75a1f3865501b70ed2d474c54b335b24ab93313f3" => :high_sierra
-    sha256 "3439ab26ff7b2952b7b39045d24988278d867d6f5ee2f3f61a4bbf787724a9c9" => :sierra
-    sha256 "2ff5ef492d7df5d5de27751ff878937edc80d5e495213a868d48d994877a6151" => :el_capitan
+    cellar :any
+    sha256 "a6351c8bd99daf742dbe510df03219b47a90e142d2d8612d64d112a5c62820aa" => :high_sierra
+    sha256 "e454334bb9c1526fbc153f8f98392424942b86d82fe7c90b108578896839fcd2" => :sierra
+    sha256 "b6a3b49b0464d36330ff470ee0b4a4b10afbc763a8751804365b7d782cd23c22" => :el_capitan
   end
 
   depends_on "tbb"

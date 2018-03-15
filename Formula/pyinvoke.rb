@@ -3,25 +3,25 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "http://pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/0.21.0.tar.gz"
-  sha256 "ca2fcc56e5abdb9e56c9c5222786356a825a2b552e0137dd06184c54ce9a1cde"
+  url "https://github.com/pyinvoke/invoke/archive/0.22.1.tar.gz"
+  sha256 "0ff243defb9dfdc45a869fb9cc50ba3c0590ef6b337f4df49c465f63911176fb"
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c84ab7223729c95b9303512e08b0e7a2a06b6cc4d3039dbd222b5080af98dae" => :high_sierra
-    sha256 "d11aae306e1a7482f80ab57c8bb4f2a4c9f3e040e6fad835a2d171fb00ab7a14" => :sierra
-    sha256 "29ac1318559e47eb5d9b3e09237514bdb51d6e33ea43ea11e442e678de1c1a10" => :el_capitan
+    sha256 "22caddb4a74b1d916fee0352c5ca99f4abe7f7544d5afa870d9d9b22442a8105" => :high_sierra
+    sha256 "b649f689fa537171c909318338baa5147b4c6abe0e0d3ab4405bda9f9e433d3d" => :sierra
+    sha256 "f6576a575d302c1549e7cf76d3d07f5fc0f5c38efdd3534e915c0a39f4de57f9" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    (testpath/"tasks.py").write <<-EOS.undent
+    (testpath/"tasks.py").write <<~EOS
       from invoke import run, task
 
       @task
@@ -35,10 +35,10 @@ class Pyinvoke < Formula
     (testpath/"foo"/"bar").mkpath
     (testpath/"baz").mkpath
     system bin/"invoke", "clean"
-    assert !File.exist?(testpath/"foo"), "\"pyinvoke clean\" should have deleted \"foo\""
-    assert File.exist?(testpath/"baz"), "pyinvoke should have left \"baz\""
+    refute_predicate testpath/"foo", :exist?, "\"pyinvoke clean\" should have deleted \"foo\""
+    assert_predicate testpath/"baz", :exist?, "pyinvoke should have left \"baz\""
     system bin/"invoke", "clean", "--extra=baz"
-    assert !File.exist?(testpath/"foo"), "\"pyinvoke clean-extra\" should have still deleted \"foo\""
-    assert !File.exist?(testpath/"baz"), "pyinvoke clean-extra should have deleted \"baz\""
+    refute_predicate testpath/"foo", :exist?, "\"pyinvoke clean-extra\" should have still deleted \"foo\""
+    refute_predicate testpath/"baz", :exist?, "pyinvoke clean-extra should have deleted \"baz\""
   end
 end

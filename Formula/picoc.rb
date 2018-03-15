@@ -32,7 +32,7 @@ class Picoc < Formula
   end
 
   test do
-    (testpath/"brew.c").write <<-EOS.undent
+    (testpath/"brew.c").write <<~EOS
       #include <stdio.h>
       int main(void) {
         printf("Homebrew\n");

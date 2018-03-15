@@ -3,23 +3,23 @@ require "language/go"
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/segmentio/terraform-docs"
-  url "https://github.com/segmentio/terraform-docs/archive/v0.2.0.tar.gz"
-  sha256 "8f3ed47cfedde0a6e4ab8826b1d87009d06b7c04161363490b0a6c157473a146"
+  url "https://github.com/segmentio/terraform-docs/archive/v0.3.0.tar.gz"
+  sha256 "0cfac8ed50a6ba458ec5177e493fd8adc05395f3d9ba79504dc33ce6e5733fcd"
   head "https://github.com/segmentio/terraform-docs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b9fd4260918f3dfa94c3e174e03dd22429ddd54c032486a40c6e0a39ce1bd3d" => :high_sierra
-    sha256 "b257ed5c8902d1866fdfdd54450a573cf794b9dab7c6b46b53bfcfc2e194d6b5" => :sierra
-    sha256 "2f837ebdd13cc095db958dbf3dcdac8fe12f4fc2bbba14e41035b791c1d5c950" => :el_capitan
-    sha256 "8a79d91615019ba653775e465abf80c5856f9779b7a89ce29987a10ae57a7223" => :yosemite
+    rebuild 1
+    sha256 "d41872dfb6e58de57a05f2dafdd8254d5f24c318f7fa992026bf5f95af278a4f" => :high_sierra
+    sha256 "96e74e0e07f05e3bc416704e82def271f69f0707936191fec49e582fe4922fa0" => :sierra
+    sha256 "507d797efac42fd0ea8785364eda9eb9da2ddae656abca0766b49a90ff11699d" => :el_capitan
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/hashicorp/hcl" do
     url "https://github.com/hashicorp/hcl.git",
-        :revision => "392dba7d905ed5d04a5794ba89f558b27e2ba1ca"
+        :revision => "23c074d0eceb2b8a5bfdbb271ab780cde70f05a8"
   end
 
   go_resource "github.com/tj/docopt" do
@@ -32,13 +32,14 @@ class TerraformDocs < Formula
     (buildpath/"src/github.com/segmentio/terraform-docs").install buildpath.children
     Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/segmentio/terraform-docs" do
-      system "go", "build", "-o", "#{bin}/terraform-docs"
+      system "go", "build", "-o", "#{bin}/terraform-docs", "-ldflags",
+             "-X main.version=#{version}"
       prefix.install_metafiles
     end
   end
 
   test do
-    (testpath/"main.tf").write <<-EOS.undent
+    (testpath/"main.tf").write <<~EOS
       /**
       * Module usage:
       *

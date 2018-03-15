@@ -1,16 +1,15 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo/archive/v1.9.1.tar.gz"
-  sha256 "b1acf595317ab0c3eb6e13bbce9efb8972c4130a2a914010bc5dcc3c2f103e32"
+  url "https://github.com/square/certigo/archive/v1.10.0.tar.gz"
+  sha256 "c16ad4ce33737cee291fa8828436f8e3095c70605fc303ff9631d082d731ebed"
   head "https://github.com/square/certigo.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "105c455e29e492d4379216ad5694a07eaae463bff2a3b04405c8e5cb646e0a1a" => :high_sierra
-    sha256 "a823139b18d5e5c838e74236e789ba2ce7faf152edb26378e3b0ec14a9ef007a" => :sierra
-    sha256 "852b069dbd5ea23c3d803358ee0b5a104113e280de277467e2a9f66c0a715ccb" => :el_capitan
-    sha256 "a00efcc2cd32db3de93b5caefed7410f19c61f03b47e9ef8d31698a287d811eb" => :yosemite
+    sha256 "1a5e22415f9897fb8a8d39d48c96fe78183c1470b94bc089f52646c748130a2f" => :high_sierra
+    sha256 "f203d190704e21bee47733d556a14a7437c5003ddc0eba668a893a6fd6f78521" => :sierra
+    sha256 "9c76c9053f3bdaa1f0801a8ad5cb8a5e8486ad7f44fa66ada30829cd41865244" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -21,7 +20,7 @@ class Certigo < Formula
   end
 
   test do
-    (testpath/"test.crt").write <<-EOS.undent
+    (testpath/"test.crt").write <<~EOS
       -----BEGIN CERTIFICATE-----
       MIIDLDCCAhQCCQCa74bQsAj2/jANBgkqhkiG9w0BAQsFADBYMQswCQYDVQQGEwJV
       UzELMAkGA1UECBMCQ0ExEDAOBgNVBAoTB2NlcnRpZ28xEDAOBgNVBAsTB2V4YW1w

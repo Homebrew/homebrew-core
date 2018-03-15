@@ -1,14 +1,13 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.tar.bz2"
-  sha256 "912f2ee03c8dba06a3a4c0ee40522d367e1b65dc59e38dfcc1f5d9eecff51ab0"
-  revision 2
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.90.1.tar.xz"
+  sha256 "5c98dfd12043be5751b88ef64d5363cd99284236eaeec6316b062a7628c2f726"
 
   bottle do
-    sha256 "e034ee4ff0a3a7c4ba72be9c9dd971dc0e3d26c4559dc30e5c6a67608e54d216" => :high_sierra
-    sha256 "cfacabfcec0746abc0b8c285216bec3604de3f5974cba9d70efed4564cfb9972" => :sierra
-    sha256 "76f0bff4cbc20acbfc51728c5110ebfb2aa201a14f543fe05f70bd1a77c1e613" => :el_capitan
+    sha256 "4e7766c4ac809c41d87d258c056aa706f4704acd5e28e15768ac1ae5b3b9673f" => :high_sierra
+    sha256 "809ae3690e6581365f97aca7222020eb2e4ebdc31b8f529ae3fb35a38f680046" => :sierra
+    sha256 "bf8f087f3e15750160b825c2dc5a93c82115ae68568938ef086fe7a18f13e726" => :el_capitan
   end
 
   deprecated_option "support-maildir" => "with-maildir"
@@ -17,25 +16,6 @@ class Exim < Formula
   depends_on "pcre"
   depends_on "berkeley-db@4"
   depends_on "openssl"
-
-  # Patch applied upstream but doesn't apply cleanly from git.
-  # https://github.com/Exim/exim/commit/65e061b76867a9ea7aeeb535341b790b90ae6c21
-  patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/e/exim4/exim4_4.89-6.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/e/exim4/exim4_4.89-6.debian.tar.xz"
-    sha256 "a37923ea58656a16a74c7ce3b7e6b228a574067ce457eacb8813b326848c04b9"
-    apply "patches/75_fixes_01-Start-exim-4_89-fixes-to-cherry-pick-some-commits-fr.patch"
-    apply "patches/75_fixes_02-Cleanup-prevent-repeated-use-of-p-oMr-to-avoid-mem-l.patch"
-    apply "patches/75_fixes_03-Fix-log-line-corruption-for-DKIM-status.patch"
-    apply "patches/75_fixes_04-Openssl-disable-session-tickets-by-default-and-sessi.patch"
-    apply "patches/75_fixes_05-Transport-fix-smtp-under-combo-of-mua_wrapper-and-li.patch"
-    apply "patches/75_fixes_07-Openssl-disable-session-tickets-by-default-and-sessi.patch"
-    apply "patches/75_fixes_08-Transport-fix-smtp-under-combo-of-mua_wrapper-and-li.patch"
-    apply "patches/75_fixes_09-Use-the-BDB-environment-so-that-a-database-config-fi.patch"
-    apply "patches/75_fixes_10-Fix-cache-cold-random-callout-verify.-Bug-2147.patch"
-    apply "patches/75_fixes_11-On-callout-avoid-SIZE-every-time-but-noncacheable-rc.patch"
-    apply "patches/75_fixes_12-Fix-build-for-earlier-version-Berkeley-DB.patch"
-  end
 
   def install
     cp "src/EDITME", "Local/Makefile"
@@ -61,6 +41,8 @@ class Exim < Formula
 
     bdb4 = Formula["berkeley-db@4"]
 
+    mv Dir["OS/unsupported/*Darwin*"], "OS"
+
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]
       # Add include and lib paths for BDB 4
@@ -79,7 +61,7 @@ class Exim < Formula
   end
 
   # Inspired by MacPorts startup script. Fixes restart issue due to missing setuid.
-  def startup_script; <<-EOS.undent
+  def startup_script; <<~EOS
     #!/bin/sh
     PID=#{var}/spool/exim/exim-daemon.pid
     case "$1" in
@@ -103,7 +85,7 @@ class Exim < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Start with:
       exim_ctl start
     Don't forget to run it as root to be able to bind port 25.

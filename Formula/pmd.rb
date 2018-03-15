@@ -1,15 +1,14 @@
 class Pmd < Formula
   desc "Source code analyzer for Java, JavaScript, and more"
   homepage "https://pmd.github.io"
-  url "https://github.com/pmd/pmd/releases/download/pmd_releases/5.8.1/pmd-src-5.8.1.zip"
-  sha256 "d7b1c86ce3d02a78d17b07a0090ea92c437e3211bb86cd9d17ac7787397164f8"
+  url "https://github.com/pmd/pmd/releases/download/pmd_releases/6.1.0/pmd-src-6.1.0.zip"
+  sha256 "43ed003b62854f7f979c3f0444dc75e494f75b0ab91d45af4866683d1f36d2e5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f8c7ea946c71c4f53f99a7fb0ac24a5735cd90c0f57a19bcb42cfdbdcb18afe" => :high_sierra
-    sha256 "d0b7be23c380d9303cb4d100d66617ad39faa38a37234bb9b4cf812c8e49880b" => :sierra
-    sha256 "6c8c3fab6a50acb2e092038e764147bd09a161616419d723dd716bbfd9a1c9d4" => :el_capitan
-    sha256 "d32b9faf151bcd058caf7601f1016ec558d1b19e1d0f51bed2a5ec96cd78cae9" => :yosemite
+    sha256 "37df85f9e243892c9e64ef0ad1a8723fa69c9aabbe376d3aa551a0107a8fed71" => :high_sierra
+    sha256 "922fd4bcdbee1fb84e9499c1208ad70b56292d76c77fe0d2694532081362f018" => :sierra
+    sha256 "16684ba9d0df50905562445e85005956f6bd4c5323b92157656d2ad55439d30a" => :el_capitan
   end
 
   depends_on :java => "1.8+"
@@ -22,7 +21,7 @@ class Pmd < Formula
     java_cache_repo.mkpath
     (java_user_home/".m2").install_symlink java_cache_repo
 
-    (java_user_home/".m2/toolchains.xml").write <<-EOS.undent
+    (java_user_home/".m2/toolchains.xml").write <<~EOS
       <?xml version="1.0" encoding="UTF8"?>
       <toolchains>
         <toolchain>
@@ -58,13 +57,13 @@ class Pmd < Formula
     inreplace "#{libexec}/bin/run.sh", "${script_dir}/../lib", "#{libexec}/lib"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Run with `pmd` (instead of `run.sh` as described in the documentation).
     EOS
   end
 
   test do
-    (testpath/"java/testClass.java").write <<-EOS.undent
+    (testpath/"java/testClass.java").write <<~EOS
       public class BrewTestClass {
         // dummy constant
         public String SOME_CONST = "foo";

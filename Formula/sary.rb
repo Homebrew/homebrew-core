@@ -24,7 +24,7 @@ class Sary < Formula
   end
 
   test do
-    (testpath/"test").write <<-EOS.undent
+    (testpath/"test").write <<~EOS
       Some text,
       this is the Sary formula, a suffix array library and tools,
       more text.
@@ -32,7 +32,7 @@ class Sary < Formula
     EOS
 
     system "#{bin}/mksary", "test"
-    assert File.exist? "test.ary"
+    assert_predicate testpath/"test.ary", :exist?
 
     assert_equal "Some text,\nmore text.\nmore. text.",
       shell_output("#{bin}/sary text test").chomp

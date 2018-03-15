@@ -8,7 +8,7 @@ class WrkTrello < Formula
 
   conflicts_with "wrk", :because => "both install `wrk` binaries"
 
-  def script; <<-EOS.undent
+  def script; <<~EOS
     #!/bin/sh
     export WRK_HOME="#{libexec}"
     exec "#{libexec}/bin/wrk" "$@"
@@ -20,7 +20,7 @@ class WrkTrello < Formula
     (bin/"wrk").write script
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To get your token go here:
     https://trello.com/1/authorize?key=8d56bbd601877abfd13150a999a840d0&name=Wrk&expiration=never&response_type=token&scope=read,write
     and save it to ~/.wrk/token

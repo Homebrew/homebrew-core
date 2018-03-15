@@ -1,19 +1,18 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "http://www.swi-prolog.org/"
-  url "http://www.swi-prolog.org/download/stable/src/swipl-7.4.2.tar.gz"
-  sha256 "7f17257da334bc1e7a35e9cf5cb8fca01d82f1ea406c7ace76e9062af8f0df8b"
+  url "http://www.swi-prolog.org/download/stable/src/swipl-7.6.4.tar.gz"
+  sha256 "2d3d7aabd6d99a02dcc2da5d7604e3500329e541c6f857edc5aa06a3b1267891"
 
   bottle do
-    sha256 "a03a0bde74e00d2c40b0a7735d46383bef5200dca08077b637e67d99cc0cb1aa" => :high_sierra
-    sha256 "ba534d0cc2cceb366ef8d19c1f1bb41441930fc1416c0491cf4233ed170ca23f" => :sierra
-    sha256 "ad17932306bca2156e865b80697ccf7c497ff03f6da6d8cf37eb7c966b581ba8" => :el_capitan
-    sha256 "ff7f400d368f44da8372423df94000e7b4cb84780a5b53936ff414a993db299b" => :yosemite
+    sha256 "7a1a76d4b9160e0fea1899a8af0dcd448f71efef8476b1732d75e8d0339ac419" => :high_sierra
+    sha256 "af00bfcc0da68a800dd50e608aabc6620db00de1a7bf1b986a7bc49ae58ea234" => :sierra
+    sha256 "2016d9b076b252805f48f705181d03cd26183b0f74a026c029cd34f9e8afb79d" => :el_capitan
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.5.14.tar.gz"
-    sha256 "2e83e96a0eace037da3f75fc44e9c8f4e3b2cf8fd3c27f8f05ff489276aec572"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.9.tar.gz"
+    sha256 "2d4b9c9b346c2d6df42e1cf399dee5cf1396ec381391292c65880e64a376ef97"
   end
 
   head do
@@ -40,11 +39,8 @@ class SwiProlog < Formula
   end
 
   def install
-    # The archive package hard-codes a check for MacPort libarchive
-    # Replace this with a check for Homebrew's libarchive, or nowhere
     if build.with? "libarchive"
-      inreplace "packages/archive/configure.in", "/opt/local",
-                                                 Formula["libarchive"].opt_prefix
+      ENV["ARPREFIX"] = Formula["libarchive"].opt_prefix
     else
       ENV.append "DISABLE_PKGS", "archive"
     end
@@ -74,7 +70,7 @@ class SwiProlog < Formula
   end
 
   test do
-    (testpath/"test.pl").write <<-EOS.undent
+    (testpath/"test.pl").write <<~EOS
       test :-
           write('Homebrew').
     EOS

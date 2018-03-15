@@ -1,6 +1,6 @@
 class Libid3tag < Formula
   desc "ID3 tag manipulation library"
-  homepage "http://www.underbit.com/products/mad/"
+  homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz"
   sha256 "63da4f6e7997278f8a3fef4c6a372d342f705051d1eeb6a46a86b03610e26151"
 
@@ -23,7 +23,7 @@ class Libid3tag < Formula
     "file-write"                         => "eff855cabd8a51866a29246a1b257da64f46aab72d4b8e163e2a4c0d15165bf1",
   }.each do |name, sha|
     patch do
-      url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
       sha256 sha
     end
   end
@@ -35,14 +35,14 @@ class Libid3tag < Formula
     "tag"          => "ca7262ddad158ab0be804429d705f8c6a1bb120371dec593323fa4876c1b277f",
   }.each do |name, sha|
     patch :p0 do
-      url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
       sha256 sha
     end
   end
 
   # corrects "a cappella" typo
   patch :p2 do
-    url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch"
+    url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch"
     sha256 "5e86270ebb179d82acee686700d203e90f42e82beeed455b0163d8611657d395"
   end
 
@@ -53,7 +53,7 @@ class Libid3tag < Formula
     (lib+"pkgconfig/id3tag.pc").write pc_file
   end
 
-  def pc_file; <<-EOS.undent
+  def pc_file; <<~EOS
     prefix=#{opt_prefix}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib

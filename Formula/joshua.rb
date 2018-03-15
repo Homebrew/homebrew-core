@@ -1,5 +1,5 @@
 class Joshua < Formula
-  desc "Statistical machine translation decoder."
+  desc "Statistical machine translation decoder"
   homepage "https://joshua.incubator.apache.org/"
   url "https://cs.jhu.edu/~post/files/joshua-6.0.5.tgz"
   sha256 "972116a74468389e89da018dd985f1ed1005b92401907881a14bdcc1be8bd98a"
@@ -23,7 +23,7 @@ class Joshua < Formula
   depends_on "ant" => :build
   depends_on "boost" => :build
   depends_on "md5sha1sum" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
 
   resource "es-en-phrase-pack" do
     url "https://cs.jhu.edu/~post/language-packs/language-pack-es-en-phrase-2015-03-06.tgz"

@@ -1,32 +1,26 @@
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
-  homepage "http://gmsh.info/"
-  url "http://gmsh.info/src/gmsh-3.0.5-source.tgz"
-  sha256 "ae39ed81178d94b76990b8c89b69a5ded8910fd8f7426b800044d00373d12a93"
-  head "http://gitlab.onelab.info/gmsh/gmsh.git"
+  homepage "https://gmsh.info/"
+  url "https://gmsh.info/src/gmsh-3.0.6-source.tgz"
+  sha256 "9700bcc440d7a6b16a49cbfcdcdc31db33efe60e1f5113774316b6fa4186987b"
+  revision 1
+  head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
     cellar :any
-    sha256 "1bb283c6de676400ccfbec34cdd2efbc9dde242ba802fbd24e37488f178938f1" => :high_sierra
-    sha256 "c2343c7543ed2212372847968995e0f075d566e3bb8479c1b262b626dfbe2aef" => :sierra
-    sha256 "be9749051f061b81c318da178af58e48c6db0f40636c56590d10f4a17f1d88d8" => :el_capitan
-    sha256 "e821d285cae69a6772e927cb5148eb2dc2327523bd2e43289f446daf62ce52b3" => :yosemite
+    sha256 "57cdad859b421b6cc48f6cf164570f67a1101c03c9b276ec18dce3b5c250e995" => :high_sierra
+    sha256 "85e7c6527a94fa3b02d14cce788dc32f6a0b545fa17124f5e4c19288890d8fc6" => :sierra
+    sha256 "d9d6657a71acd75de3833f50d46b454c757f6186f1fe44fdf090ac1604c84f70" => :el_capitan
   end
 
-  option "with-oce", "Build with oce support (conflicts with opencascade)"
-  option "with-opencascade", "Build with opencascade support (conflicts with oce)"
+  option "with-opencascade", "Build with opencascade support"
 
   depends_on "cmake" => :build
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90]
-  depends_on "homebrew/science/oce" => :optional
-  depends_on "homebrew/science/opencascade" => :optional
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
-
-  if build.with?("opencascade") && build.with?("oce")
-    odie "gmsh: '--with-opencascade' and '--with-oce' conflict."
-  end
+  depends_on "opencascade" => :optional
 
   def install
     args = std_cmake_args + %W[
@@ -42,10 +36,7 @@ class Gmsh < Formula
       -DENABLE_SLEPC=OFF
     ]
 
-    if build.with? "oce"
-      ENV["CASROOT"] = Formula["oce"].opt_prefix
-      args << "-DENABLE_OCC=ON"
-    elsif build.with? "opencascade"
+    if build.with? "opencascade"
       ENV["CASROOT"] = Formula["opencascade"].opt_prefix
       args << "-DENABLE_OCC=ON"
     else

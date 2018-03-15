@@ -1,20 +1,24 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.11/CGAL-4.11.tar.xz"
-  sha256 "27a7762e5430f5392a1fe12a3a4abdfe667605c40224de1c6599f49d66cfbdd2"
+  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.11.1/CGAL-4.11.1.tar.xz"
+  sha256 "fb152fc30f007e5911922913f8dc38e0bb969b534373ca0fbe85b4d872300e8b"
 
   bottle do
     cellar :any
-    sha256 "c02e40322b63ebf5a5cb7e5c1040b5768286a04881177d893864ce51e28ac85c" => :high_sierra
-    sha256 "1549619deb616b977e519cddbe45e266eb66f8f59719ea3f22d8441e247becb9" => :sierra
-    sha256 "13e8723280f9b2de2a1d348cbe07f814dc3ea44e466b14781755552db9ac13c2" => :el_capitan
+    sha256 "f68288c1c42f06bd7fa28a5f802966d4b786261677e0504e568edbaf9b522ca2" => :high_sierra
+    sha256 "32e877c60b4027c9daf9dd9c8c8359097e333327d06fe18d3768bb80e89183db" => :sierra
+    sha256 "0c07e6ef489eca9ff62da6535bf1a95151a73eebed2ca674511f121819dbc0a9" => :el_capitan
   end
 
-  option :cxx11
-  option "with-qt", "Build ImageIO and Qt components of CGAL"
+  devel do
+    url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.12-beta1/CGAL-4.12-beta1.tar.xz"
+    sha256 "32e877c60b4027c9daf9dd9c8c8359097e333327d06fe18d3768bb80e89183db"
+  end
+
   option "with-eigen", "Build with Eigen3 support"
   option "with-lapack", "Build with LAPACK support"
+  option "with-qt", "Build ImageIO and Qt components of CGAL"
 
   deprecated_option "imaging" => "with-qt"
   deprecated_option "with-imaging" => "with-qt"
@@ -22,22 +26,13 @@ class Cgal < Formula
   deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
+  depends_on "boost"
+  depends_on "gmp"
   depends_on "mpfr"
-
   depends_on "qt" => :optional
   depends_on "eigen" => :optional
 
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-    depends_on "gmp"   => "c++11"
-  else
-    depends_on "boost"
-    depends_on "gmp"
-  end
-
   def install
-    ENV.cxx11 if build.cxx11?
-
     args = std_cmake_args + %W[
       -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
       -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
@@ -67,7 +62,7 @@ class Cgal < Formula
 
   test do
     # https://doc.cgal.org/latest/Algebraic_foundations/Algebraic_foundations_2interoperable_8cpp-example.html
-    (testpath/"surprise.cpp").write <<-EOS.undent
+    (testpath/"surprise.cpp").write <<~EOS
       #include <CGAL/basic.h>
       #include <CGAL/Coercion_traits.h>
       #include <CGAL/IO/io.h>

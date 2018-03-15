@@ -1,15 +1,13 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.45.tar.xz"
-  sha256 "1c97225deea33eefba6d4158c2cef27913d47553263516bbe9d2e2760fc43a3f"
-  revision 1
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.48.tar.xz"
+  sha256 "0f8ad5aac7529d7b948b9d7e8cd0b4a9e177309d85d6bf6516e28e6e40d74f36"
 
   bottle do
-    sha256 "344aa5e4f687ab7884eb58f0171111c26f6ff11184a932ee5be1e064aa341965" => :high_sierra
-    sha256 "ea21913a3c06916cdc9aafe058e3754ae1128aabf9ff09d620f5e75b9c3e94da" => :sierra
-    sha256 "924b93d54e2af41890713acc60414dbaa1ebcc253e76d3cc3f618600a2677a80" => :el_capitan
-    sha256 "5b00eee8f99959025097240e211f5440ed83fc27ae18d8f05c8ebef84e38a0e9" => :yosemite
+    sha256 "b7b7b0351d2ad65f6c71c594f4df2f865c31834007e0811d99356c339c53c3e4" => :high_sierra
+    sha256 "2eaa0285cf8e0e4616b804e5a7d4059e0d8549e90c167dfc8bea2ef269706f80" => :sierra
+    sha256 "c8aaafd41d8b8bdd4b823a09694246752b64cd3db9a8557e8c4c0d0716372785" => :el_capitan
   end
 
   option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
@@ -53,7 +51,6 @@ class Lighttpd < Formula
       --with-ldap
       --with-zlib
       --with-bzip2
-      --with-attr
     ]
 
     args << "--with-lua" if build.with? "lua@5.1"
@@ -98,7 +95,7 @@ class Lighttpd < Formula
     run_path.mkpath
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Docroot is: #{www_path}
 
     The default port has been set in #{config_path}/lighttpd.conf to 8080 so that
@@ -108,7 +105,7 @@ class Lighttpd < Formula
 
   plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

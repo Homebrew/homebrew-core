@@ -1,14 +1,14 @@
 class Pick < Formula
   desc "Utility to choose one option from a set of choices"
   homepage "https://github.com/calleerlandsson/pick"
-  url "https://github.com/calleerlandsson/pick/releases/download/v1.9.0/pick-1.9.0.tar.gz"
-  sha256 "97d3f310eb7de44fbe50ad3451c49d859d607fa14acd0c584aafae97eea65267"
+  url "https://github.com/calleerlandsson/pick/releases/download/v2.0.1/pick-2.0.1.tar.gz"
+  sha256 "4a596b8f40a316bc4e2c0d8e8842810d7a7b69d464a410e4ee2a6574e01629e3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f06d7c346a1858d337c4d54851254aaee161d8f84de2b98aafa7a6dec81bec0d" => :high_sierra
-    sha256 "0cede3fd5fddad1438de83e65faae8a0e93ce7059c73543d98a9f877224d5a38" => :sierra
-    sha256 "cff85b8b26aee2d3cbb44e38a85173245eefc0084490bfc13ba9c91808896364" => :el_capitan
+    sha256 "b929f5739b2bd0ab8df7ea5d941899fec265bc576fcc1660b3e16a3dc95a1f3a" => :high_sierra
+    sha256 "1633f9112356cfa6a70f6aca24e38f20e371a109234a7381993bb44b1a9caa9f" => :sierra
+    sha256 "29fe7c34922662f10555594fb3f817863d872aea289d51ddc2f98ba8921e2674" => :el_capitan
   end
 
   def install

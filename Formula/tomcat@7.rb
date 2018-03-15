@@ -1,8 +1,8 @@
 class TomcatAT7 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79.tar.gz"
-  sha256 "6cd91a30de93daa65d35c7430cb2c6951070e9ca1f043b4d91b51c8ce4d351c3"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz"
+  sha256 "2f19ca3fd578b8d04e72a7fd20b43beddbcece2c49eb3472265465506261676d"
 
   bottle :unneeded
 
@@ -13,8 +13,8 @@ class TomcatAT7 < Formula
   depends_on :java
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.79/bin/apache-tomcat-7.0.79-fulldocs.tar.gz"
-    sha256 "d7b13450583e199654bb0138a2b3b8b1ac1748ca56a9a67c2b93d37623cb07d7"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82-fulldocs.tar.gz"
+    sha256 "58ef01d1a320fd98416d9b5e83b61c1cddc3fbecc7b6e2bfaee84b14c04b7528"
   end
 
   # Keep log folders
@@ -46,6 +46,6 @@ class TomcatAT7 < Formula
     ensure
       Process.wait pid
     end
-    File.exist? testpath/"logs/catalina.out"
+    assert_predicate testpath/"logs/catalina.out", :exist?
   end
 end

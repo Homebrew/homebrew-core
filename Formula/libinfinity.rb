@@ -30,7 +30,7 @@ class Libinfinity < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libinfinity/common/inf-init.h>
 
       int main(int argc, char *argv[]) {

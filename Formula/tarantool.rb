@@ -1,23 +1,24 @@
 class Tarantool < Formula
-  desc "In-memory database and Lua application server."
+  desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.7/src/tarantool-1.7.4.18.tar.gz"
-  sha256 "5a1703190a42bac570cc1cbf9a76b62a488723db1a671db39071ed5a5a36d344"
-
-  head "https://github.com/tarantool/tarantool.git", :branch => "1.8", :shallow => false
+  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.0.0.tar.gz"
+  sha256 "749c0207da2a2d3838e3c9619d33c56dc3fc515738885c798d728ed506be4717"
+  head "https://github.com/tarantool/tarantool.git", :branch => "2.0", :shallow => false
 
   bottle do
-    sha256 "33983a6867b753fa6263e81b06e1c6b45c5ba9d1d539a5fa7d92a1ef4590273d" => :high_sierra
-    sha256 "97334f7dad632e4f62eaa5b5628730e3324b55cbdf5dd3b0fd147e179f90ac92" => :sierra
-    sha256 "a662cb44c57f87508b8a59681571a1c027f9697a97d9dfebac1198533affb49d" => :el_capitan
-    sha256 "98131249c1fd87bf1ff8400331deb6346ad4402faeba5ee442bc62a7976b62bb" => :yosemite
+    sha256 "3aaab86529a9a676ca66f84a15dea7700e70ae68d2722dbf222c51e83faefda9" => :high_sierra
+    sha256 "3584b932f7f04786313f2b385ac6db5880ebdbaa1e023ebccb82ca70ca1bad70" => :sierra
+    sha256 "37717b48bf4228c7806ec7200ed8fc0e2015e772983a04e2b487dc872b5be3c2" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
 
   def install
+    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
     args = std_cmake_args
 
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
@@ -26,6 +27,8 @@ class Tarantool < Formula
     args << "-DENABLE_DIST=ON"
     args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     args << "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
+    args << "-DCURL_INCLUDE_DIR=#{sdk}/usr/include"
+    args << "-DCURL_LIBRARY=/usr/lib/libcurl.dylib"
 
     system "cmake", ".", *args
     system "make"
@@ -42,17 +45,17 @@ class Tarantool < Formula
   end
 
   test do
-    (testpath/"test.lua").write <<-EOS.undent
-        box.cfg{}
-        local s = box.schema.create_space("test")
-        s:create_index("primary")
-        local tup = {1, 2, 3, 4}
-        s:insert(tup)
-        local ret = s:get(tup[1])
-        if (ret[3] ~= tup[3]) then
-          os.exit(-1)
-        end
-        os.exit(0)
+    (testpath/"test.lua").write <<~EOS
+      box.cfg{}
+      local s = box.schema.create_space("test")
+      s:create_index("primary")
+      local tup = {1, 2, 3, 4}
+      s:insert(tup)
+      local ret = s:get(tup[1])
+      if (ret[3] ~= tup[3]) then
+        os.exit(-1)
+      end
+      os.exit(0)
     EOS
     system bin/"tarantool", "#{testpath}/test.lua"
   end

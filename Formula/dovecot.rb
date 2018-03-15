@@ -1,15 +1,13 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.32.tar.gz"
-  mirror "https://fossies.org/linux/misc/dovecot-2.2.32.tar.gz"
-  sha256 "160b2151e2af359877f69cb2dcdfe1a3f4138ad3766e3b8562b96616e2f6bc2e"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.0.1.tar.gz"
+  sha256 "ab772b3e214683aba347203c9391295552255c4d69afb324c7b8c8fc5ad6f153"
 
   bottle do
-    sha256 "b806d0a768be4afef7fe0934a042481522acad3744e8dfe3b118c514965890fe" => :high_sierra
-    sha256 "fee76f57275dfcb96dfe0bba1d1da66bed84301e20da30fdcd9d926f75f0a7a8" => :sierra
-    sha256 "7e04c4a47c91a0d92f0b78f2e8152e9f7d3baeddce2dcdcf736289def0f36955" => :el_capitan
-    sha256 "c27efcd2976e85ae7160250cd3ee5735fc94653edd6bcd6a0a666e5a2a87e264" => :yosemite
+    sha256 "93e7205143d531082246082a2328a3c8437ac01a054274b7b1385854b811227c" => :high_sierra
+    sha256 "daaa11ac00a342a4c4214c7cf205dcaed8e85830842d4920c4f7bfe51bd64db1" => :sierra
+    sha256 "180b23abc929be1684f6a52201a9eb6c10594e3b2e6db0a9f64a3c6d1973f6d2" => :el_capitan
   end
 
   option "with-pam", "Build with PAM support"
@@ -21,13 +19,13 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.19.tar.gz"
-    sha256 "629204bfbdcd3480e1ebcdc246da438323c3ea5fea57480ab859e8b201ad8793"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.0.1.tar.gz"
+    sha256 "56356d14b10c45aa472074e85bfc582c2f08a15a43ecf24f481df39b206efad2"
   end
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-        :revision => "5137019d68befd633ce8b1cd48065f41e77ed43e"
+        :revision => "84e1a4ad1ee8789c81b3541744bb710c7a50a452"
   end
 
   def install
@@ -75,7 +73,7 @@ class Dovecot < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     For Dovecot to work, you may need to create a dovecot user
     and group depending on your configuration file options.
     EOS
@@ -83,7 +81,7 @@ class Dovecot < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -119,6 +117,6 @@ class Dovecot < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{sbin}/dovecot --version")
+    assert_match version.to_s, shell_output("#{sbin}/dovecot --version")
   end
 end

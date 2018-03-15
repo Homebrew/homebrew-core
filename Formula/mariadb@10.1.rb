@@ -1,13 +1,13 @@
 class MariadbAT101 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.1.27/source/mariadb-10.1.27.tar.gz"
-  sha256 "1fd9a09d90903bf97b534162cabc47b79dea47f5ae9880cb8119c143de8540d4"
+  url "https://downloads.mariadb.org/f/mariadb-10.1.31/source/mariadb-10.1.31.tar.gz"
+  sha256 "ab7641c2fe4e5289da6141766a9c3350e013def56fafd6f1377080bc8048b2e6"
 
   bottle do
-    sha256 "444edd8961bad7f80599a2d66f8923ea954483867ba9ed15c72dab5ee26d51de" => :high_sierra
-    sha256 "a5ca4f46c73b565280a50ddfc65de2110a3458c57eda47bcb58404d35cb644f6" => :sierra
-    sha256 "5cab7e19ccddb7102738c300249bee9c97534395f6e8ddb479c5334eeb87e79c" => :el_capitan
+    sha256 "6370da435f053671f692f4830675559265fd7ac9337a7db6ba3d60cddf039303" => :high_sierra
+    sha256 "a6c12dedc6ae1643ecab6ba58849c3e4d758c4f13433bf62bd4ab661fa219819" => :sierra
+    sha256 "d94ea69d657990e098c87fe1e44313e9988f4141c120ae6d4cca39bf99863c3b" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -110,7 +110,7 @@ class MariadbAT101 < Formula
     end
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -129,7 +129,7 @@ class MariadbAT101 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
 
@@ -142,7 +142,7 @@ class MariadbAT101 < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.1/bin/mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

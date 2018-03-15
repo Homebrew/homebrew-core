@@ -2,21 +2,14 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.5.5.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.5.5.tar.gz"
-  sha256 "e57f5e3d5842a81fe9351b6e817fcaf0a749ca4ef35a91465edba9e071dce7c4"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.4.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.4.tar.gz"
+  sha256 "638a20c2f9e99ee283a841cd787ab4d846d1880e180c4e96904fc327d419d11f"
 
   bottle do
-    sha256 "2d9d33ea7dfef533ffbaac52760437ad4d9c1fbb298d73c44726f471dee9e84a" => :high_sierra
-    sha256 "3ff166de8666c5275cabd2d8b6de8e44ae2b71ee8a694a4a8b20866943b9e117" => :sierra
-    sha256 "94342eafb2d50f798dd5be8c1d35347e3dd414f2e64753f6691f2ce4b7f9f391" => :el_capitan
-    sha256 "5f52e3e477f2381d153458795dc54251439c61899d1504435214895dda9d5b41" => :yosemite
-  end
-
-  devel do
-    url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.1.tar.gz"
-    mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.1.tar.gz"
-    sha256 "c293b3b5f1fc1d6349c019c3905355d577df32734b631d7e656503894e09127e"
+    sha256 "d2abc3ab5d504cb47551a2cfb92a74891545dfad91286dd38c656091e8d8a904" => :high_sierra
+    sha256 "a122b93e665a7c20c98593267c13ab4a927a0e53517fd97458a4a2205e5f0f67" => :sierra
+    sha256 "5bd61a5f92787788895ff88aabd9bfd15e3661207c1c55610ff42e96a44ca771" => :el_capitan
   end
 
   head do
@@ -69,7 +62,7 @@ class Libressl < Formula
     (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A CA file has been bootstrapped using certificates from the SystemRoots
     keychain. To add additional certificates (e.g. the certificates added in
     the System keychain), place .pem files in
@@ -82,7 +75,7 @@ class Libressl < Formula
 
   test do
     # Make sure the necessary .cnf file exists, otherwise LibreSSL gets moody.
-    assert (HOMEBREW_PREFIX/"etc/libressl/openssl.cnf").exist?,
+    assert_predicate HOMEBREW_PREFIX/"etc/libressl/openssl.cnf", :exist?,
             "LibreSSL requires the .cnf file for some functionality"
 
     # Check LibreSSL itself functions as expected.

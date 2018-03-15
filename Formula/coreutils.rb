@@ -1,15 +1,14 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.28.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.28.tar.xz"
-  sha256 "1117b1a16039ddd84d51a9923948307cfa28c2cea03d1a2438742253df0a0c65"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.29.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.29.tar.xz"
+  sha256 "92d0fa1c311cacefa89853bdb53c62f4110cdfda3820346b59cbd098f40f955e"
 
   bottle do
-    sha256 "30e33058ffea2f8556f7805899bd1a795f3c61f61fe65ab43ce57e41e344056b" => :high_sierra
-    sha256 "977e0b6ee439c9421ce97ce7fa48f664c1908497bf1a510ffbeecba881caf850" => :sierra
-    sha256 "52e2e39368fa5b4977bd6495ce133a535e4a06feafebd5ad2009f89d9ae4817d" => :el_capitan
-    sha256 "76e424055189d5fb2d13cfbd631a1de32dc7b1affb32b952cc3277a9af432191" => :yosemite
+    sha256 "20e12e8aaa50778db12accc12fc2ae5e29cdd58988064dbc912bcfb10a106272" => :high_sierra
+    sha256 "83cb185057a6add9b9289504801240f33020494c4b85af07272a85050cd99f65" => :sierra
+    sha256 "0c25b2cebfd54bf325360b6ab566df78a6711f5526fd44fc244558748bd27475" => :el_capitan
   end
 
   head do
@@ -32,13 +31,19 @@ class Coreutils < Formula
   conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
 
   def install
-    # Work around unremovable, nested dirs bug that affects lots of
-    # GNU projects. See:
-    # https://github.com/Homebrew/homebrew/issues/45273
-    # https://github.com/Homebrew/homebrew/issues/44993
-    # This is thought to be an el_capitan bug:
-    # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
-    ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
+    if MacOS.version == :el_capitan
+      # Work around unremovable, nested dirs bug that affects lots of
+      # GNU projects. See:
+      # https://github.com/Homebrew/homebrew/issues/45273
+      # https://github.com/Homebrew/homebrew/issues/44993
+      # This is thought to be an el_capitan bug:
+      # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
+      ENV["gl_cv_func_getcwd_abort_bug"] = "no"
+
+      # renameatx_np and RENAME_EXCL are available at compile time from Xcode 8
+      # (10.12 SDK), but the former is not available at runtime.
+      inreplace "lib/renameat2.c", "defined RENAME_EXCL", "defined UNDEFINED_GIBBERISH"
+    end
 
     system "./bootstrap" if build.head?
 
@@ -64,7 +69,7 @@ class Coreutils < Formula
     man1.install_symlink "grealpath.1" => "realpath.1"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     All commands have been installed with the prefix 'g'.
 
     If you really need to use these commands with their normal names, you
@@ -92,6 +97,7 @@ class Coreutils < Formula
   test do
     (testpath/"test").write("test")
     (testpath/"test.sha1").write("a94a8fe5ccb19ba61c4c0873d391e987982fbbd3 test")
-    system "#{bin}/gsha1sum", "-c", "test.sha1"
+    system bin/"gsha1sum", "-c", "test.sha1"
+    system bin/"gln", "-f", "test", "test.sha1"
   end
 end

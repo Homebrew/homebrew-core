@@ -5,14 +5,14 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.11.1.1/pandoc-citeproc-0.11.1.1.tar.gz"
-  sha256 "9263721ae0017a48f884366eca37955d6983e7cf8571fafbccb49f28ab12e300"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14.1.5/pandoc-citeproc-0.14.1.5.tar.gz"
+  sha256 "29e2afcdaaa23e5ac30e7f895bb45d36e0af79d4cfe769deb36c6f25fabfe2ca"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "394ffe844d4a0b91ef312e29053c267ae4088745c8add17de8a052d546c8bce5" => :high_sierra
-    sha256 "13e19818179d37777015359c88586f7fa5bdd852347362a04f872c0298a9fab6" => :sierra
-    sha256 "1ca09cfefa7b23bad3bb181fb747e6ae7edf214992ba45b78aeb02df5dba9844" => :el_capitan
+    sha256 "0d708ce22009e1562d55bb47edd0bcf4605d6840e9468dc7ff775899ec3ca7f6" => :high_sierra
+    sha256 "fb8a8bd02cc81f752c5c1f4e92de7aea7ab12d0491cf957adaed1c99f9952d94" => :sierra
+    sha256 "22e94ac80d6e00fadccddd8110b90c2a47450d1452866677582d38b2aaf9eefb" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
@@ -26,7 +26,7 @@ class PandocCiteproc < Formula
   end
 
   test do
-    (testpath/"test.bib").write <<-EOS.undent
+    (testpath/"test.bib").write <<~EOS
       @Book{item1,
       author="John Doe",
       title="First Book",
@@ -35,7 +35,7 @@ class PandocCiteproc < Formula
       publisher="Cambridge University Press"
       }
     EOS
-    expected = <<-EOS.undent
+    expected = <<~EOS
       ---
       references:
       - id: item1
@@ -44,7 +44,7 @@ class PandocCiteproc < Formula
         - family: Doe
           given: John
         issued:
-        - year: '2005'
+        - year: 2005
         title: First book
         publisher: Cambridge University Press
         publisher-place: Cambridge

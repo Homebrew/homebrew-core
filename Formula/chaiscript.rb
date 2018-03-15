@@ -21,7 +21,7 @@ class Chaiscript < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <chaiscript/chaiscript.hpp>
       #include <chaiscript/chaiscript_stdlib.hpp>
       #include <cassert>

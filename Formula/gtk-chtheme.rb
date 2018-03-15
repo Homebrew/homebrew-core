@@ -28,6 +28,6 @@ class GtkChtheme < Formula
   test do
     # package contains just an executable and a man file
     # executable accepts no options and just spawns a GUI
-    assert (bin/"gtk-chtheme").exist?
+    assert_predicate bin/"gtk-chtheme", :exist?
   end
 end

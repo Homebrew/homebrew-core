@@ -3,13 +3,13 @@ class Yaz < Formula
   homepage "https://www.indexdata.com/yaz"
   url "http://ftp.indexdata.dk/pub/yaz/yaz-5.23.1.tar.gz"
   sha256 "4fb3b1ffcec4b9a56b892c47a0a645142e45418ce5ef6a835aeebc723f7d147e"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "7cde107afb296f80f84f8e3f5ab28c49dbbdabf277e551019beced9515b23f8c" => :high_sierra
-    sha256 "79bff14a9d7cd50bbf71ae91b9b91d6e670b3b44d98271acbb6632aff30831c9" => :sierra
-    sha256 "1895528299deb6423bed5bbd9806693d57cc2af083eb335500510dbe9c5e388e" => :el_capitan
-    sha256 "020e949b02beddcf499e676b5920ec22d64030ce10d67420ca2a22cbf7900b76" => :yosemite
+    sha256 "f0c08571d5eb5ec506e76b675f96b36f355f5bf2e7f91bcccfa463573449ba79" => :high_sierra
+    sha256 "0578e44aff8a426b3936633ca29e8693860941f4d693c37e8e9491fe9d9cf2fa" => :sierra
+    sha256 "a0c3051306314ba99073719706fd57c40c432a9c83dcbef9b6aaee52bc49f3ef" => :el_capitan
   end
 
   head do
@@ -49,7 +49,7 @@ class Yaz < Formula
       # * xy transformed to z
       # * lowercase
       configurationfile = testpath/"icu-chain.xml"
-      configurationfile.write <<-EOS.undent
+      configurationfile.write <<~EOS
         <?xml version="1.0" encoding="UTF-8"?>
         <icu_chain locale="en">
           <transform rule="[:Control:] Any-Remove"/>
@@ -64,7 +64,7 @@ class Yaz < Formula
       inputfile = testpath/"icu-test.txt"
       inputfile.write "yaz-ICU	xy!"
 
-      expectedresult = <<-EOS.undent
+      expectedresult = <<~EOS
         1 1 'yaz' 'yaz'
         2 1 '' ''
         3 1 'icuz' 'ICUz'

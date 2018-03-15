@@ -4,14 +4,15 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-15.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-15.tar.xz"
-  sha256 "cc5411bcd766efbc5c281ae2147f0d154c452e5f0cc72894796afb88036baf2f"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-38.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-38.tar.xz"
+  sha256 "38633f004752b12edbf3e149e7c1b18224d51699a645e5d6c4f214474da737e0"
+  head "https://github.com/imagemagick/imagemagick.git", :branch => "ImageMagick-6"
 
   bottle do
-    sha256 "fdc53676dfc46b0ccfc9deb5789277e3e6a3cd25ec6bbf9e034350ccd2990fa3" => :high_sierra
-    sha256 "ccfea862300e626389cc6267219c821cf9c831f983217eec68c1113cdca679b9" => :sierra
-    sha256 "344f8556a8859cdb41df533a449e8d1c45ba872a5a5a945f7a6a686318a02765" => :el_capitan
+    sha256 "3b68fab3d51eef9f477eef1e838d7f50239b0ee4694df15e4fd4435be40206eb" => :high_sierra
+    sha256 "33f74f396f5180b00133a6923060da4e9776415a476963750fdb977558e59c49" => :sierra
+    sha256 "573e4b0a268ff2843285a7dc5639e78624a5e0e54db9b7c020a20b479826e9e0" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -27,6 +28,7 @@ class ImagemagickAT6 < Formula
   option "with-zero-configuration", "Disables depending on XML configuration files"
 
   deprecated_option "enable-hdri" => "with-hdri"
+  deprecated_option "with-gcc" => "with-openmp"
   deprecated_option "with-jp2" => "with-openjpeg"
 
   depends_on "pkg-config" => :build
@@ -50,9 +52,12 @@ class ImagemagickAT6 < Formula
   depends_on "openjpeg" => :optional
   depends_on "fftw" => :optional
   depends_on "pango" => :optional
-  depends_on :perl => ["5.5", :optional]
+  depends_on "perl" => :optional
 
-  needs :openmp if build.with? "openmp"
+  if build.with? "openmp"
+    depends_on "gcc"
+    fails_with :clang
+  end
 
   skip_clean :la
 
@@ -109,6 +114,7 @@ class ImagemagickAT6 < Formula
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
     args << "--with-freetype=yes" if build.with? "freetype"
     args << "--enable-zero-configuration" if build.with? "zero-configuration"
+    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"

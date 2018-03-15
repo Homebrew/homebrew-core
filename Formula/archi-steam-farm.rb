@@ -10,7 +10,7 @@ class ArchiSteamFarm < Formula
 
   def install
     libexec.install "ASF.exe"
-    (bin/"asf").write <<-EOS.undent
+    (bin/"asf").write <<~EOS
       #!/bin/bash
       mono #{libexec}/ASF.exe "$@"
     EOS
@@ -19,7 +19,7 @@ class ArchiSteamFarm < Formula
     libexec.install_symlink etc/"asf" => "config"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Config: #{etc}/asf/
     EOS
   end

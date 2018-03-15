@@ -4,12 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
+  revision 3
 
   bottle do
-    sha256 "4ed8c27e584467787eb76ae2b0d455d5cde1d40ce9b28bfe83d954508cce8b79" => :high_sierra
-    sha256 "6a63bc7fd673f61826ccafdc6dd7d05b6da02436e71dc2a995d40800fff02329" => :sierra
-    sha256 "4d9bd04a4605877617e9158e270a011d0367c2c7e0571752cf5c821b15454a2a" => :el_capitan
-    sha256 "d1c71dbd4685cda7b3aaded3ce9ed8a224d14cca8fcb257b7e6e3eb11d706b44" => :yosemite
+    sha256 "7482d281e4e0ff5b10377a576f3e97ed867795645291308d35adf51747ff2162" => :high_sierra
+    sha256 "a181531a3a3ad04d429b7aead29fec814c6e042482ea35abc581cc9e4571a25a" => :sierra
+    sha256 "6cb9acb883f5d7045324846bab0d51315da6fbb462b9ef664e0c9d0c9b58ef8d" => :el_capitan
   end
 
   deprecated_option "java" => "with-java"
@@ -22,18 +22,13 @@ class Subversion < Formula
   option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
+  depends_on "swig" => :build
   depends_on "apr-util"
   depends_on "apr"
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
-  depends_on :python => :optional
-  depends_on :perl => ["5.6", :recommended]
-
-  # Bindings require swig
-  if build.with?("perl") || build.with?("python") || build.with?("ruby")
-    depends_on "swig" => :build
-  end
+  depends_on "perl" => :recommended
 
   # For Serf
   depends_on "scons" => :build
@@ -41,6 +36,7 @@ class Subversion < Formula
 
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
+  depends_on "gettext" => :optional
   depends_on :java => :optional
 
   resource "serf" do
@@ -65,11 +61,11 @@ class Subversion < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
-      system "2to3-", "--write", "--fix=print", "SConstruct"
-
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[
         PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
@@ -102,13 +98,13 @@ class Subversion < Formula
       --with-apxs=no
       --with-serf=#{serf_prefix}
       --disable-mod-activation
-      --disable-nls
       --without-apache-libexecdir
       --without-berkeley-db
     ]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
     args << "--without-gpg-agent" if build.without? "gpg-agent"
+    args << "--disable-nls" if build.without? "gettext"
 
     if build.with? "ruby"
       args << "--with-ruby-sitedir=#{lib}/ruby"
@@ -132,11 +128,9 @@ class Subversion < Formula
     system "make", "tools"
     system "make", "install-tools"
 
-    if build.with? "python"
-      system "make", "swig-py"
-      system "make", "install-swig-py"
-      (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
-    end
+    system "make", "swig-py"
+    system "make", "install-swig-py"
+    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     if build.with? "perl"
       # In theory SWIG can be built in parallel, in practice...
@@ -173,22 +167,22 @@ class Subversion < Formula
   end
 
   def caveats
-    s = <<-EOS.undent
+    s = <<~EOS
       svntools have been installed to:
         #{opt_libexec}
     EOS
 
     if build.with? "perl"
-      s += <<-EOS.undent
-
+      s += "\n"
+      s += <<~EOS
         The perl bindings are located in various subdirectories of:
           #{opt_lib}/perl5
       EOS
     end
 
     if build.with? "ruby"
-      s += <<-EOS.undent
-
+      s += "\n"
+      s += <<~EOS
         If you wish to use the Ruby bindings you may need to add:
           #{HOMEBREW_PREFIX}/lib/ruby
         to your RUBYLIB.
@@ -196,8 +190,8 @@ class Subversion < Formula
     end
 
     if build.with? "java"
-      s += <<-EOS.undent
-
+      s += "\n"
+      s += <<~EOS
         You may need to link the Java bindings into the Java Extensions folder:
           sudo mkdir -p /Library/Java/Extensions
           sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib

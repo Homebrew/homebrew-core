@@ -1,15 +1,14 @@
 class Libbitcoin < Formula
   desc "Bitcoin Cross-Platform C++ Development Toolkit"
   homepage "https://libbitcoin.org/"
-  url "https://github.com/libbitcoin/libbitcoin/archive/v3.3.0.tar.gz"
-  sha256 "391913a73615afcb42c6a7c4736f23888cfc999a899fc38395ddcbd560251d94"
-  revision 4
+  url "https://github.com/libbitcoin/libbitcoin/archive/v3.5.0.tar.gz"
+  sha256 "214d9cd6581330b0e1f6fd8f0c634c46b75ae5515806ecac189f21c0291ae2d9"
 
   bottle do
     cellar :any
-    sha256 "c824bd50f96cf55e751f9f0735b35509b0c37167277df22f8d98b246c38124c4" => :high_sierra
-    sha256 "889c3811c26837bd2c90585d93a4a5050926f017641b43710c675899f1ebaa16" => :sierra
-    sha256 "fd225da66b5908773a0f715f3aa35c838e807795ca2bdde5e0e53d9e99c3ab58" => :el_capitan
+    sha256 "19677df80f33895bbe4ef04b06a5832111988f41840ce10bda5f7a1e0224a646" => :high_sierra
+    sha256 "6e55702d715ed8eb9093d5e437d176b7f457fa67e514a86c6e42bbec533936ae" => :sierra
+    sha256 "8dd52f0bf0a8267451bc527f726083242b8f16e32c24109847d73ba79599fde1" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -48,7 +47,7 @@ class Libbitcoin < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/bitcoin.hpp>
       int main() {
         const auto block = bc::chain::block::genesis_mainnet();

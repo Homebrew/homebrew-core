@@ -39,7 +39,7 @@ class Elinks < Formula
   end
 
   test do
-    (testpath/"test.html").write <<-EOS.undent
+    (testpath/"test.html").write <<~EOS
       <!DOCTYPE html>
       <title>elinks test</title>
       Hello world!

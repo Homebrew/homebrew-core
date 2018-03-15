@@ -15,7 +15,7 @@ class Frege < Formula
   end
 
   test do
-    (testpath/"test.fr").write <<-EOS
+    (testpath/"test.fr").write <<~EOS
       module Hello where
 
       greeting friend = "Hello, " ++ friend ++ "!"

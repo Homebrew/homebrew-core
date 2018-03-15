@@ -1,18 +1,13 @@
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "http://www.fluidsynth.org"
-  url "https://downloads.sourceforge.net/project/fluidsynth/fluidsynth-1.1.6/fluidsynth-1.1.6.tar.gz"
-  sha256 "50853391d9ebeda9b4db787efb23f98b1e26b7296dd2bb5d0d96b5bccee2171c"
+  url "https://github.com/FluidSynth/fluidsynth/archive/v1.1.10.tar.gz"
+  sha256 "b74801d0fdd726c4555149bf075b76dc4074658ec0a8f7a3753f4a64589e5300"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "3607f9132dbe22612d469af58f3b97aaa3225c8f93d919abf367511ceb5c79d5" => :high_sierra
-    sha256 "ee86f0e263db0610a340592d725bd2c05bc5ed1bfa6eb496ae304297de261ae0" => :sierra
-    sha256 "dfe31491d27c3c29ff4686900984e5884f89cd249d82b3dba4ad077f7bbe9057" => :el_capitan
-    sha256 "6938c03a61b696870de92435dc0a6e6118fbb0d68adcd0d17ec8d30c2f7eee20" => :yosemite
-    sha256 "5c5e00f88e45dd661c15f0e13793f9cc96f285b08200145ce8b77982350a5625" => :mavericks
-    sha256 "83b972cf7aec57e78dc1c1a6b3e286d8b9bf2a2622e174bca42efa8576e36e5f" => :mountain_lion
+    sha256 "9764daf9d3faed501a25ca39454150fb0a46e53329fa8db8b2624060ab6750fb" => :high_sierra
+    sha256 "609d913be21e9982299855ea363d842023b686a39748ffba34975e3ec2d7d8a8" => :sierra
+    sha256 "c39c0d78cf51023c38a4304bbfbdabea9d75297c7136c1ac664b9a26a137b1ca" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

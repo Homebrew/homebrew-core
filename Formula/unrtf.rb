@@ -26,12 +26,12 @@ class Unrtf < Formula
   end
 
   test do
-    (testpath/"test.rtf").write <<-'EOS'.undent
+    (testpath/"test.rtf").write <<~'EOS'
       {\rtf1\ansi
       {\b hello} world
       }
     EOS
-    expected = <<-EOS.undent
+    expected = <<~EOS
       <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
       <html>
       <head>

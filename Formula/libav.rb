@@ -1,16 +1,14 @@
 class Libav < Formula
   desc "Audio and video processing tools"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-12.1.tar.xz"
-  sha256 "fad96aa265d3d64b9e53c159559621ec888effa022908da8372164fa4cbe5d2d"
-
+  url "https://libav.org/releases/libav-12.3.tar.xz"
+  sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
   head "https://git.libav.org/libav.git"
 
   bottle do
-    sha256 "464e5497edf4bdb3089a270fd141a21b9ef742ad81c4b75c66d0cabd1b8aa5a3" => :high_sierra
-    sha256 "83454e0551667ff35b7ed5d70b9fbe414c173e65ee9f4a60837c3cb4f308d7e6" => :sierra
-    sha256 "2ba607e18aeeb9b69e2903b14b04ecdd822bd460aecefeac92e4f02c85862226" => :el_capitan
-    sha256 "41fcc69856efd258965104e42e6197ff67afa3f239604e45cbefe1bc47c62e77" => :yosemite
+    sha256 "84c3c2aa4f5cd7086021bb7c30215e872a1c4e3005df914b240696162ce3e8f6" => :high_sierra
+    sha256 "fc68fd70481e6071b567bc186df5d39b3156f0053f98ef0bdeda020497beb11d" => :sierra
+    sha256 "d91489215ba05ef1a9c93c3c18d6c13e20fdc901fad4e9d6c47922775be77ecb" => :el_capitan
   end
 
   option "without-faac", "Disable AAC encoder via faac"
@@ -116,6 +114,6 @@ class Libav < Formula
     # Create an example mp4 file
     system "#{bin}/avconv", "-y", "-filter_complex",
         "testsrc=rate=1:duration=1", "#{testpath}/video.mp4"
-    assert (testpath/"video.mp4").exist?
+    assert_predicate testpath/"video.mp4", :exist?
   end
 end

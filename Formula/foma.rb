@@ -20,7 +20,7 @@ class Foma < Formula
 
   test do
     # Source: https://code.google.com/p/foma/wiki/ExampleScripts
-    (testpath/"toysyllabify.script").write <<-EOS.undent
+    (testpath/"toysyllabify.script").write <<~EOS
       define V [a|e|i|o|u];
       define Gli [w|y];
       define Liq [r|l];

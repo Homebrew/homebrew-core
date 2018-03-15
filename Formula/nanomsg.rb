@@ -1,17 +1,14 @@
 class Nanomsg < Formula
   desc "Socket library in C"
   homepage "http://nanomsg.org"
-  url "https://github.com/nanomsg/nanomsg/archive/1.0.0.tar.gz"
-  sha256 "24afdeb71b2e362e8a003a7ecc906e1b84fd9f56ce15ec567481d1bb33132cc7"
+  url "https://github.com/nanomsg/nanomsg/archive/1.1.2.tar.gz"
+  sha256 "3c52165a735c2fb597d2306593ae4b17900688b90113d4115ad8480288f28ccb"
   head "https://github.com/nanomsg/nanomsg.git"
 
   bottle do
-    cellar :any
-    sha256 "45c5998dec7d19819b77cdb74671b55eb5c3ebaf8e785ce7582baf90a0f44dc8" => :high_sierra
-    sha256 "6dc4ea79f3c05afd0e28c4323905ca3611e1cfd633de74d9e9d65f61bb3fd8d1" => :sierra
-    sha256 "fb85b321fc5d554c0bfd7b31c53dd7e6496ff5ad6dd94111298f23f45c6b5559" => :el_capitan
-    sha256 "255ec0f726980ca16320ec1795e81ce275d8da730c5034e16c1134981d044522" => :yosemite
-    sha256 "d3acb38b0fba0c1d78252471cb9ec63d6bbf82cdfbe0a3a125e3a6fc311ed57e" => :mavericks
+    sha256 "dd584d9e1a3a2ed69a36f9db5cfb6aa0a25c57492fce5dc0f9c4881acc922583" => :high_sierra
+    sha256 "123358e13bb19279f98efc1409662d7243ddd3cbda09dd2d6e1537fb15f61d33" => :sierra
+    sha256 "0e8011a28082c5ecd421d614ec9cad8288fc5362ce605fd20231579a6073c7f0" => :el_capitan
   end
 
   depends_on "cmake" => :build

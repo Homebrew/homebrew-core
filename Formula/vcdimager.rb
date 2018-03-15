@@ -1,17 +1,15 @@
 class Vcdimager < Formula
   desc "(Super) video CD authoring solution"
   homepage "https://www.gnu.org/software/vcdimager/"
-  url "https://ftp.gnu.org/gnu/vcdimager/vcdimager-0.7.24.tar.gz"
-  mirror "https://ftpmirror.gnu.org/vcdimager/vcdimager-0.7.24.tar.gz"
-  sha256 "075d7a67353ff3004745da781435698b6bc4a053838d0d4a3ce0516d7d974694"
-  revision 1
+  url "https://ftp.gnu.org/gnu/vcdimager/vcdimager-2.0.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/vcdimager/vcdimager-2.0.1.tar.gz"
+  sha256 "67515fefb9829d054beae40f3e840309be60cda7d68753cafdd526727758f67a"
 
   bottle do
     cellar :any
-    sha256 "1ed68b5e5a6eb3df663db7821bfef9a0242f74cce766e728289d70a7479b1e2e" => :high_sierra
-    sha256 "a325c74f239c0725d111f985ec71685a07a53de3ce15679e61ec78f50b23cfc6" => :sierra
-    sha256 "8f800ed3ad7177dad0454bcbf2be01b6a0af894065b826e6658f69fb6b5bc5b5" => :el_capitan
-    sha256 "8aa2aca8cb42e7205f209784aa38a917ef33ccc987cffc2d35a86d30a74af519" => :yosemite
+    sha256 "a990e94922c3b6e779907c421cf9aafc10d2f5bce3196580d0274909a18f6cb7" => :high_sierra
+    sha256 "e78e0d7842f71d68f5ef23ea13c64a04c012a523e0759b78a1395a21281c7b73" => :sierra
+    sha256 "9094f54dbd4234a5fb6bd23ab39c2b4f87f7bebb5ccfb398942fb98df37813b0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -19,8 +17,9 @@ class Vcdimager < Formula
   depends_on "popt"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", "--mandir=#{man}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 

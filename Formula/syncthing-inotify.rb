@@ -22,12 +22,13 @@ class SyncthingInotify < Formula
     cd dir do
       system "go", "build", "-ldflags", "-w -X main.Version=#{version}"
       bin.install name
+      prefix.install_metafiles
     end
   end
 
   plist_options :manual => "syncthing-inotify"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

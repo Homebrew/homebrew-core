@@ -23,7 +23,7 @@ class Headphones < Formula
     sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
   end
 
-  def startup_script; <<-EOS.undent
+  def startup_script; <<~EOS
     #!/bin/bash
     export PYTHONPATH="#{libexec}/lib/python2.7/site-packages:$PYTHONPATH"
     python "#{libexec}/Headphones.py" --datadir="#{etc}/headphones" "$@"
@@ -45,14 +45,14 @@ class Headphones < Formula
     (bin/"headphones").write(startup_script)
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Headphones defaults to port 8181.
   EOS
   end
 
   plist_options :manual => "headphones"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -2,40 +2,45 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v0.9.3",
-      :revision => "112c0603d3d6fb23ab5f15e8fdb1a761da8eaf9a"
+      :tag => "v1.0.6",
+      :revision => "9a494b5fb9c86180a5702e29c485df1507a47198"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "50cf2c2e86fcc50e250bfb2bc10777525ba9a7e9f234fcb53998599eba5f48d6" => :high_sierra
-    sha256 "116c2a66ce62414ce9829c1e8ec93db61c8eb071dfb5832470f542b727a72b77" => :sierra
-    sha256 "8598f078a558ecc6d2f23804280b8f8d692b40f340a387730497e2e5fc6877b0" => :el_capitan
-    sha256 "8a3aa00a1e75e2524af83d1d2ff2cc71c5fc7e2ce0f0785ce1065acf85d4080b" => :yosemite
+    rebuild 1
+    sha256 "426227ee114e91f2560c141722d7b31a148b507a7617485ff1482f8b30f386c3" => :high_sierra
+    sha256 "3154593fd96aa3efd6f2f0c9ca2aa8d1e13685e106a8cebdb5ea55a14e46662c" => :sierra
+    sha256 "aa9f709a5d4a1042584b2f332848e30a62f3e909123fdbfdc6feac033d230ef0" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "gox" => :build
 
   def install
+    # Avoid running `go get`
+    inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
+
+    ENV["XC_OS"] = "darwin"
+    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/hashicorp/consul").install contents
+    (buildpath/"src/github.com/hashicorp/consul").install contents
 
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
+    (buildpath/"bin").mkpath
 
-    cd gopath/"src/github.com/hashicorp/consul" do
+    cd "src/github.com/hashicorp/consul" do
       system "make"
       bin.install "bin/consul"
-      zsh_completion.install "contrib/zsh-completion/_consul"
+      prefix.install_metafiles
     end
   end
 
   plist_options :manual => "consul agent -dev -advertise 127.0.0.1"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

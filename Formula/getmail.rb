@@ -1,19 +1,20 @@
 class Getmail < Formula
   desc "Extensible mail retrieval system with POP3, IMAP4, SSL support"
   homepage "http://pyropus.ca/software/getmail/"
-  url "http://pyropus.ca/software/getmail/old-versions/getmail-5.1.tar.gz"
-  sha256 "3d6e20e5ea41c1ffb284a46de3d2a474bf2ebd9215441c4c379183d03710027e"
+  url "http://pyropus.ca/software/getmail/old-versions/getmail-5.5.tar.gz"
+  sha256 "e0382ee59f1ec6ac2d6f01b71ca71db0826db0d267704b2bc2d97b9beda28350"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1fb642974520e619530d5acfaaf442e44b3f4c21c6bad41615002b96defa8ec3" => :high_sierra
-    sha256 "15010d3a831c771346c2e5b1c85071df1d5b49fd9d8d36b2b79bc927c7716c95" => :sierra
-    sha256 "15010d3a831c771346c2e5b1c85071df1d5b49fd9d8d36b2b79bc927c7716c95" => :el_capitan
-    sha256 "15010d3a831c771346c2e5b1c85071df1d5b49fd9d8d36b2b79bc927c7716c95" => :yosemite
+    sha256 "504fc11caf6b211ede0d42cf2e9efcb1bee013228bc20bdb6e2265b1b54acf19" => :high_sierra
+    sha256 "504fc11caf6b211ede0d42cf2e9efcb1bee013228bc20bdb6e2265b1b54acf19" => :sierra
+    sha256 "504fc11caf6b211ede0d42cf2e9efcb1bee013228bc20bdb6e2265b1b54acf19" => :el_capitan
   end
 
   def install
     libexec.install %w[getmail getmail_fetch getmail_maildir getmail_mbox]
+    inreplace Dir[libexec/"*"], %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
     bin.install_symlink Dir["#{libexec}/*"]
     libexec.install "getmailcore"
     man1.install Dir["docs/*.1"]

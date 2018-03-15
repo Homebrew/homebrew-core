@@ -1,5 +1,5 @@
 class Clog < Formula
-  desc "Colorized pattern-matching log tail utility."
+  desc "Colorized pattern-matching log tail utility"
   homepage "https://taskwarrior.org/docs/clog/"
   url "https://tasktools.org/download/clog-1.3.0.tar.gz"
   sha256 "fed44a8d398790ab0cf426c1b006e7246e20f3fcd56c0ec4132d24b05d5d2018"
@@ -21,7 +21,7 @@ class Clog < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Next step is to create a .clogrc file in your home directory. See 'man clog'
     for details and a sample file.
     EOS

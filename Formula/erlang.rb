@@ -2,15 +2,15 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.0.5.tar.gz"
-  sha256 "45b6966362c3a4da292d470ef25af9f91b851d4e96d3736abdabbba0556acf6c"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.tar.gz"
+  sha256 "e73a9b2c2a16f3739aa642b2a8698c56939e9b0d3664bb92bd9fc51a7308d73e"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "a1b92de90f10b8b788cc83f477042d56ea88359d1c7b63ddaa00bb476d25434f" => :high_sierra
-    sha256 "dc427d3e3ffe96bc5fa62dc8967f0b9bf50d11cf60bccb0e10f5a5c58c1547e8" => :sierra
-    sha256 "d9c116c28403445bba187d3017b962d6089b8891da630a6b656af4961ea7c4dd" => :el_capitan
+    sha256 "fdb064d5abe81e90b71a29312de9c5d2c86a8a520811444776fcaae9703f1977" => :high_sierra
+    sha256 "62e2017e7cad2843a757d06776339d24d27582b23a78d32a0ed1c0eedaf8d001" => :sierra
+    sha256 "400bc561ee07cdaddf687f31d3cb6b8d64cad58674d1861322894f9fd4120eef" => :el_capitan
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
@@ -31,25 +31,15 @@ class Erlang < Formula
   depends_on "wxmac" => :recommended # for GUI apps like observer
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_20.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_20.0.tar.gz"
-    sha256 "b7f1542a94a170f8791f5d80a85706f9e8838924ea65d4301032d0c0cfb845cc"
+    url "https://www.erlang.org/download/otp_doc_man_20.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_20.3.tar.gz"
+    sha256 "17e0b2f94f11576a12526614a906ecad629b8804c25e6c18523f7c4346607112"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_20.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_20.0.tar.gz"
-    sha256 "1ab25110b148ce263d6e68cd5a3b912299b6066cfcd9d2fce416a4e9b7d2543a"
-  end
-
-  # Check if this patch can be removed when OTP 20.1 is released.
-  # Erlang will crash on macOS 10.13 any time the crypto lib is used.
-  # The Erlang team has an open PR for the patch but it needs to be applied to
-  # older releases. See https://github.com/erlang/otp/pull/1501 and
-  # https://bugs.erlang.org/browse/ERL-439 for additional information.
-  patch do
-    url "https://github.com/erlang/otp/pull/1501.patch?full_index=1"
-    sha256 "e449d698a82e07eddfd86b5b06a0b4ab8fb4674cb72fc6ab037aa79b096f0a12"
+    url "https://www.erlang.org/download/otp_doc_html_20.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_20.3.tar.gz"
+    sha256 "8099b62e9fa24b3f90eaeda151fa23ae729c8297e7d3fd8adaca865b35a3125d"
   end
 
   def install
@@ -106,7 +96,7 @@ class Erlang < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Man pages can be found in:
       #{opt_lib}/erlang/man
 

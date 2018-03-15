@@ -1,16 +1,15 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.6.0/apache-arrow-0.6.0.tar.gz"
-  sha256 "ecf8b36514da9eaef5b7cc894e29933646f2bebb913f36c654ae9789138f0c53"
-
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.8.0/apache-arrow-0.8.0.tar.gz"
+  sha256 "b142b883c7107485a296655e8d7421d11891acbca15862f37a4a8c1b13d4e9c4"
   head "https://github.com/apache/arrow.git"
 
   bottle do
     cellar :any
-    sha256 "5fc8f63806fd7937e6d0e7c0f0a729aeca7670ddb2f575df5acda8892f0bb129" => :sierra
-    sha256 "7c50efe964a487acbd95156319f7bca07c5c3dfeb7817526d3943695e680d083" => :el_capitan
-    sha256 "5302db745369a3b16d8dfe3661270b1b15d710d13eca5ecffe9b1742b5c01e97" => :yosemite
+    sha256 "d9b331ee4ebff205e029854c76e41dea5dbc57dfdc98626c1b557ae434840804" => :high_sierra
+    sha256 "c43c8f8198daad4b9580ddd0fc33beda3eac94374a075611f9dd834234e677e6" => :sierra
+    sha256 "64d0e868864c37293a454052420d3203d4e689d4be5a4e6b2892a5a6aac6fd3a" => :el_capitan
   end
 
   # NOTE: remove ccache with Apache Arrow 0.5 and higher version
@@ -32,11 +31,11 @@ class ApacheArrow < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include "arrow/api.h"
       int main(void)
       {
-        arrow::Int64Builder builder(arrow::default_memory_pool(), arrow::int64());
+        arrow::int64();
         return 0;
       }
     EOS

@@ -3,19 +3,20 @@ class ProofGeneral < Formula
   homepage "https://proofgeneral.github.io"
   url "https://github.com/ProofGeneral/PG/archive/v4.4.tar.gz"
   sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
-  revision 1
+  revision 2
   head "https://github.com/ProofGeneral/PG.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9c3dca4c71aae78779bcf34fc98b914cee3d000dfbe18aaa29ec6f6c9f00af6" => :high_sierra
-    sha256 "3873ed2362ff17d7cc51fc5910bddb57f1fd23a294fe5747c4bc7b143c0b71d2" => :sierra
-    sha256 "2ceb9862d81f46f6ba815b58a1683ce8af5a95b6db0f4c1bfde488156c56ce62" => :el_capitan
-    sha256 "2ceb9862d81f46f6ba815b58a1683ce8af5a95b6db0f4c1bfde488156c56ce62" => :yosemite
+    rebuild 1
+    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :high_sierra
+    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :sierra
+    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :el_capitan
   end
 
   depends_on "texi2html" => :build
-  depends_on :emacs => "22.3"
+  depends_on "texinfo" => :build
+  depends_on "emacs"
 
   def install
     ENV.deparallelize # Otherwise lisp compilation can result in 0-byte files
@@ -38,7 +39,7 @@ class ProofGeneral < Formula
     doc.install "doc/ProofGeneral", "doc/PG-adapting"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
     EOS
   end

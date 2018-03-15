@@ -1,17 +1,15 @@
 class ErlangAT18 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
-  url "https://github.com/erlang/otp/archive/OTP-18.3.4.tar.gz"
-  sha256 "7ab381d64a2943a35782f173792e4c2678ae9fd9bffba1f2814ffe701070c1bc"
+  url "https://github.com/erlang/otp/archive/OTP-18.3.4.8.tar.gz"
+  sha256 "26df069142401924dc10d37f994a5de5ed971824880c5e5cce041b1e82c9250d"
   head "https://github.com/erlang/otp.git", :branch => "maint-18"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c9e0f48a2db7b2c4a3aa58d2b7707128a9a7a7739c8ef4aaf8a79395d3fbdece" => :high_sierra
-    sha256 "0ca10369f89c7a561bd54a884e0cd9dc1ac67ab53a652a19e1dcc3007374a77a" => :sierra
-    sha256 "68419c51401c6c144ea0b5a9c7a327c397a4bd92ff0c6b5d083a73c7d81caf05" => :el_capitan
-    sha256 "8a1880af3b22343f01e0b2ceb716bda49cd324fb55027179210f2469bd6cda94" => :yosemite
+    sha256 "4101f0327fd835a0a7eedb6859938722c3e53b3dc2af9223ba97f0e6925558a7" => :high_sierra
+    sha256 "63837832b0ed0ea86643af3b578bf953de31b3ab8795b865d1fe759592c7f51a" => :sierra
+    sha256 "87021fd8083f62e8ac07f6292fca8bb610fe85f509621aee85f260a359341aea" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -119,7 +117,7 @@ class ErlangAT18 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Man pages can be found in:
       #{opt_lib}/erlang/man
     Access them with `erl -man`, or add this directory to MANPATH.

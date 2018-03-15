@@ -40,7 +40,7 @@ class Harbour < Formula
   end
 
   test do
-    (testpath/"hello.prg").write <<-EOS.undent
+    (testpath/"hello.prg").write <<~EOS
       procedure Main()
          OutStd( ;
             "Hello, world!" + hb_eol() + ;

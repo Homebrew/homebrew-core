@@ -16,7 +16,7 @@ class Schroedinger < Formula
   end
 
   head do
-    url "git://diracvideo.org/git/schroedinger.git"
+    url "lp:schroedinger", :using => :bzr
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

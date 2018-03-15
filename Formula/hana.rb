@@ -1,16 +1,15 @@
 class Hana < Formula
   desc "The Boost.Hana C++14 metaprogramming library"
   homepage "https://github.com/boostorg/hana"
-  url "https://github.com/boostorg/hana/archive/v1.2.0.tar.gz"
-  sha256 "ebee14728839ef71803eeefecd8ee514833a784a38cf2e0ab3c214f618cd1e26"
+  url "https://github.com/boostorg/hana/archive/v1.4.0.tar.gz"
+  sha256 "2e2752fa499be280723c51d9fc9e117cdbd6368b2b206de1f240cf10a5e5b2a6"
   head "https://github.com/boostorg/hana.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "48ab5f1cddb76daa363e6aa92c16e8d8cfbc02b874b2b3060a9d0d4d8f1ba806" => :high_sierra
-    sha256 "1c9329119dc9298abdeacc64b121eb1c96c6818ce5c0b595ac5c9c93e1b1a8a2" => :sierra
-    sha256 "1c9329119dc9298abdeacc64b121eb1c96c6818ce5c0b595ac5c9c93e1b1a8a2" => :el_capitan
-    sha256 "1c9329119dc9298abdeacc64b121eb1c96c6818ce5c0b595ac5c9c93e1b1a8a2" => :yosemite
+    sha256 "8349d4f7b7204fd9e791e78433810d7bf4bd21df8a748abd4f1f7a15154d7c35" => :high_sierra
+    sha256 "8349d4f7b7204fd9e791e78433810d7bf4bd21df8a748abd4f1f7a15154d7c35" => :sierra
+    sha256 "8349d4f7b7204fd9e791e78433810d7bf4bd21df8a748abd4f1f7a15154d7c35" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -22,7 +21,7 @@ class Hana < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <boost/hana.hpp>
 
       constexpr auto xs = boost::hana::make_tuple(1, '2', 3.3);

@@ -14,8 +14,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.05/ocaml-4.05.0.tar.xz"
-  sha256 "04a527ba14b4d7d1b2ea7b2ae21aefecfa8d304399db94f35a96df1459e02ef9"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.06/ocaml-4.06.1.tar.xz"
+  sha256 "6f07e0364fb8da008d51264c820b30648f6a4bfd9a9b83709ed634adddf377d8"
   head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
 
   pour_bottle? do
@@ -26,11 +26,10 @@ class Ocaml < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a8cf874401beb881a5fbb228548f3d4eb0945f94040c39c81ab5dbbd8c16ce63" => :high_sierra
-    sha256 "0aa92cba5d37a2dd0625b0210a09f12218443c9c806ee04a9988a1041a54b5bc" => :sierra
-    sha256 "58675349ab224e93c8f9470e98277526b2aafd3721f684ac451a3a1e187ec9f7" => :el_capitan
-    sha256 "a8b02428804a20627265ba737aca7800eb565907c1d07bc8bbcf68afedb97cb1" => :yosemite
+    cellar :any
+    sha256 "ec72f0455df24595bf89efb6c99d3773af3561219238b15e63e7181e32414bb0" => :high_sierra
+    sha256 "14490d7affd7cf05dd0cca8acd82e249b6682152ffbe6e2db2735680066b8641" => :sierra
+    sha256 "e22f4fa1ccbecc356b83ff7a1161b4eaeef507ef49403c6dd61a24199c2cdf19" => :el_capitan
   end
 
   option "with-x11", "Install with the Graphics module"

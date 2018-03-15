@@ -13,18 +13,11 @@ class Taglib < Formula
     sha256 "bfda081fd34cb47bcdfd41e814612dbdf330166e30e69867cf43fcac60e5ed1a" => :yosemite
   end
 
-  option :cxx11
-
   depends_on "cmake" => :build
 
   def install
-    ENV.cxx11 if build.cxx11?
-    args = std_cmake_args + %w[
-      -DWITH_MP4=ON
-      -DWITH_ASF=ON
-      -DBUILD_SHARED_LIBS=ON
-    ]
-    system "cmake", *args
+    system "cmake", "-DWITH_MP4=ON", "-DWITH_ASF=ON", "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
     system "make", "install"
   end
 

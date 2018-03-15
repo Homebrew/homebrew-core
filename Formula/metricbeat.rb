@@ -1,45 +1,55 @@
 class Metricbeat < Formula
-  desc "Collect metrics from your systems and services."
+  desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v5.6.1.tar.gz"
-  sha256 "3534ef7a3833ae85aef53a12580520b5d85feaa1408289ea37a6ebff5a2fda0a"
+  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
+  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
 
   head "https://github.com/elastic/beats.git"
 
+  # Can be removed when support for compilation under go 1.9.4 is supported,
+  # potentially planned for the 6.2.3 release.
+  # Related upstream PRs:
+  # - https://github.com/elastic/beats/pull/6388
+  # - https://github.com/elastic/beats/pull/6326
+  patch :DATA
+
   bottle do
-    sha256 "c98c75722f3c549da246dde9f83cefe03af9ca95ac4227a464514790c8d77d8d" => :high_sierra
-    sha256 "21886e9519ed8ae453795d2a9c80afada7f1eca1701771833eba338368865c42" => :sierra
-    sha256 "b7359323c3c70e01996f26ef05dd2e1e8612264431a2b71d652fdc92cac4ef58" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "c04e96878a0a0170f5e3d95a67cca6d5c298fdda435483edcb7b756782989406" => :high_sierra
+    sha256 "9d1236c5afefd8d12d698cca1b0dcd9850c057377bbc3f27ce82b8b6437f79ab" => :sierra
+    sha256 "0b038131e12c6ad912b3ea4e808fa573830e570b4967c6dfaf591fb889ca4be4" => :el_capitan
   end
 
   depends_on "go" => :build
 
   def install
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/elastic/beats").install Dir["{*,.git,.gitignore}"]
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/elastic/beats").install buildpath.children
 
-    ENV["GOPATH"] = gopath
-
-    cd gopath/"src/github.com/elastic/beats/metricbeat" do
+    cd "src/github.com/elastic/beats/metricbeat" do
       system "make"
-      libexec.install "metricbeat"
+      system "make", "kibana"
+      (libexec/"bin").install "metricbeat"
+      libexec.install "_meta/kibana"
 
-      (etc/"metricbeat").install "metricbeat.full.yml"
-      (etc/"metricbeat").install "metricbeat.yml"
-      (etc/"metricbeat").install "metricbeat.template.json"
-      (etc/"metricbeat").install "metricbeat.template-es2x.json"
-      (etc/"metricbeat").install "metricbeat.template-es6x.json"
+      (etc/"metricbeat").install Dir["metricbeat*.yml"]
+      prefix.install_metafiles
     end
 
-    (bin/"metricbeat").write <<-EOS.undent
+    (bin/"metricbeat").write <<~EOS
       #!/bin/sh
-      exec "#{libexec}/metricbeat" --path.config "#{etc}/metricbeat" --path.home="#{prefix}" --path.logs="#{var}/log/metricbeat" --path.data="#{opt_prefix}" "$@"
+      exec "#{libexec}/bin/metricbeat" \
+        --path.config "#{etc}/metricbeat" \
+        --path.home="#{prefix}" \
+        --path.logs="#{var}/log/metricbeat" \
+        --path.data="#{var}/lib/metricbeat" \
+        "$@"
     EOS
   end
 
   plist_options :manual => "metricbeat"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -57,7 +67,7 @@ class Metricbeat < Formula
   end
 
   test do
-    (testpath/"metricbeat.yml").write <<-EOS.undent
+    (testpath/"config/metricbeat.yml").write <<~EOS
       metricbeat.modules:
       - module: system
         metricsets: ["load"]
@@ -71,16 +81,32 @@ class Metricbeat < Formula
     (testpath/"logs").mkpath
     (testpath/"data").mkpath
 
-    metricbeat_pid = fork do
-      exec bin/"metricbeat", "-c", testpath/"metricbeat.yml",
-      "--path.data=#{testpath}/data", "--path.logs=#{testpath}/logs"
+    pid = fork do
+      exec bin/"metricbeat", "-path.config", testpath/"config", "-path.data",
+                             testpath/"data"
     end
 
     begin
-      sleep 2
-      assert File.exist? testpath/"data/metricbeat"
+      sleep 30
+      assert_predicate testpath/"data/metricbeat", :exist?
     ensure
-      Process.kill("TERM", metricbeat_pid)
+      Process.kill "SIGINT", pid
+      Process.wait pid
     end
   end
 end
+
+__END__
+diff --git a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
+index 2f5e22b64e..210779786b 100644
+--- a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
++++ b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
+@@ -5,7 +5,7 @@ package disk
+
+ /*
+ #cgo CFLAGS: -mmacosx-version-min=10.10 -DMACOSX_DEPLOYMENT_TARGET=10.10
+-#cgo LDFLAGS: -mmacosx-version-min=10.10 -lobjc -framework Foundation -framework IOKit
++#cgo LDFLAGS: -lobjc -framework Foundation -framework IOKit
+ #include <stdint.h>
+
+ // ### enough?

@@ -23,7 +23,7 @@ class Libsoundio < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <soundio/soundio.h>
 
       int main() {

@@ -13,7 +13,7 @@ class Sshconfigfs < Formula
     sha256 "f84991229a6701f9483c79232c5e25f3e4577d2e6748c06b5f49808c0ee8354b" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on :osxfuse
 
   resource "fusepy" do
@@ -34,7 +34,8 @@ class Sshconfigfs < Formula
 
   plist_options :manual => "sshconfigfs"
 
-  def plist; <<-EOS.undent
+  def plist
+    <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">

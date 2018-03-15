@@ -1,6 +1,6 @@
 class Madplay < Formula
   desc "MPEG Audio Decoder"
-  homepage "http://www.underbit.com/products/mad/"
+  homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/madplay/0.15.2b/madplay-0.15.2b.tar.gz"
   sha256 "5a79c7516ff7560dffc6a14399a389432bc619c905b13d3b73da22fa65acede0"
 

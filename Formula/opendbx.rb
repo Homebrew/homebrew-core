@@ -28,7 +28,7 @@ class Opendbx < Formula
 
   test do
     testfile = testpath/"test.sql"
-    testfile.write <<-EOS.undent
+    testfile.write <<~EOS
       create table t(x);
       insert into t values("Hello");
       .header

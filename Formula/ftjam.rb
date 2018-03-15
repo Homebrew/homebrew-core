@@ -22,11 +22,11 @@ class Ftjam < Formula
   end
 
   test do
-    (testpath/"Jamfile").write <<-EOS.undent
+    (testpath/"Jamfile").write <<~EOS
       Main ftjamtest : ftjamtest.c ;
     EOS
 
-    (testpath/"ftjamtest.c").write <<-EOS.undent
+    (testpath/"ftjamtest.c").write <<~EOS
       #include <stdio.h>
 
       int main(void)

@@ -1,7 +1,7 @@
 class Libantlr3c < Formula
   desc "ANTLRv3 parsing library for C"
-  homepage "http://www.antlr3.org"
-  url "http://www.antlr3.org/download/C/libantlr3c-3.4.tar.gz"
+  homepage "https://www.antlr3.org/"
+  url "https://www.antlr3.org/download/C/libantlr3c-3.4.tar.gz"
   sha256 "ca914a97f1a2d2f2c8e1fca12d3df65310ff0286d35c48b7ae5f11dcc8b2eb52"
   revision 1
 
@@ -34,7 +34,7 @@ class Libantlr3c < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <antlr3.h>
       int main() {
         if (0) {

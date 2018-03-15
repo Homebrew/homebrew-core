@@ -27,7 +27,7 @@ class Wemux < Formula
     etc.install "wemux.conf.example" => "wemux.conf"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Your current user account has been automatically added as a wemux host.
 
     To give a user the ability to host wemux sessions add them to the

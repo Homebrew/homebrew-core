@@ -1,14 +1,14 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://libsdl.org/release/SDL2-2.0.6.tar.gz"
-  sha256 "03658b5660d16d7b31263a691e058ed37acdab155d68dabbad79998fb552c5df"
+  url "https://libsdl.org/release/SDL2-2.0.8.tar.gz"
+  sha256 "edc77c57308661d576e843344d8638e025a7818bff73f8fbfab09c3c5fd092ec"
 
   bottle do
     cellar :any
-    sha256 "1459b9f0944103b7ec90479d73b0109196d3690eb72e92408d239bfc190a8d3f" => :high_sierra
-    sha256 "a61a43c6c96d853fa69a3444fff2f9c88507c1fefaf3625ccf4cd36560fa0a75" => :sierra
-    sha256 "51de646f96b568fd19560aaf6ddaab14f03e9d9c7e89bcc35f470a5931df8b98" => :el_capitan
+    sha256 "25cc31a9680beb16321613f740fee7fdd862489948a5280e4a5f94b8ed291dd6" => :high_sierra
+    sha256 "81ae8deb6918e241fc0c3c47c11b1e5041deb297e9010f87e1a1584fcf2c17e8" => :sierra
+    sha256 "d1cf341785b66ce316564564abe44d7e6e1d1d6e16b26dc9b1e307c68f0bd22d" => :el_capitan
   end
 
   head do

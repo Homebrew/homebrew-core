@@ -13,7 +13,7 @@ class MonitoringPlugins < Formula
 
   depends_on "openssl"
   depends_on "postgresql" => :optional
-  depends_on :mysql => :optional
+  depends_on "mysql" => :optional
 
   conflicts_with "nagios-plugins", :because => "nagios-plugins ships their plugins to the same folder."
 
@@ -33,9 +33,9 @@ class MonitoringPlugins < Formula
   end
 
   def caveats
-    <<-EOS.undent
-    All plugins have been installed in:
-      #{HOMEBREW_PREFIX}/sbin
+    <<~EOS
+      All plugins have been installed in:
+        #{HOMEBREW_PREFIX}/sbin
     EOS
   end
 

@@ -12,7 +12,7 @@ class Griffon < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     You should set the environment variable GRIFFON_HOME to:
       #{libexec}
     EOS

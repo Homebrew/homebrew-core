@@ -33,7 +33,7 @@ class Libspnav < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <spnav.h>
 
       int main() {

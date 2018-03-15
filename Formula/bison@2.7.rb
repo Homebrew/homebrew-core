@@ -4,15 +4,22 @@ class BisonAT27 < Formula
   url "https://ftp.gnu.org/gnu/bison/bison-2.7.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/bison/bison-2.7.1.tar.gz"
   sha256 "08e2296b024bab8ea36f3bb3b91d071165b22afda39a17ffc8ff53ade2883431"
+  revision 1
 
   bottle do
-    sha256 "c6c60860d585646d15840350b5c9e7b36026bdef84eab99dcd83887c20080d8a" => :high_sierra
-    sha256 "f826962030514764d143e70416b82ad39b83b011f56836ed66dde769d267f1c5" => :sierra
-    sha256 "f445b3e75cf7ac40ef2b4bfa2953acaf477e21bc9fae7957584772a49b54872a" => :el_capitan
-    sha256 "bafa9e03f97e3de2199a7c612d86f15dbb9722f77865a35a6d1cffb2d501841a" => :yosemite
+    sha256 "ee0e758aa798809aaa3e94f1e3659c9d33497a577c25cfc03ecfe18c25862837" => :high_sierra
+    sha256 "7f1f717becaf0a818b154d3706b88f6c61a102b4f909e030005aaa5433abc34e" => :sierra
+    sha256 "3b49ff1a76807438bfb6805e513d372fba8d49c0259fe4f28e1587d47e42bf5c" => :el_capitan
   end
 
   keg_only :versioned_formula
+
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/b76d1e48dac/editors/nano/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -21,7 +28,7 @@ class BisonAT27 < Formula
   end
 
   test do
-    (testpath/"test.y").write <<-EOS.undent
+    (testpath/"test.y").write <<~EOS
       %{ #include <iostream>
          using namespace std;
          extern void yyerror (char *s);

@@ -43,14 +43,15 @@ class BoostAT155 < Formula
   option "with-icu", "Build regexp engine with icu support"
   option "without-single", "Disable building single-threading variant"
   option "without-static", "Disable building static library variant"
-  option "with-mpi", "Build with MPI support"
   option :cxx11
 
-  depends_on :python => :optional
-  depends_on :python3 => :optional
+  deprecated_option "with-python3" => "with-python"
 
-  if build.with?("python3") && build.with?("python")
-    odie "boost@1.55: --with-python3 cannot be specified when using --with-python"
+  depends_on "python" => :optional
+  depends_on "python@2" => :optional
+
+  if build.with?("python") && build.with?("python@2")
+    odie "boost@1.55: --with-python cannot be specified when using --with-python@2"
   end
 
   if build.with? "icu"
@@ -61,14 +62,6 @@ class BoostAT155 < Formula
     end
   end
 
-  if build.with? "mpi"
-    if build.cxx11?
-      depends_on "open-mpi" => "c++11"
-    else
-      depends_on :mpi => [:cc, :cxx, :optional]
-    end
-  end
-
   def install
     # Patch boost::serialization for Clang
     # https://svn.boost.org/trac/boost/raw-attachment/ticket/8757/0005-Boost.S11n-include-missing-algorithm.patch
@@ -76,36 +69,17 @@ class BoostAT155 < Formula
       "#include <boost/iterator/iterator_traits.hpp>",
       "#include <boost/iterator/iterator_traits.hpp>\n#include <algorithm>"
 
-    # https://svn.boost.org/trac/boost/ticket/8841
-    if build.with?("mpi") && build.with?("single")
-      raise <<-EOS.undent
-        Building MPI support for both single and multi-threaded flavors
-        is not supported.  Please use "--with-mpi" together with
-        "--without-single".
-      EOS
-    end
-
-    if build.cxx11? && build.with?("mpi") && (build.with?("python") \
-                                               || build.with?("python3"))
-      raise <<-EOS.undent
-        Building MPI support for Python using C++11 mode results in
-        failure and hence disabled.  Please don"t use this combination
-        of options.
-      EOS
-    end
-
     # Force boost to compile using the appropriate GCC version.
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"
-      file.write "using mpi ;\n" if build.with? "mpi"
 
       # Link against correct version of Python if python3 build was requested
-      if build.with? "python3"
+      if build.with? "python"
         py3executable = `which python3`.strip
         py3version = `python3 -c "import sys; print(sys.version[:3])"`.strip
         py3prefix = `python3 -c "import sys; print(sys.prefix)"`.strip
 
-        file.write <<-EOS.undent
+        file.write <<~EOS
           using python : #{py3version}
                        : #{py3executable}
                        : #{py3prefix}/include/python#{py3version}m
@@ -125,14 +99,13 @@ class BoostAT155 < Formula
     end
 
     # Handle libraries that will not be built.
-    without_libraries = []
+    without_libraries = ["mpi"]
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
     without_libraries << "log" if ENV.compiler == :gcc
     without_libraries << "python" if build.without?("python") \
-                                      && build.without?("python3")
-    without_libraries << "mpi" if build.without? "mpi"
+                                      && build.without?("python@2")
 
     bargs << "--without-libraries=#{without_libraries.join(",")}"
 
@@ -174,9 +147,8 @@ class BoostAT155 < Formula
     # ENV.compiler doesn"t exist in caveats. Check library availability
     # instead.
     if Dir["#{lib}/libboost_log*"].empty?
-      s += <<-EOS.undent
-
-      Building of Boost.Log is disabled because it requires newer GCC or Clang.
+      s += <<~EOS
+        Building of Boost.Log is disabled because it requires newer GCC or Clang.
       EOS
     end
 
@@ -184,7 +156,7 @@ class BoostAT155 < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <boost/algorithm/string.hpp>
       #include <boost/version.hpp>
       #include <string>

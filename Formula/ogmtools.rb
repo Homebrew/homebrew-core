@@ -30,7 +30,7 @@ class Ogmtools < Formula
   end
 
   # Borrow warning from MacPorts
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Ogmtools has not been updated since 2004 and is no longer being developed,
     maintained or supported. There are several issues, especially on 64-bit
     architectures, which the author will not fix or accept patches for.

@@ -1,14 +1,13 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.9/postgresql-9.5.9.tar.bz2"
-  sha256 "e98cd5c664ab5a05cb83618ba8078647815cb71f7a60437f0322c7518727cdd4"
+  url "https://ftp.postgresql.org/pub/source/v9.5.12/postgresql-9.5.12.tar.bz2"
+  sha256 "02e86f5c66467731bbec18fde96e0daf38c13c9141d8e7d41be663ab6fa6f698"
 
   bottle do
-    sha256 "eb85043507176ef8f96dc4711d71f8df20114646140826464a46d817e4151397" => :high_sierra
-    sha256 "8ad3b9b88e91aa61398c8f11c64b804ae239389581d12331e0a32025a6f6cf2c" => :sierra
-    sha256 "27776fede8a58b2def023c73be2e2e682bf924529d22aef1f23364cfa808f5c3" => :el_capitan
-    sha256 "79745c4a8a0df304be89c106c3225396ff7a0f8ca6902caf8f3ac530145aea01" => :yosemite
+    sha256 "1ed23f0045effafaf07e70fd2b6be4e208442b3e7d5e1ccd41c5fe646a7ca015" => :high_sierra
+    sha256 "ad1e29a3e881ee32d80f97160dbf02f7d622bd810fc0884042fdd90eff5d58a7" => :sierra
+    sha256 "bf4406afae1d3ab106f16290122fce0c32ed237da44bf07da60b482b7840027d" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -16,13 +15,15 @@ class PostgresqlAT95 < Formula
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Build with Python2 (incompatible with --with-python3)"
-  option "with-python3", "Build with Python3 (incompatible with --with-python)"
+  option "with-python", "Build with Python3 (incompatible with --with-python@2)"
+  option "with-python@2", "Build with Python2 (incompatible with --with-python)"
+
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "openssl"
   depends_on "readline"
-  depends_on :python => :optional
-  depends_on :python3 => :optional
+  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   fails_with :clang do
     build 211
@@ -56,11 +57,11 @@ class PostgresqlAT95 < Formula
     args << "--with-perl" if build.with? "perl"
 
     which_python = nil
-    if build.with?("python") && build.with?("python3")
-      odie "Cannot provide both --with-python and --with-python3"
-    elsif build.with?("python") || build.with?("python3")
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    elsif build.with?("python") || build.with?("python@2")
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python" : "python3")
+      which_python = which(build.with?("python") ? "python3" : "python2.7")
     end
     ENV["PYTHON"] = which_python
 
@@ -92,7 +93,7 @@ class PostgresqlAT95 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     If builds of PostgreSQL 9 are failing and you have version 8.x installed,
     you may need to remove the previous version first. See:
       https://github.com/Homebrew/legacy-homebrew/issues/2510
@@ -110,7 +111,7 @@ class PostgresqlAT95 < Formula
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.5 start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

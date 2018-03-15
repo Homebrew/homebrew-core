@@ -29,7 +29,7 @@ class Libicns < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "icns.h"
       int main(void)

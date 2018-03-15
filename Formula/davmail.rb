@@ -1,9 +1,9 @@
 class Davmail < Formula
   desc "POP/IMAP/SMTP/Caldav/Carddav/LDAP exchange gateway"
   homepage "https://davmail.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/davmail/davmail/4.8.0/davmail-4.8.0-2479.zip"
-  sha256 "5cd0dceadffa958c72be299ee2edc0ec945eaf2f66cbab3e93e20cd24408fbbf"
-  revision 1
+  url "https://downloads.sourceforge.net/project/davmail/davmail/4.8.3/davmail-4.8.3-2554.zip"
+  version "4.8.3"
+  sha256 "de1e3328180fbb8b06fed8d1e724dc117355b8d7b58c7c365b7d78458de14d62"
 
   bottle :unneeded
 
@@ -14,7 +14,7 @@ class Davmail < Formula
 
   plist_options :manual => "davmail"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

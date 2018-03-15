@@ -1,13 +1,13 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://research.wand.net.nz/software/libtrace.php"
-  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.1.tar.bz2"
-  sha256 "f97e3deea17a41987594980331d7325a6b81836d4d705320b7f7b9b35ff3d0ed"
+  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.3.tar.bz2"
+  sha256 "3c0842ba6a7674c51b3bf1ba474dd3cdd2df9fbcd2147d3216fed2b613377397"
 
   bottle do
-    sha256 "55fef057f55e4e3100f6b7f4a1a71d1a957604c168255fbda5b328939d34a8f0" => :high_sierra
-    sha256 "e71eb55397b13f2a4f16d5625b0faf349781cea0200298d878f7ad8c959f9e2f" => :sierra
-    sha256 "1140ea098064660ae866b8c9d8a80d5445a9c094ef7e1da79d6d20bea70e0dba" => :el_capitan
+    sha256 "e3163c0a23c6b925f23e08af6e4327caea0a9cf89198250bd7537bfb62bb2e1a" => :high_sierra
+    sha256 "c1db3822e5b92a5e510a24f72747bc7008bbb435c9d44d07b659d0e56ed481ac" => :sierra
+    sha256 "00e09353486c73d122c9743bcfad7a4379bbc1706896e25bc04e7ef925c36a7c" => :el_capitan
   end
 
   depends_on "openssl"

@@ -1,14 +1,13 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v2.0.0/libqalculate-2.0.0.tar.gz"
-  sha256 "86d04362f37aa5acbc78108e0044b96fbffbaa33c309c19c8c37ac4fb46c5485"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v2.2.1/libqalculate-2.2.1.tar.gz"
+  sha256 "1752b6a046eaf84ee62a7dc8d2c874b538517956ce8affac80df09a3b55bef5d"
 
   bottle do
-    sha256 "a3800e21ca0bae49e731cb94d675b0b33c8859776a1c27439a8443bb32d84c53" => :high_sierra
-    sha256 "399990694f3e020f4f52e7c84debd9f365383401b57a47dd36ebc73d90f4c306" => :sierra
-    sha256 "8d1170eebb1d0c862beb57bf399a9af73ba10d281fc4ca13e53c4f8f3a2269a2" => :el_capitan
-    sha256 "6d136a4bd9e77bc8a2467d776ab566ebd9dd1fe32710950695cc3a2fc15c6c86" => :yosemite
+    sha256 "304f896d1bf0a0d7beb3d2070586cb6d6f71be4dcca0255c0cd0a8643bd9a4f8" => :high_sierra
+    sha256 "3ec1472fe6d2701b12a6988661066e83f6f3f9fdebfa862b25754a8bbd571b7c" => :sierra
+    sha256 "251050e92389842a1887f12e02f6e9af63b712f39e7f4e5bbd18b8fcccdbd712" => :el_capitan
   end
 
   depends_on "intltool" => :build

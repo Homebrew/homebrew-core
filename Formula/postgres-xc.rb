@@ -18,12 +18,13 @@ class PostgresXc < Formula
 
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "enable-dtrace" => "with-dtrace"
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on :arch => :x86_64
   depends_on "openssl"
   depends_on "readline"
   depends_on "ossp-uuid" => :recommended
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
 
   conflicts_with "postgresql",
     :because => "postgres-xc and postgresql install the same binaries."
@@ -60,7 +61,7 @@ class PostgresXc < Formula
     ]
 
     args << "--with-ossp-uuid" if build.with? "ossp-uuid"
-    args << "--with-python" if build.with? "python"
+    args << "--with-python" if build.with? "python@2"
     args << "--with-perl" if build.with? "perl"
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "ARCHFLAGS='-arch x86_64'"
@@ -71,7 +72,7 @@ class PostgresXc < Formula
       ENV.append "LIBS", `uuid-config --libs`.strip
     end
 
-    check_python_arch if build.with? "python"
+    check_python_arch if build.with? "python@2"
 
     system "./configure", *args
 
@@ -102,7 +103,7 @@ class PostgresXc < Formula
     return unless framework_python.exist?
     unless (archs_for_command framework_python).include? :x86_64
       opoo "Detected a framework Python that does not have 64-bit support in:"
-      puts <<-EOS.undent
+      puts <<~EOS
         #{framework_python}
 
         The configure script seems to prefer this version of Python over any others,
@@ -119,7 +120,7 @@ class PostgresXc < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     To get started with Postgres-XC, read the documents at
       https://sourceforge.net/projects/postgres-xc/files/Publication/
       https://postgres-xc.sourceforge.io/docs/1_0/tutorial-start.html
@@ -177,7 +178,7 @@ class PostgresXc < Formula
     extra ? super().dirname+(plist_name(extra)+".plist") : super()
   end
 
-  def gtm_startup_plist(name); <<-EOPLIST.undent
+  def gtm_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -202,10 +203,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def gtm_proxy_startup_plist(name); <<-EOPLIST.undent
+  def gtm_proxy_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -236,10 +237,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def coordinator_startup_plist(name); <<-EOPLIST.undent
+  def coordinator_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -266,10 +267,10 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
-  def datanode_startup_plist(name); <<-EOPLIST.undent
+  def datanode_startup_plist(name); <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -296,12 +297,12 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOPLIST
+    EOS
   end
 
   test do
     system "#{bin}/initdb", "--nodename=brew", testpath/"test"
-    assert File.exist?("test")
+    assert_predicate testpath/"test", :exist?
   end
 end
 

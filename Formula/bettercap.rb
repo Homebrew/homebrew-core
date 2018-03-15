@@ -3,16 +3,17 @@ class Bettercap < Formula
   homepage "https://www.bettercap.org/"
   url "https://github.com/evilsocket/bettercap/archive/v1.6.2.tar.gz"
   sha256 "1b364d7e31be5fa7b5f93eefe76763ad7bd4ac0b7b6bb4af05483157580a9cb9"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "434b327d74c8e1e8b4096fcbc8b8d4cb4045ec2e58e9e249fbec3acdffc389b4" => :high_sierra
-    sha256 "2b0b7417edb99220876a1f17bda0612cda33ffb835c955ce9d17153125e250fa" => :sierra
-    sha256 "e846eee96fdad9755d4746d4996b913b625c40e8a8a8969fbaa47db9579ac82a" => :el_capitan
+    sha256 "f37cb67f4deaf5433c117339ea68350c01f88516001484443872cb4d4be830b5" => :high_sierra
+    sha256 "5f6ed37beb8ad8525eb5fc226d17a8fe5893ecb29a0733347cfb5a7f8a2ade7f" => :sierra
+    sha256 "c15257bc4fcc3d23bdb6e1204757230f6ca843b97507ef4ceefa824e8ec4838a" => :el_capitan
   end
 
   depends_on "openssl"
-  depends_on :ruby => "2.2.2"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -26,7 +27,7 @@ class Bettercap < Formula
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     bettercap requires root privileges so you will need to run `sudo bettercap`.
     You should be certain that you trust any software you grant root privileges.
     EOS

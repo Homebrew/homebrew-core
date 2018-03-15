@@ -15,7 +15,7 @@ class AntContrib < Formula
   end
 
   test do
-    (testpath/"build.xml").write <<-EOS.undent
+    (testpath/"build.xml").write <<~EOS
       <project name="HomebrewTest" default="init" basedir=".">
         <taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
         <target name="init">

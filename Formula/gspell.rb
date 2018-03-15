@@ -1,13 +1,13 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.6/gspell-1.6.0.tar.xz"
-  sha256 "b5d73dab4bda45cde4bdeed04e472dca8a3e16ea19739cfb66237553e91f872d"
+  url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.0.tar.xz"
+  sha256 "1b7fc2c5b84ede43bc52d513f0601238af92b572a42b19363da6d067fb529345"
 
   bottle do
-    sha256 "eb042c618b2e42d20c2482cc6aeb63be0eb05ec8ccb80e8e1d9e666b6b573de9" => :high_sierra
-    sha256 "d1cbb52f50dda1cbe670422704cf2177b4e0039f13277e021bf1fd296619d09e" => :sierra
-    sha256 "29308ad85815a65c342422ad498ed02d34ed70b4af989234373a84b1c462db2a" => :el_capitan
+    sha256 "df6748b30a132d800d16c9a3ca1eba6ed2c83ecb338b32b1487bb88b67068406" => :high_sierra
+    sha256 "4ffda9c07fe880fb8d8dd4835c88eccb6266d2443d9dabe22bf395ba45b60148" => :sierra
+    sha256 "ff5eff4f257f01e4aba9cb2f7a83c6c805044b6009f039d5a265d7680e5e7b08" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -32,7 +32,7 @@ class Gspell < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gspell/gspell.h>
 
       int main(int argc, char *argv[]) {
@@ -58,7 +58,7 @@ class Gspell < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
-      -I#{enchant.opt_include}/enchant
+      -I#{enchant.opt_include}/enchant-2
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0

@@ -1,13 +1,13 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://live.gnome.org/Vala"
-  url "https://download.gnome.org/sources/vala/0.38/vala-0.38.1.tar.xz"
-  sha256 "1035344f3ba50a572894c0aed3f794dd0efb9f08fce1c1d0cc537936e9a05084"
+  url "https://download.gnome.org/sources/vala/0.40/vala-0.40.0.tar.xz"
+  sha256 "15888fcb5831917cd67367996407b28fdfc6cd719a30e6a8de38a952a8a48e71"
 
   bottle do
-    sha256 "47cf2afd0ae28dd89669a75f7e6ec6654a860914e70811f660ea211934021cd1" => :high_sierra
-    sha256 "0ce8315e19c9f57bbea817849f420894c73195207866d2aa6075b5cbb5b5678e" => :sierra
-    sha256 "abf8b5e9f4ab9df366f18d1c76c5a9244ca09ac845bce85e9a3dac35c1bc9696" => :el_capitan
+    sha256 "497fb9e36ce416b0ef6b0e1a7961f57b6ee316b74016f995b24579648c58e420" => :high_sierra
+    sha256 "76106162323113686ae19f33b07a13cde8d122e9cb32bf4d460533ea05668826" => :sierra
+    sha256 "c2a2803b8d5326b293d4bc3a154acd733a5aa75626302456bd3ee000b8e26908" => :el_capitan
   end
 
   depends_on "pkg-config" => :run
@@ -26,7 +26,7 @@ class Vala < Formula
   test do
     test_string = "Hello Homebrew\n"
     path = testpath/"hello.vala"
-    path.write <<-EOS
+    path.write <<~EOS
       void main () {
         print ("#{test_string}");
       }
@@ -42,7 +42,7 @@ class Vala < Formula
       path.to_s,
     ]
     system "#{bin}/valac", *valac_args
-    assert File.exist?(testpath/"hello.c")
+    assert_predicate testpath/"hello.c", :exist?
 
     assert_equal test_string, shell_output("#{testpath}/hello")
   end

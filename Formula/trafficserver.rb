@@ -1,15 +1,13 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.1.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.1.tar.bz2"
-  sha256 "2c7ec32ef1460a76e5ee0e7caf95e9b6ca6b7c9612f135d280171bb2166ded36"
+  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.1.2.tar.bz2"
+  sha256 "413e7d5b2aee71c4403a00203d91b99544eecd1e36e47153240d24c0e4dad375"
 
   bottle do
-    sha256 "9dd3ea410cc75ae6c8b2ac58d9e10a98bbc9230b9519cbfb3feda994de442d6c" => :high_sierra
-    sha256 "28efae63521a9b4e5e9818130fd6f359eb0a27a15622e99e547a6d9851a2ca4a" => :sierra
-    sha256 "eca0c7caa9efa16d10684a0961e0d5564f1bc82916e0b1743c66d5967e056236" => :el_capitan
-    sha256 "c0bccc71ecbd19da83e64b6273ae49705ec2d7e2966bb907a17ccade5d46f571" => :yosemite
+    sha256 "41b68679946aef5f3eb9f74508630bd6afe08e12982c486aa6a63237100f5fb8" => :high_sierra
+    sha256 "90c793d6859fca79b15582e17146f691717b3d5cae1ec42f1e2577104847fe59" => :sierra
+    sha256 "58d555566068fd8a14263063dd8d5d8eb7d33babe7739b02fdec52911059c2bb" => :el_capitan
   end
 
   head do
@@ -41,6 +39,7 @@ class Trafficserver < Formula
       --localstatedir=#{var}
       --sysconfdir=#{etc}/trafficserver
       --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --with-group=admin
       --disable-silent-rules
     ]

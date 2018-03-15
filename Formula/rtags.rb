@@ -2,19 +2,19 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag => "v2.14",
-      :revision => "15ef9a8bab847773d6e247005be929422fc9c285"
+      :tag => "v2.18",
+      :revision => "98d668e85cf9ae84e775742752c5656dd2df2f17"
   revision 1
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    sha256 "e209f12dad8a38835ab21faa90b077b2df5a0fdd84ae2986ef840ad6b5fe1465" => :high_sierra
-    sha256 "ba02801b679d09bea8ffcd78600283c76027fef1b6dada91f4bb8d9858ccc7e6" => :sierra
-    sha256 "f3e566c9093c99b9edf5ce4037f0d288637c4c3823292c3736deade9e20941ab" => :el_capitan
-    sha256 "55e08fa2512062a942ed61feb6e89466cb759b5214d7d4d7fb60d468903c3297" => :yosemite
+    sha256 "dd57b486974f18f520739dfadbcb3498044f6b5d8cb66ca245e233fae4664fd1" => :high_sierra
+    sha256 "2b24a0e6d371991240b1511a9e5286be429936a14d369540b5712457402bc2b8" => :sierra
+    sha256 "93f92e94bceedb27ca8a96954d2d528ad75f489d30b933b1587bbcd25937e4e8" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "emacs"
   depends_on "llvm"
   depends_on "openssl"
 
@@ -38,7 +38,7 @@ class Rtags < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/bin/rdm --verbose --inactivity-timeout=300 --log-file=#{HOMEBREW_PREFIX}/var/log/rtags.log"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -68,16 +68,16 @@ class Rtags < Formula
 
   test do
     mkpath testpath/"src"
-    (testpath/"src/foo.c").write <<-EOS.undent
-        void zaphod() {
-        }
+    (testpath/"src/foo.c").write <<~EOS
+      void zaphod() {
+      }
 
-        void beeblebrox() {
-          zaphod();
-        }
+      void beeblebrox() {
+        zaphod();
+      }
     EOS
-    (testpath/"src/README").write <<-EOS.undent
-        42
+    (testpath/"src/README").write <<~EOS
+      42
     EOS
 
     rdm = fork do

@@ -1,15 +1,14 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.3.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.3.tar.xz"
-  sha256 "15e15fc97f189b52aee7c90ec8355aa77469c773125110b4c2f089abecde36fb"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.5.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.5.tar.xz"
+  sha256 "43c0a363a332350f620d1cd93bb431e082bedbc93d4fb872f758650d53c1d29e"
 
   bottle do
-    sha256 "a478c5ce934a56cbb39869c4b2c5c007e4b3b62a1e5731adb20ddb84347bddd7" => :high_sierra
-    sha256 "1fd1b64c45e92591247c3cb073577d6a161c9e19118c067a2b965833c4b5b448" => :sierra
-    sha256 "ab58d314e44570b921e95141cf37e7d95deae15e4d026b2212d1f85acac1d32b" => :el_capitan
-    sha256 "c3c014805479617d3c0cb4ab80c875929b27fee96501ad323031a0f2d344ec0d" => :yosemite
+    sha256 "518d63d63c46511d417a398db9658bf6ed9dbc3ae137b62d26b3b950ff9255da" => :high_sierra
+    sha256 "a744b2a3940c33c2811b7ff9c5f2fdca0ceab0ea31bc1695519ccb5f8cb230ad" => :sierra
+    sha256 "2d3b53ff36b06d6e81b4daf2832fdb5ad68002499c9b03638e104c08589ab96c" => :el_capitan
   end
 
   # Requires tuntap for < 10.10
@@ -17,6 +16,7 @@ class Openvpn < Formula
 
   depends_on "pkg-config" => :build
   depends_on "lzo"
+  depends_on "lz4"
   depends_on "openssl"
 
   resource "pkcs11-helper" do
@@ -47,14 +47,6 @@ class Openvpn < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    # Install OpenVPN's new contrib helper allowing the use of
-    # macOS keychain certificates with OpenVPN.
-    cd "contrib/keychain-mcd" do
-      system "make"
-      sbin.install "keychain-mcd"
-      man8.install "keychain-mcd.8"
-    end
-
     inreplace "sample/sample-config-files/openvpn-startup.sh",
               "/etc/openvpn", "#{etc}/openvpn"
 
@@ -62,8 +54,8 @@ class Openvpn < Formula
     (etc/"openvpn").install doc/"samples/sample-config-files/client.conf"
     (etc/"openvpn").install doc/"samples/sample-config-files/server.conf"
 
-    # We don't use PolarSSL, so this file is unnecessary & somewhat confusing.
-    rm doc/"README.polarssl"
+    # We don't use mbedtls, so this file is unnecessary & somewhat confusing.
+    rm doc/"README.mbedtls"
   end
 
   def post_install
@@ -72,7 +64,7 @@ class Openvpn < Formula
 
   plist_options :startup => true
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd";>
     <plist version="1.0">

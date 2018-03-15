@@ -31,7 +31,7 @@ class GnuProlog < Formula
   end
 
   test do
-    (testpath/"test.pl").write <<-EOS.undent
+    (testpath/"test.pl").write <<~EOS
       :- initialization(main).
       main :- write('Hello World!'), nl, halt.
     EOS

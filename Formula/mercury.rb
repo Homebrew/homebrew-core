@@ -44,7 +44,7 @@ class Mercury < Formula
   test do
     test_string = "Hello Homebrew\n"
     path = testpath/"hello.m"
-    path.write <<-EOS
+    path.write <<~EOS
       :- module hello.
       :- interface.
       :- import_module io.
@@ -54,7 +54,7 @@ class Mercury < Formula
           io.write_string("#{test_string}", IOState_in, IOState_out).
     EOS
     system "#{bin}/mmc", "--make", "hello"
-    assert File.exist?(testpath/"hello")
+    assert_predicate testpath/"hello", :exist?
 
     assert_equal test_string, shell_output("#{testpath}/hello")
   end

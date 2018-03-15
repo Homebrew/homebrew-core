@@ -10,7 +10,7 @@ class Gitversion < Formula
 
   def install
     libexec.install Dir["*"]
-    (bin/"gitversion").write <<-EOS.undent
+    (bin/"gitversion").write <<~EOS
       #!/bin/sh
       exec "mono" "#{libexec}/GitVersion.exe" "$@"
     EOS

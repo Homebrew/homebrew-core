@@ -1,13 +1,13 @@
 class MariadbAT100 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.0.32/source/mariadb-10.0.32.tar.gz"
-  sha256 "f7a8d9ba88b01d426f5d69e5044e505e444a5ce73e22c9c50913dade43725936"
+  url "https://downloads.mariadb.org/f/mariadb-10.0.34/source/mariadb-10.0.34.tar.gz"
+  sha256 "c5bb2a67dcce84ef39b59a63728a3d2a0196226041416491f0bc22d3388173ac"
 
   bottle do
-    sha256 "6f0ec2ae3731ed722615b4c8d9ce9b3bf3f4fa683316c3137fdd15e48a6279fa" => :sierra
-    sha256 "620cc445a59bf1a5188a4616e99c37d3606da1a86aebe012baf36aaf9c8a84f6" => :el_capitan
-    sha256 "014dcb3bf5fcb86bd1ee9722f533c6a54e0055309b92b1b4c509d85f6d7a3061" => :yosemite
+    sha256 "3f5815d04b1c16c228b2d0137875710c3b52ce742064a5c10337ad94865cb954" => :high_sierra
+    sha256 "758e853f7195330ae0a9a79c93169d041baa790fd851885a0deeb687a19a11fe" => :sierra
+    sha256 "48a6f0e5db31c83e6df401877d26b24deaf03fb291c2dc70dafbe3e0c2c0555f" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -43,6 +43,7 @@ class MariadbAT100 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DWITH_PCRE=bundled
       -DWITH_SSL=yes
       -DDEFAULT_CHARSET=utf8
       -DDEFAULT_COLLATION=utf8_general_ci
@@ -100,7 +101,7 @@ class MariadbAT100 < Formula
     bin.install_symlink prefix/"support-files/mysql.server"
 
     # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<-EOS.undent
+    (buildpath/"my.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
@@ -119,7 +120,7 @@ class MariadbAT100 < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A "/etc/my.cnf" from another install may interfere with a Homebrew-built
     server starting up correctly.
 
@@ -132,7 +133,7 @@ class MariadbAT100 < Formula
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.0/bin/mysql.server start"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

@@ -13,7 +13,7 @@ class Bzip2 < Formula
     sha256 "1468f967e8a35954509a8beb40bd29b60b730db158054aeddadc7586890737e8" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   def install
     inreplace "Makefile", "$(PREFIX)/man", "$(PREFIX)/share/man"

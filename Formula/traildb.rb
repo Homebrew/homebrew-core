@@ -43,7 +43,7 @@ class Traildb < Formula
 
   test do
     # Check that the library has been installed correctly
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <traildb.h>
       #include <assert.h>
       int main() {

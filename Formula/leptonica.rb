@@ -1,17 +1,15 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.74.4/leptonica-1.74.4.tar.gz"
-  mirror "http://www.leptonica.org/source/leptonica-1.74.4.tar.gz"
-  sha256 "29c35426a416bf454413c6fec24c24a0b633e26144a17e98351b6dffaa4a833b"
-  revision 1
+  url "https://github.com/DanBloomberg/leptonica/releases/download/1.75.3/leptonica-1.75.3.tar.gz"
+  mirror "http://www.leptonica.org/source/leptonica-1.75.3.tar.gz"
+  sha256 "a00f8fb06829ca6c8262bec8f78a6f985e049786f7c872a37b72fd7051ea087a"
 
   bottle do
     cellar :any
-    sha256 "003dce941c5eb1d0faf314fae1fd4501f023e29b0b73ddb20a72ff807a48aa7c" => :high_sierra
-    sha256 "824ca9ea9a3c6a0908f576288cf392244e0cab32835a3b01c8d125c8195ae476" => :sierra
-    sha256 "e567de6c8cb4caabe45b61e314fa482e8792bc1c3719755760ee55a694096716" => :el_capitan
-    sha256 "b1b8d75b21f7512dabd7cf665dbda4977bf1b34cc61bdc0daa23748a9c072208" => :yosemite
+    sha256 "0b8f3285895d84b449ebf336529f1331dfab5419d9c4b96d41c45fc6ab0d3014" => :high_sierra
+    sha256 "3d7128f26633bd7b62b21c2ad330d740dcbcd5be25434e4ad51a2e42757bcfca" => :sierra
+    sha256 "81dd56c481c6ec775d8645cecefe02489d6cd4cf36fe22e005ae61f9c1501e13" => :el_capitan
   end
 
   depends_on "libpng" => :recommended
@@ -41,14 +39,14 @@ class Leptonica < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
-    #include <iostream>
-    #include <leptonica/allheaders.h>
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <leptonica/allheaders.h>
 
-    int main(int argc, char **argv) {
-        std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
-        return 0;
-    }
+      int main(int argc, char **argv) {
+          std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
+          return 0;
+      }
     EOS
 
     flags = ["-I#{include}/leptonica"] + ENV.cflags.to_s.split

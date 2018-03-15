@@ -1,6 +1,6 @@
 class Znapzend < Formula
   desc "ZFS backup with remote capabilities and mbuffer integration"
-  homepage "http://www.znapzend.org"
+  homepage "https://www.znapzend.org/"
   url "https://github.com/oetiker/znapzend/releases/download/v0.17.0/znapzend-0.17.0.tar.gz"
   sha256 "f1fb2090d3e1dc3f5c090def9537ee5308d2b0c88cf97f1c22e14114499fdf48"
 
@@ -22,7 +22,7 @@ class Znapzend < Formula
 
   test do
     fake_zfs = testpath/"zfs"
-    fake_zfs.write <<-EOS.undent
+    fake_zfs.write <<~EOS
       #!/bin/sh
       for word in "$@"; do echo $word; done >> znapzendzetup_said.txt
       exit 0
@@ -30,7 +30,7 @@ class Znapzend < Formula
     chmod 0755, fake_zfs
     ENV.prepend_path "PATH", testpath
     system "#{bin}/znapzendzetup", "list"
-    assert_equal <<-EOS.undent, (testpath/"znapzendzetup_said.txt").read
+    assert_equal <<~EOS, (testpath/"znapzendzetup_said.txt").read
       list
       -H
       -o

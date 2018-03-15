@@ -1,15 +1,15 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "http://eighttails.seesaa.net/"
-  url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.31.1_src.tar.gz"
-  sha256 "eb00ab18ce6f165bc86e1355dc330a9a5129dc155176622e0ee000f9706682b3"
+  url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.32.0_src.tar.gz"
+  sha256 "0626ccac67f9813103c96823f6a58c187a8e7eb5a5b1a90945ff6e0807fd875b"
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
     cellar :any
-    sha256 "4a4d77fa8ede4197f2b28c7d065e59e119cd99f515867fdc9540ebe3bed01d8d" => :high_sierra
-    sha256 "83f39f11e2a2f169c35c009df6951120eac59cc6320b4dc05b553b768c9eb9c4" => :sierra
-    sha256 "1c480ada4c50ee19cf41dafa981fe57b019ed0eddca3ddb56d3157154ad5ee93" => :el_capitan
+    sha256 "2a840ab69b0189419ab029ac7211bfe80331771496aa9145636dcbf26bd5a314" => :high_sierra
+    sha256 "2a840ab69b0189419ab029ac7211bfe80331771496aa9145636dcbf26bd5a314" => :sierra
+    sha256 "6eda162bac3e367d087bcfcdafcfb1a67b9a3acb2de4a9b53956d1f4f113cc0b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

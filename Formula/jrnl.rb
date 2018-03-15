@@ -13,7 +13,7 @@ class Jrnl < Formula
     sha256 "9e44aeb99a2923c3c7b00619f85c30d6d160289dfe43901c2e4df46d914009db" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz"
@@ -65,7 +65,7 @@ class Jrnl < Formula
   end
 
   test do
-    (testpath/"write_journal.sh").write <<-EOS.undent
+    (testpath/"write_journal.sh").write <<~EOS
       #!/usr/bin/expect -f
       set timeout -1
       spawn #{bin}/jrnl today: Wrote this fancy test.
@@ -82,7 +82,7 @@ class Jrnl < Formula
     chmod 0755, testpath/"write_journal.sh"
 
     system "./write_journal.sh"
-    assert File.exist?("journal")
-    assert File.exist?(".jrnl_config")
+    assert_predicate testpath/"journal", :exist?
+    assert_predicate testpath/".jrnl_config", :exist?
   end
 end

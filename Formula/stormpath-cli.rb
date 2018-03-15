@@ -1,7 +1,7 @@
 class StormpathCli < Formula
   include Language::Python::Virtualenv
 
-  desc "The official Stormpath command-line client."
+  desc "The official Stormpath command-line client"
   homepage "https://github.com/stormpath/stormpath-cli"
   url "https://github.com/stormpath/stormpath-cli/archive/0.1.3.tar.gz"
   sha256 "e6ec75f781bc85ed7648c9df60c40d863f4cc2b091a90db6e63b36549fd25dba"
@@ -14,7 +14,7 @@ class StormpathCli < Formula
     sha256 "cc6ef08ff24c82dd2cef7b71cb9a6f8bcbcf13e2381e5ef233c8222038db42d6" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "cssselect" do
     url "https://files.pythonhosted.org/packages/77/ff/9c865275cd19290feba56344eba570e719efb7ca5b34d67ed12b22ebbb0d/cssselect-1.0.1.tar.gz"

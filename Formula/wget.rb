@@ -1,18 +1,15 @@
-# NOTE: Configure will fail if using awk 20110810 from dupes.
-# Upstream issue: https://savannah.gnu.org/bugs/index.php?37063
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.19.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.1.tar.gz"
-  sha256 "9e4f12da38cc6167d0752d934abe27c7b1599a9af294e73829be7ac7b5b4da40"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.4.tar.gz"
+  sha256 "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5"
   revision 1
 
   bottle do
-    sha256 "f0b01475fa8fb7f99b7e5e75f7c06e99a609cd9a3f11b62c10f4c76a9f46dbff" => :high_sierra
-    sha256 "fe0679b932dd43a87fd415b609a7fbac7a069d117642ae8ebaac46ae1fb9f0b3" => :sierra
-    sha256 "a4d259460edf940de5c780e8461c23e3bced288e2ef2532bd1707a086f9842b9" => :el_capitan
-    sha256 "61b3eab1439b8dfaed1f18dbd6e8d0ad87d15b9864677e62f3618cc02600064a" => :yosemite
+    sha256 "7989ae0ee0d212237ba31e8024189ba57a4296be67e08aeeea879d603ca66b59" => :high_sierra
+    sha256 "e4b88af13d56bd1aadbef96abdfff0a3919da8da96acc2e7ffd3ef812232a687" => :sierra
+    sha256 "3091698e33a73f706918967dddc3ce1d295f1ae351b5d32932cd3e9013ee5283" => :el_capitan
   end
 
   head do
@@ -30,21 +27,18 @@ class Wget < Formula
 
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
-  depends_on "openssl@1.1"
+  depends_on "libidn2"
+  depends_on "openssl"
   depends_on "pcre" => :optional
   depends_on "libmetalink" => :optional
   depends_on "gpgme" => :optional
 
   def install
-    # Fixes undefined symbols _iconv, _iconv_close, _iconv_open
-    # Reported 10 Jun 2016: https://savannah.gnu.org/bugs/index.php?48193
-    ENV.append "LDFLAGS", "-liconv"
-
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-ssl=openssl
-      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
+      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
     ]
 
     args << "--disable-debug" if build.without? "debug"

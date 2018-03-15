@@ -1,19 +1,19 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://spruce.sourceforge.io/gmime/"
-  url "https://download.gnome.org/sources/gmime/3.0/gmime-3.0.2.tar.xz"
-  sha256 "0deb460111ffa2ec672677da339b82dedeb28b258ccdb216daa21c81a9472fb2"
+  url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.0.tar.xz"
+  sha256 "75ec6033f9192488ff37745792c107b3d0ab0a36c2d3e4f732901a771755d7e0"
 
   bottle do
-    sha256 "d894ad865ba130e7fa10f16e6a18db992cf02b93725595a8592ae383606197a2" => :high_sierra
-    sha256 "8f172a988df04d7449e3cc1bbc4f07abaf4dd155d17e0b90faf13dcdfdcd6b5f" => :sierra
-    sha256 "9e170caa6b46e8a4520f8a7579787eb838b81c1e935a68c6563acf4845623923" => :el_capitan
-    sha256 "c2840c86dc753074a450cc7dd9ccb5ae8aaeaac7fe7e0375e5bdc22abca0ab6c" => :yosemite
+    sha256 "f259025c542b5d0486c23d001dbf858cfd50beca495dad58dbcb2d6027376660" => :high_sierra
+    sha256 "9d696db40dba32aac602a9ba84516520c63e74c31e60002d59dc8baa83d20748" => :sierra
+    sha256 "cb7d81356c0fc27f95110a21929dc4772dc571269fbe1ed2cb7c5d7079c7490b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection" => :recommended
   depends_on "glib"
+  depends_on "gpgme"
 
   def install
     args = %W[
@@ -22,6 +22,7 @@ class Gmime < Formula
       --enable-largefile
       --disable-vala
       --disable-glibtest
+      --enable-crypto
     ]
 
     if build.with? "gobject-introspection"
@@ -35,7 +36,7 @@ class Gmime < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <gmime/gmime.h>
       int main (int argc, char **argv)

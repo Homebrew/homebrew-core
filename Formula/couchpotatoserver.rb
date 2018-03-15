@@ -19,7 +19,7 @@ class Couchpotatoserver < Formula
 
   plist_options :manual => "couchpotatoserver"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
       <dict>
@@ -41,7 +41,7 @@ class Couchpotatoserver < Formula
     EOS
   end
 
-  def startup_script; <<-EOS.undent
+  def startup_script; <<~EOS
     #!/bin/bash
     python "#{libexec}/CouchPotato.py"\
            "--pid_file=#{var}/run/couchpotatoserver.pid"\

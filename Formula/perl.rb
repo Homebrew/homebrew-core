@@ -1,21 +1,22 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.26.0.tar.xz"
-  sha256 "9bf2e3d0d72aad77865c3bdbc20d3b576d769c5c255c4ceb30fdb9335266bf55"
+  url "https://www.cpan.org/src/5.0/perl-5.26.1.tar.xz"
+  sha256 "fe8208133e73e47afc3251c08d2c21c5a60160165a8ab8b669c43a420e4ec680"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    sha256 "bb431f3b89827667a5217cca4dcc6a4162b2aed5ff97c57444d0533881a2aa30" => :high_sierra
-    sha256 "5a802e10df0c3845811f58c3f44f1c88d1a693d718997e3c45264055ec9393a7" => :sierra
-    sha256 "238ee28350a29c19b8f154660ce58870fc0bf7033a54667a8e2c744a246dea47" => :el_capitan
-    sha256 "ebb2181b33d2f08807d7a5d32e2c5332f861d9c3b3ca5fe46d3b7c14166f45f3" => :yosemite
+    rebuild 1
+    sha256 "ff03e9042330bb182ef42b33522cbeedb226b5444e13d3979ca48c643c6a7486" => :high_sierra
+    sha256 "692aa67df67df2919f4847941076ed48ff01d4c72fdaf4481b2352e60ab272e7" => :sierra
+    sha256 "c9be82944446ef4972d7c258163c41dfa01ab16aedb5a149577033bcd4a158bc" => :el_capitan
   end
 
   option "with-dtrace", "Build with DTrace probes"
   option "without-test", "Skip running the build test suite"
 
-  deprecated_option "with-tests" => "with-test"
+  # Prevent site_perl directories from being removed
+  skip_clean "lib/perl5/site_perl"
 
   def install
     if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
@@ -63,13 +64,13 @@ class Perl < Formula
     system "make", "install"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     By default non-brewed cpan modules are installed to the Cellar. If you wish
     for your modules to persist across updates we recommend using `local::lib`.
 
     You can set that up like this:
       PERL_MM_OPT="INSTALL_BASE=$HOME/perl5" cpan local::lib
-      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"' >> #{shell_profile}
+      echo 'eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"' >> #{shell_profile}
     EOS
   end
 

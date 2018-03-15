@@ -1,15 +1,14 @@
 class SqlTranslator < Formula
   desc "Manipulate structured data definitions (SQL and more)"
   homepage "https://github.com/dbsrgits/sql-translator/"
-  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-0.11021.tar.gz"
-  sha256 "64cb38a9f78367bc115359a999003bbeb3c32cc75bba8306ec1a938fc441bfd1"
+  url "https://cpan.metacpan.org/authors/id/I/IL/ILMARI/SQL-Translator-0.11024.tar.gz"
+  sha256 "5bde9d6f67850089ef35a9296d6f53e5ee8e991438366b71477f3f27c1581bb1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bc28f52d673739ee5f95a27dcd7f647071a48790f89fa5ecac930fe710f31679" => :high_sierra
-    sha256 "9851c3298aaa5410dbd2458ee66ff0fe872be44eec0d433f3217e45fb5007ddc" => :sierra
-    sha256 "63e86ac1d8db225650978de482e44049b8483dcfee0364fa7229d816def767ec" => :el_capitan
-    sha256 "f80b97cd7f5bffe208f0402aa56b85ea141c4c310b59e4e37246472a277b136e" => :yosemite
+    sha256 "e18c4a3f9b49dfb99675f12ce82a3762ea34970b741a9c1e3a70936234c0048e" => :high_sierra
+    sha256 "ad3e150727e9163fc385a22ff049bac1ab013ec14fc2499be30c558daf5e2078" => :sierra
+    sha256 "e90e93b46d07158b9221c55f3a95dc438a8adc0bf965492438a5dc6e66dad22d" => :el_capitan
   end
 
   def install
@@ -27,7 +26,7 @@ class SqlTranslator < Formula
   test do
     command = "#{bin}/sqlt -f MySQL -t PostgreSQL --no-comments -"
     sql_input = "create table sqlt ( id int AUTO_INCREMENT );"
-    sql_output = <<-EOS.undent
+    sql_output = <<~EOS
       CREATE TABLE "sqlt" (
         "id" serial
       );

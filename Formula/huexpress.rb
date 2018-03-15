@@ -1,17 +1,16 @@
 class Huexpress < Formula
   desc "PC Engine emulator"
   homepage "https://github.com/kallisti5/huexpress"
-  url "https://github.com/kallisti5/huexpress/archive/3.0.3.tar.gz"
-  sha256 "159a13cd469d0645377377604c0fc4b3d3d1980d4d0e71c634c293f99db2c497"
-  revision 2
+  url "https://github.com/kallisti5/huexpress/archive/3.0.4.tar.gz"
+  sha256 "76589f02d1640fc5063d48a47f017077c6b7557431221defe9e38679d86d4db8"
+  revision 1
   head "https://github.com/kallisti5/huexpress.git"
 
   bottle do
     cellar :any
-    sha256 "2db24d0db96fb50871ff6e24cdb3d926026958e3f8dbe0df9ab20213edc53f10" => :high_sierra
-    sha256 "1cdd931e7b87a37d41aafc6b2c6b9809cac5ed245b9238e8b9e353467206e553" => :sierra
-    sha256 "acf49ec01f3711b8efd5ff085f62946bd43da4325c93cccbb3d6eb9159f6e7e7" => :el_capitan
-    sha256 "1bf4ccbc2e318b79d3b210b02a97e2dd425316ccdf1caccc611bbede117e142a" => :yosemite
+    sha256 "82e99480094c372b83088649696ee110b20b1f71c11d08f45125c03a7de28a17" => :high_sierra
+    sha256 "0f2ad080284a6cf9076293a4f1f7afa7ca6461f9cb215d618a56a8f9101c2a2e" => :sierra
+    sha256 "61d7da52fc3ad3e4a83b57e81dc66233a211bd7a850008ac2c7c3226d75b7071" => :el_capitan
   end
 
   depends_on "scons" => :build
@@ -22,8 +21,6 @@ class Huexpress < Formula
   depends_on "libzip"
 
   def install
-    system "2to3-", "--write", "--fix=print", "SConstruct"
-
     scons
     bin.install ["src/huexpress", "src/hucrc"]
   end

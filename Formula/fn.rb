@@ -1,25 +1,25 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.3.84.tar.gz"
-  sha256 "495c93a955b2a4cfb0a2ea4a32cd150fc2a98192051d99a51a1f63bddfe178fc"
+  url "https://github.com/fnproject/cli/archive/0.4.65.tar.gz"
+  sha256 "049cd6fd0b7d534b1e98f6f7b4bbcf5f91c1266fdf5be34d831e20510e17a8af"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "00f0c8f87d8c17c39af8128f682da627747a43b1743f0a5554567688c5b557de" => :sierra
-    sha256 "3c6be9d67ca670a02e797e1c33f964844a2872b09a34e8ee79c02f323c5a7801" => :el_capitan
+    sha256 "eb771921fbc664420ec296345941ec75eb9d0fe6007f798ae16c5ae4e2e59fa1" => :high_sierra
+    sha256 "3f3f635a356bb6047e05682e70232351cfbf69e4d8c09e23bd8d83de1827731d" => :sierra
+    sha256 "32529826aba27509faf08438c6dca6fbe609abe71bd6a4aa32b91c3543031069" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "glide" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
     cd dir do
-      system "glide", "install", "-v", "--force", "--skip-test"
+      system "dep", "ensure"
       system "go", "build", "-o", "#{bin}/fn"
       prefix.install_metafiles
     end
@@ -46,10 +46,10 @@ class Fn < Formula
       end
     end
     begin
-      ENV["API_URL"] = "http://localhost:#{port}"
+      ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"
       expected = "/myfunc created with fnproject/myfunc"
-      output = shell_output("#{bin}/fn routes create myapp myfunc")
+      output = shell_output("#{bin}/fn routes create myapp myfunc --image fnproject/myfunc:0.0.1")
       assert_match expected, output.chomp
     ensure
       Process.kill("TERM", pid)

@@ -4,12 +4,12 @@ class GccAT6 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-6.4.0/gcc-6.4.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-6.4.0/gcc-6.4.0.tar.xz"
   sha256 "850bf21eafdfe5cd5f6827148184c08c4a0852a37ccf36ce69855334d2c914d4"
+  revision 2
 
   bottle do
-    sha256 "d33494e55966361e4ceeebac90868e1376470a0cf892d7d560fb33cb8517d315" => :high_sierra
-    sha256 "a8b246961500f3ffb8fc30da8bb7b261029fb6e8ba602c18797785bfd405c2c9" => :sierra
-    sha256 "8942f79d833b4897820795607b25f5feaa49a0f0e160a9db25263d6876069313" => :el_capitan
-    sha256 "5c3d71e364916409f8eafe3868d0d66209720c5303334bfcf44b7a712d23ce18" => :yosemite
+    sha256 "2d073860c3899b3d61441931ebb230ccb7249e2ac63d957860c408c01ecc081b" => :high_sierra
+    sha256 "c9f0ebfe118e7c43a081e952dd0135e7b6621a9f935426fd08372486fa5ddea9" => :sierra
+    sha256 "cfb7468673433e7ef683f1746fb94ce9719c181e9c7e86f4d70453578c1822cc" => :el_capitan
   end
 
   # GCC's Go compiler is not currently supported on macOS.
@@ -48,6 +48,7 @@ class GccAT6 < Formula
   end
 
   # Fix parallel build on APFS filesystem
+  # Remove for 6.5.0 and later
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
   if MacOS.version >= :high_sierra
     patch do
@@ -159,7 +160,7 @@ class GccAT6 < Formula
   end
 
   test do
-    (testpath/"hello-c.c").write <<-EOS.undent
+    (testpath/"hello-c.c").write <<~EOS
       #include <stdio.h>
       int main()
       {
@@ -170,7 +171,7 @@ class GccAT6 < Formula
     system "#{bin}/gcc-6", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
-    (testpath/"hello-cc.cc").write <<-EOS.undent
+    (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
       int main()
       {
@@ -182,7 +183,7 @@ class GccAT6 < Formula
     assert_equal "Hello, world!\n", `./hello-cc`
 
     if build.with?("fortran") || build.with?("all-languages")
-      fixture = <<-EOS.undent
+      fixture = <<~EOS
         integer,parameter::m=10000
         real::a(m), b(m)
         real::fact=0.5

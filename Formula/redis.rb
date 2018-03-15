@@ -1,15 +1,15 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-4.0.2.tar.gz"
-  sha256 "b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813"
+  url "http://download.redis.io/releases/redis-4.0.8.tar.gz"
+  sha256 "ff0c38b8c156319249fec61e5018cf5b5fe63a65b61690bec798f4c998c232ad"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22c1ab7e2eaf0310e6cb9ab8d85f05550cb1d6a56efa69aae6777654b4278a16" => :high_sierra
-    sha256 "56b3bc6c248bf22866b33c2850e19d4d5b280154afe541dc30ff6f28b9a982cf" => :sierra
-    sha256 "3b03f01b91946e1978fbd74f2cfe56553f148fbe32ad8adabd4fc09cbb5ea02e" => :el_capitan
+    sha256 "90d7dc8b6879ed4d7a6d02b728f5c302659bc42e748630ee21a08edafab11e90" => :high_sierra
+    sha256 "0a89e3a6014b20d6632c64f9afe52f4b7c50a1cdb01ff67cc77dda984f000cf2" => :sierra
+    sha256 "776db1119e80220ba7438562f87141aad3f3a1b9ff7c7399ce4ad34dbf4b4dd6" => :el_capitan
   end
 
   option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
@@ -31,7 +31,7 @@ class Redis < Formula
     inreplace "redis.conf" do |s|
       s.gsub! "/var/run/redis.pid", var/"run/redis.pid"
       s.gsub! "dir ./", "dir #{var}/db/redis/"
-      s.gsub! "\# bind 127.0.0.1", "bind 127.0.0.1"
+      s.sub!  /^bind .*$/, "bind 127.0.0.1 ::1"
     end
 
     etc.install "redis.conf"
@@ -40,7 +40,7 @@ class Redis < Formula
 
   plist_options :manual => "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -73,6 +73,6 @@ class Redis < Formula
 
   test do
     system bin/"redis-server", "--test-memory", "2"
-    %w[run db/redis log].each { |p| assert (var/p).exist?, "#{var/p} doesn't exist!" }
+    %w[run db/redis log].each { |p| assert_predicate var/p, :exist?, "#{var/p} doesn't exist!" }
   end
 end

@@ -1,17 +1,16 @@
 class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "https://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.2-src.tar.xz"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.4.2-src.tar.xz"
-  mirror "ftp://gd.tuwien.ac.at/pub/gmt/gmt-5.4.2-src.tar.xz"
-  mirror "ftp://ftp.iris.washington.edu/pub/gmt/gmt-5.4.2-src.tar.xz"
-  sha256 "ddcd63094aeda5a60f541626ed7ab4a78538d52dea24ba915f168e4606e587f5"
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.3-src.tar.xz"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.3-src.tar.xz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.3-src.tar.xz"
+  sha256 "ed00e380c3dc94a3aef4b7aeaaac0f3681df703dc614e8a15a1864e20b3fa2c8"
+  revision 1
 
   bottle do
-    sha256 "e8b714984fa9c1f657a1af95273517b2bb75818108c1474b03f8a2bd20e441d2" => :high_sierra
-    sha256 "bf7317df2e9300d6da479e78f31e9dd62d8d873fdbe54ed2970dd669d29ffa24" => :sierra
-    sha256 "3511d1334f4906c4f9c3d976fe47bddf709c4b5196283d01753d89e831876e75" => :el_capitan
-    sha256 "2b9d336656d6d996e67ec5c45e063f3307ff20b1037fbc461a8da12ae7e2e6fc" => :yosemite
+    sha256 "b0ff6aba7186eeb253106053afdd742c2d574b10e5886740fb22e9fde008ab7d" => :high_sierra
+    sha256 "4df0654602bd84faefa08ddb54bdd528e4856b0050343521093b6ccd19ad16d0" => :sierra
+    sha256 "fd047301d43491cedb7d6403245d359538fdd5fbe92a9dee5f7b2293bb560fad" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -22,18 +21,15 @@ class Gmt < Formula
 
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "ftp://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "ftp://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
+    mirror "https://fossies.org/linux/misc/GMT/gshhg-gmt-2.3.7.tar.gz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz"
     sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
   end
 
   resource "dcw" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/dcw-gmt-1.1.2.tar.gz"
-    mirror "ftp://gd.tuwien.ac.at/pub/gmt/dcw-gmt-1.1.2.tar.gz"
-    mirror "ftp://ftp.iris.washington.edu/pub/gmt/dcw-gmt-1.1.2.tar.gz"
-    sha256 "f719054f8d657e7b10b5182d4c15bc7f38ef7483ed05cdaa9f94ab1a0008bfb6"
+    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.3.tar.gz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.3.tar.gz"
+    sha256 "1395e772c3f2d2900c78260ad4a9df2fecd9216e362ad141762f7499bfeb4f23"
   end
 
   def install
@@ -66,6 +62,6 @@ class Gmt < Formula
 
   test do
     system "#{bin}/pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
-    assert File.exist? "test.ps"
+    assert_predicate testpath/"test.ps", :exist?
   end
 end

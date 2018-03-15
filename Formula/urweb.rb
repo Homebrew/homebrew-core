@@ -17,8 +17,8 @@ class Urweb < Formula
   depends_on "mlton" => :build
   depends_on "openssl"
   depends_on "gmp"
-  depends_on :postgresql => :optional
-  depends_on :mysql => :optional
+  depends_on "postgresql" => :optional
+  depends_on "mysql" => :optional
 
   def install
     args = %W[
@@ -35,7 +35,7 @@ class Urweb < Formula
   end
 
   test do
-    (testpath/"hello.ur").write <<-EOS.undent
+    (testpath/"hello.ur").write <<~EOS
       fun target () = return <xml><body>
         Welcome!
       </body></xml>
@@ -43,7 +43,7 @@ class Urweb < Formula
         <a link={target ()}>Go there</a>
       </body></xml>
     EOS
-    (testpath/"hello.urs").write <<-EOS.undent
+    (testpath/"hello.urs").write <<~EOS
       val main : unit -> transaction page
     EOS
     (testpath/"hello.urp").write "hello"

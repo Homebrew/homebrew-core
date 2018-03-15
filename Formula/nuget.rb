@@ -1,8 +1,8 @@
 class Nuget < Formula
   desc "Package manager for Microsoft development platform including .NET"
   homepage "https://www.nuget.org/"
-  url "https://dist.nuget.org/win-x86-commandline/v4.0.0/NuGet.exe"
-  sha256 "cc52f94b2f1ba7cd485e546f8059cada2e9daee2ae27abde54507e9b1661e6d1"
+  url "https://dist.nuget.org/win-x86-commandline/v4.5.1/NuGet.exe"
+  sha256 "13f6f14ee77cdded5e4eea815721e23fed947958f288229e9c4e355aa6e042af"
 
   bottle :unneeded
 
@@ -10,7 +10,7 @@ class Nuget < Formula
 
   def install
     libexec.install "NuGet.exe" => "nuget.exe"
-    (bin/"nuget").write <<-EOS.undent
+    (bin/"nuget").write <<~EOS
       #!/bin/bash
       mono #{libexec}/nuget.exe "$@"
     EOS

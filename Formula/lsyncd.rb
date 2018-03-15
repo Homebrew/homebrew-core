@@ -3,12 +3,13 @@ class Lsyncd < Formula
   homepage "https://github.com/axkibe/lsyncd"
   url "https://github.com/axkibe/lsyncd/archive/release-2.2.2.tar.gz"
   sha256 "0bdb12f40f1a52ed2d8e6cb47242d296663a42b30f38d2b8efcb66b43129e009"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f184d56f63a9d9c4e2febbb58bbea881b7db0f69c48126020232622b0a26e7e3" => :sierra
-    sha256 "51c1ff811269ae2d011331e36a2bf46aee3dfb1c9a7f7352db78600524815529" => :el_capitan
-    sha256 "23d5c2c310e0a0dca15d34105b54dec928ccf95bc2ab7607068eb5d3a309c067" => :yosemite
+    sha256 "33bed2e034b0d0f72dbcedd747c8d58a54a9b40f92959da63c3ec5a07ce873df" => :high_sierra
+    sha256 "c22a4a49e5637ca930be2e56f725ffed9adfdcc95c1a5688a6ca947e1979d0d6" => :sierra
+    sha256 "37d51f683969cf0c109fedba13f2d08cc04f9e2e4e72cc1b1a80e05d48f33a70" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -53,6 +54,10 @@ class Lsyncd < Formula
     "10.12.4"  => ["xnu-3789.51.2.tar.gz",   "126c377a9f0b6364d6eb7618cb8ab863deab045c3d06338632f887e7e99261fa"],
     "10.12.5"  => ["xnu-3789.60.24.tar.gz",  "00e0a95c0ba451863397680e9316dc579cbfacb114264cee417bceecaa256b22"],
     "10.12.6"  => ["xnu-3789.70.16.tar.gz",  "e5b912036a7ceca92e7ada44ef4b264de928bd247a7c02c50604fd8f4f044bea"],
+    "10.13"    => ["xnu-4570.1.46.tar.gz",   "18c418c906d08acc7db471d0783269f50aeae73fff0aae0b61c848c4c926c767"],
+    "10.13.1"  => ["xnu-4570.20.62.tar.gz",  "4968ae345a83d7aca3a8da65bf09bdc637e2eefbc236f7931c38abb879fe05df"],
+    "10.13.2"  => ["xnu-4570.31.3.tar.gz",   "1c364646d001f1a6eee80fa71f746b1142121203eabd808f1eab18317ade576c"],
+    "10.13.3"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
   }
 
   if xnu_headers.key? MacOS.full_version

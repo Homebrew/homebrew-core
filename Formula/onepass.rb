@@ -16,22 +16,22 @@ class Onepass < Formula
     sha256 "beb5a20a0642cff5f9e43b6ce1ce9a9c45589ba748150f333e81a0c70090b7f2" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
   depends_on "openssl" # For M2Crypto
 
   resource "m2crypto" do
-    url "https://pypi.python.org/packages/source/M/M2Crypto/M2Crypto-0.23.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/M/M2Crypto/M2Crypto-0.23.0.tar.gz"
     sha256 "1ac3b6eafa5ff7e2a0796675316d7569b28aada45a7ab74042ad089d15a9567f"
   end
 
   resource "fuzzywuzzy" do
-    url "https://pypi.python.org/packages/source/f/fuzzywuzzy/fuzzywuzzy-0.8.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/f/fuzzywuzzy/fuzzywuzzy-0.8.0.tar.gz"
     sha256 "3845ecd7c790beae111a2d3956b4ba80fe1113eecf045c4b364394eaa01ad9ce"
   end
 
   resource "python-levenshtein" do
-    url "https://pypi.python.org/packages/source/p/python-Levenshtein/python-Levenshtein-0.12.0.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/p/python-Levenshtein/python-Levenshtein-0.12.0.tar.gz"
     sha256 "033a11de5e3d19ea25c9302d11224e1a1898fe5abd23c61c7c360c25195e3eb1"
   end
 

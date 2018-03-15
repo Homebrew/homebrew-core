@@ -1,17 +1,16 @@
 class Libgosu < Formula
   desc "2D game development library"
   homepage "https://libgosu.org"
-  url "https://github.com/gosu/gosu/archive/v0.12.1.tar.gz"
-  sha256 "69df78819e6e901c405b46b8fff374005f70557e558c84b1cb55e19d1c51c790"
+  url "https://github.com/gosu/gosu/archive/v0.13.3.tar.gz"
+  sha256 "2ff0f1ed31aa5b8c2763577b9a27cf315bff30d3405fcb4661909e67163add01"
 
   head "https://github.com/gosu/gosu.git"
 
   bottle do
     cellar :any
-    sha256 "2f1e2b6af5713deb94df795fd7bb8654b779df2fbefba28e7794911fcbe6831e" => :high_sierra
-    sha256 "ba99f69d80a093fbf21993dcd4abb02889ff2ad264d43565f408381d308c1b35" => :sierra
-    sha256 "16a420796d64dff75ca8aa98cd4e7cb629d34a0c46bf814b23af049c10d6d691" => :el_capitan
-    sha256 "fd79a4bdb960d0d08fe812763172f32f3e48e08c5d888d7479dbd8170425cf77" => :yosemite
+    sha256 "3630e9cf325de71b57cb8353797da6c46ef27e0310ab704a86a68a424cf4d908" => :high_sierra
+    sha256 "471b6470e480332ab0b69946fbcf526ddf0e4d39d5ebfa27624bc2d4a614a31c" => :sierra
+    sha256 "79a59bd09dd302ec10e3ad36fb6920e877628b0047011efa2a9f748e90d6dd96" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -26,7 +25,7 @@ class Libgosu < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <stdlib.h>
       #include <Gosu/Gosu.hpp>
 

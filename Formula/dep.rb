@@ -1,24 +1,30 @@
 class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
-  url "https://github.com/golang/dep/archive/v0.3.1.tar.gz"
-  sha256 "386e2d163c5a95166fa3b89da4f8166361c7c5210fb172f64c116cccd19d1d44"
+  url "https://github.com/golang/dep.git",
+      :tag => "v0.4.1",
+      :revision => "37d9ea0ac16f0e0a05afc3b60e1ac8c364b6c329"
+  revision 1
   head "https://github.com/golang/dep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "220bc273367e5613101047088a71cebad18fea6a5192d68905d4a12979f81877" => :high_sierra
-    sha256 "1d38003db890e4239eb5f64564ba999ca0b9f1dfffa81c4261467563d6130dae" => :sierra
-    sha256 "8a98b359a60c7cc4d477c3a2e060bd94c47722ae386142393fb68bbb6a1e1a0e" => :el_capitan
+    sha256 "0b974c08cfb94c31a652908312620e6dac1a617ffd2d21816c5e9c8f259ea559" => :high_sierra
+    sha256 "4e6e39bb9678fd4ddf200a80ba657f09d3d91bd133f5795775153a3aa12688eb" => :sierra
+    sha256 "4e95ecf37819ce91f1e52a6b11e6c875c2e9b3b17edba1b919c55ffc98ba95cf" => :el_capitan
   end
 
   depends_on "go"
 
   def install
     ENV["GOPATH"] = buildpath
+    arch = MacOS.prefer_64_bit? ? "amd64" : "386"
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
-      system "go", "build", "-o", bin/"dep", ".../cmd/dep"
+      ENV["DEP_BUILD_PLATFORMS"] = "darwin"
+      ENV["DEP_BUILD_ARCHS"] = arch
+      system "hack/build-all.bash"
+      bin.install "release/dep-darwin-#{arch}" => "dep"
       prefix.install_metafiles
     end
   end
@@ -28,7 +34,7 @@ class Dep < Formula
     # `dep` bails without `.realpath` as it expects $GOPATH to be a "real" path.
     ENV["GOPATH"] = testpath.realpath
     project = testpath/"src/github.com/project/testing"
-    (project/"hello.go").write <<-EOS.undent
+    (project/"hello.go").write <<~EOS
       package main
 
       import "fmt"

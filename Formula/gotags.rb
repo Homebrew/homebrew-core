@@ -24,7 +24,7 @@ class Gotags < Formula
   end
 
   test do
-    (testpath/"test.go").write <<-EOS.undent
+    (testpath/"test.go").write <<~EOS
       package main
 
       type Foo struct {

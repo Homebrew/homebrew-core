@@ -1,40 +1,19 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.21/bin/apache-tomcat-8.5.21.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.21/bin/apache-tomcat-8.5.21.tar.gz"
-    sha256 "a30260b0f1bf969daee0a9da192b207ab608de1b5ec1dc48682f7668d1948dc0"
-
-    depends_on :java => "1.7+"
-
-    resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.21/bin/apache-tomcat-8.5.21-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.21/bin/apache-tomcat-8.5.21-fulldocs.tar.gz"
-      sha256 "e81b10e0d8143afdbcbb34910dac5554e8c58b8ede1dfb6b513326866976517d"
-    end
-  end
-
-  devel do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M27/bin/apache-tomcat-9.0.0.M27.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M27/bin/apache-tomcat-9.0.0.M27.tar.gz"
-    version "9.0.0.M27"
-    sha256 "7bea98a6e5eed6e5ea614b5e8a60cf2905b038bff09dbb555dbbe26d6444b1cb"
-
-    depends_on :java => "1.8+"
-
-    resource "fulldocs" do
-      url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.0.M27/bin/apache-tomcat-9.0.0.M27-fulldocs.tar.gz"
-      mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.0.M27/bin/apache-tomcat-9.0.0.M27-fulldocs.tar.gz"
-      version "9.0.0.M27"
-      sha256 "935b5dc305947a82090f83bb8d3a5c58979a6a8510d31bcdb9133be948da1db0"
-    end
-  end
+  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.6/bin/apache-tomcat-9.0.6.tar.gz"
+  sha256 "e35ed35f6f2e5fd1094b7ec5899f3e25a82029cca22f9768a293eaf67f60473f"
 
   bottle :unneeded
 
   option "with-fulldocs", "Install full documentation locally"
+
+  depends_on :java => "1.8+"
+
+  resource "fulldocs" do
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.6/bin/apache-tomcat-9.0.6-fulldocs.tar.gz"
+    sha256 "261a79e19a92d73e97b8995f15aa59c0a9724a871e82bb186fa4d15c958084aa"
+  end
 
   def install
     # Remove Windows scripts
@@ -50,7 +29,7 @@ class Tomcat < Formula
 
   plist_options :manual => "catalina run"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -85,6 +64,6 @@ class Tomcat < Formula
     ensure
       Process.wait pid
     end
-    File.exist? testpath/"logs/catalina.out"
+    assert_predicate testpath/"logs/catalina.out", :exist?
   end
 end

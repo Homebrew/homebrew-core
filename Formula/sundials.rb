@@ -1,27 +1,27 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
-  url "https://computation.llnl.gov/projects/sundials/download/sundials-2.7.0.tar.gz"
-  sha256 "d39fcac7175d701398e4eb209f7e92a5b30a78358d4a0c0fcc23db23c11ba104"
-  revision 2
+  url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.0.tar.gz"
+  sha256 "18d52f8f329626f77b99b8bf91e05b7d16b49fde2483d3a0ea55496ce4cdd43a"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "2bb4a32e13c6f88dc4abfd4e53f5694974081b1587c91029a58a9fb0d2764b5e" => :high_sierra
-    sha256 "0f6752f78b608cfb6b380c7c474db0ab3bb797c6bef7991672fc794e3b835d81" => :sierra
-    sha256 "b552a688e6eb08c71f721b8bddee4041e5f9a3ef55cb6be749d19a4fca9c9e25" => :el_capitan
-    sha256 "f3926e8ecbd9601f519d96d451cdec60d23b33c3369cbeb82ca7ede1f3c190f4" => :yosemite
+    sha256 "60a049ed8478e7aabdd777bd3a10a35ee4576b2274af71e35ebb90561ea1fcd1" => :high_sierra
+    sha256 "5ad8d501c86179ec95e2bcef6a040c1692989b69be9cd2d865cb0830fa094865" => :sierra
+    sha256 "b23c4f2baafe75e67b647ed57c77098e883f23eef63796c37507b4276b28cf82" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
+  option "without-mpi", "Do not build with MPI"
 
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on "suite-sparse"
   depends_on "veclibfort"
-  depends_on :fortran
-  depends_on :mpi => [:cc, :f77, :recommended]
 
-  needs :openmp if build.with?("openmp")
+  fails_with :clang if build.with? "openmp"
 
   def install
     blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"

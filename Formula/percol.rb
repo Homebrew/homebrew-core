@@ -14,7 +14,7 @@ class Percol < Formula
     sha256 "a5c8be8d7e307651de4951384ac2603e7ca932bfffbf9434170a597f801b799e" => :mavericks
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
@@ -42,10 +42,10 @@ class Percol < Formula
   end
 
   test do
-    (testpath/"textfile").write <<-EOS.undent
+    (testpath/"textfile").write <<~EOS
       Homebrew, the missing package manager for macOS.
     EOS
-    (testpath/"expect-script").write <<-EOS.undent
+    (testpath/"expect-script").write <<~EOS
       spawn #{bin}/percol --query=Homebrew textfile
       expect "QUERY> Homebrew"
     EOS

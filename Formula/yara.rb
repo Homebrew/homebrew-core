@@ -1,22 +1,21 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/v3.6.3.tar.gz"
-  sha256 "ad2c0e788b4d8b2f3e9078f448754313249a302b749b9a24e932bfc5e141a5e8"
+  url "https://github.com/VirusTotal/yara/archive/v3.7.1.tar.gz"
+  sha256 "df077a29b0fffbf4e7c575f838a440f42d09b215fcb3971e6fb6360318a64892"
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
     cellar :any
-    sha256 "deb55e507f653de70e9567a0b0081154ed8beb7d54b3bfae0bb6242766af29c6" => :high_sierra
-    sha256 "c387995ca4eda6fc37d661d7d79c9421b070aa658a5453f52a6f06fd5f8ba928" => :sierra
-    sha256 "3342afc59418374a627c3fbe9dc8e6046d5762f0998e6ac26176b5bf1ada19c8" => :el_capitan
-    sha256 "86d6c185bf7afc46948cef4533eb9902a89560b8002ebf5963e9c60a48c65537" => :yosemite
+    sha256 "6a995595a48f513196225445dc4ee2889b54d288eb19fb1adfddbeac0b8ac9a9" => :high_sierra
+    sha256 "8769d808d6360ac8440893c4fc2f8d81b4842b3d4631c65441bc81d35f872ce1" => :sierra
+    sha256 "deba43f8ebc4d52d0d8a17febdebf8cc5b0de6c9f81f28e7d6a03aea2a87abe7" => :el_capitan
   end
 
   depends_on "libtool" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   def install
@@ -29,7 +28,7 @@ class Yara < Formula
 
   test do
     rules = testpath/"commodore.yara"
-    rules.write <<-EOS.undent
+    rules.write <<~EOS
       rule chrout {
         meta:
           description = "Calls CBM KERNAL routine CHROUT"

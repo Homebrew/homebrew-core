@@ -22,7 +22,7 @@ class RdsCommandLineTools < Formula
   end
 
   def caveats
-    <<-EOS.undent
+    <<~EOS
       Before you can use these tools you must export a variable to your $SHELL.
         export AWS_CREDENTIAL_FILE="<Path to the credentials file>"
 

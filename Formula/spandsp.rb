@@ -26,7 +26,7 @@ class Spandsp < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #define SPANDSP_EXPOSE_INTERNAL_STRUCTURES
       #include <spandsp.h>
 

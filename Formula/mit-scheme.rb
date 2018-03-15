@@ -74,7 +74,7 @@ class MitScheme < Formula
 
   test do
     # ftp://ftp.cs.indiana.edu/pub/scheme-repository/code/num/primes.scm
-    (testpath/"primes.scm").write <<-EOS.undent
+    (testpath/"primes.scm").write <<~EOS
       ;
       ; primes
       ; By Ozan Yigit

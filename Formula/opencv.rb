@@ -1,15 +1,14 @@
 class Opencv < Formula
   desc "Open source computer vision library"
-  homepage "http://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.3.0.tar.gz"
-  sha256 "8bb312b9d9fd17336dc1f8b3ac82f021ca50e2034afc866098866176d985adc6"
-  revision 3
+  homepage "https://opencv.org/"
+  url "https://github.com/opencv/opencv/archive/3.4.1.tar.gz"
+  sha256 "f1b87684d75496a1054405ae3ee0b6573acaf3dad39eaf4f1d66fdd7e03dc852"
+  revision 2
 
   bottle do
-    sha256 "386ac2caf18b558237cf8a8a510fce0c56213259ce18e8bcf418513829e790fe" => :high_sierra
-    sha256 "cf9f5f528cb2217a4fde2c635ce90d07b51e01564d7c66fc4413c41e22b17572" => :sierra
-    sha256 "bd88772952a81606b7ff43e7d3874213680d4d190c319360f3da603b76f1cfb3" => :el_capitan
-    sha256 "6073b44f5b601de364147a9b6b3ee784c6070303582cf3db9a513ce8a1796a0c" => :yosemite
+    sha256 "53b96688ef9738e17b20339b21c46d14abf62983e99e601560f6641a80988d2b" => :high_sierra
+    sha256 "b944d135014d64352d7c3a120811960f552e26cbf29db15bb1174f4e6af387ce" => :sierra
+    sha256 "b2322e9c0c5469549b8e8f1dc08820f2bfa8083d40d071347bc05877ac3221b9" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -20,27 +19,29 @@ class Opencv < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on :python
-  depends_on :python3
+  depends_on "python"
+  depends_on "python@2"
   depends_on "numpy"
+  depends_on "tbb"
 
   needs :cxx11
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.3.0.tar.gz"
-    sha256 "e94acf39cd4854c3ef905e06516e5f74f26dddfa6477af89558fb40a57aeb444"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.1.tar.gz"
+    sha256 "298c69ee006d7675e1ff9d371ba8b0d9e7e88374bb7ba0f9d0789851d352ec6e"
   end
 
   def install
     ENV.cxx11
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
 
-    py_prefix = `python-config --prefix`.chomp
-    py_lib = "#{py_prefix}/lib"
+    py2_prefix = `python2-config --prefix`.chomp
+    py2_lib = "#{py2_prefix}/lib"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
@@ -69,13 +70,13 @@ class Opencv < Formula
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
-      -DWITH_TBB=OFF
+      -DWITH_TBB=ON
       -DWITH_VTK=OFF
       -DBUILD_opencv_python2=ON
       -DBUILD_opencv_python3=ON
       -DPYTHON2_EXECUTABLE=#{which "python"}
-      -DPYTHON2_LIBRARY=#{py_lib}/libpython2.7.dylib
-      -DPYTHON2_INCLUDE_DIR=#{py_prefix}/include/python2.7
+      -DPYTHON2_LIBRARY=#{py2_lib}/libpython2.7.dylib
+      -DPYTHON2_INCLUDE_DIR=#{py2_prefix}/include/python2.7
       -DPYTHON3_EXECUTABLE=#{which "python3"}
       -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
@@ -94,7 +95,7 @@ class Opencv < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #include <opencv/cv.h>
       #include <iostream>
       int main() {
@@ -105,7 +106,7 @@ class Opencv < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python", "python3"].each do |python|
+    ["python2.7", "python3"].each do |python|
       output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
       assert_equal version.to_s, output.chomp
     end

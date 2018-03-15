@@ -1,18 +1,15 @@
 class Libassuan < Formula
   desc "Assuan IPC Library"
   homepage "https://www.gnupg.org/related_software/libassuan/"
-  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.4.3.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.4.3.tar.bz2"
-  sha256 "22843a3bdb256f59be49842abf24da76700354293a066d82ade8134bb5aa2b71"
-  revision 1
+  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.1.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.1.tar.bz2"
+  sha256 "47f96c37b4f2aac289f0bc1bacfa8bd8b4b209a488d3d15e2229cb6cc9b26449"
 
   bottle do
     cellar :any
-    sha256 "eb6290ba48859a28998f11b90a1aff14431fa25c02bf8dbdeb0595ea263e5cda" => :high_sierra
-    sha256 "807776139dc1196a6107d83cd69d3e81ae9530554933a07cb7c3db7591e795a9" => :sierra
-    sha256 "4c657d8c083e8f5835b98eb850a520d2bb9b597afda9229c501fe7cf4e2a1f58" => :el_capitan
-    sha256 "9fa0afe044cd12b0cf6509db7c25e90f222e1c41297da41da89524ba0440f1cd" => :yosemite
-    sha256 "725c600d3790054cb27290f63256a35d7ab07ea40a05e34c2a8ca4a65b6411ea" => :mavericks
+    sha256 "a05af2506efccbd153b216c2ed6b17c7b28b1c50fce16489166782877695b8ee" => :high_sierra
+    sha256 "3aefafdbaf62a8319b618c73654aef88f9ebe8b9cba51a304aebaa09bfc92c4c" => :sierra
+    sha256 "6e4ef55130d531e2e24226379f70c6ea59e62caf4fcc8fabffdecf8b2a0d018e" => :el_capitan
   end
 
   depends_on "libgpg-error"

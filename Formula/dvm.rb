@@ -1,15 +1,14 @@
 class Dvm < Formula
   desc "Docker Version Manager"
   homepage "https://github.com/howtowhale/dvm"
-  url "https://github.com/howtowhale/dvm/archive/0.9.0.tar.gz"
-  sha256 "ee54c4aa104cd49aaec3eb65078d9d01d18b1d1eb73a32dba3f7b645df5d74c4"
+  url "https://github.com/howtowhale/dvm/archive/1.0.0.tar.gz"
+  sha256 "afcc921b6a301466c6a927730d15839db03686f45d8ccf92f7f2bfc06ef44698"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4754b18aaba233a4c8c29c307b2ea24a507d7fb2854e527f35a1091c73e1aa26" => :high_sierra
-    sha256 "9ff72c71d4fc692b0b573ab35f7cb834d5322341b03cf36230a2e69734f04422" => :sierra
-    sha256 "e1a7194b63b1802e241e2ac8938dd9ecd78b7fa07bc594ae3944a29985816a57" => :el_capitan
-    sha256 "b60ca73992ddeca444863ec05ae5ace4d82b9e38f7314027610d809c71a6426a" => :yosemite
+    sha256 "bebc1646eae582401909cb5f969eab722b9c43009adcf5dc6bb85f3f41cd9a00" => :high_sierra
+    sha256 "c04e23b281cef762eec3e3ded17c4b531890a0565670074938f1ffd00abb12de" => :sierra
+    sha256 "1f0c433836ebffcb3403fa47725e4f6c2b7f39cb6b445b7fee58cae9720206c3" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -28,7 +27,7 @@ class Dvm < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     dvm is a shell function, and must be sourced before it can be used.
     Add the following command to your bash profile:
         [ -f #{opt_prefix}/dvm.sh ] && . #{opt_prefix}/dvm.sh

@@ -23,7 +23,7 @@ class Servus < Formula
 
   test do
     # Embed "serializeable" test from the servus 1.5.0 source
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<~EOS
       #define BOOST_TEST_MODULE servus_serializable
       #include <boost/test/unit_test.hpp>
 

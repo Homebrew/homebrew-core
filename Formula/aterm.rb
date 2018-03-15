@@ -23,7 +23,7 @@ class Aterm < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <aterm1.h>
 
       int main(int argc, char *argv[]) {

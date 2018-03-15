@@ -1,44 +1,35 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/3.2/mpich-3.2.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-3.2.tar.gz"
-  sha256 "0778679a6b693d7b7caff37ff9d2856dc2bfc51318bf8373859bfa74253da3dc"
-  revision 3
+  url "https://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-3.2.1.tar.gz"
+  sha256 "5db53bf2edfaa2238eb6a0a5bc3d2c2ccbfbb1badd79b664a1a919d2ce2330f1"
+  revision 1
 
   bottle do
-    sha256 "4dc4a7bcf5abce2d6ce89bb09df2334391155b245d39403e638cb12378db850e" => :high_sierra
-    sha256 "d673e6cd9a36b1a571c6b4b97c39d959515bd0d6524689499a4548a6eb8a376d" => :sierra
-    sha256 "b63a6a169fd0c5178f0f221bc1cd6e77c2d68c1035c87d78a8d7a1f55f0e15d5" => :el_capitan
-    sha256 "c68703e98d7b3652d3632dff58e522ece09486070437e5b5f5470491eab8db15" => :yosemite
+    sha256 "bab0862c4f607c8f411d16b754fb6474f536c5340c2d1c9be4a339ca4a6d9bf9" => :high_sierra
+    sha256 "bfb708826242dd9e27ce8c46bba866cbec2c95ee6db419c56e7942c32a88b3b3" => :sierra
+    sha256 "214e469d1b5bdbdc685cc31a53e8673880640a2551274c8f06c08b347db7ee54" => :el_capitan
   end
 
   devel do
-    url "https://www.mpich.org/static/downloads/3.3a2/mpich-3.3a2.tar.gz"
-    sha256 "5d408e31917c5249bf5e35d1341afc34928e15483473dbb4e066b76c951125cf"
+    url "https://www.mpich.org/static/downloads/3.3b1/mpich-3.3b1.tar.gz"
+    sha256 "f0c822ac48ee01037ec63ec882a945b0730cea6e2f28f262624983e51a983c98"
   end
 
   head do
-    url "git://git.mpich.org/mpich.git"
+    url "http://git.mpich.org/mpich.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool"  => :build
   end
-  deprecated_option "disable-fortran" => "without-fortran"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" # for gfortran
 
-  conflicts_with "open-mpi", :because => "both install mpi__ compiler wrappers"
+  conflicts_with "open-mpi", :because => "both install MPI compiler wrappers"
 
   def install
-    # Fix segfault; remove for next mpich releaase > 3.2
-    if build.stable? && ENV.compiler == :clang
-      inreplace "src/include/mpiimpl.h",
-        "} MPID_Request ATTRIBUTE((__aligned__(32)));",
-        "} ATTRIBUTE((__aligned__(32))) MPID_Request;"
-    end
-
     if build.head?
       # ensure that the consistent set of autotools built by homebrew is used to
       # build MPICH, otherwise very bizarre build errors can occur
@@ -46,23 +37,18 @@ class Mpich < Formula
       system "./autogen.sh"
     end
 
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--mandir=#{man}",
-    ]
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}"
 
-    args << "--disable-fortran" if build.without? "fortran"
-
-    system "./configure", *args
     system "make"
     system "make", "check"
     system "make", "install"
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <mpi.h>
       #include <stdio.h>
 
@@ -82,21 +68,20 @@ class Mpich < Formula
     system "#{bin}/mpicc", "hello.c", "-o", "hello"
     system "./hello"
     system "#{bin}/mpirun", "-np", "4", "./hello"
-    if build.with? "fortran"
-      (testpath/"hellof.f90").write <<-EOS.undent
-        program hello
-        include 'mpif.h'
-        integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
-        call MPI_INIT(ierror)
-        call MPI_COMM_SIZE(MPI_COMM_WORLD, size, ierror)
-        call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierror)
-        print*, 'node', rank, ': Hello Fortran world'
-        call MPI_FINALIZE(ierror)
-        end
-      EOS
-      system "#{bin}/mpif90", "hellof.f90", "-o", "hellof"
-      system "./hellof"
-      system "#{bin}/mpirun", "-np", "4", "./hellof"
-    end
+
+    (testpath/"hellof.f90").write <<~EOS
+      program hello
+      include 'mpif.h'
+      integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
+      call MPI_INIT(ierror)
+      call MPI_COMM_SIZE(MPI_COMM_WORLD, size, ierror)
+      call MPI_COMM_RANK(MPI_COMM_WORLD, rank, ierror)
+      print*, 'node', rank, ': Hello Fortran world'
+      call MPI_FINALIZE(ierror)
+      end
+    EOS
+    system "#{bin}/mpif90", "hellof.f90", "-o", "hellof"
+    system "./hellof"
+    system "#{bin}/mpirun", "-np", "4", "./hellof"
   end
 end

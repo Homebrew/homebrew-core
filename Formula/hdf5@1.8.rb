@@ -1,28 +1,29 @@
 class Hdf5AT18 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.19.tar.bz2"
-  sha256 "59c03816105d57990329537ad1049ba22c2b8afe1890085f0c022b75f1727238"
+  url "https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.20.tar.bz2"
+  sha256 "a4f2db7e0a078aa324f64e0216a80731731f73025367fa94d158c9b1d3fbdf6f"
 
   bottle do
-    sha256 "71c17931481e2e883e7c8cf8a3b7d3c2b9a13c60692e898bf31bd97c7303421a" => :high_sierra
-    sha256 "8ee94808d2943cfb367b85c967f3c0a8623df0215a4d875e760df277b24ca13c" => :sierra
-    sha256 "660e3cd1299e526e26e50644e51b3ccf54da002f7d39df1da8ce3e4b2d6d7a95" => :el_capitan
-    sha256 "27680e9b0f0301299031c3b78c0a2d35b83c516b37ebf5a5b77c63b37b99b30f" => :yosemite
+    rebuild 1
+    sha256 "de1706b6d6a77507e56985403bfdb861466c6670e465ca54a32524c9273679f1" => :high_sierra
+    sha256 "c5971253a925403e2ead5da952c27eaaa50b51f28af17bf262ad8ec3fba0dc92" => :sierra
+    sha256 "351aea0c2432b6991f5df4cea14d6b7d280eaaccc051c49ea358565ab9469dde" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  deprecated_option "enable-parallel" => "with-mpi"
-
+  option "with-mpi", "Enable parallel support"
   option :cxx11
+
+  deprecated_option "enable-parallel" => "with-mpi"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi" if build.with? "mpi"
   depends_on "szip"
-  depends_on :fortran
-  depends_on :mpi => [:optional, :cc, :cxx, :f90]
 
   def install
     ENV.cxx11 if build.cxx11?
@@ -50,9 +51,9 @@ class Hdf5AT18 < Formula
     end
 
     if build.with? "mpi"
-      ENV["CC"] = ENV["MPICC"]
-      ENV["CXX"] = ENV["MPICXX"]
-      ENV["FC"] = ENV["MPIFC"]
+      ENV["CC"] = "mpicc"
+      ENV["CXX"] = "mpicxx"
+      ENV["FC"] = "mpif90"
 
       args << "--enable-parallel"
     end
@@ -62,7 +63,7 @@ class Hdf5AT18 < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include "hdf5.h"
       int main()
@@ -74,7 +75,7 @@ class Hdf5AT18 < Formula
     system "#{bin}/h5cc", "test.c"
     assert_equal version.to_s, shell_output("./a.out").chomp
 
-    (testpath/"test.f90").write <<-EOS.undent
+    (testpath/"test.f90").write <<~EOS
       use hdf5
       integer(hid_t) :: f, dspace, dset
       integer(hsize_t), dimension(2) :: dims = [2, 2]

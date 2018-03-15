@@ -1,20 +1,20 @@
 class Diffoscope < Formula
-  desc "In-depth comparison of files, archives, and directories."
+  desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/54/23/3e1072e1326742745001992eb373ba3da07b974951a913bf6e39484a04b6/diffoscope-87.tar.gz"
-  sha256 "b62a69f095cb056f1b9e43b9d345e36b3b52b9ebe3de135978ae84ae88feba86"
+  url "https://files.pythonhosted.org/packages/64/80/1413948097065ab467d6ea43fa10a0957ca073a8958b11b00114c86180c0/diffoscope-91.tar.gz"
+  sha256 "17fe87134a501ebbb3eab3a83fac74f424fb3409689880e83f32e892c13c9093"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "453d63eb31d2d451450c64f3e6f6125fda90c717db7fec0313ec551c49015e4f" => :high_sierra
-    sha256 "c01cbac1383e6cee7ddb7dcee6d5d5d07ad7e04461f7f33519dead80bca78780" => :sierra
-    sha256 "c01cbac1383e6cee7ddb7dcee6d5d5d07ad7e04461f7f33519dead80bca78780" => :el_capitan
+    sha256 "5ca86018e67d467acb7fab1108c89d1031d3af0512e3161ec641e649f53778ec" => :high_sierra
+    sha256 "5ca86018e67d467acb7fab1108c89d1031d3af0512e3161ec641e649f53778ec" => :sierra
+    sha256 "5ca86018e67d467acb7fab1108c89d1031d3af0512e3161ec641e649f53778ec" => :el_capitan
   end
 
   depends_on "libmagic"
   depends_on "libarchive"
   depends_on "gnu-tar"
-  depends_on :python3
+  depends_on "python"
 
   resource "libarchive-c" do
     url "https://files.pythonhosted.org/packages/1f/4a/7421e8db5c7509cf75e34b92a32b69c506f2b6f6392a909c2f87f3e94ad2/libarchive-c-2.7.tar.gz"
@@ -22,8 +22,8 @@ class Diffoscope < Formula
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/65/0b/c6b31f686420420b5a16b24a722fe980724b28d76f65601c9bc324f08d02/python-magic-0.4.13.tar.gz"
-    sha256 "604eace6f665809bebbb07070508dfa8cabb2d7cb05be9a56706c60f864f1289"
+    url "https://files.pythonhosted.org/packages/84/30/80932401906eaf787f2e9bd86dc458f1d2e75b064b4c187341f29516945c/python-magic-0.4.15.tar.gz"
+    sha256 "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5"
   end
 
   def install

@@ -1,14 +1,13 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
-  url "https://znc.in/releases/archive/znc-1.6.5.tar.gz"
-  sha256 "2f0225d49c53a01f8d94feea4619a6fe92857792bb3401a4eb1edd65f0342aca"
+  url "https://znc.in/releases/archive/znc-1.6.6.tar.gz"
+  sha256 "7fb841bc71dc1749b1dc081e9eaf22ceb56ebb03c6b1d8804a4f9eb8bbd59525"
 
   bottle do
-    sha256 "282e0fddf7f3e13d891b92ca31b2fc3d9f216ffd8771550cc4551d3e21b3b547" => :high_sierra
-    sha256 "c1d6ddcd9078631bcd94484f3796e95f32bf9e7b8d0886d9e2802b955b624cbf" => :sierra
-    sha256 "fe47b2288ee78acd11b5d4dc5a4a43a255153a211775875975f458cfc370c7a9" => :el_capitan
-    sha256 "61a0afcfcb021a7005d59f6d0a352fe27f05a6b2617eadb4482172d673666a67" => :yosemite
+    sha256 "cccf19254d52f863a4601feff82e27be9609aa908f735481bdb04e6db5154fa3" => :high_sierra
+    sha256 "ad84c8a556a11af8f22cdfe48c6698a102a3e3db7204b6783a032925e429295a" => :sierra
+    sha256 "ea1dcaa03bc34f801d0ee5c2c7d357c26a04fde92c02bed347c00f40f5f96c9b" => :el_capitan
   end
 
   head do
@@ -24,11 +23,12 @@ class Znc < Formula
   option "with-python3", "Build with mod_python support, allowing Python ZNC modules"
 
   deprecated_option "enable-debug" => "with-debug"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "icu4c" => :optional
-  depends_on :python3 => :optional
+  depends_on "python" => :optional
 
   needs :cxx11
 
@@ -42,7 +42,7 @@ class Znc < Formula
 
     args = ["--prefix=#{prefix}"]
     args << "--enable-debug" if build.with? "debug"
-    args << "--enable-python" if build.with? "python3"
+    args << "--enable-python" if build.with? "python"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
@@ -51,7 +51,7 @@ class Znc < Formula
 
   plist_options :manual => "znc --foreground"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -79,6 +79,6 @@ class Znc < Formula
   test do
     mkdir ".znc"
     system bin/"znc", "--makepem"
-    assert File.exist?(".znc/znc.pem")
+    assert_predicate testpath/".znc/znc.pem", :exist?
   end
 end

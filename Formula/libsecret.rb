@@ -44,7 +44,7 @@ class Libsecret < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <libsecret/secret.h>
 
       const SecretSchema * example_get_schema (void) G_GNUC_CONST;

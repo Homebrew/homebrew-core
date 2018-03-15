@@ -2,15 +2,14 @@ class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
   # pull from git tag to get submodules
-  url "https://github.com/facebook/osquery.git",
-      :tag => "2.7.0",
-      :revision => "501bb22de9b44ee5c4e4d40d5267ca3d72a3c785"
-  revision 2
+  url "https://github.com/facebook/osquery/archive/3.1.0.tar.gz"
+  sha256 "dd8ddbb30d9f965fd999b2a3dc70a36944bd97adb198059995f3b42f211be75b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "60c2a67a6cb9833777c45d2d28f1b792f33db468ad40849f33b4ea3a0995575a" => :high_sierra
-    sha256 "05ff0b2bf5892901e665c9c4458f9798938b27414314c51ea1ba05e35c91c090" => :sierra
+    sha256 "28825364050b8624176f2bbe60934857f47a2f126aeb5de48654f00dad5549cb" => :high_sierra
+    sha256 "3bd24b57391a2be71fdf65a0c348ab96654775325c7708058440c1a03c84bb93" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -19,22 +18,19 @@ class Osquery < Formula
   depends_on :macos => :sierra
   depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build
-  depends_on "asio"
   depends_on "augeas"
   depends_on "boost"
-  depends_on "snappy"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lldpd"
-  depends_on "lz4"
+  depends_on "librdkafka"
   depends_on "openssl"
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
-  depends_on "snappy"
+  depends_on "thrift"
   depends_on "yara"
   depends_on "xz"
   depends_on "zstd"
@@ -49,42 +45,14 @@ class Osquery < Formula
     sha256 "35341f3a97b46327b3ef1eb624aadea87a535b8f50863036e085e7c426ac5891"
   end
 
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d9/c8/8c7a2ab8ec108ba9ab9a4762c5a0d67c283d41b13b5ce46be81fdcae3656/psutil-5.0.1.tar.gz"
-    sha256 "9d8b7f8353a2b2eb6eb7271d42ec99d0d264a9338a37be46424d56b4e473b39e"
+  resource "third-party" do
+    url "https://github.com/osquery/third-party/archive/3.0.0.tar.gz"
+    sha256 "98731b92147f6c43f679a4a9f63cbb22f2a4d400d94a45e308702dee66a8de9d"
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/1.1.20.tar.gz"
-    sha256 "d88e152ab5d9ad838166cb32a6152549ec16a51fb2fcc0802c704ea79c12edcb"
-  end
-
-  resource "cpp-netlib" do
-    url "https://github.com/cpp-netlib/cpp-netlib/archive/cpp-netlib-0.12.0-final.tar.gz"
-    sha256 "d66e264240bf607d51b8d0e743a1fa9d592d96183d27e2abdaf68b0a87e64560"
-  end
-
-  resource "linenoise" do
-    url "https://github.com/theopolis/linenoise-ng/archive/v1.0.1.tar.gz"
-    sha256 "c317f3ec92dcb4244cb62f6fb3b7a0a5a53729a85842225fcfce0d4a429a0dfa"
-  end
-
-  resource "thrift" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.10.0/thrift-0.10.0.tar.gz"
-    sha256 "2289d02de6e8db04cbbabb921aeb62bfe3098c4c83f36eec6c31194301efa10b"
-  end
-
-  resource "thrift-0.10-patch" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/66bf587/osquery/patch-thrift-0.10.diff"
-    sha256 "bf85b2d805f7cd7c4bc0c618c756b02ce618e777b727041ab75197592c4043f2"
-  end
-
-  # remove for > 2.7.0
-  # upstream: 'Boost version 1.65 macOS fix'
-  # https://github.com/facebook/osquery/pull/3613
-  patch do
-    url "https://github.com/facebook/osquery/commit/c50a9b1e82f.patch?full_index=1"
-    sha256 "c0ce11887ac277774c622fd91824cfc583416f57e1e9130da5f0c0df68a571cd"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.3.30.tar.gz"
+    sha256 "7b5f9b6d4215069fb75d31db2c8ab06081ab27f59ee33d5bb428fec3e30723f1"
   end
 
   def install
@@ -109,73 +77,18 @@ class Osquery < Formula
       end
     end
 
-    resource("cpp-netlib").stage do
-      args = std_cmake_args + %W[
-        -DCMAKE_INSTALL_PREFIX=#{vendor}/cpp-netlib
-        -DCPP-NETLIB_BUILD_TESTS=OFF
-        -DCPP-NETLIB_BUILD_EXAMPLES=OFF
-      ]
-      system "cmake", ".", *args
-      system "make"
-      system "make", "install"
-    end
-
-    resource("linenoise").stage do
-      mkdir "build" do
-        args = std_cmake_args + %W[
-          -DCMAKE_INSTALL_PREFIX=#{vendor}/linenoise
-          -DCMAKE_CXX_FLAGS=-mno-avx\ -fPIC
-        ]
-        system "cmake", "..", *args
-        system "make"
-        system "make", "install"
-      end
-    end
-
-    resource("thrift").stage do
-      ENV["PY_PREFIX"] = vendor/"thrift"
-      ENV.append "CPPFLAGS", "-DOPENSSL_NO_SSL3"
-
-      # Apply same patch as osquery upstream for setuid syscalls.
-      Pathname.pwd.install resource("thrift-0.10-patch")
-      system "patch", "-p1", "-i", "patch-thrift-0.10.diff"
-
-      exclusions = %W[
-        --without-ruby
-        --disable-tests
-        --without-php_extension
-        --without-haskell
-        --without-java
-        --without-perl
-        --without-php
-        --without-erlang
-        --without-go
-        --without-qt
-        --without-qt4
-        --without-nodejs
-        --without-python
-        --with-cpp
-        --with-openssl=#{Formula["openssl"].opt_prefix}
-      ]
-
-      ENV.prepend_path "PATH", Formula["bison"].opt_bin
-      system "./configure", "--disable-debug",
-                            "--prefix=#{vendor}/thrift",
-                            "--libdir=#{vendor}/thrift/lib",
-                            *exclusions
-      system "make", "-j#{ENV.make_jobs}"
-      system "make", "install"
-    end
-    ENV.prepend_path "PATH", vendor/"thrift/bin"
-
     # Skip test and benchmarking.
     ENV["SKIP_TESTS"] = "1"
+    ENV["SKIP_DEPS"] = "1"
+
+    # Link dynamically against brew-installed libraries.
+    ENV["BUILD_LINK_SHARED"] = "1"
+    # Set the version
+    ENV["OSQUERY_BUILD_VERSION"] = version
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"third-party/python/lib/python2.7/site-packages"
-    ENV["THRIFT_HOME"] = vendor/"thrift"
 
-    res = resources.map(&:name).to_set - %w[aws-sdk-cpp cpp-netlib linenoise
-                                            thrift thrift-0.10-patch]
+    res = resources.map(&:name).to_set - %w[aws-sdk-cpp third-party]
     res.each do |r|
       resource(r).stage do
         system "python", "setup.py", "install",
@@ -185,20 +98,21 @@ class Osquery < Formula
       end
     end
 
+    cxx_flags_release = %W[
+      -DNDEBUG
+      -I#{MacOS.sdk_path}/usr/include/libxml2
+      -I#{vendor}/aws-sdk-cpp/include
+    ]
+
     args = std_cmake_args + %W[
       -Daws-cpp-sdk-core_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-core.a
       -Daws-cpp-sdk-firehose_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-firehose.a
       -Daws-cpp-sdk-kinesis_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-kinesis.a
       -Daws-cpp-sdk-sts_library:FILEPATH=#{vendor}/aws-sdk-cpp/lib/libaws-cpp-sdk-sts.a
-      -Dcppnetlib-client-connections_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-client-connections.a
-      -Dcppnetlib-uri_library:FILEPATH=#{vendor}/cpp-netlib/lib/libcppnetlib-uri.a
-      -Dlinenoise_library:FILEPATH=#{vendor}/linenoise/lib/liblinenoise.a
-      -Dthrift_library:FILEPATH=#{vendor}/thrift/lib/libthrift.a
-      -DCMAKE_CXX_FLAGS_RELEASE:STRING=-DNDEBUG\ -I#{MacOS.sdk_path}/usr/include/libxml2\ -I#{vendor}/aws-sdk-cpp/include\ -I#{vendor}/cpp-netlib/include\ -I#{vendor}/linenoise/include\ -I#{vendor}/thrift/include\ -Wl,-L#{vendor}/linenoise/lib
+      -DCMAKE_CXX_FLAGS_RELEASE:STRING=#{cxx_flags_release.join(" ")}
     ]
 
-    # Link dynamically against brew-installed libraries.
-    ENV["BUILD_LINK_SHARED"] = "1"
+    (buildpath/"third-party").install resource("third-party")
 
     system "cmake", ".", *args
     system "make"

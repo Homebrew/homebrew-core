@@ -1,7 +1,7 @@
 class Glulxe < Formula
   desc "Portable VM like the Z-machine"
-  homepage "http://www.eblong.com/zarf/glulx/"
-  url "http://eblong.com/zarf/glulx/glulxe-054.tar.gz"
+  homepage "https://www.eblong.com/zarf/glulx/"
+  url "https://eblong.com/zarf/glulx/glulxe-054.tar.gz"
   version "0.5.4"
   sha256 "1fc26f8aa31c880dbc7c396ede196c5d2cdff9bdefc6b192f320a96c5ef3376e"
   head "https://github.com/erkyrath/glulxe.git"

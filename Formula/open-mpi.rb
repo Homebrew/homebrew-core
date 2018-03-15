@@ -1,14 +1,14 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v2.1/downloads/openmpi-2.1.1.tar.bz2"
-  sha256 "bd7badd4ff3afa448c0d7f3ca0ee6ce003b957e9954aa87d8e4435759b5e4d16"
+  url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.bz2"
+  sha256 "f699bff21db0125d8cccfe79518b77641cd83628725a1e1ed3e45633496a82d7"
+  revision 2
 
   bottle do
-    sha256 "f98fe9297af17ec9485f36009ec79319a6682b449eaead015103721cb76cf7b2" => :high_sierra
-    sha256 "15d3d18ad8e4096b670fd9fee3f196cee0bbea4db663cab4eb58a24927daa1cf" => :sierra
-    sha256 "82b89bc9302d9ca10cf0dfa0a53a8298aa4cbb9a84b92139e5ca2a7583499947" => :el_capitan
-    sha256 "4b0437cdcf8e32cf205fb4fc3755eb8a8bb7e35b93d52070e9d3390d2e57d5fa" => :yosemite
+    sha256 "6d88511d80f47ff79a45588138a62e96a258913d25499ee4dc749fd22e8ae795" => :high_sierra
+    sha256 "7cdc9f6ea9d69ed78d822712794c6f843d426acd7fbdce7ea56cd0d7b2b287c2" => :sierra
+    sha256 "fb76532094bf33f984f7d1573f97942c0d2a5f46a02525dfdc67e4edf142e878" => :el_capitan
   end
 
   head do
@@ -20,20 +20,25 @@ class OpenMpi < Formula
 
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
-  option :cxx11
+  option "without-fortran", "Do not build the Fortran bindings"
 
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
-  depends_on :fortran => :recommended
+  depends_on "gcc" if build.with? "fortran"
   depends_on :java => :optional
   depends_on "libevent"
 
-  conflicts_with "mpich", :because => "both install mpi__ compiler wrappers"
-  conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
+  conflicts_with "mpich", :because => "both install MPI compiler wrappers"
+  conflicts_with "lcdf-typetools", :because => "both install same set of binaries"
+
+  needs :cxx11
 
   def install
-    ENV.cxx11 if build.cxx11?
+    # otherwise libmpi_usempi_ignore_tkr gets built as a static library
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    ENV.cxx11
 
     args = %W[
       --prefix=#{prefix}
@@ -61,7 +66,7 @@ class OpenMpi < Formula
   end
 
   test do
-    (testpath/"hello.c").write <<-EOS.undent
+    (testpath/"hello.c").write <<~EOS
       #include <mpi.h>
       #include <stdio.h>
 
@@ -80,8 +85,8 @@ class OpenMpi < Formula
     EOS
     system bin/"mpicc", "hello.c", "-o", "hello"
     system "./hello"
-    system bin/"mpirun", "-np", "4", "./hello"
-    (testpath/"hellof.f90").write <<-EOS.undent
+    system bin/"mpirun", "./hello"
+    (testpath/"hellof.f90").write <<~EOS
       program hello
       include 'mpif.h'
       integer rank, size, ierror, tag, status(MPI_STATUS_SIZE)
@@ -94,6 +99,6 @@ class OpenMpi < Formula
     EOS
     system bin/"mpif90", "hellof.f90", "-o", "hellof"
     system "./hellof"
-    system bin/"mpirun", "-np", "4", "./hellof"
+    system bin/"mpirun", "./hellof"
   end
 end

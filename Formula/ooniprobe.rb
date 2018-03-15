@@ -3,23 +3,22 @@ class Ooniprobe < Formula
 
   desc "Network interference detection tool"
   homepage "https://ooni.torproject.org/"
-  url "https://pypi.python.org/packages/46/eb/e44d255dbd6b2bc8cc6de680ff8ce3c279c9b0694a6eec9059bdf4806dfc/ooniprobe-2.2.0.tar.gz"
-  sha256 "971f7630587b7ba771383f93c10973871e2c5e866a7fde98754a788679361ac3"
+  url "https://files.pythonhosted.org/packages/d8/c0/b4a2ae442dd95160a75251110313d1f9b22834a76ef9bd8f70603b4a867a/ooniprobe-2.3.0.tar.gz"
+  sha256 "b4c4a5665d37123b1a30f26ffb37b8c06bc722f7b829cf83f6c3300774b7acb6"
 
   bottle do
     cellar :any
-    sha256 "e0ddf8e7eec2b52ad4ffec112a6b06a86d87a472fa4ed162fb2d93a5b22feb01" => :high_sierra
-    sha256 "fbc47fc71b679c09454f56636756ef33532e91ecedff6c04c88b8cc5ac6ad149" => :sierra
-    sha256 "6f5cc72156fd51da46d88aa3223c5b938e0c5fa0fc05ed9d7fa2a952f5f9bc24" => :el_capitan
-    sha256 "854d30be6dad8cbf5972a64e8c0a011d17c04d5afe83b9b470d39acbe4e3a462" => :yosemite
+    sha256 "63c467de1c93e89d6eb555587ccf5048fc7d48646a1359ae51549635d619fe27" => :high_sierra
+    sha256 "190aa6d0fc5824a8f34c364ba6c436c6a7c4a6485afd10b9aaf39885ee2e870c" => :sierra
+    sha256 "21c9bbeaf1f5ab28751714147db3257824535eda0068c701707c8ad02fe50372" => :el_capitan
   end
 
   depends_on "geoip"
   depends_on "libdnet"
   depends_on "libyaml"
   depends_on "openssl"
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "tor"
-  depends_on :python
 
   # these 4 need to come first or else cryptography will let setuptools
   # easy_install them (which is bad)
@@ -194,7 +193,7 @@ class Ooniprobe < Formula
     # obey the settings.ini we write
     inreplace "ooni/settings.py", /(IS_VIRTUALENV = ).*/, "\\1 False"
 
-    (buildpath/"ooni/settings.ini").atomic_write <<-EOS.undent
+    (buildpath/"ooni/settings.ini").atomic_write <<~EOS
       [directories]
       usr_share = #{pkgshare}
       var_lib = #{var}/lib/ooni
@@ -213,50 +212,51 @@ class Ooniprobe < Formula
     ln_s pkgshare/"decks/web.yaml", pkgshare/"current.deck"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Decks are installed to #{opt_pkgshare}/decks.
     EOS
   end
 
   plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooniprobe/current.deck"
 
-  def plist; <<-EOS.undent
-   <?xml version="1.0" encoding="UTF-8"?>
-   <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-   <plist version="1.0">
-   <dict>
-     <key>Label</key>
-       <string>#{plist_name}</string>
-     <key>EnvironmentVariables</key>
-     <dict>
-       <key>PATH</key>
-       <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
-     </dict>
-     <key>ProgramArguments</key>
-     <array>
-       <string>#{opt_bin}/ooniprobe-agent</string>
-       <string>run</string>
-     </array>
-     <key>RunAtLoad</key>
-       <true/>
-     <key>KeepAlive</key>
-       <true/>
-     <key>StandardErrorPath</key>
-       <string>/dev/null</string>
-     <key>StandardOutPath</key>
-       <string>/dev/null</string>
-     <key>WorkingDirectory</key>
-       <string>#{opt_prefix}</string>
-   </dict>
-   </plist>
-   EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+          <string>#{plist_name}</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        </dict>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/ooniprobe-agent</string>
+          <string>run</string>
+        </array>
+        <key>RunAtLoad</key>
+          <true/>
+        <key>KeepAlive</key>
+          <true/>
+        <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+        <key>StandardOutPath</key>
+          <string>/dev/null</string>
+        <key>WorkingDirectory</key>
+          <string>#{opt_prefix}</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do
     (testpath/"ooni/var_lib").mkpath
     (testpath/"ooni/etc").mkpath
 
-    (testpath/"ooni/settings.ini").atomic_write <<-EOS.undent
+    (testpath/"ooni/settings.ini").atomic_write <<~EOS
       [directories]
       usr_share = #{pkgshare}
       var_lib = #{testpath}/ooni/var_lib

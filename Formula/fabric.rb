@@ -15,7 +15,7 @@ class Fabric < Formula
     sha256 "99acff28ede8c20b6d9d927341740e8f37f4e976ca3895cc4a2356f378e20cfb" => :yosemite
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "openssl"
 
   resource "asn1crypto" do
@@ -83,13 +83,13 @@ class Fabric < Formula
   end
 
   test do
-    (testpath/"fabfile.py").write <<-EOS.undent
+    (testpath/"fabfile.py").write <<~EOS
       from fabric.api import task, puts, env
       @task
       def hello():
         puts("fabric " + env.version)
     EOS
-    expected = <<-EOS.undent
+    expected = <<~EOS
       fabric #{version}
 
       Done.

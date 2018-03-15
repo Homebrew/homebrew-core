@@ -21,7 +21,7 @@ class Dict < Formula
                           "--mandir=#{man}"
     system "make"
     system "make", "install"
-    (prefix+"etc/dict.conf").write <<-EOS.undent
+    (prefix+"etc/dict.conf").write <<~EOS
       server localhost
       server dict.org
     EOS

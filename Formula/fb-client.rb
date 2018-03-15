@@ -3,19 +3,18 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.0.3.tar.gz"
   sha256 "dd318de67c1581e6dfa6b6c84e8c8e995b27d115fed86d81d5579aa9a2358114"
-
+  revision 3
   head "https://git.server-speed.net/users/flo/fb", :using => :git
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4a70bc13d8f93956c3432281f53fd09c4fe8e0d77d2088f8251e1792974151ad" => :high_sierra
-    sha256 "9e49650c2e2c1d5294ba22c821218c7b48ec97647f627fdd67e2ab45d2c7f499" => :sierra
-    sha256 "ed82a23cee56924581955e38a0e75e457eeeefb044e3213de7fd17c74f437978" => :el_capitan
-    sha256 "70fc5a9498e3d66788f57299c21586fa866587c0c1010ae04f67feecc2ee39d8" => :yosemite
+    cellar :any
+    sha256 "7c175561426a008817ec3bd80f3239f80746d4409a49ea32787e3974db336077" => :high_sierra
+    sha256 "49208b9103b9acb4df5f553720bc4c785796f1113d84c1019663cf6e01d8d56e" => :sierra
+    sha256 "1ead29ad0ede0e2f81b6c734c8099a57bf02fd3690a7316d58a62201f52c9311" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python3
+  depends_on "python"
 
   conflicts_with "findbugs", :because => "findbugs and fb-client both install a `fb` binary"
 
@@ -36,10 +35,19 @@ class FbClient < Formula
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+    # avoid error about libcurl link-time and compile-time ssl backend mismatch
+    resource("pycurl").stage do
+      args = Language::Python.setup_install_args(libexec/"vendor")
+
+      if MacOS.version >= :high_sierra
+        args << "--libcurl-dll=/usr/lib/libcurl.dylib"
       end
+
+      system "python3", *args
+    end
+
+    resource("pyxdg").stage do
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     inreplace "fb", "#!/usr/bin/env python", "#!/usr/bin/env python3"

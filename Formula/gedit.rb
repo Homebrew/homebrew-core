@@ -1,17 +1,17 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.22/gedit-3.22.1.tar.xz"
-  sha256 "aa7bc3618fffa92fdb7daf2f57152e1eb7962e68561a9c92813d7bbb7fc9492b"
+  url "https://download.gnome.org/sources/gedit/3.28/gedit-3.28.0.tar.xz"
+  sha256 "9bf90a2d4fd7be802ad98d226d254ad42057b7c5cc03d1cd39b813123fa8ca5f"
 
   bottle do
-    rebuild 1
-    sha256 "20a1c65040063c87ce7543c91bc5bf567c775b81f1895949f4a42d003a6f2c12" => :high_sierra
-    sha256 "5909c7a8820499ab0d76d2946fa2d91f4e81b7a385acfdbb7b987c3f974e4c7e" => :sierra
-    sha256 "1a333dc7184f3d57b609d561895a07f7c3fb4f442dc6b3bdcaaec472310f9f61" => :el_capitan
+    sha256 "69591ff3f28544230849a06a08a1aa3d14e8498338e82d6aa1a8b205a6c006a6" => :high_sierra
+    sha256 "1c19207f67be5bba0c0d1176dd31f838884e2e4e2ae8038fb515b92c713a7112" => :sierra
+    sha256 "386a7c849a68cb65483af1848a88e5735c504d3ac6dff7b244350043c6a39edf" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "atk"
@@ -49,7 +49,7 @@ class Gedit < Formula
     # main executable test
     system bin/"gedit", "--version"
     # API test
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gedit/gedit-utils.h>
 
       int main(int argc, char *argv[]) {

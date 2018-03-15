@@ -1,5 +1,5 @@
 class Sdb < Formula
-  desc "Ondisk/memory hashtable based on CDB."
+  desc "Ondisk/memory hashtable based on CDB"
   homepage "https://github.com/radare/sdb"
   head "https://github.com/radare/sdb.git"
 

@@ -3,13 +3,13 @@ class DatetimeFortran < Formula
   homepage "https://github.com/milancurcic/datetime-fortran"
   url "https://github.com/milancurcic/datetime-fortran/releases/download/v1.6.0/datetime-fortran-1.6.0.tar.gz"
   sha256 "e46c583bca42e520a05180984315495495da4949267fc155e359524c2bf31e9a"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "4c9c8a4f70f1eabeab5a0ffee1e2a20455c08bd4fa88bc69bc4d6b9176b44dfb" => :high_sierra
-    sha256 "a9fa586679b05377aeeeea71e2ae1932c630fb43a89eb7314276bc6fbbdd3383" => :sierra
-    sha256 "2fe1c9faee819e539afa30b8bbceb203bea388de7609418d80ee5fed4e716e7a" => :el_capitan
-    sha256 "ba3ad1df170d2027251c9c322e4250e8c49e4af1786a3f42d66f08562eb25a16" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "887a64af4a2366598e0e374ddb664a303381c9ce849bff4de6297f522999daae" => :high_sierra
+    sha256 "b3106afade8eeb808df615f809a185ea9e7da4f01974b5ae39f244eb89ca4545" => :sierra
+    sha256 "39b4cbe4d95db475a36909c9d4241d3726523cab239f3b468c4fef6679abf1a0" => :el_capitan
   end
 
   head do
@@ -20,21 +20,19 @@ class DatetimeFortran < Formula
     depends_on "pkg-config" => :build
   end
 
-  option "without-test", "Skip build time tests (Not recommended)"
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-silent-rules"
-    system "make", "check" if build.with? "test"
     system "make", "install"
     (pkgshare/"test").install "src/tests/datetime_tests.f90"
   end
 
   test do
-    ENV.fortran
-    system ENV.fc, "-odatetime_test", "-ldatetime", "-I#{HOMEBREW_PREFIX}/include", pkgshare/"test/datetime_tests.f90"
-    system testpath/"datetime_test"
+    system "gfortran", "-o", "test", "-I#{include}", "-L#{lib}", "-ldatetime",
+                       pkgshare/"test/datetime_tests.f90"
+    system "./test"
   end
 end

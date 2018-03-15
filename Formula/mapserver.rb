@@ -1,16 +1,15 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "http://mapserver.org/"
-  url "http://download.osgeo.org/mapserver/mapserver-7.0.6.tar.gz"
-  sha256 "dcbebd62976deef1490b084d8f6a0b2f2a1a25407efb6e058390025375539507"
-  revision 2
+  url "https://download.osgeo.org/mapserver/mapserver-7.0.7.tar.gz"
+  sha256 "37a8c3008328bae0fea05109d6d544a3284f756a23956e8a2f5ec10a6b5fef67"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ae6ae9ba705120b2df9483a7a7caac0da5c57f70cf5f8c4576eb0b76a43416ca" => :high_sierra
-    sha256 "ef3e7ddb2203276facc294f9c5e5606bbf79058c761a901947198922c87904e0" => :sierra
-    sha256 "371998c9f382661c76cdb34420433eec1e0d7585482b87f2c4679a4033fb2774" => :el_capitan
-    sha256 "a147d986ee889d28969c97363446cc81206a3c8b9372108d7df4941382387320" => :yosemite
+    sha256 "bc574e4eef7bb4bba5a30da2b176d9c834fd7fffaafb07ee7f7ac2694c95fd59" => :high_sierra
+    sha256 "16dc614cf8972ac732509c193176b71a7ded79637df5361646df306a1fc66ec1" => :sierra
+    sha256 "02388357fd386a933901fef592feacd3d75c7b86f1c2e45efa31c3e08a5c5341" => :el_capitan
   end
 
   option "with-fastcgi", "Build with fastcgi support"
@@ -48,7 +47,7 @@ class Mapserver < Formula
       -DWITH_WFS=ON
       -DWITH_FRIBIDI=OFF
       -DWITH_HARFBUZZ=OFF
-      -DPYTHON_EXECUTABLE:FILEPATH=#{which("python")}
+      -DPYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
     ]
 
     # Install within our sandbox.
@@ -98,7 +97,7 @@ class Mapserver < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     The Mapserver CGI executable is #{opt_bin}/mapserv
 
     If you built the PHP option:
@@ -111,6 +110,6 @@ class Mapserver < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/mapserv -v")
-    system "python", "-c", "import mapscript"
+    system "python2.7", "-c", "import mapscript"
   end
 end

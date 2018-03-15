@@ -27,8 +27,9 @@ class Libdrawtext < Formula
   end
 
   test do
-    cp "/System/Library/Fonts/LastResort.ttf", testpath
-    system bin/"font2glyphmap", "LastResort.ttf"
+    ext = (MacOS.version >= :high_sierra) ? "otf" : "ttf"
+    cp "/System/Library/Fonts/LastResort.#{ext}", testpath
+    system bin/"font2glyphmap", "LastResort.#{ext}"
     bytes = File.read("LastResort_s12.glyphmap").bytes.to_a[0..12]
     assert_equal [80, 54, 10, 53, 49, 50, 32, 50, 53, 54, 10, 35, 32], bytes
   end

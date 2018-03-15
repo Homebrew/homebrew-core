@@ -1,15 +1,15 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.9/cmake-3.9.3.tar.gz"
-  sha256 "8eaf75e1e932159aae98ab5e7491499545554be62a08cbcbc7c75c84b999f28a"
-  revision 1
+  url "https://cmake.org/files/v3.10/cmake-3.10.2.tar.gz"
+  sha256 "80d0faad4ab56de07aa21a7fc692c88c4ce6156d42b0579c6962004a70a3218b"
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5adade9d76dbdeef0fcfd8dfcbee8a6359638607dc53eed6f82f6f4be6855126" => :high_sierra
-    sha256 "7ea7a60b1ebd5859e7d8a6d9b781e3b976cfbac22ef52e06dbf9bb3f603012ac" => :el_capitan_or_later
+    sha256 "7ad98f403e21c76cfd0789d83acffce92cb29aad3d2ea9b4fe8b2c05de8f33b9" => :high_sierra
+    sha256 "878aeaeda98df7a8940bdccc42b7ff22195980a62410428f8febc7cd03a1c681" => :sierra
+    sha256 "05efc0e612c16eabdf8e509545d18a7e1016de2c6cb6deb597b49ffd590dcc0a" => :el_capitan
   end
 
   option "without-docs", "Don't build man pages"
@@ -21,7 +21,11 @@ class Cmake < Formula
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
   # For the GUI application please instead use `brew cask install cmake`.
 
+  needs :cxx11
+
   def install
+    ENV.cxx11 if MacOS.version < :mavericks
+
     args = %W[
       --prefix=#{prefix}
       --no-system-libs
@@ -41,7 +45,7 @@ class Cmake < Formula
       args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
     end
 
-    system "./bootstrap", *args
+    system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
     system "make"
     system "make", "install"
 

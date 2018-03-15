@@ -1,15 +1,14 @@
 class Zurl < Formula
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://dl.bintray.com/fanout/source/zurl-1.8.0.tar.bz2"
-  sha256 "cfa24b97712c3a2fc6901f78dedd4712373be773a57d31dace65a56a617dfcaf"
+  url "https://dl.bintray.com/fanout/source/zurl-1.9.1.tar.bz2"
+  sha256 "b57385d768c9df62dd225a462d0e35998f95fdbd34ea628bf3d6a38b012dba41"
 
   bottle do
     cellar :any
-    sha256 "f34dc7c4cc51893a984e8fe6c599d43ba3948a147d9c238347d187d4a75a3e46" => :high_sierra
-    sha256 "d81b633d8ed7ae9afbf5da1bc9cfb868fa4266d000c238df5cfb4f3d7f8437c6" => :sierra
-    sha256 "f703c7cb2b5d865bbce21aa17b2a99068e7feb76f3758602078381d1571c0d0c" => :el_capitan
-    sha256 "548a4017de9a6632a360400720da0ede67937b608813b998f625bd881e1c22e2" => :yosemite
+    sha256 "f94e3fbd570a122222ad66c0013b9b3425c5d49ca8f0e082e0377b1b7e6a538c" => :high_sierra
+    sha256 "9ebde17a2751ce4b04a0215fe90ffebe880b4e07ab822897b5b8f7e44f4f273e" => :sierra
+    sha256 "9deb04a87b09d9805a2fdfd443744fca5e61bcd00c79ecd067dc67c6319ef88f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -18,8 +17,8 @@ class Zurl < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/af/37/8e0bf3800823bc247c36715a52e924e8f8fd5d1432f04b44b8cd7a5d7e55/pyzmq-16.0.2.tar.gz"
-    sha256 "0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d"
+    url "https://files.pythonhosted.org/packages/1e/f9/d0675409c11d11e549e3da000901cfaabd848da117390ee00030e14bfdb6/pyzmq-16.0.3.tar.gz"
+    sha256 "8a883824147523c0fe76d247dd58994c1c28ef07f1cc5dde595a4fd1c28f2580"
   end
 
   def install
@@ -36,7 +35,7 @@ class Zurl < Formula
 
     resource("pyzmq").stage { system "python", *Language::Python.setup_install_args(testpath/"vendor") }
 
-    conffile.write(<<-EOS.undent
+    conffile.write(<<~EOS
       [General]
       in_req_spec=ipc://#{ipcfile}
       defpolicy=allow
@@ -44,7 +43,7 @@ class Zurl < Formula
       EOS
                   )
 
-    runfile.write(<<-EOS.undent
+    runfile.write(<<~EOS
       import json
       import threading
       from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer

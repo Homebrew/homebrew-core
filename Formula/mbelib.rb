@@ -26,7 +26,7 @@ class Mbelib < Formula
   end
 
   test do
-    (testpath/"mb.cpp").write <<-EOS.undent
+    (testpath/"mb.cpp").write <<~EOS
       extern "C" {
       #include "mbelib.h"
       }

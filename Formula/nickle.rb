@@ -1,15 +1,13 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://www.nickle.org/release/nickle-2.77.tar.gz"
-  sha256 "a35e7ac9a3aa41625034db5c809effc208edd2af6a4adf3f4776fe60d9911166"
-  revision 1
+  url "https://www.nickle.org/release/nickle-2.81.tar.gz"
+  sha256 "99a9331489e290fb768bf8d88e8b03e76f25485d7636c30d9eee616ca9d358b5"
 
   bottle do
-    sha256 "a583168713ae49a27723f16a1235c074d52d02c235b64bbf168406235e778823" => :high_sierra
-    sha256 "a2d3f5a56b899ed3e54dfd62c3b3aff91a9e0f1b071be4edd558b56a969b009d" => :sierra
-    sha256 "aa3bb8a61763ebeaac001e02b7fb21c5733ccf0c2fbeea02908959d2fec03b5c" => :el_capitan
-    sha256 "889ae51c6ba498cdfe72556ef59b4d3e640d848c77d1fa69dfcbddf01441fefe" => :yosemite
+    sha256 "34c498d8b9924529193669f9cec5e1a7d648dfd48430496c0d01bf3b38da4ca2" => :high_sierra
+    sha256 "54d986151e2e52e2212ce1e00b887ec1cfbebba67f621f62742a2890b16302c1" => :sierra
+    sha256 "c1bfe5ca6ecb8327970fdc34a6e5caa85e521ceb317981913a72068049514674" => :el_capitan
   end
 
   depends_on "readline"

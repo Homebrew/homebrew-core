@@ -24,7 +24,7 @@ class Pbc < Formula
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <pbc/pbc.h>
       #include <assert.h>
 

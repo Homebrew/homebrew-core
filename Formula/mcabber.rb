@@ -52,11 +52,11 @@ class Mcabber < Formula
     pkgshare.install %w[mcabberrc.example contrib]
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     A configuration file is necessary to start mcabber.  The template is here:
       #{opt_pkgshare}/mcabberrc.example
     And there is a Getting Started Guide you will need to setup Mcabber:
-      http://wiki.mcabber.com/index.php/Getting_started
+      https://wiki.mcabber.com/#index2h1
     EOS
   end
 

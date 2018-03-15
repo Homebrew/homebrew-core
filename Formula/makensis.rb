@@ -1,16 +1,14 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02.1/nsis-3.02.1-src.tar.bz2"
-  sha256 "5f6d135362c70f6305317b3af6d8398184ac1a22d3f23b9c4164543c13fb8d60"
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.03/nsis-3.03-src.tar.bz2"
+  sha256 "abae7f4488bc6de7a4dd760d5f0e7cd3aad7747d4d7cd85786697c8991695eaa"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "0ebc2808e9d36de34b3687e5afe8897b468d0cdfd997e92e0fa8787dbc088baa" => :high_sierra
-    sha256 "0a5adaa8cc82a78075755a80f68a72e34f3a59c1e72823c49c2c1d23bd5209ff" => :sierra
-    sha256 "932fd48662e03d1f964482ac5aa812c60486126f1138b2f774aeb7641e6b406b" => :el_capitan
-    sha256 "4e7ee251f0e53b7cc3b254f6d7ee5a247f18287327f25dbba586ee75a43084fb" => :yosemite
+    sha256 "b656fcbbb32f982ff66c897f8af08b989425f3c375aa96572dde0e00f05cc396" => :high_sierra
+    sha256 "bf01aff6fbcda07ab721b743ca044207face08b9e5f200b764efce8d9adb1c37" => :sierra
+    sha256 "f4516cec938568eb2bea2b162247a10cbd68dedd85c439f5d77170dbc7c5b81b" => :el_capitan
   end
 
   # From https://nsis.sourceforge.io/Special_Builds#Advanced_logging
@@ -26,8 +24,8 @@ class Makensis < Formula
   depends_on "scons" => :build
 
   resource "nsis" do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.02.1/nsis-3.02.1.zip"
-    sha256 "deef3e3d90ab1a9e0ef294fff85eead25edbcb429344ad42fc9bc42b5c3b1fb5"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.03/nsis-3.03.zip"
+    sha256 "b53a79078f2c6abf21f11d9fe68807f35b228393eb17a0cd3873614190116ba7"
   end
 
   # v1.2.8 is outdated, but the last version available as compiled DLL
@@ -42,10 +40,6 @@ class Makensis < Formula
   patch :DATA
 
   def install
-    system "2to3-", "--write", "--fix=print", "Contrib/NSIS Menu/SConscript",
-           "Contrib/System/SConscript", "SCons/Config/gnu", "SCons/utils.py",
-           "Source/Tests/SConscript"
-
     # requires zlib (win32) to build utils
     resource("zlib-win32").stage do
       @zlib_path = Dir.pwd
@@ -53,7 +47,7 @@ class Makensis < Formula
 
     # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
     args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu",
-            "VERSION=#{version}"]
+            "PREFIX_DOC=#{share}/nsis/Docs", "VERSION=#{version}"]
     args << "NSIS_CONFIG_LOG=yes" if build.with? "advanced-logging"
     args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
     scons "makensis", *args
@@ -63,7 +57,7 @@ class Makensis < Formula
 
   test do
     system "#{bin}/makensis", "-VERSION"
-    (testpath/"test.nsi").write <<-EOS.undent
+    (testpath/"test.nsi").write <<~EOS
       # name the installer
       OutFile "test.exe"
       # default section start; every NSIS script has at least one section.

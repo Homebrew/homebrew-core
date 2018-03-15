@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://dl.bintray.com/rabbitmq/binaries/rabbitmq-server-generic-unix-3.6.12.tar.xz"
-  sha256 "1c20bcfbcea922f1ceb14c95d2ad1211add4e1b03ba8491405640c384ea5a8df"
+  url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.4/rabbitmq-server-generic-unix-3.7.4.tar.xz"
+  sha256 "a00b6067ab8f6ea1644fd88f128e3d045b71600c9e0a65021e12453e6000bdb0"
 
   bottle :unneeded
 
@@ -34,7 +34,7 @@ class Rabbitmq < Formula
     rabbitmq_env_conf = etc/"rabbitmq/rabbitmq-env.conf"
     rabbitmq_env_conf.write rabbitmq_env unless rabbitmq_env_conf.exist?
 
-    # Enable plugins - management web UI and visualiser; STOMP, MQTT, AMQP 1.0 protocols
+    # Enable plugins - management web UI; STOMP, MQTT, AMQP 1.0 protocols
     enabled_plugins_path = etc/"rabbitmq/enabled_plugins"
     enabled_plugins_path.write "[rabbitmq_management,rabbitmq_stomp,rabbitmq_amqp1_0,rabbitmq_mqtt]." unless enabled_plugins_path.exist?
 
@@ -49,12 +49,12 @@ class Rabbitmq < Formula
     (bash_completion/"rabbitmqadmin.bash").write Utils.popen_read("#{sbin}/rabbitmqadmin --bash-completion")
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     Management Plugin enabled by default at http://localhost:15672
     EOS
   end
 
-  def rabbitmq_env; <<-EOS.undent
+  def rabbitmq_env; <<~EOS
     CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
     NODE_IP_ADDRESS=127.0.0.1
     NODENAME=rabbit@localhost
@@ -63,7 +63,7 @@ class Rabbitmq < Formula
 
   plist_options :manual => "rabbitmq-server"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
     "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -79,7 +79,7 @@ class Rabbitmq < Formula
         <dict>
           <!-- need erl in the path -->
           <key>PATH</key>
-          <string>#{HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
+          <string>#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
           <!-- specify the path to the rabbitmq-env.conf file -->
           <key>CONF_ENV_FILE</key>
           <string>#{etc}/rabbitmq/rabbitmq-env.conf</string>

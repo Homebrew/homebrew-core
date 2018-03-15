@@ -7,6 +7,7 @@ class Oauth2Proxy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "062e2e65e4a9e233eeb94b711b642eb061f9eee949ef43e10845353b8fbcb9d8" => :high_sierra
     sha256 "48fde51ae6c8f7c1ea348526117953ced48616c0e9a7678867c31998fdc13612" => :sierra
     sha256 "56c173bc0afde492037cd5c572ae600562058ae0c9c0dc8b0155d902332bbe37" => :el_capitan
     sha256 "bf940346696e4c891da94647640886d5aa78c261649730ddb08bc7efc3bea63e" => :yosemite
@@ -26,14 +27,14 @@ class Oauth2Proxy < Formula
     (etc/"oauth2_proxy").install "contrib/oauth2_proxy.cfg.example"
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
     #{etc}/oauth2_proxy/oauth2_proxy.cfg must be filled in.
     EOS
   end
 
   plist_options :manual => "oauth2_proxy"
 
-  def plist; <<-EOS.undent
+  def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">

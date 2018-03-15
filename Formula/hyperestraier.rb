@@ -10,7 +10,7 @@ class EucjpMecabIpadicRequirement < Requirement
 
   def message
     if @mecab_ipadic_installed
-      <<-EOS.undent
+      <<~EOS
         Hyper Estraier supports only the EUC-JP version of MeCab-IPADIC.
         However, you have installed the #{mecab_dic_charset} version so far.
 
@@ -29,7 +29,7 @@ class EucjpMecabIpadicRequirement < Requirement
             $ brew install hyperestraier
       EOS
     else
-      <<-EOS.undent
+      <<~EOS
         An EUC-JP version of MeCab-IPADIC is required. You have to install your
         mecab-ipadic package manually with the --with-charset=euc option before
         resuming the hyperestraier installation, or you have to build hyperestraier

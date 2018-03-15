@@ -1,15 +1,13 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.20.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gegl/gegl_0.3.20.orig.tar.bz2"
-  sha256 "821568d17dc92a46f6105644c4f4d497daea2be794006140a016ed34e05eb084"
+  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.28.tar.bz2"
+  sha256 "152f87604a5a191775329dfb63764efa1d5c32403d1438da68e242f96b7d23ff"
 
   bottle do
-    sha256 "b4d34a41ea043965e04128dc62208b5845e273487aae2cd3fc777ddf72de06ef" => :high_sierra
-    sha256 "47259d001b9f169c0514af1e171d8178ffa1690b5985a33be8d19c431316e246" => :sierra
-    sha256 "52715a437f3311a576278669d32ed17c2cce469df531a99d740ffca7ff1c2ae3" => :el_capitan
-    sha256 "dbb07b8f6f434331c4a3f53776f5eece7f9fb1b78ce7dbcef2d82e1bfb90e8d0" => :yosemite
+    sha256 "7580d3d2bbe103eaf350960b8a22ce5f63c8c029bab9dd861ca0fbf89376dd6d" => :high_sierra
+    sha256 "135f49765e4f34b06f8dbac9a84a7d35f53846fe009a8389564f0b33ce0d5d4e" => :sierra
+    sha256 "9e5f682bba155c4e95dd04cf42af1a4d7d59081e05007e4fc58ae465bdbab4ee" => :el_capitan
   end
 
   head do
@@ -26,9 +24,9 @@ class Gegl < Formula
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libpng"
-  depends_on "jpeg"
   depends_on "cairo" => :optional
   depends_on "librsvg" => :optional
   depends_on "lua" => :optional
@@ -38,16 +36,24 @@ class Gegl < Formula
   conflicts_with "coreutils", :because => "both install `gcut` binaries"
 
   def install
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-docs
+      --without-jasper
+      --without-umfpack
+    ]
+
+    args << "--without-cairo" if build.without? "cairo"
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-docs"
+    system "./configure", *args
     system "make", "install"
   end
 
   test do
-    (testpath/"test.c").write <<-EOS.undent
+    (testpath/"test.c").write <<~EOS
       #include <gegl.h>
       gint main(gint argc, gchar **argv) {
         gegl_init(&argc, &argv);

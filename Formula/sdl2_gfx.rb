@@ -1,16 +1,14 @@
 class Sdl2Gfx < Formula
   desc "SDL2 graphics drawing primitives and other support functions"
   homepage "http://cms.ferzkopp.net/index.php/software/13-sdl-gfx"
-  url "http://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.1.tar.gz"
-  sha256 "d69bcbceb811b4e5712fbad3ede737166327f44b727f1388c32581dbbe8c599a"
+  url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.3.tar.gz"
+  sha256 "a4066bd467c96469935a4b1fe472893393e7d74e45f95d59f69726784befd8f8"
 
   bottle do
     cellar :any
-    sha256 "d52ce733fb3dc06e64529bf39687bdd9ed314b50e56bd98db9b1e8f78cfa6462" => :high_sierra
-    sha256 "128cb3987760ae5602e11520be79aeddc9717a827e66e93658556c92a1f4f56c" => :sierra
-    sha256 "bee90056a343bd99bbd437b8ccf22ae112780602f533c3de23c384ac86063977" => :el_capitan
-    sha256 "a3dc0c6eb41221f71781038f6705c36761c9489947eb418adc013e7a6ab00045" => :yosemite
-    sha256 "e7888e8bbdbda56ec2941b53a74482d1d74c3e321b632af1099d909d209497cd" => :mavericks
+    sha256 "fb9dcdd449ce4f71e30556975e193b6f2cd1e67488c631f648bd825c1fc09f97" => :high_sierra
+    sha256 "5f65128809ec994585f79c338f1328d74ee7026ab15c3e2d5941aa4856f9b95b" => :sierra
+    sha256 "b50afba34ca19059fc84e893738d449504d4b68fd130f155368b1d4d05d2233a" => :el_capitan
   end
 
   depends_on "sdl2"

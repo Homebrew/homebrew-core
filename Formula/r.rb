@@ -1,25 +1,24 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.rstudio.com/src/base/R-3/R-3.4.1.tar.gz"
-  sha256 "02b1135d15ea969a3582caeb95594a05e830a6debcdb5b85ed2d5836a6a3fc78"
-  revision 2
+  url "https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz"
+  sha256 "7a3cb831de5b4151e1f890113ed207527b7d4b16df9ec6b35e0964170007f426"
+  revision 1
 
   bottle do
-    sha256 "54ab8b6cb2d680e93d4a4e21f4477366073f4a8b693017dfe69d7084993ad622" => :high_sierra
-    sha256 "9e142bd997897eae4cf785a2ffc712557237c10f191369f338b1b23f02c78954" => :sierra
-    sha256 "8b2cd74e219afb9477a4459aa7096190e0d19ac7f8ff02410026febcc897d749" => :el_capitan
-    sha256 "123be38bdb449655f0b66043af5c1b756f752004117b0cc31385b667600f4f38" => :yosemite
+    sha256 "49f0c4d16ae8ee11cbb06da9d2ed10371e3d1099117f72b0850ab3a47d88c514" => :high_sierra
+    sha256 "d4cb1268d6adeb1ee6be0e85b7f1f257277f3fd9666f3a9ab0e1b24b216ce2ab" => :sierra
+    sha256 "361c2934f40bc20fca7e0db3c25291095155a473c663f64a0b028f9dd7c0940d" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "pcre"
   depends_on "readline"
   depends_on "xz"
-  depends_on :fortran
   depends_on "openblas" => :optional
   depends_on :java => :optional
 

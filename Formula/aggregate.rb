@@ -1,7 +1,6 @@
 class Aggregate < Formula
   desc "Optimizes lists of prefixes to reduce list lengths"
-  # Note - Freecode is no longer being updated.
-  homepage "http://freecode.com/projects/aggregate/"
+  homepage "https://web.archive.org/web/20160716192438/freecode.com/projects/aggregate/"
   url "https://ftp.isc.org/isc/aggregate/aggregate-1.6.tar.gz"
   sha256 "166503005cd8722c730e530cc90652ddfa198a25624914c65dffc3eb87ba5482"
 
@@ -34,7 +33,7 @@ class Aggregate < Formula
 
   test do
     # Test case taken from here: http://horms.net/projects/aggregate/examples.shtml
-    test_input = <<-EOS.undent
+    test_input = <<~EOS
       10.0.0.0/19
       10.0.255.0/24
       10.1.0.0/24
@@ -45,7 +44,7 @@ class Aggregate < Formula
       10.1.3.0/25
     EOS
 
-    expected_output = <<-EOS.undent
+    expected_output = <<~EOS
       10.0.0.0/19
       10.0.255.0/24
       10.1.0.0/23

@@ -1,15 +1,14 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.4.2/sleuthkit-4.4.2.tar.gz"
-  sha256 "135964463f4b0a58fcd95fdf731881fcd6f2f227eeb8ffac004880c8e4d8dd53"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.0/sleuthkit-4.6.0.tar.gz"
+  sha256 "f52a08ab0de078182c0f2d19d3e1b341424a9e0c1633a61c3b892fb38f9acb97"
 
   bottle do
     cellar :any
-    sha256 "7ea055e4657be61ef7e37fd9103c8d7d12feb241d2eda0b1a75fa804a3a321cc" => :high_sierra
-    sha256 "58e1527d98ad4284fb5a4f78e315d4c8626a618c5f47035761ca3b0e147b152d" => :sierra
-    sha256 "6afe4510ae6e1c707f3f5e3e7ad40e9c539bfea3f5ac45f25949a8c4ab5a536d" => :el_capitan
-    sha256 "eda246e21dbf2974eb352c0ff57c313a4d8778526c16cc977c4fa807d4cbf12a" => :yosemite
+    sha256 "d418bac269354588ffd2d16ed9f52bdde27a712333c34dab26ef816c210196c6" => :high_sierra
+    sha256 "cf98bd7df825bb78b3f7066da21fd65f55fe273023e16d08f448bc5c3f69c1c5" => :sierra
+    sha256 "dd9aaa5cba9a55db4132a31c308fc111e8bd1b66f7fa1255e045ffa110a7a6ba" => :el_capitan
   end
 
   option "with-jni", "Build Sleuthkit with JNI bindings"
@@ -20,7 +19,7 @@ class Sleuthkit < Formula
 
   if build.with? "jni"
     depends_on :java
-    depends_on :ant => :build
+    depends_on "ant" => :build
   end
 
   conflicts_with "irods", :because => "both install `ils`"

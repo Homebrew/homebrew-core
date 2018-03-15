@@ -28,7 +28,7 @@ class Webalizer < Formula
   test do
     (testpath/"test.log").write "127.0.0.1 user-identifier homebrew [10/Oct/2000:13:55:36 -0700] \"GET /beer.gif HTTP/1.0\" 200 2326"
     system "#{bin}/webalizer", "-c", etc/"webalizer.conf.sample", testpath/"test.log"
-    assert File.exist? "usage.png"
-    assert File.exist? "index.html"
+    assert_predicate testpath/"usage.png", :exist?
+    assert_predicate testpath/"index.html", :exist?
   end
 end
