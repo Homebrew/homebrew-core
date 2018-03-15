@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v2.4.5.tar.gz"
-  sha256 "cd292a0395702fd1e7ee84f5f4018f037bc91a1d4723f54bfbaa771f46e67422"
+  url "https://github.com/xmrig/xmrig/archive/v2.5.0.tar.gz"
+  sha256 "f05e07daa870fa341b44821c35860c450bab1131a11ecc87c240128a8b178690"
 
   bottle do
     cellar :any
