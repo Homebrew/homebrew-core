@@ -7,10 +7,9 @@ class BoostPythonAT159 < Formula
 
   bottle do
     cellar :any
-    sha256 "ba33ce18f24b422ec0440400e8418456b6b1de04c111f46d55cfbb24acc15b72" => :high_sierra
-    sha256 "72e56d744c5369bcb8de95eee92182ca9cfe8e580d596473069ca69c0b23b3d6" => :sierra
-    sha256 "1adf1e1e570236fe2f67367d2ac17e83ade9d1b25e5e356bff23ce52d0117c8a" => :el_capitan
-    sha256 "ad13c2d6ceaec797943327a08babffc6d284fe89ec7f60170a362fa134e1429b" => :yosemite
+    sha256 "3aeba5e1e8a29f40ee518787d06323762c8fed8dff7510d71e075d744c2e529a" => :high_sierra
+    sha256 "00434235b9857114ec0d23f0023190f40b3e541b7b7448eb09363d293c03b648" => :sierra
+    sha256 "df22f5aa11aaf8b39915be0f5bb45bc22878c77755ba1e99a393151b62c289a0" => :el_capitan
   end
 
   keg_only :versioned_formula
