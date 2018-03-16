@@ -13,8 +13,8 @@ class BzrRewrite < Formula
   end
 
   test do
-    file_path1 = (testpath/"foo/trunk/file1.txt").to_s
-    file_path2 = (testpath/"foo/b1/file2.txt").to_s
+    file_path1 = testpath/"foo/trunk/file1.txt"
+    file_path2 = testpath/"foo/b1/file2.txt"
 
     system "bzr", "whoami", "Homebrew"
     system "bzr", "init-repo", "foo"
@@ -22,26 +22,26 @@ class BzrRewrite < Formula
     cd "foo" do
       system "bzr", "init", "trunk"
       cd "trunk" do
-        open(file_path1, "w") { |f| f.puts "change" }
+        file_path1.write "change"
         system "bzr", "add"
         system "bzr", "commit", "-m", "trunk 1"
       end
 
       system "bzr", "branch", "trunk", "b1"
       cd "b1" do
-        open(file_path2, "w") { |f| f.puts "change" }
+        file_path2.write "change"
         system "bzr", "add"
         system "bzr", "commit", "-m", "branch 1"
 
-        open(file_path2, "a") { |f| f.puts "change" }
+        file_path2.append_lines "change"
         system "bzr", "commit", "-m", "branch 2"
       end
 
       cd "trunk" do
-        open(file_path1, "a") { |f| f.puts "change" }
+        file_path1.append_lines "change"
         system "bzr", "commit", "-m", "trunk 2"
 
-        open(file_path1, "a") { |f| f.puts "change" }
+        file_path1.append_lines "change"
         system "bzr", "commit", "-m", "trunk 3"
       end
 
