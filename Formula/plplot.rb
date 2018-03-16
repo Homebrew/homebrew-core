@@ -3,7 +3,7 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.13.0%20Source/plplot-5.13.0.tar.gz"
   sha256 "ec36bbee8b03d9d1c98f8fd88f7dc3415560e559b53eb1aa991c2dcf61b25d2b"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7873de96195718c4af1ce1165690317e4d6facc819d9c25e49768fbbbb042a95" => :high_sierra
@@ -16,7 +16,6 @@ class Plplot < Formula
   depends_on "cairo"
   depends_on "freetype"
   depends_on "gcc" # for gfortran
-  depends_on "libtool" => :run
   depends_on "pango"
   depends_on :java => :optional
   depends_on :x11 => :optional
@@ -33,6 +32,7 @@ class Plplot < Formula
       -DPLD_xcairo=OFF
       -DPLD_wxwidgets=OFF
       -DENABLE_wxwidgets=OFF
+      -DENABLE_DYNDRIVERS=OFF
     ]
     args << "-DENABLE_java=OFF" if build.without? "java"
     args << "-DPLD_xwin=OFF" if build.without? "x11"
@@ -55,7 +55,7 @@ class Plplot < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test", "-I#{include}/plplot", "-L#{lib}",
-                   "-lcsirocsa", "-lltdl", "-lm", "-lplplot", "-lqsastime"
+                   "-lcsirocsa", "-lm", "-lplplot", "-lqsastime"
     system "./test"
   end
 end
