@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.22.1-src.tar.gz"
-    sha256 "8b7a42bdd6eb205a8c533eb41b5c42389a88158d060aed1e0f461f68c1fd3fd3"
+    url "https://static.rust-lang.org/dist/rustc-1.24.1-src.tar.gz"
+    sha256 "3ea53d45e8d2e9a41afb3340cf54b9745f845b552d802d607707cf04450761ef"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.22.0",
-          :revision => "3423351a5d75ac7377bb15987842aadcfd068ad2"
+          :tag => "0.25.0",
+          :revision => "8c93e089536467783957fec23b0f2627bb6ce357"
     end
 
     resource "racer" do
@@ -19,9 +19,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "f20bd883470995e102ce4a76a074d10f53b17a9359c9065b1781ce37da6faaf3" => :high_sierra
-    sha256 "e281337dfd6a0291f231e4efc9fe72e3fc8a070b7e41c69944ddfc4371d350dc" => :sierra
-    sha256 "5791955f53485bbe4ec6b2ffa7ce837e63630996ccebb775962a245911bdc6ee" => :el_capitan
+    sha256 "47eb6c2033982c0e69c4f26b7e3064452bb6c39dc20dc25b4b63a7b0eca64856" => :high_sierra
+    sha256 "fb7409f7ae34f136199a19dfe93e9a69c8fa67f3e1f7e35ca0e436a20acdb0a1" => :sierra
+    sha256 "f098dfc90d7630bb6909ce919d71b655543cf39fca194b684b1dabeac0cb8f52" => :el_capitan
   end
 
   head do
@@ -52,14 +52,19 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2017-10-12/cargo-0.22.0-x86_64-apple-darwin.tar.gz"
-    sha256 "8968697ae6eef3b178438a6d5563f531e499308dcea7f4915665dbcec54c851a"
+    url "https://static.rust-lang.org/dist/2018-01-04/cargo-0.24.0-x86_64-apple-darwin.tar.gz"
+    sha256 "b6f7c662ea75a94f5a5e41c2fee95f09a5ba168429ac8cdd41f6ba2c78d1b07f"
   end
 
   def install
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+    # Prevent cargo from linking against a different library (like openssl@1.1)
+    # from libssh2 and causing segfaults
+    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
+    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
 
     # Fix build failure for cmake v0.1.24 "error: internal compiler error:
     # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for

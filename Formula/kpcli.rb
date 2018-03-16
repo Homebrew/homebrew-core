@@ -1,15 +1,14 @@
 class Kpcli < Formula
   desc "Command-line interface to KeePass database files"
   homepage "https://kpcli.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.1.pl"
-  sha256 "f1f07704a30d0eae126717d5dae0d24ccced43c316454e4a7b868fe0a239a21a"
-  revision 2
+  url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.2.pl"
+  sha256 "615a1bae19ed0c132076a809b162a66ea0dc22c1d992a8c6e1f2e1aaedfae687"
 
   bottle do
     cellar :any
-    sha256 "390fa6b02583a52c1366eb973f7b9c33378d141ae51dca8e43ce5cf7af5c1b78" => :high_sierra
-    sha256 "eddb81e2651f4059dc693815b998b1654f4263f8dacb47b9b2bf9ec961747979" => :sierra
-    sha256 "6674de4994678bd403908abb50927cec118e2e4423f39306011e5f2f951e3b75" => :el_capitan
+    sha256 "4485a38bd908295b8f738d866280d35ab0216bfa3de58c1feb0833b90fac0acd" => :high_sierra
+    sha256 "7b0dafa06f46018a7c339debafdc192b062d0056700d804f4750759beae31528" => :sierra
+    sha256 "2c2fad454c54b2ce0cab0ae750345d28a96e24e6fb985db0497f701cbe246bea" => :el_capitan
   end
 
   depends_on "readline"
@@ -50,13 +49,13 @@ class Kpcli < Formula
   end
 
   resource "Mac::Pasteboard" do
-    url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.008.tar.gz"
-    sha256 "62e5f55c423d033f8f5caff5d1678bb0b327144655aeaeb48a11cf633baa8f15"
+    url "https://cpan.metacpan.org/authors/id/W/WY/WYANT/Mac-Pasteboard-0.009.tar.gz"
+    sha256 "85b1d5e9630973b997c3c1634e2df964d6a8d6cb57d9abe1f7093385cf26cf54"
   end
 
   resource "Capture::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.44.tar.gz"
-    sha256 "3ad2bb950a112c282a90018e91e60ddc4c4d2d351de2869d46a8c3db5b611160"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.46.tar.gz"
+    sha256 "5d7a6a830cf7f2b2960bf8b8afaac16a537ede64f3023827acea5bd24ca77015"
   end
 
   def install

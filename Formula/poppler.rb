@@ -3,6 +3,7 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.62.0.tar.xz"
   sha256 "5b9a73dfd4d6f61d165ada1e4f0abd2d420494bf9d0b1c15d0db3f7b83a729c6"
+  head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
     sha256 "e7ef8133d2a55b7b9d060e1bb39e85daa421805315b78cdaac2eb74e6ee7e50b" => :high_sierra
@@ -12,6 +13,7 @@ class Poppler < Formula
 
   option "with-qt", "Build Qt5 backend"
   option "with-little-cms2", "Use color management system"
+  option "with-nss", "Use NSS library for PDF signature validation"
 
   deprecated_option "with-qt4" => "with-qt"
   deprecated_option "with-qt5" => "with-qt"
@@ -31,6 +33,7 @@ class Poppler < Formula
   depends_on "openjpeg"
   depends_on "qt" => :optional
   depends_on "little-cms2" => :optional
+  depends_on "nss" => :optional
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"

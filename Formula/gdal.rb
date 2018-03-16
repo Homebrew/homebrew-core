@@ -1,16 +1,14 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/1.11.5/gdal-1.11.5.tar.gz"
+  url "https://download.osgeo.org/gdal/1.11.5/gdal-1.11.5.tar.gz"
   sha256 "49f99971182864abed9ac42de10545a92392d88f7dbcfdb11afe449a7eb754fe"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 1
-    sha256 "4d084ada89aa6461c48730686ae157ae0f3447cc7b04aa11ffecb3e19feb81a7" => :high_sierra
-    sha256 "69dcd735eb3543c602e65d2b35be1f09dd62724d8673571397f2802a38d5e3de" => :sierra
-    sha256 "4d960f47450a62f7b59fa3d83691c8379111f6d00ad7231774d21bdcc45ebcc2" => :el_capitan
-    sha256 "4107e0b06a0466f37f5ffe8dfddae8ccc8eafce8c187ccf4382a3986851115bb" => :yosemite
+    sha256 "901a1d33495d56509ec7732f7bf98d5c6613e2b3b6bee0fc1826a1cc57de083d" => :high_sierra
+    sha256 "709cab454bd5e6d5ebbef98fb937aaf0197b4050448244f9f88e4837604dcace" => :sierra
+    sha256 "774ab29909894c4c897e8f969f8c41286da8668d3ef875ab275878bde1ab3a98" => :el_capitan
   end
 
   head do
@@ -24,14 +22,17 @@ class Gdal < Formula
   option "with-unsupported", "Allow configure to drag in any library it can find. Invoke this at your own risk."
   option "with-mdb", "Build with Access MDB driver (requires Java 1.6+ JDK/JRE, from Apple or Oracle)."
   option "with-libkml", "Build with Google's libkml driver (requires libkml --HEAD or >= 1.3)"
-  option "with-swig-java", "Build the swig java bindings"
-  option "without-python", "Build without python2 support"
+  option "with-java", "Build the java bindings with swig"
+  option "without-python@2", "Build without python2 support"
 
   deprecated_option "enable-opencl" => "with-opencl"
   deprecated_option "enable-armadillo" => "with-armadillo"
   deprecated_option "enable-unsupported" => "with-unsupported"
   deprecated_option "enable-mdb" => "with-mdb"
   deprecated_option "complete" => "with-complete"
+  deprecated_option "with-swig-java" => "with-java"
+  deprecated_option "without-python" => "without-python@2"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "libpng"
   depends_on "jpeg"
@@ -47,8 +48,8 @@ class Gdal < Formula
   depends_on "freexl"
   depends_on "libspatialite"
 
-  depends_on :postgresql => :optional
-  depends_on :mysql => :optional
+  depends_on "postgresql" => :optional
+  depends_on "mysql" => :optional
   depends_on "armadillo" => :optional
 
   if build.with? "libkml"
@@ -78,16 +79,21 @@ class Gdal < Formula
     depends_on "json-c"
   end
 
-  depends_on :java => ["1.7+", :optional, :build]
+  # Technically 1.7+ but definitely not Java 9.
+  # "bootstrap class path not set in conjunction with -source 1.4"
+  depends_on :java => ["1.8", :optional]
 
-  if build.with? "swig-java"
+  if build.with? "java"
     depends_on "ant" => :build
     depends_on "swig" => :build
   end
 
-  depends_on :python => :optional if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
-  depends_on :fortran => :build if build.with?("python") || build.with?("python3")
+  depends_on "python@2" => :optional if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
+
+  if build.with?("python") || build.with?("python@2")
+    depends_on "gcc" => :build # for gfortran
+  end
 
   # Extra linking libraries in configure test of armadillo may throw warning
   # see: https://trac.osgeo.org/gdal/ticket/5455
@@ -101,7 +107,7 @@ class Gdal < Formula
   end
 
   resource "numpy" do
-    url "https://pypi.python.org/packages/source/n/numpy/numpy-1.9.3.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/n/numpy/numpy-1.9.3.tar.gz"
     sha256 "c3b74d3b9da4ceb11f66abd21e117da8cf584b63a0efbd01a9b7e91b693fbbd6"
   end
 
@@ -298,16 +304,19 @@ class Gdal < Formula
       end
     end
 
-    if build.with? "swig-java"
+    if build.with? "java"
       cd "swig/java" do
-        inreplace "java.opt", "linux", "darwin"
-        inreplace "java.opt", "#JAVA_HOME = /usr/lib/jvm/java-6-openjdk/", "JAVA_HOME=$(shell echo $$JAVA_HOME)"
+        inreplace "java.opt" do |s|
+          s.gsub! "linux", "darwin"
+          s.gsub! "#JAVA_HOME = /usr/lib/jvm/java-6-openjdk/",
+                  "JAVA_HOME = $(shell #{Language::Java.java_home_cmd("1.8")})"
+        end
         system "make"
         system "make", "install"
 
         # Install the jar that complements the native JNI bindings
         system "ant"
-        lib.install "gdal.jar"
+        (pkgshare/"java").install "gdal.jar"
       end
     end
 
@@ -323,7 +332,7 @@ class Gdal < Formula
         To have a functional MDB driver, install supporting .jar files in:
           `/Library/Java/Extensions/`
 
-        See: `http://www.gdal.org/ogr/drv_mdb.html`
+        See: `http://www.gdal.org/drv_mdb.html`
       EOS
     end
   end

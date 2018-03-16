@@ -12,17 +12,11 @@ class Libtins < Formula
     sha256 "0989cb076d13ab1d40a0a581ab56f0891a469de25219677a1f9323b89e728f2d" => :el_capitan
   end
 
-  option :cxx11
-
   depends_on "cmake" => :build
   depends_on "openssl"
 
   def install
-    ENV.cxx11 if build.cxx11?
-    args = std_cmake_args
-    args << "-DLIBTINS_ENABLE_CXX11=1" if build.cxx11?
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
     doc.install "examples"
   end

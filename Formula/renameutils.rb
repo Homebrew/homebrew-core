@@ -1,6 +1,6 @@
 class Renameutils < Formula
   desc "Tools for file renaming"
-  homepage "http://www.nongnu.org/renameutils/"
+  homepage "https://www.nongnu.org/renameutils/"
   url "https://download.savannah.gnu.org/releases/renameutils/renameutils-0.12.0.tar.gz"
   sha256 "cbd2f002027ccf5a923135c3f529c6d17fabbca7d85506a394ca37694a9eb4a3"
   revision 1

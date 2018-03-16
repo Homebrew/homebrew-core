@@ -1,13 +1,13 @@
 class Glade < Formula
   desc "RAD tool for the GTK+ and GNOME environment"
   homepage "https://glade.gnome.org/"
-  url "https://download.gnome.org/sources/glade/3.20/glade-3.20.2.tar.xz"
-  sha256 "07d1545570951aeded20e9fdc6d3d8a56aeefe2538734568c5335be336c6abed"
+  url "https://download.gnome.org/sources/glade/3.22/glade-3.22.0.tar.xz"
+  sha256 "6c66843a5883bbeb0dde4fdc0d19f6572dd23671aa2c3fdab4e4eb2889bff3c8"
 
   bottle do
-    sha256 "ac87e6105abb447609d5eec17e38606b558a1931dced66c708a32ba65ff5a1ac" => :high_sierra
-    sha256 "e61b53f6b7aab37ac47bb91825c0504fd615d152e310d990ed238b0af503b8f7" => :sierra
-    sha256 "567f482c5b8efedd1e1bdccffa8f9a10d6ddcdeddb19fb5dcb67dedc27c381e9" => :el_capitan
+    sha256 "e6ff1562e119566cee21b27a7d4c17920d59f4223e61db9a81e540e231ccb9a8" => :high_sierra
+    sha256 "7ca1d4b8aa71ad9d73324340c1abf1065072c818999118a61c412cdc87422664" => :sierra
+    sha256 "a626752192c44d9e04b52657a2feb6c53d9cd21ccc65cef6c3f0e307bb84c0cd" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

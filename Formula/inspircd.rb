@@ -19,7 +19,7 @@ class Inspircd < Formula
   depends_on "pkg-config" => :build
   depends_on "geoip" => :optional
   depends_on "gnutls" => :optional
-  depends_on :mysql => :optional
+  depends_on "mysql" => :optional
   depends_on "openssl" => :optional
   depends_on "pcre" => :optional
   depends_on "postgresql" => :optional

@@ -1,16 +1,16 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0192.tar.gz"
-  version "0.192"
-  sha256 "13ccc4e334a73a727e44dbfed6d3dd33b3c193542856d5ac081a64254b781537"
+  url "https://github.com/mamedev/mame/archive/mame0195.tar.gz"
+  version "0.195"
+  sha256 "b18d0e23ecf6b218c43a6770213c850b3c605ead9d29301de34101ed14c28a57"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "c5215bb423e4ef39ea9ef9223d7350342b95151976ef64d90b1dbc57e4779c01" => :high_sierra
-    sha256 "8c484bafb184d2adb9be9816ac95b0a31a8370cb8e600121a976dfe7bf66b16c" => :sierra
-    sha256 "57fb62b47fd78ea4186954a24b7fceffb6422f47c32492882c0f9c5f4c1c9f1f" => :el_capitan
+    sha256 "d1c047e4fae53ca8939fbcefaa32e2f5d4da8f40d29242b012550d8e39cab40d" => :high_sierra
+    sha256 "ca2dddf314d0810e3459c6ee364764b7457e8d69b147a2570df60b7ec4955a50" => :sierra
+    sha256 "df5792d89a5476b5c36f3a41c7368a53c8df7d5860452918102cb4e7e59bf7c2" => :el_capitan
   end
 
   depends_on :macos => :yosemite
@@ -19,6 +19,7 @@ class Mame < Formula
   depends_on "sdl2"
   depends_on "jpeg"
   depends_on "flac"
+  depends_on "lua"
   depends_on "sqlite"
   depends_on "portmidi"
   depends_on "portaudio"
@@ -40,7 +41,7 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_JPEG=1",
                    "USE_SYSTEM_LIB_FLAC=1",
-                   "USE_SYSTEM_LIB_LUA=", # Homebrew's lua@5.3 can't build with MAME yet.
+                   "USE_SYSTEM_LIB_LUA=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
                    "USE_SYSTEM_LIB_PORTMIDI=1",
                    "USE_SYSTEM_LIB_PORTAUDIO=1",

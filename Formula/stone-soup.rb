@@ -1,13 +1,13 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/0.20/stone_soup-0.20.1.tar.xz"
-  sha256 "77d238bd859166e09bbf56127997f810d1c9794e1cf4a0d1edc0687b6f194dee"
+  url "https://crawl.develz.org/release/0.21/stone_soup-0.21.1.tar.xz"
+  sha256 "4aa309cf27ed1df56bb24be7e07099d3e2b47f9f0bc9d53d2377849a42ccbee3"
 
   bottle do
-    sha256 "f540d3696af53cdc02e139290a35bd81857f830878b0ba60fbe2546d7ee7b975" => :high_sierra
-    sha256 "5a858765714fc0241e108a99de4fd738e9cd7ea0f80a3cb06089f51120f305a3" => :sierra
-    sha256 "9c0771911aef3eff5695cd1696839029a6625c6b3e645db7728f3976658a44ac" => :el_capitan
+    sha256 "5f7b2cd8ee4e2c0b08a4ef9c0e6935395062133379eac64df21cdf5af2320505" => :high_sierra
+    sha256 "c27d34ef368192a7ba8f851224d0daadd5c7f6df626e8560d54fb07450293e5f" => :sierra
+    sha256 "daa52de0abc98a3d3143239edea0d407d8847e6d8fc3bd5231e7e2df1cf68658" => :el_capitan
   end
 
   option "with-tiles", "Enable graphic tiles and sound"

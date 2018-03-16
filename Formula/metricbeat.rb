@@ -1,16 +1,23 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v6.0.0.tar.gz"
-  sha256 "c4a8130934eb132f637e0a76ed4d764b92e7ed469abc97587a3625a61668744e"
+  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
+  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
 
   head "https://github.com/elastic/beats.git"
 
+  # Can be removed when support for compilation under go 1.9.4 is supported,
+  # potentially planned for the 6.2.3 release.
+  # Related upstream PRs:
+  # - https://github.com/elastic/beats/pull/6388
+  # - https://github.com/elastic/beats/pull/6326
+  patch :DATA
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "ffec3156e5fbe019cc14bf4a178abffdd395584f6003ddbb10839d05959f3ea0" => :high_sierra
-    sha256 "30663833a9af219adc9dcf423ff64ddddf80407508b64139fdc18d176053ebf4" => :sierra
-    sha256 "314bc6aa68d317d98cf18780600d73e81cb441c1f60a26b0b71b76b3d55e8d94" => :el_capitan
+    sha256 "c04e96878a0a0170f5e3d95a67cca6d5c298fdda435483edcb7b756782989406" => :high_sierra
+    sha256 "9d1236c5afefd8d12d698cca1b0dcd9850c057377bbc3f27ce82b8b6437f79ab" => :sierra
+    sha256 "0b038131e12c6ad912b3ea4e808fa573830e570b4967c6dfaf591fb889ca4be4" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -88,3 +95,18 @@ class Metricbeat < Formula
     end
   end
 end
+
+__END__
+diff --git a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
+index 2f5e22b64e..210779786b 100644
+--- a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
++++ b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
+@@ -5,7 +5,7 @@ package disk
+
+ /*
+ #cgo CFLAGS: -mmacosx-version-min=10.10 -DMACOSX_DEPLOYMENT_TARGET=10.10
+-#cgo LDFLAGS: -mmacosx-version-min=10.10 -lobjc -framework Foundation -framework IOKit
++#cgo LDFLAGS: -lobjc -framework Foundation -framework IOKit
+ #include <stdint.h>
+
+ // ### enough?

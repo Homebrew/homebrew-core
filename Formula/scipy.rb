@@ -3,21 +3,22 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://github.com/scipy/scipy/releases/download/v1.0.0/scipy-1.0.0.tar.xz"
   sha256 "06b23f2a5db5418957facc86ead86b7752147c0461f3156f88a3da87f3dc6739"
+  revision 3
   head "https://github.com/scipy/scipy.git"
 
   bottle do
-    sha256 "76d5ce3d0a1c0e46de46b1234cd81151ef9269b78103d3aa6bed854e79bdbed3" => :high_sierra
-    sha256 "d9119791ada778a4e3556377b1a2f654a2698e9d174cf115849c97276712ab54" => :sierra
-    sha256 "73c7d386477a7be80d1e5f58470e9f51b6889e12f941e0d83d9c7edb5d5d281a" => :el_capitan
+    sha256 "392b0e6898425a895441cbc4919c4bba87e83151513805ff8ee48393b4dd20db" => :high_sierra
+    sha256 "5d5216c4309757143271fdb1b40ea32d7c1ae02c7769d730ff167d5857e14e6d" => :sierra
+    sha256 "a1275a19e2a7576e99539961b3da753751678b86ad4d6aceb34eee7884861924" => :el_capitan
   end
 
   option "without-python", "Build without python2 support"
 
   depends_on "swig" => :build
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
   depends_on "numpy"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :recommended
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended
 
   cxxstdlib_check :skip
 
@@ -52,7 +53,7 @@ class Scipy < Formula
   end
 
   def caveats
-    if (build.with? "python") && !Formula["python"].installed?
+    if (build.with? "python@2") && !Formula["python@2"].installed?
       homebrew_site_packages = Language::Python.homebrew_site_packages
       user_site_packages = Language::Python.user_site_packages "python"
       <<~EOS

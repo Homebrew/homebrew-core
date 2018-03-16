@@ -13,7 +13,7 @@ class GnuGetopt < Formula
     sha256 "88a02cd609a91253e9b996a1fcb1e8837161673e413fe792e5d05aa3ff9a94cf" => :mountain_lion
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   depends_on "gettext"
 

@@ -1,15 +1,14 @@
 class Picocom < Formula
   desc "Minimal dumb-terminal emulation program"
   homepage "https://github.com/npat-efault/picocom"
-  url "https://github.com/npat-efault/picocom/archive/2.2.tar.gz"
-  sha256 "3e3904158d675541f0fcfdcd1f671b38445338f536080f5de8d6674b5f33d4ce"
+  url "https://github.com/npat-efault/picocom/archive/3.1.tar.gz"
+  sha256 "e6761ca932ffc6d09bd6b11ff018bdaf70b287ce518b3282d29e0270e88420bb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2f3daa26258df935d0ed277d64f213b418047998396755cdfe02559ea16642cf" => :high_sierra
-    sha256 "04be4265f5b4d5364d5b3dc9c312a8426fec03155f5eb3279e0546ce06013d0a" => :sierra
-    sha256 "0f7f8d35db1ac8c7e96f7d985a06a05eb4930dab539ca278a2544ca3f0cb329c" => :el_capitan
-    sha256 "57b523048108fb223498ad33e9d0f7ed0ca31038e5f4c64f341360b5ee24b5c2" => :yosemite
+    sha256 "7fec5e767653710fa87d0be9d97735550af70aeb32fdcba1c7c0159e9078ee1a" => :high_sierra
+    sha256 "fb1bd439cb84f2667feee5e5c125ec9a51698e7d153c56decf95502848edc621" => :sierra
+    sha256 "ec353723ddf1f785bd75bb3a0e9bd5e92adacbe5b4a86ed5dabe53d20b1a362c" => :el_capitan
   end
 
   def install

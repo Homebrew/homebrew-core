@@ -1,13 +1,13 @@
 class PostgresqlAT94 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.4.15/postgresql-9.4.15.tar.bz2"
-  sha256 "12bfb3c7e8e45515ef921ad365e122682a5c4935dcc0032644433af2de31acc4"
+  url "https://ftp.postgresql.org/pub/source/v9.4.17/postgresql-9.4.17.tar.bz2"
+  sha256 "7a320cd335052b840d209dc9688f09965763351c590e3cc7bf577591179fd7c6"
 
   bottle do
-    sha256 "806f6a8aa5fa2d27c031af1ceb2bc4afdc2dd1e35c254b28c11ce6d771895d88" => :high_sierra
-    sha256 "bd650dc72880c6d43fa69cb7a63a2691a6be956017b64548d50dbf073f5578c3" => :sierra
-    sha256 "f4c01f37b15fcd23f7f437c80c73667a1aac633e6426b0609676dae0944344c8" => :el_capitan
+    sha256 "4de12464ffdd58c47480e6ba8f1a90e8dafe552f50d464bb4c002c136682e0ba" => :high_sierra
+    sha256 "aa382b559a415c56678fa2e35447394572c9ab6718d2c20088f4735882516deb" => :sierra
+    sha256 "44a39ef02931473bcfa938806d14befc931718e80710d70707ebdb589cd580d2" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -16,9 +16,11 @@ class PostgresqlAT94 < Formula
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "openssl"
   depends_on "readline"
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
 
   fails_with :clang do
     build 211
@@ -26,6 +28,11 @@ class PostgresqlAT94 < Formula
   end
 
   def install
+    # Fix "configure: error: readline library not found"
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
     ENV.append_to_cflags "-D_XOPEN_SOURCE"
@@ -46,7 +53,7 @@ class PostgresqlAT94 < Formula
     ]
 
     args << "--with-perl" if build.with? "perl"
-    args << "--with-python" if build.with? "python"
+    args << "--with-python" if build.with? "python@2"
 
     # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
     if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
@@ -88,7 +95,7 @@ class PostgresqlAT94 < Formula
           ARCHFLAGS="-arch x86_64" gem install pg
 
         To install gems without sudo, see the Homebrew documentation:
-        https://github.com/Homebrew/brew/blob/master/docs/Gems%2C-Eggs-and-Perl-Modules.md
+          https://docs.brew.sh/Gems,-Eggs-and-Perl-Modules
       EOS
     end
 

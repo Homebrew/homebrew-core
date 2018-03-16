@@ -1,18 +1,21 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.25.2.tar.gz"
-  sha256 "e4b6ba9d4016b10249a4acc24e063d23e0c52ed6f8c1cbe4f98e7f9ef4da262a"
+  url "https://notmuchmail.org/releases/notmuch-0.26.tar.gz"
+  sha256 "d3e894ed2ad9d721a442663f07a6f2a241dc98be7cc4af681f16edf88e0d76df"
   head "git://notmuchmail.org/git/notmuch"
 
   bottle do
     cellar :any
-    sha256 "c32f237a40813d044fbfae14baa7dc361a81bdec147eec4636602e890adfacc3" => :high_sierra
-    sha256 "779e06544613fe0983b21eed5869198620e4209b5992ad526d8ed30b1778d1a8" => :sierra
-    sha256 "fd7a503ffdbe1e47f4f7e3dbc3b7cba1bb1e8d6eb1b238a5c7c6aa2448602948" => :el_capitan
+    sha256 "4a4c6981dbc9cc1061f30a9e571c729372edc52d235ac3682b6711ff19b2c136" => :high_sierra
+    sha256 "ec47c28caf199263d0c11301b42a29ce2326c3201a12ac20c687412db2c39555" => :sierra
+    sha256 "9fd854188d76d174dbd6d19eea001923403c908f33e11aff98cf135f58eb69a2" => :el_capitan
   end
 
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "libgpg-error" => :build
@@ -21,9 +24,10 @@ class Notmuch < Formula
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
-  depends_on :emacs => ["24.1", :optional]
-  depends_on :python3 => :optional
-  depends_on :ruby => ["1.9", :optional]
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "emacs" => :optional
+  depends_on "python" => :optional
+  depends_on "ruby" => :optional
 
   # Fix SIP issue with python bindings
   # A more comprehensive patch has been submitted upstream

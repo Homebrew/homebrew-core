@@ -4,15 +4,14 @@ class Gtkx < Formula
   revision 1
 
   stable do
-    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.31.tar.xz"
-    sha256 "68c1922732c7efc08df4656a5366dcc3afdc8791513400dac276009b40954658"
+    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
+    sha256 "b6c8a93ddda5eabe3bfee1eb39636c9a03d2a56c7b62828b359bf197943c582e"
   end
 
   bottle do
-    sha256 "9fdc12a30a9338224c7af6120e4dc916ae7ba557007eac348725a54adcaa2799" => :high_sierra
-    sha256 "860a8dd62ae8990a7dc3c403421fa3ee6bdf8ae810463fd5368094676b7c827d" => :sierra
-    sha256 "6be79985859e6f5a6bec18a23bf2bb5364b9f536bcd1283913d72f0cb32baa8c" => :el_capitan
-    sha256 "f18ee768ba59c29741133b7427f28ffdb2d615eb1c783d5b2995249b8b473086" => :yosemite
+    sha256 "d80fe106c4b1da08fcd08b12159a14dcb429a78072849e5c6dc60f4d968d1b11" => :high_sierra
+    sha256 "573bbf5a132131ecee65ca44de1e5df9cba5c937e98a18e633e9981f7e9e2545" => :sierra
+    sha256 "f0dd0031675dbaf07adbd50495af1dadf685033ae9e7e042f4450e6c5c6931b1" => :el_capitan
   end
 
   head do
@@ -63,6 +62,8 @@ class Gtkx < Formula
     end
     system "./configure", *args
     system "make", "install"
+
+    inreplace bin/"gtk-builder-convert", %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
   end
 
   test do

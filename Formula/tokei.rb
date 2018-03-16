@@ -1,14 +1,13 @@
 class Tokei < Formula
   desc "Program that allows you to count code, quickly"
   homepage "https://github.com/Aaronepower/tokei"
-  url "https://github.com/Aaronepower/tokei/archive/v6.1.2.tar.gz"
-  sha256 "736bab89800c397acc3be961af12b80acc2ca71dc990792fff8935018a2f0698"
+  url "https://github.com/Aaronepower/tokei/archive/v7.0.1.tar.gz"
+  sha256 "71c9be9ad04bc66501f5f54e74b5cf5e56fc1392ceead5525b743006145ac3a9"
 
   bottle do
-    sha256 "53ccc42b89ad19fad28ce1e043d5776f10ea32d8aad6d2810198612d2ff64c69" => :high_sierra
-    sha256 "9ec430a5d41ffd3dea4001842c269193190adcc4968cb405754a65cb5bd5e955" => :sierra
-    sha256 "9e3ec9a5dd0aaf6289871c9fcdcd37139349871e95931b6febe306e5388b932e" => :el_capitan
-    sha256 "4747f489aaa9701939e7c25039b1137c2c53fcc19358e47c80c1717aa9ddde42" => :yosemite
+    sha256 "9ddc97082885c00d12d61da6bf6bac1889bfcf4d66371f289d47b8854ed618ad" => :high_sierra
+    sha256 "5b63b0f5fe0e2dd347a6104e3af36aae7b2de70b3e65967b9c2a0ba77e536e53" => :sierra
+    sha256 "3e497eeb0db677cd8ab57433701398438deb7a73b4c083f7c73c6a13238ac95b" => :el_capitan
   end
 
   depends_on "rust" => :build

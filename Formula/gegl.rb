@@ -1,14 +1,13 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.24.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gegl/gegl_0.3.24.orig.tar.bz2"
-  sha256 "1aa08bc262d864b067a3dee0782947d2a89807b645cb9d886776b90214939d74"
+  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.28.tar.bz2"
+  sha256 "152f87604a5a191775329dfb63764efa1d5c32403d1438da68e242f96b7d23ff"
 
   bottle do
-    sha256 "12db26344712a0bc9df10f7b584eebcdaeb8589ffee9e6ab7b5c39e523cde68a" => :high_sierra
-    sha256 "abd9fde58a58fa18b83d0c60a8f38f8c1dd765d82acf378ba36b763b891b23c2" => :sierra
-    sha256 "4051493519440251255e67859701f96287f2649fb81f3bed9a0660f1062df6ff" => :el_capitan
+    sha256 "7580d3d2bbe103eaf350960b8a22ce5f63c8c029bab9dd861ca0fbf89376dd6d" => :high_sierra
+    sha256 "135f49765e4f34b06f8dbac9a84a7d35f53846fe009a8389564f0b33ce0d5d4e" => :sierra
+    sha256 "9e5f682bba155c4e95dd04cf42af1a4d7d59081e05007e4fc58ae465bdbab4ee" => :el_capitan
   end
 
   head do
@@ -25,9 +24,9 @@ class Gegl < Formula
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libpng"
-  depends_on "jpeg"
   depends_on "cairo" => :optional
   depends_on "librsvg" => :optional
   depends_on "lua" => :optional
@@ -37,11 +36,19 @@ class Gegl < Formula
   conflicts_with "coreutils", :because => "both install `gcut` binaries"
 
   def install
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-docs
+      --without-jasper
+      --without-umfpack
+    ]
+
+    args << "--without-cairo" if build.without? "cairo"
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-docs"
+    system "./configure", *args
     system "make", "install"
   end
 

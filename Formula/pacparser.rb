@@ -13,7 +13,9 @@ class Pacparser < Formula
     sha256 "3d2092ad71629a2c71d5b88138d0ea7443247d7cd89414ef46a9cab7898b250c" => :yosemite
   end
 
-  depends_on "python" => :optional
+  deprecated_option "with-python" => "with-python@2"
+
+  depends_on "python@2" => :optional
 
   def install
     # Disable parallel build due to upstream concurrency issue.
@@ -23,7 +25,7 @@ class Pacparser < Formula
     Dir.chdir "src"
     system "make", "install",
            "PREFIX=#{prefix}"
-    if build.with? "python"
+    if build.with? "python@2"
       system "make", "install-pymod",
              "EXTRA_ARGS=\"--prefix=#{prefix}\""
     end

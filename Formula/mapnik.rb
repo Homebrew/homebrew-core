@@ -1,19 +1,19 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "http://www.mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v3.0.16/mapnik-v3.0.16.tar.bz2"
-  sha256 "0a0e6351d1a32922327555b9835d4843aade752adecadde309fa856b72dfb1b1"
-  revision 1
+  url "https://github.com/mapnik/mapnik/releases/download/v3.0.19/mapnik-v3.0.19.tar.bz2"
+  sha256 "5bf17afaf456e63021a4c948e25cf5e756782ef369226441a1e436adc3e790e9"
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
     cellar :any
-    sha256 "939eb61ad2d8a644ba3edb6f4d4cdbc7b1eb843ef1e6f45870b0f9858d1476f0" => :high_sierra
-    sha256 "9a9322f9326869e37b4f290d8d4dbc2da1aff3e37e790226e35e08d2cc10d65a" => :sierra
-    sha256 "c4cd47427d8ec71a52123fc9c10dbc9755876c9791c62c97a36fd4ac0e979dc9" => :el_capitan
+    sha256 "f41d9cb363acd3db3def9574e1a83b973ec95bb403d8284172aa7d282043ca60" => :high_sierra
+    sha256 "7ea965c66cc3978fab4754f6aa3bc064eda4f16c2b669b57dc96796439765955" => :sierra
+    sha256 "4183d1662c44bb8efad476472b94ea8c85c387bbac8e8382e1f04865937f94e8" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "boost"
   depends_on "freetype"
   depends_on "harfbuzz"
   depends_on "libpng"
@@ -25,12 +25,6 @@ class Mapnik < Formula
   depends_on "gdal" => :optional
   depends_on "postgresql" => :optional
   depends_on "cairo" => :optional
-
-  if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
 
   needs :cxx11
 

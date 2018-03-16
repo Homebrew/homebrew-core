@@ -1,18 +1,20 @@
 class OpencvAT2 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/2.4.13.4.tar.gz"
-  sha256 "f8abf1fcc2da3bb1deac8776f07b8390f871372e2a44dc355c765dd379194481"
+  url "https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz"
+  sha256 "6ecbeea11f68356b748e35f758f4406067d3a2f6339e4582c63373fa6c3f5a72"
 
   bottle do
-    sha256 "5604daf2cbb63923b5bcfed984a797bbe48bf915b7272c8588429ed8bf7c65bf" => :high_sierra
-    sha256 "a6c8afdcf22606be32b1c0d30a6c1f4e1b9534c029646f583e30efdd7087d898" => :sierra
-    sha256 "b52943718bb79e438d4c0cf695c59b27a17358672553f27182a614a4fe950b3e" => :el_capitan
+    sha256 "0b6f327f3f5ddd5365d62b44163c9d6957cf912cd04b3e6a8ea6e2d874b30fa2" => :high_sierra
+    sha256 "f43fb606dc912ed80603c06e9bf082c233b994ab05990f5bdeb568ed84cc2884" => :sierra
+    sha256 "5fe75e59452df9c0c0d1deb58d3bf0c6ec75aa1c2e6f67bd90005a3efb4cd531" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -22,8 +24,8 @@ class OpencvAT2 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on "numpy" if build.with? "python"
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "numpy" if build.with? "python@2"
 
   def install
     jpeg = Formula["jpeg"]
@@ -51,9 +53,9 @@ class OpencvAT2 < Formula
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
     ]
 
-    args << "-DBUILD_opencv_python=" + (build.with?("python") ? "ON" : "OFF")
+    args << "-DBUILD_opencv_python=" + (build.with?("python@2") ? "ON" : "OFF")
 
-    if build.with? "python"
+    if build.with? "python@2"
       py_prefix = `python-config --prefix`.chomp
       py_lib = "#{py_prefix}/lib"
       args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.dylib"
@@ -92,6 +94,6 @@ class OpencvAT2 < Formula
 
     ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
     assert_match version.to_s,
-                 shell_output("python -c 'import cv2; print(cv2.__version__)'")
+                 shell_output("python2.7 -c 'import cv2; print(cv2.__version__)'")
   end
 end

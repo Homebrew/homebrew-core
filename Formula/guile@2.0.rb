@@ -1,6 +1,7 @@
 class GuileAT20 < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
+  revision 2
 
   stable do
     url "https://ftp.gnu.org/gnu/guile/guile-2.0.14.tar.xz"
@@ -28,10 +29,9 @@ class GuileAT20 < Formula
   end
 
   bottle do
-    sha256 "37fecbd9232ab7114e887ef8daef0b68c737f2f235e54082e0210254cd5f2d57" => :high_sierra
-    sha256 "819233cec3a671c42e24c34b8ce2fd6965c594e777daef1a7ba47984860e62d5" => :sierra
-    sha256 "269bbb4ecb82b65d67d907f59b17958c7360ebb99079cb95503b90fcdd5c2c18" => :el_capitan
-    sha256 "b412e20d5d69ef696eb1d7b9a23f972e07ea455d1078e7bcb38f41df6a521f55" => :yosemite
+    sha256 "3fca39f27f821031d9c60f1a2bc6ccb083013d3b7cf205096524dd64620d428c" => :high_sierra
+    sha256 "5c9d28f80fa92deb7d958460cf37a3f93428f0ccb614e81afdfe6bfdc252052e" => :sierra
+    sha256 "ff173311b57975634fbf11d7c552ccc08e0214d01cf1a359b116588db5b3b28a" => :el_capitan
   end
 
   head do

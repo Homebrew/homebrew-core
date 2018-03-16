@@ -3,18 +3,20 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.4.tar.gz"
   sha256 "57391dfade3639e5c219463cecae2ee066c620aa29fbb89e834a7067f9b8e0c8"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "75027c787492808d86f1c0855f4f46e8c4fe6fe50bde934877b894ccd8192a73" => :high_sierra
-    sha256 "f6bb37716c95ccf157e934037fe3d8a8bcb5757d85ebbdfc7c3e2b057f2bac43" => :sierra
-    sha256 "d06585a0d493796e50c66ff38d794391cab7d66c6eb93c42cc6e2467f321767e" => :el_capitan
-    sha256 "bd1a3eff22dffabfaf55e17c7b32e9116068f253a051eeca52840eb4d747d555" => :yosemite
+    sha256 "bd077e11bfdca0049b6a0cf328325a1862e682e3342f7dedb824def2cb145511" => :high_sierra
+    sha256 "dd3b90818b60c6842e150c3f324591d7e3135bad7a224a0ca810de1b2f367549" => :sierra
+    sha256 "1a2858aef5463172589ebab10d30b639581f455605749aed275096d769b2c8c3" => :el_capitan
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+
+  # Upstream issue from 19 Dec 2017 "Build fails with Boost 1.66.0"
+  # See https://github.com/cucumber/cucumber-cpp/issues/178
+  depends_on "boost@1.60"
 
   def install
     args = std_cmake_args
@@ -31,7 +33,7 @@ class CucumberCpp < Formula
   test do
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
-    system "gem", "install", "cucumber"
+    system "gem", "install", "cucumber", "-v", "3.0.0"
 
     (testpath/"features/test.feature").write <<~EOS
       Feature: Test
@@ -54,8 +56,8 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
-           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
-           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lcucumber-cpp", "-I#{Formula["boost@1.60"].opt_include}",
+           "-L#{Formula["boost@1.60"].opt_lib}", "-lboost_regex", "-lboost_system",
            "-lboost_program_options", "-lboost_filesystem"
     begin
       pid = fork { exec "./test" }

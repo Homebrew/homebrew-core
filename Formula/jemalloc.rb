@@ -13,7 +13,7 @@ class Jemalloc < Formula
   end
 
   head do
-    url "https://github.com/jemalloc/jemalloc.git"
+    url "https://github.com/jemalloc/jemalloc.git", :branch => "dev"
 
     depends_on "autoconf" => :build
     depends_on "docbook-xsl" => :build

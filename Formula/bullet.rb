@@ -24,7 +24,7 @@ class Bullet < Formula
 
   def install
     args = std_cmake_args + %w[
-      -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF
+      -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF -DBUILD_PYBULLET=OFF
     ]
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
 
@@ -41,17 +41,27 @@ class Bullet < Formula
     args_shared += args_framework if build.with? "framework"
 
     args_static = args.dup << "-DBUILD_SHARED_LIBS=OFF"
-    args_static << "-DBUILD_BULLET2_DEMOS=OFF" if build.without? "demo"
+    if build.without? "demo"
+      args_static << "-DBUILD_BULLET2_DEMOS=OFF"
+    else
+      args_static << "-DBUILD_BULLET2_DEMOS=ON"
+    end
 
-    system "cmake", ".", *args_shared
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *args_shared
+      system "make", "install"
 
-    system "make", "clean"
+      system "make", "clean"
 
-    system "cmake", ".", *args_static
-    system "make", "install"
+      system "cmake", "..", *args_static
+      system "make", "install"
 
-    prefix.install "examples" if build.with? "demo"
+      if build.with? "demo"
+        rm_rf Dir["examples/**/Makefile", "examples/**/*.cmake", "examples/**/CMakeFiles"]
+        pkgshare.install "examples"
+        (pkgshare/"examples").install "../data"
+      end
+    end
   end
 
   test do

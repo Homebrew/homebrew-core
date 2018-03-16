@@ -37,7 +37,7 @@ class Newlisp < Formula
 
   test do
     path = testpath/"test.lsp"
-    path.write <<-EOS
+    path.write <<~EOS
       (println "hello")
       (exit 0)
     EOS

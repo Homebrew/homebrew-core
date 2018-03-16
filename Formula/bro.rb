@@ -1,14 +1,14 @@
 class Bro < Formula
   desc "Network security monitor"
   homepage "https://www.bro.org"
-  url "https://www.bro.org/downloads/bro-2.5.2.tar.gz"
-  sha256 "ab95b1bc376282919e5fa6b25b5ef8864e2e7bd5efe842db35d4a223b8f5b970"
+  url "https://www.bro.org/downloads/bro-2.5.3.tar.gz"
+  sha256 "7384fa14e6cebc86488040877fc0bfd50868e969f0fa05178cef0116e4116225"
   head "https://github.com/bro/bro.git"
 
   bottle do
-    sha256 "8f3c784b66fb018db6606e27cb02099c792a4e531678fc2b4f29f8614f15a660" => :high_sierra
-    sha256 "3c5756e18c683ab3898e849b5e94f4cac25c487de6a9f2a89c7fd20751e58825" => :sierra
-    sha256 "b71f2ab1666612dda2ba7706177781a15087151b89a15df055c5978e4746959e" => :el_capitan
+    sha256 "d2757caf4700fb383155632a1527be1236d63a46bf0a218d13cbbc9d1350826a" => :high_sierra
+    sha256 "218b72b231601661166910e3c01ed08c9a9ace421df8f5131a136deb8b860b36" => :sierra
+    sha256 "b70f3ee0e394543e0318a7af42d751a4568f0c3674f83b30d5003eb8961b34d1" => :el_capitan
   end
 
   depends_on "cmake" => :build

@@ -2,19 +2,18 @@ class PreCommit < Formula
   include Language::Python::Virtualenv
 
   desc "Framework for managing multi-language pre-commit hooks"
-  homepage "http://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.4.1.tar.gz"
-  sha256 "cc908bc0ca5f77cdb6d05d090f9b09a18514de8c82dfea3b8edffda06871f0e6"
-  revision 1
+  homepage "https://pre-commit.com/"
+  url "https://github.com/pre-commit/pre-commit/archive/v1.8.1.tar.gz"
+  sha256 "1310e58928a13bad2f840b59fc1e91619703f71287086433253dac1f0ef2b301"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4a69f93b11e059940078da025601d1a9e0636f20142d9a503b51f19ba2441826" => :high_sierra
-    sha256 "628fb9d80a7c5bbb236675cb779f29f69106507c409f45d9f85df1e41e78c323" => :sierra
-    sha256 "27861ce49ed1948c6818823cee25b939c870d82e0f7ad0f1a41777a371c2cdde" => :el_capitan
+    sha256 "d55116f44291ed4b8e84b078200a5d108df8457362decb8207a2f2f8de70d686" => :high_sierra
+    sha256 "947880ca66b338f71d9c710fc95cb99dcccc098cc9884e71c5d824b4ba09ac3a" => :sierra
+    sha256 "f5cc3c1b6b7d53825203f3a7bb207e697e60dc366d068d2f26c91e9792108d0f" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
 
   def install
     venv = virtualenv_create(libexec, "python3")
@@ -47,7 +46,16 @@ class PreCommit < Formula
             -   id: trailing-whitespace
       EOS
       system bin/"pre-commit", "install"
-      system bin/"pre-commit", "run", "--all-files"
+      (testpath/"f").write "hi\n"
+      system "git", "add", "f"
+
+      ENV["GIT_AUTHOR_NAME"] = "test user"
+      ENV["GIT_AUTHOR_EMAIL"] = "test@example.com"
+      ENV["GIT_COMMITTER_NAME"] = "test user"
+      ENV["GIT_COMMITTER_EMAIL"] = "test@example.com"
+      git_exe = which("git")
+      ENV["PATH"] = "/usr/bin:/bin"
+      system git_exe, "commit", "-m", "test"
     end
   end
 end

@@ -13,6 +13,9 @@ class BaculaFd < Formula
   depends_on "readline"
   depends_on "openssl"
 
+  conflicts_with "bareos-client",
+    :because => "Both install a `bconsole` executable."
+
   def install
     # * sets --disable-conio in order to force the use of readline
     #   (conio support not tested)

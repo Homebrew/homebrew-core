@@ -1,18 +1,19 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
+  revision 1
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-src.tar.bz2"
-    sha256 "de4bf05df47f1349dbac97233d9277bbaf1ef3331663ea2557fd5da3dbcfd0a7"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.10.0-src.tar.bz2"
+    sha256 "1209f2db718e6afda17528baa5138177a14a0938588a7d3e1b7c722c483079a8"
   end
 
   bottle do
     cellar :any
-    sha256 "83aeb36762512201370910834db8897edddb6965363b9cc524d06555ba4cb368" => :high_sierra
-    sha256 "2c82f1502a342ed4aa81b7ee005268df9446bc0cfae27097d7fb3a97b5fd487b" => :sierra
-    sha256 "7979bb0ae5adf5bca5795c5bba8d7347eeadf5e1ea6e5cb97826d9e1b172560c" => :el_capitan
+    sha256 "afb3d4ba718ea37af6fdff404bf27f87437cceb963afac6d38b1b9c59b7c2ead" => :high_sierra
+    sha256 "624137c95059bcad5b68ddd9d266b85b298d1348ba1ac62ea3dba32034b1e2b2" => :sierra
+    sha256 "5aec5e3da199c01067fae60e67c9363b7e4d9e7d242850a4b2b74ad5cad8788a" => :el_capitan
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -65,7 +66,7 @@ class Pypy < Formula
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy --targetdir . --nostrip]
+      package_args = %w[--archive-name pypy --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       system python, "package.py", *package_args
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy.tar.bz2"
@@ -139,7 +140,7 @@ class Pypy < Formula
     To update setuptools and pip between pypy releases, run:
         pip_pypy install --upgrade pip setuptools
 
-    See: https://docs.brew.sh/Homebrew-and-Python.html
+    See: https://docs.brew.sh/Homebrew-and-Python
     EOS
   end
 

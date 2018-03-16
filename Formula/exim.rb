@@ -1,13 +1,13 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.89.1.tar.bz2"
-  sha256 "1c853bc960dff0a0e51e3e28bc4a4a8165b58b41bb64ea3abb90f254d9947a8c"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.90.1.tar.xz"
+  sha256 "5c98dfd12043be5751b88ef64d5363cd99284236eaeec6316b062a7628c2f726"
 
   bottle do
-    sha256 "d4ef2c5e84cf0ced7a963c228431468b4b834969a131253ca562fad320f1776e" => :high_sierra
-    sha256 "5a8a6672132bc880a7e2dbd7382fe11170fccf939360910db088fcc9b8b7f76f" => :sierra
-    sha256 "42ea570d66db75520c86cb9f889a4f7774d72e4b1b5ae3621a8cea1853b29199" => :el_capitan
+    sha256 "4e7766c4ac809c41d87d258c056aa706f4704acd5e28e15768ac1ae5b3b9673f" => :high_sierra
+    sha256 "809ae3690e6581365f97aca7222020eb2e4ebdc31b8f529ae3fb35a38f680046" => :sierra
+    sha256 "bf8f087f3e15750160b825c2dc5a93c82115ae68568938ef086fe7a18f13e726" => :el_capitan
   end
 
   deprecated_option "support-maildir" => "with-maildir"
@@ -40,6 +40,8 @@ class Exim < Formula
     end
 
     bdb4 = Formula["berkeley-db@4"]
+
+    mv Dir["OS/unsupported/*Darwin*"], "OS"
 
     inreplace "OS/Makefile-Darwin" do |s|
       s.remove_make_var! %w[CC CFLAGS]

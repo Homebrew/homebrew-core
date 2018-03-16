@@ -5,16 +5,17 @@ class Molecule < Formula
   homepage "https://molecule.readthedocs.io"
   url "https://files.pythonhosted.org/packages/aa/0f/dc6393eed9588e477a23488fbd23efd40246fcc64815179db6c8c892f554/molecule-1.25.1.tar.gz"
   sha256 "aeafd3a6c5a0de707308006dcf727883c9daf4446d18d9e68eb97659c51ebbb0"
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "7c151fc29a57ff977b9bc86cf5c980cfb8d81dfffb63fbd7021bbf0311fe7846" => :high_sierra
-    sha256 "e9875af13103fb544161ae42a1cd4c5979d69a104f21e9c86684f6ed2d50fc13" => :sierra
-    sha256 "5c2a2ba6751aa7b6e97399bdc95707dd4e621044dfbb99c2744463445f5db855" => :el_capitan
+    sha256 "0f1161a2923864cbf310eb621d2c45a58881816efdeb0fcc8d0b61382d2027cc" => :high_sierra
+    sha256 "62d26f320c2305f7f3cd968dc88a457ee1e1ad1105cbad56142b775d37a25970" => :sierra
+    sha256 "162908de7b790f51095e8399129ad985a9ecfbe99b25a4c8ed633bf104d4fbd5" => :el_capitan
   end
 
-  depends_on :python
-  depends_on "openssl@1.1"
+  depends_on "openssl"
+  depends_on "python@2"
 
   # Collect requirements from:
   #  molecule
@@ -262,6 +263,7 @@ class Molecule < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
     virtualenv_install_with_resources
   end
 

@@ -34,11 +34,7 @@ class Diffstat < Formula
       +  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
       +  sha256 '25359e0c27183f997b36c9202583b5dc2df390c20e22a92606af4bf7856a55ee'
     EOS
-    output = `#{bin}/diffstat diff.diff`
-    diff = <<-EOS
- diffstat.rb |    5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-    EOS
-    assert_equal diff, output
+    output = shell_output("#{bin}/diffstat diff.diff")
+    assert_match "2 insertions(+), 3 deletions(-)", output
   end
 end

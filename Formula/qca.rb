@@ -31,14 +31,15 @@ class Qca < Formula
   end
 
   bottle do
-    sha256 "f4ab4894a879fd46f307b2b0a85579bab21597751e747f98dc6c6e6c280ed51a" => :high_sierra
-    sha256 "f1e667b1e659abf24cad1170de0228c44a359f90b5698ab8422790f804d91245" => :sierra
-    sha256 "a90f2bab8c7bbd0817daf660493aceaaab156db1acfa80116bf57c4ec75b6169" => :el_capitan
+    rebuild 1
+    sha256 "7fca5c9a591a204813356e3314077a628cbbff1cb5e6669355a2e26cd92765aa" => :high_sierra
+    sha256 "8dd6479be1f5cacb740915646bf9dd2fb8103df38e9f75ecfbb507ed3a0b201e" => :sierra
+    sha256 "7790fd8de8b6ee98ca8d4f687894437137d774538c209a80a340f513a8fbc159" => :el_capitan
   end
 
   option "with-api-docs", "Build API documentation"
 
-  deprecated_option "with-gnupg" => "with-gpg2"
+  deprecated_option "with-gpg2" => "with-gnupg"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -48,7 +49,7 @@ class Qca < Formula
   depends_on "openssl" # qca-ossl
   depends_on "botan" => :optional # qca-botan
   depends_on "libgcrypt" => :optional # qca-gcrypt
-  depends_on :gpg => [:optional, :run] # qca-gnupg
+  depends_on "gnupg" => :optional # qca-gnupg
   depends_on "nss" => :optional # qca-nss
   depends_on "pkcs11-helper" => :optional # qca-pkcs11
 
@@ -66,7 +67,7 @@ class Qca < Formula
     # Plugins (qca-ossl, qca-cyrus-sasl, qca-logger, qca-softstore always built)
     args << "-DWITH_botan_PLUGIN=#{build.with?("botan") ? "YES" : "NO"}"
     args << "-DWITH_gcrypt_PLUGIN=#{build.with?("libgcrypt") ? "YES" : "NO"}"
-    args << "-DWITH_gnupg_PLUGIN=#{build.with?("gpg2") ? "YES" : "NO"}"
+    args << "-DWITH_gnupg_PLUGIN=#{build.with?("gnupg") ? "YES" : "NO"}"
     args << "-DWITH_nss_PLUGIN=#{build.with?("nss") ? "YES" : "NO"}"
     args << "-DWITH_pkcs11_PLUGIN=#{build.with?("pkcs11-helper") ? "YES" : "NO"}"
 

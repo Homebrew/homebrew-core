@@ -1,18 +1,14 @@
 class Nrpe < Formula
   desc "Nagios remote plugin executor"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nrpe-2.x/nrpe-2.15/nrpe-2.15.tar.gz"
-  sha256 "66383b7d367de25ba031d37762d83e2b55de010c573009c6f58270b137131072"
-  revision 1
+  url "https://downloads.sourceforge.net/project/nagios/nrpe-3.x/nrpe-3.2.1.tar.gz"
+  sha256 "8ad2d1846ab9011fdd2942b8fc0c99dfad9a97e57f4a3e6e394a4ead99c0f1f0"
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "844c6dab823dabfd855bd9074120d5b7272381b0d26715b9386e8442dba5b91e" => :high_sierra
-    sha256 "7f1020ec90004decbe2f902bbf3aa31cc994ee073da054c5aa3713f61b785a4d" => :sierra
-    sha256 "a2af86f9a4eae43266f84f9cf62544657a2508272249a9f39a3dd62b06642b0c" => :el_capitan
-    sha256 "7e5975244c0a97fc01bbd5aaabd73f768f7cc831bed026394b59e0d7ebf32cdf" => :yosemite
-    sha256 "59df072ab20b615e4c26198be439796f4415816af5be7cd661a3d115d7f73705" => :mavericks
+    sha256 "98eb09fe948052448134155aad5cc16892f9cffeba075cfc9afeb38219047806" => :high_sierra
+    sha256 "d589496fa3b62e1425f93ebf928234bcfec81cf342837e7b741c9def56ea3e28" => :sierra
+    sha256 "50cafb3e1545d93f0ad248a2696b83b90fa3fbb6e5afc731d72779ddab0bf6a0" => :el_capitan
   end
 
   depends_on "nagios-plugins"
@@ -22,12 +18,9 @@ class Nrpe < Formula
     user  = `id -un`.chomp
     group = `id -gn`.chomp
 
-    (var/"run").mkpath
-    inreplace "sample-config/nrpe.cfg.in", "/var/run/nrpe.pid", var/"run/nrpe.pid"
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", "--prefix=#{prefix}",
                           "--libexecdir=#{HOMEBREW_PREFIX}/sbin",
+                          "--with-piddir=#{var}/run",
                           "--sysconfdir=#{etc}",
                           "--with-nrpe-user=#{user}",
                           "--with-nrpe-group=#{group}",
@@ -39,11 +32,17 @@ class Nrpe < Formula
                           "--enable-ssl",
                           "--enable-command-args"
 
-    inreplace "src/Makefile", "$(LIBEXECDIR)", "$(SBINDIR)"
+    inreplace "src/Makefile" do |s|
+      s.gsub! "$(LIBEXECDIR)", "$(SBINDIR)"
+      s.gsub! "$(DESTDIR)/usr/local/sbin", "$(SBINDIR)"
+    end
 
     system "make", "all"
-    system "make", "install"
-    system "make", "install-daemon-config"
+    system "make", "install", "install-config"
+  end
+
+  def post_install
+    (var/"run").mkpath
   end
 
   plist_options :manual => "nrpe -n -c #{HOMEBREW_PREFIX}/etc/nrpe.cfg -d"

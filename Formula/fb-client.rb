@@ -3,18 +3,18 @@ class FbClient < Formula
   homepage "https://paste.xinu.at"
   url "https://paste.xinu.at/data/client/fb-2.0.3.tar.gz"
   sha256 "dd318de67c1581e6dfa6b6c84e8c8e995b27d115fed86d81d5579aa9a2358114"
-  revision 1
+  revision 3
   head "https://git.server-speed.net/users/flo/fb", :using => :git
 
   bottle do
     cellar :any
-    sha256 "4836cf3cbef706e7fdcca5073942d5540b80103d4d8702f9965db1355eabda08" => :high_sierra
-    sha256 "1e5c4ce1a734f202e6ae9f2b46ebd3bfa08384d1cfb42ebea5435b166fb571c7" => :sierra
-    sha256 "e4155606ea0d15c8b263aae60838796048b428c04d33510b37e7ea6ae427b4d5" => :el_capitan
+    sha256 "7c175561426a008817ec3bd80f3239f80746d4409a49ea32787e3974db336077" => :high_sierra
+    sha256 "49208b9103b9acb4df5f553720bc4c785796f1113d84c1019663cf6e01d8d56e" => :sierra
+    sha256 "1ead29ad0ede0e2f81b6c734c8099a57bf02fd3690a7316d58a62201f52c9311" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python3
+  depends_on "python"
 
   conflicts_with "findbugs", :because => "findbugs and fb-client both install a `fb` binary"
 

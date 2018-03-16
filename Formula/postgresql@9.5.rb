@@ -1,13 +1,13 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.10/postgresql-9.5.10.tar.bz2"
-  sha256 "945d7ade094dded6b95495d8f1561a12ac9608276858ed30adf3c3658275f281"
+  url "https://ftp.postgresql.org/pub/source/v9.5.12/postgresql-9.5.12.tar.bz2"
+  sha256 "02e86f5c66467731bbec18fde96e0daf38c13c9141d8e7d41be663ab6fa6f698"
 
   bottle do
-    sha256 "6ce7010b738b8e6df7ea26e531f343b3f83018e0f6940b67c5eec8c3cac1dfcb" => :high_sierra
-    sha256 "b1583524a3796b98782849d95429c8eb3a8ae6b27ac4703c33180abbfe26ab00" => :sierra
-    sha256 "cf48e0cf276f8335bd980f798f615fa36ebd36e6a56c768a2abf0854b010dad9" => :el_capitan
+    sha256 "1ed23f0045effafaf07e70fd2b6be4e208442b3e7d5e1ccd41c5fe646a7ca015" => :high_sierra
+    sha256 "ad1e29a3e881ee32d80f97160dbf02f7d622bd810fc0884042fdd90eff5d58a7" => :sierra
+    sha256 "bf4406afae1d3ab106f16290122fce0c32ed237da44bf07da60b482b7840027d" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -15,13 +15,15 @@ class PostgresqlAT95 < Formula
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Build with Python2 (incompatible with --with-python3)"
-  option "with-python3", "Build with Python3 (incompatible with --with-python)"
+  option "with-python", "Build with Python3 (incompatible with --with-python@2)"
+  option "with-python@2", "Build with Python2 (incompatible with --with-python)"
+
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "openssl"
   depends_on "readline"
-  depends_on :python => :optional
-  depends_on :python3 => :optional
+  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   fails_with :clang do
     build 211
@@ -55,11 +57,11 @@ class PostgresqlAT95 < Formula
     args << "--with-perl" if build.with? "perl"
 
     which_python = nil
-    if build.with?("python") && build.with?("python3")
-      odie "Cannot provide both --with-python and --with-python3"
-    elsif build.with?("python") || build.with?("python3")
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    elsif build.with?("python") || build.with?("python@2")
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python" : "python3")
+      which_python = which(build.with?("python") ? "python3" : "python2.7")
     end
     ENV["PYTHON"] = which_python
 

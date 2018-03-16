@@ -1,14 +1,13 @@
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "http://www.fluidsynth.org"
-  url "https://github.com/FluidSynth/fluidsynth/archive/v1.1.8.tar.gz"
-  sha256 "318df5aebde8e7353c8878f5c9cb3ba8ed578c2607978b6fbfc5f1cb2ad9d799"
+  url "https://github.com/FluidSynth/fluidsynth/archive/v1.1.10.tar.gz"
+  sha256 "b74801d0fdd726c4555149bf075b76dc4074658ec0a8f7a3753f4a64589e5300"
 
   bottle do
-    cellar :any
-    sha256 "b723c0e4895e284361142a3f9ee871a1519a230ab5eac4d2e816a651ec1953b4" => :high_sierra
-    sha256 "1ae6a117a7850abd29df4d47c740eb2734a057bee5e5708da76eb21ea1770e3b" => :sierra
-    sha256 "442615894ba807164a8f80387d2d0e193ec2466b82f5f4b55afd567448edb32a" => :el_capitan
+    sha256 "9764daf9d3faed501a25ca39454150fb0a46e53329fa8db8b2624060ab6750fb" => :high_sierra
+    sha256 "609d913be21e9982299855ea363d842023b686a39748ffba34975e3ec2d7d8a8" => :sierra
+    sha256 "c39c0d78cf51023c38a4304bbfbdabea9d75297c7136c1ac664b9a26a137b1ca" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

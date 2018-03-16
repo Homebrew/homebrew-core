@@ -3,43 +3,32 @@ require "language/go"
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.5.0.tar.gz"
-  sha256 "eb125b7857ba4e6113ceff2a53c38f2cebea8e2ff270f89146e866b11eaaa589"
+  url "https://github.com/tomnomnom/gron/archive/v0.5.1.tar.gz"
+  sha256 "062462b8b6e884cd5731b0bc870e9a45f450e056f4367acccddb926079686560"
   head "https://github.com/tomnomnom/gron.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a9671771d3b9265564c7682d7290a203ad891722e887176d20c37526ca8f551f" => :high_sierra
-    sha256 "912f8260a07b40a3f71a8f5da4a3c2c052354eb60184503eb99b478d3088324d" => :sierra
-    sha256 "c2ec4063402fdf9ecaf03977bd18faa2be5922e4478461a3648773ab0de9df92" => :el_capitan
-    sha256 "b40c42cd53fdbab2b94504a67451a99744966734a35bc8f02795fea6568c4d95" => :yosemite
+    sha256 "69513942bdaf37db13e7c380bc5241ef7a1a7e778b186c4197e8fa8e177bd6fb" => :high_sierra
+    sha256 "04dfab480e6fa4f718491d8b1c13929769260fb5330c62d5944a9b23c224005e" => :sierra
+    sha256 "8b719a5634fc88a4fa10bea59524ba58209e0da61fcbcba99ce09830a0c2358a" => :el_capitan
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-        :revision => "34e4ee095d12986a2cef5ddb9aeb3b8cfcfea17c"
-  end
-
-  go_resource "github.com/mattn/go-colorable" do
-    url "https://github.com/mattn/go-colorable.git",
-        :revision => "ed8eb9e318d7a84ce5915b495b7d35e0cfe7b5a8"
-  end
-
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "3a115632dcd687f9c8cd01679c83a06a0e21c1f3"
+        :revision => "5df930a27be2502f99b292b7cc09ebad4d0891f4"
   end
 
   go_resource "github.com/nwidger/jsoncolor" do
     url "https://github.com/nwidger/jsoncolor.git",
-        :revision => "0192e84d44af834c3a90c8a17bf670483b91ad5a"
+        :revision => "75a6de4340e59be95f0884b9cebdda246e0fdf40"
   end
 
   go_resource "github.com/pkg/errors" do
     url "https://github.com/pkg/errors.git",
-        :revision => "645ef00459ed84a119197bfb8d8205042c6df63d"
+        :revision => "e881fd58d78e04cf6d0de1217f8707c8cc2249bc"
   end
 
   def install

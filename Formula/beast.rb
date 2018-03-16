@@ -1,6 +1,6 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
-  homepage "http://beast.bio.ed.ac.uk/"
+  homepage "http://beast.community/"
   url "https://github.com/beast-dev/beast-mcmc/archive/v1.8.4.tar.gz"
   sha256 "de8e7dd82eb9017b3028f3b06fd588e5ace57c2b7466ba2e585f9bd8381407af"
   head "https://github.com/beast-dev/beast-mcmc.git"
@@ -12,7 +12,7 @@ class Beast < Formula
     sha256 "30fa27c365bed00f62c399e7724044bfc2eef0e211ca7ca41211d01446c7a27d" => :el_capitan
   end
 
-  depends_on :ant => :build
+  depends_on "ant" => :build
   depends_on :java => "1.7+"
 
   def install

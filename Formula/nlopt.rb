@@ -1,7 +1,7 @@
 class Nlopt < Formula
   desc "Free/open-source library for nonlinear optimization"
-  homepage "http://ab-initio.mit.edu/nlopt"
-  url "http://ab-initio.mit.edu/nlopt/nlopt-2.4.2.tar.gz"
+  homepage "https://nlopt.readthedocs.io/"
+  url "https://github.com/stevengj/nlopt/releases/download/nlopt-2.4.2/nlopt-2.4.2.tar.gz"
   sha256 "8099633de9d71cbc06cd435da993eb424bbcdbded8f803cdaa9fb8c6e09c8e89"
   revision 2
 

@@ -1,14 +1,14 @@
 class LibbitcoinServer < Formula
   desc "Bitcoin Full Node and Query Server"
   homepage "https://github.com/libbitcoin/libbitcoin-server"
-  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.3.0.tar.gz"
-  sha256 "3066ff98af14574edae3e36b056b847558953e501c9b4f626c0428db9933a0ad"
+  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
+  sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
   revision 1
 
   bottle do
-    sha256 "91da3aa386c5810c3ad34af991223a579ff7c7f5b77e143ce550b81884347148" => :high_sierra
-    sha256 "4fd5c27fb1a24f27078bf4fdca964367f6ac13a3d5e5304d4aac8261b227114e" => :sierra
-    sha256 "ffed49361044749f0a66aaaaa89b7599bfeef1ea3dab10543365eb70e482c804" => :el_capitan
+    sha256 "923f0184b88f4f65294dca620a89802a2c6d7019069b23a3635095f67e724c83" => :high_sierra
+    sha256 "d15d06f49c17dae4e06eae578178646816cf3b34a2f96c85f43628d11676bf90" => :sierra
+    sha256 "da9449bb2e23980a881b443136b497f77abde1bace26415678bccd75cbce735b" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -19,14 +19,12 @@ class LibbitcoinServer < Formula
   depends_on "zeromq"
 
   resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.3.0.tar.gz"
-    sha256 "7902de78b4c646daf2012e04bb7967784f67a6372a8a8d3c77417dabcc4b617d"
+    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.5.0.tar.gz"
+    sha256 "9deac6908489e2d59fb9f89c895c49b00e01902d5fdb661f67d4dbe45b22af76"
   end
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-blockchain"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-node"].opt_libexec/"lib/pkgconfig"
     ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
 
     resource("libbitcoin-protocol").stage do
@@ -42,6 +40,8 @@ class LibbitcoinServer < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    bash_completion.install "data/bs"
   end
 
   test do

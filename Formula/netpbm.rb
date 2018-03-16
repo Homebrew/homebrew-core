@@ -3,21 +3,17 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3094
-  else
-    url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 3094
-  end
-  version "10.73.17"
+  url "svn://svn.code.sf.net/p/netpbm/code/stable", :revision => 3154
+  version "10.73.18"
   version_scheme 1
 
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
     cellar :any
-    sha256 "1c99ab33a5dee99e88a0f39873821bc1b8957cd729b98dc93fca3effc0d73402" => :high_sierra
-    sha256 "c4b338e2880e744a9dabdb6956264ea96f15da55596120d3599568698d9f7018" => :sierra
-    sha256 "bbdd407034a3fa7d842477a8fd9f7bea468508842aa5e2a4474e5b54de81cf0f" => :el_capitan
+    sha256 "9b067be48ab266bf848ce40ca6537c47a9b3289d6efd68f571f0b8740ba77a59" => :high_sierra
+    sha256 "643dd3415c96de3201ee9ed1856672690e18a5db8206c302dfbda59a4aa92bd4" => :sierra
+    sha256 "d12e3868feb8ff8b161d2b46896875d510fac2bf71ac715558fb222a0c461187" => :el_capitan
   end
 
   depends_on "libtiff"
@@ -28,6 +24,12 @@ class Netpbm < Formula
   conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
 
   def install
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|

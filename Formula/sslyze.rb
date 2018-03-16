@@ -5,20 +5,20 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.2.0.tar.gz"
-    sha256 "8dc5b3fa48e447ac6f878cf1c443ccd472616a6b0054961b390efb5e36614fa4"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.3.4.tar.gz"
+    sha256 "cefb66e87b98b5399fe1f841c79acbfdc6a49bb26f20d7d6aef98e0c7ab6be88"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/1.0.1.tar.gz"
-      sha256 "fee22bcf94a869a8429432d31fd14cebe0cb426f43529065fc1de854ffa3fb92"
+      url "https://github.com/nabla-c0d3/nassl/archive/1.0.3.tar.gz"
+      sha256 "5b42c95b824e08ea165d56fe75197a7621b5fb23f75c6c5c089830c852051e95"
     end
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d874c02005937cae638bff1ae8053b55a05934d6fa621651bd58abf6f48888dd" => :high_sierra
-    sha256 "297faa9579c3a2a5763217409bf82c90756b78f74342ceb8410bcc5fcc953823" => :sierra
-    sha256 "3a0dae28db1f3ec22daca06e42192a7850567fa790bb55109b4183cd623fef0d" => :el_capitan
+    cellar :any
+    sha256 "7c663b9807bd9b53c9e6e848363367ca927686610c0e55df04b7d517f1d46adc" => :high_sierra
+    sha256 "9c1e92e0c9b369ac9758bd92f57902ff1d65f1355abab085ca544fb31423dfb8" => :sierra
+    sha256 "d62b1e35802f77cf8020dc27c53fc5a481e36c4948b76581313018ec496d38d2" => :el_capitan
   end
 
   head do
@@ -30,21 +30,22 @@ class Sslyze < Formula
   end
 
   depends_on :arch => :x86_64
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "openssl"
 
   resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/31/53/8bca924b30cb79d6d70dbab6a99e8731d1e4dd3b090b7f3d8412a8d8ffbc/asn1crypto-0.23.0.tar.gz"
-    sha256 "0874981329cfebb366d6584c3d16e913f2a0eb026c9463efcc4aaf42a9d94d70"
+    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/c9/70/89b68b6600d479034276fed316e14b9107d50a62f5627da37fafe083fde3/cffi-1.11.2.tar.gz"
-    sha256 "ab87dd91c0c4073758d07334c1e5f712ce8fe48f007b86f8238773963ee700a6"
+    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
+    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/2a/0c/31bd69469e90035381f0197b48bf71032991d9f07a7e444c311b4a23a3df/cryptography-1.9.tar.gz"
-    sha256 "5518337022718029e367d982642f3e3523541e098ad671672a90b82474c84882"
+    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
+    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
   end
 
   resource "enum34" do
@@ -58,8 +59,8 @@ class Sslyze < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
-    sha256 "5d8534c8e185f2d8a1fda1ef73f2c8f4b23264e8e30063feeb9511d492a413e1"
+    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
+    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
   end
 
   resource "pycparser" do
@@ -73,13 +74,13 @@ class Sslyze < Formula
   end
 
   resource "tls-parser" do
-    url "https://files.pythonhosted.org/packages/a3/77/6e917d656fa2b017011347a1dd0a840c2247cb9c48fa6853104626435273/tls_parser-1.1.1.tar.gz"
-    sha256 "e2406578f14c57dde82c8e410c30e6ebf85acda16a0fdcf1b965e574b3681c4e"
+    url "https://files.pythonhosted.org/packages/49/c4/aa379256eb83469154c671b700b3edb42ae781044a4cd40ae92bff8259c7/tls_parser-1.2.1.tar.gz"
+    sha256 "869ad3c8a45e73bcbb3bf0dd094f0345675c830e851576f42585af1a60c2b0e5"
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/ca/38/16ba8d542e609997fdcd0214628421c971f8c395084085354b11ff4ac9c3/typing-3.6.2.tar.gz"
-    sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
+    url "https://files.pythonhosted.org/packages/ec/cc/28444132a25c113149cec54618abc909596f0b272a74c55bab9593f8876c/typing-3.6.4.tar.gz"
+    sha256 "d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
   end
 
   resource "zlib" do
@@ -102,7 +103,7 @@ class Sslyze < Formula
     venv = virtualenv_create(libexec)
 
     res = resources.map(&:name).to_set
-    res -= %w[cryptography nassl openssl-legacy openssl-modern zlib]
+    res -= %w[nassl openssl-legacy openssl-modern zlib]
 
     res.each do |r|
       venv.pip_install resource(r)
@@ -130,12 +131,8 @@ class Sslyze < Formula
       end
       system "python", "run_tests.py"
       venv.pip_install nassl_path
-      ENV.prepend "CPPFLAGS", "-I#{nassl_path}/openssl-tls1.3-draft-18/include"
-      ENV.prepend "LDFLAGS", "-L#{nassl_path}/openssl-tls1.3-draft-18"
-      venv.pip_install resource("cryptography")
     end
     venv.pip_install_and_link buildpath
-    system "python", "run_tests.py"
   end
 
   test do

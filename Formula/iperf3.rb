@@ -1,14 +1,14 @@
 class Iperf3 < Formula
   desc "Update of iperf: measures TCP, UDP, and SCTP bandwidth"
   homepage "https://github.com/esnet/iperf"
-  url "https://github.com/esnet/iperf/archive/3.3.tar.gz"
-  sha256 "d8f11283fbad9d71d5bd729de3546db119eeafa87dc58950606f25045f996011"
+  url "https://github.com/esnet/iperf/archive/3.5.tar.gz"
+  sha256 "4c318707a29d46d7b64e517a4fe5e5e75e698aef030c6906e9b26dc51d9b1fce"
 
   bottle do
     cellar :any
-    sha256 "de271ddb90cbba7502bb5ddaa2c61efca3853dc3e161770e152f560851fc1d58" => :high_sierra
-    sha256 "4d3de5c4be1a5bedeaabfadaed5f920a15812b2117b93d733cdd3c7397819867" => :sierra
-    sha256 "fdefe297eeca30db994dc4dd084200998943cb1118a888a49c76c63a4670cd89" => :el_capitan
+    sha256 "0833a5d9771ff1365140ee204a9c0ad768cd2676bc29b7642941083302617c91" => :high_sierra
+    sha256 "beef7813eb423f34ffb9915c758555197273e3ad0d4553cb168716122e81941c" => :sierra
+    sha256 "f151cefe7c21e1a546438afc8d6b10c251da7a1b19f4767ece854df8125294d3" => :el_capitan
   end
 
   head do

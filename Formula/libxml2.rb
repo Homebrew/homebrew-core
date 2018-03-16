@@ -1,8 +1,8 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
-  homepage "http://xmlsoft.org"
+  homepage "http://xmlsoft.org/"
   url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxml2-2.9.7.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.7.tar.gz"
   sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
 
   bottle do
@@ -23,7 +23,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     system "autoreconf", "-fiv" if build.head?
@@ -59,6 +59,6 @@ class Libxml2 < Formula
     system "./test"
 
     ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python", "-c", "import libxml2"
+    system "python2.7", "-c", "import libxml2"
   end
 end

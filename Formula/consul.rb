@@ -2,34 +2,39 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v1.0.1",
-      :revision => "9564c2978b59c060aed0657e662a4eb1c6f35356"
+      :tag => "v1.0.6",
+      :revision => "9a494b5fb9c86180a5702e29c485df1507a47198"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8309a80869940f544b761bc79b938fe310412f2da6c467183faaafec44fc0b2f" => :high_sierra
-    sha256 "b5ea4a3d5827b49a3b255a65fcbbfe79b799dae700dc585917805f1c7e7c69e3" => :sierra
-    sha256 "e9e34d44bac38d028b91011f2bfedb6ed30e104e879715cbadc3489ac41d0286" => :el_capitan
+    rebuild 1
+    sha256 "426227ee114e91f2560c141722d7b31a148b507a7617485ff1482f8b30f386c3" => :high_sierra
+    sha256 "3154593fd96aa3efd6f2f0c9ca2aa8d1e13685e106a8cebdb5ea55a14e46662c" => :sierra
+    sha256 "aa9f709a5d4a1042584b2f332848e30a62f3e909123fdbfdc6feac033d230ef0" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "gox" => :build
 
   def install
+    # Avoid running `go get`
+    inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
+
+    ENV["XC_OS"] = "darwin"
+    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/hashicorp/consul").install contents
+    (buildpath/"src/github.com/hashicorp/consul").install contents
 
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
+    (buildpath/"bin").mkpath
 
-    cd gopath/"src/github.com/hashicorp/consul" do
+    cd "src/github.com/hashicorp/consul" do
       system "make"
       bin.install "bin/consul"
       prefix.install_metafiles
-      zsh_completion.install "contrib/zsh-completion/_consul"
     end
   end
 

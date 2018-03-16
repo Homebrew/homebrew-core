@@ -16,14 +16,9 @@ class Mapcrafter < Formula
   needs :cxx11
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-
-  if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
 
   def install
     ENV.cxx11

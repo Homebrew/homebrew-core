@@ -1,16 +1,14 @@
 class GpgAgent < Formula
   desc "GPG key agent"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
-  revision 3
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  sha256 "095558cfbba52fba582963e97b0c016889570b4712d6b871abeef2cf93e62293"
 
   bottle do
-    sha256 "c555d26b1e5e2e22f3aa005c5418673e1df7db02e815c650847aaf5e18b11cf0" => :high_sierra
-    sha256 "a59b4f9f60137448d591e1c702dd5e1548e424058af87a4da318a7ef8cffb23f" => :sierra
-    sha256 "edf496c4ea0cce7b46a1ef1d39f6b0feae02b8479f2772bc3dc448a4d5f7cdc8" => :el_capitan
-    sha256 "b5cb2ff4333b5e7416d876daedc1170a98217c12789a4dae48c9794457822059" => :yosemite
+    sha256 "aad65c67de59226ab94dcd307f75dfd007cb4a8d3050863d23c9c39f72dd4b87" => :high_sierra
+    sha256 "7767c0f021cfab5e062d18069bd7bbbfd82249e1a0d80b5bfbf4eee125c617d4" => :sierra
+    sha256 "6f07d8e495b5eee2d0b13d0b1397c543ac710d5416fbb3571ec67a5937650bab" => :el_capitan
   end
 
   keg_only "GPG 2.1.x ships an internal gpg-agent which it must use"

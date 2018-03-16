@@ -3,19 +3,19 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
+  revision 2
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "9218e33b590a64c35bf1f68226fb74f526163d88ac32bb4488d9db32e82bf57d" => :high_sierra
-    sha256 "fd255fcb879ea6dfcf7cd7d4c5b379b42fdf3612caa48e33ee724df9211ce0eb" => :sierra
-    sha256 "0b14b271443ce5833a8377c00cca5a697d49696cb030faf8eb868bb6543281b1" => :el_capitan
-    sha256 "89644eff0f65c4200f563324a6d0a8b9531889ff302b1020cbe9e75147e02df1" => :yosemite
+    sha256 "44f1e6b3943d14092574bf1c421e633e5fa263be8818ad1c3de7778ab8d9bc2e" => :high_sierra
+    sha256 "f5c4ef62253d86e20fc739fbf8a58f17f9a10422cba6c479ae3a98393f560f51" => :sierra
+    sha256 "9c98137c51bf986061dfe3ef164340d52c4a1004b3c29ca5392568457677d291" => :el_capitan
   end
 
   option "with-demo", "Install demo version of Touhou 6"
 
-  depends_on :python3
+  depends_on "python"
   depends_on "pkg-config" => :build
   depends_on "libepoxy"
   depends_on "sdl2"
@@ -25,7 +25,7 @@ class Pytouhou < Formula
   depends_on "gtk+3" => :recommended
   if build.with? "gtk+3"
     depends_on "py3cairo" # FIXME: didn't get picked up by pygobject3 below
-    depends_on "pygobject3" => "with-python3"
+    depends_on "pygobject3" => "with-python"
   end
 
   resource "Cython" do

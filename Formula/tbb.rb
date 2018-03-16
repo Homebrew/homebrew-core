@@ -1,33 +1,25 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2018_U1.tar.gz"
-  version "2018_U1"
-  sha256 "c6462217d4ecef2b44fce63cfdf31f9db4f6ff493869899d497a5aef68b05fc5"
+  url "https://github.com/01org/tbb/archive/2018_U2.tar.gz"
+  version "2018_U2"
+  sha256 "78bb9bae474736d213342f01fe1a6d00c6939d5c75b367e2e43e7bf29a6d8eca"
 
   bottle do
-    cellar :any
-    sha256 "d67a5fe90766e6ff5e7d76a79f5d6b321d9ea226614d67d884295bb26ba6d9ae" => :high_sierra
-    sha256 "7bb00f4041fb7945c675d58f6d0fa121ac28fb249a211567c0eade71d9e018a0" => :sierra
-    sha256 "b9ee2339d50a595189f9b9e9612b0cbf22f84572bf0a2de4081db698a2766de5" => :el_capitan
+    sha256 "ac31698064d5177e6d72f8f57a8b359b523b4f1cc824d16bdc1ef9c6ed654361" => :high_sierra
+    sha256 "1f200261fcf061bb022503be5cf5e6a69b5c359c64ea475a0ff7698035909d9e" => :sierra
+    sha256 "1b3f01c4baee65f4c321023646cf03ef5cae1aa7dd2ba8b1bfa069bda19c4777" => :el_capitan
   end
-
-  option :cxx11
 
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
-
-    if build.cxx11?
-      ENV.cxx11
-      args << "cpp0x=1" << "stdlib=libc++"
-    end
 
     system "make", *args
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]

@@ -3,17 +3,16 @@ class Rex < Formula
   homepage "https://www.rexify.org"
   url "https://cpan.metacpan.org/authors/id/J/JF/JFRIED/Rex-1.5.0.tar.gz"
   sha256 "c042a0ed4920070d4508b6e7d2c36d28b3a5691938f2e0a0d7717977b44b82d0"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db077f9cef428ad705a7fe567608fb2d237d9b666beb31588975d2a00020c6bc" => :high_sierra
-    sha256 "61e04af2bca56b1a322fc8c3c0211285134be938fca6112c36c146c4c2fa46c3" => :sierra
-    sha256 "17d88a33000d431e4114d7855877a89cb7cbcce5590e9d3c1699837d9a17060f" => :el_capitan
-    sha256 "7a86664e6a6c9dcfde2c9c8100c2cb3d4db721369e62d93a8b606dfb7928489b" => :yosemite
+    sha256 "887d7eef9979e6b9933ea009fc1c97f922d73ca1d4317fb4636b51b5cf58b5cb" => :high_sierra
+    sha256 "f3ff192a1f3b7bdb43434af70d0f7a603d7e7790634b5b479735fbc049014ab8" => :sierra
+    sha256 "abb8c9c4549b4c73bfa84de1d5472ee89fb4203ff2abbdba7b98208b349b3bab" => :el_capitan
   end
 
-  depends_on :perl => "5.16"
+  depends_on "perl" if MacOS.version <= :mountain_lion
 
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard

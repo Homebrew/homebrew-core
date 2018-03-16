@@ -1,8 +1,8 @@
 class Netris < Formula
   desc "Networked variant of tetris"
   homepage "https://web.archive.org/web/20071223041235/www.netris.be/"
-  url "ftp://ftp.netris.org/pub/netris/netris-0.52.tar.gz"
-  mirror "https://ftp.de.debian.org/debian/pool/main/n/netris/netris_0.52.orig.tar.gz"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/netris/netris_0.52.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/n/netris/netris_0.52.orig.tar.gz"
   sha256 "8bc770ebb2c3ead1611ca7a1a2f3d833e169536c78d53b3fcf49381164ee9706"
 
   bottle do

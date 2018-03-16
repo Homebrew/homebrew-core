@@ -1,7 +1,7 @@
 class Glassfish < Formula
   desc "Java EE application server"
-  homepage "https://glassfish.java.net"
-  url "http://download.oracle.com/glassfish/5.0/release/glassfish-5.0.zip"
+  homepage "https://glassfish.java.net/"
+  url "https://download.oracle.com/glassfish/5.0/release/glassfish-5.0.zip"
   sha256 "85450f0cd4875729d64be6bcbf7ed8f61009ea0f23d3be453c6f3d1dbab02420"
 
   bottle :unneeded

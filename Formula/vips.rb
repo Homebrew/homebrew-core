@@ -1,13 +1,13 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/jcupitt/libvips"
-  url "https://github.com/jcupitt/libvips/releases/download/v8.5.9/vips-8.5.9.tar.gz"
-  sha256 "5e2bc42074be92606e4c6f50c816c18a7df0046bc5243fd459c95ca28f7a4e15"
+  url "https://github.com/jcupitt/libvips/releases/download/v8.6.3/vips-8.6.3.tar.gz"
+  sha256 "f85adbb9f5f0f66b34a40fd2d2e60d52f6e992831f54af706db446f582e10992"
 
   bottle do
-    sha256 "366cb92f9fe2d25f38233d5ad6a72bebd892d54dfc1664119669da965645f695" => :high_sierra
-    sha256 "4a58ca3c72d9109000a07c0cab7e99f233100a3b3919d47761c6cc3aeb843db7" => :sierra
-    sha256 "6a5f0bf7e6bb646286756f3dbefc510a762de831e0abb443d75701f074a054b2" => :el_capitan
+    sha256 "25f44ca911e94f5590407365eb7a04faaf973bfa8be8979f889b91a6b559256b" => :high_sierra
+    sha256 "236d724ea332f2081c58ae0aed377daf655698c84971284843db4f119c1f6ac0" => :sierra
+    sha256 "618ad45f5acc03cdf7f77439956d8e1ba948efc4a88eb452b85ca1c73ba80af4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

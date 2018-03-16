@@ -1,7 +1,7 @@
 class BerkeleyDbAT4 < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
-  url "http://download.oracle.com/berkeley-db/db-4.8.30.tar.gz"
+  url "https://download.oracle.com/berkeley-db/db-4.8.30.tar.gz"
   sha256 "e0491a07cdb21fb9aa82773bbbedaeb7639cbd0e7f96147ab46141e0045db72a"
 
   bottle do

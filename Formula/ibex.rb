@@ -1,15 +1,15 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.3.tar.gz"
-  sha256 "55f6d1dddadd8818cef0d1251a5637cb21ccf353f22392360375f2deed213864"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.5.tar.gz"
+  sha256 "667b1f57a4c83fbef915ad13e8d0a5847b4cc4df42810330da758bd9ca637ad7"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "b64d56dc20a566e3276edca37326f005070dee046bb20be81302e4ecf2748d66" => :high_sierra
-    sha256 "c4777f842a2536da1d5fcd0962a4dc4cada8cb135c1892778c8f3415308b2e7d" => :sierra
-    sha256 "098308ad900c41c1fb8b8136a8cae0f9d85b3e78b36008ca2ae949cc40ca01e7" => :el_capitan
+    sha256 "9df6236bb522c74caf3cbde0eaf19465e2a3674588282982348b628322ca097a" => :high_sierra
+    sha256 "4b835a404ec50199fccc22c9248bccbf235d63a8f0736dad5b95df8babdea2cc" => :sierra
+    sha256 "8f4d1957bbe546215cf3d328ce06ae6aae6657c764ca2658895654358596f256" => :el_capitan
   end
 
   option "with-java", "Enable Java bindings for CHOCO solver."

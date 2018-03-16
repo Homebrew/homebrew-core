@@ -1,20 +1,19 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "http://entrproject.org/"
-  url "http://entrproject.org/code/entr-3.9.tar.gz"
-  mirror "https://bitbucket.org/eradman/entr/get/entr-3.9.tar.gz"
-  sha256 "a49daac8c46290f9886ac4ef3143da5b042a696c3969f6b40383e591c137d1ce"
+  url "http://entrproject.org/code/entr-4.0.tar.gz"
+  sha256 "4ad4fe9108b179199951cfc78a581a8a69602b073dae59bcae4b810f6e1f6c8b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cc8b3e8f1c1e259bf9aee8c1b64c16303af6ac05f39cfb740b1e7fc184f3d7a6" => :high_sierra
-    sha256 "182ed754e56fd1ff6c75adead81b2d61d3346070dd314393b95a2450ca3cf787" => :sierra
-    sha256 "0bbc08a677fe8a56be9487f359118802aea13c150e86826bbbccd0b52b58c9c4" => :el_capitan
+    sha256 "17c3c9ad92d7506685f86093dff1e6d119e8825b9e6a3981a383730ef340a040" => :high_sierra
+    sha256 "bc1976b4f61506dd65f106cf593c48d534500b9f15763746424ed8dcd557410a" => :sierra
+    sha256 "e4702252f69db478d06aa9cb8d8c677f777277f0c5efe2bd9edb01d46f32440e" => :el_capitan
   end
 
   head do
     url "https://bitbucket.org/eradman/entr", :using => :hg
-    depends_on :hg => :build
+    depends_on "mercurial" => :build
   end
 
   def install

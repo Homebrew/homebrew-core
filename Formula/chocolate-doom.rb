@@ -1,15 +1,14 @@
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
   homepage "https://www.chocolate-doom.org/"
-  url "https://www.chocolate-doom.org/downloads/2.3.0/chocolate-doom-2.3.0.tar.gz"
-  sha256 "3e6d1a82ac5c8b025a9695ce1e47d0dc6ed142ebb1129b1e4a70e2740f79150c"
+  url "https://www.chocolate-doom.org/downloads/3.0.0/chocolate-doom-3.0.0.tar.gz"
+  sha256 "73aea623930c7d18a7a778eea391e1ddfbe90ad1ac40a91b380afca4b0e1dab8"
 
   bottle do
     cellar :any
-    sha256 "a7938d0bfbe6e213a7ca0c464e867ce491015a0862fbda46858ca0ede1b6d41f" => :high_sierra
-    sha256 "b0573351b617c4947aa6865119add2521c779adf1afbc7f9e3af476f46f25315" => :sierra
-    sha256 "c9cb2efe87e1f7ab038198506d07eb306059cef3b13e8022c7442901a6516a34" => :el_capitan
-    sha256 "eec9121c06d749dfa8a7b53784e9570d1ff3c0c1f0e69a47b30de2290fc777dc" => :yosemite
+    sha256 "af7016b2d60ca7dd02d91287994633b2674436587464e824294dc930566ffef1" => :high_sierra
+    sha256 "837b44e4c36513df3d615d02ce986119049e1188c975343476d84380e43b0a19" => :sierra
+    sha256 "a853675774b68249fd1aedc56a7c796fbc3177f7b64fbff666d21efd4c711611" => :el_capitan
   end
 
   head do
@@ -19,9 +18,10 @@ class ChocolateDoom < Formula
     depends_on "autoconf" => :build
   end
 
-  depends_on "sdl"
-  depends_on "sdl_net"
-  depends_on "sdl_mixer"
+  depends_on "pkg-config" => :build
+  depends_on "sdl2"
+  depends_on "sdl2_net"
+  depends_on "sdl2_mixer"
   depends_on "libsamplerate" => :recommended
   depends_on "libpng" => :recommended
 

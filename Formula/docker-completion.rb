@@ -2,8 +2,8 @@ class DockerCompletion < Formula
   desc "Bash, Zsh and Fish completion for Docker"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
-      :tag => "v17.11.0-ce",
-      :revision => "1caf76ce6baa889133ece59fab3c36aaf143d4ef"
+      :tag => "v18.02.0-ce",
+      :revision => "fc4de447b563498eb4da89f56fb858bbe761d91b"
 
   bottle :unneeded
 

@@ -1,15 +1,14 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.0.2/abyss-2.0.2.tar.gz"
-  sha256 "d87b76edeac3a6fb48f24a1d63f243d8278a324c9a5eb29027b640f7089422df"
-  revision 1
+  url "https://github.com/bcgsc/abyss/releases/download/2.0.3/abyss-2.0.3.tar.gz"
+  sha256 "ff4cb9c9f78e443cc5b613dbc1f949f3eba699e78f090e73f0fefe1b99d85d55"
 
   bottle do
     cellar :any
-    sha256 "bb42b5757cde66dcde18e1731e0a081f5e7f9182966ea562f72b32cd4e5d9ca5" => :high_sierra
-    sha256 "8e9cd77ba6b8aba80b5914ef9a806ac2bc0ea9f6605331db06e1bf968c2e5528" => :sierra
-    sha256 "4d89dd6066d55b4252a0707216dabf4e60065bdb2ad72cdb3a4d87a0bd70be80" => :el_capitan
+    sha256 "d7078a4a71b36a5feb6c47edbeae54192f90d3ffad6786089d053383777b1dba" => :high_sierra
+    sha256 "07ec65867c705ac31dde0198778c183239c07932d0767b03ee5351a3f61cb565" => :sierra
+    sha256 "a2f3c6156e8f9901e84e9885460923e44f49bdeb0ac895fd3d479119c327d71a" => :el_capitan
   end
 
   head do
@@ -20,11 +19,12 @@ class Abyss < Formula
     depends_on "multimarkdown" => :build
   end
 
-  needs :openmp
-
   depends_on "boost" => :build
   depends_on "google-sparsehash" => :build
-  depends_on :mpi => :cc
+  depends_on "gcc"
+  depends_on "open-mpi"
+
+  fails_with :clang # no OpenMP support
 
   resource("testdata") do
     url "http://www.bcgsc.ca/platform/bioinfo/software/abyss/releases/1.3.4/test-data.tar.gz"

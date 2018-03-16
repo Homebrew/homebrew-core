@@ -1,15 +1,13 @@
 class Sword < Formula
   desc "Cross-platform tools to write Bible software"
   homepage "https://www.crosswire.org/sword/index.jsp"
-  url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.7/sword-1.7.4.tar.gz"
-  sha256 "995da8cf5a207c1f09809bf4b9db0bd7d267da5fcdb9d6666c9b313edd9d213d"
+  url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.8/sword-1.8.1.tar.gz"
+  sha256 "ce9aa8f721a737f406115d35ff438bd07c829fce1605f0d6dcdabc4318bc5e93"
 
   bottle do
-    rebuild 2
-    sha256 "b756aef908089e6ad20e9c905d6c01c32d33a7139fd26b735bdd8259b390b465" => :sierra
-    sha256 "7b9581c869aa590288ad5b076b2547bcfe4edcb869550fc2c97497bcbb83e7ec" => :el_capitan
-    sha256 "1c5b77b0a2d5441cd9a51a72c65d8c64b64840072b70eb34a4c0231e7fe35c48" => :yosemite
-    sha256 "dc3bd07b3621d61ab58c1f1ca9796d7b1af05e3fccee3f8181cb5c743642df29" => :mavericks
+    sha256 "3279c77477c21d1636f573202df976bd37fbaca39ed7e3b310158dad4e961641" => :high_sierra
+    sha256 "794afe687eb7933fd3aeaee7e480224295614fc0138b8d89b7d9b81be55239a1" => :sierra
+    sha256 "032c83b3302b78c198d1e346258a1d09c542a1361e1b0f000f82306d8c82acb4" => :el_capitan
   end
 
   option "with-clucene", "Use clucene for text searching capabilities"

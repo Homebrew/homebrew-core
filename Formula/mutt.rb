@@ -10,19 +10,19 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.9.1.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/mutt/mutt-1.9.1.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-1.9.1.tar.gz"
-  sha256 "749b83a96373c6e2101ebe8c4b9a651735e02c478edb750750a5146a15d91bb1"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.9.4.tar.gz"
+  # HTTP is preferred over FTP; Please keep the protocol part below.
+  mirror "http://ftp.mutt.org/pub/mutt/mutt-1.9.4.tar.gz"
+  sha256 "f4d1bf26350c1ac81b551f98e5a4fd80d7fecd86919aa8165e69fde87de1b5df"
 
   bottle do
-    sha256 "2f8ff98ef38de3d38652f051e9c089f854d236caf9ec6280efa8164decbe0cbd" => :high_sierra
-    sha256 "440235b1fb00b73be10eebb516998aab485d55253df4b69b663dda8e9d561895" => :sierra
-    sha256 "9316ef6ec2caa9dfa7d29ebe854cad4fae5b89272cc6b8d031b543c9ecf8b7a5" => :el_capitan
+    sha256 "ddae32bf370c47511107aaf4f7ef86bf7f826b09f327c94ec5d5db78f2af266f" => :high_sierra
+    sha256 "105372b36da65bcef11199c054051a3463f54177eb4e2dcc39c493a80e1b7973" => :sierra
+    sha256 "7f94df72f16c322fac0b4c77206e3289a1be4c573402f70f9d35f33302102034" => :el_capitan
   end
 
   head do
-    url "https://dev.mutt.org/hg/mutt#default", :using => :hg
+    url "https://gitlab.com/muttmua/mutt.git"
 
     resource "html" do
       url "https://dev.mutt.org/doc/manual.html", :using => :nounzip

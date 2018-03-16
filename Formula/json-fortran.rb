@@ -1,26 +1,25 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/6.1.0.tar.gz"
-  sha256 "95afb978ada157a19aeb45fb234ed8f4abf2a76749d212d77a31972cc47b8b3e"
+  url "https://github.com/jacobwilliams/json-fortran/archive/6.2.0.tar.gz"
+  sha256 "7a68fcff175719815b7c5ad17b98e1eceed4529dd94078e6fabc381d2bc60955"
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
     cellar :any
-    sha256 "a8e18e7ba3a42aad008d82dcf07ee28ff98dd5ae4ad65ae40f66366abd7306db" => :high_sierra
-    sha256 "726642a811b3dd925bc4458e8c1e18d248d231b981e0460e3cc6df3ff2499902" => :sierra
-    sha256 "55d550a6d1f3cdb6206b1cd8e0778df370958658fd6b3a637565e50e95dbfff2" => :el_capitan
+    sha256 "e016f9be8526b327654efd35fcceaf2c67a527111506ef31dff7e8d052f5e154" => :high_sierra
+    sha256 "11d23e9f8ec4643eb9ba2c76ac92160208efc3d897f9bedd11a4694d4f20eb40" => :sierra
+    sha256 "4850076213f1073611bd6f77e907853972fe2ac851880086d254149910d35c48" => :el_capitan
   end
 
   option "with-unicode-support", "Build json-fortran to support unicode text in json objects and files"
-  option "without-test", "Skip running build-time tests (not recommended)"
   option "without-docs", "Do not build and install FORD generated documentation for json-fortran"
 
   deprecated_option "without-robodoc" => "without-docs"
 
-  depends_on "ford" => :build if build.with? "docs"
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "ford" => :build if build.with? "docs"
+  depends_on "gcc" # for gfortran
 
   def install
     mkdir "build" do
@@ -29,13 +28,11 @@ class JsonFortran < Formula
       args << "-DENABLE_UNICODE:BOOL=TRUE" if build.with? "unicode-support"
       args << "-DSKIP_DOC_GEN:BOOL=TRUE" if build.without? "docs"
       system "cmake", "..", *args
-      system "make", "check" if build.with? "test"
       system "make", "install"
     end
   end
 
   test do
-    ENV.fortran
     (testpath/"json_test.f90").write <<~EOS
       program example
       use json_module, RK => json_RK
@@ -53,7 +50,8 @@ class JsonFortran < Formula
       if (json%failed()) error stop 'error'
       end program example
     EOS
-    system ENV.fc, "-ojson_test", "-ljsonfortran", "-I#{HOMEBREW_PREFIX}/include", testpath/"json_test.f90"
-    system "./json_test"
+    system "gfortran", "-o", "test", "json_test.f90", "-I#{include}",
+                       "-L#{lib}", "-ljsonfortran"
+    system "./test"
   end
 end

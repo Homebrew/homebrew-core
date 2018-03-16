@@ -1,5 +1,3 @@
-require "language/go"
-
 class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
@@ -10,24 +8,15 @@ class Serf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5056682baba23b724e2162d57ef3ec4d44ffe6065ce0e4b5ee070c283e6bb212" => :high_sierra
-    sha256 "bd635f302248c8e6a6063fb5496890743f94629af4f039be3089e59ca2b3ceab" => :sierra
-    sha256 "b17ca576f35a45bc4b60272166a035d07b6d70c4b88a191e9d151a13f8d234f1" => :el_capitan
-    sha256 "10eaf8cf838a3b49612fd7b66e3b5b3f36a41aa383e3735e5748a44d1f037266" => :yosemite
+    rebuild 1
+    sha256 "fbd6c27169ceec3d52843b137d39313c59bd3495c26c7b88ff1eb29847971d31" => :high_sierra
+    sha256 "62f1e4030ba05b8f3fe8d40b185941cf9f0dbc1b02f043e5629281f03dbdb147" => :sierra
+    sha256 "45e961e406465c73fd72bcf7bd573ab3de740ab297c90287a02c5d4f6c38ebb0" => :el_capitan
   end
 
   depends_on "go" => :build
   depends_on "govendor" => :build
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
+  depends_on "gox" => :build
 
   def install
     contents = Dir["*"]
@@ -39,13 +28,7 @@ class Serf < Formula
     ENV["XC_ARCH"] = arch
     ENV["XC_OS"] = "darwin"
 
-    Language::Go.stage_deps resources, gopath/"src"
-
-    ENV.prepend_create_path "PATH", gopath/"bin"
-    cd gopath/"src/github.com/mitchellh/gox" do
-      system "go", "build"
-      (gopath/"bin").install "gox"
-    end
+    (gopath/"bin").mkpath
 
     cd gopath/"src/github.com/hashicorp/serf" do
       system "make", "bin"

@@ -3,32 +3,21 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.11.1.tar.gz"
-  sha256 "da804e69e990226ee14dadbf33850c8b074d5e0782d56522b71d62c4c5c82cba"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.4.tar.gz"
+  sha256 "64bd59212e0fed24cacbc9c9b5cbfb0bb5e035e9f19e75d308f8738b662f08bc"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "412fd535aeacf1f40c63a66242169ab67345b270fadd4531c1b68d02be4a679d" => :high_sierra
-    sha256 "adc43c1650331a8550994bfc020fa9850195741c3109e18127e4443ce7dcf481" => :sierra
-    sha256 "bc2df7a0a5d758916bb935b0f96a8edde868b88bbab5e8bbf6ce5d667ccd049c" => :el_capitan
+    sha256 "a218b3bf86125735cd7e3e0f11ac257efc63e8762f06283674f9ec15caa2e6b0" => :high_sierra
+    sha256 "8d42d2a99ca5b5e2fa1190ecbaceec13bd359891227a9f8563e8bea283ccaa18" => :sierra
+    sha256 "a6473ea9e7d3a648767327e5f184c9f096734c9347b8e81e61f276368be10818" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "gox" => :build
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
-
-  # gox is a build tool dependency
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  # iochan is a build dependency of gox
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
 
   # stringer is a build tool dependency
   go_resource "golang.org/x/tools" do
@@ -44,9 +33,8 @@ class Terraform < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
     Language::Go.stage_deps resources, buildpath/"src"
 
-    %w[src/github.com/mitchellh/gox
-       src/golang.org/x/tools/cmd/stringer].each do |path|
-      cd(path) { system "go", "install" }
+    cd "src/golang.org/x/tools/cmd/stringer" do
+      system "go", "install"
     end
 
     cd dir do
@@ -57,7 +45,7 @@ class Terraform < Formula
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "test", "vet", "bin"
+      system "make", "test", "bin"
 
       bin.install "pkg/darwin_#{arch}/terraform"
       zsh_completion.install "contrib/zsh-completion/_terraform"

@@ -3,15 +3,16 @@ class Twtxt < Formula
   homepage "https://github.com/buckket/twtxt"
   url "https://github.com/buckket/twtxt/archive/v1.2.3.tar.gz"
   sha256 "73b9d4988f96cc969c0c50ece0e9df12f7385735db23190e40c0d5e16f7ccd8c"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2acd447c2233ff8820270c546b79eb22b3aeb6034dabc58198934115e797e261" => :high_sierra
-    sha256 "58c726382f159731b92891a8d19b5860a6d4f057d28856896b4de9343bb86666" => :sierra
-    sha256 "7875855c0b5ba87335d6bb76dc900604b215fccce80156eacdbc81b9ee555c8c" => :el_capitan
+    sha256 "9d8568efc50dbb4d9a4563d01d852755c87088220e4704bb0d867cc91a980306" => :high_sierra
+    sha256 "e2acb2fa1cd36efa4de3a739406c38bc5b778d00e4d0a74c359a6fb1167b4322" => :sierra
+    sha256 "f1a2d991ea0e742dd12092c521cb8d886a4c6800b2d1d2aaeefa325f642d6eab" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
 
   resource "aiohttp" do
     url "https://files.pythonhosted.org/packages/1e/d4/c1206b016b42a0b223aadb559318966b64ec27e5406bed79c36356e62082/aiohttp-2.2.5.tar.gz"
@@ -74,6 +75,8 @@ class Twtxt < Formula
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
+  # If the test needs to be updated, more users can be found here:
+  # https://github.com/mdom/we-are-twtxt/blob/master/we-are-twtxt.txt
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
@@ -82,11 +85,11 @@ class Twtxt < Formula
       nick = homebrew
       twtfile = twtxt.txt
       [following]
-      twtxt = https://buckket.org/twtxt_news.txt
+      abliss = https://abliss.keybase.pub/twtxt.txt#7a778276dd852edc65217e759cba637a28b4426b
     EOS
     (testpath/"twtxt.txt").write <<~EOS
       2016-02-05T18:00:56.626750+00:00  Homebrew speaks!
     EOS
-    assert_match "Fiat Lux!", shell_output("#{bin}/twtxt -c config timeline")
+    assert_match "PGP", shell_output("#{bin}/twtxt -c config timeline")
   end
 end

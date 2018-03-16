@@ -1,14 +1,14 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.4.2/sbcl-1.4.2-source.tar.bz2"
-  sha256 "8dcba54853d99e2f5f9dbbd207604471afab528d1eb5c10d24ddea65bae64717"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.4.5/sbcl-1.4.5-source.tar.bz2"
+  sha256 "96192effd17f3e457f77bcff0619784ce6e7293e27e0e6c1546a542b3d8ac540"
   head "https://git.code.sf.net/p/sbcl/sbcl.git"
 
   bottle do
-    sha256 "5b50498715ab1d7452af3bfa68fc8bbed8e8b73769e6df2003367ca72c4dd0db" => :high_sierra
-    sha256 "936689e97e116ff94295f6a4ecd92e9f0f53e24e54fab305effd3bf86a7105e7" => :sierra
-    sha256 "dabe32ef602a1cdb2acbb1a17b7c202128c82f11b6b41d36634a64d9959cc21b" => :el_capitan
+    sha256 "af0dd494d6b7593f93339def9f1293061c66a16ed974221482d4383a9a2e9de6" => :high_sierra
+    sha256 "b4c8e4ade8794eebf1c27ffa583b92b39d7da9c3afe3e021c4bc3733ccc63071" => :sierra
+    sha256 "731f9bd57eef4ba74ab6dc906f8f7f635712e0d556201a75dbc3f1363b13d77c" => :el_capitan
   end
 
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"

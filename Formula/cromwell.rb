@@ -1,8 +1,8 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/30/cromwell-30.jar"
-  sha256 "dcb27dae4322e144ecfb55c882436ce444647c90df32df4208bece83fe294669"
+  url "https://github.com/broadinstitute/cromwell/releases/download/31/cromwell-31.jar"
+  sha256 "66ff4c4a082954ab5180bd934c618774e9744d47c668a90c098b542eac53a412"
 
   head do
     url "https://github.com/broadinstitute/cromwell.git"
@@ -14,18 +14,28 @@ class Cromwell < Formula
   depends_on :java => "1.8+"
   depends_on "akka"
 
+  resource "womtool" do
+    url "https://github.com/broadinstitute/cromwell/releases/download/30.2/womtool-30.2.jar"
+    sha256 "c2dc455a50585a17318ca5b818015f7b2cf9ef99961555650dd7844a928dffc2"
+  end
+
   def install
     if build.head?
       system "sbt", "assembly"
       libexec.install Dir["target/scala-*/cromwell-*.jar"][0]
+      libexec.install Dir["womtool/target/scala-2.12/womtool-*.jar"][0]
     else
       libexec.install Dir["cromwell-*.jar"][0]
+      resource("womtool").stage do
+        libexec.install Dir["womtool-*.jar"][0]
+      end
     end
-    bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
+    bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell", "$JAVA_OPTS"
+    bin.write_jar_script Dir[libexec/"womtool-*.jar"][0], "womtool"
   end
 
   test do
-    (testpath/"hello.wdl").write <<-EOS
+    (testpath/"hello.wdl").write <<~EOS
       task hello {
         String name
 
@@ -42,7 +52,7 @@ class Cromwell < Formula
       }
     EOS
 
-    (testpath/"hello.json").write <<-EOS
+    (testpath/"hello.json").write <<~EOS
       {
         "test.hello.name": "world"
       }

@@ -1,16 +1,15 @@
 class Ideviceinstaller < Formula
   desc "Cross-platform library for communicating with iOS devices"
-  homepage "http://www.libimobiledevice.org/"
-  url "http://www.libimobiledevice.org/downloads/ideviceinstaller-1.1.0.tar.bz2"
+  homepage "https://www.libimobiledevice.org/"
+  url "https://www.libimobiledevice.org/downloads/ideviceinstaller-1.1.0.tar.bz2"
   sha256 "0821b8d3ca6153d9bf82ceba2706f7bd0e3f07b90a138d79c2448e42362e2f53"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "a09d4f1c04382e6cf8e0a148dcb4ba8fdd4ba03ce929d2120754fa6558dcd250" => :high_sierra
-    sha256 "f4182b2f2c15ffa2aab4c0309dfdde0e2963ecf47b5d2f181b952b0df7f34518" => :sierra
-    sha256 "d2430c6d94c98b2083d971fb28746c74eda0b44ef5e37ed1c4888ba6878b009e" => :el_capitan
-    sha256 "dcc8ebee2bc878bc2e2bdd1fc4e66c9a60860b434aa1f2b570f52edc68b37915" => :yosemite
+    sha256 "a67c1699f0c03461f57e2232b44d175f2f38f4288ac3a3db6d92f90e299da786" => :high_sierra
+    sha256 "4651061aec01678c5feb365acc989aa211602cb62e32a1498bd4a52de217aa82" => :sierra
+    sha256 "8821769d4434688cc64aa3e63bb4f426d37d416b2dca3c935f1293ae1bddad22" => :el_capitan
   end
 
   head do

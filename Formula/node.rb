@@ -1,43 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-
-  stable do
-    url "https://nodejs.org/dist/v8.9.2/node-v8.9.2.tar.xz"
-    sha256 "53a51eda2347681c88b83236c6a005db9d696c3ae5d78496f0921804d5937b59"
-
-    # We track major/minor from upstream Node releases.
-    # We will accept *important* npm patch releases when necessary.
-    resource "npm" do
-      url "https://registry.npmjs.org/npm/-/npm-5.5.1.tgz"
-      sha256 "b8b9afb0bb6211a289f969f66ba184ca5bc83abf6a570e0853ea5185073dca6f"
-    end
-  end
+  url "https://nodejs.org/dist/v9.8.0/node-v9.8.0.tar.xz"
+  sha256 "0706bb49e4fa5fa64c6c51941becb4b3854a6c0335425d7312bc086c37b41eac"
+  head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "b59ba890672766ff969a2658b5fdf68e46e7fba483591ae20f263283636a3e14" => :high_sierra
-    sha256 "c9d82f2be1c5f49bad8b457070b26f0fffce3b029b81ba0ffcaad36c3757d074" => :sierra
-    sha256 "3e76d2a530f987651cc8f3406b93de80abef34430ddc3152ff45e9ce8d92aac3" => :el_capitan
-  end
-
-  devel do
-    url "https://nodejs.org/dist/v9.2.0/node-v9.2.0.tar.xz"
-    sha256 "64caf263eadc1aea072ce5d30ded7f4534aa7f59c8c6993eee4accad96e3bbc2"
-
-    # pre-release as of 28 Nov 2017; expected stable 7 Dec 2017
-    resource "npm" do
-      url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
-      sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
-    end
-  end
-
-  head do
-    url "https://github.com/nodejs/node.git"
-
-    resource "npm" do
-      url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
-      sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
-    end
+    sha256 "30bb35f2f6a6d7cde6194164549b87e63deb1fffa2e750d57a510cb5262db58f" => :high_sierra
+    sha256 "2baa6fa3c25d4d5c756be9be985f14e12eb954d4812aca4794be256e4f23d3c3" => :sierra
+    sha256 "8e8fe430186e531e8753669ebd11dbf4da6cea7ca38fbcb3cc46fcffd4a3d9b0" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -48,7 +19,7 @@ class Node < Formula
 
   deprecated_option "enable-debug" => "with-debug"
 
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
@@ -59,6 +30,13 @@ class Node < Formula
   fails_with :gcc
   ("4.3".."4.7").each do |n|
     fails_with :gcc => n
+  end
+
+  # We track major/minor from upstream Node releases.
+  # We will accept *important* npm patch releases when necessary.
+  resource "npm" do
+    url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
+    sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
   end
 
   def install
@@ -81,12 +59,6 @@ class Node < Formula
       bootstrap.install resource("npm")
       system "node", bootstrap/"bin/npm-cli.js", "install", "-ddd", "--global",
              "--prefix=#{libexec}", resource("npm").cached_download
-
-      # Fix from chrmoritz for ENOENT issue with @ in path to node
-      if build.stable?
-        inreplace libexec/"lib/node_modules/npm/node_modules/libnpx/index.js",
-                  "return child.escapeArg(npmPath, true)", "return npmPath"
-      end
 
       # The `package.json` stores integrity information about the above passed
       # in `cached_download` npm resource, which breaks `npm -g outdated npm`.
@@ -128,9 +100,12 @@ class Node < Formula
       cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
-    npm_root = node_modules/"npm"
-    npmrc = npm_root/"npmrc"
-    npmrc.atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    npmrc = <<~EOS
+      prefix = #{HOMEBREW_PREFIX}
+      python = /usr/bin/python
+    EOS
+    (node_modules/"npm/npmrc").atomic_write npmrc
+    (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
   end
 
   def caveats

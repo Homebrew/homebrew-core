@@ -4,12 +4,14 @@ class Telnet < Formula
   url "https://opensource.apple.com/tarballs/remote_cmds/remote_cmds-54.50.1.tar.gz"
   sha256 "156ddec946c81af1cbbad5cc6e601135245f7300d134a239cda45ff5efd75930"
 
+  conflicts_with "inetutils", :because => "both install 'telnet' binaries"
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "7197673f6d77b6ca1e6c493cdef5f8625cc63f8fd831c0b2a633fcde4ee5a2c6" => :high_sierra
-    sha256 "64fa2138be873d53d055bcb1d31ec2583cab0956d98ed32b365414e4f08ecb1c" => :sierra
-    sha256 "915b9a554df5714d85ff831b0721fc471533970b6d7fe6ab2d0ccc7e441d99d0" => :el_capitan
-    sha256 "69ff324ea8f0bcc1478c31a3e5b99e183a947e312cf180027dfecc260c478500" => :yosemite
+    rebuild 1
+    sha256 "f68d8152cca7ae73a3c598d55d58083ef4795f1ace88794ea949baa21a75c975" => :high_sierra
+    sha256 "62d5a07da6030b6006f16572ad3b1d17aee0a09d03c8690ffaed964c6bd089ae" => :sierra
+    sha256 "13911a70794917c973d7cd56450f02ec376819542053a5954cb6264ca31c21f5" => :el_capitan
   end
 
   keg_only :provided_pre_high_sierra
@@ -23,6 +25,8 @@ class Telnet < Formula
 
   def install
     resource("libtelnet").stage do
+      ENV["SDKROOT"] = MacOS.sdk_path
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
       xcodebuild "SYMROOT=build"
 
       libtelnet_dst = buildpath/"telnet.tproj/build/Products"

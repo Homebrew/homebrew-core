@@ -1,6 +1,6 @@
 class Znapzend < Formula
   desc "ZFS backup with remote capabilities and mbuffer integration"
-  homepage "http://www.znapzend.org"
+  homepage "https://www.znapzend.org/"
   url "https://github.com/oetiker/znapzend/releases/download/v0.17.0/znapzend-0.17.0.tar.gz"
   sha256 "f1fb2090d3e1dc3f5c090def9537ee5308d2b0c88cf97f1c22e14114499fdf48"
 

@@ -21,10 +21,20 @@ class Qtads < Formula
       url "https://github.com/realnc/qtads/commit/46701a2.patch?full_index=1"
       sha256 "02c86bfa44769ec15844bbefa066360fb83ac923360ced140545fb782f4f3397"
     end
+
+    # Fix "error: ordered comparison between pointer and zero"
+    # Reported 11 Dec 2017 https://github.com/realnc/qtads/issues/7
+    if DevelopmentTools.clang_build_version >= "900"
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/e189341/qtads/xcode9.diff"
+        sha256 "2016fef6e867b7b8dfe1bd5db64d588161aad1357faa1962ee48edbe35042ddc"
+      end
+    end
   end
 
   bottle do
     cellar :any
+    sha256 "ef218d294d01133003c6e52fc32f9482726d6f237b3b5b90add019960ffe9eb2" => :high_sierra
     sha256 "51fff5c39b8c234bb72b9a3865f7a067fb2dab902316c7943261ba66ed98ab19" => :sierra
     sha256 "fe8ab65019c324c13c9024291b3e6288aff3ec28049a0cf321da421b4c28f0f6" => :el_capitan
     sha256 "e2383ed761b051e337ed2a4a4162655cb9eaa19ed8ab0666e8a7d1efa236b9b2" => :yosemite

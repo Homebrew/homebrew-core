@@ -15,7 +15,7 @@ class Yeti < Formula
     sha256 "9dd1a7662b45c454c47075ee029c554bf2655423376bd373cde6e15e716e7677" => :mavericks
   end
 
-  depends_on :ant => :build
+  depends_on "ant" => :build
   depends_on :java => "1.8"
 
   def install

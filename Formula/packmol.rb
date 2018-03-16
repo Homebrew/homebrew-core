@@ -1,17 +1,17 @@
 class Packmol < Formula
   desc "Packing optimization for molecular dynamics simulations"
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
-  url "https://github.com/leandromartinez98/packmol/archive/17.333.tar.gz"
-  sha256 "9b8a73f3ce0cdc7ad554fc6ece1e46ee11ad5803153cf46d3dbcedcc65a1d55f"
+  url "https://github.com/leandromartinez98/packmol/archive/18.013.tar.gz"
+  sha256 "2e87f8ffc24a7a8702baf895a051ad5b5f2dbdebc158ba0235a6f6eaf617eb9a"
   head "https://github.com/leandromartinez98/packmol.git"
 
   bottle do
-    sha256 "506f80e05a8cf958951d886a59b623b80ce4c590dffa2e906cbf593f57cf5ca6" => :high_sierra
-    sha256 "e18dea57a113401f7bccd34799e11c70560112c3fab1364bbac200b8b73211e4" => :sierra
-    sha256 "9b7c37f880590542890871c5527299a155dc28385698e71c97e39d13603c353c" => :el_capitan
+    sha256 "96deacd0dca499fb3f577033ceabb122822d44a2060cdc47b02a57fb2358a63f" => :high_sierra
+    sha256 "d1948aba64f56109ccfc9e7bedf48950114c6bce751e6f653bee140e6d58a1d7" => :sierra
+    sha256 "517f2c6c55adf427b5c2b6132fb3a1ca654057a0b95c46cef33b8ef1cb6cc57a" => :el_capitan
   end
 
-  depends_on :fortran
+  depends_on "gcc"
 
   resource "examples" do
     url "https://www.ime.unicamp.br/~martinez/packmol/examples/examples.tar.gz"

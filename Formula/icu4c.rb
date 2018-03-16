@@ -1,31 +1,20 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "http://site.icu-project.org/"
+  url "https://ssl.icu-project.org/files/icu4c/60.2/icu4c-60_2-src.tgz"
+  mirror "https://downloads.sourceforge.net/project/icu/ICU4C/60.2/icu4c-60_2-src.tgz"
+  version "60.2"
+  sha256 "f073ea8f35b926d70bb33e6577508aa642a8b316a803f11be20af384811db418"
   head "https://ssl.icu-project.org/repos/icu/trunk/icu4c/", :using => :svn
-
-  stable do
-    url "https://ssl.icu-project.org/files/icu4c/60.1/icu4c-60_1-src.tgz"
-    mirror "https://fossies.org/linux/misc/icu4c-60_1-src.tgz"
-    mirror "https://downloads.sourceforge.net/project/icu/ICU4C/60.1/icu4c-60_1-src.tgz"
-    version "60.1"
-    sha256 "f8f5a6c8fbf32c015a467972bdb1477dc5f5d5dfea908b6ed218715eeb5ee225"
-
-    # Upstream commit "ticket:13462: Fix Script_Extensions for 5 characters"
-    # 8 Nov 2017 http://bugs.icu-project.org/trac/changeset/40667
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/8e407d3/icu4c/ticket-13462.diff"
-      sha256 "e3338f4ebc86dd6f0fd605e8b8170f013fad46709b495322bfc4be0b1f96cedc"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "e15405fead705403edfc87b9b0ed74d1e123388563904aac84f3a839f9e4124c" => :high_sierra
-    sha256 "3dacf3b81a23dc0388251bfb91863c883f14d92633874f334b36da7ce5a5f726" => :sierra
-    sha256 "a9f727700195d125893d034981d287b0a290114c41850cd904882c00700c535d" => :el_capitan
+    sha256 "cd6252141fd00076f67a01daceec4c5dfdea033c6a63b1a0ea7c98653757eb48" => :high_sierra
+    sha256 "2d8e104b3346632e091386e8640d2f3033e38654341b9a670d334832b1432c11" => :sierra
+    sha256 "54cc020520f422f5a708b20e1bec4e009cb7a52e7a150a3dd8edcfaa4f591200" => :el_capitan
   end
 
-  keg_only :provided_by_osx, "macOS provides libicucore.dylib (but nothing else)"
+  keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
     args = %W[--prefix=#{prefix} --disable-samples --disable-tests --enable-static]

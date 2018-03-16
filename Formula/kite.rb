@@ -3,13 +3,12 @@ class Kite < Formula
   homepage "http://www.kite-language.org/"
   url "http://www.kite-language.org/files/kite-1.0.4.tar.gz"
   sha256 "8f97e777c3ea8cb22fa1236758df3c479bba98be3deb4483ae9aff4cd39c01d5"
+  revision 2
 
   bottle do
-    sha256 "5f1c780bacc6ef513ecf924b234654a8462022a55f3ce749fb8c300eaad483f4" => :high_sierra
-    sha256 "b431d9a70177ca5f5b14cadf9d91efe73cf448583f5326767fd6c492cd032f5e" => :sierra
-    sha256 "9e2e8d816c2ad95f0b1cb25a457f12e47ec5e1d73ea5bbb65d9655aec9ecbe6b" => :el_capitan
-    sha256 "2833a3382b4fde542e4e5277e4f4dec6e0d9f1beb74c905db525b37e226a638f" => :yosemite
-    sha256 "55688f9323627d1ef884615c6de641885b1fc60031522ae584ce5ee54941fa87" => :mavericks
+    sha256 "3b293d215be3d011ec9110b6b3f8fad331f36eb8a4062cafa7c0601315454bfc" => :high_sierra
+    sha256 "5f090153489b27969c99e30a3be64e747da75738d9377f830a717bd856df3a72" => :sierra
+    sha256 "0c4b034731a0b3fa2f492f1a435122e78bdda3508d778507de3679c353894ad8" => :el_capitan
   end
 
   depends_on "bdw-gc"

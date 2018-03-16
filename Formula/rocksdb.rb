@@ -1,27 +1,27 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
-  homepage "http://rocksdb.org"
-  url "https://github.com/facebook/rocksdb/archive/v5.8.8.tar.gz"
-  sha256 "16d6de983fe6f1649356975c0a1f74feb994f2fc1de1961e4d6998c8d61e3ef9"
+  homepage "https://rocksdb.org/"
+  url "https://github.com/facebook/rocksdb/archive/v5.11.3.tar.gz"
+  sha256 "7ad637ae3223df1a2d617373e46249c820f8e1eba4804abbcb944d34be40d004"
 
   bottle do
     cellar :any
-    sha256 "8a3ed3d76c233358bcd89f2a8a5cc2d38a2d57f03669033d482ea5171c978c40" => :high_sierra
-    sha256 "d92e2c85a4151966ad5c29c86f87cc37b712d3f69e1385fa29043fc765b43733" => :sierra
-    sha256 "e4baa65edc5935b931500190318f6052c2504c07b6b77ab6308c889ea9130d5e" => :el_capitan
+    sha256 "d9ff99dc7e1a866a97d278a57a52d92aaec2edfc7f5a819f7121fe9582470ced" => :high_sierra
+    sha256 "0633660d7bc670b4cc689b4b113d7ba85cd1eafd6a7b68e3088aeae375de949b" => :sierra
+    sha256 "8bd089414280fc97cf30bcb8a805f73aace2aee024b13b41525b661e8ac9a57b" => :el_capitan
   end
 
   needs :cxx11
   depends_on "snappy"
   depends_on "lz4"
   depends_on "gflags"
-  depends_on "jemalloc"
 
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1" if build.bottle?
     ENV["DEBUG_LEVEL"] = "0"
     ENV["USE_RTTI"] = "1"
+    ENV["DISABLE_JEMALLOC"] = "1" # prevent opportunistic linkage
 
     # build regular rocksdb
     system "make", "clean"

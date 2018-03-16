@@ -1,15 +1,14 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "http://www.pjsip.org/"
-  url "http://www.pjsip.org/release/2.6/pjproject-2.6.tar.bz2"
-  sha256 "2f5a1da1c174d845871c758bd80fbb580fca7799d3cfaa0d3c4e082b5161c7b4"
+  url "http://www.pjsip.org/release/2.7.2/pjproject-2.7.2.tar.bz2"
+  sha256 "9c2c828abab7626edf18e04b041ef274bfaa86f99adf2c25ff56f1509e813772"
 
   bottle do
     cellar :any
-    sha256 "5770d82ed52ea4b5e088727cd1d114e715050a0c6892bafc01df4728bc2846d4" => :high_sierra
-    sha256 "e7983a5219531a614a7eb6c0b42d8c450671458cf215e3ca0da4347ba3ae419d" => :sierra
-    sha256 "b9a1ed9413cdc1a3c9997bfa710567e9feb7945719391bac3c494eb384924b6b" => :el_capitan
-    sha256 "a9cc70c5cfb1ba336de7caf9fbe4cf2cb39230e75600c7cdf1709060a4931f42" => :yosemite
+    sha256 "eec232d8fe6c5b4e05521a87a4bd1a5cb4fcc6a4f0a996ddaacc33bd2d93255f" => :high_sierra
+    sha256 "f7d12f6bcb2a628df0e87e4bbaffc368ca004ed6de12d11d4d019b080257a2d0" => :sierra
+    sha256 "52a55c49ef0d0d53abf447fd060e7eaf8bd1d10c8f6b419582c5e453634d5b61" => :el_capitan
   end
 
   depends_on "openssl"

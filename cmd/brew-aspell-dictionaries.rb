@@ -1,4 +1,4 @@
-#:  * `aspell_dictionaries`:
+#:  * `aspell-dictionaries`:
 #:    Generates the new dictionaries for the `aspell` formula.
 
 require "open-uri"
@@ -10,7 +10,7 @@ dict_mirror = "https://ftpmirror.gnu.org/aspell/dict"
 
 languages   = {}
 
-open("#{dict_url}/0index.html") do |content|
+URI.parse("#{dict_url}/0index.html").open do |content|
   content.each_line do |line|
     break if %r{^</table} =~ line
     next unless /^<tr><td><a/ =~ line

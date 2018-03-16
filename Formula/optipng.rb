@@ -1,6 +1,8 @@
 class Optipng < Formula
   desc "PNG file optimizer"
   homepage "https://optipng.sourceforge.io/"
+  revision 1
+
   head "http://hg.code.sf.net/p/optipng/mercurial", :using => :hg
 
   stable do
@@ -21,15 +23,24 @@ class Optipng < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/a42e7b3/optipng/optipng-10.13-st_atim.patch"
       sha256 "89849450fa922af0c96e64e316b5f626ec46486cb5d59f85cd4716d2c5fa0173"
     end
+
+    # https://sourceforge.net/p/optipng/bugs/69/ - CVE-2017-16938
+    # https://sourceforge.net/p/optipng/bugs/65/ - CVE-2017-1000229
+    # Upstream fixes for both should land in 0.7.7, which is due before 2018.
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/optipng/optipng_0.7.6-1.1.debian.tar.bz2"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/o/optipng/optipng_0.7.6-1.1.debian.tar.bz2"
+      sha256 "eef445316b92630920839a0f7249f1a041bafaa95e18c3188eabb84f41d52851"
+      apply "patches/CVE-2017-16938",
+            "patches/CVE-2017-1000229"
+    end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aff38232e7e6a32f60197658a3ce8c94bcbaeb9f64dfdfdbb4620ab52a580604" => :high_sierra
-    sha256 "41a2a04cfa3a8a39292157a4410a345236747a5e3c992c58e2cf364d2ed0dd9b" => :sierra
-    sha256 "b062317980451b8a6a129e87f3a22ae851e42c498775a9c5a0e885d265425450" => :el_capitan
-    sha256 "a8b8c3682ae147ff68f37db1155ecd86c965e6e5c4fc0e20b0da3297060cbea2" => :yosemite
-    sha256 "64e1d9fd2a5dd56a91af23ab2a170f68fa06993b2b1ed539b17ffad086e1e28f" => :mavericks
+    sha256 "d83cda40bfd6ed17817b03196833819706ee96cbde994a3dbe08f82fc192a704" => :high_sierra
+    sha256 "543c99a516e8a869b2957d41caa9c4e7b43ec6f77d412f7d7dba711c46ddeb9d" => :sierra
+    sha256 "3a66cd2c1ccb98212213a2d0fcf2ba060a819d2ec504ba8a171a331f478162e8" => :el_capitan
   end
 
   def install

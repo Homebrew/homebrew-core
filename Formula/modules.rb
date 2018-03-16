@@ -1,16 +1,17 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.0.0/modules-4.0.0.tar.bz2"
-  sha256 "b108b9a91a6b10119a9a288fd3fba56d82a7a17b13c4bbb65b7e147933b461c4"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.1.1/modules-4.1.1.tar.bz2"
+  sha256 "63ba8dacafa42ccebebe5d518e2be3b6b3683b9e384ab756133cc6d1d4d8f214"
 
   bottle do
-    sha256 "5f23fd8c96a6b9047747adfff0da7253f1ee2a76aba50e5207db94df0c36e1df" => :high_sierra
-    sha256 "4dcf5079c561109c8ccbb83285b772a10f39527ee07f22307984b8727d103dc2" => :sierra
-    sha256 "cf6c0306f9cd778d8925dd76ffed099db8dbaeabcb8d2f6b82c0d58b0c34db50" => :el_capitan
+    sha256 "d3fe866d8837a344b2b716ee60c3b58eab43d33f1231be08f0148636fe5da299" => :high_sierra
+    sha256 "1956c56f45992bdb7ef63ead14b780da874d9f474cccbb136cec662432b72470" => :sierra
+    sha256 "f5a161686c6217bedea75dc0d21a277414232d569feaf48cb6fbf1dd430ffbd4" => :el_capitan
   end
 
   depends_on "coreutils" => :build # assumes GNU cp options are available
+  depends_on "grep" => :build # configure checks for ggrep
   depends_on :x11 => :optional
 
   def install

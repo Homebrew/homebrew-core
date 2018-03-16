@@ -1,51 +1,41 @@
-require "language/go"
-
 class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.2.0",
-      :revision => "0a75cdd19694787682d38143b3aaf11d641c3117"
+      :tag => "v10.5.0",
+      :revision => "80b03db9893ab1668ac601909c1a1bf29d476035"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
-    sha256 "8b75fa67c1a6ecd46c54a284542bcd13f1df90d5f9004f9e93db4adadd524cc8" => :high_sierra
-    sha256 "571cf540bf92dcbfa9b3f8888112a31afcbfaa3daaa96804a969b6a28ce564a8" => :sierra
-    sha256 "f9a1b2ec1f749204c43edfa635d4848cb7bcccf3bce9ceca99f0da51fdaeb4e2" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "879073031b87d7c1af68cfa4381d1bb3e76d783f4d675b65f690ab9bc346b234" => :high_sierra
+    sha256 "17abdf661e167271f8cc8bd355add7cf27eb98e4c2b8a879f6a33e66ae417bf8" => :sierra
+    sha256 "a27fdf1040486b383b910b6153295b39f9354c696e9b6de941ef5308f406948e" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
   depends_on "docker" => :recommended
 
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
-  end
-
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.2.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.2.0"
-    sha256 "e6cee7f8dfc400088ecf8be594705994b1b61e3fbb96e85a3d72473313fc3ea4"
+    version "10.5.0"
+    sha256 "60176c98a89202d195d31aca19c8977b4b1be23d0ee5f100f6efa554429c8efb"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.2.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.5.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.2.0"
-    sha256 "d6ea9e81bd20c5cf785f534f9061d76ca9452323cea8d52739bfe8c99dd36ef7"
+    version "10.5.0"
+    sha256 "947beebf1508cac3b22a2c06e1275a0cfb404dc023cbbb0534229df0fcfee164"
   end
 
   def install
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
     dir.install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
-      system "go", "install"
-    end
 
     cd dir do
       Pathname.pwd.install resource("prebuilt-x86_64.tar.xz"),

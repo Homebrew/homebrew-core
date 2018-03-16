@@ -1,18 +1,18 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.11/source/mariadb-10.2.11.tar.gz"
-  sha256 "63555a810db905175a8bd714f6ec77d1b1a11fcfa6d4b97b448cf5bcb6caa3e8"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.13/source/mariadb-10.2.13.tar.gz"
+  sha256 "272e7ed9300a05da9e02f8217a01ed3447c4f5a36a12e5233d62cc7c586fc753"
 
   bottle do
-    sha256 "92d3d738c46e6b943294bc7947d639980854562c7f202937232f483a2291c9c0" => :high_sierra
-    sha256 "151f6550f82c7aa86ceb6fbc036399a7f6387e93fd93580db67d2055d0d2847e" => :sierra
-    sha256 "764bfff92e1d4d1616916eeebfbab4c996b7a5f4b80efff13550c7275c8648ce" => :el_capitan
+    sha256 "74dc1bbef50322f29558f46267dd0ad1006fa7c5fde70d1095f356ee7d5c31db" => :high_sierra
+    sha256 "0a66bb259d1a12119f910164fb6bf3518422e90b696ac8bf7415b2d9f823621e" => :sierra
+    sha256 "3aebe8389be1af00ee1e1ccbb6dbacf72e4e16c753ae346901e43c762c8f5f23" => :el_capitan
   end
 
   devel do
-    url "https://downloads.mariadb.org/f/mariadb-10.3.2/source/mariadb-10.3.2.tar.gz"
-    sha256 "c859aa48cb444ecb7a76ee16103521239f7b9031d4ebf532d6cb73cc4f685ea8"
+    url "https://downloads.mariadb.org/f/mariadb-10.3.5/source/mariadb-10.3.5.tar.gz"
+    sha256 "cbb81f5f7e25c822db6683bbb43b3aad328622fa86da81c1ddeee8005523b203"
   end
 
   option "with-test", "Keep test when installing"
@@ -61,9 +61,6 @@ class Mariadb < Formula
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
-
-    # Disable RocksDB becaus of build failure: https://jira.mariadb.org/browse/MDEV-13928
-    args << "-DPLUGIN_ROCKSDB=NO" if build.devel?
 
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"

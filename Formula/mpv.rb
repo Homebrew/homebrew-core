@@ -1,28 +1,28 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.27.0.tar.gz"
-  sha256 "341d8bf18b75c1f78d5b681480b5b7f5c8b87d97a0d4f53a5648ede9c219a49c"
-  revision 2
+  url "https://github.com/mpv-player/mpv/archive/v0.27.2.tar.gz"
+  sha256 "2ad104d83fd3b2b9457716615acad57e479fd1537b8fc5e37bfe9065359b50be"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
-    sha256 "54d8a76d6c2c6eae9a79efbe64315697b2a000ec149578715e35496f1b6cc897" => :high_sierra
-    sha256 "f7925f699753b0d5068fb702a3a267f9d65dbaf4b56f7e019e7de48efe7901d6" => :sierra
-    sha256 "a83470551616f3d11506c6db7bede2c611bfd262df42b05c10eef35e34fbe23a" => :el_capitan
+    sha256 "3cb3aa2d010d926f979bd5a6543b6ddbfd1debd675090a9a5c73483ba1c26e5e" => :high_sierra
+    sha256 "953244c58784ce538d65e307cd07419fead23875f0055953f33e0dedb15ee30e" => :sierra
+    sha256 "4e2dd1b8c7b2e6e8e7b55cfe75de3fe685e0a1efbc376c86a0f5dd28c09e92e7" => :el_capitan
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
 
   depends_on "pkg-config" => :build
-  depends_on :python3 => :build
+  depends_on "python" => :build
 
   depends_on "libass"
   depends_on "ffmpeg"
+  depends_on "lua@5.1"
 
   depends_on "jpeg" => :recommended
   depends_on "little-cms2" => :recommended
-  depends_on "lua" => :recommended
+  depends_on "mujs" => :recommended
   depends_on "youtube-dl" => :recommended
 
   depends_on "jack" => :optional
@@ -46,18 +46,18 @@ class Mpv < Formula
   end
 
   def install
-    # LANG is unset by default on osx and causes issues when calling getlocale
+    # LANG is unset by default on macOS and causes issues when calling getlocale
     # or getdefaultlocale in docutils. Force the default c/posix locale since
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
 
-    # Prevents a conflict between python2 and python3 when gobject-introspection
-    # is using the :python requirement
+    # Prevents a conflict between python2 and python3 when
+    # gobject-introspection is using brewed python.
     ENV.delete("PYTHONPATH") if MacOS.version <= :mavericks
 
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
     resource("docutils").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+      system "python2.7", *Language::Python.setup_install_args(buildpath/"vendor")
     end
     ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
@@ -66,6 +66,7 @@ class Mpv < Formula
       --enable-zsh-comp
       --enable-libmpv-shared
       --enable-html-build
+      --enable-lua
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}
@@ -76,6 +77,7 @@ class Mpv < Formula
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-dvdnav" if build.with? "libdvdnav"
     args << "--enable-dvdread" if build.with? "libdvdread"
+    args << "--enable-javascript" if build.with? "mujs"
     args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./bootstrap.py"

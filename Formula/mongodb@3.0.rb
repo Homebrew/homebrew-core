@@ -3,15 +3,14 @@ require "language/go"
 class MongodbAT30 < Formula
   desc "High-performance document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.0.12.tar.gz"
-  sha256 "b9bea5e3d59b93775d5d55fb1dd161272aeefa193c2311a8f6722ad46d7a21ab"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.0.15.tar.gz"
+  sha256 "09ad76e06df007085520025c94a5e5840d65f37660c2b359f4962e135e4ae259"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "6805bd1eb565e8b5b48810348a7ed4c410009de7bc5e062470482a749c47a30c" => :high_sierra
-    sha256 "482b9f03fea1569cb7dd0c878cb7c1417f64b35974cd12c37c0e7d8fe572149d" => :sierra
-    sha256 "090305029d61bc61eae930cb293b670078cd337ac937ac6b7eb92ead1eb0782b" => :el_capitan
+    sha256 "a3c4c9fcf5c44c34f96395923937c65e7cf6cb52bd937ef2878afe91633672fe" => :high_sierra
+    sha256 "51f78308884b822d7406e12c897b613445cd0cb41add89b4835a203190c658d5" => :sierra
+    sha256 "3a8d91eba9e8342e325e6fe1643b63687429ce2866c61a27bef836928b264c6b" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -28,8 +27,8 @@ class MongodbAT30 < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-      :tag => "r3.0.12",
-      :revision => "81c527a658a687b83564dfb9767df64420e9bcab"
+      :tag => "r3.0.15",
+      :revision => "86d15daf966ce58f5ce01985db07a7a5a3641ecb"
   end
 
   def install
@@ -40,11 +39,6 @@ class MongodbAT30 < Formula
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/mongodb/mongo-tools" do
-      # https://github.com/Homebrew/homebrew/issues/40136
-      inreplace "build.sh",
-        '-ldflags "-X github.com/mongodb/mongo-tools/common/options.Gitspec=`git rev-parse HEAD` -X github.com/mongodb/mongo-tools/common/options.VersionStr=$(git describe)"',
-        ""
-
       args = %w[]
 
       if build.with? "openssl"

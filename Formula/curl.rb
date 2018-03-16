@@ -1,15 +1,15 @@
 class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.haxx.se/"
-  url "https://curl.haxx.se/download/curl-7.57.0.tar.bz2"
-  mirror "http://curl.askapache.com/download/curl-7.57.0.tar.bz2"
-  sha256 "c92fe31a348eae079121b73884065e600c533493eb50f1f6cee9c48a3f454826"
+  url "https://curl.haxx.se/download/curl-7.59.0.tar.bz2"
+  mirror "http://curl.askapache.com/download/curl-7.59.0.tar.bz2"
+  sha256 "b5920ffd6a8c95585fb95070e0ced38322790cb335c39d0dab852d12e157b5a0"
 
   bottle do
     cellar :any
-    sha256 "5b7f376469a60db745c6929e771063d8c5f76f7e3d0eb9cc342532f43bcd559d" => :high_sierra
-    sha256 "7a631c862aea83d2cdbdf8aab12cd882ddfe71921ea9adf0efaadae1b4ff1a55" => :sierra
-    sha256 "673a6b686c39a4183696ef2c2873e10f4957d6d210bb8d24d407db2de481ffdd" => :el_capitan
+    sha256 "c16e7fdef8713270d2b0dc1ddaaafcd14101f58a412e0922edc3fedfa20121c4" => :high_sierra
+    sha256 "36bd62e7b1ec2f4af90c4e808ce7503e7e783f4480076309faadfd9363528fb1" => :sierra
+    sha256 "a143b0d967f76643af51dfe0f67c4c869dfa0fdc3e7902ced5fa8eed9c48501d" => :el_capitan
   end
 
   head do
@@ -20,7 +20,7 @@ class Curl < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   option "with-rtmpdump", "Build with RTMP support"
   option "with-libssh2", "Build with scp and sftp support"

@@ -1,27 +1,28 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.10.08.source.tar.gz"
-  version "6.10.08"
-  sha256 "2cd276d2ac365403c66f08edd1be62fe932a0334f76349b24d8c737c0d6dad8a"
+  url "https://root.cern.ch/download/root_v6.12.06.source.tar.gz"
+  version "6.12.06"
+  sha256 "aedcfd2257806e425b9f61b483e25ba600eb0ea606e21262eafaa9dc745aa794"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    rebuild 1
-    sha256 "32ec87dd05b998d2b6d794b75bdb5905b752842ed2193ed6bbdd22deb5c49c7a" => :high_sierra
-    sha256 "5a913e35442d6f37d5abd5bda2a80061716f8687f24bb95ca3630dbb29918897" => :sierra
-    sha256 "e1191f01a47f1a086f48266a33d5d5ff11722e14259c3b30560417049c86a2e6" => :el_capitan
+    sha256 "26c632e4a43db19c05cb4680feb9769d07d167e2df8faaa60b218b6784d134c4" => :high_sierra
+    sha256 "7a4b7823f8a2af91ebe3cc42ef96a4d6766fff7a0928c2b853bd00297eb1efa7" => :sierra
+    sha256 "0d60e875c6b6a135ca98ead7436ca3cf8a073e2a2c5fe5aef64867d24da52ce5" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "fftw"
+  depends_on "gcc" # for gfortran.
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "openssl"
+  depends_on "pcre"
   depends_on "xrootd"
-  depends_on :fortran
-  depends_on :python => :recommended
-  depends_on :python3 => :optional
+  depends_on "xz" # For LZMA.
+  depends_on "python" => :recommended
+  depends_on "python@2" => :optional
 
   needs :cxx11
 
@@ -31,28 +32,44 @@ class Root < Formula
     # Work around "error: no member named 'signbit' in the global namespace"
     ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
 
+    # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
+    # However, this is still permitting the build process to make remote
+    # connections. As a hack, since upstream support it, we inreplace
+    # this file to "encourage" the connection over HTTPS rather than HTTP.
+    inreplace "cmake/modules/SearchInstalledSoftware.cmake",
+              "http://lcgpackages",
+              "https://lcgpackages"
+
     args = std_cmake_args + %W[
       -Dgnuinstall=ON
-      -DCMAKE_INSTALL_ELISPDIR=#{share}/emacs/site-lisp/#{name}
+      -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
       -Dfftw3=ON
       -Dfortran=ON
       -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
+      -Dmysql=OFF
       -Droofit=ON
       -Dssl=ON
       -Dxrootd=ON
     ]
 
-    if build.with?("python3") && build.with?("python")
+    if build.with?("python") && build.with?("python@2")
       odie "Root: Does not support building both python 2 and 3 wrappers"
-    elsif build.with?("python") || build.with?("python3")
-      python_executable = `which python`.strip if build.with? "python"
-      python_executable = `which python3`.strip if build.with? "python3"
-      python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
-      python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
-      python_version = "python" + `#{python_executable} -c 'import sys;print(sys.version[:3])'`.chomp
+    elsif build.with?("python") || build.with?("python@2")
+      if build.with? "python@2"
+        ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+        python_executable = Utils.popen_read("which python").strip
+        python_version = Language::Python.major_minor_version("python")
+      elsif build.with? "python"
+        python_executable = Utils.popen_read("which python3").strip
+        python_version = Language::Python.major_minor_version("python3")
+      end
+
+      python_prefix = Utils.popen_read("#{python_executable} -c 'import sys;print(sys.prefix)'").chomp
+      python_include = Utils.popen_read("#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+      args << "-Dpython=ON"
 
       # cmake picks up the system's python dylib, even if we have a brewed one
       if File.exist? "#{python_prefix}/Python"
@@ -67,9 +84,6 @@ class Root < Formula
       args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
       args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
       args << "-DPYTHON_LIBRARY='#{python_library}'"
-    end
-    if build.with?("python") || build.with?("python3")
-      args << "-Dpython=ON"
     else
       args << "-Dpython=OFF"
     end
@@ -119,5 +133,10 @@ class Root < Formula
     EOS
     assert_equal "\nProcessing test.C...\nHello, world!\n",
                  shell_output("/bin/bash test.bash")
+
+    if build.with? "python"
+      ENV["PYTHONPATH"] = lib/"root"
+      system "python3", "-c", "import ROOT"
+    end
   end
 end

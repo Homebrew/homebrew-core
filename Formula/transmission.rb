@@ -1,15 +1,13 @@
 class Transmission < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission-releases/raw/094777d/transmission-2.92.tar.xz"
-  sha256 "3a8d045c306ad9acb7bf81126939b9594553a388482efa0ec1bfb67b22acd35f"
-  revision 1
+  url "https://github.com/transmission/transmission-releases/raw/bce6e29/transmission-2.93.tar.xz"
+  sha256 "8815920e0a4499bcdadbbe89a4115092dab42ce5199f71ff9a926cfd12b9b90b"
 
   bottle do
-    sha256 "2356b8b147dc62712530e34494cc16974c15552aea527d8f5fb69d45e50c7336" => :high_sierra
-    sha256 "28ee6ef92d3c75e664eff438e08c66a26645fd27f308ef58839eae676d0e8f06" => :sierra
-    sha256 "f82fb7296f36573dd7730b602edcf27421d880cd8e3c16a56a69c1503d26a5e0" => :el_capitan
-    sha256 "e1b7d0f5ed6928752c71898e92364209e28a3c6d6e4be01572f818b852f57e37" => :yosemite
+    sha256 "753d56b0ecb6e70ed2841b1abc23247c1b02666e2b95c5a6ac32e9815a0c6131" => :high_sierra
+    sha256 "5e190bda32de9a3ab3dbd7909a23cf79b1fbd891c10f9a537469a29a7d85d6dd" => :sierra
+    sha256 "ba5967f2f272d2376f14b1c0043853f0d103877cb865546fe919b8ae74316982" => :el_capitan
   end
 
   option "with-nls", "Build with native language support"

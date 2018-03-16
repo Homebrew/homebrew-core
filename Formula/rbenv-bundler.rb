@@ -3,11 +3,12 @@ class RbenvBundler < Formula
   homepage "https://github.com/carsomyr/rbenv-bundler"
   url "https://github.com/carsomyr/rbenv-bundler/archive/1.00.tar.gz"
   sha256 "84f5456b1ac8ea4554db8fa17c99b5f5d2eafcd647f85088a5d36e805c092ba7"
+  revision 1
   head "https://github.com/carsomyr/rbenv-bundler.git"
 
   bottle :unneeded
 
-  depends_on :rbenv
+  depends_on "rbenv"
 
   def install
     prefix.install Dir["*"]

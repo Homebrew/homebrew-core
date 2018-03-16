@@ -110,11 +110,11 @@ class Chadwick < Formula
 
     # check chadwick's standard output
     exec_str = "#{bin}/cwbox -X -q -i #{attr[:game_id]} -y #{date_y} #{evn_file}"
-    out = shell_output exec_str.sub("-X", "")
+    out = shell_output(exec_str.sub("-X", ""))
     assert_match "Game of #{date_m_d_y} -- #{attr[:visitor_city]} at #{attr[:home_city]}", out
 
     # check chadwick's xml output
-    out_xml = shell_output exec_str
+    out_xml = shell_output(exec_str)
     require "rexml/document"
     doc = REXML::Document.new(out_xml)
     assert root = doc.root

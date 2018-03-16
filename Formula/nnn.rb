@@ -1,14 +1,22 @@
 class Nnn < Formula
   desc "Free, fast, friendly file browser"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v1.5.tar.gz"
-  sha256 "f50f59953c29408963bbb961891155bd0a1fe2072d4441cc0ff927b128725c7f"
+  url "https://github.com/jarun/nnn/archive/v1.7.tar.gz"
+  sha256 "fbe26efbed8b467352f313b92f8617d873c8cf0209fb6377572cf8d1ddc2747c"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "686064429ad6c93882d66bbe0ee5e58e49371ab4405f7471b06727a611ce0303" => :high_sierra
-    sha256 "116b742a578044fe4309cee847b72d15b0687c19887b8dd65bc1fac1a5d27eeb" => :sierra
-    sha256 "26901989e2a66d9ec8806ea21b931e66ab8b6f4a1a35544b4da473a8b490e692" => :el_capitan
+    cellar :any
+    sha256 "ff5d1ec8531b1e5994b6b822e94c9c92bfaed8d7918257e08b37c76aa4920d51" => :high_sierra
+    sha256 "8be6a30a848f30382065ffdfcf0aaf17f59ce5239bba5b263f19e69ff3ea3a2d" => :sierra
+    sha256 "c4884ba21bdcc444dfb2ef3df4ddd8f7f56194c159fec96fcef038092564c794" => :el_capitan
+  end
+
+  depends_on "readline"
+
+  # Upstream PR from 27 Feb 2018 "Makefile: don't use non-portable -t option"
+  patch do
+    url "https://github.com/jarun/nnn/pull/83.patch?full_index=1"
+    sha256 "e3196f69407a81b19cd42c9fafb6b420d99ebeed592dd0948efbb9665a6c4a9f"
   end
 
   def install
@@ -20,7 +28,7 @@ class Nnn < Formula
     require "pty"
     PTY.spawn(bin/"nnn") do |r, w, _pid|
       w.write "q"
-      assert_match "cwd: #{testpath.realpath}", r.read
+      assert_match testpath.realpath.to_s, r.read
     end
   end
 end

@@ -1,26 +1,26 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.org/en/latest/"
-  url "https://projects.unbit.it/downloads/uwsgi-2.0.15.tar.gz"
-  sha256 "572ef9696b97595b4f44f6198fe8c06e6f4e6351d930d22e5330b071391272ff"
+  url "https://projects.unbit.it/downloads/uwsgi-2.0.17.tar.gz"
+  sha256 "3dc2e9b48db92b67bfec1badec0d3fdcc0771316486c5efa3217569da3528bf2"
   head "https://github.com/unbit/uwsgi.git"
 
   bottle do
-    sha256 "8982dbb85719c513bc74910a43d89c88892a9677e53711cdee7ae369c660e46c" => :high_sierra
-    sha256 "09cd8cf501bb7ffd6dc1ce48628c80798700d3b79e329321e59c98a6e3d127e1" => :sierra
-    sha256 "94d275b2699c23828ff7610372a3b6b5ff11ec63222eba33db6de22adb806424" => :el_capitan
-    sha256 "986cb7457249c53bf40df451f39675a8871fdefe1f111ae7e02eb70a89404ab5" => :yosemite
+    sha256 "c42839806ac4d5e1bcf9348909cb2012284ef20f69e646981ad11fb5bf9448d1" => :high_sierra
+    sha256 "87b5877671e1b1dd1c7aebe3dca1c2068e40d68c4f922de0610fae4b88a52f97" => :sierra
+    sha256 "33a07fe69d0831fa4eb6e601ec2e406ef059bbe7984badd3ad855eab6efb039b" => :el_capitan
   end
 
   option "with-java", "Compile with Java support"
   option "with-ruby", "Compile with Ruby support"
 
   deprecated_option "with-lua51" => "with-lua@5.1"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "openssl"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   depends_on "geoip" => :optional
   depends_on "gloox" => :optional
@@ -37,7 +37,6 @@ class Uwsgi < Formula
   depends_on "postgresql" => :optional
   depends_on "pypy" => :optional
   depends_on "python" => :optional
-  depends_on "python3" => :optional
   depends_on "rrdtool" => :optional
   depends_on "rsyslog" => :optional
   depends_on "tcc" => :optional
@@ -53,6 +52,12 @@ class Uwsgi < Formula
   end
 
   def install
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     ENV.append %w[CFLAGS LDFLAGS], "-arch #{MacOS.preferred_arch}"
     openssl = Formula["openssl"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
@@ -65,6 +70,7 @@ class Uwsgi < Formula
       [uwsgi]
       ssl = true
       json = #{json}
+      xml = libxml2
       yaml = #{yaml}
       inherit = base
       plugin_dir = #{libexec}/uwsgi
@@ -123,10 +129,10 @@ class Uwsgi < Formula
     end
 
     python_versions = {
-      "python"=>"python",
-      "python2"=>"python",
+      "python"=>"python2.7",
+      "python2"=>"python2.7",
     }
-    python_versions["python3"] = "python3" if build.with? "python3"
+    python_versions["python3"] = "python3" if build.with? "python"
     python_versions.each do |k, v|
       system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
     end

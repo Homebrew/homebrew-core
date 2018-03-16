@@ -3,15 +3,15 @@ require "language/node"
 class Heroku < Formula
   desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
-  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.14.39.tgz"
-  sha256 "d72f743356615f0483e89326e725bdceae542abc042e68e4baeb0aad9cda9384"
+  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.15.32.tgz"
+  sha256 "d92d3da2689ca3451e805cd72628a829df878a6e8d30ab3dcc90546fc96110b4"
   head "https://github.com/heroku/cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7470c636a0e3bde0268c834587edcff35934e04498471816231e04f231dd4c73" => :high_sierra
-    sha256 "a2bb6b40b7692b4c1ec215d8782e32578aeded99f5488c9ef3a102484334298e" => :sierra
-    sha256 "ee07df9012a9ca22f77ff9a84a58c8f821a3f016363efed56ac6d3cc9530702f" => :el_capitan
+    sha256 "0c01322664986334dbdf74b58f703a4fee90524c4caba0fd20cdd5cef664bf3d" => :high_sierra
+    sha256 "0600a73881c420dd3087c972bcfd17fe9b7413176a1a8c5032bd92623cf9a361" => :sierra
+    sha256 "2daec8053dc249314d331286f13eeab8637f91b46fb460987a08ed34f8cd754a" => :el_capitan
   end
 
   depends_on "node"

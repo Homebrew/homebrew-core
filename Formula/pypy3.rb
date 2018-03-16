@@ -1,14 +1,14 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.9.0-src.tar.bz2"
-  sha256 "a014f47f50a1480f871a0b82705f904b38c93c4ca069850eb37653fedafb1b97"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v5.10.1-src.tar.bz2"
+  sha256 "f5548e06e2fc0c24ec8b6e3c5b09f90081818f7caa3e436dc312592611724713"
 
   bottle do
     cellar :any
-    sha256 "671882b5a430ba31723428282df42ab097ed2a744a4787d744e6339dd9dfbd51" => :high_sierra
-    sha256 "943180d5beea8603fe5af3eda3779bb65c9f32e2d12fdf7056495584c0e52cc2" => :sierra
-    sha256 "83a6bd36bda18be9197bdb5836be51dc7e39fa7a00e1a6d4ffae6aedae2fc731" => :el_capitan
+    sha256 "51fde2ccad56f8136201c2d49ae6f3f9258f138637e388c8bb5d7d2617ef01c3" => :high_sierra
+    sha256 "c337c4f6ecae8ecced8fb7fb901bb174a4913d54044af2ddab2b634a76718b4b" => :sierra
+    sha256 "1c13a907bd266e44d17dc6c5c39d59f4cf88e7ad89a67ad8b300a25481ec7bd0" => :el_capitan
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -104,7 +104,7 @@ class Pypy3 < Formula
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy3 --targetdir . --nostrip]
+      package_args = %w[--archive-name pypy3 --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       package_args << "--without-lzma" if build.without? "xz"
       system python, "package.py", *package_args
@@ -185,7 +185,7 @@ class Pypy3 < Formula
     To update pip and setuptools between pypy3 releases, run:
         pip_pypy3 install --upgrade pip setuptools
 
-    See: https://docs.brew.sh/Homebrew-and-Python.html
+    See: https://docs.brew.sh/Homebrew-and-Python
     EOS
   end
 

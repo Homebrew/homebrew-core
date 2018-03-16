@@ -3,27 +3,31 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
   sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "5562855bd9fea93bb931df5ece988868b7d3a3ec784e07427b0828df2cf1458e" => :high_sierra
-    sha256 "1290607eab5ea1525dbeb8d18895f7d8254d3c80df5bd75ff8cf6ca4bcbc1c3b" => :sierra
-    sha256 "fb7fc662d814eac526892dc19c50c758fd8862d5cbe7cca025c597b586feaf1a" => :el_capitan
-    sha256 "d6076d733551391c373409c04a30375596c10c32525f8b152cedcad5cb1aed8b" => :yosemite
+    sha256 "46fcdfb51964dc0be0beb9d6b8c8ea1924e6fa0a4ea4cb2585515b79286291bf" => :high_sierra
+    sha256 "f2319987e23edf257db3314ffca8b84bad81363cfc84212a8fb25c59bb57ad23" => :sierra
+    sha256 "cdefae05c257ce4ed0a9bb0e8594d8cf20c0e825c3704394ef87e7cbf841a7ae" => :el_capitan
   end
 
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python support"
 
+  deprecated_option "without-python" => "without-python@2"
+
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
   depends_on "zeromq"
-  depends_on "numpy" if build.with? :python
-  depends_on "swig" => :build if build.with? :python
-  depends_on "cmake" => :build
+
+  if build.with? "python@2"
+    depends_on "swig" => :build
+    depends_on "numpy"
+  end
 
   # For documentation
   depends_on "doxygen" => [:build, :optional]
@@ -59,15 +63,27 @@ class Gnuradio < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+
     ENV["CHEETAH_INSTALL_WITHOUT_SETUPTOOLS"] = "1"
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
 
-    res = %w[Markdown Cheetah lxml]
-    res.each do |r|
+    ["Markdown", "Cheetah"].each do |r|
       resource(r).stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
+    end
+
+    begin
+      # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
+      resource("lxml").stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    ensure
+      ENV.delete("SDKROOT")
     end
 
     resource("cppzmq").stage include.to_s
@@ -81,7 +97,7 @@ class Gnuradio < Formula
                             gr-blocks gr-pager gr-noaa gr-channels gr-audio
                             gr-fcd gr-vocoder gr-fec gr-digital gr-dtv gr-atsc
                             gr-trellis gr-zeromq]
-    if build.with? "python"
+    if build.with? "python@2"
       enabled_components << "python"
       enabled_components << "gr-utils"
       enabled_components << "grc" if build.with? "pygtk"
@@ -108,7 +124,7 @@ class Gnuradio < Formula
   end
 
   test do
-    system("#{bin}/gnuradio-config-info -v")
+    assert_match version.to_s, shell_output("#{bin}/gnuradio-config-info -v")
 
     (testpath/"test.c++").write <<~EOS
       #include <gnuradio/top_block.h>
@@ -140,14 +156,12 @@ class Gnuradio < Formula
         top.run();
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"]}",
+    system ENV.cxx, "-L#{lib}", "-L#{Formula["boost"].opt_lib}",
            "-lgnuradio-blocks", "-lgnuradio-runtime", "-lgnuradio-pmt",
-           "-lboost_system",
-           (testpath/"test.c++"),
-           "-o", (testpath/"test")
-    system (testpath/"test")
+           "-lboost_system", testpath/"test.c++", "-o", testpath/"test"
+    system "./test"
 
-    if build.with? "python"
+    if build.with? "python@2"
       (testpath/"test.py").write <<~EOS
         from gnuradio import blocks
         from gnuradio import gr
@@ -172,11 +186,12 @@ class Gnuradio < Formula
 
         main()
       EOS
-      system "python", (testpath/"test.py")
+      system "python2.7", testpath/"test.py"
 
-      cd(testpath) do
+      cd testpath do
         system "#{bin}/gr_modtool", "newmod", "test"
-        cd("gr-test") do
+
+        cd "gr-test" do
           system "#{bin}/gr_modtool", "add", "-t", "general", "test_ff", "-l",
                  "python", "-y", "--argument-list=''", "--add-python-qa"
         end

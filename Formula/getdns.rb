@@ -1,13 +1,13 @@
 class Getdns < Formula
   desc "Modern asynchronous DNS API"
   homepage "https://getdnsapi.net"
-  url "https://getdnsapi.net/releases/getdns-1-2-1/getdns-1.2.1.tar.gz"
-  sha256 "3ed37135b4aa447160fa68205b8552477b6829da48eb63943994c6193e1d891d"
+  url "https://getdnsapi.net/releases/getdns-1-4-1/getdns-1.4.1.tar.gz"
+  sha256 "245233dc780f615b6ab1472f2b9cdcd957a451a736f3036717d0da466ab1c51e"
 
   bottle do
-    sha256 "095aa79a5d4dd416502c843dd3ab004814cc17017f3c3199ce03f6cbad19d9b8" => :high_sierra
-    sha256 "ec8b8937dbe8b2e2c52c2d4bde4484294e93fefccc451214ef79205b46277929" => :sierra
-    sha256 "70291f3a9b33a0531ff3043036ee6fcbe54aa6ea648e1a2156e219954c60174e" => :el_capitan
+    sha256 "d80644beb47575554da2473d294956859e8ff96b45f38d0f23a4b49c64d7a1ff" => :high_sierra
+    sha256 "9483906284202975572bdf52a8556de1bf25be69ad36edd703528692a487c342" => :sierra
+    sha256 "5dfc428706294f5f608749170520feb4d6b87bdeb362800e8fea50314a4a2a2c" => :el_capitan
   end
 
   head do
@@ -44,6 +44,7 @@ class Getdns < Formula
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
+    ENV.deparallelize
     system "make", "install"
   end
 

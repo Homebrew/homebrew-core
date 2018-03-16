@@ -3,14 +3,13 @@ class Jupyter < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz"
   sha256 "d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"
-  revision 1
+  revision 3
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "06af2ba9f9f7d2331778858c5e71268cab0eac8e08c752093954946ccdba1198" => :high_sierra
-    sha256 "8c12af02fe321efcd251a684a664cec1d455bb0e9e11725d7e57af299a4aad2d" => :sierra
-    sha256 "1c8820e5730a1fd519b8b23d84814257c4bf95581090cc09e90848b732d4a491" => :el_capitan
-    sha256 "30794bb89f95ed4e9abd9cb8ed2b7475293273efe85bf8c99182b02ef69595fc" => :yosemite
+    cellar :any
+    sha256 "950f7e3399bc3668916b5634e2067d106e5206c0b452db13e89b9dcae781fc23" => :high_sierra
+    sha256 "8b868ac865e4005b3b7c7f7912fed224c4f25613a83b6194b40113a333e92ad6" => :sierra
+    sha256 "1708125f0ae94cec7d5f5dff0e8353209933eb594b3733b80fe6f0b37f6fd55b" => :el_capitan
   end
 
   option "with-qtconsole", "Install with Qtconsole"
@@ -19,6 +18,8 @@ class Jupyter < Formula
   option "without-notebook", "Install without Jupyter Notebook"
 
   depends_on "ipython@5"
+  depends_on "python@2"
+  depends_on "zeromq"
   depends_on "pandoc" if build.with?("nbconvert") || build.with?("notebook")
   depends_on "pyqt" if build.with? "qtconsole"
 

@@ -1,28 +1,25 @@
 class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/unison-2.48.4.tar.gz"
-  sha256 "30aa53cd671d673580104f04be3cf81ac1e20a2e8baaf7274498739d59e99de8"
-  revision 1
+  url "https://github.com/bcpierce00/unison/archive/v2.51.2.tar.gz"
+  sha256 "a2efcbeab651be6df69cc9b253011a07955ecb91fb407a219719451197849d5e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3e1c9260e9bdf7e7f3074cfee35d9068a3389c8fcda8556613419866ae5f928a" => :high_sierra
-    sha256 "51b6a7abef991785f2b6d29dca9be3f7b17ea2261de4c8dded481d899c562a09" => :sierra
-    sha256 "3bf2bc0ead48c846e631457f4451184fa45f70c4971cd53a47e35f5a5ee43f41" => :el_capitan
-    sha256 "271bd5cd412997594e7ddfc7afad177c48e4f20fecc88cc4dbf828ccdf3f7385" => :yosemite
+    sha256 "1622a673b2bc8ef6d00dd754c26cfd3d5f737ed1dc48a46bbce486fa0f766181" => :high_sierra
+    sha256 "fd00605490100ec224f5d86a79da341ce639e1d0772fb48cc133672d1bc2a812" => :sierra
+    sha256 "53c945e143961a5d158a36980664d5be7153b84074bfa4220eee2db35404b7d3" => :el_capitan
   end
 
   depends_on "ocaml" => :build
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.deparallelize
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
-    system "make", "./mkProjectInfo"
     system "make", "UISTYLE=text"
-    bin.install "unison"
+    bin.install "src/unison"
+    prefix.install_metafiles "src"
   end
 
   test do

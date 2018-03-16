@@ -4,11 +4,12 @@ class Cling < Formula
   url "http://root.cern.ch/git/cling.git",
       :tag => "v0.5",
       :revision => "0f1d6d24d4417fc02b73589c8b1d813e92de1c3f"
+  revision 1
 
   bottle do
-    sha256 "db1bf4e905c6b787b63b50c03a43028b71a00110b5008b48ee01a24400efbdb9" => :high_sierra
-    sha256 "83fd0ba864ef3261b3ab6e58647d44036029298dd55408ac0527c4953259e024" => :sierra
-    sha256 "4f327b0cab15cfc5f77c1ae77651861af5855c1b324d55175246f24d9d2743e5" => :el_capitan
+    sha256 "fe94e56a3ee12dc8ada76ab4e9f96f4ff754f356a9ca9ad35708c0dbf4a41802" => :high_sierra
+    sha256 "c947df2499dcdeaa9807c3eae023d5c5cf9ba49902a68998e242b24e0fedcd9f" => :sierra
+    sha256 "a735b768dd2e5b9b000ca81660d5472897036d331277595501b341075da5ee8b" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -30,9 +31,10 @@ class Cling < Formula
     (buildpath/"src/tools/cling").install buildpath.children - [buildpath/"src"]
     (buildpath/"src/tools/clang").install resource("clang")
     mkdir "build" do
-      system "cmake", *std_cmake_args, "../src"
+      system "cmake", *std_cmake_args, "-DCMAKE_INSTALL_PREFIX=#{libexec}", "../src"
       system "make", "install"
     end
+    bin.install_symlink libexec/"bin/cling"
     prefix.install_metafiles buildpath/"src/tools/cling"
   end
 

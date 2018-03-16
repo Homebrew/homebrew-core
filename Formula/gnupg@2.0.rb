@@ -1,15 +1,14 @@
 class GnupgAT20 < Formula
   desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.30.tar.bz2"
-  sha256 "e329785a4f366ba5d72c2c678a7e388b0892ac8440c2f4e6810042123c235d71"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
+  sha256 "095558cfbba52fba582963e97b0c016889570b4712d6b871abeef2cf93e62293"
 
   bottle do
-    sha256 "32c8568804d669b19884c3d29efeb9abbcaa877571e587d33e14c8a8a2ebcbba" => :high_sierra
-    sha256 "b547da420d75ad03b0c60826c96c1959432f363e9a0ab8d270ade56909a9d95b" => :sierra
-    sha256 "f0b436938f9a17459d2ca4a30a80e9c68aa86547fbb7e36c0a2176e38da6188c" => :el_capitan
-    sha256 "0b8eebc7065e3cd00c1cfa60012f390a9a24477e94ef8d7b4b762afa151c2103" => :yosemite
+    sha256 "4854e648eb7af8d3dce917c05b82f8f3ff87a078aca95761dad7787efc09a798" => :high_sierra
+    sha256 "d52b7e2fb7951d39f99f17b86ecc69e7e9b98e052ebf4daab67240ffea80eb97" => :sierra
+    sha256 "d9bd7fce7e528c08a3a10d3440d81b09995434dbe11505dfa9555d947466ffaa" => :el_capitan
   end
 
   keg_only :versioned_formula

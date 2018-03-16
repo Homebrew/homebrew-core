@@ -1,13 +1,13 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.28.0/nghttp2-1.28.0.tar.xz"
-  sha256 "0d6c3f00614deca3935e42a27f6ad0ea87c31d8c1baa3a9c52755955c599fd8d"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.31.0/nghttp2-1.31.0.tar.xz"
+  sha256 "36573c2dc74f0da872b02a3ccf1f1419d6b992dd4703dc866e5a289d36397ac7"
 
   bottle do
-    sha256 "7b9fc44d70d323e560b609821be745ecb4512ed53bf1b07d57b214da3402bb32" => :high_sierra
-    sha256 "c93636aa8a5dfe654d3b4c91d909c84301b638661cf79c30220239fc6ce70166" => :sierra
-    sha256 "a471905583d48880ac350f98a915d0309c6ef4df09560b3b9f9ecf11cc3d5521" => :el_capitan
+    sha256 "68df2e5d01922df3b756e173bf14f17963948bc6a042d91c6a46030a1642cee8" => :high_sierra
+    sha256 "cc35f4a95b57efa63a837cab62678f8c015755ff79200787e76f147b2c72560e" => :sierra
+    sha256 "fee924a6d7490c0fc9b9d95923f2d49b9794a9f394770d643a9ee1539055b8c7" => :el_capitan
   end
 
   head do
@@ -19,9 +19,11 @@ class Nghttp2 < Formula
   end
 
   option "with-examples", "Compile and install example programs"
-  option "with-python3", "Build python3 bindings"
+  option "with-python", "Build python3 bindings"
 
-  depends_on :python3 => :optional
+  deprecated_option "with-python3" => "with-python"
+
+  depends_on "python" => :optional
   depends_on "sphinx-doc" => :build
   depends_on "libxml2" if MacOS.version <= :lion
   depends_on "pkg-config" => :build
@@ -74,7 +76,7 @@ class Nghttp2 < Formula
     system "make", "install"
     libexec.install "examples" if build.with? "examples"
 
-    if build.with? "python3"
+    if build.with? "python"
       pyver = Language::Python.major_minor_version "python3"
       ENV["PYTHONPATH"] = cythonpath = buildpath/"cython/lib/python#{pyver}/site-packages"
       cythonpath.mkpath

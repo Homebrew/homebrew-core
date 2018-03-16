@@ -2,24 +2,23 @@ class Duplicity < Formula
   include Language::Python::Virtualenv
 
   desc "Bandwidth-efficient encrypted backup"
-  homepage "http://www.nongnu.org/duplicity/"
-  url "https://code.launchpad.net/duplicity/0.7-series/0.7.14/+download/duplicity-0.7.14.tar.gz"
-  sha256 "7a3eb74a2a36b004b10add2970b37cfbac0bd693d79513e6311c8e4b8c3dd73e"
+  homepage "https://launchpad.net/duplicity"
+  url "https://launchpad.net/duplicity/0.7-series/0.7.16/+download/duplicity-0.7.16.tar.gz"
+  sha256 "a8f5e1e77dcc5e03a7d206086b8ef89fa574c59de582ed15db5987c40b842718"
   revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "8a48bd794bd720760d8a40210e8e671a572af5b0bd997d5ce56f11c8aca3a6e5" => :high_sierra
-    sha256 "fd426d9cfc51510ffa77e324c1cd932c1e7d1b7ac5c53ad10efb0775ef7c9c7b" => :sierra
-    sha256 "7408ed0271bb69c962dc2fe3c2c94a385ca87791b2d9e538f33dac0eb56f8d79" => :el_capitan
+    sha256 "9a9e3eaca2fd0b7e4a92b6dddf9bb53d6b79136f48185872de52c5ae46693a78" => :high_sierra
+    sha256 "02d3cdb466e2b3552bc86216874d47583024fc7d2cb97d1d55236cfcf5a6d6c3" => :sierra
+    sha256 "b6aaa3547681fb06acdccaf3beed8a4abbaf9b3ab5057604f6c08f3cd7301bba" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "librsync"
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "par2" => :optional
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   # Generated with homebrew-pypi-poet from
   # for i in azure-storage boto dropbox fasteners kerberos mega.py
@@ -324,7 +323,19 @@ class Duplicity < Formula
   end
 
   test do
-    Gpg.test(testpath) do
+    (testpath/"batch.gpg").write <<~EOS
+      Key-Type: RSA
+      Key-Length: 2048
+      Subkey-Type: RSA
+      Subkey-Length: 2048
+      Name-Real: Testing
+      Name-Email: testing@foo.bar
+      Expire-Date: 1d
+      %no-protection
+      %commit
+    EOS
+    system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
+    begin
       (testpath/"test/hello.txt").write "Hello!"
       (testpath/"command.sh").write <<~EOS
         #!/usr/bin/expect -f
@@ -346,6 +357,10 @@ class Duplicity < Formula
       # Ensure requests[security] is activated
       script = "import requests as r; r.get('https://mozilla-modern.badssl.com')"
       system libexec/"bin/python", "-c", script
+    ensure
+      system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
+      system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",
+                                                 "--kill", "gpg-agent"
     end
   end
 end

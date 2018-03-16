@@ -2,15 +2,15 @@ class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
-      :tag => "0.26.2",
-      :revision => "452f2d5a9917befe722b944360aefd7ae05fc6d5",
+      :tag => "0.28.0",
+      :revision => "19e584623e548de68f424ea5c5dc4c081d750112",
       :shallow => false
   head "https://github.com/Carthage/Carthage.git", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "5f6c335afb7a0f7888f8d34908bb39731d9bce269dc1a3d47f37484124e28fbc" => :high_sierra
-    sha256 "6985d61d9d71fb0d7f58683240553887ad031c8f1540a09da41a96feaddbb427" => :sierra
+    sha256 "447681514adebd562ac6dba28380e177b59f273059ace07d0ad3f9bdde799bbd" => :high_sierra
+    sha256 "9eb176f9fcbd997ae7d692362d526cafedd87bc506de92db7db2f6dd9bdf9775" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]

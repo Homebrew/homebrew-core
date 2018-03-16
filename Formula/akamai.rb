@@ -1,14 +1,14 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/0.4.1.tar.gz"
-  sha256 "a8b772aaa1f8721f7924ca031432c8dc81aeb8fb381eece8325412f0d6322312"
+  url "https://github.com/akamai/cli/archive/0.5.1.tar.gz"
+  sha256 "d39c4550ece219ac82f0475401fedcadf73dc65c46bb0f7169670f1cb5afbb1d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a5521d29a9283f9b91ff2053dc0fadb7884359fbe42e7558037ee1741485b9a4" => :high_sierra
-    sha256 "b4a3356d993a58a82b1425629537c38dd4d1fc289243ce13de2d5b6d99ee0031" => :sierra
-    sha256 "afc624e735e921ca4715dcf4a3a813b9d36301e1323a2fb914059ff837c7a3a1" => :el_capitan
+    sha256 "21733a07ff718017ed945fca44db55cec46c51537a023b2b4738223020f8e71a" => :high_sierra
+    sha256 "649f6ae9c1f1c1e1a894d3134340562afb000c5a88b3342442656186ddd25166" => :sierra
+    sha256 "b1d85c495f0a98b12b459be5fc6f94ea9ae8109cf9f62b179bb6c0a53e5d19f3" => :el_capitan
   end
 
   depends_on "go" => :build

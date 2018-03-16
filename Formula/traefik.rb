@@ -1,38 +1,26 @@
-require "language/go"
-
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.4.4/traefik-v1.4.4.src.tar.gz"
-  version "1.4.4"
-  sha256 "8fb8b986dd6e79a3d474904fe6524cd04b6c3247f1f42c992019532d48049561"
+  url "https://github.com/containous/traefik/releases/download/v1.5.4/traefik-v1.5.4.src.tar.gz"
+  version "1.5.4"
+  sha256 "557e578f4dcc8786f81eb46e537a4be2a71053d220ed26fb5ea3a4265985c370"
   head "https://github.com/containous/traefik.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8a231d9a5863be58f66bed95ed87d5285f071b552986f4d87e25a4b7f050c604" => :high_sierra
-    sha256 "141f1dc28a29f85467832a46e796519cfd6cacadf8bff0629d1e10c69b42cc7e" => :sierra
-    sha256 "f0e2e8f1cd31c64f562423ffcb482aa77412270c178441dd230f28ffcef4927b" => :el_capitan
+    sha256 "a33180715ae28b562b3a3a00baf48a17f3850cfa575bdb8ee743d60b90fbf9fd" => :high_sierra
+    sha256 "6015b747e8042458068cd9745ea87337a7a9d1f84fee9af35fdc2240f0016759" => :sierra
+    sha256 "ce504adf3660e038766ba4f795ce7fbc0dfb992de6b5b0b362340be592e972b7" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/containous/traefik").install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
-      system "go", "install"
-    end
 
     cd "src/github.com/containous/traefik" do
       cd "webui" do

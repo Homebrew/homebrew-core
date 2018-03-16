@@ -19,16 +19,11 @@ class Openvdb < Formula
   deprecated_option "with-tests" => "with-test"
   deprecated_option "with-viewer" => "with-glfw"
 
-  depends_on "openexr"
+  depends_on "boost"
   depends_on "ilmbase"
+  depends_on "openexr"
   depends_on "tbb"
   depends_on "jemalloc" => :recommended
-
-  if MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
 
   depends_on "glfw" => :optional
   depends_on "cppunit" if build.with? "test"

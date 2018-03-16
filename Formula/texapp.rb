@@ -1,7 +1,7 @@
 class Texapp < Formula
   desc "App.net client based on TTYtter"
-  homepage "http://www.floodgap.com/software/texapp/"
-  url "http://www.floodgap.com/software/texapp/dist0/0.6.11.txt"
+  homepage "https://www.floodgap.com/software/texapp/"
+  url "https://www.floodgap.com/software/texapp/dist0/0.6.11.txt"
   sha256 "03c3d5475dfb7877000ce238d342023aeab3d44f7bac4feadc475e501aa06051"
 
   bottle do

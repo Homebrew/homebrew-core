@@ -1,22 +1,26 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.11.2/bind-9.11.2.tar.gz"
-  mirror "https://fossies.org/linux/misc/dns/bind9/9.11.2/bind-9.11.2.tar.gz"
-  sha256 "7f46ad8620f7c3b0ac375d7a5211b15677708fda84ce25d7aeb7222fe2e3c77a"
+  url "https://ftp.isc.org/isc/bind9/9.12.1/bind-9.12.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/dns/bind9/9.12.1/bind-9.12.1.tar.gz"
+  sha256 "16e446425c35e48b651ddf1171d2115ebf32b07670b652e1030a174038937510"
   head "https://source.isc.org/git/bind9.git"
 
   bottle do
-    sha256 "4e19c44b930577980e79d599dc32f7faee548a31b7a8cd5a27789ff5e5a97ff2" => :high_sierra
-    sha256 "30b8e84bd85742a0d15487a7f0dc6099ef28377f5ab24a368a5e9b62ac4d85e0" => :sierra
-    sha256 "06549eb4510412564f01bca75d4b11cf79d4cab7b43b4e7eb9b7ad817ad6853a" => :el_capitan
-    sha256 "24d17777e0547adfc569752001e1700dfae168b3d4df43c94bf79c4a3c192c89" => :yosemite
+    sha256 "355e4a226e321e9101b6bc39a86463c1bd74b2b7be82e43e55b73b40977eab16" => :high_sierra
+    sha256 "7f553589c292248a704c89658f561a275e20cb449c76acdf74202f90fc75dfb7" => :sierra
+    sha256 "7d6a35b70b7e209e5df444a88acdcfc6cebc9c6ad5bd7085d617916a563b13b2" => :el_capitan
   end
 
   depends_on "openssl"
   depends_on "json-c" => :optional
 
   def install
+    # Fix "configure: error: xml2-config returns badness"
+    if MacOS.version == :sierra || MacOS.version == :el_capitan
+      ENV["SDKROOT"] = MacOS.sdk_path
+    end
+
     # enable DNSSEC signature chasing in dig
     ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
 

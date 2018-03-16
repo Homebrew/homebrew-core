@@ -1,5 +1,3 @@
-require "language/go"
-
 class Megacmd < Formula
   desc "Command-line client for mega.co.nz storage service"
   homepage "https://github.com/t3rm1n4l/megacmd"
@@ -9,33 +7,21 @@ class Megacmd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12ce5caa7064f8bb5ede1e1663794fa73b6622ec7d6c4b01124a6ff14330a6bf" => :high_sierra
-    sha256 "ae598a728f664da115a979123e2a0d1ba05fd0b96766f63c65c5dd1f210baace" => :sierra
-    sha256 "c100c1ca95dbe63a3cf23353517163328b2178fff1bbe4bdfc947c1ba0776884" => :el_capitan
+    rebuild 1
+    sha256 "ba3d3ef2da44dfae8f4c332873a3326b63ce4e6ea888d67603c61f3250fb5f42" => :high_sierra
+    sha256 "b0f70b42422e2afe1f29b7384f915dce7a20abc0f22954e6f51c4afd8eeac614" => :sierra
+    sha256 "28f5287ae40edf0e2694d881476abe4a7967b0a9f2e6a3299be49bec6b25f471" => :el_capitan
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/t3rm1n4l/go-humanize" do
-    url "https://github.com/t3rm1n4l/go-humanize.git",
-        :revision => "e7ed15be05eb554fbaa83ac9b335556d6390fb9f"
-  end
-
-  go_resource "github.com/t3rm1n4l/go-mega" do
-    url "https://github.com/t3rm1n4l/go-mega.git",
-        :revision => "551abb8f1c87053be3f24282d198a6614c0ca14f"
-  end
-
-  go_resource "github.com/t3rm1n4l/megacmd" do
-    url "https://github.com/t3rm1n4l/megacmd.git",
-        :revision => "d7f3f3a2427cc52b71cad90b26889e2a33fc3565"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"megacmd"
+    (buildpath/"src/github.com/t3rm1n4l/megacmd").install buildpath.children
+    cd "src/github.com/t3rm1n4l/megacmd" do
+      system "go", "build", "-o", bin/"megacmd"
+      prefix.install_metafiles
+    end
   end
 
   test do

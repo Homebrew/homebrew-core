@@ -1,38 +1,19 @@
-# The tarball is not APFS friendly
-# "Can't create 'sfk-1.8.8/testfiles/Formats/22-umlauts-???-name.txt'"
-# Reported 24 Nov 2017 https://sourceforge.net/p/swissfileknife/bugs/50/
-class SfkDownloadStrategy < CurlDownloadStrategy
-  def stage
-    exclude = "#{name}-#{version}/testfiles/Formats"
-    safe_system "tar", "xf", cached_location, "--exclude", exclude
-    chdir
-  end
-end
-
 class Sfk < Formula
   desc "Command-line tools collection"
   homepage "http://stahlworks.com/dev/swiss-file-knife.html"
-  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.8.8/sfk-1.8.8.tar.gz",
-      :using => SfkDownloadStrategy
-  sha256 "b139998e3aca294fe74ad2a6f0527e81cbd11eddfb5e8a81f6067a79d26c97ed"
+  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.9.0.2/sfk-1.9.0.tar.gz"
+  version "1.9.0.2"
+  sha256 "82e6b900578c24a83ea20f636ee12dce7565f98d53cbfd05f286e01467e0d2aa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4be767422ed9a90cd6298a6525d3957be2a9de56bd16fa461fc239bdb0878259" => :high_sierra
-    sha256 "2861fbe744b3b3dc67ada77dc6d2b200cd4bebdb0b7f9af3933275eec6455c5b" => :sierra
-    sha256 "f426a218d0178df2d4615392bf833628d6a0298c7e5038a2b25cb33b86a3e1f2" => :el_capitan
+    sha256 "e03be10cd7374af2925ef43f34077207592ebd17fe0154599c900e276ba4bab9" => :high_sierra
+    sha256 "e3071bbcfe4df4082ce6419b942c90caee261aff208089adf4ab847b55dcd144" => :sierra
+    sha256 "2fdec7f1e4314c883deced2f12d4a84ebc7a6cf9e1454f41cda243bad948f9d9" => :el_capitan
   end
 
   def install
     ENV.libstdcxx
-
-    # Fix "error: ordered comparison between pointer and zero"
-    # Reported 24 Nov 2017 https://sourceforge.net/p/swissfileknife/bugs/51/
-    if DevelopmentTools.clang_build_version >= 900
-      inreplace "sfk.cpp",
-                "if (fgets(szLineBuf, MAX_LINE_LEN, stdin) <= 0)",
-                "if (fgets(szLineBuf, MAX_LINE_LEN, stdin) <= (void *)0)"
-    end
 
     system "./configure", "--prefix=#{prefix}"
     system "make"

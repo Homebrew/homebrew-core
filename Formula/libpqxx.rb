@@ -1,19 +1,18 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "http://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/5.0.1.tar.gz"
-  sha256 "21ba7167aeeb76142c0e865127514b4834cefde45eaab2d5eb79099188e21a06"
-  revision 1
+  url "https://github.com/jtv/libpqxx/archive/6.1.1.tar.gz"
+  sha256 "7b4f37dab4b17b71ef415ffa37f5102ef6bc12647e42f0abaaf6febeeefb8b1e"
 
   bottle do
     cellar :any
-    sha256 "4a146fd2c38fed728cfbc51502c9976953cf15e0a278e5d0b0063006b6feedf9" => :high_sierra
-    sha256 "e09f197b4b6d84212cbe09a5c71b6ebab248a1e634c81377d6b8d7172cb251ed" => :sierra
-    sha256 "14cabe29c05d71602958b86c775681a9dc530ba269378a5a2c41737b8aa80b1f" => :el_capitan
+    sha256 "2e496888c6e5b1887217bcadc656f00c2f5c50e7c6bc368b9d5efd350d5d6185" => :high_sierra
+    sha256 "8d02167d314d158da9ac1f14c2fe64fcf530f8518b125e2d5cda4500c262d726" => :sierra
+    sha256 "94001fdb6e6e9acf41d916640284ddac9f19d9dbec8fa83aff1ae0e9b4060301" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared"
@@ -28,7 +27,8 @@ class Libpqxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lpqxx", "-I#{include}", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lpqxx",
+           "-I#{include}", "-o", "test"
     # Running ./test will fail because there is no runnning postgresql server
     # system "./test"
 

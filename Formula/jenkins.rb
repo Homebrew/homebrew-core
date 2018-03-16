@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://jenkins.io/"
-  url "http://mirrors.jenkins.io/war/2.93/jenkins.war"
-  sha256 "81d29296dc435906dd03f0743ee91bca43f46671b9e636e85b4b014a2b1566f2"
+  url "http://mirrors.jenkins.io/war/2.110/jenkins.war"
+  sha256 "3a6a13a2a8f88cdf8afb9945d427d97c85a9b6d3f6cfa3b994cb47e2c8125fa5"
 
   head do
     url "https://github.com/jenkinsci/jenkins.git"
@@ -11,7 +11,7 @@ class Jenkins < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def install
     if build.head?
@@ -40,7 +40,11 @@ class Jenkins < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>/usr/bin/java</string>
+          <string>/usr/libexec/java_home</string>
+          <string>-v</string>
+          <string>1.8</string>
+          <string>--exec</string>
+          <string>java</string>
           <string>-Dmail.smtp.starttls.enable=true</string>
           <string>-jar</string>
           <string>#{opt_libexec}/jenkins.war</string>

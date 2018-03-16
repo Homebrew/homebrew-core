@@ -1,8 +1,8 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.7.zip"
-  sha256 "426ef44431814609ea279c3afd889b4b93c1cc630be7666cad34f0bc70b5d3b0"
+  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-7.0.zip"
+  sha256 "263942458279e2cf73fd86671511ac8ef0707e41ed51c9737142f8738bc7c060"
 
   bottle :unneeded
 

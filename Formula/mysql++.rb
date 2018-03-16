@@ -3,16 +3,16 @@ class Mysqlxx < Formula
   homepage "https://tangentsoft.com/mysqlpp/home"
   url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.3.tar.gz"
   sha256 "c804c38fe229caab62a48a6d0a5cb279460da319562f41a16ad2f0a0f55b6941"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e896760f31b977fce886b2f9eb67ee70fa93491752ac48744458bfa74b5c1f35" => :high_sierra
-    sha256 "44549b6b92ecf8288923b6111a67c3dcf16f5ba0a0ca47f4fd38a31b99545452" => :sierra
-    sha256 "1f0e3bc7e6e25924bb95113ee0cbd7c99402dc51744682258b3548c756431239" => :el_capitan
-    sha256 "f9837534007c15fdf73e607ddc58c1d5c0d1d20ff2de7e2d1dea20716b823cc9" => :yosemite
+    sha256 "62551ee383b5c68a1b74f3652e44fafc3ab210b63af765cb2a6318f09695c0b1" => :high_sierra
+    sha256 "00b0c1e860ed384bb27fbbe53c62ea4cbbec592357a2744e8203ccf000c84c31" => :sierra
+    sha256 "1668ebf91ee98d2d898f2b2eb75adba49f7bb3c8e353f2ac95f722da2858110b" => :el_capitan
   end
 
-  depends_on :mysql
+  depends_on "mysql"
 
   def install
     mysql_include_dir = Utils.popen_read("mysql_config --variable=pkgincludedir")

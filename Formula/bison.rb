@@ -12,7 +12,7 @@ class Bison < Formula
     sha256 "ad8ea27a2a19efa903bbd094bffdc5f80e5e5fc641a31c3649a3a23110b5d455" => :el_capitan
   end
 
-  keg_only :provided_by_osx, "some formulae require a newer version of bison"
+  keg_only :provided_by_macos, "some formulae require a newer version of bison"
 
   # Fix crash from usage of %n in dynamic format strings on High Sierra
   # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>

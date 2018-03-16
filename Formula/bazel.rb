@@ -1,14 +1,14 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.8.1/bazel-0.8.1-dist.zip"
-  sha256 "dfd0761e0b7e36c1d74c928ad986500c905be5ebcfbc29914d574af1db7218cf"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.11.1/bazel-0.11.1-dist.zip"
+  sha256 "e8d762bcc01566fa50952c8028e95cfbe7545a39b8ceb3a0d0d6df33b25b333f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "35b1c0670208b22810d029c6c68c6311b3c511f8645159f611dca5a65ca27147" => :high_sierra
-    sha256 "9901031265cc4c1851e62b1e54f4993b90bd4a071eddeaffb5c7cf07c4031126" => :sierra
-    sha256 "54b3b426eefef6a205146bbbfe19bec1c03abe18de0d9c3692c407d32e2b2426" => :el_capitan
+    sha256 "1254786b2b01b471fa7b7db196567ff8a01a4aa53afb1f02fddaa16ae5e4fa61" => :high_sierra
+    sha256 "d35179130398f2e638e7268cd918af60de6ce3a88c190b64efc12c2c624e2a16" => :sierra
+    sha256 "784d09fcf9e36b3a7fb15bdec5c2535a8d623a051bc93d5201208ca1edcf14cf" => :el_capitan
   end
 
   depends_on :java => "1.8"
@@ -19,16 +19,22 @@ class Bazel < Formula
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
 
-    system "./compile.sh"
-    system "./output/bazel", "--output_user_root", buildpath/"output_user_root",
-           "build", "scripts:bash_completion"
+    (buildpath/"sources").install buildpath.children
 
-    bin.install "scripts/packages/bazel.sh" => "bazel"
-    bin.install "output/bazel" => "bazel-real"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    cd "sources" do
+      system "./compile.sh"
+      system "./output/bazel", "--output_user_root",
+             buildpath/"output_user_root", "build", "scripts:bash_completion"
 
-    bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
-    zsh_completion.install "scripts/zsh_completion/_bazel"
+      bin.install "scripts/packages/bazel.sh" => "bazel"
+      bin.install "output/bazel" => "bazel-real"
+      bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+
+      bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
+      zsh_completion.install "scripts/zsh_completion/_bazel"
+
+      prefix.install_metafiles
+    end
   end
 
   test do

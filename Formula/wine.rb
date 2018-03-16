@@ -7,45 +7,13 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 1
 
   stable do
-    url "https://dl.winehq.org/wine/source/2.0/wine-2.0.3.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.0.3.tar.xz"
-    sha256 "a811c664f870a3a01449443a93a6fcee41aea2e912e58f72742eb7924962be56"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.tar.xz"
+    sha256 "346a050aca5cd0d9978a655af11c30e68c201a58aea0c70d5e4c4f1b63c2fbec"
 
-    # Patch to fix texture compression issues. Still relevant on 2.0.
-    # https://bugs.winehq.org/show_bug.cgi?id=14939
-    patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=52384"
-      sha256 "30766403f5064a115f61de8cacba1defddffe2dd898b59557956400470adc699"
-    end
-
-    # Patch to fix screen-flickering issues. Still relevant on 2.0.
-    # https://bugs.winehq.org/show_bug.cgi?id=34166
-    patch do
-      url "https://bugs.winehq.org/attachment.cgi?id=55968"
-      sha256 "1b5086798ce6dc959b3cbb8f343ee236ae06c7910e4bbae7d9fde3f162f03a79"
-    end
-
-    resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.6.4/wine-mono-4.6.4.msi", :using => :nounzip
-      sha256 "91b7d58177b9a9355edf007dab94535471aebdddae12734ceb4a219d2ecc4152"
-    end
-  end
-
-  bottle do
-    sha256 "7327a8ea0dc95949879b760f34da7ae81709cbc23d32bb71064a07ed1c2d58e8" => :high_sierra
-    sha256 "c72f3cae9741f454963cdba203c060cacafbf5620567bddb94234fccb5821900" => :sierra
-    sha256 "9a14b70120ac1b73851b76d9e0b35810d7d2720f0048b1b3f96167a2989b5b7b" => :el_capitan
-  end
-
-  devel do
-    url "https://dl.winehq.org/wine/source/2.x/wine-2.22.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-2.22.tar.xz"
-    sha256 "db5c7e7f652405d927b3ba43cc09e4e2f5726a2c7cbf9445a0d01d1b335e8b73"
-
-    # Patch to fix screen-flickering issues. Still relevant on 2.14.
+    # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/74c2566/wine/2.14.patch"
@@ -56,6 +24,12 @@ class Wine < Formula
       url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
+  end
+
+  bottle do
+    sha256 "dd0f1dcf59471f1f6d3ad180e58aaedfa42e0fde6b6d97cdf4b00631c320ca43" => :high_sierra
+    sha256 "e75f25c644d7585571101611db70ccf57f51d5dcac34e0ac923228a5abcb6a58" => :sierra
+    sha256 "c445629c61f46c581aa33fa9149b6aa15bf4bdfbb3647dea26759ad206670730" => :el_capitan
   end
 
   head do
@@ -90,9 +64,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2m.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2m.tar.gz"
-    sha256 "8c6ff15ec6b319b50788f42c7abc2890c08ba5a1cdcd3810eb9092deada37b0f"
+    url "https://www.openssl.org/source/openssl-1.0.2n.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2n.tar.gz"
+    sha256 "370babb75f278c39e0c50e8c4e7493bc0f18db6867478341a832a982fd15a8fe"
   end
 
   resource "libtool" do
@@ -108,15 +82,15 @@ class Wine < Formula
   end
 
   resource "libtiff" do
-    url "http://download.osgeo.org/libtiff/tiff-4.0.8.tar.gz"
-    mirror "https://fossies.org/linux/misc/tiff-4.0.8.tar.gz"
-    sha256 "59d7a5a8ccd92059913f246877db95a2918e6c04fb9d43fd74e5c3390dac2910"
+    url "https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
+    sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
   end
 
   resource "little-cms2" do
-    url "https://downloads.sourceforge.net/project/lcms/lcms/2.8/lcms2-2.8.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/l/lcms2/lcms2_2.8.orig.tar.gz"
-    sha256 "66d02b229d2ea9474e62c2b6cd6720fde946155cd1d0d2bffdab829790a0fb22"
+    url "https://downloads.sourceforge.net/project/lcms/lcms/2.9/lcms2-2.9.tar.gz"
+    mirror "https://mirrors.kernel.org/debian/pool/main/l/lcms2/lcms2_2.9.orig.tar.gz"
+    sha256 "48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20"
   end
 
   resource "libpng" do
@@ -126,9 +100,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8.1/freetype-2.8.1.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.1.tar.bz2"
-    sha256 "e5435f02e02d2b87bb8e4efdcaa14b1f78c9cf3ab1ed80f94b6382fb6acc7d78"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
+    sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
   end
 
   resource "libusb" do
@@ -138,8 +112,8 @@ class Wine < Formula
   end
 
   resource "webp" do
-    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.6.0.tar.gz"
-    sha256 "c928119229d4f8f35e20113ffb61f281eda267634a8dc2285af4b0ee27cf2b40"
+    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.6.1.tar.gz"
+    sha256 "06503c782d9f151baa325591c3579c68ed700ffc62d4f5a32feead0ff017d8ab"
   end
 
   resource "fontconfig" do
@@ -173,9 +147,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.7/mpg123-1.25.7.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.25.7.tar.bz2"
-    sha256 "31b15ebcf26111b874732e07c8e60de5053ee555eea15fb70c657a4f9f0344f3"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.8/mpg123-1.25.8.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.8.tar.bz2"
+    sha256 "79da51efae011814491f07c95cb5e46de0476aca7a0bf240ba61cfc27af8499b"
   end
 
   fails_with :clang do

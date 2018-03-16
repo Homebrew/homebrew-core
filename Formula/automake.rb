@@ -1,16 +1,15 @@
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
-  url "https://ftp.gnu.org/gnu/automake/automake-1.15.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/automake/automake-1.15.1.tar.xz"
-  sha256 "af6ba39142220687c500f79b4aa2f181d9b24e4f8d8ec497cea4ba26c64bedaf"
+  url "https://ftp.gnu.org/gnu/automake/automake-1.16.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/automake/automake-1.16.1.tar.xz"
+  sha256 "5d05bb38a23fd3312b10aea93840feec685bdf4a41146e78882848165d3ae921"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8dd10fd54af6157796f66037f8f4ab81546824909d17dfcdfa61d42b8433d3f9" => :high_sierra
-    sha256 "d2b27ce7782a966eb7c8570f7855c8c659bbefc97491a1fb54b66e7b58d26c63" => :sierra
-    sha256 "0b25b38f9df72b7869783514811b7ccd17284a240a7ee5950da501811b9942ff" => :el_capitan
-    sha256 "0b25b38f9df72b7869783514811b7ccd17284a240a7ee5950da501811b9942ff" => :yosemite
+    sha256 "f9d2f7f913917ce686bf8dab00fe5c5f2c971038ed91b2a6ec8cd6be9efd9b31" => :high_sierra
+    sha256 "f9d2f7f913917ce686bf8dab00fe5c5f2c971038ed91b2a6ec8cd6be9efd9b31" => :sierra
+    sha256 "397f56ce7582b559171de62dfa772fc1a90d99bb1f03ae2f20e6824a243f7ae7" => :el_capitan
   end
 
   keg_only :provided_until_xcode43

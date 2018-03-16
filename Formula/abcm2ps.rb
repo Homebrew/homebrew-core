@@ -1,20 +1,19 @@
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
-  url "https://github.com/leesavide/abcm2ps/archive/v8.13.17.tar.gz"
-  sha256 "639755b7760ddb3f293ab686b23ff7d5937df13f1c388d08e34ceaee319249e9"
+  url "https://github.com/leesavide/abcm2ps/archive/v8.13.20.tar.gz"
+  sha256 "20b3480f56c82476474bfa1ff9dcbdef93f3f87650c19219f36ddf759b662ed8"
 
   bottle do
-    sha256 "4cc941a6caa74f2b2c0f7e816a657cbda6abaa6d9d8e20cb7bc36ffcc13dcbe5" => :high_sierra
-    sha256 "0555a472b5890f8e8b94c006a1a0a3bce5d071cbf1980cb8bbbeee2ec493c712" => :sierra
-    sha256 "bafc1ac9344bfc05ab4574addb4010e9089854792863873f08e60944347cad70" => :el_capitan
+    sha256 "ade517e102ad2d430cebf2314653f4d8bb159cae705d07165f4bdb0bc20f8f80" => :high_sierra
+    sha256 "88edc60e906b7ef549b1bc88191ad4978841fe2000c048f6fbf96b4228c57087" => :sierra
+    sha256 "01c01fb4a7dd14403caa5f2afa8b829b4ab86fa4b08196dd80f34f49422d75b5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "pango" => :optional
 
   def install
-    chmod 0755, "configure" # remove for > 8.13.15
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

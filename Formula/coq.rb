@@ -13,33 +13,24 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.7.0.tar.gz"
-  sha256 "f376207ed051b3fd27c519f44b25eb25f8dddbce22715f68c3cedfd2e4b39297"
-  revision 1
+  url "https://github.com/coq/coq/archive/V8.7.2.tar.gz"
+  sha256 "ef25c3979f69b891d40a8776b96059229b06de3d037923de9c657faf8ede78d2"
   head "https://github.com/coq/coq.git"
 
   bottle do
-    sha256 "b563698a0e0a24eb00d31c51d359c7d2cb8c98c06e4d6be8aa820e5681f22521" => :high_sierra
-    sha256 "1d6368d1adaa92623dc097e01aade459209be15d6a63914be468d26aec6fa4be" => :sierra
-    sha256 "3d0af18bc77bb482d1234b373270288cc5088d4a8e922a262dbc10bc45f9dad1" => :el_capitan
+    sha256 "322a28d2fd675c87def801f418ea9e864f8a248d3a1b8db75f72b5ae27ccaecb" => :high_sierra
+    sha256 "636e15aa70244d7a667523dffed1510e08f20268dc76d8b88ea17966000906f2" => :sierra
+    sha256 "a94ce424a55a9abac395e56829030707c8cd62fa5a7f136ad8d2202f5d4e6cff" => :el_capitan
   end
 
-  depends_on "opam" => :build
+  depends_on "ocaml-findlib" => :build
   depends_on Camlp5TransitionalModeRequirement
   depends_on "camlp5"
   depends_on "ocaml"
   depends_on "ocaml-num"
 
   def install
-    ENV["OPAMYES"] = "1"
-    opamroot = buildpath/"../opamroot"
-    opamroot.mkpath
-    ENV["OPAMROOT"] = opamroot
-    system "opam", "init", "--no-setup"
-    system "opam", "install", "ocamlfind"
-
-    system "opam", "config", "exec", "--",
-           "./configure", "-prefix", prefix,
+    system "./configure", "-prefix", prefix,
                           "-mandir", man,
                           "-emacslib", elisp,
                           "-coqdocdir", "#{pkgshare}/latex",

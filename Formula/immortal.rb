@@ -1,15 +1,15 @@
 class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
-  url "https://github.com/immortal/immortal/archive/0.17.0.tar.gz"
-  sha256 "d3aa471f5c391a2f068048b0d3a408d1e24993adfe841920367a7156c2c56400"
+  url "https://github.com/immortal/immortal/archive/0.18.0.tar.gz"
+  sha256 "8a2328daa5fce82e333fa01e1d87ea7720a405756788cc7edee96b7bb22b26e8"
   head "https://github.com/immortal/immortal.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af1a49059071713a330692106f9309911c398d375c425481702b812406e01547" => :high_sierra
-    sha256 "2744498ed27a3e7401cf8905a01498e10cb898d8e6786763907f59f64c1cac75" => :sierra
-    sha256 "33cf0dae84b792e44e256a9fec29e08e0d0ae3ad2598470f0b2328be200b3adc" => :el_capitan
+    sha256 "deebb8a1f75da45655d196fbb8d3cc557604e8c65b7ae0fcaa1ba1995861a53a" => :high_sierra
+    sha256 "a174ec2100bd0f6cd9b685e7baec1e0de0f93e949300631b69bbe05e1d26e11e" => :sierra
+    sha256 "71a52e92493c351223aee8cbc69dc21cc0d7cac516296685403c8c4da939111f" => :el_capitan
   end
 
   depends_on "dep" => :build

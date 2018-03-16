@@ -1,19 +1,19 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.28.tar.gz"
-  sha256 "0dd37a5dc1a6b0f8dc5ef98ef3aaeadf66888950ced37edbfb37bf1c66014df3"
+  url "https://github.com/aajanki/yle-dl/archive/2.31.tar.gz"
+  sha256 "6f840f59bfd8d0abc206d27cc5ba0b7077070327b08c39c22ffb365339f5e1d5"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b8a6bc9fac308ef94cd0a2e66f623b878685b48a2caca260223f1e4a641149d5" => :high_sierra
-    sha256 "b7980ca02700d40451030ad9f704da35ca6e780c3cd474fd5acc944dd4245a72" => :sierra
-    sha256 "1ff77e42706106ad5bbf845d8235f2c9ecdcdf10941b3f1add1622d5206194da" => :el_capitan
+    sha256 "b09cd2715528a7852f21565e1919208a5b35299783fb806639cdcb72c798ce8a" => :high_sierra
+    sha256 "68880a4d81a426c3e097cd8285bbc196c5e5c7e0045be0042216392ce632bb69" => :sierra
+    sha256 "803894e00529ef0769ac6c0d4ca482e50395cce9edec1b56dc6a7e70b2c55224" => :el_capitan
   end
 
   depends_on "rtmpdump"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "homebrew/php/php70-mcrypt" => :optional
   depends_on "homebrew/php/php56-mcrypt" => :optional
   depends_on "homebrew/php/php55-mcrypt" => :optional
@@ -28,8 +28,8 @@ class YleDl < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
+    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
   end
 
   resource "chardet" do
@@ -42,14 +42,19 @@ class YleDl < Formula
     sha256 "24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"
   end
 
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz"
+    sha256 "e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
     sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/89/dc/ec07a5adf6afb02ad4f5f7e1f7e1a2fc0e3d88ce4fe233ed4b3dabd07cbd/lxml-4.1.0.tar.gz"
-    sha256 "be3aaeb5f468a49f523f16736ccff7d82af2b4b303292ba3d052b5b28f3fbe47"
+    url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
+    sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
   end
 
   resource "PyAMF" do
@@ -60,6 +65,11 @@ class YleDl < Formula
   resource "pycrypto" do
     url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  end
+
+  resource "PySocks" do
+    url "https://files.pythonhosted.org/packages/53/12/6bf1d764f128636cef7408e8156b7235b150ea31650d0260969215bb8e7d/PySocks-1.6.8.tar.gz"
+    sha256 "3fe52c55890a248676fd69dc9e3c4e811718b777834bcaab7a8125cf9deac672"
   end
 
   resource "requests" do
@@ -104,7 +114,7 @@ class YleDl < Formula
   end
 
   test do
-    assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51:00+03:00\n",
+    assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51\n",
                  shell_output("#{bin}/yle-dl --showtitle https://areena.yle.fi/1-1570236")
   end
 end

@@ -14,6 +14,8 @@ class Io < Formula
 
   option "without-addons", "Build without addons"
 
+  deprecated_option "with-python3" => "with-python"
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
@@ -33,7 +35,7 @@ class Io < Formula
     depends_on "pcre"
     depends_on "yajl"
     depends_on "xz"
-    depends_on :python => :optional
+    depends_on "python" => :optional
   end
 
   def install
@@ -62,7 +64,9 @@ class Io < Formula
     end
 
     mkdir "buildroot" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DCMAKE_DISABLE_FIND_PACKAGE_ODE=ON",
+                            "-DCMAKE_DISABLE_FIND_PACKAGE_Theora=ON",
+                            *std_cmake_args
       system "make"
       output = `./_build/binaries/io ../libs/iovm/tests/correctness/run.io`
       if $CHILD_STATUS.exitstatus.nonzero?

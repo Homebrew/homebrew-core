@@ -1,13 +1,13 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://wiki.gnome.org/Projects/gspell"
-  url "https://download.gnome.org/sources/gspell/1.6/gspell-1.6.1.tar.xz"
-  sha256 "f4d329348775374eec18158f8dcbbacf76f85be5ce002a92d93054ece70ec4de"
+  url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.0.tar.xz"
+  sha256 "1b7fc2c5b84ede43bc52d513f0601238af92b572a42b19363da6d067fb529345"
 
   bottle do
-    sha256 "4bd62678f3608537ed8ee048b5f9fa85fdd538261dcdaefa9063929bc1c3675f" => :high_sierra
-    sha256 "00991cf339c0912b2b90a5fe9aface5bf0431204c4de259b662d7f314810b0db" => :sierra
-    sha256 "010ac6b54ebf832dc015e4d7562a2bef21f477c83b9147b5539ddbf7aedd2cad" => :el_capitan
+    sha256 "df6748b30a132d800d16c9a3ca1eba6ed2c83ecb338b32b1487bb88b67068406" => :high_sierra
+    sha256 "4ffda9c07fe880fb8d8dd4835c88eccb6266d2443d9dabe22bf395ba45b60148" => :sierra
+    sha256 "ff5eff4f257f01e4aba9cb2f7a83c6c805044b6009f039d5a265d7680e5e7b08" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -58,7 +58,7 @@ class Gspell < Formula
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{cairo.opt_include}/cairo
-      -I#{enchant.opt_include}/enchant
+      -I#{enchant.opt_include}/enchant-2
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
       -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0

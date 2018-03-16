@@ -1,16 +1,15 @@
 class Gollum < Formula
   desc "n:m message multiplexer written in Go"
   homepage "https://github.com/trivago/gollum"
-  url "https://github.com/trivago/gollum/archive/v0.4.5.tar.gz"
-  sha256 "a1c9cf0659163d3252c1370a957f60f12e19b808ef8dd9af24cb5ee2b78bda1c"
+  url "https://github.com/trivago/gollum/archive/v0.5.1.tar.gz"
+  sha256 "9c12feccfbe695ef9c95b1c5436916eece38221ba7c9456f5a18799ede2cec0d"
   head "https://github.com/trivago/gollum.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "8744ba1a7c88a2234b0d0ca8d5c80780c2e37e3c8081e46026af5d29aa0b1ba6" => :high_sierra
-    sha256 "cc66eef01c97ff1835cba0f8020ee591ac081313aed06096e205d3cd5b4fec67" => :sierra
-    sha256 "d7956cf66c1ddffb5b61e47980fd93238e950d93b125f79a295e39d7ba2c0689" => :el_capitan
+    sha256 "f537437001d9d8639213232a3c4b63a88c8e32802c550eb0b0b652f2666f0c87" => :high_sierra
+    sha256 "ce6bcd11eccdedad73116ef2c4fb4bfb23c85ff8c1af266cebe2ac5c37b8b9be" => :sierra
+    sha256 "a10d81de20b663f86482e971d1545aaab4b5fa614110a2e8b3c8a4ab94d555ff" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -26,15 +25,20 @@ class Gollum < Formula
 
   test do
     (testpath/"test.conf").write <<~EOS
-      - "consumer.Profiler":
-          Enable: true
+      "Profiler":
+          Type: "consumer.Profiler"
           Runs: 100000
           Batches: 100
           Characters: "abcdefghijklmnopqrstuvwxyz .,!;:-_"
           Message: "%256s"
-          Stream: "profile"
-    EOS
+          Streams: "profile"
+          KeepRunning: false
+          ModulatorRoutines: 0
 
-    assert_match "parsed as ok", shell_output("#{bin}/gollum -tc #{testpath}/test.conf")
+      "Benchmark":
+          Type: "producer.Benchmark"
+          Streams: "profile"
+    EOS
+    assert_match "Config OK.", shell_output("#{bin}/gollum -tc #{testpath}/test.conf")
   end
 end

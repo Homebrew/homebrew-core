@@ -3,15 +3,16 @@ class TerraformLandscape < Formula
   homepage "https://github.com/coinbase/terraform-landscape"
   url "https://github.com/coinbase/terraform-landscape/archive/v0.1.17.tar.gz"
   sha256 "ffc89c435d673de353db17f9e9796de95c55e1236071178dc35102a99917fd45"
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6b34dbc792bece0dd339f6792a145ab9420a24a3098fb753382b93cdf8f078eb" => :high_sierra
-    sha256 "2494cb04ffce1e281b8f2dd06454d0a05f6a6afe573c81d34fc4b7a4dc2f32e2" => :sierra
-    sha256 "c36753b35273d97777ec4d8cb940ec1af4fd79f084230b8d3e9a4f091c6002df" => :el_capitan
+    sha256 "1359014f1c085eab4504073128620a0f7d15110e5bd486237102a8625795ec8d" => :high_sierra
+    sha256 "7591a60f166b102d15c8498e84215f09f3977bd4bfbd0b6142bf3f1af547fad0" => :sierra
+    sha256 "b505ec407bdca7dfd380007edc3f97216401a400ff4510cc8033e978f2aae642" => :el_capitan
   end
 
-  depends_on :ruby => "2.0"
+  depends_on "ruby" if MacOS.version <= :mountain_lion
 
   resource "colorize" do
     url "https://rubygems.org/gems/colorize-0.8.1.gem"

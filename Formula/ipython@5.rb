@@ -3,20 +3,20 @@ class IpythonAT5 < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/14/7c/bbc1e749e1739208324af3f05ac7256985e21fc5f24d3c8da20aae844ad0/ipython-5.5.0.tar.gz"
   sha256 "66469e894d1f09d14a1f23b971a410af131daa9ad2a19922082e02e0ddfd150f"
-  revision 1
+  revision 4
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d654e6ad4dd4a60d2a04dcfdf70748f9d0c671c7de2f204620ea3a4fde90c064" => :high_sierra
-    sha256 "4ed9d94f909688f92e3d510c554b86d91a55ed68c371aa831979bb9ca86f0521" => :sierra
-    sha256 "2dfb4c4fa2fd2fc9b070deaf76f66a749511d645ba5113c9d35378b1c4268fde" => :el_capitan
+    cellar :any
+    sha256 "ea19da8fc990a9f834d46149715134e044e03bf685392cb4b33af1700b3106e8" => :high_sierra
+    sha256 "3a3353f66e20228a549e75e5ad8d27d25337a1b1a771a436b5323c2b665c65ae" => :sierra
+    sha256 "cd399393e4aea98dfc635a33ccc2d79bf59a91c730d35e1e8e597f3eecfbe74d" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  depends_on :python
+  depends_on "python@2"
+  depends_on "zeromq"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"
@@ -173,12 +173,16 @@ class IpythonAT5 < Formula
     kernel_dir = Dir.mktmpdir
     system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
     (share/"jupyter/kernels/python2").install Dir["#{kernel_dir}/share/jupyter/kernels/python2/*"]
-    inreplace share/"jupyter/kernels/python2/kernel.json", "]", <<~EOS
-      ],
-      "env": {
-        "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
-      }
-    EOS
+    inreplace share/"jupyter/kernels/python2/kernel.json" do |s|
+      s.gsub! "\"argv\": [\n  \"/usr/bin/python\",",
+              "\"argv\": [\n  \"#{Formula["python@2"].opt_bin}/python2\","
+      s.gsub! "]", <<~EOS
+        ],
+        "env": {
+          "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
+        }
+      EOS
+    end
   end
 
   def post_install

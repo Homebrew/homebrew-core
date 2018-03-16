@@ -3,13 +3,13 @@ class Gjstest < Formula
   homepage "https://github.com/google/gjstest"
   url "https://github.com/google/gjstest/archive/v1.0.2.tar.gz"
   sha256 "7bf0de1c4b880b771a733c9a5ce07c71b93f073e6acda09bec7e400c91c2057c"
-  revision 11
+  revision 12
   head "https://github.com/google/gjstest.git"
 
   bottle do
-    sha256 "13143c8ff9f8c29655027f551edf64ec012998ecb717c5c4afd828093ac052c2" => :high_sierra
-    sha256 "a96ab9bbfc38f4976ab672202a08fb663e6e88d48d646ff8cf2399e4e75c5912" => :sierra
-    sha256 "b065d4e86f6d0acce5d291f6e99fd41af878267cf677d24b9f85248db3ddd068" => :el_capitan
+    sha256 "23787738847f2dfbe0c3d6943c846ec14530b8b1a79441b3af8d118adc5b3671" => :high_sierra
+    sha256 "848873eb3f3b770f2e67ffe2747a91b0fcddabda910eb2764bcb1e1ce9060c38" => :sierra
+    sha256 "c487833143ddbab1244ce53771436683e6fe294d258b41b344331c5311e288e9" => :el_capitan
   end
 
   depends_on :macos => :mavericks
@@ -26,7 +26,7 @@ class Gjstest < Formula
   end
 
   test do
-    (testpath/"sample_test.js").write <<-EOF
+    (testpath/"sample_test.js").write <<~EOS
       function SampleTest() {
       }
       registerTestSuite(SampleTest);
@@ -34,7 +34,7 @@ class Gjstest < Formula
       addTest(SampleTest, function twoPlusTwoEqualsFour() {
         expectEq(4, 2+2);
       });
-    EOF
+    EOS
 
     system "#{bin}/gjstest", "--js_files", "#{testpath}/sample_test.js"
   end

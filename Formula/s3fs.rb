@@ -1,17 +1,16 @@
 class S3fs < Formula
   desc "FUSE-based file system backed by Amazon S3"
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
-  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.82.tar.gz"
-  sha256 "8a40f0b11b558b6d733eeff4fcc025cc416df37b6732001bb0c630f6d6d760dd"
+  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.83.tar.gz"
+  sha256 "8f060accef304c1e5adde0c9d6976a3a69fd9935444a4985517c6cefa86b34ef"
 
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 
   bottle do
     cellar :any
-    sha256 "fbfbe11b17a79bba198b062d1319bd9947b3cef76d4ab0bc2d5a5e92ec66b75e" => :high_sierra
-    sha256 "1a696835e0c5305cc0f42d7571b2f027227b12a85ab3f866146b219bc6e68fb5" => :sierra
-    sha256 "74f80941f3e02fdb0ae4aa548dc34815a101ae4fde820a12389d33b15edaf680" => :el_capitan
-    sha256 "d0eff9a3aa81a038eab132fc3d8481580d7d14847d924658608bbd70e4bf6ce4" => :yosemite
+    sha256 "a2561b0db0c7eb9a4355b42a38f307f4e432da3db3b3580a68eeee8001b12ffd" => :high_sierra
+    sha256 "d6b4884bb5138ff0f10f2149668b09685567c8f55069525ec5557f54033d191f" => :sierra
+    sha256 "9dcbe3450e2fdf5498c18e11390c9d48474c91c1bcd4f8cad6a7e3057fb9b3ee" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -24,14 +23,6 @@ class S3fs < Formula
   depends_on :osxfuse
 
   def install
-    # Fix "error: no matching function for call to 'clock_gettime'"
-    # Reported 14 May 2017 https://github.com/s3fs-fuse/s3fs-fuse/issues/600
-    if MacOS.version >= :sierra
-      inreplace "src/cache.cpp", "return clock_gettime(clk_id, ts);",
-                                 "return clock_gettime((clockid_t)clk_id, ts);"
-
-    end
-
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking", "--with-gnutls", "--prefix=#{prefix}"
     system "make", "install"

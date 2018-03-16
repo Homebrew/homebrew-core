@@ -13,10 +13,7 @@ class Gmp < Formula
     sha256 "0e0c340b4c09a4f00daf45890e8f36afa03d251a8ed3bba6ae4876149914b420" => :el_capitan
   end
 
-  option :cxx11
-
   def install
-    ENV.cxx11 if build.cxx11?
     args = %W[--prefix=#{prefix} --enable-cxx]
     args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
     system "./configure", "--disable-static", *args

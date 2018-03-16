@@ -4,12 +4,12 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.9.7.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.9.7.tar.bz2"
   sha256 "c3b118333ce12e501d509e66bb0a47bcc34d053990acab45559431ac3e491623"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "5e9506b629800e6dfbedb67845eb77a22896e561a826d79a0540173e4c8f3714" => :high_sierra
-    sha256 "4c7b8b2904172db671a21caa0553ef2d1a4456e3010e2e59451eef32dd407879" => :sierra
-    sha256 "411d69db8fa266625f241f8a6ec4b470d963a011b44eebb0b52e2f08249a83b3" => :el_capitan
+    sha256 "7482d281e4e0ff5b10377a576f3e97ed867795645291308d35adf51747ff2162" => :high_sierra
+    sha256 "a181531a3a3ad04d429b7aead29fec814c6e042482ea35abc581cc9e4571a25a" => :sierra
+    sha256 "6cb9acb883f5d7045324846bab0d51315da6fbb462b9ef664e0c9d0c9b58ef8d" => :el_capitan
   end
 
   deprecated_option "java" => "with-java"
@@ -22,18 +22,13 @@ class Subversion < Formula
   option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
+  depends_on "swig" => :build
   depends_on "apr-util"
   depends_on "apr"
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
-  depends_on :python => :optional
-  depends_on :perl => ["5.6", :recommended]
-
-  # Bindings require swig
-  if build.with?("perl") || build.with?("python") || build.with?("ruby")
-    depends_on "swig" => :build
-  end
+  depends_on "perl" => :recommended
 
   # For Serf
   depends_on "scons" => :build
@@ -41,6 +36,7 @@ class Subversion < Formula
 
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
+  depends_on "gettext" => :optional
   depends_on :java => :optional
 
   resource "serf" do
@@ -65,6 +61,8 @@ class Subversion < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+
     serf_prefix = libexec/"serf"
 
     resource("serf").stage do
@@ -100,13 +98,13 @@ class Subversion < Formula
       --with-apxs=no
       --with-serf=#{serf_prefix}
       --disable-mod-activation
-      --disable-nls
       --without-apache-libexecdir
       --without-berkeley-db
     ]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
     args << "--without-gpg-agent" if build.without? "gpg-agent"
+    args << "--disable-nls" if build.without? "gettext"
 
     if build.with? "ruby"
       args << "--with-ruby-sitedir=#{lib}/ruby"
@@ -130,11 +128,9 @@ class Subversion < Formula
     system "make", "tools"
     system "make", "install-tools"
 
-    if build.with? "python"
-      system "make", "swig-py"
-      system "make", "install-swig-py"
-      (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
-    end
+    system "make", "swig-py"
+    system "make", "install-swig-py"
+    (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
     if build.with? "perl"
       # In theory SWIG can be built in parallel, in practice...

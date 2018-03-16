@@ -3,17 +3,17 @@ class Wpscan < Formula
   homepage "https://wpscan.org"
   url "https://github.com/wpscanteam/wpscan/archive/2.9.3.tar.gz"
   sha256 "1bacc03857cca5a2fdcda060886bf51dbf73b129abbb7251b8eb95bc874e5376"
-  revision 1
+  revision 5
 
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
-    sha256 "668b13f2a60e4882aa17479309551a934fae6f71178b05b1293b3ab7fe0cfb5f" => :high_sierra
-    sha256 "6dd163f2679959fc2ee5e340d61ab0e500efb350e395a26063d535ae09b18592" => :sierra
-    sha256 "54522adbec639a9a4e743730b39e97199f45b2f21d4a23533e7f3cd5afb0d6ae" => :el_capitan
+    sha256 "ea51c46528b302bc1b59fd81788a0d5d65b7c348aebd8f10af2df8c620678a8d" => :high_sierra
+    sha256 "f1a32f7ad9b41c5f395f7e04ae2afff8cdf5d2a4ded2cc61bdf4dd8db1242992" => :sierra
+    sha256 "adbc31b9065ad979247623476b4d0fe22db78e85f6237b9f1a4d22f61880462d" => :el_capitan
   end
 
-  depends_on :ruby => "2.1.9"
+  depends_on "ruby"
 
   def install
     inreplace "lib/common/common_helper.rb" do |s|
@@ -28,12 +28,13 @@ class Wpscan < Formula
     ENV["BUNDLE_PATH"] = libexec
     ENV["BUNDLE_GEMFILE"] = libexec/"Gemfile"
     system "gem", "install", "bundler"
-    system libexec/"bin/bundle", "install", "--without", "test"
+    bundle = Dir["#{libexec}/**/bundle"].last
+    system bundle, "install", "--without", "test"
 
     (bin/"wpscan").write <<~EOS
       #!/bin/bash
       GEM_HOME=#{libexec} BUNDLE_GEMFILE=#{libexec}/Gemfile \
-        exec #{libexec}/bin/bundle exec ruby #{libexec}/wpscan.rb "$@"
+        exec #{bundle} exec ruby #{libexec}/wpscan.rb "$@"
     EOS
   end
 

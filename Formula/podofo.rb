@@ -25,19 +25,15 @@ class Podofo < Formula
 
   def install
     args = std_cmake_args
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_LIBIDN=ON" if build.without? "libidn"
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_CppUnit=ON"
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_LUA=ON"
 
     # Build shared to simplify linking for other programs.
-    args << "-DPODOFO_BUILD_SHARED:BOOL=TRUE"
+    args << "-DPODOFO_BUILD_SHARED:BOOL=ON"
 
     args << "-DFREETYPE_INCLUDE_DIR_FT2BUILD=#{Formula["freetype"].opt_include}/freetype2"
     args << "-DFREETYPE_INCLUDE_DIR_FTHEADER=#{Formula["freetype"].opt_include}/freetype2/config/"
-
-    # podofo scoops out non-mandatory dependencies from system automatically.
-    # Build fails against multi-lua systems, even when direct path is passed to cmake.
-    # https://github.com/Homebrew/homebrew/issues/44026
-    # DomT4: Reported upstream 19/12/2015 to mailing list but not published yet.
-    # This seemingly unofficial hack doesn't work for libidn sadly.
-    args << "-DLUA_INCLUDE_DIR=FALSE" << "-DLUA_LIBRARIES=FALSE"
 
     mkdir "build" do
       system "cmake", "..", *args

@@ -5,17 +5,12 @@ class Kontena < Formula
 
   stable do
     url "https://github.com/kontena/kontena.git",
-        :tag => "v1.4.1",
-        :revision => "f16f038781782d4c76720fb72a6df67b02441d9f"
-
-    resource "addressable" do
-      url "https://rubygems.org/gems/addressable-2.5.2.gem"
-      sha256 "73771ea960b3900d96e6b3729bd203e66f387d0717df83304411bf37efd7386e"
-    end
+        :tag => "v1.5.1",
+        :revision => "ac6406ad3b78ad53871f5657e9404a12b6b3e2f8"
 
     resource "clamp" do
-      url "https://rubygems.org/gems/clamp-1.1.2.gem"
-      sha256 "f338133cf34d9a2b8d51d5b545f29c1455e5a3c631b62a4c19504ad50eb9a250"
+      url "https://rubygems.org/gems/clamp-1.2.1.gem"
+      sha256 "cd041aaf6b4dfd2239cdcfe2c72084d0536b1e7630236353a1d00b0a2e15ca68"
     end
 
     resource "equatable" do
@@ -24,13 +19,13 @@ class Kontena < Formula
     end
 
     resource "excon" do
-      url "https://rubygems.org/gems/excon-0.49.0.gem"
-      sha256 "1fb00ffeae85bb1d81ea0b61a5d88df8593cec1643a5f32e637d5148097bad4a"
+      url "https://rubygems.org/gems/excon-0.60.0.gem"
+      sha256 "cc758304b98d5c1f1bef29d306870a1892bf8c3cf66d95e21a99e076b4a3bce7"
     end
 
     resource "hash_validator" do
-      url "https://rubygems.org/gems/hash_validator-0.7.1.gem"
-      sha256 "0e56f722a02cd0ef6f05ae89c83310a8042f063c80d69ef4a612e0043998145a"
+      url "https://rubygems.org/gems/hash_validator-0.8.0.gem"
+      sha256 "3e19efbfac9dd9842a3f4b6695bf74fcc7aa0681de733fda9d6bc1548ed04264"
     end
 
     resource "hitimes" do
@@ -38,19 +33,9 @@ class Kontena < Formula
       sha256 "5939da5baf4bed890b481d77dc37d481297d0f06f1d2569f4c5c9a2112144218"
     end
 
-    resource "kontena-plugin-cloud" do
-      url "https://rubygems.org/gems/kontena-plugin-cloud-1.2.0.gem"
-      sha256 "792132467e5c44e168dd679a49b68186da454f2509b79f3be8f3f6d341237ec1"
-    end
-
     resource "kontena-websocket-client" do
       url "https://rubygems.org/gems/kontena-websocket-client-0.1.1.gem"
       sha256 "692804a448d4ac6474d5091c5b74278f5f2f0efd9b2616ebd9a415a18e0f3d96"
-    end
-
-    resource "launchy" do
-      url "https://rubygems.org/gems/launchy-2.4.3.gem"
-      sha256 "42f52ce12c6fe079bac8a804c66522a0eefe176b845a62df829defe0e37214a4"
     end
 
     resource "liquid" do
@@ -73,16 +58,6 @@ class Kontena < Formula
       sha256 "e1d21dd8fb965e5052d1b16164a777fc450c6e187bf199f833a9de3f5303c3f9"
     end
 
-    resource "public_suffix" do
-      url "https://rubygems.org/gems/public_suffix-3.0.1.gem"
-      sha256 "67182699cb644e66b4c68d30b5f1dd42e3dfe6c0aa0d8fd36a1e71c97c6a7f57"
-    end
-
-    resource "rake" do
-      url "https://rubygems.org/gems/rake-10.5.0.gem"
-      sha256 "2b55a1ad44b5c945719d8a97c302a316af770b835187d12143e83069df5a8a49"
-    end
-
     resource "retriable" do
       url "https://rubygems.org/gems/retriable-2.1.0.gem"
       sha256 "c1e309cd29ca451e9e8aea7685368db0da490d519ced16f79867fae12b9e4384"
@@ -94,8 +69,8 @@ class Kontena < Formula
     end
 
     resource "semantic" do
-      url "https://rubygems.org/gems/semantic-1.6.0.gem"
-      sha256 "6ad9e301a564537f18ed01d0d346ab8ef54a908c0f7176937be940c34982804a"
+      url "https://rubygems.org/gems/semantic-1.6.1.gem"
+      sha256 "3cdbb48f59198ebb782a3fdfb87b559e0822a311610db153bae22777a7d0c163"
     end
 
     resource "timers" do
@@ -114,13 +89,18 @@ class Kontena < Formula
     end
 
     resource "tty-prompt" do
-      url "https://rubygems.org/gems/tty-prompt-0.13.1.gem"
-      sha256 "fae0612a140f3d6300ebbcbd445582c621755d4673c0029553e7f9a465bbae81"
+      url "https://rubygems.org/gems/tty-prompt-0.14.0.gem"
+      sha256 "be924c6dd8bd30cc50cfab131eb724e1b4adbda2fb3087af6d6f5539d4a3a032"
+    end
+
+    resource "tty-reader" do
+      url "https://rubygems.org/gems/tty-reader-0.2.0.gem"
+      sha256 "895d35b6c1e0a2fa8711b48968ae78a4023a770875960060f31055a3af9b57fd"
     end
 
     resource "tty-screen" do
-      url "https://rubygems.org/gems/tty-screen-0.6.3.gem"
-      sha256 "9bd1687dfdd8be829ce15b08032588078165746366c0778cbd05020f3e9f0215"
+      url "https://rubygems.org/gems/tty-screen-0.6.4.gem"
+      sha256 "7b190d049dfc723ab4c69a2d2e494a4d1478694001587fb20575499cef0038a6"
     end
 
     resource "tty-table" do
@@ -161,12 +141,12 @@ class Kontena < Formula
 
   bottle do
     cellar :any
-    sha256 "d634d7f8bf8a0a8486299d09bb33608b9bcaf833fd09cffe00d90746ed5f67dd" => :high_sierra
-    sha256 "407c8cb7e9cc5d77c41d00f8525bd797dae33c4cecb1d38b7ef7dba6085595c7" => :sierra
-    sha256 "0ef45bcb583bfde658d8fc43114c809c8587b570e8381cb58dd613387671ddf8" => :el_capitan
+    sha256 "f5a632dac647b1f767272cdeec14af150c0a4f071f7082be10a65e7cd486e053" => :high_sierra
+    sha256 "10c6820ed232adc223ebdda22d0281e3547a49eee84030b623a5ee3f895a017e" => :sierra
+    sha256 "a674ccf29205f06867a9145fdc5e09a4bc3bf4cd2f475745828efb60a4961c12" => :el_capitan
   end
 
-  depends_on :ruby => "2.1"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   def install
     ENV["GEM_HOME"] = libexec

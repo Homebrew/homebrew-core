@@ -1,24 +1,15 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  revision 2
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.61.tar.gz"
+  sha256 "b8e19743cd499436dce58af67479997e621fe50e21e31f08f440d2303e11f5d6"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
-  stable do
-    url "https://github.com/CorsixTH/CorsixTH/archive/v0.60.tar.gz"
-    sha256 "f5ff7839b6469f1da39804de1df0a86e57b45620c26f044a1700e43d8da19ce9"
-
-    # Applies the upstream patch prioritising newer Luas over older ones.
-    patch do
-      url "https://github.com/CorsixTH/CorsixTH/commit/46420b76.patch?full_index=1"
-      sha256 "024b4fad24d3427fe3050499eeaa2da95adc76f2a80df5ea3fe6ac363b545396"
-    end
-  end
   bottle do
     cellar :any
-    sha256 "8ad4f5e7b203376341eed4b887f53fb7c6642d36dc18cdc16f10abb8ab9b777e" => :high_sierra
-    sha256 "8f64c1ac8341a56c48c2ebceaa6ce24bf2321474217f6e9a3738c233108f6dfb" => :sierra
-    sha256 "1216a1356bcff19b334a00bf97f983047b216ad30b3edb0fef2125c0749ec563" => :el_capitan
+    sha256 "6ed1751a2ddcfa5ffcbeeb40797b30d59ccbec494c5f6e9e5d66d35393ac5943" => :high_sierra
+    sha256 "bc67037ff45a70573990e1203857bd74642f08d15846364143d3c4a4bb602ee9" => :sierra
+    sha256 "fd4afc63d1915ab1d7cf66c962e3ea58ca8959d8fe3f95a88e6158c30efce544" => :el_capitan
   end
 
   depends_on "cmake" => :build

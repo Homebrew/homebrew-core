@@ -1,16 +1,16 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.1.3.src.tgz"
-  version "1.1.3"
-  sha256 "a5b8530312d781294232fe9054cce1326f4f7919a5d284fa714a435991b81645"
+  url "https://binaries.cockroachdb.com/cockroach-v1.1.6.src.tgz"
+  version "1.1.6"
+  sha256 "1a4d6e43d6fe8f4dc4b8f504862a4933c7d4f3d0912f780f6efba1d4003d40fd"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72a5505734203145a0676414cec4e442e291e828af1df7af7bceace433d7bd29" => :high_sierra
-    sha256 "e9b2de3e2ba3cbc3a4a1f49b21bc7da9b77467244a33ff03fa2aac9fbf83238b" => :sierra
-    sha256 "be7a7b87b7dd7bafb0ba5355ea0f2bb7a3fb80afbff6b788fada0b621f48ae71" => :el_capitan
+    sha256 "55da0d166ed9afb8ea1c3ea9f389946c509a42f5da8bc8c92b790306173d1a55" => :high_sierra
+    sha256 "d3679e5f6bc909beea3a5a6234f195cceb98855d65b01e3651d3abf74ff97791" => :sierra
+    sha256 "4883fe9f8b725605398088b33cffcfb88a88491f6cabacd823990925a430ad05" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +23,9 @@ class Cockroach < Formula
     go_version = Formula["go"].installed_version.to_s.split(".")[0, 2].join(".")
     inreplace "src/github.com/cockroachdb/cockroach/.go-version",
               /^GOVERS = go.*/, "GOVERS = go#{go_version.gsub(".", "\\.")}.*"
-
+    # Allow building with Go versions > 1.8.3, which introduced additional LDFLAG whitelisting.
+    # TODO: remove when cockroach's Makefile handles this internally (i.e. >= 1.1.7).
+    ENV["CGO_LDFLAGS_ALLOW"] = "-u_je_zone_register"
     system "make", "install", "prefix=#{prefix}"
   end
 

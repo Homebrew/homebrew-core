@@ -2,32 +2,41 @@ class Taisei < Formula
   desc "Clone of Touhou Project shoot-em-up games"
   homepage "https://taisei-project.org/"
   url "https://github.com/taisei-project/taisei.git",
-      :tag => "v1.1.2",
-      :revision => "3c5da74722b445c6aaf8af7666ba2e7e29fb4ccb"
+      :tag => "v1.2",
+      :revision => "46fb0f894ad269528ac7fda533c7994eddd9b758"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "c3acac540c33b8de9aa0ad12f0557c8093749ec1cd3e9733d383f54317d972df" => :high_sierra
-    sha256 "cbbaa38a4d7f5cd27a67f691f054d373e0d24cffa18653b4fa7e7241225d9e45" => :sierra
-    sha256 "c991ad863e68b3e115b758522e1535a6eb36c770fdd53cf968efd573e4b77512" => :el_capitan
+    sha256 "162eb10eaf78191aeb474f75095cb35b5840dd4b4ad1e0452ec65ab19590cf80" => :high_sierra
+    sha256 "0065ca15927c95e455dd3a42c4cc1dfcb9365069c914a8d1bffca11e41dbde00" => :sierra
+    sha256 "b9eae75e261940cba3bf33aec8fea1904c6de4648a0dea1f32f517289e0d9a1d" => :el_capitan
   end
 
-  depends_on "bash" => :build
-  depends_on "cmake" => :build
+  # Yes, these are all build deps; the game copies them into the app bundle,
+  # and doesn't require the Homebrew versions at runtime.
+  depends_on "freetype" => :build
+  depends_on "libpng" => :build
+  depends_on "libzip" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "freetype"
-  depends_on "libpng"
-  depends_on "libzip"
-  depends_on :python3
-  depends_on "sdl2"
-  depends_on "sdl2_mixer"
-  depends_on "sdl2_ttf"
+  depends_on "python" => :build
+  depends_on "sdl2" => :build
+  depends_on "sdl2_mixer" => :build
+  depends_on "sdl2_ttf" => :build
+
+  # Fixes a bug in the .app bundle build script.
+  # # Will be in the next release.
+  patch do
+    url "https://github.com/taisei-project/taisei/commit/68b0d4f5c6f2015704e1ed1b4098be1c4336db74.patch?full_index=1"
+    sha256 "cb1f79826e632a61daa271cb59d0a80ab77dea876d384c381ab66d5eb9b9bd27"
+  end
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DOSX_TOOL_PREFIX=", "-DOSX_LIB_PATH=:",
-             *std_cmake_args
-      system "make", "install"
+      system "meson", "--prefix=#{prefix}", "-Ddocs=false", ".."
+      system "ninja"
+      system "ninja", "install"
     end
   end
 

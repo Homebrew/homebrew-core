@@ -1,15 +1,14 @@
 class Ucon64 < Formula
   desc "ROM backup tool and emulator's Swiss Army knife program"
   homepage "https://ucon64.sourceforge.io/"
-  url "https://downloads.sourceforge.net/ucon64/ucon64-2.0.2-src.tar.gz"
-  sha256 "2df3972a68d1d7237dfedb99803048a370b466a015a5e4c1343f7e108601d4c9"
+  url "https://downloads.sourceforge.net/ucon64/ucon64-2.1.0-src.tar.gz"
+  sha256 "c99964060a5337cea811b27c4103e186a14ba1f04b19cff08bac0260271bc872"
   head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
   bottle do
-    sha256 "2a10d76b713429bda5a2257b47864029ab8eab2806b7bff956917e8dff8104da" => :high_sierra
-    sha256 "ebea93e0d5d70ac09e0e0dd633fe5cb0c6a9cf7807ed269d90e985d03f1e0ea9" => :sierra
-    sha256 "c967e556e861fc8c7237473d5a672da27064d1e4f92d965cfded55686e776b59" => :el_capitan
-    sha256 "6931f246836b4d75c8027b4447f88544f8c5b24683bcb2e7d8260efb3e35598c" => :yosemite
+    sha256 "3fc97894b8edaa28fa90a2cb494976be49fa7a28fb875797bd5f56ddc3b2fd69" => :high_sierra
+    sha256 "6fe6e1cf1db14e4592eb3486c6629bff06813a42c34b9ae8e188a5ad02745344" => :sierra
+    sha256 "015cfd4803ea86f02429fc9a1f5de59d72012c9d0e32a92c9f996922ef422084" => :el_capitan
   end
 
   resource "super_bat_puncher_demo" do

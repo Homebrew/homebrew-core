@@ -29,7 +29,7 @@ class Acme < Formula
 
   test do
     path = testpath/"a.asm"
-    path.write <<-EOS
+    path.write <<~EOS
       !to "a.out", cbm
       * = $c000
       jmp $fce2

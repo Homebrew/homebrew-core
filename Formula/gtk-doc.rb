@@ -1,15 +1,14 @@
 class GtkDoc < Formula
   desc "GTK+ documentation tool"
   homepage "https://www.gtk.org/gtk-doc/"
-  url "https://download.gnome.org/sources/gtk-doc/1.26/gtk-doc-1.26.tar.xz"
-  sha256 "bff3f44467b1d39775e94fad545f050faa7e8d68dc6a31aef5024ba3c2d7f2b7"
-  revision 1
+  url "https://download.gnome.org/sources/gtk-doc/1.27/gtk-doc-1.27.tar.xz"
+  sha256 "e26bd3f7080c749b1cb66c46c6bf8239e2f320a949964fb9c6d56e1b0c6d9a6f"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f479ba17889e905cceea6e0a0c5cda20ddab85e506089a6eb1fb1a0827537055" => :high_sierra
-    sha256 "f479ba17889e905cceea6e0a0c5cda20ddab85e506089a6eb1fb1a0827537055" => :sierra
-    sha256 "f479ba17889e905cceea6e0a0c5cda20ddab85e506089a6eb1fb1a0827537055" => :el_capitan
+    sha256 "cbb69696f84bfbe6a6b51a6cd06f63db193f7069753e0473752a49edc424ec2b" => :high_sierra
+    sha256 "cbb69696f84bfbe6a6b51a6cd06f63db193f7069753e0473752a49edc424ec2b" => :sierra
+    sha256 "cbb69696f84bfbe6a6b51a6cd06f63db193f7069753e0473752a49edc424ec2b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -2,18 +2,18 @@ class Mkdocs < Formula
   include Language::Python::Virtualenv
 
   desc "Project documentation with Markdown"
-  homepage "http://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.17.2.tar.gz"
-  sha256 "619a86ede2fbfe602afc5d3b6913ea5dd496c1c1e8897a136b9599ed01bebae3"
+  homepage "https://www.mkdocs.org/"
+  url "https://github.com/mkdocs/mkdocs/archive/0.17.3.tar.gz"
+  sha256 "dc104ea8677a5e55cde4d5a2cf6be613dbc905c4111e09d434d8d9183851c2da"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cc303848e3dfc04fc9be1da3a1949402b2243b9abdf00895da1b18e17517fd7c" => :high_sierra
-    sha256 "c2d477efcad2a49e24206155563106e307a343d81b8443d4a9111a181a208d23" => :sierra
-    sha256 "174c6745bae10532bd5e03c01ffa26da9119fb6ea0cb81cac7e02a1a7a1b022e" => :el_capitan
+    sha256 "dbabb4392de12114a773ebff7517558cd60b3061d1ce17562a3304d52af74147" => :high_sierra
+    sha256 "d681555682de9b035d13f700e1c36dac36f61c444e93883a6c579c794619a132" => :sierra
+    sha256 "687d04afebfe2c6894688e2e189062f66efb200cd2ef7cfeb5aa86079cbe24f4" => :el_capitan
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "backports_abc" do
     url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"

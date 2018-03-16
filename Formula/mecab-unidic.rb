@@ -1,8 +1,8 @@
 class MecabUnidic < Formula
   desc "Morphological analyzer for MeCab"
   homepage "https://osdn.net/projects/unidic/"
-  url "https://ja.osdn.net/frs/redir.php?f=%2Funidic%2F58338%2Funidic-mecab-2.1.2_src.zip"
-  mirror "http://dl.osdn.jp/unidic/58338/unidic-mecab-2.1.2_src.zip"
+  # Canonical: https://osdn.net/dl/unidic/unidic-mecab-2.1.2_src.zip
+  url "https://dotsrc.dl.osdn.net/osdn/unidic/58338/unidic-mecab-2.1.2_src.zip"
   sha256 "6cce98269214ce7de6159f61a25ffc5b436375c098cc86d6aa98c0605cbf90d4"
 
   bottle do

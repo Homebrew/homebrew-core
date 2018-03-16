@@ -1,15 +1,14 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.10.0/thrift-0.10.0.tar.gz"
-  sha256 "2289d02de6e8db04cbbabb921aeb62bfe3098c4c83f36eec6c31194301efa10b"
+  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.11.0/thrift-0.11.0.tar.gz"
+  sha256 "c4ad38b6cb4a3498310d405a91fef37b9a8e79a50cd0968148ee2524d2fa60c2"
 
   bottle do
     cellar :any
-    sha256 "20b9fd54b8aaf036d5c9c85f53ab084819f1b6bbb392bd266e4f7c7e2dbbc48b" => :high_sierra
-    sha256 "a0d93b6f61524775ec194daa25a3a8da16f5e858823822847074711c718f1618" => :sierra
-    sha256 "e82b69518d57411e51c78652c2af6bcede1404b3d99fce5087b9e5ceae96598e" => :el_capitan
-    sha256 "331177b6661cef631e930e14ef2ce2c8884c4fcbc662699498f39fc395b8da5a" => :yosemite
+    sha256 "d1c648d84f21b567f1468625523b78d496d49954a3f5f28ce127f3eca7c0e2e4" => :high_sierra
+    sha256 "710f79cf150713e4e24ce03b605fcd3ea56651b58bb7afe64d8b4a948842616f" => :sierra
+    sha256 "e6f40c95f93331dda62d7cbfe0ce4f467c17e73e4a4a05f859e29a58533b52d8" => :el_capitan
   end
 
   head do
@@ -28,18 +27,25 @@ class Thrift < Formula
   option "with-php", "Install PHP binding"
   option "with-libevent", "Install nonblocking server libraries"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "bison" => :build
   depends_on "boost"
   depends_on "openssl"
   depends_on "libevent" => :optional
-  depends_on :python => :optional
+  depends_on "python@2" => :optional
+
+  if build.with? "java"
+    depends_on "ant" => :build
+    depends_on :java => "1.8"
+  end
 
   def install
     system "./bootstrap.sh" unless build.stable?
 
     exclusions = ["--without-ruby", "--disable-tests", "--without-php_extension"]
 
-    exclusions << "--without-python" if build.without? "python"
+    exclusions << "--without-python" if build.without? "python@2"
     exclusions << "--without-haskell" if build.without? "haskell"
     exclusions << "--without-java" if build.without? "java"
     exclusions << "--without-perl" if build.without? "perl"
@@ -51,6 +57,7 @@ class Thrift < Formula
     # Don't install extensions to /usr:
     ENV["PY_PREFIX"] = prefix
     ENV["PHP_PREFIX"] = prefix
+    ENV["JAVA_PREFIX"] = buildpath
 
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
@@ -60,6 +67,10 @@ class Thrift < Formula
     ENV.deparallelize
     system "make"
     system "make", "install"
+
+    # Even when given a prefix to use it creates /usr/local/lib inside
+    # that dir & places the jars there, so we need to work around that.
+    (pkgshare/"java").install Dir["usr/local/lib/*.jar"] if build.with? "java"
   end
 
   def caveats; <<~EOS

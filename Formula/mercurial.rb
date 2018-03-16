@@ -3,19 +3,20 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.4.2.tar.gz"
-  sha256 "dc2f72caccd6b760226753d48c2f4e8889fe176a6b23ef50775caac55ce28b85"
+  url "https://mercurial-scm.org/release/mercurial-4.5.2.tar.gz"
+  sha256 "a44a9ffd1c9502a4f97298a6bbcb8a79fc8192424c760c67f17b45c12114e390"
 
   bottle do
-    sha256 "493d5aaaf95ee796210a556696257d3db40ae582ccc1bbbd683137a5abf90b68" => :high_sierra
-    sha256 "6a7c132cb7fb156b3633af866960507a09d868ca4deb29980a0d6fa8ebc77650" => :sierra
-    sha256 "34d5c9a747545bfba87e1698287c43f47cf89c724cffee9c3a4e86dda9533024" => :el_capitan
+    sha256 "b0dcf63bb238bdc893e8ba6e38c31792d7bfe9eb6e277975cb931472f5cfb79c" => :high_sierra
+    sha256 "18b16c40efcd60b406210d8fe014359b5163fd11317cdc50584ca81fc435013b" => :sierra
+    sha256 "ce8f7c45d4723b964d688b343c3a9e6b9e680763b062142b6fd6623dd4431233" => :el_capitan
   end
 
-  option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
-  depends_on :python
+  depends_on "python@2"
 
   def install
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+
     system "make", "PREFIX=#{prefix}", "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)

@@ -4,14 +4,13 @@ class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acme"
   url "https://github.com/hlandau/acme.git",
-      :tag => "v0.0.61",
-      :revision => "1cda304f9ab3d3c8ad20652895f4a2c9620bb8c1"
+      :tag => "v0.0.67",
+      :revision => "221ea15246f0bbcf254b350bee272d43a1820285"
 
   bottle do
-    sha256 "b28fe2e5b7d1c56d555a8bd31ab60934fe84c93a52388465917a783a30b4e760" => :high_sierra
-    sha256 "6a9c9a0a544920654a9d8f4dd62c8492d8b489f1530533bcb4081d6f34083bec" => :sierra
-    sha256 "8d93e9854fc281d5966e7ea9c6fccda4179cddcc761730549e5e0972d0a5df54" => :el_capitan
-    sha256 "d79921f89f2e52ccc89d056d7dc07ee350332b75a64e3f6f7cfc90d68729d478" => :yosemite
+    sha256 "c4ff2b08c70560072307d64272f105bcd66c05983efbf1e278de9e5012047738" => :high_sierra
+    sha256 "7c77a51f12ec154cd5a82f066d547c70f8970a4c5046adf2ab99c600c930a9d5" => :sierra
+    sha256 "8f9a190bbda5a5cd209cf7f45bcdfff9c504a7e368458b435c78b1c25c8cb54b" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -28,7 +27,7 @@ class Acmetool < Formula
 
   go_resource "github.com/coreos/go-systemd" do
     url "https://github.com/coreos/go-systemd.git",
-        :revision => "d2196463941895ee908e13531a23a39feb9e1243"
+        :revision => "cc4f39464dc797b91c8025330de585294c2a6950"
   end
 
   go_resource "github.com/hlandau/buildinfo" do
@@ -58,7 +57,7 @@ class Acmetool < Formula
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-        :revision => "fc9e8d8ef48496124e79ae0df75490096eccf6fe"
+        :revision => "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
   end
 
   go_resource "github.com/mattn/go-runewidth" do
@@ -78,12 +77,12 @@ class Acmetool < Formula
 
   go_resource "github.com/peterhellberg/link" do
     url "https://github.com/peterhellberg/link.git",
-        :revision => "3eea38ca14b7b3252feea5daf92be3864209eb1d"
+        :revision => "8768c6d4dc563b4a09f58ecda04997024452c057"
   end
 
   go_resource "github.com/satori/go.uuid" do
     url "https://github.com/satori/go.uuid.git",
-        :revision => "5bf94b69c6b68ee1b541973bb8e1144db23a194b"
+        :revision => "36e9d2ebbde5e3f13ab2e25625fd453271d6522e"
   end
 
   go_resource "github.com/shiena/ansicolor" do
@@ -93,27 +92,32 @@ class Acmetool < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "eb71ad9bd329b5ac0fd0148dd99bd62e8be8e035"
+        :revision => "a6600008915114d9c087fad9f03d75087b1a74df"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-        :revision => "1c05540f6879653db88113bc4a2b70aec4bd491f"
+        :revision => "5ccada7d0a7ba9aeb5d3aca8d3501b4c2a509fec"
+  end
+
+  go_resource "golang.org/x/sys" do
+    url "https://go.googlesource.com/sys.git",
+        :revision => "2c42eef0765b9837fbdab12011af7830f55f88f0"
   end
 
   go_resource "golang.org/x/text" do
     url "https://go.googlesource.com/text.git",
-        :revision => "e56139fd9c5bc7244c76116c68e500765bb6db6b"
+        :revision => "e19ae1496984b1c655b8044a65c0300a3c878dd3"
   end
 
   go_resource "gopkg.in/alecthomas/kingpin.v2" do
     url "https://gopkg.in/alecthomas/kingpin.v2.git",
-        :revision => "1087e65c9441605df944fb12c33f0fe7072d18ca"
+        :revision => "947dcec5ba9c011838740e680966fd7087a71d0d"
   end
 
   go_resource "gopkg.in/cheggaaa/pb.v1" do
     url "https://gopkg.in/cheggaaa/pb.v1.git",
-        :revision => "0d6285554e726cc0620cbecc7e6969c945dcc63b"
+        :revision => "43d64de27312b32812ca7e994fa0bb03ccf08fdf"
   end
 
   go_resource "gopkg.in/hlandau/configurable.v1" do
@@ -148,7 +152,7 @@ class Acmetool < Formula
 
   go_resource "gopkg.in/yaml.v2" do
     url "https://gopkg.in/yaml.v2.git",
-        :revision => "eb3733d160e74a9c7e442f435eb3bea458e1d19f"
+        :revision => "d670f9405373e636a5a2765eea47fac0c9bc91a4"
   end
 
   def install

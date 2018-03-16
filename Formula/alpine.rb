@@ -1,7 +1,8 @@
 class Alpine < Formula
   desc "News and email agent"
-  homepage "http://alpine.freeiz.com/alpine/"
-  url "http://alpine.freeiz.com/alpine/release/src/alpine-2.21.tar.xz"
+  homepage "http://repo.or.cz/alpine.git"
+  url "https://ftp.osuosl.org/pub/blfs/conglomeration/alpine/alpine-2.21.tar.xz"
+  mirror "https://fossies.org/linux/misc/alpine-2.21.tar.xz"
   sha256 "6030b6881b8168546756ab3a5e43628d8d564539b0476578e287775573a77438"
 
   bottle do

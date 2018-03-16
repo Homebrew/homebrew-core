@@ -5,16 +5,18 @@ class Ipython < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/fa/50/974211502bd72873728d44c3013fe79875c819c8fb69f778bcfd67bc7d38/ipython-6.2.1.tar.gz"
   sha256 "51c158a6c8b899898d1c91c6b51a34110196815cc905f9be0fa5878e19355608"
+  revision 3
   head "https://github.com/ipython/ipython.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1a3850796fc19566d05e01a0287f39d4d78a8441efd45d1cd2ac5c4496a4a3e1" => :high_sierra
-    sha256 "b2f2a638392befb99ae2af75a2ebfcc23889ba8134d6ef8a448145c388268a28" => :sierra
-    sha256 "a5f5db4f14a745fc06ae832f7418481e55acc28081b7e11662d101e0aa5ad6f7" => :el_capitan
+    cellar :any
+    sha256 "a5e6032062cc9e357889f7354d1ae3f03ea903d100acd7ce2871b0d2dad941c5" => :high_sierra
+    sha256 "1d2dad5274977035e1d782acf72e608682954ef59a60ec7f8876594b02f43972" => :sierra
+    sha256 "925664f64b6ee85baa00b827325cc64379c5ec01f0538e3682efd9a3cce49580" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
+  depends_on "zeromq"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"

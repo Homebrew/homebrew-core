@@ -12,9 +12,9 @@ class AwsShell < Formula
     sha256 "adfcbbdfe945223c373cd4c9eb8f2ef45d35cbcd9c860ce81d49647f8311a65d" => :el_capitan
   end
 
-  # Use :python on Lion to avoid urllib3 warning
+  # Use python on Lion to avoid urllib3 warning
   # https://github.com/Homebrew/homebrew/pull/37240
-  depends_on :python if MacOS.version <= :lion
+  depends_on "python@2" if MacOS.version <= :lion
 
   resource "awscli" do
     url "https://files.pythonhosted.org/packages/34/c6/02f25ab114e5812146e9ef4ed21c2cf5aaea05c55237d4ab255b91de5a39/awscli-1.11.144.tar.gz"

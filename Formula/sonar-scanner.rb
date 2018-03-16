@@ -1,8 +1,8 @@
 class SonarScanner < Formula
   desc "Launcher to analyze a project with SonarQube"
   homepage "https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner"
-  url "https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.0.3.778.zip"
-  sha256 "4e3035f208548621433c8713de5e536aa81ae1ab4df2998e041b9236b3ba3170"
+  url "https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.1.0.1141.zip"
+  sha256 "000c43db1555eecf7d47a37016749db43bb3aec18f203bbc901de28e20d01b91"
   head "https://github.com/SonarSource/sonar-scanner-cli.git"
 
   bottle :unneeded

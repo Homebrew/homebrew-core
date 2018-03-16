@@ -1,27 +1,30 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.5.0.1.tar.gz"
-  sha256 "86be71e61c76575c60839452a4f265449a6ea51570d7983cb929f06ad294b5f5"
+  url "https://github.com/google/protobuf/archive/v3.5.1.tar.gz"
+  sha256 "826425182ee43990731217b917c5c3ea7190cfda141af4869e6d4ad9085a740f"
+  revision 1
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "5f55e9d369bfc4b6c910010ecfa549ddeb394e1934f3b231295d30348f8823ca" => :high_sierra
-    sha256 "c354f6c84d6454be78a8cec4e26726f87ff8c9322a834a215e162ba07e6fc9fc" => :sierra
-    sha256 "b6af1ce4c02bb2063a4084890e2c09d4c7e68c8e7ec1f0cba765f583a364d25f" => :el_capitan
+    sha256 "89d3e4a62799951c2a908f102ed305691f0fd0141b27c4337ef9bfe64840d8a9" => :high_sierra
+    sha256 "917abbf787422c4702b3104f5f6fb77f48dae573284f5aa7a9a2ef53793e5834" => :sierra
+    sha256 "5a0956aa0639b5943bee597942e7c0ab1439f2db6e322423a72a5ad68e28af82" => :el_capitan
   end
 
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python2 support"
 
   deprecated_option "with-check" => "with-test"
+  deprecated_option "without-python" => "with-python@2"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python" => :optional
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
@@ -93,7 +96,7 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python", "-c", "import google.protobuf" if build.with? "python"
-    system "python3", "-c", "import google.protobuf" if build.with? "python3"
+    system "python2.7", "-c", "import google.protobuf" if build.with? "python@2"
+    system "python3", "-c", "import google.protobuf" if build.with? "python"
   end
 end

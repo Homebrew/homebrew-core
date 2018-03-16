@@ -1,6 +1,6 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
-  homepage "http://www.gnuplot.info"
+  homepage "http://www.gnuplot.info/"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.2/gnuplot-5.2.2.tar.gz"
   sha256 "a416d22f02bdf3873ef82c5eb7f8e94146795811ef808e12b035ada88ef7b1a1"
   revision 1
@@ -12,7 +12,7 @@ class Gnuplot < Formula
   end
 
   head do
-    url ":pserver:anonymous:@gnuplot.cvs.sourceforge.net:/cvsroot/gnuplot", :using => :cvs
+    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

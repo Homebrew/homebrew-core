@@ -5,19 +5,14 @@ class PandocCrossref < Formula
 
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.2.7.0/pandoc-crossref-0.2.7.0.tar.gz"
-  sha256 "33c94dceb535a73462cbb86ddb778119b9344c2aa834970bd115c57345f409da"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.0.1/pandoc-crossref-0.3.0.1.tar.gz"
+  sha256 "d62bc57ecbf869cd5777dfc69f3d45722d3be3e691ed4e47841aa656df5c1252"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18cbe91fd66eecedbf9e43115add141ab4c266c83694b9dad7dd4ebc93e32224" => :high_sierra
-    sha256 "8b8917ffbcdd7fae1ec9b7efe867871650bb25b39263207569ca60325c09f9f6" => :sierra
-    sha256 "50da260a3cb0cc47d14fcf161fe59d88a8e84e63752b112e4d4262739ce2af6d" => :el_capitan
-  end
-
-  devel do
-    url "https://github.com/lierdakil/pandoc-crossref/archive/v0.3.0.0-beta.tar.gz"
-    sha256 "a1eed2ff4f5cad325c72cbf9e2d3b2a64141be192dd94a992e62727d261370dc"
+    sha256 "c2c0dbee94fc1e080e36fad1281672f91f0ff25b5c2269806479c5d2a93d13b6" => :high_sierra
+    sha256 "5a3b1158fe0621d5f5e03ee731c36239b85be63f9aae09af1c8cde204a72d33d" => :sierra
+    sha256 "a61456335f640fb85c260c02b651acca78775c12be196a379a696fb5732db41b" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
@@ -36,13 +31,9 @@ class PandocCrossref < Formula
       See equation @eq:eqn1 for cross-referencing.
       Display equations are labelled and numbered
 
-      $$ P_i(x) = \sum_i a_i x^i $$ {#eq:eqn1}
-    EOS
-    (testpath/"expected.txt").write <<~EOS
-      <p>Demo for pandoc-crossref. See equation eq.M-BM- 1 for cross-referencing. Display equations are labelled and numbered</p>$
-      <p><span id="eq:eqn1"><br /><span class="math display"><em>P</em><sub><em>i</em></sub>(<em>x</em>)=<em>u</em><em>m</em><sub><em>i</em></sub><em>a</em><sub><em>i</em></sub><em>x</em><sup><em>i</em></sup>M-bM-^@M-^AM-bM-^@M-^A(1)</span><br /></span></p>$
+      $$ P_i(x) = \\sum_i a_i x^i $$ {#eq:eqn1}
     EOS
     system Formula["pandoc"].bin/"pandoc", "-F", bin/"pandoc-crossref", "-o", "out.html", "hello.md"
-    assert_equal File.read("expected.txt"), pipe_output("/bin/cat -et", File.read("out.html"))
+    assert_match "∑", (testpath/"out.html").read
   end
 end

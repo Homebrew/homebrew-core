@@ -1,29 +1,20 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "http://sqlcipher.net"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v3.4.1.tar.gz"
-  sha256 "4172cc6e5a79d36e178d36bd5cc467a938e08368952659bcd95eccbaf0fa4ad4"
-  revision 2
-
+  url "https://github.com/sqlcipher/sqlcipher/archive/v3.4.2.tar.gz"
+  sha256 "69897a5167f34e8a84c7069f1b283aba88cdfa8ec183165c4a5da2c816cfaadb"
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
     cellar :any
-    sha256 "0179493d2ae3349781310155fe73cf5c9a971e85a5b8e4551a6b366ad3003048" => :high_sierra
-    sha256 "c4dfe2030b5524da4908575dbe7da65fa5401bbd8eebfec17b59429974782e69" => :sierra
-    sha256 "8d56730a47c29d85dcb982ab24211dbf368b3832bd496263d5c2dc82d9f2ef7a" => :el_capitan
-    sha256 "e59688acf58ae684192badd200a355ad70621641d3342c96a9af3518c15c1317" => :yosemite
+    sha256 "5b8aaeb3f3f41a57f171a3f1175887ea9d98511982354479d4171ebae24377c6" => :high_sierra
+    sha256 "9462222059285b70d3a301812a38516ce0337e7dddb064ab052549124b9aca3f" => :sierra
+    sha256 "6370ce68ccb2f598f42bee2f799f7e97d7f1bac75ec71aeb446ee57761436642" => :el_capitan
   end
 
   option "with-fts", "Build with full-text search enabled"
 
   depends_on "openssl"
-
-  # Upstream SQLite patch for CVE-2017-10989
-  patch :p0 do
-    url "https://sqlite.org/src/vpatch?from=0db20efe201736b3&to=66de6f4a9504ec26"
-    sha256 "41d0570cbf80429e556e612acd5eeddcff0e586264a6bcb80bd5a27abc9159a2"
-  end
 
   def install
     args = %W[

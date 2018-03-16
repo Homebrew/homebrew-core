@@ -3,16 +3,15 @@ require "language/node"
 class HttpServer < Formula
   desc "Simple zero-configuration command-line HTTP server"
   homepage "https://github.com/indexzero/http-server"
-  url "https://registry.npmjs.org/http-server/-/http-server-0.10.0.tgz"
-  sha256 "cf7bde2def672698f78463ce8bec54dfe6392c24552f2b1c5e2e5ce94428de23"
+  url "https://registry.npmjs.org/http-server/-/http-server-0.11.1.tgz"
+  sha256 "4154aba3e09f21595e26fdd174d9773e22755c0009f661bed54b8647fc987d95"
   head "https://github.com/indexzero/http-server.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8466d02ddb4943da343aead061c89112d20436937f001f8b4253eb2160c749e0" => :high_sierra
-    sha256 "232e9b864df77fb42296b9c0a065ae998d47c227700b6f969344228df2ceea5d" => :sierra
-    sha256 "19539364bfc94381abc86b2920bd2400bd6ea25e25f782a3491f51cfd0b2f632" => :el_capitan
-    sha256 "63dc26f7b77915ed23cb96bdbbf23ecc9d3dbd6ac5fc72c168de8d1fa9217e83" => :yosemite
+    sha256 "d6a7324d5ed8943d3a63cd570346169206163879dbc9b347f584031ee9423a4a" => :high_sierra
+    sha256 "0a693d35ecd6e30295a3c714b51c02fe37dd1b0fba63107fffaecad6827f6850" => :sierra
+    sha256 "8d34e825aededd73ab87420e53a537742998f578f0019ddcf7eae9b8d8f6dd55" => :el_capitan
   end
 
   depends_on "node"

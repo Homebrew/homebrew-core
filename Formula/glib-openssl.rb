@@ -1,13 +1,13 @@
 class GlibOpenssl < Formula
   desc "OpenSSL GIO module for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.6.tar.xz"
-  sha256 "1703a1da93911cf7f386e5fd9f82b803a150448e257db749166c0c3a1b5d3880"
+  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
+  sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
 
   bottle do
-    sha256 "f7152e43e3d84f770c55918ffb70dc0905600d8272f21b6d22922feb6c57eb11" => :high_sierra
-    sha256 "5bc4f9b2ab920bb23b63d0eccc4eff7dc3658679c05c9d90fe48835841c29d2d" => :sierra
-    sha256 "10caa120aee05bd9b9a078e21b547dc360dc9931c9712b1293d2ef1a29f5e64d" => :el_capitan
+    sha256 "7e79387127349d9976e104c0580b0efaf836865e15ede603232ecd5b80f3edb8" => :high_sierra
+    sha256 "2c6f6a96f2643fdfdc772c460ca7e9ec08783bf02f89a6312a02624dbba1a82a" => :sierra
+    sha256 "5f808a52d9c9fcebeb8143701c0e4dae92260f7c1233795069972b80718ac841" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -33,7 +33,7 @@ class GlibOpenssl < Formula
   end
 
   test do
-    (testpath/"gtls-test.c").write <<-EOS.undent
+    (testpath/"gtls-test.c").write <<~EOS
       #include <gio/gio.h>
       #include <string.h>
       int main (int argc, char *argv[])

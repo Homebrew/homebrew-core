@@ -12,6 +12,11 @@ class Libgit2 < Formula
     sha256 "f44d62f41114ee8ecba3298986cf9da5cf4b6cb44a64a9a64dd0c316938712d1" => :yosemite
   end
 
+  devel do
+    url "https://github.com/libgit2/libgit2/archive/v0.27.0-rc2.tar.gz"
+    sha256 "7ba5b1155f3a35da63654f29465ab7e39e616a039b05bd639e38194e9c2784be"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "libssh2" => :recommended

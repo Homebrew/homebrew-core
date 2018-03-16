@@ -13,7 +13,7 @@ class M4 < Formula
     sha256 "00d9327f2e8a59996228569bf4faff1c6550653eb3e20353e77f73a34063f3eb" => :yosemite
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
   # Fix crash from usage of %n in dynamic format strings on High Sierra
   # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>

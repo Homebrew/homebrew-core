@@ -1,10 +1,11 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
+  revision 2
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.6.0/ldc-1.6.0-src.tar.gz"
-    sha256 "bec1821b170e4b3f0b071f3fea357172ad90c7a45d64f7542f7843ac4de6a763"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.8.0/ldc-1.8.0-src.tar.gz"
+    sha256 "e421a1f4bbf97d173bd277125794862ca5b6a09409586b806cec23b922955c7f"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
@@ -13,9 +14,9 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256 "b282682e7002a5ca1cc69e195ac49b746aafe06d120c0e64e0daefcd5171574e" => :high_sierra
-    sha256 "73dda487ecba87af435727755d477d8170f61fd5c9b60658b121948aa9b79b6f" => :sierra
-    sha256 "775e20c82003b21ab01401cce815c6e19155d9cc594db10f8835530bffc7a81d" => :el_capitan
+    sha256 "99490b9435a79c78061962991d83d5be2ffd6cdc16512f479024e0035c4e96da" => :high_sierra
+    sha256 "c45b6622177a989f9b14f9722ce0cf8406a9b3af4c2a55aa87ca7dfad26eb899" => :sierra
+    sha256 "abd3dbef86edde7285bfbb7d66956341e5f2fca7445c876e1d8a525a8754650e" => :el_capitan
   end
 
   head do
@@ -30,7 +31,7 @@ class Ldc < Formula
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "llvm"
+  depends_on "llvm@5"
 
   def install
     ENV.cxx11
@@ -39,7 +40,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+          -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
         ]
         system "cmake", "..", *args
         system "make"
@@ -47,7 +48,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
         -DLDC_WITH_LLD=OFF

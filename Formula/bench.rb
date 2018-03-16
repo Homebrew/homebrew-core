@@ -5,14 +5,14 @@ class Bench < Formula
 
   desc "Command-line benchmark tool"
   homepage "https://github.com/Gabriel439/bench"
-  url "https://hackage.haskell.org/package/bench-1.0.7/bench-1.0.7.tar.gz"
-  sha256 "4eb525e06c3ac6acc0a81fb3c1c4558f74bc9ce1d50806a651e9d9d2a3a6c9d6"
+  url "https://hackage.haskell.org/package/bench-1.0.9/bench-1.0.9.tar.gz"
+  sha256 "3c43d5b28abd7d07617ce5bf44756e8922db2dfbb39d7b123427b20eb8a9a830"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8aa288f6da7bb22733d5addd2fc47294658941cddee1111c77d88b1f27bc487" => :high_sierra
-    sha256 "3a8f112df18b6dde7376414ee39bcfa8cbbead5ca8b73c64813a2e9e52cd3e6a" => :sierra
-    sha256 "6e1cd403bd49ac54b3b81247d05091e600b723162262eac2d7debecf0abc2404" => :el_capitan
+    sha256 "61c7fa791351bd4c9d7f8f0c119531e17d012551f623f868090cc93ff7661b8b" => :high_sierra
+    sha256 "a55d0b947a65da702c8788e6cd81fc448862357d7565681582c8e27ce241c629" => :sierra
+    sha256 "8db49b912fa0589be1e1c1d334855e5d63b620dc6573971b5003c87924d03098" => :el_capitan
   end
 
   depends_on "cabal-install" => :build

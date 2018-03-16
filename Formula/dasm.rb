@@ -22,10 +22,11 @@ class Dasm < Formula
 
   test do
     path = testpath/"a.asm"
-    path.write <<-EOS
-      processor 6502
-      org $c000
-      jmp $fce2
+    path.write <<~EOS
+      ; Instructions must be preceded by whitespace
+        processor 6502
+        org $c000
+        jmp $fce2
     EOS
 
     system bin/"dasm", path

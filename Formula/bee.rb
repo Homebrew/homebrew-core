@@ -1,15 +1,17 @@
 class Bee < Formula
   desc "Tool for managing database changes"
   homepage "https://github.com/bluesoft/bee"
-  url "https://github.com/bluesoft/bee/releases/download/1.62/bee-1.62.zip"
-  sha256 "efc008e39b258749de837f820f308d86b7dc7f040be5e8cd0a045dcb7a728d89"
+  url "https://github.com/bluesoft/bee/releases/download/1.63/bee-1.63.zip"
+  sha256 "8c17b9896ad2072e9a112a94fb8d5d8b4e09430da38b56bb29aaafb0713cb8b1"
 
   bottle :unneeded
+
+  depends_on :java => "1.8"
 
   def install
     rm_rf Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    bin.install_symlink "#{libexec}/bin/bee"
+    (bin/"bee").write_env_script libexec/"bin/bee", Language::Java.java_home_env("1.8")
   end
 
   test do

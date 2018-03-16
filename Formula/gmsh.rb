@@ -3,29 +3,24 @@ class Gmsh < Formula
   homepage "https://gmsh.info/"
   url "https://gmsh.info/src/gmsh-3.0.6-source.tgz"
   sha256 "9700bcc440d7a6b16a49cbfcdcdc31db33efe60e1f5113774316b6fa4186987b"
+  revision 1
   head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
     cellar :any
-    sha256 "e0dd6429f73cea89717a9a492f113fa31913025910acf7d0552ed4d3f1b6c8d7" => :high_sierra
-    sha256 "f45b4752c85d4fce38cabdc24287632eebf2840d039195cf603be0605c9649d2" => :sierra
-    sha256 "464a7fff7dd8a269456c72931162291981b77921886858fdf9878c7231a714d0" => :el_capitan
+    sha256 "57cdad859b421b6cc48f6cf164570f67a1101c03c9b276ec18dce3b5c250e995" => :high_sierra
+    sha256 "85e7c6527a94fa3b02d14cce788dc32f6a0b545fa17124f5e4c19288890d8fc6" => :sierra
+    sha256 "d9d6657a71acd75de3833f50d46b454c757f6186f1fe44fdf090ac1604c84f70" => :el_capitan
   end
 
-  option "with-oce", "Build with oce support (conflicts with opencascade)"
-  option "with-opencascade", "Build with opencascade support (conflicts with oce)"
+  option "with-opencascade", "Build with opencascade support"
 
   depends_on "cmake" => :build
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90]
-  depends_on "homebrew/science/oce" => :optional
-  depends_on "homebrew/science/opencascade" => :optional
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
   depends_on "fltk" => :optional
   depends_on "cairo" if build.with? "fltk"
-
-  if build.with?("opencascade") && build.with?("oce")
-    odie "gmsh: '--with-opencascade' and '--with-oce' conflict."
-  end
+  depends_on "opencascade" => :optional
 
   def install
     args = std_cmake_args + %W[
@@ -41,10 +36,7 @@ class Gmsh < Formula
       -DENABLE_SLEPC=OFF
     ]
 
-    if build.with? "oce"
-      ENV["CASROOT"] = Formula["oce"].opt_prefix
-      args << "-DENABLE_OCC=ON"
-    elsif build.with? "opencascade"
+    if build.with? "opencascade"
       ENV["CASROOT"] = Formula["opencascade"].opt_prefix
       args << "-DENABLE_OCC=ON"
     else

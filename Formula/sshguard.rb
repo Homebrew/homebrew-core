@@ -1,16 +1,15 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.0.0/sshguard-2.0.0.tar.gz"
-  sha256 "e87c6c4a6dddf06f440ea76464eb6197869c0293f0a60ffa51f8a6a0d7b0cb06"
-  revision 2
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.1.0/sshguard-2.1.0.tar.gz"
+  sha256 "21252a4834ad8408df384ee4ddf468624aa9de9cead5afde1c77380a48cf028a"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aeaddb790295b448bd6c7bad3420d669eacc55ecc009c78109e868d2696eaa44" => :high_sierra
-    sha256 "9402de003b2efd8eba69140b77415b2eddcb1d6f4cc3cda0fff0cd6b9e94922b" => :sierra
-    sha256 "09761016c1525c138e1da75de8e205fa7c8b7933b5716f215232a76c46158d42" => :el_capitan
+    sha256 "eb13c51b65f9007163ade54a5f01699da82b4ba3c225af30a57ed05593bfe60e" => :high_sierra
+    sha256 "63b4d94b319432258792e9d00a0474c11c1bc37fe19deee1c7ee62f2980c982d" => :sierra
+    sha256 "4231ea2fbff92a76b72e8f3707e4600451e9315740cd5864c54641dc8bd75857" => :el_capitan
   end
 
   head do
@@ -28,11 +27,13 @@ class Sshguard < Formula
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     system "make", "install"
+    inreplace man8/"sshguard.8", "%PREFIX%/etc/", "#{etc}/"
     cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
     inreplace "examples/sshguard.conf" do |s|
       s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-#{firewall}\""
-      if MacOS.version == :sierra
+      if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
+        s.gsub! %q{\"sshd\")'"}, %q{"sshd")'"}
       else
         s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
       end
@@ -84,6 +85,13 @@ class Sshguard < Formula
   end
 
   test do
-    assert_match "SSHGuard #{version}", shell_output("#{sbin}/sshguard -v 2>&1")
+    require "pty"
+    PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
+      begin
+        assert_equal "SSHGuard #{version}", r.read.strip
+      ensure
+        Process.wait pid
+      end
+    end
   end
 end

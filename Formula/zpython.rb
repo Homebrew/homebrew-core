@@ -1,20 +1,3 @@
-class Zsh5Requirement < Requirement
-  default_formula "zsh"
-  fatal true
-
-  satisfy :build_env => false do
-    begin
-      `zsh --version`[/zsh (\d)/, 1] == "5"
-    rescue
-      false
-    end
-  end
-
-  def message
-    "Zsh 5.x is required to install. Consider `brew install zsh`."
-  end
-end
-
 class Zpython < Formula
   desc "Embeds a Python interpreter into zsh"
   homepage "https://bitbucket.org/ZyX_I/zsh"
@@ -50,7 +33,7 @@ class Zpython < Formula
     sha256 "9137eefb79a7a529b016e3c949e24a15d4747e4f35108f91db6ea58441f456a9" => :mavericks
   end
 
-  depends_on Zsh5Requirement
+  depends_on "zsh"
   depends_on "autoconf" => :build
 
   def install

@@ -1,9 +1,3 @@
-class MarkdownRequirement < Requirement
-  fatal true
-  default_formula "markdown"
-  satisfy { which "markdown" }
-end
-
 class Shocco < Formula
   desc "Literate documentation tool for shell scripts (a la Docco)"
   homepage "https://rtomayko.github.io/shocco/"
@@ -19,10 +13,10 @@ class Shocco < Formula
     sha256 "b52ada7ff56cf3d34b2c9036f54341ebcc3e713203b53262486cb7ac94bb197b" => :mavericks
   end
 
-  depends_on MarkdownRequirement
+  depends_on "markdown"
 
   resource "pygments" do
-    url "https://pypi.python.org/packages/source/P/Pygments/Pygments-1.5.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-1.5.tar.gz"
     sha256 "fe183e3886f597e41f8c88d0e53c796cefddc879bfdf45f2915a383060436740"
   end
 

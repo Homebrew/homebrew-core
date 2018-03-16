@@ -16,13 +16,13 @@ end
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Jul2017-SP2/MonetDB-11.27.9.tar.xz"
-  sha256 "21b60aacb55894334d167d6c82ea43320b0cc116414d451d64c54bba8b32d1ed"
+  url "https://www.monetdb.org/downloads/sources/Jul2017-SP4/MonetDB-11.27.13.tar.xz"
+  sha256 "888828a2a242a60eb4b0ad3b22a3ff5cbdd8089ce34b1e16561199775d68d210"
 
   bottle do
-    sha256 "d5d26fa59961d0c9d869fe84b8acfc76ec794a50e12b7558646cf63121f0d1b4" => :high_sierra
-    sha256 "8a2dd3fd20b34cd20a367b281ef9feacb048ab54b6e29a41e45ceb13377ee649" => :sierra
-    sha256 "09d0e6e755dc22b8c095413cb3dafbe9d52a9077248f0a2e5558c2850aeccab6" => :el_capitan
+    sha256 "ad9ff71fe14164688e2e97b9146a09f06b1f9218e0df940f4cc2b9d863f00bd6" => :high_sierra
+    sha256 "f3702e4412c01d9104131311e01b8038877052fe2d90197dd1c67e16642654fc" => :sierra
+    sha256 "1689e0383fa91424f89e95f31326fa494980f34b903d242c9d63a7ba9df61174" => :el_capitan
   end
 
   head do
@@ -41,7 +41,7 @@ class Monetdb < Formula
   depends_on RRequirement => :optional
 
   depends_on "pkg-config" => :build
-  depends_on :ant => :build
+  depends_on "ant" => :build
   depends_on "libatomic_ops" => [:build, :recommended]
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit.

@@ -3,15 +3,16 @@ class Ponysay < Formula
   homepage "http://erkin.co/ponysay/"
   url "https://github.com/erkin/ponysay/archive/3.0.3.tar.gz"
   sha256 "c382d7f299fa63667d1a4469e1ffbf10b6813dcd29e861de6be55e56dc52b28a"
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04f9f091d3d6754a23ec95b081830c827e9394a78f1726c2a468e0cb2cc30ea0" => :high_sierra
-    sha256 "e8f74a63ec7d41b958ffb230c767a4b6d0df8e6904ea7c833d0e92db22bc6835" => :sierra
-    sha256 "78b6b7093f83b3f51422ef4ce3c3b3a7477a2c45584e446843ad6c37de877f27" => :el_capitan
+    sha256 "481d6431bc586203d237787eaceafc116d9eccbf8d11489e1197a6eb0e034710" => :high_sierra
+    sha256 "e51c96a3bf6997b73150b75eb758eb8359ca89a27a5b171b50eba3628192a31c" => :sierra
+    sha256 "594b78b627cad84edef6de6dba32879cf5547215b33e7946bb3ee44c73e49214" => :el_capitan
   end
 
-  depends_on :python3
+  depends_on "python"
   depends_on "coreutils"
 
   def install

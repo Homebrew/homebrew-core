@@ -1,25 +1,15 @@
 class Gzip < Formula
   desc "Popular GNU data compression program"
   homepage "https://www.gnu.org/software/gzip"
-  url "https://ftp.gnu.org/gnu/gzip/gzip-1.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.8.tar.gz"
-  sha256 "1ff7aedb3d66a0d73f442f6261e4b3860df6fd6c94025c2cb31a202c9c60fe0e"
+  url "https://ftp.gnu.org/gnu/gzip/gzip-1.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.9.tar.gz"
+  sha256 "5d2d3a3432ef32f24cdb060d278834507b481a75adeca18850c73592f778f6ad"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c250a97a4992abbea840e20bba57ec9467d289ff3ea0ad170bb4900f6f57bd0" => :high_sierra
-    sha256 "e51384ad9df99dbda85adc5ed68523661357cb038504f27a34e1851470b5416f" => :sierra
-    sha256 "1fcddc90fa996157665322ea1520863e9367a97693334f4c9b60b2abcf958328" => :el_capitan
-    sha256 "e240320b82c71f8367a696558a4863469b52fcb0ca8245ba0f0c83483f126507" => :yosemite
-  end
-
-  # Fix crash from usage of %n in dynamic format strings on High Sierra
-  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/bc289fc24ab/archivers/gzip/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
+    sha256 "789eed948749a668c0ed9d353b85b885f79058672d7479571950220b1edc5b0c" => :high_sierra
+    sha256 "c3c1a97b0df6fdb1b3ca403b6768abf5a52c756bb4a9b29ae4c739b9bfdf2ca9" => :sierra
+    sha256 "9171b2bf9290804403f96299e981b048d2dee273a0a9bbb352d1d8f30b920510" => :el_capitan
   end
 
   def install

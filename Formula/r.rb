@@ -1,23 +1,23 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz"
-  sha256 "7a3cb831de5b4151e1f890113ed207527b7d4b16df9ec6b35e0964170007f426"
+  url "https://cran.r-project.org/src/base/R-3/R-3.4.4.tar.gz"
+  sha256 "b3e97d2fab7256d1c655c4075934725ba1cd7cb9237240a11bb22ccdad960337"
 
   bottle do
-    sha256 "5980c32c37d78545b85a745af26688c4b9b38748086597e9476d19782cab9200" => :high_sierra
-    sha256 "7362e6983438c23dd79cd5461836111da9c404c1b328be87226a0e55102cd070" => :sierra
-    sha256 "c8c3f89cba5a1bbc383ddacfba6b9dcdebe576fa9112dd30bacf390b8f67768a" => :el_capitan
+    sha256 "0bc44bf3f7de7a7bba6f25d0db2ba5525a032f8119b3bce3ecf03c40812d5c3d" => :high_sierra
+    sha256 "cb8b59f45018cefbfad6147b1b304fd756941ea7b8038187d1292bc42b758b4e" => :sierra
+    sha256 "d0b25446d186207b998248bbb4a30e05882a9d278a2fb12c89eca639a10c08fa" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "pcre"
   depends_on "readline"
   depends_on "xz"
-  depends_on :fortran
   depends_on "openblas" => :optional
   depends_on :java => :optional
 
