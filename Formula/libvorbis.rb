@@ -1,9 +1,8 @@
 class Libvorbis < Formula
   desc "Vorbis General Audio Compression Codec"
   homepage "https://xiph.org/vorbis/"
-  url "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.5.tar.xz"
-  sha256 "54f94a9527ff0a88477be0a71c0bab09a4c3febe0ed878b24824906cd4b0e1d1"
-  revision 1
+  url "https://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz"
+  sha256 "af00bb5a784e7c9e69f56823de4637c350643deedaf333d0fa86ecdba6fcb415"
 
   bottle do
     cellar :any
