@@ -18,7 +18,7 @@ class Openblas < Formula
 
   option "with-openmp", "Enable parallel computations with OpenMP"
 
-  depends_on "gcc" # for gfortran
+  depends_on "gcc" if OS.mac? # for gfortran
 
   fails_with :clang if build.with? "openmp"
 
