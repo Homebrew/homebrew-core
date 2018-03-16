@@ -16,6 +16,7 @@
   "dbt": "fishtown-analytics/dbt",
   "drush": "homebrew/php",
   "dwarf-fortress": "caskroom/cask",
+  "gauge": "getgauge/releases",
   "geany": "caskroom/cask",
   "gimp": "caskroom/cask",
   "grads": "caskroom/cask",
