@@ -79,13 +79,13 @@ class LlvmAT5 < Formula
       sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
     end
   end
+
   bottle do
     cellar :any
     sha256 "bc1f754761a77c5f9d8ac9ab04a3e6ac1105084bf1e6e24d4ec181042a6605af" => :high_sierra
     sha256 "c762b37fc89fbc7f71bcae4cd1e9740a40aefd823a8daa8c1f7d43a52eddbeda" => :sierra
     sha256 "c2efb36438b01e305fd50b556b9acf72d5aba073aa9781a91d25ec7b764fb536" => :el_capitan
   end
-
 
   head do
     url "https://llvm.org/git/llvm.git", :branch => "release_50"
