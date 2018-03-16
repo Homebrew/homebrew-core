@@ -2,8 +2,8 @@ class Dfix < Formula
   desc "Auto-upgrade tool for D source code"
   homepage "https://github.com/dlang-community/dfix"
   url "https://github.com/dlang-community/dfix.git",
-      :tag => "v0.3.2",
-      :revision => "396fd6b26f92f4b20b22163ec12712f19a5942cd"
+      :tag => "v0.3.3",
+      :revision => "7475d0d2d8b322ad8734d09e1e6ea4d8edb4b957"
   head "https://github.com/dlang-community/dfix.git", :shallow => false
 
   bottle do
