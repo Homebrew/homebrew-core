@@ -21,7 +21,6 @@ class Gtkx3 < Formula
   depends_on "glib"
   depends_on "hicolor-icon-theme"
   depends_on "gsettings-desktop-schemas" => :recommended
-  depends_on "jasper" => :optional
 
   def install
     args = %W[
