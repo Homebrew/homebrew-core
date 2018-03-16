@@ -1,8 +1,8 @@
 class Editorconfig < Formula
   desc "Maintain consistent coding style between multiple editors"
   homepage "http://editorconfig.org"
-  url "https://downloads.sourceforge.net/project/editorconfig/EditorConfig-C-Core/0.12.1/source/editorconfig-core-c-0.12.1.tar.gz"
-  sha256 "aa9cd57382c883f1be7b6c3470094317e4d3e64175a376ea49326987055153b8"
+  url "https://github.com/editorconfig/editorconfig-core-c/archive/v0.12.2.tar.gz"
+  sha256 "8a63ae63d3a2f2a202acbd94a6cbe3fa4450c2658e33e922683af33c48a9115d"
   head "https://github.com/editorconfig/editorconfig-core-c.git"
 
   bottle do
