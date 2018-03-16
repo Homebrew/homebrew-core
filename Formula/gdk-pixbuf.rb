@@ -20,6 +20,7 @@ class GdkPixbuf < Formula
   depends_on "libtiff"
   depends_on "libpng"
   depends_on "gobject-introspection" => :recommended
+  depends_on "jasper" => :optional
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
@@ -49,6 +50,7 @@ class GdkPixbuf < Formula
     ]
 
     args << "--enable-relocations" if build.with?("relocations")
+    args << "--with-libjasper" if build.with?("jasper")
     args << "--disable-modules" if build.without?("modules")
 
     if build.with? "gobject-introspection"
