@@ -1,8 +1,8 @@
 class PerconaToolkit < Formula
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.0.7/source/tarball/percona-toolkit-3.0.7.tar.gz"
-  sha256 "40f1a2241fb3ac1049e43ea75056f02d8af48c1eb731b48a4b564a054f8227e3"
+  url "https://www.percona.com/downloads/percona-toolkit/3.0.8/source/tarball/percona-toolkit-3.0.8.tar.gz"
+  sha256 "cc287785f5c17effad2ae251eaa60a61d503a4d2d083dc63b81b50edf6f2f4c9"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
