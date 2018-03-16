@@ -13,6 +13,11 @@ class CeresSolver < Formula
     sha256 "14835cb26577c3385d5f75d37295d758e82c039b954c0aa38c7cf0bb99cc1215" => :el_capitan
   end
 
+  devel do
+    url "http://ceres-solver.org/ceres-solver-1.14.0rc1.tar.gz"
+    sha256 "44c9fde3416688c1804188a9c15dcd4b3cfdf7cb27ee29c5f3b7531b23e122d9"
+  end
+
   depends_on "cmake" => :run
   depends_on "eigen"
   depends_on "gflags"
