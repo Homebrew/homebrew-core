@@ -5,9 +5,9 @@ class Varnish < Formula
   sha256 "c7b2839c95b2bf1f336abc20b5d8b149c3aa72deff142f2379d1d431206b0bee"
 
   bottle do
-    sha256 "382cd91df3dcb06cb4e741036e061f64bf42cc8f22615baf2c3c88c5e6796dce" => :high_sierra
-    sha256 "4376d9964660db9e28b1075560bfec753d0bfd5c04fbbf9c6f2c2d9eb9d29088" => :sierra
-    sha256 "508da7c537c4d41c9a4af5e5c8faceec47c7768bf5e9542806514f3f718a2f2b" => :el_capitan
+    sha256 "070874b84514a0ba3c506282c0aab6811adf59b031c6ddc659e786915fd79cdc" => :high_sierra
+    sha256 "ef44270b7db6e8ebea1f2b39ab13d71c30e55e32e5616537eadf5a552f1c88f6" => :sierra
+    sha256 "b7265d3a93695df60133c9ef3d7089a80c5f2dfb4eb338a3377e134c154d8f6e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
