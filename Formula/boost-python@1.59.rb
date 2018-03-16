@@ -3,6 +3,7 @@ class BoostPythonAT159 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
   sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+  revision 1
 
   bottle do
     cellar :any
@@ -85,7 +86,7 @@ class BoostPythonAT159 < Formula
     end
 
     lib.install Dir["stage-python3/lib/*py*"] if build.with?("python")
-    lib.install Dir["stage-python/lib/*py*"] if build.with?("python@2")
+    lib.install Dir["stage-python2.7/lib/*py*"] if build.with?("python@2")
     doc.install Dir["libs/python/doc/*"]
   end
 
@@ -101,10 +102,11 @@ class BoostPythonAT159 < Formula
       }
     EOS
     Language::Python.each_python(build) do |python, _|
-      pyflags = (`#{python}-config --includes`.strip +
-                 `#{python}-config --ldflags`.strip).split(" ")
+      boost_python = (python == "python3") ? "boost_python3" : "boost_python"
+      pyflags = `#{python}-config --includes`.strip.split(" ") +
+                `#{python}-config --ldflags`.strip.split(" ")
       system ENV.cxx, "-shared", "hello.cpp", "-I#{Formula["boost159"].opt_include}",
-                      "-L#{lib}", "-lboost_#{python}", "-o", "hello.so", *pyflags
+                      "-L#{lib}", "-l#{boost_python}", "-o", "hello.so", *pyflags
       output = `#{python} -c "from __future__ import print_function; import hello; print(hello.greet())"`
       assert_match "Hello, world!", output
     end

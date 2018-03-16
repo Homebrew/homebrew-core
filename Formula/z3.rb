@@ -3,6 +3,7 @@ class Z3 < Formula
   homepage "https://github.com/Z3Prover/z3"
   url "https://github.com/Z3Prover/z3/archive/z3-4.6.0.tar.gz"
   sha256 "511da31d1f985cf0c79b2de05bda4e057371ba519769d1546ff71e1304fe53c9"
+  revision 1
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
