@@ -1,8 +1,8 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
-  url "https://github.com/TACC/Lmod/archive/7.7.18.tar.gz"
-  sha256 "fe8905938d741fff02b7596b28fef26c311ffb807d27bdc1d83b185cc4d25fd7"
+  url "https://github.com/TACC/Lmod/archive/7.7.22.tar.gz"
+  sha256 "62260a74f14bf7a6235d7efe28263d771c47fa3db57c7dd30ba60396439f7f84"
 
   bottle do
     cellar :any_skip_relocation
@@ -36,26 +36,25 @@ class Lmod < Formula
       end
     end
 
-    system "./configure", "--prefix=#{libexec}"
+    system "./configure", "--with-siteControlPrefix=yes", "--prefix=#{prefix}"
     system "make", "install"
-    prefix.install_symlink "libexec/lmod/lmod" => "lmod"
   end
 
   def caveats
     <<~EOS
       To use LMod, you should add the init script to the shell you are using.
 
-      For example, the bash setup script is here: #{opt_prefix}/lmod/init/profile
+      For example, the bash setup script is here: #{opt_prefix}/init/profile
       and you can source it in your bash setup or link to it.
 
-      If you use fish, use #{opt_prefix}/lmod/init/fish, such as:
-        ln -s #{opt_prefix}/lmod/init/fish ~/.config/fish/conf.d/00_lmod.fish
+      If you use fish, use #{opt_prefix}/init/fish, such as:
+        ln -s #{opt_prefix}/init/fish ~/.config/fish/conf.d/00_lmod.fish
     EOS
   end
 
   test do
-    system "#{prefix}/lmod/init/sh"
-    output = shell_output("#{prefix}/lmod/libexec/spider #{prefix}/lmod/modulefiles/Core/")
+    system "#{prefix}/init/sh"
+    output = shell_output("#{prefix}/libexec/spider #{prefix}/modulefiles/Core/")
     assert_match "lmod", output
     assert_match "settarg", output
   end
