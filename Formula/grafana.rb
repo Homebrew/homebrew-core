@@ -7,9 +7,9 @@ class Grafana < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ec57f8b41bd2b77da5503b294bfafc58d50234d1d18c6358caf16274d6149d5" => :high_sierra
-    sha256 "ecd9f505b817814e26d96efbccb8a7861a23fecfb9b95f3d0871078f1f185638" => :sierra
-    sha256 "107339bc4a943a35a04da932182c26fcfa1e68805af62605517abb85a5f5eddf" => :el_capitan
+    sha256 "a1701eeeb37c0c565260a8168f2efa8ca7905b4696c0d69426a028383a923706" => :high_sierra
+    sha256 "6c9608bb3b80d6372dda2277f31ff30cf4bdac98cd7c178d587f491ea3e0c9c1" => :sierra
+    sha256 "c3907114b3644c52169751497d554e408f6493d5af549d93705584b182b33571" => :el_capitan
   end
 
   depends_on "go" => :build
