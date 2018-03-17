@@ -1,8 +1,8 @@
 class Feedgnuplot < Formula
   desc "Tool to plot realtime and stored data from the command-line"
   homepage "https://github.com/dkogan/feedgnuplot"
-  url "https://github.com/dkogan/feedgnuplot/archive/v1.48.tar.gz"
-  sha256 "6befa4d75abe5de263d2e49091707af81bd987fe1587b9acb1ae945b8d494a7c"
+  url "https://github.com/dkogan/feedgnuplot/archive/v1.49.tar.gz"
+  sha256 "5cb292761228309794cfecb7105232559433ceb1f16a5a5f80ca08ee8caf9902"
 
   bottle do
     cellar :any_skip_relocation
