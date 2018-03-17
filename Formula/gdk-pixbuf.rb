@@ -10,7 +10,6 @@ class GdkPixbuf < Formula
     sha256 "70aa88fda9b08b1cbd7fdd3c21d378ce1a95c1c936d5eba9dbe9efcd75254f04" => :el_capitan
   end
 
-  option "with-relocations", "Build with relocation support for bundles"
   option "without-modules", "Disable dynamic module loading"
   option "with-included-loaders=", "Build the specified loaders into gdk-pixbuf"
 
@@ -49,7 +48,6 @@ class GdkPixbuf < Formula
       --without-gdiplus
     ]
 
-    args << "--enable-relocations" if build.with?("relocations")
     args << "--with-libjasper" if build.with?("jasper")
     args << "--disable-modules" if build.without?("modules")
 
@@ -87,17 +85,6 @@ class GdkPixbuf < Formula
   def post_install
     ENV["GDK_PIXBUF_MODULEDIR"] = "#{module_dir}/loaders"
     system "#{bin}/gdk-pixbuf-query-loaders", "--update-cache"
-  end
-
-  def caveats
-    if build.with?("relocations") || HOMEBREW_PREFIX.to_s != "/usr/local"
-      <<~EOS
-        Programs that require this module need to set the environment variable
-          export GDK_PIXBUF_MODULEDIR="#{module_dir}/loaders"
-        If you need to manually update the query loader cache, set these variables then run
-          #{bin}/gdk-pixbuf-query-loaders --update-cache
-      EOS
-    end
   end
 
   test do
