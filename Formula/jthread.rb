@@ -16,6 +16,7 @@ class Jthread < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <jthread/jthread.h>
       using namespace jthread;
+
       int main() {
         JMutex* jm = new JMutex();
         jm->Init();
@@ -25,10 +26,8 @@ class Jthread < Formula
       }
     EOS
 
-    libs = `pkg-config --libs jthread`.chomp
-    cflags = `pkg-config --cflags jthread`.chomp
-
-    system "#{ENV.cxx} test.cpp -o test #{libs} #{cflags}"
+    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-ljthread",
+                    "-o", "test"
     system "./test"
   end
 end
