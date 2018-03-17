@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "5.2.1",
-      :revision => "21107b1de6180cf5644e512e67e4d60a0d115ac4"
+      :tag => "5.3.0",
+      :revision => "73ac0e487dda941eb4e52ed3b96b652515f1bee5"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
@@ -12,7 +12,7 @@ class Swiftgen < Formula
     sha256 "129d086e2cca6ce4d204ad3a699524e48c5e8eee0c67f0d698a94ac8fa3d7d77" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.2", :build]
 
   def install
     # Disable swiftlint Build Phase to avoid build errors if versions mismatch
@@ -22,21 +22,21 @@ class Swiftgen < Formula
     ENV["GEM_HOME"] = buildpath/"gem_home"
     system "gem", "install", "bundler"
     ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-    system "bundle", "install"
+    system "bundle", "install", "--without", "development", "release"
     system "bundle", "exec", "rake", "cli:install[#{bin},#{lib},#{pkgshare}/templates]"
 
     fixtures = {
-      "Resources/Fixtures/XCAssets/Images.xcassets" => "Images.xcassets",
-      "Resources/Fixtures/XCAssets/Colors.xcassets" => "Colors.xcassets",
-      "Resources/Fixtures/Colors/colors.xml" => "colors.xml",
-      "Resources/Fixtures/Strings/Localizable.strings" => "Localizable.strings",
-      "Resources/Fixtures/Storyboards-iOS" => "Storyboards-iOS",
-      "Resources/Fixtures/Fonts" => "Fonts",
-      "Resources/Tests/Expected/XCAssets/swift3-context-all.swift" => "xcassets.swift",
-      "Resources/Tests/Expected/Colors/swift3-context-defaults.swift" => "colors.swift",
-      "Resources/Tests/Expected/Strings/structured-swift3-context-localizable.swift" => "strings.swift",
-      "Resources/Tests/Expected/Storyboards-iOS/swift3-context-all.swift" => "storyboards.swift",
-      "Resources/Tests/Expected/Fonts/swift3-context-defaults.swift" => "fonts.swift",
+      "Tests/Fixtures/Resources/XCAssets/Images.xcassets" => "Images.xcassets",
+      "Tests/Fixtures/Resources/XCAssets/Colors.xcassets" => "Colors.xcassets",
+      "Tests/Fixtures/Resources/Colors/colors.xml" => "colors.xml",
+      "Tests/Fixtures/Resources/Strings/Localizable.strings" => "Localizable.strings",
+      "Tests/Fixtures/Resources/Storyboards-iOS" => "Storyboards-iOS",
+      "Tests/Fixtures/Resources/Fonts" => "Fonts",
+      "Tests/Fixtures/Generated/XCAssets/swift3-context-all.swift" => "xcassets.swift",
+      "Tests/Fixtures/Generated/Colors/swift3-context-defaults.swift" => "colors.swift",
+      "Tests/Fixtures/Generated/Strings/structured-swift3-context-localizable.swift" => "strings.swift",
+      "Tests/Fixtures/Generated/Storyboards-iOS/swift3-context-all.swift" => "storyboards.swift",
+      "Tests/Fixtures/Generated/Fonts/swift3-context-defaults.swift" => "fonts.swift",
     }
     (pkgshare/"fixtures").install fixtures
   end
