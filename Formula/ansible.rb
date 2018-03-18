@@ -245,6 +245,11 @@ class Ansible < Formula
   resource "jsonpatch" do
     url "https://files.pythonhosted.org/packages/6d/30/5141596cb0346aa4d0dd7508bc5dfc246f11b31928e8179df3eb2cf0b111/jsonpatch-1.21.tar.gz"
     sha256 "11f5ffdf543a83047a2f54ac28f8caad7f34724cb1ea26b27547fd974f1a2153"
+
+    # Remove for jsonpatch > 1.21
+    # Upstream commit from 16 Jan 2018 "Drop support for EOL Python 3.3"
+    # See https://github.com/stefankoegl/python-json-patch/commit/71bdeed8
+    patch :DATA
   end
 
   resource "jsonpointer" do
@@ -558,3 +563,24 @@ class Ansible < Formula
     system libexec/"bin/python", "-c", script
   end
 end
+
+__END__
+diff --git a/setup.py b/setup.py
+index 0776c41..471c433 100644
+--- a/setup.py
++++ b/setup.py
+@@ -58,7 +58,6 @@
+     'Programming Language :: Python :: 2',
+     'Programming Language :: Python :: 2.7',
+     'Programming Language :: Python :: 3',
+-    'Programming Language :: Python :: 3.3',
+     'Programming Language :: Python :: 3.4',
+     'Programming Language :: Python :: 3.5',
+     'Programming Language :: Python :: 3.6',
+@@ -81,5 +80,6 @@
+       package_data={'': ['requirements.txt']},
+       scripts=['bin/jsondiff', 'bin/jsonpatch'],
+       classifiers=CLASSIFIERS,
++      python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+       **OPTIONS
+ )
