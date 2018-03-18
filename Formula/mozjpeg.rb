@@ -1,8 +1,8 @@
 class Mozjpeg < Formula
   desc "Improved JPEG encoder"
   homepage "https://github.com/mozilla/mozjpeg"
-  url "https://github.com/mozilla/mozjpeg/releases/download/v3.2/mozjpeg-3.2-release-source.tar.gz"
-  sha256 "8aecc1ecad447a73ae01b9a546e99142345e5a92838d84af425f2b19202e7b73"
+  url "https://github.com/mozilla/mozjpeg/archive/v3.3.1.tar.gz"
+  sha256 "aebbea60ea038a84a2d1ed3de38fdbca34027e2e54ee2b7d08a97578be72599d"
 
   bottle do
     cellar :any
@@ -12,22 +12,17 @@ class Mozjpeg < Formula
     sha256 "ba216c159f6ef8573699a11dd423c53f9b34432000cef18a30c8e3c3e27bda2f" => :yosemite
   end
 
-  head do
-    url "https://github.com/mozilla/mozjpeg.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
   keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "nasm" => :build
   depends_on "libpng" => :optional
 
   def install
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--with-jpeg8"
