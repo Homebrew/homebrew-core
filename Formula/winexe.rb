@@ -47,6 +47,10 @@ class Winexe < Formula
       bin.install "bin/winexe"
     end
   end
+
+  test do
+    system "#{bin}/winexe", "--version"
+  end
 end
 
 __END__
