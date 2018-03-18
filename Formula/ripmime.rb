@@ -18,8 +18,4 @@ class Ripmime < Formula
     bin.install "ripmime"
     man1.install "ripmime.1"
   end
-
-  test do
-    system "#{bin}/ripmime", "--version"
-  end
 end
