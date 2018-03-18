@@ -19,4 +19,8 @@ class Wakeonlan < Formula
     bin.install "blib/script/wakeonlan"
     man1.install "blib/man1/wakeonlan.1"
   end
+
+  test do
+    system "#{bin}/wakeonlan", "--version"
+  end
 end
