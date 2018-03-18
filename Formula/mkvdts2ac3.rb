@@ -28,6 +28,10 @@ class Mkvdts2ac3 < Formula
   def install
     bin.install "mkvdts2ac3.sh" => "mkvdts2ac3"
   end
+
+  test do
+    system "#{bin}/mkvdts2ac3", "--version"
+  end
 end
 
 __END__
