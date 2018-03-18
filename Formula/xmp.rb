@@ -34,4 +34,8 @@ class Xmp < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/xmp", "--version"
+  end
 end
