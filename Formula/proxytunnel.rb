@@ -24,6 +24,10 @@ class Proxytunnel < Formula
     bin.install "proxytunnel"
     man1.install "proxytunnel.1"
   end
+
+  test do
+    system "#{bin}/proxytunnel", "--version"
+  end
 end
 
 __END__
