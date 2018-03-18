@@ -21,4 +21,8 @@ class Mogenerator < Formula
     xcodebuild "-target", "mogenerator", "-configuration", "Release", "SYMROOT=symroot", "OBJROOT=objroot"
     bin.install "symroot/Release/mogenerator"
   end
+
+  test do
+    system "#{bin}/mogenerator", "--version"
+  end
 end
