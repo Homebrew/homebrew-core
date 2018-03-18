@@ -11,4 +11,8 @@ class Launch4j < Formula
     libexec.install Dir["*"] - ["src", "web"]
     bin.write_jar_script libexec/"launch4j.jar", "launch4j"
   end
+
+  test do
+    system "#{bin}/launch4j", "--version"
+  end
 end
