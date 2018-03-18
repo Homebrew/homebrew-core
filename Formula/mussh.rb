@@ -10,4 +10,8 @@ class Mussh < Formula
     bin.install "mussh"
     man1.install "mussh.1"
   end
+
+  test do
+    system "#{bin}/mussh", "--help"
+  end
 end
