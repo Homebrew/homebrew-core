@@ -15,4 +15,8 @@ class Wwwoffle < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/wwwoffle", "--version"
+  end
 end
