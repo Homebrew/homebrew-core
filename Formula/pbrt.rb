@@ -20,4 +20,8 @@ class Pbrt < Formula
     system "make", "-C", "src"
     prefix.install "src/bin"
   end
+
+  test do
+    system "#{bin}/pbrt", "--version"
+  end
 end
