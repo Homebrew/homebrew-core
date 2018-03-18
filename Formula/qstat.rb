@@ -18,4 +18,8 @@ class Qstat < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/qstat", "--help"
+  end
 end
