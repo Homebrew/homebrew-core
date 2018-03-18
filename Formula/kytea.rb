@@ -26,4 +26,8 @@ class Kytea < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/kytea", "--version"
+  end
 end
