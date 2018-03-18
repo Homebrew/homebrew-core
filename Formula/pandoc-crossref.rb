@@ -5,8 +5,8 @@ class PandocCrossref < Formula
 
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.0.1/pandoc-crossref-0.3.0.1.tar.gz"
-  sha256 "d62bc57ecbf869cd5777dfc69f3d45722d3be3e691ed4e47841aa656df5c1252"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.0.2/pandoc-crossref-0.3.0.2.tar.gz"
+  sha256 "400c48975db991efd695c0db90030ff19275d62bfdb6fb64e1cf9855ef50fdc5"
 
   bottle do
     cellar :any_skip_relocation
@@ -22,7 +22,11 @@ class PandocCrossref < Formula
   def install
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-    install_cabal_package *args
+
+    # Remove pandoc-types constraint for pandoc > 2.1.2
+    # Upstream issue from 13 Mar 2018 "Pandoc 2.1.2 failed building with GHC 8.2.2"
+    # See https://github.com/jgm/pandoc/issues/4448
+    install_cabal_package "--constraint", "pandoc-types < 1.17.4", *args
   end
 
   test do
