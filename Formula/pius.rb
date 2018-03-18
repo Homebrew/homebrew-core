@@ -3,9 +3,8 @@ class Pius < Formula
 
   desc "PGP individual UID signer"
   homepage "https://www.phildev.net/pius/"
-  url "https://github.com/jaymzh/pius/archive/v2.2.4.tar.gz"
-  sha256 "876763c351ba8538d0c614c31f1873b5e821425927631139c83378532215516c"
-  revision 1
+  url "https://github.com/jaymzh/pius/archive/v2.2.5.tar.gz"
+  sha256 "a42bb13971ff1d2a3bea4436d2c6dfaed6748eeaf2ad4bf2318805ccd18f9891"
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
@@ -16,6 +15,11 @@ class Pius < Formula
   end
 
   depends_on "gnupg"
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  end
 
   def install
     # Replace hardcoded gpg path (WONTFIX)
