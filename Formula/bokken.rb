@@ -63,4 +63,8 @@ class Bokken < Formula
         python #{libexec}/bokken/bokken.py "${@}"
     EOS
   end
+
+  test do
+    system "#{bin}/bokken", "--version"
+  end
 end
