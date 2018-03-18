@@ -1,8 +1,9 @@
 class Libfixposix < Formula
   desc "Thin wrapper over POSIX syscalls"
   homepage "https://github.com/sionescu/libfixposix"
-  url "https://github.com/sionescu/libfixposix/releases/download/v0.4.1/libfixposix-0.4.1.tar.gz"
-  sha256 "38b111111d87f87e5c53a207effb25e5a86b5879770dcd8cf4f38e440620e6d5"
+  url "https://github.com/sionescu/libfixposix/archive/v0.4.3.tar.gz"
+  sha256 "78fe8bcebf496520ac29b5b65049f5ec1977c6bd956640bdc6d1da6ea04d8504"
+  head "https://github.com/sionescu/libfixposix.git"
 
   bottle do
     cellar :any
@@ -13,18 +14,16 @@ class Libfixposix < Formula
     sha256 "f1f7f7248fd249cbb4ac366ad45e313c39055e51ffb0c15679f1b880d5b7a566" => :mavericks
   end
 
-  head do
-    url "https://github.com/sionescu/libfixposix.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def install
-    system "autoreconf", "-fvi" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "autoreconf", "-fvi"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 
