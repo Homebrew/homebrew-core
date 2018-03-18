@@ -31,4 +31,8 @@ class Gtmess < Formula
                           "--with-ssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/gtmess", "--version"
+  end
 end
