@@ -22,4 +22,8 @@ class Htmldoc < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/htmldoc", "--version"
+  end
 end
