@@ -23,4 +23,8 @@ class Wry < Formula
     xcodebuild "-target", "wry", "-configuration", "Release", "SYMROOT=build", "OBJROOT=objroot"
     bin.install "build/Release/wry"
   end
+
+  test do
+    system "#{bin}/wry", "--version"
+  end
 end
