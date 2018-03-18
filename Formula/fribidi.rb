@@ -17,7 +17,7 @@ class Fribidi < Formula
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--with-glib", "--prefix=#{prefix}"
+                          "--with-glib", "--enable-static", "--prefix=#{prefix}"
     system "make", "install"
   end
 
