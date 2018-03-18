@@ -19,4 +19,8 @@ class Mairix < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/mairix", "--version"
+  end
 end
