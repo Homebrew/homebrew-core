@@ -7,11 +7,9 @@ class Libfixposix < Formula
 
   bottle do
     cellar :any
-    sha256 "ecd398b532d6e8d3c23ecb4b37595e49a1fc3a6db886e8a1f2b6444de69b92c1" => :high_sierra
-    sha256 "f9511f4ca3c17903a2aea6e6ed089286cc0d8b8c1f21349a2381bd31acb4fd02" => :sierra
-    sha256 "e876af0f5a95391c41f9bf7e7e1ca7c69ba0c5afe4ce570daff34474f3ece1dd" => :el_capitan
-    sha256 "defc55272fbda383c8598e216a65b79ba8c5c4fc5c0d0a1752168919f0eee1c7" => :yosemite
-    sha256 "f1f7f7248fd249cbb4ac366ad45e313c39055e51ffb0c15679f1b880d5b7a566" => :mavericks
+    sha256 "eaf5641bda4184e3092f7f2b0c9e61afa120df85df837377ead98de643a7e21e" => :high_sierra
+    sha256 "024855892877fd868e04eb8b0d2ef71485ffc48b2f441f88ceb61bcc57a56aea" => :sierra
+    sha256 "89a3b36ff587c3eeaa7ba51471ba3d0bc294bdeb66abccd0a3ce446cf6f57e1b" => :el_capitan
   end
 
   depends_on "autoconf" => :build
