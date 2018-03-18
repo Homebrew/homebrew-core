@@ -31,4 +31,8 @@ class Tcpflow < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/tcpflow", "--version"
+  end
 end
