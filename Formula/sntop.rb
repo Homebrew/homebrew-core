@@ -30,4 +30,8 @@ class Sntop < Formula
     You should be certain that you trust any software you grant root privileges.
     EOS
   end
+
+  test do
+    system "#{bin}/sntop", "--version"
+  end
 end
