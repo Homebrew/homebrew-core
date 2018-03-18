@@ -16,4 +16,8 @@ class Iphotoexport < Formula
     prefix.install Dir["#{unzip_dir}/*"]
     bin.install_symlink prefix+"iphotoexport.py" => "iphotoexport"
   end
+
+  test do
+    system "#{bin}/iphotoexport", "--help"
+  end
 end
