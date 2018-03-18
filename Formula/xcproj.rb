@@ -38,4 +38,8 @@ class Xcproj < Formula
       In which case you will have to remove and rebuild the installed xcproj version.
     EOS
   end
+
+  test do
+    system "#{bin}/xcproj", "--version"
+  end
 end
