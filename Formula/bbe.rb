@@ -20,4 +20,8 @@ class Bbe < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/bbe", "--version"
+  end
 end
