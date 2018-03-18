@@ -1,18 +1,9 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
+  url "https://weechat.org/files/src/weechat-2.1.tar.xz"
+  sha256 "cda0f81ff8243fd25cca76c8e490e2fdb5b8fbb2554d7aa87cb3b0beda16ed38"
   head "https://github.com/weechat/weechat.git"
-
-  stable do
-    url "https://weechat.org/files/src/weechat-2.0.1.tar.xz"
-    sha256 "6943582eabbd8a6fb6dca860a86f896492cae5fceacaa396dbc9eeaa722305d1"
-
-    # Recognise Ruby 2.5.x as valid.
-    patch do
-      url "https://github.com/weechat/weechat/commit/cb98f528.patch?full_index=1"
-      sha256 "e9700e24606447edfbd5de15b4d9dc822454a38ed85f678b15f84b4db2323066"
-    end
-  end
 
   bottle do
     sha256 "86f9c7062cd5f4ca6625b175144ec37b55f462a9463a3f9852d74f56b404302b" => :high_sierra
