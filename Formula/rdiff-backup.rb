@@ -42,4 +42,8 @@ class RdiffBackup < Formula
     man1.install Dir["*.1"]
     bin.install_symlink Dir["#{libexec}/rdiff-backup*"]
   end
+
+  test do
+    system "#{bin}/rdiff-backup", "--version"
+  end
 end
