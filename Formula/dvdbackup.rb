@@ -20,4 +20,8 @@ class Dvdbackup < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/dvdbackup", "--version"
+  end
 end
