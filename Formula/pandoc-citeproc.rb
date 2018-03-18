@@ -5,8 +5,8 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14.1.5/pandoc-citeproc-0.14.1.5.tar.gz"
-  sha256 "29e2afcdaaa23e5ac30e7f895bb45d36e0af79d4cfe769deb36c6f25fabfe2ca"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14.2/pandoc-citeproc-0.14.2.tar.gz"
+  sha256 "853f77d54935a61cf4571618d5c333ffa9e42be4e2cccb9dbccdaf13f7f2e3b7"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
@@ -22,7 +22,11 @@ class PandocCiteproc < Formula
   def install
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-    install_cabal_package *args
+
+    # Remove pandoc-types constraint for pandoc > 2.1.2
+    # Upstream issue from 13 Mar 2018 "Pandoc 2.1.2 failed building with GHC 8.2.2"
+    # See https://github.com/jgm/pandoc/issues/4448
+    install_cabal_package "--constraint", "pandoc-types < 1.17.4", *args
   end
 
   test do
