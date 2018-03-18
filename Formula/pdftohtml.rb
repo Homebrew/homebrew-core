@@ -17,4 +17,8 @@ class Pdftohtml < Formula
     system "make"
     bin.install "src/pdftohtml"
   end
+
+  test do
+    system "#{bin}/pdftohtml", "--version"
+  end
 end
