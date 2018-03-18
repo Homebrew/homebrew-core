@@ -42,6 +42,10 @@ class Shocco < Formula
         shocco `which shocco` | browser
     EOS
   end
+
+  test do
+    system "#{bin}/shocco", "--version"
+  end
 end
 
 __END__
