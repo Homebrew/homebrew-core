@@ -23,4 +23,8 @@ class Dcled < Formula
                    "FONTDIR=#{share}/#{name}",
                    "INSTALLDIR=#{bin}"
   end
+
+  test do
+    system "#{bin}/dcled", "--version"
+  end
 end
