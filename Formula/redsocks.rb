@@ -19,4 +19,8 @@ class Redsocks < Formula
     system "make"
     bin.install "redsocks"
   end
+
+  test do
+    system "#{bin}/redsocks", "--version"
+  end
 end
