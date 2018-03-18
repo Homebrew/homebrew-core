@@ -3,6 +3,7 @@ class Sdlpop < Formula
   homepage "https://github.com/NagyD/SDLPoP"
   url "https://github.com/NagyD/SDLPoP/archive/v1.18.tar.gz"
   sha256 "8d232562d2da332c60e0ee0dcba49ad04da6aad259fb91cdd5b669d6efa2a242"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,17 +20,13 @@ class Sdlpop < Formula
   def install
     system "make", "-C", "src"
     doc.install Dir["doc/*"]
+    libexec.install "data"
+    libexec.install "prince"
 
     # Use var directory to keep save and replay files
-    pkgshare.install Dir["data/*.DAT"]
-    pkgshare.install "data"
     pkgvar = var/"sdlpop"
-    pkgvar.install_symlink Dir["#{pkgshare}/*.DAT"]
-    pkgvar.install_symlink pkgshare/"data"
     pkgvar.install "SDLPoP.ini" unless (pkgvar/"SDLPoP.ini").exist?
 
-    # Data files should be in the working directory
-    libexec.install "prince"
     (bin/"prince").write <<~EOS
       #!/bin/bash
       cd "#{pkgvar}" && exec "#{libexec}/prince" $@
@@ -37,7 +34,7 @@ class Sdlpop < Formula
   end
 
   def caveats; <<~EOS
-    Data including save and replay files are stored in the following directory:
+    Save and replay files are stored in the following directory:
       #{var}/sdlpop
     EOS
   end
