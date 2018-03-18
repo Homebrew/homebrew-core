@@ -1,8 +1,8 @@
 class TranslateShell < Formula
   desc "Command-line translator using Google Translate and more"
   homepage "https://www.soimort.org/translate-shell"
-  url "https://github.com/soimort/translate-shell/archive/v0.9.6.6.tar.gz"
-  sha256 "ff7809d464b30f97260e65cc94e76fe826646d18cb5be133243eebf06c9a3295"
+  url "https://github.com/soimort/translate-shell/archive/v0.9.6.7.tar.gz"
+  sha256 "25f90bd755b457602928d4efbdd8db64129013f2943d1d9c1316c6854736db46"
   head "https://github.com/soimort/translate-shell.git", :branch => "develop"
 
   bottle do
