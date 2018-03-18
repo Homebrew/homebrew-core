@@ -23,4 +23,8 @@ class Id3v2 < Formula
     man1.mkpath
     system "make", "install", "PREFIX=#{prefix}"
   end
+
+  test do
+    system "#{bin}/id3v2", "--version"
+  end
 end
