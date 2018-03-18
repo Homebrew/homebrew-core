@@ -16,4 +16,8 @@ class Wiggle < Formula
     bin.install "wiggle"
     man1.install "wiggle.1"
   end
+
+  test do
+    system "#{bin}/wiggle", "--version"
+  end
 end
