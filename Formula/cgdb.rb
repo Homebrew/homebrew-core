@@ -28,4 +28,8 @@ class Cgdb < Formula
                           "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/cgdb", "--version"
+  end
 end
