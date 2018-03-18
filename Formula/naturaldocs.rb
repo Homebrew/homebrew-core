@@ -14,4 +14,8 @@ class Naturaldocs < Formula
     chmod 0755, libexec+"NaturalDocs"
     bin.install_symlink libexec+"NaturalDocs"
   end
+
+  test do
+    system "#{bin}/naturaldocs", "--version"
+  end
 end
