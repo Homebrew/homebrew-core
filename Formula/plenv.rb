@@ -23,4 +23,8 @@ class Plenv < Formula
       if plenv > /dev/null; plenv init - | source ; end
     EOS
   end
+
+  test do
+    system "#{bin}/plenv", "--version"
+  end
 end
