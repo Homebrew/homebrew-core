@@ -1,8 +1,8 @@
 class Sdlpop < Formula
   desc "Open-source port of Prince of Persia"
   homepage "https://github.com/NagyD/SDLPoP"
-  url "https://github.com/NagyD/SDLPoP/archive/v1.17.tar.gz"
-  sha256 "aa4b254ab80b889a6db491b41c4f83467124d932cc0836e5979fa73b6c49a94d"
+  url "https://github.com/NagyD/SDLPoP/archive/v1.18.tar.gz"
+  sha256 "8d232562d2da332c60e0ee0dcba49ad04da6aad259fb91cdd5b669d6efa2a242"
 
   bottle do
     cellar :any
