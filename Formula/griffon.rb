@@ -17,4 +17,8 @@ class Griffon < Formula
       #{libexec}
     EOS
   end
+
+  test do
+    system "#{bin}/griffon", "--version"
+  end
 end
