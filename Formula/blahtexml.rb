@@ -39,4 +39,8 @@ class Blahtexml < Formula
       bin.install "blahtexml"
     end
   end
+
+  test do
+    system "#{bin}/blahtexml", "--version"
+  end
 end
