@@ -7,9 +7,9 @@ class Xdot < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "78ebd99ee76e9e2ff17df7a786b750e25dfc1a7c6a49d95a7c8181151b1b5e35" => :high_sierra
-    sha256 "78ebd99ee76e9e2ff17df7a786b750e25dfc1a7c6a49d95a7c8181151b1b5e35" => :sierra
-    sha256 "78ebd99ee76e9e2ff17df7a786b750e25dfc1a7c6a49d95a7c8181151b1b5e35" => :el_capitan
+    sha256 "8da334b9bcd580ec899e2d263e3aa5512fcd4553ea697fe615c56b2c839c0379" => :high_sierra
+    sha256 "8da334b9bcd580ec899e2d263e3aa5512fcd4553ea697fe615c56b2c839c0379" => :sierra
+    sha256 "8da334b9bcd580ec899e2d263e3aa5512fcd4553ea697fe615c56b2c839c0379" => :el_capitan
   end
 
   depends_on "gtk+3"
