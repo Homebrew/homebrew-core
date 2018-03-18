@@ -35,6 +35,10 @@ class Mpg321 < Formula
                           "--disable-alsa"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/mpg321", "--version"
+  end
 end
 
 __END__
