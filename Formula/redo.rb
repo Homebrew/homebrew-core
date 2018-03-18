@@ -23,4 +23,8 @@ class Redo < Formula
     rm share/"doc/redo/README.md" # lets not have two copies
     man1.install resource("docs")
   end
+
+  test do
+    system "#{bin}/redo", "--version"
+  end
 end
