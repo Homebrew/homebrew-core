@@ -44,4 +44,8 @@ class Davmail < Formula
     </plist>
     EOS
   end
+
+  test do
+    system "#{bin}/davmail", "--version"
+  end
 end
