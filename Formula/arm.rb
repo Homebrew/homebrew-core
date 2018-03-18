@@ -21,4 +21,8 @@ class Arm < Formula
     to ~/.arm/armrc, adjusting as needed.
     EOS
   end
+
+  test do
+    system "#{bin}/arm", "--version"
+  end
 end
