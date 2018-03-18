@@ -28,6 +28,10 @@ class Gcab < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/gcab", "--version"
+  end
 end
 
 __END__
