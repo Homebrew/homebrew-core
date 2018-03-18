@@ -11,4 +11,8 @@ class Keychain < Formula
     bin.install "keychain"
     man1.install "keychain.1"
   end
+
+  test do
+    system "#{bin}/keychain", "--version"
+  end
 end
