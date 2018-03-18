@@ -20,4 +20,8 @@ class Tnef < Formula
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/tnef", "--version"
+  end
 end
