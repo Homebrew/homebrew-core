@@ -1,7 +1,7 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
-  homepage "https://01.org/hyperscan"
-  url "https://github.com/01org/hyperscan/archive/v4.7.0.tar.gz"
+  homepage "https://www.hyperscan.io/"
+  url "https://github.com/intel/hyperscan/archive/v4.7.0.tar.gz"
   sha256 "a0c07b48ae80903001ab216b03fdf6359bfd5777b2976de728947725b335e941"
 
   bottle do
