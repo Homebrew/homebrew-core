@@ -19,4 +19,8 @@ class Bogofilter < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/bogofilter", "--version"
+  end
 end
