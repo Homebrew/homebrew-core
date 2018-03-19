@@ -3,6 +3,7 @@ class Cogl < Formula
   homepage "https://developer.gnome.org/cogl/"
   url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.2.tar.xz"
   sha256 "39a718cdb64ea45225a7e94f88dddec1869ab37a21b339ad058a9d898782c00d"
+  revision 1
 
   bottle do
     sha256 "ea49baf6a7fade80c9d78077bb6c28aa51030078993be615cc62cd0006f4b963" => :high_sierra
@@ -19,10 +20,10 @@ class Cogl < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "glib"
-  depends_on "gobject-introspection"
   depends_on "gtk-doc"
   depends_on "pango"
 
