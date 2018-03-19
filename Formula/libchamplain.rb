@@ -3,6 +3,7 @@ class Libchamplain < Formula
   homepage "https://wiki.gnome.org/Projects/libchamplain"
   url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.16.tar.xz"
   sha256 "4a7e31cf7889669aebf04631543af64435edd989685159b804911c6005db908d"
+  revision 1
 
   bottle do
     sha256 "3fdca7a3411ade348bb54a6d9fb3a6177a3ffba033cc45b85029099c7ec5d08d" => :high_sierra
@@ -11,10 +12,10 @@ class Libchamplain < Formula
     sha256 "796fbd6873a23d586343d499f069d1af6d4c859a0b9ca0ed8defbd7a91cca673" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "clutter"
   depends_on "libsoup"
-  depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "clutter-gtk"
   depends_on "vala" => :optional
