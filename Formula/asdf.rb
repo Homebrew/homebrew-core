@@ -6,9 +6,9 @@ class Asdf < Formula
 
   bottle :unneeded
 
-  depends_on "autoconf" => :run
-  depends_on "automake" => :run
-  depends_on "libtool" => :run
+  depends_on "autoconf"
+  depends_on "automake"
+  depends_on "libtool"
   depends_on "coreutils"
   depends_on "libyaml"
   depends_on "openssl"
