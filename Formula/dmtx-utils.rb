@@ -17,7 +17,7 @@ class DmtxUtils < Formula
   depends_on "pkg-config" => :build
   depends_on "imagemagick"
   depends_on "libdmtx"
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   resource "test_image12" do
     url "https://raw.githubusercontent.com/dmtx/libdmtx/ca9313f/test/rotate_test/images/test_image12.png"
