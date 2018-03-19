@@ -13,7 +13,7 @@ class AutoconfArchive < Formula
   end
 
   # autoconf-archive is useless without autoconf
-  depends_on "autoconf" => :run
+  depends_on "autoconf"
 
   def install
     system "./configure", "--prefix=#{prefix}"
