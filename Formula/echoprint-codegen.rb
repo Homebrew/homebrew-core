@@ -27,8 +27,4 @@ class EchoprintCodegen < Formula
   def install
     system "make", "-C", "src", "install", "PREFIX=#{prefix}"
   end
-
-  test do
-    system "#{bin}/echoprint-codegen", "--version"
-  end
 end
