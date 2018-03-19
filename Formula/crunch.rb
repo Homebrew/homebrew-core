@@ -23,6 +23,6 @@ class Crunch < Formula
   end
 
   test do
-    system "#{bin}/crunch", "--version"
+    system "#{bin}/crunch", "-v"
   end
 end
