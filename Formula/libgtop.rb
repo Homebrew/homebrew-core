@@ -3,6 +3,7 @@ class Libgtop < Formula
   homepage "https://library.gnome.org/devel/libgtop/stable/"
   url "https://download.gnome.org/sources/libgtop/2.38/libgtop-2.38.0.tar.xz"
   sha256 "4f6c0e62bb438abfd16b4559cd2eca0251de19e291c888cdc4dc88e5ffebb612"
+  revision 1
 
   bottle do
     sha256 "93d65fe5d0e5727fa542adb6f21fbbdb0812d7cfe93345d693864bb017f90d35" => :high_sierra
@@ -16,13 +17,13 @@ class Libgtop < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gnome-common" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   # Fixes the build on OS X by providing a stub implementation of a new feature
   # https://gitlab.gnome.org/GNOME/libgtop/issues/36
