@@ -3,6 +3,7 @@ class Atk < Formula
   homepage "https://library.gnome.org/devel/atk/"
   url "https://download.gnome.org/sources/atk/2.28/atk-2.28.1.tar.xz"
   sha256 "cd3a1ea6ecc268a2497f0cd018e970860de24a6d42086919d6bf6c8e8d53f4fc"
+  revision 1
 
   bottle do
     sha256 "b1abd123e7054ba1ec18f26bb18e4486b6daaccc25f0434c248b0036e4a1273f" => :high_sierra
@@ -10,9 +11,9 @@ class Atk < Formula
     sha256 "9950775c10f560113212bd755f22e1c4bc3b2ebb794f17e9f2e09d0a84e52bd0" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   def install
     system "./configure", "--disable-dependency-tracking",
