@@ -3,7 +3,7 @@ class Libsecret < Formula
   homepage "https://wiki.gnome.org/Projects/Libsecret"
   url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.5.tar.xz"
   sha256 "9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "fe0fb636bf96c93bade82da91245ef92a5734dee84a8f2ed6294f0bd9e822806" => :high_sierra
@@ -12,6 +12,7 @@ class Libsecret < Formula
     sha256 "9abd02a3cc9049c185321f691df43da2b150a2f55ca0463e346632b93a7a7900" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gnu-sed" => :build
   depends_on "intltool" => :build
@@ -19,7 +20,6 @@ class Libsecret < Formula
   depends_on "docbook-xsl" => :build
   depends_on "glib"
   depends_on "libgcrypt"
-  depends_on "gobject-introspection" => :recommended
   depends_on "vala" => :optional
 
   def install
@@ -30,9 +30,9 @@ class Libsecret < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --enable-introspection
     ]
 
-    args << "--enable-introspection" if build.with? "gobject-introspection"
     args << "--enable-vala" if build.with? "vala"
 
     system "./configure", *args
