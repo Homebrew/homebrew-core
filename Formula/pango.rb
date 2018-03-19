@@ -3,6 +3,7 @@ class Pango < Formula
   homepage "http://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.42/pango-1.42.0.tar.xz"
   sha256 "9924d88a3dcedff753f0763814a1605307c5c9c931413b8b47ea7267d1b19446"
+  revision 1
 
   bottle do
     sha256 "3d2d4ed1ea7236db6ba73fca61021e3feb57cc80e3dcb84c96511acef56c7aa8" => :high_sierra
@@ -19,12 +20,12 @@ class Pango < Formula
     depends_on "gtk-doc" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fribidi"
   depends_on "fontconfig"
   depends_on "glib"
-  depends_on "gobject-introspection"
   depends_on "harfbuzz"
 
   def install
