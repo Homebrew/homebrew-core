@@ -3,6 +3,7 @@ class OsmGpsMap < Formula
   homepage "https://nzjrs.github.com/osm-gps-map/"
   url "https://github.com/nzjrs/osm-gps-map/releases/download/1.1.0/osm-gps-map-1.1.0.tar.gz"
   sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
+  revision 1
 
   bottle do
     rebuild 1
@@ -21,11 +22,11 @@ class OsmGpsMap < Formula
     depends_on "gtk-doc" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "gdk-pixbuf"
-  depends_on "gobject-introspection"
   depends_on "libsoup"
 
   def install
