@@ -3,6 +3,7 @@ class Clutter < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.2.tar.xz"
   sha256 "e7233314983055e9018f94f56882e29e7fc34d8d35de030789fdcd9b2d0e2e56"
+  revision 1
 
   bottle do
     sha256 "082e8d9fa6a2fc3e69a572734847373a47884bef8ddebba763219e5252b6e334" => :high_sierra
@@ -11,6 +12,7 @@ class Clutter < Formula
     sha256 "c224d96814d9ef9c1929d2e4dbe4251e09395bbf9d61fc3a9f20886daf8581c8" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gdk-pixbuf"
@@ -19,7 +21,6 @@ class Clutter < Formula
   depends_on "atk"
   depends_on "pango"
   depends_on "json-glib"
-  depends_on "gobject-introspection"
 
   def install
     args = %W[
