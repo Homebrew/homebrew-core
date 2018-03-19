@@ -3,6 +3,7 @@ class Gtkx3 < Formula
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.29.tar.xz"
   sha256 "a07d64b939fcc034a066b7723fdf9b24e92c9cfb6a8497593f3471fe56fbbbf8"
+  revision 1
 
   bottle do
     sha256 "f0da1db055be144b29224fb08f0e568f632afaff4eaf244d4ac96dc4f0acc8f8" => :high_sierra
@@ -10,10 +11,10 @@ class Gtkx3 < Formula
     sha256 "5ab8f3d5e6d1b83272cfd5db9bd637cb9e92060068a7ebb5ede87491233e902b" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
   depends_on "atk"
-  depends_on "gobject-introspection"
   depends_on "libepoxy"
   depends_on "pango"
   depends_on "glib"
