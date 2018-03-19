@@ -44,7 +44,7 @@ class Shocco < Formula
   end
 
   test do
-    system "#{bin}/shocco", "--version"
+    system "#{bin}/shocco", "--help"
   end
 end
 
