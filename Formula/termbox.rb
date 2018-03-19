@@ -1,8 +1,8 @@
 class Termbox < Formula
   desc "Library for writing text-based user interfaces"
   homepage "https://code.google.com/p/termbox/"
-  url "https://github.com/nsf/termbox/archive/v1.1.0.tar.gz"
-  sha256 "2743ee4aeb0ff39fadbaf945b76c43e6f6bba544156f2576282b775a3067d748"
+  url "https://github.com/nsf/termbox/archive/v1.1.2.tar.gz"
+  sha256 "61c9940b42b3ac44bf0cba67eacba75e3c02088b8c695149528c77def04d69b1"
 
   head "https://github.com/nsf/termbox.git"
 
