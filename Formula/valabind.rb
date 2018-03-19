@@ -11,8 +11,8 @@ class Valabind < Formula
     sha256 "bf466be7a14313608f3d68a86135b2b25094457c0fb89b7dd389f57fc4cd173c" => :el_capitan
   end
 
-  depends_on "pkg-config" => :run # :run, not :build, for vala
-  depends_on "swig" => :run
+  depends_on "pkg-config" # not :build, for vala
+  depends_on "swig"
 
   # vala dependencies
   depends_on "gettext"
