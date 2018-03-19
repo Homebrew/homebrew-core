@@ -3,6 +3,7 @@ class Cattle < Formula
   homepage "https://github.com/andreabolognani/cattle"
   url "https://kiyuko.org/software/cattle/releases/1.2.2/source"
   sha256 "e8e9baba41c4b25a1fdac552c5b03ad62a4dbb782e9866df3c3463baf6411826"
+  revision 1
 
   bottle do
     sha256 "bf68a1bc30056789724407aff1a9edbea6671494fd766277ecea8fa14aa8f628" => :high_sierra
@@ -20,9 +21,9 @@ class Cattle < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   def install
     pkgshare.mkpath
