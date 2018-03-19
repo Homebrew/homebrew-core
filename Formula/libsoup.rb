@@ -3,6 +3,7 @@ class Libsoup < Formula
   homepage "https://live.gnome.org/LibSoup"
   url "https://download.gnome.org/sources/libsoup/2.62/libsoup-2.62.0.tar.xz"
   sha256 "ab7c7ae8d19d0a27ab3b6ae21599cec8c7f7b773b3f2b1090c5daf178373aaac"
+  revision 1
 
   bottle do
     sha256 "7ba6b794770667e6e61a77a2f512fb25a3fb73e349fc2c31487136e821653445" => :high_sierra
@@ -10,13 +11,13 @@ class Libsoup < Formula
     sha256 "a4c5cc47384ccc7e4d7b9144d17976ac03c202df809a1e10724c6486327cba48" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "python" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
   depends_on "sqlite"
-  depends_on "gobject-introspection"
   depends_on "vala"
 
   def install
