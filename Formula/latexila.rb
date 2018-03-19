@@ -3,7 +3,7 @@ class Latexila < Formula
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
   url "https://download.gnome.org/sources/latexila/3.26/latexila-3.26.1.tar.xz"
   sha256 "658eba0db71864eb6d4873516d97e05be3e63085ff55513c8f10145ffb657151"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "cfab924aa0b289377a482373ca1bc06eeb003b4ef094279fb3b00f92f4667518" => :high_sierra
@@ -11,6 +11,7 @@ class Latexila < Formula
     sha256 "854ee2b3469f3f61b6359221f76301771200cc24339fa5dfc881aecb62f822e4" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
@@ -19,7 +20,6 @@ class Latexila < Formula
   depends_on "gspell"
   depends_on "tepl"
   depends_on "libgee"
-  depends_on "gobject-introspection"
   depends_on "adwaita-icon-theme"
   depends_on "gnome-themes-standard" => :optional
   depends_on "libxml2"
