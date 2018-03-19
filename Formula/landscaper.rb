@@ -15,8 +15,8 @@ class Landscaper < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "kubernetes-cli" => :run
-  depends_on "kubernetes-helm" => :run
+  depends_on "kubernetes-cli"
+  depends_on "kubernetes-helm"
 
   def install
     ENV["GOPATH"] = buildpath
