@@ -3,6 +3,7 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.6.5.tar.gz"
   sha256 "f4f8a3705771c1292f9a58c4d10d10d25aec12c82dfaddf0bb362ce915250d82"
+  revision 1
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -11,6 +12,7 @@ class Mikutter < Formula
     sha256 "9b1d559fc073395afcad2edfc291ca1fce651b86b736a6e95a7aaed3439d4c87" => :el_capitan
   end
 
+  depends_on "gobject-introspection"
   depends_on "gtk+"
   depends_on "libidn"
   depends_on "ruby"
