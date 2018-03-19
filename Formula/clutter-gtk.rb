@@ -3,6 +3,7 @@ class ClutterGtk < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter-gtk/1.8/clutter-gtk-1.8.4.tar.xz"
   sha256 "521493ec038973c77edcb8bc5eac23eed41645117894aaee7300b2487cb42b06"
+  revision 1
 
   bottle do
     sha256 "8d8a3b7e7937a1bdcb461ed3cd2874f226585f6422fe18536347128c7d8d591f" => :high_sierra
@@ -11,12 +12,12 @@ class ClutterGtk < Formula
     sha256 "5656d4eff289206a81b7a401f2d55912fac61990fa1f7c141336c0042240f74b" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gdk-pixbuf"
   depends_on "gtk+3"
   depends_on "clutter"
-  depends_on "gobject-introspection"
 
   def install
     args = %W[
