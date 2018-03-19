@@ -10,7 +10,7 @@ class Vala < Formula
     sha256 "c2a2803b8d5326b293d4bc3a154acd733a5aa75626302456bd3ee000b8e26908" => :el_capitan
   end
 
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config"
   depends_on "gettext"
   depends_on "glib"
   depends_on "graphviz"
