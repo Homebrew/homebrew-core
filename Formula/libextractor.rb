@@ -12,7 +12,7 @@ class Libextractor < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "iso-codes" => :optional
 
   conflicts_with "pkcrack", :because => "both install `extract` binaries"
