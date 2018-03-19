@@ -3,6 +3,7 @@ class GdkPixbuf < Formula
   homepage "https://gtk.org"
   url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.11.tar.xz"
   sha256 "ae62ab87250413156ed72ef756347b10208c00e76b222d82d9ed361ed9dde2f3"
+  revision 1
 
   bottle do
     sha256 "bd9e4d72a827f75ea2a1cd9463be0cf123ba1cda8f2e4d0a3ef0b1a1c46945f6" => :high_sierra
@@ -13,12 +14,12 @@ class GdkPixbuf < Formula
   option "without-modules", "Disable dynamic module loading"
   option "with-included-loaders=", "Build the specified loaders into gdk-pixbuf"
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "libpng"
-  depends_on "gobject-introspection" => :recommended
   depends_on "jasper" => :optional
 
   # gdk-pixbuf has an internal version number separate from the overall
@@ -46,16 +47,11 @@ class GdkPixbuf < Formula
       --disable-Bsymbolic
       --enable-static
       --without-gdiplus
+      --enable-introspection=yes
     ]
 
     args << "--with-libjasper" if build.with?("jasper")
     args << "--disable-modules" if build.without?("modules")
-
-    if build.with? "gobject-introspection"
-      args << "--enable-introspection=yes"
-    else
-      args << "--enable-introspection=no"
-    end
 
     included_loaders = ARGV.value("with-included-loaders")
     args << "--with-included-loaders=#{included_loaders}" if included_loaders
