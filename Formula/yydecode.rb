@@ -24,8 +24,4 @@ class Yydecode < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/yydecode", "--version"
-  end
 end
