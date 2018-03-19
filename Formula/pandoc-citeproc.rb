@@ -22,11 +22,7 @@ class PandocCiteproc < Formula
   def install
     args = []
     args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-
-    # Remove pandoc-types constraint for pandoc > 2.1.2
-    # Upstream issue from 13 Mar 2018 "Pandoc 2.1.2 failed building with GHC 8.2.2"
-    # See https://github.com/jgm/pandoc/issues/4448
-    install_cabal_package "--constraint", "pandoc-types < 1.17.4", *args
+    install_cabal_package *args
   end
 
   test do
