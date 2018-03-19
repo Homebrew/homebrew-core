@@ -10,7 +10,7 @@ class GobjectIntrospection < Formula
     sha256 "ea7658ae17f9662cdecc3d5251801e027173e17333c7e74570006faf7a6f84e5" => :el_capitan
   end
 
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config"
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
