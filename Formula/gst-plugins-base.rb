@@ -3,6 +3,7 @@ class GstPluginsBase < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-base/gst-plugins-base-1.14.0.tar.xz"
   sha256 "7e904660ff56e02b036cf7fdfb77a50a540828ca9d2614d69ba931772e5b6940"
+  revision 1
 
   bottle do
     sha256 "93a464d0609c343b1e6522b54e037706802d40d4102af28048060d96d57b9383" => :high_sierra
@@ -18,6 +19,7 @@ class GstPluginsBase < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gstreamer"
@@ -25,7 +27,6 @@ class GstPluginsBase < Formula
   # The set of optional dependencies is based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/REQUIREMENTS
   # and Homebrew formulae
-  depends_on "gobject-introspection"
   depends_on "orc" => :recommended
   depends_on "libogg" => :optional
   depends_on "opus" => :optional
