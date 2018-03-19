@@ -13,7 +13,7 @@ class Dub < Formula
     sha256 "43959b85a6cb66c18d4835eca8dc3183fa1cd80af3f71dc90f38b3ed54b30038" => :el_capitan
   end
 
-  depends_on "pkg-config" => [:recommended, :run]
+  depends_on "pkg-config" => :recommended
   depends_on "dmd" => :build
 
   def install
