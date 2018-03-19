@@ -11,6 +11,6 @@ class GitOpen < Formula
   end
 
   test do
-    system "#{bin}/git-open", "--version"
+    system "#{bin}/git-open", "-v"
   end
 end
