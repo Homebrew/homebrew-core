@@ -3,6 +3,7 @@ class Libnotify < Formula
   homepage "https://developer.gnome.org/libnotify"
   url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.7.tar.xz"
   sha256 "9cb4ce315b2655860c524d46b56010874214ec27e854086c1a1d0260137efc04"
+  revision 1
 
   bottle do
     sha256 "1c8198d015712f696baabadc8b00faf02be4c22a28ce9023429e26298d579741" => :high_sierra
@@ -11,9 +12,9 @@ class Libnotify < Formula
     sha256 "e05515c53cdb39f36ff6001d2ebb2ac95dc4fc678ba80638373f71f0073d1a9a" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
-  depends_on "gobject-introspection"
 
   def install
     system "./configure", "--disable-dependency-tracking",
