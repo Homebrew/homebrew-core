@@ -16,6 +16,6 @@ class Naturaldocs < Formula
   end
 
   test do
-    system "#{bin}/naturaldocs", "--version"
+    system "#{bin}/naturaldocs", "-h"
   end
 end
