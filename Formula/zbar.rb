@@ -37,7 +37,7 @@ class Zbar < Formula
   depends_on "ufraw"
   depends_on "xz"
   depends_on "freetype"
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   def install
     if build.head?
