@@ -41,7 +41,7 @@ class Octave < Formula
   depends_on "graphicsmagick"
   depends_on "hdf5"
   depends_on "libsndfile"
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "pcre"
   depends_on "portaudio"
   depends_on "pstoedit"
