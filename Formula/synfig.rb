@@ -25,7 +25,7 @@ class Synfig < Formula
   depends_on "boost"
   depends_on "openexr"
   depends_on "mlt"
-  depends_on "libtool" => :run
+  depends_on "libtool"
 
   needs :cxx11
 
