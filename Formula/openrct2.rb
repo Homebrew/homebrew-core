@@ -1,9 +1,8 @@
 class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
-  homepage "https://openrct2.website"
-  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.1.tar.gz"
-  sha256 "5d7a6c7f3c770e7de506958f86789c438c543c27d312fd096322cde4e89f50ad"
-  revision 1
+  homepage "https://openrct2.io/"
+  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.2.tar.gz"
+  sha256 "358fc0ceff848734b399dc63c1d7a0c096a54a793afe4522d6f0dd00ba9328c7"
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
@@ -18,6 +17,7 @@ class Openrct2 < Formula
   depends_on "jansson"
   depends_on "libpng"
   depends_on "libzip"
+  depends_on :macos => :sierra # undefined symbol ___cpu_model on El Capitan
   depends_on "openssl"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
