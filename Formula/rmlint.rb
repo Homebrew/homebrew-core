@@ -15,7 +15,7 @@ class Rmlint < Formula
   option "with-json-glib", "Add support for reading json caches"
   option "with-libelf", "Add support for finding non-stripped binaries"
 
-  depends_on "glib" => :run
+  depends_on "glib"
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
