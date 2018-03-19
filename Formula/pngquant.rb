@@ -3,7 +3,7 @@ class Pngquant < Formula
   homepage "https://pngquant.org/"
   url "https://pngquant.org/pngquant-2.11.7-src.tar.gz"
   sha256 "d70b46c3335c7abf21944aced2d9d2b54819ab84ed1a140b354d5e8cc9f0fb0a"
-  head "https://github.com/pornel/pngquant.git"
+  head "https://github.com/kornelski/pngquant.git"
 
   bottle do
     cellar :any
