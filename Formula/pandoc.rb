@@ -5,8 +5,8 @@ class Pandoc < Formula
 
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.1.2/pandoc-2.1.2.tar.gz"
-  sha256 "dc0b26eff61c6eed2e00927fa2c6b966ca758dea1596f3049cc70ae8b650eb65"
+  url "https://hackage.haskell.org/package/pandoc-2.1.3/pandoc-2.1.3.tar.gz"
+  sha256 "4e0e9a891293f71a0d1309bbc5736e27601761888d9785ee19d8a4649b047008"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
@@ -23,11 +23,7 @@ class Pandoc < Formula
     cabal_sandbox do
       args = []
       args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-
-      # Remove pandoc-types constraint for pandoc > 2.1.2
-      # Upstream issue from 13 Mar 2018 "Pandoc 2.1.2 failed building with GHC 8.2.2"
-      # See https://github.com/jgm/pandoc/issues/4448
-      install_cabal_package "--constraint", "pandoc-types < 1.17.4", *args
+      install_cabal_package *args
     end
     (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
   end
