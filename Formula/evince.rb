@@ -3,6 +3,7 @@ class Evince < Formula
   homepage "https://wiki.gnome.org/Apps/Evince"
   url "https://download.gnome.org/sources/evince/3.28/evince-3.28.0.tar.xz"
   sha256 "fa23264b65e140afb8ec27b070a277bda748d9d4a86788240d9f3514346573a8"
+  revision 1
 
   bottle do
     sha256 "d13c75365f1b12982e0163bdff174af4cd2be3122bc4fe85cdef0f183aecdc85" => :high_sierra
@@ -10,6 +11,7 @@ class Evince < Formula
     sha256 "cd58488cec1b23b0463f0a6d8602c2be4fa9d940db24dce5c54c149a6a074e81" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
@@ -20,7 +22,6 @@ class Evince < Formula
   depends_on "adwaita-icon-theme"
   depends_on "libsecret"
   depends_on "libspectre"
-  depends_on "gobject-introspection"
   depends_on "shared-mime-info"
   depends_on "djvulibre"
   depends_on "python@2" if MacOS.version <= :snow_leopard
