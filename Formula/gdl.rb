@@ -3,6 +3,7 @@ class Gdl < Formula
   homepage "https://developer.gnome.org/gdl/"
   url "https://download.gnome.org/sources/gdl/3.28/gdl-3.28.0.tar.xz"
   sha256 "52cc98ecc105148467b3b2b4e0d27ae484b1b6710d53413f771ed07ef1b737b6"
+  revision 1
 
   bottle do
     sha256 "d590570bb1da0b79601016795fe1e12eaef7e045e6383b2a1922c15f446d8f3d" => :high_sierra
@@ -10,11 +11,11 @@ class Gdl < Formula
     sha256 "65275d065cfdf61d17ebf9d5b0c27b20406ab361e76a6718f6b243f0afe783ba" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gtk+3"
   depends_on "libxml2"
-  depends_on "gobject-introspection"
 
   def install
     system "./configure", "--disable-dependency-tracking",
