@@ -3,6 +3,7 @@ class GtkVnc < Formula
   homepage "https://wiki.gnome.org/Projects/gtk-vnc"
   url "https://download.gnome.org/sources/gtk-vnc/0.7/gtk-vnc-0.7.1.tar.xz"
   sha256 "f34baa696615ef67666e8465b4d0ac563355e999a77d2cc42ad4625a24f7aab1"
+  revision 1
 
   bottle do
     sha256 "fe20355933a766ba4bb5a7a30bc0609e288d90acc488086c8b60131747f997b7" => :high_sierra
@@ -17,13 +18,13 @@ class GtkVnc < Formula
   depends_on :macos => :yosemite
 
   depends_on "gettext" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "libgcrypt"
-  depends_on "gobject-introspection" => :optional
   depends_on "pulseaudio" => :optional
   depends_on "vala" => :optional
 
@@ -33,9 +34,9 @@ class GtkVnc < Formula
       --with-gtk=3.0
       --with-examples
       --with-python
+      --enable-introspection
     ]
 
-    args << "--enable-introspection" if build.with? "gobject-introspection"
     args << "--enable-pulseaudio" if build.with? "pulseaudio"
     if build.with? "vala"
       args << "--enable-vala"
