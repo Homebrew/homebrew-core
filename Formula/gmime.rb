@@ -3,6 +3,7 @@ class Gmime < Formula
   homepage "https://spruce.sourceforge.io/gmime/"
   url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.0.tar.xz"
   sha256 "75ec6033f9192488ff37745792c107b3d0ab0a36c2d3e4f732901a771755d7e0"
+  revision 1
 
   bottle do
     sha256 "f259025c542b5d0486c23d001dbf858cfd50beca495dad58dbcb2d6027376660" => :high_sierra
@@ -10,8 +11,8 @@ class Gmime < Formula
     sha256 "cb7d81356c0fc27f95110a21929dc4772dc571269fbe1ed2cb7c5d7079c7490b" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gobject-introspection" => :recommended
   depends_on "glib"
   depends_on "gpgme"
 
@@ -23,13 +24,8 @@ class Gmime < Formula
       --disable-vala
       --disable-glibtest
       --enable-crypto
+      --enable-introspection
     ]
-
-    if build.with? "gobject-introspection"
-      args << "--enable-introspection"
-    else
-      args << "--disable-introspection"
-    end
 
     system "./configure", *args
     system "make", "install"
