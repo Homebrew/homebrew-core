@@ -3,6 +3,7 @@ class Gstreamer < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gstreamer/gstreamer-1.14.0.tar.xz"
   sha256 "fc361367f0d4b780a868a8833f9f30b9c9f4ac9faea4e6b251db8b4b0398466e"
+  revision 1
 
   bottle do
     sha256 "5928bab9499db0a9b7331a2a36c0ce4e538edd2f8a513ac2dc28747f52577960" => :high_sierra
@@ -18,8 +19,8 @@ class Gstreamer < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gobject-introspection"
   depends_on "gettext"
   depends_on "glib"
   depends_on "bison"
