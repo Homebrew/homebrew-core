@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "5.3.0-2",
-      :revision => "50c853836c6c33827232647061094c38b4eba54b"
+      :tag => "5.3.0-3",
+      :revision => "c96194cb64c35a9f8ad949ceee00ac9755a4b62f"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Swiftgen < Formula
     ENV["GEM_HOME"] = buildpath/"gem_home"
     system "gem", "install", "bundler"
     ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-    system "bundle", "install", "--without", "development"
+    system "bundle", "install", "--without", "development", "release"
     system "bundle", "exec", "rake", "cli:install[#{bin},#{lib},#{pkgshare}/templates]"
 
     fixtures = {
