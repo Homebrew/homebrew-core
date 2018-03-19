@@ -3,6 +3,7 @@ class Gkrellm < Formula
   homepage "https://billw2.github.io/gkrellm/gkrellm.html"
   url "http://gkrellm.srcbox.net/releases/gkrellm-2.3.10.tar.bz2"
   sha256 "8b9ec8baadcd5830c6aff04ba86dc9ed317a15c1c3787440bd1e680fb2fcd766"
+  revision 1
   head "https://git.srcbox.net/gkrellm", :using => :git
 
   bottle do
@@ -22,7 +23,6 @@ class Gkrellm < Formula
   depends_on "glib"
   depends_on "gtk+"
   depends_on "pango"
-  depends_on "gobject-introspection"
   depends_on "openssl"
 
   def install
