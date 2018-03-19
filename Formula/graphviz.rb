@@ -33,7 +33,7 @@ class Graphviz < Formula
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build if build.with? "app"
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "pango" => :optional
   depends_on "gts" => :optional
   depends_on "librsvg" => :optional
