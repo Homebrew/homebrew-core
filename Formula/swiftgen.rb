@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "5.3.0",
-      :revision => "c2b03152f31e779f1deba3811b158ac1670f5b3b"
+      :tag => "5.3.0-2",
+      :revision => "50c853836c6c33827232647061094c38b4eba54b"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
@@ -12,7 +12,7 @@ class Swiftgen < Formula
     sha256 "129d086e2cca6ce4d204ad3a699524e48c5e8eee0c67f0d698a94ac8fa3d7d77" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.2", :build]
 
   def install
     # Disable swiftlint Build Phase to avoid build errors if versions mismatch
@@ -22,7 +22,7 @@ class Swiftgen < Formula
     ENV["GEM_HOME"] = buildpath/"gem_home"
     system "gem", "install", "bundler"
     ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-    system "bundle", "install"
+    system "bundle", "install", "--without", "development"
     system "bundle", "exec", "rake", "cli:install[#{bin},#{lib},#{pkgshare}/templates]"
 
     fixtures = {
