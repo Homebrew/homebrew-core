@@ -18,7 +18,7 @@ class Docker < Formula
   depends_on "go" => :build
 
   if build.with? "experimental"
-    depends_on "libtool" => :run
+    depends_on "libtool"
     depends_on "yubico-piv-tool" => :recommended
   end
 
