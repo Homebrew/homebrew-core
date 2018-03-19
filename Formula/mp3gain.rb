@@ -18,4 +18,8 @@ class Mp3gain < Formula
     system "make"
     bin.install "mp3gain"
   end
+
+  test do
+    system "#{bin}/mp3gain", "-v"
+  end
 end
