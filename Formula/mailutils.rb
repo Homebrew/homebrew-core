@@ -11,7 +11,7 @@ class Mailutils < Formula
     sha256 "752f777cafe9eb7434c900882bdb7eda9cf100d5f3a177a05ae4e164aa98c2a4" => :el_capitan
   end
 
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "gnutls"
   depends_on "gsasl"
   depends_on "readline"
