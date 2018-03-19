@@ -19,4 +19,8 @@ class Xmlcatmgr < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/xmlcatmgr", "-v"
+  end
 end
