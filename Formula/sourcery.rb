@@ -11,7 +11,7 @@ class Sourcery < Formula
     sha256 "34f0240218d5e47bb046d3e5bc6c06dd4a16e8ac572c0dfdadd41a2cb0625512" => :sierra
   end
 
-  depends_on :xcode => ["6.0", :run]
+  depends_on :xcode => "6.0"
   depends_on :xcode => ["8.3", :build]
 
   def install
