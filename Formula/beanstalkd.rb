@@ -46,4 +46,8 @@ class Beanstalkd < Formula
     </plist>
     EOS
   end
+
+  test do
+    system "#{bin}/beanstalkd", "-v"
+  end
 end
