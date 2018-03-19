@@ -30,7 +30,7 @@ class Pulseaudio < Formula
     depends_on "gettext" => :build
   end
 
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "json-c"
   depends_on "libsndfile"
   depends_on "libsoxr"
