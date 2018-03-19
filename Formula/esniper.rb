@@ -18,8 +18,4 @@ class Esniper < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
-
-  test do
-    system "#{bin}/esniper", "--version"
-  end
 end
