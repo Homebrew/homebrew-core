@@ -17,7 +17,7 @@ class PandocCrossref < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "pandoc" => :run
+  depends_on "pandoc"
 
   def install
     args = []
