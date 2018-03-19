@@ -8,9 +8,9 @@ class Gmp < Formula
 
   bottle do
     cellar :any
-    sha256 "eadb377c507f5d04e8d47861fa76471be6c09dc54991540e125ee1cbc04fecd6" => :high_sierra
-    sha256 "90715336080bd2deb92bd74361f50d91fe288d18e4c18a70a8253add6aa13200" => :sierra
-    sha256 "0e0c340b4c09a4f00daf45890e8f36afa03d251a8ed3bba6ae4876149914b420" => :el_capitan
+    sha256 "8372dcd88e36997d7aacaffb555709348cc2c57703608b3471cbd71f5054f9ed" => :high_sierra
+    sha256 "087052cc1b49f5e0c42f5bd54f463f7fca7f7c73f00856c576706112bbe2a4c1" => :sierra
+    sha256 "d8f9b3e4da4241dc5996f318df44d99a45db1bcce84a4ce814e8a8912d4cdaef" => :el_capitan
   end
 
   def install
