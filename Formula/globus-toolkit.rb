@@ -12,7 +12,7 @@ class GlobusToolkit < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "openssl"
 
   def install
