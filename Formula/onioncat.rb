@@ -11,7 +11,7 @@ class Onioncat < Formula
     sha256 "98acc41c8dc5fcefbe5a410266a762ddacbe12323e958a8fe6ca753ec51f33fe" => :el_capitan
   end
 
-  depends_on "tor" => [:recommended, :run]
+  depends_on "tor" => :recommended
 
   def install
     system "./configure", "--disable-debug",
