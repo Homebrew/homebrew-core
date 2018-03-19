@@ -33,10 +33,6 @@ class Snownews < Formula
     # it, which doesn't work on OS X prior to 10.11
     system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz", "CC=#{ENV.cc}"
   end
-
-  test do
-    system "#{bin}/snownews", "--version"
-  end
 end
 
 __END__
