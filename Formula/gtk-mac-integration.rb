@@ -3,7 +3,7 @@ class GtkMacIntegration < Formula
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
   url "https://download.gnome.org/sources/gtk-mac-integration/2.0/gtk-mac-integration-2.0.8.tar.xz"
   sha256 "74fce9dbc5efe4e3d07a20b24796be1b1d6c3ac10a0ee6b1f1d685c809071b79"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "386b6c17f5130f9b1b5c3e1d8735c203fe4631b33897acf056ff29dc3af686ab" => :high_sierra
@@ -12,10 +12,10 @@ class GtkMacIntegration < Formula
     sha256 "f5930dd44baf83b11de0e0cfe2f9e3be5491622cd32984398554d1760fe86e4e" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+"
   depends_on "gtk+3" => :recommended
-  depends_on "gobject-introspection"
   depends_on "pygtk"
 
   def install
