@@ -7,7 +7,7 @@ class Luaver < Formula
 
   bottle :unneeded
 
-  depends_on "wget" => :run
+  depends_on "wget"
 
   def install
     bin.install "luaver"
