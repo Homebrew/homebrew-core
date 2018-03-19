@@ -13,7 +13,7 @@ class CollectorSidecar < Formula
   depends_on "glide" => :build
   depends_on "go" => :build
   depends_on "mercurial" => :build
-  depends_on "filebeat" => :run
+  depends_on "filebeat"
 
   def install
     ENV["GOPATH"] = buildpath
