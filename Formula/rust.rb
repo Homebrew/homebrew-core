@@ -36,7 +36,7 @@ class Rust < Formula
   option "with-racer", "Build Racer code completion tool, and retain Rust sources."
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :run
+  depends_on "pkg-config"
   depends_on "llvm" => :optional
   depends_on "openssl"
   depends_on "libssh2"
