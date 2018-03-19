@@ -83,7 +83,8 @@ class Ghc < Formula
     # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
     ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
-    # Build a static gmp rather than in-tree gmp, otherwise it links to brew's.
+    # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
+    # executables link to Homebrew's GMP.
     gmp = libexec/"integer-gmp"
 
     # MPN_PATH: The lowest common denominator asm paths that work on Darwin,
