@@ -3,6 +3,7 @@ class Libgdata < Formula
   homepage "https://wiki.gnome.org/Projects/libgdata"
   url "https://download.gnome.org/sources/libgdata/0.16/libgdata-0.16.1.tar.xz"
   sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
+  revision 1
 
   bottle do
     rebuild 1
@@ -12,12 +13,12 @@ class Libgdata < Formula
     sha256 "d436dd7128819045779bbbf6f957922ec011940b60982fee9dc394700bffe21d" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "libsoup"
   depends_on "json-glib"
   depends_on "liboauth"
-  depends_on "gobject-introspection"
   depends_on "vala" => :optional
 
   # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=754821
