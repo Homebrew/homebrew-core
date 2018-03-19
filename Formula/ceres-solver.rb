@@ -18,7 +18,7 @@ class CeresSolver < Formula
     sha256 "44c9fde3416688c1804188a9c15dcd4b3cfdf7cb27ee29c5f3b7531b23e122d9"
   end
 
-  depends_on "cmake" => :run
+  depends_on "cmake"
   depends_on "eigen"
   depends_on "gflags"
   depends_on "glog"
