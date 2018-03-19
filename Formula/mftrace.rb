@@ -21,7 +21,7 @@ class Mftrace < Formula
 
   depends_on "potrace"
   depends_on "t1utils"
-  depends_on "fontforge" => [:recommended, :run]
+  depends_on "fontforge" => :recommended
 
   def install
     system "./autogen.sh" if build.head?
