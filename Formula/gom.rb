@@ -3,7 +3,7 @@ class Gom < Formula
   homepage "https://wiki.gnome.org/Projects/Gom"
   url "https://download.gnome.org/sources/gom/0.3/gom-0.3.3.tar.xz"
   sha256 "ac57e34b5fe273ed306efaeabb346712c264e341502913044a782cdf8c1036d8"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -12,12 +12,12 @@ class Gom < Formula
     sha256 "3d9c074d6ffe1859fb6d0ddbbd5264fa10316472e2b1e1a5b9af8ab5b9d9afc3" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
   depends_on "py3cairo"
   depends_on "pygobject3" => "with-python"
   depends_on "python"
