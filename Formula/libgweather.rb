@@ -3,6 +3,7 @@ class Libgweather < Formula
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
   url "https://download.gnome.org/sources/libgweather/3.26/libgweather-3.26.1.tar.xz"
   sha256 "fca78470b345bce948e0333cab0a7c52c32562fc4a75de37061248a64e8fc4b8"
+  revision 1
 
   bottle do
     sha256 "07ccd0c7376e8b3df7f535d8a2a38bfa4912442957c787099d87cb7fbbc3140e" => :high_sierra
@@ -10,12 +11,12 @@ class Libgweather < Formula
     sha256 "136de1236c9cec9d180e90bfcdc07778e07609737c48417eb50e0d8a6a36a130" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gtk+3"
   depends_on "geocode-glib"
   depends_on "libsoup"
-  depends_on "gobject-introspection"
   depends_on "vala" => :optional
 
   def install
