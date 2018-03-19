@@ -27,8 +27,4 @@ class Icecast < Formula
     (prefix+"var/log/icecast").mkpath
     touch prefix+"var/log/icecast/error.log"
   end
-
-  test do
-    system "#{bin}/icecast", "--version"
-  end
 end
