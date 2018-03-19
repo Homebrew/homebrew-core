@@ -13,7 +13,7 @@ class Libbi < Formula
     sha256 "2e6d7d7d0cc173a560a3e76dc95739a60f44520a70da67ed264c1eeb19735ebc" => :el_capitan
   end
 
-  depends_on "automake" => :run
+  depends_on "automake"
   depends_on "boost"
   depends_on "gsl"
   depends_on "netcdf"
