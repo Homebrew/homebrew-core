@@ -24,6 +24,6 @@ class Cdpr < Formula
   end
 
   test do
-    system "#{bin}/cdpr", "--version"
+    system "#{bin}/cdpr", "-h"
   end
 end
