@@ -41,7 +41,7 @@ class Moc < Formula
   option "with-ncurses", "Build with wide character support."
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "berkeley-db"
   depends_on "jack"
   depends_on "ffmpeg" => :recommended
