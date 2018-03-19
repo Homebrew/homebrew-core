@@ -19,7 +19,7 @@ class Cryptol < Formula
 
   depends_on "ghc" => :build
   depends_on "cabal-install" => :build
-  depends_on "z3" => :run
+  depends_on "z3"
 
   def install
     # Remove the "happy<1.19.6" for cryptol > 2.5.0
