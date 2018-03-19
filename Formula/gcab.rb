@@ -3,6 +3,7 @@ class Gcab < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz"
   sha256 "a16e5ef88f1c547c6c8c05962f684ec127e078d302549f3dfd2291e167d4adef"
+  revision 1
 
   bottle do
     sha256 "1a793542ed68d1848834163ca43e99ddf88fbdfb0d01a50e775bb271c808594e" => :high_sierra
@@ -12,12 +13,12 @@ class Gcab < Formula
     sha256 "1c063054e17f3194d214d5d1a8d01a12932ec8214cca7143956760039db22f2f" => :mavericks
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   # work around ld not understanding --version-script argument
   # upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=708257
