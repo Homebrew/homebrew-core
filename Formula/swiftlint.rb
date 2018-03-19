@@ -12,7 +12,7 @@ class Swiftlint < Formula
     sha256 "d0cc75d2c8306fb072cdd4d7d0399898496eca82b9231bcff92855b6fc073b44" => :sierra
   end
 
-  depends_on :xcode => ["8.0", :run]
+  depends_on :xcode => "8.0"
   depends_on :xcode => ["9.0", :build]
 
   def install
