@@ -17,7 +17,7 @@ class Graphicsmagick < Formula
   option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
