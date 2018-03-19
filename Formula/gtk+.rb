@@ -1,7 +1,7 @@
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.32.tar.xz"
@@ -23,12 +23,12 @@ class Gtkx < Formula
     depends_on "gtk-doc" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gdk-pixbuf"
   depends_on "jasper" => :optional
   depends_on "atk"
   depends_on "pango"
-  depends_on "gobject-introspection"
   depends_on "hicolor-icon-theme"
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
