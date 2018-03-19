@@ -3,6 +3,7 @@ class JsonGlib < Formula
   homepage "https://live.gnome.org/JsonGlib"
   url "https://download.gnome.org/sources/json-glib/1.2/json-glib-1.2.8.tar.xz"
   sha256 "fd55a9037d39e7a10f0db64309f5f0265fa32ec962bf85066087b83a2807f40a"
+  revision 1
 
   bottle do
     sha256 "ef94f622668cfdc0bbf6f9788ab9b41742fb9c6e80639e0212e4d33fdba8af4f" => :high_sierra
@@ -11,9 +12,9 @@ class JsonGlib < Formula
     sha256 "6bd1f2ed688b6f637a942400d55fc6f4e51db40887421a80b1ffcce185d3e084" => :yosemite
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   def install
     system "./configure", "--disable-silent-rules",
