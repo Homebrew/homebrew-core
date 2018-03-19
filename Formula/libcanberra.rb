@@ -26,7 +26,7 @@ class Libcanberra < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "libvorbis"
   depends_on "pulseaudio" => :optional
   depends_on "gstreamer" => :optional
