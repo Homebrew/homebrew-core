@@ -18,7 +18,6 @@ class Skafos < Formula
   def install
     system "make", "_create_version_h"
     system "make", "_env_for_prod"
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
