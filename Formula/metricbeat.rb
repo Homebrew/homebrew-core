@@ -45,21 +45,21 @@ class Metricbeat < Formula
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
-      system "make", "kibana"
-      (libexec/"bin").install "metricbeat"
-      libexec.install "_meta/kibana"
 
-      (etc/"metricbeat").install Dir["metricbeat*.yml", "fields.yml"]
-      prefix.install_metafiles
+      (etc/"metricbeat").install Dir["metricbeat.*", "fields.yml", "modules.d"]
+      (libexec/"bin").install "metricbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"metricbeat").write <<~EOS
       #!/bin/sh
-      exec "#{libexec}/bin/metricbeat" \
-        --path.config "#{etc}/metricbeat" \
-        --path.home="#{prefix}" \
-        --path.logs="#{var}/log/metricbeat" \
-        --path.data="#{var}/lib/metricbeat" \
+      exec #{libexec}/bin/metricbeat \
+        --path.config #{etc}/metricbeat \
+        --path.data #{var}/lib/metricbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/metricbeat \
         "$@"
     EOS
   end
