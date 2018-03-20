@@ -5,9 +5,9 @@ class Just < Formula
   sha256 "b1b73609799883500bf57060ef48d056cc191662d67e18b300bbcc6e644d1529"
 
   bottle do
-    sha256 "fe408f1f5036ae750a85d85327d4b2e6d992600e9cb740a1582ec72ec6d75ceb" => :high_sierra
-    sha256 "5764ae2db72fe6b3581980392b7be78d26ff04f088ef81c3706ab5253ee56e95" => :sierra
-    sha256 "15536a15bbe6ae27afb6525b9d5db1f0f9b066cc0ccbc92c4046187ff76bebff" => :el_capitan
+    sha256 "dad62ae38d82394db7ff411217adc5bc356112ce8e0d688389884ce3841f5dcd" => :high_sierra
+    sha256 "d0ad5ed53d328ca6ce27668c3d49bd70c4dd964b9c97a5c27fef6f90e4d36ba6" => :sierra
+    sha256 "4b2ae72a3d10c74f1b8c60cd4d13438dfc3a340740ff32fb07db21bf2f3f3edb" => :el_capitan
   end
 
   depends_on "rust" => :build
