@@ -7,10 +7,9 @@ class Gkrellm < Formula
   head "https://git.srcbox.net/gkrellm", :using => :git
 
   bottle do
-    sha256 "19e824210fceb891f3512f268d4c0c288341561049d61c2b44a8aeef9b3721e7" => :high_sierra
-    sha256 "7c7f91f9fc1c44558fed587a1bcecde335f6031acf4561588ccb53f51062eb5e" => :sierra
-    sha256 "8a01923e37d91e39505b248213eb7e8aa116a4fa16d325d8a7e0fa141aaa6bdd" => :el_capitan
-    sha256 "c776866142f6e992b4fb86b5447a339221b41f074d0de3a4485b52364cc8958f" => :yosemite
+    sha256 "e84742cdd42e7584a6814c9c4cf2b8d7245d48ae0723b77c236f011354ac71e1" => :high_sierra
+    sha256 "53888d3166533669a8649ef295c28813dcb0c051ed4146a33452f90c860978a8" => :sierra
+    sha256 "7cc7e94022669c80d1035efa738388fb264f50e4edaf0720db216f58b0ad3dab" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
