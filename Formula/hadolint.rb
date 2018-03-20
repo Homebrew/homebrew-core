@@ -15,8 +15,8 @@ class Hadolint < Formula
     sha256 "8f78f146eb3d45c79bea4895932f8decb4361bf0dc27564feea6bb7df9b7969d" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     cabal_sandbox do
