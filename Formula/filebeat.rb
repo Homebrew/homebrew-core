@@ -38,16 +38,23 @@ class Filebeat < Formula
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
       system "make", "modules"
-      libexec.install "filebeat"
-      (prefix/"module").install Dir["_meta/module.generated/*"]
-      (etc/"filebeat").install Dir["filebeat.*", "fields.yml"]
+
+      (etc/"filebeat").install Dir["filebeat.*", "fields.yml", "modules.d"]
+      (etc/"filebeat"/"module").install Dir["_meta/module.generated/*"]
+      (libexec/"bin").install "filebeat"
+      prefix.install "_meta/kibana"
     end
 
     prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"filebeat").write <<~EOS
       #!/bin/sh
-      exec #{libexec}/filebeat -path.config #{etc}/filebeat -path.home #{prefix} -path.logs #{var}/log/filebeat -path.data #{var}/filebeat $@
+      exec #{libexec}/bin/filebeat \
+        --path.config #{etc}/filebeat \
+        --path.data #{var}/lib/filebeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/filebeat \
+        "$@"
     EOS
   end
 
