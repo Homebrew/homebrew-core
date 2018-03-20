@@ -1,8 +1,8 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/v1.5.6.1.tar.gz"
-  sha256 "27e238f4cc48c19e1060ec8770a1c6eb55c3b837d9063aa99bc37e38d76b4a48"
+  url "https://github.com/asciidoctor/asciidoctor/archive/v1.5.6.2.tar.gz"
+  sha256 "ad0876ad448783caf65f83557f2c36883418fa22d9f398c0f5d7b16f02a3edad"
 
   bottle do
     cellar :any_skip_relocation
