@@ -6,9 +6,9 @@ class Libgtop < Formula
   revision 1
 
   bottle do
-    sha256 "93d65fe5d0e5727fa542adb6f21fbbdb0812d7cfe93345d693864bb017f90d35" => :high_sierra
-    sha256 "351fcbb0c758d7435e58862c3ffeaef9c437e53dcf43a7ab4ca4dc260cb014e0" => :sierra
-    sha256 "fc47a0ffb4dd010bf29bc8dd6e0d88a75a2ccb66b33e5a43869e20303e2e9fcb" => :el_capitan
+    sha256 "ebe7cd41964c94cc59a4734eac1a04a9b64038c69234f6f3fb131266450d57f7" => :high_sierra
+    sha256 "903f395ddb70fd42c184323584437e156836b8dea5e69f6e9bb54f4fd39b0987" => :sierra
+    sha256 "fe1a65675f609a65a3aa8938080472df2f84159f163de616a50683de3ab6a3f3" => :el_capitan
   end
 
   # Some build deps were added for the patch below,
