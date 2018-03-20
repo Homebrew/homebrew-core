@@ -5,7 +5,7 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
-  revision 1
+  revision 2
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.5.3/Agda-2.5.3.tar.gz"
@@ -31,17 +31,18 @@ class Agda < Formula
     end
   end
 
-  deprecated_option "without-malonzo" => "without-ghc"
+  deprecated_option "without-ghc" => "without-ghc@8.2"
+  deprecated_option "without-malonzo" => "without-ghc@8.2"
 
   option "without-stdlib", "Don't install the Agda standard library"
-  option "without-ghc", "Disable the GHC backend"
+  option "without-ghc@8.2", "Disable the GHC backend"
 
-  depends_on "ghc" => :recommended
-  if build.with? "ghc"
-    depends_on "cabal-install"
+  depends_on "ghc@8.2" => :recommended
+  if build.with? "ghc@8.2"
+    depends_on "cabal-install" => [:build, :test]
   else
-    depends_on "ghc" => :build
     depends_on "cabal-install" => :build
+    depends_on "ghc@8.2" => :build
   end
 
   depends_on "emacs" => :recommended
@@ -166,7 +167,8 @@ class Agda < Formula
     system bin/"agda", "--js", simpletest
 
     # test the GHC backend
-    if build.with? "ghc"
+    if build.with? "ghc@8.2"
+      ENV.prepend_path "PATH", Formula["ghc@8.2"].opt_bin
       cabal_sandbox do
         cabal_install "text", "ieee754"
         dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first
