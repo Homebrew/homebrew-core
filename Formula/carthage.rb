@@ -13,7 +13,6 @@ class Carthage < Formula
     sha256 "9eb176f9fcbd997ae7d692362d526cafedd87bc506de92db7db2f6dd9bdf9775" => :sierra
   end
 
-  depends_on :macos => :el_capitan
   depends_on :xcode => ["9.0", :build]
 
   def install
