@@ -14,7 +14,7 @@ class Moe < Formula
 
   def install
     # Fix compilation bug with Xcode 9
-    # http://lists.gnu.org/archive/html/bug-moe/2017-10/msg00000.html
+    # https://lists.gnu.org/archive/html/bug-moe/2017-10/msg00000.html
     inreplace "window_vector.cc", "{ year_string.insert( 0U, 1,",
                                   "{ year_string.insert( 0U, 1U,"
 
