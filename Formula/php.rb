@@ -190,6 +190,13 @@ class Php < Formula
 
       The php.ini and php-fpm.ini file can be found in:
           #{etc}/php/#{php_version}/
+
+      You will experience a +5 secs startup time if your /etc/hosts is missing a
+      reference to your hostname. You can solve this problem using the following
+      command:
+          HOSTNAME=$(hostname); \\
+          echo -e "127.0.0.1\\t${HOSTNAME}" | sudo tee -a /etc/hosts; \\
+          echo -e "::1\\t\\t${HOSTNAME}"     | sudo tee -a /etc/hosts
     EOS
   end
 
