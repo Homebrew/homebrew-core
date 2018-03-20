@@ -6,11 +6,9 @@ class Cogl < Formula
   revision 1
 
   bottle do
-    sha256 "ea49baf6a7fade80c9d78077bb6c28aa51030078993be615cc62cd0006f4b963" => :high_sierra
-    sha256 "59fcc7da30bf5df62481f5a469bfa2cbcd652b6e433efed593d966c32e2bbd48" => :sierra
-    sha256 "8b453f9b6f993a5e160266768b5fbdde47cdc5c21a3ab0474ff7c0992f1e762b" => :el_capitan
-    sha256 "0375322c23427755b7a3c2ca43778c6d1da2792a109cc0c9a58806078214440d" => :yosemite
-    sha256 "732b19cd457e124d4a89d6ddd6a6ed7ed8d14da2586d9a6908ccc95ad3bbaa9b" => :mavericks
+    sha256 "d5cf5821953809ef2d1cefbffec2f6e44a6eaa65ce377e867e938b03983f7125" => :high_sierra
+    sha256 "29ba6e0eea677529b8558de0fc4a81b0ca3c26a6a8c517b92d3108785476d206" => :sierra
+    sha256 "cb19f43f005213580caec8ef9bacb024df5839b0d5a2a337ec6c189340d78548" => :el_capitan
   end
 
   head do
