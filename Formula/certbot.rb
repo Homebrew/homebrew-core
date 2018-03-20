@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.22.0.tar.gz"
-  sha256 "ecd878cf866756731ffefd4109fa7f2cd5afffd18e27185d99cf66fedd2fd911"
+  url "https://github.com/certbot/certbot/archive/v0.22.2.tar.gz"
+  sha256 "f57a98bef4ba5ec280d056b6f75733d3c13887863f05e9d1e06b8030fdae8023"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -50,8 +50,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
-    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
+    url "https://files.pythonhosted.org/packages/b1/b8/f42fd854ed5b6f29a1b9c3778993753ff6ef138e4d892fdd61355d40508d/cryptography-2.2.tar.gz"
+    sha256 "f5a0279e362c37e2150a32fe35ec20226e9237b6c9927fce8d53ef8e49e64f48"
   end
 
   resource "future" do
