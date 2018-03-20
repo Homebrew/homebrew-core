@@ -5,8 +5,8 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.2.2/ghc-8.2.2-src.tar.xz"
-  sha256 "bb8ec3634aa132d09faa270bbd604b82dfa61f04855655af6f9d14a9eedc05fc"
+  url "https://downloads.haskell.org/~ghc/8.4.1/ghc-8.4.1-src.tar.xz"
+  sha256 "39ae2f25192408f355693e5a3c8b6ff613ddb7c4da998fdf26210143a61839d2"
 
   bottle do
     sha256 "85937c1fca6a2979a8b0d0634b8353e44319fd21d27e7dd0e67e23270fb94a3b" => :high_sierra
@@ -15,15 +15,15 @@ class Ghc < Formula
   end
 
   head do
-    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.2"
+    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.4"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
 
     resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-1.24.0.2/cabal-install-1.24.0.2.tar.gz"
-      sha256 "2ac8819238a0e57fff9c3c857e97b8705b1b5fef2e46cd2829e85d96e2a00fe0"
+      url "https://hackage.haskell.org/package/cabal-install-2.0.0.1/cabal-install-2.0.0.1.tar.gz"
+      sha256 "f991e36f3adaa1c7e2f0c422a2f2a4ab21b7041c82a8896f72afc9843a0d5d99"
     end
   end
 
@@ -57,13 +57,13 @@ class Ghc < Formula
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.2.2/ghc-8.2.2-x86_64-apple-darwin.tar.xz"
-    sha256 "f90fcf62f7e0936a6dfc3601cf663729bfe9bbf85097d2d75f0a16f8c2e95c27"
+    url "https://downloads.haskell.org/~ghc/8.4.1/ghc-8.4.1-x86_64-apple-darwin.tar.xz"
+    sha256 "d774e39f3a0105843efd06709b214ee332c30203e6c5902dd6ed45e36285f9b7"
   end
 
   resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.2.2/ghc-8.2.2-testsuite.tar.xz"
-    sha256 "927ff939f46a0f79aa87e16e56e0a024a288c78259bed874cb15aa96a653566c"
+    url "https://downloads.haskell.org/~ghc/8.4.1/ghc-8.4.1-testsuite.tar.xz"
+    sha256 "6dfbbbeb1bb760698af99d82f05e4e0db3b3606d65be3fa779177117c6381841"
   end
 
   def install
