@@ -6,9 +6,9 @@ class Gtkx3 < Formula
   revision 1
 
   bottle do
-    sha256 "f0da1db055be144b29224fb08f0e568f632afaff4eaf244d4ac96dc4f0acc8f8" => :high_sierra
-    sha256 "f2817d29594658a94347ace594c77dbc80ee278569cc58dae5b97bb45867e626" => :sierra
-    sha256 "5ab8f3d5e6d1b83272cfd5db9bd637cb9e92060068a7ebb5ede87491233e902b" => :el_capitan
+    sha256 "df5a277b6d3290b74b4dfe18875a93fe0fdfe8f2f39ab05e628541bc2b77c669" => :high_sierra
+    sha256 "9f57c2b90165cba58f3270778ea4b7e309a2ac351f5254795f1abffb6d991a61" => :sierra
+    sha256 "8d750ce74e69a4700559ea5dd6f70def53a4b1ee6b7abc75f155e011eed55b65" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
