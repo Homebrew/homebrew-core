@@ -12,12 +12,12 @@ class Futhark < Formula
     sha256 "4f756fc94617e0902349587670bfce54bd497116bf16b44a3a5c3c34e23871d4" => :el_capitan
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.2" => :build
   depends_on "haskell-stack" => :build
   depends_on "sphinx-doc" => :build
 
   def install
-    system "stack", "-j#{ENV.make_jobs}", "--system-ghc",
+    system "stack", "-j#{ENV.make_jobs}", "--system-ghc", "--no-install-ghc",
            "--local-bin-path=#{bin}", "install"
 
     system "make", "-C", "docs", "man"
