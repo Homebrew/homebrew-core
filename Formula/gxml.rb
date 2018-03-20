@@ -6,9 +6,9 @@ class Gxml < Formula
   revision 1
 
   bottle do
-    sha256 "faf9da56560023721c8f04fb1871281ae556b8017b42847be5265f38b462484e" => :high_sierra
-    sha256 "da0481c932a3aa2fbff97ad185c4191376f2b509bf8a3f948ec6feb752f7229a" => :sierra
-    sha256 "d863844b85f0c0b67f40074108a690242989237dd3c98f16d34813c88e3b0958" => :el_capitan
+    sha256 "0908c2bd5015de8acbab29ea0c42d9d274705b830424fb7c31f4c1a6088b5c1e" => :high_sierra
+    sha256 "d85960c0109b86ac07a51aea852b5d19bafb75bc55dd360b140ac27aa4de4721" => :sierra
+    sha256 "078acc418ec19bdfb68c826279ac31dd143a4992d580dcacd9d6c5a33c9e0bd1" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
