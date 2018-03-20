@@ -14,8 +14,8 @@ class CeresSolver < Formula
   end
 
   devel do
-    url "http://ceres-solver.org/ceres-solver-1.14.0rc1.tar.gz"
-    sha256 "44c9fde3416688c1804188a9c15dcd4b3cfdf7cb27ee29c5f3b7531b23e122d9"
+    url "http://ceres-solver.org/ceres-solver-1.14.0rc2.tar.gz"
+    sha256 "3aefe16b651bb1a91c06daa7d8421f97a1857234d5b264ebba46b629251681f6"
   end
 
   depends_on "cmake"
