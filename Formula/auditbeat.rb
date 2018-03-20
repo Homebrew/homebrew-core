@@ -44,20 +44,21 @@ class Auditbeat < Formula
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
-      (libexec/"bin").install "auditbeat"
-      libexec.install "_meta/kibana"
 
-      (etc/"auditbeat").install Dir["auditbeat*.yml", "fields.yml"]
-      prefix.install_metafiles
+      (etc/"auditbeat").install Dir["auditbeat.*", "fields.yml"]
+      (libexec/"bin").install "auditbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"auditbeat").write <<~EOS
       #!/bin/sh
-        exec #{libexec}/bin/auditbeat \
-        -path.config #{etc}/auditbeat \
-        -path.data #{var}/lib/auditbeat \
-        -path.home #{libexec} \
-        -path.logs #{var}/log/auditbeat \
+      exec #{libexec}/bin/auditbeat \
+        --path.config #{etc}/auditbeat \
+        --path.data #{var}/lib/auditbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/auditbeat \
         "$@"
     EOS
   end
