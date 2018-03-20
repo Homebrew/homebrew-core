@@ -8,16 +8,16 @@ class Ckan < Formula
 
   depends_on "mono"
 
-  def caveats; <<~EOS
-    To use the CKAN GUI, install the ckan-app cask.
-    EOS
-  end
-
   def install
     (libexec/"bin").install "ckan.exe"
     (bin/"ckan").write <<~EOS
       #!/bin/sh
       exec mono "#{libexec}/bin/ckan.exe" "$@"
+    EOS
+  end
+
+  def caveats; <<~EOS
+    To use the CKAN GUI, install the ckan-app cask.
     EOS
   end
 
