@@ -12,7 +12,7 @@ class CabalInstall < Formula
     sha256 "1d194910abf09edaa50a09c8c1732f2801ed7efd21b06cb982c0d90a990d5b56" => :el_capitan
   end
 
-  depends_on "ghc"
+  depends_on "ghc@8.2"
 
   fails_with :clang if MacOS.version <= :lion # Same as ghc.rb
 
@@ -25,6 +25,7 @@ class CabalInstall < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["ghc@8.2"].opt_bin
     system "#{bin}/cabal", "--config-file=#{testpath}/config", "info", "cabal"
   end
 end
