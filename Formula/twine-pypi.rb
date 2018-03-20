@@ -9,9 +9,9 @@ class TwinePypi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d846901757cfdb196cca20aaa3c6f180bffc1217ecc5436dd5cb669b6d05f45" => :high_sierra
-    sha256 "454f59ab26baf787628ea9e947a5ab7ef8fe6623076e69cb4bf92f8ef303c857" => :sierra
-    sha256 "8c53e4c82cc8e10348bfd9959144e6d59fc5a5080a958ccdcd0f0d7becd93bbd" => :el_capitan
+    sha256 "33e7f275476265efae9cdf0be219eacaf24b75d361c5cb3f746ed74a6cefbfd9" => :high_sierra
+    sha256 "771fc2f1705f7eabee1886d90f8afad98a671c88756e5e69dbb23c5abd4f91dd" => :sierra
+    sha256 "7faeb5be32232e9adaee4f55a50e3f965451ec4b58e18bd472b9c6ffa4669dfe" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
