@@ -13,8 +13,13 @@ class Netperf < Formula
     sha256 "c6e96625b1f83a7f83d3c9b53b8584ab65d73cfd59bc38672588ba82d37ecc1d" => :el_capitan
   end
 
+  # We need the patch to build with demo mode on OSX. This is already fixed in
+  # upstream git, but no release has been made since.
+  patch :DATA
+
   def install
     system "./configure", "--disable-dependency-tracking",
+                          "--enable-demo",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -23,3 +28,25 @@ class Netperf < Formula
     system "#{bin}/netperf -h | cat"
   end
 end
+
+__END__
+--- a/src/netlib.c	2015-07-20 18:39:35.000000000 +0100
++++ a/src/netlib.c	2016-02-08 11:34:16.000000000 +0000
+@@ -4000,7 +4000,7 @@
+ #ifdef WIN32
+ __forceinline void demo_interval_display(double actual_interval)
+ #else
+-  inline void demo_interval_display(double actual_interval)
++  void demo_interval_display(double actual_interval)
+ #endif
+ {
+   static int count = 0;
+@@ -4067,7 +4067,7 @@
+    inline directive has to appear in netlib.h... */
+ void demo_interval_tick(uint32_t units)
+ #else
+-  inline void demo_interval_tick(uint32_t units)
++  void demo_interval_tick(uint32_t units)
+ #endif
+ {
+   double actual_interval = 0.0;
