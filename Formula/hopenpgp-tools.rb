@@ -26,7 +26,9 @@ class HopenpgpTools < Formula
   end
 
   def install
-    install_cabal_package :using => ["alex", "happy"]
+    # Reported 7 Oct 2017 "Old versions of graphviz have no constraint on fgl"
+    # See https://github.com/haskell-infra/hackage-trustees/issues/114
+    install_cabal_package "--constraint", "graphviz >= 2999.17.0.0", :using => ["alex", "happy"]
   end
 
   test do
