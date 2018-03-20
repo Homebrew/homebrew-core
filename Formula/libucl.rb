@@ -1,8 +1,8 @@
 class Libucl < Formula
   desc "Universal configuration library parser"
   homepage "https://github.com/vstakhov/libucl"
-  url "https://github.com/vstakhov/libucl/archive/0.8.0.tar.gz"
-  sha256 "af361cd1f0b7b66c228a1c04a662ccaa9ee8af79842046c04446d915db349ee1"
+  url "https://github.com/vstakhov/libucl/archive/0.8.1.tar.gz"
+  sha256 "a6397e179672f0e8171a0f9a2cfc37e01432b357fd748b13f4394436689d24ef"
 
   bottle do
     cellar :any
