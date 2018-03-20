@@ -1,7 +1,7 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
-  homepage "http://dicom.offis.de/dcmtk.php.en"
-  url "http://dicom.offis.de/download/dcmtk/dcmtk363/dcmtk-3.6.3.tar.gz"
+  homepage "https://dicom.offis.de/dcmtk.php.en"
+  url "https://dicom.offis.de/download/dcmtk/dcmtk363/dcmtk-3.6.3.tar.gz"
   sha256 "63c373929f610653f10cbb8218ec643804eec6f842d3889d2b46a227da1ed530"
   head "http://git.dcmtk.org/dcmtk.git"
 
