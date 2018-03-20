@@ -6,9 +6,9 @@ class GstValidate < Formula
   revision 1
 
   bottle do
-    sha256 "c272836c10d8688d8fdfbd660f8a04e87ab796b088cbbee5d803ed9b11e7d2f0" => :high_sierra
-    sha256 "08dc1bdd726ea7e63979afedeea2683914ea0fe078cf941f2d4aa9909e68305b" => :sierra
-    sha256 "867ac9572fe3db7f985e69eb926f73e1d32be863213e82b155d2c71f1d97035a" => :el_capitan
+    sha256 "526557d6f86ddebd6b703a5a0ce02bc6a41e9604429d32a484b5325006bec290" => :high_sierra
+    sha256 "405ef04350157cd26ee182db55d11f59c10a006603335709780954662b215eb3" => :sierra
+    sha256 "784750807c6a46d57868b1174d6f9bc9b0b1cf1f8d49934a524a48aff55e9410" => :el_capitan
   end
 
   head do
