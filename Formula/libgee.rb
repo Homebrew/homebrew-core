@@ -3,6 +3,7 @@ class Libgee < Formula
   homepage "https://wiki.gnome.org/Projects/Libgee"
   url "https://download.gnome.org/sources/libgee/0.20/libgee-0.20.1.tar.xz"
   sha256 "bb2802d29a518e8c6d2992884691f06ccfcc25792a5686178575c7111fea4630"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,9 +12,10 @@ class Libgee < Formula
     sha256 "c03c87fb2bd8aafdd2e5f8fd1c3a655ced1730c0d525a4fd369b063e2a29821c" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "gobject-introspection"
+  depends_on "glib"
 
   def install
     # ensures that the gobject-introspection files remain within the keg
