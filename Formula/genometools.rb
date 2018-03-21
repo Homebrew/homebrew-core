@@ -3,6 +3,7 @@ class Genometools < Formula
   homepage "http://genometools.org/"
   url "http://genometools.org/pub/genometools-1.5.10.tar.gz"
   sha256 "0208591333b74594bc219fb67f5a29b81bb2ab872f540c408ac1743716274e6a"
+  revision 1
   head "https://github.com/genometools/genometools.git"
 
   bottle do

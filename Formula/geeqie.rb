@@ -6,8 +6,10 @@ class Geeqie < Formula
   # Unfortunately this means that the tarball can't be used to build;
   # this is documented in the makefile.
   url "https://github.com/BestImageViewer/geeqie.git",
-    :tag => "v1.4",
-    :shallow => false
+      :tag => "v1.4",
+      :revision => "7c9b41e7c9be8cfc9b4f0a2459c0a1e0e4aaea5b",
+      :shallow => false
+  revision 1
 
   bottle do
     sha256 "22c6779d5231e0894f169a188ffc574445c07742a5d54af4b202ace7eea3903b" => :high_sierra

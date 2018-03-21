@@ -3,6 +3,7 @@ class GnomeThemesStandard < Formula
   homepage "https://git.gnome.org/browse/gnome-themes-standard/"
   url "https://download.gnome.org/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.3.tar.xz"
   sha256 "61dc87c52261cfd5b94d65e8ffd923ddeb5d3944562f84942eeeb197ab8ab56a"
+  revision 1
 
   bottle do
     cellar :any
