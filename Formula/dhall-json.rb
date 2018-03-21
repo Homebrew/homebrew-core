@@ -16,8 +16,8 @@ class DhallJson < Formula
     sha256 "9104547362cd3e4fc62fb2935e485c5a21138f5b200c1abe87d41fdb8938c08c" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     install_cabal_package
