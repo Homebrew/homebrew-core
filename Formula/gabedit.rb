@@ -4,6 +4,7 @@ class Gabedit < Formula
   url "https://downloads.sourceforge.net/project/gabedit/gabedit/Gabedit250/GabeditSrc250.tar.gz"
   version "2.5.0"
   sha256 "45cdde213a09294bbf2df5f324ea11fc4c4045b3f9d58e4d67979e6f071c7689"
+  revision 1
 
   bottle do
     cellar :any
