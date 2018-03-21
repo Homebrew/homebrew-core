@@ -3,6 +3,7 @@ class Gucharmap < Formula
   homepage "https://live.gnome.org/Gucharmap"
   url "https://download.gnome.org/sources/gucharmap/10.0/gucharmap-10.0.4.tar.xz"
   sha256 "bb266899266b2f2dcdbaf9f45cafd74c6f4e540132d3f0b068d37343291df001"
+  revision 1
 
   bottle do
     sha256 "8e66d0f58851f04897ac63b0f9ee7cfd91acf3541c99d95d6b3a29525e1e9a95" => :high_sierra
