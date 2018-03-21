@@ -3,6 +3,7 @@ class Gssdp < Formula
   homepage "https://wiki.gnome.org/GUPnP/"
   url "https://download.gnome.org/sources/gssdp/1.0/gssdp-1.0.2.tar.xz"
   sha256 "a1e17c09c7e1a185b0bd84fd6ff3794045a3cd729b707c23e422ff66471535dc"
+  revision 1
 
   bottle do
     sha256 "17909e65f4cd4a34f89998e82f038b4a1167d5b3b81adc3b544d3190dfe5d7a4" => :high_sierra
