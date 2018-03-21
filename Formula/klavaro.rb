@@ -3,6 +3,7 @@ class Klavaro < Formula
   homepage "https://klavaro.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/klavaro/klavaro-3.03.tar.bz2"
   sha256 "e0959f21e54e7f4700042a3a14987a7f8fc898701eab4f721ebcf4559a2c87b5"
+  revision 1
 
   bottle do
     sha256 "0194576e53ee64aa8b92fa4a8e2ff9e76dd4dc29016518128a4b7f70c19c51b5" => :high_sierra
