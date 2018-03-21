@@ -6,9 +6,9 @@ class Suil < Formula
   revision 1
 
   bottle do
-    sha256 "3afa0d6be51f6edd803fa1d295a5b1816e2ea36a53c0921174360231b41dfe95" => :high_sierra
-    sha256 "a31a360a2eb861408d9b7df5abee8f1368b83899bacb0ac065e37dd9290b8220" => :sierra
-    sha256 "ebd26a4d8d4d7ff3531ea93c3da499b333dd42b8ffa0b3ad70d79976a5c5fbe9" => :el_capitan
+    sha256 "836f6d8ad66cca4de66cd78c45205829627ee370b5485c0ef878bc9473d24ba6" => :high_sierra
+    sha256 "babe1c998fd93f29b86a767e01ad1518b95e74e17769b517c092ed4cbc0878bf" => :sierra
+    sha256 "639934ea8fd85b8968cf33838be1f399b7479e844fef972d4fca0ba2ab8a4bf4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
