@@ -6,9 +6,9 @@ class Zenity < Formula
   revision 1
 
   bottle do
-    sha256 "13dfaf6dfc6e6a1a9ca48611d07ed9ee52d0443f6ac44f65582c97ed55fbb93b" => :high_sierra
-    sha256 "10c4cf42ba7e5e6db0c8bfb9042ed56e672cbe559d30f369f9317f816f138684" => :sierra
-    sha256 "1621aa813f8d0a7ccda22fa94a20d0a982584598945a8abca1cfcd45d2b0eb6b" => :el_capitan
+    sha256 "5dab38ba82de1d4c39d6fa64d2bd5643b255de4f5948ea08b9e5fe8a49329b92" => :high_sierra
+    sha256 "a5d79a66c453fd0052794a449fa9c7d1beff2028037149d7449e7227a1f823a8" => :sierra
+    sha256 "0ed7b7cad1724fed11fa31f9afbbc327dc00983c84326dc6d944ce73c0c87275" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
