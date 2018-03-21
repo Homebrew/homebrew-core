@@ -3,6 +3,7 @@ class ClutterGst < Formula
   homepage "https://developer.gnome.org/clutter-gst/"
   url "https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.26.tar.xz"
   sha256 "d8618a6d9accec0f2a8574c5e1220051f8505fb82b20336c26bdbd482aa6cb3a"
+  revision 1
 
   bottle do
     sha256 "274e148cf27f721ba08bf0e946e3613890be4724f77b72044108f20a1a427a5c" => :high_sierra
