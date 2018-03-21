@@ -17,10 +17,22 @@ class DhallJson < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
+
+  # Remove when dhall > 1.11.1 is released
+  # See https://github.com/dhall-lang/dhall-haskell/pull/330
+  resource "dhall" do
+    url "https://github.com/dhall-lang/dhall-haskell.git",
+        :revision => "ed2041ee7709969ca63b4d9d1a82a34ffc145f3d"
+  end
 
   def install
-    install_cabal_package
+    (buildpath/"dhall").install resource("dhall")
+
+    cabal_sandbox do
+      cabal_sandbox_add_source "dhall"
+      install_cabal_package
+    end
   end
 
   test do
