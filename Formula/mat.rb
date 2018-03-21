@@ -3,6 +3,7 @@ class Mat < Formula
   homepage "https://mat.boum.org/"
   url "https://mat.boum.org/files/mat-0.6.1.tar.xz"
   sha256 "0782e7db554ad1dddefd71c9c81e36a05464d73ab54ee2a474ea6ac90e8e51b9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
