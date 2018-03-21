@@ -3,6 +3,7 @@ class Sylpheed < Formula
   homepage "https://sylpheed.sraoss.jp/en/"
   url "https://sylpheed.sraoss.jp/sylpheed/v3.7/sylpheed-3.7.0.tar.bz2"
   sha256 "eb23e6bda2c02095dfb0130668cf7c75d1f256904e3a7337815b4da5cb72eb04"
+  revision 1
 
   bottle do
     sha256 "f1fa12f441547b7bf7bdcc858e874e67213256bb82c63d0de068cb32dc515be7" => :high_sierra
