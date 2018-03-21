@@ -3,6 +3,7 @@ class Zenity < Formula
   homepage "https://live.gnome.org/Zenity"
   url "https://download.gnome.org/sources/zenity/3.28/zenity-3.28.0.tar.xz"
   sha256 "5e588f12b987db30139b0283d39d19b0fd47cab87840cc112dfe61e592826df8"
+  revision 1
 
   bottle do
     sha256 "13dfaf6dfc6e6a1a9ca48611d07ed9ee52d0443f6ac44f65582c97ed55fbb93b" => :high_sierra
