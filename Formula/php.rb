@@ -3,7 +3,7 @@ class Php < Formula
   homepage "https://php.net/"
   url "https://php.net/get/php-7.2.3.tar.xz/from/this/mirror"
   sha256 "b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "c3faa0bc9eb091c4921143d209a2d826c4b9ed3ee7bda9107c96bd23256e6c4d" => :high_sierra
@@ -24,7 +24,6 @@ class Php < Formula
   depends_on "glib"
   depends_on "gmp"
   depends_on "icu4c"
-  depends_on "imap-uw"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libpq"
@@ -110,8 +109,6 @@ class Php < Formula
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-icu-dir=#{Formula["icu4c"].opt_prefix}
-      --with-imap=#{Formula["imap-uw"].opt_prefix}
-      --with-imap-ssl=#{Formula["openssl"].opt_prefix}
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos
       --with-layout=GNU
