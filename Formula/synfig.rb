@@ -7,10 +7,9 @@ class Synfig < Formula
   head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
-    sha256 "03c6f317fc50d80230efcc95dbceffa30da38e613be98d924befd758ca24c09a" => :high_sierra
-    sha256 "ad4b23fe38d528dab8be2288ee45bdc42130c1e67f4f4de078f09a3b8e1f0aed" => :sierra
-    sha256 "bb42b47c6c04c7c6ec01509b0fcc0b5385b9fdfc1d813a0b9e507351f25a79ac" => :el_capitan
-    sha256 "a46081768934b324778fc279bdba25eb948b2508f837dff5f83093d47e657658" => :yosemite
+    sha256 "23bc8a06b80bec0734a32e694b7a56d81d6b089d7e45550e7070fad931adcafe" => :high_sierra
+    sha256 "94545b17928a46d08e22fdfd5959ba46d679284a565dddf2f125bf6bf4849d18" => :sierra
+    sha256 "b13a93ed2c76add7652425530771183eeeefc1bb8d57b7718aa22f32aee3c3e4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
