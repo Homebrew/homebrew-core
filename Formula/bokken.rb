@@ -4,7 +4,7 @@ class Bokken < Formula
   url "https://inguma.eu/attachments/download/212/bokken-1.8.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/bokken-1.8.tar.gz"
   sha256 "1c73885147dfcf0a74ba4d3dd897a6aabc11a4a42f95bd1269782d0b2e1a11b9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
