@@ -20,7 +20,7 @@ class HaskellStack < Formula
   option "without-bootstrap", "Don't bootstrap a stage 2 stack"
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.2" => :build
 
   # Remove when stack.yaml uses GHC 8.2.x
   resource "stack_nightly_yaml" do
