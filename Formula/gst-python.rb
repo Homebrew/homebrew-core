@@ -3,6 +3,7 @@ class GstPython < Formula
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
   url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.14.0.tar.xz"
   sha256 "e0b98111150aa3fcdeb6e228cd770995fbdaa8586fc02ec9b3273d4ae83399e6"
+  revision 1
 
   bottle do
     sha256 "22148db36381f8397d5699b4f982b37492bfd7d69c3aa99f14b13ed6773cd3d7" => :high_sierra

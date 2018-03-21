@@ -3,7 +3,7 @@ class GtkMurrineEngine < Formula
   homepage "https://github.com/GNOME/murrine"
   url "https://download.gnome.org/sources/murrine/0.98/murrine-0.98.2.tar.xz"
   sha256 "e9c68ae001b9130d0f9d1b311e8121a94e5c134b82553ba03971088e57d12c89"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any

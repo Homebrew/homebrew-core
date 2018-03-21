@@ -3,7 +3,7 @@ class GtkChtheme < Formula
   homepage "http://plasmasturm.org/code/gtk-chtheme/"
   url "http://plasmasturm.org/code/gtk-chtheme/gtk-chtheme-0.3.1.tar.bz2"
   sha256 "26f4b6dd60c220d20d612ca840b6beb18b59d139078be72c7b1efefc447df844"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
