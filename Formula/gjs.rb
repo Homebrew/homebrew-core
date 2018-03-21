@@ -6,9 +6,9 @@ class Gjs < Formula
   revision 1
 
   bottle do
-    sha256 "b8b9d7847d9c0731b12411b89dfcf27bfbf8b8690fe58479a8acb61c59b040fc" => :high_sierra
-    sha256 "d9bf45b78bf901163b34cd51e0fe80ceea598dab8716aa6668ef770b3f1c1ffb" => :sierra
-    sha256 "e9e37cd95bc44728a92867fc0385db1264c82ecec12e6582623b09d63f3acee7" => :el_capitan
+    sha256 "7a496f22e6d162b77b406f4552d9ff4851965d91696e5e620dfb0cf8afedb031" => :high_sierra
+    sha256 "54362b4cfee450f9429edc50043afb5e7e204714abf5165bee43032130f59d8f" => :sierra
+    sha256 "b84679b610fba677288fa7773b950fbd8d81245cccb3c8e1bd0acd90bb875245" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
