@@ -8,9 +8,9 @@ class Pytouhou < Formula
 
   bottle do
     cellar :any
-    sha256 "44f1e6b3943d14092574bf1c421e633e5fa263be8818ad1c3de7778ab8d9bc2e" => :high_sierra
-    sha256 "f5c4ef62253d86e20fc739fbf8a58f17f9a10422cba6c479ae3a98393f560f51" => :sierra
-    sha256 "9c98137c51bf986061dfe3ef164340d52c4a1004b3c29ca5392568457677d291" => :el_capitan
+    sha256 "d5194c7abe83d1b3045c7487645102a3d2734712057058ba714f6bb5b3eb008f" => :high_sierra
+    sha256 "0845636cff47730a7c17a305199469e7cb33ef7fe5b063ed4ff4f0ebc9948036" => :sierra
+    sha256 "b79ca21847c01aef353d55dcd074fceccc2318e24b0db8f2f9cad9e7c05eddac" => :el_capitan
   end
 
   option "with-demo", "Install demo version of Touhou 6"
