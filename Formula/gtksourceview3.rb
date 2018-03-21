@@ -6,9 +6,9 @@ class Gtksourceview3 < Formula
   revision 1
 
   bottle do
-    sha256 "866cee6f5be835ccc810d1c85b3c599f14625b132dbb6068dc4a616e796a6a3e" => :high_sierra
-    sha256 "c5fbdf437cef1194e4f332987e18d8236d3fcd5cf10f394029d960f5959d434b" => :sierra
-    sha256 "d94413162463ee800fc12e83f26a9843e7f001b93a6ae0bec8b2e6137c01b73e" => :el_capitan
+    sha256 "48650b0453a3d3d7fc0b5645800a7cb369a159b42ac9624510ca18f1ba88729a" => :high_sierra
+    sha256 "6843a2ce4ac4e93956f36755921fc78a441af35e58a4ba63e4f3c2e716b9d2dd" => :sierra
+    sha256 "32cfcbabfa615c2a9eed607e4cd71ba1ba78b48e098e89b042c339656edad8bf" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
