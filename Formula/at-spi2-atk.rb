@@ -3,6 +3,7 @@ class AtSpi2Atk < Formula
   homepage "http://a11y.org"
   url "https://download.gnome.org/sources/at-spi2-atk/2.26/at-spi2-atk-2.26.1.tar.xz"
   sha256 "b4f0c27b61dbffba7a5b5ba2ff88c8cee10ff8dac774fa5b79ce906853623b75"
+  revision 1
 
   bottle do
     cellar :any
