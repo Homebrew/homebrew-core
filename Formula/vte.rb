@@ -3,7 +3,7 @@ class Vte < Formula
   homepage "https://developer.gnome.org/vte/"
   url "https://download.gnome.org/sources/vte/0.28/vte-0.28.2.tar.xz"
   sha256 "86cf0b81aa023fa93ed415653d51c96767f20b2d7334c893caba71e42654b0ae"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "ede19ccc89ee79e3de5f8f150621c4d4fd966e1fab0f251d26ed56087db00a7d" => :high_sierra
