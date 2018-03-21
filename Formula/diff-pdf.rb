@@ -7,9 +7,9 @@ class DiffPdf < Formula
 
   bottle do
     cellar :any
-    sha256 "35aa2a2faf16f545820e2018b7ca8fa5df319e66a0b0cca97343137f8464b860" => :high_sierra
-    sha256 "7f82cb8634fbd69a79bb98c7808a3f5eff9c4cd902385a2b073675cb668607cf" => :sierra
-    sha256 "5be786683b9524bd576a02b501693d0d998ad273e18a28dcc631e69c1ce8c2cf" => :el_capitan
+    sha256 "612be87835450b42bc13dfc8bc996a8f7d8bae75c255f322a8bbc4c69eccb2a9" => :high_sierra
+    sha256 "c349724e7c18707efcdc9d3777ed0a739578579afcdf007970ae1d7870052171" => :sierra
+    sha256 "67aebcb0b22f4f66f7c25544e75c6b3d31ca01434df855350cd4629ae2491986" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
