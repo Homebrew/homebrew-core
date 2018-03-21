@@ -4,6 +4,7 @@ class Submarine < Formula
   url "https://github.com/rastersoft/submarine/archive/0.1.7b.tar.gz"
   version "0.1.7b"
   sha256 "4569710a1aaf6709269068b6b1b2ef381416b81fa947c46583617343b1d3c799"
+  revision 1
   head "https://github.com/rastersoft/submarine.git"
 
   bottle do
