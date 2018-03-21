@@ -3,6 +3,7 @@ class Gtkmm3 < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.2.tar.xz"
   sha256 "91afd98a31519536f5f397c2d79696e3d53143b80b75778521ca7b48cb280090"
+  revision 1
 
   bottle do
     cellar :any
