@@ -22,7 +22,7 @@ class HighlightingKate < Formula
   depends_on "cabal-install" => :build
 
   def install
-    install_cabal_package "-f executable"
+    install_cabal_package "-f", "executable"
   end
 
   test do
