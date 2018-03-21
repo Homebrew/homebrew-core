@@ -5,9 +5,9 @@ class Simgrid < Formula
   sha256 "64a3b82fdf0a65bb8b7c8e9feb01694360edaf38070097bf28aa181eccb86ea7"
 
   bottle do
-    sha256 "5b87d86d1b0cb0a409e55950cb4c4804525171b9b8f93b3363071b9785662e55" => :high_sierra
-    sha256 "16252791fbb83e6dc131a363a0be011fdd963aae83258d0ebddb657bd3a010ef" => :sierra
-    sha256 "b78374d8e250b55fa80fefa9266ac844b5c309cc3697867956dd57cf07ca43bd" => :el_capitan
+    sha256 "0fdb77510c94ccb45487dca315188c0fabcd57afe651ce93e6f5d0ef34b4f0a9" => :high_sierra
+    sha256 "49b901896a04966d824811ad77a61c437b8d6c968764e354b0cb29e6e1b4bc91" => :sierra
+    sha256 "ba50b4e28aff3bb142a83652af9c1030d6d696d2d065438960bf0978c3d25c59" => :el_capitan
   end
 
   depends_on "cmake" => :build
