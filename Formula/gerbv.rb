@@ -4,7 +4,7 @@ class Gerbv < Formula
   # 2.6.1 is the latest official stable release but it is very buggy and incomplete
   url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.6.0/gerbv-2.6.0.tar.gz"
   sha256 "5c55425c3493bc8407949be8b4e572434a6b378f5727cc0dcef97dc2e7574dd0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "49bdbb69c5165aeb28d9386fc5efcd7b8cb8a1d9000439c537d1c6143ef0b509" => :high_sierra
