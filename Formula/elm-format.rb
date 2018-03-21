@@ -19,10 +19,17 @@ class ElmFormat < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
 
   def install
     (buildpath/"elm-format").install Dir["*"]
+
+    # GHC 8.4.1 compat
+    # Reported upstream 21 Mar 2018 https://github.com/avh4/elm-format/issues/464
+    (buildpath/"cabal.config").write <<~EOS
+      allow-newer: elm-format:free, elm-format:optparse-applicative
+      constraints: free < 6, optparse-applicative < 0.15
+    EOS
 
     cabal_sandbox do
       cabal_sandbox_add_source "elm-format"
