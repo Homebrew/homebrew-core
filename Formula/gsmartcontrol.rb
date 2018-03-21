@@ -3,6 +3,7 @@ class Gsmartcontrol < Formula
   homepage "https://gsmartcontrol.sourceforge.io"
   url "https://downloads.sourceforge.net/project/gsmartcontrol/1.1.3/gsmartcontrol-1.1.3.tar.bz2"
   sha256 "b64f62cffa4430a90b6d06cd52ebadd5bcf39d548df581e67dfb275a673b12a9"
+  revision 1
 
   bottle do
     sha256 "c1a64a3ff57b7ed92240bfdc20ad1330107cc28b9d2fc9ddfcf5665d7231cc71" => :high_sierra

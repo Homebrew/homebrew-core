@@ -3,6 +3,7 @@ class GstLibav < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.14.0.tar.xz"
   sha256 "fb134b4d3e054746ef8b922ff157b0c7903d1fdd910708a45add66954da7ef89"
+  revision 1
 
   bottle do
     sha256 "1e3904fbdadae7286f9886191ddd9308bfb7c1bf7212c2d2d7858c216b153c70" => :high_sierra

@@ -3,6 +3,7 @@ class Goocanvas < Formula
   homepage "https://live.gnome.org/GooCanvas"
   url "https://download.gnome.org/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz"
   sha256 "c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90"
+  revision 1
 
   bottle do
     sha256 "b7124d1a527133154e512e1161139b548b6a85de02a60bb0af6a846609c9cfdc" => :high_sierra
