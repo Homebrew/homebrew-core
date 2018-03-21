@@ -3,6 +3,7 @@ class Gupnp < Formula
   homepage "https://wiki.gnome.org/Projects/GUPnP"
   url "https://download.gnome.org/sources/gupnp/1.0/gupnp-1.0.2.tar.xz"
   sha256 "5173fda779111c6b01cd4a5e41b594322be9d04f8c74d3361f0a0c2069c77610"
+  revision 1
 
   bottle do
     sha256 "637290bee0b95267d9d900afbb081b437b89d2b4d353724fa492e52ba25627b2" => :high_sierra
