@@ -3,6 +3,7 @@ class I3 < Formula
   homepage "https://i3wm.org/"
   url "https://i3wm.org/downloads/i3-4.15.tar.bz2"
   sha256 "217d524d1fbc85ae346b25f6848d1b7bcd2c23184ec88d29114bf5a621385326"
+  revision 1
   head "https://github.com/i3/i3.git"
 
   bottle do
