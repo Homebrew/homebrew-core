@@ -3,6 +3,7 @@ class Gedit < Formula
   homepage "https://wiki.gnome.org/Apps/Gedit"
   url "https://download.gnome.org/sources/gedit/3.28/gedit-3.28.0.tar.xz"
   sha256 "9bf90a2d4fd7be802ad98d226d254ad42057b7c5cc03d1cd39b813123fa8ca5f"
+  revision 1
 
   bottle do
     sha256 "69591ff3f28544230849a06a08a1aa3d14e8498338e82d6aa1a8b205a6c006a6" => :high_sierra
