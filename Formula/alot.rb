@@ -5,6 +5,7 @@ class Alot < Formula
   homepage "https://github.com/pazz/alot"
   url "https://github.com/pazz/alot/archive/0.7.tar.gz"
   sha256 "2d49a7d61241cfadc993a8456076605b2cfe264c51f5e3f18f337bad58f29a1c"
+  revision 1
   head "https://github.com/pazz/alot.git"
 
   bottle do
