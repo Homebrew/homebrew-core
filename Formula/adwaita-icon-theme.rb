@@ -3,6 +3,7 @@ class AdwaitaIconTheme < Formula
   homepage "https://developer.gnome.org"
   url "https://download.gnome.org/sources/adwaita-icon-theme/3.28/adwaita-icon-theme-3.28.0.tar.xz"
   sha256 "7aae8c1dffd6772fd1a21a3d365a0ea28b7c3988bdbbeafbf8742cda68242150"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
