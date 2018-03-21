@@ -3,6 +3,7 @@ class Pioneers < Formula
   homepage "https://pio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.4.tar.gz"
   sha256 "9a0d3198dc0ddf131d9e6d6e9992347fe2a2d99f508f1be1b30c5797210a2ddc"
+  revision 1
 
   bottle do
     sha256 "96e83542f86672e1b874b2dad3441333ad65d9b687262fc126da1a9b189dd52d" => :high_sierra
