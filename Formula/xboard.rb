@@ -4,7 +4,7 @@ class Xboard < Formula
   url "https://ftp.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/xboard/xboard-4.9.1.tar.gz"
   sha256 "2b2e53e8428ad9b6e8dc8a55b3a5183381911a4dae2c0072fa96296bbb1970d6"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "013abf56c1bbe0fbdb05d721ea52b69e4785d25829e1cab9627c857c07f7ebaf" => :high_sierra
