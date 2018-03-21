@@ -7,10 +7,9 @@ class Heartbeat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "250085b26692c350b703e6c9f24880e66e17aae6ffa9fc8e5b55a4554d41b1a1" => :high_sierra
-    sha256 "376978e37246f9a51814b62a58ab0b21e4b2238b867701e5cdcde856af54a05d" => :sierra
-    sha256 "33c0cb3361e3a531b68addf8a72d5db937c9399f55c559e7a984669297b799ed" => :el_capitan
+    sha256 "76c5316ff95fe31029b43ae3e1026c32550c2de51d88487f90a4499d8c2497d2" => :high_sierra
+    sha256 "a15cfcdbb07cd1b5ef8b283a4693dc7e78aa8b09fa4d821694f190de04ae9ac8" => :sierra
+    sha256 "4d482f8eae7c15a84bacbf46c8a65e92ece6290bff41aaba15dd2fb8ba60a092" => :el_capitan
   end
 
   depends_on "go" => :build
