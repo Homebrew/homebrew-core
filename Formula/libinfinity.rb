@@ -3,6 +3,7 @@ class Libinfinity < Formula
   homepage "https://gobby.github.io"
   url "http://releases.0x539.de/libinfinity/libinfinity-0.6.8.tar.gz"
   sha256 "0c4e7e0e5cb6ad5df4dbe19568de37b100a13e61475cf9d4e0f2a68fcdd2d45b"
+  revision 1
 
   bottle do
     sha256 "1faad7e989ee0b318a6bc083d6dabc09b1bff20f29e85fb2eeaf0e204db77ed2" => :high_sierra
