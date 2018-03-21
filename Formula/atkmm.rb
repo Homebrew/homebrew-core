@@ -3,6 +3,7 @@ class Atkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/atkmm/2.24/atkmm-2.24.2.tar.xz"
   sha256 "ff95385759e2af23828d4056356f25376cfabc41e690ac1df055371537e458bd"
+  revision 1
 
   bottle do
     cellar :any
