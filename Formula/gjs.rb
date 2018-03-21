@@ -3,6 +3,7 @@ class Gjs < Formula
   homepage "https://wiki.gnome.org/Projects/Gjs"
   url "https://download.gnome.org/sources/gjs/1.52/gjs-1.52.0.tar.xz"
   sha256 "5524a045e5e1d34a2a510133c662f2685e15ce26ae2ed699fb5d131b6b04a4ca"
+  revision 1
 
   bottle do
     sha256 "b8b9d7847d9c0731b12411b89dfcf27bfbf8b8690fe58479a8acb61c59b040fc" => :high_sierra
