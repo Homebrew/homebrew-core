@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.8.0/node-v9.8.0.tar.xz"
-  sha256 "0706bb49e4fa5fa64c6c51941becb4b3854a6c0335425d7312bc086c37b41eac"
+  url "https://nodejs.org/dist/v9.9.0/node-v9.9.0.tar.xz"
+  sha256 "ab8a721b8db1193754885e891ebde9a982c82fd9207df04a2aebafbb9fb27042"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -100,12 +100,7 @@ class Node < Formula
       cp Dir[libexec/"lib/node_modules/npm/man/#{man}/{npm,package.json,npx}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
-    npmrc = <<~EOS
-      prefix = #{HOMEBREW_PREFIX}
-      python = /usr/bin/python
-    EOS
-    (node_modules/"npm/npmrc").atomic_write npmrc
-    (libexec/"lib/node_modules/npm/npmrc").atomic_write npmrc
+    (node_modules/"npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   def caveats
