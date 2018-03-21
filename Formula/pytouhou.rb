@@ -3,7 +3,7 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
-  revision 2
+  revision 3
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
   bottle do
