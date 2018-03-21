@@ -7,9 +7,9 @@ class Pdfgrep < Formula
 
   bottle do
     cellar :any
-    sha256 "0873df814e1b896293b34fd31ef0d2428baf4c0d40f32c75dc6bdc1a4dd26bf0" => :high_sierra
-    sha256 "aa16e8cdc5729e82525f972bdc26bb563d347d5afa4fa18ab2409a8acba625f2" => :sierra
-    sha256 "d72885d69d7cb69270d78ccf163e2040b2d695ecf1b8f8b82824d5207b88b8a2" => :el_capitan
+    sha256 "10ba0ae5123e6ceb5d76f2ddda41637128fed56e2e1ec9978287f6b5a84c7290" => :high_sierra
+    sha256 "a59d804b0ffcf7fe05ad12c0d6dbd7220e908384fc20ab06de275f75a40008bd" => :sierra
+    sha256 "7b5081ffcc3392857f224cc63e90bcc9b94fcf416159d14c2b4bf10812f05f32" => :el_capitan
   end
 
   head do
