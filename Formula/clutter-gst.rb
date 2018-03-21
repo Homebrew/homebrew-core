@@ -6,9 +6,9 @@ class ClutterGst < Formula
   revision 1
 
   bottle do
-    sha256 "274e148cf27f721ba08bf0e946e3613890be4724f77b72044108f20a1a427a5c" => :high_sierra
-    sha256 "fdad0268d562e1e5034e5e672ebd12a5e049dd142d062678397e87de4ac49677" => :sierra
-    sha256 "14d7dc30f9cb06e4d77d79db78540cf75e39dd325dbfdd3b530b674897587d80" => :el_capitan
+    sha256 "4b5dba13db6ed368bd34224d1b3ad0f1d73a0092a398fd7c8a25a23a646c5bf7" => :high_sierra
+    sha256 "bc573f8872242e53f361fcb7819c9141fb7a36807595de5b4ce127b791dc1373" => :sierra
+    sha256 "887250619929ceed1616de68dfeb95818ff87a3c67e739897b728fdb0df539f4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
