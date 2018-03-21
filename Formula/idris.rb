@@ -16,7 +16,7 @@ class Idris < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.2" => :build
   depends_on "pkg-config" => :build
   depends_on "libffi"
 
