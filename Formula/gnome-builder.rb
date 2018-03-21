@@ -3,7 +3,7 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.2.tar.xz"
   sha256 "84843a9f4af2e1ee1ebfac44441a2affa2d409df9066e7d11bf1d232ae0c535a"
-  revision 6
+  revision 7
 
   bottle do
     sha256 "99a92dbc14dcbbe6451f0b004c975acffd55d47a4f90c0a7cea81c40c8a08666" => :high_sierra
@@ -13,6 +13,7 @@ class GnomeBuilder < Formula
 
   deprecated_option "with-python3" => "with-python"
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
@@ -30,6 +31,7 @@ class GnomeBuilder < Formula
   depends_on "libsoup"
   depends_on "gspell"
   depends_on "enchant"
+  depends_on "libxml2"
   depends_on "gjs" => :recommended
   depends_on "vala" => :recommended
   depends_on "ctags" => :recommended
