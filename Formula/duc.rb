@@ -3,6 +3,7 @@ class Duc < Formula
   homepage "http://duc.zevv.nl"
   url "https://github.com/zevv/duc/releases/download/1.4.3/duc-1.4.3.tar.gz"
   sha256 "504810a1ac1939fb1a70bd25e492f91ea38bcd58ae0a962ce5d35559d7775e74"
+  revision 1
   head "https://github.com/zevv/duc.git"
 
   bottle do
