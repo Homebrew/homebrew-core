@@ -3,6 +3,7 @@ class Gegl < Formula
   homepage "http://www.gegl.org/"
   url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.28.tar.bz2"
   sha256 "152f87604a5a191775329dfb63764efa1d5c32403d1438da68e242f96b7d23ff"
+  revision 1
 
   bottle do
     sha256 "7580d3d2bbe103eaf350960b8a22ce5f63c8c029bab9dd861ca0fbf89376dd6d" => :high_sierra
