@@ -32,7 +32,7 @@ class Purescript < Formula
         mv "purescript-#{version}/purescript.cabal", "."
       end
 
-      install_cabal_package "-f release", :using => ["alex", "happy"]
+      install_cabal_package "-f", "release", :using => ["alex", "happy"]
     end
   end
 
