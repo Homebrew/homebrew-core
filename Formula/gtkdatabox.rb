@@ -3,6 +3,7 @@ class Gtkdatabox < Formula
   homepage "https://sourceforge.net/projects/gtkdatabox/"
   url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox/0.9.3.0/gtkdatabox-0.9.3.0.tar.gz"
   sha256 "1f426b525c31a9ba8bf2b61084b7aef89eaed11f8d0b2a54bde467da16692ff2"
+  revision 1
 
   bottle do
     cellar :any
