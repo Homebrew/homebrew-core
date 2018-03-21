@@ -3,6 +3,7 @@ class Msitools < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/msitools/0.97/msitools-0.97.tar.xz"
   sha256 "3a5b286c9ae3a7b7126a4a95506d12f34ac91e1a564c99e67d9644fee88fc65e"
+  revision 1
 
   bottle do
     sha256 "5e8b16daa36ebf7a12b1e3c740c2cdac418b55fd143e8c9db13e21e6cdefeade" => :high_sierra
