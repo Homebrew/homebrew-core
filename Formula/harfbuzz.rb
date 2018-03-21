@@ -3,6 +3,7 @@ class Harfbuzz < Formula
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
   url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.7.6.tar.bz2"
   sha256 "da7bed39134826cd51e57c29f1dfbe342ccedb4f4773b1c951ff05ff383e2e9b"
+  revision 1
 
   bottle do
     sha256 "ab57eb1c6346466cbe47a3c6ca42f4c5d83ea1db25cd86930ea6e6b3dcc39173" => :high_sierra
@@ -25,9 +26,9 @@ class Harfbuzz < Formula
   depends_on "freetype" => :recommended
   depends_on "glib" => :recommended
   depends_on "gobject-introspection" => :recommended
-  depends_on "graphite2" => :recommended
   depends_on "icu4c" => :recommended
   depends_on "cairo" => :optional
+  depends_on "graphite2" => :optional  
 
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
