@@ -17,4 +17,7 @@ class Chromaprint < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
+  test do
+    assert_equal "/usr/local/Cellar/chromaprint/1.4.3/bin/chromaprint", "#{bin}/chromaprint"
+  end
 end
