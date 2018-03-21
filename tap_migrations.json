@@ -8,6 +8,7 @@
   "auctex": "homebrew/tex",
   "avidemux": "caskroom/cask",
   "awsenv": "Luzifer/tools",
+  "chromedriver": "caskroom/cask",
   "cloudfoundry-cli": "pivotal/tap",
   "cmucl": "caskroom/cask",
   "crystax-ndk": "caskroom/cask",
