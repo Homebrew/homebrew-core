@@ -3,7 +3,7 @@ class Dartsim < Formula
   homepage "https://dartsim.github.io/"
   url "https://github.com/dartsim/dart/archive/v6.3.0.tar.gz"
   sha256 "aa92634c1c97d99966cf16c4a0845792941358c063409fa00c28b4039c961c25"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "399ed615995b0d03f4f2bdb09263c8bdbf8d2e8f574c02ae5881997071424c22" => :high_sierra
