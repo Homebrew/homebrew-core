@@ -15,8 +15,8 @@ class Hledger < Formula
     sha256 "1951e3a98d81fd781cb0c70c9f8f749095f91d0699ac8b6a2b8aecb14dfc8543" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     install_cabal_package :using => ["happy"]
