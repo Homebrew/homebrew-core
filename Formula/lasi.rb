@@ -3,6 +3,7 @@ class Lasi < Formula
   homepage "https://www.unifont.org/lasi/"
   url "https://downloads.sourceforge.net/project/lasi/lasi/1.1.2%20Source/libLASi-1.1.2.tar.gz"
   sha256 "448c6e52263a1e88ac2a157f775c393aa8b6cd3f17d81fc51e718f18fdff5121"
+  revision 1
 
   head "https://svn.code.sf.net/p/lasi/code/trunk"
 
