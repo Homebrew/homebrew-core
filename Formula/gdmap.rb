@@ -3,6 +3,7 @@ class Gdmap < Formula
   homepage "https://sourceforge.net/projects/gdmap/"
   url "https://downloads.sourceforge.net/project/gdmap/gdmap/0.8.1/gdmap-0.8.1.tar.gz"
   sha256 "a200c98004b349443f853bf611e49941403fce46f2335850913f85c710a2285b"
+  revision 1
 
   bottle do
     sha256 "6329bfac0b1b43a6c079f9f2c16e234bd7b7ad0601b7d664e405207192cddd97" => :high_sierra
