@@ -3,6 +3,7 @@ class Pygobject3 < Formula
   homepage "https://live.gnome.org/PyGObject"
   url "https://download.gnome.org/sources/pygobject/3.28/pygobject-3.28.1.tar.xz"
   sha256 "42312b4a5015571fa0a4f2d201005da46b71c251ea2625bc95702d071c4ff895"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,16 +12,15 @@ class Pygobject3 < Formula
     sha256 "de1ced9995f352c09780fdddf7bebf00aea13acfc8222aeccc3e2e144dbdd2f1" => :el_capitan
   end
 
-  option "without-python@2", "Build without python2 support"
+  option "without-python", "Build without python3 support"
+  option "with-python@2", "Build with python2 support"
 
-  deprecated_option "with-python3" => "with-python"
-  deprecated_option "without-python" => "without-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "libffi" => :optional
   depends_on "glib"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional if MacOS.version <= :snow_leopard
+  depends_on "python" => :recommended
   depends_on "py2cairo" if build.with? "python@2"
   depends_on "py3cairo" if build.with? "python"
   depends_on "gobject-introspection"

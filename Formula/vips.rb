@@ -3,6 +3,7 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.6.3/vips-8.6.3.tar.gz"
   sha256 "f85adbb9f5f0f66b34a40fd2d2e60d52f6e992831f54af706db446f582e10992"
+  revision 1
 
   bottle do
     sha256 "25f44ca911e94f5590407365eb7a04faaf973bfa8be8979f889b91a6b559256b" => :high_sierra
@@ -40,6 +41,8 @@ class Vips < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-pyvips8
+      PYTHON=#{Formula["python"].opt_bin}/python3
     ]
 
     if build.with? "graphicsmagick"
