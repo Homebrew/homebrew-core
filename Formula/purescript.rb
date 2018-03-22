@@ -17,7 +17,7 @@ class Purescript < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
