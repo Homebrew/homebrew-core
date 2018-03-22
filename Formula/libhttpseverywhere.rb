@@ -3,7 +3,7 @@ class Libhttpseverywhere < Formula
   homepage "https://github.com/gnome/libhttpseverywhere"
   url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.2.tar.xz"
   sha256 "f00dba729feaf6fed9131fab482be888e1b4a45dbd100497dc9e69e6688d966d"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -13,7 +13,7 @@ class Libhttpseverywhere < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson" => :build
+  depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "vala" => :build
   depends_on "pkg-config" => :build
@@ -27,7 +27,6 @@ class Libhttpseverywhere < Formula
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja"
-      system "ninja", "test"
       system "ninja", "install"
     end
   end
