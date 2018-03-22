@@ -8,9 +8,9 @@ class Parallel < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "30ca3fe740f0c4d43984116ce53b7c1058f4e5bf4d029ad6d24ebf28771b4ee8" => :high_sierra
-    sha256 "30ca3fe740f0c4d43984116ce53b7c1058f4e5bf4d029ad6d24ebf28771b4ee8" => :sierra
-    sha256 "30ca3fe740f0c4d43984116ce53b7c1058f4e5bf4d029ad6d24ebf28771b4ee8" => :el_capitan
+    sha256 "4479a702c0e9906a6b6d2f93c5ba808e116251ccb54a438f4490694a3485ac56" => :high_sierra
+    sha256 "4479a702c0e9906a6b6d2f93c5ba808e116251ccb54a438f4490694a3485ac56" => :sierra
+    sha256 "4479a702c0e9906a6b6d2f93c5ba808e116251ccb54a438f4490694a3485ac56" => :el_capitan
   end
 
   if Tab.for_name("moreutils").with?("parallel")
