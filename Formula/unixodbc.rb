@@ -1,9 +1,8 @@
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
-  url "http://www.unixodbc.org/unixODBC-2.3.5.tar.gz"
-  sha256 "760972e05cc6361aee49d676fb7da8244e0f3a225cd4d3449a951378551b495b"
-  revision 1
+  url "http://www.unixodbc.org/unixODBC-2.3.6.tar.gz"
+  sha256 "88b637f647c052ecc3861a3baa275c3b503b193b6a49ff8c28b2568656d14d69"
 
   bottle do
     sha256 "df1bc9fd3d8f42f9c28be234ef8b088428e593ebb3cdea770eff46bbbabed3b3" => :high_sierra
@@ -18,6 +17,10 @@ class Unixodbc < Formula
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
   def install
+    # Fixes "sed: -e: No such file or directory"
+    # Reported 22 Mar 2018 to nick AT unixodbc DOT org
+    inreplace "exe/Makefile.in", "@sed -i -e", "@sed -i '' -e"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
