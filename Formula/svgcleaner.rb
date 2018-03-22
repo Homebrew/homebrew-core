@@ -6,9 +6,9 @@ class Svgcleaner < Formula
   head "https://github.com/RazrFalcon/svgcleaner.git"
 
   bottle do
-    sha256 "8a0791744561a977cd01273306b983cb8a21af1012839a184109ab9bfae5b7e5" => :high_sierra
-    sha256 "de8fc4beb4ec29a815df2f07539696df0fa095100a6054dfa17c66a007f6f8f7" => :sierra
-    sha256 "27976b0e84f222b5eef09d47423812238825a52a0eec48674d15e34e05a97a29" => :el_capitan
+    sha256 "81305592400f38413a55a9440da21dedb2e22b0ded7b8373f9e0d5d395e8f609" => :high_sierra
+    sha256 "0506b4160a81a8569be2509b5bea3849ee49f69c2c31bc377c6aeeafc7d438d9" => :sierra
+    sha256 "8691e45c864d3ae5a7b313561be03686952b0b1b2b4527f7dfd68f101e3478ac" => :el_capitan
   end
 
   depends_on "rust" => :build
