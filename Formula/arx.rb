@@ -5,8 +5,8 @@ class Arx < Formula
 
   desc "Bundles files and programs for easy transfer and repeatable execution"
   homepage "https://github.com/solidsnack/arx"
-  url "https://github.com/solidsnack/arx/archive/0.2.2.tar.gz"
-  sha256 "47e7a61a009d43c40ac0ce9c71917b0f967ef880c99d4602c7314b51c270fd0f"
+  url "https://github.com/solidsnack/arx/archive/0.2.3.tar.gz"
+  sha256 "3becc8cd5404b0b9651ccc0ec9a3cb2d58ca84194153aa7530a424cc9a55c0fa"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,7 @@ class Arx < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     cabal_sandbox do
