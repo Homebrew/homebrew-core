@@ -2,9 +2,8 @@ class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
   # pull from git tag to get submodules
-  url "https://github.com/facebook/osquery/archive/3.1.0.tar.gz"
-  sha256 "dd8ddbb30d9f965fd999b2a3dc70a36944bd97adb198059995f3b42f211be75b"
-  revision 1
+  url "https://github.com/facebook/osquery/archive/3.2.0.tar.gz"
+  sha256 "91328ab9a322f6859925f69af9005f75792ce128e261f97d0c4e339db55ce23e"
 
   bottle do
     cellar :any
