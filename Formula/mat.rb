@@ -17,7 +17,8 @@ class Mat < Formula
   depends_on "python@2" => :optional
   depends_on "coreutils"
   depends_on "poppler"
-  depends_on "pygobject3"
+  depends_on "py2cairo"
+  depends_on "pygobject3" => "with-python@2"
   depends_on "exiftool" => :optional
   depends_on "gettext" => :build
   depends_on "intltool" => :build
