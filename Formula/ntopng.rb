@@ -56,6 +56,11 @@ class Ntopng < Formula
     system "make", "install"
   end
 
+  def caveats; <<-EOS.undent
+    If built as "ntopng --with-mariadb" you will need to manually force all upgrades with "brew upgrade --force ntopng" due to the mariadb and mysql naming collision.
+    EOS
+  end
+  
   test do
     system "#{bin}/ntopng", "-V"
   end
