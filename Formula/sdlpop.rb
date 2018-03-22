@@ -7,9 +7,9 @@ class Sdlpop < Formula
 
   bottle do
     cellar :any
-    sha256 "ec29f073316af5911a6e2d15ef76ff3525888ae1ff78ec148e32f4d674a0f6a7" => :high_sierra
-    sha256 "0bfada456be6dd164c3d68a163dc137703d1a75f156b97ae2f218ade92f8aa80" => :sierra
-    sha256 "d608ecc22fa9331415976c92af3df5086e8f497c410b8b3c55c787881a5d3e99" => :el_capitan
+    sha256 "6925668670d825fcdcbf83816e0e889fd9ed9056cde2da28a392c34424a6a7dc" => :high_sierra
+    sha256 "c3845ce9e1adb1336bcd99513873fecfb498612c03877d18cde43ea749991c8b" => :sierra
+    sha256 "8a1edf5d1acb9adaadc29b14eb637b8d0bfbccc88cf777b514a303b792cc5ef5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
