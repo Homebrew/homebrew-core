@@ -6,9 +6,9 @@ class Laszip < Formula
   head "https://github.com/LASzip/LASzip.git"
 
   bottle do
-    sha256 "c99dc1884cf70eae67cc22c2e7c1c4a981027f39db33c98dc7e548321ce5469b" => :high_sierra
-    sha256 "9262196c5ff19095f656aa9884a997d1d57b1bcf3d01baca5759963d7770fc2a" => :sierra
-    sha256 "47d656195a3b4e8fb0f675b8bd0ee6933b4b3c3aca2c17e9db271a00c8fe9383" => :el_capitan
+    sha256 "4cee96706f3bc7d6e1df98010d39ecd3dd004efc81befd91c8a80caa43be7c22" => :high_sierra
+    sha256 "d4fcf4c03ba5fca510b3184970247e0ceb7de130189929e4320a2c528f62a6f7" => :sierra
+    sha256 "c3fe0e2e685e72d4e170d187863ba6ef9847fc47c57a4c18f6b25fd622f41c42" => :el_capitan
   end
 
   depends_on "cmake" => :build
