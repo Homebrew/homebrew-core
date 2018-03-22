@@ -6,9 +6,9 @@ class Grip < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8abc7f95bb00b0381c44d2f69ee5fdb0a1c521206ac55cc1fe3f2ce0e6fce5e7" => :high_sierra
-    sha256 "a8b839140937d76eef39ced1f1142693ae8d8dd5e756a9f9f2271093b9cea3d7" => :sierra
-    sha256 "575cf7447bc9760863e1e81cd90072fcdd98cac067a9fff4d15907bec82d511d" => :el_capitan
+    sha256 "c17fefc54b9d615a020aedf5919745d636ece4aaf79395ea644161b79cfdb51b" => :high_sierra
+    sha256 "c908a5b5762f89f1933ee3bc05418636821c616eaf4776d6d495ebb072bf2bcb" => :sierra
+    sha256 "ca87bb2d1714f71754f6d62636fb7086961e4ca1ce9f8d0e031890746cf1e91b" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :sierra
