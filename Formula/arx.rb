@@ -10,11 +10,9 @@ class Arx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "269eb46db4d8900a603c9e1c8b8d5fc15523c68a5cb6b33e17124116ba890667" => :high_sierra
-    sha256 "176b98514ed7621547c235a216b38e31028001943dff1184f37677ca9651ac18" => :sierra
-    sha256 "afdd553d853afe2e679d56d93407b4031262ff41475dccc747ef0e57c7d01f7b" => :el_capitan
-    sha256 "47d9f6b76fe542ae8553a9c7ad56eaecd59a755210be97265774949e67562936" => :yosemite
+    sha256 "bc4fc482effff6cf3fa25c359640e7ec9739e7ce048cdaf26b9fda459870c8f6" => :high_sierra
+    sha256 "f36dbf51a7bd08e5e5b9923c7d39e276c3405ccae326016e70c1ea730fedd7fa" => :sierra
+    sha256 "53e9ec5f8017204e3c97f88c7a57f1701a5243af64e02f00e728625db58ec818" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
