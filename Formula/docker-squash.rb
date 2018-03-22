@@ -6,9 +6,10 @@ class DockerSquash < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6efcced412dd3b8cd77ac3f22a025324d9db1490e21650c80dec1ae173c7fc5f" => :high_sierra
-    sha256 "6efcced412dd3b8cd77ac3f22a025324d9db1490e21650c80dec1ae173c7fc5f" => :sierra
-    sha256 "af38522bfcdf5259a5394090d1d208b33f6755519c15d07f7654360b69ed04b2" => :el_capitan
+    rebuild 1
+    sha256 "ada8e2727f4add1d47a5036a14cda33e7e40f1209b5a9b01a842fd43a680c9d8" => :high_sierra
+    sha256 "ada8e2727f4add1d47a5036a14cda33e7e40f1209b5a9b01a842fd43a680c9d8" => :sierra
+    sha256 "dac6b0bf9dcb79b72542cb4a2ab889cca334fbdb645c7f24b96112bc61b391c7" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
