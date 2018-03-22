@@ -5,9 +5,9 @@ class Libswiften < Formula
   sha256 "50b7b2069005b1474147110956f66fdde0afb2cbcca3d3cf47de56dc61217319"
 
   bottle do
-    sha256 "7fad4a62d37b43fade07734f26864bc3b71f32a4e6809fc91ac079483bd1a3ec" => :high_sierra
-    sha256 "0bec243071c491fc01ba04f7d2f5c01897ac004f18ffb3d67e77c87a56a364c3" => :sierra
-    sha256 "3fd70667904b41f02676b117380dff2903ee9f5418d487fa0ed26fdc268b2be2" => :el_capitan
+    sha256 "80f1c8958f7e87ed9a9f4cfc2ecbff11e33042d9ee6cb41ca84a76f10696243b" => :high_sierra
+    sha256 "5dd9e842a516e65105150e427f2889a83445d13172bef73422be437f7557b98e" => :sierra
+    sha256 "74466b9e1c89fece62dd092058ebe7b6fdb86bcfeef49c3e61a980e39cb2cf5a" => :el_capitan
   end
 
   depends_on "scons" => :build
