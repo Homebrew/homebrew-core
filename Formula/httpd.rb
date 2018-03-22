@@ -1,9 +1,8 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.29.tar.bz2"
-  sha256 "777753a5a25568a2a27428b2214980564bc1c38c1abf9ccc7630b639991f7f00"
-  revision 2
+  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.33.tar.bz2"
+  sha256 "de02511859b00d17845b9abdd1f975d5ccb5d0b280c567da5bf2ad4b70846f05"
 
   bottle do
     sha256 "bcfce40b1789e34e69440c31279cb542a8834e87239b5b4be50f1ba022841d58" => :high_sierra
@@ -137,12 +136,20 @@ class Httpd < Formula
 
   test do
     begin
+      require "socket"
+
+      server = TCPServer.new(0)
+      port = server.addr[1]
+      server.close
+
       expected_output = "Hello world!"
       (testpath/"index.html").write expected_output
       (testpath/"httpd.conf").write <<~EOS
-        Listen 8080
+        Listen #{port}
+        ServerName localhost:#{port}
         DocumentRoot "#{testpath}"
         ErrorLog "#{testpath}/httpd-error.log"
+        PidFile "#{testpath}/httpd.pid"
         LoadModule authz_core_module #{lib}/httpd/modules/mod_authz_core.so
         LoadModule unixd_module #{lib}/httpd/modules/mod_unixd.so
         LoadModule dir_module #{lib}/httpd/modules/mod_dir.so
@@ -154,7 +161,7 @@ class Httpd < Formula
       end
       sleep 3
 
-      assert_match expected_output, shell_output("curl -s 127.0.0.1:8080")
+      assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)
