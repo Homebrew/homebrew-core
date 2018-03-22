@@ -10,12 +10,25 @@ class Gifski < Formula
     sha256 "8451f3f386963c5a48e48ae62028c8c954c9c91395ac2b47dcf51e87380b987b" => :el_capitan
   end
 
+  option "with-openmp", "Enable OpenMP multithreading"
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
+  depends_on "gcc" if build.with? "openmp"
+
+  fails_with :clang if build.with? "openmp"
 
   def install
-    system "cargo", "build", "--release", "--features=video"
+    args = ["--release"]
+
+    if build.with? "openmp"
+      args << "--features=video,openmp"
+    else
+      args << "--features=video"
+    end
+
+    system "cargo", "build", *args
     bin.install "target/release/gifski"
   end
 
