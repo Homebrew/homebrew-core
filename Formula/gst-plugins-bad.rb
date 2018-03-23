@@ -23,6 +23,7 @@ class GstPluginsBad < Formula
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "openssl"
+  depends_on "libnice"
   depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
   depends_on "dirac" => :optional
