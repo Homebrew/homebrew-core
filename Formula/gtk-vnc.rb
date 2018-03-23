@@ -1,9 +1,8 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
   homepage "https://wiki.gnome.org/Projects/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/0.7/gtk-vnc-0.7.1.tar.xz"
-  sha256 "f34baa696615ef67666e8465b4d0ac563355e999a77d2cc42ad4625a24f7aab1"
-  revision 1
+  url "https://download.gnome.org/sources/gtk-vnc/0.7/gtk-vnc-0.7.2.tar.xz"
+  sha256 "f893f32b1ef6d09dd23cda39b8a2567be7c2aebda58026288e1362f042e20808"
 
   bottle do
     sha256 "6535c5f95e5f7088b02a54cb2211d95f26410ab2b7e07ae412c4add9471e0bc7" => :high_sierra
@@ -32,7 +31,7 @@ class GtkVnc < Formula
       --prefix=#{prefix}
       --with-gtk=3.0
       --with-examples
-      --with-python
+      --without-python
       --enable-introspection
     ]
 
