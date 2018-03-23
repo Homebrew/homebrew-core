@@ -1,19 +1,19 @@
 class Basex < Formula
   desc "Light-weight XML database and XPath/XQuery processor"
   homepage "http://basex.org"
-  url "http://files.basex.org/releases/8.6.7/BaseX867.zip"
-  version "8.6.7"
-  sha256 "60faecf417f1607780a70a237138a2f839f2218d2d7bee20fa30b7738245a244"
+  url "http://files.basex.org/releases/9.0/BaseX90.zip"
+  version "9.0"
+  sha256 "46be7a12233672feb07d1d5c1c473868ce3e6dfe187a14e81279e6fcc530aba4"
 
   devel do
-    url "http://files.basex.org/releases/latest/BaseX90-20180220.145902.zip"
-    version "9.0-rc20180220.145902"
-    sha256 "c7bb2737997cc4afa8e95d87702a51e65c562a410c264125b1b5aaa9bca6e5b0"
+    url "http://files.basex.org/releases/latest/BaseX901-20180323.194007.zip"
+    version "9.0.1-rc20180323.194007"
+    sha256 "3c6f17675884887047cc143357c3bb1e90a21780c186fd6b563a6cad00b1a9d3"
   end
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   def install
     rm Dir["bin/*.bat"]
