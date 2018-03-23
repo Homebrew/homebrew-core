@@ -23,6 +23,8 @@ class GstPluginsBad < Formula
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "openssl"
+  depends_on "libnice"
+  depends_on "srt"
   depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
   depends_on "dirac" => :optional
@@ -67,5 +69,8 @@ class GstPluginsBad < Formula
     gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
     output = shell_output("#{gst} --plugin dvbsuboverlay")
     assert_match version.to_s, output
+
+    shell_output("#{gst} --exists webrtcbin", 0)
+    shell_output("#{gst} --exists srtclientsrc", 0)
   end
 end
