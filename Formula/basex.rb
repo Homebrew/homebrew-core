@@ -13,7 +13,7 @@ class Basex < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   def install
     rm Dir["bin/*.bat"]
