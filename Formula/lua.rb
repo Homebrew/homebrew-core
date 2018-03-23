@@ -3,7 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
   sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -19,11 +19,9 @@ class Lua < Formula
   # ***Update me with each version bump!***
   patch :DATA
 
-  # Don't use the https://luarocks.org/releases/luarocks-x.y.z.tar.gz URL
-  # directly as it redirects to the HTTP version of the below URL.
   resource "luarocks" do
-    url "https://luarocks.github.io/luarocks/releases/luarocks-2.4.3.tar.gz"
-    sha256 "4d414d32fed5bb121c72d3ff1280b7f2dc9027a9bc012e41dfbffd5b519b362e"
+    url "https://luarocks.org/releases/luarocks-2.4.4.tar.gz"
+    sha256 "3938df33de33752ff2c526e604410af3dceb4b7ff06a770bc4a240de80a1f934"
   end
 
   def install
@@ -73,10 +71,10 @@ class Lua < Formula
 
         # This block ensures luarock exec scripts don't break across updates.
         inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
-          s.gsub! libexec.to_s, opt_libexec
-          s.gsub! include.to_s, "#{HOMEBREW_PREFIX}/include"
-          s.gsub! lib.to_s, "#{HOMEBREW_PREFIX}/lib"
-          s.gsub! bin.to_s, "#{HOMEBREW_PREFIX}/bin"
+          s.gsub! libexec, opt_libexec
+          s.gsub! include, HOMEBREW_PREFIX/"include"
+          s.gsub! lib, HOMEBREW_PREFIX/"lib"
+          s.gsub! bin, HOMEBREW_PREFIX/"bin"
         end
       end
     end
