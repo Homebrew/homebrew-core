@@ -12,9 +12,8 @@ class Umlet < Formula
     rm Dir["*.{desktop,exe}"]
     libexec.install Dir["*"]
 
-    inreplace "#{libexec}/umlet.sh", " java ", " ${JAVA_HOME}/bin/java "
-    inreplace "#{libexec}/umlet.sh", /^programDir=.*$/,
-      "programDir=#{libexec}"
+    inreplace "#{libexec}/umlet.sh", /^programDir=.*$/, "programDir=#{libexec}"
+    inreplace "#{libexec}/umlet.sh", " java ", " ${JAVA_HOME}/bin/java -Xdock:name='UMLet #{version}' -Xdock:icon=${programDir}/img/umlet_logo.png "
 
     chmod 0755, "#{libexec}/umlet.sh"
 
