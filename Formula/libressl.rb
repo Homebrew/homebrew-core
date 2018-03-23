@@ -2,9 +2,10 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.4.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.4.tar.gz"
-  sha256 "638a20c2f9e99ee283a841cd787ab4d846d1880e180c4e96904fc327d419d11f"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.7.0.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.7.0.tar.gz"
+  sha256 "50ce6d6f88dea73a3efca62b0a9e6ca75292bdee6c9293efd6a771cfdb28cdee"
+  head "https://github.com/libressl-portable/portable.git"
 
   bottle do
     sha256 "d2abc3ab5d504cb47551a2cfb92a74891545dfad91286dd38c656091e8d8a904" => :high_sierra
@@ -12,15 +13,18 @@ class Libressl < Formula
     sha256 "5bd61a5f92787788895ff88aabd9bfd15e3661207c1c55610ff42e96a44ca771" => :el_capitan
   end
 
-  head do
-    url "https://github.com/libressl-portable/portable.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
   keg_only "LibreSSL is not linked to prevent conflict with the system OpenSSL"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  # Fix "error: use of undeclared identifier 'CLOCK_REALTIME'"
+  # 22 Mar 2018 "add clock_gettime for macos 10.11 and earlier"
+  patch do
+    url "https://github.com/libressl-portable/portable/pull/412.patch?full_index=1"
+    sha256 "3062575455d1989dd0f19f59672e1d1ff0431a04ba3798fb0584e78697feafb2"
+  end
 
   def install
     args = %W[
@@ -31,7 +35,12 @@ class Libressl < Formula
       --sysconfdir=#{etc}/libressl
     ]
 
-    system "./autogen.sh" if build.head?
+    if build.head?
+      system "./autogen.sh"
+    else
+      system "autoreconf", "-fiv"
+    end
+
     system "./configure", *args
     system "make"
     system "make", "check"
