@@ -8,9 +8,9 @@ class Fdroidserver < Formula
 
   bottle do
     cellar :any
-    sha256 "fd3a9976937314f861c4591c410bb0b362bc4f78b7071cd3dbbd82a78ed2bd3e" => :high_sierra
-    sha256 "319e8c1397bc261a64bfee7da40aa34cf0790f78e60855c5a73efdbb5f9aca0f" => :sierra
-    sha256 "eb5add23338a1a7ed6aa81466b8e2c4e12001228d99de8dc67e4abb8163d674e" => :el_capitan
+    sha256 "fb12950e5062ad63f7bfbb12f499f60ef9b43bf2fdfcc550124b4cd706eecd52" => :high_sierra
+    sha256 "f46a30bc74956f0f7fd5f4d94e4bc81e5677b12082facdb95afcfc9ab85b550f" => :sierra
+    sha256 "34ff26a332756b663319ff15291f0bcec78d63ba5bb768cdda2006ba5f1af09d" => :el_capitan
   end
 
   depends_on "freetype"
