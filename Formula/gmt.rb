@@ -8,9 +8,9 @@ class Gmt < Formula
   revision 2
 
   bottle do
-    sha256 "b0ff6aba7186eeb253106053afdd742c2d574b10e5886740fb22e9fde008ab7d" => :high_sierra
-    sha256 "4df0654602bd84faefa08ddb54bdd528e4856b0050343521093b6ccd19ad16d0" => :sierra
-    sha256 "fd047301d43491cedb7d6403245d359538fdd5fbe92a9dee5f7b2293bb560fad" => :el_capitan
+    sha256 "8687a8a1219c8520cb82f7e83fd8230b53b60da86bbdc4d5f11cf887f19a967c" => :high_sierra
+    sha256 "c10e8cb115e7b8b7f3daa1b75215b039479397c90feedcdd37617d66d1dee770" => :sierra
+    sha256 "6bf73ea61102977d7b207adf5d2ef3dfaf9cc218dfb3fe23f7c77ef6c7b678de" => :el_capitan
   end
 
   depends_on "cmake" => :build
