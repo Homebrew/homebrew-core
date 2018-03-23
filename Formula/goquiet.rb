@@ -13,6 +13,7 @@ class Goquiet < Formula
     cd "src/github.com/cbeuw/GoQuiet" do
       system "make"
       bin.install Dir["build/*"]
+      prefix.install_metafiles
     end
   end
 
