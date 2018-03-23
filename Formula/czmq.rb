@@ -1,19 +1,8 @@
 class Czmq < Formula
   desc "High-level C binding for ZeroMQ"
   homepage "http://czmq.zeromq.org/"
-  revision 1
-
-  stable do
-    url "https://github.com/zeromq/czmq/releases/download/v4.1.0/czmq-4.1.0.tar.gz"
-    sha256 "3befa35b4886b5298e8329b4f0aa5bb9bde0e7439bd3c5c53295cb988371fc11"
-
-    # ZeroMQ 4.2.4 compatibility
-    # 7 Mar 2018 "Problem: atexit called after zmq static object destruction"
-    patch do
-      url "https://github.com/zeromq/czmq/commit/7debf8ff8.patch?full_index=1"
-      sha256 "b797072908bcdfb2e11bbabe0351c9392b4946ae99d439d34bd922a77d7896c9"
-    end
-  end
+  url "https://github.com/zeromq/czmq/releases/download/v4.1.1/czmq-4.1.1.tar.gz"
+  sha256 "f00ff419881dc2a05d0686c8467cd89b4882677fc56f31c0e2cc81c134cbb0c0"
 
   bottle do
     cellar :any
