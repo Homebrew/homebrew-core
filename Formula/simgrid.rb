@@ -1,8 +1,8 @@
 class Simgrid < Formula
   desc "Studies behavior of large-scale distributed systems"
   homepage "http://simgrid.gforge.inria.fr"
-  url "https://gforge.inria.fr/frs/download.php/file/37452/SimGrid-3.19.tar.gz"
-  sha256 "64a3b82fdf0a65bb8b7c8e9feb01694360edaf38070097bf28aa181eccb86ea7"
+  url "https://gforge.inria.fr/frs/download.php/file/37455/SimGrid-3.19.1.tar.gz"
+  sha256 "a74e69c65660603259a0f417a2e539e8072f2032203795b9e21b3210f5e13a0a"
 
   bottle do
     sha256 "0fdb77510c94ccb45487dca315188c0fabcd57afe651ce93e6f5d0ef34b4f0a9" => :high_sierra
