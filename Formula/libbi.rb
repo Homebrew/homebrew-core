@@ -3,6 +3,7 @@ class Libbi < Formula
   homepage "http://libbi.org"
   url "https://github.com/libbi/LibBi/archive/1.4.0.tar.gz"
   sha256 "fafe7579510e88fce50a2de26b561d2b0dacdbc7d1bf0fab0680a603353f5fa3"
+  revision 1
   head "https://github.com/libbi/LibBi.git"
 
   bottle do
@@ -39,8 +40,8 @@ class Libbi < Formula
   end
 
   resource "Parse::Yapp" do
-    url "https://www.cpan.org/CPAN/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.2.tar.gz"
-    sha256 "4bd29f083c261253c6128303dc51bff88d6472c09c3846bd399e21f1f0c3e49a"
+    url "https://www.cpan.org/CPAN/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
+    sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
   end
 
   resource "Parse::Template" do
@@ -54,8 +55,8 @@ class Libbi < Formula
   end
 
   resource "Parse::RecDescent" do
-    url "https://www.cpan.org/CPAN/authors/id/J/JT/JTBRAUN/Parse-RecDescent-1.967003.tar.gz"
-    sha256 "d4dac8dad012a7eef271a0ac8ec399f9e3b0b53902644df9c208daef8b4b7f0a"
+    url "https://www.cpan.org/CPAN/authors/id/J/JT/JTBRAUN/Parse-RecDescent-1.967015.tar.gz"
+    sha256 "1943336a4cb54f1788a733f0827c0c55db4310d5eae15e542639c9dd85656e37"
   end
 
   resource "Math::Symbolic" do
@@ -64,8 +65,8 @@ class Libbi < Formula
   end
 
   resource "YAML::Tiny" do
-    url "https://www.cpan.org/CPAN/authors/id/E/ET/ETHER/YAML-Tiny-1.70.tar.gz"
-    sha256 "bbce4b52b5eafdb04e3043975a08dbf394d00b7d2c958adb9d03d9f7e9291255"
+    url "https://www.cpan.org/CPAN/authors/id/E/ET/ETHER/YAML-Tiny-1.73.tar.gz"
+    sha256 "bc315fa12e8f1e3ee5e2f430d90b708a5dc7e47c867dba8dce3a6b8fbe257744"
   end
 
   resource "File::Remove" do
@@ -74,23 +75,23 @@ class Libbi < Formula
   end
 
   resource "inc::Module::Install::DSL" do
-    url "https://www.cpan.org/CPAN/authors/id/E/ET/ETHER/Module-Install-1.18.tar.gz"
-    sha256 "29068ac33502cec959844c206516c09cc4a847cb57327d41015f605153ca645e"
+    url "https://www.cpan.org/CPAN/authors/id/E/ET/ETHER/Module-Install-1.19.tar.gz"
+    sha256 "1a53a78ddf3ab9e3c03fc5e354b436319a944cba4281baf0b904fa932a13011b"
   end
 
   resource "Class::Inspector" do
-    url "https://www.cpan.org/CPAN/authors/id/A/AD/ADAMK/Class-Inspector-1.28.tar.gz"
-    sha256 "3ca4b7a3ed1f4cc846c9a3c08f9a6e9ec07a9cbfd92510dea9513db61a923112"
+    url "https://www.cpan.org/CPAN/authors/id/P/PL/PLICEASE/Class-Inspector-1.32.tar.gz"
+    sha256 "cefadc8b5338e43e570bc43f583e7c98d535c17b196bcf9084bb41d561cc0535"
   end
 
   resource "File::ShareDir" do
-    url "https://www.cpan.org/CPAN/authors/id/R/RE/REHSACK/File-ShareDir-1.102.tar.gz"
-    sha256 "7c7334b974882587fbd9bc135f6bc04ad197abe99e6f4761953fe9ca88c57411"
+    url "https://www.cpan.org/CPAN/authors/id/R/RE/REHSACK/File-ShareDir-1.104.tar.gz"
+    sha256 "07b628efcdf902d6a32e6a8e084497e8593d125c03ad12ef5cc03c87c7841caf"
   end
 
   resource "Template" do
-    url "https://www.cpan.org/CPAN/authors/id/A/AB/ABW/Template-Toolkit-2.26.tar.gz"
-    sha256 "e7e1cf36026f1ef96d8233e18a3fb39e1eafe9109edc639ecf25b20651cd76be"
+    url "https://www.cpan.org/CPAN/authors/id/A/AB/ABW/Template-Toolkit-2.27.tar.gz"
+    sha256 "1311a403264d0134c585af0309ff2a9d5074b8ece23ece5660d31ec96bf2c6dc"
   end
 
   resource "Graph" do
