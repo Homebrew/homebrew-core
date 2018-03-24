@@ -4,6 +4,13 @@ class Rtptools < Formula
   url "https://www.cs.columbia.edu/irt/software/rtptools/download/rtptools-1.22.tar.gz"
   sha256 "2c76b2a423fb943820c91194372133a44cbdc456ebf69c51616ec50eeb068c28"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "246c3120540b65eb6da10b3ea57d194e3014a4ab4e653a241676f6540c128607" => :high_sierra
+    sha256 "923a5b4263afc7903843268745313b854ade82c5c4faa36521fb30209e01e047" => :sierra
+    sha256 "3e50750a9e8589b351f0b5d61c2828bd928b053fbcef917b3cd805eeaee349ca" => :el_capitan
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
