@@ -3,7 +3,7 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.6.3/vips-8.6.3.tar.gz"
   sha256 "f85adbb9f5f0f66b34a40fd2d2e60d52f6e992831f54af706db446f582e10992"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "6c2b0a986cea55fac585c32c56d67100fbc5e173cca2bb800289a10d1cc3c249" => :high_sierra
@@ -17,7 +17,7 @@ class Vips < Formula
   depends_on "giflib"
   depends_on "glib"
   depends_on "gobject-introspection"
-  depends_on "jpeg"
+  depends_on "jpeg-turbo"
   depends_on "libexif"
   depends_on "libgsf"
   depends_on "libpng"
@@ -27,15 +27,17 @@ class Vips < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
+  depends_on "webp"
   depends_on "fftw" => :recommended
+  depends_on "graphicsmagick" => :recommended
   depends_on "poppler" => :recommended
-  depends_on "graphicsmagick" => :optional
   depends_on "imagemagick" => :optional
-  depends_on "jpeg-turbo" => :optional
-  depends_on "mozjpeg" => :optional
   depends_on "openexr" => :optional
   depends_on "openslide" => :optional
-  depends_on "webp" => :optional
+
+  if build.with?("graphicsmagick") && build.with?("imagemagick")
+    odie "vips: --with-imagemagick requires --without-graphicsmagick"
+  end
 
   def install
     args = %W[
@@ -47,20 +49,9 @@ class Vips < Formula
 
     if build.with? "graphicsmagick"
       args << "--with-magick" << "--with-magickpackage=GraphicsMagick"
+    elsif build.with? "imagemagick"
+      args << "--with-magick"
     end
-
-    # Let the formula find optional jpeg libraries before the main
-    # jpeg formula.
-    if build.with? "jpeg-turbo"
-      ENV.prepend_path "PKG_CONFIG_PATH",
-                       Formula["jpeg-turbo"].opt_lib/"pkgconfig"
-    end
-    if build.with? "mozjpeg"
-      ENV.prepend_path "PKG_CONFIG_PATH",
-                       Formula["mozjpeg"].opt_lib/"pkgconfig"
-    end
-
-    args << "--without-libwebp" if build.without? "webp"
 
     system "./configure", *args
     system "make", "install"
