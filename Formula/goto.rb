@@ -7,7 +7,7 @@ class Goto < Formula
   bottle :unneeded
 
   def install
-    bash_completion.install "goto.sh" => "goto"
+    bash_completion.install "goto.sh"
   end
 
   test do
