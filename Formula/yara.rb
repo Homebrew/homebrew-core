@@ -12,8 +12,6 @@ class Yara < Formula
     sha256 "deba43f8ebc4d52d0d8a17febdebf8cc5b0de6c9f81f28e7d6a03aea2a87abe7" => :el_capitan
   end
 
-  option "with-enable-dotnet"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -21,15 +19,11 @@ class Yara < Formula
   depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
-    args = [
-      "--disable-silent-rules",
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--enable-dotnet",
-    ]
-
     system "./bootstrap.sh"
-    system "./configure", *args
+    system "./configure", "--disable-silent-rules",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-dotnet"
     system "make", "install"
   end
 
