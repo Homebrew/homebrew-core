@@ -3,7 +3,7 @@ class Php < Formula
   homepage "https://php.net/"
   url "https://php.net/get/php-7.2.3.tar.xz/from/this/mirror"
   sha256 "b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
-  revision 4
+  revision 3
 
   bottle do
     sha256 "9a0892e47050fbcd30a3ea63a69fb4605b8ac92ac094769dc69eeb140255fa7b" => :high_sierra
