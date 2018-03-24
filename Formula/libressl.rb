@@ -7,9 +7,9 @@ class Libressl < Formula
   sha256 "937507e236ba7370acaba689444515d4e8f429136f4e7e3623083392d96b7070"
 
   bottle do
-    sha256 "d2abc3ab5d504cb47551a2cfb92a74891545dfad91286dd38c656091e8d8a904" => :high_sierra
-    sha256 "a122b93e665a7c20c98593267c13ab4a927a0e53517fd97458a4a2205e5f0f67" => :sierra
-    sha256 "5bd61a5f92787788895ff88aabd9bfd15e3661207c1c55610ff42e96a44ca771" => :el_capitan
+    sha256 "6e3c4c7bf920b6856e743fb421df9e313df4633524546fd3bb5d9ca6daa133dc" => :high_sierra
+    sha256 "a1dd3b097a56e1957bfa632e5231d2c30c474e28d4f0a2d11ed44ff88ea643ca" => :sierra
+    sha256 "1ea99fd250e3a888aef9ac3e04ac1fa054e99b2c722bf1d64d88f6c81b2fc955" => :el_capitan
   end
 
   head do
