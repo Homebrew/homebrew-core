@@ -5,12 +5,12 @@ class Latexdiff < Formula
   sha256 "12634c8ec5c68b173d3906679bb09330e724491c6a64e675989217cf4790604e"
 
   def install
+    bin.install %w[latexdiff-fast latexdiff-so latexdiff-vc
+                   latexrevise]
     # Replace standard latexdiff with latexdiff-so which uses an inlined
     # version of the Perl algorithm Algorithm::Diff.
     # This is the preferred method according to the README
-    cp "latexdiff-so", "latexdiff"
-    bin.install %w[latexdiff latexdiff-fast latexdiff-so latexdiff-vc
-                   latexrevise]
+    bin.install_symlink "latexdiff-so" => "latexdiff"
     man1.install %w[latexdiff-vc.1 latexdiff.1 latexrevise.1]
     doc.install Dir["doc/*"]
     pkgshare.install %w[contrib example]
