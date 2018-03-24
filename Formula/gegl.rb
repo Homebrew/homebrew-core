@@ -5,9 +5,9 @@ class Gegl < Formula
   sha256 "f8b4a93ad2c5187efcc7d9a665ef626a362587eb701eebccf21b13616791e551"
 
   bottle do
-    sha256 "ae7aee421b576b7273c11ec644611de2cbf29c48830881502bab820a38ad0ae3" => :high_sierra
-    sha256 "cd00252b0c76457cd60816a357508c6d6fbc5eac0c668e1020e557be2e70bd6f" => :sierra
-    sha256 "9a923df101c892ae9862f5266de201fc828e95dc5245f6efed1403cb6241463e" => :el_capitan
+    sha256 "45420967013bfbac013edfe4a58ab8ea0a37ae1cde45b393ce69b1582604e8d5" => :high_sierra
+    sha256 "2264e6345c6cd5562ce5582dfe04c8734ef9f4cf83245cd41438ceb5241e1460" => :sierra
+    sha256 "1598b719d972437e21c0c648c8e81747b0951b182ba895b758c891b5af921ef8" => :el_capitan
   end
 
   head do
