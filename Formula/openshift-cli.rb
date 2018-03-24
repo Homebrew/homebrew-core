@@ -15,7 +15,7 @@ class OpenshiftCli < Formula
     sha256 "4c157753d72cd1c0aef0470325dcbc56a6e46ebe152e02ea4b35b28675490cc2" => :el_capitan
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.9" => :build
   depends_on "socat"
 
   def install
