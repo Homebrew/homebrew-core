@@ -25,11 +25,8 @@ class Yara < Formula
       "--disable-silent-rules",
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
+      "--enable-dotnet",
     ]
-
-    if build.with? "enable-dotnet"
-      args << "--enable-dotnet"
-    end
 
     system "./bootstrap.sh"
     system "./configure", *args
