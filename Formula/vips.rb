@@ -3,7 +3,7 @@ class Vips < Formula
   homepage "https://github.com/jcupitt/libvips"
   url "https://github.com/jcupitt/libvips/releases/download/v8.6.3/vips-8.6.3.tar.gz"
   sha256 "f85adbb9f5f0f66b34a40fd2d2e60d52f6e992831f54af706db446f582e10992"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "583dacfe5fdd5336d869e57b30ff24e4b9d262d56cf0bda598c35a2adda8648a" => :high_sierra
@@ -17,7 +17,7 @@ class Vips < Formula
   depends_on "giflib"
   depends_on "glib"
   depends_on "gobject-introspection"
-  depends_on "jpeg-turbo"
+  depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
   depends_on "libpng"
