@@ -1,8 +1,8 @@
 class Goto < Formula
   desc "Bash tool for navigation to aliased directories with auto-completion"
   homepage "https://github.com/iridakos/goto"
-  url "https://github.com/iridakos/goto/archive/v1.2.2.tar.gz"
-  sha256 "611ef7b82f6798ef83db0473811740c7f1ff5a15bb4ff52a1e5841bac87ba7f5"
+  url "https://github.com/iridakos/goto/archive/v1.2.3.tar.gz"
+  sha256 "856e0c2b9f7e8f55ff9aa9bdb356dbc831644f7b25da1d5f1e9ae8c3ff538d47"
 
   bottle :unneeded
 
