@@ -131,7 +131,6 @@ class Php < Formula
       --with-png-dir=#{Formula["libpng"].opt_prefix}
       --with-pspell=#{Formula["aspell"].opt_prefix}
       --with-sodium=#{Formula["libsodium"].opt_prefix}
-      --with-tidy
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
