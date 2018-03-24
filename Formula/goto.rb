@@ -11,7 +11,7 @@ class Goto < Formula
   end
 
   test do
-    assert_match "-F _complete_goto_bash",
-                 shell_output("source #{bash_completion}/goto && complete -p goto")
+    output = shell_output("source #{bash_completion}/goto.sh && complete -p goto")
+    assert_match "-F _complete_goto_bash", output
   end
 end
