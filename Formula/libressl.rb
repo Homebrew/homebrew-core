@@ -12,6 +12,11 @@ class Libressl < Formula
     sha256 "5bd61a5f92787788895ff88aabd9bfd15e3661207c1c55610ff42e96a44ca771" => :el_capitan
   end
 
+  devel do
+    url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.7.1.tar.gz"
+    sha256 "937507e236ba7370acaba689444515d4e8f429136f4e7e3623083392d96b7070"
+  end
+
   head do
     url "https://github.com/libressl-portable/portable.git"
 
