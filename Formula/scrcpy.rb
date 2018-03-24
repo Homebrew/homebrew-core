@@ -4,6 +4,12 @@ class Scrcpy < Formula
   url "https://github.com/Genymobile/scrcpy/archive/v1.1.tar.gz"
   sha256 "1b56caa4aad5add2c49ea436e9f26282b55a413003d0d73b029a1fbf48da0a1c"
 
+  bottle do
+    sha256 "cffb7263b7a2571fa00ba7a5d2bb0b0d2a12561c55610c135eefed8018d4e23a" => :high_sierra
+    sha256 "a87794ecbe2c7439ed42005c42211e749b3593c5c9d2bbbc30cf6274fc782056" => :sierra
+    sha256 "8a9a1627cad91bfc4e61fe1187a23f71014bc7fd595d951dc19bbb256076500d" => :el_capitan
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
