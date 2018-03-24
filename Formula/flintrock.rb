@@ -6,6 +6,13 @@ class Flintrock < Formula
   url "https://files.pythonhosted.org/packages/30/de/e4ec7cdfd3381f136a47e9951f0d09337aa278f52414bee96983826ecd84/Flintrock-0.9.0.tar.gz"
   sha256 "bdcbfe4fbe753cd8d82dc400ca71bb8ef68edd2446d2d9d7b4904e52310020ce"
 
+  bottle do
+    cellar :any
+    sha256 "4e1c66e12e7a4a7d875beae33334c644ee2fd177c517e60467671400c9dab116" => :high_sierra
+    sha256 "44ada04a79fe5e0f17a06adcf926cc1da98b16db1efcdc257df200bca3d00e96" => :sierra
+    sha256 "d3bf69232d7066332801c6ea40940970c1c2218f67e1f8dd89d128f4bc97ed13" => :el_capitan
+  end
+
   depends_on "python"
 
   resource "asn1crypto" do
