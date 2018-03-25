@@ -5,8 +5,8 @@ class DhallJson < Formula
 
   desc "Dhall to JSON compiler and a Dhall to YAML compiler"
   homepage "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library"
-  url "https://hackage.haskell.org/package/dhall-json-1.0.12/dhall-json-1.0.12.tar.gz"
-  sha256 "4b493f17914f659ce42f656104b9ffbd7847f8d19455c447c8af33779cd39a9c"
+  url "https://hackage.haskell.org/package/dhall-json-1.0.13/dhall-json-1.0.13.tar.gz"
+  sha256 "3a256300d29feb19181280272fd7df79aecbb82e3429084e9255bdae59fa570f"
   head "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library.git"
 
   bottle do
@@ -19,20 +19,8 @@ class DhallJson < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
-  # Remove when dhall > 1.11.1 is released
-  # See https://github.com/dhall-lang/dhall-haskell/pull/330
-  resource "dhall" do
-    url "https://github.com/dhall-lang/dhall-haskell.git",
-        :revision => "ed2041ee7709969ca63b4d9d1a82a34ffc145f3d"
-  end
-
   def install
-    (buildpath/"dhall").install resource("dhall")
-
-    cabal_sandbox do
-      cabal_sandbox_add_source "dhall"
-      install_cabal_package
-    end
+    install_cabal_package
   end
 
   test do
