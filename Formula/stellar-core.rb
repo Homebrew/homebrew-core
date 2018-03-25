@@ -3,7 +3,8 @@ class StellarCore < Formula
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
     :tag => "v9.2.0",
-    :revision => "a8b6a9dcb6550ce652dc9f81bc92a28be7c9baf8"
+    :revision => "7561c1d53366ec79b908de533726269e08474f77"
+  revision 1
   head "https://github.com/stellar/stellar-core.git"
 
   bottle do
