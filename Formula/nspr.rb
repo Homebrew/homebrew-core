@@ -39,4 +39,8 @@ class Nspr < Formula
       (bin/"prerr.properties").unlink
     end
   end
+
+  test do
+    system "#{bin}/nspr-config", "--version"
+  end
 end
