@@ -26,4 +26,8 @@ class Libftdi0 < Formula
       system "make", "install"
     end
   end
+
+  test do
+    system "#{bin}/libftdi-config", "--version"
+  end
 end
