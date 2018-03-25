@@ -12,17 +12,18 @@ class Yara < Formula
     sha256 "deba43f8ebc4d52d0d8a17febdebf8cc5b0de6c9f81f28e7d6a03aea2a87abe7" => :el_capitan
   end
 
-  depends_on "libtool" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "libtool" => :build
   depends_on "openssl"
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   def install
     system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-dotnet"
     system "make", "install"
   end
 
