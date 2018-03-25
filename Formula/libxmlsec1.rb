@@ -33,6 +33,11 @@ class Libxmlsec1 < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/xmlsec1", "--version"
+    system "#{bin}/xmlsec1-config", "--version"
+  end
 end
 
 __END__
