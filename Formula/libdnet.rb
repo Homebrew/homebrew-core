@@ -33,4 +33,8 @@ class Libdnet < Formula
                           "--with-python"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/dnet-config", "--version"
+  end
 end
