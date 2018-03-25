@@ -4,8 +4,6 @@ class Weevely < Formula
   url "https://github.com/epinna/weevely3/archive/v3.5.tar.gz"
   sha256 "edb285469b2c8504797c1a35e30d728ddd88b56de37376c4464081c4d1cdbe9e"
 
-  depends_on "python@2"
-
   # Python requirements.txt
   resource "PrettyTable" do
     url "https://files.pythonhosted.org/packages/c7/21/8911c1b4aab57b891a54bcb6b1fab2ef59e80a78f7f699dd3d162ddda87f/prettytable-0.7.tar.bz2"
