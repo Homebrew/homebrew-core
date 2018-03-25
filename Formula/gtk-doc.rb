@@ -6,9 +6,9 @@ class GtkDoc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cbb69696f84bfbe6a6b51a6cd06f63db193f7069753e0473752a49edc424ec2b" => :high_sierra
-    sha256 "cbb69696f84bfbe6a6b51a6cd06f63db193f7069753e0473752a49edc424ec2b" => :sierra
-    sha256 "cbb69696f84bfbe6a6b51a6cd06f63db193f7069753e0473752a49edc424ec2b" => :el_capitan
+    sha256 "be0ea15d4d139ca270cb09222baed7e0107d5ce406086efe8e849a5b547bb3d0" => :high_sierra
+    sha256 "be0ea15d4d139ca270cb09222baed7e0107d5ce406086efe8e849a5b547bb3d0" => :sierra
+    sha256 "be0ea15d4d139ca270cb09222baed7e0107d5ce406086efe8e849a5b547bb3d0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
