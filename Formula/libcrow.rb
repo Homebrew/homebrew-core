@@ -23,6 +23,7 @@ class Libcrow < Formula
     end
   end
 
+  # Basic compile and link against lib test
   test do
     (testpath/"tst.cpp").write <<~EOS
       #include <stdio.h>
