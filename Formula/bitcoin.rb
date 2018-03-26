@@ -42,9 +42,42 @@ class Bitcoin < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
     pkgshare.install "share/rpcauth"
+
+    # Additionally add a testnet executable to run bitcoind testnet daemon
+    plist_path(testnet = true).write testnet_plist
+    plist_path(testnet = true).chmod 0644
   end
 
   plist_options :manual => "bitcoind"
+
+  # Override Formula#plist_name
+  def plist_name(testnet = false)
+    testnet ? super() + "-testnet" : super()
+  end
+
+  # Override Formula#plist_path
+  def plist_path(testnet = false)
+    testnet ? super().dirname + (plist_name(true) + ".plist") : super()
+  end
+
+  def testnet_plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name(testnet = true)}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/bitcoind</string>
+        <string>--testnet</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+    </dict>
+    </plist>
+    EOS
+  end
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
