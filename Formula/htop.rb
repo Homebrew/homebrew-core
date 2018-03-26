@@ -1,19 +1,17 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://hisham.hm/htop/"
-  revision 2
 
   stable do
-    url "https://hisham.hm/htop/releases/2.0.2/htop-2.0.2.tar.gz"
-    sha256 "179be9dccb80cee0c5e1a1f58c8f72ce7b2328ede30fb71dcdf336539be2f487"
+    url "https://hisham.hm/htop/releases/2.1.0/htop-2.1.0.tar.gz"
+    sha256 "3260be990d26e25b6b49fc9d96dbc935ad46e61083c0b7f6df413e513bf80748"
 
-    # Running htop can lead to system freezes on macOS 10.13
-    # https://github.com/hishamhm/htop/issues/682
-    if MacOS.version >= :high_sierra
-      patch do
-        url "https://github.com/hishamhm/htop/commit/b2771218.patch?full_index=1"
-        sha256 "3369f8aed21706d809db062f25fd46bf9c0677712a624697bc5415aa45d5d104"
-      end
+    # Remove for > 2.1.0
+    # Upstream commit from 25 Mar 2018 "Keep scanning threads for versions
+    # before High Sierra 13.0.0 and after 13.3.0."
+    patch do
+      url "https://github.com/hishamhm/htop/commit/52e2884f.patch?full_index=1"
+      sha256 "5daeb1a532cf8e4524a4f3093792a687d77b50c3f78c713b410ebb2bc9ae79b2"
     end
   end
 
@@ -29,11 +27,11 @@ class Htop < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
   end
 
   option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)"
 
+  depends_on "pkg-config" => :build
   depends_on "ncurses" => :optional
 
   def install
