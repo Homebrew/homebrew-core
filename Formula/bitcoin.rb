@@ -70,7 +70,8 @@ class Bitcoin < Formula
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/bitcoind</string>
-        <string>--testnet</string>
+        <string>-testnet</string>
+        <string>-conf=~/Library/Application Support/Bitcoin/testnet3/bitcoin.conf</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
