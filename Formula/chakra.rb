@@ -3,6 +3,7 @@ class Chakra < Formula
   homepage "https://github.com/Microsoft/ChakraCore"
   url "https://github.com/Microsoft/ChakraCore/archive/v1.8.2.tar.gz"
   sha256 "fd5336a1baab8accd7f395f56af7347a70f755f7db46fbf8a8efaffa3eb73243"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,12 @@ class Chakra < Formula
   depends_on "icu4c"
 
   def install
-    system "./build.sh", "--lto-thin", "--static", "--icu=#{Formula["icu4c"].opt_include}", "-j=#{ENV.make_jobs}", "-y"
+    system "./build.sh", "--lto-thin",
+                         "--static",
+                         "--icu=#{Formula["icu4c"].opt_include}",
+                         "--extra-defines=U_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatability
+                         "-j=#{ENV.make_jobs}",
+                         "-y"
     bin.install "out/Release/ch" => "chakra"
   end
 
