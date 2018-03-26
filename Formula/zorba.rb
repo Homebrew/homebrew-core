@@ -3,7 +3,7 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
-  revision 6
+  revision 7
 
   bottle do
     sha256 "f144539eb1107b00dbc7577439559bd18a80d5cc3f7679bba85ca272fa8e4234" => :high_sierra
@@ -25,6 +25,9 @@ class Zorba < Formula
   needs :cxx11
 
   def install
+    # icu4c 61.1 compatability
+    ENV.append "CXXFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+
     ENV.cxx11
 
     args = std_cmake_args
