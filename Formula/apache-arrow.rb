@@ -7,9 +7,9 @@ class ApacheArrow < Formula
 
   bottle do
     cellar :any
-    sha256 "d9b331ee4ebff205e029854c76e41dea5dbc57dfdc98626c1b557ae434840804" => :high_sierra
-    sha256 "c43c8f8198daad4b9580ddd0fc33beda3eac94374a075611f9dd834234e677e6" => :sierra
-    sha256 "64d0e868864c37293a454052420d3203d4e689d4be5a4e6b2892a5a6aac6fd3a" => :el_capitan
+    sha256 "1ae82834e4ea5e8f21df420c767a2c864b826c8bd0cd82a1132cfd34c2f55a33" => :high_sierra
+    sha256 "be0969900ccf82050684deb5c04458a653e67ed5961b75b62656efa11c99c546" => :sierra
+    sha256 "1eca30eb377a3b63dee7e72717c7d3c3a1303be677cf6736ecdc4ddb87b55796" => :el_capitan
   end
 
   depends_on "cmake" => :build
