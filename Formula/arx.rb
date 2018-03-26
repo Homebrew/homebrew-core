@@ -16,7 +16,14 @@ class Arx < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
+
+  # Remove for > 0.2.3; GHC 8.4.1 compat
+  # Upstream commit from 25 Mar 2018 "Updates for new Cabal, GHC and base libraries"
+  patch do
+    url "https://github.com/solidsnack/arx/commit/8ec85a7.patch?full_index=1"
+    sha256 "fc40c128c7aeee75e3ddd10b3df8a81e35b6092ad61efdfa968fd84d50355cf8"
+  end
 
   def install
     cabal_sandbox do
