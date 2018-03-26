@@ -1,9 +1,8 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/mfikes/planck/archive/2.11.0.tar.gz"
-  sha256 "5eb997639d5303c51ab45c7b23c2db7f5a5bafffe5a5b17803521528bef7e92b"
-  revision 1
+  url "https://github.com/mfikes/planck/archive/2.12.0.tar.gz"
+  sha256 "ccaed676a7847becc045c7491b47ab3e218ab7ed7fe937d222e3cda796ab25e3"
   head "https://github.com/mfikes/planck.git"
 
   bottle do
@@ -13,19 +12,15 @@ class Planck < Formula
     sha256 "431bcc466939eae736db3f6212b2eb768b4ce18cf80c493a78f116a94758735d" => :el_capitan
   end
 
+  depends_on "clojure" => :build
   depends_on "cmake" => :build
-  depends_on :java => ["1.8", :build]
   depends_on "pkg-config" => :build
-  depends_on "leiningen" => :build
   depends_on :xcode => :build
   depends_on "libzip"
   depends_on "icu4c"
   depends_on :macos => :mavericks
 
   def install
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
-
     system "./script/build-sandbox"
     bin.install "planck-c/build/planck"
   end
