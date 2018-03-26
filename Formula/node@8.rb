@@ -3,6 +3,7 @@ class NodeAT8 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v8.11.0/node-v8.11.0.tar.xz"
   sha256 "1ad354cf4ac96a904007b907fc1fe7fa2fd3692036da0c2fb1790f7a0204ab3f"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
@@ -33,6 +34,9 @@ class NodeAT8 < Formula
   end
 
   def install
+    # icu4c 61.1 compatability
+    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
