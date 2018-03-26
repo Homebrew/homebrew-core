@@ -1,9 +1,9 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.1.6.src.tgz"
-  version "1.1.6"
-  sha256 "1a4d6e43d6fe8f4dc4b8f504862a4933c7d4f3d0912f780f6efba1d4003d40fd"
+  url "https://binaries.cockroachdb.com/cockroach-v1.1.7.src.tgz"
+  version "1.1.7"
+  sha256 "f6ce7290ba1eac5dd5e94d1ef44cd3c1f52ef01622d0b4a8c8797c0b7cb53b00"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
@@ -23,9 +23,6 @@ class Cockroach < Formula
     go_version = Formula["go"].installed_version.to_s.split(".")[0, 2].join(".")
     inreplace "src/github.com/cockroachdb/cockroach/.go-version",
               /^GOVERS = go.*/, "GOVERS = go#{go_version.gsub(".", "\\.")}.*"
-    # Allow building with Go versions > 1.8.3, which introduced additional LDFLAG whitelisting.
-    # TODO: remove when cockroach's Makefile handles this internally (i.e. >= 1.1.7).
-    ENV["CGO_LDFLAGS_ALLOW"] = "-u_je_zone_register"
     system "make", "install", "prefix=#{prefix}"
   end
 
