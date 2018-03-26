@@ -13,8 +13,8 @@ class Kops < Formula
   end
 
   devel do
-    url "https://github.com/kubernetes/kops/archive/1.9.0-alpha.2.tar.gz"
-    sha256 "7daf04bd4f23cd54b1adea758dcbaf54214adf661219a2cf70d4b0b2d11be003"
+    url "https://github.com/kubernetes/kops/archive/1.9.0-alpha.3.tar.gz"
+    sha256 "4fc91f9d535af36db5032913e27091f1ddd16802c1626721ff26859461662559"
   end
 
   depends_on "go" => :build
