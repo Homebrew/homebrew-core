@@ -3,6 +3,7 @@ class Freeciv < Formula
   homepage "https://freeciv.wikia.com/"
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.11/freeciv-2.5.11.tar.bz2"
   sha256 "4c9c526952fe977cb4b302b8ccf75798fd066c6dde670f72f677fe4964259aad"
+  revision 1
 
   bottle do
     sha256 "ede585a0c8932e511c9744cebcc81337cefcb697d850fb5ad5ecdc7615b0d1bb" => :high_sierra
