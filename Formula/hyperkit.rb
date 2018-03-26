@@ -5,7 +5,7 @@ class Hyperkit < Formula
   sha256 "382933118da3835056203d3d05923b554f36cc41a555a821516e11ccb7d16bf3"
 
   head do
-    url "https://github.com/hishamhm/htop.git"
+    url "https://github.com/moby/hyperkit.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -30,7 +30,7 @@ class Hyperkit < Formula
           mirage-unix prometheus-app
 
     Read more https://github.com/moby/hyperkit#building
-    EOS
+  EOS
   end
 
   test do
