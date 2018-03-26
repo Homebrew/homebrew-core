@@ -17,6 +17,7 @@ class Vim < Formula
   option "with-override-system-vi", "Override system vi"
   option "with-gettext", "Build vim with National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
+  option "with-gui", "Build vim with GUI support"
 
   LANGUAGES_OPTIONAL = %w[lua python@2 tcl].freeze
   LANGUAGES_DEFAULT  = %w[python].freeze
@@ -36,13 +37,13 @@ class Vim < Formula
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on "python@2" => :optional
-  depends_on :x11 if build.with? "client-server"
+  depends_on "python@2" if build.with? ("enable-gui" || "client-server")
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
@@ -67,12 +68,12 @@ class Vim < Formula
     end
 
     opts << "--disable-nls" if build.without? "gettext"
-    opts << "--enable-gui=no"
 
-    if build.with? "client-server"
-      opts << "--with-x"
+    if build.with? ("gui" || "client-server")
+      opts << "--enable-gui=mac"
     else
       opts << "--without-x"
+      opts << "--enable-gui=no"
     end
 
     if build.with?("lua") || build.with?("luajit")
