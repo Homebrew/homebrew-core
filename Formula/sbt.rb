@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v1.1.1/sbt-1.1.1.tgz"
-  sha256 "8a9072155578f06c861be406e7f9fe989b3770d8da4069dd3cb5ad6c6d25c03b"
+  url "https://github.com/sbt/sbt/releases/download/v1.1.2/sbt-1.1.2.tgz"
+  sha256 "5f77ce41a8a1e1faedb5952a2348b3137b9e001d675f2a79c6316496754cd270"
 
   bottle :unneeded
 
