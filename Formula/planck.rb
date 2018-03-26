@@ -12,9 +12,9 @@ class Planck < Formula
     sha256 "431bcc466939eae736db3f6212b2eb768b4ce18cf80c493a78f116a94758735d" => :el_capitan
   end
 
+  depends_on "clojure" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "clojure" => :build
   depends_on :xcode => :build
   depends_on "libzip"
   depends_on "icu4c"
