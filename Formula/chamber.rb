@@ -26,7 +26,8 @@ class Chamber < Formula
 
     cd buildpath/"src/github.com/segmentio/chamber" do
       system "govendor", "sync"
-      system "go", "build", "-o", bin/"chamber"
+      system "go", "build", "-o", bin/"chamber",
+                   "-ldflags", "-X main.Version=#{version}"
       prefix.install_metafiles
     end
   end
