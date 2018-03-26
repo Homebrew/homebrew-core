@@ -1,19 +1,9 @@
 class Vis < Formula
   desc "Vim-like text editor"
   homepage "https://github.com/martanne/vis"
-  revision 2
-
+  url "https://github.com/martanne/vis/archive/v0.5.tar.gz"
+  sha256 "77ea70ebc9c811d88e32199ef5b3ee9b834ac1e880fb61b6d2460f93f0587df5"
   head "https://github.com/martanne/vis.git"
-
-  stable do
-    url "https://github.com/martanne/vis/archive/v0.4.tar.gz"
-    sha256 "f11ba41cfb86dd39475960abfd12469de4da0ccfdb941f1d7680d89d987694c5"
-
-    patch do
-      url "https://github.com/martanne/vis/commit/73ef4885.patch?full_index=1"
-      sha256 "639f2b5ff708327c5d6b5b7d198b24cb4a71a72ae935a92bd765bd532c755603"
-    end
-  end
 
   bottle do
     sha256 "3ae7e1e1213928f4c6fbac2e24c797ac69b0c711cc29011ceaf515a9ce9dd39c" => :high_sierra
