@@ -10,9 +10,9 @@ class Hadolint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e8192a179b4974874d46c2bbf621b7559cffb068f237d4f63c851c598d21648" => :high_sierra
-    sha256 "8d89537863a8e250c76453d34f54351e547f32a82536fec37f7fa760ed185c7c" => :sierra
-    sha256 "9fb279e76aecfca33d8ae011357d3efa32296c2bc693c6866e318f01a52efe9a" => :el_capitan
+    sha256 "e62a9df8357e01bb926bb5704d11941a48b9fdb2752838ef8a749b6fcdce75f6" => :high_sierra
+    sha256 "40a74bc9e04828c03f272915eeddec2a5deaa886aac5f4c6736a7089e3af41b3" => :sierra
+    sha256 "3574a3298c616f68428bfd2dffe193d4f397fea49cfee3706fcc02998ed8609d" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
