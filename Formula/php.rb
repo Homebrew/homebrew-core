@@ -3,7 +3,7 @@ class Php < Formula
   homepage "https://php.net/"
   url "https://php.net/get/php-7.2.3.tar.xz/from/this/mirror"
   sha256 "b3a94f1b562f413c0b96f54bc309706d83b29ac65d9b172bc7ed9fb40a5e651f"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 1
@@ -67,6 +67,9 @@ class Php < Formula
 
     # Required due to icu4c dependency
     ENV.cxx11
+
+    # icu4c 61.1 compatability
+    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     config_path = etc/"php/#{php_version}"
     # Prevent homebrew from harcoding path to sed shim in phpize script
