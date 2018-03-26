@@ -1,6 +1,7 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
+  revision 1
 
   stable do
     url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.18.tar.xz"
