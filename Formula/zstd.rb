@@ -6,9 +6,9 @@ class Zstd < Formula
 
   bottle do
     cellar :any
-    sha256 "f192acbf6c925141880e49918cf70a9f81a6805daab511f37a01d8b8f35bcf93" => :high_sierra
-    sha256 "6bb1f29f9f011a84758bc626e203255ac49613b283f96b5a01edac38d8a8baae" => :sierra
-    sha256 "0c615c0f91b014e3b627f2ac9d3653b009fa9eca9a1fdfc6f7370d89de9af6ec" => :el_capitan
+    sha256 "ebc051190f4c96ce8df6bc1cc9638402b31472a5054716ac18eb0eece19c53ef" => :high_sierra
+    sha256 "d5909c9a1c8b4ccb85496472104625d1ef9613e21400ff3e59c9c5a8859d6da7" => :sierra
+    sha256 "2dc1d15fd5f7177aca8790c60ad016d689968e93384f752552a291eac72a6819" => :el_capitan
   end
 
   option "without-pzstd", "Build without parallel (de-)compression tool"
