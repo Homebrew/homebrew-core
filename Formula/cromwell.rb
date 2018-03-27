@@ -15,8 +15,8 @@ class Cromwell < Formula
   depends_on "akka"
 
   resource "womtool" do
-    url "https://github.com/broadinstitute/cromwell/releases/download/30.2/womtool-30.2.jar"
-    sha256 "c2dc455a50585a17318ca5b818015f7b2cf9ef99961555650dd7844a928dffc2"
+    url "https://github.com/broadinstitute/cromwell/releases/download/31/womtool-31.jar"
+    sha256 "73bcae7efc60f9c38795f704c2a6a7a3a702989af35704ade637eead9f084067"
   end
 
   def install
