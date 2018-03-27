@@ -19,6 +19,7 @@ class FfmpegAT28 < Formula
   option "without-xvid", "Disable Xvid MPEG-4 video encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
   option "without-securetransport", "Disable use of SecureTransport"
+  option "without-avx2", "Disable AVX2 optimization"
 
   option "with-rtmpdump", "Enable RTMP protocol"
   option "with-libass", "Enable ASS/SSA subtitle format"
@@ -133,6 +134,7 @@ class FfmpegAT28 < Formula
     args << "--enable-libdcadec" if build.with? "dcadec"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
+    args << "--disable-avx2" if build.without? "avx2"
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
