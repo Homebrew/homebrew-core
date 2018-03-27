@@ -3,6 +3,7 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.26/libgit2-glib-0.26.4.tar.xz"
   sha256 "97610e42427a0c86ac46b89d5020fb8decb39af47b9dc49f8d078310b4c21e5a"
+  revision 1
   head "https://github.com/GNOME/libgit2-glib.git"
 
   bottle do
@@ -27,6 +28,13 @@ class Libgit2Glib < Formula
     inreplace "libgit2-glib/meson.build",
               "libgit2_glib_link_args = [ '-Wl,-Bsymbolic-functions' ]",
               "libgit2_glib_link_args = []"
+
+    # Upstream issue from 2 Apr 2018 "libgit2 0.27.0 FTB: ggit-config.c:298:41:
+    # error: too few arguments to function call"
+    # See https://bugzilla.gnome.org/show_bug.cgi?id=794890
+    inreplace "libgit2-glib/ggit-config.c",
+              /(\(git_config_level_t\)level,)(\n\s+)(force\);)/,
+              "\\1\\2NULL,\\2\\3"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
