@@ -1,6 +1,6 @@
 class Ballerina < Formula
   desc "The flexible, powerful and beautiful programming language"
-  homepage "https://ballerinalang.org"
+  homepage "https://ballerinalang.org/"
   url "https://ballerinalang.org/downloads/ballerina-tools/ballerina-tools-0.964.0.zip"
   sha256 "0ea872b63807e7e59105a353e9f7b571d8321526e3defe6a1773dc44fb6c0c7c"
 
@@ -16,13 +16,11 @@ class Ballerina < Formula
     chmod 0755, "bin/composer"
 
     inreplace ["bin/ballerina"] do |s|
-      # Translate ballerina script
       s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{libexec}"
       s.gsub! /\r?/, ""
     end
 
     inreplace ["bin/composer"] do |s|
-      # Translate composer script
       s.gsub! /^BASE_DIR=.*$/, "BASE_DIR=#{libexec}/bin"
       s.gsub! /^PRGDIR=.*$/, "PRGDIR=#{libexec}/bin"
       s.gsub! /\r?/, ""
