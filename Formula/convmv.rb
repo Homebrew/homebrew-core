@@ -1,8 +1,8 @@
 class Convmv < Formula
   desc "Filename encoding conversion tool"
   homepage "https://www.j3e.de/linux/convmv/"
-  url "https://www.j3e.de/linux/convmv/convmv-2.04.tar.gz"
-  sha256 "de1b794cbc73cb9816869b1e3ae358ad9455ced5a4504b1e5cd0084a63b0bd1c"
+  url "https://www.j3e.de/linux/convmv/convmv-2.05.tar.gz"
+  sha256 "53b6ac8ae4f9beaee5bc5628f6a5382bfd14f42a5bed3d881b829d7b52d81ca6"
 
   bottle do
     cellar :any_skip_relocation
