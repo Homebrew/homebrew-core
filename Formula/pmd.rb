@@ -6,9 +6,9 @@ class Pmd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "37df85f9e243892c9e64ef0ad1a8723fa69c9aabbe376d3aa551a0107a8fed71" => :high_sierra
-    sha256 "922fd4bcdbee1fb84e9499c1208ad70b56292d76c77fe0d2694532081362f018" => :sierra
-    sha256 "16684ba9d0df50905562445e85005956f6bd4c5323b92157656d2ad55439d30a" => :el_capitan
+    sha256 "3d39df025d87e96be861c0b5ff04c537981995988dc2134ddef8b3fcfa7eb42b" => :high_sierra
+    sha256 "029e5ebb8b16fffc8239feaff2312d5e1b14cb28d4a4d41c05adfea8ae11c653" => :sierra
+    sha256 "dbf599d9117d7606787743f15e083be40c8c65510d80c24ed9e972e92e4d12ac" => :el_capitan
   end
 
   depends_on :java => "1.8+"
