@@ -24,4 +24,8 @@ class AtSpi2Core < Formula
                           "--enable-introspection=yes"
     system "make", "install"
   end
+
+  test do
+    system "#{libexec}/at-spi2-registryd", "-h"
+  end
 end
