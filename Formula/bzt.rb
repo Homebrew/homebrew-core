@@ -1,9 +1,9 @@
 class Bzt < Formula
   include Language::Python::Virtualenv
   desc "BlazeMeter Taurus"
-  homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.10.5.tar.gz"
-  sha256 "636eb56f851f8c9bab0632a4019cca2ac775b5bb08de5d51557c3806f996f768"
+  homepage "https://gettaurus.org"
+  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.11.0.tar.gz"
+  sha256 "fbb728ee61ebd7e4755d7d9f63ad73e5e70e29fbcf12b9d5333a808bf0728927"
   head "https://github.com/greyfenrir/taurus.git"
 
   bottle do
@@ -16,8 +16,13 @@ class Bzt < Formula
   depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "apiritif" do
-    url "https://files.pythonhosted.org/packages/72/ef/302a89b0106abc43dcd413a67a37d77a28c0690c5037ff38f33a126a192d/apiritif-0.5.tar.gz"
-    sha256 "9428df3cb32ec0d0424c14c7b1c8470892cec2edb3a8adb4424fc845c4acc1fe"
+    url "https://files.pythonhosted.org/packages/ac/c6/d35c41b41783eb91308cc67a1a12b34dd7e578ff9a49616c8fff8ca29a6d/apiritif-0.6.1.tar.gz"
+    sha256 "335f28cb6e1552025d075bacc7a0bc56729713ffdbb4bfa2f9fd2bd2d394918e"
+  end
+
+  resource "Appium-Python-Client" do
+    url "https://files.pythonhosted.org/packages/92/7e/b308cc3d94065a7491582d50343920f10ad441cab5f79ef9602f022d479f/Appium-Python-Client-0.26.tar.gz"
+    sha256 "235bcb824f187df80e5b1af79064894a51d88b6711c051f9f953ee0aa29bce8e"
   end
 
   resource "astunparse" do
@@ -70,6 +75,11 @@ class Bzt < Formula
     sha256 "a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"
   end
 
+  resource "hdrpy" do
+    url "https://files.pythonhosted.org/packages/89/10/5ac25aa3ded05d00962af898f3a3b2b5d773a3b13c651f6514f59e31c97c/hdrpy-0.3.1.tar.gz"
+    sha256 "98daaa42a5ce9a9781502bcf0273ef49d5bb33445d75718c032520bd11ebdf07"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
     sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
@@ -86,13 +96,23 @@ class Bzt < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
-    sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
+    url "https://files.pythonhosted.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"
+    sha256 "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"
+  end
+
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/db/0b/f5660bf6299ec5b9f17bd36096fa8148a1c843fa77ddfddf9bebac9301f7/more-itertools-4.1.0.tar.gz"
+    sha256 "c9ce7eccdcb901a2c75d326ea134e0886abfbea5f93e91cc95de9507c0816c44"
   end
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
     sha256 "f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
+  end
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/0b/66/86185402ee2d55865c675c06a5cfef742e39f4635a4ce1b1aefd20711c13/numpy-1.14.2.zip"
+    sha256 "facc6f925c3099ac01a1f03758100772560a0b020fb9d70f210404be08006bcb"
   end
 
   resource "pluggy" do
@@ -101,8 +121,8 @@ class Bzt < Formula
   end
 
   resource "ply" do
-    url "https://files.pythonhosted.org/packages/ce/3d/1f9ca69192025046f02a02ffc61bfbac2731aab06325a218370fd93e18df/ply-3.10.tar.gz"
-    sha256 "96e94af7dd7031d8d6dd6e2a8e0de593b511c211a86e28a9c9621c275ac8bacb"
+    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
+    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
   end
 
   resource "progressbar33" do
@@ -116,13 +136,13 @@ class Bzt < Formula
   end
 
   resource "py" do
-    url "https://files.pythonhosted.org/packages/90/e3/e075127d39d35f09a500ebb4a90afd10f9ef0a1d28a6d09abeec0e444fdd/py-1.5.2.tar.gz"
-    sha256 "ca18943e28235417756316bfada6cd96b23ce60dd532642690dcfdaba988a76d"
+    url "https://files.pythonhosted.org/packages/f7/84/b4c6e84672c4ceb94f727f3da8344037b62cee960d80e999b1cd9b832d83/py-1.5.3.tar.gz"
+    sha256 "29c9fab495d7528e80ba1e343b958684f4ace687327e6f789a94bf3d1915f881"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/a8/84/25b93a15997be680fc8ce1a7b9315b03650ced546908e5008c0912b1c2e1/pytest-3.4.0.tar.gz"
-    sha256 "6074ea3b9c999bd6d0df5fa9d12dd95ccd23550df2a582f5f5b848331d2e82ca"
+    url "https://files.pythonhosted.org/packages/2d/56/6019153cdd743300c5688ab3b07702355283e53c83fbf922242c053ffb7b/pytest-3.5.0.tar.gz"
+    sha256 "fae491d1874f199537fd5872b5e1f0e74a009b979df9d53d1553fd03da1703e1"
   end
 
   resource "PyVirtualDisplay" do
@@ -141,8 +161,8 @@ class Bzt < Formula
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/b4/54/ba7059b254a72fc30f1d8b838eb951003ee6e5ba716bb9b0ce0e4c58e308/selenium-3.9.0.tar.gz"
-    sha256 "a34a833d89bcfb463bfba5e5515a9276bb94221787b409f0ad28d2f91903e31d"
+    url "https://files.pythonhosted.org/packages/d4/28/8124d32415bd3d67fabea52480395427576b582771283e89ce10a56d9e5b/selenium-3.11.0.tar.gz"
+    sha256 "5841fb30c3965866220c34d16de8e3d091e2833fcac385160a63db0c3522a297"
   end
 
   resource "six" do
