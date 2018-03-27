@@ -1,9 +1,8 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.3.0.tar.gz"
-  sha256 "aa92634c1c97d99966cf16c4a0845792941358c063409fa00c28b4039c961c25"
-  revision 3
+  url "https://github.com/dartsim/dart/archive/v6.4.0.tar.gz"
+  sha256 "7a9e6e081d1cb910a7c9c996d76dd48ddca15b798c6d9a3cc7664534e5d28a84"
 
   bottle do
     sha256 "1d42c8518e5ca9b1e3385dda95714e4c0dc1d4cee75eeae1c2a690a071080faf" => :high_sierra
@@ -24,7 +23,6 @@ class Dartsim < Formula
   depends_on "nlopt"
   depends_on "ode"
   depends_on "open-scene-graph"
-  depends_on "tinyxml"
   depends_on "tinyxml2"
   depends_on "urdfdom"
 
@@ -47,7 +45,7 @@ class Dartsim < Formula
     EOS
     system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
                     "-I#{include}", "-L#{lib}", "-ldart",
-                    "-lassimp", "-std=c++11", "-o", "test"
+                    "-lassimp", "-lboost_system", "-std=c++11", "-o", "test"
     system "./test"
   end
 end
