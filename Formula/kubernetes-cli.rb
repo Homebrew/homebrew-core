@@ -7,9 +7,9 @@ class KubernetesCli < Formula
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
-    sha256 "27b9f80b2d111d9760726b9499cd14e43b3ea77c5ae59bb5b7117b7c9aa11c53" => :high_sierra
-    sha256 "a9719aca8b2c072cbd0e2b5452f73a2510201072803f8e5a4011f8bb56a5344b" => :sierra
-    sha256 "c596c95f233be91068f074bbd5878858ad5d8ecd8c6219c24f00b75274067e7f" => :el_capitan
+    sha256 "ef0eae7ae4f6c157138fd53aa89c8ea5fecd8875809c406c7db21285140d5cc1" => :high_sierra
+    sha256 "4f5e5e49d09e8c58ab52b5954e4de5a3a8e2fd1551a42093b1b9494f01f0c770" => :sierra
+    sha256 "35c7fdcff5127a4fa597e22ed7a0655e4e471f2e6c7b628b7eb3da47f0306a71" => :el_capitan
   end
 
   # kubernetes-cli will not support go1.10 until version 1.11.x
