@@ -4,6 +4,12 @@ class Qsoas < Formula
   url "http://bip.cnrs-mrs.fr/bip06/qsoas/downloads/qsoas-2.2.0.tar.gz"
   sha256 "acefcbb4286a6e0bf96353f924115d04a77d241962ceda890508bca19ee3b4f6"
 
+  bottle do
+    sha256 "2864c431780caeff59926d6c51d2a5a925814b33d172b03065f8713d2b9d49ee" => :high_sierra
+    sha256 "8fd2e6ddb2224a9b00218572dc9e6f74ae45df730e468250b8674cf116975471" => :sierra
+    sha256 "34be95fb5a3919dad8d41579e1822bd9ba46a553c96b4f8f90268ef3491e228a" => :el_capitan
+  end
+
   depends_on "gsl"
   depends_on "mruby"
   depends_on "qt"
