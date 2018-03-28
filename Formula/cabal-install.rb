@@ -1,9 +1,9 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-2.0.0.1/cabal-install-2.0.0.1.tar.gz"
-  sha256 "f991e36f3adaa1c7e2f0c422a2f2a4ab21b7041c82a8896f72afc9843a0d5d99"
-  head "https://github.com/haskell/cabal.git", :branch => "2.0"
+  url "https://hackage.haskell.org/package/cabal-install-2.2.0.0/cabal-install-2.2.0.0.tar.gz"
+  sha256 "c856a2dd93c5a7b909597c066b9f9ca27fbda1a502b3f96077b7918c0f64a3d9"
+  head "https://github.com/haskell/cabal.git", :branch => "2.2"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,7 @@ class CabalInstall < Formula
     sha256 "1d194910abf09edaa50a09c8c1732f2801ed7efd21b06cb982c0d90a990d5b56" => :el_capitan
   end
 
-  depends_on "ghc@8.2"
+  depends_on "ghc"
 
   fails_with :clang if MacOS.version <= :lion # Same as ghc.rb
 
@@ -25,7 +25,6 @@ class CabalInstall < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["ghc@8.2"].opt_bin
-    system "#{bin}/cabal", "--config-file=#{testpath}/config", "info", "cabal"
+    system "#{bin}/cabal", "--config-file=#{testpath}/config", "info", "Cabal"
   end
 end
