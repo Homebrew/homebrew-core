@@ -1,8 +1,8 @@
 class Lmod < Formula
   desc "Lua-based environment modules system to modify PATH variable"
   homepage "https://www.tacc.utexas.edu/research-development/tacc-projects/lmod"
-  url "https://github.com/TACC/Lmod/archive/7.7.23.tar.gz"
-  sha256 "63d78cbab6041d9a29200613ffd41dcb103790d4dd6ed3dc60857e236cf5b79c"
+  url "https://github.com/TACC/Lmod/archive/7.7.24.tar.gz"
+  sha256 "d25238c35e467b8b2994f6a150a64550c1d4fa5331c79ae0300da0973adcfc70"
 
   bottle do
     cellar :any_skip_relocation
