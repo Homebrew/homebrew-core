@@ -1,6 +1,6 @@
 class PhpCsFixer < Formula
   desc "Tool to automatically fix PHP coding standards issues"
-  homepage "https://wp-cli.org/"
+  homepage "https://cs.sensiolabs.org/"
   url "https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.11.1/php-cs-fixer.phar"
   version "2.11.1"
   sha256 "cb1092637760c7283f63af3ef74ae835a861b123f8592a0aa195bd757cd1e088"
