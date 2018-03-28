@@ -13,7 +13,7 @@ class Mint < Formula
   test do
     # Test by showing the help scree
     system "#{bin}/mint", "--help"
-    # Test by building and running mint by using mint itself and showing the help
-    system "#{bin}/mint", "run", "yonaskolb/mint@0.7.1", "mint", "--help"
+    # Test showing list of installed tools
+    system "#{bin}/mint", "list"
   end
 end
