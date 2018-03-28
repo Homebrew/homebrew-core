@@ -3,6 +3,7 @@ class Mapnik < Formula
   homepage "http://www.mapnik.org/"
   url "https://github.com/mapnik/mapnik/releases/download/v3.0.19/mapnik-v3.0.19.tar.bz2"
   sha256 "5bf17afaf456e63021a4c948e25cf5e756782ef369226441a1e436adc3e790e9"
+  revision 1
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
@@ -49,6 +50,7 @@ class Mapnik < Formula
             "CXX=\"#{ENV.cxx}\"",
             "PREFIX=#{prefix}",
             "CUSTOM_CXXFLAGS=\"-DBOOST_EXCEPTION_DISABLE\"",
+            "CUSTOM_DEFINES=-DU_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatability
             "ICU_INCLUDES=#{icu}/include",
             "ICU_LIBS=#{icu}/lib",
             "JPEG_INCLUDES=#{jpeg}/include",
