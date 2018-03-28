@@ -7,7 +7,7 @@ class Clojure < Formula
   bottle :unneeded
 
   depends_on :java => "1.8+"
-  depends_on "rlwrap"
+  depends_on "rlwrap" => :recommended
 
   def install
     system "./install.sh", prefix
