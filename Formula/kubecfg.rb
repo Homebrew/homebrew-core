@@ -43,6 +43,9 @@ class Kubecfg < Formula
   end
 
   test do
-    system "#{bin}/kubecfg", "show", "#{share}/lib/kubecfg_test.jsonnet"
+    output, status = Open3.capture2("#{bin}/kubecfg", "show",
+      "#{share}/lib/kubecfg_test.jsonnet")
+    assert_equal 0, status
+    assert_equal "---\napiVersion: test\nkind: Result\nresult: SUCCESS\n", output
   end
 end
