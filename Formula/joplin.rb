@@ -7,9 +7,9 @@ class Joplin < Formula
   sha256 "c1f1b19f0d078cd232bce5f62e8ec4f1a69bfcddf1cb90701c7cd7a4ecc59613"
 
   bottle do
-    sha256 "495883e6ab9215d34af1943ada3cc98a6002681c97670c3d2d010714d3a1f91c" => :high_sierra
-    sha256 "b7aa58ce4f7dfc16d04962c509983eea9659a3d11c0cae7b498edeae6664bc8a" => :sierra
-    sha256 "204fc084b02f00a1d9be0b7e58dc20e791a4be2334658e2d0ff1533d06395b71" => :el_capitan
+    sha256 "e6a2d46d4a252486272556c71f3b39250406556924eeddbea732aa794a27b700" => :high_sierra
+    sha256 "1601f5efb1b92c1006b3832a17dcd6a844546e86a150d6c54e7effde9fe83439" => :sierra
+    sha256 "39314499551b6fb63782bc70c5bc669392688cbe1affabbf3090b04569b8b08b" => :el_capitan
   end
 
   depends_on "node"
