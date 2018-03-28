@@ -1,9 +1,8 @@
 class RubyAT22 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.9.tar.xz"
-  sha256 "313b44b1105589d00bb30b9cccf7da44d263fe20a2d8d269ada536d4a7ef285c"
-  revision 3
+  url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.10.tar.xz"
+  sha256 "bf77bcb7e6666ccae8d0882ea12b05f382f963f0a9a5285a328760c06a9ab650"
 
   bottle do
     sha256 "f9c1dc7448f56420663ae8ba0374c130b8ac77de219a0bd57318da8ce1ab26c2" => :high_sierra
