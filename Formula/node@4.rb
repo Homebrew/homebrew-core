@@ -1,9 +1,8 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.8.7/node-v4.8.7.tar.xz"
-  sha256 "03479a8ce6affedde75d80a6c8c351a7afb5a85b8d7e5119ab6f349100e641f8"
-  revision 1
+  url "https://nodejs.org/dist/v4.9.0/node-v4.9.0.tar.xz"
+  sha256 "a1b271c585f45e2f17c6a211bc87028c448d54f4418a494d5ae62d114ecbb69f"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
@@ -51,11 +50,7 @@ class NodeAT4 < Formula
 
   def post_install
     return if build.without? "npm"
-
-    (lib/"node_modules/npm/npmrc").atomic_write <<~EOS
-      prefix = #{HOMEBREW_PREFIX}
-      python = /usr/bin/python
-    EOS
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   def caveats
