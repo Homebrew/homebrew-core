@@ -3,7 +3,7 @@ class GitFtp < Formula
   homepage "https://git-ftp.github.io/"
   url "https://github.com/git-ftp/git-ftp/archive/1.4.0.tar.gz"
   sha256 "080e9385a9470d70a5a2a569c6e7db814902ffed873a77bec9d0084bcbc3e054"
-  revision 5
+  revision 6
   head "https://github.com/git-ftp/git-ftp.git", :branch => "develop"
 
   bottle do
@@ -28,14 +28,15 @@ class GitFtp < Formula
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{libexec}",
+                            "--disable-ares",
                             "--with-darwinssl",
+                            "--with-libssh2",
+                            "--without-brotli",
                             "--without-ca-bundle",
                             "--without-ca-path",
-                            "--with-libssh2",
-                            "--without-libmetalink",
                             "--without-gssapi",
-                            "--without-librtmp",
-                            "--disable-ares"
+                            "--without-libmetalink",
+                            "--without-librtmp"
       system "make", "install"
     end
 
