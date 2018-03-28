@@ -1,8 +1,8 @@
 class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
-  url "https://github.com/rembo10/headphones/archive/v0.5.18.tar.gz"
-  sha256 "5558669ee64448c82a90a4f2d8755ef9e7337b95b44354772fb2898769a04aeb"
+  url "https://github.com/rembo10/headphones/archive/v0.5.19.tar.gz"
+  sha256 "604365d356c2079bd55955aa8448a70c39cc5f32a71049a49876847423ce5d12"
   head "https://github.com/rembo10/headphones.git"
 
   bottle do
@@ -14,8 +14,8 @@ class Headphones < Formula
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/d4/32/642bd580c577af37b00a1eb59b0eaa996f2d11dfe394f3dd0c7a8a2de81a/Markdown-2.6.7.tar.gz"
-    sha256 "daebf24846efa7ff269cfde8c41a48bb2303920c7b2c7c5e04fa82e6282d05c0"
+    url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"
+    sha256 "a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
   end
 
   resource "Cheetah" do
