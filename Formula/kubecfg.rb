@@ -6,7 +6,6 @@ class Kubecfg < Formula
   head "https://github.com/ksonnet/kubecfg.git"
 
   depends_on "go" => :build
-  depends_on "go-bindata" => :build if build.head?
 
   def install
     # Standard gopath shenanigans to keep "go build" happy:
@@ -19,7 +18,6 @@ class Kubecfg < Formula
     cd srcdir do
       args = []
       args.push("VERSION=#{version}") unless build.head?
-      system "make", "generate", *args if build.head?
       system "make", *args
       system "make", "test", *args if build.head?
     end
