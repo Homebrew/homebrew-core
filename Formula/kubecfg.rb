@@ -16,6 +16,13 @@ class Kubecfg < Formula
     mv sources, srcdir
     # The real build steps:
     cd srcdir do
+      # v0.7.2 doesn't yet include kubecfg.jsonnet in the binary, so
+      # let's add its location to the search path by default. This can
+      # be removed when v0.7.3 is released.
+      unless build.head?
+        inreplace "cmd/root.go", "JPaths: searchPaths",
+          "JPaths: append(searchPaths, \"#{share}/lib\")"
+      end
       args = []
       args.push("VERSION=v#{version}") unless build.head?
       system "make", *args
@@ -30,9 +37,8 @@ class Kubecfg < Formula
   end
 
   def caveats; <<~EOS
-    The builtin template "kubecfg.libsonnet" is installed for reference at:
-      #{lib}/kubecfg.libsonnet
-    but changing that file won't affect the compiled-in template.
+    The template directory #{lib} is the default library search
+    path. Set KUBECFG_JPATH in the environment to add to the search path.
 
     You can find more useful templates at:
       https://github.com/ksonnet/ksonnet-lib/releases
