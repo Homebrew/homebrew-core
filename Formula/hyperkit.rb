@@ -11,26 +11,39 @@ class Hyperkit < Formula
     depends_on "automake" => :build
   end
 
-  def install
-    system "make"
-    bin.install "build/hyperkit"
+  option "with-qcow", "Enable support for qcow disk image format"
+  if build.with? "qcow"
+    depends_on "ocaml" => :build
+    depends_on "opam" => :build
+    depends_on "libev"
   end
 
-  def caveats; <<~EOS
-    To enable qcow support in the block backend an OCaml OPAM development
-    environment is required with the qcow module available.
+  def install
+    if build.with? "qcow"
+      system "opam", "init", "--no-setup"
+      opam_dir = "#{buildpath}/.brew_home/.opam"
+      ENV["CAML_LD_LIBRARY_PATH"] = "#{opam_dir}/system/lib/stublibs:/usr/local/lib/ocaml/stublibs"
+      ENV["OPAMUTF8MSGS"] = "1"
+      ENV["PERL5LIB"] = "#{opam_dir}/system/lib/perl5"
+      ENV["OCAML_TOPLEVEL_PATH"] = "#{opam_dir}/system/lib/toplevel"
+      ENV.prepend_path "PATH", "#{opam_dir}/system/bin"
 
-    A suitable environment can be setup by installing opam and libev via
-    brew and using opam to install the appropriate libraries:
+      inreplace "#{opam_dir}/compilers/4.05.0/4.05.0/4.05.0.comp",
+        '["./configure"', '["./configure" "-no-graph"' # Avoid X11
 
-      $ brew install opam libev && \\
-          opam init && eval `opam config env` && \\
-          opam install uri qcow.0.10.3 conduit.1.0.0 lwt.3.1.0 \\
-          qcow-tool mirage-block-unix.2.9.0 conf-libev logs fmt \\
-          mirage-unix prometheus-app
+      ENV.deparallelize { system "opam", "switch", "4.05.0" }
 
-    Read more https://github.com/moby/hyperkit#building
-  EOS
+      system "opam", "config", "exec", "--",
+             "opam", "install", "-y", "uri", "qcow", "conduit.1.0.0", "lwt.3.1.0",
+             "qcow-tool", "mirage-block-unix.2.9.0", "conf-libev", "logs", "fmt",
+             "mirage-unix", "prometheus-app"
+
+      system "opam", "config", "exec", "--", "make"
+    else
+      system "make"
+    end
+
+    bin.install "build/hyperkit"
   end
 
   test do
