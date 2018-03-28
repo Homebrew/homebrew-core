@@ -17,7 +17,7 @@ class Kubecfg < Formula
     # The real build steps:
     cd srcdir do
       args = []
-      args.push("VERSION=#{version}") unless build.head?
+      args.push("VERSION=v#{version}") unless build.head?
       system "make", *args
       system "make", "test", *args if build.head?
     end
