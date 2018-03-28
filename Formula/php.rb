@@ -2,7 +2,7 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://php.net/"
   url "https://php.net/get/php-7.2.4.tar.xz/from/this/mirror"
-  sha256 "58e28e978baea0fe9009432bcb436934eaacccfdcb5f5409c7526431a595857b"
+  sha256 "7916b1bd148ddfd46d7f8f9a517d4b09cd8a8ad9248734e7c8dd91ef17057a88"
 
   bottle do
     rebuild 1
