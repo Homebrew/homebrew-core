@@ -15,12 +15,12 @@ class Conan < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" if MacOS.version <= :snow_leopard
   depends_on "libffi"
   depends_on "openssl"
+  depends_on "python"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name
