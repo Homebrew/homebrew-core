@@ -82,7 +82,6 @@ class PhpAT56 < Formula
       --enable-bcmath
       --enable-calendar
       --enable-dba
-      --enable-dtrace
       --enable-exif
       --enable-ftp
       --enable-fpm
@@ -159,7 +158,6 @@ class PhpAT56 < Formula
     config_files = {
       "php.ini-development" => "php.ini",
       "sapi/fpm/php-fpm.conf" => "php-fpm.conf",
-      "sapi/fpm/www.conf" => "php-fpm.d/www.conf",
     }
     config_files.each_value do |dst|
       dst_default = config_path/"#{dst}.default"
