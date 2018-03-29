@@ -6,9 +6,9 @@ class Juju < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "efeaa203d0dca65144f40af6f72315899731fc450e3a7475952a6ccda1187094" => :high_sierra
-    sha256 "63ecad2f6ef8a7d1bb4c44b136e3e7593410bf1e825a037cdeade2040a5c23af" => :sierra
-    sha256 "b0ebe42a179d31c7e24ea999e564f4523ac82601aee4c2e768c04b845b5250e6" => :el_capitan
+    sha256 "abc01bb1fb4bfb7bf9bd7f40d2f2e7136a21eff58f56cf30550173dc8bdd8461" => :high_sierra
+    sha256 "5a615e1a619155253f191da2559771329339c11ed7ccff75789ab27ecdb68223" => :sierra
+    sha256 "92509f749c7494fce6480253f881255e46b4d302a9f5045d1f2b3a4e9e649593" => :el_capitan
   end
 
   depends_on "go" => :build
