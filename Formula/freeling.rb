@@ -6,9 +6,9 @@ class Freeling < Formula
   revision 9
 
   bottle do
-    sha256 "5a8a54e6fec19fc08e012942e7956d9052dc8d0e948d4420802bbbe32d42f8fd" => :high_sierra
-    sha256 "9377df49e3b5a89954f251d3d6a382adf7a67fef8657c5dd10ff8705da5dc524" => :sierra
-    sha256 "4aeb8e5fc2a7f18394f1aebce4896c59379f8dc9f6d6e4e5b86e0b2f0fe58aa5" => :el_capitan
+    sha256 "ba96339622bec10fe7b19d8898cc323c8d41a72efd35d5154d6bf7d55b5694ea" => :high_sierra
+    sha256 "6068c82d410ab3903080aff2809d2f8a6c0e69da166b8d4de813e6b3041a443a" => :sierra
+    sha256 "a4ac55575f77608ec3d0f203a8bd68b4337c21fc22810664568091075104158d" => :el_capitan
   end
 
   depends_on "autoconf" => :build
