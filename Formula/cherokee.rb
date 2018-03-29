@@ -71,4 +71,8 @@ class Cherokee < Formula
           sudo launchctl load -w /Library/LaunchDaemons/org.cherokee.webserver.plist
     EOS
   end
+
+  test do
+    assert_match "Version: #{version}", shell_output("#{sbin}/cherokee -i")
+  end
 end
