@@ -3,8 +3,8 @@ class Launchdns < Formula
   homepage "https://github.com/josh/launchdns"
   url "https://github.com/josh/launchdns/archive/v1.0.3.tar.gz"
   sha256 "c34bab9b4f5c0441d76fefb1ee16cb0279ab435e92986021c7d1d18ee408a5dd"
-  head "https://github.com/josh/launchdns.git"
   revision 1
+  head "https://github.com/josh/launchdns.git"
 
   bottle do
     cellar :any_skip_relocation
