@@ -1,8 +1,8 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.3.5.tar.bz2"
-  sha256 "0d2d768eb986f39060783cfebeb68ab352fca9b941e410cfd3e44d5254dfd1d9"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.3.6.tar.bz2"
+  sha256 "7d3baf258e3b05e86a91b6cc33765367710821a9f18c88f11ae1384bb9884528"
 
   bottle do
     cellar :any
