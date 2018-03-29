@@ -4,6 +4,12 @@ class PhpAT71 < Formula
   url "https://php.net/get/php-7.1.15.tar.xz/from/this/mirror"
   sha256 "0e17192fb43532e4ebaa190ecec9c7e59deea7dadb7dab67b19c2081a68bd817"
 
+  bottle do
+    sha256 "8bf2586cb4d7a9f7a78d66326bc571d3b0ee04a86356af8867cd9c2fad43e103" => :high_sierra
+    sha256 "93b691515a9b82e072872c120e73eaf0ffc7e61fd9895fab8f0e366ae0aeeb78" => :sierra
+    sha256 "c3b93272cebb1a01ad37be3353ca38186054f5491c9f0747539c9126af0e41f1" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   depends_on "httpd" => [:build, :test]
