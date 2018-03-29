@@ -21,4 +21,8 @@ class ArgusClients < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    assert_match "Ra Version #{version}", shell_output("#{bin}/ra -h", 1)
+  end
 end
