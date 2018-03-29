@@ -3,8 +3,8 @@ class Ode < Formula
   homepage "http://www.ode.org/"
   url "https://bitbucket.org/odedevs/ode/downloads/ode-0.15.2.tar.gz"
   sha256 "2eaebb9f8b7642815e46227956ca223806f666acd11e31708bd030028cf72bac"
-  head "https://bitbucket.org/odedevs/ode/", :using => :hg
   revision 1
+  head "https://bitbucket.org/odedevs/ode/", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
