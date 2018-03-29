@@ -3,8 +3,8 @@ class Buildapp < Formula
   homepage "https://www.xach.com/lisp/buildapp/"
   url "https://github.com/xach/buildapp/archive/release-1.5.6.tar.gz"
   sha256 "d77fb6c151605da660b909af058206f7fe7d9faf972e2c30876d42cb03d6a3ed"
-  head "https://github.com/xach/buildapp.git"
   revision 1
+  head "https://github.com/xach/buildapp.git"
 
   bottle do
     sha256 "aa14506cc1ab8eb712c9b1fdb71af45c9041b327c9ecdf9d48541b652e3da3be" => :high_sierra
