@@ -5,9 +5,9 @@ class PerconaXtrabackup < Formula
   sha256 "30a122fc3f6678484a118ae7095880393765a00af1f34fcb6cc3f96b66f07f45"
 
   bottle do
-    sha256 "82a5240c5ffc40d1ef2a992217656cf5ca908666f8e78aaeace0b48612068553" => :high_sierra
-    sha256 "477074a6a94d7913d9acde2ca8b1200323ff378003e56d2eaa275f11867afb9d" => :sierra
-    sha256 "1c9f1beb8be3febf3d21255c0e059d10a838593b94fd83b23d8647f0a7b0fe98" => :el_capitan
+    sha256 "cb72c3a73e3ae5c7bb6e792b938a3a2f6a46548cfc297e2be328815aff13b5a4" => :high_sierra
+    sha256 "404795f3f2d5e965abc02b0c0cbb4a9beaa057343c182fc5220f1fee664182e8" => :sierra
+    sha256 "3d973e16cd11550df895d2a9c42e93c883fdceb0edb20d6493fbeb3961e0121b" => :el_capitan
   end
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
