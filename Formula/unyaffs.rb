@@ -1,9 +1,8 @@
 class Unyaffs < Formula
   desc "Extract files from a YAFFS2 filesystem image"
   homepage "https://github.com/ehlers/unyaffs"
-  url "https://github.com/ehlers/unyaffs/archive/0.9.6.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/u/unyaffs/unyaffs_0.9.6.orig.tar.gz"
-  sha256 "33c46419ab5cc5290f3b780f0cc9d93729962799f5eb7cecb9b352b85939fbbf"
+  url "https://github.com/ehlers/unyaffs/archive/0.9.7.tar.gz"
+  sha256 "099ee9e51046b83fe8555d7a6284f6fe4fbae96be91404f770443d8129bd8775"
 
   head "https://github.com/ehlers/unyaffs.git"
 
