@@ -10,11 +10,9 @@ class KaitaiStructCompiler < Formula
 
   def install
     libexec.install Dir["lib/*"]
+    bin.install "bin/kaitai-struct-compiler"
 
-    (bin/"kaitai-struct-compiler").write <<~EOS
-      #!/bin/bash
-      java -cp "#{libexec}/*" io.kaitai.struct.JavaMain "$@"
-    EOS
+    inreplace bin/"kaitai-struct-compiler", /^declare -r lib_dir=.*$/, "declare -r lib_dir='#{libexec}'"
   end
 
   test do
