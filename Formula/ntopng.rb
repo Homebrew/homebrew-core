@@ -27,8 +27,6 @@ class Ntopng < Formula
     end
   end
 
-  option "with-mariadb", "Build with mariadb support"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
@@ -41,8 +39,7 @@ class Ntopng < Formula
   depends_on "rrdtool"
   depends_on "geoip"
   depends_on "redis"
-  depends_on "mysql" if build.without? "mariadb"
-  depends_on "mariadb" => :optional
+  depends_on "mysql"
 
   def install
     resource("nDPI").stage do
