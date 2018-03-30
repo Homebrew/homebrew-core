@@ -32,17 +32,17 @@ class Haxe < Formula
     ENV.deparallelize
 
     if build.head?
-      Dir.mktmpdir("opamroot") { |opamroot|
+      Dir.mktmpdir("opamroot") do |opamroot|
         ENV["OPAMROOT"] = opamroot
         ENV["OPAMYES"] = "1"
         system "opam", "init", "--no-setup"
-        system "opam", "config", "exec", "--", 
+        system "opam", "config", "exec", "--",
           "opam", "pin", "add", "haxe", buildpath, "--no-action"
-        system "opam", "config", "exec", "--", 
+        system "opam", "config", "exec", "--",
           "opam", "install", "haxe", "--deps-only"
         system "opam", "config", "exec", "--",
           "make", "ADD_REVISION=1"
-      }
+      end
     else
       system "make", "OCAMLOPT=ocamlopt.opt"
     end
@@ -59,7 +59,7 @@ class Haxe < Formula
     system "make", "install", "INSTALL_BIN_DIR=#{bin}",
            "INSTALL_LIB_DIR=#{lib}/haxe", "INSTALL_STD_DIR=#{lib}/haxe/std"
 
-    if not build.head?
+    unless build.head?
       # Replace the absolute symlink by a relative one,
       # such that binary package created by homebrew will work in non-/usr/local locations.
       rm bin/"haxe"
