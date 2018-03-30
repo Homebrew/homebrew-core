@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.9/source/tarball/percona-xtrabackup-2.4.9.tar.gz"
-  sha256 "23c1e42ad4161b38edef126cf600e28779788a4d1736cadbb8e8f3dc219135a7"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.10/source/tarball/percona-xtrabackup-2.4.10.tar.gz"
+  sha256 "30a122fc3f6678484a118ae7095880393765a00af1f34fcb6cc3f96b66f07f45"
 
   bottle do
     sha256 "82a5240c5ffc40d1ef2a992217656cf5ca908666f8e78aaeace0b48612068553" => :high_sierra
@@ -29,12 +29,6 @@ class PerconaXtrabackup < Formula
   resource "boost" do
     url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
     sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
-  end
-
-  # Fixes compile when building using Clang. Remove on next release.
-  patch do
-    url "https://github.com/percona/percona-xtrabackup/commit/7862bd714.patch?full_index=1"
-    sha256 "5283b069a4a4ddc5771b80c79813118450e8740f6ec7cf88ad5ef1a1da330b96"
   end
 
   def install
