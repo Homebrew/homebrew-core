@@ -33,8 +33,8 @@ class Haxe < Formula
     ENV.deparallelize
 
     if build.head?
-      mktemp do
-        ENV["OPAMROOT"] = Pathname.pwd
+      Dir.mktmpdir("opamroot") do |opamroot|
+        ENV["OPAMROOT"] = opamroot
         ENV["OPAMYES"] = "1"
         system "opam", "init", "--no-setup"
         system "opam", "config", "exec", "--",
