@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/33/76/c523499b49cc14ddd7c6259ed76d214681a03aefdb0fda2fedc6030f8635/ocrmypdf-6.0.0.tar.gz"
-  sha256 "f8147898d69f79c660a6a29bdb0aa5b4800ea78c89bf33103487c73ca9a00244"
+  url "https://files.pythonhosted.org/packages/0d/bf/ca74b86513a85410ff6e8a28406628f6c5b0e3267502c9d0a81c950909a6/ocrmypdf-6.1.2.tar.gz"
+  sha256 "fcca334ca204b9e4faf846b4f8abe38537eac5bb74fed659793c84c131bfc573"
 
   bottle do
     cellar :any
@@ -29,6 +29,11 @@ class Ocrmypdf < Formula
     sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
+  resource "defusedxml" do
+    url "https://files.pythonhosted.org/packages/74/ba/4ba4e89e21b5a2e267d80736ea674609a0a33cc4435a6d748ef04f1f9374/defusedxml-0.5.0.tar.gz"
+    sha256 "24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"
+  end
+
   resource "img2pdf" do
     url "https://files.pythonhosted.org/packages/7e/a2/4f06081f674920be757d894b4bab874e6a3b5227e730cb7618430b366e69/img2pdf-0.2.4.tar.gz"
     sha256 "140b70fa3a3bfb54e92947818cee01483a4f1492b5d1d02b0f649257f5ffc9ae"
@@ -45,8 +50,8 @@ class Ocrmypdf < Formula
   end
 
   resource "PyMuPDF" do
-    url "https://github.com/rk700/PyMuPDF/archive/v1.12.4.tar.gz"
-    sha256 "252ab28065cf25af621db9a1be6cebe213944454e3a78bf04856e9532be944b7"
+    url "https://files.pythonhosted.org/packages/04/d4/aa5b79592c59fcf9f1837fa92d7d3b171f98abc8cf144b359e4b3a22eae1/PyMuPDF-1.12.5.tar.gz"
+    sha256 "8eece1ce5922b310264dd235c4b457dfd2c3e4c5893130165d5f5168561050f2"
   end
 
   resource "PyPDF2" do
