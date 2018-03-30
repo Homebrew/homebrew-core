@@ -1,15 +1,15 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.0.3.tar.gz"
-  sha256 "37096fe5682098f418f22706a2ad656db855a896aca2037ea13157f22f6c700a"
+  url "https://github.com/grafana/grafana/archive/v5.0.4.tar.gz"
+  sha256 "a25032755ed8a825efbe1ba641de59b002495dcec0a3c92b9606aa3eb35c6439"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a1701eeeb37c0c565260a8168f2efa8ca7905b4696c0d69426a028383a923706" => :high_sierra
-    sha256 "6c9608bb3b80d6372dda2277f31ff30cf4bdac98cd7c178d587f491ea3e0c9c1" => :sierra
-    sha256 "c3907114b3644c52169751497d554e408f6493d5af549d93705584b182b33571" => :el_capitan
+    sha256 "bcf396e04eae62fd6a8dd71f3afa722a39d18a37e2d6c320edd8cb01ddcff826" => :high_sierra
+    sha256 "3602463dd5d34a7b18c654d1bbee001a52f85d725e5da79e2917193b5e29e530" => :sierra
+    sha256 "0406bcab3dac6da556567187454f42a686a48d7699050d91755a38cc2c8c36cb" => :el_capitan
   end
 
   depends_on "go" => :build

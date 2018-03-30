@@ -2,13 +2,13 @@ class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
   # pull from git tag to get submodules
-  url "https://github.com/facebook/osquery/archive/3.2.0.tar.gz"
-  sha256 "91328ab9a322f6859925f69af9005f75792ce128e261f97d0c4e339db55ce23e"
+  url "https://github.com/facebook/osquery/archive/3.2.2.tar.gz"
+  sha256 "160ee0df73fa5e5621ca2798d58f6b1588a05ac6ee5a7315a207d74a26ec328e"
 
   bottle do
     cellar :any
-    sha256 "0a8b3376d3228b129f06f815d408eca013e9075434fd0609cc6973b7aa75d821" => :high_sierra
-    sha256 "ff867762a308a5bc5fb5f4a35f46d23efd1e2b912fb56b208230f37f9cd77b92" => :sierra
+    sha256 "ae9852125be90b724352a59ab1d2641d283cd1697bbe139ec90dae24dabce7ef" => :high_sierra
+    sha256 "74098a9d9e79fc7d8e3d373a953d1e3fcaeef3534da1c652d8e9f74109ce4c0e" => :sierra
   end
 
   fails_with :gcc => "6"

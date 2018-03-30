@@ -3,14 +3,14 @@ class GitFtp < Formula
   homepage "https://git-ftp.github.io/"
   url "https://github.com/git-ftp/git-ftp/archive/1.4.0.tar.gz"
   sha256 "080e9385a9470d70a5a2a569c6e7db814902ffed873a77bec9d0084bcbc3e054"
-  revision 5
+  revision 6
   head "https://github.com/git-ftp/git-ftp.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "340aaf8dfffb1f693ef1d1f2a3f5ab02a47f045465be3309a64eb2050b8e65be" => :high_sierra
-    sha256 "3cf29db89c0524385d18970de6e69eacc6a7c70a3a0f937a450022a236e9729f" => :sierra
-    sha256 "4becd0c46b251a2e7435244f7bee51a01ecab1a1df210a5cef32f8635e6ea031" => :el_capitan
+    sha256 "89d545d5215ce51748b7fc256626a2944030b6d60360cbeb32dea99a148eca22" => :high_sierra
+    sha256 "d6b2b2590cb153007dcb36e0e13968f23ba81553cf51c9687d4283d3ce5a32b6" => :sierra
+    sha256 "d6499eb2817bd56eb0b482b47969d02092016235c613f57c775dc6202b9bd123" => :el_capitan
   end
 
   depends_on "pandoc" => :build
@@ -28,14 +28,15 @@ class GitFtp < Formula
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{libexec}",
+                            "--disable-ares",
                             "--with-darwinssl",
+                            "--with-libssh2",
+                            "--without-brotli",
                             "--without-ca-bundle",
                             "--without-ca-path",
-                            "--with-libssh2",
-                            "--without-libmetalink",
                             "--without-gssapi",
-                            "--without-librtmp",
-                            "--disable-ares"
+                            "--without-libmetalink",
+                            "--without-librtmp"
       system "make", "install"
     end
 

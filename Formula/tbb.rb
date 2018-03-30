@@ -1,14 +1,14 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2018_U2.tar.gz"
-  version "2018_U2"
-  sha256 "78bb9bae474736d213342f01fe1a6d00c6939d5c75b367e2e43e7bf29a6d8eca"
+  url "https://github.com/01org/tbb/archive/2018_U3.tar.gz"
+  version "2018_U3"
+  sha256 "a0be619c741ee399de740ee7192c41a92fbbc7a8f3bda3032d6d6167e13f9dac"
 
   bottle do
-    sha256 "ac31698064d5177e6d72f8f57a8b359b523b4f1cc824d16bdc1ef9c6ed654361" => :high_sierra
-    sha256 "1f200261fcf061bb022503be5cf5e6a69b5c359c64ea475a0ff7698035909d9e" => :sierra
-    sha256 "1b3f01c4baee65f4c321023646cf03ef5cae1aa7dd2ba8b1bfa069bda19c4777" => :el_capitan
+    sha256 "2d06624e2fc0789319e8f23df892c0b808fd2a45fb30be565a424e29279ee81c" => :high_sierra
+    sha256 "e0fe9ea8bb941e2cfd82976fd1d99e60dbe2566c693288952d423d0576e5cd42" => :sierra
+    sha256 "83425ac57613f786a2b2d506ce69258501a771a58da1cc13727dd9209d492432" => :el_capitan
   end
 
   # requires malloc features first introduced in Lion

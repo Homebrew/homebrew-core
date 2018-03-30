@@ -29,4 +29,9 @@ class Arabica < Formula
     system "make", "check" if build.with? "test"
     system "make", "install"
   end
+
+  test do
+    output = shell_output("#{bin}/mangle")
+    assert_match "mangle is an (in-development) XSLT processor", output
+  end
 end

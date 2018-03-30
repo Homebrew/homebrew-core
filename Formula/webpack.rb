@@ -4,14 +4,14 @@ require "json"
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-4.3.0.tgz"
-  sha256 "c5b9483bff07fa51b60cc2cf0f9872ca1ece6db517e6147d138673f9a9366f7e"
+  url "https://registry.npmjs.org/webpack/-/webpack-4.4.1.tgz"
+  sha256 "a381bcc41bf295f80959d1c83409f7823b82fd8dc2ca663a5ea64cc6abf74d88"
   head "https://github.com/webpack/webpack.git"
 
   bottle do
-    sha256 "818fab54e92ca8d95f208709e5bc2dcd7b5897d7b1912348cec92d2a518c3cb5" => :high_sierra
-    sha256 "0224c4011e52c08ad441f4bef4e2963dadb81be44357dbb3b99343ceb474c89c" => :sierra
-    sha256 "c41d1886135833d7c451e3082055d54ae14fb05daf50beb26fedc4317c369def" => :el_capitan
+    sha256 "d109dde096cbb3797789241b7689a1f0262d7d3740a6e7d4c3735ae1b507a40a" => :high_sierra
+    sha256 "7a2df1d28e5eb5710c5596f84344879a56bc57958142325913d04a550ceed660" => :sierra
+    sha256 "cf56cb1ebe3a1dc7441375a6ac1b145f0d1f063c5b191160b2f483ea961ca726" => :el_capitan
   end
 
   depends_on "node"

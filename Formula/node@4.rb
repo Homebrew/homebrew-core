@@ -1,15 +1,14 @@
 class NodeAT4 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.8.7/node-v4.8.7.tar.xz"
-  sha256 "03479a8ce6affedde75d80a6c8c351a7afb5a85b8d7e5119ab6f349100e641f8"
-  revision 1
+  url "https://nodejs.org/dist/v4.9.1/node-v4.9.1.tar.xz"
+  sha256 "d7d1232f948391699c6e98780ac90bdf5889902d639bad41561ac29f03dad401"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
-    sha256 "86663e524c4842d9a6d74bd1ade9d3fbf0040de5eb2c5aef5d95d7aadbc49742" => :high_sierra
-    sha256 "40f84a7f145f6018561b88fa9b788ca004e1e8d8cd5691eca0835f779c775f25" => :sierra
-    sha256 "67669e0465b6b6e1591dbe849da9504502cda65de4b0cf6f09d554533613b4b5" => :el_capitan
+    sha256 "57fc2a966bc0fb00106bfe006c78e87629c92148bfefcc48abba257ebfc375fe" => :high_sierra
+    sha256 "4fbaa797a7605cf388bd38cfb272d0a495398fbbdd12ae6b502512d7d3e95118" => :sierra
+    sha256 "ed69a9cfabb22cdb1390fc86dd6c5d54308a17af8be74fe669cd7b129b163956" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -51,11 +50,7 @@ class NodeAT4 < Formula
 
   def post_install
     return if build.without? "npm"
-
-    (lib/"node_modules/npm/npmrc").atomic_write <<~EOS
-      prefix = #{HOMEBREW_PREFIX}
-      python = /usr/bin/python
-    EOS
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   def caveats

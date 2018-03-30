@@ -3,11 +3,12 @@ class Harfbuzz < Formula
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
   url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-1.7.6.tar.bz2"
   sha256 "da7bed39134826cd51e57c29f1dfbe342ccedb4f4773b1c951ff05ff383e2e9b"
+  revision 1
 
   bottle do
-    sha256 "ab57eb1c6346466cbe47a3c6ca42f4c5d83ea1db25cd86930ea6e6b3dcc39173" => :high_sierra
-    sha256 "59bbe01cce3f015cce7d1256939aea95bdc64ab7f624310341da9e3426a8ef4d" => :sierra
-    sha256 "f72ef07aeed9a3eb492f3b45e958679ae588e86f0580954e00f27c99e3a259c4" => :el_capitan
+    sha256 "92ee4f36d18a62540a4fdfc6b43c23a371e662730684050d70e18eb9dc186cea" => :high_sierra
+    sha256 "aba39fecfd24c86b5ecf318988b2b1dcff9d8efcda2e13095331e7eaa69d4681" => :sierra
+    sha256 "6d1132f1e85cfbc8138aa34220df524bdccb4080ad064e702031296c68782b81" => :el_capitan
   end
 
   head do

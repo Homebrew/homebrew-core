@@ -1,14 +1,14 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.10.0/node-v8.10.0.tar.xz"
-  sha256 "b72d4e71618d6bcbd039b487b51fa7543631a4ac3331d7caf69bdf55b5b2901a"
+  url "https://nodejs.org/dist/v8.11.1/node-v8.11.1.tar.xz"
+  sha256 "40a6eb51ea37fafcf0cfb58786b15b99152bec672cccf861c14d1cca0ad4758a"
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
-    sha256 "e737c61870d5a320b81d97346037fb9d91f65dcf3f3bb6c9aa3cbb2cc233889e" => :high_sierra
-    sha256 "e8e1f9baa66f7ba57078ba1566b20a57e6e4ba7999eef591a2983eb328e8b1a9" => :sierra
-    sha256 "43f77dc6882cc921d389a2e6c121959dc55e971cdd9200c6cc8feedc0845f2e9" => :el_capitan
+    sha256 "5e3ce9b3e65f15b6bcb9a9915b5ca97c01a35d094e17bfbd6748cf5045e8a0cc" => :high_sierra
+    sha256 "0448b3fb796373b1d8f7ac8830260a31aac9d537b6f793fabe9b5bde782298be" => :sierra
+    sha256 "227cf4a570c8bf41b12f18c2903c5ccb92f079ff0b3ec9f11a42e8912dc632cf" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -33,6 +33,9 @@ class NodeAT8 < Formula
   end
 
   def install
+    # icu4c 61.1 compatability
+    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
@@ -46,11 +49,7 @@ class NodeAT8 < Formula
 
   def post_install
     return if build.without? "npm"
-
-    (lib/"node_modules/npm/npmrc").atomic_write <<~EOS
-      prefix = #{HOMEBREW_PREFIX}
-      python = /usr/bin/python
-    EOS
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   def caveats

@@ -3,13 +3,14 @@ class Mapnik < Formula
   homepage "http://www.mapnik.org/"
   url "https://github.com/mapnik/mapnik/releases/download/v3.0.19/mapnik-v3.0.19.tar.bz2"
   sha256 "5bf17afaf456e63021a4c948e25cf5e756782ef369226441a1e436adc3e790e9"
+  revision 1
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
     cellar :any
-    sha256 "f41d9cb363acd3db3def9574e1a83b973ec95bb403d8284172aa7d282043ca60" => :high_sierra
-    sha256 "7ea965c66cc3978fab4754f6aa3bc064eda4f16c2b669b57dc96796439765955" => :sierra
-    sha256 "4183d1662c44bb8efad476472b94ea8c85c387bbac8e8382e1f04865937f94e8" => :el_capitan
+    sha256 "f7af14e81cfc7573d5882e17e0276fd8219af8954d68fe86e9cceb28c55d80f3" => :high_sierra
+    sha256 "33bf392af7c8c2cc5f1f0c0d96090a5f6e7e12f4e97ae218a80a5373b72c0ba0" => :sierra
+    sha256 "d9488612e560aecff101e67e0e4265c24378e61c1ecb6686d87b96f75cc8e6ec" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -49,6 +50,7 @@ class Mapnik < Formula
             "CXX=\"#{ENV.cxx}\"",
             "PREFIX=#{prefix}",
             "CUSTOM_CXXFLAGS=\"-DBOOST_EXCEPTION_DISABLE\"",
+            "CUSTOM_DEFINES=-DU_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatability
             "ICU_INCLUDES=#{icu}/include",
             "ICU_LIBS=#{icu}/lib",
             "JPEG_INCLUDES=#{jpeg}/include",
