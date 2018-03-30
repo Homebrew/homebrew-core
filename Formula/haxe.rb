@@ -59,10 +59,12 @@ class Haxe < Formula
     system "make", "install", "INSTALL_BIN_DIR=#{bin}",
            "INSTALL_LIB_DIR=#{lib}/haxe", "INSTALL_STD_DIR=#{lib}/haxe/std"
 
-    # Replace the absolute symlink by a relative one,
-    # such that binary package created by homebrew will work in non-/usr/local locations.
-    rm bin/"haxe"
-    bin.install_symlink lib/"haxe/haxe"
+    if not build.head?
+      # Replace the absolute symlink by a relative one,
+      # such that binary package created by homebrew will work in non-/usr/local locations.
+      rm bin/"haxe"
+      bin.install_symlink lib/"haxe/haxe"
+    end
   end
 
   def caveats; <<~EOS
