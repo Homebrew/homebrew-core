@@ -1,16 +1,14 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tar.xz"
-  sha256 "159b932bf56aeaa76fd66e7420522d8c8853d486b8567c459b84fe2ed13bcaba"
-  revision 4
+  url "https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz"
+  sha256 "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
   head "https://github.com/python/cpython.git"
 
   bottle do
-    rebuild 1
-    sha256 "37792966041dbb689e8901817105136c782d5def46288684fd28998731ed6f25" => :high_sierra
-    sha256 "ba0739dea99c119d439a905a035fa9fa7837427c9ea73d8832a75b3eff30f7e5" => :sierra
-    sha256 "a037e0adfc60991c5417e2c1aef86aade1b96eecff28441a57d2b987b78f248b" => :el_capitan
+    sha256 "6ec7a1efb260f95627a0f76689090f429ef2b0eab08c04f27c4e163f018adf5b" => :high_sierra
+    sha256 "fe2883208ee5cac0735a36cb747b56c2ee6a2f54fa5f53717ba2fa8d3adac982" => :sierra
+    sha256 "17d00dd31407b64ab8f466de043a24f7b7191b958b56adb8880dfc9737c7e846" => :el_capitan
   end
 
   devel do
@@ -34,8 +32,8 @@ class Python < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/e0/02/2b14188e06ddf61e5b462e216b15d893e8472fca28b1b0c5d9272ad7e87c/setuptools-38.5.2.zip"
-    sha256 "8246123e984cadf687163bdcd1bb58eb325e2891b066e1f0224728a41c8d9064"
+    url "https://files.pythonhosted.org/packages/72/c2/c09362ab29338413ab687b47dab03bab4a792e2bbb727a1eb5e0a88e3b86/setuptools-39.0.1.zip"
+    sha256 "bec7badf0f60e7fc8153fac47836edc41b74e5d541d7692e614e635720d6a7c7"
   end
 
   resource "pip" do
