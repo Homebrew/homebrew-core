@@ -14,8 +14,9 @@ class Haxe < Formula
 
   head do
     url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
-    depends_on "opam" => :build
+
     depends_on "aspcud" => :build
+    depends_on "opam" => :build
     depends_on "pkg-config" => :build
   end
 
@@ -32,16 +33,16 @@ class Haxe < Formula
     ENV.deparallelize
 
     if build.head?
-      Dir.mktmpdir("opamroot") do |opamroot|
-        ENV["OPAMROOT"] = opamroot
+      mktemp do
+        ENV["OPAMROOT"] = Pathname.pwd
         ENV["OPAMYES"] = "1"
         system "opam", "init", "--no-setup"
         system "opam", "config", "exec", "--",
-          "opam", "pin", "add", "haxe", buildpath, "--no-action"
+               "opam", "pin", "add", "haxe", buildpath, "--no-action"
         system "opam", "config", "exec", "--",
-          "opam", "install", "haxe", "--deps-only"
+               "opam", "install", "haxe", "--deps-only"
         system "opam", "config", "exec", "--",
-          "make", "ADD_REVISION=1"
+               "make", "ADD_REVISION=1"
       end
     else
       system "make", "OCAMLOPT=ocamlopt.opt"
@@ -58,13 +59,6 @@ class Haxe < Formula
     bin.mkpath
     system "make", "install", "INSTALL_BIN_DIR=#{bin}",
            "INSTALL_LIB_DIR=#{lib}/haxe", "INSTALL_STD_DIR=#{lib}/haxe/std"
-
-    unless build.head?
-      # Replace the absolute symlink by a relative one,
-      # such that binary package created by homebrew will work in non-/usr/local locations.
-      rm bin/"haxe"
-      bin.install_symlink lib/"haxe/haxe"
-    end
   end
 
   def caveats; <<~EOS
