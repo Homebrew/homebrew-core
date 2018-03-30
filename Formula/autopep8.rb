@@ -3,8 +3,8 @@ class Autopep8 < Formula
 
   desc "Automatically formats Python code to conform to the PEP 8 style guide"
   homepage "https://github.com/hhatto/autopep8"
-  url "https://github.com/hhatto/autopep8/archive/v1.3.4.tar.gz"
-  sha256 "4d6c88bae7f008c70201d0178ed40c3bca9a63a4ad8ecceb69bf8b952dc86a1d"
+  url "https://github.com/hhatto/autopep8/archive/v1.3.5.tar.gz"
+  sha256 "45938f23d725f17f41477878aa423c7a8bcd5374df65f55d0a4b53a1da9477ae"
 
   bottle do
     cellar :any_skip_relocation
