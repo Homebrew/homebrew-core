@@ -25,7 +25,7 @@ class KaitaiStructCompiler < Formula
         - id: header
           type: u4
     EOS
-    system bin/"kaitai-struct-compiler", "Test.ksy", "-t", "java", "-d", testpath
+    system bin/"kaitai-struct-compiler", "Test.ksy", "-t", "java", "--outdir", testpath
     assert_predicate testpath/"src/Test.java", :exist?
   end
 end
