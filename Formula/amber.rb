@@ -1,8 +1,8 @@
 class Amber < Formula
   desc "CLI client for generating and scaffolding Amber web applications"
   homepage "https://www.amberframework.org/"
-  url "https://github.com/amberframework/amber/archive/v0.7.0.tar.gz"
-  sha256 "ce6f08f68f237750f67220f38fc5fb4abf5058becd784eea6f8e34adef6d78bb"
+  url "https://github.com/amberframework/amber/archive/v0.7.1.tar.gz"
+  sha256 "7775e23eba9f18d38099871ff9c8ad78d32f600213d0a72141d1e0ca3c708107"
 
   bottle do
     sha256 "7223a569a24fcc5c002081d97beb50213ce9ebeded3e163957d83eee52503207" => :high_sierra
