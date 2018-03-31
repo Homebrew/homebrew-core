@@ -1,8 +1,8 @@
 class PhpAT56 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-5.6.34.tar.xz/from/this/mirror"
-  sha256 "21453be3a045204cd2717543ef42771324f411f40962ecda4fe841930a933128"
+  url "https://php.net/get/php-5.6.35.tar.xz/from/this/mirror"
+  sha256 "9985cb64cb8224c289effff5b34f670d14f838175f76daea0507d643eec650d2"
 
   keg_only :versioned_formula
 
@@ -22,6 +22,7 @@ class PhpAT56 < Formula
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libzip"
+  depends_on "mcrypt"
   depends_on "openssl"
   depends_on "pcre"
   depends_on "unixodbc"
@@ -120,6 +121,8 @@ class PhpAT56 < Formula
       --with-mhash
       --with-mysql-sock=/tmp/mysql.sock
       --with-mysqli=mysqlnd
+      --with-mysql=mysqlnd
+      --with-mcrypt=#{Formula["mcrypt"].opt_prefix}
       --with-ndbm
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-pdo-dblib=#{Formula["freetds"].opt_prefix}
@@ -130,7 +133,6 @@ class PhpAT56 < Formula
       --with-pic
       --with-png-dir=#{Formula["libpng"].opt_prefix}
       --with-pspell=#{Formula["aspell"].opt_prefix}
-      --with-tidy
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
