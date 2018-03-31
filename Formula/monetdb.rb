@@ -51,7 +51,6 @@ class Monetdb < Formula
   depends_on "geos" => :optional # Build the GEOM module
   depends_on "gsl" => :optional
   depends_on "cfitsio" => :optional
-  depends_on "homebrew/php/libsphinxclient" => :optional
 
   def install
     ENV["M4DIRS"] = "#{Formula["gettext"].opt_share}/aclocal" if build.head?
