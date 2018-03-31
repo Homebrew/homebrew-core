@@ -1,8 +1,8 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/1.3.1.tar.gz"
-  sha256 "0da42ffcbade15b01c25683682a8f5703ec0adfe148d396057f01f1f020f3734"
+  url "https://github.com/KjellKod/g3log/archive/1.3.2.tar.gz"
+  sha256 "0ed1983654fdd8268e051274904128709c3d9df8234acf7916e9015199b0b247"
 
   bottle do
     cellar :any
