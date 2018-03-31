@@ -6,9 +6,9 @@ class G3log < Formula
 
   bottle do
     cellar :any
-    sha256 "2a6c66a3a9933dd0918f81fa1bbef94096fce35d110415def54f89a408955d5c" => :high_sierra
-    sha256 "75c11ba63925121e07686aa523a7b2a53d562cb11f65e35cdc1d5e84dbd5d4fa" => :sierra
-    sha256 "aef7cad94b8ba72ec2e50d1dbc8827d2dabbc2594a9cc17300235055f81f76a7" => :el_capitan
+    sha256 "59c77b06d62ea06a4aa96ce6ecf1903a415d32248631cadc2c1787e291f006fc" => :high_sierra
+    sha256 "be3b9045a3cc0e011db0e9d9bd7b8feda8080a0fb591edb33a846d990395f4f6" => :sierra
+    sha256 "4cd2f01ea225e95a348d1a514cf14f2c51eb47b1ef2f86c8d3e7c8218ba0eb31" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
