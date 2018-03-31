@@ -5,6 +5,10 @@ class Nasty < Formula
   sha256 "7607256d4672f1c52f2603d7b9691e7250bfe3a9b4f219fcbb61227172a7f6b7"
   depends_on "gpgme"
 
+  def caveats
+    "You need to allow scripted passphrase entry by adding 'pinentry-mode loopback' to ~/.gnupg/gpg.conf"
+  end
+
   def install
     system "make"
     bin.install "nasty"
