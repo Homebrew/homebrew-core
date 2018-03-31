@@ -7,10 +7,9 @@ class Jpegoptim < Formula
 
   bottle do
     cellar :any
-    sha256 "c672c7aad4c78e3b65d9fdd857d00f832efa16f291217cb5bb4f047da1ac7c52" => :high_sierra
-    sha256 "2d1ab7073255d2c4a67d224e9f39a22fd32111e47b9e289829df48bed8d567e1" => :sierra
-    sha256 "8fa157cbed17cb04bd6784e316866e89e0962dde9e0939ad20c896feaf5dfa05" => :el_capitan
-    sha256 "90276c07525f402cf5d9ba4cd55fd40fa5fc3f80e198e3d316605a6c236ee1e7" => :yosemite
+    sha256 "18497db72a6a4e66f04c02b186a16f788682a63df6181044ad5467f8316616e5" => :high_sierra
+    sha256 "384f4eea9c9f0b53526f2da9955f61644a29bdab54bbc23cd70537727be22d2e" => :sierra
+    sha256 "e8b13a1688e86078cab8e632fff53d962358df9bf8e3a60260dcc043065e3e03" => :el_capitan
   end
 
   depends_on "jpeg"
