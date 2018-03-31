@@ -1,8 +1,8 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://github.com/newsboat/newsboat/archive/r2.11.tar.gz"
-  sha256 "e9565613822a8d029d50f22ba42100fc9f58458f662dd85670281f7a6703ec2a"
+  url "https://github.com/newsboat/newsboat/archive/r2.11.1.tar.gz"
+  sha256 "0c48ec60e1abafd7b62cf8e376eff9e92dcb7bbc6e7dfed9b9ac141853d826d8"
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do
