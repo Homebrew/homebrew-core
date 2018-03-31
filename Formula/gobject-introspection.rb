@@ -6,9 +6,9 @@ class GobjectIntrospection < Formula
   revision 1
 
   bottle do
-    sha256 "bbaedc361807bb187116ca8f5592d01de87407d60d868d097118d2bb635bf76c" => :high_sierra
-    sha256 "b94d571b00bc21c518c9657b224ecf3d6776c5c190e76d7a5dd8bd10a66164d6" => :sierra
-    sha256 "ea7658ae17f9662cdecc3d5251801e027173e17333c7e74570006faf7a6f84e5" => :el_capitan
+    sha256 "e17722decf6671ae09b214604ad5f2bd863610109b3780e0112356c1969dcb64" => :high_sierra
+    sha256 "c0ec3d3234c5be8cf6adf0bfe7f4d43f6799249b2071dca572441a476ac565f0" => :sierra
+    sha256 "b936d579f302d10dbd049af4b12802bdf6c4f166e99e8686a5bc7fb59d64cd1b" => :el_capitan
   end
 
   depends_on "pkg-config"
