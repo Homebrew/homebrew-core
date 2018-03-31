@@ -6,6 +6,13 @@ class MesonInternal < Formula
   sha256 "4d0bb0dbb1bb556cb7a4092fdfea3d6e76606bd739a4bc97481c2d7bc6200afb"
   head "https://github.com/mesonbuild/meson.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "4b448956770b39d9f609ea93ef104c9a9043134d5dbe775737c294ee77393c53" => :high_sierra
+    sha256 "3f873ed8b3a77a28ec89d7ecd9884a7ca65a1157174c1a5e2cda04f80acbfcdc" => :sierra
+    sha256 "fe5a2f34b348947c39ce18b5849aeb19e7b5a4367a9015b7e2e93373c4c6e511" => :el_capitan
+  end
+
   keg_only <<~EOS
     this formula contains a heavily patched version of the meson build system and
     is exclusively used internally by other formulae.
