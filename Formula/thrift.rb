@@ -76,9 +76,6 @@ class Thrift < Formula
   def caveats; <<~EOS
     To install Ruby binding:
       gem install thrift
-
-    To install PHP extension for e.g. PHP 5.5:
-      brew install homebrew/php/php55-thrift
   EOS
   end
 
