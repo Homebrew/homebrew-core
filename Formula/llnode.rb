@@ -1,8 +1,8 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/nodejs/llnode"
-  url "https://github.com/nodejs/llnode/archive/v1.6.3.tar.gz"
-  sha256 "febf029685afbcd513250ee82dc39889ffd4c8087d9377ef17e16f17a2200bf5"
+  url "https://github.com/nodejs/llnode/archive/v1.7.0.tar.gz"
+  sha256 "26043befdc9a95dc95593f1d40b086ca041874bd634c26279be1d471d36a59fa"
 
   bottle do
     cellar :any
@@ -11,13 +11,9 @@ class Llnode < Formula
     sha256 "e047f606e4923900a3285acc8a352f847d387e877d5436ddf5cdbf37d256cf27" => :el_capitan
   end
 
+  depends_on "node" => :build
   depends_on "python@2" => :build
   depends_on :macos => :yosemite
-
-  resource "gyp" do
-    url "https://chromium.googlesource.com/external/gyp.git",
-        :revision => "324dd166b7c0b39d513026fa52d6280ac6d56770"
-  end
 
   resource "lldb" do
     if DevelopmentTools.clang_build_version >= 900
@@ -42,12 +38,21 @@ class Llnode < Formula
   end
 
   def install
-    (buildpath/"lldb").install resource("lldb")
-    (buildpath/"tools/gyp").install resource("gyp")
+    ENV.append_path "PATH", "#{Formula["node"].libexec}/lib/node_modules/npm/node_modules/node-gyp/bin"
+    inreplace "Makefile", "node-gyp", "node-gyp.js"
 
-    system "./gyp_llnode"
-    system "make", "-C", "out/"
-    prefix.install "out/Release/llnode.dylib"
+    # Make sure the buildsystem doesn't try to download its own copy
+    target = if DevelopmentTools.clang_build_version >= 900
+      "lldb-3.9"
+    elsif DevelopmentTools.clang_build_version >= 802
+      "lldb-3.8"
+    else
+      "lldb-3.4"
+    end
+    (buildpath/target).install resource("lldb")
+
+    system "make", "plugin"
+    prefix.install "llnode.dylib"
   end
 
   def caveats; <<~EOS
