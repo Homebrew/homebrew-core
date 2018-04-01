@@ -1,8 +1,8 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/nodejs/llnode"
-  url "https://github.com/nodejs/llnode/archive/v1.6.3.tar.gz"
-  sha256 "febf029685afbcd513250ee82dc39889ffd4c8087d9377ef17e16f17a2200bf5"
+  url "https://github.com/nodejs/llnode/archive/v1.7.0.tar.gz"
+  sha256 "26043befdc9a95dc95593f1d40b086ca041874bd634c26279be1d471d36a59fa"
 
   bottle do
     cellar :any
