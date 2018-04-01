@@ -7,11 +7,10 @@ class Watch < Formula
   head "https://gitlab.com/procps-ng/procps.git"
 
   bottle do
-    sha256 "289a466b89e14630d18b963265976835f3f505630f72cd824a1d267a6acf9522" => :high_sierra
-    sha256 "98cf549c8b1c06199e9f8baccdc1dcc3fc3c1f9a5195a1869de991598774d806" => :sierra
-    sha256 "926d0be8053cf015dc06cf8fb4e6107902c2015acc8b69f1a77100034e078cfd" => :el_capitan
-    sha256 "31b517c67875cbb8ca8bd8126af66561a8df0f61bee955ffdeac3eeb6021ec12" => :yosemite
-    sha256 "fdedabfbc86a57b936be2ca1377c8749a6bce801baf74ef4444e7c75b9b6e0f0" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "42288882673f4abdc89ee24cb88d2e76f2b32fec5d06148a26511b56c5be7ac3" => :high_sierra
+    sha256 "ced897f72a92f243c81e20b62edda6daf32652d22752b2c12e305d42ebc6fdca" => :sierra
+    sha256 "33b30a5929a98457abc9da46956d68bcc8059992f6386b8507a1c6c7b460355f" => :el_capitan
   end
 
   depends_on "autoconf" => :build
