@@ -10,8 +10,10 @@ class GlibNetworking < Formula
     sha256 "ce352511f58a0d1a10d0a65f1f01feda8be6703050b322c6e6cd86b62ca2f0ea" => :el_capitan
   end
 
-  depends_on "meson" => :build
+  depends_on "meson-internal" => :build
   depends_on "pkg-config" => :build
+  depends_on "ninja" => :build
+  depends_on "python" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gsettings-desktop-schemas"
