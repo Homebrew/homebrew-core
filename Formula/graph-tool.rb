@@ -35,7 +35,7 @@ class GraphTool < Formula
   depends_on "cairomm"
   depends_on "py3cairo"
   # pygobject3 pending rename to pygobject per https://github.com/Homebrew/homebrew-core/pull/18711
-  depends_on "pygobject3" => "with-python"
+  depends_on "pygobject3"
   fails_with :gcc => "4.8" do
     cause "We need GCC 5.0 or above for sufficient c++14 support"
   end
