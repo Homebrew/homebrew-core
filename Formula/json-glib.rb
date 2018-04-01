@@ -5,9 +5,9 @@ class JsonGlib < Formula
   sha256 "2d7709a44749c7318599a6829322e081915bdc73f5be5045882ed120bb686dc8"
 
   bottle do
-    sha256 "0d3c18248dee24bc64f7f17dff22e6effc72b2e1ca27d813b668468944802c05" => :high_sierra
-    sha256 "359c57e2a47a525c066aa39e2ff2a70a076080b2d5f868fc1286bbc5121f82eb" => :sierra
-    sha256 "4eeb1cf4803bdb2bd15d7576591de7c6c316a2fa5f9a958591549f4f4ce79697" => :el_capitan
+    sha256 "d27d9aaeadd8072a2eeb91984b2cf9b8e13b7c6cbc2cc1e4debe4738bce90f36" => :high_sierra
+    sha256 "ef55b4676e0ef1e3dcde3fd642bc7cb6da0d091921720281b4b3400e169cbffa" => :sierra
+    sha256 "f5baf172b136c33fb8fa7b9e8e7e923cc0f9eabf6012f8765ff665b4380c29c8" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
