@@ -1,8 +1,8 @@
 class Libosmium < Formula
   desc "Fast and flexible C++ library for working with OpenStreetMap data"
   homepage "http://osmcode.org/libosmium/"
-  url "https://github.com/osmcode/libosmium/archive/v2.13.1.tar.gz"
-  sha256 "a73cd56838a7438bd9ed208c9ce6794e2d55a1854039c4277a0c160d5071b909"
+  url "https://github.com/osmcode/libosmium/archive/v2.14.0.tar.gz"
+  sha256 "ac385c13b1989cf60f9f2e0395a9d8f73ea557fbe8a35cabb0e5f0b74cf43b49"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,11 +20,18 @@ class Libosmium < Formula
   depends_on "proj" => :optional
   depends_on "doxygen" => :optional
 
+  resource "protozero" do
+    url "https://github.com/mapbox/protozero/archive/v1.6.2.tar.gz"
+    sha256 "1196441f98932c219e5684248249c5fd404023843b0a862034d5daf24eb74433"
+  end
+
   def install
-    mkdir "build" do
-      system "cmake", *std_cmake_args, "-DINSTALL_GDALCPP=ON", "-DINSTALL_PROTOZERO=ON", "-DINSTALL_UTFCPP=ON", ".."
-      system "make", "install"
-    end
+    resource("protozero").stage { libexec.install "include" }
+    system "cmake", ".", "-DINSTALL_GDALCPP=ON",
+                         "-DINSTALL_UTFCPP=ON",
+                         "-DPROTOZERO_INCLUDE_DIR=#{libexec}/include",
+                         *std_cmake_args
+    system "make", "install"
   end
 
   test do
