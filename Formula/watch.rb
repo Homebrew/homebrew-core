@@ -1,20 +1,10 @@
 class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
+  url "https://gitlab.com/procps-ng/procps.git",
+      :tag => "v3.3.13",
+      :revision => "2fc2427ed374f96a5079e4b8b4a6d36192c873ac"
   head "https://gitlab.com/procps-ng/procps.git"
-
-  stable do
-    url "https://gitlab.com/procps-ng/procps.git",
-      :tag => "v3.3.12",
-      :revision => "e0784ddaed30d095bb1d9a8ad6b5a23d10a212c4"
-
-    # Upstream commit, which fixes missing HOST_NAME_MAX on BSD-y systems.
-    # Commit subject is "watch: define HOST_NAME_MAX"
-    patch do
-      url "https://gitlab.com/procps-ng/procps/commit/e564ddcb01c3c11537432faa9c7a7a6badb05930.diff"
-      sha256 "3a4664e154f324e93b2a8e453a12575b94aac9eb9d86831649731d0f1a7f869e"
-    end
-  end
 
   bottle do
     sha256 "289a466b89e14630d18b963265976835f3f505630f72cd824a1d267a6acf9522" => :high_sierra
@@ -34,12 +24,10 @@ class Watch < Formula
   conflicts_with "visionmedia-watch"
 
   def install
-    # Prevents undefined symbol errors for _libintl_gettext, etc.
-    # Reported 22 Jun 2016: https://gitlab.com/procps-ng/procps/issues/35
-    ENV.append "LDFLAGS", "-lintl"
-
     system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--disable-nls"
     system "make", "watch"
     bin.install "watch"
     man1.install "watch.1"
