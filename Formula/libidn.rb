@@ -7,11 +7,9 @@ class Libidn < Formula
 
   bottle do
     cellar :any
-    sha256 "0af53718a30d295afa6c6cc1336c5208aa89f119e03115feb46818842ce65176" => :high_sierra
-    sha256 "02995ada0a4e1c66d073dd66252e7fd58d8fe3f2a9be13ca29b081b611bc43ef" => :sierra
-    sha256 "b46b71b9adb991af6a444400a1c3f53d20b8001792855bcf96044ce33eb81d26" => :el_capitan
-    sha256 "f675600e756059cdcd02d92963ff76f43c3b572f4ea9f99657a40e9e80c316b1" => :yosemite
-    sha256 "07e19d25263d77030cccc3899967c4505dcf0c771da90a658b4f27de136a326b" => :mavericks
+    sha256 "43e9d1a69fe657db90d2aaf5f191741fb3ed428071abbc58d29276cfe5c4c252" => :high_sierra
+    sha256 "5e447cc6fb5add5b30907b45a69f017be7daca6f515a2b7bb8338e0323238d60" => :sierra
+    sha256 "94571f7decc615e95aa80762956206619785ed44e69a39261ff601f06890521f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
