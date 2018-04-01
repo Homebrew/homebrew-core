@@ -16,13 +16,7 @@ class BoostPythonAT159 < Formula
 
   option :cxx11
 
-  option "without-python@2", "Build without python 2 support"
-
-  deprecated_option "with-python3" => "with-python"
-  deprecated_option "without-python" => "without-python@2"
-
   depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python" => :optional
 
   if build.cxx11?
     depends_on "boost@1.59" => "c++11"
