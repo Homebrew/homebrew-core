@@ -1,8 +1,8 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://binaries.openttd.org/releases/1.7.2/openttd-1.7.2-source.tar.xz"
-  sha256 "fe51a0bade8fdf6ce3ec696418ecf75c95783cdcabfd7b204eec5c0bb5d149d4"
+  url "https://binaries.openttd.org/releases/1.8.0/openttd-1.8.0-source.tar.xz"
+  sha256 "c2d32d9d736d27202a020027a3729ae763f5432ae6f424891e57a4095eeb087f"
 
   head "https://git.openttd.org/openttd/trunk.git"
 
@@ -29,13 +29,6 @@ class Openttd < Formula
   resource "openmsx" do
     url "https://bundles.openttdcoop.org/openmsx/releases/0.3.1/openmsx-0.3.1.zip"
     sha256 "92e293ae89f13ad679f43185e83fb81fb8cad47fe63f4af3d3d9f955130460f5"
-  end
-
-  # Fix pre-existing bug triggering Xcode 9 build error
-  # Upstream commit, remove when 1.8 is released
-  patch do
-    url "https://git.openttd.org/?p=trunk.git;a=commitdiff_plain;h=2f7ac7c41f46dfc0d16d963ea5c6de2f8d144971"
-    sha256 "a2681e6ac7ccb2be2d591090198f343d1744484d7093e1e9866325cceecc8748"
   end
 
   def install
