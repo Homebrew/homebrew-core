@@ -56,4 +56,8 @@ class Nethack < Formula
     chmod "g+w", libexec
     chmod "g+w", libexec+"save"
   end
+
+  test do
+    assert_match "NetHack, Copyright 1985-2015", shell_output("#{bin}/nethack", "q")
+  end
 end
