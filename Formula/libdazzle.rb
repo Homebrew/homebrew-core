@@ -4,6 +4,12 @@ class Libdazzle < Formula
   url "https://download.gnome.org/sources/libdazzle/3.28/libdazzle-3.28.0.tar.xz"
   sha256 "57aa6fe2ea534d9faa17fa105109ed5c38886d3812fe671d3ecc56fb4e3c037f"
 
+  bottle do
+    sha256 "3530574bb1f90f6234b2d8fc8ae0b3eb39f9913dc44a401e2b764974e71b4f2c" => :high_sierra
+    sha256 "9a8cefa7fa1042777fc5585548a5c75e6a32d1f6001a18b413b52fa5e5b48150" => :sierra
+    sha256 "6b94192762b8ea5dc2bbe60325d295426ba1d5dc2aa57317d68dd18430df5dd1" => :el_capitan
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
