@@ -3,7 +3,8 @@ class Tbb < Formula
   homepage "https://www.threadingbuildingblocks.org/"
   url "https://github.com/01org/tbb/archive/2018_U3.tar.gz"
   version "2018_U3"
-  sha256 "a0be619c741ee399de740ee7192c41a92fbbc7a8f3bda3032d6d6167e13f9dac"
+  sha256 "23793c8645480148e9559df96b386b780f92194c80120acce79fcdaae0d81f45"
+  revision 1
 
   bottle do
     sha256 "2d06624e2fc0789319e8f23df892c0b808fd2a45fb30be565a424e29279ee81c" => :high_sierra
