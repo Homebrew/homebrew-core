@@ -46,9 +46,12 @@ class Gcc < Formula
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
   # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
-    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+  # Now fixed on GCC trunk for GCC 8, may backported to other branches
+  unless build.head?
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
+      sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+    end
   end
 
   # Fix parallel build on APFS filesystem
