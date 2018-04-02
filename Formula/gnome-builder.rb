@@ -6,9 +6,9 @@ class GnomeBuilder < Formula
   revision 8
 
   bottle do
-    sha256 "bf7da5f5b00bc77c3423f8ff279f87df3c6e875a82ec62a89c9b021138878c5a" => :high_sierra
-    sha256 "e50e6a242552dfad18723a9ac8609f0d2f2877b35af293a44891f3e99159a0bb" => :sierra
-    sha256 "57ab1331cc17a92e8fcfb093df350295a0c556da113e01dc99e0f9bd992594cd" => :el_capitan
+    sha256 "5dae501a05c149c8e33c4e439935b0683a10f82b59ca2fcaef67069dfd342162" => :high_sierra
+    sha256 "b062c8251f55aa62a601c6dfd18cf53e6ba0e4af2f99cfd74053bb17653efe86" => :sierra
+    sha256 "cc0889d2e8f59b5dbe66b67ab1d4a8bbac12403617e9a264e0426f076ed5fbad" => :el_capitan
   end
 
   deprecated_option "with-python3" => "with-python"
