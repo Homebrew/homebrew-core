@@ -7,10 +7,9 @@ class Bcpp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca36fc5ff5890cebc995c184c9cd80d441fe5dd407d9a9ce11d662ce88df7551" => :high_sierra
-    sha256 "c25d34a2e112bcdd0321d97629aa52cbfd594c1216876e759269df6ea3289e2f" => :sierra
-    sha256 "7494b0aa2c2e24050eea15913c7c6a443f5bfed2640a3e53ee5fb2a3260b6495" => :el_capitan
-    sha256 "d4f058c5d33b3cdffa2e844777bbd5aaa4f9b977f4cfe7ac9a31e4c0547161b0" => :yosemite
+    sha256 "25399ade6485e4272d264611a32db839905b56a3607f04ad9d66a5571469aa03" => :high_sierra
+    sha256 "339190468a41d319c161ab16933012517f68d11e5162d57b117bdc0220a51db0" => :sierra
+    sha256 "62ea91b7f94761da062c0f78757f48299bdd614ffba1cbc9e3e44794b305901e" => :el_capitan
   end
 
   def install
