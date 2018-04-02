@@ -3,10 +3,11 @@
 #  - https://wiki.winehq.org/Gecko
 #  - https://wiki.winehq.org/Mono
 # with `GECKO_VERSION` and `MONO_VERSION`, as in:
-#    https://source.winehq.org/git/wine.git/blob/refs/tags/wine-2.0.3:/dlls/appwiz.cpl/addons.c
+#    https://source.winehq.org/git/wine.git/blob/refs/tags/wine-3.0:/dlls/appwiz.cpl/addons.c
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 1
 
   stable do
     url "https://dl.winehq.org/wine/source/3.0/wine-3.0.tar.xz"
@@ -46,9 +47,8 @@ class Wine < Formula
     depends_on :xcode => ["8.0", :build] if build.with? "win64"
   end
 
-  # Wine will build both the Mac and the X11 driver by default, and you can switch
-  # between them. But if you really want to build without X11, you can.
-  depends_on :x11 => :recommended
+  # Build only the Mac display driver by default; X11 support optional.
+  depends_on :x11 => :optional
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
@@ -64,9 +64,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2n.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2n.tar.gz"
-    sha256 "370babb75f278c39e0c50e8c4e7493bc0f18db6867478341a832a982fd15a8fe"
+    url "https://www.openssl.org/source/openssl-1.0.2o.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2o.tar.gz"
+    sha256 "ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d"
   end
 
   resource "libtool" do
@@ -76,9 +76,8 @@ class Wine < Formula
   end
 
   resource "jpeg" do
-    url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg9/libjpeg9_9b.orig.tar.gz"
-    sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
+    url "http://www.ijg.org/files/jpegsrc.v9c.tar.gz"
+    sha256 "650250979303a649e21f87b5ccd02672af1ea6954b911342ea491f351ceb7122"
   end
 
   resource "libtiff" do
@@ -106,9 +105,9 @@ class Wine < Formula
   end
 
   resource "libusb" do
-    url "https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.21.orig.tar.bz2"
-    sha256 "7dce9cce9a81194b7065ee912bcd55eeffebab694ea403ffb91b67db66b1824b"
+    url "https://github.com/libusb/libusb/releases/download/v1.0.22/libusb-1.0.22.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.22/libusb-1.0.22.tar.bz2"
+    sha256 "75aeb9d59a4fdb800d329a545c2e6799f732362193b465ea198f2aa275518157"
   end
 
   resource "webp" do
@@ -147,9 +146,9 @@ class Wine < Formula
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.8/mpg123-1.25.8.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.25.8.tar.bz2"
-    sha256 "79da51efae011814491f07c95cb5e46de0476aca7a0bf240ba61cfc27af8499b"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.10/mpg123-1.25.10.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.10.tar.bz2"
+    sha256 "6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023"
   end
 
   fails_with :clang do
@@ -454,19 +453,15 @@ class Wine < Formula
 
   def caveats
     s = <<~EOS
-      You may want to get winetricks:
+      You may also want winetricks:
         brew install winetricks
     EOS
 
     if build.with? "x11"
       s += <<~EOS
 
-        By default Wine uses a native Mac driver. To switch to the X11 driver, use
-        regedit to set the "graphics" key under "HKCU\/Software\/Wine\/Drivers" to
-        "x11" (or use winetricks).
-
-        For best results with X11, install the latest version of XQuartz:
-          https://www.xquartz.org/
+        By default Wine uses a native driver. To enable X11 support with winetricks:
+          winetricks macdriver=x11
       EOS
     end
     s
