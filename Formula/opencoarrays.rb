@@ -13,6 +13,7 @@ class Opencoarrays < Formula
   end
 
   option "without-failed-image-support", "Disable F2018 failed image support that uses experimental MPI features"
+  option "with-compile-time-tests", "Run the OpenCoarrays test suite at build time."
 
   depends_on "cmake" => :build
   depends_on "gcc"
@@ -24,6 +25,7 @@ class Opencoarrays < Formula
       args << "-DCAF_ENABLE_FAILED_IMAGES=FALSE" if build.without? "failed-image-support"
       system "cmake", "..", *args
       system "make"
+      system "make", "check" if build.with? "compile-time-tests"
       system "make", "install"
     end
   end
