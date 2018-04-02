@@ -1,8 +1,9 @@
 class GrOsmosdr < Formula
   desc "Osmocom GNU Radio Blocks"
   homepage "https://osmocom.org/projects/sdr/wiki/GrOsmoSDR"
-  url "https://cgit.osmocom.org/gr-osmosdr/snapshot/gr-osmosdr-0.1.4.tar.xz"
-  sha256 "1945d0d98fd4b600cb082970267ec2041528f13150422419cbd7febe2b622721"
+  url "https://cgit.osmocom.org/gr-osmosdr/snapshot/gr-osmosdr-0.1.4.tar.gz"
+  mirror "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
+  sha256 "bcf9a9b1760e667c41a354e8cd41ef911d0929d5e4a18e0594ccb3320d735066"
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
