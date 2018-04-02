@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2018/sqlite-autoconf-3220000.tar.gz"
-  version "3.22.0"
-  sha256 "2824ab1238b706bc66127320afbdffb096361130e23291f26928a027b885c612"
+  url "https://sqlite.org/2018/sqlite-autoconf-3230000.tar.gz"
+  version "3.23.0"
+  sha256 "b7711a1800a071674c2bf76898ae8584fc6c9643cfe933cfc1bc54361e3a6e49"
 
   bottle do
     cellar :any
@@ -37,9 +37,9 @@ class Sqlite < Formula
   end
 
   resource "docs" do
-    url "https://sqlite.org/2018/sqlite-doc-3220000.zip"
-    version "3.22.0"
-    sha256 "34763f0c90e94e5b5fd78d699209d28ef4b409279a9ce796c16b2b653a761343"
+    url "https://sqlite.org/2018/sqlite-doc-3230000.zip"
+    version "3.23.0"
+    sha256 "bbcd7e875350d68d0b60486ce7b91c51c66b17e7b850c71e1a4357a3baa9c2d5"
   end
 
   def install
