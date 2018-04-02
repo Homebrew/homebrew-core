@@ -12,13 +12,17 @@ class Opencoarrays < Formula
     sha256 "84cbce876804c2f46cda80bec9b4b310aa0d06300e65473a89207ae6ea8679a3" => :el_capitan
   end
 
+  option "without-failed-image-support", "Disable F2018 failed image support that uses experimental MPI features"
+
   depends_on "cmake" => :build
   depends_on "gcc"
-  depends_on "open-mpi"
+  depends_on "mpich"
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      args = std_cmake_args
+      args << "-DCAF_ENABLE_FAILED_IMAGES=FALSE" if build.without? "failed-image-support"
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
