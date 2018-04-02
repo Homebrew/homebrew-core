@@ -1,8 +1,9 @@
 class Bcpp < Formula
   desc "C(++) beautifier"
   homepage "https://invisible-island.net/bcpp/"
-  url "https://invisible-mirror.net/archives/bcpp/bcpp-20150811.tgz"
-  sha256 "6a18d68a09c4a0e8bf62d23d13ed7c8a62c98664a655f9d648bc466240ce97c3"
+  url "ftp://ftp.invisible-island.net/bcpp/bcpp-20180401.tgz"
+  mirror "https://dl.bintray.com/homebrew/mirror/bcpp-20180401.tgz"
+  sha256 "3fee78476833a8d6c647f0b9f6ad85209cdb104a538349bc24538c7f7aede81f"
 
   bottle do
     cellar :any_skip_relocation
