@@ -6,9 +6,9 @@ class GoAT19 < Formula
   sha256 "f1c2bb7f32bbd8fa7a19cc1608e0d06582df32ff5f0340967d83fb0017c49fbc"
 
   bottle do
-    sha256 "791e2ff39db37c406a1e9f925ecc31ab4b20811b0ff9df2665e3309d80172f3f" => :high_sierra
-    sha256 "8d3ed6af5a3e2b558108aaa1425e5cc83dda0fe381bbccd40d1eb47cb6e58614" => :sierra
-    sha256 "5d5f2cb9d01126fbad0c172b7e1a9e07ab9be409309542b8e10badf2fee468df" => :el_capitan
+    sha256 "f4fe214d30b295ba356d4f4e0268d8bfccadc183bd9803a7a1d66caece96eee8" => :high_sierra
+    sha256 "9603d3463cfe1c18547ede8ad83a3f8eaa49ab8300225d2623e7e97fa2a193bc" => :sierra
+    sha256 "a14c5b76772760a32201f9cdc10d4f8f0f52f7d40a692feb6de2a444954eebc1" => :el_capitan
   end
 
   keg_only :versioned_formula
