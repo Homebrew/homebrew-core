@@ -47,8 +47,6 @@ class Wine < Formula
     depends_on :xcode => ["8.0", :build] if build.with? "win64"
   end
 
-  # Build only the Mac display driver by default; X11 support optional.
-  depends_on :x11 => :optional
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
@@ -429,7 +427,7 @@ class Wine < Formula
     if build.with? "win64"
       args64 = ["--prefix=#{prefix}"] + depflags
       args64 << "--enable-win64"
-      args64 << "--without-x" if build.without? "x11"
+      args64 << "--without-x"
 
       mkdir "wine-64-build" do
         system "../configure", *args64
@@ -439,7 +437,7 @@ class Wine < Formula
 
     args = ["--prefix=#{prefix}"] + depflags
     args << "--with-wine64=../wine-64-build" if build.with? "win64"
-    args << "--without-x" if build.without? "x11"
+    args << "--without-x"
 
     mkdir "wine-32-build" do
       ENV.m32
@@ -451,20 +449,10 @@ class Wine < Formula
     (pkgshare/"mono").install resource("mono")
   end
 
-  def caveats
-    s = <<~EOS
-      You may also want winetricks:
-        brew install winetricks
+  def caveats; <<~EOS
+    You may also want winetricks:
+      brew install winetricks
     EOS
-
-    if build.with? "x11"
-      s += <<~EOS
-
-        By default Wine uses a native driver. To enable X11 support with winetricks:
-          winetricks macdriver=x11
-      EOS
-    end
-    s
   end
 
   def post_install
