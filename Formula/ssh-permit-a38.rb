@@ -4,6 +4,12 @@ class SshPermitA38 < Formula
   url "https://github.com/ierror/ssh-permit-a38/archive/v0.1.0.tar.gz"
   sha256 "933ba4512def25216d7798a6cf3c455634be8193098e2a55a82cb189ad8554e3"
 
+  bottle do
+    sha256 "d774fd98f0b2aefcaba0db410063585db805e4ab9023b998f35fd8718fd5adf6" => :high_sierra
+    sha256 "beb046cddc23b07fc4515801f88518a51fb64d3e8700216dc43726d651cafb2c" => :sierra
+    sha256 "9e0ed513b2f1881c5e68c753be1991b17405aea15ac7933945ac43559f97f9ad" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "openssl"
