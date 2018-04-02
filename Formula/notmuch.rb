@@ -20,6 +20,8 @@ class Notmuch < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libgpg-error" => :build
+  depends_on "sphinx-doc" => :build
+  depends_on "doxygen" => :build
   depends_on "glib"
   depends_on "gmime"
   depends_on "talloc"
@@ -36,7 +38,7 @@ class Notmuch < Formula
   patch :DATA
 
   def install
-    args = %W[--prefix=#{prefix}]
+    args = %W[--prefix=#{prefix} --mandir=#{man}]
 
     if build.with? "emacs"
       ENV.deparallelize # Emacs and parallel builds aren't friends
