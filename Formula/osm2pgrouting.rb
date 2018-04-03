@@ -7,9 +7,9 @@ class Osm2pgrouting < Formula
 
   bottle do
     cellar :any
-    sha256 "fdc8fa6cfcb71b5a538b99e74cdbbe988babad21029ff02e7b501128f533829c" => :high_sierra
-    sha256 "99dd07f133d628ce05a01001349e185c3d42cfc4bd742efb3d677c05da1c0d74" => :sierra
-    sha256 "6f410e138e35656a78d610af2cffb243eaa64332684570bc7785e80a2f830019" => :el_capitan
+    sha256 "470c02534c55675c79c76e1b9e7434c751c02458847c7a37c124d7ff5640ef5c" => :high_sierra
+    sha256 "1d9816373d3be292775229ede1d9413d36bb71de11334a2473e8e5356a97f27a" => :sierra
+    sha256 "88ce1c875c760dbe9ee5cff7c435c4253c2e366403862ab0d053679fe115d7d6" => :el_capitan
   end
 
   depends_on "cmake" => :build
