@@ -1,9 +1,8 @@
 class Osm2pgrouting < Formula
   desc "Import OSM data into pgRouting database"
   homepage "http://pgrouting.org/docs/tools/osm2pgrouting.html"
-  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.3.tar.gz"
-  sha256 "ea58d3b2dd0164cf85dfa66044ce1ea2af3080bee2c16ad6f115aa84aa23ba0f"
-  revision 3
+  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.4.tar.gz"
+  sha256 "32aba345013e137e39cc7bf74466cc6c97b93e256f2754e617a00f61f57eb8c2"
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
@@ -22,13 +21,6 @@ class Osm2pgrouting < Formula
   depends_on "postgresql"
 
   def install
-    inreplace "CMakeLists.txt" do |s|
-      s.gsub! "RUNTIME DESTINATION \"/usr/bin\"",
-              "RUNTIME DESTINATION \"#{bin}\""
-      s.gsub! "SET(SHARE_DIR \"/usr/share/osm2pgrouting\")",
-              "SET(SHARE_DIR \"#{pkgshare}\")"
-    end
-
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
