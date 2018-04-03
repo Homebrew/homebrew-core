@@ -12,14 +12,14 @@ class Hyperkit < Formula
     depends_on "automake" => :build
   end
 
-  depends_on :macos => :sierra
-
   option "with-qcow", "Enable support for qcow disk image format"
   if build.with? "qcow"
     depends_on "ocaml" => :build
     depends_on "opam" => :build
     depends_on "libev"
   end
+
+  depends_on :macos => :yosemite
 
   def install
     if build.with? "qcow"
