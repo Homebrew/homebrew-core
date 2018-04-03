@@ -135,6 +135,7 @@
   "perl514": "perl@5.14",
   "perl518": "perl@5.18",
   "php56": "php@5.6",
+  "php70": "php@7.0",
   "php71": "php@7.1",
   "php72": "php",
   "plt-racket": "racket",
