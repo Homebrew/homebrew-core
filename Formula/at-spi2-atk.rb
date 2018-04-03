@@ -1,9 +1,8 @@
 class AtSpi2Atk < Formula
   desc "Accessibility Toolkit GTK+ module"
   homepage "http://a11y.org"
-  url "https://download.gnome.org/sources/at-spi2-atk/2.26/at-spi2-atk-2.26.1.tar.xz"
-  sha256 "b4f0c27b61dbffba7a5b5ba2ff88c8cee10ff8dac774fa5b79ce906853623b75"
-  revision 1
+  url "https://download.gnome.org/sources/at-spi2-atk/2.26/at-spi2-atk-2.26.2.tar.xz"
+  sha256 "61891f0abae1689f6617a963105a3f1dcdab5970c4a36ded9c79a7a544b16a6e"
 
   bottle do
     cellar :any
@@ -13,11 +12,19 @@ class AtSpi2Atk < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
+  depends_on "python" => :build
   depends_on "at-spi2-core"
   depends_on "atk"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    ENV.refurbish_args
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 end
