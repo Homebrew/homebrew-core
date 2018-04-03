@@ -1,28 +1,18 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/ksonnet/kubecfg"
-  url "https://github.com/ksonnet/kubecfg/archive/v0.7.2.tar.gz"
-  sha256 "a01de014904af9177bb0ad15a249346d4b7bd6412268d0f83756541aa19fa38c"
+  url "https://github.com/ksonnet/kubecfg/archive/v0.8.0.tar.gz"
+  sha256 "25d054af96a817bad0f33998895a9988c187e1399822c8220528e64f56ccb3ae"
   head "https://github.com/ksonnet/kubecfg.git"
 
   depends_on "go" => :build
 
   def install
-    # Standard gopath shenanigans to keep "go build" happy:
-    sources = buildpath.children - [buildpath/".brew_home"]
     ENV["GOPATH"] = buildpath
     srcdir = buildpath/"src/github.com/ksonnet/kubecfg"
-    srcdir.mkpath
-    mv sources, srcdir
+    srcdir.install buildpath.children - [buildpath/".brew_home"]
     # The real build steps:
     cd srcdir do
-      # v0.7.2 doesn't yet include kubecfg.jsonnet in the binary, so
-      # let's add its location to the search path by default. This can
-      # be removed when v0.7.3 is released.
-      unless build.head?
-        inreplace "cmd/root.go", "JPaths: searchPaths",
-          "JPaths: append(searchPaths, \"#{share}/lib\")"
-      end
       args = []
       args.push("VERSION=v#{version}") unless build.head?
       system "make", *args
@@ -34,11 +24,17 @@ class Kubecfg < Formula
     sharelib.mkpath
     sharelib.install srcdir/"lib/kubecfg.libsonnet"
     sharelib.install srcdir/"lib/kubecfg_test.jsonnet"
+    output = Utils.popen_read("#{bin}/kubecfg completion --shell bash")
+    (bash_completion/"kubecfg").write output
+    output = Utils.popen_read("#{bin}/kubecfg completion --shell zsh")
+    (zsh_completion/"_kubecfg").write output
   end
 
   def caveats; <<~EOS
-    The template directory #{lib} is the default library search
-    path. Set KUBECFG_JPATH in the environment to add to the search path.
+    The builtin template "kubecfg.libsonnet" is installed for reference at:
+      #{lib}/kubecfg.libsonnet
+    but changing that file won't affect the compiled-in template.
+    Set KUBECFG_JPATH in the environment to add to the search path.
 
     You can find more useful templates at:
       https://github.com/ksonnet/ksonnet-lib/releases
