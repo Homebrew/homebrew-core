@@ -7,13 +7,13 @@ class GrOsmosdr < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
+  depends_on "airspy"
   depends_on "boost"
   depends_on "gnuradio"
-  depends_on "librtlsdr"
   depends_on "hackrf"
-  depends_on "uhd"
-  depends_on "airspy"
+  depends_on "librtlsdr"
   depends_on "python"
+  depends_on "uhd"
 
   resource "Cheetah" do
     url "https://files.pythonhosted.org/packages/source/C/Cheetah/Cheetah-2.4.4.tar.gz"
