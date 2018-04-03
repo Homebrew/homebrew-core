@@ -58,6 +58,6 @@ class Nethack < Formula
   end
 
   test do
-    assert_match "NetHack, Copyright 1985-2015", shell_output("#{bin}/nethack", "q")
+    assert_match "NetHack, Copyright 1985-2015", shell_output("#{bin}/nethack")
   end
 end
