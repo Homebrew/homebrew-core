@@ -104,6 +104,10 @@ class R < Formula
     site_library = HOMEBREW_PREFIX/"lib/R/#{short_version}/site-library"
     site_library.mkpath
     ln_s site_library, lib/"R/site-library"
+
+    doc_library = HOMEBREW_PREFIX/"lib/R/#{short_version}/doc"
+    doc_library.mkpath
+    ln_s doc_library, lib/"R/doc"
   end
 
   test do
