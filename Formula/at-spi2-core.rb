@@ -1,9 +1,8 @@
 class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
   homepage "http://a11y.org"
-  url "https://download.gnome.org/sources/at-spi2-core/2.26/at-spi2-core-2.26.2.tar.xz"
-  sha256 "c80e0cdf5e3d713400315b63c7deffa561032a6c37289211d8afcfaa267c2615"
-  revision 1
+  url "https://download.gnome.org/sources/at-spi2-core/2.28/at-spi2-core-2.28.0.tar.xz"
+  sha256 "42a2487ab11ce43c288e73b2668ef8b1ab40a0e2b4f94e80fca04ad27b6f1c87"
 
   bottle do
     sha256 "1562647b757604dc562e0ab1a5bf981fdab39c5c73c9075fae2c41e6655307e8" => :high_sierra
@@ -12,6 +11,9 @@ class AtSpi2Core < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
+  depends_on "python" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
@@ -19,10 +21,13 @@ class AtSpi2Core < Formula
   depends_on "dbus"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-introspection=yes"
-    system "make", "install"
+    ENV.refurbish_args
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
