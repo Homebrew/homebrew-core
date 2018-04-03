@@ -5,6 +5,13 @@ class GrOsmosdr < Formula
   mirror "https://github.com/osmocom/gr-osmosdr/archive/v0.1.4.tar.gz"
   sha256 "bcf9a9b1760e667c41a354e8cd41ef911d0929d5e4a18e0594ccb3320d735066"
 
+  bottle do
+    cellar :any
+    sha256 "c92570bef831045649768a79d12a2e06d1b7b5e9d4e18ce69ba2150ac0ba8a40" => :high_sierra
+    sha256 "7b4f3a853419147130560597064428c6db315b09b2dd50156d17667340c567bb" => :sierra
+    sha256 "6a3d2af506cfd804dbd92c01d110a3fb850b51b37bb1e2faafc328e95b686992" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "swig" => :build
   depends_on "airspy"
