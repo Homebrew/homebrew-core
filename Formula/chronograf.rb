@@ -3,8 +3,8 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.4.3.0.tar.gz"
-  sha256 "652621446faf9e2202034b4e367b68afb8d06443bf2e574e08357fc87143c71f"
+  url "https://github.com/influxdata/chronograf/archive/1.4.3.1.tar.gz"
+  sha256 "b0c4b71580ff0533eda27faa3d49523fce96f9ab417ca7c08dfa3770fb65450a"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
