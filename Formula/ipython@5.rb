@@ -1,9 +1,8 @@
 class IpythonAT5 < Formula
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/14/7c/bbc1e749e1739208324af3f05ac7256985e21fc5f24d3c8da20aae844ad0/ipython-5.5.0.tar.gz"
-  sha256 "66469e894d1f09d14a1f23b971a410af131daa9ad2a19922082e02e0ddfd150f"
-  revision 4
+  url "https://files.pythonhosted.org/packages/64/a1/e6af3c22dadcf3497eccea20b45b8fe9c8a94055af1d341d1db831569192/ipython-5.6.0.tar.gz"
+  sha256 "8ba332d1ac80261e176e737e934fade9b252fc3adb32afc7252ccc9cb249e601"
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
@@ -33,14 +32,9 @@ class IpythonAT5 < Formula
     sha256 "713e7a8228ae80341c70586d1cc0a8caa5207346927e23d09dcbcaf18eadec80"
   end
 
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
-  end
-
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/bb/e0/f6e41e9091e130bf16d4437dabbac3993908e4d6485ecbc985ef1352db94/decorator-4.1.2.tar.gz"
-    sha256 "7cb64d38cb8002971710c8899fbdfb859a23a364b7c99dab19d1f719c2ba16b5"
+    url "https://files.pythonhosted.org/packages/70/f1/cb9373195639db13063f55eb06116310ad691e1fd125e6af057734dc44ea/decorator-4.2.1.tar.gz"
+    sha256 "7d46dd9f3ea1cf5f06ee0e4e1277ae618cf48dfb10ada7c8427cd46c42702a0e"
   end
 
   resource "enum34" do
@@ -48,9 +42,14 @@ class IpythonAT5 < Formula
     sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
+  resource "futures" do
+    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
+    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
+  end
+
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/0c/41/67e16b243b78b49f4b1650d045b63be187c27d20a76f0f7b8e61e0fcb966/ipykernel-4.6.1.tar.gz"
-    sha256 "2e1825aca4e2585b5adb7953ea16e53f53a62159ed49952a564b1e23507205db"
+    url "https://files.pythonhosted.org/packages/52/a6/8cfaaa3a1ccdebe7f3eabcf6969101e32dbdf14bfb2443d1c021130ce23c/ipykernel-4.8.2.tar.gz"
+    sha256 "c091449dd0fad7710ddd9c4a06e8b9e15277da306590bc07a3a1afa6b4453c8f"
   end
 
   resource "ipython_genutils" do
@@ -59,13 +58,13 @@ class IpythonAT5 < Formula
   end
 
   resource "jupyter_client" do
-    url "https://files.pythonhosted.org/packages/d4/51/09da9a18cd858b28cee596a628660a8cbf9830bdd89fe94361bfe18a0bb4/jupyter_client-5.1.0.tar.gz"
-    sha256 "08756b021765c97bc5665390700a4255c2df31666ead8bff116b368d09912aba"
+    url "https://files.pythonhosted.org/packages/4c/df/1e8df7f4de63cc667a7a9aa234539c0419513bf94ac57d36d73b3b434786/jupyter_client-5.2.3.tar.gz"
+    sha256 "27befcf0446b01e29853014d6a902dd101ad7d7f94e2252b1adca17c3466b761"
   end
 
   resource "jupyter_core" do
-    url "https://files.pythonhosted.org/packages/2f/39/5138f975100ce14d150938df48a83cd852a3fd8e24b1244f4113848e69e2/jupyter_core-4.3.0.tar.gz"
-    sha256 "a96b129e1641425bf057c3d46f4f44adce747a7d60107e8ad771045c36514d40"
+    url "https://files.pythonhosted.org/packages/b6/2d/2804f4de3a95583f65e5dcb4d7c8c7183124882323758996e867f47e72af/jupyter_core-4.4.0.tar.gz"
+    sha256 "ba70754aa680300306c699790128f6fbd8c306ee5927976cbe48adacf240c0b7"
   end
 
   resource "pathlib2" do
@@ -74,8 +73,8 @@ class IpythonAT5 < Formula
   end
 
   resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/e8/13/d0b0599099d6cd23663043a2a0bb7c61e58c6ba359b2656e6fb000ef5b98/pexpect-4.2.1.tar.gz"
-    sha256 "3d132465a75b57aa818341c6521392a06cc660feb3988d7f1074f39bd23c9a92"
+    url "https://files.pythonhosted.org/packages/fa/c3/60c0cbf96f242d0b47a82e9ca634dcd6dcb043832cf05e17540812e1c707/pexpect-4.4.0.tar.gz"
+    sha256 "67b85a1565968e3d5b5e7c9283caddc90c3947a2625bed1905be27bd5a03e47d"
   end
 
   resource "pickleshare" do
@@ -99,18 +98,18 @@ class IpythonAT5 < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/c5/39/4da7c2dbc4f023fba5fb2325febcadf0d0ce0efdc8bd12083a0f65d20653/python-dateutil-2.7.2.tar.gz"
+    sha256 "9d8074be4c993fbe4947878ce593052f71dac82932a677d49194d8ce9778002e"
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/af/37/8e0bf3800823bc247c36715a52e924e8f8fd5d1432f04b44b8cd7a5d7e55/pyzmq-16.0.2.tar.gz"
-    sha256 "0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d"
+    url "https://files.pythonhosted.org/packages/9f/f6/85a33a25128a4a812c3482547e3d458eebdb19ee0b4699f9199cdb2ad731/pyzmq-17.0.0.tar.gz"
+    sha256 "0145ae59139b41f65e047a3a9ed11bbc36e37d5e96c64382fcdff911c4d8c3f0"
   end
 
   resource "scandir" do
-    url "https://files.pythonhosted.org/packages/bd/f4/3143e0289faf0883228017dbc6387a66d0b468df646645e29e1eb89ea10e/scandir-1.5.tar.gz"
-    sha256 "c2612d1a487d80fb4701b4a91ca1b8f8a695b1ae820570815e85e8c8b23f1283"
+    url "https://files.pythonhosted.org/packages/13/bb/e541b74230bbf7a20a3949a2ee6631be299378a784f5445aa5d0047c192b/scandir-1.7.tar.gz"
+    sha256 "b2d55be869c4f716084a19b1e16932f0769711316ba62de941320bf2be84763d"
   end
 
   resource "simplegeneric" do
@@ -124,13 +123,13 @@ class IpythonAT5 < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz"
-    sha256 "1fb8e494cd46c674d86fac5885a3ff87b0e283937a47d74eb3c02a48c9e89ad0"
+    url "https://files.pythonhosted.org/packages/66/60/5b34caa5014eb3f1deb16d0e72cc08abeec7a9c9823486da7984ddadc95f/tornado-5.0.1.tar.gz"
+    sha256 "3e9a2333362d3dad7876d902595b64aea1a2f91d0df13191ea1f8bca5a447771"
   end
 
   resource "traitlets" do
@@ -173,16 +172,12 @@ class IpythonAT5 < Formula
     kernel_dir = Dir.mktmpdir
     system libexec/"bin/ipython", "kernel", "install", "--prefix", kernel_dir
     (share/"jupyter/kernels/python2").install Dir["#{kernel_dir}/share/jupyter/kernels/python2/*"]
-    inreplace share/"jupyter/kernels/python2/kernel.json" do |s|
-      s.gsub! "\"argv\": [\n  \"/usr/bin/python\",",
-              "\"argv\": [\n  \"#{Formula["python@2"].opt_bin}/python2\","
-      s.gsub! "]", <<~EOS
-        ],
-        "env": {
-          "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
-        }
-      EOS
-    end
+    inreplace share/"jupyter/kernels/python2/kernel.json", "]", <<~EOS.chomp
+      ],
+       "env": {
+        "PYTHONPATH": "#{ENV["PYTHONPATH"]}"
+       }
+    EOS
   end
 
   def post_install
