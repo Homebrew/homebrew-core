@@ -42,11 +42,7 @@ class Wine < Formula
     end
   end
 
-  if MacOS.version >= :el_capitan
-    option "without-win64", "Build without 64-bit support"
-    depends_on :xcode => ["8.0", :build] if build.with? "win64"
-  end
-
+  depends_on :xcode => ["8.0", :build] if MacOS.version < :sierra
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
@@ -75,6 +71,7 @@ class Wine < Formula
 
   resource "jpeg" do
     url "http://www.ijg.org/files/jpegsrc.v9c.tar.gz"
+    mirror "https://fossies.org/linux/misc/jpegsrc.v9c.tar.gz"
     sha256 "650250979303a649e21f87b5ccd02672af1ea6954b911342ea491f351ceb7122"
   end
 
@@ -424,20 +421,14 @@ class Wine < Formula
       ENV["ac_cv_lib_soname_#{dep}"] = (libexec/"lib/lib#{dep}.dylib").realpath
     end
 
-    if build.with? "win64"
-      args64 = ["--prefix=#{prefix}"] + depflags
-      args64 << "--enable-win64"
-      args64 << "--without-x"
+    args64 = ["--prefix=#{prefix}", "--enable-win64", "--without-x"] + depflags
 
-      mkdir "wine-64-build" do
-        system "../configure", *args64
-        system "make", "install"
-      end
+    mkdir "wine-64-build" do
+      system "../configure", *args64
+      system "make", "install"
     end
 
-    args = ["--prefix=#{prefix}"] + depflags
-    args << "--with-wine64=../wine-64-build" if build.with? "win64"
-    args << "--without-x"
+    args = ["--prefix=#{prefix}", "--with-wine64=../wine-64-build", "--without-x"] + depflags
 
     mkdir "wine-32-build" do
       ENV.m32
@@ -467,8 +458,6 @@ class Wine < Formula
 
   test do
     assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine hostname.exe 2>/dev/null").chomp
-    if build.with? "win64"
-      assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine64 hostname.exe 2>/dev/null").chomp
-    end
+    assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine64 hostname.exe 2>/dev/null").chomp
   end
 end
