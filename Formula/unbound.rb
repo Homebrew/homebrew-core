@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.6.8.tar.gz"
-  sha256 "e3b428e33f56a45417107448418865fe08d58e0e7fea199b855515f60884dd49"
+  url "https://www.unbound.net/downloads/unbound-1.7.0.tar.gz"
+  sha256 "94dd9071fb13d8ccd122a3ac67c4524a3324d0e771fc7a8a7c49af8abfb926a2"
 
   bottle do
     sha256 "14bb3f5ce9567f835522a4cf278e843602def948c9c139c0dbe660dad666b6e9" => :high_sierra
@@ -16,6 +16,13 @@ class Unbound < Formula
   depends_on "libevent"
   depends_on "python@2" => :optional
   depends_on "swig" if build.with? "python@2"
+
+  # https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=4043
+  # Remove for unbound >1.7.0
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2081bc5e/unbound/unbound-1.7.0-fix-v6-make-test.diff"
+    sha256 "acae8f6aa8f5d1044dab9a9bf8782263786c853bb38e1b59a9f18d866e01a1f4"
+  end
 
   def install
     args = %W[
