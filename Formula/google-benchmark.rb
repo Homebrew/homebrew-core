@@ -1,8 +1,8 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/v1.3.0.tar.gz"
-  sha256 "f19559475a592cbd5ac48b61f6b9cedf87f0b6775d1443de54cfe8f53940b28d"
+  url "https://github.com/google/benchmark/archive/v1.4.0.tar.gz"
+  sha256 "616f252f37d61b15037e3c2ef956905baf9c9eecfeab400cb3ad25bae714e214"
   head "https://github.com/google/benchmark.git"
 
   bottle do
@@ -18,10 +18,7 @@ class GoogleBenchmark < Formula
 
   def install
     ENV.cxx11
-
-    system "cmake", *std_cmake_args
-    system "make"
-    system "make", "test"
+    system "cmake", "-DBENCHMARK_ENABLE_GTEST_TESTS=OFF", *std_cmake_args
     system "make", "install"
   end
 
