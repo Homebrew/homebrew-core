@@ -6,9 +6,9 @@ class Lmod < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1cc6eb5701c0f2fa28ba51763c17b39020aa2c1008319f26230cbe566c1d653" => :high_sierra
-    sha256 "31724da87ddd9cf95abbdafd8531dba61c4b34814fad382ed90ec71f0495b379" => :sierra
-    sha256 "07ef421f31b04c80368bb88e58f1e66c1225cd64fc051da192e03d22f25804ee" => :el_capitan
+    sha256 "b43731171eb50dff7d0090a1974cb5e79882c1603b6e420c356079832248967d" => :high_sierra
+    sha256 "c57b57dea55861856534696286ecc49b627014fea0e759120abf76c729a710db" => :sierra
+    sha256 "95a74cfc7e53ca12ad854de72e695a26760fd1cf14b45d84e3fe1064a162cf5b" => :el_capitan
   end
 
   depends_on "lua"
