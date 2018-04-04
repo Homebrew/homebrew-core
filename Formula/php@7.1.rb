@@ -3,6 +3,7 @@ class PhpAT71 < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.1.16.tar.xz/from/this/mirror"
   sha256 "a5d67e477248a3911af7ef85c8400c1ba8cd632184186fd31070b96714e669f1"
+  revision 1
 
   bottle do
     sha256 "cd22b9c7cd6986c7e80acaac6eb971acbf01ba9b3a4401df15d6d193b0f699a8" => :high_sierra
@@ -76,7 +77,7 @@ class PhpAT71 < Formula
     ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     config_path = etc/"php/#{php_version}"
-    # Prevent system pear config from inhibitting pear install
+    # Prevent system pear config from inhibiting pear install
     (config_path/"pear.conf").delete if (config_path/"pear.conf").exist?
 
     # Prevent homebrew from harcoding path to sed shim in phpize script
@@ -88,6 +89,7 @@ class PhpAT71 < Formula
       --sysconfdir=#{config_path}
       --with-config-file-path=#{config_path}
       --with-config-file-scan-dir=#{config_path}/conf.d
+      --with-pear=#{pkgshare}/pear
       --enable-bcmath
       --enable-calendar
       --enable-dba
@@ -200,7 +202,7 @@ class PhpAT71 < Formula
   end
 
   def post_install
-    pear_prefix = share/"pear"
+    pear_prefix = pkgshare/"pear"
     pear_files = %W[
       #{pear_prefix}/.depdblock
       #{pear_prefix}/.filemap
@@ -226,7 +228,8 @@ class PhpAT71 < Formula
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 
     # fix pear config to install outside cellar
-    pear_path = HOMEBREW_PREFIX/"share/pear"
+    pear_path = HOMEBREW_PREFIX/"share/pear@#{php_version}"
+    cp_r pkgshare/"pear/.", pear_path
     {
       "php_ini" => etc/"php/#{php_version}/php.ini",
       "php_dir" => pear_path,
@@ -243,6 +246,8 @@ class PhpAT71 < Formula
       value.mkpath if key =~ /(?<!bin|man)_dir$/
       system bin/"pear", "config-set", key, value, "system"
     end
+
+    system bin/"pear", "update-channels"
 
     %w[
       opcache
