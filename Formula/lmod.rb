@@ -45,7 +45,7 @@ class Lmod < Formula
 
   def caveats
     <<~EOS
-      To use LMod, you should add the init script to the shell you are using.
+      To use Lmod, you should add the init script to the shell you are using.
 
       For example, the bash setup script is here: #{opt_prefix}/init/profile
       and you can source it in your bash setup or link to it.
