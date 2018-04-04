@@ -13,6 +13,6 @@ class Oksh < Formula
   end
 
   test do
-      assert_equal "hello", shell_output("#{bin}/oksh -c \"echo hello\"").strip
+    assert_equal "hello", shell_output("#{bin}/oksh -c \"echo hello\"").strip
   end
 end
