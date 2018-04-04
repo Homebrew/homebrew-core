@@ -20,8 +20,6 @@ class Harfbuzz < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-cairo", "Build command-line utilities that depend on Cairo"
-
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection" => :build
   depends_on "freetype" => :recommended
