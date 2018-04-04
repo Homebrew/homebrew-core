@@ -3,6 +3,7 @@ class Glade < Formula
   homepage "https://glade.gnome.org/"
   url "https://download.gnome.org/sources/glade/3.22/glade-3.22.1.tar.xz"
   sha256 "dff89a2ef2eaf000ff2a46979978d03cb9202cb04668e01d0ea5c5bb5547e39a"
+  revision 1
 
   bottle do
     sha256 "78b1d0f41cb5660f77eff92dd0a9bb863b51c171e0679e120bec879453212572" => :high_sierra
@@ -14,6 +15,7 @@ class Glade < Formula
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "libxml2"
   depends_on "adwaita-icon-theme"
