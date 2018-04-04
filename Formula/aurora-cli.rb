@@ -1,8 +1,8 @@
 class AuroraCli < Formula
   desc "Apache Aurora Scheduler Client"
   homepage "https://aurora.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.19.0/apache-aurora-0.19.0.tar.gz"
-  sha256 "d89ce4b67e4387b479493acb13c346cb53c2369ed33e60ea0f697135d4126c29"
+  url "https://www.apache.org/dyn/closer.cgi?path=/aurora/0.20.0/apache-aurora-0.20.0.tar.gz"
+  sha256 "9b56953ec95922ca332caaeebb0b9c1c9bec82b86bddd46b734782e831a49421"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,17 +11,16 @@ class AuroraCli < Formula
     sha256 "a97a66254586aace43a789ae73df85781bff46c3d2837a0b9ad8d07bf9358dc7" => :el_capitan
   end
 
-  if MacOS.version == :high_sierra
+  if MacOS.version <= :sierra
     patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/21a7e7d/aurora-cli/pants_version_1.4.0_dev20.diff"
-      sha256 "0f4e3dcab78974d43ff5225df68969609587656313f8e495908523f89f6cb0a7"
+      url "https://raw.githubusercontent.com/thinker0/aurora/virtualenv-update/pants.diff"
+      sha256 "31951bdc046066dd9c1ca730a79f654faddad2fbff3faf9ac2a51f6a6ce0cd0a"
     end
   end
 
   depends_on "python@2"
 
   def install
-    system "./build-support/thrift/prepare_binary.sh"
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora"
     system "./pants", "binary", "src/main/python/apache/aurora/kerberos:kaurora_admin"
     bin.install "dist/kaurora.pex" => "aurora"
