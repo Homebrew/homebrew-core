@@ -1,9 +1,9 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v1.1.7.src.tgz"
-  version "1.1.7"
-  sha256 "f6ce7290ba1eac5dd5e94d1ef44cd3c1f52ef01622d0b4a8c8797c0b7cb53b00"
+  url "https://binaries.cockroachdb.com/cockroach-v2.0.0.src.tgz"
+  version "2.0.0"
+  sha256 "7ef33526ece2d41c869380ac1b287029387bce06c26fcb9ae162bdcd71711075"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
@@ -19,10 +19,6 @@ class Cockroach < Formula
   depends_on "xz" => :build
 
   def install
-    # unpin the Go version
-    go_version = Formula["go"].installed_version.to_s.split(".")[0, 2].join(".")
-    inreplace "src/github.com/cockroachdb/cockroach/.go-version",
-              /^GOVERS = go.*/, "GOVERS = go#{go_version.gsub(".", "\\.")}.*"
     system "make", "install", "prefix=#{prefix}"
   end
 
@@ -84,7 +80,6 @@ class Cockroach < Formula
       assert_equal <<~EOS, output
         id,balance
         1,1000.50
-        # 1 row
       EOS
     ensure
       system "#{bin}/cockroach", "quit", "--insecure"
