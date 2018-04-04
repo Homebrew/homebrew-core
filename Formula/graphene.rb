@@ -6,9 +6,9 @@ class Graphene < Formula
   revision 1
 
   bottle do
-    sha256 "d8a08d1c0ef36ce8792a6e272b6e2bcf89595d4872e5cd07fbdebfab0f0aa636" => :high_sierra
-    sha256 "ad4eeb8fabde86c6eec37bc63468aa54808fd140f9a9cfa7987e0f7b43b11672" => :sierra
-    sha256 "4c46e8f9f8313940ecb601bf11a27159fb751b6e9a5c4faba7e8c116f539cb13" => :el_capitan
+    sha256 "cb0628386bb30e537cdf84c8bcef8f9faf64d0dac10f9b6280eeedd45c3475a8" => :high_sierra
+    sha256 "c97f5b1615a81096933962f83722c959eda05c3902fb338f1ea5a112eeb0ef88" => :sierra
+    sha256 "f8d9683bde05040e4e1c04a99f2d43a80c7da0b87174f4cc53e1b0a800b66506" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
