@@ -42,7 +42,7 @@ class Wine < Formula
     end
   end
 
-  depends_on :xcode => ["8.0", :build] if MacOS.version < :sierra
+  depends_on :macos => :el_capitan
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
@@ -421,18 +421,20 @@ class Wine < Formula
       ENV["ac_cv_lib_soname_#{dep}"] = (libexec/"lib/lib#{dep}.dylib").realpath
     end
 
-    args64 = ["--prefix=#{prefix}", "--enable-win64", "--without-x"] + depflags
-
     mkdir "wine-64-build" do
-      system "../configure", *args64
+      system "../configure", "--prefix=#{prefix}",
+                             "--enable-win64",
+                             "--without-x",
+                             *depflags
       system "make", "install"
     end
 
-    args = ["--prefix=#{prefix}", "--with-wine64=../wine-64-build", "--without-x"] + depflags
-
     mkdir "wine-32-build" do
       ENV.m32
-      system "../configure", *args
+      system "../configure", "--prefix=#{prefix}",
+                             "--with-wine64=../wine-64-build",
+                             "--without-x",
+                             *depflags
       system "make", "install"
     end
     (pkgshare/"gecko").install resource("gecko-x86")
