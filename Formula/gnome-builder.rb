@@ -1,9 +1,8 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.2.tar.xz"
-  sha256 "84843a9f4af2e1ee1ebfac44441a2affa2d409df9066e7d11bf1d232ae0c535a"
-  revision 8
+  url "https://download.gnome.org/sources/gnome-builder/3.28/gnome-builder-3.28.0.tar.xz"
+  sha256 "71b7527a4297b5e4986754f5563cb9afc777bc8a890b90145c05ac93f2d6a9f8"
 
   bottle do
     sha256 "5dae501a05c149c8e33c4e439935b0683a10f82b59ca2fcaef67069dfd342162" => :high_sierra
@@ -11,49 +10,66 @@ class GnomeBuilder < Formula
     sha256 "cc0889d2e8f59b5dbe66b67ab1d4a8bbac12403617e9a264e0426f076ed5fbad" => :el_capitan
   end
 
-  deprecated_option "with-python3" => "with-python"
-
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
-  depends_on "itstool" => :build
-  depends_on "coreutils" => :build
-  depends_on "libgit2"
-  depends_on "libgit2-glib"
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
+  depends_on "python" => :build
+  depends_on "dbus"
   depends_on "gtk+3"
-  depends_on "libpeas"
+  depends_on "libdazzle"
   depends_on "gtksourceview3"
+  depends_on "json-glib"
+  depends_on "jsonrpc-glib"
+  depends_on "template-glib"
+  depends_on "libpeas"
+  depends_on "vte3"
+  depends_on "libxml2"
+  depends_on "libgit2-glib"
+  depends_on "gspell"
   depends_on "hicolor-icon-theme"
   depends_on "adwaita-icon-theme"
-  depends_on "desktop-file-utils"
-  depends_on "pcre"
-  depends_on "json-glib"
-  depends_on "libsoup"
-  depends_on "gspell"
-  depends_on "enchant"
-  depends_on "libxml2"
-  depends_on "gjs" => :recommended
-  depends_on "vala" => :recommended
-  depends_on "ctags" => :recommended
-  depends_on "meson" => :recommended
-  depends_on "python" => :optional
-  depends_on "pygobject3" if build.with? "python"
+
+  # fix sandbox violation and remove unavailable linker option
+  patch :DATA
 
   needs :cxx11
 
   def install
-    # Bugreport opened at https://bugzilla.gnome.org/show_bug.cgi?id=780293
-    ENV.append "LIBS", `pkg-config --libs enchant`.chomp
-    inreplace "doc/Makefile.in", "cp -R", "gcp -R"
-
     ENV.cxx11
+    ENV["DESTDIR"] = ""
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
-    system "make", "install"
+    args = %W[
+      --prefix=#{prefix}
+      -Dwith_git=true
+      -Dwith_autotools=true
+      -Dwith_history=true
+      -Dwith_webkit=false
+      -Dwith_clang=false
+      -Dwith_devhelp=false
+      -Dwith_flatpak=false
+      -Dwith_sysprof=false
+      -Dwith_vapi=false
+      -Dwith_vala_pack=false
+      -Dwith_qemu=false
+      -Dwith_safe_path=#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin
+    ]
+
+    # prevent sandbox violation
+    pyver = Language::Python.major_minor_version "python3"
+    inreplace "src/libide/meson.build",
+              "install_dir: pygobject_override_dir",
+              "install_dir: '#{lib}/python#{pyver}/site-packages'"
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
+
+    # meson-internal gives wrong install_names for dylibs due to their unusual installation location
+    # create softlinks to fix
+    ln_s Dir.glob("#{lib}/gnome-builder/*dylib"), lib
   end
 
   def post_install
@@ -65,3 +81,87 @@ class GnomeBuilder < Formula
     assert_match version.to_s, shell_output("#{bin}/gnome-builder --version")
   end
 end
+
+__END__
+diff --git a/src/libide/meson.build b/src/libide/meson.build
+index 055801b..4e29f9d 100644
+--- a/src/libide/meson.build
++++ b/src/libide/meson.build
+@@ -160,37 +160,6 @@ if get_option('with_editorconfig')
+   ]
+ endif
+
+-# We want to find the subdirectory to install our override into:
+-python3 = find_program('python3')
+-
+-get_overridedir = '''
+-import os
+-import sysconfig
+-
+-libdir = sysconfig.get_config_var('LIBDIR')
+-if not libdir:
+-  libdir = '/usr/lib'
+-
+-try:
+-  import gi
+-  overridedir = gi._overridesdir
+-except ImportError:
+-  purelibdir = sysconfig.get_path('purelib')
+-  overridedir = os.path.join(purelibdir, 'gi', 'overrides')
+-
+-if overridedir.startswith(libdir): # Should always be True..
+-  overridedir = overridedir[len(libdir) + 1:]
+-
+-print(overridedir)
+-'''
+-
+-ret = run_command([python3, '-c', get_overridedir])
+-if ret.returncode() != 0
+-  error('Failed to determine pygobject overridedir')
+-else
+-  pygobject_override_dir = join_paths(get_option('libdir'), ret.stdout().strip())
+-endif
+-
+ install_data('Ide.py', install_dir: pygobject_override_dir)
+
+ libide_deps = [
+diff --git a/src/plugins/meson.build b/src/plugins/meson.build
+index d97d7e3..646e7f3 100644
+--- a/src/plugins/meson.build
++++ b/src/plugins/meson.build
+@@ -5,10 +5,8 @@ gnome_builder_plugins_sources = ['gnome-builder-plugins.c']
+ gnome_builder_plugins_args = []
+ gnome_builder_plugins_deps = [libpeas_dep, libide_plugin_dep, libide_dep]
+ gnome_builder_plugins_link_with = []
+-gnome_builder_plugins_link_deps = join_paths(meson.current_source_dir(), 'plugins.map')
+-gnome_builder_plugins_link_args = [
+-  '-Wl,--version-script,' + gnome_builder_plugins_link_deps,
+-]
++gnome_builder_plugins_link_deps = []
++gnome_builder_plugins_link_args = []
+
+ subdir('autotools')
+ subdir('autotools-templates')
+@@ -76,7 +74,6 @@ gnome_builder_plugins = shared_library(
+   gnome_builder_plugins_sources,
+
+    dependencies: gnome_builder_plugins_deps,
+-   link_depends: 'plugins.map',
+          c_args: gnome_builder_plugins_args,
+       link_args: gnome_builder_plugins_link_args,
+       link_with: gnome_builder_plugins_link_with,
+
+diff --git a/src/main.c b/src/main.c
+index f3bea6d..8f7eab8 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -109,6 +109,9 @@ main (int   argc,
+   /* Setup our gdb fork()/exec() helper */
+   bug_buddy_init ();
+
++  /* macOS dbus hack */
++  g_setenv("DBUS_SESSION_BUS_ADDRESS", "launchd:env=DBUS_LAUNCHD_SESSION_BUS_SOCKET", TRUE);
++
+   /*
+    * We require a desktop session that provides a properly working
+    * DBus environment. Bail if for some reason that is not the case.
