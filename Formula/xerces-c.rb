@@ -13,13 +13,9 @@ class XercesC < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
-
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-Dxmlch-type=uint16_t", *std_cmake_args
       system "make"
       system "ctest", "-V"
       system "make", "install"
