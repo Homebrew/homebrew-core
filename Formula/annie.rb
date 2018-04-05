@@ -4,8 +4,7 @@ class Annie < Formula
   url "https://github.com/iawia002/annie/archive/0.6.4.tar.gz"
   sha256 "e7f9caf29bf4b48e9329f0c7efba7988bcd2f8d0361b710022a40cd033164d4f"
 
-  depends_on "go"
-  depends_on "ffmpeg" => :optional
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
