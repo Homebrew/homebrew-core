@@ -3,6 +3,7 @@ class Collectd < Formula
   homepage "https://collectd.org/"
   url "https://collectd.org/files/collectd-5.8.0.tar.bz2"
   sha256 "b06ff476bbf05533cb97ae6749262cc3c76c9969f032bd8496690084ddeb15c9"
+  revision 1
 
   bottle do
     sha256 "c228054cab6171395cf7fc0aae7baa020743514a41dd374e668d4d9440675e7f" => :high_sierra
@@ -27,6 +28,7 @@ class Collectd < Formula
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
+  depends_on "libgcrypt"
   depends_on "libtool"
   depends_on "riemann-client" => :optional
   depends_on :java => :optional
