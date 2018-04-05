@@ -5,6 +5,7 @@ class Saltstack < Formula
   homepage "http://www.saltstack.org"
   url "https://files.pythonhosted.org/packages/38/a6/7b46edaad848fee40a0201be23f2fd1ce498f6269eda8fea66c86c1776d0/salt-2017.7.4.tar.gz"
   sha256 "1d573095776ba052eec7d7cae1472f4b1d4c15f16e1d79c2dc48db3129dbae97"
+  revision 1
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -90,8 +91,8 @@ class Saltstack < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/29/78/c2d5c7b0394e99cf20c683927871e676ff796d69d8c2c322e0edabb6e9c6/pygit2-0.26.3.tar.gz"
-    sha256 "29baa530d6fcbf7cca6a75cf9c78fb88613ca81afb39c62fe492f226f6b61800"
+    url "https://files.pythonhosted.org/packages/3b/0d/c11844421c7c3b9cb84c5503185bbb5ba780144fd64f5adde572bcdcdd8a/pygit2-0.27.0.tar.gz"
+    sha256 "6febce4aea72f12ed5a1e7529b91119f21d93cb2ccb3f834eea26af76cc9a4cb"
   end
 
   resource "pyzmq" do

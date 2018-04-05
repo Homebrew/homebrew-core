@@ -3,7 +3,7 @@ class GnomeBuilder < Formula
   homepage "https://wiki.gnome.org/Apps/Builder"
   url "https://download.gnome.org/sources/gnome-builder/3.24/gnome-builder-3.24.2.tar.xz"
   sha256 "84843a9f4af2e1ee1ebfac44441a2affa2d409df9066e7d11bf1d232ae0c535a"
-  revision 7
+  revision 8
 
   bottle do
     sha256 "bf7da5f5b00bc77c3423f8ff279f87df3c6e875a82ec62a89c9b021138878c5a" => :high_sierra
