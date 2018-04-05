@@ -159,7 +159,7 @@ class Pypy3 < Formula
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
     bin.install_symlink libexec/"bin/pypy3"
-    bin.install_symlink libexec/"bin/pypy3.5"
+    bin.install_symlink libexec/"bin/pypy" => "pypy3.5"
     lib.install_symlink libexec/"lib/libpypy3-c.dylib"
   end
 
