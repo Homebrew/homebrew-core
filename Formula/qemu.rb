@@ -11,6 +11,11 @@ class Qemu < Formula
     sha256 "55c6b1cf7d0fdaf5e5f131c84bf62566954edb56557df0dd088c90a436bb25a3" => :el_capitan
   end
 
+  devel do
+    url "https://download.qemu.org/qemu-2.12.0-rc2.tar.xz"
+    sha256 "b8dfe1f5771ca48225f408f0ec2c19519536fe534581b2d21a5e4eebab94220a"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
@@ -71,7 +76,8 @@ class Qemu < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/qemu-system-i386 --version")
+    expected = build.stable? ? version.to_s : "QEMU Project"
+    assert_match expected, shell_output("#{bin}/qemu-system-i386 --version")
     resource("test-image").stage testpath
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end
