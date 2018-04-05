@@ -28,6 +28,7 @@ class Collectd < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtool"
+  depends_on "libgcrypt" => :recommended
   depends_on "riemann-client" => :optional
   depends_on :java => :optional
   depends_on "python@2" => :optional
