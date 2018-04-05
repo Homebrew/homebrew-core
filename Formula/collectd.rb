@@ -27,8 +27,8 @@ class Collectd < Formula
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
+  depends_on "libgcrypt"
   depends_on "libtool"
-  depends_on "libgcrypt" => :recommended
   depends_on "riemann-client" => :optional
   depends_on :java => :optional
   depends_on "python@2" => :optional
