@@ -6,6 +6,13 @@ class TrezorAgent < Formula
   url "https://files.pythonhosted.org/packages/54/89/6de88988f9efa712cb7131cf3123a2a043c7956ee66e725b14a1ea4c27ec/trezor_agent-0.9.2.tar.gz"
   sha256 "d7756759ab9bb6700007423e58cb20f26effd0271c26f7a43c0a92c0fa487ede"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ff4b2a030026867a0895f99d63a5a1010cf8b1699b093c91e99b92e1d2cd8744" => :high_sierra
+    sha256 "a9c354d429d49c1fabd255f18548f03967f086f136de8ab8a7bef0eb4e7efbb8" => :sierra
+    sha256 "2da90be8d971b100a37ad9b6e64d64e3ced33a86c79a940e2e912f86d1bc4682" => :el_capitan
+  end
+
   depends_on "libusb"
   depends_on "python"
 
