@@ -1,8 +1,8 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v1.8.0.tar.gz"
-  sha256 "c45029c0a0f1a88d416af143e34de96b3091642722aa2d8c090916c6d1498c2e"
+  url "https://github.com/google/flatbuffers/archive/v1.9.0.tar.gz"
+  sha256 "5ca5491e4260cacae30f1a5786d109230db3f3a6e5a0eb45d0d0608293d247e3"
   head "https://github.com/google/flatbuffers.git"
 
   bottle do
