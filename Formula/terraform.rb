@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.11.5.tar.gz"
-  sha256 "f442792d5a6a071505d437e4ccfb20daa36c18ea1981c2cceb51668e610c45de"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.6.tar.gz"
+  sha256 "a1177c045beadaef5b5e55189f560911795e551bdb0353e763bbf18c61ccfb0d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -22,7 +22,7 @@ class Terraform < Formula
   # stringer is a build tool dependency
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.9"
+        :branch => "release-branch.go1.10"
   end
 
   def install
@@ -48,7 +48,6 @@ class Terraform < Formula
       system "make", "test", "bin"
 
       bin.install "pkg/darwin_#{arch}/terraform"
-      zsh_completion.install "contrib/zsh-completion/_terraform"
       prefix.install_metafiles
     end
   end
