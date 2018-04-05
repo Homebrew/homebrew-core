@@ -6,8 +6,8 @@ class Mint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "045fc8cd11d8c3e9edca5588140194ee83416f887b254ea27b3288f0fa5cbad9" => :high_sierra
-    sha256 "ef1b5a9609d98627c82a9a49c5daecd52aacd633fa92814282b92e1c3b6f0217" => :sierra
+    sha256 "482c527434751571bfff509e949ae33d76e0123d5cf418f1d9ebc686929cda1d" => :high_sierra
+    sha256 "203cfa99c47358497dc58deb7d0a689859705da12b7591d79d9d425eb1bd62e2" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]
