@@ -13,7 +13,7 @@ class Agda < Formula
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "477ba28360133b1f5c45ce1b4e6b4efd467af331"
+          :revision => "c06437e4ebb5365d502fb0a79775e5c591ab8ae5" # v0.15
     end
   end
 
