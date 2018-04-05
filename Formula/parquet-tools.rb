@@ -2,8 +2,8 @@ class ParquetTools < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
   url "https://github.com/apache/parquet-mr.git",
-      :tag => "apache-parquet-1.9.0",
-      :revision => "38262e2c80015d0935dad20f8e18f2d6f9fbd03c"
+      :tag => "apache-parquet-1.10.0",
+      :revision => "031a6654009e3b82020012a18434c582bd74c73a"
   head "https://github.com/apache/parquet-mr.git"
 
   bottle do
