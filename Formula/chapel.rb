@@ -1,6 +1,6 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
-  homepage "http://chapel-lang.org/"
+  homepage "https://chapel-lang.org/"
   url "https://github.com/chapel-lang/chapel/releases/download/1.17.0/chapel-1.17.0.tar.gz"
   sha256 "7620b780cf2a2bd3b26022957c3712983519a422a793614426aed6d9d8bf9fab"
   head "https://github.com/chapel-lang/chapel.git"
