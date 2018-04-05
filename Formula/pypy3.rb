@@ -67,6 +67,30 @@ class Pypy3 < Formula
     sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
+  # Fetch these ourselves rather than leaving it to the build process.
+  # The existing bootstrap is linked to an old version of OpenSSL that can't
+  # handle >TLSv1.0 and consequently the build script forces downloading
+  # LibreSSL and gdbm over HTTP instead of HTTPS. We could simply update
+  # the bootstrap but the new bootstrap version has linkage issues that
+  # aren't any easier to resolve than simply doing it this way.
+  # This has been completely rewritten upstream in master so check with
+  # the next release whether this can be removed or not.
+  resource "libressl" do
+    url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz", :using => :nounzip
+    sha256 "b029d2492b72a9ba5b5fcd9f3d602c9fd0baa087912f2aaecc28f52f567ec478"
+  end
+
+  resource "gdbm" do
+    url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.13.tar.gz", :using => :nounzip
+    sha256 "9d252cbd7d793f7b12bcceaddda98d257c14f4d1890d851c386c37207000a253"
+  end
+
+  resource "xz" do
+    url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.3.tar.gz", :using => :nounzip
+    sha256 "71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb"
+  end
+  # End of "fetch these ourselves".
+
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
   fails_with :gcc
 
@@ -75,6 +99,10 @@ class Pypy3 < Formula
     if MacOS.version == :sierra && MacOS::Xcode.installed? && MacOS::Xcode.version >= "9.0"
       ENV.delete("SDKROOT")
     end
+
+    (buildpath/"pypy-archives").install resource("libressl")
+    (buildpath/"pypy-archives").install resource("gdbm")
+    (buildpath/"pypy-archives").install resource("xz")
 
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
@@ -95,6 +123,10 @@ class Pypy3 < Formula
         ENV.append "PYTHONPATH", buildpath/"pycparser"
       end
     end
+
+    inreplace buildpath/"pypy/tool/build_cffi_imports.py",
+      "os.path.join(tempfile.gettempdir(), 'pypy-archives')",
+      "os.path.join('#{buildpath}', 'pypy-archives')"
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
