@@ -1,9 +1,8 @@
 class Bettercap < Formula
-  desc "Complete, modular, portable and easily extensible MITM framework"
+  desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/evilsocket/bettercap/archive/v1.6.2.tar.gz"
-  sha256 "1b364d7e31be5fa7b5f93eefe76763ad7bd4ac0b7b6bb4af05483157580a9cb9"
-  revision 3
+  url "https://github.com/bettercap/bettercap/archive/v2.4.tar.gz"
+  sha256 "c349d9b428da26b713847afc268d033ed3f6cc351a8fdfc7557811146b677e23"
 
   bottle do
     cellar :any
@@ -12,19 +11,20 @@ class Bettercap < Formula
     sha256 "c15257bc4fcc3d23bdb6e1204757230f6ca843b97507ef4ceefa824e8ec4838a" => :el_capitan
   end
 
-  depends_on "openssl"
-  depends_on "ruby" if MacOS.version <= :sierra
+  depends_on "glide" => :build
+  depends_on "go" => :build
 
   def install
-    ENV["GEM_HOME"] = libexec
-    ENV["BUNDLE_PATH"] = libexec
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include}"
-    system "gem", "install", "bundler"
-    system libexec/"bin/bundle", "install"
-    system "gem", "build", "bettercap.gemspec"
-    system "gem", "install", "bettercap-#{version}.gem"
-    bin.install libexec/"bin/bettercap"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    ENV["GOPATH"] = buildpath
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
+
+    cd "src/github.com/bettercap/bettercap" do
+      system "glide", "install"
+      system "make", "build"
+      bin.install "bettercap"
+      prefix.install_metafiles
+    end
   end
 
   def caveats; <<~EOS
@@ -34,6 +34,6 @@ class Bettercap < Formula
   end
 
   test do
-    assert_match "This software must run as root.", pipe_output("#{bin}/bettercap --version 2>&1")
+    assert_match "bettercap", shell_output("#{bin}/bettercap -help 2>&1", 2)
   end
 end
