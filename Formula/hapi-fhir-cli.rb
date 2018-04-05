@@ -1,8 +1,8 @@
 class HapiFhirCli < Formula
   desc "Command-line interface for the HAPI FHIR library"
   homepage "http://hapifhir.io/doc_cli.html"
-  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.2.0/hapi-fhir-3.2.0-cli.tar.bz2"
-  sha256 "cabe82d3b5107f7d789db2a057130ff5eec2ca5e889f8dfdaa03fae8202ee67c"
+  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.3.0/hapi-fhir-3.3.0-cli.tar.bz2"
+  sha256 "8342c78598edd9b6509fff0b9cb1de9b277b97f1537342124d1e78523d887d15"
 
   def install
     inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{prefix}"
