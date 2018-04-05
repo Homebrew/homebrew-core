@@ -11,7 +11,48 @@ class Click < Formula
   end
 
   test do
-    # A better test would requrie a full K8s cluster, unfortunately
-    system bin/"click", "-V"
+    mkdir testpath/"config"
+    # Default state configuration file to avoid warning on startup
+    (testpath/"config/click.config").write <<~EOS
+      ---
+      namespace: ~
+      context: ~
+      editor: ~
+      terminal: ~
+    EOS
+
+    # Fake K8s configuration
+    (testpath/"config/config").write <<~EOS
+      apiVersion: v1
+      clusters:
+        - cluster:
+            insecure-skip-tls-verify: true
+            server: 'https://localhost:6443'
+          name: test-cluster
+      contexts:
+        - context:
+            cluster: test-cluster
+            user: test-user
+          name: test-context
+      current-context: test-context
+      kind: Config
+      preferences:
+        colors: true
+      users:
+        - name: test-cluster
+          user:
+            client-certificate-data: >-
+              invalid
+            client-key-data: >-
+              invalid
+    EOS
+
+    # This test cannot test actual K8s connectivity, but it is enough to prove click starts
+    (testpath/"click-test").write <<~EOS
+      spawn "#{bin}/click" --config_dir "#{testpath}/config"
+      expect "*\\[*none*\\]* *\\[*none*\\]* *\\[*none*\\]* >"
+      send "quit\\r"
+    EOS
+    system "/usr/bin/expect", "-f", "click-test"
   end
 end
