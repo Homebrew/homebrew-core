@@ -1,9 +1,8 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/v8.9.2.tar.gz"
-  sha256 "5beccbb1c2d364de9979a138311ffd22f5fabf25aa801f1828ac672ebe789382"
-  revision 1
+  url "https://github.com/googlei18n/libphonenumber/archive/v8.9.3.tar.gz"
+  sha256 "d61ae8bd3fd40d3aa25e92d05b7173f251bc9ba10ca746f6fa0fa1dc982bc9c5"
 
   bottle do
     cellar :any
