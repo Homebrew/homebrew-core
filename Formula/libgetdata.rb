@@ -15,6 +15,9 @@ class Libgetdata < Formula
   option "with-gcc", "Build Fortran bindings"
   option "with-libzzip", "Build with zzip compression support"
   option "with-perl", "Build against Homebrew's Perl rather than system default"
+  option "with-php", "Build PHP bindings"
+  option "with-python", "Build Python3 bindings"
+  option "with-python@2", "Build Python2 bindings"
   option "with-xz", "Build with LZMA compression support"
 
   deprecated_option "lzma" => "with-xz"
@@ -25,21 +28,38 @@ class Libgetdata < Formula
   depends_on "gcc" => :optional
   depends_on "libzzip" => :optional
   depends_on "perl" => :optional
+  depends_on "php" => :optional
+  depends_on "python" => :optional
+  depends_on "python@2" => :optional
   depends_on "xz" => :optional
+
+  if build.with?("python") && build.with?("python@2")
+    odie "libgetdata: --with-python cannot be specified when using --with-python@2"
+  end
 
   def install
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --disable-php
-      --disable-python
     ]
 
     args << "--with-perl-dir=#{lib}/perl5/site_perl" if build.with? "perl"
     args << "--without-liblzma" if build.without? "xz"
     args << "--without-libzzip" if build.without? "libzzip"
     args << "--disable-fortran" << "--disable-fortran95" if build.without? "gcc"
+    args << "--disable-php" if build.without? "php"
+
+    if build.with?("python") || build.with?("python@2")
+      if build.with? "python"
+        pyexec = `which python3`.strip
+      else
+        pyexec = `which python2`.strip
+      end
+      args << "--with-python=#{pyexec}"
+    else
+      args << "--disable-python"
+    end
 
     system "./configure", *args
     system "make"
