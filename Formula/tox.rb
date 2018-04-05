@@ -6,6 +6,13 @@ class Tox < Formula
   url "https://files.pythonhosted.org/packages/e9/56/7c6f0dd000a7634cae819c65a7452bb6ead29a4b1b1516ee05fe9dd5334c/tox-3.0.0.tar.gz"
   sha256 "96efa09710a3daeeb845561ebbe1497641d9cef2ee0aea30db6969058b2bda2f"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6a6718bfb9e0cc41dcb5404ea8bbd326e3962cd9780eb061082226d66565c03b" => :high_sierra
+    sha256 "87b2e154f71e49c52f86d6e1789911ea18b4dceb677e63f9746099743a09fb3a" => :sierra
+    sha256 "19531803c7100784006f806b1d3801fa2e650a4a2ea3e5b669b7bf445967fc6f" => :el_capitan
+  end
+
   depends_on "python"
 
   resource "pluggy" do
