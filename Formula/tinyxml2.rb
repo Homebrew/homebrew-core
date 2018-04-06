@@ -1,8 +1,8 @@
 class Tinyxml2 < Formula
   desc "Improved tinyxml (in memory efficiency and size)"
   homepage "http://grinninglizard.com/tinyxml2"
-  url "https://github.com/leethomason/tinyxml2/archive/6.0.0.tar.gz"
-  sha256 "9444ba6322267110b4aca61cbe37d5dcab040344b5c97d0b36c119aa61319b0f"
+  url "https://github.com/leethomason/tinyxml2/archive/6.2.0.tar.gz"
+  sha256 "cdf0c2179ae7a7931dba52463741cf59024198bbf9673bf08415bcb46344110f"
   head "https://github.com/leethomason/tinyxml2.git"
 
   bottle do
