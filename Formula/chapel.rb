@@ -3,6 +3,7 @@ class Chapel < Formula
   homepage "https://chapel-lang.org/"
   url "https://github.com/chapel-lang/chapel/releases/download/1.17.0/chapel-1.17.0.tar.gz"
   sha256 "7620b780cf2a2bd3b26022957c3712983519a422a793614426aed6d9d8bf9fab"
+  revision 1
   head "https://github.com/chapel-lang/chapel.git"
 
   bottle do
@@ -20,8 +21,6 @@ class Chapel < Formula
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
     cd libexec do
       system "make"
-      system "make", "chpldoc"
-      system "make", "test-venv"
       system "make", "cleanall"
     end
 
