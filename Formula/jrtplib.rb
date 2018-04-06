@@ -4,6 +4,13 @@ class Jrtplib < Formula
   url "https://research.edm.uhasselt.be/jori/jrtplib/jrtplib-3.11.1.tar.bz2"
   sha256 "e24745f22418fb5d741b6b9871b89ed43964870f292dda92fd11cfbb5d6d0e43"
 
+  bottle do
+    cellar :any
+    sha256 "afdd30606aacd4cb269b56a21176efcc3cff8f567bf43a48eedc0a54b9c9e4f1" => :high_sierra
+    sha256 "8d57a4fbc612f51765e6dc13d47c695494e42f15584ebadc4b4042200e6061ee" => :sierra
+    sha256 "1400bec305155882b16aa95fca1db8016011c2f9e39f4b1eb4ea28472072bacb" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jthread"
