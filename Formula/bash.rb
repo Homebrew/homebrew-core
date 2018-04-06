@@ -48,9 +48,10 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "c190ef318789e8628cb643536e047510d3ab20fdc6e7265d5fa908ebd6af824c" => :high_sierra
-    sha256 "63df41e44e43446adac9ddc16e3a2765731b2824c10d19a97ffd968a28a46b5e" => :sierra
-    sha256 "42acd30227424e96d6ab286b8d10065540bde8c97e23b26ef99cac6d6c0eb11c" => :el_capitan
+    rebuild 1
+    sha256 "fe18063bcd70827ffdbc577a5d94c7bd275f240c5064ac4951934be65a727ac0" => :high_sierra
+    sha256 "bf1be3cf58b556bd5c5c26794a0422f46b9c3f6ccf36e8e5325f31201357c208" => :sierra
+    sha256 "613b1313a93f8363ebe8a31412842b8f3c340eef72ba5bcd9a25ded2df751e71" => :el_capitan
   end
 
   def install
