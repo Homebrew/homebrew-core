@@ -3,7 +3,7 @@ class Librsvg < Formula
   homepage "https://live.gnome.org/LibRsvg"
   url "https://download.gnome.org/sources/librsvg/2.42/librsvg-2.42.2.tar.xz"
   sha256 "0c550a0bffef768a436286116c03d9f6cd3f97f5021c13e7f093b550fac12562"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "986a28f2a5b94710ca0f9458d1746601cc194b720ffc4036a0a65b6af8df29e4" => :high_sierra
@@ -13,6 +13,7 @@ class Librsvg < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
