@@ -12,6 +12,7 @@ class Hyperscan < Formula
   end
 
   option "with-debug", "Build with debug symbols"
+  option "with-ssse3", "Build with SSSE3 for compatibility with older Macs"
 
   depends_on "python@2" => :build if MacOS.version <= :snow_leopard
   depends_on "boost" => :build
@@ -32,6 +33,13 @@ class Hyperscan < Formula
         args += %w[
           -DCMAKE_BUILD_TYPE=Debug
           -DDEBUG_OUTPUT=on
+        ]
+      end
+
+      if build.with? "ssse3"
+        args += %w[
+          -DCMAKE_C_FLAGS=-march=core2
+          -DCMAKE_CXX_FLAGS=-march=core2
         ]
       end
 
