@@ -53,6 +53,6 @@ class Click < Formula
       expect "*\\[*none*\\]* *\\[*none*\\]* *\\[*none*\\]* >"
       send "quit\\r"
     EOS
-    system "/usr/bin/expect", "-f", "click-test"
+    system "expect", "-f", "click-test"
   end
 end
