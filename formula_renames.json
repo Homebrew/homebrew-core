@@ -6,6 +6,7 @@
   "apache-spark15": "apache-spark@15",
   "apache-spark16": "apache-spark@16",
   "app-engine-java-sdk": "app-engine-java",
+  "arm": "nyx",
   "autoconf213": "autoconf@213",
   "autoconf264": "autoconf@264",
   "automake112": "automake@112",
