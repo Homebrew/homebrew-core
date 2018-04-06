@@ -12,21 +12,16 @@ class Pypy3 < Formula
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
-                              "downloading a Pypy binary distribution to " \
-                              "perform the translation (adds 30-60 minutes " \
-                              "to build)"
+                              "using Homebrew's to perform the translation " \
+                              "(adds 30-60 minutes to build)" \
 
   depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
+  depends_on "pypy" => :build if build.with?("bootstrap") && MacOS.prefer_64_bit?
   depends_on "gdbm" => :recommended
   depends_on "sqlite" => :recommended
   depends_on "openssl"
   depends_on "xz" => :recommended
-
-  resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.9.0-osx64.tar.bz2"
-    sha256 "94de50ed80c7f6392ed356c03fd54cdc84858df43ad21e9e971d1b6da0f6b867"
-  end
 
   # packaging depends on pyparsing
   resource "pyparsing" do
@@ -67,30 +62,6 @@ class Pypy3 < Formula
     sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
-  # Fetch these ourselves rather than leaving it to the build process.
-  # The existing bootstrap is linked to an old version of OpenSSL that can't
-  # handle >TLSv1.0 and consequently the build script forces downloading
-  # LibreSSL and gdbm over HTTP instead of HTTPS. We could simply update
-  # the bootstrap but the new bootstrap version has linkage issues that
-  # aren't any easier to resolve than simply doing it this way.
-  # This has been completely rewritten upstream in master so check with
-  # the next release whether this can be removed or not.
-  resource "libressl" do
-    url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz", :using => :nounzip
-    sha256 "b029d2492b72a9ba5b5fcd9f3d602c9fd0baa087912f2aaecc28f52f567ec478"
-  end
-
-  resource "gdbm" do
-    url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.13.tar.gz", :using => :nounzip
-    sha256 "9d252cbd7d793f7b12bcceaddda98d257c14f4d1890d851c386c37207000a253"
-  end
-
-  resource "xz" do
-    url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.3.tar.gz", :using => :nounzip
-    sha256 "71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb"
-  end
-  # End of "fetch these ourselves".
-
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
   fails_with :gcc
 
@@ -100,9 +71,17 @@ class Pypy3 < Formula
       ENV.delete("SDKROOT")
     end
 
-    (buildpath/"pypy-archives").install resource("libressl")
-    (buildpath/"pypy-archives").install resource("gdbm")
-    (buildpath/"pypy-archives").install resource("xz")
+    # This has been completely rewritten upstream in master so check with
+    # the next release whether this can be removed or not.
+    # The LibreSSL URL replacement exists because El Capitan and older
+    # can struggle/fail to handle Let's Encrypt certificates.
+    inreplace "pypy/tool/build_cffi_imports.py" do |s|
+      s.gsub! "http://", "https://"
+      s.gsub! "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz",
+              "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz"
+      s.gsub! "os.path.join(tempfile.gettempdir(), 'pypy-archives')",
+              "os.path.join('#{buildpath}', 'pypy-archives')"
+    end
 
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
@@ -112,8 +91,7 @@ class Pypy3 < Formula
 
     python = "python"
     if build.with?("bootstrap") && MacOS.prefer_64_bit?
-      resource("bootstrap").stage buildpath/"bootstrap"
-      python = buildpath/"bootstrap/bin/pypy"
+      python = Formula["pypy"].opt_bin/"pypy"
     end
 
     # PyPy 5.7.1 needs either cffi or pycparser to build
@@ -123,10 +101,6 @@ class Pypy3 < Formula
         ENV.append "PYTHONPATH", buildpath/"pycparser"
       end
     end
-
-    inreplace buildpath/"pypy/tool/build_cffi_imports.py",
-      "os.path.join(tempfile.gettempdir(), 'pypy-archives')",
-      "os.path.join('#{buildpath}', 'pypy-archives')"
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
