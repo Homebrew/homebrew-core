@@ -53,8 +53,6 @@ class Bash < Formula
     sha256 "42acd30227424e96d6ab286b8d10065540bde8c97e23b26ef99cac6d6c0eb11c" => :el_capitan
   end
 
-  depends_on "readline"
-
   def install
     # When built with SSH_SOURCE_BASHRC, bash will source ~/.bashrc when
     # it's non-interactively from sshd.  This allows the user to set
@@ -75,6 +73,6 @@ class Bash < Formula
   end
 
   test do
-    assert_equal "hello", shell_output("#{bin}/bash -c \"echo hello\"").strip
+    assert_equal "hello", shell_output("#{bin}/bash -c \"echo -n hello\"")
   end
 end
