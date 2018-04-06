@@ -1,8 +1,8 @@
 class Talloc < Formula
   desc "Hierarchical, reference-counted memory pool with destructors"
   homepage "https://talloc.samba.org/"
-  url "https://www.samba.org/ftp/talloc/talloc-2.1.12.tar.gz"
-  sha256 "987c0cf6815e948d20caaca04eba9b823e67773f361ffafe676e24b953cc604b"
+  url "https://www.samba.org/ftp/talloc/talloc-2.1.13.tar.gz"
+  sha256 "84f399dbf0ad97006a2b4953ea99452d033faac15aabfddd4ba61734764c6047"
 
   bottle do
     cellar :any
