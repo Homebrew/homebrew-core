@@ -125,7 +125,7 @@ class KeepkeyAgent < Formula
   end
 
   resource "keepkey" do
-    url "https://pypi.python.org/packages/bd/7c/8edc3d017b4b02f11533083d9987d11707fcf82ab6606c9b9aedd2e95b4c/keepkey-4.0.2.tar.gz"
+    url "https://files.pythonhosted.org//packages/bd/7c/8edc3d017b4b02f11533083d9987d11707fcf82ab6606c9b9aedd2e95b4c/keepkey-4.0.2.tar.gz"
     sha256 "cddee60ae405841cdff789cbc54168ceaeb2282633420f2be155554c25c69138"
   end
 
