@@ -18,7 +18,7 @@ class Hashpump < Formula
   deprecated_option "without-python" => "without-python@2"
 
   depends_on "openssl"
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
   depends_on "python" => :optional
 
   # Remove on next release
