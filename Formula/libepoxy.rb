@@ -15,7 +15,7 @@ class Libepoxy < Formula
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build
 
   # submitted upstream at https://github.com/anholt/libepoxy/pull/156
   patch :DATA
