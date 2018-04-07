@@ -15,7 +15,7 @@ class Gdcm < Formula
   deprecated_option "with-python3" => "with-python"
   deprecated_option "without-python" => "without-python@2"
 
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
   depends_on "python" => :optional
   depends_on "swig" => :build if build.with?("python") || build.with?("python@2")
 
