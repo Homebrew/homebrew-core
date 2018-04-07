@@ -11,7 +11,7 @@ class JenkinsJobBuilder < Formula
     sha256 "d970b78322f261b738c0a3152a53bc8b34d7babbae18cab48d28189f331af143" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "fasteners" do
     url "https://files.pythonhosted.org/packages/f4/6f/41b835c9bf69b03615630f8a6f6d45dafbec95eb4e2bb816638f043552b2/fasteners-0.14.1.tar.gz"
