@@ -53,8 +53,8 @@ class Unbound < Formula
   def post_install
     conf = etc/"unbound/unbound.conf"
     return unless conf.exist?
-    return unless conf.read.include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
-    inreplace conf, 'username: "@@HOMEBREW-UNBOUND-USER@@"',
+    return unless conf.read.include?('# username: "@@HOMEBREW-UNBOUND-USER@@"')
+    inreplace conf, '# username: "@@HOMEBREW-UNBOUND-USER@@"',
                     "username: \"#{ENV["USER"]}\""
   end
 
