@@ -23,7 +23,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     system "autoreconf", "-fiv" if build.head?
