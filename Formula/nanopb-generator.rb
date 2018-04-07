@@ -12,7 +12,7 @@ class NanopbGenerator < Formula
     sha256 "162e82a5d987e11b4b451d6d23a5d1e4e193ba2a802ab8eeed2395910519598c" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "protobuf"
 
   def install
