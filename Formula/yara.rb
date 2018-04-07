@@ -17,7 +17,7 @@ class Yara < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     system "./bootstrap.sh"
