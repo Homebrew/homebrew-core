@@ -11,7 +11,7 @@ class Pgcli < Formula
     sha256 "b716bca7594297f5f4d17b923ac50510a7a1307c3dcb951f8021bfff896cec59" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "libpq"
   depends_on "openssl"
 
