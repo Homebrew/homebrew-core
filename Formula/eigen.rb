@@ -14,6 +14,13 @@ class Eigen < Formula
       url "https://bitbucket.org/eigen/eigen/commits/dbab66d00651bf050d1426334a39b627abe7216e/raw"
       sha256 "04b679525437f2a7672ed51ef864cf7ddffa61ce2025035d2355bc065d962823"
     end
+
+    # Remove for > 3.3.4
+    # Upstream commit from 6 Apr 2018 "Fix cmake scripts with no fortran compiler"
+    patch do
+      url "https://bitbucket.org/eigen/eigen/commits/ba14974d054ae9ae4ba88e5e58012fa6c2729c32/raw"
+      sha256 "5e4977b195f0199243ec7b78f1398596108d7969dfba02ada41f26ce2c76e244"
+    end
   end
 
   bottle do
