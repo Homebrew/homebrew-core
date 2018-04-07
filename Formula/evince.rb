@@ -24,7 +24,7 @@ class Evince < Formula
   depends_on "libspectre"
   depends_on "shared-mime-info"
   depends_on "djvulibre"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     # Fix build failure "ar: illegal option -- D"
