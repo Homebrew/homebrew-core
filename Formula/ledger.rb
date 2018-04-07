@@ -24,7 +24,7 @@ class Ledger < Formula
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
   depends_on "boost-python" if build.with? "python@2"
 
   needs :cxx11
