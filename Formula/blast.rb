@@ -13,7 +13,7 @@ class Blast < Formula
   end
 
   depends_on "lmdb"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     cd "c++" do
