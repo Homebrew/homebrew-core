@@ -24,7 +24,7 @@ class OpencvAT2 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
   depends_on "numpy" if build.with? "python@2"
 
   def install
