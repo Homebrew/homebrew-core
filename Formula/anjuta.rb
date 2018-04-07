@@ -11,7 +11,7 @@ class Anjuta < Formula
     sha256 "4b5db4d330a8386085efc7cb24771ae7cb49cc3c523c9babb53e177befce9f3b" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
