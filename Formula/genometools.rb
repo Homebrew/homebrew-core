@@ -16,7 +16,7 @@ class Genometools < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     system "make", "prefix=#{prefix}"
