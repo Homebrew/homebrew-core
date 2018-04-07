@@ -13,7 +13,7 @@ class YleDl < Formula
   end
 
   depends_on "rtmpdump"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
