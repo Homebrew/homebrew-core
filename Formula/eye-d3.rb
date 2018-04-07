@@ -11,7 +11,7 @@ class EyeD3 < Formula
     sha256 "636ba018c57d0cdd2dffe1d1219a63560bb4519f17ec1310138c2a4a479aac02" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "libmagic"
 
   # Looking for documentation? Please submit a PR to build some!
