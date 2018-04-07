@@ -17,7 +17,7 @@ class Pygobject3 < Formula
   depends_on "pkg-config" => :build
   depends_on "libffi" => :optional
   depends_on "glib"
-  depends_on "python@2" => :optional if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :optional
   depends_on "python" => :recommended
   depends_on "py2cairo" if build.with? "python@2"
   depends_on "py3cairo" if build.with? "python"
