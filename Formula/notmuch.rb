@@ -27,7 +27,7 @@ class Notmuch < Formula
   depends_on "talloc"
   depends_on "xapian"
   depends_on "zlib"
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
   depends_on "emacs" => :optional
   depends_on "python" => :optional
   depends_on "ruby" => :optional
