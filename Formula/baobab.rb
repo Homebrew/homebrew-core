@@ -15,7 +15,7 @@ class Baobab < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build
   depends_on "itstool" => :build
   depends_on "vala" => :build
   depends_on "gtk+3"
