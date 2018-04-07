@@ -15,7 +15,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  depends_on "python@2" if MacOS.version <= :mavericks
+  depends_on "python@2"
 
   # see https://gitlab.gnome.org/GNOME/gobject-introspection/merge_requests/11
   patch :DATA
@@ -32,15 +32,9 @@ class GobjectIntrospection < Formula
       s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"
     end
 
-    python = if MacOS.version >= :yosemite
-      "/usr/bin/python2.7"
-    else
-      Formula["python@2"].opt_bin/"python2.7"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-python=#{python}"
+                          "--with-python=#{Formula["python@2"].opt_bin}/python2"
     system "make"
     system "make", "install"
   end
