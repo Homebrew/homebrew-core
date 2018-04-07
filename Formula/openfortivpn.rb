@@ -22,6 +22,37 @@ class Openfortivpn < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  plist_options :manual => "openfortivpn --config #{HOMEBREW_PREFIX}/etc/openfortivpn/config"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/openfortivpn</string>
+        <string>--config</string>
+        <string>#{etc}/openfortivpn/config</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>KeepAlive</key>
+      <false/>
+      <key>WorkingDirectory</key>
+      <string>#{HOMEBREW_PREFIX}</string>
+      <key>StandardErrorPath</key>
+      <string>#{var}/log/openfortivpn.log</string>
+      <key>StandardOutPath</key>
+      <string>#{var}/log/openfortivpn.log</string>
+    </dict>
+    </plist>
+    EOS
+  end
+
   test do
     system bin/"openfortivpn", "--version"
   end
