@@ -18,7 +18,7 @@ class ProtobufAT26 < Formula
   option "without-python@2", "Build without python2 support"
   option :cxx11
 
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
 
   deprecated_option "with-check" => "with-test"
   deprecated_option "without-python" => "without-python@2"
