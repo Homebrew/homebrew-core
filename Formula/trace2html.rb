@@ -7,7 +7,7 @@ class Trace2html < Formula
 
   bottle :unneeded
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     libexec.install Dir["*"]
