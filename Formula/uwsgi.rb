@@ -20,7 +20,7 @@ class Uwsgi < Formula
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "openssl"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   depends_on "geoip" => :optional
   depends_on "gloox" => :optional
