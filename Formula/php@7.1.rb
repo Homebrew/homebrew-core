@@ -17,6 +17,7 @@ class PhpAT71 < Formula
   depends_on "apr"
   depends_on "apr-util"
   depends_on "aspell"
+  depends_on "autoconf"
   depends_on "curl" if MacOS.version < :lion
   depends_on "freetds"
   depends_on "freetype"
