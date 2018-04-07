@@ -3,7 +3,7 @@ class KeepkeyAgent < Formula
 
   desc "Keepkey Hardware-based SSH/GPG agent"
   homepage "https://github.com/romanz/trezor-agent"
-  url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz#md5=5c72247e770a6ec52936f9e900f7170a"
+  url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
 
   depends_on "libusb"
