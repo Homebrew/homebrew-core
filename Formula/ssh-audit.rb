@@ -8,7 +8,7 @@ class SshAudit < Formula
 
   bottle :unneeded
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     bin.install "ssh-audit.py" => "ssh-audit"
