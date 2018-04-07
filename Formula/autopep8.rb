@@ -13,7 +13,7 @@ class Autopep8 < Formula
     sha256 "198b90c7c3911dd6ca76c1a49940cf33afc585d307a45e1c41c1254ed19f94dc" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     venv = virtualenv_create(libexec)
