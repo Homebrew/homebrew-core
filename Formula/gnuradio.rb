@@ -18,7 +18,7 @@ class Gnuradio < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
