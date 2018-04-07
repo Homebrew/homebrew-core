@@ -13,7 +13,7 @@ class AwsElasticbeanstalk < Formula
     sha256 "837485e3a9b20bb2877e6dabbcb4fc611c15273dc4428b7b057a720126b3fa9c" => :el_capitan
   end
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/c2/04/be691f2ad9d70252476bb0d74a1e46390364d751b021b747b7dc1c8dfb0c/blessed-1.14.2.tar.gz"
