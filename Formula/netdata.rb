@@ -17,9 +17,7 @@ class Netdata < Formula
                           "--localstatedir=#{var}"
     system "make", "install"
 
-    conf_path = etc/"netdata"
-    conf_path.mkpath
-    conf_path.install "system/netdata.conf"
+    (etc/"netdata").install "system/netdata.conf"
   end
 
   def post_install
@@ -58,10 +56,16 @@ class Netdata < Formula
   end
 
   test do
-    system "#{sbin}/netdata",
-      "-W", "set", "registry",
-      "netdata unique id file",
-      "#{testpath}/netdata.unittest.unique.id",
-      "-W", "unittest"
+    args = %W[
+      -W
+      set
+      registry
+      netdata unique id file
+      #{testpath}/netdata.unittest.unique.id
+      -W
+      unittest
+    ]
+
+    system "#{sbin}/netdata", *args
   end
 end
