@@ -8,8 +8,8 @@ class Sourcekitten < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8f7da0d293233d2cc6d1459c14ff5986d1486b5b07fd05b656a24492c0681e7" => :high_sierra
-    sha256 "59c32ff602435eb43db67a9b818d1112f3d660585077231c8d5e808d566f3bbc" => :sierra
+    sha256 "18dd6b4cf0ba1bf41858a1ba55cfdc4f289aa4dee04afa4e77b8f7cac36a235a" => :high_sierra
+    sha256 "6eca1a63058245ca3fd29e42cf93f0c50271d3d363a7a2578afc27d306131938" => :sierra
   end
 
   depends_on :xcode => "6.0"
