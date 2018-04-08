@@ -1,10 +1,9 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
-  mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
-  sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
-  revision 3
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.5/zsh-5.5.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.5.tar.xz"
+  sha256 "a8359b81d090425d497c6f3c724a7c21a81c614b03e7662ed347705d86958e53"
 
   bottle do
     sha256 "9071f9ae246b1c2d577cf0e2115f38e3612994d456a1925918c9ea25218c202d" => :high_sierra
@@ -26,9 +25,9 @@ class Zsh < Formula
   depends_on "pcre" => :optional
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.2/zsh-5.4.2-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.4.2-doc.tar.xz"
-    sha256 "5229cc93ebe637a07deb5b386b705c37a50f4adfef788b3c0f6647741df4f6bd"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.5/zsh-5.5-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.5-doc.tar.xz"
+    sha256 "b995c16a2ded516b6e07883932640fcca8b53b1b8a1934094a8a32ef087f52fc"
   end
 
   def install
