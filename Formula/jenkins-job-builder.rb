@@ -6,9 +6,9 @@ class JenkinsJobBuilder < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e1bdd9223594522b835508d6b9d6b0bff99a990849a45871dff462cc8d5ac0ba" => :high_sierra
-    sha256 "58c2e329ac0140d6a7ae8b71362b3b5905ed6b04abe3851b2dda033ed66ad2bf" => :sierra
-    sha256 "1cebf1b46f186671cb5de438c844a5ac4bd1e098a4d262c2d6935a2413286809" => :el_capitan
+    sha256 "3cb6ec620432da20dff244bba2f042e058b98521b399332e11c9132b64dd8a23" => :high_sierra
+    sha256 "2f171ce8e6adad8318d8db795ff2647791b1eb7201947d79f9c79c49f69d1ee4" => :sierra
+    sha256 "d970b78322f261b738c0a3152a53bc8b34d7babbae18cab48d28189f331af143" => :el_capitan
   end
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
