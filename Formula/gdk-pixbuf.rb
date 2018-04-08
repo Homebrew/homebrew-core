@@ -5,9 +5,9 @@ class GdkPixbuf < Formula
   sha256 "fff85cf48223ab60e3c3c8318e2087131b590fd6f1737e42cb3759a3b427a334"
 
   bottle do
-    sha256 "9ab66c2e096eae435f0a7554db333715de935c347ebc4560dcb0c595f4bd28d5" => :high_sierra
-    sha256 "d39abb17ec8e53cb2db8fe63e62905be87b0dda875da0f84c6ca63ef5c08863c" => :sierra
-    sha256 "93079b1df5573210380ab0cbae77fc9b50bb9a4ec2d5a51c4b493d64f15df481" => :el_capitan
+    sha256 "ffac03d4a01258c3d552a1edbd94da33197d252d4439d97cba6c4321654c0d4b" => :high_sierra
+    sha256 "c2504014e5e54d6052c50f741869ce09ef5480c718f155e65f62cca41f162c32" => :sierra
+    sha256 "bba846fded156d40a4921ce17e69579735875e9b4cd58953abb5206d04b8e120" => :el_capitan
   end
 
   option "without-modules", "Disable dynamic module loading"
