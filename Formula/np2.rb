@@ -1,6 +1,6 @@
 class Np2 < Formula
   desc "Neko Project 2: PC-9801 emulator"
-  homepage "http://www.yui.ne.jp/np2/"
+  homepage "https://www.yui.ne.jp/np2/"
   if MacOS.version >= :sierra
     url "https://amethyst.yui.ne.jp/svn/pc98/np2/tags/VER_0_86/", :using => :svn, :revision => "2606"
   else
