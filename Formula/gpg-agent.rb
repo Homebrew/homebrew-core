@@ -1,9 +1,9 @@
 class GpgAgent < Formula
   desc "GPG key agent"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.0.31.tar.bz2"
-  sha256 "095558cfbba52fba582963e97b0c016889570b4712d6b871abeef2cf93e62293"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.5.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.2.5.tar.bz2"
+  sha256 "3fa189a32d4fb62147874eb1389047c267d9ba088f57ab521cb0df46f08aef57"
 
   bottle do
     sha256 "aad65c67de59226ab94dcd307f75dfd007cb4a8d3050863d23c9c39f72dd4b87" => :high_sierra
@@ -17,7 +17,8 @@ class GpgAgent < Formula
   depends_on "libgcrypt"
   depends_on "libksba"
   depends_on "libassuan"
-  depends_on "pth"
+  depends_on "libusb"
+  depends_on "npth"
   depends_on "pinentry"
 
   def install
@@ -36,6 +37,8 @@ class GpgAgent < Formula
                           "--enable-agent-only",
                           "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry",
                           "--with-scdaemon-pgm=#{Formula["gnupg@2.0"].opt_libexec}/scdaemon"
+    system "make", "CC=#{ENV.cc}",
+                   "LIBUSB_CFLAGS=-I#{Formula["libusb"].opt_include}/libusb-1.0"
     system "make", "install"
   end
 
