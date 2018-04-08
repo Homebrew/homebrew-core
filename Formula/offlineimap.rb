@@ -1,9 +1,8 @@
 class Offlineimap < Formula
   desc "Synchronizes emails between two repositories"
   homepage "https://www.offlineimap.org/"
-  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.1.5.tar.gz"
-  sha256 "8e28e786a00768e8a97d9f049406744829212cffb69903ffbb15faa1479d43e1"
-  revision 1
+  url "https://github.com/OfflineIMAP/offlineimap/archive/v7.2.0.tar.gz"
+  sha256 "b6c8c6dbd67ec7cd6228a40866b5d6143f707d78faf9603d9328c9bc43fdf7c4"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
@@ -28,9 +27,6 @@ class Offlineimap < Formula
     system "make", "docs"
     man1.install "docs/offlineimap.1"
     man7.install "docs/offlineimapui.7"
-
-    inreplace ["offlineimap/bundled_imaplib2.py", "bin/offlineimap"],
-              %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resource("six").stage do
