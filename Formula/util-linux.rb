@@ -17,7 +17,7 @@ class UtilLinux < Formula
 
     system "make", "install"
 
-    ["cal",   # these already come with macOS
+    ["cal", # these already come with macOS
      "col",
      "colcrt",
      "colrm",
@@ -31,8 +31,7 @@ class UtilLinux < Formula
      "renice",
      "rev",
      "ul",
-     "whereis"
-    ].each do |prog|
+     "whereis"].each do |prog|
       rm_f bin/prog
       rm_f sbin/prog
       rm_f man1/"#{prog}.1"
