@@ -18,6 +18,7 @@ class Handbrake < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@2" => :build
   depends_on "yasm" => :build
 
   def install
