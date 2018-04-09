@@ -1,8 +1,8 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.9.tar.gz"
-  sha256 "5e9e08f500d21376631cbc9f8e19a4b167cd38eb2d8fd9e660b8e80507f802db"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.0.tar.gz"
+  sha256 "13b09f43f530c6e9eec8ead0493e1b34f332b8ead89e46623e1fc40bb137b80d"
 
   bottle do
     sha256 "81025c4772690791e2dc89fb7504ee0291b87e70cf756db2b291f2d456e54321" => :high_sierra
