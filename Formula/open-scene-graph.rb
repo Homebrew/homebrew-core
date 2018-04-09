@@ -6,9 +6,9 @@ class OpenSceneGraph < Formula
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "a596fef902ef3b4b240be44b959fad30513b303bbf42dccca89bfb13ff789c08" => :high_sierra
-    sha256 "3f8521f744f85387c1b76f75e39e6e82affbdccdd405af5ee0e3d1fbcb7b1877" => :sierra
-    sha256 "2ca0cdefa3a64ba654ad14b264501027defb080759cddd6ea57167ec04167597" => :el_capitan
+    sha256 "1c347539e968f1920c78b8570e1ff32ed60e741c02adbd6a9d5cfa5834e413a5" => :high_sierra
+    sha256 "e65d17f485dbfeca6c4709712b4ac197f70bcc78766ca78381b633be551d76e0" => :sierra
+    sha256 "665ffa5bb902daee0b54b97d68a104b763fc02ed04299c6eb71065daa66a4145" => :el_capitan
   end
 
   option "with-docs", "Build the documentation with Doxygen and Graphviz"
