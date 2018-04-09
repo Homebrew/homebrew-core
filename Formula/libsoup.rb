@@ -1,9 +1,8 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
   homepage "https://live.gnome.org/LibSoup"
-  url "https://download.gnome.org/sources/libsoup/2.62/libsoup-2.62.0.tar.xz"
-  sha256 "ab7c7ae8d19d0a27ab3b6ae21599cec8c7f7b773b3f2b1090c5daf178373aaac"
-  revision 1
+  url "https://download.gnome.org/sources/libsoup/2.62/libsoup-2.62.1.tar.xz"
+  sha256 "f037ddac2e0f9b1c842a0060fa6119bea1d3b349a2c901283c961247e45883d7"
 
   bottle do
     sha256 "5ec289e00108fcd004ddcb8b3003a75c97f812af9ff90498c08b29614a9e60c6" => :high_sierra
@@ -17,7 +16,6 @@ class Libsoup < Formula
   depends_on "python" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
-  depends_on "sqlite"
   depends_on "vala"
 
   def install
