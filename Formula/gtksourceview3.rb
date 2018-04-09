@@ -3,7 +3,7 @@ class Gtksourceview3 < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.7.tar.xz"
   sha256 "a5c20d3a6347533689358f3ea52486409f6dd41d5a69c65eab7570cfaffee8e6"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "48650b0453a3d3d7fc0b5645800a7cb369a159b42ac9624510ca18f1ba88729a" => :high_sierra
@@ -13,6 +13,7 @@ class Gtksourceview3 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "gtk+3"
@@ -20,6 +21,7 @@ class Gtksourceview3 < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--enable-vala=yes",
+                          "--enable-introspection=yes",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
