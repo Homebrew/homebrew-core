@@ -8,8 +8,8 @@ class HapiFhirCli < Formula
   depends_on :java => "1.8+"
 
   def install
-    inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{prefix}"
-    prefix.install "hapi-fhir-cli.jar"
+    inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{libexec}"
+    libexec.install "hapi-fhir-cli.jar"
     bin.install "hapi-fhir-cli"
   end
 
