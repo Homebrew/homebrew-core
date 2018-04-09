@@ -1,10 +1,8 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
-  sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
-  revision 1
-
+  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
+  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -62,7 +60,7 @@ class BoostPython < Formula
     pyincludes = Utils.popen_read("python-config --includes").chomp.split(" ")
     pylib = Utils.popen_read("python-config --ldflags").chomp.split(" ")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python", "-o",
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27", "-o",
            "hello.so", *pyincludes, *pylib
 
     output = <<~EOS
