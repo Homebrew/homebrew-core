@@ -5,9 +5,9 @@ class Libsoup < Formula
   sha256 "f037ddac2e0f9b1c842a0060fa6119bea1d3b349a2c901283c961247e45883d7"
 
   bottle do
-    sha256 "5ec289e00108fcd004ddcb8b3003a75c97f812af9ff90498c08b29614a9e60c6" => :high_sierra
-    sha256 "fd78aff99206186df8f4b573567f00fd0bbc0862e50489668b1d78274d011cff" => :sierra
-    sha256 "0a5e00e6ea4f52981e9bd6503b939c554749a9713f02e8f00fdcfd2e0d79e65b" => :el_capitan
+    sha256 "181dfea9c06ecf949f92ef1b0fc3605fefd2a4a370df7e0cd41f39d561d81571" => :high_sierra
+    sha256 "3a6652330dd89a70a0bfb69b26116d9dbe5c1bc75fbd4cc9fdd03c1761487534" => :sierra
+    sha256 "d39d7013a6153b7b8e3d425509e30d3637881bab45521b8cbe24415ced2e88d5" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
