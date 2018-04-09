@@ -22,8 +22,6 @@ class Netdata < Formula
 
   def post_install
     config = etc/"netdata/netdata.conf"
-    return unless File.exist?(config)
-    return if File.read(config).include?(ENV["USER"])
     inreplace config do |s|
       s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
       s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
@@ -56,16 +54,7 @@ class Netdata < Formula
   end
 
   test do
-    args = %W[
-      -W
-      set
-      registry
-      netdata unique id file
-      #{testpath}/netdata.unittest.unique.id
-      -W
-      unittest
-    ]
-
-    system "#{sbin}/netdata", *args
+    system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file",
+      "#{testpath}/netdata.unittest.unique.id", "-W", "unittest"
   end
 end
