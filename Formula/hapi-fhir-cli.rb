@@ -4,6 +4,9 @@ class HapiFhirCli < Formula
   url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.3.0/hapi-fhir-3.3.0-cli.tar.bz2"
   sha256 "8342c78598edd9b6509fff0b9cb1de9b277b97f1537342124d1e78523d887d15"
 
+  bottle :unneeded
+  depends_on :java => "1.8+"
+
   def install
     inreplace "hapi-fhir-cli", /SCRIPTDIR=(.*)/, "SCRIPTDIR=#{prefix}"
     prefix.install "hapi-fhir-cli.jar"
