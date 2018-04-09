@@ -1,8 +1,8 @@
 class Ntl < Formula
   desc "C++ number theory library"
   homepage "http://www.shoup.net/ntl"
-  url "http://www.shoup.net/ntl/ntl-10.5.0.tar.gz"
-  sha256 "b90b36c9dd8954c9bc54410b1d57c00be956ae1db5a062945822bbd7a86ab4d2"
+  url "http://www.shoup.net/ntl/ntl-11.0.0.tar.gz"
+  sha256 "e34c3a57e3b913dcf59ecc4d2c1927c614f99db55d2cebe3edd65973eb91ddec"
 
   bottle do
     cellar :any
@@ -38,6 +38,7 @@ class Ntl < Formula
     EOS
     gmp = Formula["gmp"]
     flags = %W[
+      -std=c++11
       -I#{include}
       -L#{gmp.opt_lib}
       -L#{lib}
