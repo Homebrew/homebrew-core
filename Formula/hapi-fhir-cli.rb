@@ -1,5 +1,5 @@
 class HapiFhirCli < Formula
-  desc "Command-line interface for the HAPI FHIR library"
+  desc "Command-line interface for the HAPI FHIR library. It can be used as a FHIR test server, FHIR client, for validating FHIR resources, and more."
   homepage "http://hapifhir.io/doc_cli.html"
   url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.3.0/hapi-fhir-3.3.0-cli.tar.bz2"
   sha256 "8342c78598edd9b6509fff0b9cb1de9b277b97f1537342124d1e78523d887d15"
