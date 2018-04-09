@@ -9,10 +9,9 @@ class RobotFramework < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "84a08120a66f25b0d2aeb0b53b991278c55572413131e8fb54992117a01f99f6" => :high_sierra
-    sha256 "f6001d4e500a979fb456480bca3149e9ac3284d5e305fd986dd26b72a2431b08" => :sierra
-    sha256 "007a3d727f7eb3ea5f4562990c2401d36c2040002cf2ecaee1a1878f66851ab0" => :el_capitan
+    sha256 "cc96a85dfe7f76b768f7791936c1cd9c0c94bf5b1bcfbcb89c38cda1a9db6b53" => :high_sierra
+    sha256 "dbd67447336c36b404904504f6726ff69f4b3003d8d8a4757357389babfa2420" => :sierra
+    sha256 "c47ec28f12736d281f7d79ec12ba66cfc60feca75bc1b94e895e5ef1b15442ef" => :el_capitan
   end
 
   depends_on :x11
