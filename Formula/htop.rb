@@ -1,9 +1,8 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://hisham.hm/htop/"
-  url "https://hisham.hm/htop/releases/2.1.0/htop-2.1.0.tar.gz"
-  sha256 "3260be990d26e25b6b49fc9d96dbc935ad46e61083c0b7f6df413e513bf80748"
-  revision 1
+  url "https://hisham.hm/htop/releases/2.2.0/htop-2.2.0.tar.gz"
+  sha256 "d9d6826f10ce3887950d709b53ee1d8c1849a70fa38e91d5896ad8cbc6ba3c57"
 
   bottle do
     sha256 "86490c7b199936fb39bc6b2840f70abd3083aaa2c8f6a182629058ebefed0a6d" => :high_sierra
