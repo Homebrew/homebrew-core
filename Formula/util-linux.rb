@@ -4,6 +4,13 @@ class UtilLinux < Formula
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.tar.xz"
   sha256 "6c7397abc764e32e8159c2e96042874a190303e77adceb4ac5bd502a272a4734"
 
+  bottle do
+    cellar :any
+    sha256 "8ff96bb1e4e04a8df26e0d062e855e0a83f4f6afe437c0fecca2ba0b891ac3e5" => :high_sierra
+    sha256 "353016648e93cdaf7e9d277c0e7e26b3c681b19ccc6f87faa79996100de0925d" => :sierra
+    sha256 "7d29b310f3bf5228b702031923ab8877ddaadaf46120ccf577d8b5ee9ca77e00" => :el_capitan
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
