@@ -1,5 +1,5 @@
 class Qsoas < Formula
-  desc "Free advanced MasterMind clone"
+  desc "Versatile software for data analysis"
   homepage "http://bip.cnrs-mrs.fr/bip06/qsoas/"
   url "http://bip.cnrs-mrs.fr/bip06/qsoas/downloads/qsoas-2.2.0.tar.gz"
   sha256 "acefcbb4286a6e0bf96353f924115d04a77d241962ceda890508bca19ee3b4f6"
