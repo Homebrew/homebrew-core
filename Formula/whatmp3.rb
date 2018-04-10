@@ -13,15 +13,10 @@ class Whatmp3 < Formula
     sha256 "0166d5c0eca7e9e3022baad9dea3679ede00bdfb29c1a5b875d477a38c5c74cf" => :el_capitan
   end
 
-  depends_on "python"
   depends_on "flac"
-  depends_on "mktorrent" => :recommended
-  depends_on "lame" => :recommended
-  depends_on "vorbis-tools" => :optional
-  depends_on "mp3gain" => :optional
-  depends_on "aacgain" => :optional
-  depends_on "vorbisgain" => :optional
-  depends_on "sox" => :optional
+  depends_on "lame"
+  depends_on "mktorrent"
+  depends_on "python"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"
