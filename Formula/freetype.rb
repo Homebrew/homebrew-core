@@ -14,16 +14,13 @@ class Freetype < Formula
 
   keg_only :provided_pre_mountain_lion
 
-  option "without-subpixel", "Disable sub-pixel rendering (a.k.a. LCD rendering, or ClearType)"
-
   depends_on "libpng"
 
   def install
-    if build.with? "subpixel"
-      inreplace "include/freetype/config/ftoption.h",
-          "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
-          "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
-    end
+    # Enable sub-pixel rendering (ClearType)
+    inreplace "include/freetype/config/ftoption.h",
+      "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
+      "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
 
     system "./configure", "--prefix=#{prefix}", "--without-harfbuzz"
     system "make"
