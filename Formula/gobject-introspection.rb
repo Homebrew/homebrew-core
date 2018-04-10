@@ -1,9 +1,8 @@
 class GobjectIntrospection < Formula
   desc "Generate introspection data for GObject libraries"
   homepage "https://live.gnome.org/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.56/gobject-introspection-1.56.0.tar.xz"
-  sha256 "0d7059fad7aa5ec50d9678aea4ea139acab23737e9cf9ca0d86c615cecbaa0f8"
-  revision 1
+  url "https://download.gnome.org/sources/gobject-introspection/1.56/gobject-introspection-1.56.1.tar.xz"
+  sha256 "5b2875ccff99ff7baab63a34b67f8c920def240e178ff50add809e267d9ea24b"
 
   bottle do
     sha256 "e17722decf6671ae09b214604ad5f2bd863610109b3780e0112356c1969dcb64" => :high_sierra
@@ -16,9 +15,6 @@ class GobjectIntrospection < Formula
   depends_on "cairo"
   depends_on "libffi"
   depends_on "python@2"
-
-  # see https://gitlab.gnome.org/GNOME/gobject-introspection/merge_requests/11
-  patch :DATA
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
@@ -46,19 +42,3 @@ class GobjectIntrospection < Formula
     assert_predicate testpath/"Tut-0.1.typelib", :exist?
   end
 end
-
-__END__
-diff --git a/giscanner/ccompiler.py b/giscanner/ccompiler.py
-index 29de0ee..8d89502 100644
---- a/giscanner/ccompiler.py
-+++ b/giscanner/ccompiler.py
-@@ -119,7 +119,7 @@ class CCompiler(object):
-         if self.check_is_msvc():
-             runtime_path_envvar = ['LIB', 'PATH']
-         else:
--            runtime_path_envvar = ['LD_LIBRARY_PATH']
-+            runtime_path_envvar = ['LD_LIBRARY_PATH', 'DYLD_LIBRARY_PATH']
-             # Search the current directory first
-             # (This flag is not supported nor needed for Visual C++)
-             args.append('-L.')
-
