@@ -3,9 +3,8 @@ class Saltstack < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "http://www.saltstack.org"
-  url "https://files.pythonhosted.org/packages/38/a6/7b46edaad848fee40a0201be23f2fd1ce498f6269eda8fea66c86c1776d0/salt-2017.7.4.tar.gz"
-  sha256 "1d573095776ba052eec7d7cae1472f4b1d4c15f16e1d79c2dc48db3129dbae97"
-  revision 1
+  url "https://files.pythonhosted.org/packages/11/52/29a7b924e495f22764603aa095ab41b2c4a952a4b57ad5689dd863e575ff/salt-2018.3.0.tar.gz"
+  sha256 "a0a45d22fdf6961542a419b7e09568a3118e2b019ffe7bab9dee5aeb55b56b31"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
@@ -31,8 +30,8 @@ class Saltstack < Formula
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/4e/bd/690f9b8aa87b82b0905c6e928da4cb0ce3ac65b1fc43c8efd3f8104e345e/M2Crypto-0.28.2.tar.gz"
-    sha256 "f4dfa7a77f983444e64f7b81f946bdfc1b05bc92b1aeca0775be8742aa939c3f"
+    url "https://files.pythonhosted.org/packages/18/6f/bc49d68bae9171b2897d8de073369984a5f085111526ace6301fc3c1567f/M2Crypto-0.29.0.tar.gz"
+    sha256 "a0fea2c5ab913e42864d1ccbaee5878c23886368b606e923609fda4ce37d26c0"
   end
 
   resource "MarkupSafe" do
@@ -56,8 +55,8 @@ class Saltstack < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "chardet" do
@@ -76,8 +75,8 @@ class Saltstack < Formula
   end
 
   resource "msgpack-python" do
-    url "https://files.pythonhosted.org/packages/7c/ce/8ed474ab7ce0ef9c67d18e816e921cade83fecd59cd2cd52d825cec8166e/msgpack-python-0.5.5.tar.gz"
-    sha256 "7f5d6e59228b65c47cfdae76a4aea71f6902525f18256862cda69888a686b5f9"
+    url "https://files.pythonhosted.org/packages/8a/20/6eca772d1a5830336f84aca1d8198e5a3f4715cd1c7fc36d3cc7f7185091/msgpack-python-0.5.6.tar.gz"
+    sha256 "378cc8a6d3545b532dfd149da715abae4fda2a3adb6d74e525d0d5e51f46909b"
   end
 
   resource "pycparser" do
