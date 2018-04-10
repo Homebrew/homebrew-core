@@ -1,8 +1,8 @@
 class Embulk < Formula
   desc "Data transfer between various databases, file formats and services"
   homepage "https://www.embulk.org/"
-  url "https://bintray.com/artifact/download/embulk/maven/embulk-0.9.5.jar"
-  sha256 "41ec5c7153d25100e06ac278df3608667883a773c243bd95bb070a3d7e158ce2"
+  url "https://bintray.com/artifact/download/embulk/maven/embulk-0.9.6.jar"
+  sha256 "f77c1c907ac302bf7c056b43afebc789f38f65543ee6778bf65f9ecc1500d9c1"
 
   bottle :unneeded
 
