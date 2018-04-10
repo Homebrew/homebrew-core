@@ -16,16 +16,6 @@ class DockerSquash < Formula
   depends_on "docker" => :recommended
   depends_on "docker-machine" => :recommended
 
-  resource "pip" do
-    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
-    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/6c/54/f7e9cea6897636a04e74c3954f0d8335cc38f7d01e27eec98026b049a300/setuptools-38.5.1.zip"
-    sha256 "6425484c08e99a98a42209c25c3d325f749230b55284d66192784f941a7e6628"
-  end
-
   resource "backports.ssl_match_hostname" do
     url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
     sha256 "502ad98707319f4a51fa2ca1c677bd659008d27ded9f6380c79e8932e38dcdf2"
