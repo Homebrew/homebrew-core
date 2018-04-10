@@ -13,16 +13,10 @@ class Writerperfect < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost" => :build
-  depends_on "libmwaw" => :optional
   depends_on "libodfgen"
-  depends_on "libwps"
-  depends_on "libwpg"
   depends_on "libwpd"
-  depends_on "libetonyek" => :optional
-  depends_on "libvisio" => :optional
-  depends_on "libmspub" => :optional
-  depends_on "libfreehand" => :optional
-  depends_on "libcdr" => :optional
+  depends_on "libwpg"
+  depends_on "libwps"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
