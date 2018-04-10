@@ -17,21 +17,8 @@ class UtilLinux < Formula
 
     system "make", "install"
 
-    ["cal", # these already come with macOS
-     "col",
-     "colcrt",
-     "colrm",
-     "getopt",
-     "hexdump",
-     "logger",
-     "nologin",
-     "look",
-     "mesg",
-     "more",
-     "renice",
-     "rev",
-     "ul",
-     "whereis"].each do |prog|
+    # Remove binaries already shipped by macOS
+    %w[cal col colcrt colrm getopt hexdump logger nologin look mesg more renice rev ul whereis].each do |prog|
       rm_f bin/prog
       rm_f sbin/prog
       rm_f man1/"#{prog}.1"
