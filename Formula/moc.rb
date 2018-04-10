@@ -1,6 +1,6 @@
 class Moc < Formula
   desc "Terminal-based music player"
-  homepage "https://moc.daper.net"
+  homepage "https://moc.daper.net/"
   url "http://ftp.daper.net/pub/soft/moc/stable/moc-2.5.2.tar.bz2"
   sha256 "f3a68115602a4788b7cfa9bbe9397a9d5e24c68cb61a57695d1c2c3ecf49db08"
   revision 2
@@ -38,23 +38,12 @@ class Moc < Formula
     depends_on "popt"
   end
 
-  option "with-ncurses", "Build with wide character support."
-
   depends_on "pkg-config" => :build
-  depends_on "libtool"
   depends_on "berkeley-db"
+  depends_on "ffmpeg"
   depends_on "jack"
-  depends_on "ffmpeg" => :recommended
-  depends_on "mad" => :optional
-  depends_on "flac" => :optional
-  depends_on "speex" => :optional
-  depends_on "musepack" => :optional
-  depends_on "libsndfile" => :optional
-  depends_on "wavpack" => :optional
-  depends_on "faad2" => :optional
-  depends_on "timidity" => :optional
-  depends_on "libmagic" => :optional
-  depends_on "ncurses" => :optional
+  depends_on "libtool"
+  depends_on "ncurses"
 
   def install
     # Remove build.devel? when 2.6-alpha4 comes out
