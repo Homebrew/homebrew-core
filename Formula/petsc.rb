@@ -7,12 +7,11 @@ class Petsc < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc"
-  depends_on "open-mpi"
-
   depends_on "hdf5"
   depends_on "hwloc"
   depends_on "metis"
   depends_on "netcdf"
+  depends_on "open-mpi"
   depends_on "scalapack"
   depends_on "suite-sparse"
 
