@@ -6,11 +6,10 @@ class Alure < Formula
 
   bottle do
     cellar :any
-    sha256 "5baea30dcf15d45e2ea3111c3ed52fd30e6d0c38c7ca5b38b0a8c22ec1861f80" => :high_sierra
-    sha256 "2f13ff3eac6fa8d84047502e9cfc1659740c0c72fe2c529cfcfd7610d9b6ddfa" => :sierra
-    sha256 "271fbc61bdd430e8bc5f6624a2944bd3d0e2ffa8787f1899c3ae98b768fd229d" => :el_capitan
-    sha256 "79205290fb22706d0b5d855ad4067f08dbdaf3f93274eef7e900cbe7d4fd841f" => :yosemite
-    sha256 "8c388226c9c1544308895f9b8e6b5ff882e64431bfac00b342d13e045bb6e51a" => :mavericks
+    rebuild 1
+    sha256 "0e11aef02b6fe4ba7f47030ab2329d16766951f1aab15ea38fbff49119f9c946" => :high_sierra
+    sha256 "ca92f4baba46fb0d6f33aca69e04215e7a867ebde1aa371938c3b81a34f9f2db" => :sierra
+    sha256 "6dc7f359b7cdb67e741a48c276ba57e22d5b9c5d55d4881fcb798f52356c1a10" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
