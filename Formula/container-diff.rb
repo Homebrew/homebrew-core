@@ -6,9 +6,9 @@ class ContainerDiff < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e809e868ab051d530d310d9a550124dc1dbc429d6bf2a9e7306922720504c73e" => :high_sierra
-    sha256 "e8f9e5795ac47eec3f8ea0ad4613d6955ab377d74fd14402b7079ea45ebe45a7" => :sierra
-    sha256 "17be75856c9de704f3ef866c8d71ca07ee03ed2f2e71efa21821e20fc078feac" => :el_capitan
+    sha256 "b02b2c908f3fc6682c792b24f8b9e42c8049c0d1d7cef3a99852156048ccf2db" => :high_sierra
+    sha256 "1e11353fdbfbe3ef68bc79a06f90d2f575d140c5d451b88330c5fb319f326dff" => :sierra
+    sha256 "535a6527f264e9c02435fcd549052e40d605645afb17bafd6efbd117fbdad053" => :el_capitan
   end
 
   depends_on "go" => :build
