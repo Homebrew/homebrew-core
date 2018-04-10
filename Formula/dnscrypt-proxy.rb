@@ -37,8 +37,8 @@ class DnscryptProxy < Formula
     can click "+" and enter 127.0.0.1 in the "DNS Servers" section.
 
     By default, dnscrypt-proxy runs on localhost (127.0.0.1), port 53,
-    using a random resolver. If you would like to change these settings,
-    you will have to edit the configuration file:
+    balancing traffic across a set of resolvers. If you would like to
+    change these settings, you will have to edit the configuration file:
       #{etc}/dnscrypt-proxy.toml
 
     To check that dnscrypt-proxy is working correctly, open Terminal and enter the
