@@ -7,10 +7,9 @@ class Asio < Formula
 
   bottle do
     cellar :any
-    sha256 "0deacd2f2b9c09d7ee62cff4d55a35d1479c07d9a6da6778005c87b5508f0b7c" => :high_sierra
-    sha256 "d4cb235f7e5f96448fc62695b97bd122ecdb736ba8690acd1dea58d6e839fe96" => :sierra
-    sha256 "0bf76623d1395bb82adead05534efce7dbfb57ebc369ce50d5c8c54cb5ced22a" => :el_capitan
-    sha256 "03448870924ff06ec9ae67c1db2bc656bc73fac49d25ea24be925d945e602378" => :yosemite
+    sha256 "da6bcc10e894ac74f79546334dac00c3563bc9ce625425d813d14a925b5fe384" => :high_sierra
+    sha256 "7efba40b78206a1895b39589db2ba9377d96a183f807304e27bec9d6008979ba" => :sierra
+    sha256 "a8947a5dbf1ad0e68f1a0a87e38f07d1fef98c12498b93b157dc51ab30b60112" => :el_capitan
   end
 
   option "with-boost-coroutine", "Use Boost.Coroutine to implement stackful coroutines"
