@@ -4,6 +4,12 @@ class Netdata < Formula
   url "https://github.com/firehol/netdata/releases/download/v1.9.0/netdata-1.9.0.tar.bz2"
   sha256 "542b4799aed1ee03b0a0dbd00fae988a788622c431382e6429362fbbb4f0f017"
 
+  bottle do
+    sha256 "58d29b1b9eaa31f75e4f5f90f16710bbec2090059d63b153ab64bfa511319dc0" => :high_sierra
+    sha256 "2ba70429fb0a799d9307dd286a04daa4556f3c392f8832b01d027ef5b6d6d70e" => :sierra
+    sha256 "9459d637edfd39c482e3989ab9f7aa83a1020ce5e09025c5f4c16b477e46ef7e" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
