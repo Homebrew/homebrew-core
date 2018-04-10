@@ -1,8 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922/ghostscript-9.22.tar.xz"
-  sha256 "c1f862e6f40f997dbe3feba89355e8cb05d55818994e10f4932b0dd9b627d1bb"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.xz"
+  sha256 "1fcedc27d4d6081105cdf35606cb3f809523423a6cf9e3c23cead3525d6ae8d9"
 
   bottle do
     sha256 "dec4d99345c0d402cd78e12fc2b6d1c2efa9fc9e207480bb665b60cbcfef1c21" => :high_sierra
