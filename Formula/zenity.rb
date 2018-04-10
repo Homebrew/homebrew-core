@@ -1,9 +1,8 @@
 class Zenity < Formula
   desc "GTK+ dialog boxes for the command-line"
   homepage "https://live.gnome.org/Zenity"
-  url "https://download.gnome.org/sources/zenity/3.28/zenity-3.28.0.tar.xz"
-  sha256 "5e588f12b987db30139b0283d39d19b0fd47cab87840cc112dfe61e592826df8"
-  revision 1
+  url "https://download.gnome.org/sources/zenity/3.28/zenity-3.28.1.tar.xz"
+  sha256 "db179354721fb4e2d5c418e0dc41f09c831a6b2dd440e33f7743dfc266de8a6b"
 
   bottle do
     sha256 "5dab38ba82de1d4c39d6fa64d2bd5643b255de4f5948ea08b9e5fe8a49329b92" => :high_sierra
