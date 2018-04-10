@@ -5,9 +5,9 @@ class Htop < Formula
   sha256 "d9d6826f10ce3887950d709b53ee1d8c1849a70fa38e91d5896ad8cbc6ba3c57"
 
   bottle do
-    sha256 "86490c7b199936fb39bc6b2840f70abd3083aaa2c8f6a182629058ebefed0a6d" => :high_sierra
-    sha256 "193cc35f5df3f87bb1c6b10cc2bf00524247437c86b2b000574668d8010d6ee8" => :sierra
-    sha256 "4bf2bb5813f8544f7c249bd72ce3818cc2df6487ba421aa09951c20761ca9ddd" => :el_capitan
+    sha256 "67d87dbcf3999869beff0dd10916a01aa44cc063873c1b80a1636ad2fc14c894" => :high_sierra
+    sha256 "be217a990dab3c3ebc946cb249ba092ffcba8b6fbd3757323fd7d3c9d129ec54" => :sierra
+    sha256 "c53584a82a9d6de21ac49a99f4747580b2a614313f3707318b5ccbd77c7813f8" => :el_capitan
   end
 
   head do
