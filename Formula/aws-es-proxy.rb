@@ -4,6 +4,13 @@ class AwsEsProxy < Formula
   url "https://github.com/abutaha/aws-es-proxy/archive/v0.8.tar.gz"
   sha256 "f1462dcfd75aa2a8e7e370f2cfac3241bcc44de3406181fc164b9c1f90315f2c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5a9753d4f211e7781c6d84160be263b57ab74f2efd5155f3edc70dd84e94f57e" => :high_sierra
+    sha256 "d8d3782b6e2a6bbe52b0a4d435e0376f23279e841696cd3a9e62b6a6d2edb26f" => :sierra
+    sha256 "873743453d14d675276a5a541dad73c7d75157d6da5e63d5aa374def5894c18b" => :el_capitan
+  end
+
   depends_on "glide" => :build
   depends_on "go" => :build
 
