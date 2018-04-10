@@ -1,8 +1,8 @@
 class Srt < Formula
   desc "Secure Reliable Transport"
   homepage "https://www.srtalliance.org/"
-  url "https://github.com/Haivision/srt/archive/v1.2.3.tar.gz"
-  sha256 "81c728c04732b79e350ada51a8d54021906ee3e910e798e2968091a6f6b86eff"
+  url "https://github.com/Haivision/srt/archive/v1.3.0.tar.gz"
+  sha256 "645c13a9a5c5b59315f82245737289e071a5441ee40de6e2e45af61e305e1f2c"
   head "https://github.com/Haivision/srt.git"
 
   bottle do
@@ -25,6 +25,7 @@ class Srt < Formula
   end
 
   test do
-    system "#{bin}/stransmit", "file:///dev/null", "file://con/"
+    cmd = "#{bin}/stransmit file:///dev/null file://con/ 2>&1"
+    assert_match "Unsupported source type", shell_output(cmd, 1)
   end
 end
