@@ -38,16 +38,11 @@ class Petsc < Formula
     # Build PETSc for real (vs. complex) numbers
     ENV["PETSC_DIR"] = Dir.getwd
     ENV["PETSC_ARCH"] = "real"
-    args_real = %W[--prefix=#{prefix}/real
+    args_real = %W[--prefix=#{prefix}
                    --with-scalar-type=real]
     system "./configure", *(args + args_real)
     system "make", "all", "--makefile=gmakefile"
     system "make", "install"
-
-    # Link #{prefix}/petsc/real/{include,lib} into #{prefix}
-    include.install_symlink Dir["#{prefix}/real/include/*"]
-    lib.install_symlink Dir["#{prefix}/real/lib/lib*.*"]
-    pkgshare.install_symlink Dir["#{prefix}/real/share/*"]
   end
 
   test do
