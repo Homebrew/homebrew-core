@@ -44,6 +44,7 @@ class Freetds < Formula
       --prefix=#{prefix}
       --with-tdsver=7.3
       --mandir=#{man}
+      --sysconfdir=#{etc}
     ]
 
     if build.with? "openssl"
