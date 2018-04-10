@@ -37,8 +37,6 @@ class Netdata < Formula
       <dict>
         <key>Label</key>
         <string>#{plist_name}</string>
-        <!-- key>OnDemand</key>
-        <true/ -->
         <key>RunAtLoad</key>
         <true/>
         <key>ProgramArguments</key>
