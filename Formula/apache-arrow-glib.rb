@@ -5,6 +5,12 @@ class ApacheArrowGlib < Formula
   sha256 "beb1c684b2f7737f64407a7b19eb7a12061eec8de3b06ef6e8af95d5a30b899a"
   head "https://github.com/apache/arrow.git"
 
+  bottle do
+    sha256 "0b8cb603832498d39701d8f1ff1bf7f7dbb51814fcae6ae79df12920bcc804b8" => :high_sierra
+    sha256 "824eb129eddd32f0fdef0105340947ff32865e1cb4857de0723ee63ced886ee1" => :sierra
+    sha256 "54acc8b9d157b6f2762876bc5e126a45a1f51d8361f29b500bda72c984627ac2" => :el_capitan
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
