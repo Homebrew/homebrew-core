@@ -1,9 +1,8 @@
 class Asio < Formula
   desc "Cross-platform C++ Library for asynchronous programming"
   homepage "https://think-async.com/Asio"
-  url "https://downloads.sourceforge.net/project/asio/asio/1.10.8%20%28Stable%29/asio-1.10.8.tar.bz2"
-  sha256 "26deedaebbed062141786db8cfce54e77f06588374d08cccf11c02de1da1ed49"
-  revision 1
+  url "https://downloads.sourceforge.net/project/asio/asio/1.12.0%20%28Stable%29/asio-1.12.0.tar.bz2"
+  sha256 "2c350b9ad7e266ab47935200a09194cbdf6f7ce2e3cabeddae6c68360d39d3ad"
   head "https://github.com/chriskohlhoff/asio.git"
 
   bottle do
@@ -12,11 +11,6 @@ class Asio < Formula
     sha256 "d4cb235f7e5f96448fc62695b97bd122ecdb736ba8690acd1dea58d6e839fe96" => :sierra
     sha256 "0bf76623d1395bb82adead05534efce7dbfb57ebc369ce50d5c8c54cb5ced22a" => :el_capitan
     sha256 "03448870924ff06ec9ae67c1db2bc656bc73fac49d25ea24be925d945e602378" => :yosemite
-  end
-
-  devel do
-    url "https://downloads.sourceforge.net/project/asio/asio/1.11.0%20%28Development%29/asio-1.11.0.tar.bz2"
-    sha256 "4f7e13260eea67412202638ec111cb5014f44bdebe96103279c60236874daa50"
   end
 
   option "with-boost-coroutine", "Use Boost.Coroutine to implement stackful coroutines"
