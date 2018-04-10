@@ -1,8 +1,8 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.5/gdcm-2.8.5.tar.gz"
-  sha256 "9db39588ae1235df47ba6cdfe53ac4887f7ab7fb51aafc7a059f18a98874396b"
+  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.6/gdcm-2.8.6.tar.gz"
+  sha256 "05c912e3777af5d266641fbb4869fdcb5f6e955cadf3eaea803fecb9060b145a"
 
   bottle do
     sha256 "f616b281df09a57a2e7e80e94756528e868a5c79fe71e81110a7c8e3722d2d68" => :high_sierra
