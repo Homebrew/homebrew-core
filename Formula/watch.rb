@@ -8,9 +8,9 @@ class Watch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42288882673f4abdc89ee24cb88d2e76f2b32fec5d06148a26511b56c5be7ac3" => :high_sierra
-    sha256 "ced897f72a92f243c81e20b62edda6daf32652d22752b2c12e305d42ebc6fdca" => :sierra
-    sha256 "33b30a5929a98457abc9da46956d68bcc8059992f6386b8507a1c6c7b460355f" => :el_capitan
+    sha256 "8a216f95274301c5babd6c5a7956a64448fe512854e5438b960279ad9d3b80e7" => :high_sierra
+    sha256 "0c0dca64ca895ece4685a131c3de6704e7f593cf5d6446f873e02fbf271cef98" => :sierra
+    sha256 "de2bfa2d25f2e85d6b24b4c943d2d29e9204f0aa26160647d183fa23c3ce5803" => :el_capitan
   end
 
   depends_on "autoconf" => :build
