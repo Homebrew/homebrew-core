@@ -5,9 +5,10 @@ class Inspircd < Formula
   sha256 "c2488fafd04fcabbd8ddc8b9cdc6e0b57e942802b451c9cbccaf5d8483ebd251"
 
   bottle do
-    sha256 "fa0c21347636bbcf3cdb50606bc993607a705d6fc740d7af61c3d637af21aa42" => :high_sierra
-    sha256 "cb4476a4883acb2a5d6aac17d7f8879fe1938ce34e8d37d97e5761e74ac4ce50" => :sierra
-    sha256 "b73cab6e0683569ce510aff2f6817174e1986d2fa468bf344c812222cfc0b7f7" => :el_capitan
+    rebuild 1
+    sha256 "6d5945ade2fe12374ecacebf55a9135d3c659bd876c0c18f5f37103f298f3310" => :high_sierra
+    sha256 "c3ab8b2f60734e7abd19dc719816d7437f678677dd39499aaf8e449481a3d11e" => :sierra
+    sha256 "da7687c4e9aeef5c215309667bf5a8311ea09524b42ee54d34e3bf1be309b4e4" => :el_capitan
   end
 
   skip_clean "data"
