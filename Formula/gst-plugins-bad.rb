@@ -23,8 +23,6 @@ class GstPluginsBad < Formula
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "openssl"
-  depends_on "libnice"
-  depends_on "srt"
   depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
   depends_on "dirac" => :optional
@@ -36,12 +34,14 @@ class GstPluginsBad < Formula
   depends_on "libdvdread" => :optional
   depends_on "libexif" => :optional
   depends_on "libmms" => :optional
+  depends_on "libnice" => :optional
+  depends_on "libvo-aacenc" => :optional
   depends_on "opencv@2" => :optional
   depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
   depends_on "sound-touch" => :optional
-  depends_on "libvo-aacenc" => :optional
+  depends_on "srt" => :optional
 
   def install
     args = %W[
@@ -69,8 +69,5 @@ class GstPluginsBad < Formula
     gst = Formula["gstreamer"].opt_bin/"gst-inspect-1.0"
     output = shell_output("#{gst} --plugin dvbsuboverlay")
     assert_match version.to_s, output
-
-    shell_output("#{gst} --exists webrtcbin", 0)
-    shell_output("#{gst} --exists srtclientsrc", 0)
   end
 end
