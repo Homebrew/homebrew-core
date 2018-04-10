@@ -41,7 +41,7 @@ class Petsc < Formula
     args_real = %W[--prefix=#{prefix}
                    --with-scalar-type=real]
     system "./configure", *(args + args_real)
-    system "make", "all", "--makefile=gmakefile"
+    system "make", "all"
     system "make", "install"
   end
 
