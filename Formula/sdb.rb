@@ -1,20 +1,9 @@
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB"
   homepage "https://github.com/radare/sdb"
+  url "https://github.com/radare/sdb/archive/1.1.0.tar.gz"
+  sha256 "92f0acb30b58556a45629ebc76b9737dca99c9a3561c72ebc31f143aee9b5844"
   head "https://github.com/radare/sdb.git"
-
-  stable do
-    url "https://github.com/radare/sdb/archive/0.12.tar.gz"
-    sha256 "6f1ea21495f2df1030f56ef3517c907466eb817840d2730d4a5abb8a85096a0d"
-
-    # Remove for > 0.12
-    # Avoid "sdbtypes.h: No such file or directory"
-    # Reported 12 Sep 2017 https://github.com/radare/sdb/issues/147
-    patch do
-      url "https://github.com/radare/sdb/commit/f824720.patch?full_index=1"
-      sha256 "23ad3e130e40ca078a488103d510062fe5bcadf844e01b3ac03c0dd50133f16b"
-    end
-  end
 
   bottle do
     cellar :any
