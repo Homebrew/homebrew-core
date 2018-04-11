@@ -21,8 +21,6 @@ class Petsc < Formula
                           "--prefix=#{prefix}",
                           "--with-debugging=0",
                           "--with-scalar-type=real",
-                          "--with-shared-libraries=1",
-                          "--with-ssl=0",
                           "--with-x=0",
                           "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}",
                           "--with-hwloc-dir=#{Formula["hwloc"].opt_prefix}",
