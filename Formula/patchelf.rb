@@ -4,6 +4,13 @@ class Patchelf < Formula
   url "https://nixos.org/releases/patchelf/patchelf-0.9/patchelf-0.9.tar.gz"
   sha256 "f2aa40a6148cb3b0ca807a1bf836b081793e55ec9e5540a5356d800132be7e0a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c97defd1aa773a8b3a36ce9941f860bd0d4348c47beb97e2c59e43c096234fd6" => :high_sierra
+    sha256 "8994925b02e7d2ce043df104ceb64b959543e1a869dd126b02c00f0f6a20bfd0" => :sierra
+    sha256 "38c85e00a1dc54d103713d04a0d458c55cf3f2618d2a7848f5750f66068206d2" => :el_capitan
+  end
+
   resource "hellworld" do
     url "http://timelessname.com/elfbin/helloworld.tar.gz"
     sha256 "d8c1e93f13e0b7d8fc13ce75d5b089f4d4cec15dad91d08d94a166822d749459"
