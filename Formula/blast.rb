@@ -15,6 +15,8 @@ class Blast < Formula
   depends_on "lmdb"
   depends_on "python@2"
 
+  conflicts_with "proj", :because => "both install a `libproj.a` library"
+
   def install
     cd "c++" do
       # Use ./configure --without-boost to fix
