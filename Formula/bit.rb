@@ -3,8 +3,8 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.12.10.tgz"
-  sha256 "e32ad338ccc97c8110bb3bd2954e37a8fe60d80c1559161ba6b0a5ad4595616a"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.12.11.tgz"
+  sha256 "9f4d56ef342a46ffb5b3eba70bf5376e6c9fb3815c9ecdd0ebad364d0197b74a"
   head "https://github.com/teambit/bit.git"
 
   bottle do
@@ -21,6 +21,9 @@ class Bit < Formula
   end
 
   test do
+    (testpath/"Library/Caches/Bit/config/config.json").write <<~EOS
+      { "analytics_reporting": false, "error_reporting": false }
+    EOS
     output = shell_output("#{bin}/bit init --skip-update")
     assert_match "successfully initialized", output
   end
