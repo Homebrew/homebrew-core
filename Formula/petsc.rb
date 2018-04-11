@@ -35,7 +35,14 @@ class Petsc < Formula
   test do
     test_case = "#{pkgshare}/examples/src/ksp/ksp/examples/tutorials/ex1.c"
     system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc"
-    output = shell_output("./a.out | grep 'Norm of error' | awk '{print $4}'")
-    assert(output.to_f < 1.0e-13)
+    example_output = `./a.out`
+    assert($? == 0, "The PETSc example returned an error code: " + $?.to_s)
+    # This PETSc example prints out several lines of output. The 4th token of
+    # the last line of text is an error norm, expected to be small. Check it:
+    example_error_norm = example_output.lines.last.split(" ")[3].to_f
+    assert(example_error_norm < 1.0e-13,
+           "The PETSc example ran, but produced incorrect output.\n" +
+           "Expected error norm ~ 1e-15, instead got error norm " +
+           example_error_norm.to_s)
   end
 end
