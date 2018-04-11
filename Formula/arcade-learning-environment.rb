@@ -13,6 +13,7 @@ class ArcadeLearningEnvironment < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "numpy"
   depends_on "python@2"
   depends_on "sdl"
 
