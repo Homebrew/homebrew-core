@@ -5,13 +5,6 @@ class Hyperkit < Formula
     :tag => "v0.20180123",
     :revision => "8bbe1da0166553a5b0ccff170bf9ccbd7d10753e"
 
-  head do
-    url "https://github.com/moby/hyperkit.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
   option "with-qcow", "Enable support for qcow disk image format"
   if build.with? "qcow"
     depends_on "ocaml" => :build
