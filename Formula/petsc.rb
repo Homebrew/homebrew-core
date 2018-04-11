@@ -22,9 +22,11 @@ class Petsc < Formula
               CXX=mpicxx
               F77=mpif77
               FC=mpif90
+              --prefix=#{prefix}
               --with-debugging=0
               --with-openmp=0
               --with-pthread=0
+              --with-scalar-type=real
               --with-shared-libraries=1
               --with-ssl=0
               --with-x=0
@@ -35,12 +37,7 @@ class Petsc < Formula
               --with-scalapack-dir=#{Formula["scalapack"].opt_prefix}
               --with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}]
 
-    # Build PETSc for real (vs. complex) numbers
-    ENV["PETSC_DIR"] = Dir.getwd
-    ENV["PETSC_ARCH"] = "real"
-    args_real = %W[--prefix=#{prefix}
-                   --with-scalar-type=real]
-    system "./configure", *(args + args_real)
+    system "./configure", *args
     system "make", "all"
     system "make", "install"
   end
