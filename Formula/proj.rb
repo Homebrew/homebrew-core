@@ -19,6 +19,8 @@ class Proj < Formula
 
   option "with-vdatum", "Install vertical datum files (~380 MB)"
 
+  conflicts_with "blast", :because => "both install a `libproj.a` library"
+
   # The datum grid files are required to support datum shifting
   resource "datumgrid" do
     url "https://download.osgeo.org/proj/proj-datumgrid-1.7.zip"
