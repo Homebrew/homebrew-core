@@ -1,9 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://dl.bintray.com/homebrew/mirror/qscintilla2-2.10.3.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.3/QScintilla_gpl-2.10.3.tar.gz"
-  sha256 "d2657a68e7699d37209ff97db965de7c67884d99b33066d0ba457e6f39b581e7"
+  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.4/QScintilla_gpl-2.10.4.tar.gz"
+  sha256 "0353e694a67081e2ecdd7c80e1a848cf79a36dbba78b2afa36009482149b022d"
 
   bottle do
     cellar :any
