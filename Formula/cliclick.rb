@@ -1,8 +1,8 @@
 class Cliclick < Formula
   desc "Tool for emulating mouse and keyboard events"
   homepage "https://www.bluem.net/jump/cliclick/"
-  url "https://github.com/BlueM/cliclick/archive/4.0.tar.gz"
-  sha256 "8d5a57cea0cb5a6cd8427ea2204909533574167f77518556f3f0a5b7548c0105"
+  url "https://github.com/BlueM/cliclick/archive/4.0.1.tar.gz"
+  sha256 "78f9584524b2cb4710a964f4d8e23667479f1dab37240d1ffbc8dfa9841ff1c2"
   head "https://github.com/BlueM/cliclick.git"
 
   bottle do
