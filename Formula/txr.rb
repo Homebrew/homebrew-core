@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "http://www.kylheku.com/cgit/txr/snapshot/txr-190.tar.bz2"
-  sha256 "1a03b1d4079e779d51c769f97d648f257a690cc200675ee3434b2d8975351992"
+  url "http://www.kylheku.com/cgit/txr/snapshot/txr-191.tar.bz2"
+  sha256 "747bfa86be35dfddf15b6104f94013efc71dd57de0906c340cb9e0717655fd0c"
   head "http://www.kylheku.com/git/txr", :using => :git
 
   bottle do
@@ -13,7 +13,9 @@ class Txr < Formula
   end
 
   def install
+    ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
