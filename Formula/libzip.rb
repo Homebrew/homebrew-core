@@ -5,9 +5,9 @@ class Libzip < Formula
   sha256 "47eaa45faa448c72bd6906e5a096846c469a185f293cafd8456abb165841b3f2"
 
   bottle do
-    sha256 "f0d016f7ca888b27d0880ca2f7786a37a00ced32e245a8e42cc3c16110d40fc7" => :high_sierra
-    sha256 "7eaa32231483a97b9702cbd5a8d7df262bfb2a05a6754602bcff61eb23ac4c98" => :sierra
-    sha256 "db917258649b9a889d1f1f60b712a3a80e16e4785620ae08d2115562425cffdd" => :el_capitan
+    sha256 "4ffb9ac04f1fc2c98e5ba902999ed6f4bc5d7d9133d22fc183fd8fa13b7fd9be" => :high_sierra
+    sha256 "a6d0dbd2370c97597948976414a48f544dc8a8e3e674e7faacef1bdc942d3161" => :sierra
+    sha256 "312f87c8f28237b69080b511d696ba72027e774655eacdd159159001c7941c0d" => :el_capitan
   end
 
   depends_on "cmake" => :build
