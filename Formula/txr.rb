@@ -7,9 +7,9 @@ class Txr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9610eb36215e849dd874b6de531c90b1084fe74346f3ac8865cc478a8171602" => :high_sierra
-    sha256 "d39301a6b3cae23feaddb77f08406488229fc0b7864a4084fc9d5839beaac977" => :sierra
-    sha256 "2deb3494d9f5a62babe1da3ea00092aded0477f9277ae07cce8ea020234a5caf" => :el_capitan
+    sha256 "ec194c3dc00f8679691b746c762fa6f20b50fcd71d4ca9c38e788cdab66c24db" => :high_sierra
+    sha256 "cc8273b195c2cb742bc4f5fbcc19d6f5dd18aca80ad97956fd14f861e54cd4d5" => :sierra
+    sha256 "25d547a352b8d9a847cdb6e7ee884e6aabe5e0f48dd919d1bc61a498c44e1128" => :el_capitan
   end
 
   def install
