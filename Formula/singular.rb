@@ -3,7 +3,7 @@ class Singular < Formula
   homepage "https://www.singular.uni-kl.de/"
   url "http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-1-1/singular-4.1.1.tar.gz"
   sha256 "3792c5707b60c1748298bf47e2277de20303d60563b797372cc0e1eff4bbc583"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "438fa81c0155d1d1d6b5cb8060ef5128d181f16753835045030ee94d7ce534f9" => :high_sierra
@@ -28,7 +28,8 @@ class Singular < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "CXXFLAGS=-std=c++11"
     system "make", "install"
   end
 
