@@ -1,8 +1,8 @@
 class ScmManager < Formula
   desc "Manage Git, Mercurial, and Subversion repos over HTTP"
   homepage "https://www.scm-manager.org"
-  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.55/scm-server-1.55-app.tar.gz"
-  sha256 "58ad12a52b2bea4cc5fb523b024f25145326e9d004cfc469f37252c65a2de6b9"
+  url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/scm-server/1.59/scm-server-1.59-app.tar.gz"
+  sha256 "8628e82f3bfd452412260dd2d82c2e76ee57013223171f2908d75cbc6258f261"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +14,8 @@ class ScmManager < Formula
   depends_on :java => "1.8"
 
   resource "client" do
-    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.55/scm-cli-client-1.55-jar-with-dependencies.jar"
-    sha256 "0dd0a56c38c02770d571ef86ab1948ff6e1d1b25b9d3d039d3565516f12086df"
+    url "https://maven.scm-manager.org/nexus/content/repositories/releases/sonia/scm/clients/scm-cli-client/1.59/scm-cli-client-1.59-jar-with-dependencies.jar"
+    sha256 "ac09437ae6cf20d07224895b30b23369e142055b9d1713835d8c0e3095bf68d2"
   end
 
   def install
