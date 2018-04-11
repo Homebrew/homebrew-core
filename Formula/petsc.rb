@@ -5,7 +5,6 @@ class Petsc < Formula
   sha256 "a233e0d7f69c98504a1c3548162c6024f7797dde5556b83b0f98ce7326251ca1"
   head "https://bitbucket.org/petsc/petsc", :using => :git
 
-  depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "hdf5"
   depends_on "hwloc"
@@ -16,16 +15,12 @@ class Petsc < Formula
   depends_on "suite-sparse"
 
   def install
-    # PETSc is not threadsafe, disable pthread/openmp
-    # (see http://www.mcs.anl.gov/petsc/miscellaneous/petscthreads.html)
     args = %W[CC=mpicc
               CXX=mpicxx
               F77=mpif77
               FC=mpif90
               --prefix=#{prefix}
               --with-debugging=0
-              --with-openmp=0
-              --with-pthread=0
               --with-scalar-type=real
               --with-shared-libraries=1
               --with-ssl=0
@@ -46,8 +41,6 @@ class Petsc < Formula
     (testpath/"test.c").write <<~EOS
       static char help[] = "Solve a tridiagonal linear system with KSP.\\n";
       #include <petscksp.h>
-      #undef __FUNCT__
-      #define __FUNCT__ "main"
       int main(int argc,char **args) {
         Vec            x, b, u;
         Mat            A;
