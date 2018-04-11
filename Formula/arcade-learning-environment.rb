@@ -13,20 +13,11 @@ class ArcadeLearningEnvironment < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "numpy"
   depends_on "python@2"
   depends_on "sdl"
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/0b/66/86185402ee2d55865c675c06a5cfef742e39f4635a4ce1b1aefd20711c13/numpy-1.14.2.zip"
-    sha256 "facc6f925c3099ac01a1f03758100772560a0b020fb9d70f210404be08006bcb"
-  end
-
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resource("numpy").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
-    end
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
     system "python", *Language::Python.setup_install_args(prefix)
