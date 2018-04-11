@@ -80,6 +80,12 @@ class Sslmate < Formula
     end
     env[:PYTHONPATH] = ENV["PYTHONPATH"] if build.with? "route53"
     bin.env_script_all_files(libexec + "bin", env)
+
+    # Fix failure when Homebrew perl is selected at runtime
+    unless MacOS.version <= :snow_leopard
+      inreplace libexec/"bin/sslmate",
+        "#!/usr/bin/env perl", "#!/usr/bin/perl"
+    end
   end
 
   test do
