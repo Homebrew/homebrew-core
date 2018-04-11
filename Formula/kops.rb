@@ -1,8 +1,8 @@
 class Kops < Formula
   desc "Production Grade K8s Installation, Upgrades, and Management"
   homepage "https://github.com/kubernetes/kops"
-  url "https://github.com/kubernetes/kops/archive/1.8.1.tar.gz"
-  sha256 "e7dcaa8f50a51f878ed9a6478cba0c7b42aa34d33a1c9a7e6964fe4193aa51ca"
+  url "https://github.com/kubernetes/kops/archive/1.9.0.tar.gz"
+  sha256 "52af8fc55ccf4cdaa01d53673229d8f4f0cd53b24f3de3b9a3c8c563176fda6f"
   head "https://github.com/kubernetes/kops.git"
 
   bottle do
@@ -10,11 +10,6 @@ class Kops < Formula
     sha256 "b3972744739ea91ad25f852f5340658d07ee9ce505b0f786e76078bd2f35680b" => :high_sierra
     sha256 "15469dac5da51734d326d755d49120ce2b2b22c19bfbfebc1f348ce9e47470b4" => :sierra
     sha256 "19edd7d18f20a27927b3a889c263a3b1f2a898e91349ced6e95420cee6081445" => :el_capitan
-  end
-
-  devel do
-    url "https://github.com/kubernetes/kops/archive/1.9.0-beta.2.tar.gz"
-    sha256 "b2b8eedfec837cb0f06f0106d2dd76c033cf593d750154b242328790369a0a42"
   end
 
   depends_on "go" => :build
