@@ -6,9 +6,9 @@ class PhpAT56 < Formula
   revision 1
 
   bottle do
-    sha256 "df5e8f314eed3b68f47cf4ba34e0dc5c8fa8250868bb8f6e1a87e920aff19087" => :high_sierra
-    sha256 "e5dc4f5d615c96734c5ae0fe262c0ece94c5d3f88793e51c0226427eb1a82144" => :sierra
-    sha256 "e1fa7d5fb36745afda191136b1707b817b95bdb85dc875621d6632121cd4074c" => :el_capitan
+    sha256 "f88d7b5964aa5ebc0c1a970ba61854c3ddc3a86e723c96e2e5ffe691ea928102" => :high_sierra
+    sha256 "b2fd7898cda6e6aa673e87cc3d91f194efaca778bb7415fab2d7a2952e1e99b4" => :sierra
+    sha256 "d9328c21d27e3be48fc72020c09502258a04c0e146ee35ab17ba64c9fef45c99" => :el_capitan
   end
 
   keg_only :versioned_formula
