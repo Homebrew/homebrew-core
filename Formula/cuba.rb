@@ -14,7 +14,7 @@ class Cuba < Formula
     system "make", "check" if build.with? "test"
     system "make", "install"
 
-    (pkgshare / "cuba").install "demo"
+    pkgshare.install "demo"
   end
 
   test do
