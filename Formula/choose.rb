@@ -16,6 +16,8 @@ class Choose < Formula
     sha256 "47d5c12604878a2f3eb75da8c80a15d991b47129a17684fde8f02fe97f16e78b" => :mavericks
   end
 
+  depends_on "python@2"
+
   conflicts_with "choose-gui", :because => "both install a `choose` binary"
 
   resource "urwid" do
