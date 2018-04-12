@@ -15,7 +15,11 @@ class Mesos < Formula
   depends_on :macos => :mountain_lion
   depends_on "apr-util" => :build
   depends_on "maven" => :build
+  depends_on "python@2"
   depends_on "subversion"
+
+  conflicts_with "nanopb-generator",
+    :because => "they depend on an incompatible version of protobuf"
 
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/e0/2f/690a5f047e2cfef40c9c5eec0877b496dc1f5a0625ca6b0ac1cd11f12f6a/protobuf-3.2.0.tar.gz"
