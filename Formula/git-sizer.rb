@@ -1,8 +1,8 @@
 class GitSizer < Formula
   desc "Compute various size metrics for a Git repository"
   homepage "https://github.com/github/git-sizer"
-  url "https://github.com/github/git-sizer/archive/v1.1.0.tar.gz"
-  sha256 "de3de0b45c5460b1da53717812ef051e45efa14c60ed4def7f27c007c752ebb0"
+  url "https://github.com/github/git-sizer/archive/v1.2.0.tar.gz"
+  sha256 "e3d82e2231ba2113eb792fbcff5435ca925d6ffd9eccab8fdeafc3f0ae6fb134"
 
   bottle do
     cellar :any_skip_relocation
