@@ -9,7 +9,7 @@ class Cuba < Formula
   def install
     ENV.deparallelize
 
-    system "./configure", "--prefix=#{prefix}", "--datadir=#{pkgshare}/cuba/doc"
+    system "./configure", "--prefix=#{prefix}", "--datadir=#{pkgshare}/doc"
     system "make"
     system "make", "check" if build.with? "test"
     system "make", "install"
@@ -18,7 +18,7 @@ class Cuba < Formula
   end
 
   test do
-    system ENV.cc, "-o", "demo-c", "#{lib}/libcuba.a", "#{pkgshare}/cuba/demo/demo-c.c"
+    system ENV.cc, "-o", "demo-c", "#{lib}/libcuba.a", "#{pkgshare}/demo/demo-c.c"
     system "./demo-c"
   end
 end
