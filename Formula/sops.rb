@@ -1,6 +1,4 @@
 class Sops < Formula
-  include Language::Python::Virtualenv
-
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
   url "https://github.com/mozilla/sops/archive/3.0.3.tar.gz"
