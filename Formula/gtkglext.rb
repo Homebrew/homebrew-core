@@ -3,7 +3,7 @@ class Gtkglext < Formula
   homepage "https://projects.gnome.org/gtkglext/"
   url "https://download.gnome.org/sources/gtkglext/1.2/gtkglext-1.2.0.tar.gz"
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -67,6 +67,11 @@ class Gtkglext < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/21e7e01/gtkglext/patch-makefile.in.diff"
     sha256 "0d112b417d6c51022e31701037aa49ea50f270d3a34c263599ac0ef64c2f6743"
+  end
+
+  patch :p0 do
+    url "https://trac.macports.org/raw-attachment/ticket/56260/patch-index-gdkglshapes-osx.diff"
+    sha256 "699ddd676b12a6c087e3b0a7064cc9ef391eac3d84c531b661948bf1699ebcc5"
   end
 
   def install
