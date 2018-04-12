@@ -6,9 +6,9 @@ class Di < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c6b73f6857b8b029f1b2aaf6bd6318c4ce6ddb6d2acb984136197da2105edf4d" => :high_sierra
-    sha256 "5af2e6470606f15bc327aa250238dbfe61d288aa39396e6567f06a495fb9f143" => :sierra
-    sha256 "0d0d0ac1a487899b51382a6e462bd0085f0e1181b8a4f3b65fcb04ebf608aa73" => :el_capitan
+    sha256 "81c4864d599c750853763af46e78d9cc63f7cd57d892e9609e80eecd6c815eac" => :high_sierra
+    sha256 "cd3618e1d20bbacf19690dd9b851399714e94bd89af4a9b4e22de6dd38ce39d1" => :sierra
+    sha256 "6763e3cfb49aba34aab28df7a0deec27fa9603463220f4b2d4750530176ba6bf" => :el_capitan
   end
 
   def install
