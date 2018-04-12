@@ -15,6 +15,8 @@ class Sickbeard < Formula
     sha256 "f8a28c1b638f8041a226e8a19606b42cf9e3d000501217f85fb3b024ec50b205" => :mavericks
   end
 
+  depends_on "python@2"
+
   resource "Markdown" do
     url "https://files.pythonhosted.org/packages/source/M/Markdown/Markdown-2.4.1.tar.gz"
     sha256 "812ec5249f45edc31330b7fb06e52aaf6ab2d83aa27047df7cb6837ef2d269b6"
