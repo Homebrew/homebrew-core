@@ -2,8 +2,8 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://github.com/GoogleCloudPlatform/skaffold"
   url "https://github.com/GoogleCloudPlatform/skaffold.git",
-      :tag => "v0.3.0",
-      :revision => "0e9951cbab558661dcd189a0ccd8ed1d13a402f2"
+      :tag => "v0.4.0",
+      :revision => "8a99affded87a0f81e3ee90bd9f24f01aec5038d"
 
   bottle do
     cellar :any_skip_relocation
