@@ -14,6 +14,7 @@ class Tarsnapper < Formula
     sha256 "47e026fb50a96660899d9128c8c74e0191a3c414d363cecb3078c9a6eae12241" => :yosemite
   end
 
+  depends_on "python@2"
   depends_on "tarsnap"
 
   resource "argparse" do
