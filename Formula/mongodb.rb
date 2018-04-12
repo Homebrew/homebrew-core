@@ -14,11 +14,12 @@ class Mongodb < Formula
   option "with-sasl", "Compile with SASL support"
 
   depends_on :xcode => ["8.3.2", :build]
-  depends_on "boost" => :optional
   depends_on "go" => :build
-  depends_on :macos => :mountain_lion
   depends_on "scons" => :build
+  depends_on :macos => :mountain_lion
+  depends_on "python@2"
   depends_on "openssl" => :recommended
+  depends_on "boost" => :optional
 
   resource "Cheetah" do
     url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
