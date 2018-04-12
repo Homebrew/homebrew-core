@@ -18,6 +18,7 @@ class Osquery < Formula
   depends_on :macos => :sierra
   depends_on "bison" => :build
   depends_on "cmake" => :build
+  depends_on "python@2" => :build
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"
