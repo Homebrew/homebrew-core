@@ -40,7 +40,7 @@ class Petsc < Formula
     # the last line of text is an error norm, expected to be small. Check it:
     example_error_norm = example_output.lines.last.split(" ")[3].to_f
     assert(example_error_norm < 1.0e-13,
-           "The PETSc example ran, but produced incorrect output.\n" +
+           "The PETSc example ran, but produced incorrect output.\n" \
            "Expected error norm ~ 1e-15, instead got error norm " +
            example_error_norm.to_s)
   end
