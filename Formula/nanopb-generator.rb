@@ -15,6 +15,9 @@ class NanopbGenerator < Formula
   depends_on "python@2"
   depends_on "protobuf"
 
+  conflicts_with "mesos",
+    :because => "they depend on an incompatible version of protobuf"
+
   def install
     cd "generator" do
       system "make", "-C", "proto"
