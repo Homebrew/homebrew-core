@@ -1,9 +1,8 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "http://yaws.hyber.org/download/yaws-2.0.4.tar.gz"
-  sha256 "da6677c315aadc7c64c970ef74eaa29f61eba886c7d30c61806651ac38c1e6c5"
-  revision 1
+  url "http://yaws.hyber.org/download/yaws-2.0.5.tar.gz"
+  sha256 "be82d1b5bcd9d32406244eb4f542e653a2d9d82cf34bc3c61e15d26e84db7601"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,9 +22,7 @@ class Yaws < Formula
 
   option "without-yapp", "Omit yaws applications"
 
-  # Incompatible with Erlang/OTP 20.0
-  # See upstream issue from 9 Jun 2017 https://github.com/klacke/yaws/issues/309
-  depends_on "erlang@19"
+  depends_on "erlang"
 
   # the default config expects these folders to exist
   skip_clean "var/log/yaws"
