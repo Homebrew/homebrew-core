@@ -11,19 +11,16 @@ class Aubio < Formula
     sha256 "ef260312d855772fb09146508d4b819e0a185f510ecb73fd52e033e3afebd246" => :el_capitan
   end
 
-  option "with-python@2", "Build with python 2 support"
-
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on :macos => :lion
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
+  depends_on "numpy"
+  depends_on "python@2"
   depends_on "libav" => :optional
   depends_on "libsndfile" => :optional
   depends_on "libsamplerate" => :optional
   depends_on "fftw" => :optional
   depends_on "jack" => :optional
-  depends_on "numpy" if build.with? "python@2"
 
   def install
     # Needed due to issue with recent cland (-fno-fused-madd))
@@ -33,16 +30,12 @@ class Aubio < Formula
     system "./waf", "build"
     system "./waf", "install"
 
-    if build.with? "python@2"
-      system "python", *Language::Python.setup_install_args(prefix)
-      bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-    end
+    system "python", *Language::Python.setup_install_args(prefix)
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    if build.with? "python@2"
-      system "#{bin}/aubiocut", "--verbose", "/System/Library/Sounds/Glass.aiff"
-    end
+    system "#{bin}/aubiocut", "--verbose", "/System/Library/Sounds/Glass.aiff"
     system "#{bin}/aubioonset", "--verbose", "/System/Library/Sounds/Glass.aiff"
   end
 end
