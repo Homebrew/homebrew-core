@@ -1,8 +1,8 @@
 class DnscryptProxy < Formula
   desc "Secure communications between a client and a DNS resolver"
   homepage "https://github.com/jedisct1/dnscrypt-proxy"
-  url "https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.8.tar.gz"
-  sha256 "a99fc2b055618b0578ebe1477769bf9dddff7daa653649bd73f4bcf650bc8d40"
+  url "https://github.com/jedisct1/dnscrypt-proxy/archive/2.0.9.tar.gz"
+  sha256 "482e5ded79cd6b0251fb7aa103c6ee929968a8c3f0903f9730e09631e3963918"
   head "https://github.com/jedisct1/dnscrypt-proxy.git"
 
   bottle do
@@ -37,8 +37,8 @@ class DnscryptProxy < Formula
     can click "+" and enter 127.0.0.1 in the "DNS Servers" section.
 
     By default, dnscrypt-proxy runs on localhost (127.0.0.1), port 53,
-    balancing traffic across a set of resolvers. If you would like to
-    change these settings, you will have to edit the configuration file:
+    using a random resolver. If you would like to change these settings,
+    you will have to edit the configuration file:
       #{etc}/dnscrypt-proxy.toml
 
     To check that dnscrypt-proxy is working correctly, open Terminal and enter the
