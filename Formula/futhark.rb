@@ -1,8 +1,8 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.4.0.tar.gz"
-  sha256 "238ead153c3e1656237994b3036de074265d85dba7fda1786efd9bb22789d04b"
+  url "https://github.com/diku-dk/futhark/archive/0.4.1.tar.gz"
+  sha256 "6702dd5b6a8366736f055d349a29ee4377c0828cd76f01cb9ee87e96f20e6c28"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,7 @@ class Futhark < Formula
     sha256 "a297d156ae380db6ab1ad3caa0cc0dca4b09bcf942d5541000e190e04da46cda" => :el_capitan
   end
 
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
   depends_on "sphinx-doc" => :build
 
