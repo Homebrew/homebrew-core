@@ -7,7 +7,7 @@ class ImagemagickAT6 < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-40.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-40.tar.xz"
   sha256 "62f25d46bfbcffe00b84e167994d593868a9a47d4defc489a429cae1d6aab9f7"
-  head "https://github.com/imagemagick/imagemagick.git", :branch => "ImageMagick-6"
+  head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
     sha256 "a0ea6ba13cb82131017aee322487b59d71d315c31a2f55d842aea9b198b1cfdc" => :high_sierra
