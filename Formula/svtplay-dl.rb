@@ -13,12 +13,9 @@ class SvtplayDl < Formula
     sha256 "689675a28ef799324c2ca527ff70a089251314d42a2a0c7b7ee6e1b050da56dd" => :el_capitan
   end
 
-  # The dependencies differ for Python <= 2.7.9.
-  # Mavericks ships Python 2.7.5; Yosemite, 2.7.10.
-  depends_on "python@2"
-
-  depends_on "rtmpdump"
   depends_on "openssl"
+  depends_on "python@2"
+  depends_on "rtmpdump"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
@@ -56,10 +53,6 @@ class SvtplayDl < Formula
   end
 
   def install
-    if MacOS.version <= :mavericks
-      ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
-    end
-
     virtualenv_install_with_resources
   end
 
@@ -71,6 +64,6 @@ class SvtplayDl < Formula
 
   test do
     url = "https://tv.aftonbladet.se/abtv/articles/244248"
-    assert_match "m3u8", shell_output("#{bin}/svtplay-dl -g #{url}")
+    assert_match "No videos found", shell_output("#{bin}/svtplay-dl -g #{url}")
   end
 end
