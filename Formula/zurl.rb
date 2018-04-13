@@ -12,6 +12,7 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@2" => :test
   depends_on "curl" if MacOS.version < :lion
   depends_on "qt"
   depends_on "zeromq"
