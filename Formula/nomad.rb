@@ -7,9 +7,9 @@ class Nomad < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "650feea1f9bf5813aea5390d0eb0a6c6b8491ecff46be090774bd27b5cba49e9" => :high_sierra
-    sha256 "e0e420c63315e67b6e7aa4ee6b32380ef7b4a95113d6c8ab6c0131393056e3a7" => :sierra
-    sha256 "0a1d0ab2283e6b93de5e576b9c88e4ed230a31317138c88df0d2011a62a3ef0a" => :el_capitan
+    sha256 "48ca9b07c7c5e20fa35341c1780a9bcc90edc1073386c5fda31926ebbce6141a" => :high_sierra
+    sha256 "dbe43b0a518a19d2c05f4464888b2dac566257d59a1cdf2ad672b102a0f5ae99" => :sierra
+    sha256 "72a96db3006ed22e86cc9ce707dda4ec8c0ecd480522258b52b88e6f93b54d2a" => :el_capitan
   end
 
   option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
