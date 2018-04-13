@@ -17,6 +17,7 @@ class GtkDoc < Formula
   depends_on "docbook"
   depends_on "docbook-xsl"
   depends_on "libxml2"
+  depends_on "python@2"
   depends_on "source-highlight"
 
   resource "six" do
