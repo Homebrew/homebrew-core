@@ -37,11 +37,8 @@ class Petsc < Formula
     system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc"
     example_output = shell_output("./a.out")
     # This PETSc example prints out several lines of output. The 4th token of
-    # the last line of text is an error norm, expected to be small. Check it:
+    # the last line of text is an error norm, expected to be small.
     example_error_norm = example_output.lines.last.split(" ")[3].to_f
-    assert(example_error_norm < 1.0e-13,
-           "The PETSc example ran, but produced incorrect output.\n" \
-           "Expected error norm ~ 1e-15, instead got error norm " +
-           example_error_norm.to_s)
+    assert(example_error_norm < 1.0e-13, "Error norm too large")
   end
 end
