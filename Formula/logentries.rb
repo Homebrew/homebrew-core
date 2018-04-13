@@ -16,6 +16,8 @@ class Logentries < Formula
 
   conflicts_with "le", :because => "both install a le binary"
 
+  depends_on "python@2"
+
   def install
     virtualenv_install_with_resources
   end
