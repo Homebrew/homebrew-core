@@ -4,7 +4,6 @@ class Petsc < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.9.0.tar.gz"
   sha256 "a233e0d7f69c98504a1c3548162c6024f7797dde5556b83b0f98ce7326251ca1"
 
-  depends_on "gcc"
   depends_on "hdf5"
   depends_on "hwloc"
   depends_on "metis"
@@ -14,20 +13,14 @@ class Petsc < Formula
   depends_on "suite-sparse"
 
   def install
-    system "./configure", "CC=mpicc",
-                          "CXX=mpicxx",
-                          "F77=mpif77",
-                          "FC=mpif90",
-                          "--prefix=#{prefix}",
+    ENV["CC"] = "mpicc"
+    ENV["CXX"] = "mpicxx"
+    ENV["F77"] = "mpif77"
+    ENV["FC"] = "mpif90"
+    system "./configure", "--prefix=#{prefix}",
                           "--with-debugging=0",
                           "--with-scalar-type=real",
-                          "--with-x=0",
-                          "--with-hdf5-dir=#{Formula["hdf5"].opt_prefix}",
-                          "--with-hwloc-dir=#{Formula["hwloc"].opt_prefix}",
-                          "--with-metis-dir=#{Formula["metis"].opt_prefix}",
-                          "--with-netcdf-dir=#{Formula["netcdf"].opt_prefix}",
-                          "--with-scalapack-dir=#{Formula["scalapack"].opt_prefix}",
-                          "--with-suitesparse-dir=#{Formula["suite-sparse"].opt_prefix}"
+                          "--with-x=0"
     system "make", "all"
     system "make", "install"
   end
