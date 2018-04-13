@@ -1,8 +1,8 @@
 class Duti < Formula
   desc "Select default apps for documents and URL schemes on macOS"
   homepage "https://github.com/moretension/duti/"
-  url "https://github.com/moretension/duti/archive/duti-1.5.3.tar.gz"
-  sha256 "0e71b7398e01aedf9dde0ffe7fd5389cfe82aafae38c078240780e12a445b9fa"
+  url "https://github.com/moretension/duti/archive/duti-1.5.4.tar.gz"
+  sha256 "3f8f599899a0c3b85549190417e4433502f97e332ce96cd8fa95c0a9adbe56de"
   head "https://github.com/moretension/duti.git"
 
   bottle do
@@ -16,14 +16,6 @@ class Duti < Formula
   end
 
   depends_on "autoconf" => :build
-
-  # Add hardcoded SDK path for El Capitan or later.
-  if MacOS.version >= :el_capitan
-    patch do
-      url "https://github.com/moretension/duti/commit/7dbcae8.patch?full_index=1"
-      sha256 "09ea9bec926f38beb217c597fc224fc19c972e44835783a57fe8a54450cb8fb6"
-    end
-  end
 
   def install
     system "autoreconf", "-vfi"
