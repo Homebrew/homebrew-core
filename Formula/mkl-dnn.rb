@@ -6,7 +6,6 @@ class MklDnn < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on :arch => :x86_64
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -18,14 +17,13 @@ class MklDnn < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <mkldnn.h>
-
       int main() {
         mkldnn_engine_t engine;
         mkldnn_status_t status = mkldnn_engine_create(&engine, mkldnn_cpu, 0);
         return !(status == mkldnn_success);
       }
     EOS
-    system ENV.cc, "-I#{include.children.first}", "-L#{lib}", "-lmkldnn", testpath/"test.c", "-o", "test"
-    system testpath/"test"
+    system ENV.cc, "-L#{lib}", "-lmkldnn", "test.c", "-o", "test"
+    system "./test"
   end
 end
