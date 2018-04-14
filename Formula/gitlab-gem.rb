@@ -4,6 +4,13 @@ class GitlabGem < Formula
   url "https://github.com/NARKOZ/gitlab/archive/v4.3.0.tar.gz"
   sha256 "b2679d0696642f67ba84a4f9df21ad4a7bf1bc814d7f86218b72ebe5e56ff2d0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "370ba4b9e70f7d780b50400aeff2ba11f7e0015b48a8989a86e8022aa6c1eeb3" => :high_sierra
+    sha256 "b196b8447773b7adbf9361e3e07fee0603330ac4ff01862d943f58b564156e2c" => :sierra
+    sha256 "099a1c60003659f690abea40da21dd8d72304fdf313eb900b5c0ac7f69629f84" => :el_capitan
+  end
+
   depends_on "ruby" if MacOS.version <= :mountain_lion
 
   resource "httparty" do
