@@ -6,9 +6,9 @@ class RancherCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b54072cb8f1b635e876dc16a0c7d0bac61ae04672e6ba5ec769bf965bd088c2d" => :high_sierra
-    sha256 "a0de2bcca3454fe74d085b2e9e55389fff549d0e6cd1486927a2116ff57e4450" => :sierra
-    sha256 "e24b894a33b68272ee707652eea6beab4bf9a4d75186876979943402af77d085" => :el_capitan
+    sha256 "97b5acb02255e465ff5a766176a90367b3f61056bca1ba4b8df09e48161b96aa" => :high_sierra
+    sha256 "bc191f6c936af475f3117b066805d1d64de9619edb1209173ba27e92e59f8276" => :sierra
+    sha256 "eb09248f87963fc8c88953f4a9c857b6e5bb9380f139a560dd2e95830ffbd88f" => :el_capitan
   end
 
   depends_on "go" => :build
