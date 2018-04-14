@@ -1,13 +1,13 @@
 class Clojure < Formula
   desc "The Clojure Programming Language"
   homepage "https://clojure.org"
-  url "https://download.clojure.org/install/clojure-tools-1.9.0.358.tar.gz"
-  sha256 "574f8b2c5a5b3c9aa9f1f184c65bd6ebdd708febc4d1f9b0f112b76ca29d253a"
+  url "https://download.clojure.org/install/clojure-tools-1.9.0.372.tar.gz"
+  sha256 "2d1d54e72463ad735a7a5c2e49c2b0c17d21d7c989adc40116429386518160a8"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
-  depends_on "rlwrap"
+  depends_on "rlwrap" => :recommended
 
   def install
     system "./install.sh", prefix
