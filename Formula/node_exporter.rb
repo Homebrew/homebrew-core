@@ -12,7 +12,7 @@ class NodeExporter < Formula
     ln_sf buildpath, buildpath/"src/github.com/prometheus/node_exporter"
 
     system "make", "build"
-    bin.install %w[node_exporter]
+    bin.install "node_exporter"
   end
 
   plist_options :startup => true
