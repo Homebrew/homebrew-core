@@ -27,11 +27,14 @@ class Petsc < Formula
 
   test do
     test_case = "#{pkgshare}/examples/src/ksp/ksp/examples/tutorials/ex1.c"
-    system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc"
-    example_output = shell_output("./a.out")
-    # This PETSc example prints out several lines of output. The 4th token of
-    # the last line of text is an error norm, expected to be small.
-    example_error_norm = example_output.lines.last.split(" ")[3].to_f
-    assert(example_error_norm < 1.0e-13, "Error norm too large")
+    system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc", "-o", "test"
+    output = shell_output("./test")
+    # This PETSc example prints several lines of output. The last line contains
+    # an error norm, expected to be small.
+    line = output.lines.last
+    match = /(?<=^Norm of error )(.+)(?=,)/.match(line)
+    assert match, "Unexpected output format")
+    error = match[0]
+    assert (error.to_f >= 0.0 && error.to_f < 1.0e-13, "Error norm too large")
   end
 end
