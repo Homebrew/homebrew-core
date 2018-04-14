@@ -6,10 +6,10 @@ class Mesos < Formula
   sha256 "5973795a739c9fa8f1d56b7d0ab1e71e015d5915ffdefb46484ac6546306f4b0"
 
   bottle do
-    rebuild 1
-    sha256 "76cc68fb9c5a94cddcfb2122e18e486725f80d9f8a55d8b73beae01be45849e2" => :high_sierra
-    sha256 "accaab043d533260e00a13ac545b9ea4e00af09c0783fac570c7be5d48e5ba84" => :sierra
-    sha256 "617c07438c717940f4de9f0dcdbb76f3ea4ca9367bc0bd555d4fafe2ba9dc0c4" => :el_capitan
+    rebuild 2
+    sha256 "002254bfe8c326d8534206e04359139513b4c6338d399a19b49e712745257fe0" => :high_sierra
+    sha256 "f80fc3e7e9c4846cd6a28b5385a9bac9ca256fda16ec1a14be24fd2db48dccdc" => :sierra
+    sha256 "f21927e965a55ed3ed09bf2507d0785492a439e7faca2aa21d39be9cf2375f78" => :el_capitan
   end
 
   depends_on :java => "1.8"
