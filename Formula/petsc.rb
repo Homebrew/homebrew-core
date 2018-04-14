@@ -33,8 +33,8 @@ class Petsc < Formula
     # an error norm, expected to be small.
     line = output.lines.last
     match = /(?<=^Norm of error )(.+)(?=,)/.match(line)
-    assert match, "Unexpected output format")
+    assert match, "Unexpected output format"
     error = match[0]
-    assert (error.to_f >= 0.0 && error.to_f < 1.0e-13, "Error norm too large")
+    assert (error.to_f >= 0.0 && error.to_f < 1.0e-13), "Error norm too large"
   end
 end
