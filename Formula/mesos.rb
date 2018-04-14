@@ -12,7 +12,7 @@ class Mesos < Formula
     sha256 "617c07438c717940f4de9f0dcdbb76f3ea4ca9367bc0bd555d4fafe2ba9dc0c4" => :el_capitan
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
   depends_on :macos => :mountain_lion
   depends_on "apr-util" => :build
   depends_on "maven" => :build
@@ -164,6 +164,9 @@ class Mesos < Formula
     end
     pth_contents = "import site; site.addsitedir('#{protobuf_path}')\n"
     (lib/"python2.7/site-packages/homebrew-mesos-protobuf.pth").write pth_contents
+
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    sbin.env_script_all_files(libexec/"sbin", Language::Java.java_home_env("1.8"))
   end
 
   test do
