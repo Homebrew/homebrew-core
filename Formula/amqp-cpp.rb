@@ -6,10 +6,10 @@ class AmqpCpp < Formula
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   bottle do
-    cellar :any
-    sha256 "59eea4c77112bae85d4bdd28a2173fa26030a046fb0cd3621c8cb8cbe872bb21" => :high_sierra
-    sha256 "7e8798ab7af1e516e1a230427734428445c0396d36621bc1134e8d9c68ad15ab" => :sierra
-    sha256 "f0b2f7257e5082cf0e11bc12d4d93a8a2c6642aa7ee29335812dfd05740421b8" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "9680761f8320e20b1bd536fdee1d0a2a2d30444698884ba29aacaf923f8fff4b" => :high_sierra
+    sha256 "1012d39453b259fc94718bfa004c9554b67bd46bcb0b6b07879c54ddc315bb01" => :sierra
+    sha256 "46253976be6dc785f48aa5df07848de1e4dad58c465280bdbc221fdb054d7796" => :el_capitan
   end
 
   needs :cxx11
