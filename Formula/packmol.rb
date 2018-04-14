@@ -6,9 +6,9 @@ class Packmol < Formula
   head "https://github.com/leandromartinez98/packmol.git"
 
   bottle do
-    sha256 "0611026821c4fe3fbdfc72dac718064725094c9759d4de694b83c124f744b3b6" => :high_sierra
-    sha256 "d9230d3052da6656db3436eb552fac5e5a31c8361c8497afbae94ef870959c29" => :sierra
-    sha256 "156944c2a0fcc7b90c3c817241cc3752a5056d87a2559194d8d8a03555111f09" => :el_capitan
+    sha256 "ae3a96ca2b9e9c2569f14b5e88e64c9d38f8fefad2369e9eb6873eb805190db5" => :high_sierra
+    sha256 "cad4f11bb13d0b5ff296f6dd91e8f79d31dacf7e6020d582bb5930c07b301a28" => :sierra
+    sha256 "4aeeb7e3b5a0fcc39a37a80b00ad27520c2852e138a48174d8d60980485faec7" => :el_capitan
   end
 
   depends_on "gcc"
