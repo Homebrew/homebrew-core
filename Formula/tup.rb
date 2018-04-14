@@ -1,8 +1,8 @@
 class Tup < Formula
   desc "File-based build system"
   homepage "http://gittup.org/tup/"
-  url "https://github.com/gittup/tup/archive/v0.7.5.tar.gz"
-  sha256 "361b3e069308ce1d9505d1cb927999ac448811a3425c724123e0c48602a9d1e4"
+  url "https://github.com/gittup/tup/archive/v0.7.6.tar.gz"
+  sha256 "db8832cf31e9776ea432fe1f9747f6aba6e3d7308331d44c55601e7bec6ab5c6"
   head "https://github.com/gittup/tup.git"
 
   bottle do
