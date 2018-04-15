@@ -1,8 +1,8 @@
 class Discount < Formula
   desc "C implementation of Markdown"
-  homepage "http://www.pell.portland.or.us/~orc/Code/discount/"
-  url "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.2.tar.bz2"
-  sha256 "ec7916731e3ef8516336333f8b7aa9e2af51e57c0017b1e03fa43f1ba6978f64"
+  homepage "https://www.pell.portland.or.us/~orc/Code/discount/"
+  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.3a.tar.bz2"
+  sha256 "75f5d5fda2e9607a5c77455296b41e5dd436389e20f35c37bea395d35aea0954"
 
   bottle do
     cellar :any_skip_relocation
