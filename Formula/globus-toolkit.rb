@@ -2,8 +2,8 @@ class GlobusToolkit < Formula
   desc "Toolkit used for building grids"
   homepage "https://www.globus.org/toolkit/"
   # Note: Stable distributions have an even minor version number (e.g. 5.0.3)
-  url "https://downloads.globus.org/toolkit/gt6/stable/installers/src/globus_toolkit-6.0.1506371041.tar.gz"
-  sha256 "77911b143a0bee937ecd7ca9d5c646c0d0bf82756bbe5e831bf281d05c0e7bb9"
+  url "https://downloads.globus.org/toolkit/gt6/stable/installers/src/globus_toolkit-6.0.1517984806.tar.gz"
+  sha256 "8aa4101829cd5db34b8b00cd599384d1952ad7d810b89543b2cd094120c3e87d"
 
   bottle do
     sha256 "be2982e801761c61955f9ac4ec7390fc860bb9049001d722dcd2feef4f35ad78" => :high_sierra
