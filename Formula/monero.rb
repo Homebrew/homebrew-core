@@ -1,8 +1,9 @@
 class Monero < Formula
-  desc "Official monero wallet and cpu miner"
+  desc "Secure, private, untraceable cryptocurrency"
   homepage "https://getmonero.org/"
-  url "https://github.com/monero-project/monero/archive/v0.11.1.0.tar.gz"
-  sha256 "b5b48d3e5317c599e1499278580e9a6ba3afc3536f4064fcf7b20840066a509b"
+  url "https://github.com/monero-project/monero.git",
+      :tag => "v0.12.0.0",
+      :revision => "c29890c2c03f7f24aa4970b3ebbfe2dbb95b24eb"
 
   bottle do
     sha256 "4605768a865c17daae09b3e1ddfd96babe0779126ff1ed90db26238e020d8283" => :high_sierra
@@ -15,20 +16,17 @@ class Monero < Formula
   depends_on "boost"
   depends_on "openssl"
   depends_on "readline"
+  depends_on "zeromq"
 
-  def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+  resource "cppzmq" do
+    url "https://raw.githubusercontent.com/zeromq/cppzmq/7a8cc9d7cf448b8fd654ec4cd24fd48b57a76162/zmq.hpp"
+    sha256 "eeccec908d78bc195d093fb05a37271b3f7a62ec65b026b6f0b8d801d9b966da"
   end
 
-  test do
-    cmd = "#{bin}/monero-wallet-cli --restore-deterministic-wallet " \
-      "--password brew-test --restore-height 1 --generate-new-wallet wallet " \
-      "--electrum-seed 'baptism cousin whole exquisite bobsled fuselage left " \
-      "scoop emerge puzzled diet reinvest basin feast nautical upon mullet " \
-      "ponies sixteen refer enhanced maul aztec bemused basin'" \
-      "--command address"
-    address = "4BDtRc8Ym9wGzx8vpkQQvpejxBNVpjEmVBebBPCT4XqvMxW3YaCALFraiQibejyMAxUXB5zqn4pVgHVm3JzhP2WzVAJDpHf"
-    assert_equal address, shell_output(cmd).split[-1]
+  def install
+    resource("cppzmq").stage include.to_s
+
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 end
