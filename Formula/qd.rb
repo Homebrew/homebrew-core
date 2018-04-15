@@ -1,9 +1,8 @@
 class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
   homepage "https://crd.lbl.gov/~dhbailey/mpdist/"
-  url "https://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.18.tar.gz"
-  sha256 "81096b5b33519cbeed5fc8ef58e1d47ee8f546382514849967627b972483716e"
-  revision 1
+  url "https://crd.lbl.gov/~dhbailey/mpdist/qd-2.3.20.tar.gz"
+  sha256 "72900ae5d3047719624701878abd8ed88fe3e4bc844c6fd614161ad926518385"
 
   bottle do
     cellar :any
