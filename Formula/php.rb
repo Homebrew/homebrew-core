@@ -185,7 +185,7 @@ class Php < Formula
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
           LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
 
-          <FilesMatch \.php$>
+          <FilesMatch \\.php$>
               SetHandler application/x-httpd-php
           </FilesMatch>
 
