@@ -1,8 +1,8 @@
 class PerlAT518 < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.18.2.tar.gz"
-  sha256 "7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5c9c69c150a4982f"
+  url "https://www.cpan.org/src/5.0/perl-5.18.4.tar.gz"
+  sha256 "01a4e11a9a34616396c4a77b3cef51f76a297e1a2c2c490ae6138bf0351eb29f"
 
   bottle do
     sha256 "a20858d7f5ff6099f3b6afd23f5a2d8664ab0a341034699086f5d2ef16780a0a" => :high_sierra
