@@ -1,8 +1,8 @@
 class Recoverjpeg < Formula
   desc "Tool to recover JPEG images from a file system image"
   homepage "https://www.rfc1149.net/devel/recoverjpeg.html"
-  url "https://www.rfc1149.net/download/recoverjpeg/recoverjpeg-2.6.1.tar.gz"
-  sha256 "32038b650acd8dc041d25c8d7078c987e8e0bad377fd1f9e7436614be810f103"
+  url "https://www.rfc1149.net/download/recoverjpeg/recoverjpeg-2.6.2.tar.gz"
+  sha256 "d7f178f24099807d80483e970de76e728da4c81c52a8293ef615d7b184f56a07"
 
   bottle do
     cellar :any_skip_relocation
