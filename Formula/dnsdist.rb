@@ -1,9 +1,8 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.2.0.tar.bz2"
-  sha256 "9885c9ee8ac7076aede586ea58d4642eb877e7b2d76c902254494e2a5a5faa78"
-  revision 1
+  url "https://downloads.powerdns.com/releases/dnsdist-1.3.0.tar.bz2"
+  sha256 "aa67cd4db8404a13ed4ed1097dd850203dab8a327372f72bb140df11ef7eba08"
 
   bottle do
     sha256 "d23cd225aeb66390e5276bcd9cc3a6bf13384aedcb6c734aa646e76a75df2199" => :high_sierra
