@@ -1,9 +1,8 @@
 class Pioneers < Formula
   desc "Settlers of Catan clone"
   homepage "https://pio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.4.tar.gz"
-  sha256 "9a0d3198dc0ddf131d9e6d6e9992347fe2a2d99f508f1be1b30c5797210a2ddc"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.5.tar.gz"
+  sha256 "3ee1415e7c48dc144fbdb99105a6ef8a818e67ed34e9d0f8e01224c3636cef0c"
 
   bottle do
     sha256 "1d0badeb96434bad76cba13bd4690e4ced3e2e30a0c96e1d0900d0937626b091" => :high_sierra
@@ -18,6 +17,7 @@ class Pioneers < Formula
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
   depends_on "gettext"
   depends_on "gtk+3"
   depends_on "librsvg" # svg images for gdk-pixbuf
