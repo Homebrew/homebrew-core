@@ -1,9 +1,8 @@
 class Bibtex2html < Formula
   desc "BibTeX to HTML converter"
   homepage "https://www.lri.fr/~filliatr/bibtex2html/"
-  url "https://www.lri.fr/~filliatr/ftp/bibtex2html/bibtex2html-1.98.tar.gz"
-  sha256 "e925a0b97bf87a14bcbda95cac269835cd5ae0173504261f2c60e3c46a8706d6"
-  revision 1
+  url "https://www.lri.fr/~filliatr/ftp/bibtex2html/bibtex2html-1.99.tar.gz"
+  sha256 "d224dadd97f50199a358794e659596a3b3c38c7dc23e86885d7b664789ceff1d"
 
   bottle do
     cellar :any_skip_relocation
