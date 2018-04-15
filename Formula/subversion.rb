@@ -38,7 +38,7 @@ class Subversion < Formula
   # Other optional dependencies
   depends_on "gpg-agent" => :optional
   depends_on "gettext" => :optional
-  depends_on :java => "1.8" if build.with? "java"
+  depends_on :java => ["1.8", :optional]
 
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
