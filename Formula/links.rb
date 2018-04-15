@@ -1,9 +1,8 @@
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
-  url "http://links.twibright.com/download/links-2.14.tar.bz2"
-  sha256 "f70d0678ef1c5550953bdc27b12e72d5de86e53b05dd59b0fc7f07c507f244b8"
-  revision 1
+  url "http://links.twibright.com/download/links-2.15.tar.bz2"
+  sha256 "1e2a1c4b439c14fbedd78fd98f443af2ab0c1566bebc491642411d74b7efe3ca"
 
   bottle do
     cellar :any
