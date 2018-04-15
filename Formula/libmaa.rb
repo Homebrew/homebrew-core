@@ -1,8 +1,8 @@
 class Libmaa < Formula
   desc "Low-level data structures including hash tables, sets, lists"
   homepage "http://www.dict.org/"
-  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.3.2/libmaa-1.3.2.tar.gz"
-  sha256 "59a5a01e3a9036bd32160ec535d25b72e579824e391fea7079e9c40b0623b1c5"
+  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.2/libmaa-1.4.2.tar.gz"
+  sha256 "63de331c97a40efe8b64534fee4b7b7df161645b92636572ad248b0f13abc0db"
 
   bottle do
     cellar :any
@@ -15,12 +15,13 @@ class Libmaa < Formula
     sha256 "60bd1424f0ef468d95248fa6c3bf4845f2b5b649829623160c1b85b82be3ad57" => :mountain_lion
   end
 
-  depends_on "libtool" => :build
+  depends_on "bmake" => :build
+  depends_on "mk-configure" => :build
 
   def install
-    ENV["LIBTOOL"] = "glibtool"
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
-    system "make", "install"
+    # not parallel safe, errors surrounding generated arggram.c
+    # https://github.com/cheusov/libmaa/issues/2
+    ENV.deparallelize
+    system "mkcmake", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
   end
 end
