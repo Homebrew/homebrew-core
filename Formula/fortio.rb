@@ -27,7 +27,7 @@ class Fortio < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/fortio --version")
+    assert_match version.to_s, shell_output("#{bin}/fortio version -s")
     assert_equal true, `#{bin}/fortio load -quiet https://github.com/istio/fortio 2>&1 | tail -1`.start_with?("All done")
   end
 end
