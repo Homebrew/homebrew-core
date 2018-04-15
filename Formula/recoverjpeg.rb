@@ -6,10 +6,9 @@ class Recoverjpeg < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3bc6dfc6a2ede6577b81b250ef4fbb6c309734619031f756f518e0a8e526ee1c" => :high_sierra
-    sha256 "5d6757c010195c678fcef62071ca1e098345c127d12ccdae6afdf4e7bd31c621" => :sierra
-    sha256 "a500f738fb6c77bccb92a9cb54acc93a799ed7c96f331b88ff42fe2ce56004c7" => :el_capitan
-    sha256 "06bb0dec687db1b511121129d50050580517dcfa8fec80587222844ae9d34646" => :yosemite
+    sha256 "d0e5e0183223335fee7744343ccb9287f6ddca80991f098172e0f89f5d28f10f" => :high_sierra
+    sha256 "1c71c690a3d3646739ae74bdcb45d3de0845ef7874bcaf3c499499017b5f5eaf" => :sierra
+    sha256 "5ecb45697e2d032031af1549df4896f42598af4aae9802b866c5c9314946a5b0" => :el_capitan
   end
 
   def install
