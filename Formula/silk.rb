@@ -5,9 +5,9 @@ class Silk < Formula
   sha256 "a45f2842821c565d984f20b68afdbf7f05e81c0fe65c2816e3286efce0d6078b"
 
   bottle do
-    sha256 "a1a92c152559050986f2f2d7ca3e658ca9b687416f47e4554df4395f1a57bf3d" => :high_sierra
-    sha256 "d85766f4401a4449aaec268cd67fb20c73e8c0019af24285732be1303402fc61" => :sierra
-    sha256 "97fddd4c70d54b6b93b06a4135f9af08d389e042ab38aaceebeb67fb39bc4745" => :el_capitan
+    sha256 "88d56947e5912978cfffc9e5e421ba7b923df3128ad4c303351c1d62dc605816" => :high_sierra
+    sha256 "fe1cb39f2915226df00b8fd321d5265eafa3a804996b4946a69a1e48de24adc5" => :sierra
+    sha256 "9fa14b7dac6e5e8fcd6197cc90f581440b18ea6fa2fc35e46bd449f8f5d1f697" => :el_capitan
   end
 
   option "with-python@2", "Build with the PySiLK python interface"
