@@ -4,8 +4,8 @@ class Fortio < Formula
   url "https://github.com/istio/fortio/archive/v0.9.0.tar.gz"
   sha256 "76871124e7abd13d7fa0ccc5ad6912bc1c3d77d53694da2b26ad44af3638edab"
 
-  depends_on "go" => :build
   depends_on "dep" => :build
+  depends_on "go" => :build
 
   def install
     ENV["XC_OS"] = "darwin"
