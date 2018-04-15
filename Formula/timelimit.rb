@@ -1,8 +1,8 @@
 class Timelimit < Formula
   desc "Limit a process's absolute execution time"
   homepage "https://devel.ringlet.net/sysutils/timelimit/"
-  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.8.1.tar.gz"
-  sha256 "7043d9ff1ec9650f7f50118529a4cea129720ea9d1035d986cb77e6358c7179d"
+  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.9.0.tar.gz"
+  sha256 "34185bbfe807a912f352f4e2f634c9c3781810b376c4bba947a2381611e7d72c"
 
   bottle do
     cellar :any_skip_relocation
