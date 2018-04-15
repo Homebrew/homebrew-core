@@ -5,10 +5,9 @@ class Remctl < Formula
   sha256 "23dd32c5723b7fd30957e67be7cef74b809c2e73c4613bd643248642507782b9"
 
   bottle do
-    sha256 "b9772721b81ae319330a5f137c2989a9ccb5595c7f5de77f6e193bedc6605510" => :high_sierra
-    sha256 "edfe97b717e944a87d29abe653d9ffafee8c1b70f5809d94434bf9d5b9430725" => :sierra
-    sha256 "ca265d9856564ddc2b72f671760be7d06a16718ec7f16cf8c6a548eaa83fcb8d" => :el_capitan
-    sha256 "85aca4fa0248cdf724a304ba559144c69b487d25e1870d9b89bb52558bd34b6b" => :yosemite
+    sha256 "d673f05a37c5f969afbbc81453abfc34da769b5b3e21ca0ba7adbaa0201fef3d" => :high_sierra
+    sha256 "6d48e0704c8803c3884e282ce2b7043dded5d2b86a49caf85f037a58a541f33f" => :sierra
+    sha256 "682390632704347046e696e342a2b6127f5142391d66180e090bed90b4dc0fb0" => :el_capitan
   end
 
   depends_on "pcre"
