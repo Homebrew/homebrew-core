@@ -7,7 +7,7 @@ class Fuego < Formula
     url "svn://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
   end
   version "1.1.SVN"
-  revision 1
+  revision 2
 
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 
