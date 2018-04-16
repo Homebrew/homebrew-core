@@ -11,8 +11,8 @@ class Mariadb < Formula
   end
 
   devel do
-    url "https://downloads.mariadb.org/f/mariadb-10.3.5/source/mariadb-10.3.5.tar.gz"
-    sha256 "cbb81f5f7e25c822db6683bbb43b3aad328622fa86da81c1ddeee8005523b203"
+    url "https://downloads.mariadb.org/f/mariadb-10.3.6/source/mariadb-10.3.6.tar.gz"
+    sha256 "4957dff3514ae715ef7db3d8324924afbb11a1760bd6ab679e217915969c0f37"
   end
 
   option "with-test", "Keep test when installing"
