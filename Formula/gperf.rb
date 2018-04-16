@@ -13,8 +13,6 @@ class Gperf < Formula
     sha256 "263440c302dddec69c2140e8df2e4c00a76b76137243e712e8e8756140e0eaf5" => :yosemite
   end
 
-  keg_only :provided_until_xcode43
-
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
