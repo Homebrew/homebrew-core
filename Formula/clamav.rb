@@ -3,6 +3,7 @@ class Clamav < Formula
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.100.0.tar.gz"
   sha256 "c5c5edaf75a3c53ac0f271148fd6447310bce53f448ec7e6205124a25918f65c"
+  revision 1
 
   bottle do
     sha256 "b2a3015190e2f9d51f79315a543943ce14a1fb8fbfd026327c4f58e230df38fd" => :high_sierra
@@ -38,7 +39,7 @@ class Clamav < Formula
       --enable-llvm=no
     ]
 
-    args << "--with-libjson=#{Formula["json-c"].opt_prefix}" if build.with? "json-c"
+    args << (build.with?("json-c") ? "--with-libjson=#{Formula["json-c"].opt_prefix}" : "--without-libjson")
     args << "--with-pcre=#{Formula["pcre"].opt_prefix}" if build.with? "pcre"
     args << "--disable-yara" if build.without? "yara"
     args << "--without-pcre" if build.without? "pcre"
