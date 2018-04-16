@@ -3,7 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
   sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
-  revision 3
+  revision 4
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -39,6 +39,12 @@ class Gnuradio < Formula
   depends_on "portaudio" => :recommended
   depends_on "pygtk" => :optional
   depends_on "wxpython" => :optional
+
+  # Upstream PR from 17 Apr 2018 "Boost 1.67.0 compatibility"
+  patch do
+    url "https://github.com/gnuradio/gnuradio/pull/1733.patch?full_index=1"
+    sha256 "f02a04fb179a9b525b5e4ba8171ce5737c16d64f06f0e318ce092c6b4e19025f"
+  end
 
   # cheetah starts here
   resource "Markdown" do
