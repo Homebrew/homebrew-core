@@ -28,6 +28,12 @@ class Fortio < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/fortio version -s")
-    assert_equal true, `#{bin}/fortio load -quiet https://github.com/istio/fortio 2>&1 | tail -1`.start_with?("All done")
+    fortio_srv = fork do
+      exec "#{bin}/fortio server -http-port 8085"
+    end
+    sleep 2
+    load_res = `#{bin}/fortio load -quiet http://localhost:8085/ 2>&1 | tail -1`
+    Process.kill("SIGTERM", fortio_srv)
+    assert_equal true, load_res.start_with?("All done")
   end
 end
