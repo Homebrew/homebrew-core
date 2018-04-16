@@ -16,8 +16,6 @@ class Enscript < Formula
     sha256 "f2be9be9caeff58dbec3c9abf3ff5554865e6a3ee4db91d156edce8ddf5e666e" => :mavericks
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "gettext"
 
   conflicts_with "cspice", :because => "both install `states` binaries"
