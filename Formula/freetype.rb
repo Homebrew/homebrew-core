@@ -13,8 +13,6 @@ class Freetype < Formula
     sha256 "c1283252fcb30f5407c22b3c68bf670227f5703459c238deae568f25e5fd77c5" => :el_capitan
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "libpng"
 
   def install
