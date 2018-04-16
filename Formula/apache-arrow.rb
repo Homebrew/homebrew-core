@@ -3,6 +3,7 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.9.0/apache-arrow-0.9.0.tar.gz"
   sha256 "beb1c684b2f7737f64407a7b19eb7a12061eec8de3b06ef6e8af95d5a30b899a"
+  revision 1
   head "https://github.com/apache/arrow.git"
 
   bottle do
