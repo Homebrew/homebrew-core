@@ -6,9 +6,9 @@ class BoostMpi < Formula
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "f4787bde14ed2b84468437f54b2a60e140f3eb9f878f9ada7086fd3ce27f6dae" => :high_sierra
-    sha256 "7037c8d24185dd079dddd4292859c55d2b149f1753db81cfd04b18ccf42b9b8f" => :sierra
-    sha256 "2de5c190fb851c83c8732190ea1411108a6e35b633dea28a8fc393a3888bc2f8" => :el_capitan
+    sha256 "d260e77cba427df4b1b296d94f06217cc6a412f98c04f4d82662edbb873fb951" => :high_sierra
+    sha256 "0672956e6f0656e610060554c2cc52a4312de6a2dbd44de7e3e4ce3674eb9948" => :sierra
+    sha256 "d3f89547cb9b48326d1ad72c699694b7f59453887425ce7aa51683da08080d4a" => :el_capitan
   end
 
   depends_on "boost"
