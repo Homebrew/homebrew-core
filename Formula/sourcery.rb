@@ -15,10 +15,17 @@ class Sourcery < Formula
   depends_on :xcode => ["9.3", :build]
 
   def install
+    if OS::Mac::Xcode.version >= Version.new("9.3") && !OS::Mac::Xcode.without_clt? then
+        old_isystem_paths = ENV["HOMEBREW_ISYSTEM_PATHS"]
+        ENV["HOMEBREW_ISYSTEM_PATHS"] = old_isystem_paths.gsub("/usr/include/libxml2", "")
+    end
+
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
            "-static-stdlib"
     bin.install ".build/release/sourcery"
     lib.install Dir[".build/release/*.dylib"]
+
+    ENV["HOMEBREW_ISYSTEM_PATHS"] = old_isystem_paths if defined? old_isystem_paths  
   end
 
   test do
