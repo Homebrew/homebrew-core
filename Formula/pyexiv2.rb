@@ -3,7 +3,7 @@ class Pyexiv2 < Formula
   homepage "https://launchpad.net/pyexiv2"
   url "https://launchpad.net/pyexiv2/0.3.x/0.3.2/+download/pyexiv2-0.3.2.tar.bz2"
   sha256 "0abc117c6afa71f54266cb91979a5227f60361db1fcfdb68ae9615398d7a2127"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "5562c48fe257fb472957019ee435d38bc2b3d593dd4e202e3422f6547d9a91c5" => :high_sierra
@@ -24,7 +24,7 @@ class Pyexiv2 < Formula
     ENV.append "CXXFLAGS", "-I#{Formula["exiv2"].include}"
     ENV.append "LDFLAGS", "-undefined dynamic_lookup"
 
-    scons "BOOSTLIB=boost_python-mt"
+    scons "BOOSTLIB=boost_python27-mt"
 
     # let's install manually
     mv "build/libexiv2python.dylib", "build/libexiv2python.so"
