@@ -13,6 +13,11 @@ class PythonAT2 < Formula
     sha256 "99865efdb594d21e65bc74674267a73081fe1087043263b1f12675c046414d62" => :el_capitan
   end
 
+  devel do
+    url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15rc1.tar.xz"
+    sha256 "d022fe643281d0f83a29dfd254d9c66d066bce0e2d57452d256b0886530227ec"
+  end
+
   # Please don't add a wide/ucs4 option as it won't be accepted.
   # More details in: https://github.com/Homebrew/homebrew/pull/32368
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
