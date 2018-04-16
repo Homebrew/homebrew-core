@@ -12,13 +12,13 @@ class Frugal < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
+  depends_on "glide" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/Workiva/frugal").install buildpath.children
     cd buildpath/"src/github.com/Workiva/frugal" do
-      system "godep", "restore"
+      system "glide", "install"
       system "go", "build", "-o", bin/"frugal"
       prefix.install_metafiles
     end
