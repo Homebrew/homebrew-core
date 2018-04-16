@@ -6,10 +6,9 @@ class Pyexiv2 < Formula
   revision 5
 
   bottle do
-    sha256 "5562c48fe257fb472957019ee435d38bc2b3d593dd4e202e3422f6547d9a91c5" => :high_sierra
-    sha256 "64135edcb3cf14cb4a474f70d3ce648623baa0651d065e3b806ed43627745568" => :sierra
-    sha256 "c3b60685fd5fa3c8506818896d79bb66a729e6d0c462dc6066674d3f1e08d8d8" => :el_capitan
-    sha256 "52f3c9edc324a15b023e5b9256f6ffbce4e2319f0223b97bd41321a31b526c43" => :yosemite
+    sha256 "2dfb1f1cb5f11fe496f5b873a37d05fee2530da136d6f2df4152ba6263e6f9fd" => :high_sierra
+    sha256 "01d50cbe2ddad34cb412b20de81c6594ff1a9ed5f139894fa14a120717c7b08b" => :sierra
+    sha256 "53fb18abf4fc93c31ec50ed8d1c6ac51772176846ce7a07674058b9e78e59538" => :el_capitan
   end
 
   depends_on "scons" => :build
