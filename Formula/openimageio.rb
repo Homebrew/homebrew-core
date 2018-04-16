@@ -3,6 +3,7 @@ class Openimageio < Formula
   homepage "http://openimageio.org/"
   url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.10.tar.gz"
   sha256 "9bc86cbc1df67285134bb4ac0ed7a450d52dfe75423577c469cae809a1154665"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -46,7 +47,8 @@ class Openimageio < Formula
     ]
 
     mkdir "build-with-python2" do
-      system "cmake", "..", *args
+      system "cmake", "..", "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python"].opt_lib}/libboost_python27-mt.dylib",
+                            *args
       system "make", "install"
     end
 
@@ -62,7 +64,7 @@ class Openimageio < Formula
 
     # CMake picks up boost-python instead of boost-python3
     args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
-    args << "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python3"].opt_lib}/libboost_python3-mt.dylib"
+    args << "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python3"].opt_lib}/libboost_python36-mt.dylib"
 
     # This is strange, but must be set to make the hack above work
     args << "-DBoost_PYTHON_LIBRARY_DEBUG=''"
