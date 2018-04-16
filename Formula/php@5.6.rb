@@ -187,7 +187,7 @@ class PhpAT56 < Formula
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
           LoadModule php5_module #{opt_lib}/httpd/modules/libphp5.so
 
-          <FilesMatch \.php$>
+          <FilesMatch \\.php$>
               SetHandler application/x-httpd-php
           </FilesMatch>
 
