@@ -1,0 +1,21 @@
+language: c
+os: osx
+compiler: clang
+osx_image: xcode9.2
+branches:
+  only:
+    - master
+
+before_install:
+  - HOMEBREW_REPOSITORY="$(brew --repo)";
+  - sudo chown -R "$USER" "$HOMEBREW_REPOSITORY";
+  - travis_retry git -C "$HOMEBREW_REPOSITORY" fetch --depth=1 origin;
+  - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
+  - mkdir -p "$HOMEBREW_TAP_DIR"
+  - rm -rf "$HOMEBREW_TAP_DIR"
+  - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
+  # trigger vendored ruby installation
+  - brew help
+
+script:
+  - brew info --json=v1 --all > all.json
