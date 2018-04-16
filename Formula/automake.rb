@@ -12,8 +12,6 @@ class Automake < Formula
     sha256 "397f56ce7582b559171de62dfa772fc1a90d99bb1f03ae2f20e6824a243f7ae7" => :el_capitan
   end
 
-  keg_only :provided_until_xcode43
-
   depends_on "autoconf"
 
   def install
