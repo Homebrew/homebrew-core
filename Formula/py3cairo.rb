@@ -1,9 +1,8 @@
 class Py3cairo < Formula
   desc "Python 3 bindings for the Cairo graphics library"
   homepage "https://cairographics.org/pycairo/"
-  url "https://github.com/pygobject/pycairo/releases/download/v1.16.3/pycairo-1.16.3.tar.gz"
-  sha256 "5bb321e5d4f8b3a51f56fc6a35c143f1b72ce0d748b43d8b623596e8215f01f7"
-  revision 1
+  url "https://github.com/pygobject/pycairo/releases/download/v1.17.0/pycairo-1.17.0.tar.gz"
+  sha256 "cdd4d1d357325dec3a21720b85d273408ef83da5f15c184f2eff3212ff236b9f"
 
   bottle do
     cellar :any
