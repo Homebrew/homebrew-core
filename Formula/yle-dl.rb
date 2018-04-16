@@ -1,8 +1,8 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.31.tar.gz"
-  sha256 "6f840f59bfd8d0abc206d27cc5ba0b7077070327b08c39c22ffb365339f5e1d5"
+  url "https://github.com/aajanki/yle-dl/archive/2.32.tar.gz"
+  sha256 "88edf4baa21141ff0312852d7d62e73be1ce7494b18e194521068ebde5b9a244"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
@@ -48,18 +48,18 @@ class YleDl < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
-    sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
+    url "https://files.pythonhosted.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"
+    sha256 "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"
   end
 
-  resource "PyAMF" do
-    url "https://files.pythonhosted.org/packages/a0/06/43976c0e3951b9bf7ba0d7d614a8e3e024eb5a1c6acecc9073b81c94fb52/PyAMF-0.8.0.tar.gz"
-    sha256 "0455d68983e3ee49f82721132074877428d58acec52f19697a88c03b5fba74e4"
+  resource "Mini-AMF" do
+    url "https://files.pythonhosted.org/packages/c9/a1/153af98d9ca4ae24fb67ab5cb8e4de8ad44fd991739f32d12b9321d6955d/Mini-AMF-0.9.1.tar.gz"
+    sha256 "0c7839dc843b738cdcf5548e85558e7ebd89a9f6fd029751b0bb4d8b0ca4275b"
   end
 
-  resource "pycrypto" do
-    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
-    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  resource "pycryptodomex" do
+    url "https://files.pythonhosted.org/packages/c1/db/bc58ee9faf64d756485d3acf2be1b0272d00af444ddcbb6a7374ed2c043c/pycryptodomex-3.6.0.tar.gz"
+    sha256 "023432d6938c17bd8ff5c4a3efcac7923e3724a42655e011580a84db0be0903b"
   end
 
   resource "PySocks" do
@@ -70,6 +70,11 @@ class YleDl < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
     sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "urllib3" do
