@@ -20,8 +20,6 @@ class Libpng < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_pre_mountain_lion
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
