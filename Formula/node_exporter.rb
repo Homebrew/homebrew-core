@@ -8,7 +8,7 @@ class NodeExporter < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/prometheus"
+    mkpath buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/node_exporter"
 
     system "make", "build"
@@ -30,22 +30,10 @@ class NodeExporter < Formula
         <true/>
         <key>KeepAlive</key>
         <false/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
         <key>StandardErrorPath</key>
         <string>#{var}/log/node_exporter/output.log</string>
         <key>StandardOutPath</key>
         <string>#{var}/log/node_exporter/output.log</string>
-        <key>HardResourceLimits</key>
-        <dict>
-          <key>NumberOfFiles</key>
-          <integer>4096</integer>
-        </dict>
-        <key>SoftResourceLimits</key>
-        <dict>
-          <key>NumberOfFiles</key>
-          <integer>4096</integer>
-        </dict>
       </dict>
     </plist>
     EOS
@@ -55,7 +43,7 @@ class NodeExporter < Formula
     begin
       pid = fork { exec bin/"node_exporter" }
       sleep 2
-      assert_match /# HELP/, shell_output("curl localhost:9100/metrics")
+      assert_match "# HELP", shell_output("curl localhost:9100/metrics")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
