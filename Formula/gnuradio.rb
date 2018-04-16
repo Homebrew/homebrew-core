@@ -3,7 +3,7 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.11.tar.gz"
   sha256 "87d9ba3183858efdbb237add3f9de40f7d65f25e16904a9bc8d764a7287252d4"
-  revision 3
+  revision 4
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -39,6 +39,9 @@ class Gnuradio < Formula
   depends_on "portaudio" => :recommended
   depends_on "pygtk" => :optional
   depends_on "wxpython" => :optional
+
+  # Boost 1.67.0 compatibility
+  patch :DATA
 
   # cheetah starts here
   resource "Markdown" do
@@ -199,3 +202,53 @@ class Gnuradio < Formula
     end
   end
 end
+
+__END__
+diff --git a/gr-blocks/lib/message_strobe_impl.cc b/gr-blocks/lib/message_strobe_impl.cc
+index d12e0eb..c95bd8e 100644
+--- a/gr-blocks/lib/message_strobe_impl.cc
++++ b/gr-blocks/lib/message_strobe_impl.cc
+@@ -90,7 +90,7 @@ namespace gr {
+     void message_strobe_impl::run()
+     {
+       while(!d_finished) {
+-        boost::this_thread::sleep(boost::posix_time::milliseconds(d_period_ms));
++        boost::this_thread::sleep(boost::posix_time::milliseconds(long(d_period_ms)));
+         if(d_finished) {
+           return;
+         }
+diff --git a/gr-blocks/lib/message_strobe_random_impl.cc b/gr-blocks/lib/message_strobe_random_impl.cc
+index c62aad1..df9d4bb 100644
+--- a/gr-blocks/lib/message_strobe_random_impl.cc
++++ b/gr-blocks/lib/message_strobe_random_impl.cc
+@@ -108,7 +108,7 @@ namespace gr {
+     void message_strobe_random_impl::run()
+     {
+       while(!d_finished) {
+-        boost::this_thread::sleep(boost::posix_time::milliseconds(std::max(0.0f,next_delay())));
++        boost::this_thread::sleep(boost::posix_time::milliseconds(long(std::max(0.0f,next_delay()))));
+         if(d_finished) {
+           return;
+         }
+diff --git a/gr-uhd/lib/usrp_block_impl.cc b/gr-uhd/lib/usrp_block_impl.cc
+index 7f3478c..41aded5 100644
+--- a/gr-uhd/lib/usrp_block_impl.cc
++++ b/gr-uhd/lib/usrp_block_impl.cc
+@@ -128,7 +128,7 @@ bool usrp_block_impl::_wait_for_locked_sensor(
+ 
+   while (true) {
+     if ((not first_lock_time.is_not_a_date_time()) and
+-        (boost::get_system_time() > (first_lock_time + boost::posix_time::seconds(LOCK_TIMEOUT)))) {
++        (boost::get_system_time() > (first_lock_time + boost::posix_time::seconds(long(LOCK_TIMEOUT))))) {
+       break;
+     }
+ 
+@@ -139,7 +139,7 @@ bool usrp_block_impl::_wait_for_locked_sensor(
+     else {
+       first_lock_time = boost::system_time(); //reset to 'not a date time'
+ 
+-      if (boost::get_system_time() > (start + boost::posix_time::seconds(LOCK_TIMEOUT))){
++      if (boost::get_system_time() > (start + boost::posix_time::seconds(long(LOCK_TIMEOUT)))){
+         return false;
+       }
+     }
