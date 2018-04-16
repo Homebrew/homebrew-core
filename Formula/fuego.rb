@@ -12,9 +12,9 @@ class Fuego < Formula
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 
   bottle do
-    sha256 "604d629ad7641968eff8a82bf2f1c0893806b2865abffd4da590f1b60c42daf6" => :high_sierra
-    sha256 "bd59103de700709dfb35e6447b49ad402aab29538cce5ae32b5b59a33ea5a469" => :sierra
-    sha256 "0567d2a70e96691dfa9aa3996a858e3b55577e9c3aa6cf304259476ee1cf6025" => :el_capitan
+    sha256 "7efef5865934cb21cce5a12c7adf39d3c74a86990067220d456e53db69f8861f" => :high_sierra
+    sha256 "828c076fbcd288d4cc2348323497983f78aceb8bd1b607403b13e35fa209a86f" => :sierra
+    sha256 "e0c9f36a60667bea6757170232cf45caeca7bff3cf75adb4994b3007d0fe6eb9" => :el_capitan
   end
 
   depends_on "autoconf" => :build
