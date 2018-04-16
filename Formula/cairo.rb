@@ -18,8 +18,6 @@ class Cairo < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "pkg-config" => :build
   depends_on :x11 => :optional
   depends_on "freetype"
