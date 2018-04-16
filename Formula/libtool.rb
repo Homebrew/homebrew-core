@@ -19,8 +19,6 @@ class Libtool < Formula
     sha256 "2e51ef82ef2bd1ad9d921a9016b9e5d7fa82d131849e2c32a3c90daa119e2eda" => :mavericks
   end
 
-  keg_only :provided_until_xcode43
-
   def install
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
     system "./configure", "--disable-dependency-tracking",
