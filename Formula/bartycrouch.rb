@@ -6,8 +6,8 @@ class Bartycrouch < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04d8bb53a3e5469dc89aa4fad740a36ddebe66a8d0fa8025a7aacc74b7875620" => :high_sierra
-    sha256 "cc048beb703aeb1d0ec26acfe16969c65cc0d160a44dde0eab04287f618443c5" => :sierra
+    sha256 "480511fd7cbb50613bae01ab7024e45b814c95e3a4de2c5edbaaea295f8b9395" => :high_sierra
+    sha256 "bd731dd092bb8ab15ab65650aa43a29234dfb48cfecdec8c2f6ac7e2927c2104" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]
