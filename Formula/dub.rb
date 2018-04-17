@@ -13,6 +13,11 @@ class Dub < Formula
     sha256 "0f12587d134ada1588db6f6f228f8ff679101c0c53db4715bdb93a03292b65da" => :el_capitan
   end
 
+  devel do
+    url "https://github.com/dlang/dub/archive/v1.9.0-beta.1.tar.gz"
+    sha256 "505729f13eb14845d0faf4665ae69f93430c49c03f4d67541a32052b98794c71"
+  end
+
   depends_on "pkg-config" => :recommended
   depends_on "dmd" => :build
 
