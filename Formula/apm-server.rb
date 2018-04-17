@@ -1,8 +1,8 @@
 class ApmServer < Formula
   desc "Server for shipping APM metrics to Elasticsearch"
   homepage "https://www.elastic.co/"
-  url "https://github.com/elastic/apm-server/archive/v6.2.3.tar.gz"
-  sha256 "04186e8b3138e878352cf5f1350756caf8e973f510896687aff9560945c7a873"
+  url "https://github.com/elastic/apm-server/archive/v6.2.4.tar.gz"
+  sha256 "b0d85f62851dd0cc7cb7a54c8549d36fb7c29bdb8f83c91b3a6487a8e9acba39"
   head "https://github.com/elastic/apm-server.git"
 
   bottle do
@@ -34,6 +34,7 @@ class ApmServer < Formula
 
     cd "src/github.com/elastic/apm-server" do
       system "make"
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "update"
       (libexec/"bin").install "apm-server"
       libexec.install "_meta/kibana"
