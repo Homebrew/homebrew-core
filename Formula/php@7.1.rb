@@ -336,7 +336,7 @@ class PhpAT71 < Formula
         #{main_config}
         LoadModule mpm_prefork_module lib/httpd/modules/mod_mpm_prefork.so
         LoadModule php7_module #{lib}/httpd/modules/libphp7.so
-        <FilesMatch \.(php|phar)$>
+        <FilesMatch \\.(php|phar)$>
           SetHandler application/x-httpd-php
         </FilesMatch>
       EOS
@@ -358,7 +358,7 @@ class PhpAT71 < Formula
         LoadModule mpm_event_module lib/httpd/modules/mod_mpm_event.so
         LoadModule proxy_module lib/httpd/modules/mod_proxy.so
         LoadModule proxy_fcgi_module lib/httpd/modules/mod_proxy_fcgi.so
-        <FilesMatch \.(php|phar)$>
+        <FilesMatch \\.(php|phar)$>
           SetHandler "proxy:fcgi://127.0.0.1:#{port_fpm}"
         </FilesMatch>
       EOS
