@@ -16,8 +16,8 @@ class Kibana < Formula
 
   resource "node" do
     url "https://github.com/nodejs/node.git",
-        :tag => "v6.12.2",
-        :revision => "381f5ec383dbb164cf3edd1a9de1811cf1cfdc65"
+        :tag => "v6.14.0",
+        :revision => "2c93af2da3b696e2389ba46608efb9bdffd8badd"
   end
 
   def install
