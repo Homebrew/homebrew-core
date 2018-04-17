@@ -12,12 +12,11 @@ class Deark < Formula
   end
 
   test do
-    (testpath/"test.gz").write(Base64.decode64(<<~EOS
+    (testpath/"test.gz").write ::Base64.decode64 <<~EOS
       H4sICKU51VoAA3Rlc3QudHh0APNIzcnJ11HwyM9NTSpKLVfkAgBuKJNJEQAAAA==
     EOS
-                                              ))
     system "#{bin}/deark", "test.gz"
     file = (testpath/"output.000.test.txt").readlines.first
-    file == "Hello, Homebrew!\n"
+    assert_match "Hello, Homebrew!", file
   end
 end
