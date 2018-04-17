@@ -1,0 +1,61 @@
+language: c
+branches:
+  only:
+    - master
+matrix:
+  fast_finish: true
+  include:
+    - os: osx
+      compiler: clang
+      osx_image: xcode9.2
+    - os: linux
+      compiler: gcc
+      sudo: false
+
+before_install:
+  - if [ "${TRAVIS_OS_NAME}" = "osx" ]; then
+      MACOS="1";
+      HOMEBREW_REPOSITORY="$(brew --repo)";
+      sudo chown -R "$USER" "$HOMEBREW_REPOSITORY";
+      HOMEBREW_CORE_TAP_DIR="$(brew --repo "homebrew/core")";
+    else
+      LINUX="1";
+      HOMEBREW_REPOSITORY="$HOME/Homebrew";
+      export PATH="$HOMEBREW_REPOSITORY/bin:$PATH";
+    fi
+  # umask 022 fixes Linux `brew tests` failures;
+  - if [ "$LINUX" ]; then
+      umask 022;
+      chmod 644 Formula/*.rb;
+      rm -rf $HOMEBREW_REPOSITORY;
+    fi
+  - if [ "$MACOS" ]; then
+      travis_retry git -C "$HOMEBREW_REPOSITORY" fetch --depth=50 origin;
+    else
+      travis_retry git clone --depth=50 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY";
+    fi
+  - if [ "$MACOS" ]; then
+      git -C "$HOMEBREW_REPOSITORY" checkout -B master origin/master;
+    fi
+  - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
+  - mkdir -p "$HOMEBREW_TAP_DIR"
+  - rm -rf "$HOMEBREW_TAP_DIR"
+  - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
+  # trigger vendored ruby installation
+  - brew help
+
+script:
+  - brew readall
+  - travis_retry git clone https://$GITHUB_TOKEN@github.com/homebrew/json_test
+  - json_test/generate.sh
+
+deployment:
+  local-dir: json_test
+  repo: Homebrew/json_test
+  verbose: true
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
