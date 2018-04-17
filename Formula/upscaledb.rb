@@ -1,10 +1,20 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/upscaledb-2.2.0.tar.gz"
-  sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
-  revision 7
+  revision 8
+
+  stable do
+    url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/upscaledb-2.2.0.tar.gz"
+    sha256 "7d0d1ace47847a0f95a9138637fcaaf78b897ef682053e405e2c0865ecfd253e"
+
+    # Remove for > 2.2.2
+    # Upstream commit from 12 Feb 2018 "Fix compilation with Boost 1.66 (#110)"
+    patch do
+      url "https://github.com/cruppstahl/upscaledb/commit/01156f9a8.patch?full_index=1"
+      sha256 "e65b9f2b624b7cdad00c3c1444721cadd615688556d8f0bb389d15f5f5f4f430"
+    end
+  end
 
   bottle do
     cellar :any

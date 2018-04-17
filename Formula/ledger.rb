@@ -3,7 +3,7 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
-  revision 9
+  revision 10
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -31,6 +31,10 @@ class Ledger < Formula
 
   def install
     ENV.cxx11
+
+    # Boost >= 1.67 Python components require a Python version suffix
+    inreplace "CMakeLists.txt", "set(BOOST_PYTHON python)",
+                                "set(BOOST_PYTHON python27)"
 
     flavor = build.with?("debug") ? "debug" : "opt"
 

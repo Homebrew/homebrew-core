@@ -3,6 +3,7 @@ class Povray < Formula
   homepage "http://www.povray.org/"
   url "https://github.com/POV-Ray/povray/archive/v3.7.0.7.tar.gz"
   sha256 "085746e891edbb2cfda22bb2a8b86043bd680a68ad9121bc568118c730ace7b9"
+  revision 1
 
   bottle do
     sha256 "35f5427c7f206b4964e0d0fbf76bd03f3796b0afc8622790f962c318c92fb298" => :high_sierra
