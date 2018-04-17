@@ -7,11 +7,9 @@ class PamU2f < Formula
 
   bottle do
     cellar :any
-    sha256 "b881b4ec2faf6a51fd472fc451d923906936b4c90e09ce11f9d22c79f0d7583f" => :high_sierra
-    sha256 "9fb8b93015d92146debeda74c68aaca28ff1d279399d1709e5212909e0c46d4d" => :sierra
-    sha256 "9718cd1b3cb8bd22b7f492191ed4a338119dd157cea531924fec10a53e1f017b" => :el_capitan
-    sha256 "8df3bff3b7804b58b200d96c1e2b013cb68aa6f52de033c6f0bd01321523c9bc" => :yosemite
-    sha256 "d1c6cdbb0ffba2af29c97623c83b2f5dc77f8da6d9d1cdd6ba9965f570a3810e" => :mavericks
+    sha256 "c4f9be6aaa79689f404bb1f52ecdf2c8a578cb46aa25325d8e8650324b2300b3" => :high_sierra
+    sha256 "3ecffa558bba79eab57d87c6fd036e3ce52e1673d21e6b511ebe3d3b557876dd" => :sierra
+    sha256 "e7596c439c48e065b7d40bc82b8cb628f473c0a86bf595ddc87afbfcd963c4ba" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
