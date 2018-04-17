@@ -37,6 +37,15 @@ class Osquery < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  # Remove for > 3.2.2
+  # Upstream commit from 16 Apr 2018 "Fix macOS build on Xcode 9.3 (#4291)"
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://github.com/facebook/osquery/commit/360f58887.patch?full_index=1"
+      sha256 "1498f9646095299e34b104272ec756bdd5922b8427d8a33599608b2ff714cd0e"
+    end
+  end
+
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
     sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
