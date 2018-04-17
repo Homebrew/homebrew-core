@@ -5,9 +5,9 @@ class Gtkx3 < Formula
   sha256 "a1a4a5c12703d4e1ccda28333b87ff462741dc365131fbc94c218ae81d9a6567"
 
   bottle do
-    sha256 "df5a277b6d3290b74b4dfe18875a93fe0fdfe8f2f39ab05e628541bc2b77c669" => :high_sierra
-    sha256 "9f57c2b90165cba58f3270778ea4b7e309a2ac351f5254795f1abffb6d991a61" => :sierra
-    sha256 "8d750ce74e69a4700559ea5dd6f70def53a4b1ee6b7abc75f155e011eed55b65" => :el_capitan
+    sha256 "ca8e625e7f00fca495c6724d46fac0b384b61d449d4f1e0a687ea86273a41dd7" => :high_sierra
+    sha256 "a0f6f6f21e84bf16e15b284bdac7c06ae0acbffccf076bfbfd0db96e39344cf0" => :sierra
+    sha256 "5949596413f77dcdc0e59087ca3b187272af4606011494c5357c481a8f92ce52" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
