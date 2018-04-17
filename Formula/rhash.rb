@@ -3,6 +3,7 @@ class Rhash < Formula
   homepage "https://sourceforge.net/projects/rhash/"
   url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.6/rhash-1.3.6-src.tar.gz"
   sha256 "964df972b60569b5cb35ec989ced195ab8ea514fc46a74eab98e86569ffbcf92"
+  revision 1
   head "https://github.com/rhash/RHash.git"
 
   bottle do
@@ -17,6 +18,7 @@ class Rhash < Formula
     system "make"
     system "make", "install"
     lib.install "librhash/librhash.dylib"
+    system "make", "-C", "librhash", "install-headers"
   end
 
   test do
