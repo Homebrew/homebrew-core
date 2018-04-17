@@ -73,12 +73,12 @@ class Pypy3 < Formula
 
     # This has been completely rewritten upstream in master so check with
     # the next release whether this can be removed or not.
-    # The LibreSSL URL replacement exists because El Capitan and older
-    # can struggle/fail to handle Let's Encrypt certificates.
     inreplace "pypy/tool/build_cffi_imports.py" do |s|
       s.gsub! "http://", "https://"
       s.gsub! "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz",
               "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.2.tar.gz"
+      s.gsub! "https://tukaani.org/xz/xz-5.2.3.tar.gz",
+              "https://netix.dl.sourceforge.net/project/lzmautils/xz-5.2.3.tar.gz"
       s.gsub! "os.path.join(tempfile.gettempdir(), 'pypy-archives')",
               "os.path.join('#{buildpath}', 'pypy-archives')"
     end
