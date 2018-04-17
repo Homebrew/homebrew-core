@@ -5,6 +5,7 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-146.tar.gz"
   version "8.0-146"
   sha256 "f13f2448ea17756d5d6f6a9e5cd1b933fa6f05c393d7848f35198b5b4a16105e"
+  revision 1
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -115,6 +116,12 @@ class Macvim < Formula
     if build.with? "python"
       py3_exec_prefix = Utils.popen_read("python3-config", "--exec-prefix")
       assert_match py3_exec_prefix.chomp, output
+      (testpath/"commands.vim").write <<~EOS
+        :python3 import vim; vim.current.buffer[0] = 'hello python3'
+        :wq
+      EOS
+      system bin/"mvim", "-v", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal "hello python3", (testpath/"test.txt").read.chomp
     end
   end
 end
