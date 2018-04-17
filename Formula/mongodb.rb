@@ -1,9 +1,8 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.3.tar.gz"
-  sha256 "df2d5c05c569ca93eacf88b68e0feb3ff52ffbfc8ccd8736ff20d86850db207c"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.4.tar.gz"
+  sha256 "1a9697c3ad2f5545b5160d5e32d5f3c0f6f0a3371ceb9fa85961aec513acd7ac"
 
   bottle do
     rebuild 1
