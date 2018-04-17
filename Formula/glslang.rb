@@ -7,11 +7,9 @@ class Glslang < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b113e3ef8ccd8e18bae3a53d7ca409c1c8e0ba1e3b38f6dcf94b2d8917ea1a9" => :high_sierra
-    sha256 "d5de78fc374f3c92cdf8f06f1518405346c63b42ffd7ad53bb153c27bd00a935" => :sierra
-    sha256 "770943fa3e43b765e303cc88da1aa0bf2455f91cc0e84a636bfadd517cc87776" => :el_capitan
-    sha256 "111206ad8b23ca9f78fa5657d371056e238f3eabf747d48001115d85f4ea88bf" => :yosemite
-    sha256 "4d22c058983e127f3dbb02d86ef6d6cb94fcc5b87c5f3e46802b8b157d56e1c9" => :mavericks
+    sha256 "6c630e225baf6a7db411b206dd1de58fb8c71e58cd77ba399245fad3f451db76" => :high_sierra
+    sha256 "75d77271b5ad6ddbbe7579173eef4af2960610179897783bab4b9cb59573b56d" => :sierra
+    sha256 "23844f7700b35bd8fe85a1f1559a16250f5be8042ac89c77003a0e0082c08782" => :el_capitan
   end
 
   depends_on "cmake" => :build
