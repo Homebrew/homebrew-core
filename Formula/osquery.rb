@@ -4,7 +4,7 @@ class Osquery < Formula
   # pull from git tag to get submodules
   url "https://github.com/facebook/osquery/archive/3.2.2.tar.gz"
   sha256 "160ee0df73fa5e5621ca2798d58f6b1588a05ac6ee5a7315a207d74a26ec328e"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
