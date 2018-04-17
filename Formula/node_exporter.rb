@@ -55,7 +55,7 @@ class NodeExporter < Formula
     begin
       pid = fork { exec bin/"node_exporter" }
       sleep 2
-      assert_match "# HELP", shell_output("curl localhost:9100/metrics")
+      assert_match "# HELP", shell_output("curl -s localhost:9100/metrics")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
