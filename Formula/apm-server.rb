@@ -34,6 +34,7 @@ class ApmServer < Formula
 
     cd "src/github.com/elastic/apm-server" do
       system "make"
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "update"
       (libexec/"bin").install "apm-server"
       libexec.install "_meta/kibana"
