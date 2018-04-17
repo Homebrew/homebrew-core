@@ -14,8 +14,6 @@ class Procmail < Formula
     sha256 "9e476567851a38caedbbb894afb83d3f5575bb494aaab296f884387feca9bf54" => :mavericks
   end
 
-  keg_only :provided_pre_el_capitan
-
   def install
     system "make", "-C", "procmail", "BASENAME=#{prefix}", "MANDIR=#{man}",
            "LOCKINGTEST=1", "install"
