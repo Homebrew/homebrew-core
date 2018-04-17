@@ -12,8 +12,6 @@ class Telnet < Formula
     sha256 "13911a70794917c973d7cd56450f02ec376819542053a5954cb6264ca31c21f5" => :el_capitan
   end
 
-  keg_only :provided_pre_high_sierra
-
   depends_on :xcode => :build
 
   conflicts_with "inetutils", :because => "both install 'telnet' binaries"
