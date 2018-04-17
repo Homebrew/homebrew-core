@@ -1,8 +1,8 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v9.6.tar.gz"
-  sha256 "d368f4fb7d8a394f65730682dba6fddfe75b3c6119756799cdb3cd5e1ae78e0d"
+  url "https://github.com/vhelin/wla-dx/archive/v9.7.tar.gz"
+  sha256 "22d544ab9f596df7f4141c26bec9735de790213d22e18d11c9b4bd12253e1420"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,24 +14,11 @@ class WlaDx < Formula
     sha256 "a78744385e31896de6b34ae3426c6081ada2f28b997f0c5c15555e10bd03d53e" => :mountain_lion
   end
 
-  head do
-    url "https://github.com/vhelin/wla-dx.git"
-
-    depends_on "cmake" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    if build.stable?
-      %w[CFLAGS CXXFLAGS CPPFLAGS].each { |e| ENV.delete(e) }
-      ENV.append_to_cflags "-c -O3 -ansi -pedantic -Wall"
-
-      chmod 0755, "unix.sh"
-      system "./unix.sh", ENV.make_jobs
-      bin.install Dir["./binaries/*"]
-    else
-      system "cmake", ".", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
