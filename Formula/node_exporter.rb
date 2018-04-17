@@ -24,8 +24,20 @@ class NodeExporter < Formula
       <dict>
         <key>Label</key>
         <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_bin}/node_exporter</string>
+        <!-- See https://github.com/Homebrew/homebrew-services/issues/70 -->
+        <key>ProgramArguments</key>
+        <array>
+          <string>sudo</string>
+          <string>-u</string>
+          <string>nobody</string>
+          <string>sh</string>
+          <string>-c</string>
+          <string>/usr/local/bin/node_exporter $(&lt; /usr/local/etc/node_exporter.args)</string>
+        </array>
+        <key>UserName</key>
+        <string>nobody</string>
+        <key>GroupName</key>
+        <string>nobody</string>
         <key>RunAtLoad</key>
         <true/>
         <key>KeepAlive</key>
