@@ -11,13 +11,9 @@ class Pypy3 < Formula
     sha256 "1c13a907bd266e44d17dc6c5c39d59f4cf88e7ad89a67ad8b300a25481ec7bd0" => :el_capitan
   end
 
-  option "without-bootstrap", "Translate Pypy with system Python instead of " \
-                              "using Homebrew's to perform the translation " \
-                              "(adds 30-60 minutes to build)" \
-
   depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
-  depends_on "pypy" => :build if build.with?("bootstrap") && MacOS.prefer_64_bit?
+  depends_on "pypy" => :build
   depends_on "gdbm" => :recommended
   depends_on "sqlite" => :recommended
   depends_on "openssl"
@@ -57,11 +53,6 @@ class Pypy3 < Formula
     sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
   end
 
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
-    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
-  end
-
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
   fails_with :gcc
 
@@ -89,19 +80,7 @@ class Pypy3 < Formula
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
 
-    python = "python"
-    if build.with?("bootstrap") && MacOS.prefer_64_bit?
-      python = Formula["pypy"].opt_bin/"pypy"
-    end
-
-    # PyPy 5.7.1 needs either cffi or pycparser to build
-    if build.without?("bootstrap")
-      %w[pycparser].each do |pkg|
-        resource(pkg).stage buildpath/"pycparser"
-        ENV.append "PYTHONPATH", buildpath/"pycparser"
-      end
-    end
-
+    python = Formula["pypy"].opt_bin/"pypy"
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
              "-Ojit", "--shared", "--cc", ENV.cc, "--verbose",
