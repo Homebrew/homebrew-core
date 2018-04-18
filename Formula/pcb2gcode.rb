@@ -20,6 +20,7 @@ class Pcb2gcode < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "gtkmm"
   depends_on "gerbv"
