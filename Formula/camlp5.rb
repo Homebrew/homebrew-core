@@ -4,6 +4,7 @@ class Camlp5 < Formula
   url "https://github.com/camlp5/camlp5/archive/rel705.tar.gz"
   version "7.05"
   sha256 "ccc7afd2936c75cbee4aad58cd2ef8e7bf0dded556b91d76e4e462a27550ff12"
+  revision 1
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
@@ -24,6 +25,7 @@ class Camlp5 < Formula
     system "./configure", *args
     system "make", "world.opt"
     system "make", "install"
+    (lib/"ocaml/camlp5").install "etc/META"
   end
 
   test do
