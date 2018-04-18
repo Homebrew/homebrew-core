@@ -13,8 +13,8 @@ end
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.7.2.tar.gz"
-  sha256 "ef25c3979f69b891d40a8776b96059229b06de3d037923de9c657faf8ede78d2"
+  url "https://github.com/coq/coq/archive/V8.8.0.tar.gz"
+  sha256 "caf7c1d39e68e0e41ed92be1d57c88983fb12edb9fa95667a5ad2d6aba98263d"
   head "https://github.com/coq/coq.git"
 
   bottle do
