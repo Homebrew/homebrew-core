@@ -3,7 +3,6 @@ class Kubecfg < Formula
   homepage "https://github.com/ksonnet/kubecfg"
   url "https://github.com/ksonnet/kubecfg/archive/v0.8.0.tar.gz"
   sha256 "25d054af96a817bad0f33998895a9988c187e1399822c8220528e64f56ccb3ae"
-  head "https://github.com/ksonnet/kubecfg.git"
 
   depends_on "go" => :build
 
@@ -14,9 +13,8 @@ class Kubecfg < Formula
     # The real build steps:
     cd srcdir do
       args = []
-      args.push("VERSION=v#{version}") unless build.head?
+      args.push("VERSION=v#{version}")
       system "make", *args
-      system "make", "test", *args if build.head?
     end
     # The install steps:
     bin.install srcdir/"kubecfg"
