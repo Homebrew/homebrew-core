@@ -1,8 +1,8 @@
 class Clac < Formula
   desc "Command-line, stack-based calculator with postfix notation"
   homepage "https://github.com/soveran/clac"
-  url "https://github.com/soveran/clac/archive/0.3.1.tar.gz"
-  sha256 "38cf86f99959d2223f052acfd9e0fecb402a137ebf859a9c64a541b15396e32b"
+  url "https://github.com/soveran/clac/archive/0.3.2.tar.gz"
+  sha256 "37a926982a3cc5016b42c554deaa5c64fa3932ebacd5bd15003508cf79a666dd"
 
   bottle do
     cellar :any_skip_relocation
