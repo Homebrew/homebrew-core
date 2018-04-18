@@ -33,6 +33,17 @@ class Wine < Formula
     sha256 "309e0b2978bb79ea627caba23d7f3bbb0cb54d3a6b08836b2cde387a743dae50" => :el_capitan
   end
 
+  devel do
+    url "https://dl.winehq.org/wine/source/3.x/wine-3.6.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.6.tar.xz"
+    sha256 "78502dc79a60430d2a2ef66bee146e38eb6dd679fd36b54acfc8f9b2ac07905c"
+
+    resource "mono" do
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
+    end
+  end
+
   head do
     url "https://source.winehq.org/git/wine.git"
 
