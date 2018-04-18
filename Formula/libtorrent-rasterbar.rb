@@ -26,6 +26,14 @@ class LibtorrentRasterbar < Formula
   depends_on "boost"
   depends_on "boost-python" if build.with? "python@2"
 
+  # Fix "error: no member named 'prior' in namespace 'boost'"
+  # Upstream issue from 18 Apr 2018 "Boost 1.67.0 build failure"
+  # See https://github.com/arvidn/libtorrent/issues/2947
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/22e74f4/libtorrent-rasterbar/boost-1.67.diff"
+    sha256 "65e9f05f69bdd439f967e127fd07475c77b2f7885c50457d36b170ed5e6a3bb9"
+  end
+
   def install
     ENV.cxx11
     args = ["--disable-debug",
