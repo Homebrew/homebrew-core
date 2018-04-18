@@ -8,24 +8,20 @@ class Kubecfg < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    srcdir = buildpath/"src/github.com/ksonnet/kubecfg"
-    srcdir.install buildpath.children - [buildpath/".brew_home"]
-    # The real build steps:
-    cd srcdir do
-      args = []
-      args.push("VERSION=v#{version}")
-      system "make", *args
+    (buildpath/"src/github.com/ksonnet/kubecfg").install buildpath.children
+
+    cd "src/github.com/ksonnet/kubecfg" do
+      system "make", "VERSION=v#{version}"
+      bin.install "kubecfg"
+      sharelib = share/"lib"
+      sharelib.mkpath
+      sharelib.install "lib/kubecfg.libsonnet"
+      sharelib.install "lib/kubecfg_test.jsonnet"
+      output = Utils.popen_read("#{bin}/kubecfg completion --shell bash")
+      (bash_completion/"kubecfg").write output
+      output = Utils.popen_read("#{bin}/kubecfg completion --shell zsh")
+      (zsh_completion/"_kubecfg").write output
     end
-    # The install steps:
-    bin.install srcdir/"kubecfg"
-    sharelib = share/"lib"
-    sharelib.mkpath
-    sharelib.install srcdir/"lib/kubecfg.libsonnet"
-    sharelib.install srcdir/"lib/kubecfg_test.jsonnet"
-    output = Utils.popen_read("#{bin}/kubecfg completion --shell bash")
-    (bash_completion/"kubecfg").write output
-    output = Utils.popen_read("#{bin}/kubecfg completion --shell zsh")
-    (zsh_completion/"_kubecfg").write output
   end
 
   def caveats; <<~EOS
