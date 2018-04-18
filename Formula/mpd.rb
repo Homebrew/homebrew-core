@@ -81,6 +81,13 @@ class Mpd < Formula
     depends_on "libupnp"
   end
 
+  # Fixes "error: no member named 'next' in namespace 'boost'"
+  # Upstream PR from 18 Apr 2018 "Fix build with Boost 1.67.0"
+  patch do
+    url "https://github.com/MusicPlayerDaemon/MPD/pull/266.patch?full_index=1"
+    sha256 "4893fb76f4ca8e8e0fae6a84a042039920c828966df4df026e344d5f5a6f14ac"
+  end
+
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
