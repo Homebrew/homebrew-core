@@ -7,9 +7,9 @@ class Libuv < Formula
 
   bottle do
     cellar :any
-    sha256 "476c88880da45abdbf7a544eec324460e47d166781f3a04f3291535d71531d21" => :high_sierra
-    sha256 "15dfa2c0d814b37c546d3f292ee8e3f0b23e976a4dc6902d51548224ba0389af" => :sierra
-    sha256 "89ee31a4552be7aeccfb6430a12925f05960bd314a77621ddf7e4272bcacf9b9" => :el_capitan
+    sha256 "9dcffb11c132d5c3fddd6f80325b6491f9a3f265235a498614d16dde9c7b8ecf" => :high_sierra
+    sha256 "50d7efd713906cf22dffdd98e1e6f7da7e3111780e76337661406fc6b705699c" => :sierra
+    sha256 "54b462d994767e6d4760b1226be8a54de03ac3c7883c9311d840efa76c0f771d" => :el_capitan
   end
 
   option "with-test", "Execute compile time checks (Requires Internet connection)"
