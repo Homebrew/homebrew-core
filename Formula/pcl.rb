@@ -35,6 +35,12 @@ class Pcl < Formula
   depends_on "vtk"
 
   def install
+    # Fix "error: no matching constructor for initialization of
+    # 'boost::uuids::random_generator' (aka 'boost::uuids::random_generator_pure')"
+    # Upstream issue 18 Apr 2018 "Fails to build against Boost 1.67"
+    # See https://github.com/PointCloudLibrary/pcl/issues/2284
+    ENV.append "CXXFLAGS", "-DBOOST_UUID_RANDOM_GENERATOR_COMPAT"
+
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_apps=AUTO_OFF
