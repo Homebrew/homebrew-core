@@ -1,4 +1,4 @@
-class Geth < Formula
+class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://ethereum.github.io/go-ethereum/"
   url "https://github.com/ethereum/go-ethereum/archive/v1.8.4.tar.gz"

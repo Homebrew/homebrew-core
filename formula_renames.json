@@ -51,6 +51,7 @@
   "gcc5": "gcc@5",
   "gcc6": "gcc@6",
   "geode": "apache-geode",
+  "geth": "ethereum",
   "gitlab-ci-multi-runner": "gitlab-runner",
   "giflib5": "giflib@5",
   "giflib@5": "giflib",
