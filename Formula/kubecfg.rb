@@ -13,30 +13,23 @@ class Kubecfg < Formula
     cd "src/github.com/ksonnet/kubecfg" do
       system "make", "VERSION=v#{version}"
       bin.install "kubecfg"
-      sharelib = share/"lib"
-      sharelib.mkpath
-      sharelib.install "lib/kubecfg.libsonnet"
-      sharelib.install "lib/kubecfg_test.jsonnet"
-      output = Utils.popen_read("#{bin}/kubecfg completion --shell bash")
-      (bash_completion/"kubecfg").write output
-      output = Utils.popen_read("#{bin}/kubecfg completion --shell zsh")
-      (zsh_completion/"_kubecfg").write output
+      pkgshare.install Dir["examples/*"], "lib/kubecfg_test.jsonnet"
+      prefix.install_metafiles
     end
+
+    output = Utils.popen_read("#{bin}/kubecfg completion --shell bash")
+    (bash_completion/"kubecfg").write output
+    output = Utils.popen_read("#{bin}/kubecfg completion --shell zsh")
+    (zsh_completion/"_kubecfg").write output
   end
 
   def caveats; <<~EOS
-    The builtin template "kubecfg.libsonnet" is installed for reference at:
-      #{lib}/kubecfg.libsonnet
-    but changing that file won't affect the compiled-in template.
-    Set KUBECFG_JPATH in the environment to add to the search path.
-
-    You can find more useful templates at:
-      https://github.com/ksonnet/ksonnet-lib/releases
-      https://github.com/bitnami/kube-manifests
+    Example templates have been installed to:
+      #{opt_pkgshare}
     EOS
   end
 
   test do
-    system "#{bin}/kubecfg", "show", "#{share}/lib/kubecfg_test.jsonnet"
+    system bin/"kubecfg", "show", pkgshare/"kubecfg_test.jsonnet"
   end
 end
