@@ -3,7 +3,6 @@ class Phpmyadmin < Formula
   homepage "https://www.phpmyadmin.net"
   url "https://files.phpmyadmin.net/phpMyAdmin/4.8.0/phpMyAdmin-4.8.0-all-languages.tar.gz"
   sha256 "1e83d60627d8036261af71220eae9ffd8d3150778702720905bcfa85c40ce346"
-  head "https://github.com/phpmyadmin/phpmyadmin.git"
 
   depends_on "php" => :test
 
