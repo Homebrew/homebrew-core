@@ -1,9 +1,22 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
-  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+  revision 1
   head "https://github.com/boostorg/boost.git"
+
+  stable do
+    url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
+    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+
+    # Remove for > 1.67.0
+    # Fix "error: no member named 'next' in namespace 'boost'"
+    # Upstream commit from 1 Dec 2017 "Add #include <boost/next_prior.hpp>; no
+    # longer in utility.hpp"
+    patch :p2 do
+      url "https://github.com/boostorg/lockfree/commit/12726cd.patch?full_index=1"
+      sha256 "f165823d961a588b622b20520668b08819eb5fdc08be7894c06edce78026ce0a"
+    end
+  end
 
   bottle do
     cellar :any
