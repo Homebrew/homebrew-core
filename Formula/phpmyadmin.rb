@@ -10,9 +10,7 @@ class Phpmyadmin < Formula
   def install
     pkgshare.install Dir["*"]
 
-    unless File.exist?(etc+"phpmyadmin.config.inc.php")
-      cp (pkgshare+"config.sample.inc.php"), (etc+"phpmyadmin.config.inc.php")
-    end
+    etc.install pkgshare+"config.sample.inc.php" => "phpmyadmin.config.inc.php"
     ln_s (etc+"phpmyadmin.config.inc.php"), (pkgshare+"config.inc.php")
   end
 
