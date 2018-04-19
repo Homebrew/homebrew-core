@@ -1,8 +1,8 @@
 class Sdcc < Formula
   desc "ANSI C compiler for Intel 8051, Maxim 80DS390, and Zilog Z80"
   homepage "https://sdcc.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/sdcc/sdcc/3.6.0/sdcc-src-3.6.0.tar.bz2"
-  sha256 "e85dceb11e01ffefb545ec389da91265130c91953589392dddd2e5ec0b7ca374"
+  url "https://downloads.sourceforge.net/project/sdcc/sdcc/3.7.0/sdcc-src-3.7.0.tar.bz2"
+  sha256 "854d47094698b06142df3d5fc646bb540d497ab4073ad2f051b8ec2141df948e"
 
   head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
