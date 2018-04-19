@@ -20,9 +20,9 @@ class Libpeas < Formula
   depends_on "gtk+3"
   depends_on "python@2" => :optional if MacOS.version < :snow_leopard
   depends_on "pygobject3"
-  depends_on "python"               # this is python@3 as of 1 March 2018
+  depends_on "python" # this is python@3 as of 1 March 2018
   depends_on "pygobject3" => ["--with-python@2"] if build.with?("python@2")
-  
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -35,7 +35,7 @@ class Libpeas < Formula
     py3_ver = Formula["python3"].version.to_s.slice(/(3\.\d)/)
     py3_lib = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3_ver}/lib"
     ENV.append "LDFLAGS", "-L#{py3_lib}"
-    
+
     if build.with? "python@2"
       py2_prefix = Utils.popen_read("python2-config --prefix").chomp
       py2_lib = "#{py2_prefix}/lib"
