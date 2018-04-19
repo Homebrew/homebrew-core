@@ -4,6 +4,7 @@ class Netcdf < Formula
   url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-4.6.1.tar.gz"
   mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.6.1.tar.gz"
   sha256 "89c7957458740b763ae828c345240b8a1d29c2c1fed0f065f99b73181b0b2642"
+  revision 1
 
   bottle do
     sha256 "0ab18b0e0cb8e0e389573de7b712da2195ab70457d857a308b21183b943771bf" => :high_sierra
