@@ -3,6 +3,7 @@ class Monero < Formula
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero/archive/v0.12.0.0.tar.gz"
   sha256 "5e8303900a39e296c4ebaa41d957ab9ee04e915704e1049f82a9cbd4eedc8ffb"
+  revision 1
 
   bottle do
     sha256 "a28ab1830cc831c4e09dd9a1cffb48cdeb5bdd61a6ffa2ed83983750d14a03ae" => :high_sierra
@@ -12,11 +13,18 @@ class Monero < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost@1.60"
+  depends_on "boost"
   depends_on "miniupnpc"
   depends_on "openssl"
   depends_on "unbound"
   depends_on "zeromq"
+
+  # Fix "fatal error: 'boost/thread/v2/thread.hpp' file not found"
+  # Upstream PR from 19 Apr 2018 "Unbreak build against Boost 1.67"
+  patch do
+    url "https://github.com/monero-project/monero/pull/3667.patch?full_index=1"
+    sha256 "797f356c4d512fed1964352ddf502e2bdddf196c2c47ba4ae99665da4ddaaae0"
+  end
 
   resource "cppzmq" do
     url "https://github.com/zeromq/cppzmq/archive/v4.2.3.tar.gz"
