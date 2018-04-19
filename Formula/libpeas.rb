@@ -10,7 +10,7 @@ class Libpeas < Formula
     sha256 "0f521913ca0eaf13b55aacb75e4b87a730be1f527215741ae2ba207caac523b2" => :el_capitan
   end
 
-  option "with-python3", "install support for running Python 3 plugins"
+  option "with-python@2", "install support for running Python 2 plugins"
 
   depends_on "gettext" => :build
   depends_on "intltool" => :build
@@ -18,29 +18,29 @@ class Libpeas < Formula
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :optional if MacOS.version < :snow_leopard
   depends_on "pygobject3"
-  depends_on "python3" => :optional
-  depends_on "pygobject3" => ["--with-python3"] if build.with?("python3")
-
+  depends_on "python"               # this is python@3 as of 1 March 2018
+  depends_on "pygobject3" => ["--with-python@2"] if build.with?("python@2")
+  
   def install
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-gtk
-      --enable-python2
+      --enable-python3
     ]
 
-    py2_prefix = Utils.popen_read("python2-config --prefix").chomp
-    py2_lib = "#{py2_prefix}/lib"
-    ENV.append "LDFLAGS", "-L#{py2_lib}"
-
-    if build.with? "python3"
-      py3_ver = Formula["python3"].version.to_s.slice(/(3\.\d)/)
-      py3_lib = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3_ver}/lib"
-      ENV.append "LDFLAGS", "-L#{py3_lib}"
-      args << "--enable-python3"
+    py3_ver = Formula["python3"].version.to_s.slice(/(3\.\d)/)
+    py3_lib = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3_ver}/lib"
+    ENV.append "LDFLAGS", "-L#{py3_lib}"
+    
+    if build.with? "python@2"
+      py2_prefix = Utils.popen_read("python2-config --prefix").chomp
+      py2_lib = "#{py2_prefix}/lib"
+      ENV.append "LDFLAGS", "-L#{py2_lib}"
+      args << "--enable-python2"
     end
 
     system "./configure", *args
