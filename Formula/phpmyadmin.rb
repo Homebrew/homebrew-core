@@ -1,8 +1,8 @@
 class Phpmyadmin < Formula
   desc "Web interface for MySQL and MariaDB"
   homepage "https://www.phpmyadmin.net"
-  url "https://files.phpmyadmin.net/phpMyAdmin/4.8.0/phpMyAdmin-4.8.0-all-languages.tar.gz"
-  sha256 "1e83d60627d8036261af71220eae9ffd8d3150778702720905bcfa85c40ce346"
+  url "https://files.phpmyadmin.net/phpMyAdmin/4.8.0.1/phpMyAdmin-4.8.0.1-all-languages.tar.gz"
+  sha256 "a78c413fef9387b25ab589e0411443c51849510e37c65708dd7f728f095134b0"
 
   depends_on "php" => :test
 
