@@ -5,13 +5,6 @@ class Phpmyadmin < Formula
   sha256 "1e83d60627d8036261af71220eae9ffd8d3150778702720905bcfa85c40ce346"
   head "https://github.com/phpmyadmin/phpmyadmin.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "a4fc107a3300e748eb2935919e21b64bff5ba3d2b58c2d96f43a617de672a070" => :high_sierra
-    sha256 "a4fc107a3300e748eb2935919e21b64bff5ba3d2b58c2d96f43a617de672a070" => :sierra
-    sha256 "a4fc107a3300e748eb2935919e21b64bff5ba3d2b58c2d96f43a617de672a070" => :el_capitan
-  end
-
   depends_on "php" => :test
 
   def install
