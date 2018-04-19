@@ -14,6 +14,15 @@ class Dnsdist < Formula
   depends_on "pkg-config" => :build
   depends_on "lua"
 
+  # Remove for > 1.3.0
+  # Boost 1.67 compatibility; backported by Jan Beich in FreeBSD
+  # Upstream fix from 16 Mar 2018 "Logging: have a global g_log"
+  # See https://github.com/PowerDNS/pdns/commit/e6a9dde524b57bb57f1d063ef195bb1e2667c5fc
+  patch :p0 do
+    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/6fa3dca03cf2e321018d6894ddce6f7f33b64305/dns/dnsdist/files/patch-boost-1.67"
+    sha256 "58f2e42ccd55e97429e3692aeeda6c9f24e4c4300bf384eaffc12ac3e8079dfb"
+  end
+
   def install
     # error: unknown type name 'mach_port_t'
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
