@@ -5,7 +5,7 @@ class GmtAT4 < Formula
   mirror "https://fossies.org/linux/misc/GMT/gmt-4.5.17-src.tar.bz2"
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-4.5.17-src.tar.bz2"
   sha256 "d69c4e2075f16fb7c153ba77429a7b60e45c44583ebefd7aae63ae05439d1d41"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "77a64e9260c43b2b58951437d8ad0da89b441470cb843478b6a37710f3779f76" => :high_sierra
