@@ -5,7 +5,7 @@ class Gmt < Formula
   mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.3-src.tar.xz"
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.3-src.tar.xz"
   sha256 "ed00e380c3dc94a3aef4b7aeaaac0f3681df703dc614e8a15a1864e20b3fa2c8"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "8687a8a1219c8520cb82f7e83fd8230b53b60da86bbdc4d5f11cf887f19a967c" => :high_sierra
