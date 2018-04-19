@@ -1,10 +1,8 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  # pull from git tag to get submodules
-  url "https://github.com/facebook/osquery/archive/3.2.2.tar.gz"
-  sha256 "160ee0df73fa5e5621ca2798d58f6b1588a05ac6ee5a7315a207d74a26ec328e"
-  revision 2
+  url "https://github.com/facebook/osquery/archive/3.2.3.tar.gz"
+  sha256 "dcbdce8751a8b87293d3fc6fc1e56db5229fcd21cbf16bc7dc2c7caa3868eb7b"
 
   bottle do
     cellar :any
@@ -35,15 +33,6 @@ class Osquery < Formula
   depends_on "yara"
   depends_on "xz"
   depends_on "zstd"
-
-  # Remove for > 3.2.2
-  # Upstream commit from 16 Apr 2018 "Fix macOS build on Xcode 9.3 (#4291)"
-  if MacOS.version >= :high_sierra
-    patch do
-      url "https://github.com/facebook/osquery/commit/360f58887.patch?full_index=1"
-      sha256 "1498f9646095299e34b104272ec756bdd5922b8427d8a33599608b2ff714cd0e"
-    end
-  end
 
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
