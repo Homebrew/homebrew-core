@@ -9,9 +9,9 @@ class Heroku < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "60a1e66d3e35542697fb09de05b9119514d3e6141c633ad5eb77daf99644b967" => :high_sierra
-    sha256 "411c7b49ff2faf68fa46e2e5978fb47a43253851b1f76440035e858581967632" => :sierra
-    sha256 "4bd6e5c8d5fce40e7766605be900345ed052fdc693db045220c1301556f9b900" => :el_capitan
+    sha256 "989b158f4b7afd03375cea5b44e5830a2b51f47d9a4a2f98563b8b6313b7e66a" => :high_sierra
+    sha256 "61f8b69ae7819ae5a5672919e18081062f2b5e1d9a5a6839993fff5345bbd055" => :sierra
+    sha256 "47f6d1ef7dd8c4f5db08de4587f60c977814c4b945d4e7c216337e75092799ee" => :el_capitan
   end
 
   depends_on "node"
