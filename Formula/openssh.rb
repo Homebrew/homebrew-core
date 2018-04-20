@@ -15,11 +15,10 @@ class Openssh < Formula
   # Please don't resubmit the keychain patch option. It will never be accepted.
   # https://github.com/Homebrew/homebrew-dupes/pull/482#issuecomment-118994372
 
-  depends_on "openssl" # => :optional
+  depends_on "openssl" # OpenSSH will use libressl if specified otherwise use default to OpenSSL
   depends_on "ldns" => :optional
   depends_on "libressl" => :optional
   depends_on "pkg-config" => :build if build.with? "ldns"
-  # depends_on "pkg-config" => :build if build.with? "openssl"
   depends_on "pkg-config" => :build if build.with? "libressl"
 
   # Both these patches are applied by Apple.
@@ -52,14 +51,13 @@ class Openssh < Formula
       --sysconfdir=#{etc}/ssh
       --with-pam
     ]
-    # --with-ssl-dir=#{Formula["openssl"].opt_prefix}
 
     args << "--with-ldns" if build.with? "ldns"
 
     if build.with? "libressl"
-      args << "--with-ssl-dir=#{Formula["libressl"].opt_prefix}" # if build.with? "libressl"
+      args << "--with-ssl-dir=#{Formula["libressl"].opt_prefix}" 
     else
-      args << "--with-ssl-dir=#{Formula["openssl"].opt_prefix}" # if build.with? "openssl"
+      args << "--with-ssl-dir=#{Formula["openssl"].opt_prefix}" 
     end
 
     system "./configure", *args
