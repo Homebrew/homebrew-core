@@ -55,9 +55,9 @@ class Openssh < Formula
     args << "--with-ldns" if build.with? "ldns"
 
     if build.with? "libressl"
-      args << "--with-ssl-dir=#{Formula["libressl"].opt_prefix}" 
+      args << "--with-ssl-dir=#{Formula["libressl"].opt_prefix}"
     else
-      args << "--with-ssl-dir=#{Formula["openssl"].opt_prefix}" 
+      args << "--with-ssl-dir=#{Formula["openssl"].opt_prefix}"
     end
 
     system "./configure", *args
