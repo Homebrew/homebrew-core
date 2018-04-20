@@ -11,7 +11,8 @@ class ApacheDrill < Formula
 
   def install
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
