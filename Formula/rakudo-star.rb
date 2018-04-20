@@ -1,6 +1,6 @@
 class RakudoStar < Formula
   desc "Perl 6 compiler"
-  homepage "http://rakudo.org/"
+  homepage "https://rakudo.org/"
   url "https://rakudo.perl6.org/downloads/star/rakudo-star-2018.01.tar.gz"
   sha256 "8f0290f409307c45a107360e7883f2fad3c19aa995133ab53e6f36ae9452d351"
 
