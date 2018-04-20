@@ -15,7 +15,7 @@ class Openssh < Formula
   # Please don't resubmit the keychain patch option. It will never be accepted.
   # https://github.com/Homebrew/homebrew-dupes/pull/482#issuecomment-118994372
 
-  depends_on "openssl" # OpenSSH will use libressl if specified otherwise use default to OpenSSL
+  depends_on "openssl" # OpenSSH will use libressl if specified otherwise default to OpenSSL
   depends_on "ldns" => :optional
   depends_on "libressl" => :optional
   depends_on "pkg-config" => :build if build.with? "ldns"
