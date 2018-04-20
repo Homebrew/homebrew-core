@@ -1,11 +1,9 @@
-require "language/go"
-
 class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
   url "https://github.com/justone/dockviz.git",
-    :tag => "v0.6.1",
-    :revision => "b4f269312f7e80419ecca555bf20066d71ee5827"
+    :tag => "v0.6.3",
+    :revision => "15f77275c4f7e459eb7d9f824b5908c165cd0ba4"
   head "https://github.com/justone/dockviz.git"
 
   bottle do
@@ -16,31 +14,16 @@ class Dockviz < Formula
   end
 
   depends_on "go" => :build
-
-  go_resource "github.com/docker/docker" do
-    url "https://github.com/docker/docker.git",
-        :revision => "8bb5a28eed5eba5651c6e48eb401c03be938b4c1"
-  end
-
-  go_resource "github.com/docker/go-units" do
-    url "https://github.com/docker/go-units.git",
-        :revision => "47565b4f722fb6ceae66b95f853feed578a4a51c"
-  end
-
-  go_resource "github.com/fsouza/go-dockerclient" do
-    url "https://github.com/fsouza/go-dockerclient.git",
-        :revision => "eb4b27262d9a41d4004d101c32e0598782a39415"
-  end
-
-  go_resource "github.com/jessevdk/go-flags" do
-    url "https://github.com/jessevdk/go-flags.git",
-        :revision => "1c38ed7ad0cc3d9e66649ac398c30e45f395c4eb"
-  end
+  depends_on "govendor" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-o", bin/"dockviz"
+    (buildpath/"src/github.com/justone/dockviz").install buildpath.children
+    cd "src/github.com/justone/dockviz" do
+      system "govendor", "sync"
+      system "go", "build", "-o", bin/"dockviz"
+      prefix.install_metafiles
+    end
   end
 
   test do
