@@ -1,8 +1,8 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/6.3/OpenMesh-6.3.tar.bz2"
-  sha256 "b97be926e430bcda10f44f2d4bbe2657b0778c2eed17346f4f32c06db36843ce"
+  url "https://www.openmesh.org/media/Releases/7.0/OpenMesh-7.0.tar.bz2"
+  sha256 "e8e9414f7b0beba8603945d7794ee38712f3594a8b539a4acfaaad398d543e85"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
 
   bottle do
@@ -16,6 +16,8 @@ class OpenMesh < Formula
   depends_on "cmake" => :build
 
   def install
+    ENV.cxx11
+
     mkdir "build" do
       system "cmake", "..", "-DBUILD_APPS=OFF", *std_cmake_args
       system "make", "install"
