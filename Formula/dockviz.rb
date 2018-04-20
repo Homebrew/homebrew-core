@@ -8,9 +8,9 @@ class Dockviz < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "01e4173f4c4fb2a240fcfba6b3a584c16bdbf41da9406494b4a1a4e757c32e41" => :high_sierra
-    sha256 "f7b9d5787315ee4cd82011beae7bd7a06d322001f014de09a7a78dfd6be734e6" => :sierra
-    sha256 "fed1f250e52f6eb8620de68109d7a7ee8c998b6eaf636f8850c393f040127ca9" => :el_capitan
+    sha256 "7334e941bcf3841a724103ecc7bd1cf028dc5e41bd9e80283c6f34637515cd02" => :high_sierra
+    sha256 "8fbcc273dbbf14a33f44cb9d56d350440168c7943d6c29ba489c2db7cc8f293b" => :sierra
+    sha256 "0df5881e825be40043790f3759fa2f3976d75c3c8273e69c4bfbd4cc039744b3" => :el_capitan
   end
 
   depends_on "go" => :build
