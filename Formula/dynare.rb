@@ -6,9 +6,9 @@ class Dynare < Formula
   revision 3
 
   bottle do
-    sha256 "3b55cc9abfe4199a49ecf24bc2502196473a00fc2c90ba4d22ba03923cb9a0c7" => :high_sierra
-    sha256 "baa6a9b5f47e57ec178f4ae27f66835572dcf9b627acacbcb249d9982fc84251" => :sierra
-    sha256 "7b35fa245ac1b39b8a5d8c38012786bd3f193a190b125579edc1f81102b7a9d9" => :el_capitan
+    sha256 "8d2ac3f91c6fb52e00f11a52e26dee2f14bcc7ab2bcbacb1955d38c612a04863" => :high_sierra
+    sha256 "c7be8466ecaae1131105ce5ca01f206e7dbe36c0f0484b4b6eb54342892c6372" => :sierra
+    sha256 "19da64e0188bf1f95d50a76a4c2d6f1601dd61ccdbd475131aca020b68cf90b0" => :el_capitan
   end
 
   head do
