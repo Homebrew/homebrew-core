@@ -3,6 +3,7 @@ class Sratoolkit < Formula
   homepage "https://github.com/ncbi/sra-tools"
   url "https://github.com/ncbi/sra-tools/archive/2.9.0.tar.gz"
   sha256 "fbdbbf69cf95afca311b9759e14a991dafcb95549ffd5e2e21fb0ecc99fa06aa"
+  revision 1
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
@@ -21,8 +22,9 @@ class Sratoolkit < Formula
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.9.0.tar.gz"
-    sha256 "40fdd0a34592f76bdad174d3c2b57b3efcd1e2240512a383bd6e6263b33a6146"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.9.0-1.tar.gz"
+    version "2.9.0-1"
+    sha256 "b4099e2fc3349eaf487219fbe798b22124949c89ffa1e7e6fbaa73a5178c8aff"
   end
 
   def install
