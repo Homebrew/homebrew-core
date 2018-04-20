@@ -3,12 +3,13 @@ class ElasticsearchAT56 < Formula
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.9.tar.gz"
   sha256 "64b9486d5bdeb6f85d09fdc30aa2d0e1ce7fb8f253084a8d7cb15652494da96a"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -49,8 +50,11 @@ class ElasticsearchAT56 < Formula
     (etc/"elasticsearch/scripts").mkdir unless File.exist?(etc/"elasticsearch/scripts")
     (libexec/"config").rmtree
 
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch"]
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch-plugin"]
+    bin.install libexec/"bin/elasticsearch",
+                libexec/"bin/elasticsearch-keystore",
+                libexec/"bin/elasticsearch-plugin",
+                libexec/"bin/elasticsearch-translog"
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   def post_install
