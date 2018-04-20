@@ -1,8 +1,8 @@
 class Openfortivpn < Formula
   desc "Open Fortinet client for PPP+SSL VPN tunnel services"
   homepage "https://github.com/adrienverge/openfortivpn"
-  url "https://github.com/adrienverge/openfortivpn/archive/v1.6.0.tar.gz"
-  sha256 "205ab5ac512cbeee3c7a6f693518420ae66d6414c1d27247d002167e1906d6d3"
+  url "https://github.com/adrienverge/openfortivpn/archive/v1.7.0.tar.gz"
+  sha256 "1074e140c537c25f3da63501ebdb80671b770c5078e97aa9970b79d520009541"
 
   bottle do
     sha256 "eb6bc8c1171c8ee45e50a221b8cfa8acd88677fcfe19a0bba55d93944d605e8b" => :high_sierra
@@ -14,6 +14,14 @@ class Openfortivpn < Formula
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
+
+  # Remove for > 1.7.0
+  # Fix "configure: error: Required function not present"
+  # Upstream PR from 21 Apr 2018 "Build with missing pthread_mutexattr_setrobust()"
+  patch do
+    url "https://github.com/adrienverge/openfortivpn/pull/298.patch?full_index=1"
+    sha256 "e70b74e583fdab584bda6be649d5a8853464552b160c132544dac0fe0841eb8c"
+  end
 
   def install
     system "./autogen.sh"
