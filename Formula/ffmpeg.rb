@@ -1,8 +1,8 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.bz2"
-  sha256 "eb0370bf223809b9ebb359fed5318f826ac038ce77933b3afd55ab1a0a21785a"
+  url "https://ffmpeg.org/releases/ffmpeg-4.0.tar.xz"
+  sha256 "ed945daf40b124e77a685893cc025d086f638bc703183460aff49508edb3a43f"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -103,7 +103,6 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
     ]
 
-    args << "--disable-jack" if build.stable?
     args << "--enable-gpl" if build.with? "gpl"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
