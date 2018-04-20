@@ -1,8 +1,8 @@
 class PamYubico < Formula
   desc "Yubico pluggable authentication module"
   homepage "https://developers.yubico.com/yubico-pam/"
-  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.25.tar.gz"
-  sha256 "624a5754d82665f6ba5f2e012f57cb41ea9bf61781ed2272dba49dffb4704e36"
+  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.26.tar.gz"
+  sha256 "2de96495963fefd72b98243952ca5d5ec513e702c596e54bc667ef6b5e252966"
 
   bottle do
     cellar :any
