@@ -8,9 +8,9 @@ class Sratoolkit < Formula
 
   bottle do
     cellar :any
-    sha256 "5c01bb2db010a955faf5de51776ffc2395b5ce4cec4ae32518fa203bbd583bde" => :high_sierra
-    sha256 "cbd0df5b275d65eeb808f7a1b59abd319e987f942a7bdfd3257265d92d0c5d20" => :sierra
-    sha256 "57617e63596d67514492656707e48863c2e475784f9f184ccbbdacc085e49316" => :el_capitan
+    sha256 "87ecc734d48d087d6ead16197d6fa3b9246c8076cb54785e65101a79d902439b" => :high_sierra
+    sha256 "270658aa58569660fc323a4b8430959adb97eaca4edf014e3096a0e51aaea743" => :sierra
+    sha256 "ea2e17f4259da1aba15c211e545eb833f4e9c5472538a6b8e55b7cf236b63780" => :el_capitan
   end
 
   depends_on "hdf5"
