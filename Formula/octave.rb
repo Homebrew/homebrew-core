@@ -7,9 +7,9 @@ class Octave < Formula
   revision 2
 
   bottle do
-    sha256 "2b9a58f068571831811df59450af5eb8112a2d697b48912fefcb8b9a392c2f56" => :high_sierra
-    sha256 "f8b700bc410e71fe6cac07dbabe2140c12a6cbbe28787004d4b452c677c617f4" => :sierra
-    sha256 "cf7821b99fff1562be01978ee37f9f33fec448e22cd501e4bd7ab0b3ac447884" => :el_capitan
+    sha256 "a7f5ad466f6f4af7ff0c2dbf361a524361378521f4530cf448258db579b69c24" => :high_sierra
+    sha256 "6e48de076c248387c14a31156fcc19aaffde248e5a0239f1c2e3b05809ddb657" => :sierra
+    sha256 "b7863bc195691632f3d2dc3359bcee21fda4549b061a76cbded236517ec5bcd9" => :el_capitan
   end
 
   head do
