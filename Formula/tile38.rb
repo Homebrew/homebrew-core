@@ -1,8 +1,8 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "http://tile38.com"
-  url "https://github.com/tidwall/tile38/archive/1.11.1.tar.gz"
-  sha256 "e5eac0cb54eae755ccf88463985bdd5f0e30c7575d9793f0427e5eae1257e134"
+  url "https://github.com/tidwall/tile38/archive/1.12.0.tar.gz"
+  sha256 "ca054d40109ff970fccd29efc425fc249b1824bf9dccfdc50e461d9e980ba014"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
@@ -31,12 +31,41 @@ class Tile38 < Formula
     datadir.mkpath
   end
 
-  def caveats; <<~EOS
-    Data directory created at #{datadir}. To start the server:
-        tile38-server -d #{datadir}
+  plist_options :manual => "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
 
-    To connect:
-        tile38-cli
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <dict>
+          <key>SuccessfulExit</key>
+          <false/>
+        </dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/tile38-server</string>
+          <string>-d</string>
+          <string>#{datadir}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/tile38.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/tile38.log</string>
+      </dict>
+    </plist>
+    EOS
+  end
+
+  def caveats; <<~EOS
+    To connect: tile38-cli
     EOS
   end
 
