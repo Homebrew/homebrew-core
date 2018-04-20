@@ -52,7 +52,7 @@ class LibtorrentRasterbar < Formula
     # Build python bindings requires forcing usage of the mt version of boost_python.
     if build.with? "python@2"
       args << "--enable-python-binding"
-      args << "--with-boost-python=boost_python-mt"
+      args << "--with-boost-python=boost_python27-mt"
     end
 
     if build.head?
