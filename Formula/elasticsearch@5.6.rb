@@ -5,6 +5,7 @@ class ElasticsearchAT56 < Formula
   sha256 "64b9486d5bdeb6f85d09fdc30aa2d0e1ce7fb8f253084a8d7cb15652494da96a"
   revision 1
 
+  revision 1
   bottle :unneeded
 
   keg_only :versioned_formula
