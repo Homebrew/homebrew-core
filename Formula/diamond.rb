@@ -1,8 +1,8 @@
 class Diamond < Formula
   desc "Accelerated BLAST compatible local sequence aligner"
   homepage "https://ab.inf.uni-tuebingen.de/software/diamond/"
-  url "https://github.com/bbuchfink/diamond/archive/v0.9.19.tar.gz"
-  sha256 "fab783f51af9010666f2b569f438fb38843d0201fe0c0e167db5b70d12459e30"
+  url "https://github.com/bbuchfink/diamond/archive/v0.9.20.tar.gz"
+  sha256 "5cf629baf135f54dc93728e3618ae08c64c1ecb81b3f2d2d48fcfd1c010ed8f0"
 
   bottle do
     cellar :any_skip_relocation
