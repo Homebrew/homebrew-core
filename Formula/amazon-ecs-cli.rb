@@ -6,9 +6,9 @@ class AmazonEcsCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5976b94f04cae4c772e2a870337d88dcf69a7215be99994f3a81abe6e47a32ff" => :high_sierra
-    sha256 "8634735a033b0793afd60fd5efa5ae1b4947578434c077f7b325123cf26be9e3" => :sierra
-    sha256 "bbda6807f5da80343b593f94498f3869a96b5cd7b2ccb1a4d91016a1507bfd42" => :el_capitan
+    sha256 "3290688ce1945553b6ccbc021a830840eeec1d540bc78e2617e7701180299c36" => :high_sierra
+    sha256 "a86505088a84910375bb7332d6cfdf1b7f7fbaf24405b0f16e9891e59d6a11ba" => :sierra
+    sha256 "3a53e9b30020275a6bc34d222a854d1c7b47dc52618bf1a6103877fc303e275c" => :el_capitan
   end
 
   depends_on "go" => :build
