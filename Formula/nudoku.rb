@@ -1,8 +1,8 @@
 class Nudoku < Formula
   desc "ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/0.2.5.tar.gz"
-  sha256 "1478c339409abe8f1b857bf3e54c5edbeb43954432fb6e427e52a3ff6251cc25"
+  url "https://github.com/jubalh/nudoku/archive/1.0.0.tar.gz"
+  sha256 "80fb9996c28642920951c20cfd5ca6e370d75240255bc6f11067ae68b6e44eca"
   head "https://github.com/jubalh/nudoku.git"
 
   bottle do
