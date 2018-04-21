@@ -67,6 +67,7 @@ class Ddclient < Formula
         <string>#{opt_sbin}/ddclient</string>
         <string>-file</string>
         <string>#{etc}/ddclient/ddclient.conf</string>
+        <string>-force</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
