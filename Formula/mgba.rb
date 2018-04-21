@@ -1,21 +1,9 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  revision 2
+  url "https://github.com/mgba-emu/mgba/archive/0.6.3.tar.gz"
+  sha256 "35c8906c01206adae714fee9c2bc39698c514a4adb32c9c4a5a3fa58b2d10f9a"
   head "https://github.com/mgba-emu/mgba.git"
-
-  stable do
-    url "https://github.com/mgba-emu/mgba/archive/0.6.1.tar.gz"
-    sha256 "7c78feb0aa12930b993ca1b220d282ed178e306621559e48bb168623030eb876"
-
-    # Remove for > 0.6.1
-    # Fix "MemoryModel.cpp:102:15: error: no viable overloaded '='"
-    # Upstream commit from 11 Dec 2017 "Qt: Fix build with Qt 5.10"
-    patch do
-      url "https://github.com/mgba-emu/mgba/commit/e31373560.patch?full_index=1"
-      sha256 "5311b19dea0848772bdd00b354f9fca741b2bfd2cf65eab8a8c556e6fb748b8e"
-    end
-  end
 
   bottle do
     cellar :any
