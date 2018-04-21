@@ -3,6 +3,7 @@ class Gifski < Formula
   homepage "https://gif.ski/"
   url "https://github.com/ImageOptim/gifski/archive/0.8.2.tar.gz"
   sha256 "d7bf1b6515c273b822c94fc78e6d10fbc45d444a04bc3487fe3e799d6aa836e0"
+  revision 1
 
   bottle do
     sha256 "48f7b226aad64ed09df2ba12aef1c5eb4d50bdd2892338205050a9508b4b441d" => :high_sierra
@@ -14,26 +15,20 @@ class Gifski < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "ffmpeg"
   depends_on "gcc" if build.with? "openmp"
 
   fails_with :clang if build.with? "openmp"
 
   def install
     args = ["--release"]
-
-    if build.with? "openmp"
-      args << "--features=video,openmp"
-    else
-      args << "--features=video"
-    end
-
+    args << "--features=openmp" if build.with? "openmp"
     system "cargo", "build", *args
     bin.install "target/release/gifski"
   end
 
   test do
-    system bin/"gifski", "-o", "out.gif", test_fixtures("test.png")
+    png = test_fixtures("test.png")
+    system bin/"gifski", "-o", "out.gif", png, png
     assert_predicate testpath/"out.gif", :exist?
     refute_predicate (testpath/"out.gif").size, :zero?
   end
