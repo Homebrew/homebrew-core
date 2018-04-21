@@ -5,9 +5,9 @@ class Freeling < Formula
   sha256 "ccb3322db6851075c9419bb5e472aa6b2e32cc7e9fa01981cff49ea3b212247e"
 
   bottle do
-    sha256 "ba96339622bec10fe7b19d8898cc323c8d41a72efd35d5154d6bf7d55b5694ea" => :high_sierra
-    sha256 "6068c82d410ab3903080aff2809d2f8a6c0e69da166b8d4de813e6b3041a443a" => :sierra
-    sha256 "a4ac55575f77608ec3d0f203a8bd68b4337c21fc22810664568091075104158d" => :el_capitan
+    sha256 "4e458f9b0144a54786df878de4a3040e1cea6396616e5b4647b0d822e95dfcf5" => :high_sierra
+    sha256 "950011b0a3594fd822c4269a06c4570ac4d9e9f95aba39098eeb3c65caf77fda" => :sierra
+    sha256 "873d3820ac453abdd27bbdd3de92b1f8aa7d22ac224a4f9f37a0cbde0c576219" => :el_capitan
   end
 
   depends_on "cmake" => :build
