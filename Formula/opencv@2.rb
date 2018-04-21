@@ -3,6 +3,7 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz"
   sha256 "6ecbeea11f68356b748e35f758f4406067d3a2f6339e4582c63373fa6c3f5a72"
+  revision 1
 
   bottle do
     sha256 "0b6f327f3f5ddd5365d62b44163c9d6957cf912cd04b3e6a8ea6e2d874b30fa2" => :high_sierra
@@ -26,6 +27,14 @@ class OpencvAT2 < Formula
   depends_on "openexr"
   depends_on "python@2" => :recommended
   depends_on "numpy" if build.with? "python@2"
+
+  # Remove for > 2.4.13.6
+  # Backport of https://github.com/opencv/opencv/pull/10011
+  # Upstream PR from 21 Apr 2018 "Fix build with FFmpeg 4.0"
+  patch do
+    url "https://github.com/opencv/opencv/commit/99091a62463.patch?full_index=1"
+    sha256 "7e33c5c009aea0798cd9bd3edb0f7a2122a9f3b2a962977e53a0fccd55e1db40"
+  end
 
   def install
     jpeg = Formula["jpeg"]
