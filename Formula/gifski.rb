@@ -6,9 +6,9 @@ class Gifski < Formula
   revision 1
 
   bottle do
-    sha256 "48f7b226aad64ed09df2ba12aef1c5eb4d50bdd2892338205050a9508b4b441d" => :high_sierra
-    sha256 "bd9d8fa459ecd0be1163d188f2dce0df132a2a6a1df11c718e74c746c8da34c0" => :sierra
-    sha256 "8451f3f386963c5a48e48ae62028c8c954c9c91395ac2b47dcf51e87380b987b" => :el_capitan
+    sha256 "f0a8ae22f143d34efc15ebc94393b0d14ca835d5d832a39cb38f0947ab377f1d" => :high_sierra
+    sha256 "f6c0d8cda858d78353ef904517532aa8949cdeae4e0d8afeeb11c8a6faa52ec9" => :sierra
+    sha256 "a8e51cfb353e2b11dc266fc2ec59c2a1ba4f02d5cb1ced9a5fee12f7e09b9841" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
