@@ -3,6 +3,7 @@ class Libfaketime < Formula
   homepage "https://github.com/wolfcw/libfaketime"
   url "https://github.com/wolfcw/libfaketime/archive/v0.9.7.tar.gz"
   sha256 "4d65f368b2d53ee2f93a25d5e9541ce27357f2b95e5e5afff210e0805042811e"
+  revision 1
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
@@ -10,6 +11,11 @@ class Libfaketime < Formula
     sha256 "3fc5f61a8d50f7586cc18d269263fa95481bd741ac1756f2f55b5932e5a01ce5" => :sierra
     sha256 "0b792c716c6e8ba9db928b0c4dc4ab2dc474eb12da529186ba4475f5fba73169" => :el_capitan
   end
+
+  # The `faketime` command needs GNU `gdate` not BSD `date`.
+  # See https://github.com/wolfcw/libfaketime/issues/158 and
+  # https://github.com/Homebrew/homebrew-core/issues/26568
+  depends_on "coreutils"
 
   depends_on :macos => :lion
 
