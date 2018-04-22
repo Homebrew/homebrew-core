@@ -1,8 +1,8 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
   homepage "https://devio.us/~bcallah/mg/"
-  url "https://devio.us/~bcallah/mg/mg-20170917.tar.gz"
-  sha256 "def9237a89ec6a14241abaf12714bc5fcb3b0e2f8d9d466ff7561628d35b7ff1"
+  url "https://devio.us/~bcallah/mg/mg-20180421.tar.gz"
+  sha256 "11215613a360cf72ff16c2b241ea4e71b4b80b2be32c62a770c1969599e663b2"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +13,11 @@ class Mg < Formula
 
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
 
-  conflicts_with "mg3a", :because => "both install `mg` binaries"
-
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--mandir=#{man}"
+    system "make"
+    system "make", "install"
   end
 
   test do
