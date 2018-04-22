@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.11.1/node-v9.11.1.tar.xz"
-  sha256 "23dc3d133924f5c7453c479d5eceb3b6af932415cb67d99798c313573d9b9d4c"
+  url "https://nodejs.org/dist/v10.0.0/node-v10.0.0.tar.xz"
+  sha256 "e239109020755db8a58e6bcb8b9375439e31cf3bbe92d0670a320a47a4e8ab50"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -66,6 +66,12 @@ class Node < Formula
       cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
       # These symlinks are never used & they've caused issues in the past.
       rm_rf libexec/"share"
+
+      # suppress incorrect node 10 incompatibility warning from npm
+      # remove during next npm upgrade (to npm 5.9+ or npm 6.0+)
+      inreplace libexec/"lib/node_modules/npm/lib/utils/unsupported.js",
+        "{ver: '9', min: '9.0.0'}",
+        "{ver: '9', min: '9.0.0'}, {ver: '10', min: '10.0.0'}"
 
       if build.with? "completion"
         bash_completion.install \
@@ -135,7 +141,7 @@ class Node < Formula
       assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
+      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil" unless head?
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
       assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")
