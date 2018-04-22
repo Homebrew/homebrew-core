@@ -5,8 +5,8 @@ class Hadolint < Formula
 
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
-  url "https://github.com/hadolint/hadolint/archive/v1.6.3.tar.gz"
-  sha256 "b41ab0f46289658031c960e921db53dcdfa909c7e94fac2504126defc96ed5e9"
+  url "https://github.com/hadolint/hadolint/archive/v1.6.4.tar.gz"
+  sha256 "add1d0f1cb1cf18721c6d29add59501545dfe7f5d3d847b6899a114140dfe136"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +19,11 @@ class Hadolint < Formula
   depends_on "ghc@8.2" => :build
 
   def install
+    # Fix "The constructor 'PortRange' should have 3 arguments, but has been given 2"
+    # Upstream issue from 22 Apr 2018 https://github.com/hadolint/hadolint/issues/195
+    inreplace "package.yaml", "language-docker >=3.0.0",
+                              "language-docker ==3.0.1"
+
     cabal_sandbox do
       cabal_install "hpack"
       system "./.cabal-sandbox/bin/hpack"
