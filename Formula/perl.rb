@@ -1,8 +1,8 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.26.1.tar.xz"
-  sha256 "fe8208133e73e47afc3251c08d2c21c5a60160165a8ab8b669c43a420e4ec680"
+  url "https://www.cpan.org/src/5.0/perl-5.26.2.tar.xz"
+  sha256 "0f8c0fb1b0db4681adb75c3ba0dd77a0472b1b359b9e80efd79fc27b4352132c"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
