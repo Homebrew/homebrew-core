@@ -1,9 +1,8 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/76/14/f5a44ea32d473f9432c05087b5cab4c77882a18da48c2d258474d0fe7c63/urh-2.0.0.tar.gz"
-  sha256 "b52b6d85a2f5af1fc87603365d6572dd1b68f396b281f7059fe32415f8ea03dd"
-  revision 2
+  url "https://files.pythonhosted.org/packages/b7/a0/c2047a52a8ffa847bcbf6c70fb5f07578ba88a27bf1f85ecc671e46a0b12/urh-2.0.2.tar.gz"
+  sha256 "40740699cae8d9e3ee5b346cdeff6003ebdd8389e07b76c635fbc397d788d99b"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -16,20 +15,16 @@ class Urh < Formula
 
   depends_on "pkg-config" => :build
 
+  depends_on "numpy"
   depends_on "python"
   depends_on "pyqt"
   depends_on "zeromq"
 
   depends_on "hackrf" => :optional
 
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/a3/99/74aa456fc740a7e8f733af4e8302d8e61e123367ec660cd89c53a3cd4d70/numpy-1.14.1.zip"
-    sha256 "fa0944650d5d3fb95869eaacd8eedbd2d83610c85e271bd9d3495ffa9bc4dc9c"
-  end
-
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/e2/e1/600326635f97fee89bf8426fef14c5c29f4849c79f68fd79f433d8c1bd96/psutil-5.4.3.tar.gz"
-    sha256 "e2467e9312c2fa191687b89ff4bc2ad8843be4af6fb4dc95a7cc5f7d7a327b18"
+    url "https://files.pythonhosted.org/packages/14/a2/8ac7dda36eac03950ec2668ab1b466314403031c83a95c5efc81d2acf163/psutil-5.4.5.tar.gz"
+    sha256 "ebe293be36bb24b95cdefc5131635496e88b17fabbcf1e4bc9b5c01f5e489cfe"
   end
 
   resource "pyzmq" do
@@ -64,8 +59,8 @@ class Urh < Formula
     (testpath/"test.py").write <<~EOS
       from urh.util.GenericCRC import GenericCRC;
       c = GenericCRC();
-      expected = [1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1]
-      assert(expected == c.crc([1, 2, 3]).tolist())
+      expected = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0]
+      assert(expected == c.crc([0, 1, 0, 1, 1, 0, 1, 0]).tolist())
     EOS
     system "python3", "test.py"
   end
