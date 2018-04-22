@@ -1,8 +1,8 @@
 class Atari800 < Formula
   desc "Atari 8-bit machine emulator"
   homepage "https://atari800.github.io/"
-  url "https://downloads.sourceforge.net/project/atari800/atari800/3.1.0/atari800-3.1.0.tar.gz"
-  sha256 "901b02cce92ddb0b614f8034e6211f24cbfc2f8fb1c6581ba0097b1e68f91e0c"
+  url "https://downloads.sourceforge.net/project/atari800/atari800/4.0.0/atari800-4.0.0.tar.gz"
+  sha256 "08e9b989ddb2785265d242ff92b416a2b53c285c7309f3fc3f5e94889cb69eb5"
 
   bottle do
     cellar :any
@@ -12,17 +12,11 @@ class Atari800 < Formula
     sha256 "5474b61b32e2ac3aa5e594c5e617e326aeedc62f8e740b2888ba654db273296a" => :yosemite
   end
 
-  head do
-    url "https://git.code.sf.net/p/atari800/source.git"
-    depends_on "autoconf" => :build
-  end
-
   depends_on "sdl"
   depends_on "libpng"
 
   def install
-    chdir "src" do
-      system "./autogen.sh" if build.head?
+    cd "src" do
       system "./configure", "--prefix=#{prefix}",
                             "--disable-sdltest"
       system "make", "install"
