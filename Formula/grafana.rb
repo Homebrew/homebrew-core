@@ -3,6 +3,7 @@ class Grafana < Formula
   homepage "https://grafana.com"
   url "https://github.com/grafana/grafana/archive/v5.0.4.tar.gz"
   sha256 "a25032755ed8a825efbe1ba641de59b002495dcec0a3c92b9606aa3eb35c6439"
+  revision 1
   head "https://github.com/grafana/grafana.git"
 
   bottle do
@@ -37,7 +38,7 @@ class Grafana < Formula
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor", "public"
+      pkgshare.install "conf", "public", "tools", "vendor"
       prefix.install_metafiles
     end
   end
