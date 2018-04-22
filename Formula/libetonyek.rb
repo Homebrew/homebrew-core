@@ -5,9 +5,9 @@ class Libetonyek < Formula
   sha256 "9dc92347aee0cc9ed57b175a3e21f9d96ebe55d30fecb10e841d1050794ed82d"
 
   bottle do
-    sha256 "8cb44e63040162663d2145200a902bd4da40907a1e3ad630a43ce4a55f00f5ad" => :high_sierra
-    sha256 "77ce685537dc1bce0600e3c795699fd90004c0c38fc6735243028c7bc167070f" => :sierra
-    sha256 "385b7f6fbc971b66cb7b60aaaed207eee6a4f8f76af27dcff8104aff03320739" => :el_capitan
+    sha256 "f03b400c57d53246843f5bb960be851bbb7a4386174f3fe08d762bf12a3cb806" => :high_sierra
+    sha256 "4118f35b50634d104c481539e3746d824f31a045538a70881ca6869ecabab784" => :sierra
+    sha256 "d811b416c6cc4cee0c770d476a993ab2b2ad9917068f31bb772a0ad3704cdcc1" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
