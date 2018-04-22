@@ -1,8 +1,8 @@
 class Nfdump < Formula
   desc "Tools to collect and process netflow data on the command-line"
   homepage "https://nfdump.sourceforge.io"
-  url "https://github.com/phaag/nfdump/archive/v1.6.16.tar.gz"
-  sha256 "b18479215c51a98fbdf973ef548464780e7a9d9f7fe73e4fab9ab7ec8a3bdc8f"
+  url "https://github.com/phaag/nfdump/archive/v1.6.17.tar.gz"
+  sha256 "f71c2c57bdcd0731b2cfecf6d45f9bf57fc7c946858644caf829f738c67c393d"
 
   bottle do
     cellar :any
@@ -11,12 +11,15 @@ class Nfdump < Formula
     sha256 "8007ce2f9c414dc027fd156a3ef2b2023b16a8c51e3b76ee37a82cca3a96d769" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def install
+    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}", "--enable-readpcap"
-    # https://github.com/phaag/nfdump/issues/32
-    ENV.deparallelize { system "make", "install" }
+    system "make", "install"
   end
 
   test do
