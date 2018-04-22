@@ -7,9 +7,9 @@ class Libfaketime < Formula
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
-    sha256 "99f78789ba8ee314d2358531a106d245c327a2248d7b59712493543806604eae" => :high_sierra
-    sha256 "3fc5f61a8d50f7586cc18d269263fa95481bd741ac1756f2f55b5932e5a01ce5" => :sierra
-    sha256 "0b792c716c6e8ba9db928b0c4dc4ab2dc474eb12da529186ba4475f5fba73169" => :el_capitan
+    sha256 "b0407a1063d15d262b5c204fa9b8275c050a3e9041f059bbfd3bf478358959db" => :high_sierra
+    sha256 "cc615ac1fb6806cd182074d765c971ad173b97fee1d1a78ba0ad0123ca8ad4d9" => :sierra
+    sha256 "d9b8d66be340ea8ee970adb669a6848bc9c1dbe94ed48b5bb36c1212e42dc801" => :el_capitan
   end
 
   # The `faketime` command needs GNU `gdate` not BSD `date`.
