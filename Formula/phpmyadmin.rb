@@ -14,24 +14,23 @@ class Phpmyadmin < Formula
   end
 
   def caveats; <<~EOS
-    Note that this formula will NOT install mysql. It is not
-    required since you might want to get connected to a remote
-    database server.
+    Note that this formula will NOT install mysql. It is not required since you
+    may want to connect to a remote database server.
 
-    Webserver configuration example (add this at the end of
-    your /etc/apache2/httpd.conf for instance) :
-      Alias /phpmyadmin #{HOMEBREW_PREFIX}/share/phpmyadmin
-      <Directory #{HOMEBREW_PREFIX}/share/phpmyadmin/>
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        <IfModule mod_authz_core.c>
-          Require all granted
-        </IfModule>
-        <IfModule !mod_authz_core.c>
-          Order allow,deny
-          Allow from all
-        </IfModule>
-      </Directory>
+    To enable phpMyAdmin in Apache, add the following to httpd.conf and
+    restart Apache:
+        Alias /phpmyadmin #{HOMEBREW_PREFIX}/share/phpmyadmin
+        <Directory #{HOMEBREW_PREFIX}/share/phpmyadmin/>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            <IfModule mod_authz_core.c>
+                Require all granted
+            </IfModule>
+            <IfModule !mod_authz_core.c>
+                Order allow,deny
+                Allow from all
+            </IfModule>
+        </Directory>
     Then, open http://localhost/phpmyadmin
 
     More documentation : file://#{pkgshare}/doc/
