@@ -1,8 +1,8 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.4.tar.gz"
-  sha256 "c349d9b428da26b713847afc268d033ed3f6cc351a8fdfc7557811146b677e23"
+  url "https://github.com/bettercap/bettercap/archive/v2.5.tar.gz"
+  sha256 "90f437ce132cc080c573a5bbc568d31859105117db2e1bf77f209c01ef2fa5ee"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,16 +11,15 @@ class Bettercap < Formula
     sha256 "dbe475c3a08e31da8e600bda55ee3c5128fe5421a55c351cf839d858d4ada921" => :el_capitan
   end
 
-  depends_on "glide" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
 
     cd "src/github.com/bettercap/bettercap" do
-      system "glide", "install"
+      system "dep", "ensure"
       system "make", "build"
       bin.install "bettercap"
       prefix.install_metafiles
