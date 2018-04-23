@@ -3,8 +3,8 @@ require "language/node"
 class Heroku < Formula
   desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
-  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.16.17.tgz"
-  sha256 "bcc154f0528eabd2600cd32d1900ae608d18cb7b1ab2bb26864515de0b81e861"
+  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-7.0.9.tgz"
+  sha256 "b60b0573262f00beea1372837f77faa66b7ef0d79da82e601b6142025b2eb77f"
   head "https://github.com/heroku/cli.git"
 
   bottle do
@@ -17,10 +17,8 @@ class Heroku < Formula
   depends_on "node"
 
   def install
-    inreplace "bin/run" do |s|
-      s.gsub! "npm update -g heroku-cli", "brew upgrade heroku"
-      s.gsub! "#!/usr/bin/env node", "#!#{Formula["node"].opt_bin}/node"
-    end
+    inreplace "bin/run", "#!/usr/bin/env node",
+                         "#!#{Formula["node"].opt_bin}/node"
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
