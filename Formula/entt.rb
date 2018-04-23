@@ -3,9 +3,17 @@ class Entt < Formula
   homepage "https://skypjack.github.io/entt/"
   url "https://github.com/skypjack/entt/archive/v2.5.0.tar.gz"
   sha256 "6246501c6589eba9832538c47a23a239eaa1066c77471cae7d79e741141ade82"
+  head "https://github.com/skypjack/entt.git"
+
+  depends_on "cmake" => :build
+  depends_on "doxygen" => :build
 
   def install
     include.install "src/entt"
+    cd "build"
+    system "cmake", ".."
+    system "make", "docs"
+    (prefix/"docs").install "docs/html"
   end
 
   test do
