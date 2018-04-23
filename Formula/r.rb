@@ -25,9 +25,9 @@ class R < Formula
   skip_clean "lib/R/bin"
 
   resource "gss" do
-    url "https://cloud.r-project.org/src/contrib/gss_2.1-7.tar.gz", :using => :nounzip
-    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-7.tar.gz"
-    sha256 "0405bb5e4c4d60b466335e5da07be4f9570045a24aed09e7bc0640e1a00f3adb"
+    url "https://cloud.r-project.org/src/contrib/gss_2.1-8.tar.gz", :using => :nounzip
+    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-8.tar.gz"
+    sha256 "176cce8ddd939afb9ec3de6c731d13fbff38bc8f0291cf9c7aa4bf35491084bc"
   end
 
   def install
