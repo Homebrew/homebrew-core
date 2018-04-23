@@ -45,8 +45,6 @@ class Phpmyadmin < Formula
   end
 
   test do
-    assert_predicate etc/"phpmyadmin.config.inc.php", :exist?
-
     Dir.chdir(pkgshare)
     system "php", pkgshare/"index.php"
   end
