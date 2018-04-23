@@ -20,19 +20,24 @@ class Cglm < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <cglm/cglm.h>
+      #include <assert.h>
+
       int main()
       {
         vec3 x = {1.0f, 0.0f, 0.0f},
-             y = {0.0f, 1.0f, 0.0f};
+             y = {0.0f, 1.0f, 0.0f},
+             z = {0.0f, 0.0f, 1.0f};
         vec3 r;
 
         glm_cross(x, y, r);
-        glm_vec3_print(r, stderr);
+
+        /* r (result) should be equal to Z, cross X and Y must yields +Z */
+        assert(glm_vec_eqv_eps(r, z));
 
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", testpath/"test.c", "-o", "test"
+    system ENV.cc, "-I#{include}", testpath/"test.c", "-o", "test"
     system "./test"
   end
 end
