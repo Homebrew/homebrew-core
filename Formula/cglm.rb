@@ -1,8 +1,8 @@
 class Cglm < Formula
-  desc "📽 Optimized OpenGL/Graphics Math (glm) for C"
+  desc "Optimized OpenGL/Graphics Math (glm) for C"
   homepage "https://github.com/recp/cglm"
-  url "https://github.com/recp/cglm/archive/v0.4.3.tar.gz"
-  sha256 "d5f58f4a4f877a5f865a6345e87b5b69807957f37f5b537039cf19988fc06f93"
+  url "https://github.com/recp/cglm/archive/v0.4.4.tar.gz"
+  sha256 "b62dff42202f9302ed1dfbad039134c45ff92c809052598aa1c469aab91a65d3"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
