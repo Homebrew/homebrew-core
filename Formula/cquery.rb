@@ -6,6 +6,9 @@ class Cquery < Formula
                                                       :revision => "f3e9e756e182b122bef8826a77047f6ccf5529b6"
   head "https://github.com/cquery-project/cquery.git"
 
+  depends_on "python@2" => :build
+  depends_on "xz" => :build
+
   bottle do
     cellar :any
     sha256 "0f567e5d88299f28d489b666fca2cf320b91062fc053e0c2a8a1ad9e1bc76598" => :high_sierra
