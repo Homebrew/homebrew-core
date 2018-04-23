@@ -64,6 +64,17 @@ class Dbus < Formula
     system "#{bin}/dbus-uuidgen", "--ensure=#{var}/lib/dbus/machine-id"
   end
 
+  def caveats
+    if HOMEBREW_PREFIX.to_s != "/usr/local"
+      <<~EOS
+        Because your prefix isn't /usr/local, if you want to use DBus features with Qt, you
+        may need to run the following command:
+
+            ln -sf #{opt_prefix}/lib/libdbus-1.dylib /usr/local/lib/
+      EOS
+    end
+  end
+
   test do
     system "#{bin}/dbus-daemon", "--version"
   end
