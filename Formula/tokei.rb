@@ -5,9 +5,9 @@ class Tokei < Formula
   sha256 "f0ab7b073928eb365d3658be2517cad5f9fb9cd91c5030373570cad3695a60ef"
 
   bottle do
-    sha256 "9ddc97082885c00d12d61da6bf6bac1889bfcf4d66371f289d47b8854ed618ad" => :high_sierra
-    sha256 "5b63b0f5fe0e2dd347a6104e3af36aae7b2de70b3e65967b9c2a0ba77e536e53" => :sierra
-    sha256 "3e497eeb0db677cd8ab57433701398438deb7a73b4c083f7c73c6a13238ac95b" => :el_capitan
+    sha256 "3955b971c68a46c26e6433c9a71038961bf4facbdff7b86f82cae2046cedd5a2" => :high_sierra
+    sha256 "a2a9f4b5b019bf1dca116c9f10e7ca6871f4e78d110d13edf6b46b7a61c43a88" => :sierra
+    sha256 "4b271a5d3f85fcf29be673deb2271216f3574e336eb6e954c1611811e4210dc5" => :el_capitan
   end
 
   depends_on "rust" => :build
