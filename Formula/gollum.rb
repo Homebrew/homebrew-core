@@ -7,9 +7,9 @@ class Gollum < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21fe6b3a0126e7b827a8cae7d74a92bb2ae202bd91139eb8dd230acae4a353dd" => :high_sierra
-    sha256 "a06fec35f228c609b6fb019f926c143d4ac058bc9877353199ba2a4f3141926b" => :sierra
-    sha256 "a095c21061f6182bc7f6fefc8538e67e7a10ee535b51e3960c5a29da2de345bf" => :el_capitan
+    sha256 "86e8ea259f024cb5c429594a4ecbafe983b06b08dc4fcad3dc35e269d89fb283" => :high_sierra
+    sha256 "75fa194b9bb429eccbfeea26cde0acfb68622e0f8c544fd788fa527aad8ac322" => :sierra
+    sha256 "f3b98eb14ff5762a30f55ff8da3bae13bd29cf7c684f704a3dc7ff1b334baaad" => :el_capitan
   end
 
   depends_on "go" => :build
