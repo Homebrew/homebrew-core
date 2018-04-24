@@ -1,10 +1,9 @@
 class Acme < Formula
   desc "Crossassembler for multiple environments"
-  homepage "https://web.archive.org/web/20150520143433/https://www.esw-heim.tu-clausthal.de/~marco/smorbrod/acme/"
-  url "https://www.mirrorservice.org/sites/ftp.cs.vu.nl/pub/minix/distfiles/backup/acme091src.tar.gz"
-  mirror "http://ftp.lip6.fr/pub/minix/distfiles/backup/acme091src.tar.gz"
-  version "0.91"
-  sha256 "31ed7f9be5cd27100b13d6c3e2faec35d15285542cbe168ec5e1b5236125decb"
+  homepage "https://sourceforge.net/projects/acme-crossass/"
+  url "https://downloads.sourceforge.net/code-snapshots/svn/a/ac/acme-crossass/code-0/acme-crossass-code-0-97-trunk.zip"
+  version "0.96.4"
+  sha256 "e0f49c4408563684ad3f1f2b868ddee5936b4e5c88b3fc10334a7617f525af01"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,9 +16,9 @@ class Acme < Formula
   end
 
   devel do
-    url "https://web.archive.org/web/20150501011451/https://www.esw-heim.tu-clausthal.de/~marco/smorbrod/acme/current/acme093testing.tar.bz2"
-    sha256 "cf374869265981437181609483bdb6c43f7313f81cfe57357b0ac88578038c02"
-    version "0.93"
+    url "https://downloads.sourceforge.net/code-snapshots/svn/a/ac/acme-crossass/code-0/acme-crossass-code-0-98-trunk.zip"
+    sha256 "3e04526074e4b58b35f75de9ba84a4e9fdb25b252ed5b77ebad59dedd6f1430e"
+    version "0.98"
   end
 
   def install
