@@ -31,6 +31,11 @@ class Tile38 < Formula
     datadir.mkpath
   end
 
+  def caveats; <<~EOS
+    To connect: tile38-cli
+    EOS
+  end
+
   plist_options :manual => "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
 
   def plist; <<~EOS
@@ -61,11 +66,6 @@ class Tile38 < Formula
         <string>#{var}/log/tile38.log</string>
       </dict>
     </plist>
-    EOS
-  end
-
-  def caveats; <<~EOS
-    To connect: tile38-cli
     EOS
   end
 
