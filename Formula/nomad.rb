@@ -21,7 +21,7 @@ class Nomad < Formula
     (buildpath/"src/github.com/hashicorp/nomad").install buildpath.children
     cd "src/github.com/hashicorp/nomad" do
       ENV["CGO_ENABLED"] = "1" if build.with? "dynamic"
-      system "go", "build", "-o", bin/"nomad"
+      system "go", "build", "-tags", "ui", "-o", bin/"nomad"
       prefix.install_metafiles
     end
   end
