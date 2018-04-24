@@ -1,8 +1,8 @@
 class Uftp < Formula
   desc "Secure, reliable, efficient multicast file transfer program"
   homepage "https://uftp-multicast.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-4.9.5.tar.gz"
-  sha256 "83870a5ad05c9e2d18eaa0de7cf43149f489712d8b72a1a00497695881829aaa"
+  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-4.9.6.tar.gz"
+  sha256 "5f032b55ab17edd265fdfb76503c012be83f7e84d9d88ebfa462c4349c3bcf2f"
 
   bottle do
     cellar :any
