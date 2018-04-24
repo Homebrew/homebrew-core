@@ -1,9 +1,9 @@
 class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
-  homepage "https://github.com/GoogleCloudPlatform/skaffold"
-  url "https://github.com/GoogleCloudPlatform/skaffold.git",
-      :tag => "v0.4.0",
-      :revision => "8a99affded87a0f81e3ee90bd9f24f01aec5038d"
+  homepage "https://github.com/GoogleContainerTools/skaffold"
+  url "https://github.com/GoogleContainerTools/skaffold.git",
+      :tag => "v0.5.0",
+      :revision => "a9b7884039ae50fbada04e5bdcaf9e43ddf0a3e4"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class Skaffold < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/GoogleCloudPlatform/skaffold"
+    dir = buildpath/"src/github.com/GoogleContainerTools/skaffold"
     dir.install buildpath.children - [buildpath/".brew_home"]
     cd dir do
       system "make"
