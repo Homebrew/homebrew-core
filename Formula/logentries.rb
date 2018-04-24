@@ -14,9 +14,9 @@ class Logentries < Formula
     sha256 "231eb13cd13914785b8b09f63e0758201ae7e36ad57cf6c847e0f9effc25b556" => :el_capitan
   end
 
-  conflicts_with "le", :because => "both install a le binary"
-
   depends_on "python@2"
+
+  conflicts_with "le", :because => "both install a le binary"
 
   def install
     virtualenv_install_with_resources
