@@ -10,7 +10,7 @@ class CodesignRequirement < Requirement
 
   def message
     <<~EOS
-      lldb_codesign identity must be available to build with LLDB.
+      lldb_codesign identity must be available to build with LLDB's in-tree debug server.
       See: https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt
     EOS
   end
@@ -19,6 +19,7 @@ end
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1
 
   stable do
     url "https://releases.llvm.org/6.0.0/llvm-6.0.0.src.tar.xz"
@@ -124,12 +125,9 @@ class Llvm < Formula
   option "without-compiler-rt", "Do not build Clang runtime support libraries for code sanitizers, builtins, and profiling"
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
-  option "with-lldb", "Build LLDB debugger"
-  option "with-python@2", "Build bindings against Homebrew's Python 2"
+  option "with-debug-server", "Build LLDB's in-tree debug server, otherwise the system one is used"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
-
-  deprecated_option "with-python" => "with-python@2"
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "libffi" => :recommended
@@ -143,17 +141,10 @@ class Llvm < Formula
     depends_on "pkg-config" => :build
   end
 
-  if MacOS.version <= :snow_leopard
-    depends_on "python@2"
-  else
-    depends_on "python@2" => :optional
-  end
+  depends_on "python@2"
   depends_on "cmake" => :build
-
-  if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
-    depends_on CodesignRequirement
-  end
+  depends_on "swig" => :build if MacOS.version >= :lion
+  depends_on CodesignRequirement if build.with? "debug-server"
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -170,37 +161,14 @@ class Llvm < Formula
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
-    if build.with? "python@2"
-      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
-    end
-
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx") if build_libcxx?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
+    (buildpath/"tools/lldb").install resource("lldb")
     (buildpath/"tools/polly").install resource("polly")
-
-    if build.with? "lldb"
-      if build.with? "python@2"
-        pyhome = `python-config --prefix`.chomp
-        ENV["PYTHONHOME"] = pyhome
-        pylib = "#{pyhome}/lib/libpython2.7.dylib"
-        pyinclude = "#{pyhome}/include/python2.7"
-      end
-      (buildpath/"tools/lldb").install resource("lldb")
-
-      # Building lldb requires a code signing certificate.
-      # The instructions provided by llvm creates this certificate in the
-      # user's login keychain. Unfortunately, the login keychain is not in
-      # the search path in a superenv build. The following three lines add
-      # the login keychain to ~/Library/Preferences/com.apple.security.plist,
-      # which adds it to the superenv keychain search path.
-      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
-      username = ENV["USER"]
-      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
-    end
 
     if build.with? "compiler-rt"
       (buildpath/"projects/compiler-rt").install resource("compiler-rt")
@@ -236,11 +204,29 @@ class Llvm < Formula
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
 
-    if build.with?("lldb") && build.with?("python@2")
-      args << "-DLLDB_RELOCATABLE_PYTHON=ON"
-      args << "-DPYTHON_LIBRARY=#{pylib}"
-      args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
+    if build.with? "debug-server"
+      # Building lldb with its in-tree debug server requires a code signing certificate.
+      # The instructions provided by llvm creates this certificate in the
+      # user's login keychain. Unfortunately, the login keychain is not in
+      # the search path in a superenv build. The following three lines add
+      # the login keychain to ~/Library/Preferences/com.apple.security.plist,
+      # which adds it to the superenv keychain search path.
+      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
+      username = ENV["USER"]
+      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
+    else
+      # Building lldb with the system debug server.
+      # https://github.com/llvm-mirror/lldb/blob/5febeff671748655213b74bbd71e7d2efc1a9efe/docs/code-signing.txt#L6-L8
+      args << "-DLLDB_CODESIGN_IDENTITY=''"
     end
+
+    ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
+    pyhome = `python-config --prefix`.chomp
+    ENV["PYTHONHOME"] = pyhome
+    pylib = "#{pyhome}/lib/libpython2.7.dylib"
+    pyinclude = "#{pyhome}/include/python2.7"
+    args << "-DPYTHON_LIBRARY=#{pylib}"
+    args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
 
     if build.with? "libffi"
       args << "-DLLVM_ENABLE_FFI=ON"
