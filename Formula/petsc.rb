@@ -1,5 +1,5 @@
 class Petsc < Formula
-  desc "Tools for solving partial differential equations in parallel"
+  desc "Portable, Extensible Toolkit for Scientific Computation"
   homepage "https://www.mcs.anl.gov/petsc/"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.9.0.tar.gz"
   sha256 "a233e0d7f69c98504a1c3548162c6024f7797dde5556b83b0f98ce7326251ca1"
@@ -32,9 +32,8 @@ class Petsc < Formula
     # This PETSc example prints several lines of output. The last line contains
     # an error norm, expected to be small.
     line = output.lines.last
-    match = /(?<=^Norm of error )(.+)(?=,)/.match(line)
-    assert match, "Unexpected output format"
-    error = match[0]
-    assert (error.to_f >= 0.0 && error.to_f < 1.0e-13), "Error norm too large"
+    assert_match /^Norm of error .+, Iterations/, line, "Unexpected output format"
+    error = line.split()[3].to_f
+    assert (error >= 0.0 && error < 1.0e-13), "Error norm too large"
   end
 end
