@@ -7,11 +7,10 @@ class Genact < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/genact"
+    system "cargo", "install", "--root", prefix
   end
 
   test do
-    system "#{bin}/genact", "-V"
+    assert_match /Available modules:/, shell_output("#{bin}/genact --list-modules")
   end
 end
