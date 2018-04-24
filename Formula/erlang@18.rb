@@ -1,8 +1,8 @@
 class ErlangAT18 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
-  url "https://github.com/erlang/otp/archive/OTP-18.3.4.8.tar.gz"
-  sha256 "26df069142401924dc10d37f994a5de5ed971824880c5e5cce041b1e82c9250d"
+  url "https://github.com/erlang/otp/archive/OTP-18.3.4.9.tar.gz"
+  sha256 "25ef8ba3824cb726c4830abf32c2a2967925b1e33a8e8851dba596e933e2689a"
   head "https://github.com/erlang/otp.git", :branch => "maint-18"
 
   bottle do
