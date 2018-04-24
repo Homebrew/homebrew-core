@@ -5,7 +5,7 @@ class Entt < Formula
   sha256 "6246501c6589eba9832538c47a23a239eaa1066c77471cae7d79e741141ade82"
 
   option "with-docs", "Install the HTML documentation"
-  
+
   depends_on "cmake" => :build if build.with? "docs"
   depends_on "doxygen" => :build if build.with? "docs"
 
