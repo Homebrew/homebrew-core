@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.4.6.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.4.6.tar.xz"
-  sha256 "8e965fd282bc0c09e7c4eba5f08a555d0ccf40a7d1544b939e01b90bc893d5fe"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.6.0.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.6.0.tar.xz"
+  sha256 "711c7f01d27a8817d58277a5487cef3e3c7bab1c8caaf8f4c92aa21015b9117f"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
@@ -22,10 +22,10 @@ class Wireshark < Formula
 
   depends_on "cmake" => :build
   depends_on "c-ares"
-  depends_on "geoip"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "libmaxminddb"
   depends_on "lua"
   depends_on "libsmi" => :optional
   depends_on "libssh" => :optional
@@ -39,9 +39,9 @@ class Wireshark < Formula
   def install
     args = std_cmake_args + %w[
       -DENABLE_CARES=ON
-      -DENABLE_GEOIP=ON
       -DENABLE_GNUTLS=ON
       -DENABLE_LUA=ON
+      -DENABLE_MAXMINDDB=ON
     ]
 
     if build.with? "qt"
