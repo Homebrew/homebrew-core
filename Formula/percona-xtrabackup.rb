@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.10/source/tarball/percona-xtrabackup-2.4.10.tar.gz"
-  sha256 "30a122fc3f6678484a118ae7095880393765a00af1f34fcb6cc3f96b66f07f45"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.11/source/tarball/percona-xtrabackup-2.4.11.tar.gz"
+  sha256 "67506507628eec5edc88d2000f423e892b46c8ca56dbe5a02566a11168ee6483"
 
   bottle do
     sha256 "cb72c3a73e3ae5c7bb6e792b938a3a2f6a46548cfc297e2be328815aff13b5a4" => :high_sierra
@@ -62,6 +62,9 @@ class PerconaXtrabackup < Formula
     share.install "share/man" if build.with? "docs"
 
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
+    # remove conflicting libraries that are already installed by mysql
+    rm lib/"libmysqlservices.a"
+    rm lib/"plugin/keyring_file.so"
 
     if build.with? "mysql"
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
