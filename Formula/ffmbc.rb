@@ -4,7 +4,7 @@ class Ffmbc < Formula
   url "https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU"
   version "0.7.2"
   sha256 "caaae2570c747077142db34ce33262af0b6d0a505ffbed5c4bdebce685d72e42"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "5272f1aa52aba79e565722123ed3401cc86816b0c9e603fdfb8927acf4e28e22" => :high_sierra
@@ -27,6 +27,7 @@ class Ffmbc < Formula
   def install
     args = ["--prefix=#{prefix}",
             "--disable-debug",
+            "--disable-indev=jack",
             "--disable-shared",
             "--enable-gpl",
             "--enable-libfaac",
