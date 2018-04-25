@@ -3,7 +3,7 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.1.tar.gz"
   sha256 "f1b87684d75496a1054405ae3ee0b6573acaf3dad39eaf4f1d66fdd7e03dc852"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "f16a38da9789f56f7d77c9b9ebc7598b96531fadb8ea6e6c06a47158927a7de9" => :high_sierra
@@ -57,7 +57,9 @@ class Opencv < Formula
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
       -DBUILD_ZLIB=OFF
+      -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
+      -DBUILD_opencv_text=OFF
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DWITH_1394=OFF
