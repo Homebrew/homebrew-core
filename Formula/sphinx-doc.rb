@@ -7,9 +7,9 @@ class SphinxDoc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34d0333374dc4388dbc6c6637c87c3686a9688d536f65ae28a08baa06a7aa62f" => :high_sierra
-    sha256 "3f4221871c0a85b351c12d2894250ac1b3d4ca2c037fbe485110579fbad5e2ba" => :sierra
-    sha256 "81d11f4f652e0aad99b34502f11b443b5fe6392d22ae08621a2cd4ac92630fb3" => :el_capitan
+    sha256 "8bb5ade124dc2880add242e76df1210402169ead2c65a2d79eec403bec1d68ec" => :high_sierra
+    sha256 "c9e86b4cc43d463402cd70399112365249538ae5bc9c4b7a438406510f23f647" => :sierra
+    sha256 "7700484b0c1cbf976ab0578a43a6581f36d243c42064b60a1ea6e25a6c748920" => :el_capitan
   end
 
   keg_only <<~EOS
