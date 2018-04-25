@@ -1,9 +1,9 @@
 class Rtf2latex2e < Formula
   desc "RTF-to-LaTeX translation"
   homepage "https://rtf2latex2e.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/rtf2latex2e/rtf2latex2e-unix/2-2/rtf2latex2e-2-2-2.tar.gz"
-  version "2.2.2"
-  sha256 "eb742af22f2ae43c40ea1abc5f50215e04779e51dc9d91cac9276b98f91bb1af"
+  url "https://downloads.sourceforge.net/project/rtf2latex2e/rtf2latex2e-unix/2-2/rtf2latex2e-2-2-3.tar.gz"
+  version "2.2.3"
+  sha256 "7ef86edea11d5513cd86789257a91265fc82d978541d38ab2c08d3e9d6fcd3c3"
 
   bottle do
     sha256 "47238fae3533932176605eb7509971db1f50bd6c01bc66d5a7ed4da86fb87543" => :high_sierra
