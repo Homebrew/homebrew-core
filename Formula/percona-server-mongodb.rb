@@ -1,9 +1,9 @@
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/percona-server-mongodb-3.4/percona-server-mongodb-3.4.14-2.12/source/tarball/percona-server-mongodb-3.4.14-2.12.tar.gz"
-  version "3.4.14-2.12"
-  sha256 "2e728c44ec70b8b1d321c53db6521c3ec2d0db7a12d6edf54d2f49258fc0531e"
+  url "https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.3-1.1/source/tarball/percona-server-mongodb-3.6.3-1.1.tar.gz"
+  version "3.6.3-1.1"
+  sha256 "d6639737b45d5617d49fd7bd1b7b610fe64fe96c8a32c2d4fa3d1b6f74124d0b"
 
   bottle do
     sha256 "335ea0f63c973e5223dbf6864b70955fd54378f2443765451356a258afb9fd7e" => :high_sierra
@@ -16,18 +16,38 @@ class PerconaServerMongodb < Formula
 
   depends_on "boost" => :optional
   depends_on "go" => :build
-  depends_on :macos => :mountain_lion
+  depends_on :macos => :sierra
   depends_on "scons" => :build
   depends_on "openssl" => :recommended
 
   conflicts_with "mongodb",
     :because => "percona-server-mongodb and mongodb install the same binaries."
 
-  needs :cxx11
+  resource "Cheetah" do
+    url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
+    sha256 "be308229f0c1e5e5af4f27d7ee06d90bb19e6af3059794e5fd536a6f29a9b550"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
+    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  end
+
+  resource "typing" do
+    url "https://files.pythonhosted.org/packages/ec/cc/28444132a25c113149cec54618abc909596f0b272a74c55bab9593f8876c/typing-3.6.4.tar.gz"
+    sha256 "d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
+  end
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-    ENV.libcxx if build.devel?
+    ["Cheetah", "PyYAML", "typing"].each do |r|
+      resource(r).stage do
+        system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+      end
+    end
+
+    (buildpath/".brew_home/Library/Python/2.7/lib/python/site-packages/vendor.pth").write <<~EOS
+      import site; site.addsitedir("#{buildpath}/vendor/lib/python2.7/site-packages")
+    EOS
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
@@ -56,7 +76,6 @@ class PerconaServerMongodb < Formula
     args = %W[
       --prefix=#{prefix}
       -j#{ENV.make_jobs}
-      --osx-version-min=#{MacOS.version}
     ]
 
     args << "CC=#{ENV.cc}"
