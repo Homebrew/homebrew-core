@@ -5,9 +5,9 @@ class PerconaServer < Formula
   sha256 "8a09a4c65a059e2e096fea72b9d00e1d06c8b35b2e72726a83530823b49693c6"
 
   bottle do
-    sha256 "f486ad7e346bc716f258eecb66fb852da697333141a286f0a0076fa48f5e743c" => :high_sierra
-    sha256 "c9cec18ec850f01cb7db22dd379aabe5bcbd00cb94269068cc1102c10c96d7c7" => :sierra
-    sha256 "e16b3560518cf0625196e0076c33176b1af5e90d57e528b726dde89704bc59d1" => :el_capitan
+    sha256 "0958284d82fda050cbe5676d9db0981055eef314549c077950c9b188b7cd9ab8" => :high_sierra
+    sha256 "f2a2c52d2216eebc450ce7f1b8f7aeeced12258a2a3e45757f3fb45b88e1075b" => :sierra
+    sha256 "b031f89db3b562fc032f16e0ca467c9a8fc05ca7d28f7177fbd5d79ea64d7528" => :el_capitan
   end
 
   option "with-debug", "Build with debug support"
