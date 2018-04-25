@@ -6,10 +6,9 @@ class Scale2x < Formula
 
   bottle do
     cellar :any
-    sha256 "fd683dea067c68253aa4fe198438fc19f023bca3a368931bfebbbabb5032fd99" => :high_sierra
-    sha256 "8699587cf81a5d38985d81e32bb7b7815cda1d731a5f134d045692b5276e0a12" => :sierra
-    sha256 "ad49eb9e6167e9ad5d5ea4f08a870b06ee9118465668762ac05a8b50cdbd7ebf" => :el_capitan
-    sha256 "c431a4d6ccc671f7d010fc1d010d6f31372c2075942ffc402f7969f7b0c7b43a" => :yosemite
+    sha256 "2a3519bdbba8ff6caa1ca9b48d461866b8121dfd224a2c25da106087bb3cfd61" => :high_sierra
+    sha256 "771e1b1ea660234e8bea89e774d0d802f7f1cb12c08e100cbb5b83d0a02a61ea" => :sierra
+    sha256 "033e1adf0430ced99eef1b746842e9ca876b542f6fbd8f050e8f7c7e1b59f692" => :el_capitan
   end
 
   depends_on "libpng"
