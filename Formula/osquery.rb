@@ -1,8 +1,8 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  url "https://github.com/facebook/osquery/archive/3.2.3.tar.gz"
-  sha256 "dcbdce8751a8b87293d3fc6fc1e56db5229fcd21cbf16bc7dc2c7caa3868eb7b"
+  url "https://github.com/facebook/osquery/archive/3.2.4.tar.gz"
+  sha256 "9e0e6a6b65af174793182c7e412442da27ae5ebf4055b032586584e7e41e77b1"
 
   bottle do
     cellar :any
