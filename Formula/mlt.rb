@@ -6,9 +6,9 @@ class Mlt < Formula
   revision 1
 
   bottle do
-    sha256 "be45b8ddd63ac480058581c5c79dd4a1860a6bf8574c40560458ebe0b3477625" => :high_sierra
-    sha256 "3996449d69751983dd01f0367d4843d496bfc46d76d4a9d190f499fbbbb0e612" => :sierra
-    sha256 "00600cc103b87b00591ebb1ba3622cc4c2df401033b18ad941694261f61b11c3" => :el_capitan
+    sha256 "b1f89795c12c4af477f514100b25c021b3eeddcb4a9d1440652aa81d31fad8e0" => :high_sierra
+    sha256 "5b78782553a55cd0b71f0eaeef217e2196e0b96d843b46caa897338cb5ab92d4" => :sierra
+    sha256 "abad78f9330e73451910521f401cbf44c6f60822f9f3ad2f51ce865b0d1a2a6c" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
