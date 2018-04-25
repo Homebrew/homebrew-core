@@ -13,6 +13,15 @@ class Lbzip2 < Formula
     sha256 "7e521c70fadae71ad2e7807cc844183c05751e4a2433d9f1210069fb2a34333e" => :mavericks
   end
 
+  # Fix crash from usage of %n in dynamic format strings on High Sierra
+  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
+  if MacOS.version >= :high_sierra
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/b832494a90b/sysutils/coreutils/files/secure_snprintf.patch"
+      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
+    end
+  end
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
