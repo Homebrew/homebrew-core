@@ -3,6 +3,7 @@ class Corsixth < Formula
   homepage "https://github.com/CorsixTH/CorsixTH"
   url "https://github.com/CorsixTH/CorsixTH/archive/v0.61.tar.gz"
   sha256 "b8e19743cd499436dce58af67479997e621fe50e21e31f08f440d2303e11f5d6"
+  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
