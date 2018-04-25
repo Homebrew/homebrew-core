@@ -1,9 +1,9 @@
 class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libebml/libebml-1.3.5.tar.xz"
-  mirror "https://www.bunkus.org/videotools/mkvtoolnix/sources/libebml-1.3.5.tar.xz"
-  sha256 "d818413f60742c2f036ba6f582c5e0320d12bffec1b0fc0fc17a398b6f04aa00"
+  url "https://dl.matroska.org/downloads/libebml/libebml-1.3.6.tar.xz"
+  sha256 "1e5a7a7820c493aa62b0f35e15b4233c792cc03458c55ebdfa7a6521e4b43e9e"
+  head "https://github.com/Matroska-Org/libebml.git"
 
   bottle do
     cellar :any
@@ -13,19 +13,12 @@ class Libebml < Formula
     sha256 "c2d4a00cc8e80a2969fa14cb71a84f0e3e26342402c77fdbc641b2e48fec851e" => :yosemite
   end
 
-  head do
-    url "https://github.com/Matroska-Org/libebml.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "autoreconf", "-fi" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+      system "make", "install"
+    end
   end
 end
