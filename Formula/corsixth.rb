@@ -8,9 +8,9 @@ class Corsixth < Formula
 
   bottle do
     cellar :any
-    sha256 "6ed1751a2ddcfa5ffcbeeb40797b30d59ccbec494c5f6e9e5d66d35393ac5943" => :high_sierra
-    sha256 "bc67037ff45a70573990e1203857bd74642f08d15846364143d3c4a4bb602ee9" => :sierra
-    sha256 "fd4afc63d1915ab1d7cf66c962e3ea58ca8959d8fe3f95a88e6158c30efce544" => :el_capitan
+    sha256 "f6fff1b9d33191fb30fc3b6ddd02b5690a1f23d1f0c80ab5e495c0b3ac8a05a2" => :high_sierra
+    sha256 "8c3fcdadd2f5aa7e23e72d516ca41bb23fcf148d7480243531eb4fd2a92cff94" => :sierra
+    sha256 "1b22606a88b9d76e6fa41d4892bc40ec8553740a9b5467fb5be17b1871376dbd" => :el_capitan
   end
 
   depends_on "cmake" => :build
