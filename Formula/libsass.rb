@@ -8,9 +8,9 @@ class Libsass < Formula
 
   bottle do
     cellar :any
-    sha256 "f782f538d711414adfead0c909cd0df7587f5b93d715e41e21acbd432b35b60e" => :high_sierra
-    sha256 "787904f0143242f5c8309186fa0ccb3d0720b624a61b0f3a61495db80e4e86cf" => :sierra
-    sha256 "43a12ae69f2111be5cd9edc85d0b5b8f5221451a76d6c49a8d7be8605d524bd3" => :el_capitan
+    sha256 "6264a337eee7d1ebcf58df8040f4c84bdde0e94e863f6f7c08522b475ada6d68" => :high_sierra
+    sha256 "a544a47112dc4774528288db9373c1489500e82a5afd68c05c57fe5d7ab5e269" => :sierra
+    sha256 "eb7f2898f0027eec8f37d3e51d9b18e84215b6d1f8c5c1e7bdb9f85d5922fc5d" => :el_capitan
   end
 
   depends_on "autoconf" => :build
