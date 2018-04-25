@@ -1,14 +1,38 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.13.12.tar.gz"
-  sha256 "fb92f5602cdb8d3ab1ad47dbeca151b185d62eedb67d347bbe9d79c1438c85de"
   head "https://hg.nginx.org/nginx/", :using => :hg
+
+  # Nginx has an unusual versioning system. Here's how it works:
+  #
+  #   Mainline (unstable) releases have an odd minor version, (eg 1.13.X, 1.15.X, etc)
+  #   Stable releases have an even minor version, (eg 1.12.X, 1.14.X, etc)
+  #
+  # Due to this unusual versioning, the latest devel release can have a
+  # version number that is smaller than the latest stable release.
+  #
+  # Please do not use the mainline release for the stable nginx source.
+  stable do
+    # The minor version here should be even.
+    url "https://nginx.org/download/nginx-1.14.0.tar.gz"
+    sha256 "5d15becbf69aba1fe33f8d416d97edd95ea8919ea9ac519eff9bafebb6022cb5"
+  end
 
   bottle do
     sha256 "f00ac0a380462607107e7969d07984e6b8c0c71086200e150cbd7184fac40bc3" => :high_sierra
     sha256 "985bcaa01f621f1872a8becb352fd405d0ae1a394d0188c46af5cbb00dc7872e" => :sierra
     sha256 "3a31e1d75973c69df73bfad8060e1edb4c06a3c78d62d3aad7e3580cc0521d00" => :el_capitan
+  end
+
+  devel do
+    # 1.13.X is the latest devel line until 1.15 is released approx May 2019.
+    # The minor version here should be odd.
+    ver_string = "1.13.12"
+    # The devel version may be smaller than the stable version, which breaks
+    # audit tests, so we prepend a large number as a workaround.
+    version "144145166.#{ver_string}"
+    url "https://nginx.org/download/nginx-#{ver_string}.tar.gz"
+    sha256 "fb92f5602cdb8d3ab1ad47dbeca151b185d62eedb67d347bbe9d79c1438c85de"
   end
 
   option "with-passenger", "Compile with support for Phusion Passenger module"
