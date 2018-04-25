@@ -17,10 +17,16 @@ class Hugo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+
+    cmd = [HOMEBREW_BREW_FILE, "log", "-1", "--format=%cd", "--date=format:%Y-%m-%dT%H:%M:%S%z", "hugo"]
+    build_date = IO.popen(cmd, :err=>"/dev/null").read.chomp
+    puts "Setting BuildDate to Formula/hugo.rb commit date: #{build_date}"
+    ldflags = "-X github.com/gohugoio/hugo/hugolib.BuildDate=#{build_date}"
+
     (buildpath/"src/github.com/gohugoio/hugo").install buildpath.children
     cd "src/github.com/gohugoio/hugo" do
       system "dep", "ensure"
-      system "go", "build", "-o", bin/"hugo", "main.go"
+      system "go", "build", "-ldflags", ldflags, "-o", bin/"hugo", "main.go"
 
       # Build bash completion
       system bin/"hugo", "gen", "autocomplete", "--completionfile=hugo.sh"
