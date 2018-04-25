@@ -1,19 +1,14 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-2.11.1.tar.bz2"
-  sha256 "d9df2213ceed32e91dab7bc9dd19c1af83f91ba72c7aeef7605dfaaf81732ccb"
+  url "https://download.qemu.org/qemu-2.12.0.tar.bz2"
+  sha256 "c9f4a147bc915d24df9784affc611a115f42d24720a89210b479f1ba7a3f679c"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
     sha256 "8239d88e31f56993977b0d6ba1d63e15c61436c76a6b04ffa46c0dd40f376c4c" => :high_sierra
     sha256 "84a89e0db4091794605084ed08c5991f1bc60c68474ab44f5e78ac220c664335" => :sierra
     sha256 "55c6b1cf7d0fdaf5e5f131c84bf62566954edb56557df0dd088c90a436bb25a3" => :el_capitan
-  end
-
-  devel do
-    url "https://download.qemu.org/qemu-2.12.0-rc3.tar.xz"
-    sha256 "e64b6ba7939a0339aaf82e5720f54b93f46cba032dddaf40fbba028e75397ac7"
   end
 
   depends_on "pkg-config" => :build
