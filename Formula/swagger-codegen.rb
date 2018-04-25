@@ -1,5 +1,5 @@
 class SwaggerCodegen < Formula
-  desc "Generation of API clients, server stubs, documentation from OpenAPI/Swagger definition"
+  desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
   url "https://github.com/swagger-api/swagger-codegen/archive/v2.3.1.tar.gz"
   sha256 "0f86c36a5961b0212f3f3b28650d6c6545b281ce1405411edee8505dfbb4073e"
