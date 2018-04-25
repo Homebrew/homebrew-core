@@ -1,8 +1,8 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v3.3.3.tar.gz"
-  sha256 "6551878987f860d1b47fbf10ec34b910399f642c6541d86d835e1b5c29bc25ed"
+  url "https://github.com/coreos/etcd/archive/v3.3.4.tar.gz"
+  sha256 "95405df7febae747ebc34432977ac180ba007deb84fe97ccc16b64e1f8a0cd1f"
   head "https://github.com/coreos/etcd.git"
 
   bottle do
