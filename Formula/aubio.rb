@@ -3,6 +3,7 @@ class Aubio < Formula
   homepage "https://aubio.org/"
   url "https://aubio.org/pub/aubio-0.4.6.tar.bz2"
   sha256 "bdc73be1f007218d3ea6d2a503b38a217815a0e2ccc4ed441f6e850ed5d47cfb"
+  revision 1
 
   bottle do
     cellar :any
