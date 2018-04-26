@@ -8,9 +8,9 @@ class Bzt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab527d54592451da2e6536cfd6746d834ac3278c489057f82d5f8731cd04ac5d" => :high_sierra
-    sha256 "e1ff079986f6d63bc72e60a2b8d4a644bfb933bd089f05122c257488dfca2e8a" => :sierra
-    sha256 "7fafb2258a17695306d7b2489456480ef8213818f4333d6fff69a8bffb2c8710" => :el_capitan
+    sha256 "c6e01ec8f95f9831f26130c6e7aa222b2175565528d2d9b8d78526c5f0b6b187" => :high_sierra
+    sha256 "7e458992e84b60a9fca467cd8e9e32878a09848994a769b8711a036f39b0145f" => :sierra
+    sha256 "7720cbd91068e56cb2b772a817891894c4e0938ace1abff6fafc9859c98f70f7" => :el_capitan
   end
 
   depends_on "python@2"
