@@ -20,8 +20,8 @@ class Xidel < Formula
 
   test do
     assert_equal "123\n", shell_output("#{bin}/xidel -e 123")
-    #cd buildpath/"programs/internet/xidel" do
-    #  system "bash", "tests/tests.sh"
-    #end
+    # cd buildpath/"programs/internet/xidel" do
+    #   system "bash", "tests/tests.sh"
+    # end
   end
 end
