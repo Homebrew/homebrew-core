@@ -41,9 +41,22 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
+  end
+
+  # Fix compile error on macOS 10.13 around QFixed:
+  # https://github.com/Homebrew/homebrew-core/issues/27095
+  # https://bugreports.qt.io/browse/QTBUG-67545
+  patch do
     url "https://raw.githubusercontent.com/z00m1n/formula-patches/0de0e229/qt/QTBUG-67545.patch"
     sha256 "4a115097c7582c7dce4207f5500d13feb8c990eb8a05a43f41953985976ebe6c"
-    url "https://raw.githubusercontent.com/z00m1n/formula-patches/3b023398/qt/QTBUG-67810.patch"
+  end
+
+  # Fix compile error on macOS 10.13 caused by Boost 1.62.0
+  # using C++ features deprecated in C++ 11 and removed in C++ 17:
+  # https://github.com/Homebrew/homebrew-core/issues/27095
+  # https://bugreports.qt.io/browse/QTBUG-67810
+  patch do
+    url "https://raw.githubusercontent.com/z00m1n/formula-patches/685eecc0/qt/QTBUG-67810.patch"
     sha256 "79738a143850fb98e77c7b6d8bcfe02ef7717e740eba2582911ac3f3b2c2a96b"
   end
 
