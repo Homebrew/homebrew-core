@@ -3,9 +3,8 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/ec/20/3f136313c27ea36ba38d31818b9f0a1a4656668fc6747b3bfa04f3debc98/thefuck-3.25.tar.gz"
-  sha256 "70cbe6295d2d2d371a395619216d38eb1666e4b3c3b1a24f67d11b88e65fea78"
-  revision 3
+  url "https://files.pythonhosted.org/packages/3a/d6/035c2a5c930d61a460d40894de7970e6e2fe83bfc07f0aaef3c684cfe262/thefuck-3.26.tar.gz"
+  sha256 "76215657848be41904b6db7fa82b1d4a366c681d91e548c2d41665a79f1a014d"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
@@ -23,18 +22,18 @@ class Thefuck < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/bb/e0/f6e41e9091e130bf16d4437dabbac3993908e4d6485ecbc985ef1352db94/decorator-4.1.2.tar.gz"
-    sha256 "7cb64d38cb8002971710c8899fbdfb859a23a364b7c99dab19d1f719c2ba16b5"
+    url "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz"
+    sha256 "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/fe/17/0f0bf5792b2dfe6003efc5175c76225f7d3426f88e2bf8d360cfab870cd8/psutil-5.4.1.tar.gz"
-    sha256 "42e2de159e3c987435cb3b47d6f37035db190a1499f3af714ba7af5c379b6ba2"
+    url "https://files.pythonhosted.org/packages/14/a2/8ac7dda36eac03950ec2668ab1b466314403031c83a95c5efc81d2acf163/psutil-5.4.5.tar.gz"
+    sha256 "ebe293be36bb24b95cdefc5131635496e88b17fabbcf1e4bc9b5c01f5e489cfe"
   end
 
   resource "pyte" do
-    url "https://files.pythonhosted.org/packages/d2/1c/f65766736e40916b9a27c6cd582313e78092501b68284d44a1b014f30230/pyte-0.7.0.tar.gz"
-    sha256 "873acb47b624b9f30e9c54fab9c06a53be3b6bfa4b3d863ab30f55e93724c5aa"
+    url "https://files.pythonhosted.org/packages/66/37/6fed89b484c8012a0343117f085c92df8447a18af4966d25599861cd5aa0/pyte-0.8.0.tar.gz"
+    sha256 "7e71d03e972d6f262cbe8704ff70039855f05ee6f7ad9d7129df9c977b5a88c5"
   end
 
   resource "six" do
