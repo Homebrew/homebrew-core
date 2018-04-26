@@ -3,8 +3,8 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "http://robotframework.org/"
-  url "https://github.com/robotframework/robotframework/archive/v3.0.3.tar.gz"
-  sha256 "38f87f2a93fde27efa8dd2774beb998e5875a7b3a0186a3dfa8410778822a546"
+  url "https://github.com/robotframework/robotframework/archive/v3.0.4.tar.gz"
+  sha256 "1557c83f456ae90645f9c88f1e3366571cc3fe0843bea20330601b9d00c47ece"
   head "https://github.com/robotframework/robotframework.git"
 
   bottle do
@@ -49,8 +49,8 @@ class RobotFramework < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
-    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
+    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
+    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
   end
 
   resource "paramiko" do
