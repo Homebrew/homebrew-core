@@ -6,10 +6,9 @@ class Moc < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 "fbabdaaaea2215a4b20636cf32f0fcf1723dbbfe3c522448c1d9bd4057ee8a7e" => :high_sierra
-    sha256 "785c68d5b1657c4bd9cd5a28bf0a1707cad2e7c3b822e1571871cb42464f4844" => :sierra
-    sha256 "09e0d32b7feaf0fc50e1cfe52a0692c5e514ea3f22463becd47b94a001cb8bcd" => :el_capitan
+    sha256 "6885bcf2c1b9d983da98b574679238233e8f72b11835838a60ccb193769661e4" => :high_sierra
+    sha256 "9a83617fd712f2c96079b192f1554345e1a89b1592d5f9dd60be1d229952303f" => :sierra
+    sha256 "4b578375503665ec52c8810eb4cfc48ef9608fc5fe387a29f0deb98a631e659d" => :el_capitan
   end
 
   devel do
