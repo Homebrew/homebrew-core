@@ -6,10 +6,9 @@ class Cgal < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "920a76fb9d6819cea0d8ca6c1e73539fceac1bba745b64748d881654052d504f" => :high_sierra
-    sha256 "979289bb481185a4eff6e23f611135e621de187066a4bb04ca41ac3782d5d81d" => :sierra
-    sha256 "fbc33a19d551d6996919117223f3343610e3b24cb9a88dbe6e1e2c5eec584554" => :el_capitan
+    sha256 "8a1ce0db7bc29ec697ecab957394f9b02592e531f94d5e8d3dc5a86a4eeca468" => :high_sierra
+    sha256 "bf4d382b7cae210fc3a4b823b779833e2dd196fac01b91d9c8104c33e040a383" => :sierra
+    sha256 "f884e64c83f93c57753b624723e373cbe14f765b67812486ebb8d29e70019148" => :el_capitan
   end
 
   option "with-eigen", "Build with Eigen3 support"
