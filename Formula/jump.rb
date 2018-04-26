@@ -1,8 +1,8 @@
 class Jump < Formula
   desc "Helps you navigate your file system faster by learning your habits"
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://github.com/gsamokovarov/jump/archive/v0.18.0.tar.gz"
-  sha256 "68d520d2aa67981e8f59a70cec24137375ed0bd757fa8d44e670efbc21b7a2c6"
+  url "https://github.com/gsamokovarov/jump/archive/v0.19.0.tar.gz"
+  sha256 "1157a681d8f43d95febf2222004c26b0642f0493cf04832cb4ba08f256e708ff"
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do
