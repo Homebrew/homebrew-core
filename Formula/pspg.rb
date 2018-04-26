@@ -1,8 +1,8 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/1.0.0.tar.gz"
-  sha256 "1035015f8fb29c749d5c1d023db0c391c79c2fa7180cfecdf788dd7e9c9a0fbc"
+  url "https://github.com/okbob/pspg/archive/1.1.0.tar.gz"
+  sha256 "5fe4bd0b72ee73fad41e64cafb398806784010e461e6e773334b3b750f7f2df5"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
@@ -13,6 +13,7 @@ class Pspg < Formula
   end
 
   depends_on "ncurses"
+  depends_on "readline"
 
   def install
     system "./configure", "--disable-debug",
