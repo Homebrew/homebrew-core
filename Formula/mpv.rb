@@ -85,6 +85,9 @@ class Mpv < Formula
     system "python3", "waf", "install"
 
     if build.with? "bundle"
+      # allow the build to work on older versions of OS X
+      # see https://github.com/mpv-player/mpv/commit/c176f1169f356059ee6e3c447e4546fcdb335ec2
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = "10.3"
       system "python3", "TOOLS/osxbundle.py", "build/mpv"
       prefix.install "build/mpv.app"
     end
