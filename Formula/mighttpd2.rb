@@ -5,8 +5,8 @@ class Mighttpd2 < Formula
 
   desc "HTTP server"
   homepage "https://www.mew.org/~kazu/proj/mighttpd/en/"
-  url "https://hackage.haskell.org/package/mighttpd2-3.4.2/mighttpd2-3.4.2.tar.gz"
-  sha256 "7330e73d5b07d5dded9e18d04681f6c34e46df6b4635ff483c57c90c344bb128"
+  url "https://hackage.haskell.org/package/mighttpd2-3.4.3/mighttpd2-3.4.3.tar.gz"
+  sha256 "70dd2845c89917509674a903cdf3b9e54c47eb82a5ae199eb3bf3da56611ca29"
 
   bottle do
     cellar :any_skip_relocation
