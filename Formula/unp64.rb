@@ -11,7 +11,12 @@ class Unp64 < Formula
   end
 
   test do
-    output = shell_output("#{bin}/unp64 2>&1", 1)
-    assert_match "UNP64 v2.34", output
+    code = [0x00, 0xc0, 0x4c, 0xe2, 0xfc]
+    File.open(testpath/"a.prg", "wb") do |output|
+      output.write [code.join].pack("H*")
+    end
+
+    output = shell_output("#{bin}/unp64 -i a.prg 2>&1", 0)
+    assert_match "a.prg :  (Unknown)", output
   end
 end
