@@ -7,12 +7,6 @@ class Woff2 < Formula
   depends_on "cmake" => :build
   depends_on "brotli"
 
-  def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
-    bin.install "woff2_info", "woff2_decompress", "woff2_compress"
-  end
-
   resource "roboto_1" do
     url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxP.ttf"
     sha256 "466989fd178ca6ed13641893b7003e5d6ec36e42c2a816dee71f87b775ea097f"
@@ -20,6 +14,12 @@ class Woff2 < Formula
   resource "roboto_2" do
     url "https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2"
     sha256 "90a0ad0b48861588a6e33a5905b17e1219ea87ab6f07ccc41e7c2cddf38967a8"
+  end
+
+  def install
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
+    bin.install "woff2_info", "woff2_decompress", "woff2_compress"
   end
 
   test do
