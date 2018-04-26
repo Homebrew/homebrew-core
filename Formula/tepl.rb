@@ -1,9 +1,8 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/3.0/tepl-3.0.0.tar.xz"
-  sha256 "9eb6fceb0b521de7bf684508138a5b8428d9f575c395ba54f9e31597980fd0ef"
-  revision 1
+  url "https://download.gnome.org/sources/tepl/4.0/tepl-4.0.0.tar.xz"
+  sha256 "a4b6219877b25a376b129c26484946481b7fc1ef6a7a66d804dcf7f48250e997"
 
   bottle do
     sha256 "e0ba816839705deacfc0777bb80fe3f4fa600dcd817b6d7245725efaf855e738" => :high_sierra
@@ -13,7 +12,7 @@ class Tepl < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtksourceview3"
+  depends_on "gtksourceview@4"
   depends_on "uchardet"
 
   def install
@@ -41,7 +40,7 @@ class Tepl < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
-    gtksourceview3 = Formula["gtksourceview3"]
+    gtksourceview4 = Formula["gtksourceview@4"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
@@ -60,11 +59,11 @@ class Tepl < Formula
       -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtksourceview3.opt_include}/gtksourceview-3.0
+      -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/tepl-3
-      -I#{include}/amtk-3
+      -I#{include}/tepl-4
+      -I#{include}/amtk-4
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
@@ -77,7 +76,7 @@ class Tepl < Formula
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
-      -L#{gtksourceview3.opt_lib}
+      -L#{gtksourceview4.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
@@ -89,10 +88,10 @@ class Tepl < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -ltepl-3
-      -lamtk-3
+      -ltepl-4
+      -lamtk-4
       -lgtk-3
-      -lgtksourceview-3.0
+      -lgtksourceview-4.0
       -lintl
       -lpango-1.0
       -lpangocairo-1.0
