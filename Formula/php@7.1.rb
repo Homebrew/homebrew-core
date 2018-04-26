@@ -1,9 +1,8 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.1.16.tar.xz/from/this/mirror"
-  sha256 "a5d67e477248a3911af7ef85c8400c1ba8cd632184186fd31070b96714e669f1"
-  revision 1
+  url "https://php.net/get/php-7.1.17.tar.xz/from/this/mirror"
+  sha256 "1a784806866e06367f7a5c88775d239d6f30041c7ce65a8232d03a3d4de56d56"
 
   bottle do
     sha256 "c3623d5cb25b06be1e14e444518bafa92a5f4e5c8186f2a283d2aae6e644b784" => :high_sierra
