@@ -70,7 +70,8 @@ class Liblwgeom < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-llwgeom", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["proj"].opt_include}",
+                   "-L#{lib}", "-llwgeom", "-o", "test"
     system "./test"
   end
 end
