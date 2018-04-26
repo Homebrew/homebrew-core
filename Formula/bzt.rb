@@ -2,8 +2,8 @@ class Bzt < Formula
   include Language::Python::Virtualenv
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org"
-  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.11.0.tar.gz"
-  sha256 "fbb728ee61ebd7e4755d7d9f63ad73e5e70e29fbcf12b9d5333a808bf0728927"
+  url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.11.1.tar.gz"
+  sha256 "0412e03dfc9d82486a33fb27afec74330fbc1d9c458c91cb5a94fa49f94cfbaf"
   head "https://github.com/greyfenrir/taurus.git"
 
   bottle do
@@ -16,8 +16,8 @@ class Bzt < Formula
   depends_on "python@2"
 
   resource "apiritif" do
-    url "https://files.pythonhosted.org/packages/ac/c6/d35c41b41783eb91308cc67a1a12b34dd7e578ff9a49616c8fff8ca29a6d/apiritif-0.6.1.tar.gz"
-    sha256 "335f28cb6e1552025d075bacc7a0bc56729713ffdbb4bfa2f9fd2bd2d394918e"
+    url "https://files.pythonhosted.org/packages/17/68/49b7f2f803715c8a733321afe36b7f393624089ccd6901961ba840bcee1f/apiritif-0.6.3.tar.gz"
+    sha256 "0610654f8ec1aabb5aa83ef35c36af6f68338303c8a653ea1d15a2360bd608a7"
   end
 
   resource "Appium-Python-Client" do
@@ -36,8 +36,8 @@ class Bzt < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
-    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
+    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
+    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
   end
 
   resource "chardet" do
@@ -51,8 +51,8 @@ class Bzt < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/b8/a3/d181e256fba34d07ac3a052269cc0a43a61cfec14674bceaa1cca1f5fdb0/colorlog-3.1.2.tar.gz"
-    sha256 "7f94b6a88e789e68025b84f2581c17a52c8fb3c07e07a23e7e22bf774dd34144"
+    url "https://files.pythonhosted.org/packages/2c/a8/8ce4f59cf1fcbb9ebe750fcbab723146d95687c37256ed367a11d9f74265/colorlog-3.1.4.tar.gz"
+    sha256 "418db638c9577f37f0fae4914074f395847a728158a011be2a193ac491b9779d"
   end
 
   resource "cssselect" do
@@ -61,8 +61,8 @@ class Bzt < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/70/f1/cb9373195639db13063f55eb06116310ad691e1fd125e6af057734dc44ea/decorator-4.2.1.tar.gz"
-    sha256 "7d46dd9f3ea1cf5f06ee0e4e1277ae618cf48dfb10ada7c8427cd46c42702a0e"
+    url "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz"
+    sha256 "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
   end
 
   resource "EasyProcess" do
@@ -86,8 +86,8 @@ class Bzt < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
-    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
+    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
+    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
   end
 
   resource "jsonpath-rw" do
@@ -131,8 +131,8 @@ class Bzt < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/e2/e1/600326635f97fee89bf8426fef14c5c29f4849c79f68fd79f433d8c1bd96/psutil-5.4.3.tar.gz"
-    sha256 "e2467e9312c2fa191687b89ff4bc2ad8843be4af6fb4dc95a7cc5f7d7a327b18"
+    url "https://files.pythonhosted.org/packages/14/a2/8ac7dda36eac03950ec2668ab1b466314403031c83a95c5efc81d2acf163/psutil-5.4.5.tar.gz"
+    sha256 "ebe293be36bb24b95cdefc5131635496e88b17fabbcf1e4bc9b5c01f5e489cfe"
   end
 
   resource "py" do
@@ -141,8 +141,8 @@ class Bzt < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/2d/56/6019153cdd743300c5688ab3b07702355283e53c83fbf922242c053ffb7b/pytest-3.5.0.tar.gz"
-    sha256 "fae491d1874f199537fd5872b5e1f0e74a009b979df9d53d1553fd03da1703e1"
+    url "https://files.pythonhosted.org/packages/b2/85/24954df0ea8156599563b753de54383a5d702081093b7953334e4701b8d8/pytest-3.5.1.tar.gz"
+    sha256 "54713b26c97538db6ff0703a12b19aeaeb60b5e599de542e7fca0ec83b9038e8"
   end
 
   resource "PyVirtualDisplay" do
@@ -181,8 +181,8 @@ class Bzt < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/fa/b4/f9886517624a4dcb81a1d766f68034344b7565db69f13d52697222daeb72/wheel-0.30.0.tar.gz"
-    sha256 "9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
+    url "https://files.pythonhosted.org/packages/5d/c1/45947333669b31bc6b4933308dd07c2aa2fedcec0a95b14eedae993bd449/wheel-0.31.0.tar.gz"
+    sha256 "1ae8153bed701cb062913b72429bcf854ba824f973735427681882a688cb55ce"
   end
 
   def install
