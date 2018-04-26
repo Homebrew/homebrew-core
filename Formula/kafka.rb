@@ -1,8 +1,8 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.12-1.0.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/1.0.0/kafka_2.12-1.0.0.tgz"
+  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/1.1.0/kafka-1.1.0-src.tgz"
+  mirror "https://archive.apache.org/dist/kafka/1.1.0/kafka_2.11-1.1.0.tgz"
   sha256 "d5b1d00752252d9c129e9284f26f8280e9899dd374167f257e29d5346eb544b3"
 
   bottle do
