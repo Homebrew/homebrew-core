@@ -41,6 +41,8 @@ class Qt < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
+    url "https://raw.githubusercontent.com/z00m1n/formula-patches/0de0e229/qt/QTBUG-67545.patch"
+    sha256 "4a115097c7582c7dce4207f5500d13feb8c990eb8a05a43f41953985976ebe6c"
   end
 
   def install
