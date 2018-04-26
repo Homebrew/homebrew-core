@@ -1,6 +1,8 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
+  # Use "mainline" releases only (odd minor version number), not "stable"
+  # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
   url "https://nginx.org/download/nginx-1.13.12.tar.gz"
   sha256 "fb92f5602cdb8d3ab1ad47dbeca151b185d62eedb67d347bbe9d79c1438c85de"
   head "https://hg.nginx.org/nginx/", :using => :hg
