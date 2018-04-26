@@ -1,5 +1,5 @@
 class Xidel < Formula
-  desc "CLI XPath/XQuery 3.0, JSONiq interpreter to extract data from HTML/XML/JSON"
+  desc "XPath/XQuery 3.0, JSONiq interpreter to extract data from HTML/XML/JSON"
   homepage "http://www.videlibri.de/xidel.html"
   url "https://github.com/benibela/xidel/releases/download/Xidel_0.9.8/xidel-0.9.8.src.tar.gz"
   version "0.9.8"
@@ -11,9 +11,9 @@ class Xidel < Formula
   depends_on "bash"
   depends_on "fpc"
   depends_on "openssl" => :recommended
-  
+
   def install
-    cd buildpath/"xidel-#{version}-src/programs/internet/xidel" do
+    cd buildpath/"programs/internet/xidel" do
       system "bash", "build.sh"
       bin.install "xidel"
       man1.install "meta/xidel.1"
@@ -21,7 +21,7 @@ class Xidel < Formula
   end
 
   test do
-    cd buildpath/"xidel-#{version}-src/programs/internet/xidel" do
+    cd buildpath/"programs/internet/xidel" do
       system "bash", "tests/tests.sh"
     end
   end
