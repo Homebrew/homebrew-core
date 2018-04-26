@@ -13,7 +13,7 @@ class Xidel < Formula
   bottle :unneeded
   
   def install
-    cd "programs/internet/xidel" do
+    cd "xidel-#{version}-src/programs/internet/xidel" do
       system "bash", "build.sh"
       bin.install "xidel"
       man1.install "meta/xidel.1"
@@ -21,7 +21,7 @@ class Xidel < Formula
   end
 
   test do  
-    cd "programs/internet/xidel" do
+    cd "xidel-#{version}-src/programs/internet/xidel" do
       system "bash", "tests/tests.sh"
     end
   end
