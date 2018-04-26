@@ -3,8 +3,8 @@ class Infer < Formula
   homepage "https://fbinfer.com/"
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
-      :tag => "v0.13.1",
-      :revision => "beea92363f172089621a25a72069a632e8d99720"
+      :tag => "v0.14.0",
+      :revision => "9ed60bc93613b6c232ef37803dd5fb74c8071acf"
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class Infer < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on :java => ["1.8", :build]
+  depends_on :java => ["1.7+", :build]
   depends_on "libtool" => :build
   depends_on "ocaml" => :build
   depends_on "opam" => :build
@@ -29,9 +29,6 @@ class Infer < Formula
     if build.without?("clang") && build.without?("java")
       odie "infer: --without-clang and --without-java are mutually exclusive"
     end
-
-    # fix symbol not found issue (_clock_gettime) on el_capitan
-    ENV.delete("SDKROOT")
 
     if build.with?("clang")
       # needed to build clang
@@ -45,13 +42,8 @@ class Infer < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
 
-    # Some of the libraries installed by ./build-infer.sh do not
-    # support parallel builds, eg OCaml itself. ./build-infer.sh
-    # builds in its own parallelization logic to mitigate that.
-    ENV.deparallelize
-
     # do not attempt to use the clang in facebook-clang-plugins/ as it hasn't been built yet
-    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --disable-ocaml-binannot --without-fcp-clang"
+    ENV["INFER_CONFIGURE_OPTS"] = "--prefix=#{prefix} --without-fcp-clang"
 
     target_platform = if build.without?("clang")
       "java"
@@ -61,6 +53,15 @@ class Infer < Formula
       "all"
     end
 
+    llvm_args = %w[
+      -DLLVM_INCLUDE_DOCS=OFF
+      -DLLVM_INSTALL_UTILS=OFF
+      -DLLVM_TARGETS_TO_BUILD=all
+      -DLIBOMP_ARCH=x86_64
+      -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
+      -DLLVM_BUILD_LLVM_DYLIB=ON
+    ]
+
     system "opam", "init", "--no-setup"
     ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION=\${OCAML_VERSION:-\"([^\"]+)\"}/)[1]
     ocaml_version_number = ocaml_version.split("+", 2)[0]
@@ -68,9 +69,9 @@ class Infer < Formula
       '["./configure"', '["./configure" "-no-graph"'
     # so that `infer --version` reports a release version number
     inreplace "infer/src/base/Version.ml.in", "let is_release = is_yes \"@IS_RELEASE_TREE@\"", "let is_release = true"
+    inreplace "facebook-clang-plugins/clang/setup.sh", "CMAKE_ARGS=(", "CMAKE_ARGS=(\n  " + llvm_args.join("\n  ")
     system "./build-infer.sh", target_platform, "--yes"
     system "opam", "config", "exec", "--switch=infer-#{ocaml_version}", "--", "make", "install"
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
