@@ -23,6 +23,20 @@ class Direnv < Formula
     end
   end
 
+  def caveats; <<~EOS
+    You must now configure your shell to enable direnv.
+
+    If you use Bash, add the following line to ~/.bashrc:
+      eval "$(direnv hook bash)"
+
+    If you use Zsh, add the following line to ~/.zshrc:
+      eval "$(direnv hook zsh)"
+
+    For other shells, consult the direnv setup instructions:
+      https://github.com/direnv/direnv/blob/master/README.md#setup
+    EOS
+  end
+
   test do
     system bin/"direnv", "status"
   end
