@@ -6,9 +6,8 @@ class PerconaServerMongodb < Formula
   sha256 "d6639737b45d5617d49fd7bd1b7b610fe64fe96c8a32c2d4fa3d1b6f74124d0b"
 
   bottle do
-    sha256 "335ea0f63c973e5223dbf6864b70955fd54378f2443765451356a258afb9fd7e" => :high_sierra
-    sha256 "4a6ead4ac655a9e24bd6888605fa61cbfcaf8cd03f78a59731999b69153a2e84" => :sierra
-    sha256 "110a814bc2bc4220efd51de796f38a23a61cc96168787d33b998083bf124e207" => :el_capitan
+    sha256 "a968b611a6532ac1739bc61cadbcc4d2e59f8524a876a5cfc17f79cc7b41dd85" => :high_sierra
+    sha256 "a5820f428042091854482e2486fdc1d06d715534e664038edd79ed5f19b289e5" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with this formula"
