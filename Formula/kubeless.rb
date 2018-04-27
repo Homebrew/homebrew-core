@@ -1,9 +1,8 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.6.0",
-      :revision => "3bec4b65f29d830bd6709abb07e00f11fe54d646"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.1.tar.gz"
+  sha256 "2ba1e3f43312d47ce712a41ba38a9729074037c2c3030540e88b66fdd321205e"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +15,11 @@ class Kubeless < Formula
   depends_on "kubernetes-cli" => :recommended
 
   def install
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/kubeless/kubeless").install buildpath.children
     cd "src/github.com/kubeless/kubeless" do
       ldflags = %W[
-        -w -X github.com/kubeless/kubeless/cmd/kubeless/version.VERSION=v#{version}
-        -X github.com/kubeless/kubeless/cmd/kubeless/version.GITCOMMIT=#{commit}
+        -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
       ]
       system "go", "build", "-o", bin/"kubeless", "-ldflags", ldflags.join(" "),
              "./cmd/kubeless"
