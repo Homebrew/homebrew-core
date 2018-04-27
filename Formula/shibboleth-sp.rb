@@ -50,6 +50,11 @@ class ShibbolethSp < Formula
     system "make", "install"
   end
 
+  def post_install
+    (var/"run/shibboleth/").mkpath
+    (var/"cache/shibboleth").mkpath
+  end
+
   def caveats
     mod = build.with?("apache-22") ? "mod_shib_22.so" : "mod_shib_24.so"
     <<~EOS
@@ -86,11 +91,6 @@ class ShibbolethSp < Formula
     </dict>
     </plist>
     EOS
-  end
-
-  def post_install
-    (var/"run/shibboleth/").mkpath
-    (var/"cache/shibboleth").mkpath
   end
 
   test do
