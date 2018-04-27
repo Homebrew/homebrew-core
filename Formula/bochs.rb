@@ -3,7 +3,7 @@ class Bochs < Formula
   homepage "https://bochs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.9/bochs-2.6.9.tar.gz"
   sha256 "ee5b677fd9b1b9f484b5aeb4614f43df21993088c0c0571187f93acb0866e98c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "1acbd357ca0d7394d2ca6ac261a7cbecf4d42d73fac2f5a6e237e7b33a01e51d" => :high_sierra
@@ -53,7 +53,7 @@ class Bochs < Formula
       --enable-avx
       --enable-vmx=2
       --enable-smp
-      --enable-long-phy-addres
+      --enable-long-phy-address
       --with-term
     ]
 
