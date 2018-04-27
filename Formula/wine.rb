@@ -453,12 +453,6 @@ class Wine < Formula
     (pkgshare/"mono").install resource("mono")
   end
 
-  def caveats; <<~EOS
-    You may also want winetricks:
-      brew install winetricks
-    EOS
-  end
-
   def post_install
     # For fontconfig
     ohai "Regenerating font cache, this may take a while"
@@ -467,6 +461,12 @@ class Wine < Formula
     # For net-snmp
     (var/"db/net-snmp_vendored_wine").mkpath
     (var/"log").mkpath
+  end
+
+  def caveats; <<~EOS
+    You may also want winetricks:
+      brew install winetricks
+    EOS
   end
 
   test do
