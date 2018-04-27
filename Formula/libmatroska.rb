@@ -3,6 +3,7 @@ class Libmatroska < Formula
   homepage "https://www.matroska.org/"
   url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.8.tar.xz"
   sha256 "d8c72b20d4c5bf888776884b0854f95e74139b5267494fae1f395f7212d7c992"
+  revision 1
 
   bottle do
     cellar :any
