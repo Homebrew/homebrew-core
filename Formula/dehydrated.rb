@@ -6,9 +6,9 @@ class Dehydrated < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab3660f18631f6534ed6e19def414775f04ee7b90a003fd700ab2b80d1434f68" => :high_sierra
-    sha256 "ab3660f18631f6534ed6e19def414775f04ee7b90a003fd700ab2b80d1434f68" => :sierra
-    sha256 "ab3660f18631f6534ed6e19def414775f04ee7b90a003fd700ab2b80d1434f68" => :el_capitan
+    sha256 "d15ef3ebfbc9bfc48c16192a885bf5580f0269f05a62e569b18e18049cbe917d" => :high_sierra
+    sha256 "d15ef3ebfbc9bfc48c16192a885bf5580f0269f05a62e569b18e18049cbe917d" => :sierra
+    sha256 "d15ef3ebfbc9bfc48c16192a885bf5580f0269f05a62e569b18e18049cbe917d" => :el_capitan
   end
 
   def install
