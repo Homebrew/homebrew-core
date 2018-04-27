@@ -51,13 +51,13 @@ class Qt < Formula
     sha256 "4a115097c7582c7dce4207f5500d13feb8c990eb8a05a43f41953985976ebe6c"
   end
 
-  # Fix compile error on macOS 10.13 caused by Boost 1.62.0
-  # using C++ features deprecated in C++ 11 and removed in C++ 17:
+  # Fix compile error on macOS 10.13 caused by qtlocation dependency
+  # mapbox-gl-native using Boost 1.62.0 does not build with C++ 17:
   # https://github.com/Homebrew/homebrew-core/issues/27095
   # https://bugreports.qt.io/browse/QTBUG-67810
   patch do
-    url "https://raw.githubusercontent.com/z00m1n/formula-patches/685eecc0/qt/QTBUG-67810.patch"
-    sha256 "79738a143850fb98e77c7b6d8bcfe02ef7717e740eba2582911ac3f3b2c2a96b"
+    url "https://raw.githubusercontent.com/z00m1n/formula-patches/a1a1f0dd/qt/QTBUG-67810.patch"
+    sha256 "8ee0bf71df1043f08ebae3aa35036be29c4d9ebff8a27e3b0411a6bd635e9382"
   end
 
   def install
