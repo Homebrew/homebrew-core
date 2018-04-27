@@ -2,8 +2,8 @@ class Dcd < Formula
   desc "Auto-complete program for the D programming language"
   homepage "https://github.com/dlang-community/DCD"
   url "https://github.com/dlang-community/DCD.git",
-      :tag => "v0.9.3",
-      :revision => "15f5b119773a34cfe29f48bc0ff55c2d0255d33e"
+      :tag => "v0.9.4",
+      :revision => "c90afe1ece9a7f5723acf284b59ab390f2b18a13"
 
   head "https://github.com/dlang-community/dcd.git", :shallow => false
 
