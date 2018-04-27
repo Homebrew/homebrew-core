@@ -8,9 +8,9 @@ class Dcd < Formula
   head "https://github.com/dlang-community/dcd.git", :shallow => false
 
   bottle do
-    sha256 "efb837c406cd727fe1d7ab7f39ee9cc5964a391ba49f455c44b8693039c5e000" => :high_sierra
-    sha256 "1177bd6e079b9efbb91b54e49658fb5b8b19d5c868aa22ec6cb52f074f61e9d1" => :sierra
-    sha256 "f845d8411b32f3abdfdbde86589725d447dfc78c740fc46651852d36c8f7494d" => :el_capitan
+    sha256 "ef67572c271b275f3024850640cdb55ea5c34932c35ae917802a50c4b34250d3" => :high_sierra
+    sha256 "c5eab62828d24813f3eee7e7930dabb493f4297c9a611530cecd08721b5b6a99" => :sierra
+    sha256 "42f8eebffc6824ad487ae5613963b89d32111eee4d49fd8bc162e1d7d0be57ac" => :el_capitan
   end
 
   depends_on "dmd" => :build
