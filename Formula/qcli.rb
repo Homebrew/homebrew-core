@@ -1,9 +1,8 @@
 class Qcli < Formula
   desc "Report audiovisual metrics via libavfilter"
   homepage "https://bavc.org/preserve-media/preservation-tools"
-  url "https://github.com/bavc/qctools/archive/v0.9.tar.gz"
-  sha256 "19ef4be054ebfca70a07043afea20bcca241ba08d70a47acda837ead849aff03"
-  revision 1
+  url "https://github.com/bavc/qctools/archive/v0.9.1.tar.gz"
+  sha256 "a08d4fe3ded4865a11f177fa890b3a0c0a4ea45ffc4c5561aed45ccdeae77a0f"
   head "https://github.com/bavc/qctools.git"
 
   bottle do
