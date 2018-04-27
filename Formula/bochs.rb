@@ -53,7 +53,7 @@ class Bochs < Formula
       --enable-avx
       --enable-vmx=2
       --enable-smp
-      --enable-long-phy-addres
+      --enable-long-phy-address
       --with-term
     ]
 
