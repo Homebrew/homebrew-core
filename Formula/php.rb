@@ -176,23 +176,6 @@ class Php < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      To enable PHP in Apache add the following to httpd.conf and restart Apache:
-          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
-
-          <FilesMatch \\.php$>
-              SetHandler application/x-httpd-php
-          </FilesMatch>
-
-      Finally, check DirectoryIndex includes index.php
-          DirectoryIndex index.php index.html
-
-      The php.ini and php-fpm.ini file can be found in:
-          #{etc}/php/#{php_version}/
-    EOS
-  end
-
   def post_install
     pear_prefix = pkgshare/"pear"
     pear_files = %W[
@@ -256,6 +239,23 @@ class Php < Formula
         EOS
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      To enable PHP in Apache add the following to httpd.conf and restart Apache:
+          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
+
+          <FilesMatch \\.php$>
+              SetHandler application/x-httpd-php
+          </FilesMatch>
+
+      Finally, check DirectoryIndex includes index.php
+          DirectoryIndex index.php index.html
+
+      The php.ini and php-fpm.ini file can be found in:
+          #{etc}/php/#{php_version}/
+    EOS
   end
 
   def php_version
