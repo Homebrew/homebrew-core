@@ -1,8 +1,8 @@
 class Dehydrated < Formula
   desc "LetsEncrypt/acme client implemented as a shell-script"
   homepage "https://dehydrated.de"
-  url "https://github.com/lukas2511/dehydrated/archive/v0.6.1.tar.gz"
-  sha256 "441d89af4592e3eb5744eb177124b4d16ca78b416f634371e839db384012844a"
+  url "https://github.com/lukas2511/dehydrated/archive/v0.6.2.tar.gz"
+  sha256 "163384479199f06f59382ceb6291a299567a2f4f0b963b9b61f2db65a407e80e"
 
   bottle do
     cellar :any_skip_relocation
