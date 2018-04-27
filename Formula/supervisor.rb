@@ -34,6 +34,11 @@ class Supervisor < Formula
     etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.ini"
   end
 
+  def post_install
+    (var/"run").mkpath
+    (var/"log").mkpath
+  end
+
   plist_options :manual => "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
 
   def plist
@@ -59,11 +64,6 @@ class Supervisor < Formula
         </dict>
       </plist>
     EOS
-  end
-
-  def post_install
-    (var/"run").mkpath
-    (var/"log").mkpath
   end
 
   test do
