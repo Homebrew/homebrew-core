@@ -60,6 +60,11 @@ class Qt < Formula
     sha256 "8ee0bf71df1043f08ebae3aa35036be29c4d9ebff8a27e3b0411a6bd635e9382"
   end
 
+  # TODO: -no-assimp is a Qt3D configure option that disables use of the assimp
+  # library entirely; this is done because that library fails to build for
+  # Qt 5.10 on macOS 10.13; this might not be required with Qt 5.11 anymore
+  # https://github.com/Homebrew/homebrew-core/issues/27095
+  # https://bugreports.qt.io/browse/QTBUG-67606
   def install
     args = %W[
       -verbose
@@ -75,6 +80,7 @@ class Qt < Formula
       -no-rpath
       -pkg-config
       -dbus-runtime
+      -no-assimp
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
