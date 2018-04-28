@@ -11,27 +11,27 @@ class Moc < Formula
     # 01 to 05 below are backported from patches provided 26 Apr 2018 by
     # upstream's John Fitzgerald
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/01-codec-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/01-codec-2.5.2.patch"
       sha256 "c6144dbbd85e3b775e3f03e83b0f90457450926583d4511fe32b7d655fdaf4eb"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/02-codecpar-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/02-codecpar-2.5.2.patch"
       sha256 "5ee71f762500e68a6ccce84fb9b9a4876e89e7d234a851552290b42c4a35e930"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/03-defines-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/03-defines-2.5.2.patch"
       sha256 "2ecfb9afbbfef9bd6f235bf1693d3e94943cf1402c4350f3681195e1fbb3d661"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/04-lockmgr-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/04-lockmgr-2.5.2.patch"
       sha256 "9ccfad2f98abb6f974fe6dc4c95d0dc9a754a490c3a87d3bd81082fc5e5f42dc"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/05-audio4-2.5.2.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/05-audio4-2.5.2.patch"
       sha256 "9a75ac8479ed895d07725ac9b7d86ceb6c8a1a15ee942c35eb5365f4c3cc7075"
     end
   end
@@ -58,27 +58,27 @@ class Moc < Formula
     # Remove for > 2.6-alpha3; FFmpeg 4.0 compatibility
     # 01 to 05 below provided 26 Apr 2018 by upstream's John Fitzgerald
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/01-codec.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/01-codec.patch"
       sha256 "c424fcfff8f318896c868ae2e019120b78857f6ef1ccf1000df92fbe571d1f69"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/02-codecpar.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/02-codecpar.patch"
       sha256 "4bcc745a484c3ffd4c5cf169fd299b6ab18d387740f77d9cc9eec3f57f5fcf7c"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/03-defines.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/03-defines.patch"
       sha256 "088596c51f47d5b4a47fb00def2a832536cba2cdb6bb4dc767af5f2edb33164e"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/04-lockmgr.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/04-lockmgr.patch"
       sha256 "a83d86ac4f0d88afddd0d76516b95071e4b876d51f85ee2c876be9c6f7ce6cc9"
     end
 
     patch do
-      url "https://raw.githubusercontent.com/ilovezfs/formula-patches/b81928d68221e837c028e9c89638272610ca06fe/moc/05-audio4.patch"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/514941c/moc/05-audio4.patch"
       sha256 "05d467cc7b1f9529187d0fcf5375ccb2088a606fd5ecd75a8330b8f68676eefc"
     end
   end
