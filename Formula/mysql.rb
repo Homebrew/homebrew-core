@@ -1,25 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.22.tar.gz"
-  sha256 "5b2a61700af7c99f5630a7dfdb099af9283c3029843cddd9e123bcdbcc4aad03"
+  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.11.tar.gz"
+  sha256 "f40711a9bd91ab2ccea331484a6d281f806b0fdecf78f4c9e9d8a4c91208f309"
 
   bottle do
     sha256 "55b0311fdd9b9d6e369f3b7ea0c7c82692073502215ac7a00055a2189d5478a2" => :high_sierra
     sha256 "8e01836f50bf3f907e2357384442e8c938615c5fe2ba35f9e255aa08ff6bca0d" => :sierra
     sha256 "1a190fa7803e5706c690b8281f61e861a5db68781ee2193c17119d4dd1d0cb1d" => :el_capitan
-  end
-
-  devel do
-    url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.4-rc.tar.gz"
-    sha256 "648b1e39f45d7e4b65bae572f5d475db4a0c5e9db6ede75d8a3762972f312833"
-
-    fails_with :clang do
-      build 800
-      cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
-    end
-    # GCC is not supported either, so exclude for El Capitan.
-    depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
   end
 
   option "with-debug", "Build with debug support"
@@ -37,9 +25,18 @@ class Mysql < Formula
   depends_on "openssl"
 
   # https://github.com/Homebrew/homebrew-core/issues/1475
-  # Needs at least Clang 3.3, which shipped alongside Lion.
-  # Note: MySQL themselves don't support anything below El Capitan.
-  depends_on :macos => :lion
+  # Needs at least Clang 3.6, which shipped alongside Yosemite.
+  # Note: MySQL themselves don't support anything below Sierra.
+  depends_on :macos => :yosemite
+
+  # https://bugs.mysql.com/bug.php?id=86711
+  # https://github.com/Homebrew/homebrew-core/pull/20538
+  fails_with :clang do
+    build 800
+    cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
+  end
+  # GCC is not supported either, so exclude for El Capitan.
+  depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
 
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
