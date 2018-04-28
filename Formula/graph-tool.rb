@@ -54,9 +54,6 @@ class GraphTool < Formula
   def install
     xy = Language::Python.major_minor_version "python3"
 
-    inreplace "configure", "libboost_python", "libboost_python36"
-    inreplace "configure", "ax_python_lib=boost_python", "ax_python_lib=boost_python36"
-
     venv = virtualenv_create(libexec, "python3")
 
     resources.each do |r|
@@ -67,7 +64,10 @@ class GraphTool < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "PYTHON=python3",
-                          "--with-python-module-path=#{lib}/python#{xy}/site-packages"
+                          "PYTHON_LDFLAGS=-undefined dynamic_lookup",
+                          "--with-python-module-path=#{lib}/python#{xy}/site-packages",
+                          "--with-boost-python=libboost-python36",
+                          "--with-boost-python=36"
     system "make", "install"
 
     site_packages = "lib/python#{xy}/site-packages"
