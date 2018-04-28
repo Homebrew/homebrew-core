@@ -29,7 +29,6 @@ class OpenMpi < Formula
   depends_on "libevent"
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
-  conflicts_with "lcdf-typetools", :because => "both install same set of binaries"
 
   needs :cxx11
 
