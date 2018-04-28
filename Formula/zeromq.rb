@@ -1,8 +1,8 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.2.5/zeromq-4.2.5.tar.gz"
-  sha256 "cc9090ba35713d59bb2f7d7965f877036c49c5558ea0c290b0dcc6f2a17e489f"
+  url "https://github.com/zeromq/libzmq/archive/v4.2.5.tar.gz"
+  sha256 "f33807105ce47f684c26751ce4e27a708a83ce120cbabbc614c8df21252b238c"
 
   bottle do
     cellar :any
@@ -13,10 +13,6 @@ class Zeromq < Formula
 
   head do
     url "https://github.com/zeromq/libzmq.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
   option "with-libpgm", "Build with PGM extension"
@@ -25,31 +21,51 @@ class Zeromq < Formula
 
   deprecated_option "with-pgm" => "with-libpgm"
 
+  depends_on "cmake" => [:build, :optional]
+  if build.without? "cmake"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
+
   depends_on "libpgm" => :optional
   depends_on "libsodium" => :optional
   depends_on "norm" => :optional
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    if build.with? "cmake"
+      args = std_cmake_args
 
-    args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
+      args << "-DWITH_OPENPGM=ON" if build.with? "libpgm"
+      args << "-DWITH_LIBSODIUM=ON" if build.with? "libsodium"
+      args << "-DENABLE_DRAFTS=ON" if build.with? "drafts"
 
-    args << "--with-pgm" if build.with? "libpgm"
-    args << "--with-libsodium" if build.with? "libsodium"
-    args << "--with-norm" if build.with? "norm"
-    args << "--enable-drafts" if build.with?("drafts")
+      mkdir "build" do
+        system "cmake", "..", *args
+        system "cmake", "--build", ".", "--target", "install"
+      end
+    else
+      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    ENV["LIBUNWIND_LIBS"] = "-framework System"
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
-    ENV["LIBUNWIND_CFLAGS"] = "-I#{sdk}/usr/include"
+      args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
 
-    system "./autogen.sh" if build.head?
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+      args << "--with-pgm" if build.with? "libpgm"
+      args << "--with-libsodium" if build.with? "libsodium"
+      args << "--with-norm" if build.with? "norm"
+      args << "--enable-drafts" if build.with?("drafts")
+
+      ENV["LIBUNWIND_LIBS"] = "-framework System"
+      sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+      ENV["LIBUNWIND_CFLAGS"] = "-I#{sdk}/usr/include"
+
+      system "./autogen.sh"
+      system "./configure", *args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
