@@ -3,6 +3,7 @@ class Cointop < Formula
   homepage "https://cointop.sh"
   url "https://github.com/miguelmota/cointop/archive/1.0.0.tar.gz"
   sha256 "8ff6988cd18b35dbf85436add19135a587e03702b43744f563f137bb067f6e04"
+
   depends_on "go" => :build
 
   def install
@@ -15,6 +16,6 @@ class Cointop < Formula
   end
 
   test do
-    system "true"
+    system "#{bin}/cointop", "-v"
   end
 end
