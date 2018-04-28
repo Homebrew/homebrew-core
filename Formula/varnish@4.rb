@@ -1,8 +1,8 @@
 class VarnishAT4 < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-4.1.9.tgz"
-  sha256 "22d884aad87e585ce5f3b4a6d33442e3a855162f27e48358c7c93af1b5f2fc87"
+  url "https://varnish-cache.org/_downloads/varnish-4.1.10.tgz"
+  sha256 "364833fbf6fb7540ddd54b62b5ac52b2fb00e915049c8446d71d334323e87c22"
 
   bottle do
     sha256 "5566fa412a42ba467797996cb9e08617a2e50c63e5b8fb4f131cd7f2dffd7001" => :high_sierra
