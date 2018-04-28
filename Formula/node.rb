@@ -12,17 +12,18 @@ class Node < Formula
   end
 
   option "with-debug", "Build with debugger hooks"
-  option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
+  option "with-openssl@1.1", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
   option "without-icu4c", "Build with small-icu (English only) instead of system-icu (all locales)"
 
   deprecated_option "enable-debug" => "with-debug"
+  deprecated_option "with-openssl" => "with-openssl@1.1"
 
   depends_on "python@2" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
-  depends_on "openssl" => :optional
+  depends_on "openssl@1.1" => :optional
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
@@ -45,7 +46,7 @@ class Node < Formula
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
-    args << "--shared-openssl" if build.with? "openssl"
+    args << "--shared-openssl" if build.with? "openssl@1.1"
     args << "--tag=head" if build.head?
 
     system "./configure", *args
