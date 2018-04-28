@@ -10,8 +10,6 @@ class LcdfTypetools < Formula
     sha256 "761612b6522dffab0ea197e1ff27422bc8d34ffaf080518d148249bf7731e3ed" => :el_capitan
   end
 
-  conflicts_with "open-mpi", :because => "both install same set of binaries."
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
