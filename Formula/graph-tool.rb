@@ -13,8 +13,8 @@ class GraphTool < Formula
   depends_on "cgal"
   depends_on "google-sparsehash"
   depends_on "gtk+3"
-  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "librsvg"
+  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
@@ -65,6 +65,7 @@ class GraphTool < Formula
                           "--prefix=#{prefix}",
                           "PYTHON=python3",
                           "PYTHON_LDFLAGS=-undefined dynamic_lookup",
+                          "PYTHON_LIBS=-undefined dynamic_lookup",
                           "--with-python-module-path=#{lib}/python#{xy}/site-packages",
                           "--with-boost-python=libboost-python36",
                           "--with-boost-python=36"
