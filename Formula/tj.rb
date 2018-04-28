@@ -1,8 +1,8 @@
 class Tj < Formula
   desc "Line timestamping tool"
   homepage "https://github.com/sgreben/tj"
-  url "https://github.com/sgreben/tj/archive/6.0.2.tar.gz"
-  sha256 "c667f8fb09839a677bd6b3d6c06103bce59ffb2e33ec1bd7b49abfc00f02f5dd"
+  url "https://github.com/sgreben/tj/archive/7.0.0.tar.gz"
+  sha256 "6f9f988a05f9089d2a96edd046d673392d6fac2ea74ff0999b2f0428e9f72f7f"
 
   bottle do
     cellar :any_skip_relocation
