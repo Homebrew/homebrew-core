@@ -1,8 +1,8 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.26.1.tar.gz"
-  sha256 "d3f7e44f4dd0a75150b73e41737c4923ba94ea2947b9fe585f0aab591bb4a837"
+  url "https://notmuchmail.org/releases/notmuch-0.26.2.tar.gz"
+  sha256 "109c1865db7a035d08707421d13e9b6b82ee8e9f1534db70c28c51bc39370e3b"
   head "git://notmuchmail.org/git/notmuch"
 
   bottle do
