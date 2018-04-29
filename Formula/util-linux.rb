@@ -30,7 +30,19 @@ class UtilLinux < Formula
       rm_f sbin/prog
       rm_f man1/"#{prog}.1"
       rm_f man8/"#{prog}.8"
-      rm_f share/"bash-completion"/"completions"/prog
+      rm_f share/"bash-completion/completions/#{prog}"
+    end
+
+    # these conflict with bash-completion-1.3
+    %w[chsh mount rfkill rtcwake].each do |prog|
+      rm_f share/"bash-completion/completions/#{prog}"
+    end
+
+    # install completions only for installed programs
+    Pathname.glob("bash-completion/*") do |prog|
+      if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
+        bash_completion.install prog
+      end
     end
   end
 
