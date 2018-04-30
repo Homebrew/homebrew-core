@@ -3,7 +3,7 @@ class Ratfor < Formula
   homepage "http://www.dgate.org/ratfor/"
   url "http://www.dgate.org/ratfor/tars/ratfor-1.03.tar.gz"
   sha256 "d77497cd0856aad43e0d122f04aef4965994b744f1af9ab1237d7cd6849d139c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
