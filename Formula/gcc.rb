@@ -1,14 +1,10 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
+  sha256 "1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153"
   head "svn://gcc.gnu.org/svn/gcc/trunk"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
-    sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
-  end
 
   bottle do
     sha256 "e28abdcd4b1eca7b8bdfc76779e8d6343eb11d8fc4e9c523f03c3c1c887aac2a" => :high_sierra
@@ -20,9 +16,9 @@ class Gcc < Formula
   option "with-nls", "Build with native language support (localization)"
 
   depends_on "gmp"
+  depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "isl"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
@@ -39,28 +35,6 @@ class Gcc < Formula
       "HEAD"
     else
       version.to_s.slice(/\d/)
-    end
-  end
-
-  # Fix for libgccjit.so linkage on Darwin
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
-  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
-  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
-  # Now fixed on GCC trunk for GCC 8, may backported to other branches
-  unless build.head?
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
-      sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
-    end
-  end
-
-  # Fix parallel build on APFS filesystem
-  # Remove for 7.4.0 and later
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
-  if MacOS.version >= :high_sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/df0465c02a/gcc/apfs.patch"
-      sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
     end
   end
 
