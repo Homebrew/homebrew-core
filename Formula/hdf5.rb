@@ -3,6 +3,7 @@ class Hdf5 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.2/src/hdf5-1.10.2.tar.bz2"
   sha256 "1cad5b7bfdf128dfc53cd16fba48f6e7ae4e93c75c371d9ec8dfc4df0c1fcb71"
+  revision 1
 
   bottle do
     sha256 "fca357b8fa9ea5e17532857d8ded87bd4a0a43cf327334eec2e4b24e78d07c11" => :high_sierra
