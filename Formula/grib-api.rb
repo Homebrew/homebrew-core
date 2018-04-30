@@ -4,6 +4,7 @@ class GribApi < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.26.1.orig.tar.xz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.26.1.orig.tar.xz"
   sha256 "ee4a4607f7208ee329d9ae622dc34da8f0675ac08ab65ebe61c68856bebee810"
+  revision 1
 
   bottle do
     sha256 "25f7ec4bbbaf2c066d49686347e7df83bb727d96213424084a95b0b4877663b0" => :high_sierra
