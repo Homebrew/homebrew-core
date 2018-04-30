@@ -16,7 +16,7 @@ class Yamllint < Formula
   depends_on "libyaml"
   depends_on "python"
 
-  resource "pyyaml" do
+  resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
@@ -42,7 +42,6 @@ class Yamllint < Formula
       ---
       foo: bar
     EOS
-    output = shell_output("#{bin}/yamllint -f parsable -s good.yaml")
-    assert_equal output, ""
+    assert_equal "", shell_output("#{bin}/yamllint -f parsable -s good.yaml")
   end
 end
