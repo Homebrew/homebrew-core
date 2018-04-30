@@ -3,6 +3,7 @@ class OpenMpi < Formula
   homepage "https://www.open-mpi.org/"
   url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.1.tar.bz2"
   sha256 "663450d1ee7838b03644507e8a76edfb1fba23e601e9e0b5b2a738e54acd785d"
+  revision 1
 
   bottle do
     sha256 "0ec480af5e4facf76d8437b3bd095f24ec7e94b9fd0479e58517706a8aefb9a7" => :high_sierra
