@@ -6,9 +6,9 @@ class HtmlXmlUtils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "64176b3356d26c3467dfb182a28d4724fee74181191e8e719c93f705cc6a1329" => :high_sierra
-    sha256 "043e115bd9135d1d0ebe9cbceae1c2c8b826abea8b845d99b91fa8252622ab5e" => :sierra
-    sha256 "7ad2d1091290328f64ac652e8180d89646b7479dcbad4c37b38846442ca1682c" => :el_capitan
+    sha256 "1d0db3459079f61ebf01e025558c5ce63cf3b096932d870e47199271b57b225c" => :high_sierra
+    sha256 "c2f6bff7a920806db425704f379b072a656836c72016b9cc2458c170a4d635fe" => :sierra
+    sha256 "ca7f5cc13b994275d3a923aad5a5f56b4af548f346da6a03ee201aa8113f2d7c" => :el_capitan
   end
 
   def install
