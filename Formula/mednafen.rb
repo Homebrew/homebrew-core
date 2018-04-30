@@ -1,8 +1,8 @@
 class Mednafen < Formula
   desc "Multi-system emulator"
   homepage "https://mednafen.github.io/"
-  url "https://mednafen.github.io/releases/files/mednafen-1.21.2.tar.xz"
-  sha256 "528b7ad6976182c451f7e7852f79fcc8e81e29005823f9c9bed816914bfd6da2"
+  url "https://mednafen.github.io/releases/files/mednafen-1.21.3.tar.xz"
+  sha256 "2e761e8834b098b7f1ab35dccaa6d2be715ee9106cf40af4919f6ca4b99ee3c6"
 
   bottle do
     sha256 "ba2295e65433001d24d1001638aeb86565467d6ca690105c9382c4573766c42c" => :high_sierra
@@ -16,12 +16,6 @@ class Mednafen < Formula
   depends_on "gettext"
 
   def install
-    # Fix run-time crash "Assertion failed: (x == TestLLVM15470_Counter), function
-    # TestLLVM15470_Sub2, file tests.cpp, line 643."
-    # LLVM miscompiles some loop code with optimization
-    # https://llvm.org/bugs/show_bug.cgi?id=15470
-    ENV.O2
-
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
