@@ -1,10 +1,10 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  url "https://github.com/kubeless/kubeless.git",
-      :tag => "v1.0.0-alpha.1",
-      :revision => "fac4bb8fe04273e1de161059fecc43a9870aa6a6"
-
+  version "1.0.0-alpha.1"
+  url "https://github.com/kubeless/kubeless/archive/v#{version}.tar.gz"
+  sha256 "2ba1e3f43312d47ce712a41ba38a9729074037c2c3030540e88b66fdd321205e"
+  
   bottle do
     cellar :any_skip_relocation
     sha256 "98cf8441e9266b034e2fd70a9fca2cf0d39fe9800b9ff652d41ada035aa4932d" => :high_sierra
