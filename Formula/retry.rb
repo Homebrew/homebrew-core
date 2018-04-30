@@ -1,12 +1,15 @@
 class Retry < Formula
   desc "Command retry for the shell"
   homepage "https://github.com/kadwanev/retry/"
-  url "https://github.com/kadwanev/retry/releases/download/1.0.0/retry-1.0.0.tar.gz"
-  sha256 "c667dd50641adb82b42a6123fb24bf76b9d6ae5f75a02ec9049da7b8ff16401c"
+  url "https://github.com/kadwanev/retry/releases/download/1.0.1/retry-1.0.1.tar.gz"
+  sha256 "3df0d341e7973be0752b468e5d84643559ecbeb40e959c0b2ffbc2fa42616e1c"
+
+  depends_on "gnu-getopt"
 
   bottle :unneeded
 
   def install
+    inreplace "retry", "$IN_GETOPT_BIN", "#{HOMEBREW_PREFIX}/opt/gnu-getopt/bin/getopt"
     bin.install "retry"
   end
 
