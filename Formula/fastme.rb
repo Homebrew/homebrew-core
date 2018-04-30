@@ -3,6 +3,7 @@ class Fastme < Formula
   homepage "http://www.atgc-montpellier.fr/fastme/"
   url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6/tarball/fastme-2.1.6.tar.gz"
   sha256 "4945c151e15acffd64820c5e1a4c4ed57ab9fada7f3fe84e3423c5155546b1d0"
+  revision 1
 
   bottle do
     cellar :any
