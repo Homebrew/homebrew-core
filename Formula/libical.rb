@@ -6,9 +6,9 @@ class Libical < Formula
   revision 1
 
   bottle do
-    sha256 "1db80d26f22a9c81e633d263fa2aa4a0aa09b47553972af74c05f5fa0fd55065" => :high_sierra
-    sha256 "c57e73fee5d0482291095acda0783f16c4e4f8ee31d82b4b41ace2072d88987c" => :sierra
-    sha256 "205ffa25d970c4eec239237553e3ff768483759dec2bc42d7a6c5933b1bfd726" => :el_capitan
+    sha256 "912b5de25b8b87ec64a28c2226c9acf0f89ce5cf336b7a4c0d60b7a64a4b086b" => :high_sierra
+    sha256 "af9ac02655f33d97a9c818e6f124409d5e6b79583bb15de97a08e62cd28378c5" => :sierra
+    sha256 "deb49e4bf9b66e2a28dc7538801c119b361c64cb527e36bbf7cb7c74fc54fc9f" => :el_capitan
   end
 
   depends_on "cmake" => :build
