@@ -3,7 +3,7 @@ class Cp2k < Formula
   homepage "https://www.cp2k.org/"
   url "https://downloads.sourceforge.net/project/cp2k/cp2k-5.1.tar.bz2"
   sha256 "e23613b593354fa82e0b8410e17d94c607a0b8c6d9b5d843528403ab09904412"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "85d3a5ad5abc2e16391d30ad91ebe10517652598f17beac62265bd66f67a1eef" => :high_sierra
