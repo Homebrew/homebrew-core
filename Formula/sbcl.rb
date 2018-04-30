@@ -6,9 +6,9 @@ class Sbcl < Formula
   head "https://git.code.sf.net/p/sbcl/sbcl.git"
 
   bottle do
-    sha256 "700827b380e47ddc45777c9be7335dfc35daec4770dc20710c922f230c2256a6" => :high_sierra
-    sha256 "41a0f3b66e3eff015ca8b17baa492be04e14b0e6632d0e4867dc37427a013e8a" => :sierra
-    sha256 "e42e603c76049063724df56d684730afad710319e5469571baa6047eb59ba846" => :el_capitan
+    sha256 "0d7e4041c7819c4ee0f6eefce39d066d2308c08509549ed58891cf13ccc832db" => :high_sierra
+    sha256 "f255982977247778f1cfa28af0f1f9ab590c891862e874e087d6f8c24422fc26" => :sierra
+    sha256 "ea36472ffaf874dc0eb794f23d7462024ab24efe6cc191f6ee4361af92a0eaab" => :el_capitan
   end
 
   option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
