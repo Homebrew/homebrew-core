@@ -1,8 +1,7 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  version "1.0.0-alpha.1"
-  url "https://github.com/kubeless/kubeless/archive/v#{version}.tar.gz"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.1.tar.gz"
   sha256 "2ba1e3f43312d47ce712a41ba38a9729074037c2c3030540e88b66fdd321205e"
 
   bottle do
