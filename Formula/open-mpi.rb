@@ -1,8 +1,26 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v3.1/downloads/openmpi-3.1.0.tar.bz2"
-  sha256 "b25c044124cc859c0b4e6e825574f9439a51683af1950f6acda1951f5ccdf06c"
+
+  stable do
+    # These can be put back up under `homepage` once Open MPI v3.1.1 is released:
+    url "https://www.open-mpi.org/software/ompi/v3.1/downloads/openmpi-3.1.0.tar.bz2"
+    sha256 "b25c044124cc859c0b4e6e825574f9439a51683af1950f6acda1951f5ccdf06c"
+
+    # Fix https://github.com/Homebrew/homebrew-core/issues/26009 and its upstream counterpart
+    # https://github.com/open-mpi/ompi/issues/5000 for the time being.
+    #
+    # (Remove this patch when Open MPI v3.1.1 is shipped upstream, as it will be included in that
+    # release.)
+    #
+    # From the result of https://github.com/open-mpi/ompi/pull/5015 and
+    # https://github.com/open-mpi/ompi/pull/5160 as backported to Open MPI v3.1.x by
+    # https://github.com/open-mpi/ompi/pull/5118:
+    patch do
+      url "https://github.com/open-mpi/ompi/commit/c99cf1ae6e929f7f2ab61262337db5fb49662ab3.patch?full_index=1"
+      sha256 "07a927e0c2489391850d61399d7a282db81de1dab24ea60304dd33c2ad8c430f"
+    end
+  end
 
   bottle do
     sha256 "716e46cfa0e361cff9de31ec20f4e534e446ed3b598b59a708e70e9d80b97997" => :high_sierra
@@ -12,9 +30,10 @@ class OpenMpi < Formula
 
   head do
     url "https://github.com/open-mpi/ompi.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
+    # Uncomment the following lines once the `stable` `SoftwareSpec` isn't being patched any more:
+    # depends_on "automake" => :build
+    # depends_on "autoconf" => :build
+    # depends_on "libtool" => :build
   end
 
   option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
@@ -24,6 +43,17 @@ class OpenMpi < Formula
   deprecated_option "disable-fortran" => "without-fortran"
   deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
+  # Some build dependencies were added here for the above patch and can will no longer be relevant
+  # once Open MPI v3.1.1 is released:
+  #
+  #   - autoconf
+  #   - automake
+  #   - libtool
+  #
+  # As such, the lines declaring these can be removed below after this happens.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gcc" if build.with? "fortran"
   depends_on :java => :optional
   depends_on "libevent"
@@ -52,7 +82,14 @@ class OpenMpi < Formula
     args << "--enable-mpi-java" if build.with? "java"
     args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
 
-    system "./autogen.pl" if build.head?
+    # Change the `autogen.pl` handling back to `system "./autogen.pl if build.head?` once Open
+    # MPI v3.1.1 is released:
+    if build.stable?
+      autogen_args = %w[--force]
+    elsif build.head?
+      autogen_args = %w[]
+    end
+    system "./autogen.pl", *autogen_args
     system "./configure", *args
     system "make", "all"
     system "make", "check"
