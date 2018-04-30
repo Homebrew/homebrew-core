@@ -3,6 +3,7 @@ class Libical < Formula
   homepage "https://libical.github.io/libical/"
   url "https://github.com/libical/libical/releases/download/v3.0.3/libical-3.0.3.tar.gz"
   sha256 "5b91eb8ad2d2dcada39d2f81d5e3ac15895823611dc7df91df39a35586f39241"
+  revision 1
 
   bottle do
     sha256 "1db80d26f22a9c81e633d263fa2aa4a0aa09b47553972af74c05f5fa0fd55065" => :high_sierra
@@ -13,10 +14,10 @@ class Libical < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "icu4c"
 
   def install
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
-                         "-DICU_LIBRARY=ICU_LIBRARY-NOTFOUND",
                          "-DSHARED_ONLY=ON",
                          *std_cmake_args
     system "make", "install"
