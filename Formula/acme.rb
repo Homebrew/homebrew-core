@@ -1,9 +1,8 @@
 class Acme < Formula
   desc "Crossassembler for multiple environments"
   homepage "https://sourceforge.net/projects/acme-crossass/"
-  url "https://downloads.sourceforge.net/code-snapshots/svn/a/ac/acme-crossass/code-0/acme-crossass-code-0-97-trunk.zip"
+  url "https://svn.code.sf.net/p/acme-crossass/code-0/trunk", :revision => "97"
   version "0.96.4"
-  sha256 "e0f49c4408563684ad3f1f2b868ddee5936b4e5c88b3fc10334a7617f525af01"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +12,6 @@ class Acme < Formula
     sha256 "84f0ba7e45580d5a28a9a0dd9d7a25a6e67a9bdc7407c5b91cf64b8b9cf0a165" => :el_capitan
     sha256 "1e7c7805ac21061637cd1ce964f976c6f68b9259e892ffc77ee71f2aa280f879" => :yosemite
     sha256 "022ef1a9526002dda47023b47c2af6227ee40f33b33b0ed232ae105fcf982911" => :mavericks
-  end
-
-  devel do
-    url "https://downloads.sourceforge.net/code-snapshots/svn/a/ac/acme-crossass/code-0/acme-crossass-code-0-98-trunk.zip"
-    sha256 "3e04526074e4b58b35f75de9ba84a4e9fdb25b252ed5b77ebad59dedd6f1430e"
-    version "0.98"
   end
 
   def install
