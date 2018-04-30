@@ -3,6 +3,7 @@ class Crow < Formula
   homepage "https://github.com/ipkn/crow"
   url "https://github.com/ipkn/crow/archive/v0.1.tar.gz"
   sha256 "140ca4a4d75ce5996cb103155580cb13b0b27082d1efbc331000a34af55b4390"
+  head "https://github.com/ipkn/crow.git"
 
   depends_on "boost"
 
