@@ -4,6 +4,7 @@ class Mmseqs2 < Formula
   url "https://github.com/soedinglab/MMseqs2/archive/2-23394.tar.gz"
   version "2-23394"
   sha256 "36763fff4c4de1ab6cfc37508a2ee9bd2f4b840e0c9415bd1214280f67b67072"
+  revision 1
 
   bottle do
     cellar :any
