@@ -6,9 +6,9 @@ class Chapel < Formula
   head "https://github.com/chapel-lang/chapel.git"
 
   bottle do
-    sha256 "c6e13af8b2ad7eab4f306a6a72220320c192c1eb031d8cb13ad908e576e161f7" => :high_sierra
-    sha256 "83fbf6e7fc929c3534f792eaa0fa1ff7e1eea9c7c735488196a106247a0ba013" => :sierra
-    sha256 "821baa3760ace44d3cf06d13af0b20e3471bba0c62a5deda3ec4d7c14b4c5123" => :el_capitan
+    sha256 "1a9a4194ccfe50f46d30aa23d068f4284376778f82e9580dcf11139a107d173d" => :high_sierra
+    sha256 "247b2f6bcfecee70f8fd20ef719fe0518d8f134ad7d3f7fd625e300cba955d86" => :sierra
+    sha256 "2b19ead6fb70346cce7c2dbeb1ec1a64ae68f3044630f30a6a7b495b3548df6f" => :el_capitan
   end
 
   def install
