@@ -3,7 +3,7 @@ class DatetimeFortran < Formula
   homepage "https://github.com/milancurcic/datetime-fortran"
   url "https://github.com/milancurcic/datetime-fortran/releases/download/v1.6.0/datetime-fortran-1.6.0.tar.gz"
   sha256 "e46c583bca42e520a05180984315495495da4949267fc155e359524c2bf31e9a"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
