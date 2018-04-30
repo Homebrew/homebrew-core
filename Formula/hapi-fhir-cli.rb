@@ -5,6 +5,7 @@ class HapiFhirCli < Formula
   sha256 "8342c78598edd9b6509fff0b9cb1de9b277b97f1537342124d1e78523d887d15"
 
   bottle :unneeded
+
   depends_on :java => "1.8+"
 
   resource "test_resource" do
@@ -19,6 +20,7 @@ class HapiFhirCli < Formula
   end
 
   test do
-    system bin/"hapi-fhir-cli", "validate", "-n", resource("test_resource").fetch.realpath
+    testpath.install resource("test_resource")
+    system bin/"hapi-fhir-cli", "validate", "-n", "specimen-example.json"
   end
 end
