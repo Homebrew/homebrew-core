@@ -1,8 +1,8 @@
 class OcamlFindlib < Formula
   desc "OCaml library manager"
   homepage "http://projects.camlcity.org/projects/findlib.html"
-  url "http://download.camlcity.org/download/findlib-1.7.3.tar.gz"
-  sha256 "d196608fa23c36c2aace27d5ef124a815132a5fcea668d41fa7d6c1ca246bd8b"
+  url "http://download.camlcity.org/download/findlib-1.8.0.tar.gz"
+  sha256 "2b7b7d6d65bb0f3f8a2c51c63c02b0bcf1fea4c23513f866140dc7dc24fe27ad"
 
   bottle do
     sha256 "9bd28f2ff2625dc8e6b80407f04f7068b352206c1c4c16bb683bec1baf1707d7" => :high_sierra
