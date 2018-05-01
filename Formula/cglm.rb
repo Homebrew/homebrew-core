@@ -9,7 +9,7 @@ class Cglm < Formula
   depends_on "libtool" => :build
 
   def install
-    system "sh", "./autogen.sh"
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
