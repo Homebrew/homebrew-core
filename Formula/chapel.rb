@@ -1,9 +1,8 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.17.0/chapel-1.17.0.tar.gz"
-  sha256 "7620b780cf2a2bd3b26022957c3712983519a422a793614426aed6d9d8bf9fab"
-  revision 1
+  url "https://github.com/chapel-lang/chapel/releases/download/1.17.1/chapel-1.17.1.tar.gz"
+  sha256 "f0a4671ca23832d69f831d230ca82264500ad1836d240854ba0835b95137f4f1"
   head "https://github.com/chapel-lang/chapel.git"
 
   bottle do
@@ -21,6 +20,8 @@ class Chapel < Formula
     # https://github.com/Homebrew/legacy-homebrew/pull/35166
     cd libexec do
       system "make"
+      system "make", "chpldoc"
+      system "make", "test-venv"
       system "make", "cleanall"
     end
 
