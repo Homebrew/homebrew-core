@@ -3,8 +3,9 @@ require "language/node"
 class Bower < Formula
   desc "Package manager for the web"
   homepage "https://bower.io/"
-  url "https://registry.npmjs.org/bower/-/bower-1.8.2.tgz"
-  sha256 "6bcf10e9c192fdbd6e89f98e431e095764c8571f66bcd6dd08fbcbd52e8dd722"
+  # Use Github tarball to avoid bowers npm 4+ incompatible bundled dep usage
+  url "https://github.com/bower/bower/archive/v1.8.4.tar.gz"
+  sha256 "ed4719fa1131dae285de3a013332756ec39f28bc38ec778bc777d74e935163c5"
 
   bottle do
     cellar :any_skip_relocation
