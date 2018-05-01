@@ -3,6 +3,7 @@ class Petsc < Formula
   homepage "https://www.mcs.anl.gov/petsc/"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.9.1.tar.gz"
   sha256 "8e3455d2ef0aed637d4d8033dab752551e049a088f893610b799aa3188a5c246"
+  revision 1
 
   bottle do
     sha256 "6404ca49a6462982c154f227f7de6e04ff6c17b463366007caec3ede24fd153c" => :high_sierra
