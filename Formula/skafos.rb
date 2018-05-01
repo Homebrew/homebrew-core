@@ -1,8 +1,8 @@
 class Skafos < Formula
   desc "CLI for the Metis Machine A.I. and machine learning deployment platform"
   homepage "https://metismachine.com/"
-  url "https://github.com/MetisMachine/skafos/archive/1.4.0.tar.gz"
-  sha256 "9defd32c0d8f2265ea003b7b3ce54fdb625ed54a11376f637ff9bdcd8501981d"
+  url "https://github.com/MetisMachine/skafos/archive/1.5.0.tar.gz"
+  sha256 "96064f7edb7f7671587a928bd2f7e54d82f5c763e12c8c56dca8d0dff8dd5db8"
 
   bottle do
     cellar :any
