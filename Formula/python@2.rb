@@ -1,9 +1,8 @@
 class PythonAT2 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
-  sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
-  revision 3
+  url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
+  sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
@@ -11,11 +10,6 @@ class PythonAT2 < Formula
     sha256 "de045349168897a773107c3698927ad48ca444910d7d101bd2fea896eb3cb567" => :high_sierra
     sha256 "51a2db64f53d9c3f8950f91e777522c261fb04eb8da172c37f9de2c52f6d2159" => :sierra
     sha256 "df47d7efad257ce33dec09ee55a3a2e1854eae494dcc3f1e45d03ed641eb11be" => :el_capitan
-  end
-
-  devel do
-    url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15rc1.tar.xz"
-    sha256 "d022fe643281d0f83a29dfd254d9c66d066bce0e2d57452d256b0886530227ec"
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -33,8 +27,8 @@ class PythonAT2 < Formula
   depends_on "tcl-tk" => :optional
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/72/c2/c09362ab29338413ab687b47dab03bab4a792e2bbb727a1eb5e0a88e3b86/setuptools-39.0.1.zip"
-    sha256 "bec7badf0f60e7fc8153fac47836edc41b74e5d541d7692e614e635720d6a7c7"
+    url "https://files.pythonhosted.org/packages/a6/5b/f399fcffb9128d642387133dc3aa9bb81f127b949cd4d9f63e5602ad1d71/setuptools-39.1.0.zip"
+    sha256 "c5484e13b89927b44fd15897f7ce19dded8e7f035466a4fa7b946c0bdd86edd7"
   end
 
   resource "pip" do
