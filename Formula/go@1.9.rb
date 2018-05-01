@@ -1,9 +1,9 @@
 class GoAT19 < Formula
   desc "Go programming environment (1.9)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.9.5.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.9.5.src.tar.gz"
-  sha256 "f1c2bb7f32bbd8fa7a19cc1608e0d06582df32ff5f0340967d83fb0017c49fbc"
+  url "https://dl.google.com/go/go1.9.6.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.9.6.src.tar.gz"
+  sha256 "36f4059be658f7f07091e27fe04bb9e97a0c4836eb446e4c5bac3c90ff9e5828"
 
   bottle do
     sha256 "f4fe214d30b295ba356d4f4e0268d8bfccadc183bd9803a7a1d66caece96eee8" => :high_sierra
