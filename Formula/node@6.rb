@@ -1,8 +1,8 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.14.1/node-v6.14.1.tar.xz"
-  sha256 "115eda89ff718abe811cb14c31dec891efa20b92c99e715f5e094641bc56bec3"
+  url "https://nodejs.org/dist/v6.14.2/node-v6.14.2.tar.xz"
+  sha256 "b3a534b2ad5e96c6ff67f3a1356b94f7a28ef118eb1d420b314fe5aafe6d62d1"
   head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
