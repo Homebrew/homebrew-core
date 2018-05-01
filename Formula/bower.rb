@@ -9,9 +9,9 @@ class Bower < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "359ec9939072dd0feed1a6e7409e2d4e37412753c63cc6b04ef85c536b89c0a7" => :high_sierra
-    sha256 "9620d23985975efe543f6d6fcdcbb13bc2f1d439184f9ef05104437425714665" => :sierra
-    sha256 "19d149753affff318a3923ee83c93589d887140d51e667d6a11ddeeaa3f19c5f" => :el_capitan
+    sha256 "02a7d64987c14db303484c1dc329f485ad9596726038bf30667f9f28e995a772" => :high_sierra
+    sha256 "341e7e76f3536cb8b2ddbbcc4d2e96c004e76bced2d375a3c636914c0ec11fa2" => :sierra
+    sha256 "58a39bd911c39d6e1d319fb94d6073b91566ff73f361cf41a9ee5006c546050e" => :el_capitan
   end
 
   depends_on "node"
