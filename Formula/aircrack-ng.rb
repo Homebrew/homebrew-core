@@ -1,12 +1,8 @@
 class AircrackNg < Formula
   desc "Next-generation aircrack with lots of new features"
   homepage "https://aircrack-ng.org/"
-
-  # We can't update this due to linux-only dependencies in >1.1.
-  # See https://github.com/Homebrew/homebrew/issues/29450
-  url "https://download.aircrack-ng.org/aircrack-ng-1.1.tar.gz"
-  sha256 "b136b549b7d2a2751c21793100075ea43b28de9af4c1969508bb95bcc92224ad"
-  revision 2
+  url "https://download.aircrack-ng.org/aircrack-ng-1.2.tar.gz"
+  sha256 "794ffed5400f35cb78f3466eabb47546f050e0ac35287c174acce60763a0fa7c"
 
   bottle do
     rebuild 1
@@ -15,22 +11,23 @@ class AircrackNg < Formula
     sha256 "bc1052e5690192346ffe097cf08292dec9f61293e1e928bfcdb485ca71c130d6" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sqlite"
   depends_on "openssl"
+  depends_on "pcre"
 
   # Remove root requirement from OUI update script. See:
   # https://github.com/Homebrew/homebrew/pull/12755
   patch :DATA
 
   def install
-    # Fix incorrect OUI url
-    inreplace "scripts/airodump-ng-oui-update",
-      "http://standards.ieee.org/regauth/oui/oui.txt",
-      "http://standards-oui.ieee.org/oui.txt"
-
-    system "make", "CC=#{ENV.cc}"
-    system "make", "prefix=#{prefix}", "mandir=#{man1}", "install"
+    system "./autogen.sh", "--disable-silent-rules",
+                           "--disable-dependency-tracking",
+                           "--prefix=#{prefix}"
+    system "make", "install"
   end
 
   def caveats; <<~EOS
@@ -46,8 +43,8 @@ end
 __END__
 --- a/scripts/airodump-ng-oui-update
 +++ b/scripts/airodump-ng-oui-update
-@@ -7,25 +7,6 @@
- OUI_PATH="/usr/local/etc/aircrack-ng"
+@@ -20,25 +20,6 @@ fi
+
  AIRODUMP_NG_OUI="${OUI_PATH}/airodump-ng-oui.txt"
  OUI_IEEE="${OUI_PATH}/oui.txt"
 -USERID=""
@@ -59,9 +56,9 @@ __END__
 -	USERID="`id -u 2> /dev/null`"
 -fi
 -
--if [ x$USERID = "x" -a x$UID != "x" ]
+-if [ x$USERID = "x" -a x$(id -ru) != "x" ]
 -then
--	USERID=$UID
+-	USERID=$(id -ru)
 -fi
 -
 -if [ x$USERID != "x" -a x$USERID != "x0" ]
@@ -72,4 +69,3 @@ __END__
  
  if [ ! -d "${OUI_PATH}" ]; then
  	mkdir -p ${OUI_PATH}
-
