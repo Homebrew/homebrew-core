@@ -3,9 +3,9 @@
 class Xz < Formula
   desc "General-purpose data compression with high compression ratio"
   homepage "https://tukaani.org/xz/"
-  url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.3.tar.gz"
-  mirror "https://tukaani.org/xz/xz-5.2.3.tar.gz"
-  sha256 "71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb"
+  url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.4.tar.gz"
+  mirror "https://tukaani.org/xz/xz-5.2.4.tar.gz"
+  sha256 "b512f3b726d3b37b6dc4c8570e137b9311e7552e8ccbab4d39d47ce5f4177145"
 
   bottle do
     cellar :any
