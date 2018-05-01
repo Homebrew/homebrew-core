@@ -1,9 +1,8 @@
 class Libbpg < Formula
   desc "Image format meant to improve on JPEG quality and file size"
   homepage "https://bellard.org/bpg/"
-  url "https://bellard.org/bpg/libbpg-0.9.7.tar.gz"
-  sha256 "05035862ff4ffca0280261871486f44e74c4af4337c931e0858483551e6efe25"
-  revision 1
+  url "https://bellard.org/bpg/libbpg-0.9.8.tar.gz"
+  sha256 "c0788e23bdf1a7d36cb4424ccb2fae4c7789ac94949563c4ad0e2569d3bf0095"
 
   bottle do
     cellar :any
