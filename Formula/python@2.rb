@@ -94,7 +94,7 @@ class PythonAT2 < Formula
     # https://bugs.python.org/issue32616
     # https://github.com/Homebrew/homebrew-core/issues/22743
     if DevelopmentTools.clang_build_version >= 802 &&
-       DevelopmentTools.clang_build_version < 1000
+       DevelopmentTools.clang_build_version < 902
       args << "--without-computed-gotos"
     end
 
