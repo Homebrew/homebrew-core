@@ -3,8 +3,8 @@ class Burp < Formula
   homepage "https://burp.grke.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.30/burp-2.1.30.tar.bz2"
-    sha256 "990fb1b61bddf5cd5cc2e1bfabb80f3acc496aa6f3dadbda757a3aacace068ab"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.1.32/burp-2.1.32.tar.bz2"
+    sha256 "56f8a13ae96e50f2274857a08c9f3d9f06ed6dee306d49fd189e3ff9f93c74fd"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
