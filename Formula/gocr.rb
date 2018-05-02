@@ -6,12 +6,9 @@ class Gocr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "eb3148c555bda4196603d07612992d2de8b0d4698e674d70e8ce8c328a924042" => :high_sierra
-    sha256 "0e3df7c5f1304de66cb85b98b12612ed99e43177b37c02605892b02c947f0ef0" => :sierra
-    sha256 "3b3a0351d949f3f798dc973e0f31a283b8df3f73d1c7f251c7f15229ceb2fb20" => :el_capitan
-    sha256 "94207525e139ef275415f46ff50baab26fef6a2ba52ca71a6a00aa3035ced71c" => :yosemite
-    sha256 "467ce3a1411e022f44b60691bf71bf8a7b86ba234b21dad23cc1f2b258d92e9b" => :mavericks
+    sha256 "9130f859261ff352e24fc1dc17c5b7c73eae89d4387cbf35bd2fbdfdfbac62d5" => :high_sierra
+    sha256 "45dd1209a1a24c9d63c8817eab5be77690be2c0a2ca1e26c71954c3dbaaeeff2" => :sierra
+    sha256 "46a821f9815ad964bc58feff3e5344964e9c164db625c9a8faffc0c7450055fb" => :el_capitan
   end
 
   option "with-lib", "Install library and headers"
