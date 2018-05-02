@@ -1,9 +1,9 @@
 class Flashrom < Formula
   desc "Identify, read, write, verify, and erase flash chips"
   homepage "https://flashrom.org/"
-  url "https://download.flashrom.org/releases/flashrom-0.9.9.tar.bz2"
-  sha256 "cb3156b0f63eb192024b76c0814135930297aac41f80761a5d293de769783c45"
-  head "https://code.coreboot.org/svn/flashrom/trunk", :using => :svn
+  url "https://download.flashrom.org/releases/flashrom-1.0.tar.bz2"
+  sha256 "3702fa215ba5fb5af8e54c852d239899cfa1389194c1e51cb2a170c4dc9dee64"
+  head "https://review.coreboot.org/flashrom.git"
 
   bottle do
     cellar :any
