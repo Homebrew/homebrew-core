@@ -7,10 +7,9 @@ class Freetype < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "afb5bc6218adcf0c0794ede89e5db330caea397159a92469a188f10cf7835228" => :high_sierra
-    sha256 "a58d00c7f3f82776024e146b0ce704edb9125cb493fca553620559389126fce6" => :sierra
-    sha256 "c1283252fcb30f5407c22b3c68bf670227f5703459c238deae568f25e5fd77c5" => :el_capitan
+    sha256 "444ef60a543aca6ca26223f46182c914e26d2908f33fca41cb54bcf9a81084a3" => :high_sierra
+    sha256 "4afc7a144563abc6f4e58ef45aa57da598051290e7568afbff028585717b30fa" => :sierra
+    sha256 "8f8fbbe028986cebd4a49c399e4861fb85cb6173298ba957172cb1ed915682ab" => :el_capitan
   end
 
   depends_on "libpng"
