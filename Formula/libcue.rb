@@ -1,8 +1,8 @@
 class Libcue < Formula
   desc "Cue sheet parser library for C"
   homepage "https://github.com/lipnitsk/libcue"
-  url "https://github.com/lipnitsk/libcue/archive/v2.2.0.tar.gz"
-  sha256 "328f14b8ae0a6b8d4c96928b53b88a86d72a354b4da9d846343c78ba36022879"
+  url "https://github.com/lipnitsk/libcue/archive/v2.2.1.tar.gz"
+  sha256 "f27bc3ebb2e892cd9d32a7bee6d84576a60f955f29f748b9b487b173712f1200"
 
   bottle do
     cellar :any
@@ -14,12 +14,9 @@ class Libcue < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make"
-    (pkgshare/"tests").mkpath
-    cp_r "t/.", pkgshare/"tests"
-    system "make", "test"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "make", "install"
+    (pkgshare/"tests").install Dir["t/*"]
   end
 
   test do
