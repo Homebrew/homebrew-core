@@ -31,11 +31,12 @@ class Qemu < Formula
   depends_on "libpng" => :recommended
   depends_on "vde" => :optional
   depends_on "sdl2" => :optional
-  depends_on "gtk+" => :optional
+  depends_on "gtk+3" => :optional
   depends_on "libssh2" => :optional
   depends_on "libusb" => :optional
 
   deprecated_option "with-sdl" => "with-sdl2"
+  deprecated_option "with-gtk+" => "with-gtk+3"
 
   fails_with :gcc_4_0 do
     cause "qemu requires a compiler with support for the __thread specifier"
@@ -65,7 +66,7 @@ class Qemu < Formula
     ]
 
     # Cocoa and SDL2/GTK+ UIs cannot both be enabled at once.
-    if build.with?("sdl2") || build.with?("gtk+")
+    if build.with?("sdl2") || build.with?("gtk+3")
       args << "--disable-cocoa"
     else
       args << "--enable-cocoa"
@@ -73,7 +74,7 @@ class Qemu < Formula
 
     args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
     args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
-    args << (build.with?("gtk+") ? "--enable-gtk" : "--disable-gtk")
+    args << (build.with?("gtk+3") ? "--enable-gtk" : "--disable-gtk")
     args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
 
     system "./configure", *args
