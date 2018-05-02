@@ -1,20 +1,19 @@
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://kripken.github.io/emscripten-site/"
-  revision 1
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.37.38.tar.gz"
-    sha256 "e83f94672c2b73f5c56ae14445613abb79443aee799e06487ffff3f2a188a39a"
+    url "https://github.com/kripken/emscripten/archive/1.37.39.tar.gz"
+    sha256 "df405d83f56023adb56b184d5bf4b9cdc54b1b4c94c6ce3a479e7deb380aad05"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/1.37.38.tar.gz"
-      sha256 "6b4cd054e2cc59f5cfb01ff646256580f0520ae17a98e795213eb0804f1337a3"
+      url "https://github.com/kripken/emscripten-fastcomp/archive/1.37.39.tar.gz"
+      sha256 "bc658bb7990e9d2089b84c040133237964413d48faf570a696b337f586185d0e"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.37.38.tar.gz"
-      sha256 "d0f0597780383e446fc680b0f0ee64c71ac7794667af27494407a33c0090b449"
+      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.37.39.tar.gz"
+      sha256 "842fe66bce4a357fea427b083587ad71dcfb2d6d3e8931f8bca54675b07b7cf3"
     end
   end
 
