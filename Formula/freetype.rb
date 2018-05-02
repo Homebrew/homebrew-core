@@ -1,9 +1,9 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
-  sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
+  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9.1/freetype-2.9.1.tar.bz2"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.bz2"
+  sha256 "db8d87ea720ea9d5edc5388fc7a0497bb11ba9fe972245e0f7f4c7e8b1e1e84d"
 
   bottle do
     cellar :any
@@ -16,12 +16,9 @@ class Freetype < Formula
   depends_on "libpng"
 
   def install
-    # Enable sub-pixel rendering (ClearType)
-    inreplace "include/freetype/config/ftoption.h",
-      "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
-      "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
-
-    system "./configure", "--prefix=#{prefix}", "--without-harfbuzz"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-freetype-config",
+                          "--without-harfbuzz"
     system "make"
     system "make", "install"
 
