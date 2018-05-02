@@ -15,6 +15,6 @@ class LibcdioParanoia < Formula
   end
 
   test do
-    assert_match /cdparanoia III release 10.2/, shell_output("#{bin}/cd-paranoia -V", 0)
+    assert_match /cdparanoia/, shell_output("#{bin}/cd-paranoia -V 2>&1", 0).partition(" ").first
   end
 end
