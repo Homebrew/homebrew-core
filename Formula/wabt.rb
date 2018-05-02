@@ -1,8 +1,8 @@
 class Wabt < Formula
   desc "Web Assembly Binary Toolkit"
   homepage "https://github.com/WebAssembly/wabt"
-  url "https://github.com/WebAssembly/wabt/archive/1.0.0.tar.gz"
-  sha256 "a5d4cfb410fbe94814ed8ae67a2c356c4ea39d26578ca5b48a8d7ede2a0e08eb"
+  url "https://github.com/WebAssembly/wabt/archive/1.0.1.tar.gz"
+  sha256 "720a1e68eddbacc2106d4db8056460488c96a7ff1bf0f5ec8dd8424f7a457ce4"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,12 +15,14 @@ class Wabt < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DBUILD_TESTS=OFF", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DBUILD_TESTS=OFF", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
     (testpath/"sample.wast").write("(module (memory 1) (func))")
-    system "#{bin}/wast2wasm", testpath/"sample.wast"
+    system "#{bin}/wat2wasm", testpath/"sample.wast"
   end
 end
