@@ -1,9 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.10.tar.gz"
-  sha256 "9bc86cbc1df67285134bb4ac0ed7a450d52dfe75423577c469cae809a1154665"
-  revision 2
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.11.tar.gz"
+  sha256 "5a4d4a5480569d94bcaf759d1afa729881c90a2c1a30a5603c278d74ed0cae7e"
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
@@ -31,12 +30,6 @@ class Openimageio < Formula
   depends_on "webp"
 
   def install
-    # FFmpeg 4.0 compatibility
-    # Fix "ffmpeginput.cpp:333:72: error: use of undeclared identifier 'CODEC_CAP_DELAY'"
-    # Reported 21 Apr 2018 https://github.com/OpenImageIO/oiio/issues/1923
-    inreplace "src/ffmpeg.imageio/ffmpeginput.cpp", " CODEC_CAP_DELAY",
-                                                    " AV_CODEC_CAP_DELAY"
-
     # -DUSE_OPENSSL=OFF can be removed in 1.9, see
     # https://github.com/Homebrew/homebrew-core/pull/22522#issuecomment-364831533
     args = std_cmake_args + %w[
