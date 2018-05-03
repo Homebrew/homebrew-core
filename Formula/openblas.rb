@@ -3,7 +3,7 @@ class Openblas < Formula
   homepage "https://www.openblas.net/"
   url "https://github.com/xianyi/OpenBLAS/archive/v0.2.20.tar.gz"
   sha256 "5ef38b15d9c652985774869efd548b8e3e972e1e99475c673b25537ed7bcf394"
-  revision 1
+  revision 2
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do

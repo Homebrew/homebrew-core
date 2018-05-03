@@ -3,6 +3,7 @@ class Armadillo < Formula
   homepage "https://arma.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/arma/armadillo-8.500.0.tar.xz"
   sha256 "f51c69f45cfbd4773c77ded333c8ff9cdd9a8e0d5a1c011b6a0333ab4b8cbbf1"
+  revision 1
 
   bottle do
     cellar :any

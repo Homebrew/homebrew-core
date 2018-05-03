@@ -3,7 +3,7 @@ class Dungeon < Formula
   homepage "https://github.com/GOFAI/dungeon"
   url "https://github.com/GOFAI/dungeon/archive/4.0.tar.gz"
   sha256 "be2217be9e23861f22c14c4395da272fca5fb08a1741f52fd393792908279bea"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "0e6d683ff9e65ebc5dec90c76075666d80979147aede32deb8b0485cda9ada3f" => :high_sierra

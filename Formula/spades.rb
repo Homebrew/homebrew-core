@@ -3,7 +3,7 @@ class Spades < Formula
   homepage "http://cab.spbu.ru/software/spades/"
   url "http://cab.spbu.ru/files/release3.11.1/SPAdes-3.11.1.tar.gz"
   sha256 "3ab85d86bf7d595bd8adf11c971f5d258bbbd2574b7c1703b16d6639a725b474"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -17,6 +17,11 @@ class Spades < Formula
   depends_on "python@2"
 
   fails_with :clang # no OpenMP support
+
+  patch do
+    url "https://patch-diff.githubusercontent.com/raw/ablab/spades/pull/106.diff?full_index=1"
+    sha256 "ec3ec3edb174f53f1cc8a537585f59318a2dcad1e8285ca4dc148e44cff610be"
+  end
 
   def install
     mkdir "src/build" do

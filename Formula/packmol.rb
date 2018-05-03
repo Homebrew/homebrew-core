@@ -3,6 +3,7 @@ class Packmol < Formula
   homepage "https://www.ime.unicamp.br/~martinez/packmol/"
   url "https://github.com/leandromartinez98/packmol/archive/18.104.tar.gz"
   sha256 "a87cb076f82a5ee94206b7534cd790c243fadd2d64bca5b12aa88493d5024f87"
+  revision 1
   head "https://github.com/leandromartinez98/packmol.git"
 
   bottle do
@@ -11,7 +12,7 @@ class Packmol < Formula
     sha256 "4aeeb7e3b5a0fcc39a37a80b00ad27520c2852e138a48174d8d60980485faec7" => :el_capitan
   end
 
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
 
   resource "examples" do
     url "https://www.ime.unicamp.br/~martinez/packmol/examples/examples.tar.gz"

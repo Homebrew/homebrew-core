@@ -1,16 +1,9 @@
-class Gcc < Formula
+class GccAT7 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-  sha256 "1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153"
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
-
-  bottle do
-    sha256 "e28abdcd4b1eca7b8bdfc76779e8d6343eb11d8fc4e9c523f03c3c1c887aac2a" => :high_sierra
-    sha256 "eef4c6b68313e913b3c71329575699e960a384044b12a76fd880a500fb8dbf1c" => :sierra
-    sha256 "a2a77d7caeda7cb6dcacebc2f5113f7a8a3579a146b3a9b539f060409198bba1" => :el_capitan
-  end
+  url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
+  sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
 
   option "with-jit", "Build just-in-time compiler"
   option "with-nls", "Build with native language support (localization)"
@@ -30,17 +23,36 @@ class Gcc < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  def version_suffix
-    if build.head?
-      "HEAD"
-    else
-      version.to_s.slice(/\d/)
+  # Fix for libgccjit.so linkage on Darwin
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
+  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
+  # Now fixed on GCC trunk for GCC 8, may backported to other branches
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
+    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
+  end
+
+  # Fix parallel build on APFS filesystem
+  # Remove for 7.4.0 and later
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
+  if MacOS.version >= :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/df0465c02a/gcc/apfs.patch"
+      sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
     end
   end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
+
+    version_suffix = version.to_s.slice(/\d/)
+
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run so pretend we have an outdated makeinfo
+    # to prevent their build.
+    ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
     # We avoiding building:
     #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
@@ -96,8 +108,6 @@ class Gcc < Formula
 
       system "make", *make_args
       system "make", "install"
-
-      bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
     end
 
     # Handle conflicts between GCC formulae and avoid interfering
@@ -124,7 +134,7 @@ class Gcc < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-#{version_suffix}", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-7", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -135,7 +145,7 @@ class Gcc < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-#{version_suffix}", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-7", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     (testpath/"test.f90").write <<~EOS
@@ -149,7 +159,7 @@ class Gcc < Formula
       write(*,"(A)") "Done"
       end
     EOS
-    system "#{bin}/gfortran", "-o", "test", "test.f90"
+    system "#{bin}/gfortran-7", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
   end
 end
