@@ -1,10 +1,8 @@
 class CheckPostgres < Formula
   desc "Monitor Postgres databases"
   homepage "https://bucardo.org/wiki/Check_postgres"
-  url "https://bucardo.org/downloads/check_postgres-2.22.0.tar.gz"
-  sha256 "29cd8ea0a0c0fcd79a1e6afb3f5a1d662c1658eef207ea89276ddb30121b85a8"
-  revision 3
-
+  url "https://bucardo.org/downloads/check_postgres-2.23.0.tar.gz"
+  sha256 "93cdbe92bb451525219b131a6810d9da0525000f6795160f70751b105c858615"
   head "https://github.com/bucardo/check_postgres.git"
 
   bottle do
