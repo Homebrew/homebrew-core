@@ -3,8 +3,8 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/1.21.1.tar.gz"
-  sha256 "aa9016685a8ee5cf27677cc985c9b9e984a454556e0407d3ab3d4ad9cefddd69"
+  url "https://github.com/docker/compose/archive/1.21.2.tar.gz"
+  sha256 "3fdaa361dceb919b6008a925b8b672d7402cc3dd8277b8f26b028dd546d39926"
   head "https://github.com/docker/compose.git"
 
   bottle do
