@@ -3,9 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/04/16/1d1e1ff25d4f694f04f88417afbd72703d850aebe9f84fdbb8ed836089d7/dxpy-0.191.0.tar.gz"
-  sha256 "b98a55fc766a9e7044f6f299d148c5dde3967f22669add915a1a1921e4006820"
-  revision 1
+  url "https://files.pythonhosted.org/packages/4d/e8/ab819593e2c658b3201f29b6c84da9a17e164af18244d61f402a76e2f5bc/dxpy-0.252.0.tar.gz"
+  sha256 "a0b76bd3f6993a4eead942aa63e252bd540dd4c18824e4b0a37f862ab054b586"
 
   bottle do
     cellar :any_skip_relocation
@@ -33,11 +32,6 @@ class Dxpy < Formula
     sha256 "19485d83f7bd2151c0aeaf88fbba3ee50dadfb222ffc3b66a344ef4952b782a3"
   end
 
-  resource "gnureadline" do
-    url "https://files.pythonhosted.org/packages/3a/ee/2c3f568b0a74974791ac590ec742ef6133e2fbd287a074ba72a53fa5e97c/gnureadline-6.3.3.tar.gz"
-    sha256 "a259b038f4b625b07e6206bbc060baa5489ca17c798df3f9507875f2bf980cbe"
-  end
-
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/fe/69/c0d8e9b9f8a58cbf71aa4cf7f27c27ee0ab05abe32d9157ec22e223edef4/psutil-3.3.0.tar.gz"
     sha256 "421b6591d16b509aaa8d8c15821d66bb94cb4a8dc4385cad5c51b85d4a096d85"
@@ -59,8 +53,8 @@ class Dxpy < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "ws4py" do
@@ -74,19 +68,7 @@ class Dxpy < Formula
   end
 
   def install
-    # superenv removes -arch flags causing gnureadline to fail
-    # See Homebrew/legacy-homebrew#44472
-    ENV.permit_arch_flags
-
     virtualenv_install_with_resources
-
-    # Fix collision between system readline and gnureadline resulting in
-    # "incompatible readline module detected (libedit), tab completion disabled"
-    # Reported 7 Aug 2016: https://github.com/dnanexus/dx-toolkit/issues/169
-    site_packages = libexec/"lib/python2.7/site-packages"
-    (site_packages/"homebrew-gnureadline-hack.pth").write <<~EOS
-      import sys; import gnureadline; sys.modules["readline"] = gnureadline
-    EOS
   end
 
   test do
