@@ -12,12 +12,16 @@ class GtksourceviewAT4 < Formula
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-vala=yes",
+                          "--enable-gobject-introspection=yes"
     system "make", "install"
   end
 
