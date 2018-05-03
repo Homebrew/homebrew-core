@@ -3,8 +3,8 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.4.4.1.tar.gz"
-  sha256 "b08bbd7224c9e5c2c74101ec4d0f7952bdade531766aacbfbb21e1dca9b6c3d6"
+  url "https://github.com/influxdata/chronograf/archive/1.4.4.2.tar.gz"
+  sha256 "5bedf8f51eac859d762994d7c45fdfef45da5cd5b1d7f36e442f7eebde37c057"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
@@ -26,6 +26,9 @@ class Chronograf < Formula
     Language::Node.setup_npm_environment
     chronograf_path = buildpath/"src/github.com/influxdata/chronograf"
     chronograf_path.install buildpath.children
+
+    # fixes yarn + upath@1.0.4 incompatibility, remove once upath is upgraded to 1.0.5+
+    Pathname.new("#{ENV["HOME"]}/.yarnrc").write("ignore-engines true\n")
 
     cd chronograf_path do
       system "make", "dep"
