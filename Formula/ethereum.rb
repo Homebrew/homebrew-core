@@ -1,8 +1,8 @@
 class Ethereum < Formula
   desc "Official Go implementation of the Ethereum protocol"
   homepage "https://ethereum.github.io/go-ethereum/"
-  url "https://github.com/ethereum/go-ethereum/archive/v1.8.6.tar.gz"
-  sha256 "c208736b22c3d5610eb2900a622c358b7ce8e2b270cd85e7bcc6b5786ea74225"
+  url "https://github.com/ethereum/go-ethereum/archive/v1.8.7.tar.gz"
+  sha256 "8e89536400adc7aa7ee630faef8acecdad0b9abad095d8fd46b8960737a80610"
   head "https://github.com/ethereum/go-ethereum.git"
 
   bottle do
