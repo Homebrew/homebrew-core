@@ -8,9 +8,9 @@ class Mmseqs2 < Formula
 
   bottle do
     cellar :any
-    sha256 "7bb4f65a43a6ef0f0aa9cc252e8fe531e2d506d2f9eb9e974f8615b651f6bed6" => :high_sierra
-    sha256 "b512f8115a044f9461a756c45b4820d788ee84b5921c7e76db31be97d84961c4" => :sierra
-    sha256 "6ad606c732041c883472316877d6145fb1958209e16688cbd9bcdf011127e197" => :el_capitan
+    sha256 "6e492564e40f85bf54383aa6013c9683646b235d68491b17af6d3ac34f1e5c32" => :high_sierra
+    sha256 "36c412cf77cad2bc556cb523e1c1b0a1bc32ce96197e196997d0f8b5c9c64d9a" => :sierra
+    sha256 "f83839b18c21e254800a830be8774c3f20d2c570d930d4b4cc6b9ec56eadcc7d" => :el_capitan
   end
 
   depends_on "cmake" => :build
