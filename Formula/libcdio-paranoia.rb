@@ -1,3 +1,5 @@
+require "English"
+
 class LibcdioParanoia < Formula
   desc "Audio CD ripper based on libcdio"
   homepage "https://www.gnu.org/software/libcdio/"
@@ -19,6 +21,6 @@ class LibcdioParanoia < Formula
   test do
     assert_match /cdparanoia/, shell_output("#{bin}/cd-paranoia -V 2>&1", 0).partition(" ").first
     system("#{bin}/cd-paranoia", "-V")
-    assert_equal $?.success?, true, "Execution of cd-paranoia failed."
+    assert_equal $CHILD_STATUS, true, "Execution of cd-paranoia failed."
   end
 end
