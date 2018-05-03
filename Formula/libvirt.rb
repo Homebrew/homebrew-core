@@ -6,9 +6,9 @@ class Libvirt < Formula
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
-    sha256 "a44a8b431671d2ce47273a8d67a43ce27edf0f5b469aa73fd73651793f1c9336" => :high_sierra
-    sha256 "77054b65b8d524028118325c7bc1d551ab50aa2c3ecc27b9a7190e0e6b93e4b5" => :sierra
-    sha256 "cf61068a5ad8a85656b92c1c7d72466f23b31df472398a1b9b1b803a0a32fabf" => :el_capitan
+    sha256 "b0f8532af9f8802f6d2bc55c30b88c8b7d0a66353ae48cc93ae11d13ba5a2cb6" => :high_sierra
+    sha256 "034cc18a32fde675723a3e77db8fc2d7f7b41411c652a23da06b934508c0ea20" => :sierra
+    sha256 "158b6c73e6860de245e29f2d6926f7035cf3fe2a05791fb34698f4eea0b0cd34" => :el_capitan
   end
 
   option "without-libvirtd", "Build only the virsh client and development libraries"
