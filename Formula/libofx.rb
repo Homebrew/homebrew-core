@@ -1,8 +1,8 @@
 class Libofx < Formula
   desc "Library to support OFX command responses"
   homepage "https://libofx.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/libofx/libofx/libofx-0.9.12.tar.gz"
-  sha256 "c15fa062fa11e759eb6d8c7842191db2185ee1b221a3f75e9650e2849d7b7373"
+  url "https://downloads.sourceforge.net/project/libofx/libofx/libofx-0.9.13.tar.gz"
+  sha256 "57eaf97cddbaf82c24f26b8f5cf8b2fbfd4969c74500a2c9acc9082b83bcc0e4"
 
   bottle do
     sha256 "b682be169269451309ccc7827782a66489e8cf3c9b1793a6b03aa51fd1a943e6" => :high_sierra
