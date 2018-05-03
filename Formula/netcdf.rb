@@ -7,9 +7,9 @@ class Netcdf < Formula
   revision 2
 
   bottle do
-    sha256 "8df16777db8bf5fd6e14e956610b7bdc0811d2d0dc93243523fa60b5fff96262" => :high_sierra
-    sha256 "a43e87f22c5901ea933ea86d4dac40141d9c1d2102e6ddaab090fb3a9c1c6c53" => :sierra
-    sha256 "be56d8cfe99b96799cb684f421e2becc03e72a6754fc840723c78d0fb1bd774f" => :el_capitan
+    sha256 "abcb78a704284d5bf17cb43ca1be29c1fa9f90e9c4bd34aa6eb9e4030fa85627" => :high_sierra
+    sha256 "8a1046712a354d16f1ad76be178ec99eeaeb77d1fb3db070707ac0bd09ac7119" => :sierra
+    sha256 "2f02d1db2d1c78afcb0e3a1f6bf42dced39f3b1eff880495d796528139b0cbb4" => :el_capitan
   end
 
   depends_on "cmake" => :build
