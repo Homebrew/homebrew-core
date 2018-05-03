@@ -6,9 +6,9 @@ class Hdf5 < Formula
   revision 1
 
   bottle do
-    sha256 "fca357b8fa9ea5e17532857d8ded87bd4a0a43cf327334eec2e4b24e78d07c11" => :high_sierra
-    sha256 "b5486518f09c34c102a149f107c07f3df64bad9190bf51e5d8281a8498426722" => :sierra
-    sha256 "f32565fe894c769fbe5a58360f69b714dbe94b2a4fead9aff2d271107c995f21" => :el_capitan
+    sha256 "72e40fa6e9e97cf46ab63aa7a19349468ea0eeadbd9bf37c8b334d08c9a861d5" => :high_sierra
+    sha256 "122dab3a3506271ea97536c45e8bc43c8755c3e92c1b96734ee283fae40182fa" => :sierra
+    sha256 "bcadc6edbfba74f441e32d7a2a57f6b12b07feb780b1db491af006f18302863d" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"
