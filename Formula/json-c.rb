@@ -1,9 +1,9 @@
 class JsonC < Formula
   desc "JSON parser for C"
   homepage "https://github.com/json-c/json-c/wiki"
-  url "https://github.com/json-c/json-c/archive/json-c-0.12.1-20160607.tar.gz"
-  version "0.12.1"
-  sha256 "989e09b99ded277a0a651cd18b81fcb76885fea08769d7a21b6da39fb8a34816"
+  url "https://github.com/json-c/json-c/archive/json-c-0.13.1-20180305.tar.gz"
+  version "0.13.1"
+  sha256 "5d867baeb7f540abe8f3265ac18ed7a24f91fe3c5f4fd99ac3caba0708511b90"
 
   bottle do
     cellar :any
