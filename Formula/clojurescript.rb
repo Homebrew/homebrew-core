@@ -1,8 +1,8 @@
 class Clojurescript < Formula
   desc "Clojure to JS compiler"
   homepage "https://github.com/clojure/clojurescript"
-  url "https://github.com/clojure/clojurescript/releases/download/r1.9.946/cljs.jar"
-  sha256 "b2aec435c8fa285bf75afe02f5c15ab041f92753bacd7570f637afa8eb63e854"
+  url "https://github.com/clojure/clojurescript/releases/download/r1.10.238/cljs.jar"
+  sha256 "4c1746a365f01fa22069d49354391d3c0e9c233f91b17c5f488a0a7f5e3784ce"
   head "https://github.com/clojure/clojurescript.git"
 
   bottle :unneeded
