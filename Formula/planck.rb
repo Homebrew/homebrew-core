@@ -1,8 +1,8 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "http://planck-repl.org/"
-  url "https://github.com/planck-repl/planck/archive/2.13.0.tar.gz"
-  sha256 "aa1e67e90dca742061de725f30492ecc4287e73486aca5a684fdc602a86d7c0e"
+  url "https://github.com/planck-repl/planck/archive/2.14.0.tar.gz"
+  sha256 "fa4b9062b4dabc3941a4f5fb603b423909458efd0ec507ac6ef9f35f3aaf5f10"
   head "https://github.com/planck-repl/planck.git"
 
   bottle do
@@ -24,6 +24,7 @@ class Planck < Formula
     system "./script/build-sandbox"
     bin.install "planck-c/build/planck"
     bin.install "planck-sh/plk"
+    man1.install Dir["planck-man/*.1"]
   end
 
   test do
