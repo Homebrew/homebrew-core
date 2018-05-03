@@ -7,9 +7,9 @@ class Gcc < Formula
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
   bottle do
-    sha256 "e28abdcd4b1eca7b8bdfc76779e8d6343eb11d8fc4e9c523f03c3c1c887aac2a" => :high_sierra
-    sha256 "eef4c6b68313e913b3c71329575699e960a384044b12a76fd880a500fb8dbf1c" => :sierra
-    sha256 "a2a77d7caeda7cb6dcacebc2f5113f7a8a3579a146b3a9b539f060409198bba1" => :el_capitan
+    sha256 "283d21233301947b5fdfa832bc4b8f1d266b78729156c43b48ab771f345022b8" => :high_sierra
+    sha256 "0c4c66df38f02799b762d969634cd17f3edc973cf7d7b5349325c31e32e32e54" => :sierra
+    sha256 "a2b31d94e64afeec4912d65ad7a57a64995b0b7d11207be4f1b26253cdf7c8a3" => :el_capitan
   end
 
   option "with-jit", "Build just-in-time compiler"
