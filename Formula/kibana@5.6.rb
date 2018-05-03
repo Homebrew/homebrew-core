@@ -4,8 +4,8 @@ class KibanaAT56 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v5.6.8",
-      :revision => "f5df7657dd0477ab65412f2841fa5470a012459f"
+      :tag => "v5.6.9",
+      :revision => "426347ab4a3ec66fe14e96fcb837ca36b42c9190"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -17,14 +17,13 @@ class KibanaAT56 < Formula
   keg_only :versioned_formula
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.11.1/node-v6.11.1.tar.xz"
-    sha256 "6f6655b85919aa54cb045a6d69a226849802fcc26491d0db4ce59873e41cc2b8"
+    url "https://nodejs.org/dist/v6.14.0/node-v6.14.0.tar.xz"
+    sha256 "21ab08323dfd082e60fefa5e1af99b086c6154a6675ad265a42462621c35d599"
   end
 
   def install
     resource("node").stage do
       system "./configure", "--prefix=#{libexec}/node"
-      system "make", "test"
       system "make", "install"
     end
 
