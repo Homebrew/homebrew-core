@@ -1,8 +1,8 @@
 class Draco < Formula
   desc "3D geometric mesh and point cloud compression library"
   homepage "https://google.github.io/draco/"
-  url "https://github.com/google/draco/archive/1.2.5.tar.gz"
-  sha256 "76064614bcf5bc80c13291d38c2ea7b8e9c8827a98de93f7bc8bbe4b6e1ec1c4"
+  url "https://github.com/google/draco/archive/1.3.1.tar.gz"
+  sha256 "17ae21fc559fc691dd733d078bcd44d1418af29c8ec1b2e5ee57ad5505ce5a49"
 
   bottle do
     cellar :any_skip_relocation
