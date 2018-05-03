@@ -20,18 +20,35 @@ class Hwloc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cairo" => :optional
+  depends_on :x11 if build.with? "cairo" => ["with-x11"]
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--enable-shared",
-                          "--enable-static",
-                          "--prefix=#{prefix}",
-                          "--without-x"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --enable-shared
+      --enable-static
+      --prefix=#{prefix}
+    ]
+
+    if build.with? "cairo" => ["with-x11"]
+      args << "--with-x"
+    else
+      args << "--without-x"
+    end
+
+    system "./configure", *args
     system "make", "install"
 
     pkgshare.install "tests"
+  end
+
+  def caveats; <<~EOS
+    X11 GUI support for tools like lstopo requires cairo built with X11 support:
+      brew install cairo --with-x11
+      brew install hwloc --with-cairo
+    EOS
   end
 
   test do
