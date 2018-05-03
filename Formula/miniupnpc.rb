@@ -6,9 +6,9 @@ class Miniupnpc < Formula
 
   bottle do
     cellar :any
-    sha256 "1c0b7e56919ce59d6ef76e7804df53ef7b5923a6f67ec78a653e671b9478c532" => :high_sierra
-    sha256 "835144ebca86307b1bb99e21440af2a7322eaa1add8d1035af5d795ea0fe509d" => :sierra
-    sha256 "6d07c2529e80fdb4d3459be841ae533ec19e45aed8093f49dbd069ce3156c6b0" => :el_capitan
+    sha256 "f21e3e05b3e4fc1f77faf9dd8b61669e8869aba271cdc07361ba5277ca0b1f25" => :high_sierra
+    sha256 "a12cb322b102517520c337337238cc45dc6f76f912053bbb72a3019dbc8f3ff0" => :sierra
+    sha256 "f7205d28da37499602b1ce6cb44f854352b168d999f7091e324dc09b6dd4a733" => :el_capitan
   end
 
   def install
