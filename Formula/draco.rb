@@ -6,9 +6,9 @@ class Draco < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e73a9122f2fe8ff15eeb35fc43042c143ebab42ec7ae23ab03358a9cd307b099" => :high_sierra
-    sha256 "26e8d3e692983b81b862784d788bdd31644da8efdbf68b9b5f069cf2bdfcb804" => :sierra
-    sha256 "b6da06e26c080eab8b1a565d24cb1c9ed0a42f2a542aebc39f121a9be49db7a1" => :el_capitan
+    sha256 "4b73805e35ecefeb462ff25289d4b7287bfafe5af10b153d12e16b896d7f7ffb" => :high_sierra
+    sha256 "26c5746a61775c4bc620366938630c4a6aa38ae19d772b7fb95242ac88264a91" => :sierra
+    sha256 "aeb65a69bc9acf8296b5853f49a9595af3d7d033efabd7947922fb00c4e9808d" => :el_capitan
   end
 
   depends_on "cmake" => :build
