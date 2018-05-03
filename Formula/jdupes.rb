@@ -1,8 +1,8 @@
 class Jdupes < Formula
   desc "Duplicate file finder and an enhanced fork of 'fdupes'"
   homepage "https://github.com/jbruchon/jdupes"
-  url "https://github.com/jbruchon/jdupes/archive/v1.9.tar.gz"
-  sha256 "7f2505571c9fc8f76609b918106785f61e4a85af184309f738d7d847f1c2a1cf"
+  url "https://github.com/jbruchon/jdupes/archive/v1.10.1.tar.gz"
+  sha256 "94f0a5d50738f912f552cd99b2b1658c1bdeee0ff2836601999316ebc0a229a5"
 
   bottle do
     cellar :any_skip_relocation
