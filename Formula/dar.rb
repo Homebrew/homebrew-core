@@ -1,8 +1,8 @@
 class Dar < Formula
   desc "Backup directory tree and files"
   homepage "http://dar.linux.free.fr/doc/index.html"
-  url "https://downloads.sourceforge.net/project/dar/dar/2.5.14/dar-2.5.14-bis.tar.gz"
-  sha256 "a5e744f04dde0b3af28f36deccaf274906e1cb29688b9f8bef7c62578b3d6de9"
+  url "https://downloads.sourceforge.net/project/dar/dar/2.5.15/dar-2.5.15.tar.gz"
+  sha256 "58d860299e0b2ee61cf1cac549f1e7b228060aed3ee5575c2e9c88324504e0c0"
 
   bottle do
     sha256 "d9d0a90712f3fe179767ea5caf79a46f4b57702a09b8a55e030e99fab002c800" => :high_sierra
