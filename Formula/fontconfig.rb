@@ -1,8 +1,8 @@
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
-  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.6.tar.bz2"
-  sha256 "cf0c30807d08f6a28ab46c61b8dbd55c97d2f292cf88f3a07d3384687f31f017"
+  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.0.tar.bz2"
+  sha256 "91dde8492155b7f34bb95079e79be92f1df353fcc682c19be90762fd3e12eeb9"
 
   # The bottle tooling is too lenient and thinks fontconfig
   # is relocatable, but it has hardcoded paths in the executables.
@@ -31,6 +31,18 @@ class Fontconfig < Formula
   depends_on "freetype"
 
   def install
+    # Remove for > 2.13.0
+    # Upstream issue from 6 Mar 2018 "2.13.0 erroneously requires libuuid on macOS"
+    # See https://bugs.freedesktop.org/show_bug.cgi?id=105366
+    ENV["UUID_CFLAGS"] = " "
+    ENV["UUID_LIBS"] = " "
+
+    # Remove for > 2.13.0
+    # Same effect as upstream commit from 10 Mar 2018 "Add uuid to
+    # Requires.private in .pc only when pkgconfig macro found it"
+    inreplace "configure",
+      'PKGCONFIG_REQUIRES_PRIVATELY="$PKGCONFIG_REQUIRES_PRIVATELY uuid"', ""
+
     font_dirs = %w[
       /System/Library/Fonts
       /Library/Fonts
