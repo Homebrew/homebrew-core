@@ -1,10 +1,9 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3430.tar.gz"
-  mirror "https://fossies.org/linux/misc/cfitsio3430.tar.gz"
-  version "3.430"
-  sha256 "14905b6f91ef64a34c90ec771d21a8f6da81d8ce083680c7c41651576087cf1d"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3440.tar.gz"
+  version "3.440"
+  sha256 "dd1cad4208fb7a9462914177f26672ccfb21fc8a1f6366e41e7b69b13ad7fd24"
 
   bottle do
     cellar :any
