@@ -1,8 +1,8 @@
 class Bedops < Formula
   desc "Set and statistical operations on genomic data of arbitrary scale"
   homepage "https://github.com/bedops/bedops"
-  url "https://github.com/bedops/bedops/archive/v2.4.34.tar.gz"
-  sha256 "533a62a403130c048d3378e6a975b73ea88d156d4869556a6b6f58d90c52ed95"
+  url "https://github.com/bedops/bedops/archive/v2.4.35.tar.gz"
+  sha256 "da0265cf55ef5094834318f1ea4763d7a3ce52a6900e74f532dd7d3088c191fa"
 
   bottle do
     cellar :any_skip_relocation
