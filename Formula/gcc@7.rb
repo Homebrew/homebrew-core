@@ -5,6 +5,12 @@ class GccAT7 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
   sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
 
+  bottle do
+    sha256 "45cfaae98c9e82d6eb90449a541019c7b5f10c20e0221acc3b1a9b6fe48f5f39" => :high_sierra
+    sha256 "5875cde355e4e7611ccd58c3ab4c35ab27740bca99e37de59081953111de4ce0" => :sierra
+    sha256 "d38130e28eaf1d76e29f09deb616a5a1063dad898a2856879d93a67f51573ef6" => :el_capitan
+  end
+
   option "with-jit", "Build just-in-time compiler"
   option "with-nls", "Build with native language support (localization)"
 
