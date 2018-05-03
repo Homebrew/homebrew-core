@@ -3,6 +3,7 @@ class Silk < Formula
   homepage "https://tools.netsa.cert.org/silk/"
   url "https://tools.netsa.cert.org/releases/silk-3.17.1.tar.gz"
   sha256 "1580dfabc3ff8cb90b0f303d5758d8be4515f130931601c49c05895f0bd1e1a1"
+  revision 1
 
   bottle do
     sha256 "8415f76295534e23a7641ac1b263002b32f3b623a1ac4eb955f3ec9585d781a3" => :high_sierra
