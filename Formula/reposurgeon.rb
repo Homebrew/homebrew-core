@@ -2,8 +2,8 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag => "3.43",
-      :revision => "a513685ebefd5f5dc78caff6272f5a7d2d692e1d"
+      :tag => "3.44",
+      :revision => "f37fa1aa8e3235bb4c64cbcd9e85a6907b4dea50"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
@@ -13,25 +13,15 @@ class Reposurgeon < Formula
     sha256 "eb28acb491ef786f599c664e41a908ebc08b04bfe32362c18c6e76b6e1a958d3" => :el_capitan
   end
 
-  option "without-cython", "Build without cython (faster compile)"
-
-  depends_on "python@2"
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
-  depends_on "cython" => [:build, :recommended]
+  depends_on "pypy"
+  depends_on "python@2"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "install", "prefix=#{prefix}"
     elisp.install "reposurgeon-mode.el"
-
-    if build.with? "cython"
-      pyincludes = Utils.popen_read("python-config --cflags").chomp
-      pylib = Utils.popen_read("python-config --ldflags").chomp
-      system "make", "install-cyreposurgeon", "prefix=#{prefix}",
-                     "CYTHON=#{Formula["cython"].opt_bin}/cython",
-                     "pyinclude=#{pyincludes}", "pylib=#{pylib}"
-    end
   end
 
   test do
