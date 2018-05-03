@@ -11,9 +11,9 @@ class Lammps < Formula
 
   bottle do
     cellar :any
-    sha256 "ad363ec98b52dd5ae5ee0d4d4995ff80e2cbf28e953317282c708555b6178913" => :high_sierra
-    sha256 "1758c9f5dac4e7b26a77895f47f1bc80ddd11b0ea76d664a828c8cad107cc681" => :sierra
-    sha256 "86a671f178fb13b0987c7df713c0d6827e6a8fa4b7b6b1b149e6a70a5c8d6815" => :el_capitan
+    sha256 "6e8a4829a9220e654f46e74033a8adf4fc2f8b6551e0fe8d565e865b7aefcc18" => :high_sierra
+    sha256 "ee741c246d6c76998d682fe28351a76ed4d581a3b7a31443896fa31e035aed22" => :sierra
+    sha256 "ff600c4f0c8e03bc538636552517d128a6eef46c0aa0603209b821b736cf616e" => :el_capitan
   end
 
   depends_on "fftw"
