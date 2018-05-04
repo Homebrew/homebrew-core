@@ -1,8 +1,8 @@
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v2.1.0.tar.gz"
-  sha256 "c5dcfab9b726e3ab4847ae1ab7dc7e3563623f2e0f815b350d7a87d40c3b161f"
+  url "https://github.com/pressly/goose/archive/v2.3.0.tar.gz"
+  sha256 "f19ec6ef1bae596e013a40c300d7f28ba91f71f6f7d6d0f13d03feaf4ab1ac43"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,7 +26,7 @@ class Goose < Formula
   end
 
   test do
-    output = shell_output("#{bin}/goose sqlite3 foo.db status create")
+    output = shell_output("#{bin}/goose sqlite3 foo.db status create 2>&1")
     assert_match "Migration", output
     assert_predicate testpath/"foo.db", :exist?, "Failed to create foo.db!"
   end
