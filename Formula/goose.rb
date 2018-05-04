@@ -6,10 +6,9 @@ class Goose < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "4389bdce9a88f2b7aca8e95539262f56e46720a54c956a79aba7bbf59134cee5" => :high_sierra
-    sha256 "b7596059b7e270e7c41016eaac43052f3ceae1e628b32c6924f1de77ecf33705" => :sierra
-    sha256 "31707ebe92ad5ade0adcf48754dd93822e2c95a0817526629ce9547e7130aee7" => :el_capitan
+    sha256 "c98cdc85daea46b8439109211194ede9342ff76c296f830f9225872c28877baa" => :high_sierra
+    sha256 "a5c492e34e3351d3efb87b0e5f3e2571741e6efad35f794e3de64f39a8cd464f" => :sierra
+    sha256 "720376f84dc67566d55a27325771ce36e5ed523f2d7eba20a0982022b37a3b85" => :el_capitan
   end
 
   depends_on "dep" => :build
