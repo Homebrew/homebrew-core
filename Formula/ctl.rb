@@ -3,7 +3,7 @@ class Ctl < Formula
   homepage "https://github.com/ampas/CTL"
   url "https://github.com/ampas/CTL/archive/ctl-1.5.2.tar.gz"
   sha256 "d7fac1439332c4d84abc3c285b365630acf20ea041033b154aa302befd25e0bd"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "1636fbe6e0ff3ed1f44b9e9eb1061065d40d9fe5e3239d29606eb72384e9f867" => :high_sierra
@@ -25,8 +25,6 @@ class Ctl < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "check"
       system "make", "install"
     end
   end
