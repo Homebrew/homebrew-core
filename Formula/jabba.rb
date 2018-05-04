@@ -1,8 +1,8 @@
 class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
-  url "https://github.com/shyiko/jabba/archive/0.9.2.tar.gz"
-  sha256 "884da1fc23818db1396a8eeb4a10d40c7c008684b7642e2eec88bf264f47e071"
+  url "https://github.com/shyiko/jabba/archive/0.9.4.tar.gz"
+  sha256 "6c03151f0d4d224269bafb3a7655d92a8e19940a2fa8bf5a9bd78a28b71cd79d"
   head "https://github.com/shyiko/jabba.git"
 
   bottle do
@@ -30,9 +30,9 @@ class Jabba < Formula
 
   test do
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-    system bin/"jabba", "install", "1.9.0"
-    jdk_path = Utils.popen_read("#{bin}/jabba which 1.9.0").strip
-    assert_match 'java version "9.0.1"',
+    system bin/"jabba", "install", "1.10"
+    jdk_path = Utils.popen_read("#{bin}/jabba which 1.10").strip
+    assert_match 'java version "10.0',
                  shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
   end
 end
