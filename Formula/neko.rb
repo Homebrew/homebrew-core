@@ -7,9 +7,9 @@ class Neko < Formula
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
-    sha256 "d2cc6078ee557511a9b942a11235f6f1de35bb0b4a192e3bdf2c06225a1739fa" => :high_sierra
-    sha256 "87da62afced4e6a0b68669069752ff4e960618e4e8d243cc3bfef648cbbc3a23" => :sierra
-    sha256 "ef18bc7d2dadb87582ea22cec0d64ee272f8570cde1157700ce88fd3a4631002" => :el_capitan
+    sha256 "0b69afaf539f85ccdda6d4e84797f02dd3211339103ef788ec85b69fddc35369" => :high_sierra
+    sha256 "190e61cf6002dcc4e3dbb8c3d807948dcb359456aebad490bc37986b9cc1b6e1" => :sierra
+    sha256 "a8aa2f266cdf8f84a18369ca79a59230c89aaa39ff4c6043b42e26d7f0150573" => :el_capitan
   end
 
   depends_on "cmake" => :build
