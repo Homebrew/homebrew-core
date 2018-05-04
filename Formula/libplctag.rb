@@ -16,17 +16,9 @@ class Libplctag < Formula
       #include <stdlib.h>
       #include <libplctag.h>
 
-      #define TAG_PATH "protocol=ab_eip&gateway=192.168.1.42&path=1,0&cpu=LGX&elem_size=4&elem_count=10&name=myDINTArray"
-
-      int main(int argc, char **argv)
-      {
-        plc_tag tag = PLC_TAG_NULL;
-
-        tag = plc_tag_create(TAG_PATH);
-
-        if(!tag)
-            abort();
-
+      int main(int argc, char **argv) {
+        plc_tag tag = plc_tag_create("protocol=ab_eip&gateway=192.168.1.42&path=1,0&cpu=LGX&elem_size=4&elem_count=10&name=myDINTArray");
+        if (!tag) abort();
         plc_tag_destroy(tag);
         return 0;
       }
