@@ -6,18 +6,17 @@ class Eccodes < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
-  depends_on "numpy"
-  depends_on "libpng"
   depends_on "jasper"
+  depends_on "libpng"
+  depends_on "numpy"
 
   def install
-
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
       args = std_cmake_args
 
-      system "cmake", "..", "-DENABLE_NETCDF=OFF", *args
+      system "cmake", "..", "-DENABLE_NETCDF=OFF", *std_cmake_args
       system "make", "install"
     end
   end
