@@ -3,7 +3,7 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.4.tar.xz"
   sha256 "5ee1c30e9a8e0c0ec4f60e83c02beb98271f9e324b9b667d4a5f5b2ee634a7e6"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "1595f5f6fabefe65442832e1c8ab67978d0d6ed8bee7a00b17ab96a5ba8230b6" => :high_sierra
@@ -41,6 +41,10 @@ class Dynare < Formula
   end
 
   def install
+    # config.h was renamed octave-config.h in Octave 4.4.0
+    inreplace "mex/sources/ms-sbvar/modify_for_mex.h", "octave/config.h",
+                                                       "octave/octave-config.h"
+
     ENV.cxx11
 
     resource("slicot").stage do
