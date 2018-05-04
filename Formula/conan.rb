@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://github.com/conan-io/conan/archive/1.3.0.tar.gz"
-  sha256 "23c7a08af5f62781f1cf5399a0688b77add074d6e7ec0a156f09269fbcaf7c47"
+  url "https://github.com/conan-io/conan/archive/1.3.1.tar.gz"
+  sha256 "5c74782d579f0a1f2d043332d304d949ba1688c5dfa581efaf54ebf88209e22d"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
