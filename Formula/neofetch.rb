@@ -16,7 +16,12 @@ class Neofetch < Formula
   depends_on "imagemagick" => :recommended
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
+    if build.head?
+      bin.install "neofetch"
+      man.install "neofetch.1"
+    else
+      system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
+    end
   end
 
   test do
