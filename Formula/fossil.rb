@@ -1,8 +1,8 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.5.tar.gz"
-  sha256 "f9b07360811f432dfb36ebfb44c83886872556ecce1c80387629ce90e1e4aad3"
+  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.6.tar.gz"
+  sha256 "76a794555918be179850739a90f157de0edb8568ad552b4c40ce186c79ff6ed9"
 
   head "https://www.fossil-scm.org/", :using => :fossil
 
