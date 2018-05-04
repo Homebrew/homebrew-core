@@ -1,8 +1,9 @@
 class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.9.tar.gz"
-  sha256 "4ad421cb58913c27b9f297161eb87b0587f8420d6f0573cee052b17370c519aa"
+  url "https://github.com/kubernetes-incubator/kube-aws.git",
+      :tag => "v0.9.10",
+      :revision => "15458e8469ce1f3c7bce7a11ef3a0ab405cd1950"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
@@ -15,43 +16,30 @@ class KubeAws < Formula
   depends_on "go" => :build
 
   def install
-    gopath_vendor = buildpath/"_gopath-vendor"
-    gopath_kube_aws = buildpath/"_gopath-kube-aws"
-    kube_aws_dir = "#{gopath_kube_aws}/src/github.com/kubernetes-incubator/kube-aws"
-
-    gopath_vendor.mkpath
-    mkdir_p File.dirname(kube_aws_dir)
-
-    ln_s buildpath/"vendor", "#{gopath_vendor}/src"
-    ln_s buildpath, kube_aws_dir
-
-    ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
-
-    cd kube_aws_dir do
-      system "go", "generate", "./core/controlplane/config"
-      system "go", "generate", "./core/nodepool/config"
-      system "go", "generate", "./core/root/config"
-      system "go", "build", "-ldflags",
-             "-X github.com/kubernetes-incubator/kube-aws/core/controlplane/cluster.VERSION=#{version}",
-             "-a", "-tags", "netgo", "-installsuffix", "netgo",
-             "-o", bin/"kube-aws", "./"
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/kubernetes-incubator/kube-aws"
+    dir.install buildpath.children - [buildpath/".brew_home"]
+    cd dir do
+      system "make", "OUTPUT_PATH=#{bin}/kube-aws"
+      prefix.install_metafiles
     end
   end
 
   test do
     system "#{bin}/kube-aws"
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
-           "--external-dns-name", "dns", "--region", "west",
+           "--external-dns-name", "dns", "--region", "us-west-1",
            "--availability-zone", "zone", "--key-name", "key",
-           "--kms-key-arn", "arn", "--no-record-set"
+           "--kms-key-arn", "arn", "--no-record-set",
+           "--s3-uri", "s3://examplebucket/mydir"
     cluster_yaml = (testpath/"cluster.yaml").read
     assert_match "clusterName: test-cluster", cluster_yaml
     assert_match "dnsName: dns", cluster_yaml
-    assert_match "region: west", cluster_yaml
+    assert_match "region: us-west-1", cluster_yaml
     assert_match "availabilityZone: zone", cluster_yaml
     assert_match "keyName: key", cluster_yaml
     assert_match "kmsKeyArn: \"arn\"", cluster_yaml
     installed_version = shell_output("#{bin}/kube-aws version 2>&1")
-    assert_match "kube-aws version #{version}", installed_version
+    assert_match "kube-aws version v#{version}", installed_version
   end
 end
