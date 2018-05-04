@@ -1,9 +1,8 @@
 class Libpqxx < Formula
   desc "C++ connector for PostgreSQL"
   homepage "http://pqxx.org/development/libpqxx/"
-  url "https://github.com/jtv/libpqxx/archive/6.1.1.tar.gz"
-  sha256 "7b4f37dab4b17b71ef415ffa37f5102ef6bc12647e42f0abaaf6febeeefb8b1e"
-  revision 1
+  url "https://github.com/jtv/libpqxx/archive/6.2.3.tar.gz"
+  sha256 "382b88992c6162c9814388cc8575eb774ffad03d49743a5d9576aa3bffc91dfa"
 
   bottle do
     cellar :any
@@ -13,6 +12,7 @@ class Libpqxx < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "xmlto" => :build
   depends_on "postgresql"
 
   def install
