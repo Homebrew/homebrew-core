@@ -38,13 +38,23 @@ class KnotResolver < Formula
     end
 
     cp "etc/config.personal", "config"
-    inreplace "config", /^\s*user\(/, "-- user("
+    user = 'nobody'
+    group = 'nobody'
+    inreplace "config", /^\s*user\(.*/, "user('#{user}','#{group}')"
     (etc/"kresd").install "config"
 
     (etc/"kresd").install "etc/root.hints"
 
     (buildpath/"root.keys").write(root_keys)
     (var/"kresd").install "root.keys"
+  end
+
+  def caveats; <<~EOS
+    knot-resolver requires root privileges to bind to port 53 but runs as "nobody".
+    You should be certain that you trust any software you grant root privileges.
+    The "nobody" user will need permission to write DNS data to disk:
+    sudo chown -R nobody:nobody /usr/local/var/kresd
+    EOS
   end
 
   # DNSSEC root anchor published by IANA (https://www.iana.org/dnssec/files)
