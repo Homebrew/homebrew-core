@@ -3,6 +3,7 @@ class Ykpers < Formula
   homepage "https://developers.yubico.com/yubikey-personalization/"
   url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.19.0.tar.gz"
   sha256 "2bc8afa16d495a486582bad916d16de1f67c0cce9bb0a35c3123376c2d609480"
+  revision 1
 
   bottle do
     cellar :any
