@@ -1,8 +1,8 @@
 class Remctl < Formula
   desc "Client/server application for remote execution of tasks"
   homepage "https://www.eyrie.org/~eagle/software/remctl/"
-  url "https://archives.eyrie.org/software/kerberos/remctl-3.14.tar.xz"
-  sha256 "23dd32c5723b7fd30957e67be7cef74b809c2e73c4613bd643248642507782b9"
+  url "https://archives.eyrie.org/software/kerberos/remctl-3.15.tar.xz"
+  sha256 "873c9fbba51ff721acb666e927f58f4407f08eb79f53b5a058801f5f404f4db2"
 
   bottle do
     sha256 "d673f05a37c5f969afbbc81453abfc34da769b5b3e21ca0ba7adbaa0201fef3d" => :high_sierra
