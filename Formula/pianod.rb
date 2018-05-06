@@ -3,6 +3,7 @@ class Pianod < Formula
   homepage "https://deviousfish.com/pianod/"
   url "https://deviousfish.com/Downloads/pianod/pianod-176.tar.gz"
   sha256 "4f3be12daef1adb3bcbbcf8ec529abf0ac018e03140be9c5b0f1203d6e1b9bf0"
+  revision 1
 
   bottle do
     sha256 "e5a1241330f79eb7563193c1f07ecddef1768e03e9b267a551f2d55e2e18dc1f" => :high_sierra
