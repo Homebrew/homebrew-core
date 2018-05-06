@@ -48,6 +48,7 @@ class GstPluginsGood < Formula
   depends_on "aalib" => :optional
   depends_on "cairo" => :optional
   depends_on "flac" => [:optional, "with-libogg"]
+  depends_on "gtk+3" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
   depends_on "libpng" => :optional
@@ -71,6 +72,8 @@ class GstPluginsGood < Formula
       --disable-dependency-tracking
       --disable-silent-rules
     ]
+
+    args << "--with-gtk=3.0" if build.with? "gtk+3"
 
     if build.with? "x11"
       args << "--with-x"
