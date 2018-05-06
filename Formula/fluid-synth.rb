@@ -5,9 +5,9 @@ class FluidSynth < Formula
   sha256 "da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8"
 
   bottle do
-    sha256 "9764daf9d3faed501a25ca39454150fb0a46e53329fa8db8b2624060ab6750fb" => :high_sierra
-    sha256 "609d913be21e9982299855ea363d842023b686a39748ffba34975e3ec2d7d8a8" => :sierra
-    sha256 "c39c0d78cf51023c38a4304bbfbdabea9d75297c7136c1ac664b9a26a137b1ca" => :el_capitan
+    sha256 "6c2210c1599c19c1fa1a8ceb5a043cd6a8b598475cc3f500c9cb0b341d0a0288" => :high_sierra
+    sha256 "b4b6a73a0c1eaf23df645973f4d951eca4ef4921b59af02d9fa986d0a4a27089" => :sierra
+    sha256 "d86f4c855c358ebf7d8fb766774e698e78af1022b90edb930bb9657a41d1481a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
