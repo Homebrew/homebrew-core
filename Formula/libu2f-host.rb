@@ -3,6 +3,7 @@ class Libu2fHost < Formula
   homepage "https://developers.yubico.com/libu2f-host/"
   url "https://developers.yubico.com/libu2f-host/Releases/libu2f-host-1.1.5.tar.xz"
   sha256 "f32b71435edf6e412f2971edef411f3b4edb419a5356553ad57811ece4a63a95"
+  revision 1
 
   bottle do
     cellar :any
