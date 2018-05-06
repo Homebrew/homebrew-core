@@ -1,7 +1,7 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  revision 1
+  revision 2
   head "https://github.com/PromyLOPh/pianobar.git"
 
   stable do
