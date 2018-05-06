@@ -1,8 +1,8 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.6.7.tar.gz"
-  sha256 "16e1a0f8294f091c850b4c9ab64a4d475d62f57b31e063c62c5fb0f734ef7a4d"
+  url "https://mikutter.hachune.net/bin/mikutter.3.7.0.tar.gz"
+  sha256 "5850d805bd30994edfd971b6afd32b6640274ac91cc91c1f34ad801d4fa92f5a"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
@@ -28,8 +28,8 @@ class Mikutter < Formula
   end
 
   resource "cairo" do
-    url "https://rubygems.org/gems/cairo-1.15.12.gem"
-    sha256 "c4f3240a3da1ff3962ab30bd58f17c717ad5b1cee89744a34f0442bdfbce26ea"
+    url "https://rubygems.org/gems/cairo-1.15.13.gem"
+    sha256 "27863a94dd5646afd0a4ce309386e15eebdec6415c58b33017a24f42896b1d26"
   end
 
   resource "cairo-gobject" do
