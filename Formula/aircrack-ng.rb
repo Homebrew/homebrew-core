@@ -25,7 +25,8 @@ class AircrackNg < Formula
   def install
     system "./autogen.sh", "--disable-silent-rules",
                            "--disable-dependency-tracking",
-                           "--prefix=#{prefix}"
+                           "--prefix=#{prefix}",
+                           "--with-experimental"
     system "make", "install"
   end
 
