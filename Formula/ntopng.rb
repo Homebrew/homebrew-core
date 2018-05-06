@@ -1,7 +1,7 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/ntop/ntopng/archive/3.2.tar.gz"
