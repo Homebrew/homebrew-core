@@ -3,6 +3,7 @@ class Gdal < Formula
   homepage "http://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.2.4/gdal-2.2.4.tar.xz"
   sha256 "441eb1d1acb35238ca43a1a0a649493fc91fdcbab231d0747e9d462eea192278"
+  revision 1
 
   bottle do
     sha256 "e12a190d34c9b0e93bdad0b0511b66b4ea30d88a1eb421139a1692c5319a3568" => :high_sierra
