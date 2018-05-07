@@ -19,6 +19,7 @@ class Weechat < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
+  depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
@@ -33,6 +34,7 @@ class Weechat < Formula
 
   def install
     args = std_cmake_args + %W[
+      -DENABLE_MAN=ON
       -DENABLE_GUILE=OFF
       -DCA_FILE=#{etc}/openssl/cert.pem
       -DENABLE_JAVASCRIPT=OFF
