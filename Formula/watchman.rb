@@ -13,7 +13,7 @@ class Watchman < Formula
   end
 
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
-  depends_on "python@2"
+  depends_on "python"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -34,9 +34,10 @@ class Watchman < Formula
     system "make", "install"
 
     # Homebrew specific python application installation
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    pyver = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
     cd "python" do
-      system "python", *Language::Python.setup_install_args(libexec)
+      system "python3", *Language::Python.setup_install_args(libexec)
     end
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
