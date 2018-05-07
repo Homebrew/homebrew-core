@@ -1,11 +1,18 @@
 class X264 < Formula
   desc "H.264/AVC encoder"
   homepage "https://www.videolan.org/developers/x264.html"
-  # the latest commit on the stable branch
-  url "https://git.videolan.org/git/x264.git",
-      :revision => "e9a5903edf8ca59ef20e6f4894c196f135af735e"
-  version "r2854"
   head "https://git.videolan.org/git/x264.git"
+
+  stable do
+    # the latest commit on the stable branch
+    url "https://git.videolan.org/git/x264.git",
+        :revision => "e9a5903edf8ca59ef20e6f4894c196f135af735e"
+    version "r2854"
+
+    # This should probably be removed with the next stable release
+    # since HEAD now produces multiple bitdepths at once by default.
+    option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
+  end
 
   bottle do
     cellar :any
@@ -18,11 +25,16 @@ class X264 < Formula
   depends_on "nasm" => :build
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-lsmash",
-                          "--enable-shared",
-                          "--enable-static",
-                          "--enable-strip"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-lsmash
+      --enable-shared
+      --enable-static
+      --enable-strip
+    ]
+    args << "--bit-depth=10" if build.stable? && build.with?("10-bit")
+
+    system "./configure", *args
     system "make", "install"
   end
 
