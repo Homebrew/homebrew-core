@@ -1,8 +1,8 @@
 class Streamlink < Formula
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/0.11.0/streamlink-0.11.0.tar.gz"
-  sha256 "dc70b72e22d24b63ccb205d9c7583510049f4b2782e31ac5ebd99fec074ca292"
+  url "https://github.com/streamlink/streamlink/releases/download/0.12.1/streamlink-0.12.1.tar.gz"
+  sha256 "b64b168b5fd655a9a2d355b17c13073dc6102b6084658691f048bf68f9b3c800"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,8 +11,6 @@ class Streamlink < Formula
     sha256 "1806d17ae80b006476a2306ec4efc948712d0f6a2a968410ed3028e28c05eb7f" => :el_capitan
   end
 
-  # Use brewed python on Yosemite and prior to avoid needing urllib3[secure]
-  # See https://github.com/streamlink/streamlink/commit/0f35b9b2
   depends_on "python@2"
 
   resource "backports.shutil_get_terminal_size" do
@@ -31,8 +29,8 @@ class Streamlink < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
-    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
+    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
+    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
   end
 
   resource "chardet" do
@@ -61,8 +59,8 @@ class Streamlink < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/86/d1/f1c6b1e4b2dd5e3f2f56f6f3c74ac9893252dbef9ac0e55c8b4538e56db0/pycryptodome-3.5.1.tar.gz"
-    sha256 "b7957736f5e868416b06ff033f8525e64630c99a8880b531836605190b0cac96"
+    url "https://files.pythonhosted.org/packages/f9/72/63fc67bf43286a0fe6a377adc68cec30dcb02b862b10d667788bde112741/pycryptodome-3.6.1.tar.gz"
+    sha256 "15013007e393d0cc0e69f4329a47c4c8597b7f3d02c12c03f805405542f70c71"
   end
 
   resource "PySocks" do
