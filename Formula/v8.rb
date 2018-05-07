@@ -16,13 +16,21 @@ class V8 < Formula
     sha256 "7bcd1bbd66c11305eeea0c36ca472de8a639f511abe0909c8815b1208dbce7b6" => :mavericks
   end
 
+  # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
+  depends_on :macos => :el_capitan
+
+  # depot_tools/GN require Python 2.7+
+  depends_on "python@2" => :build
+
+  needs :cxx11
+
   resource "depot_tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git"
   end
 
   resource "chromium-buildtools" do
     url "https://chromium.googlesource.com/chromium/buildtools.git",
-      :revision => "3748a2a90871fc25b0455790fa5a6699553f5197"
+      :revision => "2888931260f2a32bc583f005bd807a561b2fa6af"
   end
 
   resource "chromium-deps-icu" do
@@ -32,22 +40,22 @@ class V8 < Formula
 
   resource "chromium-src-base-trace_event-common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-      :revision => "211b3ed9d0481b4caddbee1322321b86a483ca1f"
+      :revision => "0e9a47d74970bee1bbfc063c47215406f8918699"
   end
 
   resource "chromium-src-build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-      :revision => "e7b36e57bbceeea55bd6603fcc4f6c1de375f5a3"
+      :revision => "b1d6c28b4a64128ad856d9da458afda2861fddab"
   end
 
   resource "chromium-src-third_party-instrumented_libraries" do
     url "https://chromium.googlesource.com/chromium/src/third_party/instrumented_libraries.git",
-      :revision => "323cf32193caecbf074d1a0cb5b02b905f163e0f"
+      :revision => "b745ddca2c63719167c0f2008ae19e667c5e9952"
   end
 
   resource "chromium-src-third_party-jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-      :revision => "45571de473282bd1d8b63a8dfcb1fd268d0635d2"
+      :revision => "d34383206fa42d52faa10bb9931d6d538f3a57e0"
   end
 
   resource "chromium-src-third_party-markupsafe" do
@@ -57,7 +65,7 @@ class V8 < Formula
 
   resource "chromium-src-tools-clang" do
     url "https://chromium.googlesource.com/chromium/src/tools/clang.git",
-      :revision => "82ac1c9c988260d902e5f2bc73f19792fa3d430c"
+      :revision => "b3d3f5920b161f95f1a8ffe08b75c695e0edf350"
   end
 
   resource "chromium-src-tools-luci--go" do
@@ -67,12 +75,12 @@ class V8 < Formula
 
   resource "external-github.com-google-googletest" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-      :revision => "a325ad2db5deb623eab740527e559b81c0f39d65"
+      :revision => "6f8a66431cb592dad629028a50b3dd418a408c87"
   end
 
   resource "external-github.com-tc39-test262" do
     url "https://chromium.googlesource.com/external/github.com/tc39/test262.git",
-      :revision => "0192e0d70e2295fb590f14865da42f0f9dfa64bd"
+      :revision => "b59d956b3c268abd0875aeb87d6688f4c7aafc9b"
   end
 
   resource "external-github.com-test262--utils-test262--harness--py" do
@@ -82,7 +90,7 @@ class V8 < Formula
 
   resource "external-github.com-webassembly-spec" do
     url "https://chromium.googlesource.com/external/github.com/WebAssembly/spec.git",
-      :revision => "586d34770c6445bfb93c9bae8ac50baade7ee168"
+      :revision => "4653fc002a510b4f207af07f2c7c61b13dba78d9"
   end
 
   resource "external-googlemock" do
@@ -97,7 +105,7 @@ class V8 < Formula
 
   resource "external-llvm.org-libunwind" do
     url "https://chromium.googlesource.com/external/llvm.org/libunwind.git",
-      :revision => "fc0a910c25d5415dd72ba9451b7cba380e3cc1e7"
+      :revision => "86ab23972978242b6f9e27cebc239f3e8428b1af"
   end
 
   resource "infra-luci-client--py" do
@@ -112,12 +120,12 @@ class V8 < Formula
 
   resource "llvm--project-libcxx" do
     url "https://chromium.googlesource.com/chromium/llvm-project/libcxx.git",
-      :revision => "f56f1bba1ade4a408d403ff050d50e837bae47df"
+      :revision => "27c341db41bc9df5c6f19cde65f002d6f1c2eb3c"
   end
 
   resource "llvm--project-libcxxabi" do
     url "https://chromium.googlesource.com/chromium/llvm-project/libcxxabi.git",
-      :revision => "05ba3281482304ae8de31123a594972a495da06d"
+      :revision => "e1601db2504857d44db88a5d4e2ca50b32bbb7d9"
   end
 
   resource "v8-deps-third_party-benchmarks" do
@@ -129,14 +137,6 @@ class V8 < Formula
     url "https://chromium.googlesource.com/v8/deps/third_party/mozilla-tests.git",
       :revision => "f6c578a10ea707b1a8ab0b88943fe5115ce2b9be"
   end
-
-  # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
-  depends_on :macos => :el_capitan
-
-  # depot_tools/GN require Python 2.7+
-  depends_on "python@2" => :build
-
-  needs :cxx11
 
   def install
     output_path = "out.gn/x64.release"
@@ -183,18 +183,21 @@ class V8 < Formula
     # Enter the v8 checkout
     cd "v8" do
       gn_args = {
-        :target_os_only => true,
         :is_debug => false,
         :is_component_build => true,
         :v8_use_external_startup_data => false,
-        :v8_enable_i18n_support => true
+        :v8_enable_i18n_support => true,
       }
 
       # Transform to args string
       gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
 
       # Build with gn + ninja
-      system "gn gen \"#{output_path}\" --args=\"#{gn_args_string}\""
+      system "gn",
+        "gen",
+        "--args=#{gn_args_string}",
+        output_path
+
       system "ninja",
         "-j", ENV.make_jobs,
         "-C", output_path,
