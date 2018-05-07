@@ -1,8 +1,8 @@
 class Pgpdump < Formula
   desc "PGP packet visualizer"
   homepage "https://www.mew.org/~kazu/proj/pgpdump/en/"
-  url "https://github.com/kazu-yamamoto/pgpdump/archive/v0.32.tar.gz"
-  sha256 "b5cad57a07ba221049b168dd3baae54b03c6fdedcb4e9ce32e48f88cab01c305"
+  url "https://github.com/kazu-yamamoto/pgpdump/archive/v0.33.tar.gz"
+  sha256 "fe580ef43f651da59816c70f38f177ea4fa769d64e3d6883a9d1f661bb0a6952"
   head "https://github.com/kazu-yamamoto/pgpdump.git"
 
   bottle do
