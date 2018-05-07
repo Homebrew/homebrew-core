@@ -2,7 +2,7 @@ require "language/node"
 
 class Coffeescript < Formula
   desc "Unfancy JavaScript"
-  homepage "http://coffeescript.org"
+  homepage "https://coffeescript.org/"
   url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.3.0.tgz"
   sha256 "695dffde7e71860020cfa0048f4f887b7f7066be194e27a821b3bedb3e7b2cc3"
   head "https://github.com/jashkenas/coffeescript.git"
