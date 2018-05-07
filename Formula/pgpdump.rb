@@ -7,10 +7,9 @@ class Pgpdump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef4a74edd0241246acdb756482fcda11099579d0e17b00cfa3f9c00ea1410858" => :high_sierra
-    sha256 "b36fd444b14191c517b3b8ef7450eba86f1497c6cb03647e7455464937c33f5f" => :sierra
-    sha256 "fe7d869397fd41613acdf52f34902b191e71794a721dde327e8552b4acafaef1" => :el_capitan
-    sha256 "9a67194a5fb26a28a7124330bf765ff3c4c54f05ab6e7750d3551403e567e9f7" => :yosemite
+    sha256 "2d5ad982f29c20cad30f5a90d4fcd8af3d369432e2c4ab4f35fcfa3b31712a1f" => :high_sierra
+    sha256 "9c2ed5f4eb7e0c833a90d53fc8d96d613b781b36c3524959fa102ae62a4d167e" => :sierra
+    sha256 "1cfd7cb5b0cdbc7e70031841d7efb1196ddbbd6f11f5af3cce4b38b6f7358ae2" => :el_capitan
   end
 
   def install
