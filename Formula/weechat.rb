@@ -21,6 +21,7 @@ class Weechat < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "asciidoctor" => [:build, :recommended]
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "gettext"
@@ -54,6 +55,7 @@ class Weechat < Formula
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
     args << "-DENABLE_TCL=OFF" if build.without? "tcl"
     args << "-DENABLE_PYTHON=OFF" if build.without? "python@2"
+    args << "-DENABLE_MAN=ON" if build.with? "asciidoctor"
 
     mkdir "build" do
       system "cmake", "..", *args
