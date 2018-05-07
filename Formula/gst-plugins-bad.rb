@@ -30,7 +30,6 @@ class GstPluginsBad < Formula
   depends_on "faad2" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "gnutls" => :optional
-  depends_on "gtk+3" => :optional
   depends_on "libdvdread" => :optional
   depends_on "libexif" => :optional
   depends_on "libmms" => :optional
@@ -51,8 +50,6 @@ class GstPluginsBad < Formula
       --disable-debug
       --disable-dependency-tracking
     ]
-
-    args << "--with-gtk=3.0" if build.with? "gtk+3"
 
     if build.head?
       # autogen is invoked in "stable" build because we patch configure.ac
