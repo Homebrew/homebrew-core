@@ -1,11 +1,9 @@
 class Imapsync < Formula
   desc "Migrate or backup IMAP mail accounts"
   homepage "http://ks.lamiral.info/imapsync/"
-  url "https://imapsync.lamiral.info/dist2/imapsync-1.836.tgz"
+  url "https://imapsync.lamiral.info/dist2/imapsync-1.882.tgz"
   # Note the mirror will return 404 until the version becomes outdated.
-  mirror "https://imapsync.lamiral.info/dist2/old_releases/1.836/imapsync-1.836.tgz"
-  mirror "https://dl.bintray.com/homebrew/mirror/imapsync-1.836.tgz"
-  sha256 "f1736582ea246776193d8695695c434520498c3c98fc9ba25fbc4e84fd112e7c"
+  sha256 "e4d8556b0273d1f0edaeb8d0d56533f0bfa7154c109bd10c586cd50bfc8a7ed5"
   head "https://github.com/imapsync/imapsync.git"
 
   bottle do
@@ -22,8 +20,9 @@ class Imapsync < Formula
   end
 
   resource "File::Copy::Recursive" do
-    url "https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.38.tar.gz"
-    sha256 "84ccbddf3894a88a2c2b6be68ff6ef8960037803bb36aa228b31944cfdf6deeb"
+    url "https://cpan.metacpan.org/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.44.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/D/DM/DMUEY/File-Copy-Recursive-0.44.tar.gz"
+    sha256 "ae19a0b58dc1b3cded9ba9cfb109288d8973d474c0b4bfd28b27cf60e8ca6ee4"
   end
 
   resource "Authen::NTLM" do
@@ -51,9 +50,9 @@ class Imapsync < Formula
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
-    sha256 "12271b5cee49943bbdde430eef58f1fe64ba6561980b22c69585e08fc977dc6d"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.97001.tar.gz"
+    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.97001.tar.gz"
+    sha256 "e277d9385633574923f48c297e1b8acad3170c69fa590e31fa466040fc6f8f5a"
   end
 
   resource "Test::MockObject" do
