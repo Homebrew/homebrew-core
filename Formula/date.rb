@@ -3,6 +3,7 @@ class Date < Formula
   homepage "https://github.com/HowardHinnant/date"
   url "https://github.com/HowardHinnant/date/archive/v2.4.1.tar.gz"
   sha256 "98907d243397483bd7ad889bf6c66746db0d7d2a39cc9aacc041834c40b65b98"
+  head "https://github.com/HowardHinnant/date.git"
 
   option "with-system-tz-db", "Use the operating system's timezone database"
   option "without-shared", "Build a static version of library"
