@@ -6,7 +6,12 @@ class Kotlinreplacesupporter < Formula
   depends_on :java => "1.6+"
 
   def install
-    libexec.install "kotlin_replace_supporter-1.0.jar"
+    if build.head?
+      system "./gradlew", "packJar"
+      libexec.install "build/libs/kotlin_replace_supporter-1.0.jar"
+    else
+      libexec.install "kotlin_replace_supporter-1.0.jar"
+    end
     bin.write_jar_script libexec/"kotlin_replace_supporter-1.0.jar", "krs"
   end
   test do
