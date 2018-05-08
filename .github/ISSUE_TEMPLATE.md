@@ -1,7 +1,7 @@
 **Please note we will close your issue without comment if you delete, do not read or do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.**
 
 - [ ] are reporting a bug others will be able to reproduce and not asking a question. If you're not sure or want to ask a question do so on our Discourse: https://discourse.brew.sh
-- [ ] have a problem with `brew install` (or `upgrade`, `reinstall`) a single, official formula (not cask)? If it's a general `brew` problem please file this issue at Homebrew/brew: https://github.com/Homebrew/brew/issues/new. If it's a `brew cask` problem please file this issue at https://github.com/caskroom/homebrew-cask/issues/new. If it's a tap (e.g. Homebrew/homebrew-php) problem please file this issue at the tap.
+- [ ] have a problem with `brew install` (or `upgrade`, `reinstall`) a single, official formula (not cask)? If it's a general `brew` problem please file this issue at Homebrew/brew: https://github.com/Homebrew/brew/issues/new. If it's a `brew cask` problem please file this issue at https://github.com/caskroom/homebrew-cask/issues/new. If it's a tap problem, please file this issue at the tap.
 - [ ] ran `brew update` and can still reproduce the problem?
 - [ ] ran `brew doctor`, fixed all issues and can still reproduce the problem?
 - [ ] ran `brew gist-logs <formula>` (where `<formula>` is the name of the formula that failed) and included the output link?
