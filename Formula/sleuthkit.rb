@@ -16,6 +16,7 @@ class Sleuthkit < Formula
 
   depends_on "afflib" => :optional
   depends_on "libewf" => :optional
+  depends_on "libpq"
 
   if build.with? "jni"
     depends_on :java
