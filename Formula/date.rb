@@ -8,6 +8,7 @@ class Date < Formula
   option "without-shared", "Build a static version of library"
 
   depends_on "cmake" => :build
+  needs :cxx11
 
   def install
     custom_cmake_args = ["-DENABLE_DATE_TESTING=OFF"]
@@ -30,15 +31,16 @@ class Date < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! For Homebrew/homebrew-core
-    # this will need to be a test that verifies the functionality of the
-    # software. Run the test with `brew test date`. Options passed
-    # to `brew install` such as `--HEAD` also need to be provided to `brew test`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+    (testpath/"test.cpp").write <<~EOS
+      #include "date/date.h"
+      #include <type_traits>
+      static_assert(std::is_same<decltype(date::last), const date::last_spec>{}, "");
+
+      int main() {
+
+      }
+    EOS
+    system ENV.cxx, "test.cpp", "-std=c++1y", "-o", "test"
+    system "./test"
   end
 end
