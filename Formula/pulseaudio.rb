@@ -6,9 +6,9 @@ class Pulseaudio < Formula
   revision 1
 
   bottle do
-    sha256 "4c978ad02a720678b6f4e5255d540cb859ba9d9b6ec22dcd9251f9d64df366f4" => :high_sierra
-    sha256 "65f121b3c8a4d159a9acd803adfb3eb4b2fed82ba5b21d3867fe9dfb08941a5b" => :sierra
-    sha256 "0ba8b12b715a1259e5fade3ea45238994f0e46f00d8f687e043f47c3474f643c" => :el_capitan
+    sha256 "a449d66ca202e6ba2106af19ab3513ab17841ad45db2069bd8e18c5fa3341189" => :high_sierra
+    sha256 "80fdcab93388854621cd2392e3e0782587efda978c2f0de51381d3c3a264301e" => :sierra
+    sha256 "9ae35d388adbb4164afd5c121e5c8105886be394ad21921c33ebcff375ec8dff" => :el_capitan
   end
 
   head do
