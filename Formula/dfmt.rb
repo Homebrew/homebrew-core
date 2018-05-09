@@ -5,7 +5,7 @@ class Dfmt < Formula
       :tag => "v0.7.0",
       :revision => "4168c232ab9b3698afc891a72767fc97c83345df"
 
-  head "https://github.com/dlang-community/dfmt.git", :shallow => false
+  head "https://github.com/dlang-community/dfmt.git", :branch => "v0.x.x", :shallow => false
 
   bottle do
     sha256 "99d38d69c6ed63d1554a60a64e09a01fa36fdaaab76cec95573d5bad9143b16e" => :high_sierra
