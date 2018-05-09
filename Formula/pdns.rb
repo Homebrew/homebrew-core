@@ -1,8 +1,8 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.1.1.tar.bz2"
-  sha256 "08d388321c8a2c24ebe8d7e539f34a0ba2c0973313c168a1b5ecf507e4fb04ba"
+  url "https://downloads.powerdns.com/releases/pdns-4.1.2.tar.bz2"
+  sha256 "86d8be0171d1ba85c2c6496d62ebf9198a5d522135aa0df3714c0d487a725695"
 
   bottle do
     sha256 "470c9841912c8c2ef96c69c8426b4cfc17d10277c978c193015261d677c87651" => :high_sierra
