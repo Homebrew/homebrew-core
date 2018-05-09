@@ -12,6 +12,8 @@ class Bat < Formula
   end
 
   test do
-    system bin/"bat", prefix/"README.md"
+    pdf = test_fixtures("test.pdf")
+    output = shell_output("#{bin}/bat #{pdf} --color=never")
+    assert_match "Homebrew test", output
   end
 end
