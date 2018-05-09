@@ -34,4 +34,4 @@ before_script:
   - travis_retry git clone https://$GITHUB_TOKEN@github.com/homebrew/json_test
 
 script:
-  - cd json_test && brew ruby generate.rb
+  - cd json_test && brew ruby script/generate.rb
