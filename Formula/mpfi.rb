@@ -1,8 +1,8 @@
 class Mpfi < Formula
   desc "Multiple precision interval arithmetic library"
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
-  url "https://gforge.inria.fr/frs/download.php/file/37307/mpfi-1.5.2.tar.bz2"
-  sha256 "c04f52cb306824b91b6d6eacf4f675b91fdee47c30f14d5b346dbfcd2492d274"
+  url "https://gforge.inria.fr/frs/download.php/file/37331/mpfi-1.5.3.tar.bz2"
+  sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
 
   bottle do
     cellar :any
