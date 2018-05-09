@@ -11,7 +11,7 @@ class Archey < Formula
   # Fix double percent sign in battery output, remove in next release
   patch do
     url "https://github.com/obihann/archey-osx/commit/cd125547d0936f066b64616553269bf647348e53.diff?full_index=1"
-    sha256 "2d5abe6d0b34cf94f3511cdd43f883a6f448942bd36684739100bdadf1e66c0c"
+    sha256 "c03b80e4d5aa114b81ac04bfa77c46055fe01764ae877a8a061f3d43c9de8a72"
   end
 
   def install
