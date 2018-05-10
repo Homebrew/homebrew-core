@@ -8,6 +8,7 @@ class NifiRegistry < Formula
 
   def install
     libexec.install Dir["*"]
+    rm Dir[libexec/"bin/*.bat"]
 
     ENV["NIFI_REGISTRY_HOME"] = libexec
 
@@ -16,6 +17,7 @@ class NifiRegistry < Formula
   end
 
   test do
-    system bin/"nifi-registry", "status"
+    ENV["NIFI_REGISTRY_HOME"] = libexec
+    assert_match /o.apache.nifi.registry.bootstrap.Command Apache NiFi Registry is not running/, shell_output("#{bin}/nifi-registry status")
   end
 end
