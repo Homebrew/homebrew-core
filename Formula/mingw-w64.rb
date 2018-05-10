@@ -19,6 +19,10 @@ class MingwW64 < Formula
   # Apple's makeinfo is old and has bugs
   depends_on "texinfo" => :build
 
+  option "with-posix", "Compile with posix thread model"
+  option "without-i686", "Compile without support for 32bit"
+  option "without-x86_64", "Compile witout support for 64bit"
+
   resource "binutils" do
     url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.1.tar.gz"
     mirror "https://ftpmirror.gnu.org/binutils/binutils-2.29.1.tar.gz"
@@ -32,7 +36,13 @@ class MingwW64 < Formula
   end
 
   def target_archs
-    ["i686", "x86_64"].freeze
+    if build.with? "i686" and build.with? "x86_64"
+      ["i686", "x86_64"].freeze
+    elif build.with? "i686"
+      ["i686"].freeze
+    else
+      ["x86_64"].freeze
+    end
   end
 
   def install
@@ -81,6 +91,11 @@ class MingwW64 < Formula
         --with-isl=#{Formula["isl"].opt_prefix}
         --disable-multilib
       ]
+      if build.with? "posix"
+        args << "--enable-threads=posix"
+      else
+        args << "--enable-threads=win32"
+      end
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args
@@ -109,13 +124,10 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
-      # Finish building GCC (runtime libraries)
-      chdir "#{buildpath}/gcc/build-#{arch}" do
-        system "make"
-        system "make", "install"
-      end
-
       # Build the winpthreads library
+      # we need to build this prior to the
+      # GCC runtime libraries, to have `-lpthread`
+      # available, for `--enable-threads=posix`
       args = %W[
         CC=#{target}-gcc
         CXX=#{target}-g++
@@ -125,6 +137,12 @@ class MingwW64 < Formula
       ]
       mkdir "mingw-w64-libraries/winpthreads/build-#{arch}" do
         system "../configure", *args
+        system "make"
+        system "make", "install"
+      end
+
+      # Finish building GCC (runtime libraries)
+      chdir "#{buildpath}/gcc/build-#{arch}" do
         system "make"
         system "make", "install"
       end
