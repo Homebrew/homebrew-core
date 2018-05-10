@@ -3,7 +3,7 @@ class Shogun < Formula
   homepage "http://www.shogun-toolbox.org/"
   url "http://shogun-toolbox.org/archives/shogun/releases/6.1/sources/shogun-6.1.3.tar.bz2"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "10de56b1bc9e966da1b0fa4d05072436dacfe6d1a543eefe5e9c94af6fa52cbb" => :high_sierra
@@ -43,6 +43,13 @@ class Shogun < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/9df360c/shogun/fix_veclib.patch"
     sha256 "de7ebe4c91da9f63fc322c5785f687c0005ed8df2c70cd3e9024fbac7b6d3745"
+  end
+
+  # Fixes compiling with json-c 0.13.1. Shogun 6.1.3 is using the
+  # deprecated json-c is_error() macro which got removed in json-c 0.13.1.
+  patch do
+    url "https://github.com/shogun-toolbox/shogun/commit/365ce4c4c7.patch?full_index=1"
+    sha256 "e7d90ed1ff448d86762449223b926de247e49ae6eeffa7f38c2395f69b1e16fc"
   end
 
   resource "jblas" do
