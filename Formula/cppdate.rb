@@ -1,4 +1,4 @@
-class CppDate < Formula
+class Cppdate < Formula
   desc "C++11/14/17 library for Date and Time operations based on <chrono> header"
   homepage "https://github.com/HowardHinnant/date"
   url "https://github.com/HowardHinnant/date/archive/v2.4.1.tar.gz"
