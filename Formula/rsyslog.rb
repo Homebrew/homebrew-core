@@ -3,6 +3,7 @@ class Rsyslog < Formula
   homepage "https://www.rsyslog.com/"
   url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-7.4.5.tar.gz"
   sha256 "f5e46e9324e366f20368162b4f561cf7a76fecb4aa0570edcaaa49e9f8c2fe70"
+  revision 1
 
   bottle do
     sha256 "cf810ad399795d9a031783649e1f1d19df652d0e346d9c93b1569a6f8090a95e" => :high_sierra
@@ -79,3 +80,16 @@ index aa271ec..03c4db9 100644
  void dbgprintf(char *fmt, ...) __attribute__((format(printf, 1, 2)));
  void parser_errmsg(char *fmt, ...) __attribute__((format(printf, 1, 2)));
  void tellLexEndParsing(void);
+diff --git a/runtime/msg.c b/runtime/msg.c
+index 039060709..039234517 100644
+--- a/runtime/msg.c
++++ b/runtime/msg.c
+@@ -42,8 +42,6 @@
+ #include <netdb.h>
+ #include <libestr.h>
+ #include <json.h>
+-/* For struct json_object_iter, should not be necessary in future versions */
+-#include <json_object_private.h>
+ #if HAVE_MALLOC_H
+ #  include <malloc.h>
+ #endif

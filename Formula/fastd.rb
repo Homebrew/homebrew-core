@@ -1,7 +1,7 @@
 class Fastd < Formula
   desc "Fast and Secure Tunnelling Daemon"
   homepage "https://projects.universe-factory.net/projects/fastd"
-  revision 3
+  revision 4
 
   head "https://git.universe-factory.net/fastd/", :using => :git
 
