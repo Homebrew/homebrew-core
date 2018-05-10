@@ -3,7 +3,7 @@ class Gdal < Formula
   homepage "http://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.2.4/gdal-2.2.4.tar.xz"
   sha256 "441eb1d1acb35238ca43a1a0a649493fc91fdcbab231d0747e9d462eea192278"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "6040f6b5e0c12347a8e93d92316b64fd1b9d3e5cf6c33863a23a5c8b6a182dcf" => :high_sierra
@@ -98,6 +98,7 @@ class Gdal < Formula
       "--without-python",
       "--without-ruby",
       "--with-armadillo=no",
+      "--with-qhull=no",
     ]
 
     if build.with?("mysql")
