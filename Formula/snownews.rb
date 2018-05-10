@@ -1,9 +1,8 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
-  homepage "https://kiza.eu/software/snownews"
-  url "https://kiza.eu/media/software/snownews/snownews-1.5.12.tar.gz"
-  sha256 "26dd96e9345d9cbc1c0c9470417080dd0c3eb31e7ea944f78f3302d7060ecb90"
-  revision 1
+  homepage "https://github.com/kouya/snownews"
+  url "https://github.com/kouya/snownews/archive/v1.5.13.tar.gz"
+  sha256 "9a06cd58dee7846cbb18166c3b60153c1b7ee963261b205633d77feaa5410455"
 
   bottle do
     sha256 "22fb8c0d85ab994352f15a8a54418d8e50dbf30b418c0e16daf34a0522a5a99b" => :high_sierra
@@ -18,12 +17,6 @@ class Snownews < Formula
   depends_on "gettext" if build.with? "nls"
   depends_on "openssl"
 
-  # Fix system openssl linking error on macOS.
-  # Allow EXTRA_LDFLAGS to take precedence so we can link brewed openssl
-  # instead of deprecated system openssl.
-  # Upstream has been notified but has no public bug tracker
-  patch :DATA
-
   def install
     args = ["--prefix=#{prefix}"]
     args << "--disable-nls" if build.without? "nls"
@@ -34,18 +27,3 @@ class Snownews < Formula
     system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz", "CC=#{ENV.cc}"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index a752cd6..74e61d7 100755
---- a/configure
-+++ b/configure
-@@ -13,7 +13,7 @@ chomp($xmlldflags);
-
- my $prefix = "/usr/local";
- my $cflags = "-Wall -Wno-format-y2k -O2 -DLOCALEPATH=\"\\\"\$(LOCALEPATH)\\\"\" -DOS=\\\"$os\\\" $xmlcflags \$(EXTRA_CFLAGS) ";
--my $ldflags = "-lncurses -lcrypto $xmlldflags \$(EXTRA_LDFLAGS) ";
-+my $ldflags = "\$(EXTRA_LDFLAGS) -lncurses -lcrypto $xmlldflags ";
-
- my $use_nls = 1;
- parse_cmdl_line();
