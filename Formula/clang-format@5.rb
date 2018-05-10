@@ -3,11 +3,11 @@ class ClangFormatAT5 < Formula
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
 
   stable do
-    url "http://releases.llvm.org/5.0.2/llvm-5.0.2.src.tar.xz"
+    url "https://releases.llvm.org/5.0.2/llvm-5.0.2.src.tar.xz"
     sha256 "d522eda97835a9c75f0b88ddc81437e5edbb87dc2740686cb8647763855c2b3c"
 
     resource "clang" do
-      url "http://releases.llvm.org/5.0.2/cfe-5.0.2.src.tar.xz"
+      url "https://releases.llvm.org/5.0.2/cfe-5.0.2.src.tar.xz"
       sha256 "fa9ce9724abdb68f166deea0af1f71ca0dfa9af8f7e1261f2cae63c280282800"
     end
   end
@@ -23,7 +23,7 @@ class ClangFormatAT5 < Formula
   depends_on "ninja" => :build
 
   resource "libcxx" do
-    url "http://releases.llvm.org/5.0.2/libcxx-5.0.2.src.tar.xz"
+    url "https://releases.llvm.org/5.0.2/libcxx-5.0.2.src.tar.xz"
     sha256 "6edf88e913175536e1182058753fff2365e388e017a9ec7427feb9929c52e298"
   end
 
