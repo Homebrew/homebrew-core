@@ -5,12 +5,6 @@ class Basex < Formula
   version "9.0.1"
   sha256 "6c51766ebe976e214cb1b3f3b8d7777d87c5cbef9134bcbf62da0278a47aa00b"
 
-  devel do
-    url "http://files.basex.org/releases/latest/BaseX902-20180424.172952.zip"
-    version "9.0.2-rc20180424.172952"
-    sha256 "ad5b7be68b9170c177e68c01dbf7772c4cf8771ae086f405f47ffacc059c9c3e"
-  end
-
   bottle :unneeded
 
   depends_on :java => "1.8+"
