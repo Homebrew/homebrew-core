@@ -3,6 +3,7 @@ class Knot < Formula
   homepage "https://www.knot-dns.cz/"
   url "https://secure.nic.cz/files/knot-dns/knot-2.6.6.tar.xz"
   sha256 "9119d8a56828a596d246431492be8c015f918de65ba793d76071122567c3080a"
+  revision 1
 
   bottle do
     sha256 "25e135ae044bbedfe185941c0a18abbc493ad29ac984c7f03e12dee4fbbaa97f" => :high_sierra
