@@ -5,11 +5,9 @@ class Snownews < Formula
   sha256 "9a06cd58dee7846cbb18166c3b60153c1b7ee963261b205633d77feaa5410455"
 
   bottle do
-    sha256 "22fb8c0d85ab994352f15a8a54418d8e50dbf30b418c0e16daf34a0522a5a99b" => :high_sierra
-    sha256 "111d01a8162376cf510ca58d4db0dc87c3edd171f782738d36ce8326b25741f6" => :sierra
-    sha256 "03ac9fea075ea76b934c2ff5365b5e48295c6fbcb03f9c402332bbdf5f84690b" => :el_capitan
-    sha256 "9d950bf2641410e4ddc6646eeaead2e49a5925b186a7d72fb207f11ceaaa0572" => :yosemite
-    sha256 "50505095e31d0c0a0960cae1abd00e8900c64967c5ad81068de161c510e59afe" => :mavericks
+    sha256 "192c7a039cfc5d4f8041982da9a0b0510745e8680754aea64202440c8ace9d6b" => :high_sierra
+    sha256 "bfa3d3dbdd0ffbb197163bbf35bcb9d033bbad76a478533e546697dff24addb6" => :sierra
+    sha256 "4ba563f80e1a79532136538595e36bd1f802fcc396515cad3dccb5f7dfcd21e2" => :el_capitan
   end
 
   depends_on "gettext"
