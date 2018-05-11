@@ -3,6 +3,7 @@ class SNail < Formula
   homepage "https://www.sdaoden.eu/code.html"
   url "https://www.sdaoden.eu/downloads/s-nail-14.9.10.tar.gz"
   sha256 "87ade7bbeb110250afce8221b2bb553a3d9661327dfca3f622994fb017c49ccb"
+  revision 1
 
   bottle do
     sha256 "08fde68f95086b3121e00dd372e958a76a6b8e70d1e104535fe417a631afa395" => :high_sierra
