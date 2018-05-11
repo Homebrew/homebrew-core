@@ -3,7 +3,7 @@ class Getdns < Formula
   homepage "https://getdnsapi.net"
   url "https://getdnsapi.net/releases/getdns-1-4-2/getdns-1.4.2.tar.gz"
   sha256 "1685b82dfe297cffc4bae08a773cdc88a3edf9a4e5a1ea27d8764bb5affc0e80"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "03acf34ffc09136ff6de4b74f588c200e2641557b03fced29984f308d2e731d8" => :high_sierra
