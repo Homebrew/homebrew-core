@@ -1,5 +1,5 @@
-class Libmagic < Formula
-  desc "Implementation of the file(1) command"
+class File < Formula
+  desc "Implementation of the file command and libmagic"
   homepage "https://www.darwinsys.com/file/"
   url "ftp://ftp.astron.com/pub/file/file-5.33.tar.gz"
   mirror "https://fossies.org/linux/misc/file-5.33.tar.gz"
@@ -12,6 +12,9 @@ class Libmagic < Formula
   end
 
   deprecated_option "with-python" => "with-python@2"
+
+  # Maybe a better name?
+  option "without-file", "Only install libmagic, don't install the file command"
 
   depends_on "python@2" => :optional
 
@@ -30,9 +33,11 @@ class Libmagic < Formula
       end
     end
 
-    # Don't dupe this system utility
-    rm bin/"file"
-    rm man1/"file.1"
+    if build.without? "file"
+      # Don't dupe this system utility
+      rm bin/"file"
+      rm man1/"file.1"
+    end
   end
 
   test do
