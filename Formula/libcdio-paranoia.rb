@@ -1,10 +1,10 @@
 
 class LibcdioParanoia < Formula
   desc "Audio CD ripper based on libcdio"
-  version "10.2+0.94+2"
   homepage "https://www.gnu.org/software/libcdio/"
   url "https://ftp.gnu.org/gnu/libcdio/libcdio-paranoia-10.2+0.94+2.tar.gz"
   mirror "https://ftpmirror.gnu.org/libcdio/libcdio-paranoia-10.2+0.94+2.tar.gz"
+  version "10.2+0.94+2"
   sha256 "d60f82ece97eeb92407a9ee03f3499c8983206672c28ae5e4e22179063c81941"
 
   depends_on "pkg-config" => :build
