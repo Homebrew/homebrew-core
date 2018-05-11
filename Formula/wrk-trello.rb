@@ -1,7 +1,7 @@
 class WrkTrello < Formula
   desc "Command-line interface to Trello"
   homepage "https://github.com/blangel/wrk"
-  url "https://cloud.github.com/downloads/blangel/wrk/wrk-1.0.1.tar.gz"
+  url "https://github.s3.amazonaws.com/downloads/blangel/wrk/wrk-1.0.1.tar.gz"
   sha256 "85aea066c49fd52ad3e30f3399ba1a5e60ec18c10909c5061f68b09d80f5befe"
 
   bottle :unneeded
