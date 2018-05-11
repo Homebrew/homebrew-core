@@ -3,6 +3,7 @@ class Libswiften < Formula
   homepage "https://swift.im/swiften"
   url "https://swift.im/downloads/releases/swift-4.0/swift-4.0.tar.gz"
   sha256 "50b7b2069005b1474147110956f66fdde0afb2cbcca3d3cf47de56dc61217319"
+  revision 1
 
   bottle do
     sha256 "80f1c8958f7e87ed9a9f4cfc2ecbff11e33042d9ee6cb41ca84a76f10696243b" => :high_sierra
