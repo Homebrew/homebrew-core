@@ -1,8 +1,8 @@
 class CargoCompletion < Formula
   desc "Bash and Zsh completion for Cargo"
   homepage "https://github.com/rust-lang/cargo"
-  url "https://github.com/rust-lang/cargo/archive/0.25.0.tar.gz"
-  sha256 "e826fc9c2c97a46c2da24f71b54dc6acef16e4fa5dc15667d278f9a7e5edbe60"
+  url "https://github.com/rust-lang/cargo/archive/0.26.0.tar.gz"
+  sha256 "1a4bae6910ca895157a1abe8225eb2b7e9b49ee1ee1e4e72fb81cb8e1446bff9"
   version_scheme 1
   head "https://github.com/rust-lang/cargo.git"
 
