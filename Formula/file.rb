@@ -1,9 +1,10 @@
-class Libmagic < Formula
-  desc "Implementation of the file(1) command"
+class File < Formula
+  desc "Implementation of the file command and libmagic"
   homepage "https://www.darwinsys.com/file/"
   url "ftp://ftp.astron.com/pub/file/file-5.33.tar.gz"
   mirror "https://fossies.org/linux/misc/file-5.33.tar.gz"
   sha256 "1c52c8c3d271cd898d5511c36a68059cda94036111ab293f01f83c3525b737c6"
+  head "https://github.com/file/file.git"
 
   bottle do
     sha256 "bd5083a984a62056a9aa0e47997b8c02110e4c8c3cc5114a56fce6c02434c2db" => :high_sierra
@@ -13,9 +14,19 @@ class Libmagic < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
+  # Maybe a better name?
+  option "without-file", "Only install libmagic, don't install the file command"
+
   depends_on "python@2" => :optional
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    if build.head?
+      system "autoreconf", "-f", "-i"
+    end
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
@@ -30,9 +41,11 @@ class Libmagic < Formula
       end
     end
 
-    # Don't dupe this system utility
-    rm bin/"file"
-    rm man1/"file.1"
+    if build.without? "file"
+      # Don't dupe this system utility
+      rm bin/"file"
+      rm man1/"file.1"
+    end
   end
 
   test do

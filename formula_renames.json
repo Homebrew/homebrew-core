@@ -98,6 +98,7 @@
   "ledger26": "ledger@2.6",
   "letsencrypt": "certbot",
   "libcppa": "caf",
+  "libmagic": "file",
   "libmongoclient": "mongo-cxx-driver",
   "libmpc08": "libmpc@0.8",
   "libpng12": "libpng@1.2",
