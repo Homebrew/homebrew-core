@@ -4,6 +4,7 @@ class Inetutils < Formula
   url "https://ftp.gnu.org/gnu/inetutils/inetutils-1.9.4.tar.xz"
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-1.9.4.tar.xz"
   sha256 "849d96f136effdef69548a940e3e0ec0624fc0c81265296987986a0dd36ded37"
+  revision 1
 
   bottle do
     rebuild 1
