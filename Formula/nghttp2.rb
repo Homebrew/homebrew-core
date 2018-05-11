@@ -60,6 +60,7 @@ class Nghttp2 < Formula
 
     args << "--enable-examples" if build.with? "examples"
     args << "--with-xml-prefix=/usr" if MacOS.version > :lion
+    args << "--disable-threads" if DevelopmentTools.clang_build_version < 800
     args << "--without-jemalloc" if build.without? "jemalloc"
 
     system "autoreconf", "-ivf" if build.head?
