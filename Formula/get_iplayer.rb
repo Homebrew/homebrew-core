@@ -3,6 +3,7 @@ class GetIplayer < Formula
   homepage "https://github.com/get-iplayer/get_iplayer"
   url "https://github.com/get-iplayer/get_iplayer/archive/v3.14.tar.gz"
   sha256 "6436a942b819aaa4b3df56f990812124909476142febe6432304e7a621411522"
+  revision 1
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
@@ -30,6 +31,11 @@ class GetIplayer < Formula
   resource "Mojolicious" do
     url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.77.tar.gz"
     sha256 "b6416de94938ee621e355c36fd837704dd7cf15846148dfbbfb82e8710af846b"
+  end
+
+  resource "Mozilla::CA" do
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABH/Mozilla-CA-20180117.tar.gz"
+    sha256 "f2cc9fbe119f756313f321e0d9f1fac0859f8f154ac9d75b1a264c1afdf4e406"
   end
 
   def install
