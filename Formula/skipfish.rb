@@ -3,7 +3,7 @@ class Skipfish < Formula
   homepage "https://code.google.com/archive/p/skipfish/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/skipfish/skipfish-2.10b.tgz"
   sha256 "1a4fbc9d013f1f9b970946ea7228d943266127b7f4100c994ad26c82c5352a9e"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "cc7acd7bc34e098a19bb6f86744f87f3a7642a7947ba12246fb61ae6f1e6df84" => :high_sierra
