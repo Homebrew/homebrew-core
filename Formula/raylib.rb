@@ -8,9 +8,9 @@ class Raylib < Formula
 
   bottle do
     cellar :any
-    sha256 "3b5f1087c97d056bb7cadfb1b9a4bfc5eda1069c53b3e63cbe613efe8df1dab2" => :high_sierra
-    sha256 "ddc6fc916dbe713ad0df540b3e29060a439f977403d0226f2560b14fccfe617e" => :sierra
-    sha256 "5556c1756d2a4de727350cff1d8d771cd28c142607a0adeb743bd2b16c94bd4c" => :el_capitan
+    sha256 "52050cce4e18ef31e617754b9acac0f95e5107d9555796c31120addaad880b0a" => :high_sierra
+    sha256 "c3488979a2bc20f0ac91eae68e2318a987bb4c6bd4e5500c24e9dbe5e21fef1a" => :sierra
+    sha256 "1155255c4f084e055c35373aafed4343e695982bf0c11c3e58f272cb3714cd59" => :el_capitan
   end
 
   depends_on "cmake" => :build
