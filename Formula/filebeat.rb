@@ -58,7 +58,7 @@ class Filebeat < Formula
     EOS
   end
 
-  plist_options :manual => "filebeat"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/filebeat/bin/filebeat -e"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
