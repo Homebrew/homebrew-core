@@ -3,8 +3,8 @@ class GandiCli < Formula
 
   desc "Command-line interface to Gandi.net products using the public API"
   homepage "https://cli.gandi.net/"
-  url "https://files.pythonhosted.org/packages/f1/f7/e90542fae4fcb8d921946fd55bb88e49314999b22ed2fa4e56a8cf23a434/gandi.cli-1.0.tar.gz"
-  sha256 "e2534fae2136dc03f85e0d906e6c61ce2c76c38e70b33783aeb54feabc3ecf2e"
+  url "https://files.pythonhosted.org/packages/68/fd/1e2d6711a2cb3293288caa732057f97e9e5e529bebcb2692d7e3bb50d7f3/gandi.cli-1.2.tar.gz"
+  sha256 "51b5287a285bf665446d7ff47ed9cb447caa79ab8504d29e4212ae825e27086e"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +16,8 @@ class GandiCli < Formula
   depends_on "python@2"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
+    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
+    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
   end
 
   resource "chardet" do
