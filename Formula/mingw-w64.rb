@@ -20,8 +20,6 @@ class MingwW64 < Formula
   depends_on "texinfo" => :build
 
   option "with-posix", "Compile with posix thread model"
-  option "without-i686", "Compile without support for 32bit"
-  option "without-x86_64", "Compile witout support for 64bit"
 
   resource "binutils" do
     url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.1.tar.gz"
@@ -36,13 +34,7 @@ class MingwW64 < Formula
   end
 
   def target_archs
-    if build.with? "i686" and build.with? "x86_64"
-      ["i686", "x86_64"].freeze
-    elif build.with? "i686"
-      ["i686"].freeze
-    else
-      ["x86_64"].freeze
-    end
+    ["i686", "x86_64"].freeze
   end
 
   def install
