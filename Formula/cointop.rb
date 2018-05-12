@@ -16,6 +16,7 @@ class Cointop < Formula
   end
 
   test do
-    system "TERM=screen-256color #{bin}/cointop -test"
+     ENV["TERM"] = "screen-256color"
+    system "#{bin}/cointop", "-test"
   end
 end
