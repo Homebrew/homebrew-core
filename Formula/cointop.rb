@@ -16,7 +16,6 @@ class Cointop < Formula
   end
 
   test do
-    ln_s "/dev/stderr", "/dev/tty"
-    pipe_output("DEV_IN=/dev/stdout DEV_OUT=/dev/stdout TERM=screen-256color #{bin}/cointop -test", nil, 0)
+    pipe_output("DEV_IN=/dev/stderr DEV_OUT=/dev/stderr TERM=screen-256color #{bin}/cointop -test", nil, 0)
   end
 end
