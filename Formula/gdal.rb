@@ -37,6 +37,10 @@ class Gdal < Formula
   depends_on "proj"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
 
+  depends_on "python@2" => :recommended
+  depends_on "python" => :recommended
+  depends_on "numpy" => :recommended
+
   depends_on "mysql" => :optional
 
   if build.with? "complete"
@@ -131,6 +135,19 @@ class Gdal < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+    # latest gdal handles python stuff diffrently when moving to 2.3 instead of 2.2 revise this piece
+    unless build.head?
+      Language::Python.each_python(build) do |python, _version|
+        cd "swig/python" do
+          system python, *Language::Python.setup_install_args(prefix)
+        end
+      end
+      if build.with?("python") || build.with?("python@2")
+        cd "swig/python" do
+          bin.install Dir["scripts/*.py"]
+        end
+      end
+    end
 
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
@@ -143,5 +160,13 @@ class Gdal < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
+    # see previous comment on build.head
+    unless build.head?
+      Language::Python.each_python(build) do |python, _version|
+        system python, "-c", <<~EOS
+          import gdal
+        EOS
+      end
+    end
   end
 end
