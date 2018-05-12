@@ -9,6 +9,7 @@ class Eccodes < Formula
   depends_on "jasper"
   depends_on "libpng"
   depends_on "numpy"
+  conflicts_with "grib-api", :because => "both install /usr/local/include/grib_api.h"
 
   def install
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
