@@ -15,12 +15,16 @@ class IcarusVerilog < Formula
     depends_on "autoconf" => :build
   end
 
+  # parser is subtly broken when processed with an old version of bison
+  depends_on "bison" => :build
+
   def install
+    bison = Formula["bison"].bin/"bison"
     system "autoconf" if build.head?
     system "./configure", "--prefix=#{prefix}"
     # https://github.com/steveicarus/iverilog/issues/85
     ENV.deparallelize
-    system "make", "install"
+    system "make", "install", "BISON=#{bison}"
   end
 
   test do
@@ -35,5 +39,10 @@ class IcarusVerilog < Formula
     EOS
     system bin/"iverilog", "-otest", "test.v"
     assert_equal "Boop", shell_output("./test").chomp
+
+    # test syntax errors do not cause segfaults
+    (testpath/"error.v").write "error;"
+    assert_equal "-:1: error: variable declarations must be contained within a module.\n",
+      shell_output("#{bin}/iverilog error.v 2>&1", 1)
   end
 end
