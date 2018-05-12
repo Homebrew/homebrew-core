@@ -4,8 +4,8 @@ compiler: gcc
 sudo: false
 
 deploy:
-  local-dir: json_test
-  repo: Homebrew/json_test
+  local-dir: formulae.brew.sh
+  repo: Homebrew/formulae.brew.sh
   target-branch: master
   verbose: true
   provider: pages
@@ -31,7 +31,7 @@ before_install:
   - brew help
 
 before_script:
-  - travis_retry git clone https://$GITHUB_TOKEN@github.com/homebrew/json_test
+  - travis_retry git clone https://$GITHUB_TOKEN@github.com/Homebrew/formulae.brew.sh
 
 script:
-  - cd json_test && brew ruby script/generate.rb
+  - cd formulae.brew.sh && brew ruby script/generate.rb
