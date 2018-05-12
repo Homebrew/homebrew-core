@@ -16,6 +16,6 @@ class Cointop < Formula
   end
 
   test do
-    pipe_output("screen-256color #{bin}/cointop -test", "", 0)
+    pipe_output("TERM=screen-256color #{bin}/cointop -test", nil, 0)
   end
 end
