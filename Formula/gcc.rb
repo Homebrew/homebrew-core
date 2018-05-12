@@ -89,8 +89,9 @@ class Gcc < Formula
 
       make_args = []
       # Use -headerpad_max_install_names in the build,
-      # otherwise lto1 load commands cannot be edited on El Capitan
-      if MacOS.version == :el_capitan
+      # otherwise updated load commands won't fit in the Mach-O header.
+      # This is needed because `gcc` avoids the superenv shim.
+      if build.bottle?
         make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
       end
 
