@@ -4,6 +4,7 @@ class Pngquant < Formula
   url "https://pngquant.org/pngquant-2.11.7-src.tar.gz"
   sha256 "d70b46c3335c7abf21944aced2d9d2b54819ab84ed1a140b354d5e8cc9f0fb0a"
   head "https://github.com/kornelski/pngquant.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,14 +14,15 @@ class Pngquant < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "rust" => :build
   depends_on "libpng"
   depends_on "little-cms2"
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/pngquant"
+    system "make"
+    bin.install "pngquant"
     man1.install "pngquant.1"
+    lib.install "lib/libimagequant.a"
+    include.install "lib/libimagequant.h"
   end
 
   test do
