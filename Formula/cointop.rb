@@ -1,8 +1,8 @@
 class Cointop < Formula
   desc "Interactive terminal based UI application for tracking cryptocurrencies"
   homepage "https://cointop.sh"
-  url "https://github.com/miguelmota/cointop/archive/1.0.2.tar.gz"
-  sha256 "81d44366284106c56e58f53c58644c65f42cab94469db4f4f1f726f20385c432"
+  url "https://github.com/miguelmota/cointop/archive/1.0.3.tar.gz"
+  sha256 "f11288672a1b31ec337658d401ecc982d9abb141386647e19769aaff66b8da77"
 
   depends_on "go" => :build
 
