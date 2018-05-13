@@ -7,9 +7,9 @@ class Babeld < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9851d9aaecaa46680cf57cde463619dbd9311d85fd9df39de9a26e7aefa0f013" => :high_sierra
-    sha256 "d54052f62eed542a4deea14721c0fa731b034e34a17565c72e397403134410b6" => :sierra
-    sha256 "7e288b1ce8d4efc3d1a652fbac8a4a702af59cf53dc09edff50a22089f0aabc4" => :el_capitan
+    sha256 "f0ff0f699974757e42a82a33d932bc72d0dd75a1f3f48a392594258498f9151f" => :high_sierra
+    sha256 "ff8c0a94366c55ca90190fc42c8d0856db5359f9d8f1ff2646b11b09252a17ae" => :sierra
+    sha256 "a4dd075f51dcb309632f19761340cd7bafc7fc14f69f8f6acfbcf7e360dd0f2a" => :el_capitan
   end
 
   def install
