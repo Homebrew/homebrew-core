@@ -23,7 +23,7 @@ class Eccodes < Formula
 
   test do
     grib_samples_path = shell_output("#{bin}/codes_info -s").strip
-    system bin/"grib_ls", "#{grib_samples_path}/GRIB1.tmpl"
-    system bin/"grib_ls", "#{grib_samples_path}/GRIB2.tmpl"
+    assert_match "packingType", shell_output("#{bin}/grib_ls #{grib_samples_path}/GRIB1.tmpl")
+    assert_match "gridType", shell_output("#{bin}/grib_ls #{grib_samples_path}/GRIB2.tmpl")
   end
 end
