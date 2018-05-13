@@ -9,9 +9,9 @@ class GxGo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cda1bd1bd255c06339ae3b21d09d1588b359ce2974affb1751fb5c833f560f5d" => :high_sierra
-    sha256 "a6a923b5d582cc871b4e75f217a7922636138db32a952a730fbcd69d6ce23eb2" => :sierra
-    sha256 "46939a07dd402dfdb380f32cd11088d933f5f92c524a2d4710b54e17c27b11b5" => :el_capitan
+    sha256 "7f169d9c48b0170a759ce56d9b14ea6975a2b120270276304254b88201767339" => :high_sierra
+    sha256 "523c2412e982efd6a1107b1a123981eed3b9fb9e2eb73d9118312e4638e520bd" => :sierra
+    sha256 "b55dab0e39dae445bed065f555535457b1f20cb22a4bcc3d0ec4584ed28c20c9" => :el_capitan
   end
 
   depends_on "go" => :build
