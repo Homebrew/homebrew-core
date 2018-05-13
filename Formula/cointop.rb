@@ -1,8 +1,8 @@
 class Cointop < Formula
   desc "Interactive terminal based UI application for tracking cryptocurrencies"
   homepage "https://cointop.sh"
-  url "https://github.com/miguelmota/cointop/archive/1.0.3.tar.gz"
-  sha256 "f11288672a1b31ec337658d401ecc982d9abb141386647e19769aaff66b8da77"
+  url "https://github.com/miguelmota/cointop/archive/1.0.4.tar.gz"
+  sha256 "e5c9e7ad969252498d5e1c0f6861420e3a9871df85ed7c9d4d584c1ab548e31d"
 
   depends_on "go" => :build
 
@@ -16,6 +16,6 @@ class Cointop < Formula
   end
 
   test do
-    pipe_output("DEV_IN=/dev/stderr DEV_OUT=/dev/stderr TERM=screen-256color #{bin}/cointop -test", nil, 0)
+    pipe_output("#{bin}/cointop -test", nil, 0)
   end
 end
