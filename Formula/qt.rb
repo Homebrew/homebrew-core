@@ -42,6 +42,35 @@ class Qt < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
+  
+  # # Fix QTBUG-62266
+  # patch do
+  #   url "https://raw.githubusercontent.com/Homebrew/formula-patches/0af7ca663c/qt%405.7/QTBUG-62266.patch"
+  #   sha256 "60471b893eb394db18dacae8bd38727a955742626da641dd980dbb87a8808e9e"
+  # end
+
+  # # Fix QTBUG-62658
+  # patch do
+  #   url "https://raw.githubusercontent.com/Homebrew/formula-patches/48b7e84036/qt%405.7/QTBUG-62658.patch"
+  #   sha256 "1fe7fcbff566bcec3ef9c253f82a8474a0c08f4965565d5d1135df973cd75398"
+  # end
+  
+  # Fix compile error on macOS 10.13 around QFixed:
+  # https://github.com/Homebrew/homebrew-core/issues/27095
+  # https://bugreports.qt.io/browse/QTBUG-67545
+  patch do
+    url "https://raw.githubusercontent.com/z00m1n/formula-patches/0de0e229/qt/QTBUG-67545.patch"
+    sha256 "4a115097c7582c7dce4207f5500d13feb8c990eb8a05a43f41953985976ebe6c"
+  end
+
+  # Fix compile error on macOS 10.13 caused by qtlocation dependency
+  # mapbox-gl-native using Boost 1.62.0 does not build with C++ 17:
+  # https://github.com/Homebrew/homebrew-core/issues/27095
+  # https://bugreports.qt.io/browse/QTBUG-67810
+  patch do
+    url "https://raw.githubusercontent.com/z00m1n/formula-patches/a1a1f0dd/qt/QTBUG-67810.patch"
+    sha256 "8ee0bf71df1043f08ebae3aa35036be29c4d9ebff8a27e3b0411a6bd635e9382"
+  end
 
   def install
     args = %W[
@@ -58,6 +87,7 @@ class Qt < Formula
       -no-rpath
       -pkg-config
       -dbus-runtime
+      -no-assimp
     ]
 
     args << "-nomake" << "examples" if build.without? "examples"
