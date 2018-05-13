@@ -92,6 +92,7 @@ class Mythtv < Formula
                           "--enable-securetransport",
                           "--enable-zlib",
                           "--disable-qtwebkit"
+    system "make" 
     system "make", "install"
   end
   
