@@ -9,7 +9,7 @@ class MarathonSwift < Formula
   def install
     system "swift", "package", "--disable-sandbox", "update"
     system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib",
-            "--disable-sandbox"
+           "--disable-sandbox"
     system "make", "install_bin", "PREFIX=#{prefix}"
   end
 
