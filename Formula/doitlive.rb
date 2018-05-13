@@ -1,8 +1,8 @@
 class Doitlive < Formula
   desc "Replay stored shell commands for live presentations"
   homepage "https://doitlive.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/b1/5d/4a5784409ff94900898ff671df2a32bf19469114eb8006286fda3fc7e8d5/doitlive-3.0.3.tar.gz"
-  sha256 "d219d4d198acd74fab066e466b2c402a491afdddbeeb40d51b2b9781143321a6"
+  url "https://files.pythonhosted.org/packages/c2/bf/f6969c727748ee1cc1db91fec5f8d41a4a48080d50a4c7138f5616ef5f73/doitlive-4.0.0.tar.gz"
+  sha256 "5fe6aaed9efa380000378a90de91221292e3089d50067b169ce8b6b06a2b1723"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,6 +19,12 @@ class Doitlive < Formula
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+
+    output = Utils.popen_read("SHELL=bash #{libexec}/bin/doitlive completion")
+    (bash_completion/"doitlive").write output
+
+    output = Utils.popen_read("SHELL=zsh #{libexec}/bin/doitlive completion")
+    (zsh_completion/"_doitlive").write output
   end
 
   test do
