@@ -6,9 +6,9 @@ class Annie < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1113b83891a1c0d69323432e75b9a883fc25b6881570058e1d1ddce3a69961fd" => :high_sierra
-    sha256 "c704f7d0ccb86a2150fb031c2cb81dcf7f7e5fca86665f2dd56f3de6e2f48bb0" => :sierra
-    sha256 "eae710859f006fc48671205f2b71f9a8e7657c06bf20eab2076115a359ce793f" => :el_capitan
+    sha256 "ef8506c979fa1b1ab3b2d0ade30e35b6873870aab94d5ba9bad14288d4dc60d0" => :high_sierra
+    sha256 "bfcc7a9d6168473923606baf6f82dd578f25e6112cf514eb85c8309f73ee54b4" => :sierra
+    sha256 "d93f6de6fee1eaca66cb95d0fb32a7287ac067fcf137b4fd3aa22c5b0bade72d" => :el_capitan
   end
 
   depends_on "go" => :build
