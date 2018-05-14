@@ -3,7 +3,7 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
   sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
-  revision 2
+  revision 3
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
@@ -100,6 +100,20 @@ class Vtk < Formula
       system "make"
       system "make", "install"
     end
+
+    # Avoid hard-coding Python 2 or 3's Cellar paths
+    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first do |s|
+      if build.with? "python"
+        s.gsub! Formula["python"].prefix.realpath, Formula["python"].opt_prefix
+      end
+      if build.with? "python@2"
+        s.gsub! Formula["python@2"].prefix.realpath, Formula["python@2"].opt_prefix
+      end
+    end
+
+    # Avoid hard-coding HDF5's Cellar path
+    inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
+      Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix
   end
 
   def caveats; <<~EOS
