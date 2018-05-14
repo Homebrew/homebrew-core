@@ -27,7 +27,7 @@ class Caddy < Formula
            "-o", bin/"caddy", "github.com/mholt/caddy/caddy"
   end
 
-  plist_options :manual => "caddy"
+  plist_options :manual => "caddy -conf #{etc}/Caddyfile"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
