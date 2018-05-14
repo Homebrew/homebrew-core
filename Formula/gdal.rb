@@ -33,13 +33,12 @@ class Gdal < Formula
   depends_on "libspatialite"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "numpy"
   depends_on "pcre"
   depends_on "proj"
+  depends_on "python"
+  depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
-
-  depends_on "python@2" => :recommended
-  depends_on "python" => :recommended
-  depends_on "numpy" => :recommended
 
   depends_on "mysql" => :optional
 
@@ -135,18 +134,14 @@ class Gdal < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
-    # latest gdal handles python stuff diffrently when moving to 2.3 instead of 2.2 revise this piece
-    unless build.head?
+
+    if build.stable? # GDAL 2.3 handles Python differently
       Language::Python.each_python(build) do |python, _version|
         cd "swig/python" do
           system python, *Language::Python.setup_install_args(prefix)
         end
       end
-      if build.with?("python") || build.with?("python@2")
-        cd "swig/python" do
-          bin.install Dir["scripts/*.py"]
-        end
-      end
+      bin.install Dir["swig/python/scripts/*.py"]
     end
 
     system "make", "man" if build.head?
@@ -160,12 +155,9 @@ class Gdal < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
-    # see previous comment on build.head
-    unless build.head?
+    if build.stable? # GDAL 2.3 handles Python differently
       Language::Python.each_python(build) do |python, _version|
-        system python, "-c", <<~EOS
-          import gdal
-        EOS
+        system python, "-c", "import gdal"
       end
     end
   end
