@@ -11,6 +11,8 @@ class MingwW64 < Formula
     sha256 "077d13bc5b6576ff1976ff4320382449f248224888d6e13d49871ce49c945a18" => :el_capitan
   end
 
+  option "with-posix", "Compile with posix thread model"
+
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "libmpc"
@@ -18,8 +20,6 @@ class MingwW64 < Formula
 
   # Apple's makeinfo is old and has bugs
   depends_on "texinfo" => :build
-
-  option "with-posix", "Compile with posix thread model"
 
   resource "binutils" do
     url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.1.tar.gz"
