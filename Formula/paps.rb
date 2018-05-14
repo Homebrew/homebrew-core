@@ -6,9 +6,9 @@ class Paps < Formula
 
   bottle do
     cellar :any
-    sha256 "180eee4688d9289f750afb0b4f763612874c7a42f2bea7ffb228a2e51f4681b9" => :high_sierra
-    sha256 "8fe4408fc505e10a6fabd2d78e7fcefb33cccff53f8f404732771e3249509fb5" => :sierra
-    sha256 "2a1f0244a125e9028a1d4b99fb45eec5793bc96834696fdbef823fd801c91643" => :el_capitan
+    sha256 "b5599742d6b369366a9bc00f42d6f3513cfb9c670bf6199222b7580c19c1706b" => :high_sierra
+    sha256 "985afbb83ca67f6190f299ac8d22d929cc4b2bd12173954dab8d0ab4e7e485ef" => :sierra
+    sha256 "4164c3d56b5b572d38f8f30d852e56a541b587f67c063213133842421302390b" => :el_capitan
   end
 
   depends_on "autoconf" => :build
