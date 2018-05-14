@@ -3,6 +3,7 @@ class Osm2pgrouting < Formula
   homepage "https://pgrouting.org/docs/tools/osm2pgrouting.html"
   url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.4.tar.gz"
   sha256 "32aba345013e137e39cc7bf74466cc6c97b93e256f2754e617a00f61f57eb8c2"
+  revision 1
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
