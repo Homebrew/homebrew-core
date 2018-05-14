@@ -159,7 +159,6 @@ class Raine < Formula
 
     inreplace "makefile" do |s|
       s.gsub! /-lSDL_ttf/, "-lSDL_ttf -lfreetype -lbz2"
-      s.gsub! /-lSDL_image/, "-lSDL_image"
       s.gsub! /-lSDL_sound/, "-lSDL_sound -lFLAC -logg"
       s.gsub! /-l(SDL\w*|intl|muparser|freetype|png|FLAC|ogg)/, "#{buildpath}/lib/lib\\1.a"
       s.gsub! %r{/usr/local/lib/libpng.a}, "#{buildpath}/lib/libpng.a"
