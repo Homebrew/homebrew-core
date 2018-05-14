@@ -137,10 +137,9 @@ class Gdal < Formula
     system "make", "install"
 
     if build.stable? # GDAL 2.3 handles Python differently
-      Language::Python.each_python(build) do |python, _version|
-        cd "swig/python" do
-          system python, *Language::Python.setup_install_args(prefix)
-        end
+      cd "swig/python" do
+        system "python3", *Language::Python.setup_install_args(prefix)
+        system "python2", *Language::Python.setup_install_args(prefix)
       end
       bin.install Dir["swig/python/scripts/*.py"]
     end
@@ -157,9 +156,8 @@ class Gdal < Formula
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
     if build.stable? # GDAL 2.3 handles Python differently
-      Language::Python.each_python(build) do |python, _version|
-        system python, "-c", "import gdal"
-      end
+      system "python3", "-c", "import gdal"
+      system "python2", "-c", "import gdal"
     end
   end
 end
