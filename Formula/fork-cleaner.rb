@@ -5,13 +5,14 @@ class ForkCleaner < Formula
   sha256 "6cb97ed035cce26505f8d48406fb57029f629a6df19bfcfe44c8f3d7f60d1008"
   revision 1
 
-  depends_on "go" => :build
   depends_on "dep" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/caarlos0/fork-cleaner").install buildpath.children
-    cd "src/github.com/caarlos0/fork-cleaner" do
+    dir = buildpath/"src/github.com/caarlos0/fork-cleaner"
+    dir.install buildpath.children
+    cd dir do
       system "dep", "ensure"
       system "make"
       bin.install "fork-cleaner"
@@ -20,7 +21,7 @@ class ForkCleaner < Formula
   end
 
   test do
-    assert_match "missing github token",
-      shell_output("#{bin}/fork-cleaner 2>&1", 1)
+    output = shell_output("#{bin}/fork-cleaner 2>&1", 1)
+    assert_match "missing github token", output
   end
 end
