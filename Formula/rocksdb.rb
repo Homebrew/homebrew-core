@@ -1,8 +1,8 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/v5.12.4.tar.gz"
-  sha256 "6e8d0844adc37da331844ac4b21ae33ba1f5265d8914c745760d9209a57e9cc9"
+  url "https://github.com/facebook/rocksdb/archive/v5.13.1.tar.gz"
+  sha256 "a99bf51e1da76d8b6487c1dd694311f4e26031071be7802e76fb926154ff33d2"
 
   bottle do
     cellar :any
