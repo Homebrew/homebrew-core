@@ -1,9 +1,8 @@
 class Paps < Formula
   desc "Pango to PostScript converter"
-  homepage "https://paps.sourceforge.io/"
-  url "https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz"
-  sha256 "db214c4ea7ecde2f7986b869f6249864d3ff364e6f210c15aa2824bcbd850a20"
-  revision 1
+  homepage "https://github.com/dov/paps"
+  url "https://github.com/dov/paps/archive/0.7.0.tar.gz"
+  sha256 "7a18e8096944a21e0d9fcfb389770d1e7672ba90569180cb5d45984914cedb13"
 
   bottle do
     cellar :any
@@ -12,6 +11,8 @@ class Paps < Formula
     sha256 "2a1f0244a125e9028a1d4b99fb45eec5793bc96834696fdbef823fd801c91643" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "pango"
   depends_on "freetype"
@@ -19,49 +20,17 @@ class Paps < Formula
   depends_on "glib"
   depends_on "gettext"
 
-  # Find freetype headers
-  patch :DATA
-
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./autogen.sh"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "examples"
   end
 
   test do
-    # https://paps.sourceforge.io/small-hello.utf8
-    utf8 = <<~EOS
-      paps by Dov Grobgeld (דב גרובגלד)
-      Printing through Παν語 (Pango)
-
-      Arabic السلام عليكم
-      Bengali (বাঙ্লা)  ষাগতোম
-      Greek (Ελληνικά)  Γειά σας
-      Hebrew שָׁלוֹם
-      Japanese  (日本語) こんにちは, ｺﾝﾆﾁﾊ
-      Chinese  (中文,普通话,汉语) 你好
-      Vietnamese  (Tiếng Việt)  Xin Chào
-    EOS
-    safe_system "echo '#{utf8}' |  #{bin}/paps > paps.ps"
+    system bin/"paps", pkgshare/"examples/small-hello.utf8", "-o", "paps.ps"
+    assert_predicate testpath/"paps.ps", :exist?
+    assert_match "Ch\\340o", (testpath/"paps.ps").read
   end
 end
-
-__END__
-diff --git a/src/libpaps.c b/src/libpaps.c
-index 6081d0d..d502b68 100644
---- a/src/libpaps.c
-+++ b/src/libpaps.c
-@@ -25,8 +25,10 @@
- 
- #include <pango/pango.h>
- #include <pango/pangoft2.h>
--#include <freetype/ftglyph.h>
--#include <freetype/ftoutln.h>
-+#include <ft2build.h>
-+#include FT_FREETYPE_H
-+#include FT_GLYPH_H
-+#include FT_OUTLINE_H
- #include <errno.h>
- #include <stdlib.h>
- #include <stdio.h>
