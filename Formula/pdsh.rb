@@ -6,10 +6,9 @@ class Pdsh < Formula
   head "https://github.com/chaos/pdsh.git"
 
   bottle do
-    sha256 "bc5daaa5e0e9109fc1e293590e6e61265ef8399ee0200e78c70a6054456ab5c5" => :high_sierra
-    sha256 "0ae68818c7d5215a7a037c44681c514bd676d3db5d47fa5ea909321afb0c2d6a" => :sierra
-    sha256 "3cc2ef3a642a9a8edb6a859aa55f7f767a6a1d3e6f6fd16fb79f0f597ae78c18" => :el_capitan
-    sha256 "141ace11fbd043f0e29e53362d0bcb37647342795d1d88f631a5822f035f3d43" => :yosemite
+    sha256 "d5f3224c594de679ee23cd87faf41371decf42083026925b70299690d3d93437" => :high_sierra
+    sha256 "2c3294c33073829999df1f6c5c3a1c179375781170234a72cd4344fd989582d1" => :sierra
+    sha256 "73f9503afaf38dfbdb91ad6ac18098fc3676396c2d5a16a8a1dbba0dda2e415e" => :el_capitan
   end
 
   option "without-dshgroups", "This option should be specified to load genders module first"
