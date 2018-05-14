@@ -1,12 +1,9 @@
 class Pdsh < Formula
   desc "Efficient rsh-like utility, for using hosts in parallel"
-  homepage "https://code.google.com/p/pdsh/"
-  url "https://github.com/grondo/pdsh.git",
-      :tag => "pdsh-2.31",
-      :revision => "e1c8e71dd6a26b40cd067a8322bd14e10e4f7ded"
-  revision 1
-
-  head "https://github.com/grondo/pdsh.git"
+  homepage "https://github.com/chaos/pdsh"
+  url "https://github.com/chaos/pdsh/releases/download/pdsh-2.33/pdsh-2.33.tar.gz"
+  sha256 "7368087429d6269f0a6313c406ef38c6a6a947bc003ca7368fc6481b139d942f"
+  head "https://github.com/chaos/pdsh.git"
 
   bottle do
     sha256 "bc5daaa5e0e9109fc1e293590e6e61265ef8399ee0200e78c70a6054456ab5c5" => :high_sierra
