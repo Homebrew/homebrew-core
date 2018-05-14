@@ -9,11 +9,7 @@ class Bumpversion < Formula
   depends_on "python@2"
 
   def install
-    venv = virtualenv_create(libexec)
-    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", buildpath
-    system libexec/"bin/pip", "uninstall", "-y", name
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
