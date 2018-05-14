@@ -1,8 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2018.05.07.00.tar.gz"
-  sha256 "d3d5b653070bd21e8b1f0bfc26a28bb0948fd6d81a5db67bed60659e9dabb547"
+  url "https://github.com/facebook/folly/archive/v2018.05.14.00.tar.gz"
+  sha256 "697405b95beaa7d92f52ca0253c05aa81360562773b97ce0e0484ee5300e55c9"
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -34,23 +34,6 @@ class Folly < Formula
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
-
-  # Remove for > 2018.05.07.00
-  # Fix build failure "error: no matching function for call to 'min'"
-  # Upstream commit from 7 May 2018 "Use size_t for
-  # ThreadPoolExecutor::getPendingTaskCountImpl"
-  patch do
-    url "https://github.com/facebook/folly/commit/a463b55ed3.patch?full_index=1"
-    sha256 "b72c88b081f204caddfd4fd2e7b49f43bbad7cc15f6214793993204ddafd405d"
-  end
-
-  # Remove for > 2018.05.07.00
-  # Fixes an issue with the first patch above
-  # Upstream commit from 8 May 2018 "Fix ThreadPoolExecutor::getPendingTaskCount decl"
-  patch do
-    url "https://github.com/facebook/folly/commit/bf237b575e.patch?full_index=1"
-    sha256 "2216295c4155b64e3d6130e049fac77c1ecf4b10209dfb688285d4d4c17bd3dc"
-  end
 
   def install
     ENV.cxx11
