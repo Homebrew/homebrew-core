@@ -7,9 +7,9 @@ class Snakemake < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c814b7d5ab2edb61bdc302cb2d57b3af05cd2b5a81dedcc7461431eb93868bda" => :high_sierra
-    sha256 "863c0a20f6083a061fbd343277e8a8870808642a727a3a71ea5c4afe17182239" => :sierra
-    sha256 "95c5946d9a66a6404625fb569d0b28643c5847562c16157ccabaf8db93461d8e" => :el_capitan
+    sha256 "54efe44292b91ca1b5d728f06971cf1a55a400c69a8ab9990ca6d505b4585330" => :high_sierra
+    sha256 "9faa0f31a32ed39d7af9b28563866d8ed9032352e5a902629ac725a66ed2fb0b" => :sierra
+    sha256 "921d11249b45f5fcaf9d3bfd7e61b645015acd59965c4280f4c8e4fbfa5d7bd8" => :el_capitan
   end
 
   depends_on "python"
