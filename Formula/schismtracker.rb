@@ -1,8 +1,8 @@
 class Schismtracker < Formula
   desc "Portable reimplementation of Impulse Tracker"
   homepage "http://schismtracker.org/"
-  url "https://github.com/schismtracker/schismtracker/archive/20180209.tar.gz"
-  sha256 "260d7ef333e740adb0293b2ca21447db81595f277b1151108020723ef1f31f9b"
+  url "https://github.com/schismtracker/schismtracker/archive/20180513.tar.gz"
+  sha256 "2e4daeb36564f1b7171b250d66318307d668ec7d3884ed37b0a1acac04684efa"
   head "https://github.com/schismtracker/schismtracker.git"
 
   bottle do
