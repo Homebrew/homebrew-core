@@ -40,7 +40,7 @@ class Caddy < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{opt_sbin}/caddy</string>
+          <string>#{opt_bin}/caddy</string>
           <string>-conf</string>
           <string>#{etc}/Caddyfile</string>
         </array>
