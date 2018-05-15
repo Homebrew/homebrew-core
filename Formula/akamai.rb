@@ -26,6 +26,26 @@ class Akamai < Formula
       system "go", "build", "-tags", "noautoupgrade nofirstrun", "-o", bin/"akamai"
       prefix.install_metafiles
     end
+
+    output = <<~EOS
+      _akamai_cli_bash_autocomplete() {
+          local cur opts base
+          COMPREPLY=()
+          cur="${COMP_WORDS[COMP_CWORD]}"
+          opts=$( ${COMP_WORDS[@]:0:$COMP_CWORD} --generate-auto-complete )
+          COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+          return 0
+      }
+      complete -F _akamai_cli_bash_autocomplete akamai
+    EOS
+    (bash_completion/"akamai").write output
+
+    (zsh_completion/"_akamai").write <<~EOS
+      set -k
+      autoload -U compinit && compinit
+      autoload -U bashcompinit && bashcompinit
+    EOS
+    (zsh_completion/"_akamai").append_lines output
   end
 
   test do
