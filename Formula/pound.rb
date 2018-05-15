@@ -1,8 +1,8 @@
 class Pound < Formula
   desc "Reverse proxy, load balancer and HTTPS front-end for web servers"
   homepage "http://www.apsis.ch/pound"
-  url "http://www.apsis.ch/pound/Pound-2.7.tgz"
-  sha256 "cdfbf5a7e8dc8fbbe0d6c1e83cd3bd3f2472160aac65684bb01ef661c626a8e4"
+  url "http://www.apsis.ch/pound/Pound-2.8.tgz"
+  sha256 "a7fd8690de0fd390615e79fd0f4bfd56a544b8ef97dd6659c07ecd3207480c25"
 
   bottle do
     sha256 "824d3b78c57b323b8ad1b5bbd022857d184d5da74ed9c5270c00dcdb3c85a93d" => :high_sierra
