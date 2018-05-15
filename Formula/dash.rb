@@ -1,9 +1,9 @@
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
-  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/dash-0.5.10.tar.gz"
-  sha256 "ad70e0cc3116b424931c392912b3ebdb8053b21f3fd968c782f0b19fd8ae31ab"
+  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.1.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/dash-0.5.10.1.tar.gz"
+  sha256 "daac92be392ea5d9b03e8879384e437828e636b9f491a275a607f85d7e5e84ae"
 
   bottle do
     cellar :any_skip_relocation
