@@ -1,8 +1,8 @@
 class Pegtl < Formula
   desc "Parsing Expression Grammar Template Library"
   homepage "https://github.com/taocpp/PEGTL"
-  url "https://github.com/taocpp/PEGTL/archive/2.5.0.tar.gz"
-  sha256 "19381c10034a366cb747080e845650606ebce67e556e7d256a9d73b1fc9b5a0f"
+  url "https://github.com/taocpp/PEGTL/archive/2.5.1.tar.gz"
+  sha256 "7cc2ba1a23c2e834c7dbe1e22a55d521f3aed4d511467b6e2a1034d33f34410f"
 
   bottle :unneeded
 
