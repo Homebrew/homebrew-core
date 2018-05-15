@@ -41,4 +41,16 @@ class Libbluray < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <libbluray/bluray.h>
+      int main(void) {
+        BLURAY *bluray = bd_init();
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lbluray", "-o", "test"
+    system "./test"
+  end
 end
