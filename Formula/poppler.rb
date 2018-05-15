@@ -3,6 +3,7 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.64.0.tar.xz"
   sha256 "b21df92ca99f78067785cf2dc8e06deb04726b62389c0ee1f5d8b103c77f64b1"
+  revision 1
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
@@ -39,8 +40,8 @@ class Poppler < Formula
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz"
-    sha256 "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
+    sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
   end
 
   needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
