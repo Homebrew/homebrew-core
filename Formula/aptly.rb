@@ -1,9 +1,9 @@
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
-  url "https://github.com/smira/aptly/archive/v1.2.0.tar.gz"
-  sha256 "e41ee52ba530b65ff5ec8b1ef3ee9c61882d1c44857d343b9a760e8a8e4230d7"
-  head "https://github.com/smira/aptly.git"
+  url "https://github.com/aptly-dev/aptly/archive/v1.3.0.tar.gz"
+  sha256 "4d993dd790345e54dd963467a475ae160a7133bae7ee42844f15d5e82c1fb36e"
+  head "https://github.com/aptly-dev/aptly.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +17,8 @@ class Aptly < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
-    (buildpath/"src/github.com/smira/aptly").install buildpath.children
-    cd "src/github.com/smira/aptly" do
+    (buildpath/"src/github.com/aptly-dev/aptly").install buildpath.children
+    cd "src/github.com/aptly-dev/aptly" do
       system "make", "VERSION=#{version}", "install"
       prefix.install_metafiles
     end
