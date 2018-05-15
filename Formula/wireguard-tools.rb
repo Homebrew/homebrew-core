@@ -3,8 +3,8 @@ class WireguardTools < Formula
   homepage "https://www.wireguard.com/"
   # Please only update version when the tools have been modified/updated,
   # since the Linux module aspect isn't of utility for us.
-  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20180513.tar.xz"
-  sha256 "28a15c59f6710851587ebca76a335f1aaaa077aad052732e0959f2bae9ba8d5c"
+  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20180514.tar.xz"
+  sha256 "e895b65e06e85429403be3d1987577a6967476b069f0ff53caead6f682f466da"
   head "https://git.zx2c4.com/WireGuard", :using => :git
 
   bottle do
@@ -14,8 +14,13 @@ class WireguardTools < Formula
     sha256 "bc4cebbd91c650870f7ddb34f1f7957597e6c91d997aee772c4e958238be0546" => :el_capitan
   end
 
+  depends_on "bash"
+  depends_on "wireguard-go"
+
   def install
-    system "make", "BASHCOMPDIR=#{bash_completion}", "WITH_BASHCOMPLETION=yes", "WITH_WGQUICK=no", "WITH_SYSTEMDUNITS=no", "PREFIX=#{prefix}", "-C", "src/tools", "install"
+    system "make", "BASHCOMPDIR=#{bash_completion}", "WITH_BASHCOMPLETION=yes", "WITH_WGQUICK=yes",
+                   "WITH_SYSTEMDUNITS=no", "PREFIX=#{prefix}", "SYSCONFDIR=#{prefix}/etc",
+                   "-C", "src/tools", "install"
   end
 
   test do
