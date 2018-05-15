@@ -269,7 +269,11 @@ class Llvm < Formula
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
     (share/"cmake").install "cmake/modules"
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+    begin
+      inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+    rescue InreplaceError
+      inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/clang", "#{bin}/clang"
+    end
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
