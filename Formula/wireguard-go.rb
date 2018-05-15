@@ -3,6 +3,7 @@ class WireguardGo < Formula
   homepage "https://www.wireguard.com/"
   url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20180514.tar.xz"
   sha256 "5a2a0ac5a3c64a9d0c1811d349c6f3f5deb55c15f00f4c13054b897a8c4ac4ae"
+  head "https://git.zx2c4.com/wireguard-go", :using => :git
 
   bottle do
     cellar :any_skip_relocation
