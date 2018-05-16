@@ -3,7 +3,7 @@ class Dbxml < Formula
   homepage "https://www.oracle.com/database/berkeley-db/xml.html"
   url "https://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "e1564424c73549fb4f4bc894343ec49d28ed0530f719472f3adf7495b73bd884" => :high_sierra
