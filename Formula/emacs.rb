@@ -4,6 +4,7 @@ class Emacs < Formula
   url "https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/emacs/emacs-26.1.tar.xz"
   sha256 "1cf4fc240cd77c25309d15e18593789c8dbfba5c2b44d8f77c886542300fd32c"
+  revision 1
 
   bottle do
     sha256 "baeeebc020fc3684a3a3c36437399cdaa4904a33308ef2304a9092b4eea70eb9" => :high_sierra
@@ -30,8 +31,8 @@ class Emacs < Formula
   deprecated_option "imagemagick" => "imagemagick@6"
 
   depends_on "pkg-config" => :build
+  depends_on "gnutls"
   depends_on "dbus" => :optional
-  depends_on "gnutls" => :optional
   depends_on "librsvg" => :optional
   # Emacs does not support ImageMagick 7:
   # Reported on 2017-03-04: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25967
@@ -45,6 +46,7 @@ class Emacs < Formula
       --enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp
       --infodir=#{info}/emacs
       --prefix=#{prefix}
+      --with-gnutls
       --without-x
     ]
 
@@ -58,12 +60,6 @@ class Emacs < Formula
       args << "--with-dbus"
     else
       args << "--without-dbus"
-    end
-
-    if build.with? "gnutls"
-      args << "--with-gnutls"
-    else
-      args << "--without-gnutls"
     end
 
     # Note that if ./configure is passed --with-imagemagick but can't find the
