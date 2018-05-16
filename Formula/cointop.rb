@@ -16,6 +16,6 @@ class Cointop < Formula
   end
 
   test do
-    pipe_output("#{bin}/cointop -test", nil, 0)
+    system "#{bin}/cointop", "-test"
   end
 end
