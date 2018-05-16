@@ -3,7 +3,7 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
   sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "923f0184b88f4f65294dca620a89802a2c6d7019069b23a3635095f67e724c83" => :high_sierra
@@ -16,24 +16,10 @@ class LibbitcoinServer < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libbitcoin-node"
-  depends_on "zeromq"
-
-  resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.5.0.tar.gz"
-    sha256 "9deac6908489e2d59fb9f89c895c49b00e01902d5fdb661f67d4dbe45b22af76"
-  end
+  depends_on "libbitcoin-protocol"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("libbitcoin-protocol").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
@@ -54,8 +40,6 @@ class LibbitcoinServer < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp",
-                    "-I#{libexec}/include",
-                    "-I#{Formula["libbitcoin-node"].opt_libexec}/include",
                     "-lbitcoin", "-lbitcoin-server", "-lboost_system",
                     "-o", "test"
     system "./test"
