@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.12.06.source.tar.gz"
   version "6.12.06"
   sha256 "aedcfd2257806e425b9f61b483e25ba600eb0ea606e21262eafaa9dc745aa794"
-  revision 2
+  revision 3
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -14,12 +14,15 @@ class Root < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "davix"
   depends_on "fftw"
   depends_on "gcc" # for gfortran.
   depends_on "graphviz"
   depends_on "gsl"
+  depends_on "lz4"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # For LZMA.
   depends_on "python" => :recommended
@@ -45,6 +48,7 @@ class Root < Formula
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
+      -Ddavix=ON
       -Dfftw3=ON
       -Dfortran=ON
       -Dgdml=ON
@@ -53,7 +57,7 @@ class Root < Formula
       -Dmysql=OFF
       -Droofit=ON
       -Dssl=ON
-      -Dtbb=OFF
+      -Dimt=ON
       -Dxrootd=ON
     ]
 
