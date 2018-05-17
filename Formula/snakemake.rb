@@ -1,8 +1,8 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/52/ae/0dfcc22c01af021245b8e6b0cf410d5c2017a8c376e71902af135c8b8a76/snakemake-5.0.0.tar.gz"
-  sha256 "939f73c9c0e0334885f1a902eaf2a8bc9767964ed72abdfe7509491dc638fb3b"
+  url "https://files.pythonhosted.org/packages/53/54/cc3a5f9ddd591a626f5f6147ec5100ef5951f6c19469c34f671af43fd08b/snakemake-5.1.1.tar.gz"
+  sha256 "414ffed3f6cb904df9e0af131ef70ad9256b2cee7f29b1789ae484ecd62df26e"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
@@ -39,9 +39,29 @@ class Snakemake < Formula
     sha256 "7a11371cc2dbbad71d6dfef57ced6e8b384bb377eeb847c63d58f8dc8e8b2023"
   end
 
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
+    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
     sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+  end
+
+  resource "Jinja2" do
+    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
+    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+  end
+
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/58/b9/171dbb07e18c6346090a37f03c7e74410a1a56123f847efed59af260a298/jsonschema-2.6.0.tar.gz"
+    sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
+  end
+
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
+    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
   end
 
   resource "PyYAML" do
