@@ -3,8 +3,8 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
-  url "https://github.com/mitmproxy/mitmproxy/archive/v3.0.4.tar.gz"
-  sha256 "37576d8d912aadc6c8f8da225e7b4a8dac0000c004c89e4ead3ad6e8cbe32ad7"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v4.0.1.tar.gz"
+  sha256 "3cd25ad1f57eca3c846ff7823405622287d2c5670fdbf33dc052171c03cd17ba"
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -34,8 +34,8 @@ class Mitmproxy < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
-    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
+    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
+    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
   end
 
   resource "cffi" do
@@ -84,8 +84,8 @@ class Mitmproxy < Formula
   end
 
   resource "ldap3" do
-    url "https://files.pythonhosted.org/packages/24/36/89162b1b2245031b17d52a2100758c32bf1ac0b1cf0b51014ad2d10bb01c/ldap3-2.4.1.tar.gz"
-    sha256 "e8fe0d55a8cecb725748c831ffac2873df94c05b2d7eb867ea167c0500bbc6a8"
+    url "https://files.pythonhosted.org/packages/bf/5b/4848db7aa210a27793d7fc218c7deb588a5f2b23f5359a0537285ee1ee60/ldap3-2.5.tar.gz"
+    sha256 "55078bbc981f715a8867b4c040402627fdfccf5664e0277a621416559748e384"
   end
 
   resource "passlib" do
@@ -129,13 +129,13 @@ class Mitmproxy < Formula
   end
 
   resource "sortedcontainers" do
-    url "https://files.pythonhosted.org/packages/64/c8/709e55ef31b56ab6920d8680e27812ddfc0b2be76502aad39ad9f5f507e4/sortedcontainers-1.5.9.tar.gz"
-    sha256 "844daced0f20d75c02ce53f373d048ea2e401ad8a7b3a4c43b2aa544b569efb3"
+    url "https://files.pythonhosted.org/packages/08/a1/1c601da78d471b31682b842ece48a87ef71217d94fef6bd492bfff39797d/sortedcontainers-1.5.10.tar.gz"
+    sha256 "566cf5f8dbada3aed99737a19d98f03d15d76bf2a6c27e4fb0f4a718a99be761"
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/66/60/5b34caa5014eb3f1deb16d0e72cc08abeec7a9c9823486da7984ddadc95f/tornado-5.0.1.tar.gz"
-    sha256 "3e9a2333362d3dad7876d902595b64aea1a2f91d0df13191ea1f8bca5a447771"
+    url "https://files.pythonhosted.org/packages/cf/d1/3be271ae5eba9fb59df63c9891fdc7d8044b999e8ac145994cdbfd2ae66a/tornado-5.0.2.tar.gz"
+    sha256 "1b83d5c10550f2653380b4c77331d6f8850f287c4f67d7ce1e1c639d9222fbc7"
   end
 
   resource "urwid" do
