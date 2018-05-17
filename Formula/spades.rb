@@ -1,9 +1,9 @@
 class Spades < Formula
   desc "De novo genome sequence assembly"
   homepage "http://cab.spbu.ru/software/spades/"
-  url "http://cab.spbu.ru/files/release3.11.1/SPAdes-3.11.1.tar.gz"
-  sha256 "3ab85d86bf7d595bd8adf11c971f5d258bbbd2574b7c1703b16d6639a725b474"
-  revision 3
+  url "http://cab.spbu.ru/files/release3.12.0/SPAdes-3.12.0.tar.gz"
+  mirror "https://github.com/ablab/spades/releases/download/v3.12.0/SPAdes-3.12.0.tar.gz"
+  sha256 "15b48a3bcbbe6a8ad58fd04ba5d3f1015990fbfd9bdf4913042803b171853ac7"
 
   bottle do
     cellar :any
@@ -15,13 +15,6 @@ class Spades < Formula
   depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "python@2"
-
-  # Fix compilation with GCC 8.1 and later, remove in 3.12
-  # https://github.com/ablab/spades/pull/106
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cbb208e3/spades/gcc8-fix.diff"
-    sha256 "9d0bb51570d0619d3dae0191695eebec60da392d2d38fdc464b1fd063173ca07"
-  end
 
   fails_with :clang # no OpenMP support
 
