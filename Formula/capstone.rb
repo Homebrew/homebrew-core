@@ -15,6 +15,8 @@ class Capstone < Formula
     sha256 "585042b1452fbeda9efd07da4b8400d56d166afd5e5f1120da20975e41001e88" => :mountain_lion
   end
 
+  depends_on "pkg-config" => :build
+
   def install
     # Capstone's Make script ignores the prefix env and was installing
     # in /usr/local directly. So just inreplace the prefix for less pain.
