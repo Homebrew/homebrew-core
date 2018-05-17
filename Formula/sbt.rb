@@ -29,7 +29,7 @@ class Sbt < Formula
 
   def caveats;  <<~EOS
     You can use $SBT_OPTS to pass additional JVM options to SBT:
-       SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
+       SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxMetaspaceSize=256M"
 
     This formula uses the standard Lightbend sbt launcher script.
     Project specific options should be placed in .sbtopts in the root of your project.
