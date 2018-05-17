@@ -6,9 +6,9 @@ class Libxlsxwriter < Formula
 
   bottle do
     cellar :any
-    sha256 "86198925f436e9529990846ce8027ea7962747201a4d52722a6eee13e370c427" => :high_sierra
-    sha256 "e30086361ba37be6417138e270b4de4d5df92fadcd6be9b40502391d548a3ee6" => :sierra
-    sha256 "1d86b5ae35b830b6dbd69cb8289920dfd4dcfb8a498d4d0988e9daa569b3dcc2" => :el_capitan
+    sha256 "67272ba5b0280fbd3a7e9b0c13a1eb22a320d66247f9348e2f89f048ebb8f695" => :high_sierra
+    sha256 "d0522539d53aa15f38fc371c0c81c9d2e0f6c247532de2a2b0330f556eb93aa5" => :sierra
+    sha256 "b5de17012d7a68ea786dbb2d7a638b8e39adbf7bd6c512fbbb474bd4f14f29a1" => :el_capitan
   end
 
   def install
