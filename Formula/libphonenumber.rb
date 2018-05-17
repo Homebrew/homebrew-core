@@ -6,9 +6,9 @@ class Libphonenumber < Formula
 
   bottle do
     cellar :any
-    sha256 "bc385649d0fb208e4ce15da189bc8a90f11a253825b59228b0c31aded7bfd948" => :high_sierra
-    sha256 "71242aa397322876c3dacceb1272fa8df65f1f5f963c257e5da3cb45981b39d8" => :sierra
-    sha256 "809089383950889d92a2faa2244028293fc174ec7605a15f627b2cd99c67e5cf" => :el_capitan
+    sha256 "6d1c116997944b27a39cb2bf43937e60e90b3fe9dcb59aac6490c8b9c36b9208" => :high_sierra
+    sha256 "5bc820643fa258c4bfcb17a8a0ed435167015f64a9088fbb29c57f4622c668b2" => :sierra
+    sha256 "b81b64a9ad46d7bbde735ce0b2dafff2dd9b997419cf341be7c2390ad050dd03" => :el_capitan
   end
 
   depends_on "cmake" => :build
