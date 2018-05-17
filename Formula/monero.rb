@@ -1,9 +1,10 @@
 class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
-  url "https://github.com/monero-project/monero/archive/v0.12.0.0.tar.gz"
-  sha256 "5e8303900a39e296c4ebaa41d957ab9ee04e915704e1049f82a9cbd4eedc8ffb"
-  revision 1
+  url "https://github.com/monero-project/monero.git",
+      :tag => "v0.12.0.0",
+      :revision => "c29890c2c03f7f24aa4970b3ebbfe2dbb95b24eb"
+  revision 2
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Monero < Formula
   depends_on "boost"
   depends_on "miniupnpc"
   depends_on "openssl"
-  depends_on "unbound"
+  depends_on "readline"
   depends_on "zeromq"
 
   # Fix "fatal error: 'boost/thread/v2/thread.hpp' file not found"
@@ -34,7 +35,9 @@ class Monero < Formula
 
   def install
     (buildpath/"cppzmq").install resource("cppzmq")
-    system "cmake", ".", "-DZMQ_INCLUDE_PATH=#{buildpath}/cppzmq", *std_cmake_args
+    system "cmake", ".", "-DZMQ_INCLUDE_PATH=#{buildpath}/cppzmq",
+                         "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}",
+                         *std_cmake_args
     system "make", "install"
   end
 
