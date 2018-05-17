@@ -11,14 +11,6 @@ class Fribidi < Formula
     sha256 "ad4d83225cc078de5a60c3d5d76224761a712c6c521f548e9913ceea0b62c051" => :el_capitan
   end
 
-  # Remove for > 1.0.2
-  # Upstream commit from 19 Mar 2018 "Revert 'Add an option to disable building
-  # documentation'"; see https://github.com/fribidi/fribidi/commit/095d885
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f9c1d7d/fribidi/fix-docs.diff"
-    sha256 "990777213ff47cfbf06f0342f66e84783bf5eec80419ff1582dd189352ef5f73"
-  end
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
