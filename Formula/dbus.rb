@@ -5,6 +5,7 @@ class Dbus < Formula
   url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.8.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.8.orig.tar.gz"
   sha256 "e2dc99e7338303393b6663a98320aba6a63421bcdaaf571c8022f815e5896eb3"
+  revision 1
 
   bottle do
     sha256 "6eaf963c1f7bc2604c5fe8c800cdd52721cfb21200267c1c56e701a05426eac2" => :high_sierra
@@ -33,6 +34,13 @@ class Dbus < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/0a8a55872e/d-bus/org.freedesktop.dbus-session.plist.osx.diff"
     sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
+  end
+
+  # add macports patch to disable external authentication
+  # reported upstream at https://bugs.freedesktop.org/show_bug.cgi?id=106545
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/ac715bd0270b712f3d6c0432b8028f5bc0b042c3/devel/dbus/files/patch-configure.diff"
+    sha256 "31dd78cc2398ccab54b6353009db9c370a496b1c0e4a0ac33ecef745664a186f"
   end
 
   def install
