@@ -1,8 +1,8 @@
 class Restview < Formula
   desc "Viewer for ReStructuredText documents that renders them on the fly"
   homepage "https://mg.pov.lt/restview/"
-  url "https://github.com/mgedmin/restview/archive/2.9.0.tar.gz"
-  sha256 "d4ecfa795736e1a132ce0b69af7a6e1679a9ff94e729f39992c7d1fee909845a"
+  url "https://github.com/mgedmin/restview/archive/2.9.1.tar.gz"
+  sha256 "a229119f7730c85ec75e4372c4cf69f9d846381ac4bdbc8ed672302a80c116d2"
 
   bottle do
     cellar :any_skip_relocation
