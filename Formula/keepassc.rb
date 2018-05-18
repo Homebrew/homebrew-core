@@ -5,10 +5,10 @@ class Keepassc < Formula
   sha256 "9724a26cd4a32ac4587a26ea7d5406bbc48c9703617eba16772ab43c272d7c12"
 
   bottle do
-    cellar :any
-    sha256 "61daef5709a634964e674b02eb065143db6bc368c07d2a0199e5c42095eb86ef" => :high_sierra
-    sha256 "1174d97328d4a138d1fefe7950ca2af427da4433dee8926d980e24e90e35350b" => :sierra
-    sha256 "9f3f0509a17211eec0c2e6764e3170f8bcb2ceddf7926f7bdd3e503f9e1a5d15" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "c030cfcf3fdfef7addeed45b239dcfbbcaf13346d0020ebdf787611cabb6ce06" => :high_sierra
+    sha256 "828d015d7b090d70b3792ac02c4479c681a9716067e497969a993b23ccd04221" => :sierra
+    sha256 "1b1ababee30bca896679d79fc717605aa148ee6ccb7b0c28ec98992523686381" => :el_capitan
   end
 
   depends_on "python"
