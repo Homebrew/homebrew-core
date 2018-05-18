@@ -1,9 +1,8 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.9.4.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/p/pari/pari_2.9.4.orig.tar.gz"
-  sha256 "4f9cdc739630a039c0fcc9afac2e5647659c4a709dcc6f7a69d5908cd4a82647"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.9.5.tar.gz"
+  sha256 "6b451825b41d2f8b29592c08d671999527bf936789c599d77b8dfdc663f1e617"
 
   bottle do
     sha256 "e395e67785175c625c794e0535c4224bd15cbc15f661cbcf6d8bc96f15e58aba" => :high_sierra
