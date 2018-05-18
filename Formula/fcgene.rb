@@ -1,4 +1,5 @@
 class Fcgene < Formula
+  desc "Format-converting tool for genotype data"
   homepage "https://sourceforge.net/projects/fcgene/"
   url "https://downloads.sourceforge.net/project/fcgene/fcgene-1.0.7.tar.gz"
   sha256 "4e1f85f2ec812e2528bd19b6c18ecf297666cd83046e003bc57d9ed5f25783d6"
