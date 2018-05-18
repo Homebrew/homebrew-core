@@ -1,8 +1,8 @@
 class Neofetch < Formula
   desc "Fast, highly customisable system info script"
   homepage "https://github.com/dylanaraps/neofetch"
-  url "https://github.com/dylanaraps/neofetch/archive/4.0.0.tar.gz"
-  sha256 "b2dae233007ac7d5717df7b1f8f742aebcb84289d5a048398eab3566a8204278"
+  url "https://github.com/dylanaraps/neofetch/archive/4.0.1.tar.gz"
+  sha256 "a227e296547846296a19cc483ab6a3af5e3e9f2c2eba4563d060bad2c50f4fab"
   head "https://github.com/dylanaraps/neofetch.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Neofetch < Formula
   depends_on "imagemagick" => :recommended
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
