@@ -1,8 +1,8 @@
 class Zopfli < Formula
   desc "New zlib (gzip, deflate) compatible compressor"
   homepage "https://github.com/google/zopfli"
-  url "https://github.com/google/zopfli/archive/zopfli-1.0.1.tar.gz"
-  sha256 "29743d727a4e0ecd1b93e0bf89476ceeb662e809ab2e6ab007a0b0344800e9b4"
+  url "https://github.com/google/zopfli/archive/zopfli-1.0.2.tar.gz"
+  sha256 "4a570307c37172d894ec4ef93b6e8e3aacc401e78cbcc51cf85b212dbc379a55"
   head "https://github.com/google/zopfli.git"
 
   bottle do
