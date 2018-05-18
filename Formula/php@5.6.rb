@@ -148,11 +148,11 @@ class PhpAT56 < Formula
       --with-zlib
     ]
 
-    if MacOS.version < :lion
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
-    else
-      args << "--with-curl"
-    end
+    # if MacOS.version < :lion
+    #   args << "--with-curl=#{Formula["curl"].opt_prefix}"
+    # else
+      args << "--with-curl=/usr/local/opt/curl/"
+    # end
 
     system "./configure", *args
     system "make"
