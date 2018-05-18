@@ -1,19 +1,11 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 2
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.0.tar.xz"
-    sha256 "6afa35747d528d3ab4ed8f5eac13f7235d7d28100d6a24dd78f81ec7c0d04688"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.1.tar.xz"
+    sha256 "34ec062ddb766a32377532e039781f4a16fbc3e8b449e642605bacab26a99172"
 
-    if MacOS.version == :high_sierra
-      # Fix for illegal instruction error in osxvideosink https://bugzilla.gnome.org/show_bug.cgi?id=786047
-      patch do
-        url "https://bug786047.bugzilla-attachments.gnome.org/attachment.cgi?id=357262"
-        sha256 "1268a98ae3463ee61e5be3ea186701e75fb84fc9a0c9d280c2fc07faa2732201"
-      end
-    end
     depends_on "check" => :optional
   end
 
