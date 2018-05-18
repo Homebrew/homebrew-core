@@ -1,9 +1,9 @@
 class Osm2pgrouting < Formula
   desc "Import OSM data into pgRouting database"
   homepage "https://pgrouting.org/docs/tools/osm2pgrouting.html"
-  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.4.tar.gz"
-  sha256 "32aba345013e137e39cc7bf74466cc6c97b93e256f2754e617a00f61f57eb8c2"
-  revision 1
+  url "https://github.com/pgRouting/osm2pgrouting.git",
+      :revision => "5de05744abf2ddbd6c0b70ca1e5aa9cf19ce8c26"
+  version "2.3.5-alpha1"
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
@@ -21,13 +21,6 @@ class Osm2pgrouting < Formula
   depends_on "pgrouting"
   depends_on "postgis"
   depends_on "postgresql"
-
-  # Fixes the build on Xcode 9.3
-  # https://github.com/pgRouting/osm2pgrouting/pull/230
-  patch do
-    url "https://github.com/pgRouting/osm2pgrouting/pull/230.patch?full_index=1"
-    sha256 "485ce2d0086041e439c028911abf9f60cb55d8eeb66d5d6fd3ab39eff466fb8e"
-  end
 
   def install
     mkdir "build" do
