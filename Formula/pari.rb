@@ -5,9 +5,9 @@ class Pari < Formula
   sha256 "6b451825b41d2f8b29592c08d671999527bf936789c599d77b8dfdc663f1e617"
 
   bottle do
-    sha256 "e395e67785175c625c794e0535c4224bd15cbc15f661cbcf6d8bc96f15e58aba" => :high_sierra
-    sha256 "e23557107118210578fcd65b8b48ae2f2ceb817ba4fb40b7afab2f3f4658b4e3" => :sierra
-    sha256 "6d5cd278c72dfedac177af118a3762028a87d4748b5044d30d73d9dda55c5a3e" => :el_capitan
+    sha256 "c8e1e3c1da64c35a7ecb8696e4cf31113112887fff6f1b16a193900f50ac73e6" => :high_sierra
+    sha256 "1ae613ef98c71ce691906dc7cf5282374bfa18cc669e8570b77152648bc3d8c7" => :sierra
+    sha256 "b5426e62d5db7181898d371c444889127e6e7a9336b40020ca65d51cb0f55006" => :el_capitan
   end
 
   depends_on "gmp"
