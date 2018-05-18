@@ -14,14 +14,7 @@ class BrewPhpSwitcher < Formula
   end
 
   test do
-    expected_output = <<~EOF
-      usage: brew-php-switcher version [-s|-s=*] [-c=*]
-
-          version    one of: 5.6,7.0,7.1,7.2
-          -s         skip change of mod_php on apache
-          -s=*         skip change of mod_php on apache or valet restart i.e (apache|valet,apache|valet)
-          -c=*         switch a specific config (apache|valet,apache|valet
-    EOF
-    assert_match expected_output, shell_output("#{bin}/brew-php-switcher")
+    assert_match "usage: brew-php-switcher version",
+                 shell_output("#{bin}/brew-php-switcher")
   end
 end
