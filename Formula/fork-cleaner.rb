@@ -6,9 +6,9 @@ class ForkCleaner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a032b6000f0bd39df01d27c2d29e40d3c5cc3fbd96038b4ee725520ed480caf1" => :high_sierra
-    sha256 "087b9587f8e3ee97870e7d39a83f911d9f722ef635827d4f6e702da24dfd2f97" => :sierra
-    sha256 "722ca44ef67666816c902ee980fa0838879e60dfe00f0ca4fd4fbf626948b462" => :el_capitan
+    sha256 "71c459d32e032eaf290e67e364e69ba7e404b65df89b15697cf747c2af67ab0f" => :high_sierra
+    sha256 "67296a4bf5445e45045ecc07441191e541554e307ad536f28a0f53b9148c4932" => :sierra
+    sha256 "c874fc4e1c1bb5bc586f54c67d391ce6c735b99fa4e66866ad1c08c0d63352d3" => :el_capitan
   end
 
   depends_on "dep" => :build
