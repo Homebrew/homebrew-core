@@ -21,6 +21,7 @@ class Netcat < Formula
                           "--mandir=#{man}",
                           "--infodir=#{info}"
     system "make", "install"
+    man1.install_symlink "netcat.1" => "nc.1"
   end
 
   test do
