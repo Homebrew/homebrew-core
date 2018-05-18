@@ -20,6 +20,13 @@ class Osm2pgrouting < Formula
   depends_on "postgis"
   depends_on "postgresql"
 
+  # Fixes the build on Xcode 9.3
+  # https://github.com/pgRouting/osm2pgrouting/pull/230
+  patch do
+    url "https://github.com/pgRouting/osm2pgrouting/pull/230.patch?full_index=1"
+    sha256 "485ce2d0086041e439c028911abf9f60cb55d8eeb66d5d6fd3ab39eff466fb8e"
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
