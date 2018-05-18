@@ -19,7 +19,7 @@ class Capstone < Formula
 
   def install
     if build.head?
-      ENV["PREFIX"] = "#{prefix}"
+      ENV["PREFIX"] = prefix
     else
       # Capstone's Make script ignores the prefix env and was installing
       # in /usr/local directly. So just inreplace the prefix for less pain.
