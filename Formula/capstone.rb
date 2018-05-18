@@ -18,19 +18,25 @@ class Capstone < Formula
   depends_on "pkg-config" => :build
 
   def install
-    # Capstone's Make script ignores the prefix env and was installing
-    # in /usr/local directly. So just inreplace the prefix for less pain.
-    # https://github.com/aquynh/capstone/issues/228
-    inreplace "make.sh", "export PREFIX=/usr/local", "export PREFIX=#{prefix}"
+    if build.head?
+      ENV["PREFIX"] = "#{prefix}"
+    else
+      # Capstone's Make script ignores the prefix env and was installing
+      # in /usr/local directly. So just inreplace the prefix for less pain.
+      # https://github.com/aquynh/capstone/issues/228
+      inreplace "make.sh", "export PREFIX=/usr/local", "export PREFIX=#{prefix}"
+    end
 
     ENV["HOMEBREW_CAPSTONE"] = "1"
     system "./make.sh"
     system "./make.sh", "install"
 
-    # As per the above inreplace, the pkgconfig file needs fixing as well.
-    inreplace lib/"pkgconfig/capstone.pc" do |s|
-      s.gsub! "/usr/lib", lib
-      s.gsub! "/usr/include/capstone", "#{include}/capstone"
+    unless build.head?
+      # As per the above inreplace, the pkgconfig file needs fixing as well.
+      inreplace lib/"pkgconfig/capstone.pc" do |s|
+        s.gsub! "/usr/lib", lib
+        s.gsub! "/usr/include/capstone", "#{include}/capstone"
+      end
     end
   end
 
