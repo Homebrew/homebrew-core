@@ -5,9 +5,10 @@ class GstEditingServices < Formula
   sha256 "7e7c0962f39388cdf81b5e0d9f768eb15e30f58b346fd79f1ea778979eae113e"
 
   bottle do
-    sha256 "4e2e03a93ce8016174b938050675bde833a48ed73008d8464c8b50de9bd790ad" => :high_sierra
-    sha256 "121dfe755996c0aeb88a4c239be99ea1c831e8ab655886418721b4f47588401c" => :sierra
-    sha256 "aab3f5d4909908af856a96eafd11087ae775d06b416e6deaf4777d6f738a72d5" => :el_capitan
+    cellar :any
+    sha256 "dddd6a905cf531080a04e7f8af75c8dfa9406387aa29a086dee47765460be518" => :high_sierra
+    sha256 "52be6d8262363557d5148a2b780521bede1da5a3c08e7a3b1d8c88534af65486" => :sierra
+    sha256 "071cfb5213cf5b6ed166e79b59c9dfe12ec1c9270e152c79f9cd6755e196b29e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
