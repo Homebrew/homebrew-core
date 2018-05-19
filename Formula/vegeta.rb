@@ -1,10 +1,8 @@
-require "language/go"
-
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta/archive/v6.3.0.tar.gz"
-  sha256 "b9eaf9dc748fa58360395641ff50a33e53c805bf8a45ba3d787133d97b2269c6"
+  url "https://github.com/tsenart/vegeta/archive/v7.0.0.tar.gz"
+  sha256 "b9e2ae43b832849c46e9aa0e1cddf5938e79b9addad01481b3cbfb7aa09a03cb"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,27 +12,20 @@ class Vegeta < Formula
     sha256 "4e449d903b750dbbe063b024cd06ba82edb1490db4774fdda9c4e228df8256be" => :yosemite
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-
-  go_resource "github.com/streadway/quantile" do
-    url "https://github.com/streadway/quantile.git",
-        :revision => "b0c588724d25ae13f5afb3d90efec0edc636432b"
-  end
-
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-        :revision => "a6577fac2d73be281a500b310739095313165611"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "0"
 
-    (buildpath/"src/github.com/tsenart").mkpath
-    ln_s buildpath, buildpath/"src/github.com/tsenart/vegeta"
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-ldflags", "-X main.Version=#{version}",
-                          "-o", bin/"vegeta"
+    (buildpath/"src/github.com/tsenart/vegeta").install buildpath.children
+    cd "src/github.com/tsenart/vegeta" do
+      system "dep", "ensure"
+      system "go", "build", "-ldflags", "-X main.Version=#{version}",
+                            "-o", bin/"vegeta"
+      prefix.install_metafiles
+    end
   end
 
   test do
