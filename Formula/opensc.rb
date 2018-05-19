@@ -1,8 +1,8 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.17.0/opensc-0.17.0.tar.gz"
-  sha256 "be73c6816867ab4721e6a9ae7dba8e890c5f169f0a2cbb4bf354e0f30a948300"
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.18.0/opensc-0.18.0.tar.gz"
+  sha256 "9bc0ff030dd1c10f646d54415eae1bb2b1c72dda710378343f027e17cd8c3757"
   head "https://github.com/OpenSC/OpenSC.git"
 
   bottle do
