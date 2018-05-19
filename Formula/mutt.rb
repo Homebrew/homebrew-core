@@ -10,9 +10,8 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.9.5.tar.gz"
-  mirror "http://ftp.mutt.org/pub/mutt/mutt-1.9.5.tar.gz"
-  sha256 "bf617e64ae4e08a998bef8e42a965a211587e051f1437a3a4884b351a9385753"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.10.0.tar.gz"
+  sha256 "0215b5f90ef9cc33441a6ca842379b64412ed7f8da83ed68bfaa319179f5535b"
 
   bottle do
     sha256 "34f2d81ebe67fe3049a22a9ee31111575c708db2307b974bfaa046af4a2bcbdf" => :high_sierra
