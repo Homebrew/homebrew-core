@@ -5,8 +5,8 @@ class DhallJson < Formula
 
   desc "Dhall to JSON compiler and a Dhall to YAML compiler"
   homepage "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library"
-  url "https://hackage.haskell.org/package/dhall-json-1.1.0/dhall-json-1.1.0.tar.gz"
-  sha256 "87e54afd44d3796ffeec42a149697e65b985e3297297bcc26e1fc9d77eb0ca8d"
+  url "https://hackage.haskell.org/package/dhall-json-1.2.0/dhall-json-1.2.0.tar.gz"
+  sha256 "bfb5dc1b423d5f4d637d1c7ee04a5ce34ecc9aceb9fda5b00cb246ed1ff3484f"
   head "https://github.com/Gabriel439/Haskell-Dhall-JSON-Library.git"
 
   bottle do
@@ -20,9 +20,7 @@ class DhallJson < Formula
   depends_on "ghc" => :build
 
   def install
-    # Remove explicit dhall constraint for > 1.1.0
-    # Upstream issue 28 Apr 2018 https://github.com/dhall-lang/dhall-json/issues/24
-    install_cabal_package "--constraint", "dhall >= 1.13.0"
+    install_cabal_package
   end
 
   test do
