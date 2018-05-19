@@ -1,9 +1,8 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.0.tar.xz"
-  sha256 "4c94995398a6ebf691600dda2e9685a0cac261414175c2adf4645cdfab42a5d5"
-  revision 1
+  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.2.tar.xz"
+  sha256 "a9562386519eb3fd7f03209f279f697a8cba520d3c155d6e253c3e138beca7d8"
 
   bottle do
     cellar :any
@@ -17,10 +16,11 @@ class Libepoxy < Formula
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
 
-  # submitted upstream at https://github.com/anholt/libepoxy/pull/156
-  patch :DATA
-
   def install
+    # Fix "Couldn't open libOpenGL.so.0: dlopen(libOpenGL.so.0, 5): image not found"
+    # Reported 29 May 2018 https://github.com/anholt/libepoxy/issues/176
+    inreplace "src/dispatch_common.c", '#define OPENGL_LIB "libOpenGL.so.0"', ""
+
     ENV.refurbish_args
 
     mkdir "build" do
@@ -58,31 +58,3 @@ class Libepoxy < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/src/meson.build b/src/meson.build
-index 3401075..031900f 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -57,11 +57,6 @@ if host_system == 'linux'
-   endforeach
- endif
-
--# Maintain compatibility with autotools; see: https://github.com/anholt/libepoxy/issues/108
--if host_system == 'darwin'
--  common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
--endif
--
- epoxy_deps = [ dl_dep, ]
- if host_system == 'windows'
-   epoxy_deps += [ opengl32_dep, gdi32_dep ]
-@@ -93,7 +88,7 @@ epoxy_has_wgl = build_wgl ? '1' : '0'
- # not needed when building Epoxy; we do want to add them to the generated
- # pkg-config file, for consumers of Epoxy
- gl_reqs = []
--if gl_dep.found()
-+if gl_dep.found() and host_system != 'darwin'
-   gl_reqs += 'gl'
- endif
- if build_egl and egl_dep.found()
-
