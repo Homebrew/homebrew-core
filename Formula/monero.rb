@@ -1,10 +1,9 @@
 class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
-  url "https://github.com/monero-project/monero.git",
-      :tag => "v0.12.0.0",
-      :revision => "c29890c2c03f7f24aa4970b3ebbfe2dbb95b24eb"
-  revision 2
+  url "https://github.com/monero-project/monero/archive/v0.12.0.0.tar.gz"
+  sha256 "5e8303900a39e296c4ebaa41d957ab9ee04e915704e1049f82a9cbd4eedc8ffb"
+  revision 3
 
   bottle do
     sha256 "7b46a56bcb031b17d3a797c2ed867d56c1deaed9ed1aaa8f94990c0e422eada9" => :high_sierra
@@ -18,6 +17,7 @@ class Monero < Formula
   depends_on "miniupnpc"
   depends_on "openssl"
   depends_on "readline"
+  depends_on "unbound"
   depends_on "zeromq"
 
   # Fix "fatal error: 'boost/thread/v2/thread.hpp' file not found"
