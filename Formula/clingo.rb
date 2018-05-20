@@ -3,6 +3,7 @@ class Clingo < Formula
   homepage "https://potassco.org/"
   url "https://github.com/potassco/clingo/archive/v5.2.2.tar.gz"
   sha256 "da1ef8142e75c5a6f23c9403b90d4f40b9f862969ba71e2aaee9a257d058bfcf"
+  revision 1
 
   bottle do
     rebuild 1
@@ -13,7 +14,8 @@ class Clingo < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python@2"
+  depends_on "python"
+  depends_on "lua"
 
   needs :cxx14
 
@@ -26,10 +28,12 @@ class Clingo < Formula
   link_overwrite "bin/reify"
 
   def install
+    py3 = Formula["python"].opt_bin/"python3"
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
-                         "-DCLINGO_BUILD_WITH_LUA=OFF",
+                         "-DCLINGO_BUILD_WITH_LUA=ON",
+                         "-DPYTHON_EXECUTABLE=#{py3}",
                          *std_cmake_args
     system "make", "install"
   end
