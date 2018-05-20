@@ -10,6 +10,15 @@ class AmmoniteRepl < Formula
 
   def install
     libexec.install Dir["*"].shift => "amm"
+    # See https://github.com/lihaoyi/Ammonite/issues/813#issuecomment-390334869, need to add shebang
+    # manually if it doesn't already exist
+    inreplace libexec/"amm" do |s|
+      if !s.start_with?("#!")
+        s.prepend("#!/usr/bin/env sh\n")
+      else
+        s
+      end
+    end
     chmod 0555, libexec/"amm"
     bin.install_symlink libexec/"amm"
   end
