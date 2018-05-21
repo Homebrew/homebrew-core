@@ -21,9 +21,9 @@ class ClangFormat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a8a1eb007f7828790a1605d2647e6848e1f9617c26c8d31bfcf56a075a20bafb" => :high_sierra
-    sha256 "b4db7e4f2623195adaa475b0d5567de7fe3c1bb70449b35888aea69136c66931" => :sierra
-    sha256 "30767fb6f85073ac7fc58a2d80135c52623d76c9f594087b489164e0df6f901c" => :el_capitan
+    sha256 "d45589054615e47aca8acc51c84c484a8b3428a3d89079aa19457c3cae475653" => :high_sierra
+    sha256 "aab479b0747bb1f48b7efebb1477b6dad2f93a5cabdb44aaf2428d74aea3a6a4" => :sierra
+    sha256 "9751ab418b3b7760513b3e56e97c705f9fda45b84a4885cf1ce21fbf81dcd8a3" => :el_capitan
   end
 
   head do
