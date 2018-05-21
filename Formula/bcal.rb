@@ -6,9 +6,9 @@ class Bcal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "72ceaeadbac4af0bb864ba38664fa348bda14ea4083c07a13ecd219466450b12" => :high_sierra
-    sha256 "48310c1a3421d0d94dc205927b5f36daa5eae939b337e110630a03743feb76ad" => :sierra
-    sha256 "a65d60bce6a1b902a84e3840ea74228be5c9ffe0e1b9fc2c3ed6aa5a3907d0c7" => :el_capitan
+    sha256 "3c00afb8282817dbd475d0611972a67583e38b61aba69197c754443a1c65c2fc" => :high_sierra
+    sha256 "1a192e98388164010d63d19f9f858bc6c60473ce0abe1b3aea21130f5b2f366d" => :sierra
+    sha256 "4b75a0f2083440568deecc1328a1106617f8dbd3342a558e755109b00aa6fbfc" => :el_capitan
   end
 
   def install
