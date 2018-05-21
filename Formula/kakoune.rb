@@ -10,6 +10,11 @@ class Kakoune < Formula
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
 
+  if MacOS.version <= :el_capitan
+    depends_on "gcc"
+    fails_with :clang
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
