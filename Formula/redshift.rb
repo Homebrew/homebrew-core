@@ -1,8 +1,8 @@
 class Redshift < Formula
   desc "Adjust color temperature of your screen according to your surroundings"
   homepage "http://jonls.dk/redshift/"
-  url "https://github.com/jonls/redshift/releases/download/v1.11/redshift-1.11.tar.xz"
-  sha256 "10e350f93951c0521dd6f103d67a485972c307214f036e009acea2978fe4f359"
+  url "https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz"
+  sha256 "d2f8c5300e3ce2a84fe6584d2f1483aa9eadc668ab1951b2c2b8a03ece3a22ba"
 
   bottle do
     sha256 "eafe2b08f2aeee05a13d92e6ec161b86d777b56bb28dedf6419757b360afecc3" => :high_sierra
