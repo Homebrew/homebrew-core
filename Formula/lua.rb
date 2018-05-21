@@ -3,7 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
   sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -38,8 +38,8 @@ class Lua < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
-    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -47,7 +47,8 @@ class Lua < Formula
     bin.install_symlink "lua" => "lua-5.3"
     bin.install_symlink "luac" => "luac5.3"
     bin.install_symlink "luac" => "luac-5.3"
-    (include/"lua5.3").install_symlink include.children
+    (include/"lua5.3").install_symlink Dir[include/"lua/*"]
+    lib.install_symlink "liblua.5.3.dylib" => "liblua5.3.dylib"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua5.3.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-5.3.pc"
 
@@ -85,14 +86,14 @@ class Lua < Formula
     R= #{version}
     prefix=#{HOMEBREW_PREFIX}
     INSTALL_BIN= ${prefix}/bin
-    INSTALL_INC= ${prefix}/include
+    INSTALL_INC= ${prefix}/include/lua
     INSTALL_LIB= ${prefix}/lib
     INSTALL_MAN= ${prefix}/share/man/man1
     INSTALL_LMOD= ${prefix}/share/lua/${V}
     INSTALL_CMOD= ${prefix}/lib/lua/${V}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
+    includedir=${prefix}/include/lua
 
     Name: Lua
     Description: An Extensible Extension Language
