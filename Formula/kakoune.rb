@@ -5,8 +5,6 @@ class Kakoune < Formula
   sha256 "cd8ccf8d833a7de8014b6d64f0c34105bc5996c3671275b00ced77996dd17fce"
   head "https://github.com/mawww/kakoune.git"
 
-  option "with-debug", "Build with debugging symbols"
-
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
 
@@ -19,9 +17,7 @@ class Kakoune < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     cd "src" do
-      args = %W[PREFIX=#{prefix}]
-      args << "debug=no" if build.without?("debug")
-      system "make", "install", *args
+      system "make", "install", "debug=no", "PREFIX=#{prefix}"
     end
   end
 
