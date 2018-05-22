@@ -1,9 +1,21 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.3.9.tar.gz"
-  sha256 "5b27a88c6e2c05e4ac96fb4cac6754a603a1ca2aef96359f374dd529d427569f"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
+
+  stable do
+    url "https://download.arangodb.com/Source/ArangoDB-3.3.9.tar.gz"
+    sha256 "5b27a88c6e2c05e4ac96fb4cac6754a603a1ca2aef96359f374dd529d427569f"
+
+    # Remove for > 3.3.9
+    # Upstream commit from 22 May 2018 "Compile fix for homebrew (#5417)"
+    if DevelopmentTools.clang_build_version <= 800
+      patch do
+        url "https://github.com/arangodb/arangodb/commit/6ca523f2700.patch?full_index=1"
+        sha256 "bf3d4335578e31d356c85901b470398ddb231d71b9dbe7f8a28d818d9610ad66"
+      end
+    end
+  end
 
   bottle do
     sha256 "279554d96c5a4f3e4016ee1b6e2642c1a73bb88cbe2ebcd26c972e087d32e2bb" => :high_sierra
