@@ -8,10 +8,9 @@ class Dspdfviewer < Formula
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
-    cellar :any
-    sha256 "9a8143b03dc182dbae8177ab51d64dd186cf1bfdbb938c899c1139e75c4469de" => :high_sierra
-    sha256 "4fa470a68a5bc15e5e39568204cee8867808c5214f22816c982ecca9ce998813" => :sierra
-    sha256 "e6fd8da112c87696888788c748b80da3ca5d522c075eecc044c16da0d6229c44" => :el_capitan
+    sha256 "4f605633dbfd654c220f050a72491a2e0299a2f45278f8a8921a87c1bb5f7e12" => :high_sierra
+    sha256 "06661dd7f74c31354a0412641bfda4304f1f8ef88c50b0010fad5dced05dd3ed" => :sierra
+    sha256 "dcfddcc1fc9c96c8f8e8f82be38aa06f346ab3ae23d12f1bf2b29dd7be1057cd" => :el_capitan
   end
 
   depends_on "cmake" => :build
