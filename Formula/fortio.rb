@@ -11,7 +11,6 @@ class Fortio < Formula
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
-    ENV["CGO_ENABLED"] = "0"
 
     (buildpath/"src/istio.io/fortio").install buildpath.children
     cd "src/istio.io/fortio" do
