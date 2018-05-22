@@ -1,4 +1,4 @@
-require 'digest'
+require "digest"
 
 class Soundpipe < Formula
   desc "Lightweight music DSP library"
