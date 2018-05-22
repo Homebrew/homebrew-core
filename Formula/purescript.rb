@@ -11,9 +11,9 @@ class Purescript < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b1e281b76d895e1791902765491a35ed2524cff90ecb99a72a190b1e0f387b77" => :high_sierra
-    sha256 "01c8ec5708e23689a7e47a2cea0a3130cdcc4cce3b621c3b4c6b3653a1481617" => :sierra
-    sha256 "ee0a11eb6bfd302a27653c074a0d237b5bdf570579394b94fe21ee0638a8e0ef" => :el_capitan
+    sha256 "62993220922b38d614fdbf466e8de97f4f367ce74d36e2365c7d45ed2ba993cb" => :high_sierra
+    sha256 "0fb283a25fa3a1af5281a94d99a4f0c32ad1687c27f0628ecb75873b1e4e6ed4" => :sierra
+    sha256 "805f8c9922de1390c63ddd1073d6ebc3ad61c4f658906ef42f4dfa680cc9e575" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
