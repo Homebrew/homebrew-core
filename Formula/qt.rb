@@ -3,10 +3,11 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.10/5.10.1/single/qt-everywhere-src-5.10.1.tar.xz"
-  sha256 "05ffba7b811b854ed558abf2be2ddbd3bb6ddd0b60ea4b5da75d277ac15e740a"
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.10", :shallow => false
+  url "https://download.qt.io/official_releases/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz"
+  mirror "http://qt.mirror.constant.com/archive/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz"
+  mirror "http://qt.mirrors.tds.net/qt/archive/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz"
+  sha256 "67ddb8bf33bbfd19ebc641467ccce2e57fd0b80c6082457f1f5a76e8df83c865"
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.11", :shallow => false
 
   bottle do
     sha256 "8b4bad005596a5f8790150fe455db998ac2406f4e0f04140d6656205d844d266" => :high_sierra
@@ -20,24 +21,17 @@ class Qt < Formula
   option "with-examples", "Build examples"
   option "without-proprietary-codecs", "Don't build with proprietary codecs (e.g. mp3)"
 
-  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
-  # configuration and thus untested in practice. Builds on OS X 10.7 have been
-  # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
-  depends_on :macos => :mountain_lion
-
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
   depends_on "mysql" => :optional
   depends_on "postgresql" => :optional
 
-  # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
-  # partially reverts <https://codereview.qt-project.org/#/c/140954/> merged
-  # between the 5.5.1 and 5.6.0 releases. (Remove this as soon as feasible!)
-  #
+  # Restore `.pc` files for framework-based build of Qt 5 on macOS, partially
+  # reverting <https://codereview.qt-project.org/#/c/140954/>
   # Core formulae known to fail without this patch (as of 2016-10-15):
-  #   * gnuplot  (with `--with-qt` option)
+  #   * gnuplot (with `--with-qt` option)
   #   * mkvtoolnix (with `--with-qt` option, silent build failure)
-  #   * poppler    (with `--with-qt` option)
+  #   * poppler (with `--with-qt` option)
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
@@ -108,7 +102,7 @@ class Qt < Formula
   end
 
   def caveats; <<~EOS
-    We agreed to the Qt opensource license for you.
+    We agreed to the Qt open source license for you.
     If this is unacceptable you should uninstall.
     EOS
   end
