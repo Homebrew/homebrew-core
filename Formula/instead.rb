@@ -5,9 +5,10 @@ class Instead < Formula
   sha256 "2f5ee94393cf9f314bd9a8617a7f16d6500376223b920bf1821ba0e8a76c3696"
 
   bottle do
-    sha256 "8b24c2fb12c5fc30bf12b38ef58e866ff60d352d13125a30b0beb09f24c532df" => :high_sierra
-    sha256 "ac1103aeed96cfeddd66642bbfebe104ebe72cf31529bf1124f4731dd1988dc1" => :sierra
-    sha256 "34b8011e28e622c0e0f2ec7e8861703e6f930bbe14bc7a991096f9ae018cf0fd" => :el_capitan
+    rebuild 1
+    sha256 "e34be5357b1fc1991909eb42be7375051751377b84fd2b7d8466012d925dec8a" => :high_sierra
+    sha256 "88a1e5c494bd2266afe16353f992c5143e59cb0acfd85e80d2cc5cea03f4065e" => :sierra
+    sha256 "b665c852c5c0fd894e0a9d84e99a5cc8e1a21699e8dfe48dd2d5110d6f3d201b" => :el_capitan
   end
 
   depends_on "cmake" => :build
