@@ -1,8 +1,8 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v0.15.2.tar.gz"
-  sha256 "940b850376f94580e88b5e99926d92899975d5792d05709cbd9c48dab0a848ad"
+  url "https://github.com/prometheus/node_exporter/archive/v0.16.0.tar.gz"
+  sha256 "2ed1c1c199e047b1524b49a6662d5969936e81520d6613b8b68cc3effda450cf"
 
   depends_on "go" => :build
 
