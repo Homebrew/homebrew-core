@@ -21,6 +21,15 @@ class MupdfTools < Formula
     sha256 "e5c5d00874f09c6f70a1fd8db7e86f0d386c88bc209dcb287f4eef644c1de44b"
   end
 
+  # Reverts an upstream commit which is incompatible with the macOS GLUT;
+  # the commit in question adds the use of a freeglut-only function and constants.
+  # An earlier commit added explicit OS X GLUT support, so this looks like a bug.
+  # https://bugs.ghostscript.com/show_bug.cgi?id=699374
+  patch do
+    url "https://gist.githubusercontent.com/mistydemeo/af049b9151363cd5d5fb58b8ce9e26b6/raw/1c4448c7c0e7c165c5805fd37b4de03ffb7f26fd/0001-Revert-gl-Tell-glut-to-return-from-main-loop-when-th.patch"
+    sha256 "e5c5d00874f09c6f70a1fd8db7e86f0d386c88bc209dcb287f4eef644c1de44b"
+  end
+
   def install
     system "make", "install",
            "build=release",
