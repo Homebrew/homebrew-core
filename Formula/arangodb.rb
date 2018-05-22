@@ -18,9 +18,9 @@ class Arangodb < Formula
   end
 
   bottle do
-    sha256 "279554d96c5a4f3e4016ee1b6e2642c1a73bb88cbe2ebcd26c972e087d32e2bb" => :high_sierra
-    sha256 "dc584c8db6c143153ad0b99b05c78e7722e1c958e865364aa348485a703fbce8" => :sierra
-    sha256 "664d3e90a8c1e29de94e35b5ec5e5b5a6f6908133e6aca32e4364cf35c0d024b" => :el_capitan
+    sha256 "447c6a009824ff5cc7efe0cb12729a757b3cee1353c9714d114e71ad58e322e4" => :high_sierra
+    sha256 "d416e73e3471ee7e3c0db1a19e96827b062455ffaf3b02541ef0efc48ade4189" => :sierra
+    sha256 "491fe4da102b7bb10167e124114f8e2f053cc97900e3bfeb62817824d10502c8" => :el_capitan
   end
 
   depends_on :macos => :yosemite
