@@ -3,6 +3,7 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.11/source/tarball/percona-xtrabackup-2.4.11.tar.gz"
   sha256 "67506507628eec5edc88d2000f423e892b46c8ca56dbe5a02566a11168ee6483"
+  revision 1
 
   bottle do
     sha256 "f2b03221466dc0f23682f981aa711ca7be0d4589216ab63d488c50701cdfd85b" => :high_sierra
@@ -11,11 +12,13 @@ class PerconaXtrabackup < Formula
   end
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
-  option "without-mysql", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
+  option "without-mysql-client", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
+
+  deprecated_option "without-mysql" => "without-mysql-client"
 
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on "mysql" => :recommended
+  depends_on "mysql-client" => :recommended
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "openssl"
@@ -66,7 +69,7 @@ class PerconaXtrabackup < Formula
     rm lib/"libmysqlservices.a"
     rm lib/"plugin/keyring_file.so"
 
-    if build.with? "mysql"
+    if build.with? "mysql-client"
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       resource("DBD::mysql").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
