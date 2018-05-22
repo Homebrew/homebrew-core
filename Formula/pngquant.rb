@@ -19,7 +19,6 @@ class Pngquant < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    system "make"
     system "make", "install"
     lib.install "lib/libimagequant.a"
     include.install "lib/libimagequant.h"
