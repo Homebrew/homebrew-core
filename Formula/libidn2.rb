@@ -35,6 +35,7 @@ class Libidn2 < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
                           "--with-packager=Homebrew"
     system "make", "install"
   end
