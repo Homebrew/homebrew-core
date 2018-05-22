@@ -18,9 +18,9 @@ class Pngquant < Formula
   depends_on "little-cms2"
 
   def install
+    system "./configure", "--prefix=#{prefix}"
     system "make"
-    bin.install "pngquant"
-    man1.install "pngquant.1"
+    system "make", "install"
     lib.install "lib/libimagequant.a"
     include.install "lib/libimagequant.h"
   end
