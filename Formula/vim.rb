@@ -76,9 +76,14 @@ class Vim < Formula
     end
 
     if build.with?("lua") || build.with?("luajit")
-      ENV["LUA_PREFIX"] = HOMEBREW_PREFIX
       opts << "--enable-luainterp"
-      opts << "--with-luajit" if build.with? "luajit"
+
+      if build.with? "luajit"
+        opts << "--with-luajit"
+        opts << "--with-lua-prefix=#{Formula["luajit"].opt_prefix}"
+      else
+        opts << "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
+      end
 
       if build.with?("lua") && build.with?("luajit")
         onoe <<~EOS
