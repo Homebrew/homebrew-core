@@ -3,7 +3,7 @@ class Innotop < Formula
   homepage "https://github.com/innotop/innotop/"
   url "https://github.com/innotop/innotop/archive/v1.11.4.tar.gz"
   sha256 "fb0d7d2558e2198d9224b44dc4220d4c62e1b5b0069312012306275be39b4ab9"
-  revision 2
+  revision 3
 
   head "https://github.com/innotop/innotop.git"
 
@@ -14,7 +14,7 @@ class Innotop < Formula
     sha256 "d9aca9b48babc73f9b6c17effd1b71c0ad630a0830779ac844959a353315805f" => :el_capitan
   end
 
-  depends_on "mysql"
+  depends_on "mysql-client"
   depends_on "openssl"
 
   resource "DBD::mysql" do
