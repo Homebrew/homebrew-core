@@ -1,14 +1,14 @@
 class Jsonpp < Formula
   desc "Command-line JSON pretty-printer"
   homepage "https://jmhodges.github.io/jsonpp/"
-  url "https://github.com/jmhodges/jsonpp/releases/download/1.3.0/jsonpp-1.3.0-osx-x86_64.zip"
-  version "1.3.0"
-  sha256 "7e2461a985091cd62c7c64fe48fce24c50b829641125b024e1910538c1c431d4"
+  url "https://github.com/jmhodges/jsonpp/archive/1.3.0.tar.gz"
+  sha256 "dde8ea9b270a79cd2b2f40824f89abc5270bd360122d87ab04b4361c0015d941"
+  revision 1
 
-  bottle :unneeded
+  depends_on "go" => :build
 
   def install
-    bin.install "jsonpp"
+    system "go", "build", "-o", bin/"jsonpp"
   end
 
   test do
