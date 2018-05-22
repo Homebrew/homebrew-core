@@ -6,9 +6,9 @@ class Stunnel < Formula
   sha256 "548244839b8a4bf4dffea46c97893b203d1b9eed118c3dd6a9ac4d8d02592ee3"
 
   bottle do
-    sha256 "3999aeebd42c9be5a6264746dfa009709d164929d20d26f86cfff30740c4639d" => :high_sierra
-    sha256 "619f3838b8e165fc019854242d8c60f5d4d72369d70be1d78cecc46042a2c0b9" => :sierra
-    sha256 "20be9c5027e7d0990079543d0288d51962fdb1d1812f0bdbce22884969eb45ef" => :el_capitan
+    sha256 "a7688b04cadd63fb9fe8c92e9c7c4349ae023e0f532c840454bd51ecf9bae954" => :high_sierra
+    sha256 "71122e06b01fed25ecae36553e14d0271e130c437f22b76441e7e7c7ae574292" => :sierra
+    sha256 "f9e79f81e0acd067fc0127915aeb42dbe07f343b17501b89b8bdc51b149c5f2e" => :el_capitan
   end
 
   depends_on "openssl"
