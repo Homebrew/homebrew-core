@@ -6,9 +6,9 @@ class Skafos < Formula
 
   bottle do
     cellar :any
-    sha256 "f0aad13b746f15dae682a6e13a291dc0b957b3644238f918da0e8c4492b7aa21" => :high_sierra
-    sha256 "f89808d3a0ef281e405bbdb1cc6981334703d5781708b686850ff7df3d8d2bea" => :sierra
-    sha256 "71e76d0a80c6f49af1679d2809f7b5e8c8bd4117b17d5367ad5b9749186adc7e" => :el_capitan
+    sha256 "4e6b22fe7d90ccad09ca7e3077c8590c85a2048a4eeb8cc23cfa7d90741aeb16" => :high_sierra
+    sha256 "e9608844a4112033fc3df478b58d1c6fd807f10f203704f75d872a4854d7e5ca" => :sierra
+    sha256 "b3744f0941fc28fcf28d3716aa6c1b2a8206dfb05642303c24c7db27502a2f33" => :el_capitan
   end
 
   depends_on "cmake" => :build
