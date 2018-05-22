@@ -1,3 +1,5 @@
+require 'digest'
+
 class Soundpipe < Formula
   desc "Lightweight music DSP library"
   homepage "https://paulbatchelor.github.io/proj/soundpipe.html"
@@ -19,6 +21,6 @@ class Soundpipe < Formula
           "-L#{lib}", "-L#{HOMEBREW_PREFIX}/lib", "-lsndfile", "-lsoundpipe"
     system "cd #{testpath};./test"
     hash = "07caba5db440b7442fbe8d40145e0dbc06ef52c0088380e581c6071a05c94bc6"
-    assert_equal hash, shell_output("sha256sum #{testpath}/test.wav").split(' ')[0]
+    assert_equal hash, Digest::SHA256.file("#{testpath}/test.wav").hexdigest
   end
 end
