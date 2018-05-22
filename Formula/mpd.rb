@@ -5,9 +5,9 @@ class Mpd < Formula
   sha256 "a9e458c6e07cdf62649de7722e1e5a7f13aa82eeb397bfbbebc07cf5cf273584"
 
   bottle do
-    sha256 "7ea26cc7814c50902a8d289f1e28281c39b1b4fc239b5b29b0b6142d171dc7b2" => :high_sierra
-    sha256 "ba5a989e8b702c7fa816f59ce3364bcade14f315895d738ef2a4fc2717482b14" => :sierra
-    sha256 "51f6d8ec6d782a8d93b7252c4cb8d70063f22547ae8fc6490dad2c47f61dd601" => :el_capitan
+    sha256 "d133bbe5b58e15fd7bf69cc0067d87def14b5a99af2d0ea2bfa24f46cade951f" => :high_sierra
+    sha256 "5c2788bfe71c777e3d54a0590b2563634bf13e41aebdc0402c666a3b55a1304e" => :sierra
+    sha256 "ee31b3ce3ac0df4bbe1a7322000580da1795ac403ff06c52f87718024d74f386" => :el_capitan
   end
 
   head do
