@@ -30,7 +30,7 @@ class NodeExporter < Formula
           <string>nobody</string>
           <string>sh</string>
           <string>-c</string>
-          <string>/usr/local/bin/node_exporter $(&lt; /usr/local/etc/node_exporter.args)</string>
+          <string>#{opt_bin}/node_exporter $(&lt; #{etc}/node_exporter.args)</string>
         </array>
         <key>UserName</key>
         <string>nobody</string>
@@ -41,9 +41,9 @@ class NodeExporter < Formula
         <key>KeepAlive</key>
         <false/>
         <key>StandardErrorPath</key>
-        <string>#{var}/log/node_exporter/output.log</string>
+        <string>#{logs}/err.log</string>
         <key>StandardOutPath</key>
-        <string>#{var}/log/node_exporter/output.log</string>
+        <string>#{logs}/out.log</string>
       </dict>
     </plist>
     EOS
