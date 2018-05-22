@@ -1,12 +1,15 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://downloads.sourceforge.net/project/ispcmirror/v1.9.2/ispc-v1.9.2-osx.tar.gz"
-  sha256 "aa307b97bea67d71aff046e3f69c0412cc950eda668a225e6b909dba752ef281"
+  url "https://github.com/ispc/ispc/archive/v1.9.2.tar.gz"
+  sha256 "76a14e22f05a52fb0b30142686a6cb144b0415b39be6c9fcd3f17ac23447f0b2"
+  revision 1
 
-  bottle :unneeded
+  depends_on "bison" => :build
+  depends_on "llvm@4" => :build
 
   def install
+    system "make"
     bin.install "ispc"
   end
 
