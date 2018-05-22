@@ -3,7 +3,7 @@ class Mysqlxx < Formula
   homepage "https://tangentsoft.com/mysqlpp/home"
   url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.3.tar.gz"
   sha256 "c804c38fe229caab62a48a6d0a5cb279460da319562f41a16ad2f0a0f55b6941"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -12,15 +12,15 @@ class Mysqlxx < Formula
     sha256 "1668ebf91ee98d2d898f2b2eb75adba49f7bb3c8e353f2ac95f722da2858110b" => :el_capitan
   end
 
-  depends_on "mysql"
+  depends_on "mysql-client"
 
   def install
-    mysql_include_dir = Utils.popen_read("mysql_config --variable=pkgincludedir")
+    mysql = Formula["mysql-client"]
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-field-limit=40",
-                          "--with-mysql-lib=#{HOMEBREW_PREFIX}/lib",
-                          "--with-mysql-include=#{mysql_include_dir}"
+                          "--with-mysql-lib=#{mysql.opt_lib}",
+                          "--with-mysql-include=#{mysql.opt_include}/mysql"
     system "make", "install"
   end
 
@@ -35,7 +35,7 @@ class Mysqlxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", Utils.popen_read("mysql_config --include").chomp,
+    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client"].opt_include}/mysql",
                     "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end
