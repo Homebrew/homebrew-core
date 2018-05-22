@@ -21,25 +21,17 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/2.5.0/radare2-2.5.0.tar.gz"
-    sha256 "6713f8895fdb7855f7c28a36b14b8e17b383f0664d74122b8a0e2a8c8b5a049e"
+    url "https://radare.mikelloc.com/get/2.6.0/radare2-2.6.0.tar.gz"
+    sha256 "6653d5f7d10850a288abeea1ad892e2e6e0981e40bb58296d3b27ccfd88e7713"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.5.0/radare2-bindings-2.5.0.tar.gz"
-      sha256 "f01e1530504a9d52a2ad21edbebb9b68c560b026e35fff406124947b1ea9d483"
+      url "https://radare.mikelloc.com/get/2.6.0/radare2-bindings-2.6.0.tar.gz"
+      sha256 "b97b256c99398d3bfc4d0b588a63814c95a028f8bb404c2512f1644b935ed824"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.5.0/radare2-extras-2.5.0.tar.gz"
-      sha256 "dc7ec28cbbf0a5d3afd246f9a9d7341c4df8cf77c2719119e9294ba95ea2aad8"
-
-      # Remove for > 2.5.0
-      # Fix "ld: library not found for -lr_reg"
-      # Upstream commit from 11 Apr 2018 "x86_udis.mk: also pass LDFLAGS"
-      patch do
-        url "https://github.com/radare/radare2-extras/commit/8cce5eb.patch?full_index=1"
-        sha256 "b02e7019ab963e5ec975997436a900b512c7cebf8652d2d7ecfa4772842a5215"
-      end
+      url "https://radare.mikelloc.com/get/2.6.0/radare2-extras-2.6.0.tar.gz"
+      sha256 "bcc68f3facf4e977146a797d39722d0416195d4fbc835c62fcabe8b2055a94ba"
     end
   end
 
