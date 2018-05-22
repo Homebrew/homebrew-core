@@ -5,8 +5,8 @@ class Purescript < Formula
 
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.11.7.tar.gz"
-  sha256 "56b715acc4b92a5e389f7ec5244c9306769a515e1da2696d9c2c89e318adc9f9"
+  url "https://hackage.haskell.org/package/purescript-0.12.0/purescript-0.12.0.tar.gz"
+  sha256 "2b0791ac7a069c61fb952fc8c36703d6501af6a2fc78660b0b34e44c7ca67952"
   head "https://github.com/purescript/purescript.git"
 
   bottle do
@@ -20,16 +20,10 @@ class Purescript < Formula
   depends_on "ghc@8.2" => :build
 
   def install
-    inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
-    bin.install (buildpath/"scripts").children
-
     cabal_sandbox do
       if build.head?
         cabal_install "hpack"
         system "./.cabal-sandbox/bin/hpack"
-      else
-        system "cabal", "get", "purescript-#{version}"
-        mv "purescript-#{version}/purescript.cabal", "."
       end
 
       install_cabal_package "-f", "release", :using => ["alex", "happy"]
@@ -45,7 +39,7 @@ class Purescript < Formula
       main :: Int
       main = 1
     EOS
-    system bin/"psc", test_module_path, "-o", test_target_path
+    system bin/"purs", "compile", test_module_path, "-o", test_target_path
     assert_predicate test_target_path, :exist?
   end
 end
