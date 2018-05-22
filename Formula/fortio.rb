@@ -16,10 +16,10 @@ class Fortio < Formula
     cd "src/istio.io/fortio" do
       system "dep", "ensure"
       date = Utils.popen_read("date", "+%Y-%m-%d %H:%M").strip
-      link_flags = "-s -X istio.io/fortio/ui.resourcesDir=#{lib} "\
+      system "go", "build", "-a", "-o", "#{bin}/fortio", "-ldflags",
+        "-s -X istio.io/fortio/ui.resourcesDir=#{lib} "\
         "-X istio.io/fortio/version.tag=v#{version} "\
         "-X \"istio.io/fortio/version.buildInfo=#{date}\""
-      system "go", "build", "-a", "-o", "#{bin}/fortio", "-ldflags", link_flags.to_s
       lib.install Dir["ui/static", "ui/templates"]
     end
   end
