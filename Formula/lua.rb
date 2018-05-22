@@ -7,9 +7,9 @@ class Lua < Formula
 
   bottle do
     cellar :any
-    sha256 "3a282a0460101a4080e8523e79b876595f04ac836ea10cc872f7c071c70d022b" => :high_sierra
-    sha256 "0f4a3b7504bfc083449a982e0a00e8d9c241a19c194ffd0c1a85f325592f192b" => :sierra
-    sha256 "e630ffbc4c8d2e7013c144d1138ed5410235b9fe10ea805aeb80922b9795417c" => :el_capitan
+    sha256 "09e8525e7d2aad8e51c50181e9a9efab091d7397ddea0ee5fe16daea2b13a9cc" => :high_sierra
+    sha256 "8d55080cc58b7e2d82cbecc4c03f47ce14ed325e5c204eeb0d2225e9433103b6" => :sierra
+    sha256 "4e691c5e758e7dcb2c656ad433b5ae1a5018cad8ab9eb748faaf7c554ff295cb" => :el_capitan
   end
 
   option "without-luarocks", "Don't build with Luarocks support embedded"
