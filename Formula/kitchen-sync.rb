@@ -3,6 +3,7 @@ class KitchenSync < Formula
   homepage "https://github.com/willbryant/kitchen_sync"
   url "https://github.com/willbryant/kitchen_sync/archive/1.0.tar.gz"
   sha256 "a25bfbf56b4a49f69521ed57d290ad8cb7e190a9e354115bd86e41e9a80cd031"
+  revision 1
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
@@ -12,11 +13,13 @@ class KitchenSync < Formula
     sha256 "927f44f22aeb09e28a04b7511440e75379748516e99b50333ad8059817c462d5" => :el_capitan
   end
 
+  deprecated_option "without-mysql" => "without-mysql-client"
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "yaml-cpp"
-  depends_on "mysql" => :recommended
+  depends_on "mysql-client" => :recommended
   depends_on "postgresql" => :optional
 
   needs :cxx11
