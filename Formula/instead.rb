@@ -28,7 +28,7 @@ class Instead < Formula
   def install
     mkdir "build" do
       system "cmake", "..", "-DWITH_GTK2=OFF",
-                            "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}",
+                            "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua",
                             "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib",
                             *std_cmake_args
       system "make", "install"
