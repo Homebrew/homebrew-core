@@ -9,7 +9,10 @@ class Kakoune < Formula
 
   if MacOS.version <= :el_capitan
     depends_on "gcc"
-    fails_with :clang
+    fails_with :clang do
+      build 800
+      cause "New C++ features"
+    end
   end
 
   def install
