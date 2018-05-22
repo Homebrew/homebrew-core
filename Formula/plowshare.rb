@@ -7,10 +7,9 @@ class Plowshare < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a8bb9186521eccae7675dbdaaa9ed34a11a7368e6c591a89f789f83cc05a405d" => :high_sierra
-    sha256 "4b80e06e6ca689befeffdbf8a3f91b17cbe70e69507d45fb6f37629bd62e0ce4" => :sierra
-    sha256 "4b80e06e6ca689befeffdbf8a3f91b17cbe70e69507d45fb6f37629bd62e0ce4" => :el_capitan
-    sha256 "4b80e06e6ca689befeffdbf8a3f91b17cbe70e69507d45fb6f37629bd62e0ce4" => :yosemite
+    sha256 "fe966c7db7ceb08f5d9c522c68f332eb87927dccf71b53947824d541ae889904" => :high_sierra
+    sha256 "fe966c7db7ceb08f5d9c522c68f332eb87927dccf71b53947824d541ae889904" => :sierra
+    sha256 "fe966c7db7ceb08f5d9c522c68f332eb87927dccf71b53947824d541ae889904" => :el_capitan
   end
 
   depends_on "bash"
