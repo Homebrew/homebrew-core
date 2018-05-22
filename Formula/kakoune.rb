@@ -3,7 +3,6 @@ class Kakoune < Formula
   homepage "https://github.com/mawww/kakoune"
   url "https://github.com/mawww/kakoune/releases/download/v2018.04.13/kakoune-2018.04.13.tar.bz2"
   sha256 "cd8ccf8d833a7de8014b6d64f0c34105bc5996c3671275b00ced77996dd17fce"
-  head "https://github.com/mawww/kakoune.git"
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
