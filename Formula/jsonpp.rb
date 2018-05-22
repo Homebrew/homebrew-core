@@ -5,6 +5,13 @@ class Jsonpp < Formula
   sha256 "dde8ea9b270a79cd2b2f40824f89abc5270bd360122d87ab04b4361c0015d941"
   revision 1
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d81995103192bb58f66d7089939eb6682f117a7044d3a84804db62b4c31a3c81" => :high_sierra
+    sha256 "219f8a6bfdf1d0e8435fa1c1fdf0cc22b91cae8ec7d62581d312927fabcf9388" => :sierra
+    sha256 "3161f55711eea589c5036078fbf3a5df47484767f025adda7c0692d4dda5f2b4" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
