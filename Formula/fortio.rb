@@ -1,8 +1,8 @@
 class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://github.com/istio/fortio"
-  url "https://github.com/istio/fortio/archive/v0.9.0.tar.gz"
-  sha256 "76871124e7abd13d7fa0ccc5ad6912bc1c3d77d53694da2b26ad44af3638edab"
+  url "https://github.com/istio/fortio/archive/v0.11.0.tar.gz"
+  sha256 "7f30e61593473c1172805fa8ecfd4c7f31e02d4005630a4ce012f14165778582"
 
   depends_on "dep" => :build
   depends_on "go" => :build
