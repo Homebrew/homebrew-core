@@ -5,6 +5,12 @@ class Fortio < Formula
       :tag => "v0.11.0",
       :revision => "d17e45b4f794ac1722747d7cfbcbe0479722868a"
 
+  bottle do
+    sha256 "c88b6cd61fe7067868ebb3842698e6343bb3f1a43be708723ac1f57a1a7cbb72" => :high_sierra
+    sha256 "e7220576eba0318f3b51c09552d1e3171347992c8f6ac8f33a366fc4fac60531" => :sierra
+    sha256 "ff768abe78f7302b6da2ff08dba589c3f4beb40742b3a17db64312e82e4e074b" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
