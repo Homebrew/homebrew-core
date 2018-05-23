@@ -1,10 +1,10 @@
 class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://github.com/istio/fortio"
-  url "https://github.com/istio/fortio/archive/v0.11.0.tar.gz"
-  sha256 "7f30e61593473c1172805fa8ecfd4c7f31e02d4005630a4ce012f14165778582"
+  url "https://github.com/istio/fortio.git",
+      :tag => "v0.11.0",
+      :revision => "d17e45b4f794ac1722747d7cfbcbe0479722868a"
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
@@ -12,7 +12,6 @@ class Fortio < Formula
 
     (buildpath/"src/istio.io/fortio").install buildpath.children
     cd "src/istio.io/fortio" do
-      system "dep", "ensure"
       date = Time.new.strftime("%Y-%m-%d %H:%M")
       system "go", "build", "-a", "-o", "#{bin}/fortio", "-ldflags",
         "-s -X istio.io/fortio/ui.resourcesDir=#{lib} " \
