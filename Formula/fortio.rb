@@ -18,6 +18,7 @@ class Fortio < Formula
         "-X istio.io/fortio/version.tag=v#{version} " \
         "-X \"istio.io/fortio/version.buildInfo=#{date}\""
       lib.install "ui/static", "ui/templates"
+      prefix.install_metafiles
     end
   end
 
