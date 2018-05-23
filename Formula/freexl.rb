@@ -41,6 +41,6 @@ class Freexl < Formula
       }
     EOS
     system ENV.cc, "-L#{lib}", "-lfreexl", "test.c", "-o", "test"
-    assert_equal "#{version}", shell_output("./test")
+    assert_equal version.to_s, shell_output("./test")
   end
 end
