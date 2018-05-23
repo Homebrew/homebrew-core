@@ -8,7 +8,10 @@ class HowardHinnantDate < Formula
   needs :cxx11
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DENABLE_DATE_TESTING=OFF", "-DUSE_SYSTEM_TZ_DB=ON", "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", ".", *std_cmake_args,
+                         "-DENABLE_DATE_TESTING=OFF",
+                         "-DUSE_SYSTEM_TZ_DB=ON",
+                         "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"
   end
 
