@@ -17,7 +17,7 @@ class Fortio < Formula
         "-s -X istio.io/fortio/ui.resourcesDir=#{lib} " \
         "-X istio.io/fortio/version.tag=v#{version} " \
         "-X \"istio.io/fortio/version.buildInfo=#{date}\""
-      lib.install ["ui/static", "ui/templates"]
+      lib.install "ui/static", "ui/templates"
     end
   end
 
