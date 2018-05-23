@@ -1,9 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.2.4/gdal-2.2.4.tar.xz"
-  sha256 "441eb1d1acb35238ca43a1a0a649493fc91fdcbab231d0747e9d462eea192278"
-  revision 2
+  url "https://download.osgeo.org/gdal/2.3.0/gdal-2.3.0.tar.xz"
+  sha256 "6f75e49aa30de140525ccb58688667efe3a2d770576feb7fbc91023b7f552aa2"
 
   bottle do
     rebuild 2
