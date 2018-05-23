@@ -13,7 +13,7 @@ class Fortio < Formula
     (buildpath/"src/istio.io/fortio").install buildpath.children
     cd "src/istio.io/fortio" do
       date = Time.new.strftime("%Y-%m-%d %H:%M")
-      system "go", "build", "-a", "-o", "#{bin}/fortio", "-ldflags",
+      system "go", "build", "-a", "-o", bin/"fortio", "-ldflags",
         "-s -X istio.io/fortio/ui.resourcesDir=#{lib} " \
         "-X istio.io/fortio/version.tag=v#{version} " \
         "-X \"istio.io/fortio/version.buildInfo=#{date}\""
@@ -26,7 +26,7 @@ class Fortio < Formula
     assert_match version.to_s, shell_output("#{bin}/fortio version -s")
     begin
       pid = fork do
-        exec "#{bin}/fortio server -http-port 8080"
+        exec bin/"fortio", "server", "-http-port", "8080"
       end
       sleep 2
       output = shell_output("#{bin}/fortio load http://localhost:8080/ 2>&1")
