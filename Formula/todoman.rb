@@ -16,6 +16,8 @@ class Todoman < Formula
 
   depends_on "python"
 
+  conflicts_with "devtodo", :because => "both install a `todo` binary"
+
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/a1/e1/2d9bc76838e6e6667fde5814aa25d7feb93d6fa471bf6816daac2596e8b2/atomicwrites-1.1.5.tar.gz"
     sha256 "240831ea22da9ab882b551b31d4225591e5e447a68c5e188db5b89ca1d487585"
