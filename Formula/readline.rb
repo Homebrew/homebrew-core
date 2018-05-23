@@ -36,7 +36,7 @@ class Readline < Formula
     sha256 "81d975b3687c6dea260baf1754009ef24c4b2b851f35e0bef4c06be7524cbfba"
 
     # Fix "lib/pkgconfig/readline.pc: No such file or directory"
-    # Reported 23 May 2018 http://lists.gnu.org/archive/html/bug-readline/2018-05/msg00007.html
+    # Reported 23 May 2018 https://lists.gnu.org/archive/html/bug-readline/2018-05/msg00007.html
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/ae60828/readline/pkgconfigdir.patch"
       sha256 "aa5d014cc0cdef7a231c116764e8cf85ba77d5fcc5f9e7aec8df9dce76a864ed"
