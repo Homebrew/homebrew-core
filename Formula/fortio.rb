@@ -8,37 +8,31 @@ class Fortio < Formula
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
 
     (buildpath/"src/istio.io/fortio").install buildpath.children
     cd "src/istio.io/fortio" do
       system "dep", "ensure"
-      date = Utils.popen_read("date", "+%Y-%m-%d %H:%M").strip
+      date = Time.new.strftime("%Y-%m-%d %H:%M")
       system "go", "build", "-a", "-o", "#{bin}/fortio", "-ldflags",
-        "-s -X istio.io/fortio/ui.resourcesDir=#{lib} "\
-        "-X istio.io/fortio/version.tag=v#{version} "\
+        "-s -X istio.io/fortio/ui.resourcesDir=#{lib} " \
+        "-X istio.io/fortio/version.tag=v#{version} " \
         "-X \"istio.io/fortio/version.buildInfo=#{date}\""
-      lib.install Dir["ui/static", "ui/templates"]
+      lib.install ["ui/static", "ui/templates"]
     end
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/fortio version -s")
+    begin
+      assert_match version.to_s, shell_output("#{bin}/fortio version -s")
 
-    require "socket"
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
-    fortio_srv = fork do
-      exec "#{bin}/fortio server -http-port #{port}"
+      fortio_srv = fork do
+        exec "#{bin}/fortio server -http-port 8080"
+      end
+      sleep 2
+      assert_match /^All\sdone.*/, shell_output("#{bin}/fortio load http://localhost:8080/ 2>&1", 0).lines.last
+    ensure
+      Process.kill("SIGTERM", fortio_srv)
     end
-
-    sleep 2
-
-    load_res = Utils.popen_read("#{bin}/fortio", "load", "http://localhost:#{port}/", :err => :out)
-    Process.kill("SIGTERM", fortio_srv)
-    assert_match /^All\sdone.*/, load_res.lines.last
   end
 end
