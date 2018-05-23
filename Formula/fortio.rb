@@ -29,7 +29,8 @@ class Fortio < Formula
         exec "#{bin}/fortio server -http-port 8080"
       end
       sleep 2
-      assert_match /^All\sdone.*/, shell_output("#{bin}/fortio load http://localhost:8080/ 2>&1", 0).lines.last
+      output = shell_output("#{bin}/fortio load http://localhost:8080/ 2>&1")
+      assert_match /^All\sdone/, output.lines.last
     ensure
       Process.kill("SIGTERM", fortio_srv)
     end
