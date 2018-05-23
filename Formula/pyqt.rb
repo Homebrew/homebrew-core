@@ -21,6 +21,13 @@ class Pyqt < Formula
   depends_on "python" => :recommended
   depends_on "python@2" => :recommended
 
+  # Patch from openSUSE for compatibility with Qt 5.11.0
+  # https://build.opensuse.org/package/show/home:cgiboudeaux:branches:KDE:Qt5/python-qt5
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4f563668/pyqt/qt-5.11.diff"
+    sha256 "34bba97f87615ea072312bfc03c4d3fb0a1cf7a4cd9d6907857c1dca6cc89200"
+  end
+
   def install
     Language::Python.each_python(build) do |python, version|
       args = ["--confirm-license",
