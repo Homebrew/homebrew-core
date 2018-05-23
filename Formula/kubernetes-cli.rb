@@ -12,6 +12,8 @@ class KubernetesCli < Formula
     sha256 "ac6ea67a29a7e1b3581538c752097084734af77807831ed787084b081542a49f" => :el_capitan
   end
 
+  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
+
   # kubernetes-cli will not support go1.10 until version 1.11.x
   depends_on "go@1.9" => :build
 
@@ -27,6 +29,12 @@ class KubernetesCli < Formula
       ENV.deparallelize { system "make", "generated_files" }
 
       # Make binary
+      if build.with? "dynamic"
+        ENV["CGO_ENABLED"] = "1"
+        # Delete kubectl binary from KUBE_STATIC_LIBRARIES
+        inreplace "hack/lib/golang.sh", " kubectl", ""
+      end
+
       system "make", "kubectl"
       bin.install "_output/local/bin/darwin/#{arch}/kubectl"
 
