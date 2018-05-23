@@ -53,6 +53,15 @@ class Guile < Formula
       lib.install_symlink dylib.basename => "#{dylib.basename(".dylib")}.so"
     end
 
+    # This is either a solid argument for guile including options for
+    # --with-xyz-prefix= for libffi and bdw-gc or a solid argument for
+    # Homebrew automatically removing Cellar paths from .pc files in favour
+    # of opt_prefix usage everywhere.
+    inreplace lib/"pkgconfig/guile-2.2.pc" do |s|
+      s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
+      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix
+    end
+
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]
   end
 
