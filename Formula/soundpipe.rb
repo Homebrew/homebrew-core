@@ -1,5 +1,3 @@
-require "digest"
-
 class Soundpipe < Formula
   desc "Lightweight music DSP library"
   homepage "https://paulbatchelor.github.io/proj/soundpipe.html"
@@ -10,17 +8,15 @@ class Soundpipe < Formula
 
   def install
     system "make"
-    mkdir_p pkgshare
-    cp_r "test", pkgshare
-    cp_r "examples", pkgshare
     system "make", "install", "PREFIX=#{prefix}"
+    pkgshare.install "test"
+    pkgshare.install "examples"
   end
 
   test do
-    system ENV.cc, "#{pkgshare}/examples/ex_osc.c", "-o#{testpath}/test",
-          "-L#{lib}", "-L#{HOMEBREW_PREFIX}/lib", "-lsndfile", "-lsoundpipe"
-    system "cd #{testpath};./test"
-    hash = "07caba5db440b7442fbe8d40145e0dbc06ef52c0088380e581c6071a05c94bc6"
-    assert_equal hash, Digest::SHA256.file("#{testpath}/test.wav").hexdigest
+    system ENV.cc, "#{pkgshare}/examples/ex_osc.c", "-o", "test", "-L#{lib}",
+                   "-L#{lib}", "-lsndfile", "-lsoundpipe"
+    system "./test"
+    assert_predicate testpath/"test.wav", :exist?
   end
 end
