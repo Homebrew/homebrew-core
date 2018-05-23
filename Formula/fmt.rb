@@ -31,7 +31,7 @@ class Fmt < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-o", "test",
+    system ENV.cxx, "test.cpp", "-std=c++11", "-o", "test",
                   "-I#{include}",
                   "-L#{lib}",
                   "-lfmt"
