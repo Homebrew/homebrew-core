@@ -3,8 +3,8 @@ class Thefuck < Formula
 
   desc "Programatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/3a/d6/035c2a5c930d61a460d40894de7970e6e2fe83bfc07f0aaef3c684cfe262/thefuck-3.26.tar.gz"
-  sha256 "76215657848be41904b6db7fa82b1d4a366c681d91e548c2d41665a79f1a014d"
+  url "https://files.pythonhosted.org/packages/3b/d5/568545d285ce292d90940319edf8a5378d57d6040992ec2d64efca1561a7/thefuck-3.27.tar.gz"
+  sha256 "e406996f4ce2a726d98a0b1041d11ea5409e7d4f9e31871e4ea39d462fc6ed2d"
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
