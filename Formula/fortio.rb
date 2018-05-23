@@ -22,9 +22,8 @@ class Fortio < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/fortio version -s")
     begin
-      assert_match version.to_s, shell_output("#{bin}/fortio version -s")
-
       pid = fork do
         exec "#{bin}/fortio server -http-port 8080"
       end
