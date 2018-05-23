@@ -1,8 +1,8 @@
 class Pdfgrep < Formula
   desc "Search PDFs for strings matching a regular expression"
   homepage "https://pdfgrep.org/"
-  url "https://pdfgrep.org/download/pdfgrep-2.1.0.tar.gz"
-  sha256 "c9c16b4816389b20313aebb4fbad86f7775ae03330fcc08c82fa522ed810548d"
+  url "https://pdfgrep.org/download/pdfgrep-2.1.1.tar.gz"
+  sha256 "2c8155f30fe5d9d8ec4340e48133ed0b241496bbebe29498931f975c67a10c0b"
 
   bottle do
     cellar :any
