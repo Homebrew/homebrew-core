@@ -22,6 +22,10 @@ class Ifstat < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/ifstat", "-v"
+  end
 end
 
 __END__
