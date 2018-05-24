@@ -23,12 +23,6 @@ class Kubecfg < Formula
     (zsh_completion/"_kubecfg").write output
   end
 
-  def caveats; <<~EOS
-    Example templates have been installed to:
-      #{opt_pkgshare}
-    EOS
-  end
-
   test do
     system bin/"kubecfg", "show", pkgshare/"kubecfg_test.jsonnet"
   end
