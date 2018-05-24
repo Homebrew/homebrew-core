@@ -1,8 +1,8 @@
 class Annie < Formula
   desc "Fast, simple and clean video downloader"
   homepage "https://github.com/iawia002/annie"
-  url "https://github.com/iawia002/annie/archive/0.7.1.tar.gz"
-  sha256 "135485d9cbf3711bfbea6b79090e898bef82ef329c922ed222e96c326b15af52"
+  url "https://github.com/iawia002/annie/archive/0.7.2.tar.gz"
+  sha256 "a13993132f37a8b42a6bd3d4c0f33eaf708bb409db612f35886d2cc7ee451216"
 
   bottle do
     cellar :any_skip_relocation
