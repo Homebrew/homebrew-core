@@ -15,7 +15,7 @@ class Capstone < Formula
     sha256 "585042b1452fbeda9efd07da4b8400d56d166afd5e5f1120da20975e41001e88" => :mountain_lion
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => :build if build.head?
 
   def install
     if build.head?
