@@ -6,10 +6,9 @@ class Openblas < Formula
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
-    cellar :any
-    sha256 "57577356cefd497527bf2424ffb812469e96f516c653fcf7332af1348f4727f6" => :high_sierra
-    sha256 "8bd8b0cec1d6bbe27f96e47b23816e1281c7d8bf9bd41bc4b7f19ec800ba6105" => :sierra
-    sha256 "ac9ca44c22039bb242990db8e7c4181a85b674c424d1d66f03efe20649ad3753" => :el_capitan
+    sha256 "895e681d843b6613e0a1328a212cae2d6152dea94629a545b6a4af64c181e061" => :high_sierra
+    sha256 "ec229c12ff1beca5b659fa751e347b470085bb52c2731d908da548ff4381e86f" => :sierra
+    sha256 "763e80edbd88cc75c96057a75198ce0e643d52f607399dec71432e1338a7a865" => :el_capitan
   end
 
   keg_only :provided_by_macos,
