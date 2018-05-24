@@ -17,19 +17,16 @@ class Exodriver < Formula
   depends_on "libusb"
 
   def install
-    cd "liblabjackusb" do
-      system "make", "-f", "Makefile", "DESTINATION=#{lib}", "HEADER_DESTINATION=#{include}", "install"
-    end
-    cd "examples/ModBus" do
-      cp "../../liblabjackusb/labjackusb.h", "."
-      system "make", "LIBS=-lm -L#{lib} -llabjackusb"
-      pkgshare.install "testModbusFunctions"
-    end
+    system "make", "-C", "liblabjackusb", "install",
+           "HEADER_DESTINATION=#{include}", "DESTINATION=#{lib}"
+    ENV.prepend "CPPFLAGS", "-I#{include}"
+    ENV.prepend "LDFLAGS", "-L#{lib}"
+    system "make", "-C", "examples/Modbus"
+    pkgshare.install "examples/Modbus/testModbusFunctions"
   end
 
   test do
-    assert_match /[0x0, 0x0, 0x0, 0x38, 0x0, 0x0, 0x0, 0x11, 0x0, 0x10, 0x0,
-     0x0, 0x0, 0x5, 0xA, 0x40, 0x0, 0x0, 0x0, 0x0,
-     0x84, 0x5F, 0xED, 0x2, 0x10]/, shell_output(pkgshare/"testModbusFunctions")
+    output = shell_output("#{pkgshare}/testModbusFunctions")
+    assert_match /Result:\s+writeBuffer:/, output
   end
 end
