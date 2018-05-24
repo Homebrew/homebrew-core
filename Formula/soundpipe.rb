@@ -14,10 +14,8 @@ class Soundpipe < Formula
   depends_on "libsndfile"
 
   def install
-    system "make"
     system "make", "install", "PREFIX=#{prefix}"
-    pkgshare.install "test"
-    pkgshare.install "examples"
+    pkgshare.install "examples", "test"
   end
 
   test do
