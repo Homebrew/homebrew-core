@@ -3,6 +3,7 @@ class Tunnel < Formula
   homepage "https://labstack.com/docs/diy/tunnel"
   url "https://github.com/labstack/tunnel/archive/0.2.7.tar.gz"
   sha256 "6b4a6564732e2e86e49450629a72dc7ef647088ef66f568cb507d1e0c9b5588f"
+
   depends_on "go" => :build
 
   def install
