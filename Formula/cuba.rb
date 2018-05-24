@@ -13,7 +13,7 @@ class Cuba < Formula
 
   test do
     system ENV.cc, "-o", "demo", "-L#{lib}", "-lcuba",
-                   "#{pkgshare}/cuba/demo/demo-c.c"
+                   "#{pkgshare}/demo/demo-c.c"
     system "./demo"
   end
 end
