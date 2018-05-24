@@ -1,8 +1,8 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.72.0.tar.gz"
-  sha256 "82468fe78308785b958f85f931899e0a703df65b8cc4ce1184c301f274f7fc84"
+  url "https://github.com/facebook/flow/archive/v0.73.0.tar.gz"
+  sha256 "cfef40febb8db41a8d3c7f8d3da27e5ecbcda59d87a91d76e31d460c064c723c"
   head "https://github.com/facebook/flow.git"
 
   bottle do
@@ -14,6 +14,14 @@ class Flow < Formula
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build
+
+  # Fix compilation with OCaml 4.06 (again - we did this for 0.68 too)
+  # Can delete with v0.74.0 deploy
+  # Upstream commit 24 May 2018 "Fix lwt type annotation for OCaml 4.06"
+  patch do
+    url "https://github.com/facebook/flow/commit/6ad707a.patch?full_index=1"
+    sha256 "d21a5325e0b56b884a71178388c08da7712be894090b2a940012cd8a69673ff8"
+  end
 
   def install
     system "make", "all-homebrew"
