@@ -5,15 +5,15 @@ class Cuba < Formula
   sha256 "6b75bb8146ae6fb7da8ebb72ab7502ecd73920efc3ff77a69a656db9530a5eef"
 
   def install
-    # The Makefile provided does not support parallel build
-    ENV.deparallelize
+    ENV.deparallelize # Makefile does not support parallel build
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
     pkgshare.install "demo"
   end
 
   test do
-    system ENV.cc, "-o", "demo-c", "#{lib}/libcuba.a", "#{pkgshare}/cuba/demo/demo-c.c"
-    system "./demo-c"
+    system ENV.cc, "-o", "demo", "-L#{lib}", "-lcuba",
+                   "#{pkgshare}/cuba/demo/demo-c.c"
+    system "./demo"
   end
 end
