@@ -3,7 +3,6 @@ class Capstone < Formula
   homepage "https://www.capstone-engine.org/"
   url "https://www.capstone-engine.org/download/3.0.4/capstone-3.0.4.tgz"
   sha256 "3e88abdf6899d11897f2e064619edcc731cc8e97e9d4db86495702551bb3ae7f"
-  head "https://github.com/aquynh/capstone.git"
 
   bottle do
     cellar :any
@@ -15,7 +14,11 @@ class Capstone < Formula
     sha256 "585042b1452fbeda9efd07da4b8400d56d166afd5e5f1120da20975e41001e88" => :mountain_lion
   end
 
-  depends_on "pkg-config" => :build if build.head?
+  head do
+    url "https://github.com/aquynh/capstone.git"
+
+    depends_on "pkg-config" => :build
+  end
 
   def install
     if build.head?
