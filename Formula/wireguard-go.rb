@@ -1,8 +1,8 @@
 class WireguardGo < Formula
   desc "Userspace Go implementation of WireGuard"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20180519.tar.xz"
-  sha256 "d2b0f43679b3559952cf8d244d537903d03699ed7c8a2c1e7fc37ee424e30439"
+  url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20180524.tar.xz"
+  sha256 "1d539f6c51dd33098a536af0285ef03c561db0ff343f23a75405207fcf48ec3e"
   head "https://git.zx2c4.com/wireguard-go", :using => :git
 
   bottle do
@@ -16,14 +16,7 @@ class WireguardGo < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/wireguard-go").install buildpath.children
-    cd "src/wireguard-go" do
-      system "dep", "ensure", "-vendor-only"
-      (buildpath/"gopath/src").install (buildpath/"src/wireguard-go/vendor").children
-      ENV["GOPATH"] = buildpath/"gopath"
-      system "make", "PREFIX=#{prefix}", "install"
-    end
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
