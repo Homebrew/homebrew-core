@@ -8,11 +8,9 @@ class Tunnel < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/labstack/tunnel").install buildpath.children
-    cd "src/github.com/labstack/tunnel" do
-      system "go", "build", "-o", bin/"tunnel", "cmd/tunnel/main.go"
-      prefix.install_metafiles
-    end
+     (buildpath/"src/github.com/labstack").mkpath
+     ln_s buildpath, "src/github.com/labstack/tunnel"
+     system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"
   end
 
   test do
