@@ -1,8 +1,8 @@
 class Tunnel < Formula
   desc "Expose local servers to internet securely"
   homepage "https://labstack.com/docs/tunnel"
-  url "https://github.com/labstack/tunnel/archive/0.2.7.tar.gz"
-  sha256 "6b4a6564732e2e86e49450629a72dc7ef647088ef66f568cb507d1e0c9b5588f"
+  url "https://github.com/labstack/tunnel/archive/0.2.9.tar.gz"
+  sha256 "44dc6370c8900c5f9e812a53019e709311576bd7e411c67e79967f3e0cd75b68"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,9 +15,11 @@ class Tunnel < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/labstack").mkpath
-    ln_s buildpath, "src/github.com/labstack/tunnel"
-    system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"
+    (buildpath/"src/github.com/labstack/tunnel").install buildpath.children
+    cd "src/github.com/labstack/tunnel" do
+      system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"
+      prefix.install_metafiles
+    end
   end
 
   test do
