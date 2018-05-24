@@ -24,4 +24,8 @@ class Zssh < Formula
     bin.install "zssh", "ztelnet"
     man1.install "zssh.1", "ztelnet.1"
   end
+
+  test do
+    system "#{bin}/zssh", "--version"
+  end
 end
