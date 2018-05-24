@@ -6,9 +6,9 @@ class Nanomsg < Formula
   head "https://github.com/nanomsg/nanomsg.git"
 
   bottle do
-    sha256 "dd584d9e1a3a2ed69a36f9db5cfb6aa0a25c57492fce5dc0f9c4881acc922583" => :high_sierra
-    sha256 "123358e13bb19279f98efc1409662d7243ddd3cbda09dd2d6e1537fb15f61d33" => :sierra
-    sha256 "0e8011a28082c5ecd421d614ec9cad8288fc5362ce605fd20231579a6073c7f0" => :el_capitan
+    sha256 "8ceda3b872e13d64a581f8bfb8d3483b7d76e14dd68a1ddce8e242b92e812c66" => :high_sierra
+    sha256 "2125e5aa5d10bbbd398875a7d0fb8376616a21d0145c81a3c1350fde8d3f883d" => :sierra
+    sha256 "a2517838eacb51763aeccc38671e52a0feb27fc0d3a312fdc1ec7d1530b50a12" => :el_capitan
   end
 
   depends_on "cmake" => :build
