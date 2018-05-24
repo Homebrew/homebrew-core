@@ -5,9 +5,9 @@ class Genact < Formula
   sha256 "ad308d362c8eded7865651806a1938c9e62b81a68af81c2dd1c967a4c638e78a"
 
   bottle do
-    sha256 "cda0788c8c4b3430489284c98970a45fa4111cbcaada6112ec2171e70bc2de17" => :high_sierra
-    sha256 "0eba28cdb57f5bb297796668c65aff4eda911b7b23698306f27b0dcf19706156" => :sierra
-    sha256 "be6e7870976653c8d2a91f42fb8380531aa333f729d8d3298b4009efacc6a09d" => :el_capitan
+    sha256 "87d766593e0414423a19d44e2fcb390f1962cc28d936e572c04207fc8ae24dc8" => :high_sierra
+    sha256 "a91317384a098631c4393858027f79d96515e611400fa850a50ec29898d5a85e" => :sierra
+    sha256 "ea6da90fb396dd9c690c0d9db851fd91af49c19873c6e4aba047baa26921135b" => :el_capitan
   end
 
   depends_on "rust" => :build
