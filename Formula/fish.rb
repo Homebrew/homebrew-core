@@ -53,7 +53,8 @@ class Fish < Formula
   def caveats; <<~EOS
     You will need to add:
       #{HOMEBREW_PREFIX}/bin/fish
-    to /etc/shells.
+    to /etc/shells for example:
+      echo #{HOMEBREW_PREFIX}/bin/fish | sudo tee -a /etc/shells
 
     Then run:
       chsh -s #{HOMEBREW_PREFIX}/bin/fish
