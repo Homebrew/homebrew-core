@@ -6,6 +6,13 @@ class KeepkeyAgent < Formula
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "98f9ca61847e770c3a490eef386f56af19619d9896a296e09c65e1e5004a7172" => :high_sierra
+    sha256 "335d40a081b42178170268e0b8d99e892a6b187d471d4f727af94d394802757d" => :sierra
+    sha256 "d6c71d1d23b3590bc9c7366ea9fd348b5a23f8c56e36378ba028856a896bac5a" => :el_capitan
+  end
+
   depends_on "python"
 
   resource "backports.shutil_which" do
