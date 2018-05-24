@@ -4,6 +4,7 @@ class Skaffold < Formula
   url "https://github.com/GoogleContainerTools/skaffold.git",
       :tag => "v0.6.0",
       :revision => "ced2917e5df941849460d8809a04ce1df1317455"
+  head "https://github.com/GoogleContainerTools/skaffold.git"
 
   bottle do
     cellar :any_skip_relocation
