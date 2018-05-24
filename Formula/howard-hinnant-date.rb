@@ -12,6 +12,7 @@ class HowardHinnantDate < Formula
   end
 
   depends_on "cmake" => :build
+
   needs :cxx11
 
   def install
