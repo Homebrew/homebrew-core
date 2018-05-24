@@ -24,6 +24,6 @@ class Shellharden < Formula
       echo $dog
     EOS
     system bin/"shellharden", "--replace", "script.sh"
-    assert_match "echo \"$dog\"", File.read(testpath/"script.sh")
+    assert_match "echo \"$dog\"", (testpath/"script.sh").read
   end
 end
