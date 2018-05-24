@@ -3,7 +3,7 @@ class Jupyter < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz"
   sha256 "d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -13,19 +13,21 @@ class Jupyter < Formula
   end
 
   option "with-qtconsole", "Install with Qtconsole"
-  option "without-console", "Install without Jupyter Console"
-  option "without-nbconvert", "Install without Nbconvert"
-  option "without-notebook", "Install without Jupyter Notebook"
 
-  depends_on "ipython@5"
-  depends_on "python@2"
+  depends_on "ipython"
+  depends_on "pandoc"
+  depends_on "python"
   depends_on "zeromq"
-  depends_on "pandoc" if build.with?("nbconvert") || build.with?("notebook")
   depends_on "pyqt" if build.with? "qtconsole"
 
   resource "appnope" do
     url "https://files.pythonhosted.org/packages/26/34/0f3a5efac31f27fabce64645f8c609de9d925fe2915304d1a40f544cff0e/appnope-0.1.0.tar.gz"
     sha256 "8b995ffe925347a2138d7ac0fe77155e4311a0ea6d6da4f5128fe4b3cbe5ed71"
+  end
+
+  resource "backcall" do
+    url "https://files.pythonhosted.org/packages/84/71/c8ca4f5bb1e08401b916c68003acf0a0655df935d74d93bf3f3364b310e0/backcall-0.1.0.tar.gz"
+    sha256 "38ecd85be2c1e78f77fd91700c76e14667dc21e2713b63876c0eb901196e01e4"
   end
 
   resource "backports_abc" do
@@ -39,13 +41,13 @@ class Jupyter < Formula
   end
 
   resource "bleach" do
-    url "https://files.pythonhosted.org/packages/1e/67/2562affb99e194cb4b0c0b88e661650d065fcf452d1108116a9530ed9cad/bleach-2.0.0.tar.gz"
-    sha256 "b9522130003e4caedf4f00a39c120a906dcd4242329c1c8f621f5370203cbc30"
+    url "https://files.pythonhosted.org/packages/eb/ea/58428609442130dc31d3a59010bf6cbd263a16c589d01d23b7c1e6997e3b/bleach-2.1.3.tar.gz"
+    sha256 "eb7386f632349d10d9ce9d4a838b134d4731571851149f9cc2c05a9a837a9a44"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
+    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
   end
 
   resource "configparser" do
@@ -54,8 +56,8 @@ class Jupyter < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/bb/e0/f6e41e9091e130bf16d4437dabbac3993908e4d6485ecbc985ef1352db94/decorator-4.1.2.tar.gz"
-    sha256 "7cb64d38cb8002971710c8899fbdfb859a23a364b7c99dab19d1f719c2ba16b5"
+    url "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz"
+    sha256 "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
   end
 
   resource "entrypoints" do
@@ -63,29 +65,19 @@ class Jupyter < Formula
     sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
   end
 
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
-  end
-
-  resource "functools32" do
-    url "https://files.pythonhosted.org/packages/c5/60/6ac26ad05857c601308d8fb9e87fa36d0ebf889423f47c3502ef034365db/functools32-3.2.3-2.tar.gz"
-    sha256 "f6253dfbe0538ad2e387bd8fdfd9293c925d63553f5813c4e587745416501e6d"
-  end
-
   resource "html5lib" do
-    url "https://files.pythonhosted.org/packages/17/ee/99e69cdcefc354e0c18ff2cc60aeeb5bfcc2e33f051bf0cc5526d790c445/html5lib-0.999999999.tar.gz"
-    sha256 "ee747c0ffd3028d2722061936b5c65ee4fe13c8e4613519b4447123fc4546298"
+    url "https://files.pythonhosted.org/packages/85/3e/cf449cf1b5004e87510b9368e7a5f1acd8831c2d6691edd3c62a0823f98f/html5lib-1.0.1.tar.gz"
+    sha256 "66cb0dcfdbbc4f9c3ba1a63fdb511ffdbd4f513b2b6d81b80cd26ce6b3fb3736"
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/0c/41/67e16b243b78b49f4b1650d045b63be187c27d20a76f0f7b8e61e0fcb966/ipykernel-4.6.1.tar.gz"
-    sha256 "2e1825aca4e2585b5adb7953ea16e53f53a62159ed49952a564b1e23507205db"
+    url "https://files.pythonhosted.org/packages/52/a6/8cfaaa3a1ccdebe7f3eabcf6969101e32dbdf14bfb2443d1c021130ce23c/ipykernel-4.8.2.tar.gz"
+    sha256 "c091449dd0fad7710ddd9c4a06e8b9e15277da306590bc07a3a1afa6b4453c8f"
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/21/86/58d06db0c82af66c2d47faead027c3ce775cfbf9bc9d2f13f85d95f0a162/ipython-5.4.1.tar.gz"
-    sha256 "afaa92343c20cf4296728161521d84f606d8817f963beaf7198e63dfede897fb"
+    url "https://files.pythonhosted.org/packages/ee/01/2a85cd07f5a43fa2e86d60001c213647252662d44a0c2e3d69471a058f1b/ipython-6.4.0.tar.gz"
+    sha256 "eca537aa61592aca2fef4adea12af8e42f5c335004dfa80c78caf80e8b525e5c"
   end
 
   resource "ipython_genutils" do
@@ -94,13 +86,18 @@ class Jupyter < Formula
   end
 
   resource "ipywidgets" do
-    url "https://files.pythonhosted.org/packages/0f/2d/55230d6127f74e25f0d41dec4c7742d8a461130a43a8c2489c200d7da16c/ipywidgets-7.0.0.tar.gz"
-    sha256 "63e454202f72796044e99846881c33767c47fa050735dc1f927657b9cd2b7fcd"
+    url "https://files.pythonhosted.org/packages/18/8c/d19f7bef501c2cc217f52f7656eb98e04f236b1511192657de74a8abf6c1/ipywidgets-7.2.1.tar.gz"
+    sha256 "ab9869cda5af7ba449d8f707b29b7e97a7db97d6366805d6b733338f51096f54"
+  end
+
+  resource "jedi" do
+    url "https://files.pythonhosted.org/packages/ff/c9/781449489b743c67ad063e33aa68139afaa8a1a5bc348eee9f5cab39b4e1/jedi-0.12.0.tar.gz"
+    sha256 "1972f694c6bc66a2fac8718299e2ab73011d653a6d8059790c3476d2353b99ad"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/90/61/f820ff0076a2599dd39406dcb858ecb239438c02ce706c8e91131ab9c7f1/Jinja2-2.9.6.tar.gz"
-    sha256 "ddaa01a212cd6d641401cb01b605f4a4d9f37bfc93043d7f760ec70fb99ff9ff"
+    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
+    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
   end
 
   resource "jsonschema" do
@@ -109,8 +106,8 @@ class Jupyter < Formula
   end
 
   resource "jupyter_client" do
-    url "https://files.pythonhosted.org/packages/d4/51/09da9a18cd858b28cee596a628660a8cbf9830bdd89fe94361bfe18a0bb4/jupyter_client-5.1.0.tar.gz"
-    sha256 "08756b021765c97bc5665390700a4255c2df31666ead8bff116b368d09912aba"
+    url "https://files.pythonhosted.org/packages/4c/df/1e8df7f4de63cc667a7a9aa234539c0419513bf94ac57d36d73b3b434786/jupyter_client-5.2.3.tar.gz"
+    sha256 "27befcf0446b01e29853014d6a902dd101ad7d7f94e2252b1adca17c3466b761"
   end
 
   resource "jupyter_console" do
@@ -119,8 +116,8 @@ class Jupyter < Formula
   end
 
   resource "jupyter_core" do
-    url "https://files.pythonhosted.org/packages/2f/39/5138f975100ce14d150938df48a83cd852a3fd8e24b1244f4113848e69e2/jupyter_core-4.3.0.tar.gz"
-    sha256 "a96b129e1641425bf057c3d46f4f44adce747a7d60107e8ad771045c36514d40"
+    url "https://files.pythonhosted.org/packages/b6/2d/2804f4de3a95583f65e5dcb4d7c8c7183124882323758996e867f47e72af/jupyter_core-4.4.0.tar.gz"
+    sha256 "ba70754aa680300306c699790128f6fbd8c306ee5927976cbe48adacf240c0b7"
   end
 
   resource "MarkupSafe" do
@@ -129,13 +126,13 @@ class Jupyter < Formula
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/25/a4/12a584c0c59c9fed529f8b3c47ca8217c0cf8bcc5e1089d3256410cfbdbc/mistune-0.7.4.tar.gz"
-    sha256 "8517af9f5cd1857bb83f9a23da75aa516d7538c32a2c5d5c56f3789a9e4cd22f"
+    url "https://files.pythonhosted.org/packages/9d/be/e06d4346cc608a01dec6bf770d7d0303a4fd6db588b318ced18f5f257145/mistune-0.8.3.tar.gz"
+    sha256 "bc10c33bfdcaa4e749b779f62f60d6e12f8215c46a292d05e486b869ae306619"
   end
 
   resource "nbconvert" do
-    url "https://files.pythonhosted.org/packages/bc/34/1862ab61293e59fa9df81da730b1ae51ba945c396ff5c2e81b77ecd4b025/nbconvert-5.3.0.tar.gz"
-    sha256 "92827c21afa05b6ab83f451306f1d630d4577fd65109ac8817f118e9648791a0"
+    url "https://files.pythonhosted.org/packages/b9/a4/d0a0938ad6f5eeb4dea4e73d255c617ef94b0b2849d51194c9bbdb838412/nbconvert-5.3.1.tar.gz"
+    sha256 "12b1a4671d4463ab73af6e4cbcc965b62254e05d182cd54995dda0d0ef9e2db9"
   end
 
   resource "nbformat" do
@@ -144,8 +141,8 @@ class Jupyter < Formula
   end
 
   resource "notebook" do
-    url "https://files.pythonhosted.org/packages/e2/71/49a6be47ffa566d925387ba4db1a353824e789cd785c12d2d6e3e2f30892/notebook-5.0.0.tar.gz"
-    sha256 "1cea3bbbd03c8e5842a1403347a8cc8134486b3ce081a2e5b1952a00ea66ed54"
+    url "https://files.pythonhosted.org/packages/ac/50/4e8fc418c6b4beee3b0c39d38f82a1684bf5c4c9a216cc017e8a498686d6/notebook-5.5.0.tar.gz"
+    sha256 "fa915c231e64a30d19cc2c70ccab6444cbaa93e44e92b5f8233dd9147ad0e664"
   end
 
   resource "pandocfilters" do
@@ -153,14 +150,19 @@ class Jupyter < Formula
     sha256 "b3dd70e169bb5449e6bc6ff96aea89c5eea8c5f6ab5e207fc2f521a2cf4a0da9"
   end
 
+  resource "parso" do
+    url "https://files.pythonhosted.org/packages/fd/91/6b2d72e37c8f83d54354a46f05d6a8b07a491fe6b605ea78ccf83d9d39b9/parso-0.2.0.tar.gz"
+    sha256 "62bd6bf7f04ab5c817704ff513ef175328676471bdef3629d4bdd46626f75551"
+  end
+
   resource "pathlib2" do
-    url "https://files.pythonhosted.org/packages/a1/14/df0deb867c2733f7d857523c10942b3d6612a1b222502fdffa9439943dfb/pathlib2-2.3.0.tar.gz"
-    sha256 "d32550b75a818b289bd4c1f96b60c89957811da205afcceab75bc8b4857ea5b3"
+    url "https://files.pythonhosted.org/packages/db/a8/7d6439c1aec525ed70810abee5b7d7f3aa35347f59bc28343e8f62019aa2/pathlib2-2.3.2.tar.gz"
+    sha256 "8eb170f8d0d61825e09a95b38be068299ddeda82f35e96c3301a8a5e7604cb83"
   end
 
   resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/e8/13/d0b0599099d6cd23663043a2a0bb7c61e58c6ba359b2656e6fb000ef5b98/pexpect-4.2.1.tar.gz"
-    sha256 "3d132465a75b57aa818341c6521392a06cc660feb3988d7f1074f39bd23c9a92"
+    url "https://files.pythonhosted.org/packages/09/0e/75f0c093654988b8f17416afb80f7621bcf7d36bbd6afb4f823acdb4bcdc/pexpect-4.5.0.tar.gz"
+    sha256 "9f8eb3277716a01faafaba553d629d3d60a1a624c7cf45daa600d2148c30020c"
   end
 
   resource "pickleshare" do
@@ -184,13 +186,13 @@ class Jupyter < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/af/37/8e0bf3800823bc247c36715a52e924e8f8fd5d1432f04b44b8cd7a5d7e55/pyzmq-16.0.2.tar.gz"
-    sha256 "0322543fff5ab6f87d11a8a099c4c07dd8a1719040084b6ce9162bcdf5c45c9d"
+    url "https://files.pythonhosted.org/packages/9f/f6/85a33a25128a4a812c3482547e3d458eebdb19ee0b4699f9199cdb2ad731/pyzmq-17.0.0.tar.gz"
+    sha256 "0145ae59139b41f65e047a3a9ed11bbc36e37d5e96c64382fcdff911c4d8c3f0"
   end
 
   resource "qtconsole" do
@@ -199,8 +201,13 @@ class Jupyter < Formula
   end
 
   resource "scandir" do
-    url "https://files.pythonhosted.org/packages/bd/f4/3143e0289faf0883228017dbc6387a66d0b468df646645e29e1eb89ea10e/scandir-1.5.tar.gz"
-    sha256 "c2612d1a487d80fb4701b4a91ca1b8f8a695b1ae820570815e85e8c8b23f1283"
+    url "https://files.pythonhosted.org/packages/13/bb/e541b74230bbf7a20a3949a2ee6631be299378a784f5445aa5d0047c192b/scandir-1.7.tar.gz"
+    sha256 "b2d55be869c4f716084a19b1e16932f0769711316ba62de941320bf2be84763d"
+  end
+
+  resource "Send2Trash" do
+    url "https://files.pythonhosted.org/packages/13/2e/ea40de0304bb1dc4eb309de90aeec39871b9b7c4bd30f1a3cdcb3496f5c0/Send2Trash-1.5.0.tar.gz"
+    sha256 "60001cc07d707fe247c94f74ca6ac0d3255aabcb930529690897ca2a39db28b2"
   end
 
   resource "simplegeneric" do
@@ -214,13 +221,13 @@ class Jupyter < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "terminado" do
-    url "https://files.pythonhosted.org/packages/58/59/aabe84fce2f45da10165435cec204d982863e176f6849a4a4fe2652a20a8/terminado-0.6.tar.gz"
-    sha256 "2c0ba1f624067dccaaead7d2247cfe029806355cef124dc2ccb53c83229f0126"
+    url "https://files.pythonhosted.org/packages/67/84/ce0ebd0f60e1cbe040f8e065eef7063855d59d9cf5e6438b3f8439fc7e15/terminado-0.8.1.tar.gz"
+    sha256 "55abf9ade563b8f9be1f34e4233c7b7bde726059947a593322e8a553cc4c067a"
   end
 
   resource "testpath" do
@@ -229,8 +236,8 @@ class Jupyter < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz"
-    sha256 "1fb8e494cd46c674d86fac5885a3ff87b0e283937a47d74eb3c02a48c9e89ad0"
+    url "https://files.pythonhosted.org/packages/cf/d1/3be271ae5eba9fb59df63c9891fdc7d8044b999e8ac145994cdbfd2ae66a/tornado-5.0.2.tar.gz"
+    sha256 "1b83d5c10550f2653380b4c77331d6f8850f287c4f67d7ce1e1c639d9222fbc7"
   end
 
   resource "traitlets" do
@@ -249,13 +256,13 @@ class Jupyter < Formula
   end
 
   resource "widgetsnbextension" do
-    url "https://files.pythonhosted.org/packages/5a/ed/77cbdc2e2aae4a006627044a99ed89a89827435150c44f1106f5205f9326/widgetsnbextension-3.0.2.tar.gz"
-    sha256 "e8890d87c80782ee4ea3ed9afffc89a0af8b4ff475d1608d900f728ea55f041c"
+    url "https://files.pythonhosted.org/packages/da/c4/53da2ddb67be3610e985f9b1ffa8cce45cef2ef3b8d2cd42009235394a65/widgetsnbextension-3.2.1.tar.gz"
+    sha256 "5417789ee6064ff515fd10be24870660af3561c02d3d48b26f6f44285d0f70cc"
   end
 
   def install
     ENV["JUPYTER_PATH"] = etc/"jupyter"
-    xy = Language::Python.major_minor_version "python"
+    xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     # gather packages to link based on options
@@ -263,19 +270,12 @@ class Jupyter < Formula
                 nbconvert notebook qtconsole]
     dependencies = resources.map(&:name).to_set - linked
 
-    if build.with?("notebook") && build.without?("nbconvert")
-      dependencies << "nbconvert"
-    end
-
-    linked.delete "jupyter_console" if build.without? "console"
-    linked.delete "nbconvert" if build.without? "nbconvert"
-    linked.delete "notebook" if build.without? "notebook"
     linked.delete "qtconsole" if build.without? "qtconsole"
 
     # install dependent packages
     dependencies.each do |r|
       resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -283,7 +283,7 @@ class Jupyter < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     linked.each do |r|
       resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec)
+        system "python3", *Language::Python.setup_install_args(libexec)
       end
     end
 
@@ -301,34 +301,28 @@ class Jupyter < Formula
   end
 
   test do
-    assert_match "python2", shell_output("#{bin}/jupyter kernelspec list")
+    assert_match "python3", shell_output("#{bin}/jupyter kernelspec list")
 
-    if build.with? "console"
-      (testpath/"console.exp").write <<~EOS
-        spawn #{bin}/jupyter-console
-        expect "In "
-        send "exit\r"
-      EOS
-      assert_match "Jupyter console", shell_output("expect -f console.exp")
-    end
+    (testpath/"console.exp").write <<~EOS
+      spawn #{bin}/jupyter-console
+      expect "In "
+      send "exit\r"
+    EOS
+    assert_match "Jupyter console", shell_output("expect -f console.exp")
 
-    if build.with? "notebook"
-      (testpath/"notebook.exp").write <<~EOS
-        spawn #{bin}/jupyter-notebook --no-browser
-        expect "NotebookApp"
-      EOS
-      assert_match "NotebookApp", shell_output("expect -f notebook.exp")
-    end
+    (testpath/"notebook.exp").write <<~EOS
+      spawn #{bin}/jupyter-notebook --no-browser
+      expect "NotebookApp"
+    EOS
+    assert_match "NotebookApp", shell_output("expect -f notebook.exp")
 
-    if build.with? "nbconvert"
-      (testpath/"nbconvert.ipynb").write <<~EOS
-        {
-          "cells": []
-        }
-      EOS
-      system bin/"jupyter-nbconvert", "nbconvert.ipynb"
-      assert_predicate testpath/"nbconvert.html", :exist?, "Failed to export HTML"
-    end
+    (testpath/"nbconvert.ipynb").write <<~EOS
+      {
+        "cells": []
+      }
+    EOS
+    system bin/"jupyter-nbconvert", "nbconvert.ipynb"
+    assert_predicate testpath/"nbconvert.html", :exist?, "Failed to export HTML"
 
     if build.with? "qtconsole"
       (testpath/"qtconsole.exp").write <<~EOS
