@@ -4,6 +4,13 @@ class Kubecfg < Formula
   url "https://github.com/ksonnet/kubecfg/archive/v0.8.0.tar.gz"
   sha256 "25d054af96a817bad0f33998895a9988c187e1399822c8220528e64f56ccb3ae"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "07038b5b21624e89b7e10c99869420154e5d733b7e7197fd5e44f4aa754b4564" => :high_sierra
+    sha256 "168740e3c8d3542bacbae5b6407854f3425c612b6708b978fe607aaf82faad8b" => :sierra
+    sha256 "38fbc753fd92ef4865ca29d9ad319f5815f4054b83f636af39dfc0813b5b7fed" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
