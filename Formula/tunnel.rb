@@ -8,9 +8,9 @@ class Tunnel < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-     (buildpath/"src/github.com/labstack").mkpath
-     ln_s buildpath, "src/github.com/labstack/tunnel"
-     system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"
+    (buildpath/"src/github.com/labstack").mkpath
+    ln_s buildpath, "src/github.com/labstack/tunnel"
+    system "go", "build", "-o", bin/"tunnel", "./cmd/tunnel"
   end
 
   test do
@@ -20,7 +20,7 @@ class Tunnel < Formula
         exec "#{bin}/tunnel", "8080"
       end
       sleep 5
-      assert_match /labstack.me/m, File.read("#{testpath}/out")
+      assert_match /labstack.me/m, (testpath/"out").read
     ensure
       Process.kill("HUP", pid)
     end
