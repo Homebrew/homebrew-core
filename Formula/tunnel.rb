@@ -17,10 +17,10 @@ class Tunnel < Formula
     begin
       pid = fork do
         $stdout.reopen("#{testpath}/out", "w")
-        exec "#{bin}/tunnel", "8080"
+        exec bin/"tunnel", "8080"
       end
       sleep 5
-      assert_match /labstack.me/m, (testpath/"out").read
+      assert_match "labstack.me", (testpath/"out").read
     ensure
       Process.kill("HUP", pid)
     end
