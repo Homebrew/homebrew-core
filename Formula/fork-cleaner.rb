@@ -1,8 +1,8 @@
 class ForkCleaner < Formula
   desc "Cleans up old and inactive forks on your GitHub account"
   homepage "https://github.com/caarlos0/fork-cleaner"
-  url "https://github.com/caarlos0/fork-cleaner/archive/v1.4.0.tar.gz"
-  sha256 "74cbaeef71ceb12fb90e49c325d9da661eef1b5e395c8eeec04e5643b04877e1"
+  url "https://github.com/caarlos0/fork-cleaner/archive/v1.4.2.tar.gz"
+  sha256 "a3ce478f277e2c2a84661ecf92ad42ffeceb8836bc6e5d182f7fad7b6ec9ddd8"
 
   bottle do
     cellar :any_skip_relocation
