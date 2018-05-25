@@ -46,7 +46,7 @@ class Redshift < Formula
     A sample .conf file has been installed to #{opt_pkgshare}.
 
     Please note redshift expects to read its configuration file from
-    #{ENV["HOME"]}/.config
+    #{ENV["HOME"]}/.config/redshift/redshift.conf
     EOS
   end
 
