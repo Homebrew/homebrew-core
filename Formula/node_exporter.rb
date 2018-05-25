@@ -43,9 +43,9 @@ class NodeExporter < Formula
         <key>KeepAlive</key>
         <false/>
         <key>StandardErrorPath</key>
-        <string>#{logs}/err.log</string>
+        <string>#{var}/log/node_exporter.err.log</string>
         <key>StandardOutPath</key>
-        <string>#{logs}/out.log</string>
+        <string>#{var}/log/node_exporter.log</string>
       </dict>
     </plist>
     EOS
