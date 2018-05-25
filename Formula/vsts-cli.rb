@@ -164,9 +164,19 @@ class VstsCli < Formula
   end
 
   test do
-    subcommands = %w[build code configure feedback login logout project work]
+	require "open3"
+
+	subcommands = %w[build code configure feedback login logout project work]
     subcommands.each do |subcommand|
       system "#{bin}/vsts", subcommand, "--help"
     end
+
+	Open3.popen3("#{bin}/vsts logout") do |_, _, stderr, _|
+      assert_equal "ERROR: The credential was not found", stderr.read.chomp
+    end
+
+	Open3.popen3("#{bin}/vsts", "work") do |_, _, stderr, _|
+	  assert_equal "usage: vsts work [-h] {item} ...\nvsts work: error: the following arguments are required: _subcommand", stderr.read.chomp
+	end
   end
 end
