@@ -3,8 +3,8 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "http://www.fabfile.org"
-  url "https://github.com/fabric/fabric/archive/2.0.1.tar.gz"
-  sha256 "6cdbb8f0454c21ee1c5c8007d8318b824761e0172c072edcb03eb823d02592b4"
+  url "https://github.com/fabric/fabric/archive/2.1.3.tar.gz"
+  sha256 "928bb460370f08b76f9c65fb8898cfb7803b64da51dc971990a3dfd2c5cf77ba"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -63,8 +63,8 @@ class Fabric < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"
-    sha256 "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"
+    url "https://files.pythonhosted.org/packages/0d/33/3466a3210321a02040e3ab2cd1ffc6f44664301a5d650a7e44be1dc341f2/pyasn1-0.4.3.tar.gz"
+    sha256 "fb81622d8f3509f0026b0683fe90fea27be7284d3826a5f2edf97f69151ab0fc"
   end
 
   resource "pycparser" do
