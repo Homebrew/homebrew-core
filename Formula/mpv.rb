@@ -37,13 +37,13 @@ class Mpv < Formula
   depends_on "uchardet" => :optional
   depends_on "vapoursynth" => :optional
   depends_on :x11 => :optional
-
+  depends_on "docutils"
   depends_on :macos => :mountain_lion
 
-  resource "docutils" do
-    url "https://files.pythonhosted.org/packages/05/25/7b5484aca5d46915493f1fd4ecb63c38c333bd32aa9ad6e19da8d08895ae/docutils-0.13.1.tar.gz"
-    sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
-  end
+  # resource "docutils" do
+  #   url "https://files.pythonhosted.org/packages/05/25/7b5484aca5d46915493f1fd4ecb63c38c333bd32aa9ad6e19da8d08895ae/docutils-0.13.1.tar.gz"
+  #   sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
+  # end
 
   def install
     # LANG is unset by default on macOS and causes issues when calling getlocale
@@ -53,13 +53,13 @@ class Mpv < Formula
 
     # Prevents a conflict between python2 and python3 when
     # gobject-introspection is using brewed python.
-    ENV.delete("PYTHONPATH") if MacOS.version <= :mavericks
+    # ENV.delete("PYTHONPATH") if MacOS.version <= :mavericks
 
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
-    resource("docutils").stage do
-      system "python2.7", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
-    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+    # ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    # resource("docutils").stage do
+    #   system "python2.7", *Language::Python.setup_install_args(buildpath/"vendor")
+    # end
+    # ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
     args = %W[
       --prefix=#{prefix}
