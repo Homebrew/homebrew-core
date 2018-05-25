@@ -1,14 +1,14 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.11.1/node-v8.11.1.tar.xz"
-  sha256 "40a6eb51ea37fafcf0cfb58786b15b99152bec672cccf861c14d1cca0ad4758a"
+  url "https://nodejs.org/dist/v8.11.2/node-v8.11.2.tar.xz"
+  sha256 "539946c0381809576bed07424a35fc1740d52f4bd56305d6278d9e76c88f4979"
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
-    sha256 "5e3ce9b3e65f15b6bcb9a9915b5ca97c01a35d094e17bfbd6748cf5045e8a0cc" => :high_sierra
-    sha256 "0448b3fb796373b1d8f7ac8830260a31aac9d537b6f793fabe9b5bde782298be" => :sierra
-    sha256 "227cf4a570c8bf41b12f18c2903c5ccb92f079ff0b3ec9f11a42e8912dc632cf" => :el_capitan
+    sha256 "a33f5be7d206d8b8376a4fed4a7432139f5be521a74da1678de61e773b45df14" => :high_sierra
+    sha256 "124f08597eef879a824aa624733255932c461684baab2fe18399b78d7a757d0d" => :sierra
+    sha256 "8a4fae3b78ddacbcc12638beaae99a44fea7f5021243c0f679d049082247130b" => :el_capitan
   end
 
   keg_only :versioned_formula

@@ -1,15 +1,15 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.10.tar.gz"
-  sha256 "9bc86cbc1df67285134bb4ac0ed7a450d52dfe75423577c469cae809a1154665"
-  revision 2
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.11.tar.gz"
+  sha256 "5a4d4a5480569d94bcaf759d1afa729881c90a2c1a30a5603c278d74ed0cae7e"
+  revision 1
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
-    sha256 "f4930dd1b4a58165bde3979a23e3823a4864011f6f353b45187ede7f4ba9413e" => :high_sierra
-    sha256 "a1a1f9b91e569416ede3352dce376482e83caf645504f7424e7d77ef799ffa5a" => :sierra
-    sha256 "d9899aa8cab5b8df10a862b280035f43bc4a144c2f9278f19a8997187df68486" => :el_capitan
+    sha256 "299ca4535a2a60bfcdd9add1332ccf236db6ec5d0baa62c7ceced59808f9bf6d" => :high_sierra
+    sha256 "e711db6c09f69b14195256db27cd24f99f7627e6a24da8ce1be4c30897b35cf6" => :sierra
+    sha256 "ab4f5bde4d8d724b523a602836778c41137ad0539517e2289d0c4f882524c3c5" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -31,12 +31,6 @@ class Openimageio < Formula
   depends_on "webp"
 
   def install
-    # FFmpeg 4.0 compatibility
-    # Fix "ffmpeginput.cpp:333:72: error: use of undeclared identifier 'CODEC_CAP_DELAY'"
-    # Reported 21 Apr 2018 https://github.com/OpenImageIO/oiio/issues/1923
-    inreplace "src/ffmpeg.imageio/ffmpeginput.cpp", " CODEC_CAP_DELAY",
-                                                    " AV_CODEC_CAP_DELAY"
-
     # -DUSE_OPENSSL=OFF can be removed in 1.9, see
     # https://github.com/Homebrew/homebrew-core/pull/22522#issuecomment-364831533
     args = std_cmake_args + %w[

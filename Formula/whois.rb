@@ -1,16 +1,16 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/whois/whois_5.3.0.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/whois/whois_5.3.0.tar.xz"
-  sha256 "4d789c403bfb5833c8ae168a5f31be70e34b045bd5d95a54c82a27b0ff135723"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/whois/whois_5.3.1.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/whois/whois_5.3.1.tar.xz"
+  sha256 "ef4ead31306a388d9c8c83d67f56c94ed8b4c85e94f60baea2f5b1660445893e"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f3441458153a0a80f3eac4bbd16c1930ca537026f57cec93bf862633592cef6c" => :high_sierra
-    sha256 "80b5709d8e5d8adb705973a0f2cd9004f0c2387b6222a3f00190afaecd682944" => :sierra
-    sha256 "e61d6ce7a5b53c095fb256a520e279be83035e50cfe72a4751d5c3b2463e3f19" => :el_capitan
+    sha256 "b7ed869026db06d17ff0d32331410dea685495ce7047f36bc4ec258fa509a9cb" => :high_sierra
+    sha256 "d261210f91c77aab9dfefbd16146ed65d34b08c4b306f364601e82e0b5fb1af9" => :sierra
+    sha256 "584fd9eef8dd545289cd0a62107a94a06632f05ef6632326fb702c614bc7a7d0" => :el_capitan
   end
 
   option "with-libidn2", "Compile with IDN support"

@@ -1,15 +1,15 @@
 class Txr < Formula
   desc "Original, new programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "http://www.kylheku.com/cgit/txr/snapshot/txr-193.tar.bz2"
-  sha256 "4d0826a1f9783d31fdbe342b9a270fbc1d4c831de61a9cc79764a88d81996a62"
+  url "http://www.kylheku.com/cgit/txr/snapshot/txr-196.tar.bz2"
+  sha256 "76cf34c891d4c7026fabac32f82ac7137321495f433a32a75145f7fa9ca167ec"
   head "http://www.kylheku.com/git/txr", :using => :git
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "04075496eb349650f5dafc6f1a741967c5655820bf601dc80138bed3cc32e9e3" => :high_sierra
-    sha256 "b4d8396adcd83169c6c4de97a599537f81ce2d8a3ca5a9e1a4e8a5c7bb04b755" => :sierra
-    sha256 "ba97249f33f8974503d2270da462b12b374f3db7c65ee3d732f432b4a8c0c52d" => :el_capitan
+    sha256 "8073b36ff119e61e5d42fe7e0ec359943b468ae4b25c7cb067eb103822c1cfe3" => :high_sierra
+    sha256 "3e773409ee776bee2cc4a0b82a337629bed1061c958894dc6d0006da98908c4e" => :sierra
+    sha256 "7a8a5be2a66b20d8e307fc9f9e9c2d66c7f004d69b7161795c5de13865b4d824" => :el_capitan
   end
 
   def install

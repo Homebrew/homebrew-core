@@ -1,14 +1,14 @@
 class Doitlive < Formula
   desc "Replay stored shell commands for live presentations"
   homepage "https://doitlive.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/b1/5d/4a5784409ff94900898ff671df2a32bf19469114eb8006286fda3fc7e8d5/doitlive-3.0.3.tar.gz"
-  sha256 "d219d4d198acd74fab066e466b2c402a491afdddbeeb40d51b2b9781143321a6"
+  url "https://files.pythonhosted.org/packages/67/21/d97f70d6afb56b146175ee4af92ff61ee4ab98a75c36a09b4e4a83c70411/doitlive-4.0.1.tar.gz"
+  sha256 "ec1a31b203c9b274fe6f978f4560f82e9ce22d965157172e1b5114ffd99496c5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eff7506bb16d20d86cbf59f2148eb2b462dcbbeacb882b21aa4dae9823bdb16d" => :high_sierra
-    sha256 "20330ac92368bca03cc9b13732599ae1e81de2120aff978a1f5d1045caea91b6" => :sierra
-    sha256 "574b15c2cbdbaaefe888871397fc3954601f8a1992f4321921e93965bebaad2a" => :el_capitan
+    sha256 "b6f9718db7981f84e3188bfaf9d8b1725b3d8f070cf2bb69a4a66aae4e1c33e5" => :high_sierra
+    sha256 "73a77f790b0365fdf858f67685591ab2d7fac37a28076b3a755baca7e357f94c" => :sierra
+    sha256 "66326431fffbc6858f121521297581c2e944b901f798bba6f66774bce947cc20" => :el_capitan
   end
 
   depends_on "python@2"
@@ -19,6 +19,12 @@ class Doitlive < Formula
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+
+    output = Utils.popen_read("SHELL=bash #{libexec}/bin/doitlive completion")
+    (bash_completion/"doitlive").write output
+
+    output = Utils.popen_read("SHELL=zsh #{libexec}/bin/doitlive completion")
+    (zsh_completion/"_doitlive").write output
   end
 
   test do

@@ -1,16 +1,15 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "http://libbi.org"
-  url "https://github.com/libbi/LibBi/archive/1.4.0.tar.gz"
-  sha256 "fafe7579510e88fce50a2de26b561d2b0dacdbc7d1bf0fab0680a603353f5fa3"
-  revision 2
+  url "https://github.com/libbi/LibBi/archive/1.4.1.tar.gz"
+  sha256 "50866cd6a5a8fc98df1f53ff6064edd17624a74141eeb7b60ef68d4408966696"
   head "https://github.com/libbi/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c11f93b6ec2b894b2092be1a92500884b364e700231b8cfccd707813bde746cc" => :high_sierra
-    sha256 "c34a9c57526fbcafc9eeae3e736387e1c3c69d8f5f22809dc7e69a062d712448" => :sierra
-    sha256 "2ca18b7fd0fac82caa08db919632dd85f672ea5589036bf072553d0389a49cfb" => :el_capitan
+    sha256 "f6de84b935be578ab58847976642adadd15682d0855fe2eedb5602263e30e79c" => :high_sierra
+    sha256 "9785aa1e32f6fcf835b9b89b404d1eb1f602b5a0f3c47658ae00e0984cd500cc" => :sierra
+    sha256 "b0a338b54bbab1958afad22e0e7b6f7d3595d71650192af991e39982e3bf87eb" => :el_capitan
   end
 
   depends_on "automake"
@@ -20,82 +19,82 @@ class Libbi < Formula
   depends_on "qrupdate"
 
   resource "Test::Simple" do
-    url "https://www.cpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302133.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302133.tar.gz"
     sha256 "02bc2b4ec299886efcc29148308c9afb64e0f2c2acdeaa2dee33c3adfe6f96e2"
   end
 
   resource "Getopt::ArgvFile" do
-    url "https://www.cpan.org/CPAN/authors/id/J/JS/JSTENZEL/Getopt-ArgvFile-1.11.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/J/JS/JSTENZEL/Getopt-ArgvFile-1.11.tar.gz"
     sha256 "3709aa513ce6fd71d1a55a02e34d2f090017d5350a9bd447005653c9b0835b22"
   end
 
   resource "Carp::Assert" do
-    url "https://www.cpan.org/CPAN/authors/id/N/NE/NEILB/Carp-Assert-0.21.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Carp-Assert-0.21.tar.gz"
     sha256 "924f8e2b4e3cb3d8b26246b5f9c07cdaa4b8800cef345fa0811d72930d73a54e"
   end
 
   resource "File::Slurp" do
-    url "https://www.cpan.org/CPAN/authors/id/U/UR/URI/File-Slurp-9999.19.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/U/UR/URI/File-Slurp-9999.19.tar.gz"
     sha256 "ce29ebe995097ebd6e9bc03284714cdfa0c46dc94f6b14a56980747ea3253643"
   end
 
   resource "Parse::Yapp" do
-    url "https://www.cpan.org/CPAN/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/W/WB/WBRASWELL/Parse-Yapp-1.21.tar.gz"
     sha256 "3810e998308fba2e0f4f26043035032b027ce51ce5c8a52a8b8e340ca65f13e5"
   end
 
   resource "Parse::Template" do
-    url "https://www.cpan.org/CPAN/authors/id/P/PS/PSCUST/ParseTemplate-3.08.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/P/PS/PSCUST/ParseTemplate-3.08.tar.gz"
     sha256 "3c7734f53999de8351a77cb09631d7a4a0482b6f54bca63d69d5a4eec8686d51"
   end
 
   resource "Parse::Lex" do
-    url "https://www.cpan.org/CPAN/authors/id/P/PS/PSCUST/ParseLex-2.21.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/P/PS/PSCUST/ParseLex-2.21.tar.gz"
     sha256 "f55f0a7d1e2a6b806a47840c81c16d505c5c76765cb156e5f5fd703159a4492d"
   end
 
   resource "Parse::RecDescent" do
-    url "https://www.cpan.org/CPAN/authors/id/J/JT/JTBRAUN/Parse-RecDescent-1.967015.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/J/JT/JTBRAUN/Parse-RecDescent-1.967015.tar.gz"
     sha256 "1943336a4cb54f1788a733f0827c0c55db4310d5eae15e542639c9dd85656e37"
   end
 
   resource "Math::Symbolic" do
-    url "https://www.cpan.org/CPAN/authors/id/S/SM/SMUELLER/Math-Symbolic-0.612.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/Math-Symbolic-0.612.tar.gz"
     sha256 "a9af979956c4c28683c535b5e5da3cde198c0cac2a11b3c9a129da218b3b9c08"
   end
 
   resource "YAML::Tiny" do
-    url "https://www.cpan.org/CPAN/authors/id/E/ET/ETHER/YAML-Tiny-1.73.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/YAML-Tiny-1.73.tar.gz"
     sha256 "bc315fa12e8f1e3ee5e2f430d90b708a5dc7e47c867dba8dce3a6b8fbe257744"
   end
 
   resource "File::Remove" do
-    url "https://www.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/File-Remove-1.57.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/File-Remove-1.57.tar.gz"
     sha256 "b3becd60165c38786d18285f770b8b06ebffe91797d8c00cc4730614382501ad"
   end
 
   resource "inc::Module::Install::DSL" do
-    url "https://www.cpan.org/CPAN/authors/id/E/ET/ETHER/Module-Install-1.19.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Module-Install-1.19.tar.gz"
     sha256 "1a53a78ddf3ab9e3c03fc5e354b436319a944cba4281baf0b904fa932a13011b"
   end
 
   resource "Class::Inspector" do
-    url "https://www.cpan.org/CPAN/authors/id/P/PL/PLICEASE/Class-Inspector-1.32.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Class-Inspector-1.32.tar.gz"
     sha256 "cefadc8b5338e43e570bc43f583e7c98d535c17b196bcf9084bb41d561cc0535"
   end
 
   resource "File::ShareDir" do
-    url "https://www.cpan.org/CPAN/authors/id/R/RE/REHSACK/File-ShareDir-1.104.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/R/RE/REHSACK/File-ShareDir-1.104.tar.gz"
     sha256 "07b628efcdf902d6a32e6a8e084497e8593d125c03ad12ef5cc03c87c7841caf"
   end
 
   resource "Template" do
-    url "https://www.cpan.org/CPAN/authors/id/A/AB/ABW/Template-Toolkit-2.27.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABW/Template-Toolkit-2.27.tar.gz"
     sha256 "1311a403264d0134c585af0309ff2a9d5074b8ece23ece5660d31ec96bf2c6dc"
   end
 
   resource "Graph" do
-    url "https://www.cpan.org/CPAN/authors/id/J/JH/JHI/Graph-0.9704.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/J/JH/JHI/Graph-0.9704.tar.gz"
     sha256 "325e8eb07be2d09a909e450c13d3a42dcb2a2e96cc3ac780fe4572a0d80b2a25"
   end
 

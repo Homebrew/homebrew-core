@@ -17,4 +17,16 @@ class Libscrypt < Formula
     system "make", "install-osx", "PREFIX=#{prefix}", "LDFLAGS=", "CFLAGS_EXTRA="
     system "make", "check", "LDFLAGS=", "CFLAGS_EXTRA="
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <libscrypt.h>
+      int main(void) {
+        char buf[SCRYPT_MCF_LEN];
+        libscrypt_hash(buf, "Hello, Homebrew!", SCRYPT_N, SCRYPT_r, SCRYPT_p);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lscrypt", "-o", "test"
+    system "./test"
+  end
 end

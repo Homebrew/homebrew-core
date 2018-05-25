@@ -1,15 +1,14 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
-  sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
-  revision 2
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
+  sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "1e34e131a8519dabf2b632967d84c417b67ef39cfe256af18f6b64b12c4bc5e4" => :high_sierra
-    sha256 "19901a046af52ec69be3287a8a010d3793298b62e729924efae44ffa81199d02" => :sierra
-    sha256 "f0c52d002d318238e9602de43a2e5b91b79841bca6bf10454e502fa0131f5226" => :el_capitan
+    sha256 "19f31b478aab3de2b5773a5f1c1566732fa42d24d2f44f371065124799e260f0" => :high_sierra
+    sha256 "d0916f50a97650cea2d9ee6bb3a9521b505a8bc1068a1474af6f78b19954f0dc" => :sierra
+    sha256 "5627a620cc4da5e11adca3a25227dcc58e8744e6da6ec572736042c50fd31932" => :el_capitan
   end
 
   option "without-python@2", "Build without python2 support"
@@ -100,6 +99,20 @@ class Vtk < Formula
       system "make"
       system "make", "install"
     end
+
+    # Avoid hard-coding Python 2 or 3's Cellar paths
+    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first do |s|
+      if build.with? "python"
+        s.gsub! Formula["python"].prefix.realpath, Formula["python"].opt_prefix
+      end
+      if build.with? "python@2"
+        s.gsub! Formula["python@2"].prefix.realpath, Formula["python@2"].opt_prefix
+      end
+    end
+
+    # Avoid hard-coding HDF5's Cellar path
+    inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
+      Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix
   end
 
   def caveats; <<~EOS

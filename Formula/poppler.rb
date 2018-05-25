@@ -1,14 +1,14 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.64.0.tar.xz"
-  sha256 "b21df92ca99f78067785cf2dc8e06deb04726b62389c0ee1f5d8b103c77f64b1"
+  url "https://poppler.freedesktop.org/poppler-0.65.0.tar.xz"
+  sha256 "89c8cf73f83efda78c5a9bd37c28f4593ad0e8a51556dbe39ed81e1ae2dd8f07"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "fae8e28f893316a98df04746bd437233c5a8cd63df27ffee5fb82f79bd139d77" => :high_sierra
-    sha256 "14430fd4f774cd862215b91c9e9a4801a064c943638a576038c139fd617495d9" => :sierra
-    sha256 "b24d5a380d95dc37576bb7929906d54704cc58270f66100cd783cfe0b695ae00" => :el_capitan
+    sha256 "27c74583e59cce9bb30e86f0b9b68279b7a9857c0d7e8cd775b1af601bbc1017" => :high_sierra
+    sha256 "072cc17830d427b041ad0377fea49789fd4563d2936acf8ac75a2dd53081e1e4" => :sierra
+    sha256 "23ddf6a875667892aa6df15f03a7d28e8ba5dff066e3a616a17a423a44aa90e0" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -39,22 +39,13 @@ class Poppler < Formula
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz"
-    sha256 "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
+    sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
   end
 
   needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
   def install
-    # Remove for > 0.64.0
-    # Fix "error: implicit instantiation of undefined template 'std::__1::array<double, 257>'"
-    # Upstream issue from 18 Apr 2018 "0.64.0 build with qt5 fails"
-    # See https://bugs.freedesktop.org/show_bug.cgi?id=106118
-    if build.with? "qt"
-      inreplace "qt5/src/ArthurOutputDev.cc", /#include <QPicture>/,
-                                              "\\0\n#include <array>"
-    end
-
     ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
     args = std_cmake_args + %w[
@@ -90,8 +81,10 @@ class Poppler < Formula
     end
 
     libpoppler = (lib/"libpoppler.dylib").readlink
-    ["#{lib}/libpoppler-cpp.dylib", "#{lib}/libpoppler-glib.dylib",
-     *Dir["#{bin}/*"]].each do |f|
+    to_fix = ["#{lib}/libpoppler-cpp.dylib", "#{lib}/libpoppler-glib.dylib",
+              *Dir["#{bin}/*"]]
+    to_fix << "#{lib}/libpoppler-qt5.dylib" if build.with?("qt")
+    to_fix.each do |f|
       macho = MachO.open(f)
       macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
       macho.write!

@@ -3,12 +3,13 @@ class Freediameter < Formula
   homepage "http://www.freediameter.net"
   url "http://www.freediameter.net/hg/freeDiameter/archive/1.2.1.tar.gz"
   sha256 "bd7f105542e9903e776aa006c6931c1f5d3d477cb59af33a9162422efa477097"
+  revision 1
   head "http://www.freediameter.net/hg/freeDiameter", :using => :hg
 
   bottle do
-    sha256 "8a16e612b93ae8a1c55fe090f0301a7d778c858730a144c152aa6eb8080d8c68" => :high_sierra
-    sha256 "615bfb731e99779234533bed9f6def01487783e1b1b22f3f6d41efceef1899bb" => :sierra
-    sha256 "6d562bd62780a6b942b6ca3b4b1807a6ac3eef80209748b6748bcbc8b6b389b5" => :el_capitan
+    sha256 "c57d61c9ddb1a1cef706b043d3be28ad4ab94eb7e9bbd0c9952f392074fafc31" => :high_sierra
+    sha256 "0b444785c639b55365e67092f5ff4997c2cba3ad72f37aaaaf7cf4a2eb88b758" => :sierra
+    sha256 "ae4a0a662111c28c542ba2b15f2ff5f0d6955dd62c474b7216f12bda8a54041c" => :el_capitan
   end
 
   option "with-all-extensions", "Enable all extensions"

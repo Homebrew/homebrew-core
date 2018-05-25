@@ -3,13 +3,13 @@ class Synfig < Formula
   homepage "https://synfig.org/"
   url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
   sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
-  revision 3
+  revision 5
   head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
-    sha256 "23bc8a06b80bec0734a32e694b7a56d81d6b089d7e45550e7070fad931adcafe" => :high_sierra
-    sha256 "94545b17928a46d08e22fdfd5959ba46d679284a565dddf2f125bf6bf4849d18" => :sierra
-    sha256 "b13a93ed2c76add7652425530771183eeeefc1bb8d57b7718aa22f32aee3c3e4" => :el_capitan
+    sha256 "2f05123f7d5b6cd2d2e0ae7ba1bb070e5bf5bd69f71a85553ea45858ea18b7ab" => :high_sierra
+    sha256 "ef83f8b014f601eeed4e7810d5edd5c41838ef0cf7df918674aa8975a670bcb7" => :sierra
+    sha256 "42f7ab274f30645bd06e707a9e7962cabf7ba8766728c781e066efa2cd1a53ac" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -40,7 +40,8 @@ class Synfig < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-boost=#{boost.opt_prefix}"
+                          "--with-boost=#{boost.opt_prefix}",
+                          "--without-jpeg"
     system "make", "install"
   end
 

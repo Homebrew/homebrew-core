@@ -28,4 +28,8 @@ class Chruby < Formula
       source #{opt_pkgshare}/auto.sh
     EOS
   end
+
+  test do
+    assert_equal "chruby version #{version}", shell_output("#{bin}/chruby-exec --version").strip
+  end
 end

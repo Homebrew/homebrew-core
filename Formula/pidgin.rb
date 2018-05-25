@@ -3,12 +3,12 @@ class Pidgin < Formula
   homepage "https://pidgin.im/"
   url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.13.0/pidgin-2.13.0.tar.bz2"
   sha256 "2747150c6f711146bddd333c496870bfd55058bab22ffb7e4eb784018ec46d8f"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "4c7ab2d5bdbcb9115e06c70391a575cc19d3d8a21985799baf6444d9cffa5473" => :high_sierra
-    sha256 "5c433ff6d97eb04581dc547cf3ca7d1c46bcff5fee439696384700675fe6abab" => :sierra
-    sha256 "992ef6f5ec01391dfa282080de017c2d31c5c5c8f572d35b709314716df4f865" => :el_capitan
+    sha256 "39388fd5f805236cb972d68da78f54cbb042f650a2194c6fbb4231dd2f2a2fb0" => :high_sierra
+    sha256 "3e89f23e44404b8299562785f612259140d25c8b1af4c5c77d9da0008d1bdd84" => :sierra
+    sha256 "5bb5d41124e21b68b6172c025f0faf342d70a87fd95da067b7c450b76d3ab8cb" => :el_capitan
   end
 
   option "with-perl", "Build Pidgin with Perl support"

@@ -95,6 +95,7 @@
   "kibana44": "kibana@4.4",
   "kotlin-compiler": "kotlin",
   "kubernetes-cli13": "kubernetes-cli@1.3",
+  "latexila": "gnome-latex",
   "ledger26": "ledger@2.6",
   "letsencrypt": "certbot",
   "libcppa": "caf",

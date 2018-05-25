@@ -1,15 +1,13 @@
 class Redshift < Formula
   desc "Adjust color temperature of your screen according to your surroundings"
   homepage "http://jonls.dk/redshift/"
-  url "https://github.com/jonls/redshift/releases/download/v1.11/redshift-1.11.tar.xz"
-  sha256 "10e350f93951c0521dd6f103d67a485972c307214f036e009acea2978fe4f359"
+  url "https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz"
+  sha256 "d2f8c5300e3ce2a84fe6584d2f1483aa9eadc668ab1951b2c2b8a03ece3a22ba"
 
   bottle do
-    sha256 "eafe2b08f2aeee05a13d92e6ec161b86d777b56bb28dedf6419757b360afecc3" => :high_sierra
-    sha256 "654082b1aefb05db5833fa3dfc8b4313525c5ff4bb002de79c1793d998713afe" => :sierra
-    sha256 "f8fc6b6b2279982aefc06a03571c8de76df9542808558e542e87d7e28187d58f" => :el_capitan
-    sha256 "b51cd606ac04a3709ca9a02196c26ee6b79b1b32d976ef01155db382f5145f81" => :yosemite
-    sha256 "9d151b44efdd166ae4239af7dff907a4868441c126f7fd11aa69a53e9d39de7a" => :mavericks
+    sha256 "39794fc0af4bae10ccfa98921acb933c414dbb858e25515dfbff38659d7b8b77" => :high_sierra
+    sha256 "30ff6fd3a0bb4d73bd9c3855467fe9b0cf78c8f084083e103ef702587fba98cc" => :sierra
+    sha256 "365aba46b3ea942d56749f405633093fc7e774bc4b27acefdc5ed0a87bdd4d67" => :el_capitan
   end
 
   head do
@@ -48,7 +46,7 @@ class Redshift < Formula
     A sample .conf file has been installed to #{opt_pkgshare}.
 
     Please note redshift expects to read its configuration file from
-    #{ENV["HOME"]}/.config
+    #{ENV["HOME"]}/.config/redshift/redshift.conf
     EOS
   end
 

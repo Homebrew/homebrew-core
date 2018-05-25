@@ -6,9 +6,9 @@ class Basex < Formula
   sha256 "6c51766ebe976e214cb1b3f3b8d7777d87c5cbef9134bcbf62da0278a47aa00b"
 
   devel do
-    url "http://files.basex.org/releases/latest/BaseX902-20180424.172952.zip"
-    version "9.0.2-rc20180424.172952"
-    sha256 "ad5b7be68b9170c177e68c01dbf7772c4cf8771ae086f405f47ffacc059c9c3e"
+    url "http://files.basex.org/releases/homebrew-snapshot/BaseX902-20180515.190444.zip"
+    version "9.0.2-rc20180515.190444"
+    sha256 "4603bdcd05ba550edb056c75e1e3c70253bbfc5f70d42afce8eeca4003ecf05d"
   end
 
   bottle :unneeded

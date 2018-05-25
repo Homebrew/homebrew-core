@@ -5,15 +5,15 @@ class HopenpgpTools < Formula
 
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.20.1.tar.gz"
-  sha256 "62f01950dd0601a720d0c4046b779f299260693a117ef376315247f06fa42dda"
+  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.21.tar.gz"
+  sha256 "c352c11d9a68aaec5d22cfcabcd3dec28bfb627c11410be051ecf191ed23484f"
   head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
 
   bottle do
     cellar :any
-    sha256 "9279dd18f73815ebf36a2fb730b10e394795892969a9282a49779c223828859c" => :high_sierra
-    sha256 "86228ad6e121d664e761c4458a5436c714b7bac53e1cafc23f7d084030570751" => :sierra
-    sha256 "dae07e2177b17e9a015f080c1f98463534e25d7b8ac6ed83b80949a6747c48ae" => :el_capitan
+    sha256 "14dec2ea4c6a6f02dd39ed3faec435473e729656d8fc488de9c8f29543633b85" => :high_sierra
+    sha256 "556be4a355884f9e45d24019739c4118f5936636a47c691fff50395da8e7a098" => :sierra
+    sha256 "4b8a7ef4ce9eba7f16b1db856d6c5e3c51b386701243bf454e049efa5cb093b1" => :el_capitan
   end
 
   depends_on "ghc@8.2" => :build

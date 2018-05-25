@@ -3,22 +3,22 @@ class Scala < Formula
   homepage "https://www.scala-lang.org/"
 
   stable do
-    url "https://downloads.lightbend.com/scala/2.12.5/scala-2.12.5.tgz"
-    mirror "https://downloads.typesafe.com/scala/2.12.5/scala-2.12.5.tgz"
-    mirror "https://www.scala-lang.org/files/archive/scala-2.12.5.tgz"
-    sha256 "b261ffe9a495b12e9dda2ed37331e579547e4d1b8b5810161b6c3b39ac806aa1"
+    url "https://downloads.lightbend.com/scala/2.12.6/scala-2.12.6.tgz"
+    mirror "https://downloads.typesafe.com/scala/2.12.6/scala-2.12.6.tgz"
+    mirror "https://www.scala-lang.org/files/archive/scala-2.12.6.tgz"
+    sha256 "1ac7444c5a85ed1ea45db4a268ee9ea43adf80e7f5724222863afb5492883416"
 
     depends_on :java => "1.8+"
 
     resource "docs" do
-      url "https://downloads.lightbend.com/scala/2.12.5/scala-docs-2.12.5.txz"
-      mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.5.txz"
-      sha256 "f820810c01fb06d7ea1900b62491124916dfff3f64b1e74956c3ad4ebbe52fcc"
+      url "https://downloads.lightbend.com/scala/2.12.6/scala-docs-2.12.6.txz"
+      mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.6.txz"
+      sha256 "fbbca33acf7492b08b69eb969ea211186c1d70ad57e4f2a2145a770bd9d9a61f"
     end
 
     resource "src" do
-      url "https://github.com/scala/scala/archive/v2.12.5.tar.gz"
-      sha256 "eb39d9353965ce04f482b37aae35caecb3c5b18c1162409f8ff31cbac181a788"
+      url "https://github.com/scala/scala/archive/v2.12.6.tar.gz"
+      sha256 "78a3bda9d5bdf9c0411bf348c6e78064ae5735c2b1e2ed04cfdf2a270cfba6c9"
     end
   end
 

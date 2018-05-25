@@ -1,16 +1,13 @@
 class Pound < Formula
   desc "Reverse proxy, load balancer and HTTPS front-end for web servers"
   homepage "http://www.apsis.ch/pound"
-  url "http://www.apsis.ch/pound/Pound-2.7.tgz"
-  sha256 "cdfbf5a7e8dc8fbbe0d6c1e83cd3bd3f2472160aac65684bb01ef661c626a8e4"
+  url "http://www.apsis.ch/pound/Pound-2.8.tgz"
+  sha256 "a7fd8690de0fd390615e79fd0f4bfd56a544b8ef97dd6659c07ecd3207480c25"
 
   bottle do
-    sha256 "824d3b78c57b323b8ad1b5bbd022857d184d5da74ed9c5270c00dcdb3c85a93d" => :high_sierra
-    sha256 "b8ecc286bd1087162de7473a6308a8fdbc0d2aa74c3964c461f3db04e31046a4" => :sierra
-    sha256 "c322d869b30e2b3b3e6ade660f1dcb85507d4bdc0db85553f76fa983c00fa661" => :el_capitan
-    sha256 "aebc9ef8e97b4995923752811da180e83adcf2ef55d1809d7dc51b44a73d1b02" => :yosemite
-    sha256 "74c64dba8bf19737259ad996f15bbf66bb2bcd24e71ef206ec4b0e6bf1042a70" => :mavericks
-    sha256 "fa872353daeab3c6386f947b74c43932f66a20acf230575dec3afaf835edc22b" => :mountain_lion
+    sha256 "2b8c55bbd7d5fd6596766f186289cbb239789b50e1cc9854916107738cc216f6" => :high_sierra
+    sha256 "c39e63c7e5e173faf98a8be51df5ec7ea2d3347b912d62cd8b051955b3f75c91" => :sierra
+    sha256 "d16c3c0aba3eafe8f50bc4e79401a0ce3129519860d0b3bca8cdfd10023ff7b5" => :el_capitan
   end
 
   depends_on "openssl"

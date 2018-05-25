@@ -7,9 +7,10 @@ class Tbb < Formula
   revision 1
 
   bottle do
-    sha256 "8cbd67c35cacf110d90157d970845b881ae80be2d1c2f5c6498e83dd7c47c620" => :high_sierra
-    sha256 "3a12b35651d80de3db0c34d68d6f9e55d4cdf4315060d0deb2a9c1475edad177" => :sierra
-    sha256 "263e771e491b8b012e82d8f9072df83bf5cdf30d395ed07ca8490532c34abc3c" => :el_capitan
+    rebuild 1
+    sha256 "4f0885ab822d155ce1efa2bb97d806def0d673a3722f78b42c43dbdd1c0f42d4" => :high_sierra
+    sha256 "f09600c4a04ddd3875d43efa1a9f73dff2a63aa5a881f7f08dc9012a73d2aca9" => :sierra
+    sha256 "fbfa4708d7da9406fb66ae9e59b26075ca4a747dc664cc0f057aeb2f7a9d6d8d" => :el_capitan
   end
 
   # requires malloc features first introduced in Lion
@@ -17,6 +18,7 @@ class Tbb < Formula
   depends_on :macos => :lion
   depends_on "python@2"
   depends_on "swig" => :build
+  depends_on "cmake" => :build
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -30,6 +32,13 @@ class Tbb < Formula
       ENV["TBBROOT"] = prefix
       system "python", *Language::Python.setup_install_args(prefix)
     end
+
+    system "cmake", "-DTBB_ROOT=#{prefix}",
+                    "-DTBB_OS=Darwin",
+                    "-DSAVE_TO=lib/cmake/TBB",
+                    "-P", "cmake/tbb_config_generator.cmake"
+
+    (lib/"cmake"/"TBB").install Dir["lib/cmake/TBB/*.cmake"]
   end
 
   test do

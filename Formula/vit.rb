@@ -4,7 +4,7 @@ class Vit < Formula
   url "https://taskwarrior.org/download/vit-1.2.tar.gz"
   sha256 "a78dee573130c8d6bc92cf60fafac0abc78dd2109acfba587cb0ae202ea5bbd0"
   revision 1
-  head "https://git.tasktools.org/scm/ex/vit.git"
+  head "https://github.com/scottkosty/vit.git"
 
   bottle do
     cellar :any_skip_relocation

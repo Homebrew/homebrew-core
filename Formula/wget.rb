@@ -1,15 +1,14 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.19.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.4.tar.gz"
-  sha256 "93fb96b0f48a20ff5be0d9d9d3c4a986b469cb853131f9d5fe4cc9cecbc8b5b5"
-  revision 1
+  url "https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz"
+  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.5.tar.gz"
+  sha256 "b39212abe1a73f2b28f4c6cb223c738559caac91d6e416a6d91d4b9d55c9faee"
 
   bottle do
-    sha256 "7989ae0ee0d212237ba31e8024189ba57a4296be67e08aeeea879d603ca66b59" => :high_sierra
-    sha256 "e4b88af13d56bd1aadbef96abdfff0a3919da8da96acc2e7ffd3ef812232a687" => :sierra
-    sha256 "3091698e33a73f706918967dddc3ce1d295f1ae351b5d32932cd3e9013ee5283" => :el_capitan
+    sha256 "af8880a424be0cde4d2891b0027ae9991ebb0e6f48ae60b369e3c9f0bdfcd04a" => :high_sierra
+    sha256 "d61954cc95b1f60b64b86afa2a71a18d6d1676dbc3d566a3f9ba2249ad028b54" => :sierra
+    sha256 "473408a17dfea7393f2c8c96264535717328c3879db679fc09fc1007bac26113" => :el_capitan
   end
 
   head do

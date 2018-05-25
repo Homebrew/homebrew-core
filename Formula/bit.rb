@@ -3,14 +3,14 @@ require "language/node"
 class Bit < Formula
   desc "Distributed Code Component Manager"
   homepage "https://www.bitsrc.io"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.12.11.tgz"
-  sha256 "9f4d56ef342a46ffb5b3eba70bf5376e6c9fb3815c9ecdd0ebad364d0197b74a"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.12.13.tgz"
+  sha256 "b74a3f4968591f726ed5d04e5448cc60084c8fab0bcf6dd2eb255d92d5aa6134"
   head "https://github.com/teambit/bit.git"
 
   bottle do
-    sha256 "9f078529bd07e87026c1782f91de467d6c0c937283affd603b4dfb87f933fd11" => :high_sierra
-    sha256 "2b9d357254803edf067103631cb8d72eb3cb8586c0c9a7aeb5766452f093f2c2" => :sierra
-    sha256 "5b4db53bf940ccd465d8bfa4475349850a908868186f4234cf312c03990bd4f2" => :el_capitan
+    sha256 "26bde0067e3a161d6b2585605369c29e461bab9cfbbaf1ed6aa16dad9e96f461" => :high_sierra
+    sha256 "a69616fc21a5511a5effaafa77b7a7245aedaba56d6c28226da0be326e446cb8" => :sierra
+    sha256 "dccb87a4f387c815984faed1e64f07fc9c9403c40d59f1a87b8efe21089ec393" => :el_capitan
   end
 
   depends_on "node"

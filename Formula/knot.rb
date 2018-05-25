@@ -1,13 +1,13 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.6.6.tar.xz"
-  sha256 "9119d8a56828a596d246431492be8c015f918de65ba793d76071122567c3080a"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.6.7.tar.xz"
+  sha256 "1c2a004b05c161f7b36d5eeccebd9d4cdf60aa09930a7cc766514e468ca92243"
 
   bottle do
-    sha256 "25e135ae044bbedfe185941c0a18abbc493ad29ac984c7f03e12dee4fbbaa97f" => :high_sierra
-    sha256 "9fbde4bf86177ffb4be3403f0b99061705a7db6cc8abd0c09f95ec04db242a93" => :sierra
-    sha256 "be9dfd6cbdb0849942e54a54bca60f98d51082e21b37f2d571257835070cb3bd" => :el_capitan
+    sha256 "e48a5e36c113e359b7d4970a253c77543fca0e26ee93409b70e5cee10b7e00fc" => :high_sierra
+    sha256 "145e7bc0c2cd2a8830a41441d7d5d528356852bc96f94e36fbc9c69705bfe346" => :sierra
+    sha256 "4c8f040299e3c1b8a9c3fb66f3f4647665bc74cf686dd193a173a2c8d4b00051" => :el_capitan
   end
 
   head do

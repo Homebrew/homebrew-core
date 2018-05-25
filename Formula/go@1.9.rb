@@ -1,14 +1,14 @@
 class GoAT19 < Formula
   desc "Go programming environment (1.9)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.9.5.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.9.5.src.tar.gz"
-  sha256 "f1c2bb7f32bbd8fa7a19cc1608e0d06582df32ff5f0340967d83fb0017c49fbc"
+  url "https://dl.google.com/go/go1.9.6.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.9.6.src.tar.gz"
+  sha256 "36f4059be658f7f07091e27fe04bb9e97a0c4836eb446e4c5bac3c90ff9e5828"
 
   bottle do
-    sha256 "f4fe214d30b295ba356d4f4e0268d8bfccadc183bd9803a7a1d66caece96eee8" => :high_sierra
-    sha256 "9603d3463cfe1c18547ede8ad83a3f8eaa49ab8300225d2623e7e97fa2a193bc" => :sierra
-    sha256 "a14c5b76772760a32201f9cdc10d4f8f0f52f7d40a692feb6de2a444954eebc1" => :el_capitan
+    sha256 "68028f4986c36acbe5c9e53dfda7a7a773b7294feb18286eb684c7276beb1e0b" => :high_sierra
+    sha256 "1a37cf3de21a291daaf916c5bb6331eaf51ac957bcf9d491c478a99d1849654f" => :sierra
+    sha256 "06d7e3d73d323e7a2272ac66d36d8cac865c187957171ece29d1bcfe50f13700" => :el_capitan
   end
 
   keg_only :versioned_formula

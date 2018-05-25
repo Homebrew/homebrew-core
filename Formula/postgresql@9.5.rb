@@ -1,13 +1,13 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.12/postgresql-9.5.12.tar.bz2"
-  sha256 "02e86f5c66467731bbec18fde96e0daf38c13c9141d8e7d41be663ab6fa6f698"
+  url "https://ftp.postgresql.org/pub/source/v9.5.13/postgresql-9.5.13.tar.bz2"
+  sha256 "5408b86a0b56fd0140c6a0016bf9179bc7817fa03d5571cca346c9ab122ea5ee"
 
   bottle do
-    sha256 "1ed23f0045effafaf07e70fd2b6be4e208442b3e7d5e1ccd41c5fe646a7ca015" => :high_sierra
-    sha256 "ad1e29a3e881ee32d80f97160dbf02f7d622bd810fc0884042fdd90eff5d58a7" => :sierra
-    sha256 "bf4406afae1d3ab106f16290122fce0c32ed237da44bf07da60b482b7840027d" => :el_capitan
+    sha256 "9d0f806e9c2d788f78ea1fee7f613f93b3e96318422b7c99112132a76d29c80a" => :high_sierra
+    sha256 "0a93ceceabf470e6ec1c0c5ff7e905e041c14c38b0bcc2799288e3aef81c1a5e" => :sierra
+    sha256 "851f897c89a6e9dabe205295017fd6cd87f863811b3dc7da93f6339931dca9ea" => :el_capitan
   end
 
   keg_only :versioned_formula

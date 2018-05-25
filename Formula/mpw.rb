@@ -4,13 +4,14 @@ class Mpw < Formula
   url "https://masterpasswordapp.com/mpw-2.6-cli-5-0-g344771db.tar.gz"
   version "2.6-cli-5"
   sha256 "954c07b1713ecc2b30a07bead9c11e6204dd774ca67b5bdf7d2d6ad1c4eec170"
+  revision 1
   head "https://github.com/Lyndir/MasterPassword.git"
 
   bottle do
     cellar :any
-    sha256 "ae8b265936797778a7cde788377eed89d9eacd267755a0b1186790057a10ff3b" => :high_sierra
-    sha256 "b8a106c3c84ff939e928613d4a6ccf7b5234e40ebae1edf15e3cac52d8c2e5ea" => :sierra
-    sha256 "9b58425b028a2598932474e1d0c17c13aad57e0a53ae7308c1b38404da8f3331" => :el_capitan
+    sha256 "46677cf8649983d5b77103d2ca56d9ad3697808ecc406f626a3462a089f932da" => :high_sierra
+    sha256 "19bf22915b3c534ad3ee6f1dfc20f142d53ae6c0c88757ae2632b7b1daa6667f" => :sierra
+    sha256 "7090c3d31289d2ac5529bd0a6bae2632a36ba7fcd4bb7974248bb36a15f67c7e" => :el_capitan
   end
 
   option "without-json-c", "Disable JSON configuration support"

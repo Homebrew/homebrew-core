@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.25.0-src.tar.gz"
-    sha256 "eef63a0aeea5147930a366aee78cbde248bb6e5c6868801bdf34849152965d2d"
+    url "https://static.rust-lang.org/dist/rustc-1.26.0-src.tar.gz"
+    sha256 "4fb09bc4e233b71dcbe08a37a3f38cabc32219745ec6a628b18a55a1232281dd"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.25.0",
-          :revision => "8c93e089536467783957fec23b0f2627bb6ce357"
+          :tag => "0.26.0",
+          :revision => "41480f5cc50863600e05aa17d13264c88070436a"
     end
 
     resource "racer" do
@@ -19,9 +19,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "c084516e00fd451450318093767e68e01018321cf89a510954cf0d96ca1e8402" => :high_sierra
-    sha256 "c375cd20c19e17200fa967f75620a962385a0c14da997b10c138f732e83330da" => :sierra
-    sha256 "9772521ffee73cbf230ddd7f8e858660e734ebbd2ecf68583c52575025fe8483" => :el_capitan
+    sha256 "b1ee221f371483a48eedefa452dac301e02009475331e72cf3a81d5ac4e6618c" => :high_sierra
+    sha256 "b86cd54762e9bb5442c5a7fd34c47b6971c68160c915e7ea0aae7c4b79afae9f" => :sierra
+    sha256 "bf9ca0637fcb3fa8079d7623db3cc160fb4d931b8a67027a98df947ca11f73c3" => :el_capitan
   end
 
   head do
@@ -55,8 +55,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2018-02-15/cargo-0.25.0-x86_64-apple-darwin.tar.gz"
-    sha256 "92782612068e796a6a85f5c2bc11ad748b961cb26e7b55f8f125d33cc402c1ca"
+    url "https://static.rust-lang.org/dist/2018-03-29/cargo-0.26.0-x86_64-apple-darwin.tar.gz"
+    sha256 "cab6adf58e9dea7ac217b1882312eff3487005cf32dcde099327669aac6e37de"
   end
 
   def install

@@ -1,14 +1,14 @@
 class Ivykis < Formula
   desc "Async I/O-assisting library"
   homepage "https://sourceforge.net/projects/libivykis"
-  url "https://downloads.sourceforge.net/project/libivykis/0.42.2/ivykis-0.42.2.tar.gz"
-  sha256 "886b260369be22e438f7917ed2bc823d1cf4134bbfbc9339385a752247306b93"
+  url "https://downloads.sourceforge.net/project/libivykis/0.42.3/ivykis-0.42.3.tar.gz"
+  sha256 "c9b025d55cefe9c58958d1012f36d63aa0a5caf22075617fff648751ea940aec"
 
   bottle do
     cellar :any
-    sha256 "6de73482d7d358088ded2c8af43993710f2967c2e8c4cd8aa67a6600aefb35bd" => :high_sierra
-    sha256 "3a9f5bdc6f40b4d7f9e7cdfcee7ad993cf02e2ac8fda0d20217ba6c10b783446" => :sierra
-    sha256 "1f202587109188602e9da0e064ffbf08242726eba5fd51037638441ada78d3e1" => :el_capitan
+    sha256 "a72955a0edfc33235875b785ab262a049a12c46d7b937e382148c62ed191fd1f" => :high_sierra
+    sha256 "94e0e10045e3c8cd76b930250f877f9c62e6110e68c074251601174ada0c72e5" => :sierra
+    sha256 "83e68479a554c2ca649ce1cd69206d896fa71b9fa81c37835e00cdafa6ecbedd" => :el_capitan
   end
 
   depends_on "automake" => :build

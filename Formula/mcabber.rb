@@ -3,12 +3,12 @@ class Mcabber < Formula
   homepage "https://mcabber.com/"
   url "https://mcabber.com/files/mcabber-1.1.0.tar.bz2"
   sha256 "04fc2c22c36da75cf4b761b5deccd074a19836368f38ab9d03c1e5708b41f0bd"
+  revision 1
 
   bottle do
-    sha256 "c95601a98c1c0a3ee247ccfef25d77b52d49ebd535840761916225571a9c3ebe" => :high_sierra
-    sha256 "b3bdcaf2f025e9b8844fd8b0be4ccbb742b088987658724d1599714fb053b9ca" => :sierra
-    sha256 "221b163a3c4634bad784d29c7590a87984d662de7a38ea1fc2d5fc2ff3306eb4" => :el_capitan
-    sha256 "3bfcbb80e1e4bebe963f88b8045a1dcea0cd3e3bed2e79a62b69d7cafc9c7e21" => :yosemite
+    sha256 "2823cae4b0424e6ee1e3beb912275889e4d25c11f90ce2395b77dc60dcda0b39" => :high_sierra
+    sha256 "eec539d040769c20a0515909bf79f65265c22b868c7fffa72a014e54b68a5ccb" => :sierra
+    sha256 "349752c0dfc6164a84e41548079657878fd5bd3226ec16df17470ac91f64fb16" => :el_capitan
   end
 
   head do

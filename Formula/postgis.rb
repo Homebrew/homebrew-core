@@ -3,12 +3,13 @@ class Postgis < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-2.4.4.tar.gz"
   sha256 "0663efb589210d5048d95c817e5cf29552ec8180e16d4c6ef56c94255faca8c2"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "a4ba0e8faa5878171d0544b9c426e9cb5d0ce356d25a5a73a872af7477b649b3" => :high_sierra
-    sha256 "9937b5d45d7acb82bb89ef8b400cf4ac3c85a581174f9b4f98b8f57973fe08a9" => :sierra
-    sha256 "5de66201a8236e67e8dcba2563ca20ab2308eef8dc7709842a2c8a0eed2feeb4" => :el_capitan
+    sha256 "39ca73e792f68197d9c7543300cfea6a36326c4ced5ac5b1f46484dbffad8fd2" => :high_sierra
+    sha256 "7d4bb0d80a5a7221815514b10781d021901b489cb405b02b0d0975661ea0a348" => :sierra
+    sha256 "2bb8047b0735acf4bec62f60aad084cf7b32a1e426d7def2dc00d8591030f46d" => :el_capitan
   end
 
   head do

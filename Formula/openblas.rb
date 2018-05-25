@@ -1,16 +1,14 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.2.20.tar.gz"
-  sha256 "5ef38b15d9c652985774869efd548b8e3e972e1e99475c673b25537ed7bcf394"
-  revision 1
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.0.tar.gz"
+  sha256 "cf51543709abe364d8ecfb5c09a2b533d2b725ea1a66f203509b21a8e9d8f1a1"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
-    cellar :any
-    sha256 "4a62a8e0a79f1f06c30ea4743ee02eba1599fc66cfc9812967b838093dca048d" => :high_sierra
-    sha256 "31c10a9ff27fe87694c8ca729d7fdc919f872302479082cbb5e42d22a84d66b8" => :sierra
-    sha256 "6aa065aea2afd4573b8d20ac24ae8fec6fd6bf71562e33c6d25c397b3cea8187" => :el_capitan
+    sha256 "895e681d843b6613e0a1328a212cae2d6152dea94629a545b6a4af64c181e061" => :high_sierra
+    sha256 "ec229c12ff1beca5b659fa751e347b470085bb52c2731d908da548ff4381e86f" => :sierra
+    sha256 "763e80edbd88cc75c96057a75198ce0e643d52f607399dec71432e1338a7a865" => :el_capitan
   end
 
   keg_only :provided_by_macos,

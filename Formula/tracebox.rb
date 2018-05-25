@@ -4,13 +4,14 @@ class Tracebox < Formula
   url "https://github.com/tracebox/tracebox.git",
       :tag => "v0.4.4",
       :revision => "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
+  revision 1
   head "https://github.com/tracebox/tracebox.git"
 
   bottle do
     cellar :any
-    sha256 "97b9eec6475ebd187edb11b71ce3695c3477d9f8943d8d6d1e7061c6883fce04" => :high_sierra
-    sha256 "d476a2ca43ab0ea973b34d7f340248fd81e7e451c5b37834dea35ef8098d6eb4" => :sierra
-    sha256 "8da2823065773fb10dadfa07f483e315e0c00e878d2a2b46ac6ceaf6c211cf55" => :el_capitan
+    sha256 "e3e8333e7674ff8829df657bd759353fecc45c6d982afbc33cf35774a6ec23ec" => :high_sierra
+    sha256 "52a3ff0ecd8903cee1be17802dfe0624dc89858088354132496a241ea4207561" => :sierra
+    sha256 "2c0b3b4bb42d38aafdb702f3b7a5e514588ce75dd5dc459368d40273332b3a7d" => :el_capitan
   end
 
   needs :cxx11

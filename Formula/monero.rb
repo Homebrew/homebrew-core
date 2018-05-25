@@ -1,31 +1,24 @@
 class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
-  url "https://github.com/monero-project/monero/archive/v0.12.0.0.tar.gz"
-  sha256 "5e8303900a39e296c4ebaa41d957ab9ee04e915704e1049f82a9cbd4eedc8ffb"
-  revision 1
+  url "https://github.com/monero-project/monero.git",
+      :tag => "v0.12.1.0",
+      :revision => "aa6850c71d2269bd0728ee503ff07f1d52ce5e58"
 
   bottle do
     cellar :any
-    sha256 "ad90379b8d68cf142427d10934377672f51ceb9af3aba9e6bb93e9582b40ee98" => :high_sierra
-    sha256 "234b5c6719a1c899972ad43ee5afac208473930c242d8a46c73eb8078cd1d232" => :sierra
-    sha256 "9c97ac2f8c316a18a991ec492e631f637018a45bb86d766614b95ec6cdb8b0f1" => :el_capitan
+    sha256 "03808552c68c72c20cdc713ee0f20832c64ca62c334664306e4265ed11e665ff" => :high_sierra
+    sha256 "06077ce82fb4ee59a3bfe7cda9d12585098bc89ade590d115be1824e3b44569e" => :sierra
+    sha256 "040a485969cc0b594fd4cca685e6f3e258dedca101be5c6a9cc269ddb3be7363" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "miniupnpc"
   depends_on "openssl"
+  depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"
-
-  # Fix "fatal error: 'boost/thread/v2/thread.hpp' file not found"
-  # Upstream PR from 19 Apr 2018 "Unbreak build against Boost 1.67"
-  patch do
-    url "https://github.com/monero-project/monero/pull/3667.patch?full_index=1"
-    sha256 "797f356c4d512fed1964352ddf502e2bdddf196c2c47ba4ae99665da4ddaaae0"
-  end
 
   resource "cppzmq" do
     url "https://github.com/zeromq/cppzmq/archive/v4.2.3.tar.gz"
@@ -34,8 +27,15 @@ class Monero < Formula
 
   def install
     (buildpath/"cppzmq").install resource("cppzmq")
-    system "cmake", ".", "-DZMQ_INCLUDE_PATH=#{buildpath}/cppzmq", *std_cmake_args
+    system "cmake", ".", "-DZMQ_INCLUDE_PATH=#{buildpath}/cppzmq",
+                         "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}",
+                         *std_cmake_args
     system "make", "install"
+
+    # Avoid conflicting with miniupnpc
+    # Reported upstream 25 May 2018 https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
+    rm_rf include/"miniupnpc"
   end
 
   test do

@@ -1,14 +1,14 @@
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.8.8.tar.gz"
-  sha256 "d430cb86f99595e26817fcff1441af815055485ef213a91c54af59181182dfd8"
+  url "https://github.com/pilosa/pilosa/archive/v0.10.1.tar.gz"
+  sha256 "bc2aba9c63c105e51c206f0a1c76a0d6275b3952041690867be63b717bfa13c2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b53e5982845292ea5a836866bb38356a1ef78b302f26ed687c46355bedfe1178" => :high_sierra
-    sha256 "cffc67a81a17cf30cfd37ad219593703806af37c9c000f8ee183f4fba4c80c80" => :sierra
-    sha256 "b803765ae2cfb19131293a09de26f4b18d3b7033fa7d4f52262b8f297471a2e7" => :el_capitan
+    sha256 "ff0c4497922945df6572d659e57eb74123e189aecb959c489acd5e55ef2ccbfb" => :high_sierra
+    sha256 "7c61b1f56dfbed5bfae5f5fcb18e4141e9623d554b502abccf6277f7109a2e07" => :sierra
+    sha256 "c34233da03a018f7c46a0c3fce19b8cb9b5d877f2a23e434e51f5955a7b0159d" => :el_capitan
   end
 
   depends_on "dep" => :build
@@ -20,7 +20,7 @@ class Pilosa < Formula
     (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
 
     cd "src/github.com/pilosa/pilosa" do
-      system "make", "generate-statik", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
+      system "make", "generate-statik", "build", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
       prefix.install_metafiles
     end
   end

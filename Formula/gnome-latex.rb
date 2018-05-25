@@ -1,35 +1,31 @@
-class Latexila < Formula
+class GnomeLatex < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/latexila/3.26/latexila-3.26.1.tar.xz"
-  sha256 "658eba0db71864eb6d4873516d97e05be3e63085ff55513c8f10145ffb657151"
-  revision 4
+  url "https://download.gnome.org/sources/gnome-latex/3.28/gnome-latex-3.28.1.tar.xz"
+  sha256 "02105e81765388faa9f75ccb43b745b1d66bfb14285b7855e6a7809e7f0c88fc"
 
   bottle do
-    sha256 "692f383ca261bea02b2853ee77ae398a8efcbb666b25ae758d087f7d1b96263d" => :high_sierra
-    sha256 "b95d43825b9d4844db8bfc709c61fa447b56c36e7fa5c8b225890044433d1375" => :sierra
-    sha256 "bae5d366a89baaaff691c8bd178092b2b953f6fcd6ea7689aae154fcb15ede60" => :el_capitan
+    sha256 "94cc5026043f41ccac969a6e4c5e259e96405465c4654df3cfd9cf8e97f6892f" => :high_sierra
+    sha256 "a9646fd5e5ac309ef2af60789f3c8330daadf4b2fbd6ad1e5ae49356b4f38f53" => :sierra
+    sha256 "d3df93df2ad267d89548b43f1cf02833e60bc2e6cfeb00d04388e890046e47b3" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "vala" => :build
-  depends_on "gtksourceview3"
   depends_on "gspell"
   depends_on "tepl"
   depends_on "libgee"
   depends_on "adwaita-icon-theme"
   depends_on "gnome-themes-standard" => :optional
-  depends_on "libxml2"
-  depends_on "python@2"
 
   def install
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
     system "./configure", "--disable-schemas-compile",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--disable-dconf-migration",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -44,6 +40,6 @@ class Latexila < Formula
   end
 
   test do
-    system "#{bin}/latexila", "--version"
+    system "#{bin}/gnome-latex", "--version"
   end
 end

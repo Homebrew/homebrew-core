@@ -1,15 +1,14 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.28/GraphicsMagick-1.3.28.tar.xz"
-  sha256 "942a68a9a8a5af6f682b896fd4f0ad617d8b49907e474acfe59549956bcc994a"
-  revision 1
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.29/GraphicsMagick-1.3.29.tar.xz"
+  sha256 "e18df46a6934c8c12bfe274d09f28b822f291877f9c81bd9a506f879a7610cd4"
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
-    sha256 "ff12a82870629fe3f6e425aa1500ae4da142809745b5b755a42498504f73f1ee" => :high_sierra
-    sha256 "92457b10f78aa756b3e560bc8be9fbc0fe0706c6d6913d3f30a645ff13ac3eff" => :sierra
-    sha256 "2658af1f23bc3d7a7d9aefa3c15cdf47303a556da88070221ca5796bd7225bc3" => :el_capitan
+    sha256 "1e5285484c31f3f5a0edfdb5457dddf114d5ef28d45e1e92c78494c07de5d621" => :high_sierra
+    sha256 "c619357a47ac6dd35e16c13f053bc79399942d98a88ffbf278d5d7903972eeea" => :sierra
+    sha256 "e95c6f9bc95dbb529a1bca6d88a9b2d0c0fc595632b6629e878e9d39d7cd644e" => :el_capitan
   end
 
   option "without-magick-plus-plus", "disable build/install of Magick++"

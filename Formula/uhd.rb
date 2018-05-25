@@ -1,15 +1,14 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.11.0.1.tar.gz"
-  sha256 "b8b0aa9ca347353333c2d6f52193a01b6c7dbcdaf5e21250c00210d3f8b0fabd"
-  revision 1
+  url "https://github.com/EttusResearch/uhd/archive/v3.11.1.0.tar.gz"
+  sha256 "9c6347584e778c5dcdd2dceb296b3e39f3374e38565c1133a88a68a7cac1ec41"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "27cb9724a9680fb0ff9a1a48d6dcc17ac5e39c7b17bbf67acbf73b318667a30a" => :high_sierra
-    sha256 "851eebeaaae5554eccdee403a76a163ecd9793c1f8095ee7105af0e989466219" => :sierra
-    sha256 "c9b6d28ef4abf3050fa297b4bc2b56ae9c74d4a4f694dbbf1bb226b82c490cfa" => :el_capitan
+    sha256 "4f1a61f8046c2bded319e840b2683affc3e845d213d1b285b81762ca66d0ff3b" => :high_sierra
+    sha256 "354d3192c75f8731c1021f325fe4824dc8723691a4c974084665144fdc480477" => :sierra
+    sha256 "fc49d31f2178bccd011c0fdd23ece3a0c438ef56c5c36a05d9a31a38d3fc6ab0" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -18,12 +17,6 @@ class Uhd < Formula
   depends_on "python@2"
   depends_on "doxygen" => [:build, :optional]
   depends_on "gpsd" => :optional
-
-  # Upstream PR from 14 Apr 2018 "Unbreak build against Boost 1.67"
-  patch do
-    url "https://github.com/EttusResearch/uhd/pull/170.patch?full_index=1"
-    sha256 "2a4d24c1fa5053bf81f283e203d47fd880fad2e60ea291e58154ff72d330eb50"
-  end
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"

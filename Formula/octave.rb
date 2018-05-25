@@ -1,20 +1,21 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-4.2.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-4.2.2.tar.gz"
-  sha256 "77b84395d8e7728a1ab223058fe5e92dc38c03bc13f7358e6533aab36f76726e"
-  revision 2
+  url "https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-4.4.0.tar.gz"
+  sha256 "72f846379fcec7e813d46adcbacd069d72c4f4d8f6003bcd92c3513aafcd6e96"
 
   bottle do
-    sha256 "a7f5ad466f6f4af7ff0c2dbf361a524361378521f4530cf448258db579b69c24" => :high_sierra
-    sha256 "6e48de076c248387c14a31156fcc19aaffde248e5a0239f1c2e3b05809ddb657" => :sierra
-    sha256 "b7863bc195691632f3d2dc3359bcee21fda4549b061a76cbded236517ec5bcd9" => :el_capitan
+    sha256 "749a05f276092a3d77357883465dccae17e6dc168dcff988437461a9d9013cca" => :high_sierra
+    sha256 "faa5410a85ffdf8d531d29ea6fb69c57ed3380fbc40e70a2ac0a6cc46976ac1e" => :sierra
+    sha256 "5fb1b5a0d43b07ed96bc2c4c529f8d82b04db8f632ffeebb42caee7518c2bc22" => :el_capitan
   end
 
   head do
     url "https://hg.savannah.gnu.org/hgweb/octave", :branch => "default", :using => :hg
-    depends_on "mercurial" => :build
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
@@ -22,9 +23,8 @@ class Octave < Formula
   end
 
   # Complete list of dependencies at https://wiki.octave.org/Building
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
+  depends_on :java => ["1.6+", :build, :test]
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "epstool"
@@ -50,7 +50,6 @@ class Octave < Formula
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "veclibfort"
-  depends_on :java => ["1.6+", :optional]
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -61,43 +60,22 @@ class Octave < Formula
     # cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
-    # allow for recent Oracle Java (>=1.8) without requiring the old Apple Java 1.6
-    # this is more or less the same as in https://savannah.gnu.org/patch/index.php?9439
-    inreplace "libinterp/octave-value/ov-java.cc",
-      "#if ! defined (__APPLE__) && ! defined (__MACH__)", "#if 1" # treat mac's java like others
-    inreplace "configure.ac",
-      "-framework JavaVM", "" # remove framework JavaVM as it requires Java 1.6 after build
-
-    inreplace "scripts/java/module.mk",
-      "-source 1.3 -target 1.3", "" # necessary for Java >1.8
-
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-link-all-dependencies
-      --enable-shared
-      --disable-static
-      --disable-docs
-      --without-OSMesa
-      --without-qt
-      --with-hdf5-includedir=#{Formula["hdf5"].opt_include}
-      --with-hdf5-libdir=#{Formula["hdf5"].opt_lib}
-      --with-x=no
-      --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort
-      --with-portaudio
-      --with-sndfile
-    ]
-
-    args << "--disable-java" if build.without? "java"
-
-    if build.head?
-      system "./bootstrap"
-    else
-      system "autoreconf", "-fiv"
-    end
-
-    system "./configure", *args
+    system "./bootstrap" if build.head?
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--enable-link-all-dependencies",
+                          "--enable-shared",
+                          "--disable-static",
+                          "--disable-docs",
+                          "--without-OSMesa",
+                          "--without-qt",
+                          "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
+                          "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
+                          "--with-x=no",
+                          "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
+                          "--with-portaudio",
+                          "--with-sndfile"
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
@@ -114,6 +92,6 @@ class Octave < Formula
     # This is supposed to crash octave if there is a problem with veclibfort
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
     # Test java bindings: check if javaclasspath is working, return error if not
-    system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;" if build.with? "java"
+    system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;"
   end
 end

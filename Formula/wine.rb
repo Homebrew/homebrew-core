@@ -7,7 +7,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://dl.winehq.org/wine/source/3.0/wine-3.0.tar.xz"
@@ -28,9 +28,9 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "bf84c0a02b7d7b4fc8814891f5542c0e35c30c922e0d2bcf4af168a1f34e36e4" => :high_sierra
-    sha256 "cceea27c906e9e5e7916281a57c36872c943802e998fede387fa7ccbc9d297ac" => :sierra
-    sha256 "309e0b2978bb79ea627caba23d7f3bbb0cb54d3a6b08836b2cde387a743dae50" => :el_capitan
+    sha256 "896c9d9dc977413dde08dd6758f802d20f506b5130ab1f10837a2465e7a38a4a" => :high_sierra
+    sha256 "8355d01e88267f16b2e56b63a6bb916ab55d57b9daca718420dd5a13ad912960" => :sierra
+    sha256 "17fe32cc5453f5463caf1d5d36f32e26d3af070121a0cf680cbc316a0ccfe6d8" => :el_capitan
   end
 
   devel do
@@ -105,9 +105,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
-    sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9.1/freetype-2.9.1.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.bz2"
+    sha256 "db8d87ea720ea9d5edc5388fc7a0497bb11ba9fe972245e0f7f4c7e8b1e1e84d"
   end
 
   resource "libusb" do
@@ -117,8 +117,8 @@ class Wine < Formula
   end
 
   resource "webp" do
-    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.6.1.tar.gz"
-    sha256 "06503c782d9f151baa325591c3579c68ed700ffc62d4f5a32feead0ff017d8ab"
+    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.0.tar.gz"
+    sha256 "84259c4388f18637af3c5a6361536d754a5394492f91be1abc2e981d4983225b"
   end
 
   resource "fontconfig" do
@@ -134,9 +134,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.16/libgphoto2-2.5.16.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.16.tar.bz2"
-    sha256 "e757416d1623e01a9d0d294b2e790162e434c0964f50d3b7ff1a3424b62a2906"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.17/libgphoto2-2.5.17.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.17.tar.bz2"
+    sha256 "417464f0a313fa937e8a71cdf18a371cf01e750830195cd63ae31da0d092b555"
   end
 
   resource "net-snmp" do
@@ -309,11 +309,6 @@ class Wine < Formula
       end
 
       resource("freetype").stage do
-        # Enable sub-pixel rendering
-        inreplace "include/freetype/config/ftoption.h",
-                  "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
-                  "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
-
         system "./configure", "--prefix=#{libexec}",
                               "--disable-static",
                               "--without-harfbuzz",
@@ -453,12 +448,6 @@ class Wine < Formula
     (pkgshare/"mono").install resource("mono")
   end
 
-  def caveats; <<~EOS
-    You may also want winetricks:
-      brew install winetricks
-    EOS
-  end
-
   def post_install
     # For fontconfig
     ohai "Regenerating font cache, this may take a while"
@@ -467,6 +456,12 @@ class Wine < Formula
     # For net-snmp
     (var/"db/net-snmp_vendored_wine").mkpath
     (var/"log").mkpath
+  end
+
+  def caveats; <<~EOS
+    You may also want winetricks:
+      brew install winetricks
+    EOS
   end
 
   test do

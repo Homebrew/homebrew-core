@@ -16,6 +16,8 @@ class Dep < Formula
 
   depends_on "go"
 
+  conflicts_with "deployer", :because => "both install `dep` binaries"
+
   def install
     ENV["GOPATH"] = buildpath
     arch = MacOS.prefer_64_bit? ? "amd64" : "386"

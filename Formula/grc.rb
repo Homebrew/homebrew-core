@@ -1,9 +1,8 @@
 class Grc < Formula
   desc "Colorize logfiles and command output"
   homepage "https://korpus.juls.savba.sk/~garabik/software/grc.html"
-  url "https://github.com/garabik/grc/archive/v1.11.1.tar.gz"
-  sha256 "9ae4bcc9186d6856e861d5b0e29b7b14db3f14e6b643e2df0076c104a94dbcba"
-  revision 2
+  url "https://github.com/garabik/grc/archive/v1.11.3.tar.gz"
+  sha256 "b167babd8f073a68f5a3091f833e4036fb8d86504e746694747a3ee5048fa7a9"
   head "https://github.com/garabik/grc.git"
 
   bottle :unneeded

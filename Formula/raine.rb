@@ -1,16 +1,15 @@
 class Raine < Formula
   desc "680x0 arcade emulator"
   homepage "https://raine.1emulation.com/"
-  url "https://github.com/zelurker/raine/archive/0.64.13.tar.gz"
-  sha256 "0af13e67744ac81f987687a3f83703bc844897a6a1b828a19d82f96dfe8ab719"
+  url "https://github.com/zelurker/raine/archive/0.64.15.tar.gz"
+  sha256 "7aabe3138bd41e95b586a48a29c4d8bf68ff44aeb44d54dae0899c2f4aba6542"
   head "https://github.com/zelurker/raine.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5c3d0fa6dcef53ac42e2ca4b54ae91f4cbbdf83e3614056c3c6b58a2b6083db2" => :high_sierra
-    sha256 "74e67059ae1ba9105c47aef4d46b871273023c2778f2cc939e9e6e2dd9020114" => :sierra
-    sha256 "6cbc1585005c114105d1dfc758b3e522df63970086a79feaefeb8c496bf041e8" => :el_capitan
+    sha256 "a770cb82fd789143fa7b6ebcb3250acc54e1fe838b35481cb344cccc95deabe7" => :high_sierra
+    sha256 "e9cc1e4e5b2412e75ae7b6b8356fdc444854fcf972c8ff75070962b8a8c69d6f" => :sierra
+    sha256 "f1211de870679484ecd9dca7e572a5cc0228f1f6a7ce3879f06b25f3c1816e4a" => :el_capitan
   end
 
   def configure_args(package)
@@ -56,6 +55,9 @@ class Raine < Formula
                         --disable-shared]).dup
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
 
@@ -119,15 +121,6 @@ class Raine < Formula
     sha256 "0666ef55da72c3e356ca85b6a0084d56b05dd740c3c21d26d372085aa2c6e708"
   end
 
-  # Fix build for Xcode 9 with upstream commit
-  # https://github.com/zelurker/raine/pull/13
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://github.com/zelurker/raine/commit/662cad1b.patch?full_index=1"
-      sha256 "08ec83482318d9e58713f272ca882b5d658c03fd8df24bdb0008a56fa3310dd2"
-    end
-  end
-
   def install
     ENV.m32
 
@@ -148,6 +141,11 @@ class Raine < Formula
           inreplace "SDL_ttf.c",
                     "for ( row = 0; row < glyph->bitmap.rows; ++row ) {",
                     "for ( row = 0; row < glyph->pixmap.rows; ++row ) {"
+        elsif r.name == "sdl_sound"
+          # Works around a broken libtool which breaks dynamic linkage
+          touch ["AUTHORS", "NEWS"]
+          File.rename "CHANGELOG", "ChangeLog"
+          system "autoreconf", "-ivf"
         end
 
         args = configure_args(r.name)
@@ -160,12 +158,11 @@ class Raine < Formula
     end
 
     inreplace "makefile" do |s|
-      s.gsub! /-framework SDL_ttf/, "#{buildpath}/lib/libSDL_ttf.a #{buildpath}/lib/libfreetype.a -lbz2"
-      s.gsub! /-framework (SDL_image|SDL)/, "#{buildpath}/lib/lib\\1.a"
-      s.gsub! %r{/usr/local/lib/libSDL_sound\.a}, "#{buildpath}/lib/libSDL_sound.a"
-      s.gsub! %r{/usr/local/lib/libintl\.a}, "#{buildpath}/lib/libintl.a"
-      s.gsub! %r{/usr/local/lib/libmuparser\.a}, "#{buildpath}/lib/libmuparser.a"
+      s.gsub! /-lSDL_ttf/, "-lSDL_ttf -lfreetype -lbz2"
+      s.gsub! /-lSDL_sound/, "-lSDL_sound -lFLAC -logg"
+      s.gsub! /-l(SDL\w*|intl|muparser|freetype|png|FLAC|ogg)/, "#{buildpath}/lib/lib\\1.a"
       s.gsub! %r{/usr/local/lib/libpng.a}, "#{buildpath}/lib/libpng.a"
+      s.gsub! %r{/usr/local/include/SDL/}, "#{buildpath}/include/SDL/"
       s.gsub! %r{-I/usr/local/include}, ENV.cflags
     end
 

@@ -1,14 +1,14 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.2.3.tar.gz"
-  sha256 "0a06a2c75688a0e6c85717fb67b57940bebca5e56b7c76337c50b8c3d024345b"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.3.1.tar.gz"
+  sha256 "dfa559a4e36201cd66ec098aa0943407c5ce24331904e115b8aa6f64936cfb62"
   head "https://github.com/phusion/passenger.git", :branch => "stable-5.1"
 
   bottle do
-    sha256 "d0619a778c90e2df7fdd4d1ee04b194e5797306b3730d4c9380cf2aecd3455d2" => :high_sierra
-    sha256 "89898f30e16a661e0e4ad156ddfeed66ee64d1214476abe17ec732547519ae2c" => :sierra
-    sha256 "a924eeed46731cff530eeb60eb804614098df8864ed3744b75ac0c5e5762afb1" => :el_capitan
+    sha256 "a82c4fc0411dddd021698837e4e1866d047bbe1c03eebe61a6981be4355ba351" => :high_sierra
+    sha256 "3e160b00346660344a6ee6f85f03c07dce2952b0c9cb9d4d5da7c12c3a8a4e15" => :sierra
+    sha256 "d8c4e52b03271e8c68065016fb74e56a1b1cd2b66e18c7c21f7d0ac6379191b6" => :el_capitan
   end
 
   option "without-apache2-module", "Disable Apache2 module"

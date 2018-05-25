@@ -1,15 +1,15 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/1b/fa/64655fda45bbfe80a3e4cd037439508bf831b2efbaef999ef99c4d531eb7/snakemake-4.8.1.tar.gz"
-  sha256 "58d9bcc94bc0294439c729c7836fa463b88afe5fc34d554b09b96cdc33019a5a"
+  url "https://files.pythonhosted.org/packages/63/82/3f2ba28ce21d81c1070610bafb1f9f4afc4cef9add8b041baec0acc44efd/snakemake-5.1.3.tar.gz"
+  sha256 "9abeac67ca0a37a5a6cd22d32d0e04e36c72aeab1922702a83b9d3b9d20293e8"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c814b7d5ab2edb61bdc302cb2d57b3af05cd2b5a81dedcc7461431eb93868bda" => :high_sierra
-    sha256 "863c0a20f6083a061fbd343277e8a8870808642a727a3a71ea5c4afe17182239" => :sierra
-    sha256 "95c5946d9a66a6404625fb569d0b28643c5847562c16157ccabaf8db93461d8e" => :el_capitan
+    sha256 "1bcac1c08e50001748bb35efa843ebd3fa52ee3db8f80ae35203222f37585ea7" => :high_sierra
+    sha256 "758b27cff9d4ce7ba4a2bc6636f9dceb2bcc85a3d9bd0e839b54e219b6ae2f69" => :sierra
+    sha256 "c04f60916ed8a03cc54736580b370cd28f341c3994fba7ec1d107bb355f85deb" => :el_capitan
   end
 
   depends_on "python"
@@ -39,9 +39,29 @@ class Snakemake < Formula
     sha256 "7a11371cc2dbbad71d6dfef57ced6e8b384bb377eeb847c63d58f8dc8e8b2023"
   end
 
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
+    sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
     sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+  end
+
+  resource "Jinja2" do
+    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
+    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+  end
+
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/58/b9/171dbb07e18c6346090a37f03c7e74410a1a56123f847efed59af260a298/jsonschema-2.6.0.tar.gz"
+    sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
+  end
+
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
+    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
   end
 
   resource "PyYAML" do

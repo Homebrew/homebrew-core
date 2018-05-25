@@ -1,7 +1,7 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/ntop/ntopng/archive/3.2.tar.gz"
@@ -14,9 +14,9 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 "b081d1c51e866004ca67152de76ff3a6fd29ebad435eaaf8b4e7bf233b313b4e" => :high_sierra
-    sha256 "9806a98d28853c7c8679c90bb2b9d40f62b4c1c3f4132d8aa36a6dc78d206796" => :sierra
-    sha256 "dc4876dbffa7871f30b899bacad272f721bcedc51019713691790825f867d1f9" => :el_capitan
+    sha256 "adb72c85bd04a9707a85d7c06282cb7c92641ed0775bcb686987031b8a5e21dc" => :high_sierra
+    sha256 "6647cdce6eecd2163326cc73f79b40390525f799c147d472a789db4a089d4f56" => :sierra
+    sha256 "0eef0fb0ef2c1d9c34761b324097ea0a938ae41a2cc0e5fdf5f4019a455884ee" => :el_capitan
   end
 
   head do

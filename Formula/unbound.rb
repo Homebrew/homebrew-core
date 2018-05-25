@@ -1,13 +1,13 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.7.0.tar.gz"
-  sha256 "94dd9071fb13d8ccd122a3ac67c4524a3324d0e771fc7a8a7c49af8abfb926a2"
+  url "https://www.unbound.net/downloads/unbound-1.7.1.tar.gz"
+  sha256 "56e085ef582c5372a20207de179d0edb4e541e59f87be7d4ee1d00d12008628d"
 
   bottle do
-    sha256 "8c7e2cd18ce125440cfc6545de5fb437c4e4a386786211c9b0956406b00169e7" => :high_sierra
-    sha256 "9cfd4dc5892ae2a762b5413b2fe61ff18c59aea036a56a6616699e5b992e234b" => :sierra
-    sha256 "701dbf2f8fbccfee9a8f843814639eb65d8fbcc57a8802a96964077a95f059b8" => :el_capitan
+    sha256 "071d78e17adc6cb939c6a54ec4012b0647bc9897cdaefe9b70d1618688a1ea7a" => :high_sierra
+    sha256 "7f13496f800e34f2a936fa57118385f8215c2b0c735bb40fcb2dc36cd994e51e" => :sierra
+    sha256 "a64db7e2ad6f9141e533c75dbd83415bb84e6eed4f56168b03ae73f9b9032e99" => :el_capitan
   end
 
   deprecated_option "with-python" => "with-python@2"
@@ -16,13 +16,6 @@ class Unbound < Formula
   depends_on "libevent"
   depends_on "python@2" => :optional
   depends_on "swig" if build.with? "python@2"
-
-  # https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=4043
-  # Remove for unbound >1.7.0
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2081bc5e/unbound/unbound-1.7.0-fix-v6-make-test.diff"
-    sha256 "acae8f6aa8f5d1044dab9a9bf8782263786c853bb38e1b59a9f18d866e01a1f4"
-  end
 
   def install
     args = %W[

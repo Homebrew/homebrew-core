@@ -1,14 +1,14 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.3/postgresql-10.3.tar.bz2"
-  sha256 "6ea268780ee35e88c65cdb0af7955ad90b7d0ef34573867f223f14e43467931a"
+  url "https://ftp.postgresql.org/pub/source/v10.4/postgresql-10.4.tar.bz2"
+  sha256 "1b60812310bd5756c62d93a9f93de8c28ea63b0df254f428cd1cf1a4d9020048"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "632a988ae9a6b45acd3fca3f05af7dbec02e01fa91814ff8ba238cc20d1a7f38" => :high_sierra
-    sha256 "c5412eb34006856a6f0aca2ca2c69e2b8da706f1c6a6aae200aa81d0cda23207" => :sierra
-    sha256 "0581e9efe089864abbcc938f70a5175ff5595ffd701062bafec0be041ba56258" => :el_capitan
+    sha256 "1e7b54fb14f79b5ebda6ff50432abfc8fc0ee1b608d7c0c0f6b1503eab4dfafc" => :high_sierra
+    sha256 "4da4fd7d3d855816470392f64a07fad981dbf67457202d7f7cbdf90afe8ce09c" => :sierra
+    sha256 "626d253e3fa4c8464e30ff0cfe595b1fb7663597dd9918e73f3789aff2776233" => :el_capitan
   end
 
   option "without-perl", "Build without Perl support"

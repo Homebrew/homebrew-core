@@ -1,14 +1,14 @@
 class Libu2fHost < Formula
   desc "Host-side of the Universal 2nd Factor (U2F) protocol"
   homepage "https://developers.yubico.com/libu2f-host/"
-  url "https://developers.yubico.com/libu2f-host/Releases/libu2f-host-1.1.5.tar.xz"
-  sha256 "f32b71435edf6e412f2971edef411f3b4edb419a5356553ad57811ece4a63a95"
+  url "https://developers.yubico.com/libu2f-host/Releases/libu2f-host-1.1.6.tar.xz"
+  sha256 "4da0bb9e32cab230e63bf65252076f9a4b5e40eb9ec2ddaf9376bcef30e7bda7"
 
   bottle do
     cellar :any
-    sha256 "35386868f78aa7140d1c9ed454fca428b029d837c43d8305613665cf950b3ca7" => :high_sierra
-    sha256 "ae857c0f76b7c8ed45a84f83e103aac2ca8831ab1d079e66ec9d00cb64970687" => :sierra
-    sha256 "3ad0d4837be1a01dcf8f1b529320ceeffe29dfd91c63a9e2e90baa7cfeaccc7f" => :el_capitan
+    sha256 "1c8bf3998672c1067e4bbd2a17de18e8634b78a2ddd9ab8899c9f1af6e8b44fe" => :high_sierra
+    sha256 "563bb00b2ffae07102b045c388033b6e1eb452efb206c208976299da3ce30446" => :sierra
+    sha256 "964fa246d7a086ba9bca40c062e6c4e27fd2dc8251d419ff69a4d646cc54498a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

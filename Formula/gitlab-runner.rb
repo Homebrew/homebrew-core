@@ -2,15 +2,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.7.0",
-      :revision => "7c273476f55ccfc0c714cbadb2a0f958ecda7732"
+      :tag => "v10.8.0",
+      :revision => "079aad9e88c79dc165faad7ae49ac3001ed3c379"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5afdd085a0b023c1955d68896b398798203b00c72013e6f1ce9a0c0fdf428619" => :high_sierra
-    sha256 "b36c57cde2bbfabf64d4aa00747b5fbc7bf1008eecf67656639a160b2f6f0de6" => :sierra
-    sha256 "d2068aaca6734e38b68a7a7621028b573b699d0bb7ec145c366d6ceb2d8c6769" => :el_capitan
+    sha256 "74cfd1d86f5aa5670bec3a2985860caf0b370d9f1b0ca209758443b113d0acb8" => :high_sierra
+    sha256 "ad6dbae63701bcdb2e90c290301653425fc0f4fef5d673eb86738b80907927a6" => :sierra
+    sha256 "540639a22e57e825b23ee700b9f3e7662749fe5b7623ff42846c0ebdc4d53dc6" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -18,17 +18,17 @@ class GitlabRunner < Formula
   depends_on "docker" => :recommended
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.8.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.7.0"
-    sha256 "3b3e2a2457103b9dbe21245751ecc5bdab676dbdb6a0a68536e8a4c3506d7d17"
+    version "10.8.0"
+    sha256 "2d90451766f4a83f49561de5e582d98b08e1cb181b1f042e11031bfcc605acb1"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.8.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.7.0"
-    sha256 "5fd022a00c88f02ac293b55e8fb90378118783f357ba84436975a200a48ee885"
+    version "10.8.0"
+    sha256 "0878a473c6ddbda7110639c0c1736feee1a55ef343e29e71b733e75b4df54076"
   end
 
   def install

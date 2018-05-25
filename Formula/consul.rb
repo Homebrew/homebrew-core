@@ -2,17 +2,17 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v1.0.7",
-      :revision => "fb848fc48818f58690db09d14640513aa6bf3c02"
+      :tag => "v1.1.0",
+      :revision => "5174058f0d2bda63fa5198ab96c33d9a909c58ed"
 
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ade3c8fcdabfeff4d80e117ad4bb5d7ae6283d267821e1db1832babc376b1d8d" => :high_sierra
-    sha256 "f43e89d32840ea89158fbe6f2c6c6a6ee4299d2527a64893ede956c36b26e322" => :sierra
-    sha256 "f82d247ef707dedad419c1ec78a48c3c75b624f82f8e4d360447828cede8e920" => :el_capitan
+    sha256 "ecc3193fcb3c3af540e3bc74a3dc592e7dedb3b93238232b8e1fd28105e50302" => :high_sierra
+    sha256 "847b1967a2d036a1e675299b9307236f1bb9dbfde22a406071500b80a9e17425" => :sierra
+    sha256 "1939470ebb9bdf07e7cfbb5ff7509827852cf9ed719a770f5c1634f2a0c9ec11" => :el_capitan
   end
 
   depends_on "go" => :build

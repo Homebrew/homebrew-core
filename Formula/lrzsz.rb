@@ -1,10 +1,8 @@
 class Lrzsz < Formula
   desc "Tools for zmodem/xmodem/ymodem file transfer"
-  # Homepage and URL redirect http to https, which is great.
-  # Less great: Upstream SSL cert expired Dec 2015 and now fails to download.
-  homepage "http://www.ohse.de/uwe/software/lrzsz.html"
-  # url "http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz"
-  url "https://dl.bintray.com/homebrew/mirror/lrzsz-0.12.20.tar.gz"
+  homepage "https://www.ohse.de/uwe/software/lrzsz.html"
+  url "https://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/lrzsz-0.12.20.tar.gz"
   sha256 "c28b36b14bddb014d9e9c97c52459852f97bd405f89113f30bee45ed92728ff1"
 
   bottle do

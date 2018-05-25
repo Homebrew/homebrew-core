@@ -27,6 +27,18 @@ class Libhid < Formula
 
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <hid.h>
+      int main(void) {
+        hid_init();
+        return hid_cleanup();
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lhid", "-o", "test"
+    system "./test"
+  end
 end
 
 __END__

@@ -1,15 +1,15 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/v2.10.4.tar.gz"
-  sha256 "b0c1999686fd05c004a79ef850c04d0cf08171b9217101034c1a349113264b1e"
+  url "https://github.com/IntelRealSense/librealsense/archive/v2.11.1.tar.gz"
+  sha256 "0a5eabe194555796b2c552bdbbb9227566bbce5eb95167a40021dad32b27e565"
   head "https://github.com/IntelRealSense/librealsense.git"
 
   bottle do
     cellar :any
-    sha256 "8fd080c1b6312e41676c180c75842c63cd1cb05997f95baa37bb9c104977279b" => :high_sierra
-    sha256 "434845e2038e1bc60a822be2d9d9a9b5a54fc6cafcf5ba650408d5439c567ef3" => :sierra
-    sha256 "55ff4e1eba88785498ab383d2717cbe228b2b899c46b93e4da4b388b7a183225" => :el_capitan
+    sha256 "f4134cfb03ace927eef6b33b38b2cd1e9543d0f63d15417a116c421f94ab5b04" => :high_sierra
+    sha256 "29bcc14899b9146cfd617ecc61d305720da37a31c940e3ef08520a28ec626925" => :sierra
+    sha256 "3a7c74206c615fa656589d886f0a3ec418583e9326f8979949c63b614e532c9d" => :el_capitan
   end
 
   option "with-examples", "Install examples"

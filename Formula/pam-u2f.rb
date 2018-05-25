@@ -1,15 +1,15 @@
 class PamU2f < Formula
   desc "Provides an easy way to use U2F-compliant authenticators with PAM"
   homepage "https://developers.yubico.com/pam-u2f/"
-  url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.0.6.tar.gz"
-  sha256 "101409455aa3257c8bb0968508a90f7ae58166e8ccb1d097e5fe9b541259ed3a"
+  url "https://developers.yubico.com/pam-u2f/Releases/pam_u2f-1.0.7.tar.gz"
+  sha256 "034aad8e29b159443dd6c1b7740006addc83d0659304fc4b0b4fb592f768e7cf"
   head "https://github.com/Yubico/pam-u2f.git"
 
   bottle do
     cellar :any
-    sha256 "afca2620432c6409c74c05964351b689d0ef531bf3f92c03ac4e550fc54841fb" => :high_sierra
-    sha256 "5b8df58d53948ff20dd7f6284a6d830f0e4087e573ba210adc526a3b9273ca1c" => :sierra
-    sha256 "ddfb23e7cddf6b47e78c889a8041690aab670d7724ebfcc27ca60018d780d127" => :el_capitan
+    sha256 "aeea6df4ee9fd8a1625a15aa5a1d1a09429cf4b48c697e0a423dd9874c4b868e" => :high_sierra
+    sha256 "873567775f9cf3a1d87c8dcc93d7a5cf1d41e536595b8b2e2b3bca12eed1e595" => :sierra
+    sha256 "10730971bc1100e4288204cec75f3115235e0cbbaef19f8acad1ddf9a4aeb0d2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

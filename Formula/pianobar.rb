@@ -1,7 +1,7 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  revision 1
+  revision 2
   head "https://github.com/PromyLOPh/pianobar.git"
 
   stable do
@@ -18,9 +18,9 @@ class Pianobar < Formula
 
   bottle do
     cellar :any
-    sha256 "83394d5085f9495f23901731eaf17565589cea6234332d27dad02dbb8ddf330c" => :high_sierra
-    sha256 "a3d622b4b55cbfbb3d1f939e9fe500aa42d8e4a1edb66278288723d2bf41a659" => :sierra
-    sha256 "32db2239d66180b79ea149b5e0121f8b70ccf4fc3d0c13b76218efd3924d4f8d" => :el_capitan
+    sha256 "d4478a5404a4d912f512978420f66032ee5b094cdd970c9734877ecfe53165b3" => :high_sierra
+    sha256 "e6006ef98f2a44e0dfd3ec57835bf955063165cd50d1b2ba0f9a50a2cf31e7d9" => :sierra
+    sha256 "245e0fe8ff65bdb42356eb8a887a8df40c391a6fe8ee2e8d7f32bb110538392b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
