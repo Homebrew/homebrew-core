@@ -1,9 +1,9 @@
 class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
-  url "https://github.com/monero-project/monero/archive/v0.12.0.0.tar.gz"
-  sha256 "5e8303900a39e296c4ebaa41d957ab9ee04e915704e1049f82a9cbd4eedc8ffb"
-  revision 3
+  url "https://github.com/monero-project/monero.git",
+      :tag => "v0.12.1.0",
+      :revision => "aa6850c71d2269bd0728ee503ff07f1d52ce5e58"
 
   bottle do
     cellar :any
@@ -15,18 +15,10 @@ class Monero < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "miniupnpc"
   depends_on "openssl"
   depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"
-
-  # Fix "fatal error: 'boost/thread/v2/thread.hpp' file not found"
-  # https://github.com/monero-project/monero/pull/3667
-  patch do
-    url "https://github.com/monero-project/monero/commit/53a1962da18f952f6eb4683a846e52fe122520e2.patch?full_index=1"
-    sha256 "c5869f9da9429047fdad4386d0310cd88aae499a9ff148120612ab52c5a20b74"
-  end
 
   resource "cppzmq" do
     url "https://github.com/zeromq/cppzmq/archive/v4.2.3.tar.gz"
@@ -39,6 +31,11 @@ class Monero < Formula
                          "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}",
                          *std_cmake_args
     system "make", "install"
+
+    # Avoid conflicting with miniupnpc
+    # Reported upstream 25 May 2018 https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
+    rm_rf include/"miniupnpc"
   end
 
   test do
