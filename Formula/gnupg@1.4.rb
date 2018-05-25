@@ -36,10 +36,17 @@ class GnupgAT14 < Formula
     # https://lists.gnupg.org/pipermail/gnupg-devel/2016-August/031533.html
     inreplace bin/"gpg-zip1", "GPG=gpg", "GPG=gpg1"
 
+    # link to libexec binaries without the "1" suffix
+    # gpg1 will call them without the suffix when it needs to
+    %w[curl finger hkp ldap].each do |cmd|
+      cmd.prepend("gpgkeys_")
+      (libexec/"gnupg").install_symlink (cmd + "1") => cmd
+    end
+
     # Although gpg2 support should be pretty universal these days
     # keep vanilla `gpg` executables available, at least for now.
-    %w[gpg-zip1 gpg1 gpgsplit1 gpgv1].each do |cmd|
-      (libexec/"gpgbin").install_symlink bin/cmd => cmd.to_s.sub(/1/, "")
+    %w[gpg-zip gpg gpgsplit gpgv].each do |cmd|
+      (libexec/"gpgbin").install_symlink bin/(cmd + "1") => cmd
     end
   end
 
