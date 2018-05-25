@@ -1,8 +1,8 @@
 class Gopass < Formula
   desc "The slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://www.justwatch.com/gopass"
-  url "https://github.com/justwatchcom/gopass/releases/download/v1.6.11/gopass-1.6.11.tar.gz"
-  sha256 "de5b27f81649548292dc83da98e8e46b9b92d8b0bb012797dee44b3207090c67"
+  url "https://github.com/justwatchcom/gopass/releases/download/v1.7.1/gopass-1.7.1.tar.gz"
+  sha256 "8505ceb4e553164bbccf38a4989b13cbefee4f7361557488b97562925a7dc14a"
   head "https://github.com/justwatchcom/gopass.git"
 
   bottle do
@@ -46,7 +46,7 @@ class Gopass < Formula
     begin
       system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
 
-      system bin/"gopass", "init", "--nogit", "testing@foo.bar"
+      system bin/"gopass", "init", "--rcs", "noop", "testing@foo.bar"
       system bin/"gopass", "generate", "Email/other@foo.bar", "15"
       assert_predicate testpath/".password-store/Email/other@foo.bar.gpg", :exist?
     ensure
