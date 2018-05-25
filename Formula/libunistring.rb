@@ -1,9 +1,9 @@
 class Libunistring < Formula
   desc "C string library for manipulating Unicode strings"
   homepage "https://www.gnu.org/software/libunistring/"
-  url "https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.9.tar.xz"
-  mirror "https://ftpmirror.gnu.org/libunistring/libunistring-0.9.9.tar.xz"
-  sha256 "a4d993ecfce16cf503ff7579f5da64619cee66226fb3b998dafb706190d9a833"
+  url "https://ftp.gnu.org/gnu/libunistring/libunistring-0.9.10.tar.xz"
+  mirror "https://ftpmirror.gnu.org/libunistring/libunistring-0.9.10.tar.xz"
+  sha256 "eb8fb2c3e4b6e2d336608377050892b54c3c983b646c561836550863003c05d7"
 
   bottle do
     cellar :any
