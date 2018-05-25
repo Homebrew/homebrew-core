@@ -3,8 +3,8 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v3.7.tar.gz"
-  sha256 "0d39a86c6c319378af20c568a282a13c963655f60fc68f512eb83fce6a1435df"
+  url "https://github.com/jarun/Buku/archive/v3.8.tar.gz"
+  sha256 "bca35fe1b7dbf88ed3af07e0daa4bc0a736d2f85b3103efcb18d542eebb2eebe"
 
   bottle do
     cellar :any
@@ -94,6 +94,8 @@ class Buku < Formula
       spawn #{bin}/buku --nc --import bookmarks.html
       expect -re "DB file is being created at .*"
       expect "You should encrypt it."
+      expect "Append tags when bookmark exist? (y/n): "
+      send "y\r"
       expect "Add parent folder names as tags? (y/n): "
       send "y\r"
       expect {
