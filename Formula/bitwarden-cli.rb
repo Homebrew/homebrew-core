@@ -1,6 +1,6 @@
 require "language/node"
 
-class Bitwarden < Formula
+class BitwardenCli < Formula
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
   url "https://registry.npmjs.org/@bitwarden/cli/-/cli-1.0.0.tgz"
