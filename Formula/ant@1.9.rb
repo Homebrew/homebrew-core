@@ -6,10 +6,9 @@ class AntAT19 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5c63d1ca61047baee2f0edebea21508782460c98a1d325727e376cfc7e1cbef" => :high_sierra
-    sha256 "c61398b93dc90ac3b56df0eca3fb3d7059fa81ce3bd2e4c18bb2701b5455d839" => :sierra
-    sha256 "de8ab34d71e40db90fe53ea2c311351f73598063eebd82cdcd467f6d93143626" => :el_capitan
-    sha256 "de8ab34d71e40db90fe53ea2c311351f73598063eebd82cdcd467f6d93143626" => :yosemite
+    sha256 "eafef358409b3f160ab83140dc9f31fbc2ca0a3a250c0e39ddd30aa793c913cd" => :high_sierra
+    sha256 "eafef358409b3f160ab83140dc9f31fbc2ca0a3a250c0e39ddd30aa793c913cd" => :sierra
+    sha256 "eafef358409b3f160ab83140dc9f31fbc2ca0a3a250c0e39ddd30aa793c913cd" => :el_capitan
   end
 
   keg_only :versioned_formula
