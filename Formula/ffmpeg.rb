@@ -33,6 +33,7 @@ class Ffmpeg < Formula
   option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
+  option "with-srt", "Enable SRT library"
   option "without-lame", "Disable MP3 encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
   option "without-securetransport", "Disable use of SecureTransport"
@@ -89,6 +90,7 @@ class Ffmpeg < Formula
   depends_on "xz" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
+  depends_on "srt" => :optional
 
   def install
     args = %W[
@@ -146,6 +148,7 @@ class Ffmpeg < Formula
     args << "--enable-opencl" if MacOS.version > :lion
     args << "--enable-videotoolbox" if MacOS.version >= :mountain_lion
     args << "--enable-openssl" if build.with? "openssl"
+    args << "--enable-libsrt" if build.with? "srt"
 
     if build.with? "xz"
       args << "--enable-lzma"
