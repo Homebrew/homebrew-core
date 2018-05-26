@@ -17,7 +17,6 @@ class GsettingsDesktopSchemas < Formula
   depends_on "glib"
   depends_on "gettext"
   depends_on "libffi"
-  depends_on "python@2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
