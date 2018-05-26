@@ -3,8 +3,8 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/a4/a9/6bb9b688e8c45c7fc1fead38f3d430fcbee36a5b403c686a42bc12eb367b/fdroidserver-1.0.4.tar.gz"
-  sha256 "72cbe5a77e6dc102d5d44fc8c3b8e164a55d9328f477fd6446606b58c63dfe3f"
+  url "https://files.pythonhosted.org/packages/9e/9d/a7ddc828b93782af930e708f820e63b16d5334fffc938aa6ebbed09fe648/fdroidserver-1.0.6.tar.gz"
+  sha256 "2adc19e9c37fb9f4cfaa659435defd1b9a8cf3fa257826770debc542a8da1a3d"
 
   bottle do
     cellar :any
@@ -118,8 +118,8 @@ class Fdroidserver < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/60/5f/4980198a804838d42fed09364a6315ff4783706ecf46de21b7bb92354b2d/GitPython-2.1.9.tar.gz"
-    sha256 "c47cc31af6e88979c57a33962cbc30a7c25508d74a1b3a19ec5aa7ed64b03129"
+    url "https://files.pythonhosted.org/packages/f1/e4/2879ab718c80bc9261b34f214e27280f63437068582f8813ff2552373196/GitPython-2.1.10.tar.gz"
+    sha256 "b60b045cf64a321e5b620debb49890099fa6c7be6dfb7fb249027e5d34227301"
   end
 
   resource "idna" do
@@ -173,8 +173,8 @@ class Fdroidserver < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/47/b9/66278631430fe688b2e6c84df16619f1d1e27c9c6ebca28371f7c6fbb346/oauthlib-2.0.7.tar.gz"
-    sha256 "909665297635fa11fe9914c146d875f2ed41c8c2d78e21a529dd71c0ba756508"
+    url "https://files.pythonhosted.org/packages/df/5f/3f4aae7b28db87ddef18afed3b71921e531ca288dc604eb981e9ec9f8853/oauthlib-2.1.0.tar.gz"
+    sha256 "ac35665a61c1685c56336bda97d5eefa246f1202618a1d6f34fccb1bdd404162"
   end
 
   resource "paramiko" do
@@ -183,8 +183,8 @@ class Fdroidserver < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/fd/91/6b2d72e37c8f83d54354a46f05d6a8b07a491fe6b605ea78ccf83d9d39b9/parso-0.2.0.tar.gz"
-    sha256 "62bd6bf7f04ab5c817704ff513ef175328676471bdef3629d4bdd46626f75551"
+    url "https://files.pythonhosted.org/packages/4b/86/bc857ddcc892968b954620f18ce90a943368ee9fe84595911501da898798/parso-0.2.1.tar.gz"
+    sha256 "f0604a40b96e062b0fd99cf134cc2d5cdf66939d0902f8267d938b0d5b26707f"
   end
 
   resource "pexpect" do
@@ -213,8 +213,8 @@ class Fdroidserver < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"
-    sha256 "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"
+    url "https://files.pythonhosted.org/packages/0d/33/3466a3210321a02040e3ab2cd1ffc6f44664301a5d650a7e44be1dc341f2/pyasn1-0.4.3.tar.gz"
+    sha256 "fb81622d8f3509f0026b0683fe90fea27be7284d3826a5f2edf97f69151ab0fc"
   end
 
   resource "pyasn1-modules" do
@@ -371,7 +371,7 @@ class Fdroidserver < Formula
       end
 
       open("metadata/fake.txt", "w") do |f|
-        f << "License:GPL-3.0\n"
+        f << "License:GPL-3.0-or-later\n"
         f << "Summary:Yup still fake\n"
         f << "Categories:Internet\n"
         f << "Description:\n"
