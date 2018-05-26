@@ -14,6 +14,6 @@ class BitwardenCli < Formula
   end
 
   test do
-    assert_equal "1.0.0\n", shell_output("#{bin}/bw -v")
+    assert_equal version.to_s + "\n", shell_output("#{bin}/bw -v")
   end
 end
