@@ -4,6 +4,12 @@ class MariadbAT102 < Formula
   url "https://downloads.mariadb.org/f/mariadb-10.2.15/source/mariadb-10.2.15.tar.gz"
   sha256 "33de205158fc22fd8eb4e5770cc5ffa1cb4029f9c398dfd8c554ccb3e636ba11"
 
+  bottle do
+    sha256 "4a13c4af3cab96008a09c740d6587ec652ba329aa21221935a99ed5fa8aeadc1" => :high_sierra
+    sha256 "9dec95a1017f7d5e7518ab7d696c2c54a63e1677cdc4e6dbd594676616c0d473" => :sierra
+    sha256 "759ecef13a789d76c8ceefe5e9f9e877e968a399deadea65d3f504aed93dbbfb" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   option "with-test", "Keep test when installing"
