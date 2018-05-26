@@ -4,12 +4,7 @@ class AntAT19 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.9.11-bin.tar.bz2"
   sha256 "15f305b371d63952d8b5e10c3a63a91c4616696690bfb0094e7624bc94077c3a"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "eafef358409b3f160ab83140dc9f31fbc2ca0a3a250c0e39ddd30aa793c913cd" => :high_sierra
-    sha256 "eafef358409b3f160ab83140dc9f31fbc2ca0a3a250c0e39ddd30aa793c913cd" => :sierra
-    sha256 "eafef358409b3f160ab83140dc9f31fbc2ca0a3a250c0e39ddd30aa793c913cd" => :el_capitan
-  end
+  bottle :unneeded
 
   keg_only :versioned_formula
 
