@@ -6,9 +6,9 @@ class Byacc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "24b76c770a8ad4bc95c87a7429dca550803f72d8c78bb72017a0732cc1e675a3" => :high_sierra
-    sha256 "82f7e36647c1161ebc189c82ccca0416eaced470ae61ce9da5ac2aff84720f3c" => :sierra
-    sha256 "9b5bbfdae8bba9f981d1586ce618a6c5ea9726006c75df0b7a9a68c3d9a6e757" => :el_capitan
+    sha256 "f58b641379028ef74139e38d8f1e69fe822de4a2d7730e444029938006f10c86" => :high_sierra
+    sha256 "1a5be8985b2b869d5fe9959da4f453966c8aacb2c40a36abf8e0b8c84ec3ec50" => :sierra
+    sha256 "a0061f52669ee96a39ecdd767b57465e041928a05f59d72a663a89051aa71faa" => :el_capitan
   end
 
   def install
