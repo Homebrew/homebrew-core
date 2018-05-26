@@ -5,6 +5,13 @@ class ClozureCl < Formula
   sha256 "07c7e05c1d50ccbf1f7602a1d436b6d6da5dcda7656b89b74daa4cf833fc7929"
   head "https://github.com/Clozure/ccl.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "ab7c724028ac881bbff74bbc692d51e2afaf7f912930520e3e8c78063e5a37b9" => :high_sierra
+    sha256 "89b7b51d2b1ed683182f3585101bbf101dad10d2c851f383dbec7e1342162cd7" => :sierra
+    sha256 "6cb7aa8d20a8657bc70cd35cce042cd50841b7d2b2533ff233ecbd8fae2e6a49" => :el_capitan
+  end
+
   depends_on :xcode => :build
 
   conflicts_with "cclive", :because => "both install a ccl binary"
