@@ -1,21 +1,10 @@
 class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
-  revision 1
+  url "https://github.com/hrydgard/ppsspp.git",
+      :tag => "v1.6",
+      :revision => "09e85eb150c927cd501d0c658dff94ba75ae2b92"
   head "https://github.com/hrydgard/ppsspp.git"
-
-  stable do
-    url "https://github.com/hrydgard/ppsspp.git",
-        :tag => "v1.5.4",
-        :revision => "a1e74d0d4f89ba3fa2d4fe64bac7a0fa16fc146f"
-
-    # Remove for > 1.5.4
-    # Upstream commit from 22 Apr 2018: "Fix build with ffmpeg 4.0"
-    patch do
-      url "https://github.com/hrydgard/ppsspp/commit/70c54a7d1ab15c0cf84a205b944db7e0339242e0.diff?full_index=1"
-      sha256 "ed7401010e1f1e222bfbb0f1b5321821ce8b780a6781a7928397a09d8807fcb7"
-    end
-  end
 
   bottle do
     cellar :any
