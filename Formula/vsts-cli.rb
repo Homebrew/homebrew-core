@@ -6,6 +6,13 @@ class VstsCli < Formula
   url "https://files.pythonhosted.org/packages/dd/23/ddf0fec2197cd62b9059ea5ab425feb7c72229d97c285a74c20ea9d1b542/vsts-cli-0.1.0b3.tar.gz"
   sha256 "1d76ef141602b1a4a90067e06f79a477d10b6c154b613513007a506b00929e8b"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "63359cc9005b4fc17e9e33193b37c36ffe43c6c02141c8f9f0484f30452f6b13" => :high_sierra
+    sha256 "719ee0e9f6de81e967b8aa035547e0ac17bb887dec267e4950f8666964db6914" => :sierra
+    sha256 "9695eaec51ae594f3f7fa7d886f9fd58bfa9b8c6b140c05e3087295c8cf93a89" => :el_capitan
+  end
+
   depends_on "python"
 
   resource "argcomplete" do
