@@ -34,4 +34,4 @@ before_script:
   - travis_retry git clone https://$GITHUB_TOKEN@github.com/Homebrew/formulae.brew.sh
 
 script:
-  - cd formulae.brew.sh && brew ruby script/generate.rb
+  - cd formulae.brew.sh && rake
