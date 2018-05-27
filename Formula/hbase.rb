@@ -3,6 +3,7 @@ class Hbase < Formula
   homepage "https://hbase.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6/hbase-1.2.6-bin.tar.gz"
   sha256 "a0fbc22373a7f2d66648c6d9fe13477e689df50c8ee533eda962d4e8fa2185ea"
+  revision 1
 
   bottle do
     sha256 "d24c34f859029e79977587f0926ce6fbe14336a044311d4d97fddacf86e2d42e" => :high_sierra
@@ -11,7 +12,7 @@ class Hbase < Formula
     sha256 "49ca44b35f6d9239eb6f02ea504e2a83f78552faa85e30dd1b8f6b4664875494" => :yosemite
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
   depends_on "hadoop" => :optional
   depends_on "lzo" => :recommended
   depends_on "ant" => :build if build.with? "lzo"
@@ -33,7 +34,7 @@ class Hbase < Formula
     # Some binaries have really generic names (like `test`) and most seem to be
     # too special-purpose to be permanently available via PATH.
     %w[hbase start-hbase.sh stop-hbase.sh].each do |script|
-      bin.write_exec_script "#{libexec}/bin/#{script}"
+      (bin/script).write_env_script "#{libexec}/bin/#{script}", Language::Java.java_home_env("1.8")
     end
 
     if build.with? "lzo"
@@ -59,7 +60,7 @@ class Hbase < Formula
       s.gsub!("export HBASE_OPTS=\"-XX:+UseConcMarkSweepGC\"",
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
-              "export JAVA_HOME=\"$(/usr/libexec/java_home)\"")
+              "export JAVA_HOME=\"$(/usr/libexec/java_home --version 1.8)\"")
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.
