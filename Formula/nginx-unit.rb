@@ -107,7 +107,7 @@ class NginxUnit < Formula
 
       ohai "#{bin}/unitd --no-daemon"
       pid = spawn "#{bin}/unitd", "--no-daemon"
-      timeout(5) { sleep 0.1 until pidfile.exist? }
+      timeout(60) { sleep 0.1 until pidfile.exist? }
       assert_equal pid, pidfile.read.chomp.to_i
 
       # Unit uses a unix control socket. Net::HTTP to a socket is hard. Sorry.
