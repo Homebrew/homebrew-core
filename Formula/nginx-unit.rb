@@ -95,6 +95,8 @@ class NginxUnit < Formula
     require "socket"
     require "timeout"
 
+    logfile = var/"log/unit.log"
+
     begin
       # We need to install rack for the ruby module test to work, so set a
       # temporary gems path before booting unitd. (unitd boots and functions
@@ -122,7 +124,6 @@ class NginxUnit < Formula
       expected_body = { "listeners" => {}, "applications" => {} }
       assert_equal expected_body, JSON.parse(response.body)
 
-      logfile = var/"log/unit.log"
       assert_predicate logfile, :size?
 
       # Unit should discover each of the modules and talk about them in the log
