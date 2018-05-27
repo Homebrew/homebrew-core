@@ -24,12 +24,12 @@ class Tbb < Formula
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}"
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
-    include.install "include/tbb"
 
     # Build and install static libraries
     system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}",
                    "extra_inc=big_iron.inc"
     lib.install Dir["build/BUILDPREFIX_release/*.a"]
+    include.install "include/tbb"
 
     cd "python" do
       ENV["TBBROOT"] = prefix
