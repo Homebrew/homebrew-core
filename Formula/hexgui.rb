@@ -14,12 +14,12 @@ class Hexgui < Formula
   end
 
   depends_on "ant" => :build
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
 
   def install
     system "ant"
     libexec.install Dir["*"]
-    (bin/"hexgui").write_env_script libexec/"bin/hexgui", Language::Java.java_home_env("1.6+")
+    (bin/"hexgui").write_env_script libexec/"bin/hexgui", Language::Java.java_home_env("1.8")
   end
 
   test do
