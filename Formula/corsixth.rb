@@ -46,7 +46,7 @@ class Corsixth < Formula
       end
     end
 
-    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}",
+    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua",
                          "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib",
                          "-DLUA_PROGRAM_PATH=#{Formula["lua"].opt_bin}/lua",
                          *std_cmake_args
