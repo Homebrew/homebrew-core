@@ -46,6 +46,10 @@ class NginxUnit < Formula
     libunit.install "build/ruby.unit.so"
   end
 
+  def post_install
+    (var/"run").mkpath
+  end
+
   def caveats
     <<~EOS
       Once running, you can control unit using the control socket, for example using
