@@ -14,10 +14,9 @@ class BitwardenCli < Formula
   end
 
   test do
-    password = shell_output("#{bin}/bw generate --length 10")
-    testingb64 = pipe_output("#{bin}/bw encode", "Testing", 0)
-
-    assert_equal 10, password.chomp.length
-    assert_match "VGVzdGluZw==", testingb64
+    assert_equal 10, shell_output("#{bin}/bw generate --length 10").chomp.length
+    
+    output = pipe_output("#{bin}/bw encode", "Testing", 0)
+    assert_equal "VGVzdGluZw==", output.chomp
   end
 end
