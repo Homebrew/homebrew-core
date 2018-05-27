@@ -7,10 +7,9 @@ class Gssh < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "98a6d73a1667aed8cdf835777370bdeba376fe4cac6b0569282d74685db9144b" => :high_sierra
-    sha256 "c8e18abd807d0ecce46b9541ee8f595633375e04aabc392478b17542db15a8b9" => :sierra
-    sha256 "63dbeda42ab0d8d6af23d04b1485f868e8ee5b2f315c5538406c8da2901d8884" => :el_capitan
-    sha256 "62ca0404e4429f62df84b96dba7b0219db9d883595f31a4427bd884a2e45b705" => :yosemite
+    sha256 "311d623eacb369d6c207e850d74468e782a6c9c098cc25a6ca7292c3b5c9110d" => :high_sierra
+    sha256 "fa84c67a395acf4a4fca8d68f053dbc403782469ed01b21e466e897d234c03d4" => :sierra
+    sha256 "37b7c923ea68f2b7e515f9fe865b7e81f2662999c3f030a69627518ee99d611a" => :el_capitan
   end
 
   depends_on :java => "1.8"
