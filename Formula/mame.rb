@@ -36,6 +36,11 @@ class Mame < Formula
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
+
+    # 3rdparty/sol2/sol/compatibility/version.hpp:30:10
+    # fatal error: 'lua.hpp' file not found
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+
     system "make", "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
