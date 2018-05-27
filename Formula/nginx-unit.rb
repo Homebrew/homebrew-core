@@ -104,7 +104,7 @@ class NginxUnit < Formula
       rubygems = testpath/"ruby/gems"
       rubygems.mkpath
       ENV["GEM_PATH"] = rubygems
-      system "gem", "install", "rack", "--install-dir=#{rubygems}", "--verbose"
+      system "gem", "install", "rack", "--install-dir=#{rubygems}"
 
       pid = spawn "#{bin}/unitd", "--no-daemon"
 
