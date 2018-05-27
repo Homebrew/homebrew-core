@@ -14,13 +14,6 @@ class Wine < Formula
     mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.tar.xz"
     sha256 "346a050aca5cd0d9978a655af11c30e68c201a58aea0c70d5e4c4f1b63c2fbec"
 
-    # Patch to fix screen-flickering issues. Still relevant on 3.0.
-    # https://bugs.winehq.org/show_bug.cgi?id=34166
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/74c2566/wine/2.14.patch"
-      sha256 "6907471d18996ada60cc0cbc8462a1698e90720c0882846dfbfb163e5d3899b8"
-    end
-
     resource "mono" do
       url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
