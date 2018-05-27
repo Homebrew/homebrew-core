@@ -1,9 +1,8 @@
 class GtkMacIntegration < Formula
   desc "Integrates GTK macOS applications with the Mac desktop"
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
-  url "https://download.gnome.org/sources/gtk-mac-integration/2.0/gtk-mac-integration-2.0.8.tar.xz"
-  sha256 "74fce9dbc5efe4e3d07a20b24796be1b1d6c3ac10a0ee6b1f1d685c809071b79"
-  revision 2
+  url "https://download.gnome.org/sources/gtk-mac-integration/2.1/gtk-mac-integration-2.1.2.tar.xz"
+  sha256 "68e682a3ba952e7d4b1cfa2c7147c5fcd76f8bd9792a567e175a619af5954af1"
 
   bottle do
     sha256 "ecd57e012f30dd1b7889fcc88aad9f5567cc1cdd5ee8216af4892322bed78faa" => :high_sierra
@@ -13,6 +12,7 @@ class GtkMacIntegration < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "gtk+"
   depends_on "gtk+3" => :recommended
   depends_on "pygtk"
