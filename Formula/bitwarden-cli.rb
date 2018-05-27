@@ -14,6 +14,12 @@ class BitwardenCli < Formula
   end
 
   test do
-    assert_equal version.to_s + "\n", shell_output("#{bin}/bw -v")
+    version = shell_output("#{bin}/bw --version")
+    password = shell_output("#{bin}/bw generate --length 10")
+    testingb64 = pipe_output("#{bin}/bw encode", "Testing")
+
+    assert_match version.to_s, version
+    assert_equal 10, password.strip.length
+    assert_match "VGVzdGluZw==", testingb64
   end
 end
