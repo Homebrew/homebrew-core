@@ -88,13 +88,13 @@ class NginxUnit < Formula
   end
 
   test do
-    system "#{bin}/unitd", "--version"
-
     require "json"
     require "net/http"
     require "socket"
     require "timeout"
 
+    control = var/"run/unit.control.sock"
+    pidfile = var/"run/unit.pid"
     logfile = var/"log/unit.log"
 
     begin
@@ -102,19 +102,16 @@ class NginxUnit < Formula
       # temporary gems path before booting unitd. (unitd boots and functions
       # fine without, but fails to start an app until rack is installed.)
       rubygems = testpath/"ruby/gems"
-      rubygems.mkpath
-      ENV["GEM_PATH"] = rubygems
       system "gem", "install", "rack", "--install-dir=#{rubygems}"
+      ENV["GEM_PATH"] = rubygems
 
+      ohai "#{bin}/unitd --no-daemon"
       pid = spawn "#{bin}/unitd", "--no-daemon"
-
-      pidfile = var/"run/unit.pid"
       timeout(5) { sleep 0.1 until pidfile.exist? }
-
       assert_equal pid, pidfile.read.chomp.to_i
 
       # Unit uses a unix control socket. Net::HTTP to a socket is hard. Sorry.
-      socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
+      socket = Net::BufferedIO.new(UNIXSocket.new(control))
       request = Net::HTTP::Get.new("/")
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
@@ -135,7 +132,7 @@ class NginxUnit < Formula
 
       ### Perl module
 
-      socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
+      socket = Net::BufferedIO.new(UNIXSocket.new(control))
       request = Net::HTTP::Put.new("/config")
       request.body = JSON.generate({})
       request.exec(socket, "1.1", request.path)
@@ -150,7 +147,7 @@ class NginxUnit < Formula
         }
       EOS
 
-      socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
+      socket = Net::BufferedIO.new(UNIXSocket.new(control))
       request = Net::HTTP::Put.new("/config")
       request.body = JSON.generate(
         "listeners" => { "*:8000" => { "application" => "perlapp" } },
@@ -170,7 +167,7 @@ class NginxUnit < Formula
 
       ### Python module
 
-      socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
+      socket = Net::BufferedIO.new(UNIXSocket.new(control))
       request = Net::HTTP::Put.new("/config")
       request.body = JSON.generate({})
       request.exec(socket, "1.1", request.path)
@@ -184,7 +181,7 @@ class NginxUnit < Formula
           return ["Hello, python world!"]
       EOS
 
-      socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
+      socket = Net::BufferedIO.new(UNIXSocket.new(control))
       request = Net::HTTP::Put.new("/config")
       request.body = JSON.generate(
         "listeners" => { "*:8000" => { "application" => "pythonapp" } },
@@ -204,7 +201,7 @@ class NginxUnit < Formula
 
       ### Ruby module
 
-      socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
+      socket = Net::BufferedIO.new(UNIXSocket.new(control))
       request = Net::HTTP::Put.new("/config")
       request.body = JSON.generate({})
       request.exec(socket, "1.1", request.path)
@@ -216,7 +213,7 @@ class NginxUnit < Formula
         run lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello, ruby world!"]]}
       EOS
 
-      socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
+      socket = Net::BufferedIO.new(UNIXSocket.new(control))
       request = Net::HTTP::Put.new("/config")
       request.body = JSON.generate(
         "listeners" => { "*:8000" => { "application" => "rubyapp" } },
@@ -234,8 +231,20 @@ class NginxUnit < Formula
       assert_equal "200", response.code
       assert_equal "Hello, ruby world!", response.body
     rescue
-      oh1 "unit.log"
-      print logfile.read if logfile.exist?
+      if pidfile.exist?
+        oh1 pidfile
+        print pidfile.read
+      else
+        opoo "No pid file!"
+      end
+
+      if logfile.exist?
+        oh1 logfile
+        print logfile.read
+      else
+        opoo "No log file!"
+      end
+
       raise
     ensure
       if pid
