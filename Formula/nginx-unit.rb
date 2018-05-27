@@ -17,12 +17,12 @@ class NginxUnit < Formula
       "--sbindir=#{bin}",
       # This tells the unit daemon where it can load modules from. Configuring
       # the location at runtime is painful. We want this to be in the
-      # $HOMEBREW_PREFIX so that other formulae can link in additional modules. 
-      "--modules=#{HOMEBREW_PREFIX/"lib/unit"}",
-      "--state=#{var/"unit"}",
-      "--log=#{var/"log/unit.log"}",
-      "--pid=#{var/"run/unit.pid"}",
-      "--control=unix:#{var/"run/unit.control.sock"}",
+      # $HOMEBREW_PREFIX so that other formulae can link in additional modules.
+      "--modules=#{HOMEBREW_PREFIX}/lib/unit",
+      "--state=#{var}/unit",
+      "--log=#{var}/log/unit.log",
+      "--pid=#{var}/run/unit.pid",
+      "--control=unix:#{var}/run/unit.control.sock",
       "--cc-opt=-I#{pcre.opt_include} -I#{openssl.opt_include}",
       "--ld-opt=-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
 
@@ -33,19 +33,9 @@ class NginxUnit < Formula
     libunit = lib/"unit"
     libunit.mkpath
 
-    # There is no system Go
-    #system "./configure", "go"
-    #system "make", "go"
-    #libunit.install "build/go.unit.so"
-
     system "./configure", "perl"
     system "make", "perl"
     libunit.install "build/perl.unit.so"
-
-    # We can't build against the system PHP, it doesn't have the right SAPI
-    #system "./configure", "php"
-    #system "make", "php"
-    #libunit.install "build/php.unit.so"
 
     system "./configure", "python"
     system "make", "python"
@@ -58,10 +48,12 @@ class NginxUnit < Formula
 
   def caveats
     <<~EOS
-      Once running, you can control unit using the control socket, for example using curl:
+      Once running, you can control unit using the control socket, for example using
+      curl:
         curl --unix-socket #{var}/run/unit.control.sock http://localhost/
 
-      Modules are available for system perl, python and ruby. The system php doesn't support nginx-unit. You can install additional modules into:
+      Modules are available for system perl, python and ruby. The system php doesn't
+      support nginx-unit. You can install additional modules into:
         #{HOMEBREW_PREFIX/"lib/unit"}
     EOS
   end
@@ -99,48 +91,39 @@ class NginxUnit < Formula
     require "socket"
     require "timeout"
 
-    logfile = var/"log/unit.log"
-    logfile.unlink if logfile.exist?
-
-    pidfile = var/"run/unit.pid"
-    pidfile.unlink if pidfile.exist?
-
     begin
       # We need to install rack for the ruby module test to work, so set a
       # temporary gems path before booting unitd. (unitd boots and functions
       # fine without, but fails to start an app until rack is installed.)
-      rubydir = testpath/"ruby"
-      rubygems = rubydir/"gems"
+      rubygems = testpath/"ruby/gems"
       rubygems.mkpath
-      ENV["GEM_PATH"] = rubygems.to_s
+      ENV["GEM_PATH"] = rubygems
       system "gem", "install", "rack", "--install-dir=#{rubygems}", "--verbose"
 
       pid = spawn "#{bin}/unitd", "--no-daemon"
 
+      pidfile = var/"run/unit.pid"
       timeout(5) { sleep 0.1 until pidfile.exist? }
 
       assert_equal pid, pidfile.read.chomp.to_i
-
-      timeout(5) { sleep 0.1 until File.exist? var/"run/unit.control.sock" }
 
       # Unit uses a unix control socket. Net::HTTP to a socket is hard. Sorry.
       socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
       request = Net::HTTP::Get.new("/")
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
-      response.reading_body(socket, request.response_body_permitted?) { }
+      response.reading_body(socket, request.response_body_permitted?) {}
 
       assert_equal("200", response.code)
-      expected_body = {"listeners" => {}, "applications" => {}}
+      expected_body = { "listeners" => {}, "applications" => {} }
       assert_equal expected_body, JSON.parse(response.body)
 
-      assert logfile.size > 0
+      logfile = var/"log/unit.log"
+      assert_predicate logfile, :size?
 
       # Unit should discover each of the modules and talk about them in the log
       logfile.read.tap do |logs|
-        #assert_include logs, "lib/unit/go.unit.so"
         assert_include logs, "lib/unit/perl.unit.so"
-        #assert_include logs, "lib/unit/php.unit.so"
         assert_include logs, "lib/unit/python.unit.so"
         assert_include logs, "lib/unit/ruby.unit.so"
       end
@@ -152,31 +135,28 @@ class NginxUnit < Formula
       request.body = JSON.generate({})
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
-      response.reading_body(socket, request.response_body_permitted?) { }
+      response.reading_body(socket, request.response_body_permitted?) {}
 
-      perldir = testpath/"perl"
-      perldir.mkpath
-      perlapp = perldir/"app.psgi"
-
-      perlapp.write <<~PERL
+      perlapp = testpath/"perl/app.psgi"
+      perlapp.write <<~EOS
         my $app = sub {
           my $env = shift;
           return [ '200', [ 'Content-Type' => 'text/plain' ], [ "Hello, perl world!" ] ];
         }
-      PERL
+      EOS
 
       socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
       request = Net::HTTP::Put.new("/config")
-      request.body = JSON.generate({
-        "listeners" => {"*:8000" => {"application" => "perlapp"}},
-        "applications" => {"perlapp" => {"type" => "perl", "working_directory" => perldir, "script" => perlapp.to_s}},
-      })
+      request.body = JSON.generate(
+        "listeners" => { "*:8000" => { "application" => "perlapp" } },
+        "applications" => { "perlapp" => { "type" => "perl", "working_directory" => perlapp.parent, "script" => perlapp } },
+      )
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
-      response.reading_body(socket, request.response_body_permitted?) { }
+      response.reading_body(socket, request.response_body_permitted?) {}
 
       assert_equal "200", response.code
-      expected_body = {"success" => "Reconfiguration done."}
+      expected_body = { "success" => "Reconfiguration done." }
       assert_equal expected_body, JSON.parse(response.body)
 
       response = Net::HTTP.get_response(URI.parse("http://localhost:8000"))
@@ -190,30 +170,27 @@ class NginxUnit < Formula
       request.body = JSON.generate({})
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
-      response.reading_body(socket, request.response_body_permitted?) { }
+      response.reading_body(socket, request.response_body_permitted?) {}
 
-      pythondir = testpath/"python"
-      pythondir.mkpath
-      pythonapp = pythondir/"wsgi.py"
-
-      pythonapp.write <<~PYTHON
+      pythonapp = testpath/"python/wsgi.py"
+      pythonapp.write <<~EOS
         def application(environ, start_response):
           start_response('200 OK', [('Content-Type', 'text/plain')])
           return ["Hello, python world!"]
-      PYTHON
+      EOS
 
       socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
       request = Net::HTTP::Put.new("/config")
-      request.body = JSON.generate({
-        "listeners" => {"*:8000" => {"application" => "pythonapp"}},
-        "applications" => {"pythonapp" => {"type" => "python", "path" => pythondir.to_s, "module" => "wsgi"}},
-      })
+      request.body = JSON.generate(
+        "listeners" => { "*:8000" => { "application" => "pythonapp" } },
+        "applications" => { "pythonapp" => { "type" => "python", "path" => pythonapp.parent, "module" => "wsgi" } },
+      )
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
-      response.reading_body(socket, request.response_body_permitted?) { }
+      response.reading_body(socket, request.response_body_permitted?) {}
 
       assert_equal "200", response.code
-      expected_body = {"success" => "Reconfiguration done."}
+      expected_body = { "success" => "Reconfiguration done." }
       assert_equal expected_body, JSON.parse(response.body)
 
       response = Net::HTTP.get_response(URI.parse("http://localhost:8000"))
@@ -227,27 +204,25 @@ class NginxUnit < Formula
       request.body = JSON.generate({})
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
-      response.reading_body(socket, request.response_body_permitted?) { }
+      response.reading_body(socket, request.response_body_permitted?) {}
 
-      rubydir.mkpath
-      rubyapp = rubydir/"config.ru"
-
-      rubyapp.write <<~RUBY
+      rubyapp = testpath/"ruby/config.ru"
+      rubyapp.write <<~EOS
         run lambda { |env| [200, {"Content-Type" => "text/plain"}, ["Hello, ruby world!"]]}
-      RUBY
+      EOS
 
       socket = Net::BufferedIO.new(UNIXSocket.new(var/"run/unit.control.sock"))
       request = Net::HTTP::Put.new("/config")
-      request.body = JSON.generate({
-        "listeners" => {"*:8000" => {"application" => "rubyapp"}},
-        "applications" => {"rubyapp" => {"type" => "ruby", "working_directory" => rubydir, "script" => rubyapp.to_s}},
-      })
+      request.body = JSON.generate(
+        "listeners" => { "*:8000" => { "application" => "rubyapp" } },
+        "applications" => { "rubyapp" => { "type" => "ruby", "working_directory" => rubyapp.parent, "script" => rubyapp } },
+      )
       request.exec(socket, "1.1", request.path)
       response = Net::HTTPResponse.read_new(socket)
-      response.reading_body(socket, request.response_body_permitted?) { }
+      response.reading_body(socket, request.response_body_permitted?) {}
 
       assert_equal "200", response.code
-      expected_body = {"success" => "Reconfiguration done."}
+      expected_body = { "success" => "Reconfiguration done." }
       assert_equal expected_body, JSON.parse(response.body)
 
       response = Net::HTTP.get_response(URI.parse("http://localhost:8000"))
