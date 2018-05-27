@@ -22,14 +22,14 @@ class Tbb < Formula
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
-    args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
-    system "make", *args
+    system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}"
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
-
-    args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler} extra_inc=big_iron.inc]
-    system "make", *args
-    lib.install Dir["build/BUILDPREFIX_release/*.a"]
     include.install "include/tbb"
+
+    # Build and install static libraries
+    system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}",
+                   "extra_inc=big_iron.inc"
+    lib.install Dir["build/BUILDPREFIX_release/*.a"]
 
     cd "python" do
       ENV["TBBROOT"] = prefix
