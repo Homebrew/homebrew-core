@@ -13,12 +13,12 @@ class Pillar < Formula
     sha256 "8c1ce70b45f766db666edffdc151c88e6b8c3a7cb4d7016d8aaf9e9466e1141b" => :mavericks
   end
 
-  depends_on :java
+  depends_on :java => "1.8"
   depends_on "sbt" => :build
 
   def install
     inreplace "src/main/bash/pillar" do |s|
-      s.gsub! "$JAVA ", "`/usr/libexec/java_home`/bin/java "
+      s.gsub! "$JAVA ", "`/usr/libexec/java_home --version 1.8`/bin/java "
       s.gsub! "${PILLAR_ROOT}/lib/pillar.jar", "#{libexec}/pillar-assembly-#{version}.jar"
       s.gsub! "${PILLAR_ROOT}/conf", "#{etc}/pillar-log4j.properties"
     end
