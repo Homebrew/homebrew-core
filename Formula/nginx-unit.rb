@@ -91,10 +91,6 @@ class NginxUnit < Formula
     require "socket"
     require "timeout"
 
-    control = var/"run/unit.control.sock"
-    pidfile = var/"run/unit.pid"
-    logfile = var/"log/unit.log"
-
     begin
       # We need to install rack for the ruby module test to work, so set a
       # temporary gems path before booting unitd. (unitd boots and functions
@@ -103,10 +99,10 @@ class NginxUnit < Formula
       system "gem", "install", "rack", "--install-dir=#{rubygems}"
       ENV["GEM_PATH"] = rubygems
 
-      ohai "#{sbin}/unitd --no-daemon"
-      pid = spawn "#{sbin}/unitd", "--no-daemon"
-      #timeout(5) { sleep 0.1 until pidfile.exist? }
-      #assert_equal pid, pidfile.read.chomp.to_i
+      control = testpath/"unit.control.sock"
+
+      pid = spawn "#{sbin}/unitd", "--no-daemon", "--log", "/dev/stdout", "--control", "unix:#{control}"
+      timeout(5) { sleep 0.1 until control.exist? }
 
       # Unit uses a unix control socket. Net::HTTP to a socket is hard. Sorry.
       socket = Net::BufferedIO.new(UNIXSocket.new(control))
@@ -118,15 +114,6 @@ class NginxUnit < Formula
       assert_equal("200", response.code)
       expected_body = { "listeners" => {}, "applications" => {} }
       assert_equal expected_body, JSON.parse(response.body)
-
-      #assert_predicate logfile, :size?
-
-      ## Unit should discover each of the modules and talk about them in the log
-      #logfile.read.tap do |logs|
-      #  assert_include logs, "lib/unit/perl.unit.so"
-      #  assert_include logs, "lib/unit/python.unit.so"
-      #  assert_include logs, "lib/unit/ruby.unit.so"
-      #end
 
       ### Perl module
 
@@ -228,22 +215,6 @@ class NginxUnit < Formula
       response = Net::HTTP.get_response(URI.parse("http://localhost:8000"))
       assert_equal "200", response.code
       assert_equal "Hello, ruby world!", response.body
-    rescue
-      if pidfile.exist?
-        oh1 pidfile
-        print pidfile.read
-      else
-        opoo "No pid file!"
-      end
-
-      if logfile.exist?
-        oh1 logfile
-        print logfile.read
-      else
-        opoo "No log file!"
-      end
-
-      raise
     ensure
       if pid
         Process.kill "SIGINT", pid
