@@ -17,6 +17,7 @@ class Opentsdb < Formula
   homepage "http://opentsdb.net/"
   url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.0/opentsdb-2.3.0.tar.gz"
   sha256 "90e982fecf8a830741622004070fe13a55fb2c51d01fc1dc5785ee013320375a"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -27,7 +28,7 @@ class Opentsdb < Formula
   end
 
   depends_on "hbase"
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
   depends_on "lzo" => :recommended
   depends_on HbaseLZORequirement if build.with?("lzo")
   depends_on "gnuplot" => :optional
@@ -48,7 +49,7 @@ class Opentsdb < Formula
       :HBASE_HOME => Formula["hbase"].opt_libexec,
       :COMPRESSION => (build.with?("lzo") ? "LZO" : "NONE"),
     }
-    env = Language::Java.java_home_env.merge(env)
+    env = Language::Java.java_home_env("1.8").merge(env)
     create_table = pkgshare/"tools/create_table_with_env.sh"
     create_table.write_env_script pkgshare/"tools/create_table.sh", env
     create_table.chmod 0755
@@ -69,6 +70,10 @@ class Opentsdb < Formula
         --auto-metric \\
         "$@"
     EOS
+    (bin/"start-tsdb.sh").chmod 0755
+
+    libexec.mkpath
+    bin.env_script_all_files(libexec, env)
   end
 
   def post_install
