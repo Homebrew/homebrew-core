@@ -3,6 +3,7 @@ class Gssh < Formula
   homepage "https://github.com/int128/groovy-ssh"
   url "https://github.com/int128/groovy-ssh/archive/2.9.0.tar.gz"
   sha256 "9199c675b91041858a246eee156c6ed0d65d153efafb62820f66d3722b9d17bf"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,13 +13,13 @@ class Gssh < Formula
     sha256 "62ca0404e4429f62df84b96dba7b0219db9d883595f31a4427bd884a2e45b705" => :yosemite
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
     ENV["CIRCLE_TAG"] = version
     system "./gradlew", "shadowJar"
     libexec.install "cli/build/libs/gssh.jar"
-    bin.write_jar_script libexec/"gssh.jar", "gssh"
+    bin.write_jar_script libexec/"gssh.jar", "gssh", :java_version => "1.8"
   end
 
   test do
