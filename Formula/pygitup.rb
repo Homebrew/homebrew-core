@@ -6,6 +6,13 @@ class Pygitup < Formula
   url "https://files.pythonhosted.org/packages/12/e8/fd6a0f29c6b7ecb52dc1e9bec96825a1a0ff0f2ce34cd50898040cce9673/git-up-1.5.0.tar.gz"
   sha256 "e35ebd100fae7e37745baade1190c709c2047987c9b077edb4794ea8ccbeab60"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "dd3c8cd2761f857ece8ab1e9a112475e770b3d06abfb3416ae19e0d777caacd7" => :high_sierra
+    sha256 "1317c472920d4711e009dfbee37d4b6b0348924c5ee2a43c079e665f3536c2df" => :sierra
+    sha256 "60c14f94f7124c4b659c2f04042d3971cec6b909c742cf8e66279ee7b0c7e24e" => :el_capitan
+  end
+
   depends_on "python"
 
   resource "click" do
