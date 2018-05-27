@@ -3,6 +3,7 @@ class Dict < Formula
   homepage "http://www.dict.org/"
   url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.12.1/dictd-1.12.1.tar.gz"
   sha256 "a237f6ecdc854ab10de5145ed42eaa2d9b6d51ffdc495f7daee59b05cc363656"
+  revision 1
 
   bottle do
     sha256 "1b2d9a8cdc3d4aabf73b44c74518d2362c3ec8411cc717fe68e4366f0f5f2d3b" => :high_sierra
