@@ -20,7 +20,7 @@ class Taskell < Formula
   end
 
   test do
-    (testpath/"test.md") <<~EOS
+    (testpath/"test.md").write <<~EOS
       ## To Do
 
       - A thing
