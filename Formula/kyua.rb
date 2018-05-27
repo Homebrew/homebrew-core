@@ -18,6 +18,8 @@ class Kyua < Formula
   depends_on "sqlite"
 
   def install
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
