@@ -5,9 +5,9 @@ class Povray < Formula
   sha256 "53d11ebd2972fc452af168a00eb83aefb61387662c10784e81b63e44aa575de4"
 
   bottle do
-    sha256 "d47c19e8816adf48fdcb70027a7c2d69cb33ca05abec36cdb7fb1b38fcbc20ef" => :high_sierra
-    sha256 "297f2866da6efcf9e9f2411e7385bbbae6022809c6848f2b35906ca63e666e1d" => :sierra
-    sha256 "c83b12ed02791a174930aa698fa4bfa79092b4a7e576b57895c960aa07465b80" => :el_capitan
+    sha256 "22f13423b810e41e2de3edf4085e857e0025558e0d1c2debf1cbedef297c0736" => :high_sierra
+    sha256 "5eb3e95e89de4ebdfe0406344cf18435669b4983e7b08400c34ec2f079fc8c88" => :sierra
+    sha256 "929844ff638adfa96cb090b3de3403a4627059120ef639e0970c373c516001eb" => :el_capitan
   end
 
   depends_on :macos => :lion
