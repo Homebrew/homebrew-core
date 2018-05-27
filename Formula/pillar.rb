@@ -6,11 +6,10 @@ class Pillar < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8912a5f1dd517d4b3d7120a50639cbc31fd485a1f2f5c8874f3ef60c6a13cdcd" => :high_sierra
-    sha256 "99d50684a2a14939c7b651fb1483c5db1f49f3e979a9912a80d28cac3a59bc8c" => :sierra
-    sha256 "0a9fca317e464bb8298c58bb21da39c93c7a128114f58a4ab3cd4f936efce46b" => :el_capitan
-    sha256 "62c49f179045cc5a25190111ce406865f81cba454930b85912ba89ae8b59a2a0" => :yosemite
-    sha256 "8c1ce70b45f766db666edffdc151c88e6b8c3a7cb4d7016d8aaf9e9466e1141b" => :mavericks
+    rebuild 1
+    sha256 "821dac9ddc56019fb7542a7ea77b33e6d3985a483a7f4d52482081389864d276" => :high_sierra
+    sha256 "c84c1441dace68a35a68d280a3880ac4a62721480652474241b8d6a6b175742a" => :sierra
+    sha256 "1f2264e263268d479e04a584003127c833eec237a3514c607f7d8090de48084c" => :el_capitan
   end
 
   depends_on :java => "1.8"
