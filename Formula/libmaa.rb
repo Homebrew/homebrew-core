@@ -6,13 +6,9 @@ class Libmaa < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "0eb30db4ae358164bcd4d438be80a868b39f0f8d86447e5985971ee738082de4" => :high_sierra
-    sha256 "53d74fbf998dc538eef1240cb27809a82389410324ce8917339481677dcdb3a0" => :sierra
-    sha256 "55e856349d9523de82f4ded30f4b5065e355b627ac53e8a7ae1599ee01d312d2" => :el_capitan
-    sha256 "2187eee3e1d3b9dd54fabbf1be63c388458af7986f0f470f31a6111d47212227" => :yosemite
-    sha256 "c0919efec1d1e0661a8228914a90c0f482b720622f31033841631819c6c4d1df" => :mavericks
-    sha256 "60bd1424f0ef468d95248fa6c3bf4845f2b5b649829623160c1b85b82be3ad57" => :mountain_lion
+    sha256 "ae189018a85ecc0e5686072f7e3882d648fc3ee341374fcf82174a7dc6af1eb9" => :high_sierra
+    sha256 "84345113a91bb76b150714d7e8349d855fc86f0d6073e4fa04be43f1454ac2b9" => :sierra
+    sha256 "3b774421fc6a80b592605911e67cdd6cc558d2a92b9d23304eb00225e3820e50" => :el_capitan
   end
 
   depends_on "bmake" => :build
