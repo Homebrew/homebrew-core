@@ -11,23 +11,20 @@ class NginxUnit < Formula
     openssl = Formula["openssl"]
     pcre = Formula["pcre"]
 
-    system "./configure",
-      "--prefix=#{prefix}",
-      # This tells the unit daemon where it can load modules from. Configuring
-      # the location at runtime is painful. We want this to be in the
-      # $HOMEBREW_PREFIX so that other formulae can link in additional modules.
-      "--modules=#{HOMEBREW_PREFIX}/lib/unit",
-      "--state=#{var}/unit",
-      "--log=#{var}/log/unit.log",
-      "--pid=#{var}/run/unit.pid",
-      "--control=unix:#{var}/run/unit.control.sock",
-      "--cc-opt=-I#{pcre.opt_include} -I#{openssl.opt_include}",
-      "--ld-opt=-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
+    # The modules directory is where unitd loads modules. Compile unitd with
+    # prefix-relative directory for loading and install moduless to keg-local
+    # to be linked in so other formulae can also link modules.
+    system "./configure", "--prefix=#{prefix}",
+                          "--modules=#{HOMEBREW_PREFIX}/lib/unit",
+                          "--state=#{var}/unit",
+                          "--log=#{var}/log/unit.log",
+                          "--pid=#{var}/run/unit.pid",
+                          "--control=unix:#{var}/run/unit.control.sock",
+                          "--cc-opt=-I#{pcre.opt_include} -I#{openssl.opt_include}",
+                          "--ld-opt=-L#{pcre.opt_lib} -L#{openssl.opt_lib}"
 
     system "make", "install"
 
-    # Beyond here we want to install modules into the keg, so we'll move them
-    # into the prefix ourselves
     libunit = lib/"unit"
     libunit.mkpath
 
