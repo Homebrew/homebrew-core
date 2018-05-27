@@ -13,8 +13,6 @@ class NginxUnit < Formula
 
     system "./configure",
       "--prefix=#{prefix}",
-      "--bindir=#{bin}",
-      "--sbindir=#{bin}",
       # This tells the unit daemon where it can load modules from. Configuring
       # the location at runtime is painful. We want this to be in the
       # $HOMEBREW_PREFIX so that other formulae can link in additional modules.
@@ -62,7 +60,7 @@ class NginxUnit < Formula
     EOS
   end
 
-  plist_options :manual => "unitd"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/unitd --no-daemon"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -77,7 +75,7 @@ class NginxUnit < Formula
         <false/>
         <key>ProgramArguments</key>
         <array>
-            <string>#{opt_bin}/unitd</string>
+            <string>#{opt_sbin}/unitd</string>
             <string>--no-daemon</string>
         </array>
         <key>WorkingDirectory</key>
@@ -105,8 +103,8 @@ class NginxUnit < Formula
       system "gem", "install", "rack", "--install-dir=#{rubygems}"
       ENV["GEM_PATH"] = rubygems
 
-      ohai "#{bin}/unitd --no-daemon"
-      pid = spawn "#{bin}/unitd", "--no-daemon"
+      ohai "#{sbin}/unitd --no-daemon"
+      pid = spawn "#{sbin}/unitd", "--no-daemon"
       #timeout(5) { sleep 0.1 until pidfile.exist? }
       #assert_equal pid, pidfile.read.chomp.to_i
 
