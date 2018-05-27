@@ -3,6 +3,7 @@ class Lcm < Formula
   homepage "https://lcm-proj.github.io/"
   url "https://github.com/lcm-proj/lcm/releases/download/v1.3.1/lcm-1.3.1.zip"
   sha256 "3fd7c736cf218549dfc1bff1830000ad96f3d8a8d78d166904323b1df573ade1"
+  revision 1
 
   bottle do
     cellar :any
@@ -26,7 +27,7 @@ class Lcm < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :java => :recommended
+  depends_on :java => "1.8"
   depends_on "python" => :optional
   depends_on "python@2" => :optional
 
@@ -66,9 +67,7 @@ class Lcm < Formula
     assert_predicate testpath/"exlcm_example_t.c", :exist?, "lcm-gen did not generate C source file"
     system "#{bin}/lcm-gen", "-x", "example_t.lcm"
     assert_predicate testpath/"exlcm/example_t.hpp", :exist?, "lcm-gen did not generate C++ header file"
-    if build.with? "java"
-      system "#{bin}/lcm-gen", "-j", "example_t.lcm"
-      assert_predicate testpath/"exlcm/example_t.java", :exist?, "lcm-gen did not generate java file"
-    end
+    system "#{bin}/lcm-gen", "-j", "example_t.lcm"
+    assert_predicate testpath/"exlcm/example_t.java", :exist?, "lcm-gen did not generate java file"
   end
 end
