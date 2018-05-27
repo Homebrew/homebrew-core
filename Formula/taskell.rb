@@ -20,22 +20,19 @@ class Taskell < Formula
   end
 
   test do
-    system "#{bin}/taskell", "-v"
-
-    input = <<~EOS
+    (testpath/"test.md") <<~EOS
       ## To Do
 
       - A thing
       - Another thing
     EOS
 
-    output = <<~EOS
+    expected = <<~EOS
       test.md
       Lists: 1
       Tasks: 2
     EOS
 
-    (testpath/"test.md").write input
-    assert_match output, shell_output("#{bin}/taskell -i test.md")
+    assert_match expected, shell_output("#{bin}/taskell -i test.md")
   end
 end
