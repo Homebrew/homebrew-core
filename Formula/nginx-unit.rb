@@ -92,8 +92,9 @@ class NginxUnit < Formula
       # We need to install rack for the ruby module test to work, so set a
       # temporary gems path before booting unitd. (unitd boots and functions
       # fine without, but fails to start an app until rack is installed.)
+      # And we install old rack for el capitan / sierra compat.
       rubygems = testpath/"ruby/gems"
-      system "gem", "install", "rack", "--install-dir=#{rubygems}"
+      system "gem", "install", "rack", "-v", "1.6.10", "--install-dir=#{rubygems}"
       ENV["GEM_PATH"] = rubygems
 
       control = testpath/"unit.control.sock"
