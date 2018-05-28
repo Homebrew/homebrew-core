@@ -13,13 +13,13 @@ class Hbase < Formula
 
   depends_on :java => "1.8"
   depends_on "hadoop" => :optional
-  depends_on "lzo" => :recommended
-  depends_on "ant" => :build if build.with? "lzo"
-  depends_on :arch => :x86_64 if build.with? "lzo"
+  depends_on "lzo"
+  depends_on "ant" => :build
+  depends_on :arch => :x86_64
   # 64 bit is required because of three things:
   # the lzo jar has a native extension
   # building native extensions requires a version of java that matches the architecture
-  # there is no 32 bit version of java for macOS since Java 1.7, and 1.7+ is required for hbase
+  # there is no 32 bit version of java for macOS since Java 1.7, and 1.8 is required for hbase
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
@@ -36,20 +36,18 @@ class Hbase < Formula
       (bin/script).write_env_script "#{libexec}/bin/#{script}", Language::Java.java_home_env("1.8")
     end
 
-    if build.with? "lzo"
-      resource("hadoop-lzo").stage do
-        # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/master/build.xml#L235
-        inreplace "build.xml",
-                  %r{(<class name="com.hadoop.compression.lzo.LzoDecompressor" />)},
-                  "\\1\n<classpath refid=\"classpath\"/>"
-        ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
-        ENV["CFLAGS"] = "-m64"
-        ENV["CXXFLAGS"] = "-m64"
-        ENV["CPPFLAGS"] = "-I/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers"
-        system "ant", "compile-native", "tar"
-        (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
-        (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
-      end
+    resource("hadoop-lzo").stage do
+      # Fixed upstream: https://github.com/cloudera/hadoop-lzo/blob/master/build.xml#L235
+      inreplace "build.xml",
+                %r{(<class name="com.hadoop.compression.lzo.LzoDecompressor" />)},
+                "\\1\n<classpath refid=\"classpath\"/>"
+      ENV["CLASSPATH"] = Dir["#{libexec}/lib/hadoop-common-*.jar"].first
+      ENV["CFLAGS"] = "-m64"
+      ENV["CXXFLAGS"] = "-m64"
+      ENV["CPPFLAGS"] = "-I/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers"
+      system "ant", "compile-native", "tar"
+      (libexec/"lib").install Dir["build/hadoop-lzo-*/hadoop-lzo-*.jar"]
+      (libexec/"lib/native").install Dir["build/hadoop-lzo-*/lib/native/*"]
     end
 
     inreplace "#{libexec}/conf/hbase-env.sh" do |s|
