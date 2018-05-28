@@ -1,8 +1,8 @@
 class Libdmtx < Formula
   desc "Data Matrix library"
-  homepage "https://www.libdmtx.org/"
-  url "https://downloads.sourceforge.net/project/libdmtx/libdmtx/0.7.4/libdmtx-0.7.4.tar.bz2"
-  sha256 "b62c586ac4fad393024dadcc48da8081b4f7d317aa392f9245c5335f0ee8dd76"
+  homepage "https://libdmtx.sourceforge.io"
+  url "https://github.com/dmtx/libdmtx/archive/v0.7.5.tar.gz"
+  sha256 "be0c5275695a732a5f434ded1fcc232aa63b1a6015c00044fe87f3a689b75f2e"
 
   bottle do
     cellar :any
@@ -15,9 +15,12 @@ class Libdmtx < Formula
     sha256 "86300de879b8d17dbf3f075a5fa1f1d3762c1eebb77e0fdd05ed38f76b75769e" => :mountain_lion
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
