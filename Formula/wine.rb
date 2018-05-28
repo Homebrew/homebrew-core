@@ -7,12 +7,11 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 2
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.tar.xz"
-    sha256 "346a050aca5cd0d9978a655af11c30e68c201a58aea0c70d5e4c4f1b63c2fbec"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.1.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.1.tar.xz"
+    sha256 "bad00d7ddac6652795a2ed52ce02a544ff4e891499b29ac71d28d20b8e1d26f3"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -122,9 +121,9 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.6.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.6.tar.bz2"
-    sha256 "cf0c30807d08f6a28ab46c61b8dbd55c97d2f292cf88f3a07d3384687f31f017"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.0.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2"
+    sha256 "91dde8492155b7f34bb95079e79be92f1df353fcc682c19be90762fd3e12eeb9"
   end
 
   resource "gd" do
@@ -134,9 +133,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.17/libgphoto2-2.5.17.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.17.tar.bz2"
-    sha256 "417464f0a313fa937e8a71cdf18a371cf01e750830195cd63ae31da0d092b555"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.18/libgphoto2-2.5.18.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.18.tar.bz2"
+    sha256 "5b17b89d7ca0ec35c72c94ac3701e87d49e52371f9509b8e5c08c913ae57a7ec"
   end
 
   resource "net-snmp" do
@@ -336,6 +335,19 @@ class Wine < Formula
       end
 
       resource("fontconfig").stage do
+        # Remove for fontconfig > 2.13.0
+        # Upstream issue from 6 Mar 2018 "2.13.0 erroneously requires libuuid on macOS"
+        # See https://bugs.freedesktop.org/show_bug.cgi?id=105366
+        ENV["UUID_CFLAGS"] = " "
+        ENV["UUID_LIBS"] = " "
+
+        # Remove for fontconfig > 2.13.0
+        # Same effect as upstream commit from 10 Mar 2018 "Add uuid to
+        # Requires.private in .pc only when pkgconfig macro found it"
+        inreplace "configure",
+          'PKGCONFIG_REQUIRES_PRIVATELY="$PKGCONFIG_REQUIRES_PRIVATELY uuid"',
+          ""
+
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
                               "--disable-static",
