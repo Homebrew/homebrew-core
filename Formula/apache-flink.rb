@@ -33,6 +33,7 @@ class ApacheFlink < Formula
            libexec/"examples/streaming/WordCount.jar", "--input", "input",
            "--output", "result"
     system libexec/"bin/stop-cluster.sh"
+    assert_predicate testpath/"result", :exist?
     assert_equal expected, (testpath/"result").read
   end
 end
