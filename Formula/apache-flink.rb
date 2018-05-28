@@ -19,19 +19,20 @@ class ApacheFlink < Formula
   end
 
   test do
-    log_dir = testpath/"log"
-    mkdir log_dir
-    input = "foo bar foobar"
-    input_file = testpath/"input"
-    IO.write(input_file, input)
-    output_file = testpath/"result"
-    expected_output = "(foo,1)\n(bar,1)\n(foobar,1)\n"
+    (testpath/"log").mkpath
+    (testpath/"input").write "foo bar foobar"
+    expected = <<~EOS
+      (foo,1)
+      (bar,1)
+      (foobar,1)
+    EOS
     ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
-    ENV.prepend "FLINK_LOG_DIR", log_dir.to_s
-    shell_output("#{libexec}/bin/start-cluster.sh", 0)
-    shell_output("#{bin}/flink run -p 1 #{libexec}/examples/streaming/WordCount.jar --input #{input_file} --output #{output_file}", 0)
-    shell_output("#{libexec}/bin/stop-cluster.sh", 0)
-    output = File.open(output_file).read
-    assert_equal(expected_output, output)
+    ENV.prepend "FLINK_LOG_DIR", testpath/"log"
+    system libexec/"bin/start-cluster.sh"
+    system bin/"flink", "run", "-p", "1",
+           libexec/"examples/streaming/WordCount.jar", "--input", "input",
+           "--output", "result"
+    system libexec/"bin/stop-cluster.sh"
+    assert_equal expected, (testpath/"result").read
   end
 end
