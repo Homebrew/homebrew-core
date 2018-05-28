@@ -5,7 +5,7 @@ class Libewf < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/libe/libewf/libewf_20140608.orig.tar.gz"
   version "20140608"
   sha256 "d14030ce6122727935fbd676d0876808da1e112721f3cb108564a4d9bf73da71"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -31,15 +31,23 @@ class Libewf < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on :osxfuse => :optional
 
   def install
     if build.head?
       system "./synclibs.sh"
       system "./autogen.sh"
     end
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+
+    args << "--with-libfuse=no" if build.without? "osxfuse"
+
+    system "./configure", *args
     system "make", "install"
   end
 
