@@ -27,6 +27,12 @@ class Dlib < Formula
 
     args = std_cmake_args + %w[-DDLIB_USE_BLAS=ON -DDLIB_USE_LAPACK=ON]
     args << "-DDLIB_NO_GUI_SUPPORT=ON" if build.without? "x11"
+    args << "-DUSE_SSE2_INSTRUCTIONS=ON" # SSE2 is present on all modern macOS hardware
+
+    unless build.bottle?
+      args << "-DUSE_AVX_INSTRUCTIONS=ON" if Hardware::CPU.avx?
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if Hardware::CPU.sse4?
+    end
 
     if build.with? "openblas"
       args << "-Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
