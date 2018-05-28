@@ -1,17 +1,3 @@
-class HbaseLZORequirement < Requirement
-  fatal true
-
-  satisfy(:build_env => false) { Tab.for_name("hbase").with?("lzo") }
-
-  def message; <<~EOS
-    hbase must not have disabled lzo compression to use it in opentsdb:
-      brew install hbase
-      not
-      brew install hbase --without-lzo
-    EOS
-  end
-end
-
 class Opentsdb < Formula
   desc "Scalable, distributed Time Series Database"
   homepage "http://opentsdb.net/"
@@ -27,8 +13,7 @@ class Opentsdb < Formula
 
   depends_on "hbase"
   depends_on :java => "1.8"
-  depends_on "lzo" => :recommended
-  depends_on HbaseLZORequirement if build.with?("lzo")
+  depends_on "lzo"
   depends_on "gnuplot" => :optional
 
   def install
@@ -45,7 +30,7 @@ class Opentsdb < Formula
 
     env = {
       :HBASE_HOME => Formula["hbase"].opt_libexec,
-      :COMPRESSION => (build.with?("lzo") ? "LZO" : "NONE"),
+      :COMPRESSION => "LZO",
     }
     env = Language::Java.java_home_env("1.8").merge(env)
     create_table = pkgshare/"tools/create_table_with_env.sh"
