@@ -98,6 +98,7 @@ class Opencv < Formula
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
       system "make"
       lib.install Dir["lib/*.a"]
+      lib.install Dir["3rdparty/**/*.a"]
     end
   end
 
