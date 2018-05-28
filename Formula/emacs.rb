@@ -1,18 +1,14 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-25.3.tar.xz"
-  sha256 "253ac5e7075e594549b83fd9ec116a9dc37294d415e2f21f8ee109829307c00b"
+  url "https://ftp.gnu.org/gnu/emacs/emacs-26.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-26.1.tar.xz"
+  sha256 "1cf4fc240cd77c25309d15e18593789c8dbfba5c2b44d8f77c886542300fd32c"
 
   bottle do
     sha256 "d5ce62eb55d64830264873a363a99f3de58c35c0bd1602cb7fd0bc37137b0c9d" => :high_sierra
     sha256 "4d7ff7f96c9812a9f58cd45796aef789a1b5d26c58e3e68ecf520fab34af524d" => :sierra
     sha256 "7bf6dfba77259ef5454696834c14fcab3643197ba70eef1e608476167c3d387b" => :el_capitan
-  end
-
-  devel do
-    url "https://alpha.gnu.org/gnu/emacs/pretest/emacs-26.1-rc1.tar.xz"
-    sha256 "6594e668de00b96e73ad4f168c897fe4bca7c55a4caf19ee20eac54b62a05758"
   end
 
   head do
