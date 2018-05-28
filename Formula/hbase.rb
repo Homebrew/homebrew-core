@@ -3,7 +3,7 @@ class Hbase < Formula
   homepage "https://hbase.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6/hbase-1.2.6-bin.tar.gz"
   sha256 "a0fbc22373a7f2d66648c6d9fe13477e689df50c8ee533eda962d4e8fa2185ea"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "7636268e52eb3c665b622d0082208d9b0a7a6996aa3f4013a0a175b523b0c6cc" => :high_sierra
@@ -58,6 +58,8 @@ class Hbase < Formula
               "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
       s.gsub!("# export JAVA_HOME=/usr/java/jdk1.6.0/",
               "export JAVA_HOME=\"$(/usr/libexec/java_home --version 1.8)\"")
+      # avoid deprecated-option warning issued by Java 8
+      s.gsub!(" -XX:PermSize=128m -XX:MaxPermSize=128m", "")
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.
