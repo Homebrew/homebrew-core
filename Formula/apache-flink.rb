@@ -19,15 +19,6 @@ class ApacheFlink < Formula
   end
 
   test do
-    input_file, output_file, expected_output = setup_test_environment
-    start_flink_cluster
-    execute_word_count(input_file, output_file)
-    stop_flink_cluster
-    output = File.open(output_file).read
-    assert_equal(expected_output, output)
-  end
-
-  def setup_test_environment
     log_dir = testpath/"log"
     mkdir log_dir
     input = "foo bar foobar"
@@ -37,19 +28,10 @@ class ApacheFlink < Formula
     expected_output = "(foo,1)\n(bar,1)\n(foobar,1)\n"
     ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
     ENV.prepend "FLINK_LOG_DIR", log_dir.to_s
-
-    [input_file, output_file, expected_output]
-  end
-
-  def start_flink_cluster
     shell_output("#{libexec}/bin/start-cluster.sh", 0)
-  end
-
-  def execute_word_count(input_file, output_file)
     shell_output("#{bin}/flink run -p 1 #{libexec}/examples/streaming/WordCount.jar --input #{input_file} --output #{output_file}", 0)
-  end
-
-  def stop_flink_cluster
     shell_output("#{libexec}/bin/stop-cluster.sh", 0)
+    output = File.open(output_file).read
+    assert_equal(expected_output, output)
   end
 end
