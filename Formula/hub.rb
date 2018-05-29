@@ -1,8 +1,8 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.2.9.tar.gz"
-  sha256 "b3f949c4500288a18ed68c38755962c9571c9e10063fb77583a19d0fcca5ecdf"
+  url "https://github.com/github/hub/archive/v2.3.0.tar.gz"
+  sha256 "69e48105f7287537e7afaf969825666c1f09267eae3507515151900487342fae"
 
   head "https://github.com/github/hub.git"
 
@@ -14,22 +14,13 @@ class Hub < Formula
     sha256 "3f116b4c0587ab5d2a87d9d2f013ea058407ac2f9e845461d4970f36548e6be4" => :yosemite
   end
 
-  devel do
-    url "https://github.com/github/hub/archive/v2.3.0-pre10.tar.gz"
-    sha256 "4096b95aea46f674e91ff0d83f86d876958024a02c50ffb1e3a4aac3e0536fc5"
-  end
-
   option "without-completions", "Disable bash/zsh completions"
   option "without-docs", "Don't install man pages"
 
   depends_on "go" => :build
 
   def install
-    if build.stable?
-      system "script/build", "-o", "hub"
-      bin.install "hub"
-      man1.install Dir["man/*"] if build.with? "docs"
-    elsif build.with? "docs"
+    if build.with? "docs"
       begin
         deleted = ENV.delete "SDKROOT"
         ENV["GEM_HOME"] = buildpath/"gem_home"
@@ -48,8 +39,7 @@ class Hub < Formula
     if build.with? "completions"
       bash_completion.install "etc/hub.bash_completion.sh"
       zsh_completion.install "etc/hub.zsh_completion" => "_hub"
-      # TODO: Remove the conditional when hub 2.3.0 is released.
-      fish_completion.install "etc/hub.fish_completion" => "hub.fish" unless build.stable?
+      fish_completion.install "etc/hub.fish_completion" => "hub.fish"
     end
   end
 
