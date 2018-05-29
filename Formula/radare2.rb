@@ -21,32 +21,24 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/2.5.0/radare2-2.5.0.tar.gz"
-    sha256 "6713f8895fdb7855f7c28a36b14b8e17b383f0664d74122b8a0e2a8c8b5a049e"
+    url "https://radare.mikelloc.com/get/2.6.0/radare2-2.6.0.tar.gz"
+    sha256 "6653d5f7d10850a288abeea1ad892e2e6e0981e40bb58296d3b27ccfd88e7713"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.5.0/radare2-bindings-2.5.0.tar.gz"
-      sha256 "f01e1530504a9d52a2ad21edbebb9b68c560b026e35fff406124947b1ea9d483"
+      url "https://radare.mikelloc.com/get/2.6.0/radare2-bindings-2.6.0.tar.gz"
+      sha256 "b97b256c99398d3bfc4d0b588a63814c95a028f8bb404c2512f1644b935ed824"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.5.0/radare2-extras-2.5.0.tar.gz"
-      sha256 "dc7ec28cbbf0a5d3afd246f9a9d7341c4df8cf77c2719119e9294ba95ea2aad8"
-
-      # Remove for > 2.5.0
-      # Fix "ld: library not found for -lr_reg"
-      # Upstream commit from 11 Apr 2018 "x86_udis.mk: also pass LDFLAGS"
-      patch do
-        url "https://github.com/radare/radare2-extras/commit/8cce5eb.patch?full_index=1"
-        sha256 "b02e7019ab963e5ec975997436a900b512c7cebf8652d2d7ecfa4772842a5215"
-      end
+      url "https://radare.mikelloc.com/get/2.6.0/radare2-extras-2.6.0.tar.gz"
+      sha256 "bcc68f3facf4e977146a797d39722d0416195d4fbc835c62fcabe8b2055a94ba"
     end
   end
 
   bottle do
-    sha256 "7368e7f17fc5f6e497e1c3a5cebdd163906f656322a4dd3afc853db062428873" => :high_sierra
-    sha256 "c4d0dd76391d45a7b6a035b585856565d6bc2097273409b299e2b80b76a84173" => :sierra
-    sha256 "2aee3583d955dfa17cd1495650016a2c5f42d20ca9a6a27a1fea47b8b19ac955" => :el_capitan
+    sha256 "568b3e06a3c5ceb6ab5f22430029d1666967b2c42df642f93b715d446c13ab9a" => :high_sierra
+    sha256 "c6b1f6cce416f2c89451406efc43791a3cef1e8369cc363dd64977ea9c5b06f7" => :sierra
+    sha256 "06110fce1d5980fec9cca188ea5c1ad308cd5cc65cd2be200ef9fbb828cd1d45" => :el_capitan
   end
 
   head do
@@ -76,6 +68,24 @@ class Radare2 < Formula
   depends_on "yara"
 
   depends_on CodesignRequirement if build.with? "code-signing"
+
+  # These three patches update the buildsystem to fix linking libr2 with openssl.
+  # The first two are merged upstream, and the third has been submitted.
+  # https://github.com/radare/radare2/pull/10188
+  patch do
+    url "https://github.com/radare/radare2/commit/3752d992f3140806ea1d513739b6f23addf52df1.patch?full_index=1"
+    sha256 "ac0642a49603e572ef033c2f7c3225775b6996147bd7c7052d595b41edfdffca"
+  end
+
+  patch do
+    url "https://github.com/radare/radare2/commit/2ca2a0ae1565e89ed4c49813f05190c610fb37f1.patch?full_index=1"
+    sha256 "5081a33e2af8483b035fc698c1814c1a68741aa793c5ccb60faa844343829c66"
+  end
+
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/12d117bea567c5811a7bf1a70ccd0777ecb10997/radare2/fix_openssl_build.patch"
+    sha256 "d952e048e8551017419520d29d75f988463155c2a79d89e2613423bbd9e91fd3"
+  end
 
   def install
     # Build Radare2 before bindings, otherwise compile = nope.

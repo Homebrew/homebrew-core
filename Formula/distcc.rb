@@ -1,21 +1,38 @@
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
-  url "https://github.com/distcc/distcc/releases/download/v3.2rc1.2/distcc-3.2rc1.2.tar.gz"
-  version "3.2rc1.2"
-  sha256 "7199806c5bbd7652e2d10989965afc7411c4e47bd5a1a621b3633b24e3a21444"
+  url "https://github.com/distcc/distcc/releases/download/v3.3/distcc-3.3.tar.gz"
+  sha256 "125897f848b2dc00cbdb62cf9e618a5e942eb7d70350a2b7b66e741cf3200045"
   head "https://github.com/distcc/distcc.git"
 
   bottle do
-    sha256 "cf2e6cc5314246ba6946434e7a8670817355dfdb3830366b3869a51fb026ea60" => :high_sierra
-    sha256 "61d32816afc78eb43e58428d26fb3cf25f1f540cb529c3f1c645fc455c99fa3f" => :sierra
-    sha256 "cdc8d738cbbe5e4a367472c4604d20536664c0aa75de3d0007f4db3535406a2e" => :el_capitan
+    sha256 "0856c0e1f163db8d9c41ca4f51938f6d32ad44638a980efa43131869e51817d4" => :high_sierra
+    sha256 "482ab73be29ddb1271c4213389954ba0940e5ca63586b12fcba1e28f500c346c" => :sierra
+    sha256 "24511cc04df2d860c1261b4a194cd0af0742413ff7744ec3adb2d780aed94108" => :el_capitan
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "python"
+
+  resource "libiberty" do
+    url "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20180425.orig.tar.xz"
+    sha256 "9d925afe1a2ee1ca764e3329ffaea9c2dcc42d2d62e8a3679003321fe8cf7bf0"
+  end
 
   def install
+    # While libiberty recommends that packages vendor libiberty into their own source,
+    # distcc wants to have a package manager-installed version.
+    # Rather than make a package for a floating package like this, let's just
+    # make it a resource.
+    buildpath.install resource("libiberty")
+    cd "libiberty" do
+      system "./configure"
+      system "make"
+    end
+    ENV.append "LDFLAGS", "-L#{buildpath}/libiberty"
+    ENV.append_to_cflags "-I#{buildpath}/include"
+
     # Make sure python stuff is put into the Cellar.
     # --root triggers a bug and installs into HOMEBREW_PREFIX/lib/python2.7/site-packages instead of the Cellar.
     inreplace "Makefile.in", '--root="$$DESTDIR"', ""

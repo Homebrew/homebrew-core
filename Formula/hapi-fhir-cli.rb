@@ -1,8 +1,8 @@
 class HapiFhirCli < Formula
   desc "Command-line interface for the HAPI FHIR library"
   homepage "http://hapifhir.io/doc_cli.html"
-  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.3.0/hapi-fhir-3.3.0-cli.tar.bz2"
-  sha256 "8342c78598edd9b6509fff0b9cb1de9b277b97f1537342124d1e78523d887d15"
+  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.4.0/hapi-fhir-3.4.0-cli.tar.bz2"
+  sha256 "e2acdcad6a04a5bcc16a3eb5bfeaafaeb1016025c33ff0faeed8a44207319965"
 
   bottle :unneeded
 
@@ -21,6 +21,7 @@ class HapiFhirCli < Formula
 
   test do
     testpath.install resource("test_resource")
-    system bin/"hapi-fhir-cli", "validate", "-n", "specimen-example.json"
+    system bin/"hapi-fhir-cli", "validate", "--file", "specimen-example.json",
+           "--fhir-version", "dstu3"
   end
 end

@@ -16,7 +16,7 @@ class Henplus < Formula
 
   depends_on "ant" => :build
   depends_on "libreadline-java"
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
 
   def install
     inreplace "bin/henplus" do |s|

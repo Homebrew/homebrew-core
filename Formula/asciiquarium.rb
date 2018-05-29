@@ -15,13 +15,11 @@ class Asciiquarium < Formula
 
   resource "Curses" do
     url "https://cpan.metacpan.org/authors/id/G/GI/GIRAFFED/Curses-1.34.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/G/GI/GIRAFFED/Curses-1.34.tar.gz"
     sha256 "808e44d5946be265af5ff0b90f3d0802108e7d1b39b0fe68a4a446fe284d322b"
   end
 
   resource "Term::Animation" do
-    url "http://robobunny.com/projects/animation/Term-Animation-2.6.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.6.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/K/KB/KBAUCOM/Term-Animation-2.6.tar.gz"
     sha256 "7d5c3c2d4f9b657a8b1dce7f5e2cbbe02ada2e97c72f3a0304bf3c99d084b045"
   end
 

@@ -6,9 +6,10 @@ class Opencv < Formula
   revision 5
 
   bottle do
-    sha256 "866e36d13e9374cd34ef3912d9ab74c86621918a07233252882cd7e8b84b132a" => :high_sierra
-    sha256 "a5f81801d8172fed3891a19dd4e05ae1e2eb4b3fbd7156f39b6e8905756be92e" => :sierra
-    sha256 "766894bfe4b03708499ba7094d71353c86c1c30881d6c6889fab442d06a5b919" => :el_capitan
+    rebuild 2
+    sha256 "f9abd6049e1c5b52ac9dad6b7605bb09fb3936a6da5b8f613546bf6d4d199a1c" => :high_sierra
+    sha256 "2fd9d42ab0c9b3ee736ca60516dfc8224100e8fe2601c88ce7bc860763b7994d" => :sierra
+    sha256 "7fbbf8dde773d2efe29ba7fcbed805db8a1b3201b6b713c917459bb4d59c82cc" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -93,6 +94,11 @@ class Opencv < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      system "make"
+      lib.install Dir["lib/*.a"]
+      lib.install Dir["3rdparty/**/*.a"]
     end
   end
 

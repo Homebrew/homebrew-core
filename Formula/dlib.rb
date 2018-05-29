@@ -1,15 +1,16 @@
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.12.tar.bz2"
-  sha256 "e6a9a20e8350b237e0bc0a8dbc6cb75714f8358e86e7964b5ad8b551f6eb8fef"
+  url "http://dlib.net/files/dlib-19.13.tar.bz2"
+  sha256 "fe90b94677f837c8f0bcb0bb450b313a422a9171ac682583a75052c58f80ba54"
   head "https://github.com/davisking/dlib.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "917770d3e39e931557813077c9d952d012a792a24c6a659ad43452de5cac0113" => :high_sierra
-    sha256 "05c38de8edf52c3e2ad60c5e0e176f0702c300c739abdf0baaf0c6570f0bca6f" => :sierra
-    sha256 "3bd99bdd8253b71dc4cabd6c173e3839593227a1af810327f2b125ab39aa7b25" => :el_capitan
+    rebuild 1
+    sha256 "850809bf6ddc1db7c180d6ef4673b00fdf271790757097e2dbffe18be06d8d13" => :high_sierra
+    sha256 "d312a53d3b3a10ff658401fd0cf1fe9f2c37d4aa46c8b84d817ca355a89ad31b" => :sierra
+    sha256 "88778a5e22c7fb5e39c4c45359e0c19d28aae054363a666cd39aed3bb44ad161" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
@@ -27,6 +28,12 @@ class Dlib < Formula
 
     args = std_cmake_args + %w[-DDLIB_USE_BLAS=ON -DDLIB_USE_LAPACK=ON]
     args << "-DDLIB_NO_GUI_SUPPORT=ON" if build.without? "x11"
+    args << "-DUSE_SSE2_INSTRUCTIONS=ON" # SSE2 is present on all modern macOS hardware
+
+    unless build.bottle?
+      args << "-DUSE_AVX_INSTRUCTIONS=ON" if Hardware::CPU.avx?
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if Hardware::CPU.sse4?
+    end
 
     if build.with? "openblas"
       args << "-Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"

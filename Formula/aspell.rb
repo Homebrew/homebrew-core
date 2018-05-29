@@ -317,13 +317,6 @@ class Aspell < Formula
     sha256 "523912082848d891746dbb233f2ddb2cdbab6750dc76c38b3f6e000c9eb37308"
   end
 
-  option "with-lang-is", "Install is dictionary"
-  resource "is" do
-    url "https://ftp.gnu.org/gnu/aspell/dict/is/aspell-is-0.51.1-0.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/aspell/dict/is/aspell-is-0.51.1-0.tar.bz2"
-    sha256 "3035bd29dad929ce66e6acdc7c29670df458e0d13fe178241b212f481111e3d6"
-  end
-
   option "with-lang-it", "Install it dictionary"
   resource "it" do
     url "https://ftp.gnu.org/gnu/aspell/dict/it/aspell6-it-2.2_20050523-0.tar.bz2"
@@ -427,13 +420,6 @@ class Aspell < Formula
     url "https://ftp.gnu.org/gnu/aspell/dict/mt/aspell-mt-0.50-0.tar.bz2"
     mirror "https://ftpmirror.gnu.org/aspell/dict/mt/aspell-mt-0.50-0.tar.bz2"
     sha256 "e00fcaad60a90cfed687ba02f62be8c27b8650457dd3c5bdcb064b476da059b4"
-  end
-
-  option "with-lang-nb", "Install nb dictionary"
-  resource "nb" do
-    url "https://ftp.gnu.org/gnu/aspell/dict/nb/aspell-nb-0.50.1-0.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/aspell/dict/nb/aspell-nb-0.50.1-0.tar.bz2"
-    sha256 "e7746e8b617b2df576c1172399544818084524504202b16c747f52db5e5d228a"
   end
 
   option "with-lang-nds", "Install nds dictionary"
@@ -687,6 +673,15 @@ class Aspell < Formula
         system "make", "install"
       end
     end
+  end
+
+  def caveats
+    <<~EOS
+      Installation of the 'is' (Icelandic) and 'nb' (Norwegian) dictionaries is
+      currently broken. They can be installed manually.
+
+      See: https://github.com/Homebrew/homebrew-core/issues/28074
+    EOS
   end
 
   test do

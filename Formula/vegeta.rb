@@ -1,14 +1,15 @@
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta/archive/v7.0.0.tar.gz"
-  sha256 "b9e2ae43b832849c46e9aa0e1cddf5938e79b9addad01481b3cbfb7aa09a03cb"
+  url "https://github.com/tsenart/vegeta.git",
+      :tag => "v7.0.3",
+      :revision => "f5e8a53b900b1509b8719aa94c30d4cf087a77e9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "259302bc8757ce5260679fd5f88826c4e143a106fc27938a145ceb8a321d81bc" => :high_sierra
-    sha256 "47522f5463ed21683a614b90478a2306b6d0ba2cef98d520a78645fa770ee9f3" => :sierra
-    sha256 "2a49fd07e3b3171408ffd8ebbc82793b78217667e0daf63d43e4feaca3f9b279" => :el_capitan
+    sha256 "4577989ccecb06f40cbfbf6546328064bbcb946f9abe8c379d5028a29a72d5c5" => :high_sierra
+    sha256 "dd9673cf1e9a6b6be20251d53d2707a1794a7b9653e0430ca38f438e238b9995" => :sierra
+    sha256 "2ae78fd2f2703dec3ab2465cb58ef95a64780c97471fb30fc9de5d5c68481955" => :el_capitan
   end
 
   depends_on "dep" => :build
@@ -16,13 +17,10 @@ class Vegeta < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["CGO_ENABLED"] = "0"
-
     (buildpath/"src/github.com/tsenart/vegeta").install buildpath.children
     cd "src/github.com/tsenart/vegeta" do
-      system "dep", "ensure"
-      system "go", "build", "-ldflags", "-X main.Version=#{version}",
-                            "-o", bin/"vegeta"
+      system "make", "vegeta"
+      bin.install "vegeta"
       prefix.install_metafiles
     end
   end

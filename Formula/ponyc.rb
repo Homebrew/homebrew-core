@@ -1,15 +1,15 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.21.3.tar.gz"
-  sha256 "ef618f80dd793f27293695a3b8dc3a94415838dacf2e736d3d17a655081ac872"
+  url "https://github.com/ponylang/ponyc/archive/0.22.2.tar.gz"
+  sha256 "7bf1290a4a3f6f74a12482ed1698b45d7766495958f1181e92564991ff7a09b6"
   head "https://github.com/ponylang/ponyc.git"
 
   bottle do
     cellar :any
-    sha256 "8a99715f5b17a32146e24705f7f868830897aa77bcb940c856f32ad1f636defa" => :high_sierra
-    sha256 "e7c1e0c2d07f0f4e77d8edb85271408e1348dcea18ee5a4eb4d8dd990db92229" => :sierra
-    sha256 "e4921999ee11c6a59f774fecc763bb3574af53350b567e38688975acb599c062" => :el_capitan
+    sha256 "1e0d2f660903f99c2a6489acfd7a967996c1a862565db33e4703ddc322bdd4f5" => :high_sierra
+    sha256 "c4ba6ad43e51fa565cc4007d548cea764319abe1ea5ae30584e90c25e80a39e1" => :sierra
+    sha256 "3bb6aafb4ddde6fb1f00162808475fa74bd8c1a315a4157917ee3e23de5eac40" => :el_capitan
   end
 
   depends_on :macos => :yosemite
@@ -30,7 +30,8 @@ class Ponyc < Formula
   def install
     ENV.cxx11
     ENV["LLVM_CONFIG"] = "#{Formula["llvm@3.9"].opt_bin}/llvm-config"
-    system "make", "config=release", "destdir=#{prefix}", "install", "verbose=1"
+    system "make", "install", "verbose=1", "config=release",
+           "ponydir=#{prefix}", "prefix="
   end
 
   test do

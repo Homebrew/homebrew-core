@@ -11,6 +11,7 @@ class Vis < Formula
     sha256 "2d216793842bb70e954d460282495bfc0af44d386c25495d44e2304ff60d2a6d" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libtermkey"
   depends_on "lua"
 

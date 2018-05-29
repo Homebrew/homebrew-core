@@ -1,15 +1,14 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/axkibe/lsyncd"
-  url "https://github.com/axkibe/lsyncd/archive/release-2.2.2.tar.gz"
-  sha256 "0bdb12f40f1a52ed2d8e6cb47242d296663a42b30f38d2b8efcb66b43129e009"
-  revision 1
+  url "https://github.com/axkibe/lsyncd/archive/release-2.2.3.tar.gz"
+  sha256 "7bcd0f4ae126040bb078c482ff856c87e61c22472c23fa3071798dcb1dc388dd"
 
   bottle do
     cellar :any
-    sha256 "33bed2e034b0d0f72dbcedd747c8d58a54a9b40f92959da63c3ec5a07ce873df" => :high_sierra
-    sha256 "c22a4a49e5637ca930be2e56f725ffed9adfdcc95c1a5688a6ca947e1979d0d6" => :sierra
-    sha256 "37d51f683969cf0c109fedba13f2d08cc04f9e2e4e72cc1b1a80e05d48f33a70" => :el_capitan
+    sha256 "5bb7271654404c4fce5b7cab9caedb95d1f554d94dbbe1b2a05936f234bcb26e" => :high_sierra
+    sha256 "0d648673c47030c821a4b1635d5b2896cfb80fae4a1d00dabc3e53d689fcfec9" => :sierra
+    sha256 "fb5b82b01b9ddaa94f3529705f1dcd6f3d5d54735d18a35ce9886cddf9b88873" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -58,6 +57,8 @@ class Lsyncd < Formula
     "10.13.1"  => ["xnu-4570.20.62.tar.gz",  "4968ae345a83d7aca3a8da65bf09bdc637e2eefbc236f7931c38abb879fe05df"],
     "10.13.2"  => ["xnu-4570.31.3.tar.gz",   "1c364646d001f1a6eee80fa71f746b1142121203eabd808f1eab18317ade576c"],
     "10.13.3"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.4"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.5"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
   }
 
   if xnu_headers.key? MacOS.full_version

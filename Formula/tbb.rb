@@ -4,13 +4,12 @@ class Tbb < Formula
   url "https://github.com/01org/tbb/archive/2018_U3.tar.gz"
   version "2018_U3"
   sha256 "23793c8645480148e9559df96b386b780f92194c80120acce79fcdaae0d81f45"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "4f0885ab822d155ce1efa2bb97d806def0d673a3722f78b42c43dbdd1c0f42d4" => :high_sierra
-    sha256 "f09600c4a04ddd3875d43efa1a9f73dff2a63aa5a881f7f08dc9012a73d2aca9" => :sierra
-    sha256 "fbfa4708d7da9406fb66ae9e59b26075ca4a747dc664cc0f057aeb2f7a9d6d8d" => :el_capitan
+    sha256 "93debc8af52e4ce98cecc39d36ae5d7af40dbed16a826f9619ce77cccec915c9" => :high_sierra
+    sha256 "7bf32ebbe897f6b3794315ea9309b4814925a389599ff0a1120ebaf65942d091" => :sierra
+    sha256 "3659b877162a962c3d87251a3ad48333a1ea79ff25b90ff025b2999ea8083cdb" => :el_capitan
   end
 
   # requires malloc features first introduced in Lion
@@ -22,10 +21,13 @@ class Tbb < Formula
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
-    args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
-
-    system "make", *args
+    system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}"
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
+
+    # Build and install static libraries
+    system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}",
+                   "extra_inc=big_iron.inc"
+    lib.install Dir["build/BUILDPREFIX_release/*.a"]
     include.install "include/tbb"
 
     cd "python" do

@@ -18,6 +18,8 @@ class Cclive < Formula
   depends_on "boost"
   depends_on "pcre"
 
+  conflicts_with "clozure-cl", :because => "both install a ccl binary"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

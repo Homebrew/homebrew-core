@@ -1,12 +1,12 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.4.tar.gz"
-  sha256 "1a9697c3ad2f5545b5160d5e32d5f3c0f6f0a3371ceb9fa85961aec513acd7ac"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.5.tar.gz"
+  sha256 "b99535800925b5c5a9a103fdad37559b6cde13e7cdce72310f32ff105ec615df"
 
   bottle do
-    sha256 "175c4f8d79a08cc16b73224386120048da35e1c1dcf4f2131b610249fb2c003d" => :high_sierra
-    sha256 "2e7a2af3866c4464cd7929761abb5dc8ab3b9233ddc60c7441596ad0450feb4b" => :sierra
+    sha256 "1da3328941f24fbc9a6c4b37862d050409600050bec90e45da4dbdfbb01b6104" => :high_sierra
+    sha256 "7f5edaf2742797edb1a68705c9ecb5bc205f0e2ace517c41439949ad3cdb0e6c" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -14,6 +14,7 @@ class Mongodb < Formula
 
   depends_on :xcode => ["8.3.2", :build]
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :macos => :mountain_lion
   depends_on "python@2"

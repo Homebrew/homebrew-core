@@ -1,14 +1,14 @@
 class Pdfgrep < Formula
   desc "Search PDFs for strings matching a regular expression"
   homepage "https://pdfgrep.org/"
-  url "https://pdfgrep.org/download/pdfgrep-2.1.0.tar.gz"
-  sha256 "c9c16b4816389b20313aebb4fbad86f7775ae03330fcc08c82fa522ed810548d"
+  url "https://pdfgrep.org/download/pdfgrep-2.1.1.tar.gz"
+  sha256 "2c8155f30fe5d9d8ec4340e48133ed0b241496bbebe29498931f975c67a10c0b"
 
   bottle do
     cellar :any
-    sha256 "d8d121fd770825ebd23ae5e6ed433f5362c20aee6c6138c3f173a529ccb30c93" => :high_sierra
-    sha256 "da7b01c7ca4b63dbb4f028b6e6c8e607c26c78717aed895636ee8dee59ff9a20" => :sierra
-    sha256 "5f22fcfc3b6a85433d7ac85b0e8b74c25bf34daef8ca39b7cc117656239fa4b3" => :el_capitan
+    sha256 "164e7937ccf496ae35b3abbb5f7718a09428a25b9d67b7d6e35f7f6a55e06ac7" => :high_sierra
+    sha256 "99b80991db034c80573ab2153c831b9feccf535ca453ce3ffa770561e91e95b2" => :sierra
+    sha256 "633b29af2386f3feaf857ba3cd44258c614295c0b49f32ed95292abfb1c434b2" => :el_capitan
   end
 
   head do

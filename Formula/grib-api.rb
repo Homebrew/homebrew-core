@@ -20,6 +20,9 @@ class GribApi < Formula
   depends_on "jasper" => :recommended
   depends_on "libpng" => :optional
 
+  conflicts_with "eccodes",
+    :because => "grib-api and eccodes install the same binaries."
+
   def install
     # Fix "no member named 'inmem_' in 'jas_image_t'"
     inreplace "src/grib_jasper_encoding.c", "image.inmem_    = 1;", ""
