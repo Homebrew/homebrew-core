@@ -8,9 +8,9 @@ class Dfmt < Formula
   head "https://github.com/dlang-community/dfmt.git", :branch => "v0.x.x", :shallow => false
 
   bottle do
-    sha256 "99d38d69c6ed63d1554a60a64e09a01fa36fdaaab76cec95573d5bad9143b16e" => :high_sierra
-    sha256 "0b8463b0eb18ffb37ae6e375a6a548e7895365a462109e7f51d58906d765fbf1" => :sierra
-    sha256 "f2527134b4bf6cb79934fc94d0f41bd126368a5f5ffeb50020d9fe0dc9f0bba9" => :el_capitan
+    sha256 "e96f87527c3e79924725c063f894519e95fda52794bcd61c50f3657e446fa3a3" => :high_sierra
+    sha256 "773b3673e95a23bbff1d705aee6d45ff8df21522f284c57c98378a84d253b1a8" => :sierra
+    sha256 "f4ab0a990a6ff1d05334bbaab1d4152eaf3b8d125f495250e7c36bb887ea88a1" => :el_capitan
   end
 
   depends_on "dmd" => :build
