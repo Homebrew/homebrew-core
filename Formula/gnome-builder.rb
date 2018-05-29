@@ -1,8 +1,8 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.28/gnome-builder-3.28.0.tar.xz"
-  sha256 "71b7527a4297b5e4986754f5563cb9afc777bc8a890b90145c05ac93f2d6a9f8"
+  url "https://download.gnome.org/sources/gnome-builder/3.28/gnome-builder-3.28.2.tar.xz"
+  sha256 "398baaf8b14407a666b9d9eddbe9bde0812a86479f534085080149bd3271372e"
 
   bottle do
     sha256 "140d6098647ff5f8da9ef2baa4df1f5406e8854e036c9399c9483155652bdb34" => :high_sierra
