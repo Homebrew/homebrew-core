@@ -1,8 +1,8 @@
 class Ii < Formula
   desc "Minimalist IRC client"
   homepage "https://tools.suckless.org/ii/"
-  url "https://dl.suckless.org/tools/ii-1.7.tar.gz"
-  sha256 "3a72ac6606d5560b625c062c71f135820e2214fed098e6d624fc40632dc7cc9c"
+  url "https://dl.suckless.org/tools/ii-1.8.tar.gz"
+  sha256 "b9d9e1eae25e63071960e921af8b217ab1abe64210bd290994aca178a8dc68d2"
   head "https://git.suckless.org/ii", :using => :git
 
   bottle do
@@ -20,6 +20,7 @@ class Ii < Formula
       s.gsub! "/usr/local", prefix
       s.gsub! "cc", ENV.cc
     end
-    system "make", "install"
+    # pass SRC to avoid it trying to build its own strlcpy
+    system "make", "install", "SRC=ii.c"
   end
 end
