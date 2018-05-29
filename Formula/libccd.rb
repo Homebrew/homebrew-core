@@ -21,7 +21,7 @@ class Libccd < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <cassert>
+      #include <assert.h>
       #include <ccd/config.h>
       #include <ccd/vec3.h>
       int main() {
