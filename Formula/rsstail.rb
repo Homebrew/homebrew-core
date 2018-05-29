@@ -8,12 +8,9 @@ class Rsstail < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "fb3c48324e30829c9fdd8e3199db2a603edd19154c5e69b48ada19fef0349ed5" => :high_sierra
-    sha256 "9737f574d1c6d123b9c215dfdcd6eda682e9c46b76728b0e7e3cf1b523c5d53a" => :sierra
-    sha256 "e19aec49f4d56c6f9c062f3a107c2e55c470de49ee760c8087d9b432aaea796f" => :el_capitan
-    sha256 "e118045780d62ac16ef413fe826be97afadd48390d6bba5b0d1ad221291507bb" => :yosemite
-    sha256 "98f3b9fee8f7dc9e48a141bc9347c4a23eeca1ede249f5763a73835539c485db" => :mavericks
+    sha256 "972ee73523d6f2f90ad8cefea3be3d800ed56ef86f5ab0aa27a9868959e8c4f6" => :high_sierra
+    sha256 "288a7d9668a50fc1db8525be5c1ef3a932e134b095bb6d0b5a785353ca8b6d59" => :sierra
+    sha256 "671b60685eabd26014203b5cd2eff8a94ee940e139c77793b379e1114c23a912" => :el_capitan
   end
 
   depends_on "libmrss"
