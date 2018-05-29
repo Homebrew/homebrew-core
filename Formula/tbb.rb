@@ -4,7 +4,7 @@ class Tbb < Formula
   url "https://github.com/01org/tbb/archive/2018_U3.tar.gz"
   version "2018_U3"
   sha256 "23793c8645480148e9559df96b386b780f92194c80120acce79fcdaae0d81f45"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "93debc8af52e4ce98cecc39d36ae5d7af40dbed16a826f9619ce77cccec915c9" => :high_sierra
@@ -12,12 +12,17 @@ class Tbb < Formula
     sha256 "3659b877162a962c3d87251a3ad48333a1ea79ff25b90ff025b2999ea8083cdb" => :el_capitan
   end
 
+  option "with-python", "Enable building the Intel(R) TBB Python API"
+
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
-  depends_on "python@2"
-  depends_on "swig" => :build
   depends_on "cmake" => :build
+
+  if build.with? "python"
+    depends_on "swig" => :build
+    depends_on "python@2"
+  end
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -30,9 +35,11 @@ class Tbb < Formula
     lib.install Dir["build/BUILDPREFIX_release/*.a"]
     include.install "include/tbb"
 
-    cd "python" do
-      ENV["TBBROOT"] = prefix
-      system "python", *Language::Python.setup_install_args(prefix)
+    if build.with? "python"
+      cd "python" do
+        ENV["TBBROOT"] = prefix
+        system "python", *Language::Python.setup_install_args(prefix)
+      end
     end
 
     system "cmake", "-DTBB_ROOT=#{prefix}",
