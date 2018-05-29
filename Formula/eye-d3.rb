@@ -1,8 +1,8 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "http://eyed3.nicfit.net/"
-  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.5.tar.gz"
-  sha256 "f2bdaf1c7351b0d8fd8226a045360dfd493cd61065f910b411d96de8860eb90a"
+  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.6.tar.gz"
+  sha256 "c04a5537ca2d4bc40267143f08db49372b358760fe0f28a8fa35cdf1fd09651a"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,6 +25,11 @@ class EyeD3 < Formula
   resource "python-magic" do
     url "https://files.pythonhosted.org/packages/84/30/80932401906eaf787f2e9bd86dc458f1d2e75b064b4c187341f29516945c/python-magic-0.4.15.tar.gz"
     sha256 "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   def install
