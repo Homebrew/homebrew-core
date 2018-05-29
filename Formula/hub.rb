@@ -18,6 +18,9 @@ class Hub < Formula
 
   depends_on "go" => :build
 
+  # The build needs Ruby 1.9 or higher.
+  depends_on "ruby" => :build if MacOS.version <= :mountain_lion
+
   def install
     if build.with? "docs"
       begin
