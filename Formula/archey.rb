@@ -3,7 +3,7 @@ class Archey < Formula
   homepage "https://obihann.github.io/archey-osx/"
   url "https://github.com/obihann/archey-osx/archive/1.6.0.tar.gz"
   sha256 "0f0ffcf8c5f07610b98f0351dcb38bb8419001f40906d5dc4bfd28ef12dbd0f8"
-  revision 1
+  revision 2
   head "https://github.com/obihann/archey-osx.git"
 
   bottle :unneeded
@@ -15,6 +15,9 @@ class Archey < Formula
   end
 
   def install
+    # Deal with homebrew syntax change, PR: https://github.com/obihann/archey-osx/pull/73
+    inreplace "bin/archey", "brew list -1", "brew list"
+
     bin.install "bin/archey"
   end
 
