@@ -3,7 +3,7 @@ class Libccd < Formula
   homepage "http://libccd.danfis.cz/"
   url "https://github.com/danfis/libccd/archive/v2.0.tar.gz"
   sha256 "1b4997e361c79262cf1fe5e1a3bf0789c9447d60b8ae2c1f945693ad574f9471"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -15,14 +15,19 @@ class Libccd < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DENABLE_DOUBLE_PRECISION=ON", *std_cmake_args
+    system "cmake", ".", "-DCCD_DOUBLE=ON", *std_cmake_args
     system "make", "install"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <assert.h>
+      #include <ccd/config.h>
       #include <ccd/vec3.h>
       int main() {
+      #ifndef CCD_DOUBLE
+        assert(false);
+      #endif
         ccdVec3PointSegmentDist2(
           ccd_vec3_origin, ccd_vec3_origin,
           ccd_vec3_origin, NULL);
