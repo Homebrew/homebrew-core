@@ -1,8 +1,8 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://openmesh.org/"
-  url "https://www.openmesh.org/media/Releases/7.0/OpenMesh-7.0.tar.bz2"
-  sha256 "e8e9414f7b0beba8603945d7794ee38712f3594a8b539a4acfaaad398d543e85"
+  url "https://www.openmesh.org/media/Releases/7.1/OpenMesh-7.1.tar.bz2"
+  sha256 "71cd5eb25893b0369ac766bb8305a525ffbb39b7f796d2878c7f9b8e0827cbac"
   head "https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git"
 
   bottle do
