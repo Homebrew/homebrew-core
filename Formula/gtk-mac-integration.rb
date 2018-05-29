@@ -5,9 +5,9 @@ class GtkMacIntegration < Formula
   sha256 "68e682a3ba952e7d4b1cfa2c7147c5fcd76f8bd9792a567e175a619af5954af1"
 
   bottle do
-    sha256 "ecd57e012f30dd1b7889fcc88aad9f5567cc1cdd5ee8216af4892322bed78faa" => :high_sierra
-    sha256 "39dc154c852d5f8c3daf44a0cf66cdd89d257eebf4b9f9372b5e47dc18770469" => :sierra
-    sha256 "4d9deee665206ec1a45e5eec6b9bd6dfee8f00a5b85182927bd01ec09e3ee02b" => :el_capitan
+    sha256 "7c6926dc885b7c031398552069dc16bd63d2fe938d281d3f18a90a80de48ce16" => :high_sierra
+    sha256 "5856dcaf405cffb88541a0d9918285603978c334284e1cff41c9d0d08801936c" => :sierra
+    sha256 "23213e9b20f36cc8c95a344064e29968cd3dbca73f1d433c25636b6056e357ac" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
