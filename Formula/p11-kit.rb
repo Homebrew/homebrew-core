@@ -1,8 +1,8 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.11/p11-kit-0.23.11.tar.gz"
-  sha256 "b243c8daa573f85cb9873352a4c38563812fe3045e960593eb45db7dfdea4a2b"
+  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.12/p11-kit-0.23.12.tar.gz"
+  sha256 "58bae22f19db1de1a1103e7ca4149eed6e303e727878c2cd5ea9e6fe445fd403"
 
   bottle do
     sha256 "3fa3ce13ade57872341dd0b5881b3ed8c85e3a6f8c702310e296d3681b5a2747" => :high_sierra
@@ -23,12 +23,6 @@ class P11Kit < Formula
   depends_on "pkg-config" => :build
 
   def install
-    # Fix "error: unknown type name 'locale_t'"
-    # Reported 25 May 2018 https://github.com/p11-glue/p11-kit/issues/158
-    inreplace %w[common/debug.c common/library.c common/message.c
-                 common/test-message.c],
-              "#include <locale.h>", "#include <xlocale.h>"
-
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
     ENV["FAKED_MODE"] = "1"
 
