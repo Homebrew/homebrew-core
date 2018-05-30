@@ -6,9 +6,9 @@ class Libgit2 < Formula
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
-    sha256 "c7ca6de5235f71479870522ff8e186f4b7544b957e21eb1a3f4b8deaae6993a5" => :high_sierra
-    sha256 "0114891147f171d306ec9873b32ce528c98d63015180a6fa667c643c2f0a5a22" => :sierra
-    sha256 "71afc13830e7dc580aa57f6ca48ac9536627d4f6010f6b18380fc66fc390dd75" => :el_capitan
+    sha256 "c5872104089a92994d3e44589122d5f60a577667cc2a44ccf0cc84b81dea22d8" => :high_sierra
+    sha256 "29ddd87a24d97f8e97ed21cdf470ea78e36a63a0737d145611618b7a0f9cc288" => :sierra
+    sha256 "9fddafd7f742c5c602e62a694ddfec5235a7faa7ca3eb16f5bc62dc590ed70f7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
