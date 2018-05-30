@@ -1,8 +1,8 @@
 class Groovy < Formula
   desc "Java-based scripting language"
   homepage "http://www.groovy-lang.org"
-  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.4.15.zip"
-  sha256 "bd4ca37a4d1b3704526d56fc48c119a8f70d418093d8703724407d65250f4aed"
+  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.5.0.zip"
+  sha256 "13903caed7da4875b2c805ddaa5ac4a3c877342f339700fab9a54b8c628eece3"
 
   bottle :unneeded
 
@@ -24,7 +24,7 @@ class Groovy < Formula
       end
     end
 
-    libexec.install %w[bin conf lib embeddable]
+    libexec.install "bin", "conf", "lib"
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
