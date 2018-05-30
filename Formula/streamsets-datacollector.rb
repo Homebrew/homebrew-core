@@ -4,10 +4,21 @@ class StreamsetsDatacollector < Formula
   url "https://archives.streamsets.com/datacollector/3.3.0/tarball/streamsets-datacollector-core-3.3.0.tgz"
   sha256 "c980e4ecca091c8be2d7769d5c0a4a469e8a2096d1f70b1d502536520d6f980f"
 
+  bottle :unneeded
   depends_on :java => "1.8+"
+  depends_on "md5sha1sum"
 
   def install
     prefix.install Dir["*"]
+
+    inreplace "#{libexec}/sdc-env.sh" do |s|
+      s.gsub! "#export SDC_LOG=/var/log/sdc", "export SDC_LOG=#{var}/log/sdc"
+      s.gsub! "#export SDC_DATA=/var/lib/sdc", "export SDC_DATA=#{var}/lib/sdc"
+      s.gsub! "#export SDC_RESOURCES=/var/lib/sdc-resources", "export SDC_RESOURCES=#{var}/lib/sdc-resources"
+      s.gsub! "#export SDC_CONF=/etc/sdc", "export SDC_CONF=#{etc}/sdc"
+    end
+
+    (etc/"sdc").install Dir["#{prefix}/etc/*"]
   end
 
   plist_options :manual => "streamsets"
@@ -43,6 +54,6 @@ class StreamsetsDatacollector < Formula
   end
 
   test do
-    system bin/"streamsets", "dc"
+    system bin/"streamsets", "stagelibs", "-list"
   end
 end
