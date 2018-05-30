@@ -3,6 +3,7 @@ class Scrcpy < Formula
   homepage "https://github.com/Genymobile/scrcpy"
   url "https://github.com/Genymobile/scrcpy/archive/v1.2.tar.gz"
   sha256 "d340e3a0aa1625161bc00068ffccbe291b7866729a5fff7ff859904480ec0df3"
+  revision 1
 
   bottle do
     sha256 "2e4014b9592d76cfd2b3eb01511ddde2c082c671d913e5fdccb1a8bee74528c2" => :high_sierra
@@ -29,6 +30,7 @@ class Scrcpy < Formula
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
+                      "--buildtype=release",
                       "-Dprebuilt_server=#{buildpath/"prebuilt-server.jar"}",
                       ".."
 
