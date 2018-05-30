@@ -18,7 +18,7 @@ class Hcloud < Formula
     (buildpath/"src/github.com/hetznercloud/cli").install buildpath.children
 
     cd "src/github.com/hetznercloud/cli" do
-      ldflags = "-w -X github.com/hetznercloud/cli.Version=v#{version}"
+      ldflags = "-w -X github.com/hetznercloud/cli/cli.Version=v#{version}"
       system "go", "build", "-o", bin/"hcloud", "-ldflags", ldflags,
                    "./cmd/hcloud"
       prefix.install_metafiles
@@ -42,5 +42,6 @@ class Hcloud < Formula
     EOS
     assert_match "test", shell_output("#{bin}/hcloud context list")
     assert_match "test", shell_output("#{bin}/hcloud context active")
+    assert_match "hcloud v#{version}", shell_output("#{bin}/hcloud version")
   end
 end
