@@ -1,8 +1,12 @@
+require "language/haskell"
+
 class Futhark < Formula
+  include Language::Haskell::Cabal
+
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/0.4.1.tar.gz"
-  sha256 "6702dd5b6a8366736f055d349a29ee4377c0828cd76f01cb9ee87e96f20e6c28"
+  url "https://github.com/diku-dk/futhark/archive/v0.5.1.tar.gz"
+  sha256 "095ea369d2c662e7dcabe64712865782454d6d9fbd60da0bdcd100064441ca43"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,13 +15,17 @@ class Futhark < Formula
     sha256 "10711908562115e2a1e04dc60019940faaeeb93602242a8456a3f1c426301e85" => :el_capitan
   end
 
+  depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "haskell-stack" => :build
   depends_on "sphinx-doc" => :build
 
   def install
-    system "stack", "-j#{ENV.make_jobs}", "--system-ghc", "--no-install-ghc",
-           "--local-bin-path=#{bin}", "install"
+    cabal_sandbox do
+      cabal_install "hpack"
+      system "./.cabal-sandbox/bin/hpack"
+
+      install_cabal_package :using => ["alex", "happy"]
+    end
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]
