@@ -5,9 +5,9 @@ class Monit < Formula
   sha256 "aa0ce6361d1155e43e30a86dcff00b2003d434f221c360981ced830275abc64a"
 
   bottle do
-    sha256 "7439b6e6d39dbd590a9fac177cd41329c2230309e9be785f4717616e91d989b0" => :high_sierra
-    sha256 "0b5e3b331ab9cbe1aad86eed9c0b1865484b4879952d96889874ef48e5d095d8" => :sierra
-    sha256 "bc2815c8094de5686fb875ceecae6a07b0b066b87593fb6259fb4e038eedc3d6" => :el_capitan
+    sha256 "7e7a2b1afea349b49e0cc7c9cfae1ccf8b636ec8e69295484670203571c41a26" => :high_sierra
+    sha256 "63cefa0ddab53d22e2fce73ac0d2bf23a9c9a2747384182e1004563e2e28d95e" => :sierra
+    sha256 "87d743b3df524371a597fae5f255779e1928ed0b90eb2e755d493f8a54e33abf" => :el_capitan
   end
 
   depends_on "openssl"
