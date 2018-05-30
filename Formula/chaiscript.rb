@@ -1,8 +1,8 @@
 class Chaiscript < Formula
   desc "Easy to use embedded scripting language for C++"
-  homepage "http://chaiscript.com/"
-  url "https://github.com/ChaiScript/ChaiScript/archive/v6.0.0.tar.gz"
-  sha256 "ec4b51e30afbc5133675662882c59417a36aa607556ede7ca4736fab2b28c026"
+  homepage "https://chaiscript.com/"
+  url "https://github.com/ChaiScript/ChaiScript/archive/v6.1.0.tar.gz"
+  sha256 "3ca9ba6434b4f0123b5ab56433e3383b01244d9666c85c06cc116d7c41e8f92a"
   head "https://github.com/ChaiScript/ChaiScript.git", :branch => "develop"
 
   bottle do
