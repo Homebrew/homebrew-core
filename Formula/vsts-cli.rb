@@ -3,8 +3,8 @@ class VstsCli < Formula
 
   desc "Manage and work with VSTS/TFS resources from the command-line"
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
-  url "https://files.pythonhosted.org/packages/dd/23/ddf0fec2197cd62b9059ea5ab425feb7c72229d97c285a74c20ea9d1b542/vsts-cli-0.1.0b3.tar.gz"
-  sha256 "1d76ef141602b1a4a90067e06f79a477d10b6c154b613513007a506b00929e8b"
+  url "https://files.pythonhosted.org/packages/91/16/735321002a6940e7b429ce9b5e3c57c734951063ce5b4bfa73ab590cc801/vsts-cli-0.1.1.tar.gz"
+  sha256 "35bc769a60693fb7e219144fc76ce7603d8b67f8d2dc0efa32a03140f7ea1298"
 
   bottle do
     cellar :any_skip_relocation
@@ -35,11 +35,6 @@ class VstsCli < Formula
     sha256 "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"
   end
 
-  resource "entrypoints" do
-    url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"
-    sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
-  end
-
   resource "idna" do
     url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
     sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
@@ -56,23 +51,23 @@ class VstsCli < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/a9/67/b2b53b157abf5973f795d6859f892a1dc2ac4ab1a232f57b34547be558eb/keyring-12.2.0.tar.gz"
-    sha256 "4a639773932525ff25225cace20e74580403715b3e00a8ea94a7b121dad1cfac"
+    url "https://files.pythonhosted.org/packages/bf/f8/275eb20a232d8d9558abfb32a98abc074b4c31b07fa148b1db5ca73f5b54/keyring-10.5.1.tar.gz"
+    sha256 "f10674bb6ecbf82e2b713627c48ad0e84178e1c9d3dc1f0373261a0765402fb2"
   end
 
   resource "knack" do
-    url "https://files.pythonhosted.org/packages/c1/1a/af6ee1af6e10e52f0c476cda0ef8ace279906a55672a595a606a6fa02447/knack-0.2.0.tar.gz"
-    sha256 "9e66e77d0046fec1419d88a5a88e3b6c69948473bc080d9e0df5250b1012233c"
+    url "https://files.pythonhosted.org/packages/87/9d/1ac7e61b373e94ae96c28fc8e80976c24ce2f5d11c5d22330eed0a874dc9/knack-0.3.3.tar.gz"
+    sha256 "dd2d3c4756975d6bdbbc65a25c067245350eec81547dac93a5c96a80a9f949f0"
   end
 
   resource "msrest" do
-    url "https://files.pythonhosted.org/packages/4f/a8/4626b184183977e470e9d6d3604c01ecd2f3463789f064aa59a2190965c0/msrest-0.4.28.tar.gz"
-    sha256 "65bdde2ea8aa3312eb4ce6142d5da65d455f561a7676eee678c1a6e00416f5a0"
+    url "https://files.pythonhosted.org/packages/9b/49/ed5c9ea20f83707f4f67fbc664082d6d9a356b44f5f64ec5a5c7e0fdb365/msrest-0.4.29.tar.gz"
+    sha256 "ce0a558173b7c7bff87dc66e24331382c81a89367ea52c52bbb934de6064cb45"
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/47/b9/66278631430fe688b2e6c84df16619f1d1e27c9c6ebca28371f7c6fbb346/oauthlib-2.0.7.tar.gz"
-    sha256 "909665297635fa11fe9914c146d875f2ed41c8c2d78e21a529dd71c0ba756508"
+    url "https://files.pythonhosted.org/packages/df/5f/3f4aae7b28db87ddef18afed3b71921e531ca288dc604eb981e9ec9f8853/oauthlib-2.1.0.tar.gz"
+    sha256 "ac35665a61c1685c56336bda97d5eefa246f1202618a1d6f34fccb1bdd404162"
   end
 
   resource "Pygments" do
@@ -81,8 +76,8 @@ class VstsCli < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/c5/39/4da7c2dbc4f023fba5fb2325febcadf0d0ce0efdc8bd12083a0f65d20653/python-dateutil-2.7.2.tar.gz"
-    sha256 "9d8074be4c993fbe4947878ce593052f71dac82932a677d49194d8ce9778002e"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "PyYAML" do
@@ -116,57 +111,56 @@ class VstsCli < Formula
   end
 
   resource "vsts" do
-    url "https://files.pythonhosted.org/packages/04/02/f2ad99db32d1946ca20ffc9c862bd1807f24d2cef5e97e053d778d4e016a/vsts-0.1.0b2.tar.gz"
-    sha256 "d0d3a4e99282c00c77fd1f63628ce1a9597ef46ebe7661dd7a50b95128969d11"
+    url "https://files.pythonhosted.org/packages/13/f9/5e9bdc96169bb86ee9ab0c84142715438f9419ab86eccae954bb4c318424/vsts-0.1.6.tar.gz"
+    sha256 "c3db90754865dc271965f54d423cdb8bd349d0cec37f2452fb95a5d065847b21"
   end
 
   resource "vsts-cli-build" do
-    url "https://files.pythonhosted.org/packages/e4/39/ed4d17dc99cb5b598e9b822afaf1bcb08fadd6f24251213a51b718ca1042/vsts-cli-build-0.1.0b3.tar.gz"
-    sha256 "e81c237b0a6c0b698e6bec8a0ed08d3ad1e10ce626893cb935aefdd776bee963"
+    url "https://files.pythonhosted.org/packages/f2/e6/3e830f6b9e8df74142db6767a3e27cea1e8c28405dc1a0e5fd057c7f32e1/vsts-cli-build-0.1.1.tar.gz"
+    sha256 "99d87f87615e5b753c1a032256f034038d2e98048989e981c2c9abfee490169b"
   end
 
   resource "vsts-cli-build-common" do
-    url "https://files.pythonhosted.org/packages/44/44/c2776c4ac4546a5bff7bb3c75e79bbc052d0c0f90ab68cc1f40f99ea1acc/vsts-cli-build-common-0.1.0b3.tar.gz"
-    sha256 "b5be56a76d1683ee956f6d32035487945fbe5614262611e493855fe5a7a331e1"
+    url "https://files.pythonhosted.org/packages/a7/bf/037330636dd6af702248a463dfd41526cd8bb27def7d3b2b152fe0b4f69c/vsts-cli-build-common-0.1.1.tar.gz"
+    sha256 "428e54cd37f980b56b095cc2934d825241f493f835a36a1b7450a74610d0f94e"
   end
 
   resource "vsts-cli-code" do
-    url "https://files.pythonhosted.org/packages/03/2f/48d592bee13bf29632f1ff4709d85dd53442cd7f00d4757b7f73f62c1259/vsts-cli-code-0.1.0b3.tar.gz"
-    sha256 "1cbb0b40f41d9ce96824e4cd4bd13e15925894478171098fcf7526dc65165a01"
+    url "https://files.pythonhosted.org/packages/ca/c2/679a7cf3de08e55a51ec4152f5a4772095508275426a6dcfc21a3f51ad86/vsts-cli-code-0.1.1.tar.gz"
+    sha256 "aa0ab1e54b8562f4d4dedae357e8b2b8c518f7714d1d79231b3512e378fd201a"
   end
 
   resource "vsts-cli-code-common" do
-    url "https://files.pythonhosted.org/packages/3d/58/f7dbb36526b5f5231ef9bd8d5dbb2329697fe1413f4bc6e40827e799156d/vsts-cli-code-common-0.1.0b3.tar.gz"
-    sha256 "f7068c89506307fc1462c4049c661113f5718983afd74e4a96614675b0ee3ef4"
+    url "https://files.pythonhosted.org/packages/86/11/b1fde7607903d8d2129025389f682fdf7ca5124a102e751eb9fb338dfd93/vsts-cli-code-common-0.1.1.tar.gz"
+    sha256 "74ad53848050cc9e6513beadf1c88d414e199d038ad6696266326b225c9ddbc9"
   end
 
   resource "vsts-cli-common" do
-    url "https://files.pythonhosted.org/packages/61/5a/334d99c29888218cf08636335a0a8e52c4efabe0db1b1b0030d2c1d113b3/vsts-cli-common-0.1.0b3.tar.gz"
-    sha256 "2c6be3c85e96f2c8a6eedf767048f0b8fbae48a07d80a43ed3ef1bad313928e0"
+    url "https://files.pythonhosted.org/packages/f9/19/b12331a93240d3ee13fe5461cb07086c40c741c59e46a662f2b67abeaa81/vsts-cli-common-0.1.1.tar.gz"
+    sha256 "da933dbf19a52b8a4b1fde850f36a21a11fafdb5070da7ff34aa7351ec310994"
   end
 
   resource "vsts-cli-team" do
-    url "https://files.pythonhosted.org/packages/65/3f/c68146367e42b87e751b7027a2c36601fe424757f718cfe50064aba4c701/vsts-cli-team-0.1.0b3.tar.gz"
-    sha256 "d36c23c3d052b2efaa1ae2059e771f8cbd2e988275c51aac21deb50c91b4c2ad"
+    url "https://files.pythonhosted.org/packages/c8/14/40bdb2e6ca147563da8cb01870aaa5f9c0d59aff8a87505dc2bf8d1b6fa0/vsts-cli-team-0.1.1.tar.gz"
+    sha256 "23f1d97801ee1d2c24cc08683491d9966d0ddb5bc5a474b423eaf2d4467a982d"
   end
 
   resource "vsts-cli-team-common" do
-    url "https://files.pythonhosted.org/packages/6c/2c/9e7695f678ae14f5ae6cc2799280785254dd447382f902887bc048c3af3f/vsts-cli-team-common-0.1.0b3.tar.gz"
-    sha256 "afe42c0daf84943004658e2e48206753f248b7d47b78c8ffa7ed81faa702586f"
+    url "https://files.pythonhosted.org/packages/60/d7/829b42cd78c16a9080924291fb5ccdbbf481b16a0ecca66d52675228ac49/vsts-cli-team-common-0.1.1.tar.gz"
+    sha256 "49853e11855909f8b50b5185f0515b2198e69bdeefa1b12315d2e9c6b9d01a6b"
   end
 
   resource "vsts-cli-work" do
-    url "https://files.pythonhosted.org/packages/ae/d2/27eb61a9035f7ed6886a59058b94fc62bb500e6da0c0f2ffcd8cf32c4592/vsts-cli-work-0.1.0b3.tar.gz"
-    sha256 "5cd87c84f1491c2f165db56b165cdc38df6ca23e11a3cfcf8f5079317d7b69df"
+    url "https://files.pythonhosted.org/packages/27/83/ef97b45a36a6a3473f4a79985988a38107d8166349aead245008e130072f/vsts-cli-work-0.1.1.tar.gz"
+    sha256 "ec40ff57e9136a99eaacae06c2bea7e95d40e45660b22764785bdffa69796167"
   end
 
   resource "vsts-cli-work-common" do
-    url "https://files.pythonhosted.org/packages/00/fe/466bac890e12d6d65d611fa9ddde5336dd07eef7190b4d46aee9ac2366c8/vsts-cli-work-common-0.1.0b3.tar.gz"
-    sha256 "810e655b6e6eb06a2474d098eea839ea29be1edb22e787caa22358e8d5420a0e"
+    url "https://files.pythonhosted.org/packages/f3/32/81140e5681aa9bbc685dfe023e8ec01255cd345a46bbe6649fb5a6ff1864/vsts-cli-work-common-0.1.1.tar.gz"
+    sha256 "6d8788e78cbb47a0df8a7ea08f0de66c7b1d31081c3e00734da06719fa7f1ae3"
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 
