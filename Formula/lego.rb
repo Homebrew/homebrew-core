@@ -8,10 +8,9 @@ class Lego < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "31e0fc916eeba7f0d9afbd97737f5826d4cfcbda2398a005b8cedeec0902b274" => :high_sierra
-    sha256 "2bf5ebd638eb8f6b3780c19020d2afa39b67aae6b50899fd91ec42e09b7d9898" => :sierra
-    sha256 "73ba30cadb748f5ca76c1757634857af3ead4e1407a8c024d53d8eabbccff9f4" => :el_capitan
+    sha256 "f583ca0ee03b5dd25d5a54bc9cb455087a0a04f19523108e4196cfd89f7aec35" => :high_sierra
+    sha256 "b19847287bd1abb9003307e7a6ba42fb0ef13336bd569dee1d9dc19df340cbf6" => :sierra
+    sha256 "2dbe1268ad4ffa8eb74be6d664d31075f8fe58fa1bffc07534502822fb4a23f9" => :el_capitan
   end
 
   depends_on "go" => :build
