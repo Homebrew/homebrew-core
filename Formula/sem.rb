@@ -12,5 +12,10 @@ class Sem < Formula
 
   test do
     assert_equal "0.9.40", shell_output("#{bin}/sem-info version").chomp
+    (testpath/"new.sql").write <<~EOS
+      CREATE TABLE IF NOT EXISTS test (id text);
+    EOS
+    system "git", "init", "."
+    assert_match "File staged in git", shell_output("#{bin}/sem-add ./new.sql")
   end
 end
