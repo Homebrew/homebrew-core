@@ -7,9 +7,9 @@ class Mp3gain < Formula
 
   bottle do
     cellar :any
-    sha256 "98b7ecffc65da0e71336ad8245194a53efc35f5a6800e6e150a4a5c71a064fc7" => :high_sierra
-    sha256 "614b1a01ffe49eb9efefa7a67d96be47ada351435518313ff0c5607e9fa41b15" => :sierra
-    sha256 "4c33387aa252d25779c2c0d15dee99fee03873f73a65200d2e69d74f0df48158" => :el_capitan
+    sha256 "5aa37ac4ab2013f5365da14969494111500337cae3c6d7614b72dfb9e94352f2" => :high_sierra
+    sha256 "66684a469ee1de432a00f1264c89b3921d3558854fa736b24a3942e351617c47" => :sierra
+    sha256 "4c97894216600ba8ac03094a45fe68a7d107f69adbcd638d40c967ad10e95480" => :el_capitan
   end
 
   depends_on "mpg123"
