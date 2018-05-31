@@ -1,8 +1,8 @@
 class Sem < Formula
   desc "Command-line tool to manage postgresql database schema migrations"
   homepage "https://github.com/mbryzek/schema-evolution-manager"
-  url "https://github.com/mbryzek/schema-evolution-manager/archive/0.9.39.tar.gz"
-  sha256 "1f48ec409aa6dcdd05d2aef07ae5d7d6a97de510433bc6402a4f0b1bced5ad18"
+  url "https://github.com/mbryzek/schema-evolution-manager/archive/0.9.40.tar.gz"
+  sha256 "cf5aab3f2fe81e3daca400811f46a11d4ebd25d7325eca92a83dbe0494e25d5a"
 
   bottle :unneeded
 
@@ -11,6 +11,6 @@ class Sem < Formula
   end
 
   test do
-    assert_equal "0.9.39", shell_output("#{bin}/sem-info version").chomp
+    assert_equal "0.9.40", shell_output("#{bin}/sem-info version").chomp
   end
 end
