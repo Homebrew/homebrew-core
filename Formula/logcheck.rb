@@ -7,10 +7,9 @@ class Logcheck < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c304fad3d53e8ef548f50c96c794dc736675bdee7d6e42942b7efd7a16ce066" => :high_sierra
-    sha256 "ce71670cdeba739650cd716867e12cda182a948189a68ca565d318299f847a61" => :sierra
-    sha256 "94fde1124326dc8ed8428878b84db52b22b4ce1c19949ee0dd170402164cbadd" => :el_capitan
-    sha256 "94fde1124326dc8ed8428878b84db52b22b4ce1c19949ee0dd170402164cbadd" => :yosemite
+    sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :high_sierra
+    sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :sierra
+    sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :el_capitan
   end
 
   def install
