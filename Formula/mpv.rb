@@ -12,6 +12,7 @@ class Mpv < Formula
   end
 
   option "with-bundle", "Enable compilation of the .app bundle."
+  option "with-lgpl", "Build with LGPLv2.1 or later license"
 
   depends_on "pkg-config" => :build
   depends_on "python" => :build
@@ -63,7 +64,6 @@ class Mpv < Formula
 
     args = %W[
       --prefix=#{prefix}
-      --enable-zsh-comp
       --enable-libmpv-shared
       --enable-html-build
       --enable-lua
@@ -71,7 +71,6 @@ class Mpv < Formula
       --datadir=#{pkgshare}
       --mandir=#{man}
       --docdir=#{doc}
-      --zshdir=#{zsh_completion}
     ]
     args << "--enable-libarchive" if build.with? "libarchive"
     args << "--enable-libbluray" if build.with? "libbluray"
@@ -79,6 +78,13 @@ class Mpv < Formula
     args << "--enable-dvdread" if build.with? "libdvdread"
     args << "--enable-javascript" if build.with? "mujs"
     args << "--enable-pulse" if build.with? "pulseaudio"
+
+    if build.with? "lgpl"
+      args << "--enable-lgpl"
+    else
+      args << "--enable-zsh-comp"
+      args << "--zshdir=#{zsh_completion}"
+    end
 
     system "./bootstrap.py"
     system "python3", "waf", "configure", *args

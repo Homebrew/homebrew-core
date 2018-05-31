@@ -6,9 +6,10 @@ class Hcloud < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ddea77b0be1a2db8b70f025af9f523cfa7946abd5ce0e90b09b708cc13a6d8a9" => :high_sierra
-    sha256 "99817f51fc23573db89892437513725680b1d4df700c2eb27143d852c344d24b" => :sierra
-    sha256 "e348f096f1cd562bc30f740fb655fc3e42b619e2175e3dcb829130a15decf85f" => :el_capitan
+    rebuild 1
+    sha256 "5c6ff02f7c5aa341b3a7cf640e66355a16083cb64a32bee32eec1aeaf0252400" => :high_sierra
+    sha256 "a389b4bf39549713809acdcec93ccc8c907c5b56a2817380fcb0946a270e8071" => :sierra
+    sha256 "e6fd5b0b4a9db1fb1db687e045c035c8cd552720ec887d7858436d5e2a3bb0bf" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -18,7 +19,7 @@ class Hcloud < Formula
     (buildpath/"src/github.com/hetznercloud/cli").install buildpath.children
 
     cd "src/github.com/hetznercloud/cli" do
-      ldflags = "-w -X github.com/hetznercloud/cli.Version=v#{version}"
+      ldflags = "-w -X github.com/hetznercloud/cli/cli.Version=v#{version}"
       system "go", "build", "-o", bin/"hcloud", "-ldflags", ldflags,
                    "./cmd/hcloud"
       prefix.install_metafiles
@@ -42,5 +43,6 @@ class Hcloud < Formula
     EOS
     assert_match "test", shell_output("#{bin}/hcloud context list")
     assert_match "test", shell_output("#{bin}/hcloud context active")
+    assert_match "hcloud v#{version}", shell_output("#{bin}/hcloud version")
   end
 end

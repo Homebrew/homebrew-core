@@ -3,25 +3,25 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.26.0-src.tar.gz"
-    sha256 "4fb09bc4e233b71dcbe08a37a3f38cabc32219745ec6a628b18a55a1232281dd"
+    url "https://static.rust-lang.org/dist/rustc-1.26.1-src.tar.gz"
+    sha256 "70a7961bd8ec43b2c01e9896e90b0a06804a7fbe0a5c05acc7fd6fed19500df0"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.26.0",
-          :revision => "41480f5cc50863600e05aa17d13264c88070436a"
+          :tag => "0.27.0",
+          :revision => "0e7c5a93159076952f609e05760e2458828d0d1f"
     end
 
     resource "racer" do
-      url "https://github.com/racer-rust/racer/archive/2.0.12.tar.gz"
-      sha256 "1fa063d90030c200d74efb25b8501bb9a5add7c2e25cbd4976adf7a73bf715cc"
+      url "https://github.com/racer-rust/racer/archive/2.0.14.tar.gz"
+      sha256 "0442721c01ae4465843cb73b24f6caa0127c3308d72b944ad75736164756e522"
     end
   end
 
   bottle do
-    sha256 "b1ee221f371483a48eedefa452dac301e02009475331e72cf3a81d5ac4e6618c" => :high_sierra
-    sha256 "b86cd54762e9bb5442c5a7fd34c47b6971c68160c915e7ea0aae7c4b79afae9f" => :sierra
-    sha256 "bf9ca0637fcb3fa8079d7623db3cc160fb4d931b8a67027a98df947ca11f73c3" => :el_capitan
+    sha256 "41c4977f4af027d92dd920683e1e366a74caeffa54322ff2b4555cec9f73c1c6" => :high_sierra
+    sha256 "2291e5c836e49e5be2ae2aca638623f919b41d6692cfc99ce48ad95745a29578" => :sierra
+    sha256 "a0c79514540535f8267ab1949fff7f3ebec21a543eb12dce8b02f3b93c53b89a" => :el_capitan
   end
 
   head do
