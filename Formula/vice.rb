@@ -16,10 +16,10 @@ class Vice < Formula
   head do
     url "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "yasm" => :build
