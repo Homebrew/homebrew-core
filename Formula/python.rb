@@ -13,8 +13,8 @@ class Python < Formula
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0b4.tar.xz"
-    sha256 "b0be714eab2bb5515e0c4f372781a042d37e6c20a9fa908f3302eac04d53e9ae"
+    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0b5.tar.xz"
+    sha256 "00e4d85ebd5392f75e979b4cf860b1711642d62fbdd38e0874355b0245185313"
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
