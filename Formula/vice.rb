@@ -1,9 +1,8 @@
 class Vice < Formula
   desc "Versatile Commodore Emulator"
   homepage "https://vice-emu.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.1.tar.gz"
-  sha256 "3eb8159633816095006dec36c5c3edd055a87fd8bda193a1194a6801685d1240"
-  revision 1
+  url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.2.tar.gz"
+  sha256 "28d99f5e110720c97ef16d8dd4219cf9a67661d58819835d19378143697ba523"
 
   bottle do
     cellar :any
@@ -14,10 +13,18 @@ class Vice < Formula
     sha256 "ab4044f958907bd7d756575fc97e0e42ffc24307c621176da0d0522feadb22f4" => :yosemite
   end
 
+  head do
+    url "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "yasm" => :build
-  depends_on "ffmpeg"
+  depends_on "xa" => :build
+  depends_on "ffmpeg@2.8"
   depends_on "flac"
   depends_on "giflib"
   depends_on "jpeg"
@@ -25,48 +32,47 @@ class Vice < Formula
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libvorbis"
+  depends_on "mpg123"
   depends_on "portaudio"
-  depends_on "sdl2"
   depends_on "xz"
-
-  # needed to avoid Makefile errors with the vendored ffmpeg 2.4.2
-  resource "make" do
-    url "https://ftp.gnu.org/gnu/make/make-4.2.1.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/make/make-4.2.1.tar.bz2"
-    sha256 "d6e262bf3601b42d2b1e4ef8310029e1dcf20083c5446b4b7aa67081fdffc589"
-  end
+  depends_on "sdl2"
+  depends_on "gtk+3" => :optional
 
   def install
-    resource("make").stage do
-      system "./configure", "--prefix=#{buildpath}/vendor/make",
-                            "--disable-dependency-tracking"
-      system "make", "install"
+    ENV.prepend_path "PATH", "/usr/local/opt/ffmpeg@2.8/bin"
+    ENV.prepend_path "PKG_CONFIG_PATH", "/usr/local/opt/ffmpeg@2.8/lib/pkgconfig"
+
+    if build.with?("gtk+3") && !build.head?
+      odie "Can only build gtk3ui with '--HEAD'."
     end
-    ENV.prepend_path "PATH", buildpath/"vendor/make/bin"
-    ENV.refurbish_args # since "make" won't be the shim
 
-    # Fix undefined symbol errors for _Gestalt, _VDADecoderCreate, _iconv
-    # among others.
-    ENV["LIBS"] = "-framework CoreServices -framework VideoDecodeAcceleration -liconv"
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-bundle
+      --enable-external-ffmpeg
+      --disable-arch
+    ]
 
-    # Upstream recommends using SDL/SDL2 as Cocoa is essentially unsupported.
-    # Use a static lame, otherwise Vice is hard-coded to look in
-    # /opt for the library.
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-sdlui2",
-                          "--without-x",
-                          "--enable-external-ffmpeg",
-                          "--enable-static-lame"
-    system "make"
-    system "make", "bindist"
-    prefix.install Dir["vice-macosx-*/*"]
-    bin.install_symlink Dir[prefix/"tools/*"]
+    args << "--enable-debug" if build.with? "debug"
+    args << "--enable-sdlui2" if build.without? "gtk+3"
+    args << "--enable-native-gtk3ui" if build.with? "gtk+3"
+
+    # Hardcode this so people do not have to set DYLD_LIBRARY_PATH
+    inreplace "src/arch/sdl/archdep_unix.h", "\"lib\" #name \".\" #version \".dylib\"", "\"/usr/local/opt/ffmpeg@2.8/lib/lib\" #name \".\" #version \".dylib\"" if build.without? "gtk+3"
+    inreplace "src/arch/gtk3/archdep_unix.h", "\"lib\" #name \".\" #version \".dylib\"", "\"/usr/local/opt/ffmpeg@2.8/lib/lib\" #name \".\" #version \".dylib\"" if build.with? "gtk+3"
+
+    # Skip the X11 font stuff
+    inreplace "data/fonts/Makefile.am", %r{^@SDL_COMPILE_FALSE@}, "@SDL_COMPILE_FALSE@@UNIX_MACOSX_COMPILE_FALSE@" if build.with? "gtk+3"
+
+    system "./autogen.sh" if build.head?
+    system "./configure", *args
+    system "make", "install"
   end
 
   def caveats; <<~EOS
-    Apps for these emulators have been installed to #{opt_prefix}.
+    App bundles are no longer built for each emulator. The binaries are
+    available in #{HOMEBREW_PREFIX}/bin directly instead.
   EOS
   end
 
