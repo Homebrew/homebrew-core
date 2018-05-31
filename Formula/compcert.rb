@@ -1,8 +1,8 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "https://github.com/AbsInt/CompCert/archive/v3.2.tar.gz"
-  sha256 "23b1a9585e6e9fa211dccae40fc9053c75e7f5519e4b698751bb67a083080487"
+  url "https://github.com/AbsInt/CompCert/archive/v3.3.tar.gz"
+  sha256 "9677806d7fef5651dd23e39f7bb26e6aecbe7d70d2f466cb746187a938c3b99b"
 
   bottle do
     cellar :any_skip_relocation
