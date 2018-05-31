@@ -2,9 +2,8 @@ class Fstar < Formula
   desc "ML-like language aimed at program verification"
   homepage "https://www.fstar-lang.org/"
   url "https://github.com/FStarLang/FStar.git",
-      :tag => "v0.9.5.0",
-      :revision => "fa9b1fda52216678e364656f5f40b3309ef8392d"
-  revision 1
+      :tag => "v0.9.6.0",
+      :revision => "743819b909b804f1234975d78809e18fd9ea0b99"
   head "https://github.com/FStarLang/FStar.git"
 
   bottle do
@@ -15,6 +14,9 @@ class Fstar < Formula
     sha256 "4e730cfbc2c181a1ccc605e84f4d79c228ee698fddd9dfe719b8ac0cfc5599bc" => :yosemite
   end
 
+  depends_on "ocaml" => :build
+  depends_on "ocamlbuild" => :build
+  depends_on "camlp4" => :build
   depends_on "opam" => :build
   depends_on "gmp"
   depends_on "ocaml" => :recommended
@@ -36,24 +38,29 @@ class Fstar < Formula
                                            "$(DATE_EXEC) '+%Y-%m-%dT%H:%M:%S%z'"
 
     resource("z3").stage do
-      system "python", "scripts/mk_make.py", "--prefix=#{libexec}"
-      system "make", "-C", "build"
-      system "make", "-C", "build", "install"
+      # F* warns if the Z3 git hash doesn't match
+      githash = Utils.popen_read("git", "rev-parse", "--short=12", "HEAD").chomp
+      system "python", "scripts/mk_make.py", "--prefix=#{libexec}",
+             "--githash=#{githash}"
+      cd "build" do
+        system "make"
+        system "make", "install"
+      end
     end
 
     system "opam", "init", "--no-setup"
-    inreplace "opamroot/compilers/4.05.0/4.05.0/4.05.0.comp",
-      '["./configure"', '["./configure" "-no-graph"' # Avoid X11
-
-    system "opam", "switch", "4.05.0"
 
     if build.stable?
-      system "opam", "config", "exec", "opam", "install", "batteries=2.7.0",
-             "zarith=1.5", "yojson=1.4.0", "pprint=20140424", "stdint=0.4.2",
-             "menhir=20170712"
+      system "opam", "config", "exec", "opam", "install",
+             "ocamlfind=1.8.0", "batteries=2.8.0",
+             "stdint=0.5.1", "zarith=1.7", "yojson=1.4.1", "fileutils=0.5.3",
+             "pprint=20171003", "menhir=20171222", "ulex=1.2",
+             "ppx_deriving=4.2.1", "ppx_deriving_yojson=3.1", "process=0.2.1"
     else
-      system "opam", "config", "exec", "opam", "install", "batteries", "zarith",
-             "yojson", "pprint", "stdint", "menhir"
+      system "ocamlfind", "batteries",
+             "stdint", "zarith", "yojson", "fileutils",
+             "pprint", "menhir", "ulex",
+             "ppx_deriving", "ppx_deriving_yojson", "process"
     end
 
     system "opam", "config", "exec", "--", "make", "-C", "src/ocaml-output"
@@ -61,7 +68,7 @@ class Fstar < Formula
     (libexec/"bin").install "bin/fstar.exe"
     (bin/"fstar.exe").write <<~EOS
       #!/bin/sh
-      #{libexec}/bin/fstar.exe --smt #{libexec}/bin/z3 --fstar_home #{prefix} "$@"
+      #{libexec}/bin/fstar.exe --smt #{libexec}/bin/z3 "$@"
     EOS
 
     (libexec/"ulib").install Dir["ulib/*"]
@@ -94,6 +101,7 @@ class Fstar < Formula
 
   test do
     system "#{bin}/fstar.exe",
-    "#{prefix}/examples/hello/hello.fst"
+           "#{prefix}/examples/algorithms/IntSort.fst",
+           "#{prefix}/examples/algorithms/MergeSort.fst"
   end
 end
