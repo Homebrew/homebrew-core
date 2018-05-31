@@ -1,9 +1,9 @@
 class Logcheck < Formula
   desc "Mail anomalies in the system logfiles to the administrator"
   homepage "https://logcheck.alioth.debian.org/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/logcheck/logcheck_1.3.18.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.18.tar.xz"
-  sha256 "077b9149ccd2b747b52785afa89da844f3d072c017c9e719925dec6acb9a9af4"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/logcheck/logcheck_1.3.19.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.19.tar.xz"
+  sha256 "06294c092b2115eca3d054c57778718c91dd2e0fd1c46650b7343c2a92672ca9"
 
   bottle do
     cellar :any_skip_relocation
