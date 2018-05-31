@@ -16,11 +16,15 @@ class Darcs < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
   depends_on "gmp"
 
   def install
-    install_cabal_package
+    # GHC 8.4.x compatibility; remove the extra arguments for darcs > 2.14.0
+    install_cabal_package "--allow-newer=darcs:async",
+                          "--constraint", "async < 2.3",
+                          "--allow-newer=darcs:graphviz",
+                          "--constraint", "graphviz < 2999.20.1"
   end
 
   test do
