@@ -42,7 +42,7 @@ __END__
       *               data to be retrieved.
 +     *
 +     * NOTE:  see
-+     * http://mail.gnome.org/archives/wm-spec-list/2003-March/msg00067.html
++     * https://mail.gnome.org/archives/wm-spec-list/2003-March/msg00067.html
 +     * In particular:
 +     *
 +     * 	When the X window system was ported to 64-bit architectures, a
