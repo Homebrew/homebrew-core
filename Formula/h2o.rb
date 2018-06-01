@@ -1,8 +1,8 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-  url "https://github.com/h2o/h2o/archive/v2.2.4.tar.gz"
-  sha256 "ebacf3b15f40958c950e18e79ad5a647f61e989c6dbfdeea858ce943ef5e3cd8"
+  url "https://github.com/h2o/h2o/archive/v2.2.5.tar.gz"
+  sha256 "eafb40aa2d93b3de1af472bb046c17b2335c3e5a894462310e1822e126c97d24"
 
   bottle do
     sha256 "18a5cc03a32ef932ef0ab7da282b493218f552c7d9fb928957dace5ac343119c" => :high_sierra
@@ -26,6 +26,7 @@ class H2o < Formula
 
     args = std_cmake_args
     args << "-DWITH_BUNDLED_SSL=OFF"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     args << "-DWITH_MRUBY=OFF" if build.without? "mruby"
 
     system "cmake", *args
@@ -42,6 +43,7 @@ class H2o < Formula
     # Write up a basic example conf for testing.
     (buildpath/"brew/h2o.conf").write conf_example
     (etc/"h2o").install buildpath/"brew/h2o.conf"
+    pkgshare.install "examples"
   end
 
   # This is simplified from examples/h2o/h2o.conf upstream.
@@ -57,8 +59,8 @@ class H2o < Formula
 
   def caveats; <<~EOS
     A basic example configuration file has been placed in #{etc}/h2o.
-    You can find fuller, unmodified examples here:
-      https://github.com/h2o/h2o/tree/master/examples/h2o
+
+    You can find fuller, unmodified examples in #{opt_pkgshare}/examples.
     EOS
   end
 
