@@ -12,7 +12,7 @@ class Bash < Formula
     mirror "https://gnu.cu.be/bash/bash-4.4.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4.tar.gz"
     sha256 "d86b3392c1202e8ff5a423b302e6284db7f8f435ea9f39b5b1b20fd3ac36dfcb"
-    version "4.4.19"
+    version "4.4.23"
 
     %w[
       001 3e28d91531752df9a8cb167ad07cc542abaf944de9353fe8c6a535c9f1f17f0f
@@ -34,6 +34,10 @@ class Bash < Formula
       017 773f90b98768d4662a22470ea8eec5fdd8e3439f370f94638872aaf884bcd270
       018 5bc494b42f719a8b0d844b7bd9ad50ebaae560e97f67c833c9e7e9d53981a8cc
       019 27170d6edfe8819835407fdc08b401d2e161b1400fe9d0c5317a51104c89c11e
+      020 1840e2cbf26ba822913662f74037594ed562361485390c52813b38156c99522c
+      021 bd8f59054a763ec1c64179ad5cb607f558708a317c2bdb22b814e3da456374c1
+      022 45331f0936e36ab91bfe44b936e33ed8a1b1848fa896e8a1d0f2ef74f297cb79
+      023 4fec236f3fbd3d0c47b893fdfa9122142a474f6ef66c20ffb6c0f4864dd591b6
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
