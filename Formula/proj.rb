@@ -1,8 +1,8 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-5.0.1.tar.gz"
-  sha256 "a792f78897482ed2c4e2af4e8a1a02e294c64e32b591a635c5294cb9d49fdc8c"
+  url "https://download.osgeo.org/proj/proj-5.1.0.tar.gz"
+  sha256 "6b1379a53317d9b5b8c723c1dc7bf2e3a8eb22ceb46b8807a1ce48ef65685bb3"
 
   bottle do
     sha256 "dea27845b0290164d9fe626209006db318fa14c3d98c108b1821240519c9154c" => :high_sierra
@@ -28,6 +28,11 @@ class Proj < Formula
   end
 
   # Vertical datum files
+  resource "usa_geoid2012b" do
+    url "https://download.osgeo.org/proj/vdatum/usa_geoid2012b.zip"
+    sha256 "7a2bddfff18c303853b692830515b86eb46a3e6f81f14d4f193f0e28b1d57aca"
+  end
+
   resource "usa_geoid2012" do
     url "https://download.osgeo.org/proj/vdatum/usa_geoid2012.zip"
     sha256 "afe49dc2c405d19a467ec756483944a3c9148e8c1460cb7e82dc8d4a64c4c472"
