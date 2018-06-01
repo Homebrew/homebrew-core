@@ -1,8 +1,8 @@
 class Groovysdk < Formula
   desc "SDK for Groovy: a Java-based scripting language"
   homepage "http://www.groovy-lang.org"
-  url "https://dl.bintray.com/groovy/maven/apache-groovy-sdk-2.4.12.zip"
-  sha256 "2dea0d021d74184ca2659f964d88b7e7c849e9e694b74289da682834f425bbb0"
+  url "https://dl.bintray.com/groovy/maven/apache-groovy-sdk-2.5.0.zip"
+  sha256 "866e9c7217f1fce76f202f8e64cdb3f910910e4ad8533724246a0b1310b3d5aa"
 
   bottle :unneeded
 
@@ -16,7 +16,7 @@ class Groovysdk < Formula
 
     prefix.install_metafiles
     bin.install Dir["bin/*"]
-    libexec.install %w[conf lib embeddable src doc]
+    libexec.install "conf", "lib", "src", "doc"
     bin.env_script_all_files(libexec+"bin", :GROOVY_HOME => ENV["GROOVY_HOME"])
   end
 
