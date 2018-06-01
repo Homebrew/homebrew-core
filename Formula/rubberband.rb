@@ -1,22 +1,9 @@
 class Rubberband < Formula
   desc "Audio time stretcher tool and library"
   homepage "https://breakfastquay.com/rubberband/"
+  url "https://breakfastquay.com/files/releases/rubberband-1.8.2.tar.bz2"
+  sha256 "86bed06b7115b64441d32ae53634fcc0539a50b9b648ef87443f936782f6c3ca"
   head "https://bitbucket.org/breakfastquay/rubberband/", :using => :hg
-
-  stable do
-    url "https://code.breakfastquay.com/attachments/download/34/rubberband-1.8.1.tar.bz2"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/r/rubberband/rubberband_1.8.1.orig.tar.bz2"
-    sha256 "ff0c63b0b5ce41f937a8a3bc560f27918c5fe0b90c6bc1cb70829b86ada82b75"
-
-    # replace vecLib.h by Accelerate.h
-    # already fixed in upstream:
-    # https://bitbucket.org/breakfastquay/rubberband/commits/cb02b7ed1500f0c06c0ffd196921c812dbcf6888
-    # https://bitbucket.org/breakfastquay/rubberband/commits/9e32f693c6122b656a0df63bc77e6a96d6ba213d
-    patch :p1 do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fd51a983/rubberband/rubberband-1.8.1-yosemite.diff"
-      sha256 "7686dd9d05fddbcbdf4015071676ac37ecad5c7594cc06470440a18da17c71cd"
-    end
-  end
 
   bottle do
     cellar :any
