@@ -5,7 +5,7 @@ class StreamsetsDatacollector < Formula
   sha256 "c980e4ecca091c8be2d7769d5c0a4a469e8a2096d1f70b1d502536520d6f980f"
 
   bottle :unneeded
-  
+
   depends_on :java => "1.8"
   depends_on "md5sha1sum"
 
