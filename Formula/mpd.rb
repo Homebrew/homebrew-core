@@ -27,6 +27,7 @@ class Mpd < Formula
   option "with-libmodplug", "Build with modplug support (for decoding modules supported by MODPlug)"
   option "with-pulseaudio", "Build with PulseAudio support (for sending audio output to a PulseAudio sound server)"
   option "with-upnp", "Build with upnp database plugin support"
+  option "with-game-music-emu", "Build with gme support (for decoding video game music)"
 
   deprecated_option "with-vorbis" => "with-libvorbis"
 
@@ -44,24 +45,25 @@ class Mpd < Formula
   depends_on "ffmpeg" # lots of codecs
   # mpd also supports mad, mpg123, libsndfile, and audiofile, but those are
   # redundant with ffmpeg
-  depends_on "fluid-synth"              # MIDI
-  depends_on "faad2"                    # MP4/AAC
-  depends_on "wavpack" => :optional     # WavPack
-  depends_on "libshout" => :optional    # Streaming (also pulls in Vorbis encoding)
-  depends_on "lame" => :optional        # MP3 encoding
-  depends_on "two-lame" => :optional    # MP2 encoding
-  depends_on "flac" => :optional        # Flac encoding
-  depends_on "jack" => :optional        # Output to JACK
-  depends_on "libmms" => :optional      # MMS input
-  depends_on "libzzip" => :optional     # Reading from within ZIPs
-  depends_on "yajl" => :optional        # JSON library for SoundCloud
-  depends_on "opus" => :optional        # Opus support
+  depends_on "fluid-synth"                 # MIDI
+  depends_on "faad2"                       # MP4/AAC
+  depends_on "wavpack" => :optional        # WavPack
+  depends_on "libshout" => :optional       # Streaming (also pulls in Vorbis encoding)
+  depends_on "lame" => :optional           # MP3 encoding
+  depends_on "two-lame" => :optional       # MP2 encoding
+  depends_on "flac" => :optional           # Flac encoding
+  depends_on "jack" => :optional           # Output to JACK
+  depends_on "libmms" => :optional         # MMS input
+  depends_on "libzzip" => :optional        # Reading from within ZIPs
+  depends_on "yajl" => :optional           # JSON library for SoundCloud
+  depends_on "opus" => :optional           # Opus support
   depends_on "libvorbis" => :optional
   depends_on "libnfs" => :optional
   depends_on "mad" => :optional
-  depends_on "libmodplug" => :optional  # MODPlug decoder
+  depends_on "libmodplug" => :optional     # MODPlug decoder
   depends_on "pulseaudio" => :optional
-  depends_on "libao" => :optional       # Output to libao
+  depends_on "libao" => :optional          # Output to libao
+  depends_on "game-music-emu" => :optional # GME decoder
   if build.with? "upnp"
     depends_on "expat"
     depends_on "libupnp"
@@ -98,6 +100,7 @@ class Mpd < Formula
     args << "--enable-modplug" if build.with? "libmodplug"
     args << "--enable-pulse" if build.with? "pulseaudio"
     args << "--enable-ao" if build.with? "libao"
+    args << "--enable-gme" if build.with? "game-music-emu"
     if build.with? "upnp"
       args << "--enable-upnp"
       args << "--enable-expat"
@@ -140,7 +143,7 @@ class Mpd < Formula
 
   test do
     pid = fork do
-      exec "#{bin}/mpd --stdout --no-daemon --no-config"
+      exec "#{bin}/mpd --no-daemon --no-config"
     end
     sleep 2
 
