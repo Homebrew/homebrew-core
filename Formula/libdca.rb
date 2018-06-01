@@ -1,8 +1,8 @@
 class Libdca < Formula
   desc "Library for decoding DTS Coherent Acoustics streams"
   homepage "https://www.videolan.org/developers/libdca.html"
-  url "https://download.videolan.org/pub/videolan/libdca/0.0.5/libdca-0.0.5.tar.bz2"
-  sha256 "dba022e022109a5bacbe122d50917769ff27b64a7bba104bd38ced8de8510642"
+  url "https://download.videolan.org/pub/videolan/libdca/0.0.6/libdca-0.0.6.tar.bz2"
+  sha256 "98f98a9aa000a26b927c6facd15d18dcf664238adfc5db24f533c5932cdb1f40"
 
   bottle do
     cellar :any
