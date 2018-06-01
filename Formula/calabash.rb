@@ -1,8 +1,8 @@
 class Calabash < Formula
   desc "XProc (XML Pipeline Language) implementation"
   homepage "http://xmlcalabash.com"
-  url "https://github.com/ndw/xmlcalabash1/releases/download/1.1.20-98/xmlcalabash-1.1.20-98.zip"
-  sha256 "1c73a45366b56c67b4f84a99eb5728be87b75f85602c8e244ad281d47a94ea4b"
+  url "https://github.com/ndw/xmlcalabash1/releases/download/1.1.21-98/xmlcalabash-1.1.21-98.zip"
+  sha256 "04fc6126835a5f07feb69e8a5ff280a525393d46e956079c7f9ea66072745ef3"
 
   bottle :unneeded
 
