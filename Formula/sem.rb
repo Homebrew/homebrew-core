@@ -11,7 +11,6 @@ class Sem < Formula
   end
 
   test do
-    assert_equal "0.9.40", shell_output("#{bin}/sem-info version").chomp
     (testpath/"new.sql").write <<~EOS
       CREATE TABLE IF NOT EXISTS test (id text);
     EOS
