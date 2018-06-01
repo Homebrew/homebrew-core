@@ -47,20 +47,10 @@ class Fstar < Formula
     end
 
     system "opam", "init", "--no-setup"
-
-    if build.stable?
-      system "opam", "config", "exec", "opam", "install",
-             "ocamlfind=1.8.0", "batteries=2.8.0",
-             "stdint=0.5.1", "zarith=1.7", "yojson=1.4.1", "fileutils=0.5.3",
-             "pprint=20171003", "menhir=20171222", "ulex=1.2",
-             "ppx_deriving=4.2.1", "ppx_deriving_yojson=3.1", "process=0.2.1"
-    else
-      system "ocamlfind", "batteries",
-             "stdint", "zarith", "yojson", "fileutils",
-             "pprint", "menhir", "ulex",
-             "ppx_deriving", "ppx_deriving_yojson", "process"
-    end
-
+    system "opam", "config", "exec", "opam", "install",
+           "ocamlfind", "batteries", "stdint", "zarith", "yojson", "fileutils",
+           "pprint", "menhir", "ulex", "ppx_deriving", "ppx_deriving_yojson",
+           "process"
     system "opam", "config", "exec", "--", "make", "-C", "src/ocaml-output"
 
     (libexec/"bin").install "bin/fstar.exe"
