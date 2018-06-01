@@ -1,8 +1,8 @@
 class Cdrdao < Formula
   desc "Record CDs in Disk-At-Once mode"
   homepage "https://cdrdao.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cdrdao/cdrdao/1.2.3/cdrdao-1.2.3.tar.bz2"
-  sha256 "8193cb8fa6998ac362c55807e89ad0b3c63edc6b01afaeb3d5042519527fb75e"
+  url "https://downloads.sourceforge.net/project/cdrdao/cdrdao-1.2.4.tar.bz2"
+  sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
 
   bottle do
     sha256 "8aee176ebd5256556f352e900ab2ccee3772ef81daf04fe4b31348243fe55feb" => :high_sierra
