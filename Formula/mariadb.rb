@@ -51,8 +51,8 @@ class Mariadb < Formula
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DWITH_PCRE=bundled
       -DWITH_SSL=yes
-      -DDEFAULT_CHARSET=utf8
-      -DDEFAULT_COLLATION=utf8_general_ci
+      -DDEFAULT_CHARSET=utf8mb4
+      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
