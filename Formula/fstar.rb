@@ -13,12 +13,11 @@ class Fstar < Formula
     sha256 "1b410c9bb0dca7b9a5988cc6522404e54b793aaed2a88a973ffb3b409a12ca89" => :el_capitan
   end
 
-  depends_on "ocaml" => :build
   depends_on "ocamlbuild" => :build
   depends_on "camlp4" => :build
   depends_on "opam" => :build
   depends_on "gmp"
-  depends_on "ocaml" => :recommended
+  depends_on "ocaml"
 
   # FStar uses a special cutting-edge release from the Z3 team.
   # As we don't depend on the standard release we can't use the z3 formula.
