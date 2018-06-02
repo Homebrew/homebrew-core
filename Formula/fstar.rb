@@ -13,12 +13,11 @@ class Fstar < Formula
     sha256 "1b410c9bb0dca7b9a5988cc6522404e54b793aaed2a88a973ffb3b409a12ca89" => :el_capitan
   end
 
-  depends_on "ocaml" => :build
   depends_on "ocamlbuild" => :build
   depends_on "camlp4" => :build
   depends_on "opam" => :build
   depends_on "gmp"
-  depends_on "ocaml" => :recommended
+  depends_on "ocaml"
 
   # FStar uses a special cutting-edge release from the Z3 team.
   # As we don't depend on the standard release we can't use the z3 formula.
@@ -48,20 +47,9 @@ class Fstar < Formula
     end
 
     system "opam", "init", "--no-setup"
-
-    if build.stable?
-      system "opam", "config", "exec", "opam", "install",
-             "ocamlfind=1.8.0", "batteries=2.8.0",
-             "stdint=0.5.1", "zarith=1.7", "yojson=1.4.1", "fileutils=0.5.3",
-             "pprint=20171003", "menhir=20171222", "ulex=1.2",
-             "ppx_deriving=4.2.1", "ppx_deriving_yojson=3.1", "process=0.2.1"
-    else
-      system "ocamlfind", "batteries",
-             "stdint", "zarith", "yojson", "fileutils",
-             "pprint", "menhir", "ulex",
-             "ppx_deriving", "ppx_deriving_yojson", "process"
-    end
-
+    system "opam", "config", "exec", "opam", "install",
+           "ocamlfind", "batteries", "stdint", "zarith", "yojson", "fileutils",
+           "pprint", "menhir", "ulex", "ppx_deriving", "ppx_deriving_yojson", "process"
     system "opam", "config", "exec", "--", "make", "-C", "src/ocaml-output"
 
     (libexec/"bin").install "bin/fstar.exe"
