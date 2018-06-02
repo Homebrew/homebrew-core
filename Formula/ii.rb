@@ -12,12 +12,23 @@ class Ii < Formula
     sha256 "7f1cb092b6940dc4d9b1e1e47b78165c6f37c0dc322dc0bfd5053afcb42e3fb6" => :el_capitan
   end
 
+  # Updates Makefile, and provides an option to use the system strlcpy
+  patch do
+    url "https://git.suckless.org/ii/patch/?id=e32415744c0e7f2d75d4669addefc1b50f977cd6"
+    sha256 "b01aa1e7c6d8f112b3c73491c7eebc2d61c97daeb32ae33e070aa6356c8c2128"
+  end
+
+  patch do
+    url "https://git.suckless.org/ii/patch/?id=51cb204eb2a7ee840a86cc66b762ddfff56f01b2"
+    sha256 "15a675f256e3ff75a13a3427f9039d0597bb0580576f5fd80d25bb9f04d720cc"
+  end
+
   def install
     inreplace "config.mk" do |s|
       s.gsub! "/usr/local", prefix
-      s.gsub! "cc", ENV.cc
+      s.gsub! "strlcpy.o", ""
+      s.gsub! "-DNEED_STRLCPY", ""
     end
-    # pass SRC to avoid it trying to build its own strlcpy
-    system "make", "install", "SRC=ii.c"
+    system "make", "install"
   end
 end
