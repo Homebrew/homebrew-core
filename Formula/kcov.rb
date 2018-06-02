@@ -6,6 +6,7 @@ class Kcov < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on :xcode # Needed for LLDB. See MachO work below.
 
   def install
     system "cmake", "-G", "Unix Makefiles", *std_cmake_args
@@ -26,6 +27,6 @@ class Kcov < Formula
       #!/bin/bash
       echo "Testing Kcov"
     EOS
-    system "#{bin}/kcov", (testpath/"output"), (testpath/"test.sh")
+    system "#{bin}/kcov", testpath/"output", testpath/"test.sh"
   end
 end
