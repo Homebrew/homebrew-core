@@ -52,10 +52,9 @@ class Bash < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "fe18063bcd70827ffdbc577a5d94c7bd275f240c5064ac4951934be65a727ac0" => :high_sierra
-    sha256 "bf1be3cf58b556bd5c5c26794a0422f46b9c3f6ccf36e8e5325f31201357c208" => :sierra
-    sha256 "613b1313a93f8363ebe8a31412842b8f3c340eef72ba5bcd9a25ded2df751e71" => :el_capitan
+    sha256 "de0293a18d1208a80444f5d1b0a33c44b7f328ba8e07214646e3405b5c1bb95f" => :high_sierra
+    sha256 "d58a520a0ca3be4eb5c61d0bd9779c8ecf780d52b4b235043f048545717c9e33" => :sierra
+    sha256 "291b5db2cc18c491f4a9e210bb2e61afa76632aac65a8dc4eec935e6cb475bd9" => :el_capitan
   end
 
   def install
