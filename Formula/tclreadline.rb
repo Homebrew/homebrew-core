@@ -15,7 +15,7 @@ class Tclreadline < Formula
   depends_on "tcl-tk" => :optional
   depends_on :x11 if build.with? "wishrl"
 
-  patch :DATA if build.with? "wishrl" unless build.with? "tcl-tk"
+  patch :DATA if build.with?("wishrl") && build.without?("tcl-tk")
 
   def install
     args = %W[
@@ -32,7 +32,7 @@ class Tclreadline < Formula
     brewed_tcl = Formula["tcl-tk"].lib
 
     args << "--with-tcl=#{(build.with?("tcl-tk") ? brewed_tcl : stock_tcl)}"
-    args << "--with-tk=#{(build.with?("tcl-tk") ? brewed_tcl : stock_tk)}" if build.with? "wishrl" unless build.with? "tcl-tk"
+    args << "--with-tk=#{(build.with?("tcl-tk") ? brewed_tcl : stock_tk)}" if build.with?("wishrl") && build.without?("tcl-tk")
 
     system "./autogen.sh", *args
     system "make", "install"
