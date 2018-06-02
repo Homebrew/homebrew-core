@@ -5,9 +5,10 @@ class Mariadb < Formula
   sha256 "e990afee6ae7cf9ac40154d0e150be359385dd6ef408ad80ea30df34e2c164cf"
 
   bottle do
-    sha256 "87ef3b34b0c9a2c073c04e54112cb6dfc16d93e7481a6f28362a2b76cf8361ee" => :high_sierra
-    sha256 "e941f209a0e233308a59fec74f5c82323aa66eda6eccd04ad9b0c5ecc790a9be" => :sierra
-    sha256 "75158b86e0f73abdbc9aacd661de4671db56ebb2530410fc7fa6d37ccd6e1b9d" => :el_capitan
+    rebuild 1
+    sha256 "9efc78f961cd8c472f18762ddbe07c36a062e487dad4ae93a314dae46233b01b" => :high_sierra
+    sha256 "6afe25705eb4220aa25e6b7f0011e886f22037f4460b050bf8a0b8bbff0f75c7" => :sierra
+    sha256 "8fa2a5e3bf7b12f91bb7bc11fd690207770b47db14fb5ddb2b98ffe34dfc7e21" => :el_capitan
   end
 
   option "with-test", "Keep test when installing"
