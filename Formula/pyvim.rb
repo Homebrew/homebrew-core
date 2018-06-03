@@ -1,8 +1,8 @@
 class Pyvim < Formula
   desc "Pure Python Vim clone"
   homepage "https://github.com/jonathanslenders/pyvim"
-  url "https://files.pythonhosted.org/packages/d0/27/5b566e1ea31be7a2a36c531fdc4c5f65ff89913b056365dae53cb1434753/pyvim-0.0.21.tar.gz"
-  sha256 "8171931ab086fd5018f842916d751809ab2fab8fecaaf9346c8111bebe08f838"
+  url "https://files.pythonhosted.org/packages/56/ad/9d315fd27a733b4508db839472efb1ba7123e87e098c732659232a4898ac/pyvim-2.0.21.tar.gz"
+  sha256 "130648894cc77387003145a635e88391661be041d204d99b54c2b2aeb1407269"
 
   bottle do
     cellar :any_skip_relocation
