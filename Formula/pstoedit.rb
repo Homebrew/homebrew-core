@@ -5,9 +5,9 @@ class Pstoedit < Formula
   sha256 "ad31d13bf4dd1b9e2590dccdbe9e4abe74727aaa16376be85cd5d854f79bf290"
 
   bottle do
-    sha256 "c153dec1a76f7d6a829276145552fc6dc3756322a3023a24506740ee128d9a23" => :high_sierra
-    sha256 "3f4a82c73fcc2c44bfaa043babe85b8a4190de731752a86a2db553fa18c5bc5d" => :sierra
-    sha256 "5b4de0d105ec879d80202d8c523e6052769316e29e7eb975f5e2b77b2fc369f4" => :el_capitan
+    sha256 "11f3efb3f5f5aa6912bc34f72be786abbfd176406bf6635166a5057415e6af08" => :high_sierra
+    sha256 "83a6324270f93ae5bca3843f52e0ae84050fc72f68c150d3456947b961f4f16a" => :sierra
+    sha256 "fd0e52881d4397cbca26f851b2fbbc65b382ee3c70ba46c362b90b30d9280428" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
