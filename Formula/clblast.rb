@@ -6,9 +6,9 @@ class Clblast < Formula
 
   bottle do
     cellar :any
-    sha256 "8254e3e21d6633170743bf46b035a00df6139ce0181ca58613fbea88b44dd1e6" => :high_sierra
-    sha256 "a80742b7dceee1d82f82b038138bf0a66844b11e67861405faa4999140f689d7" => :sierra
-    sha256 "6f1ceb76dd369fb8129c8ec252b2c8a54c95572e6e3d02d8df758296ba47e062" => :el_capitan
+    sha256 "d8ad0f507da8f46d1c7e1662752a1888f4dd54cb1f98b07b29ebd51cb21b0aed" => :high_sierra
+    sha256 "1a8a496863575df9b630066a1d98ea64a455a738a748d84042368f8e15adc727" => :sierra
+    sha256 "51acd50cb8580e9c47b398baeb397ea985db764e29690568f199bd89fec4a164" => :el_capitan
   end
 
   depends_on "cmake" => :build
