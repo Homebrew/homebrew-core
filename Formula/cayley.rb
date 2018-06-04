@@ -1,8 +1,8 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.7.3.tar.gz"
-  sha256 "2cd993b9f7d452574da3eb74c28b23de797646bf79c8e3b3954a4591b2ce5656"
+  url "https://github.com/cayleygraph/cayley/archive/v0.7.4.tar.gz"
+  sha256 "37e2bb3014060f16a7b727a1157aa5420cf4fbc8746d3465c305f3b7ae147f66"
   head "https://github.com/google/cayley.git"
 
   bottle do
@@ -21,6 +21,9 @@ class Cayley < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+
+    # remove for > 0.7.3
+    inreplace "version/version.go", "0.7.3", "0.7.4" if build.stable?
 
     (buildpath/"src/github.com/cayleygraph/cayley").install buildpath.children
     cd "src/github.com/cayleygraph/cayley" do
