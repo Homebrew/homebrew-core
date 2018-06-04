@@ -19,7 +19,7 @@ class Molecule < Formula
 
   # Collect requirements from:
   #  molecule
-  #  docker-py
+  #  docker
   #  python-vagrant
 
   resource "ansible" do
@@ -97,14 +97,14 @@ class Molecule < Formula
     sha256 "2699ed21e1f73dd1bdb7b0b22a517295de07809d535b23e200dd22166037fe6f"
   end
 
-  resource "docker-py" do
-    url "https://files.pythonhosted.org/packages/fa/2d/906afc44a833901fc6fed1a89c228e5c88fbfc6bd2f3d2f0497fdfb9c525/docker-py-1.10.6.tar.gz"
-    sha256 "4c2a75875764d38d67f87bc7d03f7443a3895704efc57962bdf6500b8d4bc415"
+  resource "docker" do
+    url "https://files.pythonhosted.org/packages/e0/d7/5631c05977c51c1fc88b2eba9fd5cb0ecd7859f2ddfa7dfc653c06fcfe3a/docker-3.3.0.tar.gz"
+    sha256 "dc5cc0971a0d36fe94c5ce89bd4adb6c892713500af7b0818708229c3199911a"
   end
 
   resource "docker-pycreds" do
-    url "https://files.pythonhosted.org/packages/95/2e/3c99b8707a397153bc78870eb140c580628d7897276960da25d8a83c4719/docker-pycreds-0.2.1.tar.gz"
-    sha256 "93833a2cf280b7d8abbe1b8121530413250c6cd4ffed2c1cf085f335262f7348"
+    url "https://files.pythonhosted.org/packages/fc/29/f0fe6e6a055ebfc224f952d1166aea7bccd7de38ac01842fcbffe10ec0b8/docker-pycreds-0.2.3.tar.gz"
+    sha256 "e3732a03610a00461a716997670c7010bf1c214a3edc440f7d6a2a3a830ecd9d"
   end
 
   resource "enum34" do
