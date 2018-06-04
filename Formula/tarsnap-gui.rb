@@ -1,8 +1,8 @@
 class TarsnapGui < Formula
   desc "Cross-platform GUI for the Tarsnap command-line client"
   homepage "https://github.com/Tarsnap/tarsnap-gui/wiki"
-  url "https://github.com/Tarsnap/tarsnap-gui/archive/v1.0.tar.gz"
-  sha256 "cd21d2a85f073e72f10900632fdcb49956985255a5711fb4f6d434433b09dac9"
+  url "https://github.com/Tarsnap/tarsnap-gui/archive/v1.0.1.tar.gz"
+  sha256 "502e53a4eacb2795bfbe62b9e6ef236cce6fdb43cb15153c0fc4ad61c161eb97"
   head "https://github.com/Tarsnap/tarsnap-gui.git"
 
   bottle do
@@ -16,11 +16,6 @@ class TarsnapGui < Formula
   depends_on "tarsnap"
 
   def install
-    # Fix "Project ERROR: Tarsnap-gui requires Qt 5.2 or higher."
-    # Reported 11 Dec 2017 https://github.com/Tarsnap/tarsnap-gui/issues/171
-    inreplace "Tarsnap.pro", "lessThan(QT_VERSION, 5.2)",
-                             "lessThan(QT_VERSION, 5.1)"
-
     system "qmake"
     system "make"
     system "macdeployqt", "Tarsnap.app"
