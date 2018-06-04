@@ -1,8 +1,8 @@
 class Qrencode < Formula
   desc "QR Code generation"
   homepage "https://fukuchi.org/works/qrencode/index.html.en"
-  url "https://fukuchi.org/works/qrencode/qrencode-4.0.0.tar.gz"
-  sha256 "5b621b22931264c7e96c1f9597c3d507d79e059b8207b159fff7547f0b26aa81"
+  url "https://fukuchi.org/works/qrencode/qrencode-4.0.1.tar.gz"
+  sha256 "ac6ba95e5955b5a68be2c8fc208593ddba1d6a3e6eb74b65ff6ee46ab2e5b65b"
 
   bottle do
     cellar :any
