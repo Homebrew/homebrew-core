@@ -6,8 +6,6 @@ class Ydiff < Formula
 
   bottle :unneeded
 
-  depends_on "python@2"
-
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)
