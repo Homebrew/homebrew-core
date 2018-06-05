@@ -8,9 +8,9 @@ class Rubberband < Formula
 
   bottle do
     cellar :any
-    sha256 "702f7077266bf9c79778957136f5d620cf65d15567f28e51ade42bec12fd279d" => :high_sierra
-    sha256 "5d1fd1e565c2fd767c2616dc7efe562982211475cb827d7e2af1c3c558029779" => :sierra
-    sha256 "d0469f5ca859fe94907b38bae7381e7db9db94cf2f3b8cc5c76eec11c15cde69" => :el_capitan
+    sha256 "7dd91b6d0baee3f08704fb8dae4ced59725ef23a921dbf00c4db3a39f2119c63" => :high_sierra
+    sha256 "3fead448ab4b7e72a624cf85e82b0d1965ea8be224b95f43a24f56c248b9ec1e" => :sierra
+    sha256 "965110230f35d93876ec006522145b35a2e8168bb0202e7666d786f1e8262ce1" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
