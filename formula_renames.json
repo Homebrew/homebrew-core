@@ -24,6 +24,7 @@
   "camlistore": "perkeep",
   "cassandra21": "cassandra@2.1",
   "cassandra22": "cassandra@2.2",
+  "cdiff": "ydiff",
   "clang-format38": "clang-format@3.8",
   "cloog-ppl015": "cloog@0.15",
   "cloog018": "cloog",
