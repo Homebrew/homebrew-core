@@ -7,9 +7,9 @@ class Librealsense < Formula
 
   bottle do
     cellar :any
-    sha256 "f4134cfb03ace927eef6b33b38b2cd1e9543d0f63d15417a116c421f94ab5b04" => :high_sierra
-    sha256 "29bcc14899b9146cfd617ecc61d305720da37a31c940e3ef08520a28ec626925" => :sierra
-    sha256 "3a7c74206c615fa656589d886f0a3ec418583e9326f8979949c63b614e532c9d" => :el_capitan
+    sha256 "480b0285595440039ac45b785ef98a930196f37ca80013c46073a44a54dd9292" => :high_sierra
+    sha256 "dd123ac7b5fc2ec7c5500ef45010b742d31ea8b644fab29f03bb42a2048deaa2" => :sierra
+    sha256 "788fe954b9747f963c50e82b096f3019b1945863887fe89d849828fe63777c8f" => :el_capitan
   end
 
   option "with-examples", "Install examples"
