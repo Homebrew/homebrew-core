@@ -1,16 +1,19 @@
 class RakeCompletion < Formula
   desc "Bash completion for Rake"
-  homepage "https://github.com/JoeNyland/rake-completion"
-  url "https://github.com/JoeNyland/rake-completion/archive/v1.0.0.tar.gz"
-  sha256 "2d619d0d1d8052994011209c62f926b9e41d45e9268da4b9858fa45911b04cd1"
+  homepage "https://github.com/mernen/completion-ruby"
+  url "https://github.com/mernen/completion-ruby.git",
+    :revision => "710d0699ee710e181da90c4f3af8b39e4b5c81de"
+
+  head "https://github.com/mernen/completion-ruby.git"
+
   bottle :unneeded
 
   def install
-    bash_completion.install "rake.sh" => "rake"
+    bash_completion.install "completion-rake" => "rake"
   end
 
   test do
-    assert_match "-F _rakecomplete",
+    assert_match "-F __rake",
       shell_output("source #{bash_completion}/rake && complete -p rake")
   end
 end
