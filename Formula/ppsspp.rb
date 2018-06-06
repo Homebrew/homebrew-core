@@ -2,8 +2,8 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      :tag => "v1.6.2",
-      :revision => "00e5da2c35639db3a485528396bce4436ea44467"
+      :tag => "v1.6.3",
+      :revision => "9a610c8a012e73b7d2c6677f48d24f3e185e61c7"
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
