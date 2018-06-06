@@ -1,20 +1,10 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
+  url "https://github.com/wolfSSL/wolfssl/archive/v3.15.0-stable.tar.gz"
+  version "3.15.0"
+  sha256 "67e04f6b1ab51e4d6d0b706c784b18f9bde5149b841713fd745479e13dc2670f"
   head "https://github.com/wolfSSL/wolfssl.git"
-
-  stable do
-    url "https://github.com/wolfSSL/wolfssl/archive/v3.14.0-stable.tar.gz"
-    version "3.14.0"
-    sha256 "4ab543c869a65a77dc5d0bc934b9d4852aa3d5834bd2f707a74a936602bd3687"
-
-    # Remove for > 3.14.0
-    # Upstream commit from 6 Mar 2018 "Fix issue with the creation of dummy fips.h header."
-    patch do
-      url "https://github.com/wolfSSL/wolfssl/commit/a7fe5e3502.patch?full_index=1"
-      sha256 "9e814ab006fd222fbf34bcec3fd214814b51fd7e765c5061c479a3ea3f29550d"
-    end
-  end
 
   bottle do
     cellar :any
