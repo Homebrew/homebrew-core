@@ -7,9 +7,9 @@ class Securefs < Formula
 
   bottle do
     cellar :any
-    sha256 "6824b2cfcfdc55cc79d1e01d6a958d55c082533e74d697b1db77815083a1e31b" => :high_sierra
-    sha256 "9a347b474fb48789d148e22ee2165224166c00161b2447cf2c6a8cf0a23326cb" => :sierra
-    sha256 "b15c75803225335e0465ccd66215d09d8194ebb1320072020cf21189c34266b4" => :el_capitan
+    sha256 "d851b6a0987ac11b3ff5a6ede8b88bfa9e09251ef1fdd76237ad7e9910688242" => :high_sierra
+    sha256 "13d67e18b133621ddb49ddc5b34caff453aec85d95607d2ab83f03cdf0c79b76" => :sierra
+    sha256 "f42c0d8e15ddcd2212235b4954e8ce0896e8f3fc1f07c388cfcf49dca96888f3" => :el_capitan
   end
 
   depends_on "cmake" => :build
