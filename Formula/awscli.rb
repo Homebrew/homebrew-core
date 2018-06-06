@@ -4,8 +4,8 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.15.30.tar.gz"
-  sha256 "475cca38a3f0b495dea43a928307f8e23676b9eac7abf4b6cc8b42b12cb80bad"
+  url "https://github.com/aws/aws-cli/archive/1.15.33.tar.gz"
+  sha256 "58bc262cedcdb9bb7fae95f7eae1e15f83289c7b6a14a7e93e9c336ed89c11d9"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
