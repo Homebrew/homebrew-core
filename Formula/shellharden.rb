@@ -1,8 +1,8 @@
 class Shellharden < Formula
   desc "Bash syntax highlighter that encourages/fixes variables quoting"
   homepage "https://github.com/anordal/shellharden"
-  url "https://github.com/anordal/shellharden/archive/v3.1.tar.gz"
-  sha256 "293ef20ea4ecb6927f873591bb6d452979ebc31af80fdad48c173816b4ae6c6f"
+  url "https://github.com/anordal/shellharden/archive/v3.2.tar.gz"
+  sha256 "7c6c3c59f47c63decddc820ad9c05a542d21ef389945444d0968144ab8dc6200"
 
   bottle do
     sha256 "86bda4e6431157ac10a6232ea15f48c0b7ad567ac378d93d97879286937bae3e" => :high_sierra
@@ -13,9 +13,7 @@ class Shellharden < Formula
   depends_on "rust" => :build
 
   def install
-    # NOTE: This uses Cargo to build from the next release.
-    system "rustc", "shellharden.rs"
-    bin.install "shellharden"
+    system "cargo", "install", "--root", prefix
   end
 
   test do
