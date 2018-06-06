@@ -7,9 +7,9 @@ class Mercurial < Formula
   sha256 "89fa8ecbc8aa6e48e98f9803a1683ba91367124295dba2407b28c34ca621108d"
 
   bottle do
-    sha256 "6b68e483623baa387be5392b5b002f6502692ab88ee50ad4d6196e4cd0f8ca1c" => :high_sierra
-    sha256 "8bb05d716ba5785eb22e0334433f9833f293edb3902255d45e6c6143640e5c8e" => :sierra
-    sha256 "f97343bd9269d0da22ebf22dbadacff52ac6b673183f3cdaf725c746654ab4f4" => :el_capitan
+    sha256 "b28263819821743476462e43f75948365ee7541549542f2a325ac71aeb63134c" => :high_sierra
+    sha256 "4dea703d7ea51d4a60a2fe2d88d02a193384a19a30fd565143d47e290329c9db" => :sierra
+    sha256 "884164e70127ee75d40e568e2f220525808ad4fa3312e97a945b94d1202f3db1" => :el_capitan
   end
 
   depends_on "python@2"
