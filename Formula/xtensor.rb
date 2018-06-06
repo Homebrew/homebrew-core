@@ -6,9 +6,9 @@ class Xtensor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7889738d8a5472b75855c020a3c5a5b04cf874fe99600ba6a6a3299324d9498f" => :high_sierra
-    sha256 "7889738d8a5472b75855c020a3c5a5b04cf874fe99600ba6a6a3299324d9498f" => :sierra
-    sha256 "7889738d8a5472b75855c020a3c5a5b04cf874fe99600ba6a6a3299324d9498f" => :el_capitan
+    sha256 "8a7567d86709c9bd937f7dd52df1900d562bc3db2733b8702a90ab4a87d3740d" => :high_sierra
+    sha256 "8a7567d86709c9bd937f7dd52df1900d562bc3db2733b8702a90ab4a87d3740d" => :sierra
+    sha256 "8a7567d86709c9bd937f7dd52df1900d562bc3db2733b8702a90ab4a87d3740d" => :el_capitan
   end
 
   needs :cxx14
