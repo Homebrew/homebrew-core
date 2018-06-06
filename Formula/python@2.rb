@@ -103,15 +103,21 @@ class PythonAT2 < Formula
     ldflags  = []
     cppflags = []
 
-    unless MacOS::CLT.installed?
+    if !MacOS::CLT.installed? || MacOS.version == :mojave
+      if !MacOS::CLT.installed?
+        sdk_path = MacOS.sdk_path
+      else
+        sdk_path = "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX10.14.sdk"
+      end
+
       # Help Python's build system (setuptools/pip) to build things on Xcode-only systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags   << "-isysroot #{MacOS.sdk_path}"
-      ldflags  << "-isysroot #{MacOS.sdk_path}"
-      cppflags << "-I#{MacOS.sdk_path}/usr/include" # find zlib
+      cflags  << "-isysroot #{sdk_path}"
+      cflags  << "-I/usr/include" # find zlib
+      ldflags << "-isysroot #{sdk_path}"
       # For the Xlib.h, Python needs this header dir with the system Tk
       if build.without? "tcl-tk"
-        cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+        cflags << "-I/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
     end
 
