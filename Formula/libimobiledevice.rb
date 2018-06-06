@@ -27,14 +27,25 @@ class Libimobiledevice < Formula
   depends_on "usbmuxd"
   depends_on "openssl"
 
+  option "with-debug-code", "Enables debug message reporting in library"
+
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          # As long as libplist builds without Cython
-                          # bindings, libimobiledevice must as well.
-                          "--without-cython"
+
+    args = [
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--prefix=#{prefix}",
+      # As long as libplist builds without Cython
+      # bindings, libimobiledevice must as well.
+      "--without-cython"
+    ]
+
+    if build.with? "debug-code"
+      args << "--enable-debug-code"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
