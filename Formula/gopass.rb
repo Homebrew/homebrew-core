@@ -1,9 +1,9 @@
 class Gopass < Formula
   desc "The slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://www.justwatch.com/gopass"
-  url "https://github.com/justwatchcom/gopass/releases/download/v1.7.2/gopass-1.7.2.tar.gz"
-  sha256 "0d0456932ac10864ffd70ece15dc925b04c63af302a4a7d375a8499c62844b7c"
-  head "https://github.com/justwatchcom/gopass.git"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.8.0/gopass-1.8.0.tar.gz"
+  sha256 "dba0e1d1a10cbaadceee18b84f363bbbf886ba52cd9c658f5eca35d37b2f3f75"
+  head "https://github.com/gopasspw/gopass.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,9 +17,9 @@ class Gopass < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/justwatchcom/gopass").install buildpath.children
+    (buildpath/"src/github.com/gopasspw/gopass").install buildpath.children
 
-    cd "src/github.com/justwatchcom/gopass" do
+    cd "src/github.com/gopasspw/gopass" do
       prefix.install_metafiles
       ENV["PREFIX"] = prefix
       system "make", "install"
