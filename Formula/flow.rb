@@ -1,20 +1,9 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
+  url "https://github.com/facebook/flow/archive/v0.74.0.tar.gz"
+  sha256 "82ae9a9192fb75fab2b251e8eda46645a21da29dfba26c1bca6ca34493dbbb93"
   head "https://github.com/facebook/flow.git"
-
-  stable do
-    url "https://github.com/facebook/flow/archive/v0.73.0.tar.gz"
-    sha256 "cfef40febb8db41a8d3c7f8d3da27e5ecbcda59d87a91d76e31d460c064c723c"
-
-    # Fix compilation with OCaml 4.06 (again - we did this for 0.68 too)
-    # Can delete with v0.74.0 deploy
-    # Upstream commit 24 May 2018 "Fix lwt type annotation for OCaml 4.06"
-    patch do
-      url "https://github.com/facebook/flow/commit/6ad707a.patch?full_index=1"
-      sha256 "d21a5325e0b56b884a71178388c08da7712be894090b2a940012cd8a69673ff8"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
