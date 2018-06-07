@@ -18,7 +18,7 @@ class Ironcli < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/iron-io/ironcli").install buildpath.children
     cd "src/github.com/iron-io/ironcli" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"iron"
       prefix.install_metafiles
     end

@@ -8,17 +8,17 @@ class Fstar < Formula
 
   bottle do
     cellar :any
-    sha256 "0735e6b0677201a2548f104841afb544074954a3204de59d53f36dea1abddc8f" => :high_sierra
-    sha256 "2eab5e2c691cbb0480468a9561ca059f51bb0e10ef0944ff360595709d536327" => :sierra
-    sha256 "1b410c9bb0dca7b9a5988cc6522404e54b793aaed2a88a973ffb3b409a12ca89" => :el_capitan
+    rebuild 1
+    sha256 "0f34d17323fcb9b80201951f3205344025349a41efe9d4c38e9c0587ea2d0314" => :high_sierra
+    sha256 "a399b0f098766ba38a0b5836a514735427a9664212b35115040410c88ef484db" => :sierra
+    sha256 "c6e164c3851993e7d8d920edfc093b82fd1b86f35ccc6326746a3f60d5120cb5" => :el_capitan
   end
 
-  depends_on "ocaml" => :build
   depends_on "ocamlbuild" => :build
   depends_on "camlp4" => :build
   depends_on "opam" => :build
   depends_on "gmp"
-  depends_on "ocaml" => :recommended
+  depends_on "ocaml"
 
   # FStar uses a special cutting-edge release from the Z3 team.
   # As we don't depend on the standard release we can't use the z3 formula.
@@ -48,20 +48,10 @@ class Fstar < Formula
     end
 
     system "opam", "init", "--no-setup"
-
-    if build.stable?
-      system "opam", "config", "exec", "opam", "install",
-             "ocamlfind=1.8.0", "batteries=2.8.0",
-             "stdint=0.5.1", "zarith=1.7", "yojson=1.4.1", "fileutils=0.5.3",
-             "pprint=20171003", "menhir=20171222", "ulex=1.2",
-             "ppx_deriving=4.2.1", "ppx_deriving_yojson=3.1", "process=0.2.1"
-    else
-      system "ocamlfind", "batteries",
-             "stdint", "zarith", "yojson", "fileutils",
-             "pprint", "menhir", "ulex",
-             "ppx_deriving", "ppx_deriving_yojson", "process"
-    end
-
+    system "opam", "config", "exec", "opam", "install",
+           "ocamlfind", "batteries", "stdint", "zarith", "yojson", "fileutils",
+           "pprint", "menhir", "ulex", "ppx_deriving", "ppx_deriving_yojson",
+           "process"
     system "opam", "config", "exec", "--", "make", "-C", "src/ocaml-output"
 
     (libexec/"bin").install "bin/fstar.exe"

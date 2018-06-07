@@ -19,7 +19,7 @@ class Immortal < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/immortal/immortal").install buildpath.children
     cd "src/github.com/immortal/immortal" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       ldflags = "-s -w -X main.version=#{version}"
       system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortal", "cmd/immortal/main.go"
       system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/immortalctl", "cmd/immortalctl/main.go"

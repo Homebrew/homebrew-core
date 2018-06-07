@@ -2,14 +2,14 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.10.2",
-      :revision => "81753b10df112992bf51bbc2c2f85208aad78335"
+      :tag => "v1.10.4",
+      :revision => "5ca598b4ba5abb89bb773071ce452e33fb66339d"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
-    sha256 "2b821f0003cda3345d098da9d854777296bacb9cf4b7cf381e1bafdbd18f9b7a" => :high_sierra
-    sha256 "b2a8b815c45aca284538f45a2705bf8dc74c05a217aa5e7a0c3c98db2d48ee26" => :sierra
-    sha256 "ac6ea67a29a7e1b3581538c752097084734af77807831ed787084b081542a49f" => :el_capitan
+    sha256 "ff5344a805057f4300269cc8b34b23835565abadffd408b211ca0f620e321afe" => :high_sierra
+    sha256 "3dc068b30e8c0cfe75f55887f4d01e67a06603f894dbf70617085f91f50814a8" => :sierra
+    sha256 "612459492dbacd41f9ee4484a68b5380679ad4d2a862693847d597debfd1cb64" => :el_capitan
   end
 
   # kubernetes-cli will not support go1.10 until version 1.11.x

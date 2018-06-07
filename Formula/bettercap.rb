@@ -19,7 +19,7 @@ class Bettercap < Formula
     (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
 
     cd "src/github.com/bettercap/bettercap" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "make", "build"
       bin.install "bettercap"
       prefix.install_metafiles

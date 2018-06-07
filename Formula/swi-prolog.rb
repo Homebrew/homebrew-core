@@ -11,8 +11,8 @@ class SwiProlog < Formula
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.14.tar.gz"
-    sha256 "91ac11bad692261b567e409f485cb19fa061a0c4175ec18e1c09ef88c05cf7ab"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.15.tar.gz"
+    sha256 "ca23f4fd7346c90ba493465a870d9490cb396d085791e1f999974ceb4ac33255"
 
     depends_on "zlib" if MacOS.version <= :el_capitan
   end

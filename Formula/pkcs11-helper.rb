@@ -1,16 +1,15 @@
 class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
-  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.22/pkcs11-helper-1.22.tar.bz2"
-  sha256 "fbc15f5ffd5af0200ff2f756cb4388494e0fb00b4f2b186712dce6c48484a942"
+  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.23/pkcs11-helper-1.23.tar.bz2"
+  sha256 "12f962f8abd27ce96a85602e246ed36f7ac763e296bc0ab750412bd5cce4fd42"
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
   bottle do
     cellar :any
-    sha256 "ca5771cd93df0806db6938324c5726948111690190a34fed5ea972f4e7a181b9" => :high_sierra
-    sha256 "5b23024c360d1bb3bd84887d4983354d1b335fc84d693f7505e5633ee23b2411" => :sierra
-    sha256 "20249bea63ab70e0daafd8d398b26638cc2941caab4773360828bf775506c0f6" => :el_capitan
-    sha256 "e37790f0d0ca3f4fe29b0ecb88fe8c2e6711a5e020c96c2ffbd73a2aae3eec31" => :yosemite
+    sha256 "a04c69089ae814e9bb645e6364ea02e6cc7ec259bed5aec64851e20dee099531" => :high_sierra
+    sha256 "594d75ffeb2d7a7b8c32a0374f07af5719f4fbdfffdaafc6f083eb193a0a6aac" => :sierra
+    sha256 "626bff1e4f4ac45cdeae728e95ad82459a31afa9a4c80abf16b20daa6e161663" => :el_capitan
   end
 
   option "without-threading", "Build without threading support"

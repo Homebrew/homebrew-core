@@ -19,7 +19,7 @@ class Hugo < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/gohugoio/hugo").install buildpath.children
     cd "src/github.com/gohugoio/hugo" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"hugo", "main.go"
 
       # Build bash completion

@@ -3,15 +3,15 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.24.0.tar.gz"
-  sha256 "991e41e69eacda6394e52d237933ad958eca8dc724461e6343daa423288adc9d"
+  url "https://github.com/certbot/certbot/archive/v0.25.0.tar.gz"
+  sha256 "e659debe36fbb9798495f23b7d33d9338bc0fb812546dd5bd995c2bc9a2eaaed"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "db60c4f90c21cccd2d1365ac813035d69aa3b64f2794da2a66518f745f2a10fd" => :high_sierra
-    sha256 "b52ccee2df484e294a9f63b76c0770ff03e2e37fb400267c517f5538e1a13449" => :sierra
-    sha256 "8cb57968150775ddd038191c52da8f007579c36bc719ce33fe8983d79d5fb54a" => :el_capitan
+    sha256 "2ffa66e6e8854a0d270018488c8b2e889b26a5d50e29c1ffec74870de262483e" => :high_sierra
+    sha256 "d83d9f951e169ef45a3c69ee8688735e12e3f0a298ef17c0ebaec1f356393213" => :sierra
+    sha256 "a107cda390ebbd48d53d2e8cdcb4646815cd1ddfa1940329b3e8bbd28869e2b5" => :el_capitan
   end
 
   depends_on "augeas"
@@ -80,8 +80,8 @@ class Certbot < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/c6/46/f414e7d9ba9621c8acd3e7a82e08c47e0de34ad3e213c16e458b6c04d432/pbr-4.0.2.tar.gz"
-    sha256 "dae4aaa78eafcad10ce2581fc34d694faa616727837fd8e55c1a00951ad6744f"
+    url "https://files.pythonhosted.org/packages/cd/9f/8f14a51b522c47a315dd969fbdf39233e41f0bfa8b996b4ff0ad852ff43d/pbr-4.0.4.tar.gz"
+    sha256 "a9c27eb8f0e24e786e544b2dbaedb729c9d8546342b5a6818d8eda098ad4340d"
   end
 
   resource "pycparser" do
@@ -90,8 +90,8 @@ class Certbot < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/3b/15/a5d90ab1a41075e8f0fae334f13452549528f82142b3b9d0c9d86ab7178c/pyOpenSSL-17.5.0.tar.gz"
-    sha256 "2c10cfba46a52c0b0950118981d61e72c1e5b1aac451ca1bc77de1a679456773"
+    url "https://files.pythonhosted.org/packages/9b/7c/ee600b2a9304d260d96044ab5c5e57aa489755b92bbeb4c0803f9504f480/pyOpenSSL-18.0.0.tar.gz"
+    sha256 "6488f1423b00f73b7ad5167885312bb0ce410d3312eb212393795b53c8caa580"
   end
 
   resource "pyparsing" do
@@ -112,6 +112,11 @@ class Certbot < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
     sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+  end
+
+  resource "requests-toolbelt" do
+    url "https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz"
+    sha256 "f6a531936c6fa4c6cfce1b9c10d5c4f498d16528d2a54a22ca00011205a187b5"
   end
 
   resource "six" do
