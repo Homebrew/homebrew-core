@@ -1,9 +1,8 @@
 class Gist < Formula
   desc "Command-line utility for uploading Gists"
   homepage "https://github.com/defunkt/gist"
-  url "https://github.com/defunkt/gist/archive/v4.6.2.tar.gz"
-  sha256 "149a57ba7e8a8751d6a55dc652ce3cf0af28580f142f2adb97d1ceeccb8df3ad"
-  revision 1
+  url "https://github.com/defunkt/gist/archive/v5.0.0.tar.gz"
+  sha256 "28a3ebaad90ede9a59bd4dbe4850a07cc6e3294a92849a0f0b17ebf6a17ea33b"
   head "https://github.com/defunkt/gist.git"
 
   bottle do
@@ -21,6 +20,6 @@ class Gist < Formula
 
   test do
     output = pipe_output("#{bin}/gist", "homebrew")
-    assert_match "Requires authentication", output
+    assert_match "Github now requires credentials", output
   end
 end
