@@ -19,7 +19,7 @@ class Fn < Formula
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
     cd dir do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", "#{bin}/fn"
       prefix.install_metafiles
     end
