@@ -15,7 +15,7 @@ class SshVault < Formula
   end
 
   depends_on "dep" => :build
-  depends_on "go@1.9" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
