@@ -3,6 +3,7 @@ require "language/node"
 class Quicktype < Formula
   desc "Generate types and converters from JSON, Schema, and GraphQL"
   homepage "https://github.com/quicktype/quicktype"
+  # quicktype should only be updated every 10 releases on multiples of 10
   url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.0.tgz"
   sha256 "5760734136e61b594467fbfc215636a39652478b4029a22b645ead23f08240cd"
 
