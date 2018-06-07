@@ -2,8 +2,8 @@ class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
   url "https://github.com/ssh-vault/ssh-vault.git",
-      :tag => "0.12.3",
-      :revision => "33b59a33979223c2a5e7e5b63f0bd01e50fc04ae"
+      :tag => "0.12.4",
+      :revision => "cc0eb0daebad1144583a943f486e086d300142b0"
 
   head "https://github.com/ssh-vault/ssh-vault.git"
 
@@ -15,7 +15,7 @@ class SshVault < Formula
   end
 
   depends_on "dep" => :build
-  depends_on "go@1.9" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
