@@ -22,7 +22,8 @@ class Shellcheck < Formula
 
   def install
     install_cabal_package
-    system "pandoc", "-s", "-t", "man", "shellcheck.1.md", "-o", "shellcheck.1"
+    system "pandoc", "-s", "-f", "markdown-smart", "-t", "man",
+                     "shellcheck.1.md", "-o", "shellcheck.1"
     man1.install "shellcheck.1"
   end
 
