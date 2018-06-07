@@ -1,8 +1,8 @@
 class Inspectrum < Formula
   desc "Offline radio signal analyser"
   homepage "https://github.com/miek/inspectrum"
-  url "https://github.com/miek/inspectrum/archive/v0.2.1.tar.gz"
-  sha256 "4baafa14b8a57cd3e460b4a11221a865c9fb97e0d8ead0adfa33fab93ac0339b"
+  url "https://github.com/miek/inspectrum/archive/v0.2.2.tar.gz"
+  sha256 "9e513101a59822c86b84cb7717f395c59bb27a6c192fe021cf4ffb7cf1d09c78"
   head "https://github.com/miek/inspectrum.git"
 
   bottle do
