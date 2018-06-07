@@ -19,7 +19,7 @@ class ForkCleaner < Formula
     dir = buildpath/"src/github.com/caarlos0/fork-cleaner"
     dir.install buildpath.children
     cd dir do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "make"
       bin.install "fork-cleaner"
       prefix.install_metafiles
