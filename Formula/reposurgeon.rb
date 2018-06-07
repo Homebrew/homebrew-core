@@ -29,7 +29,7 @@ class Reposurgeon < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     system "git", "commit", "--allow-empty", "--message", "brewing"
 

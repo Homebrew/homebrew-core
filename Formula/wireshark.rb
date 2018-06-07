@@ -118,7 +118,7 @@ class Wireshark < Formula
     (default macOS behavior), install ChmodBPF:
 
       brew cask install wireshark-chmodbpf
-    EOS
+  EOS
   end
 
   test do

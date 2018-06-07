@@ -64,7 +64,7 @@ class Zpython < Formula
 
     After reloading your shell you can test with:
       zmodload zsh/zpython && zpython 'print "hello world"'
-    EOS
+  EOS
   end
 
   test do

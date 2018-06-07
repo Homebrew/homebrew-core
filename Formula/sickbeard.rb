@@ -67,7 +67,7 @@ class Sickbeard < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def startup_script; <<~EOS
@@ -77,6 +77,6 @@ class Sickbeard < Formula
            "--pidfile=#{var}/run/sickbeard.pid"\
            "--datadir=#{etc}/sickbeard"\
            "$@"
-    EOS
+  EOS
   end
 end

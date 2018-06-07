@@ -18,7 +18,7 @@ class Liquibase < Formula
   def caveats; <<~EOS
     You should set the environment variable LIQUIBASE_HOME to
       #{opt_libexec}
-    EOS
+  EOS
   end
 
   test do

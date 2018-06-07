@@ -89,7 +89,7 @@ class GitlabRunner < Formula
         </array>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

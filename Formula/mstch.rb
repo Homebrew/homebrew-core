@@ -34,7 +34,7 @@ class Mstch < Formula
     Version: 1.0.1
     Libs: -L${libdir} -lmstch
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   test do

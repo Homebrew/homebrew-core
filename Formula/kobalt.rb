@@ -19,7 +19,7 @@ class Kobalt < Formula
     (testpath/"src/main/kotlin/com/A.kt").write <<~EOS
       package com
       class A
-      EOS
+    EOS
 
     (testpath/"kobalt/src/Build.kt").write <<~EOS
       import com.beust.kobalt.*

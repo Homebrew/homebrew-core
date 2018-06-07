@@ -41,6 +41,6 @@ class Udpxy < Formula
       <string>#{HOMEBREW_PREFIX}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 end

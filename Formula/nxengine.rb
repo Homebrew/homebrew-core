@@ -58,6 +58,6 @@ class Nxengine < Formula
   def caveats; <<~EOS
     When the game runs first time, it will extract data files into the following directory:
       #{var}/nxengine
-    EOS
+  EOS
   end
 end

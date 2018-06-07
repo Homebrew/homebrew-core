@@ -25,7 +25,7 @@ class Hive < Formula
 
     If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
       export HCAT_HOME=#{opt_libexec}/hcatalog
-    EOS
+  EOS
   end
 
   test do

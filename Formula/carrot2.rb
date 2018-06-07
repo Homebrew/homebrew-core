@@ -36,7 +36,7 @@ class Carrot2 < Formula
         </array>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

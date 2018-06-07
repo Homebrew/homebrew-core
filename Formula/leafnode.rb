@@ -23,7 +23,7 @@ class Leafnode < Formula
       ln -s #{opt_prefix}/homebrew.mxcl.{fetchnews,texpire}.plist ~/Library/LaunchAgents
     And to start the services,
       launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.{fetchnews,texpire}.plist
-    EOS
+  EOS
   end
 
   plist_options :manual => "leafnode"
@@ -56,7 +56,7 @@ class Leafnode < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def fetchnews_plist; <<~EOS
@@ -76,7 +76,7 @@ class Leafnode < Formula
         <string>#{var}/spool/news</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def texpire_plist; <<~EOS
@@ -96,7 +96,7 @@ class Leafnode < Formula
         <string>#{var}/spool/news</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

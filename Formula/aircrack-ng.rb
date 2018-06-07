@@ -33,7 +33,7 @@ class AircrackNg < Formula
 
   def caveats; <<~EOS
     Run `airodump-ng-oui-update` install or update the Airodump-ng OUI file.
-    EOS
+  EOS
   end
 
   test do

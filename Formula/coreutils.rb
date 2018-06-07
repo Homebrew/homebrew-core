@@ -82,7 +82,7 @@ class Coreutils < Formula
 
         MANPATH="#{opt_libexec}/gnuman:$MANPATH"
 
-    EOS
+  EOS
   end
 
   def coreutils_filenames(dir)

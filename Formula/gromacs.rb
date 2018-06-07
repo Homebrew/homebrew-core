@@ -42,7 +42,7 @@ class Gromacs < Formula
   def caveats; <<~EOS
     GMXRC and other scripts installed to:
       #{HOMEBREW_PREFIX}/share/gromacs
-    EOS
+  EOS
   end
 
   test do

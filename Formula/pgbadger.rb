@@ -39,7 +39,7 @@ class Pgbadger < Formula
       log_lock_waits = on
       log_temp_files = 0
       lc_messages = 'C'
-    EOS
+  EOS
   end
 
   test do

@@ -41,7 +41,7 @@ class Platypus < Formula
 
     Alternatively, install with Homebrew-Cask:
       brew cask install platypus
-    EOS
+  EOS
   end
 
   test do

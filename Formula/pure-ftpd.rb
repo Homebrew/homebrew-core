@@ -66,7 +66,7 @@ class PureFtpd < Formula
         <string>#{var}/log/pure-ftpd.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

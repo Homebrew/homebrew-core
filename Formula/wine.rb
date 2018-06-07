@@ -250,7 +250,7 @@ class Wine < Formula
             #ifdef __#{arch}__
             #{(Pathname.pwd/"build-#{arch}/opensslconf.h").read}
             #endif
-            EOS
+          EOS
         end
         (libexec/"include/openssl/opensslconf.h").atomic_write confs.join("\n")
       end
@@ -472,7 +472,7 @@ class Wine < Formula
   def caveats; <<~EOS
     You may also want winetricks:
       brew install winetricks
-    EOS
+  EOS
   end
 
   test do

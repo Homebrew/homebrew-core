@@ -43,7 +43,7 @@ class Awscli < Formula
   def caveats; <<~EOS
     The "examples" directory has been installed to:
       #{HOMEBREW_PREFIX}/share/awscli/examples
-    EOS
+  EOS
   end
 
   test do

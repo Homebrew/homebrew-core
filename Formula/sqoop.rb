@@ -45,7 +45,7 @@ class Sqoop < Formula
   def caveats; <<~EOS
     Hadoop, Hive, HBase and ZooKeeper must be installed and configured
     for Sqoop to work.
-    EOS
+  EOS
   end
 
   test do

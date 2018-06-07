@@ -33,7 +33,7 @@ class Tile38 < Formula
 
   def caveats; <<~EOS
     To connect: tile38-cli
-    EOS
+  EOS
   end
 
   plist_options :manual => "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
@@ -66,7 +66,7 @@ class Tile38 < Formula
         <string>#{var}/log/tile38.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

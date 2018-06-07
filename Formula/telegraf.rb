@@ -65,7 +65,7 @@ class Telegraf < Formula
         <string>#{var}/log/telegraf.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -56,7 +56,7 @@ class Thefuck < Formula
       eval $(thefuck --alias)
 
     For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
-    EOS
+  EOS
   end
 
   test do

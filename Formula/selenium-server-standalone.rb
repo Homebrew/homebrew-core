@@ -40,7 +40,7 @@ class SeleniumServerStandalone < Formula
       <string>#{var}/log/selenium-output.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

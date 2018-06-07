@@ -37,7 +37,7 @@ class Fzf < Formula
 
     To use fzf in Vim, add the following line to your .vimrc:
       set rtp+=#{opt_prefix}
-    EOS
+  EOS
   end
 
   test do

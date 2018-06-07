@@ -35,7 +35,7 @@ class Imapfilter < Formula
     You will need to create a ~/.imapfilter/config.lua file.
     Samples can be found in:
       #{prefix}/samples
-    EOS
+  EOS
   end
 
   test do

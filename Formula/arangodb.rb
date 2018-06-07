@@ -81,7 +81,7 @@ class Arangodb < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

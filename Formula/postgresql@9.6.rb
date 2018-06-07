@@ -110,7 +110,7 @@ class PostgresqlAT96 < Formula
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
         Do not run `brew cleanup postgresql@9.6` until you have performed the migration.
-    EOS
+  EOS
   end
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.6 start"
@@ -138,7 +138,7 @@ class PostgresqlAT96 < Formula
       <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -59,7 +59,7 @@ class Gstreamer < Formula
 
     The gst-plugins-* packages contain gstreamer-video-1.0, gstreamer-audio-1.0,
     and other components needed by most gstreamer applications.
-    EOS
+  EOS
   end
 
   test do

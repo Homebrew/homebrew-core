@@ -38,7 +38,7 @@ class SbtAT013 < Formula
     This formula uses the standard Lightbend sbt launcher script.
     Project specific options should be placed in .sbtopts in the root of your project.
     Global settings should be placed in #{etc}/sbtopts
-    EOS
+  EOS
   end
 
   test do

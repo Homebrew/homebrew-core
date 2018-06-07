@@ -40,7 +40,7 @@ class PerlAT518 < Formula
   def caveats; <<~EOS
     By default Perl installs modules in your HOME dir. If this is an issue run:
       #{bin}/cpan o conf init
-    EOS
+  EOS
   end
 
   test do

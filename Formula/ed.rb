@@ -31,7 +31,7 @@ class Ed < Formula
     if build.without? "default-names" then <<~EOS
       The command has been installed with the prefix "g".
       If you do not want the prefix, reinstall using the "with-default-names" option.
-      EOS
+    EOS
     end
   end
 

@@ -90,7 +90,7 @@ class Emscripten < Formula
       #{opt_libexec}/llvm/bin
     and comment out BINARYEN_ROOT
     in ~/.emscripten after running `emcc` for the first time.
-    EOS
+  EOS
   end
 
   test do

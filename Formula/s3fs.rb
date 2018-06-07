@@ -34,7 +34,7 @@ class S3fs < Formula
     details:
 
       https://code.google.com/p/s3fs/issues/detail?id=73
-    EOS
+  EOS
   end
 
   test do

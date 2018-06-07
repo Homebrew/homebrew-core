@@ -20,6 +20,6 @@ class Unoconv < Formula
 
   def caveats; <<~EOS
     In order to use unoconv, a copy of LibreOffice between versions 3.6.0.1 - 4.3.x must be installed.
-    EOS
+  EOS
   end
 end

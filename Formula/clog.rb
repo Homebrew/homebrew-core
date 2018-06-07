@@ -24,7 +24,7 @@ class Clog < Formula
   def caveats; <<~EOS
     Next step is to create a .clogrc file in your home directory. See 'man clog'
     for details and a sample file.
-    EOS
+  EOS
   end
 
   test do

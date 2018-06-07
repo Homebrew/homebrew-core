@@ -61,7 +61,7 @@ class KibanaAT56 < Formula
     If you wish to preserve your plugins upon upgrade, make a copy of
     #{opt_prefix}/plugins before upgrading, and copy it into the
     new keg location after upgrading.
-    EOS
+  EOS
   end
 
   plist_options :manual => "kibana"

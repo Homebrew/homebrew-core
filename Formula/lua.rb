@@ -101,7 +101,7 @@ class Lua < Formula
     Requires:
     Libs: -L${libdir} -llua -lm
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
@@ -111,7 +111,7 @@ class Lua < Formula
     This is, for now, unavoidable. If this is troublesome for you, you can build
     rocks with the `--tree=` command to a special, non-conflicting location and
     then add that to your `$PATH`.
-    EOS
+  EOS
   end
 
   test do

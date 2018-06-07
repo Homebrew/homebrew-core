@@ -34,7 +34,7 @@ class GoogleAuthenticatorLibpam < Formula
       "nullok" | sudo tee -a /etc/pam.d/sshd
 
     (Or just manually edit /etc/pam.d/sshd)
-    EOS
+  EOS
   end
 
   test do

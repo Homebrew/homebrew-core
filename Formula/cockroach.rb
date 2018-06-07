@@ -33,7 +33,7 @@ class Cockroach < Formula
     mode and may expose data publicly in e.g. a DNS rebinding attack. To run
     CockroachDB securely, please see:
       #{Formatter.url("https://www.cockroachlabs.com/docs/secure-a-cluster.html")}
-    EOS
+  EOS
   end
 
   plist_options :manual => "cockroach start --insecure"
@@ -62,7 +62,7 @@ class Cockroach < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

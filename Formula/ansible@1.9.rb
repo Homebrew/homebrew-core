@@ -553,7 +553,7 @@ class AnsibleAT19 < Formula
     execution environment, which is inherited by Python scripts invoked
     by ansible. If this causes problems, you can modify your playbooks
     to invoke python with -E, which causes python to ignore PYTHONPATH.
-    EOS
+  EOS
   end
 
   test do

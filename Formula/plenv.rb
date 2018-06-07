@@ -21,7 +21,7 @@ class Plenv < Formula
       if which plenv > /dev/null; then eval "$(plenv init - zsh)"; fi
     With fish, add to your config.fish
       if plenv > /dev/null; plenv init - | source ; end
-    EOS
+  EOS
   end
 
   test do

@@ -17,7 +17,7 @@ class JenkinsLts < Formula
 
   def caveats; <<~EOS
     Note: When using launchctl the port will be 8080.
-    EOS
+  EOS
   end
 
   plist_options :manual => "jenkins-lts"
@@ -46,7 +46,7 @@ class JenkinsLts < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

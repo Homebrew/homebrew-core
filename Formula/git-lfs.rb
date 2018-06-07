@@ -39,7 +39,7 @@ class GitLfs < Formula
 
       # Update system git config
       $ git lfs install --system
-    EOS
+  EOS
   end
 
   test do

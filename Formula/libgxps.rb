@@ -65,20 +65,20 @@ class Libgxps < Formula
       <FixedDocumentSequence>
       <DocumentReference Source="/Documents/1/FixedDocument.fdoc"/>
       </FixedDocumentSequence>
-      EOS
+    EOS
     (testpath/"Documents/1/FixedDocument.fdoc").write <<~EOS
       <FixedDocument>
       <PageContent Source="/Documents/1/Pages/1.fpage"/>
       </FixedDocument>
-      EOS
+    EOS
     (testpath/"Documents/1/Pages/1.fpage").write <<~EOS
       <FixedPage Width="1" Height="1" xml:lang="und" />
-      EOS
+    EOS
     (testpath/"_rels/.rels").write <<~EOS
       <Relationships>
       <Relationship Target="/FixedDocumentSequence.fdseq" Type="http://schemas.microsoft.com/xps/2005/06/fixedrepresentation"/>
       </Relationships>
-      EOS
+    EOS
     [
       "_rels/FixedDocumentSequence.fdseq.rels",
       "Documents/1/_rels/FixedDocument.fdoc.rels",
@@ -86,7 +86,7 @@ class Libgxps < Formula
     ].each do |f|
       (testpath/f).write <<~EOS
         <Relationships />
-        EOS
+      EOS
     end
 
     Dir.chdir(testpath) do

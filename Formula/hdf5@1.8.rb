@@ -101,7 +101,7 @@ class Hdf5AT18 < Formula
       if (error /= 0) call abort
       write (*,"(I0,'.',I0,'.',I0)") major, minor, rel
       end
-      EOS
+    EOS
     system "#{bin}/h5fc", "test.f90"
     assert_equal version.to_s, shell_output("./a.out").chomp
   end

@@ -30,7 +30,7 @@ class Physfs < Formula
     (testpath/"test").write <<~EOS
       addarchive test.zip 1
       cat test.txt
-      EOS
+    EOS
     assert_match /Successful\.\nhomebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
   end
 end

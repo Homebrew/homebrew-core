@@ -109,7 +109,7 @@ class ErlangAT17 < Formula
       #{opt_lib}/erlang/man
 
     Access them with `erl -man`, or add this directory to MANPATH.
-    EOS
+  EOS
   end
 
   test do

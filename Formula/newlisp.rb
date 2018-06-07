@@ -32,7 +32,7 @@ class Newlisp < Formula
   def caveats; <<~EOS
     If you have brew in a custom prefix, the included examples
     will need to be be pointed to your newlisp executable.
-    EOS
+  EOS
   end
 
   test do

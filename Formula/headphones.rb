@@ -28,7 +28,7 @@ class Headphones < Formula
     #!/bin/bash
     export PYTHONPATH="#{libexec}/lib/python2.7/site-packages:$PYTHONPATH"
     python "#{libexec}/Headphones.py" --datadir="#{etc}/headphones" "$@"
-    EOS
+  EOS
   end
 
   def install
@@ -71,7 +71,7 @@ class Headphones < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

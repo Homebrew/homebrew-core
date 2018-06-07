@@ -51,14 +51,14 @@ class Rabbitmq < Formula
 
   def caveats; <<~EOS
     Management Plugin enabled by default at http://localhost:15672
-    EOS
+  EOS
   end
 
   def rabbitmq_env; <<~EOS
     CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
     NODE_IP_ADDRESS=127.0.0.1
     NODENAME=rabbit@localhost
-    EOS
+  EOS
   end
 
   plist_options :manual => "rabbitmq-server"
@@ -86,7 +86,7 @@ class Rabbitmq < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

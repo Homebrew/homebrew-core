@@ -74,7 +74,7 @@ class Passenger < Formula
       To activate Phusion Passenger for Nginx, run:
         brew install nginx --with-passenger
 
-      EOS
+    EOS
 
     s += <<~EOS if build.with? "apache2-module"
       To activate Phusion Passenger for Apache, create /etc/apache2/other/passenger.conf:
@@ -82,7 +82,7 @@ class Passenger < Formula
         PassengerRoot #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini
         PassengerDefaultRuby /usr/bin/ruby
 
-      EOS
+    EOS
     s
   end
 

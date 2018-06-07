@@ -58,7 +58,7 @@ class Mu < Formula
     Existing mu users are recommended to run the following after upgrading:
 
       mu index --rebuild
-    EOS
+  EOS
   end
 
   # Regression test for:

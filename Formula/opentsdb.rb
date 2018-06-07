@@ -99,7 +99,7 @@ class Opentsdb < Formula
       <string>#{var}/opentsdb/opentsdb.err</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

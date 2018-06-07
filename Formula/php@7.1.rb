@@ -290,7 +290,7 @@ class PhpAT71 < Formula
         <string>#{var}/log/php-fpm.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

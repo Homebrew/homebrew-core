@@ -36,7 +36,7 @@ class Wemux < Formula
 
     Either edit the file in your text editor of choice or run `wemux conf` to
     open the file in your $EDITOR.
-    EOS
+  EOS
   end
 
   test do

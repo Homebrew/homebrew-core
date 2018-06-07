@@ -13,7 +13,7 @@ class ZshGitPrompt < Formula
   def caveats; <<~EOS
     Make sure zsh-git-prompt is loaded from your .zshrc:
       source "#{opt_prefix}/zshrc.sh"
-    EOS
+  EOS
   end
 
   test do

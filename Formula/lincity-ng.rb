@@ -47,7 +47,7 @@ class LincityNg < Formula
   def caveats; <<~EOS
     If you have problem with fullscreen, try running in windowed mode:
       lincity-ng -w
-    EOS
+  EOS
   end
 
   test do

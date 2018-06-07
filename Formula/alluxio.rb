@@ -18,7 +18,7 @@ class Alluxio < Formula
   def caveats; <<~EOS
     To configure alluxio, edit
       #{etc}/alluxio/alluxio-env.sh
-    EOS
+  EOS
   end
 
   test do

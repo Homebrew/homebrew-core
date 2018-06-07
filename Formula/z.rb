@@ -16,7 +16,7 @@ class Z < Formula
   def caveats; <<~EOS
     For Bash or Zsh, put something like this in your $HOME/.bashrc or $HOME/.zshrc:
       . #{etc}/profile.d/z.sh
-    EOS
+  EOS
   end
 
   test do

@@ -70,7 +70,7 @@ class Libressl < Formula
 
     and run
       #{opt_bin}/openssl certhash #{etc}/libressl/certs
-    EOS
+  EOS
   end
 
   test do

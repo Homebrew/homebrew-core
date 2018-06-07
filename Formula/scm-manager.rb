@@ -62,7 +62,7 @@ class ScmManager < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

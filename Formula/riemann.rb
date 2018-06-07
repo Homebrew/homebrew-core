@@ -33,7 +33,7 @@ class Riemann < Formula
       riemann-client
       riemann-tools
       riemann-dash
-    EOS
+  EOS
   end
 
   plist_options :manual => "riemann"
@@ -61,7 +61,7 @@ class Riemann < Formula
         <string>#{var}/log/riemann.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

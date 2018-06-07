@@ -34,7 +34,7 @@ class Piknik < Formula
   def caveats; <<~EOS
     In order to get convenient shell aliases, put something like this in #{shell_profile}:
       . #{etc}/profile.d/piknik.sh
-    EOS
+  EOS
   end
 
   test do

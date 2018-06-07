@@ -101,7 +101,7 @@ class Lighttpd < Formula
 
     The default port has been set in #{config_path}/lighttpd.conf to 8080 so that
     lighttpd can run without sudo.
-    EOS
+  EOS
   end
 
   plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
@@ -142,7 +142,7 @@ class Lighttpd < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

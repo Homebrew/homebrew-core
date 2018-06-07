@@ -46,7 +46,7 @@ class Libxslt < Formula
   def caveats; <<~EOS
     To allow the nokogiri gem to link against this libxslt run:
       gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
-    EOS
+  EOS
   end
 
   test do

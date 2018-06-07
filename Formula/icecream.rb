@@ -46,7 +46,7 @@ class Icecream < Formula
     To have launchd start the icecc daemon at login:
       cp #{opt_prefix}/org.opensuse.icecc.plist ~/Library/LaunchAgents/
       launchctl load -w ~/Library/LaunchAgents/org.opensuse.icecc.plist
-    EOS
+  EOS
   end
 
   def iceccd_plist; <<~EOS
@@ -65,7 +65,7 @@ class Icecream < Formula
         <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def scheduler_plist; <<~EOS
@@ -84,7 +84,7 @@ class Icecream < Formula
         <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

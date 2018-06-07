@@ -96,7 +96,7 @@ class MongodbAT32 < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -136,7 +136,7 @@ class MongodbAT32 < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
