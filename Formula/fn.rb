@@ -1,8 +1,8 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.108.tar.gz"
-  sha256 "8d0762804cbdb0ad79c085ce1cecde51bd7d8d604e4c4d4b11f492cca8e6afbf"
+  url "https://github.com/fnproject/cli/archive/0.4.112.tar.gz"
+  sha256 "564e53dbd37b4bc984c3ba611ce3a12034e50f603bf65e3ca5b07cc42af814c7"
 
   bottle do
     cellar :any_skip_relocation
@@ -49,7 +49,7 @@ class Fn < Formula
       ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"
       expected = "/myfunc created with fnproject/myfunc"
-      output = shell_output("#{bin}/fn routes create myapp myfunc --image fnproject/myfunc:0.0.1")
+      output = shell_output("#{bin}/fn create routes myapp myfunc fnproject/myfunc:0.0.1")
       assert_match expected, output.chomp
     ensure
       Process.kill("TERM", pid)
