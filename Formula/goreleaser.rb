@@ -18,7 +18,7 @@ class Goreleaser < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/goreleaser/goreleaser").install buildpath.children
     cd "src/github.com/goreleaser/goreleaser" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-ldflags", "-X main.version=#{version}", "-o",
              bin/"goreleaser"
       prefix.install_metafiles
