@@ -7,9 +7,9 @@ class Inspectrum < Formula
 
   bottle do
     cellar :any
-    sha256 "bba517ed6db7cadf5bc26c649bab5ee49d08756e3460a3c6e6872d85c24e821d" => :high_sierra
-    sha256 "6627a2702e5d75f37cfb111346de7af5aef161c96197011bb43551ee06e1d410" => :sierra
-    sha256 "5de662e5b9a83d2ad3ef0ae103f80d3cbf4bb112b449d7d684970ca7d635dba5" => :el_capitan
+    sha256 "e54bcce14f93b2c84b738ca978b4b931df3b59d8c444288c5619a759b378a04c" => :high_sierra
+    sha256 "0877551fa20ea67f1aab886ccd90577760ad7ab295787dd37e509283cb2129d2" => :sierra
+    sha256 "ae97d37f999dab31422a9a9dac70756e8f5b97a0f6520cb59ae94bee5a992755" => :el_capitan
   end
 
   depends_on "cmake" => :build
