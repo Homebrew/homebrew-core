@@ -21,13 +21,13 @@ class Libimobiledevice < Formula
     depends_on "libxml2"
   end
 
+  option "with-debug-code", "Enables debug message reporting in library"
+
   depends_on "pkg-config" => :build
   depends_on "libtasn1"
   depends_on "libplist"
   depends_on "usbmuxd"
   depends_on "openssl"
-
-  option "with-debug-code", "Enables debug message reporting in library"
 
   def install
     system "./autogen.sh" if build.head?
@@ -38,7 +38,7 @@ class Libimobiledevice < Formula
       "--prefix=#{prefix}",
       # As long as libplist builds without Cython
       # bindings, libimobiledevice must as well.
-      "--without-cython"
+      "--without-cython",
     ]
 
     if build.with? "debug-code"
