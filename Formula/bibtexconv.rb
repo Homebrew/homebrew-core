@@ -2,7 +2,8 @@ class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
   url "https://www.uni-due.de/~be0001/bibtexconv/download/bibtexconv-1.1.12.tar.gz"
-  sha256 "33d7dd6fcc940f7c4b1a14e1d8a5b9c7c57098d0ae72a6187722dd0ad85e36f2"
+  sha256 "dce954b9e81b31f9b2aaaac4a4b1e528d7cc901376be095b40ba44525db3fd76"
+  head "https://github.com/dreibh/bibtexconv.git"
 
   bottle do
     cellar :any
@@ -11,26 +12,12 @@ class Bibtexconv < Formula
     sha256 "397edcb9360918833774139e8cf9d11bcb53fc7c763e487a7bec325861b73cd6" => :el_capitan
   end
 
-  head do
-    url "https://github.com/dreibh/bibtexconv.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "openssl"
 
   def install
-    if build.head?
-      inreplace "bootstrap", "/usr/bin/glibtoolize", Formula["libtool"].bin/"glibtoolize"
-      system "./bootstrap"
-    end
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make"
-    ENV.deparallelize # serialize folder creation
+    system "cmake", *std_cmake_args,
+                    "-DCRYPTO_LIBRARY=#{Formula["openssl"].opt_lib}/libcrypto.dylib"
     system "make", "install"
   end
 
