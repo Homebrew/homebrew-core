@@ -11,6 +11,13 @@ class Php < Formula
     sha256 "b756599fd111893e36bffbe12476c5c93730b72c4c24733f1a648993d9ff47c6" => :el_capitan
   end
 
+  devel do
+    url "https://downloads.php.net/~stas/php-7.3.0alpha1.tar.xz"
+    sha256 "a229d0bf48a3f91d1751ec859473abc70e7fd0f6befc2dc6578b3a128bd0e025"
+
+    depends_on "openldap"
+  end
+
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "apr"
@@ -121,7 +128,6 @@ class Php < Formula
       --with-kerberos
       --with-layout=GNU
       --with-libxml-dir=#{Formula["libxml2"].opt_prefix}
-      --with-ldap
       --with-ldap-sasl
       --with-libedit
       --with-libzip
@@ -153,6 +159,12 @@ class Php < Formula
       args << "--with-curl"
     end
 
+    if devel?
+      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
+    else
+      args << "--with-ldap"
+    end
+
     system "./configure", *args
     system "make"
     system "make", "install"
@@ -161,7 +173,7 @@ class Php < Formula
     extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
-    inreplace "php.ini-development", "; extension_dir = \"./\"",
+    inreplace "php.ini-development", %r{; ?extension_dir = "\.\/"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {
