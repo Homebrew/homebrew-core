@@ -3,6 +3,7 @@ class MongoCxxDriver < Formula
   homepage "https://github.com/mongodb/mongo-cxx-driver"
   url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.2.0.tar.gz"
   sha256 "e26edd44cf20bd6be91907403b6d63a065ce95df4c61565770147a46716aad8c"
+  revision 1
   head "https://github.com/mongodb/mongo-cxx-driver.git"
 
   bottle do
