@@ -1,9 +1,8 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://free-astro.org/index.php/Siril"
-  url "https://free-astro.org/download/siril-0.9.8.3.tar.bz2"
-  sha256 "f6ca57b668441505010673b153f85fa23efdf41fe74ee7ecb5a4926a572acfa3"
-  revision 4
+  url "https://free-astro.org/download/siril-0.9.9.tar.bz2"
+  sha256 "7958985393eca33b2db173090af78a46e42a7daefe7f6eaa7efa4ba261fa46f3"
   head "https://free-astro.org/svn/siril/", :using => :svn
 
   bottle do
