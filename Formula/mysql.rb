@@ -5,9 +5,8 @@ class Mysql < Formula
   sha256 "f40711a9bd91ab2ccea331484a6d281f806b0fdecf78f4c9e9d8a4c91208f309"
 
   bottle do
-    sha256 "55b0311fdd9b9d6e369f3b7ea0c7c82692073502215ac7a00055a2189d5478a2" => :high_sierra
-    sha256 "8e01836f50bf3f907e2357384442e8c938615c5fe2ba35f9e255aa08ff6bca0d" => :sierra
-    sha256 "1a190fa7803e5706c690b8281f61e861a5db68781ee2193c17119d4dd1d0cb1d" => :el_capitan
+    sha256 "01824871432664b7ba9f0c8e7ee620625e48614befc12cf736405bc403d528ee" => :high_sierra
+    sha256 "f97901de99ff29356a12ff9ef00e041bccb023bd75b473e53f59745e8292771f" => :sierra
   end
 
   option "with-debug", "Build with debug support"
