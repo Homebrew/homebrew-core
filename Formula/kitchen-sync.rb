@@ -7,10 +7,10 @@ class KitchenSync < Formula
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
-    cellar :any
-    sha256 "4b5f21c87624bfc140016556df78770c1172bfb6613afd36a3ffab7e20f0b4de" => :high_sierra
-    sha256 "b05d1f38afb43db48a15f9247418bf5696922b870fe2bafe7cc9de0c88d8b806" => :sierra
-    sha256 "927f44f22aeb09e28a04b7511440e75379748516e99b50333ad8059817c462d5" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "f3835d08971cd59c22947ab0698ad4f5d74a6687fd61d6cada501e9147fabe30" => :high_sierra
+    sha256 "407deb35b3980e7c8a14292dc9dfd39ddfb72409eac06c417c3b912dd407c816" => :sierra
+    sha256 "3e3aa69b62915179e0dbaa101af8d1ac80eaabb7aca0d9b47747e4b5956aeaf8" => :el_capitan
   end
 
   deprecated_option "without-mysql" => "without-mysql-client"
