@@ -12,6 +12,7 @@ class DockerComposeCompletion < Formula
 
   def install
     bash_completion.install "contrib/completion/bash/docker-compose"
+    fish_completion.install "contrib/completion/fish/docker-compose.fish"
     zsh_completion.install "contrib/completion/zsh/_docker-compose"
   end
 
