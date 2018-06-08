@@ -1,7 +1,7 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/ntop/ntopng/archive/3.2.tar.gz"
@@ -39,7 +39,7 @@ class Ntopng < Formula
   depends_on "rrdtool"
   depends_on "geoip"
   depends_on "redis"
-  depends_on "mysql"
+  depends_on "mysql-client"
 
   def install
     resource("nDPI").stage do
