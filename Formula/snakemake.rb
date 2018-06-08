@@ -1,8 +1,8 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/63/82/3f2ba28ce21d81c1070610bafb1f9f4afc4cef9add8b041baec0acc44efd/snakemake-5.1.3.tar.gz"
-  sha256 "9abeac67ca0a37a5a6cd22d32d0e04e36c72aeab1922702a83b9d3b9d20293e8"
+  url "https://files.pythonhosted.org/packages/f4/a1/8b5697151dab2d96ac1e39c9843c97027d210f6a241515436b0eeb0ab5e1/snakemake-5.1.4.tar.gz"
+  sha256 "f8835f91f01755166d443980a4987e9cf6ac343b4a64e9190e37f8acc9fc8505"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
