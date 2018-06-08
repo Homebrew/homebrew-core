@@ -3,6 +3,7 @@ class Mydumper < Formula
   homepage "https://launchpad.net/mydumper"
   url "https://launchpad.net/mydumper/0.9/0.9.1/+download/mydumper-0.9.1.tar.gz"
   sha256 "aefab5dc4192acb043d685b6bb952c87557fbea5e083b8547c68ccfec878171f"
+  revision 1
 
   bottle do
     cellar :any
@@ -19,7 +20,7 @@ class Mydumper < Formula
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "glib"
-  depends_on "mysql"
+  depends_on "mysql-client"
   depends_on "pcre"
   depends_on "openssl"
 

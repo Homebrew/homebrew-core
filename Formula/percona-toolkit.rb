@@ -3,6 +3,7 @@ class PerconaToolkit < Formula
   homepage "https://www.percona.com/software/percona-toolkit/"
   url "https://www.percona.com/downloads/percona-toolkit/3.0.10/source/tarball/percona-toolkit-3.0.10.tar.gz"
   sha256 "ee89aa2a3c5a1a98e234a2564859fb95685838bef72cc76548ddfa62843844d6"
+  revision 1
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
@@ -12,7 +13,7 @@ class PerconaToolkit < Formula
     sha256 "e8d508cd6f63532716d8da71464f587828c9c67a745372c36aa44bb8f2929977" => :el_capitan
   end
 
-  depends_on "mysql"
+  depends_on "mysql-client"
   depends_on "openssl"
 
   resource "DBD::mysql" do
