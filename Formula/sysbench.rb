@@ -6,9 +6,9 @@ class Sysbench < Formula
   revision 1
 
   bottle do
-    sha256 "fcb780c85ec232d60edbbb9fbdb384c3f8e3a26314e625a5bf60461905b636a0" => :high_sierra
-    sha256 "56eda0a58313a0ac098b2cbbd1ac6c68b8c487c0dbdcc996b486ddcb2f1fabc0" => :sierra
-    sha256 "d00d69c96c281d3185ffe1db96e625a3baf8b392098c681f560d7b72e605ff09" => :el_capitan
+    sha256 "f7fb7d35da8ccc78ec00ba594dc62e1edaea6d4e7578b7fdc8c3868ce6213489" => :high_sierra
+    sha256 "c219107c3118144380458fd32205906edfe7b835b927417065ef5b89f48e56fa" => :sierra
+    sha256 "b26c1f7a5f77bdd4b5a3261aafcde1e908527bd4ca8cb5e93dde2811f71570c5" => :el_capitan
   end
 
   deprecated_option "without-mysql" => "without-mysql-client"
