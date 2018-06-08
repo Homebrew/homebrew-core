@@ -1,8 +1,8 @@
 class Wslay < Formula
   desc "C websocket library"
   homepage "https://wslay.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/wslay/wslay-1.0.0/wslay-1.0.0.tar.xz"
-  sha256 "148d5272255b76034f97cf0298f606aed4908ebb4198412a321280f2319160ef"
+  url "https://github.com/tatsuhiro-t/wslay/releases/download/release-1.1.0/wslay-1.1.0.tar.xz"
+  sha256 "0d82d247b847cc08e798ee2f28ee22b331d54e5900b3e1bef184945770185e17"
 
   bottle do
     cellar :any
