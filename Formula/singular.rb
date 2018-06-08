@@ -6,9 +6,9 @@ class Singular < Formula
   revision 3
 
   bottle do
-    sha256 "cbad21630b787e410d0adb653aa6c56c2ac865cfeb695bb8ac2d23f2c82142ad" => :high_sierra
-    sha256 "d54eb14a6ab61dabecc598e0c3a280c2914dc042167a926336ce562d3a322bfd" => :sierra
-    sha256 "add5cde2dbaaf9497d16c0c4fb47e299aec3dd46390225d053f1ae31641bc528" => :el_capitan
+    sha256 "695da9d8db7a10a8efe0b7b13c8ef1f479677eb2e37b010e52ea5906d18e77e8" => :high_sierra
+    sha256 "a52137e6fd32a381216d0b2720c674e0b0f8d685358e9c4de66764d1d513a408" => :sierra
+    sha256 "a49697018b4f0e9da93ac881630de616592803c5453beb7a515720d5cedc1910" => :el_capitan
   end
 
   head do
