@@ -1,9 +1,8 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
-  url "https://www.dynare.org/release/source/dynare-4.5.4.tar.xz"
-  sha256 "5ee1c30e9a8e0c0ec4f60e83c02beb98271f9e324b9b667d4a5f5b2ee634a7e6"
-  revision 5
+  url "https://www.dynare.org/release/source/dynare-4.5.5.tar.xz"
+  sha256 "9e2f604aa7a722cbcc6a4150af0b7fb78874490cf0b4868b2a410193ae1e3727"
 
   bottle do
     sha256 "3d3a8047734e00f273882ccc8df351f0a6b6d5dad8fa059d97dd7e194458417e" => :high_sierra
@@ -41,10 +40,6 @@ class Dynare < Formula
   end
 
   def install
-    # config.h was renamed octave-config.h in Octave 4.4.0
-    inreplace "mex/sources/ms-sbvar/modify_for_mex.h", "octave/config.h",
-                                                       "octave/octave-config.h"
-
     ENV.cxx11
 
     resource("slicot").stage do
