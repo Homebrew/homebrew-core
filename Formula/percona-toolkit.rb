@@ -8,9 +8,9 @@ class PerconaToolkit < Formula
 
   bottle do
     cellar :any
-    sha256 "d5a9c0c6d9bb2fc9156e8f4879ee92070965f8817bf1bc9c760f288a3b4858a5" => :high_sierra
-    sha256 "19baf1859afe62851b1043cd41ccb5653ad4604f80a9099240be2ad846159f5f" => :sierra
-    sha256 "e8d508cd6f63532716d8da71464f587828c9c67a745372c36aa44bb8f2929977" => :el_capitan
+    sha256 "727a882ac2702ea83d41a1c2676b201990e7bfc3ac54dffac3a205697edbba43" => :high_sierra
+    sha256 "59d011ca358a1a1d8c86f39f1acde1816705d0d2dcd27c33edb2bb142035ca46" => :sierra
+    sha256 "eb3455d03e43cbb6207554c739eb848bdd8a3b6b557158247f46ec6d0216dc70" => :el_capitan
   end
 
   depends_on "mysql-client"
