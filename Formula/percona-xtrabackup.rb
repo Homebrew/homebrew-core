@@ -3,19 +3,22 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.11/source/tarball/percona-xtrabackup-2.4.11.tar.gz"
   sha256 "67506507628eec5edc88d2000f423e892b46c8ca56dbe5a02566a11168ee6483"
+  revision 1
 
   bottle do
-    sha256 "f2b03221466dc0f23682f981aa711ca7be0d4589216ab63d488c50701cdfd85b" => :high_sierra
-    sha256 "1c3f15e636d5ac76438fadbd93464bcfa1697fce9acf65e7f54bc27bd31007dc" => :sierra
-    sha256 "6d67926c7fbecbf40a0829e0e1101d8f0d2a283dde68be76e0e2b3366b2f2758" => :el_capitan
+    sha256 "16790b0fb43e56bb08e0ef5a6afe74dac2be6607d7b7fdddf0ee443b1e89c11d" => :high_sierra
+    sha256 "4e78194dc3d7de6ced30cad8c0666e9a8c1a891f9187107c5b722d3f55d3cd3d" => :sierra
+    sha256 "9ac22fa346e623bbed78d55fc768ce576414d1ef95f23905ca26ca766910e7e8" => :el_capitan
   end
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
-  option "without-mysql", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
+  option "without-mysql-client", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
+
+  deprecated_option "without-mysql" => "without-mysql-client"
 
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on "mysql" => :recommended
+  depends_on "mysql-client" => :recommended
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "openssl"
@@ -66,7 +69,7 @@ class PerconaXtrabackup < Formula
     rm lib/"libmysqlservices.a"
     rm lib/"plugin/keyring_file.so"
 
-    if build.with? "mysql"
+    if build.with? "mysql-client"
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       resource("DBD::mysql").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
