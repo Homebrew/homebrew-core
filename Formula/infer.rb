@@ -1,6 +1,6 @@
 class Infer < Formula
   desc "Static analyzer for Java, C, C++, and Objective-C"
-  homepage "https://fbinfer.com/"
+  homepage "http://fbinfer.com/"
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
       :tag => "v0.14.0",
