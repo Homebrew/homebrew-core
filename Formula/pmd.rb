@@ -17,7 +17,7 @@ class Pmd < Formula
 
   def caveats; <<~EOS
     Run with `pmd` (instead of `run.sh` as described in the documentation).
-    EOS
+  EOS
   end
 
   test do

@@ -133,7 +133,7 @@ class Postgis < Formula
         #{HOMEBREW_PREFIX}/lib
       PostGIS extension modules installed to:
         #{HOMEBREW_PREFIX}/share/postgresql/extension
-      EOS
+    EOS
   end
 
   test do

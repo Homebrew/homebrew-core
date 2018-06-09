@@ -40,7 +40,7 @@ class Fastbit < Formula
       Potter,Harry
       Granger,Hermione
       Weasley,Ron
-     EOS
+    EOS
     system bin/"ardea", "-d", testpath,
            "-m", "a:t,b:t", "-t", testpath/"test.csv"
   end

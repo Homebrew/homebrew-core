@@ -43,6 +43,6 @@ class Runit < Formula
          runsvdir -P #{var}/service
 
     Depending on the services managed by runit, this may need to start as root.
-    EOS
+  EOS
   end
 end

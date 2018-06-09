@@ -84,7 +84,7 @@ class Gdb < Formula
     On 10.12 (Sierra) or later with SIP, you need to run this:
 
       echo "set startup-with-shell off" >> ~/.gdbinit
-    EOS
+  EOS
   end
 
   test do

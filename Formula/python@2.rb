@@ -328,7 +328,7 @@ class PythonAT2 < Formula
       #{site_packages}
 
     See: https://docs.brew.sh/Homebrew-and-Python
-    EOS
+  EOS
   end
 
   test do

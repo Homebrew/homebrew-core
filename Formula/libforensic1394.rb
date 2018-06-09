@@ -33,7 +33,7 @@ class Libforensic1394 < Formula
         forensic1394_destroy(bus);
         return 0;
       }
-      EOS
+    EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lforensic1394", "-o", "test"
     system "./test"
   end

@@ -34,7 +34,7 @@ class Openrct2 < Formula
     (bin/"openrct2").write <<~EOS
       #!/bin/bash
       exec "#{libexec}/openrct2" "$@" "--openrct-data-path=#{pkgshare}"
-      EOS
+    EOS
   end
 
   test do

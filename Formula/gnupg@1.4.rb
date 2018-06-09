@@ -59,7 +59,7 @@ class GnupgAT14 < Formula
 
     Note that doing so may interfere with GPG-using formulae installed via
     Homebrew.
-    EOS
+  EOS
   end
 
   test do

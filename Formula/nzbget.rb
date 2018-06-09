@@ -79,7 +79,7 @@ class Nzbget < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

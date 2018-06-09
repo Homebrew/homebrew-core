@@ -30,7 +30,7 @@ class Logstash < Formula
   def caveats; <<~EOS
     Please read the getting started guide located at:
       https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
-    EOS
+  EOS
   end
 
   plist_options :manual => "logstash"

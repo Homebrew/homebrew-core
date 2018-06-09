@@ -38,7 +38,7 @@ class Tcptraceroute < Formula
     tcptraceroute requires root privileges so you will need to run
     `sudo tcptraceroute`.
     You should be certain that you trust any software you grant root privileges.
-    EOS
+  EOS
   end
 
   test do

@@ -69,7 +69,7 @@ class GoAT18 < Formula
 
     You may wish to add the GOROOT-based install location to your PATH:
       export PATH=$PATH:#{opt_libexec}/bin
-    EOS
+  EOS
   end
 
   test do

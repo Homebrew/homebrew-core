@@ -58,7 +58,7 @@ class Fish < Formula
     Then run:
       chsh -s #{HOMEBREW_PREFIX}/bin/fish
     to make fish your default shell.
-    EOS
+  EOS
   end
 
   test do

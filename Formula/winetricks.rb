@@ -23,7 +23,7 @@ class Winetricks < Formula
   def caveats; <<~EOS
     winetricks is a set of utilities for wine, which is installed separately:
       brew install wine
-    EOS
+  EOS
   end
 
   test do

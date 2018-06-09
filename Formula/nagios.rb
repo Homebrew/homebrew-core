@@ -102,7 +102,7 @@ class Nagios < Formula
 
       open http://localhost/nagios
 
-    EOS
+  EOS
   end
 
   plist_options :startup => true, :manual => "nagios #{HOMEBREW_PREFIX}/etc/nagios/nagios.cfg"
@@ -129,7 +129,7 @@ class Nagios < Formula
       <string>/dev/null</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

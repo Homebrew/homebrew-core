@@ -54,7 +54,7 @@ class Clamav < Formula
   def caveats; <<~EOS
     To finish installation & run clamav you will need to edit
     the example conf files at #{etc}/clamav/
-    EOS
+  EOS
   end
 
   test do

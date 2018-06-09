@@ -29,7 +29,7 @@ class Oauth2Proxy < Formula
 
   def caveats; <<~EOS
     #{etc}/oauth2_proxy/oauth2_proxy.cfg must be filled in.
-    EOS
+  EOS
   end
 
   plist_options :manual => "oauth2_proxy"
@@ -54,7 +54,7 @@ class Oauth2Proxy < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

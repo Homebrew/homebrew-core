@@ -21,7 +21,7 @@ class Pex < Formula
   def caveats; <<~EOS
     If installing for the first time, perform the following in order to setup the necessary directory structure:
       pex init
-    EOS
+  EOS
   end
 
   test do

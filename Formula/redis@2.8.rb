@@ -63,7 +63,7 @@ class RedisAT28 < Formula
         <string>#{var}/log/redis28.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

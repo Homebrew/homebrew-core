@@ -70,7 +70,7 @@ class Mono < Formula
       export MONO_GAC_PREFIX="#{HOMEBREW_PREFIX}"
     Note that the 'mono' formula now includes F#. If you have
     the 'fsharp' formula installed, remove it with 'brew uninstall fsharp'.
-    EOS
+  EOS
   end
 
   test do

@@ -31,7 +31,7 @@ class Podiff < Formula
       *.po diff=podiff
 
     See `man podiff` for more information.
-    EOS
+  EOS
   end
 
   test do

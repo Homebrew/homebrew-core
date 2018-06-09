@@ -55,7 +55,7 @@ class Linkerd < Formula
         <string>#{var}/log/linkerd/linkerd.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

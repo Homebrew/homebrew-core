@@ -24,7 +24,7 @@ class C2048 < Formula
       2048 blackwhite
     For the blue-to-red:
       2048 bluered
-    EOS
+  EOS
   end
 
   test do

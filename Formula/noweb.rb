@@ -50,6 +50,6 @@ class Noweb < Formula
       #{texpath}
 
     You may need to add the directory to TEXINPUTS to run noweb properly.
-    EOS
+  EOS
   end
 end

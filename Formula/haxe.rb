@@ -64,7 +64,7 @@ class Haxe < Formula
   def caveats; <<~EOS
     Add the following line to your .bashrc or equivalent:
       export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
-    EOS
+  EOS
   end
 
   test do

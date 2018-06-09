@@ -142,7 +142,7 @@ class Pypy < Formula
         pip_pypy install --upgrade pip setuptools
 
     See: https://docs.brew.sh/Homebrew-and-Python
-    EOS
+  EOS
   end
 
   # The HOMEBREW_PREFIX location of site-packages

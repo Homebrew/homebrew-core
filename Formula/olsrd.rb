@@ -47,7 +47,7 @@ class Olsrd < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

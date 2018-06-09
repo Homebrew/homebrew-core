@@ -66,7 +66,7 @@ class Llnode < Formula
         mkdir -p ~/Library/Application\\ Support/LLDB/PlugIns
         ln -sf #{opt_prefix}/llnode.dylib \\
             ~/Library/Application\\ Support/LLDB/PlugIns/
-    EOS
+  EOS
   end
 
   test do

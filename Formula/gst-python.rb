@@ -50,7 +50,7 @@ class GstPython < Formula
         gi.require_version('Gst', '1.0')
         from gi.repository import Gst
         print (Gst.Fraction(num=3, denom=5))
-        EOS
+      EOS
     end
   end
 end

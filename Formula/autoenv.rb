@@ -14,7 +14,7 @@ class Autoenv < Formula
   def caveats; <<~EOS
     To finish the installation, source activate.sh in your shell:
       source #{opt_prefix}/activate.sh
-    EOS
+  EOS
   end
 
   test do

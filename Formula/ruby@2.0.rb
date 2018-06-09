@@ -142,7 +142,7 @@ class RubyAT20 < Formula
         "#{opt_bin}/ruby"
       end
     end
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
@@ -150,7 +150,7 @@ class RubyAT20 < Formula
       #{rubygems_bindir}
 
     You may want to add this to your PATH.
-    EOS
+  EOS
   end
 
   test do

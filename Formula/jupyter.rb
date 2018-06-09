@@ -297,7 +297,7 @@ class Jupyter < Formula
   def caveats; <<~EOS
     Additional kernels can be installed into the shared jupyter directory
       #{etc}/jupyter
-    EOS
+  EOS
   end
 
   test do

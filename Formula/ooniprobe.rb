@@ -214,7 +214,7 @@ class Ooniprobe < Formula
 
   def caveats; <<~EOS
     Decks are installed to #{opt_pkgshare}/decks.
-    EOS
+  EOS
   end
 
   plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooniprobe/current.deck"

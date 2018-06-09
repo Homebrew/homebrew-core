@@ -12,7 +12,7 @@ class WrkTrello < Formula
     #!/bin/sh
     export WRK_HOME="#{libexec}"
     exec "#{libexec}/bin/wrk" "$@"
-    EOS
+  EOS
   end
 
   def install
@@ -25,6 +25,6 @@ class WrkTrello < Formula
     https://trello.com/1/authorize?key=8d56bbd601877abfd13150a999a840d0&name=Wrk&expiration=never&response_type=token&scope=read,write
     and save it to ~/.wrk/token
     Start `wrk` for more information.
-    EOS
+  EOS
   end
 end

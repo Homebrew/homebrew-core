@@ -15,7 +15,7 @@ class Grails < Formula
   def caveats; <<~EOS
     The GRAILS_HOME directory is:
       #{opt_libexec}
-    EOS
+  EOS
   end
 
   test do

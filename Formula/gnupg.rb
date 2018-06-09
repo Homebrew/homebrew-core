@@ -70,7 +70,7 @@ class Gnupg < Formula
 
     For full details on each change and how it could impact you please see
       https://www.gnupg.org/faq/whats-new-in-2.1.html
-    EOS
+  EOS
   end
 
   test do

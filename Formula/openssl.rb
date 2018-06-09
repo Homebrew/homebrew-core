@@ -102,7 +102,7 @@ class Openssl < Formula
 
     and run
       #{opt_bin}/c_rehash
-    EOS
+  EOS
   end
 
   test do

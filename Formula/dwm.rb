@@ -35,7 +35,7 @@ class Dwm < Formula
 
     See also https://gist.github.com/311377 for a handful of tips and tricks
     for running dwm on Mac OS X.
-    EOS
+  EOS
   end
 
   test do

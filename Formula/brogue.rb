@@ -42,7 +42,7 @@ class Brogue < Formula
   def caveats; <<~EOS
     If you are upgrading from 1.7.2, you need to copy your highscores file:
         cp #{HOMEBREW_PREFIX}/Cellar/#{name}/1.7.2/BrogueHighScores.txt #{var}/brogue/
-    EOS
+  EOS
   end
 
   test do

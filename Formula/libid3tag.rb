@@ -66,6 +66,6 @@ class Libid3tag < Formula
     Conflicts:
     Libs: -L${libdir} -lid3tag -lz
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 end

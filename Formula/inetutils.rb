@@ -68,7 +68,7 @@ class Inetutils < Formula
       the "gnuman" directory to your MANPATH from your bashrc as well:
 
           MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-      EOS
+    EOS
     end
   end
 

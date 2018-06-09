@@ -113,7 +113,7 @@ class Emacs < Formula
     if build.with? "cocoa" then <<~EOS
       Please try the Cask for a better-supported Cocoa version:
         brew cask install emacs
-      EOS
+    EOS
     end
   end
 
@@ -135,7 +135,7 @@ class Emacs < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

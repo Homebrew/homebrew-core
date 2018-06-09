@@ -78,7 +78,7 @@ class LibreadlineJava < Formula
   def caveats; <<~EOS
     You may need to set JAVA_HOME:
       export JAVA_HOME="$(/usr/libexec/java_home)"
-    EOS
+  EOS
   end
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)

@@ -15,7 +15,7 @@ class BashPreexec < Formula
   def caveats; <<~EOS
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
       [ -f #{etc}/profile.d/bash-preexec.sh ] && . #{etc}/profile.d/bash-preexec.sh
-    EOS
+  EOS
   end
 
   test do

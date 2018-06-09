@@ -57,7 +57,7 @@ class Pincaster < Formula
         <string>#{var}/log/pincaster.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

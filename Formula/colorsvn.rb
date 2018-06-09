@@ -44,7 +44,7 @@ class Colorsvn < Formula
     to your bash profile.
 
     So when you type "svn" you'll run "colorsvn".
-    EOS
+  EOS
   end
 
   test do

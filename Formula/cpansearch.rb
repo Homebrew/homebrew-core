@@ -26,6 +26,6 @@ class Cpansearch < Formula
   def caveats; <<~EOS
     For usage instructions:
         more #{opt_prefix}/README.md
-    EOS
+  EOS
   end
 end

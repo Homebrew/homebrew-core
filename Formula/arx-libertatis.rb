@@ -82,7 +82,7 @@ class ArxLibertatis < Formula
       the game data with:
 
         arx-install-data /path/to/setup_arx_fatalis.exe
-      EOS
+    EOS
     end
   end
 

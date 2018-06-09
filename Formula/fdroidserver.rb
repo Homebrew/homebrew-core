@@ -357,7 +357,7 @@ class Fdroidserver < Formula
     base path of the Android SDK is set in the standard environment variable
     ANDROID_HOME.  To install them from the command line, run:
     android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.0
-    EOS
+  EOS
   end
 
   test do

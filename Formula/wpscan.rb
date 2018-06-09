@@ -46,7 +46,7 @@ class Wpscan < Formula
 
   def caveats; <<~EOS
     Logs are saved to #{var}/cache/wpscan/log.txt by default.
-    EOS
+  EOS
   end
 
   test do

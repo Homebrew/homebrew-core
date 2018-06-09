@@ -73,7 +73,7 @@ class Znc < Formula
         <integer>300</integer>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

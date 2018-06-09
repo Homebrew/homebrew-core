@@ -18,7 +18,7 @@ class Funcoeszz < Formula
       source "$ZZPATH"
 
     Usage of a newer Bash than the macOS default is required.
-    EOS
+  EOS
   end
 
   test do
