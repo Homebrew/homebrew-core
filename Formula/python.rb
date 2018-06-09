@@ -3,8 +3,6 @@ class Python < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz"
   sha256 "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
-  head "https://github.com/python/cpython.git"
-
   bottle do
     rebuild 1
     sha256 "7e0fc1b078b51d9478ab08660d5df01611976a7af0f6c24054bda58264bb506c" => :high_sierra
@@ -15,6 +13,15 @@ class Python < Formula
   devel do
     url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0b5.tar.xz"
     sha256 "00e4d85ebd5392f75e979b4cf860b1711642d62fbdd38e0874355b0245185313"
+  end
+
+  head do
+    url "https://github.com/python/cpython.git"
+
+    resource "blurb" do
+      url "https://files.pythonhosted.org/packages/f2/2d/541cf1d8054dbb320aca5e9dcce5d66efb227be9adb75d2697ee45d1f742/blurb-1.0.6.tar.gz"
+      sha256 "90c7d2e5d141d7d1fc6ca0fe660025317ac81ca078e6045c46b1bc5a675ce5d1"
+    end
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
@@ -189,6 +196,14 @@ class Python < Formula
     end
 
     cd "Doc" do
+      if build.head?
+        system bin/"python3", "-m", "venv", "./venv"
+        resource("blurb").stage do
+          system buildpath/"Doc/venv/bin/python3", "-m", "pip", "install", "-v",
+                 "--no-deps", "--no-binary", ":all", "--ignore-installed", "."
+        end
+      end
+
       system "make", "html"
       doc.install Dir["build/html/*"]
     end
