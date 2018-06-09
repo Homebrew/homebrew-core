@@ -3,8 +3,8 @@ class Infer < Formula
   homepage "http://fbinfer.com/"
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
-      :tag => "v0.14.0",
-      :revision => "9ed60bc93613b6c232ef37803dd5fb74c8071acf"
+      :tag => "v0.15.0",
+      :revision => "8bda23fadcc51c6ed38a4c3a75be25a266e8f7b4"
 
   bottle do
     cellar :any
@@ -63,7 +63,7 @@ class Infer < Formula
     ]
 
     system "opam", "init", "--no-setup"
-    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION=\${OCAML_VERSION:-\"([^\"]+)\"}/)[1]
+    ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION_DEFAULT=\"([^\"]+)\"/)[1]
     ocaml_version_number = ocaml_version.split("+", 2)[0]
     inreplace "#{opamroot}/compilers/#{ocaml_version_number}/#{ocaml_version}/#{ocaml_version}.comp",
       '["./configure"', '["./configure" "-no-graph"'
