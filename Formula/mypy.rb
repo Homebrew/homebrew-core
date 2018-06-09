@@ -2,8 +2,8 @@ class Mypy < Formula
   desc "Experimental optional static type checker for Python"
   homepage "http://www.mypy-lang.org/"
   url "https://github.com/python/mypy.git",
-      :tag => "v0.600",
-      :revision => "09288ffc4be301e6cfd05bf042cee8b780cd1ffd"
+      :tag => "v0.610",
+      :revision => "4f4dc6de32e5cfd6f2d2079a47f52942a2397b97"
   head "https://github.com/python/mypy.git"
 
   bottle do
@@ -21,13 +21,13 @@ class Mypy < Formula
   depends_on "sphinx-doc" => [:build, :recommended]
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/14/a2/8ac7dda36eac03950ec2668ab1b466314403031c83a95c5efc81d2acf163/psutil-5.4.5.tar.gz"
-    sha256 "ebe293be36bb24b95cdefc5131635496e88b17fabbcf1e4bc9b5c01f5e489cfe"
+    url "https://files.pythonhosted.org/packages/51/9e/0f8f5423ce28c9109807024f7bdde776ed0b1161de20b408875de7e030c3/psutil-5.4.6.tar.gz"
+    sha256 "686e5a35fe4c0acc25f3466c32e716f2d498aaae7b7edc03e2305b682226bcf6"
   end
 
   resource "sphinx_rtd_theme" do
-    url "https://files.pythonhosted.org/packages/36/02/f402fc35ab83ae757a70c43c6d078726e555064a2f461037582fac935649/sphinx_rtd_theme-0.3.0.tar.gz"
-    sha256 "665135dfbdf8f1d218442458a18cf266444354b8c98eed93d1543f7e701cfdba"
+    url "https://files.pythonhosted.org/packages/1c/f2/a1361e5f399e0b4182d031065eececa63ddb8c19a0616b03f119c4d5b6b4/sphinx_rtd_theme-0.4.0.tar.gz"
+    sha256 "de88d637a60371d4f923e06b79c4ba260490c57d2ab5a8316942ab5d9a6ce1bf"
   end
 
   resource "typed-ast" do
