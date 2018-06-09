@@ -5,9 +5,9 @@ class Ngspice < Formula
   sha256 "94804fa78c8db2f90f088902e8c27f7b732a66767a58c70f37612bff5a16df66"
 
   bottle do
-    sha256 "82a3aadf40794f4bf0dd89dbb85af272080768009b5a43e9c2e10e214060a000" => :high_sierra
-    sha256 "245e35d1ad12c0b06da9089eb9fe05a51da73aefa8e4840c2dc4f6514c6af902" => :sierra
-    sha256 "d220c96f72941f8a05dab330ffdb813f294f37daaffede4292821d1b1ed7d7a0" => :el_capitan
+    sha256 "877270fd5047927314c889035105094c64e2f12a6604b3e71c43d9eabe251394" => :high_sierra
+    sha256 "9c14232fcf9d63540dbe83b85037ee1e2c4058c179f3c498de0f0afd9ffa2343" => :sierra
+    sha256 "6d37253aaee648459bcc30fc303388be9bc09d0e3243731be6e7be86ef42dcdb" => :el_capitan
   end
 
   head do
