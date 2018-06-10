@@ -5,9 +5,9 @@ class MingwW64 < Formula
   sha256 "5527e1f6496841e2bb72f97a184fc79affdcd37972eaa9ebf7a5fd05c31ff803"
 
   bottle do
-    sha256 "0bdb116192aedd32a95832eca99885cbd4ce27fd1d9ee4343348083f0135c7f3" => :high_sierra
-    sha256 "0a1fa5d5f05bb2b288660c157d1dc6bd366d22973b9d718046f675e223790216" => :sierra
-    sha256 "077d13bc5b6576ff1976ff4320382449f248224888d6e13d49871ce49c945a18" => :el_capitan
+    sha256 "8e771aba7e63de9862159c3f93c2056e261b5b10fa7b7627d741fcab87f0348f" => :high_sierra
+    sha256 "956a9322e6a2ff64732ef0324d206312dc6dfb306819e43e8e17f960f3c7054c" => :sierra
+    sha256 "72afbecb32b3ffacf0ffd441a326329cd2cefbcd2e9664504330e66775dabdb1" => :el_capitan
   end
 
   option "with-posix", "Compile with posix thread model"
