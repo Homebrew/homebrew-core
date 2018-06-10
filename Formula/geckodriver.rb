@@ -15,8 +15,7 @@ class Geckodriver < Formula
 
   def install
     dir = build.head? ? "testing/geckodriver" : "."
-    cd(dir) { system "cargo", "build" }
-    bin.install "target/debug/geckodriver"
+    cd(dir) { system "cargo", "install", "--root", prefix }
     bin.install_symlink bin/"geckodriver" => "wires"
   end
 
