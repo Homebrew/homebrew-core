@@ -12,11 +12,11 @@ class Sleuthkit < Formula
   end
 
   option "with-jni", "Build Sleuthkit with JNI bindings"
-  option "with-debug", "Build debug version"
 
-  depends_on "afflib" => :optional
-  depends_on "libewf" => :optional
+  depends_on "afflib"
+  depends_on "libewf"
   depends_on "libpq"
+  depends_on "sqlite"
 
   if build.with? "jni"
     depends_on :java
@@ -28,8 +28,6 @@ class Sleuthkit < Formula
     :because => "both install a 'ffind' executable."
 
   def install
-    ENV.append_to_cflags "-DNDEBUG" if build.without? "debug"
-
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--disable-java" if build.without? "jni"
 
