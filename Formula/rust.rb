@@ -95,8 +95,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "build", "--release", "--verbose"
-      bin.install "target/release/cargo"
+      system "cargo", "install", "--root", prefix
     end
 
     resource("racer").stage do
@@ -104,8 +103,7 @@ class Rust < Formula
       cargo_home = buildpath/"cargo_home"
       cargo_home.mkpath
       ENV["CARGO_HOME"] = cargo_home
-      system bin/"cargo", "build", "--release", "--verbose"
-      (libexec/"bin").install "target/release/racer"
+      system "cargo", "install", "--root", libexec
       (bin/"racer").write_env_script(libexec/"bin/racer", :RUST_SRC_PATH => pkgshare/"rust_src")
     end
 
