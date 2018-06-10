@@ -27,8 +27,7 @@ class Tectonic < Formula
     ENV["DEP_OPENSSL_INCLUDE"] = Formula["openssl"].opt_include
     ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
 
-    system "cargo", "build", "--release"
-    bin.install "target/release/tectonic"
+    system "cargo", "install", "--root", prefix
     pkgshare.install "tests"
   end
 
