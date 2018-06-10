@@ -19,10 +19,9 @@ class Gifski < Formula
   fails_with :clang if build.with? "openmp"
 
   def install
-    args = ["--release"]
+    args = []
     args << "--features=openmp" if build.with? "openmp"
-    system "cargo", "build", *args
-    bin.install "target/release/gifski"
+    system "cargo", "install", "--root", prefix, *args
   end
 
   test do
