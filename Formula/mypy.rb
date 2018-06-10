@@ -8,9 +8,9 @@ class Mypy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8982e3d6c08f046b56478575be6c8c81d6eb5ed1984baabc6826209b56e0816a" => :high_sierra
-    sha256 "aac7549f940508b5d85ea01ddc657be7f8b68fdca47e06355af1dd585a59a9fc" => :sierra
-    sha256 "7d4eed148c40306517122d7001a1a429fd67a5a9879ee6e31a9f55bcfee64f39" => :el_capitan
+    sha256 "bfe860b08474c88c2c4af77e9e504bf33d156043eaf3f9a4f5a12dd7b3221a2c" => :high_sierra
+    sha256 "d7ddfc2011e252f5904dbcf2bad0a82fdb5e58a47f98e9f3538ff28f168042cc" => :sierra
+    sha256 "ca45b7c838cd3453a2fc3359950a3a87cfb2678a3cfae78feb31de2be904fd77" => :el_capitan
   end
 
   option "without-sphinx-doc", "Don't build documentation"
