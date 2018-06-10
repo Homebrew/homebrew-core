@@ -1,8 +1,8 @@
 class ZitaConvolver < Formula
   desc "Fast, partitioned convolution engine library"
   homepage "https://kokkinizita.linuxaudio.org/linuxaudio/"
-  url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-3.1.0.tar.bz2"
-  sha256 "bf7e93b582168b78d40666974460ad8142c2fa3c3412e327e4ab960b3fb31993"
+  url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-4.0.0.tar.bz2"
+  sha256 "e3186f807dd76befbbb1c009f6bb4f83567b5d3c93b49a71b334034d1171a73b"
 
   bottle do
     cellar :any
