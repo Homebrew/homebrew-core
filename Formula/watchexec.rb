@@ -13,8 +13,7 @@ class Watchexec < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/watchexec"
+    system "cargo", "install", "--root", prefix
     man1.install "doc/watchexec.1"
   end
 
