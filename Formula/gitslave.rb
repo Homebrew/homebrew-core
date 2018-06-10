@@ -16,4 +16,9 @@ class Gitslave < Formula
   def install
     system "make", "install", "prefix=#{prefix}"
   end
+
+  test do
+    output = shell_output("#{bin}/gits --version")
+    assert_match "gits version 2.0.2", output.chomp
+  end
 end
