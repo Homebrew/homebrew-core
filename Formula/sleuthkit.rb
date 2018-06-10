@@ -3,6 +3,7 @@ class Sleuthkit < Formula
   homepage "https://www.sleuthkit.org/"
   url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.1/sleuthkit-4.6.1.tar.gz"
   sha256 "1f68f3b5983acdb871a30592fb735a32f4db93f041fcf318bcf3ec87128ab433"
+  revision 1
 
   bottle do
     cellar :any
@@ -16,6 +17,7 @@ class Sleuthkit < Formula
 
   depends_on "afflib" => :optional
   depends_on "libewf" => :optional
+  depends_on "postgresql" => :optional
 
   if build.with? "jni"
     depends_on :java
