@@ -3,8 +3,8 @@ class Minetest < Formula
   homepage "https://www.minetest.net/"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/0.4.17.tar.gz"
-    sha256 "8664cd800ce0a146c6d7d5433b8acc93c145308403b3f6ae7e6b69bd4a53eb72"
+    url "https://github.com/minetest/minetest/archive/0.4.17.1.tar.gz"
+    sha256 "cd25d40c53f492325edabd2f6397250f40a61cb9fe4a1d4dd6eb030e0d1ceb59"
 
     resource "minetest_game" do
       url "https://github.com/minetest/minetest_game/archive/0.4.17.tar.gz"
