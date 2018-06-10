@@ -1,8 +1,8 @@
 class Pyvim < Formula
   desc "Pure Python Vim clone"
   homepage "https://github.com/jonathanslenders/pyvim"
-  url "https://files.pythonhosted.org/packages/d0/27/5b566e1ea31be7a2a36c531fdc4c5f65ff89913b056365dae53cb1434753/pyvim-0.0.21.tar.gz"
-  sha256 "8171931ab086fd5018f842916d751809ab2fab8fecaaf9346c8111bebe08f838"
+  url "https://files.pythonhosted.org/packages/96/3f/2fc173e4fec288adc9cd1dd52de15ca2a9947a941ee98d0ea3c678f89cd9/pyvim-2.0.22.tar.gz"
+  sha256 "7534753a891d85fda859214e04e585371c61c1402157738be3904081a585369b"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,13 +19,13 @@ class Pyvim < Formula
   end
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/8a/ad/cf6b128866e78ad6d7f1dc5b7f99885fb813393d9860778b2984582e81b5/prompt_toolkit-1.0.15.tar.gz"
-    sha256 "858588f1983ca497f1cf4ffde01d978a3ea02b01c8a26a8bbc5cd2e66d816917"
+    url "https://files.pythonhosted.org/packages/3e/36/d24222c4a44cb7b8d902db407e1918d8553c765b1384d78c7ea7a85b144c/prompt_toolkit-2.0.3.tar.gz"
+    sha256 "d9ea14304a2633e4b40dde874c63da6b94a075f61e837011e035ffcd5bb39a1d"
   end
 
   resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/26/85/f6a315cd3c1aa597fb3a04cc7d7dbea5b3cc66ea6bd13dfa0478bf4876e6/pyflakes-1.6.0.tar.gz"
-    sha256 "8d616a382f243dbf19b54743f280b80198be0bca3a5396f1d2e1fca6223e8805"
+    url "https://files.pythonhosted.org/packages/92/9e/386c0d9deef14996eb90d9deebbcb9d3ceb70296840b09615cb61b2ae231/pyflakes-2.0.0.tar.gz"
+    sha256 "9a7662ec724d0120012f6e29d6248ae3727d821bba522a0e6b356eff19126a49"
   end
 
   resource "Pygments" do
