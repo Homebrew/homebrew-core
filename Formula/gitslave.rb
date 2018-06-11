@@ -19,6 +19,6 @@ class Gitslave < Formula
 
   test do
     output = shell_output("#{bin}/gits --version")
-    assert_match "gits version 2.0.2", output.chomp
+    assert_match "gits version #{version}", output
   end
 end
