@@ -4,6 +4,7 @@ class Flac < Formula
   url "https://downloads.xiph.org/releases/flac/flac-1.3.2.tar.xz"
   mirror "https://downloads.sourceforge.net/project/flac/flac-src/flac-1.3.2.tar.xz"
   sha256 "91cfc3ed61dc40f47f050a109b08610667d73477af6ef36dcad31c31a4a8d53f"
+  revision 1
 
   bottle do
     cellar :any
@@ -22,7 +23,7 @@ class Flac < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libogg" => :optional
+  depends_on "libogg"
 
   fails_with :clang do
     build 500
@@ -38,7 +39,6 @@ class Flac < Formula
     ]
 
     args << "--disable-asm-optimizations" if Hardware::CPU.is_32_bit?
-    args << "--without-ogg" if build.without? "libogg"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
