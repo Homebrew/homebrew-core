@@ -8,10 +8,9 @@ class Flac < Formula
 
   bottle do
     cellar :any
-    sha256 "844fb2d7f9884f3e2f56c8578a985b14f0fc7159c189a048733d593d17d807b6" => :high_sierra
-    sha256 "332f6f0968ceb21ea233140d59d01c63bd7f40de2c2a612e4ae1719f8ecf7801" => :sierra
-    sha256 "720aebe4647f462b7d5202d38b499b0bbe507236e16111ff81ebf549738d43d9" => :el_capitan
-    sha256 "74a964ef7aa1d2f0d774c71ea894a0ab972d08280032042e4ab6b73836bdf824" => :yosemite
+    sha256 "b439d1a0321f9488ad0a2edfe3307402cca4e7f5e560a833078fa29561fadacd" => :high_sierra
+    sha256 "27aef309b675e9946f6ac4d090a0322d0888789087b2e38cbaaabc527eb3f22b" => :sierra
+    sha256 "17fb6eec1e71416a0000e507953babd4fca2a0204f48ae064d02b76b906dc096" => :el_capitan
   end
 
   head do
