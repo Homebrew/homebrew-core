@@ -18,7 +18,7 @@ class Godep < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/tools/godep").install buildpath.children
-    cd buildpath/"src/github.com/tools/godep" do
+    cd "src/github.com/tools/godep" do
       system "go", "build", "-o", bin/"godep"
       prefix.install_metafiles
     end
