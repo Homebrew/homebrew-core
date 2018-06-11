@@ -24,7 +24,7 @@ class Chamber < Formula
     path = buildpath/"src/github.com/segmentio/chamber"
     path.install Dir["{*,.git}"]
 
-    cd buildpath/"src/github.com/segmentio/chamber" do
+    cd "src/github.com/segmentio/chamber" do
       system "govendor", "sync"
       system "go", "build", "-o", bin/"chamber",
                    "-ldflags", "-X main.Version=#{version}"
