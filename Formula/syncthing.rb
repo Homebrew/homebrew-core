@@ -19,7 +19,7 @@ class Syncthing < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/syncthing/syncthing").install buildpath.children
     ENV.append_path "PATH", buildpath/"bin"
-    cd buildpath/"src/github.com/syncthing/syncthing" do
+    cd "src/github.com/syncthing/syncthing" do
       system "./build.sh", "noupgrade"
       bin.install "syncthing"
       man1.install Dir["man/*.1"]
