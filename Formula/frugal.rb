@@ -17,7 +17,7 @@ class Frugal < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/Workiva/frugal").install buildpath.children
-    cd buildpath/"src/github.com/Workiva/frugal" do
+    cd "src/github.com/Workiva/frugal" do
       system "glide", "install"
       system "go", "build", "-o", bin/"frugal"
       prefix.install_metafiles

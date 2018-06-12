@@ -1,14 +1,14 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "http://eyed3.nicfit.net/"
-  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.6.tar.gz"
-  sha256 "c04a5537ca2d4bc40267143f08db49372b358760fe0f28a8fa35cdf1fd09651a"
+  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.7.tar.gz"
+  sha256 "ef924eb2e8fffd7c7e3bd4c94dafad4a3b9047fe2dcb76d5dd7d9c37a1f1f8bb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f74b91b8708e90077308b1dba25225cbd61cf7425c2fef0e3787982de6fff16" => :high_sierra
-    sha256 "1f74b91b8708e90077308b1dba25225cbd61cf7425c2fef0e3787982de6fff16" => :sierra
-    sha256 "1f74b91b8708e90077308b1dba25225cbd61cf7425c2fef0e3787982de6fff16" => :el_capitan
+    sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :high_sierra
+    sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :sierra
+    sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :el_capitan
   end
 
   depends_on "python@2"

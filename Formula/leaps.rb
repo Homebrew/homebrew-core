@@ -18,7 +18,7 @@ class Leaps < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/jeffail/leaps").install buildpath.children
-    cd buildpath/"src/github.com/jeffail/leaps" do
+    cd "src/github.com/jeffail/leaps" do
       system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"leaps", "./cmd/leaps"
       prefix.install_metafiles

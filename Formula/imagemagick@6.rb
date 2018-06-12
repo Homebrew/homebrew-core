@@ -4,15 +4,15 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-50.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-50.tar.xz"
-  sha256 "b6a8b6afea4cd0ea87e752a83bc66b13200e219e0a476156a83a259be3760560"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-51.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-51.tar.xz"
+  sha256 "aa5f6b1e97bd98fbf642c47487531bea0faf675c728d01130b52d2b46849104a"
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
-    sha256 "fc456b0181d5a9c5e114538ba614ca022fe40e2b6bd15f9ef9f319afae6e441e" => :high_sierra
-    sha256 "14f868bc853958601df8eb30c5c7764159777d5d0fe752bff9b16e6ff58912dc" => :sierra
-    sha256 "8f407e50e3beffcfce98eafb128b6ff002de326e96a307a38dc6274cc8ea3c07" => :el_capitan
+    sha256 "93a290bcae77991d8f89f2d16dca433ed79034b365d263805f8449f5544be1a9" => :high_sierra
+    sha256 "7de15e3f21642677b776abfdcb6f84319d0e130b15fffc8f7247bb2ee2c1d167" => :sierra
+    sha256 "953b46c32e680c83b0eba43f2f199388830c2d41bbaf09d3d8dda484f2905e5d" => :el_capitan
   end
 
   keg_only :versioned_formula
