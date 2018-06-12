@@ -1,9 +1,8 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.1.17.tar.gz"
-  sha256 "ffc89c435d673de353db17f9e9796de95c55e1236071178dc35102a99917fd45"
-  revision 3
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.1.18.tar.gz"
+  sha256 "49670fd71a115c3f12ae5b9c84f9bf1e0f47734a4501ad3cc1ea980068066de7"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,18 +19,18 @@ class TerraformLandscape < Formula
   end
 
   resource "commander" do
-    url "https://rubygems.org/gems/commander-4.4.3.gem"
-    sha256 "aedf4af6fdf8f05489001bcd70af87d83afec6896a3a2dfd9b49ec02bc391d07"
+    url "https://rubygems.org/gems/commander-4.4.5.gem"
+    sha256 "d6ee57931e589e89c5ed27b2fdb1661ba28c6c021c635bbac6e96ded55363e6b"
   end
 
   resource "diffy" do
-    url "https://rubygems.org/gems/diffy-3.2.0.gem"
-    sha256 "8124e5b1d9c0086994b6484d26f37476b79253309ccaebea201247a67eb2b604"
+    url "https://rubygems.org/gems/diffy-3.2.1.gem"
+    sha256 "4ffe1a7b01c958053407f9a8e6492c3e8c11b59db0ab5c3ae44f056067ae3185"
   end
 
   resource "highline" do
-    url "https://rubygems.org/gems/highline-1.7.8.gem"
-    sha256 "795274094fd385bfe45a2ac7b68462b6ba43e21bf311dbdca5225a63dba3c5d9"
+    url "https://rubygems.org/gems/highline-1.7.10.gem"
+    sha256 "1e147d5d20f1ad5b0e23357070d1e6d0904ae9f71c3c49e0234cf682ae3c2b06"
   end
 
   resource "polyglot" do
@@ -40,8 +39,8 @@ class TerraformLandscape < Formula
   end
 
   resource "treetop" do
-    url "https://rubygems.org/gems/treetop-1.6.8.gem"
-    sha256 "385cbbf3827a0a8559e4c79db0f0f88993dca5e8ce46cf08f1baccb61ac6a3cf"
+    url "https://rubygems.org/gems/treetop-1.6.10.gem"
+    sha256 "67df9f52c5fdeb7b2b8ce42156f9d019c1c4eb643481a68149ff6c0b65bc613c"
   end
 
   def install
