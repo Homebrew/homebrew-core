@@ -1,8 +1,8 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.34.0.tar.gz"
-  sha256 "18330a9764c55d2501b847aad267292bd96c2b12fa5c3b92909bd8d4563c80a9"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.35.0.tar.gz"
+  sha256 "d216a7f7c88341d5964657e61a33193c13d884c988822fced9fce3ab0b1f1082"
 
   bottle do
     sha256 "cd53ebf44f879d8786fbdf6faa3af2e68a180b0b96a49c37e82dfe2c366f5b69" => :high_sierra
@@ -23,16 +23,11 @@ class Rsyslog < Formula
     sha256 "338c6174e5c8652eaa34f956be3451f7491a4416ab489aef63151f802b00bf93"
   end
 
-  # Remove for > 8.34.0
-  # Fix "fatal error: 'liblogging/stdlog.h' file not found"
-  # Upstream PR 14 May 2018 "pass liblogging cflags when building fmhttp and
-  # imfile plugins"; see https://github.com/rsyslog/rsyslog/pull/2703
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4f4bb9/rsyslog/liblogging-cflags.diff"
-    sha256 "f5d02e928783e34d0784136e7315a831f09309544d9b49a7087468063447c736"
-  end
-
   def install
+    inreplace "contrib/fmhash/Makefile.in",
+              "$(PTHREADS_CFLAGS) $(RSRT_CFLAGS)",
+              "$(PTHREADS_CFLAGS) $(RSRT_CFLAGS) $(LIBLOGGING_STDLOG_CFLAGS)"
+
     resource("libfastjson").stage do
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
@@ -91,5 +86,9 @@ class Rsyslog < Formula
       </dict>
     </plist>
   EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{sbin}/rsyslogd -v")
   end
 end
