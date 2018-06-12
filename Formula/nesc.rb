@@ -1,8 +1,8 @@
 class Nesc < Formula
   desc "Programming language for deeply networked systems"
   homepage "https://github.com/tinyos/nesc"
-  url "https://github.com/tinyos/nesc/archive/v1.3.6.tar.gz"
-  sha256 "80a979aacda950c227542f2ddd0604c28f66fe31223c608b4f717e5f08fb0cbf"
+  url "https://github.com/tinyos/nesc/archive/v1.4.0.tar.gz"
+  sha256 "ea9a505d55e122bf413dff404bebfa869a8f0dd76a01a8efc7b4919c375ca000"
 
   bottle do
     cellar :any_skip_relocation
