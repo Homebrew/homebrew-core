@@ -3,9 +3,9 @@ class Logentries < Formula
 
   desc "Utility for access to logentries logging infrastructure"
   homepage "https://logentries.com/doc/agent/"
-  url "https://github.com/logentries/le/archive/v1.4.42.tar.gz"
-  sha256 "52e4bfb61753a2fe9f83232e9cefe1aa9ebb87899572f070bad7293e1d891bf9"
-  head "https://github.com/logentries/le.git"
+  url "https://github.com/rapid7/le/archive/v1.4.43.tar.gz"
+  sha256 "e0f5c18600209bfcd5c5bfae5f8f02fc78fad3a4d6185f8c432b07c4aa5956f7"
+  head "https://github.com/rapid7/le.git"
 
   bottle do
     cellar :any_skip_relocation
