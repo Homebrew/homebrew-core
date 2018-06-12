@@ -1,4 +1,4 @@
-class WpcliCompletion < Formula
+class WpCliCompletion < Formula
   desc "Bash completion for Wpcli"
   homepage "https://github.com/wp-cli/wp-cli"
   # Checksum mismatch for 1.5.1
