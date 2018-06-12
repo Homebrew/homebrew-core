@@ -1,8 +1,8 @@
 class Gloox < Formula
   desc "C++ Jabber/XMPP library that handles the low-level protocol"
   homepage "https://camaya.net/gloox/"
-  url "https://camaya.net/download/gloox-1.0.20.tar.bz2"
-  sha256 "0243086c0f4f0440d6d8e55705f83249a4463a1d75a034be42b5312e8886dea8"
+  url "https://camaya.net/download/gloox-1.0.21.tar.bz2"
+  sha256 "3c13155c10e3182a1a57779134cc524efb3657545849534b2831fae0e2c3a7cc"
 
   bottle do
     cellar :any
@@ -13,24 +13,21 @@ class Gloox < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl" => :recommended
-  depends_on "gnutls" => :optional
+  depends_on "openssl"
   depends_on "libidn" => :optional
 
+  # Fix expectation that <openssl/comp.h> will always be available.
+  # Merged upstream; remove on next release.
+  patch do
+    url "https://mail.camaya.net/services/download/?app=whups&actionID=download_file&file=tlsopensslbase_comp_fix.diff&ticket=276&fn=%2Ftlsopensslbase_comp_fix.diff"
+    sha256 "509e8121cbefbad57e380f9156a088ebfdc93ebf28a53bd8e2053c12326e2e12"
+  end
+
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --with-zlib
-      --disable-debug
-    ]
-
-    if build.with? "gnutls"
-      args << "--with-gnutls=yes"
-    else
-      args << "--with-openssl=#{Formula["openssl"].opt_prefix}"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-zlib",
+                          "--disable-debug",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make", "install"
   end
 
