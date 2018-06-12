@@ -29,7 +29,7 @@ class Valgrind < Formula
   end
 
   head do
-    url "https://sourceware.org/git/valgrind.git"
+    url "git://sourceware.org/git/valgrind.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
