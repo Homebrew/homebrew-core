@@ -11,13 +11,30 @@ class Tor < Formula
     sha256 "422fc422db19f9a22663761d4da9a03dc6381cad10a77fd1bb69bf64bb79938f" => :el_capitan
   end
 
+  devel do
+    url "https://www.torproject.org/dist/tor-0.3.4.2-alpha.tar.gz"
+    sha256 "37b7f675ccee4478fe4d1ec964e8925782e9d4cdf36ed2a782de12732f47e35a"
+  end
+
+  head do
+    url "https://git.torproject.org/tor.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl"
   depends_on "libscrypt" => :optional
 
   def install
+    if build.head?
+      ENV["XML_CATALOG_FILES"] = # {prefix}/etc/xml/catalog
+        system "./autogen.sh"
+    end
+
     args = %W[
+      --disable-asciidoc
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
