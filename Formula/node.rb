@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.4.0/node-v10.4.0.tar.xz"
-  sha256 "b58f5a39253921c668eb7678679df36f9fb5e46c885242d20f13168973603762"
+  url "https://nodejs.org/dist/v10.4.1/node-v10.4.1.tar.xz"
+  sha256 "a5bf584b52f992b6ce31d8afd8c468945a772431575ad868e4e787f390ad8044"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -40,22 +40,10 @@ class Node < Formula
     sha256 "be8bb5fdb52e5af8a62988ad32f51c688d1327f62412c4410b30c29c8d66a85f"
   end
 
-  # Patch node-gyp to support detecting double-digit Xcode versions
-  patch do
-    url "https://github.com/nodejs/node/commit/a9e70d7d0b50ed615428e8344d510effb6713f02.patch?full_index=1"
-    sha256 "e6c2a617f7550c1c6b36809ddea4a40a9f4ec612fe853c460b98368f72c646b2"
-  end
-
   # Patch configure to support detecting double-digit Xcode versions
   patch do
     url "https://github.com/nodejs/node/commit/400df22c6bfefc3c3f54ebd7c5fd0d38f5137841.patch?full_index=1"
     sha256 "a1ac0e2589c8b9e98bf4712723a6ef28bc23dcd1aa1891d045b5a5e3a329cb36"
-  end
-
-  # Patch configure to fix a buggy compiler version comparison
-  patch do
-    url "https://github.com/nodejs/node/commit/641d4a4159aaa96eece8356e03ec6c7248ae3e73.patch?full_index=1"
-    sha256 "c193ab8edf2084a94265762d9ace419c0680eda87986e30dc7325df55044cb1b"
   end
 
   def install
