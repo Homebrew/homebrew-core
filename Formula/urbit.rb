@@ -1,8 +1,9 @@
 class Urbit < Formula
   desc "Personal cloud computer"
   homepage "https://urbit.org"
-  url "https://github.com/urbit/urbit/archive/v0.4.5.tar.gz"
-  sha256 "ac013b5a02d250450c983a3efc0997f2a5f5675bc3e16b51ed0a54dff1caef7c"
+  url "https://github.com/urbit/urbit.git",
+      :tag => "urbit-0.6.0",
+      :revision => "7633b5cc9cf249d873f16f08c09a1ee10a4f24d2"
 
   bottle do
     cellar :any
@@ -12,20 +13,21 @@ class Urbit < Formula
     sha256 "5544b9553137481df6e2035a4e0a0b022f362fab12f2b3047cc206a93f79cc5c" => :yosemite
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on "libsigsegv"
+  depends_on "libuv"
   depends_on "openssl"
-
-  depends_on "libtool" => :build
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "cmake" => :build
+  depends_on "re2c"
 
   def install
-    system "make", "BIN=#{bin}", "LIB=#{share}"
+    system "./scripts/build"
+    bin.install "build/urbit"
   end
 
   test do
-    assert_match "simple usage:", shell_output("#{bin}/urbit 2>&1", 1)
+    assert_match "Development Usage:", shell_output("#{bin}/urbit 2>&1", 1)
   end
 end
