@@ -1,10 +1,8 @@
 class Wesnoth < Formula
   desc "Single- and multi-player turn-based strategy game"
   homepage "https://www.wesnoth.org/"
-  url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
-  sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
-  revision 7
-  head "https://github.com/wesnoth/wesnoth.git"
+  url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.14/wesnoth-1.14.2/wesnoth-1.14.2.tar.bz2"
+  sha256 "282bb551f0e1679a2c09938c0bbae1cb13e54851cead5c7b425b7ec4648716f6"
 
   bottle do
     sha256 "415c02b6c6ff9664fb11f41ff9a7441356b3fb70eb4efc1d9dd21c3a9de7b370" => :high_sierra
@@ -12,39 +10,29 @@ class Wesnoth < Formula
     sha256 "f4de6ae40204fa43e16e0a970e508d7b9869965b06b1170e3a8b1c935f187c9c" => :el_capitan
   end
 
-  option "with-ccache", "Speeds recompilation, convenient for beta testers"
-  option "with-debug", "Build with debugging symbols"
-
-  depends_on "scons" => :build
   depends_on "gettext" => :build
-  depends_on "ccache" => :optional
-  depends_on "fribidi"
+  depends_on "pkg-config" => :build
+  depends_on "scons" => :build
   depends_on "boost"
-  depends_on "libpng"
-  depends_on "fontconfig"
   depends_on "cairo"
+  depends_on "fontconfig"
+  depends_on "fribidi"
+  depends_on "libpng"
+  depends_on :macos => :sierra
+  depends_on "openssl"
   depends_on "pango"
-
-  depends_on "sdl"
-  depends_on "sdl_image" # Must have png support
-  depends_on "sdl_mixer" # The music is in .ogg format
-  depends_on "sdl_net"
-  depends_on "sdl_ttf"
+  depends_on "sdl2"
+  depends_on "sdl2_image" # Must have png support
+  depends_on "sdl2_mixer" # The music is in .ogg format
+  depends_on "sdl2_net"
+  depends_on "sdl2_ttf"
 
   def install
-    mv "scons/gettext.py", "scons/gettext_tool.py"
-    inreplace "SConstruct", ", \"gettext\",", ", \"gettext_tool\","
-
-    args = %W[prefix=#{prefix} docdir=#{doc} mandir=#{man} fifodir=#{var}/run/wesnothd gettextdir=#{Formula["gettext"].opt_prefix}]
-    args << "OS_ENV=true"
-    args << "install"
-    args << "wesnoth"
-    args << "wesnothd"
-    args << "-j#{ENV.make_jobs}"
-    args << "ccache=true" if build.with? "ccache"
-    args << "build=debug" if build.with? "debug"
-
-    scons *args
+    scons "prefix=#{prefix}", "docdir=#{doc}", "mandir=#{man}",
+          "fifodir=#{var}/run/wesnothd",
+          "gettextdir=#{Formula["gettext"].opt_prefix}",
+          "extra_flags_config=-I#{Formula["openssl"].opt_include}",
+          "OS_ENV=true", "install", "wesnoth", "wesnothd", "-j#{ENV.make_jobs}"
   end
 
   test do
