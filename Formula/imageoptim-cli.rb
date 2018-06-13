@@ -6,6 +6,13 @@ class ImageoptimCli < Formula
   url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.0.2.tar.gz"
   sha256 "65ccf26cf45012e20877bf7985b1f9d99cfef4ac3d0f1209dd6fa04ef02056ff"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "fda19a2e3f525c96fa8b08ebb35fd6ab8bf361d40e5cd76f5b585d725b6f813e" => :high_sierra
+    sha256 "fda19a2e3f525c96fa8b08ebb35fd6ab8bf361d40e5cd76f5b585d725b6f813e" => :sierra
+    sha256 "fda19a2e3f525c96fa8b08ebb35fd6ab8bf361d40e5cd76f5b585d725b6f813e" => :el_capitan
+  end
+
   depends_on "node" => :build
 
   def install
