@@ -1,9 +1,8 @@
 class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
-  url "https://constexpr.org/innoextract/files/innoextract-1.6.tar.gz"
-  sha256 "66463f145fffd4d5883c6b3e2f7b2c2837d6f07095810114e514233a88c1033e"
-  revision 2
+  url "https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz"
+  sha256 "c1efb732f2bc3a80065c5f51a0d4ea6027aebf528c609d3f336aea2055d2f0a4"
   head "https://github.com/dscharrer/innoextract.git"
 
   bottle do
