@@ -1,8 +1,8 @@
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.35.tar.gz"
-  sha256 "2c91ad2edb366070de62f786584ee5ec1d46c62f03e5a6e781b234f12d58a6a6"
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.37.tar.gz"
+  sha256 "b4dd3239f5b3bb5fe640916d1d16ac00786295d0b56f37368b8766e9d8c2b817"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -16,8 +16,8 @@ class AzureCli < Formula
   depends_on "python"
 
   resource "adal" do
-    url "https://files.pythonhosted.org/packages/6c/5e/2d3c937cfb5630db6fb37cbc1558c1af60564ad3706beb08193ff4f6158c/adal-1.0.0.tar.gz"
-    sha256 "73967435fe2c95f4f7430e0138066e89a7536f71e5a7440835e326d310742376"
+    url "https://files.pythonhosted.org/packages/74/51/f6513df23ded7b931076f8d679777b7a97b60027853023a1ef00047cf555/adal-1.0.1.tar.gz"
+    sha256 "71b0e9b479320f76af4bcd268f7359580ba2e217228e83ff7529f51a9845f393"
   end
 
   resource "applicationinsights" do
@@ -121,8 +121,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-containerservice" do
-    url "https://files.pythonhosted.org/packages/1b/7e/0aad556bbe57fb8b57f0c2ad6a6936f209ef5aeb73029d21cb4db05a2dbb/azure-mgmt-containerservice-3.0.1.zip"
-    sha256 "cabf729e503a47c76d31033928c9769ba5a6f1dbf73afa42436adb7226ce4e76"
+    url "https://files.pythonhosted.org/packages/de/20/95c613000949cf1267877d43beacd4c4ab6ea07e2e6d5f5ef62cbddd7eba/azure-mgmt-containerservice-4.0.0.zip"
+    sha256 "f71595a0b74efeea1d0314058a4a45840dccde29b9d823d0338a036a83048673"
   end
 
   resource "azure-mgmt-cosmosdb" do
@@ -401,8 +401,8 @@ class AzureCli < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/a7/d7/eeb3cc66469e21843748e9b8f196eefd42fc81ea43191715e8ec54fee4df/pbr-4.0.3.tar.gz"
-    sha256 "6874feb22334a1e9a515193cba797664e940b763440c88115009ec323a7f2df5"
+    url "https://files.pythonhosted.org/packages/cd/9f/8f14a51b522c47a315dd969fbdf39233e41f0bfa8b996b4ff0ad852ff43d/pbr-4.0.4.tar.gz"
+    sha256 "a9c27eb8f0e24e786e544b2dbaedb729c9d8546342b5a6818d8eda098ad4340d"
   end
 
   resource "prompt_toolkit" do
@@ -481,8 +481,8 @@ class AzureCli < Formula
   end
 
   resource "sshtunnel" do
-    url "https://files.pythonhosted.org/packages/9b/24/0eccfd7f0321184ef9d535d465ed02ba66e657089f97f307e7376bb97b6b/sshtunnel-0.1.3.tar.gz"
-    sha256 "9673b26d91e8a5569e2513fc657c26b2574ccf222d1026612ba630438bceebb0"
+    url "https://files.pythonhosted.org/packages/bf/8d/385c7e7c90e17934b3102ad2902e224c27a7173a6a57ef4805dcef8043b1/sshtunnel-0.1.4.tar.gz"
+    sha256 "f29ae41a1bd3afa64e9a31029bece2966e4be9a9641e8262372741e691c40d76"
   end
 
   resource "tabulate" do
