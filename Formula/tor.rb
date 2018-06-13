@@ -23,7 +23,6 @@ class Tor < Formula
 
   def install
     args = %W[
-      --disable-asciidoc
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
