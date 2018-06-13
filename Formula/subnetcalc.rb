@@ -7,9 +7,9 @@ class Subnetcalc < Formula
 
   bottle do
     cellar :any
-    sha256 "c730ad755d22afd5e2fd2017910c4d69d693813fb632d761ea52992847b47f88" => :high_sierra
-    sha256 "29f37e42624b4fb437bf7795c0341f3b1b2e31dcf025b796b6a198532c21ba4b" => :sierra
-    sha256 "5d90401c8ef320206a3479945b536c0dace81e1c18bfcd3ce67d418fea059b55" => :el_capitan
+    sha256 "56552b16e0c1326eb508d13af9bdab59709670b25082ec837d3334fd497c45bf" => :high_sierra
+    sha256 "bd9806c0f81f3e29c698d170bfe98e43d1c74f0cd88cc2de4511a67dee807c5d" => :sierra
+    sha256 "424750f2fe1b78f72dc87becbb0310fe82afe0e6797ab30195ac15c1462b56a4" => :el_capitan
   end
 
   depends_on "cmake" => :build
