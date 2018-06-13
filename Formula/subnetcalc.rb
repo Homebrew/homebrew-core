@@ -1,8 +1,9 @@
 class Subnetcalc < Formula
   desc "IPv4/IPv6 subnet calculator"
   homepage "https://www.uni-due.de/~be0001/subnetcalc/"
-  url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.8.tar.gz"
-  sha256 "bb99c5e20e1f1861913d0747e32fcd9f174f674a723b5c255f44b7b43754ae09"
+  url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.9.tar.gz"
+  sha256 "dce27b53857625fdec0409b6534f89eb573d19cc2928ef6d81845902a759cbe9"
+  head "https://github.com/dreibh/subnetcalc.git"
 
   bottle do
     cellar :any
@@ -11,26 +12,11 @@ class Subnetcalc < Formula
     sha256 "5d90401c8ef320206a3479945b536c0dace81e1c18bfcd3ce67d418fea059b55" => :el_capitan
   end
 
-  head do
-    url "https://github.com/dreibh/subnetcalc.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "geoip" => :recommended
+  depends_on "cmake" => :build
+  depends_on "geoip"
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--disable-silent-rules",
-            "--prefix=#{prefix}"]
-    args << "--with-geoip=no" if build.without? "geoip"
-
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
