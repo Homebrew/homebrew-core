@@ -5,9 +5,9 @@ class Numpy < Formula
   sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
 
   bottle do
-    sha256 "b49604c5667cefe130e77d01e9c7bc86c0194002bb72fd31ea4196ea8377cf3a" => :high_sierra
-    sha256 "d0da1feed39daa7e034a9d51a4b08ad0927c317ee3b15bd0385c257da521620b" => :sierra
-    sha256 "c0defe949d94a2e0f0e5339bc8920b04f26e56769673faed6b7f07b6a6a8a854" => :el_capitan
+    sha256 "735677d086de7d4d62d701573dbf0794dfe989872c650dc2527e774053723a02" => :high_sierra
+    sha256 "82d44b019bf4c44dacd2fdca65678e2d0aabd85f4c8280196ae9f76dd7f3b0f2" => :sierra
+    sha256 "6685d9c5942e505eb91acda04c841c4453ece9c4c38f2fd536c1223327314805" => :el_capitan
   end
 
   head do
