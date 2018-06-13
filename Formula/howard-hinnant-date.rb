@@ -3,6 +3,7 @@ class HowardHinnantDate < Formula
   homepage "https://github.com/HowardHinnant/date"
   url "https://github.com/HowardHinnant/date/archive/v2.4.1.tar.gz"
   sha256 "98907d243397483bd7ad889bf6c66746db0d7d2a39cc9aacc041834c40b65b98"
+  head "https://github.com/HowardHinnant/date.git"
 
   bottle do
     cellar :any
@@ -11,15 +12,22 @@ class HowardHinnantDate < Formula
     sha256 "c3902905c2a51ae0e35fe54b84b00f68d97408f502d83b21f293087d16b9e175" => :el_capitan
   end
 
+  option "without-string-view", "Disable C++ string view"
+
   depends_on "cmake" => :build
 
   needs :cxx11
 
   def install
-    system "cmake", ".", *std_cmake_args,
-                         "-DENABLE_DATE_TESTING=OFF",
-                         "-DUSE_SYSTEM_TZ_DB=ON",
-                         "-DBUILD_SHARED_LIBS=ON"
+    custom_args = ["-DENABLE_DATE_TESTING=OFF", "-DUSE_SYSTEM_TZ_DB=ON", "-DBUILD_SHARED_LIBS=ON"]
+
+    if build.with? "string-view"
+      custom_args << "-DDISABLE_STRING_VIEW=OFF"
+    else
+      custom_args << "-DDISABLE_STRING_VIEW=ON"
+    end
+
+    system "cmake", ".", *std_cmake_args, *custom_args
     system "make", "install"
   end
 
