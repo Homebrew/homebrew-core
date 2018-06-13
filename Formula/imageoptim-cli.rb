@@ -3,8 +3,8 @@ require "language/node"
 class ImageoptimCli < Formula
   desc "CLI for ImageOptim, ImageAlpha and JPEGmini"
   homepage "https://jamiemason.github.io/ImageOptim-CLI/"
-  url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.0.2.tar.gz"
-  sha256 "65ccf26cf45012e20877bf7985b1f9d99cfef4ac3d0f1209dd6fa04ef02056ff"
+  url "https://github.com/JamieMason/ImageOptim-CLI/archive/2.0.3.tar.gz"
+  sha256 "47fc8a1f14478389cb71dc8a03ac6b3176ba311d1a2390867b792b60ef209fb3"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,10 +16,6 @@ class ImageoptimCli < Formula
   depends_on "node" => :build
 
   def install
-    # Fix has been submitted upstream, but not yet merged.
-    # https://github.com/JamieMason/ImageOptim-CLI/pull/166
-    inreplace "package.json", '"nexe": "2.0.0-rc.28"', '"nexe": "2.0.0-rc.30"'
-
     system "npm", "install", *Language::Node.local_npm_install_args
     system "npm", "run-script", "build"
     libexec.install "dist", "osascript"
