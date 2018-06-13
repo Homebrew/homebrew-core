@@ -51,7 +51,7 @@ class Fontconfig < Formula
 
     if MacOS.version == :sierra
       font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font3"
-    elsif MacOS.version == :high_sierra
+    elsif MacOS.version >= :high_sierra
       font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font4"
     end
 
