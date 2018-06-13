@@ -14,7 +14,7 @@ class Ark < Formula
       system "go", "build", "-o", bin/"ark", "-installsuffix", "static",
                    "-ldflags",
                    "-X github.com/heptio/ark/pkg/buildinfo.Version=#{version}",
-                   "cmd/ark/main.go"
+                   "./cmd/ark"
       prefix.install_metafiles
     end
   end
