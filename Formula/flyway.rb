@@ -1,8 +1,8 @@
 class Flyway < Formula
   desc "Database version control to control migrations"
   homepage "https://flywaydb.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/5.0.7/flyway-commandline-5.0.7.tar.gz"
-  sha256 "5b9bf9fcc6d361b1160c90c59a669126687961ef3effe8eae562cdd2ceffb6fe"
+  url "https://search.maven.org/remotecontent?filepath=org/flywaydb/flyway-commandline/5.1.1/flyway-commandline-5.1.1.tar.gz"
+  sha256 "ee2ca6771473d790cf1bbc370de1747d205671d443279b450333529e4b3db14d"
 
   bottle :unneeded
 
