@@ -11,8 +11,8 @@ class Python < Formula
   end
 
   devel do
-    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0b5.tar.xz"
-    sha256 "00e4d85ebd5392f75e979b4cf860b1711642d62fbdd38e0874355b0245185313"
+    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0rc1.tar.xz"
+    sha256 "c9cfb9b60c23e3ed20e942fdeee299b27c0b4abd7def9b4a3a78d37e6c0c0bb7"
   end
 
   head do
