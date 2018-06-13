@@ -1,9 +1,9 @@
 class Gocryptfs < Formula
   desc "Encrypted overlay filesystem written in Go"
   homepage "https://nuetzlich.net/gocryptfs/"
-  url "https://github.com/rfjakob/gocryptfs/releases/download/v1.4.4/gocryptfs_v1.4.4_src-deps.tar.gz"
-  version "1.4.4"
-  sha256 "988258acd8c4105ebd660b1a411e1174d803f3765c4dc2721c8512356cbe3f3f"
+  url "https://github.com/rfjakob/gocryptfs/releases/download/v1.5/gocryptfs_v1.5_src-deps.tar.gz"
+  version "1.5"
+  sha256 "c23602cf6917dd41502ae5e12f7e9400166bdd65349bfe3b40f0766082eab035"
 
   bottle do
     sha256 "54e85a214d7f742c94f56c8726f2816e7fb5b5ff99ba318d9dd2a376adbdcd3b" => :high_sierra
