@@ -32,8 +32,14 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.23",
-        :revision => "35a4a5b1f26927259c3213465a47b27ffcd5cb4d"
+        :tag => "4.1.33",
+        :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
+  end
+
+  resource "msbuild" do
+    url "https://github.com/mono/msbuild/releases/download/v0.05/mono_msbuild_port2-394a6b5e.zip"
+    version "0.05"
+    sha256 "b832ccf29ede89724f9217fe074f688e011dc15dd9ada2258f4caf6ae2c992e8"
   end
 
   def install
@@ -56,6 +62,8 @@ class Mono < Formula
     # Now build and install fsharp as well
     if build.with? "fsharp"
       resource("fsharp").stage do
+        (Pathname.pwd/"msbuild").install resource("msbuild")
+        ENV.prepend_path "PATH", Pathname.pwd/"msbuild"
         ENV.prepend_path "PATH", bin
         ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
         system "./autogen.sh", "--prefix=#{prefix}"
