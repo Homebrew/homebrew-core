@@ -3,7 +3,7 @@ class Bogofilter < Formula
   homepage "https://bogofilter.sourceforge.io"
   url "https://downloads.sourceforge.net/project/bogofilter/bogofilter-1.2.4/bogofilter-1.2.4.tar.bz2"
   sha256 "e10287a58d135feaea26880ce7d4b9fa2841fb114a2154bf7da8da98aab0a6b4"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "965078b01f63f0d5d2e8de0ad2ccf6b0d54decaa0a18bd727b4fb72ed72a6b30" => :high_sierra
