@@ -19,9 +19,9 @@ class WireguardTools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6833a823639a97aa3732ea5b599a37efdedcebbf5f4453fbeabac2b1cc206526" => :high_sierra
-    sha256 "2ecc83d47c155bfdfb1a317ec9b290e24f08899cafa6eea237628e194cafab7f" => :sierra
-    sha256 "1ba90711dbbb560910f8cda58c4a7751a141741d2da843060d17ff1d3f12204c" => :el_capitan
+    sha256 "badb757ab64fe6e9401d456e56fe77c81c872b6f0028e0a8877995c70ee1a669" => :high_sierra
+    sha256 "5c17882918d28516d4af8727b3599ce238d792ea817e7ab9c444f1d2e231818a" => :sierra
+    sha256 "8d136e3ec22bd16d80e5d2031491b2ea198b5b2661f1bd3e20ef5895781d3a2f" => :el_capitan
   end
 
   depends_on "bash"
