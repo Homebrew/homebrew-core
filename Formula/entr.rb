@@ -6,9 +6,9 @@ class Entr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "17c3c9ad92d7506685f86093dff1e6d119e8825b9e6a3981a383730ef340a040" => :high_sierra
-    sha256 "bc1976b4f61506dd65f106cf593c48d534500b9f15763746424ed8dcd557410a" => :sierra
-    sha256 "e4702252f69db478d06aa9cb8d8c677f777277f0c5efe2bd9edb01d46f32440e" => :el_capitan
+    sha256 "52b11e50b2d4be63553eed9a303932a4f1da19fe0969d6846f38a28b26ea8fcc" => :high_sierra
+    sha256 "ec7a54d7b401a96eb335cd18869c528378196ea185fdba7d00de8a38b626868c" => :sierra
+    sha256 "5547fc0dd281c1478b87d53f6de5502bbab1738aa3301beea655485404b23077" => :el_capitan
   end
 
   head do
