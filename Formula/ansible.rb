@@ -417,7 +417,7 @@ class Ansible < Formula
   end
 
   resource "python-jenkins" do
-    url "https://pypi.python.org/packages/source/p/python-jenkins/python-jenkins-1.0.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/source/p/python-jenkins/python-jenkins-1.0.1.tar.gz"
     sha256 "a4f85a5b0e532de037c31f20a236ab5dfbee5ef37ccad3b72628dfa058d5b838"
   end
 
