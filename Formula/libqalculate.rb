@@ -1,8 +1,8 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v2.6.0a/libqalculate-2.6.0.tar.gz"
-  sha256 "0f575baac08669177c0003d1445f7b71eb37f46eccbbb35cc4595373c1f3391d"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v2.6.0a/libqalculate-2.6.0b.tar.gz"
+  sha256 "d85c18398fd273e85c9f259e7aa9050aa51f190036815bafb832de779f8a03a7"
 
   bottle do
     sha256 "81d1537c04070be25383bf4a0c27d5d560a7d65993c1ab83b3c7574b7141bb91" => :high_sierra
@@ -16,14 +16,6 @@ class Libqalculate < Formula
   depends_on "gettext"
   depends_on "mpfr"
   depends_on "readline"
-
-  # Remove for > 2.6.0
-  # Upstream commit 13 Jun 2018 "Fix MacOs build failure with long int
-  # coefficient arrays in calendar calculations (issue #96)"
-  patch do
-    url "https://github.com/Qalculate/libqalculate/commit/d1e6bbe.patch?full_index=1"
-    sha256 "4c8e211431d434ce332021a5ac0698b9230c916666461a490071f9aa710a5921"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
