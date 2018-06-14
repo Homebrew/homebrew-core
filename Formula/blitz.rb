@@ -19,6 +19,7 @@ class Blitz < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "python@2" => :build
   end
 
   def install
