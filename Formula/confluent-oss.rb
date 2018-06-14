@@ -1,9 +1,9 @@
 class ConfluentOss < Formula
   desc "Developer-optimized distribution of Apache Kafka"
   homepage "https://www.confluent.io/product/confluent-open-source/"
-  url "https://packages.confluent.io/archive/4.1/confluent-oss-4.1.0-2.11.tar.gz"
-  version "4.1.0"
-  sha256 "32c3aff688d6f24e1ea573efdc4e16a3a5f466f1641b770ae4ba0350e7be583a"
+  url "https://packages.confluent.io/archive/4.1/confluent-oss-4.1.1-2.11.tar.gz"
+  version "4.1.1"
+  sha256 "e00eb4c6c7445ad7a43c9cd237778d1cd184322aebf5ff64a8e9806ba2cc27aa"
 
   depends_on :java => "1.8"
 
@@ -13,6 +13,7 @@ class ConfluentOss < Formula
     prefix.install "bin"
     rm_rf "#{bin}/windows"
     prefix.install "etc"
+    prefix.install "share"
   end
 
   test do
