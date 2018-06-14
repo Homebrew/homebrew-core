@@ -1,9 +1,19 @@
 class GitSecret < Formula
   desc "Bash-tool to store the private data inside a git repo"
   homepage "https://sobolevn.github.io/git-secret/"
-  url "https://github.com/sobolevn/git-secret/archive/v0.2.3.tar.gz"
-  sha256 "c821c25865ce7e13a67453debb6d60a8c1730102ecfc4c4b4c4858a02201ab26"
   head "https://github.com/sobolevn/git-secret.git"
+
+  stable do
+    url "https://github.com/sobolevn/git-secret/archive/v0.2.4.tar.gz"
+    sha256 "dd9962935f242a94bb00af6a31171de0fdba357171a6c626efc2635751d52bc4"
+
+    # Remove for > 0.2.4
+    # Upstream PR from 12 Jun 2018 "Revert 'migrate from bats to bats-core'"
+    patch do
+      url "https://github.com/sobolevn/git-secret/pull/203.patch?full_index=1"
+      sha256 "c80d63075906d5e7f9145fc5c96d5dfbef0b6ef209f2e879dedb0b9febb0421a"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
@@ -14,12 +24,6 @@ class GitSecret < Formula
 
   depends_on "gawk"
   depends_on "gnupg" => :recommended
-
-  # Upstream PR from 13 Jan 2018 "Make checksum command operating system based"
-  patch do
-    url "https://github.com/sobolevn/git-secret/pull/127.patch?full_index=1"
-    sha256 "0f711bb7f2cd91e0770a92371ea50541aa8ae606c0542c164af7fc280dd956db"
-  end
 
   def install
     system "make", "build"
