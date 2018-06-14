@@ -32,8 +32,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.23",
-        :revision => "35a4a5b1f26927259c3213465a47b27ffcd5cb4d"
+        :tag => "4.1.33",
+        :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
   end
 
   def install
