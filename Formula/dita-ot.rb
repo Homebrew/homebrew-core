@@ -12,7 +12,7 @@ class DitaOt < Formula
     rm_f Dir["bin/*.bat", "startcmd.*"]
     rm_rf "temp"
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/dita" => "dita"
+    bin.install_symlink libexec/"bin/dita"
   end
 
   test do
