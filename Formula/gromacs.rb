@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.1.tar.gz"
-  sha256 "4d3533340499323fece83b4a2d4251fa856376f2426c541e00b8e6b4c0d705cd"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.2.tar.gz"
+  sha256 "ed2b8fdb28f6c3e84896e87e7bf534c21bb9d264fb40683cb17a8612d9a5ba80"
 
   bottle do
     sha256 "87af5516efcdf5abf238d36f13060649e767a1e729095daa534760f49deb12dc" => :high_sierra
@@ -25,7 +25,8 @@ class Gromacs < Formula
     args << "-DGMX_MPI=ON" if build.with? "mpi"
     args << "-DGMX_X11=ON" if build.with? "x11"
 
-    inreplace "scripts/CMakeLists.txt", "BIN_INSTALL_DIR", "DATA_INSTALL_DIR"
+    inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
+                                        "CMAKE_INSTALL_DATADIR"
 
     mkdir "build" do
       system "cmake", "..", *args
