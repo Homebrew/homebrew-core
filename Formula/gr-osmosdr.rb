@@ -8,9 +8,9 @@ class GrOsmosdr < Formula
 
   bottle do
     cellar :any
-    sha256 "c53bb7dca86390de755fd994452bca8b225b628d0467756ba7a77451efd2f378" => :high_sierra
-    sha256 "a4a62d458c37f5a46641a9c66622c079b0168c4e117878ceb0707f28b08fd93b" => :sierra
-    sha256 "ce73204234a4b56739e28fbcdbd6c8ca1c44ada096f30a7b78a56056706811ac" => :el_capitan
+    sha256 "b2ede1752f9206c1360351a9864159f7f02d74c90662fa887b6ed86080c5d763" => :high_sierra
+    sha256 "f45c8f18d680b22b8e97988058e459525be5ed832a767cfa599ba9cc97418628" => :sierra
+    sha256 "032f526adf3b910f5657b5f68ee8b55463ff9bce4e4c91532c1ca4d4fce9aeb4" => :el_capitan
   end
 
   depends_on "cmake" => :build
