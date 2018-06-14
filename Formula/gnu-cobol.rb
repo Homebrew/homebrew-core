@@ -3,6 +3,7 @@ class GnuCobol < Formula
   homepage "https://sourceforge.net/projects/open-cobol/"
   url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.2/gnucobol-2.2.tar.xz"
   sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
+  revision 1
 
   bottle do
     sha256 "5ddea71e8cdfe35bcf7affb34e375a5e81a7766c89fad399413bc1c5a343cdbd" => :high_sierra
