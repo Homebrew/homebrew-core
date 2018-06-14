@@ -1,8 +1,8 @@
 class RedisAT32 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.11.tar.gz"
-  sha256 "31ae927cab09f90c9ca5954aab7aeecc3bb4da6087d3d12ba0a929ceb54081b5"
+  url "http://download.redis.io/releases/redis-3.2.12.tar.gz"
+  sha256 "98c4254ae1be4e452aa7884245471501c9aa657993e0318d88f048093e7f88fd"
   head "https://github.com/antirez/redis.git", :branch => "3.2"
 
   bottle do
