@@ -5,7 +5,7 @@ class Drafter < Formula
   sha256 "a2b7061e2524804f153ac2e80f6367ae65dfcd367f4ee406eddecc6303f7f7ef"
 
   def install
-    system "./configure", "--shared"
+    system "./configure"
     system "make", "install", "DESTDIR=#{prefix}"
   end
 
