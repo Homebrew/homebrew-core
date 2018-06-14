@@ -17,6 +17,12 @@ class WireguardTools < Formula
   depends_on "bash"
   depends_on "wireguard-go"
 
+  # To be removed on next snapshot
+  patch do
+    url "https://git.zx2c4.com/WireGuard/patch/?id=5bb62fe22f45b5b5deef4db23ae47c95e1679d1d"
+    sha256 "a057926e50f4981857a9c07905d5c0488588e88b9f0a8f20d236a83a39150901"
+  end
+
   def install
     system "make", "BASHCOMPDIR=#{bash_completion}", "WITH_BASHCOMPLETION=yes", "WITH_WGQUICK=yes",
                    "WITH_SYSTEMDUNITS=no", "PREFIX=#{prefix}", "SYSCONFDIR=#{prefix}/etc",
