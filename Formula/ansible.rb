@@ -416,6 +416,11 @@ class Ansible < Formula
     sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
+  resource "python-jenkins" do
+    url "https://pypi.python.org/packages/source/p/python-jenkins/python-jenkins-1.0.1.tar.gz"
+    sha256 "a4f85a5b0e532de037c31f20a236ab5dfbee5ef37ccad3b72628dfa058d5b838"
+  end
+
   resource "python-keyczar" do
     url "https://files.pythonhosted.org/packages/c8/14/3ffb68671fef927fa5b60f21c43a04a4a007acbe939a26ba08b197fea6b3/python-keyczar-0.716.tar.gz"
     sha256 "f9b614112dc8248af3d03b989da4aeca70e747d32fe7e6fce9512945365e3f83"
