@@ -24,10 +24,12 @@ class Jack < Formula
   depends_on "libsamplerate"
 
   def install
+    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
     # Makefile hardcodes Carbon header location
     inreplace Dir["drivers/coreaudio/Makefile.{am,in}"],
       "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h",
-      "#{MacOS.sdk_path}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
+      "#{sdk}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
 
     ENV["LINKFLAGS"] = ENV.ldflags
     system "./configure", "--prefix=#{prefix}"
