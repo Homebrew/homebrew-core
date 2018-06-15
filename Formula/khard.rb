@@ -57,7 +57,6 @@ class Khard < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
     (etc/"khard").install "misc/khard/khard.conf.example"
     zsh_completion.install "misc/zsh/_khard"
