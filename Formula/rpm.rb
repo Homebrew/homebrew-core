@@ -7,9 +7,9 @@ class Rpm < Formula
   version_scheme 1
 
   bottle do
-    sha256 "6de4058fba75ee957c09b1fefa1659bd8ddd06db5c7d8c30f27ffd887c93d2f4" => :high_sierra
-    sha256 "36b3d79a238595e902c76f6fb239f262df5d8f0f49ca5acf856808b0833eb179" => :sierra
-    sha256 "984ba66c9306437aa22e0f9805e4daeae8bf1bf89c6a13f44f3d1ad91183b437" => :el_capitan
+    sha256 "aa36aca65587fc561e2b4ca98577f14d4dfeab2e9122c64c0a29552986eda636" => :high_sierra
+    sha256 "3b312cf702cbc80bb709bc93a8385154e188b42640cee17c875f9da755ad15da" => :sierra
+    sha256 "1ec620b4d0063e71f35d9812d0862fbd42d7711beb08859f60c33f99f31d631c" => :el_capitan
   end
 
   depends_on "pkg-config"
