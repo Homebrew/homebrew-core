@@ -9,11 +9,9 @@ class Jigdo < Formula
   revision 5
 
   bottle do
-    cellar :any
-    sha256 "3ad66af05caff82cc3c21e21591275215bebf61c482a38111dfe8711e1b2a07e" => :high_sierra
-    sha256 "2f3d7e4982c237ca7f1f6974affd0a9ead3968cce95b2ddfa8e524d8f3f2a148" => :sierra
-    sha256 "c358bb19d92627d98ae5343eb2ba9254403dfa6d8a27ba4c0c63bb48944f8328" => :el_capitan
-    sha256 "5f7e5d7e53d3c3c3db5ebd6c14fb6c13e1392aaf1d24259a4937640bc291be85" => :yosemite
+    sha256 "b85b4bd96c93058b76ae9eefb4351e06646f532742f2990d3181096f305f14fc" => :high_sierra
+    sha256 "c9782a26984129d77f041f2c8d9e30735170080ef8951c835196e3303e45d6c3" => :sierra
+    sha256 "5b1685bcf35a653a0104f2ca084a55c55729a4c2211b8f18a648b4ef045cc123" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
