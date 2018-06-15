@@ -6,9 +6,9 @@ class Wpscan < Formula
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
-    sha256 "ea51c46528b302bc1b59fd81788a0d5d65b7c348aebd8f10af2df8c620678a8d" => :high_sierra
-    sha256 "f1a32f7ad9b41c5f395f7e04ae2afff8cdf5d2a4ded2cc61bdf4dd8db1242992" => :sierra
-    sha256 "adbc31b9065ad979247623476b4d0fe22db78e85f6237b9f1a4d22f61880462d" => :el_capitan
+    sha256 "4ec2e3b27d79d68cd52fa7ea222ec1d44f45f11b4a756e6f78fd578cd2bde542" => :high_sierra
+    sha256 "19ae05c1e0ab1f90ed41fbcb320d96a41fa43012f39ab4ac7e714148c802119a" => :sierra
+    sha256 "41b2171f3609acf4e10770809b79dbd11c7ee6a1c2f384b0d8ef04767f7d5e93" => :el_capitan
   end
 
   depends_on "ruby"
