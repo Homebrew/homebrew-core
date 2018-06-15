@@ -7,10 +7,9 @@ class OpenCobol < Formula
   revision 2
 
   bottle do
-    sha256 "49f1746940e7d385f976c594517d4c87263bbdf216ab82dfd42f79b8d2a24e96" => :high_sierra
-    sha256 "2ef0f1a0ed50e42ae2c25ae9281fe02e35a4b29b56800a79b38271b74004bb9a" => :sierra
-    sha256 "79c04c9fece60fcca728d408298e521679051e493a84907e0112638009616f8a" => :el_capitan
-    sha256 "4df237883c76c8d8566a3a44f7d77bc9820f2ef027392d20f31afe7601050625" => :yosemite
+    sha256 "c4f335dae8e5235f9615a87a018fe89b05857974023ff1973ec198705b3cd44b" => :high_sierra
+    sha256 "c05a8ff66d8ad775049c2e1f400c4bde52d7f0ec13d7b2b40d94d9fc4b451c01" => :sierra
+    sha256 "c9fc1e375ec061b9a90a5cc29446a61fe7f49e75d1a78c6888adee889e9258d5" => :el_capitan
   end
 
   depends_on "gmp"
