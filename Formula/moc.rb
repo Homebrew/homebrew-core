@@ -37,9 +37,9 @@ class Moc < Formula
   end
 
   bottle do
-    sha256 "a536689c04be421cd2d55851d32b460a888188adb5bea42fcbb57db465e6c87c" => :high_sierra
-    sha256 "c5b44244ca3421ea8eb867f5bffde2be4823d335a960047d1246a8295807ebf9" => :sierra
-    sha256 "6286eeb3b7ca9500ae5ab3c795dcf3ca94fa8440141ccd02ae7fd0107d3950f4" => :el_capitan
+    sha256 "8a570805d563e3ee3d4c374eb5a8e5d649b7364286e738f9d8bef864663073e1" => :high_sierra
+    sha256 "fe941dffd41e1485f85b3d9bb28a1a30cccfe27d3cac438cc5b71fb347122003" => :sierra
+    sha256 "9e39666cb49b6fd60c16b1b4535d0b39363fcc655e6495cc17d74923df13ff27" => :el_capitan
   end
 
   devel do
