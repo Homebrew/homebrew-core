@@ -4,7 +4,7 @@ class OpenCobol < Formula
   homepage "https://sourceforge.net/projects/open-cobol/"
   url "https://downloads.sourceforge.net/project/open-cobol/open-cobol/1.1/open-cobol-1.1.tar.gz"
   sha256 "6ae7c02eb8622c4ad55097990e9b1688a151254407943f246631d02655aec320"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "49f1746940e7d385f976c594517d4c87263bbdf216ab82dfd42f79b8d2a24e96" => :high_sierra

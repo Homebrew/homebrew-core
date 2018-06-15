@@ -10,7 +10,7 @@ class Jack < Formula
   homepage "http://jackaudio.org"
   url "http://jackaudio.org/downloads/jack-audio-connection-kit-0.125.0.tar.gz"
   sha256 "3517b5bff82139a76b2b66fe2fd9a3b34b6e594c184f95a988524c575b11d444"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "abc0921ccf479b78ccd3d9ce393290800bed6c059046dc9f42029cc4c954b3ad" => :high_sierra

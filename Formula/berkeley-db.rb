@@ -1,8 +1,9 @@
 class BerkeleyDb < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
-  url "https://download.oracle.com/berkeley-db/db-6.2.32.tar.gz"
-  sha256 "a9c5e2b004a5777aa03510cfe5cd766a4a3b777713406b02809c17c8e0e7a8fb"
+  # Requires registration to download so we mirror it
+  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.25.tar.gz"
+  sha256 "2ea8b8bc0611d9b4c2b9fee84a4a312dddfec007067af6e02ed46a26354181bb"
 
   bottle do
     cellar :any
@@ -13,6 +14,7 @@ class BerkeleyDb < Formula
   end
 
   depends_on :java => [:optional, :build]
+  depends_on "openssl"
 
   def install
     # BerkeleyDB dislikes parallel builds
