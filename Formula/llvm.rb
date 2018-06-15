@@ -222,6 +222,7 @@ class Llvm < Formula
       -DWITH_POLLY=ON
       -DLINK_POLLY_INTO_TOOLS=ON
       -DLLVM_TARGETS_TO_BUILD=all
+      -DLLVM_EXPERIMENTAL_TARGETS_TO_BUILD=WebAssembly
     ]
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
