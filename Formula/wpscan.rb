@@ -1,10 +1,8 @@
 class Wpscan < Formula
   desc "Black box WordPress vulnerability scanner"
   homepage "https://wpscan.org"
-  url "https://github.com/wpscanteam/wpscan/archive/2.9.3.tar.gz"
-  sha256 "1bacc03857cca5a2fdcda060886bf51dbf73b129abbb7251b8eb95bc874e5376"
-  revision 5
-
+  url "https://github.com/wpscanteam/wpscan/archive/2.9.4.tar.gz"
+  sha256 "ad066b48565e82208d5e0451891366f6a9b9a3648d149d14c83d00f4712094d3"
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
@@ -17,8 +15,9 @@ class Wpscan < Formula
 
   def install
     inreplace "lib/common/common_helper.rb" do |s|
-      s.gsub! "ROOT_DIR, 'cache'", "'#{var}/cache/wpscan'"
-      s.gsub! "ROOT_DIR, 'log.txt'", "'#{var}/log/wpscan/log.txt'"
+      s.gsub! "File.join(USER_DIR, '.wpscan/cache')", "'#{var}/cache/wpscan'"
+      s.gsub! "File.join(USER_DIR, '.wpscan/data')", "'#{var}/wpscan/data'"
+      s.gsub! "File.join(USER_DIR, '.wpscan/log.txt')", "'#{var}/log/wpscan/log.txt'"
     end
 
     system "unzip", "-o", "data.zip"
