@@ -39,9 +39,15 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.24.2/crystal-0.24.2-1-darwin-x86_64.tar.gz"
-    version "0.24.2"
-    sha256 "05028a6ac8507b27a6dd5153f218deb255778d63ab7b45588cef3d974b5ce8ef"
+    if MacOS.version <= :el_capitan # no clock_gettime
+      url "https://github.com/crystal-lang/crystal/releases/download/v0.24.1/crystal-0.24.1-2-darwin-x86_64.tar.gz"
+      version "0.24.1"
+      sha256 "2be256462f4388cd3bb14b1378ef94d668ab9d870944454e828b4145155428a0"
+    else
+      url "https://github.com/crystal-lang/crystal/releases/download/0.24.2/crystal-0.24.2-1-darwin-x86_64.tar.gz"
+      version "0.24.2"
+      sha256 "05028a6ac8507b27a6dd5153f218deb255778d63ab7b45588cef3d974b5ce8ef"
+    end
   end
 
   def install
