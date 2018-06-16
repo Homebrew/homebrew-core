@@ -1,8 +1,8 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20180328.tar.gz"
-  sha256 "3a5c2e2636021e6cafecb213c6ca4b5226bfcdadf00a241fde45b58f513ea674"
+  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20180614.tar.gz"
+  sha256 "1332b808545b976cde727e699ead5941faf75a2b97d023297de1e26360894bdb"
   head "https://github.com/rordenlab/dcm2niix.git"
 
   bottle do
