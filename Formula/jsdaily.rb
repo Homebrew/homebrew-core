@@ -1,4 +1,4 @@
-class jsdaily < Formula
+class Jsdaily < Formula
   include Language::Python::Virtualenv
 
   desc "Some useful daily utility scripts"
