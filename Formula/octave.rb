@@ -4,6 +4,7 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.4.0.tar.gz"
   sha256 "72f846379fcec7e813d46adcbacd069d72c4f4d8f6003bcd92c3513aafcd6e96"
+  revision 1
 
   bottle do
     rebuild 1
@@ -50,6 +51,7 @@ class Octave < Formula
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
+  depends_on "texinfo"
   depends_on "veclibfort"
 
   # Dependencies use Fortran, leading to spurious messages about GCC
@@ -68,7 +70,6 @@ class Octave < Formula
                           "--enable-link-all-dependencies",
                           "--enable-shared",
                           "--disable-static",
-                          "--disable-docs",
                           "--without-osmesa",
                           "--without-qt",
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
@@ -84,6 +85,10 @@ class Octave < Formula
       s.gsub! Formula["fftw"].prefix.realpath, Formula["fftw"].opt_prefix
       s.gsub! Formula["gcc"].prefix.realpath, Formula["gcc"].opt_prefix
     end
+
+    # Make sure that Octave uses the modern texinfo at run time
+    rcfile = buildpath/"scripts/startup/site-rcfile"
+    rcfile.append_lines "makeinfo_program(\"#{Formula["texinfo"].opt_bin}/makeinfo\");"
 
     system "make", "install"
   end
