@@ -19,7 +19,6 @@ class Octave < Formula
     depends_on "bison" => :build
     depends_on "icoutils" => :build
     depends_on "librsvg" => :build
-    depends_on "sundials"
   end
 
   # Complete list of dependencies at https://wiki.octave.org/Building
@@ -49,6 +48,7 @@ class Octave < Formula
   depends_on "qrupdate"
   depends_on "readline"
   depends_on "suite-sparse"
+  depends_on "sundials"
   depends_on "veclibfort"
 
   # Dependencies use Fortran, leading to spurious messages about GCC
@@ -68,7 +68,7 @@ class Octave < Formula
                           "--enable-shared",
                           "--disable-static",
                           "--disable-docs",
-                          "--without-OSMesa",
+                          "--without-osmesa",
                           "--without-qt",
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
