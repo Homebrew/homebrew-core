@@ -1,13 +1,10 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
+  url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-3/simutrans-src-120-3.zip"
+  version "120.3"
+  sha256 "6f68785798688bf956b0d7f5971a8d8fa42d12199011665b07b903164cb3929f"
   head "https://github.com/aburch/simutrans.git"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-3/simutrans-src-120-3.zip"
-    version "120.3"
-    sha256 "6f68785798688bf956b0d7f5971a8d8fa42d12199011665b07b903164cb3929f"
-  end
 
   bottle do
     cellar :any
