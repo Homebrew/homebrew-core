@@ -4,7 +4,6 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.4.0.tar.gz"
   sha256 "72f846379fcec7e813d46adcbacd069d72c4f4d8f6003bcd92c3513aafcd6e96"
-  revision 1
 
   bottle do
     sha256 "749a05f276092a3d77357883465dccae17e6dc168dcff988437461a9d9013cca" => :high_sierra
@@ -48,8 +47,8 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "readline"
-  depends_on "sundials"
   depends_on "suite-sparse"
+  depends_on "sundials"
   depends_on "veclibfort"
 
   # Dependencies use Fortran, leading to spurious messages about GCC
