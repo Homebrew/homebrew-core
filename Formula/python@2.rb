@@ -7,9 +7,9 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "f557a6bed6223c3df7d5aef2941b07bfff63c159a72c167d0fa1ea17a1080230" => :high_sierra
-    sha256 "53a1e22c0a2b855a363310373019796ea720f960944fc118ed7e6764fe6b206c" => :sierra
-    sha256 "f0b8085f5bb129194ac9c0c6b8ba347f8add9ab35a6bad248b304985c424160e" => :el_capitan
+    sha256 "5815e48447f2f3656459dc943d2d3737117b06706903eeba6a9ed9f3afee4936" => :high_sierra
+    sha256 "5c39552d66564815b8de08f3efdba9450f08bd7a43c8e8e871aaf71cd1485989" => :sierra
+    sha256 "1c6cb10f6cf36b196a642588f18e2cb7ebecfcfbaa080eb54f89671c49797d3b" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
