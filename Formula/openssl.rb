@@ -12,9 +12,9 @@ class Openssl < Formula
   revision 2
 
   bottle do
-    sha256 "67a795f419adcc7f2cc9c204538f2606ed9cf11f2e9587dea9c4f8189a592dee" => :high_sierra
-    sha256 "06ae39a0167691a104a490b5518600f314f72944a18dc1fbdae8405d000b585b" => :sierra
-    sha256 "3470a25f36a68d96b00dffcd1452d3d5d171ab3656e126f6e2cf233e2705423d" => :el_capitan
+    sha256 "57d848340949e76f8ff3a59c3db92b462be55f2792d9d3a5becad54512ebf4fd" => :high_sierra
+    sha256 "a59327ee00013f2062304f22a4daabf3371ca44926f31fcf500b339b4aa8e146" => :sierra
+    sha256 "dba683c9d3091217b0d33a9f44f81e0b7b4d0e5205133f3076bb1469107a1001" => :el_capitan
   end
 
   keg_only :provided_by_macos,
