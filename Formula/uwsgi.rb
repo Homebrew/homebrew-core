@@ -35,7 +35,6 @@ class Uwsgi < Formula
   depends_on "mono" => :optional
   depends_on "nagios" => :optional
   depends_on "postgresql" => :optional
-  depends_on "pypy" => :optional
   depends_on "python" => :optional
   depends_on "rrdtool" => :optional
   depends_on "rsyslog" => :optional
@@ -112,7 +111,6 @@ class Uwsgi < Formula
     plugins << "mongrel2" if build.with? "mongrel2"
     plugins << "mono" if build.with? "mono"
     plugins << "nagios" if build.with? "nagios"
-    plugins << "pypy" if build.with? "pypy"
     plugins << "rack" if build.with? "ruby"
     plugins << "rbthreads" if build.with? "ruby"
     plugins << "ring" if build.with? "java"
