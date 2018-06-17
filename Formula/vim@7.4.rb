@@ -3,7 +3,7 @@ class VimAT74 < Formula
   homepage "https://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 11
+  revision 12
 
   bottle do
     sha256 "92081d71fa26751895ac0e213971d1ad4b23c3ae086663b71472ad5d8ce57590" => :high_sierra
