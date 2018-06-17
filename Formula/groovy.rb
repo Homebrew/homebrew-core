@@ -10,6 +10,8 @@ class Groovy < Formula
 
   deprecated_option "invokedynamic" => "with-invokedynamic"
 
+  depends_on :java => "1.6+"
+
   conflicts_with "groovysdk", :because => "both install the same binaries"
 
   def install
