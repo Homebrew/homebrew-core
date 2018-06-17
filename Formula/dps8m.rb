@@ -5,6 +5,8 @@ class Dps8m < Formula
   version "1.0"
   sha256 "51088dd91de888b918644c431eec22318640d28eb3050d9c01cd072aa7cca3c7"
 
+  head "https://github.com/charlesUnixPro/dps8m.git"
+
   bottle do
     cellar :any
     sha256 "0c436100ea3f71f5e7fcb2a39ca6d6e08a4981b661117e6e8d18685df3c8d040" => :high_sierra
