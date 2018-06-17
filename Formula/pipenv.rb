@@ -5,6 +5,7 @@ class Pipenv < Formula
   homepage "https://docs.pipenv.org/"
   url "https://files.pythonhosted.org/packages/7e/01/3faf5d7e80c8c0612667b12104ae205a5e33d502f84b6e8bfdc07a2eb9fa/pipenv-2018.5.18.tar.gz"
   sha256 "04b9a8b02a3ff12a5502b335850cfdb192adcfd1d6bbdb7a7c47cae9ab9ddece"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +22,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
-    sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
+    url "https://files.pythonhosted.org/packages/33/bc/fa0b5347139cd9564f0d44ebd2b147ac97c36b2403943dbee8a25fd74012/virtualenv-16.0.0.tar.gz"
+    sha256 "ca07b4c0b54e14a91af9f34d0919790b016923d157afda5efdde55c96718f752"
   end
 
   resource "virtualenv-clone" do
