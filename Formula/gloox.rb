@@ -15,13 +15,6 @@ class Gloox < Formula
   depends_on "openssl"
   depends_on "libidn" => :optional
 
-  # Fix expectation that <openssl/comp.h> will always be available.
-  # Merged upstream; remove on next release.
-  patch do
-    url "https://mail.camaya.net/services/download/?app=whups&actionID=download_file&file=tlsopensslbase_comp_fix.diff&ticket=276&fn=%2Ftlsopensslbase_comp_fix.diff"
-    sha256 "509e8121cbefbad57e380f9156a088ebfdc93ebf28a53bd8e2053c12326e2e12"
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-zlib",
