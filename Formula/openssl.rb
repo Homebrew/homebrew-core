@@ -9,7 +9,7 @@ class Openssl < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2o.tar.gz"
   mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2o.tar.gz"
   sha256 "ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "67a795f419adcc7f2cc9c204538f2606ed9cf11f2e9587dea9c4f8189a592dee" => :high_sierra
@@ -36,7 +36,6 @@ class Openssl < Formula
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
-    no-comp
     no-ssl2
     no-ssl3
     no-zlib
