@@ -5,9 +5,9 @@ class Gspell < Formula
   sha256 "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
 
   bottle do
-    sha256 "93988c5f834bb7485e0e1e9aa394b31a42e38e6d5f915fc3e3a06eb92d63a99a" => :high_sierra
-    sha256 "e704f22fa44a09aff7554fe5c21496586069034c8a8a913f2394032214db5305" => :sierra
-    sha256 "b7ed4c9b5c87e732b3e12836e26c7857bc9bae6b16ee32ba4925d70bf3799c0a" => :el_capitan
+    sha256 "9b0d29afd1b3811c0c976879641f318504798b519bccc7c6eb8bcee93fd281a1" => :high_sierra
+    sha256 "20df1e6769419c13b1743bec961676477fc42e1341f3d5e9cfaf4e30f372f9d6" => :sierra
+    sha256 "4051d5ce5656be42be8b3d53db5282936157ca0b6320f2a782240b7f2f29d341" => :el_capitan
   end
 
   depends_on "autoconf" => :build
