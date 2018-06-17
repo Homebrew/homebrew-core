@@ -3,6 +3,7 @@ class PythonAT2 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
   sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
+  revision 1
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
@@ -26,8 +27,8 @@ class PythonAT2 < Formula
   depends_on "tcl-tk" => :optional
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a6/5b/f399fcffb9128d642387133dc3aa9bb81f127b949cd4d9f63e5602ad1d71/setuptools-39.1.0.zip"
-    sha256 "c5484e13b89927b44fd15897f7ce19dded8e7f035466a4fa7b946c0bdd86edd7"
+    url "https://files.pythonhosted.org/packages/1a/04/d6f1159feaccdfc508517dba1929eb93a2854de729fa68da9d5c6b48fa00/setuptools-39.2.0.zip"
+    sha256 "f7cddbb5f5c640311eb00eab6e849f7701fa70bf6a183fc8a2c33dd1d1672fb2"
   end
 
   resource "pip" do
@@ -36,8 +37,8 @@ class PythonAT2 < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/5d/c1/45947333669b31bc6b4933308dd07c2aa2fedcec0a95b14eedae993bd449/wheel-0.31.0.tar.gz"
-    sha256 "1ae8153bed701cb062913b72429bcf854ba824f973735427681882a688cb55ce"
+    url "https://files.pythonhosted.org/packages/2a/fb/aefe5d5dbc3f4fe1e815bcdb05cbaab19744d201bbc9b59cfa06ec7fc789/wheel-0.31.1.tar.gz"
+    sha256 "0a2e54558a0628f2145d2fc822137e322412115173e8a2ddbe1c9024338ae83c"
   end
 
   # Patch to disable the search for Tk.framework, since Homebrew's Tk is
