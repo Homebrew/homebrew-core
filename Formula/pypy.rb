@@ -24,9 +24,9 @@ class Pypy < Formula
 
   depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
+  depends_on "libressl"
   depends_on "gdbm" => :recommended
   depends_on "sqlite" => :recommended
-  depends_on "openssl"
 
   resource "bootstrap" do
     url "https://bitbucket.org/pypy/pypy/downloads/pypy-2.5.0-osx64.tar.bz2"
