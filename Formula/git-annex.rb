@@ -40,7 +40,7 @@ class GitAnnex < Formula
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
-  plist_options :startup => true, :manual => "git annex assistant --autostart"
+  plist_options :manual => "git annex assistant --autostart"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
