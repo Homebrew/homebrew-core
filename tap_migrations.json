@@ -11,6 +11,7 @@
   "chromedriver": "homebrew/cask",
   "cloudfoundry-cli": "pivotal/tap",
   "cmucl": "homebrew/cask",
+  "cockatrice": "homebrew/cask",
   "crystax-ndk": "homebrew/cask",
   "corelocationcli": "homebrew/cask",
   "dart": "dart-lang/dart",
