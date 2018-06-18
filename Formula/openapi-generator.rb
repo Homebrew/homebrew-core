@@ -35,13 +35,18 @@ class OpenapiGenerator < Formula
       info:
         version: 0.0.0
         title: Simple API
+      host: localhost
+      basePath: /v2
+      schemes:
+        - http
       paths:
         /:
           get:
+            operationId: test_operation
             responses:
               200:
                 description: OK
     EOS
-    system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-l", "openapi"
+    system bin/"openapi-generator", "generate", "-i", "minimal.yaml", "-g", "openapi"
   end
 end
