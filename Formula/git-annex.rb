@@ -61,7 +61,7 @@ class GitAnnex < Formula
         </array>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
