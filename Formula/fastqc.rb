@@ -20,7 +20,7 @@ class Fastqc < Formula
       CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
       +SRR098281.1 HWUSI-EAS1599_1:2:1:0:318 length=35
       #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     EOS
+    EOS
     assert_match "Analysis complete for test.fasta", shell_output("#{bin}/fastqc test.fasta")
   end
 end

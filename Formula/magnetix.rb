@@ -35,7 +35,7 @@ class Magnetix < Formula
   def caveats; <<~EOS
     Install games in the following directory:
       ~/Library/Application Support/magnetiX/
-    EOS
+  EOS
   end
 
   test do

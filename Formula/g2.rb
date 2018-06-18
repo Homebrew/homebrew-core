@@ -26,6 +26,6 @@ class G2 < Formula
     NOTE: This will install a new ~/.gitconfig, backing up any existing
     file first. For more information view:
       #{prefix}/README.md
-    EOS
+  EOS
   end
 end

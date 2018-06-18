@@ -46,7 +46,7 @@ class Derby < Formula
       <string>#{var}/derby</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

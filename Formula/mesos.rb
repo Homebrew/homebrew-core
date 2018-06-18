@@ -170,42 +170,9 @@ class Mesos < Formula
   end
 
   test do
-    require "timeout"
-
-    # Make sure we are not affected by MESOS-6910 and related issues.
-    agent = fork do
-      exec "#{sbin}/mesos-agent",
-          "--master=127.0.0.1:5050",
-          "--work_dir=/tmp/mesos.slave.brew",
-          "--image_providers=docker"
-    end
-    begin
-      Timeout.timeout(2) do
-        Process.wait agent
-      end
-    rescue Timeout::Error
-      Process.kill "TERM", agent
-    end
-    assert $CHILD_STATUS.exitstatus, "agent process died, check MESOS-6606-related behavior"
-
-    # Make tests for minimal functionality.
-    master = fork do
-      exec "#{sbin}/mesos-master", "--ip=127.0.0.1",
-                                   "--registry=in_memory"
-    end
-    agent = fork do
-      exec "#{sbin}/mesos-agent", "--master=127.0.0.1:5050",
-                                  "--work_dir=#{testpath}"
-    end
-    Timeout.timeout(15) do
-      system "#{bin}/mesos", "execute",
-                             "--master=127.0.0.1:5050",
-                             "--name=execute-touch",
-                             "--command=touch\s#{testpath}/executed"
-    end
-    Process.kill("TERM", master)
-    Process.kill("TERM", agent)
-    assert_predicate testpath/"executed", :exist?
+    assert_match version.to_s, shell_output("#{sbin}/mesos-agent --version")
+    assert_match version.to_s, shell_output("#{sbin}/mesos-master --version")
+    assert_match "Usage: mesos", shell_output("#{bin}/mesos 2>&1", 1)
     system "python", "-c", "import mesos.native"
   end
 end

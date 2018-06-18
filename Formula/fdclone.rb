@@ -36,6 +36,6 @@ class Fdclone < Formula
         install -c -m 0644 #{share}/fd2rc.dist ~/.fd2rc
     To set application messages to Japanese, edit your .fd2rc:
         MESSAGELANG="ja"
-    EOS
+  EOS
   end
 end

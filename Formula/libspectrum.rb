@@ -1,14 +1,14 @@
 class Libspectrum < Formula
   desc "Support library for ZX Spectrum emulator"
   homepage "https://fuse-emulator.sourceforge.io/libspectrum.php"
-  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.4.2/libspectrum-1.4.2.tar.gz"
-  sha256 "ea7db5c7a413e7104ffc1e9c2b97fe4ba94f48155aeb4b11ce95d3baad836e81"
+  url "https://downloads.sourceforge.net/project/fuse-emulator/libspectrum/1.4.3/libspectrum-1.4.3.tar.gz"
+  sha256 "e1f9d7b2c12643bdf97092bc5c4bf6cd11b786ad94a154521cf697b9e9d4752d"
 
   bottle do
     cellar :any
-    sha256 "d0bee26018c732ae972b9c0c31202d0ecd055840375f42db57de0b593161fdef" => :high_sierra
-    sha256 "69cb2bf24f635320a2d3bfd57a88a40553decdb3bcdc4ff30f3d0db212285361" => :sierra
-    sha256 "946c2487b9542dd825ad6b3a477f0478f88b83df9d47f14ea272fbb97b6e35ab" => :el_capitan
+    sha256 "aeb19fe1f21beeb54235b2396e62088ef43eecbf0032b1945ceca771b6127903" => :high_sierra
+    sha256 "ab582df473e55090086a0de7d657b7cae4b11522363735db444fa0dfc0f8b02a" => :sierra
+    sha256 "67351fba529a5bba07450984de741a6f1f794ee493e62cd434ae05aa9ed5be6b" => :el_capitan
   end
 
   head do

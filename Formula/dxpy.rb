@@ -3,14 +3,14 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/1f/eb/0d6a9030f14ec3eda5dd6ce54271273f8f4d5e248a247ee3f11b8aa25813/dxpy-0.254.0.tar.gz"
-  sha256 "885563d3865fc72f9bfaf78946f04cda48a9085fc1313439cd1743efe5f7c95b"
+  url "https://files.pythonhosted.org/packages/73/25/a3bf7e0cf24652c29066059da74acb12847f09fbab8006dc0f3443e7f661/dxpy-0.255.0.tar.gz"
+  sha256 "9c2b8ea8733f44d4545d6bc4c517b3453731a9d39744ee8b31e0e8b3279f94ba"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5314f9a3e013607968a62e33795aef9f8251376ad534be2af090e471876f7528" => :high_sierra
-    sha256 "f3eea81a318ac2fb56492839b819555bcfc33bd2f091c562e8285b5eae53237b" => :sierra
-    sha256 "7af7bb256aea674f22a21756eb8a6eb7fc95ead32bee4016a1d8a2eca2adfbf5" => :el_capitan
+    sha256 "48357e83d567558cf150ddaa507a598b45c31e167b2fcf5e0e205fd87cf9c483" => :high_sierra
+    sha256 "905b16b0fcead773a409ce49c2286492e297bed020c82a58667dbaa29d41eb94" => :sierra
+    sha256 "8e0d50f6317371201396407024cf78e059fe28fe075ca06d4cb7ebc5aea33130" => :el_capitan
   end
 
   depends_on "python@2"

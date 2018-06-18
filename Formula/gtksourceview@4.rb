@@ -1,14 +1,13 @@
 class GtksourceviewAT4 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/4.0/gtksourceview-4.0.1.tar.xz"
-  sha256 "38ce20ce0b8162d2ac0ee60c33b6c95173435499c7e101d2bde5f0276df5a37a"
-  revision 1
+  url "https://download.gnome.org/sources/gtksourceview/4.0/gtksourceview-4.0.2.tar.xz"
+  sha256 "15829fc728f74e2005e2fc65c2aada4b223f3b361b2200b7e02ff7a9014b5fac"
 
   bottle do
-    sha256 "ef82f0e2d87f4fb97a747dedc0ad26ce1fd8de0a25ae39b5faee9394cb5ccf96" => :high_sierra
-    sha256 "687701a29173a815bfaf05d2c84a9fb1940d43eaed334fa873cb00617a9496b2" => :sierra
-    sha256 "a91fc67f7e793f1dbe04f792cea59ca73261874b78b7fa0d9b1db93b8f7c779c" => :el_capitan
+    sha256 "90df7061e6dee49a9c29094f477b9db19639ce77497294c145529cd4031ff317" => :high_sierra
+    sha256 "920c8c6023eff56dceefc105212b8bc9c408e380cd46556110b5a88107887896" => :sierra
+    sha256 "ae4e361b65ea527647cf0aa58969517f5a8d559f82e5fe549e22bfe484e47b4a" => :el_capitan
   end
 
   depends_on "intltool" => :build

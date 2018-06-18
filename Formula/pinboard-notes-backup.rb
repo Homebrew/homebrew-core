@@ -17,7 +17,7 @@ class PinboardNotesBackup < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
 
   def install
     install_cabal_package

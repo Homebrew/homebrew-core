@@ -1,16 +1,14 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/archive/2018_U3.tar.gz"
-  version "2018_U3"
-  sha256 "23793c8645480148e9559df96b386b780f92194c80120acce79fcdaae0d81f45"
-  revision 1
+  url "https://github.com/01org/tbb/archive/2018_U4.tar.gz"
+  version "2018_U4"
+  sha256 "d5604a04787c8a037d4944eeb89792e7c45f6a83c141b20df7ee89c2fb012ed1"
 
   bottle do
-    rebuild 1
-    sha256 "4f0885ab822d155ce1efa2bb97d806def0d673a3722f78b42c43dbdd1c0f42d4" => :high_sierra
-    sha256 "f09600c4a04ddd3875d43efa1a9f73dff2a63aa5a881f7f08dc9012a73d2aca9" => :sierra
-    sha256 "fbfa4708d7da9406fb66ae9e59b26075ca4a747dc664cc0f057aeb2f7a9d6d8d" => :el_capitan
+    sha256 "bd78bbbc7c14875946eddb8be435013b631324916ef6eea340aacff455d3a4d1" => :high_sierra
+    sha256 "758f8aa5fd921728198df824d52b2e9995f46eb70e79eb553309cae4003d4558" => :sierra
+    sha256 "0d260e5416c9e55fb8f0008e76fd564f5daa0e27920306602fb91ba13d5638d5" => :el_capitan
   end
 
   # requires malloc features first introduced in Lion
@@ -22,10 +20,13 @@ class Tbb < Formula
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
-    args = %W[tbb_build_prefix=BUILDPREFIX compiler=#{compiler}]
-
-    system "make", *args
+    system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}"
     lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
+
+    # Build and install static libraries
+    system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}",
+                   "extra_inc=big_iron.inc"
+    lib.install Dir["build/BUILDPREFIX_release/*.a"]
     include.install "include/tbb"
 
     cd "python" do

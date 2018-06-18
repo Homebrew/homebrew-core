@@ -39,7 +39,7 @@ class Tig < Formula
       #{opt_pkgshare}/examples/tigrc
     to override the system-wide default configuration, copy the sample to:
       #{etc}/tigrc
-    EOS
+  EOS
   end
 
   test do

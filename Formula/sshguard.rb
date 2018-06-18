@@ -58,7 +58,7 @@ class Sshguard < Formula
         block in quick on $ext_if proto tcp from <sshguard> to any port 22 label "ssh bruteforce"
 
       Then run sudo pfctl -f /etc/pf.conf to reload the rules.
-      EOS
+    EOS
     end
   end
 
@@ -81,7 +81,7 @@ class Sshguard < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

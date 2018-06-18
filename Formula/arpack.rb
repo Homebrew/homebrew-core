@@ -1,15 +1,14 @@
 class Arpack < Formula
   desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
-  url "https://github.com/opencollab/arpack-ng/archive/3.5.0.tar.gz"
-  sha256 "50f7a3e3aec2e08e732a487919262238f8504c3ef927246ec3495617dde81239"
-  revision 2
+  url "https://github.com/opencollab/arpack-ng/archive/3.6.0.tar.gz"
+  sha256 "3c88e74cc10bba81dc2c72c4f5fff38a800beebaa0b4c64d321c28c9203b37ea"
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
-    sha256 "ee8603f51963f07c30adc15b7d6c70dd0a137aa522433daf1fc7807f2eb77d99" => :high_sierra
-    sha256 "44d58367ee3ff51e50f16969fc463c331f87cdf2e77df9bc61ed54677fa9c9af" => :sierra
-    sha256 "155b3c0b91d364b5d48e1aae52229f8e624676f0a6840b6f3746100c99f26d67" => :el_capitan
+    sha256 "3a9e865b2c3f78e307d5652a4ee8a6c57671c09f9099f870711b1609ccfa362e" => :high_sierra
+    sha256 "d9c6fb5dde09005ce6ac633d38c781fc5853696b4c3bbdc32631c106ad9c3db8" => :sierra
+    sha256 "f55010de5857a69507cde6348a6b4e407cbc0829c853b9f6d22ec4f4003d3548" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"

@@ -28,7 +28,7 @@ class GtkEngines < Formula
     You will need to set:
       GTK_PATH=#{HOMEBREW_PREFIX}/lib/gtk-2.0
     as by default GTK looks for modules in Cellar.
-    EOS
+  EOS
   end
 
   test do

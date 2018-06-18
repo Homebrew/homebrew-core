@@ -1,9 +1,8 @@
 class ElasticsearchAT56 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.9.tar.gz"
-  sha256 "64b9486d5bdeb6f85d09fdc30aa2d0e1ce7fb8f253084a8d7cb15652494da96a"
-  revision 1
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.10.tar.gz"
+  sha256 "4944c4102b0848d9e94daa50f3b57aa464250563d4ae53d639f19936e394dcd0"
 
   bottle :unneeded
 

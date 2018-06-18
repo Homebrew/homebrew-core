@@ -168,7 +168,7 @@ class Couchdb < Formula
       brew uninstall couchdb
       brew install couchdb
     To see these instructions again, just run 'brew info couchdb'.
-    EOS
+  EOS
   end
 
   plist_options :manual => "couchdb"
@@ -190,7 +190,7 @@ class Couchdb < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -45,7 +45,7 @@ class SpoofMac < Formula
         <string>en0</string>
     to e.g.:
         <string>en1</string>
-    EOS
+  EOS
   end
 
   plist_options :startup => true, :manual => "spoof-mac"
@@ -71,7 +71,7 @@ class SpoofMac < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

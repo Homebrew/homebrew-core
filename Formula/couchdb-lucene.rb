@@ -37,7 +37,7 @@ class CouchdbLucene < Formula
     #!/bin/bash
     export CL_BASEDIR=#{libexec}/bin
     exec "$CL_BASEDIR/#{target}" "$@"
-    EOS
+  EOS
   end
 
   def ini_path
@@ -47,7 +47,7 @@ class CouchdbLucene < Formula
   def ini_file; <<~EOS
     [httpd_global_handlers]
     _fti = {couch_httpd_proxy, handle_proxy_req, <<"http://127.0.0.1:5985">>}
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
@@ -57,7 +57,7 @@ class CouchdbLucene < Formula
     can add a "clbin" directory to your PATH from your bashrc like:
 
         PATH="#{opt_libexec}/clbin:$PATH"
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/couchdb-lucene/bin/cl_run"
@@ -89,7 +89,7 @@ class CouchdbLucene < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

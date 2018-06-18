@@ -61,7 +61,7 @@ class Beansdb < Formula
       <string>#{var}/log/beansdb.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

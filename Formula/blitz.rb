@@ -19,6 +19,7 @@ class Blitz < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "python@2" => :build
   end
 
   def install
@@ -44,7 +45,7 @@ class Blitz < Formula
         A = 17, 2, 97;
         cout << "A = " << A << endl;
         return 0;}
-      EOS
+    EOS
     system ENV.cxx, "testfile.cpp", "-o", "testfile"
     output = shell_output("./testfile")
     var = "/A\ =\ \(0,2\)\ x\ \(0,0\)\n\[\ 17\ \n\ \ 2\ \n\ \ 97\ \]\n\n/"

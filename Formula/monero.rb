@@ -1,32 +1,24 @@
 class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
-  url "https://github.com/monero-project/monero/archive/v0.12.0.0.tar.gz"
-  sha256 "5e8303900a39e296c4ebaa41d957ab9ee04e915704e1049f82a9cbd4eedc8ffb"
-  revision 3
+  url "https://github.com/monero-project/monero.git",
+      :tag => "v0.12.2.0",
+      :revision => "e2c39f6b59fcf5c623c814dfefc518ab0b7eca32"
 
   bottle do
     cellar :any
-    sha256 "f58fd267783d40730adbee550c6313f1d243b5645c5dbb32539fb70fc9193a63" => :high_sierra
-    sha256 "c2248d4af891fd74267d1b3f80620d16e5636d31782f16a0a88a7162bda7a0e6" => :sierra
-    sha256 "6b8975a55c20163255ba0a3f5954d2bfad4839e2bddcb2e01e916c952bf59e14" => :el_capitan
+    sha256 "5f6352e40d60c25e5d96fe6dca509fb657183b5f1639635a11c37258e1f11ab3" => :high_sierra
+    sha256 "9229ac6a7c09d534c52870895a31f9425e9a6fbdb1e00f5c0fc4b6043e3d0503" => :sierra
+    sha256 "10bd03963f6cdb0dc15e54c2ccbf6cdc333ebee09be7551c3ff1b553673fbbf6" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "miniupnpc"
   depends_on "openssl"
   depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"
-
-  # Fix "fatal error: 'boost/thread/v2/thread.hpp' file not found"
-  # https://github.com/monero-project/monero/pull/3667
-  patch do
-    url "https://github.com/monero-project/monero/commit/53a1962da18f952f6eb4683a846e52fe122520e2.patch?full_index=1"
-    sha256 "c5869f9da9429047fdad4386d0310cd88aae499a9ff148120612ab52c5a20b74"
-  end
 
   resource "cppzmq" do
     url "https://github.com/zeromq/cppzmq/archive/v4.2.3.tar.gz"
@@ -39,6 +31,11 @@ class Monero < Formula
                          "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}",
                          *std_cmake_args
     system "make", "install"
+
+    # Avoid conflicting with miniupnpc
+    # Reported upstream 25 May 2018 https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
+    rm_rf include/"miniupnpc"
   end
 
   test do

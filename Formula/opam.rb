@@ -115,7 +115,7 @@ class Opam < Formula
 
     Documentation and tutorials are available at https://opam.ocaml.org, or
     via "man opam" and "opam --help".
-    EOS
+  EOS
   end
 
   test do

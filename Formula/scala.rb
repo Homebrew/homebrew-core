@@ -75,7 +75,7 @@ class Scala < Formula
   def caveats; <<~EOS
     To use with IntelliJ, set the Scala home to:
       #{opt_prefix}/idea
-    EOS
+  EOS
   end
 
   test do

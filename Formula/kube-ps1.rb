@@ -22,7 +22,7 @@ class KubePs1 < Formula
       For Bash:
       source "#{opt_share}/kube-ps1.sh"
       PS1="[\$(kube_ps1)]\$ "
-    EOS
+  EOS
   end
 
   test do

@@ -1,6 +1,6 @@
 class Libhid < Formula
   desc "Library to access and interact with USB HID devices"
-  homepage "https://libhid.alioth.debian.org/"
+  homepage "https://directory.fsf.org/wiki/Libhid"
   url "http://distcache.freebsd.org/ports-distfiles/libhid-0.2.16.tar.gz"
   sha256 "f6809ab3b9c907cbb05ceba9ee6ca23a705f85fd71588518e14b3a7d9f2550e5"
 

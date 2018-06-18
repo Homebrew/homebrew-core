@@ -30,7 +30,7 @@ class GitTf < Formula
 
   def caveats; <<~EOS
     This release removes support for TFS 2005 and 2008. Use a previous version if needed.
-    EOS
+  EOS
   end
 
   test do

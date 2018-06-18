@@ -37,7 +37,7 @@ class Siege < Formula
         net.inet.tcp.msl: 15000 -> 1000
 
     Run siege.config to create the ~/.siegerc config file.
-    EOS
+  EOS
   end
 
   test do

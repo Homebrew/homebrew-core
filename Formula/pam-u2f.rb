@@ -35,7 +35,7 @@ class PamU2f < Formula
 
     For further installation instructions, please visit
     https://developers.yubico.com/pam-u2f/#installation.
-    EOS
+  EOS
   end
 
   test do

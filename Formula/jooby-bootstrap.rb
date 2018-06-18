@@ -3,14 +3,16 @@ class JoobyBootstrap < Formula
   homepage "https://github.com/jooby-project/jooby-bootstrap"
   url "https://github.com/jooby-project/jooby-bootstrap/archive/0.2.2.tar.gz"
   sha256 "ba662dcbe9022205cdb147a1c4e0931191eb902477ca40f3cba0170dfad54fda"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
   depends_on "maven"
 
   def install
-    bin.install "jooby"
+    libexec.install "jooby"
+    (bin/"jooby").write_env_script libexec/"jooby", Language::Java.java_home_env("1.8")
   end
 
   test do

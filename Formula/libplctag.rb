@@ -1,14 +1,14 @@
 class Libplctag < Formula
   desc "Portable and simple API for accessing AB PLC data over Ethernet"
   homepage "https://github.com/kyle-github/libplctag"
-  url "https://github.com/kyle-github/libplctag/archive/v1.5.8.tar.gz"
-  sha256 "03847aeb4bdbfad255e62feff029b9b0c81758e66b840237023243b1c1b764ec"
+  url "https://github.com/kyle-github/libplctag/archive/v1.5.10.tar.gz"
+  sha256 "dd6cb16baf6c71108588b9a8ce98933d816ae04090175efa93d03d1c11ae6dee"
 
   bottle do
     cellar :any
-    sha256 "a784c2b1d50c673cf3557e774f78b44bd1968a162f715afeca9b31e27f136d5c" => :high_sierra
-    sha256 "76e29f82f14a9f0a7b08cae7a8c13bdbbf46a8bf947ea1a2c7b1b7eea2a25165" => :sierra
-    sha256 "13703497dc39ded95c332fd2eb4cae4aa34bb0ee77c7027de1b37b0ec276052b" => :el_capitan
+    sha256 "9aa1c20182ec17e0fb4cdc65d22bd1f742a62f13c1dbf0de57f1c8dd750b0b83" => :high_sierra
+    sha256 "89d58532b7a32285a54729dd342af43b07c2c000711503c1adf44b1baf43de3c" => :sierra
+    sha256 "387804acb86d5d50e0c5a22a2c83c6a83c83d6ab2966e7b2be00d2886ef9cf17" => :el_capitan
   end
 
   depends_on "cmake" => :build

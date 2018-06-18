@@ -5,12 +5,7 @@ class Ant < Formula
   sha256 "0b0e09cc25df68b35a750b32d3167f5ed539cf29151636e9f9c260e0c9538ca6"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "7fa99046291828733ec8059c716f31074ddb4cb4ecd20216e1594bb28b801364" => :high_sierra
-    sha256 "7fa99046291828733ec8059c716f31074ddb4cb4ecd20216e1594bb28b801364" => :sierra
-    sha256 "7fa99046291828733ec8059c716f31074ddb4cb4ecd20216e1594bb28b801364" => :el_capitan
-  end
+  bottle :unneeded
 
   keg_only :provided_by_macos if MacOS.version < :mavericks
 

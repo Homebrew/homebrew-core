@@ -69,7 +69,7 @@ class Datomic < Formula
         <string>#{var}/log/datomic/output.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

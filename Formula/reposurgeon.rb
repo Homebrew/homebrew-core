@@ -16,7 +16,6 @@ class Reposurgeon < Formula
   depends_on "asciidoc" => :build
   depends_on "xmlto" => :build
   depends_on "pypy"
-  depends_on "python@2"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -29,7 +28,7 @@ class Reposurgeon < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     system "git", "commit", "--allow-empty", "--message", "brewing"
 

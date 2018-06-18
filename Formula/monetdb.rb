@@ -9,7 +9,7 @@ class RRequirement < Requirement
     - install R
     -- run brew install r or brew cask install r-app
     - remove the --with-r option
-    EOS
+  EOS
   end
 end
 

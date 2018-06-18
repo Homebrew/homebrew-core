@@ -1,14 +1,14 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/googlei18n/libphonenumber"
-  url "https://github.com/googlei18n/libphonenumber/archive/v8.9.6.tar.gz"
-  sha256 "bed07598a079bf957466c609c6ee8f1c36f3cce21ed9314e2f3daae102eb64cd"
+  url "https://github.com/googlei18n/libphonenumber/archive/v8.9.8.tar.gz"
+  sha256 "cca3a279ddf5e363febb5a34d3e946edfad7f4edb6aa03a83b193d3d523221cf"
 
   bottle do
     cellar :any
-    sha256 "6d1c116997944b27a39cb2bf43937e60e90b3fe9dcb59aac6490c8b9c36b9208" => :high_sierra
-    sha256 "5bc820643fa258c4bfcb17a8a0ed435167015f64a9088fbb29c57f4622c668b2" => :sierra
-    sha256 "b81b64a9ad46d7bbde735ce0b2dafff2dd9b997419cf341be7c2390ad050dd03" => :el_capitan
+    sha256 "3b1c44db5364e9a386d917d95fabe1cbe4e3276313ca9f2875a35629a3ae7156" => :high_sierra
+    sha256 "9c3302eb35eba9f39349e41adea8b61c25c9908ea3cbf1566bf30817ea77fd14" => :sierra
+    sha256 "4e21165c670bad932b07b4ca8713348ad0479be8e044a95791ddae455219f4e9" => :el_capitan
   end
 
   depends_on "cmake" => :build

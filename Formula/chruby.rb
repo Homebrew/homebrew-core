@@ -26,7 +26,7 @@ class Chruby < Formula
     To enable auto-switching of Rubies specified by .ruby-version files,
     add the following to ~/.bash_profile or ~/.zshrc:
       source #{opt_pkgshare}/auto.sh
-    EOS
+  EOS
   end
 
   test do

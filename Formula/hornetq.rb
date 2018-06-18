@@ -27,6 +27,6 @@ class Hornetq < Formula
 
     `run.sh` and `stop.sh` have been wrapped as`hornet-start` and `hornet-stop`
     to avoid naming conflicts.
-    EOS
+  EOS
   end
 end

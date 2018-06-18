@@ -1,16 +1,16 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0197.tar.gz"
-  version "0.197"
-  sha256 "2ce7d6f79cdad2c904924db0eba90368026b6bc38ab7b0d1cc5792560b2dcedd"
+  url "https://github.com/mamedev/mame/archive/mame0198.tar.gz"
+  version "0.198"
+  sha256 "0c354a5c3d82d46acf2183d6be291364c4454ce6ffdd79cf3397174779cff8fa"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "424baa4bebda29b7170988bde29dadd369d95a466b615df8994708435819eb8f" => :high_sierra
-    sha256 "3c8ce25e77c728dd8f9e5bd521d57ac4e3dfdf464cd7f567ddfb813415a756ef" => :sierra
-    sha256 "da822f3b7c96e023492ebc08eaa91da1d71716da92737b92b30c947a87c243a2" => :el_capitan
+    sha256 "4f43dcd7c219f2ccbc4960535f2b040c4d74bea9ad22877522cc6a11235667ec" => :high_sierra
+    sha256 "73c5dd0ec21d085455416513a69656ba0b5c9e253785ada9e61a756e3636dbb9" => :sierra
+    sha256 "739e00a902e72dd8ea5496b893d3f5a6945d42c9943514f36b1fcac4458010d2" => :el_capitan
   end
 
   depends_on :macos => :yosemite
@@ -36,6 +36,11 @@ class Mame < Formula
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
+
+    # 3rdparty/sol2/sol/compatibility/version.hpp:30:10
+    # fatal error: 'lua.hpp' file not found
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+
     system "make", "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",

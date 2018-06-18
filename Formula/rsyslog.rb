@@ -90,6 +90,6 @@ class Rsyslog < Formula
         <string>#{var}/log/rsyslogd.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 end

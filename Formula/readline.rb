@@ -46,7 +46,7 @@ class Readline < Formula
   keg_only :shadowed_by_macos, <<~EOS
     macOS provides the BSD libedit library, which shadows libreadline.
     In order to prevent conflicts when programs look for libreadline we are
-    defaulting this GNU Readline installation to keg-only.
+    defaulting this GNU Readline installation to keg-only
   EOS
 
   def install

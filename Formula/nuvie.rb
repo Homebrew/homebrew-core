@@ -48,6 +48,6 @@ class Nuvie < Formula
       #{var}/nuvie/savegames/
     Config file will be located at:
       #{var}/nuvie/nuvie.cfg
-    EOS
+  EOS
   end
 end

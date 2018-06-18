@@ -21,7 +21,7 @@ class Liquidprompt < Formula
     If you'd like to reconfigure options, you may do so in ~/.liquidpromptrc.
     A sample file you may copy and modify has been installed to
       #{HOMEBREW_PREFIX}/share/liquidpromptrc-dist
-    EOS
+  EOS
   end
 
   test do

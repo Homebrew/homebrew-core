@@ -40,7 +40,7 @@ class Dgen < Formula
   def caveats; <<~EOS
     If some keyboard inputs do not work, try modifying configuration:
       ~/.dgen/dgenrc
-    EOS
+  EOS
   end
 
   test do

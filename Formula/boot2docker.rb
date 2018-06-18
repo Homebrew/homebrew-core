@@ -77,7 +77,7 @@ class Boot2docker < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

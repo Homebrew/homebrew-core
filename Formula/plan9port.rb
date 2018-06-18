@@ -35,7 +35,7 @@ class Plan9port < Formula
     "9", which has been installed into the Homebrew prefix bin.  For example,
     to run Plan 9's ls run:
         # 9 ls
-    EOS
+  EOS
   end
 
   test do

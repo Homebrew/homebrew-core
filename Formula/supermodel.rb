@@ -40,7 +40,7 @@ class Supermodel < Formula
   def caveats; <<~EOS
     Config, Saves, and NVRAM are located in the following directory:
       #{var}/supermodel/
-    EOS
+  EOS
   end
 
   test do

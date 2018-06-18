@@ -36,7 +36,7 @@ class Modules < Formula
       source #{opt_prefix}/init/zsh
     You will also need to reload your .zshrc:
       source ~/.zshrc
-    EOS
+  EOS
   end
 
   test do

@@ -56,6 +56,6 @@ class Sleepwatcher < Formula
       #{Dir["#{prefix}/*.plist"].join("\n      ")}
 
     These are the examples provided by the author.
-    EOS
+  EOS
   end
 end

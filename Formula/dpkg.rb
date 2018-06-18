@@ -65,7 +65,7 @@ class Dpkg < Formula
   def caveats; <<~EOS
     This installation of dpkg is not configured to install software, so
     commands such as `dpkg -i`, `dpkg --configure` will fail.
-    EOS
+  EOS
   end
 
   test do

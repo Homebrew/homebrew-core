@@ -38,7 +38,7 @@ class Grc < Formula
   def caveats; <<~EOS
     New shell sessions will use GRC if you add the relevant file to your profile e.g.:
       . #{etc}/grc.bashrc
-    EOS
+  EOS
   end
 
   test do

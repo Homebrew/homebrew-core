@@ -3,15 +3,15 @@ require "language/node"
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/1.4.4.2.tar.gz"
-  sha256 "5bedf8f51eac859d762994d7c45fdfef45da5cd5b1d7f36e442f7eebde37c057"
+  url "https://github.com/influxdata/chronograf/archive/1.5.0.1.tar.gz"
+  sha256 "d5ec4cf8978488e5c31b3a3dff8d943a6f8d9388bff2994eab168fc886e70b2b"
   head "https://github.com/influxdata/chronograf.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4257d4d89f1281177355a6997127fbf1aa1e7e123b499c31d5ebb23eacfc32e9" => :high_sierra
-    sha256 "fc226c0dce5e67a0521430e0b344543095649d88a11cb92ce75029c8dbd5bbde" => :sierra
-    sha256 "7acd40aa9c226996e0dd5186ab443bbb6a7a2abb281d1e07b67a8e286e0504f4" => :el_capitan
+    sha256 "6a18e56e0ab19e9f09b4299d3a6ad19b92a2756301270279e4de43af170d1b0d" => :high_sierra
+    sha256 "9624940897d7114560f9a022ff36b91f8ca1249722fce01844cc3720d850e7b4" => :sierra
+    sha256 "2459f987936bce2b3e8990ff8dd8e60a60477dfe4732f1389365b2dcbb5f6e33" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -67,7 +67,7 @@ class Chronograf < Formula
         <string>#{var}/log/chronograf.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

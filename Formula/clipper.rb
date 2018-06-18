@@ -45,7 +45,7 @@ class Clipper < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

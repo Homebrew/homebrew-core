@@ -135,7 +135,7 @@ class Mpd < Formula
         <string>Interactive</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

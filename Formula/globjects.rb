@@ -33,7 +33,7 @@ class Globjects < Formula
       {
         globjects::init();
       }
-      EOS
+    EOS
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
            "-I#{include}/globjects", "-I#{Formula["glm"].include}/glm", "-I#{lib}/globjects",
            "-L#{lib}", "-lglobjects", "-lglbinding", *ENV.cflags.to_s.split

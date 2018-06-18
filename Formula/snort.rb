@@ -62,7 +62,7 @@ class Snort < Formula
     so that they can be read by non-root users.  This can be done manually using:
         sudo chmod o+r /dev/bpf*
     or you could create a startup item to do this for you.
-    EOS
+  EOS
   end
 
   test do

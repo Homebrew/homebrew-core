@@ -44,7 +44,7 @@ class Beanstalkd < Formula
         <string>#{var}/log/beanstalkd.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

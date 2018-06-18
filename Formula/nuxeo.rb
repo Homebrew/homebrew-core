@@ -42,7 +42,7 @@ class Nuxeo < Formula
     You need to edit #{etc}/nuxeo.conf file to configure manually the server.
     Also, in case of upgrade, run 'nuxeoctl mp-upgrade' to ensure all
     downloaded addons are up to date.
-    EOS
+  EOS
   end
 
   test do

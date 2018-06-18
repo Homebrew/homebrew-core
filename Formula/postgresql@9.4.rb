@@ -127,7 +127,7 @@ class PostgresqlAT94 < Formula
       <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

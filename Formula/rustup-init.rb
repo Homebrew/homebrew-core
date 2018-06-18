@@ -18,9 +18,7 @@ class RustupInit < Formula
     cargo_home.mkpath
     ENV["CARGO_HOME"] = cargo_home
 
-    system "cargo", "build", "--release", "--verbose"
-
-    bin.install buildpath/"target/release/rustup-init"
+    system "cargo", "install", "--root", prefix
   end
 
   test do

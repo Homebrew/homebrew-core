@@ -3,14 +3,14 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v3.7.tar.gz"
-  sha256 "0d39a86c6c319378af20c568a282a13c963655f60fc68f512eb83fce6a1435df"
+  url "https://github.com/jarun/Buku/archive/v3.8.tar.gz"
+  sha256 "bca35fe1b7dbf88ed3af07e0daa4bc0a736d2f85b3103efcb18d542eebb2eebe"
 
   bottle do
     cellar :any
-    sha256 "71a32d74c2e832eed65dd3abdce78274503af42f5358936303fa512d56d2ca99" => :high_sierra
-    sha256 "3d4e0c42a748c6147f366a67b4a1fc4b13c1f1c611a934fcb314690d188de9cb" => :sierra
-    sha256 "3b08766e4183d60bab677a73a9cf4c1080348bf44ef02ceb90f7beaf99ffee52" => :el_capitan
+    sha256 "d3ff01ffb7454c49a54c4cb83e6acfbdd411a5cbf81786ac23555c554da75fcd" => :high_sierra
+    sha256 "78467366da93bf4bab947bac81b0b56e04658d4bfe5290edde215b2e43b5de45" => :sierra
+    sha256 "355db60dce74022ea81c7730236fb10e406321bb928aaf29d807ffc85f746b67" => :el_capitan
   end
 
   depends_on "openssl"
@@ -94,6 +94,8 @@ class Buku < Formula
       spawn #{bin}/buku --nc --import bookmarks.html
       expect -re "DB file is being created at .*"
       expect "You should encrypt it."
+      expect "Append tags when bookmark exist? (y/n): "
+      send "y\r"
       expect "Add parent folder names as tags? (y/n): "
       send "y\r"
       expect {

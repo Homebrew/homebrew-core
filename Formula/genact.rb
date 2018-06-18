@@ -1,13 +1,13 @@
 class Genact < Formula
   desc "Nonsense activity generator"
   homepage "https://github.com/svenstaro/genact"
-  url "https://github.com/svenstaro/genact/archive/0.4.0.tar.gz"
-  sha256 "92265af4fc7adceda4379336ec5440125b60556dca59f16de37bfb32c35c5da8"
+  url "https://github.com/svenstaro/genact/archive/0.6.0.tar.gz"
+  sha256 "ab20d1c9c20f3b25d0be62fdb8aba74c0e2f046e647327d85a0ecc84d40f8a94"
 
   bottle do
-    sha256 "cda0788c8c4b3430489284c98970a45fa4111cbcaada6112ec2171e70bc2de17" => :high_sierra
-    sha256 "0eba28cdb57f5bb297796668c65aff4eda911b7b23698306f27b0dcf19706156" => :sierra
-    sha256 "be6e7870976653c8d2a91f42fb8380531aa333f729d8d3298b4009efacc6a09d" => :el_capitan
+    sha256 "d0e5347b24fbd59bf0ca8119c9a4c9a5790e552bf076e8d9a0f986877b6da1f0" => :high_sierra
+    sha256 "c387de211ad08b4e5f1b071683bda99886a810327cdcf141d8868fcb68ea95e8" => :sierra
+    sha256 "e30beb8e8f46f2a4f53b6c6e74252ed88b9b141594afb978384efbab00ea12f8" => :el_capitan
   end
 
   depends_on "rust" => :build

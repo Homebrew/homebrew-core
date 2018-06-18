@@ -22,7 +22,7 @@ class Akamai < Formula
     srcpath.install buildpath.children
 
     cd srcpath do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-tags", "noautoupgrade nofirstrun", "-o", bin/"akamai"
       prefix.install_metafiles
     end

@@ -1,16 +1,15 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.12.06.source.tar.gz"
-  version "6.12.06"
-  sha256 "aedcfd2257806e425b9f61b483e25ba600eb0ea606e21262eafaa9dc745aa794"
-  revision 3
+  url "https://root.cern.ch/download/root_v6.14.00.source.tar.gz"
+  version "6.14.00"
+  sha256 "7946430373489310c2791ff7a3520e393dc059db1371272bcd9d9cf0df347a0b"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "ed8481c2e70cfc1e8b3c6db4abb1c5183411bacd1a0ef85d43f2b74f78f0c778" => :high_sierra
-    sha256 "114e5f3770b197f3167ef6fe39f3e59ff3c9e32357c6e506f3ea99390ab8f546" => :sierra
-    sha256 "6ab46e6d06c27b9719baa53857696c97d445b605fcda3a80f3e1ebb893519c99" => :el_capitan
+    sha256 "f61a6854f0b2fdefd692390d10721cd35aad69c696628e0a378468986de9a4c3" => :high_sierra
+    sha256 "ca54c9feda676eb4a51fa636e89e488341a25a53bcf446680e86baadf524fe57" => :sierra
+    sha256 "a4214d56d0f8854106eb887ff44093444e39d1ce1b9d9466f226bf62ff27088b" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -123,7 +122,7 @@ class Root < Formula
       pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source #{HOMEBREW_PREFIX}/bin/thisroot.csh
-    EOS
+  EOS
   end
 
   test do

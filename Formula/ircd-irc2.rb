@@ -82,7 +82,7 @@ class IrcdIrc2 < Formula
       <string>#{var}/ircd.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -52,7 +52,7 @@ class Ccache < Formula
 
     NOTE: ccache can prevent some software from compiling.
     ALSO NOTE: The brew command, by design, will never use ccache.
-    EOS
+  EOS
   end
 
   test do

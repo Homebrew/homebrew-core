@@ -99,7 +99,7 @@ class Sphinx < Formula
 
     We don't install these for you when you install this formula, as
     we don't know which datasource you intend to use.
-    EOS
+  EOS
   end
 
   test do

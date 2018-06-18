@@ -31,7 +31,7 @@ class AmqpCpp < Formula
       {
         return 0;
       }
-      EOS
+    EOS
     system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
                     "test", "-lc++", "-lamqpcpp"
     system "./test"

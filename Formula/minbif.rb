@@ -59,7 +59,7 @@ class Minbif < Formula
         minbif #{etc}/minbif/minbif.conf
 
     Learn more about minbif: https://symlink.me/projects/minbif/wiki/Quick_start
-    EOS
+  EOS
   end
 
   test do

@@ -3,7 +3,6 @@ class Capstone < Formula
   homepage "https://www.capstone-engine.org/"
   url "https://www.capstone-engine.org/download/3.0.4/capstone-3.0.4.tgz"
   sha256 "3e88abdf6899d11897f2e064619edcc731cc8e97e9d4db86495702551bb3ae7f"
-  head "https://github.com/aquynh/capstone.git"
 
   bottle do
     cellar :any
@@ -15,20 +14,32 @@ class Capstone < Formula
     sha256 "585042b1452fbeda9efd07da4b8400d56d166afd5e5f1120da20975e41001e88" => :mountain_lion
   end
 
+  head do
+    url "https://github.com/aquynh/capstone.git"
+
+    depends_on "pkg-config" => :build
+  end
+
   def install
-    # Capstone's Make script ignores the prefix env and was installing
-    # in /usr/local directly. So just inreplace the prefix for less pain.
-    # https://github.com/aquynh/capstone/issues/228
-    inreplace "make.sh", "export PREFIX=/usr/local", "export PREFIX=#{prefix}"
+    if build.head?
+      ENV["PREFIX"] = prefix
+    else
+      # Capstone's Make script ignores the prefix env and was installing
+      # in /usr/local directly. So just inreplace the prefix for less pain.
+      # https://github.com/aquynh/capstone/issues/228
+      inreplace "make.sh", "export PREFIX=/usr/local", "export PREFIX=#{prefix}"
+    end
 
     ENV["HOMEBREW_CAPSTONE"] = "1"
     system "./make.sh"
     system "./make.sh", "install"
 
-    # As per the above inreplace, the pkgconfig file needs fixing as well.
-    inreplace lib/"pkgconfig/capstone.pc" do |s|
-      s.gsub! "/usr/lib", lib
-      s.gsub! "/usr/include/capstone", "#{include}/capstone"
+    unless build.head?
+      # As per the above inreplace, the pkgconfig file needs fixing as well.
+      inreplace lib/"pkgconfig/capstone.pc" do |s|
+        s.gsub! "/usr/lib", lib
+        s.gsub! "/usr/include/capstone", "#{include}/capstone"
+      end
     end
   end
 

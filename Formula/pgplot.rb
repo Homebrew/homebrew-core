@@ -67,7 +67,7 @@ class Pgplot < Formula
       SYSDIR="$SYSDIR"
       CSHARED_LIB="libcpgplot.dylib"
       CSHARED_LD="gfortan -dynamiclib -single_module $LDFLAGS -lX11"
-      EOS
+    EOS
 
     mkdir "build" do
       # activate drivers

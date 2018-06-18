@@ -1,14 +1,14 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://live.gnome.org/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.28/pygobject-3.28.2.tar.xz"
-  sha256 "ac443afd14fcb9ff5744b65d6e2b380e70510278404fb8684a9b9fb089e6f2ca"
+  url "https://download.gnome.org/sources/pygobject/3.28/pygobject-3.28.3.tar.xz"
+  sha256 "3dd3e21015d06e00482ea665fc1733b77e754a6ab656a5db5d7f7bfaf31ad0b0"
 
   bottle do
     cellar :any
-    sha256 "40f262ce96d07a14e9e7949d42b9dda053203ce6ab5d5e16fa4fa6543dd8908c" => :high_sierra
-    sha256 "09e59b39dec8b7e44a6f3a74fe14c1c6ad06a5b879b0d936ba1478a766909564" => :sierra
-    sha256 "08a11bcd044482d90ce0b7482e5be7bd967e580e6224d85d39bb02e64f6a9906" => :el_capitan
+    sha256 "94fae679989e058565619b7ad90481efe90512ccf90835c823aa35be1d0f379f" => :high_sierra
+    sha256 "9165eaa64cd2297ad9bda941521634049ca5ab17e5427970348a3b92af034125" => :sierra
+    sha256 "b5af9da841a2fce3722475c17b3b96e271a2a027bbd2a93dfd256895632e0f1d" => :el_capitan
   end
 
   option "without-python", "Build without python3 support"

@@ -31,7 +31,7 @@ class SstpClient < Formula
     does not exist yet, type the following command to create it:
 
     sudo touch /etc/ppp/options
-    EOS
+  EOS
   end
 
   test do

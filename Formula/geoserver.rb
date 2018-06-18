@@ -21,7 +21,7 @@ class Geoserver < Formula
   def caveats; <<~EOS
     To start geoserver:
       geoserver path/to/data/dir
-    EOS
+  EOS
   end
 
   test do

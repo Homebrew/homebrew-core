@@ -35,7 +35,7 @@ class Neko < Formula
       s << <<~EOS
         You must add the following line to your .bashrc or equivalent:
           export NEKOPATH="#{HOMEBREW_PREFIX}/lib/neko"
-        EOS
+      EOS
     end
     s
   end

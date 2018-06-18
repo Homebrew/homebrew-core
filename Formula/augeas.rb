@@ -37,7 +37,7 @@ class Augeas < Formula
   def caveats; <<~EOS
     Lenses have been installed to:
       #{HOMEBREW_PREFIX}/share/augeas/lenses/dist
-    EOS
+  EOS
   end
 
   test do

@@ -5,16 +5,16 @@ class Mytop < Formula
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
-  revision 5
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "2d7ea53b0ae27d33d5106259b5c96fa878b4c2681af002e91d6432d151024918" => :high_sierra
-    sha256 "89536e5cdee657d9ea8a82d1940854ba52bfa4cf3e161aa148b31511f5268b14" => :sierra
-    sha256 "a7a00e844c2adb87eb4379faf0d3dd60443f9383cb295688ae2dac47051f3483" => :el_capitan
+    sha256 "5b527889fdc6a68a292dd3627fc3ba22c765d8f91aabb32834d9c5334fa8a2f5" => :high_sierra
+    sha256 "2ea6e6774df1e161e6bdbc6b7d844635710b83ab3a7f4097a9b5ac579328f550" => :sierra
+    sha256 "cb6f08e0b574f59ec9e075f7445d9835b6b09d71be5f8c6879f452a63fe5d2a2" => :el_capitan
   end
 
-  depends_on "mysql"
+  depends_on "mysql-client"
   depends_on "openssl"
 
   conflicts_with "mariadb", :because => "both install `mytop` binaries"

@@ -96,7 +96,7 @@ class ProtobufAT26 < Formula
   def caveats; <<~EOS
     Editor support and examples have been installed to:
       #{doc}
-    EOS
+  EOS
   end
 
   test do
@@ -109,7 +109,7 @@ class ProtobufAT26 < Formula
         message Test {
           repeated TestCase case = 1;
         }
-        EOS
+      EOS
     (testpath/"test.proto").write(testdata)
     system bin/"protoc", "test.proto", "--cpp_out=."
     if build.with? "python@2"

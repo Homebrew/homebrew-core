@@ -59,7 +59,7 @@ class Privoxy < Formula
       <string>#{var}/log/privoxy/logfile</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

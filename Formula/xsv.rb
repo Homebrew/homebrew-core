@@ -14,9 +14,7 @@ class Xsv < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-
-    bin.install "target/release/xsv"
+    system "cargo", "install", "--root", prefix
   end
 
   test do

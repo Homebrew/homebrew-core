@@ -18,7 +18,7 @@ class Ckan < Formula
 
   def caveats; <<~EOS
     To use the CKAN GUI, install the ckan-app cask.
-    EOS
+  EOS
   end
 
   test do

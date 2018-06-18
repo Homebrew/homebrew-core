@@ -1,4 +1,3 @@
-
 class Ksh < Formula
   desc "KornShell, ksh93"
   homepage "http://www.kornshell.com"

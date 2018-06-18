@@ -34,7 +34,7 @@ class Opensyobon < Formula
     (bin/"SyobonAction").write <<~EOS
       #!/bin/sh
       cd "#{pkgshare}" && exec ./SyobonAction "$@"
-      EOS
+    EOS
   end
 
   test do

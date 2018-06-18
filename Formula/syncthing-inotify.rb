@@ -51,7 +51,7 @@ class SyncthingInotify < Formula
         <string>#{var}/log/syncthing-inotify.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
