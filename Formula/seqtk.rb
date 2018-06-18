@@ -1,8 +1,8 @@
 class Seqtk < Formula
   desc "Toolkit for processing sequences in FASTA/Q formats"
   homepage "https://github.com/lh3/seqtk"
-  url "https://github.com/lh3/seqtk/archive/v1.2.tar.gz"
-  sha256 "bd53316645ab10f0aaba59e1e72c28442ee4c9c37fddaacce5e24757eff78d7b"
+  url "https://github.com/lh3/seqtk/archive/v1.3.tar.gz"
+  sha256 "5a1687d65690f2f7fa3f998d47c3c5037e792f17ce119dab52fff3cfdca1e563"
 
   bottle do
     cellar :any_skip_relocation
