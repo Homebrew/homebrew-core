@@ -7,8 +7,7 @@ class Sourcery < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a9b2c78ce0029175aebcd204dea5f68506328cf9223168b04b7e2bd6df70edf" => :high_sierra
-    sha256 "08040bff659f7a1cdd8deb115c3a0996413c443f133917d223eb3f7356c7b8ad" => :sierra
+    sha256 "340f1951f0e8f780c87efa9dbe40b6613a6d5f10d668599e7c105b54a47de837" => :high_sierra
   end
 
   depends_on :xcode => "6.0"
