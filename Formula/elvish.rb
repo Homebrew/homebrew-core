@@ -16,10 +16,12 @@ class Elvish < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    version = `git describe --tags --always`.strip
+    goroot = `go env GOROOT`.strip
     (buildpath/"src/github.com/elves/elvish").install buildpath.children
     cd "src/github.com/elves/elvish" do
       system "go", "build", "-ldflags",
-             "-X github.com/elves/elvish/build.Version=#{version}", "-o",
+             "-X github.com/elves/elvish/buildinfo.Version=#{version} -X github.com/elves/elvish/buildinfo.GoPath=#{buildpath} -X github.com/elves/elvish/buildinfo.GoRoot=#{goroot}", "-o",
              bin/"elvish"
       prefix.install_metafiles
     end
