@@ -14,7 +14,7 @@ class Cookiecutter < Formula
     sha256 "2add95022eec8b10c91f28bfa209ba1bd866e474a8d65350a965d081211b4584" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/54/db/76459c4dd3561bbe682619a5c576ff30c42e37c2e01900ed30a501957150/arrow-0.10.0.tar.gz"
@@ -101,6 +101,8 @@ class Cookiecutter < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["LANG"] = "en_US.UTF-8"
     system "git", "clone", "https://github.com/audreyr/cookiecutter-pypackage.git"
     system bin/"cookiecutter", "--no-input", "cookiecutter-pypackage"
     assert (testpath/"python_boilerplate").directory?
