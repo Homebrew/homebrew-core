@@ -2,9 +2,9 @@ class Cockatrice < Formula
   desc "Cross-platform virtual tabletop for multiplayer card games"
   homepage "https://cockatrice.github.io/"
   url "https://github.com/Cockatrice/Cockatrice.git",
-      :tag => "2018-04-16-Release-2.5.1",
-      :revision => "1fbdea0f35c25313e7cf481b98552c92cc70a6ec"
-  version "2.5.1"
+      :tag => "2018-06-17-Release-2.6.0",
+      :revision => "c7072cd543fd2972433bd1f8cf4f5023b8d157c1"
+  version "2.6.0"
   version_scheme 1
   head "https://github.com/Cockatrice/Cockatrice.git"
 
