@@ -42,6 +42,30 @@ class GitAnnex < Formula
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
+  plist_options :manual => "git annex assistant --autostart"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <false/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/git-annex</string>
+          <string>assistant</string>
+          <string>--autostart</string>
+        </array>
+      </dict>
+    </plist>
+  EOS
+  end
+
   test do
     # make sure git can find git-annex
     ENV.prepend_path "PATH", bin
