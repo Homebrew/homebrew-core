@@ -1,8 +1,8 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.1.2/modules-4.1.2.tar.bz2"
-  sha256 "d9268aa54fad2fa26c2a4d4784aadd19fa2ae9fdbf01002ba49686d6b38a194c"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.1.3/modules-4.1.3.tar.bz2"
+  sha256 "f3188dd5f642244e139c3fc6a47d59f6f6231e8c242c74ef4b1922cad2f53889"
 
   bottle do
     sha256 "3ae66f974cb5d829374813f56e0c4d94bf77a09e1d2e15579b5fbc9d3bd6ddd2" => :high_sierra
