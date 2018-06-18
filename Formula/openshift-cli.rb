@@ -9,9 +9,11 @@ class OpenshiftCli < Formula
   head "https://github.com/openshift/origin.git"
 
   bottle do
-    sha256 "4bf526a8099ad57cfc6208b45d3854f83b684f7dd7b450bf8478afb6ef5ca912" => :high_sierra
-    sha256 "4f7abe45f4993f6c61e10c199d8a002091c1eb64e494421db6d533a53164f761" => :sierra
-    sha256 "8e43f2b64310d9d38769ebbbc4acc5f6a0ceddc6721f7c3921641f560143dff7" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "646d7b460448f6dabcc262319a87d2094d4ba907b006e4060a87437547289531" => :high_sierra
+    sha256 "06bd3f794e590a769f67639a2b1da9215f8e03b84e80e75f41e0b65032376768" => :sierra
+    sha256 "59173e57dadf60d0f5961200d69a31bf1786ec25a248248a6c9b5d5286c8e8f5" => :el_capitan
   end
 
   depends_on "go@1.9" => :build
