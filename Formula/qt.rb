@@ -21,9 +21,11 @@ class Qt < Formula
   option "with-examples", "Build examples"
   option "without-proprietary-codecs", "Don't build with proprietary codecs (e.g. mp3)"
 
+  deprecated_option "with-mysql" => "with-mysql-client"
+
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
-  depends_on "mysql" => :optional
+  depends_on "mysql-client" => :optional
   depends_on "postgresql" => :optional
 
   # Restore `.pc` files for framework-based build of Qt 5 on macOS, partially
@@ -56,7 +58,7 @@ class Qt < Formula
 
     args << "-nomake" << "examples" if build.without? "examples"
 
-    if build.with? "mysql"
+    if build.with? "mysql-client"
       args << "-plugin-sql-mysql"
       (buildpath/"brew_shim/mysql_config").write <<~EOS
         #!/bin/sh
