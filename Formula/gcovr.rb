@@ -5,6 +5,13 @@ class Gcovr < Formula
   sha256 "f9731a0ea516f2087e13b3bc310dbd8edaec4ce6a56b2462f5603ee925f40377"
   head "https://github.com/gcovr/gcovr.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "59df642ddfc6f02b6b7d016b5981d052993810172ffd6c40b762b4b29f2cc945" => :high_sierra
+    sha256 "d7af2533c0368f4b09171804c04e482dcb275bc733192dbb7ae614a65190ffc0" => :sierra
+    sha256 "7a763937433619fc56d1a44f20ff21ac509a04da217b211743d0299e49f6d510" => :el_capitan
+  end
+
   depends_on "python"
 
   resource "Jinja2" do
