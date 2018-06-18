@@ -8,9 +8,9 @@ class Cockroach < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d8796cd03779ff1bd7fa8b11d6aa285228e9675137cd999f34dc4872bc72e7e" => :high_sierra
-    sha256 "79675966737500f9af5563a139dad879e39c33db2ce2a52b50659a12a62f4738" => :sierra
-    sha256 "e4087a94d521bc9d7ba134e21886f449752623b67f4de604ecfefd4bcf1101c9" => :el_capitan
+    sha256 "04bab495fb986fadfdbf5787e9bbed8818233febbf15a13d6141f9133c166471" => :high_sierra
+    sha256 "ecb895ca51f7d8497e50d17d34cd7745d9771a7fec2ba9a579920656fde31d2c" => :sierra
+    sha256 "a509470d244eb2abe736e58710bc985e44e7f0ad31587651252092d3ee9227ef" => :el_capitan
   end
 
   depends_on "autoconf" => :build
