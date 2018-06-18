@@ -3,6 +3,7 @@ class Libpeas < Formula
   homepage "https://developer.gnome.org/libpeas/stable/"
   url "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz"
   sha256 "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
+  revision 1
 
   bottle do
     sha256 "2ea4bc3ecb98d714926827f205ec7a38023c99809e6c76112966c46ca029560e" => :high_sierra
@@ -10,7 +11,7 @@ class Libpeas < Formula
     sha256 "0f521913ca0eaf13b55aacb75e4b87a730be1f527215741ae2ba207caac523b2" => :el_capitan
   end
 
-  option "with-python@2", "install support for running Python 2 plugins"
+  option "with-python@2", "Build with support for python2 plugins"
 
   depends_on "gettext" => :build
   depends_on "intltool" => :build
@@ -18,10 +19,14 @@ class Libpeas < Formula
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
-  depends_on "python@2" => :optional if MacOS.version < :snow_leopard
-  depends_on "pygobject3"
-  depends_on "python" # this is python@3 as of 1 March 2018
-  depends_on "pygobject3" => ["--with-python@2"] if build.with?("python@2")
+  depends_on "python"
+  depends_on "python@2" => :optional
+
+  if build.with? "python@2"
+    depends_on "pygobject3" => "with-python@2"
+  else
+    depends_on "pygobject3"
+  end
 
   def install
     args = %W[
@@ -32,15 +37,16 @@ class Libpeas < Formula
       --enable-python3
     ]
 
-    py3_ver = Formula["python3"].version.to_s.slice(/(3\.\d)/)
-    py3_lib = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{py3_ver}/lib"
+    xy = Language::Python.major_minor_version "python3"
+    py3_lib = Formula["python"].opt_frameworks/"Python.framework/Versions/#{xy}/lib"
     ENV.append "LDFLAGS", "-L#{py3_lib}"
 
     if build.with? "python@2"
-      py2_prefix = Utils.popen_read("python2-config --prefix").chomp
-      py2_lib = "#{py2_prefix}/lib"
+      py2_lib = Formula["python@2"].opt_frameworks/"Python.framework/Versions/2.7/lib"
       ENV.append "LDFLAGS", "-L#{py2_lib}"
       args << "--enable-python2"
+    else
+      args << "--disable-python2"
     end
 
     system "./configure", *args
