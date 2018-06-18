@@ -10,10 +10,8 @@ class KaitaiStructCompiler < Formula
   depends_on :java => "1.8+"
 
   def install
-    libexec.install Dir["lib/*"]
-    bin.install "bin/kaitai-struct-compiler"
-
-    inreplace bin/"kaitai-struct-compiler", /^declare -r lib_dir=.*$/, "declare -r lib_dir='#{libexec}'"
+    libexec.install Dir["*"]
+    bin.install_symlink libexec/"bin/kaitai-struct-compiler"
   end
 
   test do
