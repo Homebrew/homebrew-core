@@ -6,6 +6,8 @@ class Groovysdk < Formula
 
   bottle :unneeded
 
+  depends_on :java => "1.6+"
+
   conflicts_with "groovy", :because => "both install the same binaries"
 
   def install
