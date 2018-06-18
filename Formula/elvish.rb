@@ -3,7 +3,7 @@ class Elvish < Formula
   homepage "https://github.com/elves/elvish"
   url "https://github.com/elves/elvish/archive/0.11.tar.gz"
   sha256 "711f67d8730990deed00c3e0c59198c8a51c8441371416faab5ef603c26010b6"
-  head "https://github.com/elves/elvish.git"
+  head "https://github.com/elves/elvish.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
