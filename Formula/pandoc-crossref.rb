@@ -5,8 +5,8 @@ class PandocCrossref < Formula
 
   desc "Pandoc filter for numbering and cross-referencing"
   homepage "https://github.com/lierdakil/pandoc-crossref"
-  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.2.0/pandoc-crossref-0.3.2.0.tar.gz"
-  sha256 "2a0a916b35f0ef4d404e5ab137e4c775ae0067f78bebb25723123b546f7bcd5f"
+  url "https://hackage.haskell.org/package/pandoc-crossref-0.3.2.1/pandoc-crossref-0.3.2.1.tar.gz"
+  sha256 "86023c1df83d1375eb8620ac4dcd91a3be581349bd91d802a63fc4ec1eb6b167"
 
   bottle do
     cellar :any_skip_relocation
