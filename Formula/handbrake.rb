@@ -1,8 +1,8 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://download.handbrake.fr/releases/1.1.0/HandBrake-1.1.0-source.tar.bz2"
-  sha256 "a02e7c6f8bd8dc28eea4623663deb5971dcbca1ad59da9eb74aceb481d8c40da"
+  url "https://download.handbrake.fr/releases/1.1.1/HandBrake-1.1.1-source.tar.bz2"
+  sha256 "e3390c5fd901fb06d72e29c62a63d373d5fb5b3467295d114d815ae7b78a9d7a"
   head "https://github.com/HandBrake/HandBrake.git"
 
   bottle do
@@ -21,9 +21,12 @@ class Handbrake < Formula
   depends_on "yasm" => :build
 
   def install
-    # -march=native causes segfaults
-    # Reported 23 May 2018 https://github.com/HandBrake/HandBrake/issues/1351
-    ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
+    # Upstream issue 8 Jun 2018 "libvpx fails to build"
+    # See https://github.com/HandBrake/HandBrake/issues/1401
+    if MacOS.version <= :el_capitan
+      inreplace "contrib/libvpx/module.defs", /--disable-unit-tests/,
+                                              "\\0 --disable-avx512"
+    end
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",
