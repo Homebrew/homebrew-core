@@ -3,10 +3,10 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz"
-  mirror "http://qt.mirrors.tds.net/qt/archive/qt/5.11/5.11.0/single/qt-everywhere-src-5.11.0.tar.xz"
-  sha256 "67ddb8bf33bbfd19ebc641467ccce2e57fd0b80c6082457f1f5a76e8df83c865"
+  url "https://download.qt.io/official_releases/qt/5.11/5.11.1/single/qt-everywhere-src-5.11.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/5.11/5.11.1/single/qt-everywhere-src-5.11.1.tar.xz"
+  mirror "http://qt.mirrors.tds.net/qt/archive/qt/5.11/5.11.1/single/qt-everywhere-src-5.11.1.tar.xz"
+  sha256 "39602cb08f9c96867910c375d783eed00fc4a244bffaa93b801225d17950fb2b"
   head "https://code.qt.io/qt/qt5.git", :branch => "5.11", :shallow => false
 
   bottle do
