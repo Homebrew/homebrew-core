@@ -1,9 +1,9 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.5.1.tar.gz"
-  sha256 "826425182ee43990731217b917c5c3ea7190cfda141af4869e6d4ad9085a740f"
-  revision 1
+  url "https://github.com/google/protobuf.git",
+      :tag => "v3.6.0",
+      :revision => "ab8edf1dbe2237b4717869eaab11a2998541ad8d"
   head "https://github.com/google/protobuf.git"
 
   bottle do
@@ -31,14 +31,6 @@ class Protobuf < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
-  # Upstream's autogen script fetches this if not present
-  # but does no integrity verification & mandates being online to install.
-  resource "gmock" do
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googlemock/gmock-1.7.0.zip"
-    mirror "https://dl.bintray.com/homebrew/mirror/gmock-1.7.0.zip"
-    sha256 "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b"
-  end
-
   needs :cxx11
 
   def install
@@ -48,9 +40,7 @@ class Protobuf < Formula
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    (buildpath/"gmock").install resource("gmock")
     system "./autogen.sh"
-
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
