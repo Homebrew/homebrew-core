@@ -1,9 +1,8 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.1.0.tar.gz"
-  sha256 "600f43a4a8dae5086a01a3d44bcac2092b5fa1695121289806d544fb287d3136"
-  revision 1
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.2.0.tar.gz"
+  sha256 "ee254fcf3f92447787a87b3f6df190c694a787de46348c45101e8dc7b29b5a78"
 
   bottle do
     sha256 "f4a54c53fe160f16818d4db569f8818a30c55e777c326982d140478fdd4c8b35" => :high_sierra
