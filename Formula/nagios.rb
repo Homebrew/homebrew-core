@@ -5,10 +5,9 @@ class Nagios < Formula
   sha256 "66160a56c2acae07188d30a4f5ddf5a108165f7eb9c25daa2837ab2ecff4b7d1"
 
   bottle do
-    sha256 "d1d4071289fd037542a4f36f205ba522d3aae397e5379def5c402e6befb19f72" => :high_sierra
-    sha256 "979dbfa690a58f825c7c06376e2c27ed0b680a1415a996a4666325a2dfaf9ed3" => :sierra
-    sha256 "0f33981e12c49a84137d57bfd3c9163da1632ab9c1a9ab97f699d4a7f722811a" => :el_capitan
-    sha256 "a521392cf589fab9d9dda30b4cb1e5a7c23baf22b898114a3d65b40a830b2a81" => :yosemite
+    sha256 "f088c2f70e88635a2ddd70c5c545fd4c8b400fab2c14f758136c94383f4b8064" => :high_sierra
+    sha256 "df358bc8585974314abd114005879ae8fff5fee6e16bd827e4031149ac21e9cb" => :sierra
+    sha256 "0b3a5070d43759468e88c86fc70275ef3a193a3d87f42db69c6236794e6b9689" => :el_capitan
   end
 
   depends_on "gd"
