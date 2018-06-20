@@ -2,8 +2,8 @@ class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
   # aws-sdk-cpp should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-sdk-cpp/archive/1.4.60.tar.gz"
-  sha256 "109ab9b7c505ba03ba4e94b9b8ec094ecbaee118235e848cd277b4bb3464d954"
+  url "https://github.com/aws/aws-sdk-cpp/archive/1.4.70.tar.gz"
+  sha256 "acac341440e31e3746c1b956cd49cb71a25aed3111a5c4f35aba403ded6bbed0"
   head "https://github.com/aws/aws-sdk-cpp.git"
 
   bottle do
@@ -42,7 +42,8 @@ class AwsSdkCpp < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-laws-cpp-sdk-core"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-laws-cpp-sdk-core",
+           "-o", "test"
     system "./test"
   end
 end
