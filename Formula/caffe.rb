@@ -3,7 +3,7 @@ class Caffe < Formula
   homepage "https://caffe.berkeleyvision.org/"
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "82daa7416902f8a56007eff36a80d970dac59c46a2b5323def706872cce2c90a" => :high_sierra
@@ -28,7 +28,11 @@ class Caffe < Formula
     sha256 "472d4a06035497b180636d8a82667129960371375bd10fcb6df5c6c7631f25e0"
   end
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+
     args = std_cmake_args + %w[
       -DCPU_ONLY=ON
       -DUSE_NCCL=OFF
