@@ -1,8 +1,8 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.community/"
-  url "https://github.com/beast-dev/beast-mcmc/archive/v1.8.4.tar.gz"
-  sha256 "de8e7dd82eb9017b3028f3b06fd588e5ace57c2b7466ba2e585f9bd8381407af"
+  url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.0.tar.gz"
+  sha256 "5c77d0dab496489d1418d562a4ef90710f9ff70628a35e6089269605788953df"
   head "https://github.com/beast-dev/beast-mcmc.git"
 
   bottle do
@@ -13,6 +13,7 @@ class Beast < Formula
   end
 
   depends_on "ant" => :build
+  depends_on "beagle"
   depends_on :java => "1.7+"
 
   def install
@@ -23,13 +24,13 @@ class Beast < Formula
   end
 
   test do
-    cp pkgshare/"examples/clockModels/testUCRelaxedClockLogNormal.xml", testpath
+    cp pkgshare/"examples/TestXML/ClockModels/testUCRelaxedClockLogNormal.xml", testpath
 
     # Run fewer generations to speed up tests
     inreplace "testUCRelaxedClockLogNormal.xml", 'chainLength="10000000"',
                                                  'chainLength="100000"'
 
-    system "#{bin}/beast", "-beagle_off", "testUCRelaxedClockLogNormal.xml"
+    system "#{bin}/beast", "testUCRelaxedClockLogNormal.xml"
 
     %w[ops log trees].each do |ext|
       output = "testUCRelaxedClockLogNormal." + ext
