@@ -82,9 +82,9 @@ class LlvmAT5 < Formula
 
   bottle do
     cellar :any
-    sha256 "bc1f754761a77c5f9d8ac9ab04a3e6ac1105084bf1e6e24d4ec181042a6605af" => :high_sierra
-    sha256 "c762b37fc89fbc7f71bcae4cd1e9740a40aefd823a8daa8c1f7d43a52eddbeda" => :sierra
-    sha256 "c2efb36438b01e305fd50b556b9acf72d5aba073aa9781a91d25ec7b764fb536" => :el_capitan
+    sha256 "d76f7ca753dd3464883c0ec21ce6751c7de02b3db9ee4fad19925e5283d902b8" => :high_sierra
+    sha256 "a2eb1622d8ff63b6b38f3611ed5c0d9f5a609468d279d90ae10fb583c3388392" => :sierra
+    sha256 "d240e166d5116243fce9d518da0167678aaa3b17151be702cdf9d38f57f27e54" => :el_capitan
   end
 
   head do
