@@ -3,6 +3,7 @@ class Grpc < Formula
   homepage "https://www.grpc.io/"
   url "https://github.com/grpc/grpc/archive/v1.12.0.tar.gz"
   sha256 "eb9698f23aeec2c3832601fa3f804e4d9dc28eca3cc560ef466c9ade1ec951db"
+  revision 1
   head "https://github.com/grpc/grpc.git"
 
   bottle do
