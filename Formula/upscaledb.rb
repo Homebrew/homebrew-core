@@ -1,7 +1,7 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  revision 8
+  revision 9
 
   stable do
     url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
