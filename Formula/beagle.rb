@@ -12,7 +12,11 @@ class Beagle < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--disable-silent-rules", "--without-cuda", "--disable-libtool-dev"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--without-cuda",
+                          "--disable-libtool-dev"
     system "make", "install"
   end
 
