@@ -3,7 +3,7 @@ class Mosh < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.2.tar.gz"
   sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "a6978eda44965301af1ca77cec8cdcbda2ccb123ae43959ecb9a143fb745b0cd" => :high_sierra
@@ -26,7 +26,11 @@ class Mosh < Formula
   depends_on "protobuf"
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+
     # teach mosh to locate mosh-client without referring
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
