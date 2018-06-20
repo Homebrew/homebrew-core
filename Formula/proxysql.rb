@@ -29,12 +29,10 @@ class Proxysql < Formula
 
   def install
     system "make"
-    # There's a 'make install' target, but since the installer does not have a
-    # configurable prefix, it writes outside of brew-managed directories. All
-    # it does is copy files, so rather than inreplace-ing the makefile, just
-    # do the install manually. Given the way the rest of the Proxysql build
-    # system works, this doesn't seem likely to change any time soon.
+    # Currently, the Proxysql build system uses fixed paths for install locations.
     # See https://github.com/sysown/proxysql/blob/master/Makefile
+    # The 'make install' target would need to be patched to support Homebrew.
+    # Configurable target locations are requested in https://github.com/sysown/proxysql/issues/1565
     bin.install "src/proxysql"
     etc.install "etc/proxysql.cnf"
   end
