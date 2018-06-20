@@ -3,10 +3,11 @@ class Rabbitmq < Formula
   homepage "https://www.rabbitmq.com"
   url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.6/rabbitmq-server-generic-unix-3.7.6.tar.xz"
   sha256 "23e61ec405fea9903c2de9532013feb124a5bc667a43a010c949276eda17e1d4"
+  revision 1
 
   bottle :unneeded
 
-  depends_on "erlang"
+  depends_on "erlang@20"
 
   def install
     # Install the base files
@@ -17,7 +18,7 @@ class Rabbitmq < Formula
     (var/"log/rabbitmq").mkpath
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
-    erlang = Formula["erlang"]
+    erlang = Formula["erlang@20"]
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
       s.gsub! /^ERL_DIR=$/, "ERL_DIR=#{erlang.opt_bin}/"
