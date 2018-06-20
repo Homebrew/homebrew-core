@@ -4,6 +4,13 @@ class Beagle < Formula
   url "https://github.com/beagle-dev/beagle-lib/archive/v3.0.2.tar.gz"
   sha256 "59a7081b61ead0a5738e813c6fcfb614d2c5bb49c29b28609de8e2b51bea3ec0"
 
+  bottle do
+    cellar :any
+    sha256 "67d0ab1ff1e002ee1e7cd8c2c115e0b99c48f37e3f19f960a172c4ef5ac72689" => :high_sierra
+    sha256 "4fa457aa7ce867b6147d07c9a8b1043e69a45cd1f3190566d1697e8acdf08415" => :sierra
+    sha256 "9bd4cc062508f497135833251d2e12dca80ed702dcd675e6374719bef33e42e2" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "doxygen" => :build
