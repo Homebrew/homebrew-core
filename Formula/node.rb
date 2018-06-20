@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.4.1/node-v10.4.1.tar.xz"
-  sha256 "a5bf584b52f992b6ce31d8afd8c468945a772431575ad868e4e787f390ad8044"
+  url "https://nodejs.org/dist/v10.5.0/node-v10.5.0.tar.xz"
+  sha256 "7b54c543745b0df9ee159571fe989d5bbea58a903c51f7d5ccba4105336b33bc"
   head "https://github.com/nodejs/node.git"
 
   bottle do
@@ -38,12 +38,6 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-6.1.0.tgz"
     sha256 "be8bb5fdb52e5af8a62988ad32f51c688d1327f62412c4410b30c29c8d66a85f"
-  end
-
-  # Patch configure to support detecting double-digit Xcode versions
-  patch do
-    url "https://github.com/nodejs/node/commit/400df22c6bfefc3c3f54ebd7c5fd0d38f5137841.patch?full_index=1"
-    sha256 "a1ac0e2589c8b9e98bf4712723a6ef28bc23dcd1aa1891d045b5a5e3a329cb36"
   end
 
   def install
