@@ -3,6 +3,7 @@ class Mapnik < Formula
   homepage "http://www.mapnik.org/"
   url "https://github.com/mapnik/mapnik/releases/download/v3.0.20/mapnik-v3.0.20.tar.bz2"
   sha256 "77b9de029d59fbb7eebb7e5884dff03074eb4eeaa238e3f4c8ff5a61e01a9f04"
+  revision 1
   head "https://github.com/mapnik/mapnik.git"
 
   bottle do
