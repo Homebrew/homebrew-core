@@ -15,11 +15,13 @@ class Qscintilla2 < Formula
   option "without-python", "Do not build Python3 bindings"
   option "without-python@2", "Do not build Python2 bindings"
 
-  depends_on "pyqt"
   depends_on "qt"
-  depends_on "sip"
   depends_on "python" => :recommended
   depends_on "python@2" => :recommended
+  if build.with?("python") || build.with?("python@2")
+    depends_on "pyqt"
+    depends_on "sip"
+  end
 
   def install
     spec = (ENV.compiler == :clang && MacOS.version >= :mavericks) ? "macx-clang" : "macx-g++"
