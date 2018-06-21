@@ -1,7 +1,7 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp/overview"
-  url "http://nongnu.askapache.com/linphone/ortp/sources/ortp-0.27.0.tar.gz"
+  url "https://nongnu.askapache.com/linphone/ortp/sources/ortp-0.27.0.tar.gz"
   sha256 "eb61a833ab3ad80978d7007411240f46e9b2d1034373b9d9dfaac88c1b6ec0af"
   revision 3
 
