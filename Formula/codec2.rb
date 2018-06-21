@@ -7,9 +7,9 @@ class Codec2 < Formula
 
   bottle do
     cellar :any
-    sha256 "205941857ee7183277550016a6f6bd01c95be627e5c3594adc1674bd1bf2e03e" => :high_sierra
-    sha256 "516e46003f5a9921ef6ea76ce1321de5de54790ece96a84b9d78d578e4565544" => :sierra
-    sha256 "4db77776f89f5888824a0984a28c37ec9d568ef6f1e4c34cab5fe8b131db7fd0" => :el_capitan
+    sha256 "37a6ae2407ae97ae632078020e89163e9b58d3613207bcf534401f6660128108" => :high_sierra
+    sha256 "d90f5373ac39385b8fffee0605afe2e27c195f44ef211f98d7b5d89c7200508d" => :sierra
+    sha256 "896b96db4b2d4349ca56dc0e4daaf2bebfc28908197c013aefe89d86fe57317c" => :el_capitan
   end
 
   depends_on "cmake" => :build
