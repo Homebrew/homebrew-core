@@ -3,6 +3,7 @@ class NodeAT8 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v8.11.3/node-v8.11.3.tar.xz"
   sha256 "577c751fdca91c46c60ffd8352e5b465881373bfdde212c17c3a3c1bd2616ee0"
+  revision 1
   head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
