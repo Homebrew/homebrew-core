@@ -12,6 +12,8 @@ class ProtobufAT35 < Formula
     sha256 "5a0956aa0639b5943bee597942e7c0ab1439f2db6e322423a72a5ad68e28af82" => :el_capitan
   end
 
+  keg_only :versioned_formula
+
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
   option "without-python@2", "Build without python2 support"
