@@ -1,11 +1,9 @@
 class Dcraw < Formula
   desc "Digital camera RAW photo decoding software"
   homepage "https://www.cybercom.net/~dcoffin/dcraw/"
-  url "https://www.cybercom.net/~dcoffin/dcraw/archive/dcraw-9.27.0.tar.gz"
-  mirror "https://distfiles.macports.org/dcraw/dcraw-9.27.0.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/MacPorts/mpdistfiles/dcraw/dcraw-9.27.0.tar.gz"
-  sha256 "c1d8cc4f19752a3d3aaab1fceb712ea85b912aa25f1f33f68c69cd42ef987099"
-  revision 2
+  url "https://www.cybercom.net/~dcoffin/dcraw/archive/dcraw-9.28.0.tar.gz"
+  mirror "https://mirrorservice.org/sites/distfiles.macports.org/dcraw/dcraw-9.28.0.tar.gz"
+  sha256 "2890c3da2642cd44c5f3bfed2c9b2c1db83da5cec09cc17e0fa72e17541fb4b9"
 
   bottle do
     cellar :any
