@@ -1,6 +1,6 @@
 class GtkEngines < Formula
   desc "Themes for GTK+"
-  homepage "https://git.gnome.org/browse/gtk-engines/"
+  homepage "https://github.com/GNOME/gtk-engines"
   url "https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2"
   sha256 "15b680abca6c773ecb85253521fa100dd3b8549befeecc7595b10209d62d66b5"
   revision 2
