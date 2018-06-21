@@ -7,10 +7,9 @@ class Dcraw < Formula
 
   bottle do
     cellar :any
-    sha256 "52d2965cf0fc6d8786ee075e568218f6a21a3d29bfdbb6c3554e24a3a10ec5e4" => :high_sierra
-    sha256 "7f61c315a5c6820b3d4aeb1d79cb53d7f4f1fa9a99d3a2dc6143dbd6482fd23a" => :sierra
-    sha256 "94815d5ba879494311ba80c943549d7a2326fe3e5c6b54411af081d3e417a435" => :el_capitan
-    sha256 "d976fa7133006d6aa32393f257c21294be073dc6f570968fa647e3ae229eb0b5" => :yosemite
+    sha256 "21f31347e500f314a1f2e6fe03f0d6009b25fa5bd9f1f339b0fe77fc38050e81" => :high_sierra
+    sha256 "dc99d6de1166a3f4fa66d23b798dad9a58e0fac24f72c02ab38ea32e74b30a9e" => :sierra
+    sha256 "022f85e8da7b4cd8c68d7251d39bf3084ec28a15cb859d9cfe49bd439e312466" => :el_capitan
   end
 
   depends_on "jpeg"
