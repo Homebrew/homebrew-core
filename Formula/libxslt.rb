@@ -12,7 +12,7 @@ class Libxslt < Formula
   end
 
   head do
-    url "https://git.gnome.org/browse/libxslt.git"
+    url "https://gitlab.gnome.org/GNOME/libxslt.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
