@@ -1,8 +1,8 @@
 class Wtf < Formula
   desc "Translate common Internet acronyms"
   homepage "http://cvsweb.netbsd.org/bsdweb.cgi/src/games/wtf/"
-  url "https://downloads.sourceforge.net/project/bsdwtf/wtf-20180615.tar.gz"
-  sha256 "1c23f267a05f97fce14dcfa8fe7329167ab5dcbba54ba4d4707d75f1f49223b5"
+  url "https://downloads.sourceforge.net/project/bsdwtf/wtf-20180620.tar.gz"
+  sha256 "dc2ec78f4d91473cfa96120a325dd45164a7d5505afe036bcb9f557a8d035af2"
 
   bottle :unneeded
 
