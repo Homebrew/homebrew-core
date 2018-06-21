@@ -2,8 +2,8 @@ class Codec2 < Formula
   desc "Open source speech codec"
   homepage "https://www.rowetel.com/?page_id=452"
   # Linked from https://freedv.org/
-  url "https://hobbes1069.fedorapeople.org/freetel/codec2/codec2-0.8.tar.xz"
-  sha256 "361e0aa7e9634f64cef17239d03a2564fe117f2743463ec915f1272901f6025f"
+  url "https://hobbes1069.fedorapeople.org/freetel/codec2/codec2-0.8.1.tar.xz"
+  sha256 "a07cdaacf59c3f7dbb1c63b769d443af486c434b3bd031fb4edd568ce3e613d6"
 
   bottle do
     cellar :any
