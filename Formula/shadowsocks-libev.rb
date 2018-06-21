@@ -3,6 +3,7 @@ class ShadowsocksLibev < Formula
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
   url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.2.0/shadowsocks-libev-3.2.0.tar.gz"
   sha256 "5521cf623a07fd1e393528516a83acd2b66c5d4bb4535a52662806a6a060c606"
+  revision 1
 
   bottle do
     cellar :any
