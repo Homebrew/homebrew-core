@@ -15,8 +15,6 @@ class NodeExporter < Formula
     bin.install "node_exporter"
   end
 
-  plist_options :startup => "sudo brew services start node_exporter"
-
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -24,16 +22,13 @@ class NodeExporter < Formula
       <dict>
         <key>Label</key>
         <string>#{plist_name}</string>
-        <!-- See https://github.com/Homebrew/homebrew-services/issues/70 -->
         <key>ProgramArguments</key>
         <array>
-          <string>sudo</string>
-          <string>-u</string>
-          <string>nobody</string>
           <string>sh</string>
           <string>-c</string>
           <string>#{opt_bin}/node_exporter $(&lt; #{etc}/node_exporter.args)</string>
         </array>
+        <!-- UserName is not working; see https://github.com/Homebrew/homebrew-services/issues/70 -->
         <key>UserName</key>
         <string>nobody</string>
         <key>GroupName</key>
