@@ -17,7 +17,7 @@ class Swiftlint < Formula
 
   def install
     ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
-    
+
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
   end
 
