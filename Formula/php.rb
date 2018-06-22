@@ -5,9 +5,9 @@ class Php < Formula
   sha256 "eb01c0153b3baf1f64b8b044013ce414b52fede222df3f509e8ff209478f31f0"
 
   bottle do
-    sha256 "fe9ebac7cbee1e2441b0ad12424f2a69b9bed5a8eb82add1a24aa12d37996e2f" => :high_sierra
-    sha256 "89cfd532c702312866acc0042090465f75a3e1c8ea5dcf7a71f506a2d0a25d50" => :sierra
-    sha256 "20f08ddfd458e645cf65ce93b153404cb808813dda83ec42e007f72445a4b8c4" => :el_capitan
+    sha256 "3c216f4b1401cdbb86023c747ed9ad3fa1cb0f34606776f30d896d3340424923" => :high_sierra
+    sha256 "70866bea8bbf3572adb38657904ef2ee112f1092beb8d57a88dd0e68078345cb" => :sierra
+    sha256 "9ab631781179ac6e8b4731f07b94ed53aadb5d0811d8185bb39332d697dec7ef" => :el_capitan
   end
 
   depends_on "httpd" => [:build, :test]
