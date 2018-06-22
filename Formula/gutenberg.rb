@@ -1,8 +1,8 @@
 class Gutenberg < Formula
   desc "Opinionated static site generator with everything built-in"
   homepage "https://www.getgutenberg.io/"
-  url "https://github.com/Keats/gutenberg/archive/v0.3.3.tar.gz"
-  sha256 "5652e370d3826b2a4dc5ad70f0a6e695748eb6c41c566fde0cef88ac93ccb221"
+  url "https://github.com/Keats/gutenberg/archive/v0.3.4.tar.gz"
+  sha256 "cc3d379a617061ccf594082732e81c003464f67ec0d4e0898cbcf74e817b95d4"
   head "https://github.com/Keats/gutenberg.git"
 
   bottle do
