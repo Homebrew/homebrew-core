@@ -5,9 +5,9 @@ class BareosClient < Formula
   sha256 "b35c6c51cee095b63ceaa5250ca25dfe3cc11f92fbeada6c6bc4e1d79d28087a"
 
   bottle do
-    sha256 "24a55a8fb482d7edc6664806606acce8c6e8a1b88739b3379275fe2d70fb2bb3" => :high_sierra
-    sha256 "fa9f973fa11543ef695cf6c1110e0d0f26670051c263cee5b59577477f309ce7" => :sierra
-    sha256 "6d7c271e7797895b4feb62b20294bc26dcd3c0f5f4af1ac41552d3573a787baf" => :el_capitan
+    sha256 "56284f8a1251c3315eeb10e4e96f34bb89f6a59f94bf7a7110ed1a0470d4ef02" => :high_sierra
+    sha256 "047fe3b9513da9f3a7d64e58e9f193418f8e6305b1a10e7663d2ab0d18f53274" => :sierra
+    sha256 "1970bc09a865d10146c779edb9aed7a4e9cf7772f10ffc0b026e03664849c724" => :el_capitan
   end
 
   depends_on "openssl"
