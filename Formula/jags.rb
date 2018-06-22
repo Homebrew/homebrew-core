@@ -13,6 +13,7 @@ class Jags < Formula
   end
 
   depends_on "gcc" # for gfortran
+  depends_on "libtool" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",
