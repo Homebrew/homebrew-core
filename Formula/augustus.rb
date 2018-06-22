@@ -1,9 +1,8 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "http://bioinf.uni-greifswald.de/augustus/"
-  url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.3.tar.gz"
-  sha256 "b5eb811a4c33a2cc3bbd16355e19d530eeac6d1ac923e59f48d7a79f396234ee"
-  revision 1
+  url "http://bioinf.uni-greifswald.de/augustus/binaries/augustus-3.3.1.tar.gz"
+  sha256 "e0249bff0345f6a790b5c56432f292040254457da22f1a2c212f42d7d2104087"
 
   bottle do
     sha256 "6ffeac4edd4805321ea0957959f85da8cc1f5978cdc8a98903a78c407d5d183e" => :high_sierra
@@ -15,6 +14,9 @@ class Augustus < Formula
   depends_on "boost"
 
   def install
+    # Avoid "fatal error: 'sam.h' file not found" by not building bam2wig
+    inreplace "auxprogs/Makefile", "cd bam2wig; make;", "#cd bam2wig; make;"
+
     # Fix error: api/BamReader.h: No such file or directory
     inreplace "auxprogs/bam2hints/Makefile",
       "INCLUDES = /usr/include/bamtools",
