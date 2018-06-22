@@ -1,7 +1,7 @@
 class Texi2html < Formula
   desc "Convert TeXinfo files to HTML"
   homepage "https://www.nongnu.org/texi2html/"
-  url "http://mirror.lihnidos.org/GNU/savannah/texi2html/texi2html-5.0.zip"
+  url "https://download.savannah.gnu.org/releases/texi2html/texi2html-5.0.zip"
   sha256 "3a609cddc3fca3c342da85d0ae3b7806d8b42086cf7106947a8c9d8307a49dfe"
 
   bottle do
