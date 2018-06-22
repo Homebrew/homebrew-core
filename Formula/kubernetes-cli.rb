@@ -8,10 +8,9 @@ class KubernetesCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "5f3cc6b6787a74a951237efc20d2190010112ae6902c0f86ca85a29f7be7278e" => :high_sierra
-    sha256 "4e13dd3506f5d10bb92444beef1756f1ad901514a6529e2222647062f321f9f0" => :sierra
-    sha256 "f0f7560fcc2a03b6c768285bc8e5831900e2392656f63a3b26609ca12b3f08cd" => :el_capitan
+    sha256 "f71ea25c336b563e835cff8d91b247f273e78b710e1c6c176c72cc841f0067c5" => :high_sierra
+    sha256 "1ee746bba492acb1c75acfd523aa1d9dac08d5d89871adaddc49ccf7060d668a" => :sierra
+    sha256 "6c387a8bfa4cae7e783b77ec6fb182386821ffbc5661be6ed98ee812ec1d9a28" => :el_capitan
   end
 
   # kubernetes-cli will not support go1.10 until version 1.11.x
