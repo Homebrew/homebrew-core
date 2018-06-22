@@ -6,9 +6,9 @@ class Zorba < Formula
   revision 8
 
   bottle do
-    sha256 "730c55eebd4e0e93e33b518fdbaf2f04f022e1fdf5d2ce5b696c0a5f92b0a430" => :high_sierra
-    sha256 "23c3c79cd3d46d6edf6f2c0c6977f1fd824eaeee547e344b5708fac5de38a483" => :sierra
-    sha256 "a572713290985b54d082556b05165f90f38848fda0cd0e1544e7934e2c3892e5" => :el_capitan
+    sha256 "1ee6bcb9160599deba3286a3a32e6682c6ab9f49dd29bf3f2b7379799aa4461e" => :high_sierra
+    sha256 "0611b46146ef4e6da55d5c8a2e37c9df60eab408abf0c71b86a702e4825120a5" => :sierra
+    sha256 "9dc07aa5daadc49cbbdeee1fee3ef14800a604069e996859ec58b441c1738bdd" => :el_capitan
   end
 
   option "with-big-integer", "Use 64 bit precision instead of arbitrary precision for performance"
