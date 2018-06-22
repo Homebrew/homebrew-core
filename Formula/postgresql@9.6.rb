@@ -69,15 +69,7 @@ class PostgresqlAT96 < Formula
     end
     ENV["PYTHON"] = which_python
 
-    # The CLT is required to build Tcl support on 10.7 and 10.8 because
-    # tclConfig.sh is not part of the SDK
-    if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
-      args << "--with-tcl"
-
-      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-      end
-    end
+    args << "--with-tcl"
 
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
