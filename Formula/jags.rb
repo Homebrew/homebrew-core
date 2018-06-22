@@ -12,8 +12,8 @@ class Jags < Formula
     sha256 "6c82f61d6cacec46e7863f9b9cb92f33eac63339822fd196e6a029a75dfb01f7" => :el_capitan
   end
 
-  depends_on "gcc" # for gfortran
   depends_on "libtool" => :build
+  depends_on "gcc" # for gfortran
 
   def install
     system "./configure", "--disable-dependency-tracking",
