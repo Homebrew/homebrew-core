@@ -1,20 +1,9 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  revision 2
+  url "https://6xq.net/pianobar/pianobar-2018.06.22.tar.bz2"
+  sha256 "946357718a7b5fea661247ad10187e77f94724ef2bb29a2482afeb2d8c8bd4c2"
   head "https://github.com/PromyLOPh/pianobar.git"
-
-  stable do
-    url "https://6xq.net/pianobar/pianobar-2017.08.30.tar.bz2"
-    sha256 "ec14db6cf1a7dbc1d8190b5ca0d256021e970587bcdaeb23904d4bca71a04674"
-
-    # Remove for > 2017.08.30
-    # Upstream commit from 17 Apr 2018: "Remove deprecated header avfiltergraph.h"
-    patch do
-      url "https://github.com/PromyLOPh/pianobar/commit/38b16f9957a7bad74e337100b497ffc04ceb9a54.diff?full_index=1"
-      sha256 "521152c24d63242062dc48c28b7489a540ebcd8a98b0c99c29408e0b58c587fa"
-    end
-  end
 
   bottle do
     cellar :any
