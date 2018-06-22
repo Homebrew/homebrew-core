@@ -5,9 +5,9 @@ class Amber < Formula
   sha256 "d2706633fccfbce4102077b7455595d0935f5a542d85c68b744eb129edd64c6b"
 
   bottle do
-    sha256 "47ffc9f948b296d3a652ae0ee8045e8f240d74a7aa20753ba9d69a7829fe5824" => :high_sierra
-    sha256 "d2383650c2276ade18838c8938a09d5aec2a9d2d131727c2e8cb7877bf9dad1c" => :sierra
-    sha256 "ab08c931d53f5018f104b0601d97726c13fe7986c52a767fa07d1c06fce1937b" => :el_capitan
+    sha256 "dda2253c6445c941a236ba5559c85dd4ab6b012667276a12ad55bc8bcbb7a3e3" => :high_sierra
+    sha256 "933bdffe10c21c5c05c593d49480e4811fc448c01dadcfc72eb97262b757dafa" => :sierra
+    sha256 "4479e087a87ec39b344a0f8b1b6f0d2f09c6277d919e6d397ce84cbb9fa084c8" => :el_capitan
   end
 
   depends_on "crystal-lang"
