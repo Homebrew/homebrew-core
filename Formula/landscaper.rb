@@ -2,8 +2,8 @@ class Landscaper < Formula
   desc "Manage the application landscape in a Kubernetes cluster"
   homepage "https://github.com/Eneco/landscaper"
   url "https://github.com/Eneco/landscaper.git",
-      :tag => "v1.0.16",
-      :revision => "6dc5d9e1c5b776ae149996cc8efd7e106a51cc70"
+      :tag => "v1.0.17",
+      :revision => "01794fbd16d5ab7def0ea082c36daf0b916d8808"
   head "https://github.com/Eneco/landscaper.git"
 
   bottle do
@@ -20,7 +20,6 @@ class Landscaper < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     ENV.prepend_create_path "PATH", buildpath/"bin"
     arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     ENV["TARGETS"] = "darwin/#{arch}"
