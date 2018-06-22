@@ -6,9 +6,9 @@ class Dialog < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0168f1b0060b33b57099f1dc5412d84620b6ae27a23c80ba0b7c8d8c7a6045ac" => :high_sierra
-    sha256 "16dcced9f6ffc983ce1aea72b562aae09fce59f9b380e9b593e03759e2e79537" => :sierra
-    sha256 "8d55d6e400627561189a0fb9785ae8e9d6fdc79ed81337edb9a4bd9a07d42a61" => :el_capitan
+    sha256 "4863f5204f24a5787638fdcb2c396bca5457f751f2dc822a91f8a43307051f67" => :high_sierra
+    sha256 "86825e138c39c2fa33aa3100974a8ab3d3421a8923ae483bb0fb9bd077768c4d" => :sierra
+    sha256 "4081b1e69bcc2521e86ac5bef7dba0b990a45017c0bc7bf50fc6f82d82fc190e" => :el_capitan
   end
 
   def install
