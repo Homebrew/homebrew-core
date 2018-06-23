@@ -25,7 +25,7 @@ class Pypy < Formula
 
   resource "bootstrap" do
     url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"
-    sha256 "fe2bbb7cf95eb91b1724029f81e85d1dbb6025a2e9a005cfe7258fe07602f771"
+    sha256 "d7dc443e6bb9a45212e8d8f5a63e9f6ce23f1d88c50709efea1c75b76c8bc186"
   end
 
   resource "setuptools" do
