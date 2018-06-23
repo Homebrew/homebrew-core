@@ -24,8 +24,8 @@ class Pypy < Formula
   depends_on "openssl"
 
   resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy-2.5.0-osx64.tar.bz2"
-    sha256 "30b392b969b54cde281b07f5c10865a7f2e11a229c46b8af384ca1d3fe8d4e6e"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"
+    sha256 "fe2bbb7cf95eb91b1724029f81e85d1dbb6025a2e9a005cfe7258fe07602f771"
   end
 
   resource "setuptools" do
