@@ -112,7 +112,7 @@ class Mpd < Formula
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
 
-  plist_options :manual => "mpd #{(HOMEBREW_PREFIX/"etc/mpd/mpd.conf")}"
+  plist_options :manual => "mpd #{HOMEBREW_PREFIX}/etc/mpd/mpd.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
