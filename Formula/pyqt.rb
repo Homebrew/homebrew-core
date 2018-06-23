@@ -1,9 +1,8 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://dl.bintray.com/homebrew/mirror/pyqt-5.10.1.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.10.1/PyQt5_gpl-5.10.1.tar.gz"
-  sha256 "9932e971e825ece4ea08f84ad95017837fa8f3f29c6b0496985fa1093661e9ef"
+  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.11/PyQt5_gpl-5.11.tar.gz"
+  sha256 "46ebd9b23ef207fd0ebacae89efc8c967dbf84e2521a8e9858c5608cf47979ea"
 
   bottle do
     rebuild 1
@@ -21,13 +20,6 @@ class Pyqt < Formula
   depends_on "sip"
   depends_on "python" => :recommended
   depends_on "python@2" => :recommended
-
-  # Patch from openSUSE for compatibility with Qt 5.11.0
-  # https://build.opensuse.org/package/show/home:cgiboudeaux:branches:KDE:Qt5/python-qt5
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4f563668/pyqt/qt-5.11.diff"
-    sha256 "34bba97f87615ea072312bfc03c4d3fb0a1cf7a4cd9d6907857c1dca6cc89200"
-  end
 
   def install
     Language::Python.each_python(build) do |python, version|
