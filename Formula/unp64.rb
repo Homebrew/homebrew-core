@@ -3,7 +3,8 @@ class Unp64 < Formula
   homepage "http://iancoog.altervista.org/"
   url "http://iancoog.altervista.org/C/unp64_235.7z"
   version "2.35"
-  sha256 "1a0561273aae7e41843197a0c04d7bfbfbb21480a24dcff88ecf7d0e2c2dda3f"
+  sha256 "32f8606ecafed66180d434853a5e7992d82426d9e1fceb81bec467e1ea6c6921"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,11 +15,6 @@ class Unp64 < Formula
 
   def install
     cd Dir["unp64_*/src"].first do
-      # Fix "error: invalid suffix '-0x80d' on integer constant"
-      # Reported upstream 22 Jun 2018 to iancoog AT alice DOT it
-      inreplace "scanners/SledgeHammer.c", "(mem+0x80e-0x80d+p)",
-                                           "(mem + 0x80e - 0x80d + p)"
-
       system "make", "unp64"
       bin.install "Release/unp64"
     end
