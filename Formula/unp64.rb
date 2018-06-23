@@ -1,9 +1,9 @@
 class Unp64 < Formula
   desc "Generic C64 prg unpacker,"
   homepage "http://iancoog.altervista.org/"
-  url "http://iancoog.altervista.org/C/unp64_234.7z"
-  version "2.34"
-  sha256 "86968afaa13b6c17fac7577041d5e3f3cc51cb534d818b5f360fddf41a05eaad"
+  url "http://iancoog.altervista.org/C/unp64_235.7z"
+  version "2.35"
+  sha256 "1a0561273aae7e41843197a0c04d7bfbfbb21480a24dcff88ecf7d0e2c2dda3f"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,8 +13,15 @@ class Unp64 < Formula
   end
 
   def install
-    system "make", "-C", "unp64_234/src", "unp64"
-    bin.install "unp64_234/src/Release/unp64"
+    cd Dir["unp64_*/src"].first do
+      # Fix "error: invalid suffix '-0x80d' on integer constant"
+      # Reported upstream 22 Jun 2018 to iancoog AT alice DOT it
+      inreplace "scanners/SledgeHammer.c", "(mem+0x80e-0x80d+p)",
+                                           "(mem + 0x80e - 0x80d + p)"
+
+      system "make", "unp64"
+      bin.install "Release/unp64"
+    end
   end
 
   test do
