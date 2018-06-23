@@ -1,11 +1,9 @@
 class Ansi < Formula
   desc "This bash script is designed to help you colorize words and bits of text"
   homepage "https://github.com/fidian/ansi"
-  url "https://github.com/fidian/ansi.git",
-    :using => :git,
-    :revision => "3624905213bd89f1023c1190df25069acc14abd5"
-  version "1.0.0"
-  sha256 "63ab048d3949c490e9c3a3f0f51e1d50a4bd942015289a521bc495ac1eea252f"
+  url "https://github.com/fidian/ansi/archive/1.1.0.tar.gz"
+  version "1.1.0"
+  sha256 "0930acff725a505e430c68784e12731e8329998d60efcd759a7ff52e6baac959"
 
   def install
     bin.install "ansi"
