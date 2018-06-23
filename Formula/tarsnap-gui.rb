@@ -1,26 +1,20 @@
 class TarsnapGui < Formula
   desc "Cross-platform GUI for the Tarsnap command-line client"
   homepage "https://github.com/Tarsnap/tarsnap-gui/wiki"
-  url "https://github.com/Tarsnap/tarsnap-gui/archive/v1.0.tar.gz"
-  sha256 "cd21d2a85f073e72f10900632fdcb49956985255a5711fb4f6d434433b09dac9"
+  url "https://github.com/Tarsnap/tarsnap-gui/archive/v1.0.1.tar.gz"
+  sha256 "502e53a4eacb2795bfbe62b9e6ef236cce6fdb43cb15153c0fc4ad61c161eb97"
   head "https://github.com/Tarsnap/tarsnap-gui.git"
 
   bottle do
-    sha256 "95ce5a2a28ff6981d569ad264cd7ef97bfbb20a808309f199b4044d50ea59e9f" => :high_sierra
-    sha256 "65333d2097628d889e78ecb717a11de647f0d11058dd8ce7f263c573e828b54e" => :sierra
-    sha256 "2963c8328a97832660467d27207bdb92340b7e1d10c4f70b552a56b433db5c5d" => :el_capitan
-    sha256 "6c33861a277da0171c26ee389ab5e3f1d2277f3e577f18446e816909680cf9fb" => :yosemite
+    sha256 "4fa93eda73468007493ee8313e72deb14ca57a9003eee306a6b7d1c76d1edb24" => :high_sierra
+    sha256 "0d11d5065652be913f86bb6a5c7719a4af044555d3cb43945d95c0803cec6bf7" => :sierra
+    sha256 "2ee9b8d041e5a9aa6dbb4d95cfbc120ba6e4df4d1072c1442bfb8c4fdfca5231" => :el_capitan
   end
 
   depends_on "qt"
   depends_on "tarsnap"
 
   def install
-    # Fix "Project ERROR: Tarsnap-gui requires Qt 5.2 or higher."
-    # Reported 11 Dec 2017 https://github.com/Tarsnap/tarsnap-gui/issues/171
-    inreplace "Tarsnap.pro", "lessThan(QT_VERSION, 5.2)",
-                             "lessThan(QT_VERSION, 5.1)"
-
     system "qmake"
     system "make"
     system "macdeployqt", "Tarsnap.app"

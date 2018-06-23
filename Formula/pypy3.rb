@@ -171,7 +171,7 @@ class Pypy3 < Formula
         pip_pypy3 install --upgrade pip setuptools
 
     See: https://docs.brew.sh/Homebrew-and-Python
-    EOS
+  EOS
   end
 
   # The HOMEBREW_PREFIX location of site-packages

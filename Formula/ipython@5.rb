@@ -1,15 +1,15 @@
 class IpythonAT5 < Formula
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/64/a1/e6af3c22dadcf3497eccea20b45b8fe9c8a94055af1d341d1db831569192/ipython-5.6.0.tar.gz"
-  sha256 "8ba332d1ac80261e176e737e934fade9b252fc3adb32afc7252ccc9cb249e601"
+  url "https://files.pythonhosted.org/packages/3c/fd/559fead731a29eaa55cc235c8029807b2520976a937c30e9ee603f3bb566/ipython-5.7.0.tar.gz"
+  sha256 "8db43a7fb7619037c98626613ff08d03dda9d5d12c84814a4504c78c0da8323c"
   head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
     cellar :any
-    sha256 "a360cc7822f4a41971fae0690b862bc96ed0ff39782b2142bbcb12a37f1922d1" => :high_sierra
-    sha256 "eac152a6e994dbd2da8f8656fc3435e520590a86f66ca3905b3506aa82728faa" => :sierra
-    sha256 "c4f8b61da05b750e9cbfeb63e80fb5ea01194e870b819ef2ae15d1b916bcccc4" => :el_capitan
+    sha256 "5b798670ec24d0cdb0ae728b91ddf9950ec79ce010bdb34e40da48e251830061" => :high_sierra
+    sha256 "84e37872c544b1ea8f0e378c9da02b99c8c641e1324c327aa826c900d462f961" => :sierra
+    sha256 "4a21fd53efdc01ead80b773be90641b3f10d47ef17bac4bd3e2fb9f75c5fec6a" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -33,8 +33,8 @@ class IpythonAT5 < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/70/f1/cb9373195639db13063f55eb06116310ad691e1fd125e6af057734dc44ea/decorator-4.2.1.tar.gz"
-    sha256 "7d46dd9f3ea1cf5f06ee0e4e1277ae618cf48dfb10ada7c8427cd46c42702a0e"
+    url "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz"
+    sha256 "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
   end
 
   resource "enum34" do
@@ -68,13 +68,13 @@ class IpythonAT5 < Formula
   end
 
   resource "pathlib2" do
-    url "https://files.pythonhosted.org/packages/a1/14/df0deb867c2733f7d857523c10942b3d6612a1b222502fdffa9439943dfb/pathlib2-2.3.0.tar.gz"
-    sha256 "d32550b75a818b289bd4c1f96b60c89957811da205afcceab75bc8b4857ea5b3"
+    url "https://files.pythonhosted.org/packages/db/a8/7d6439c1aec525ed70810abee5b7d7f3aa35347f59bc28343e8f62019aa2/pathlib2-2.3.2.tar.gz"
+    sha256 "8eb170f8d0d61825e09a95b38be068299ddeda82f35e96c3301a8a5e7604cb83"
   end
 
   resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/fa/c3/60c0cbf96f242d0b47a82e9ca634dcd6dcb043832cf05e17540812e1c707/pexpect-4.4.0.tar.gz"
-    sha256 "67b85a1565968e3d5b5e7c9283caddc90c3947a2625bed1905be27bd5a03e47d"
+    url "https://files.pythonhosted.org/packages/09/0e/75f0c093654988b8f17416afb80f7621bcf7d36bbd6afb4f823acdb4bcdc/pexpect-4.5.0.tar.gz"
+    sha256 "9f8eb3277716a01faafaba553d629d3d60a1a624c7cf45daa600d2148c30020c"
   end
 
   resource "pickleshare" do
@@ -98,8 +98,8 @@ class IpythonAT5 < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/c5/39/4da7c2dbc4f023fba5fb2325febcadf0d0ce0efdc8bd12083a0f65d20653/python-dateutil-2.7.2.tar.gz"
-    sha256 "9d8074be4c993fbe4947878ce593052f71dac82932a677d49194d8ce9778002e"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "pyzmq" do
@@ -128,8 +128,8 @@ class IpythonAT5 < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/66/60/5b34caa5014eb3f1deb16d0e72cc08abeec7a9c9823486da7984ddadc95f/tornado-5.0.1.tar.gz"
-    sha256 "3e9a2333362d3dad7876d902595b64aea1a2f91d0df13191ea1f8bca5a447771"
+    url "https://files.pythonhosted.org/packages/cf/d1/3be271ae5eba9fb59df63c9891fdc7d8044b999e8ac145994cdbfd2ae66a/tornado-5.0.2.tar.gz"
+    sha256 "1b83d5c10550f2653380b4c77331d6f8850f287c4f67d7ce1e1c639d9222fbc7"
   end
 
   resource "traitlets" do

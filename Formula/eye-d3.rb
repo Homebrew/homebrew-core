@@ -1,14 +1,14 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "http://eyed3.nicfit.net/"
-  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.5.tar.gz"
-  sha256 "f2bdaf1c7351b0d8fd8226a045360dfd493cd61065f910b411d96de8860eb90a"
+  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.7.tar.gz"
+  sha256 "ef924eb2e8fffd7c7e3bd4c94dafad4a3b9047fe2dcb76d5dd7d9c37a1f1f8bb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e4493fb6060245ce65054909bc5b64c7600c246e89924ec98dec1772dfa4aa1" => :high_sierra
-    sha256 "4e4493fb6060245ce65054909bc5b64c7600c246e89924ec98dec1772dfa4aa1" => :sierra
-    sha256 "636ba018c57d0cdd2dffe1d1219a63560bb4519f17ec1310138c2a4a479aac02" => :el_capitan
+    sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :high_sierra
+    sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :sierra
+    sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :el_capitan
   end
 
   depends_on "python@2"
@@ -25,6 +25,11 @@ class EyeD3 < Formula
   resource "python-magic" do
     url "https://files.pythonhosted.org/packages/84/30/80932401906eaf787f2e9bd86dc458f1d2e75b064b4c187341f29516945c/python-magic-0.4.15.tar.gz"
     sha256 "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   def install

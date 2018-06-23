@@ -2,14 +2,14 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag => "v3.1.1",
-      :revision => "8631831045acf28ea1fc622744112029a7229293"
+      :tag => "v3.1.3",
+      :revision => "231083c2ce934b7946ebed3ed96f4fc1a3ba4f69"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c95ac500871e2a34dd3e3f883b7e0c2b547a3521b6517535d51a7287e598ae9" => :high_sierra
-    sha256 "26be8e07da7fff9a3fe92dfbc09f564f9c37b4723c9c788d6abd33334ce99268" => :sierra
-    sha256 "f3374dfd7fd96473c77c2c1ee7dc7c5f30d856c1e1ccdcaca3711cd36239e333" => :el_capitan
+    sha256 "0a050b4fd951cd8cf7593a436fe99571d6e7ce325a2449a12d6168972a1c714c" => :high_sierra
+    sha256 "1d8f80446c3395ea05dce58b3ff04f9ec9b5bafee6598c0c5704475e00f1786d" => :sierra
+    sha256 "f3c800eb604d967120d6b26897b25a85b2e877d05502baaa17ecd1d8dbbdb24a" => :el_capitan
   end
 
   depends_on "glide" => :build

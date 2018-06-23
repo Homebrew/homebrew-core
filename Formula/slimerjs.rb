@@ -19,7 +19,7 @@ class Slimerjs < Formula
   def caveats; <<~EOS
     The configuration file was installed in:
       #{libexec}/application.ini
-    EOS
+  EOS
   end
 
   test do

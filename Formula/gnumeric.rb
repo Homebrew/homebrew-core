@@ -1,14 +1,13 @@
 class Gnumeric < Formula
   desc "GNOME Spreadsheet Application"
   homepage "https://projects.gnome.org/gnumeric/"
-  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.39.tar.xz"
-  sha256 "26cceb7fa97dc7eee7181a79a6251a85b1f1464dcaaaf7624829f7439c5f7d3f"
-  revision 1
+  url "https://download.gnome.org/sources/gnumeric/1.12/gnumeric-1.12.41.tar.xz"
+  sha256 "66f6e665b7b6d708537295d8cbd00c5cb4efe31f605d5e646f38a7beab565969"
 
   bottle do
-    sha256 "a256df98754b282e5b40b2fa43ad0ca120493575a327d7de0abe1d11b99ebfd5" => :high_sierra
-    sha256 "af2ffe643eecefbfb594034cfe80c942a4933a6073cabe842ef6718c508c439d" => :sierra
-    sha256 "a60544ea2f29607561d651c2de186a321bbb432c296448151a3e62ddf52bbd0c" => :el_capitan
+    sha256 "e94cfece4b3b16f26b835b849ef9d7eaea0633a21b6b0adc68b465c30a874ddc" => :high_sierra
+    sha256 "979a65648dadf239f03fa8a9d702dae18288f20c3f1355de8bd44394aa2dff2e" => :sierra
+    sha256 "c8cd4b78af3e7d88850a0adbe3f29bc2a1ba3c09ddc53cfd16469c5d9a6ad531" => :el_capitan
   end
 
   option "with-python-scripting", "Enable Python scripting."

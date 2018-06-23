@@ -16,16 +16,7 @@ class Libquicktime < Formula
   depends_on "jpeg" => :optional
   depends_on "lame" => :optional
   depends_on "schroedinger" => :optional
-  depends_on "ffmpeg" => :optional
   depends_on "libvorbis" => :optional
-
-  # Fixes compilation with ffmpeg 2.x; applied upstream
-  # https://sourceforge.net/p/libquicktime/mailman/message/30792767/
-  patch :p0 do
-    url "https://sourceforge.net/p/libquicktime/mailman/attachment/51812B9E.3090802%40mirriad.com/1/"
-    sha256 "ae9773d11db5e60824d4cd8863daa6931e980b7385c595eabc37c7bb8319f225"
-  end
-  patch :DATA
 
   # Fix CVE-2016-2399. Applied upstream on March 6th 2017.
   # Also, fixes from upstream for CVE-2017-9122 through CVE-2017-9128, applied
@@ -57,27 +48,3 @@ class Libquicktime < Formula
     assert_predicate testpath/".libquicktime_codecs", :exist?
   end
 end
-
-__END__
-diff --git a/plugins/ffmpeg/audio.c b/plugins/ffmpeg/audio.c
-index bc8d750..b185587 100644
---- a/plugins/ffmpeg/audio.c
-+++ b/plugins/ffmpeg/audio.c
-@@ -515,7 +515,7 @@ static int decode_chunk_vbr(quicktime_t * file, int track)
-   if(!chunk_packets)
-     return 0;
- 
--  new_samples = num_samples + AVCODEC_MAX_AUDIO_FRAME_SIZE / (2 * track_map->channels);
-+  new_samples = num_samples + 192000 / (2 * track_map->channels);
-   
-   if(codec->sample_buffer_alloc <
-      codec->sample_buffer_end - codec->sample_buffer_start + new_samples)
-@@ -671,7 +671,7 @@ static int decode_chunk(quicktime_t * file, int track)
-    */
- 
-   num_samples += 8192;
--  new_samples = num_samples + AVCODEC_MAX_AUDIO_FRAME_SIZE / (2 * track_map->channels);
-+  new_samples = num_samples + 192000 / (2 * track_map->channels);
-   
-   /* Reallocate sample buffer */
-   

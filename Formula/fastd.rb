@@ -1,7 +1,7 @@
 class Fastd < Formula
   desc "Fast and Secure Tunnelling Daemon"
   homepage "https://projects.universe-factory.net/projects/fastd"
-  revision 3
+  revision 4
 
   head "https://git.universe-factory.net/fastd/", :using => :git
 
@@ -19,9 +19,9 @@ class Fastd < Formula
 
   bottle do
     cellar :any
-    sha256 "e2ffc27c91c3f114e3aee16fa984508285ac470206987f57acbd71300f44c79f" => :high_sierra
-    sha256 "c4003d1015702e51335a6c283031427c8ba46297f70ea24173070276d5d47505" => :sierra
-    sha256 "b118c9000eaf4c64d8e2faedae20b9309c46c84042bb011c20c28786b507398b" => :el_capitan
+    sha256 "19dc7f2bf518b8f9374fcfbc7e73fa0ca330d6eb23d92be4b6e2e6a5771fdc6d" => :high_sierra
+    sha256 "e209a7908ab196c614fd8a21d76bfbfc8c73a699784834457e0c1da6eed24a43" => :sierra
+    sha256 "e097588f07f37954bbb525e7f08a9d69dd9bb18bff63616aa942329f7fe15dc1" => :el_capitan
   end
 
   depends_on "cmake" => :build

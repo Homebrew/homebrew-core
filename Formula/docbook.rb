@@ -89,6 +89,6 @@ class Docbook < Formula
     you need to add the following to your ~/.bashrc:
 
     export XML_CATALOG_FILES="#{etc}/xml/catalog"
-    EOS
+  EOS
   end
 end

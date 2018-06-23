@@ -31,7 +31,7 @@ class Libtool < Formula
   def caveats; <<~EOS
     In order to prevent conflicts with Apple's own libtool we have prepended a "g"
     so, you have instead: glibtool and glibtoolize.
-    EOS
+  EOS
   end
 
   test do

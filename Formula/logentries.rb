@@ -3,15 +3,15 @@ class Logentries < Formula
 
   desc "Utility for access to logentries logging infrastructure"
   homepage "https://logentries.com/doc/agent/"
-  url "https://github.com/logentries/le/archive/v1.4.42.tar.gz"
-  sha256 "52e4bfb61753a2fe9f83232e9cefe1aa9ebb87899572f070bad7293e1d891bf9"
-  head "https://github.com/logentries/le.git"
+  url "https://github.com/rapid7/le/archive/v1.4.43.tar.gz"
+  sha256 "e0f5c18600209bfcd5c5bfae5f8f02fc78fad3a4d6185f8c432b07c4aa5956f7"
+  head "https://github.com/rapid7/le.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76338a8179b342a815cc03c2a074b6bc2fcc1dbea309d676e33e0a9ce659760d" => :high_sierra
-    sha256 "bf29b4ac8bba11425b5a06ce68568c60f83cc0676927b967cb8d9c41995df60d" => :sierra
-    sha256 "231eb13cd13914785b8b09f63e0758201ae7e36ad57cf6c847e0f9effc25b556" => :el_capitan
+    sha256 "991c1c932c069d8ead26a4591446b4bb1f4800ef58890632fafaba636ebb3d76" => :high_sierra
+    sha256 "f5b46e814f05d0cf5a98e202a49f9033c4b28ee9d43295bf88fc527135310fae" => :sierra
+    sha256 "aeac2779f63a04a415ee7aecab274fa5deade682596206caf23f97d449b9d16a" => :el_capitan
   end
 
   depends_on "python@2"
@@ -42,7 +42,7 @@ class Logentries < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

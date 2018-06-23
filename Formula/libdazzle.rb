@@ -1,13 +1,13 @@
 class Libdazzle < Formula
   desc "GNOME companion library to GObject and Gtk+"
   homepage "https://gitlab.gnome.org/GNOME/libdazzle"
-  url "https://download.gnome.org/sources/libdazzle/3.28/libdazzle-3.28.1.tar.xz"
-  sha256 "627cdbd1fda815ad8308f8a01ba9a23d4a8fd11cc783e40d6eadbffba2bc4912"
+  url "https://download.gnome.org/sources/libdazzle/3.28/libdazzle-3.28.3.tar.xz"
+  sha256 "879f88b87b0b4048bad8aedc0ca4e60869ed9525d84eda1bcfdba7a457bc0a61"
 
   bottle do
-    sha256 "cd4d4cd2feca1f8c587b08e6e8864a6ee473bf1508fb0bbfb2a0150e484aa5be" => :high_sierra
-    sha256 "55ae749fb6bc902e2a8e7d914906f5f094369f2ea36afb35fab76e1c8a9e6e7c" => :sierra
-    sha256 "238696713fb647d348fb31946d918f64f29a64c91f6364b908b4aa2cf9bc79ed" => :el_capitan
+    sha256 "aa6cfbfd980b8ed482796c1a973d1085dff6afb1c1a4f0615a87e85b8bd6922f" => :high_sierra
+    sha256 "34c42565af5fea5f0bf8220723f3b585bfa646868576a70141749b0105fc831b" => :sierra
+    sha256 "cb90cbdafaae3b4b3697f744870c972a4393067f378b5ecb0e1ed86c81915cf0" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build

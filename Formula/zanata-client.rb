@@ -1,8 +1,8 @@
 class ZanataClient < Formula
   desc "Zanata translation system command-line client"
   homepage "http://zanata.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/zanata/zanata-cli/4.4.4/zanata-cli-4.4.4-dist.tar.gz"
-  sha256 "866bb3e3bb3a9ac309371e08e5019b75cf6b5235f14d87e0d648c140f039c634"
+  url "https://search.maven.org/remotecontent?filepath=org/zanata/zanata-cli/4.5.0/zanata-cli-4.5.0-dist.tar.gz"
+  sha256 "9f481fac3455c1899d5d51e4b776c9dcab92e81a410c03da8c4028e8c820cee2"
 
   bottle :unneeded
 

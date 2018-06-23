@@ -5,18 +5,18 @@ class Idris < Formula
 
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris-dev/archive/v1.2.0.tar.gz"
-  sha256 "a5160da66cdfb376df0ed87f0abb9dbc7feaa4efe77bcc7f9cc3b97425bc57f7"
+  url "https://github.com/idris-lang/Idris-dev/archive/v1.3.0.tar.gz"
+  sha256 "8cce6c8bd24daf18b18f2f270354c711529bef6231b3c9016c3dcb98de6bca99"
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
-    sha256 "7d878126d8a6317d8325f3f434884eb52fadb6dd712433e18437979531e1e2df" => :high_sierra
-    sha256 "2944aae8e9baf286e1c46814d88e0487f08a0bdd8279859475de0a9128f772df" => :sierra
-    sha256 "6e9af20653598297ee21e83c9b7cb44240b7a8797d22bf918548a8cde6f45fdf" => :el_capitan
+    sha256 "c40c05247f24827d330cf56e5bdb7d1c4e6359e1b7a7d413b069947332464792" => :high_sierra
+    sha256 "b050ef7399b75ce62c3894017d8db251f815180dea1a9081a18dfa9a29e883e6" => :sierra
+    sha256 "1a44245d15fe570ac53fa8ec18cd4bce345ee8c5539dd18fd09376fb90402c12" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.2" => :build
+  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
   depends_on "libffi"
 

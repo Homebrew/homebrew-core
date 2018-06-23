@@ -1,15 +1,15 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/6.3.0.tar.gz"
-  sha256 "dd989952c882e4eb9873f0b8d7610c0f623edce7f05d7903502d7cfa20766bbd"
+  url "https://github.com/jacobwilliams/json-fortran/archive/6.4.0.tar.gz"
+  sha256 "df9e7eeb2e76df55628cb33bf187aa64e2c5090c2740b45bbdeee3f6c24051a9"
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
     cellar :any
-    sha256 "fdb0423147af7c31aa96b0d5e38f4a7eac9f2273187ecbb3a359614d2ad69895" => :high_sierra
-    sha256 "73f4062405a630d863de9a30a9c21a7f19e2324f7eb0634d4f6c0b5b186a8270" => :sierra
-    sha256 "4de4edbbfe4ae62cf6af5dd8212cfc0d18feffd940dd98053e990ccde392acbb" => :el_capitan
+    sha256 "08b1c874581aea788a795351fc800716bab12f2d9caffb5d441e62799a3b4f71" => :high_sierra
+    sha256 "5fc154fa8368a942d828fdb3284d32a364abffd76707420873805818d5710b38" => :sierra
+    sha256 "534f47b2a4dd41244dfa9033d6d3b634a5bab3d3a92e2984219af49623e55260" => :el_capitan
   end
 
   option "with-unicode-support", "Build json-fortran to support unicode text in json objects and files"

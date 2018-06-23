@@ -3,12 +3,12 @@ class Dbxml < Formula
   homepage "https://www.oracle.com/database/berkeley-db/xml.html"
   url "https://download.oracle.com/berkeley-db/dbxml-6.1.4.tar.gz"
   sha256 "a8fc8f5e0c3b6e42741fa4dfc3b878c982ff8f5e5f14843f6a7e20d22e64251a"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "e1564424c73549fb4f4bc894343ec49d28ed0530f719472f3adf7495b73bd884" => :high_sierra
-    sha256 "eafcf704fb5fe6bfb10b6fbc9f2a117da2eaa4d7577e7ba715d64872b5dd26c5" => :sierra
-    sha256 "cfe1a3628daa3194ce60d109501c6c8694d7e0ff9fab11a1b64da423b00d518f" => :el_capitan
+    sha256 "1886b654f152fc03a6a6e781ca94e5ca3a08f7f190bc1168326bf46b337c02e9" => :high_sierra
+    sha256 "2a350300c31d639d46e9fafc16747d5cbe1897035acf1c365f795127535693b3" => :sierra
+    sha256 "e2c82383d79f243654a0bbebdfb141334bbf683c6925b5a8f3ce0d1568024fec" => :el_capitan
   end
 
   depends_on "xerces-c"

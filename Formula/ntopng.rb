@@ -1,7 +1,7 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  revision 1
+  revision 3
 
   stable do
     url "https://github.com/ntop/ntopng/archive/3.2.tar.gz"
@@ -14,9 +14,9 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 "b081d1c51e866004ca67152de76ff3a6fd29ebad435eaaf8b4e7bf233b313b4e" => :high_sierra
-    sha256 "9806a98d28853c7c8679c90bb2b9d40f62b4c1c3f4132d8aa36a6dc78d206796" => :sierra
-    sha256 "dc4876dbffa7871f30b899bacad272f721bcedc51019713691790825f867d1f9" => :el_capitan
+    sha256 "e7315a06207aebca9826d516e390142e039885f9630dd53daa0032ea5cecaf65" => :high_sierra
+    sha256 "9c0f54169acb2a4ddd67b201b83a946009d14d1e77590c648be4bb28fd26d099" => :sierra
+    sha256 "ec24a5e1ae49b79a747c5fe61e8e1bcd8f5d427ac1ca69b564cc8cce441859e7" => :el_capitan
   end
 
   head do
@@ -39,7 +39,7 @@ class Ntopng < Formula
   depends_on "rrdtool"
   depends_on "geoip"
   depends_on "redis"
-  depends_on "mysql"
+  depends_on "mysql-client"
 
   def install
     resource("nDPI").stage do

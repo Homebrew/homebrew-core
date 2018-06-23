@@ -72,7 +72,7 @@ class Luabind < Formula
     Version: 0.9.1
     Libs: -L${libdir} -lluabind
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   test do

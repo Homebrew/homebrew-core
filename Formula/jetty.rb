@@ -1,9 +1,9 @@
 class Jetty < Formula
   desc "Java servlet engine and webserver"
   homepage "https://www.eclipse.org/jetty/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.9.v20180320/jetty-distribution-9.4.9.v20180320.tar.gz"
-  version "9.4.9.v20180320"
-  sha256 "2d523483d2d77ae9a108a4d86b0581abbf6b50c86d97c59039329e4236eb817f"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/9.4.11.v20180605/jetty-distribution-9.4.11.v20180605.tar.gz"
+  version "9.4.11.v20180605"
+  sha256 "c286e87f36d56ef40821c5acb99acf3f90873d39bdbc1851f482c556c2dca5ae"
 
   bottle :unneeded
 

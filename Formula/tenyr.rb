@@ -1,15 +1,15 @@
 class Tenyr < Formula
   desc "32-bit computing environment (including simulated CPU)"
   homepage "http://tenyr.info/"
-  url "https://github.com/kulp/tenyr/archive/v0.9.5.tar.gz"
-  sha256 "3fe066d0dd12b56d6febd2aeb86a141272d1fe3904cb6421933168e98e8ba6aa"
+  url "https://github.com/kulp/tenyr/archive/v0.9.6.tar.gz"
+  sha256 "04b92514927abfb5b7814a203bd296e8b528ae759c755402427db4cbc3ddbc47"
   head "https://github.com/kulp/tenyr.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "8acd61335c5fa25698b1593649bb3102fb034b9d4f61826b91495877fcceb8ac" => :high_sierra
-    sha256 "d2f1bdbad0ab62d0bad8febca4de963414760ff4acd515974ae3e36067d77c5e" => :sierra
-    sha256 "45713c09432fd87341e37a8e4685364e5f8cb435919f6dd14d9e28165757cc75" => :el_capitan
+    sha256 "7ed5a7f7573c9970216c21dc1586fef1107ea97e20f143dd11ee41c6627d13b3" => :high_sierra
+    sha256 "0b734e40019ad537072b648526d08c6d34c669251ca5bb8b4c22a3c2bd3ea745" => :sierra
+    sha256 "1b09019bb0131b4ce6599612e55a828d22390757473c22dceab47aa30671fd1f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

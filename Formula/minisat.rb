@@ -3,15 +3,12 @@ class Minisat < Formula
   homepage "http://minisat.se"
   url "https://github.com/niklasso/minisat/archive/releases/2.2.0.tar.gz"
   sha256 "3ed44da999744c0a1be269df23c3ed8731cdb83c44a4f3aa29b3d6859bb2a4da"
-  revision 1
+  revision 2
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "38bf5958fc84c017176cfaa13bee246f7a36efc5e992f26728cce654d13fa99c" => :high_sierra
-    sha256 "49beae2955b65f28958cca6bbc62d2b167b60ff12c1aa6b11b271f4a930dc147" => :sierra
-    sha256 "4b77aa17b8b641964712013ffd0468e35c35a24f04ab285928d40b297abab50d" => :el_capitan
-    sha256 "a59c127edb56b612832b7dce88ff7bb426b42d573130a4d201d3f1c619e47006" => :yosemite
+    sha256 "20256b35c118c4b338cd8eb74fc81838dc3da50c2f3464238ad1c9b042574b03" => :high_sierra
+    sha256 "902e87ede339024a790a70fdfad1d4c6d0a7c18f10b0392cc0b4b32bceedca7f" => :sierra
+    sha256 "8fd1e0f6dfaae107599581e674f1ed229436187d3a85a9290e5ff1c16cc21047" => :el_capitan
   end
 
   depends_on "gcc"

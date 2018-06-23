@@ -2,14 +2,14 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.7.2.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.7.2.tar.gz"
-  sha256 "917a8779c342177ff3751a2bf955d0262d1d8916a4b408930c45cef326700995"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.7.4.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.7.4.tar.gz"
+  sha256 "1e3a9fada06c1c060011470ad0ff960de28f9a0515277d7336f7e09362517da6"
 
   bottle do
-    sha256 "c94862d720fb74d8abdd52ccc978bcf4e39ef72d368591d0bb4bba55a473d979" => :high_sierra
-    sha256 "546be1e176392db3d44c537b9ebe55f04026eaaa18e89520116a359a1d52b028" => :sierra
-    sha256 "1056a555641a1199fdf53efb217c46c6a4ef5ca997187a9ed0df5ceef928edb0" => :el_capitan
+    sha256 "2abf2817dc620567a9b2fb276559956db8876f373ed99cea07e801e5602199da" => :high_sierra
+    sha256 "a38f908150d5c5db02c78321936d72898b84f502d04067de5e2a77a8225720f4" => :sierra
+    sha256 "914ced83b7b05447f6a1fa844f6c8042c06b7694abb50966c0afa9e9d9d6ab31" => :el_capitan
   end
 
   head do
@@ -70,7 +70,7 @@ class Libressl < Formula
 
     and run
       #{opt_bin}/openssl certhash #{etc}/libressl/certs
-    EOS
+  EOS
   end
 
   test do

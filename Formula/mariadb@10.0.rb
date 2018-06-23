@@ -1,13 +1,14 @@
 class MariadbAT100 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.0.34/source/mariadb-10.0.34.tar.gz"
-  sha256 "c5bb2a67dcce84ef39b59a63728a3d2a0196226041416491f0bc22d3388173ac"
+  url "https://downloads.mariadb.org/f/mariadb-10.0.35/source/mariadb-10.0.35.tar.gz"
+  sha256 "1b8368e9653570ccb555a07db3de3a8b7277e7587a916d176d2ec70d3c05c00e"
 
   bottle do
-    sha256 "3f5815d04b1c16c228b2d0137875710c3b52ce742064a5c10337ad94865cb954" => :high_sierra
-    sha256 "758e853f7195330ae0a9a79c93169d041baa790fd851885a0deeb687a19a11fe" => :sierra
-    sha256 "48a6f0e5db31c83e6df401877d26b24deaf03fb291c2dc70dafbe3e0c2c0555f" => :el_capitan
+    rebuild 1
+    sha256 "a2c44bb96652e65c7b2edd1b475ea93d9e61831f0b698833d1f3ab0c97ab2cc0" => :high_sierra
+    sha256 "a24a25aa3ac06706d59641e601f054da3c8bca5fd0f13ca8be9a2c0440f6322a" => :sierra
+    sha256 "90146fd1d27f7fd3636e597f57cb25f8823b7a0fac1a66812fe824eb0a35b89c" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -45,8 +46,8 @@ class MariadbAT100 < Formula
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DWITH_PCRE=bundled
       -DWITH_SSL=yes
-      -DDEFAULT_CHARSET=utf8
-      -DDEFAULT_COLLATION=utf8_general_ci
+      -DDEFAULT_CHARSET=utf8mb4
+      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
@@ -128,7 +129,7 @@ class MariadbAT100 < Formula
 
     To connect:
         mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.0/bin/mysql.server start"
@@ -153,7 +154,7 @@ class MariadbAT100 < Formula
       <string>#{var}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

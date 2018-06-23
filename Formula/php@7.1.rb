@@ -1,13 +1,14 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.1.17.tar.xz/from/this/mirror"
-  sha256 "1a784806866e06367f7a5c88775d239d6f30041c7ce65a8232d03a3d4de56d56"
+  url "https://php.net/get/php-7.1.18.tar.xz/from/this/mirror"
+  sha256 "8bd91cea072ea5b368cc9b4533a1a683eb426abdacbf024bb6ffa9b799cd3b01"
+  revision 1
 
   bottle do
-    sha256 "ce7b4f4794d396439f3b452bac0b180677e27ddd41557026e53597997a42e0bd" => :high_sierra
-    sha256 "761aef3d37895072132045ee5b8a82565a94437320ee67ff073cc914898f35c5" => :sierra
-    sha256 "dd413b3c8c78a7ae745c272665a9937b35409053b5dbd77517a3e99701ed13f6" => :el_capitan
+    sha256 "20d5522be3d799aa3035df3a95125959ef6af8c2dc16ff5264ea8ed129802c60" => :high_sierra
+    sha256 "20429231a083105079857aa2e3cc3ae881b326aaa4f71c3e259a259aa5a52c80" => :sierra
+    sha256 "6c7b4de3a7114f42af7fe58ab7172088cc49ff9b90c2b8e79de57f6151781f8b" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -71,9 +72,6 @@ class PhpAT71 < Formula
 
     # Required due to icu4c dependency
     ENV.cxx11
-
-    # icu4c 61.1 compatability
-    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     config_path = etc/"php/#{php_version}"
     # Prevent system pear config from inhibiting pear install
@@ -183,23 +181,6 @@ class PhpAT71 < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      To enable PHP in Apache add the following to httpd.conf and restart Apache:
-          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
-
-          <FilesMatch \\.php$>
-              SetHandler application/x-httpd-php
-          </FilesMatch>
-
-      Finally, check DirectoryIndex includes index.php
-          DirectoryIndex index.php index.html
-
-      The php.ini and php-fpm.ini file can be found in:
-          #{etc}/php/#{php_version}/
-    EOS
-  end
-
   def post_install
     pear_prefix = pkgshare/"pear"
     pear_files = %W[
@@ -265,6 +246,23 @@ class PhpAT71 < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      To enable PHP in Apache add the following to httpd.conf and restart Apache:
+          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
+
+          <FilesMatch \\.php$>
+              SetHandler application/x-httpd-php
+          </FilesMatch>
+
+      Finally, check DirectoryIndex includes index.php
+          DirectoryIndex index.php index.html
+
+      The php.ini and php-fpm.ini file can be found in:
+          #{etc}/php/#{php_version}/
+    EOS
+  end
+
   def php_version
     version.to_s.split(".")[0..1].join(".")
   end
@@ -293,7 +291,7 @@ class PhpAT71 < Formula
         <string>#{var}/log/php-fpm.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

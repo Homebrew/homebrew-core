@@ -62,7 +62,7 @@ class Bubbros < Formula
     #!/bin/bash
     cd "#{prefix}"
     python "#{target}" "$@"
-    EOS
+  EOS
   end
 
   def caveats

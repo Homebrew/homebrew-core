@@ -3,12 +3,13 @@ class Ykpers < Formula
   homepage "https://developers.yubico.com/yubikey-personalization/"
   url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.19.0.tar.gz"
   sha256 "2bc8afa16d495a486582bad916d16de1f67c0cce9bb0a35c3123376c2d609480"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "033fde5866eef8f18f9359a6a2fa93ee10692ded0215921f83bc02fc48f7ca01" => :high_sierra
-    sha256 "5097fdfc181c4b7cf384c149dd566f4aab24099212835ec13dc93cdb903a19c2" => :sierra
-    sha256 "a621bd54eb6823e19baabef290a18834ac0d5b8f886eff267f8180d3fb11f71d" => :el_capitan
+    sha256 "cafe1f694f16a7b8d6f4f9f264f57bfa98a6cd99b68bf1bd12f7be2468078b7e" => :high_sierra
+    sha256 "b2c86248fbf8dee9eb4ddf1fe5394606d821d8b8950b709a7a1499a22a3b2f4a" => :sierra
+    sha256 "4917acf9815efca0407441ac895478bfba0abc611bb143d65f8c5400b17787c0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

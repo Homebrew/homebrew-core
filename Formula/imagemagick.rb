@@ -4,20 +4,20 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-28.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-28.tar.xz"
-  sha256 "e8311c2dd536367808a633aa3f4f0f6b1a34d04ed06b3db59c21d43cab41d4ce"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.8-2.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-2.tar.xz"
+  sha256 "6e62397042deaef1d60d7e07b4060e9782cfaaa5db9c74d91317ee40cb7519eb"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "bec28c32f9b60bfc0a63e6804805ea83a02a8d81c83d2f8c9a3194cce5e055e9" => :high_sierra
-    sha256 "381c4679966805dca659ed1ce84dcb6684747947ca337a276ae0c913732bc9e9" => :sierra
-    sha256 "edaf697f69e5f7e52a9dea37073ced549c84a9f960ce0bc81bc6addd4ed29bd9" => :el_capitan
+    sha256 "3eacc556188fae94285bb8bfc9458a661c6373f9858c3ba256d9becd18177e5c" => :high_sierra
+    sha256 "c7688694dac40854bfcc479d9dfa07e8c6e69166c4e6ca9fe15e5abb49459b2a" => :sierra
+    sha256 "0ce64eb7abbfd0bb52c7ed47265756309fbaeebbd34878c4581e9bb7251069fa" => :el_capitan
   end
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
-  option "with-libde265", "Compile with HEIF support"
+  option "with-libheif", "Compile with HEIF support"
   option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
@@ -29,6 +29,7 @@ class Imagemagick < Formula
   deprecated_option "enable-hdri" => "with-hdri"
   deprecated_option "with-gcc" => "with-openmp"
   deprecated_option "with-jp2" => "with-openjpeg"
+  deprecated_option "with-libde265" => "with-libheif"
 
   depends_on "pkg-config" => :build
   depends_on "libtool"
@@ -43,7 +44,7 @@ class Imagemagick < Formula
   depends_on "fontconfig" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
-  depends_on "libde265" => :optional
+  depends_on "libheif" => :optional
   depends_on "libwmf" => :optional
   depends_on "librsvg" => :optional
   depends_on "liblqr" => :optional

@@ -4,19 +4,19 @@ class CrystalLang < Formula
   revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.24.2.tar.gz"
-    sha256 "de50a455a509f4f80025eb8773818859ad6664a79f5f0fafecdd87ff5ccef6d0"
+    url "https://github.com/crystal-lang/crystal/archive/0.25.0.tar.gz"
+    sha256 "78cc53289bd983598133f8b789d95e01fad0bc95b512d7ccf60e33e36710ddde"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.7.2.tar.gz"
-      sha256 "97a3681e74d2fdcba0575f6906f4ba0aefc709a2eb672c7289c63176ff4f3be2"
+      url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
+      sha256 "75c74ab6acf2d5c59f61a7efd3bbc3c4b1d65217f910340cb818ebf5233207a5"
     end
   end
 
   bottle do
-    sha256 "dee28ba7dd3e928736b6cac675e18baad1e6124cd70153aed3438399e85566cf" => :high_sierra
-    sha256 "202fd9729a13992f855507ec85cf18850b286f694161872f846b18ee2a1eaef9" => :sierra
-    sha256 "4d972d8e22dd8d1679ea910e50d3efc5e19350f0554837c25f8daed857da78dd" => :el_capitan
+    sha256 "5331928212087fad6434ec46031d1d5a7bbca583943e726ae2a1e119637b4337" => :high_sierra
+    sha256 "28f29b34da9ab7b9d47873fe72cb910879aa68b14f3a2cedd95d22d98d63ad92" => :sierra
+    sha256 "26b09b77b78d71a6d4b74cf28cb1890976124fe4f315dc6f3522f28b6d1b252b" => :el_capitan
   end
 
   head do
@@ -40,9 +40,15 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/v0.24.1/crystal-0.24.1-2-darwin-x86_64.tar.gz"
-    version "0.24.1"
-    sha256 "2be256462f4388cd3bb14b1378ef94d668ab9d870944454e828b4145155428a0"
+    if MacOS.version <= :el_capitan # no clock_gettime
+      url "https://github.com/crystal-lang/crystal/releases/download/v0.24.1/crystal-0.24.1-2-darwin-x86_64.tar.gz"
+      version "0.24.1"
+      sha256 "2be256462f4388cd3bb14b1378ef94d668ab9d870944454e828b4145155428a0"
+    else
+      url "https://github.com/crystal-lang/crystal/releases/download/0.24.2/crystal-0.24.2-1-darwin-x86_64.tar.gz"
+      version "0.24.2"
+      sha256 "05028a6ac8507b27a6dd5153f218deb255778d63ab7b45588cef3d974b5ce8ef"
+    end
   end
 
   def install

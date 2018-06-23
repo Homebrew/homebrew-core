@@ -3,13 +3,12 @@ class Imake < Formula
   homepage "https://xorg.freedesktop.org"
   url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.7.tar.bz2"
   sha256 "690c2c4ac1fad2470a5ea73156cf930b8040dc821a0da4e322014a42c045f37e"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "0d92c8f7117f0bce1df2b039501c15be3a381d0dbd94ac31eb1e4e50410a59a7" => :high_sierra
-    sha256 "60c503d489aea63b678f857c5b58284023b3f793fa0ce55d8812157342c71c80" => :sierra
-    sha256 "ac11d2c8e97b384642ca9270568fef19d9a1a89da0ea2e3e1ea5a81b82d4fb9b" => :el_capitan
-    sha256 "d3c95519b1bfdc89e7522ac81109e7ff057a319746ad51c8c11a6ff822a14e93" => :yosemite
+    sha256 "f7b7121138f0c2d0d5c5dba574143f8c911b4be70538f1dbba4aeebe0dd5773f" => :high_sierra
+    sha256 "1341c20e98ef8bd974202df0805c0ca9132eb436ff8e2e06624f1dd4c19094bc" => :sierra
+    sha256 "941acafab09fe8afefe785eddce4565827de4f310494f783995b5035d95e5b4a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

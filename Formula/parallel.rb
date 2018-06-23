@@ -1,16 +1,16 @@
 class Parallel < Formula
   desc "Shell command parallelization utility"
   homepage "https://savannah.gnu.org/projects/parallel/"
-  url "https://ftp.gnu.org/gnu/parallel/parallel-20180422.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/parallel/parallel-20180422.tar.bz2"
-  sha256 "9dce21cac7d91bd84cef0da106182ad3c96ac18e012595df4981b4c7fbba4e77"
+  url "https://ftp.gnu.org/gnu/parallel/parallel-20180622.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/parallel/parallel-20180622.tar.bz2"
+  sha256 "f2cc6ac37d0b68d90b81570c0e4be589dd8c131d204320acaa173544ad6d21d9"
   head "https://git.savannah.gnu.org/git/parallel.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "517946a4ad5ab0918f5d64fe382a76cf9f7574fcf665457506fac880bc54b83a" => :high_sierra
-    sha256 "517946a4ad5ab0918f5d64fe382a76cf9f7574fcf665457506fac880bc54b83a" => :sierra
-    sha256 "517946a4ad5ab0918f5d64fe382a76cf9f7574fcf665457506fac880bc54b83a" => :el_capitan
+    sha256 "1218d39b959d7cf05ff48c1a46f6f910c032687216b9a89da54106ec8d876aed" => :high_sierra
+    sha256 "1218d39b959d7cf05ff48c1a46f6f910c032687216b9a89da54106ec8d876aed" => :sierra
+    sha256 "1218d39b959d7cf05ff48c1a46f6f910c032687216b9a89da54106ec8d876aed" => :el_capitan
   end
 
   if Tab.for_name("moreutils").with?("parallel")

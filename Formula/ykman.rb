@@ -3,14 +3,14 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.6.1.tar.gz"
-  sha256 "bd5400b4bd246b3e3aa04e76e4fc665d92389709d6574d2244e3c94a12fe16ad"
+  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.7.0.tar.gz"
+  sha256 "f99b82b40e06782a4003a634d59b386ee9ab92494e5d562069e6f1c2e4a07b8f"
 
   bottle do
     cellar :any
-    sha256 "fa1f2f4ddfdb056526c7694374f68b5a7ee84f8dec5a53c77eef8b6d06aabb7f" => :high_sierra
-    sha256 "ff91462f4805f101985326ca342f0c0d0fe0c5bfbce4d1a205db01981ec7a65b" => :sierra
-    sha256 "a9307c73cd28dc400318b770c36d7ec2e5bf88e9d749a3ffa570b946ef86ab92" => :el_capitan
+    sha256 "e17ca0a4bede88f9824b0ab8a4e4c8992fa48ae4383a821ae7d4510c038a0f0a" => :high_sierra
+    sha256 "8151695ec7ab580143a80b612b5254399aefdbc6b63cd6723cc0a757d1682349" => :sierra
+    sha256 "c27eb7ae105f8d61f956bef5da55c0b5f06eb66485f93a62dc9831b99daf80ca" => :el_capitan
   end
 
   head do

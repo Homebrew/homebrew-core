@@ -2,14 +2,14 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/v8.0.1750.tar.gz"
-  sha256 "b28981dcba775fd28ef01516b8bb35dd880f9db3b530a6ec620d45a61af40e31"
+  url "https://github.com/vim/vim/archive/v8.1.0050.tar.gz"
+  sha256 "1b2081a19347ec13703facd1f662e5f2c58d870a217bf3f8d34f8b777bab984b"
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "2711f6b3822d388040bb2a6a8646236f99a22c4a42f246544b7588f65eb2309e" => :high_sierra
-    sha256 "9034af80b8cab01d7c60acff3ee035e2abd4afcae3b4ab2dac290101c41598da" => :sierra
-    sha256 "aa2cc10d5c27e19dd68a40dd698a0b7a6b9f7128e945c1634fbe8f79f7ace3b4" => :el_capitan
+    sha256 "71014974af211485e230ad156d84779ff71c2675baa99bb83a7f4946c77ae261" => :high_sierra
+    sha256 "f8d6af3bb045edbbe0535dabd3b7f9a865781266bb58badb30e439bcddccf566" => :sierra
+    sha256 "37bb53fd71c3ca2f3da6eabeebc7907cef4eb370187b75bb00b11f80d83f2f89" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
@@ -76,9 +76,14 @@ class Vim < Formula
     end
 
     if build.with?("lua") || build.with?("luajit")
-      ENV["LUA_PREFIX"] = HOMEBREW_PREFIX
       opts << "--enable-luainterp"
-      opts << "--with-luajit" if build.with? "luajit"
+
+      if build.with? "luajit"
+        opts << "--with-luajit"
+        opts << "--with-lua-prefix=#{Formula["luajit"].opt_prefix}"
+      else
+        opts << "--with-lua-prefix=#{Formula["lua"].opt_prefix}"
+      end
 
       if build.with?("lua") && build.with?("luajit")
         onoe <<~EOS

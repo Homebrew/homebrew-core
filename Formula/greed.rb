@@ -27,7 +27,7 @@ class Greed < Formula
   def caveats; <<~EOS
     High scores will be stored in the following location:
       #{var}/greed/greed.hs
-    EOS
+  EOS
   end
 
   test do

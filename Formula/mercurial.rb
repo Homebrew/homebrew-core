@@ -3,13 +3,13 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.5.3.tar.gz"
-  sha256 "9c4cb257ef1e59e9aba693cc285a6136f7bb4e8300f598ff50ff8b6fc77808fc"
+  url "https://mercurial-scm.org/release/mercurial-4.6.1.tar.gz"
+  sha256 "89fa8ecbc8aa6e48e98f9803a1683ba91367124295dba2407b28c34ca621108d"
 
   bottle do
-    sha256 "bfa7214141279e0221d81c03d2558ac3e0013bcdeb62e353b3fa65389e635950" => :high_sierra
-    sha256 "df975ebf08b4a7b8e6b0e3b6b0cbfa9bf2b2489e8eaeb480729c4b8668f457c2" => :sierra
-    sha256 "0d10b8609d08895a4042f93158a0169145413adfe4855bbb62a22a1716b0a3d7" => :el_capitan
+    sha256 "b28263819821743476462e43f75948365ee7541549542f2a325ac71aeb63134c" => :high_sierra
+    sha256 "4dea703d7ea51d4a60a2fe2d88d02a193384a19a30fd565143d47e290329c9db" => :sierra
+    sha256 "884164e70127ee75d40e568e2f220525808ad4fa3312e97a945b94d1202f3db1" => :el_capitan
   end
 
   depends_on "python@2"

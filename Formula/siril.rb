@@ -1,15 +1,14 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://free-astro.org/index.php/Siril"
-  url "https://free-astro.org/download/siril-0.9.8.3.tar.bz2"
-  sha256 "f6ca57b668441505010673b153f85fa23efdf41fe74ee7ecb5a4926a572acfa3"
-  revision 2
+  url "https://free-astro.org/download/siril-0.9.9.tar.bz2"
+  sha256 "7958985393eca33b2db173090af78a46e42a7daefe7f6eaa7efa4ba261fa46f3"
   head "https://free-astro.org/svn/siril/", :using => :svn
 
   bottle do
-    sha256 "15da3809a94bc1c733c56c0291ae90c4475ed0e59e2e84553b51d30430d1040c" => :high_sierra
-    sha256 "7dc626da3c06f0aafc1d5a164e6da3d0933aa0c23e686f8f8ad203f205673b50" => :sierra
-    sha256 "5d17fea1075b783349ffdec53a855e42bbfec6679fde32823186c964e9dcab12" => :el_capitan
+    sha256 "ca1c7cfbb38b8ba967e66bcd04ec198f2be3c3494230efee481b3d522c9db03f" => :high_sierra
+    sha256 "0df97002255db433f7e405afca317812c6acd640dd872857b263d303b6f5b3eb" => :sierra
+    sha256 "cdf7b00d54e5fe725a1238f108108f99daeddb2b375a92149eaf82c53b47dccf" => :el_capitan
   end
 
   depends_on "autoconf" => :build

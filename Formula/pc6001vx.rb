@@ -1,15 +1,15 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "http://eighttails.seesaa.net/"
-  url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.32.0_src.tar.gz"
-  sha256 "0626ccac67f9813103c96823f6a58c187a8e7eb5a5b1a90945ff6e0807fd875b"
+  url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.33.0_src.tar.gz"
+  sha256 "b01ab14a02dc136d249aee327d3c18f4a4136bdb4100dad39018c0a2f4c3eb0b"
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
     cellar :any
-    sha256 "2a840ab69b0189419ab029ac7211bfe80331771496aa9145636dcbf26bd5a314" => :high_sierra
-    sha256 "2a840ab69b0189419ab029ac7211bfe80331771496aa9145636dcbf26bd5a314" => :sierra
-    sha256 "6eda162bac3e367d087bcfcdafcfb1a67b9a3acb2de4a9b53956d1f4f113cc0b" => :el_capitan
+    sha256 "8989ed42d20a7401572d8ccb4b5174a871fc443bfeec6110149f6eb950a1a207" => :high_sierra
+    sha256 "3680e8f30c439451e08b43bdf75c05641314466042b81f0a226b69eed7176751" => :sierra
+    sha256 "256f04c23cf1742c5534910281e3e82c518705fe02d3d9bf8a4d5987073edd9a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -25,11 +25,6 @@ class Pc6001vx < Formula
     ENV.append_to_cflags "-Wno-reserved-user-defined-literal"
     # Use libc++ explicitly, otherwise build fails
     ENV.append_to_cflags "-stdlib=libc++" if ENV.compiler == :clang
-
-    # Unix scope in the QT project file includes MacOS, always enabling x11 and x11widgets
-    # As a workaround, remove 'macx' from the unix scope in this instance
-    inreplace "PC6001VX.pro", "\#Configuration for UNIX variants\nunix {",
-                              "\#Configuration for UNIX variants\nunix:!macx {"
 
     system "qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
     system "make"

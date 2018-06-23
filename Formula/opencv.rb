@@ -3,12 +3,13 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.1.tar.gz"
   sha256 "f1b87684d75496a1054405ae3ee0b6573acaf3dad39eaf4f1d66fdd7e03dc852"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "fa8753705aa7471f18cce91c907e6b9c011ea3b2d58985bf3ec6fce18daa1175" => :high_sierra
-    sha256 "a9d0e637613fcc752b46e18d2b0fe846a68e9d847214d01ade05f2944d411adb" => :sierra
-    sha256 "ee91e9da5d6a0638d02bbe3eadce187691ce6fd3423f562cc9ab82bb0ed21832" => :el_capitan
+    rebuild 2
+    sha256 "f9abd6049e1c5b52ac9dad6b7605bb09fb3936a6da5b8f613546bf6d4d199a1c" => :high_sierra
+    sha256 "2fd9d42ab0c9b3ee736ca60516dfc8224100e8fe2601c88ce7bc860763b7994d" => :sierra
+    sha256 "7fbbf8dde773d2efe29ba7fcbed805db8a1b3201b6b713c917459bb4d59c82cc" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -93,6 +94,11 @@ class Opencv < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      system "make"
+      lib.install Dir["lib/*.a"]
+      lib.install Dir["3rdparty/**/*.a"]
     end
   end
 

@@ -1,40 +1,28 @@
-require "language/go"
-
 class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
-  url "https://github.com/tsenart/vegeta/archive/v6.3.0.tar.gz"
-  sha256 "b9eaf9dc748fa58360395641ff50a33e53c805bf8a45ba3d787133d97b2269c6"
+  url "https://github.com/tsenart/vegeta.git",
+      :tag => "v8.0.0",
+      :revision => "66f3db7f7dcc749f10144cbe4289f32adae346d3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db26954bbe7b4daa945ca7dbed49d629579416da33fe16333fd36a6e11bbce0d" => :high_sierra
-    sha256 "47e1b8f045671f42701a959baac1d37e967b6be0196dff6b8c088df5763a2a5f" => :sierra
-    sha256 "aadfb9ec8717221b59cad02eb1eec3464e75e8c05ff3f695f07291b8a9b87fdb" => :el_capitan
-    sha256 "4e449d903b750dbbe063b024cd06ba82edb1490db4774fdda9c4e228df8256be" => :yosemite
+    sha256 "da42d92e8396f4041bbefd36c654285c66dd8cf5c84872e8dcdb55a623480e70" => :high_sierra
+    sha256 "ddd82b9d40026254d4e64fa5b73d82e4ce7b0d6ff559381a72c541fc5935dbac" => :sierra
+    sha256 "e5c6176bb601d861ba50d89a50ae19a0a6998a5b06b6f8b9e87c72ade4e25c23" => :el_capitan
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
-
-  go_resource "github.com/streadway/quantile" do
-    url "https://github.com/streadway/quantile.git",
-        :revision => "b0c588724d25ae13f5afb3d90efec0edc636432b"
-  end
-
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-        :revision => "a6577fac2d73be281a500b310739095313165611"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["CGO_ENABLED"] = "0"
-
-    (buildpath/"src/github.com/tsenart").mkpath
-    ln_s buildpath, buildpath/"src/github.com/tsenart/vegeta"
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-ldflags", "-X main.Version=#{version}",
-                          "-o", bin/"vegeta"
+    (buildpath/"src/github.com/tsenart/vegeta").install buildpath.children
+    cd "src/github.com/tsenart/vegeta" do
+      system "make", "vegeta"
+      bin.install "vegeta"
+      prefix.install_metafiles
+    end
   end
 
   test do

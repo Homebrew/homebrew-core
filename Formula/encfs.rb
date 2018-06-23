@@ -1,14 +1,14 @@
 class Encfs < Formula
   desc "Encrypted pass-through FUSE file system"
   homepage "https://vgough.github.io/encfs/"
-  url "https://github.com/vgough/encfs/archive/v1.9.4.tar.gz"
-  sha256 "20656b4ead58ebd8d5f49a5c346b59e70dc2dc31220159e5b5a115bfa1bc40d6"
+  url "https://github.com/vgough/encfs/archive/v1.9.5.tar.gz"
+  sha256 "4709f05395ccbad6c0a5b40a4619d60aafe3473b1a79bafb3aa700b1f756fd63"
   head "https://github.com/vgough/encfs.git"
 
   bottle do
-    sha256 "0c72ec1434ca15328e6f457cd597573e89ce6eec094cf32a81bf86e54179ddc8" => :high_sierra
-    sha256 "e73cfe97ed8c56792ee5b8ed69b6edcad6de395b52b595b6b401146d88794f34" => :sierra
-    sha256 "947383907b41cb5911c4d2f3b6f5b1a709bd7b049c0d296b0e2248de85673637" => :el_capitan
+    sha256 "6fb4502bafeefe1e2a92f3a0b2dc16aa246344fe781b2b080d8895ee9f4d631d" => :high_sierra
+    sha256 "f2d430dea3a7794c14d865a4ae9426f44254dfc9f84ece48b6699fd64a5305d0" => :sierra
+    sha256 "e41a174da5447d3381a8fe39b1740d633c53c5819545ec53878743aad925b6b0" => :el_capitan
   end
 
   depends_on "cmake" => :build

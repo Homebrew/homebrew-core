@@ -48,7 +48,7 @@ an app bundle on OS X.
 This clever hack sidesteps the headache of packing simple programs into app
 bundles:
 
-  http://www.miscdebris.net/blog/2010/03/30/
+  https://www.miscdebris.net/blog/2010/03/30/
     solution-for-my-mac-os-x-gui-program-doesnt-get-focus-if-its-outside-an-application-bundle
 ---
  Main.cpp |   21 +++++++++++++++++++++
@@ -82,7 +82,7 @@ index a857e8a..9c90afb 100644
 +  //
 +  // Credit for this hack goes to:
 +  //
-+  //   http://www.miscdebris.net/blog/2010/03/30/solution-for-my-mac-os-x-gui-program-doesnt-get-focus-if-its-outside-an-application-bundle
++  //   https://www.miscdebris.net/blog/2010/03/30/solution-for-my-mac-os-x-gui-program-doesnt-get-focus-if-its-outside-an-application-bundle
 +  ProcessSerialNumber psn;
 +
 +  GetCurrentProcess( &psn );

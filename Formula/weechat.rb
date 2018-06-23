@@ -6,9 +6,10 @@ class Weechat < Formula
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "7aa5f3fe12d6d3480110a5f6da0b5db854be8b867a0a07c94e7f350b62f9d18b" => :high_sierra
-    sha256 "75a32256d8605e51838172c82ce845f94740da23a0cfff440026e152c61f9cc3" => :sierra
-    sha256 "28381b3e219908e19860b10d5dd680f8e25efb3145da6164df51d6d9070a6739" => :el_capitan
+    rebuild 1
+    sha256 "08863a70ef255dc707ee7c4e4ffc1d5ee08e3288e299e6387836e6a22640e33d" => :high_sierra
+    sha256 "713e6d6a49b193d4b191b93231563bf7126ebe62f9580c7903303fd4d37e9622" => :sierra
+    sha256 "3b0a3ee4aea39eff4a066705950feccf630bdc6ecc4d5137dadfa4dcbb36c674" => :el_capitan
   end
 
   option "with-perl", "Build the perl module"
@@ -19,6 +20,7 @@ class Weechat < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
+  depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
@@ -33,6 +35,7 @@ class Weechat < Formula
 
   def install
     args = std_cmake_args + %W[
+      -DENABLE_MAN=ON
       -DENABLE_GUILE=OFF
       -DCA_FILE=#{etc}/openssl/cert.pem
       -DENABLE_JAVASCRIPT=OFF

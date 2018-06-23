@@ -1,15 +1,15 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.1.0.tar.gz"
-  sha256 "1d69f50f2e37421783b5fe0945429fb35df91f3c75411c333214146202de5b04"
+  url "https://github.com/grafana/grafana/archive/v5.1.4.tar.gz"
+  sha256 "16ce88a5457ffade7f045acbb6485e0f226fa98ea9f44b9c00640c1c8e925823"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4553650e512ba846399916434fbe9a53a7243f51b607d3bb7d1f3f6c0326351" => :high_sierra
-    sha256 "64c271f1e23aa33a1dff581c72e5dce3cac87d9c7c746556e992c9844a17e0f0" => :sierra
-    sha256 "78f04afe0710d461e26b0f92589e4ee0adb61e8baa3047b0e85a73e403975251" => :el_capitan
+    sha256 "3257e80880ef0405ea767154fb959ce4c5d67eec642d85a06673ae89bc31beeb" => :high_sierra
+    sha256 "167ba2b835739bbce61eeefdd3a7d3439e2eb8c49173736df9aa6eeb439400ab" => :sierra
+    sha256 "b7f0d5f92009739552d362ee285ccd654f8b31983a8f580047c221109719f9cf" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -87,7 +87,7 @@ class Grafana < Formula
         </dict>
       </dict>
     </plist>
-   EOS
+  EOS
   end
 
   test do

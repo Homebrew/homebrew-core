@@ -1,18 +1,16 @@
 class Streamlink < Formula
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://github.com/streamlink/streamlink/releases/download/0.11.0/streamlink-0.11.0.tar.gz"
-  sha256 "dc70b72e22d24b63ccb205d9c7583510049f4b2782e31ac5ebd99fec074ca292"
+  url "https://github.com/streamlink/streamlink/releases/download/0.13.0/streamlink-0.13.0.tar.gz"
+  sha256 "4d91dbc8233e8737a9dcb629ac471373e903116b3a35c882205c95bdb14eac29"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6a03600dd444d9e2db4beb797ad1fac9e55b4c4ebf923443c839849124a213e0" => :high_sierra
-    sha256 "9bc5a58dc2e3f6c59b775b84fa1d770c521c57955c59afd9f6a90bc29b2d71b4" => :sierra
-    sha256 "1806d17ae80b006476a2306ec4efc948712d0f6a2a968410ed3028e28c05eb7f" => :el_capitan
+    sha256 "c62932689fa88cb6b4bac76509135716e3e7b2267f6d27a3449ec3dee4382abc" => :high_sierra
+    sha256 "be5fdbf8c4412ba531094f2ae126636b7f64f930879a0295864260db79357526" => :sierra
+    sha256 "6617285cec58ea1449551269074fac016f566a4836de0175c6bf852895a8b45d" => :el_capitan
   end
 
-  # Use brewed python on Yosemite and prior to avoid needing urllib3[secure]
-  # See https://github.com/streamlink/streamlink/commit/0f35b9b2
   depends_on "python@2"
 
   resource "backports.shutil_get_terminal_size" do
@@ -31,8 +29,8 @@ class Streamlink < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
-    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
+    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
+    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
   end
 
   resource "chardet" do
@@ -60,9 +58,14 @@ class Streamlink < Formula
     sha256 "fbeb17bed90d15b1f6d6794aa2ea458e5e273a1d29b6f4939423c97640e14933"
   end
 
+  resource "isodate" do
+    url "https://files.pythonhosted.org/packages/b1/80/fb8c13a4cd38eb5021dc3741a9e588e4d1de88d895c1910c6fc8a08b7a70/isodate-0.6.0.tar.gz"
+    sha256 "2e364a3d5759479cdb2d37cce6b9376ea504db2ff90252a2e5b7cc89cc9ff2d8"
+  end
+
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/86/d1/f1c6b1e4b2dd5e3f2f56f6f3c74ac9893252dbef9ac0e55c8b4538e56db0/pycryptodome-3.5.1.tar.gz"
-    sha256 "b7957736f5e868416b06ff033f8525e64630c99a8880b531836605190b0cac96"
+    url "https://files.pythonhosted.org/packages/f9/72/63fc67bf43286a0fe6a377adc68cec30dcb02b862b10d667788bde112741/pycryptodome-3.6.1.tar.gz"
+    sha256 "15013007e393d0cc0e69f4329a47c4c8597b7f3d02c12c03f805405542f70c71"
   end
 
   resource "PySocks" do
@@ -91,8 +94,8 @@ class Streamlink < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/c9/bb/8d3dd9063cfe0cd5d03fe6a1f74ddd948f384e9c1eff0eb978f3976a7d27/websocket_client-0.47.0.tar.gz"
-    sha256 "a453dc4dfa6e0db3d8fd7738a308a88effe6240c59f3226eb93e8f020c216149"
+    url "https://files.pythonhosted.org/packages/28/85/df04ec21c622728316b591c2852fd20a0e74324eeb6ca26f351844ba815f/websocket_client-0.48.0.tar.gz"
+    sha256 "18f1170e6a1b5463986739d9fd45c4308b0d025c1b2f9b88788d8f69e8a5eb4a"
   end
 
   def install

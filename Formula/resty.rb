@@ -14,7 +14,6 @@ class Resty < Formula
 
   resource "JSON" do
     url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/I/IS/ISHIGAKI/JSON-2.94.tar.gz"
     sha256 "12271b5cee49943bbdde430eef58f1fe64ba6561980b22c69585e08fc977dc6d"
   end
 
@@ -38,7 +37,7 @@ class Resty < Formula
   def caveats; <<~EOS
     To activate the resty, add the following at the end of your #{shell_profile}:
     source #{opt_pkgshare}/resty
-    EOS
+  EOS
   end
 
   test do

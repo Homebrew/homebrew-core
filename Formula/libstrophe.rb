@@ -47,7 +47,7 @@ class Libstrophe < Formula
         xmpp_shutdown();
         return 0;
       }
-      EOS
+    EOS
     flags = ["-I#{include}/", "-L#{lib}", "-lstrophe"]
     system ENV.cc, "-o", "test", "test.c", *(flags + ENV.cflags.to_s.split)
     system "./test"

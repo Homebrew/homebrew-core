@@ -26,6 +26,10 @@ class Chruby < Formula
     To enable auto-switching of Rubies specified by .ruby-version files,
     add the following to ~/.bash_profile or ~/.zshrc:
       source #{opt_pkgshare}/auto.sh
-    EOS
+  EOS
+  end
+
+  test do
+    assert_equal "chruby version #{version}", shell_output("#{bin}/chruby-exec --version").strip
   end
 end

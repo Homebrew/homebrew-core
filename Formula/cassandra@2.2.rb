@@ -110,7 +110,7 @@ class CassandraAT22 < Formula
         <string>#{var}/lib/cassandra</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

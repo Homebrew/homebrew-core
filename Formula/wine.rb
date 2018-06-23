@@ -7,12 +7,11 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 1
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.tar.xz"
-    sha256 "346a050aca5cd0d9978a655af11c30e68c201a58aea0c70d5e4c4f1b63c2fbec"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.1.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.1.tar.xz"
+    sha256 "bad00d7ddac6652795a2ed52ce02a544ff4e891499b29ac71d28d20b8e1d26f3"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -28,15 +27,15 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "bf84c0a02b7d7b4fc8814891f5542c0e35c30c922e0d2bcf4af168a1f34e36e4" => :high_sierra
-    sha256 "cceea27c906e9e5e7916281a57c36872c943802e998fede387fa7ccbc9d297ac" => :sierra
-    sha256 "309e0b2978bb79ea627caba23d7f3bbb0cb54d3a6b08836b2cde387a743dae50" => :el_capitan
+    sha256 "f0c697164404375380aeceb8da50a20c016d478b96d699e728d25a2d62708cf8" => :high_sierra
+    sha256 "d7ed7514a75d6bcd95d8e071225be110fde1e4d993a031a5a911394903746739" => :sierra
+    sha256 "8bc2edc35598406cc8248c83f46924934b83f314e2c8c70b0e7f3907f514d359" => :el_capitan
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/3.x/wine-3.6.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.6.tar.xz"
-    sha256 "78502dc79a60430d2a2ef66bee146e38eb6dd679fd36b54acfc8f9b2ac07905c"
+    url "https://dl.winehq.org/wine/source/3.x/wine-3.10.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.10.tar.xz"
+    sha256 "d7505cc79c7cd8950f1a46ecfcc0ae2ecc71717ce85414846264395b1e7ac6b5"
 
     resource "mono" do
       url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
@@ -105,9 +104,9 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
-    sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9.1/freetype-2.9.1.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.bz2"
+    sha256 "db8d87ea720ea9d5edc5388fc7a0497bb11ba9fe972245e0f7f4c7e8b1e1e84d"
   end
 
   resource "libusb" do
@@ -117,14 +116,14 @@ class Wine < Formula
   end
 
   resource "webp" do
-    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.6.1.tar.gz"
-    sha256 "06503c782d9f151baa325591c3579c68ed700ffc62d4f5a32feead0ff017d8ab"
+    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.0.tar.gz"
+    sha256 "84259c4388f18637af3c5a6361536d754a5394492f91be1abc2e981d4983225b"
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.6.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.6.tar.bz2"
-    sha256 "cf0c30807d08f6a28ab46c61b8dbd55c97d2f292cf88f3a07d3384687f31f017"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.0.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2"
+    sha256 "91dde8492155b7f34bb95079e79be92f1df353fcc682c19be90762fd3e12eeb9"
   end
 
   resource "gd" do
@@ -134,9 +133,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.16/libgphoto2-2.5.16.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.16.tar.bz2"
-    sha256 "e757416d1623e01a9d0d294b2e790162e434c0964f50d3b7ff1a3424b62a2906"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.18/libgphoto2-2.5.18.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.18.tar.bz2"
+    sha256 "5b17b89d7ca0ec35c72c94ac3701e87d49e52371f9509b8e5c08c913ae57a7ec"
   end
 
   resource "net-snmp" do
@@ -145,8 +144,7 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+    url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
     mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
     sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   end
@@ -252,7 +250,7 @@ class Wine < Formula
             #ifdef __#{arch}__
             #{(Pathname.pwd/"build-#{arch}/opensslconf.h").read}
             #endif
-            EOS
+          EOS
         end
         (libexec/"include/openssl/opensslconf.h").atomic_write confs.join("\n")
       end
@@ -309,11 +307,6 @@ class Wine < Formula
       end
 
       resource("freetype").stage do
-        # Enable sub-pixel rendering
-        inreplace "include/freetype/config/ftoption.h",
-                  "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
-                  "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
-
         system "./configure", "--prefix=#{libexec}",
                               "--disable-static",
                               "--without-harfbuzz",
@@ -341,6 +334,19 @@ class Wine < Formula
       end
 
       resource("fontconfig").stage do
+        # Remove for fontconfig > 2.13.0
+        # Upstream issue from 6 Mar 2018 "2.13.0 erroneously requires libuuid on macOS"
+        # See https://bugs.freedesktop.org/show_bug.cgi?id=105366
+        ENV["UUID_CFLAGS"] = " "
+        ENV["UUID_LIBS"] = " "
+
+        # Remove for fontconfig > 2.13.0
+        # Same effect as upstream commit from 10 Mar 2018 "Add uuid to
+        # Requires.private in .pc only when pkgconfig macro found it"
+        inreplace "configure",
+          'PKGCONFIG_REQUIRES_PRIVATELY="$PKGCONFIG_REQUIRES_PRIVATELY uuid"',
+          ""
+
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
                               "--disable-static",
@@ -453,12 +459,6 @@ class Wine < Formula
     (pkgshare/"mono").install resource("mono")
   end
 
-  def caveats; <<~EOS
-    You may also want winetricks:
-      brew install winetricks
-    EOS
-  end
-
   def post_install
     # For fontconfig
     ohai "Regenerating font cache, this may take a while"
@@ -467,6 +467,12 @@ class Wine < Formula
     # For net-snmp
     (var/"db/net-snmp_vendored_wine").mkpath
     (var/"log").mkpath
+  end
+
+  def caveats; <<~EOS
+    You may also want winetricks:
+      brew install winetricks
+  EOS
   end
 
   test do

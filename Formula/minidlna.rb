@@ -88,7 +88,7 @@ class Minidlna < Formula
         <string>#{var}/log/minidlnad.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

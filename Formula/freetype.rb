@@ -1,27 +1,23 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
-  sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
+  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9.1/freetype-2.9.1.tar.bz2"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.bz2"
+  sha256 "db8d87ea720ea9d5edc5388fc7a0497bb11ba9fe972245e0f7f4c7e8b1e1e84d"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "afb5bc6218adcf0c0794ede89e5db330caea397159a92469a188f10cf7835228" => :high_sierra
-    sha256 "a58d00c7f3f82776024e146b0ce704edb9125cb493fca553620559389126fce6" => :sierra
-    sha256 "c1283252fcb30f5407c22b3c68bf670227f5703459c238deae568f25e5fd77c5" => :el_capitan
+    sha256 "444ef60a543aca6ca26223f46182c914e26d2908f33fca41cb54bcf9a81084a3" => :high_sierra
+    sha256 "4afc7a144563abc6f4e58ef45aa57da598051290e7568afbff028585717b30fa" => :sierra
+    sha256 "8f8fbbe028986cebd4a49c399e4861fb85cb6173298ba957172cb1ed915682ab" => :el_capitan
   end
 
   depends_on "libpng"
 
   def install
-    # Enable sub-pixel rendering (ClearType)
-    inreplace "include/freetype/config/ftoption.h",
-      "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
-      "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
-
-    system "./configure", "--prefix=#{prefix}", "--without-harfbuzz"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-freetype-config",
+                          "--without-harfbuzz"
     system "make"
     system "make", "install"
 

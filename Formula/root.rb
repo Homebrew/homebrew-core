@@ -1,24 +1,27 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.12.06.source.tar.gz"
-  version "6.12.06"
-  sha256 "aedcfd2257806e425b9f61b483e25ba600eb0ea606e21262eafaa9dc745aa794"
+  url "https://root.cern.ch/download/root_v6.14.00.source.tar.gz"
+  version "6.14.00"
+  sha256 "7946430373489310c2791ff7a3520e393dc059db1371272bcd9d9cf0df347a0b"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "26c632e4a43db19c05cb4680feb9769d07d167e2df8faaa60b218b6784d134c4" => :high_sierra
-    sha256 "7a4b7823f8a2af91ebe3cc42ef96a4d6766fff7a0928c2b853bd00297eb1efa7" => :sierra
-    sha256 "0d60e875c6b6a135ca98ead7436ca3cf8a073e2a2c5fe5aef64867d24da52ce5" => :el_capitan
+    sha256 "f61a6854f0b2fdefd692390d10721cd35aad69c696628e0a378468986de9a4c3" => :high_sierra
+    sha256 "ca54c9feda676eb4a51fa636e89e488341a25a53bcf446680e86baadf524fe57" => :sierra
+    sha256 "a4214d56d0f8854106eb887ff44093444e39d1ce1b9d9466f226bf62ff27088b" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "davix"
   depends_on "fftw"
   depends_on "gcc" # for gfortran.
   depends_on "graphviz"
   depends_on "gsl"
+  depends_on "lz4"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # For LZMA.
   depends_on "python" => :recommended
@@ -44,6 +47,7 @@ class Root < Formula
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
+      -Ddavix=ON
       -Dfftw3=ON
       -Dfortran=ON
       -Dgdml=ON
@@ -52,6 +56,7 @@ class Root < Formula
       -Dmysql=OFF
       -Droofit=ON
       -Dssl=ON
+      -Dimt=ON
       -Dxrootd=ON
     ]
 
@@ -117,7 +122,7 @@ class Root < Formula
       pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source #{HOMEBREW_PREFIX}/bin/thisroot.csh
-    EOS
+  EOS
   end
 
   test do

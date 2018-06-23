@@ -2,15 +2,15 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.7.0",
-      :revision => "7c273476f55ccfc0c714cbadb2a0f958ecda7732"
+      :tag => "v11.0.0",
+      :revision => "5396d320cd17c02bd4133d52b8ac9acd21b20f51"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5afdd085a0b023c1955d68896b398798203b00c72013e6f1ce9a0c0fdf428619" => :high_sierra
-    sha256 "b36c57cde2bbfabf64d4aa00747b5fbc7bf1008eecf67656639a160b2f6f0de6" => :sierra
-    sha256 "d2068aaca6734e38b68a7a7621028b573b699d0bb7ec145c366d6ceb2d8c6769" => :el_capitan
+    sha256 "1ba2aab706d835977e5ed368b989c7ef8faa9f2a07423e9586e941cda08073f4" => :high_sierra
+    sha256 "096996e6abaac456cc6a58f4c29e1892d666d80786d6e15c33dd9474a3854fa4" => :sierra
+    sha256 "8bb8f4b5097dadc7e274c5638e66c5bc3458091c658f64d8554f3fe911c8df51" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -18,17 +18,17 @@ class GitlabRunner < Formula
   depends_on "docker" => :recommended
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.0.0/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
-    version "10.7.0"
-    sha256 "3b3e2a2457103b9dbe21245751ecc5bdab676dbdb6a0a68536e8a4c3506d7d17"
+    version "11.0.0"
+    sha256 "4bb8b87433a2c9dcb5e3fd44b3eccb0a37d414ccc321068cf6108694d4e722f2"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.7.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.0.0/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
-    version "10.7.0"
-    sha256 "5fd022a00c88f02ac293b55e8fb90378118783f357ba84436975a200a48ee885"
+    version "11.0.0"
+    sha256 "6f8dc036b77af34f0bfc4468466de60f83e8480a9736e8760e5e8aa67affc7f8"
   end
 
   def install
@@ -89,7 +89,7 @@ class GitlabRunner < Formula
         </array>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

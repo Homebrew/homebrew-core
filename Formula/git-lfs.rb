@@ -1,14 +1,14 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/archive/v2.4.0.tar.gz"
-  sha256 "3f26cd020a965f61c8e8f124a02794d86f46f2fc4627288afe70ed43f398b121"
+  url "https://github.com/git-lfs/git-lfs/archive/v2.4.2.tar.gz"
+  sha256 "130a552a27c8f324ac0548baf9db0519c4ae96c26a85f926c07ebe0f15a69fc2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3c402c41266dd1290c8b87ff011913dc20cc0e2eb772159d14424e25518107f2" => :high_sierra
-    sha256 "71fd9a8da403714ddc7fba6de9c3fe869532a9c87170c068188e6cfc9f4ef630" => :sierra
-    sha256 "2c73e3eb12e01f8d194fd174a31e1be4cafe867d8590d48680da9372fab51d51" => :el_capitan
+    sha256 "ce479c1e882e71424b31f99712df288fbf77935f85d27f9f0cdbbdedc774dc92" => :high_sierra
+    sha256 "83fb6dce04da20d262d966b54b256471779afeccc0c17d3171d14a8442255477" => :sierra
+    sha256 "845e5877f4d1beb7ad15a7b9a078b4d820ff1f8392827ec42c8cbf7fd48850ba" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -39,7 +39,7 @@ class GitLfs < Formula
 
       # Update system git config
       $ git lfs install --system
-    EOS
+  EOS
   end
 
   test do

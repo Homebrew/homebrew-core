@@ -19,7 +19,7 @@ class Slackcat < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/vektorlab/slackcat").install buildpath.children
     cd "src/github.com/vektorlab/slackcat" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"slackcat",
            "-ldflags", "-X main.version=#{version}"
       prefix.install_metafiles

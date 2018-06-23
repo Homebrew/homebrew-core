@@ -1,9 +1,9 @@
 class JettyRunner < Formula
   desc "Use Jetty without an installed distribution"
   homepage "https://www.eclipse.org/jetty/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-runner/9.4.8.v20171121/jetty-runner-9.4.8.v20171121.jar"
-  version "9.4.8.v20171121"
-  sha256 "55573356efd6dc140a833f3de724a4a5a4ee4ff576217d3c3445d0e59d735d9b"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-runner/9.4.10.v20180503/jetty-runner-9.4.10.v20180503.jar"
+  version "9.4.10.v20180503"
+  sha256 "eabf90e6afa668abbe6cfd9a1738ed95b5c6645889bc56bf578b227c33af232b"
 
   bottle :unneeded
 

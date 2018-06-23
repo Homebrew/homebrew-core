@@ -39,7 +39,7 @@ class Vnstat < Formula
 
   def caveats; <<~EOS
     To monitor interfaces other than "en0" edit #{etc}/vnstat.conf
-    EOS
+  EOS
   end
 
   plist_options :startup => true, :manual => "#{HOMEBREW_PREFIX}/opt/vnstat/bin/vnstatd --nodaemon --config #{HOMEBREW_PREFIX}/etc/vnstat.conf"
@@ -68,7 +68,7 @@ class Vnstat < Formula
         <string>Background</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,16 +1,15 @@
 class Qcli < Formula
   desc "Report audiovisual metrics via libavfilter"
   homepage "https://bavc.org/preserve-media/preservation-tools"
-  url "https://github.com/bavc/qctools/archive/v0.9.tar.gz"
-  sha256 "19ef4be054ebfca70a07043afea20bcca241ba08d70a47acda837ead849aff03"
-  revision 1
+  url "https://github.com/bavc/qctools/archive/v0.9.2.tar.gz"
+  sha256 "d65ab9da7ff98cc7b939889274514f75c73b8860188a9db1ee5feed69e377eff"
   head "https://github.com/bavc/qctools.git"
 
   bottle do
     cellar :any
-    sha256 "85c4d9c01c16fb9a23a1e673c5738a153c1c1ecccaf2329d07fe99352cb5ae57" => :high_sierra
-    sha256 "4e57855a7745eeefe34ce80e3bfcf01c861b15c51d79c5c58817fc65ff6ebb02" => :sierra
-    sha256 "67a2fefb5891000c32e01c3e161762a905afc18e22b36c7cc0e7f4b5b4bb3440" => :el_capitan
+    sha256 "f7df63180579c72d793a118c574a4a8b3feb83a2e03d911367cc99da31e09782" => :high_sierra
+    sha256 "c46b0c071d56de9db2c9cb90da9d799ab4c5c71f2e084de6ea68695019768428" => :sierra
+    sha256 "2038f3a2cf2e794cfb62e9a55f2b4a101b488b7183993ed88b83e48287fac936" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -24,7 +24,7 @@ class Gpsd < Formula
     need to force it to connect to your GPS:
 
       GPSD_SOCKET="#{var}/gpsd.sock" #{sbin}/gpsdctl add /dev/tty.usbserial-XYZ
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/gpsd -N -F #{HOMEBREW_PREFIX}/var/gpsd.sock /dev/tty.usbserial-XYZ"
@@ -55,7 +55,7 @@ class Gpsd < Formula
       <string>#{var}/log/gpsd.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

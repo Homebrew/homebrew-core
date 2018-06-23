@@ -1,14 +1,14 @@
 class Draco < Formula
   desc "3D geometric mesh and point cloud compression library"
   homepage "https://google.github.io/draco/"
-  url "https://github.com/google/draco/archive/1.2.5.tar.gz"
-  sha256 "76064614bcf5bc80c13291d38c2ea7b8e9c8827a98de93f7bc8bbe4b6e1ec1c4"
+  url "https://github.com/google/draco/archive/1.3.3.tar.gz"
+  sha256 "d8c072acbece239b675a223f1b7979fc8505712109d5549d38c4678b35570bfb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e73a9122f2fe8ff15eeb35fc43042c143ebab42ec7ae23ab03358a9cd307b099" => :high_sierra
-    sha256 "26e8d3e692983b81b862784d788bdd31644da8efdbf68b9b5f069cf2bdfcb804" => :sierra
-    sha256 "b6da06e26c080eab8b1a565d24cb1c9ed0a42f2a542aebc39f121a9be49db7a1" => :el_capitan
+    sha256 "12615524f7d2a02dc205cc583a74af22e295d991319abd97b1c3d4bbeefd08c2" => :high_sierra
+    sha256 "deceead0e090a64709966bdbd82056b26d7b494f995531af41382fd9d6af54f6" => :sierra
+    sha256 "64bf9f616fcc812476a0674ce9bf742a93896de44e1b696a167e98a5a88e2f9b" => :el_capitan
   end
 
   depends_on "cmake" => :build

@@ -200,7 +200,7 @@ class LlvmAT37 < Formula
       CXX="clang++-#{ver} -stdlib=libc++"
       CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
       LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
-    EOS
+  EOS
   end
 
   test do

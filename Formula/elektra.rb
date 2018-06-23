@@ -1,14 +1,14 @@
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
-  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.8.22.tar.gz"
-  sha256 "962598315619d5dff3a575d742720f076dc4ba3702bd01609bfb7a6ddb5d759f"
+  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.8.23.tar.gz"
+  sha256 "f1d3cd4888ba3ef47c1327cbddf21dff7be289f94217f12e5e93105273ca6c48"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   bottle do
-    sha256 "a285397a8ef165eb825773c6ad452ed9fd97283b93eb6f0a86de2a222624cbe4" => :high_sierra
-    sha256 "cac9779dcc8c1cc998b30274fc3ab137d94644ba25b1fb5a8dca6c922b2679cd" => :sierra
-    sha256 "b393066a4c05790003e095101ac08e3b5b650788dd45f5d3d7530781e731ef45" => :el_capitan
+    sha256 "a8c5ce2977f85bf0451d6f95c6bc04b2f6431491681664424783b9a20964217b" => :high_sierra
+    sha256 "c16c814f081317dc3dbd3593d062734784f2ee6733d695ea63c4900390f9e6bf" => :sierra
+    sha256 "285a50672d49a6273f89fd81083e7e1f1c502dc52615a8f31b905ffef2e52482" => :el_capitan
   end
 
   option "with-qt", "Build GUI frontend"

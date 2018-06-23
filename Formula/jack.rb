@@ -10,12 +10,12 @@ class Jack < Formula
   homepage "http://jackaudio.org"
   url "http://jackaudio.org/downloads/jack-audio-connection-kit-0.125.0.tar.gz"
   sha256 "3517b5bff82139a76b2b66fe2fd9a3b34b6e594c184f95a988524c575b11d444"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "abc0921ccf479b78ccd3d9ce393290800bed6c059046dc9f42029cc4c954b3ad" => :high_sierra
-    sha256 "abc0921ccf479b78ccd3d9ce393290800bed6c059046dc9f42029cc4c954b3ad" => :sierra
-    sha256 "85a868bc1467309193251f81640e54d91a3ee2369cf83dae2f2e4cca2755dddf" => :el_capitan
+    sha256 "fccd8282d9bfb354ae7d6963eb4433b93a52c22cdfab047733ea1c93326fafad" => :high_sierra
+    sha256 "b9f624c969a2f782abe7c1cf4adbff04a9492db383584c5ca6cb24aa46d3857e" => :sierra
+    sha256 "825f40e89b4566ffaf11fd7feeb22cec00b2216de1890900442b3dda3fec1287" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -24,10 +24,12 @@ class Jack < Formula
   depends_on "libsamplerate"
 
   def install
+    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+
     # Makefile hardcodes Carbon header location
     inreplace Dir["drivers/coreaudio/Makefile.{am,in}"],
       "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h",
-      "#{MacOS.sdk_path}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
+      "#{sdk}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
 
     ENV["LINKFLAGS"] = ENV.ldflags
     system "./configure", "--prefix=#{prefix}"
@@ -57,7 +59,7 @@ class Jack < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

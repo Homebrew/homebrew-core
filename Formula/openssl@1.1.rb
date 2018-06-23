@@ -14,8 +14,8 @@ class OpensslAT11 < Formula
   end
 
   devel do
-    url "https://www.openssl.org/source/openssl-1.1.1-pre5.tar.gz"
-    sha256 "0e5ff2f216cea5fa89af6dcd429c3c142acd7c786b0c4868a039689a2641cf3d"
+    url "https://www.openssl.org/source/openssl-1.1.1-pre8.tar.gz"
+    sha256 "1205cd763dd92c910cc590658a5b0774599e8587d89d6debd948f242b949321e"
   end
 
   keg_only :versioned_formula
@@ -98,7 +98,7 @@ class OpensslAT11 < Formula
 
     and run
       #{opt_bin}/c_rehash
-    EOS
+  EOS
   end
 
   test do

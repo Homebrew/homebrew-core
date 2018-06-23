@@ -3,20 +3,21 @@ class Libical < Formula
   homepage "https://libical.github.io/libical/"
   url "https://github.com/libical/libical/releases/download/v3.0.3/libical-3.0.3.tar.gz"
   sha256 "5b91eb8ad2d2dcada39d2f81d5e3ac15895823611dc7df91df39a35586f39241"
+  revision 2
 
   bottle do
-    sha256 "1db80d26f22a9c81e633d263fa2aa4a0aa09b47553972af74c05f5fa0fd55065" => :high_sierra
-    sha256 "c57e73fee5d0482291095acda0783f16c4e4f8ee31d82b4b41ace2072d88987c" => :sierra
-    sha256 "205ffa25d970c4eec239237553e3ff768483759dec2bc42d7a6c5933b1bfd726" => :el_capitan
+    sha256 "791810c363525ac618fc57e84b8c5fa71a45991514a26ba36162d771900b9cd7" => :high_sierra
+    sha256 "aa1f3415f89ae0798b8207b3e805c1dcb5d8e55fea67e407efadf434b4f1cf8d" => :sierra
+    sha256 "dbedcf59167b38d1be9625f0d7da3ff11882e551416bf6c3bcf0b347416eaa87" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "icu4c"
 
   def install
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
-                         "-DICU_LIBRARY=ICU_LIBRARY-NOTFOUND",
                          "-DSHARED_ONLY=ON",
                          *std_cmake_args
     system "make", "install"

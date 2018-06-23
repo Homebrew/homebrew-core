@@ -1,14 +1,14 @@
 class Pcb < Formula
   desc "Interactive printed circuit board editor"
   homepage "http://pcb.geda-project.org/"
-  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.1.1/pcb-4.1.1.tar.gz"
-  sha256 "1f921bb110cc28238788b64a85bc6ea50cc4de8856fe285a1e571ac2728480bd"
+  url "https://downloads.sourceforge.net/project/pcb/pcb/pcb-4.1.2/pcb-4.1.2.tar.gz"
+  sha256 "c6b4df11930d2b3d27032475850e15dd95797fb43876caa6e77c288724fdf05b"
   version_scheme 1
 
   bottle do
-    sha256 "7e229670841427c9fbf4b673c63e07c21e8acc23ad88d0d260525c8476c59364" => :high_sierra
-    sha256 "fc93a4a84a76fb056244da2225136e668a19ca03db91ade3ac8ca1110bf61686" => :sierra
-    sha256 "565a73d1f78acf7fd32ede476fc63028a8eb2d98a330d991a09e2b20bd923d31" => :el_capitan
+    sha256 "8885f48b85c579d192e8492ef3f48a84460af797e90f40d26d3fbda26962be23" => :high_sierra
+    sha256 "e4dc058b053ba4ce4203770063712007420592bbe3f552c1ea949f055f4f3a61" => :sierra
+    sha256 "381e6760f94254e92d95be3abe734e94db490fe2c443e9be1f25cb3c6ae08686" => :el_capitan
   end
 
   head do

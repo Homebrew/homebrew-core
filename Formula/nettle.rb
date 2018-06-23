@@ -18,6 +18,15 @@ class Nettle < Formula
     # macOS doesn't use .so libs. Emailed upstream 04/02/2016.
     inreplace "testsuite/dlopen-test.c", "libnettle.so", "libnettle.dylib"
 
+    # The LLVM shipped with Xcode/CLT 10+ compiles binaries/libraries with
+    # ___chkstk_darwin, which upsets nettle's expected symbol check.
+    # https://github.com/Homebrew/homebrew-core/issues/28817#issuecomment-396762855
+    # http://lists.lysator.liu.se/pipermail/nettle-bugs/2018/007300.html
+    if DevelopmentTools.clang_build_version >= 1000
+      inreplace "testsuite/symbols-test", "get_pc_thunk",
+                                          "get_pc_thunk|(_*chkstk_darwin)"
+    end
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-shared"

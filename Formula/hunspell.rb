@@ -39,7 +39,7 @@ class Hunspell < Formula
     provides no dictionaries for Hunspell, but you can download
     compatible dictionaries from other sources, such as
     https://wiki.openoffice.org/wiki/Dictionaries .
-    EOS
+  EOS
   end
 
   test do

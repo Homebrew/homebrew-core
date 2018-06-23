@@ -1,14 +1,14 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.1.tar.gz"
-  sha256 "1b56caa4aad5add2c49ea436e9f26282b55a413003d0d73b029a1fbf48da0a1c"
+  url "https://github.com/Genymobile/scrcpy/archive/v1.2.tar.gz"
+  sha256 "d340e3a0aa1625161bc00068ffccbe291b7866729a5fff7ff859904480ec0df3"
   revision 1
 
   bottle do
-    sha256 "b46f843a8569c69e1b99301e0a69335f443c870df3eead3ad78fa3c141b93a21" => :high_sierra
-    sha256 "4bdcb5d23d7b1852aec8e181001af014fd255be58176e58a9b5eb9bf2e68733f" => :sierra
-    sha256 "c33b30a90c2f801987349a3f958bb6b1e35e44b4d3fe7ecbd9016eb3c32f0020" => :el_capitan
+    sha256 "99a059d8d8aed9011eeb165d9c0059e637b50f4c3cdc790588ea5e3a96a71364" => :high_sierra
+    sha256 "71b6af428d8d0f8552140bca1076c280c37219a9afe46d6d409c44ca75821f6e" => :sierra
+    sha256 "d5e15c85b00a97eac0de8e6883e2256cad64dc2c182c1499cb55fe82bc9cbb5a" => :el_capitan
   end
 
   depends_on "meson" => :build
@@ -19,8 +19,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.1/scrcpy-server-v1.1.jar"
-    sha256 "14826512bf38447ec94adf3b531676ce038d19e7e06757fb4e537882b17e77b3"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.2/scrcpy-server-v1.2.jar"
+    sha256 "cb39654ed2fda3d30ddff292806950ccc5c394375ea12b974f790c7f38f61f60"
   end
 
   def install
@@ -30,6 +30,7 @@ class Scrcpy < Formula
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
+                      "--buildtype=release",
                       "-Dprebuilt_server=#{buildpath/"prebuilt-server.jar"}",
                       ".."
 
@@ -42,7 +43,7 @@ class Scrcpy < Formula
 
     You can install adb from Homebrew Cask:
       brew cask install android-platform-tools
-    EOS
+  EOS
   end
 
   test do

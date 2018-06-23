@@ -3,14 +3,14 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://files.pythonhosted.org/packages/ea/92/1e4b290289a595e6b00b02a7a48ee0997755a6ebfb66e63e490338d12cdc/snapcraft-2.41.tar.gz"
-  sha256 "2c79cbe9895ca3b0cfd53df41c22a8d088faa7ea90efb501cd009718828a40f6"
+  url "https://files.pythonhosted.org/packages/be/69/9fc4c20854d2732798b06fff9d4df74c71783c89ab9f93d1eba13a6a31d0/snapcraft-2.42.tar.gz"
+  sha256 "80249c14c727af2659626f3bfbaa25d36c74fe40cb07175b3acc758ba6434de3"
 
   bottle do
     cellar :any
-    sha256 "4f6d8c2444d11f3b1db1059785cab1beb4b9106afae8e7b7a2148ab16081913a" => :high_sierra
-    sha256 "bd5843322a2b33e31bd213255dfae00b8fc95f507cfdfb1c56bf51ccc5852ea3" => :sierra
-    sha256 "57844f4f85ba5a25bcc5091bc50dfeee090785fb5a9bd835f07dc0bc6baf275c" => :el_capitan
+    sha256 "fd9b7c9db2f3ec21d972fa33bb475a5fcaee1705e7c1772a2600c00424609721" => :high_sierra
+    sha256 "1c25ce5577f91cbbda88419a5402450110bfdedced97b048697f56b99ea93b91" => :sierra
+    sha256 "fe1f6333bafc5a7eb04d640e3fca19841ce878f809966f997597e0ed4f891112" => :el_capitan
   end
 
   depends_on "libsodium"
@@ -119,6 +119,11 @@ class Snapcraft < Formula
     sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
   end
 
+  resource "raven" do
+    url "https://files.pythonhosted.org/packages/d7/54/7d199f893a0ac01f8df9b7ec39c0f3ac19146e78b33401b1f4984c9d3583/raven-6.7.0.tar.gz"
+    sha256 "f908e9b39f02580e7f822030d119ed3b2e8d32300a2fec6373e5827d588bbae7"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
     sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
@@ -160,7 +165,6 @@ class Snapcraft < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 

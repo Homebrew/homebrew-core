@@ -31,6 +31,6 @@ class Jpcsp < Formula
 
     To avoid any incidental wipeout upon future updates, change it to
     a safe location (under Options > Settings > General > UMD path folders).
-    EOS
+  EOS
   end
 end

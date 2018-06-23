@@ -32,7 +32,7 @@ class Iftop < Formula
   def caveats; <<~EOS
     iftop requires root privileges so you will need to run `sudo iftop`.
     You should be certain that you trust any software you grant root privileges.
-    EOS
+  EOS
   end
 
   test do

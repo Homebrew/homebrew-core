@@ -21,7 +21,7 @@ class WildflyAs < Formula
     You may want to add the following to your .bash_profile:
       export JBOSS_HOME=#{opt_libexec}
       export PATH=${PATH}:${JBOSS_HOME}/bin
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/wildfly-as/libexec/bin/standalone.sh --server-config=standalone.xml"
@@ -54,7 +54,7 @@ class WildflyAs < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

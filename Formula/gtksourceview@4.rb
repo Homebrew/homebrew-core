@@ -1,24 +1,27 @@
 class GtksourceviewAT4 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/4.0/gtksourceview-4.0.0.tar.xz"
-  sha256 "6e5c7a28a7fa456a89f289f0659c57100cc09fe692db6abfcc23f7ade5d5b32a"
-  revision 1
+  url "https://download.gnome.org/sources/gtksourceview/4.0/gtksourceview-4.0.2.tar.xz"
+  sha256 "15829fc728f74e2005e2fc65c2aada4b223f3b361b2200b7e02ff7a9014b5fac"
 
   bottle do
-    sha256 "153474f227078935a0f6643b134274f5944288be7c0ef9ecb79d8c92097ef87f" => :high_sierra
-    sha256 "c517e08307af8d39b390e80c7c14ba485a484c2511758d66df3deff4c8079764" => :sierra
-    sha256 "50c974fb640d85cf087d7fc48dbe38d817f9f6be822fd17c702e790d86ad2935" => :el_capitan
+    sha256 "90df7061e6dee49a9c29094f477b9db19639ce77497294c145529cd4031ff317" => :high_sierra
+    sha256 "920c8c6023eff56dceefc105212b8bc9c408e380cd46556110b5a88107887896" => :sierra
+    sha256 "ae4e361b65ea527647cf0aa58969517f5a8d559f82e5fe549e22bfe484e47b4a" => :el_capitan
   end
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-vala=yes",
+                          "--enable-gobject-introspection=yes"
     system "make", "install"
   end
 

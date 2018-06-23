@@ -3,25 +3,25 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.25.0-src.tar.gz"
-    sha256 "eef63a0aeea5147930a366aee78cbde248bb6e5c6868801bdf34849152965d2d"
+    url "https://static.rust-lang.org/dist/rustc-1.27.0-src.tar.gz"
+    sha256 "2cb9803f690349c9fd429564d909ddd4676c68dc48b670b8ddf797c2613e2d21"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.25.0",
-          :revision => "8c93e089536467783957fec23b0f2627bb6ce357"
+          :tag => "0.27.0",
+          :revision => "0e7c5a93159076952f609e05760e2458828d0d1f"
     end
 
     resource "racer" do
-      url "https://github.com/racer-rust/racer/archive/2.0.12.tar.gz"
-      sha256 "1fa063d90030c200d74efb25b8501bb9a5add7c2e25cbd4976adf7a73bf715cc"
+      url "https://github.com/racer-rust/racer/archive/2.0.14.tar.gz"
+      sha256 "0442721c01ae4465843cb73b24f6caa0127c3308d72b944ad75736164756e522"
     end
   end
 
   bottle do
-    sha256 "c084516e00fd451450318093767e68e01018321cf89a510954cf0d96ca1e8402" => :high_sierra
-    sha256 "c375cd20c19e17200fa967f75620a962385a0c14da997b10c138f732e83330da" => :sierra
-    sha256 "9772521ffee73cbf230ddd7f8e858660e734ebbd2ecf68583c52575025fe8483" => :el_capitan
+    sha256 "fc3dd655539149da38e351fd2f8bd5608a55d25c546bd87c8983346ff8b32568" => :high_sierra
+    sha256 "9d91681309cce40845d8c20d97ed2fa9ab0f4ecc7d015c33907abab7d5fa8643" => :sierra
+    sha256 "eafee2b64ed79f94c04fb46e394ff84e68f60cc89ef6036f81bef5ca041d6aac" => :el_capitan
   end
 
   head do
@@ -55,8 +55,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2018-02-15/cargo-0.25.0-x86_64-apple-darwin.tar.gz"
-    sha256 "92782612068e796a6a85f5c2bc11ad748b961cb26e7b55f8f125d33cc402c1ca"
+    url "https://static.rust-lang.org/dist/2018-05-10/cargo-0.27.0-x86_64-apple-darwin.tar.gz"
+    sha256 "5a21a7569a67b9d06442063a1b4c2c2e42279e3d67f843ea77df647d87937eb5"
   end
 
   def install
@@ -95,8 +95,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "build", "--release", "--verbose"
-      bin.install "target/release/cargo"
+      system "cargo", "install", "--root", prefix
     end
 
     resource("racer").stage do
@@ -104,8 +103,7 @@ class Rust < Formula
       cargo_home = buildpath/"cargo_home"
       cargo_home.mkpath
       ENV["CARGO_HOME"] = cargo_home
-      system bin/"cargo", "build", "--release", "--verbose"
-      (libexec/"bin").install "target/release/racer"
+      system "cargo", "install", "--root", libexec
       (bin/"racer").write_env_script(libexec/"bin/racer", :RUST_SRC_PATH => pkgshare/"rust_src")
     end
 

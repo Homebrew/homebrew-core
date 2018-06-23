@@ -1,14 +1,14 @@
 class GoAT19 < Formula
   desc "Go programming environment (1.9)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.9.5.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.9.5.src.tar.gz"
-  sha256 "f1c2bb7f32bbd8fa7a19cc1608e0d06582df32ff5f0340967d83fb0017c49fbc"
+  url "https://dl.google.com/go/go1.9.7.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.9.7.src.tar.gz"
+  sha256 "582814fa45e8ecb0859a208e517b48aa0ad951e3b36c7fff203d834e0ef27722"
 
   bottle do
-    sha256 "f4fe214d30b295ba356d4f4e0268d8bfccadc183bd9803a7a1d66caece96eee8" => :high_sierra
-    sha256 "9603d3463cfe1c18547ede8ad83a3f8eaa49ab8300225d2623e7e97fa2a193bc" => :sierra
-    sha256 "a14c5b76772760a32201f9cdc10d4f8f0f52f7d40a692feb6de2a444954eebc1" => :el_capitan
+    sha256 "097a7bde112c08b746f167b1f10603cf714369fb90da1c4fe3ead6980ca319fb" => :high_sierra
+    sha256 "85b2bb9a42d7b414c31a98ab0fbdfcb3aa540ee663b157f1726f0d85abcb333b" => :sierra
+    sha256 "e87155e00891f02aa430d1cc2eee45448a836f044f40baaae6c58192269abe72" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -28,6 +28,13 @@ class GoAT19 < Formula
     url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
     version "1.7"
     sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+  end
+
+  # Backports the following commit from 1.10/1.11:
+  # https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/e089e057dbb8aff7d0dc36a6c1933c29dca9c77e/go%401.9/go_19_load_commands.patch"
+    sha256 "771b67df44e3d5d5d7c01ea4a0d1693032bc880ea4f16cf82c1bacb42bfd9b10"
   end
 
   def install
@@ -70,7 +77,7 @@ class GoAT19 < Formula
 
     You may wish to add the GOROOT-based install location to your PATH:
       export PATH=$PATH:#{opt_libexec}/bin
-    EOS
+  EOS
   end
 
   test do

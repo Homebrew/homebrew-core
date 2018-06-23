@@ -1,13 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.4.1.6.tar.bz2"
-  sha256 "bdfda0fe9ad5ce20bb2cf9e9bf28fed40f324141297479824e1f65d97da565df"
+  url "https://download.mono-project.com/sources/mono/mono-5.12.0.226.tar.bz2"
+  sha256 "f0636baa0c1399805526142e799cb697ddccf736e506cf1a30a870eaa2830a89"
 
   bottle do
-    sha256 "4180790335196a33a716ddb0bb1b6ba6a3487babedd8baac6de2458aff038906" => :high_sierra
-    sha256 "8ae5763ad3b6e84ac078ca83f729fe47e5f8d048a87ab0a5892c2b22b4c5854a" => :sierra
-    sha256 "8476cab8863aabdd7c64bff4a31b57aed56192baa71383b8f3ffcc8f41a45fb5" => :el_capitan
+    sha256 "e94afd579b752d08311859073ef0979f71529c85989694f05e2f16c6c943c4d8" => :high_sierra
+    sha256 "d8c42e31060e50e73f27258a07987d4d44199cc019095cf455eca1060ed31821" => :sierra
+    sha256 "b68c130744c9d5e7917591177b0fac34444f07bedf16a4d6acc2a8ac54902721" => :el_capitan
   end
 
   # xbuild requires the .exe files inside the runtime directories to
@@ -32,8 +32,14 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.23",
-        :revision => "35a4a5b1f26927259c3213465a47b27ffcd5cb4d"
+        :tag => "4.1.33",
+        :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
+  end
+
+  resource "msbuild" do
+    url "https://github.com/mono/msbuild/releases/download/v0.05/mono_msbuild_port2-394a6b5e.zip"
+    version "0.05"
+    sha256 "b832ccf29ede89724f9217fe074f688e011dc15dd9ada2258f4caf6ae2c992e8"
   end
 
   def install
@@ -56,6 +62,8 @@ class Mono < Formula
     # Now build and install fsharp as well
     if build.with? "fsharp"
       resource("fsharp").stage do
+        (Pathname.pwd/"msbuild").install resource("msbuild")
+        ENV.prepend_path "PATH", Pathname.pwd/"msbuild"
         ENV.prepend_path "PATH", bin
         ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
         system "./autogen.sh", "--prefix=#{prefix}"
@@ -70,7 +78,7 @@ class Mono < Formula
       export MONO_GAC_PREFIX="#{HOMEBREW_PREFIX}"
     Note that the 'mono' formula now includes F#. If you have
     the 'fsharp' formula installed, remove it with 'brew uninstall fsharp'.
-    EOS
+  EOS
   end
 
   test do

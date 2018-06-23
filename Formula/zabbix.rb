@@ -1,13 +1,13 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.8/zabbix-3.4.8.tar.gz"
-  sha256 "cec14993d1ec2c9d8c51f6608c9408620f27174db92edc2347bafa7b841ccc07"
+  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.10/zabbix-3.4.10.tar.gz"
+  sha256 "cdee0fd44e11ae214b2cc252974da22f3627c326ea2c61a0315af95165c52d1b"
 
   bottle do
-    sha256 "469f7d8a02308103faa0e1134dcd9fd6531e51c3ad8f580c15c7cb3af20be190" => :high_sierra
-    sha256 "bab5f42c0cae540c05b753296208cf669ffdac61a7b3a3a9cc8f776920e5697d" => :sierra
-    sha256 "f6993764ccaf70ceb9059cf5fdccb3691975f17c074b51b103b01b700acfa663" => :el_capitan
+    sha256 "6943c3feaae95a1a5acf91d710dbee0bde57b1f07bd0ced2dc50bf00ba4d88cd" => :high_sierra
+    sha256 "6819418aff7cc9c614aae900656a1c67e91de9c34fbddd356801d15790859d48" => :sierra
+    sha256 "0c088bc970fc87c5ea6895fbb131f1c33a29bc3e230141a43378b73fc444cdca" => :el_capitan
   end
 
   option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."

@@ -1,13 +1,13 @@
 class Remctl < Formula
   desc "Client/server application for remote execution of tasks"
   homepage "https://www.eyrie.org/~eagle/software/remctl/"
-  url "https://archives.eyrie.org/software/kerberos/remctl-3.14.tar.xz"
-  sha256 "23dd32c5723b7fd30957e67be7cef74b809c2e73c4613bd643248642507782b9"
+  url "https://archives.eyrie.org/software/kerberos/remctl-3.15.tar.xz"
+  sha256 "873c9fbba51ff721acb666e927f58f4407f08eb79f53b5a058801f5f404f4db2"
 
   bottle do
-    sha256 "d673f05a37c5f969afbbc81453abfc34da769b5b3e21ca0ba7adbaa0201fef3d" => :high_sierra
-    sha256 "6d48e0704c8803c3884e282ce2b7043dded5d2b86a49caf85f037a58a541f33f" => :sierra
-    sha256 "682390632704347046e696e342a2b6127f5142391d66180e090bed90b4dc0fb0" => :el_capitan
+    sha256 "699be918b80d41c46ec8aabb4e04219123fec8beb60f1169c33b8a14ef7e24c1" => :high_sierra
+    sha256 "3dfefe916442dcae4f049f56673ce735ee84b931423b184f4d7fab770d7a5f39" => :sierra
+    sha256 "301065db3a4020b2237268eee8709a639d33dac24b21a3294641f7d9beef0ab0" => :el_capitan
   end
 
   depends_on "pcre"

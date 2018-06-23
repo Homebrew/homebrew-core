@@ -128,6 +128,8 @@ class Llvm < Formula
   option "with-python@2", "Build bindings against Homebrew's Python 2"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
+  option "with-polly-gpgpu", "Enable Polly GPGPU"
+  option "without-rtti", "Disable RTTI (and exception handling)"
 
   deprecated_option "with-python" => "with-python@2"
 
@@ -216,8 +218,6 @@ class Llvm < Formula
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_INCLUDE_DOCS=OFF
-      -DLLVM_ENABLE_RTTI=ON
-      -DLLVM_ENABLE_EH=ON
       -DLLVM_INSTALL_UTILS=ON
       -DWITH_POLLY=ON
       -DLINK_POLLY_INTO_TOOLS=ON
@@ -226,6 +226,12 @@ class Llvm < Formula
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
+    args << "-DPOLLY_ENABLE_GPGPU_CODEGEN=ON" if build.with? "polly-gpgpu"
+
+    if build.with? "rtti"
+      args << "-DLLVM_ENABLE_RTTI=ON"
+      args << "-DLLVM_ENABLE_EH=ON"
+    end
 
     if build.with? "shared-libs"
       args << "-DBUILD_SHARED_LIBS=ON"

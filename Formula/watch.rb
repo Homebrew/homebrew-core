@@ -2,15 +2,15 @@ class Watch < Formula
   desc "Executes a program periodically, showing output fullscreen"
   homepage "https://gitlab.com/procps-ng/procps"
   url "https://gitlab.com/procps-ng/procps.git",
-      :tag => "v3.3.14",
-      :revision => "3afea8abab5679a71e5e8832ca546614c06676c8"
+      :tag => "v3.3.15",
+      :revision => "7bb949bcba13c107fa0f45d2d0298b1ad6b6d6cc"
   head "https://gitlab.com/procps-ng/procps.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8a216f95274301c5babd6c5a7956a64448fe512854e5438b960279ad9d3b80e7" => :high_sierra
-    sha256 "0c0dca64ca895ece4685a131c3de6704e7f593cf5d6446f873e02fbf271cef98" => :sierra
-    sha256 "de2bfa2d25f2e85d6b24b4c943d2d29e9204f0aa26160647d183fa23c3ce5803" => :el_capitan
+    sha256 "9fceef6cae551481726f86f9a0e5e79ca2bf27e0f41d0feb0800ab25e9161342" => :high_sierra
+    sha256 "010375a88535763436571b3140bacd5733e8176621d663464a8ae3c57ed7813f" => :sierra
+    sha256 "d89d82028efa1586bd6f6b05fba3f7c15259e6a9fedffa5e36d8a900514b0ecb" => :el_capitan
   end
 
   depends_on "autoconf" => :build

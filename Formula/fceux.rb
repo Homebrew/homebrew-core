@@ -45,7 +45,7 @@ class Fceux < Formula
     (bin/"fceux").write <<~EOS
       #!/bin/bash
       LUA_PATH=#{pkgshare}/luaScripts/?.lua #{libexec}/fceux "$@"
-      EOS
+    EOS
   end
 
   test do

@@ -3,12 +3,12 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.13.0%20Source/plplot-5.13.0.tar.gz"
   sha256 "ec36bbee8b03d9d1c98f8fd88f7dc3415560e559b53eb1aa991c2dcf61b25d2b"
-  revision 3
+  revision 5
 
   bottle do
-    sha256 "e24c2336dc62c973e9d80552790b8273b1a3d3b78b7a50cc28b4efb07960abd8" => :high_sierra
-    sha256 "f0b74862d8cd905b51ec1bca32c38bcae6dfb1cd85cfc278a146fa7c0d7fad7d" => :sierra
-    sha256 "0e2e7324cec94dcb4d155c955c6423de01ddff1304ef49852d23b01fc38f1005" => :el_capitan
+    sha256 "f148ea712e0e42c68b4c42a91a374c81dc24da3a00a57ecc98d878f2cbeae360" => :high_sierra
+    sha256 "746e17fd844ed430c8bbc8e2f120a4c5ea2122324419798391ae6c6189d649d5" => :sierra
+    sha256 "4e42e6722a1e5cea2624829631f93985bb4c82d60237697f05bb6e0bafd97a08" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -22,6 +22,7 @@ class Plplot < Formula
 
   def install
     args = std_cmake_args + %w[
+      -DPL_HAVE_QHULL=OFF
       -DENABLE_ada=OFF
       -DENABLE_d=OFF
       -DENABLE_qt=OFF

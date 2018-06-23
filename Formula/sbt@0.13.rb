@@ -3,12 +3,13 @@ class SbtAT013 < Formula
   homepage "https://www.scala-sbt.org/"
   url "https://github.com/sbt/sbt/releases/download/v0.13.17/sbt-0.13.17.tgz"
   sha256 "25f782ccb2ad6d54e13ce6cec0afa3d2328874c508d68ee34e2f742e99f2c847"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
 
   def install
     inreplace "bin/sbt" do |s|
@@ -21,6 +22,7 @@ class SbtAT013 < Formula
 
     (bin/"sbt").write <<~EOS
       #!/bin/sh
+      export JAVA_HOME=$(#{Language::Java.java_home_cmd("1.8")})
       if [ -f "$HOME/.sbtconfig" ]; then
         echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
         . "$HOME/.sbtconfig"
@@ -36,7 +38,7 @@ class SbtAT013 < Formula
     This formula uses the standard Lightbend sbt launcher script.
     Project specific options should be placed in .sbtopts in the root of your project.
     Global settings should be placed in #{etc}/sbtopts
-    EOS
+  EOS
   end
 
   test do

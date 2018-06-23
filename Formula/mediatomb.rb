@@ -81,7 +81,7 @@ class Mediatomb < Formula
 
   def caveats; <<~EOS
     Edit the config file ~/.mediatomb/config.xml before running mediatomb.
-    EOS
+  EOS
   end
 
   test do

@@ -12,7 +12,7 @@ class Libxslt < Formula
   end
 
   head do
-    url "https://git.gnome.org/browse/libxslt.git"
+    url "https://gitlab.gnome.org/GNOME/libxslt.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -46,7 +46,7 @@ class Libxslt < Formula
   def caveats; <<~EOS
     To allow the nokogiri gem to link against this libxslt run:
       gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
-    EOS
+  EOS
   end
 
   test do

@@ -23,7 +23,7 @@ class Ptunnel < Formula
 
     Alternatively, you can try using the -u flag to start ptunnel in 'unprivileged' mode,
     but this is not recommended. See https://www.cs.uit.no/~daniels/PingTunnel/ for details.
-    EOS
+  EOS
   end
 
   test do

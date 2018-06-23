@@ -19,4 +19,18 @@ class AcesContainer < Formula
       system "make", "install"
     end
   end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include "aces/aces_Writer.h"
+
+      int main()
+      {
+          aces_Writer x;
+          return 0;
+      }
+    EOS
+    system ENV.cxx, "-L#{lib}", "-lacescontainer", "test.cpp", "-o", "test"
+    system "./test"
+  end
 end

@@ -25,7 +25,7 @@ class Qdae < Formula
   def caveats; <<~EOS
     Data files are located in the following directory:
       #{share}/QDAE
-    EOS
+  EOS
   end
 
   test do

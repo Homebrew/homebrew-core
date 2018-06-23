@@ -1,16 +1,16 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v2.0.1.src.tgz"
-  version "2.0.1"
-  sha256 "4f929461ad50d3fd471886856aa399f41a405a664e886cf9ab71d2879162955e"
+  url "https://binaries.cockroachdb.com/cockroach-v2.0.3.src.tgz"
+  version "2.0.3"
+  sha256 "55e38a9cd637c9d03aa0dce524daaa988e191dcb709d9552083272b98bd7c923"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c6c3011cf1ed64d7c0d4a5b7ccaeb08b05d7f40ed49b854ffa556768034ff5d" => :high_sierra
-    sha256 "ed8f7bf78acec12cbc321555fb996c92cc5511e1ca44c8e7d3b948826e75d47a" => :sierra
-    sha256 "ca238206eac0199947c6dab60d8a9d330e65282262984137327ec7b9dccbd5f0" => :el_capitan
+    sha256 "04bab495fb986fadfdbf5787e9bbed8818233febbf15a13d6141f9133c166471" => :high_sierra
+    sha256 "ecb895ca51f7d8497e50d17d34cd7745d9771a7fec2ba9a579920656fde31d2c" => :sierra
+    sha256 "a509470d244eb2abe736e58710bc985e44e7f0ad31587651252092d3ee9227ef" => :el_capitan
   end
 
   depends_on "autoconf" => :build
@@ -33,7 +33,7 @@ class Cockroach < Formula
     mode and may expose data publicly in e.g. a DNS rebinding attack. To run
     CockroachDB securely, please see:
       #{Formatter.url("https://www.cockroachlabs.com/docs/secure-a-cluster.html")}
-    EOS
+  EOS
   end
 
   plist_options :manual => "cockroach start --insecure"
@@ -62,7 +62,7 @@ class Cockroach < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

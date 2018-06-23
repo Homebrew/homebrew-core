@@ -1,7 +1,7 @@
 class SstpClient < Formula
   desc "SSTP (Microsofts Remote Access Solution for PPP over SSL) client"
   homepage "https://sstp-client.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/1.0.12/sstp-client-1.0.12.tar.gz"
+  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/sstp-client-1.0.12.tar.gz"
   sha256 "487eb406579689803ce0397f6102b18641e4572ac7bc9b9e5f3027c84dcf67ff"
 
   bottle do
@@ -31,7 +31,7 @@ class SstpClient < Formula
     does not exist yet, type the following command to create it:
 
     sudo touch /etc/ppp/options
-    EOS
+  EOS
   end
 
   test do

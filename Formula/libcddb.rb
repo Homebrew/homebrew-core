@@ -24,4 +24,16 @@ class Libcddb < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <cddb/cddb.h>
+      int main(void) {
+        cddb_track_t *track = cddb_track_new();
+        cddb_track_destroy(track);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lcddb", "-o", "test"
+    system "./test"
+  end
 end

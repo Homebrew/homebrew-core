@@ -4,6 +4,7 @@ class Dps8m < Formula
   url "https://downloads.sourceforge.net/project/dps8m/Release%201.0/source.tgz"
   version "1.0"
   sha256 "51088dd91de888b918644c431eec22318640d28eb3050d9c01cd072aa7cca3c7"
+  head "https://github.com/charlesUnixPro/dps8m.git"
 
   bottle do
     cellar :any

@@ -35,6 +35,6 @@ class Ogmtools < Formula
     maintained or supported. There are several issues, especially on 64-bit
     architectures, which the author will not fix or accept patches for.
     Keep this in mind when deciding whether to use this software.
-    EOS
+  EOS
   end
 end

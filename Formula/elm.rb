@@ -7,8 +7,8 @@ class Elm < Formula
   homepage "http://elm-lang.org"
 
   stable do
-    url "https://github.com/elm-lang/elm-compiler/archive/0.18.0.tar.gz"
-    sha256 "3ed70ab6e624c09dd251bb2f1e104752ebd3f50a062ddf92fff9cbec98d09850"
+    url "https://github.com/elm/compiler/archive/0.18.0.tar.gz"
+    sha256 "7f941f4b9c066aea70a24a195f9920d61415b27540770b497f922561460cf6d0"
 
     resource "elm-package" do
       url "https://github.com/elm-lang/elm-package/archive/0.18.0.tar.gz"

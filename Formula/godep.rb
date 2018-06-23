@@ -3,14 +3,14 @@ class Godep < Formula
   homepage "https://godoc.org/github.com/tools/godep"
   url "https://github.com/tools/godep/archive/v80.tar.gz"
   sha256 "029adc1a0ce5c63cd40b56660664e73456648e5c031ba6c214ba1e1e9fc86cf6"
-  revision 3
+  revision 5
   head "https://github.com/tools/godep.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fbeb77fcc8e322f8ade2aef3fc87e4a923d2832bf2910afbdc4f17c8c58206ca" => :high_sierra
-    sha256 "55de9c8888344eff81142d319405393706965236cd6aa4f03f052a089d48db82" => :sierra
-    sha256 "3e467f5d8820402fdcc9360487c6e93683748f53b440211f2ad26d7c77dfed56" => :el_capitan
+    sha256 "fee50ea94c634192903fdd63be5bbe86ab1ef112dfa771d02da0db68c19abdda" => :high_sierra
+    sha256 "39c001a3a6149e18be2a5a95a9087fff562b64ce270569343344e7e4c5743e06" => :sierra
+    sha256 "a2346f03568ba0334759d0185ce4b04c6481df6c998abfde11779a88ab79c48c" => :el_capitan
   end
 
   depends_on "go"
@@ -18,7 +18,7 @@ class Godep < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/tools/godep").install buildpath.children
-    cd buildpath/"src/github.com/tools/godep" do
+    cd "src/github.com/tools/godep" do
       system "go", "build", "-o", bin/"godep"
       prefix.install_metafiles
     end

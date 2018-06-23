@@ -1,8 +1,8 @@
 class Gitbucket < Formula
   desc "Git platform powered by Scala offering"
   homepage "https://github.com/gitbucket/gitbucket"
-  url "https://github.com/gitbucket/gitbucket/releases/download/4.23.1/gitbucket.war"
-  sha256 "8dfe1ba96a3fc8e208f89d1cb345bc795b7318a822e104ad6ffe1acf7255882f"
+  url "https://github.com/gitbucket/gitbucket/releases/download/4.25.0/gitbucket.war"
+  sha256 "9f4758bd476cba8648e6f9245c38302e55da53ffe8abd7a84ed88c0be202d6f4"
 
   head do
     url "https://github.com/gitbucket/gitbucket.git"
@@ -24,7 +24,7 @@ class Gitbucket < Formula
 
   def caveats; <<~EOS
     Note: When using launchctl the port will be 8080.
-    EOS
+  EOS
   end
 
   plist_options :manual => "java -jar #{HOMEBREW_PREFIX}/opt/gitbucket/libexec/gitbucket.war"

@@ -1,22 +1,16 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.2.9.tar.gz"
-  sha256 "b3f949c4500288a18ed68c38755962c9571c9e10063fb77583a19d0fcca5ecdf"
+  url "https://github.com/github/hub/archive/v2.4.0.tar.gz"
+  sha256 "894eb112be9aa0464fa2c63f48ae8e573ef9e32a00bad700e27fd09a0cb3be4b"
 
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f000de1097dfd51b978193a32793aa29d7e9e040418bf2459565cb1f3a670bb" => :high_sierra
-    sha256 "6c23abd1255f04855fc1dfb8d44706337b728b5785e5b79f2319637575be93c7" => :sierra
-    sha256 "3452a355c8e4ef25714be7105d8946e01319e7760ffe97f7df3fc9dd21c89c76" => :el_capitan
-    sha256 "3f116b4c0587ab5d2a87d9d2f013ea058407ac2f9e845461d4970f36548e6be4" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/github/hub/archive/v2.3.0-pre10.tar.gz"
-    sha256 "4096b95aea46f674e91ff0d83f86d876958024a02c50ffb1e3a4aac3e0536fc5"
+    sha256 "c495ef4d9f89c7e16b8a0be01abf18c257167a58d1a5609675d261222cc8b0f6" => :high_sierra
+    sha256 "3f4d0c1b72dfd9074e245815f11e286d1d5a22b03c283d5af85df46387690d64" => :sierra
+    sha256 "cb2cfec3e962d3427e8fd49c1cd6ceb3d68314347f7f23b74abffa5c439343ed" => :el_capitan
   end
 
   option "without-completions", "Disable bash/zsh completions"
@@ -24,12 +18,11 @@ class Hub < Formula
 
   depends_on "go" => :build
 
+  # The build needs Ruby 1.9 or higher.
+  depends_on "ruby" => :build if MacOS.version <= :mountain_lion
+
   def install
-    if build.stable?
-      system "script/build", "-o", "hub"
-      bin.install "hub"
-      man1.install Dir["man/*"] if build.with? "docs"
-    elsif build.with? "docs"
+    if build.with? "docs"
       begin
         deleted = ENV.delete "SDKROOT"
         ENV["GEM_HOME"] = buildpath/"gem_home"
@@ -48,8 +41,7 @@ class Hub < Formula
     if build.with? "completions"
       bash_completion.install "etc/hub.bash_completion.sh"
       zsh_completion.install "etc/hub.zsh_completion" => "_hub"
-      # TODO: Remove the conditional when hub 2.3.0 is released.
-      fish_completion.install "etc/hub.fish_completion" => "hub.fish" unless build.stable?
+      fish_completion.install "etc/hub.fish_completion" => "hub.fish"
     end
   end
 

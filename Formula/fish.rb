@@ -44,6 +44,12 @@ class Fish < Formula
     system "make", "install"
   end
 
+  def post_install
+    (pkgshare/"vendor_functions.d").mkpath
+    (pkgshare/"vendor_completions.d").mkpath
+    (pkgshare/"vendor_conf.d").mkpath
+  end
+
   def caveats; <<~EOS
     You will need to add:
       #{HOMEBREW_PREFIX}/bin/fish
@@ -52,13 +58,7 @@ class Fish < Formula
     Then run:
       chsh -s #{HOMEBREW_PREFIX}/bin/fish
     to make fish your default shell.
-    EOS
-  end
-
-  def post_install
-    (pkgshare/"vendor_functions.d").mkpath
-    (pkgshare/"vendor_completions.d").mkpath
-    (pkgshare/"vendor_conf.d").mkpath
+  EOS
   end
 
   test do

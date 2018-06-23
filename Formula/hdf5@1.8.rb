@@ -3,12 +3,12 @@ class Hdf5AT18 < Formula
   homepage "https://www.hdfgroup.org/HDF5"
   url "https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.20.tar.bz2"
   sha256 "a4f2db7e0a078aa324f64e0216a80731731f73025367fa94d158c9b1d3fbdf6f"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "de1706b6d6a77507e56985403bfdb861466c6670e465ca54a32524c9273679f1" => :high_sierra
-    sha256 "c5971253a925403e2ead5da952c27eaaa50b51f28af17bf262ad8ec3fba0dc92" => :sierra
-    sha256 "351aea0c2432b6991f5df4cea14d6b7d280eaaccc051c49ea358565ab9469dde" => :el_capitan
+    sha256 "81580f1ce7e25689c97421634c957782f75c7ee4966c65e528384c815f22202a" => :high_sierra
+    sha256 "e7f235eddb70d1bcc6f276c252cf49aca79e03c62c39dd329d6108f4390d793b" => :sierra
+    sha256 "45ddc6d3184b75d0771e83074cb5510e7748536f28044b7ed2e84512ec6f0bce" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -101,7 +101,7 @@ class Hdf5AT18 < Formula
       if (error /= 0) call abort
       write (*,"(I0,'.',I0,'.',I0)") major, minor, rel
       end
-      EOS
+    EOS
     system "#{bin}/h5fc", "test.f90"
     assert_equal version.to_s, shell_output("./a.out").chomp
   end

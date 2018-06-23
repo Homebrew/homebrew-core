@@ -4,15 +4,15 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.15.0.tar.gz"
-  sha256 "c10200c5fb76125e1b56070f89a22e5f058c8687a42dfdf469ed76be2cd299c1"
+  url "https://github.com/aws/aws-cli/archive/1.15.40.tar.gz"
+  sha256 "be54580551ef27cf68792ab4252772d819c7e05153d4498bd8848c7d9dc042aa"
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "13ffeccef35d420fa9dd7b8cb34e9d86391ae2dda106f1eb8c5ee36a3cf105f5" => :high_sierra
-    sha256 "feebe1b7a66b336ddc9d591a5411b8569c7eabda44f0da9b6537522e5847f9e2" => :sierra
-    sha256 "66df325dff1a8120129663f46b70b08ebcb1da281dffac8870cc5be823327549" => :el_capitan
+    sha256 "432dc6eeb92f3b933c95060276eddbb03dfa3095708b98673c4d50e08ea1a451" => :high_sierra
+    sha256 "54b27f6b17a992440fb391cce3229821f2980d5f6b909e299b220a870dc1ef5d" => :sierra
+    sha256 "950e88817ea126d0b58b7ef2fa5b8e9f3efc6130b41fea21f0ff90a01f47acf6" => :el_capitan
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
@@ -43,7 +43,7 @@ class Awscli < Formula
   def caveats; <<~EOS
     The "examples" directory has been installed to:
       #{HOMEBREW_PREFIX}/share/awscli/examples
-    EOS
+  EOS
   end
 
   test do

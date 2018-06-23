@@ -11,6 +11,7 @@ class Goocanvas < Formula
     sha256 "26d6c8d30f7a9056af03e59691a4112147cff745855042244413b83be99c7ae9" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "glib"

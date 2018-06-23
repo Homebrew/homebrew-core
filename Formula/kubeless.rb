@@ -1,28 +1,25 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.6.0",
-      :revision => "3bec4b65f29d830bd6709abb07e00f11fe54d646"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.5.tar.gz"
+  sha256 "41ad6b780cd50a6b4925350d1c7757b3508cd105fe1a5c793848bf939ea2d1b8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "98cf8441e9266b034e2fd70a9fca2cf0d39fe9800b9ff652d41ada035aa4932d" => :high_sierra
-    sha256 "2fdce4174d8be72c65ab44752c934f801e5583871a555b4e04900a60fc46058c" => :sierra
-    sha256 "4e6dd1c7aed374a7f41f88d59e2e0a623f5bb54255055112df03a28a0ad1b278" => :el_capitan
+    sha256 "6a78361407073075d54aa112db18a49f6ace57541655a36151ef98e567def9a2" => :high_sierra
+    sha256 "2329f9245cec70344551e1c5f8dd7e7dfac9381badb8f849de9cac9a7be704fe" => :sierra
+    sha256 "9b70e82d590612c57aae273be8c3f32008388a8d0a1b6c30ac0c16b7b555c40e" => :el_capitan
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli" => :recommended
 
   def install
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/kubeless/kubeless").install buildpath.children
     cd "src/github.com/kubeless/kubeless" do
       ldflags = %W[
-        -w -X github.com/kubeless/kubeless/cmd/kubeless/version.VERSION=v#{version}
-        -X github.com/kubeless/kubeless/cmd/kubeless/version.GITCOMMIT=#{commit}
+        -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
       ]
       system "go", "build", "-o", bin/"kubeless", "-ldflags", ldflags.join(" "),
              "./cmd/kubeless"

@@ -3,13 +3,13 @@ class Neko < Formula
   homepage "https://nekovm.org/"
   url "https://github.com/HaxeFoundation/neko/archive/v2-2-0/neko-2.2.0.tar.gz"
   sha256 "cf101ca05db6cb673504efe217d8ed7ab5638f30e12c5e3095f06fa0d43f64e3"
-  revision 3
+  revision 5
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
-    sha256 "d2cc6078ee557511a9b942a11235f6f1de35bb0b4a192e3bdf2c06225a1739fa" => :high_sierra
-    sha256 "87da62afced4e6a0b68669069752ff4e960618e4e8d243cc3bfef648cbbc3a23" => :sierra
-    sha256 "ef18bc7d2dadb87582ea22cec0d64ee272f8570cde1157700ce88fd3a4631002" => :el_capitan
+    sha256 "a1fa4028cc7485f7f1dcbb0b587e3c30b1d52ea7cc78e9fe7c1a4f74a72d0813" => :high_sierra
+    sha256 "32724bad0333f9d3c9d97ef095cda5a401d177949e522d63148c5f73852d1904" => :sierra
+    sha256 "2a526fb7bf64537f71d410fd757d1c0291c3e0105f5db8aa7bed878eb5914edd" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -35,7 +35,7 @@ class Neko < Formula
       s << <<~EOS
         You must add the following line to your .bashrc or equivalent:
           export NEKOPATH="#{HOMEBREW_PREFIX}/lib/neko"
-        EOS
+      EOS
     end
     s
   end

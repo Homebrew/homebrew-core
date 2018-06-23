@@ -1,14 +1,14 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/v1.5.6.2.tar.gz"
-  sha256 "ad0876ad448783caf65f83557f2c36883418fa22d9f398c0f5d7b16f02a3edad"
+  url "https://github.com/asciidoctor/asciidoctor/archive/v1.5.7.1.tar.gz"
+  sha256 "471a171b73d9a06c455459cfa194698b125d49c6c82ba26daf3bef339b6a4d94"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "706d1a92697057a45787d5e3b31d36bf96d50ca10454f53075038f902fc8164a" => :high_sierra
-    sha256 "71c99d6310db8ab951d2c42dbbd3117aae0d8443a5ae1ba4725ed20c81df00a5" => :sierra
-    sha256 "c7531d673926d06f0dcf3d0143d5cf39e88072f368954f63025df18cca1ef84a" => :el_capitan
+    sha256 "b31c91e2218a7d877243bf973519644552bfa6775f0afb9cee9e7964450be7a1" => :high_sierra
+    sha256 "56ff379da06e486b925ac6bfc1459a8810243c54118a4088b70b3af463a26851" => :sierra
+    sha256 "b2cada743cbac6d0f36ea211cc9bbf6b0fba53264ff04fc7be95141ddbc2a2d1" => :el_capitan
   end
 
   def install
