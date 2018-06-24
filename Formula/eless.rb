@@ -14,6 +14,8 @@ class Eless < Formula
   end
 
   test do
-    system bin/"eless", "-V"
+    assert_match version.to_s, shell_output("#{bin}/eless -V")
+    expected = "This script is not supposed to send output to a pipe"
+    assert_equal expected, pipe_output("#{bin}/eless").chomp
   end
 end
