@@ -3,7 +3,7 @@ class Asyncy < Formula
   desc "Asyncy CLI"
   homepage "https://docs.asyncy.com/cli"
   url "https://github.com/asyncy/cli/archive/0.0.6.tar.gz"
-  sha256 "59b3393b63b91a14018a46eefe579232405cf81157c4b3e68f1368e0377b16a2"
+  sha256 "5522f8b7184bfb23fc01fdf7195712a82fcc60a0ae8149560e59bc6ba03b2cd0"
   head "https://github.com/asyncy/cli.git"
 
   depends_on "python3"
