@@ -6,13 +6,6 @@ class Asyncy < Formula
   sha256 "59b3393b63b91a14018a46eefe579232405cf81157c4b3e68f1368e0377b16a2"
   head "https://github.com/asyncy/cli.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "" => :high_sierra
-    sha256 "" => :sierra
-    sha256 "" => :el_capitan
-  end
-  
   depends_on "python3"
 
   resource "certifi" do
