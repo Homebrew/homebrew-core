@@ -2,9 +2,17 @@ class Asyncy < Formula
   include Language::Python::Virtualenv
   desc "Asyncy CLI"
   homepage "https://docs.asyncy.com/cli"
-  url "https://github.com/asyncy/cli.git",
-      :tag => "0.0.6",
-      :revision => "5f09afff6984a6eac7ad43cd11936d36c00809f2"
+  url "https://github.com/asyncy/cli/archive/0.0.6.tar.gz"
+  sha256 "59b3393b63b91a14018a46eefe579232405cf81157c4b3e68f1368e0377b16a2"
+  head "https://github.com/asyncy/cli.git"
+
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "" => :high_sierra
+    sha256 "" => :sierra
+    sha256 "" => :el_capitan
+  end
+  
   depends_on "python3"
 
   resource "certifi" do
