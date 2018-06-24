@@ -112,7 +112,7 @@ class Mpd < Formula
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
 
-  plist_options :manual => "mpd"
+  plist_options :manual => "mpd #{HOMEBREW_PREFIX}/etc/mpd/mpd.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -127,6 +127,7 @@ class Mpd < Formula
         <array>
             <string>#{opt_bin}/mpd</string>
             <string>--no-daemon</string>
+            <string>#{etc}/mpd/mpd.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
