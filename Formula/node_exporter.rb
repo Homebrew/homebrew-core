@@ -9,10 +9,9 @@ class NodeExporter < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/prometheus").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/prometheus/node_exporter"
-
-    system "go", "build", "github.com/prometheus/node_exporter"
-    bin.install "node_exporter"
+    ln_s buildpath, "src/github.com/prometheus/node_exporter"
+    system "go", "build", "-o", bin/"node_exporter",
+           "github.com/prometheus/node_exporter"
   end
 
   plist_options :manual => "node_exporter"
