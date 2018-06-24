@@ -18,9 +18,24 @@ class Pgloader < Formula
       sha256 "22b0938a3765229a54bd84f70c7de2a56e8903fef4dbc987a3c8621314d800e4"
     end
 
+    resource "closure-common" do
+      url "https://beta.quicklisp.org/archive/closure-common/2010-11-07/closure-common-20101107-git.tgz"
+      sha256 "64c2b19fd64be8606f8208191b3269022e8fe34abe3f72acfd349f2fec6d02a5"
+    end
+
+    resource "cxml" do
+      url "https://beta.quicklisp.org/archive/cxml/2011-06-19/cxml-20110619-git.tgz"
+      sha256 "d38bbad4b2d8f519f9e13402cd322ceb8a38934d4b4d82e2571a9f9bacd76612"
+    end
+
     resource "yason" do
       url "https://beta.quicklisp.org/archive/yason/2016-02-08/yason-v0.7.6.tgz"
       sha256 "1332170b030067e2ea7119e8a18abb7778b89fd6a2163f808d80dbbd48b0ee01"
+    end
+
+    resource "zs3" do
+      url "https://beta.quicklisp.org/archive/zs3/2017-12-27/zs3-1.3.1.tgz"
+      sha256 "ddd9e180d23bce21482cb0d9bcd3f5636c85963290ac19fa9ddc39fa9b12b990"
     end
   end
 
