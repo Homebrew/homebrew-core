@@ -16,7 +16,7 @@ class Kcov < Formula
     MachO::Tools.change_install_name(
       "src/kcov",
       "@rpath/LLDB.framework/LLDB",
-      "/Applications/Xcode.app/Contents/SharedFrameworks/LLDB.framework/LLDB",
+      MacOS::Xcode.bundle_path.join("Contents/SharedFrameworks/LLDB.framework/LLDB").to_s,
     )
 
     system "make", "install"
