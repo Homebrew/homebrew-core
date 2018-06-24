@@ -10,15 +10,23 @@ class Jasper < Formula
     sha256 "c481b8887b8d29e3c63735dd2151c9246e08f21bf50334033de4a054f700a6db" => :el_capitan
   end
 
+  option "without-doc", "Disable the building of the documentation (which requires LaTeX)"
+
   depends_on "cmake" => :build
   depends_on "jpeg"
 
   def install
+    cmake_args = std_cmake_args
+
+    if build.without? "doc"
+      cmake_args << "-DJAS_ENABLE_DOC=false"
+    end
+
     mkdir "build" do
       # Make sure macOS's GLUT.framework is used, not XQuartz or freeglut
       # Reported to CMake upstream 4 Apr 2016 https://gitlab.kitware.com/cmake/cmake/issues/16045
       glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
-      system "cmake", "..", "-DGLUT_glut_LIBRARY=#{glut_lib}", *std_cmake_args
+      system "cmake", "..", "-DGLUT_glut_LIBRARY=#{glut_lib}", *cmake_args
       system "make"
       system "make", "test"
       system "make", "install"
