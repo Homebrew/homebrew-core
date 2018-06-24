@@ -44,7 +44,8 @@ class NodeExporter < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/node_exporter --version")
+    output = shell_output("#{bin}/node_exporter --version 2>&1")
+    assert_match version.to_s, output
     begin
       pid = fork { exec bin/"node_exporter" }
       sleep 2
