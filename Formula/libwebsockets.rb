@@ -1,10 +1,20 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  url "https://github.com/warmcat/libwebsockets/archive/v2.4.2.tar.gz"
-  sha256 "73012d7fcf428dedccc816e83a63a01462e27819d5537b8e0d0c7264bfacfad6"
-  revision 1
+  revision 2
   head "https://github.com/warmcat/libwebsockets.git"
+
+  stable do
+    url "https://github.com/warmcat/libwebsockets/archive/v2.4.2.tar.gz"
+    sha256 "73012d7fcf428dedccc816e83a63a01462e27819d5537b8e0d0c7264bfacfad6"
+
+    # Fix compatibility with libuv 1.21.0.
+    # Not in the 3.0.0 release but should be safe to remove on >= 3.0.1.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4d337833/libwebsockets/libwebsockets_libuv_1.21.0_compat.diff"
+      sha256 "d2ef574b7c356573fc4ade2b95f7717e1eac192d8e56748b03588c89b12fdabd"
+    end
+  end
 
   bottle do
     cellar :any
