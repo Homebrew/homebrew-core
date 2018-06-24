@@ -29,11 +29,6 @@ class NodeExporter < Formula
           <string>-c</string>
           <string>#{opt_bin}/node_exporter $(&lt; #{etc}/node_exporter.args)</string>
         </array>
-        <!-- UserName is not working; see https://github.com/Homebrew/homebrew-services/issues/70 -->
-        <key>UserName</key>
-        <string>nobody</string>
-        <key>GroupName</key>
-        <string>nobody</string>
         <key>RunAtLoad</key>
         <true/>
         <key>KeepAlive</key>
