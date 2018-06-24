@@ -44,7 +44,7 @@ class NodeExporter < Formula
         <string>#{var}/log/node_exporter.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
