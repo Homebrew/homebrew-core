@@ -4,7 +4,7 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.4.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.4.0.tar.gz"
   sha256 "72f846379fcec7e813d46adcbacd069d72c4f4d8f6003bcd92c3513aafcd6e96"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "9229aecdfaa4539e9954e234e0d4af6e13b1930d482af464e4e75d6ad2987c19" => :high_sierra
@@ -49,7 +49,7 @@ class Octave < Formula
   depends_on "qrupdate"
   depends_on "readline"
   depends_on "suite-sparse"
-  depends_on "sundials"
+  depends_on "sundials@2"
   depends_on "texinfo"
   depends_on "veclibfort"
 
@@ -61,6 +61,8 @@ class Octave < Formula
     # inserted into every oct/mex build. This is unnecessary and can cause
     # cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
+
+    ENV.append "CFLAGS", "-I#{Formula["sundials@2"].opt_include}"
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",

@@ -7,12 +7,12 @@ class SundialsAT2 < Formula
   keg_only :versioned_formula
 
   option "with-openmp", "Enable OpenMP multithreading"
-  option "without-mpi", "Do not build with MPI"
+  deprecated_option "without-mpi" => "without-open-mpi"
 
   depends_on "cmake" => :build
   depends_on "python" => :build
   depends_on "gcc" # for gfortran
-  depends_on "open-mpi" if build.with? "mpi"
+  depends_on "open-mpi" => :recommended
   depends_on "suite-sparse"
   depends_on "openblas"
 
@@ -30,7 +30,7 @@ class SundialsAT2 < Formula
       -DLAPACK_LIBRARIES=#{blas};#{blas}
     ]
     args << "-DOPENMP_ENABLE=ON" if build.with? "openmp"
-    args << "-DMPI_ENABLE=ON" if build.with? "mpi"
+    args << "-DMPI_ENABLE=ON" if build.with? "open-mpi"
 
     mkdir "build" do
       system "cmake", "..", *args
