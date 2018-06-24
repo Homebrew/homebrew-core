@@ -6,7 +6,7 @@ class Bashate < Formula
   url "https://github.com/openstack-dev/bashate/archive/0.5.1.tar.gz"
   sha256 "44fa6645fd7d5169c40747714986f1093ed24e2474e4a368c2695bf339c1551e"
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/source/p/pbr/pbr-4.0.4.tar.gz"
