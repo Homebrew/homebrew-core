@@ -67,7 +67,7 @@ class Pypy < Formula
       package_args = %w[--archive-name pypy --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       system python, "package.py", *package_args
-      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy.tar.bz2"
+      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy.tar.bz2"
     end
 
     (libexec/"lib").install libexec/"bin/libpypy-c.dylib"
