@@ -4,6 +4,13 @@ class NodeExporter < Formula
   url "https://github.com/prometheus/node_exporter/archive/v0.16.0.tar.gz"
   sha256 "2ed1c1c199e047b1524b49a6662d5969936e81520d6613b8b68cc3effda450cf"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "73a63fee885b246f401e3bb5f2ba2ef151a0d445d2c5be3480eb5ad7e34c5150" => :high_sierra
+    sha256 "a2f81f31c72150cff3ce0442ae63e783b4c8d9ea6b04cce353caed36f373c464" => :sierra
+    sha256 "43917856258a8a777b2632921070b002853b266438495320ca20d5eda6a95809" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
