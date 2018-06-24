@@ -14,7 +14,7 @@ class Phpmyadmin < Formula
     etc.install pkgshare/"config.sample.inc.php" => "phpmyadmin.config.inc.php"
     ln_s etc/"phpmyadmin.config.inc.php", pkgshare/"config.inc.php"
   end
-  
+
   def caveats; <<~EOS
     To enable phpMyAdmin in Apache, add the following to httpd.conf and
     restart Apache:
