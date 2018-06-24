@@ -9,13 +9,17 @@ class Bashate < Formula
   depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/cd/9f/8f14a51b522c47a315dd969fbdf39233e41f0bfa8b996b4ff0ad852ff43d/pbr-4.0.4.tar.gz"
+    url "https://pypi.python.org/packages/source/p/pbr/pbr-4.0.4.tar.gz"
     sha256 "a9c27eb8f0e24e786e544b2dbaedb729c9d8546342b5a6818d8eda098ad4340d"
   end
 
   def install
+    venv = virtualenv_create(libexec)
+    venv.pip_install resources
+    # Needed to set version for Bashate, but only after pbr has been installed
+    # otherwise we end up overriding that's versions as well and that's bad
     ENV.append("PBR_VERSION", "0.5.1")
-    virtualenv_install_with_resources
+    venv.pip_install_and_link buildpath
   end
 
   test do
