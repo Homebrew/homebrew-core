@@ -6,7 +6,7 @@ class Asyncy < Formula
   sha256 "5522f8b7184bfb23fc01fdf7195712a82fcc60a0ae8149560e59bc6ba03b2cd0"
   head "https://github.com/asyncy/cli.git"
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "certifi" do
     url "https://pypi.python.org/packages/source/c/certifi/certifi-2018.4.16.tar.gz"
