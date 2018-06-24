@@ -10,7 +10,8 @@ class NodeExporter < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/prometheus").mkpath
     ln_s buildpath, "src/github.com/prometheus/node_exporter"
-    system "go", "build", "-o", bin/"node_exporter",
+    system "go", "build", "-o", bin/"node_exporter", "-ldflags",
+           "-X github.com/prometheus/node_exporter/vendor/github.com/prometheus/common/version.Version=#{version}",
            "github.com/prometheus/node_exporter"
   end
 
@@ -43,6 +44,7 @@ class NodeExporter < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/node_exporter --version")
     begin
       pid = fork { exec bin/"node_exporter" }
       sleep 2
