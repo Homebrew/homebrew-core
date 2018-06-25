@@ -1,8 +1,8 @@
 class Grv < Formula
   desc "Terminal interface for viewing git repositories"
   homepage "https://github.com/rgburke/grv"
-  url "https://github.com/rgburke/grv/releases/download/v0.1.3/grv-0.1.3-src.tar.gz"
-  sha256 "61c73aff8e73fe86ee5a1b7a37e8506afa87fda3f81edacadfc6b9aeebc22314"
+  url "https://github.com/rgburke/grv/releases/download/v0.2.0/grv-0.2.0-src.tar.gz"
+  sha256 "4988bb0a74853ada3808d7c819bd159b2acee741baa1565e97033cd3118224b7"
   head "https://github.com/rgburke/grv.git"
 
   bottle do
