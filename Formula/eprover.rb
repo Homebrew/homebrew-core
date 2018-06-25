@@ -1,8 +1,8 @@
 class Eprover < Formula
   desc "Theorem prover for full first-order logic with equality"
   homepage "https://eprover.org/"
-  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.0/E.tgz"
-  sha256 "ebd911cb3a8b43019f666ffde10b28ca8e0871ab401ce88d1b9ba276c5c8bcf6"
+  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_2.1/E.tgz"
+  sha256 "f4d8b0316dfe670b636e85382d0d9802fe723b6e13c316497163a85fa54a09be"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,13 +13,13 @@ class Eprover < Formula
   end
 
   def install
-    inreplace ["PROVER/eproof", "PROVER/eproof_ram"], "EXECPATH=.",
-                                                      "EXECPATH=#{bin}"
-    system "./configure", "--bindir=#{bin}", "--man-prefix=#{man}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--man-prefix=#{man1}"
+    system "make"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/eproof"
+    system "#{bin}/eprover", "--help"
   end
 end
