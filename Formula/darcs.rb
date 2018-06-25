@@ -10,9 +10,9 @@ class Darcs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a18baed73cb1b77ef9cbaf499ff313d9b9b347a04d17b82fa6c7bce83ff27957" => :high_sierra
-    sha256 "ab1aafc30e70ffcfd7a397ffea6b5b668aed5ed1572eaba135ee1106a560201c" => :sierra
-    sha256 "b7145e37e8e32034065ea7a4031810417ff6387e665ca3a6ea89638e7994b43f" => :el_capitan
+    sha256 "6618314c01b2aeed0ad4d8f10f017f4ed24ebb4d8bb96d77b92a4be0f5a36dc6" => :high_sierra
+    sha256 "b0063bb736e782887caa458a63899d66f84ebfeb4e950ad41b4ba27128ccf4fb" => :sierra
+    sha256 "61148f3fb7580ada1e83a2f1219942237e7fec26c6161fecdd8aa533e8529f98" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
