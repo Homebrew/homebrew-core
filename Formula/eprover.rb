@@ -5,11 +5,9 @@ class Eprover < Formula
   sha256 "f4d8b0316dfe670b636e85382d0d9802fe723b6e13c316497163a85fa54a09be"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "695d0b85e575af8af73481ee2678cbfa7687b140a75d402234a2ddce6425bc9d" => :high_sierra
-    sha256 "fffcc75e400937600fd2c059ecb5427476b216af5c56249c756400de4906885b" => :sierra
-    sha256 "8d3dd0289c6f77d68dc2e1c9f06c039e106f2b6e324788315815a8c37b433e9c" => :el_capitan
-    sha256 "6d13db7618b7a1d3e567165000a81d34384941c0f3de51177cf7b2a9b8f39ce7" => :yosemite
+    sha256 "25b002f9ebea09a19061dc34ecdf9df013c8e2dc10a591cfa52a35a817702c79" => :high_sierra
+    sha256 "3bc21a8ded282e64ee8ed8062eec514133af36d2418e18f7821c4c678e288b54" => :sierra
+    sha256 "3c91a8bc24e98889448a78fdccc888d5f6489a9715e903b255026b11dd5ff1b7" => :el_capitan
   end
 
   def install
