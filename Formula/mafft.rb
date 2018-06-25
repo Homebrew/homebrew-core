@@ -1,8 +1,8 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.313-with-extensions-src.tgz"
-  sha256 "c48e5e05b427cae0d862daaef6148675d5ef57e24425c17b4c3d8da5b060eabd"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz"
+  sha256 "79d794636bdb7962b8aa7023aa9f01b3fc7bbbee333b544947f86451515d8ac3"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,14 +15,8 @@ class Mafft < Formula
 
   def install
     make_args = %W[CC=#{ENV.cc} CXX=#{ENV.cxx} PREFIX=#{prefix} install]
-
-    cd "core" do
-      system "make", *make_args
-    end
-
-    cd "extensions" do
-      system "make", *make_args
-    end
+    system "make", "-C", "core", *make_args
+    system "make", "-C", "extensions", *make_args
   end
 
   test do
