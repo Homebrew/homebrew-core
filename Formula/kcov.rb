@@ -22,6 +22,11 @@ class Kcov < Formula
     system "make", "install"
   end
 
+  pour_bottle? do
+    reason "Need to set the XCode path explicitly"
+    satisfy { false }
+  end
+
   test do
     (testpath/"test.sh").write <<~EOS
       #!/bin/bash
