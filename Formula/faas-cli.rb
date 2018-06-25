@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.6.10",
-      :revision => "999a6669148c30adeb64400609953cf59db2fb64"
+      :tag => "0.6.11",
+      :revision => "3995a8197f1df1ecdf524844477cffa04e4690ea"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,7 +26,6 @@ class FaasCli < Formula
              "-s -w -X #{project}/version.GitCommit=#{commit} -X #{project}/version.Version=#{version}", "-a",
              "-installsuffix", "cgo", "-o", bin/"faas-cli"
       bin.install_symlink "faas-cli" => "faas"
-      pkgshare.install "template"
       prefix.install_metafiles
     end
   end
@@ -71,13 +70,6 @@ class FaasCli < Formula
     EOS
 
     begin
-      cp_r pkgshare/"template", testpath
-
-      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output.chomp
-
-      rm_rf "template"
-
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml 2>&1", 1)
       assert_match "stat ./template/python/template.yml", output
 
