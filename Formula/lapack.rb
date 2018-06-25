@@ -1,7 +1,7 @@
 class Lapack < Formula
   desc "Linear Algebra PACKage"
-  homepage "http://www.netlib.org/lapack/"
-  url "http://www.netlib.org/lapack/lapack-3.8.0.tar.gz"
+  homepage "https://www.netlib.org/lapack/"
+  url "https://www.netlib.org/lapack/lapack-3.8.0.tar.gz"
   sha256 "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
   revision 1
   head "https://github.com/Reference-LAPACK/lapack.git"
