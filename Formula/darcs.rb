@@ -5,8 +5,8 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.14.0/darcs-2.14.0.tar.gz"
-  sha256 "19fa0882a1485f03ab0552d6f01d538c2b286c4a38a1fe502e9cf2a78f782803"
+  url "https://hackage.haskell.org/package/darcs-2.14.1/darcs-2.14.1.tar.gz"
+  sha256 "61ddbc99acaf06df3a114437064e9241e0da467c23d1d3fb520a782eee32cd35"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,11 +20,7 @@ class Darcs < Formula
   depends_on "gmp"
 
   def install
-    # GHC 8.4.x compatibility; remove the extra arguments for darcs > 2.14.0
-    install_cabal_package "--allow-newer=darcs:async",
-                          "--constraint", "async < 2.3",
-                          "--allow-newer=darcs:graphviz",
-                          "--constraint", "graphviz < 2999.20.1"
+    install_cabal_package
   end
 
   test do
