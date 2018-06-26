@@ -3,6 +3,7 @@ class Mono < Formula
   homepage "https://www.mono-project.com/"
   url "https://download.mono-project.com/sources/mono/mono-5.12.0.226.tar.bz2"
   sha256 "f0636baa0c1399805526142e799cb697ddccf736e506cf1a30a870eaa2830a89"
+  revision 1
 
   bottle do
     sha256 "e94afd579b752d08311859073ef0979f71529c85989694f05e2f16c6c943c4d8" => :high_sierra
@@ -36,10 +37,14 @@ class Mono < Formula
         :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
   end
 
+  # When upgrading Mono, make sure to use the revision from
+  # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
+  # NOTE: We're currently using a later revision than from the point release we're using;
+  #       the buildsystem changed between them, and 5.12.0.226's is broken.
+  #       Revisit this on the next release.
   resource "msbuild" do
-    url "https://github.com/mono/msbuild/releases/download/v0.05/mono_msbuild_port2-394a6b5e.zip"
-    version "0.05"
-    sha256 "b832ccf29ede89724f9217fe074f688e011dc15dd9ada2258f4caf6ae2c992e8"
+    url "https://github.com/mono/msbuild.git",
+        :revision => "49a614cda8cedbc6b42e37d49e40cc89fbdac4fd"
   end
 
   def install
@@ -59,12 +64,20 @@ class Mono < Formula
     # run directly, so we move them out of bin
     libexec.install bin/"mono-gdb.py", bin/"mono-sgen-gdb.py"
 
-    # Now build and install fsharp as well
+    # We'll need mono for msbuild, and then later msbuild for fsharp
+    ENV.prepend_path "PATH", bin
+
+    # Next build msbuild
+    resource("msbuild").stage do
+      system "./build.sh", "-host", "mono", "-configuration", "Release", "-skipTests"
+      system "./artifacts/mono-msbuild/msbuild", "mono/build/install.proj",
+             "/p:MonoInstallPrefix=#{prefix}", "/p:Configuration=Release-MONO",
+             "/p:IgnoreDiffFailure=true"
+    end
+
+    # Finally build and install fsharp as well
     if build.with? "fsharp"
       resource("fsharp").stage do
-        (Pathname.pwd/"msbuild").install resource("msbuild")
-        ENV.prepend_path "PATH", Pathname.pwd/"msbuild"
-        ENV.prepend_path "PATH", bin
         ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
         system "./autogen.sh", "--prefix=#{prefix}"
         system "make"
