@@ -17,12 +17,17 @@ class Libfaketime < Formula
   # https://github.com/Homebrew/homebrew-core/issues/26568
   depends_on "coreutils"
 
-  depends_on :macos => :lion
+  depends_on :macos => :sierra
 
   def install
     system "make", "-C", "src", "-f", "Makefile.OSX", "PREFIX=#{prefix}"
     bin.install "src/faketime"
     (lib/"faketime").install "src/libfaketime.1.dylib"
     man1.install "man/faketime.1"
+  end
+
+  test do
+    cp "/bin/date", testpath/"date" # Work around SIP.
+    assert_match "1230106542", shell_output(%Q(TZ=UTC #{bin}/faketime -f "2008-12-24 08:15:42" #{testpath}/date +%s)).strip
   end
 end
