@@ -37,9 +37,8 @@ class Mono < Formula
         :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
   end
 
-  # Values taken from Mono's build script:
+  # When upgrading Mono, make sure to use the revision from
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
-  # Make sure to use the revision from there when upgrading Mono.
   # NOTE: We're currently using a later revision than from the point release we're using;
   #       the buildsystem changed between them, and 5.12.0.226's is broken.
   #       Revisit this on the next release.
