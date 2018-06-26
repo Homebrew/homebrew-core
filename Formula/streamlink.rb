@@ -5,10 +5,10 @@ class Streamlink < Formula
   sha256 "0b594d4a10d5d2eea340af3878ea0da98ccbbb13515d158301c4582c72ea4e75"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c62932689fa88cb6b4bac76509135716e3e7b2267f6d27a3449ec3dee4382abc" => :high_sierra
-    sha256 "be5fdbf8c4412ba531094f2ae126636b7f64f930879a0295864260db79357526" => :sierra
-    sha256 "6617285cec58ea1449551269074fac016f566a4836de0175c6bf852895a8b45d" => :el_capitan
+    cellar :any
+    sha256 "0e22fdbd1133b0aa4d5c842bb380d2da9e99f25e3b65795498bb36236987219b" => :high_sierra
+    sha256 "c3146655cde43f881918d9255aa78e70504a3a2dedb5d988bce4338eb4befcd7" => :sierra
+    sha256 "46b6619a7fec447df673bf6d925735d92da590a997c8424001122a82b9790f54" => :el_capitan
   end
 
   depends_on "python@2"
