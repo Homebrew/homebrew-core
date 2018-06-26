@@ -6,9 +6,9 @@ class GnuUnits < Formula
   sha256 "1f03c9f9aef1fb0ccddc6fb545f2925f7754de2bfa67d4e62f8758d7edfd5dd8"
 
   bottle do
-    sha256 "b533470458d0a2bd9bfe0fbc065537b7c90c430c0d7285df5d46336ab5176d72" => :high_sierra
-    sha256 "72cc1855be6ce7d394d4cd57523a6c79f6f8125a15dbd88cb33a30bb6eaac221" => :sierra
-    sha256 "fc309d161150a8141003950b96c8876a4f4814810c9936dd6f0561220da682e5" => :el_capitan
+    sha256 "7c1b738b9a2211a5878a5e93b8fc1e0872b96ef2621089935c63affefb111210" => :high_sierra
+    sha256 "b7dd84962f44459c34754c315ff0840721a8612b42663366f63a69f2ba1b6f3d" => :sierra
+    sha256 "d735946b103d42cbc06f771b157312db9e513e0a351f285aa7cd681ade7ab437" => :el_capitan
   end
 
   deprecated_option "default-names" => "with-default-names"
