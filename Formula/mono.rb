@@ -64,7 +64,7 @@ class Mono < Formula
     # run directly, so we move them out of bin
     libexec.install bin/"mono-gdb.py", bin/"mono-sgen-gdb.py"
 
-    # We'll need this mono for msbuild, and then later msbuild for fsharp
+    # We'll need mono for msbuild, and then later msbuild for fsharp
     ENV.prepend_path "PATH", bin
 
     # Next build msbuild
