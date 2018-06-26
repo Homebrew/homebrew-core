@@ -35,7 +35,11 @@ class Black < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
-    (testpath/"black_test.py").write("print(\"It works!\")")
+    (testpath/"black_test.py").write <<~EOS
+      print(
+      'It works!')
+    EOS
     system bin/"black", "black_test.py"
+    assert_equal "print(\"It works!\")\n", (testpath/"black_test.py").read
   end
 end
