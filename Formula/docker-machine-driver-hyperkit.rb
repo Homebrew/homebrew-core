@@ -2,8 +2,8 @@ class DockerMachineDriverHyperkit < Formula
   desc "Docker Machine driver for hyperkit"
   homepage "https://github.com/kubernetes/minikube"
   url "https://github.com/kubernetes/minikube.git",
-    :tag => "v0.27.0",
-    :revision => "a7c0cbee11dd97f257cc8d050605684c0c446a7e"
+    :tag => "v0.28.0",
+    :revision => "80e934b8450578c2ac24d6b9c9fe2b42dc4b0d93"
 
   depends_on "go" => :build
   depends_on :macos => :yosemite
