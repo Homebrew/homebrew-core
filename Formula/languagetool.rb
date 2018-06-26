@@ -1,8 +1,8 @@
 class Languagetool < Formula
   desc "Style and grammar checker"
   homepage "https://www.languagetool.org/"
-  url "https://languagetool.org/download/LanguageTool-4.1.zip"
-  sha256 "350ae3584d72dfc769f63adbf46a438e3a66ad86c9cdd4dd0c3e3c44ed38b31e"
+  url "https://languagetool.org/download/LanguageTool-4.2.zip"
+  sha256 "2621801fb4c62f78cc813c17d67c70d39229b8982040b927325754eb7e90135b"
 
   bottle :unneeded
   depends_on :java => "1.8+"
