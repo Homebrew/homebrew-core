@@ -11,7 +11,6 @@ class DockerMachineDriverHyperkit < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["CGO_ENABLED"] = "1"
     (buildpath/"src/k8s.io/minikube").install buildpath.children
     cd "src/k8s.io/minikube" do
       system "go", "build", "-o", "#{bin}/docker-machine-driver-hyperkit", "-ldflags",
