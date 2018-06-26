@@ -39,14 +39,13 @@ class Mono < Formula
 
   # Values taken from Mono's build script:
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
-  # Make sure to use the version number and revision from there when upgrading Mono.
+  # Make sure to use the revision from there when upgrading Mono.
   # NOTE: We're currently using a later revision than from the point release we're using;
   #       the buildsystem changed between them, and 5.12.0.226's is broken.
   #       Revisit this on the next release.
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
         :revision => "49a614cda8cedbc6b42e37d49e40cc89fbdac4fd"
-    version "15"
   end
 
   def install
