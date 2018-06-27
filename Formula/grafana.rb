@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.1.4.tar.gz"
-  sha256 "16ce88a5457ffade7f045acbb6485e0f226fa98ea9f44b9c00640c1c8e925823"
+  url "https://github.com/grafana/grafana/archive/v5.2.0.tar.gz"
+  sha256 "094af0fad5db1b14b73afd335b563d4feaa52386436f9dcae74e59c545fcfe4b"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
@@ -31,8 +31,8 @@ class Grafana < Formula
       args << "--force" unless build.bottle?
       system "node_modules/grunt-cli/bin/grunt", *args
 
-      bin.install "bin/grafana-cli"
-      bin.install "bin/grafana-server"
+      bin.install "bin/darwin-amd64/grafana-cli"
+      bin.install "bin/darwin-amd64/grafana-server"
       (etc/"grafana").mkpath
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
@@ -95,7 +95,7 @@ class Grafana < Formula
     require "timeout"
 
     # first test
-    system bin/"grafana-server", "-v"
+    system bin/darwin-amd64/"grafana-server", "-v"
 
     # avoid stepping on anything that may be present in this directory
     tdir = File.join(Dir.pwd, "grafana-test")
@@ -108,7 +108,7 @@ class Grafana < Formula
     end
     Dir.chdir(pkgshare)
 
-    res = PTY.spawn(bin/"grafana-server",
+    res = PTY.spawn(bin/darwin-amd64/"grafana-server",
       "cfg:default.paths.logs=#{logdir}",
       "cfg:default.paths.data=#{datadir}",
       "cfg:default.paths.plugins=#{plugdir}",
