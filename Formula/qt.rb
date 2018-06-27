@@ -17,7 +17,6 @@ class Qt < Formula
 
   keg_only "Qt 5 has CMake issues when linked"
 
-  option "with-docs", "Build documentation"
   option "with-examples", "Build examples"
   option "without-proprietary-codecs", "Don't build with proprietary codecs (e.g. mp3)"
 
@@ -79,11 +78,6 @@ class Qt < Formula
     system "make"
     ENV.deparallelize
     system "make", "install"
-
-    if build.with? "docs"
-      system "make", "docs"
-      system "make", "install_docs"
-    end
 
     # Some config scripts will only find Qt in a "Frameworks" folder
     frameworks.install_symlink Dir["#{lib}/*.framework"]
