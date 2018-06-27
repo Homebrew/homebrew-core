@@ -5,8 +5,8 @@ class GitAnnex < Formula
 
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20180529/git-annex-6.20180529.tar.gz"
-  sha256 "a5ebeeef3a2a1c71e08592fed6ac149a3cda1c397bad8c1413f40d9a3da9a0e7"
+  url "https://hackage.haskell.org/package/git-annex-6.20180626/git-annex-6.20180626.tar.gz"
+  sha256 "f8b80e861c033605a62dffc0a97ffae5df506eaa238bcaae31a20e486eea036f"
   head "git://git-annex.branchable.com/"
 
   bottle do
@@ -29,7 +29,9 @@ class GitAnnex < Formula
     # Reported 28 Feb 2018 to aws upstream https://github.com/aristidb/aws/issues/244
     # This is already resolved in aws 0.20 but we can't move to 0.20 until
     # esqueleto 2.6.0 ships. See https://github.com/bitemyapp/esqueleto/issues/88
+    # The network 2.7.0.1 issue has been fixed upstream but needs a new release.
     install_cabal_package "--constraint", "http-conduit<2.3",
+                          "--constraint", "network<2.7.0.1",
                           :using => ["alex", "happy", "c2hs"],
                           :flags => ["s3", "webapp"] do
       # this can be made the default behavior again once git-union-merge builds properly when bottling
