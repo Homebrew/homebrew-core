@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.10.5",
-      :revision => "32ac1c9073b132b8ba18aa830f46b77dcceb0723"
+      :tag => "v1.11.0",
+      :revision => "91e7b4fd31fcd3d5f436da26c980becec37ceefe"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
@@ -13,8 +13,7 @@ class KubernetesCli < Formula
     sha256 "6c387a8bfa4cae7e783b77ec6fb182386821ffbc5661be6ed98ee812ec1d9a28" => :el_capitan
   end
 
-  # kubernetes-cli will not support go1.10 until version 1.11.x
-  depends_on "go@1.9" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
