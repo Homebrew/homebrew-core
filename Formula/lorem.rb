@@ -2,7 +2,6 @@ class Lorem < Formula
   desc "Python generator for the console"
   homepage "https://github.com/per9000/lorem"
   revision 1
-
   head "https://github.com/per9000/lorem.git"
 
   stable do
