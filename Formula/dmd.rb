@@ -28,6 +28,26 @@ class Dmd < Formula
     sha256 "5465bd8c3963ab3577452f59638be167bd5dfc3bfb5ffaf1c4d349719e9951d7" => :el_capitan
   end
 
+  devel do
+    url "https://github.com/dlang/dmd/archive/v2.081.0-beta.2.tar.gz"
+    sha256 "94387b0e02fd9713e0940e3272a7d83dfcb73dcffb769ccfa5fc15942965ee98"
+
+    resource "druntime" do
+      url "https://github.com/dlang/druntime/archive/v2.081.0-beta.2.tar.gz"
+      sha256 "81a4b4c5a044e2dc2da10c1bb7cfdb155ecc5b3cc22406b9c4a1e093e28539ba"
+    end
+
+    resource "phobos" do
+      url "https://github.com/dlang/phobos/archive/v2.081.0-beta.2.tar.gz"
+      sha256 "1096059a80e1400555180126e7a5fb73e62ee2dc3ae60871b4c1bf8ed0acbdeb"
+    end
+
+    resource "tools" do
+      url "https://github.com/dlang/tools/archive/v2.081.0-beta.2.tar.gz"
+      sha256 "4cdc8400aa2dc1046ebeea6e4092f56ba3b9f192179a084cb8cc134441bd06fa"
+    end
+  end
+
   head do
     url "https://github.com/dlang/dmd.git"
 
@@ -45,9 +65,14 @@ class Dmd < Formula
   end
 
   def install
-    make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "-f", "posix.mak"]
+    make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "BUILD=release", "-f", "posix.mak"]
 
-    system "make", "SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "RELEASE=1", *make_args
+    dmd_make_args = ["SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "ENABLE_RELEASE=1"]
+    if build.stable?
+      dmd_make_args.unshift "RELEASE=1"
+    end
+
+    system "make", *dmd_make_args, *make_args
 
     make_args.unshift "DMD_DIR=#{buildpath}", "DRUNTIME_PATH=#{buildpath}/druntime", "PHOBOS_PATH=#{buildpath}/phobos"
 
