@@ -4,7 +4,6 @@ class Consul < Formula
   url "https://github.com/hashicorp/consul.git",
       :tag => "v1.2.0",
       :revision => "28141971f966e99916da2c5e461dd968746491cd"
-
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
