@@ -3,7 +3,6 @@ class Pwnat < Formula
   homepage "https://samy.pl/pwnat/"
   url "https://samy.pl/pwnat/pwnat-0.3-beta.tgz"
   sha256 "d5d6ea14f1cf0d52e4f946be5c3630d6440f8389e7467c0117d1fe33b9d130a2"
-
   head "https://github.com/samyk/pwnat.git"
 
   bottle do
