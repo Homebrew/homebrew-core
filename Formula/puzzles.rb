@@ -5,7 +5,6 @@ class Puzzles < Formula
   url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20180602.5a697b3.tar.gz"
   version "20180602"
   sha256 "b865a31efd5eb4caf5ad12e7f2c2a21897064d889b8c6cdac0c6cad45fcd54f6"
-
   head "https://git.tartarus.org/simon/puzzles.git"
 
   bottle do
