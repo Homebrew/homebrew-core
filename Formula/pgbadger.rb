@@ -3,7 +3,6 @@ class Pgbadger < Formula
   homepage "https://dalibo.github.io/pgbadger/"
   url "https://github.com/dalibo/pgbadger/archive/v9.2.tar.gz"
   sha256 "2107466309a409fb9e40f11bb77cac1f9ba7910d5328e7b2e08eb7a1c6d760ec"
-
   head "https://github.com/dalibo/pgbadger.git"
 
   bottle do
