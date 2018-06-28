@@ -3,7 +3,6 @@ class Glide < Formula
   homepage "https://github.com/Masterminds/glide"
   url "https://github.com/Masterminds/glide/archive/v0.13.1.tar.gz"
   sha256 "84c4e365c9f76a3c8978018d34b4331b0c999332f628fc2064aa79a5a64ffc90"
-
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
