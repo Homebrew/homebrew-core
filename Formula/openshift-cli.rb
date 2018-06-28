@@ -5,7 +5,6 @@ class OpenshiftCli < Formula
     :tag => "v3.9.0",
     :revision => "191fece9305a76f262baacc9de72c2c8cb4d5601",
     :shallow => false
-
   head "https://github.com/openshift/origin.git"
 
   bottle do
