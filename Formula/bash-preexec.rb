@@ -3,7 +3,6 @@ class BashPreexec < Formula
   homepage "https://github.com/rcaloras/bash-preexec"
   url "https://github.com/rcaloras/bash-preexec/archive/0.3.7.tar.gz"
   sha256 "56c33779763f9960dee863f4d87bc58f8da0ad9120b2c60dd12ba61c71c72da4"
-
   head "https://github.com/rcaloras/bash-preexec.git"
 
   bottle :unneeded

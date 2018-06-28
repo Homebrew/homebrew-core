@@ -9,7 +9,6 @@ class Boot2docker < Formula
       :tag => "v1.8.0",
       :revision => "9a2606673efcfa282fb64a5a5c9e1b2f89d86fb4"
   revision 1
-
   head "https://github.com/boot2docker/boot2docker-cli.git"
 
   bottle do

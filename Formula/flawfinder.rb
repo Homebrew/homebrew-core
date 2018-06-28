@@ -3,7 +3,6 @@ class Flawfinder < Formula
   homepage "https://www.dwheeler.com/flawfinder/"
   url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.6.tar.gz"
   sha256 "d33caeb94fc7ab80b75d2a7a871cb6e3f70e50fb835984e8b4d56e19ede143fc"
-
   head "https://git.code.sf.net/p/flawfinder/code.git"
 
   bottle do

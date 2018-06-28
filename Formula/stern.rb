@@ -3,7 +3,6 @@ class Stern < Formula
   homepage "https://github.com/wercker/stern"
   url "https://github.com/wercker/stern/archive/1.7.0.tar.gz"
   sha256 "28a2ea67634c3ad352cf6cea1efb77885de274f885467a2898233048b007164a"
-
   head "https://github.com/wercker/stern.git",
     :shallow => false
 

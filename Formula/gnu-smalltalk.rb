@@ -5,7 +5,6 @@ class GnuSmalltalk < Formula
   mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
   revision 7
-
   head "https://github.com/bonzini/smalltalk.git"
 
   bottle do

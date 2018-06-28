@@ -3,7 +3,6 @@ class Openjazz < Formula
   homepage "http://www.alister.eu/jazz/oj/"
   url "https://github.com/AlisterT/openjazz/releases/download/20180522/openjazz-20180522.tar.xz"
   sha256 "35260066f307ff7e31304907a2a430a20b8d1fa5f90ad2c13275ab3aca337c24"
-
   head "https://github.com/AlisterT/openjazz.git"
 
   bottle do

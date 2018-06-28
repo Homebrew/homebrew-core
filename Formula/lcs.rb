@@ -7,7 +7,6 @@ class Lcs < Formula
     url "http://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
   end
   version "4.07.4b"
-
   head "https://svn.code.sf.net/p/lcsgame/code/trunk"
 
   bottle do

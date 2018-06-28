@@ -3,7 +3,6 @@ class GitHooks < Formula
   homepage "https://github.com/icefox/git-hooks"
   url "https://github.com/icefox/git-hooks/archive/1.00.0.tar.gz"
   sha256 "8197ca1de975ff1f795a2b9cfcac1a6f7ee24276750c757eecf3bcb49b74808e"
-
   head "https://github.com/icefox/git-hooks.git"
 
   bottle do

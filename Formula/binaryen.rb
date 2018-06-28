@@ -3,7 +3,6 @@ class Binaryen < Formula
   homepage "https://webassembly.org/"
   url "https://github.com/WebAssembly/binaryen/archive/version_48.tar.gz"
   sha256 "2bdec3033f3fb421d2b7a4e3845c5b74d26407f9868a424a78319d37d349441e"
-
   head "https://github.com/WebAssembly/binaryen.git"
 
   bottle do

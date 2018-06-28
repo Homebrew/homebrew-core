@@ -4,7 +4,6 @@ class MavenCompletion < Formula
   url "https://github.com/juven/maven-bash-completion.git",
     :revision => "106b6ca03badc9474cf7b6b1b7039ad950a17f89"
   version "20160501"
-
   head "https://github.com/juven/maven-bash-completion.git"
 
   bottle :unneeded

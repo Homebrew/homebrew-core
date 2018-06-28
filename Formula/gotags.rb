@@ -3,7 +3,6 @@ class Gotags < Formula
   homepage "https://github.com/jstemmer/gotags"
   url "https://github.com/jstemmer/gotags/archive/v1.4.1.tar.gz"
   sha256 "2df379527eaa7af568734bc4174febe7752eb5af1b6194da84cd098b7c873343"
-
   head "https://github.com/jstemmer/gotags.git"
 
   bottle do

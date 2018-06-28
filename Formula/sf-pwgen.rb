@@ -3,7 +3,6 @@ class SfPwgen < Formula
   homepage "https://github.com/anders/pwgen/"
   url "https://github.com/anders/pwgen/archive/v1.4.tar.gz"
   sha256 "1f4c7f514426305be2e1b893a586310d579e500e033938800afd2c98fedb84d9"
-
   head "https://github.com/anders/pwgen.git"
 
   bottle do

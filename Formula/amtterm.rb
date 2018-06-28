@@ -3,7 +3,6 @@ class Amtterm < Formula
   homepage "https://www.kraxel.org/blog/linux/amtterm/"
   url "https://www.kraxel.org/releases/amtterm/amtterm-1.6.tar.gz"
   sha256 "1242cea467827aa1e2e91b41846229ca0a5b3f3e09260b0df9d78dc875075590"
-
   head "https://www.kraxel.org/cgit/amtterm", :using => :git
 
   bottle do

@@ -3,7 +3,6 @@ class Yeti < Formula
   homepage "https://mth.github.io/yeti/"
   url "https://github.com/mth/yeti/archive/v0.9.9.1.tar.gz"
   sha256 "c552018993570724313fc0624d225e266cd95e993d121850b34aa706f04e3dfe"
-
   head "https://github.com/mth/yeti.git"
 
   bottle do

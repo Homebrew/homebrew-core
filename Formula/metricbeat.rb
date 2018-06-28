@@ -3,7 +3,6 @@ class Metricbeat < Formula
   homepage "https://www.elastic.co/products/beats/metricbeat"
   url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
   sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
-
   head "https://github.com/elastic/beats.git"
 
   bottle do

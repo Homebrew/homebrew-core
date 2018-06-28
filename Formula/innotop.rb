@@ -4,7 +4,6 @@ class Innotop < Formula
   url "https://github.com/innotop/innotop/archive/v1.11.4.tar.gz"
   sha256 "fb0d7d2558e2198d9224b44dc4220d4c62e1b5b0069312012306275be39b4ab9"
   revision 3
-
   head "https://github.com/innotop/innotop.git"
 
   bottle do

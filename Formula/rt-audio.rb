@@ -3,7 +3,6 @@ class RtAudio < Formula
   homepage "https://www.music.mcgill.ca/~gary/rtaudio/"
   url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-5.0.0.tar.gz"
   sha256 "799deae1192da52cc2c15a078ed3b42449580be7d096fe9bc841c5bba0289c57"
-
   head "https://github.com/thestk/rtaudio.git"
 
   bottle do
