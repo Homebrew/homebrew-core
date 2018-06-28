@@ -3,6 +3,7 @@ class Dgen < Formula
   homepage "https://dgen.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/dgen/dgen/1.33/dgen-sdl-1.33.tar.gz"
   sha256 "99e2c06017c22873c77f88186ebcc09867244eb6e042c763bb094b02b8def61e"
+
   bottle do
     cellar :any
     sha256 "bac08b08f7cfb9c108ccf0bfe2d4623324e5038f01e508c1fb5da6b3c4d58dff" => :high_sierra
