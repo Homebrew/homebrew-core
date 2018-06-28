@@ -3,7 +3,6 @@ class S3fs < Formula
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
   url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.83.tar.gz"
   sha256 "8f060accef304c1e5adde0c9d6976a3a69fd9935444a4985517c6cefa86b34ef"
-
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 
   bottle do
