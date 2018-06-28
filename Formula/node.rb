@@ -69,12 +69,6 @@ class Node < Formula
       # These symlinks are never used & they've caused issues in the past.
       rm_rf libexec/"share"
 
-      # suppress incorrect node 10 incompatibility warning from npm
-      # remove during next npm upgrade (to npm 5.9+ or npm 6.0+)
-      inreplace libexec/"lib/node_modules/npm/lib/utils/unsupported.js",
-        "{ver: '9', min: '9.0.0'}",
-        "{ver: '9', min: '9.0.0'}, {ver: '10', min: '10.0.0'}"
-
       if build.with? "completion"
         bash_completion.install \
           bootstrap/"lib/utils/completion.sh" => "npm"
