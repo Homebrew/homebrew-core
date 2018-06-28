@@ -4,6 +4,7 @@ class Mypy < Formula
   url "https://github.com/python/mypy.git",
       :tag => "v0.610",
       :revision => "4f4dc6de32e5cfd6f2d2079a47f52942a2397b97"
+  revision 1
   head "https://github.com/python/mypy.git"
 
   bottle do
