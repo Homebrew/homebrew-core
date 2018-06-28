@@ -1,9 +1,8 @@
 class Libyaml < Formula
   desc "YAML Parser"
-  homepage "https://pyyaml.org/wiki/LibYAML"
-  url "https://pyyaml.org/download/libyaml/yaml-0.1.7.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/liby/libyaml/libyaml_0.1.7.orig.tar.gz"
-  sha256 "8088e457264a98ba451a90b8661fcb4f9d6f478f7265d48322a196cec2480729"
+  homepage "https://github.com/yaml/libyaml"
+  url "https://github.com/yaml/libyaml/archive/0.2.1.tar.gz"
+  sha256 "1d2aeb87f7d317f1496e4c39410d913840714874a354970300f375eec9303dc4"
 
   bottle do
     cellar :any
@@ -13,7 +12,12 @@ class Libyaml < Formula
     sha256 "3a7788655c3c8f3b7ad73521928277ca5433789e134f437534702145171b1104" => :yosemite
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    system "./bootstrap"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
