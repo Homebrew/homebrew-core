@@ -3,7 +3,6 @@ class Rsstail < Formula
   homepage "https://www.vanheusden.com/rsstail/"
   url "https://www.vanheusden.com/rsstail/rsstail-2.1.tgz"
   sha256 "42cb452178b21c15c470bafbe5b8b5339a7fb5b980bf8d93d36af89864776e71"
-
   head "https://github.com/flok99/rsstail.git"
 
   bottle do
