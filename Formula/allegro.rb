@@ -3,7 +3,6 @@ class Allegro < Formula
   homepage "https://liballeg.org/"
   url "https://github.com/liballeg/allegro5/releases/download/5.2.4.0/allegro-5.2.4.0.tar.gz"
   sha256 "346163d456c5281c3b70271ecf525e1d7c754172aef4bab15803e012b12f2af1"
-
   head "https://github.com/liballeg/allegro5.git", :branch => "master"
 
   bottle do
