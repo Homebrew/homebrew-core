@@ -3,7 +3,6 @@ class PyenvWhichExt < Formula
   homepage "https://github.com/yyuu/pyenv-which-ext"
   url "https://github.com/yyuu/pyenv-which-ext/archive/v0.0.2.tar.gz"
   sha256 "4098e5a96b048192b0eab66ca5f588602e30ed16aac816e96ff514f6b5896257"
-
   head "https://github.com/yyuu/pyenv-which-ext.git"
 
   bottle :unneeded
