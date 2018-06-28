@@ -4,7 +4,6 @@ class Dub < Formula
   url "https://github.com/dlang/dub/archive/v1.9.0.tar.gz"
   sha256 "48f7387e93977d0ece686106c9725add2c4f5f36250da33eaa0dbb66900f9d57"
   version_scheme 1
-
   head "https://github.com/dlang/dub.git"
 
   bottle do
