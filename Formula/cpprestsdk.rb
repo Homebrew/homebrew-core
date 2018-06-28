@@ -3,7 +3,6 @@ class Cpprestsdk < Formula
   homepage "https://github.com/Microsoft/cpprestsdk"
   url "https://github.com/Microsoft/cpprestsdk/archive/v2.10.2.tar.gz"
   sha256 "fb0b611007732d8de9528bc37bd67468e7ef371672f89c88f225f73cdc4ffcf1"
-
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
