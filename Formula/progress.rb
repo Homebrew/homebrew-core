@@ -1,8 +1,8 @@
 class Progress < Formula
   desc "Progress: Coreutils Progress Viewer"
   homepage "https://github.com/Xfennec/progress"
-  url "https://github.com/Xfennec/progress/archive/v0.13.1.tar.gz"
-  sha256 "064c95e8b93893dbf4b4b8152290cbb3b0c005eda0cae500353561048c9939a5"
+  url "https://github.com/Xfennec/progress/archive/v0.14.tar.gz"
+  sha256 "214a0d84b3ee5dde57ec9952ec9aa68ad9261fb336ef025324b344ed7ab48af1"
   head "https://github.com/Xfennec/progress.git"
 
   bottle do
