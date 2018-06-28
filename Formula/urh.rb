@@ -3,6 +3,7 @@ class Urh < Formula
   homepage "https://github.com/jopohl/urh"
   url "https://files.pythonhosted.org/packages/58/ad/473e532a9dff92faf0027fbfaa4ac36abe7dc65c3efcd7cc73e4b89007c1/urh-2.1.1.tar.gz"
   sha256 "fd66d3f3c054eb9ebef62425cc5289627b93b19e3d9cd155ed02866660c06228"
+  revision 1
   head "https://github.com/jopohl/urh.git"
 
   bottle do
