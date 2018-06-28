@@ -1,6 +1,6 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
-  homepage "http://i2pd.website"
+  homepage "https://i2pd.website"
   url "https://github.com/PurpleI2P/i2pd/archive/2.19.0.tar.gz"
   sha256 "7202497ffc3db632d0f7fed93eafaf39aa75efea199705dae7d022249b069eb9"
 
