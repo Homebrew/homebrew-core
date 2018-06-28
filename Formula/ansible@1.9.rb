@@ -4,7 +4,6 @@ class AnsibleAT19 < Formula
   url "https://releases.ansible.com/ansible/ansible-1.9.6.tar.gz"
   sha256 "50773781b1e76f2885bbeb2351a97cf1c6a29239d3e073da939a104e7e81ee5d"
   revision 1
-
   head "https://github.com/ansible/ansible.git", :branch => "stable-1.9"
 
   bottle do
