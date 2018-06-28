@@ -4,7 +4,6 @@ class Gobby < Formula
   url "http://releases.0x539.de/gobby/gobby-0.5.0.tar.gz"
   sha256 "8ceb3598d27cfccdf9c9889b781c4c5c8e1731ca6beb183f5d4555644c06bd98"
   revision 4
-
   head "git://git.0x539.de/git/gobby.git"
 
   bottle do
