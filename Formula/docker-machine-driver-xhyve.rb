@@ -4,7 +4,6 @@ class DockerMachineDriverXhyve < Formula
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
     :tag => "v0.3.3",
     :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
-
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
