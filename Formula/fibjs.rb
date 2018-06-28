@@ -3,7 +3,6 @@ class Fibjs < Formula
   homepage "http://fibjs.org/"
   url "https://github.com/fibjs/fibjs/releases/download/v0.25.0/fullsrc.zip"
   sha256 "cb49073734e36edeaac2448ef600706b2ec652545f467ef8432b1fe510aa62a2"
-
   head "https://github.com/fibjs/fibjs.git"
 
   bottle do
