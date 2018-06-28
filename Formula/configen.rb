@@ -3,7 +3,6 @@ class Configen < Formula
   homepage "https://github.com/theappbusiness/ConfigGenerator"
   url "https://github.com/theappbusiness/ConfigGenerator/archive/v1.0.1.tar.gz"
   sha256 "ade2c4296643cbc0c21d989d4506eef9d797a0349300ff46590a6b47979cdf64"
-
   head "https://github.com/theappbusiness/ConfigGenerator.git"
 
   bottle do
