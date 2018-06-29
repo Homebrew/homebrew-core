@@ -1,9 +1,8 @@
 class Silk < Formula
   desc "Collection of traffic analysis tools"
   homepage "https://tools.netsa.cert.org/silk/"
-  url "https://tools.netsa.cert.org/releases/silk-3.17.1.tar.gz"
-  sha256 "1580dfabc3ff8cb90b0f303d5758d8be4515f130931601c49c05895f0bd1e1a1"
-  revision 1
+  url "https://tools.netsa.cert.org/releases/silk-3.17.2.tar.gz"
+  sha256 "70b74eceafce7b724ceccd9e801909f4bd28985406eb8c42a94c8d25e7d58194"
 
   bottle do
     sha256 "b504b58eaebdc19314ee7aaa999ad4e29bc57dfdabd64f91a39fd6cd8f3a2e9a" => :high_sierra
