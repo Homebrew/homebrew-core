@@ -2,8 +2,8 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://github.com/istio/fortio"
   url "https://github.com/istio/fortio.git",
-      :tag => "v1.0.0",
-      :revision => "b508c4b471a13fbe9f2e219ab6091e8f688b9836"
+      :tag => "v1.0.1",
+      :revision => "1e338e499d8ae134dcc32ad63825e7b972158687"
 
   bottle do
     rebuild 1
@@ -19,8 +19,8 @@ class Fortio < Formula
 
     (buildpath/"src/istio.io/fortio").install buildpath.children
     cd "src/istio.io/fortio" do
-      system "make", "official-build", "GOOS=darwin",
-             "OFFICIAL_BIN=#{bin}/fortio", "LIB_DIR=#{lib}", "DATA_DIR=."
+      system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio",
+             "LIB_DIR=#{lib}", "DATA_DIR=."
       lib.install "ui/static", "ui/templates"
       prefix.install_metafiles
     end
