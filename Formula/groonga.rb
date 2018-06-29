@@ -1,8 +1,8 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
   homepage "http://groonga.org/"
-  url "https://packages.groonga.org/source/groonga/groonga-8.0.3.tar.gz"
-  sha256 "ce21d831cbababc22b9b663ddf1c95939a3d90b125a5506553f5698449b221a3"
+  url "https://packages.groonga.org/source/groonga/groonga-8.0.4.tar.gz"
+  sha256 "6be08aed5042ec637fb5e22add616e1168f4f18c933cd268f4849677cb677465"
 
   bottle do
     sha256 "8cea5e613dbaaae498779075e04edb1365832d4f2641510860c02813ca9b08b7" => :high_sierra
@@ -44,7 +44,7 @@ class Groonga < Formula
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-        :revision => "0487fbed1b28700a50c1704e91149f651cc87645"
+        :revision => "1964ce688cbeca505263c8f77e16ed923296ce7a"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
