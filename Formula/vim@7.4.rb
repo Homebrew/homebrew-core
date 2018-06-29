@@ -3,7 +3,7 @@ class VimAT74 < Formula
   homepage "https://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 13
+  revision 14
 
   bottle do
     sha256 "32821eaceacdfe619949da4971d30dfe608009103bf96b6712748f2d0a211248" => :high_sierra
@@ -35,6 +35,12 @@ class VimAT74 < Formula
   depends_on "luajit" => :optional
   depends_on "python@2" => :optional
   depends_on :x11 if build.with? "client-server"
+
+  # Python 3.7 compat
+  # Equivalent to upstream commit 24 Mar 2018 "patch 8.0.1635: undefining
+  # _POSIX_THREADS causes problems with Python 3"
+  # See https://github.com/vim/vim/commit/16d7eced1a08565a9837db8067c7b9db5ed68854
+  patch :DATA
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
@@ -118,3 +124,21 @@ class VimAT74 < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/if_python3.c b/src/if_python3.c
+index 02d913492c..59c115dd8d 100644
+--- a/src/if_python3.c
++++ b/src/if_python3.c
+@@ -34,11 +34,6 @@
+ 
+ #include <limits.h>
+ 
+-/* Python.h defines _POSIX_THREADS itself (if needed) */
+-#ifdef _POSIX_THREADS
+-# undef _POSIX_THREADS
+-#endif
+-
+ #if defined(_WIN32) && defined(HAVE_FCNTL_H)
+ # undef HAVE_FCNTL_H
+ #endif
