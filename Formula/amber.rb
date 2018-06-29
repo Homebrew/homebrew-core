@@ -10,7 +10,7 @@ class Amber < Formula
     sha256 "4479e087a87ec39b344a0f8b1b6f0d2f09c6277d919e6d397ce84cbb9fa084c8" => :el_capitan
   end
 
-  depends_on "crystal-lang"
+  depends_on "crystal"
 
   def install
     system "shards", "install"

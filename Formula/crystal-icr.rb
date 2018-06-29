@@ -11,7 +11,7 @@ class CrystalIcr < Formula
     sha256 "b0ecff4280242c2d91aa2bdb383fbbb60f682522b42ded34286c0b55616b2494" => :el_capitan
   end
 
-  depends_on "crystal-lang"
+  depends_on "crystal"
   depends_on "readline"
 
   def install
