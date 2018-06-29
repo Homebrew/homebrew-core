@@ -5,6 +5,7 @@ class Tox < Formula
   homepage "https://tox.readthedocs.org/"
   url "https://files.pythonhosted.org/packages/e9/56/7c6f0dd000a7634cae819c65a7452bb6ead29a4b1b1516ee05fe9dd5334c/tox-3.0.0.tar.gz"
   sha256 "96efa09710a3daeeb845561ebbe1497641d9cef2ee0aea30db6969058b2bda2f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -41,9 +42,10 @@ class Tox < Formula
 
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
+    pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
     (testpath/"tox.ini").write <<~EOS
       [tox]
-      envlist=py36
+      envlist=py#{pyver}
       skipsdist=True
 
       [testenv]
@@ -56,6 +58,6 @@ class Tox < Formula
     EOS
     assert_match "usage", shell_output("#{bin}/tox --help")
     system "#{bin}/tox"
-    assert_predicate testpath/".tox/py36", :exist?
+    assert_predicate testpath/".tox/py#{pyver}", :exist?
   end
 end
