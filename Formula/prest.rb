@@ -1,8 +1,8 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v0.3.0.tar.gz"
-  sha256 "a8fef456abc47a34aedb05d95c4b9a64d2f7f306016cb789f2b0de9229f5d3f3"
+  url "https://github.com/prest/prest/archive/v0.3.1.tar.gz"
+  sha256 "93a16764093b5f7c2d708d125d3937cf9d4c9bead7c83da7f01ba958116e85c2"
 
   bottle do
     cellar :any_skip_relocation
