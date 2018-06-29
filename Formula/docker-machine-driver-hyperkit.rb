@@ -7,7 +7,6 @@ class DockerMachineDriverHyperkit < Formula
 
   depends_on "go" => :build
   depends_on :macos => :yosemite
-  depends_on "docker-machine" => :recommended
 
   def install
     ENV["GOPATH"] = buildpath
