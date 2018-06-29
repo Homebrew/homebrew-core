@@ -1,8 +1,8 @@
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
   homepage "http://kompose.io"
-  url "https://github.com/kubernetes/kompose/archive/v1.14.0.tar.gz"
-  sha256 "b92a9e9eb167894eca475cb2a511c2abaf2535294746a43ced278914aa2d65dd"
+  url "https://github.com/kubernetes/kompose/archive/v1.15.0.tar.gz"
+  sha256 "b9a4cce6533d9b358f42e4d2e420aa9ebffb3f75cb4985a1c32079ea176a8eee"
 
   bottle do
     cellar :any_skip_relocation
