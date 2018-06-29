@@ -3,6 +3,7 @@ class Keepassc < Formula
   homepage "https://raymontag.github.com/keepassc/"
   url "https://files.pythonhosted.org/packages/c8/87/a7d40d4a884039e9c967fb2289aa2aefe7165110a425c4fb74ea758e9074/keepassc-1.8.2.tar.gz"
   sha256 "2e1fc6ccd5325c6f745f2d0a3bb2be26851b90d2095402dd1481a5c197a7b24e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation

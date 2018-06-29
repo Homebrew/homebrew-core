@@ -4,6 +4,7 @@ class Pyqt < Formula
   url "https://dl.bintray.com/homebrew/mirror/pyqt-5.10.1.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.10.1/PyQt5_gpl-5.10.1.tar.gz"
   sha256 "9932e971e825ece4ea08f84ad95017837fa8f3f29c6b0496985fa1093661e9ef"
+  revision 1
 
   bottle do
     rebuild 1

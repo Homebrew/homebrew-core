@@ -5,6 +5,7 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://files.pythonhosted.org/packages/be/69/9fc4c20854d2732798b06fff9d4df74c71783c89ab9f93d1eba13a6a31d0/snapcraft-2.42.tar.gz"
   sha256 "80249c14c727af2659626f3bfbaa25d36c74fe40cb07175b3acc758ba6434de3"
+  revision 1
 
   bottle do
     cellar :any
@@ -115,8 +116,8 @@ class Snapcraft < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
+    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
   end
 
   resource "raven" do

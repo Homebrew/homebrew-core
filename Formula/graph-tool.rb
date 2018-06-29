@@ -5,6 +5,7 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.27.tar.bz2"
   sha256 "4740c69720dfbebf8fb3e77057b3e6a257ccf0432cdaf7345f873247390e4313"
+  revision 1
 
   bottle do
     sha256 "8f1261b33f8270e9a2be5a930de38bcef4bcdbd749b7051d494c05024cfe1971" => :high_sierra
@@ -26,6 +27,9 @@ class GraphTool < Formula
   depends_on "pygobject3"
   depends_on "python"
   depends_on "scipy"
+
+  # Python 3.7 compat
+  patch :DATA
 
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
@@ -77,8 +81,7 @@ class GraphTool < Formula
                           "PYTHON=python3",
                           "PYTHON_LIBS=-undefined dynamic_lookup",
                           "--with-python-module-path=#{lib}/python#{xy}/site-packages",
-                          "--with-boost-python=libboost-python36",
-                          "--with-boost-python=36"
+                          "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt"
     system "make", "install"
 
     site_packages = "lib/python#{xy}/site-packages"
@@ -99,3 +102,27 @@ class GraphTool < Formula
     system "python3", "test.py"
   end
 end
+
+__END__
+diff --git a/src/graph_tool/draw/gtk_draw.py b/src/graph_tool/draw/gtk_draw.py
+index 9f60075..c65bc32 100644
+--- a/src/graph_tool/draw/gtk_draw.py
++++ b/src/graph_tool/draw/gtk_draw.py
+@@ -1182,7 +1182,7 @@ _window_list = []
+ 
+ def interactive_window(g, pos=None, vprops=None, eprops=None, vorder=None,
+                        eorder=None, nodesfirst=False, geometry=(500, 400),
+-                       update_layout=True, async=False, no_main=False, **kwargs):
++                       update_layout=True, async_=False, no_main=False, **kwargs):
+     r"""
+     Display an interactive GTK+ window containing the given graph.
+ 
+@@ -1244,7 +1244,7 @@ def interactive_window(g, pos=None, vprops=None, eprops=None, vorder=None,
+     win.show_all()
+     _window_list.append(win)
+     if not no_main:
+-        if async:
++        if async_:
+             # just a placeholder for a proper main loop integration with gtk3 when
+             # ipython implements it
+             import IPython.lib.inputhook

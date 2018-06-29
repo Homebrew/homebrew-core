@@ -5,6 +5,7 @@ class DcosCli < Formula
   homepage "https://dcos.io/docs/latest/cli/"
   url "https://github.com/dcos/dcos-cli/archive/0.6.1.tar.gz"
   sha256 "9b683eac5a6610b10426a179454ca32d2b115a31c0cd9f424b5ffde11c2e8237"
+  revision 1
   head "https://github.com/dcos/dcos-cli.git"
 
   bottle do
