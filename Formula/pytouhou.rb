@@ -3,7 +3,7 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
-  revision 4
+  revision 5
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
   bottle do
@@ -29,8 +29,8 @@ class Pytouhou < Formula
   end
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+    url "https://files.pythonhosted.org/packages/b3/ae/971d3b936a7ad10e65cb7672356cff156000c5132cf406cb0f4d7a980fd3/Cython-0.28.3.tar.gz"
+    sha256 "1aae6d6e9858888144cea147eb5e677830f45faaff3d305d77378c3cba55f526"
   end
 
   resource "demo" do
