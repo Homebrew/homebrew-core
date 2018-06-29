@@ -17,8 +17,8 @@ class Hub < Formula
 
   depends_on "go" => :build
 
-  # The build needs Ruby 1.9 or higher.
-  depends_on "ruby" => :build if MacOS.version <= :mountain_lion
+  # System Ruby uses old TLS versions no longer supported by RubyGems.
+  depends_on "ruby" => :build if MacOS.version <= :sierra
 
   def install
     if build.with? "docs"
