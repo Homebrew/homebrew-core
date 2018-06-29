@@ -1,8 +1,8 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "http://zstd.net/"
-  url "https://github.com/facebook/zstd/archive/v1.3.4.tar.gz"
-  sha256 "92e41b6e8dd26bbd46248e8aa1d86f1551bc221a796277ae9362954f26d605a9"
+  url "https://github.com/facebook/zstd/archive/v1.3.5.tar.gz"
+  sha256 "d6e1559e4cdb7c4226767d4ddc990bff5f9aab77085ff0d0490c828b025e2eea"
 
   bottle do
     cellar :any
