@@ -3,6 +3,7 @@ class BoostPython3 < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
   sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -17,8 +18,8 @@ class BoostPython3 < Formula
   needs :cxx11
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/ee/66/7c2690141c520db08b6a6f852fa768f421b0b50683b7bbcd88ef51f33170/numpy-1.14.0.zip"
-    sha256 "3de643935b212307b420248018323a44ec51987a336d1d747c1322afc3c099fb"
+    url "https://files.pythonhosted.org/packages/d5/6e/f00492653d0fdf6497a181a1c1d46bbea5a2383e7faf4c8ca6d6f3d2581d/numpy-1.14.5.zip"
+    sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
   end
 
   def install
@@ -88,8 +89,9 @@ class BoostPython3 < Formula
 
     pyincludes = Utils.popen_read("python3-config --includes").chomp.split(" ")
     pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
+    pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python36", "-o",
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
 
     output = <<~EOS
