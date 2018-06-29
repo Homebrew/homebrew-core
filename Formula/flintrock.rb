@@ -5,6 +5,7 @@ class Flintrock < Formula
   homepage "https://github.com/nchammas/flintrock"
   url "https://files.pythonhosted.org/packages/30/de/e4ec7cdfd3381f136a47e9951f0d09337aa278f52414bee96983826ecd84/Flintrock-0.9.0.tar.gz"
   sha256 "bdcbfe4fbe753cd8d82dc400ca71bb8ef68edd2446d2d9d7b4904e52310020ce"
+  revision 1
 
   bottle do
     cellar :any
@@ -18,6 +19,11 @@ class Flintrock < Formula
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
     sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+  end
+
+  resource "bcrypt" do
+    url "https://files.pythonhosted.org/packages/f3/ec/bb6b384b5134fd881b91b6aa3a88ccddaad0103857760711a5ab8c799358/bcrypt-3.1.4.tar.gz"
+    sha256 "67ed1a374c9155ec0840214ce804616de49c3df9c5bc66740687c1c9b1cd9e8d"
   end
 
   resource "boto3" do
@@ -61,8 +67,8 @@ class Flintrock < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/d1/5a/ebd00d884f30baf208359a027eb7b38372d81d0c004724bb1aa71ae43b37/paramiko-2.1.1.tar.gz"
-    sha256 "d51dada7ad0736c116f8bfe3263627925947e4a50e61436a83d58bfe7055b575"
+    url "https://files.pythonhosted.org/packages/29/65/83181630befb17cd1370a6abb9a87957947a43c2332216e5975353f61d64/paramiko-2.4.1.tar.gz"
+    sha256 "33e36775a6c71790ba7692a73f948b329cf9295a72b0102144b031114bd2a4f3"
   end
 
   resource "pyasn1" do
@@ -75,14 +81,19 @@ class Flintrock < Formula
     sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
+  resource "PyNaCl" do
+    url "https://files.pythonhosted.org/packages/08/19/cf56e60efd122fa6d2228118a9b345455b13ffe16a14be81d025b03b261f/PyNaCl-1.2.1.tar.gz"
+    sha256 "e0d38fa0a75f65f556fb912f2c6790d1fa29b7dd27a1d9cc5591b281321eaaa9"
+  end
+
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
     sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
+    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
   end
 
   resource "s3transfer" do
@@ -96,6 +107,14 @@ class Flintrock < Formula
   end
 
   def install
+    # Python 3.7 compat
+    inreplace "setup.py" do |s|
+      s.gsub! "PyYAML == 3.12", "PyYAML == 4.2b1"
+      s.gsub! "paramiko == 2.1.1", "paramiko == 2.4.1"
+    end
+
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resource("cffi")
     virtualenv_install_with_resources
   end
 
