@@ -3,7 +3,7 @@ class Opencv < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/3.4.1.tar.gz"
   sha256 "f1b87684d75496a1054405ae3ee0b6573acaf3dad39eaf4f1d66fdd7e03dc852"
-  revision 5
+  revision 6
 
   bottle do
     rebuild 2
@@ -26,6 +26,9 @@ class Opencv < Formula
   depends_on "tbb"
 
   needs :cxx11
+
+  # Python 3.7 compat
+  patch :DATA
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/3.4.1.tar.gz"
@@ -120,3 +123,18 @@ class Opencv < Formula
     end
   end
 end
+
+__END__
+diff --git a/modules/python/src2/cv2.cpp b/modules/python/src2/cv2.cpp
+index fab60fd..2c48041 100644
+--- a/modules/python/src2/cv2.cpp
++++ b/modules/python/src2/cv2.cpp
+@@ -886,7 +886,7 @@ bool pyopencv_to(PyObject* obj, String& value, const char* name)
+     (void)name;
+     if(!obj || obj == Py_None)
+         return true;
+-    char* str = PyString_AsString(obj);
++    const char* str = PyString_AsString(obj);
+     if(!str)
+         return false;
+     value = String(str);
