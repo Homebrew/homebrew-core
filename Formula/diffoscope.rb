@@ -3,6 +3,7 @@ class Diffoscope < Formula
   homepage "https://diffoscope.org"
   url "https://files.pythonhosted.org/packages/d6/47/cd80c971736581fb8d67c9e43f2cfc8a119c3851ed7c4430c476b06b132d/diffoscope-97.tar.gz"
   sha256 "93a1e97665eaefdd1a7272ec594aa8bf587955268ada6b3fdbdaa5567aa7cd08"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +16,9 @@ class Diffoscope < Formula
   depends_on "libarchive"
   depends_on "gnu-tar"
   depends_on "python"
+
+  # Python 3.7 compat
+  patch :DATA
 
   resource "libarchive-c" do
     url "https://files.pythonhosted.org/packages/b9/2c/c975b3410e148dab00d14471784a743268614e21121e50e4e00b13f38370/libarchive-c-2.8.tar.gz"
@@ -52,3 +56,29 @@ class Diffoscope < Formula
     system "#{bin}/diffoscope", "test1", "test2"
   end
 end
+
+__END__
+diff --git a/diffoscope/presenters/formats.py b/diffoscope/presenters/formats.py
+index 24b7190..df84fe2 100644
+--- a/diffoscope/presenters/formats.py
++++ b/diffoscope/presenters/formats.py
+@@ -109,5 +109,5 @@ class PresenterManager(object):
+         """
+ 
+         return any(
+-            x['klass'].supports_visual_diffs for x in self.config.values(),
++            x['klass'].supports_visual_diffs for x in self.config.values()
+         )
+diff --git a/diffoscope/comparators/json.py b/diffoscope/comparators/json.py
+index 41c5ec7..8e210b9 100644
+--- a/diffoscope/comparators/json.py
++++ b/diffoscope/comparators/json.py
+@@ -39,7 +39,7 @@ class JSONFile(File):
+             # Try fuzzy matching for JSON files
+             is_text = any(
+                 file.magic_file_type.startswith(x)
+-                for x in ('ASCII text', 'UTF-8 Unicode text'),
++                for x in ('ASCII text', 'UTF-8 Unicode text')
+             )
+             if is_text and not file.name.endswith('.json'):
+                 buf = f.read(10)
