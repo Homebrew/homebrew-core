@@ -19,8 +19,8 @@ class Fortio < Formula
 
     (buildpath/"src/istio.io/fortio").install buildpath.children
     cd "src/istio.io/fortio" do
-      system "make", "official-build",
-             "OFFICIAL_BIN=#{bin}/fortio", "LIB_DIR=#{lib}", "DATA_DIR=."
+      system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio",
+             "LIB_DIR=#{lib}", "DATA_DIR=."
       lib.install "ui/static", "ui/templates"
       prefix.install_metafiles
     end
