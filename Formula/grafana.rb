@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.1.4.tar.gz"
-  sha256 "16ce88a5457ffade7f045acbb6485e0f226fa98ea9f44b9c00640c1c8e925823"
+  url "https://github.com/grafana/grafana/archive/v5.2.1.tar.gz"
+  sha256 "90209a1cfb280d866a5933cb095ede41c66b269ae3dfc4d0164528527746e678"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
@@ -31,8 +31,8 @@ class Grafana < Formula
       args << "--force" unless build.bottle?
       system "node_modules/grunt-cli/bin/grunt", *args
 
-      bin.install "bin/grafana-cli"
-      bin.install "bin/grafana-server"
+      bin.install "bin/darwin-amd64/grafana-cli"
+      bin.install "bin/darwin-amd64/grafana-server"
       (etc/"grafana").mkpath
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
@@ -120,7 +120,7 @@ class Grafana < Formula
     listening = Timeout.timeout(5) do
       li = false
       r.each do |l|
-        if l =~ /Initializing HTTP Server/
+        if l =~ /Initializing HTTPServer/
           li = true
           break
         end
