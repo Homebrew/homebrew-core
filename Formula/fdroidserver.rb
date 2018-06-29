@@ -5,6 +5,7 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   url "https://files.pythonhosted.org/packages/5d/f6/a3103b11c4608a056bc693bb601c6997f2d482aca5464bb17ac37bd08d4b/fdroidserver-1.0.8.tar.gz"
   sha256 "5b3ea8f1ac6255952ecb46c8f70fb90bc085659af9800a96a7041679cac7e2a7"
+  revision 1
 
   bottle do
     cellar :any
@@ -140,6 +141,12 @@ class Fdroidserver < Formula
   resource "jedi" do
     url "https://files.pythonhosted.org/packages/ff/c9/781449489b743c67ad063e33aa68139afaa8a1a5bc348eee9f5cab39b4e1/jedi-0.12.0.tar.gz"
     sha256 "1972f694c6bc66a2fac8718299e2ab73011d653a6d8059790c3476d2353b99ad"
+
+    # https://github.com/davidhalter/jedi/pull/1143
+    patch do
+      url "https://github.com/davidhalter/jedi/commit/ff4a77391.patch?full_index=1"
+      sha256 "f3f0df1dfeecfbe48c559dcdbd4500013571dcc384074fc94cfcc27dbdfe41d2"
+    end
   end
 
   resource "kiwisolver" do
@@ -258,8 +265,8 @@ class Fdroidserver < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
+    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
   end
 
   resource "qrcode" do
@@ -341,7 +348,9 @@ class Fdroidserver < Formula
     venv.pip_install resource("lxml")
     ENV.delete "SDKROOT" # avoid matplotlib build failure on 10.12
 
-    res = resources.map(&:name).to_set - ["lxml", "Pillow"]
+    venv.pip_install resource("cffi") # or bcrypt fails to build
+
+    res = resources.map(&:name).to_set - ["cffi", "lxml", "Pillow"]
 
     res.each do |r|
       venv.pip_install resource(r)
