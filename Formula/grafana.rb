@@ -120,7 +120,7 @@ class Grafana < Formula
     listening = Timeout.timeout(5) do
       li = false
       r.each do |l|
-        if l =~ /Initializing HTTP Server/
+        if l =~ /Initializing HTTPServer/
           li = true
           break
         end
