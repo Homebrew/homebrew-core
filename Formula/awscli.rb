@@ -6,6 +6,7 @@ class Awscli < Formula
   # awscli should only be updated every 10 releases on multiples of 10
   url "https://github.com/aws/aws-cli/archive/1.15.40.tar.gz"
   sha256 "be54580551ef27cf68792ab4252772d819c7e05153d4498bd8848c7d9dc042aa"
+  revision 1
   head "https://github.com/aws/aws-cli.git", :branch => "develop"
 
   bottle do
@@ -22,7 +23,7 @@ class Awscli < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", buildpath
+                              "--ignore-installed", "PyYAML==4.2b1", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
     pkgshare.install "awscli/examples"
