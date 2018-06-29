@@ -5,6 +5,7 @@ class Ipython < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/ee/01/2a85cd07f5a43fa2e86d60001c213647252662d44a0c2e3d69471a058f1b/ipython-6.4.0.tar.gz"
   sha256 "eca537aa61592aca2fef4adea12af8e42f5c335004dfa80c78caf80e8b525e5c"
+  revision 1
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -45,6 +46,12 @@ class Ipython < Formula
   resource "jedi" do
     url "https://files.pythonhosted.org/packages/ff/c9/781449489b743c67ad063e33aa68139afaa8a1a5bc348eee9f5cab39b4e1/jedi-0.12.0.tar.gz"
     sha256 "1972f694c6bc66a2fac8718299e2ab73011d653a6d8059790c3476d2353b99ad"
+
+    # https://github.com/davidhalter/jedi/pull/1143
+    patch do
+      url "https://github.com/davidhalter/jedi/commit/ff4a77391.patch?full_index=1"
+      sha256 "f3f0df1dfeecfbe48c559dcdbd4500013571dcc384074fc94cfcc27dbdfe41d2"
+    end
   end
 
   resource "jupyter_client" do
