@@ -3,7 +3,7 @@ class Jupyter < Formula
   homepage "https://jupyter.org/"
   url "https://files.pythonhosted.org/packages/c9/a9/371d0b8fe37dd231cf4b2cff0a9f0f25e98f3a73c3771742444be27f2944/jupyter-1.0.0.tar.gz"
   sha256 "d9dc4b3318f310e34c82951ea5d6683f67bed7def4b259fafbfe4f1beb1d8e5f"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -93,6 +93,12 @@ class Jupyter < Formula
   resource "jedi" do
     url "https://files.pythonhosted.org/packages/ff/c9/781449489b743c67ad063e33aa68139afaa8a1a5bc348eee9f5cab39b4e1/jedi-0.12.0.tar.gz"
     sha256 "1972f694c6bc66a2fac8718299e2ab73011d653a6d8059790c3476d2353b99ad"
+
+    # https://github.com/davidhalter/jedi/pull/1143
+    patch do
+      url "https://github.com/davidhalter/jedi/commit/ff4a77391.patch?full_index=1"
+      sha256 "f3f0df1dfeecfbe48c559dcdbd4500013571dcc384074fc94cfcc27dbdfe41d2"
+    end
   end
 
   resource "Jinja2" do
