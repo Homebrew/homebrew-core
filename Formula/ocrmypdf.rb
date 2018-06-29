@@ -5,6 +5,7 @@ class Ocrmypdf < Formula
   homepage "https://github.com/jbarlow83/OCRmyPDF"
   url "https://files.pythonhosted.org/packages/bd/62/81cb1e337863081825c1f89b6d1648151d71b26b4ef82afdb7017409499a/ocrmypdf-6.2.1.tar.gz"
   sha256 "9b615492f7fc6bec0e49483d89378d8647de1b61c701e060c9bd11a686c9b256"
+  revision 1
 
   bottle do
     cellar :any
@@ -67,6 +68,9 @@ class Ocrmypdf < Formula
   resource "ruffus" do
     url "https://files.pythonhosted.org/packages/97/fe/12445c6793350ab5dbf76cb87a122b9e9aab9a9040a2801004806d985216/ruffus-2.6.3.tar.gz"
     sha256 "d78728d802013d91d15e5e939554dabce196967734850fa44634dce47e3e5061"
+
+    # Python 3.7 compat
+    patch :DATA
   end
 
   def install
@@ -104,3 +108,28 @@ class Ocrmypdf < Formula
     assert_predicate testpath/"ocr.pdf", :exist?
   end
 end
+
+__END__
+diff --git a/ruffus/task.py b/ruffus/task.py
+index 18d1d98..9337250 100644
+--- a/ruffus/task.py
++++ b/ruffus/task.py
+@@ -711,8 +711,7 @@ t_job_result = namedtuple('t_job_result',
+                           'return_value '
+                           'exception '
+                           'params '
+-                          'unglobbed_params ',
+-                          verbose=0)
++                          'unglobbed_params ')
+ 
+ 
+ # _____________________________________________________________________________
+@@ -5942,7 +5941,7 @@ def pipeline_run(target_tasks=[],
+ #       default in python 2.5 and greater
+ #   N.B. File modify times / stat values have 1 second precision for many file
+ #       systems and may not be accurate to boot, especially over the network.
+-os.stat_float_times(True)
++# os.stat_float_times(True)
+ 
+ 
+ if __name__ == '__main__':
