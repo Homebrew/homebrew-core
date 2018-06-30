@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://github.com/conan-io/conan"
-  url "https://github.com/conan-io/conan/archive/1.5.0.tar.gz"
-  sha256 "f15a2a72000bbda0028feb73c670cd68db6b9901573ccddb77cb81439e67784d"
+  url "https://github.com/conan-io/conan/archive/1.5.1.tar.gz"
+  sha256 "9876637b10ec1959bd9fe031c380e07a1a94e22b4f6db4001edf6160f485ed52"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
@@ -20,9 +20,10 @@ class Conan < Formula
   depends_on "python"
 
   def install
+    inreplace "conans/requirements.txt", "PyYAML>=3.11, <3.13.0", "PyYAML>=3.11"
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", buildpath
+                              "--ignore-installed", "PyYAML==4.2b1", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name
     venv.pip_install_and_link buildpath
   end
