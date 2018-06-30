@@ -5,7 +5,7 @@ class PreCommit < Formula
   homepage "https://pre-commit.com/"
   url "https://github.com/pre-commit/pre-commit/archive/v1.10.2.tar.gz"
   sha256 "3c29668fa8fd1f9d83491c09351c408e403484e3fb114f6a220c5f4e9b60c6d4"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,7 +19,7 @@ class PreCommit < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", buildpath
+                              "--ignore-installed", "PyYAML==4.2b1", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "pre-commit"
     venv.pip_install_and_link buildpath
   end
