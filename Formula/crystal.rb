@@ -1,4 +1,4 @@
-class CrystalLang < Formula
+class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
 
