@@ -9,9 +9,9 @@ class KeepkeyAgent < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "98f9ca61847e770c3a490eef386f56af19619d9896a296e09c65e1e5004a7172" => :high_sierra
-    sha256 "335d40a081b42178170268e0b8d99e892a6b187d471d4f727af94d394802757d" => :sierra
-    sha256 "d6c71d1d23b3590bc9c7366ea9fd348b5a23f8c56e36378ba028856a896bac5a" => :el_capitan
+    sha256 "cff70c223d0e5f6bbf49fdedda1aa0c5979bd987b23be768f071801945d15a7c" => :high_sierra
+    sha256 "d745d85c10d037ae99221b0dbfa6bae7eee9abcc681035715f296f630dc2104f" => :sierra
+    sha256 "923d1471a0285a545de011f0628e36e02566bc422b7d5d86d20af82b3e301968" => :el_capitan
   end
 
   depends_on "python"
