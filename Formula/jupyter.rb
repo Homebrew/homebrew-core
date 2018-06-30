@@ -7,9 +7,10 @@ class Jupyter < Formula
 
   bottle do
     cellar :any
-    sha256 "98f7e4cb54b123e6faf02c966e99fc0e7dab8c927dda3803ca77004b189a6abb" => :high_sierra
-    sha256 "1ac4b3a7381e99074b2794da4220e829dfa8aa237218208561bee16ec84caa24" => :sierra
-    sha256 "f5965372d231ef00b59997c6d2060f84bcad0b72d32c3a84b7d0d8b68220ad56" => :el_capitan
+    rebuild 1
+    sha256 "357e40d51326385dda5eed4cef3fbb3640d3955ba8010145ca45459529231114" => :high_sierra
+    sha256 "8d6e8044647e0d10f26d6476a4887719fb948eed7223d4e42a5898b247335228" => :sierra
+    sha256 "b19e7cf53f7d2802cf8feca141aaef74e98d2e7bc1cc06a36f5a6f237e29848a" => :el_capitan
   end
 
   option "with-qtconsole", "Install with Qtconsole"
