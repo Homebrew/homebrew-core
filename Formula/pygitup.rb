@@ -9,9 +9,9 @@ class Pygitup < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd3c8cd2761f857ece8ab1e9a112475e770b3d06abfb3416ae19e0d777caacd7" => :high_sierra
-    sha256 "1317c472920d4711e009dfbee37d4b6b0348924c5ee2a43c079e665f3536c2df" => :sierra
-    sha256 "60c14f94f7124c4b659c2f04042d3971cec6b909c742cf8e66279ee7b0c7e24e" => :el_capitan
+    sha256 "f98f2a52e2d9d2a8dbbbea1c93608fd7bd215e3151fa95bb7435a1f808205fa5" => :high_sierra
+    sha256 "50ed608db33595278f181af87c1c2a2ca1e8d7695434f9c71e6389db7ef53701" => :sierra
+    sha256 "f75bf054577c1e9ecd6fa9489b0bf5f435e069eac979c650493b2f2550161913" => :el_capitan
   end
 
   depends_on "python"
