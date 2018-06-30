@@ -3,7 +3,7 @@ class AwsShell < Formula
   homepage "https://github.com/awslabs/aws-shell"
   url "https://files.pythonhosted.org/packages/ea/a0/0fba732444bdc23580f5e0290b8a6732b47a934c1978d108407704b01eec/aws-shell-0.2.0.tar.gz"
   sha256 "b46a673b81254e5e014297e08c9ecab535773aa651ca33dc3786a1fd612f9810"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
@@ -70,8 +70,8 @@ class AwsShell < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
+    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
   end
 
   resource "rsa" do
@@ -100,9 +100,15 @@ class AwsShell < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resources.each do |r|
+      next if r.name == "awscli"
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
+    end
+
+    resource("awscli").stage do
+      inreplace "setup.py", "PyYAML>=3.10,<=3.12", "PyYAML>=3.10"
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     system "python3", *Language::Python.setup_install_args(libexec)
