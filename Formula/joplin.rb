@@ -3,8 +3,8 @@ require "language/node"
 class Joplin < Formula
   desc "Note taking and to-do application with synchronisation capabilities"
   homepage "https://joplin.cozic.net/"
-  url "https://registry.npmjs.org/joplin/-/joplin-1.0.109.tgz"
-  sha256 "671b950d3f669c75478d9a164a77d45b50cd042f7d295f623de817b44e87cb39"
+  url "https://registry.npmjs.org/joplin/-/joplin-1.0.110.tgz"
+  sha256 "d48393e5bdbaf8a7a59b37774b6630c0be0ed6e5ed98d572d65cea2a28fff55f"
 
   bottle do
     sha256 "ccbe1e308a33ebec10c6cb4f5b460940b1d54dcbc9782af5e5776109f9c2baa3" => :high_sierra
@@ -16,9 +16,6 @@ class Joplin < Formula
   depends_on "python@2" => :build
 
   def install
-    # upgrade the sqlite3 dependency to a version with node 10 support
-    inreplace "package.json", "\"sqlite3\": \"^3.1.8\",", "\"sqlite3\": \"^4.0.0\","
-
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
