@@ -9,9 +9,9 @@ class Ocrmypdf < Formula
 
   bottle do
     cellar :any
-    sha256 "df4d5273d79d5945a8567c8d03a6ddff5b5ff34aae423bb5987e4d7eb1434d73" => :high_sierra
-    sha256 "73ddecd47f97ef1bf16eca5ae939df70c461355fddaec97b8a6745c28c826cba" => :sierra
-    sha256 "1852f86c72fb0a0a3d2691156d0cb534ab9c0050a3eac19f92c37e4945a6e8e3" => :el_capitan
+    sha256 "2a6700bf8a0693310ebb56fcd151b6e2c9037554149dd069ecfdd1f79b3a639a" => :high_sierra
+    sha256 "e8aa0dad49cb9061af519091aeac025ff8d234a87fc54b9ba39a479af5fa3ffd" => :sierra
+    sha256 "ed3976367dbde22692e846e9b2c9426415513f3219573f43f32ee1f2d73fb90c" => :el_capitan
   end
 
   depends_on "mupdf-tools" => :build # PyMuPDF statically links to libmupdf.a
