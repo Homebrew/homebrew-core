@@ -6,9 +6,10 @@ class Biogeme < Formula
   revision 4
 
   bottle do
-    sha256 "0de544ac15c321308098429f277db189a94e724cb2d18595fb982826de542432" => :high_sierra
-    sha256 "f2d4a89247012c1870d9b042523075c0762c3f3bfe904dcd98bffbb53b44c49a" => :sierra
-    sha256 "db6dcc0c3c0433de7189d570b871e7d63c484da4a8c4733caac025ccbc2ef179" => :el_capitan
+    cellar :any
+    sha256 "9e0f2c7228e239a0476147fb818ba1bb635443ee6f4d776fe7879dfa2faa5936" => :high_sierra
+    sha256 "aa71ee8900b00619fe1ac171c0196b3a4f56c4e1c1d7cecfd2230b7e289bf141" => :sierra
+    sha256 "cceacdb78b3866310b0dbe2cf59148ab9b0d2c398f2f5f13bea6a218ef69cc46" => :el_capitan
   end
 
   depends_on "python"
