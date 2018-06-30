@@ -6,9 +6,9 @@ class Libpeas < Formula
   revision 2
 
   bottle do
-    sha256 "a7275673282b2f86db3e88d31349ab620556697701154def6e24f57506fc4279" => :high_sierra
-    sha256 "9a96ba9f338664b798978f6a6154e6b6bd5740c851bbd9b08c67f712f343dee8" => :sierra
-    sha256 "7e73e7d8429e1bf7f0f554e2aebae754fe29a800a4aca53b83071a3cd46de4bb" => :el_capitan
+    sha256 "f33cfee795a9688c79eea11fb7288f00c4544ee942d7accb54ed700922fcd89e" => :high_sierra
+    sha256 "39b4be69280c5c8b4bfce3f2d4253d06345d9a50910891324eb9624256b8b65a" => :sierra
+    sha256 "e564ba0cc81e732fdd1e5632d5628ab1ac9c9a45d094b17e22d01dde345f3946" => :el_capitan
   end
 
   option "with-python@2", "Build with support for python2 plugins"
