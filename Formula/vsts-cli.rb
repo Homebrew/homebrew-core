@@ -9,9 +9,9 @@ class VstsCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "92540d1f2321d5776017df4260a26e6d31cbd6ea762fd389c06e8c629b77e485" => :high_sierra
-    sha256 "e26f76378fe74d84147f313a669c924bf321172fe0641b665ec455273e54724d" => :sierra
-    sha256 "bc3b48a94d636a1419a8676cbac6de3db054b0cf3c9ff1af40c33ddc7962980b" => :el_capitan
+    sha256 "751a2691ecac04952bcc0e2f86ed96d913fcf40ce7dd12445043ce06a699be57" => :high_sierra
+    sha256 "d0c820f6428b5d36a02fe892345fd8af6d78363197a46314e575b605da4245ba" => :sierra
+    sha256 "2bd52e840eea6f65f494a7c539ca6ccf0d0ab47f84059ed3cc92b1c0e5aa8dac" => :el_capitan
   end
 
   depends_on "python"
