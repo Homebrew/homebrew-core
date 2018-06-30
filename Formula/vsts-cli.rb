@@ -5,6 +5,7 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/91/16/735321002a6940e7b429ce9b5e3c57c734951063ce5b4bfa73ab590cc801/vsts-cli-0.1.1.tar.gz"
   sha256 "35bc769a60693fb7e219144fc76ce7603d8b67f8d2dc0efa32a03140f7ea1298"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -81,8 +82,8 @@ class VstsCli < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/bd/da/0a49c1a31c60634b93fd1376b3b7966c4f81f2da8263f389cad5b6bbd6e8/PyYAML-4.2b1.tar.gz"
+    sha256 "ef3a0d5a5e950747f4a39ed7b204e036b37f9bddc7551c1a813b8727515a832e"
   end
 
   resource "requests" do
