@@ -9,9 +9,9 @@ class JujuWait < Formula
 
   bottle do
     cellar :any
-    sha256 "51906945fb39ed28fa33b92a98a81d47a3fd49637010679bcad42422d3098c34" => :high_sierra
-    sha256 "3e1fb2315eb92e4e53bc2877bf69fce7305b0080c777776ecf86aaa24f95bfe1" => :sierra
-    sha256 "1b27054cb556c62bbaf505dd42a8c1df01e6aaf269a2bc9ca72fa8394c0d8c4c" => :el_capitan
+    sha256 "161f3506996a9519a0494b1dd2c9e832f2455e19597a68665f0b444d00c6c8cf" => :high_sierra
+    sha256 "9a863b25abf2bf8b1f48a1b1420183698113f21d4db987b2442855203a898c3a" => :sierra
+    sha256 "7a6621f85da12560b95b18012a2c9e21acd0b3a89da45f621f68f9693139a172" => :el_capitan
   end
 
   depends_on "python"
