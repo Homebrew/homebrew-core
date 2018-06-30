@@ -1,8 +1,8 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.1.tar.gz"
-  sha256 "0883821b97fd02a084a84b9469a681f7e6edc56541d854b5419d98891c51fb93"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.2.tar.gz"
+  sha256 "6e48f0fa60768427f03035b0a3e93d1ae29b972bb2bd9ca998ccc6a0f6dae393"
 
   bottle do
     sha256 "45f1715564e702c8219d24089b09b526582cac66fbba92b64a0a3a7ad6fb8adf" => :high_sierra
@@ -19,13 +19,13 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.1.tar.gz"
-    sha256 "e3b0aa59261881bcb0d33a6c398f3cb5f9f75e077e67bae175cf33c362577547"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.2.tar.gz"
+    sha256 "950e8e15c58e539761255e140dd3678dd2477fa432a5f2b804e53821bdc02535"
   end
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-        :revision => "16f059b827d0d2bd10746a3b3cfbde2fd102bf05"
+        :revision => "1964ce688cbeca505263c8f77e16ed923296ce7a"
   end
 
   def install
