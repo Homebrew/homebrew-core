@@ -3,8 +3,8 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.7.tar.gz"
-  sha256 "d40e72aab4972c0477402436d3010f51af783357e33844f279f03987fc419b86"
+  url "https://github.com/conjure-up/conjure-up/archive/2.5.9.tar.gz"
+  sha256 "f474a7419fb0f948ea1cb16c14e229002a67339187b0a9af3e093f97e5ff309a"
 
   bottle do
     cellar :any
@@ -28,9 +28,14 @@ class ConjureUp < Formula
     sha256 "6c4936cea65175277183553dbc27d08b286a24ae5bd86f44fbe485dfcf77a14a"
   end
 
-  resource "bundle-placement" do
-    url "https://files.pythonhosted.org/packages/7f/f3/635ef95ac9afb049e721774acbbda39a1a9d2963b10c08cded15bf09ae43/bundle-placement-0.0.2.tar.gz"
-    sha256 "3ee288c0d5b889d1a9e04d1c09c9527b471b57a7df1f4898cebb990a6a967b05"
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+  end
+
+  resource "bcrypt" do
+    url "https://files.pythonhosted.org/packages/f3/ec/bb6b384b5134fd881b91b6aa3a88ccddaad0103857760711a5ab8c799358/bcrypt-3.1.4.tar.gz"
+    sha256 "67ed1a374c9155ec0840214ce804616de49c3df9c5bc66740687c1c9b1cd9e8d"
   end
 
   resource "certifi" do
@@ -46,6 +51,11 @@ class ConjureUp < Formula
   resource "chardet" do
     url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
     sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
+    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
   end
 
   resource "env" do
@@ -64,8 +74,8 @@ class ConjureUp < Formula
   end
 
   resource "juju" do
-    url "https://files.pythonhosted.org/packages/fa/6b/04751c78e333880d888049c5c704706986c187763095c099c6a8e618fe04/juju-0.7.5.tar.gz"
-    sha256 "9ff2bccd328c364af5efe8aa00b5041bd9ff65111c69448220cea35bffcb3f20"
+    url "https://files.pythonhosted.org/packages/c7/c0/a315341dc251a9f2e9dfe32a8b9f1667a15c80be8e1396fdd35e6617b4c9/juju-0.9.0.tar.gz"
+    sha256 "8726a58d5d68c49a2d3589566db33b8686cd85779e09739c2db03fd70e72f185"
   end
 
   resource "juju-wait" do
@@ -103,6 +113,11 @@ class ConjureUp < Formula
     sha256 "ac35665a61c1685c56336bda97d5eefa246f1202618a1d6f34fccb1bdd404162"
   end
 
+  resource "paramiko" do
+    url "https://files.pythonhosted.org/packages/29/65/83181630befb17cd1370a6abb9a87957947a43c2332216e5975353f61d64/paramiko-2.4.1.tar.gz"
+    sha256 "33e36775a6c71790ba7692a73f948b329cf9295a72b0102144b031114bd2a4f3"
+  end
+
   resource "PrettyTable" do
     url "https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2"
     sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
@@ -114,13 +129,18 @@ class ConjureUp < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/73/73/4f133a31d67b27431fe4b9cc5e2f74d0644bce0327a743093f3cc27864ce/protobuf-3.5.2.post1.tar.gz"
-    sha256 "3b60685732bd0cbdc802dfcb6071efbcf5d927ce3127c13c33ea1a8efae3aa76"
+    url "https://files.pythonhosted.org/packages/7f/51/7429b4009ccd54717d54b3a273d16df1a269845b39bcca3b4b7023a48078/protobuf-3.6.0.tar.gz"
+    sha256 "a37836aa47d1b81c2db1a6b7a5e79926062b5d76bd962115a0e615551be2b48d"
   end
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/57/93/47a2e3befaf194ccc3d05ffbcba2cdcdd22a231100ef7e4cf63f085c900b/psutil-5.2.2.tar.gz"
     sha256 "44746540c0fab5b95401520d29eb9ffe84b3b4a235bd1d1971cbe36e1f38dd13"
+  end
+
+  resource "pyasn1" do
+    url "https://files.pythonhosted.org/packages/0d/33/3466a3210321a02040e3ab2cd1ffc6f44664301a5d650a7e44be1dc341f2/pyasn1-0.4.3.tar.gz"
+    sha256 "fb81622d8f3509f0026b0683fe90fea27be7284d3826a5f2edf97f69151ab0fc"
   end
 
   resource "pycparser" do
@@ -139,8 +159,8 @@ class ConjureUp < Formula
   end
 
   resource "pyRFC3339" do
-    url "https://files.pythonhosted.org/packages/7a/8a/78e04792f04da5f3780058f8cfc35ff9eb74080faffbf321c58e6d34d089/pyRFC3339-1.0.tar.gz"
-    sha256 "8dfbc6c458b8daba1c0f3620a8c78008b323a268b27b7359e92a4ae41325f535"
+    url "https://files.pythonhosted.org/packages/00/52/75ea0ae249ba885c9429e421b4f94bc154df68484847f1ac164287d978d7/pyRFC3339-1.1.tar.gz"
+    sha256 "81b8cbe1519cdb79bed04910dd6fa4e181faf8c88dff1e1b987b5f7ab23a5b1a"
   end
 
   resource "python-utils" do
@@ -149,8 +169,8 @@ class ConjureUp < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/10/76/52efda4ef98e7544321fd8d5d512e11739c1df18b0649551aeccfb1c8376/pytz-2018.4.tar.gz"
-    sha256 "c06425302f2cf668f1bba7a0a03f3c1d34d4ebeef2c72003da308b3947c7f749"
+    url "https://files.pythonhosted.org/packages/ca/a9/62f96decb1e309d6300ebe7eee9acfd7bccaeedd693794437005b9067b44/pytz-2018.5.tar.gz"
+    sha256 "ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"
   end
 
   resource "pyvmomi" do
@@ -159,8 +179,8 @@ class ConjureUp < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/0f/9d/f98ed0a460dc540f720bbe5c6e076f025595cdfa3e318fad27165db13cf9/PyYAML-4.2b2.tar.gz"
+    sha256 "406b717f739e2d00c49873068b71f5454c2420157db51b082d4d2beb17ffffb6"
   end
 
   resource "raven" do
@@ -214,17 +234,20 @@ class ConjureUp < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/b6/12/6194aac840c65253e45a38912e318f9ac548f9ba86d75bdb8fe66841b335/websockets-4.0.1.tar.gz"
-    sha256 "da4d4fbe059b0453e726d6d993760065d69b823a27efc3040402a6fcfe6a1ed9"
-  end
-
-  resource "ws4py" do
-    url "https://files.pythonhosted.org/packages/aa/60/5d135c8161a2a67d7c227d57bb599fad967d818dbcdca08daa2d60eb87b9/ws4py-0.3.4.tar.gz"
-    sha256 "85d5c01bb0d031e151a32fad56094caf54e20c2ddb51cf25b5709421ff92d007"
+    url "https://github.com/battlemidget/websockets/archive/5.0.1_1.tar.gz"
+    version "5.0.1-1"
+    sha256 "0d3b8bb2ae266831695b1d157830fea42409628c48c75b9956f74d4b1a6815a1"
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resource("cffi") # needs to be installed prior to bcrypt
+    res = resources.map(&:name).to_set - ["cffi"]
+
+    res.each do |r|
+      venv.pip_install resource(r)
+    end
+    venv.pip_install_and_link buildpath
     bin.install_symlink "#{libexec}/bin/kv-cli"
   end
 
