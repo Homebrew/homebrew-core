@@ -4,12 +4,12 @@
 class Subcalc < Formula
   desc "Subnet calculation and discovery tool"
   homepage "https://github.com/csjayp/subcalc"
-  url "https://github.com/csjayp/subcalc/archive/v1.0.tar.gz"
-  sha256 "8a9e86f9dc85cb4c59d0d85483e0a0a5affca84ad93c90de467ad5974ada5e7a"
+  url "https://github.com/csjayp/subcalc/archive/v1.2.tar.gz"
+  sha256 "7bc926b22aa75749e1ab5878932887bc1811115703aac646c04c55f39b2809a8"
 
   def install
     system "make"
-    bin.install "subcalc"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
