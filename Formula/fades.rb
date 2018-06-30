@@ -8,9 +8,9 @@ class Fades < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9b5c0dd5896b064ec203c052c7719c3e3a9c4c84920a9565ef4e77d459734109" => :high_sierra
-    sha256 "9b5c0dd5896b064ec203c052c7719c3e3a9c4c84920a9565ef4e77d459734109" => :sierra
-    sha256 "9b5c0dd5896b064ec203c052c7719c3e3a9c4c84920a9565ef4e77d459734109" => :el_capitan
+    sha256 "1ba996deb40bae3649bb34d3fbd73495979daf805cdfa48c7f0c423b64675fa2" => :high_sierra
+    sha256 "1ba996deb40bae3649bb34d3fbd73495979daf805cdfa48c7f0c423b64675fa2" => :sierra
+    sha256 "2de71da4212f19ffb8373f0f334d7534adf512bc14de942d32ffc3390b4c14f8" => :el_capitan
   end
 
   depends_on "python"
