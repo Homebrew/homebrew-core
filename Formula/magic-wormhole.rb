@@ -5,7 +5,7 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/b5/d3/5409c111835af19af00643a8fbd0c0a6f30f025400ca5bb72f59fd1e42fb/magic-wormhole-0.10.5.tar.gz"
   sha256 "9558ea1f3551e535deec3462cd5c8391cb32ebb12ecd8b40b36861dbee4917ee"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -155,6 +155,8 @@ class MagicWormhole < Formula
 
   def install
     ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resource("cffi")
     virtualenv_install_with_resources
   end
 
