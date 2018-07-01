@@ -3,7 +3,7 @@ class Gtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/2.10/gtksourceview-2.10.5.tar.gz"
   sha256 "f5c3dda83d69c8746da78c1434585169dd8de1eecf2a6bcdda0d9925bf857c97"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "b3ba6e3ef4aa4d3abc3ac572ce649290dadc386589c45b6abdf8ae6f2269823c" => :high_sierra
@@ -15,9 +15,10 @@ class Gtksourceview < Formula
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "gtk+"
+  depends_on "libxml2"
   depends_on "gtk-mac-integration"
 
-  # patches added the ensure that gtk-mac-integration is supported properly instead
+  # patches added ensure that gtk-mac-integration is supported properly instead
   # of the old released called ige-mac-integration.
   # These are already integrated upstream in their gnome-2-30 branch but a release of
   # this remains highly unlikely
@@ -138,41 +139,38 @@ index ed522e5..5f51d4f 100755
 -	        IGE_MAC_PKG_ERRORS=`$PKG_CONFIG --print-errors "ige-mac-integration" 2>&1`
 +	        IGE_MAC_PKG_ERRORS=`$PKG_CONFIG --print-errors "gtk-mac-integration-gtk2" 2>&1`
          fi
-	# Put the nasty error message in config.log where it belongs
-	echo "$IGE_MAC_PKG_ERRORS" >&5
-
+ 	# Put the nasty error message in config.log where it belongs
+ 	echo "$IGE_MAC_PKG_ERRORS" >&5
+ 
 -	as_fn_error $? "Package requirements (ige-mac-integration) were not met:
 +	as_fn_error $? "Package requirements (gtk-mac-integration-gtk2) were not met:
-
+ 
  $IGE_MAC_PKG_ERRORS
-
+ 
 diff --git a/gtksourceview/gtksourceview-i18n.c b/gtksourceview/gtksourceview-i18n.c
-index e4db3eb..70f8f2c 100644
+index e4db3eb..c6b9fbe 100644
 --- a/gtksourceview/gtksourceview-i18n.c
 +++ b/gtksourceview/gtksourceview-i18n.c
 @@ -24,7 +24,7 @@
  #endif
-
+ 
  #ifdef OS_OSX
 -#include <ige-mac-bundle.h>
 +#include <gtkosxapplication.h>
  #endif
-
+ 
  #include <string.h>
-@@ -45,12 +45,10 @@ get_locale_dir (void)
-
-	g_free (win32_dir);
+@@ -45,11 +45,9 @@ get_locale_dir (void)
+ 
+ 	g_free (win32_dir);
  #elif defined (OS_OSX)
 -	IgeMacBundle *bundle = ige_mac_bundle_get_default ();
 -
 -	if (ige_mac_bundle_get_is_app_bundle (bundle))
--	{
++	if (gtkosx_application_get_bundle_id () != NULL)
+ 	{
 -		locale_dir = g_strdup (ige_mac_bundle_get_localedir (bundle));
--	}
-+        if(gtkosx_application_get_bundle_id () != NULL)
-+ 	{
-+ 		locale_dir = g_strdup (gtkosx_application_get_resource_path ());
-+ 	}
-	else
-	{
-		locale_dir = g_build_filename (DATADIR, "locale", NULL);
++		locale_dir = g_strdup (gtkosx_application_get_resource_path ());
+ 	}
+ 	else
+ 	{
