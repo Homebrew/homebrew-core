@@ -1,5 +1,6 @@
 class MesonInternal < Formula
   include Language::Python::Virtualenv
+
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
   url "https://github.com/mesonbuild/meson/releases/download/0.45.1/meson-0.45.1.tar.gz"
