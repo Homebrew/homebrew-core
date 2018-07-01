@@ -3,7 +3,7 @@ class Dartsim < Formula
   homepage "https://dartsim.github.io/"
   url "https://github.com/dartsim/dart/archive/v6.5.0.tar.gz"
   sha256 "b4c7f4d800ae5696e6ada04bd91b299f4a5e4ff9e8e07deeed79c6923747e274"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "92be7a73b58ee7e90dd8556eb040527d3902bc7f96f074c240f1a2f7340b2e2e" => :high_sierra
@@ -33,6 +33,18 @@ class Dartsim < Formula
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    # Avoid revision bumps whenever fcl's or libccd's Cellar paths change
+    inreplace share/"dart/cmake/dart_dartTargets.cmake" do |s|
+      s.gsub! Formula["fcl"].prefix.realpath, Formula["fcl"].opt_prefix
+      s.gsub! Formula["libccd"].prefix.realpath, Formula["libccd"].opt_prefix
+    end
+
+    # Avoid revision bumps whenever urdfdom's or urdfdom_headers's Cellar paths change
+    inreplace share/"dart/cmake/dart_utils-urdfTargets.cmake" do |s|
+      s.gsub! Formula["urdfdom"].prefix.realpath, Formula["urdfdom"].opt_prefix
+      s.gsub! Formula["urdfdom_headers"].prefix.realpath, Formula["urdfdom_headers"].opt_prefix
+    end
   end
 
   test do
