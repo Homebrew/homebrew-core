@@ -15,7 +15,7 @@ class Mpv < Formula
   option "with-lgpl", "Build with LGPLv2.1 or later license"
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@2" => :build
 
   depends_on "libass"
   depends_on "ffmpeg"
@@ -87,11 +87,11 @@ class Mpv < Formula
     end
 
     system "./bootstrap.py"
-    system "python3", "waf", "configure", *args
-    system "python3", "waf", "install"
+    system "python", "waf", "configure", *args
+    system "python", "waf", "install"
 
     if build.with? "bundle"
-      system "python3", "TOOLS/osxbundle.py", "build/mpv"
+      system "python", "TOOLS/osxbundle.py", "build/mpv"
       prefix.install "build/mpv.app"
     end
   end
