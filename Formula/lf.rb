@@ -4,6 +4,13 @@ class Lf < Formula
   url "https://github.com/gokcehan/lf/archive/r6.tar.gz"
   sha256 "43298a4e391d97643ace9bcb96429a63f9b7a8d321da4b4d36151998abc5cd03"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "fff48b734877b86947a30288cc0caecf840ae74ebda3d6ed723a0577a79219c2" => :high_sierra
+    sha256 "23ee5f5ee1897e086c4af696b6cb43f619c39f78c89b976363c6409f96bbfe42" => :sierra
+    sha256 "9223b0cb384af3ca6df7897d48903b7bf51919ebee573d4c95c8ed6d1f288405" => :el_capitan
+  end
+
   depends_on "dep" => :build
   depends_on "go" => :build
 
