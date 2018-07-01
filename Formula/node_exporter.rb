@@ -22,6 +22,18 @@ class NodeExporter < Formula
            "github.com/prometheus/node_exporter"
   end
 
+  def caveats; <<~EOS
+    When used with `brew services`, node_exporter's configuration is stored as command line flags in
+      #{etc}/node_exporter.args
+
+    Example configuration:
+      echo --web.listen-address :9101 > #{etc}/node_exporter.args
+
+    For the full list of options, execute
+      node_exporter -h
+  EOS
+  end
+
   plist_options :manual => "node_exporter"
 
   def plist; <<~EOS
