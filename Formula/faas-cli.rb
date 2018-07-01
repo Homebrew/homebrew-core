@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.6.11",
-      :revision => "3995a8197f1df1ecdf524844477cffa04e4690ea"
+      :tag => "0.6.12",
+      :revision => "d33cb5cdc128b75fc7a9856c30fc0eded39fec1e"
 
   bottle do
     cellar :any_skip_relocation
