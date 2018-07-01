@@ -19,6 +19,27 @@ class Lf < Formula
   end
 
   test do
-    system bin/"lf", "-doc"
+    assert_equal version.to_s, shell_output("#{bin}/lf -version").chomp
+    assert_match "file manager", shell_output("#{bin}/lf -doc")
+
+    ENV["TERM"] = "xterm"
+    touch "foo.txt"
+    (testpath/"test.exp").write <<~EOS
+      spawn #{bin}/lf
+      set timeout 2
+      expect {
+        timeout { exit 1 }
+        "foo.txt"
+      }
+      send "q\r"
+      expect {
+        timeout { exit 2 }
+        eof
+      }
+    EOS
+    output = shell_output("expect -f test.exp")
+    assert_match "foo.txt", output
+    assert_match "test.exp", output
+    assert_match "lf-test", output
   end
 end
