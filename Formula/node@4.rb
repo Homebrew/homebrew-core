@@ -3,7 +3,6 @@ class NodeAT4 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.9.1/node-v4.9.1.tar.xz"
   sha256 "d7d1232f948391699c6e98780ac90bdf5889902d639bad41561ac29f03dad401"
-  head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
     sha256 "57fc2a966bc0fb00106bfe006c78e87629c92148bfefcc48abba257ebfc375fe" => :high_sierra
@@ -40,7 +39,6 @@ class NodeAT4 < Formula
     else
       args << "--with-intl=small-icu"
     end
-    args << "--tag=head" if build.head?
 
     resource("icu4c").stage buildpath/"deps/icu"
 
@@ -81,7 +79,7 @@ class NodeAT4 < Formula
       assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{bin}/npm", *npm_args, "install", "npm@latest"
-      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
+      system "#{bin}/npm", *npm_args, "install", "bignum"
     end
   end
 end
