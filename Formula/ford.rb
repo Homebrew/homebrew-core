@@ -9,11 +9,9 @@ class Ford < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fdf7c838602b5d38b6f12293a8d36100a5c2e879bae2f1d86e14077fd7fa1b19" => :high_sierra
-    sha256 "c738a796ee8a8adfdcb8358eb93e3a87530523b6260151d82a5003a1ed8af532" => :sierra
-    sha256 "47599cea228882fef8c4efaa0e52e8135ab58d6d3c7bed9efc29a0bd72d46716" => :el_capitan
-    sha256 "af2a90e3a5af08077676bdcf241c4cf61525c90164b92c5dc137a78237cce3e3" => :yosemite
-    sha256 "2c47a80b78dfec14df17313c888c2828ace07b848859be62b459ff2d60403fcb" => :mavericks
+    sha256 "a6913b17644fd3a8cff12ad451daab2d89d54427b030184704fd30712811977d" => :high_sierra
+    sha256 "7534f2da52313fb3daa2afd4a1d545660a34bc9faefe561d2c3bf469f8431051" => :sierra
+    sha256 "4cb8478492d9abbde272fe175cc931105de3206c6d2b4ea36e8f5c349a8e8c3c" => :el_capitan
   end
 
   option "without-lxml", "Do not install lxml to improve the speed of search  database generation"
