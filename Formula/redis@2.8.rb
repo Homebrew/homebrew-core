@@ -3,7 +3,6 @@ class RedisAT28 < Formula
   homepage "https://redis.io/"
   url "http://download.redis.io/releases/redis-2.8.24.tar.gz"
   sha256 "6c86ca5291ca7f4e37d9c90511eed67beb6649befe57e2e26307f74adb8630fe"
-  head "https://github.com/antirez/redis.git", :branch => "2.8"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,9 +18,7 @@ class RedisAT28 < Formula
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = MacOS.prefer_64_bit? ? "-arch x86_64" : "-arch i386"
 
-    # Head and stable have different code layouts
-    src = (buildpath/"src/Makefile").exist? ? buildpath/"src" : buildpath
-    system "make", "-C", src, "CC=#{ENV.cc}"
+    system "make", "CC=#{ENV.cc}"
 
     %w[benchmark cli server check-dump check-aof sentinel].each { |p| bin.install src/"redis-#{p}" => "redis28-#{p}" }
     %w[run db/redis28 log].each { |p| (var+p).mkpath }
