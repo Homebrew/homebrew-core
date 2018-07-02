@@ -4,7 +4,6 @@ class NodeAT8 < Formula
   url "https://nodejs.org/dist/v8.11.3/node-v8.11.3.tar.xz"
   sha256 "577c751fdca91c46c60ffd8352e5b465881373bfdde212c17c3a3c1bd2616ee0"
   revision 1
-  head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
 
   bottle do
     sha256 "8972065cc254cd688996153d2b352480ddb06c97d071298e19ac089ed75fd718" => :high_sierra
@@ -42,7 +41,6 @@ class NodeAT8 < Formula
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" if build.with? "openssl"
-    args << "--tag=head" if build.head?
 
     system "./configure", *args
     system "make", "install"
@@ -85,7 +83,7 @@ class NodeAT8 < Formula
       assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{bin}/npm", *npm_args, "install", "npm@latest"
-      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
+      system "#{bin}/npm", *npm_args, "install", "bignum"
       assert_predicate bin/"npx", :exist?, "npx must exist"
       assert_predicate bin/"npx", :executable?, "npx must be executable"
       assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")
