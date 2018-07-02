@@ -19,58 +19,8 @@ end
 class LlvmAT4 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-
-  stable do
-    url "https://releases.llvm.org/4.0.1/llvm-4.0.1.src.tar.xz"
-    sha256 "da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51"
-
-    resource "clang" do
-      url "https://releases.llvm.org/4.0.1/cfe-4.0.1.src.tar.xz"
-      sha256 "61738a735852c23c3bdbe52d035488cdb2083013f384d67c1ba36fabebd8769b"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://releases.llvm.org/4.0.1/clang-tools-extra-4.0.1.src.tar.xz"
-      sha256 "35d1e64efc108076acbe7392566a52c35df9ec19778eb9eb12245fc7d8b915b6"
-    end
-
-    resource "compiler-rt" do
-      url "https://releases.llvm.org/4.0.1/compiler-rt-4.0.1.src.tar.xz"
-      sha256 "a3c87794334887b93b7a766c507244a7cdcce1d48b2e9249fc9a94f2c3beb440"
-    end
-
-    # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
-    # https://clang.llvm.org/get_started.html
-    resource "libcxx" do
-      url "https://releases.llvm.org/4.0.1/libcxx-4.0.1.src.tar.xz"
-      sha256 "520a1171f272c9ff82f324d5d89accadcec9bc9f3c78de11f5575cdb99accc4c"
-    end
-
-    resource "libunwind" do
-      url "https://releases.llvm.org/4.0.1/libunwind-4.0.1.src.tar.xz"
-      sha256 "3b072e33b764b4f9b5172698e080886d1f4d606531ab227772a7fc08d6a92555"
-    end
-
-    resource "lld" do
-      url "https://releases.llvm.org/4.0.1/lld-4.0.1.src.tar.xz"
-      sha256 "63ce10e533276ca353941ce5ab5cc8e8dcd99dbdd9c4fa49f344a212f29d36ed"
-    end
-
-    resource "lldb" do
-      url "https://releases.llvm.org/4.0.1/lldb-4.0.1.src.tar.xz"
-      sha256 "8432d2dfd86044a0fc21713e0b5c1d98e1d8aad863cf67562879f47f841ac47b"
-    end
-
-    resource "openmp" do
-      url "https://releases.llvm.org/4.0.1/openmp-4.0.1.src.tar.xz"
-      sha256 "ec693b170e0600daa7b372240a06e66341ace790d89eaf4a843e8d56d5f4ada4"
-    end
-
-    resource "polly" do
-      url "https://releases.llvm.org/4.0.1/polly-4.0.1.src.tar.xz"
-      sha256 "b443bb9617d776a7d05970e5818aa49aa2adfb2670047be8e9f242f58e84f01a"
-    end
-  end
+  url "https://releases.llvm.org/4.0.1/llvm-4.0.1.src.tar.xz"
+  sha256 "da783db1f82d516791179fe103c71706046561f7972b18f0049242dee6712b51"
 
   bottle do
     cellar :any
@@ -78,46 +28,6 @@ class LlvmAT4 < Formula
     sha256 "0c97a3cd61602de11f49bdff478a3eb43fd2b72c47b58bcd607a7a4b8652fdb2" => :sierra
     sha256 "cfe3899f563c1dd1f5f6db15d5aeee6163a990344d29892453fe6f0bc6b3299c" => :el_capitan
     sha256 "1bbffa119d25d27b4b2596c0277882d0a4de3c327bfecffcce98529cd4275486" => :yosemite
-  end
-
-  head do
-    url "https://llvm.org/git/llvm.git", :branch => "release_40"
-
-    resource "clang" do
-      url "https://llvm.org/git/clang.git", :branch => "release_40"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://llvm.org/git/clang-tools-extra.git", :branch => "release_40"
-    end
-
-    resource "compiler-rt" do
-      url "https://llvm.org/git/compiler-rt.git", :branch => "release_40"
-    end
-
-    resource "libcxx" do
-      url "https://llvm.org/git/libcxx.git", :branch => "release_40"
-    end
-
-    resource "libunwind" do
-      url "https://llvm.org/git/libunwind.git", :branch => "release_40"
-    end
-
-    resource "lld" do
-      url "https://llvm.org/git/lld.git", :branch => "release_40"
-    end
-
-    resource "lldb" do
-      url "https://llvm.org/git/lldb.git", :branch => "release_40"
-    end
-
-    resource "openmp" do
-      url "https://llvm.org/git/openmp.git", :branch => "release_40"
-    end
-
-    resource "polly" do
-      url "https://llvm.org/git/polly.git", :branch => "release_40"
-    end
   end
 
   keg_only :versioned_formula
@@ -161,6 +71,53 @@ class LlvmAT4 < Formula
   fails_with :gcc
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
+  end
+
+  resource "clang" do
+    url "https://releases.llvm.org/4.0.1/cfe-4.0.1.src.tar.xz"
+    sha256 "61738a735852c23c3bdbe52d035488cdb2083013f384d67c1ba36fabebd8769b"
+  end
+
+  resource "clang-extra-tools" do
+    url "https://releases.llvm.org/4.0.1/clang-tools-extra-4.0.1.src.tar.xz"
+    sha256 "35d1e64efc108076acbe7392566a52c35df9ec19778eb9eb12245fc7d8b915b6"
+  end
+
+  resource "compiler-rt" do
+    url "https://releases.llvm.org/4.0.1/compiler-rt-4.0.1.src.tar.xz"
+    sha256 "a3c87794334887b93b7a766c507244a7cdcce1d48b2e9249fc9a94f2c3beb440"
+  end
+
+  # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
+  # https://clang.llvm.org/get_started.html
+  resource "libcxx" do
+    url "https://releases.llvm.org/4.0.1/libcxx-4.0.1.src.tar.xz"
+    sha256 "520a1171f272c9ff82f324d5d89accadcec9bc9f3c78de11f5575cdb99accc4c"
+  end
+
+  resource "libunwind" do
+    url "https://releases.llvm.org/4.0.1/libunwind-4.0.1.src.tar.xz"
+    sha256 "3b072e33b764b4f9b5172698e080886d1f4d606531ab227772a7fc08d6a92555"
+  end
+
+  resource "lld" do
+    url "https://releases.llvm.org/4.0.1/lld-4.0.1.src.tar.xz"
+    sha256 "63ce10e533276ca353941ce5ab5cc8e8dcd99dbdd9c4fa49f344a212f29d36ed"
+  end
+
+  resource "lldb" do
+    url "https://releases.llvm.org/4.0.1/lldb-4.0.1.src.tar.xz"
+    sha256 "8432d2dfd86044a0fc21713e0b5c1d98e1d8aad863cf67562879f47f841ac47b"
+  end
+
+  resource "openmp" do
+    url "https://releases.llvm.org/4.0.1/openmp-4.0.1.src.tar.xz"
+    sha256 "ec693b170e0600daa7b372240a06e66341ace790d89eaf4a843e8d56d5f4ada4"
+  end
+
+  resource "polly" do
+    url "https://releases.llvm.org/4.0.1/polly-4.0.1.src.tar.xz"
+    sha256 "b443bb9617d776a7d05970e5818aa49aa2adfb2670047be8e9f242f58e84f01a"
   end
 
   def build_libcxx?
