@@ -4,7 +4,6 @@ class ErlangAT19 < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-19.3.6.9.tar.gz"
   sha256 "ee43b4e085467c1205c42939ec99d421bd00d3bd2539aca2546e28690dfde1cc"
-  head "https://github.com/erlang/otp.git", :branch => "maint-19"
 
   bottle do
     cellar :any
