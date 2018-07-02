@@ -3,7 +3,7 @@ class Efl < Formula
   homepage "https://www.enlightenment.org"
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.20.7.tar.xz"
   sha256 "b0a9b765bcd7b012f1072da1d491fc8671aa089473f746901d93f5807a2c76fe"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5a453abe384c76f3b520b8d0f04b31219a83c2d0579a9da6df44d13e6b8c362a" => :high_sierra
