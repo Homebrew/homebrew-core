@@ -3,7 +3,6 @@ class NodeAT6 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v6.14.3/node-v6.14.3.tar.xz"
   sha256 "e3f187729f7e4b13d9c053f70cc12717d6e6734e0544cb8ba935aa72d07479c9"
-  head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
 
   bottle do
     sha256 "f291232380137e55151587da07e54b7e504d1889446bb8d6c96774bfe36b1e00" => :high_sierra
@@ -103,7 +102,7 @@ class NodeAT6 < Formula
       assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{bin}/npm", *npm_args, "install", "npm@latest"
-      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
+      system "#{bin}/npm", *npm_args, "install", "bignum"
     end
   end
 end
