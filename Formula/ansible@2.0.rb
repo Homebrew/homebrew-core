@@ -4,7 +4,6 @@ class AnsibleAT20 < Formula
   url "https://releases.ansible.com/ansible/ansible-2.0.2.0.tar.gz"
   sha256 "373a2e50319d90da50948e3faf1c033464b7302200e0199da8981d24646d4387"
   revision 2
-  head "https://github.com/ansible/ansible.git", :branch => "stable-2.0"
 
   bottle do
     cellar :any
