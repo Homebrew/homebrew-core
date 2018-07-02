@@ -1,8 +1,8 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/6.5.0.tar.gz"
-  sha256 "132d8f4ad3fe1a927101ac533bbf0bf946e27882f62ddc72b7a44fb39cefb85b"
+  url "https://github.com/jacobwilliams/json-fortran/archive/6.6.0.tar.gz"
+  sha256 "49354831fb865298aed390b2f55ecf426889ddb34d986dfcdc958a6db7ecc432"
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
