@@ -6,7 +6,6 @@ class KibanaAT56 < Formula
   url "https://github.com/elastic/kibana.git",
       :tag => "v5.6.10",
       :revision => "330eeeefd3a90f03321e411db94180b56b1a8063"
-  head "https://github.com/elastic/kibana.git"
 
   bottle do
     sha256 "987d307c3a4182210ffd292cf82ddc38b3158db3b6cd903150c5d5c44fb5bca8" => :high_sierra
