@@ -12,8 +12,8 @@ class Tor < Formula
   end
 
   devel do
-    url "https://www.torproject.org/dist/tor-0.3.4.2-alpha.tar.gz"
-    sha256 "37b7f675ccee4478fe4d1ec964e8925782e9d4cdf36ed2a782de12732f47e35a"
+    url "https://www.torproject.org/dist/tor-0.3.4.3-alpha.tar.gz"
+    sha256 "ba691d61557a8a978dfb8851d01de4d50bc2b31de0d344e2f914f8c668f28b15"
   end
 
   depends_on "pkg-config" => :build
