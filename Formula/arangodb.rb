@@ -48,6 +48,11 @@ class Arangodb < Formula
         inreplace etc/"arangodb3/#{f}.conf", pkgshare, opt_pkgshare
       end
     end
+
+    cd "3rdParty/arangodb-starter" do
+      system "make", "NODOCKER=1", "local"
+      bin.install "arangodb"
+    end
   end
 
   def post_install
