@@ -4,6 +4,11 @@ class MongodbAT36 < Formula
   url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.5.tar.gz"
   sha256 "b99535800925b5c5a9a103fdad37559b6cde13e7cdce72310f32ff105ec615df"
 
+  bottle do
+    sha256 "61f3cabe68a8f9bbe86062ff0a75a38c642fb7d8d2d69cbc5b9f7c2c48876b3f" => :high_sierra
+    sha256 "bb21568d2054cfd9ce3bc4d961dfd972b71223717305e7ad4bd0478a2c33d019" => :sierra
+  end
+
   keg_only :versioned_formula
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
