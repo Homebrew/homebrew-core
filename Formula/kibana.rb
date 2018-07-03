@@ -3,6 +3,8 @@ require "language/node"
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
+  # Pinned at 6.2.x because of a licencing issue
+  # See: https://github.com/Homebrew/homebrew-core/pull/28995
   url "https://github.com/elastic/kibana.git",
       :tag => "v6.2.4",
       :revision => "ee501cfd9c1281cfbd6948e1c5f80dc9356ee56f"
