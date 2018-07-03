@@ -11,48 +11,45 @@ class Fftw < Formula
     sha256 "a94c5f646948f918e986ab0be56672ac52f527debe1ed4cc783fd1ba6c99fe73" => :el_capitan
   end
 
-  option "with-mpi", "Enable MPI parallel transforms"
   option "with-openmp", "Enable OpenMP parallel transforms"
   option "without-fortran", "Disable Fortran bindings"
 
-  depends_on "open-mpi" if build.with? "mpi"
-
+  depends_on "cmake" => :build
   depends_on "gcc" if build.with?("fortran") || build.with?("openmp")
   fails_with :clang if build.with? "openmp"
 
   def install
-    args = ["--enable-shared",
-            "--disable-debug",
-            "--prefix=#{prefix}",
-            "--enable-threads",
-            "--disable-dependency-tracking"]
-    simd_args = ["--enable-sse2"]
-    simd_args << "--enable-avx" if ENV.compiler == :clang && Hardware::CPU.avx? && !build.bottle?
-    simd_args << "--enable-avx2" if ENV.compiler == :clang && Hardware::CPU.avx2? && !build.bottle?
+    args = std_cmake_args
+    args << "-DBUILD_SHARED_LIBS=on"
+    args << "-DBUILD_TESTS=off"
+    args << "-DENABLE_THREADS=on"
 
-    args << "--disable-fortran" if build.without? "fortran"
-    args << "--enable-mpi" if build.with? "mpi"
-    args << "--enable-openmp" if build.with? "openmp"
+    simd_args = ["-DENABLE_SSE2=on"]
+    simd_args << "-DENABLE_AVX=on" if ENV.compiler == :clang && Hardware::CPU.avx? && !build.bottle?
+    simd_args << "-DENABLE_AVX2=on" if ENV.compiler == :clang && Hardware::CPU.avx2? && !build.bottle?
 
-    # single precision
-    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "./configure", "--enable-single", *(args + simd_args)
+    args << "-DDISABLE_FORTRAN=on" if build.without? "fortran"
+    args << "-DENABLE_OPENMP=on" if build.with? "openmp"
+
+    ## long double precision
+    ## no SIMD optimization available
+    system "cmake", ".", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=on", "-DENABLE_QUAD_PRECISION=off", *args
     system "make", "install"
 
-    # clean up so we can compile the double precision variant
+    ## clean up so we can compile other variant
     system "make", "clean"
 
-    # double precision
-    # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "./configure", *(args + simd_args)
+    ## default(double) precision
+    ## enable-sse2, enable-avx and enable-avx2 work for both single and double precision
+    system "cmake", ".", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=off", "-DENABLE_QUAD_PRECISION=off", *(args + simd_args)
     system "make", "install"
 
-    # clean up so we can compile the long-double precision variant
+    ## clean up so we can compile other variant
     system "make", "clean"
 
-    # long-double precision
-    # no SIMD optimization available
-    system "./configure", "--enable-long-double", *args
+    ## single precision
+    ## enable-sse2, enable-avx and enable-avx2 work for both single and double precision
+    system "cmake", ".", "-DENABLE_FLOAT=on", "-DENABLE_LONG_DOUBLE=off", "-DENABLE_QUAD_PRECISION=off", *(args + simd_args)
     system "make", "install"
   end
 
