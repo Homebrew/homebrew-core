@@ -26,8 +26,12 @@ class Opencv < Formula
 
   needs :cxx11
 
-  # Python 3.7 compat
-  patch :DATA
+  # Remove for > 3.4.1
+  # Upstream commit from 2 Jul 2018 "Python 3.7 compatability"
+  patch do
+    url "https://github.com/opencv/opencv/commit/0c4328fbf3d.patch?full_index=1"
+    sha256 "67c45080fbba9756b92f9dbceec6749f476f72a5485dcd9e163beaaa755a4b54"
+  end
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/3.4.1.tar.gz"
@@ -122,18 +126,3 @@ class Opencv < Formula
     end
   end
 end
-
-__END__
-diff --git a/modules/python/src2/cv2.cpp b/modules/python/src2/cv2.cpp
-index fab60fd..2c48041 100644
---- a/modules/python/src2/cv2.cpp
-+++ b/modules/python/src2/cv2.cpp
-@@ -886,7 +886,7 @@ bool pyopencv_to(PyObject* obj, String& value, const char* name)
-     (void)name;
-     if(!obj || obj == Py_None)
-         return true;
--    char* str = PyString_AsString(obj);
-+    const char* str = PyString_AsString(obj);
-     if(!str)
-         return false;
-     value = String(str);
