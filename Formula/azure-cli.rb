@@ -1,8 +1,8 @@
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.38.tar.gz"
-  sha256 "737bda8bf3f3e54330bd261d7863922c4fb228ecbced4ad991fb5fdfa38d6a6b"
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.41.tar.gz"
+  sha256 "cb0db0d99ab89d347690c44f1d4af310517659670b4b7e1d87c55f9d75059516"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -16,8 +16,8 @@ class AzureCli < Formula
   depends_on "python"
 
   resource "adal" do
-    url "https://files.pythonhosted.org/packages/74/51/f6513df23ded7b931076f8d679777b7a97b60027853023a1ef00047cf555/adal-1.0.1.tar.gz"
-    sha256 "71b0e9b479320f76af4bcd268f7359580ba2e217228e83ff7529f51a9845f393"
+    url "https://files.pythonhosted.org/packages/80/65/d62a4b43eca475cf865ffc2acc18be08fe3430f374b0a0d931d7063b5d72/adal-1.0.2.tar.gz"
+    sha256 "4c020807b3f3cfd90f59203077dd5e1f59671833f8c3c5028ec029ed5072f9ce"
   end
 
   resource "applicationinsights" do
@@ -106,8 +106,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-containerinstance" do
-    url "https://files.pythonhosted.org/packages/be/48/0868895a10d5074229e2ecc4296a609f8b57da78c7a2859f586c16293969/azure-mgmt-containerinstance-0.4.0.zip"
-    sha256 "226985c19801a780384aebf88001c0736b496e9aae154c5ead5b0c6f3ce819b8"
+    url "https://files.pythonhosted.org/packages/37/db/356a1d44dd6a5fc019780dfc098e17c4680601876349a4f4103b893d778e/azure-mgmt-containerinstance-1.0.0.zip"
+    sha256 "68c8150b5431752484b4933a6a15856b503068314b9d87ff99b03df3549bc92f"
   end
 
   resource "azure-mgmt-containerregistry" do
@@ -180,6 +180,11 @@ class AzureCli < Formula
     sha256 "fb7facbcdc9157f7fb83abb41032f257a6013a02205d7c0327b56779ca20fd30"
   end
 
+  resource "azure-mgmt-loganalytics" do
+    url "https://files.pythonhosted.org/packages/93/e2/6b47cc232357b05d0c8c788d6bbece67428ea997ba29d50e5cd90c1bd104/azure-mgmt-loganalytics-0.2.0.zip"
+    sha256 "c7315ff0ee4d618fb38dca68548ef4023a7a20ce00efe27eb2105a5426237d86"
+  end
+
   resource "azure-mgmt-managementgroups" do
     url "https://files.pythonhosted.org/packages/3e/fd/0601266fd246b84a8f6882822b6cbccee18b85d5405dab1b85db82ba2606/azure-mgmt-managementgroups-0.1.0.zip"
     sha256 "ff62d982edda634a36160cb1d15a367a9572a5acb419e5e7ad371e8c83bd47c7"
@@ -216,8 +221,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-rdbms" do
-    url "https://files.pythonhosted.org/packages/db/a3/c96824cd33e3036fee74aee1ec9a5e6c7802a364246b16fc14a000070111/azure-mgmt-rdbms-1.1.0.zip"
-    sha256 "451c35fadd7018db9a40ed9164d1efb69a139ffdadd54fd95dd12308cd259eba"
+    url "https://files.pythonhosted.org/packages/de/61/80e7b2510efee13334095e509f8daf42187b811f7eb7fab830be9f453d19/azure-mgmt-rdbms-1.2.0.zip"
+    sha256 "6e5abef2fcac1149dda1119443ea26c847e55e8b4c771b7b033f92d1b3140263"
   end
 
   resource "azure-mgmt-recoveryservices" do
@@ -236,13 +241,13 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-reservations" do
-    url "https://files.pythonhosted.org/packages/16/67/bfde7e4d52fb37c2b908b5f9409f1afd66ae7891ac5767a73ba4abe61fde/azure-mgmt-reservations-0.2.0.zip"
-    sha256 "4992619a921e74c3ecb98c0ac94e7786567b48e6b058b3f3e36645e4eb073b1c"
+    url "https://files.pythonhosted.org/packages/27/04/fd610a6e3095ec09f6c0e3d9b3ba356c7fac329b260b82014a7cb7b0eb2b/azure-mgmt-reservations-0.2.1.zip"
+    sha256 "40618a3700c47a788182649f238d985edf15b08b6577ea27557e70e2866ac171"
   end
 
   resource "azure-mgmt-resource" do
-    url "https://files.pythonhosted.org/packages/b2/39/e9c47857ff0271f337fa88ffa7e0c9914f32583bdfd5e1af3d39c0729eb7/azure-mgmt-resource-1.2.1.zip"
-    sha256 "03b353f6971fdb0615c5f19150ca3b030e9b26ba76ac39df795b9046d88f8bc1"
+    url "https://files.pythonhosted.org/packages/80/89/680fb1a85a611bde2c5dbf0eadb486326ea51bc67b8d4618752d9317df35/azure-mgmt-resource-2.0.0rc2.zip"
+    sha256 "091c2493b6323df595f25bf8288aae1a7772e77dff5996ba08dadd3b4e1dd0aa"
   end
 
   resource "azure-mgmt-servicebus" do
@@ -361,8 +366,8 @@ class AzureCli < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/d8/07/e862b57168e088f3ba880fba2471f05f78c19e75b1632be0143d116e7fa3/keyring-12.2.1.tar.gz"
-    sha256 "4498eaa2e32fc69a8b36749116b670c379d36a1a9ad4ab107df1e19c8a120ffe"
+    url "https://files.pythonhosted.org/packages/79/84/c8b8f4711b40196b6ba44bb98348717122326bb8167dc05293bf74c608a2/keyring-13.1.0.tar.gz"
+    sha256 "971699318f8a882da4193f0c2f87ae974e34c777fdfb59f89b50105cd678f4d9"
   end
 
   resource "knack" do
@@ -376,13 +381,13 @@ class AzureCli < Formula
   end
 
   resource "msrest" do
-    url "https://files.pythonhosted.org/packages/9b/49/ed5c9ea20f83707f4f67fbc664082d6d9a356b44f5f64ec5a5c7e0fdb365/msrest-0.4.29.tar.gz"
-    sha256 "ce0a558173b7c7bff87dc66e24331382c81a89367ea52c52bbb934de6064cb45"
+    url "https://files.pythonhosted.org/packages/cc/c6/631db25929c963dd0a8c1b01dce3acb3d9ff89fae138fed2ed4710dad6fb/msrest-0.5.1.tar.gz"
+    sha256 "bb509ee6228eba9062024de5396a2e50856b9cd3aba411870468faf24c872b00"
   end
 
   resource "msrestazure" do
-    url "https://files.pythonhosted.org/packages/0b/fb/fc7b158312a1d54323fe287161b5ed20d21c1d617fcbb220fca0b5351392/msrestazure-0.4.32.tar.gz"
-    sha256 "6a1704d93c2d9cb977db7e806977c8aa311d313d5244c31eabea91a58f2ec25c"
+    url "https://files.pythonhosted.org/packages/e7/dd/cea2d0c20effb72702bd9d570cd25ebc1078aefda4957915ad8934d699dc/msrestazure-0.4.33.tar.gz"
+    sha256 "4d8b33686021bcdf9bffc3ad0b120d1ce10d33e2535649897217fb9532b57e53"
   end
 
   resource "oauthlib" do
@@ -446,8 +451,8 @@ class AzureCli < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/a8/c6/a8d1555e795dbd0375c3c93b576ca13bbf139db51ea604afa19a2c35fc03/PyYAML-4.2b4.tar.gz"
+    sha256 "3c17fb92c8ba2f525e4b5f7941d850e7a48c3a59b32d331e2502a3cdc6648e76"
   end
 
   resource "requests" do
