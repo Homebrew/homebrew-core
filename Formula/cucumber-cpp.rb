@@ -1,9 +1,8 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/v0.4.tar.gz"
-  sha256 "57391dfade3639e5c219463cecae2ee066c620aa29fbb89e834a7067f9b8e0c8"
-  revision 4
+  url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
+  sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,10 +12,8 @@ class CucumberCpp < Formula
   end
 
   depends_on "cmake" => :build
-
-  # Upstream issue from 19 Dec 2017 "Build fails with Boost 1.66.0"
-  # See https://github.com/cucumber/cucumber-cpp/issues/178
-  depends_on "boost@1.60"
+  depends_on "ruby" => :test if MacOS.version <= :sierra
+  depends_on "boost"
 
   def install
     args = std_cmake_args
@@ -26,8 +23,7 @@ class CucumberCpp < Formula
     args << "-DCUKE_DISABLE_BOOST_TEST=on"
     system "cmake", ".", *args
     system "cmake", "--build", "."
-    include.install "include/cucumber-cpp"
-    lib.install Dir["src/*.a"]
+    system "make", "install"
   end
 
   test do
@@ -56,9 +52,9 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
-           "-lcucumber-cpp", "-I#{Formula["boost@1.60"].opt_include}",
-           "-L#{Formula["boost@1.60"].opt_lib}", "-lboost_regex", "-lboost_system",
-           "-lboost_program_options", "-lboost_filesystem"
+           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
+           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lboost_program_options", "-lboost_filesystem", "-lboost_chrono"
     begin
       pid = fork { exec "./test" }
       expected = <<~EOS
