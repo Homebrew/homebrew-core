@@ -3,9 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.10.2.tar.gz"
-  sha256 "3c29668fa8fd1f9d83491c09351c408e403484e3fb114f6a220c5f4e9b60c6d4"
-  revision 2
+  url "https://github.com/pre-commit/pre-commit/archive/v1.10.3.tar.gz"
+  sha256 "67888bbf03ba8924973129e75c1a098fd920860252f961f5338e7f571399d6ec"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +18,7 @@ class PreCommit < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", "PyYAML==4.2b1", buildpath
+                              "--ignore-installed", "PyYAML==3.13b1", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "pre-commit"
     venv.pip_install_and_link buildpath
   end
