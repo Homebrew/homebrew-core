@@ -34,7 +34,6 @@ class MongodbAT32 < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
-    ENV.libcxx if build.devel?
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
