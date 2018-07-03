@@ -1,8 +1,9 @@
 class ArpScan < Formula
   desc "ARP scanning and fingerprinting tool"
   homepage "https://github.com/royhills/arp-scan"
-  url "https://github.com/royhills/arp-scan/releases/download/1.9/arp-scan-1.9.tar.gz"
-  sha256 "ce908ac71c48e85dddf6dd4fe5151d13c7528b1f49717a98b2a2535bd797d892"
+  url "https://github.com/royhills/arp-scan/archive/1.9.5.tar.gz"
+  sha256 "aa9498af84158a315b7e0ea6c2cddfa746660ca3987cbe7e32c0c90f5382d9d2"
+  head "https://github.com/royhills/arp-scan.git"
 
   bottle do
     rebuild 1
@@ -13,17 +14,12 @@ class ArpScan < Formula
     sha256 "e0570d20ec6c79c1a43c9925eb5c09d7ab9589fbe9d2ce1579927800ac6c53d5" => :mavericks
   end
 
-  head do
-    url "https://github.com/royhills/arp-scan.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-  end
-
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
   depends_on "libpcap" => :optional
 
   def install
-    system "autoreconf", "--install" if build.head?
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
