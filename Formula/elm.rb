@@ -5,38 +5,8 @@ class Elm < Formula
 
   desc "Functional programming language for building browser-based GUIs"
   homepage "http://elm-lang.org"
-
-  stable do
-    url "https://github.com/elm/compiler/archive/0.18.0.tar.gz"
-    sha256 "7f941f4b9c066aea70a24a195f9920d61415b27540770b497f922561460cf6d0"
-
-    resource "elm-package" do
-      url "https://github.com/elm-lang/elm-package/archive/0.18.0.tar.gz"
-      sha256 "5cf6e1ae0a645b426c0474cc7cd3f7d1605ffa1ac5756a39a8b2268ddc7ea0e9"
-
-      # Fix two "Not in scope" errors
-      # Upstream PR from 3 Oct 2017 "Paths.hs: fix build failure"
-      patch do
-        url "https://github.com/elm-lang/elm-package/pull/287.patch?full_index=1"
-        sha256 "3f922d7962a41217e760361ad444d00676aff0e40c3741fd536b39d2961165d3"
-      end
-    end
-
-    resource "elm-make" do
-      url "https://github.com/elm-lang/elm-make/archive/0.18.0.tar.gz"
-      sha256 "00c2d40128ca86454251d6672f49455265011c02aa3552a857af3109f337dbea"
-    end
-
-    resource "elm-repl" do
-      url "https://github.com/elm-lang/elm-repl/archive/0.18.0.tar.gz"
-      sha256 "be2b05d022ffa766fe186d5ad5da14385cec41ba7a4b2c18f2e0018351c99376"
-    end
-
-    resource "elm-reactor" do
-      url "https://github.com/elm-lang/elm-reactor/archive/0.18.0.tar.gz"
-      sha256 "736f84a08b10df07cfd3966aa5c7802957ab35d6d74f6322d4a69a0b9d75f4fe"
-    end
-  end
+  url "https://github.com/elm/compiler/archive/0.18.0.tar.gz"
+  sha256 "7f941f4b9c066aea70a24a195f9920d61415b27540770b497f922561460cf6d0"
 
   bottle do
     sha256 "4a7232fc62d4c340ddf49f6e63924734f66f5cb0861ea4fc042d41cebc139884" => :high_sierra
@@ -47,6 +17,33 @@ class Elm < Formula
 
   depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+
+  resource "elm-package" do
+    url "https://github.com/elm-lang/elm-package/archive/0.18.0.tar.gz"
+    sha256 "5cf6e1ae0a645b426c0474cc7cd3f7d1605ffa1ac5756a39a8b2268ddc7ea0e9"
+
+    # Fix two "Not in scope" errors
+    # Upstream PR from 3 Oct 2017 "Paths.hs: fix build failure"
+    patch do
+      url "https://github.com/elm-lang/elm-package/pull/287.patch?full_index=1"
+      sha256 "3f922d7962a41217e760361ad444d00676aff0e40c3741fd536b39d2961165d3"
+    end
+  end
+
+  resource "elm-make" do
+    url "https://github.com/elm-lang/elm-make/archive/0.18.0.tar.gz"
+    sha256 "00c2d40128ca86454251d6672f49455265011c02aa3552a857af3109f337dbea"
+  end
+
+  resource "elm-repl" do
+    url "https://github.com/elm-lang/elm-repl/archive/0.18.0.tar.gz"
+    sha256 "be2b05d022ffa766fe186d5ad5da14385cec41ba7a4b2c18f2e0018351c99376"
+  end
+
+  resource "elm-reactor" do
+    url "https://github.com/elm-lang/elm-reactor/archive/0.18.0.tar.gz"
+    sha256 "736f84a08b10df07cfd3966aa5c7802957ab35d6d74f6322d4a69a0b9d75f4fe"
+  end
 
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
