@@ -6,9 +6,9 @@ class Odpi < Formula
 
   bottle do
     cellar :any
-    sha256 "a621551f8d2a1a58839718316bf34e1f076151171c45e38d06f9a26f5af6686c" => :high_sierra
-    sha256 "61c6fc47f7bcbf3211b811778dbbc031e22f4e07b2b463381a4c5d39884d0862" => :sierra
-    sha256 "d20ee590095eca3dcd174ba6fa94ec0a28a9495b7026126a0a46bc0583a8bbda" => :el_capitan
+    sha256 "c37e2a4ddb1ca25225d8888e29bdb9576c21522132fb3ab4a7f1bf9832ef3fb6" => :high_sierra
+    sha256 "96d2d453241dd2290514f0b3b6d704c2a6b7c6d06702801f0c5b319f9bdb4e7d" => :sierra
+    sha256 "17377a509fe09e9cd87251b0f132172628d54bab53e3e390a9686c064ca4fb3b" => :el_capitan
   end
 
   def install
