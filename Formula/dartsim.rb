@@ -33,13 +33,13 @@ class Dartsim < Formula
     ENV.cxx11
     system "cmake", ".", *std_cmake_args
     system "make", "all"
-    
+
     # Avoid revision bumps whenever fcl's or libccd's Cellar paths change
     inreplace "dart/CMakeFiles/Export/share/dart/cmake/dart_dartTargets.cmake" do |s|
       s.gsub! Formula["fcl"].prefix.realpath, Formula["fcl"].opt_prefix
       s.gsub! Formula["libccd"].prefix.realpath, Formula["libccd"].opt_prefix
     end
-    
+
     system "make", "install"
   end
 
