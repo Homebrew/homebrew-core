@@ -6,12 +6,9 @@ class ArpScan < Formula
   head "https://github.com/royhills/arp-scan.git"
 
   bottle do
-    rebuild 1
-    sha256 "4e50c7a232cda92445d0c030072e71af84271322edb03d0718d89e92eb76e577" => :high_sierra
-    sha256 "70a15f93ba09a4201352165594b2d69d3537fb55ba7c0180619470c2235bb851" => :sierra
-    sha256 "f0fdab57a9d16dc270b9bedba6c5cca5e99e2b5319268261a320dda86fa5da54" => :el_capitan
-    sha256 "4a26a7bb3c586122b4aad81c17bf8427bc820ec4a4353573ffedf79087000232" => :yosemite
-    sha256 "e0570d20ec6c79c1a43c9925eb5c09d7ab9589fbe9d2ce1579927800ac6c53d5" => :mavericks
+    sha256 "7feff35163c765888d5d5d9e729d1a54e3310e13ff8bbc2decaf2e9ce3d90679" => :high_sierra
+    sha256 "9f09dcbe83bd1f139911b531a123b5cf05a64f6006fc7de52f5d1d8496c46709" => :sierra
+    sha256 "4bda8ae4da7c735c08d45cfa7fc58987413e6600267f9e5ae7f4cfa5d174599a" => :el_capitan
   end
 
   depends_on "automake" => :build
