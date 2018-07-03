@@ -1,9 +1,8 @@
 class Gcovr < Formula
   desc "Reports from gcov test coverage program"
   homepage "https://gcovr.com/"
-  url "https://github.com/gcovr/gcovr/archive/4.0.tar.gz"
-  sha256 "f9731a0ea516f2087e13b3bc310dbd8edaec4ce6a56b2462f5603ee925f40377"
-  revision 1
+  url "https://github.com/gcovr/gcovr/archive/4.1.tar.gz"
+  sha256 "1ad8042fd4dc4c355fd7e605d395eefa2a59b1677dfdc308e0ef00083e8b37ee"
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
