@@ -69,8 +69,12 @@ class Ocrmypdf < Formula
     url "https://files.pythonhosted.org/packages/97/fe/12445c6793350ab5dbf76cb87a122b9e9aab9a9040a2801004806d985216/ruffus-2.6.3.tar.gz"
     sha256 "d78728d802013d91d15e5e939554dabce196967734850fa44634dce47e3e5061"
 
-    # Python 3.7 compat
-    patch :DATA
+    # Upstream PR from 29 Jun 2018 "Remove functions deprecated in Python 3.7"
+    # Reported 3 Jul 2018 https://github.com/jbarlow83/OCRmyPDF/issues/274
+    patch do
+      url "https://github.com/cgat-developers/ruffus/pull/92.patch?full_index=1"
+      sha256 "784cf147343d69f9e8fafc48eebf4a9d07efaaff4ea37b4fe870e1efc53c9b11"
+    end
   end
 
   def install
@@ -108,28 +112,3 @@ class Ocrmypdf < Formula
     assert_predicate testpath/"ocr.pdf", :exist?
   end
 end
-
-__END__
-diff --git a/ruffus/task.py b/ruffus/task.py
-index 18d1d98..9337250 100644
---- a/ruffus/task.py
-+++ b/ruffus/task.py
-@@ -711,8 +711,7 @@ t_job_result = namedtuple('t_job_result',
-                           'return_value '
-                           'exception '
-                           'params '
--                          'unglobbed_params ',
--                          verbose=0)
-+                          'unglobbed_params ')
- 
- 
- # _____________________________________________________________________________
-@@ -5942,7 +5941,7 @@ def pipeline_run(target_tasks=[],
- #       default in python 2.5 and greater
- #   N.B. File modify times / stat values have 1 second precision for many file
- #       systems and may not be accurate to boot, especially over the network.
--os.stat_float_times(True)
-+# os.stat_float_times(True)
- 
- 
- if __name__ == '__main__':
