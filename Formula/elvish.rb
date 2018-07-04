@@ -3,7 +3,7 @@ class Elvish < Formula
   homepage "https://github.com/elves/elvish"
   url "https://github.com/elves/elvish/archive/0.11.tar.gz"
   sha256 "711f67d8730990deed00c3e0c59198c8a51c8441371416faab5ef603c26010b6"
-  head "https://github.com/elves/elvish.git"
+  head "https://github.com/elves/elvish.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
@@ -16,10 +16,12 @@ class Elvish < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    version = `git describe --tags --always`.strip
+    goroot = `go env GOROOT`.strip
     (buildpath/"src/github.com/elves/elvish").install buildpath.children
     cd "src/github.com/elves/elvish" do
       system "go", "build", "-ldflags",
-             "-X github.com/elves/elvish/build.Version=#{version}", "-o",
+             "-X github.com/elves/elvish/buildinfo.Version=#{version} -X github.com/elves/elvish/buildinfo.GoPath=#{buildpath} -X github.com/elves/elvish/buildinfo.GoRoot=#{goroot}", "-o",
              bin/"elvish"
       prefix.install_metafiles
     end
