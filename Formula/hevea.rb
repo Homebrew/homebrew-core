@@ -5,9 +5,9 @@ class Hevea < Formula
   sha256 "de55c6809ae077cd9b2cd5c758449907845677258815c96a713764e6e0c59ee8"
 
   bottle do
-    sha256 "b4ed09c5e29b302070a67251c8c87c56bca0817c704438fbd013fa5370bb0fbc" => :high_sierra
-    sha256 "876829b6fea3a803ad583e0939fd7272618f1e82a21da4e73e0b581238dc34e0" => :sierra
-    sha256 "5689cf43754e25c57bfea971d44186e737d73bab0f2489956861a98bcdb065a4" => :el_capitan
+    sha256 "3449e59de08edb173696ded7a21127ea8bb7cae445eb2d0db6e814d5c84ae6bf" => :high_sierra
+    sha256 "ac0e31ca981ad566e978ab954a324aead767b60ebab55be36f081689d3ffd8c3" => :sierra
+    sha256 "b036e8c8233b6800187efaab19171c39f25c4d82b8ba32442abdec688aa61296" => :el_capitan
   end
 
   depends_on "ocaml"
