@@ -32,8 +32,11 @@ class Root < Formula
 
   skip_clean "bin"
 
-  # Python 3.7 compat
-  patch :DATA
+  # Upstream PR from 30 Jun 2018 "Fixes for Python 3.7"
+  patch do
+    url "https://github.com/root-project/root/pull/2276.patch?full_index=1"
+    sha256 "5c8e404a01b7df801c7fa6ec7c54d0ebfc0f46086b58f34340822e89fc67a750"
+  end
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
@@ -149,44 +152,3 @@ class Root < Formula
     end
   end
 end
-
-__END__
-diff --git a/bindings/pyroot/src/PyRootType.cxx b/bindings/pyroot/src/PyRootType.cxx
-index 3c2719c..0edc2e8 100644
---- a/bindings/pyroot/src/PyRootType.cxx
-+++ b/bindings/pyroot/src/PyRootType.cxx
-@@ -100,7 +100,7 @@ namespace {
-             if ( ! attr && ! PyRootType_CheckExact( pyclass ) && PyType_Check( pyclass ) ) {
-                PyErr_Clear();
-                PyObject* pycppname = PyObject_GetAttr( pyclass, PyStrings::gCppName );
--               char* cppname = PyROOT_PyUnicode_AsString(pycppname);
-+               const char* cppname = PyROOT_PyUnicode_AsString(pycppname);
-                Py_DECREF(pycppname);
-                Cppyy::TCppScope_t scope = Cppyy::GetScope( cppname );
-                TClass* klass = TClass::GetClass( cppname );
-diff --git a/bindings/pyroot/src/Pythonize.cxx b/bindings/pyroot/src/Pythonize.cxx
-index 8eb4e46..3b5c1ae 100644
---- a/bindings/pyroot/src/Pythonize.cxx
-+++ b/bindings/pyroot/src/Pythonize.cxx
-@@ -976,7 +976,7 @@ namespace {
-       vi->vi_len = PySequence_Size( v );
- 
- #ifndef R__WIN32 // prevent error LNK2001: unresolved external symbol __PyGC_generation0
--      _PyObject_GC_TRACK( vi );
-+      PyObject_GC_Track( vi );
- #endif
-       return (PyObject*)vi;
-    }
-diff --git a/bindings/pyroot/src/TPyROOTApplication.cxx b/bindings/pyroot/src/TPyROOTApplication.cxx
-index 4f624a7..34bf9e6 100644
---- a/bindings/pyroot/src/TPyROOTApplication.cxx
-+++ b/bindings/pyroot/src/TPyROOTApplication.cxx
-@@ -98,7 +98,7 @@ Bool_t PyROOT::TPyROOTApplication::CreatePyROOTApplication( Bool_t bLoadLibs )
-       if ( argl && 0 < PyList_Size( argl ) ) argc = (int)PyList_GET_SIZE( argl );
-       char** argv = new char*[ argc ];
-       for ( int i = 1; i < argc; ++i ) {
--         char* argi = PyROOT_PyUnicode_AsString( PyList_GET_ITEM( argl, i ) );
-+         char* argi = const_cast<char *>(PyROOT_PyUnicode_AsString( PyList_GET_ITEM( argl, i ) ));
-          if ( strcmp( argi, "-" ) == 0 || strcmp( argi, "--" ) == 0 ) {
-          // stop collecting options, the remaining are for the python script
-             argc = i;    // includes program name
