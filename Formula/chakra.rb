@@ -15,13 +15,20 @@ class Chakra < Formula
   depends_on "icu4c"
 
   def install
-    system "./build.sh", "--lto-thin",
-                         "--static",
-                         "--icu=#{Formula["icu4c"].opt_include}",
-                         "--extra-defines=U_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatability
-                         "-j=#{ENV.make_jobs}",
-                         "-y"
+    args = [
+      "--lto-thin",
+      "--icu=#{Formula["icu4c"].opt_include}",
+      "--extra-defines=U_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatability
+      "-j=#{ENV.make_jobs}",
+      "-y",
+    ]
+
+    system "./build.sh", *args             # build dynamically for .dylib
+    system "./build.sh", "--static", *args # build statically for usable binary
+
     bin.install "out/Release/ch" => "chakra"
+    include.install Dir["out/Release/include/*"]
+    lib.install "out/Release/libChakraCore.dylib"
   end
 
   test do
