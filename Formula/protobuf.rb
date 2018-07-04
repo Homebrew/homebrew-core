@@ -33,6 +33,12 @@ class Protobuf < Formula
 
   needs :cxx11
 
+  # Upstream PR from 3 Jul 2018 "Add Python 3.7 compatibility"
+  patch do
+    url "https://github.com/google/protobuf/pull/4862.patch?full_index=1"
+    sha256 "4b1fe1893c40cdcef531c31746ddd18759c9ce3564c89ddcc0ec934ea5dbf377"
+  end
+
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
