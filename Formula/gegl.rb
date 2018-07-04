@@ -1,8 +1,8 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.2.tar.bz2"
-  sha256 "6a358bc19d20b8ac1daf645cc8b53cdc2ea6f9c98a6036179a57045a26a07f8d"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.4.tar.bz2"
+  sha256 "f8cb45da736131fe29582b74cf6851102ae013bf99c77413a8bcb02e92e57890"
 
   bottle do
     sha256 "05ceb7cbb0e4e78b38401098e194337fe4f182725e8151ed5325ebae66f8d652" => :high_sierra
