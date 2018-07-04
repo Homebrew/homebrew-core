@@ -20,7 +20,6 @@ class Fftw < Formula
 
   def install
     args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS=on"
     args << "-DBUILD_TESTS=off"
     args << "-DENABLE_THREADS=on"
 
@@ -33,23 +32,26 @@ class Fftw < Formula
 
     ## long double precision
     ## no SIMD optimization available
-    system "cmake", ".", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=on", "-DENABLE_QUAD_PRECISION=off", *args
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=on", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=on", *args
     system "make", "install"
-
-    ## clean up so we can compile other variant
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=off", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=on", *args
+    system "make", "install"
     system "make", "clean"
 
     ## default(double) precision
     ## enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "cmake", ".", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=off", "-DENABLE_QUAD_PRECISION=off", *(args + simd_args)
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=on", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=off", *(args + simd_args)
     system "make", "install"
-
-    ## clean up so we can compile other variant
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=off", "-DENABLE_FLOAT=off", "-DENABLE_LONG_DOUBLE=off", *(args + simd_args)
+    system "make", "install"
     system "make", "clean"
 
-    ## single precision
-    ## enable-sse2, enable-avx and enable-avx2 work for both single and double precision
-    system "cmake", ".", "-DENABLE_FLOAT=on", "-DENABLE_LONG_DOUBLE=off", "-DENABLE_QUAD_PRECISION=off", *(args + simd_args)
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=on", "-DENABLE_FLOAT=on", "-DENABLE_LONG_DOUBLE=off", *(args + simd_args)
+    system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=off", "-DENABLE_FLOAT=on", "-DENABLE_LONG_DOUBLE=off", *(args + simd_args)
     system "make", "install"
   end
 
