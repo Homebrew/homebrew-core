@@ -19,7 +19,7 @@ class DockerCredentialHelperEcr < Formula
   end
 
   test do
-    run_output = shell_output("#{bin}/docker-credential-ecr-login", 1)
-    assert_match %r{^Usage: .*/docker-credential-ecr-login.*}, run_output
+    output = shell_output("#{bin}/docker-credential-ecr-login", 1)
+    assert_match %r{^Usage: .*/docker-credential-ecr-login.*}, output
   end
 end
