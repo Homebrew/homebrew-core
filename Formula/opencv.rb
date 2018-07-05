@@ -1,9 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.1.tar.gz"
-  sha256 "f1b87684d75496a1054405ae3ee0b6573acaf3dad39eaf4f1d66fdd7e03dc852"
-  revision 6
+  url "https://github.com/opencv/opencv/archive/3.4.2.tar.gz"
+  sha256 "81dbd5e7e9f8a4c936b94629bf4765745942a1d634ae38ec08bc57b73b28ffc5"
 
   bottle do
     sha256 "0db1ccdfadbedd53d2dbf59d05321ce7fab22130784df3a76db10dc3851481e4" => :high_sierra
@@ -26,16 +25,9 @@ class Opencv < Formula
 
   needs :cxx11
 
-  # Remove for > 3.4.1
-  # Upstream commit from 2 Jul 2018 "Python 3.7 compatability"
-  patch do
-    url "https://github.com/opencv/opencv/commit/0c4328fbf3d.patch?full_index=1"
-    sha256 "67c45080fbba9756b92f9dbceec6749f476f72a5485dcd9e163beaaa755a4b54"
-  end
-
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.1.tar.gz"
-    sha256 "298c69ee006d7675e1ff9d371ba8b0d9e7e88374bb7ba0f9d0789851d352ec6e"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.2.tar.gz"
+    sha256 "45a52764ebd2558fa0b7fd8dc47379b37dd0956d912abbf7c786228374fdf60d"
   end
 
   def install
