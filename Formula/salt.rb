@@ -1,4 +1,4 @@
-class Saltstack < Formula
+class Salt < Formula
   include Language::Python::Virtualenv
 
   desc "Dynamic infrastructure communication bus"

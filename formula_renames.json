@@ -165,6 +165,7 @@
   "ruby21": "ruby@2.1",
   "ruby22": "ruby@2.2",
   "ruby23": "ruby@2.3",
+  "saltstack": "salt",
   "scala210": "scala@2.10",
   "scala211": "scala@2.11",
   "screenbrightness": "brightness",
