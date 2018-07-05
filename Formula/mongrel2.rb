@@ -1,18 +1,9 @@
 class Mongrel2 < Formula
   desc "Application, language, and network architecture agnostic web server"
-  homepage "https://mongrel2.org/"
+  homepage "http://mongrel2.org/"
+  url "https://github.com/mongrel2/mongrel2/releases/download/v1.12.0/mongrel2-v1.12.0.tar.bz2"
+  sha256 "054b87d94f5c2fb5311ad7979276ce12684f72bff476fdf943e1c485723e9f3c"
   head "https://github.com/mongrel2/mongrel2.git", :branch => "develop"
-
-  stable do
-    url "https://github.com/mongrel2/mongrel2/releases/download/v1.11.0/mongrel2-v1.11.0.tar.bz2"
-    sha256 "917f2ce07c0908cae63ac03f3039815839355d46568581902377ba7e41257bed"
-
-    # ensure unit tests work on 1.11.0. remove after next release
-    patch do
-      url "https://github.com/mongrel2/mongrel2/commit/7cb8532e2ecc341d77885764b372a363fbc72eff.patch?full_index=1"
-      sha256 "fa7be14bf1df8ec3ab8ae164bde8eb703e9e2665645aa627baae2f08c072db9a"
-    end
-  end
 
   bottle do
     cellar :any
@@ -23,6 +14,7 @@ class Mongrel2 < Formula
     sha256 "dd07092a2384c243fcd8c54ed67f2a728f3da698276540fc1c9b201eb3c5cbbb" => :mavericks
   end
 
+  depends_on "mbedtls"
   depends_on "zeromq"
 
   def install
