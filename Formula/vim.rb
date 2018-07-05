@@ -7,9 +7,9 @@ class Vim < Formula
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "9588dcd541488498bbf139745183271f9fd89650904421c4f1ee9e10faf440e5" => :high_sierra
-    sha256 "86955287222e81285defef7ef8494306988f9fe284df1b8fb8aae3af321b1a30" => :sierra
-    sha256 "890cdf8893a95bd22318b84bf4e476bc95748e952c0c73dbf823b03aad964ad9" => :el_capitan
+    sha256 "750b71df651674581c210e35f63918ea005649e7b857f30181907af4e2eee6fc" => :high_sierra
+    sha256 "04df8b5d5b1fe99ed8839564c40c91a9325e8f323b40187541710041770c2a1d" => :sierra
+    sha256 "c5702ce3e3d711fec8d9c770c105598a06c4b7de3f7eb73f0e3454db03388960" => :el_capitan
   end
 
   deprecated_option "override-system-vi" => "with-override-system-vi"
