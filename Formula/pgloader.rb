@@ -1,27 +1,14 @@
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
-  url "https://github.com/dimitri/pgloader/archive/v3.5.1.tar.gz"
-  sha256 "a2df2193aec5f5022298e92eb1562f271afbec555f8d6bd5d8dd7db99e4b56ec"
+  url "https://github.com/dimitri/pgloader/archive/v3.5.2.tar.gz"
+  sha256 "1a07a91db6b5e0d96c43fed3e429d49d920d71ca31c4f50929529b6fe75665ae"
+  head "https://github.com/dimitri/pgloader.git"
 
   bottle do
     sha256 "52951cb39597840c1de76a19a0a8f60dbc69e217b1ea400ea1c003c6d7074f76" => :high_sierra
     sha256 "d65fc014a49f2e711165eaeb1b64cbae220960f1bc9e8b7c39b9d4c2b87095df" => :sierra
     sha256 "a9217fd3c4fe8c5cf4b33e8b97696350dca4a588c2ddba1bb24c13929de854bf" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/dimitri/pgloader.git"
-
-    resource "cl-mustache" do
-      url "https://beta.quicklisp.org/archive/cl-mustache/2015-09-23/cl-mustache-20150923-git.tgz"
-      sha256 "22b0938a3765229a54bd84f70c7de2a56e8903fef4dbc987a3c8621314d800e4"
-    end
-
-    resource "yason" do
-      url "https://beta.quicklisp.org/archive/yason/2016-02-08/yason-v0.7.6.tgz"
-      sha256 "1332170b030067e2ea7119e8a18abb7778b89fd6a2163f808d80dbbd48b0ee01"
-    end
   end
 
   depends_on "sphinx-doc" => :build
@@ -119,8 +106,8 @@ class Pgloader < Formula
   end
 
   resource "cl-ixf" do
-    url "https://beta.quicklisp.org/archive/cl-ixf/2017-06-30/cl-ixf-20170630-git.tgz"
-    sha256 "c2d1cbc962c0e3136df4d7e1de65f304aa421fa1ad2fb0e3d1aaf945c7d7d5e1"
+    url "https://beta.quicklisp.org/archive/cl-ixf/2018-02-28/cl-ixf-20180228-git.tgz"
+    sha256 "7adba0bf221f6f91777457c9d6c52a0a7e034c628e18f09c7445ce50a8ff14fb"
   end
 
   resource "cl-log" do
@@ -168,9 +155,19 @@ class Pgloader < Formula
     sha256 "db2cdae1d3e59637484ee6c4095906adb3ac68bb185f6dfc7fed042ef1947bad"
   end
 
+  resource "closure-common" do
+    url "https://beta.quicklisp.org/archive/closure-common/2010-11-07/closure-common-20101107-git.tgz"
+    sha256 "64c2b19fd64be8606f8208191b3269022e8fe34abe3f72acfd349f2fec6d02a5"
+  end
+
   resource "command-line-arguments" do
     url "https://beta.quicklisp.org/archive/command-line-arguments/2015-12-18/command-line-arguments-20151218-git.tgz"
     sha256 "d0fba1c0ac361aab4273425079945ee1ac8e7d7e7b9a960026a8c999e41edb1f"
+  end
+
+  resource "cxml" do
+    url "https://beta.quicklisp.org/archive/cxml/2011-06-19/cxml-20110619-git.tgz"
+    sha256 "d38bbad4b2d8f519f9e13402cd322ceb8a38934d4b4d82e2571a9f9bacd76612"
   end
 
   resource "drakma" do
@@ -316,6 +313,11 @@ class Pgloader < Formula
   resource "yason" do
     url "https://beta.quicklisp.org/archive/yason/2016-02-08/yason-v0.7.6.tgz"
     sha256 "1332170b030067e2ea7119e8a18abb7778b89fd6a2163f808d80dbbd48b0ee01"
+  end
+
+  resource "zs3" do
+    url "https://beta.quicklisp.org/archive/zs3/2017-12-27/zs3-1.3.1.tgz"
+    sha256 "ddd9e180d23bce21482cb0d9bcd3f5636c85963290ac19fa9ddc39fa9b12b990"
   end
 
   def install
