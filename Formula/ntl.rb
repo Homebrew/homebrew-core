@@ -1,7 +1,7 @@
 class Ntl < Formula
   desc "C++ number theory library"
-  homepage "http://www.shoup.net/ntl"
-  url "http://www.shoup.net/ntl/ntl-11.1.0.tar.gz"
+  homepage "https://www.shoup.net/ntl"
+  url "https://www.shoup.net/ntl/ntl-11.1.0.tar.gz"
   sha256 "bb4ae214886f95a044ef16fdfd909f8d3181b288470ea7077c9f23d14047302f"
 
   bottle do
