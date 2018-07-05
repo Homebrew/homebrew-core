@@ -1,8 +1,8 @@
 class Pgloader < Formula
   desc "Data loading tool for PostgreSQL"
   homepage "https://github.com/dimitri/pgloader"
-  url "https://github.com/dimitri/pgloader/archive/v3.5.1.tar.gz"
-  sha256 "a2df2193aec5f5022298e92eb1562f271afbec555f8d6bd5d8dd7db99e4b56ec"
+  url "https://github.com/dimitri/pgloader/archive/v3.5.2.tar.gz"
+  sha256 "1a07a91db6b5e0d96c43fed3e429d49d920d71ca31c4f50929529b6fe75665ae"
 
   bottle do
     sha256 "52951cb39597840c1de76a19a0a8f60dbc69e217b1ea400ea1c003c6d7074f76" => :high_sierra
