@@ -1,6 +1,6 @@
 class Zenity < Formula
   desc "GTK+ dialog boxes for the command-line"
-  homepage "https://live.gnome.org/Zenity"
+  homepage "https://wiki.gnome.org/Projects/Zenity"
   url "https://download.gnome.org/sources/zenity/3.28/zenity-3.28.1.tar.xz"
   sha256 "db179354721fb4e2d5c418e0dc41f09c831a6b2dd440e33f7743dfc266de8a6b"
 
