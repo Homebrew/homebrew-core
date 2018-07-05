@@ -1,6 +1,6 @@
 class Goocanvas < Formula
   desc "Canvas widget for GTK+ using the Cairo 2D library for drawing"
-  homepage "https://live.gnome.org/GooCanvas"
+  homepage "https://wiki.gnome.org/Projects/GooCanvas"
   url "https://download.gnome.org/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz"
   sha256 "c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90"
   revision 1
