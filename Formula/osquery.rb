@@ -3,6 +3,7 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.2.6.tar.gz"
   sha256 "54d49f00eae5907f0f0c065b0ea01ffc48a1c977366d9b67d0aa3913f387d7bd"
+  revision 1
 
   bottle do
     cellar :any
