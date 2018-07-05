@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.6.0.tar.gz"
-  sha256 "3550bf16bf2c34cc88bf3870e91b836e44c1c288d148968c4d855dae2560faf5"
+  url "https://releases.ansible.com/ansible/ansible-2.6.1.tar.gz"
+  sha256 "a1fc205286344c5d7bda36b503c273f5b348b06a23f86d52ddddd6afa01cad3c"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
@@ -42,8 +42,8 @@ class Ansible < Formula
 
   ### setup_requires dependencies
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/cd/9f/8f14a51b522c47a315dd969fbdf39233e41f0bfa8b996b4ff0ad852ff43d/pbr-4.0.4.tar.gz"
-    sha256 "a9c27eb8f0e24e786e544b2dbaedb729c9d8546342b5a6818d8eda098ad4340d"
+    url "https://files.pythonhosted.org/packages/04/69/25fb4c68ae8093cf7698cec37dbbfdd3f6161ccd94a407aea0c6c1d8ce29/pbr-4.1.0.tar.gz"
+    sha256 "e0f23b61ec42473723b2fec2f33fb12558ff221ee551962f01dd4de9053c2055"
   end
 
   resource "pytz" do
@@ -97,8 +97,8 @@ class Ansible < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "apache-libcloud" do
@@ -132,13 +132,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/75/43/700260807978c5abfe4d687b6c0cca2b085a7542eb438aeacb2f73bb10e7/boto3-1.7.48.tar.gz"
-    sha256 "c5a52cb93f7ae28e960810cb69d1fc8a9d00c1f122a681d7454a4d70e42dd5de"
+    url "https://files.pythonhosted.org/packages/1d/d5/f94c42c4abf1fa1169fef86c5e90ab1422f9f07a3aae0a93e2ff6d7ae6a1/boto3-1.7.52.tar.gz"
+    sha256 "d5413b68157d73515839c6b1bbc00c0a9b0722ce8b14475215cf68984003f82b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b9/c3/ec611f82950ebb58b8bbf891d1e43d5662ae67af6d9ba6a256f3e3f590b4/botocore-1.10.48.tar.gz"
-    sha256 "1218517172be766acb9f5de7f4044f9f0f9d9589614e7e6fe6562072586e6290"
+    url "https://files.pythonhosted.org/packages/a3/51/c55fe8eb61c28f99542e1887cce2632f8f756a604be7109187b5b3ee0274/botocore-1.10.52.tar.gz"
+    sha256 "a4acb24c8ba2fb148e41b385e8acd10c5d96bf576ad22be1364919bed6f74f4e"
   end
 
   resource "certifi" do
@@ -157,8 +157,8 @@ class Ansible < Formula
   end
 
   resource "cliff" do
-    url "https://files.pythonhosted.org/packages/7e/1c/4582dc9b2cb5164c665221aca70013003a2dbbd0ef837b72f43c62a350c4/cliff-2.12.1.tar.gz"
-    sha256 "7c502ef59ad7acbb32d25b74a732794638f3db5d35b454f05a4cf9c302587188"
+    url "https://files.pythonhosted.org/packages/27/dc/4105138ccdf500a56f782ec2eb8a80eb3e35321133c9159224bda989d362/cliff-2.13.0.tar.gz"
+    sha256 "447f0afe5fab907c51e3e451e6915cba424fe4a98962a5bdd7d4420b9d6aed35"
   end
 
   resource "cmd2" do
@@ -187,8 +187,8 @@ class Ansible < Formula
   end
 
   resource "deprecation" do
-    url "https://files.pythonhosted.org/packages/de/a8/7609236c5ebcabcb4baf2313ac74b1d69f0068f4294854ccb72191aa56e4/deprecation-2.0.4.tar.gz"
-    sha256 "2c259bfc0237f16bbe36cb32b6d81addd919b8f4bc7253738576816e82841b96"
+    url "https://files.pythonhosted.org/packages/dd/06/aed49f13984c4acfcd67d699b2a0e96fefd2f9c700ce88a43120eb0363e2/deprecation-2.0.5.tar.gz"
+    sha256 "cbe7d15006bc339709be5e02b14884ecc479639c1a3714a908de3a8ca13b5ca9"
   end
 
   resource "dnspython" do
@@ -297,8 +297,8 @@ class Ansible < Formula
   end
 
   resource "ncclient" do
-    url "https://files.pythonhosted.org/packages/e9/cf/cb131bcaf9b31f8d9d1b9ec3aa9a861dd72a7269a9ff07217b60157fa526/ncclient-0.5.3.tar.gz"
-    sha256 "fe6b9c16ed5f1b21f5591da74bfdd91a9bdf69eb4e918f1c06b3c8db307bd32b"
+    url "https://files.pythonhosted.org/packages/d7/5a/def9ce89fd9bbc57fd9b0a7202b371bfad16c0e738d3a3a672ea436d022e/ncclient-0.6.0.tar.gz"
+    sha256 "da7f7dfb8a60711610139e894b41ebcab3cd7103b78439ad5e9e91c2d3cfa423"
   end
 
   resource "netaddr" do
@@ -337,8 +337,8 @@ class Ansible < Formula
   end
 
   resource "oslo.config" do
-    url "https://files.pythonhosted.org/packages/66/5e/4b980d96944a7ead85ebfd56181877098155822d5ba3a8a82fcefb69649c/oslo.config-6.2.2.tar.gz"
-    sha256 "eabd3474895051fa2507223ebeead3b5b0715296d8c6588cf6f22b9dd838fd94"
+    url "https://files.pythonhosted.org/packages/de/c2/4b653f3db231643e3ee8a61952aaf3df95e5e591075cd3f3bb62928f5d40/oslo.config-6.3.0.tar.gz"
+    sha256 "bffe681bed69882ca8fa12df07b8d5194bbebb54f6ccf73ad096d5f5535ef450"
   end
 
   resource "oslo.context" do
