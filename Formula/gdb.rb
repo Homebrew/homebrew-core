@@ -40,6 +40,14 @@ class Gdb < Formula
     EOS
   end
 
+  # Remove for > 8.1
+  # Equivalent to upstream commit from 9 Jun 2018 "Fix build issue with Python 3.7"
+  # See https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=863d5065467b16304f6b5c80a186e3bcc68c48a6
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6648fc7/gdb/python37.diff"
+    sha256 "42363cb1652abf706dc3c8a535c61dade894a253ffe7fe2fd0356bddbec16f3a"
+  end
+
   def install
     args = [
       "--prefix=#{prefix}",
