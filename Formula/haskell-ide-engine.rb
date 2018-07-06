@@ -8,20 +8,11 @@ class HaskellIdeEngine < Formula
   version "0.1.0.0"
   sha256 "e2195fc6bf01e4b9509e7be388e53fb4e0103658a3f26aca997b54cdd52273dd"
 
-  head "https://github.com/alanz/haskell-ide-engine.git"
-
-  option "without-hoogle", "Don't generate Hoogle documentation"
-
   depends_on "haskell-stack" => :build
-  depends_on "icu4c" => :build # Needed for the text-icu cabal package
 
   def install
     ENV.deparallelize
-    if build.without? "hoogle"
-      system "make", "build"
-    else
-      system "make", "build-all"
-    end
+    system "make", "build-all"
     bin.install Dir[".brew_home/.local/bin/*"]
   end
 
