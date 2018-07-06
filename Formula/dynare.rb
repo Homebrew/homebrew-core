@@ -3,6 +3,7 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.5.tar.xz"
   sha256 "9e2f604aa7a722cbcc6a4150af0b7fb78874490cf0b4868b2a410193ae1e3727"
+  revision 1
 
   bottle do
     sha256 "83f0aca2e6ff7f72846812edb2c4ad5e552559fed44c10eac8c9622b4c1b804e" => :high_sierra
