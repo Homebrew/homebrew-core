@@ -40,11 +40,11 @@ class Proxysql < Formula
   test do
     system bin/"proxysql", "--help"
     background_proxysql = fork do
-      exec "#{bin}/proxysql", "--initial"
+      exec "#{bin}/proxysql", "-S", "admin.sock"
     end
     begin
       # Sleep until the proxy is up (querying it prematurely causes a segfault), then check its uptime.
-      output = pipe_output("sleep 2; echo 'select * from stats.stats_mysql_global' | mysql -uadmin -padmin -h0.0.0.0 -P6032")
+      output = pipe_output("sleep 2; echo 'select * from stats.stats_mysql_global' | mysql -uadmin -padmin -S admin.sock")
       assert_match /ProxySQL_Uptime\s+[1-9]\d*/, output
     ensure
       Process.kill("TERM", background_proxysql)
