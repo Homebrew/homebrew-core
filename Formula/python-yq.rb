@@ -4,6 +4,13 @@ class PythonYq < Formula
   url "https://files.pythonhosted.org/packages/56/5f/d60ffaba376257b60304a8ee9fafdc0be4852a4bcdeece48d931e6b36487/yq-2.6.0.tar.gz"
   sha256 "c64f763e8409ed55eb055793c26fc347b5a6666b303d49e9d2f8d7cea979df73"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :high_sierra
+    sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :sierra
+    sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :el_capitan
+  end
+
   depends_on "jq"
   depends_on "python"
 
