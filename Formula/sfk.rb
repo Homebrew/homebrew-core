@@ -1,9 +1,9 @@
 class Sfk < Formula
   desc "Command-line tools collection"
   homepage "http://stahlworks.com/dev/swiss-file-knife.html"
-  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.9.1.3/sfk-1.9.1.tar.gz"
-  version "1.9.1.3"
-  sha256 "d60626cbcc3d0aa76126d1a0c3a59ba504fdfbc4b1c4b77e80f1870cc6b2e1d9"
+  url "https://downloads.sourceforge.net/project/swissfileknife/1-swissfileknife/1.9.2.0/sfk-1.9.2.tar.gz"
+  version "1.9.2.0"
+  sha256 "4537d033edfe6feb0bbafdcf157646a19951b8ef9056898718674d39a3c088d7"
 
   bottle do
     cellar :any_skip_relocation
