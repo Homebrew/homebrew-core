@@ -4,7 +4,6 @@ class Gptfdisk < Formula
   url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.4/gptfdisk-1.0.4.tar.gz"
   sha256 "b663391a6876f19a3cd901d862423a16e2b5ceaa2f4a3b9bb681e64b9c7ba78d"
 
-  depends_on "icu4c"
   depends_on "popt"
 
   def install
