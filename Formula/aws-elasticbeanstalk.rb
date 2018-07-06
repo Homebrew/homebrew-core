@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/9c/63/e05679b01575a4a25f482ea1f0420bf491853c60c71656eb8badd1040e51/awsebcli-3.14.1.tar.gz"
-  sha256 "02148d8cb3f78503d22ad43349eafa4e526fd9583831bede759c0331ac68da93"
+  url "https://files.pythonhosted.org/packages/47/8f/b3b98abc7b4af51c7583ece27fa4c1c38b31d0a5d0751e2cf4ccfe73137d/awsebcli-3.14.2.tar.gz"
+  sha256 "4880fdffed20b199bb71b1784cf3aefe81859b173ef0291a4c1a6ef08b96bb0c"
 
   bottle do
     cellar :any_skip_relocation
