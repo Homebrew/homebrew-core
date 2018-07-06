@@ -1,8 +1,8 @@
 class ProtobufAT26 < Formula
   desc "Protocol buffers - Google data interchange format"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/releases/download/v2.6.0/protobuf-2.6.0.tar.bz2"
-  sha256 "0a2f8533b2e0587a2b4efce0c4c8aea21bbfae1c41c466634d958dedf580f6aa"
+  url "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.bz2"
+  sha256 "ee445612d544d885ae240ffbcbf9267faa9f593b7b101f21d58beceb92661910"
 
   bottle do
     sha256 "188fe3c8779e7c0568829bff058ea06244f17f4b736dd06a32b087a1c579268d" => :high_sierra
