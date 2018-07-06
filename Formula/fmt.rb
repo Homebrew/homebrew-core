@@ -1,8 +1,8 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmtlib.github.io/"
-  url "https://github.com/fmtlib/fmt/archive/5.0.0.tar.gz"
-  sha256 "fc33d64d5aa2739ad2ca1b128628a7fc1b7dca1ad077314f09affc57d59cf88a"
+  url "https://github.com/fmtlib/fmt/archive/5.1.0.tar.gz"
+  sha256 "73d4cab4fa8a3482643d8703de4d9522d7a56981c938eca42d929106ff474b44"
 
   bottle do
     cellar :any_skip_relocation
