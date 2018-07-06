@@ -10,6 +10,12 @@ class Php < Formula
     sha256 "9ab631781179ac6e8b4731f07b94ed53aadb5d0811d8185bb39332d697dec7ef" => :el_capitan
   end
 
+  # Bad system lib linking: https://bugs.php.net/bug.php?id=76403
+  patch do
+    url "https://gist.githubusercontent.com/kabel/910ab767aba08cc450b32efc7ffac549/raw/484a5692ddd53ef9bad9e030860fb9fc99d9f47b/acinclude-macos.patch"
+    sha256 "6969363b717d4d70c434fe898cca53516e48299b5d5a9345869adf2dfb25138b"
+  end
+
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "apr"
@@ -41,6 +47,9 @@ class Php < Formula
     if MacOS.version == :el_capitan || MacOS.version == :sierra
       ENV["SDKROOT"] = MacOS.sdk_path
     end
+
+    # Bad system lib linking: https://bugs.php.net/bug.php?id=76403
+    system "./buildconf", "--force"
 
     inreplace "configure" do |s|
       s.gsub! "APACHE_THREADED_MPM=`$APXS_HTTPD -V | grep 'threaded:.*yes'`",
