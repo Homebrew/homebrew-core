@@ -9,9 +9,9 @@ class Wine < Formula
   homepage "https://www.winehq.org/"
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.1.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.1.tar.xz"
-    sha256 "bad00d7ddac6652795a2ed52ce02a544ff4e891499b29ac71d28d20b8e1d26f3"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.2.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.2.tar.xz"
+    sha256 "cad771375409e24244eab252da044306158af8a8bea4432e7ca81c1dc6b463ff"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -212,6 +212,7 @@ class Wine < Formula
           system "make", "clean"
           system "perl", "./Configure", "--prefix=#{libexec}",
                                         "no-ssl2",
+                                        "no-ssl3",
                                         "no-zlib",
                                         "shared",
                                         "enable-cms",
