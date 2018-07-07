@@ -1,10 +1,9 @@
 class Ephemeralpg < Formula
   desc "Run tests on an isolated, temporary Postgres database"
   homepage "http://ephemeralpg.org"
-  url "http://ephemeralpg.org/code/ephemeralpg-2.2.tar.gz"
-  mirror "https://bitbucket.org/eradman/ephemeralpg/get/ephemeralpg-2.2.tar.gz"
-  sha256 "dfd3df1cd222024439219fe82f2d3e64d0d2fad5e302a4e0c2ff0fc12a5b88ec"
-  revision 2
+  url "http://ephemeralpg.org/code/ephemeralpg-2.5.tar.gz"
+  mirror "https://bitbucket.org/eradman/ephemeralpg/get/ephemeralpg-2.5.tar.gz"
+  sha256 "93a350443e431f474c4f898fe8bbe649e20957b25ce1d9d43810117128658e00"
 
   bottle do
     cellar :any_skip_relocation
