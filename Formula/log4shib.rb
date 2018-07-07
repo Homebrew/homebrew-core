@@ -1,8 +1,8 @@
 class Log4shib < Formula
   desc "Forked version of log4cpp for the Shibboleth project"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/log4shib"
-  url "https://shibboleth.net/downloads/log4shib/1.0.9/log4shib-1.0.9.tar.gz"
-  sha256 "b34cc90f50962cc245a238b472f72852732d32a9caf9a10e0244d0e70a311d6d"
+  url "https://shibboleth.net/downloads/log4shib/2.0.0/log4shib-2.0.0.tar.gz"
+  sha256 "d066e2f208bdf3ce28e279307ce7e23ed9c5226f6afde288cd429a0a46792222"
 
   bottle do
     cellar :any
