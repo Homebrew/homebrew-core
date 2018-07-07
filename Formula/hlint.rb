@@ -10,9 +10,9 @@ class Hlint < Formula
   head "https://github.com/ndmitchell/hlint.git"
 
   bottle do
-    sha256 "3b9d9cfe5f3a03697b7c897f275060804f34cbc929828d723b4ebe4f31410b0e" => :high_sierra
-    sha256 "cb1b08f86498c00c0ffc28b86629f872e72b4d2979f47e1afd191ec28bd93d98" => :sierra
-    sha256 "be9108264fe69cc7e2497a4b059bc2f417b681cf5ad4cb92858400a7fd92eaa6" => :el_capitan
+    sha256 "a48d46cdd3aaee9ed2ae2d0decc4f9a4ddfe3526095917eff61c010b7a1b545f" => :high_sierra
+    sha256 "ccf6f37b1d44cc063bdc08b03cceaa6589c39266e54d406096661ddc48d8a368" => :sierra
+    sha256 "2610f48e027a3a47e510920b5f55f1791009ff4e164b4a021aafd9113cefb3c4" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
