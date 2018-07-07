@@ -5,9 +5,9 @@ class Menhir < Formula
   sha256 "ab5f16632e81fb67844becde994dbdd6fd875b3a9c799a275af8083f4f2d9b9b"
 
   bottle do
-    sha256 "bffdfb164131cda1c162d68a62ea56d33f97bbe909bd339124ca3ff7386c8396" => :high_sierra
-    sha256 "5018812df88d00deff3b20d48ca8264a57fcdb7b162de4a2bbd73ca283d9d919" => :sierra
-    sha256 "a2e19a57869a79914f2e2e9da7d0ef5ddb8d67d73aa2d65ff9e26cd1a6d9dc0c" => :el_capitan
+    sha256 "66c3cd9edeb38e0dbbbb7fcd73a281e26f82db6a922e2945c690855ff9654b5e" => :high_sierra
+    sha256 "58af3454e55f435827f49243ab71fc05a1a529981b818b78eddab88fa5c5e87e" => :sierra
+    sha256 "ee0ad38aa7dc7c44296f33a439ef6c7b9a007c453ef05f84fb5035dfd4e5ef9d" => :el_capitan
   end
 
   depends_on "ocamlbuild" => :build
