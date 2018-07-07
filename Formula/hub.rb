@@ -21,26 +21,30 @@ class Hub < Formula
   depends_on "ruby" => :build if MacOS.version <= :sierra
 
   def install
-    if build.with? "docs"
-      begin
-        deleted = ENV.delete "SDKROOT"
-        ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundler"
-        ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-        system "make", "man-pages"
-      ensure
-        ENV["SDKROOT"] = deleted
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/github/hub").install buildpath.children
+    cd "src/github.com/github/hub" do
+      if build.with? "docs"
+        begin
+          deleted = ENV.delete "SDKROOT"
+          ENV["GEM_HOME"] = buildpath/"gem_home"
+          system "gem", "install", "bundler"
+          ENV.prepend_path "PATH", buildpath/"gem_home/bin"
+          system "make", "man-pages"
+        ensure
+          ENV["SDKROOT"] = deleted
+        end
+        system "make", "install", "prefix=#{prefix}"
+      else
+        system "script/build", "-o", "hub"
+        bin.install "hub"
       end
-      system "make", "install", "prefix=#{prefix}"
-    else
-      system "script/build", "-o", "hub"
-      bin.install "hub"
-    end
 
-    if build.with? "completions"
-      bash_completion.install "etc/hub.bash_completion.sh"
-      zsh_completion.install "etc/hub.zsh_completion" => "_hub"
-      fish_completion.install "etc/hub.fish_completion" => "hub.fish"
+      if build.with? "completions"
+        bash_completion.install "etc/hub.bash_completion.sh"
+        zsh_completion.install "etc/hub.zsh_completion" => "_hub"
+        fish_completion.install "etc/hub.fish_completion" => "hub.fish"
+      end
     end
   end
 
