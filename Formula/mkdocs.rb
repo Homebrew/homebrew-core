@@ -3,8 +3,8 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.17.4.tar.gz"
-  sha256 "62ee3686dcfb999b3b743632596df62cbd94b1ab80a28044cabcc22dc51c8471"
+  url "https://github.com/mkdocs/mkdocs/archive/0.17.5.tar.gz"
+  sha256 "716068cc4f3f5a01c708d66c702f39a181a4e29f4b41aa3d9f591e7c4e4a66cb"
 
   bottle do
     cellar :any_skip_relocation
@@ -51,8 +51,8 @@ class Mkdocs < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "singledispatch" do
