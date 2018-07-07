@@ -1,8 +1,8 @@
 class Wandio < Formula
   desc "LibWandio I/O performance will be improved by doing any compression"
   homepage "https://research.wand.net.nz/software/libwandio.php"
-  url "https://research.wand.net.nz/software/wandio/wandio-1.0.5.tar.gz"
-  sha256 "4184ef09322cfa6b685f4f453e86f74723e4e1613e8a0ea88c8538ddaef51547"
+  url "https://research.wand.net.nz/software/wandio/wandio-4.0.0.tar.gz"
+  sha256 "f6d9c81c1ad0b7a99696c057fb02e5c04a9c240effd6bf587a5b02352ce86a9f"
 
   bottle do
     cellar :any
