@@ -40,6 +40,8 @@ class Hub < Formula
         bin.install "hub"
       end
 
+      prefix.install_metafiles
+
       if build.with? "completions"
         bash_completion.install "etc/hub.bash_completion.sh"
         zsh_completion.install "etc/hub.zsh_completion" => "_hub"
