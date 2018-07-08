@@ -7,6 +7,7 @@
   "apache-spark16": "apache-spark@16",
   "app-engine-java-sdk": "app-engine-java",
   "arm": "nyx",
+  "artifactory-cli-go": "jfrog-cli-go",
   "autoconf213": "autoconf@213",
   "autoconf264": "autoconf@264",
   "automake112": "automake@112",
