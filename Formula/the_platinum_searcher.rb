@@ -1,8 +1,8 @@
 class ThePlatinumSearcher < Formula
   desc "Multi-platform code-search similar to ack and ag"
   homepage "https://github.com/monochromegane/the_platinum_searcher"
-  url "https://github.com/monochromegane/the_platinum_searcher/archive/v2.1.5.tar.gz"
-  sha256 "dfed3b92f35501d063a2c646d5dfd51f2ee12cee53dd9e1d04a6c7710b71050f"
+  url "https://github.com/monochromegane/the_platinum_searcher/archive/v2.1.6.tar.gz"
+  sha256 "257c76d3fb1d6571ea690a0ced8301b1ef827333474ca7dd9164ac1a2272034e"
   head "https://github.com/monochromegane/the_platinum_searcher.git"
 
   bottle do
