@@ -7,10 +7,9 @@ class Dlib < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "850809bf6ddc1db7c180d6ef4673b00fdf271790757097e2dbffe18be06d8d13" => :high_sierra
-    sha256 "d312a53d3b3a10ff658401fd0cf1fe9f2c37d4aa46c8b84d817ca355a89ad31b" => :sierra
-    sha256 "88778a5e22c7fb5e39c4c45359e0c19d28aae054363a666cd39aed3bb44ad161" => :el_capitan
+    sha256 "06eacb743295523bce9537ed7cd433dbee4f1879428c627e8fc088fb4ed74fab" => :high_sierra
+    sha256 "8413e3d80f805a5e826d564805e249ab449c00813ab5a68b6279858a0fba51dc" => :sierra
+    sha256 "abf2ea127674b32fe83097d59b19127948b8824cbb94d7ce307a1035302a2f01" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
