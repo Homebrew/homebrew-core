@@ -34,11 +34,12 @@ class Scummc < Formula
   end
 
   test do
-    system "#{bin}/scc"
-    system "#{bin}/sld"
-    system "#{bin}/cost"
-    system "#{bin}/char"
-    system "#{bin}/soun"
-    system "#{bin}/midi"
+    # TODO: Write meaningful tests
+    assert FileTest.exists?("#{bin}/scc")
+    assert FileTest.exists?("#{bin}/sld")
+    assert FileTest.exists?("#{bin}/cost")
+    assert FileTest.exists?("#{bin}/char")
+    assert FileTest.exists?("#{bin}/soun")
+    assert FileTest.exists?("#{bin}/midi")
   end
 end
