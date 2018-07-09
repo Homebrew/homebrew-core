@@ -43,11 +43,10 @@ class Pyside < Formula
     system "python3", *Language::Python.setup_install_args(prefix), *common_args, *py3_args
     (py3_dest_path/"homebrew-pyside.pth").write "#{py3_dest_path}\n"
 
-    py2_version = "2.7"
     py2_args = %W[
-      --install-lib #{lib}/python#{py2_version}/site-packages
+      --install-lib #{lib}/python2.7/site-packages
     ]
-    py2_dest_path=lib/"python#{py2_version}/site-packages"
+    py2_dest_path=lib/"python2.7/site-packages"
     py2_dest_path.mkpath
 
     system "python2", *Language::Python.setup_install_args(prefix), *common_args, *py2_args
