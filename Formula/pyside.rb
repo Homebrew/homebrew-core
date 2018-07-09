@@ -25,36 +25,33 @@ class Pyside < Formula
   end
 
   def install
-    py3_version = Language::Python.major_minor_version "python3"
-    py3_args = %W[
+    common_args = %W[
       --ignore-git
       --no-examples
       --macos-use-libc++
       --jobs=#{ENV.make_jobs}
+    ]
+
+    py3_version = Language::Python.major_minor_version "python3"
+    py3_args = %W[
       --install-lib #{lib}/python#{py3_version}/site-packages
       --install-scripts #{bin}
     ]
-
     py3_dest_path=lib/"python#{py3_version}/site-packages"
     py3_dest_path.mkpath
 
-    system "python3", *Language::Python.setup_install_args(prefix), *py3_args
+    system "python3", *Language::Python.setup_install_args(prefix), *common_args, *py3_args
     (py3_dest_path/"homebrew-pyside.pth").write "#{py3_dest_path}\n"
 
-    py2_version = Language::Python.major_minor_version "python2"
+    py2_version = "2.7"
     py2_args = %W[
-      --ignore-git
-      --no-examples
-      --macos-use-libc++
-      --jobs=#{ENV.make_jobs}
       --install-lib #{lib}/python#{py2_version}/site-packages
       --install-scripts #{bin}
     ]
-
     py2_dest_path=lib/"python#{py2_version}/site-packages"
     py2_dest_path.mkpath
 
-    system "python2", *Language::Python.setup_install_args(prefix), *py2_args
+    system "python2", *Language::Python.setup_install_args(prefix), *common_args, *py2_args
     (py2_dest_path/"homebrew-pyside.pth").write "#{py2_dest_path}\n"
   end
 
