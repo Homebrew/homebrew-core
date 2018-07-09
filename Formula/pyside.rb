@@ -30,12 +30,12 @@ class Pyside < Formula
       --no-examples
       --macos-use-libc++
       --jobs=#{ENV.make_jobs}
+      --install-scripts #{bin}
     ]
 
     py3_version = Language::Python.major_minor_version "python3"
     py3_args = %W[
       --install-lib #{lib}/python#{py3_version}/site-packages
-      --install-scripts #{bin}
     ]
     py3_dest_path=lib/"python#{py3_version}/site-packages"
     py3_dest_path.mkpath
@@ -46,7 +46,6 @@ class Pyside < Formula
     py2_version = "2.7"
     py2_args = %W[
       --install-lib #{lib}/python#{py2_version}/site-packages
-      --install-scripts #{bin}
     ]
     py2_dest_path=lib/"python#{py2_version}/site-packages"
     py2_dest_path.mkpath
