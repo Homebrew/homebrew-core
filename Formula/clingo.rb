@@ -1,9 +1,8 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/"
-  url "https://github.com/potassco/clingo/archive/v5.2.2.tar.gz"
-  sha256 "da1ef8142e75c5a6f23c9403b90d4f40b9f862969ba71e2aaee9a257d058bfcf"
-  revision 1
+  url "https://github.com/potassco/clingo/archive/v5.3.0.tar.gz"
+  sha256 "b0d406d2809352caef7fccf69e8864d55e81ee84f4888b0744894977f703f976"
 
   bottle do
     sha256 "2e8a34ad07eb87362981512cfe327c70e4305bbfc831bc8338a3ee652bfbf915" => :high_sierra
@@ -32,6 +31,7 @@ class Clingo < Formula
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
                          "-DCLINGO_BUILD_WITH_LUA=ON",
                          "-DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3",
+                         "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
                          *std_cmake_args
     system "make", "install"
   end
