@@ -14,6 +14,8 @@ class Yq < Formula
   depends_on "go" => :build
   depends_on "govendor" => :build
 
+  conflicts_with "python-yq", :because => "both install `yq` executables"
+
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/mikefarah/yq").install buildpath.children
