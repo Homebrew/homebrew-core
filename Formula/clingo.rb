@@ -14,8 +14,8 @@ class Clingo < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python"
   depends_on "lua"
+  depends_on "python"
 
   needs :cxx14
 
@@ -28,12 +28,11 @@ class Clingo < Formula
   link_overwrite "bin/reify"
 
   def install
-    py3 = Formula["python"].opt_bin/"python3"
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
                          "-DCLINGO_BUILD_WITH_LUA=ON",
-                         "-DPYTHON_EXECUTABLE=#{py3}",
+                         "-DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3",
                          *std_cmake_args
     system "make", "install"
   end
