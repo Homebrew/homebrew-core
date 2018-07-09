@@ -5,9 +5,9 @@ class Clingo < Formula
   sha256 "b0d406d2809352caef7fccf69e8864d55e81ee84f4888b0744894977f703f976"
 
   bottle do
-    sha256 "2e8a34ad07eb87362981512cfe327c70e4305bbfc831bc8338a3ee652bfbf915" => :high_sierra
-    sha256 "4853e4bf71f3cd05c7f68e6652f8b36e218c549f4033c37f2e137326a51f7acd" => :sierra
-    sha256 "1a77e6bf8ce30c67fda7a53ae70906e4d61c951475037f8e0951649eb04d26eb" => :el_capitan
+    sha256 "3e86b87aafa82aec26e952283c53f64a4856a7e7baae383c75f76e48fdea36ad" => :high_sierra
+    sha256 "2c5f76428bc4b2ee00588770b95de5793a7cd3aac22cdbf211e48df4c260f3fb" => :sierra
+    sha256 "29f93ed547c63e8881840cf9dd6b68b154cbff5436a002ddc584f16789e44fc3" => :el_capitan
   end
 
   depends_on "cmake" => :build
