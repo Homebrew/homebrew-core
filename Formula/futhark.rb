@@ -7,6 +7,7 @@ class Futhark < Formula
   homepage "https://futhark-lang.org/"
   url "https://github.com/diku-dk/futhark/archive/v0.5.2.tar.gz"
   sha256 "c77dd18b910b1d7c934d2941db6b22591c53a2bc0c90addfa6f14df6747e080e"
+  head "https://github.com/diku-dk/futhark.git"
 
   bottle do
     cellar :any_skip_relocation
