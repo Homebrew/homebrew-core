@@ -1,9 +1,8 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.100.0.tar.gz"
-  sha256 "c5c5edaf75a3c53ac0f271148fd6447310bce53f448ec7e6205124a25918f65c"
-  revision 1
+  url "https://www.clamav.net/downloads/production/clamav-0.100.1.tar.gz"
+  sha256 "84e026655152247de7237184ee13003701c40be030dd68e0316111049f58a59f"
 
   bottle do
     sha256 "8b13c6dc87bb7ac7fa174000219003416d54afa40b65aa9b972075bc427bfcb2" => :high_sierra
