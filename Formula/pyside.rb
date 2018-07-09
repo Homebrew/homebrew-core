@@ -6,14 +6,14 @@ class Pyside < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm" => :build
+  depends_on "python"
+  depends_on "python@2"
   depends_on "qt"
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
 
   # Edited patch to fix clang header include issue in 5.11.0, safe to remove once 5.11.1 is released
   # http://code.qt.io/cgit/pyside/pyside-setup.git/commit/?h=5.11.0&id=5662706937bd6a1449538539e3a503c6cbc45399
   patch do
-    url "http://syncplay.s3.amazonaws.com/pyside-homebrew.patch"
+    url "https://raw.githubusercontent.com/albertosottile/formula-patches/f327f197/pyside/pyside-homebrew.patch"
     sha256 "3a6a62ae8d4a7ab34f9ca66b5358e45a5e08c66f327f635f901bb68d6f97c8a4"
   end
 
@@ -25,39 +25,66 @@ class Pyside < Formula
   end
 
   def install
-    Language::Python.each_python(build) do |python, version|
-      dest_path=lib/"python#{version}/site-packages"
-      dest_path.mkpath
+    py3_version = Language::Python.major_minor_version "python3"
+    py3_args = %W[
+      --ignore-git
+      --no-examples
+      --macos-use-libc++
+      --jobs=#{ENV.make_jobs}
+      --install-lib #{lib}/python#{py3_version}/site-packages
+      --install-scripts #{bin}
+    ]
 
-      args = %W[
-        --ignore-git
-        --no-examples
-        --macos-use-libc++
-        --jobs=#{ENV.make_jobs}
-        --install-lib #{lib}/python#{version}/site-packages
-        --install-scripts #{bin}
-        --skip-modules=UiTools
-      ]
-      system python, *Language::Python.setup_install_args(prefix), *args
-      (dest_path/"homebrew-pyside.pth").write "#{dest_path}\n"
-    end
+    py3_dest_path=lib/"python#{py3_version}/site-packages"
+    py3_dest_path.mkpath
+
+    system "python3", *Language::Python.setup_install_args(prefix), *py3_args
+    (py3_dest_path/"homebrew-pyside.pth").write "#{py3_dest_path}\n"
+
+    py2_version = Language::Python.major_minor_version "python2"
+    py2_args = %W[
+      --ignore-git
+      --no-examples
+      --macos-use-libc++
+      --jobs=#{ENV.make_jobs}
+      --install-lib #{lib}/python#{py2_version}/site-packages
+      --install-scripts #{bin}
+    ]
+
+    py2_dest_path=lib/"python#{py2_version}/site-packages"
+    py2_dest_path.mkpath
+
+    system "python2", *Language::Python.setup_install_args(prefix), *py2_args
+    (py2_dest_path/"homebrew-pyside.pth").write "#{py2_dest_path}\n"
   end
 
   test do
-    Language::Python.each_python(build) do |python, _version|
-      system python, "-c", "import PySide2"
-      %w[
-        Core
-        Gui
-        Location
-        Multimedia
-        Network
-        Quick
-        Svg
-        WebEngineWidgets
-        Widgets
-        Xml
-      ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
-    end
+    system "python3", "-c", "import PySide2"
+    %w[
+      Core
+      Gui
+      Location
+      Multimedia
+      Network
+      Quick
+      Svg
+      WebEngineWidgets
+      Widgets
+      Xml
+    ].each { |mod| system "python3", "-c", "import PySide2.Qt#{mod}" }
+
+    system "python2", "-c", "import PySide2"
+    %w[
+      Core
+      Gui
+      Location
+      Multimedia
+      Network
+      Quick
+      Svg
+      WebEngineWidgets
+      Widgets
+      Xml
+    ].each { |mod| system "python2", "-c", "import PySide2.Qt#{mod}" }
   end
 end
