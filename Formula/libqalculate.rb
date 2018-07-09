@@ -1,8 +1,8 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v2.6.0a/libqalculate-2.6.0b.tar.gz"
-  sha256 "d85c18398fd273e85c9f259e7aa9050aa51f190036815bafb832de779f8a03a7"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v2.6.1/libqalculate-2.6.1.tar.gz"
+  sha256 "ed4c467ef8b87611f8c15794b16aef15628ba8f45aaa428619f2d58ed4248609"
 
   bottle do
     sha256 "0edf1ede4a298b0160118b011160e777e011d1e15f45262e30d9ece3ba8cd301" => :high_sierra
