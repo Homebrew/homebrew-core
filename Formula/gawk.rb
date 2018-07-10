@@ -4,6 +4,7 @@ class Gawk < Formula
   url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.1.tar.xz"
   sha256 "d1119785e746d46a8209d28b2de404a57f983aa48670f4e225531d3bdc175551"
+  revision 1
 
   bottle do
     sha256 "617115fcba047189d0a86aad82382768fec90a49c9d86f2fb944aec440ea64b2" => :high_sierra
