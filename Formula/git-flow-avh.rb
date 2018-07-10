@@ -1,7 +1,7 @@
 class GitFlowAvh < Formula
   desc "AVH edition of git-flow"
   homepage "https://github.com/petervanderdoes/gitflow-avh"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/petervanderdoes/gitflow-avh/archive/1.11.0.tar.gz"
@@ -44,6 +44,7 @@ class GitFlowAvh < Formula
     resource("completion").stage do
       bash_completion.install "git-flow-completion.bash"
       zsh_completion.install "git-flow-completion.zsh"
+      fish_completion.install "git.fish"
     end
   end
 
