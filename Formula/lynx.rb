@@ -6,13 +6,9 @@ class Lynx < Formula
   sha256 "387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595"
 
   bottle do
-    rebuild 1
-    sha256 "979236f9bc2b53908e398e1faa452da5cfad2677b99e64d8bd5a5de7d5d1c86a" => :high_sierra
-    sha256 "bea7cf10aa6df403d9c421ef1e91d7af9b07bb2c2c41b71a36e975ca6d4b9bc2" => :sierra
-    sha256 "1b0f14f892c930a2140a853edd308edc7545b0e2baa1637e77b925209476fe96" => :el_capitan
-    sha256 "41ddd45e917af411f20cebf679459490cb412a1f94b662a7f1e9f8cc9f9f394f" => :mavericks
-    sha256 "a12c691f38002046a7a71c84df76f0f70e95c92a879663e50793dde1611c4834" => :mountain_lion
-    sha256 "8ae76d02829b7d9d0daf1a43d57ef765e9bbc0002511ae71fc977262df3f652d" => :lion
+    sha256 "5ed51f73503eba9fdf630ea91c24c191b9230eafa39d0ee240fb790056f75eb7" => :high_sierra
+    sha256 "2ed655dd04dabb0c29f11ba03b5ebb7596bd68245e2dfda4a250535b30b2859b" => :sierra
+    sha256 "9fa00d4125027a970354369f3460c013da95aa4fd6d81456711da1692e1a454f" => :el_capitan
   end
 
   depends_on "openssl"
