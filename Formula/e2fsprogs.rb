@@ -1,8 +1,8 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.44.2/e2fsprogs-1.44.2.tar.gz"
-  sha256 "e5c05a5ba4a9a1766f4b500ad7ef3220843860bfa64ebdda1b462b23bcb37f68"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.44.3/e2fsprogs-1.44.3.tar.gz"
+  sha256 "c2ae6d8ce6fb96b55886cf761411fc22ab41976f4f8297fc54c706df442483be"
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   bottle do
