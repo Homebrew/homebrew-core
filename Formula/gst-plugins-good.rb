@@ -63,7 +63,7 @@ class GstPluginsGood < Formula
       --disable-silent-rules
     ]
 
-    args << "--with-gtk=3.0" if build.with? "gtk+3"
+    args << "--enable-gtk3" if build.with? "gtk+3"
 
     if build.with? "x11"
       args << "--with-x"
