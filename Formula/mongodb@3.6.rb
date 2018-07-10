@@ -5,8 +5,8 @@ class MongodbAT36 < Formula
   sha256 "e3b9e30941f314d0b1d89f85af3b1258aa2f72a9df21e44cf4aa08faf262e406"
 
   bottle do
-    sha256 "61f3cabe68a8f9bbe86062ff0a75a38c642fb7d8d2d69cbc5b9f7c2c48876b3f" => :high_sierra
-    sha256 "bb21568d2054cfd9ce3bc4d961dfd972b71223717305e7ad4bd0478a2c33d019" => :sierra
+    sha256 "8f1df3b71a349dacdf8354ff7bda2e90ed658a8800c48404e81c85791725f4f2" => :high_sierra
+    sha256 "631654b0c18c68507113ab7905508504f384221f638fec89510d546fc79b1b71" => :sierra
   end
 
   keg_only :versioned_formula
