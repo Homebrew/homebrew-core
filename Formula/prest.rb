@@ -1,8 +1,8 @@
 class Prest < Formula
   desc "Serve a RESTful API from any PostgreSQL database"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/v0.3.0.tar.gz"
-  sha256 "a8fef456abc47a34aedb05d95c4b9a64d2f7f306016cb789f2b0de9229f5d3f3"
+  url "https://github.com/prest/prest/archive/v0.3.3.tar.gz"
+  sha256 "dbadb08c44ddf43b4cffe2845efe3def91a6254d27193d8a4968632a13959215"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,12 +17,14 @@ class Prest < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/prest/prest").install buildpath.children
     cd "src/github.com/prest/prest" do
-      system "go", "build", "-o", bin/"prest"
+      system "go", "build", "-ldflags",
+             "-X github.com/prest/prest/vendor/github.com/prest/helpers.PrestVersionNumber=#{version}",
+             "-o", bin/"prest"
       prefix.install_metafiles
     end
   end
 
   test do
-    system "#{bin}/prest", "version"
+    assert_match version.to_s, shell_output("#{bin}/prest version")
   end
 end
