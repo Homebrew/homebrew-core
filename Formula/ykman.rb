@@ -5,16 +5,13 @@ class Ykman < Formula
   homepage "https://developers.yubico.com/yubikey-manager/"
   url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.7.1.tar.gz"
   sha256 "177bbf953b8557b8de68bacbbdfc56764e93733f337b2327e322cfc4ed4f7d18"
+  head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
     cellar :any
     sha256 "91160b9e04c371afc30c6fc2ffb4f83d98492840ab510c251ba908266aca4553" => :high_sierra
     sha256 "7905b49c7836c93e8e1089808b32d146bbbcfc6137823ccaae5bc3e420f0ddd5" => :sierra
     sha256 "186d9b52c6e97c0f9f68f59b225683051173b5e1f575ffd59ca9d42498e09816" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/Yubico/yubikey-manager.git"
   end
 
   depends_on "python@2"
