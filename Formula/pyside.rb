@@ -37,18 +37,12 @@ class Pyside < Formula
     py3_args = %W[
       --install-lib #{lib}/python#{py3_version}/site-packages
     ]
-    py3_dest_path=lib/"python#{py3_version}/site-packages"
-
     system "python3", *Language::Python.setup_install_args(prefix), *common_args, *py3_args
-    (py3_dest_path/"homebrew-pyside.pth").write "#{py3_dest_path}\n"
 
     py2_args = %W[
       --install-lib #{lib}/python2.7/site-packages
     ]
-    py2_dest_path=lib/"python2.7/site-packages"
-
     system "python2", *Language::Python.setup_install_args(prefix), *common_args, *py2_args
-    (py2_dest_path/"homebrew-pyside.pth").write "#{py2_dest_path}\n"
   end
 
   test do
