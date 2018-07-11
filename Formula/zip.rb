@@ -1,6 +1,6 @@
 class Zip < Formula
   desc "Compression and file packaging/archive utility"
-  homepage "http://www.info-zip.org/Zip.html"
+  homepage "https://infozip.sourceforge.io/Zip.html"
   url "https://downloads.sourceforge.net/project/infozip/Zip%203.x%20%28latest%29/3.0/zip30.tar.gz"
   version "3.0"
   sha256 "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
