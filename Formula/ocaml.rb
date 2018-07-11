@@ -14,8 +14,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.06/ocaml-4.06.1.tar.xz"
-  sha256 "6f07e0364fb8da008d51264c820b30648f6a4bfd9a9b83709ed634adddf377d8"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.07/ocaml-4.07.0.tar.xz"
+  sha256 "f45bf720aadf5c6408400d5179b92ea7130b7e55e501a1768c2d136ef69f9f0f"
   head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
 
   pour_bottle? do
