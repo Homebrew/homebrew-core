@@ -24,8 +24,7 @@ class Dash < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--with-libedit",
                           "--disable-dependency-tracking",
-                          "--enable-fnmatch",
-                          "--enable-glob"
+                          "--enable-fnmatch"
     system "make"
     system "make", "install"
   end
