@@ -6,9 +6,9 @@ class Lablgtk < Formula
   revision 2
 
   bottle do
-    sha256 "61e6105e3dbec9060d899f983e134b20baeea36d9df0fb5b8b1734b35f167fec" => :high_sierra
-    sha256 "efc3825041fc4f161fa2dca93c285d14483a75a345ad2cafea1218b7cd57f01c" => :sierra
-    sha256 "8a3802f67e3a0b87cecec5627f3598bf60ceae9838fab26d59cd9bf5768d6b84" => :el_capitan
+    sha256 "eb823d2a1b43d7c99f1b38dbc0205b4b7729f1b76741efbc0b15b0210ff3da64" => :high_sierra
+    sha256 "1517e5316269f22d9c31f9838933bf7f143ef2ce0d6cad244a25af91b7b55d52" => :sierra
+    sha256 "7c19ea1b679cc0da78498ab2b9f2ca080cd7f12294a7fb915947940196c6c974" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
