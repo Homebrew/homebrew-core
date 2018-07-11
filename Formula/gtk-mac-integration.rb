@@ -10,6 +10,15 @@ class GtkMacIntegration < Formula
     sha256 "23213e9b20f36cc8c95a344064e29968cd3dbca73f1d433c25636b6056e357ac" => :el_capitan
   end
 
+  head do
+    url "https://github.com/jralls/gtk-mac-integration.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
@@ -28,7 +37,11 @@ class GtkMacIntegration < Formula
     ]
 
     args << (build.without?("gtk+3") ? "--without-gtk3" : "--with-gtk3")
-    system "./configure", *args
+    if build.head?
+      system "./autogen.sh", *args
+    else
+      system "./configure", *args
+    end
     system "make", "install"
   end
 
