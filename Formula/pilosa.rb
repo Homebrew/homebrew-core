@@ -1,8 +1,8 @@
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.10.1.tar.gz"
-  sha256 "bc2aba9c63c105e51c206f0a1c76a0d6275b3952041690867be63b717bfa13c2"
+  url "https://github.com/pilosa/pilosa/archive/v1.0.0.tar.gz"
+  sha256 "6674ab0f8513544d428653cd94fd886f561f90cfe714f142edd1d50644625f3c"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,14 +13,13 @@ class Pilosa < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "go-statik" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
 
     cd "src/github.com/pilosa/pilosa" do
-      system "make", "generate-statik", "build", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
+      system "make", "build", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
       prefix.install_metafiles
     end
   end
@@ -60,7 +59,6 @@ class Pilosa < Formula
       end
       sleep 0.5
       assert_match("Welcome. Pilosa is running.", shell_output("curl localhost:10101"))
-      assert_match("<!DOCTYPE html>", shell_output("curl --user-agent NotCurl localhost:10101"))
     ensure
       Process.kill "TERM", server
       Process.wait server
