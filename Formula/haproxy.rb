@@ -50,7 +50,7 @@ class Haproxy < Formula
       <dict>
         <key>Label</key>
         <string>#{plist_name}</string>
-        <key>KeepAlive</key>
+        <key>RunAtLoad</key>
         <true/>
         <key>ProgramArguments</key>
         <array>
