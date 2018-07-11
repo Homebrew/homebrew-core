@@ -7,9 +7,9 @@ class JsonFortran < Formula
 
   bottle do
     cellar :any
-    sha256 "ca6e40cffcbfd31b4a92b4cf14bc71500c0650f30c9f552169b206b89707f193" => :high_sierra
-    sha256 "3b7896ddcffd2552c462a8011736fc06bf9a1c5c6bcd310b817b1b931fb30658" => :sierra
-    sha256 "0ba801bdbdd4b4424f6fcee1da11ecc6979d83fc104ea76db64ffbde5aed2157" => :el_capitan
+    sha256 "421344b4dc6eeb64629ac1aef62fbc0bf7e9f88a2736a366b1f097cb1db71866" => :high_sierra
+    sha256 "e6072cb5cd629027d65b84431aeb95373935e28610bca0275b7707201880294b" => :sierra
+    sha256 "cca10187790992add578a0e3e7f4c6bbd02b9d4a2d5a58668f87dc7e7aae35f5" => :el_capitan
   end
 
   option "with-unicode-support", "Build json-fortran to support unicode text in json objects and files"
