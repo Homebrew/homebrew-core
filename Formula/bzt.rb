@@ -21,6 +21,11 @@ class Bzt < Formula
     sha256 "81c9883c3d60ffbd5111316878fdf4dd7b97075aaba107db29992a1b76057686"
   end
 
+  resource "Appium-Python-Client" do
+    url "https://files.pythonhosted.org/packages/51/a6/beabf895cd0f87a9f2bfcb641e250a55ee289056a256fa34bf38c65c47b9/Appium-Python-Client-0.27.tar.gz"
+    sha256 "25b87075d1e0b33c1eda2f40681f454abd3920b883d1e57cef72e475817f6bc5"
+  end
+
   resource "astunparse" do
     url "https://files.pythonhosted.org/packages/1a/b7/3ba7ce33cbc8847e20ed1a4fbec2303a71b2512dec0194824e8dcaadc8de/astunparse-1.5.0.tar.gz"
     sha256 "55df3c2a659d6cb6a9a9041c750a8232a9925523405a8dfeb891b92d45a589cd"
@@ -76,6 +81,11 @@ class Bzt < Formula
     sha256 "a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"
   end
 
+  resource "hdrpy" do
+    url "https://files.pythonhosted.org/packages/bd/d7/e8ca5e656d71aa05a89402982907ef3110d7a5792cb0f422de75029ff766/hdrpy-0.3.2.tar.gz"
+    sha256 "beb0803f401acd6f4a57aca7a2cb62212418849a8dad4be1ff5df323ec0b85d2"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
     sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
@@ -104,6 +114,11 @@ class Bzt < Formula
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
     sha256 "f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98"
+  end
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/d5/6e/f00492653d0fdf6497a181a1c1d46bbea5a2383e7faf4c8ca6d6f3d2581d/numpy-1.14.5.zip"
+    sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
   end
 
   resource "pluggy" do
@@ -159,6 +174,11 @@ class Bzt < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  end
+
+  resource "terminaltables" do
+    url "https://files.pythonhosted.org/packages/9b/c4/4a21174f32f8a7e1104798c445dacdc1d4df86f2f26722767034e4de4bff/terminaltables-3.1.0.tar.gz"
+    sha256 "f3eb0eb92e3833972ac36796293ca0906e998dc3be91fbe1f8615b331b853b81"
   end
 
   resource "urllib3" do
