@@ -3,6 +3,7 @@ class Sshguard < Formula
   homepage "https://www.sshguard.net/"
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.2.0/sshguard-2.2.0.tar.gz"
   sha256 "2aff07fee6ec33e4ffd5411916b75189977af1d77b86dac5f3834dd3aa3656c2"
+  revision 1
   version_scheme 1
 
   bottle do
@@ -33,7 +34,6 @@ class Sshguard < Formula
       s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-#{firewall}\""
       if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
-        s.gsub! %q{\"sshd\")'"}, %q{"sshd")'"}
       else
         s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
       end
