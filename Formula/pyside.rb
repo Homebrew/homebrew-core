@@ -52,32 +52,20 @@ class Pyside < Formula
   end
 
   test do
-    system "python3", "-c", "import PySide2"
-    %w[
-      Core
-      Gui
-      Location
-      Multimedia
-      Network
-      Quick
-      Svg
-      WebEngineWidgets
-      Widgets
-      Xml
-    ].each { |mod| system "python3", "-c", "import PySide2.Qt#{mod}" }
-
-    system "python2", "-c", "import PySide2"
-    %w[
-      Core
-      Gui
-      Location
-      Multimedia
-      Network
-      Quick
-      Svg
-      WebEngineWidgets
-      Widgets
-      Xml
-    ].each { |mod| system "python2", "-c", "import PySide2.Qt#{mod}" }
+    ["python2", "python3"].each do |python|
+      system python, "-c", "import PySide2"
+      %w[
+        Core
+        Gui
+        Location
+        Multimedia
+        Network
+        Quick
+        Svg
+        WebEngineWidgets
+        Widgets
+        Xml
+      ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
+    end
   end
 end
