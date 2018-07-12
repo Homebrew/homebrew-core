@@ -36,10 +36,10 @@ class Pyside < Formula
     xy = Language::Python.major_minor_version "python3"
 
     system "python3", *Language::Python.setup_install_args(prefix),
-           "--install-lib", "#{lib}/python#{xy}/site-packages", *args
+           "--install-lib", lib/"python#{xy}/site-packages", *args
 
     system "python2", *Language::Python.setup_install_args(prefix),
-           "--install-lib", "#{lib}/python2.7/site-packages", *args
+           "--install-lib", lib/"python2.7/site-packages", *args
   end
 
   test do
