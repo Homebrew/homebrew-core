@@ -93,7 +93,7 @@ class Pypy3 < Formula
       package_args << "--without-gdbm" if build.without? "gdbm"
       package_args << "--without-lzma" if build.without? "xz"
       system python, "package.py", *package_args
-      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy3.tar.bz2"
+      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy3.tar.bz2"
     end
 
     (libexec/"lib").install libexec/"bin/libpypy3-c.dylib" => "libpypy3-c.dylib"
