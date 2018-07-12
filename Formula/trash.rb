@@ -7,11 +7,9 @@ class Trash < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "512e218c2caa1356aca1d974075aa61a4e69588949503eee7593feccc7f7aed2" => :high_sierra
-    sha256 "a00374dc159ab870e2c1267280d63e3ac5f7e7256e300fcb282ad6638abd02f0" => :sierra
-    sha256 "4a890c2c7e5fe136eff1df5552fc94e1f56c46f41ccfa43bc5892de08329a3f4" => :el_capitan
-    sha256 "05ae485401cd5becced038755656b120b74e9cffd15358724ea5f7eea2411972" => :yosemite
-    sha256 "f74b3d47c9208cb0ccee9d017b146052df8748f3bc4a2bb4525a1d6c5e55909a" => :mavericks
+    sha256 "8ecc3fcedf8a31e799f04be6940850dcc6db11f2dc0f1db0fa3a3af1c49cac21" => :high_sierra
+    sha256 "b30768556b816f51df0fc7d8016dec80d30a60c8402bf1238b9f9a68848677b1" => :sierra
+    sha256 "75cebaa2b12cd75eeb1bb8deb4737639064f68f010cab94e378bd5ce727d4c34" => :el_capitan
   end
 
   conflicts_with "trash-cli", :because => "both install a `trash` binary"
