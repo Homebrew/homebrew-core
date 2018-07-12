@@ -5,7 +5,7 @@ class Pyside < Formula
   sha256 "fbc412c4544bca308291a08a5173a949ca530d801f00b8337902a5067e490922"
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
+  depends_on "llvm"
   depends_on "python"
   depends_on "python@2"
   depends_on "qt"
@@ -25,7 +25,7 @@ class Pyside < Formula
   end
 
   def install
-    common_args = %W[
+    args = %W[
       --ignore-git
       --no-examples
       --macos-use-libc++
@@ -33,16 +33,13 @@ class Pyside < Formula
       --install-scripts #{bin}
     ]
 
-    py3_version = Language::Python.major_minor_version "python3"
-    py3_args = %W[
-      --install-lib #{lib}/python#{py3_version}/site-packages
-    ]
-    system "python3", *Language::Python.setup_install_args(prefix), *common_args, *py3_args
+    xy = Language::Python.major_minor_version "python3"
 
-    py2_args = %W[
-      --install-lib #{lib}/python2.7/site-packages
-    ]
-    system "python2", *Language::Python.setup_install_args(prefix), *common_args, *py2_args
+    system "python3", *Language::Python.setup_install_args(prefix),
+           "--install-lib #{lib}/python#{xy}/site-packages", *args
+
+    system "python2", *Language::Python.setup_install_args(prefix),
+           "--install-lib #{lib}/python2.7/site-packages", *args
   end
 
   test do
