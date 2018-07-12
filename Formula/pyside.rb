@@ -4,7 +4,7 @@ class Pyside < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.11.0-src/pyside-setup-everywhere-src-5.11.0.tar.xz"
   sha256 "fbc412c4544bca308291a08a5173a949ca530d801f00b8337902a5067e490922"
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "llvm"
   depends_on "python"
   depends_on "python@2"
@@ -41,8 +41,7 @@ class Pyside < Formula
     system "python2", *Language::Python.setup_install_args(prefix),
            "--install-lib", lib/"python2.7/site-packages", *args
 
-    pkgshare.install "examples/samplebinding"
-    pkgshare.install "examples/utils"
+    pkgshare.install "examples/samplebinding", "examples/utils"
   end
 
   test do
@@ -62,15 +61,14 @@ class Pyside < Formula
       ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
     end
     ["python@2", "python"].each do |python|
-      ENV.prepend_path "PATH", Formula[python].opt_libexec/"bin"
-      cmake_test_args = [
-        "-H#{pkgshare}/samplebinding",
-        "-B.",
-        "-G",
-        "Unix Makefiles",
-        "-DCMAKE_BUILD_TYPE=Release",
-      ]
-      system "cmake", *cmake_test_args
+      if python == "python"
+        ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+      end
+      system "cmake", "-H#{pkgshare}/samplebinding",
+                      "-B.",
+                      "-G",
+                      "Unix Makefiles",
+                      "-DCMAKE_BUILD_TYPE=Release"
       system "make"
     end
   end
