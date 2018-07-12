@@ -24,7 +24,7 @@ class Neovim < Formula
   depends_on "unibilium"
 
   resource "lpeg" do
-    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.1-1.src.rock", :using => :nounzip
+    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.1-1.src.rock"
     sha256 "149be31e0155c4694f77ea7264d9b398dd134eca0d00ff03358d91a6cfb2ea9d"
   end
 
@@ -34,17 +34,17 @@ class Neovim < Formula
   end
 
   resource "inspect" do
-    url "https://luarocks.org/manifests/kikito/inspect-3.1.1-0.src.rock", :using => :nounzip
+    url "https://luarocks.org/manifests/kikito/inspect-3.1.1-0.src.rock"
     sha256 "ea1f347663cebb523e88622b1d6fe38126c79436da4dbf442674208aa14a8f4c"
   end
 
   resource "luabitop" do
-    url "https://luarocks.org/luabitop-1.0.2-1.src.rock", :using => :nounzip
+    url "https://luarocks.org/luabitop-1.0.2-1.src.rock"
     sha256 "fc7a8065a57462ee13bed7f95b0ab13f94ecd1bf846108c61ccf2c75548af26e"
   end
 
   resource "luafilesystem" do
-    url "https://luarocks.org/luafilesystem-1.7.0-2.src.rock", :using => :nounzip
+    url "https://luarocks.org/luafilesystem-1.7.0-2.src.rock"
     sha256 "65e6d437e577a1d6cd509b6cd224d2cb9501d58d32a72cafbd4fd3f911681576"
   end
 
@@ -54,7 +54,7 @@ class Neovim < Formula
   end
 
   resource "lua_cliargs" do
-    url "https://luarocks.org/lua_cliargs-3.0-1.src.rock", :using => :nounzip
+    url "https://luarocks.org/lua_cliargs-3.0-1.src.rock"
     sha256 "d165b627b11dc83a11270d7d51760e5b714e3fd2388733c32af53e9b63bf27d4"
   end
 
@@ -64,12 +64,12 @@ class Neovim < Formula
   end
 
   resource "luasystem" do
-    url "https://luarocks.org/luasystem-0.2.1-0.src.rock", :using => :nounzip
+    url "https://luarocks.org/luasystem-0.2.1-0.src.rock"
     sha256 "d1c706d48efc7279d33f5ea123acb4d27e2ee93e364bedbe07f2c9c8d0ad3d24"
   end
 
   resource "dkjson" do
-    url "https://luarocks.org/dkjson-2.5-2.src.rock", :using => :nounzip
+    url "https://luarocks.org/dkjson-2.5-2.src.rock"
     sha256 "0391ebe73cfcee7d6b3d5dd5098e185c2103118e644688484beea665f15fc9e3"
   end
 
@@ -97,18 +97,18 @@ class Neovim < Formula
   end
 
   resource "luacheck" do
-    url "https://luarocks.org/manifests/mpeterv/luacheck-0.21.2-1.src.rock", :using => :nounzip
+    url "https://luarocks.org/manifests/mpeterv/luacheck-0.21.2-1.src.rock"
     version "0.21.2-1"
     sha256 "c9e9b3bf1610e382043c6348417864541327108da92290a3be454c40be439953"
   end
 
   resource "luv" do
-    url "https://luarocks.org/luv-1.9.1-1.src.rock", :using => :nounzip
+    url "https://luarocks.org/luv-1.9.1-1.src.rock"
     sha256 "d72db8321d8b3be925e1c14e6c13081466d1c31420f600154ab5c77fe6974fac"
   end
 
   resource "coxpcall" do
-    url "https://luarocks.org/coxpcall-1.17.0-1.src.rock", :using => :nounzip
+    url "https://luarocks.org/coxpcall-1.17.0-1.src.rock"
     version "1.17.0-1"
     sha256 "11feb07f08927c39b0b93e8c0bbaf15433f86155cba4820a31a09f4754ab3258"
   end
