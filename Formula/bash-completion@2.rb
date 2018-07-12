@@ -3,13 +3,19 @@ class BashCompletionAT2 < Formula
   homepage "https://github.com/scop/bash-completion"
   url "https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz"
   sha256 "c01f5570f5698a0dda8dc9cfb2a83744daa1ec54758373a6e349bd903375f54d"
-  head "https://github.com/scop/bash-completion.git"
 
   bottle do
     cellar :any_skip_relocation
     sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :high_sierra
     sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :sierra
     sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :el_capitan
+  end
+
+  head do
+    url "https://github.com/scop/bash-completion.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "bash"
@@ -19,6 +25,7 @@ class BashCompletionAT2 < Formula
   def install
     inreplace "bash_completion", "readlink -f", "readlink"
 
+    system "autoreconf", "-i" if build.head?
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     ENV.deparallelize
     system "make", "install"
