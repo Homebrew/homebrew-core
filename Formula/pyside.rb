@@ -40,6 +40,9 @@ class Pyside < Formula
 
     system "python2", *Language::Python.setup_install_args(prefix),
            "--install-lib", lib/"python2.7/site-packages", *args
+
+    pkgshare.install "examples/samplebinding"
+    pkgshare.install "examples/utils"
   end
 
   test do
@@ -57,6 +60,18 @@ class Pyside < Formula
         Widgets
         Xml
       ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
+    end
+    ["python@2", "python"].each do |python|
+      ENV.prepend_path "PATH", Formula[python].opt_libexec/"bin"
+      cmake_test_args = [
+        "-H#{pkgshare}/samplebinding",
+        "-B.",
+        "-G",
+        "Unix Makefiles",
+        "-DCMAKE_BUILD_TYPE=Release",
+      ]
+      system "cmake", *cmake_test_args
+      system "make"
     end
   end
 end
