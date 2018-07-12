@@ -1,9 +1,9 @@
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.4-1.2/source/tarball/percona-server-mongodb-3.6.4-1.2.tar.gz"
-  version "3.6.4-1.2"
-  sha256 "8276a5e80c41f69f5b0a680e050149b9f018e8a2b70394e794921ba618ae2900"
+  url "https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.5-1.3/source/tarball/percona-server-mongodb-3.6.5-1.3.tar.gz"
+  version "3.6.5-1.3"
+  sha256 "2a223f41d9ecfb7f01cda3308684efce09d767ca2fc372313a0f4fee8041896a"
 
   bottle do
     sha256 "cb59342b10efa7cb9d749939797e6dfd0e33b71052b073c8554110408b28489b" => :high_sierra
@@ -13,6 +13,7 @@ class PerconaServerMongodb < Formula
   option "with-boost", "Compile using installed boost, not the version shipped with this formula"
   option "with-sasl", "Compile with SASL support"
 
+  depends_on "pkg-config" => :build
   depends_on "boost" => :optional
   depends_on "go" => :build
   depends_on :macos => :sierra
