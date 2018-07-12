@@ -6,9 +6,9 @@ class Pilosa < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff0c4497922945df6572d659e57eb74123e189aecb959c489acd5e55ef2ccbfb" => :high_sierra
-    sha256 "7c61b1f56dfbed5bfae5f5fcb18e4141e9623d554b502abccf6277f7109a2e07" => :sierra
-    sha256 "c34233da03a018f7c46a0c3fce19b8cb9b5d877f2a23e434e51f5955a7b0159d" => :el_capitan
+    sha256 "68dc1b039b378cb107775bdfaf191bf4eb287b9eebb460339a5a4f90d639ae64" => :high_sierra
+    sha256 "fe686b4fe524cb7f1a0609ed7ad3ed6cf86721cba4d24fb7d097dbf6fd34c698" => :sierra
+    sha256 "f161ad115836835c565acff64b387e2272618e31e232d34405ce26c20051edfa" => :el_capitan
   end
 
   depends_on "dep" => :build
