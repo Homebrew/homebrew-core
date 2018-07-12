@@ -1,8 +1,8 @@
 class Trash < Formula
   desc "CLI tool that moves files or folder to the trash"
   homepage "https://hasseg.org/trash/"
-  url "https://github.com/ali-rantakari/trash/archive/v0.9.0.tar.gz"
-  sha256 "04382d50de1e9ce62b0127838e9a34d6dd78d6133084e958b61c35d29b59bb79"
+  url "https://github.com/ali-rantakari/trash/archive/v0.9.2.tar.gz"
+  sha256 "e8739c93d710ac4da721e16878e7693019d3a2ad7d8acd817f41426601610083"
   head "https://github.com/ali-rantakari/trash.git"
 
   bottle do
