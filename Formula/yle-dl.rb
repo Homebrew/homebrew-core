@@ -1,8 +1,8 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.33.tar.gz"
-  sha256 "51624eff07c8c0710f5d17c546595847bebe22b7160932271180d876fec0708b"
+  url "https://github.com/aajanki/yle-dl/archive/2.34.tar.gz"
+  sha256 "9e034bab4103fbf73ede9a49406a6ea1e7662a03a3e55c5d2bb59fd97c3334ed"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
@@ -20,6 +20,11 @@ class YleDl < Formula
     # Check if there are bugfixes at https://github.com/K-S-V/Scripts/commits/master/AdobeHDS.php
     url "https://raw.githubusercontent.com/K-S-V/Scripts/7fea932cb012cba8c203d5b46b891167b0f609a6/AdobeHDS.php"
     sha256 "b79e8a4c8544953c39b79a622049c4deced57354adb9697e8c73420c12547229"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/e4/ac/a04671e118b57bee87dabca1e0f2d3bda816b7a551036012d0ca24190e71/attrs-18.1.0.tar.gz"
+    sha256 "e0d0eb91441a3b53dab4d9b743eafc1ac44476296a2053b6ca3af0b139faf87b"
   end
 
   resource "certifi" do
@@ -48,8 +53,8 @@ class YleDl < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"
-    sha256 "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"
+    url "https://files.pythonhosted.org/packages/54/a6/43be8cf1cc23e3fa208cab04ba2f9c3b7af0233aab32af6b5089122b44cd/lxml-4.2.3.tar.gz"
+    sha256 "622f7e40faef13d232fb52003661f2764ce6cdef3edb0a59af7c1559e4cc36d1"
   end
 
   resource "Mini-AMF" do
@@ -58,8 +63,8 @@ class YleDl < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/13/06/92830e35071c49dff28f60ce2425b183240d7cf93167dbd2d788ca9fd279/pycryptodomex-3.6.2.tar.gz"
-    sha256 "8ed51799f6c060b4f62459e1bd9f3b3855bec6fa68202e76639d628001fdf3b7"
+    url "https://files.pythonhosted.org/packages/55/8c/1a06174a38d1a1a351c31329dcd9653f2a1e16351e53dc87df9263c04ab9/pycryptodomex-3.6.4.tar.gz"
+    sha256 "4daabe7c0404e673b9029aa43761c779b9b4df2cbe11ccd94daded6a0acd8808"
   end
 
   resource "PySocks" do
