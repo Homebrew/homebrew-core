@@ -4,6 +4,12 @@ class Pyside < Formula
   url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.11.0-src/pyside-setup-everywhere-src-5.11.0.tar.xz"
   sha256 "fbc412c4544bca308291a08a5173a949ca530d801f00b8337902a5067e490922"
 
+  bottle do
+    sha256 "8b9e5689c3a267f36d88cf2933a56cb9f93d4537edc3daafac89774846abf570" => :high_sierra
+    sha256 "790da93c0c05e9bd0ff14d7f3a43b7f418d619da36caebcd6159d08a38daa2cd" => :sierra
+    sha256 "fc26b8c47d5d2c1a4b51a7cc50e4b364b92c2ff1523efbfbb35cd6c39575e63d" => :el_capitan
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "llvm"
   depends_on "python"
