@@ -13,7 +13,7 @@ class Scummc < Formula
   def install
     # Requires Bison v2.7 or later
     # All supported macOS versions ship with v2.3
-    system "./configure", "--bison", "/usr/local/opt/bison/bin/bison"
+    system "./configure", "--bison", "#{Formula["bison"].bin}/bison"
     system "make"
 
     # There currently is no way to specify an build folder
