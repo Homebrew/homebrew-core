@@ -7,8 +7,8 @@ class Scummc < Formula
   depends_on "bison" => :build
   depends_on "freetype" => :build
   depends_on "gtk+" => :build
-  depends_on "sdl" => :build
   depends_on "readline" => :build
+  depends_on "sdl" => :build
 
   def install
     # Requires Bison v2.7 or later
