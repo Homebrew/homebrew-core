@@ -1,9 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://www.torproject.org/dist/tor-0.3.3.8.tar.gz"
-  mirror "https://tor.eff.org/dist/tor-0.3.3.8.tar.gz"
-  sha256 "3cf5b4fea2491cbfefa1077bf1b2855e169052d381bd920cd57aa9bfaff6b3a5"
+  url "https://www.torproject.org/dist/tor-0.3.3.9.tar.gz"
+  mirror "https://tor.eff.org/dist/tor-0.3.3.9.tar.gz"
+  sha256 "85346b4d026e6a041c8e326d2cc64b5f5361b032075c89c5854f16dbc02fce6f"
 
   bottle do
     sha256 "d54c7d7fe7d7beb05f3ab03547567766abf12cfb3ff628ec58210e62b65a61d4" => :high_sierra
@@ -12,8 +12,8 @@ class Tor < Formula
   end
 
   devel do
-    url "https://www.torproject.org/dist/tor-0.3.4.4-rc.tar.gz"
-    sha256 "d9f556e3213e12bd989666da778c043d4c78b448290fcccee0f7590c08b9505f"
+    url "https://www.torproject.org/dist/tor-0.3.4.5-rc.tar.gz"
+    sha256 "4aedbb9ce536618d8d6ba0a4d8607db5b46409f3c0cc8375ff049d1b2326cd92"
   end
 
   depends_on "pkg-config" => :build
