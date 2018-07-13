@@ -1,8 +1,8 @@
 class AntAT19 < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.9.12-bin.tar.bz2"
-  sha256 "0f58ac888439ac1a8bb4595e0ee375eedc3d77e68ba5b555b841ff1ac558765b"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.9.13-bin.tar.bz2"
+  sha256 "e770c2ba77fd695734fa1945f887891a04524998f17e929d821f993ba3c5c73c"
 
   bottle :unneeded
 
