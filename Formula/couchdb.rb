@@ -3,7 +3,7 @@ class Couchdb < Formula
   homepage "https://couchdb.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
   sha256 "91200aa6fbc6fa5e2f3d78ef40e39d8c1ec7c83ea1c2cd730d270658735b2cad"
-  revision 6
+  revision 7
 
   bottle do
     sha256 "3f5daa56068fa8a7e0858238ff217a4620fa03cd9125e0fc16be43aa34b2b75b" => :high_sierra
