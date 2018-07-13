@@ -17,6 +17,12 @@ class PinentryMac < Formula
 
   depends_on :xcode => :build
 
+  patch do
+    # patch header locations for macOS 10.14
+    url "https://github.com/GPGTools/pinentry-mac/pull/7.patch?full_index=1"
+    sha256 "d4bcf2003fa1345ecb1809461140179a3737e8e03eb49d623435beb3c2f09b64"
+  end
+
   def install
     system "make"
     prefix.install "build/Release/pinentry-mac.app"
