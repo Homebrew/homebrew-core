@@ -6,9 +6,9 @@ class Qtkeychain < Formula
 
   bottle do
     cellar :any
-    sha256 "7bb2cc22642e794684140108c996c3373c4ce248f230622a4039fe59f7b178fe" => :high_sierra
-    sha256 "3ff9191c8be9555c43ca5b4ba2c2aae4c93bf640c3d03a7e42bac76920f46c80" => :sierra
-    sha256 "3197c42afc2c347dfd25db4bf4b45ceba70d2b866e4ee3f23f57b3501323a3c9" => :el_capitan
+    sha256 "bd768dc482fd740ffaec73201f3e7a745f6a7710f484d93cfd64da5c0059972e" => :high_sierra
+    sha256 "b0e452b48b65eb3856d1524e97ebd96180f9acfed9f43410b71017ee2af7649f" => :sierra
+    sha256 "76083f856092b8da5a4d28c3f08e742bb9d809f1634e18448a2a7dadb56f50dc" => :el_capitan
   end
 
   depends_on "cmake" => :build
