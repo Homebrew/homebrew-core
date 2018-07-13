@@ -31,7 +31,7 @@ class Haproxy < Formula
       lua = Formula["lua"]
       args << "USE_LUA=1"
       args << "LUA_LIB=#{lua.opt_lib}"
-      args << "LUA_INC=#{lua.opt_include}"
+      args << "LUA_INC=#{lua.opt_include}/lua"
       args << "LUA_LD_FLAGS=-L#{lua.opt_lib}"
     end
 
