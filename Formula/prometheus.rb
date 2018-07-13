@@ -6,9 +6,9 @@ class Prometheus < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f30ef792dac595abd47e370f682b79553228262d9d72e42691276a5fec632ddb" => :high_sierra
-    sha256 "a7fecc519361e3e31e6876c8280dda8df2c51ebe5435c886416620d1a529d5ee" => :sierra
-    sha256 "60529dfb3b1b053f77371dc80809912210dda363a7eec4260c4ed5926746fa2a" => :el_capitan
+    sha256 "3729fe6120d56ce18200fb1b8a5bc0b9b26b031275f99048f1fe31804940c425" => :high_sierra
+    sha256 "be785f4c574cdca771f7bf4ab90ff918e2cd790d955e1739b8b07d7738c4498b" => :sierra
+    sha256 "55e9d54ca3eaec382258f9801cbe9d079f2676cade961c4526b2722af055434d" => :el_capitan
   end
 
   depends_on "go" => :build
