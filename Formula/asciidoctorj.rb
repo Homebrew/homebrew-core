@@ -1,12 +1,12 @@
 class Asciidoctorj < Formula
   desc "Java wrapper and bindings for Asciidoctor"
   homepage "https://github.com/asciidoctor/asciidoctorj"
-  url "https://dl.bintray.com/asciidoctor/maven/org/asciidoctor/asciidoctorj/1.5.6/asciidoctorj-1.5.6-bin.zip"
-  sha256 "be2f7afe0b713bf5b3e625a99a588a87e91afb2eb684c9b1fd0653db88154e1d"
+  url "https://dl.bintray.com/asciidoctor/maven/org/asciidoctor/asciidoctorj/1.5.7/asciidoctorj-1.5.7-bin.zip"
+  sha256 "b0295bb73589f389a6b62563e2fd018b0aa6095feacb5acfa7f534b1265e67d1"
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.7+"
 
   def install
     rm_rf Dir["bin/*.bat"] # Remove Windows files.
@@ -40,7 +40,9 @@ class Asciidoctorj < Formula
       - two
       - three
     EOS
-    system bin/"asciidoctorj", "-b", "pdf", "test.adoc"
+    # Absolute path to input file is required to work around upstream bug
+    # https://github.com/asciidoctor/asciidoctorj/issues/662
+    system bin/"asciidoctorj", "-b", "pdf", testpath/"test.adoc"
     assert_predicate testpath/"test.pdf", :exist?
   end
 end
