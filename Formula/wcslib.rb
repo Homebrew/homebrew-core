@@ -21,7 +21,9 @@ class Wcslib < Formula
   depends_on "cfitsio"
   depends_on "pgplot" => :optional
   depends_on :x11 if build.with? "pgplot"
-  depends_on "gcc" if build.with?("fortran") || build.with?("pgplot") # for gfortran
+  if build.with?("fortran") || build.with?("pgplot") # for gfortran
+    depends_on "gcc"
+  end
 
   def install
     args = ["--disable-debug",
