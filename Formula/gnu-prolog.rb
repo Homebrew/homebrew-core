@@ -6,12 +6,9 @@ class GnuProlog < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f8d446ec6be0b8db9d4a2b6602877386a050f678d7900e5b8b00f345a4562f5c" => :high_sierra
-    sha256 "9a449562401a31c551224e9703ec45dcf4b013b1a77d9b5de65a0b162c744d0a" => :sierra
-    sha256 "9d8e49f034bd641578443d1c422937a14f4819742ef6844dee4df1998a6388c9" => :el_capitan
-    sha256 "b835e9887909affa110d4a57abf7bfecee8d9aee0fb29f38432112c1347441d2" => :yosemite
-    sha256 "4412b7d3c6ee2390189fe3bd339f8c3ed028fb3a9b145794038f4c4f0f0ea90f" => :mavericks
+    sha256 "21072ba374c5426f89448664738eea6e331c0e9da452ca7945d709901b72eda4" => :high_sierra
+    sha256 "957d8a1d72f338cb94765a82f88d5154bb0611e938db765de2b8120fc8e8f0db" => :sierra
+    sha256 "4437bfce43e947a2ae48b50963b9cda18c257b3dbe202f49dde1da8f615d54e2" => :el_capitan
   end
 
   def install
