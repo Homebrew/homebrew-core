@@ -47,6 +47,7 @@ class Wcslib < Formula
   end
 
   test do
-    system "make", "check"
+    header = "SIMPLE  =                    T / file does conform to FITS standard             END" + " "*2797
+    system "echo '" + header + "' | #{bin}/fitshdr"
   end
 end
