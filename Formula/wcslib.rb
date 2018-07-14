@@ -11,9 +11,9 @@ class Wcslib < Formula
     sha256 "04388c291155822d31637875b883a42d723a445aff90d6e25c9a267091cb312a" => :yosemite
   end
 
-  option "with-pgplot", "Build PGSBOX, a general curvilinear axis drawing routine for PGPLOT"
-  option "with-fortran", "Build Fortran wrappers. Needed for --with-pgsbox."
-  option "with-test", "Perform `make check`. Note, together --with-pgsbox it will display GUI"
+  # --with-pgplot is added implicitly via optional dependency on the pgplot package.
+  option "with-fortran", "Build Fortran wrappers. Needed for --with-pgplot."
+  option "with-test", "Perform `make check`. Note, together --with-pgplot it will display GUI"
 
   depends_on "cfitsio"
   depends_on "pgplot" => :optional
