@@ -41,7 +41,7 @@ class Wcslib < Formula
 
     ENV.deparallelize
     system "make"
-    system "make", "check" if build.with? "check"
+    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
