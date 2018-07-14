@@ -18,7 +18,7 @@ class Pyside < Formula
 
   # Remove for > 5.11.0
   # Edited patch to fix clang header include issue in 5.11.0
-  # See http://code.qt.io/cgit/pyside/pyside-setup.git/commit/?h=5.11.0&id=5662706937bd6a1449538539e3a503c6cbc45399
+  # See https://code.qt.io/cgit/pyside/pyside-setup.git/commit/?h=5.11.0&id=5662706937bd6a1449538539e3a503c6cbc45399
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/7895c8a/pyside/pyside-homebrew.patch"
     sha256 "3a6a62ae8d4a7ab34f9ca66b5358e45a5e08c66f327f635f901bb68d6f97c8a4"
