@@ -3,7 +3,6 @@ class Wcslib < Formula
   homepage "https://www.atnf.csiro.au/people/mcalabre/WCS/"
   url "ftp://ftp.atnf.csiro.au/pub/software/wcslib/wcslib-5.18.tar.bz2"
   sha256 "b693fbf14f2553507bc0c72bca531f23c59885be8f7d3c3cb889a5349129509a"
-  revision 1
 
   bottle do
     cellar :any
@@ -22,7 +21,7 @@ class Wcslib < Formula
   depends_on "cfitsio"
   depends_on "pgplot" => :optional
   depends_on :x11 if build.with? "pgplot"
-  depends_on "gcc" if (build.with?("fortran") || build.with?("pgplot")) && OS.mac? # for gfortran
+  depends_on "gcc" if build.with?("fortran") || build.with?("pgplot") # for gfortran
 
   def install
     args = ["--disable-debug",
@@ -45,5 +44,9 @@ class Wcslib < Formula
     system "make"
     system "make", "check" if build.with? "check"
     system "make", "install"
+  end
+
+  test do
+    system "make", "check"
   end
 end
