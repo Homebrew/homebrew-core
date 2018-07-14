@@ -1,8 +1,8 @@
 class Groovy < Formula
   desc "Java-based scripting language"
   homepage "http://www.groovy-lang.org"
-  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.5.0.zip"
-  sha256 "13903caed7da4875b2c805ddaa5ac4a3c877342f339700fab9a54b8c628eece3"
+  url "https://dl.bintray.com/groovy/maven/apache-groovy-binary-2.5.1.zip"
+  sha256 "7a7c1215620047f36ae66c8ca396864aa602cc90f7238851cd8714acb41418ff"
 
   bottle :unneeded
 
@@ -27,7 +27,7 @@ class Groovy < Formula
     end
 
     libexec.install "bin", "conf", "lib"
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install_symlink Dir["#{libexec}/bin/*"] - ["#{libexec}/bin/groovy.ico"]
   end
 
   def caveats
