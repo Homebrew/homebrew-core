@@ -1,9 +1,9 @@
 class Binutils < Formula
   desc "FSF/GNU ld, ar, readelf, etc. for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.30.tar.gz"
-  sha256 "8c3850195d1c093d290a716e20ebcaa72eda32abf5e3d8611154b39cff79e9ea"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.tar.gz"
+  sha256 "5a9de9199f22ca7f35eac378f93c45ead636994fc59f3ac08f6b3569f73fcf6f"
 
   bottle do
     sha256 "2eff47fc3b2074c2ad67a288ce07a38daa611dbaa39fc9c27f89f7fb74e80972" => :high_sierra
