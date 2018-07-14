@@ -1,8 +1,8 @@
 class Exercism < Formula
   desc "Command-line tool to interact with exercism.io"
   homepage "http://cli.exercism.io"
-  url "https://github.com/exercism/cli/archive/v2.4.1.tar.gz"
-  sha256 "47d6fe998e4c8f900b249f427292b3c268addfddccd1ebc6ce07ca0d7e390622"
+  url "https://github.com/exercism/cli/archive/v3.0.2.tar.gz"
+  sha256 "9a3425fc19ec31a3ecb26a920d808ed813b5dc2e134971b5e8c56ec94dfe1f42"
   head "https://github.com/exercism/cli.git"
 
   bottle do
@@ -13,18 +13,20 @@ class Exercism < Formula
     sha256 "919a7febefd72157e0c25e81e6f9d34bd88904ecc5e372bcd4c45c1e907016f0" => :yosemite
   end
 
+  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/exercism/cli").install buildpath.children
     cd "src/github.com/exercism/cli" do
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"exercism", "exercism/main.go"
       prefix.install_metafiles
     end
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/exercism --version")
+    assert_match version.to_s, shell_output("#{bin}/exercism version")
   end
 end
