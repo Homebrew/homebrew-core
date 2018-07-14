@@ -5,9 +5,9 @@ class Teleport < Formula
   sha256 "a94e0483c324aefc962521893758611e11993caf360aedd52b569630ef94d9a5"
 
   bottle do
-    sha256 "b027f08096d2f19e4c7c5f57c7a6257352591138b1dfeb6d77ff7d2e5a3cca09" => :high_sierra
-    sha256 "2e9bba003f035a77f92e2990ab3a2ba8c47e2fb08f7e3dd9f962882e4c3f6ddc" => :sierra
-    sha256 "0d502657d23571726ba1cb795868231e74f873e32955258aaf6747318cbc7647" => :el_capitan
+    sha256 "db40e2845b13ddd21103931a5a169db4e877ecd70bfebaa4bcddceb2a051ee19" => :high_sierra
+    sha256 "18b83949353507fb082478fc82d64ff98cff6d14987ad7ea0aadce9efee7fc8d" => :sierra
+    sha256 "9b9392a18a275f129abf594b78880d0e4fcf65b1f8d33f8b788f16eefe0666db" => :el_capitan
   end
 
   depends_on "go" => :build
