@@ -3,6 +3,7 @@ class Multitail < Formula
   homepage "https://vanheusden.com/multitail/"
   url "https://vanheusden.com/multitail/multitail-6.4.2.tgz"
   sha256 "af1d5458a78ad3b747c5eeb135b19bdca281ce414cefdc6ea0cff6d913caa1fd"
+  head "https://github.com/flok99/multitail.git"
 
   bottle do
     rebuild 1
@@ -20,6 +21,10 @@ class Multitail < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/multitail -h 2>&1", 1)
+    if build.head?
+      assert_match "multitail", shell_output("#{bin}/multitail -h 2>&1", 1)
+    else
+      assert_match version.to_s, shell_output("#{bin}/multitail -h 2>&1", 1)
+    end
   end
 end
