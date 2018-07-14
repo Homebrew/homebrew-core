@@ -1,8 +1,8 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.33.tar.bz2"
-  sha256 "de02511859b00d17845b9abdd1f975d5ccb5d0b280c567da5bf2ad4b70846f05"
+  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.34.tar.bz2"
+  sha256 "fa53c95631febb08a9de41fd2864cfff815cf62d9306723ab0d4b8d7aa1638f0"
 
   bottle do
     sha256 "12d16378423a5fca0b8c66ba279722cbaa18474d90d150373fae6e75e4b1d304" => :high_sierra
@@ -64,6 +64,7 @@ class Httpd < Formula
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
                           "--disable-lua",
                           "--disable-luajit"
+    system "make"
     system "make", "install"
 
     # suexec does not install without root
