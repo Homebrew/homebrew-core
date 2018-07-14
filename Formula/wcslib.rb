@@ -15,9 +15,6 @@ class Wcslib < Formula
   option "with-fortran", "Build Fortran wrappers. Needed for --with-pgsbox."
   option "with-test", "Perform `make check`. Note, together --with-pgsbox it will display GUI"
 
-  deprecated_option "with-pgsbox" => "with-pgplot"
-  deprecated_option "with-check" => "with-test"
-
   depends_on "cfitsio"
   depends_on "pgplot" => :optional
   depends_on :x11 if build.with? "pgplot"
