@@ -7,10 +7,9 @@ class Exercism < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c10051bcade77a4396dd4624b7d9ef513a2e2b08b4500cc11c8ea8275e34cd33" => :high_sierra
-    sha256 "a36d2e4e48bf887cb1b8fa9369e0cec990721a73aa49b702d27ce47aba58bcb7" => :sierra
-    sha256 "f3a0eda8fc9aab0217da024264686d1486d700e0773a73234b201ff59bdc8ced" => :el_capitan
-    sha256 "919a7febefd72157e0c25e81e6f9d34bd88904ecc5e372bcd4c45c1e907016f0" => :yosemite
+    sha256 "d0f8c38f7dcf7b94ae0e9533446aa2d0ad106e8a9aa4c3d9b03a4d19c6d6edca" => :high_sierra
+    sha256 "c7d1280150c377e5b2d3268dd0e63bc5c05633bd0777c9665819a8f920d4b06b" => :sierra
+    sha256 "4fc9d31b82b6dac2e028290b231c6b87f0c5602c398119d648eba0205e77aa86" => :el_capitan
   end
 
   depends_on "dep" => :build
