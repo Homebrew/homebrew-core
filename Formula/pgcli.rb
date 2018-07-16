@@ -1,8 +1,8 @@
 class Pgcli < Formula
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/75/3c/901421409520be8145c08d1a24c8e9717f6df871299045602421f1e9436b/pgcli-1.9.1.tar.gz"
-  sha256 "8274dca13407b2904453018488d02302bce01df21ac3f3bf30a21b1880ce0ce8"
+  url "https://files.pythonhosted.org/packages/06/ba/30dde6722ff876ca2530299133919d45da85a2053a9fd95625a752d41047/pgcli-1.10.0.tar.gz"
+  sha256 "9d98e71916c46a689a366d11959dd326e813af2230e07b22013efbc2f49a629d"
 
   bottle do
     cellar :any
@@ -16,13 +16,13 @@ class Pgcli < Formula
   depends_on "openssl"
 
   resource "backports.csv" do
-    url "https://files.pythonhosted.org/packages/6a/0b/2071ad285e87dd26f5c02147ba13abf7ec777ff20416a60eb15ea204ca76/backports.csv-1.0.5.tar.gz"
-    sha256 "8c421385cbc6042ba90c68c871c5afc13672acaf91e1508546d6cda6725ebfc6"
+    url "https://files.pythonhosted.org/packages/c5/d2/6adc8e81e57a847fbe63b7967223aa13e340875a273be218ef15f162037d/backports.csv-1.0.6.tar.gz"
+    sha256 "bed884eeb967c8d6f517dfcf672914324180f1e9ceeb0376fde2c4c32fd7008d"
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/88/25/1fd3b2181b4e1fec360a1176a91ab715297b55db045e91af798c31c58aa3/cli_helpers-1.0.1.tar.gz"
-    sha256 "55353117960700dfbe000a71cda0bad1ac865e3a9999f1fa81047fa9e1322d42"
+    url "https://files.pythonhosted.org/packages/d5/13/3783ef3fa23ab76b56d4b8f96ee90808d2c167bafc5eaa4ad3c78b75abe6/cli_helpers-1.0.2.tar.gz"
+    sha256 "f77837c5fbcbea39e0cb782506515459a0da75465489bae35e46da7f51c5b9fc"
   end
 
   resource "click" do
@@ -35,14 +35,29 @@ class Pgcli < Formula
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
+  resource "configparser" do
+    url "https://files.pythonhosted.org/packages/7c/69/c2ce7e91c89dc073eb1aa74c0621c3eefbffe8216b3f9af9d3885265c01c/configparser-3.5.0.tar.gz"
+    sha256 "5308b47021bc2340965c371f0f058cc6971a04502638d4244225c49d80db273a"
+  end
+
+  resource "entrypoints" do
+    url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"
+    sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
+  end
+
   resource "humanize" do
     url "https://files.pythonhosted.org/packages/8c/e0/e512e4ac6d091fc990bbe13f9e0378f34cf6eecd1c6c268c9e598dcf5bb9/humanize-0.5.1.tar.gz"
     sha256 "a43f57115831ac7c70de098e6ac46ac13be00d69abbf60bdcac251344785bb19"
   end
 
+  resource "keyring" do
+    url "https://files.pythonhosted.org/packages/a0/c9/c08bf10bd057293ff385abaef38e7e548549bbe81e95333157684e75ebc6/keyring-13.2.1.tar.gz"
+    sha256 "6364bb8c233f28538df4928576f4e051229e0451651073ab20b315488da16a58"
+  end
+
   resource "pgspecial" do
-    url "https://files.pythonhosted.org/packages/d5/d8/cd12f64c42b9878e3e677ba2c43f7abdc87eadba5f18b640f8efda555b55/pgspecial-1.10.0.tar.gz"
-    sha256 "eadb0108cdbcf8b38a69bcc9e403b352dbd6d30622e417f48e659180150ee1b6"
+    url "https://files.pythonhosted.org/packages/0f/07/847815d9effa367ac045a8d8b2ef62058a348f3dea41b98f98d1a33c71f9/pgspecial-1.11.0.tar.gz"
+    sha256 "a4511ba8b65b1f68eb2f8242f052b431534aa4b343788d17aa58cdd864d18d7c"
   end
 
   resource "prompt_toolkit" do
@@ -51,8 +66,8 @@ class Pgcli < Formula
   end
 
   resource "psycopg2" do
-    url "https://files.pythonhosted.org/packages/74/83/51580322ed0e82cba7ad8e0af590b8fb2cf11bd5aaa1ed872661bd36f462/psycopg2-2.7.4.tar.gz"
-    sha256 "8bf51191d60f6987482ef0cfe8511bbf4877a5aa7f313d7b488b53189cf26209"
+    url "https://files.pythonhosted.org/packages/b2/c1/7bf6c464e903ffc4f3f5907c389e5a4199666bf57f6cd6bf46c17912a1f9/psycopg2-2.7.5.tar.gz"
+    sha256 "eccf962d41ca46e6326b97c8fe0a6687b58dfc1a5f6540ed071ff1474cea749e"
   end
 
   resource "Pygments" do
