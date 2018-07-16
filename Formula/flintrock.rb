@@ -3,9 +3,8 @@ class Flintrock < Formula
 
   desc "Tool for launching Apache Spark clusters"
   homepage "https://github.com/nchammas/flintrock"
-  url "https://files.pythonhosted.org/packages/30/de/e4ec7cdfd3381f136a47e9951f0d09337aa278f52414bee96983826ecd84/Flintrock-0.9.0.tar.gz"
-  sha256 "bdcbfe4fbe753cd8d82dc400ca71bb8ef68edd2446d2d9d7b4904e52310020ce"
-  revision 1
+  url "https://files.pythonhosted.org/packages/50/2b/615976ae41ae0060fbacb17c19030f6410e126c17ac93e1082bb8ac4429f/Flintrock-0.10.0.tar.gz"
+  sha256 "8a0b52b460567b1f5600ac3dd2fc35e632c7b39fcbc4eba74ebc64b707f496ac"
 
   bottle do
     cellar :any
@@ -28,13 +27,13 @@ class Flintrock < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/58/61/50d2e459049c5dbc963473a71fae928ac0e58ffe3fe7afd24c817ee210b9/boto3-1.4.4.tar.gz"
-    sha256 "518f724c4758e5a5bed114fbcbd1cf470a15306d416ff421a025b76f1d390939"
+    url "https://files.pythonhosted.org/packages/4f/28/1642a25573c8ffbdcec0ceb09cf5d941f5bc2a0be71179a5d2220e1df3e0/boto3-1.7.58.tar.gz"
+    sha256 "ce462e7505c03c3e6708ce6f264ac43d478886082af703ff69c502592df5d4f3"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4d/b7/d6f286384d77a5ce8491a7cd4db1058856da85055e44133209f908edc07c/botocore-1.5.10.tar.gz"
-    sha256 "9688a2984c2783257a6064c83b667f31347cbaf502d050ed249031f720c71bc3"
+    url "https://files.pythonhosted.org/packages/e5/7b/4f0d1613f33b32a8ad8f65c7973a389244e0aecd209db761f5d51291ebc4/botocore-1.10.58.tar.gz"
+    sha256 "e0e6b6d1fdbce81c28151136ee919d2cdeee13041559710cd5c93d7e4035a455"
   end
 
   resource "cffi" do
@@ -48,8 +47,8 @@ class Flintrock < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
-    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
+    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
+    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
   end
 
   resource "docutils" do
@@ -58,8 +57,8 @@ class Flintrock < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
+    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
   resource "jmespath" do
@@ -73,8 +72,8 @@ class Flintrock < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"
-    sha256 "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"
+    url "https://files.pythonhosted.org/packages/0d/33/3466a3210321a02040e3ab2cd1ffc6f44664301a5d650a7e44be1dc341f2/pyasn1-0.4.3.tar.gz"
+    sha256 "fb81622d8f3509f0026b0683fe90fea27be7284d3826a5f2edf97f69151ab0fc"
   end
 
   resource "pycparser" do
@@ -109,13 +108,8 @@ class Flintrock < Formula
 
   def install
     # Python 3.7 compat
-    inreplace "setup.py" do |s|
-      s.gsub! "PyYAML == 3.12", "PyYAML == 3.13"
-      s.gsub! "paramiko == 2.1.1", "paramiko == 2.4.1"
-    end
+    inreplace "setup.py", "PyYAML == 3.12", "PyYAML == 3.13"
 
-    venv = virtualenv_create(libexec, "python3")
-    venv.pip_install resource("cffi")
     virtualenv_install_with_resources
   end
 
