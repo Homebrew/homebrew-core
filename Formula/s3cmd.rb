@@ -1,8 +1,8 @@
 class S3cmd < Formula
   desc "Command-line tool for the Amazon S3 service"
   homepage "https://s3tools.org/s3cmd"
-  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.1/s3cmd-2.0.1.tar.gz"
-  sha256 "caf09f1473301c442fba6431c983c361c9af8bde503dac0953f0d2f8f2c53c8f"
+  url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.2/s3cmd-2.0.2.tar.gz"
+  sha256 "9f244c0c10d58d0ccacbba3aa977463e32491bdd9d95109e27b67e4d46c5bd52"
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
@@ -15,13 +15,13 @@ class S3cmd < Formula
   depends_on "python@2"
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "python-magic" do
-    url "https://files.pythonhosted.org/packages/65/0b/c6b31f686420420b5a16b24a722fe980724b28d76f65601c9bc324f08d02/python-magic-0.4.13.tar.gz"
-    sha256 "604eace6f665809bebbb07070508dfa8cabb2d7cb05be9a56706c60f864f1289"
+    url "https://files.pythonhosted.org/packages/84/30/80932401906eaf787f2e9bd86dc458f1d2e75b064b4c187341f29516945c/python-magic-0.4.15.tar.gz"
+    sha256 "f3765c0f582d2dfc72c15f3b5a82aecfae9498bd29ca840d72f37d7bd38bfcd5"
   end
 
   resource "six" do
