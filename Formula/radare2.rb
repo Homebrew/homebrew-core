@@ -19,6 +19,7 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
+  revision 1
 
   stable do
     url "https://radare.mikelloc.com/get/2.7.0/radare2-2.7.0.tar.gz"
@@ -89,10 +90,11 @@ class Radare2 < Formula
     resource("extras").stage do
       ENV.append_path "PATH", bin
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
+      (lib/"radare2/#{version}").mkpath
 
       system "./configure", "--prefix=#{prefix}"
-      system "make", "all"
-      system "make", "install"
+      system "make", "R2PM_PLUGDIR=#{lib}/radare2/#{version}", "all"
+      system "make", "R2PM_PLUGDIR=#{lib}/radare2/#{version}", "install"
     end
 
     resource("bindings").stage do
@@ -107,15 +109,27 @@ class Radare2 < Formula
       inreplace "do-swig.sh", "VALABINDFLAGS=\"\"", "VALABINDFLAGS=\"--nolibpython\""
       make_binding_args = ["CFLAGS=-undefined dynamic_lookup"]
 
-      # Ensure that plugins and bindings are installed in the correct Cellar
-      # paths.
-      inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
-      # fix build, https://github.com/radare/radare2-bindings/pull/168
-      inreplace "libr/lang/p/Makefile",
-      "CFLAGS+=$(shell pkg-config --cflags r_core)",
-      "CFLAGS+=$(shell pkg-config --cflags r_core) -DPREFIX=\\\"${PREFIX}\\\""
-      inreplace "Makefile", "LUAPKG=", "#LUAPKG="
-      inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
+      # Ensure that plugins and bindings are installed in the Cellar.
+      inreplace "libr/lang/p/Makefile" do |s|
+        s.gsub! "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
+        s.gsub! "~/.config/radare2/plugins", "#{lib}/radare2/#{version}"
+      end
+
+      # We don't want to place json.lua in lib/lua/#{lua_version} because
+      # the name is very generic, which introduces a strong possibility of
+      # clashes with other formulae or in general usage.
+      inreplace "libr/lang/p/lua.c",
+                'os.getenv(\"HOME\")..\"/.config/radare2/plugins/lua/?.lua;',
+                "\\\"#{libexec}/lua/#{lua_version}/?.lua;"
+
+      # Really the Lua libraries should be dumped in libexec too but
+      # since they're named fairly specifically it's semi-acceptable.
+      inreplace "Makefile" do |s|
+        s.gsub! "LUAPKG=", "#LUAPKG="
+        s.gsub! "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
+        s.gsub! "ls lua/*so*$$_LUAVER", "ls lua/*so"
+      end
+
       make_install_args = %W[
         R2_PLUGIN_PATH=#{lib}/radare2/#{version}
         LUAPKG=lua-#{lua_version}
@@ -130,6 +144,11 @@ class Radare2 < Formula
       end
       system "make"
       system "make", "install", *make_install_args
+
+      # This should be being handled by the Makefile but for some reason
+      # it doesn't want to work. If this ever breaks it's likely because
+      # the Makefile has started functioning as expected & placing it in lib.
+      (libexec/"lua/#{lua_version}").install Dir["libr/lang/p/lua/*.lua"]
     end
   end
 
