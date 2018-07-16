@@ -45,6 +45,13 @@ class Jack < Formula
     <dict>
       <key>Label</key>
       <string>#{plist_name}</string>
+      <key>EnvironmentVariables</key>
+      <dict>
+           <key>TMPDIR</key>
+           <string>/tmp</string>
+           <key>PATH</key>
+           <string>#{opt_bin}</string>
+      </dict>
       <key>WorkingDirectory</key>
       <string>#{prefix}</string>
       <key>ProgramArguments</key>
