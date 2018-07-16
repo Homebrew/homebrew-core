@@ -8,7 +8,7 @@ class Proxysql < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "make" => :build
-  depends_on "mysql" => :test
+  depends_on "mysql@5.6" => :test
   depends_on "curl"
   depends_on "openssl"
 
@@ -44,7 +44,7 @@ class Proxysql < Formula
     end
     begin
       # Sleep until the proxy is up (querying it prematurely causes a segfault), then check its uptime.
-      output = pipe_output("sleep 2; echo 'select * from stats.stats_mysql_global' | mysql --enable-cleartext-plugin  --default-auth=mysql_clear_password -uadmin -padmin -S admin.sock")
+      output = pipe_output("sleep 2; echo 'select * from stats.stats_mysql_global' | mysql -uadmin -padmin -S admin.sock")
       assert_match /ProxySQL_Uptime\s+[1-9]\d*/, output
     ensure
       Process.kill("TERM", background_proxysql)
