@@ -31,7 +31,8 @@ class Dartsim < Formula
   def install
     ENV.cxx11
     # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
-    system "cmake", ".", *std_cmake_args, "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework"
+    system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
+                         *std_cmake_args
     system "make", "install"
 
     # Avoid revision bumps whenever fcl's or libccd's Cellar paths change
