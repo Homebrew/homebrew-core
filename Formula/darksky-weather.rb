@@ -6,9 +6,9 @@ class DarkskyWeather < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4dfe8972a8944752362a8432caa3ec5d3c519bd06af1d82285c23df68b43bdcc" => :high_sierra
-    sha256 "5c680cb4606c5807b5fab4f885f8f995659c449d9c52adf74ccd90f452eb5af9" => :sierra
-    sha256 "d8e6d2cd8d298f845f6f706c911f1a1a3c564f441e0a425e12f42d2c9f16e45a" => :el_capitan
+    sha256 "74a814416ebe84e3999e5c465f9d4794402fce9f9f4e8a4552f2a50faf2f10da" => :high_sierra
+    sha256 "f4d070ead432f8e052c0e1e77cf2cef24898082ac84bc1a1acbfa8dd71790115" => :sierra
+    sha256 "50c07862d0c5a7e7ff4e75963c8af97622f3072b300cdebe4ccb7a9905153d3a" => :el_capitan
   end
 
   depends_on "go" => :build
