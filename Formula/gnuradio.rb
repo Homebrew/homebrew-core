@@ -6,9 +6,9 @@ class Gnuradio < Formula
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "edac401c118a1270555af4e814c577ecede9c08a2c7d1d03a15133d6f95ed659" => :high_sierra
-    sha256 "983e14b04e0c10e4390e2d741da88be0f78699ecf72870c436078be85a382eeb" => :sierra
-    sha256 "8abf350ee530f8e18ae57dcc6a5dd3f7280e8120f1efefd087fc39397eb605d0" => :el_capitan
+    sha256 "bd03698a2b1a89f865eceb8d22eb335ec0b80cc5afb6a03c4c96f71560390e6c" => :high_sierra
+    sha256 "8967e3a4fb54a2f0a191d42fefa74066ffc3384290792c325b5d6ce72e1819d5" => :sierra
+    sha256 "dc19d373b871c7cf3325e5ff041a5a46aa3fe75cee2c8efa36b33b70bb492b73" => :el_capitan
   end
 
   option "without-python@2", "Build without python support"
