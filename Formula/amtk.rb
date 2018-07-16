@@ -4,6 +4,12 @@ class Amtk < Formula
   url "https://download.gnome.org/sources/amtk/5.0/amtk-5.0.0.tar.xz"
   sha256 "12a996978a30b7b69a810ac0c5656d5cf2f58d9787b98a0c028ff1b64e8f31ff"
 
+  bottle do
+    sha256 "eec94f844c2786f6e9a5f5bb5ebd1b179e04432b4166dbdfd136451a4164201f" => :high_sierra
+    sha256 "304f48b54a08facfd5d96dd3ff1b82fcb189a9310342a9a3b721f8cb0160a29e" => :sierra
+    sha256 "36f23f1e7336d58d01a9b3bd0a27565b08437d503500fd1d35bab61c31ae7ca4" => :el_capitan
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
