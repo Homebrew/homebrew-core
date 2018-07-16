@@ -1,8 +1,8 @@
 class Roll < Formula
   desc "CLI program for rolling a dice sequence"
   homepage "https://matteocorti.github.io/roll/"
-  url "https://github.com/matteocorti/roll/releases/download/v2.2.0/roll-2.2.0.tar.gz"
-  sha256 "995e7e179025ee69c93e33e2dd707384391ac2bfb69e97368bdc873a5b93f6b3"
+  url "https://github.com/matteocorti/roll/releases/download/v2.4.0/roll-2.4.0.tar.gz"
+  sha256 "1c927908bce0b83477edca60d1da983b9d39646b5ece7574d33d8063422e7d5b"
 
   bottle do
     cellar :any_skip_relocation
