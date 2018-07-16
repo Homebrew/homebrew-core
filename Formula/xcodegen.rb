@@ -4,6 +4,11 @@ class Xcodegen < Formula
   url "https://github.com/yonaskolb/XcodeGen/archive/1.10.3.tar.gz"
   sha256 "30944e90b9855ff893c6581e0d6dcdf7e8ab2c0c5edadacba7fb5ce27164975a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "fa6e2a206f3316a3b86bdf40c05576d6f70981752857359249c265bd061102dc" => :high_sierra
+  end
+
   depends_on :xcode => ["9.3", :build]
 
   def install
