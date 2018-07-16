@@ -21,17 +21,17 @@ class Radare2 < Formula
   homepage "https://radare.org"
 
   stable do
-    url "https://radare.mikelloc.com/get/2.6.0/radare2-2.6.0.tar.gz"
-    sha256 "6653d5f7d10850a288abeea1ad892e2e6e0981e40bb58296d3b27ccfd88e7713"
+    url "https://radare.mikelloc.com/get/2.7.0/radare2-2.7.0.tar.gz"
+    sha256 "d89c86b764edb06acb1cf0e70bdceb15dcbd7f4df551e856b471c03b34063ba3"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.6.0/radare2-bindings-2.6.0.tar.gz"
-      sha256 "b97b256c99398d3bfc4d0b588a63814c95a028f8bb404c2512f1644b935ed824"
+      url "https://radare.mikelloc.com/get/2.7.0/radare2-bindings-2.7.0.tar.gz"
+      sha256 "df9537fd4b1bc0474fa4abba1c87687239003c047987e155ec1483a0ce988d0f"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.6.0/radare2-extras-2.6.0.tar.gz"
-      sha256 "bcc68f3facf4e977146a797d39722d0416195d4fbc835c62fcabe8b2055a94ba"
+      url "https://radare.mikelloc.com/get/2.7.0/radare2-extras-2.7.0.tar.gz"
+      sha256 "c972afb865fd69b3fd2c4d6c4e6810df875a67842497efd930e6a8e49cef6f3c"
     end
   end
 
@@ -68,24 +68,6 @@ class Radare2 < Formula
   depends_on "yara"
 
   depends_on CodesignRequirement if build.with? "code-signing"
-
-  # These three patches update the buildsystem to fix linking libr2 with openssl.
-  # The first two are merged upstream, and the third has been submitted.
-  # https://github.com/radare/radare2/pull/10188
-  patch do
-    url "https://github.com/radare/radare2/commit/3752d992f3140806ea1d513739b6f23addf52df1.patch?full_index=1"
-    sha256 "ac0642a49603e572ef033c2f7c3225775b6996147bd7c7052d595b41edfdffca"
-  end
-
-  patch do
-    url "https://github.com/radare/radare2/commit/2ca2a0ae1565e89ed4c49813f05190c610fb37f1.patch?full_index=1"
-    sha256 "5081a33e2af8483b035fc698c1814c1a68741aa793c5ccb60faa844343829c66"
-  end
-
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/12d117bea567c5811a7bf1a70ccd0777ecb10997/radare2/fix_openssl_build.patch"
-    sha256 "d952e048e8551017419520d29d75f988463155c2a79d89e2613423bbd9e91fd3"
-  end
 
   def install
     # Build Radare2 before bindings, otherwise compile = nope.
