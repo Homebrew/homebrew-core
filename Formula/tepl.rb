@@ -1,8 +1,8 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/4.0/tepl-4.0.0.tar.xz"
-  sha256 "a4b6219877b25a376b129c26484946481b7fc1ef6a7a66d804dcf7f48250e997"
+  url "https://download.gnome.org/sources/tepl/4.2/tepl-4.2.0.tar.xz"
+  sha256 "8839d4428ecdd87fd5abc657ebbe5a9601a57262e9946845e47dec264e669ccd"
 
   bottle do
     sha256 "99922988d8cf0689e288e0413bf9cbc559388b9f4881c376d3c7466a4408f40a" => :high_sierra
@@ -12,6 +12,7 @@ class Tepl < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "amtk"
   depends_on "gtksourceview@4"
   depends_on "uchardet"
 
@@ -33,6 +34,7 @@ class Tepl < Formula
     EOS
     ENV.libxml2
     atk = Formula["atk"]
+    amtk = Formula["amtk"]
     cairo = Formula["cairo"]
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
@@ -51,6 +53,7 @@ class Tepl < Formula
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{atk.opt_include}/atk-1.0
+      -I#{amtk.opt_include}/amtk-5
       -I#{cairo.opt_include}/cairo
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
@@ -63,7 +66,6 @@ class Tepl < Formula
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/tepl-4
-      -I#{include}/amtk-4
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
@@ -72,6 +74,7 @@ class Tepl < Formula
       -I#{uchardet.opt_include}/uchardet
       -D_REENTRANT
       -L#{atk.opt_lib}
+      -L#{amtk.opt_lib}
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
@@ -81,6 +84,7 @@ class Tepl < Formula
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
+      -lamtk-5.0
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -89,7 +93,6 @@ class Tepl < Formula
       -lglib-2.0
       -lgobject-2.0
       -ltepl-4
-      -lamtk-4
       -lgtk-3
       -lgtksourceview-4.0
       -lintl
