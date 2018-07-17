@@ -1,8 +1,8 @@
 class Mpop < Formula
   desc "POP3 client"
-  homepage "https://mpop.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/mpop/mpop/1.2.6/mpop-1.2.6.tar.xz"
-  sha256 "9fec7a9dd08fc0f04bf6178bc651b036d1fe0e46903146f38a8d182887e9315c"
+  homepage "https://marlam.de/mpop/"
+  url "https://marlam.de/mpop/releases/mpop-1.2.8.tar.xz"
+  sha256 "16c3794507673bb1e6e8a9231787594155f32e5c68a901368045cf458f6a79ea"
 
   bottle do
     cellar :any
