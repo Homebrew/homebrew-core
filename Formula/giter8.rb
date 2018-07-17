@@ -1,8 +1,8 @@
 class Giter8 < Formula
   desc "Generate files and directories from templates in a git repo"
   homepage "https://github.com/foundweekends/giter8"
-  url "https://github.com/foundweekends/giter8/archive/v0.10.0.tar.gz"
-  sha256 "f9e3b26a7e154421f1a3c77941ee0f4bf8b04835f9810c9f46425871bb9cbb02"
+  url "https://github.com/foundweekends/giter8/archive/v0.11.0.tar.gz"
+  sha256 "413ebc032d6bc57aaa4b3d6451256320cff56a13d73d5f36c4ee8d7d890f54d5"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,8 +15,8 @@ class Giter8 < Formula
 
   resource "conscript" do
     url "https://github.com/foundweekends/conscript.git",
-        :tag => "v0.5.1",
-        :revision => "0a196fbb0bd551cd7b00196b4032dea2564529ce"
+        :tag => "v0.5.2",
+        :revision => "a3904ee175cd202a5cf35ff2d2a21d999f63516a"
   end
 
   resource "launcher" do
