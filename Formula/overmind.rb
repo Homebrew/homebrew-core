@@ -7,9 +7,9 @@ class Overmind < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b837992c446a33e99493c4cc1ef7c9479e75bc540f24e04e773c999ceb7d26e1" => :high_sierra
-    sha256 "4954106239383d8f587060b177ddfb76b8d2d0008bcfd336a93bbe4963419595" => :sierra
-    sha256 "09c011b9aa59be593a7fe27274f126ac7f5ad58f058a5dd54ef835ab7d596909" => :el_capitan
+    sha256 "50ae747635c04c6a1e91d821b22c1d4cb62151a5c7db0f01b98a43bfa61e49e8" => :high_sierra
+    sha256 "8dc04b334f1a34add501dc33f68299ae1d366292b787574855bc1ab4ba378f7a" => :sierra
+    sha256 "4937f5ec45d2a0f63360aae77ccad1b25276f71ae2edcb7de821d031fb29d81e" => :el_capitan
   end
 
   depends_on "go" => :build
