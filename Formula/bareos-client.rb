@@ -1,8 +1,8 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.org/"
-  url "https://github.com/bareos/bareos/archive/Release/17.2.6.tar.gz"
-  sha256 "b35c6c51cee095b63ceaa5250ca25dfe3cc11f92fbeada6c6bc4e1d79d28087a"
+  url "https://github.com/bareos/bareos/archive/Release/17.2.7.tar.gz"
+  sha256 "99a5f907e3422532c783ee254dcf5c737d2b1b53522c00924d3e1009289d2fd2"
 
   bottle do
     sha256 "56284f8a1251c3315eeb10e4e96f34bb89f6a59f94bf7a7110ed1a0470d4ef02" => :high_sierra
