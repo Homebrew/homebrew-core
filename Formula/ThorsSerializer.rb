@@ -1,7 +1,10 @@
 class Thorsserializer < Formula
   desc "Declarative Serialization Library (Json/Yaml) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
-  url "https://github.com/Loki-Astari/ThorsSerializer.git", :tag => "1.5.7", :using => :git
+  url "https://github.com/Loki-Astari/ThorsSerializer.git",
+    :using => :git,
+    :tag => "1.5.7",
+    :revision => "c391b49a36c7432a3fadbbb3e602bba1f61d4078"
 
   ENV["COV"] = "gcov"
 
@@ -38,17 +41,17 @@ class Thorsserializer < Formula
           inputData >> jsonImport(object);
 
           if (object.key != "XYZ" || object.code != 37373) {
-              std::cerr << "Fail\n";
+              std::cerr << "Fail";
               return 1;
           }
-          std::cerr << "OK\n";
+          std::cerr << "OK";
           return 0;
       }
     EOS
-    system ENV.cc, "-std=c++14", "test.cpp", "-o", "test",
-                   "-I#{include}",
-                   "-L#{lib}",
-                   "-lThorSerialize17"
+    system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
+                    "-I#{include}",
+                    "-L#{lib}",
+                    "-lThorSerialize17"
     system "./test"
   end
 end
