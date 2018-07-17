@@ -8,9 +8,9 @@ class Packer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d12994dc080532310c68f04f63f73c4d12e34ccff27fa4bc5d2aa5674763960c" => :high_sierra
-    sha256 "5595cba3ecf3d2ef9fd8571c67be3399f79de782fc1a5b0e7a4e72493f743091" => :sierra
-    sha256 "f3d04b155a4841e9bb61aa294ac2e623d9f9fe9b7437a614266b8942de9982bf" => :el_capitan
+    sha256 "5784d882676622c80b6e19f99bf443ba085c4753a0bb1c73fd435f5a49df6ddd" => :high_sierra
+    sha256 "f454077a2ddd265254e8c6aadfdadd1db6a42308d588fec1089b2ac6c4b50ed0" => :sierra
+    sha256 "712f7afc336c0b7a2c30d58a2746674339172812a9cc7102f9f0b969f86a02fb" => :el_capitan
   end
 
   depends_on "go" => :build
