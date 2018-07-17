@@ -1,8 +1,8 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.0.0.tar.gz"
-  sha256 "12aebe2c4a0524997c473cf17cf24804814008ea31785f03587d792698acd792"
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.1.0.tar.gz"
+  sha256 "d3a0ddf3f693e9421efaa8029c8ff1f78c81c39e77661dc40a05b3515d086fe7"
 
   bottle do
     cellar :any
