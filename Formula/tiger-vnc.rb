@@ -1,8 +1,8 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "http://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.8.0.tar.gz"
-  sha256 "9951dab0e10f8de03996ec94bec0d938da9f36d48dca8c954e8bbc95c16338f8"
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.9.0.tar.gz"
+  sha256 "f15ced8500ec56356c3bf271f52e58ed83729118361c7103eab64a618441f740"
 
   bottle do
     sha256 "c7213004df95a5a8faf38d036bd631a59c6dd9227565fee7485624dfc16c62bc" => :high_sierra
@@ -17,14 +17,6 @@ class TigerVnc < Formula
   depends_on "gettext"
   depends_on "fltk"
   depends_on :x11
-
-  # Remove for > 1.8.0
-  # Fix "redefinition of 'kVK_RightCommand' as different kind of symbol"
-  # Upstream commit from 24 May 2017 "Compatibility with macOS 10.12 SDK"
-  patch do
-    url "https://github.com/TigerVNC/tigervnc/commit/2b0a0ef0.patch?full_index=1"
-    sha256 "ddf74e2ccf57ff20e595f272ac41498c2f698003a619f365670871d00797db2b"
-  end
 
   def install
     turbo = Formula["jpeg-turbo"]
