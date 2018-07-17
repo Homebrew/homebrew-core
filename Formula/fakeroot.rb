@@ -1,8 +1,8 @@
 class Fakeroot < Formula
   desc "Provide a fake root environment"
   homepage "https://tracker.debian.org/pkg/fakeroot"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/f/fakeroot/fakeroot_1.22.orig.tar.bz2"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/f/fakeroot/fakeroot_1.22.orig.tar.bz2"
+  url "http://archive.ubuntu.com/ubuntu/pool/main/f/fakeroot/fakeroot_1.22.orig.tar.bz2"
+  mirror "http://ftp.internat.freebsd.org/pub/FreeBSD/ports/distfiles/fakeroot_1.22.orig.tar.bz2"
   sha256 "bd806a4a1e641203eb3d4571a10089e8a038c10ec7e492fa1e061b03ae3ec6fe"
 
   bottle do
