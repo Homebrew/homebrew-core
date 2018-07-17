@@ -6,7 +6,7 @@ class Pgplot < Formula
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 6
+  revision 7
 
   bottle do
     sha256 "bf57239170c6561ac52e61af82eeb2ed44abbcac2b8a5f26ad85359efa78dc21" => :high_sierra
@@ -66,7 +66,7 @@ class Pgplot < Formula
       MFLAGC=""
       SYSDIR="$SYSDIR"
       CSHARED_LIB="libcpgplot.dylib"
-      CSHARED_LD="gfortan -dynamiclib -single_module $LDFLAGS -lX11"
+      CSHARED_LD="gfortran -dynamiclib -single_module $LDFLAGS -lX11"
     EOS
 
     mkdir "build" do
@@ -91,6 +91,7 @@ class Pgplot < Formula
   end
 
   test do
+    # test Fortran version
     (testpath/"test.f90").write <<~EOS
          PROGRAM SIMPLE
          INTEGER I, IER, PGBEG
@@ -113,5 +114,38 @@ class Pgplot < Formula
     EOS
     system "gfortran", "-o", "test", "test.f90", "-I/usr/X11/include",
            "-L/usr/X11/lib", "-L#{lib}", "-lpgplot", "-lX11"
+
+    # test C version
+    (testpath/"cpgtest.c").write <<~EOS
+      #include "cpgplot.h"
+
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <math.h>
+
+      int main()
+      {
+        int i;
+        static float xs[] = {1.0, 2.0, 3.0, 4.0, 5.0 };
+        static float ys[] = {1.0, 4.0, 9.0, 16.0, 25.0 };
+        float xr[60], yr[60];
+        int n = sizeof(xr) / sizeof(xr[0]);
+        if(cpgbeg(0, "?", 1, 1) != 1)
+          return EXIT_FAILURE;
+        cpgenv(0.0, 10.0, 0.0, 20.0, 0, 1);
+        cpglab("(x)", "(y)", "A Simple Graph");
+        cpgpt(5, xs, ys, 9);
+        for(i=0; i<n; i++) {
+          xr[i] = 0.1*i;
+          yr[i] = xr[i]*xr[i];
+        }
+        cpgline(n, xr, yr);
+        cpgend();
+        return EXIT_SUCCESS;
+      }
+    EOS
+    system ENV.cc, "-c", "-I#{include}", "cpgtest.c"
+    system "gfortran", "-o", "cpgtest", "cpgtest.o",
+           "-L#{lib}", "-lcpgplot", "-lpgplot"
   end
 end
