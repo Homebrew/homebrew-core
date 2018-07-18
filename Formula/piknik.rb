@@ -34,6 +34,27 @@ class Piknik < Formula
   def caveats; <<~EOS
     In order to get convenient shell aliases, put something like this in #{shell_profile}:
       . #{etc}/profile.d/piknik.sh
+    EOS
+  end
+
+  plist_options :manual => "piknik"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>com.jedisct1.piknik</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/usr/local/bin/piknik</string>
+          <string>-server</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+    </plist>
   EOS
   end
 
