@@ -6,9 +6,9 @@ class XmlSecurityC < Formula
 
   bottle do
     cellar :any
-    sha256 "61e946e23456e4572fa15865bc8d113a8941a5831b9c1572d7ec871fff603098" => :high_sierra
-    sha256 "9c6fbd5beba054bfa6c023133f27efb2a5441bd7facc05682101045d96e78b21" => :sierra
-    sha256 "c0ae50ab8c6dff34a904a2419ac386f6da960d64b3ba745c0244cbfbd75bd1bc" => :el_capitan
+    sha256 "d473445b469fa45fb5767e5a6a083818c28619a5fe36136ae60bcc3bb1f8d8e9" => :high_sierra
+    sha256 "0c8c5da1da5c93b28c36b10bb8bd7f9c57bec859a5999497221fa28369df9bf3" => :sierra
+    sha256 "969639781722574718521ccf081feb092058716bea28c44337e2b2d9ef50b53f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
