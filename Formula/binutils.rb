@@ -6,9 +6,9 @@ class Binutils < Formula
   sha256 "e88f8d36bd0a75d3765a4ad088d819e35f8d7ac6288049780e2fefcad18dde88"
 
   bottle do
-    sha256 "b837e47aa271d10ca2dd8efb736126adb01099c6fbaa59f770db21519ab9bcb9" => :high_sierra
-    sha256 "5d622c2ec7ff213c0b72d7662d18a63f1b83c93d4f87d8a961a1314ac0cbb8ec" => :sierra
-    sha256 "0e7dff88984a72de63547572ff56df1e236b47ccca919f065d74853913c16042" => :el_capitan
+    sha256 "a3ed5e2bf0cd0823c5140a6bf44d13f32fbc63a67a4e6d239e1c391518432bd7" => :high_sierra
+    sha256 "a815d5c60302a1e71c0970d86769931abd5e985f8d420cfd527aa495930cd393" => :sierra
+    sha256 "7c693e68ebfcd654fd781480e68469e8f5af93c7397754a8caae1937322feb8f" => :el_capitan
   end
 
   # No --default-names option as it interferes with Homebrew builds.
