@@ -16,14 +16,25 @@ class ApacheArrow < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "jemalloc"
+  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   needs :cxx11
 
   def install
     ENV.cxx11
+    cmake_args = []
+
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    elsif build.with?("python")
+      cmake_args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}"
+    elsif build.with?("python@2")
+      cmake_args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{Formula["python@2"].bin/"python2"}"
+    end
 
     cd "cpp" do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", *std_cmake_args, *cmake_args
       system "make", "unittest"
       system "make", "install"
     end
