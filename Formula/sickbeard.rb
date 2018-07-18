@@ -1,6 +1,6 @@
 class Sickbeard < Formula
   desc "PVR application to search and manage TV shows"
-  homepage "http://www.sickbeard.com/"
+  homepage "https://www.sickbeard.com/"
   url "https://github.com/midgetspy/Sick-Beard/archive/build-507.tar.gz"
   sha256 "eaf95ac78e065f6dd8128098158b38674479b721d95d937fe7adb892932e9101"
   head "https://github.com/midgetspy/Sick-Beard.git"
@@ -67,7 +67,7 @@ class Sickbeard < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def startup_script; <<~EOS
@@ -77,6 +77,6 @@ class Sickbeard < Formula
            "--pidfile=#{var}/run/sickbeard.pid"\
            "--datadir=#{etc}/sickbeard"\
            "$@"
-    EOS
+  EOS
   end
 end

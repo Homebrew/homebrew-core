@@ -44,7 +44,7 @@ class Gmime < Formula
           return 1;
         }
       }
-      EOS
+    EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     pcre = Formula["pcre"]

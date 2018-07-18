@@ -57,7 +57,7 @@ class Ganglia < Formula
   def caveats; <<~EOS
     If you didn't have a default config file, one was created here:
       #{etc}/gmond.conf
-    EOS
+  EOS
   end
 
   test do

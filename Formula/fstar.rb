@@ -85,7 +85,7 @@ class Fstar < Formula
     To compile the generated F# (.NET) code, you must install
     the 'mono' package that includes the fsharp compiler:
     - brew install mono
-    EOS
+  EOS
   end
 
   test do

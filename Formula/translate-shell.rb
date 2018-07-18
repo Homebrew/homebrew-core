@@ -27,7 +27,7 @@ class TranslateShell < Formula
     `say' command. This functionality may be improved in certain cases by
     installing one of mplayer, mpv, or mpg123, all of which are available
     through `brew install'.
-    EOS
+  EOS
   end
 
   test do

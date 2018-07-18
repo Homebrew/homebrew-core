@@ -41,7 +41,7 @@ class ProofGeneral < Formula
 
   def caveats; <<~EOS
     HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
-    EOS
+  EOS
   end
 
   test do

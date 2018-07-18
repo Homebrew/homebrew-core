@@ -34,7 +34,7 @@ class Libvbucket < Formula
     expected = <<~EOS
       key: hello master: server1:11211 vBucketId: 0 couchApiBase: (null) replicas: server2:11210 server3:11211
       key: world master: server2:11210 vBucketId: 3 couchApiBase: (null) replicas: server3:11211 server1:11211
-      EOS
+    EOS
 
     output = pipe_output("#{bin}/vbuckettool - hello world", json)
     assert_equal expected, output

@@ -19,6 +19,6 @@ class Npush < Formula
     (bin/"npush").write <<~EOS
       #!/bin/sh
       cd "#{pkgshare}" && exec ./npush $@
-      EOS
+    EOS
   end
 end

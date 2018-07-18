@@ -1,14 +1,14 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.18.11.tar.gz"
-  sha256 "7cf724a40a0d8915869498f51062a952167e4f5bae2b6920542c9e0e079a471d"
+  url "https://www.libraw.org/data/LibRaw-0.19.0.tar.gz"
+  sha256 "e83f51e83b19f9ba6b8bd144475fc12edf2d7b3b930d8d280bdebd8a8f3ed259"
 
   bottle do
     cellar :any
-    sha256 "bf78fca5d6179c388888b2767f63d886552359eb2f32ba7fe601c3873f229bdc" => :high_sierra
-    sha256 "f6109a2c7451d28e1be43d2f3c21dab7aec1c7d22b5762b690ebcdc4d79a698b" => :sierra
-    sha256 "28bfd21b8bf80a74d8b65f103f982cff9af87f058a24d640446dfbaab3981282" => :el_capitan
+    sha256 "3304c2735f53a0967fd6ca446365d12e455119fe331b36af666b6b64bbcafa08" => :high_sierra
+    sha256 "b8fd178ff8f28172a77b109daa7b8e71f564291fe9725f0e096988ec258f742f" => :sierra
+    sha256 "aa91b68a3f4aa66cca36c0348e2167339319ee1628ab0369031473b4a4cfe043" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -22,24 +22,9 @@ class Libraw < Formula
     sha256 "7886d8b0e1257897faa7404b98fe1086ee2d95606531b6285aed83a0939b768f"
   end
 
-  resource "gpl2" do
-    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.18.8.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL2-0.18.8.tar.gz"
-    sha256 "0b24bcf7bbb5d13fde58bb071f94dc9354be09bc44b2bba0698493065e99f8da"
-  end
-
-  resource "gpl3" do
-    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.18.8.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL3-0.18.8.tar.gz"
-    sha256 "ffd6916cd66c8101e4e6b589799f256c897748d2fd2486aa34c3705146dbc701"
-  end
-
   def install
-    %w[gpl2 gpl3].each { |f| (buildpath/f).install resource(f) }
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--enable-demosaic-pack-gpl2=#{buildpath}/gpl2",
-                          "--enable-demosaic-pack-gpl3=#{buildpath}/gpl3"
+                          "--disable-dependency-tracking"
     system "make"
     system "make", "install"
     doc.install Dir["doc/*"]

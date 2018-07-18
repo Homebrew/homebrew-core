@@ -44,7 +44,7 @@ class Np2 < Formula
 
   def caveats; <<~EOS
     A Japanese TTF file named `default.ttf` should be in the working directory.
-    EOS
+  EOS
   end
 
   test do

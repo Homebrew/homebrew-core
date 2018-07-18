@@ -88,7 +88,7 @@ class Legit < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     (testpath/"foo").write("woof")
     system "git", "add", "foo"

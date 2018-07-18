@@ -24,8 +24,6 @@ class FreetdsAT091 < Formula
   depends_on "openssl" => :recommended
 
   def install
-    system "autoreconf", "-i" if build.head?
-
     args = %W[
       --prefix=#{prefix}
       --with-tdsver=7.1

@@ -1,14 +1,14 @@
 class GetFlashVideos < Formula
   desc "Download or play videos from various Flash-based websites"
   homepage "https://github.com/monsieurvideo/get-flash-videos"
-  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.99.02.tar.gz"
-  sha256 "352239beff005dcb90dc027cb78b00454de42093fd9ec6a663aa7738cfa6d8a7"
+  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.99.03.tar.gz"
+  sha256 "37267b41c7b0c240d99ed1f5e7ba04d00f98a8daff82ac9edd2b12c3bca83d73"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f6652be932f9539cf808896ba3877cf6bf1c93681a76bbe9e8c9890b01396774" => :high_sierra
-    sha256 "819a546a3f34dd496fec46680b72a6ed672f3be8192978f6531340ddc360d8d0" => :sierra
-    sha256 "c942d6cae7f20fed26264eb32fda41cade3ca99eb5b5ffa34dd59ceeed3e583f" => :el_capitan
+    sha256 "10e25788bbd00ffd0f0a5281c9c4c493c2957947ba4690cf92460c98aa72dc1b" => :high_sierra
+    sha256 "6c6e60aff2308881f4ef896b5a5c2dd1b05db9146d224be024793f042534dc6d" => :sierra
+    sha256 "0b7edca9b6518af848a6cb5f84bb34014cd017391279398ea9d796dc89ea7a57" => :el_capitan
   end
 
   depends_on "rtmpdump"

@@ -113,7 +113,7 @@ class Bitlbee < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

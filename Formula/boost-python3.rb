@@ -3,12 +3,13 @@ class BoostPython3 < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
   sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "9e6f8d24dea9f09ce5e9a4a13b5af850c60053c459787377449e0f9733cdb274" => :high_sierra
-    sha256 "5491c58d54ad60d3242d64b620c92b988b0801e1d1945006d823d6559186bb3a" => :sierra
-    sha256 "76c42589ff0991ab5e7a335e567adedb84c1f4a9d22c86b1e52f95c922e5649b" => :el_capitan
+    sha256 "bae03c8db2771e0c2e6ede980f63709933b9aeff3a6c2caa455eddbf0720d7a4" => :high_sierra
+    sha256 "f40cf6faac668e9bb6fe21997b71b3ad323e7c6a63320450f2fbaee4cf254e0a" => :sierra
+    sha256 "4a021ea3b65eadb5fd799d5a45a837e18981ef12d622f1eaf841d51b95230a7f" => :el_capitan
   end
 
   depends_on "boost"
@@ -17,8 +18,8 @@ class BoostPython3 < Formula
   needs :cxx11
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/ee/66/7c2690141c520db08b6a6f852fa768f421b0b50683b7bbcd88ef51f33170/numpy-1.14.0.zip"
-    sha256 "3de643935b212307b420248018323a44ec51987a336d1d747c1322afc3c099fb"
+    url "https://files.pythonhosted.org/packages/d5/6e/f00492653d0fdf6497a181a1c1d46bbea5a2383e7faf4c8ca6d6f3d2581d/numpy-1.14.5.zip"
+    sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
   end
 
   def install
@@ -88,8 +89,9 @@ class BoostPython3 < Formula
 
     pyincludes = Utils.popen_read("python3-config --includes").chomp.split(" ")
     pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
+    pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python36", "-o",
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
 
     output = <<~EOS

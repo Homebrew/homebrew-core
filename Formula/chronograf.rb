@@ -67,7 +67,7 @@ class Chronograf < Formula
         <string>#{var}/log/chronograf.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

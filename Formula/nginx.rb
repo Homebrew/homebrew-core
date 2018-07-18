@@ -3,14 +3,14 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.13.12.tar.gz"
-  sha256 "fb92f5602cdb8d3ab1ad47dbeca151b185d62eedb67d347bbe9d79c1438c85de"
+  url "https://nginx.org/download/nginx-1.15.1.tar.gz"
+  sha256 "c7206858d7f832b8ef73a45c9b8f8e436bcb1ee88db2bc85b8e438ecec9d5460"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "f00ac0a380462607107e7969d07984e6b8c0c71086200e150cbd7184fac40bc3" => :high_sierra
-    sha256 "985bcaa01f621f1872a8becb352fd405d0ae1a394d0188c46af5cbb00dc7872e" => :sierra
-    sha256 "3a31e1d75973c69df73bfad8060e1edb4c06a3c78d62d3aad7e3580cc0521d00" => :el_capitan
+    sha256 "d8ee21f38a40ca729164d937652ad0b7cf6d3a56736f5f2e9f4fb4fa2ed28d70" => :high_sierra
+    sha256 "5f3f6bfc0144d5abd9a0f7c37816a35c5395bb5a1a047e4e640192a187fb2d6c" => :sierra
+    sha256 "14cb3d13b65ef7e1a02ddf3fd49b2a6d1ffb0fcb5fe1d8e5394bbde9de318f1b" => :el_capitan
   end
 
   option "with-passenger", "Compile with support for Phusion Passenger module"
@@ -127,7 +127,7 @@ class Nginx < Formula
     To activate Phusion Passenger, add this to #{etc}/nginx/nginx.conf, inside the 'http' context:
       passenger_root #{Formula["passenger"].opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
       passenger_ruby /usr/bin/ruby;
-    EOS
+  EOS
   end
 
   def caveats
@@ -166,7 +166,7 @@ class Nginx < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

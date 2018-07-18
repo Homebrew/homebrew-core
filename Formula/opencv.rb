@@ -1,15 +1,13 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.1.tar.gz"
-  sha256 "f1b87684d75496a1054405ae3ee0b6573acaf3dad39eaf4f1d66fdd7e03dc852"
-  revision 5
+  url "https://github.com/opencv/opencv/archive/3.4.2.tar.gz"
+  sha256 "81dbd5e7e9f8a4c936b94629bf4765745942a1d634ae38ec08bc57b73b28ffc5"
 
   bottle do
-    rebuild 2
-    sha256 "f9abd6049e1c5b52ac9dad6b7605bb09fb3936a6da5b8f613546bf6d4d199a1c" => :high_sierra
-    sha256 "2fd9d42ab0c9b3ee736ca60516dfc8224100e8fe2601c88ce7bc860763b7994d" => :sierra
-    sha256 "7fbbf8dde773d2efe29ba7fcbed805db8a1b3201b6b713c917459bb4d59c82cc" => :el_capitan
+    sha256 "e8a878f981fbd9ae7daf6f6f73be39dcd20baaf34911b1937ef9b91e0d6d889e" => :high_sierra
+    sha256 "7d42a502f14163663c985247cea157a19f714e1fd2641bd5fc2f653f85592473" => :sierra
+    sha256 "3ca5f6be0e49fe59a3b9274ebda00741de5e8265b6de35813fef43c00086148c" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -28,8 +26,8 @@ class Opencv < Formula
   needs :cxx11
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.1.tar.gz"
-    sha256 "298c69ee006d7675e1ff9d371ba8b0d9e7e88374bb7ba0f9d0789851d352ec6e"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.2.tar.gz"
+    sha256 "45a52764ebd2558fa0b7fd8dc47379b37dd0956d912abbf7c786228374fdf60d"
   end
 
   def install

@@ -1,7 +1,6 @@
 class RustupInit < Formula
   desc "The Rust toolchain installer"
   homepage "https://github.com/rust-lang-nursery/rustup.rs"
-
   url "https://github.com/rust-lang-nursery/rustup.rs/archive/1.11.0.tar.gz"
   sha256 "000b873f239e8c5219ede3fd5836d6346ebea64ea928e2d754cdfc0f2071a874"
 
@@ -18,9 +17,7 @@ class RustupInit < Formula
     cargo_home.mkpath
     ENV["CARGO_HOME"] = cargo_home
 
-    system "cargo", "build", "--release", "--verbose"
-
-    bin.install buildpath/"target/release/rustup-init"
+    system "cargo", "install", "--root", prefix
   end
 
   test do

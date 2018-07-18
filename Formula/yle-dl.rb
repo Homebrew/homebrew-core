@@ -1,15 +1,15 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.32.tar.gz"
-  sha256 "88edf4baa21141ff0312852d7d62e73be1ce7494b18e194521068ebde5b9a244"
+  url "https://github.com/aajanki/yle-dl/archive/2.34.tar.gz"
+  sha256 "9e034bab4103fbf73ede9a49406a6ea1e7662a03a3e55c5d2bb59fd97c3334ed"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "26d005915262531a14aac1a9bc3cd0d7db5d197cdcd06fbc26dee55eef10cd99" => :high_sierra
-    sha256 "8d4812c55ac4821b63998ffff36a535723f95eba330ee7c95edaefd5ce5ccbfe" => :sierra
-    sha256 "d0bc147496f6282ff3e75951eacfebd0cd44a6b67f3b0fc52748b0d8a98423b4" => :el_capitan
+    sha256 "db01cbd8aaa0d0abadfc26d957bc24f33bf038f291374a13c2f2f17f37beb8a0" => :high_sierra
+    sha256 "d8859dd44fc8b0f79925093156558471f3085783970af028f6f8d87e58a91b06" => :sierra
+    sha256 "4892f9607cb95b78a8b19978b6ebf5d4a7b20726963475ec2af6d41f38e805f9" => :el_capitan
   end
 
   depends_on "rtmpdump"
@@ -18,13 +18,18 @@ class YleDl < Formula
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
     # Check if there are bugfixes at https://github.com/K-S-V/Scripts/commits/master/AdobeHDS.php
-    url "https://raw.githubusercontent.com/K-S-V/Scripts/3a9b748f957a921c5f846b3ebc7c99bb8255d2e0/AdobeHDS.php"
-    sha256 "45adf9b03dc991fcf6a44bb4cf62dd3777bf69647f1a98290e160a2bf89ebc2d"
+    url "https://raw.githubusercontent.com/K-S-V/Scripts/7fea932cb012cba8c203d5b46b891167b0f609a6/AdobeHDS.php"
+    sha256 "b79e8a4c8544953c39b79a622049c4deced57354adb9697e8c73420c12547229"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/e4/ac/a04671e118b57bee87dabca1e0f2d3bda816b7a551036012d0ca24190e71/attrs-18.1.0.tar.gz"
+    sha256 "e0d0eb91441a3b53dab4d9b743eafc1ac44476296a2053b6ca3af0b139faf87b"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
-    sha256 "edbc3f203427eef571f79a7692bb160a2b0f7ccaa31953e99bd17e307cf63f7d"
+    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
+    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
   end
 
   resource "chardet" do
@@ -43,13 +48,13 @@ class YleDl < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
+    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"
-    sha256 "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"
+    url "https://files.pythonhosted.org/packages/54/a6/43be8cf1cc23e3fa208cab04ba2f9c3b7af0233aab32af6b5089122b44cd/lxml-4.2.3.tar.gz"
+    sha256 "622f7e40faef13d232fb52003661f2764ce6cdef3edb0a59af7c1559e4cc36d1"
   end
 
   resource "Mini-AMF" do
@@ -58,8 +63,8 @@ class YleDl < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/c1/db/bc58ee9faf64d756485d3acf2be1b0272d00af444ddcbb6a7374ed2c043c/pycryptodomex-3.6.0.tar.gz"
-    sha256 "023432d6938c17bd8ff5c4a3efcac7923e3724a42655e011580a84db0be0903b"
+    url "https://files.pythonhosted.org/packages/55/8c/1a06174a38d1a1a351c31329dcd9653f2a1e16351e53dc87df9263c04ab9/pycryptodomex-3.6.4.tar.gz"
+    sha256 "4daabe7c0404e673b9029aa43761c779b9b4df2cbe11ccd94daded6a0acd8808"
   end
 
   resource "PySocks" do
@@ -68,8 +73,8 @@ class YleDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+    url "https://files.pythonhosted.org/packages/54/1f/782a5734931ddf2e1494e4cd615a51ff98e1879cbe9eecbdfeaf09aa75e9/requests-2.19.1.tar.gz"
+    sha256 "ec22d826a36ed72a7358ff3fe56cbd4ba69dd7a6718ffd450ff0e9df7a47ce6a"
   end
 
   resource "six" do
@@ -78,8 +83,8 @@ class YleDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/3c/d2/dc5471622bd200db1cd9319e02e71bc655e9ea27b8e0ce65fc69de0dac15/urllib3-1.23.tar.gz"
+    sha256 "a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf"
   end
 
   def install

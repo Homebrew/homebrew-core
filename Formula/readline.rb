@@ -1,18 +1,19 @@
 class Readline < Formula
   desc "Library for command-line editing"
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
-  revision 1
 
   stable do
     url "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
     mirror "https://ftpmirror.gnu.org/readline/readline-7.0.tar.gz"
-    version "7.0.3"
+    version "7.0.5"
     sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
 
     %w[
       001 9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376
       002 8747c92c35d5db32eae99af66f17b384abaca961653e185677f9c9a571ed2d58
       003 9e43aa93378c7e9f7001d8174b1beb948deefa6799b6f581673f465b7d9d4780
+      004 f925683429f20973c552bff6702c74c58c2a38ff6e5cf305a8e847119c5a6b64
+      005 ca159c83706541c6bbe39129a33d63bbd76ac594303f67e4d35678711c51b753
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-#{p}"
@@ -24,10 +25,9 @@ class Readline < Formula
 
   bottle do
     cellar :any
-    sha256 "45322d69fba127fe9d5c8d1d2fe8b57e0a657b0ebc0a8143cc47118243828dfd" => :high_sierra
-    sha256 "af7886c963fe3e9f58c45d679a64b278f4df7b172bbd978cf42658a7fd7b4a2a" => :sierra
-    sha256 "86766a343a07e08c52e7e87e64a12d3aa34bf71ba248fc779a2c5b0664797ba9" => :el_capitan
-    sha256 "11589e87c4860e414fe5a4b3481d20e47258f41a91a7490a5c88e1a57d5e1d18" => :yosemite
+    sha256 "0cc8fcf8ee733e41c40b859a09eb00f723222a40398fdd15d32891df1eca2eef" => :high_sierra
+    sha256 "962ae47be894e6d3a354b24953fc6b456c42dc054bcd44092cabf65e734a152b" => :sierra
+    sha256 "a7f92cf74dfd299b0c368a983c6f83fc50395b0392b8465316133c625744bcc5" => :el_capitan
   end
 
   devel do

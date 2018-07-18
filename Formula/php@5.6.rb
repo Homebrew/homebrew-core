@@ -3,11 +3,12 @@ class PhpAT56 < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-5.6.36.tar.xz/from/this/mirror"
   sha256 "18f536bf548e909b4e980379d0c4e56d024b2b1eb1c9768fd169360491f1d6dd"
+  revision 1
 
   bottle do
-    sha256 "155b0e18a062c0e752358e6c50f515ca3d1ae34ef3dc75841574de87963f87bc" => :high_sierra
-    sha256 "10c12ba37b930d4d628899248c34185fd496c0d13893f1c7250e4884e967b2e7" => :sierra
-    sha256 "6f708e907c631691f98f4e564bc7aa8cccec0aa287a9790473d9d8c55a01440c" => :el_capitan
+    sha256 "f7285748046f25bae3963b2f0a9ace7db6475f985d6c0d0fab101df123306d62" => :high_sierra
+    sha256 "f02d9e05c224d41dde985d28ec7f67c20a7dd83648b01f33320bcac5d65376a7" => :sierra
+    sha256 "863cf2a723de751a82f4796215c9434a0355c88ee97cab7a8a2ae42102963b04" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -291,7 +292,7 @@ class PhpAT56 < Formula
         <string>#{var}/log/php-fpm.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

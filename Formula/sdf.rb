@@ -1,6 +1,6 @@
 class Sdf < Formula
   desc "Syntax Definition Formalism: high-level description of grammars"
-  homepage "http://strategoxt.org/Sdf/WebHome"
+  homepage "https://strategoxt.org/Sdf/WebHome"
   url "http://www.meta-environment.org/releases/sdf-2.6.3.tar.gz"
   sha256 "181ae979118d75c6163f2acec8e455952f3033378a4518b0b829d26a96e10b3d"
 

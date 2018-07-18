@@ -27,7 +27,7 @@ class Cayley < Formula
 
     (buildpath/"src/github.com/cayleygraph/cayley").install buildpath.children
     cd "src/github.com/cayleygraph/cayley" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"cayley", "-ldflags",
              "-X main.Version=#{version}", ".../cmd/cayley"
 
@@ -83,7 +83,7 @@ class Cayley < Formula
         <string>#{var}/log/cayley.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

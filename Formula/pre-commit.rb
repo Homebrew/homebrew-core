@@ -3,14 +3,14 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.10.1.tar.gz"
-  sha256 "2bc09b08e77bef0f6c9b76bd055303d565761a074e2a3ab523f72cffb2633d04"
+  url "https://github.com/pre-commit/pre-commit/archive/v1.10.3.tar.gz"
+  sha256 "67888bbf03ba8924973129e75c1a098fd920860252f961f5338e7f571399d6ec"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32f618245bf75b2ca99a5a49c86985d08f0cccebec0e765807ebb41372550bc4" => :high_sierra
-    sha256 "43440e4f29d8892427b18c2049860f4a41d97488f991d09666a02f902278638a" => :sierra
-    sha256 "cff91e3a3a7d960a547764a542dc2f4126da95587844721d00ef8045c79d9709" => :el_capitan
+    sha256 "b25b52dcc19844a604702dd3f6b454e058d0fb12c9d490ee1bf3c5b0ef52d537" => :high_sierra
+    sha256 "98d2c0ea1ffdc1f359fcc71945b8f9a000959a3ed1c6218b1763d303642c85c2" => :sierra
+    sha256 "9a1ac3b38bcc317dd279140a761434b5872c48802f487297e63b1f67839fccb2" => :el_capitan
   end
 
   depends_on "python"
@@ -18,7 +18,7 @@ class PreCommit < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
-                              "--ignore-installed", buildpath
+                              "--ignore-installed", "PyYAML==3.13b1", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "pre-commit"
     venv.pip_install_and_link buildpath
   end

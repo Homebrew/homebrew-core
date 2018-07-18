@@ -1,15 +1,10 @@
-class Cdiff < Formula
+class Ydiff < Formula
   desc "View colored diff with side by side and auto pager support"
-  homepage "https://github.com/ymattw/cdiff"
-  url "https://github.com/ymattw/cdiff/archive/1.0.tar.gz"
-  sha256 "d9aa95299973cf25cba9d62a41df845ec4c5d391b9aca4d84f32fcefecccd846"
-  head "https://github.com/ymattw/cdiff.git"
+  homepage "https://github.com/ymattw/ydiff"
+  url "https://github.com/ymattw/ydiff/archive/1.1.tar.gz"
+  sha256 "4c749204d1368557e74392845de22155201484edb2fdb5f97730cd6282c2dcca"
 
   bottle :unneeded
-
-  depends_on "python@2"
-
-  conflicts_with "colordiff", :because => "both install `cdiff` binaries"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
@@ -21,6 +16,6 @@ class Cdiff < Formula
   test do
     diff_fixture = test_fixtures("test.diff").read
     assert_equal diff_fixture,
-      pipe_output("#{bin}/cdiff -cnever", diff_fixture)
+      pipe_output("#{bin}/ydiff -cnever", diff_fixture)
   end
 end

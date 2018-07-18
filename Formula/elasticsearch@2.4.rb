@@ -69,7 +69,7 @@ class ElasticsearchAT24 < Formula
     Plugins: #{libexec}/plugins/
     Config:  #{etc}/elasticsearch/
     plugin script: #{libexec}/bin/plugin
-    EOS
+  EOS
   end
 
   plist_options :manual => "elasticsearch"

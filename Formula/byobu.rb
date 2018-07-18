@@ -37,7 +37,7 @@ class Byobu < Formula
   def caveats; <<~EOS
     Add the following to your shell configuration file:
       export BYOBU_PREFIX=#{HOMEBREW_PREFIX}
-    EOS
+  EOS
   end
 
   test do

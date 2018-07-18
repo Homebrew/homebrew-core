@@ -1,14 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.7/source/mariadb-10.3.7.tar.gz"
-  sha256 "e990afee6ae7cf9ac40154d0e150be359385dd6ef408ad80ea30df34e2c164cf"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.8/source/mariadb-10.3.8.tar.gz"
+  sha256 "30bec17514d12d811a05757be46bd41724df28002cdec550d5c757b0b3f31ab8"
 
   bottle do
-    rebuild 1
-    sha256 "9efc78f961cd8c472f18762ddbe07c36a062e487dad4ae93a314dae46233b01b" => :high_sierra
-    sha256 "6afe25705eb4220aa25e6b7f0011e886f22037f4460b050bf8a0b8bbff0f75c7" => :sierra
-    sha256 "8fa2a5e3bf7b12f91bb7bc11fd690207770b47db14fb5ddb2b98ffe34dfc7e21" => :el_capitan
+    sha256 "2e7b3c745b6c7fe22f04518e445de4ef719d261ca7d5cbef2e942876e65319d0" => :high_sierra
+    sha256 "dfcf6c28090f3cfe66a8e5e45d629fe1255d037534cfd5f80baf70c8d4a4d3f3" => :sierra
+    sha256 "479a6af73286ea2e94ad450b6db3b487676ff7c0db3ae7feb4c65f1405f137b9" => :el_capitan
   end
 
   option "with-test", "Keep test when installing"
@@ -144,7 +143,7 @@ class Mariadb < Formula
 
     To connect:
         mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "mysql.server start"
@@ -169,7 +168,7 @@ class Mariadb < Formula
       <string>#{var}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

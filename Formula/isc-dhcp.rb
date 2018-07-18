@@ -86,7 +86,7 @@ class IscDhcp < Formula
       DHCPv6: #{etc}/dhcpd6.conf
 
     Sample config files may be found in #{etc}.
-    EOS
+  EOS
   end
 
   plist_options :startup => true

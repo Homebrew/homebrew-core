@@ -5,25 +5,26 @@ class Shyaml < Formula
   homepage "https://github.com/0k/shyaml"
   url "https://files.pythonhosted.org/packages/33/34/7ad4b645bdd5c6cd100748fc2429924b553439221aa9b9386f658e5a05f2/shyaml-0.5.2.tar.gz"
   sha256 "80650ebfe6fa2e16083451d515207472d60990c1c15fc0fd607c27077790ac23"
+  revision 1
   head "https://github.com/0k/shyaml.git"
 
   bottle do
     cellar :any
-    sha256 "581c62b943b03b8c7693cb960428a1bf900d28bcdd7b10e068e3768b31c30410" => :high_sierra
-    sha256 "34028bbdca3b61d682520c3821e232bf897cf143c9a5b5946c1952c6da0d56e8" => :sierra
-    sha256 "c0e1cc1710c31f0ec1b9a0cc50c99572743726eeada76493438bbb99e671d22d" => :el_capitan
+    rebuild 1
+    sha256 "ff016e9adec1fcde3aed838decd83cd643e1da3b4fdda4f3760edc706a96204e" => :high_sierra
+    sha256 "f56ae02770869a49ec55215d3444dfd07bdd2fb1788e4cc6f124bd63bfaf2769" => :sierra
+    sha256 "ff1078dcd1f6df8b14d7389704cec6ab3d60c79a926d741db4600af72ed87c55" => :el_capitan
   end
 
   depends_on "python"
   depends_on "libyaml"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 

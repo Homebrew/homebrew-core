@@ -19,7 +19,7 @@ class Bettercap < Formula
     (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
 
     cd "src/github.com/bettercap/bettercap" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "make", "build"
       bin.install "bettercap"
       prefix.install_metafiles
@@ -29,7 +29,7 @@ class Bettercap < Formula
   def caveats; <<~EOS
     bettercap requires root privileges so you will need to run `sudo bettercap`.
     You should be certain that you trust any software you grant root privileges.
-    EOS
+  EOS
   end
 
   test do

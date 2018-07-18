@@ -1,15 +1,15 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v3.3.6.tar.gz"
-  sha256 "fdb970a6b9e60b5cfbbb81fc459d7a1e1e49cb66b05b3c4e7c37ca9d7d6d152e"
+  url "https://github.com/coreos/etcd/archive/v3.3.8.tar.gz"
+  sha256 "f5bc74dd2de1c567a1a36d797399f20cb764069cb3cf3651a593dd7f8a88c616"
   head "https://github.com/coreos/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "058e0a540e17e9624c6e8d99f3d640c011a246bf9b9f479660c676bae3e2fe7a" => :high_sierra
-    sha256 "73d8fbf84993ee74b8a9850ddc84f550e9eda643b0d7267202f9aa72cb71f99b" => :sierra
-    sha256 "d9fc254dc118ed035d9c40eef30f656d6ce1600caa32229adfbe467cf90020bf" => :el_capitan
+    sha256 "e1dff52cc445d0a1a499ded941788ede1adf050dc2ce89cf4ade07f16d9363c4" => :high_sierra
+    sha256 "abbd49f7d2e933d3ebfa0df6cbf1fbbdd4ebf88b6d5736cc9c808c9fcbfc1d76" => :sierra
+    sha256 "a589ad5d348b005e6d30c6569728d773f27647cf970e28e7a4ad64cd84733fe4" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -47,7 +47,7 @@ class Etcd < Formula
         <string>#{var}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

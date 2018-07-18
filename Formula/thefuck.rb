@@ -5,13 +5,14 @@ class Thefuck < Formula
   homepage "https://github.com/nvbn/thefuck"
   url "https://files.pythonhosted.org/packages/3b/d5/568545d285ce292d90940319edf8a5378d57d6040992ec2d64efca1561a7/thefuck-3.27.tar.gz"
   sha256 "e406996f4ce2a726d98a0b1041d11ea5409e7d4f9e31871e4ea39d462fc6ed2d"
+  revision 1
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c5351651e9f5b70b9282e0c94fe99ab579b6816f7fecb25f3e3c9a09d80f1a66" => :high_sierra
-    sha256 "3b843a0928b699dc76144d695c78d957c1c65bef527ab68b96a27ca4c34b199c" => :sierra
-    sha256 "a0f802f8b161f6288fc3b26d8625b3fd3414c885469837dce390eccc6f05af74" => :el_capitan
+    sha256 "d79877a3dfc5ffe7763d2cfe1dab110dbcd3154bb5475434062289f3147cfb85" => :high_sierra
+    sha256 "9d7c0244c419e88100d0d602f54863cb788c479b9daeb0bbbf9c258061080757" => :sierra
+    sha256 "0c1608e14e6d5c1c048589fa79bc0b4e9b8963a700564ecf71d5dad2dbdedc70" => :el_capitan
   end
 
   depends_on "python"
@@ -56,7 +57,7 @@ class Thefuck < Formula
       eval $(thefuck --alias)
 
     For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
-    EOS
+  EOS
   end
 
   test do

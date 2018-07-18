@@ -29,12 +29,12 @@ class Sdlpop < Formula
     (bin/"prince").write <<~EOS
       #!/bin/bash
       cd "#{pkgvar}" && exec "#{libexec}/prince" $@
-      EOS
+    EOS
   end
 
   def caveats; <<~EOS
     Save and replay files are stored in the following directory:
       #{var}/sdlpop
-    EOS
+  EOS
   end
 end

@@ -3,14 +3,14 @@ class Pytouhou < Formula
   homepage "https://pytouhou.linkmauve.fr/"
   url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
   version "634"
-  revision 4
+  revision 5
   head "https://hg.linkmauve.fr/touhou", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "ec6da97347d1c1446f4c382ae8714db09270cb3dd19d875ded74e969c36ac53c" => :high_sierra
-    sha256 "35f4e2d8fe6a8de9a0219ad246f667cf01b657f63c7e945163907585eab2830f" => :sierra
-    sha256 "d3a4f33dbbdf0ebac641375f399ec2a35742ae04785b883a1c7c66952cf3dcd2" => :el_capitan
+    sha256 "f5e3c88bea9e1a533f0a96b401df4c2df90195d684ab8ecc2fc9471b9a09a4cd" => :high_sierra
+    sha256 "48d508217894d69689ba1d9c1ee65fab622f0895a7358e928dba38516c004de0" => :sierra
+    sha256 "edb451dc773f69a0550c687b90326d9baecb5d2bd1898b32cc550662b90c6eeb" => :el_capitan
   end
 
   option "with-demo", "Install demo version of Touhou 6"
@@ -29,8 +29,8 @@ class Pytouhou < Formula
   end
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+    url "https://files.pythonhosted.org/packages/b3/ae/971d3b936a7ad10e65cb7672356cff156000c5132cf406cb0f4d7a980fd3/Cython-0.28.3.tar.gz"
+    sha256 "1aae6d6e9858888144cea147eb5e677830f45faaff3d305d77378c3cba55f526"
   end
 
   resource "demo" do

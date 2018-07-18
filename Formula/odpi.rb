@@ -1,14 +1,14 @@
 class Odpi < Formula
   desc "Oracle Database Programming Interface for Drivers and Applications"
   homepage "https://oracle.github.io/odpi/"
-  url "https://github.com/oracle/odpi/archive/v2.3.2.tar.gz"
-  sha256 "07504a102fbacfe34e506ebbc3673f4241f08d869b74a222abf008363cdea228"
+  url "https://github.com/oracle/odpi/archive/v2.4.2.tar.gz"
+  sha256 "b161a835829c2ea6e85be9e668a852cba0aa84c2f35d1e437d0c40bbd1588643"
 
   bottle do
     cellar :any
-    sha256 "4b2c0caf3da652eda4abfdf08615adc482d4ab05475e32e087e36b7beb863240" => :high_sierra
-    sha256 "c6bd8bb09f912272b134e93c874213ee4857e27c3d1cb032ba66575ae9d2ba02" => :sierra
-    sha256 "617d7483d60f14fa341b6952691c6a56d5a572b3133b71ed8a3de034cfa67521" => :el_capitan
+    sha256 "0b8f47fd36581501faf5d90da3e71edb27fddbdfd5bf35cdc2d7af330be517fe" => :high_sierra
+    sha256 "9e4a3cb977bd94d4a03e2069deb57e13e6b91acc7ae2fc069cfd483d6ae0223c" => :sierra
+    sha256 "d7497b877ba35e99b966ccbc294bf960a04fec4877163587f1555f578067cf55" => :el_capitan
   end
 
   def install

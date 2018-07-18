@@ -3,14 +3,14 @@ class Xdot < Formula
   homepage "https://github.com/jrfonseca/xdot.py"
   url "https://files.pythonhosted.org/packages/75/d3/89151e5c24f59ac5577368651f9d2a5db3cdd870e8f96896e505cb876187/xdot-0.9.tar.gz"
   sha256 "a33701664ecfefe7c7313a120a587e87334f3a566409bc451538fcde5edd6907"
-  revision 2
+  revision 3
   head "https://github.com/jrfonseca/xdot.py.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd7519b26d47bda34d522508e965d460f4b1ef3d115a5ae45a2b043d0040bbf9" => :high_sierra
-    sha256 "dd7519b26d47bda34d522508e965d460f4b1ef3d115a5ae45a2b043d0040bbf9" => :sierra
-    sha256 "dd7519b26d47bda34d522508e965d460f4b1ef3d115a5ae45a2b043d0040bbf9" => :el_capitan
+    sha256 "5650061231c76ff5d4d36da3eef76224bbb9a9bcf7b4a4b6037364782fa99ba4" => :high_sierra
+    sha256 "271c4ec69d982e73f0a9594dead0e8428076c1ecd84e8787ec687ba6981455f7" => :sierra
+    sha256 "5650061231c76ff5d4d36da3eef76224bbb9a9bcf7b4a4b6037364782fa99ba4" => :el_capitan
   end
 
   depends_on "gtk+3"

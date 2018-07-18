@@ -135,7 +135,7 @@ class Netcdf < Formula
           if (status /= nf90_noerr) call abort
         end subroutine check
       end program test
-      EOS
+    EOS
     system "gfortran", "test.f90", "-L#{lib}", "-I#{include}", "-lnetcdff",
                        "-o", "testf"
     system "./testf"

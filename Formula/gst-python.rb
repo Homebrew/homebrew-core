@@ -3,11 +3,12 @@ class GstPython < Formula
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
   url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.14.1.tar.xz"
   sha256 "1bc6704955e343f78d2d935487f26d2db4c131c9a6dad38eb331c7e3639147d3"
+  revision 1
 
   bottle do
-    sha256 "0b377b1ecd37157adc36e8c66dab678f5cf8d5f3ad48a372eee8ab01982f7f43" => :high_sierra
-    sha256 "f2f32d7bd466279c708a1dcb9eae1f6fca7c4d16a4cf4bfca0320a35df03a959" => :sierra
-    sha256 "d2ed501a54f497e76081fd1db8e11951d73d94ef92764a40e0cbac7fc9a5a69e" => :el_capitan
+    sha256 "64c7f99f932be0b65db55d932ba93c5d31901978f18fd0bf3c6844701275efd0" => :high_sierra
+    sha256 "13bdb335f508cb387d7ddf9648e1e14d5cb84e236042db41f93afea2808838ca" => :sierra
+    sha256 "16ad92216c5e70bbbb4c5fd51802410478415c5b1d5f3d029928aa83b067d98c" => :el_capitan
   end
 
   option "without-python", "Build without python 3 support"
@@ -50,7 +51,7 @@ class GstPython < Formula
         gi.require_version('Gst', '1.0')
         from gi.repository import Gst
         print (Gst.Fraction(num=3, denom=5))
-        EOS
+      EOS
     end
   end
 end

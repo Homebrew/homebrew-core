@@ -1,13 +1,13 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.2.6.tar.xz/from/this/mirror"
-  sha256 "1f004e049788a3effc89ef417f06a6cf704c95ae2a718b2175185f2983381ae7"
+  url "https://php.net/get/php-7.2.7.tar.xz/from/this/mirror"
+  sha256 "eb01c0153b3baf1f64b8b044013ce414b52fede222df3f509e8ff209478f31f0"
 
   bottle do
-    sha256 "7cec50548d1c9fd6860d7ff3eef51b1f5e223ac4553041a6ea325579aba08a64" => :high_sierra
-    sha256 "8cd50f2e516f99916d634edf060fc649370f9c8b7f01c6d1c87426567a5df7b0" => :sierra
-    sha256 "2caaa197e42d56794f44d1bfc71363b435920cfe5fdafb6f64af3812e58ceb00" => :el_capitan
+    sha256 "3c216f4b1401cdbb86023c747ed9ad3fa1cb0f34606776f30d896d3340424923" => :high_sierra
+    sha256 "70866bea8bbf3572adb38657904ef2ee112f1092beb8d57a88dd0e68078345cb" => :sierra
+    sha256 "9ab631781179ac6e8b4731f07b94ed53aadb5d0811d8185bb39332d697dec7ef" => :el_capitan
   end
 
   depends_on "httpd" => [:build, :test]
@@ -286,7 +286,7 @@ class Php < Formula
         <string>#{var}/log/php-fpm.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -3,13 +3,13 @@ class Zbackup < Formula
   homepage "http://zbackup.org"
   url "https://github.com/zbackup/zbackup/archive/1.4.4.tar.gz"
   sha256 "efccccd2a045da91576c591968374379da1dc4ca2e3dec4d3f8f12628fa29a85"
-  revision 6
+  revision 7
 
   bottle do
     cellar :any
-    sha256 "e68198033bdb384d3f0988ff641a15ed74eca20b54d99176cd3c95215aa8371e" => :high_sierra
-    sha256 "9669c67980ca07319479ab94197678a1b2357bb8c77457e9886cb82af0a8d708" => :sierra
-    sha256 "a09a760ce9c152937146d68e113a99c0869b22b80a6fc9ae634f61c06e609126" => :el_capitan
+    sha256 "af4867149c8686ea58d2e18edfc18b29f812fbe092501cfcd50fef06a4b73fd7" => :high_sierra
+    sha256 "397c4163264157dc13f1d8053807cb10b3f0a22fda8b327c3a9915243e1c1bd7" => :sierra
+    sha256 "256f34b8eb0459de6aaeb495521dc9f67d3d6497c65ed1dc37dfa65808cf34cd" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -29,7 +29,11 @@ class Zbackup < Formula
     sha256 "060491c216a145d34a8fd3385b138630718579404e1a2ec2adea284a52699672"
   end
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+
     # Avoid collision with protobuf 3.x CHECK macro
     inreplace [
       "backup_creator.cc",

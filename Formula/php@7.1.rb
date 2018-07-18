@@ -1,13 +1,13 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.1.18.tar.xz/from/this/mirror"
-  sha256 "8bd91cea072ea5b368cc9b4533a1a683eb426abdacbf024bb6ffa9b799cd3b01"
+  url "https://php.net/get/php-7.1.19.tar.xz/from/this/mirror"
+  sha256 "7cab88f269b90a8a38dbcccf3ec0d5c6eba86122431a53eaa94405bbb60370a8"
 
   bottle do
-    sha256 "922bfd73344c9ca4fd43d04e85c8e540f83df89058e0eac29e4acae7de8e8df5" => :high_sierra
-    sha256 "4925aad5e5aaae1253174c3e633ecb16084d358dbc236fb33038d8e8e3f3a281" => :sierra
-    sha256 "d0c66db81df9183c836b003f99e80c2cc2b136b796c933090121f48fa8c6a070" => :el_capitan
+    sha256 "982d32bef81178a517a9f234f2f47f5797ff49a86cc7f3fc6da44c2880b0e49c" => :high_sierra
+    sha256 "bb6fecb74b9687a32ca55d097d72e6e167e8edc63046e819fb730ef95aec857c" => :sierra
+    sha256 "be33a4552f0cb47999e117849377beb2ceb0d168e3599237830c89102c96d466" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -290,7 +290,7 @@ class PhpAT71 < Formula
         <string>#{var}/log/php-fpm.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

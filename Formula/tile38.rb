@@ -1,15 +1,15 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
   homepage "http://tile38.com"
-  url "https://github.com/tidwall/tile38/archive/1.12.2.tar.gz"
-  sha256 "c8301f42fc479423751ee485881e80051f3d566d49d24b91c802b7011096dc8e"
+  url "https://github.com/tidwall/tile38/archive/1.12.3.tar.gz"
+  sha256 "cce456df7a98a8901e3c6d7d468a9b20e841475cb255493ce368b991d1ab8d95"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0a26c17203bc3d40326653a0b541527ba6920863e882c91d8c3de54a70079608" => :high_sierra
-    sha256 "6bde0d100a12cb3091bb878d6dc6a0408497efed05829e3ab3ad21b1da9f80a8" => :sierra
-    sha256 "307e57b5862a59b0398d090cbf8215f7fce2b58c8ccaa480b2bc102ddb3068f3" => :el_capitan
+    sha256 "bc285c25b979226de61fe087c90b9d6c3582514c54d2a911b633c611c5ded766" => :high_sierra
+    sha256 "e075a2b606cb8bd29bce4187647985c23049a2f1e4dee756c88bb274b1f4ccf9" => :sierra
+    sha256 "14dc2cbbd5b28b952e34eea1156ffd856b18c22da74580b404aba0b481389086" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -33,7 +33,7 @@ class Tile38 < Formula
 
   def caveats; <<~EOS
     To connect: tile38-cli
-    EOS
+  EOS
   end
 
   plist_options :manual => "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
@@ -66,7 +66,7 @@ class Tile38 < Formula
         <string>#{var}/log/tile38.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

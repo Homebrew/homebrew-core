@@ -5,13 +5,14 @@ class Khard < Formula
   homepage "https://github.com/scheibler/khard/"
   url "https://files.pythonhosted.org/packages/19/91/6309d5b0477582b9b663cd65f1346cec6ed5f44e734bac722e1ca2ddc1e3/khard-0.12.2.tar.gz"
   sha256 "9193d2d07cdb69cc6e35a0732111efb92bbfba854a1dd42b4f9c91a52a16c507"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "db7eeae4d9861620a26eeab74e37f02ea3b31793f94dd5785d50cdd607c151a3" => :high_sierra
-    sha256 "0252064179ba0a9218700e6a51eb57a3502b52fedd6b248996186ddcb67ad58b" => :sierra
-    sha256 "f593c204aa806a82569194d72a93bf111e0ef8a1f8a0dc040d67f1e55f2785f9" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "1162f54e63301517898aa57f2662a862e187b3ea2eed50969c920f2b5109c14f" => :high_sierra
+    sha256 "9e52f82a2c6189e6d6d0d6f47a725c6ea87beef2054338ff0e1dcf9a4facd0a8" => :sierra
+    sha256 "61c299501d8c6395fe825e7858835a35281019e6d35710715e73ee616d6d056b" => :el_capitan
   end
 
   depends_on "python"
@@ -32,13 +33,13 @@ class Khard < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/8f/39/77c555d68d317457a10a30f4a92ae4a315a4ee0e05e9af7c0ac5c301df10/ruamel.yaml-0.15.35.tar.gz"
-    sha256 "8dc74821e4bb6b21fb1ab35964e159391d99ee44981d07d57bf96e2395f3ef75"
+    url "https://files.pythonhosted.org/packages/22/ad/8d19322e77f00f261f2dfe28e22b717f1550b3defe454d3e6b7a9874c48c/ruamel.yaml-0.15.41.tar.gz"
+    sha256 "4576b346e86deeebb80eb1b89753f805d9781cfe6111ba4d268f45d2693c8270"
   end
 
   resource "six" do
@@ -57,7 +58,6 @@ class Khard < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
     (etc/"khard").install "misc/khard/khard.conf.example"
     zsh_completion.install "misc/zsh/_khard"

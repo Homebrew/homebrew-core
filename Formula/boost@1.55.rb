@@ -1,34 +1,9 @@
 class BoostAT155 < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org"
+  url "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
+  sha256 "fff00023dd79486d444c8e29922f4072e1d451fc5a4d2b6075852ead7f2b7b52"
   revision 1
-
-  stable do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2"
-    sha256 "fff00023dd79486d444c8e29922f4072e1d451fc5a4d2b6075852ead7f2b7b52"
-
-    # Patches boost::atomic for LLVM 3.4 as it is used on OS X 10.9 with Xcode 5.1
-    # https://github.com/Homebrew/homebrew/issues/27396
-    # https://github.com/Homebrew/homebrew/pull/27436
-    patch :p2 do
-      url "https://github.com/boostorg/atomic/commit/6bb71fdd.diff?full_index=1"
-      sha256 "1574ef5c1c3ec28cf3786e40e4a8608f2bbb1c426ef2f14a2515e7a1a9313fab"
-    end
-
-    patch :p2 do
-      url "https://github.com/boostorg/atomic/commit/e4bde20f.diff?full_index=1"
-      sha256 "fa6676d83993c59e3566fff105f7e99c193a54ef7dba5c3b327ebdb5b6dcba37"
-    end
-
-    # Patch fixes upstream issue reported here (https://svn.boost.org/trac/boost/ticket/9698).
-    # Will be fixed in Boost 1.56 and can be removed once that release is available.
-    # See this issue (https://github.com/Homebrew/homebrew/issues/30592) for more details.
-
-    patch :p2 do
-      url "https://github.com/boostorg/chrono/commit/143260d.diff?full_index=1"
-      sha256 "96ba2f3a028df323e9bdffb400cc7c30c0c67e3d681c8c5a867c40ae0549cb62"
-    end
-  end
 
   bottle do
     cellar :any
@@ -60,6 +35,28 @@ class BoostAT155 < Formula
     else
       depends_on "icu4c"
     end
+  end
+
+  # Patches boost::atomic for LLVM 3.4 as it is used on OS X 10.9 with Xcode 5.1
+  # https://github.com/Homebrew/homebrew/issues/27396
+  # https://github.com/Homebrew/homebrew/pull/27436
+  patch :p2 do
+    url "https://github.com/boostorg/atomic/commit/6bb71fdd.diff?full_index=1"
+    sha256 "1574ef5c1c3ec28cf3786e40e4a8608f2bbb1c426ef2f14a2515e7a1a9313fab"
+  end
+
+  patch :p2 do
+    url "https://github.com/boostorg/atomic/commit/e4bde20f.diff?full_index=1"
+    sha256 "fa6676d83993c59e3566fff105f7e99c193a54ef7dba5c3b327ebdb5b6dcba37"
+  end
+
+  # Patch fixes upstream issue reported here (https://svn.boost.org/trac/boost/ticket/9698).
+  # Will be fixed in Boost 1.56 and can be removed once that release is available.
+  # See this issue (https://github.com/Homebrew/homebrew/issues/30592) for more details.
+
+  patch :p2 do
+    url "https://github.com/boostorg/chrono/commit/143260d.diff?full_index=1"
+    sha256 "96ba2f3a028df323e9bdffb400cc7c30c0c67e3d681c8c5a867c40ae0549cb62"
   end
 
   def install

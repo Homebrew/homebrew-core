@@ -163,7 +163,7 @@ class PostgresXc < Formula
       FATAL:  could not create shared memory segment: Cannot allocate memory
     then you need to tweak your system's shared memory parameters:
       https://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -203,7 +203,7 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def gtm_proxy_startup_plist(name); <<~EOS
@@ -237,7 +237,7 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def coordinator_startup_plist(name); <<~EOS
@@ -267,7 +267,7 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def datanode_startup_plist(name); <<~EOS
@@ -297,7 +297,7 @@ class PostgresXc < Formula
       <string>#{var}/postgres-xc/#{name}/server.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,12 +1,12 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.5.tar.gz"
-  sha256 "b99535800925b5c5a9a103fdad37559b6cde13e7cdce72310f32ff105ec615df"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.0.tar.gz"
+  sha256 "34a15085ed65413add38f68028bccebb3e9462777c15e42c1fb291a5c9440798"
 
   bottle do
-    sha256 "1da3328941f24fbc9a6c4b37862d050409600050bec90e45da4dbdfbb01b6104" => :high_sierra
-    sha256 "7f5edaf2742797edb1a68705c9ecb5bc205f0e2ace517c41439949ad3cdb0e6c" => :sierra
+    sha256 "3a024cfb577d8e4d8edd36565228a461ae5f83b8a3157e8890d60489e09cfee2" => :high_sierra
+    sha256 "bb3afc5ecf2ab6ff5246184645461779ea68c523849f6467b35799aea4c923fc" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -120,7 +120,7 @@ class Mongodb < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -160,7 +160,7 @@ class Mongodb < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

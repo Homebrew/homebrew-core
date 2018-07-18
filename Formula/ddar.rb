@@ -4,7 +4,6 @@ class Ddar < Formula
   url "https://github.com/basak/ddar/archive/v1.0.tar.gz"
   sha256 "b95a11f73aa872a75a6c2cb29d91b542233afa73a8eb00e8826633b8323c9b22"
   revision 5
-
   head "https://github.com/basak/ddar.git"
 
   bottle do

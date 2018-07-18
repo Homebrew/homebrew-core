@@ -54,7 +54,7 @@ class Stk < Formula
       #include \"stk/FileWvOut.h\"
 
     src/ projects/ and rawwaves/ have all been copied to #{opt_pkgshare}
-    EOS
+  EOS
   end
 
   test do

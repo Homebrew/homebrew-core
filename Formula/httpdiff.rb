@@ -3,7 +3,6 @@ class Httpdiff < Formula
   homepage "https://github.com/jgrahamc/httpdiff"
   url "https://github.com/jgrahamc/httpdiff/archive/v1.0.0.tar.gz"
   sha256 "b2d3ed4c8a31c0b060c61bd504cff3b67cd23f0da8bde00acd1bfba018830f7f"
-
   head "https://github.com/jgrahamc/httpdiff.git"
 
   bottle do

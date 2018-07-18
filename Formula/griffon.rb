@@ -15,7 +15,7 @@ class Griffon < Formula
   def caveats; <<~EOS
     You should set the environment variable GRIFFON_HOME to:
       #{libexec}
-    EOS
+  EOS
   end
 
   test do

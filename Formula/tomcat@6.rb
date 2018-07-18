@@ -31,7 +31,7 @@ class TomcatAT6 < Formula
     These are likely to conflict with support scripts used by other Java-based
     server software.
     You can add #{bin} to your PATH instead.
-    EOS
+  EOS
   end
 
   test do

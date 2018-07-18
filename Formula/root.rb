@@ -1,16 +1,16 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.12.06.source.tar.gz"
-  version "6.12.06"
-  sha256 "aedcfd2257806e425b9f61b483e25ba600eb0ea606e21262eafaa9dc745aa794"
-  revision 3
+  url "https://root.cern.ch/download/root_v6.14.00.source.tar.gz"
+  version "6.14.00"
+  sha256 "7946430373489310c2791ff7a3520e393dc059db1371272bcd9d9cf0df347a0b"
+  revision 1
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "ed8481c2e70cfc1e8b3c6db4abb1c5183411bacd1a0ef85d43f2b74f78f0c778" => :high_sierra
-    sha256 "114e5f3770b197f3167ef6fe39f3e59ff3c9e32357c6e506f3ea99390ab8f546" => :sierra
-    sha256 "6ab46e6d06c27b9719baa53857696c97d445b605fcda3a80f3e1ebb893519c99" => :el_capitan
+    sha256 "d21e759311b538c11f5ddf870ca676e23f8255628dd571f9af8c88c911a80b38" => :high_sierra
+    sha256 "211c63b9860f5801d88e8f5a6c8a01eadcf4f31133e55a7d0099abe0a8881977" => :sierra
+    sha256 "b35598bcca5c050ec6e410f56602433b010747add394cbf3c5019757c90bb78f" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -31,6 +31,12 @@ class Root < Formula
   needs :cxx11
 
   skip_clean "bin"
+
+  # Upstream PR from 30 Jun 2018 "Fixes for Python 3.7"
+  patch do
+    url "https://github.com/root-project/root/pull/2276.patch?full_index=1"
+    sha256 "5c8e404a01b7df801c7fa6ec7c54d0ebfc0f46086b58f34340822e89fc67a750"
+  end
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
@@ -123,7 +129,7 @@ class Root < Formula
       pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source #{HOMEBREW_PREFIX}/bin/thisroot.csh
-    EOS
+  EOS
   end
 
   test do

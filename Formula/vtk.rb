@@ -120,7 +120,7 @@ class Vtk < Formula
     from python. Alternatively, you can integrate the RenderWindowInteractor
     in PyQt5, Tk or Wx at runtime. Read more:
       import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
-    EOS
+  EOS
   end
 
   test do

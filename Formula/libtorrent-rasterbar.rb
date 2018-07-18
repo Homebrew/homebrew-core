@@ -1,14 +1,14 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_7/libtorrent-rasterbar-1.1.7.tar.gz"
-  sha256 "8133bf683308decc24da22aff17437e36c522d8959bcf934e94cf7a3a567f3a9"
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_8/libtorrent-rasterbar-1.1.8.tar.gz"
+  sha256 "6bbf8fd0430e27037b09a870c89cfc330ea41816102fe1d1d16cc7428df08d5d"
 
   bottle do
     cellar :any
-    sha256 "5b4a43e6bb49e3833e10f531681d4841eac8175036a9ecaad6b54f7ab85ca65f" => :high_sierra
-    sha256 "760221d15d7d1974ae23d684d040738b7053ddafa3177991e59f77d610ea6165" => :sierra
-    sha256 "92872796f8a352da0d68a5bca3c8c897097cc9614be320cc34728e4c3024dc65" => :el_capitan
+    sha256 "1280b22567f54fa05bcd358464ed03f5c12f07ea23f9fc5127b72e1b6ccf70ca" => :high_sierra
+    sha256 "4c6c1563de89fa732ea42d49500d42543218fd51242464049801dc2a4da99bf8" => :sierra
+    sha256 "b96a59b3ce98462fb748a5fa6260c1a9157554515e38cf025d14972bb17ffc15" => :el_capitan
   end
 
   head do
@@ -25,20 +25,6 @@ class LibtorrentRasterbar < Formula
   depends_on "python@2" => :optional
   depends_on "boost"
   depends_on "boost-python" if build.with? "python@2"
-
-  # Remove for > 1.1.7
-  # Upstream commit from 11 Apr 2018 "fix boost-1.67 build"
-  patch do
-    url "https://github.com/arvidn/libtorrent/commit/64d6b49004.patch?full_index=1"
-    sha256 "97987e7ec1100c3ae9a0a0b82c1c2237672f15d2abc3b1707c6c8b328c37ce32"
-  end
-
-  # Remove for > 1.1.7
-  # Upstream commit from 12 Apr 2018 "another boost-1.67 build fix"
-  patch do
-    url "https://github.com/arvidn/libtorrent/commit/9cd0ae67e7.patch?full_index=1"
-    sha256 "185d59167d89884849408e7ff831badd3fbf4048b48b634e847134b4a8033299"
-  end
 
   def install
     ENV.cxx11

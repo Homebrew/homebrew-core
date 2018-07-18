@@ -52,7 +52,7 @@ class Flatcc < Formula
 
       root_type Monster;
 
-      EOS
+    EOS
 
     system bin/"flatcc", "-av", "--json", "test.fbs"
   end

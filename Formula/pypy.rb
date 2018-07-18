@@ -1,20 +1,16 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  revision 1
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-src.tar.bz2"
+  sha256 "6097ec5ee23d0d34d8cd27a1072bed041c8a080ad48731190a03a2223029212d"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
-
-  stable do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v5.10.0-src.tar.bz2"
-    sha256 "1209f2db718e6afda17528baa5138177a14a0938588a7d3e1b7c722c483079a8"
-  end
 
   bottle do
     cellar :any
     rebuild 1
-    sha256 "40d581a2b3e662160b7b3bd5b2131c2e116f2df791e535832916a8fad7b26bfa" => :high_sierra
-    sha256 "f8908de47b79985e94b07914bb253d8d5351a899e1a6f3226dc5e395f7eb3603" => :sierra
-    sha256 "7e6e949fc271a9a788d85a639c077e07408a2bcebed25b4a128e5ccf82acf0f3" => :el_capitan
+    sha256 "6dcfb7237a5e140e1553ed17765e831d9011ab9b94cab7ef17afe03b5ff73843" => :high_sierra
+    sha256 "0ed2c2f9624ca5bbd48bc730378304ddfc22838edeb566c461ce574deba311df" => :sierra
+    sha256 "639304dfa0d74fef27ad2566ececf3514288a87e471fb5f147ae4726c0a1f798" => :el_capitan
   end
 
   option "without-bootstrap", "Translate Pypy with system Python instead of " \
@@ -29,18 +25,19 @@ class Pypy < Formula
   depends_on "openssl"
 
   resource "bootstrap" do
-    url "https://bitbucket.org/pypy/pypy/downloads/pypy-2.5.0-osx64.tar.bz2"
-    sha256 "30b392b969b54cde281b07f5c10865a7f2e11a229c46b8af384ca1d3fe8d4e6e"
+    url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"
+    version "6.0.0"
+    sha256 "d7dc443e6bb9a45212e8d8f5a63e9f6ce23f1d88c50709efea1c75b76c8bc186"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/a4/c8/9a7a47f683d54d83f648d37c3e180317f80dc126a304c45dc6663246233a/setuptools-36.5.0.zip"
-    sha256 "ce2007c1cea3359870b80657d634253a0765b0c7dc5a988d77ba803fc86f2c64"
+    url "https://files.pythonhosted.org/packages/1a/04/d6f1159feaccdfc508517dba1929eb93a2854de729fa68da9d5c6b48fa00/setuptools-39.2.0.zip"
+    sha256 "f7cddbb5f5c640311eb00eab6e849f7701fa70bf6a183fc8a2c33dd1d1672fb2"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
-    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
+    url "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz"
+    sha256 "f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68"
   end
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
@@ -70,7 +67,7 @@ class Pypy < Formula
       package_args = %w[--archive-name pypy --targetdir .]
       package_args << "--without-gdbm" if build.without? "gdbm"
       system python, "package.py", *package_args
-      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xzf", "pypy.tar.bz2"
+      system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy.tar.bz2"
     end
 
     (libexec/"lib").install libexec/"bin/libpypy-c.dylib"
@@ -142,7 +139,7 @@ class Pypy < Formula
         pip_pypy install --upgrade pip setuptools
 
     See: https://docs.brew.sh/Homebrew-and-Python
-    EOS
+  EOS
   end
 
   # The HOMEBREW_PREFIX location of site-packages

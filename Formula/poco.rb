@@ -4,7 +4,6 @@ class Poco < Formula
   url "https://pocoproject.org/releases/poco-1.9.0/poco-1.9.0-all.tar.gz"
   sha256 "0387bf0f9d313e2311742e1ad0b64e07f2f3e76039eed20e3b9aa9951b88e187"
   revision 1
-
   head "https://github.com/pocoproject/poco.git", :branch => "develop"
 
   bottle do

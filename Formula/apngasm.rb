@@ -3,7 +3,6 @@ class Apngasm < Formula
   homepage "https://github.com/apngasm/apngasm"
   url "https://github.com/apngasm/apngasm/archive/3.1.6.tar.gz"
   sha256 "0068e31cd878e07f3dffa4c6afba6242a753dac83b3799470149d2e816c1a2a7"
-
   head "https://github.com/apngasm/apngasm.git"
 
   bottle do

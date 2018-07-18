@@ -1,28 +1,22 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.313-with-extensions-src.tgz"
-  sha256 "c48e5e05b427cae0d862daaef6148675d5ef57e24425c17b4c3d8da5b060eabd"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz"
+  sha256 "79d794636bdb7962b8aa7023aa9f01b3fc7bbbee333b544947f86451515d8ac3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "823d5ae47d74dae6111ccbfc2dcd55f0ea3bfc956611633734a3d8ac3ac004a5" => :high_sierra
-    sha256 "966cfbb27be12a9d0fd0bda110fe112828225f5ebfc3b9eeb416314c97282ac1" => :sierra
-    sha256 "ecba2c513890512392db67b4832d9f70d0ea7dd52db9832e7c508764a7d93c76" => :el_capitan
+    sha256 "ff0119ff36cfdc7b40fad648d5f417a1ec59d50748bf21e18ee3a11dd37d4bf8" => :high_sierra
+    sha256 "9ca6bfbdb2d1d95077e2963763f25c8e1e68147f88576eb3328176f31e047223" => :sierra
+    sha256 "a5995ed3fff7986d3ee00401f81db8a9ae0412a75a4a457b459911c0fa64f831" => :el_capitan
   end
 
   depends_on :macos => :lion
 
   def install
     make_args = %W[CC=#{ENV.cc} CXX=#{ENV.cxx} PREFIX=#{prefix} install]
-
-    cd "core" do
-      system "make", *make_args
-    end
-
-    cd "extensions" do
-      system "make", *make_args
-    end
+    system "make", "-C", "core", *make_args
+    system "make", "-C", "extensions", *make_args
   end
 
   test do

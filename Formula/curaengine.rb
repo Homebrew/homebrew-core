@@ -3,7 +3,6 @@ class Curaengine < Formula
   homepage "https://github.com/Ultimaker/CuraEngine"
   url "https://github.com/Ultimaker/CuraEngine/archive/15.04.tar.gz"
   sha256 "d577e409b3e9554e7d2b886227dbbac6c9525efe34df4fc7d62e9474a2d7f965"
-
   head "https://github.com/Ultimaker/CuraEngine.git"
 
   bottle do

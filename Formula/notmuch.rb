@@ -1,15 +1,15 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org"
-  url "https://notmuchmail.org/releases/notmuch-0.26.2.tar.gz"
-  sha256 "109c1865db7a035d08707421d13e9b6b82ee8e9f1534db70c28c51bc39370e3b"
+  url "https://notmuchmail.org/releases/notmuch-0.27.tar.gz"
+  sha256 "40d3192f8f130f227b511fc80be86310c7f60ccb6d043b563f201fa505de0876"
   head "git://notmuchmail.org/git/notmuch"
 
   bottle do
     cellar :any
-    sha256 "b17b05c7c1825b5646c85f6babb6b01a5a6cf802bcee1ec445a563b1f7d6f138" => :high_sierra
-    sha256 "67cf06b561bd36c14220e3ac3920a9849c4e5c4cd2d4b2528e9bed24aaa8326c" => :sierra
-    sha256 "1a5e8f8482e66d4ace8a0fb1fef32d7f5cb38f710416b0f015fa37e3b8155c80" => :el_capitan
+    sha256 "4695a937a8e9debbeb27dfd880c7ecef2ae52b3efbaa124fe11417c6891856f1" => :high_sierra
+    sha256 "a0d4a811d4f7c28de66361b669269198614b73e987e26d2ed5a7238786167766" => :sierra
+    sha256 "3f2af1545594e7a3c2d42643dfabbdc4ba5a106bfd7927e325cea3bcc68e979c" => :el_capitan
   end
 
   option "without-python@2", "Build without python2 support"
@@ -55,6 +55,15 @@ class Notmuch < Formula
 
     system "./configure", *args
     system "make", "V=1", "install"
+
+    if build.with? "ruby"
+      cd "bindings/ruby" do
+        # Prevent Makefile from trying to break free of the
+        # sandbox and mkdir in HOMEBREW_PREFIX.
+        inreplace "Makefile", HOMEBREW_PREFIX/"lib/ruby", lib/"ruby"
+        system "make", "install"
+      end
+    end
 
     Language::Python.each_python(build) do |python, _version|
       cd "bindings/python" do

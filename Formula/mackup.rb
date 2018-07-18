@@ -3,7 +3,6 @@ class Mackup < Formula
   homepage "https://github.com/lra/mackup"
   url "https://github.com/lra/mackup/archive/0.8.18.tar.gz"
   sha256 "b4cbc729213717e5343371c682e098518fbd0be2209366a7f1b22c9ba6d1afa4"
-
   head "https://github.com/lra/mackup.git"
 
   bottle do

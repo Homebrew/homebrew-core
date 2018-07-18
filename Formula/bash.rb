@@ -1,7 +1,6 @@
 class Bash < Formula
   desc "Bourne-Again SHell, a UNIX command interpreter"
   homepage "https://www.gnu.org/software/bash/"
-
   head "https://git.savannah.gnu.org/git/bash.git"
 
   stable do
@@ -73,7 +72,7 @@ class Bash < Formula
   def caveats; <<~EOS
     In order to use this build of bash as your login shell,
     it must be added to /etc/shells.
-    EOS
+  EOS
   end
 
   test do

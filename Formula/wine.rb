@@ -9,9 +9,9 @@ class Wine < Formula
   homepage "https://www.winehq.org/"
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.1.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.1.tar.xz"
-    sha256 "bad00d7ddac6652795a2ed52ce02a544ff4e891499b29ac71d28d20b8e1d26f3"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.2.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.2.tar.xz"
+    sha256 "cad771375409e24244eab252da044306158af8a8bea4432e7ca81c1dc6b463ff"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -27,15 +27,15 @@ class Wine < Formula
   end
 
   bottle do
-    sha256 "f0c697164404375380aeceb8da50a20c016d478b96d699e728d25a2d62708cf8" => :high_sierra
-    sha256 "d7ed7514a75d6bcd95d8e071225be110fde1e4d993a031a5a911394903746739" => :sierra
-    sha256 "8bc2edc35598406cc8248c83f46924934b83f314e2c8c70b0e7f3907f514d359" => :el_capitan
+    sha256 "4d7fa8c1a88cb76728e8d86fa03033964f77aa8cd8472ee1c19fce650f87dccb" => :high_sierra
+    sha256 "bca645d1f6b878e2d59a2f02f9a99da3263f72d95b8c60c803483965d9de9c5d" => :sierra
+    sha256 "790786a9ff4c3b8018f4701e0e9191099304e9105f885757d804151ca33d06df" => :el_capitan
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/3.x/wine-3.9.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.9.tar.xz"
-    sha256 "ccadc281966d5a94f1161dec22d29bf7bd6506b371b26f18f652d374e986b735"
+    url "https://dl.winehq.org/wine/source/3.x/wine-3.12.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.12.tar.xz"
+    sha256 "db84c059d6897809f4bb34024c021d129c73f6d2a5ae4e7ea79ba30040ab787f"
 
     resource "mono" do
       url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
@@ -144,8 +144,7 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+    url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
     mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
     sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   end
@@ -213,6 +212,7 @@ class Wine < Formula
           system "make", "clean"
           system "perl", "./Configure", "--prefix=#{libexec}",
                                         "no-ssl2",
+                                        "no-ssl3",
                                         "no-zlib",
                                         "shared",
                                         "enable-cms",
@@ -251,7 +251,7 @@ class Wine < Formula
             #ifdef __#{arch}__
             #{(Pathname.pwd/"build-#{arch}/opensslconf.h").read}
             #endif
-            EOS
+          EOS
         end
         (libexec/"include/openssl/opensslconf.h").atomic_write confs.join("\n")
       end
@@ -473,7 +473,7 @@ class Wine < Formula
   def caveats; <<~EOS
     You may also want winetricks:
       brew install winetricks
-    EOS
+  EOS
   end
 
   test do

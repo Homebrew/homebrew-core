@@ -1,14 +1,14 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://www.ifdo.ca/~seymour/runabc/top.html"
-  url "https://www.ifdo.ca/~seymour/runabc/abcMIDI-2018.05.02.zip"
-  sha256 "052ec1be41b39b9de175c9f1ae7d64d8deff8a97e35af66284c54cc12dbe8d38"
+  url "https://www.ifdo.ca/~seymour/runabc/abcMIDI-2018.06.23.zip"
+  sha256 "3018b467c17dabee92d728c2a344100928efc8791922f3d889099722db68c1f0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "711809a5de09f97b89d6e600f0eb7561061cc9269175c14bce863ee1d3687a6b" => :high_sierra
-    sha256 "2298eed6f8b0c1426ed6729bc0bd77de68bc2615dd07df4f5bcd3e0116d5501f" => :sierra
-    sha256 "98fcfb9fc06659530f3c1ec95d779b581c74853f087a4784abd2823ddce2abce" => :el_capitan
+    sha256 "b3559c7dff532dafb8072a9edaea4ea84f6e9fec7f33e4ffdd61a400cb47ada9" => :high_sierra
+    sha256 "1af2dda55544c81d912410262bf2d6795da221fa1877df125cd8f7cca33ce971" => :sierra
+    sha256 "bd75e233967a9c45173f539768596ece1ba1ed6e3976a52da61dd4ecd733c3d5" => :el_capitan
   end
 
   def install

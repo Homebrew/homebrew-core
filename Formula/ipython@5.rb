@@ -3,7 +3,6 @@ class IpythonAT5 < Formula
   homepage "https://ipython.org/"
   url "https://files.pythonhosted.org/packages/3c/fd/559fead731a29eaa55cc235c8029807b2520976a937c30e9ee603f3bb566/ipython-5.7.0.tar.gz"
   sha256 "8db43a7fb7619037c98626613ff08d03dda9d5d12c84814a4504c78c0da8323c"
-  head "https://github.com/ipython/ipython.git", :branch => "5.x"
 
   bottle do
     cellar :any

@@ -1,6 +1,6 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
-  homepage "http://git.kernel.dk/cgit/fio/"
+  homepage "https://github.com/axboe/fio"
   url "https://github.com/axboe/fio/archive/fio-3.7.tar.gz"
   sha256 "15643de9c02b8ccae0dac287c5f421a7271d81b2600d6ed87b40e430a9f444b3"
 

@@ -1,6 +1,6 @@
 class Lolcode < Formula
   desc "Esoteric programming language"
-  homepage "http://lolcode.org"
+  homepage "https://lolcode.org/"
   # NOTE: 0.10.* releases are stable, 0.11.* is dev. We moved over to
   # 0.11.x accidentally, should move back to stable when possible.
   url "https://github.com/justinmeza/lci/archive/v0.11.2.tar.gz"

@@ -1,12 +1,12 @@
 class Ballerina < Formula
   desc "The flexible, powerful and beautiful programming language"
-  homepage "https://ballerinalang.org/"
-  url "https://ballerinalang.org/downloads/ballerina-tools/ballerina-tools-0.964.0.zip"
-  sha256 "0ea872b63807e7e59105a353e9f7b571d8321526e3defe6a1773dc44fb6c0c7c"
+  homepage "https://ballerina.io/"
+  url "https://product-dist.ballerina.io/downloads/0.975.1/ballerina-platform-0.975.1.zip"
+  sha256 "f942dc41b975c601a75c49fd62a9eb59aa4f2b21025cabe74f32b9c7f5b5b186"
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.8"
 
   def install
     # Remove Windows files
@@ -26,15 +26,15 @@ class Ballerina < Formula
       s.gsub! /\r?/, ""
     end
 
+    bin.install "bin/ballerina", "bin/composer"
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/ballerina"
-    bin.install_symlink libexec/"bin/composer"
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
     (testpath/"helloWorld.bal").write <<~EOS
-      import ballerina.io;
-      function main (string[] args) {
+      import ballerina/io;
+      function main(string... args) {
         io:println("Hello, World!");
       }
     EOS

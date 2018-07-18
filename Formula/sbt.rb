@@ -31,7 +31,7 @@ class Sbt < Formula
     You can use $SBT_OPTS to pass additional JVM options to SBT.
     Project specific options should be placed in .sbtopts in the root of your project.
     Global settings should be placed in #{etc}/sbtopts
-    EOS
+  EOS
   end
 
   test do

@@ -1,14 +1,14 @@
 class Yaws < Formula
   desc "Webserver for dynamic content (written in Erlang)"
   homepage "http://yaws.hyber.org"
-  url "http://yaws.hyber.org/download/yaws-2.0.5.tar.gz"
-  sha256 "be82d1b5bcd9d32406244eb4f542e653a2d9d82cf34bc3c61e15d26e84db7601"
+  url "http://yaws.hyber.org/download/yaws-2.0.6.tar.gz"
+  sha256 "69f96f8b9bb574b129b0f258fb8437fdfd8369d55aabc2b5a94f577dde49d00e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab5721cc9ab06a514c79620bcf61fb5fd728d7815bf66b3bb69543f020b5ecf8" => :high_sierra
-    sha256 "e3a910676bed399eaa98a02ded3cdf1ba42bd5470a1f09f5e9ab9f13e63132d0" => :sierra
-    sha256 "252fc874a319092c66cf032d31639674ad9298cf2664363542ba25e037612d44" => :el_capitan
+    sha256 "6dddeec2cbce08b47d7b14e31d04b6e2e803965c47f44258dfd136b23f2e531c" => :high_sierra
+    sha256 "5eb3a9b15641e43e00b9ffb4626d32fa2931a57b1f492c2b2a641036005d6f1e" => :sierra
+    sha256 "f04163aed1bfe0397bc639d9903f80de457ca4391789049fc13e4f8a6410c798" => :el_capitan
   end
 
   head do
@@ -21,7 +21,7 @@ class Yaws < Formula
 
   option "without-yapp", "Omit yaws applications"
 
-  depends_on "erlang"
+  depends_on "erlang@20"
 
   # the default config expects these folders to exist
   skip_clean "var/log/yaws"

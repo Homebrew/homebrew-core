@@ -34,7 +34,7 @@ class Libomp < Formula
     For CMake, the following flags will cause the OpenMP::OpenMP_CXX target to
     be set up correctly:
       -DOpenMP_CXX_FLAGS="-Xpreprocessor -fopenmp -I#{opt_include}" -DOpenMP_CXX_LIB_NAMES="omp" -DOpenMP_omp_LIBRARY=#{opt_lib}/libomp.dylib
-    EOS
+  EOS
   end
 
   test do
@@ -53,7 +53,7 @@ class Libomp < Formula
         else
             return 1;
       }
-      EOS
+    EOS
     system ENV.cxx, "-Werror", "-Xpreprocessor", "-fopenmp", "test.cpp",
                     "-L#{lib}", "-lomp", "-o", "test"
     system "./test"

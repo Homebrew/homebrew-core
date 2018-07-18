@@ -2,7 +2,7 @@ class CodesignRequirement < Requirement
   fatal true
 
   satisfy(:build_env => false) do
-    FileUtils.mktemp do
+    mktemp do
       FileUtils.cp "/usr/bin/false", "llvm_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
     end
@@ -19,112 +19,14 @@ end
 class LlvmAT5 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-
-  stable do
-    url "https://releases.llvm.org/5.0.1/llvm-5.0.1.src.tar.xz"
-    sha256 "5fa7489fc0225b11821cab0362f5813a05f2bcf2533e8a4ea9c9c860168807b0"
-
-    resource "clang" do
-      url "https://releases.llvm.org/5.0.1/cfe-5.0.1.src.tar.xz"
-      sha256 "135f6c9b0cd2da1aff2250e065946258eb699777888df39ca5a5b4fe5e23d0ff"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://releases.llvm.org/5.0.1/clang-tools-extra-5.0.1.src.tar.xz"
-      sha256 "9aada1f9d673226846c3399d13fab6bba4bfd38bcfe8def5ee7b0ec24f8cd225"
-    end
-
-    resource "compiler-rt" do
-      url "https://releases.llvm.org/5.0.1/compiler-rt-5.0.1.src.tar.xz"
-      sha256 "4edd1417f457a9b3f0eb88082530490edf3cf6a7335cdce8ecbc5d3e16a895da"
-    end
-
-    # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
-    # https://clang.llvm.org/get_started.html
-    resource "libcxx" do
-      url "https://releases.llvm.org/5.0.1/libcxx-5.0.1.src.tar.xz"
-      sha256 "fa8f99dd2bde109daa3276d529851a3bce5718d46ce1c5d0806f46caa3e57c00"
-    end
-
-    resource "libunwind" do
-      url "https://releases.llvm.org/5.0.1/libunwind-5.0.1.src.tar.xz"
-      sha256 "6bbfbf6679435b858bd74bdf080386d084a76dfbf233fb6e47b2c28e0872d0fe"
-    end
-
-    resource "lld" do
-      url "https://releases.llvm.org/5.0.1/lld-5.0.1.src.tar.xz"
-      sha256 "d5b36c0005824f07ab093616bdff247f3da817cae2c51371e1d1473af717d895"
-    end
-
-    resource "lldb" do
-      url "https://releases.llvm.org/5.0.1/lldb-5.0.1.src.tar.xz"
-      sha256 "b7c1c9e67975ca219089a3a6a9c77c2d102cead2dc38264f2524aa3326da376a"
-
-      # Fixes "error: no type named 'pid_t' in the global namespace"
-      # https://github.com/Homebrew/homebrew-core/issues/17839
-      # Already fixed in upstream trunk
-      patch do
-        url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
-        sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
-      end
-    end
-
-    resource "openmp" do
-      url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
-      sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
-    end
-
-    resource "polly" do
-      url "https://releases.llvm.org/5.0.1/polly-5.0.1.src.tar.xz"
-      sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
-    end
-  end
+  url "https://releases.llvm.org/5.0.2/llvm-5.0.2.src.tar.xz"
+  sha256 "d522eda97835a9c75f0b88ddc81437e5edbb87dc2740686cb8647763855c2b3c"
 
   bottle do
     cellar :any
-    sha256 "bc1f754761a77c5f9d8ac9ab04a3e6ac1105084bf1e6e24d4ec181042a6605af" => :high_sierra
-    sha256 "c762b37fc89fbc7f71bcae4cd1e9740a40aefd823a8daa8c1f7d43a52eddbeda" => :sierra
-    sha256 "c2efb36438b01e305fd50b556b9acf72d5aba073aa9781a91d25ec7b764fb536" => :el_capitan
-  end
-
-  head do
-    url "https://llvm.org/git/llvm.git", :branch => "release_50"
-
-    resource "clang" do
-      url "https://llvm.org/git/clang.git", :branch => "release_50"
-    end
-
-    resource "clang-extra-tools" do
-      url "https://llvm.org/git/clang-tools-extra.git", :branch => "release_50"
-    end
-
-    resource "compiler-rt" do
-      url "https://llvm.org/git/compiler-rt.git", :branch => "release_50"
-    end
-
-    resource "libcxx" do
-      url "https://llvm.org/git/libcxx.git", :branch => "release_50"
-    end
-
-    resource "libunwind" do
-      url "https://llvm.org/git/libunwind.git", :branch => "release_50"
-    end
-
-    resource "lld" do
-      url "https://llvm.org/git/lld.git", :branch => "release_50"
-    end
-
-    resource "lldb" do
-      url "https://llvm.org/git/lldb.git", :branch => "release_50"
-    end
-
-    resource "openmp" do
-      url "https://llvm.org/git/openmp.git", :branch => "release_50"
-    end
-
-    resource "polly" do
-      url "https://llvm.org/git/polly.git", :branch => "release_50"
-    end
+    sha256 "d76f7ca753dd3464883c0ec21ce6751c7de02b3db9ee4fad19925e5283d902b8" => :high_sierra
+    sha256 "a2eb1622d8ff63b6b38f3611ed5c0d9f5a609468d279d90ae10fb583c3388392" => :sierra
+    sha256 "d240e166d5116243fce9d518da0167678aaa3b17151be702cdf9d38f57f27e54" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -168,6 +70,61 @@ class LlvmAT5 < Formula
   fails_with :gcc
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
+  end
+
+  resource "clang" do
+    url "https://releases.llvm.org/5.0.2/cfe-5.0.2.src.tar.xz"
+    sha256 "fa9ce9724abdb68f166deea0af1f71ca0dfa9af8f7e1261f2cae63c280282800"
+  end
+
+  resource "clang-extra-tools" do
+    url "https://releases.llvm.org/5.0.2/clang-tools-extra-5.0.2.src.tar.xz"
+    sha256 "a3362a854ba4a60336b21a95612f647f4b6de0afd88858f2420e41c5a31b0b05"
+  end
+
+  resource "compiler-rt" do
+    url "https://releases.llvm.org/5.0.2/compiler-rt-5.0.2.src.tar.xz"
+    sha256 "3efe9ddf3f69e0c0a45cde57ee93911f36f3ab5f2a7f6ab8c8efb3db9b24ed46"
+  end
+
+  # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
+  # https://clang.llvm.org/get_started.html
+  resource "libcxx" do
+    url "https://releases.llvm.org/5.0.2/libcxx-5.0.2.src.tar.xz"
+    sha256 "6edf88e913175536e1182058753fff2365e388e017a9ec7427feb9929c52e298"
+  end
+
+  resource "libunwind" do
+    url "https://releases.llvm.org/5.0.2/libunwind-5.0.2.src.tar.xz"
+    sha256 "706e43c69c7be0fdeb55ebdf653cf47ca77e471d1584f1dbf12a568a93df9928"
+  end
+
+  resource "lld" do
+    url "https://releases.llvm.org/5.0.2/lld-5.0.2.src.tar.xz"
+    sha256 "46456d72ec411c6d5327ad3fea1358296f0dfe508caf1fa63ce4184f652e07aa"
+  end
+
+  resource "lldb" do
+    url "https://releases.llvm.org/5.0.2/lldb-5.0.2.src.tar.xz"
+    sha256 "78ba05326249b4d7577db56d16b2a7ffea43fc51e8592b0a1ac4d2ef87514216"
+
+    # Fixes "error: no type named 'pid_t' in the global namespace"
+    # https://github.com/Homebrew/homebrew-core/issues/17839
+    # Already fixed in upstream trunk
+    patch do
+      url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
+      sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
+    end
+  end
+
+  resource "openmp" do
+    url "https://releases.llvm.org/5.0.2/openmp-5.0.2.src.tar.xz"
+    sha256 "39ca542c540608d95d3299a474836a7b5f8377bcc5a68493379872738c28565c"
+  end
+
+  resource "polly" do
+    url "https://releases.llvm.org/5.0.2/polly-5.0.2.src.tar.xz"
+    sha256 "dda84e48b2195768c4ef25893edd5eeca731bed7e80a2376119dfbc3350e91b8"
   end
 
   def build_libcxx?

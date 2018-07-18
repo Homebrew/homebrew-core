@@ -45,7 +45,7 @@ class Transmission < Formula
 
     Alternatively, install with Homebrew-Cask:
       brew cask install transmission
-    EOS
+  EOS
   end
 
   plist_options :manual => "transmission-daemon --foreground"
@@ -76,7 +76,7 @@ class Transmission < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

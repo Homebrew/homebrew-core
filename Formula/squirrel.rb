@@ -44,7 +44,7 @@ class Squirrel < Formula
     Requires:
     Libs: -L${libdir} -lsquirrel -lsqstdlib
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   test do

@@ -3,7 +3,6 @@ class Libgosu < Formula
   homepage "https://libgosu.org"
   url "https://github.com/gosu/gosu/archive/v0.13.3.tar.gz"
   sha256 "2ff0f1ed31aa5b8c2763577b9a27cf315bff30d3405fcb4661909e67163add01"
-
   head "https://github.com/gosu/gosu.git"
 
   bottle do

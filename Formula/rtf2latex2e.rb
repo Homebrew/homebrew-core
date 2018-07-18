@@ -18,7 +18,7 @@ class Rtf2latex2e < Formula
   def caveats; <<~EOS
     Configuration files have been installed to:
       #{opt_pkgshare}
-    EOS
+  EOS
   end
 
   test do

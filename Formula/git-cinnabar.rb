@@ -32,9 +32,9 @@ class GitCinnabar < Formula
 
   devel do
     url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.5.0b3",
-        :revision => "e47124aa510a3b01409c260c2659666d885ae62f"
-    version "0.5.0b3"
+        :tag => "0.5.0b4",
+        :revision => "125ae46f06383fd69c6b9febac9a33317d12b368"
+    version "0.5.0b4"
   end
 
   depends_on "mercurial"

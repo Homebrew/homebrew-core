@@ -57,7 +57,7 @@ class Freediameter < Formula
       http://www.freediameter.net/trac/wiki/Configuration
 
     Other potentially useful files can be found in #{opt_pkgshare}/contrib.
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -80,7 +80,7 @@ class Freediameter < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

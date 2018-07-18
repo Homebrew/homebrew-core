@@ -135,7 +135,7 @@ class MysqlAT55 < Formula
 
     To connect:
         #{opt_bin}/mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.5/bin/mysql.server start"
@@ -160,7 +160,7 @@ class MysqlAT55 < Formula
       <string>#{datadir}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

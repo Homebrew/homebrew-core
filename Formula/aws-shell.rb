@@ -3,13 +3,14 @@ class AwsShell < Formula
   homepage "https://github.com/awslabs/aws-shell"
   url "https://files.pythonhosted.org/packages/ea/a0/0fba732444bdc23580f5e0290b8a6732b47a934c1978d108407704b01eec/aws-shell-0.2.0.tar.gz"
   sha256 "b46a673b81254e5e014297e08c9ecab535773aa651ca33dc3786a1fd612f9810"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8cbefd666d4b22ed36e488ad96e2e6ba472fb7f51df9fdab45a6c21aaf3c1234" => :high_sierra
-    sha256 "8cbefd666d4b22ed36e488ad96e2e6ba472fb7f51df9fdab45a6c21aaf3c1234" => :sierra
-    sha256 "8cbefd666d4b22ed36e488ad96e2e6ba472fb7f51df9fdab45a6c21aaf3c1234" => :el_capitan
+    rebuild 1
+    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :high_sierra
+    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :sierra
+    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :el_capitan
   end
 
   depends_on "python"
@@ -70,8 +71,8 @@ class AwsShell < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "rsa" do
@@ -100,9 +101,15 @@ class AwsShell < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resources.each do |r|
+      next if r.name == "awscli"
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
+    end
+
+    resource("awscli").stage do
+      inreplace "setup.py", "PyYAML>=3.10,<=3.12", "PyYAML>=3.10"
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     system "python3", *Language::Python.setup_install_args(libexec)

@@ -51,7 +51,7 @@ class Orientdb < Formula
   def caveats; <<~EOS
     The OrientDB root password was set to 'orientdb'. To reset it:
       https://orientdb.com/docs/2.2/Server-Security.html#restoring-the-servers-user-root
-    EOS
+  EOS
   end
 
   plist_options :manual => "orientdb start"
@@ -82,7 +82,7 @@ class Orientdb < Formula
         <string>/usr/local/var/log/orientdb/sout.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

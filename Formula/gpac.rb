@@ -33,6 +33,8 @@ class Gpac < Formula
   depends_on "theora" => :optional
   depends_on "ffmpeg" => :optional
 
+  conflicts_with "bento4", :because => "both install `mp42ts` binaries"
+
   def install
     args = ["--disable-wx",
             "--disable-pulseaudio",

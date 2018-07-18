@@ -105,7 +105,7 @@ class Mapserver < Formula
         extension="#{opt_lib}/php/extensions/php_mapscript.so"
       * Execute "php -m"
       * You should see MapScript in the module list
-    EOS
+  EOS
   end
 
   test do

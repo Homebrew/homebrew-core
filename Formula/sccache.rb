@@ -1,14 +1,14 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/0.2.6.tar.gz"
-  sha256 "201f4e75307da7ebceed7375a4ffbdcc91c333d5bba06ea07676485685fd4ed6"
+  url "https://github.com/mozilla/sccache/archive/0.2.7.tar.gz"
+  sha256 "0f7e3ad60a93759a35623aa954633c94154fd00d17fe29f9413933e1c5545a52"
   head "https://github.com/mozilla/sccache.git"
 
   bottle do
-    sha256 "5d0500e016fbc93d4939a433b885ec9a2eb0d8307b1c1bc43de46f7356bfdb17" => :high_sierra
-    sha256 "b562291098b0a464249f947614105e565e847b3b3b4590beee38a1035fdf152c" => :sierra
-    sha256 "39d0e84cd978d2113fcc6638a9646ea42088f38391eb46c31d03adbfda61794b" => :el_capitan
+    sha256 "5142c49377699e069a1332b4fb681fef05fff6ad406ea1e0596786fd4f192e76" => :high_sierra
+    sha256 "e3687eef1ca2b74c95b48c2e3df2cc4d985afaf7fd454b9eab6b4837c1e9e24e" => :sierra
+    sha256 "ea3758d1bfefaf31d085b8196b10d20248e5b7f2bada51457adf6efcf6411729" => :el_capitan
   end
 
   depends_on "rust" => :build
@@ -18,8 +18,7 @@ class Sccache < Formula
     ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
     ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
 
-    system "cargo", "build", "--release", "--features", "all"
-    bin.install "target/release/sccache"
+    system "cargo", "install", "--root", prefix, "--features", "all"
   end
 
   test do

@@ -23,7 +23,7 @@ class TomeePlus < Formula
       #{opt_libexec}
     To run Apache TomEE:
       #{opt_libexec}/bin/tomee-plus-startup
-    EOS
+  EOS
   end
 
   test do

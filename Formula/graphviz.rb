@@ -1,6 +1,6 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
-  homepage "https://graphviz.org/"
+  homepage "https://www.graphviz.org/"
   # versioned URLs are missing upstream as of 16 Dec 2017
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/graphviz/graphviz-2.40.1.tar.gz"
   mirror "https://fossies.org/linux/misc/graphviz-2.40.1.tar.gz"

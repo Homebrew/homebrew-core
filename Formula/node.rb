@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.3.0/node-v10.3.0.tar.xz"
-  sha256 "cb90e9bde8e655eeb152ebdbe1b72e7d2443e3ae2d5f9ac4acd69e7c22671f31"
+  url "https://nodejs.org/dist/v10.6.0/node-v10.6.0.tar.xz"
+  sha256 "1960742a836db36ad1aaf3cc024e79aa067adb8460f981c7ae8409390afc7e8f"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "9958f3f4253cefc51b75982feabf7035c9774f0d293209ca83096134033e2ec8" => :high_sierra
-    sha256 "49965a08da0c694b4107d295886f37a8dd63f0fbf94051272af07e885c9f8a31" => :sierra
-    sha256 "fd83a1d3b9a9e20ebfe4b64f279f04b34b993e3660b6234c3a5ed7fdfb802343" => :el_capitan
+    sha256 "da81d3d696b639ffe8a42673c1e01b8f1ce4e37ddc6458fa490e254ebe256c73" => :high_sierra
+    sha256 "dbd8155f4c0fcc32b236381982eaddd0fe7f77290101099c824bd4b18ea13cb3" => :sierra
+    sha256 "0d2de2e28947288300fe443604d5f31b8648e16d55104ef728ed558958f35627" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
@@ -67,12 +67,6 @@ class Node < Formula
       cp bootstrap/"package.json", libexec/"lib/node_modules/npm"
       # These symlinks are never used & they've caused issues in the past.
       rm_rf libexec/"share"
-
-      # suppress incorrect node 10 incompatibility warning from npm
-      # remove during next npm upgrade (to npm 5.9+ or npm 6.0+)
-      inreplace libexec/"lib/node_modules/npm/lib/utils/unsupported.js",
-        "{ver: '9', min: '9.0.0'}",
-        "{ver: '9', min: '9.0.0'}, {ver: '10', min: '10.0.0'}"
 
       if build.with? "completion"
         bash_completion.install \

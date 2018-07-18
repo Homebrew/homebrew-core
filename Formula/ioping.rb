@@ -3,7 +3,6 @@ class Ioping < Formula
   homepage "https://github.com/koct9i/ioping"
   url "https://github.com/koct9i/ioping/archive/v1.0.tar.gz"
   sha256 "db999abb0f9de00bce800267965cdd9b826ebce6052e905b12d9f40076157088"
-
   head "https://github.com/koct9i/ioping.git"
 
   bottle do

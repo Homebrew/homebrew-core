@@ -5,7 +5,6 @@ class Vaulted < Formula
   homepage "https://github.com/miquella/vaulted"
   url "https://github.com/miquella/vaulted/archive/v2.2.0.tar.gz"
   sha256 "2b92f4973d4273dfb508f7e11469d072e91d0762864cf60ee720998024c0feb4"
-
   head "https://github.com/miquella/vaulted.git"
 
   bottle do

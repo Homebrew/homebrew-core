@@ -3,7 +3,6 @@ class JdnssecTools < Formula
   homepage "https://www.verisignlabs.com/jdnssec-tools/"
   url "https://www.verisignlabs.com/dnssec-tools/packages/jdnssec-tools-0.13.tar.gz"
   sha256 "95b1feb4d21c8bef08bf3e591c734bb066a0878b22a1de7c3c110cf2ee52352d"
-
   head "https://github.com/dblacka/jdnssec-tools.git"
 
   bottle do

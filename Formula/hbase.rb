@@ -1,14 +1,13 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6/hbase-1.2.6-bin.tar.gz"
-  sha256 "a0fbc22373a7f2d66648c6d9fe13477e689df50c8ee533eda962d4e8fa2185ea"
-  revision 2
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6.1/hbase-1.2.6.1-bin.tar.gz"
+  sha256 "3bfa55c0b2b1327cb4382c1a51dddd21a536ccbbfdbcc31e9b6f403fe21230ad"
 
   bottle do
-    sha256 "684094d83f3f181cb2970c61ec7b0ce557b0959b252f41b7d27732677b9d1743" => :high_sierra
-    sha256 "91645c07ede24d70444ddfa7143ad43dcdae381e410d53919412a9f7e931e428" => :sierra
-    sha256 "fc2f0ebeca26bda50fe3c224a222bf245faa0c878ff1bbd9fcabc01a01e16bd2" => :el_capitan
+    sha256 "3c4084898091f6b811062aff85f2d5dcef422d720b21e60b0554a24ac611e0d9" => :high_sierra
+    sha256 "e2102bd08b2d94f5ac4d33938cdc76166bd085c9657f6f2ebcff47bbf3d3fd85" => :sierra
+    sha256 "72240c500dda738b40241eba7c157bdcb4e1a5cdec79b85fb74cbccebb02bef3" => :el_capitan
   end
 
   depends_on :java => "1.8"
@@ -150,7 +149,7 @@ class Hbase < Formula
       <string>#{var}/hbase/hbase.err</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

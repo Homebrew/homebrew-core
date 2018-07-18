@@ -1,15 +1,15 @@
 class Shfmt < Formula
   desc "Autoformat shell script source code"
   homepage "https://github.com/mvdan/sh"
-  url "https://github.com/mvdan/sh/archive/v2.4.0.tar.gz"
-  sha256 "b5f1253d51d98ccbb1cf1b71436f60f75fb2765306f0401b57c12acc0603c0e1"
+  url "https://github.com/mvdan/sh/archive/v2.5.0.tar.gz"
+  sha256 "15f19a648e8b58f7a41c8e64c1c3f0bb7c30672daf00bebc2d9f8b465edc07de"
   head "https://github.com/mvdan/sh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82220427be0b2723dae6802e30d6d624df15a4fd6973928cc7d768a2435aaeb9" => :high_sierra
-    sha256 "ed7d2006ca7f4ab22f34f9fb419875486e8ab23fe74456d5fe5690589d840a55" => :sierra
-    sha256 "085555d1c1bddca1c61b51767664f6a4838e6269551bd9bb548687426ea968de" => :el_capitan
+    sha256 "5f71a2d719627a206ad64e71a90453422ed630de5491b67ab66c758bc7609c32" => :high_sierra
+    sha256 "94824ec285a4b319bfcc1fb3ff918dda0db69dd0f923cc387c52db10e18c9033" => :sierra
+    sha256 "290697caa8e172e202e67d4f08e07cac6ea10e9329448be2e590137b137aa285" => :el_capitan
   end
 
   depends_on "go" => :build

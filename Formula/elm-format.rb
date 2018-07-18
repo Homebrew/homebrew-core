@@ -2,6 +2,7 @@ require "language/haskell"
 
 class ElmFormat < Formula
   include Language::Haskell::Cabal
+
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",

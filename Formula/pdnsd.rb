@@ -38,7 +38,7 @@ class Pdnsd < Formula
     For other related utilities, e.g. pdnsd-ctl, to run, change the ownership
     to the user (default: nobody) running the service:
       sudo chown -R nobody #{var}/log/pdnsd.log #{var}/cache/pdnsd
-    EOS
+  EOS
   end
 
   plist_options :startup => true, :manual => "sudo pdnsd"
@@ -64,7 +64,7 @@ class Pdnsd < Formula
       <false/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

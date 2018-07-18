@@ -63,7 +63,7 @@ class Exult < Formula
 
       To use CoreAudio, set `driver` to `CoreAudio`.
       To use audio pack, set `use_oggs` to `yes`.
-    EOS
+  EOS
   end
 
   test do

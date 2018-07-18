@@ -1,16 +1,14 @@
 class Lensfun < Formula
   desc "Remove defects from digital images"
   homepage "https://lensfun.sourceforge.io/"
-  url "https://dl.bintray.com/homebrew/mirror/lensfun-0.3.2.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/lensfun/0.3.2/lensfun-0.3.2.tar.gz"
-  sha256 "ae8bcad46614ca47f5bda65b00af4a257a9564a61725df9c74cb260da544d331"
-  revision 3
+  url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
+  sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
   head "https://git.code.sf.net/p/lensfun/code.git"
 
   bottle do
-    sha256 "205e318f6d296696af3c31b088315efe148e543a761715ed74790c5ac9b4acfd" => :high_sierra
-    sha256 "6bad87c166dfc09702dafb5509c18436423824f9f3ccb45b2d79ae458c0fcc98" => :sierra
-    sha256 "66272da3d4b5775c1f2cd468ae645db9d804d935c6533e842b4c0c702c44d33a" => :el_capitan
+    sha256 "2a37991b1e54e6aab5dd75b6bee534010a1af7aa1378999713a96e174ae6f86a" => :high_sierra
+    sha256 "b594d90fb2d169c3200bc4e06a033cf18ad87f89e2b43e1620952bea712ceb04" => :sierra
+    sha256 "a057800dfa6b88a006cab751aa2708579b7d2f1816ac3c59c24fc4b12e4e4b76" => :el_capitan
   end
 
   depends_on "python"

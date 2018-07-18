@@ -3,7 +3,6 @@ class Mitie < Formula
   homepage "https://github.com/mit-nlp/MITIE/"
   url "https://github.com/mit-nlp/MITIE/archive/v0.5.tar.gz"
   sha256 "324b7bddedea13cebab0bc0fe9f8d5cfb7bfaf26eac5aa3aae1e74afa909aa12"
-
   head "https://github.com/mit-nlp/MITIE.git"
 
   bottle do

@@ -1,15 +1,15 @@
 class Acpica < Formula
   desc "OS-independent implementation of the ACPI specification"
   homepage "https://www.acpica.org/"
-  url "https://acpica.org/sites/acpica/files/acpica-unix-20180531.tar.gz"
-  sha256 "8f6cdcaa4039c2b3db141117ec8223f0e1297684b8ab47839e211bddad027665"
+  url "https://acpica.org/sites/acpica/files/acpica-unix-20180629.tar.gz"
+  sha256 "70d11f3f2adbdc64a5b33753e1889918af811ec8050722fbee0fdfc3bfd29a4f"
   head "https://github.com/acpica/acpica.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d859158c139fe7108c8ad98d15212143dc4d13f774bf8df6c685db77083051bd" => :high_sierra
-    sha256 "96eda907fdef09f7b8a6b493d24bc669825be7275368fe1bd40201e297c60431" => :sierra
-    sha256 "ba1563c849bd692a9034fdfc6d6dc277b42a8f6326a451653461acbe77878451" => :el_capitan
+    sha256 "b005ade6f4bff5392f7b89107031d61bc48bc0db9c6cceb9c01736af8ec424d9" => :high_sierra
+    sha256 "b972b7bad6eb5c4b582c1980dae0400c2fb3925b8a4cbedd6008fe008199e33a" => :sierra
+    sha256 "b6034ee6f001ab5a2f33856a826c63c2d735d0d73dc9dfc41da627e15696183c" => :el_capitan
   end
 
   def install

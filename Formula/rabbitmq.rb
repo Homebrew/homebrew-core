@@ -1,12 +1,12 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.5/rabbitmq-server-generic-unix-3.7.5.tar.xz"
-  sha256 "2480356636f3fc54ac5df13d9e1814d627f46c1c37c9944b1ee667de5b76d37d"
+  url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.7/rabbitmq-server-generic-unix-3.7.7.tar.xz"
+  sha256 "640fc5d0b10705f838419191bbf917e66f3ff5eb35f07fc51c2f197fda0aa170"
 
   bottle :unneeded
 
-  depends_on "erlang"
+  depends_on "erlang@20"
 
   def install
     # Install the base files
@@ -17,7 +17,7 @@ class Rabbitmq < Formula
     (var/"log/rabbitmq").mkpath
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
-    erlang = Formula["erlang"]
+    erlang = Formula["erlang@20"]
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
       s.gsub! /^ERL_DIR=$/, "ERL_DIR=#{erlang.opt_bin}/"
@@ -51,14 +51,14 @@ class Rabbitmq < Formula
 
   def caveats; <<~EOS
     Management Plugin enabled by default at http://localhost:15672
-    EOS
+  EOS
   end
 
   def rabbitmq_env; <<~EOS
     CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
     NODE_IP_ADDRESS=127.0.0.1
     NODENAME=rabbit@localhost
-    EOS
+  EOS
   end
 
   plist_options :manual => "rabbitmq-server"
@@ -86,7 +86,7 @@ class Rabbitmq < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

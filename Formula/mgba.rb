@@ -1,10 +1,20 @@
 class Mgba < Formula
   desc "Game Boy Advance emulator"
   homepage "https://mgba.io/"
-  url "https://github.com/mgba-emu/mgba/archive/0.6.3.tar.gz"
-  sha256 "35c8906c01206adae714fee9c2bc39698c514a4adb32c9c4a5a3fa58b2d10f9a"
   revision 2
   head "https://github.com/mgba-emu/mgba.git"
+
+  stable do
+    url "https://github.com/mgba-emu/mgba/archive/0.6.3.tar.gz"
+    sha256 "35c8906c01206adae714fee9c2bc39698c514a4adb32c9c4a5a3fa58b2d10f9a"
+
+    # Fix build with Qt 5.11.0
+    # https://github.com/Homebrew/homebrew-core/issues/28455
+    patch do
+      url "https://github.com/mgba-emu/mgba/commit/7f41dd35417.patch?full_index=1"
+      sha256 "14a3c1100830d13f0e6e1656b502c34cfc527b6e4db0d47a07e613caa622d47d"
+    end
+  end
 
   bottle do
     cellar :any

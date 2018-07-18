@@ -59,7 +59,7 @@ class Burp < Formula
   def caveats; <<~EOS
     Before installing the launchd entry you should configure your burp client in
       #{etc}/burp/burp.conf
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -87,7 +87,7 @@ class Burp < Formula
       <string>#{HOMEBREW_PREFIX}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

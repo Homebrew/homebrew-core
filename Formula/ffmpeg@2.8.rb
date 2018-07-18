@@ -192,7 +192,7 @@ class FfmpegAT28 < Formula
       Or:
         brew reinstall ffmpeg28 --with-fdk-aac
         ffmpeg -i input.wav -c:a libfdk_aac output.m4a
-      EOS
+    EOS
     end
   end
 

@@ -25,7 +25,7 @@ class HardlinkOsx < Formula
     `hln source directory` to target directory under the same root you will get an error!
 
     Also, remember the binary is named `hln` due to a naming conflict.
-    EOS
+  EOS
   end
 
   test do

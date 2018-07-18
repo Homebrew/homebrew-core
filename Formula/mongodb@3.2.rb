@@ -34,7 +34,6 @@ class MongodbAT32 < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
-    ENV.libcxx if build.devel?
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
@@ -96,7 +95,7 @@ class MongodbAT32 < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -136,7 +135,7 @@ class MongodbAT32 < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

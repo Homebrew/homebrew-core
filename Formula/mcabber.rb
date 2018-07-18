@@ -57,7 +57,7 @@ class Mcabber < Formula
       #{opt_pkgshare}/mcabberrc.example
     And there is a Getting Started Guide you will need to setup Mcabber:
       https://wiki.mcabber.com/#index2h1
-    EOS
+  EOS
   end
 
   test do

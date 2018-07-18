@@ -7,19 +7,24 @@ class AmqpCpp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5a4906dffff5ecb0f0d45632899265570e7f2373e209961a6f1626fa565aaec" => :high_sierra
-    sha256 "583b0b59abfc32c64210f95c9c3e90bd5be566495caa0195b9d05c75b02444ad" => :sierra
-    sha256 "38fbb7f0df51723d2b2d31bfe83a2348362c1d688b50011a99e6ccdbee2ba774" => :el_capitan
+    rebuild 1
+    sha256 "4279fef93269d5a69117037af451d257933e253466e38d5e5403694721294c80" => :high_sierra
+    sha256 "b0e6af21fe4bd328b4339e3668e7b9a7a1447a057aa3f5cdff198056ec8326c9" => :sierra
+    sha256 "5817f1cb45cbd4b336500c05c6254219a80b3f0d42e035107d4365e4744e496a" => :el_capitan
   end
 
   needs :cxx11
 
   depends_on "cmake" => :build
+  depends_on "openssl"
 
   def install
     ENV.cxx11
 
-    system "cmake", "-DBUILD_SHARED=ON", "-DCMAKE_MACOSX_RPATH=1", *std_cmake_args
+    system "cmake", "-DBUILD_SHARED=ON",
+                    "-DCMAKE_MACOSX_RPATH=1",
+                    "-DAMQP-CPP_LINUX_TCP=ON",
+                    *std_cmake_args
     system "make"
     system "make", "install"
   end
@@ -31,7 +36,7 @@ class AmqpCpp < Formula
       {
         return 0;
       }
-      EOS
+    EOS
     system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
                     "test", "-lc++", "-lamqpcpp"
     system "./test"

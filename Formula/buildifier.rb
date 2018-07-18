@@ -2,14 +2,14 @@ class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
   url "https://github.com/bazelbuild/buildtools.git",
-      :tag => "0.11.1",
-      :revision => "405641a50b8583dc9fe254b7a22ebc2002722d17"
+      :tag => "0.12.0",
+      :revision => "49a6c199e3fbf5d94534b2771868677d3f9c6de9"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5fc7d8ae503324794a736f0a333a3e8fb1319b21d3a3b240330cfec4eb1758dc" => :high_sierra
-    sha256 "0e726f1dac64b0c08c33be268d5ef728687856e99731facb3d99a49181c6c4a5" => :sierra
-    sha256 "eb11d04e8ec032d590412ac97cbb383cf4dc56c0131deaa00b5f3cae11a9f094" => :el_capitan
+    sha256 "6986cc5f3b6916e978fad9fb0966494e8b157a327636f9983e0d692c3549fd2f" => :high_sierra
+    sha256 "cec72016193f0cae235016106d505e87c1b541d75505cb9fdcb140e6dd7596ac" => :sierra
+    sha256 "05fc7dccef827a89a731fd879dfb6a72fcda8c3e3c9a79905653a3ba3240a95c" => :el_capitan
   end
 
   depends_on "go" => :build

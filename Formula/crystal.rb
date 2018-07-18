@@ -1,22 +1,21 @@
-class CrystalLang < Formula
+class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
-  revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.24.2.tar.gz"
-    sha256 "de50a455a509f4f80025eb8773818859ad6664a79f5f0fafecdd87ff5ccef6d0"
+    url "https://github.com/crystal-lang/crystal/archive/0.25.1.tar.gz"
+    sha256 "9b5a7bd2de67ab36cc5430133228a1e656a431fc7d928a37a61109bd8da77fc6"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/v0.7.2.tar.gz"
-      sha256 "97a3681e74d2fdcba0575f6906f4ba0aefc709a2eb672c7289c63176ff4f3be2"
+      url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
+      sha256 "75c74ab6acf2d5c59f61a7efd3bbc3c4b1d65217f910340cb818ebf5233207a5"
     end
   end
 
   bottle do
-    sha256 "dee28ba7dd3e928736b6cac675e18baad1e6124cd70153aed3438399e85566cf" => :high_sierra
-    sha256 "202fd9729a13992f855507ec85cf18850b286f694161872f846b18ee2a1eaef9" => :sierra
-    sha256 "4d972d8e22dd8d1679ea910e50d3efc5e19350f0554837c25f8daed857da78dd" => :el_capitan
+    sha256 "678df358cd84481ebf7caff0da1497b9ebda5e52e9682d0aed011d9325c1b2ab" => :high_sierra
+    sha256 "b15470237a34bbed50ea87ed49cafef29333eb7fa3cdc6f6e7e91534e99bc14e" => :sierra
+    sha256 "d05d4b439b62415cc10a6b17a4e83c4d30a935f51905e666496090bff5d20e33" => :el_capitan
   end
 
   head do
@@ -40,9 +39,9 @@ class CrystalLang < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/v0.24.1/crystal-0.24.1-2-darwin-x86_64.tar.gz"
-    version "0.24.1"
-    sha256 "2be256462f4388cd3bb14b1378ef94d668ab9d870944454e828b4145155428a0"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.25.0/crystal-0.25.0-2-darwin-x86_64.tar.gz"
+    version "0.25.0-2"
+    sha256 "4f538660c097b7e6607df2953f34a6d6a1693e5a984cf4b1b1e77024029dc8fb"
   end
 
   def install

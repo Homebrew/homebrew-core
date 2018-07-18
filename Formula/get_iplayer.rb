@@ -1,16 +1,15 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.14.tar.gz"
-  sha256 "6436a942b819aaa4b3df56f990812124909476142febe6432304e7a621411522"
-  revision 1
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.16.tar.gz"
+  sha256 "790495d9f57c75c7818640e6f078941115c8561c94a9b0f5a5253ee14450eb0f"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0ba5c91219bcc6591fef339adc2911e8586417dc2a1bb9c1ad714a1c19e17cd4" => :high_sierra
-    sha256 "db39518eb4fe8a45613c164377c7a87a4816b0c3ac72883066279774d13422c4" => :sierra
-    sha256 "91f8d9272c2b4e760559d038e2d034236e69c654f787e307445409ea2a9e1d14" => :el_capitan
+    sha256 "787776149c563a276056a858b4f08d04eaf12a4eda783769290e55c32ba1d252" => :high_sierra
+    sha256 "379f0c5a503dcf5b4a721833b5c3885edd64123f84898a6ecf63cf65aea59ce0" => :sierra
+    sha256 "892ddc41c559e0bd25edad06c06794337031532afe80dad8ff52eaae000dea50" => :el_capitan
   end
 
   depends_on "atomicparsley" => :recommended
@@ -29,8 +28,8 @@ class GetIplayer < Formula
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.77.tar.gz"
-    sha256 "b6416de94938ee621e355c36fd837704dd7cf15846148dfbbfb82e8710af846b"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.87.tar.gz"
+    sha256 "898a24a4344eaafe97cf0b8da2fbc89e0e21cc328f5e5a39a44774f8144989b1"
   end
 
   resource "Mozilla::CA" do

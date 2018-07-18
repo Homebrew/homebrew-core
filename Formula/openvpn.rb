@@ -91,7 +91,7 @@ class Openvpn < Formula
       <string>#{etc}/openvpn</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,18 +1,20 @@
 class Yq < Formula
   desc "Process YAML documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/1.15.0.tar.gz"
-  sha256 "f8eb713178720008744a68bcb5c9563cbe4674a579d5d46018797bc917ccca26"
+  url "https://github.com/mikefarah/yq/archive/v2.1.0.tar.gz"
+  sha256 "e451e5b53935be9d752c4d39a7c3ad311e483c4f3ffdd4a30bdbebfd13f89e93"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5736dbc4b1604a09c3a2549f82691028b46435b8577f78f59c058542bb15d6ef" => :high_sierra
-    sha256 "bd42cc8550a7c819e36122a1a96fbf0352c177686b80779e5eebcdc05fa91869" => :sierra
-    sha256 "0166dece9855475db41dc331fdff1b06892298e4609c3382bb122c805818375d" => :el_capitan
+    sha256 "71c45044c484d75a7a6f6990fafb81ea00a629a7e9431f21f7ecfa847e733ebf" => :high_sierra
+    sha256 "2fa1a39829cfe39f5cdac1e256d4b2f958bbf3b41f282ff156f638e38b0f9dd5" => :sierra
+    sha256 "5ddee8d32af2a9b5013dfa36b5fcc3bb25a11faa444d2163b479455d67722a74" => :el_capitan
   end
 
   depends_on "go" => :build
   depends_on "govendor" => :build
+
+  conflicts_with "python-yq", :because => "both install `yq` executables"
 
   def install
     ENV["GOPATH"] = buildpath

@@ -3,15 +3,15 @@ require "language/go"
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/v1.4.1.tar.gz"
-  sha256 "d5b8032aac6c4e1975b8302a6192274610f601a659253861e71ec5bca1c4da38"
+  url "https://github.com/OJ/gobuster/archive/v1.4.2.tar.gz"
+  sha256 "e90990f45f06324eb2378369b795a526a6145ca12c8a631493505f1ecfada74f"
   head "https://github.com/OJ/gobuster.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "622f6ae519106998035453cee81ff8cdb32ed7ad3f2716d696849dc997be1df6" => :high_sierra
-    sha256 "bbd186fd418fe6dd77dcd10b6de75d458743adc5e693982e6b6dee625b51aad1" => :sierra
-    sha256 "51de1f0b5a67b69fe083960945dd8e4951fcf25076e319332a47b379bc94aaf6" => :el_capitan
+    sha256 "5b9242b221840de7f36b70fc1942d939b107cf753df7ec38bff59610e5708055" => :high_sierra
+    sha256 "45026bb16e7cb74a0e01779d5215e62b96f3cde44c5af879786acca524a3fa42" => :sierra
+    sha256 "3f76c44c22a2d08796db6e2b371df9065e67276bc32a8494cce5d34367230da3" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -28,12 +28,12 @@ class Gobuster < Formula
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "13931e22f9e72ea58bb73048bc752b48c6d4d4ac"
+        :revision => "a49355c7e3f8fe157a85be2f77e6e269a0f89602"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "810d7000345868fc619eb81f46307107118f4ae1"
+        :revision => "1b2967e3c290b7c545b3db0deeda16e9be4f98a2"
   end
 
   def install

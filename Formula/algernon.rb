@@ -2,17 +2,17 @@ class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://algernon.roboticoverlords.org/"
   url "https://github.com/xyproto/algernon.git",
-      :tag => "1.10",
-      :revision => "d718983ea2c005343d7ca3115b6a74fe7286acaa"
+      :tag => "1.10.1",
+      :revision => "caef8f687bc8558b07064eb6a9972eebfba615ca"
   sha256 "f1627ed11e84890befbf244828aff7a56a17157f721b445804e18b5461e3b8f3"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "be38f18dd05b157a3e0ea7fbd19d7f2cadf4d34ab92b445dcf768a2e86f899d4" => :high_sierra
-    sha256 "771caea5e406490d3dfca57eaec4ef1bd9e0055cf6fb4b2e1546a7293f80b62f" => :sierra
-    sha256 "642e81b999cdd906656d23ff1d502a7e2d0774a484d9c94d032833e60f62b867" => :el_capitan
+    sha256 "fdc8f4c140ae81fab0c3440dca7027ba315a2e7fcec11a72aa46c2ba3c58f8d0" => :high_sierra
+    sha256 "2f93b502e7c5ca3d9861c1571dc3d33e4c1f5fe0d75ca52a123121f96181994c" => :sierra
+    sha256 "2a1e917824d379406288e08b94841bd53315b9200773e308deff095b84553203" => :el_capitan
   end
 
   depends_on "go" => :build

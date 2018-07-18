@@ -1,19 +1,23 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/63/82/3f2ba28ce21d81c1070610bafb1f9f4afc4cef9add8b041baec0acc44efd/snakemake-5.1.3.tar.gz"
-  sha256 "9abeac67ca0a37a5a6cd22d32d0e04e36c72aeab1922702a83b9d3b9d20293e8"
+  url "https://files.pythonhosted.org/packages/98/d8/de041c00f7bc82dd27c3e70ea410324094bb688b7a1886231b8459be9665/snakemake-5.2.0.tar.gz"
+  sha256 "4123accb7853371d5f7f62f22c2fbafd1e8fd4b6c9d773edbfb5ae8ecb2e3128"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "1b857a70ae347368231e007dd35f1c41d196d49105109fad3c364fca93b6eb0c" => :high_sierra
-    sha256 "1492e5c6f975d3cd7dc15f6135ab0360c1dac02199a2f0a44521c2b50da5ad18" => :sierra
-    sha256 "fba028e614c812bf7b412e4bb9f89dc8dd5f114934238e7a999b82367af5516d" => :el_capitan
+    sha256 "473ebf32edfcdbd45a735b3602773e812eb3bfb83dc834f5014f92c0910d795e" => :high_sierra
+    sha256 "84b252154a78333b29c60896cc757748b0f949671eba04f7de76f8ec907ab808" => :sierra
+    sha256 "8063145aef40644359726a8f0fdfdfa04bab4153785526fe79c4049c9d1d6da8" => :el_capitan
   end
 
   depends_on "python"
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/b3/ae/971d3b936a7ad10e65cb7672356cff156000c5132cf406cb0f4d7a980fd3/Cython-0.28.3.tar.gz"
+    sha256 "1aae6d6e9858888144cea147eb5e677830f45faaff3d305d77378c3cba55f526"
+  end
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
@@ -40,24 +44,14 @@ class Snakemake < Formula
     sha256 "7a11371cc2dbbad71d6dfef57ced6e8b384bb377eeb847c63d58f8dc8e8b2023"
   end
 
-  resource "decorator" do
-    url "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz"
-    sha256 "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
-  end
-
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
     sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
-  end
-
-  resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
-    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
+    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
   resource "jsonschema" do
@@ -65,19 +59,9 @@ class Snakemake < Formula
     sha256 "6ff5f3180870836cae40f06fa10419f557208175f13ad7bc26caa77beb1f6e02"
   end
 
-  resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
-    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
-  end
-
-  resource "networkx" do
-    url "https://files.pythonhosted.org/packages/11/42/f951cc6838a4dff6ce57211c4d7f8444809ccbe2134179950301e5c4c83c/networkx-2.1.zip"
-    sha256 "64272ca418972b70a196cb15d9c85a5a6041f09a2f32e0d30c0255f25d458bb1"
-  end
-
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "ratelimiter" do
@@ -86,13 +70,13 @@ class Snakemake < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+    url "https://files.pythonhosted.org/packages/54/1f/782a5734931ddf2e1494e4cd615a51ff98e1879cbe9eecbdfeaf09aa75e9/requests-2.19.1.tar.gz"
+    sha256 "ec22d826a36ed72a7358ff3fe56cbd4ba69dd7a6718ffd450ff0e9df7a47ce6a"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/3c/d2/dc5471622bd200db1cd9319e02e71bc655e9ea27b8e0ce65fc69de0dac15/urllib3-1.23.tar.gz"
+    sha256 "a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf"
   end
 
   resource "wrapt" do
@@ -102,8 +86,24 @@ class Snakemake < Formula
 
   def install
     xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{xy}/site-packages"
+
+    resource("Cython").stage do
+      system "python3", *Language::Python.setup_install_args(buildpath/"cython")
+    end
+
+    ENV.prepend_path "PATH", buildpath/"cython/bin"
+
+    resource("datrie").stage do
+      system "./update_c.sh"
+      ENV.delete "PYTHONPATH"
+      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+    end
+
     resources.each do |r|
+      next if r.name == "datrie" || r.name == "Cython"
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end

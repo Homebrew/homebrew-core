@@ -5,14 +5,14 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.14.0/darcs-2.14.0.tar.gz"
-  sha256 "19fa0882a1485f03ab0552d6f01d538c2b286c4a38a1fe502e9cf2a78f782803"
+  url "https://hackage.haskell.org/package/darcs-2.14.1/darcs-2.14.1.tar.gz"
+  sha256 "61ddbc99acaf06df3a114437064e9241e0da467c23d1d3fb520a782eee32cd35"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a18baed73cb1b77ef9cbaf499ff313d9b9b347a04d17b82fa6c7bce83ff27957" => :high_sierra
-    sha256 "ab1aafc30e70ffcfd7a397ffea6b5b668aed5ed1572eaba135ee1106a560201c" => :sierra
-    sha256 "b7145e37e8e32034065ea7a4031810417ff6387e665ca3a6ea89638e7994b43f" => :el_capitan
+    sha256 "6618314c01b2aeed0ad4d8f10f017f4ed24ebb4d8bb96d77b92a4be0f5a36dc6" => :high_sierra
+    sha256 "b0063bb736e782887caa458a63899d66f84ebfeb4e950ad41b4ba27128ccf4fb" => :sierra
+    sha256 "61148f3fb7580ada1e83a2f1219942237e7fec26c6161fecdd8aa533e8529f98" => :el_capitan
   end
 
   depends_on "cabal-install" => :build
@@ -20,11 +20,7 @@ class Darcs < Formula
   depends_on "gmp"
 
   def install
-    # GHC 8.4.x compatibility; remove the extra arguments for darcs > 2.14.0
-    install_cabal_package "--allow-newer=darcs:async",
-                          "--constraint", "async < 2.3",
-                          "--allow-newer=darcs:graphviz",
-                          "--constraint", "graphviz < 2999.20.1"
+    install_cabal_package
   end
 
   test do

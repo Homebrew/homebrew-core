@@ -3,11 +3,12 @@ class Mpd < Formula
   homepage "https://www.musicpd.org/"
   url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.20.tar.xz"
   sha256 "a9e458c6e07cdf62649de7722e1e5a7f13aa82eeb397bfbbebc07cf5cf273584"
+  revision 1
 
   bottle do
-    sha256 "d133bbe5b58e15fd7bf69cc0067d87def14b5a99af2d0ea2bfa24f46cade951f" => :high_sierra
-    sha256 "5c2788bfe71c777e3d54a0590b2563634bf13e41aebdc0402c666a3b55a1304e" => :sierra
-    sha256 "ee31b3ce3ac0df4bbe1a7322000580da1795ac403ff06c52f87718024d74f386" => :el_capitan
+    sha256 "5fb0cd8ede6ae6e1eb7983d1065d7e573dc73b67441fc3cecace2e18da68fff6" => :high_sierra
+    sha256 "e7b83d0b1c478d9e36750a51a0a20f7112c554907546d79202b34d88ad091801" => :sierra
+    sha256 "77584f900643c265fa424e434c4d0f7aaebce1dc18e2c4b880775033229fe82a" => :el_capitan
   end
 
   head do
@@ -111,7 +112,7 @@ class Mpd < Formula
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
 
-  plist_options :manual => "mpd"
+  plist_options :manual => "mpd #{HOMEBREW_PREFIX}/etc/mpd/mpd.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -126,6 +127,7 @@ class Mpd < Formula
         <array>
             <string>#{opt_bin}/mpd</string>
             <string>--no-daemon</string>
+            <string>#{etc}/mpd/mpd.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
@@ -135,7 +137,7 @@ class Mpd < Formula
         <string>Interactive</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -138,7 +138,7 @@ class PerconaServerAT56 < Formula
 
     To connect:
         mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "mysql.server start"
@@ -160,7 +160,7 @@ class PerconaServerAT56 < Formula
       <string>#{var}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

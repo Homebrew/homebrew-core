@@ -1,26 +1,15 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
+  url "https://github.com/facebook/flow/archive/v0.76.0.tar.gz"
+  sha256 "a73d15df7ccce8d993288e88b7205954a55bf40773b69a23af9cf8bc8d0d6832"
   head "https://github.com/facebook/flow.git"
-
-  stable do
-    url "https://github.com/facebook/flow/archive/v0.73.0.tar.gz"
-    sha256 "cfef40febb8db41a8d3c7f8d3da27e5ecbcda59d87a91d76e31d460c064c723c"
-
-    # Fix compilation with OCaml 4.06 (again - we did this for 0.68 too)
-    # Can delete with v0.74.0 deploy
-    # Upstream commit 24 May 2018 "Fix lwt type annotation for OCaml 4.06"
-    patch do
-      url "https://github.com/facebook/flow/commit/6ad707a.patch?full_index=1"
-      sha256 "d21a5325e0b56b884a71178388c08da7712be894090b2a940012cd8a69673ff8"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dc91a77bc4aa922bc10501b825d3587dc2792f0b97ef6e40c304e023f7282976" => :high_sierra
-    sha256 "4853273b9074c451321ca89bbe8fe203a4b05bd86e0d854da56d59024df8f90f" => :sierra
-    sha256 "f3be8efe6cdb1bc68c4c40ee62637a17d74cbb2fc06063480bf57c88fa2e6818" => :el_capitan
+    sha256 "d293ad8769ee6a45976622446e11591d902db98396ec34cbe98f432e477fe78c" => :high_sierra
+    sha256 "1df829fee4458b71545c2fe39dfb269ab9e03eecd47b7429d573d84efdf079fd" => :sierra
+    sha256 "5191308c902514f8941ca7b3c2f114e9d190ebd7f44d4343436f9241729c23f1" => :el_capitan
   end
 
   depends_on "ocaml" => :build

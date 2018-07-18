@@ -48,7 +48,7 @@ class Fourstore < Formula
         4s-httpd -p 8000 -D mydb
 
     See https://4store.danielknoell.de/trac/wiki/Documentation/ for more information.
-    EOS
+  EOS
   end
 
   test do

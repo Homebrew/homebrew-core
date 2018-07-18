@@ -34,7 +34,7 @@ class Quasi88 < Formula
       -romdir ~/quasi88/rom/
       -diskdir ~/quasi88/disk/
       -tapedir ~/quasi88/tape/
-    EOS
+  EOS
   end
 
   test do

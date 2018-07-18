@@ -28,7 +28,7 @@ class Radamsa < Formula
     Tests can be run with:
       $ make .seal-of-quality
 
-    EOS
+  EOS
   end
 
   test do

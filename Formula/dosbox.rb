@@ -64,7 +64,7 @@ class Dosbox < Formula
 
   def caveats; <<~EOS
     DOSBox is not built for optimal performance due to unstability on 64-bit platform.
-    EOS
+  EOS
   end
 
   test do

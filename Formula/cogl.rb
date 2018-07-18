@@ -12,7 +12,7 @@ class Cogl < Formula
   end
 
   head do
-    url "https://git.gnome.org/browse/cogl.git"
+    url "https://gitlab.gnome.org/GNOME/cogl.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

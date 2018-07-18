@@ -1,14 +1,14 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.11.2/node-v8.11.2.tar.xz"
-  sha256 "539946c0381809576bed07424a35fc1740d52f4bd56305d6278d9e76c88f4979"
-  head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
+  url "https://nodejs.org/dist/v8.11.3/node-v8.11.3.tar.xz"
+  sha256 "577c751fdca91c46c60ffd8352e5b465881373bfdde212c17c3a3c1bd2616ee0"
+  revision 1
 
   bottle do
-    sha256 "a33f5be7d206d8b8376a4fed4a7432139f5be521a74da1678de61e773b45df14" => :high_sierra
-    sha256 "124f08597eef879a824aa624733255932c461684baab2fe18399b78d7a757d0d" => :sierra
-    sha256 "8a4fae3b78ddacbcc12638beaae99a44fea7f5021243c0f679d049082247130b" => :el_capitan
+    sha256 "8972065cc254cd688996153d2b352480ddb06c97d071298e19ac089ed75fd718" => :high_sierra
+    sha256 "bbcad9db53cd546167f3b75e5a1bd289cc32ed9a4c6081da38269583f21cc92e" => :sierra
+    sha256 "f2fbe21a604e200be2339a3f81ade9483955eddd129c7fd00fbdbf4272e9ee60" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -41,7 +41,6 @@ class NodeAT8 < Formula
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" if build.with? "openssl"
-    args << "--tag=head" if build.head?
 
     system "./configure", *args
     system "make", "install"
@@ -84,7 +83,7 @@ class NodeAT8 < Formula
       assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{bin}/npm", *npm_args, "install", "npm@latest"
-      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
+      system "#{bin}/npm", *npm_args, "install", "bignum"
       assert_predicate bin/"npx", :exist?, "npx must exist"
       assert_predicate bin/"npx", :executable?, "npx must be executable"
       assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")

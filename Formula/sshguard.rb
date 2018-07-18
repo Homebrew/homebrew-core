@@ -1,15 +1,15 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.1.0/sshguard-2.1.0.tar.gz"
-  sha256 "21252a4834ad8408df384ee4ddf468624aa9de9cead5afde1c77380a48cf028a"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.2.0/sshguard-2.2.0.tar.gz"
+  sha256 "2aff07fee6ec33e4ffd5411916b75189977af1d77b86dac5f3834dd3aa3656c2"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "eb13c51b65f9007163ade54a5f01699da82b4ba3c225af30a57ed05593bfe60e" => :high_sierra
-    sha256 "63b4d94b319432258792e9d00a0474c11c1bc37fe19deee1c7ee62f2980c982d" => :sierra
-    sha256 "4231ea2fbff92a76b72e8f3707e4600451e9315740cd5864c54641dc8bd75857" => :el_capitan
+    sha256 "55acb263d41a284fa3581bde9239be11038e56c73e62110073da19a07a72d499" => :high_sierra
+    sha256 "0172ad8624eca77e726d26d479a6e3fdf373e750daeb804c9ff0f772be159a41" => :sierra
+    sha256 "6ba75075590383494544771a547b721f0e134fb95f2743b2898ad5d90ee875b6" => :el_capitan
   end
 
   head do
@@ -58,7 +58,7 @@ class Sshguard < Formula
         block in quick on $ext_if proto tcp from <sshguard> to any port 22 label "ssh bruteforce"
 
       Then run sudo pfctl -f /etc/pf.conf to reload the rules.
-      EOS
+    EOS
     end
   end
 
@@ -81,7 +81,7 @@ class Sshguard < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

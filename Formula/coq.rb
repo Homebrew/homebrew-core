@@ -6,21 +6,21 @@ class Camlp5TransitionalModeRequirement < Requirement
   def message; <<~EOS
     camlp5 must be compiled in transitional mode (instead of --strict mode):
       brew install camlp5
-    EOS
+  EOS
   end
 end
 
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.8.0.tar.gz"
-  sha256 "caf7c1d39e68e0e41ed92be1d57c88983fb12edb9fa95667a5ad2d6aba98263d"
+  url "https://github.com/coq/coq/archive/V8.8.1.tar.gz"
+  sha256 "c852fef30f511135993bc9dbed299849663d0096a72bf0797a133f86deda9e8d"
   head "https://github.com/coq/coq.git"
 
   bottle do
-    sha256 "9472d829ce611df12cd613fb8b4efd7bf78c732b619147e459829c60498583b2" => :high_sierra
-    sha256 "1205cdb57164c6d391d9dbf1fcb5a81ec6651f74ee33446c6f9f1fd2f7820ccc" => :sierra
-    sha256 "5c86c745cc2e96d7d80088936fe651d4576428f168350f54074e44f6e8d5473a" => :el_capitan
+    sha256 "e0d8da0099992c2de50cbc3264aea7c0a3c6ad9238c39a8c22137debc5adaa3f" => :high_sierra
+    sha256 "a4cf3ba3ae5b3c9d748b07be8d18786ffd178975dbd0b471c5f399f966c46241" => :sierra
+    sha256 "cee62528a526eef69eac559fe8ed89d77b84f77dbcaffe3b219f7bb977ab153d" => :el_capitan
   end
 
   depends_on "ocaml-findlib" => :build

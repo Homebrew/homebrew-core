@@ -38,7 +38,7 @@ class Tracebox < Formula
 
     You should be certain that you trust any software you are executing with
     elevated privileges.
-    EOS
+  EOS
   end
 
   test do

@@ -1,15 +1,15 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20180328.tar.gz"
-  sha256 "3a5c2e2636021e6cafecb213c6ca4b5226bfcdadf00a241fde45b58f513ea674"
+  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20180622.tar.gz"
+  sha256 "e9f79509f44aac82c9663381f8f4bfb18a9a3c3eb112d418c92629a871bbb13c"
   head "https://github.com/rordenlab/dcm2niix.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "322c0945d61f2203d62b15a94155c7a34bf8925a578d0050fe19f934d68fbdcb" => :high_sierra
-    sha256 "b2291464e381862c25d189e616fc53fc23c35fec509fb19a72bc5bc4c9bc9c96" => :sierra
-    sha256 "214ba6a0a5728c2387da5a0b06b8820cf6b33ad31eac81982dfbac58efb4760b" => :el_capitan
+    sha256 "ee9bf7bc4bf9f81335bb13575f6671ac04892c4ed5f07e88d28b4cb59a3b37da" => :high_sierra
+    sha256 "9f1427167cc5ee01f2c8b4a1a940d1e41b3066be79b263d513ed90df816e4c4d" => :sierra
+    sha256 "d0d9024e298b58e40d35ed147ec1a057f40d755751fe0c1494709903d5bef04c" => :el_capitan
   end
 
   option "with-batch"

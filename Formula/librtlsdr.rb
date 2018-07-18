@@ -22,4 +22,18 @@ class Librtlsdr < Formula
       system "make", "install"
     end
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include "rtl-sdr.h"
+
+      int main()
+      {
+        rtlsdr_get_device_count();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lrtlsdr", "test.c", "-o", "test"
+    system "./test"
+  end
 end

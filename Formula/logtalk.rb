@@ -1,15 +1,15 @@
 class Logtalk < Formula
   desc "Object-oriented logic programming language"
   homepage "https://logtalk.org/"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3170stable.tar.gz"
-  version "3.17.0"
-  sha256 "012463d97d15cad542a8c701b5e897b6562407c8ab7ab40021afac309db13d67"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3180stable.tar.gz"
+  version "3.18.0"
+  sha256 "88b0bd2d426eec6add81580002c1709efc3c4b3423121d19587c03ab4cafec85"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6c829356909d28b1e319c82c719968c8fd337296420da444c40d57ec9708a29a" => :high_sierra
-    sha256 "fc162b0e9276bb7234567038391660f3b9525018598e7fadce4aa222ccfac8ec" => :sierra
-    sha256 "06378fc69a618c038e855baa522b9ef6d7d1032502919b1a5f92049a25e5b933" => :el_capitan
+    sha256 "76fed54df59e8c192c6888c05a762d53ba8d6dd4e36ff0e85b71e8c69d86af94" => :high_sierra
+    sha256 "ee45142748660a689cf94968ab570b4be268d0ce95bd00c98d8035aece4dfc8c" => :sierra
+    sha256 "00ac3bcd9ee04f242158092375708e0f0f14c74bc68b5acec0b095cef5e11ba2" => :el_capitan
   end
 
   option "with-swi-prolog", "Build using SWI Prolog as backend"

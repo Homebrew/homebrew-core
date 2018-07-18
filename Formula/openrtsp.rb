@@ -22,7 +22,7 @@ class Openrtsp < Formula
   def caveats; <<~EOS
     Testing executables have been placed in:
       #{libexec}
-    EOS
+  EOS
   end
 
   test do

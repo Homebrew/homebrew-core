@@ -5,20 +5,22 @@ class Yamllint < Formula
   homepage "https://github.com/adrienverge/yamllint"
   url "https://github.com/adrienverge/yamllint/archive/v1.11.1.tar.gz"
   sha256 "56221b7c0a50b1619e491eb157624a5d1b160c1a4f019d64f117268f42fe4ca4"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "d9687db3c53fc090c6f3d8b61f54091c5b10092fcd8c2b0e065eebff770b5a78" => :high_sierra
-    sha256 "c15608fcd2ff761d635a2048ac92ce927e5363520bc7d2e4405deba71a5217dd" => :sierra
-    sha256 "9be7ee846fdec88b2d8c7dae3104b96e45b49504e84c825661a14d2ad1aefebc" => :el_capitan
+    rebuild 1
+    sha256 "3ffaafca879769be72b0a8a98be07f8ffe746f8488f4430863fb8380544ab01c" => :high_sierra
+    sha256 "921109aebc30770d96997b33565faf1d21f5821d4bf9e19d18fc6e0f5908712a" => :sierra
+    sha256 "17ec47b0462e157f33a61fa95462c1b6f7bdd329fd687a870317c4eb4aeeaf9c" => :el_capitan
   end
 
   depends_on "libyaml"
   depends_on "python"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "pathspec" do

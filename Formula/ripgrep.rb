@@ -18,9 +18,7 @@ class Ripgrep < Formula
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "cargo", "build", "--release"
-
-    bin.install "target/release/rg"
+    system "cargo", "install", "--root", prefix
 
     # Completion scripts and manpage are generated in the crate's build
     # directory, which includes a fingerprint hash. Try to locate it first

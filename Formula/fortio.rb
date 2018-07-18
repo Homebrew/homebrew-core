@@ -2,13 +2,13 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://github.com/istio/fortio"
   url "https://github.com/istio/fortio.git",
-      :tag => "v0.11.0",
-      :revision => "d17e45b4f794ac1722747d7cfbcbe0479722868a"
+      :tag => "v1.0.1",
+      :revision => "1e338e499d8ae134dcc32ad63825e7b972158687"
 
   bottle do
-    sha256 "c88b6cd61fe7067868ebb3842698e6343bb3f1a43be708723ac1f57a1a7cbb72" => :high_sierra
-    sha256 "e7220576eba0318f3b51c09552d1e3171347992c8f6ac8f33a366fc4fac60531" => :sierra
-    sha256 "ff768abe78f7302b6da2ff08dba589c3f4beb40742b3a17db64312e82e4e074b" => :el_capitan
+    sha256 "5f6848e1d99731eacaaf649115e50d41169031ddf2f72b0f328d8c519a281984" => :high_sierra
+    sha256 "acf51ef22d324e280ec4cfc6ff2d9a5af34248fc8550343ba044febfa5b393e3" => :sierra
+    sha256 "9f5f4ac43978e5f0454e91282db31f3f072ff4ce90d043dcd42fea3b97078d66" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -18,11 +18,8 @@ class Fortio < Formula
 
     (buildpath/"src/istio.io/fortio").install buildpath.children
     cd "src/istio.io/fortio" do
-      date = Time.new.strftime("%Y-%m-%d %H:%M")
-      system "go", "build", "-a", "-o", bin/"fortio", "-ldflags",
-        "-s -X istio.io/fortio/ui.resourcesDir=#{lib} " \
-        "-X istio.io/fortio/version.tag=v#{version} " \
-        "-X \"istio.io/fortio/version.buildInfo=#{date}\""
+      system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio",
+             "LIB_DIR=#{lib}", "DATA_DIR=."
       lib.install "ui/static", "ui/templates"
       prefix.install_metafiles
     end

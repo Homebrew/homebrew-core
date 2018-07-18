@@ -32,7 +32,7 @@ class Antiword < Formula
 
   def caveats; <<~EOS
     You can install mapping files in ~/.antiword
-    EOS
+  EOS
   end
 
   test do

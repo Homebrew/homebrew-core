@@ -5,13 +5,13 @@ class MagicWormhole < Formula
   homepage "https://github.com/warner/magic-wormhole"
   url "https://files.pythonhosted.org/packages/b5/d3/5409c111835af19af00643a8fbd0c0a6f30f025400ca5bb72f59fd1e42fb/magic-wormhole-0.10.5.tar.gz"
   sha256 "9558ea1f3551e535deec3462cd5c8391cb32ebb12ecd8b40b36861dbee4917ee"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "8c4929dd1a1577e204cb3b0edcf54611012963f239563f233f73d8cfaa036f08" => :high_sierra
-    sha256 "cbc432ae8af7b07e8e709986482623f6b4bfe178f1355a6492b1b504d66ccb99" => :sierra
-    sha256 "33a9b185a368198227bf90cab255af3fe0bc2093f05d53ba4a7d35ceb9d6a0a5" => :el_capitan
+    sha256 "a567f6a0bdeed67a4942047e8c0fb5c4f2b9273193607fc6e4be9e91ad36a074" => :high_sierra
+    sha256 "1777b224840f1ba82a530508236ef7fbb99ca626ab6d09b1d2984dc197d4aa1d" => :sierra
+    sha256 "4833d7e7ce39cf379c4f9318842d9436d4d102cf630c2ed59437e91596ce8559" => :el_capitan
   end
 
   depends_on "libsodium"
@@ -155,6 +155,8 @@ class MagicWormhole < Formula
 
   def install
     ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resource("cffi")
     virtualenv_install_with_resources
   end
 

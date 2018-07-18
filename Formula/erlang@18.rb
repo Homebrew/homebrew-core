@@ -3,7 +3,6 @@ class ErlangAT18 < Formula
   homepage "https://www.erlang.org/"
   url "https://github.com/erlang/otp/archive/OTP-18.3.4.9.tar.gz"
   sha256 "25ef8ba3824cb726c4830abf32c2a2967925b1e33a8e8851dba596e933e2689a"
-  head "https://github.com/erlang/otp.git", :branch => "maint-18"
 
   bottle do
     cellar :any
@@ -121,7 +120,7 @@ class ErlangAT18 < Formula
     Man pages can be found in:
       #{opt_lib}/erlang/man
     Access them with `erl -man`, or add this directory to MANPATH.
-    EOS
+  EOS
   end
 
   test do

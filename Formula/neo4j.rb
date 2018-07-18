@@ -63,7 +63,7 @@ class Neo4j < Formula
         <string>#{var}/log/neo4j.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

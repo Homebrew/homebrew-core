@@ -1,7 +1,7 @@
 class Surfraw < Formula
   desc "Shell Users' Revolutionary Front Rage Against the Web"
-  homepage "https://surfraw.alioth.debian.org/"
-  url "https://surfraw.alioth.debian.org/dist/surfraw-2.3.0.tar.gz"
+  homepage "https://packages.debian.org/sid/surfraw"
+  url "https://ftp.openbsd.org/pub/OpenBSD/distfiles/surfraw-2.3.0.tar.gz"
   sha256 "ad0420583c8cdd84a31437e59536f8070f15ba4585598d82638b950e5c5c3625"
 
   bottle do
@@ -11,15 +11,7 @@ class Surfraw < Formula
     sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :el_capitan
   end
 
-  head do
-    url "https://anonscm.debian.org/git/surfraw/surfraw.git", :shallow => false
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
   def install
-    system "./prebuild" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-graphical-browser=open"

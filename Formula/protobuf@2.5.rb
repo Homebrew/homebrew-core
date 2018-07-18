@@ -58,7 +58,7 @@ class ProtobufAT25 < Formula
   def caveats; <<~EOS
     Editor support and examples have been installed to:
       #{doc}
-    EOS
+  EOS
   end
 
   test do

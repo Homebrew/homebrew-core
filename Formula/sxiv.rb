@@ -5,7 +5,6 @@ class Sxiv < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/s/sxiv/sxiv_1.3.2.orig.tar.gz"
   sha256 "9f5368de8f0f57e78ebe02cb531a31107a993f2769cec51bcc8d70f5c668b653"
   revision 1
-
   head "https://github.com/muennich/sxiv.git"
 
   bottle do

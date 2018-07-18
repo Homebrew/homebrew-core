@@ -169,7 +169,7 @@ class MysqlCluster < Formula
 
       mysqladmin -u root -p shutdown
       ndb_mgm -e shutdown
-    EOS
+  EOS
   end
 
   def my_cnf; <<~EOS
@@ -180,7 +180,7 @@ class MysqlCluster < Formula
     port=5000
     # Only allow connections from localhost
     bind-address = 127.0.0.1
-    EOS
+  EOS
   end
 
   def config_ini; <<~EOS
@@ -203,7 +203,7 @@ class MysqlCluster < Formula
 
     [mysqld]
     NodeId=50
-    EOS
+  EOS
   end
 
   # Override Formula#plist_name
@@ -238,7 +238,7 @@ class MysqlCluster < Formula
       <string>#{var}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def ndb_mgmd_startup_plist(name); <<~EOS
@@ -267,7 +267,7 @@ class MysqlCluster < Formula
       <string>#{var}/mysql-cluster/#{name}.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def ndbd_startup_plist(name); <<~EOS
@@ -294,7 +294,7 @@ class MysqlCluster < Formula
       <string>#{var}/mysql-cluster/#{name}.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

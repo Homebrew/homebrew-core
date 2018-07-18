@@ -71,7 +71,7 @@ class Kapacitor < Formula
         <string>#{var}/log/kapacitor.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

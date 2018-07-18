@@ -5,8 +5,6 @@ class AnsibleAT20 < Formula
   sha256 "373a2e50319d90da50948e3faf1c033464b7302200e0199da8981d24646d4387"
   revision 2
 
-  head "https://github.com/ansible/ansible.git", :branch => "stable-2.0"
-
   bottle do
     cellar :any
     rebuild 1
@@ -596,7 +594,7 @@ class AnsibleAT20 < Formula
     execution environment, which is inherited by Python scripts invoked
     by ansible. If this causes problems, you can modify your playbooks
     to invoke python with -E, which causes python to ignore PYTHONPATH.
-    EOS
+  EOS
   end
 
   test do

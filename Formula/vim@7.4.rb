@@ -3,12 +3,12 @@ class VimAT74 < Formula
   homepage "https://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 11
+  revision 14
 
   bottle do
-    sha256 "92081d71fa26751895ac0e213971d1ad4b23c3ae086663b71472ad5d8ce57590" => :high_sierra
-    sha256 "a3c31226c225ec8fbd947eedcd147c5398a4d8c7314de46173b62d1a258a49c7" => :sierra
-    sha256 "fe2884c00497b9e9d739836c4b0863823a7488f75a19bea7081e1a8b5a63cc92" => :el_capitan
+    sha256 "18d50a974f9700ecae9d6c5164f091d27c1fcde4fc5841865201372f367df580" => :high_sierra
+    sha256 "e2d5e6d6f2f0880158daa46c2a6f8e283d515cd0a48902dfcd92812cab5e55f2" => :sierra
+    sha256 "5ed9a339642f5e553511886013d6eecd363827c5560033725142c4e193be5e78" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -35,6 +35,12 @@ class VimAT74 < Formula
   depends_on "luajit" => :optional
   depends_on "python@2" => :optional
   depends_on :x11 if build.with? "client-server"
+
+  # Python 3.7 compat
+  # Equivalent to upstream commit 24 Mar 2018 "patch 8.0.1635: undefining
+  # _POSIX_THREADS causes problems with Python 3"
+  # See https://github.com/vim/vim/commit/16d7eced1a08565a9837db8067c7b9db5ed68854
+  patch :DATA
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
@@ -118,3 +124,21 @@ class VimAT74 < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/if_python3.c b/src/if_python3.c
+index 02d913492c..59c115dd8d 100644
+--- a/src/if_python3.c
++++ b/src/if_python3.c
+@@ -34,11 +34,6 @@
+ 
+ #include <limits.h>
+ 
+-/* Python.h defines _POSIX_THREADS itself (if needed) */
+-#ifdef _POSIX_THREADS
+-# undef _POSIX_THREADS
+-#endif
+-
+ #if defined(_WIN32) && defined(HAVE_FCNTL_H)
+ # undef HAVE_FCNTL_H
+ #endif

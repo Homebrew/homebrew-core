@@ -23,7 +23,7 @@ class Mksh < Formula
     To allow using mksh as a login shell, run this as root:
         echo #{HOMEBREW_PREFIX}/bin/mksh >> /etc/shells
     Then, any user may run `chsh` to change their shell.
-    EOS
+  EOS
   end
 
   test do

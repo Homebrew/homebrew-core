@@ -7,7 +7,6 @@ class Libtool < Formula
   url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
-
   revision 1
 
   bottle do
@@ -31,7 +30,7 @@ class Libtool < Formula
   def caveats; <<~EOS
     In order to prevent conflicts with Apple's own libtool we have prepended a "g"
     so, you have instead: glibtool and glibtoolize.
-    EOS
+  EOS
   end
 
   test do

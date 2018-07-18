@@ -54,14 +54,14 @@ class H2o < Formula
         paths:
           /:
             file.dir: #{var}/h2o/
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
     A basic example configuration file has been placed in #{etc}/h2o.
 
     You can find fuller, unmodified examples in #{opt_pkgshare}/examples.
-    EOS
+  EOS
   end
 
   plist_options :manual => "h2o"
@@ -85,7 +85,7 @@ class H2o < Formula
         </array>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

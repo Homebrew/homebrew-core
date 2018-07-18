@@ -4,7 +4,6 @@ class Simh < Formula
   url "http://simh.trailing-edge.com/sources/simhv39-0.zip"
   version "3.9-0"
   sha256 "e49b259b66ad6311ca9066dee3d3693cd915106a6938a52ed685cdbada8eda3b"
-
   head "https://github.com/simh/simh.git"
 
   bottle do

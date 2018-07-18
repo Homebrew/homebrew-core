@@ -16,12 +16,12 @@ class Bdsup2sub < Formula
   depends_on :java
 
   resource "macify" do
-    url "http://www.java2s.com/Code/JarDownload/macify/macify-1.4.jar.zip"
+    url "https://www.java2s.com/Code/JarDownload/macify/macify-1.4.jar.zip"
     sha256 "c0ceb1b1ea3e0a59ef106ce3fe497297718ae69097a65a1519c69b8b9779c914"
   end
 
   resource "java-image-scaling" do
-    url "http://www.java2s.com/Code/JarDownload/java-image/java-image-scaling-0.8.5.jar.zip"
+    url "https://www.java2s.com/Code/JarDownload/java-image/java-image-scaling-0.8.5.jar.zip"
     sha256 "5b082321bd40eb79072615346373b972286b63d11432f0073fcc2c3ae4bc2799"
   end
 

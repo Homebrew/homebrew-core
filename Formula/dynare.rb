@@ -1,14 +1,14 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
-  url "https://www.dynare.org/release/source/dynare-4.5.4.tar.xz"
-  sha256 "5ee1c30e9a8e0c0ec4f60e83c02beb98271f9e324b9b667d4a5f5b2ee634a7e6"
-  revision 5
+  url "https://www.dynare.org/release/source/dynare-4.5.5.tar.xz"
+  sha256 "9e2f604aa7a722cbcc6a4150af0b7fb78874490cf0b4868b2a410193ae1e3727"
+  revision 1
 
   bottle do
-    sha256 "3d3a8047734e00f273882ccc8df351f0a6b6d5dad8fa059d97dd7e194458417e" => :high_sierra
-    sha256 "12ff985d10a0723501074cd4b14b98e4cc476586bbab7fd3b6530da4310212d4" => :sierra
-    sha256 "455fde45d8ff9f988a007c56e2b07749be6fa21c5b069121c9a2541db99f7989" => :el_capitan
+    sha256 "efbdb7ef31ff4470593294f0bb04188c2adc9fbf3e83c068146610eab8118a07" => :high_sierra
+    sha256 "8039dfd3518f0610fcce60859da27f5b60b46a2d7c203185aed25f7e42006d3a" => :sierra
+    sha256 "9cf193a8cd86ecd6c8afd4440f64482fb8399dac81c107d59013d7a6d414b8cb" => :el_capitan
   end
 
   head do
@@ -41,10 +41,6 @@ class Dynare < Formula
   end
 
   def install
-    # config.h was renamed octave-config.h in Octave 4.4.0
-    inreplace "mex/sources/ms-sbvar/modify_for_mex.h", "octave/config.h",
-                                                       "octave/octave-config.h"
-
     ENV.cxx11
 
     resource("slicot").stage do
@@ -70,7 +66,7 @@ class Dynare < Formula
   def caveats; <<~EOS
     To get started with Dynare, open Octave and type
       addpath #{opt_lib}/dynare/matlab
-    EOS
+  EOS
   end
 
   test do

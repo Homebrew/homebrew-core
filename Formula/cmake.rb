@@ -1,15 +1,15 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.11/cmake-3.11.3.tar.gz"
-  sha256 "287135b6beb7ffc1ccd02707271080bbf14c21d80c067ae2c0040e5f3508c39a"
+  url "https://cmake.org/files/v3.12/cmake-3.12.0.tar.gz"
+  sha256 "d0781a90f6cdb9049d104ac16a150f9350b693498b9dea8a0331e799db6b9d69"
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "84a5ac05b7db1314d8bf467960023ac2993afd2f37d7afc02baa0dc049bc23bd" => :high_sierra
-    sha256 "93d5bb128dd6b4dcf125892b006c6ddb84a7397e9900947d61360a9f4850c603" => :sierra
-    sha256 "51ca1c9c2b0971d44516618f55eb4f3e8bdb20879ef4d5785b6f7ad7ddbf78f9" => :el_capitan
+    sha256 "19de409c20d3e357cf3ae2cb11408dd32e2e6f74084e07c7ca38a38894207cd7" => :high_sierra
+    sha256 "e618e6dd6696dec2deba7927ee3b3a302f944cfa8208a5405ee60346ac00c534" => :sierra
+    sha256 "0401ace628c67133f7c061bce0e3a3f71f491ffc9e38f22a8fdb8bb8854c8a1c" => :el_capitan
   end
 
   option "without-docs", "Don't build man pages"

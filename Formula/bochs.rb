@@ -51,7 +51,6 @@ class Bochs < Formula
       --enable-clgd54xx
       --enable-avx
       --enable-vmx=2
-      --enable-smp
       --enable-long-phy-address
       --with-term
     ]
@@ -62,6 +61,7 @@ class Bochs < Formula
       args << "--enable-gdb-stub"
     else
       args << "--enable-debugger"
+      args << "--enable-smp"
     end
 
     system "./configure", *args

@@ -4,16 +4,16 @@ class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://github.com/pimutils/vdirsyncer.git",
-      :tag => "0.16.4",
-      :revision => "c63e55d0201fbfed23287216e7f8e19ff34d5ac3"
-  revision 2
+      :tag => "0.16.6",
+      :revision => "aec9b916021a50946e31397c5737e3a427297182"
+  revision 1
   head "https://github.com/pimutils/vdirsyncer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5de37a39897eb93ce937ad22777ecb6edf048b78e6bdbbfad3fa15e1ead4eba0" => :high_sierra
-    sha256 "4b22001ed657a4baec1128b2d2071ac05bade38f91e5d015485ccb134ef6e2a8" => :sierra
-    sha256 "0d8646e753606b5ec7a76a2cebfe19741f9c92fe84f159896f0103dd8228f504" => :el_capitan
+    sha256 "311bb7354bddedc2614d5dd2fc22b0a8403b85c18f041c8a280934eb41c83f65" => :high_sierra
+    sha256 "ba39bf49145d058a1032b11ab3a9f6214808bd1aa41d05f10ff8a24a929d1188" => :sierra
+    sha256 "b5b67afa91034c85305d4d3e746591be3403a1c732daed83638fb7c26ffc1f0c" => :el_capitan
   end
 
   depends_on "python"

@@ -19,8 +19,8 @@ class Kubectx < Formula
     bash_completion.install "completion/kubens.bash" => "kubens"
     zsh_completion.install "completion/kubectx.zsh" => "_kubectx"
     zsh_completion.install "completion/kubens.zsh" => "_kubens"
-    fish_completion.install "completion/kubectx.fish" => "_kubectx"
-    fish_completion.install "completion/kubens.fish" => "_kubens"
+    fish_completion.install "completion/kubectx.fish"
+    fish_completion.install "completion/kubens.fish"
   end
 
   test do

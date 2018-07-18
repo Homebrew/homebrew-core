@@ -1,6 +1,8 @@
 class ApmServer < Formula
   desc "Server for shipping APM metrics to Elasticsearch"
   homepage "https://www.elastic.co/"
+  # Pinned at 6.2.x because of a licencing issue
+  # See: https://github.com/Homebrew/homebrew-core/pull/28995
   url "https://github.com/elastic/apm-server/archive/v6.2.4.tar.gz"
   sha256 "b0d85f62851dd0cc7cb7a54c8549d36fb7c29bdb8f83c91b3a6487a8e9acba39"
   head "https://github.com/elastic/apm-server.git"

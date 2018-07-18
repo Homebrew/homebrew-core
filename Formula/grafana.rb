@@ -1,15 +1,15 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.1.3.tar.gz"
-  sha256 "bbf69d28f4094d231b9033d916969eedee6b18e3787a44f5bda6c632f08251b9"
+  url "https://github.com/grafana/grafana/archive/v5.2.1.tar.gz"
+  sha256 "90209a1cfb280d866a5933cb095ede41c66b269ae3dfc4d0164528527746e678"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a6294cf37fbe63b9ddf209fecefe7a2a3243b3c6b4dd087244a9e8e18e3db2ca" => :high_sierra
-    sha256 "b76eea9c4e75e9ce5568fe2866a6d23be20095935ac2d86faec60ffd0e836f8f" => :sierra
-    sha256 "8f78fa4cacdd4a885caaab9e0025f06a559f9c6e3debd247e046efe776423f66" => :el_capitan
+    sha256 "17a3f5b64e72f846b0982a56f8ca65f15b42e41703f303cb46f4e08e56b2fbe3" => :high_sierra
+    sha256 "e6ae8fdddd9830868c32c1c66e0adecaf2de8735136b01ef2f135f51db006027" => :sierra
+    sha256 "1e96864dfcb5e77f6776f162fa516789169de25432531267da153ed3e77bcb2f" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -31,8 +31,8 @@ class Grafana < Formula
       args << "--force" unless build.bottle?
       system "node_modules/grunt-cli/bin/grunt", *args
 
-      bin.install "bin/grafana-cli"
-      bin.install "bin/grafana-server"
+      bin.install "bin/darwin-amd64/grafana-cli"
+      bin.install "bin/darwin-amd64/grafana-server"
       (etc/"grafana").mkpath
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
@@ -87,7 +87,7 @@ class Grafana < Formula
         </dict>
       </dict>
     </plist>
-   EOS
+  EOS
   end
 
   test do
@@ -120,7 +120,7 @@ class Grafana < Formula
     listening = Timeout.timeout(5) do
       li = false
       r.each do |l|
-        if l =~ /Initializing HTTP Server/
+        if l =~ /Initializing HTTPServer/
           li = true
           break
         end

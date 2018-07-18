@@ -1,14 +1,14 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/docs/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_37_1_RTM/src/nss-3.37.1.tar.gz"
-  sha256 "097b30e436479ad737b3703b25b6198b6513e202731085c6f097d8853dd20405"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_38_RTM/src/nss-3.38.tar.gz"
+  sha256 "2c643d3c08d6935f4d325f40743719b6990aa25a79ec2f8f712c99d086672f62"
 
   bottle do
     cellar :any
-    sha256 "1e0ea5b0c054bffb3413449dd838b555929e382270a22e598926e19bc6b7b2c7" => :high_sierra
-    sha256 "4cb0f95d5802826e8e1fbf309f31d301b0d29ce02bd2f8cd52a418f052b5f908" => :sierra
-    sha256 "1798686c8fd3f0afd4b71557efff9aaa5652caa8965901519c0e92138ce1645f" => :el_capitan
+    sha256 "5313d2e11cd6c25cbbb1234667b27bf5a2d144d7a47d0ef9f1eadf62a616f3b4" => :high_sierra
+    sha256 "4a6fc7b79a81f24cb00f320c6912b24e4f5e9aca6ec8d4edc3d30e36012a264b" => :sierra
+    sha256 "7a82236aadb98b6ee65699d369d64138d8e5dd016a84a03c976d6aae16dcb247" => :el_capitan
   end
 
   keg_only <<~EOS
@@ -85,7 +85,7 @@ class Nss < Formula
       *) exit 1;;
     esac
     pkg-config "$opt" nss
-    EOS
+  EOS
   end
 
   def pc_file; <<~EOS
@@ -100,6 +100,6 @@ class Nss < Formula
     Requires: nspr >= 4.12
     Libs: -L${libdir} -lnss3 -lnssutil3 -lsmime3 -lssl3
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 end

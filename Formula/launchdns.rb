@@ -26,7 +26,7 @@ class Launchdns < Formula
   def caveats; <<~EOS
     To have *.localhost resolved to 127.0.0.1:
       sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
-    EOS
+  EOS
   end
 
   plist_options :manual => "launchdns"
@@ -62,7 +62,7 @@ class Launchdns < Formula
         <string>#{var}/log/launchdns.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

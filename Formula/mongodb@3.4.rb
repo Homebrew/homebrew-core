@@ -1,7 +1,6 @@
 class MongodbAT34 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-
   url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.14.tar.gz"
   sha256 "bbed7821560cc3c9e3215708e34243e20d490891b08a39f216188398ede9d790"
 
@@ -97,7 +96,7 @@ class MongodbAT34 < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -137,7 +136,7 @@ class MongodbAT34 < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -32,7 +32,7 @@ class Asdf < Formula
 
     If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
          source #{opt_prefix}/asdf.fish
-    EOS
+  EOS
   end
 
   test do

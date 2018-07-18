@@ -3,7 +3,6 @@ class Mruby < Formula
   homepage "https://mruby.org/"
   url "https://github.com/mruby/mruby/archive/1.4.1.tar.gz"
   sha256 "2469b1f3e3c97a34f8c3dca1bca9795f66d6b17c7be60ddfc1f3b502cdcbb400"
-
   head "https://github.com/mruby/mruby.git"
 
   bottle do

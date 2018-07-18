@@ -19,4 +19,18 @@ class Sdl2Gfx < Formula
                           "--disable-sdltest"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <SDL2/SDL2_imageFilter.h>
+
+      int main()
+      {
+        int mmx = SDL_imageFilterMMXdetect();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lsdl2_gfx", "test.c", "-o", "test"
+    system "./test"
+  end
 end

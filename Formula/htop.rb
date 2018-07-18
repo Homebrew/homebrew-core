@@ -33,7 +33,7 @@ class Htop < Formula
     htop requires root privileges to correctly display all running processes,
     so you will need to run `sudo htop`.
     You should be certain that you trust any software you grant root privileges.
-    EOS
+  EOS
   end
 
   test do

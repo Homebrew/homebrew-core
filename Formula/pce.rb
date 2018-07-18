@@ -4,7 +4,6 @@ class Pce < Formula
   url "http://www.hampa.ch/pub/pce/pce-0.2.2.tar.gz"
   sha256 "a8c0560fcbf0cc154c8f5012186f3d3952afdbd144b419124c09a56f9baab999"
   revision 1
-
   head "git://git.hampa.ch/pce.git"
 
   bottle do

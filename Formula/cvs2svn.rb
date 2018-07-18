@@ -34,7 +34,7 @@ class Cvs2svn < Formula
 
     Contrib scripts and example options files are installed in:
       #{opt_prefix}
-    EOS
+  EOS
   end
 
   test do

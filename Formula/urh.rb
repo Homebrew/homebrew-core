@@ -1,14 +1,14 @@
 class Urh < Formula
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/f5/43/e56150c5f6d02d627e68098706a0a1610ae41094804f8b8c1242fdd5e0a9/urh-2.1.0.tar.gz"
-  sha256 "7ace3c2f967a25f73f4e0477307cb4c5ae765759a404a776dded99ddee1bce17"
+  url "https://files.pythonhosted.org/packages/8d/a9/79d4311c0c356071eba57472b7f93e42807ef067563ffe3a16ab10cc1e2c/urh-2.2.2.tar.gz"
+  sha256 "592cd0bd3031755005fd6aef510e6e764fd9a9b49adec2f3b29da34d53595f78"
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "afb62d75f88099a2a0e816319ecf3c249af1808be2af5d5c18b83f5d0b81bb9a" => :high_sierra
-    sha256 "11f3649ee9a18113b7ea0fa0cdcafb79468b0b338d2236091f75b7c586875513" => :sierra
-    sha256 "109078a0659d7d8eb51f26b68f7da7acc9e87ac04066f5d4dadbae163191d2a8" => :el_capitan
+    sha256 "c79c7ce04091135ee38d923225a805b57d5b4cb555b51e3972c56825889057ab" => :high_sierra
+    sha256 "99f7add0278c4f0a5a815af33c4e67072de7bac91f1c745df352a61dab7bdea5" => :sierra
+    sha256 "eb223bc74577b6b0af51df82d910f673bd44333fe2dcb9fd2f510b2e368aa1b1" => :el_capitan
   end
 
   option "with-hackrf", "Build with libhackrf support"
@@ -22,9 +22,14 @@ class Urh < Formula
 
   depends_on "hackrf" => :optional
 
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/b3/ae/971d3b936a7ad10e65cb7672356cff156000c5132cf406cb0f4d7a980fd3/Cython-0.28.3.tar.gz"
+    sha256 "1aae6d6e9858888144cea147eb5e677830f45faaff3d305d77378c3cba55f526"
+  end
+
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/14/a2/8ac7dda36eac03950ec2668ab1b466314403031c83a95c5efc81d2acf163/psutil-5.4.5.tar.gz"
-    sha256 "ebe293be36bb24b95cdefc5131635496e88b17fabbcf1e4bc9b5c01f5e489cfe"
+    url "https://files.pythonhosted.org/packages/51/9e/0f8f5423ce28c9109807024f7bdde776ed0b1161de20b408875de7e030c3/psutil-5.4.6.tar.gz"
+    sha256 "686e5a35fe4c0acc25f3466c32e716f2d498aaae7b7edc03e2305b682226bcf6"
   end
 
   resource "pyzmq" do
@@ -41,16 +46,24 @@ class Urh < Formula
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
+      next if r.name == "Cython"
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    saved_python_path = ENV["PYTHONPATH"]
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"cython/lib/python#{xy}/site-packages"
+
+    resource("Cython").stage do
+      system "python3", *Language::Python.setup_install_args(buildpath/"cython")
+    end
+
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => saved_python_path)
   end
 
   test do

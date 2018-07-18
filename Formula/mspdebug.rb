@@ -24,7 +24,7 @@ class Mspdebug < Formula
     You may need to install a kernel extension if you're having trouble with
     RF2500-like devices such as the TI Launchpad:
       https://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
-    EOS
+  EOS
   end
 
   test do

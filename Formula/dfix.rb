@@ -2,14 +2,14 @@ class Dfix < Formula
   desc "Auto-upgrade tool for D source code"
   homepage "https://github.com/dlang-community/dfix"
   url "https://github.com/dlang-community/dfix.git",
-      :tag => "v0.3.3",
-      :revision => "7475d0d2d8b322ad8734d09e1e6ea4d8edb4b957"
+      :tag => "v0.3.5",
+      :revision => "5265a8db4b0fdc54a3d0837a7ddf520ee94579c4"
   head "https://github.com/dlang-community/dfix.git", :shallow => false
 
   bottle do
-    sha256 "77c5f989b77e63a53aea939dce24c99c203073eba08c687eb0feb8146ea3d630" => :high_sierra
-    sha256 "75570e29a01423b0806c248a1daf6ff6c69681c3c530a34d296604b4663920a9" => :sierra
-    sha256 "6dbc07c50bbcd397af748e38fea9bbb63876caba64777ff63ae775764258f70f" => :el_capitan
+    sha256 "6469d400a0d8e44247410d3250bb53080e6822747252a68883e2bb9e03aeb282" => :high_sierra
+    sha256 "ff44843ec1e5040e1d2313f88610f27d7712f883c6b5f4030f24a9ad14dd4996" => :sierra
+    sha256 "dff56042492f091f6877bbb452608cebb3571dbf9302cd411a63222671507838" => :el_capitan
   end
 
   depends_on "dmd" => :build

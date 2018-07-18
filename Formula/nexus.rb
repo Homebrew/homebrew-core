@@ -35,7 +35,7 @@ class Nexus < Formula
       <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

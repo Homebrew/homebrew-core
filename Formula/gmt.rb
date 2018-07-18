@@ -1,16 +1,15 @@
 class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "https://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.3-src.tar.xz"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.3-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.3-src.tar.xz"
-  sha256 "ed00e380c3dc94a3aef4b7aeaaac0f3681df703dc614e8a15a1864e20b3fa2c8"
-  revision 3
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.4-src.tar.xz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.4-src.tar.xz"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.4-src.tar.xz"
+  sha256 "30fe868c91df30c51a637d54cb9ac52a64fe57e15daa9e08a73a4d1f0847e69f"
 
   bottle do
-    sha256 "1a3ec4dd62997f9b9dd58eb93bcfb06d85053afb67ba1a025d4ee83c14165a00" => :high_sierra
-    sha256 "2c62a92e2fc0d68f7aed44d1e727b95d3191025ecad757fa033cecfe5f09d1ca" => :sierra
-    sha256 "59edd37d3f0d29a3fbc73dddef12fab7bfd9d8cee5a44205f57701ba71c523ab" => :el_capitan
+    sha256 "456593df6ad7441fde5c58a4579a3aa1428c52059db4449c0f578ff37bb18f32" => :high_sierra
+    sha256 "b91a84ab1a4f943a19e0faeaf447cdab87f5b531d1f9b299dffcd4ded44ed47c" => :sierra
+    sha256 "6c5a59359819a5ad38f8d2dd5968fdd00892590309e61ba6d882911436f167f5" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -21,15 +20,16 @@ class Gmt < Formula
 
   resource "gshhg" do
     url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "https://fossies.org/linux/misc/GMT/gshhg-gmt-2.3.7.tar.gz"
     mirror "https://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz"
+    mirror "https://fossies.org/linux/misc/GMT/gshhg-gmt-2.3.7.tar.gz"
     sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
   end
 
   resource "dcw" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.3.tar.gz"
-    mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.3.tar.gz"
-    sha256 "1395e772c3f2d2900c78260ad4a9df2fecd9216e362ad141762f7499bfeb4f23"
+    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.4.tar.gz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.4.tar.gz"
+    mirror "https://fossies.org/linux/misc/GMT/dcw-gmt-1.1.4.tar.gz"
+    sha256 "8d47402abcd7f54a0f711365cd022e4eaea7da324edac83611ca035ea443aad3"
   end
 
   def install

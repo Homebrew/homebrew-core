@@ -21,7 +21,7 @@ class GitArchiveAll < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     touch "homebrew"
     system "git", "add", "homebrew"

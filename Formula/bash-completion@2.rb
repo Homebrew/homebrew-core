@@ -29,7 +29,7 @@ class BashCompletionAT2 < Formula
       if [ -f #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion ]; then
         . #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion
       fi
-    EOS
+  EOS
   end
 
   test do

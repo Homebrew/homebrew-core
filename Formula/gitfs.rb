@@ -54,7 +54,7 @@ class Gitfs < Formula
     repo_path argument.
 
     Also make sure OSXFUSE is properly installed by running brew info osxfuse.
-    EOS
+  EOS
   end
 
   test do

@@ -1,13 +1,13 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.3/dovecot-2.3.1.tar.gz"
-  sha256 "0883821b97fd02a084a84b9469a681f7e6edc56541d854b5419d98891c51fb93"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.2.1.tar.gz"
+  sha256 "4a65118508dc7a562e5f90dd7c3f56219fff22367c496f17d77cd0c7e2724e34"
 
   bottle do
-    sha256 "45f1715564e702c8219d24089b09b526582cac66fbba92b64a0a3a7ad6fb8adf" => :high_sierra
-    sha256 "99ba590650def35c3fc895f768fdcb28095fd9297d47040801383e8314ceff62" => :sierra
-    sha256 "655ad80916e6f404014e9338ee691b053eb245dd5719adfffe75ddb82d6d1e83" => :el_capitan
+    sha256 "a65b0489355543c50a65eff854b5bdbc1ea79246517eea0a49c97617a22edff5" => :high_sierra
+    sha256 "182a940de84e95f3ddf06746c28b616412417d9684d100b1d03ea90991ae5517" => :sierra
+    sha256 "0ea8bb9c76d54244d97a8ef135c98b9321be68c1bf3ff0ddfea1d1080f55c01a" => :el_capitan
   end
 
   option "with-pam", "Build with PAM support"
@@ -19,13 +19,13 @@ class Dovecot < Formula
   depends_on "clucene" => :optional
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.1.tar.gz"
-    sha256 "e3b0aa59261881bcb0d33a6c398f3cb5f9f75e077e67bae175cf33c362577547"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.2.tar.gz"
+    sha256 "950e8e15c58e539761255e140dd3678dd2477fa432a5f2b804e53821bdc02535"
   end
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
-        :revision => "16f059b827d0d2bd10746a3b3cfbde2fd102bf05"
+        :revision => "1964ce688cbeca505263c8f77e16ed923296ce7a"
   end
 
   def install
@@ -76,7 +76,7 @@ class Dovecot < Formula
   def caveats; <<~EOS
     For Dovecot to work, you may need to create a dovecot user
     and group depending on your configuration file options.
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -113,7 +113,7 @@ class Dovecot < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -23,7 +23,7 @@ class TomeePlume < Formula
       #{opt_libexec}
     To run Apache TomEE:
       #{opt_libexec}/bin/tomee-plume-startup
-    EOS
+  EOS
   end
 
   test do

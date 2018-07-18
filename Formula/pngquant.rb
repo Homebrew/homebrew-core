@@ -18,8 +18,7 @@ class Pngquant < Formula
   depends_on "little-cms2"
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/pngquant"
+    system "cargo", "install", "--root", prefix
     man1.install "pngquant.1"
   end
 

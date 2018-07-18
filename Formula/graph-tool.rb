@@ -3,14 +3,15 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.26.tar.bz2"
-  sha256 "df6273dc5ef327a0eaf1ef1c46751fce4c0b7573880944e544287b85a068f770"
-  revision 2
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.27.tar.bz2"
+  sha256 "4740c69720dfbebf8fb3e77057b3e6a257ccf0432cdaf7345f873247390e4313"
+  revision 1
 
   bottle do
-    sha256 "b545489df056088a202e0505538c2f81e74e4b997f8659a0fa72c13f16321038" => :high_sierra
-    sha256 "6f23e45cf2609a29b769c3021f82c0ec83ae48592e597810b6234887c9d88f8f" => :sierra
-    sha256 "5d3da7df6c99092f318eb744adf4aff7d7caf757eb1f28619996516a2425987b" => :el_capitan
+    rebuild 1
+    sha256 "cf89561d96c920f6ec6f0185557d2f0b95ec530c956519f3a8a53f7c96d08c6e" => :high_sierra
+    sha256 "7423ab8435383694efd8b12e3260b9b39d60e1d28ac8dd475ae361ec618ccef3" => :sierra
+    sha256 "2581ddd563891c629a26ea658b4168d4687f736a6b0bc46638b51af3e8a036f1" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -27,6 +28,13 @@ class GraphTool < Formula
   depends_on "pygobject3"
   depends_on "python"
   depends_on "scipy"
+
+  # Remove for > 2.27
+  # Upstream commit from 3 Jul 2018 "Fix incompatibility with Python 3.7"
+  patch do
+    url "https://git.skewed.de/count0/graph-tool/commit/0407f41a.patch"
+    sha256 "6ff5d8729bc2dcad9fafe9f2417a60c10ad09d91ea76a3a48031c9171c57ba44"
+  end
 
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
@@ -49,8 +57,8 @@ class GraphTool < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/c5/39/4da7c2dbc4f023fba5fb2325febcadf0d0ce0efdc8bd12083a0f65d20653/python-dateutil-2.7.2.tar.gz"
-    sha256 "9d8074be4c993fbe4947878ce593052f71dac82932a677d49194d8ce9778002e"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "pytz" do
@@ -78,8 +86,7 @@ class GraphTool < Formula
                           "PYTHON=python3",
                           "PYTHON_LIBS=-undefined dynamic_lookup",
                           "--with-python-module-path=#{lib}/python#{xy}/site-packages",
-                          "--with-boost-python=libboost-python36",
-                          "--with-boost-python=36"
+                          "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt"
     system "make", "install"
 
     site_packages = "lib/python#{xy}/site-packages"

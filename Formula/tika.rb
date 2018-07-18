@@ -30,7 +30,7 @@ class Tika < Formula
 
     See the Tika homepage for more documentation:
       brew home tika
-    EOS
+  EOS
   end
 
   test do

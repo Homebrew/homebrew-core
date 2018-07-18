@@ -129,7 +129,7 @@ class MariadbAT100 < Formula
 
     To connect:
         mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mariadb@10.0/bin/mysql.server start"
@@ -154,7 +154,7 @@ class MariadbAT100 < Formula
       <string>#{var}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -3,7 +3,6 @@ class Halibut < Formula
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/halibut/"
   url "https://www.chiark.greenend.org.uk/~sgtatham/halibut/halibut-1.2/halibut-1.2.tar.gz"
   sha256 "1aedfb6240f27190c36a390fcac9ce732edbdbaa31c85ee675b994e2b083163f"
-
   head "https://git.tartarus.org/simon/halibut.git"
 
   bottle do

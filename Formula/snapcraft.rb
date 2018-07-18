@@ -5,12 +5,14 @@ class Snapcraft < Formula
   homepage "https://snapcraft.io/"
   url "https://files.pythonhosted.org/packages/be/69/9fc4c20854d2732798b06fff9d4df74c71783c89ab9f93d1eba13a6a31d0/snapcraft-2.42.tar.gz"
   sha256 "80249c14c727af2659626f3bfbaa25d36c74fe40cb07175b3acc758ba6434de3"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "fd9b7c9db2f3ec21d972fa33bb475a5fcaee1705e7c1772a2600c00424609721" => :high_sierra
-    sha256 "1c25ce5577f91cbbda88419a5402450110bfdedced97b048697f56b99ea93b91" => :sierra
-    sha256 "fe1f6333bafc5a7eb04d640e3fca19841ce878f809966f997597e0ed4f891112" => :el_capitan
+    rebuild 1
+    sha256 "7e23ba146aee75e1e7bb35e461ee2c52f6b13bea083a12aa366b7b4b9b9a1607" => :high_sierra
+    sha256 "ea61e7fdcfc9b2586dd886d95c184d78f428b39ea22ae4c5db0550ff46f29515" => :sierra
+    sha256 "e288bdc6dff6e58a6b8bf88a30dfd1a692773b6c4192eeeb23861c2790f61cda" => :el_capitan
   end
 
   depends_on "libsodium"
@@ -115,8 +117,8 @@ class Snapcraft < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "raven" do
@@ -165,7 +167,6 @@ class Snapcraft < Formula
   end
 
   def install
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 

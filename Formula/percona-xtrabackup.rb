@@ -1,21 +1,23 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.11/source/tarball/percona-xtrabackup-2.4.11.tar.gz"
-  sha256 "67506507628eec5edc88d2000f423e892b46c8ca56dbe5a02566a11168ee6483"
+  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.12/source/tarball/percona-xtrabackup-2.4.12.tar.gz"
+  sha256 "de02cfd5bde96ddbf50339ef3a4646004dde52239698df45c19ed3e8ee40738e"
 
   bottle do
-    sha256 "f2b03221466dc0f23682f981aa711ca7be0d4589216ab63d488c50701cdfd85b" => :high_sierra
-    sha256 "1c3f15e636d5ac76438fadbd93464bcfa1697fce9acf65e7f54bc27bd31007dc" => :sierra
-    sha256 "6d67926c7fbecbf40a0829e0e1101d8f0d2a283dde68be76e0e2b3366b2f2758" => :el_capitan
+    sha256 "7f69dd77c9d2fa2f7d2b3634eca30bcbd083f426b033a049394c7c804bf788df" => :high_sierra
+    sha256 "afe400789cd164fc668d888f8c0e0e7ca5a861aad7df9291648bf932a2ac8225" => :sierra
+    sha256 "39b82780d9716d07186228027a09feb53ded26e25e671abcf463273687d45750" => :el_capitan
   end
 
   option "without-docs", "Build without man pages (which requires python-sphinx)"
-  option "without-mysql", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
+  option "without-mysql-client", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
+
+  deprecated_option "without-mysql" => "without-mysql-client"
 
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on "mysql" => :recommended
+  depends_on "mysql-client" => :recommended
   depends_on "libev"
   depends_on "libgcrypt"
   depends_on "openssl"
@@ -66,7 +68,7 @@ class PerconaXtrabackup < Formula
     rm lib/"libmysqlservices.a"
     rm lib/"plugin/keyring_file.so"
 
-    if build.with? "mysql"
+    if build.with? "mysql-client"
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       resource("DBD::mysql").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"

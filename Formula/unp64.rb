@@ -1,20 +1,23 @@
 class Unp64 < Formula
   desc "Generic C64 prg unpacker,"
   homepage "http://iancoog.altervista.org/"
-  url "http://iancoog.altervista.org/C/unp64_234.7z"
-  version "2.34"
-  sha256 "86968afaa13b6c17fac7577041d5e3f3cc51cb534d818b5f360fddf41a05eaad"
+  url "http://iancoog.altervista.org/C/unp64_235.7z"
+  version "2.35"
+  sha256 "32f8606ecafed66180d434853a5e7992d82426d9e1fceb81bec467e1ea6c6921"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cb2f615c3909bbf88db626681db7b07c22f94c72bb51a9dbb9ddc8b37c117202" => :high_sierra
-    sha256 "f5ad308ae7daacc0419de6e9f131f78431b07a63a882078c7deded097065d4ff" => :sierra
-    sha256 "730e5e71632110da2e1220001c63b86e29a302cb2ed2762f988625f4afa9722f" => :el_capitan
+    sha256 "5e7c0021a8b9fbc1370d2459481ed997a18fdb340a963baa18a3498b2109cf0f" => :high_sierra
+    sha256 "c1900f99513a98e6cf6c0f21a3161851bdeebd8e506b458a183eef04cdc5f2e5" => :sierra
+    sha256 "f4304f366634cfe3570b0766df93e75191b5839a27b82deaf440c928c9263497" => :el_capitan
   end
 
   def install
-    system "make", "-C", "unp64_234/src", "unp64"
-    bin.install "unp64_234/src/Release/unp64"
+    cd Dir["unp64_*/src"].first do
+      system "make", "unp64"
+      bin.install "Release/unp64"
+    end
   end
 
   test do

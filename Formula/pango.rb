@@ -11,7 +11,7 @@ class Pango < Formula
   end
 
   head do
-    url "https://git.gnome.org/browse/pango.git"
+    url "https://gitlab.gnome.org/GNOME/pango.git"
 
     depends_on "automake" => :build
     depends_on "autoconf" => :build

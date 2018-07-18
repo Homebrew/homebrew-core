@@ -1,14 +1,14 @@
 class Libheif < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "http://www.libheif.org"
-  url "https://github.com/strukturag/libheif/releases/download/v1.2.0/libheif-1.2.0.tar.gz"
-  sha256 "2e7d40f81d1bbe6089b1e0f27800b97cf6a195e093ef86199edfb6e59e2fa8fa"
+  url "https://github.com/strukturag/libheif/releases/download/v1.3.2/libheif-1.3.2.tar.gz"
+  sha256 "a9e12a693fc172baa16669f427063edd7bf07964a1cb623ee57cd056c06ee3fc"
 
   bottle do
     cellar :any
-    sha256 "d93963bed0c1d05eaba7e839b8fa1e9924f31b9f665089c6e8fb8471cd0e35f5" => :high_sierra
-    sha256 "5f7e645a68923af5336aa24a5ccc675d203723816e63f4760018db60d5dc6880" => :sierra
-    sha256 "7d7caae49f70d6c16ee6ba257289ba5dfbba3435818d16334f0987d2a3edfe6b" => :el_capitan
+    sha256 "415ac0e2a71c2fe93e0e0286a46f89ffa5332469fa2368533456ca3980e3348d" => :high_sierra
+    sha256 "b2ebe1ffcc0ef68e527aeb906e69eeca4776dc777516ba0c42917d56b845e358" => :sierra
+    sha256 "c76bfc6a4786ca45e6eb80ba6e4062b2e6f30d2c296e5ae53392c661652781e2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

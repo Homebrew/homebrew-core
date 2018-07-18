@@ -1,5 +1,6 @@
 class Jrnl < Formula
   include Language::Python::Virtualenv
+
   desc "Command-line note taker"
   homepage "https://maebert.github.io/jrnl/"
   url "https://github.com/maebert/jrnl/archive/1.9.8.tar.gz"

@@ -32,7 +32,7 @@ class Ser2net < Formula
 
   def caveats; <<~EOS
     To configure ser2net, edit the example configuration in #{etc}/ser2net.conf
-    EOS
+  EOS
   end
 
   plist_options :manual => "ser2net -p 12345"
@@ -58,7 +58,7 @@ class Ser2net < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
   test do
     assert_match version.to_s, shell_output("#{sbin}/ser2net -v")

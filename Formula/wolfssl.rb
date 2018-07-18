@@ -1,26 +1,16 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
+  url "https://github.com/wolfSSL/wolfssl/archive/v3.15.3-stable.tar.gz"
+  version "3.15.3"
+  sha256 "2b98d9ddac2a3188210de720051bed58f91910ee028a4b0a6dd6fd3c9ddb6fec"
   head "https://github.com/wolfSSL/wolfssl.git"
-
-  stable do
-    url "https://github.com/wolfSSL/wolfssl/archive/v3.14.0-stable.tar.gz"
-    version "3.14.0"
-    sha256 "4ab543c869a65a77dc5d0bc934b9d4852aa3d5834bd2f707a74a936602bd3687"
-
-    # Remove for > 3.14.0
-    # Upstream commit from 6 Mar 2018 "Fix issue with the creation of dummy fips.h header."
-    patch do
-      url "https://github.com/wolfSSL/wolfssl/commit/a7fe5e3502.patch?full_index=1"
-      sha256 "9e814ab006fd222fbf34bcec3fd214814b51fd7e765c5061c479a3ea3f29550d"
-    end
-  end
 
   bottle do
     cellar :any
-    sha256 "79150b089446ff936d77ab6224f1c8bf4afc54773001f3e60125055a70f2af05" => :high_sierra
-    sha256 "1ea0fa7354292ccbccd0b83a458908dd16cf6ea19043d983013acccb1d7ace89" => :sierra
-    sha256 "f85f6e99bea5db21ead692b6b45f001116be5f3d3ea2b314d60f63e6a1efdebd" => :el_capitan
+    sha256 "7238f8d6ee25019ca14b6d7ad0b7ff640c4417ed80915380194b8e6a10042590" => :high_sierra
+    sha256 "5592c1ac094abe44a735cd678d1f67f1c0883a3294495ac6958b5c43c6b770a5" => :sierra
+    sha256 "f01b977e6e6a6c64468d11251045ff03abf01a4daf5db45757afeeeb1a7a7d4e" => :el_capitan
   end
 
   option "without-test", "Skip compile-time tests"

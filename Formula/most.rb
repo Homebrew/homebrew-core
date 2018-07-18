@@ -3,7 +3,6 @@ class Most < Formula
   homepage "https://www.jedsoft.org/most/"
   url "https://www.jedsoft.org/releases/most/most-5.0.0a.tar.bz2"
   sha256 "94cb5a2e71b6b9063116f4398a002a757e59cd1499f1019dde8874f408485aa9"
-
   head "git://git.jedsoft.org/git/most.git"
 
   bottle do

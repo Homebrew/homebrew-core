@@ -1,14 +1,13 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-11.1.tar.xz"
-  sha256 "f2521c525a77166189e3cb9169f75c2ee2b82fa3fcf9476024fbc2c3a6c9cd9e"
-  revision 1
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-12.2.tar.xz"
+  sha256 "809668ffc296043779c984f53461c2b3987a45b7a25eb2f0a1d11d9f23ba4055"
 
   bottle do
-    sha256 "a449d66ca202e6ba2106af19ab3513ab17841ad45db2069bd8e18c5fa3341189" => :high_sierra
-    sha256 "80fdcab93388854621cd2392e3e0782587efda978c2f0de51381d3c3a264301e" => :sierra
-    sha256 "9ae35d388adbb4164afd5c121e5c8105886be394ad21921c33ebcff375ec8dff" => :el_capitan
+    sha256 "863574c4a45f3c8b0654e265d2febb545e483b6a6d958847d32e8c81c510af43" => :high_sierra
+    sha256 "1cdb396a073ac27b1f974530ecb3d663be522dc171cdfd473491a42d7ccb602c" => :sierra
+    sha256 "f2c4ebc01c8c104daab6739f61bc8aeeafe323fa8ed88f7730313cd6e84bb019" => :el_capitan
   end
 
   head do
@@ -88,7 +87,7 @@ class Pulseaudio < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
