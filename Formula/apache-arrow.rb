@@ -19,6 +19,13 @@ class ApacheArrow < Formula
 
   needs :cxx11
 
+  # Arrow build error with the latest clang-10 https://github.com/apache/arrow/issues/2105
+  # Will be fixed in next release.
+  patch do
+    url "https://github.com/apache/arrow/pull/2106.patch?full_index=1"
+    sha256 "7da009d59e66e286ff07d91569fef813be9abcc1794e95aa4859fa8e2b86aa90"
+  end
+
   def install
     ENV.cxx11
 
