@@ -23,7 +23,7 @@ class ApacheArrow < Formula
   # Will be fixed in next release.
   patch do
     url "https://github.com/apache/arrow/pull/2106.patch?full_index=1"
-    sha256 "7da009d59e66e286ff07d91569fef813be9abcc1794e95aa4859fa8e2b86aa90"
+    sha256 "545a733304e1f9e62b70b6e9c8dc9cae5b33f7b9c32e1df8d47a375d66296ae6"
   end
 
   def install
