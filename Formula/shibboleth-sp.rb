@@ -1,8 +1,8 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/2.6.1/shibboleth-sp-2.6.1.tar.bz2"
-  sha256 "1121e3b726b844d829ad86f2047be62da4284ce965ac184de2f81903f16b98e4"
+  url "https://shibboleth.net/downloads/service-provider/3.0.0/shibboleth-sp-3.0.0.tar.bz2"
+  sha256 "985b458071e7c59107e6080863a0c89fc61bd4ee2681cc81d988bca5bd074432"
 
   bottle do
     sha256 "1a91c531f1be5c05e66aa27f486034dc80f8a43b831ef7af67cbf4df5b8b3f67" => :high_sierra
@@ -10,6 +10,7 @@ class ShibbolethSp < Formula
     sha256 "e6be9e88eaf93270e7cb2aad05fb3841d39560220ca2b4541c7bc24762d36b59" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
   depends_on "httpd" if MacOS.version >= :high_sierra
