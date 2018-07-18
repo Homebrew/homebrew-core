@@ -1,18 +1,23 @@
 class GradleAT35 < Formula
   desc "Gradle build automation tool"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-3.5-bin.zip"
-  sha256 "0b7450798c190ff76b9f9a3d02e18b33d94553f708ebc08ebe09bdf99111d110"
+  url "https://services.gradle.org/distributions/gradle-3.5-all.zip"
+  sha256 "d84bf6b6113da081d0082bcb63bd8547824c6967fe68704d1e3a6fde822b7212"
 
   bottle :unneeded
   
+  option "with-all", "Installs Javadoc, examples, and source in addition to the binaries"
+
+
+
   def install
+    rm_f Dir["bin/*.bat"]
     libexec.install %w[bin lib]
-    bin.install_symlink libexec+"bin/gradle"
+    libexec.install %w[docs media samples src] if build.with? "all"
+    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
   end
 
   test do
-    ENV["GRADLE_USER_HOME"] = testpath
-    assert_match "Gradle #{version}", shell_output("#{bin}/gradle --version")
+	assert_match version.to_s, shell_output("%w{bin}/gradle --version")
   end
 end
