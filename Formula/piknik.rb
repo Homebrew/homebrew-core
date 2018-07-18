@@ -37,7 +37,7 @@ class Piknik < Formula
     EOS
   end
 
-  plist_options :manual => "piknik"
+  plist_options :manual => "piknik -server"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
