@@ -7,10 +7,12 @@ class Circleci < Formula
 
   bottle :unneeded
 
-  depends_on "docker"
-
   def install
     bin.install "circleci.sh" => "circleci"
+    ohai "A valid docker executable is required for circleci to properly run."
+    ohai "If you don't already have docker, please install Docker for Mac:"
+    ohai "Option 1: `brew cask install docker`"
+    ohai "Option 2: via https://docs.docker.com/docker-for-mac/install/"
   end
 
   test do
