@@ -25,6 +25,7 @@ class LastpassCli < Formula
     system "make", "MANDIR=#{man}", "install-doc"
 
     bash_completion.install "contrib/lpass_bash_completion"
+    zsh_completion.install "contrib/lpass_zsh_completion" => "_lpass"
     fish_completion.install "contrib/completions-lpass.fish"
   end
 
