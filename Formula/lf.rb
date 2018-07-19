@@ -1,8 +1,8 @@
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
-  url "https://github.com/gokcehan/lf/archive/r6.tar.gz"
-  sha256 "43298a4e391d97643ace9bcb96429a63f9b7a8d321da4b4d36151998abc5cd03"
+  url "https://github.com/gokcehan/lf/archive/r7.tar.gz"
+  sha256 "53cdfac3dc6e8794b1a979ca7f53dda2a3b049ace3892938a2c20ed393bf27dd"
 
   bottle do
     cellar :any_skip_relocation
