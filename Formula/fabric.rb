@@ -3,8 +3,8 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "http://www.fabfile.org"
-  url "https://github.com/fabric/fabric/archive/2.1.3.tar.gz"
-  sha256 "928bb460370f08b76f9c65fb8898cfb7803b64da51dc971990a3dfd2c5cf77ba"
+  url "https://github.com/fabric/fabric/archive/2.2.1.tar.gz"
+  sha256 "2a7af0842e8fac0a42f56c591b8c8435fb007a6a8a36b9d43229482d8129dccb"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -33,8 +33,8 @@ class Fabric < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
-    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
+    url "https://files.pythonhosted.org/packages/79/a2/61c8625f96c8582d3053f89368c483ba62e56233d055e58e372f94a393f0/cryptography-2.3.tar.gz"
+    sha256 "c132bab45d4bd0fff1d3fe294d92b0a6eb8404e93337b3127bdec9f21de117e6"
   end
 
   resource "enum34" do
@@ -43,13 +43,13 @@ class Fabric < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
+    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
   resource "invoke" do
-    url "https://files.pythonhosted.org/packages/d2/cd/9011fec068cac5e44aa0314cbe72866ccac85b13fe6eea0a2a707e855ffd/invoke-1.0.0.tar.gz"
-    sha256 "21274204515dca62206470b088bbcf9d41ffda82b3715b90e01d71b7a4681921"
+    url "https://files.pythonhosted.org/packages/5c/54/bb21679f58d85574fe2a17addef3c9b619217758856b6ba1a7cbbdec26dd/invoke-1.1.0.tar.gz"
+    sha256 "265eead8c89805a2ac5083200842db6da7636ac63fb4fe0d1121b930770f3e2a"
   end
 
   resource "ipaddress" do
