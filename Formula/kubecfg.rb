@@ -1,8 +1,8 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/ksonnet/kubecfg"
-  url "https://github.com/ksonnet/kubecfg/archive/v0.8.0.tar.gz"
-  sha256 "25d054af96a817bad0f33998895a9988c187e1399822c8220528e64f56ccb3ae"
+  url "https://github.com/ksonnet/kubecfg/archive/v0.9.0.tar.gz"
+  sha256 "f7be1abb89ac830d3cd7cfb33e1ac1f861ba25133a2c66e597953dd7a20d1b77"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,7 +20,7 @@ class Kubecfg < Formula
     cd "src/github.com/ksonnet/kubecfg" do
       system "make", "VERSION=v#{version}"
       bin.install "kubecfg"
-      pkgshare.install Dir["examples/*"], "lib/kubecfg_test.jsonnet"
+      pkgshare.install Dir["examples/*"], "testdata/kubecfg_test.jsonnet"
       prefix.install_metafiles
     end
 
