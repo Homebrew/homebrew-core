@@ -27,10 +27,9 @@ class ApacheArrow < Formula
 
     if build.with?("python") && build.with?("python@2")
       odie "Cannot provide both --with-python and --with-python@2"
-    elsif build.with?("python")
-      args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}"
-    elsif build.with?("python@2")
-      args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{Formula["python@2"].bin/"python2"}"
+    end
+    Language::Python.each_python(build) do |python, _version|
+      args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{which python}"
     end
 
     cd "cpp" do
