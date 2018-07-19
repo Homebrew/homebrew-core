@@ -11,6 +11,7 @@ class Weechat < Formula
     sha256 "3b3c0b275171c06a0aa3f29b3a239f2f7a30cf70e88839a489fba5892253b8fb" => :el_capitan
   end
 
+  option "with-python", "Build with Python 3 support"
   option "with-perl", "Build the perl module"
   option "with-ruby", "Build the ruby module"
   option "with-curl", "Build with brewed curl"
@@ -28,6 +29,7 @@ class Weechat < Formula
   depends_on "aspell" => :optional
   depends_on "lua" => :optional
   depends_on "perl" => :optional
+  depends_on "python" => :optional
   depends_on "python@2" => :optional
   depends_on "ruby" => :optional if MacOS.version <= :sierra
   depends_on "curl" => :optional
@@ -51,11 +53,18 @@ class Weechat < Formula
       args << "-DRUBY_LIB=/usr/lib/libruby.dylib"
     end
 
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    elsif build.with? "python"
+      args << "-DENABLE_PYTHON3=ON"
+    elsif build.without? "python@2"
+      args << "-DENABLE_PYTHON=OFF"
+    end
+
     args << "-DENABLE_LUA=OFF" if build.without? "lua"
     args << "-DENABLE_PERL=OFF" if build.without? "perl"
     args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
     args << "-DENABLE_TCL=OFF" if build.without? "tcl"
-    args << "-DENABLE_PYTHON=OFF" if build.without? "python@2"
 
     mkdir "build" do
       system "cmake", "..", *args
