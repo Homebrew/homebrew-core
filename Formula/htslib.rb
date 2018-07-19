@@ -1,8 +1,8 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.8/htslib-1.8.tar.bz2"
-  sha256 "c0ef1eec954a98cc708e9f99f6037db85db45670b52b6ab37abcc89b6c057ca1"
+  url "https://github.com/samtools/htslib/releases/download/1.9/htslib-1.9.tar.bz2"
+  sha256 "e04b877057e8b3b8425d957f057b42f0e8509173621d3eccaedd0da607d9929a"
 
   bottle do
     cellar :any
