@@ -5,6 +5,8 @@ class Capstone < Formula
   sha256 "913dd695e7c5a2b972a6f427cb31f2e93677ec1c38f39dda37d18a91c70b6df1"
   head "https://github.com/aquynh/capstone.git"
 
+  depends_on "pkg-config" => :build
+  
   bottle do
     cellar :any
     sha256 "90c24c16624b06137aeec9cf9040c6cf91ccc5045a4fa5606c4ee39be8b06991" => :high_sierra
