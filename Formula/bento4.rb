@@ -17,6 +17,8 @@ class Bento4 < Formula
   depends_on "python@2"
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
+  conflicts_with "mp4v2",
+    :because => "both install `mp4extract` and `mp4info` binaries"
 
   def install
     cd "Build/Targets/universal-apple-macosx" do
