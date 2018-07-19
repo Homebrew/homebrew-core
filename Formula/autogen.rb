@@ -1,10 +1,9 @@
 class Autogen < Formula
   desc "Automated text file generator"
   homepage "https://autogen.sourceforge.io"
-  url "https://ftp.gnu.org/gnu/autogen/rel5.18.12/autogen-5.18.12.tar.xz"
-  mirror "https://ftpmirror.gnu.org/autogen/rel5.18.12/autogen-5.18.12.tar.xz"
-  sha256 "be3ba62e883185b6ee8475edae97d7197d701d6b9ad9c3d2df53697110c1bfd8"
-  revision 1
+  url "https://ftp.gnu.org/gnu/autogen/rel5.18.14/autogen-5.18.14.tar.xz"
+  mirror "https://ftpmirror.gnu.org/autogen/rel5.18.14/autogen-5.18.14.tar.xz"
+  sha256 "ffc7ab99382116852fd4c73040c124799707b2d9b00a60b54e8b457daa7a06e4"
 
   bottle do
     sha256 "c9835af12e309b7992918e64fc766f59ca50ff3f4e846434d74141859d638cd8" => :high_sierra
