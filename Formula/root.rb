@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.14.00.source.tar.gz"
   version "6.14.00"
   sha256 "7946430373489310c2791ff7a3520e393dc059db1371272bcd9d9cf0df347a0b"
-  revision 1
+  revision 2
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -54,13 +54,16 @@ class Root < Formula
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
+      -Dbuiltin_cfitsio=OFF
       -Ddavix=ON
+      -Dfitsio=OFF
       -Dfftw3=ON
       -Dfortran=ON
       -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Dmysql=OFF
+      -Dpgsql=OFF
       -Droofit=ON
       -Dssl=ON
       -Dimt=ON
