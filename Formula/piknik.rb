@@ -45,7 +45,7 @@ class Piknik < Formula
     <plist version="1.0">
       <dict>
         <key>Label</key>
-        <string>com.jedisct1.piknik</string>
+        <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/piknik</string>
