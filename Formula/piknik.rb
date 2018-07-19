@@ -48,7 +48,7 @@ class Piknik < Formula
         <string>com.jedisct1.piknik</string>
         <key>ProgramArguments</key>
         <array>
-          <string>/usr/local/bin/piknik</string>
+          <string>#{opt_bin}/piknik</string>
           <string>-server</string>
         </array>
         <key>RunAtLoad</key>
