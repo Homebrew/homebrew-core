@@ -1,8 +1,9 @@
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
-  url "https://www.capstone-engine.org/download/3.0.4/capstone-3.0.4.tgz"
-  sha256 "3e88abdf6899d11897f2e064619edcc731cc8e97e9d4db86495702551bb3ae7f"
+  url "https://github.com/aquynh/capstone/archive/3.0.5.tar.gz"
+  sha256 "913dd695e7c5a2b972a6f427cb31f2e93677ec1c38f39dda37d18a91c70b6df1"
+  head "https://github.com/aquynh/capstone.git"
 
   bottle do
     cellar :any
@@ -14,33 +15,11 @@ class Capstone < Formula
     sha256 "585042b1452fbeda9efd07da4b8400d56d166afd5e5f1120da20975e41001e88" => :mountain_lion
   end
 
-  head do
-    url "https://github.com/aquynh/capstone.git"
-
-    depends_on "pkg-config" => :build
-  end
-
   def install
-    if build.head?
-      ENV["PREFIX"] = prefix
-    else
-      # Capstone's Make script ignores the prefix env and was installing
-      # in /usr/local directly. So just inreplace the prefix for less pain.
-      # https://github.com/aquynh/capstone/issues/228
-      inreplace "make.sh", "export PREFIX=/usr/local", "export PREFIX=#{prefix}"
-    end
-
     ENV["HOMEBREW_CAPSTONE"] = "1"
+    ENV["PREFIX"] = prefix
     system "./make.sh"
     system "./make.sh", "install"
-
-    unless build.head?
-      # As per the above inreplace, the pkgconfig file needs fixing as well.
-      inreplace lib/"pkgconfig/capstone.pc" do |s|
-        s.gsub! "/usr/lib", lib
-        s.gsub! "/usr/include/capstone", "#{include}/capstone"
-      end
-    end
   end
 
   test do
