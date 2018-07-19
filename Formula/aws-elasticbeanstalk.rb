@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/47/8f/b3b98abc7b4af51c7583ece27fa4c1c38b31d0a5d0751e2cf4ccfe73137d/awsebcli-3.14.2.tar.gz"
-  sha256 "4880fdffed20b199bb71b1784cf3aefe81859b173ef0291a4c1a6ef08b96bb0c"
+  url "https://files.pythonhosted.org/packages/6f/32/5222b792607a0ba24c9e802ed5a8d5a240f51b410c78e23bdd0920b36ae9/awsebcli-3.14.3.tar.gz"
+  sha256 "ea9659c1a98e44f75b143ef9eaf0e46420a82916ba02b0f81158da59d80e4e32"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,8 +26,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/a3/51/c55fe8eb61c28f99542e1887cce2632f8f756a604be7109187b5b3ee0274/botocore-1.10.52.tar.gz"
-    sha256 "a4acb24c8ba2fb148e41b385e8acd10c5d96bf576ad22be1364919bed6f74f4e"
+    url "https://files.pythonhosted.org/packages/50/59/253a1402ad6e9cb17c2551cf2e9c49e4ed05f6e3019df1d1ddb89495deaf/botocore-1.10.60.tar.gz"
+    sha256 "c03fd2b80c3f369f0b892c05a8dade0b6383ce076ad6ba43c3aabea408a163ea"
   end
 
   resource "cached-property" do
@@ -126,8 +126,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "requests" do
