@@ -2,8 +2,8 @@ class KubeAws < Formula
   desc "CoreOS Kubernetes on AWS"
   homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
   url "https://github.com/kubernetes-incubator/kube-aws.git",
-      :tag => "v0.10.1",
-      :revision => "a0cb16057a160a18d0019dc37be69efbf84bb6a1"
+      :tag => "v0.10.2",
+      :revision => "533236d5e766eea270827123f20fc00a680f65e9"
   head "https://github.com/kubernetes-incubator/kube-aws.git"
 
   bottle do
