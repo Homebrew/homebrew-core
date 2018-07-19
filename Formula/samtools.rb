@@ -1,8 +1,8 @@
 class Samtools < Formula
   desc "Tools for manipulating next-generation sequencing data"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/samtools/releases/download/1.8/samtools-1.8.tar.bz2"
-  sha256 "c942bc1d9b85fd1b05ea79c5afd2805d489cd36b2c2d8517462682a4d779be16"
+  url "https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2"
+  sha256 "083f688d7070082411c72c27372104ed472ed7a620591d06f928e653ebc23482"
 
   bottle do
     cellar :any
