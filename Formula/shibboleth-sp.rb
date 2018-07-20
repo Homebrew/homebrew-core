@@ -3,6 +3,7 @@ class ShibbolethSp < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
   url "https://shibboleth.net/downloads/service-provider/3.0.1/shibboleth-sp-3.0.1.tar.bz2"
   sha256 "9ea9fecccefb11af2cc81e532c55b8e4b138052f131bad8ff8468347d9511258"
+  revision 1
 
   bottle do
     sha256 "c4353366cfd43f7f158b59f902cf764647eb62399675f3eede8465a366d91c55" => :high_sierra
