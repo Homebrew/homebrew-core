@@ -10,9 +10,9 @@ class Vdirsyncer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "311bb7354bddedc2614d5dd2fc22b0a8403b85c18f041c8a280934eb41c83f65" => :high_sierra
-    sha256 "ba39bf49145d058a1032b11ab3a9f6214808bd1aa41d05f10ff8a24a929d1188" => :sierra
-    sha256 "b5b67afa91034c85305d4d3e746591be3403a1c732daed83638fb7c26ffc1f0c" => :el_capitan
+    sha256 "89f7e1832a262681843b223527d96c5f6a587ded3b2884df9a87204c463f1911" => :high_sierra
+    sha256 "57510d02d159de632f3fdb98d7de88aba5ea01d375b4f096d6d367c976e355bc" => :sierra
+    sha256 "81eaa19b3cbc91007a0a5cfe9979cca1f207b2ac2a72b87aabca41ae019838f7" => :el_capitan
   end
 
   depends_on "python"
