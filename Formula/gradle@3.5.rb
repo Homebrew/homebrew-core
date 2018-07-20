@@ -3,7 +3,6 @@ class GradleAT35 < Formula
   homepage "https://www.gradle.org/"
   url "https://services.gradle.org/distributions/gradle-3.5-all.zip"
   sha256 "d84bf6b6113da081d0082bcb63bd8547824c6967fe68704d1e3a6fde822b7212"
-
   bottle :unneeded
   option "with-all", "Installs Javadoc, examples, and source in addition to the binaries"
   depends_on :java => "1.7+"
@@ -14,6 +13,6 @@ class GradleAT35 < Formula
     (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
   end
   test do
-    assert_match version.to_s, shell_output("%w{bin}/gradle --version")
+    assert_match version.to_s, shell_output("#{bin}/gradle --version")
   end
 end
