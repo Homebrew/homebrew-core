@@ -10,7 +10,7 @@ class GradleAT35 < Formula
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin lib]
     libexec.install %w[docs media samples src] if build.with? "all"
-    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
+    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.java_home_env("1.7+")
   end
   test do
     assert_match version.to_s, shell_output("#{bin}/gradle --version")
