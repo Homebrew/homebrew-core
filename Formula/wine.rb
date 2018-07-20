@@ -33,9 +33,9 @@ class Wine < Formula
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/3.x/wine-3.12.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.12.tar.xz"
-    sha256 "db84c059d6897809f4bb34024c021d129c73f6d2a5ae4e7ea79ba30040ab787f"
+    url "https://dl.winehq.org/wine/source/3.x/wine-3.13.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.13.tar.xz"
+    sha256 "0785d74852232c1f6e07ac081875e92219a4428ddcc8931632fcf1924941bbd4"
 
     resource "mono" do
       url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
