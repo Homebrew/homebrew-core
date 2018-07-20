@@ -77,7 +77,6 @@ class Libclang < Formula
         CXFile file = clang_getFile(tu, filename);
         auto fileSize = get_filesize(filename);
 
-        // get top/last location of the file
         CXSourceLocation topLoc  = clang_getLocationForOffset(tu, file, 0);
         CXSourceLocation lastLoc = clang_getLocationForOffset(tu, file, fileSize);
         if (clang_equalLocations(topLoc,  clang_getNullLocation()) ||
@@ -86,7 +85,6 @@ class Libclang < Formula
           exit(1);
         }
 
-        // make a range from locations
         CXSourceRange range = clang_getRange(topLoc, lastLoc);
         if (clang_Range_isNull(range)) {
           printf("cannot retrieve range\\n");
