@@ -7,12 +7,12 @@ class Agda < Formula
   homepage "http://wiki.portal.chalmers.se/agda/"
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.4/Agda-2.5.4.tar.gz"
-    sha256 "b40971e3312461771e36a11aaf4002424178301cf315b21a679f527b79c09e09"
+    url "https://hackage.haskell.org/package/Agda-2.5.4.1/Agda-2.5.4.1.tar.gz"
+    sha256 "7759aa76936e6a35325c2e186a7546553921775155a426c8edc9a234f58ab72f"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "209626953d56294e9bd3d8892eda43b844b0edf9"
+          :revision => "a1a10b39d35b8fc40e87723a89f5682252d46380"
     end
   end
 
