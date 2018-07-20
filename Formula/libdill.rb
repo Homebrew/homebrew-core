@@ -1,8 +1,8 @@
 class Libdill < Formula
   desc "Structured concurrency in C"
   homepage "http://libdill.org/"
-  url "https://github.com/sustrik/libdill/archive/2.8.tar.gz"
-  sha256 "117038cd0f9bbfc51e6001a28ae6fd915b7c9047d8da7358208792d997037d6d"
+  url "https://github.com/sustrik/libdill/archive/2.9.tar.gz"
+  sha256 "8b6b679a1c0e3071a488905c51c21ea9fda7567f8744c33576074124d306202e"
 
   bottle do
     cellar :any
