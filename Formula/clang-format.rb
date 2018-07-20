@@ -1,20 +1,20 @@
 class ClangFormat < Formula
-  desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
-  homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2018-04-24"
+  desc "Formatting tool for C/C++/Java/JavaScript/Objective-C/Protobuf"
+  homepage "https://releases.llvm.org/6.0.1/tools/clang/docs/ClangFormat.html"
+  version "6.0.1"
 
   stable do
     if MacOS.version >= :sierra
-      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-04-24/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/llvm/tags/RELEASE_601/final/", :using => :svn
     else
-      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-04-24/", :using => :svn
+      url "http://llvm.org/svn/llvm-project/llvm/tags/RELEASE_601/final/", :using => :svn
     end
 
     resource "clang" do
       if MacOS.version >= :sierra
-        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-04-24/", :using => :svn
+        url "https://llvm.org/svn/llvm-project/cfe/tags/RELEASE_601/final/", :using => :svn
       else
-        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-04-24/", :using => :svn
+        url "http://llvm.org/svn/llvm-project/cfe/tags/RELEASE_601/final/", :using => :svn
       end
     end
   end
