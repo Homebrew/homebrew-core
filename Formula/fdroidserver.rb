@@ -3,9 +3,8 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/5d/f6/a3103b11c4608a056bc693bb601c6997f2d482aca5464bb17ac37bd08d4b/fdroidserver-1.0.8.tar.gz"
-  sha256 "5b3ea8f1ac6255952ecb46c8f70fb90bc085659af9800a96a7041679cac7e2a7"
-  revision 1
+  url "https://files.pythonhosted.org/packages/74/54/dc4be6eba84682eda5ac72f430aeefa44d52e03665567eab59c0adc7c68f/fdroidserver-1.0.9.tar.gz"
+  sha256 "f6dc6ec27f1d8abf410e9aa469f70d339b4486f5a9c63865da86371bab0b8b33"
 
   bottle do
     cellar :any
@@ -25,8 +24,8 @@ class Fdroidserver < Formula
   depends_on "webp"
 
   resource "androguard" do
-    url "https://files.pythonhosted.org/packages/38/aa/ad6dfc30981f2882477e6dcbae0f358ce47a4a75e0a3ec37a35e7ed641a8/androguard-3.2.0.tar.gz"
-    sha256 "51f95e483f40eed4a854359550ca6ac6352fb0c4e71cf081a4d0ee17db4cffc3"
+    url "https://files.pythonhosted.org/packages/0a/88/b8abb49b310dfea6f27dd5141fcb75ca266f750a94285ca7e99e3f584e0c/androguard-3.2.1.tar.gz"
+    sha256 "dbcdaed16eea0a3057bb1dc23e444bcaccf5d05525f2a14524aaf97901e0ba59"
   end
 
   resource "apache-libcloud" do
@@ -85,8 +84,8 @@ class Fdroidserver < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
-    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
+    url "https://files.pythonhosted.org/packages/79/a2/61c8625f96c8582d3053f89368c483ba62e56233d055e58e372f94a393f0/cryptography-2.3.tar.gz"
+    sha256 "c132bab45d4bd0fff1d3fe294d92b0a6eb8404e93337b3127bdec9f21de117e6"
   end
 
   resource "Cycler" do
@@ -115,13 +114,13 @@ class Fdroidserver < Formula
   end
 
   resource "gitdb2" do
-    url "https://files.pythonhosted.org/packages/84/11/22e68bd46fd545b17d0a0b200cf75c20e9e7b817726a69ad5f3070fd0d3c/gitdb2-2.0.3.tar.gz"
-    sha256 "b60e29d4533e5e25bb50b7678bbc187c8f6bcff1344b4f293b2ba55c85795f09"
+    url "https://files.pythonhosted.org/packages/b9/36/4bdb753087a9232899ac482ee2d5da25f50b63998d661aa4e8170acd95b5/gitdb2-2.0.4.tar.gz"
+    sha256 "bb4c85b8a58531c51373c89f92163b92f30f81369605a67cd52d1fc21246c044"
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/f1/e4/2879ab718c80bc9261b34f214e27280f63437068582f8813ff2552373196/GitPython-2.1.10.tar.gz"
-    sha256 "b60b045cf64a321e5b620debb49890099fa6c7be6dfb7fb249027e5d34227301"
+    url "https://files.pythonhosted.org/packages/4d/e8/98e06d3bc954e3c5b34e2a579ddf26255e762d21eb24fede458eff654c51/GitPython-2.1.11.tar.gz"
+    sha256 "8237dc5bfd6f1366abeee5624111b9d6879393d84745a507de0fda86043b65a8"
   end
 
   resource "idna" do
@@ -150,8 +149,8 @@ class Fdroidserver < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/41/a7/26f3f89efcd33b2f033ff58fe3f0e535e2035d0fae481025eef51bc8ae43/lxml-4.2.2.tar.gz"
-    sha256 "82f278cd24da1b8a98df89de38946d67381a00e39adef768fd302dc8f4e1c383"
+    url "https://files.pythonhosted.org/packages/54/a6/43be8cf1cc23e3fa208cab04ba2f9c3b7af0233aab32af6b5089122b44cd/lxml-4.2.3.tar.gz"
+    sha256 "622f7e40faef13d232fb52003661f2764ce6cdef3edb0a59af7c1559e4cc36d1"
   end
 
   resource "matplotlib" do
@@ -185,8 +184,8 @@ class Fdroidserver < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/29/c1/fd8a3e5eec85bf160c2b1ea369fdfa585620cf753db021d5db895801e701/parso-0.3.0.tar.gz"
-    sha256 "d250235e52e8f9fc5a80cc2a5f804c9fefd886b2e67a2b1099cf085f403f8e33"
+    url "https://files.pythonhosted.org/packages/46/31/60de7c9cbb97cac56b193a5b61a1fd4d21df84843a570b370ec34781316b/parso-0.3.1.tar.gz"
+    sha256 "35704a43a3c113cce4de228ddb39aab374b8004f4f2407d070b6a2ca784ce8a2"
   end
 
   resource "pexpect" do
@@ -200,8 +199,8 @@ class Fdroidserver < Formula
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/89/b8/2f49bf71cbd0e9485bb36f72d438421b69b7356180695ae10bd4fd3066f5/Pillow-5.1.0.tar.gz"
-    sha256 "cee9bc75bff455d317b6947081df0824a8f118de2786dc3d74a3503fd631f4ef"
+    url "https://files.pythonhosted.org/packages/d3/c4/b45b9c0d549f482dd072055e2d3ced88f3b977f7b87c7a990228b20e7da1/Pillow-5.2.0.tar.gz"
+    sha256 "f8b3d413c5a8f84b12cd4c5df1d8e211777c9852c6be3ee9c094b626644d3eab"
   end
 
   resource "prompt_toolkit" do
@@ -255,8 +254,8 @@ class Fdroidserver < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/10/76/52efda4ef98e7544321fd8d5d512e11739c1df18b0649551aeccfb1c8376/pytz-2018.4.tar.gz"
-    sha256 "c06425302f2cf668f1bba7a0a03f3c1d34d4ebeef2c72003da308b3947c7f749"
+    url "https://files.pythonhosted.org/packages/ca/a9/62f96decb1e309d6300ebe7eee9acfd7bccaeedd693794437005b9067b44/pytz-2018.5.tar.gz"
+    sha256 "ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"
   end
 
   resource "PyYAML" do
@@ -280,8 +279,8 @@ class Fdroidserver < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/e0/26/10610091320ac7ad2904649baecc9ab33cd47cbbf3af6a9cbd32d6a4df73/ruamel.yaml-0.15.40.tar.gz"
-    sha256 "974e91b23273eb6c32aef979a32c20ed0f6c6e4d9c1523611ea10c5fda9b8928"
+    url "https://files.pythonhosted.org/packages/cd/8f/cce2403b82c6939ada5fd39488f0ce91729581e2d17436cba1c2020d2997/ruamel.yaml-0.15.44.tar.gz"
+    sha256 "9c70302a81b51f2ed3b6a42abb9128c9a9beaa765b73ff317310eb59c4a5131a"
   end
 
   resource "simplegeneric" do
@@ -295,8 +294,8 @@ class Fdroidserver < Formula
   end
 
   resource "smmap2" do
-    url "https://files.pythonhosted.org/packages/48/d8/25d9b4b875ab3c2400ec7794ceda8093b51101a9d784da608bf65ab5f5f5/smmap2-2.0.3.tar.gz"
-    sha256 "c7530db63f15f09f8251094b22091298e82bf6c699a6b8344aaaef3f2e1276c3"
+    url "https://files.pythonhosted.org/packages/ad/e9/0fb974b182ff41d28ad267d0b4201b35159619eb610ea9a2e036817cb0b8/smmap2-2.0.4.tar.gz"
+    sha256 "dc216005e529d57007ace27048eb336dcecb7fc413cfb3b2f402bb25972b69c6"
   end
 
   resource "traitlets" do
