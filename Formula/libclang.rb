@@ -45,78 +45,95 @@ class Libclang < Formula
   test do
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
 
+    (testpath/"sample.cpp").write <<~EOS
+      int main("aa", /* "bb"= */1 )
+    EOS
+
     (testpath/"libclangtest.cpp").write <<~EOS
-      #include "clang-c/Index.h"
       #include <stdio.h>
+      #include <stdlib.h>
+      #include <clang-c/Index.h>
 
-      int main(int argc, char** argv)
-        {
-          CXIndex idx = clang_createIndex(1, 0);
-          const char *clangargs[] =
-          {
-            "-I.",
-            "-x", "c++"
-          };
-
-          CXTranslationUnit tu = clang_parseTranslationUnit(idx,
-             "libclangtest.cpp",
-              clangargs, sizeof(clangargs)/sizeof(char*),
-              NULL, 0,
-              CXTranslationUnit_PrecompiledPreamble);
-
-          if (!tu)
-          {
-            printf("Couldn't parse tu\\n");
-            clang_disposeIndex(idx);
-            return 1;
-          }
-
-          CXCodeCompleteResults* results = clang_codeCompleteAt(tu, "libclangtest.cpp", 10, 1, NULL, 0, clang_defaultCodeCompleteOptions());
-          if (results)
-          {
-            clang_sortCodeCompletionResults(results->Results, results->NumResults);
-            for (int i = 0; i < results->NumResults; i++)
-            {
-              CXCompletionString &compString = results->Results[i].CompletionString;
-              for (int j = 0; j < clang_getNumCompletionChunks(compString); j++)
-                {
-                  CXString s = clang_getCompletionChunkText(compString, j);
-                  //printf("%s ", clang_getCString(s));
-                  clang_disposeString(s);
-                }
-                //printf("\\n");
-            }
-            clang_disposeCodeCompleteResults(results);
-          }
-          else
-            {
-              printf("Failed to perform completion operation\\n");
-            }
-
-          for (unsigned int i = 0; i < clang_getNumDiagnostics(tu); i++)
-          {
-            CXDiagnostic diag = clang_getDiagnostic(tu, i);
-            CXString s = clang_getDiagnosticSpelling(diag);
-            //printf("%s\\n", clang_getCString(s));
-            clang_disposeString(s);
-            clang_disposeDiagnostic(diag);
-          }
-          printf("Total diagnostics available: %d\\n", clang_getNumDiagnostics(tu));
-          clang_disposeTranslationUnit(tu);
-          clang_disposeIndex(idx);
-
-          return 0;
+      const char *_getTokenKindSpelling(CXTokenKind kind) {
+        switch (kind) {
+          case CXToken_Punctuation: return "Punctuation"; break;
+          case CXToken_Keyword:     return "Keyword"; break;
+          case CXToken_Identifier:  return "Identifier"; break;
+          case CXToken_Literal:     return "Literal"; break;
+          case CXToken_Comment:     return "Comment"; break;
+          default:                  return "Unknown"; break;
         }
+      }
+
+      unsigned get_filesize(const char *fileName) {
+        FILE *fp = fopen(fileName, "r");
+        fseek(fp, 0, SEEK_END);
+        auto size = ftell(fp);
+        fclose(fp);
+        return size;
+      }
+
+      CXSourceRange get_filerange(const CXTranslationUnit &tu, const char *filename) {
+        CXFile file = clang_getFile(tu, filename);
+        auto fileSize = get_filesize(filename);
+
+        // get top/last location of the file
+        CXSourceLocation topLoc  = clang_getLocationForOffset(tu, file, 0);
+        CXSourceLocation lastLoc = clang_getLocationForOffset(tu, file, fileSize);
+        if (clang_equalLocations(topLoc,  clang_getNullLocation()) ||
+            clang_equalLocations(lastLoc, clang_getNullLocation()) ) {
+          printf("cannot retrieve location\\n");
+          exit(1);
+        }
+
+        // make a range from locations
+        CXSourceRange range = clang_getRange(topLoc, lastLoc);
+        if (clang_Range_isNull(range)) {
+          printf("cannot retrieve range\\n");
+          exit(1);
+        }
+
+        return range;
+      }
+
+      int main(int argc, char **argv) {
+        if (argc < 2) {
+          printf("Tokenize filename [options ...]\\n");
+          exit(1);
+        }
+
+        const auto filename = argv[1];
+        const auto cmdArgs = &argv[2];
+        auto numArgs = argc - 2;
+
+        CXIndex index = clang_createIndex(1, 0);
+        CXTranslationUnit tu = clang_parseTranslationUnit(index, filename, cmdArgs, numArgs, NULL, 0, 0);
+        if (tu == NULL) {
+          printf("Cannot parse translation unit\\n");
+          return 1;
+        }
+
+        CXSourceRange range = get_filerange(tu, filename);
+        CXToken *tokens;
+        unsigned numTokens;
+        clang_tokenize(tu, range, &tokens, &numTokens);
+        printf("NumTokens: %d\\n", numTokens);
+
+        clang_disposeTokens(tu, tokens, numTokens);
+        clang_disposeTranslationUnit(tu);
+        clang_disposeIndex(index);
+        return 0;
+      }
     EOS
 
     system "#{bin}/clang", "-L#{lib}",
                            "-I#{include}", "-lclang",
                            "libclangtest.cpp", "-o", "libclangtest"
-    testresult = shell_output("./libclangtest")
+    testresult = shell_output("./libclangtest sample.cpp")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
     expected_result = <<~EOS
-      Total diagnostics available: 1
+      NumTokens: 8
     EOS
 
     assert_equal expected_result.strip, sorted_testresult.strip
