@@ -34,7 +34,6 @@ class Pango < Formula
                           "--prefix=#{prefix}",
                           "--with-html-dir=#{share}/doc",
                           "--enable-introspection=yes",
-                          "--enable-man",
                           "--enable-static",
                           "--without-xft"
 
