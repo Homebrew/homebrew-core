@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/73/25/a3bf7e0cf24652c29066059da74acb12847f09fbab8006dc0f3443e7f661/dxpy-0.255.0.tar.gz"
-  sha256 "9c2b8ea8733f44d4545d6bc4c517b3453731a9d39744ee8b31e0e8b3279f94ba"
+  url "https://files.pythonhosted.org/packages/d6/6b/1c42466158aca0f3d0639f524d420113e9b932ab8914e4477ef34a6ff2a5/dxpy-0.257.2.tar.gz"
+  sha256 "23e5b98d8482ccce22512d51ebdc1f68a4ac8107700238076a75fd72e98489a2"
 
   bottle do
     cellar :any_skip_relocation
@@ -36,8 +36,8 @@ class Dxpy < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/54/d561347dbfa0a1eeaf49a005da5fd71c0a0be8e4e2676f14775dd0097430/python-dateutil-2.3.tar.gz"
-    sha256 "2db67d8832f19332908b4b9644865ced34087919702140862093e347e95730e4"
+    url "https://files.pythonhosted.org/packages/b9/d3/7800c2560d81f112417d245468b8c8d71a068d98cd13c3c14f193a297036/python-dateutil-2.5.0.tar.gz"
+    sha256 "c1f7a66b0021bd7b206cc60dd47ecc91b931cdc5258972dc56b25186fa9a96a5"
   end
 
   resource "python-magic" do
