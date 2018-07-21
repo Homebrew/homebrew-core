@@ -1,9 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.12.0.226.tar.bz2"
-  sha256 "f0636baa0c1399805526142e799cb697ddccf736e506cf1a30a870eaa2830a89"
-  revision 1
+  url "https://download.mono-project.com/sources/mono/mono-5.12.0.301.tar.bz2"
+  sha256 "100d4ea7ac3e4a26740e0f284344272d6c5dcfef5c6e21e500d59b64814dcfbf"
 
   bottle do
     sha256 "bd914502b997ba891e948791b4f9e4709ccab551c93f3f6389ebdd081a060b19" => :high_sierra
@@ -33,8 +32,8 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.33",
-        :revision => "95b66263420b62ae0e246bd1bf3c2641e9fb9625"
+        :tag => "10.0.2",
+        :revision => "0020622135540ad8ef835d19175902fd8a2dd31e"
   end
 
   # When upgrading Mono, make sure to use the revision from
