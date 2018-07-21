@@ -1,23 +1,30 @@
 class HaskellIdeEngine < Formula
-  desc "The IDE engine and LSP server for Haskell. Not an IDE"
+  desc "The engine for haskell ide-integration. Not an IDE"
   homepage "https://github.com/haskell/haskell-ide-engine"
 
   url "https://github.com/haskell/haskell-ide-engine.git",
-      :revision => "8e0b60f3d47f6332c0f4415b9fff03815e229275"
+    :revision => "0.2.1.0"
 
-  version "0.1.0.0"
-  sha256 "e2195fc6bf01e4b9509e7be388e53fb4e0103658a3f26aca997b54cdd52273dd"
+  version "0.2.1.0"
 
-  depends_on "haskell-stack" => :build
+  depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
-    ENV.deparallelize
-    system "make", "build-all"
-    bin.install Dir[".brew_home/.local/bin/*"]
+    system "git", "submodule", "update", "--init"
+    system "cabal", "new-update"
+    system "cabal", "new-configure"
+    system "cabal", "new-build"
+    bin.install Dir["dist-newstyle/build/x86_64-osx/ghc-*/haskell-ide-engine-*/x/hie/build/hie/hie"]
+  end
+
+  def caveats; <<~EOS
+    This version of hie is only compatible with projects built with the version of GHC used while building this.
+    Visit https://github.com/haskell/haskell-ide-engine for instructions on installing multiple versions.
+  EOS
   end
 
   test do
     system "#{bin}/hie", "--version"
-    system "#{bin}/hie-wrapper", "--version"
   end
 end
