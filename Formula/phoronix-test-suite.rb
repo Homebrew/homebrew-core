@@ -4,6 +4,14 @@ class PhoronixTestSuite < Formula
   url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v8.0.1.tar.gz"
   sha256 "8bfe972c601884f2bbbf4d5069c7691637e8a30af55d2a9597dbe53911b49081"
 
+  head "https://github.com/phoronix-test-suite/phoronix-test-suite.git"
+
+  devel do
+    url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v8.2.0m1.tar.gz"
+    sha256 "06bcf17f3812799d3acaa7a90f4da9ddc148db3f9c438acf1df4069cfe2013a5"
+    version "8.2.0m1"
+  end
+
   bottle :unneeded
 
   def install
