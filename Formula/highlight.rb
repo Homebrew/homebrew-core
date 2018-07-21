@@ -1,5 +1,5 @@
 class Highlight < Formula
-  desc "Source code to formatted text converter"
+  desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.php"
   url "http://www.andre-simon.de/zip/highlight-3.44.tar.bz2"
   sha256 "53a1191f1b21130d9690e4c9a82947af11777d8e9569446b997c5a824e601fa4"
