@@ -3,8 +3,8 @@ class Proselint < Formula
 
   desc "Linter for prose"
   homepage "http://proselint.com"
-  url "https://files.pythonhosted.org/packages/1b/d2/2e6afa3f933a12bfb1eb588f1ec8c26f915935356d8a0e51b2e5c53bfd04/proselint-0.8.0.tar.gz"
-  sha256 "08d48494533f178eb7a978cbdf10ddf85ed7fc2eb486ff5e7d0aecfa08e81bbd"
+  url "https://files.pythonhosted.org/packages/32/1b/573ba8b6bf254906c7c305cb1708036d5f989c8997c89a7d01eba1e8a363/proselint-0.9.0.tar.gz"
+  sha256 "4b91f71b15aba9e1f44161261ad9b4e2b314ca663346f281750b80ee88982bba"
   head "https://github.com/amperser/proselint.git"
 
   bottle do
@@ -28,8 +28,8 @@ class Proselint < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   def install
