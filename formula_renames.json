@@ -22,6 +22,7 @@
   "boost157": "boost@1.57",
   "boost159": "boost@1.59",
   "boost160": "boost@1.60",
+  "boot2docker": "docker-machine",
   "camlistore": "perkeep",
   "cassandra21": "cassandra@2.1",
   "cassandra22": "cassandra@2.2",
