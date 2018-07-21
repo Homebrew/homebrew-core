@@ -1,8 +1,8 @@
 class Tig < Formula
   desc "Text interface for Git repositories"
   homepage "https://jonas.github.io/tig/"
-  url "https://github.com/jonas/tig/releases/download/tig-2.3.3/tig-2.3.3.tar.gz"
-  sha256 "d39d10c5a6db7b7663d51eff8ac2eaf075e319f5edabe09cb63a2b1b24846bea"
+  url "https://github.com/jonas/tig/releases/download/tig-2.4.0/tig-2.4.0.tar.gz"
+  sha256 "1669b722a3152cde112ff3dae6e02a4280750a8a5ae5d6b57688c38e42243d97"
 
   bottle do
     sha256 "9bbd56c8a58a4e531c6270935bd8e8709e5d7d772734bf261f98ce08f16a9f37" => :high_sierra
