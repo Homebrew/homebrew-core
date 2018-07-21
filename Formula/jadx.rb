@@ -15,7 +15,7 @@ class Jadx < Formula
   depends_on :java => "1.6+"
 
   resource "sample.apk" do
-    url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk", :using => :nounzip
+    url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk"
     sha256 "bf3ec04631339538c8edb97ebbd5262c3962c5873a2df9022385156c775eb81f"
   end
 

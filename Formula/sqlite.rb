@@ -31,7 +31,7 @@ class Sqlite < Formula
   depends_on "icu4c" => :optional
 
   resource "functions" do
-    url "https://sqlite.org/contrib/download/extension-functions.c?get=25", :using => :nounzip
+    url "https://sqlite.org/contrib/download/extension-functions.c?get=25"
     version "2010-02-06"
     sha256 "991b40fe8b2799edc215f7260b890f14a833512c9d9896aa080891330ffe4052"
   end

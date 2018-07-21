@@ -21,7 +21,7 @@ class Wine < Formula
     end
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
   end
@@ -38,7 +38,7 @@ class Wine < Formula
     sha256 "0785d74852232c1f6e07ac081875e92219a4428ddcc8931632fcf1924941bbd4"
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
   end
@@ -47,7 +47,7 @@ class Wine < Formula
     url "https://source.winehq.org/git/wine.git"
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
   end
@@ -58,12 +58,12 @@ class Wine < Formula
   depends_on "makedepend" => :build
 
   resource "gecko-x86" do
-    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi", :using => :nounzip
+    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi"
     sha256 "3b8a361f5d63952d21caafd74e849a774994822fb96c5922b01d554f1677643a"
   end
 
   resource "gecko-x86_64" do
-    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86_64.msi", :using => :nounzip
+    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86_64.msi"
     sha256 "c565ea25e50ea953937d4ab01299e4306da4a556946327d253ea9b28357e4a7d"
   end
 
