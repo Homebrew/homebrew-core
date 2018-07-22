@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://github.com/pre-commit/pre-commit/archive/v1.10.3.tar.gz"
-  sha256 "67888bbf03ba8924973129e75c1a098fd920860252f961f5338e7f571399d6ec"
+  url "https://github.com/pre-commit/pre-commit/archive/v1.10.4.tar.gz"
+  sha256 "47616c6fb7f93acae577418175f4057114f8a3705691e7ea3f74e4cba6e0e1a8"
 
   bottle do
     cellar :any_skip_relocation
