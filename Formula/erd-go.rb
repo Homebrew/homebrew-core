@@ -5,7 +5,7 @@ class ErdGo < Formula
   version HOMEBREW_ERD_GO_VERSION
 
   stable do
-    url "https://github.com/kaishuu0123/erd-go/archive/v1.4.1.tar.gz"
+    url "https://github.com/kaishuu0123/erd-go/archive/v#{HOMEBREW_ERD_GO_VERSION}.tar.gz"
     sha256 "aa5b799f80391b7dec99a201b460d1858ee53cee1031753a5b1eb3eeb8611480"
   end
 
@@ -13,8 +13,12 @@ class ErdGo < Formula
     url "https://github.com/kaishuu0123/erd-go.git"
   end
 
-  depends_on "go" => :build
+  devel do
+    url "https://github.com/kaishuu0123/erd-go.git"
+  end
+
   depends_on "glide" => :build
+  depends_on "go" => :build
   depends_on "go-bindata" => :build
   depends_on "make" => :build
 
