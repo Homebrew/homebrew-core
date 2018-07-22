@@ -2,8 +2,8 @@ class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
   url "https://github.com/tsenart/vegeta.git",
-      :tag => "v8.0.0",
-      :revision => "66f3db7f7dcc749f10144cbe4289f32adae346d3"
+      :tag => "cli/v8.1.1",
+      :revision => "6f0659435229e0adcbddf1cbbdf9c0adf95f9081"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +18,7 @@ class Vegeta < Formula
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/tsenart/vegeta").install buildpath.children
+    ENV.prepend_create_path "PATH", buildpath/"bin"
     cd "src/github.com/tsenart/vegeta" do
       system "make", "vegeta"
       bin.install "vegeta"
