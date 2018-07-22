@@ -1,9 +1,8 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.wikia.com/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.11/freeciv-2.5.11.tar.bz2"
-  sha256 "4c9c526952fe977cb4b302b8ccf75798fd066c6dde670f72f677fe4964259aad"
-  revision 3
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.0/freeciv-2.6.0.tar.bz2"
+  sha256 "7c20399198d6c7d846fed9a69b02e01134ae5340a3ae0f99d1e38063ade6c999"
 
   bottle do
     sha256 "24363a5afbf8b9a52997dbcea7da50f67d75a17296782c73da30cb23737c45ae" => :high_sierra
@@ -77,7 +76,7 @@ class Freeciv < Formula
 
   test do
     system bin/"freeciv-manual"
-    assert_predicate testpath/"manual6.html", :exist?
+    assert_predicate testpath/"classic6.mediawiki", :exist?
 
     server = fork do
       system bin/"freeciv-server", "-l", testpath/"test.log"
