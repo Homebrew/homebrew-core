@@ -6,9 +6,9 @@ class GoBindata < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "69dad76e50df9b5936594b614cf8c30ddf558f1db951b5e45c1965ff89ab4800" => :high_sierra
-    sha256 "3eebf1cb5f0d33008791e94c72f7a492b4f100f360f091f50945644ade52c34f" => :sierra
-    sha256 "5aa096d3d2eea61df0f1e9f584698677821181593faf20bbf93fb549526c751f" => :el_capitan
+    sha256 "a6a3970e196f9d27449fc9e02b7cfed083edff7e45e319317200e8de7eb20d12" => :high_sierra
+    sha256 "2124a47bd5f58ecbd2d8ae097f2d9b79fd253e2bd15c57e05887d67b93630ec6" => :sierra
+    sha256 "cc0a530da7a73c3d7875a1ae55050775c2c3c671a1c7b47576269ec53da14c70" => :el_capitan
   end
 
   depends_on "go"
