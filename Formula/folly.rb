@@ -12,10 +12,7 @@ class Folly < Formula
     sha256 "59261a1b3e1c8cbbe1ac3887c495a247a6fd207bb4b503db27f8f57798163e2c" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "double-conversion"
   depends_on "glog"
   depends_on "gflags"
@@ -38,11 +35,15 @@ class Folly < Formula
   def install
     ENV.cxx11
 
-    cd "folly" do
-      system "autoreconf", "-fvi"
-      system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
-                            "--disable-dependency-tracking"
-      system "make"
+    args = std_cmake_args + %w[
+      -DFOLLY_USE_JEMALLOC=OFF
+    ]
+
+    # https://github.com/facebook/folly/issues/864
+    args << "-DCOMPILER_HAS_F_ALIGNED_NEW=OFF" if MacOS.version == :sierra
+
+    mkdir "_build" do
+      system "cmake", "configure", "..", *args
       system "make", "install"
     end
   end
