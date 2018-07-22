@@ -3,7 +3,6 @@ class Choose < Formula
   homepage "https://github.com/geier/choose"
   url "https://github.com/geier/choose/archive/v0.1.0.tar.gz"
   sha256 "d09a679920480e66bff36c76dd4d33e8ad739a53eace505d01051c114a829633"
-
   head "https://github.com/geier/choose.git"
 
   bottle do
@@ -15,6 +14,8 @@ class Choose < Formula
     sha256 "24a9edea9e97823c333d0352244d7b30f72ddb0c8df291706463f8c76a0ca2e9" => :yosemite
     sha256 "47d5c12604878a2f3eb75da8c80a15d991b47129a17684fde8f02fe97f16e78b" => :mavericks
   end
+
+  depends_on "python@2"
 
   conflicts_with "choose-gui", :because => "both install a `choose` binary"
 

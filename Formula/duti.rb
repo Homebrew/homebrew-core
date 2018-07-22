@@ -1,29 +1,18 @@
 class Duti < Formula
   desc "Select default apps for documents and URL schemes on macOS"
   homepage "https://github.com/moretension/duti/"
-  url "https://github.com/moretension/duti/archive/duti-1.5.3.tar.gz"
-  sha256 "0e71b7398e01aedf9dde0ffe7fd5389cfe82aafae38c078240780e12a445b9fa"
+  url "https://github.com/moretension/duti/archive/duti-1.5.4.tar.gz"
+  sha256 "3f8f599899a0c3b85549190417e4433502f97e332ce96cd8fa95c0a9adbe56de"
   head "https://github.com/moretension/duti.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "7d2f8e2a40a50e580c10af176ce1f3aacab03059e671705d02309ac46382b993" => :high_sierra
-    sha256 "8f34c5664b0a9c05274fd67102fca6c969f7dc966279b2ca0f11906df3d2d03a" => :sierra
-    sha256 "53748f3ad97a48b468326e66d869e20c05fc1f67219ac3ea8a147b558717ee45" => :el_capitan
-    sha256 "c2661fc4e59d5cc941a416bf7abad035af3d15f75e7bca73d2bc29706d89f560" => :yosemite
-    sha256 "e301c36a6809acc2a0dd62fba59eac4820b90cf2cf9df30f46480f7ce736dad3" => :mavericks
+    sha256 "2a59aee7e9d902583006de7c7a16fd833d117a18a30d2eb880a2e4cc99a4d232" => :high_sierra
+    sha256 "49718973f912e48ab7ee59564b1435fe22b85d395de58070f3089d7f6104bd8d" => :sierra
+    sha256 "76f7600bdeab56e7d82e1939ad7287564189de62eb4a8e9352cd33dc04c8e697" => :el_capitan
   end
 
   depends_on "autoconf" => :build
-
-  # Add hardcoded SDK path for El Capitan or later.
-  if MacOS.version >= :el_capitan
-    patch do
-      url "https://github.com/moretension/duti/commit/7dbcae8.patch?full_index=1"
-      sha256 "09ea9bec926f38beb217c597fc224fc19c972e44835783a57fe8a54450cb8fb6"
-    end
-  end
 
   def install
     system "autoreconf", "-vfi"

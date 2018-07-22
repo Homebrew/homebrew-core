@@ -1,13 +1,13 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "http://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.7.tar.gz"
-  sha256 "085746e891edbb2cfda22bb2a8b86043bd680a68ad9121bc568118c730ace7b9"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.8.tar.gz"
+  sha256 "53d11ebd2972fc452af168a00eb83aefb61387662c10784e81b63e44aa575de4"
 
   bottle do
-    sha256 "35f5427c7f206b4964e0d0fbf76bd03f3796b0afc8622790f962c318c92fb298" => :high_sierra
-    sha256 "c0ceb17e9bf1f3de0cc9d66ef5e1142fc725d1a09e415a13fdba8e06b428535f" => :sierra
-    sha256 "cb34de2b4310b67342fddf0aebfa48f03eadc5c7f4c653fa64139241fdf1da71" => :el_capitan
+    sha256 "22f13423b810e41e2de3edf4085e857e0025558e0d1c2debf1cbedef297c0736" => :high_sierra
+    sha256 "5eb3e95e89de4ebdfe0406344cf18435669b4983e7b08400c34ec2f079fc8c88" => :sierra
+    sha256 "929844ff638adfa96cb090b3de3403a4627059120ef639e0970c373c516001eb" => :el_capitan
   end
 
   depends_on :macos => :lion

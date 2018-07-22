@@ -13,7 +13,7 @@ class Libxml2 < Formula
   end
 
   head do
-    url "https://git.gnome.org/browse/libxml2.git"
+    url "https://gitlab.gnome.org/GNOME/libxml2.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -23,7 +23,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     system "autoreconf", "-fiv" if build.head?
@@ -59,6 +59,6 @@ class Libxml2 < Formula
     system "./test"
 
     ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python", "-c", "import libxml2"
+    system "python2.7", "-c", "import libxml2"
   end
 end

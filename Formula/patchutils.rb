@@ -19,11 +19,13 @@ class Patchutils < Formula
     url "https://github.com/twaugh/patchutils.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "docbook" => :build
   end
 
   depends_on "xmlto" => :build
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog" if build.head?
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"

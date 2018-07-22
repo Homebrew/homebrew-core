@@ -16,8 +16,6 @@ class Cvs < Formula
     sha256 "32dcf27cf028e270e826ba9850bde2f403f77c2c16a4b534d59cf68c0446e1fb" => :el_capitan
   end
 
-  keg_only :provided_until_xcode5
-
   patch :p0 do
     url "https://opensource.apple.com/tarballs/cvs/cvs-45.tar.gz"
     sha256 "4d200dcf0c9d5044d85d850948c88a07de83aeded5e14fa1df332737d72dc9ce"

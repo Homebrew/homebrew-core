@@ -3,15 +3,16 @@ class CrystalIcr < Formula
   homepage "https://github.com/crystal-community/icr"
   url "https://github.com/crystal-community/icr/archive/v0.5.0.tar.gz"
   sha256 "f2b5cb971b368085e9c4f607d906e0622aa94d65c0f7c820d9cbdf23fb972c33"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "114bfed2c7e7f7428b9c06668b37b8eb346dd01b7d9064d3cb16089189b5b78a" => :high_sierra
-    sha256 "8a16ff49e83574e05f35ea5fc77fa24fc380babaab1128d67e4476202055c552" => :sierra
-    sha256 "0bdb50bd547c9d153dd2cd07bba5979a09242a3dbcf53856cc118e32c307736b" => :el_capitan
+    rebuild 1
+    sha256 "f57ef8c0e048007c3d387fd21ad982b6ada957e24b77effa4aea18fe197d59f3" => :high_sierra
+    sha256 "cd5fd88fd935f1481a562e62058c6c8570f56894b757eca01c2dc3d6d171b88e" => :sierra
+    sha256 "bb812144655843a6e3a772467ea7178a9e78ce3352feda83a0107615019eda1f" => :el_capitan
   end
 
-  depends_on "crystal-lang"
+  depends_on "crystal"
   depends_on "readline"
 
   def install

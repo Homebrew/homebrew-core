@@ -1,14 +1,14 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "http://qmmp.ylsoftware.com/"
-  url "http://qmmp.ylsoftware.com/files/qmmp-1.2.0.tar.bz2"
-  sha256 "8020c92e5dd75ed9ab34fd5d1bb524e01f2f361dafd2fe9a3073ae97f5896c9e"
+  url "http://qmmp.ylsoftware.com/files/qmmp-1.2.2.tar.bz2"
+  sha256 "e9dc5723f7f2a04d36167585ce1b4223c09f36c6dad1215de877dc51d1f3d606"
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
 
   bottle do
-    sha256 "fde6046322179080f7d691fead99fba034d1d7e2c215883cb5075800d6b63888" => :high_sierra
-    sha256 "af9bfaf97426f5c4610636605c3055827f8812ef0011c477548cbe9db58d8093" => :sierra
-    sha256 "1b5c09baa8ea2cb0dfed57048dca8b7c68a70eedcaf683d51d9d273fc653ba46" => :el_capitan
+    sha256 "02d2a232d361540ed0409a7a50a956dc21bb6f4600294d32eb470bfdb3d54706" => :high_sierra
+    sha256 "882c14825528f2b25470bf3135da753c181c5ec1b55c9273b1d037d729427aea" => :sierra
+    sha256 "afa299bffaf451023279305dce294d41a922242cc141d8c1ec8dda3200507d74" => :el_capitan
   end
 
   depends_on "cmake" => :build

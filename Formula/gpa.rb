@@ -4,12 +4,12 @@ class Gpa < Formula
   url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.9.10.tar.bz2"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/gpa/gpa_0.9.10.orig.tar.bz2"
   sha256 "c3b9cc36fd9916e83524930f99df13b1d5f601f4c0168cb9f5d81422e282b727"
+  revision 1
 
   bottle do
-    sha256 "0f3c6b1ab260f768ca9337ae2c0f0a38daa896c1a1b76e6f19a0186911211ee8" => :high_sierra
-    sha256 "858ba357b188c140d61ba5570b0237a827b0a3bea3d4a87ac7e9aaa95e397230" => :sierra
-    sha256 "91271433b3ff2c4de071f2dc9fc1dacdc9957b6d4075211d913d61f7d2c02ed4" => :el_capitan
-    sha256 "fb0e954550a5a90a492afc6f31c13a4d96a4a5b462228a46ccbf133e62e7497b" => :yosemite
+    sha256 "9fb1dcb581733874ee4b46aa91ac4ed8cd001e2c10c8e5cfb2341dcacff4f4c5" => :high_sierra
+    sha256 "89232c9cfa56944493c01cbfd7a1998dedc3c502b656202efddbb6100b9ace3a" => :sierra
+    sha256 "a1828dc36ed112f757f6f6b17917addd9e6356d475747765f58f363ba60bde29" => :el_capitan
   end
 
   depends_on "desktop-file-utils"

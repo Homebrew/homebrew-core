@@ -1,12 +1,14 @@
 class Sonarqube < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-7.0.zip"
-  sha256 "263942458279e2cf73fd86671511ac8ef0707e41ed51c9737142f8738bc7c060"
+  url "https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-7.2.1.zip"
+  sha256 "1cf91a39d9161f0dca00e5ed50f9c11ff055634c6f7efa2aa0ca50066f01d868"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
+
+  conflicts_with "sonarqube-lts", :because => "both install the same binaries"
 
   def install
     # Delete native bin directories for other systems
@@ -35,7 +37,7 @@ class Sonarqube < Formula
         <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

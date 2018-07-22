@@ -1,28 +1,24 @@
 class Libosinfo < Formula
   desc "The Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.1.0.tar.gz"
-  sha256 "600f43a4a8dae5086a01a3d44bcac2092b5fa1695121289806d544fb287d3136"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.2.0.tar.gz"
+  sha256 "ee254fcf3f92447787a87b3f6df190c694a787de46348c45101e8dc7b29b5a78"
 
   bottle do
-    sha256 "02f47ab456f024842fc123d75733b3dbe11a57d4a4a306c21da83dbcb2ca0c86" => :high_sierra
-    sha256 "764ecf89e19d39bf7e6d15d41d22d466893afa462f475582a445ac622aa024f1" => :sierra
-    sha256 "d42abc1c79c3bf147bddcada54f1720bca29b18fa573f1d0dbf250ee894bcd97" => :el_capitan
-    sha256 "6f2ce2d0cb0725f846644a95bc4701330c1f920d4e1eb3c0683829c2baf5a937" => :yosemite
+    sha256 "99c9327eb8634f81affaa415b339357eb61a1b5d00cd47551ba97f3bdd9286af" => :high_sierra
+    sha256 "2e1a9e6ab753ae8cccc9e899faa7aa53e83e0c2495f14b49af784a0c1a700e8b" => :sierra
+    sha256 "bd0ccbaa102b45b745ee3ac97efab1cac6ad35e42e5660c63598fd31e0ff9357" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-
+  depends_on "vala" => :optional
   depends_on "check"
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
   depends_on "libxml2"
-  depends_on "pygobject3"
-
-  depends_on "gobject-introspection" => :recommended
-  depends_on "vala" => :optional
 
   def install
     # avoid wget dependency
@@ -36,9 +32,9 @@ class Libosinfo < Formula
       --disable-silent-rules
       --disable-udev
       --enable-tests
+      --enable-introspection
     ]
 
-    args << "--disable-introspection" if build.without? "gobject-introspection"
     if build.with? "vala"
       args << "--enable-vala"
     else
@@ -53,42 +49,30 @@ class Libosinfo < Formula
   end
 
   test do
-    (testpath/"test.py").write <<~EOS
-      import gi
-      gi.require_version('Libosinfo', '1.0')
-      from gi.repository import Libosinfo as osinfo;
+    (testpath/"test.c").write <<~EOS
+      #include <osinfo/osinfo.h>
 
-      loader = osinfo.Loader()
-      loader.process_path("./")
-
-      db = loader.get_db()
-
-      devs = db.get_device_list()
-      print "All device IDs"
-      for dev in devs.get_elements():
-        print ("  Device " + dev.get_id())
-
-      names = db.unique_values_for_property_in_device("name")
-      print "All device names"
-      for name in names:
-        print ("  Name " + name)
-
-      osnames = db.unique_values_for_property_in_os("short-id")
-      osnames.sort()
-      print "All OS short IDs"
-      for name in osnames:
-        print ("  OS short id " + name)
-
-      hvnames = db.unique_values_for_property_in_platform("short-id")
-      hvnames.sort()
-      print "All HV short IDs"
-      for name in hvnames:
-        print ("  HV short id " + name)
+      int main(int argc, char *argv[]) {
+        OsinfoPlatformList *list = osinfo_platformlist_new();
+        return 0;
+      }
     EOS
-    ENV.append_path "GI_TYPELIB_PATH", lib+"girepository-1.0"
-    ENV.append_path "GI_TYPELIB_PATH", Formula["gobject-introspection"].opt_lib+"girepository-1.0"
-    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    ENV.append_path "PYTHONPATH", Formula["pygobject3"].opt_lib+"python2.7/site-packages"
-    system "python", "test.py"
+    gettext = Formula["gettext"]
+    glib = Formula["glib"]
+    flags = %W[
+      -I#{gettext.opt_include}
+      -I#{glib.opt_include}/glib-2.0
+      -I#{glib.opt_lib}/glib-2.0/include
+      -I#{include}/libosinfo-1.0
+      -L#{gettext.opt_lib}
+      -L#{glib.opt_lib}
+      -L#{lib}
+      -losinfo-1.0
+      -lglib-2.0
+      -lgobject-2.0
+      -lintl
+    ]
+    system ENV.cc, "test.c", "-o", "test", *flags
+    system "./test"
   end
 end

@@ -1,25 +1,16 @@
 class Frobtads < Formula
   desc "TADS interpreter and compilers"
   homepage "http://www.tads.org/frobtads.htm"
-  url "http://www.tads.org/frobtads/frobtads-1.2.3.tar.gz"
-  sha256 "88c6a987813d4be1420a1c697e99ecef4fa9dd9bc922be4acf5a3054967ee788"
+  url "https://github.com/realnc/frobtads/releases/download/1.2.4/frobtads-1.2.4.tar.bz2"
+  sha256 "705be5849293844f499a85280e793941b0eacb362b90d49d85ae8308e4c5b63c"
 
   bottle do
-    sha256 "48bb40f88489ea4a7c8fc0351a23dd4a243ac61b2e710bcd28b22db3320e53a1" => :sierra
-    sha256 "0fac4c4359ac59bffa5838884fb53ee6cf18c4b6efbc0d5fa2e16ca1c1675cc6" => :el_capitan
-    sha256 "5acaa00274668115972537bf48e6f855b66f7144a2bdfceb4a396d5837dbbc59" => :yosemite
-  end
-
-  head do
-    url "https://github.com/realnc/frobtads.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "af5706f2616c0be86e6cfbed57ba560fa2bbdcb8b59c769c0c3e800552d51829" => :high_sierra
+    sha256 "d3c660cd331b2a35ef36f55210e50e05e98d06fe3e5d606205ba63d226625f2b" => :sierra
+    sha256 "cff84f9389281d4ca9c9aae8ece93384aec506ea9601e1c3d637df82776afce3" => :el_capitan
   end
 
   def install
-    system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

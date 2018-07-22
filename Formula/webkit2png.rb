@@ -9,4 +9,8 @@ class Webkit2png < Formula
   def install
     bin.install "webkit2png"
   end
+
+  test do
+    system "#{bin}/webkit2png", "--version"
+  end
 end

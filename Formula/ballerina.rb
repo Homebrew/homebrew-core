@@ -1,34 +1,41 @@
 class Ballerina < Formula
   desc "The flexible, powerful and beautiful programming language"
-  homepage "https://ballerinalang.org/"
-  url "https://ballerinalang.org/downloads/ballerina-runtime/ballerina-0.96.0.zip"
-  sha256 "7bbaecbbce0f2132854104a7975dec7e9019ed699536dedca3499d42f908cc87"
+  homepage "https://ballerina.io/"
+  url "https://product-dist.ballerina.io/downloads/0.980.0/ballerina-platform-0.980.0.zip"
+  sha256 "7fe3470a8e82e11d85f78a2578ebc27bee42214a52c80ae85a064ef02a736531"
 
   bottle :unneeded
 
-  depends_on :java
+  depends_on :java => "1.8"
 
   def install
     # Remove Windows files
-    rm "bin/ballerina.bat"
+    rm Dir["bin/*.bat"]
 
     chmod 0755, "bin/ballerina"
+    chmod 0755, "bin/composer"
 
     inreplace ["bin/ballerina"] do |s|
-      # Translate ballerina script
       s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{libexec}"
-      # dos to unix (bug fix for version 2.3.11)
       s.gsub! /\r?/, ""
     end
 
+    inreplace ["bin/composer"] do |s|
+      s.gsub! /^BASE_DIR=.*$/, "BASE_DIR=#{libexec}/bin"
+      s.gsub! /^PRGDIR=.*$/, "PRGDIR=#{libexec}/bin"
+      s.gsub! /\r?/, ""
+    end
+
+    bin.install "bin/ballerina", "bin/composer"
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/ballerina"
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
     (testpath/"helloWorld.bal").write <<~EOS
-      function main (string[] args) {
-        println("Hello, World!");
+      import ballerina/io;
+      function main(string... args) {
+        io:println("Hello, World!");
       }
     EOS
     output = shell_output("#{bin}/ballerina run helloWorld.bal")

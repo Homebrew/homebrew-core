@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "http://wildfly.org/"
-  url "https://download.jboss.org/wildfly/11.0.0.Final/wildfly-11.0.0.Final.tar.gz"
-  sha256 "a2f5fb4187369196003e31eb086f0a1f7bfc0645a3a61a53ed20ab5853481e71"
+  url "https://download.jboss.org/wildfly/13.0.0.Final/wildfly-13.0.0.Final.tar.gz"
+  sha256 "f74fa1882a83fc6650fb43d21ed4527eeb5478f39878f15f1f79d3dc01a997f9"
 
   bottle :unneeded
 
@@ -21,7 +21,7 @@ class WildflyAs < Formula
     You may want to add the following to your .bash_profile:
       export JBOSS_HOME=#{opt_libexec}
       export PATH=${PATH}:${JBOSS_HOME}/bin
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/wildfly-as/libexec/bin/standalone.sh --server-config=standalone.xml"
@@ -54,7 +54,7 @@ class WildflyAs < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

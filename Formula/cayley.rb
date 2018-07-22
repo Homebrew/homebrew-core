@@ -1,31 +1,33 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.7.1.tar.gz"
-  sha256 "057ba3256b85d45ea3d85d258142e3ff887ec595518bdd4500a0d91379c1183f"
+  url "https://github.com/cayleygraph/cayley/archive/v0.7.4.tar.gz"
+  sha256 "37e2bb3014060f16a7b727a1157aa5420cf4fbc8746d3465c305f3b7ae147f66"
   head "https://github.com/google/cayley.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a0781fdda63582918522cb99808c769e5900ff8a0000d285f4a39d8ae3b0ebf8" => :high_sierra
-    sha256 "63813aee1519605e78c4e7b6700f6891798836f5c4d10f5aa99f2235f5da8319" => :sierra
-    sha256 "e4c996ce89c878f8df88205775126da0c8658caa96bf25750d4c007a78e4e807" => :el_capitan
+    sha256 "9a1b558fe6b45116bba953495630eaa0690cfd85c13ff5dbf1a152ec28d17278" => :high_sierra
+    sha256 "58ef82f20c9db1fa8c472d7c9958bea9a58f693c879b934c526636a3d852340a" => :sierra
+    sha256 "45699dd103618510a86c61a57cb32c7d3dabec1718d05e2b0dee278b3f193ee3" => :el_capitan
   end
 
   option "without-samples", "Don't install sample data"
 
   depends_on "bazaar" => :build
-  depends_on "mercurial" => :build
-  depends_on "glide" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "mercurial" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+
+    # remove for > 0.7.3
+    inreplace "version/version.go", "0.7.3", "0.7.4" if build.stable?
 
     (buildpath/"src/github.com/cayleygraph/cayley").install buildpath.children
     cd "src/github.com/cayleygraph/cayley" do
-      system "glide", "install"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"cayley", "-ldflags",
              "-X main.Version=#{version}", ".../cmd/cayley"
 
@@ -81,7 +83,7 @@ class Cayley < Formula
         <string>#{var}/log/cayley.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

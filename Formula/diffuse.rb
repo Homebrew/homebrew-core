@@ -3,14 +3,13 @@ class Diffuse < Formula
   homepage "https://diffuse.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/diffuse/diffuse/0.4.8/diffuse-0.4.8.tar.bz2"
   sha256 "c1d3b79bba9352fcb9aa4003537d3fece248fb824781c5e21f3fcccafd42df2b"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c83aa82f4a8da1006e1635ea292640cca8fa3ecf741c742f930f24651ed0b46" => :high_sierra
-    sha256 "ca2764034fc37d643f2efadfc4fc307479263988945d8d65019fad240f4a5ea6" => :sierra
-    sha256 "d2f0ed47838f888753d7fe4a7c93a9557d8b8826548c53b6098789ab22211562" => :el_capitan
-    sha256 "5e7703ec672b8f5636463a5cb0e3a79bb635a485d6657e1921d3cae63a140125" => :yosemite
-    sha256 "e2b2b9bcb2c60f014c56e8c924b020a9568b9ebbb9b97c81e6be02be89933c69" => :mavericks
+    sha256 "e3e546b4693f94b65f72bb9026dce74bb904fa33aceb6385903a8753caaa28f7" => :high_sierra
+    sha256 "e3e546b4693f94b65f72bb9026dce74bb904fa33aceb6385903a8753caaa28f7" => :sierra
+    sha256 "e3e546b4693f94b65f72bb9026dce74bb904fa33aceb6385903a8753caaa28f7" => :el_capitan
   end
 
   depends_on "pygtk"
@@ -20,6 +19,7 @@ class Diffuse < Formula
                      "--sysconfdir=#{etc}",
                      "--examplesdir=#{share}",
                      "--prefix=#{prefix}"
+    inreplace bin/"diffuse", %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
   end
 
   test do

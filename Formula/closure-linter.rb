@@ -3,7 +3,6 @@ class ClosureLinter < Formula
   homepage "https://developers.google.com/closure/utilities/"
   url "https://github.com/google/closure-linter/archive/v2.3.19.tar.gz"
   sha256 "cd472f560be5af80afccbe94c9d9b534f7c30085510961ad408f8a314ea5c4c2"
-
   head "https://github.com/google/closure-linter.git"
 
   bottle do
@@ -16,7 +15,7 @@ class ClosureLinter < Formula
     sha256 "beaed6105607c8d7096707904aa6b1d51dfe3f119d709ddb6d0dba93691323bb" => :mountain_lion
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "python-gflags" do
     url "https://files.pythonhosted.org/packages/source/p/python-gflags/python-gflags-2.0.tar.gz"

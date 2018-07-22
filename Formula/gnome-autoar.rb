@@ -3,11 +3,12 @@ class GnomeAutoar < Formula
   homepage "https://github.com/GNOME/gnome-autoar"
   url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.3.tar.xz"
   sha256 "5de9db0db028cd6cab7c2fec46ba90965474ecf9cd68cfd681a6488cf1fb240a"
+  revision 1
 
   bottle do
-    sha256 "1535792487e4dac0085d045d9e141b0cc6df7c1333c2993582e120d1624353f8" => :high_sierra
-    sha256 "6becf98b25216574f41c4bc0d70e615fb327073f417233a7f3ee4594c97516fc" => :sierra
-    sha256 "b308fa83eb1c3bcd5046366104bf3b87f2448b7baaf98a01a0a4370c6374e932" => :el_capitan
+    sha256 "0273f2d8e8e89ab1e3e53ea465ef940ab3641dd1e259b0642866df8e616e4374" => :high_sierra
+    sha256 "2b75c73250644bb5e8bdac7bc72d61d08373a25f54081f71e52fd4e71fed727d" => :sierra
+    sha256 "1f47eb5329f01e3e898280e71608d6089525919849dc58a9b29d28a56fef3dfb" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

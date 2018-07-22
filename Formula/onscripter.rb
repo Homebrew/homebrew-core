@@ -54,8 +54,8 @@ class Onscripter < Formula
 
     if build.with? "lua"
       lua = Formula["lua"]
-      incs << "-I#{lua.include}"
-      libs << "-L#{lua.lib} -llua"
+      incs << "-I#{lua.opt_include}/lua"
+      libs << "-L#{lua.opt_lib} -llua"
       defs << "-DUSE_LUA"
       ext_objs << "LUAHandler.o"
     end

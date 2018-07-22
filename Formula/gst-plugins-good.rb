@@ -3,16 +3,16 @@ class GstPluginsGood < Formula
   homepage "https://gstreamer.freedesktop.org/"
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.12.4.tar.xz"
-    sha256 "649f49bec60892d47ee6731b92266974c723554da1c6649f21296097715eb957"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.2.tar.xz"
+    sha256 "c0575e2811860bfff59b865b8d125153859a01f0615fa41e279b64d88d25caad"
 
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "57a5ba70df834a004a14fda8f60c3d2ac60941c2c4be0568971f389f7540e3be" => :high_sierra
-    sha256 "ffbb8cda0ae0b6b40f2e8fc72c5e35f2edcd57312482cb03520d75a17934c78b" => :sierra
-    sha256 "1ca27cf1d8d5e9ade20a8f1eaecd84cb6b1af06dbb5906bea7e7127ce8618229" => :el_capitan
+    sha256 "d9662303e702a1dd2c521ce3b4d0acf85181ec72ffe8e29e97b01ae97af19d5a" => :high_sierra
+    sha256 "42582defb0dff9b1d6bdec017f8bfb22440d6fe8f479b2e1736eb8e4b711c043" => :sierra
+    sha256 "5c40515683b558638307ea9511b63b86f3970038fd06be9eb21b660eb2a2cff5" => :el_capitan
   end
 
   head do
@@ -39,7 +39,8 @@ class GstPluginsGood < Formula
   depends_on "gdk-pixbuf" => :optional
   depends_on "aalib" => :optional
   depends_on "cairo" => :optional
-  depends_on "flac" => [:optional, "with-libogg"]
+  depends_on "flac" => :optional
+  depends_on "gtk+3" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
   depends_on "libpng" => :optional
@@ -51,8 +52,6 @@ class GstPluginsGood < Formula
   depends_on "pulseaudio" => :optional
   depends_on "jack" => :optional
 
-  depends_on "libogg" if build.with? "flac"
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -63,6 +62,8 @@ class GstPluginsGood < Formula
       --disable-dependency-tracking
       --disable-silent-rules
     ]
+
+    args << "--with-gtk=3.0" if build.with? "gtk+3"
 
     if build.with? "x11"
       args << "--with-x"

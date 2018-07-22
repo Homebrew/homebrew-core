@@ -15,9 +15,7 @@ class Muttils < Formula
     sha256 "63e819c0bb96a56ed0f159ab816aeac84805a52333bd23298a17cd2abddcb17b" => :mountain_lion
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
-
-  conflicts_with "talk-filters", :because => "both install `wrap` binaries"
+  depends_on "python@2"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"

@@ -12,7 +12,7 @@ class Thrift < Formula
   end
 
   head do
-    url "https://git-wip-us.apache.org/repos/asf/thrift.git"
+    url "https://github.com/apache/thrift.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -27,11 +27,13 @@ class Thrift < Formula
   option "with-php", "Install PHP binding"
   option "with-libevent", "Install nonblocking server libraries"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "bison" => :build
   depends_on "boost"
   depends_on "openssl"
   depends_on "libevent" => :optional
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   if build.with? "java"
     depends_on "ant" => :build
@@ -43,7 +45,7 @@ class Thrift < Formula
 
     exclusions = ["--without-ruby", "--disable-tests", "--without-php_extension"]
 
-    exclusions << "--without-python" if build.without? "python"
+    exclusions << "--without-python" if build.without? "python@2"
     exclusions << "--without-haskell" if build.without? "haskell"
     exclusions << "--without-java" if build.without? "java"
     exclusions << "--without-perl" if build.without? "perl"
@@ -74,9 +76,10 @@ class Thrift < Formula
   def caveats; <<~EOS
     To install Ruby binding:
       gem install thrift
-
-    To install PHP extension for e.g. PHP 5.5:
-      brew install homebrew/php/php55-thrift
   EOS
+  end
+
+  test do
+    system "#{bin}/thrift", "--version"
   end
 end

@@ -1,30 +1,27 @@
 class Libfixposix < Formula
   desc "Thin wrapper over POSIX syscalls"
   homepage "https://github.com/sionescu/libfixposix"
-  url "https://github.com/sionescu/libfixposix/releases/download/v0.4.1/libfixposix-0.4.1.tar.gz"
-  sha256 "38b111111d87f87e5c53a207effb25e5a86b5879770dcd8cf4f38e440620e6d5"
+  url "https://github.com/sionescu/libfixposix/archive/v0.4.3.tar.gz"
+  sha256 "78fe8bcebf496520ac29b5b65049f5ec1977c6bd956640bdc6d1da6ea04d8504"
+  head "https://github.com/sionescu/libfixposix.git"
 
   bottle do
     cellar :any
-    sha256 "ecd398b532d6e8d3c23ecb4b37595e49a1fc3a6db886e8a1f2b6444de69b92c1" => :high_sierra
-    sha256 "f9511f4ca3c17903a2aea6e6ed089286cc0d8b8c1f21349a2381bd31acb4fd02" => :sierra
-    sha256 "e876af0f5a95391c41f9bf7e7e1ca7c69ba0c5afe4ce570daff34474f3ece1dd" => :el_capitan
-    sha256 "defc55272fbda383c8598e216a65b79ba8c5c4fc5c0d0a1752168919f0eee1c7" => :yosemite
-    sha256 "f1f7f7248fd249cbb4ac366ad45e313c39055e51ffb0c15679f1b880d5b7a566" => :mavericks
+    sha256 "eaf5641bda4184e3092f7f2b0c9e61afa120df85df837377ead98de643a7e21e" => :high_sierra
+    sha256 "024855892877fd868e04eb8b0d2ef71485ffc48b2f441f88ceb61bcc57a56aea" => :sierra
+    sha256 "89a3b36ff587c3eeaa7ba51471ba3d0bc294bdeb66abccd0a3ce446cf6f57e1b" => :el_capitan
   end
 
-  head do
-    url "https://github.com/sionescu/libfixposix.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-    depends_on "pkg-config" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def install
-    system "autoreconf", "-fvi" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "autoreconf", "-fvi"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 

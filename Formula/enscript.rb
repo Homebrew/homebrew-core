@@ -4,7 +4,6 @@ class Enscript < Formula
   url "https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz"
   sha256 "6d56bada6934d055b34b6c90399aa85975e66457ac5bf513427ae7fc77f5c0bb"
-
   head "https://git.savannah.gnu.org/git/enscript.git"
 
   bottle do
@@ -15,8 +14,6 @@ class Enscript < Formula
     sha256 "d1c1bfc90a9e140a3d257d976729fc9b6e55118a10364ce1e3dc3dd26388edc9" => :yosemite
     sha256 "f2be9be9caeff58dbec3c9abf3ff5554865e6a3ee4db91d156edce8ddf5e666e" => :mavericks
   end
-
-  keg_only :provided_pre_mountain_lion
 
   depends_on "gettext"
 

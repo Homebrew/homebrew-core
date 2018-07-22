@@ -1,16 +1,17 @@
 class Amber < Formula
   desc "CLI client for generating and scaffolding Amber web applications"
   homepage "https://www.amberframework.org/"
-  url "https://github.com/amberframework/amber/archive/v0.6.7.tar.gz"
-  sha256 "a70b62cd3e470005a5ac804273088f444613942eafdfc1d237b6444f1e4851f2"
+  url "https://github.com/amberframework/amber/archive/v0.8.0.tar.gz"
+  sha256 "d2706633fccfbce4102077b7455595d0935f5a542d85c68b744eb129edd64c6b"
 
   bottle do
-    sha256 "65d14b51db6a85c027b15c306742a901a290f7e9febe887fac2cbb56a39b8885" => :high_sierra
-    sha256 "7ff6c34e750a418d17d9586f7d3e1dcb6f93d0ffd7be038659209bfd57fcdd3a" => :sierra
-    sha256 "21ce76e3f32463c979685b05c3958379243b168cc4ff504b21f3bc6b85a30b71" => :el_capitan
+    rebuild 1
+    sha256 "f24fc9f842200552ccb96f325736293a80c2ac641d17841bab6080523895f892" => :high_sierra
+    sha256 "2df68ee8f81181e2bd3ef81533be781156e7b57e1003d24c34c3efa84fbcb387" => :sierra
+    sha256 "37fc3b2e4f444f20c587e190850e460f0973a21125e813d1c3f9fc863caeae69" => :el_capitan
   end
 
-  depends_on "crystal-lang"
+  depends_on "crystal"
 
   def install
     system "shards", "install"

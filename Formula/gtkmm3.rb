@@ -3,12 +3,13 @@ class Gtkmm3 < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/3.22/gtkmm-3.22.2.tar.xz"
   sha256 "91afd98a31519536f5f397c2d79696e3d53143b80b75778521ca7b48cb280090"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "43cbd07d4b5542b4cf6a7eff1c79d8ea7cfaa6009100ad34ebc56ab09b8e1d43" => :high_sierra
-    sha256 "c5fa401269d11e40c8366e6bff718e0d884d1da5574ec2c7cdfbe341e33239ec" => :sierra
-    sha256 "42f8b253f964dba53b907b83988c2b70eae9c97923b290958f33fc21ffdfa3e9" => :el_capitan
+    sha256 "6e468e40dbe7e4ca10361980514d949f45ff770ddd3e68e2c8f4fd6ee6409f14" => :high_sierra
+    sha256 "abd9eac77cbae6970e31119621ac5cd7e57cde621431525984604b4e2bddc851" => :sierra
+    sha256 "ca321d85ad747dc3565acb82ea3c7b2de3b2fcb196b3d093eafd71267496bac2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

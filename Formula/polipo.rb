@@ -3,7 +3,6 @@ class Polipo < Formula
   homepage "https://www.irif.univ-paris-diderot.fr/~jch/software/polipo/"
   url "https://www.irif.univ-paris-diderot.fr/~jch/software/files/polipo/polipo-1.1.1.tar.gz"
   sha256 "a259750793ab79c491d05fcee5a917faf7d9030fb5d15e05b3704e9c9e4ee015"
-
   head "https://github.com/jech/polipo.git"
 
   bottle do
@@ -60,7 +59,7 @@ class Polipo < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

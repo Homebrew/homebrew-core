@@ -3,7 +3,6 @@ class EulerPy < Formula
   homepage "https://github.com/iKevinY/EulerPy"
   url "https://github.com/iKevinY/EulerPy/archive/v1.3.0.tar.gz"
   sha256 "ffe2d74b5a0fbde84a96dfd39f1f899fc691e3585bf0d46ada976899038452e1"
-
   head "https://github.com/iKevinY/EulerPy.git"
 
   bottle do
@@ -15,7 +14,7 @@ class EulerPy < Formula
     sha256 "6006f400f9f2e010c104325f4e1903c8fe825884b54ef88bea47918b58876576" => :mavericks
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/source/c/click/click-4.0.tar.gz"

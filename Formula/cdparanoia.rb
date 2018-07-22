@@ -31,4 +31,8 @@ class Cdparanoia < Formula
     system "make", "all"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/cdparanoia", "--version"
+  end
 end

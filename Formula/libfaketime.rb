@@ -3,20 +3,31 @@ class Libfaketime < Formula
   homepage "https://github.com/wolfcw/libfaketime"
   url "https://github.com/wolfcw/libfaketime/archive/v0.9.7.tar.gz"
   sha256 "4d65f368b2d53ee2f93a25d5e9541ce27357f2b95e5e5afff210e0805042811e"
+  revision 1
   head "https://github.com/wolfcw/libfaketime.git"
 
   bottle do
-    sha256 "99f78789ba8ee314d2358531a106d245c327a2248d7b59712493543806604eae" => :high_sierra
-    sha256 "3fc5f61a8d50f7586cc18d269263fa95481bd741ac1756f2f55b5932e5a01ce5" => :sierra
-    sha256 "0b792c716c6e8ba9db928b0c4dc4ab2dc474eb12da529186ba4475f5fba73169" => :el_capitan
+    rebuild 1
+    sha256 "af523cc7dad3a5594fe1ff4fd8af3d8d21be0dff3c65bb309292d79233080795" => :high_sierra
+    sha256 "e341fabbbfd9b0b9f2750b69c4926adf8116344b1a35fd655bd5e81b1c67d950" => :sierra
   end
 
-  depends_on :macos => :lion
+  # The `faketime` command needs GNU `gdate` not BSD `date`.
+  # See https://github.com/wolfcw/libfaketime/issues/158 and
+  # https://github.com/Homebrew/homebrew-core/issues/26568
+  depends_on "coreutils"
+
+  depends_on :macos => :sierra
 
   def install
     system "make", "-C", "src", "-f", "Makefile.OSX", "PREFIX=#{prefix}"
     bin.install "src/faketime"
     (lib/"faketime").install "src/libfaketime.1.dylib"
     man1.install "man/faketime.1"
+  end
+
+  test do
+    cp "/bin/date", testpath/"date" # Work around SIP.
+    assert_match "1230106542", shell_output(%Q(TZ=UTC #{bin}/faketime -f "2008-12-24 08:15:42" #{testpath}/date +%s)).strip
   end
 end

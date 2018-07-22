@@ -1,6 +1,6 @@
 class Np2 < Formula
   desc "Neko Project 2: PC-9801 emulator"
-  homepage "http://www.yui.ne.jp/np2/"
+  homepage "https://www.yui.ne.jp/np2/"
   if MacOS.version >= :sierra
     url "https://amethyst.yui.ne.jp/svn/pc98/np2/tags/VER_0_86/", :using => :svn, :revision => "2606"
   else
@@ -44,7 +44,7 @@ class Np2 < Formula
 
   def caveats; <<~EOS
     A Japanese TTF file named `default.ttf` should be in the working directory.
-    EOS
+  EOS
   end
 
   test do

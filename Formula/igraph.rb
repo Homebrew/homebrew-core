@@ -38,7 +38,7 @@ class Igraph < Formula
         printf("Diameter = %d\\n", (int) diameter);
         igraph_destroy(&graph);
       }
-      EOS
+    EOS
     system ENV.cc, "test.c", "-I#{include}/igraph", "-L#{lib}",
                    "-ligraph", "-o", "test"
     assert_match "Diameter = 9", shell_output("./test")

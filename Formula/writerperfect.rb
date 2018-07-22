@@ -6,23 +6,18 @@ class Writerperfect < Formula
 
   bottle do
     cellar :any
-    sha256 "37133b652a9b0c4f8a67800ddcf1d468d162112420fb205a8f87ea47277402fa" => :high_sierra
-    sha256 "05685d6d978c569b95cc2259a7e9a8920b36e295033149fdf749dc8f05dc322b" => :sierra
-    sha256 "a3d7cc487e7a997afd01d46b8de352c54ad9cdaa55396d55c38237584179fb4c" => :el_capitan
+    rebuild 1
+    sha256 "12f30a1f15f5887da7675026656f59dd74b7fbffdf4129a2c1778578dbf4cc4a" => :high_sierra
+    sha256 "36981e968c146d8aeca47d96327b3f3e909a3f58ca15bed17202e93fef6e17db" => :sierra
+    sha256 "549f41525d1a5cf4cad493650ea0f8daae0208246f36984d6a56a4af533fc881" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "boost" => :build
-  depends_on "libmwaw" => :optional
   depends_on "libodfgen"
-  depends_on "libwps"
-  depends_on "libwpg"
   depends_on "libwpd"
-  depends_on "libetonyek" => :optional
-  depends_on "libvisio" => :optional
-  depends_on "libmspub" => :optional
-  depends_on "libfreehand" => :optional
-  depends_on "libcdr" => :optional
+  depends_on "libwpg"
+  depends_on "libwps"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

@@ -1,14 +1,14 @@
 class HttpParser < Formula
   desc "HTTP request/response parser for c"
   homepage "https://github.com/nodejs/http-parser"
-  url "https://github.com/nodejs/http-parser/archive/v2.8.0.tar.gz"
-  sha256 "7277c6f99bf6fc272eb5d8fc3dca01e7cc1d4ae609b5d2c5d5e18added98479d"
+  url "https://github.com/nodejs/http-parser/archive/v2.8.1.tar.gz"
+  sha256 "51615f68b8d67eadfd2482decc63b3e55d749ce0055502bbb5b0032726d22d96"
 
   bottle do
     cellar :any
-    sha256 "8d947716ab99942defcc8d203b280c0ca7a5cd0b6018af587f612e614a7de3ef" => :high_sierra
-    sha256 "540d616067151c375286cdd702cdfe39e9899f9039a4c878da033ef5e3b45e2d" => :sierra
-    sha256 "1de8b816c634439df2e5d24e5f8747c4d3a2294d2d2a6c3bfab0a5af68d044c7" => :el_capitan
+    sha256 "7178c5fe4dc5c38d129d81f7abc654919e8ac0a7dbe33e9409e765258deef09f" => :high_sierra
+    sha256 "c4ad12da88940514f531b5cb1c13ee8aab7e069ac1680b391d5bd74b7fc1ec86" => :sierra
+    sha256 "6f80645e6e13d73eb0521daf7f244492015767110cd1282ccc8c827c5b97c5b0" => :el_capitan
   end
 
   depends_on "coreutils" => :build

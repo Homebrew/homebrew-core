@@ -14,6 +14,7 @@ class Shocco < Formula
   end
 
   depends_on "markdown"
+  depends_on "python@2"
 
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-1.5.tar.gz"
@@ -41,6 +42,10 @@ class Shocco < Formula
         brew install browser
         shocco `which shocco` | browser
     EOS
+  end
+
+  test do
+    system "#{bin}/shocco", "--help"
   end
 end
 

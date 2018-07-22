@@ -17,4 +17,8 @@ class Makepp < Formula
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/makepp", "--version"
+  end
 end

@@ -1,14 +1,13 @@
 class PerlAT518 < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.18.2.tar.gz"
-  sha256 "7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5c9c69c150a4982f"
+  url "https://www.cpan.org/src/5.0/perl-5.18.4.tar.gz"
+  sha256 "01a4e11a9a34616396c4a77b3cef51f76a297e1a2c2c490ae6138bf0351eb29f"
 
   bottle do
-    sha256 "a20858d7f5ff6099f3b6afd23f5a2d8664ab0a341034699086f5d2ef16780a0a" => :high_sierra
-    sha256 "bd7cec940fcec85651d37e00c6f3b073c4f0e7c6dc82d8836276947a504dd169" => :sierra
-    sha256 "5ea15144192fc50417125abb4735272d95a0ae7602b99deaca7e316b3cce3dd8" => :el_capitan
-    sha256 "dd567491e3d46487ec5657ec381a991164205c043798973c949498ead69e5519" => :yosemite
+    sha256 "bdfac28ec4bf1ea1859b23564e0e4fd80ffe5ec5f7b54efc21cf8f1c47b396b8" => :high_sierra
+    sha256 "a73a2bbb48200827c3cca867b2145808735e5f250af55a01580fffd875da983e" => :sierra
+    sha256 "a4400e07a3930625832082f113abbd9069f818dc22c1bac17b23e99edaff66ff" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -41,7 +40,7 @@ class PerlAT518 < Formula
   def caveats; <<~EOS
     By default Perl installs modules in your HOME dir. If this is an issue run:
       #{bin}/cpan o conf init
-    EOS
+  EOS
   end
 
   test do

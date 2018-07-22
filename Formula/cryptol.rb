@@ -17,9 +17,9 @@ class Cryptol < Formula
     sha256 "6679c45e92d3093e89b54bcddeb1e107445afb47243a766b197240362c281d1a" => :el_capitan
   end
 
-  depends_on "ghc" => :build
+  depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
-  depends_on "z3" => :run
+  depends_on "z3"
 
   def install
     # Remove the "happy<1.19.6" for cryptol > 2.5.0

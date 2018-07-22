@@ -14,7 +14,7 @@ class Kanif < Formula
     sha256 "86f8813209c51d84889c8d5a3d024137a1bdb6d9e95a68042ab875ee00e396bf" => :mountain_lion
   end
 
-  depends_on "taktuk" => :run
+  depends_on "taktuk"
 
   def install
     system "./configure", "--disable-debug",

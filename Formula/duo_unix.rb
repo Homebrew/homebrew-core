@@ -1,13 +1,13 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.10.2.tar.gz"
-  sha256 "b12de0ab2600ad7021a332eb7fbbb239867f639959e79d74259ec5fe1b5d9234"
+  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.10.3.tar.gz"
+  sha256 "8259af6e24d618401886f6cbd0c8f72ca6ba8ba9cffe04dd3110e672933388ce"
 
   bottle do
-    sha256 "8d537b9dcd36f7b6c708fdc0117d9ae8d1f98ffb22962a7b01cb62d4a557da80" => :high_sierra
-    sha256 "34ea4ec8b16e5f897caa6e0791d0c9a130941d0e0ed9b5362087a839f8d79a97" => :sierra
-    sha256 "cd89bf80fd63c234ef6d18dd82a9d33d9f19f786b267ca4008f7cf004e78b9bc" => :el_capitan
+    sha256 "30393ba2e84c7eb00111f3eccc3f6b214cea93c58ffb2cbdc39ca88f4c7be285" => :high_sierra
+    sha256 "5db71e87da7c8b4db91ade92664bc0b8328757391ccf2c68778b55feae23b589" => :sierra
+    sha256 "76d1b26e83386c57cbcec73dfcd52ffb1769e1974f9608222ae88b0d978016b0" => :el_capitan
   end
 
   depends_on "autoconf" => :build

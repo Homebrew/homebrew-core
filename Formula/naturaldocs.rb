@@ -1,6 +1,6 @@
 class Naturaldocs < Formula
   desc "Extensible, multi-language documentation generator"
-  homepage "http://www.naturaldocs.org/"
+  homepage "https://www.naturaldocs.org/"
   url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/1.52/NaturalDocs-1.52.zip"
   sha256 "3f13c99e15778afe6c5555084a083f856e93567b31b08acd1fd81afb10082681"
 
@@ -13,5 +13,9 @@ class Naturaldocs < Formula
     libexec.install Dir["*"]
     chmod 0755, libexec+"NaturalDocs"
     bin.install_symlink libexec+"NaturalDocs"
+  end
+
+  test do
+    system "#{bin}/naturaldocs", "-h"
   end
 end

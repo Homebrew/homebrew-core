@@ -1,20 +1,9 @@
 class DockerComposeCompletion < Formula
   desc "Docker-compose completion script"
   homepage "https://docs.docker.com/compose/completion/"
+  url "https://github.com/docker/compose/archive/1.22.0.tar.gz"
+  sha256 "d28a2e96976dae306f480f656e4487a0334a5f95c456408f4bbe4acc5760ffa0"
   head "https://github.com/docker/compose.git"
-
-  stable do
-    url "https://github.com/docker/compose/archive/1.19.0.tar.gz"
-    sha256 "2f8eb50a1e71a9eed773456267d511cd77a463809e746d02d9366888ff30d8a2"
-
-    # Remove for > 1.19.0
-    # Upstream commit from 9 Feb 2018 "Fix bash completion on systems where
-    # extglob is not set"
-    patch do
-      url "https://github.com/docker/compose/commit/56b2a80d5.patch?full_index=1"
-      sha256 "eb4a8f2c407fb129464b249f1f50ee21672ca1d0addd401d6f5c933fb9ce82d3"
-    end
-  end
 
   bottle :unneeded
 
@@ -23,6 +12,7 @@ class DockerComposeCompletion < Formula
 
   def install
     bash_completion.install "contrib/completion/bash/docker-compose"
+    fish_completion.install "contrib/completion/fish/docker-compose.fish"
     zsh_completion.install "contrib/completion/zsh/_docker-compose"
   end
 

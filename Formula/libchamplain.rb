@@ -3,18 +3,18 @@ class Libchamplain < Formula
   homepage "https://wiki.gnome.org/Projects/libchamplain"
   url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.16.tar.xz"
   sha256 "4a7e31cf7889669aebf04631543af64435edd989685159b804911c6005db908d"
+  revision 1
 
   bottle do
-    sha256 "3fdca7a3411ade348bb54a6d9fb3a6177a3ffba033cc45b85029099c7ec5d08d" => :high_sierra
-    sha256 "c785f2ac2ed8a6eac8ca478ae61c6767e3aff2da7cc7d6102489435753f166da" => :sierra
-    sha256 "fea64a6e4451f63b95a30a2cc75d62d1294afbbee26334b0df1e3105a6a98056" => :el_capitan
-    sha256 "796fbd6873a23d586343d499f069d1af6d4c859a0b9ca0ed8defbd7a91cca673" => :yosemite
+    sha256 "f6164d934f20edac3cce56807031c6398ab4135ac2d1de189fa507d53646d4fe" => :high_sierra
+    sha256 "4cd4422e4ea30fb60d77bee37e96d2a221cf78d5cfbb56c7bd4ddff503dd9e63" => :sierra
+    sha256 "77dc11f2f53f414fb94db5a48c60827eeda2d54f296a6608aface2d7d7adcba2" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "clutter"
   depends_on "libsoup"
-  depends_on "gobject-introspection"
   depends_on "gtk+3"
   depends_on "clutter-gtk"
   depends_on "vala" => :optional

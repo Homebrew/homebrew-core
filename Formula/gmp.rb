@@ -4,26 +4,23 @@ class Gmp < Formula
   url "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
   mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
   sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "eadb377c507f5d04e8d47861fa76471be6c09dc54991540e125ee1cbc04fecd6" => :high_sierra
-    sha256 "90715336080bd2deb92bd74361f50d91fe288d18e4c18a70a8253add6aa13200" => :sierra
-    sha256 "0e0c340b4c09a4f00daf45890e8f36afa03d251a8ed3bba6ae4876149914b420" => :el_capitan
+    sha256 "8372dcd88e36997d7aacaffb555709348cc2c57703608b3471cbd71f5054f9ed" => :high_sierra
+    sha256 "087052cc1b49f5e0c42f5bd54f463f7fca7f7c73f00856c576706112bbe2a4c1" => :sierra
+    sha256 "d8f9b3e4da4241dc5996f318df44d99a45db1bcce84a4ce814e8a8912d4cdaef" => :el_capitan
   end
 
   def install
-    args = %W[--prefix=#{prefix} --enable-cxx]
+    # Enable --with-pic to avoid linking issues with the static library
+    args = %W[--prefix=#{prefix} --enable-cxx --with-pic]
     args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-    system "./configure", "--disable-static", *args
+    system "./configure", *args
     system "make"
     system "make", "check"
     system "make", "install"
-    system "make", "clean"
-    system "./configure", "--disable-shared", "--disable-assembly", *args
-    system "make"
-    lib.install Dir[".libs/*.a"]
   end
 
   test do
@@ -41,7 +38,12 @@ class Gmp < Formula
         return 0;
       }
     EOS
+
     system ENV.cc, "test.c", "-L#{lib}", "-lgmp", "-o", "test"
+    system "./test"
+
+    # Test the static library to catch potential linking issues
+    system ENV.cc, "test.c", "#{lib}/libgmp.a", "-o", "test"
     system "./test"
   end
 end

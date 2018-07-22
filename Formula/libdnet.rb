@@ -20,19 +20,21 @@ class Libdnet < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "python@2"
 
   def install
     # autoreconf to get '.dylib' extension on shared lib
     ENV.append_path "ACLOCAL_PATH", "config"
     system "autoreconf", "-ivf"
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --mandir=#{man}
-    ]
-    args << "--with-python" if build.with? "python"
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}",
+                          "--with-python"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/dnet-config", "--version"
   end
 end

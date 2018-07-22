@@ -3,42 +3,41 @@ class Cloog < Formula
   homepage "https://www.bastoul.net/cloog/"
   url "https://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
   sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "0133d815343a26762ac6938b8f089f3ce3b699adb0ccfef2960ba11881cb8e4d" => :high_sierra
-    sha256 "506b9121ccf842e516ff20e38a852d70bf2b2fafa1efab6825af24e28f86f4a8" => :sierra
-    sha256 "5db5643738fbe35f6bb88ff4df8ba76d18d39d72eeb9f37e835203d3244a8613" => :el_capitan
-  end
-
-  head do
-    url "http://repo.or.cz/r/cloog.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "32b9d6ae3b69a1ac153d83997999add0a5836214c21d41fe18a0ef2dd44b3123" => :high_sierra
+    sha256 "f517f774f48f11a1fdcf7d0023bdeacbd919cb22085a539fba539fac80025826" => :sierra
+    sha256 "2e4ac62185b9291272f07381c19bba476eac505a40ff974aa8017b9ec4359b13" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "isl"
+
+  resource "isl" do
+    url "http://isl.gforge.inria.fr/isl-0.18.tar.xz"
+    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/isl/isl_0.18.orig.tar.xz"
+    sha256 "0f35051cc030b87c673ac1f187de40e386a1482a0cfdf2c552dd6031b307ddc4"
+  end
 
   def install
-    system "./autogen.sh" if build.head?
+    resource("isl").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{libexec}",
+                            "--with-gmp=system",
+                            "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}"
+      system "make", "install"
+    end
 
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--with-gmp=system",
-      "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
-      "--with-isl=system",
-      "--with-isl-prefix=#{Formula["isl"].opt_prefix}",
-    ]
-
-    args << "--with-osl=bundled" if build.head?
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-gmp=system",
+                          "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          "--with-isl=system",
+                          "--with-isl-prefix=#{libexec}"
     system "make", "install"
   end
 

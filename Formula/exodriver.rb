@@ -3,24 +3,29 @@ class Exodriver < Formula
   homepage "https://labjack.com/support/linux-and-mac-os-x-drivers"
   url "https://github.com/labjack/exodriver/archive/v2.5.3.tar.gz"
   sha256 "24cae64bbbb29dc0ef13f482f065a14d075d2e975b7765abed91f1f8504ac2a5"
-
   head "https://github.com/labjack/exodriver.git"
 
   bottle do
     cellar :any
-    sha256 "911a3d571d0ccc6f2ae8df67caec275470d179a2b435fec1cd521fe86f271bc6" => :sierra
-    sha256 "5897f540e38aded535f6f3aa11d1df93c90305fe5196c106057ebbdda8620806" => :el_capitan
-    sha256 "dc685c1d58f01fbe304d36fc33f1c2f2993599c83636054755c0f0b7cc887969" => :yosemite
-    sha256 "bcc5eea01c69b14b1a2f3256105523016294ae54f9e026f03fbd4f65f7ce5c66" => :mavericks
+    rebuild 2
+    sha256 "2be616189c54c4d1046b8d8fbddfb6366a64149f37927ed692413c154cbdae96" => :high_sierra
+    sha256 "7d02fce0526573c60aebe7a30e0b3b60d114cc95f4e59f0575b508b65409f187" => :sierra
+    sha256 "15753f1e5a45758a67429900cafdc4954fe9bc00c2ed0b2cf45b7a2a4544c24f" => :el_capitan
   end
 
   depends_on "libusb"
 
   def install
-    cd "liblabjackusb"
-    system "make", "-f", "Makefile",
-                   "DESTINATION=#{lib}",
-                   "HEADER_DESTINATION=#{include}",
-                   "install"
+    system "make", "-C", "liblabjackusb", "install",
+           "HEADER_DESTINATION=#{include}", "DESTINATION=#{lib}"
+    ENV.prepend "CPPFLAGS", "-I#{include}"
+    ENV.prepend "LDFLAGS", "-L#{lib}"
+    system "make", "-C", "examples/Modbus"
+    pkgshare.install "examples/Modbus/testModbusFunctions"
+  end
+
+  test do
+    output = shell_output("#{pkgshare}/testModbusFunctions")
+    assert_match /Result:\s+writeBuffer:/, output
   end
 end

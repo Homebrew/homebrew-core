@@ -13,7 +13,9 @@ class Blast < Formula
   end
 
   depends_on "lmdb"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
+
+  conflicts_with "proj", :because => "both install a `libproj.a` library"
 
   def install
     cd "c++" do

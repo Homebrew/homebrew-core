@@ -3,12 +3,12 @@ class Msitools < Formula
   homepage "https://wiki.gnome.org/msitools"
   url "https://download.gnome.org/sources/msitools/0.97/msitools-0.97.tar.xz"
   sha256 "3a5b286c9ae3a7b7126a4a95506d12f34ac91e1a564c99e67d9644fee88fc65e"
+  revision 1
 
   bottle do
-    sha256 "5e8b16daa36ebf7a12b1e3c740c2cdac418b55fd143e8c9db13e21e6cdefeade" => :high_sierra
-    sha256 "9998081784b1b9db641d50425306010fc8614b1f3da28014148d409f636e4779" => :sierra
-    sha256 "0afe60bc5926135b385307720c771e687dd0d246ba9d7dc4e8acf5eec51a13a5" => :el_capitan
-    sha256 "87c8aebb5180826e9a45e2fd8c03f2b33a2df7f250761ef52a82d0b1a0055d3c" => :yosemite
+    sha256 "23ad30b2f5ba7ceac3273dc0148c1855ab3806aae3fb241965eb820d9f8c1bc2" => :high_sierra
+    sha256 "a7f930473258e61dfe22e29511bee9a0cc02fdf06bc5bca5bab11779f45d471c" => :sierra
+    sha256 "ce056dd47194966eeddda0bbdc02ca3c8c12feab23b97a46a1044fa323fdbaa6" => :el_capitan
   end
 
   depends_on "intltool" => :build

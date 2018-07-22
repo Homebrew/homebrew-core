@@ -13,9 +13,6 @@ class Md < Formula
     sha256 "5faf5907b69c2a53c9bbbcfcb908d24c222181490b69116e09102212382be5ea" => :mavericks
   end
 
-  # OS X up to and including Lion 10.7 includes 'md'
-  keg_only :provided_pre_mountain_lion
-
   def install
     cd "md" do
       system ENV.cc, ENV.cflags, "-o", "md", "md.c"

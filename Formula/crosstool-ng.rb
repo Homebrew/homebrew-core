@@ -13,9 +13,9 @@ class CrosstoolNg < Formula
   end
 
   depends_on "help2man" => :build
-  depends_on "autoconf" => :run
-  depends_on "automake" => :run
-  depends_on "libtool" => :run
+  depends_on "autoconf"
+  depends_on "automake"
+  depends_on "libtool"
   depends_on "binutils"
   depends_on "coreutils"
   depends_on "flex"

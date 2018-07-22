@@ -1,20 +1,20 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/release_003_010_003_000.tar.gz"
-  sha256 "3b621f96c4a2257df4444aff597ce16657b65ba4b8f1201e65623ce10bfdace0"
+  url "https://github.com/EttusResearch/uhd/archive/v3.12.0.0.tar.gz"
+  sha256 "a4ae40c2e3e6c51941fc59eab2c8131fd03fa837459e287b340c88cf2c9848ed"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
-    sha256 "245550d923c9058796f17296515762b7ad34ded179745d5c66dd9c150c13b846" => :high_sierra
-    sha256 "58dabe92dc5729d76b1d0ba4ca4d4c73bd53e871a244e7bfd942c6f1f06d82d3" => :sierra
-    sha256 "f18253d20888935ce17dadd58b1c310d7a6cd7aadae1e94b40e2968fc89a24b8" => :el_capitan
+    sha256 "aebb2cb75a6b9de9d080276184bd1235423b9f7e7d0462cbc5d5baf8173e094c" => :high_sierra
+    sha256 "70b3f5d16a9402b58228ee7e63eba9e376ccc8add1ae96cad1525c3072eb6478" => :sierra
+    sha256 "f16d9a945cdd6b5797861ae7bc3cae4b819b457b9c32abcf21450b061a1fca04" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "doxygen" => [:build, :optional]
   depends_on "gpsd" => :optional
 
@@ -39,6 +39,6 @@ class Uhd < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/uhd_find_devices --help", 1).chomp
+    assert_match version.to_s, shell_output("#{bin}/uhd_config_info --version")
   end
 end

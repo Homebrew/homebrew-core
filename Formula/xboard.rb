@@ -4,13 +4,12 @@ class Xboard < Formula
   url "https://ftp.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/xboard/xboard-4.9.1.tar.gz"
   sha256 "2b2e53e8428ad9b6e8dc8a55b3a5183381911a4dae2c0072fa96296bbb1970d6"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "013abf56c1bbe0fbdb05d721ea52b69e4785d25829e1cab9627c857c07f7ebaf" => :high_sierra
-    sha256 "ce934b1de969ab76b7d1489e4add089a1a66bf26185327fadcf4473f3299b9c4" => :sierra
-    sha256 "54ff402cf8bac6abb94fb273f4a34a1bb09e86b0dd667980caf54b65bb8871b8" => :el_capitan
-    sha256 "544d69938d2910da76cdc16b76bb5f02b3e4c47b128242cdeda86d4cb7f52db4" => :yosemite
+    sha256 "00118aebe71d62daeb3b57f2112dc8f86dcc94cb885e7087b10f609a0307b73b" => :high_sierra
+    sha256 "4a50ceee531601a9a920ca1a2d099113993b0369e5b76fe4125ba43563c2b04a" => :sierra
+    sha256 "47d20242d82c9223754908ec0a7443ea5f7774a82eaf43bfbeaacbda5c750ce8" => :el_capitan
   end
 
   head do

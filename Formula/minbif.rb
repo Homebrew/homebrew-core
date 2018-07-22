@@ -5,15 +5,13 @@ class Minbif < Formula
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
   version "1.0.5-20150505"
   sha256 "4e264fce518a0281de9fc3d44450677c5fa91097a0597ef7a0d2a688ee66d40b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "645208299622c8d182d71635448c3c7370c232cd9c3ecaf77a633d6eb8b7a42f" => :high_sierra
-    sha256 "a7e4aa9c3213c3740bbc7c9f6e9d02f6a7905e038bb147127f1c99c87830ed36" => :sierra
-    sha256 "a2975f09ebf6254df989164f832f80e7bf9e7d65a6c160375ffff6512c2b10bd" => :el_capitan
-    sha256 "78a992db3b47f3ecaf331d3f81d5920f99b611f2dec1f8cafa5b1d318bb87abc" => :yosemite
-    sha256 "a2affd1a3d8691f4f794a7d20b4d45b03c0ef79f9253d4d4bb0fdda79e5fe30d" => :mavericks
+    sha256 "350bac71d2c91bb9026924d8e2ce09a34e364961045560ede2c59c059b999d9b" => :high_sierra
+    sha256 "110ae4736afaadcacb084d5aaad29f340297758c58958b57cc54fca700cf9c9b" => :sierra
+    sha256 "b88890787abd2c0f692a7c371e363ac2c0bed49f361b597ce1557f102ec94b67" => :el_capitan
   end
 
   option "with-pam", "Build with PAM support, patching for OSX PAM headers"
@@ -61,7 +59,7 @@ class Minbif < Formula
         minbif #{etc}/minbif/minbif.conf
 
     Learn more about minbif: https://symlink.me/projects/minbif/wiki/Quick_start
-    EOS
+  EOS
   end
 
   test do

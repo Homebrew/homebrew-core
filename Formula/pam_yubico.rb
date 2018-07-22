@@ -1,14 +1,14 @@
 class PamYubico < Formula
   desc "Yubico pluggable authentication module"
   homepage "https://developers.yubico.com/yubico-pam/"
-  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.24.tar.gz"
-  sha256 "0326ff676e2b32ed1dda7fb5f1358a22d629d71caad8f8db52138bbf3e95e82d"
+  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.26.tar.gz"
+  sha256 "2de96495963fefd72b98243952ca5d5ec513e702c596e54bc667ef6b5e252966"
 
   bottle do
     cellar :any
-    sha256 "960ffd825e0d8ecf9c75ef3c958a88903e6aeb713b7d11e9093fc1a821eefb01" => :high_sierra
-    sha256 "68098087eb87639f10607c030e58b7cf7ae86a8a95ff863a17ca1e7cfa2ca5b0" => :sierra
-    sha256 "ce01a964d539a569478c9dd882a9652354d9d7ab35d935df9aa543eb31716b58" => :el_capitan
+    sha256 "a9a21d8b84d95c76d13118d1c525b93f9bbdf5c49b8aae5304df966d1a1ea669" => :high_sierra
+    sha256 "7b0027b330f0f2bb6da798a7b405d80e09db71892c403206ba6c31bed5a3c804" => :sierra
+    sha256 "102680d53f9ef736089e1e4a4eeaab60962fbbf4156c1fb3e77d82f425b0eed7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

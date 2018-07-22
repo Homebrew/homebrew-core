@@ -11,8 +11,6 @@ class Telnetd < Formula
     sha256 "73e799af3062f0b86f86f34840bc2b6b82b0ac5d17d0b451ad52155182a69983" => :el_capitan
   end
 
-  keg_only :provided_pre_high_sierra
-
   depends_on :xcode => :build
 
   resource "libtelnet" do

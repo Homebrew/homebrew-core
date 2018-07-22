@@ -1,24 +1,25 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.3.tar.gz"
-  sha256 "df2d5c05c569ca93eacf88b68e0feb3ff52ffbfc8ccd8736ff20d86850db207c"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.0.tar.gz"
+  sha256 "34a15085ed65413add38f68028bccebb3e9462777c15e42c1fb291a5c9440798"
 
   bottle do
-    sha256 "d243b8524d03bf5002439c0be367c02012ad078d8b37ce37c54c1ecada2a515d" => :high_sierra
-    sha256 "4d471fb6d3cb3f5f1caa5b2a52594298327519bc67099cd8ea94998e14398483" => :sierra
+    sha256 "3a024cfb577d8e4d8edd36565228a461ae5f83b8a3157e8890d60489e09cfee2" => :high_sierra
+    sha256 "bb3afc5ecf2ab6ff5246184645461779ea68c523849f6467b35799aea4c923fc" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
   option "with-sasl", "Compile with SASL support"
 
   depends_on :xcode => ["8.3.2", :build]
-  depends_on "boost" => :optional
   depends_on "go" => :build
-  depends_on :macos => :mountain_lion
+  depends_on "pkg-config" => :build
   depends_on "scons" => :build
+  depends_on :macos => :mountain_lion
+  depends_on "python@2"
   depends_on "openssl" => :recommended
+  depends_on "boost" => :optional
 
   resource "Cheetah" do
     url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
@@ -119,7 +120,7 @@ class Mongodb < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -159,7 +160,7 @@ class Mongodb < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,39 +1,38 @@
 class Bettercap < Formula
-  desc "Complete, modular, portable and easily extensible MITM framework"
+  desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/evilsocket/bettercap/archive/v1.6.2.tar.gz"
-  sha256 "1b364d7e31be5fa7b5f93eefe76763ad7bd4ac0b7b6bb4af05483157580a9cb9"
-  revision 3
+  url "https://github.com/bettercap/bettercap/archive/v2.6.tar.gz"
+  sha256 "f91761fbaf16b3fdde3c89fec05f4a72684f8e444af66f712146beac8e88e8f6"
 
   bottle do
-    cellar :any
-    sha256 "f37cb67f4deaf5433c117339ea68350c01f88516001484443872cb4d4be830b5" => :high_sierra
-    sha256 "5f6ed37beb8ad8525eb5fc226d17a8fe5893ecb29a0733347cfb5a7f8a2ade7f" => :sierra
-    sha256 "c15257bc4fcc3d23bdb6e1204757230f6ca843b97507ef4ceefa824e8ec4838a" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "8e5c656df33fa77a5acfe0ca6e8551c64bf6eb5ea6e2ce297f322743e3be6a97" => :high_sierra
+    sha256 "01e414ba76787aa4f70e69473a55eb714c66f7ad18c872e7bb621a40b5ef5e32" => :sierra
+    sha256 "1c88b6fee5975cbc5588d64d6685476e32e48f829fd54bb33d9975e035263b9b" => :el_capitan
   end
 
-  depends_on "openssl"
-  depends_on "ruby" if MacOS.version <= :sierra
+  depends_on "dep" => :build
+  depends_on "go" => :build
 
   def install
-    ENV["GEM_HOME"] = libexec
-    ENV["BUNDLE_PATH"] = libexec
-    ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include}"
-    system "gem", "install", "bundler"
-    system libexec/"bin/bundle", "install"
-    system "gem", "build", "bettercap.gemspec"
-    system "gem", "install", "bettercap-#{version}.gem"
-    bin.install libexec/"bin/bettercap"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
+
+    cd "src/github.com/bettercap/bettercap" do
+      system "dep", "ensure", "-vendor-only"
+      system "make", "build"
+      bin.install "bettercap"
+      prefix.install_metafiles
+    end
   end
 
   def caveats; <<~EOS
     bettercap requires root privileges so you will need to run `sudo bettercap`.
     You should be certain that you trust any software you grant root privileges.
-    EOS
+  EOS
   end
 
   test do
-    assert_match "This software must run as root.", pipe_output("#{bin}/bettercap --version 2>&1")
+    assert_match "bettercap", shell_output("#{bin}/bettercap -help 2>&1", 2)
   end
 end

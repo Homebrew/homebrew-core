@@ -25,7 +25,7 @@ class Automysqlbackup < Formula
     to set AutoMySQLBackup up to find your database and backup directory.
 
     The included plist file will run AutoMySQLBackup every day at 04:00.
-    EOS
+  EOS
   end
 
   plist_options :manual => "automysqlbackup"
@@ -56,7 +56,7 @@ class Automysqlbackup < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

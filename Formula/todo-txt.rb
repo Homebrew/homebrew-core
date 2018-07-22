@@ -1,8 +1,8 @@
 class TodoTxt < Formula
   desc "Minimal, todo.txt-focused editor"
   homepage "http://todotxt.com/"
-  url "https://github.com/todotxt/todo.txt-cli/releases/download/v2.10.0/todo.txt_cli-2.10.tar.gz"
-  sha256 "b59417a26feeafd811e0f1ff17e85e69ac5bcb1a0544b736f539ffb8fe27f6a9"
+  url "https://github.com/todotxt/todo.txt-cli/releases/download/v2.11.0/todo.txt_cli-2.11.0.tar.gz"
+  sha256 "5fe723bea3e3a1e697484cba92b46e90f13150ee1a444c4a9408c2cd28ea5255"
   head "https://github.com/todotxt/todo.txt-cli.git"
 
   bottle :unneeded
@@ -16,7 +16,7 @@ class TodoTxt < Formula
   def caveats; <<~EOS
     To configure, copy the default config to your HOME and edit it:
       cp #{prefix}/todo.cfg ~/.todo.cfg
-    EOS
+  EOS
   end
 
   test do

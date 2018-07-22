@@ -37,6 +37,8 @@ class Spdylay < Formula
   end
 
   test do
-    system "#{bin}/spdycat", "-ns", "https://cloudflare.com/"
+    # Check here for popular websites using SPDY:
+    # https://w3techs.com/technologies/details/ce-spdy/all/all
+    system "#{bin}/spdycat", "-ns", "https://www.twitter.com/"
   end
 end

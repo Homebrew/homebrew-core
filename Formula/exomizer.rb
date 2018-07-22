@@ -1,14 +1,14 @@
 class Exomizer < Formula
   desc "6502 compressor with CBM PET 4032 support"
   homepage "https://bitbucket.org/magli143/exomizer/wiki/Home"
-  url "https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer-2.0.10.zip"
-  sha256 "74afb08a51466e24e5e95b8672c9a152a1ab4eb31464f29cd630c1feb585b027"
+  url "https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer-3.0.0.zip"
+  sha256 "89b7c4167de44d6e76954979c0d86a565a26d84da37c4769d083d3c3b44c1a62"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0cbcc0d2b3c2f10d98b8fe778723a1e2cfc68324b672df819f968080f71dce63" => :high_sierra
-    sha256 "a5ab7a5a4c509713c1c2648bae73aa2ee9eced90197d0ab615247c10acfd0895" => :sierra
-    sha256 "62e6ad8ec5fb1e980950be6d40e61640319a94d750a104e0d91f6e913b25ce5e" => :el_capitan
+    sha256 "348d752fc662836e05ebf9aa25897af8fdca8e30a81681cd2cd93cfc4f8f4247" => :high_sierra
+    sha256 "a060de86ab94057a86a4dbd95424b83399ea0c853341e18f80e3eef4ba3f70b8" => :sierra
+    sha256 "e98170ffbf253e6509d42dc1a6c2ceeabbda462e306f69d8ff845e148c50905f" => :el_capitan
   end
 
   def install

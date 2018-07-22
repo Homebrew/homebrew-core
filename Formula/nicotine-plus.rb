@@ -5,17 +5,17 @@ class NicotinePlus < Formula
   homepage "https://www.nicotine-plus.org/"
   url "https://github.com/Nicotine-Plus/nicotine-plus/archive/1.4.1.tar.gz"
   sha256 "1b38ef196d981e4eb96fa990cc463143289784f988f559c4400b1d461497b7d6"
+  revision 2
   head "https://github.com/Nicotine-Plus/nicotine-plus.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "73e16deee0243324179c00aeca11081de205f546423d4b6ed9fea63fef714faa" => :high_sierra
-    sha256 "ec2e9aafc0d57642a4ab6555be5793aa47b87587cb44ee9e6999db17efb00606" => :sierra
-    sha256 "52a83f042b67882b63eab539f98180b6b9e95e5c7bc29ed76648195d95f89304" => :el_capitan
-    sha256 "0e73dda61bb19d51bafec22e6e269f0df5e9aa85722dc4af194850099a63f8b5" => :yosemite
+    sha256 "35e7bf104f3d38a0d04611bf55190e47cc0b37628c820b6a94a4793c1a3bf451" => :high_sierra
+    sha256 "7fc8c5bfd9f131df9cc30887240a064129d65794a1a2cde8205f4eda88548cce" => :sierra
+    sha256 "c8243dedb84548dee2f8c663bd3cd4211885b2a1a928bc733a2ee663a9f63fe0" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "gtk+"
   depends_on "pygtk"
   depends_on "geoip" => :recommended

@@ -1,17 +1,15 @@
 class Libidn < Formula
   desc "International domain name library"
   homepage "https://www.gnu.org/software/libidn/"
-  url "https://ftp.gnu.org/gnu/libidn/libidn-1.33.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libidn/libidn-1.33.tar.gz"
-  sha256 "44a7aab635bb721ceef6beecc4d49dfd19478325e1b47f3196f7d2acc4930e19"
+  url "https://ftp.gnu.org/gnu/libidn/libidn-1.35.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libidn/libidn-1.35.tar.gz"
+  sha256 "f11af1005b46b7b15d057d7f107315a1ad46935c7fcdf243c16e46ec14f0fe1e"
 
   bottle do
     cellar :any
-    sha256 "0af53718a30d295afa6c6cc1336c5208aa89f119e03115feb46818842ce65176" => :high_sierra
-    sha256 "02995ada0a4e1c66d073dd66252e7fd58d8fe3f2a9be13ca29b081b611bc43ef" => :sierra
-    sha256 "b46b71b9adb991af6a444400a1c3f53d20b8001792855bcf96044ce33eb81d26" => :el_capitan
-    sha256 "f675600e756059cdcd02d92963ff76f43c3b572f4ea9f99657a40e9e80c316b1" => :yosemite
-    sha256 "07e19d25263d77030cccc3899967c4505dcf0c771da90a658b4f27de136a326b" => :mavericks
+    sha256 "94e508f0b66a0c37c7a05dad6fff49542439a05cf913980caff4142e58ae998f" => :high_sierra
+    sha256 "ddbdf99759b5bf8840afdf4b50de61b3770fab70d26e08c0cd54c8df54c7da7d" => :sierra
+    sha256 "11f95f7689146cda4ee3960295cd39f9ec5c613871e35c27d0260c7bd8eeb199" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

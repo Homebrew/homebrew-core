@@ -22,4 +22,8 @@ class Mpgtx < Formula
     # Overide BSD incompatible cp flags set in makefile
     system "make", "install", "cpflags=RP"
   end
+
+  test do
+    system "#{bin}/mpgtx", "--version"
+  end
 end

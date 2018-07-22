@@ -1,31 +1,16 @@
 class Rubberband < Formula
   desc "Audio time stretcher tool and library"
-  homepage "http://breakfastquay.com/rubberband/"
+  homepage "https://breakfastquay.com/rubberband/"
+  url "https://breakfastquay.com/files/releases/rubberband-1.8.2.tar.bz2"
+  sha256 "86bed06b7115b64441d32ae53634fcc0539a50b9b648ef87443f936782f6c3ca"
+  revision 1
   head "https://bitbucket.org/breakfastquay/rubberband/", :using => :hg
-
-  stable do
-    url "http://code.breakfastquay.com/attachments/download/34/rubberband-1.8.1.tar.bz2"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/r/rubberband/rubberband_1.8.1.orig.tar.bz2"
-    sha256 "ff0c63b0b5ce41f937a8a3bc560f27918c5fe0b90c6bc1cb70829b86ada82b75"
-
-    # replace vecLib.h by Accelerate.h
-    # already fixed in upstream:
-    # https://bitbucket.org/breakfastquay/rubberband/commits/cb02b7ed1500f0c06c0ffd196921c812dbcf6888
-    # https://bitbucket.org/breakfastquay/rubberband/commits/9e32f693c6122b656a0df63bc77e6a96d6ba213d
-    patch :p1 do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fd51a983/rubberband/rubberband-1.8.1-yosemite.diff"
-      sha256 "7686dd9d05fddbcbdf4015071676ac37ecad5c7594cc06470440a18da17c71cd"
-    end
-  end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b05e8e38194a9b067ccfa2df621d4f36b7d4bb24b0fb61bd2dc430b5bf5b7ddc" => :high_sierra
-    sha256 "fd0d92643b23e338992204be763362480ffd8ee54c407908bf0dcd589d066b68" => :sierra
-    sha256 "ec6ec212a0173ba661601b2fb5ae1dace5dab1100688d3b5c9a460796eae705b" => :el_capitan
-    sha256 "6a62c8da1d779672bf0ef276656b2dfa5edf885e704a875c606a27b9aea863fe" => :yosemite
-    sha256 "5ca9579f1b84a3a843e5b52654f41b25e4c02fdc5df05a0966c6d8627843dac4" => :mavericks
+    sha256 "7dd91b6d0baee3f08704fb8dae4ced59725ef23a921dbf00c4db3a39f2119c63" => :high_sierra
+    sha256 "3fead448ab4b7e72a624cf85e82b0d1965ea8be224b95f43a24f56c248b9ec1e" => :sierra
+    sha256 "965110230f35d93876ec006522145b35a2e8168bb0202e7666d786f1e8262ce1" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -34,8 +19,12 @@ class Rubberband < Formula
 
   def install
     system "make", "-f", "Makefile.osx"
+    # HACK: Manual install because "make install" is broken
+    # https://github.com/Homebrew/homebrew-core/issues/28660
     bin.install "bin/rubberband"
-    lib.install "lib/librubberband.dylib"
+    lib.install "lib/librubberband.dylib" => "librubberband.2.1.1.dylib"
+    lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.2.dylib"
+    lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.dylib"
     include.install "rubberband"
 
     cp "rubberband.pc.in", "rubberband.pc"

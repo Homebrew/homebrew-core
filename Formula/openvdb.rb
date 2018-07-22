@@ -1,14 +1,15 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "http://www.openvdb.org/"
-  url "https://github.com/dreamworksanimation/openvdb/archive/v5.0.0.tar.gz"
-  sha256 "1d39b711949360e0dba0895af9599d0606ca590f6de2d7c3a6251211fcc00348"
+  url "https://github.com/dreamworksanimation/openvdb/archive/v5.1.0.tar.gz"
+  sha256 "eb5a8011732bcdeb115de9a38f640ee376bcb85b54e060d3b1ab08f9dc92f40b"
+  revision 1
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
-    sha256 "5c9adc74ee6dbbde072733457805650f2aa5cd50c15662e631854a3ffab015ba" => :high_sierra
-    sha256 "e50d1dfbe7266f134ebc4a4b17c84a34c92d586c2a1887bd262eabde24c2d101" => :sierra
-    sha256 "6af2812f0331f7db33dcc847272fdcd5edb530624426402c620678e6f7b15ae6" => :el_capitan
+    sha256 "43580bd6634304a2e88d98c26c027de4692fd780e81e0e162398011db19b74a0" => :high_sierra
+    sha256 "f3db82e403b65d5b1aaba6294882d763542f2cf5b0732b8572e477d088112811" => :sierra
+    sha256 "dda43c9bd28c392b6375547ba303c0a4946aad2543f5cb3e90a7d020978a8d5e" => :el_capitan
   end
 
   option "with-glfw", "Installs the command-line tool to view OpenVDB files"

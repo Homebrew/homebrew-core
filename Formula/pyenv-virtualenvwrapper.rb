@@ -3,7 +3,6 @@ class PyenvVirtualenvwrapper < Formula
   homepage "https://github.com/yyuu/pyenv-virtualenvwrapper"
   url "https://github.com/yyuu/pyenv-virtualenvwrapper/archive/v20140609.tar.gz"
   sha256 "c1c812c4954394c58628952654ba745c4fb814d045adc076f7fb9e310bed03bf"
-
   head "https://github.com/yyuu/pyenv-virtualenvwrapper.git"
 
   bottle :unneeded

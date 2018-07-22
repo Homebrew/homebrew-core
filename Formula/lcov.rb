@@ -18,4 +18,8 @@ class Lcov < Formula
       "/etc/lcovrc", "#{prefix}/etc/lcovrc"
     system "make", "PREFIX=#{prefix}", "BIN_DIR=#{bin}", "MAN_DIR=#{man}", "install"
   end
+
+  test do
+    system "#{bin}/lcov", "--version"
+  end
 end

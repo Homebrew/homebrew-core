@@ -1,18 +1,19 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/3.0/tepl-3.0.0.tar.xz"
-  sha256 "9eb6fceb0b521de7bf684508138a5b8428d9f575c395ba54f9e31597980fd0ef"
+  url "https://download.gnome.org/sources/tepl/4.2/tepl-4.2.0.tar.xz"
+  sha256 "8839d4428ecdd87fd5abc657ebbe5a9601a57262e9946845e47dec264e669ccd"
 
   bottle do
-    sha256 "bb36835284be2fc7e44840e193f6b17bd71afd09c61781c00e5648d6db16bbb4" => :high_sierra
-    sha256 "35590abff6dc1a110a170382e584ab706f1cc552210aaa5cb2d5d546fb925a16" => :sierra
-    sha256 "d9043558401a3a9cf2188ffa7396b05c7c38cfa00ad1be4400cdb0de69dc633a" => :el_capitan
+    sha256 "30acd42fc1301c7fa1799240b2526406028b9f8208a9020b51ce2a88e0712e39" => :high_sierra
+    sha256 "c1bbb1bacd6541f60210a4ba994db42fb8d829944ffe1d1586bd9b2da273e0d3" => :sierra
+    sha256 "ad0b8dfe43a8d18454e92f978636b91d2c0d08164e6e407f29be9ea5320c00d6" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gobject-introspection"
-  depends_on "gtksourceview3"
+  depends_on "amtk"
+  depends_on "gtksourceview@4"
   depends_on "uchardet"
 
   def install
@@ -33,6 +34,7 @@ class Tepl < Formula
     EOS
     ENV.libxml2
     atk = Formula["atk"]
+    amtk = Formula["amtk"]
     cairo = Formula["cairo"]
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
@@ -40,7 +42,7 @@ class Tepl < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
-    gtksourceview3 = Formula["gtksourceview3"]
+    gtksourceview4 = Formula["gtksourceview@4"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
@@ -51,6 +53,7 @@ class Tepl < Formula
     flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
     flags += %W[
       -I#{atk.opt_include}/atk-1.0
+      -I#{amtk.opt_include}/amtk-5
       -I#{cairo.opt_include}/cairo
       -I#{fontconfig.opt_include}
       -I#{freetype.opt_include}/freetype2
@@ -59,11 +62,10 @@ class Tepl < Formula
       -I#{glib.opt_include}/gio-unix-2.0/
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtksourceview3.opt_include}/gtksourceview-3.0
+      -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/tepl-3
-      -I#{include}/amtk-3
+      -I#{include}/tepl-4
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
@@ -72,15 +74,17 @@ class Tepl < Formula
       -I#{uchardet.opt_include}/uchardet
       -D_REENTRANT
       -L#{atk.opt_lib}
+      -L#{amtk.opt_lib}
       -L#{cairo.opt_lib}
       -L#{gdk_pixbuf.opt_lib}
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
-      -L#{gtksourceview3.opt_lib}
+      -L#{gtksourceview4.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
+      -lamtk-5.0
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -88,10 +92,9 @@ class Tepl < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -ltepl-3
-      -lamtk-3
+      -ltepl-4
       -lgtk-3
-      -lgtksourceview-3.0
+      -lgtksourceview-4.0
       -lintl
       -lpango-1.0
       -lpangocairo-1.0

@@ -3,12 +3,12 @@ class Gtkspell3 < Formula
   homepage "https://gtkspell.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/gtkspell/3.0.9/gtkspell3-3.0.9.tar.xz"
   sha256 "a4f4a4a2789f7499563e26d96b22d8085222ebe278da47d026b2de782b8b4d26"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "99ab6b48f8bb322a1e51b21fc6a7eccfb3f6156b9dae4e9afdf3e17b6528bba0" => :high_sierra
-    sha256 "1c12cb8f34a5756bba53ce51a3fed9e599f3cfdb57fbe0a6e4426730dc0335a5" => :sierra
-    sha256 "54127ae6c02def6d85ee4ecc142c9dd10ef0d94f2774d8fdae6fa9a0736835b5" => :el_capitan
+    sha256 "ab277eb4f040f5032fdcf73dc1c7ba270398753c2e0c1cd994df348226bc0740" => :high_sierra
+    sha256 "faf983f8d91c4419199e27a3ccb49c8427b4d51d488cf1734c7db6b3f39f72b3" => :sierra
+    sha256 "63b6f8d3dc5fc4b01348f91b79013ff3db1b834163c93476609dfd13e6e0930f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -1,13 +1,13 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.11/postgresql-9.5.11.tar.bz2"
-  sha256 "8182cd74e27a75ae39166b2603b5014f4272855b4101b40819761b853a77c8dd"
+  url "https://ftp.postgresql.org/pub/source/v9.5.13/postgresql-9.5.13.tar.bz2"
+  sha256 "5408b86a0b56fd0140c6a0016bf9179bc7817fa03d5571cca346c9ab122ea5ee"
 
   bottle do
-    sha256 "56aecc8c7c03ca91538ae998f20798e0eb88cfa51574a60c654dba30790b72fa" => :high_sierra
-    sha256 "c67f2234591bc983804ed8e53a4809788027a9df8a0fda4d5310430f89789908" => :sierra
-    sha256 "809fe993972c7ad7a0feb360265bd4bb6acb082e7719f3598a62553b7ddec106" => :el_capitan
+    sha256 "9d0f806e9c2d788f78ea1fee7f613f93b3e96318422b7c99112132a76d29c80a" => :high_sierra
+    sha256 "0a93ceceabf470e6ec1c0c5ff7e905e041c14c38b0bcc2799288e3aef81c1a5e" => :sierra
+    sha256 "851f897c89a6e9dabe205295017fd6cd87f863811b3dc7da93f6339931dca9ea" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -15,13 +15,15 @@ class PostgresqlAT95 < Formula
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Build with Python2 (incompatible with --with-python3)"
-  option "with-python3", "Build with Python3 (incompatible with --with-python)"
+  option "with-python", "Build with Python3 (incompatible with --with-python@2)"
+  option "with-python@2", "Build with Python2 (incompatible with --with-python)"
+
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "openssl"
   depends_on "readline"
   depends_on "python" => :optional
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
 
   fails_with :clang do
     build 211
@@ -55,11 +57,11 @@ class PostgresqlAT95 < Formula
     args << "--with-perl" if build.with? "perl"
 
     which_python = nil
-    if build.with?("python") && build.with?("python3")
-      odie "Cannot provide both --with-python and --with-python3"
-    elsif build.with?("python") || build.with?("python3")
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    elsif build.with?("python") || build.with?("python@2")
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python" : "python3")
+      which_python = which(build.with?("python") ? "python3" : "python2.7")
     end
     ENV["PYTHON"] = which_python
 
@@ -104,7 +106,7 @@ class PostgresqlAT95 < Formula
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
       Do not run `brew cleanup postgresql@9.5` until you have performed the migration.
-    EOS
+  EOS
   end
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.5 start"
@@ -132,7 +134,7 @@ class PostgresqlAT95 < Formula
       <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

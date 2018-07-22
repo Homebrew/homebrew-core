@@ -1,15 +1,28 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
-  sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
+  revision 1
   head "https://github.com/boostorg/boost.git"
+
+  stable do
+    url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
+    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+
+    # Remove for > 1.67.0
+    # Fix "error: no member named 'next' in namespace 'boost'"
+    # Upstream commit from 1 Dec 2017 "Add #include <boost/next_prior.hpp>; no
+    # longer in utility.hpp"
+    patch :p2 do
+      url "https://github.com/boostorg/lockfree/commit/12726cd.patch?full_index=1"
+      sha256 "f165823d961a588b622b20520668b08819eb5fdc08be7894c06edce78026ce0a"
+    end
+  end
 
   bottle do
     cellar :any
-    sha256 "78cb090c515e20aa7307c6619a055ffd8858cc6a3bd756958edbf34f463e4bc1" => :high_sierra
-    sha256 "51e3b67625b8def53f5e5183a5ef98071e17b0b760dfc6baa65877d4528141ca" => :sierra
-    sha256 "6352d4f65d7595c1eff62c6ce07588944122fa3305a77813fdbc16747b7dddce" => :el_capitan
+    sha256 "265ab8beaa6fa26a7c305ef2e6aec8bd26ca1db105aca0aaca028f32c5245a90" => :high_sierra
+    sha256 "567f3e9a294413c1701b698d666a521cfdeec846e256c6e66576d5b70eb26f08" => :sierra
+    sha256 "3f3f687a620f656fe2ac54f01306e00e6bbc0e9797db284a8d272648d427e640" => :el_capitan
   end
 
   option "with-icu4c", "Build regexp engine with icu support"

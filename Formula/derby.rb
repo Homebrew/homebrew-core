@@ -1,9 +1,8 @@
 class Derby < Formula
   desc "Apache Derby is an embedded relational database running on JVM"
   homepage "https://db.apache.org/derby/"
-  url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.14.1.0/db-derby-10.14.1.0-bin.tar.gz"
-  mirror "https://www-us.apache.org/dist/db/derby/db-derby-10.14.1.0/db-derby-10.14.1.0-bin.tar.gz"
-  sha256 "3eee3d029fa97873119af019eac7253f4b95c86f5c5a1d5c09efcb798216e1c1"
+  url "https://www.apache.org/dyn/closer.cgi?path=db/derby/db-derby-10.14.2.0/db-derby-10.14.2.0-bin.tar.gz"
+  sha256 "980fb0534c38edf4a529a13fb4a12b53d32054827b57b6c5f0307d10f17d25a8"
 
   bottle :unneeded
 
@@ -47,7 +46,7 @@ class Derby < Formula
       <string>#{var}/derby</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

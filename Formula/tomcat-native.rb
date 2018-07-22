@@ -42,6 +42,6 @@ class TomcatNative < Formula
       CATALINA_OPTS=\"$CATALINA_OPTS -Djava.library.path=#{opt_lib}\"
 
     If $CATALINA_HOME/bin/setenv.sh doesn't exist, create it and make it executable.
-    EOS
+  EOS
   end
 end

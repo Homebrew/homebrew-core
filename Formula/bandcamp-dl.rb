@@ -3,19 +3,20 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-10.tar.gz"
-  version "0.0.8-10"
-  sha256 "f02b5067faba3d8e133f9121194cb59d33dc3cbff79eeef5349003e812293c7e"
+  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
+  version "0.0.8-12"
+  sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
+  revision 1
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "743fbb2b0f09259dfa29a329a7b334624ad431e25219417ee5b25d2c562f100f" => :high_sierra
-    sha256 "1614c268f44ad703e126af3d9b6ad08ba9a073e572428e769f5ea1eaba2b8a8d" => :sierra
-    sha256 "3648e9009177fd1b0f5ff034b3ea029f6d0865c36517b3881203f00cdc87258c" => :el_capitan
+    sha256 "b56b8c31c2a86b66f5944bf7a85213ce00fd6d7e87e7ce02212be3ad532e2d94" => :high_sierra
+    sha256 "57ba4b30e2ee269ba946bf9a784212f669d8f829ec8e586436c895d6dc0f0b10" => :sierra
+    sha256 "d0ec20e1cdd9b41230d038ba8b93c4d09c185768bfc60c77a98c13a7f2465935" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   resource "Unidecode" do
     url "https://files.pythonhosted.org/packages/9d/36/49d0ee152b6a1631f03a541532c6201942430060aa97fe011cf01a2cce64/Unidecode-1.0.22.tar.gz"

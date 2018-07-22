@@ -16,8 +16,7 @@ class GitSeries < Formula
   depends_on "libssh2"
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/git-series"
+    system "cargo", "install", "--root", prefix
     man1.install "git-series.1"
   end
 

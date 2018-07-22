@@ -1,23 +1,23 @@
 class Openrct2 < Formula
   desc "Open source re-implementation of RollerCoaster Tycoon 2"
-  homepage "https://openrct2.website"
-  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.1.1.tar.gz"
-  sha256 "5d7a6c7f3c770e7de506958f86789c438c543c27d312fd096322cde4e89f50ad"
+  homepage "https://openrct2.io/"
+  url "https://github.com/OpenRCT2/OpenRCT2/archive/v0.2.0.tar.gz"
+  sha256 "bff3fcc728765b51d2498e685e2a7f28e2c1a830691fd2c3ea5dd82354962bfb"
   revision 1
   head "https://github.com/OpenRCT2/OpenRCT2.git", :branch => "develop"
 
   bottle do
     cellar :any
-    sha256 "b334e1d1e0b847c7739538f6f24431cd3cd9bdecaabff753a233c3c5453b4bb0" => :high_sierra
-    sha256 "1d43828de7df01c6ae811fd9934ad64e924c864c7603d289dc3beeb4ba87cd91" => :sierra
-    sha256 "723d04c2e90c75ecd49b53e90e7eb28fec4ba3d0a6d0cba8988f7b08f9e8d0b7" => :el_capitan
+    sha256 "f5b6701b30559683fa7681ad6675bd594007995a0f7aa708d6aac919df07f25b" => :high_sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "jansson"
   depends_on "libpng"
   depends_on "libzip"
+  depends_on :macos => :high_sierra # "missing: Threads_FOUND" on Sierra
   depends_on "openssl"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
@@ -35,7 +35,7 @@ class Openrct2 < Formula
     (bin/"openrct2").write <<~EOS
       #!/bin/bash
       exec "#{libexec}/openrct2" "$@" "--openrct-data-path=#{pkgshare}"
-      EOS
+    EOS
   end
 
   test do

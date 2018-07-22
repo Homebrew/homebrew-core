@@ -1,14 +1,14 @@
 class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://www.linphone.org/technical-corner/ortp/overview"
-  url "http://nongnu.askapache.com/linphone/ortp/sources/ortp-0.27.0.tar.gz"
+  url "https://nongnu.askapache.com/linphone/ortp/sources/ortp-0.27.0.tar.gz"
   sha256 "eb61a833ab3ad80978d7007411240f46e9b2d1034373b9d9dfaac88c1b6ec0af"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "a3be36c8b27f56b3b24dd2e43eb34d565e413e07b07179979a292d4545e96433" => :high_sierra
-    sha256 "0dbb93b456f16ffc640e2a580265df524be19af853b0bf3d0d96bd84272bef90" => :sierra
-    sha256 "5ba0706319c6478a658b331368eec8e36a3fd711927fa986219014380509a5af" => :el_capitan
+    sha256 "29ed10dcce917af7edef44a75ff57ddc13d8b7d1c6e1495b4316dd3ff9a19da4" => :high_sierra
+    sha256 "25d22aed8eb680d38e3b1ad9665a16923a8e602bf1425a7f52138e2f5a534a95" => :sierra
+    sha256 "fee93f3d2e3a72616d1718b1211c0828442635d0433ae89bde6567adeea98038" => :el_capitan
   end
 
   depends_on "cmake" => :build

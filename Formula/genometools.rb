@@ -3,19 +3,20 @@ class Genometools < Formula
   homepage "http://genometools.org/"
   url "http://genometools.org/pub/genometools-1.5.10.tar.gz"
   sha256 "0208591333b74594bc219fb67f5a29b81bb2ab872f540c408ac1743716274e6a"
+  revision 1
   head "https://github.com/genometools/genometools.git"
 
   bottle do
     cellar :any
-    sha256 "41b8f4a189050f98d0f78c3972d8efb095a2eea8400c486eb6d785a3f89cadae" => :high_sierra
-    sha256 "b081ac73906f972a1858d86070d6d79ad3985e703f347c1fe49b0511e15e0232" => :sierra
-    sha256 "06a7a3d2450c7c6538f2005d12135e8a26e2d086fc6f1d5867e9fe03fcce9833" => :el_capitan
+    sha256 "c53fb9498795701716d4d6bd57a88078d6a4167d0259dafc0cadb8a8d9507f00" => :high_sierra
+    sha256 "82782fc695836444fb1077ca85705729b0f060eef912f227e958be601fe097f9" => :sierra
+    sha256 "624c97f08bfad198e37fc34c02d8c3b62117023694c3a1bc8d429572e426216a" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "pango"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     system "make", "prefix=#{prefix}"
@@ -34,6 +35,6 @@ class Genometools < Formula
 
   test do
     system "#{bin}/gt", "-test"
-    system "python", "-c", "import gt"
+    system "python2.7", "-c", "import gt"
   end
 end

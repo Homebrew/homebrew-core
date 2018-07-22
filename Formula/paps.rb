@@ -1,18 +1,18 @@
 class Paps < Formula
   desc "Pango to PostScript converter"
-  homepage "https://paps.sourceforge.io/"
-  url "https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz"
-  sha256 "db214c4ea7ecde2f7986b869f6249864d3ff364e6f210c15aa2824bcbd850a20"
+  homepage "https://github.com/dov/paps"
+  url "https://github.com/dov/paps/archive/0.7.0.tar.gz"
+  sha256 "7a18e8096944a21e0d9fcfb389770d1e7672ba90569180cb5d45984914cedb13"
 
   bottle do
     cellar :any
-    sha256 "a96ea40f71d88a120c46f1f08b3d42dca390d55a189b51fd4efd870752f54f17" => :high_sierra
-    sha256 "9b8374465264e2d04873a198109bb802c76e2d5ddc9a21ae54c87c326977c9aa" => :sierra
-    sha256 "eed9fb9ffec9f551d0d7fcb7692c2de9192d9eb0a34908559cae41d73fa30c25" => :el_capitan
-    sha256 "c173071e5f66f0d911b8e8900ce9d6941cb0cbfed7fe5e1ffe623ec7c8c64e0c" => :yosemite
-    sha256 "3e0b3b9b5591c1ee670dde1560d7339fbd1c05a47d51362aa78be0de1d671f08" => :mavericks
+    sha256 "b5599742d6b369366a9bc00f42d6f3513cfb9c670bf6199222b7580c19c1706b" => :high_sierra
+    sha256 "985afbb83ca67f6190f299ac8d22d929cc4b2bd12173954dab8d0ab4e7e485ef" => :sierra
+    sha256 "4164c3d56b5b572d38f8f30d852e56a541b587f67c063213133842421302390b" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "pango"
   depends_on "freetype"
@@ -20,49 +20,17 @@ class Paps < Formula
   depends_on "glib"
   depends_on "gettext"
 
-  # Find freetype headers
-  patch :DATA
-
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./autogen.sh"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "examples"
   end
 
   test do
-    # https://paps.sourceforge.io/small-hello.utf8
-    utf8 = <<~EOS
-      paps by Dov Grobgeld (דב גרובגלד)
-      Printing through Παν語 (Pango)
-
-      Arabic السلام عليكم
-      Bengali (বাঙ্লা)  ষাগতোম
-      Greek (Ελληνικά)  Γειά σας
-      Hebrew שָׁלוֹם
-      Japanese  (日本語) こんにちは, ｺﾝﾆﾁﾊ
-      Chinese  (中文,普通话,汉语) 你好
-      Vietnamese  (Tiếng Việt)  Xin Chào
-    EOS
-    safe_system "echo '#{utf8}' |  #{bin}/paps > paps.ps"
+    system bin/"paps", pkgshare/"examples/small-hello.utf8", "-o", "paps.ps"
+    assert_predicate testpath/"paps.ps", :exist?
+    assert_match "Ch\\340o", (testpath/"paps.ps").read
   end
 end
-
-__END__
-diff --git a/src/libpaps.c b/src/libpaps.c
-index 6081d0d..d502b68 100644
---- a/src/libpaps.c
-+++ b/src/libpaps.c
-@@ -25,8 +25,10 @@
- 
- #include <pango/pango.h>
- #include <pango/pangoft2.h>
--#include <freetype/ftglyph.h>
--#include <freetype/ftoutln.h>
-+#include <ft2build.h>
-+#include FT_FREETYPE_H
-+#include FT_GLYPH_H
-+#include FT_OUTLINE_H
- #include <errno.h>
- #include <stdlib.h>
- #include <stdio.h>

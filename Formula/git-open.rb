@@ -9,4 +9,8 @@ class GitOpen < Formula
   def install
     bin.install "git-open.sh" => "git-open"
   end
+
+  test do
+    system "#{bin}/git-open", "-v"
+  end
 end

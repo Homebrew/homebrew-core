@@ -1,24 +1,25 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
-  sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
+  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
+  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "aa9f9e1f35621472b72b7a2eb57f319d51b2d4f7529c6385dde8b4079df57ddf" => :high_sierra
-    sha256 "6a33445becf2bfa215376060660707b81f23af873c262901d362d1d081176e8a" => :sierra
-    sha256 "397000ff88e4919ff4e23a0573efc5c9c41c56e6e4a239e878809fba600193b8" => :el_capitan
+    sha256 "bae03c8db2771e0c2e6ede980f63709933b9aeff3a6c2caa455eddbf0720d7a4" => :high_sierra
+    sha256 "f40cf6faac668e9bb6fe21997b71b3ad323e7c6a63320450f2fbaee4cf254e0a" => :sierra
+    sha256 "4a021ea3b65eadb5fd799d5a45a837e18981ef12d622f1eaf841d51b95230a7f" => :el_capitan
   end
 
   depends_on "boost"
-  depends_on "python3"
+  depends_on "python"
 
   needs :cxx11
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/ee/66/7c2690141c520db08b6a6f852fa768f421b0b50683b7bbcd88ef51f33170/numpy-1.14.0.zip"
-    sha256 "3de643935b212307b420248018323a44ec51987a336d1d747c1322afc3c099fb"
+    url "https://files.pythonhosted.org/packages/d5/6e/f00492653d0fdf6497a181a1c1d46bbea5a2383e7faf4c8ca6d6f3d2581d/numpy-1.14.5.zip"
+    sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
   end
 
   def install
@@ -88,8 +89,9 @@ class BoostPython3 < Formula
 
     pyincludes = Utils.popen_read("python3-config --includes").chomp.split(" ")
     pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
+    pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python3", "-o",
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
 
     output = <<~EOS

@@ -1,15 +1,15 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
-  url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.0.tar.gz"
-  sha256 "18d52f8f329626f77b99b8bf91e05b7d16b49fde2483d3a0ea55496ce4cdd43a"
-  revision 3
+  url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.1.tar.gz"
+  sha256 "a24d643d31ed1f31a25b102a1e1759508ce84b1e4739425ad0e18106ab471a24"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "60a049ed8478e7aabdd777bd3a10a35ee4576b2274af71e35ebb90561ea1fcd1" => :high_sierra
-    sha256 "5ad8d501c86179ec95e2bcef6a040c1692989b69be9cd2d865cb0830fa094865" => :sierra
-    sha256 "b23c4f2baafe75e67b647ed57c77098e883f23eef63796c37507b4276b28cf82" => :el_capitan
+    sha256 "16492e9597bfa9b919c347cdf5fe6c0bd4450f5475e9c09633d253e2967766d4" => :high_sierra
+    sha256 "faef4e5b5a05d1490d51474145fa2b3e8e88e661492370f84b517a91df3b40ed" => :sierra
+    sha256 "d442663cbfbeb4b555f92c6effe611e0e2574ff2f6275ba000f3b574d0548284" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"

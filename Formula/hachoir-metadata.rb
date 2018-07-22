@@ -1,6 +1,6 @@
 class HachoirMetadata < Formula
   desc "Extract metadata from video, music and other files"
-  homepage "https://bitbucket.org/haypo/hachoir/wiki/Home"
+  homepage "https://pypi.org/project/hachoir-metadata/"
   url "https://cheeseshop.python.org/packages/source/h/hachoir-metadata/hachoir-metadata-1.3.3.tar.gz"
   sha256 "ec403f13a44e2cf3d26001f8f440cdc4329a316a4c971035944bfadacc90eb3c"
 
@@ -14,7 +14,7 @@ class HachoirMetadata < Formula
     sha256 "73c9aaf96521afa7bac1942ea16a5af6c0baaba1537c399c22e493ea24ae7186" => :mavericks
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "hachoir-core" do
     url "https://cheeseshop.python.org/packages/source/h/hachoir-core/hachoir-core-1.3.3.tar.gz"

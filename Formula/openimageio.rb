@@ -1,14 +1,15 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "http://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.8.tar.gz"
-  sha256 "d7d529f1318b2ac8325f18b94f017d4d0bf878731178afb72eb5e75642873dc5"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-1.8.12.tar.gz"
+  sha256 "93e807d7c77a5c4c12598cc7932aa08239bc4198e3e31dca0998a3e0ab163386"
+  revision 2
   head "https://github.com/OpenImageIO/oiio.git"
 
   bottle do
-    sha256 "863d3b40eeb3b65f6df486abd0b9cce6fd66dbdb114ff2fd44948b010b1720f4" => :high_sierra
-    sha256 "9f76e9b1d4f896e89bfe01accf010c277a487f6db2396c785eff7c4be02b70c2" => :sierra
-    sha256 "0abf5c6d67e3a6c61763c51e6bfe29369552fe86aa904d125e148ac2821097ca" => :el_capitan
+    sha256 "ade3b501594e1d737bf4373e3b2504a2679ee8d86ee52ec4e04588421902659d" => :high_sierra
+    sha256 "ff42464ed22cfe57f6726944196debd54f7f9293e285b4c38093788651ecfa5f" => :sierra
+    sha256 "8c4d1b24b1b92fff3c56f1fd6ab7db49f20d8278357eae6aa19d0542cde498ca" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,7 @@ class Openimageio < Formula
   depends_on "libtiff"
   depends_on "opencolorio"
   depends_on "openexr"
-  depends_on "python3"
+  depends_on "python"
   depends_on "webp"
 
   def install
@@ -46,7 +47,8 @@ class Openimageio < Formula
     ]
 
     mkdir "build-with-python2" do
-      system "cmake", "..", *args
+      system "cmake", "..", "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python"].opt_lib}/libboost_python27-mt.dylib",
+                            *args
       system "make", "install"
     end
 
@@ -62,7 +64,7 @@ class Openimageio < Formula
 
     # CMake picks up boost-python instead of boost-python3
     args << "-DBOOST_ROOT=#{Formula["boost"].opt_prefix}"
-    args << "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python3"].opt_lib}/libboost_python3-mt.dylib"
+    args << "-DBoost_PYTHON_LIBRARIES=#{Formula["boost-python3"].opt_lib}/libboost_python#{py3ver.to_s.delete(".")}-mt.dylib"
 
     # This is strange, but must be set to make the hack above work
     args << "-DBoost_PYTHON_LIBRARY_DEBUG=''"

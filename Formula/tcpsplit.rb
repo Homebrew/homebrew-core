@@ -17,4 +17,8 @@ class Tcpsplit < Formula
     system "make"
     bin.install "tcpsplit"
   end
+
+  test do
+    system "#{bin}/tcpsplit", "--version"
+  end
 end

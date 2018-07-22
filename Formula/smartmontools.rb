@@ -23,4 +23,9 @@ class Smartmontools < Formula
                           "--with-attributelog"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/smartctl", "--version"
+    system "#{bin}/smartd", "--version"
+  end
 end

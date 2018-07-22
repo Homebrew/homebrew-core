@@ -1,16 +1,15 @@
 class Modules < Formula
   desc "Dynamic modification of a user's environment via modulefiles"
   homepage "https://modules.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.1.1/modules-4.1.1.tar.bz2"
-  sha256 "63ba8dacafa42ccebebe5d518e2be3b6b3683b9e384ab756133cc6d1d4d8f214"
+  url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.1.3/modules-4.1.3.tar.bz2"
+  sha256 "f3188dd5f642244e139c3fc6a47d59f6f6231e8c242c74ef4b1922cad2f53889"
 
   bottle do
-    sha256 "d3fe866d8837a344b2b716ee60c3b58eab43d33f1231be08f0148636fe5da299" => :high_sierra
-    sha256 "1956c56f45992bdb7ef63ead14b780da874d9f474cccbb136cec662432b72470" => :sierra
-    sha256 "f5a161686c6217bedea75dc0d21a277414232d569feaf48cb6fbf1dd430ffbd4" => :el_capitan
+    sha256 "114cc45a31e4def1cd2f2696fd3b1c2186ee40c213cf75bea851f2c8c83f03ad" => :high_sierra
+    sha256 "d3905f277d578cf15ff6ce9067109a7aee8d78eab80029da676f7252d07a6bab" => :sierra
+    sha256 "d3b77d5de4c9f08221797e7771061e18f76012f2cd0328b2fc2acccbbea5ca99" => :el_capitan
   end
 
-  depends_on "coreutils" => :build # assumes GNU cp options are available
   depends_on "grep" => :build # configure checks for ggrep
   depends_on :x11 => :optional
 
@@ -37,7 +36,7 @@ class Modules < Formula
       source #{opt_prefix}/init/zsh
     You will also need to reload your .zshrc:
       source ~/.zshrc
-    EOS
+  EOS
   end
 
   test do

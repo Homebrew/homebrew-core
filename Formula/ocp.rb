@@ -35,4 +35,8 @@ class Ocp < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/ocp", "--help"
+  end
 end

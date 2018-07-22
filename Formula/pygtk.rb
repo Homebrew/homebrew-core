@@ -3,16 +3,13 @@ class Pygtk < Formula
   homepage "http://www.pygtk.org/"
   url "https://download.gnome.org/sources/pygtk/2.24/pygtk-2.24.0.tar.bz2"
   sha256 "cd1c1ea265bd63ff669e92a2d3c2a88eb26bcd9e5363e0f82c896e649f206912"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "8bf007893dfa572d620ce9cb8a2717896e756027793d59f29c9714b515f6517d" => :high_sierra
-    sha256 "89f5d6762155b369dae255ba2b3952cc09f43f899585ff8694370b6b151ca97e" => :sierra
-    sha256 "bfea679c1a46b35c7788a692869ddb576c2869900d25b72f6cf91e25edc409a9" => :el_capitan
-    sha256 "7b008b213a675e96a83edb7b1be8401bbc9bbeb5db9a926104897f99a8d7d61e" => :yosemite
-    sha256 "603694d87d2c6193caa164029bc441d93d45cdcd75419c8f8ed11b0902577457" => :mavericks
+    sha256 "228a919cbba58afc99747e9b5dc6d01013ef8463de2ede5d81c20103afccbb9f" => :high_sierra
+    sha256 "fce76d2bf1e1748ac110aede98a622e5f8b737390a3a5e22f56872834b73c033" => :sierra
+    sha256 "fd1cef5484267e02971c4daa1eda42e3a66c77786923b0f76b496007282b10a1" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

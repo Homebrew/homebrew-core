@@ -3,21 +3,20 @@ class Libgdata < Formula
   homepage "https://wiki.gnome.org/Projects/libgdata"
   url "https://download.gnome.org/sources/libgdata/0.16/libgdata-0.16.1.tar.xz"
   sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "58c86c6a2a745ef88e8c00026bbd0c715aa5f54006db8e5f4d23bd722b82b848" => :high_sierra
-    sha256 "8f708e61856122562afc224ec5c23f3bb204acc4002f5108f98ea7e76b5f55cb" => :sierra
-    sha256 "2f13d11ca0a27ef52ebcf12c2aff52c921d1105b7b53fd0277a351479c9a7c43" => :el_capitan
-    sha256 "d436dd7128819045779bbbf6f957922ec011940b60982fee9dc394700bffe21d" => :yosemite
+    sha256 "99f1efb99549e0736e1ab6108ccb6e9702f99ce145dc4e7c20a193b556320dcd" => :high_sierra
+    sha256 "67210e17e165c71cbdb4cb163397b430aa68a408dd1b8968019cc768401936bf" => :sierra
+    sha256 "aca8b4bf410899111f080723a70c8d7ce67f180255cae83ae93bcdba5c7da117" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "libsoup"
   depends_on "json-glib"
   depends_on "liboauth"
-  depends_on "gobject-introspection"
   depends_on "vala" => :optional
 
   # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=754821

@@ -1,48 +1,59 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
-  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
-
+  # Pinned at 6.2.x because of a licencing issue
+  # See: https://github.com/Homebrew/homebrew-core/pull/28995
+  url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
+  sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
   head "https://github.com/elastic/beats.git"
-
-  # Can be removed when support for compilation under go 1.9.4 is supported,
-  # potentially planned for the 6.2.3 release.
-  # Related upstream PRs:
-  # - https://github.com/elastic/beats/pull/6388
-  # - https://github.com/elastic/beats/pull/6326
-  patch :DATA
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c04e96878a0a0170f5e3d95a67cca6d5c298fdda435483edcb7b756782989406" => :high_sierra
-    sha256 "9d1236c5afefd8d12d698cca1b0dcd9850c057377bbc3f27ce82b8b6437f79ab" => :sierra
-    sha256 "0b038131e12c6ad912b3ea4e808fa573830e570b4967c6dfaf591fb889ca4be4" => :el_capitan
+    sha256 "5b8962f3d4f0a6844d029063b8df98e61a29b7ae5b0e41692222c3bdaa2b8aa9" => :high_sierra
+    sha256 "8d569b6b800ea8681496651812b2431dd478a28028e2059a5ed8b3a1833ac8aa" => :sierra
+    sha256 "f8c5c12f3fdf6dff8abaf1cb7077f8c71a26e8bafc9561f5a08f3d2e6fbbbe2d" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "python@2" => :build
+
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
+    sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install buildpath.children
 
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+
+    resource("virtualenv").stage do
+      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
+    end
+
+    ENV.prepend_path "PATH", buildpath/"vendor/bin"
+
     cd "src/github.com/elastic/beats/metricbeat" do
       system "make"
-      system "make", "kibana"
-      (libexec/"bin").install "metricbeat"
-      libexec.install "_meta/kibana"
+      # prevent downloading binary wheels during python setup
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
+      system "make", "DEV_OS=darwin", "update"
 
-      (etc/"metricbeat").install Dir["metricbeat*.yml"]
-      prefix.install_metafiles
+      (etc/"metricbeat").install Dir["metricbeat.*", "fields.yml", "modules.d"]
+      (libexec/"bin").install "metricbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"metricbeat").write <<~EOS
       #!/bin/sh
-      exec "#{libexec}/bin/metricbeat" \
-        --path.config "#{etc}/metricbeat" \
-        --path.home="#{prefix}" \
-        --path.logs="#{var}/log/metricbeat" \
-        --path.data="#{var}/lib/metricbeat" \
+      exec #{libexec}/bin/metricbeat \
+        --path.config #{etc}/metricbeat \
+        --path.data #{var}/lib/metricbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/metricbeat \
         "$@"
     EOS
   end
@@ -95,18 +106,3 @@ class Metricbeat < Formula
     end
   end
 end
-
-__END__
-diff --git a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
-index 2f5e22b64e..210779786b 100644
---- a/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
-+++ b/vendor/github.com/shirou/gopsutil/disk/disk_darwin_cgo.go
-@@ -5,7 +5,7 @@ package disk
-
- /*
- #cgo CFLAGS: -mmacosx-version-min=10.10 -DMACOSX_DEPLOYMENT_TARGET=10.10
--#cgo LDFLAGS: -mmacosx-version-min=10.10 -lobjc -framework Foundation -framework IOKit
-+#cgo LDFLAGS: -lobjc -framework Foundation -framework IOKit
- #include <stdint.h>
-
- // ### enough?

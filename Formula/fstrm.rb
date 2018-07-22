@@ -1,15 +1,14 @@
 class Fstrm < Formula
   desc "Frame Streams implementation in C"
   homepage "https://github.com/farsightsec/fstrm"
-  url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.3.2.tar.gz"
-  sha256 "2d509999ac904e48c038f88820f47859da85ceb86c06552e4052897082423ec5"
+  url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.4.0.tar.gz"
+  sha256 "b20564cb2ebc7783a8383fbef5bcef5726f94baf48b83843553c9e1030b738ef"
 
   bottle do
     cellar :any
-    sha256 "dbf4398c411303cfe76ca223b38df090eeabf33e5d613c83e232f96cc9acad0f" => :high_sierra
-    sha256 "fb7031a0e06d718a7d345ab21796b0f9b6da6ebf411d24b1f019ba3e526dbfdc" => :sierra
-    sha256 "45d2c965a757c50c5b65d929082baeedd045a7794eb933618e10a4371cfc0d90" => :el_capitan
-    sha256 "36ec0bf5368fd0bbcfe7b14302b003f543ef4365fe458d2975998993b2b1f0d8" => :yosemite
+    sha256 "b6c9ae4e8e88d65b3e7f2caac619b3aec15d6b50ed670a2a6cf61f2cab919ab7" => :high_sierra
+    sha256 "c8b5b02ccac2d87c90cb33a686e428e1263c0ae19a2e6cf4847f0b7780110ee2" => :sierra
+    sha256 "c18f60d06f6965bd0dbb7d063d61145461be190bad3503b693381d78a432c156" => :el_capitan
   end
 
   head do

@@ -1,17 +1,19 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
-  sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
+  sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "bd0c1cacabb157928251455e38dff513fb9ea68865ddef7c623e91cb20722713" => :high_sierra
-    sha256 "a4eb2f81607d7c9ab1643cbf8b07607cb2b3ac62033c875f3488c642103cdc06" => :sierra
-    sha256 "9e8ab70c3e26b72de63bda9bead81582876c2b2830ff1bf9f2808dc9c2960b7c" => :el_capitan
+    sha256 "19f31b478aab3de2b5773a5f1c1566732fa42d24d2f44f371065124799e260f0" => :high_sierra
+    sha256 "d0916f50a97650cea2d9ee6bb3a9521b505a8bc1068a1474af6f78b19954f0dc" => :sierra
+    sha256 "5627a620cc4da5e11adca3a25227dcc58e8744e6da6ec572736042c50fd31932" => :el_capitan
   end
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
+
+  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "boost"
@@ -21,8 +23,8 @@ class Vtk < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "netcdf"
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python3" => :optional
+  depends_on "python@2" => :recommended
+  depends_on "python" => :optional
   depends_on "qt" => :optional
   depends_on "pyqt" if build.with? "qt"
 
@@ -58,12 +60,12 @@ class Vtk < Formula
     end
 
     mkdir "build" do
-      if build.with?("python3") && build.with?("python")
+      if build.with?("python") && build.with?("python@2")
         # VTK Does not support building both python 2 and 3 versions
         odie "VTK: Does not support building both python 2 and 3 wrappers"
-      elsif build.with?("python") || build.with?("python3")
-        python_executable = `which python`.strip if build.with? "python"
-        python_executable = `which python3`.strip if build.with? "python3"
+      elsif build.with?("python") || build.with?("python@2")
+        python_executable = `which python3`.strip if build.with? "python"
+        python_executable = `which python2.7`.strip if build.with? "python@2"
 
         python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
         python_include = `#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.chomp
@@ -97,6 +99,20 @@ class Vtk < Formula
       system "make"
       system "make", "install"
     end
+
+    # Avoid hard-coding Python 2 or 3's Cellar paths
+    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first do |s|
+      if build.with? "python"
+        s.gsub! Formula["python"].prefix.realpath, Formula["python"].opt_prefix
+      end
+      if build.with? "python@2"
+        s.gsub! Formula["python@2"].prefix.realpath, Formula["python@2"].opt_prefix
+      end
+    end
+
+    # Avoid hard-coding HDF5's Cellar path
+    inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
+      Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix
   end
 
   def caveats; <<~EOS
@@ -104,7 +120,7 @@ class Vtk < Formula
     from python. Alternatively, you can integrate the RenderWindowInteractor
     in PyQt5, Tk or Wx at runtime. Read more:
       import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
-    EOS
+  EOS
   end
 
   test do

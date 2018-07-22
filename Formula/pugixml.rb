@@ -1,15 +1,14 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "https://pugixml.org/"
-  url "https://github.com/zeux/pugixml/releases/download/v1.8.1/pugixml-1.8.1.tar.gz"
-  sha256 "00d974a1308e85ca0677a981adc1b2855cb060923181053fb0abf4e2f37b8f39"
+  url "https://github.com/zeux/pugixml/releases/download/v1.9/pugixml-1.9.tar.gz"
+  sha256 "d156d35b83f680e40fd6412c4455fdd03544339779134617b9b28d19e11fdba6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "88279a4b4b301a1ded43cd30cb681d1b3f00b2be978449eec000f7828e5e6a6f" => :high_sierra
-    sha256 "4424c7e5154752886226e91bc8bd7a404079062d0705816533b1a86181fa95d6" => :sierra
-    sha256 "13495a332f3e2ba56148b936d42034d55373ade74af0c41f0c77feb52038ea43" => :el_capitan
-    sha256 "b2b7594b9fb20bda5ed45324ef815af60617673d6f86e066fbd988a8f82a0c16" => :yosemite
+    sha256 "53ad542db23961c7ed6e7e7e6974c54198823ddce6644ae172d1f798136a0218" => :high_sierra
+    sha256 "879ed1d86051a4230499b368e2a8d7b9ebcf5792ff0dd40aa711b311426bf6e1" => :sierra
+    sha256 "a8fe6aafdb9826497121f3b616f382a7447a04dc252770b0828de1e4b4c99b99" => :el_capitan
   end
 
   option "with-shared", "Build shared instead of static library"

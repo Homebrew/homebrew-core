@@ -1,42 +1,43 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.5.1.tar.gz"
-  sha256 "826425182ee43990731217b917c5c3ea7190cfda141af4869e6d4ad9085a740f"
+  url "https://github.com/google/protobuf.git",
+      :tag => "v3.6.0",
+      :revision => "ab8edf1dbe2237b4717869eaab11a2998541ad8d"
   head "https://github.com/google/protobuf.git"
 
   bottle do
-    sha256 "1220bdfc9fea448df265b0d6dc957301cfb6e7f750fbcf7cb285e959fe0bde74" => :high_sierra
-    sha256 "fdb2cce4d549df62f359c42cc070ed2dbd948ae2bde878ab39f0504796df215b" => :sierra
-    sha256 "0f4ba8bf3fe29b96637dc653cfa7e031aee79dd6f9b9b929307fd45f31a5afc5" => :el_capitan
+    sha256 "a0c09f5c20f415652959bf8ec943a37078ee66994372fa17bf5576b880b026e3" => :high_sierra
+    sha256 "0ac3d15ee2510736bb3b497bb21d6a4b769be8ae56e4a8f2d0106a4a5e73d189" => :sierra
+    sha256 "889ece6ab87970f1457159c972b4cf45be835c546e2007ea00df1e50c87651cf" => :el_capitan
   end
 
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python2 support"
 
   deprecated_option "with-check" => "with-test"
+  deprecated_option "without-python" => "with-python@2"
+  deprecated_option "with-python3" => "with-python"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
-  depends_on "python3" => :optional
+  depends_on "python@2" => :recommended
+  depends_on "python" => :optional
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
-  # Upstream's autogen script fetches this if not present
-  # but does no integrity verification & mandates being online to install.
-  resource "gmock" do
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googlemock/gmock-1.7.0.zip"
-    mirror "https://dl.bintray.com/homebrew/mirror/gmock-1.7.0.zip"
-    sha256 "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b"
-  end
-
   needs :cxx11
+
+  # Upstream PR from 3 Jul 2018 "Add Python 3.7 compatibility"
+  patch do
+    url "https://github.com/google/protobuf/pull/4862.patch?full_index=1"
+    sha256 "4b1fe1893c40cdcef531c31746ddd18759c9ce3564c89ddcc0ec934ea5dbf377"
+  end
 
   def install
     # Don't build in debug mode. See:
@@ -45,9 +46,7 @@ class Protobuf < Formula
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    (buildpath/"gmock").install resource("gmock")
     system "./autogen.sh"
-
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
@@ -77,7 +76,7 @@ class Protobuf < Formula
   def caveats; <<~EOS
     Editor support and examples have been installed to:
       #{doc}
-    EOS
+  EOS
   end
 
   test do
@@ -93,7 +92,7 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python", "-c", "import google.protobuf" if build.with? "python"
-    system "python3", "-c", "import google.protobuf" if build.with? "python3"
+    system "python2.7", "-c", "import google.protobuf" if build.with? "python@2"
+    system "python3", "-c", "import google.protobuf" if build.with? "python"
   end
 end

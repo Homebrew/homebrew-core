@@ -1,6 +1,6 @@
 class Voldemort < Formula
   desc "Distributed key-value storage system"
-  homepage "http://www.project-voldemort.com/"
+  homepage "https://www.project-voldemort.com/"
   url "https://github.com/voldemort/voldemort/archive/release-1.10.25-cutoff.tar.gz"
   sha256 "29f21adee7c8c67c57dacef5c204ceb3c92132dac32d0577418bcd2c5cfb81d2"
 
@@ -13,7 +13,7 @@ class Voldemort < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
     system "./gradlew", "build", "-x", "test"

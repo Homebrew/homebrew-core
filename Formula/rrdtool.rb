@@ -3,12 +3,12 @@ class Rrdtool < Formula
   homepage "https://oss.oetiker.ch/rrdtool/index.en.html"
   url "https://github.com/oetiker/rrdtool-1.x/releases/download/v1.7.0/rrdtool-1.7.0.tar.gz"
   sha256 "f97d348935b91780f2cd80399719e20c0b91f0a23537c0a85f9ff306d4c5526b"
+  revision 1
 
   bottle do
-    sha256 "13e306802f30a3339af907717d2c5ada6a431fc9ee9e9650c8e49deb1664520c" => :high_sierra
-    sha256 "9118f17c71711617a9a2ed33bdc5bd738f0dc99c83eb73d0818892b5e20ba044" => :sierra
-    sha256 "13db68e30a36777abacc58b37080f19d5e184bdc7a69e5470337273f9d567c1d" => :el_capitan
-    sha256 "6928ae9eea858d09e114fd82c128b0dacfa629067e8879c8429ce2eb51ba79dc" => :yosemite
+    sha256 "d847a62550c40b4b25a92fd1f6c4f4a18ac43390e12d27b136200a0609b83170" => :high_sierra
+    sha256 "c9baca61d56b91573699e3f69b49964286535bc2b7603f0b0eac1a4bb02aad57" => :sierra
+    sha256 "56c75e78c96c473f2872a414187cf4c5d88465854322a80bed8905952a5c7779" => :el_capitan
   end
 
   head do

@@ -3,14 +3,14 @@ class Awf < Formula
   homepage "https://github.com/valr/awf"
   url "https://github.com/valr/awf/archive/v1.4.0.tar.gz"
   sha256 "bb14517ea3eed050b3fec37783b79c515a0f03268a55dfd0b96a594b5b655c78"
+  revision 1
   head "https://github.com/valr/awf.git"
 
   bottle do
     cellar :any
-    sha256 "05447f2e8fd02a3c1bc9e2a7c96a0c5c9c294d2e67746f4102f0c781cf46e857" => :high_sierra
-    sha256 "bbe56879c4de58ef832bb6ba45d07555eaf481ccb2fdafdb627ed0598ef0c3dd" => :sierra
-    sha256 "191615297091a381c7d5ac0b3702d936ef41c50fbdfec153df00369acac53106" => :el_capitan
-    sha256 "6b9e3490b4f19691535979787ff5d586c6781061bfbb26dbcbc731d64eb5f13b" => :yosemite
+    sha256 "50dae601b8135cc9bb01e62c4268812f5c6cc935f0c326e0e66cdc66a3337186" => :high_sierra
+    sha256 "6685282a4c03f247e2e619bd4ba4b531c73e867f34708def93cdc13fc3e9ec7b" => :sierra
+    sha256 "18761ce847fb96be9dbf1339a683ce65695a76c1e3508d2f3f6d60cb80218481" => :el_capitan
   end
 
   depends_on "autoconf" => :build

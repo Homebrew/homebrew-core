@@ -11,4 +11,8 @@ class Doubledown < Formula
     bin.install Dir["bin/*"]
     man1.install Dir["man/man1/*.1"]
   end
+
+  test do
+    system "#{bin}/doubledown", "--help"
+  end
 end

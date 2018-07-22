@@ -29,4 +29,18 @@ class Freexl < Formula
       doc.install "html"
     end
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include "freexl.h"
+
+      int main()
+      {
+          printf(freexl_version());
+          return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lfreexl", "test.c", "-o", "test"
+    assert_equal version.to_s, shell_output("./test")
+  end
 end

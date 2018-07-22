@@ -1,15 +1,17 @@
 class ShibbolethSp < Formula
   desc "Shibboleth 2 Service Provider daemon"
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
-  url "https://shibboleth.net/downloads/service-provider/2.6.1/shibboleth-sp-2.6.1.tar.bz2"
-  sha256 "1121e3b726b844d829ad86f2047be62da4284ce965ac184de2f81903f16b98e4"
+  url "https://shibboleth.net/downloads/service-provider/3.0.1/shibboleth-sp-3.0.1.tar.bz2"
+  sha256 "9ea9fecccefb11af2cc81e532c55b8e4b138052f131bad8ff8468347d9511258"
+  revision 1
 
   bottle do
-    sha256 "1a91c531f1be5c05e66aa27f486034dc80f8a43b831ef7af67cbf4df5b8b3f67" => :high_sierra
-    sha256 "e2bd8a05bf07e9b746b240331b9b5a8588cedf2b21d6919fc8096c00721e9e16" => :sierra
-    sha256 "e6be9e88eaf93270e7cb2aad05fb3841d39560220ca2b4541c7bc24762d36b59" => :el_capitan
+    sha256 "db317a38fd0b2ce888b43138c215846b0803b67df0b2fc04b63c0ba76c634c59" => :high_sierra
+    sha256 "c706f0d17d94140e8063569d476bf4ffdc9d4784c334bc4e063243059d7307ee" => :sierra
+    sha256 "58638074f289c1a92eb5f254b5d3f0855d55454948caa3818f1ff9c9bd74f23c" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on :macos => :yosemite
   depends_on "curl" => "with-openssl"
   depends_on "httpd" if MacOS.version >= :high_sierra
@@ -50,6 +52,11 @@ class ShibbolethSp < Formula
     system "make", "install"
   end
 
+  def post_install
+    (var/"run/shibboleth/").mkpath
+    (var/"cache/shibboleth").mkpath
+  end
+
   def caveats
     mod = build.with?("apache-22") ? "mod_shib_22.so" : "mod_shib_24.so"
     <<~EOS
@@ -85,12 +92,7 @@ class ShibbolethSp < Formula
       <true/>
     </dict>
     </plist>
-    EOS
-  end
-
-  def post_install
-    (var/"run/shibboleth/").mkpath
-    (var/"cache/shibboleth").mkpath
+  EOS
   end
 
   test do

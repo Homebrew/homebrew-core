@@ -1,16 +1,16 @@
 class H2 < Formula
   desc "Java SQL database"
   homepage "https://www.h2database.com/"
-  url "https://www.h2database.com/h2-2017-06-10.zip"
-  version "1.4.196"
-  sha256 "1224638c19b975ba4d8f82435c3ff89526740b1123409e29ceb87c0b6f1734c2"
+  url "https://www.h2database.com/h2-2018-03-18.zip"
+  version "1.4.197"
+  sha256 "a45e7824b4f54f5d9d65fb89f22e1e75ecadb15ea4dcf8c5d432b80af59ea759"
 
   bottle :unneeded
 
   def script; <<~EOS
     #!/bin/sh
     cd #{libexec} && bin/h2.sh "$@"
-    EOS
+  EOS
   end
 
   def install
@@ -56,7 +56,7 @@ class H2 < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,7 +1,6 @@
 class Bash < Formula
   desc "Bourne-Again SHell, a UNIX command interpreter"
   homepage "https://www.gnu.org/software/bash/"
-
   head "https://git.savannah.gnu.org/git/bash.git"
 
   stable do
@@ -12,7 +11,7 @@ class Bash < Formula
     mirror "https://gnu.cu.be/bash/bash-4.4.tar.gz"
     mirror "https://mirror.unicorncloud.org/gnu/bash/bash-4.4.tar.gz"
     sha256 "d86b3392c1202e8ff5a423b302e6284db7f8f435ea9f39b5b1b20fd3ac36dfcb"
-    version "4.4.19"
+    version "4.4.23"
 
     %w[
       001 3e28d91531752df9a8cb167ad07cc542abaf944de9353fe8c6a535c9f1f17f0f
@@ -34,6 +33,10 @@ class Bash < Formula
       017 773f90b98768d4662a22470ea8eec5fdd8e3439f370f94638872aaf884bcd270
       018 5bc494b42f719a8b0d844b7bd9ad50ebaae560e97f67c833c9e7e9d53981a8cc
       019 27170d6edfe8819835407fdc08b401d2e161b1400fe9d0c5317a51104c89c11e
+      020 1840e2cbf26ba822913662f74037594ed562361485390c52813b38156c99522c
+      021 bd8f59054a763ec1c64179ad5cb607f558708a317c2bdb22b814e3da456374c1
+      022 45331f0936e36ab91bfe44b936e33ed8a1b1848fa896e8a1d0f2ef74f297cb79
+      023 4fec236f3fbd3d0c47b893fdfa9122142a474f6ef66c20ffb6c0f4864dd591b6
     ].each_slice(2) do |p, checksum|
       patch :p0 do
         url "https://ftp.gnu.org/gnu/bash/bash-4.4-patches/bash44-#{p}"
@@ -48,12 +51,10 @@ class Bash < Formula
   end
 
   bottle do
-    sha256 "c190ef318789e8628cb643536e047510d3ab20fdc6e7265d5fa908ebd6af824c" => :high_sierra
-    sha256 "63df41e44e43446adac9ddc16e3a2765731b2824c10d19a97ffd968a28a46b5e" => :sierra
-    sha256 "42acd30227424e96d6ab286b8d10065540bde8c97e23b26ef99cac6d6c0eb11c" => :el_capitan
+    sha256 "de0293a18d1208a80444f5d1b0a33c44b7f328ba8e07214646e3405b5c1bb95f" => :high_sierra
+    sha256 "d58a520a0ca3be4eb5c61d0bd9779c8ecf780d52b4b235043f048545717c9e33" => :sierra
+    sha256 "291b5db2cc18c491f4a9e210bb2e61afa76632aac65a8dc4eec935e6cb475bd9" => :el_capitan
   end
-
-  depends_on "readline"
 
   def install
     # When built with SSH_SOURCE_BASHRC, bash will source ~/.bashrc when
@@ -71,10 +72,10 @@ class Bash < Formula
   def caveats; <<~EOS
     In order to use this build of bash as your login shell,
     it must be added to /etc/shells.
-    EOS
+  EOS
   end
 
   test do
-    assert_equal "hello", shell_output("#{bin}/bash -c \"echo hello\"").strip
+    assert_equal "hello", shell_output("#{bin}/bash -c \"echo -n hello\"")
   end
 end

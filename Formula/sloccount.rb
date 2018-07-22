@@ -23,6 +23,10 @@ class Sloccount < Formula
     system "make", "install", "PREFIX=#{prefix}"
     (bin+"erlang_count").write "#!/bin/sh\ngeneric_count '%' $@"
   end
+
+  test do
+    system "#{bin}/sloccount", "--version"
+  end
 end
 
 __END__

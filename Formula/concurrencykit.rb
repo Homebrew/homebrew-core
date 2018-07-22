@@ -4,7 +4,6 @@ class Concurrencykit < Formula
   url "http://concurrencykit.org/releases/ck-0.6.0.tar.gz"
   mirror "https://github.com/concurrencykit/ck/archive/0.6.0.tar.gz"
   sha256 "d7e27dd0a679e45632951e672f8288228f32310dfed2d5855e9573a9cf0d62df"
-
   head "https://github.com/concurrencykit/ck.git"
 
   bottle do

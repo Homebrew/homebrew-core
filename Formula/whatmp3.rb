@@ -3,25 +3,21 @@ class Whatmp3 < Formula
   homepage "https://github.com/RecursiveForest/whatmp3"
   url "https://github.com/RecursiveForest/whatmp3/archive/v3.8.tar.gz"
   sha256 "0d8ba70a1c72835663a3fde9ba8df0ff7007268ec0a2efac76c896dea4fcf489"
-  revision 1
+  revision 2
   head "https://github.com/RecursiveForest/whatmp3.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "337384abbc3c046c08cd1a346db261674b6c290fb3b1deb00d26b90806c32349" => :high_sierra
-    sha256 "337384abbc3c046c08cd1a346db261674b6c290fb3b1deb00d26b90806c32349" => :sierra
-    sha256 "337384abbc3c046c08cd1a346db261674b6c290fb3b1deb00d26b90806c32349" => :el_capitan
+    rebuild 1
+    sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :high_sierra
+    sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :sierra
+    sha256 "976769c7868f672a9a5bd625b1c6d4e557dbbaf74f9d4274ebac0a1b0afe920a" => :el_capitan
   end
 
-  depends_on "python3"
   depends_on "flac"
-  depends_on "mktorrent" => :recommended
-  depends_on "lame" => :recommended
-  depends_on "vorbis-tools" => :optional
-  depends_on "mp3gain" => :optional
-  depends_on "aacgain" => :optional
-  depends_on "vorbisgain" => :optional
-  depends_on "sox" => :optional
+  depends_on "lame"
+  depends_on "mktorrent"
+  depends_on "python"
 
   def install
     system "make", "PREFIX=#{prefix}", "install"

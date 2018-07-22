@@ -1,14 +1,15 @@
 class Ykpers < Formula
   desc "YubiKey personalization library and tool"
   homepage "https://developers.yubico.com/yubikey-personalization/"
-  url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.18.1.tar.gz"
-  sha256 "9ffdb938121a867aa0b350b49daff5807884c2268dfe6d245d133474cd9c5256"
+  url "https://developers.yubico.com/yubikey-personalization/Releases/ykpers-1.19.0.tar.gz"
+  sha256 "2bc8afa16d495a486582bad916d16de1f67c0cce9bb0a35c3123376c2d609480"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "011f869e3fdb84bf0f5aecece6b78f6351d56b17b0cced168c00b2ea7d1178f0" => :high_sierra
-    sha256 "402163cec22f6456311c4c40141bb09ca6f5e6aa2a25b828ca6be7eaea78bf65" => :sierra
-    sha256 "f36ef2cf81878daa403b270eda166280e11af6c0f74c8999f63a0be890f6f086" => :el_capitan
+    sha256 "cafe1f694f16a7b8d6f4f9f264f57bfa98a6cd99b68bf1bd12f7be2468078b7e" => :high_sierra
+    sha256 "b2c86248fbf8dee9eb4ddf1fe5394606d821d8b8950b709a7a1499a22a3b2f4a" => :sierra
+    sha256 "4917acf9815efca0407441ac895478bfba0abc611bb143d65f8c5400b17787c0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

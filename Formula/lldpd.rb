@@ -1,13 +1,13 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.9.tar.gz"
-  sha256 "5e9e08f500d21376631cbc9f8e19a4b167cd38eb2d8fd9e660b8e80507f802db"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.1.tar.gz"
+  sha256 "450b622aac7ae1758f1ef82f3b7b94ec47f2ff33abfb0e6ac82555b9ee55f151"
 
   bottle do
-    sha256 "81025c4772690791e2dc89fb7504ee0291b87e70cf756db2b291f2d456e54321" => :high_sierra
-    sha256 "5b841afd2f111884900614bc6e933a197f3bd5b0822699b320482191debce43e" => :sierra
-    sha256 "cc07be2c740f9a9fa8ff493de2956b5443f095517c2eb962af72c6a89066a595" => :el_capitan
+    sha256 "d770ef1c3507d3d2373f8706acf4f8d3c41ae07f594192db02483184e497c510" => :high_sierra
+    sha256 "fd38d0022374f5960183ec7afde1a5c9ffc85047c017a667f09b92cda25b1c7a" => :sierra
+    sha256 "1158b121a76df10a688d9907ab0843886ce7798f6d54ad8eaf9d21b17cb7b01f" => :el_capitan
   end
 
   option "with-snmp", "Build SNMP subagent support"

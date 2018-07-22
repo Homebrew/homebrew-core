@@ -1,6 +1,7 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
+  revision 2
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
@@ -20,10 +21,9 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 "9770e76356c85d48442f1b705dcb92f30d713dc4553a3fe95a3e7fb3e069d47f" => :high_sierra
-    sha256 "2f0e97802256bc5949e6006475d63c41d480b3ae23df2eba221fa519da0eb096" => :sierra
-    sha256 "b4dde216d4f4bd626d80b0beacc78256d43b0592784e004533fc05d80e057018" => :el_capitan
-    sha256 "e99d56f74e804f29d710da15a928b6290a4ce50b305b48349aa5624faeaca94a" => :yosemite
+    sha256 "facd97bdfb3935149d7c51035b38e3a1f7f3c7b705074eb75a1a795844bf739a" => :high_sierra
+    sha256 "1acf6566b58d9ab31e088ed8e3f30aba30e171a32e0121f46f0f954a3871f7e9" => :sierra
+    sha256 "c9238f08f8f9328ca7b427e2616698d6bea975b33fbcbe2e52c8a2f4b8f5b009" => :el_capitan
   end
 
   head do
@@ -57,7 +57,7 @@ class Audacious < Formula
   depends_on "neon"
   depends_on "sdl2"
   depends_on "wavpack"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "qt" => :recommended
   depends_on "gtk+" => :optional
   depends_on "jack" => :optional
@@ -95,7 +95,7 @@ class Audacious < Formula
     audtool does not work due to a broken dbus implementation on macOS, so is not built
     coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
     GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
-    EOS
+  EOS
   end
 
   test do

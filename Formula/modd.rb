@@ -1,16 +1,15 @@
 class Modd < Formula
   desc "Flexible tool for responding to filesystem changes"
   homepage "https://github.com/cortesi/modd"
-  url "https://github.com/cortesi/modd/archive/v0.5.tar.gz"
-  sha256 "784e8d542f0266a68d32e920b18e2d690402cf31305314b967186e12ce12099a"
+  url "https://github.com/cortesi/modd/archive/v0.6.tar.gz"
+  sha256 "589741193c3a699ca0df0e1f5b957461107376c8442fca97d29f59ec458c264e"
   head "https://github.com/cortesi/modd.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "1cd86784da139889806ebc29923105067386636a1724599c6ebe91a7bf468e8e" => :high_sierra
-    sha256 "bc0db4fed7c8bcbcd453a1aad44dc2086e1e78dbebf3605783ba1ca21882fa29" => :sierra
-    sha256 "e9cc57f8ad0c8c8d442d9f4b4508cacca5b2500b0861542c18e0b757ca2b8335" => :el_capitan
+    sha256 "e15fd445ef80f9e2b7f3c8a6736beb9bc1b4333b07c34997dc8c1dc3840a3b98" => :high_sierra
+    sha256 "475ede0cbdd203990792dc5d264739cd25c9130a20d6cf44022708de268ed217" => :sierra
+    sha256 "1459698f458b67923d07d79ab1afd08e54fda408e31b0c59916b8188fb0ded78" => :el_capitan
   end
 
   depends_on "go" => :build

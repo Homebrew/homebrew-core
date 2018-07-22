@@ -1,8 +1,8 @@
 class Winetricks < Formula
   desc "Download and install various runtime libraries"
   homepage "https://github.com/Winetricks/winetricks"
-  url "https://github.com/Winetricks/winetricks/archive/20180217.tar.gz"
-  sha256 "10e11dd150f1629af17f5549404d66b17968130cbdec6a4524b51d9291484a47"
+  url "https://github.com/Winetricks/winetricks/archive/20180603.tar.gz"
+  sha256 "66d8b48e001136d6d68b4c467c740753c56becceab9138632b479cb6c559074f"
   head "https://github.com/Winetricks/winetricks.git"
 
   bottle :unneeded
@@ -23,7 +23,7 @@ class Winetricks < Formula
   def caveats; <<~EOS
     winetricks is a set of utilities for wine, which is installed separately:
       brew install wine
-    EOS
+  EOS
   end
 
   test do

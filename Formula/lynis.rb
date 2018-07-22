@@ -1,14 +1,10 @@
 class Lynis < Formula
   desc "Security and system auditing tool to harden systems"
   homepage "https://cisofy.com/lynis/"
-  url "https://cisofy.com/files/lynis-2.6.2.tar.gz"
-  sha256 "629efa33d684b61f0d9d5fe8ae1d3fe87a94dae5897cf90d5733af1552a55498"
+  url "https://downloads.cisofy.com/lynis/lynis-2.6.6.tar.gz"
+  sha256 "6b254cf2975eed6db9c39960e7c07e8ff4ddf61f974274980aa62a74745020e4"
 
-  bottle do
-    sha256 "ea893f82683a5aa5f047c0ae83b5199bdc539c94457cb4ad3ec0ddba2f2ae478" => :high_sierra
-    sha256 "ea893f82683a5aa5f047c0ae83b5199bdc539c94457cb4ad3ec0ddba2f2ae478" => :sierra
-    sha256 "ea893f82683a5aa5f047c0ae83b5199bdc539c94457cb4ad3ec0ddba2f2ae478" => :el_capitan
-  end
+  bottle :unneeded
 
   def install
     inreplace "lynis" do |s|

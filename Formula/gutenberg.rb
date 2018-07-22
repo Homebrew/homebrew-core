@@ -1,30 +1,29 @@
 class Gutenberg < Formula
   desc "Opinionated static site generator with everything built-in"
   homepage "https://www.getgutenberg.io/"
-  url "https://github.com/Keats/gutenberg/archive/v0.3.1.tar.gz"
-  sha256 "4d8738fc732709888786d18b005c1e86a6b79ca7e5ced25fcd6ebcc10de741ac"
+  url "https://github.com/Keats/gutenberg/archive/v0.3.4.tar.gz"
+  sha256 "cc3d379a617061ccf594082732e81c003464f67ec0d4e0898cbcf74e817b95d4"
   head "https://github.com/Keats/gutenberg.git"
 
   bottle do
-    sha256 "8a1d27b1af2514d07d3201be1520bddc487c57965df2305cc896771f41479b79" => :high_sierra
-    sha256 "2a30489509edacdf70a15055d9a08a8cc670da107fc55c4acdaddb0066f9457d" => :sierra
-    sha256 "46408add4d4070325f9a7a3f0c2601ff376a2e2e9a540ea27bc328cdfa91795b" => :el_capitan
+    sha256 "b59e0562bac25590b5259adb1259a8e8a6017abf93b52e593fc9c3f0380577dd" => :high_sierra
+    sha256 "d3d4cb5b24b05be82b26737225db3fc41648887e956089eea0359aaa396d2f9a" => :sierra
+    sha256 "f40c4ccdc3bcfa96367d86f00bc9fd6a390b069a2e22bdf23a0d32c465451833" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
+    system "cargo", "install", "--root", prefix
 
-    bin.install "target/release/gutenberg"
     bash_completion.install "completions/gutenberg.bash-completion"
     zsh_completion.install "completions/_gutenberg"
     fish_completion.install "completions/gutenberg.fish"
   end
 
   test do
-    pipe_output("#{bin}/gutenberg init mysite", "\nn\nn\n", 0)
+    system "yes '' | #{bin}/gutenberg init mysite"
     (testpath/"mysite/content/blog/index.md").write <<~EOS
       +++
       +++

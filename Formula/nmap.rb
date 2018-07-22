@@ -1,15 +1,14 @@
 class Nmap < Formula
   desc "Port scanning utility for large networks"
   homepage "https://nmap.org/"
-  url "https://nmap.org/dist/nmap-7.60.tar.bz2"
-  sha256 "a8796ecc4fa6c38aad6139d9515dc8113023a82e9d787e5a5fb5fa1b05516f21"
+  url "https://nmap.org/dist/nmap-7.70.tar.bz2"
+  sha256 "847b068955f792f4cc247593aca6dc3dc4aae12976169873247488de147a6e18"
   head "https://svn.nmap.org/nmap/"
 
   bottle do
-    sha256 "0a41a035f709d509ba3f83ebaa1daa3f98742e89ef10e3d584e4403fdfaef202" => :high_sierra
-    sha256 "46496cbfdeaedd22ca3afba6bd2b7dafe3bd79a89b8511bc6c246a6e2cd97cc9" => :sierra
-    sha256 "92863122b5f00404f3c19ff0ce1ee2c787d3f9c022adff8f772c30c3f0601f2c" => :el_capitan
-    sha256 "4b27984c8b92207b1d3e283a1a423a27d63401a809de5e43083722f62be75e35" => :yosemite
+    sha256 "ef7ef98c6b83c013727eea37c37dcfa04eb6a572dc03699920cd7fc76a7f358a" => :high_sierra
+    sha256 "a39669b4c391823e7f42407654475539d7b4b58bc343817c6bfb96bc4063e848" => :sierra
+    sha256 "a597fa10396be4a782a198f4af51565c15dc8ae59cbe8c367bb78fd3babd972e" => :el_capitan
   end
 
   option "with-pygtk", "Build Zenmap GUI"
@@ -36,6 +35,8 @@ class Nmap < Formula
     system "./configure", *args
     system "make" # separate steps required otherwise the build fails
     system "make", "install"
+
+    rm_f Dir[bin/"uninstall_*"] # Users should use brew uninstall.
   end
 
   test do

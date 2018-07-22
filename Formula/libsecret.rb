@@ -1,17 +1,16 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.5.tar.xz"
-  sha256 "9ce7bd8dd5831f2786c935d82638ac428fa085057cc6780aba0e39375887ccb3"
-  revision 1
+  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.6.tar.xz"
+  sha256 "5efbc890ba41a323ffe0599cd260fd12bd8eb62a04aa1bd1b2762575d253d66f"
 
   bottle do
-    sha256 "fe0fb636bf96c93bade82da91245ef92a5734dee84a8f2ed6294f0bd9e822806" => :high_sierra
-    sha256 "70dc8c53fe5e90878623f3d78dc31e23894429e5ffac816efaa17ac683d6e80d" => :sierra
-    sha256 "bc8741bca918709da77c0144e985918b720afcd27b6228963f117348994d680c" => :el_capitan
-    sha256 "9abd02a3cc9049c185321f691df43da2b150a2f55ca0463e346632b93a7a7900" => :yosemite
+    sha256 "6a4ab070179363f9468424a354267afc31c61d6c50fca9f082ec4bae96d69769" => :high_sierra
+    sha256 "600584d69e9688bdcecb510b7e10d1fab9593e789ce72a27c57a7da8cfb54488" => :sierra
+    sha256 "9d64c0daf3b3f02d44eb2e24d156a76526afa0d00b6b911a5aecdfa8ccfd81b4" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gnu-sed" => :build
   depends_on "intltool" => :build
@@ -19,7 +18,6 @@ class Libsecret < Formula
   depends_on "docbook-xsl" => :build
   depends_on "glib"
   depends_on "libgcrypt"
-  depends_on "gobject-introspection" => :recommended
   depends_on "vala" => :optional
 
   def install
@@ -30,9 +28,9 @@ class Libsecret < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --enable-introspection
     ]
 
-    args << "--enable-introspection" if build.with? "gobject-introspection"
     args << "--enable-vala" if build.with? "vala"
 
     system "./configure", *args

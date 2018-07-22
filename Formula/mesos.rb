@@ -6,16 +6,21 @@ class Mesos < Formula
   sha256 "5973795a739c9fa8f1d56b7d0ab1e71e015d5915ffdefb46484ac6546306f4b0"
 
   bottle do
-    sha256 "195f50fc08a37e33d15acd35715c8d0b4d9ff64e56d9df80741604e5651369c5" => :high_sierra
-    sha256 "8eb662939c096d7c4e0bfd22da8ab2bf2567d8c33f3fc544baf837c7331327f8" => :sierra
-    sha256 "107472f6f13a35567688866e8bf9c06c727e8a1b03da31e907387ec0a424b641" => :el_capitan
+    rebuild 2
+    sha256 "002254bfe8c326d8534206e04359139513b4c6338d399a19b49e712745257fe0" => :high_sierra
+    sha256 "f80fc3e7e9c4846cd6a28b5385a9bac9ca256fda16ec1a14be24fd2db48dccdc" => :sierra
+    sha256 "f21927e965a55ed3ed09bf2507d0785492a439e7faca2aa21d39be9cf2375f78" => :el_capitan
   end
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
   depends_on :macos => :mountain_lion
   depends_on "apr-util" => :build
   depends_on "maven" => :build
+  depends_on "python@2"
   depends_on "subversion"
+
+  conflicts_with "nanopb-generator",
+    :because => "they depend on an incompatible version of protobuf"
 
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/e0/2f/690a5f047e2cfef40c9c5eec0877b496dc1f5a0625ca6b0ac1cd11f12f6a/protobuf-3.2.0.tar.gz"
@@ -159,45 +164,15 @@ class Mesos < Formula
     end
     pth_contents = "import site; site.addsitedir('#{protobuf_path}')\n"
     (lib/"python2.7/site-packages/homebrew-mesos-protobuf.pth").write pth_contents
+
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    sbin.env_script_all_files(libexec/"sbin", Language::Java.java_home_env("1.8"))
   end
 
   test do
-    require "timeout"
-
-    # Make sure we are not affected by MESOS-6910 and related issues.
-    agent = fork do
-      exec "#{sbin}/mesos-agent",
-          "--master=127.0.0.1:5050",
-          "--work_dir=/tmp/mesos.slave.brew",
-          "--image_providers=docker"
-    end
-    begin
-      Timeout.timeout(2) do
-        Process.wait agent
-      end
-    rescue Timeout::Error
-      Process.kill "TERM", agent
-    end
-    assert $CHILD_STATUS.exitstatus, "agent process died, check MESOS-6606-related behavior"
-
-    # Make tests for minimal functionality.
-    master = fork do
-      exec "#{sbin}/mesos-master", "--ip=127.0.0.1",
-                                   "--registry=in_memory"
-    end
-    agent = fork do
-      exec "#{sbin}/mesos-agent", "--master=127.0.0.1:5050",
-                                  "--work_dir=#{testpath}"
-    end
-    Timeout.timeout(15) do
-      system "#{bin}/mesos", "execute",
-                             "--master=127.0.0.1:5050",
-                             "--name=execute-touch",
-                             "--command=touch\s#{testpath}/executed"
-    end
-    Process.kill("TERM", master)
-    Process.kill("TERM", agent)
-    assert_predicate testpath/"executed", :exist?
+    assert_match version.to_s, shell_output("#{sbin}/mesos-agent --version")
+    assert_match version.to_s, shell_output("#{sbin}/mesos-master --version")
+    assert_match "Usage: mesos", shell_output("#{bin}/mesos 2>&1", 1)
     system "python", "-c", "import mesos.native"
   end
 end

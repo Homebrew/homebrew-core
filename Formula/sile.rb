@@ -5,14 +5,14 @@ class Sile < Formula
   url "https://github.com/simoncozens/sile.git",
       :revision => "befcd813e1dd46f7af6d11ffd0b0ee525e8db1fc"
   version "0.9.5-alpha"
-  revision 3
+  revision 5
   head "https://github.com/simoncozens/sile.git"
 
   bottle do
     cellar :any
-    sha256 "ed43b2bcde68a99ba7002877ebb05c516771b1f0fcfa0540b58f2688beb8bfc6" => :high_sierra
-    sha256 "7968513be7f808313f6cb19cdca6fcfe974bf204b2df3b0d3281cf90e52de243" => :sierra
-    sha256 "4caa22e0950091f53a9f36e5135bfe50ab04e554c2adcc08999d359ec7ab4f0e" => :el_capitan
+    sha256 "96236146964faf89b3597d91010d14ea772eb639dd12ae7c28f7d4ec7afb645e" => :high_sierra
+    sha256 "5e5727ba45c4e57cee158a1c15b98a2b9f6c4f2cf441da66165aa2cd96cfd207" => :sierra
+    sha256 "f61b7a66bf31dc5715485bcafd608bebc5e7c34e7c5354b8a504150231322372" => :el_capitan
   end
 
   # These three should return to being head-only when >0.9.4 is released.

@@ -19,4 +19,8 @@ class Dcfldd < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/dcfldd", "--version"
+  end
 end

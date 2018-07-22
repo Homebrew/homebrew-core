@@ -1,6 +1,6 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
-  homepage "https://graphviz.org/"
+  homepage "https://www.graphviz.org/"
   # versioned URLs are missing upstream as of 16 Dec 2017
   url "https://www.mirrorservice.org/sites/distfiles.macports.org/graphviz/graphviz-2.40.1.tar.gz"
   mirror "https://fossies.org/linux/misc/graphviz-2.40.1.tar.gz"
@@ -33,7 +33,7 @@ class Graphviz < Formula
 
   depends_on "pkg-config" => :build
   depends_on :xcode => :build if build.with? "app"
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "pango" => :optional
   depends_on "gts" => :optional
   depends_on "librsvg" => :optional
@@ -45,7 +45,7 @@ class Graphviz < Formula
   if build.with? "bindings"
     depends_on "swig" => :build
     depends_on :java
-    depends_on "python" if MacOS.version <= :snow_leopard
+    depends_on "python@2"
     depends_on "ruby"
   end
 

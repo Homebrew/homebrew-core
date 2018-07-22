@@ -3,7 +3,6 @@ class Appledoc < Formula
   homepage "http://appledoc.gentlebytes.com/"
   url "https://github.com/tomaz/appledoc/archive/2.2.1.tar.gz"
   sha256 "0ec881f667dfe70d565b7f1328e9ad4eebc8699ee6dcd381f3bd0ccbf35c0337"
-
   head "https://github.com/tomaz/appledoc.git"
 
   bottle do

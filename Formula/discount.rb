@@ -1,15 +1,14 @@
 class Discount < Formula
   desc "C implementation of Markdown"
-  homepage "http://www.pell.portland.or.us/~orc/Code/discount/"
-  url "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.2.tar.bz2"
-  sha256 "ec7916731e3ef8516336333f8b7aa9e2af51e57c0017b1e03fa43f1ba6978f64"
+  homepage "https://www.pell.portland.or.us/~orc/Code/discount/"
+  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.3a.tar.bz2"
+  sha256 "75f5d5fda2e9607a5c77455296b41e5dd436389e20f35c37bea395d35aea0954"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f4eee2ff259e99506e5498f389b0149418c58cf07e82567364164eef37c93e0d" => :high_sierra
-    sha256 "76eb602335c8e25e5cac3e5ba71427adfd77e4668cded01e9293bff24f959e0a" => :sierra
-    sha256 "a8487f5efbecb0cc21542be3e923a1bd2553bdae3cda589a60f9e59e46e64e73" => :el_capitan
-    sha256 "bb20915dd830cdf2c6b996af682227d7c5529d99e31fef8048e7fff513dea257" => :yosemite
+    sha256 "68cf5d30c76b372b89e9fa1ac9f4b30cf3f19592bbf257e1f792fc6afdc45bc1" => :high_sierra
+    sha256 "b65dbaa7a1245f7f343707591630dae94449a8f979e766858550b4dbe2841c62" => :sierra
+    sha256 "a8672b207a923a0b681e0abf20ce27b72421dd4c0ddd4fd816b1e63a2acd29c0" => :el_capitan
   end
 
   option "with-fenced-code", "Enable Pandoc-style fenced code blocks."

@@ -32,4 +32,8 @@ class Star < Formula
     # Remove conflicting files
     %w[makefiles makerules].each { |f| (man5/"#{f}.5").unlink }
   end
+
+  test do
+    system "#{bin}/star", "--version"
+  end
 end

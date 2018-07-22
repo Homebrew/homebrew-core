@@ -1,26 +1,26 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.2/QScintilla_gpl-2.10.2.tar.gz"
-  sha256 "14b31d20717eed95ea9bea4cd16e5e1b72cee7ebac647cba878e0f6db6a65ed0"
+  url "https://downloads.sourceforge.net/project/pyqt/QScintilla2/QScintilla-2.10.4/QScintilla_gpl-2.10.4.tar.gz"
+  sha256 "0353e694a67081e2ecdd7c80e1a848cf79a36dbba78b2afa36009482149b022d"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "da1d93ad1371f8cbe0f3897a49afae8c07a41c06ae250b74c580c8be7ce83113" => :high_sierra
-    sha256 "7b45fdb79ba8c1fce4ff5745881ea4786801d2bf8d2c06d3d34823d3c0a9d9f0" => :sierra
-    sha256 "5dbae892c1f20a559477d72106cb7a6a1f20330b0b5a6054f1198795b940b4f8" => :el_capitan
+    sha256 "5d798036fba1637e6f8808598c3df7f7b48118e5cc8d21a87e56ebd221ae7683" => :high_sierra
+    sha256 "975755a7c0c04cc24c120f997809b562974e6dbd718879fa9a71031bff45959d" => :sierra
+    sha256 "24f06d0a2019efd91ef51954e850ddcb1b6d2581071a08b0e9763e3b3e483fa3" => :el_capitan
   end
 
   option "with-plugin", "Build the Qt Designer plugin"
-  option "without-python", "Do not build Python bindings"
-  option "without-python3", "Do not build Python3 bindings"
+  option "without-python", "Do not build Python3 bindings"
+  option "without-python@2", "Do not build Python2 bindings"
 
   depends_on "pyqt"
   depends_on "qt"
   depends_on "sip"
   depends_on "python" => :recommended
-  depends_on "python3" => :recommended
+  depends_on "python@2" => :recommended
 
   def install
     spec = (ENV.compiler == :clang && MacOS.version >= :mavericks) ? "macx-clang" : "macx-g++"
@@ -48,7 +48,7 @@ class Qscintilla2 < Formula
     # Add qscintilla2 features search path, since it is not installed in Qt keg's mkspecs/features/
     ENV["QMAKEFEATURES"] = prefix/"data/mkspecs/features"
 
-    if build.with?("python") || build.with?("python3")
+    if build.with?("python") || build.with?("python@2")
       cd "Python" do
         Language::Python.each_python(build) do |python, version|
           (share/"sip").mkpath

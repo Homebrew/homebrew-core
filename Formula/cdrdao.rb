@@ -1,15 +1,13 @@
 class Cdrdao < Formula
   desc "Record CDs in Disk-At-Once mode"
   homepage "https://cdrdao.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cdrdao/cdrdao/1.2.3/cdrdao-1.2.3.tar.bz2"
-  sha256 "8193cb8fa6998ac362c55807e89ad0b3c63edc6b01afaeb3d5042519527fb75e"
+  url "https://downloads.sourceforge.net/project/cdrdao/cdrdao-1.2.4.tar.bz2"
+  sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
 
   bottle do
-    sha256 "8aee176ebd5256556f352e900ab2ccee3772ef81daf04fe4b31348243fe55feb" => :high_sierra
-    sha256 "69c67458aa6f7f0e843a1760606336433e68735c3d1030a463dd7a3c7692e79a" => :sierra
-    sha256 "bf776ba977bbafbe32c21ae77174cc18a0af3639dd25d845d5f2a18b50b12555" => :el_capitan
-    sha256 "2f0ce2699c25a6586d2532a17a46e6643a94ddbf9da5e77f9aaf326da1a0b692" => :yosemite
-    sha256 "01e1dde5119c810802b5abfcbc30da6e02b35bb721cbfff83604f1e5aebd22e7" => :mavericks
+    sha256 "1efaa356872419da65763a5e28faf262b79f5a37e2eb83c06c22e9846bae188f" => :high_sierra
+    sha256 "cd0c72a2c84f084e4f5fe28df185e9154409645138e55502ffb9c4075ae4dfea" => :sierra
+    sha256 "d49e947354162d163937e801fd00468823b16d8462e179f6cfe20a84eb19ffb5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

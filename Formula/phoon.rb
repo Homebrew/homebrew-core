@@ -20,4 +20,8 @@ class Phoon < Formula
     bin.install "phoon"
     man1.install "phoon.1"
   end
+
+  test do
+    system "#{bin}/phoon"
+  end
 end

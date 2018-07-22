@@ -3,8 +3,8 @@ class Launchdns < Formula
   homepage "https://github.com/josh/launchdns"
   url "https://github.com/josh/launchdns/archive/v1.0.3.tar.gz"
   sha256 "c34bab9b4f5c0441d76fefb1ee16cb0279ab435e92986021c7d1d18ee408a5dd"
-  head "https://github.com/josh/launchdns.git"
   revision 1
+  head "https://github.com/josh/launchdns.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,7 +26,7 @@ class Launchdns < Formula
   def caveats; <<~EOS
     To have *.localhost resolved to 127.0.0.1:
       sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
-    EOS
+  EOS
   end
 
   plist_options :manual => "launchdns"
@@ -62,7 +62,7 @@ class Launchdns < Formula
         <string>#{var}/log/launchdns.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

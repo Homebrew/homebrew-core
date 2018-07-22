@@ -3,15 +3,15 @@
 #  - https://wiki.winehq.org/Gecko
 #  - https://wiki.winehq.org/Mono
 # with `GECKO_VERSION` and `MONO_VERSION`, as in:
-#    https://source.winehq.org/git/wine.git/blob/refs/tags/wine-2.0.3:/dlls/appwiz.cpl/addons.c
+#    https://source.winehq.org/git/wine.git/blob/refs/tags/wine-3.0:/dlls/appwiz.cpl/addons.c
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.tar.xz"
-    sha256 "346a050aca5cd0d9978a655af11c30e68c201a58aea0c70d5e4c4f1b63c2fbec"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.2.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.2.tar.xz"
+    sha256 "cad771375409e24244eab252da044306158af8a8bea4432e7ca81c1dc6b463ff"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -21,52 +21,56 @@ class Wine < Formula
     end
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
   end
 
   bottle do
-    sha256 "dd0f1dcf59471f1f6d3ad180e58aaedfa42e0fde6b6d97cdf4b00631c320ca43" => :high_sierra
-    sha256 "e75f25c644d7585571101611db70ccf57f51d5dcac34e0ac923228a5abcb6a58" => :sierra
-    sha256 "c445629c61f46c581aa33fa9149b6aa15bf4bdfbb3647dea26759ad206670730" => :el_capitan
+    sha256 "4d7fa8c1a88cb76728e8d86fa03033964f77aa8cd8472ee1c19fce650f87dccb" => :high_sierra
+    sha256 "bca645d1f6b878e2d59a2f02f9a99da3263f72d95b8c60c803483965d9de9c5d" => :sierra
+    sha256 "790786a9ff4c3b8018f4701e0e9191099304e9105f885757d804151ca33d06df" => :el_capitan
+  end
+
+  devel do
+    url "https://dl.winehq.org/wine/source/3.x/wine-3.13.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.13.tar.xz"
+    sha256 "0785d74852232c1f6e07ac081875e92219a4428ddcc8931632fcf1924941bbd4"
+
+    resource "mono" do
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
+      sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
+    end
   end
 
   head do
     url "https://source.winehq.org/git/wine.git"
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi", :using => :nounzip
+      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
       sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
     end
   end
 
-  if MacOS.version >= :el_capitan
-    option "without-win64", "Build without 64-bit support"
-    depends_on :xcode => ["8.0", :build] if build.with? "win64"
-  end
-
-  # Wine will build both the Mac and the X11 driver by default, and you can switch
-  # between them. But if you really want to build without X11, you can.
-  depends_on :x11 => :recommended
+  depends_on :macos => :el_capitan
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
 
   resource "gecko-x86" do
-    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi", :using => :nounzip
+    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi"
     sha256 "3b8a361f5d63952d21caafd74e849a774994822fb96c5922b01d554f1677643a"
   end
 
   resource "gecko-x86_64" do
-    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86_64.msi", :using => :nounzip
+    url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86_64.msi"
     sha256 "c565ea25e50ea953937d4ab01299e4306da4a556946327d253ea9b28357e4a7d"
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2n.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2n.tar.gz"
-    sha256 "370babb75f278c39e0c50e8c4e7493bc0f18db6867478341a832a982fd15a8fe"
+    url "https://www.openssl.org/source/openssl-1.0.2o.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2o.tar.gz"
+    sha256 "ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d"
   end
 
   resource "libtool" do
@@ -76,9 +80,9 @@ class Wine < Formula
   end
 
   resource "jpeg" do
-    url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/libj/libjpeg9/libjpeg9_9b.orig.tar.gz"
-    sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
+    url "http://www.ijg.org/files/jpegsrc.v9c.tar.gz"
+    mirror "https://fossies.org/linux/misc/jpegsrc.v9c.tar.gz"
+    sha256 "650250979303a649e21f87b5ccd02672af1ea6954b911342ea491f351ceb7122"
   end
 
   resource "libtiff" do
@@ -100,26 +104,26 @@ class Wine < Formula
   end
 
   resource "freetype" do
-    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9/freetype-2.9.tar.bz2"
-    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.tar.bz2"
-    sha256 "e6ffba3c8cef93f557d1f767d7bc3dee860ac7a3aaff588a521e081bc36f4c8a"
+    url "https://downloads.sourceforge.net/project/freetype/freetype2/2.9.1/freetype-2.9.1.tar.bz2"
+    mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.9.1.tar.bz2"
+    sha256 "db8d87ea720ea9d5edc5388fc7a0497bb11ba9fe972245e0f7f4c7e8b1e1e84d"
   end
 
   resource "libusb" do
-    url "https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.21.orig.tar.bz2"
-    sha256 "7dce9cce9a81194b7065ee912bcd55eeffebab694ea403ffb91b67db66b1824b"
+    url "https://github.com/libusb/libusb/releases/download/v1.0.22/libusb-1.0.22.tar.bz2"
+    mirror "https://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.22/libusb-1.0.22.tar.bz2"
+    sha256 "75aeb9d59a4fdb800d329a545c2e6799f732362193b465ea198f2aa275518157"
   end
 
   resource "webp" do
-    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.6.1.tar.gz"
-    sha256 "06503c782d9f151baa325591c3579c68ed700ffc62d4f5a32feead0ff017d8ab"
+    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.0.tar.gz"
+    sha256 "84259c4388f18637af3c5a6361536d754a5394492f91be1abc2e981d4983225b"
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.12.6.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.12.6.tar.bz2"
-    sha256 "cf0c30807d08f6a28ab46c61b8dbd55c97d2f292cf88f3a07d3384687f31f017"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.0.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2"
+    sha256 "91dde8492155b7f34bb95079e79be92f1df353fcc682c19be90762fd3e12eeb9"
   end
 
   resource "gd" do
@@ -129,9 +133,9 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.16/libgphoto2-2.5.16.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.16.tar.bz2"
-    sha256 "e757416d1623e01a9d0d294b2e790162e434c0964f50d3b7ff1a3424b62a2906"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.18/libgphoto2-2.5.18.tar.bz2"
+    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.18.tar.bz2"
+    sha256 "5b17b89d7ca0ec35c72c94ac3701e87d49e52371f9509b8e5c08c913ae57a7ec"
   end
 
   resource "net-snmp" do
@@ -140,16 +144,15 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+    url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
     mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
     sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   end
 
   resource "mpg123" do
-    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.8/mpg123-1.25.8.tar.bz2"
-    mirror "https://www.mpg123.de/download/mpg123-1.25.8.tar.bz2"
-    sha256 "79da51efae011814491f07c95cb5e46de0476aca7a0bf240ba61cfc27af8499b"
+    url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.10/mpg123-1.25.10.tar.bz2"
+    mirror "https://www.mpg123.de/download/mpg123-1.25.10.tar.bz2"
+    sha256 "6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023"
   end
 
   fails_with :clang do
@@ -209,6 +212,7 @@ class Wine < Formula
           system "make", "clean"
           system "perl", "./Configure", "--prefix=#{libexec}",
                                         "no-ssl2",
+                                        "no-ssl3",
                                         "no-zlib",
                                         "shared",
                                         "enable-cms",
@@ -247,7 +251,7 @@ class Wine < Formula
             #ifdef __#{arch}__
             #{(Pathname.pwd/"build-#{arch}/opensslconf.h").read}
             #endif
-            EOS
+          EOS
         end
         (libexec/"include/openssl/opensslconf.h").atomic_write confs.join("\n")
       end
@@ -304,11 +308,6 @@ class Wine < Formula
       end
 
       resource("freetype").stage do
-        # Enable sub-pixel rendering
-        inreplace "include/freetype/config/ftoption.h",
-                  "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
-                  "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
-
         system "./configure", "--prefix=#{libexec}",
                               "--disable-static",
                               "--without-harfbuzz",
@@ -336,6 +335,19 @@ class Wine < Formula
       end
 
       resource("fontconfig").stage do
+        # Remove for fontconfig > 2.13.0
+        # Upstream issue from 6 Mar 2018 "2.13.0 erroneously requires libuuid on macOS"
+        # See https://bugs.freedesktop.org/show_bug.cgi?id=105366
+        ENV["UUID_CFLAGS"] = " "
+        ENV["UUID_LIBS"] = " "
+
+        # Remove for fontconfig > 2.13.0
+        # Same effect as upstream commit from 10 Mar 2018 "Add uuid to
+        # Requires.private in .pc only when pkgconfig macro found it"
+        inreplace "configure",
+          'PKGCONFIG_REQUIRES_PRIVATELY="$PKGCONFIG_REQUIRES_PRIVATELY uuid"',
+          ""
+
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
                               "--disable-static",
@@ -427,49 +439,25 @@ class Wine < Formula
       ENV["ac_cv_lib_soname_#{dep}"] = (libexec/"lib/lib#{dep}.dylib").realpath
     end
 
-    if build.with? "win64"
-      args64 = ["--prefix=#{prefix}"] + depflags
-      args64 << "--enable-win64"
-      args64 << "--without-x" if build.without? "x11"
-
-      mkdir "wine-64-build" do
-        system "../configure", *args64
-        system "make", "install"
-      end
+    mkdir "wine-64-build" do
+      system "../configure", "--prefix=#{prefix}",
+                             "--enable-win64",
+                             "--without-x",
+                             *depflags
+      system "make", "install"
     end
-
-    args = ["--prefix=#{prefix}"] + depflags
-    args << "--with-wine64=../wine-64-build" if build.with? "win64"
-    args << "--without-x" if build.without? "x11"
 
     mkdir "wine-32-build" do
       ENV.m32
-      system "../configure", *args
+      system "../configure", "--prefix=#{prefix}",
+                             "--with-wine64=../wine-64-build",
+                             "--without-x",
+                             *depflags
       system "make", "install"
     end
     (pkgshare/"gecko").install resource("gecko-x86")
     (pkgshare/"gecko").install resource("gecko-x86_64")
     (pkgshare/"mono").install resource("mono")
-  end
-
-  def caveats
-    s = <<~EOS
-      You may want to get winetricks:
-        brew install winetricks
-    EOS
-
-    if build.with? "x11"
-      s += <<~EOS
-
-        By default Wine uses a native Mac driver. To switch to the X11 driver, use
-        regedit to set the "graphics" key under "HKCU\/Software\/Wine\/Drivers" to
-        "x11" (or use winetricks).
-
-        For best results with X11, install the latest version of XQuartz:
-          https://www.xquartz.org/
-      EOS
-    end
-    s
   end
 
   def post_install
@@ -482,10 +470,14 @@ class Wine < Formula
     (var/"log").mkpath
   end
 
+  def caveats; <<~EOS
+    You may also want winetricks:
+      brew install winetricks
+  EOS
+  end
+
   test do
     assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine hostname.exe 2>/dev/null").chomp
-    if build.with? "win64"
-      assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine64 hostname.exe 2>/dev/null").chomp
-    end
+    assert_equal shell_output("hostname").chomp, shell_output("#{bin}/wine64 hostname.exe 2>/dev/null").chomp
   end
 end

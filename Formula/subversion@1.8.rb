@@ -1,15 +1,14 @@
 class SubversionAT18 < Formula
   desc "Version control system"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.16.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.8.16.tar.bz2"
-  sha256 "f18f6e8309270982135aae54d96958f9ca6b93f8a4e746dd634b1b5b84edb346"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.19.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
+  sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
 
   bottle do
-    sha256 "96dc628a9f5b2b12e81b690c6278be70e1d386f86376e2b0f6e5c085113e5e2e" => :high_sierra
-    sha256 "3f6c2f5b14952261bd16b368026725411c6eb6aec91d3af340647a3f9aa92536" => :sierra
-    sha256 "fff0c975bfaec2a116b2f4c9ac93d702ee8e06381f31810d582b01bda8610a3e" => :el_capitan
-    sha256 "efa3eaee6fc8518354d09b80d2813c7b090495da8691703b31e1297ef0e750cd" => :yosemite
+    sha256 "3a4e79dead2f4d209e06fe631903ed870610ddfc9ac091ec7d734f5025d0642e" => :high_sierra
+    sha256 "a3d73ecc8eddacfe764f5a83d5215220b7d3100d694c17ac3bed68089984e863" => :sierra
+    sha256 "0a39c347943ac7f025af06571378987e5d69805ab45cafd38215b5929a5a3722" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -17,6 +16,7 @@ class SubversionAT18 < Formula
   deprecated_option "java" => "with-java"
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
+  deprecated_option "with-python" => "with-python@2"
 
   option "with-java", "Build Java bindings"
   option "with-perl", "Build Perl bindings"
@@ -30,10 +30,10 @@ class SubversionAT18 < Formula
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on "sqlite"
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   # Bindings require swig
-  depends_on "swig" if build.with?("perl") || build.with?("python") || build.with?("ruby")
+  depends_on "swig" if build.with?("perl") || build.with?("python@2") || build.with?("ruby")
 
   # For Serf
   depends_on "scons" => :build
@@ -44,8 +44,9 @@ class SubversionAT18 < Formula
   depends_on :java => :optional
 
   resource "serf" do
-    url "https://archive.apache.org/dist/serf/serf-1.3.8.tar.bz2"
-    sha256 "e0500be065dbbce490449837bb2ab624e46d64fc0b090474d9acaa87c82b2590"
+    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
+    mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
+    sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
   end
 
   # Fix #23993 by stripping flags swig can't handle from SWIG_CPPFLAGS
@@ -153,7 +154,7 @@ class SubversionAT18 < Formula
     system "make", "tools"
     system "make", "install-tools"
 
-    if build.with? "python"
+    if build.with? "python@2"
       system "make", "swig-py"
       system "make", "install-swig-py"
       (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]

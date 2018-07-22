@@ -2,6 +2,7 @@ require "language/haskell"
 
 class ElmFormat < Formula
   include Language::Haskell::Cabal
+
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
@@ -18,11 +19,18 @@ class ElmFormat < Formula
     sha256 "964df8c9e60c3ab2968fa6d6304beee5d0eefd993001a35e26da279b54e2e543" => :yosemite
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     (buildpath/"elm-format").install Dir["*"]
+
+    # GHC 8.4.1 compat
+    # Reported upstream 21 Mar 2018 https://github.com/avh4/elm-format/issues/464
+    (buildpath/"cabal.config").write <<~EOS
+      allow-newer: elm-format:free, elm-format:optparse-applicative
+      constraints: free < 6, optparse-applicative < 0.15
+    EOS
 
     cabal_sandbox do
       cabal_sandbox_add_source "elm-format"

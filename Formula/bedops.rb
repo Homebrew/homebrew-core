@@ -1,14 +1,14 @@
 class Bedops < Formula
   desc "Set and statistical operations on genomic data of arbitrary scale"
   homepage "https://github.com/bedops/bedops"
-  url "https://github.com/bedops/bedops/archive/v2.4.30.tar.gz"
-  sha256 "218e0e367aa79747b2f90341d640776eea17befc0fdc35b0cec3c6184098d462"
+  url "https://github.com/bedops/bedops/archive/v2.4.35.tar.gz"
+  sha256 "da0265cf55ef5094834318f1ea4763d7a3ce52a6900e74f532dd7d3088c191fa"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f0ca3de056c5490202aabcf39467c27dc3cba80e8fd561346aec232659d020c0" => :high_sierra
-    sha256 "2cda86557abfe9449ef177523789a5bac561a4535579dce12f610b742905ac00" => :sierra
-    sha256 "913f411dbc2f1d1cb7a31bcdd804ca97ed24337b158943ad3e53ea7f61961af5" => :el_capitan
+    sha256 "d505812bddf22f9c7b912c5cd7b0f7a5f197bf2fa318ec67c38d899cbc5eaefd" => :high_sierra
+    sha256 "3944dbf5ed3a6c2ff825099cdf3d65e0f8aad2de67604ce0523a0468a8832894" => :sierra
+    sha256 "a860bbe9e2aa2d5289aa0d960bb01212841f71732eb1e913c8364de46f62708c" => :el_capitan
   end
 
   needs :cxx11

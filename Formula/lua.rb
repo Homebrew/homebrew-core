@@ -1,15 +1,14 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.3.4.tar.gz"
-  sha256 "f681aa518233bc407e23acf0f5887c884f17436f000d453b2491a9f11a52400c"
-  revision 2
+  url "https://www.lua.org/ftp/lua-5.3.5.tar.gz"
+  sha256 "0c2eed3f960446e1a3e4b9a1ca2f3ff893b6ce41942cf54d5dd59ab4b3b058ac"
 
   bottle do
     cellar :any
-    sha256 "6312fdaa1a4ce5bbabc19352a5db6777715568f8840d6b28f74b5caac99b555c" => :high_sierra
-    sha256 "ff0a15af61df2a80d41740586df41ebe93cb2c0a1c91f28cf291ae051764e0c7" => :sierra
-    sha256 "5d6e7dc0b597bd81493e02e77e35ef13efbc29823d2dd0bd8fbeb30166f1365b" => :el_capitan
+    sha256 "0519eedf38f18d868842cead8c66ea1784ead938e0eed940d89e7d50c8259884" => :high_sierra
+    sha256 "e93b77f260956a5f16ff0df19c8bdaa6047ff6fe7cde806f65624c728db63ae9" => :sierra
+    sha256 "79caa0554afffb84b0827f50e65dc57d7e7d34ff83db76341427ed5293b3a21c" => :el_capitan
   end
 
   option "without-luarocks", "Don't build with Luarocks support embedded"
@@ -19,11 +18,9 @@ class Lua < Formula
   # ***Update me with each version bump!***
   patch :DATA
 
-  # Don't use the https://luarocks.org/releases/luarocks-x.y.z.tar.gz URL
-  # directly as it redirects to the HTTP version of the below URL.
   resource "luarocks" do
-    url "https://luarocks.github.io/luarocks/releases/luarocks-2.4.3.tar.gz"
-    sha256 "4d414d32fed5bb121c72d3ff1280b7f2dc9027a9bc012e41dfbffd5b519b362e"
+    url "https://luarocks.org/releases/luarocks-2.4.4.tar.gz"
+    sha256 "3938df33de33752ff2c526e604410af3dceb4b7ff06a770bc4a240de80a1f934"
   end
 
   def install
@@ -40,8 +37,8 @@ class Lua < Formula
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
     # We ship our own pkg-config file as Lua no longer provide them upstream.
-    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}"
+    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
+    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     (lib/"pkgconfig/lua.pc").write pc_file
 
     # Fix some software potentially hunting for different pc names.
@@ -49,7 +46,8 @@ class Lua < Formula
     bin.install_symlink "lua" => "lua-5.3"
     bin.install_symlink "luac" => "luac5.3"
     bin.install_symlink "luac" => "luac-5.3"
-    (include/"lua5.3").install_symlink include.children
+    (include/"lua5.3").install_symlink Dir[include/"lua/*"]
+    lib.install_symlink "liblua.5.3.dylib" => "liblua5.3.dylib"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua5.3.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-5.3.pc"
 
@@ -73,10 +71,10 @@ class Lua < Formula
 
         # This block ensures luarock exec scripts don't break across updates.
         inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
-          s.gsub! libexec.to_s, opt_libexec
-          s.gsub! include.to_s, "#{HOMEBREW_PREFIX}/include"
-          s.gsub! lib.to_s, "#{HOMEBREW_PREFIX}/lib"
-          s.gsub! bin.to_s, "#{HOMEBREW_PREFIX}/bin"
+          s.gsub! libexec, opt_libexec
+          s.gsub! include, HOMEBREW_PREFIX/"include"
+          s.gsub! lib, HOMEBREW_PREFIX/"lib"
+          s.gsub! bin, HOMEBREW_PREFIX/"bin"
         end
       end
     end
@@ -87,14 +85,14 @@ class Lua < Formula
     R= #{version}
     prefix=#{HOMEBREW_PREFIX}
     INSTALL_BIN= ${prefix}/bin
-    INSTALL_INC= ${prefix}/include
+    INSTALL_INC= ${prefix}/include/lua
     INSTALL_LIB= ${prefix}/lib
     INSTALL_MAN= ${prefix}/share/man/man1
     INSTALL_LMOD= ${prefix}/share/lua/${V}
     INSTALL_CMOD= ${prefix}/lib/lua/${V}
     exec_prefix=${prefix}
     libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
+    includedir=${prefix}/include/lua
 
     Name: Lua
     Description: An Extensible Extension Language
@@ -102,7 +100,7 @@ class Lua < Formula
     Requires:
     Libs: -L${libdir} -llua -lm
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
@@ -112,7 +110,7 @@ class Lua < Formula
     This is, for now, unavoidable. If this is troublesome for you, you can build
     rocks with the `--tree=` command to a special, non-conflicting location and
     then add that to your `$PATH`.
-    EOS
+  EOS
   end
 
   test do
@@ -136,7 +134,7 @@ index 7fa91c8..a825198 100644
  TO_BIN= lua luac
  TO_INC= lua.h luaconf.h lualib.h lauxlib.h lua.hpp
 -TO_LIB= liblua.a
-+TO_LIB= liblua.5.3.4.dylib
++TO_LIB= liblua.5.3.5.dylib
  TO_MAN= lua.1 luac.1
 
  # Lua version and release.
@@ -144,7 +142,7 @@ index 7fa91c8..a825198 100644
 	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
 	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
 	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
-+	ln -s -f liblua.5.3.4.dylib $(INSTALL_LIB)/liblua.5.3.dylib
++	ln -s -f liblua.5.3.5.dylib $(INSTALL_LIB)/liblua.5.3.dylib
 +	ln -s -f liblua.5.3.dylib $(INSTALL_LIB)/liblua.dylib
 
  uninstall:
@@ -158,7 +156,7 @@ index 2e7a412..d0c4898 100644
  PLATS= aix bsd c89 freebsd generic linux macosx mingw posix solaris
 
 -LUA_A=	liblua.a
-+LUA_A=	liblua.5.3.4.dylib
++LUA_A=	liblua.5.3.5.dylib
  CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o \
 	lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o \
 	ltm.o lundump.o lvm.o lzio.o
@@ -169,12 +167,12 @@ index 2e7a412..d0c4898 100644
 -	$(AR) $@ $(BASE_O)
 -	$(RANLIB) $@
 +	$(CC) -dynamiclib -install_name @LUA_PREFIX@/lib/liblua.5.3.dylib \
-+		-compatibility_version 5.3 -current_version 5.3.4 \
-+		-o liblua.5.3.4.dylib $^
++		-compatibility_version 5.3 -current_version 5.3.5 \
++		-o liblua.5.3.5.dylib $^
 
  $(LUA_T): $(LUA_O) $(LUA_A)
 -	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
-+	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.3.4 $(LIBS)
++	$(CC) -fno-common $(MYLDFLAGS) -o $@ $(LUA_O) $(LUA_A) -L. -llua.5.3.5 $(LIBS)
 
  $(LUAC_T): $(LUAC_O) $(LUA_A)
 	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
@@ -182,8 +180,8 @@ index 2e7a412..d0c4898 100644
 	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_LINUX" SYSLIBS="-Wl,-E -ldl -lreadline"
 
  macosx:
--	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX" SYSLIBS="-lreadline" CC=cc
-+	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -fno-common" SYSLIBS="-lreadline" CC=cc
+-	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX" SYSLIBS="-lreadline"
++	$(MAKE) $(ALL) SYSCFLAGS="-DLUA_USE_MACOSX -fno-common" SYSLIBS="-lreadline"
 
  mingw:
 	$(MAKE) "LUA_A=lua53.dll" "LUA_T=lua.exe" \

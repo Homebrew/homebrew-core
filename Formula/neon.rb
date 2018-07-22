@@ -13,8 +13,6 @@ class Neon < Formula
     sha256 "7348fcda6d13a8cba37a98b7ac6c9876a2ffa037714954872832d390c5a475d7" => :yosemite
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "pkg-config" => :build
   depends_on "openssl"
 

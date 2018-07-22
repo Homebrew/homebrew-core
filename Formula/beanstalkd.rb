@@ -44,6 +44,10 @@ class Beanstalkd < Formula
         <string>#{var}/log/beanstalkd.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
+  end
+
+  test do
+    system "#{bin}/beanstalkd", "-v"
   end
 end

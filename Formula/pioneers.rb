@@ -1,13 +1,13 @@
 class Pioneers < Formula
   desc "Settlers of Catan clone"
   homepage "https://pio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.4.tar.gz"
-  sha256 "9a0d3198dc0ddf131d9e6d6e9992347fe2a2d99f508f1be1b30c5797210a2ddc"
+  url "https://downloads.sourceforge.net/project/pio/Source/pioneers-15.5.tar.gz"
+  sha256 "3ee1415e7c48dc144fbdb99105a6ef8a818e67ed34e9d0f8e01224c3636cef0c"
 
   bottle do
-    sha256 "96e83542f86672e1b874b2dad3441333ad65d9b687262fc126da1a9b189dd52d" => :high_sierra
-    sha256 "814dfc13c0cb4096ae6d84ab1b7210c1ef1c49e3f542bcb0adcac03e72e7384b" => :sierra
-    sha256 "c6799c8d4de3d80c55a81b66b726dafdab710a16b40cf704cc6dadb5a96fba3f" => :el_capitan
+    sha256 "e65fd2300b96f0339eb72d955b7a44c3d941d1275828a9f9a2fcfb31fe5f5f3b" => :high_sierra
+    sha256 "b93d58fda500c7774afe281663c69e09b846d59e5e8c44481195bbf715a39387" => :sierra
+    sha256 "e366345048bf9d0ea67815050233846432d6bb8ef15bb5efd92e78e2a2384d1e" => :el_capitan
   end
 
   fails_with :clang do
@@ -17,6 +17,7 @@ class Pioneers < Formula
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
   depends_on "gettext"
   depends_on "gtk+3"
   depends_on "librsvg" # svg images for gdk-pixbuf

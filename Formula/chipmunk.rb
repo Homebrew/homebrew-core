@@ -4,7 +4,6 @@ class Chipmunk < Formula
   url "https://chipmunk-physics.net/release/Chipmunk-7.x/Chipmunk-7.0.2.tgz"
   mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/chipmunk/Chipmunk-7.0.2.tgz"
   sha256 "288c8465fcaa671bab890c0b24627816efa10da2c5eabbeb36feb0d6deb1ca5a"
-
   head "https://github.com/slembcke/Chipmunk2D.git"
 
   bottle do

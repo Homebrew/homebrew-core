@@ -1,14 +1,13 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
   homepage "https://wiki.gnome.org/Projects/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/0.7/gtk-vnc-0.7.1.tar.xz"
-  sha256 "f34baa696615ef67666e8465b4d0ac563355e999a77d2cc42ad4625a24f7aab1"
+  url "https://download.gnome.org/sources/gtk-vnc/0.7/gtk-vnc-0.7.2.tar.xz"
+  sha256 "f893f32b1ef6d09dd23cda39b8a2567be7c2aebda58026288e1362f042e20808"
 
   bottle do
-    sha256 "fe20355933a766ba4bb5a7a30bc0609e288d90acc488086c8b60131747f997b7" => :high_sierra
-    sha256 "c95f372db04ab13aa14d32a08365c70b2509f44e2e00e35dbe8951c0fbf2ff35" => :sierra
-    sha256 "8a06aa2e8724eff7e84b5249eaa8d0b2f82dba260b35fab9785c4ff4ed2ef065" => :el_capitan
-    sha256 "9d4ceb7f6eddd4a8db287c1e4c4dcdca1bd302eaaf11879d2080c39e771c333e" => :yosemite
+    sha256 "caa4703d05d6f5413fc661e327ede0dff09ce603d32510e8e2c410a4105e65c4" => :high_sierra
+    sha256 "fe4d1d434b8e3b784d886ce07d82f5c049916b8e67e28e34c9f56779d0c9b943" => :sierra
+    sha256 "a6fea29893a63c9df2866c962dcef68ce6d4e5e3f7034f99350e6c3b7ca030a6" => :el_capitan
   end
 
   # Fails with Xcode 7.1 or older
@@ -17,13 +16,13 @@ class GtkVnc < Formula
   depends_on :macos => :yosemite
 
   depends_on "gettext" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "libgcrypt"
-  depends_on "gobject-introspection" => :optional
   depends_on "pulseaudio" => :optional
   depends_on "vala" => :optional
 
@@ -32,10 +31,10 @@ class GtkVnc < Formula
       --prefix=#{prefix}
       --with-gtk=3.0
       --with-examples
-      --with-python
+      --without-python
+      --enable-introspection
     ]
 
-    args << "--enable-introspection" if build.with? "gobject-introspection"
     args << "--enable-pulseaudio" if build.with? "pulseaudio"
     if build.with? "vala"
       args << "--enable-vala"

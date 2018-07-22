@@ -3,17 +3,18 @@ class Libmpdclient < Formula
   homepage "https://www.musicpd.org/libs/libmpdclient/"
   url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.14.tar.xz"
   sha256 "0a84e2791bfe3077cf22ee1784c805d5bb550803dffe56a39aa3690a38061372"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git"
 
   bottle do
     cellar :any
-    sha256 "03ad207b62c19b8b7e8368f28245cb6c939e15babb68fab3d6958ebb14e2f6a4" => :high_sierra
-    sha256 "5fc405af3eea66abec93720732c65cb6220c610bda522119a21b0d14f68e3baf" => :sierra
-    sha256 "b21a61625915e0e94fe52e16ea64a142588f621cb1a56e7cb931bcab1502af2f" => :el_capitan
+    sha256 "a4b68fd2d553aad650263ddf646fc8a402df86f1341f4febee85a69e46916a2f" => :high_sierra
+    sha256 "4e1b4802e6fa4e958d78c03d3cc14f33fece909975a9c40fa83946c5fd2a30b1" => :sierra
+    sha256 "573291d299ec6ee87a40cd79374cd7697e784230774852cf2bab9e20fcc83b54" => :el_capitan
   end
 
   depends_on "doxygen" => :build
-  depends_on "meson" => :build
+  depends_on "meson-internal" => :build
   depends_on "ninja" => :build
 
   def install

@@ -24,7 +24,7 @@ class Montage < Formula
     Montage is under the Caltech/JPL non-exclusive, non-commercial software
     licence agreement available at:
       http://montage.ipac.caltech.edu/docs/download.html
-    EOS
+  EOS
   end
 
   test do

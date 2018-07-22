@@ -1,34 +1,42 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.12.04.source.tar.gz"
-  version "6.12.04"
-  sha256 "f438f2ae6e25496fa81df525935fb0bf2a403855d95c40b3e0f3a3e1e861a085"
-  revision 1
-
+  url "https://root.cern.ch/download/root_v6.14.00.source.tar.gz"
+  version "6.14.00"
+  sha256 "7946430373489310c2791ff7a3520e393dc059db1371272bcd9d9cf0df347a0b"
+  revision 2
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "d4955129369da03358bdc3e6ea0767cfc150b0cd116f0c034cb1256f7e77bc62" => :high_sierra
-    sha256 "a46826ce377196223ffda513b18ea6ebca13980fb21efa5b8d78c198d51dfb07" => :sierra
-    sha256 "745de6cc7d93fc83e3609a3dbfc21a98c520a29d5961cf15e17374080ab83c49" => :el_capitan
+    sha256 "994da90f56b24447b0d048c90bc6868537792c1f5863299d9e8475b1be8ab0c2" => :high_sierra
+    sha256 "d9bb45face97dd44adf4b8c2da3c34f7034e416196c238f65526554401b12ff7" => :sierra
+    sha256 "c67bad1003c115b60e5f3ebc722e6fdc1fc2d9d14bcfe79c4b614d6888906d45" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "davix"
   depends_on "fftw"
   depends_on "gcc" # for gfortran.
   depends_on "graphviz"
   depends_on "gsl"
+  depends_on "lz4"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # For LZMA.
   depends_on "python" => :recommended
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
 
   needs :cxx11
 
   skip_clean "bin"
+
+  # Upstream PR from 30 Jun 2018 "Fixes for Python 3.7"
+  patch do
+    url "https://github.com/root-project/root/pull/2276.patch?full_index=1"
+    sha256 "5c8e404a01b7df801c7fa6ec7c54d0ebfc0f46086b58f34340822e89fc67a750"
+  end
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
@@ -46,25 +54,30 @@ class Root < Formula
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
+      -Dbuiltin_cfitsio=OFF
+      -Ddavix=ON
+      -Dfitsio=OFF
       -Dfftw3=ON
       -Dfortran=ON
       -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Dmysql=OFF
+      -Dpgsql=OFF
       -Droofit=ON
       -Dssl=ON
+      -Dimt=ON
       -Dxrootd=ON
     ]
 
-    if build.with?("python3") && build.with?("python")
+    if build.with?("python") && build.with?("python@2")
       odie "Root: Does not support building both python 2 and 3 wrappers"
-    elsif build.with?("python") || build.with?("python3")
-      if build.with? "python"
-        ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    elsif build.with?("python") || build.with?("python@2")
+      if build.with? "python@2"
+        ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
         python_executable = Utils.popen_read("which python").strip
         python_version = Language::Python.major_minor_version("python")
-      elsif build.with? "python3"
+      elsif build.with? "python"
         python_executable = Utils.popen_read("which python3").strip
         python_version = Language::Python.major_minor_version("python3")
       end
@@ -119,7 +132,7 @@ class Root < Formula
       pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source #{HOMEBREW_PREFIX}/bin/thisroot.csh
-    EOS
+  EOS
   end
 
   test do
@@ -138,7 +151,7 @@ class Root < Formula
 
     if build.with? "python"
       ENV["PYTHONPATH"] = lib/"root"
-      system "python2", "-c", "import ROOT"
+      system "python3", "-c", "import ROOT"
     end
   end
 end

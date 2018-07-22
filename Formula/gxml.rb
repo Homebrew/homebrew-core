@@ -1,15 +1,17 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.2.tar.xz"
-  sha256 "e2c68c2a59c351066469cbf93ccae51c796f49e0d48639aed72af39c544dcef3"
+  url "https://download.gnome.org/sources/gxml/0.16/gxml-0.16.3.tar.xz"
+  sha256 "520d4d779b1d31591762b2a98f84072531b9e17ac401df9668493e189eafc6ba"
+  revision 1
 
   bottle do
-    sha256 "f620b6f5829f81e5765c1a85b9b5e07f005616829152ca63b9207a085f860671" => :high_sierra
-    sha256 "45546962152f60be6fd37f8fa6a1606d7756db29888394b5b4b8e8320607107a" => :sierra
-    sha256 "8c1c8d5fded334e196facb009f5ae73df785816a421c940f99565d730643a12e" => :el_capitan
+    sha256 "0908c2bd5015de8acbab29ea0c42d9d274705b830424fb7c31f4c1a6088b5c1e" => :high_sierra
+    sha256 "d85960c0109b86ac07a51aea852b5d19bafb75bc55dd360b140ac27aa4de4721" => :sierra
+    sha256 "078acc418ec19bdfb68c826279ac31dd143a4992d580dcacd9d6c5a33c9e0bd1" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
@@ -17,7 +19,6 @@ class Gxml < Formula
   depends_on "libxml2"
   depends_on "glib"
   depends_on "libgee"
-  depends_on "gobject-introspection"
 
   def install
     # ensures that the gobject-introspection files remain within the keg

@@ -7,9 +7,10 @@ class Guile < Formula
   revision 1
 
   bottle do
-    sha256 "d61c8dd379af7d9a86b120994a936f135f4f83587dc2bf7ee3dfafcab363894c" => :high_sierra
-    sha256 "0743241f9804f6b64a851b50590bcd7384c77b9b6dfce4910d2eca64a9ede948" => :sierra
-    sha256 "c38c4edf9a4e91680c90940416013741a7b3ed2b97f588be238b1c9c27cf1311" => :el_capitan
+    rebuild 1
+    sha256 "e696caf8a6b77e536dc9d012662bb2625ea5b5b2d4a75562ed506b1f922e9cb2" => :high_sierra
+    sha256 "0d7fcb978879b79afdad703987f25889a0d64184e3ce0a195d1d66f6c23d34a1" => :sierra
+    sha256 "f9e34f08ee74177b69614a7b7dd2fd5df5294d7b0fd7b49f6359b6c111e99bfc" => :el_capitan
   end
 
   head do
@@ -20,8 +21,8 @@ class Guile < Formula
     depends_on "gettext" => :build
   end
 
-  depends_on "pkg-config" => :run # guile-config is a wrapper around pkg-config.
-  depends_on "libtool" => :run
+  depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
+  depends_on "libtool"
   depends_on "libffi"
   depends_on "libunistring"
   depends_on "bdw-gc"
@@ -51,6 +52,15 @@ class Guile < Formula
     # A really messed up workaround required on macOS --mkhl
     Pathname.glob("#{lib}/*.dylib") do |dylib|
       lib.install_symlink dylib.basename => "#{dylib.basename(".dylib")}.so"
+    end
+
+    # This is either a solid argument for guile including options for
+    # --with-xyz-prefix= for libffi and bdw-gc or a solid argument for
+    # Homebrew automatically removing Cellar paths from .pc files in favour
+    # of opt_prefix usage everywhere.
+    inreplace lib/"pkgconfig/guile-2.2.pc" do |s|
+      s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
+      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix
     end
 
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]

@@ -12,6 +12,8 @@ class Honcho < Formula
     sha256 "0af8a184c2790eacbd3e0b43e90a55fc15baf17ba1f4963c5b05f78b7785737c" => :yosemite
   end
 
+  depends_on "python@2"
+
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
     system "python", *Language::Python.setup_install_args(libexec)

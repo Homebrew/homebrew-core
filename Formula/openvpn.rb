@@ -1,14 +1,14 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/index.php/download/community-downloads.html"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.4.tar.xz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.4.tar.xz"
-  sha256 "96cd1b8fe1e8cb2920f07c3fd3985faea756e16fdeebd11d3e146d5bd2b04a80"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.4.6.tar.xz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.4.6.tar.xz"
+  sha256 "4f6434fa541cc9e363434ea71a16a62cf2615fb2f16af5b38f43ab5939998c26"
 
   bottle do
-    sha256 "e2d50964da926f31d012647b97031ebd48b032a315f1f02e8c219dd33a381c24" => :high_sierra
-    sha256 "5ed1394dca18113182e4564f001521908a4bdb8f71f6adc5eb713adb4a4e014f" => :sierra
-    sha256 "ba28ad817104b3e953d2743e45a4c5554cea731c1016997bead7233755ff9a4d" => :el_capitan
+    sha256 "47aff9000b9a23736bec4d1a58cafa8eb1511ffc85043b5eee2124735f073cd2" => :high_sierra
+    sha256 "9e23d0e6089f209c7bbac93594107741a1418bd71e65f4047355d1b1b2c71917" => :sierra
+    sha256 "6fd9609026d5f56b688f15856f19a5774f868262251cb1c8b6599a11c41a2fa1" => :el_capitan
   end
 
   # Requires tuntap for < 10.10
@@ -16,6 +16,7 @@ class Openvpn < Formula
 
   depends_on "pkg-config" => :build
   depends_on "lzo"
+  depends_on "lz4"
   depends_on "openssl"
 
   resource "pkcs11-helper" do
@@ -90,7 +91,7 @@ class Openvpn < Formula
       <string>#{etc}/openvpn</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

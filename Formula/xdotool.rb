@@ -33,7 +33,7 @@ class Xdotool < Formula
 
     For the source of this useful hint:
       https://stackoverflow.com/questions/1264210/does-mac-x11-have-the-xtest-extension
-    EOS
+  EOS
   end
 
   test do

@@ -1,15 +1,14 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.9.4/node-v8.9.4.tar.xz"
-  sha256 "6cdcde9c9c1ca9f450a0b24eafa229ca759e576daa0fae892ce74d541ecdc86f"
-  head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
+  url "https://nodejs.org/dist/v8.11.3/node-v8.11.3.tar.xz"
+  sha256 "577c751fdca91c46c60ffd8352e5b465881373bfdde212c17c3a3c1bd2616ee0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "388983b525fcf73c83fb21e13ffa350b71da37c1cca7dc3cb129f3e62c4e8b7f" => :high_sierra
-    sha256 "3a92ecd2cdeff45fea42aacb07de1e827d0b6a6cf2a441d73121acff73ac6f4c" => :sierra
-    sha256 "0f37df2a9ed5e27f6177e8e167541b2a212b6eb68f3c5ae0c2b91025911dc87e" => :el_capitan
+    sha256 "8972065cc254cd688996153d2b352480ddb06c97d071298e19ac089ed75fd718" => :high_sierra
+    sha256 "bbcad9db53cd546167f3b75e5a1bd289cc32ed9a4c6081da38269583f21cc92e" => :sierra
+    sha256 "f2fbe21a604e200be2339a3f81ade9483955eddd129c7fd00fbdbf4272e9ee60" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -20,7 +19,7 @@ class NodeAT8 < Formula
   option "without-completion", "npm bash completion will not be installed"
   option "without-icu4c", "Build with small-icu (English only) instead of system-icu (all locales)"
 
-  depends_on "python" => :build if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
   depends_on "openssl" => :optional
@@ -34,15 +33,22 @@ class NodeAT8 < Formula
   end
 
   def install
+    # icu4c 61.1 compatability
+    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" if build.with? "openssl"
-    args << "--tag=head" if build.head?
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  def post_install
+    return if build.without? "npm"
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
   end
 
   def caveats
@@ -77,7 +83,7 @@ class NodeAT8 < Formula
       assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{bin}/npm", *npm_args, "install", "npm@latest"
-      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
+      system "#{bin}/npm", *npm_args, "install", "bignum"
       assert_predicate bin/"npx", :exist?, "npx must exist"
       assert_predicate bin/"npx", :executable?, "npx must be executable"
       assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")

@@ -19,4 +19,9 @@ class Balance < Formula
     bin.install "balance"
     man1.install "balance.1"
   end
+
+  test do
+    output = shell_output("#{bin}/balance 2>&1", 64)
+    assert_match "this is balance #{version}", output
+  end
 end

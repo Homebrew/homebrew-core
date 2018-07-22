@@ -1,18 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.13/source/mariadb-10.2.13.tar.gz"
-  sha256 "272e7ed9300a05da9e02f8217a01ed3447c4f5a36a12e5233d62cc7c586fc753"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.8/source/mariadb-10.3.8.tar.gz"
+  sha256 "30bec17514d12d811a05757be46bd41724df28002cdec550d5c757b0b3f31ab8"
 
   bottle do
-    sha256 "74dc1bbef50322f29558f46267dd0ad1006fa7c5fde70d1095f356ee7d5c31db" => :high_sierra
-    sha256 "0a66bb259d1a12119f910164fb6bf3518422e90b696ac8bf7415b2d9f823621e" => :sierra
-    sha256 "3aebe8389be1af00ee1e1ccbb6dbacf72e4e16c753ae346901e43c762c8f5f23" => :el_capitan
-  end
-
-  devel do
-    url "https://downloads.mariadb.org/f/mariadb-10.3.5/source/mariadb-10.3.5.tar.gz"
-    sha256 "cbb81f5f7e25c822db6683bbb43b3aad328622fa86da81c1ddeee8005523b203"
+    sha256 "2e7b3c745b6c7fe22f04518e445de4ef719d261ca7d5cbef2e942876e65319d0" => :high_sierra
+    sha256 "dfcf6c28090f3cfe66a8e5e45d629fe1255d037534cfd5f80baf70c8d4a4d3f3" => :sierra
+    sha256 "479a6af73286ea2e94ad450b6db3b487676ff7c0db3ae7feb4c65f1405f137b9" => :el_capitan
   end
 
   option "with-test", "Keep test when installing"
@@ -56,8 +51,8 @@ class Mariadb < Formula
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DWITH_PCRE=bundled
       -DWITH_SSL=yes
-      -DDEFAULT_CHARSET=utf8
-      -DDEFAULT_COLLATION=utf8_general_ci
+      -DDEFAULT_CHARSET=utf8mb4
+      -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_SYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
     ]
@@ -148,7 +143,7 @@ class Mariadb < Formula
 
     To connect:
         mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "mysql.server start"
@@ -173,7 +168,7 @@ class Mariadb < Formula
       <string>#{var}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

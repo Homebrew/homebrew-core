@@ -1,14 +1,14 @@
 class BdwGc < Formula
   desc "Garbage collector for C and C++"
   homepage "http://www.hboehm.info/gc/"
-  url "https://github.com/ivmai/bdwgc/releases/download/v7.6.4/gc-7.6.4.tar.gz"
-  sha256 "b94c1f2535f98354811ee644dccab6e84a0cf73e477ca03fb5a3758fb1fecd1c"
+  url "https://github.com/ivmai/bdwgc/releases/download/v7.6.6/gc-7.6.6.tar.gz"
+  sha256 "e968edf8f80d83284dd473e00a5e3377addc2df261ffb7e6dc77c9a34a0039dc"
 
   bottle do
     cellar :any
-    sha256 "9e4cca3ae473e36efa75c33f41de6be4fa354e37e5a1ff9e577015c4c9523c70" => :high_sierra
-    sha256 "5f9c96e3ec026360cedad1488121bfd4bcd79dcb1476548ddcda77e7368b5641" => :sierra
-    sha256 "32db63b2c9695a0707a7fad6fdd4b843f1803b92d5272eef4855a4b6c261dc6a" => :el_capitan
+    sha256 "92c0083a6b6ae87607e13185a59e3f1794b543f7172889777bc09c0e9c1e158b" => :high_sierra
+    sha256 "ccd948680c4d35ea36968605a7e51e038187b8492c7888369a180659905b200c" => :sierra
+    sha256 "13cd1da271d203af0e834a53f232122ab0a740bf9bbb68c68cc172bd23654eab" => :el_capitan
   end
 
   head do

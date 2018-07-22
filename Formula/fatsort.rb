@@ -20,4 +20,8 @@ class Fatsort < Formula
     bin.install "src/fatsort"
     man1.install "man/fatsort.1"
   end
+
+  test do
+    system "#{bin}/fatsort", "--version"
+  end
 end

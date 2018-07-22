@@ -12,8 +12,6 @@ class Tnftp < Formula
     sha256 "fdaf7c1ab1fcb48226a9846452b352e4da302ac6aca61a74a67f97b8bb21c942" => :el_capitan
   end
 
-  keg_only :provided_pre_high_sierra
-
   depends_on :xcode => :build
 
   conflicts_with "inetutils", :because => "both install `ftp' binaries"

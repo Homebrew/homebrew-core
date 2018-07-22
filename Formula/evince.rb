@@ -1,16 +1,16 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.26/evince-3.26.0.tar.xz"
-  sha256 "79567bdb743cf0c3ed7b638da32afc9b850298f9b4edd532455df4a7e2a4c9d8"
-  revision 2
+  url "https://download.gnome.org/sources/evince/3.28/evince-3.28.2.tar.xz"
+  sha256 "0955d22d85c9f6d322b6cbb464f1cc4c352db619017ec95dad4cc5c3440f73e1"
 
   bottle do
-    sha256 "eb7e178a0b7620ff754e8ab9f606b778ca89b263e940a48e750c7323b6320f67" => :high_sierra
-    sha256 "401f46ef6d3f028659d397c6eeda644643a78c2acc1aede32161fc9d14a83748" => :sierra
-    sha256 "489c7a761077e80815c3878918a3c77254b70532b0a7d968f1ea525791789d08" => :el_capitan
+    sha256 "e798fb7ca35833677970456d9902e07c70adf43c56c4a85ce7dfe376ad6e0db1" => :high_sierra
+    sha256 "7c81ed517fe583d05561224deed4d37771ba5280345361b771fe362a8c4c73d3" => :sierra
+    sha256 "9a417f126fe8cba7c999fd2bdb4e5f44360e37f36883a664312cb85c88f5b78d" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
@@ -21,10 +21,9 @@ class Evince < Formula
   depends_on "adwaita-icon-theme"
   depends_on "libsecret"
   depends_on "libspectre"
-  depends_on "gobject-introspection"
   depends_on "shared-mime-info"
   depends_on "djvulibre"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     # Fix build failure "ar: illegal option -- D"

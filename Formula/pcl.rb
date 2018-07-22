@@ -1,7 +1,7 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  revision 2
+  revision 3
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   stable do
@@ -18,9 +18,9 @@ class Pcl < Formula
   end
 
   bottle do
-    sha256 "2e603ca81513fff70a3964036f04996c9db68f80fcdff2cb98cad972cd5bae3d" => :high_sierra
-    sha256 "0b1fc94be3c39437d9bf857becd9a85e18b36966992b388bd4991fcf49d72ad9" => :sierra
-    sha256 "3ce8ccdfbe8a1624a07749b36c53cd274b990bb1ef4a8ce2fb27381eb1dab308" => :el_capitan
+    sha256 "4ce797b0f374af5f48dc0973444a484758138ae4f266c3b05eaaa3fa397150de" => :high_sierra
+    sha256 "19059cdc4d921fa94df4422db43bd08c92f3523c5c71d56232a30e52a930e103" => :sierra
+    sha256 "d0b054af73d2d35b7de29e1382ba1232386ddd6e3f00467723eb6ce3c0150256" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -35,6 +35,12 @@ class Pcl < Formula
   depends_on "vtk"
 
   def install
+    # Fix "error: no matching constructor for initialization of
+    # 'boost::uuids::random_generator' (aka 'boost::uuids::random_generator_pure')"
+    # Upstream issue 18 Apr 2018 "Fails to build against Boost 1.67"
+    # See https://github.com/PointCloudLibrary/pcl/issues/2284
+    ENV.append "CXXFLAGS", "-DBOOST_UUID_RANDOM_GENERATOR_COMPAT"
+
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_apps=AUTO_OFF

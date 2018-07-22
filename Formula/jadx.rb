@@ -1,8 +1,8 @@
 class Jadx < Formula
   desc "Dex to Java decompiler"
   homepage "https://github.com/skylot/jadx"
-  url "https://github.com/skylot/jadx/releases/download/v0.6.1/jadx-0.6.1.zip"
-  sha256 "75a9c01f07f434f42831fc71053e933e3a6e92692731fb0e2347234171a49e49"
+  url "https://github.com/skylot/jadx/releases/download/v0.7.1/jadx-0.7.1.zip"
+  sha256 "1f0431273ad9e56a40fb31ad6c355ccb1da5be74887d8d9fb17995bd7cb06285"
 
   head do
     url "https://github.com/skylot/jadx.git"
@@ -15,7 +15,7 @@ class Jadx < Formula
   depends_on :java => "1.6+"
 
   resource "sample.apk" do
-    url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk", :using => :nounzip
+    url "https://github.com/downloads/stephanenicolas/RoboDemo/robodemo-sample-1.0.1.apk"
     sha256 "bf3ec04631339538c8edb97ebbd5262c3962c5873a2df9022385156c775eb81f"
   end
 

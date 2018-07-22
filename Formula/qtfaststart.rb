@@ -1,14 +1,14 @@
 class Qtfaststart < Formula
   desc "Utility for Quicktime files"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-12.2.tar.gz"
-  sha256 "49c3ccda32458192c00ab25b30f4d1a6a4772b83458cbbf3a25b210d0688f55c"
+  url "https://libav.org/releases/libav-12.3.tar.gz"
+  sha256 "115b659022dd387f662e26fbc5bc0cc14ec18daa100003ffd34f4da0479b272e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e6cb881b5847a3dda9f56a2b244c6c6123b13e28b41c91dbcd1bc4afd6fcd773" => :high_sierra
-    sha256 "8848267a2ab440f0c428baa9347351cf54d57221ae5f7d83db2c24623a7263e4" => :sierra
-    sha256 "892c2705b879a778794892e3655da5f2f747c4061ea919372e8e35b0470135a2" => :el_capitan
+    sha256 "4534f204dcc950ad18c3a141119fcd8d9a9623645092ae3f003b08dd94851dcf" => :high_sierra
+    sha256 "a11b3b623a2682567830cb05810ed4445037f5b43a52f2378a10291aad70a2c6" => :sierra
+    sha256 "00ed1702b08f3fe7d0660aab963f15baab6a5bac8db02048fe5d0b4d80b4abe0" => :el_capitan
   end
 
   resource "mov" do

@@ -2,7 +2,7 @@ class CodesignRequirement < Requirement
   fatal true
 
   satisfy(:build_env => false) do
-    FileUtils.mktemp do
+    mktemp do
       FileUtils.cp "/usr/bin/false", "llvm_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
     end
@@ -21,71 +21,62 @@ class Llvm < Formula
   homepage "https://llvm.org/"
 
   stable do
-    url "https://releases.llvm.org/5.0.1/llvm-5.0.1.src.tar.xz"
-    sha256 "5fa7489fc0225b11821cab0362f5813a05f2bcf2533e8a4ea9c9c860168807b0"
+    url "https://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz"
+    sha256 "b6d6c324f9c71494c0ccaf3dac1f16236d970002b42bb24a6c9e1634f7d0f4e2"
 
     resource "clang" do
-      url "https://releases.llvm.org/5.0.1/cfe-5.0.1.src.tar.xz"
-      sha256 "135f6c9b0cd2da1aff2250e065946258eb699777888df39ca5a5b4fe5e23d0ff"
+      url "https://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz"
+      sha256 "7c243f1485bddfdfedada3cd402ff4792ea82362ff91fbdac2dae67c6026b667"
     end
 
     resource "clang-extra-tools" do
-      url "https://releases.llvm.org/5.0.1/clang-tools-extra-5.0.1.src.tar.xz"
-      sha256 "9aada1f9d673226846c3399d13fab6bba4bfd38bcfe8def5ee7b0ec24f8cd225"
+      url "https://releases.llvm.org/6.0.1/clang-tools-extra-6.0.1.src.tar.xz"
+      sha256 "0d2e3727786437574835b75135f9e36f861932a958d8547ced7e13ebdda115f1"
     end
 
     resource "compiler-rt" do
-      url "https://releases.llvm.org/5.0.1/compiler-rt-5.0.1.src.tar.xz"
-      sha256 "4edd1417f457a9b3f0eb88082530490edf3cf6a7335cdce8ecbc5d3e16a895da"
+      url "https://releases.llvm.org/6.0.1/compiler-rt-6.0.1.src.tar.xz"
+      sha256 "f4cd1e15e7d5cb708f9931d4844524e4904867240c306b06a4287b22ac1c99b9"
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "https://releases.llvm.org/5.0.1/libcxx-5.0.1.src.tar.xz"
-      sha256 "fa8f99dd2bde109daa3276d529851a3bce5718d46ce1c5d0806f46caa3e57c00"
+      url "https://releases.llvm.org/6.0.1/libcxx-6.0.1.src.tar.xz"
+      sha256 "7654fbc810a03860e6f01a54c2297a0b9efb04c0b9aa0409251d9bdb3726fc67"
     end
 
     resource "libunwind" do
-      url "https://releases.llvm.org/5.0.1/libunwind-5.0.1.src.tar.xz"
-      sha256 "6bbfbf6679435b858bd74bdf080386d084a76dfbf233fb6e47b2c28e0872d0fe"
+      url "https://releases.llvm.org/6.0.1/libunwind-6.0.1.src.tar.xz"
+      sha256 "a8186c76a16298a0b7b051004d0162032b9b111b857fbd939d71b0930fd91b96"
     end
 
     resource "lld" do
-      url "https://releases.llvm.org/5.0.1/lld-5.0.1.src.tar.xz"
-      sha256 "d5b36c0005824f07ab093616bdff247f3da817cae2c51371e1d1473af717d895"
+      url "https://releases.llvm.org/6.0.1/lld-6.0.1.src.tar.xz"
+      sha256 "e706745806921cea5c45700e13ebe16d834b5e3c0b7ad83bf6da1f28b0634e11"
     end
 
     resource "lldb" do
-      url "https://releases.llvm.org/5.0.1/lldb-5.0.1.src.tar.xz"
-      sha256 "b7c1c9e67975ca219089a3a6a9c77c2d102cead2dc38264f2524aa3326da376a"
-
-      # Fixes "error: no type named 'pid_t' in the global namespace"
-      # https://github.com/Homebrew/homebrew-core/issues/17839
-      # Already fixed in upstream trunk
-      patch do
-        url "https://github.com/llvm-mirror/lldb/commit/324f93b5e30.patch?full_index=1"
-        sha256 "f23fc92c2d61bf6c8bc6865994a75264fafba6ae435e4d2f4cc8327004523fb1"
-      end
+      url "https://releases.llvm.org/6.0.1/lldb-6.0.1.src.tar.xz"
+      sha256 "6b8573841f2f7b60ffab9715c55dceff4f2a44e5a6d590ac189d20e8e7472714"
     end
 
     resource "openmp" do
-      url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
-      sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
+      url "https://releases.llvm.org/6.0.1/openmp-6.0.1.src.tar.xz"
+      sha256 "66afca2b308351b180136cf899a3b22865af1a775efaf74dc8a10c96d4721c5a"
     end
 
     resource "polly" do
-      url "https://releases.llvm.org/5.0.1/polly-5.0.1.src.tar.xz"
-      sha256 "9dd52b17c07054aa8998fc6667d41ae921430ef63fa20ae130037136fdacf36e"
+      url "https://releases.llvm.org/6.0.1/polly-6.0.1.src.tar.xz"
+      sha256 "e7765fdf6c8c102b9996dbb46e8b3abc41396032ae2315550610cf5a1ecf4ecc"
     end
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "61c8f073f3fc25971ead1a106f4db95db08b4ba0cd1eb7df7c40f6a2ee74dfbb" => :high_sierra
-    sha256 "da1ffc015d980daaa72affabbadfa4b1b821989f50ea14f5fea7d799eee018e8" => :sierra
-    sha256 "54c1d217622fd298186bad4af680d2ac3aafc237948d581ad1ecb221bc293b38" => :el_capitan
+    sha256 "7faa7e25bd2e1b9391689e4261f4649738369a7dbbb01199390542ed4e2fdff2" => :high_sierra
+    sha256 "d4b1c4fff2714eb55e8b9bee5a9df356ec12f8ca58eea7bc7d0cff005add966d" => :sierra
+    sha256 "cdfb1c08bf5a0862c51edf302b6edba29eff09414bb8ac35093b7d74863a7cfb" => :el_capitan
   end
 
   head do
@@ -134,9 +125,13 @@ class Llvm < Formula
   option "without-libcxx", "Do not build libc++ standard library"
   option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
-  option "with-python", "Build bindings against custom Python"
+  option "with-python@2", "Build bindings against Homebrew's Python 2"
   option "with-shared-libs", "Build shared instead of static libraries"
   option "without-libffi", "Do not use libffi to call external functions"
+  option "with-polly-gpgpu", "Enable Polly GPGPU"
+  option "without-rtti", "Disable RTTI (and exception handling)"
+
+  deprecated_option "with-python" => "with-python@2"
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "libffi" => :recommended
@@ -151,9 +146,9 @@ class Llvm < Formula
   end
 
   if MacOS.version <= :snow_leopard
-    depends_on "python"
+    depends_on "python@2"
   else
-    depends_on "python" => :optional
+    depends_on "python@2" => :optional
   end
   depends_on "cmake" => :build
 
@@ -177,8 +172,8 @@ class Llvm < Formula
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
-    if build.with? "python"
-      ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    if build.with? "python@2"
+      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
     end
 
     (buildpath/"tools/clang").install resource("clang")
@@ -190,7 +185,7 @@ class Llvm < Formula
     (buildpath/"tools/polly").install resource("polly")
 
     if build.with? "lldb"
-      if build.with? "python"
+      if build.with? "python@2"
         pyhome = `python-config --prefix`.chomp
         ENV["PYTHONHOME"] = pyhome
         pylib = "#{pyhome}/lib/libpython2.7.dylib"
@@ -223,8 +218,6 @@ class Llvm < Formula
     args = %w[
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_INCLUDE_DOCS=OFF
-      -DLLVM_ENABLE_RTTI=ON
-      -DLLVM_ENABLE_EH=ON
       -DLLVM_INSTALL_UTILS=ON
       -DWITH_POLLY=ON
       -DLINK_POLLY_INTO_TOOLS=ON
@@ -233,6 +226,12 @@ class Llvm < Formula
     args << "-DLIBOMP_ARCH=x86_64"
     args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if build.with? "compiler-rt"
     args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
+    args << "-DPOLLY_ENABLE_GPGPU_CODEGEN=ON" if build.with? "polly-gpgpu"
+
+    if build.with? "rtti"
+      args << "-DLLVM_ENABLE_RTTI=ON"
+      args << "-DLLVM_ENABLE_EH=ON"
+    end
 
     if build.with? "shared-libs"
       args << "-DBUILD_SHARED_LIBS=ON"
@@ -243,7 +242,7 @@ class Llvm < Formula
 
     args << "-DLLVM_ENABLE_LIBCXX=ON" if build_libcxx?
 
-    if build.with?("lldb") && build.with?("python")
+    if build.with?("lldb") && build.with?("python@2")
       args << "-DLLDB_RELOCATABLE_PYTHON=ON"
       args << "-DPYTHON_LIBRARY=#{pylib}"
       args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"

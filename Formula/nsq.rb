@@ -1,6 +1,6 @@
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
-  homepage "http://nsq.io"
+  homepage "https://nsq.io/"
   url "https://github.com/nsqio/nsq/archive/v1.0.0-compat.tar.gz"
   version "1.0.0"
   sha256 "c279d339eceb84cad09e2c2bc21e069e37988d0f6b7343d77238374081c9fd29"

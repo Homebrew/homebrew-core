@@ -1,15 +1,17 @@
 class Goocanvas < Formula
   desc "Canvas widget for GTK+ using the Cairo 2D library for drawing"
-  homepage "https://live.gnome.org/GooCanvas"
+  homepage "https://wiki.gnome.org/Projects/GooCanvas"
   url "https://download.gnome.org/sources/goocanvas/2.0/goocanvas-2.0.4.tar.xz"
   sha256 "c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90"
+  revision 1
 
   bottle do
-    sha256 "b7124d1a527133154e512e1161139b548b6a85de02a60bb0af6a846609c9cfdc" => :high_sierra
-    sha256 "a3606de14cd0673059212876471fcef7f77dad186c643b02f7dd1ce4298616e4" => :sierra
-    sha256 "b668a762e8d82306d39be7f8bf72e739d3a6f84624b93c786f01a9c910854724" => :el_capitan
+    sha256 "79ef1d7dd6f20f0b26c171bbe38243d8e21167b27080488b45723ef1a1eb53b1" => :high_sierra
+    sha256 "e006d106b20aa040106983b51142bf134dd1925f4e6df11f09a89fea96189a22" => :sierra
+    sha256 "26d6c8d30f7a9056af03e59691a4112147cff745855042244413b83be99c7ae9" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "glib"

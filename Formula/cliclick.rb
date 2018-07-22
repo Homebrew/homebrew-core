@@ -1,16 +1,15 @@
 class Cliclick < Formula
   desc "Tool for emulating mouse and keyboard events"
   homepage "https://www.bluem.net/jump/cliclick/"
-  url "https://github.com/BlueM/cliclick/archive/3.3.tar.gz"
-  sha256 "e434a951f0ab0c44ee965058f382cb22ec2b9027acdd17679e1244af3117965a"
+  url "https://github.com/BlueM/cliclick/archive/4.0.1.tar.gz"
+  sha256 "78f9584524b2cb4710a964f4d8e23667479f1dab37240d1ffbc8dfa9841ff1c2"
   head "https://github.com/BlueM/cliclick.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "769a5a92d635e7eeaf6f0c07f6db7257ef0ad7a37f300525ad40da2c6d9efd4a" => :high_sierra
-    sha256 "b6585dee48ebd350a1c42cca05425f46193d4ce2e911cc58936848f3a75c7a61" => :sierra
-    sha256 "a632b68221f49e4590425260482f0ba1084cfc7b9838721c4c02651edeb1ecbd" => :el_capitan
-    sha256 "6474d5b2d232dbac0512f8435a447e17ed21f1c44d36c46b6edb94d239b797e7" => :yosemite
+    sha256 "c371cb5b700e4a5f6495545b5f83e5414fc0e0cb98be05231a7abdf6c6607ff4" => :high_sierra
+    sha256 "bb47d1d8f4c81f31dc9372b5c06d3f74ecb25026805936f62e08744d1b888ecb" => :sierra
+    sha256 "e8eca6037032ad2b68b9e8c4faa40adb770b10f868448e47852571f1829aa462" => :el_capitan
   end
 
   def install

@@ -1,8 +1,8 @@
 class Shml < Formula
   desc "Style Framework for The Terminal"
   homepage "http://shml.xyz"
-  url "https://github.com/MaxCDN/shml/archive/1.0.4.tar.gz"
-  sha256 "583fefbbf2adf45d989b052696be0f20f695903878558a4d2e9f74255b91ed51"
+  url "https://github.com/MaxCDN/shml/archive/1.1.0.tar.gz"
+  sha256 "0f0634fe5dd043f5ff52946151584a59b5826acbb268c9d884a166c3196b8f4f"
 
   bottle :unneeded
 
@@ -15,7 +15,7 @@ class Shml < Formula
     ["shml", "shml.sh"].each do |cmd|
       result = shell_output("#{bin}/#{cmd} -v")
       result.force_encoding("UTF-8") if result.respond_to?(:force_encoding)
-      assert_match "1.0.4", result
+      assert_match version.to_s, result
     end
   end
 end

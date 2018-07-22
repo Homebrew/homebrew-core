@@ -3,11 +3,12 @@ class Shogun < Formula
   homepage "http://www.shogun-toolbox.org/"
   url "http://shogun-toolbox.org/archives/shogun/releases/6.1/sources/shogun-6.1.3.tar.bz2"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
+  revision 2
 
   bottle do
-    sha256 "f1a12c1e5eddcdf573f66c14ea30b2f223830557dfb996d88ae970888b1ca719" => :high_sierra
-    sha256 "f15370760814b49ac5f2d6a4b5b8ce452a286ffc571251ba8da2f1e6180f6b59" => :sierra
-    sha256 "0cfa0d06e772e464e8b376a7d14b79bd00a49080f4fb808de5b40fe697819115" => :el_capitan
+    sha256 "5cba717ac215389123c61b18d67fa4b4b3fa22ecda0db6ce8b02d6e7520b3318" => :high_sierra
+    sha256 "f00f871d3811235b18e8b3f1b9ff79ffa2c7d511f777c242ff6da11c3ba17d31" => :sierra
+    sha256 "83732a82aefc44d78643400747406d44cf53ab0aca8137bb152ce287d1842e81" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -22,7 +23,7 @@ class Shogun < Formula
   depends_on "lapack" if MacOS.version >= :high_sierra
   depends_on "lzo"
   depends_on "nlopt"
-  depends_on "python" if MacOS.version <= :lion
+  depends_on "python@2"
   depends_on "snappy"
   depends_on "xz"
 
@@ -42,6 +43,13 @@ class Shogun < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/9df360c/shogun/fix_veclib.patch"
     sha256 "de7ebe4c91da9f63fc322c5785f687c0005ed8df2c70cd3e9024fbac7b6d3745"
+  end
+
+  # Fixes compiling with json-c 0.13.1. Shogun 6.1.3 is using the
+  # deprecated json-c is_error() macro which got removed in json-c 0.13.1.
+  patch do
+    url "https://github.com/shogun-toolbox/shogun/commit/365ce4c4c7.patch?full_index=1"
+    sha256 "e7d90ed1ff448d86762449223b926de247e49ae6eeffa7f38c2395f69b1e16fc"
   end
 
   resource "jblas" do
@@ -75,6 +83,11 @@ class Shogun < Formula
 
     libexec.install resource("jblas")
 
+    python_executable = Formula["python@2"].opt_bin/"python2"
+    python_prefix = Utils.popen_read("#{python_executable} -c 'import sys; print(sys.prefix)'").chomp
+    python_include = Utils.popen_read("#{python_executable} -c 'from distutils import sysconfig; print(sysconfig.get_python_inc(True))'").chomp
+    python_library = "#{python_prefix}/Python"
+
     mkdir "build" do
       system "cmake", "..", "-DBUILD_EXAMPLES=OFF",
                             "-DBUNDLE_JSON=OFF",
@@ -86,6 +99,9 @@ class Shogun < Formula
                             "-DINTERFACE_JAVA=ON",
                             "-DJBLAS=#{libexec}/jblas-#{resource("jblas").version}.jar",
                             "-DLIB_INSTALL_DIR=#{lib}",
+                            "-DPYTHON_EXECUTABLE=#{python_executable}",
+                            "-DPYTHON_INCLUDE_DIR=#{python_include}",
+                            "-DPYTHON_LIBRARY=#{python_library}",
                             *std_cmake_args
       system "make", "install"
     end

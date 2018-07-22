@@ -24,6 +24,10 @@ class Aldo < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    assert_match "Aldo #{version} Main Menu", pipe_output("#{bin}/aldo", "6")
+  end
 end
 
 __END__

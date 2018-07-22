@@ -15,6 +15,9 @@ class Mp4v2 < Formula
     sha256 "ec42cf726369e5f6c3a4956cffbf44ab8d4b74f5bec35892a0c041641c2f4d4c" => :mountain_lion
   end
 
+  conflicts_with "bento4",
+    :because => "both install `mp4extract` and `mp4info` binaries"
+
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make"

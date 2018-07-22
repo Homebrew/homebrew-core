@@ -1,14 +1,14 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://www.grpc.io/"
-  url "https://github.com/grpc/grpc/archive/v1.9.1.tar.gz"
-  sha256 "fac236d49fb3e89399b68a5aa944fc69221769bcedd099d47eb6f93e59035c40"
+  url "https://github.com/grpc/grpc/archive/v1.13.1.tar.gz"
+  sha256 "af0d41b5fab2797a3bd71bfe1b8c94e553b7c7317f87f664de26bafbf75677c4"
   head "https://github.com/grpc/grpc.git"
 
   bottle do
-    sha256 "baacaa17e506055ac25da956cf61c86b442757434e35e4f8ef14a945d5008d57" => :high_sierra
-    sha256 "7dee2cb72e6de6b015092f50febff6bf55ee06f4c416939903c1e8eef8290567" => :sierra
-    sha256 "ad39dc6251dd75ee91c751dda21d765ae60301b1940990c72821b0c474060d70" => :el_capitan
+    sha256 "6f8a195aaeb2a6b3c2d589a63e0c400d409c85dca3f3e2de7eba68de659637e2" => :high_sierra
+    sha256 "5b05b324c5c5660777e7a47d991d73e4dc01a951009cd9849fbdab9dcae92f74" => :sierra
+    sha256 "383ad6e4de4f1b7dbfbd4aac05d8e6bb25176ca5203a73a217acf38592f129c6" => :el_capitan
   end
 
   depends_on "autoconf" => :build

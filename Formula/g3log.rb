@@ -1,14 +1,14 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/1.3.tar.gz"
-  sha256 "b8be9ac9d888c241e1042103cd530a49baeef2853c0ab4b6dc696dad930b8784"
+  url "https://github.com/KjellKod/g3log/archive/1.3.2.tar.gz"
+  sha256 "0ed1983654fdd8268e051274904128709c3d9df8234acf7916e9015199b0b247"
 
   bottle do
     cellar :any
-    sha256 "1262d978d45803ff690c0a6e95f0538bccb3ed87ee4febd215890a832890d12c" => :high_sierra
-    sha256 "87285fa811530d34278991500e717df84afb880f2f39fce92f1ca2f2bd43d369" => :sierra
-    sha256 "1a37f872ebf9eca41fd4bb8bc41a2799f32f3ead33cf9c423cf633d6485a2cc7" => :el_capitan
+    sha256 "59c77b06d62ea06a4aa96ce6ecf1903a415d32248631cadc2c1787e291f006fc" => :high_sierra
+    sha256 "be3b9045a3cc0e011db0e9d9bd7b8feda8080a0fb591edb33a846d990395f4f6" => :sierra
+    sha256 "4cd2f01ea225e95a348d1a514cf14f2c51eb47b1ef2f86c8d3e7c8218ba0eb31" => :el_capitan
   end
 
   depends_on :macos => :el_capitan # needs thread-local storage
@@ -16,12 +16,7 @@ class G3log < Formula
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make"
-
-    # No install target yet: https://github.com/KjellKod/g3log/issues/49
-    include.install "src/g3log"
-    lib.install "libg3logger.a", "libg3logger.dylib"
-    MachO::Tools.change_dylib_id("#{lib}/libg3logger.dylib", "#{lib}/libg3logger.dylib")
+    system "make", "install"
   end
 
   test do

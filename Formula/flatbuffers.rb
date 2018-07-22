@@ -1,15 +1,15 @@
 class Flatbuffers < Formula
   desc "Serialization library for C++, supporting Java, C#, and Go"
   homepage "https://google.github.io/flatbuffers"
-  url "https://github.com/google/flatbuffers/archive/v1.8.0.tar.gz"
-  sha256 "c45029c0a0f1a88d416af143e34de96b3091642722aa2d8c090916c6d1498c2e"
+  url "https://github.com/google/flatbuffers/archive/v1.9.0.tar.gz"
+  sha256 "5ca5491e4260cacae30f1a5786d109230db3f3a6e5a0eb45d0d0608293d247e3"
   head "https://github.com/google/flatbuffers.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "30cb86dad1fb7c161775e66436d7143e89771f8286a23b04d10ac3b119eb902f" => :high_sierra
-    sha256 "c04972a0e433229877a65e01bf700fc5326d6a7318887a5269e7437ff6274fc9" => :sierra
-    sha256 "cc9fa90cb4d4ac9744512297e8121cb2fd493b4b081902c3feaff715b9923a77" => :el_capitan
+    sha256 "0ff7c60d4f88899310a9690e4ce0a61652e7435b408ecf0b83902929a558e5a6" => :high_sierra
+    sha256 "6cd9702f17cbae326210eec6d6c96f4d568dcc2eea9c256781e96652da463dd8" => :sierra
+    sha256 "02461c38c5a9f3404b4b7ada348903a6cd67f83e9eb0af8bc07628a9fe5ef7bf" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -47,7 +47,7 @@ class Flatbuffers < Formula
 
       root_type Monster;
 
-      EOS
+    EOS
     end
     (testpath/"test.fbs").write(testfbs)
 
@@ -61,7 +61,7 @@ class Flatbuffers < Formula
         hp: 80,
         name: "MyMonster"
       }
-      EOS
+    EOS
     end
     (testpath/"test.json").write(testjson)
 

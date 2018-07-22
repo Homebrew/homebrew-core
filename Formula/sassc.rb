@@ -2,15 +2,15 @@ class Sassc < Formula
   desc "Wrapper around libsass that helps to create command-line apps"
   homepage "https://github.com/sass/sassc"
   url "https://github.com/sass/sassc.git",
-      :tag => "3.4.8",
+      :tag => "3.5.0",
       :revision => "aa6d5c635ea8faf44d542a23aaf85d27e5777d48"
   head "https://github.com/sass/sassc.git"
 
   bottle do
     cellar :any
-    sha256 "f48aaee9afc666a7ac0ce4b341b7e15b4e4d9404a77500e73da3cdfd73d4eaa8" => :high_sierra
-    sha256 "bcc4826570ea3b06ce0abbe121c34dceb4bbe63725813141b4609103a4b2db51" => :sierra
-    sha256 "25a34fbafc73386346451db63cffdfe2455d22a834a0510ff51d8bec925fbc3e" => :el_capitan
+    sha256 "efda15371cdf37716f508cbbbc7512bd4db103cbdd25a0a5b27ae74e6f5a4705" => :high_sierra
+    sha256 "8160ead69c6f3e7665cb474e719cc244412c37335013e4d98bf10bfdfcff6a32" => :sierra
+    sha256 "32edbfd6543029224ea742a23f0bac7f675a9aa8e7a0511cee09561518591854" => :el_capitan
   end
 
   depends_on "autoconf" => :build

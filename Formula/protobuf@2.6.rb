@@ -1,26 +1,26 @@
 class ProtobufAT26 < Formula
   desc "Protocol buffers - Google data interchange format"
   homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/releases/download/v2.6.0/protobuf-2.6.0.tar.bz2"
-  sha256 "0a2f8533b2e0587a2b4efce0c4c8aea21bbfae1c41c466634d958dedf580f6aa"
+  url "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.bz2"
+  sha256 "ee445612d544d885ae240ffbcbf9267faa9f593b7b101f21d58beceb92661910"
 
   bottle do
-    sha256 "188fe3c8779e7c0568829bff058ea06244f17f4b736dd06a32b087a1c579268d" => :high_sierra
-    sha256 "86267a38f98ad22da8d222ff0cbaff8ffb65e8b7f56c7bad788f1a2c451ff668" => :sierra
-    sha256 "10be7a7a45c9ea4ec06f70f62522f3296f3d3b49ec6fb9e3fe071268f262ef88" => :el_capitan
-    sha256 "6337d6ac951577be7ec1bac4587b6c91325bacb53f6e3523ced7bd4b78fd6f7d" => :yosemite
+    sha256 "1ceb82b9eea2e86848d959bab4d5468b9388c45b7d687330cc709a11d591f893" => :high_sierra
+    sha256 "c3a17e095f0bba62fc1dc9a84adf830b4ab9d1198ec497c8bb2575fde97b5d30" => :sierra
+    sha256 "e1bf141c14c28ea10aec3cde34d228facbe0082c40dbb69d4d997b7103b72662" => :el_capitan
   end
 
   keg_only :versioned_formula
 
   # this will double the build time approximately if enabled
   option "with-test", "Run build-time check"
-  option "without-python", "Build without python support"
+  option "without-python@2", "Build without python2 support"
   option :cxx11
 
-  depends_on "python" => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@2" => :recommended
 
   deprecated_option "with-check" => "with-test"
+  deprecated_option "without-python" => "without-python@2"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/64/1dc5e5976b17466fd7d712e59cbe9fb1e18bec153109e5ba3ed6c9102f1a/six-1.9.0.tar.gz"
@@ -68,7 +68,7 @@ class ProtobufAT26 < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python"
+    if build.with? "python@2"
       # google-apputils is a build-time dependency
       ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
       %w[six python-dateutil pytz python-gflags google-apputils].each do |package|
@@ -95,7 +95,7 @@ class ProtobufAT26 < Formula
   def caveats; <<~EOS
     Editor support and examples have been installed to:
       #{doc}
-    EOS
+  EOS
   end
 
   test do
@@ -108,13 +108,13 @@ class ProtobufAT26 < Formula
         message Test {
           repeated TestCase case = 1;
         }
-        EOS
+      EOS
     (testpath/"test.proto").write(testdata)
     system bin/"protoc", "test.proto", "--cpp_out=."
-    if build.with? "python"
+    if build.with? "python@2"
       protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
       (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
-      system "python", "-c", "import google.protobuf"
+      system "python2.7", "-c", "import google.protobuf"
     end
   end
 end

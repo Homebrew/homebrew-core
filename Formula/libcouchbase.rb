@@ -1,14 +1,14 @@
 class Libcouchbase < Formula
   desc "C library for Couchbase"
   homepage "https://developer.couchbase.com/documentation/server/current/sdk/c/start-using-sdk.html"
-  url "https://s3.amazonaws.com/packages.couchbase.com/clients/c/libcouchbase-2.8.5.tar.gz"
-  sha256 "81a68bcac5dddeee85464cb0562771c03efd20d86f603351b6b4070339f2ec50"
+  url "https://packages.couchbase.com/clients/c/libcouchbase-2.9.3.tar.gz"
+  sha256 "cd3bba99d5e4935240e502535c3275e0756b480c6bc6746a46fb745d5e7066e4"
   head "https://github.com/couchbase/libcouchbase.git"
 
   bottle do
-    sha256 "158f36843d4b437c00f8b20a13a3b1bf93229554bcf39c8f21d1063055596d1b" => :high_sierra
-    sha256 "cf07ba33ba9cadabe808c26f92351f7b290127d9bb6e672cd1d341a89ee53dce" => :sierra
-    sha256 "ffa6538645d711587723feeace3154d45080dbd2e32cab282d9e8d57af2d4a1d" => :el_capitan
+    sha256 "ecab9566813f1ed433dd435f8cf1ab57704b2bf4ad07995cb941ed325500cf48" => :high_sierra
+    sha256 "13832f6acf65da844b3aedf6ac01602c55cdc3ca4266fb7d43414da0d0d966ff" => :sierra
+    sha256 "9e172a43648d20d7aa7bdd75c8ff6ebfcce3eb0916ae7a6304687584b633fed4" => :el_capitan
   end
 
   option "with-libev", "Build libev plugin"

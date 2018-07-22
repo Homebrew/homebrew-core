@@ -1,10 +1,10 @@
 class Burp < Formula
   desc "Network backup and restore"
-  homepage "http://burp.grke.org/"
+  homepage "https://burp.grke.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.28/burp-2.1.28.tar.bz2"
-    sha256 "c625fed9a9d911f25007cb0189d941efbf16449cf02e8599d6f506901a9ecd7d"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.1.32/burp-2.1.32.tar.bz2"
+    sha256 "56f8a13ae96e50f2274857a08c9f3d9f06ed6dee306d49fd189e3ff9f93c74fd"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
@@ -13,9 +13,9 @@ class Burp < Formula
   end
 
   bottle do
-    sha256 "3f9a25cb501a8bb41aba37cf848c45d6dd0e5e58b9b99fb3ab647b3694e9d585" => :high_sierra
-    sha256 "afa781546ca98f48e3f1a8f202ba4630fa0fc0037882cd81961dc8025792b05e" => :sierra
-    sha256 "cce7317e40d0b4ba7cddd49523e71315f8a604d671fb29ef98fcdf1ffc3e57db" => :el_capitan
+    sha256 "63448a114768888ecf29a7e43dc47bfa7d6bf8dcf29100dd686427c767d5c1f1" => :high_sierra
+    sha256 "7227edca3f5ccc37bb27c129f6191440341f1d6513a720a45d0132aae52f2a69" => :sierra
+    sha256 "327c71e933b05d212cc522748e4928b52da9c968f7f2ca50cee31a7ec99add0b" => :el_capitan
   end
 
   head do
@@ -30,6 +30,7 @@ class Burp < Formula
     end
   end
 
+  depends_on "pkg-config" => :build
   depends_on "librsync"
   depends_on "openssl"
 
@@ -58,7 +59,7 @@ class Burp < Formula
   def caveats; <<~EOS
     Before installing the launchd entry you should configure your burp client in
       #{etc}/burp/burp.conf
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -86,7 +87,7 @@ class Burp < Formula
       <string>#{HOMEBREW_PREFIX}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

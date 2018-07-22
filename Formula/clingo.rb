@@ -1,19 +1,19 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/"
-  url "https://github.com/potassco/clingo/archive/v5.2.2.tar.gz"
-  sha256 "da1ef8142e75c5a6f23c9403b90d4f40b9f862969ba71e2aaee9a257d058bfcf"
+  url "https://github.com/potassco/clingo/archive/v5.3.0.tar.gz"
+  sha256 "b0d406d2809352caef7fccf69e8864d55e81ee84f4888b0744894977f703f976"
 
   bottle do
-    rebuild 1
-    sha256 "c6d1544f386880a1c16c81f56fddc3bef9efccda62d624dc646e6e785a236301" => :high_sierra
-    sha256 "69df2be35e41efc97550deef3f12a66210a77838b4238e9046edf2aab9a38a25" => :sierra
-    sha256 "7c9b87455116a0538ff4e8de9a2366a7ae7cb0020ef9c8a38450a72efd4903ce" => :el_capitan
+    sha256 "3e86b87aafa82aec26e952283c53f64a4856a7e7baae383c75f76e48fdea36ad" => :high_sierra
+    sha256 "2c5f76428bc4b2ee00588770b95de5793a7cd3aac22cdbf211e48df4c260f3fb" => :sierra
+    sha256 "29f93ed547c63e8881840cf9dd6b68b154cbff5436a002ddc584f16789e44fc3" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "lua"
+  depends_on "python"
 
   needs :cxx14
 
@@ -29,7 +29,9 @@ class Clingo < Formula
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
-                         "-DCLINGO_BUILD_WITH_LUA=OFF",
+                         "-DCLINGO_BUILD_WITH_LUA=ON",
+                         "-DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3",
+                         "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
                          *std_cmake_args
     system "make", "install"
   end

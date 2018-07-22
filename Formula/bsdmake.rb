@@ -14,8 +14,6 @@ class Bsdmake < Formula
     sha256 "7f64345157a82d82163606a09839619ec2ffc174242ceb942c2347526fee4f83" => :mountain_lion
   end
 
-  keg_only :provided_until_xcode43
-
   # MacPorts patches to make bsdmake play nice with our prefix system
   # Also a MacPorts patch to circumvent setrlimit error
   patch :p0 do

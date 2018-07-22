@@ -1,25 +1,14 @@
 class Libswiften < Formula
   desc "C++ library for implementing XMPP applications"
   homepage "https://swift.im/swiften"
-  revision 2
-  stable do
-    url "https://swift.im/downloads/releases/swift-3.0/swift-3.0.tar.gz"
-    sha256 "8aa490431190294e62a9fc18b69ccc63dd0f561858d7d0b05c9c65f4d6ba5397"
-
-    # Patch to fix build error of dynamic library with Apple's Secure Transport API
-    # Fixed upstream: https://swift.im/git/swift/commit/?id=1d545a4a7fb877f021508094b88c1f17b30d8b4e
-    patch :DATA
-  end
+  url "https://swift.im/downloads/releases/swift-4.0/swift-4.0.tar.gz"
+  sha256 "50b7b2069005b1474147110956f66fdde0afb2cbcca3d3cf47de56dc61217319"
+  revision 1
 
   bottle do
-    sha256 "7fad4a62d37b43fade07734f26864bc3b71f32a4e6809fc91ac079483bd1a3ec" => :high_sierra
-    sha256 "0bec243071c491fc01ba04f7d2f5c01897ac004f18ffb3d67e77c87a56a364c3" => :sierra
-    sha256 "3fd70667904b41f02676b117380dff2903ee9f5418d487fa0ed26fdc268b2be2" => :el_capitan
-  end
-
-  devel do
-    url "https://swift.im/downloads/releases/swift-4.0rc5/swift-4.0rc5.tar.gz"
-    sha256 "7dc50e88e1522f201f132232d9aa0a0018de4902ea192e4eac5cdb8425fdf990"
+    sha256 "6aa48ae140c14532465fc4b875fc19fe339646d9b3ba141c6a030db873f07383" => :high_sierra
+    sha256 "e0501ba8ac4d5f61fb1769d13595c1eb81d0126c2abb2181b5313dd3e42d642e" => :sierra
+    sha256 "374fbcd5d163aeaeaee0ea17356df25244799c2b30d3e760dfc644f6e6c70e6a" => :el_capitan
   end
 
   depends_on "scons" => :build
@@ -30,14 +19,6 @@ class Libswiften < Formula
   deprecated_option "without-lua" => "without-lua@5.1"
 
   def install
-    if stable?
-      inreplace "Sluift/main.cpp", "#include <string>",
-                                   "#include <iostream>\n#include <string>"
-
-      inreplace "BuildTools/SCons/SConstruct",
-                /(\["BOOST_SIGNALS_NO_DEPRECATION_WARNING")\]/,
-                "\\1, \"__ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0\"]"
-    end
     boost = Formula["boost"]
     libidn = Formula["libidn"]
 
@@ -73,27 +54,3 @@ class Libswiften < Formula
     system "#{bin}/swiften-config"
   end
 end
-
-__END__
-diff --git a/Swiften/TLS/SConscript b/Swiften/TLS/SConscript
-index f5eb053..c1ff425 100644
---- a/Swiften/TLS/SConscript
-+++ b/Swiften/TLS/SConscript
-@@ -20,7 +20,7 @@ if myenv.get("HAVE_OPENSSL", 0) :
-	myenv.Append(CPPDEFINES = "HAVE_OPENSSL")
- elif myenv.get("HAVE_SCHANNEL", 0) :
-	swiften_env.Append(LIBS = ["Winscard"])
--	objects += myenv.StaticObject([
-+	objects += myenv.SwiftenObject([
-			"CAPICertificate.cpp",
-			"Schannel/SchannelContext.cpp",
-			"Schannel/SchannelCertificate.cpp",
-@@ -29,7 +29,7 @@ elif myenv.get("HAVE_SCHANNEL", 0) :
-	myenv.Append(CPPDEFINES = "HAVE_SCHANNEL")
- elif myenv.get("HAVE_SECURETRANSPORT", 0) :
-	#swiften_env.Append(LIBS = ["Winscard"])
--	objects += myenv.StaticObject([
-+	objects += myenv.SwiftenObject([
-			"SecureTransport/SecureTransportContext.mm",
-			"SecureTransport/SecureTransportCertificate.mm",
-			"SecureTransport/SecureTransportContextFactory.cpp",

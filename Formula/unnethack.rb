@@ -3,7 +3,6 @@ class Unnethack < Formula
   homepage "https://sourceforge.net/projects/unnethack/"
   url "https://downloads.sourceforge.net/project/unnethack/unnethack/5.1.0/unnethack-5.1.0-20131208.tar.gz"
   sha256 "d92886a02fd8f5a427d1acf628e12ee03852fdebd3af0e7d0d1279dc41c75762"
-
   head "https://github.com/UnNetHack/UnNetHack.git"
 
   bottle do

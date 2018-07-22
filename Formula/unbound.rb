@@ -1,20 +1,21 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.6.8.tar.gz"
-  sha256 "e3b428e33f56a45417107448418865fe08d58e0e7fea199b855515f60884dd49"
+  url "https://www.unbound.net/downloads/unbound-1.7.3.tar.gz"
+  sha256 "c11de115d928a6b48b2165e0214402a7a7da313cd479203a7ce7a8b62cba602d"
 
   bottle do
-    sha256 "14bb3f5ce9567f835522a4cf278e843602def948c9c139c0dbe660dad666b6e9" => :high_sierra
-    sha256 "aa344f2853ef983890eed1eecd53c06e0c41e491253f8480bc944c62edc7ccc4" => :sierra
-    sha256 "8854838cff0d79d0b855b95c588588dc95b5eb1bda3a1db019717d832eebf35b" => :el_capitan
+    sha256 "ba7b02c6e9347d2301f8ba1d4ef7f5e9ae6f5a31fce8a4b2f6ed170f189fad5f" => :high_sierra
+    sha256 "6a475e400bc426b71023a6cdc1ca9827b41688e179db3edcb391f040b17742fa" => :sierra
+    sha256 "7eb19f8aab1cb77eac3aae191faee63397a2522f98d0bd20d35ba3ea6624a367" => :el_capitan
   end
+
+  deprecated_option "with-python" => "with-python@2"
 
   depends_on "openssl"
   depends_on "libevent"
-
-  depends_on "python" => :optional
-  depends_on "swig" if build.with?("python")
+  depends_on "python@2" => :optional
+  depends_on "swig" if build.with? "python@2"
 
   def install
     args = %W[
@@ -24,7 +25,7 @@ class Unbound < Formula
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
 
-    if build.with? "python"
+    if build.with? "python@2"
       ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
       ENV.prepend "PYTHON_VERSION", "2.7"
 
@@ -78,7 +79,7 @@ class Unbound < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

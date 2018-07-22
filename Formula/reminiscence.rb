@@ -1,14 +1,14 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.3.5.tar.bz2"
-  sha256 "0d2d768eb986f39060783cfebeb68ab352fca9b941e410cfd3e44d5254dfd1d9"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.3.7.tar.bz2"
+  sha256 "3e1b9d8e260e5aca086c4a95a833abb2918a2a81047df706770b8f7dcda1934f"
 
   bottle do
     cellar :any
-    sha256 "a77388ff62558bde36135b4232c467330a97ccabe7d990a87f7444c2efed4439" => :high_sierra
-    sha256 "c89d69584a6f3953e2685d5985fae2fa27dcc1b0255cc128448dda91888e5e25" => :sierra
-    sha256 "9388f64555aef94359c0e0c8082814fad609cf3d5c78b6f991851d8a62ee1576" => :el_capitan
+    sha256 "ac5c1018c11c7050e248722bf6956dc6cd82a68eb7eb9db9917743815ffe027d" => :high_sierra
+    sha256 "5c82408dca2c80f1f11e433a94f91b9689adf701d597c0c7e8a729c54373ce41" => :sierra
+    sha256 "f8f3f8688125d6b24fc99df7f4d8acf29140b0fdf637dcb2d540b02600105355" => :el_capitan
   end
 
   depends_on "autoconf" => :build

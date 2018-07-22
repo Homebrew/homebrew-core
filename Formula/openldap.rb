@@ -1,15 +1,13 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.45.tgz"
-  mirror "https://gpl.savoirfairelinux.net/pub/mirrors/openldap/openldap-release/openldap-2.4.45.tgz"
-  sha256 "cdd6cffdebcd95161a73305ec13fc7a78e9707b46ca9f84fb897cd5626df3824"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.46.tgz"
+  sha256 "9a90dcb86b99ae790ccab93b7585a31fbcbeec8c94bf0f7ab0ca0a87ea0c4b2d"
 
   bottle do
-    sha256 "de441b2b17c16c76cc8883b4d3222f79985dc60013729a679a6917ce857a2682" => :high_sierra
-    sha256 "809a58277010241b76cb9474b303d55540ae71c59ef401ece495f6b5ab57949c" => :sierra
-    sha256 "645727db7cc901fa3493c66c06e55ecce778846961874deff6b1a4687aa04b35" => :el_capitan
-    sha256 "ea5d0a84b570b85c6711a5c99dd12f2ba6811c7b3515ddd1b1d1761490a8fa81" => :yosemite
+    sha256 "2094541bf0f0b265e6cc1518aa5ac223b75834f0aa12bec8e00b6c9469e9b5d9" => :high_sierra
+    sha256 "f8912be8188c34e398b61ff7c1f922eb1d4294b21555de55b0763f8424cd0eaa" => :sierra
+    sha256 "9fe6bd03378eb760c4253a36d3f41f5403e117fa8abe4e263a0190310f65a6de" => :el_capitan
   end
 
   keg_only :provided_by_macos

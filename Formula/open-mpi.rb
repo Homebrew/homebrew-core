@@ -1,14 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.bz2"
-  sha256 "f699bff21db0125d8cccfe79518b77641cd83628725a1e1ed3e45633496a82d7"
-  revision 2
+  url "https://www.open-mpi.org/software/ompi/v3.1/downloads/openmpi-3.1.1.tar.bz2"
+  sha256 "3f11b648dd18a8b878d057e9777f2c43bf78297751ad77ae2cef6db0fe80c77c"
 
   bottle do
-    sha256 "6d88511d80f47ff79a45588138a62e96a258913d25499ee4dc749fd22e8ae795" => :high_sierra
-    sha256 "7cdc9f6ea9d69ed78d822712794c6f843d426acd7fbdce7ea56cd0d7b2b287c2" => :sierra
-    sha256 "fb76532094bf33f984f7d1573f97942c0d2a5f46a02525dfdc67e4edf142e878" => :el_capitan
+    sha256 "679069cf5c024cdb25b68d886ae957e0fc1adf71749b437d35b75f2691beb80e" => :high_sierra
+    sha256 "a88ca4a24f80f1da80c720fd3fe7d35e6818bf0419dd71a0a3c337a469dbdfd0" => :sierra
+    sha256 "ae26fdb6eb15bd47eacc331dd2c28358610546885419226a7cbcccb34db6011d" => :el_capitan
   end
 
   head do
@@ -30,7 +29,6 @@ class OpenMpi < Formula
   depends_on "libevent"
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
-  conflicts_with "lcdf-typetools", :because => "both install same set of binaries"
 
   needs :cxx11
 

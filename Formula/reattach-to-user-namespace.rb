@@ -3,7 +3,6 @@ class ReattachToUserNamespace < Formula
   homepage "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard"
   url "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/archive/v2.6.tar.gz"
   sha256 "80f5640a53823e39f87cc78a7567f38dd3f440f9c721e4929fde77dae6b71eb5"
-
   head "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git"
 
   bottle do

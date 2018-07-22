@@ -1,34 +1,20 @@
 class ElasticsearchAT56 < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.8.tar.gz"
-  sha256 "898d09deaea284e769dc49b6f90473472cab9795a9d37d51c407ce376b63d90c"
-
-  head do
-    url "https://github.com/elasticsearch/elasticsearch.git"
-    depends_on "gradle" => :build
-  end
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.10.tar.gz"
+  sha256 "4944c4102b0848d9e94daa50f3b57aa464250563d4ae53d639f19936e394dcd0"
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.8+"
+  depends_on :java => "1.8"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
   end
 
   def install
-    if build.head?
-      # Build the package from source
-      system "gradle", "clean", ":distribution:tar:assemble"
-      # Extract the package to the tar directory
-      mkdir "tar"
-      cd "tar"
-      system "tar", "--strip-components=1", "-xf", Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
-    end
-
     # Remove Windows files
     rm_f Dir["bin/*.bat"]
     rm_f Dir["bin/*.exe"]
@@ -63,8 +49,11 @@ class ElasticsearchAT56 < Formula
     (etc/"elasticsearch/scripts").mkdir unless File.exist?(etc/"elasticsearch/scripts")
     (libexec/"config").rmtree
 
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch"]
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch-plugin"]
+    bin.install libexec/"bin/elasticsearch",
+                libexec/"bin/elasticsearch-keystore",
+                libexec/"bin/elasticsearch-plugin",
+                libexec/"bin/elasticsearch-translog"
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   def post_install

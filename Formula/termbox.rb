@@ -1,17 +1,15 @@
 class Termbox < Formula
   desc "Library for writing text-based user interfaces"
   homepage "https://code.google.com/p/termbox/"
-  url "https://github.com/nsf/termbox/archive/v1.1.0.tar.gz"
-  sha256 "2743ee4aeb0ff39fadbaf945b76c43e6f6bba544156f2576282b775a3067d748"
-
+  url "https://github.com/nsf/termbox/archive/v1.1.2.tar.gz"
+  sha256 "61c9940b42b3ac44bf0cba67eacba75e3c02088b8c695149528c77def04d69b1"
   head "https://github.com/nsf/termbox.git"
 
   bottle do
     cellar :any
-    sha256 "bee4c92ab6ab8183ff2c58f040dbb770a8857f683ec43936ae2c4e40c47c7dd6" => :high_sierra
-    sha256 "a8fc298b60c21807660df3aa3a16f8e51c9cf9da9955132374c85f69edec3713" => :sierra
-    sha256 "b5f1039afbbcbcb37f30fda97b0bebb6e4fa774c6ada2abc67cc487661a5dd5c" => :el_capitan
-    sha256 "95d8a2fd081cccba637b292374670510e2822f55cd1bcb0eb7ce279ceb26f03f" => :yosemite
+    sha256 "338467da37e0f1a93eda52353d50805b84be1a63135e3979120fe660422a9dd8" => :high_sierra
+    sha256 "503690d456e5625825b38dc7513ed8c806e4031de7b22fd66eebe0c66145ec41" => :sierra
+    sha256 "84820bcc0a8af2ff453330e8155ca467e2794de179fed4b0238b05635e1fe35a" => :el_capitan
   end
 
   def install

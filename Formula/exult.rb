@@ -6,9 +6,10 @@ class Exult < Formula
   head "https://github.com/exult/exult.git"
 
   bottle do
-    sha256 "903c0ab936349d37871b211146ffee34e7471ba8c0230cc81b583f67003bf7d0" => :sierra
-    sha256 "e7359d920d31832d74a01e3fa367d65065fa0c9c921534732d947eb968173d3a" => :el_capitan
-    sha256 "5fdcf6dd02cd1fef6863e30ed382b23391ebba2ebd06a34b991c88f4238a559e" => :yosemite
+    rebuild 1
+    sha256 "642d16cef7ecf374ff50e10b32497f2744468010ee452e3e5819cc698215f8dc" => :high_sierra
+    sha256 "01c7906864324d3ffe1ce9a11ba7bb60093c379e07d15aab2822e0bdd4789cc3" => :sierra
+    sha256 "dcf630b85968a5f4a44f31de4dcc38727ed2d8dbfe3d2e645c585ea3adadfbba" => :el_capitan
   end
 
   option "with-audio-pack", "Install audio pack"
@@ -24,6 +25,14 @@ class Exult < Formula
   resource "audio" do
     url "https://downloads.sourceforge.net/project/exult/exult-data/exult_audio.zip"
     sha256 "72e10efa8664a645470ceb99f6b749ce99c3d5fd1c8387c63640499cfcdbbc68"
+  end
+
+  # Upstream's fix for recent clang (Xcode 9)
+  # https://github.com/exult/exult/commit/083ea2fa
+  # Can be removed in next version
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c9cb2e28/exult/clang9.patch"
+    sha256 "e661b7e2e30820bcb74938a203bd367c66c00bc2a7c8de8525e78d70a87a3bd8"
   end
 
   def install
@@ -54,7 +63,7 @@ class Exult < Formula
 
       To use CoreAudio, set `driver` to `CoreAudio`.
       To use audio pack, set `use_oggs` to `yes`.
-    EOS
+  EOS
   end
 
   test do

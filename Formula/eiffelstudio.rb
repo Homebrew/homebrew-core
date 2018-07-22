@@ -3,13 +3,13 @@ class Eiffelstudio < Formula
   homepage "https://www.eiffel.com"
   url "https://ftp.eiffel.com/pub/download/17.01/eiffelstudio-17.01.9.9700.tar"
   sha256 "610344e8e4bbb4b8ccedc22e57b6ffa6b8fd7b9ffee05edad15fc1aa2b1259a1"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3b8a13f25ff2282dcb269cd0dd723fc0ee97be42f85f02d72e4d4fcedd525a19" => :high_sierra
-    sha256 "7946945393c414071a069c74adc5baeed9f93ab8be40d5f3bd6dbac77c7a8fd2" => :sierra
-    sha256 "d6c4d4709cdde7bb552e8a72e3af85dfdff5fb25ac776d370cfd5da34e23dd9b" => :el_capitan
-    sha256 "be7febcd611d5eb9282fa3480d00764cee7b4c91cf1dfd0cceb2d0618ba5a9f7" => :yosemite
+    sha256 "f491bb0dca20ea532084e78b82319111cfc5d981a10edf53ff20109d75772b79" => :high_sierra
+    sha256 "27e2c1b87f4b191003c8bc4b8fc205495efe22207634967555cc87b64a39cf39" => :sierra
+    sha256 "989ed927f5438496827a9d1a1e068773b4f5f543d6d6f0374b1520449fa3aafb" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

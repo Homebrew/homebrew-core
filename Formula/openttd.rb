@@ -1,15 +1,14 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://binaries.openttd.org/releases/1.7.2/openttd-1.7.2-source.tar.xz"
-  sha256 "fe51a0bade8fdf6ce3ec696418ecf75c95783cdcabfd7b204eec5c0bb5d149d4"
-
+  url "https://binaries.openttd.org/releases/1.8.0/openttd-1.8.0-source.tar.xz"
+  sha256 "c2d32d9d736d27202a020027a3729ae763f5432ae6f424891e57a4095eeb087f"
   head "https://git.openttd.org/openttd/trunk.git"
 
   bottle do
-    sha256 "0a0df7013f1dd61c9e62302eeee16855768fb7a55962baf7253f2ba511bce67b" => :high_sierra
-    sha256 "ca8ef85cc3ba0caf5793738d65ba73a6b2aaf889f30add27a3ad028bcde4387d" => :sierra
-    sha256 "9789d80a7c37b13d87871eb776da5cfbc3326d546f5ea7603899c4490ce6067f" => :el_capitan
+    sha256 "e5d194e126ec516ca84a4f9187e8415953cf64e319dfe31dedd1bdaa2a4e2339" => :high_sierra
+    sha256 "5d74a4c682236213f06a7cdeae2f62f462d59f445a66719fe86e82a872ff112e" => :sierra
+    sha256 "b2b8d6cf06c840acbf425d4b89daf146541d46f19cd3aa7f09a622d7897b3a9f" => :el_capitan
   end
 
   depends_on "lzo"
@@ -29,13 +28,6 @@ class Openttd < Formula
   resource "openmsx" do
     url "https://bundles.openttdcoop.org/openmsx/releases/0.3.1/openmsx-0.3.1.zip"
     sha256 "92e293ae89f13ad679f43185e83fb81fb8cad47fe63f4af3d3d9f955130460f5"
-  end
-
-  # Fix pre-existing bug triggering Xcode 9 build error
-  # Upstream commit, remove when 1.8 is released
-  patch do
-    url "https://git.openttd.org/?p=trunk.git;a=commitdiff_plain;h=2f7ac7c41f46dfc0d16d963ea5c6de2f8d144971"
-    sha256 "a2681e6ac7ccb2be2d591090198f343d1744484d7093e1e9866325cceecc8748"
   end
 
   def install

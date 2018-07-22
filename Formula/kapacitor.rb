@@ -2,15 +2,15 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      :tag => "v1.4.0",
-      :revision => "fcce3ee9e6abcee5595fd61066bfc904edb1e113"
+      :tag => "v1.5.0",
+      :revision => "4f10efc41b4dcac070495cf95ba2c41cfcc2aa3a"
   head "https://github.com/influxdata/kapacitor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b133aebf400e49cf3745e4a86c76dcabe55ea14de2729aebe5b3dde22ac03736" => :high_sierra
-    sha256 "ec02d9fe30789409f3ac7a9dc3510b469790577e0122937b682c7a1a7b112857" => :sierra
-    sha256 "32995a031cf9003471cb24b3f5a17dce199fac16921e69df24f44f650ed49d69" => :el_capitan
+    sha256 "b263a69c8dbf4317a5cc9a1057fb084d7aa8703aef74080662021d446d60a2e1" => :high_sierra
+    sha256 "2847c38f6bedba0749516563129d32676e71261a4083ead32cb07794e2dd91a0" => :sierra
+    sha256 "9ecf350daf920ac6ce487401d1d895664920426c3fb2e4595544af5fb59ce810" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -71,7 +71,7 @@ class Kapacitor < Formula
         <string>#{var}/log/kapacitor.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

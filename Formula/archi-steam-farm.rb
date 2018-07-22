@@ -21,7 +21,7 @@ class ArchiSteamFarm < Formula
 
   def caveats; <<~EOS
     Config: #{etc}/asf/
-    EOS
+  EOS
   end
 
   test do

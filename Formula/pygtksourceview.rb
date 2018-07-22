@@ -3,14 +3,13 @@ class Pygtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/pygtksourceview.html"
   url "https://download.gnome.org/sources/pygtksourceview/2.10/pygtksourceview-2.10.1.tar.bz2"
   sha256 "b4b47c5aeb67a26141cb03663091dfdf5c15c8a8aae4d69c46a6a943ca4c5974"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "9582384dbab4ec015a32617fba8bf87e05c28d5fd15b3fcbdc4345e75fb23d40" => :high_sierra
-    sha256 "2977f3362dde914537ab9e43afb9d248fe59701465d422d9e6d83a2a1b37d1e6" => :sierra
-    sha256 "42d3f3836f0a32f68b9537b9b4f6696da118fd3d5e9154b338c9fffb50e77e43" => :el_capitan
-    sha256 "a5ad125288cf06f63460588298bd0d20395f0163b8b599f77e470e0567dfbb2c" => :yosemite
+    sha256 "403e577aada95260735e2c8d5764f780cc7f064e2a1916f279845be8cb0342f7" => :high_sierra
+    sha256 "3d85551378f74ecbab39ab028dde5e1542fc473a9a9baba3413fa53edfe6f2d5" => :sierra
+    sha256 "566425ceba6539e9a40d1024fd036de26ba9d0f81961d556a931208ebfc6abe5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -27,7 +26,7 @@ class Pygtksourceview < Formula
 
   test do
     ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    ENV.append_path "PYTHONPATH", Formula["pygtk"].opt_lib+"python2.7/site-packages/gtk-2.0"
-    system "python", "-c", "import gtksourceview2"
+    ENV.append_path "PYTHONPATH", Formula["pygtk"].opt_lib/"python2.7/site-packages/gtk-2.0"
+    system "python2.7", "-c", "import gtksourceview2"
   end
 end

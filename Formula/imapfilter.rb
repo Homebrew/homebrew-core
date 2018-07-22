@@ -21,7 +21,9 @@ class Imapfilter < Formula
     end
 
     # find Homebrew's libpcre and lua
-    ENV.append "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+    ENV.append "LDFLAGS", "-L#{Formula["pcre"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["lua"].opt_lib}"
     ENV.append "LDFLAGS", "-liconv"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "LDFLAGS=#{ENV.ldflags}"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "install"
@@ -33,7 +35,7 @@ class Imapfilter < Formula
     You will need to create a ~/.imapfilter/config.lua file.
     Samples can be found in:
       #{prefix}/samples
-    EOS
+  EOS
   end
 
   test do

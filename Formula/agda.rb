@@ -5,22 +5,21 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
-  revision 1
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.3/Agda-2.5.3.tar.gz"
-    sha256 "aa14d4a3582013100f71e64d71c5deff6caa2a286083e20fc16f6dbb0fdf0065"
+    url "https://hackage.haskell.org/package/Agda-2.5.4.1/Agda-2.5.4.1.tar.gz"
+    sha256 "7759aa76936e6a35325c2e186a7546553921775155a426c8edc9a234f58ab72f"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "477ba28360133b1f5c45ce1b4e6b4efd467af331"
+          :revision => "a1a10b39d35b8fc40e87723a89f5682252d46380"
     end
   end
 
   bottle do
-    sha256 "af5bd54a1f52386c3c8c9926f42ed72976e43f0e8f8bfc98dc6632083a79fafb" => :high_sierra
-    sha256 "65302e2ebe392a254221235dc09cde7d2ae9f827b1ad57ac0756662305777d53" => :sierra
-    sha256 "07e1f6b0ebd27aa81757575907d14b2ad9d9398f7e78eeed257397597a30c84f" => :el_capitan
+    sha256 "a040cb1a273037a0ed2983be3c7ccddf8c606e762e976f22da5b7c89a7c5ae8a" => :high_sierra
+    sha256 "b097269cfd028fae6bf73db2eccb41e253d4962340ae962e104196e36868985b" => :sierra
+    sha256 "8b189b0fa2e7c2332d9ca1239c21f0dca0df714f59eb2fd5dd5e0483f33bd90a" => :el_capitan
   end
 
   head do
@@ -31,6 +30,7 @@ class Agda < Formula
     end
   end
 
+  deprecated_option "without-ghc@8.2" => "without-ghc"
   deprecated_option "without-malonzo" => "without-ghc"
 
   option "without-stdlib", "Don't install the Agda standard library"
@@ -38,10 +38,10 @@ class Agda < Formula
 
   depends_on "ghc" => :recommended
   if build.with? "ghc"
-    depends_on "cabal-install"
+    depends_on "cabal-install" => [:build, :test]
   else
-    depends_on "ghc" => :build
     depends_on "cabal-install" => :build
+    depends_on "ghc" => :build
   end
 
   depends_on "emacs" => :recommended

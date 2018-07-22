@@ -6,13 +6,15 @@ class Geeqie < Formula
   # Unfortunately this means that the tarball can't be used to build;
   # this is documented in the makefile.
   url "https://github.com/BestImageViewer/geeqie.git",
-    :tag => "v1.4",
-    :shallow => false
+      :tag => "v1.4",
+      :revision => "7c9b41e7c9be8cfc9b4f0a2459c0a1e0e4aaea5b",
+      :shallow => false
+  revision 1
 
   bottle do
-    sha256 "22c6779d5231e0894f169a188ffc574445c07742a5d54af4b202ace7eea3903b" => :high_sierra
-    sha256 "fad24d3faf8795f79e8106b4b3d84b73e071fc3812a90df4e30105df013f3d9b" => :sierra
-    sha256 "823241d4dc829606f8f685af49b35b2da23217cc8c215d0fd5d8aa615f77ab2e" => :el_capitan
+    sha256 "0bf35c40d3d0fc9a3bb6d69cd079e7e3f9aae4d1c050cead01aca59bea009d22" => :high_sierra
+    sha256 "54a1af6f886c7a95b3f66ea0996a6acfa1531b940d274921a84cdef57c1fc54f" => :sierra
+    sha256 "2f84465d9d6eba2db0031c71033b735d33a6d6294dd2a15fd13d65674b60783b" => :el_capitan
   end
 
   # Fixes the build on OS X by assigning a value to a variable

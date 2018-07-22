@@ -1,14 +1,13 @@
 class Grc < Formula
   desc "Colorize logfiles and command output"
-  homepage "http://korpus.juls.savba.sk/~garabik/software/grc.html"
-  url "https://github.com/garabik/grc/archive/v1.11.1.tar.gz"
-  sha256 "9ae4bcc9186d6856e861d5b0e29b7b14db3f14e6b643e2df0076c104a94dbcba"
-  revision 1
+  homepage "https://korpus.juls.savba.sk/~garabik/software/grc.html"
+  url "https://github.com/garabik/grc/archive/v1.11.3.tar.gz"
+  sha256 "b167babd8f073a68f5a3091f833e4036fb8d86504e746694747a3ee5048fa7a9"
   head "https://github.com/garabik/grc.git"
 
   bottle :unneeded
 
-  depends_on "python3"
+  depends_on "python"
 
   conflicts_with "cc65", :because => "both install `grc` binaries"
 
@@ -39,7 +38,7 @@ class Grc < Formula
   def caveats; <<~EOS
     New shell sessions will use GRC if you add the relevant file to your profile e.g.:
       . #{etc}/grc.bashrc
-    EOS
+  EOS
   end
 
   test do

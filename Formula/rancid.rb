@@ -1,6 +1,6 @@
 class Rancid < Formula
   desc "Really Awesome New Cisco confIg Differ"
-  homepage "http://www.shrubbery.net/rancid/"
+  homepage "https://www.shrubbery.net/rancid/"
   url "ftp://ftp.shrubbery.net/pub/rancid/rancid-3.7.tar.gz"
   sha256 "9c6befff78d49d8d0757a2b57b6cfdfef55cadcbc1fa6fbe1ab9424335d51f7b"
 

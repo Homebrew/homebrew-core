@@ -3,14 +3,12 @@ class Skipfish < Formula
   homepage "https://code.google.com/archive/p/skipfish/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/skipfish/skipfish-2.10b.tgz"
   sha256 "1a4fbc9d013f1f9b970946ea7228d943266127b7f4100c994ad26c82c5352a9e"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cc7acd7bc34e098a19bb6f86744f87f3a7642a7947ba12246fb61ae6f1e6df84" => :high_sierra
-    sha256 "4ce996b74258ec1ccbf1805f61c4d5e58ffc3f2c1cf208e8bacaf6693f5f2a5f" => :sierra
-    sha256 "b897550f5399004d0082a8a5acb0aa7c4f20c92a9033d486c6172da30bd260d3" => :el_capitan
-    sha256 "a055fdc76fae7fc46cf6c2098ac21b7e88bfcc63c29c88e9727f0ecb83a4e99d" => :yosemite
-    sha256 "ed0cf629f0dd2f23782ff21bb728efe019d8bd84605f9ca85a317ef9841b5d8b" => :mavericks
+    sha256 "1acea16d96d52ba66c14f3194fb1c7d63f570e3f1ce5828458d28ddbc75d7d77" => :high_sierra
+    sha256 "e3e89e094313db04248263b0a6d9901ea47254215219046b01c048584ee98f4d" => :sierra
+    sha256 "60db8bcf08796a72afa621516767d0d0120a4ad305c6b8793b492f20b4679a71" => :el_capitan
   end
 
   depends_on "libidn"
@@ -40,6 +38,6 @@ class Skipfish < Formula
 
     Use this command to print usage information:
       skipfish -h
-    EOS
+  EOS
   end
 end

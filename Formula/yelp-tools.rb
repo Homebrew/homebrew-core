@@ -1,16 +1,15 @@
 class YelpTools < Formula
   desc "Tools that help create and edit Mallard or DocBook documentation"
   homepage "https://github.com/GNOME/yelp-tools"
-  url "https://download.gnome.org/sources/yelp-tools/3.18/yelp-tools-3.18.0.tar.xz"
-  sha256 "c6c1d65f802397267cdc47aafd5398c4b60766e0a7ad2190426af6c0d0716932"
+  url "https://download.gnome.org/sources/yelp-tools/3.28/yelp-tools-3.28.0.tar.xz"
+  sha256 "82dbfeea2359dfef8ee92c7580c7f03768d12f9bf67d839f03a5e9b0686dc1ac"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "362bd3f0673ad7e44f9d37b37f46989512823d218d06aa27e452c47faf589b41" => :high_sierra
-    sha256 "b0ea184a43def810986761f163243688d08e1f891ddfdb104793b5dcb7c9155c" => :sierra
-    sha256 "b0ea184a43def810986761f163243688d08e1f891ddfdb104793b5dcb7c9155c" => :el_capitan
-    sha256 "b0ea184a43def810986761f163243688d08e1f891ddfdb104793b5dcb7c9155c" => :yosemite
+    sha256 "628fc21556d7cade65245e204db567ba929307a91637391a583698d3c281b129" => :high_sierra
+    sha256 "628fc21556d7cade65245e204db567ba929307a91637391a583698d3c281b129" => :sierra
+    sha256 "628fc21556d7cade65245e204db567ba929307a91637391a583698d3c281b129" => :el_capitan
   end
 
   depends_on "gettext" => :build
@@ -22,8 +21,8 @@ class YelpTools < Formula
   depends_on "pkg-config" => :build
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.20/yelp-xsl-3.20.1.tar.xz"
-    sha256 "dc61849e5dca473573d32e28c6c4e3cf9c1b6afe241f8c26e29539c415f97ba0"
+    url "https://download.gnome.org/sources/yelp-xsl/3.28/yelp-xsl-3.28.0.tar.xz"
+    sha256 "8ccdf47b31acbdd26a7380b3bc6700742a7aff91a54dab279fd5ea8b43b53f93"
   end
 
   def install
@@ -49,13 +48,5 @@ class YelpTools < Formula
     system "#{bin}/yelp-new", "task", "ducksinarow"
     system "#{bin}/yelp-build", "html", "ducksinarow.page"
     system "#{bin}/yelp-check", "validate", "ducksinarow.page"
-    [
-      prefix/"share/yelp-xsl/icons/hicolor/24x24/status/yelp-note-warning.png",
-      prefix/"share/yelp-xsl/js/jquery.syntax.brush.smalltalk.js",
-      prefix/"share/yelp-xsl/xslt/mallard/html/mal2html-links.xsl",
-      share/"pkgconfig/yelp-xsl.pc",
-    ].each do |filename|
-      assert filename.exist?, "#{filename} doesn't exist"
-    end
   end
 end

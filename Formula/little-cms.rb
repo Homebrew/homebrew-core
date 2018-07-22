@@ -13,7 +13,9 @@ class LittleCms < Formula
     sha256 "bc02c8267bf616ef0dcfc27db97a849b0f79e8211164ea4a955482b964255a7e" => :yosemite
   end
 
-  depends_on "python" => :optional
+  deprecated_option "with-python" => "with-python@2"
+
+  depends_on "python@2" => :optional
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
 
@@ -21,7 +23,7 @@ class LittleCms < Formula
     args = %W[--disable-dependency-tracking --disable-debug --prefix=#{prefix}]
     args << "--without-tiff" if build.without? "libtiff"
     args << "--without-jpeg" if build.without? "jpeg"
-    if build.with? "python"
+    if build.with? "python@2"
       args << "--with-python"
       inreplace "python/Makefile.in" do |s|
         s.change_make_var! "pkgdir", lib/"python2.7/site-packages"

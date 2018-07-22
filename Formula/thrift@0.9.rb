@@ -19,6 +19,8 @@ class ThriftAT09 < Formula
   option "with-perl", "Install Perl binding"
   option "with-php", "Install Php binding"
 
+  deprecated_option "with-python" => "with-python@2"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build
@@ -26,7 +28,7 @@ class ThriftAT09 < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "openssl"
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   if build.with? "java"
     depends_on "ant" => :build
@@ -36,7 +38,7 @@ class ThriftAT09 < Formula
   def install
     args = ["--without-ruby", "--without-tests", "--without-php_extension"]
 
-    args << "--without-python" if build.without? "python"
+    args << "--without-python" if build.without? "python@2"
     args << "--without-haskell" if build.without? "haskell"
     args << "--without-java" if build.without? "java"
     args << "--without-perl" if build.without? "perl"

@@ -1,13 +1,13 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.6/ola-0.10.6.tar.gz"
-  sha256 "26a8302b5134c370541e59eabff0145dcf7127cda761890df10aa80dfe223af0"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
+  sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
 
   bottle do
-    sha256 "ada249b3e16aaee5610c9c4a2c438b158c1dcf36be684af62e4af6095984fe7b" => :high_sierra
-    sha256 "06defbab5f678025a309989dc0c84aed8c2a315f880d9610263d2bdaab2d5c4c" => :sierra
-    sha256 "9230a8fcc75bcc0c29c57dbd012909a2d7331823e70db1fc58462143c7350cf3" => :el_capitan
+    sha256 "b3d17f68ff88ef2f66687b05ec63c60823ce10c89e28825572b440d91b93c760" => :high_sierra
+    sha256 "71ec88044cdf0fee7399506b5d383b7eef0ad77ebc826cf45adf5944cad5a0df" => :sierra
+    sha256 "fa4b68d22686172fa2f618974eca5e03b57947b15d9ea069d253364f71aa354f" => :el_capitan
   end
 
   head do
@@ -26,7 +26,7 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "liblo" => :recommended
   depends_on "libusb" => :recommended
   depends_on "doxygen" => :optional

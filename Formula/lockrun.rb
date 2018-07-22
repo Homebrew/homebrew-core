@@ -19,4 +19,8 @@ class Lockrun < Formula
     system ENV.cc, ENV.cflags, "lockrun.c", "-o", "lockrun"
     bin.install "lockrun"
   end
+
+  test do
+    system "#{bin}/lockrun", "--version"
+  end
 end

@@ -4,7 +4,6 @@ class KibanaAT44 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git", :tag => "v4.4.2", :revision => "b0ef773a465d0eb27d192ca77f881eba90ef93d5"
-  head "https://github.com/elastic/kibana.git"
 
   bottle do
     rebuild 1
@@ -73,7 +72,7 @@ class KibanaAT44 < Formula
     If you wish to preserve your plugins upon upgrade, make a copy of
     #{prefix}/installedPlugins before upgrading, and copy it into the
     new keg location after upgrading.
-    EOS
+  EOS
   end
 
   plist_options :manual => "kibana"

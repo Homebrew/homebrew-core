@@ -3,14 +3,13 @@ class Gtksourceviewmm < Formula
   homepage "https://developer.gnome.org/gtksourceviewmm/"
   url "https://download.gnome.org/sources/gtksourceviewmm/2.10/gtksourceviewmm-2.10.3.tar.xz"
   sha256 "0000df1b582d7be2e412020c5d748f21c0e6e5074c6b2ca8529985e70479375b"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "79e773c4e41cbf91fdf5d6f2005720559204f35192ac06f9e7f9d2b829372ca2" => :high_sierra
-    sha256 "75eba3fb2414119380034c12b77202129de737e5f81861bcf97744ff339a4449" => :sierra
-    sha256 "93d1e962be29ded8d820aef685e81ecc261b52931d09bec89d8382db7f4dc782" => :el_capitan
-    sha256 "66297e52c639e8a9941fef2273083972a1d55d88ace1b37c7bc3d7f37baccdd2" => :yosemite
+    sha256 "aea70d259d3fcdf70e4230cda3b234c5bb1c3ea16839a668c329adbaaad3d05f" => :high_sierra
+    sha256 "f80d564b3ef86998d12118e1f82294178b7d252aba69c536b5dd242a7dc43308" => :sierra
+    sha256 "5081201035ee520569f9dc730e753d73d605a9717bca20c640f3d0365773903b" => :el_capitan
   end
 
   depends_on "gtksourceview"

@@ -1,13 +1,13 @@
 class Transmission < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission-releases/raw/bce6e29/transmission-2.93.tar.xz"
-  sha256 "8815920e0a4499bcdadbbe89a4115092dab42ce5199f71ff9a926cfd12b9b90b"
+  url "https://github.com/transmission/transmission-releases/raw/dc77bea/transmission-2.94.tar.xz"
+  sha256 "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
 
   bottle do
-    sha256 "753d56b0ecb6e70ed2841b1abc23247c1b02666e2b95c5a6ac32e9815a0c6131" => :high_sierra
-    sha256 "5e190bda32de9a3ab3dbd7909a23cf79b1fbd891c10f9a537469a29a7d85d6dd" => :sierra
-    sha256 "ba5967f2f272d2376f14b1c0043853f0d103877cb865546fe919b8ae74316982" => :el_capitan
+    sha256 "f9d035ba6b2e2fe96080f368b9b396c05a643680bb1e6714b6eb4d2161ca63e0" => :high_sierra
+    sha256 "cf4f5ccc5069e03addf77882152e6358f2aeb514ffab78d7ed20e54b22d42936" => :sierra
+    sha256 "e31b76dc003d69cfeb5f67478a95dd8e824e26606b585270b15bfffe79cae59c" => :el_capitan
   end
 
   option "with-nls", "Build with native language support"
@@ -45,7 +45,7 @@ class Transmission < Formula
 
     Alternatively, install with Homebrew-Cask:
       brew cask install transmission
-    EOS
+  EOS
   end
 
   plist_options :manual => "transmission-daemon --foreground"
@@ -76,7 +76,7 @@ class Transmission < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

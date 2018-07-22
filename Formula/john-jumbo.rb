@@ -1,20 +1,9 @@
 class JohnJumbo < Formula
   desc "Enhanced version of john, a UNIX password cracker"
   homepage "http://www.openwall.com/john/"
-
-  stable do
-    url "http://openwall.com/john/j/john-1.8.0-jumbo-1.tar.xz"
-    sha256 "bac93d025995a051f055adbd7ce2f1975676cac6c74a6c7a3ee4cfdd9c160923"
-    version "1.8.0"
-
-    # Previously john-jumbo ignored the value of $HOME; fixed
-    # upstream.  See
-    # https://github.com/magnumripper/JohnTheRipper/issues/1901
-    patch do
-      url "https://github.com/magnumripper/JohnTheRipper/commit/d29ad8aabaa9726eb08f440001c37611fa072e0c.diff?full_index=1"
-      sha256 "b3400f54c64dccce6fe4846872c945b280ec221c7a3d614b03c18029cba3695a"
-    end
-  end
+  url "http://openwall.com/john/j/john-1.8.0-jumbo-1.tar.xz"
+  version "1.8.0"
+  sha256 "bac93d025995a051f055adbd7ce2f1975676cac6c74a6c7a3ee4cfdd9c160923"
 
   bottle do
     cellar :any
@@ -41,6 +30,14 @@ class JohnJumbo < Formula
   # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
   fails_with :gcc do
     cause "Upstream have a hacky workaround for supporting gcc that we can't use."
+  end
+
+  # Previously john-jumbo ignored the value of $HOME; fixed
+  # upstream.  See
+  # https://github.com/magnumripper/JohnTheRipper/issues/1901
+  patch do
+    url "https://github.com/magnumripper/JohnTheRipper/commit/d29ad8aabaa9726eb08f440001c37611fa072e0c.diff?full_index=1"
+    sha256 "b3400f54c64dccce6fe4846872c945b280ec221c7a3d614b03c18029cba3695a"
   end
 
   def install

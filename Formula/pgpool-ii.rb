@@ -1,13 +1,13 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "https://www.pgpool.net/download.php?f=pgpool-II-3.7.2.tar.gz"
-  sha256 "f3f2825ccfdaa52f5e3d863bd43f1dc2ca37523a5f01b633db76596e73613ba4"
+  url "https://www.pgpool.net/download.php?f=pgpool-II-3.7.4.tar.gz"
+  sha256 "2312f0fb16baa4efc3b42c6f814c399c6856ddd60abc656cf0f82ed33dca9a6b"
 
   bottle do
-    sha256 "2a8a5e160246dde93f018fe5d70b51add4482870ecd994c2ab538a40e7c24b20" => :high_sierra
-    sha256 "90b9e8b9219d5911b6ae69ebe9194c36776caf754494ff500dfbe00c6ce3ac2b" => :sierra
-    sha256 "1c719e5332333b62e2919072adcd41a03be488a780fe6352cc43758bc139cb89" => :el_capitan
+    sha256 "47dd6bdd5eff9d9705f8ebc27967baa8bb0caf11bdda5c62cef67406b1e07daf" => :high_sierra
+    sha256 "fbd2039a714413cc0678cd99135e9cfc6cb0d247c9c6b7b91579e92a8f47bc87" => :sierra
+    sha256 "05535a283da10c44b7718b357b868ec64229ac6eade3c62d01582b7d4964072f" => :el_capitan
   end
 
   depends_on "postgresql"

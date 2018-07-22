@@ -21,4 +21,8 @@ class Crunch < Formula
     man1.install "crunch.1"
     share.install Dir["*.lst"]
   end
+
+  test do
+    system "#{bin}/crunch", "-v"
+  end
 end

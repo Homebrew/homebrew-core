@@ -1,14 +1,14 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  # pull from git tag to get submodules
-  url "https://github.com/facebook/osquery/archive/3.1.0.tar.gz"
-  sha256 "dd8ddbb30d9f965fd999b2a3dc70a36944bd97adb198059995f3b42f211be75b"
+  url "https://github.com/facebook/osquery/archive/3.2.6.tar.gz"
+  sha256 "54d49f00eae5907f0f0c065b0ea01ffc48a1c977366d9b67d0aa3913f387d7bd"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "3ea2fa9fb604f473c6ba853750cc3a041456093f86853693088d707f594c4be5" => :high_sierra
-    sha256 "a6c107f4e2ae53ccd6412924ff34639d8289aca5c2c0ed2cfb76f953c544cb64" => :sierra
+    sha256 "67ae5a43c70f9ace494bad1588183f281e1afe8eb4bd499e635e0c9f751e3d48" => :high_sierra
+    sha256 "6cb10ed37ecfc87181166f1862c3639910375e7abdbe187f739e05df9fa3c203" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -17,6 +17,7 @@ class Osquery < Formula
   depends_on :macos => :sierra
   depends_on "bison" => :build
   depends_on "cmake" => :build
+  depends_on "python@2" => :build
   depends_on "augeas"
   depends_on "boost"
   depends_on "gflags"

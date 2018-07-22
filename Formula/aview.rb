@@ -24,6 +24,10 @@ class Aview < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/aview", "--version"
+  end
 end
 
 __END__

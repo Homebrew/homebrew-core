@@ -15,8 +15,7 @@ class Ktmpl < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/ktmpl"
+    system "cargo", "install", "--root", prefix
   end
 
   test do

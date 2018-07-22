@@ -48,6 +48,6 @@ class Cntlm < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 end

@@ -1,17 +1,17 @@
 class Anjuta < Formula
   desc "GNOME Integrated Development Environment"
   homepage "http://anjuta.org"
-  url "https://download.gnome.org/sources/anjuta/3.26/anjuta-3.26.0.tar.xz"
-  sha256 "fb895464c1a3c915bb2bb3ea5d236fd17202caa7205f6792f70a75affc343d70"
+  url "https://download.gnome.org/sources/anjuta/3.28/anjuta-3.28.0.tar.xz"
+  sha256 "b087b0a5857952d0edd24dae458616eb166a3257bc647d5279a9e71495544779"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "c48265e53ba6adb14f25baf2a1a9a0d341cf7b5910c998ea4ad6c957cc607932" => :high_sierra
-    sha256 "0009f1b0b9763fdb4e6ff61f206da5ac9a4753274748aaeac6d7da996d557fd9" => :sierra
-    sha256 "5bfc68a277e16071af323fed4cf3d249adec2015cd97e6ac27e8d179248cb575" => :el_capitan
+    sha256 "e038d342a81ee2f5db084d5ad6d1ff87144194aeae66bef28b3f764b8e0cd6d3" => :high_sierra
+    sha256 "d402812770fad67e94aed33484c6ca12cdcd89a4d290e2d313b27f627caeea07" => :sierra
+    sha256 "4b5db4d330a8386085efc7cb24771ae7cb49cc3c523c9babb53e177befce9f3b" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build

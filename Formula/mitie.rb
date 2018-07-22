@@ -3,7 +3,6 @@ class Mitie < Formula
   homepage "https://github.com/mit-nlp/MITIE/"
   url "https://github.com/mit-nlp/MITIE/archive/v0.5.tar.gz"
   sha256 "324b7bddedea13cebab0bc0fe9f8d5cfb7bfaf26eac5aa3aae1e74afa909aa12"
-
   head "https://github.com/mit-nlp/MITIE.git"
 
   bottle do
@@ -15,7 +14,7 @@ class Mitie < Formula
 
   option "without-models", "Don't download the v0.2 models (~415MB)"
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"

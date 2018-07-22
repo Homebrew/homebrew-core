@@ -3,14 +3,13 @@ class Pbrt < Formula
   homepage "http://pbrt.org/"
   url "https://github.com/mmp/pbrt-v2/archive/2.0.342.tar.gz"
   sha256 "397941435d4b217cd4a4adaca12ab6add9a960d46984972f259789d1462fb6d5"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f9c266a03e8c47a0d18ad3a0cc5633c54fec804f7ac943d933f41cf31d32ddfa" => :high_sierra
-    sha256 "7dfc107dbc633a3273433e7f763ffaf743660281c223e8ef27816836bd6dfa79" => :sierra
-    sha256 "77510b79395468971a567029052265fd03e9c9eeaf4e6056d1a225d7ade5d718" => :el_capitan
-    sha256 "ddfc01d16de04891db883377f509768768e374f2a8fab1536f5487fe559d707b" => :yosemite
-    sha256 "ac424bf47ea119d977b7e2f2a0bfca9a994838437cd9c1f189a71eed83b816d1" => :mavericks
+    sha256 "c1914092491b0a3e9b8f0aa53c08c290e4548d4c8236652f6987f585506c840b" => :high_sierra
+    sha256 "e55782038c1b74d847254afae36fbfe11d3af774431b84bd7d56f16bbe73986b" => :sierra
+    sha256 "f9104d3cf2dc87dc5b8cdc6b43b7c32447508ad4282d4caa850136e9742b61be" => :el_capitan
   end
 
   depends_on "openexr"
@@ -19,5 +18,9 @@ class Pbrt < Formula
   def install
     system "make", "-C", "src"
     prefix.install "src/bin"
+  end
+
+  test do
+    system "#{bin}/pbrt", "--version"
   end
 end

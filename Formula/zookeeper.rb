@@ -1,16 +1,14 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.4.10/zookeeper-3.4.10.tar.gz"
-  sha256 "7f7f5414e044ac11fee2a1e0bc225469f51fb0cdf821e67df762a43098223f27"
+  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.12/zookeeper-3.4.12.tar.gz"
+  sha256 "c686f9319050565b58e642149cb9e4c9cc8c7207aacc2cb70c5c0672849594b9"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "08431d9c2f04f5a735149f374975df4f2e0d8140b1cc901f505d379ef7e20fe0" => :high_sierra
-    sha256 "8c7304be183d4c28c0f5d88e22626188c76794bee004e1b330c3e79bf5ae9d53" => :sierra
-    sha256 "2d792cb3963a7caf57922635888ae4e3cf363ef5a81d23f13a11d0ee42a780cf" => :el_capitan
+    sha256 "55170e3c70f9ccfe0f8a7a4f34c11d9ed96122adfb6946e223dab0ab31f129d5" => :high_sierra
+    sha256 "7f9b53a4c01bf1b7af68d7b609ded5dec3c9ae91a3f0ef86a6fbe3f978d9160c" => :sierra
+    sha256 "b8cb0059b877aa10a8da94bdbc01ea958b67115e085bf741b0c293b849ac4955" => :el_capitan
   end
 
   head do
@@ -26,8 +24,9 @@ class Zookeeper < Formula
   option "with-perl", "Build Perl bindings"
 
   deprecated_option "perl" => "with-perl"
+  deprecated_option "with-python" => "with-python@2"
 
-  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   def shim_script(target)
     <<~EOS
@@ -75,7 +74,7 @@ class Zookeeper < Formula
       system "make", "install"
     end
 
-    if build.with? "python"
+    if build.with? "python@2"
       cd "src/contrib/zkpython" do
         system "python", "src/python/setup.py", "build"
         system "python", "src/python/setup.py", "install", "--prefix=#{prefix}"
@@ -156,7 +155,7 @@ class Zookeeper < Formula
         <string>#{var}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

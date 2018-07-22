@@ -1,14 +1,14 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.2.0.tar.gz"
-  sha256 "e46cd80c6e17d70ab7c880795ef83936b4790e4dad4970dee19ce952f091704a"
+  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.3.3.tar.gz"
+  sha256 "97c4f023894215ac672cc6515cc22a74167a2ee4937709e267065a80c716c90f"
   head "https://github.com/phusion/passenger.git", :branch => "stable-5.1"
 
   bottle do
-    sha256 "559795b1fb0393549707ec614b901b881dce55c3a6daa90071fd898af83895c0" => :high_sierra
-    sha256 "dbc855e6254a2cb9cf4b134648451e597d731dc409c28362d0634dfc1b312598" => :sierra
-    sha256 "049a11dc0635f173b584aebe6d9592a662d4f52fdc71fb2eb80475c1669aa5a9" => :el_capitan
+    sha256 "19df7f870033546d73efd33303531a58ccd2acddefc13f98240ff467f1326431" => :high_sierra
+    sha256 "037f798c443b13de7d92bee0af1155d85313da34694703254c746998b00b0f18" => :sierra
+    sha256 "5b86b7ee83dd0c79fe3d3f169c04c1d0c96cfd80aee116d15d97b5483df1fefd" => :el_capitan
   end
 
   option "without-apache2-module", "Disable Apache2 module"
@@ -74,7 +74,7 @@ class Passenger < Formula
       To activate Phusion Passenger for Nginx, run:
         brew install nginx --with-passenger
 
-      EOS
+    EOS
 
     s += <<~EOS if build.with? "apache2-module"
       To activate Phusion Passenger for Apache, create /etc/apache2/other/passenger.conf:
@@ -82,7 +82,7 @@ class Passenger < Formula
         PassengerRoot #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini
         PassengerDefaultRuby /usr/bin/ruby
 
-      EOS
+    EOS
     s
   end
 

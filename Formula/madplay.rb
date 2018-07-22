@@ -33,4 +33,8 @@ class Madplay < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/madplay", "--version"
+  end
 end

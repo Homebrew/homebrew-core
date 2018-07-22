@@ -12,7 +12,7 @@ class Gforth < Formula
   end
 
   depends_on "emacs" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "libffi"
   depends_on "pcre"
 

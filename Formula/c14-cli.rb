@@ -1,16 +1,15 @@
 class C14Cli < Formula
   desc "Manage your Online C14 archives from the command-line"
   homepage "https://github.com/online-net/c14-cli"
-  url "https://github.com/online-net/c14-cli/archive/0.1.tar.gz"
-  sha256 "27f02f3146c2d239c44fe0cf3eb1a161d8bdb420145f13b8485c85d3892fd8f9"
+  url "https://github.com/online-net/c14-cli/archive/0.3.tar.gz"
+  sha256 "d4a2e839394cb5f169bfb3be0102569a310dd7315aba3cdb1dfcd9d9c6e43543"
   head "https://github.com/online-net/c14-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2da7668ade8257bf730b6d0a8c1da37469694779651289c198e8eac913cfebcf" => :high_sierra
-    sha256 "5f933f312db20563688f11a278981c87e6771f16f7c3f3bccb29301b12e46bb6" => :sierra
-    sha256 "94aa82618c853ee2f011e265e2131bce73e3cda2fcc2abacb4c64e2ebb325996" => :el_capitan
-    sha256 "010ccda715de1b29406ee14d7439c33b17fc5741aa5c96439d01f2ce30f2431a" => :yosemite
+    sha256 "4001f6779bdc27b3e3587e3a0502e65d94f78a6f108efd714b96c2d865bb592d" => :high_sierra
+    sha256 "a146090fbcacb6982155419c4f8e38d9ccb8fa6283c5d2611ccf30ea1960ed84" => :sierra
+    sha256 "399d93ad762d178607ca3da8d766cc4716ac33968c058a849f080d68dea634d7" => :el_capitan
   end
 
   depends_on "go" => :build

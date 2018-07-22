@@ -16,7 +16,7 @@ class TerraformProvisionerAnsible < Formula
   end
 
   depends_on "go" => :build
-  depends_on "terraform" => :run
+  depends_on "terraform"
 
   go_resource "github.com/hashicorp/terraform" do
     url "https://github.com/hashicorp/terraform.git",

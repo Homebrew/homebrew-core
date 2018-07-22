@@ -50,7 +50,7 @@ class Ddclient < Formula
     You can adjust the execution interval by changing the value of
     StartInterval (in seconds) in /Library/LaunchDaemons/#{plist_path.basename},
     and then
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -80,7 +80,7 @@ class Ddclient < Formula
       <string>#{etc}/ddclient</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

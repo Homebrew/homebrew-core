@@ -14,7 +14,10 @@ class Haxe < Formula
 
   head do
     url "https://github.com/HaxeFoundation/haxe.git", :branch => "development"
+
+    depends_on "aspcud" => :build
     depends_on "opam" => :build
+    depends_on "pkg-config" => :build
   end
 
   depends_on "ocaml" => :build
@@ -30,12 +33,17 @@ class Haxe < Formula
     ENV.deparallelize
 
     if build.head?
-      ENV["OPAMROOT"] = buildpath/"opamroot"
-      ENV["OPAMYES"] = "1"
-      system "opam", "init", "--no-setup"
-      system "opam", "config", "exec", "--", "opam", "install", "ocamlfind",
-             "sedlex", "xml-light", "extlib", "rope", "ptmap>2.0.1"
-      system "opam", "config", "exec", "--", "make", "ADD_REVISION=1"
+      Dir.mktmpdir("opamroot") do |opamroot|
+        ENV["OPAMROOT"] = opamroot
+        ENV["OPAMYES"] = "1"
+        system "opam", "init", "--no-setup"
+        system "opam", "config", "exec", "--",
+               "opam", "pin", "add", "haxe", buildpath, "--no-action"
+        system "opam", "config", "exec", "--",
+               "opam", "install", "haxe", "--deps-only"
+        system "opam", "config", "exec", "--",
+               "make", "ADD_REVISION=1"
+      end
     else
       system "make", "OCAMLOPT=ocamlopt.opt"
     end
@@ -51,17 +59,12 @@ class Haxe < Formula
     bin.mkpath
     system "make", "install", "INSTALL_BIN_DIR=#{bin}",
            "INSTALL_LIB_DIR=#{lib}/haxe", "INSTALL_STD_DIR=#{lib}/haxe/std"
-
-    # Replace the absolute symlink by a relative one,
-    # such that binary package created by homebrew will work in non-/usr/local locations.
-    rm bin/"haxe"
-    bin.install_symlink lib/"haxe/haxe"
   end
 
   def caveats; <<~EOS
     Add the following line to your .bashrc or equivalent:
       export HAXE_STD_PATH="#{HOMEBREW_PREFIX}/lib/haxe/std"
-    EOS
+  EOS
   end
 
   test do

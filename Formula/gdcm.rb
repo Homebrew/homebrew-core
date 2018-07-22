@@ -1,20 +1,23 @@
 class Gdcm < Formula
   desc "Grassroots DICOM library and utilities for medical files"
   homepage "https://sourceforge.net/projects/gdcm/"
-  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.4/gdcm-2.8.4.tar.gz"
-  sha256 "8f480d0a9b0b331f2e83dcc9cdb3d957f10eb32ee4db90fc1c153172dcb45587"
-  revision 2
+  url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.7/gdcm-2.8.7.tar.gz"
+  sha256 "7a08baa93e90bce17d9999d59b95876808801a287812348e27a23decb1ebc58c"
 
   bottle do
-    sha256 "7ca91961ffb0f74e9f055ece921101a23621c49a3130b06e6b4386ef374950e0" => :high_sierra
-    sha256 "15626e2bd1f80f15d05562fd25697a0f54476196f3fe52bfb9fc67d432d34de4" => :sierra
-    sha256 "51a57b3a49a2d65ceda86c6401303c514b940d9adeb54659d0d4aac34aa89fde" => :el_capitan
+    sha256 "ad87ce2f85f16278131b692b12c33cbf1f02af7263c04a9b3dc1cb8188bcdf53" => :high_sierra
+    sha256 "ba985660d7000a4f8b054a63269c60cab9c542e46e81864d8ef8621c2a246cbf" => :sierra
+    sha256 "66d1542a14b6c6e75946853944662d4a934101ceb9c865a9c1da527884133bd6" => :el_capitan
   end
 
-  option "without-python", "Build without python2 support"
+  option "without-python@2", "Build without python2 support"
 
-  depends_on "python3" => :optional
-  depends_on "swig" => :build if build.with?("python") || build.with?("python3")
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
+
+  depends_on "python@2" => :recommended
+  depends_on "python" => :optional
+  depends_on "swig" => :build if build.with?("python") || build.with?("python@2")
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -38,7 +41,7 @@ class Gdcm < Formula
     ]
 
     mkdir "build" do
-      if build.without?("python") && build.without?("python3")
+      if build.without?("python") && build.without?("python@2")
         system "cmake", "..", *common_args
         system "make", "install"
       else

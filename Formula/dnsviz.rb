@@ -16,6 +16,7 @@ class Dnsviz < Formula
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "openssl"
+  depends_on "python@2"
   depends_on "bind" => :optional
 
   resource "dnspython" do

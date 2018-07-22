@@ -1,13 +1,13 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/jcupitt/libvips"
-  url "https://github.com/jcupitt/libvips/releases/download/v8.6.2/vips-8.6.2.tar.gz"
-  sha256 "9486bcda927e0f03baf07c671d19eb21d73434991907b2a4f4897000c0e412a2"
+  url "https://github.com/jcupitt/libvips/releases/download/v8.6.4/vips-8.6.4.tar.gz"
+  sha256 "4631a080c92b2b371379252e451818604858942b754c924b09843a7f528a8af4"
 
   bottle do
-    sha256 "66dbce7b752b81aa4149bcf469c33ed608f6fbb88cd25f7199333d1428ebfab3" => :high_sierra
-    sha256 "c79532f23ff6b3dcee183e3b9dade8fdbcc0fea4235d50016823fac428f133a9" => :sierra
-    sha256 "2887d8bad4088870f20da7e13176825a410020444b76acd5b669bd6adda6ae37" => :el_capitan
+    sha256 "e0ae4bd9399cab21063048cdea3c2d2230f0ef545548d83df16706970d136852" => :high_sierra
+    sha256 "59a6d27c07630775bee1d28385d23de06877faeec2791859591d290048f58c50" => :sierra
+    sha256 "3a6aeb51bb03ebefcc32763ad69527af6c08b3f0f128e42db16a86bf987aab81" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -26,27 +26,31 @@ class Vips < Formula
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
+  depends_on "webp"
   depends_on "fftw" => :recommended
+  depends_on "graphicsmagick" => :recommended
   depends_on "poppler" => :recommended
-  depends_on "graphicsmagick" => :optional
   depends_on "imagemagick" => :optional
-  depends_on "jpeg-turbo" => :optional
-  depends_on "mozjpeg" => :optional
   depends_on "openexr" => :optional
   depends_on "openslide" => :optional
-  depends_on "webp" => :optional
+
+  if build.with?("graphicsmagick") && build.with?("imagemagick")
+    odie "vips: --with-imagemagick requires --without-graphicsmagick"
+  end
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-pyvips8
+      PYTHON=#{Formula["python"].opt_bin}/python3
     ]
 
     if build.with? "graphicsmagick"
       args << "--with-magick" << "--with-magickpackage=GraphicsMagick"
+    elsif build.with? "imagemagick"
+      args << "--with-magick"
     end
-
-    args << "--without-libwebp" if build.without? "webp"
 
     system "./configure", *args
     system "make", "install"

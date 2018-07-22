@@ -1,19 +1,28 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.54/glibmm-2.54.1.tar.xz"
-  sha256 "7cc28c732b04d70ed34f0c923543129083cfb90580ea4a2b4be5b38802bf6a4a"
+  url "https://download.gnome.org/sources/glibmm/2.56/glibmm-2.56.0.tar.xz"
+  sha256 "6e74fcba0d245451c58fc8a196e9d103789bc510e1eee1a9b1e816c5209e79a9"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "46ff598fd6c542432fcb474b56ad151e29f217ad588933bf350b377f51c969dd" => :high_sierra
-    sha256 "91e373202e1118e3874ecc46abfcad97faf830d0cdc94f1a974272e8df669bd4" => :sierra
-    sha256 "03ee806d8bad38ca85e0000c904276bae4222c01cee4f3a8188cbdef7473426a" => :el_capitan
+    sha256 "2c49d64310a4ed25cff3b1b82591a779b4febcdfde5cbf02249cc1c70af08671" => :high_sierra
+    sha256 "b3458579f8b8db463aad37b6ede1beba71ede39a54ba35834024b2d418e0d217" => :sierra
+    sha256 "7147107e5cafa29049f436f811169570f5fb5e7ec7a371b96906511bc51dd9ea" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "libsigc++"
   depends_on "glib"
+
+  # Remove for > 2.56.0
+  # Upstream commit from 26 Apr 2018 "ustring: Fix wchar conversion on macOS with libc++"
+  # See https://bugzilla.gnome.org/show_bug.cgi?id=795338
+  patch do
+    url "https://github.com/GNOME/glibmm/commit/f1530eca.patch?full_index=1"
+    sha256 "ae8990b93e29b47903da7eed8676cf806b34fd3b45d6bd5fb3d7a4f040b9f4c9"
+  end
 
   needs :cxx11
 

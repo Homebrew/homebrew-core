@@ -1,18 +1,18 @@
 class Ponysay < Formula
   desc "Cowsay but with ponies"
-  homepage "http://erkin.co/ponysay/"
+  homepage "https://erkin.co/ponysay/"
   url "https://github.com/erkin/ponysay/archive/3.0.3.tar.gz"
   sha256 "c382d7f299fa63667d1a4469e1ffbf10b6813dcd29e861de6be55e56dc52b28a"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f435c7af144552e093059ddc7ac841a086a2c6408289c297aafef6e7fe4b6cdc" => :high_sierra
-    sha256 "faf06b8ea2cd665f51842aaf68c9d87571b6b57800ac00026ebc397297e7e519" => :sierra
-    sha256 "92472e5c183a6614808951c0f9d4cc3200edc37b410b4dea28f150e4f178ea11" => :el_capitan
+    sha256 "481d6431bc586203d237787eaceafc116d9eccbf8d11489e1197a6eb0e034710" => :high_sierra
+    sha256 "e51c96a3bf6997b73150b75eb758eb8359ca89a27a5b171b50eba3628192a31c" => :sierra
+    sha256 "594b78b627cad84edef6de6dba32879cf5547215b33e7946bb3ee44c73e49214" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "coreutils"
 
   def install

@@ -13,9 +13,17 @@ class Pixman < Formula
     sha256 "f92c0d581ecb7f5679d047c7e03ba17bfe169163dff5d10ac8c9ef4cb609bb0c" => :yosemite
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "pkg-config" => :build
+
+  # Fix "error: use of unknown builtin '__builtin_shuffle'"
+  # Upstream issue 31 Jan 2018 "Fails to build pixman-0.34.0 with clang 5.x or later"
+  # See https://bugs.freedesktop.org/show_bug.cgi?id=104886
+  if DevelopmentTools.clang_build_version >= 902
+    patch do
+      url "https://bugs.freedesktop.org/attachment.cgi?id=137100"
+      sha256 "2af5b3700e38600297f2cb66059218b1128337d995cba799b385ad09942c934f"
+    end
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

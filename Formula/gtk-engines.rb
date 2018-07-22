@@ -1,17 +1,15 @@
 class GtkEngines < Formula
   desc "Themes for GTK+"
-  homepage "https://git.gnome.org/browse/gtk-engines/"
+  homepage "https://github.com/GNOME/gtk-engines"
   url "https://download.gnome.org/sources/gtk-engines/2.20/gtk-engines-2.20.2.tar.bz2"
   sha256 "15b680abca6c773ecb85253521fa100dd3b8549befeecc7595b10209d62d66b5"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "b6ac215bfba2fedabc859dd3315a715016267802551fbdfb3f965b92134ccc57" => :high_sierra
-    sha256 "1518ae315fe5a20a141428080824583f18ae8dd9736d3f7b6e93937f3d3bd639" => :sierra
-    sha256 "e6675468c5c8e18405ad1d6a7b8dec13da67048425f335ca92c7b26897a8fc97" => :el_capitan
-    sha256 "8beee72b3290b89cc96a3a6889581eb87919309f5c75c9bc1447beeff1557791" => :yosemite
-    sha256 "3519e1bec0070f54f5def933917e8f6dff085017c7ef4ebf3a8352c6454e919c" => :mavericks
+    sha256 "e6128438b5f07db8e57605a7ed9c1b03179eecb8e749f11c4098299d2a70e3bc" => :high_sierra
+    sha256 "b1bd8d6ea69096a0c424b839e79a1ccf9af63bb043e240172e26e591b4b31641" => :sierra
+    sha256 "fb5dc9cc323a8c02b699bb31285fb33ae9d43ada7a2e3034dba67228f693ca17" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -30,7 +28,7 @@ class GtkEngines < Formula
     You will need to set:
       GTK_PATH=#{HOMEBREW_PREFIX}/lib/gtk-2.0
     as by default GTK looks for modules in Cellar.
-    EOS
+  EOS
   end
 
   test do

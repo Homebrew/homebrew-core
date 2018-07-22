@@ -1,5 +1,5 @@
 class Crc32c < Formula
-  desc "CRC32C implementation with support for CPU-specific acceleration instructions"
+  desc "CRC32C implementation with CPU-specific acceleration"
   homepage "https://github.com/google/crc32c"
   url "https://github.com/google/crc32c/archive/1.0.5.tar.gz"
   sha256 "c2c0dcc8d155a6a56cc8d56bc1413e076aa32c35784f4d457831e8ccebd9260b"

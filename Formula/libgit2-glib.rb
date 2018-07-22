@@ -1,48 +1,50 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  url "https://download.gnome.org/sources/libgit2-glib/0.26/libgit2-glib-0.26.2.tar.xz"
-  sha256 "2ad6f20db2e38bbfdb6cb452704fe8a911036b86de82dc75bb0f3b20db40ce9c"
+  url "https://download.gnome.org/sources/libgit2-glib/0.26/libgit2-glib-0.26.4.tar.xz"
+  sha256 "97610e42427a0c86ac46b89d5020fb8decb39af47b9dc49f8d078310b4c21e5a"
+  revision 1
+  head "https://github.com/GNOME/libgit2-glib.git"
 
   bottle do
-    sha256 "41e72a9af021ede5b2d2a6388d87d1a3cf91828257512291b443622973b4fdda" => :high_sierra
-    sha256 "20c1bd5ed07328d63aedc9c15c974d3ce970f8a67cfd2fb1d3e5c1471a1d0259" => :sierra
-    sha256 "d50c3cfe95b48a7542d79606f1673c9f03cab6653098da2bb9ac4a809546db32" => :el_capitan
+    sha256 "20e1cf8538d46014cf5533510d52c2bb4e98cbfbf6e7a56817fc2e072466200c" => :high_sierra
+    sha256 "fc9f0fa31794d7f4c0b67fd68ff0378de0c1f5668b1bc093937ee0c94a7808a8" => :sierra
+    sha256 "de784ae7a8154369d33eb13cd6fdca5979e2144cc1561ab4a3c85118b0cbbb20" => :el_capitan
   end
 
-  head do
-    url "https://github.com/GNOME/libgit2-glib.git"
-
-    depends_on "libtool" => :build
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "gnome-common" => :build
-    depends_on "gtk-doc" => :build
-  end
-
+  depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libgit2"
-  depends_on "gobject-introspection"
   depends_on "glib"
-  depends_on "vala" => :optional
-  depends_on "python" => :optional
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-silent-rules
-      --disable-dependency-tracking
-    ]
+    ENV.refurbish_args
 
-    args << "--enable-python=no" if build.without? "python"
-    args << "--enable-vala=no" if build.without? "vala"
+    # Fix "ld: unknown option: -Bsymbolic-functions"
+    # Reported 2 Apr 2018 https://bugzilla.gnome.org/show_bug.cgi?id=794889
+    inreplace "libgit2-glib/meson.build",
+              "libgit2_glib_link_args = [ '-Wl,-Bsymbolic-functions' ]",
+              "libgit2_glib_link_args = []"
 
-    system "./autogen.sh", *args if build.head?
-    system "./configure", *args if build.stable?
-    system "make", "install"
+    # Upstream issue from 2 Apr 2018 "libgit2 0.27.0 FTB: ggit-config.c:298:41:
+    # error: too few arguments to function call"
+    # See https://bugzilla.gnome.org/show_bug.cgi?id=794890
+    inreplace "libgit2-glib/ggit-config.c",
+              /(\(git_config_level_t\)level,)(\n\s+)(force\);)/,
+              "\\1\\2NULL,\\2\\3"
 
-    libexec.install "examples/.libs", "examples/clone", "examples/general", "examples/walk"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}",
+                      "-Dpython=false",
+                      "-Dvapi=false",
+                      ".."
+      system "ninja"
+      system "ninja", "install"
+      libexec.install Dir["examples/*"]
+    end
   end
 
   test do

@@ -3,7 +3,6 @@ class Pixz < Formula
   homepage "https://github.com/vasi/pixz"
   url "https://github.com/vasi/pixz/releases/download/v1.0.6/pixz-1.0.6.tar.gz"
   sha256 "c54a406dddc6c2226779aeb4b5d5b5649c1d3787b39794fbae218f7535a1af63"
-
   head "https://github.com/vasi/pixz.git"
 
   bottle do

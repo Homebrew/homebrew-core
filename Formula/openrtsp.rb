@@ -1,14 +1,14 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2018.02.26.tar.gz"
-  sha256 "f56d534e79bc28d93d34532fa9b3329d83d840b7fe3c1ac8069f14d6f1d52093"
+  url "http://www.live555.com/liveMedia/public/live.2018.04.25.tar.gz"
+  sha256 "bfb72d79cfa42779115dd7e5db705b863e30f7956638407c8637e97cefcf4005"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c042962b4b8261c722c46d904a9e3d8078344448a6b4bfb81fcb56ebe07438e9" => :high_sierra
-    sha256 "468b66553ad7f489a2afa6646c90fc58a31c5a657f868ac19248daa75e4aa5c9" => :sierra
-    sha256 "c979dfa20332ca316f8df98d679b015a66b0292a9bef005ba52bff2793da3a06" => :el_capitan
+    sha256 "41c7fc0e36e1a59a3ef3534dd9273f99f6c23b9dc21cb40260d30c38bd7eaad7" => :high_sierra
+    sha256 "eaae66891ec2e82269fb1b92a9ed205fd831af2962355f72b7a7d6a175659e17" => :sierra
+    sha256 "0df18b04b20f54a373d7aa13dfd942cde6178c88a90671e3fc50151deed2fa64" => :el_capitan
   end
 
   def install
@@ -22,7 +22,7 @@ class Openrtsp < Formula
   def caveats; <<~EOS
     Testing executables have been placed in:
       #{libexec}
-    EOS
+  EOS
   end
 
   test do

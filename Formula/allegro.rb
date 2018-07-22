@@ -1,16 +1,15 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
-  homepage "http://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.3.0/allegro-5.2.3.0.tar.gz"
-  sha256 "5a4d40601899492b697ad5cfdf11d8265fe554036a2c912c86a6e6d23001f905"
-
+  homepage "https://liballeg.org/"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.4.0/allegro-5.2.4.0.tar.gz"
+  sha256 "346163d456c5281c3b70271ecf525e1d7c754172aef4bab15803e012b12f2af1"
   head "https://github.com/liballeg/allegro5.git", :branch => "master"
 
   bottle do
     cellar :any
-    sha256 "35a544646e7e4d38a77afa7032c67506f40cd93447de255d81b1879fa8956c9e" => :high_sierra
-    sha256 "ca4daf0ada1bf65e4a0a8cfa6afcde4805fb4921199393f1ca37bd20bdfe4af0" => :sierra
-    sha256 "687ea283ee293728c40889db1589844ad4e56acd53ae7fd7238e67e4eea79a0e" => :el_capitan
+    sha256 "13e8c8518d9925dd1480b7217233262ac098e40728d5f4f3be6c2dcc6f872340" => :high_sierra
+    sha256 "7b8fdcdbfc49555517f654a9b8ad961bb675509b7e365aa58d5f0b7f6b23024c" => :sierra
+    sha256 "b8ab4c72c7e3f6b8a46fba5af812ebe7f7b1821c44485facd6bec622a1f00300" => :el_capitan
   end
 
   depends_on "cmake" => :build

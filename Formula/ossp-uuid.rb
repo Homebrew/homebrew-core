@@ -34,4 +34,8 @@ class OsspUuid < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/uuid-config", "--version"
+  end
 end

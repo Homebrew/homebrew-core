@@ -1,13 +1,13 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.48.tar.xz"
-  sha256 "0f8ad5aac7529d7b948b9d7e8cd0b4a9e177309d85d6bf6516e28e6e40d74f36"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.49.tar.xz"
+  sha256 "aedf49d7127d9e4c0ea56618e9e945a17674dc46a37ac7990120f87dd939ce09"
 
   bottle do
-    sha256 "b7b7b0351d2ad65f6c71c594f4df2f865c31834007e0811d99356c339c53c3e4" => :high_sierra
-    sha256 "2eaa0285cf8e0e4616b804e5a7d4059e0d8549e90c167dfc8bea2ef269706f80" => :sierra
-    sha256 "c8aaafd41d8b8bdd4b823a09694246752b64cd3db9a8557e8c4c0d0716372785" => :el_capitan
+    sha256 "0d2df35cb64ebd3682f2b6763fcf14faac60341673842efe84b737255633e819" => :high_sierra
+    sha256 "5ab375350e1069b70e1216b0065f05d23aae5d46fbab078b8eb73c37426cb3e4" => :sierra
+    sha256 "3c439deb2e84a3e1cc4bc2d6fdc2ffd2ad041f810bfbb329143687cc62f8cc1a" => :el_capitan
   end
 
   option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
@@ -17,6 +17,7 @@ class Lighttpd < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "openldap"
   depends_on "pcre"
   depends_on "openssl"
   depends_on "lua@5.1" => :optional
@@ -100,7 +101,7 @@ class Lighttpd < Formula
 
     The default port has been set in #{config_path}/lighttpd.conf to 8080 so that
     lighttpd can run without sudo.
-    EOS
+  EOS
   end
 
   plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
@@ -141,7 +142,7 @@ class Lighttpd < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

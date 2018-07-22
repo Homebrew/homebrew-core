@@ -151,7 +151,7 @@ class QtAT55 < Formula
   def caveats; <<~EOS
     We agreed to the Qt opensource license for you.
     If this is unacceptable you should uninstall.
-    EOS
+  EOS
   end
 
   test do

@@ -1,8 +1,8 @@
 class Slimerjs < Formula
   desc "Scriptable browser for Web developers"
   homepage "https://slimerjs.org/"
-  url "https://github.com/laurentj/slimerjs/archive/0.10.3.tar.gz"
-  sha256 "116f280c3c0932a00c11e8663d1c7b311a893ea2b8b56960ce0879ab9d2daa0a"
+  url "https://github.com/laurentj/slimerjs/archive/1.0.0.tar.gz"
+  sha256 "6fd07fa6953e4e497516dd0a7bc5eb2f21c68f9e60bdab080ac2c86e8ab8dfb2"
   head "https://github.com/laurentj/slimerjs.git"
 
   bottle :unneeded
@@ -19,7 +19,7 @@ class Slimerjs < Formula
   def caveats; <<~EOS
     The configuration file was installed in:
       #{libexec}/application.ini
-    EOS
+  EOS
   end
 
   test do

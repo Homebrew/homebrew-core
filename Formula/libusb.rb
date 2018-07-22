@@ -1,16 +1,15 @@
 class Libusb < Formula
   desc "Library for USB device access"
-  homepage "http://libusb.info"
-  url "https://github.com/libusb/libusb/releases/download/v1.0.21/libusb-1.0.21.tar.bz2"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libu/libusb-1.0/libusb-1.0_1.0.21.orig.tar.bz2"
-  sha256 "7dce9cce9a81194b7065ee912bcd55eeffebab694ea403ffb91b67db66b1824b"
+  homepage "https://libusb.info/"
+  url "https://github.com/libusb/libusb/releases/download/v1.0.22/libusb-1.0.22.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/libusb/libusb-1.0/libusb-1.0.22/libusb-1.0.22.tar.bz2"
+  sha256 "75aeb9d59a4fdb800d329a545c2e6799f732362193b465ea198f2aa275518157"
 
   bottle do
     cellar :any
-    sha256 "48008b8eadb1f42ab1b76182d26570f929fee23c6eaf93ceea1733e008cc27cf" => :high_sierra
-    sha256 "e42e21cc9b7cd4223eb8050680ada895bdfcaf9c7e33534002cd21af2f84baf8" => :sierra
-    sha256 "e4902b528d0ea0df0d433e349709d3708a9e08191fd2f3c6d5f5ab2989766b9f" => :el_capitan
-    sha256 "8831059f7585ed973d983dd82995e1732c240a78f4f7a82e5d5c7dfe27d49941" => :yosemite
+    sha256 "7b1fd86a5129620d1bbf048c68c7742ecad450de138b8186bf8e985a752b2302" => :high_sierra
+    sha256 "7f2b65d09525c432a86e46699a1448bab36503f45f16d6e0d8f42be6b1ef55cf" => :sierra
+    sha256 "33575c9f56bc0d57bf985a21e40be019d5c269b432939416be8f24c5921bbb28" => :el_capitan
   end
 
   head do

@@ -1,7 +1,7 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
-  homepage "http://www.networkupstools.org"
-  url "http://www.networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
+  homepage "https://networkupstools.org/"
+  url "https://networkupstools.org/source/2.7/nut-2.7.4.tar.gz"
   sha256 "980e82918c52d364605c0703a5dcf01f74ad2ef06e3d365949e43b7d406d25a7"
 
   bottle do

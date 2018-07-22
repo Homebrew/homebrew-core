@@ -5,7 +5,6 @@ class Flake8 < Formula
   homepage "http://flake8.pycqa.org/"
   url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.5.0"
   sha256 "97ecdc088b9cda5acfaa6f84d9d830711669ad8d106d5c68d5897ece3c5cdfda"
-
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
@@ -15,7 +14,7 @@ class Flake8 < Formula
     sha256 "cfbc382496c31b5c57e31ac2487d022a07673d9efd2d64cbc956d3e05c8d9afe" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     venv = virtualenv_create(libexec)

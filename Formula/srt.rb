@@ -1,15 +1,15 @@
 class Srt < Formula
   desc "Secure Reliable Transport"
   homepage "https://www.srtalliance.org/"
-  url "https://github.com/Haivision/srt/archive/v1.2.2.tar.gz"
-  sha256 "7a167cfe9f3a497c8d9483f25873fe63273c550aaee1d2bbb9d7bf39f169efcc"
+  url "https://github.com/Haivision/srt/archive/v1.3.1.tar.gz"
+  sha256 "f202801d9e53cd8854fccc1ca010272076c32c318396c8f61fb9a61807c3dbea"
   head "https://github.com/Haivision/srt.git"
 
   bottle do
     cellar :any
-    sha256 "b7ca3f37963f4bbeeeadf3a5902122770928e096552c3655208de40ab250131e" => :high_sierra
-    sha256 "9a5e297f60b445aee785f9d8ae40843d52c4314e6a68ff53b69d2f57efdedbae" => :sierra
-    sha256 "0e3bbfd2185fa06624b9e62a3bfaf303b5ffe7ca6db61b636b83eedf120b6db5" => :el_capitan
+    sha256 "848cb1edeaa90be70ddd2000c79f42432d881de53f4a47e00876c728b45f4fb8" => :high_sierra
+    sha256 "18ada4492fb671487fca41eeaaa8dcae9ebf7d096f2becb7894b8d215c7615ea" => :sierra
+    sha256 "52267ab27bbc19a52285505d7f9630c990cb6ed3ef5abd233bfc1a8c92b864e6" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -25,6 +25,7 @@ class Srt < Formula
   end
 
   test do
-    system "#{bin}/stransmit", "file:///dev/null", "file://con/"
+    cmd = "#{bin}/stransmit file:///dev/null file://con/ 2>&1"
+    assert_match "Unsupported source type", shell_output(cmd, 1)
   end
 end

@@ -1,14 +1,14 @@
 class OrocosKdl < Formula
   desc "Orocos Kinematics and Dynamics C++ library"
   homepage "http://www.orocos.org/kdl"
-  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.3.1.tar.gz"
-  sha256 "aff361d2b4e2c6d30ae959308a124022eeef5dc5bea2ce779900f9b36b0537bd"
+  url "https://github.com/orocos/orocos_kinematics_dynamics/archive/v1.4.0.tar.gz"
+  sha256 "05b93e759923684dc07433ccae1e476d158d89b3c2be5079c20062406da7b4dd"
 
   bottle do
     cellar :any
-    sha256 "16245deef22a33a5a016eab85909ed7f5009cab563ee7d9efb33478a1520b52c" => :high_sierra
-    sha256 "b52666692aa6d28265454495d96638c6e3774f2de5b28c9d43a548070abaa0c6" => :sierra
-    sha256 "b83bf847ccc4417f990252b1452b3c3a77bfe7358f54c4b69a036267db99d3ee" => :el_capitan
+    sha256 "32e9cd3e10a20c046a45122557dda364352619c59acffca07f8c858cdcff9765" => :high_sierra
+    sha256 "2696ca8480d6be3de18a141630388ef5fe5486096c02f99726b6d07cc91ff958" => :sierra
+    sha256 "87d3407e88f69187f10119d109321c8ece7c04154262475665f462923f69ffe9" => :el_capitan
   end
 
   depends_on "cmake" => :build

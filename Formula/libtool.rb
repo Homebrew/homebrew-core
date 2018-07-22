@@ -7,7 +7,6 @@ class Libtool < Formula
   url "https://ftp.gnu.org/gnu/libtool/libtool-2.4.6.tar.xz"
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
-
   revision 1
 
   bottle do
@@ -18,8 +17,6 @@ class Libtool < Formula
     sha256 "0eb206c0f51e8ce2e3e9340b5ce3c8ecef961ae6696f676073327a7ac04e5c0b" => :yosemite
     sha256 "2e51ef82ef2bd1ad9d921a9016b9e5d7fa82d131849e2c32a3c90daa119e2eda" => :mavericks
   end
-
-  keg_only :provided_until_xcode43
 
   def install
     ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
@@ -33,7 +30,7 @@ class Libtool < Formula
   def caveats; <<~EOS
     In order to prevent conflicts with Apple's own libtool we have prepended a "g"
     so, you have instead: glibtool and glibtoolize.
-    EOS
+  EOS
   end
 
   test do

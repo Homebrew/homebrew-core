@@ -1,14 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-3.4.2.tar.bz2"
-  sha256 "eb0370bf223809b9ebb359fed5318f826ac038ce77933b3afd55ab1a0a21785a"
+  url "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz"
+  sha256 "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "9df7c5868b825944edc80822e818028b4123ee8cdf85ef60eb11fed235b23c79" => :high_sierra
-    sha256 "18b50630056fbe4a3d12515f32728242349b43bd7b956f3401190861b2ccd402" => :sierra
-    sha256 "e507900d3ec72618b365588223f57428654334119d34d6d61ca58210bb7c4907" => :el_capitan
+    sha256 "5522a58020c3b5c68e5628818ee746822fe38747810c29b4aa865f4fe2803d57" => :high_sierra
+    sha256 "98cdb186d1dd9c9eb2149b5d5d5c15dc13cecb58fed25232abcbeeb1236c92b8" => :sierra
+    sha256 "4ef0ba0bd512fff69004bb33417a8516d1d8e9dc5e3eb05ea9f2ac15f557cdb2" => :el_capitan
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -33,6 +33,7 @@ class Ffmpeg < Formula
   option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
+  option "with-srt", "Enable SRT library"
   option "without-lame", "Disable MP3 encoder"
   option "without-qtkit", "Disable deprecated QuickTime framework"
   option "without-securetransport", "Disable use of SecureTransport"
@@ -89,6 +90,7 @@ class Ffmpeg < Formula
   depends_on "xz" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
+  depends_on "srt" => :optional
 
   def install
     args = %W[
@@ -103,7 +105,6 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
     ]
 
-    args << "--disable-jack" if build.stable?
     args << "--enable-gpl" if build.with? "gpl"
     args << "--disable-indev=qtkit" if build.without? "qtkit"
     args << "--disable-securetransport" if build.without? "securetransport"
@@ -147,6 +148,7 @@ class Ffmpeg < Formula
     args << "--enable-opencl" if MacOS.version > :lion
     args << "--enable-videotoolbox" if MacOS.version >= :mountain_lion
     args << "--enable-openssl" if build.with? "openssl"
+    args << "--enable-libsrt" if build.with? "srt"
 
     if build.with? "xz"
       args << "--enable-lzma"

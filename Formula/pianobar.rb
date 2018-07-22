@@ -1,16 +1,15 @@
 class Pianobar < Formula
   desc "Command-line player for https://pandora.com"
   homepage "https://github.com/PromyLOPh/pianobar/"
-  url "https://6xq.net/pianobar/pianobar-2017.08.30.tar.bz2"
-  sha256 "ec14db6cf1a7dbc1d8190b5ca0d256021e970587bcdaeb23904d4bca71a04674"
+  url "https://6xq.net/pianobar/pianobar-2018.06.22.tar.bz2"
+  sha256 "946357718a7b5fea661247ad10187e77f94724ef2bb29a2482afeb2d8c8bd4c2"
   head "https://github.com/PromyLOPh/pianobar.git"
 
   bottle do
     cellar :any
-    sha256 "e4d59eee9e6d6d6b78b5bd2541a7faa23beda9edbe9179678cb46ca006e616f0" => :high_sierra
-    sha256 "327b53a2b9e2fd6824d0c854b5ea411b29b07ba5804b443c453aee05a86e36d4" => :sierra
-    sha256 "ea582da39bf90a0122d74678cdf82349af53adcbab48ff5bd2d57c64ca16150f" => :el_capitan
-    sha256 "41d44c9f1680fa404639ae9b907df30bbb019b1628454e8d77eba95af6a1a883" => :yosemite
+    sha256 "ae7c37f76393133eb0c89ab71a4d85d3a379a4c83e79fe925627096229218878" => :high_sierra
+    sha256 "2482cbc242c836393dfbbe5a586d33dc58899e572aa3e929c9a371ea557071db" => :sierra
+    sha256 "d7f002bd258a1423a040e6ed1c78e74ade37f3af1e447e37506ba4af9b658718" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

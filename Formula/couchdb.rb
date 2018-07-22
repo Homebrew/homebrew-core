@@ -3,12 +3,12 @@ class Couchdb < Formula
   homepage "https://couchdb.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
   sha256 "91200aa6fbc6fa5e2f3d78ef40e39d8c1ec7c83ea1c2cd730d270658735b2cad"
-  revision 3
+  revision 7
 
   bottle do
-    sha256 "6215cd6abbf100a301579ef95d1c94a90c3c2bc84484a91edb0c88bb9b1ae626" => :high_sierra
-    sha256 "dc124a774e54ae8368fb6ef46817d5d0c3d6a3997d9029c250ad186f9bbd681d" => :sierra
-    sha256 "f3c634cb5313a11d485dea76f5326b4c04ac9b9b43a0fb909c3b1008ff3d711e" => :el_capitan
+    sha256 "803e0a8c0cc29f24f2316e7fa2e171a23c854dcbf27860ce33b1fd759b10baa1" => :high_sierra
+    sha256 "eac5e94502da04ebabca49e93dcfa655b09f2a6c206dddec05ba81d388f4a635" => :sierra
+    sha256 "9c1c036dbdbd2c4ef0c674307862a34f307a07c562d6afea8019eefbb1201c07" => :el_capitan
   end
 
   head do
@@ -168,7 +168,7 @@ class Couchdb < Formula
       brew uninstall couchdb
       brew install couchdb
     To see these instructions again, just run 'brew info couchdb'.
-    EOS
+  EOS
   end
 
   plist_options :manual => "couchdb"
@@ -190,7 +190,7 @@ class Couchdb < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

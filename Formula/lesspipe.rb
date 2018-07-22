@@ -26,6 +26,13 @@ class Lesspipe < Formula
     system "make", "install"
   end
 
+  def caveats
+    <<~EOS
+      Append the following to your #{shell_profile}:
+      export LESSOPEN="|#{HOMEBREW_PREFIX}/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
+    EOS
+  end
+
   test do
     touch "file1.txt"
     touch "file2.txt"
@@ -33,12 +40,5 @@ class Lesspipe < Formula
 
     assert_predicate testpath/"homebrew.tar.gz", :exist?
     assert_match /file2.txt/, shell_output("tar tvzf homebrew.tar.gz | #{bin}/tarcolor")
-  end
-
-  def caveats
-    <<~EOS
-      Append the following to your #{shell_profile}:
-      export LESSOPEN="|#{HOMEBREW_PREFIX}/bin/lesspipe.sh %s" LESS_ADVANCED_PREPROCESSOR=1
-    EOS
   end
 end

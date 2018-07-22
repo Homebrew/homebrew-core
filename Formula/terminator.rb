@@ -1,6 +1,7 @@
 class Terminator < Formula
   desc "Multiple terminals in one window"
   homepage "https://gnometerminator.blogspot.com/p/introduction.html"
+  revision 2
   head "lp:terminator", :using => :bzr
 
   stable do
@@ -15,15 +16,14 @@ class Terminator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef923c9f764ba0e3ec36142280ebb537795576f0aa4566c1637bba78d062b124" => :high_sierra
-    sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :sierra
-    sha256 "d2abd2e81a52ee85f484aff67d8752e85e175fd08b8a2b017c6b74673c4d0450" => :el_capitan
-    sha256 "2f845d41df3d9744731766bba04e1982fe100acce7b5c590b2025a269aba5d51" => :yosemite
+    sha256 "00e85432871cb5e7df4bcbe8e835cf9ad619f772de9018c41ed781bef4fa6643" => :high_sierra
+    sha256 "00e85432871cb5e7df4bcbe8e835cf9ad619f772de9018c41ed781bef4fa6643" => :sierra
+    sha256 "00e85432871cb5e7df4bcbe8e835cf9ad619f772de9018c41ed781bef4fa6643" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "vte"
   depends_on "pygtk"
   depends_on "pygobject"

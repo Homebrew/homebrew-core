@@ -1,14 +1,14 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.5.0.tar.gz"
-  sha256 "f90167312b0e12e85331e4fdd790268eab508c2a59764ae164bacc7cd6149732"
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.6.0.tar.gz"
+  sha256 "23fd946489abded28ea6db5e9d7270648dc62b20a42088ee8412d179557be950"
 
   bottle do
     cellar :any
-    sha256 "aca04f30b22b854907c635cc93f78c51ac37b5da4ccd4cecece365e53cd54d19" => :high_sierra
-    sha256 "7d343e1b5fd2cc0a9510e444b25ba402ae383f7b5b50307408bb3af6436480dd" => :sierra
-    sha256 "46c458b48728a214b102e724dcee15d8c2f6a25c1ec29ac87c5182529564abca" => :el_capitan
+    sha256 "36a8c958af1bd90d550d148cdb2c0f6484457bd325a8a7d94041196df2b0a078" => :high_sierra
+    sha256 "9279d5e1fb4af5e8e32a2a0f2f5def5acdd0811587293380736aed02ac5dcb1a" => :sierra
+    sha256 "a437fe40791a34a454e8db48176f39429331bd3a891853df33c16d1e9357eed7" => :el_capitan
   end
 
   depends_on "autoconf" => :build

@@ -1,15 +1,17 @@
 class Jbake < Formula
   desc "Java based static site/blog generator"
-  homepage "http://jbake.org"
-  url "http://jbake.org/files/jbake-2.5.1-bin.zip"
-  sha256 "4d3e1fa926b1beab38f4e073cac067e359ac9aef5b74580a2821f58209f286e4"
+  homepage "https://jbake.org/"
+  url "https://dl.bintray.com/jbake/binary/jbake-2.6.1-bin.zip"
+  sha256 "2cb17bee2bed09e7e251f727ddf73b15cbed9c5e3bed277cf7b4d329c89bdf14"
 
   bottle :unneeded
+
+  depends_on :java => "1.7+"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    bin.write_jar_script "#{libexec}/jbake-core.jar", "jbake"
+    bin.install_symlink libexec/"bin/jbake"
   end
 
   test do

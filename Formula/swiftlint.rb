@@ -2,20 +2,22 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      :tag => "0.25.0",
-      :revision => "c875bed8135517288fd89c072c0a316b4cdedb74"
+      :tag => "0.26.0",
+      :revision => "8c5d2afa7c8f58bb8302cc5cc679b64741490982"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3377814fd020c041682b7ada455e7d7e5b0256177980180365dde4ce8819354d" => :high_sierra
-    sha256 "d0cc75d2c8306fb072cdd4d7d0399898496eca82b9231bcff92855b6fc073b44" => :sierra
+    sha256 "d2fdae3eec236738b61de63f239ea379c97baa1e5c99efd0f38b6d9a3f3cd754" => :high_sierra
+    sha256 "6d78e398bf2404e001d9181f9f4fefc0b911ea6d5c79a825c6e5bdebe2f3b272" => :sierra
   end
 
-  depends_on :xcode => ["8.0", :run]
+  depends_on :xcode => "8.0"
   depends_on :xcode => ["9.0", :build]
 
   def install
+    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
+
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
   end
 

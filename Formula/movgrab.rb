@@ -24,4 +24,8 @@ class Movgrab < Formula
     rm "INSTALL"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/movgrab", "--version"
+  end
 end

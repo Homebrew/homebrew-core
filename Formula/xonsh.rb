@@ -3,19 +3,18 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "http://xon.sh"
-  url "https://github.com/xonsh/xonsh/archive/0.6.0.tar.gz"
-  sha256 "7d63d040a6df8749480becab4b3bcb1c6589458bad272d5de06c6a063c06c5f1"
-  revision 1
-  head "https://github.com/scopatz/xonsh.git"
+  url "https://github.com/xonsh/xonsh/archive/0.7.0.tar.gz"
+  sha256 "75fef71b4367a4bef3e4a54cf83dbb9d78a2ea580c03398dc64b2af756813003"
+  head "https://github.com/xonsh/xonsh.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d4a161f4a5d52c1889472d1c899dc468f38b5e547631acbc478b0c70042476c5" => :high_sierra
-    sha256 "cb6f319be7bbaa573329734093470ab676222e9ac76e548e121775fbb2da26c7" => :sierra
-    sha256 "9583716f1864b9c4b5f3cb4bb3130ba06412840eb634f51a3c5be41ef0f2d0a4" => :el_capitan
+    sha256 "385928f402aa33b4bff469cdc4597f46ab01b4ddd2bf85ec4a2caa117999a036" => :high_sierra
+    sha256 "d1df96f8b23d5a72c21cd50ad7fb0c3368708c41ac2e52d5b1b7a74010b4577b" => :sierra
+    sha256 "f749c471663934a5cb3ecdd815c222f41e024963a72dd06bc504775b50fcb4d7" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
 
   def install
     virtualenv_install_with_resources

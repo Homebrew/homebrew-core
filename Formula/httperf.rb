@@ -41,4 +41,8 @@ class Httperf < Formula
     system "./configure", *args
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/httperf", "--version"
+  end
 end

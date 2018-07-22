@@ -1,21 +1,20 @@
 class GtkMacIntegration < Formula
   desc "Integrates GTK macOS applications with the Mac desktop"
   homepage "https://wiki.gnome.org/Projects/GTK+/OSX/Integration"
-  url "https://download.gnome.org/sources/gtk-mac-integration/2.0/gtk-mac-integration-2.0.8.tar.xz"
-  sha256 "74fce9dbc5efe4e3d07a20b24796be1b1d6c3ac10a0ee6b1f1d685c809071b79"
-  revision 1
+  url "https://download.gnome.org/sources/gtk-mac-integration/2.1/gtk-mac-integration-2.1.2.tar.xz"
+  sha256 "68e682a3ba952e7d4b1cfa2c7147c5fcd76f8bd9792a567e175a619af5954af1"
 
   bottle do
-    sha256 "386b6c17f5130f9b1b5c3e1d8735c203fe4631b33897acf056ff29dc3af686ab" => :high_sierra
-    sha256 "f955fce167b47c28be3280a669c8748efdc1190c50e3df05f3118bf9c42e85ae" => :sierra
-    sha256 "070978d2d305868a4550f204f2b00950fac7e4d3e98033f2ed3c64998d4c4f38" => :el_capitan
-    sha256 "f5930dd44baf83b11de0e0cfe2f9e3be5491622cd32984398554d1760fe86e4e" => :yosemite
+    sha256 "7c6926dc885b7c031398552069dc16bd63d2fe938d281d3f18a90a80de48ce16" => :high_sierra
+    sha256 "5856dcaf405cffb88541a0d9918285603978c334284e1cff41c9d0d08801936c" => :sierra
+    sha256 "23213e9b20f36cc8c95a344064e29968cd3dbca73f1d433c25636b6056e357ac" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "gettext"
   depends_on "gtk+"
   depends_on "gtk+3" => :recommended
-  depends_on "gobject-introspection"
   depends_on "pygtk"
 
   def install

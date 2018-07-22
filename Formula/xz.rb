@@ -3,16 +3,15 @@
 class Xz < Formula
   desc "General-purpose data compression with high compression ratio"
   homepage "https://tukaani.org/xz/"
-  url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.3.tar.gz"
-  mirror "https://tukaani.org/xz/xz-5.2.3.tar.gz"
-  sha256 "71928b357d0a09a12a4b4c5fafca8c31c19b0e7d3b8ebb19622e96f26dbf28cb"
+  url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.4.tar.gz"
+  mirror "https://tukaani.org/xz/xz-5.2.4.tar.gz"
+  sha256 "b512f3b726d3b37b6dc4c8570e137b9311e7552e8ccbab4d39d47ce5f4177145"
 
   bottle do
     cellar :any
-    sha256 "34f57f10e488cf405c215ceab0648c9a2d44f2361439703af3c8778734aa2ef9" => :high_sierra
-    sha256 "2518e5105c2b290755cda0fd5cd7f71eea4cd4741b70c48250eed1750c3a6814" => :sierra
-    sha256 "faa0f79c1776a8b5d8093f84fca4c92e1ada51957a1381d120f690be36b42819" => :el_capitan
-    sha256 "82eef73a78db1c46ed8482c357f6ad1797a62f4c9124410b362efe885082892c" => :yosemite
+    sha256 "e7be50f4ee00e35887f3957263334eb3baba59e8c061919060f9259351be6880" => :high_sierra
+    sha256 "bcc71ee69e2c43bf56b9c9ece5a53dc3439652f355620a25b020f794cd447fb7" => :sierra
+    sha256 "974aae83ba7ceb62040c5bf02b1fb277a919212714c8da2a4c5eb3d1d119a465" => :el_capitan
   end
 
   def install
@@ -31,7 +30,7 @@ class Xz < Formula
 
     # compress: data.txt -> data.txt.xz
     system bin/"xz", path
-    assert !path.exist?
+    refute_predicate path, :exist?
 
     # decompress: data.txt.xz -> data.txt
     system bin/"xz", "-d", "#{path}.xz"

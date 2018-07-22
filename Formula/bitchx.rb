@@ -38,7 +38,7 @@ class Bitchx < Formula
       (or a similar, compatible encoding)
     * A font capable of extended ASCII characters:
       See: https://www.google.com/search?q=perfect+dos+vga+437
-    EOS
+  EOS
   end
 
   test do

@@ -23,7 +23,7 @@ class Mpdscribble < Formula
 
   def caveats; <<~EOS
     The configuration file was placed in #{etc}/mpdscribble.conf
-    EOS
+  EOS
   end
 
   plist_options :manual => "mpdscribble"
@@ -48,7 +48,7 @@ class Mpdscribble < Formula
         <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

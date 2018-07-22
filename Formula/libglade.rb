@@ -3,13 +3,12 @@ class Libglade < Formula
   homepage "https://glade.gnome.org"
   url "https://download.gnome.org/sources/libglade/2.6/libglade-2.6.4.tar.gz"
   sha256 "c41d189b68457976069073e48d6c14c183075d8b1d8077cb6dfb8b7c5097add3"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "8e27b8de63f45f6a70081ec595f22ca46e208a13324819026ac5e0264e4069ac" => :high_sierra
-    sha256 "e9d7a005ae30c9c63510803f27a85899477e53abb05e8e6dc2332a40e062bf7c" => :sierra
-    sha256 "29eb70db9e6a152942ec1b740fe5f8d6efe54e0887645eadd6c753db95299696" => :el_capitan
-    sha256 "f014633d2870eea3d232620a296721023327e3b43c344f996521e5e77e335023" => :yosemite
+    sha256 "2639d4af6b770ed782d7080b2b6105a0190eae1d8fdfd8076cdf3d89862b9364" => :high_sierra
+    sha256 "a26aa0e778ef074f9ba9726945297885fbfd49acab0ab392096990964e844fed" => :sierra
+    sha256 "057e25800e73c6233f353ed97ae4f7dfe1ca1f5eada9858d6527e03d4632ba87" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

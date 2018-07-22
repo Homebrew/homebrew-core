@@ -1,15 +1,15 @@
 class Spin < Formula
   desc "The efficient verification tool of multi-threaded software"
   homepage "https://spinroot.com/spin/whatispin.html"
-  url "https://spinroot.com/spin/Src/spin647.tar.gz"
-  version "6.4.7"
-  sha256 "1b5743635cb77ad2ab94fb5bffad4b8ffa3270ffc610a23444da4af094eaa29e"
+  url "https://spinroot.com/spin/Src/spin648.tar.gz"
+  version "6.4.8"
+  sha256 "0035bb114157a759e047c7f94ede0a3d7149003893914c9bbdff45e074ab6ae7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6538cbbaaf03722bb07741815a68e7bfafdda3516f57bc2d2b352e2e89f1adb8" => :high_sierra
-    sha256 "3922a022fe8111254653b476bba93245ee4cbfbb2695bd0327292eb08ba3cdd5" => :sierra
-    sha256 "818364514a9d8e3cf3557ef7324bd881ceed0c70f956a4b2edd274ed9fb06f32" => :el_capitan
+    sha256 "11dcb2192a287c7bdbdbf7109add8ffb9c33161b12b4342c9feef21fd16269d1" => :high_sierra
+    sha256 "5d881e899d308eee2c72c19050d61f70c53b439d7cb5b188dd6e104345a6fa35" => :sierra
+    sha256 "f64e72a5667316b47f32d7c1af206a7735708bbbb1a02e7d6d752d1e7e63b3ad" => :el_capitan
   end
 
   def install

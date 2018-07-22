@@ -1,9 +1,8 @@
 class Frege < Formula
   desc "Non-strict, functional programming language in the spirit of Haskell"
   homepage "https://github.com/Frege/frege/"
-  url "https://github.com/Frege/frege/releases/download/3.23.288/frege3.23.888-g4e22ab6.jar"
-  version "3.23.888-g4e22ab6"
-  sha256 "b825fbdccb5c3e81ef36f51b112d2dc449966dc5f11578a89b93e39bcac2f695"
+  url "https://github.com/Frege/frege/releases/download/3.24public/frege3.24.405.jar"
+  sha256 "f5a6e40d1438a676de85620e3304ada4760878879e02dbb7c723164bd6087fc4"
 
   bottle :unneeded
 

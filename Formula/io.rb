@@ -14,6 +14,8 @@ class Io < Formula
 
   option "without-addons", "Build without addons"
 
+  deprecated_option "with-python3" => "with-python"
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
@@ -33,7 +35,7 @@ class Io < Formula
     depends_on "pcre"
     depends_on "yajl"
     depends_on "xz"
-    depends_on "python3" => :optional
+    depends_on "python" => :optional
   end
 
   def install
@@ -48,7 +50,7 @@ class Io < Formula
                                   "#add_subdirectory(addons)"
     else
       inreplace "addons/CMakeLists.txt" do |s|
-        if build.without? "python3"
+        if build.without? "python"
           s.gsub! "add_subdirectory(Python)", "#add_subdirectory(Python)"
         end
 

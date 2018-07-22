@@ -14,7 +14,7 @@ class SpoofMac < Formula
     sha256 "f7dc1529dd2c83d8bf8667d170299aa592910bb4918174b23f6a9b7d3555084e" => :mavericks
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
@@ -45,7 +45,7 @@ class SpoofMac < Formula
         <string>en0</string>
     to e.g.:
         <string>en1</string>
-    EOS
+  EOS
   end
 
   plist_options :startup => true, :manual => "spoof-mac"
@@ -71,7 +71,7 @@ class SpoofMac < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

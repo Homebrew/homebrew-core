@@ -24,4 +24,8 @@ class Rlwrap < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/rlwrap", "--version"
+  end
 end

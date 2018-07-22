@@ -8,7 +8,7 @@ class CassandraAT22 < Formula
   bottle :unneeded
 
   depends_on "cython" => :build
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
@@ -110,7 +110,7 @@ class CassandraAT22 < Formula
         <string>#{var}/lib/cassandra</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

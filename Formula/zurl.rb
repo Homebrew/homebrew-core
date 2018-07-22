@@ -12,6 +12,7 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@2" => :test
   depends_on "curl" if MacOS.version < :lion
   depends_on "qt"
   depends_on "zeromq"
@@ -40,7 +41,7 @@ class Zurl < Formula
       in_req_spec=ipc://#{ipcfile}
       defpolicy=allow
       timeout=10
-      EOS
+    EOS
                   )
 
     runfile.write(<<~EOS
@@ -84,7 +85,7 @@ class Zurl < Formula
       resp = json.loads(sock.recv()[1:])
       assert('type' not in resp)
       assert(resp['body'] == 'test response\\n')
-      EOS
+    EOS
                  )
 
     pid = fork do

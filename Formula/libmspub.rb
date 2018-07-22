@@ -1,14 +1,15 @@
 class Libmspub < Formula
   desc "Interpret and import Microsoft Publisher content"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libmspub"
-  url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.3.tar.xz"
-  sha256 "f0225f0ff03f6bec4847d7c2d8719a36cafc4b97a09e504b610372cc5b981c97"
+  url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.4.tar.xz"
+  sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "bd35b73b9a1d0a740a113dfd921f62a103cd66c83018b027a1a97415509a6732" => :high_sierra
-    sha256 "1e00c58cbc9530cf5bf0a344cf2aaa16e5613c88ab4e3883668975917cc05a95" => :sierra
-    sha256 "1fec7ae574d1addc7d6f89fb6b4bd5212b88e431add06b656a204a2a41708e09" => :el_capitan
+    sha256 "3a5055e8ff1f55de6c79d4793767aa3c881a4ee25f662850801db1db56e289aa" => :high_sierra
+    sha256 "2b2f16add39ca5bdbb26a2698513757eddc711ed2330e197258a8d94fccc04f3" => :sierra
+    sha256 "77d32faa735ab867c48b947a83c9cf12ba3bbe747e0c94c43615d721a94b8d2d" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

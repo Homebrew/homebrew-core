@@ -3,8 +3,8 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.7.0/ldc-1.7.0-src.tar.gz"
-    sha256 "7cd46140ca3e4ca0d52c352e5b694d4d5336898ed4f02c3e18e0eafd69dd18bd"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.10.0/ldc-1.10.0-src.tar.gz"
+    sha256 "99b6e2b8dcaf28a2947318fb25e43fa0b96dd3a6377995146f987c4d17dd8371"
 
     resource "ldc-lts" do
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
@@ -13,9 +13,9 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256 "b94a78eb56c888d137870b5674510e899e40fd153829e560debc3f99ed49547f" => :high_sierra
-    sha256 "aa3aedaea3ca30fea1c8aeb0158bd2ed91c796dec52a96f992c9b988e11aed38" => :sierra
-    sha256 "50d0676d3b51c574923d110004f2efea2b5dfc8ea2b4f3458141bccd94c272d0" => :el_capitan
+    sha256 "5a03bf20778603197e065747cd182ba9a566fe7f31f2fd1df0813c6e2c22b066" => :high_sierra
+    sha256 "120fffd8b6207218c950f0e3e91eb388ac3926c842eeeb3d395f82c76aff9bf4" => :sierra
+    sha256 "1ad3f554d363bf26688e67fe38b94486a47b7c81d152fe2ef4e2d158b95c12ca" => :el_capitan
   end
 
   head do
@@ -30,7 +30,7 @@ class Ldc < Formula
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "llvm"
+  depends_on "llvm@5"
 
   def install
     ENV.cxx11
@@ -39,7 +39,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+          -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
         ]
         system "cmake", "..", *args
         system "make"
@@ -47,7 +47,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
         -DLDC_WITH_LLD=OFF

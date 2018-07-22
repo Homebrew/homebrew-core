@@ -2,20 +2,22 @@ class Sourcekitten < Formula
   desc "Framework and command-line tool for interacting with SourceKit"
   homepage "https://github.com/jpsim/SourceKitten"
   url "https://github.com/jpsim/SourceKitten.git",
-      :tag => "0.19.1",
-      :revision => "e06eb730499439ae32c5fbb6f72809ebec2371fd"
+      :tag => "0.21.1",
+      :revision => "e6efd3d8702fe6668ac43aa882d56f82430c6caf"
   head "https://github.com/jpsim/SourceKitten.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e8f7da0d293233d2cc6d1459c14ff5986d1486b5b07fd05b656a24492c0681e7" => :high_sierra
-    sha256 "59c32ff602435eb43db67a9b818d1112f3d660585077231c8d5e808d566f3bbc" => :sierra
+    sha256 "f0a29b526cf23343379204e6b01b1f73ff5d18c9b61e300e38d9539e26d562d8" => :high_sierra
+    sha256 "8509bd4310104cf83a18d22d207601565cbb398f73d2e0d261550feb3ac66899" => :sierra
   end
 
-  depends_on :xcode => ["6.0", :run]
+  depends_on :xcode => "6.0"
   depends_on :xcode => ["9.0", :build]
 
   def install
+    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
+
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
   end
 

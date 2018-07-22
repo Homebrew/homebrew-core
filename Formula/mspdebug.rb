@@ -3,6 +3,7 @@ class Mspdebug < Formula
   homepage "https://dlbeer.co.nz/mspdebug/"
   url "https://github.com/dlbeer/mspdebug/archive/v0.25.tar.gz"
   sha256 "347b5ae5d0ab0cddb54363b72abe482f9f5d6aedb8f230048de0ded28b7d1503"
+  head "https://github.com/dlbeer/mspdebug.git"
 
   bottle do
     sha256 "4124d4fbd9e191d941153962bb74aed50cc200c473b5ad5850610a1bc85f87b4" => :high_sierra
@@ -23,7 +24,7 @@ class Mspdebug < Formula
     You may need to install a kernel extension if you're having trouble with
     RF2500-like devices such as the TI Launchpad:
       https://dlbeer.co.nz/mspdebug/faq.html#rf2500_osx
-    EOS
+  EOS
   end
 
   test do

@@ -16,8 +16,6 @@ class Autoconf < Formula
     sha256 "37e77a2e7ca6d479f0a471d5f5d828efff621bd051c1884ff1363d77c5c4675e" => :mountain_lion
   end
 
-  keg_only :provided_until_xcode43
-
   def install
     ENV["PERL"] = "/usr/bin/perl"
 

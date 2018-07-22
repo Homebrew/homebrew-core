@@ -18,4 +18,8 @@ class Doublecpp < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/doublecpp", "--version"
+  end
 end

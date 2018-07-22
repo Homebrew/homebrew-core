@@ -1,26 +1,36 @@
 class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
   homepage "http://a11y.org"
-  url "https://download.gnome.org/sources/at-spi2-core/2.26/at-spi2-core-2.26.2.tar.xz"
-  sha256 "c80e0cdf5e3d713400315b63c7deffa561032a6c37289211d8afcfaa267c2615"
+  url "https://download.gnome.org/sources/at-spi2-core/2.28/at-spi2-core-2.28.0.tar.xz"
+  sha256 "42a2487ab11ce43c288e73b2668ef8b1ab40a0e2b4f94e80fca04ad27b6f1c87"
 
   bottle do
-    sha256 "ebefdfdcdf6a11d4e46aebcb3c327f682188d4b4d2ebe3f43ed143e7dcb0126c" => :high_sierra
-    sha256 "3e6cd54451efeaff9b94313b461fcd75d82c2e6270625192b7680cdb57f67e4f" => :sierra
-    sha256 "a655a6d84bc3d00a4cd4be87393e77e51ca65216c23b036732b6bca1bcfe5b54" => :el_capitan
+    sha256 "8b86b7d87d5cb4ee218dc60c6b8e27b4d3a89b6a82599423e0fd5edb40e71c3a" => :high_sierra
+    sha256 "7434c8470321ce6eaf7e0e8ae770b74234c861f912bba3fb1d81177bbd337478" => :sierra
+    sha256 "76ad7476a165d57556940a9511d640e812a1b87d8148814e8a1a735217475822" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
+  depends_on "python" => :build
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "dbus"
-  depends_on "gobject-introspection"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-introspection=yes"
-    system "make", "install"
+    ENV.refurbish_args
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
+  end
+
+  test do
+    system "#{libexec}/at-spi2-registryd", "-h"
   end
 end

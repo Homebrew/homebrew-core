@@ -34,7 +34,7 @@ class Libetpan < Formula
       {
         printf("version is %d.%d",libetpan_get_version_major(), libetpan_get_version_minor());
       }
-      EOS
+    EOS
     system ENV.cc, "test.c", "-L#{lib}", "-letpan", "-o", "test"
     system "./test"
   end

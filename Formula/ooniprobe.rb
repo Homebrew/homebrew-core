@@ -17,7 +17,7 @@ class Ooniprobe < Formula
   depends_on "libdnet"
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "tor"
 
   # these 4 need to come first or else cryptography will let setuptools
@@ -214,7 +214,7 @@ class Ooniprobe < Formula
 
   def caveats; <<~EOS
     Decks are installed to #{opt_pkgshare}/decks.
-    EOS
+  EOS
   end
 
   plist_options :startup => "true", :manual => "ooniprobe -i #{HOMEBREW_PREFIX}/share/ooniprobe/current.deck"

@@ -1,13 +1,13 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.59.tar.gz"
-  sha256 "ee920177c9dec770c30b673a21143d5e92a67e8207f9b720d41d51cda05d8513"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.60.tar.gz"
+  sha256 "a34112e1748823f6dfd0d129fe29a629cf35b8702f9dfaf1f24caf89ab523d1c"
 
   bottle do
-    sha256 "0f3e0b62063f28d43ad0e14e2d5a30c341e4c556a6b7bfc43130dec765d7cd65" => :high_sierra
-    sha256 "10ec1d0e791a67f21ea30cdb6bdb9d5672f3a9deb7cc1c298f63822f76da11ba" => :sierra
-    sha256 "d1dafa246bc2153d33af3ad12e55dfc72cc8e73d4d66274459b9acd76684539f" => :el_capitan
+    sha256 "58d3b7af4537b97428916c2805bee69959debcd29bbea928bfad9f0f817f15f0" => :high_sierra
+    sha256 "a35610c9fb87fed4b935852a99879bce60d336619da5815632cae9b0c1860485" => :sierra
+    sha256 "4733741339d55b2057dbf02150cdeac785eab38b53aae8f47154b8c368f5f72c" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -135,7 +135,7 @@ class MysqlAT55 < Formula
 
     To connect:
         #{opt_bin}/mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.5/bin/mysql.server start"
@@ -160,7 +160,7 @@ class MysqlAT55 < Formula
       <string>#{datadir}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

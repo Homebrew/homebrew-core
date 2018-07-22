@@ -1,14 +1,14 @@
 class Clinfo < Formula
   desc "Print information about OpenCL platforms and devices"
   homepage "https://github.com/Oblomov/clinfo"
-  url "https://github.com/Oblomov/clinfo/archive/2.2.17.10.25.tar.gz"
-  sha256 "23cab774915eea6730582abfc449ac57dc10f2ce7b39293e56166ed500383862"
+  url "https://github.com/Oblomov/clinfo/archive/2.2.18.04.06.tar.gz"
+  sha256 "f77021a57b3afcdebc73107e2254b95780026a9df9aa4f8db6aff11c03f0ec6c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "301063822ff72ea7885216b4172b0b5ee2fbc4ac6a28e5adf00a9b6f532f4a71" => :high_sierra
-    sha256 "782a4194425daa821c116f21641d0de02a7af6d58f978fa0d6d94296f3b11fc8" => :sierra
-    sha256 "16f633430d1c10d5c07dc6b24577263e2b7b08a27435a1c8446bb8aca99a352c" => :el_capitan
+    sha256 "d10832aa0b4a2f8602efca713aa85a2a78ae6df19d61d9c256c3e3cd4c37aba1" => :high_sierra
+    sha256 "bc0233b23ba9f5ac6f037b206eb22ae66583853864c1334652bbc69b239307a3" => :sierra
+    sha256 "1d456b254b9686f01649e08cf0c76a3b208f1873deae3d8920e22f57cc0f258a" => :el_capitan
   end
 
   def install

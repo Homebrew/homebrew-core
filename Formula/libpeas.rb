@@ -3,12 +3,15 @@ class Libpeas < Formula
   homepage "https://developer.gnome.org/libpeas/stable/"
   url "https://download.gnome.org/sources/libpeas/1.22/libpeas-1.22.0.tar.xz"
   sha256 "5b2fc0f53962b25bca131a5ec0139e6fef8e254481b6e777975f7a1d2702a962"
+  revision 2
 
   bottle do
-    sha256 "2ea4bc3ecb98d714926827f205ec7a38023c99809e6c76112966c46ca029560e" => :high_sierra
-    sha256 "761fe27f39245b4e7604d8dc49872a659432e788c179209b63b3a993f273071a" => :sierra
-    sha256 "0f521913ca0eaf13b55aacb75e4b87a730be1f527215741ae2ba207caac523b2" => :el_capitan
+    sha256 "f33cfee795a9688c79eea11fb7288f00c4544ee942d7accb54ed700922fcd89e" => :high_sierra
+    sha256 "39b4be69280c5c8b4bfce3f2d4253d06345d9a50910891324eb9624256b8b65a" => :sierra
+    sha256 "e564ba0cc81e732fdd1e5632d5628ab1ac9c9a45d094b17e22d01dde345f3946" => :el_capitan
   end
+
+  option "with-python@2", "Build with support for python2 plugins"
 
   depends_on "gettext" => :build
   depends_on "intltool" => :build
@@ -16,12 +19,37 @@ class Libpeas < Formula
   depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gtk+3"
+  depends_on "python"
+  depends_on "python@2" => :optional
+
+  if build.with? "python@2"
+    depends_on "pygobject3" => "with-python@2"
+  else
+    depends_on "pygobject3"
+  end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--enable-gtk"
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --enable-gtk
+      --enable-python3
+    ]
+
+    xy = Language::Python.major_minor_version "python3"
+    py3_lib = Formula["python"].opt_frameworks/"Python.framework/Versions/#{xy}/lib"
+    ENV.append "LDFLAGS", "-L#{py3_lib}"
+
+    if build.with? "python@2"
+      py2_lib = Formula["python@2"].opt_frameworks/"Python.framework/Versions/2.7/lib"
+      ENV.append "LDFLAGS", "-L#{py2_lib}"
+      args << "--enable-python2"
+    else
+      args << "--disable-python2"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 

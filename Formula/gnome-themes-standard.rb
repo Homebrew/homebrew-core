@@ -1,15 +1,15 @@
 class GnomeThemesStandard < Formula
   desc "Default themes for the GNOME desktop environment"
-  homepage "https://git.gnome.org/browse/gnome-themes-standard/"
+  homepage "https://gitlab.gnome.org/GNOME/gnome-themes-extra"
   url "https://download.gnome.org/sources/gnome-themes-standard/3.22/gnome-themes-standard-3.22.3.tar.xz"
   sha256 "61dc87c52261cfd5b94d65e8ffd923ddeb5d3944562f84942eeeb197ab8ab56a"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "589376bcde7566b5afaa542c51fd99f20ea417f53ac37de25ca99a131b79977b" => :high_sierra
-    sha256 "628cb3dafd7c2577efe0541a200c190d4a8b7653e5e806f38f6aa4d79f4d872b" => :sierra
-    sha256 "92177002751416a5c288faa4a22343dd6b40d0bf056cce53108aa371d9dce0bb" => :el_capitan
-    sha256 "13d5ff2e6d7497d5eb32d2dcf1794c4541d0d38a00e02f00a42ad83457b507a9" => :yosemite
+    sha256 "89dfac449612ec50fb5f051b225ebc78cabf41b087547c2e5b1d944448d3fd78" => :high_sierra
+    sha256 "4b2899ca297207b247e36b3e3c57b1cf005d4fd6b205f70453f71deb4486e42d" => :sierra
+    sha256 "4732342c9072f0ab20bb83dcf358b44358a77176eb8275260669ba5badef0acf" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

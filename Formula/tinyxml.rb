@@ -54,7 +54,7 @@ class Tinyxml < Formula
     Version: #{version}
     Libs: -L${libdir} -ltinyxml
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   test do

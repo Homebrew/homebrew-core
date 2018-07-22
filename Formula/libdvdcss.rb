@@ -1,14 +1,14 @@
 class Libdvdcss < Formula
   desc "Access DVDs as block devices without the decryption"
   homepage "https://www.videolan.org/developers/libdvdcss.html"
-  url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.1/libdvdcss-1.4.1.tar.bz2"
-  sha256 "eb073752b75ae6db3a3ffc9d22f6b585cd024079a2bf8acfa56f47a8fce6eaac"
+  url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2"
+  sha256 "78c2ed77ec9c0d8fbed7bf7d3abc82068b8864be494cfad165821377ff3f2575"
 
   bottle do
     cellar :any
-    sha256 "a3804131e68ba89f9ef73fbfca87d52b480ee412234d4fccedb43aa70968b015" => :high_sierra
-    sha256 "e3c0e3b23fc34d95e505d6a97451dc82be83463c348d7c35e0507f13c8e6ff6f" => :sierra
-    sha256 "c56f02cd982d3f0e39f926693d1beba8b2bfacaef6fc29847544f120d31a2ab1" => :el_capitan
+    sha256 "4029db91ed7536435bd29db6b67f55509be13e70b6170337edec72daad8992c4" => :high_sierra
+    sha256 "907d51957c4674ddeb27b458dcf5f1f4b382219bda893fc8908147acc1c2b1ea" => :sierra
+    sha256 "0aaed21ecd3c8d3b4a9997300a599de5a541689ab200a6ffce52167b2ce5b664" => :el_capitan
   end
 
   head do

@@ -1,19 +1,19 @@
 class Mvtools < Formula
   desc "Filters for motion estimation and compensation"
   homepage "https://github.com/dubhater/vapoursynth-mvtools"
-  url "https://github.com/dubhater/vapoursynth-mvtools/archive/v19.tar.gz"
-  sha256 "41848bf526f1807e6894513534d5243bbce5b796d798a3cf47f617229d7b6e9e"
+  url "https://github.com/dubhater/vapoursynth-mvtools/archive/v20.tar.gz"
+  sha256 "9a1bc87b9bad6642dd7d69b1b6e200c1d962ef55fc2787581e5d2cb437aa0b23"
   head "https://github.com/dubhater/vapoursynth-mvtools.git"
 
   bottle do
     cellar :any
-    sha256 "3dd4f5e61df28a742322bc13a0b4c8390cb544ec9dd74e9d2699be9a3522ea3d" => :high_sierra
-    sha256 "a1e8772b4d9306f46c6639d37668565ccadbe7bd702190a252275d4d98e70095" => :sierra
-    sha256 "0da949dba3b2e7fffee8cc70b4848bb0dea404476636333db22f889347b0b6aa" => :el_capitan
+    sha256 "6a78a79719c00934f397bf61a6fff3415fa3ca155bb22cf67b3ae899f718174b" => :high_sierra
+    sha256 "bd36ea3bb4a0e0ee16892683dbd3d5e04bd7b11174f99d5a698b6c495158f81e" => :sierra
+    sha256 "043f36d3ed835c973bbacb64aa07cb2f435fb10539f2b7cb0feecdf75a459f72" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
-  depends_on "yasm" => :build
+  depends_on "nasm" => :build
   depends_on "vapoursynth"
   depends_on "fftw"
   depends_on "autoconf" => :build

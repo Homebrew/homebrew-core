@@ -1,18 +1,21 @@
 class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
-  url "https://github.com/elastic/beats/archive/v6.2.2.tar.gz"
-  sha256 "0866c3e26fcbd55f191e746b3bf925b450badd13fb72ea9f712481559932c878"
+  # Pinned at 6.2.x because of a licencing issue
+  # See: https://github.com/Homebrew/homebrew-core/pull/28995
+  url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
+  sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c7b1b6b0dead6a93667afad4248b304fb1ebbe771c85091becac2a6a9fa6e085" => :high_sierra
-    sha256 "4ab4c67dac14be0bc3a6d5462cf4f26556f8ae1c459a7ccea99c864d05d2b6c9" => :sierra
-    sha256 "9a04e10ba3192814b34b1a72aa5cc4259d4836108e8aa522b949a26653ec7139" => :el_capitan
+    sha256 "ebd8f45921dbdd3089084bca6b48f3c91553007a2d42eb222e0b9cf15b1b6873" => :high_sierra
+    sha256 "26a317fa93b70509f8885b63981cf3dd7332b825f975f6ceb151b49baf26fe7f" => :sierra
+    sha256 "3d639a62737631ec77a87d4f9853f9d653982c39f05dad964cf94de04f9444b2" => :el_capitan
   end
 
   depends_on "go" => :build
+  depends_on "python@2" => :build
 
   # Patch required to build against go 1.10.
   # May be removed once upstream beats project fully supports go 1.10.
@@ -22,8 +25,8 @@ class Auditbeat < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
-    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
+    url "https://files.pythonhosted.org/packages/b1/72/2d70c5a1de409ceb3a27ff2ec007ecdd5cc52239e7c74990e32af57affe9/virtualenv-15.2.0.tar.gz"
+    sha256 "1d7e241b431e7afce47e77f8843a276f652699d1fa4f93b9d8ce0076fd7b0b54"
   end
 
   def install
@@ -39,24 +42,25 @@ class Auditbeat < Formula
     ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
     cd "src/github.com/elastic/beats/auditbeat" do
-      # prevent downloading binary wheels
-      inreplace "../libbeat/scripts/Makefile", "pip install", "pip install --no-binary :all"
       system "make"
+      # prevent downloading binary wheels during python setup
+      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
       system "make", "DEV_OS=darwin", "update"
-      (libexec/"bin").install "auditbeat"
-      libexec.install "_meta/kibana"
 
-      (etc/"auditbeat").install Dir["auditbeat*.yml"]
-      prefix.install_metafiles
+      (etc/"auditbeat").install Dir["auditbeat.*", "fields.yml"]
+      (libexec/"bin").install "auditbeat"
+      prefix.install "_meta/kibana"
     end
+
+    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"auditbeat").write <<~EOS
       #!/bin/sh
-        exec #{libexec}/bin/auditbeat \
-        -path.config #{etc}/auditbeat \
-        -path.data #{var}/lib/auditbeat \
-        -path.home #{libexec} \
-        -path.logs #{var}/log/auditbeat \
+      exec #{libexec}/bin/auditbeat \
+        --path.config #{etc}/auditbeat \
+        --path.data #{var}/lib/auditbeat \
+        --path.home #{prefix} \
+        --path.logs #{var}/log/auditbeat \
         "$@"
     EOS
   end

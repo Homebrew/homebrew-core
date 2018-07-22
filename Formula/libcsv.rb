@@ -19,4 +19,16 @@ class Libcsv < Formula
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <csv.h>
+      int main(void) {
+        struct csv_parser p;
+        csv_init(&p, CSV_STRICT);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcsv", "-o", "test"
+    system "./test"
+  end
 end

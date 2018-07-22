@@ -3,13 +3,12 @@ class Gdmap < Formula
   homepage "https://sourceforge.net/projects/gdmap/"
   url "https://downloads.sourceforge.net/project/gdmap/gdmap/0.8.1/gdmap-0.8.1.tar.gz"
   sha256 "a200c98004b349443f853bf611e49941403fce46f2335850913f85c710a2285b"
+  revision 1
 
   bottle do
-    sha256 "6329bfac0b1b43a6c079f9f2c16e234bd7b7ad0601b7d664e405207192cddd97" => :high_sierra
-    sha256 "db929e85e1c6dd34a40e695f7d3467fc77a7a95ec3b24ec822f65e4134874a23" => :sierra
-    sha256 "3470eccd4baaaac2636285c623a82c0e6f2e767984892e8eb673958891b1cdcb" => :el_capitan
-    sha256 "12c2690893ef0c056f366fdbdf82381f2817a45e25469edc959b7b7707acd635" => :yosemite
-    sha256 "8f5e3ac904534dbb29d7d0e1d20458631e7b3c59fda2eef8ab54e0ff12392587" => :mavericks
+    sha256 "a1cb2de04ea76b624f09a4662ae3d65313d7c8a43b3b95110a53429af8cad2b2" => :high_sierra
+    sha256 "37ace64b950b2d1565728d490e0ed505c1cbdb1a20cf1fa894a4934784a83a18" => :sierra
+    sha256 "4f48204465a1ce93f84eae2d5f54e2a7d9dad6e9ce5994829590ad14d3640914" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

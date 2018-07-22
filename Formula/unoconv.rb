@@ -12,7 +12,7 @@ class Unoconv < Formula
     sha256 "cb6ddbfbd729b82ab62289c996f8150044ea66ea6ec1fa54c64736eccb1fa964" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     system "make", "install", "prefix=#{prefix}"
@@ -20,6 +20,6 @@ class Unoconv < Formula
 
   def caveats; <<~EOS
     In order to use unoconv, a copy of LibreOffice between versions 3.6.0.1 - 4.3.x must be installed.
-    EOS
+  EOS
   end
 end

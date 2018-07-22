@@ -3,22 +3,22 @@ class Scala < Formula
   homepage "https://www.scala-lang.org/"
 
   stable do
-    url "https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.tgz"
-    mirror "https://downloads.typesafe.com/scala/2.12.4/scala-2.12.4.tgz"
-    mirror "https://www.scala-lang.org/files/archive/scala-2.12.4.tgz"
-    sha256 "9554a0ca31aa8701863e881281b1772370a87e993ce785bb24505f2431292a21"
+    url "https://downloads.lightbend.com/scala/2.12.6/scala-2.12.6.tgz"
+    mirror "https://downloads.typesafe.com/scala/2.12.6/scala-2.12.6.tgz"
+    mirror "https://www.scala-lang.org/files/archive/scala-2.12.6.tgz"
+    sha256 "1ac7444c5a85ed1ea45db4a268ee9ea43adf80e7f5724222863afb5492883416"
 
     depends_on :java => "1.8+"
 
     resource "docs" do
-      url "https://downloads.lightbend.com/scala/2.12.4/scala-docs-2.12.4.txz"
-      mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.4.txz"
-      sha256 "477892c8bb7df996166a767037cc16feb67ec9810273fd47bf43fa1eee0597a8"
+      url "https://downloads.lightbend.com/scala/2.12.6/scala-docs-2.12.6.txz"
+      mirror "https://www.scala-lang.org/files/archive/scala-docs-2.12.6.txz"
+      sha256 "fbbca33acf7492b08b69eb969ea211186c1d70ad57e4f2a2145a770bd9d9a61f"
     end
 
     resource "src" do
-      url "https://github.com/scala/scala/archive/v2.12.4.tar.gz"
-      sha256 "9d1eaf570f95204a8894ab941070354b1672904a903ae3d1b45df201ddd1ed7d"
+      url "https://github.com/scala/scala/archive/v2.12.6.tar.gz"
+      sha256 "78a3bda9d5bdf9c0411bf348c6e78064ae5735c2b1e2ed04cfdf2a270cfba6c9"
     end
   end
 
@@ -75,7 +75,7 @@ class Scala < Formula
   def caveats; <<~EOS
     To use with IntelliJ, set the Scala home to:
       #{opt_prefix}/idea
-    EOS
+  EOS
   end
 
   test do

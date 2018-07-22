@@ -1,14 +1,13 @@
 class RubyAT23 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.6.tar.xz"
-  sha256 "e0d969ac22d4a403c1204868bb9c0d068aa35045bb3934cf50b17b7f66059f56"
-  revision 3
+  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.7.tar.xz"
+  sha256 "c61f8f2b9d3ffff5567e186421fa191f0d5e7c2b189b426bb84498825d548edb"
 
   bottle do
-    sha256 "fe30395937fbeebc788f8b2be55f5c502ee2e0cb7305473037b30603b7319c7f" => :high_sierra
-    sha256 "205a00eabb2f741e3e459011890ea3f04c77e455ca86f3bb849a70c6d1ef53ef" => :sierra
-    sha256 "c7bbb7521bd983a2aede4a87583d0be5045f4cbfecb81d51b8bad1d5aac40d75" => :el_capitan
+    sha256 "278cfe1d06b0773308c8ecc24774da4a889d483143b1ebdd43a18373104a7992" => :high_sierra
+    sha256 "f577b57573e40294476496bea32214a4cd4ff11e4ff065e9ac5c162566d34c59" => :sierra
+    sha256 "fd7d9688aa54d13ab9874fdba05fb02bfb86db0eb796091bba5c087e5ce09c29" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -148,7 +147,7 @@ class RubyAT23 < Formula
         "#{opt_bin}/ruby"
       end
     end
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
@@ -156,7 +155,7 @@ class RubyAT23 < Formula
       #{rubygems_bindir}
 
     You may want to add this to your PATH.
-    EOS
+  EOS
   end
 
   test do

@@ -22,4 +22,8 @@ class Arss < Formula
       system "make", "install"
     end
   end
+
+  test do
+    system "#{bin}/arss", "--version"
+  end
 end

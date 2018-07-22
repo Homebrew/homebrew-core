@@ -3,22 +3,20 @@ class Pastebinit < Formula
   homepage "https://launchpad.net/pastebinit"
   url "https://launchpad.net/pastebinit/trunk/1.5/+download/pastebinit-1.5.tar.gz"
   sha256 "0d931dddb3744ed38aa2d319dd2d8a2f38a391011ff99db68ce7c83ab8f5b62f"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "29958609d2e6c70443678963204d0c93d87d80692087d9c5621141f2d2daf40d" => :high_sierra
-    sha256 "71974010132dbde6fe65cd12ef87e6f3374b66f4710cbea49eda848847bf150c" => :sierra
-    sha256 "c4ba9f88e6fad1b21fb2b433adf16855086063c143df0b10aea669dce3df189a" => :el_capitan
-    sha256 "42f4b20a8f4361de3f03077bda5c2ecdac87759723ac383b562f0c21b8791d93" => :yosemite
-    sha256 "628ce64e3127dff93a92aa08019ad7c191f0b285dc8ed8cc2248c09d72abc5f5" => :mavericks
+    sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :high_sierra
+    sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :sierra
+    sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :el_capitan
   end
 
   depends_on "docbook2x" => :build
-  depends_on "python3"
+  depends_on "python"
 
   def install
     inreplace "pastebinit" do |s|
-      s.gsub! "/usr/bin/python3", Formula["python3"].opt_bin/"python3"
+      s.gsub! "/usr/bin/python3", Formula["python"].opt_bin/"python3"
       s.gsub! "/usr/local/etc/pastebin.d", etc/"pastebin.d"
     end
 

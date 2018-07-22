@@ -3,13 +3,12 @@ class Gtksourceview < Formula
   homepage "https://projects.gnome.org/gtksourceview/"
   url "https://download.gnome.org/sources/gtksourceview/2.10/gtksourceview-2.10.5.tar.gz"
   sha256 "f5c3dda83d69c8746da78c1434585169dd8de1eecf2a6bcdda0d9925bf857c97"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "eb53710faa45677fbdcd50c4df35ab3f8fc7cab18ad424bba3b581536f65d434" => :high_sierra
-    sha256 "3fb2f8fa75fa387446d26fff33efda69464097236347a18624a5dde92f6d73a1" => :sierra
-    sha256 "457892619b702f1250a0e712d1230a12e19a94610b7adc5bc3692d982cf88e25" => :el_capitan
-    sha256 "5618462ba2f24a70240a654587eed2f7fef1714d011e2960fc3265a9dab40c70" => :yosemite
+    sha256 "b3ba6e3ef4aa4d3abc3ac572ce649290dadc386589c45b6abdf8ae6f2269823c" => :high_sierra
+    sha256 "2577ba17156b384fb3fa3c90f638e6bef9886c3268fb321d02fc012e330baac8" => :sierra
+    sha256 "2924c33793615aa02e2e46917ba58a3e8e8db1aaf0f7f9210b54acd725b76ef0" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

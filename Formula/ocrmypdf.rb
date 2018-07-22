@@ -3,29 +3,33 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/e1/c9/1183b939cc7cd3cf937a6619139879185cf8a51a4cadcbd572e688d7e1ea/ocrmypdf-5.6.0.tar.gz"
-  sha256 "db8c64b491bdb09bd28498d21aa2b132f8af247c815a551531a070390196546c"
+  url "https://files.pythonhosted.org/packages/ef/b2/b9d4d796d485852f583c34d16d20f20be3f5926049e859e1dd1d991205d9/ocrmypdf-7.0.0.tar.gz"
+  sha256 "4cd434fd2d71993ed9d66d5363c56707e5f8007c382793ac0024e34778df66ec"
 
   bottle do
     cellar :any
-    sha256 "00b6538e0cae0a121ce50c3233755c3433f908ae98d404dba288ba8ebc3f8933" => :high_sierra
-    sha256 "0b1564e156f9d2e244c3f7bf987ea94cd48bbdff26ccd79af3ee9c63eeea20fc" => :sierra
-    sha256 "eb62ae30ba555b37ced905ccd8b246320483fde6fee92e91d267624ec399c18b" => :el_capitan
+    sha256 "1d80f46e19d294271caa65389d77230c9ff7eac9adb4394a14ff6bc070dfda87" => :high_sierra
+    sha256 "801e7f55e80432cfe9a7078d27154c162400eac16386fbe9d71e595c32ca3946" => :sierra
+    sha256 "7a48d7c099d1f2869b39f7be98cd243b0792f3a2b86e2680229b1f574663178f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "exempi"
   depends_on "freetype"
   depends_on "ghostscript"
+  depends_on "jbig2enc"
   depends_on "jpeg"
+  depends_on "leptonica"
   depends_on "libpng"
-  depends_on "python3"
+  depends_on "pngquant"
+  depends_on "python"
   depends_on "qpdf"
   depends_on "tesseract"
   depends_on "unpaper"
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "img2pdf" do
@@ -33,9 +37,19 @@ class Ocrmypdf < Formula
     sha256 "140b70fa3a3bfb54e92947818cee01483a4f1492b5d1d02b0f649257f5ffc9ae"
   end
 
+  resource "pikepdf" do
+    url "https://files.pythonhosted.org/packages/50/03/f5af2251b8c206a7768a315c0487572a25e8225b6c9549d0b142862626c0/pikepdf-0.2.2.tar.gz"
+    sha256 "88b01fa8f87db20b345c76e1fa63a5b82c5c4a5e0f3702bdb8a1328fbc25a728"
+  end
+
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/0f/57/25be1a4c2d487942c3ed360f6eee7f41c5b9196a09ca71c54d1a33c968d9/Pillow-5.0.0.tar.gz"
-    sha256 "12f29d6c23424f704c66b5b68c02fe0b571504459605cfe36ab8158359b0e1bb"
+    url "https://files.pythonhosted.org/packages/d3/c4/b45b9c0d549f482dd072055e2d3ced88f3b977f7b87c7a990228b20e7da1/Pillow-5.2.0.tar.gz"
+    sha256 "f8b3d413c5a8f84b12cd4c5df1d8e211777c9852c6be3ee9c094b626644d3eab"
+  end
+
+  resource "pybind11" do
+    url "https://files.pythonhosted.org/packages/95/30/788a5c943f1399e05b52148504dffa7a801ea52eb5bb5cac0cc828306278/pybind11-2.2.3.tar.gz"
+    sha256 "87ff3ae777d9326349af5272974581270b2a0909b2392dc0cc57eb28ce23bcc3"
   end
 
   resource "pycparser" do
@@ -43,9 +57,14 @@ class Ocrmypdf < Formula
     sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
-  resource "PyPDF2" do
-    url "https://files.pythonhosted.org/packages/b4/01/68fcc0d43daf4c6bdbc6b33cc3f77bda531c86b174cac56ef0ffdb96faab/PyPDF2-1.26.0.tar.gz"
-    sha256 "e28f902f2f0a1603ea95ebe21dff311ef09be3d0f0ef29a3e44a932729564385"
+  resource "python-xmp-toolkit" do
+    url "https://files.pythonhosted.org/packages/5b/0b/4f95bc448e4e30eb0e831df0972c9a4b3efa8f9f76879558e9123215a7b7/python-xmp-toolkit-2.0.1.tar.gz"
+    sha256 "f8d912946ff9fd46ed5c7c355aa5d4ea193328b3f200909ef32d9a28a1419a38"
+  end
+
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/ca/a9/62f96decb1e309d6300ebe7eee9acfd7bccaeedd693794437005b9067b44/pytz-2018.5.tar.gz"
+    sha256 "ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"
   end
 
   resource "reportlab" do
@@ -54,8 +73,8 @@ class Ocrmypdf < Formula
   end
 
   resource "ruffus" do
-    url "https://files.pythonhosted.org/packages/97/fe/12445c6793350ab5dbf76cb87a122b9e9aab9a9040a2801004806d985216/ruffus-2.6.3.tar.gz"
-    sha256 "d78728d802013d91d15e5e939554dabce196967734850fa44634dce47e3e5061"
+    url "https://files.pythonhosted.org/packages/ea/32/5048607dd7a9104406789b15fb4078e774121b23190c9e464d4dd1f7ed89/ruffus-2.7.0.tar.gz"
+    sha256 "4bd46461d31aa532357019a33d8045f4e57e52f4ee41643b5b3a7372e380cae0"
   end
 
   def install
@@ -75,8 +94,10 @@ class Ocrmypdf < Formula
       venv.pip_install Pathname.pwd
     end
 
-    res = resources.map(&:name).to_set - ["Pillow"]
+    # pybind11 must be installed before pikepdf
+    venv.pip_install "pybind11"
 
+    res = resources.map(&:name).to_set - ["Pillow", "pybind11"]
     res.each do |r|
       venv.pip_install resource(r)
     end

@@ -159,7 +159,7 @@ class Mailhog < Formula
       <string>#{var}/log/mailhog.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

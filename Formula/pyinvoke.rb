@@ -3,18 +3,18 @@ class Pyinvoke < Formula
 
   desc "Pythonic task management & command execution"
   homepage "http://pyinvoke.org/"
-  url "https://github.com/pyinvoke/invoke/archive/0.22.1.tar.gz"
-  sha256 "0ff243defb9dfdc45a869fb9cc50ba3c0590ef6b337f4df49c465f63911176fb"
+  url "https://github.com/pyinvoke/invoke/archive/1.1.0.tar.gz"
+  sha256 "d3128569806b320b666ac740fd40427686920659d4476a194b65800dfff7235e"
   head "https://github.com/pyinvoke/invoke.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "22caddb4a74b1d916fee0352c5ca99f4abe7f7544d5afa870d9d9b22442a8105" => :high_sierra
-    sha256 "b649f689fa537171c909318338baa5147b4c6abe0e0d3ab4405bda9f9e433d3d" => :sierra
-    sha256 "f6576a575d302c1549e7cf76d3d07f5fc0f5c38efdd3534e915c0a39f4de57f9" => :el_capitan
+    sha256 "b21d960be03fe563637eee665f3212f0c0479fc4428d6dca0d9505b5660350b2" => :high_sierra
+    sha256 "1997c2a39475346fe48ade4cb6ec424a7379c2dadf9576e39c442acb8fdc0f38" => :sierra
+    sha256 "136d1fcc04e59c1191a976ccd99a4d84deb55dc38a239b330336e2571cbd1aec" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     virtualenv_install_with_resources

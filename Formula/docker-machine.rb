@@ -2,15 +2,15 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-      :tag => "v0.13.0",
-      :revision => "9ba6da9ebd1140b65eb73e1ce08086ca72764c60"
+      :tag => "v0.15.0",
+      :revision => "b48dc28d9139c93d166f07d8b3a049b59bceef9c"
   head "https://github.com/docker/machine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f69505083b87c7964014ecaa1ccf5615f5e5b331aa682429a148113f9a480261" => :high_sierra
-    sha256 "5c2daef1c95e61be256fd1c2e428e342a3f1c5d895e33a3666fabdf9c3dbf1e4" => :sierra
-    sha256 "67c92599ec8b67662dda5f75ad187b5c53896eedf81c6af808b36bd84f01e5ad" => :el_capitan
+    sha256 "c168f9646b98d662ec91251aeeabe3332e11085088fecbae688cf0b0973ced22" => :high_sierra
+    sha256 "f0aeffd502d844aa8aae19fdfe8b4db1ce46dc43890b8a5ddeab4dc4606cfacb" => :sierra
+    sha256 "5bf5fcfbf8931b1a07fb8a21dda2e3dc3f73cfe0cc8aee85f25eee0ecabd8ac4" => :el_capitan
   end
 
   depends_on "go" => :build

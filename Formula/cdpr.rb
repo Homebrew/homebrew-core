@@ -22,4 +22,8 @@ class Cdpr < Formula
   def caveats
     "run cdpr sudo'd in order to avoid the error: 'No interfaces found! Make sure pcap is installed.'"
   end
+
+  test do
+    system "#{bin}/cdpr", "-h"
+  end
 end

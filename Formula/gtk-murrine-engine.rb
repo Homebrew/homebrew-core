@@ -3,15 +3,13 @@ class GtkMurrineEngine < Formula
   homepage "https://github.com/GNOME/murrine"
   url "https://download.gnome.org/sources/murrine/0.98/murrine-0.98.2.tar.xz"
   sha256 "e9c68ae001b9130d0f9d1b311e8121a94e5c134b82553ba03971088e57d12c89"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "8c4e157e1a7b54e8f3840f57c1e1f23ab05105f63749285bd2571c2eea6f20e4" => :high_sierra
-    sha256 "34cb6d93aa8c8b465a68c54579afac3b9260af5f251fd7f1e125930bab2edf9b" => :sierra
-    sha256 "552525ea70d460775ffd1c73d34f6b7606b2ef6b34f58ef23b12d90659bbee8e" => :el_capitan
-    sha256 "8f4b630aac7727177cb36f323348dfe1a77c6cff64367ba881b94e05403b0bda" => :yosemite
-    sha256 "c04e691bfeca04d420f3f64990cd0b1d754bd87061757960bd6eda4e1b55c6c3" => :mavericks
+    sha256 "f83119dad928f2a2dae783d0963c81d72656851ae18df542584fab2e415bf708" => :high_sierra
+    sha256 "08bda579c315be5f604086c0e912adab1bc21ae3167031cb081140d1ca34708e" => :sierra
+    sha256 "2444bf86ebdf7288a4179bbc7cb4a77b2c8321c901be7d1d1d2430c8fedd1ce8" => :el_capitan
   end
 
   depends_on "intltool" => :build

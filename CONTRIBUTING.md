@@ -27,7 +27,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 * `brew edit foo` and make edits
 * leave the [`bottle`](http://www.rubydoc.info/github/Homebrew/brew/master/Formula#bottle-class_method) as-is
 * `brew uninstall --force foo`, `brew install --build-from-source foo`, `brew test foo`, and `brew audit --strict foo`
-* `git commit` with message formatted `foo: fix <insert details>`
+* `git commit` with message formatted `foo: <insert details>`
 * [open a pull request](https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request) and fix any failing tests
 
 Thanks!

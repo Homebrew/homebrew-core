@@ -28,6 +28,10 @@ class Sntop < Formula
     sntop uses fping by default and fping can only be run by root by default.
     You can run `sudo sntop` (or `sntop -p` which uses standard ping).
     You should be certain that you trust any software you grant root privileges.
-    EOS
+  EOS
+  end
+
+  test do
+    system "#{bin}/sntop", "--version"
   end
 end

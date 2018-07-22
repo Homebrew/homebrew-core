@@ -22,7 +22,7 @@ class ZshNavigationTools < Formula
 
     You will also need to force reload of your .zshrc:
       source ~/.zshrc
-    EOS
+  EOS
   end
 
   test do

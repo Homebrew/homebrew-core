@@ -21,4 +21,8 @@ class Xmlstarlet < Formula
     system "make", "install"
     bin.install_symlink "xml" => "xmlstarlet"
   end
+
+  test do
+    system "#{bin}/xmlstarlet", "--version"
+  end
 end

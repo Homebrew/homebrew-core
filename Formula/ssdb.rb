@@ -74,7 +74,7 @@ class Ssdb < Formula
         <string>#{var}/log/ssdb.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

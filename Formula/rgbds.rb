@@ -1,15 +1,15 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://github.com/rednex/rgbds"
-  url "https://github.com/rednex/rgbds/archive/v0.3.5.tar.gz"
-  sha256 "f1c5d986624573522b289d166d417a840b7d8fc311c1c4d5e97b1343b737b464"
+  url "https://github.com/rednex/rgbds/archive/v0.3.7.tar.gz"
+  sha256 "5ddd8b9d57e91c798f464e83fa723cdbab45376958a56a554fbfb3c417844bfc"
   head "https://github.com/rednex/rgbds.git"
 
   bottle do
     cellar :any
-    sha256 "b1287b2b3f9613f0cafd154dc7e32e1804da97096b6ee4a38f0219daf9ec84a8" => :high_sierra
-    sha256 "8317e8389aecd39ae3fdd8b28d93b153ceb39abd9231bb20edd2b6caedf8e03b" => :sierra
-    sha256 "d4afe4f7e88f6392c45a8c7e7e0d64e710e66dd4caf1d3894f54f4bafc4c966b" => :el_capitan
+    sha256 "814d8937cc9e989f7a69eb4df68a1b26e1863287ef45eaab40f4fb99717392f8" => :high_sierra
+    sha256 "f526669d5a58a35c04ee3eff2ddea03ab1af7b58ed1f035319ce0385280ab08b" => :sierra
+    sha256 "d7440703be2002305b713672f4bd5dacfdbcdc84ed5d7a06b9d579b9195055eb" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

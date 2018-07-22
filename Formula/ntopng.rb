@@ -1,6 +1,7 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
+  revision 3
 
   stable do
     url "https://github.com/ntop/ntopng/archive/3.2.tar.gz"
@@ -13,9 +14,9 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 "e4f7e647e5c37d3d936f8d18a3ebb620ed80b806c60275a09f5e3815e85db873" => :high_sierra
-    sha256 "5103e823d0792492aeaa3ab36d83f71fa2697d526bd92c963b2882b809ce6687" => :sierra
-    sha256 "dd1b65f7942118b0fa313b8560ce98ad15b3de91417ad596872b82b48161ee42" => :el_capitan
+    sha256 "e7315a06207aebca9826d516e390142e039885f9630dd53daa0032ea5cecaf65" => :high_sierra
+    sha256 "9c0f54169acb2a4ddd67b201b83a946009d14d1e77590c648be4bb28fd26d099" => :sierra
+    sha256 "ec24a5e1ae49b79a747c5fe61e8e1bcd8f5d427ac1ca69b564cc8cce441859e7" => :el_capitan
   end
 
   head do
@@ -25,8 +26,6 @@ class Ntopng < Formula
       url "https://github.com/ntop/nDPI.git", :branch => "dev"
     end
   end
-
-  option "with-mariadb", "Build with mariadb support"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -40,8 +39,7 @@ class Ntopng < Formula
   depends_on "rrdtool"
   depends_on "geoip"
   depends_on "redis"
-  depends_on "mysql" if build.without? "mariadb"
-  depends_on "mariadb" => :optional
+  depends_on "mysql-client"
 
   def install
     resource("nDPI").stage do

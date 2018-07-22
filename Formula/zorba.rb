@@ -3,12 +3,12 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
-  revision 6
+  revision 8
 
   bottle do
-    sha256 "f144539eb1107b00dbc7577439559bd18a80d5cc3f7679bba85ca272fa8e4234" => :high_sierra
-    sha256 "6cf0d3096e50121a1412582d6e30e80dfd01cae1a4502f50cc875c8363ebb9bc" => :sierra
-    sha256 "3cecf172b1c5ab6cd90fb83117de92715862424f7436166b2ad5abbcbfa2b168" => :el_capitan
+    sha256 "1ee6bcb9160599deba3286a3a32e6682c6ab9f49dd29bf3f2b7379799aa4461e" => :high_sierra
+    sha256 "0611b46146ef4e6da55d5c8a2e37c9df60eab408abf0c71b86a702e4825120a5" => :sierra
+    sha256 "9dc07aa5daadc49cbbdeee1fee3ef14800a604069e996859ec58b441c1738bdd" => :el_capitan
   end
 
   option "with-big-integer", "Use 64 bit precision instead of arbitrary precision for performance"
@@ -25,6 +25,9 @@ class Zorba < Formula
   needs :cxx11
 
   def install
+    # icu4c 61.1 compatability
+    ENV.append "CXXFLAGS", "-DU_USING_ICU_NAMESPACE=1"
+
     ENV.cxx11
 
     args = std_cmake_args

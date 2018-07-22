@@ -1,15 +1,15 @@
 class Jmxtrans < Formula
   desc "Tool to connect to JVMs and query their attributes"
   homepage "https://github.com/jmxtrans/jmxtrans"
-  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-268.tar.gz"
-  sha256 "711b90e9687b4429abce3dcc3856b3e7d2b5aa4452457bfe71a5f7768a140536"
+  url "https://github.com/jmxtrans/jmxtrans/archive/jmxtrans-parent-270.tar.gz"
+  sha256 "7261eb083e0ad927d69bc48bd190a0c1c1a340f20812514bd0ee59e4b25f8fd0"
   version_scheme 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9e98df7b2c006cc8577f48df30edf45b55b3b7bfdc57a9ab2c48b7812e062225" => :high_sierra
-    sha256 "9ff4256cc60b8fa306c6d7ff9fc30a91a97d5d84b39c58282425011b1d35f805" => :sierra
-    sha256 "58f20dce4df7b7c669c531ba5ee8697ea9a87702d3abde4bde27db527b086496" => :el_capitan
+    sha256 "a443805c63b0b51d4b13dfa2cc92b0d3f04ec2bcca3cffedb27ccd1e8d124fad" => :high_sierra
+    sha256 "3b9479ac46dc39a6f0a69bf43c5469abb31f33de6f51159ba6754a52d4127d7c" => :sierra
+    sha256 "3a21472f2c7858af301650a533be93ff9d4589e8497a7ada7dfe9165a4b00987" => :el_capitan
   end
 
   depends_on :java => "1.8"

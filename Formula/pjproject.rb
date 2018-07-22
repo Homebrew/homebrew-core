@@ -3,6 +3,7 @@ class Pjproject < Formula
   homepage "http://www.pjsip.org/"
   url "http://www.pjsip.org/release/2.7.2/pjproject-2.7.2.tar.bz2"
   sha256 "9c2c828abab7626edf18e04b041ef274bfaa86f99adf2c25ff56f1509e813772"
+  head "https://svn.pjsip.org/repos/pjproject/trunk"
 
   bottle do
     cellar :any

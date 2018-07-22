@@ -1,14 +1,13 @@
 class MongodbAT34 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.13.tar.gz"
-  sha256 "be80bd8a183ed2cf3c1cf06d473addedd8b270356182881e6a9e93eb7f700172"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.14.tar.gz"
+  sha256 "bbed7821560cc3c9e3215708e34243e20d490891b08a39f216188398ede9d790"
 
   bottle do
-    sha256 "c45ec7320622f812935905f44c2ec115b32ed13bfaac4185fcd1a78909f3dcd8" => :high_sierra
-    sha256 "4ff139beac47ea2f463774030ec27aaa113089c28e9e1b9b5b9080bfbac901c3" => :sierra
-    sha256 "10f50b5c3d1b06c3250ab224ce5a733c252a809877c4a215511e530cdf2ba600" => :el_capitan
+    sha256 "a3a784e75234eb5651a4b1bf3a4cef4ad7f4df70f75d6ab827930d31c9b1d2f6" => :high_sierra
+    sha256 "13b9f0745052a6a1aef4f624c810c05c16817e966ae564a9bc7b0cb55ff4e3d4" => :sierra
+    sha256 "83c48d38953e20c8838b5b3471d9f93dccae76328e2b2a8e25002c8f3ade582a" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -97,7 +96,7 @@ class MongodbAT34 < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -137,7 +136,7 @@ class MongodbAT34 < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

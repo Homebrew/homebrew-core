@@ -4,52 +4,41 @@ class Ffmbc < Formula
   url "https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU"
   version "0.7.2"
   sha256 "caaae2570c747077142db34ce33262af0b6d0a505ffbed5c4bdebce685d72e42"
-  revision 4
+  revision 6
 
   bottle do
-    sha256 "93018afba1f0661d6e6a539b189eea0692932a7af0a30b4c81aebadc79332657" => :high_sierra
-    sha256 "5923eee01026353f52122bdc3576a94da1d0315a1838cb19d20af07f66ec9566" => :sierra
-    sha256 "118b7d823df82d0b9eb27544dfe0246f8119aac8f48431e814119448dc47b936" => :el_capitan
+    sha256 "42c6aeb47134046a3aff40034342233f86fe21c834cfba6d35cc0846a79a32d1" => :high_sierra
+    sha256 "c6cc044c9ef2a89a5f8ab81e57bc9cb55c0f7a77561188d53b9045c83a5bb5d1" => :sierra
+    sha256 "54eb992aee2503bbfdb90ec483ed92a8c3606245692ea587af27f6a6c7af9e41" => :el_capitan
   end
 
-  option "without-x264", "Disable H.264 encoder"
-  option "without-lame", "Disable MP3 encoder"
-  option "without-xvid", "Disable Xvid MPEG-4 video encoder"
-
-  # manpages won't be built without texi2html
-  depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
+  depends_on "texi2html" => :build
   depends_on "yasm" => :build
-
-  depends_on "x264" => :recommended
-  depends_on "faac" => :recommended
-  depends_on "lame" => :recommended
-  depends_on "xvid" => :recommended
-
-  depends_on "freetype" => :optional
-  depends_on "theora" => :optional
+  depends_on "faac"
+  depends_on "lame"
+  depends_on "x264"
+  depends_on "xvid"
   depends_on "libvorbis" => :optional
-  depends_on "libogg" => :optional
   depends_on "libvpx" => :optional
+  depends_on "theora" => :optional
 
   patch :DATA # fix man page generation, fixed in upstream ffmpeg
 
   def install
     args = ["--prefix=#{prefix}",
             "--disable-debug",
+            "--disable-indev=jack",
             "--disable-shared",
             "--enable-gpl",
+            "--enable-libfaac",
+            "--enable-libmp3lame",
+            "--enable-libx264",
+            "--enable-libxvid",
             "--enable-nonfree",
             "--cc=#{ENV.cc}"]
 
-    args << "--enable-libx264" if build.with? "x264"
-    args << "--enable-libfaac" if build.with? "faac"
-    args << "--enable-libmp3lame" if build.with? "lame"
-    args << "--enable-libxvid" if build.with? "xvid"
-
-    args << "--enable-libfreetype" if build.with? "freetype"
     args << "--enable-libtheora" if build.with? "theora"
     args << "--enable-libvorbis" if build.with? "libvorbis"
-    args << "--enable-libogg" if build.with? "libogg"
     args << "--enable-libvpx" if build.with? "libvpx"
 
     system "./configure", *args

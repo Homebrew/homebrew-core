@@ -21,4 +21,8 @@ class Nkf < Formula
     # don't exist in an empty prefix
     system "make", "install", "prefix=#{prefix}", "MKDIR=mkdir -p"
   end
+
+  test do
+    system "#{bin}/nkf", "--version"
+  end
 end

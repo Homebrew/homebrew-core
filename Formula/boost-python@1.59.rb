@@ -3,21 +3,26 @@ class BoostPythonAT159 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
   sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ba33ce18f24b422ec0440400e8418456b6b1de04c111f46d55cfbb24acc15b72" => :high_sierra
-    sha256 "72e56d744c5369bcb8de95eee92182ca9cfe8e580d596473069ca69c0b23b3d6" => :sierra
-    sha256 "1adf1e1e570236fe2f67367d2ac17e83ade9d1b25e5e356bff23ce52d0117c8a" => :el_capitan
-    sha256 "ad13c2d6ceaec797943327a08babffc6d284fe89ec7f60170a362fa134e1429b" => :yosemite
+    sha256 "3aeba5e1e8a29f40ee518787d06323762c8fed8dff7510d71e075d744c2e529a" => :high_sierra
+    sha256 "00434235b9857114ec0d23f0023190f40b3e541b7b7448eb09363d293c03b648" => :sierra
+    sha256 "df22f5aa11aaf8b39915be0f5bb45bc22878c77755ba1e99a393151b62c289a0" => :el_capitan
   end
 
   keg_only :versioned_formula
 
   option :cxx11
 
-  option "without-python", "Build without python 2 support"
-  depends_on "python3" => :optional
+  option "without-python@2", "Build without python 2 support"
+
+  deprecated_option "with-python3" => "with-python"
+  deprecated_option "without-python" => "without-python@2"
+
+  depends_on "python@2" => :recommended
+  depends_on "python" => :optional
 
   if build.cxx11?
     depends_on "boost@1.59" => "c++11"
@@ -79,8 +84,8 @@ class BoostPythonAT159 < Formula
                      "python=#{version}", *args
     end
 
-    lib.install Dir["stage-python3/lib/*py*"] if build.with?("python3")
-    lib.install Dir["stage-python/lib/*py*"] if build.with?("python")
+    lib.install Dir["stage-python3/lib/*py*"] if build.with?("python")
+    lib.install Dir["stage-python2.7/lib/*py*"] if build.with?("python@2")
     doc.install Dir["libs/python/doc/*"]
   end
 
@@ -96,10 +101,11 @@ class BoostPythonAT159 < Formula
       }
     EOS
     Language::Python.each_python(build) do |python, _|
-      pyflags = (`#{python}-config --includes`.strip +
-                 `#{python}-config --ldflags`.strip).split(" ")
+      boost_python = (python == "python3") ? "boost_python3" : "boost_python"
+      pyflags = `#{python}-config --includes`.strip.split(" ") +
+                `#{python}-config --ldflags`.strip.split(" ")
       system ENV.cxx, "-shared", "hello.cpp", "-I#{Formula["boost159"].opt_include}",
-                      "-L#{lib}", "-lboost_#{python}", "-o", "hello.so", *pyflags
+                      "-L#{lib}", "-l#{boost_python}", "-o", "hello.so", *pyflags
       output = `#{python} -c "from __future__ import print_function; import hello; print(hello.greet())"`
       assert_match "Hello, world!", output
     end

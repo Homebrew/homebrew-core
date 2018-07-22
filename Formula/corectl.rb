@@ -64,7 +64,7 @@ class Corectl < Formula
 
     $ corectld start
 
-    EOS
+  EOS
   end
 
   test do

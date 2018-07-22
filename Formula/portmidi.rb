@@ -15,6 +15,7 @@ class Portmidi < Formula
 
   depends_on "cmake" => :build
   depends_on "cython" => :build
+  depends_on "python@2"
 
   def install
     if MacOS.version == :sierra || MacOS.version == :el_capitan

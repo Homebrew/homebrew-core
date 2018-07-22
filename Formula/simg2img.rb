@@ -1,15 +1,15 @@
 class Simg2img < Formula
   desc "Tool to convert Android sparse images to raw images and back"
   homepage "https://github.com/anestisb/android-simg2img"
-  url "https://github.com/anestisb/android-simg2img/archive/1.1.2.tar.gz"
-  sha256 "a32d8fbc028cb32eb0cd1f69003febaf0dc334cabab5ee4a0fd9fd514c3a2e03"
+  url "https://github.com/anestisb/android-simg2img/archive/1.1.3.tar.gz"
+  sha256 "82eb629ac0beb67cc97396e031555f0461dcb66e1b93aad53e2f604a18037c51"
   head "https://github.com/anestisb/android-simg2img.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c99ac5e27e01f4a821fe0e92cfa99a92fba103ecef29e2ac0410b487f13b643" => :high_sierra
-    sha256 "2e7c9986e8839167ea9903e5086b479cc7468371afeb57469be906c15eea1c8e" => :sierra
-    sha256 "77788e91df83e179edb74fa50fc2e68d2849383e4c51b2ba3f0d411e0434e558" => :el_capitan
+    sha256 "fdb01a50976fa5baef6f1d2b0fa96718256df5862cdc6e5a2d297f059031ae6f" => :high_sierra
+    sha256 "782e2bfbd0c4f74573ad00028910c80d0d1ccc3a1d8aa6275a75c16ff62078fc" => :sierra
+    sha256 "6895f9d52514757e07f47c9e18400330177175a1ef12e96ccf10b91577644557" => :el_capitan
   end
 
   def install

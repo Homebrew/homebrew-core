@@ -11,8 +11,6 @@ class Tnftpd < Formula
     sha256 "4ef4b7c1a35307c4a3e6b70dad1ba193aceda75920da79b0a2bd135446863d5e" => :el_capitan
   end
 
-  keg_only :provided_pre_high_sierra
-
   depends_on :xcode => :build
 
   def install

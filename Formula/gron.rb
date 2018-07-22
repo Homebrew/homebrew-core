@@ -3,22 +3,32 @@ require "language/go"
 class Gron < Formula
   desc "Make JSON greppable"
   homepage "https://github.com/tomnomnom/gron"
-  url "https://github.com/tomnomnom/gron/archive/v0.5.1.tar.gz"
-  sha256 "062462b8b6e884cd5731b0bc870e9a45f450e056f4367acccddb926079686560"
+  url "https://github.com/tomnomnom/gron/archive/v0.6.0.tar.gz"
+  sha256 "fe75b1b4922b591723f48cb9cd2c31cb60bb3ab9f8d0398df75a08b781d8591c"
   head "https://github.com/tomnomnom/gron.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "69513942bdaf37db13e7c380bc5241ef7a1a7e778b186c4197e8fa8e177bd6fb" => :high_sierra
-    sha256 "04dfab480e6fa4f718491d8b1c13929769260fb5330c62d5944a9b23c224005e" => :sierra
-    sha256 "8b719a5634fc88a4fa10bea59524ba58209e0da61fcbcba99ce09830a0c2358a" => :el_capitan
+    sha256 "7838ab1c751a11027f31b7b4dac4f7a83402b04a7eef522edeb15735846dfd81" => :high_sierra
+    sha256 "fa5310f4ac25091387f24e5dd4bb0364db432ebc9f3273da371cbd35116af09e" => :sierra
+    sha256 "23c3378ea69d5936b6966608942a0769c4adad0cdeabb9575e8b811b9b6c3a26" => :el_capitan
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-        :revision => "5df930a27be2502f99b292b7cc09ebad4d0891f4"
+        :revision => "2d684516a8861da43017284349b7e303e809ac21"
+  end
+
+  go_resource "github.com/mattn/go-colorable" do
+    url "https://github.com/mattn/go-colorable.git",
+        :revision => "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
+  end
+
+  go_resource "github.com/mattn/go-isatty" do
+    url "https://github.com/mattn/go-isatty.git",
+        :revision => "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
   end
 
   go_resource "github.com/nwidger/jsoncolor" do
@@ -28,7 +38,7 @@ class Gron < Formula
 
   go_resource "github.com/pkg/errors" do
     url "https://github.com/pkg/errors.git",
-        :revision => "e881fd58d78e04cf6d0de1217f8707c8cc2249bc"
+        :revision => "816c9085562cd7ee03e7f8188a1cfd942858cded"
   end
 
   def install

@@ -19,4 +19,8 @@ class Pbzip2 < Formula
                    "PREFIX=#{prefix}",
                    "install"
   end
+
+  test do
+    system "#{bin}/pbzip2", "--version"
+  end
 end

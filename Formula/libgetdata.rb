@@ -21,7 +21,7 @@ class Libgetdata < Formula
   deprecated_option "zzip" => "with-libzzip"
   deprecated_option "with-fortran" => "with-gcc"
 
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "gcc" => :optional
   depends_on "libzzip" => :optional
   depends_on "perl" => :optional

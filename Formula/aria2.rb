@@ -1,23 +1,26 @@
 class Aria2 < Formula
   desc "Download with resuming and segmented downloading"
   homepage "https://aria2.github.io/"
-  url "https://github.com/aria2/aria2/releases/download/release-1.33.1/aria2-1.33.1.tar.xz"
-  sha256 "2539e4844f55a1f1f5c46ad42744335266053a69162e964d9a2d80a362c75e1b"
+  url "https://github.com/aria2/aria2/releases/download/release-1.34.0/aria2-1.34.0.tar.xz"
+  sha256 "3a44a802631606e138a9e172a3e9f5bcbaac43ce2895c1d8e2b46f30487e77a3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1992d39c07ad9de977413b71dedbc78cc83943dc2597a159ab0fc15784310dfd" => :high_sierra
-    sha256 "464a54003a4f8d177065113650f4da67b3fd608c219640a0088ccc955759e43c" => :sierra
-    sha256 "596311357d76da2db291322804db854a8dfb04d89d5b8f0e45ae09c939bc7373" => :el_capitan
+    sha256 "b31c015ecbdd51db5f0287106c543d59f2505bc3aa221a3bbfbfddd3cbf2f8fc" => :high_sierra
+    sha256 "51d336692462ed3b530ce1059bab4cdc4119da6be59c55cf344a70a826bd1812" => :sierra
+    sha256 "71ff909a076d91fae49857f2d9c20d2e1c06e099c755648ef9dd5611ef64441e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "libssh2" => :optional
 
-  needs :cxx11
+  needs :cxx14
 
   def install
-    ENV.cxx11
+    # Fix "error: use of undeclared identifier 'make_unique'"
+    # Reported upstream 15 May 2018 https://github.com/aria2/aria2/issues/1198
+    inreplace "src/bignum.h", "make_unique", "std::make_unique"
+    inreplace "configure", "-std=c++11", "-std=c++14"
 
     args = %W[
       --disable-dependency-tracking

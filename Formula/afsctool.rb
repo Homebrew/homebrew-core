@@ -4,7 +4,7 @@ class Afsctool < Formula
   url "https://docs.google.com/uc?export=download&id=0BwQlnXqL939ZQjBQNEhRQUo0aUk"
   version "1.6.4"
   sha256 "bb6a84370526af6ec1cee2c1a7199134806e691d1093f4aef060df080cd3866d"
-  revision 1
+  revision 2
 
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
   patch do
@@ -12,12 +12,15 @@ class Afsctool < Formula
     sha256 "a541526679eb5d2471b3f257dab6103300d950f7b2f9d49bbfeb9f27dfc48542"
   end
 
+  # Fixes High Sierra "Expecting f_type of 17 or 23. f_type is 24" issue
+  # Acknowledged by upstream 12 Apr 2018 https://github.com/Homebrew/homebrew-core/pull/20898#issuecomment-380727547
+  patch :DATA
+
   bottle do
     cellar :any_skip_relocation
-    sha256 "8f1d0020beff7bcfd80530f69d29ca7f6bf053623c84a9957ef7dd5cd4fa3536" => :high_sierra
-    sha256 "7f11c9c16fb0f5f148fb80f1888cfa1053296e8f552b11cc196a6c3fcf0afade" => :sierra
-    sha256 "0751efedf08e3d0c4efed48861aaddf150bec2fdabc7099306f576a8c63c4971" => :el_capitan
-    sha256 "a05524c78e0153712e5a9d1a73fe70ed2e5f0e5e20a91ae38fedf9115d2e87a4" => :yosemite
+    sha256 "dae94371d947e9ddf0da4efd50425652753944da5f96c6aaa835b5ad1c361596" => :high_sierra
+    sha256 "ad17b0f173670e0e7909de0086dbfc8e3db2fef0a6a576875d199d6c14b8f212" => :sierra
+    sha256 "28e53f9426f88d7aaa41ef956a41aec8a68f5363d9e570a6be70e61e583e6b8f" => :el_capitan
   end
 
   def install
@@ -35,3 +38,20 @@ class Afsctool < Formula
     system "#{bin}/afsctool", "-v", path
   end
 end
+
+__END__
+diff --git a/afsctool_34/afsctool.c b/afsctool_34/afsctool.c
+index 8713407fa673f216e69dfc36152c39bc1dea4fe7..7038859f43e035be44c9b8cfbb1bb76a93e26e0a 100644
+--- a/afsctool_34/afsctool.c
++++ b/afsctool_34/afsctool.c
+@@ -104,8 +104,8 @@ void compressFile(const char *inFile, struct stat *inFileInfo, long long int max
+
+	if (statfs(inFile, &fsInfo) < 0)
+		return;
+-	if (fsInfo.f_type != 17 && fsInfo.f_type != 23) {
+-		printf("Expecting f_type of 17 or 23. f_type is %i.\n", fsInfo.f_type);
++	if (fsInfo.f_type != 17 && fsInfo.f_type != 23 && fsInfo.f_type != 24) {
++		printf("Expecting f_type of 17, 23 or 24. f_type is %i.\n", fsInfo.f_type);
+		return;
+	}
+	if (!S_ISREG(inFileInfo->st_mode))

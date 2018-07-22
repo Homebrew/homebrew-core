@@ -11,8 +11,6 @@ class Texi2html < Formula
     sha256 "5259ab2074f122f4725058d2477233add1a32c30d385680276b06c11e06bc67f" => :el_capitan
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "gettext"
 
   def install

@@ -1,26 +1,14 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-
-  stable do
-    url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.18.tar.xz"
-    sha256 "6a582dc2ae90b94ff3853f9ffd7d80b2c2b5fe2e2c35cb1da0b36f3f3dfad434"
-
-    # Remove for > 0.20.18
-    # Fix missing user-provided default constructor with old clang
-    # Upstream commit from 24 Feb 2018 "net/Init: work around -Werror=unused-variable"
-    if MacOS.version <= :el_capitan
-      patch do
-        url "https://github.com/MusicPlayerDaemon/MPD/commit/418f71ec0.patch?full_index=1"
-        sha256 "c059916176841f52d0f5a377b7c6dd19d012dc833a83fad55d4b2b31d41a6c8f"
-      end
-    end
-  end
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.20.tar.xz"
+  sha256 "a9e458c6e07cdf62649de7722e1e5a7f13aa82eeb397bfbbebc07cf5cf273584"
+  revision 1
 
   bottle do
-    sha256 "60c32ae92933d57fa82194c0247f4d5c4d21a5427a77249dcb1779aedeb9fdfe" => :high_sierra
-    sha256 "a74f7b6291dabc8114cfb09756d6239a46a5cbf1cb244fadd80da7859ee6c610" => :sierra
-    sha256 "62e61a812e94440ba49ab9400c9648fb8ac18053405e1451b9a3247167cc95c4" => :el_capitan
+    sha256 "5fb0cd8ede6ae6e1eb7983d1065d7e573dc73b67441fc3cecace2e18da68fff6" => :high_sierra
+    sha256 "e7b83d0b1c478d9e36750a51a0a20f7112c554907546d79202b34d88ad091801" => :sierra
+    sha256 "77584f900643c265fa424e434c4d0f7aaebce1dc18e2c4b880775033229fe82a" => :el_capitan
   end
 
   head do
@@ -98,6 +86,7 @@ class Mpd < Formula
       --enable-fluidsynth
       --enable-osx
       --disable-libwrap
+      --disable-mpc
     ]
 
     args << "--disable-mad" if build.without? "mad"
@@ -123,7 +112,7 @@ class Mpd < Formula
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
 
-  plist_options :manual => "mpd"
+  plist_options :manual => "mpd #{HOMEBREW_PREFIX}/etc/mpd/mpd.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -138,6 +127,7 @@ class Mpd < Formula
         <array>
             <string>#{opt_bin}/mpd</string>
             <string>--no-daemon</string>
+            <string>#{etc}/mpd/mpd.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
@@ -147,7 +137,7 @@ class Mpd < Formula
         <string>Interactive</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

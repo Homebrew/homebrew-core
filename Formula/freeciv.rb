@@ -1,13 +1,14 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.wikia.com/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.10/freeciv-2.5.10.tar.bz2"
-  sha256 "c8a14156562dce2f0a7b96390c2d5a35314f1124c448782a6a47b0c51cfcb302"
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.11/freeciv-2.5.11.tar.bz2"
+  sha256 "4c9c526952fe977cb4b302b8ccf75798fd066c6dde670f72f677fe4964259aad"
+  revision 3
 
   bottle do
-    sha256 "70e3d737fcccafb4a4d9edb4b9dd41b9be2301b586b0ef4df243e8dfbe84f228" => :high_sierra
-    sha256 "809f17c1f0b81ec5e29d587e272b11ab45f96d3d6ab5f7a93879cc094194854e" => :sierra
-    sha256 "2ec7479f71e89df80aa4edf89c17cdb72eba7cfbff15d1caa682bf08f08ad9a2" => :el_capitan
+    sha256 "24363a5afbf8b9a52997dbcea7da50f67d75a17296782c73da30cb23737c45ae" => :high_sierra
+    sha256 "ca4f8cf66f98db33ac835e0a4cdc95e024484964dcc5c2066faa1b56c4444660" => :sierra
+    sha256 "14399d2e22ab37998251a4edc4f9410fdc96df60a1c067843a0e0e01b2cfaa91" => :el_capitan
   end
 
   head do
@@ -46,6 +47,8 @@ class Freeciv < Formula
   depends_on "gdk-pixbuf" if build.with? "gtk+3"
 
   def install
+    ENV["ac_cv_lib_lzma_lzma_code"] = "no"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking

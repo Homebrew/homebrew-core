@@ -1,16 +1,15 @@
 class Pangomm < Formula
   desc "C++ interface to Pango"
-  homepage "http://www.pango.org/"
+  homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pangomm/2.40/pangomm-2.40.1.tar.xz"
   sha256 "9762ee2a2d5781be6797448d4dd2383ce14907159b30bc12bf6b08e7227be3af"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f1270ae7605b8f1a679770b37c63daeb7d8d14cdb5d1af09c6d67e83484256c2" => :high_sierra
-    sha256 "0f5fe35f77d9ab084cdb0ecba758a61771ec33650de30e3c57ddf56af240cabf" => :sierra
-    sha256 "7565443483138210e191d3fe044c04d55755057b4c3d53187baf2857c966f0a5" => :el_capitan
-    sha256 "09d9b38d15273c02968cb4330159c8cfa0b9e06701f69b7495c12f64f7f370b8" => :yosemite
-    sha256 "1d2a6f8d96059a189be9d39e6d20fd5a8a7a14293cc64c71eab506522ff5c1e5" => :mavericks
+    sha256 "eefd29c6f25ecaa2d5b6f93a5578eda9607a71283ad7c2613167bb21ad4c62d4" => :high_sierra
+    sha256 "d17ae0b9cdda0fe0145e53c890981aa088880befecc5973818170ca6f2b39c6b" => :sierra
+    sha256 "807631e6f412e16bbc94bf2cdae1d9f4bd61da40d27a741047e907739a73d311" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

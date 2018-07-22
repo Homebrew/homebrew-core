@@ -1,8 +1,8 @@
 class Batik < Formula
   desc "Java-based toolkit for SVG images"
   homepage "https://xmlgraphics.apache.org/batik/"
-  url "https://www.apache.org/dist/xmlgraphics/batik/binaries/batik-bin-1.9.tar.gz"
-  sha256 "349bf6a4f02ce9f631248b224994e20ffc263fe65c1673c9180daa3584418b75"
+  url "https://www.apache.org/dist/xmlgraphics/batik/binaries/batik-bin-1.10.tar.gz"
+  sha256 "226b3910a8bdc642c8e3a512f34a9b19bf942c17fef3ad7dc901ac34a2714322"
 
   bottle :unneeded
 

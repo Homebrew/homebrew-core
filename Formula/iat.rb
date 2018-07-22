@@ -18,4 +18,8 @@ class Iat < Formula
                           "--includedir=#{include}/iat"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/iat", "--version"
+  end
 end

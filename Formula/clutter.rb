@@ -3,14 +3,15 @@ class Clutter < Formula
   homepage "https://wiki.gnome.org/Projects/Clutter"
   url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.2.tar.xz"
   sha256 "e7233314983055e9018f94f56882e29e7fc34d8d35de030789fdcd9b2d0e2e56"
+  revision 1
 
   bottle do
-    sha256 "082e8d9fa6a2fc3e69a572734847373a47884bef8ddebba763219e5252b6e334" => :high_sierra
-    sha256 "16b3ecbbf37e62ce9e491ca525a948571f51c349fa25ba381db566fd0f825457" => :sierra
-    sha256 "3bfa2df55eed3598e510999b02f8d226eca4a4fc58ba7adcace0e443ca5cc64e" => :el_capitan
-    sha256 "c224d96814d9ef9c1929d2e4dbe4251e09395bbf9d61fc3a9f20886daf8581c8" => :yosemite
+    sha256 "cd1bad834964168854f060603548fb495a629cbf98a119050cb1ff2a4ef41b67" => :high_sierra
+    sha256 "feebbe98a8c3cc1ad25202719451b4e9db64c145583ea1bd3b0d540e23cc8bf6" => :sierra
+    sha256 "fe6f945a3aac285dd0f21d1bdf0e4da08ac179c7cde03198af98c69166ccce6e" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gdk-pixbuf"
@@ -19,7 +20,6 @@ class Clutter < Formula
   depends_on "atk"
   depends_on "pango"
   depends_on "json-glib"
-  depends_on "gobject-introspection"
 
   def install
     args = %W[

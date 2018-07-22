@@ -1,13 +1,13 @@
 class Fail2ban < Formula
   desc "Scan log files and ban IPs showing malicious signs"
   homepage "https://www.fail2ban.org/"
-  url "https://github.com/fail2ban/fail2ban/archive/0.10.2.tar.gz"
-  sha256 "1c1a969137c56f7e8b90e5f14d78b80214d34d67209787bfddc8d5804ceb29cc"
+  url "https://github.com/fail2ban/fail2ban/archive/0.10.3.1.tar.gz"
+  sha256 "7ee3fd0e94d58c94298718b25e6bcfa96932712b7aa683580e162403f68d40c8"
 
   bottle do
-    sha256 "7df5e20adee94e05e17d2c0075cf96dc737dff1322840ee285002b10b1a0d412" => :high_sierra
-    sha256 "458009f5e2af3925a076cfaa79c19497515e6133a467fc03ee54ef6f30588b47" => :sierra
-    sha256 "5d371a874cea2e19f5af3f8a0e2533cc740e6fb847bc9c533af52b12ecff582d" => :el_capitan
+    sha256 "dd979343b0371718a514dfdca9cfca9b5166740f94ab76af2fa81afb6402b3f3" => :high_sierra
+    sha256 "acaefca421f5398fc61bdae2eaffd29ce70cbd03ec5af2be4a1e8d13eec080d4" => :sierra
+    sha256 "bec9fda21d0e11efd2fa52930b13ecbca598d9f0dfc522c0c2a1b54a5d7c7b59" => :el_capitan
   end
 
   depends_on "help2man" => :build

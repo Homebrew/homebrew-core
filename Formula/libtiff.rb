@@ -4,13 +4,13 @@ class Libtiff < Formula
   url "https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
   sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
-  revision 2
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "b25a0893acdffc8fcbb1f9d0a2f1ef04c62f15168689fc64842cd7a36884d179" => :high_sierra
-    sha256 "4fbaa643a091abe7e6744ff8b04dcd94d35b559874dcdc9d733b10c41666c78a" => :sierra
-    sha256 "fdfeb67c92d2cb64628ba15c3ded9d840b90b5627e06e0864536fd66ea9d15f3" => :el_capitan
+    sha256 "783fdbfa2a938c172bdb98e1a32c4b93de640eb8481f008edcf3473bef9e3ef7" => :high_sierra
+    sha256 "08213b94b648c48f3561dfe459e38a90cccac68742e65283eaf57c7fb6073ee3" => :sierra
+    sha256 "abe583a7e362db26f47e87864ca26bb69c69e83bdbd3b3a32b2e73bea107d0ea" => :el_capitan
   end
 
   option "with-xz", "Include support for LZMA compression"
@@ -21,12 +21,18 @@ class Libtiff < Formula
   # All of these have been reported upstream & should
   # be fixed in the next release, but please check.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-4.debian.tar.xz"
-    sha256 "f078da1da538109c1e5403dc1f44d23c91f5a5d6ddc5ffc41ff60de006cb2b2e"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
+    sha256 "4e145dcde596e0c406a9f482680f9ddd09bed61a0dc6d3ac7e4c77c8ae2dd383"
     apply "patches/CVE-2017-9935.patch",
           "patches/CVE-2017-18013.patch",
-          "patches/CVE-2018-5784.patch"
+          "patches/CVE-2018-5784.patch",
+          "patches/CVE-2017-11613_part1.patch",
+          "patches/CVE-2017-11613_part2.patch",
+          "patches/CVE-2018-7456.patch",
+          "patches/CVE-2017-17095.patch",
+          "patches/CVE-2018-8905.patch",
+          "patches/CVE-2018-10963.patch"
   end
 
   def install

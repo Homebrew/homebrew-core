@@ -14,7 +14,7 @@ class Theharvester < Formula
     sha256 "56c3d5b41a821be12fc6f27ac8beb266984f0c245495c9970614ed776107633f" => :mavericks
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   resource "requests" do
     url "https://files.pythonhosted.org/packages/49/6f/183063f01aae1e025cf0130772b55848750a2f3a89bfa11b385b35d7329d/requests-2.10.0.tar.gz"
@@ -35,7 +35,7 @@ class Theharvester < Formula
   end
 
   test do
-    output = shell_output("#{bin}/theharvester -d brew.sh -l 1 -b google 2>&1")
+    output = shell_output("#{bin}/theharvester -d brew.sh -l 1 -b all 2>&1")
     assert_match "security@brew.sh", output
   end
 end

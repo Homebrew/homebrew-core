@@ -3,13 +3,12 @@ class OsmGpsMap < Formula
   homepage "https://nzjrs.github.com/osm-gps-map/"
   url "https://github.com/nzjrs/osm-gps-map/releases/download/1.1.0/osm-gps-map-1.1.0.tar.gz"
   sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "9b59eb8f7d3143f88a068684a7f5485bde724fb10819e778a6a84b00a8d2c150" => :high_sierra
-    sha256 "39d671106b914b85fb0730b3d35f96c501d287cedae1c8ad71683ec4c540a0ee" => :sierra
-    sha256 "8bb0e6b77b1eb48fb6ea0700828a9b7cb15967ba09b21f35dbdf0f3f1451e585" => :el_capitan
-    sha256 "30748d2eed1125991271b993672bfb7d90385802e1c2feba5f6f2dd22340fc95" => :yosemite
+    sha256 "9b4ff596f15ef4dd79f8a52869ce0f0dc4e104c827f79dd223c3ff3c60631c5c" => :high_sierra
+    sha256 "5303392a0018ff176e67b844d1808834500c1b0ac8dd5362ad5f2a70939d1bc2" => :sierra
+    sha256 "05bc6efb9676e68162e553bfe41f7467e5f7d8da85cb9cfda5256bf5a79ff884" => :el_capitan
   end
 
   head do
@@ -21,11 +20,11 @@ class OsmGpsMap < Formula
     depends_on "gtk-doc" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "gdk-pixbuf"
-  depends_on "gobject-introspection"
   depends_on "libsoup"
 
   def install

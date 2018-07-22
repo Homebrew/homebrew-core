@@ -3,7 +3,6 @@ class Gprof2dot < Formula
   homepage "https://github.com/jrfonseca/gprof2dot"
   url "https://files.pythonhosted.org/packages/9d/36/f977122502979f3dfb50704979c9ed70e6b620787942b089bf1af15f5aba/gprof2dot-2017.9.19.tar.gz"
   sha256 "cebc7aa2782fd813ead415ea1fae3409524343485eadc7fb60ef5bd1e810309e"
-
   head "https://github.com/jrfonseca/gprof2dot.git"
 
   bottle do
@@ -14,7 +13,7 @@ class Gprof2dot < Formula
   end
 
   depends_on "graphviz" => :recommended
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"

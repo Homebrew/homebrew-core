@@ -33,6 +33,10 @@ class Cdargs < Formula
         #{prefix}/contrib
     EOS
   end
+
+  test do
+    system "#{bin}/cdargs", "--version"
+  end
 end
 
 __END__

@@ -1,16 +1,10 @@
 class AntAT19 < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.9.9-bin.tar.bz2"
-  sha256 "482059b1e54c9b64e0efec686cbee7acc2ad4905d04024b31864feb7b63fc72d"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.9.13-bin.tar.bz2"
+  sha256 "e770c2ba77fd695734fa1945f887891a04524998f17e929d821f993ba3c5c73c"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "e5c63d1ca61047baee2f0edebea21508782460c98a1d325727e376cfc7e1cbef" => :high_sierra
-    sha256 "c61398b93dc90ac3b56df0eca3fb3d7059fa81ce3bd2e4c18bb2701b5455d839" => :sierra
-    sha256 "de8ab34d71e40db90fe53ea2c311351f73598063eebd82cdcd467f6d93143626" => :el_capitan
-    sha256 "de8ab34d71e40db90fe53ea2c311351f73598063eebd82cdcd467f6d93143626" => :yosemite
-  end
+  bottle :unneeded
 
   keg_only :versioned_formula
 

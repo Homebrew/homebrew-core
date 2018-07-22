@@ -3,15 +3,16 @@ class Biogeme < Formula
   homepage "https://biogeme.epfl.ch/"
   url "https://biogeme.epfl.ch/distrib/biogeme-2.6a.tar.gz"
   sha256 "f6de0ea12f83ed183f31a41b9a56d1ec7226d2305549fb89ea7b1de8273ede49"
-  revision 1
+  revision 4
 
   bottle do
-    sha256 "ad1acb781c111abdf62634521e86ffe85e7bec8c2738218ee50925e5502af40b" => :high_sierra
-    sha256 "834ed929bffab2660b7a2fea398dfcea480b8f59ed2d5dac350e65269cf997f1" => :sierra
-    sha256 "9f1ce4b715beb128766b714d52872c26e688c5b1960b17ce8ab480796946043e" => :el_capitan
+    cellar :any
+    sha256 "9e0f2c7228e239a0476147fb818ba1bb635443ee6f4d776fe7879dfa2faa5936" => :high_sierra
+    sha256 "aa71ee8900b00619fe1ac171c0196b3a4f56c4e1c1d7cecfd2230b7e289bf141" => :sierra
+    sha256 "cceacdb78b3866310b0dbe2cf59148ab9b0d2c398f2f5f13bea6a218ef69cc46" => :el_capitan
   end
 
-  depends_on "python3"
+  depends_on "python"
   depends_on "gtkmm3"
 
   def install

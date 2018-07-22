@@ -14,7 +14,7 @@ class GnuComplexity < Formula
     sha256 "5aba079cba5a07f3e754019cd11ed767ab65cd6c4dcef33eea9e94b94bae19eb" => :mavericks
   end
 
-  depends_on "autogen" => :run
+  depends_on "autogen"
   depends_on "gcc" if MacOS.version <= :mavericks
 
   # error: use of undeclared identifier '__noreturn__'

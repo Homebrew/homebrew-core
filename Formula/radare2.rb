@@ -2,7 +2,7 @@ class CodesignRequirement < Requirement
   fatal true
 
   satisfy(:build_env => false) do
-    FileUtils.mktemp do
+    mktemp do
       FileUtils.cp "/usr/bin/false", "radare2_check"
       quiet_system "/usr/bin/codesign", "-f", "-s", "org.radare.radare2", "--dryrun", "radare2_check"
     end
@@ -19,26 +19,27 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
+  revision 1
 
   stable do
-    url "https://radare.mikelloc.com/get/2.3.0/radare2-2.3.0.tar.gz"
-    sha256 "97c052b61cb62db4976428b8b03930e867d79e22db5be1907300a04a84c88320"
+    url "https://radare.mikelloc.com/get/2.7.0/radare2-2.7.0.tar.gz"
+    sha256 "d89c86b764edb06acb1cf0e70bdceb15dcbd7f4df551e856b471c03b34063ba3"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.3.0/radare2-bindings-2.3.0.tar.xz"
-      sha256 "fb5893535f80f0e0be442f7e1fdcd1ba5d188d911638c0b86e8809ce6c6cd4db"
+      url "https://radare.mikelloc.com/get/2.7.0/radare2-bindings-2.7.0.tar.gz"
+      sha256 "df9537fd4b1bc0474fa4abba1c87687239003c047987e155ec1483a0ce988d0f"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.3.0/radare2-extras-2.2.0.tar.gz"
-      sha256 "6825642d880bc5ce8e780d6947fa7c7b475d546861ef0c86f88e1e10ce599155"
+      url "https://radare.mikelloc.com/get/2.7.0/radare2-extras-2.7.0.tar.gz"
+      sha256 "c972afb865fd69b3fd2c4d6c4e6810df875a67842497efd930e6a8e49cef6f3c"
     end
   end
 
   bottle do
-    sha256 "82eb8b901e99628662d1535a4e41366ee80b8ad08c8fc5184aa05449cc18ae53" => :high_sierra
-    sha256 "0489e1d82e4ed3dd72bd38a0bf66cc5d831402099b5551a508f1893c32b405e9" => :sierra
-    sha256 "0271335d05984157c6c3790b73a1b0b0d72ffbf49b6bd21e9a80182bc0ee9388" => :el_capitan
+    sha256 "38facf26da2ea4ccc04fd81438f02699954a46a175377398ec64d8575b3c03cb" => :high_sierra
+    sha256 "093860788b3c628cfd8352395193aff70f05ac336ad546dc855bb9b42a08bd26" => :sierra
+    sha256 "d3e8cb11ef27765a01e168f0a5839e4c325dbf38a96442340e20da362af7daf3" => :el_capitan
   end
 
   head do
@@ -89,10 +90,11 @@ class Radare2 < Formula
     resource("extras").stage do
       ENV.append_path "PATH", bin
       ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
+      (lib/"radare2/#{version}").mkpath
 
       system "./configure", "--prefix=#{prefix}"
-      system "make", "all"
-      system "make", "install"
+      system "make", "R2PM_PLUGDIR=#{lib}/radare2/#{version}", "all"
+      system "make", "R2PM_PLUGDIR=#{lib}/radare2/#{version}", "install"
     end
 
     resource("bindings").stage do
@@ -107,15 +109,27 @@ class Radare2 < Formula
       inreplace "do-swig.sh", "VALABINDFLAGS=\"\"", "VALABINDFLAGS=\"--nolibpython\""
       make_binding_args = ["CFLAGS=-undefined dynamic_lookup"]
 
-      # Ensure that plugins and bindings are installed in the correct Cellar
-      # paths.
-      inreplace "libr/lang/p/Makefile", "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
-      # fix build, https://github.com/radare/radare2-bindings/pull/168
-      inreplace "libr/lang/p/Makefile",
-      "CFLAGS+=$(shell pkg-config --cflags r_core)",
-      "CFLAGS+=$(shell pkg-config --cflags r_core) -DPREFIX=\\\"${PREFIX}\\\""
-      inreplace "Makefile", "LUAPKG=", "#LUAPKG="
-      inreplace "Makefile", "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
+      # Ensure that plugins and bindings are installed in the Cellar.
+      inreplace "libr/lang/p/Makefile" do |s|
+        s.gsub! "R2_PLUGIN_PATH=", "#R2_PLUGIN_PATH="
+        s.gsub! "~/.config/radare2/plugins", "#{lib}/radare2/#{version}"
+      end
+
+      # We don't want to place json.lua in lib/lua/#{lua_version} because
+      # the name is very generic, which introduces a strong possibility of
+      # clashes with other formulae or in general usage.
+      inreplace "libr/lang/p/lua.c",
+                'os.getenv(\"HOME\")..\"/.config/radare2/plugins/lua/?.lua;',
+                "\\\"#{libexec}/lua/#{lua_version}/?.lua;"
+
+      # Really the Lua libraries should be dumped in libexec too but
+      # since they're named fairly specifically it's semi-acceptable.
+      inreplace "Makefile" do |s|
+        s.gsub! "LUAPKG=", "#LUAPKG="
+        s.gsub! "${DESTDIR}$$_LUADIR", "#{lib}/lua/#{lua_version}"
+        s.gsub! "ls lua/*so*$$_LUAVER", "ls lua/*so"
+      end
+
       make_install_args = %W[
         R2_PLUGIN_PATH=#{lib}/radare2/#{version}
         LUAPKG=lua-#{lua_version}
@@ -130,6 +144,11 @@ class Radare2 < Formula
       end
       system "make"
       system "make", "install", *make_install_args
+
+      # This should be being handled by the Makefile but for some reason
+      # it doesn't want to work. If this ever breaks it's likely because
+      # the Makefile has started functioning as expected & placing it in lib.
+      (libexec/"lua/#{lua_version}").install Dir["libr/lang/p/lua/*.lua"]
     end
   end
 

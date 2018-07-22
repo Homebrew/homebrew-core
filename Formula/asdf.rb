@@ -1,14 +1,14 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
   homepage "https://github.com/asdf-vm"
-  url "https://github.com/asdf-vm/asdf/archive/v0.4.2.tar.gz"
-  sha256 "10edd15e156d1d63e616a77f96170fe8d509289ddcefb2220bcaab09cf095db2"
+  url "https://github.com/asdf-vm/asdf/archive/v0.5.0.tar.gz"
+  sha256 "bc7749b081b4bf6a1122cc8f74ef39b053a4dd364fb2160b19746ce7b33979a8"
 
   bottle :unneeded
 
-  depends_on "autoconf" => :run
-  depends_on "automake" => :run
-  depends_on "libtool" => :run
+  depends_on "autoconf"
+  depends_on "automake"
+  depends_on "libtool"
   depends_on "coreutils"
   depends_on "libyaml"
   depends_on "openssl"
@@ -32,7 +32,7 @@ class Asdf < Formula
 
     If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
          source #{opt_prefix}/asdf.fish
-    EOS
+  EOS
   end
 
   test do

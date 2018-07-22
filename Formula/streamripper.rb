@@ -28,4 +28,8 @@ class Streamripper < Formula
                           "--disable-dependency-tracking"
     system "make", "install"
   end
+
+  test do
+    system "#{bin}/streamripper", "--version"
+  end
 end

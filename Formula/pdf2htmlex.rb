@@ -3,14 +3,13 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 19
-
+  revision 20
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "574e689fb63bb3894ab79d7acf995198804e5f2c439021acbe9dbc3b2b1571f2" => :high_sierra
-    sha256 "ad030adc56fdd5e2009e5f32c7260594aac595585592820e71f55a7167453907" => :sierra
-    sha256 "990af7e7d61d9bc18b50a5b62532b257ec6a3b26f9bce0a3e6e0973305bc4c0c" => :el_capitan
+    sha256 "316df8e38b0533e5c7ebbd3b120fe4e5d2957f7d7de92ccc0dbe75c72d1285b6" => :high_sierra
+    sha256 "e02628e81215b1e9fea902f9b353e6f8ea93f1eda7e385f886cee95e39627d20" => :sierra
+    sha256 "5c72b64128d75ce84c0158f6c90c8e710c299de71f593a5b15868c006c5396fb" => :el_capitan
   end
 
   depends_on :macos => :lion
@@ -23,7 +22,7 @@ class Pdf2htmlex < Formula
   # Fontforge dependencies
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "cairo"
   depends_on "freetype"
   depends_on "gettext"

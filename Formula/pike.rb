@@ -1,13 +1,13 @@
 class Pike < Formula
   desc "Dynamic programming language"
   homepage "https://pike.lysator.liu.se"
-  url "https://pike.lysator.liu.se/pub/pike/all/8.0.498/Pike-v8.0.498.tar.gz"
-  sha256 "b14ceccb26f37dbd9e078d87648a95f0501f290e89ae9b8197b2376d13eb1f2b"
+  url "https://pike.lysator.liu.se/pub/pike/all/8.0.610/Pike-v8.0.610.tar.gz"
+  sha256 "6eeb410caf56ff4a209a06db29f003208d507680f7c17c0fd93c15f48b5edf53"
 
   bottle do
-    sha256 "9b3c1d8c9a1eceef90ce1bfe78137b0ccd726ec5dfc12f9746a471c5e855f92a" => :high_sierra
-    sha256 "c8abc1e8fcc26523b257cd2144c22a27ed6063c07e33193c70e3d0898c94fa86" => :sierra
-    sha256 "1ecfea274c44b5d087003b51acb934c4c3cc8494667cbaa4f6d57c1e919a2e20" => :el_capitan
+    sha256 "61803c25145ee316b9883a94ebb7b6d96a14aa77e2d860b4025379943d8f27a3" => :high_sierra
+    sha256 "0792ad6bbd3988b928e4ad8e91a0b189ef4f591c51f3af4b622d7ddff4039b1d" => :sierra
+    sha256 "f23b16351cd5bed06c310c78b083caa6df91c21fbe386f6a2f73803404f01762" => :el_capitan
   end
 
   option "with-gettext", "Include Gettext support"

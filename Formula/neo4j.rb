@@ -1,8 +1,8 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-3.3.0-unix.tar.gz"
-  sha256 "dbbc65683d65018c48fc14d82ee7691ca75f8f6ea79823b21291970638de5d88"
+  url "https://neo4j.com/artifact.php\?name\=neo4j-community-3.3.4-unix.tar.gz"
+  sha256 "cc2fda6ededfc4678d1fc9be9dc1c5c2902fe2bc184125b59ae6f9183a98571c"
 
   bottle :unneeded
 
@@ -63,7 +63,7 @@ class Neo4j < Formula
         <string>#{var}/log/neo4j.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

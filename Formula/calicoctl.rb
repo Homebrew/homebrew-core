@@ -2,14 +2,14 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag => "v2.0.1",
-      :revision => "5fa93655169003652350321d90410ae4dc803d32"
+      :tag => "v3.1.3",
+      :revision => "231083c2ce934b7946ebed3ed96f4fc1a3ba4f69"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5d665e33cacc7a040d918b3cb78c059bdc8ca407b186ce9f8b328fe2319d809f" => :high_sierra
-    sha256 "be7c186b2e26b909e9adf0defd7db6ff1b5317dc4f34a948fc4266ad56d1eb61" => :sierra
-    sha256 "6ccb7fdda21c886d6502425687a29c09378962350c818b4b92b9857d65ff33cd" => :el_capitan
+    sha256 "0a050b4fd951cd8cf7593a436fe99571d6e7ce325a2449a12d6168972a1c714c" => :high_sierra
+    sha256 "1d8f80446c3395ea05dce58b3ff04f9ec9b5bafee6598c0c5704475e00f1786d" => :sierra
+    sha256 "f3c800eb604d967120d6b26897b25a85b2e877d05502baaa17ecd1d8dbbdb24a" => :el_capitan
   end
 
   depends_on "glide" => :build
@@ -29,6 +29,6 @@ class Calicoctl < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/calicoctl --version")
+    assert_match version.to_s, shell_output("#{bin}/calicoctl version", 1)
   end
 end

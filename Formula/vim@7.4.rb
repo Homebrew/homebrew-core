@@ -3,12 +3,12 @@ class VimAT74 < Formula
   homepage "https://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 7
+  revision 14
 
   bottle do
-    sha256 "00743decb59ff8b042a71e2cdd9b406e2cd0cce0cf83b51c6a7f88d077632d93" => :high_sierra
-    sha256 "5af2152df6680a1d23c6a57b95d81cbbb17de0964ed8deaf4b14528b06aa8afb" => :sierra
-    sha256 "2f07d60810a03059a3e72d8ae8dd195db23af44539deadf1d99b9c462c4b5f62" => :el_capitan
+    sha256 "18d50a974f9700ecae9d6c5164f091d27c1fcde4fc5841865201372f367df580" => :high_sierra
+    sha256 "e2d5e6d6f2f0880158daa46c2a6f8e283d515cd0a48902dfcd92812cab5e55f2" => :sierra
+    sha256 "5ed9a339642f5e553511886013d6eecd363827c5560033725142c4e193be5e78" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -17,10 +17,10 @@ class VimAT74 < Formula
   option "without-nls", "Build vim without National Language Support (translated messages, keymaps)"
   option "with-client-server", "Enable client/server mode"
 
-  LANGUAGES_OPTIONAL = %w[lua mzscheme python3 tcl].freeze
+  LANGUAGES_OPTIONAL = %w[lua mzscheme python@2 tcl].freeze
   LANGUAGES_DEFAULT  = %w[python].freeze
 
-  option "with-python3", "Build vim with python3 instead of python[2] support"
+  option "with-python@2", "Build vim with python@2 instead of python[3] support"
   LANGUAGES_OPTIONAL.each do |language|
     option "with-#{language}", "Build vim with #{language} support"
   end
@@ -33,8 +33,14 @@ class VimAT74 < Formula
   depends_on "python" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
-  depends_on "python3" => :optional
+  depends_on "python@2" => :optional
   depends_on :x11 if build.with? "client-server"
+
+  # Python 3.7 compat
+  # Equivalent to upstream commit 24 Mar 2018 "patch 8.0.1635: undefining
+  # _POSIX_THREADS causes problems with Python 3"
+  # See https://github.com/vim/vim/commit/16d7eced1a08565a9837db8067c7b9db5ed68854
+  patch :DATA
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
@@ -49,14 +55,17 @@ class VimAT74 < Formula
     opts = ["--enable-perlinterp", "--enable-rubyinterp"]
 
     (LANGUAGES_OPTIONAL + LANGUAGES_DEFAULT).each do |language|
-      opts << "--enable-#{language}interp" if build.with? language
+      feature = { "python" => "python3", "python@2" => "python" }
+      if build.with? language
+        opts << "--enable-#{feature.fetch(language, language)}interp"
+      end
     end
 
     if opts.include?("--enable-pythoninterp") && opts.include?("--enable-python3interp")
-      # only compile with either python or python3 support, but not both
+      # only compile with either python or python@2 support, but not both
       # (if vim74 is compiled with +python3/dyn, the Python[3] library lookup segfaults
       # in other words, a command like ":py3 import sys" leads to a SEGV)
-      opts -= %w[--enable-pythoninterp]
+      opts -= %w[--enable-python3interp]
     end
 
     opts << "--disable-nls" if build.without? "nls"
@@ -98,18 +107,38 @@ class VimAT74 < Formula
   end
 
   test do
-    # Simple test to check if Vim was linked to Python version in $PATH
-    if build.with? "python"
-      vim_path = bin/"vim"
-
-      # Get linked framework using otool
-      otool_output = `otool -L #{vim_path} | grep -m 1 Python`.gsub(/\(.*\)/, "").strip.chomp
-
-      # Expand the link and get the python exec path
-      vim_framework_path = Pathname.new(otool_output).realpath.dirname.to_s.chomp
-      python_framework_path = `python2-config --exec-prefix`.chomp
-
-      assert_equal python_framework_path, vim_framework_path
+    if build.with? "python@2"
+      (testpath/"commands.vim").write <<~EOS
+        :python import vim; vim.current.buffer[0] = 'hello world'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal "hello world", File.read("test.txt").chomp
+    elsif build.with? "python"
+      (testpath/"commands.vim").write <<~EOS
+        :python3 import vim; vim.current.buffer[0] = 'hello python3'
+        :wq
+      EOS
+      system bin/"vim", "-T", "dumb", "-s", "commands.vim", "test.txt"
+      assert_equal "hello python3", File.read("test.txt").chomp
     end
   end
 end
+
+__END__
+diff --git a/src/if_python3.c b/src/if_python3.c
+index 02d913492c..59c115dd8d 100644
+--- a/src/if_python3.c
++++ b/src/if_python3.c
+@@ -34,11 +34,6 @@
+ 
+ #include <limits.h>
+ 
+-/* Python.h defines _POSIX_THREADS itself (if needed) */
+-#ifdef _POSIX_THREADS
+-# undef _POSIX_THREADS
+-#endif
+-
+ #if defined(_WIN32) && defined(HAVE_FCNTL_H)
+ # undef HAVE_FCNTL_H
+ #endif

@@ -1,15 +1,14 @@
 class Sqliteodbc < Formula
   desc "SQLite ODBC driver"
   homepage "http://www.ch-werner.de/sqliteodbc/"
-  url "http://www.ch-werner.de/sqliteodbc/sqliteodbc-0.9995.tar.gz"
-  sha256 "73deed973ff525195a225699e9a8a24eb42f8242f49871ef196168a5600a1acb"
+  url "http://www.ch-werner.de/sqliteodbc/sqliteodbc-0.9996.tar.gz"
+  sha256 "8afbc9e0826d4ff07257d7881108206ce31b5f719762cbdb4f68201b60b0cb4e"
 
   bottle do
     cellar :any
-    sha256 "873d91d7cd66ad93b6c9197372ea6e8c6829f2c1e944771244fe4a06c92d9177" => :high_sierra
-    sha256 "3b50601a3dd200c8706dc421b7d4ec26bdcd316d5165100ca6d87533fb35ecf1" => :sierra
-    sha256 "2ab8fb2d6cd9bf40121b4c92c88d34001be074a3d7a41e4d14bf897b35868e77" => :el_capitan
-    sha256 "3a05177887821c6ed86053bcc54795ca7968eb541a9fc689c6b0952c88ed88b8" => :yosemite
+    sha256 "7d825f83232825a51c8fd871368a2ff8cce3a76fe9ba1646f20e15f121ecf79e" => :high_sierra
+    sha256 "907c1b32398eb7f3276e1da956723ac27868d9bcae27fb55ef76277cf2f67cb7" => :sierra
+    sha256 "7c550f77c2db4e4927b9f23ed8a57610727b438f6a0fad98e1adecee3c8c1aa1" => :el_capitan
   end
 
   depends_on "sqlite"

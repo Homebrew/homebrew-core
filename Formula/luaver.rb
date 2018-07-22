@@ -7,7 +7,7 @@ class Luaver < Formula
 
   bottle :unneeded
 
-  depends_on "wget" => :run
+  depends_on "wget"
 
   def install
     bin.install "luaver"
@@ -16,7 +16,7 @@ class Luaver < Formula
   def caveats; <<~EOS
     Add the following at the end of the correct file yourself:
       if which luaver > /dev/null; then . `which luaver`; fi
-    EOS
+  EOS
   end
 
   test do

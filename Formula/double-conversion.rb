@@ -3,7 +3,6 @@ class DoubleConversion < Formula
   homepage "https://github.com/floitsch/double-conversion"
   url "https://github.com/floitsch/double-conversion/archive/v3.0.0.tar.gz"
   sha256 "152f15355242b6b1fbb4098fcd825bf08527eda0c65e8446939222a13f0b3915"
-
   head "https://github.com/floitsch/double-conversion.git"
 
   bottle do

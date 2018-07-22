@@ -3,13 +3,13 @@ require "language/go"
 class MongodbAT32 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.19.tar.gz"
-  sha256 "a36551e1e6d6d256ec4d1d6bad110f3f762c901536d94880de0b961960ce5d49"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.20.tar.gz"
+  sha256 "a8d453e343a52f4358e68e4da40966d666706e802235796b41e2b2bd93a77d74"
 
   bottle do
-    sha256 "8a28e51cfe9578d76f8a3cb2a6bad6349bfebd0b3df56720b76ca20ddd81f7df" => :high_sierra
-    sha256 "d7290078780d7e9f6ee6af5cb9e0595b016f8e07341b116c34f99011110cd17d" => :sierra
-    sha256 "3ca894e3ebd3fe11a4438a5e7cad782245fb90f86c74d2898cc111cc87f9affc" => :el_capitan
+    sha256 "f8824d4d0cdfee620a9fcebd6766fb086550979f7dd870d81704ba4ce03dfc45" => :high_sierra
+    sha256 "abbc2fb832b07b539ee476ae74cd4da51a05b039baa9b988cdd714179476d833" => :sierra
+    sha256 "3548d045d64f8102667abcef479a287ad6ae9b4c47487d2c11ab75db0ea2b120" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -25,7 +25,7 @@ class MongodbAT32 < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.2.19",
+        :tag => "r3.2.20",
         :revision => "f207093c46939fd42f12980a058370c013c26338",
         :shallow => false
   end
@@ -34,7 +34,6 @@ class MongodbAT32 < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
-    ENV.libcxx if build.devel?
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
@@ -96,7 +95,7 @@ class MongodbAT32 < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -136,7 +135,7 @@ class MongodbAT32 < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -3,12 +3,13 @@ class Libfreehand < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libfreehand"
   url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz"
   sha256 "0e422d1564a6dbf22a9af598535425271e583514c0f7ba7d9091676420de34ac"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "b455f234a2baede1ab89b2c6daf9840beeadac0632cdc9dfa1a7edef56c1ad2a" => :high_sierra
-    sha256 "8ac011e22bed496f31db66c28c31af7e301690bdeff11596b1b471413f652313" => :sierra
-    sha256 "5a8b4e4d73f70fca3b955be7a6d4fd91150ceb068bfd7b5119fb136b5efb2b40" => :el_capitan
+    sha256 "fd7d65f977cf1261fb28af4fc781c812b29c6417a6e76ec7ead2d10008ad0309" => :high_sierra
+    sha256 "9df762663fdac41d4eeb631efbd3ac5a76a2fb3ca9551b359f771c8d1ad3d1a3" => :sierra
+    sha256 "97056ac49cee3fcdb9b69a1e7113dd38828a6c4b676d89f72114e2025abfdac5" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

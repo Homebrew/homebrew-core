@@ -1,46 +1,79 @@
 class Gcab < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
-  url "https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz"
-  sha256 "a16e5ef88f1c547c6c8c05962f684ec127e078d302549f3dfd2291e167d4adef"
+  url "https://download.gnome.org/sources/gcab/1.1/gcab-1.1.tar.xz"
+  sha256 "192b2272c2adfde43595e5c62388854bca8a404bc796585b638e81774dd62950"
 
   bottle do
-    sha256 "1a793542ed68d1848834163ca43e99ddf88fbdfb0d01a50e775bb271c808594e" => :high_sierra
-    sha256 "cddbf83de6e61f82e0b12937f7c928990f2e9ea53d2cef2d55a302290b4c1fef" => :sierra
-    sha256 "7403bfd6a817af92bf1c89c90826e748c909e2ec559f18d708ac48306c5b7431" => :el_capitan
-    sha256 "3200cfd9434dc548094116bf426979978c51cbad8316fd299620ce86baa5acb3" => :yosemite
-    sha256 "1c063054e17f3194d214d5d1a8d01a12932ec8214cca7143956760039db22f2f" => :mavericks
+    sha256 "89af1288fc8177bc3dd3e4f3c7791cd33ac5d29df158e2ed19928ff10a44b335" => :high_sierra
+    sha256 "2bfa5379c2f250514d0309557d972396d48f978c669d446d1032079cba94dbff" => :sierra
+    sha256 "87bef1462d6e43615cb099cf8d6c061f52814c257430f2dc0cbbbb69856af99b" => :el_capitan
   end
 
-  depends_on "intltool" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "vala" => :build
-  depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   # work around ld not understanding --version-script argument
   # upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=708257
   patch :DATA
 
   def install
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    ENV.refurbish_args
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "-Ddocs=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
+  end
+
+  test do
+    system "#{bin}/gcab", "--version"
   end
 end
 
 __END__
-diff --git a/Makefile.in b/Makefile.in
-index 2264c17..7782d62 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -474,7 +474,7 @@ libgcab_1_0_la_CPPFLAGS = \
- libgcab_1_0_la_LIBADD = -lz $(GLIB_LIBS)
- libgcab_1_0_la_LDFLAGS = \
- 	-version-info 0:0:0				\
--	-Wl,--version-script=${srcdir}/libgcab.syms	\
-+	-Wl                                     	\
- 	-no-undefined					\
- 	$(NULL)
+diff --git a/libgcab/meson.build b/libgcab/meson.build
+index 6ff8801..3d1a350 100644
+--- a/libgcab/meson.build
++++ b/libgcab/meson.build
+@@ -27,8 +27,6 @@ install_headers([
+   subdir : 'libgcab-1.0/libgcab',
+ )
+
+-mapfile = 'libgcab.syms'
+-vflag = '-Wl,--version-script,@0@/@1@'.format(meson.current_source_dir(), mapfile)
+ libgcab = shared_library(
+   'gcab-1.0',
+   enums,
+@@ -50,8 +48,6 @@ libgcab = shared_library(
+     include_directories('.'),
+     include_directories('..'),
+   ],
+-  link_args : vflag,
+-  link_depends : mapfile,
+   install : true
+ )
+
+diff --git a/meson.build b/meson.build
+index 1a29b5a..ff45829 100644
+--- a/meson.build
++++ b/meson.build
+@@ -72,10 +72,7 @@ endforeach
+ # enable full RELRO where possible
+ # FIXME: until https://github.com/mesonbuild/meson/issues/1140 is fixed
+ global_link_args = []
+-test_link_args = [
+-  '-Wl,-z,relro',
+-  '-Wl,-z,now',
+-]
++test_link_args = []
+ foreach arg: test_link_args
+   if cc.has_argument(arg)
+     global_link_args += arg
 

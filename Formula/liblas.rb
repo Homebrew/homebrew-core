@@ -3,13 +3,13 @@ class Liblas < Formula
   homepage "https://liblas.org/"
   url "https://download.osgeo.org/liblas/libLAS-1.8.1.tar.bz2"
   sha256 "9adb4a98c63b461ed2bc82e214ae522cbd809cff578f28511122efe6c7ea4e76"
+  revision 1
   head "https://github.com/libLAS/libLAS.git"
 
   bottle do
-    rebuild 1
-    sha256 "2931404e7478d7ebc2bcb898b0c6985dabe7b74d8d60ed6bc2c75b3952decfed" => :high_sierra
-    sha256 "18d1e55ca381414ca41bce0c8478cd5793b467c0161a01a3ae111a572083d3a0" => :sierra
-    sha256 "d4e63dbad2a70fb8fcab57a93d6013cb1048e247ede3d6101334dfc6dba249c5" => :el_capitan
+    sha256 "6223e1ac50e9f1f80c6ea6e219f13cd4bf82cb47757825233781cf9f99f2fb6c" => :high_sierra
+    sha256 "5d699a266e2d5f32c7d75427f4810465f0e87fa7467ec6e4d5c8a4ad485f0603" => :sierra
+    sha256 "a222f7c1e8b07a512a09d733c14d9fc24632a8a1188b579c34517242cf4e3c88" => :el_capitan
   end
 
   option "with-test", "Verify during install with `make test`"

@@ -3,12 +3,12 @@ class Ncview < Formula
   homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 "bd2df1b3290bf6fc03543fecf727698064f858329b62d7665f516bff8e094067" => :high_sierra
-    sha256 "df920fc488f54f8f128f635c42c618fed9cf82beaed5e99087b44397e3770066" => :sierra
-    sha256 "65e303f36bc95f74adcac5eac2c6f11a3d474ad1babd573016576c8467320214" => :el_capitan
+    sha256 "fd045c094963d71459d70bdc7cea679810611c4060bf9cbc0a884e71ed5232e4" => :high_sierra
+    sha256 "4ecd94086339db2cf56fa2ec9cf95ab31e08a47fe9589fcb1091d49737f14516" => :sierra
+    sha256 "dbc52647ec527a30388c233c1361164b427fc3eefd88c540208f536bded9e8b8" => :el_capitan
   end
 
   depends_on "netcdf"

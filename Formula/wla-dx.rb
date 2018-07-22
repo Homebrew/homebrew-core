@@ -1,37 +1,21 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/v9.6.tar.gz"
-  sha256 "d368f4fb7d8a394f65730682dba6fddfe75b3c6119756799cdb3cd5e1ae78e0d"
+  url "https://github.com/vhelin/wla-dx/archive/v9.7.tar.gz"
+  sha256 "22d544ab9f596df7f4141c26bec9735de790213d22e18d11c9b4bd12253e1420"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c82ca3dac46329d7eb3338789e1ededec6f8828e9d52b8607ff6448ab0a06fa" => :high_sierra
-    sha256 "1f55a4e132ec1fb82ad09334af83dbf08d1c30ad2ba828392c42fc54f5899cc7" => :sierra
-    sha256 "80c729c545582ba83294b3a4cadd23ef378f4e71daa49220812ab149aa66f49b" => :el_capitan
-    sha256 "4c192ebb6538da0313496f6927a52f7a64782dbeedbf454b0004e203ddb2109e" => :yosemite
-    sha256 "2b8cf1da40e1ce9fedbbf41277ee44955fa99712d46c2fb8d6140c8452b74445" => :mavericks
-    sha256 "a78744385e31896de6b34ae3426c6081ada2f28b997f0c5c15555e10bd03d53e" => :mountain_lion
+    sha256 "227175578a34d7e37a67c7a1d54f578880b9d433168f2863e8550ea0e8b4dfd5" => :high_sierra
+    sha256 "831b9f5f6b67d9f51ee41d6b9b582506c93a5a677631ca8c996401bffb58961a" => :sierra
+    sha256 "f9f5a3c5e03f4145b30f09b42d8d247aae1f13b86dceee53efeb9f2b16ec0b00" => :el_capitan
   end
 
-  head do
-    url "https://github.com/vhelin/wla-dx.git"
-
-    depends_on "cmake" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    if build.stable?
-      %w[CFLAGS CXXFLAGS CPPFLAGS].each { |e| ENV.delete(e) }
-      ENV.append_to_cflags "-c -O3 -ansi -pedantic -Wall"
-
-      chmod 0755, "unix.sh"
-      system "./unix.sh", ENV.make_jobs
-      bin.install Dir["./binaries/*"]
-    else
-      system "cmake", ".", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do

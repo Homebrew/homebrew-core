@@ -1,17 +1,18 @@
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
-  url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.0.tar.xz"
-  sha256 "43ea398fa1d47be2ed5b14c9395ef6c76cc47abe1e723ff48d9fb949d03bf845"
+  url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.3.tar.xz"
+  sha256 "1c006f5633842a2b131c1cf644ab929556fc27968a60da55c00955bd4934b6ca"
 
   bottle do
     cellar :any
-    sha256 "95e025393cd158034f02e4d6a9f64a3254305b9dd552a02bf9f1ff5112664b39" => :high_sierra
-    sha256 "17ea13ecea60d7a2499100ce7a084ae87310732a72a3ffe31d46a7cddf366cfc" => :sierra
-    sha256 "ce1649d4767e1bfbffbcaab95da08c6f5c2b7fa30928513a561b1226b7afd19d" => :el_capitan
+    sha256 "2ce35886b26f24cf347feb2a603f75c26ed5a3ab81853e5e42a7494dbe0993b8" => :high_sierra
+    sha256 "6b532d6d32e37b39e3ceeacb2914d23a8ef1b59347203a7c499cb39fb320a8ea" => :sierra
+    sha256 "c6dc35ab2114924942f08fd412b4b5e0ea34751c6d72e3642a2b26614b8dc3b3" => :el_capitan
   end
 
-  depends_on "meson" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "vala" => :build
   depends_on "pkg-config" => :build
@@ -25,7 +26,6 @@ class Libhttpseverywhere < Formula
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja"
-      system "ninja", "test"
       system "ninja", "install"
     end
   end

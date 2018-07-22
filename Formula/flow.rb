@@ -1,23 +1,19 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.66.0.tar.gz"
-  sha256 "fa33ba8f6b305aff0bdfb3b84bc96b53e95d36202fad9d6b36931e91499bdc2c"
+  url "https://github.com/facebook/flow/archive/v0.77.0.tar.gz"
+  sha256 "30d176bc9a88687b9ea605f3bc8aa3e97100984a71f883173e033634d9aa3e6e"
   head "https://github.com/facebook/flow.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f630955d7eb4871270c215b3ff85fcc24392fbdb6dcbaada433fe312547241df" => :high_sierra
-    sha256 "8a23f597266774c8869501ebb3400db4ba41232f4dbc9309c7c563b334d0c659" => :sierra
-    sha256 "aa78ab21f7ed8c0a3ea34bf929fe8449167a728be707c0edbf178259259ac66a" => :el_capitan
+    sha256 "d2d4019a08cb48f5c45aeb31967e56f68ef471bbc288e18ff428d0bf76498f72" => :high_sierra
+    sha256 "db580f767098bece8c665da62da3793a9861ec5e00198f1354f8b76936e1b37b" => :sierra
+    sha256 "ff85303887f4ff849994985766b613d98673109b5221179dbd3a22149c783aae" => :el_capitan
   end
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build
-
-  # Fix "compilation of ocaml-migrate-parsetree failed"
-  # Reported 24 Jul 2017 https://github.com/ocaml/opam/issues/3007
-  patch :DATA
 
   def install
     system "make", "all-homebrew"
@@ -38,20 +34,3 @@ class Flow < Formula
     assert_match expected, shell_output("#{bin}/flow check #{testpath}", 2)
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index 515e581..8886bf6 100644
---- a/Makefile
-+++ b/Makefile
-@@ -174,8 +174,8 @@ all-homebrew:
-	export OPAMYES="1"; \
-	export FLOW_RELEASE="1"; \
-	opam init --no-setup && \
--	opam pin add flowtype . && \
--	opam install flowtype --deps-only && \
-+	opam pin add -n flowtype . && \
-+	opam config exec -- opam install flowtype --deps-only && \
-	opam config exec -- make
-
- clean:

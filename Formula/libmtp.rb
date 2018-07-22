@@ -1,14 +1,14 @@
 class Libmtp < Formula
   desc "Implementation of Microsoft's Media Transfer Protocol (MTP)"
   homepage "https://libmtp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.14/libmtp-1.1.14.tar.gz"
-  sha256 "3817d3e296be8f1bc527385585780e70984e8e0d6a0d00349240d67e3df412e8"
+  url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.15/libmtp-1.1.15.tar.gz"
+  sha256 "d040900b46757e311b1fb3bfa8c05db09c8b6811e044bce8c88c9f3f6d3a3021"
 
   bottle do
     cellar :any
-    sha256 "ea1c31e565d1a64901bb1fd11ad57ed76e3572d2fae6db9d77a348ca628dee2f" => :high_sierra
-    sha256 "6f4b2c6338e83015c19e23d15380fed863cb9e56f11933c2239ec05c25582847" => :sierra
-    sha256 "3b2aca5b7b96638ce196396686b9ba4fe89199759f4ba88e780da5cde726c0cf" => :el_capitan
+    sha256 "a72d40dc60cea24e65a17ec6b617776522442a07a18e4bd562a240f3596d9090" => :high_sierra
+    sha256 "93a46eef872afe4cc3b784d7c7448d2780fe463c5a80a529e12fd7466e0a58a4" => :sierra
+    sha256 "752d53d11b32a60717d6398c564beeebe2f70eae06d19222e2874e15bde8351b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

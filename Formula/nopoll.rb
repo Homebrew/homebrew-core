@@ -1,15 +1,15 @@
 class Nopoll < Formula
   desc "Open-source C WebSocket toolkit"
   homepage "https://www.aspl.es/nopoll/"
-  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.5.b375.tar.gz"
-  version "0.4.5.b375"
-  sha256 "4ecbd277714c9acd154277a46388689f9d651836ca5c69990e35d1eee8c7ceae"
+  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.6.b400.tar.gz"
+  version "0.4.6.b400"
+  sha256 "7f1b20f1d0525f30cdd2a4fc386d328b4cf98c6d11cef51fe62cd9491ba19ad9"
 
   bottle do
     cellar :any
-    sha256 "528f0a9b956301f12f0b11b2782739c81fc4dbd107f0229b80ee6cc0c1c51dea" => :high_sierra
-    sha256 "4563d74b87406e001bf84e40e4494eef7c2becf47b20ef8bf470d28286239a64" => :sierra
-    sha256 "de062589bdb137cffbf9df05b7128eec12d443c5bea22153efd00f54e5ab2c43" => :el_capitan
+    sha256 "4a3c7a4f2657685b3de1b6700625e8e61087219c3b51868ee45e3ac0924b5eae" => :high_sierra
+    sha256 "7695ccb4788ae836ca8e476f0d0f70216cca693e3f014c288edee90c18cb1df5" => :sierra
+    sha256 "266e0d329c27be6a5c9a202b0dd7c6745d7962be606321b9172c0a57b77b91b8" => :el_capitan
   end
 
   depends_on "openssl"

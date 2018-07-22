@@ -3,11 +3,12 @@ class Sylpheed < Formula
   homepage "https://sylpheed.sraoss.jp/en/"
   url "https://sylpheed.sraoss.jp/sylpheed/v3.7/sylpheed-3.7.0.tar.bz2"
   sha256 "eb23e6bda2c02095dfb0130668cf7c75d1f256904e3a7337815b4da5cb72eb04"
+  revision 1
 
   bottle do
-    sha256 "f1fa12f441547b7bf7bdcc858e874e67213256bb82c63d0de068cb32dc515be7" => :high_sierra
-    sha256 "eb3764603ef20c1de8be2ebe86cb1914577589faf2b1a09fe4a60e586fbd5ac1" => :sierra
-    sha256 "b51cba6f8ce3bbceec1a030042f2d2c74219a9ad1ccd6dcce4b416a06950cda9" => :el_capitan
+    sha256 "382c0840297de273c0fb68ecee4462ca4e91cdd6cd7a56b0164a7456d485ff97" => :high_sierra
+    sha256 "99c858ab66bba990574fed5a1b4ba6dcc485c75b15983c12e49039f4c624a138" => :sierra
+    sha256 "05959f61b600d6d9f323b29a0085b275442c92499657f7a4750b88a9ec36a60e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

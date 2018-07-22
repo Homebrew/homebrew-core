@@ -3,13 +3,12 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
   sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "2d17141ae67cf0ed5dd71744e0de6c1ec2afa7d9dfb7ff555a787dcc0314276e" => :high_sierra
-    sha256 "7d424a6d8dd7dc8bf8ae7899679877f2876a31c911bad73b547811ebae849b33" => :sierra
-    sha256 "1239df0ca7865d259b4590c362f6854c98b2d0c7664ea7235f2f3ff41bc0023c" => :el_capitan
+    sha256 "06dbc9a8d4bc58b2097d455074118db2b0c9063d6e341e8f36034f7dbb896aec" => :high_sierra
+    sha256 "c1c341cc9e10bb504fee8b8cdcb827ae1ee32db9a2c723743a79e39df32da8fd" => :sierra
+    sha256 "ec69ac98f88c91f84f83d929310c6b7bdb4ccdc731e2603d2402dbdccd54a6d2" => :el_capitan
   end
 
   option "with-giflib", "Build with GIF support"
@@ -18,7 +17,7 @@ class Fontforge < Formula
   deprecated_option "with-gif" => "with-giflib"
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "gettext"
   depends_on "pango"
   depends_on "cairo"
@@ -29,7 +28,7 @@ class Fontforge < Formula
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
   depends_on "libuninameslist" => :optional
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   # Remove for > 20170731
   # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
@@ -83,13 +82,13 @@ class Fontforge < Formula
 
     Alternatively, install with Homebrew-Cask:
       brew cask install fontforge
-    EOS
+  EOS
   end
 
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    ENV.append_path "PYTHONPATH", lib+"python2.7/site-packages"
-    system "python", "-c", "import fontforge; fontforge.font()"
+    ENV.append_path "PYTHONPATH", lib/"python2.7/site-packages"
+    system "python2.7", "-c", "import fontforge; fontforge.font()"
   end
 end

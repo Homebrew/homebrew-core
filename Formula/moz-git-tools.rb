@@ -34,7 +34,7 @@ class MozGitTools < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     (testpath/"myfile").write("my file")
     system "git", "add", "myfile"

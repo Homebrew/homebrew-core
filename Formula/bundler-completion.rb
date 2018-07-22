@@ -4,7 +4,6 @@ class BundlerCompletion < Formula
   url "https://github.com/mernen/completion-ruby.git",
     :revision => "f3e4345042b0cc48317e45b673dfd3d23904b9a7"
   version "2"
-
   head "https://github.com/mernen/completion-ruby.git"
 
   bottle :unneeded

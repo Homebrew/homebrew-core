@@ -9,20 +9,20 @@ class RRequirement < Requirement
     - install R
     -- run brew install r or brew cask install r-app
     - remove the --with-r option
-    EOS
+  EOS
   end
 end
 
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Jul2017-SP4/MonetDB-11.27.13.tar.xz"
-  sha256 "888828a2a242a60eb4b0ad3b22a3ff5cbdd8089ce34b1e16561199775d68d210"
+  url "https://www.monetdb.org/downloads/sources/Mar2018-SP1/MonetDB-11.29.7.tar.xz"
+  sha256 "88810c03c50e769224ca72348eab993e7d510e5cc8597f760d5fcce178f52cf9"
 
   bottle do
-    sha256 "ad9ff71fe14164688e2e97b9146a09f06b1f9218e0df940f4cc2b9d863f00bd6" => :high_sierra
-    sha256 "f3702e4412c01d9104131311e01b8038877052fe2d90197dd1c67e16642654fc" => :sierra
-    sha256 "1689e0383fa91424f89e95f31326fa494980f34b903d242c9d63a7ba9df61174" => :el_capitan
+    sha256 "7caf8c4e77f69f2408024041854065141b4dea9e061adca5d4c3495e04fe5239" => :high_sierra
+    sha256 "89d71131692ffc25a40b97f3dd69aa1d927dc5247eb08783f58a3c90a8e0b0a8" => :sierra
+    sha256 "71027fb57ac2e9939457389b90b8a511769e52a5ce84cfffed6a945b7ea7e78e" => :el_capitan
   end
 
   head do
@@ -51,7 +51,6 @@ class Monetdb < Formula
   depends_on "geos" => :optional # Build the GEOM module
   depends_on "gsl" => :optional
   depends_on "cfitsio" => :optional
-  depends_on "homebrew/php/libsphinxclient" => :optional
 
   def install
     ENV["M4DIRS"] = "#{Formula["gettext"].opt_share}/aclocal" if build.head?

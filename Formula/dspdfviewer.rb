@@ -3,32 +3,86 @@ class Dspdfviewer < Formula
   homepage "https://dspdfviewer.danny-edel.de/"
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
-  revision 5
-
+  revision 7
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
-    cellar :any
-    sha256 "18345b86cbf00c7239b1314153c77545e8a91917435f1171c55ee3f749a65c74" => :high_sierra
-    sha256 "7c196c52c4ff0e5fabf5765d9123eee3d1ced53566d5709aebf98c0071ed99d6" => :sierra
-    sha256 "9766cf4079d172bb80c91a561b0c762f0404c06391a3522177c3925b120e604e" => :el_capitan
+    sha256 "4f605633dbfd654c220f050a72491a2e0299a2f45278f8a8921a87c1bb5f7e12" => :high_sierra
+    sha256 "06661dd7f74c31354a0412641bfda4304f1f8ef88c50b0010fad5dced05dd3ed" => :sierra
+    sha256 "dcfddcc1fc9c96c8f8e8f82be38aa06f346ab3ae23d12f1bf2b29dd7be1057cd" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "poppler" => "with-qt"
+  depends_on "cairo"
+  depends_on "fontconfig"
+  depends_on "freetype"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "openjpeg"
   depends_on "qt"
 
+  resource "poppler" do
+    url "https://poppler.freedesktop.org/poppler-0.65.0.tar.xz"
+    sha256 "89c8cf73f83efda78c5a9bd37c28f4593ad0e8a51556dbe39ed81e1ae2dd8f07"
+  end
+
+  resource "font-data" do
+    url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
+    sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
+  end
+
+  needs :cxx11
+
   def install
-    args = std_cmake_args
-    args << "-DUsePrerenderedPDF=ON"
-    args << "-DRunDualScreenTests=OFF"
-    args << "-DUseQtFive=ON"
+    ENV.cxx11
+
+    resource("poppler").stage do
+      system "cmake", ".", *std_cmake_args,
+                           "-DCMAKE_INSTALL_PREFIX=#{libexec}",
+                           "-DBUILD_GTK_TESTS=OFF",
+                           "-DENABLE_CMS=none",
+                           "-DENABLE_GLIB=ON",
+                           "-DENABLE_QT5=ON",
+                           "-DWITH_GObjectIntrospection=ON",
+                           "-DENABLE_XPDF_HEADERS=ON"
+      system "make", "install"
+
+      libpoppler = (libexec/"lib/libpoppler.dylib").readlink
+      to_fix = ["#{libexec}/lib/libpoppler-cpp.dylib", "#{libexec}/lib/libpoppler-glib.dylib",
+                "#{libexec}/lib/libpoppler-qt5.dylib", *Dir["#{libexec}/bin/*"]]
+
+      to_fix.each do |f|
+        macho = MachO.open(f)
+        macho.change_dylib("@rpath/#{libpoppler}", "#{libexec}/lib/#{libpoppler}")
+        macho.write!
+      end
+
+      resource("font-data").stage do
+        system "make", "install", "prefix=#{libexec}"
+      end
+    end
+
+    ENV.prepend_path "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig"
+    ENV.prepend "LDFLAGS", "-L#{libexec}/lib"
+
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args,
+                            "-DRunDualScreenTests=OFF",
+                            "-DUsePrerenderedPDF=ON",
+                            "-DUseQtFive=ON"
       system "make", "install"
     end
+
+    libpoppler = (libexec/"lib/libpoppler-qt5.dylib").readlink
+    macho = MachO.open(bin/"dspdfviewer")
+    macho.change_dylib("@rpath/#{libpoppler}", "#{libexec}/lib/#{libpoppler}")
+    macho.write!
   end
 
   test do

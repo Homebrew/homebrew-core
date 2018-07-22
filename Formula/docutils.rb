@@ -14,6 +14,8 @@ class Docutils < Formula
     sha256 "53e168f1335e9198d4948b2d89c434097b8878c835efeb2c6f0f116353212702" => :yosemite
   end
 
+  depends_on "python@2"
+
   def install
     virtualenv_install_with_resources
   end

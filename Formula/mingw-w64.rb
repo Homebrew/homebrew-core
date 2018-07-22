@@ -1,15 +1,16 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://mingw-w64.org/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.3.tar.bz2"
-  sha256 "2a601db99ef579b9be69c775218ad956a24a09d7dabc9ff6c5bd60da9ccc9cb4"
-  revision 2
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.4.tar.bz2"
+  sha256 "5527e1f6496841e2bb72f97a184fc79affdcd37972eaa9ebf7a5fd05c31ff803"
 
   bottle do
-    sha256 "263eedfa805ef8e53ae365f303ddacdeecba759630bc60fd6fa6fa1fba583293" => :high_sierra
-    sha256 "56c84c7ad3d5a2a2858eeb79f33eada75488107c352252f5533f5e805d175d74" => :sierra
-    sha256 "91f92b16c39d0afebef40845c5b6aea9d4ad95165afef8024c2e1cd768d43ad0" => :el_capitan
+    sha256 "8e771aba7e63de9862159c3f93c2056e261b5b10fa7b7627d741fcab87f0348f" => :high_sierra
+    sha256 "956a9322e6a2ff64732ef0324d206312dc6dfb306819e43e8e17f960f3c7054c" => :sierra
+    sha256 "72afbecb32b3ffacf0ffd441a326329cd2cefbcd2e9664504330e66775dabdb1" => :el_capitan
   end
+
+  option "with-posix", "Compile with posix thread model"
 
   depends_on "gmp"
   depends_on "mpfr"
@@ -20,15 +21,15 @@ class MingwW64 < Formula
   depends_on "texinfo" => :build
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.29.1.tar.gz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.29.1.tar.gz"
-    sha256 "0d9d2bbf71e17903f26a676e7fba7c200e581c84b8f2f43e72d875d0e638771c"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.30.tar.gz"
+    sha256 "8c3850195d1c093d290a716e20ebcaa72eda32abf5e3d8611154b39cff79e9ea"
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.3.0/gcc-7.3.0.tar.xz"
-    sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
+    sha256 "1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153"
   end
 
   def target_archs
@@ -81,6 +82,11 @@ class MingwW64 < Formula
         --with-isl=#{Formula["isl"].opt_prefix}
         --disable-multilib
       ]
+      if build.with? "posix"
+        args << "--enable-threads=posix"
+      else
+        args << "--enable-threads=win32"
+      end
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args
@@ -109,13 +115,10 @@ class MingwW64 < Formula
         system "make", "install"
       end
 
-      # Finish building GCC (runtime libraries)
-      chdir "#{buildpath}/gcc/build-#{arch}" do
-        system "make"
-        system "make", "install"
-      end
-
       # Build the winpthreads library
+      # we need to build this prior to the
+      # GCC runtime libraries, to have `-lpthread`
+      # available, for `--enable-threads=posix`
       args = %W[
         CC=#{target}-gcc
         CXX=#{target}-g++
@@ -125,6 +128,12 @@ class MingwW64 < Formula
       ]
       mkdir "mingw-w64-libraries/winpthreads/build-#{arch}" do
         system "../configure", *args
+        system "make"
+        system "make", "install"
+      end
+
+      # Finish building GCC (runtime libraries)
+      chdir "#{buildpath}/gcc/build-#{arch}" do
         system "make"
         system "make", "install"
       end

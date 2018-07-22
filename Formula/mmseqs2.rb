@@ -1,15 +1,15 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast protein sequence search and clustering"
   homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/1-c7a89.tar.gz"
-  version "1-c7a89"
-  sha256 "e756a0e5cb3aa8e1e5a5b834a58ae955d9594be1806f0f32800427c55f3a45d5"
+  url "https://github.com/soedinglab/MMseqs2/archive/3-be8f6.tar.gz"
+  version "3-be8f6"
+  sha256 "7502adcec9f84c560996ced29edec88ce8ec47670da7dae6c7ee50d7b849fe0d"
 
   bottle do
     cellar :any
-    sha256 "f1e551d41c5508ddb96b2b603d2b7df320e8d304a927d5591bc7ecd02211fd58" => :high_sierra
-    sha256 "d324056b3fd47e0aa73ba4d8293b2a7248b4dcbe8daf0ff906201019d4c2efb7" => :sierra
-    sha256 "c338bc8cc6c622a5c3cbf95a6df6e472b45a92f2bca267b841f747b4ba45abcf" => :el_capitan
+    sha256 "0a2bc5f422c1fba52f2e20e3c27559c086bd4f1a652739c32840a730bbcac30e" => :high_sierra
+    sha256 "3e0fb89409e53fbef476d40296f35cae6d36018691eb0f72278affb4b8154f23" => :sierra
+    sha256 "ecb8fba6928eaf995c8176dcdb44cf13adc0a823b4183ecfe633faf57cc9520c" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -21,15 +21,12 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "6dbd3666edb64fc71173ee714014e88c1ebe2dfc"
+        :revision => "f6b31176d50402ce6070c9557a476e06a872d2ae"
   end
 
   def install
-    # version information is read from git by default
-    # next MMseqs2 version will include a cmake flag so we do not need this hack
-    inreplace "src/version/Version.cpp", /.+/m, "const char *version = \"#{version}\";"
-
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
+    args << "-DVERSION_OVERRIDE=#{version}"
 
     args << "-DHAVE_SSE4_1=1" if build.bottle?
 
@@ -49,6 +46,10 @@ class Mmseqs2 < Formula
 
   test do
     system "#{bin}/mmseqs", "createdb", "#{pkgshare}/examples/QUERY.fasta", "q"
-    system "#{bin}/mmseqs", "cluster", "q", "res", "tmp", "-s", "1", "--cascaded"
+    system "#{bin}/mmseqs", "cluster", "q", "res", "tmp", "-s", "1"
+    assert_predicate testpath/"res", :exist?
+    assert_predicate (testpath/"res").size, :positive?
+    assert_predicate testpath/"res.index", :exist?
+    assert_predicate (testpath/"res.index").size, :positive?
   end
 end

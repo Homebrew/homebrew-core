@@ -1,8 +1,8 @@
 class Plenv < Formula
   desc "Perl binary manager"
   homepage "https://github.com/tokuhirom/plenv"
-  url "https://github.com/tokuhirom/plenv/archive/2.2.0.tar.gz"
-  sha256 "248c5d8196077d217f98d566bd235cbe3332583851737782852bb2fccf840111"
+  url "https://github.com/tokuhirom/plenv/archive/2.3.0.tar.gz"
+  sha256 "49ea2770627f40d1fafccf03bf459839bf1d005b3d8c3c5772f0242c84423876"
   head "https://github.com/tokuhirom/plenv.git"
 
   bottle :unneeded
@@ -21,6 +21,10 @@ class Plenv < Formula
       if which plenv > /dev/null; then eval "$(plenv init - zsh)"; fi
     With fish, add to your config.fish
       if plenv > /dev/null; plenv init - | source ; end
-    EOS
+  EOS
+  end
+
+  test do
+    system "#{bin}/plenv", "--version"
   end
 end

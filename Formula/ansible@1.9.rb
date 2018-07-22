@@ -5,19 +5,17 @@ class AnsibleAT19 < Formula
   sha256 "50773781b1e76f2885bbeb2351a97cf1c6a29239d3e073da939a104e7e81ee5d"
   revision 1
 
-  head "https://github.com/ansible/ansible.git", :branch => "stable-1.9"
-
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a95cfcd12d83aa49aabc2361ff2724eaba69d772ae4af3108b57163023a807f5" => :high_sierra
-    sha256 "511ea537dda8cdb0ecc2205712615bd6877d66046abccefaec98c4bb679e1c1d" => :sierra
-    sha256 "849e7dc0c4bb63586ef120d1a21e6c1ff51a2c41a33e34291b13c506b3be5880" => :el_capitan
+    rebuild 2
+    sha256 "4aa3ddfdea9746060e685a1f19b67af567bc9d49a54b0b92071f88c4336a2998" => :high_sierra
+    sha256 "258006e587e914736e541de070d22c14017b704ec51ae4b3b34313945b492f3e" => :sierra
+    sha256 "e43f2279aa5e0ce3ceba08743ac4d375d7b1ebe20984b7446c435eb41c935e23" => :el_capitan
   end
 
   keg_only :versioned_formula
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
   depends_on "libyaml"
   depends_on "openssl"
 
@@ -71,24 +69,29 @@ class AnsibleAT19 < Formula
   # Resources required by docker-py, pyrax, and shade (see below).
   # Install requests with [security]
   #
+  resource "asn1crypto" do
+    url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
+    sha256 "9d5c20441baf0cb60a4ac34cc447c6c189024b6b4c6cd7877034f4965c464e49"
+  end
+
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/source/c/cffi/cffi-1.10.0.tar.gz"
-    sha256 "b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/source/c/cryptography/cryptography-1.3.1.tar.gz"
-    sha256 "b4b36175e0f95ddc88435c26dbe3397edce48e2ff5fe41d504cdb3beddcd53e2"
+    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
+    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
   end
 
   resource "enum34" do
-    url "https://files.pythonhosted.org/packages/source/e/enum34/enum34-1.1.2.tar.gz"
-    sha256 "2475d7fcddf5951e92ff546972758802de5260bf409319a9f1934e6bbc8b1dc7"
+    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
+    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/source/i/idna/idna-2.0.tar.gz"
-    sha256 "16199aad938b290f5be1057c0e1efc6546229391c23cea61ca940c115f7d3d3b"
+    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
+    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
   end
 
   resource "ndg-httpsclient" do
@@ -102,8 +105,8 @@ class AnsibleAT19 < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/source/p/pycparser/pycparser-2.14.tar.gz"
-    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
+    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
+    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
   end
 
   resource "requests" do
@@ -112,8 +115,8 @@ class AnsibleAT19 < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/source/s/six/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   #
@@ -262,6 +265,11 @@ class AnsibleAT19 < Formula
     sha256 "5afed9470494222bc6d90efddfc52223cfc84e03a3898775a7a7ee44a4e7e424"
   end
 
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/source/p/pytz/pytz-2015.7.tar.bz2"
+    sha256 "fbd26746772c24cb93c8b97cbdad5cb9e46c86bbdb1b9d8a743ee00e2fb1fc5d"
+  end
+
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/source/p/pbr/pbr-1.8.1.tar.gz"
     sha256 "e2127626a91e6c885db89668976db31020f0af2da728924b56480fc7ccf09649"
@@ -285,11 +293,6 @@ class AnsibleAT19 < Formula
   resource "python-novaclient" do
     url "https://files.pythonhosted.org/packages/source/p/python-novaclient/python-novaclient-2.34.0.tar.gz"
     sha256 "62c0d1996b2eb53707c3bef7a445a05a809d427c92a2030ed95b59f49031e527"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/source/p/pytz/pytz-2015.7.tar.bz2"
-    sha256 "fbd26746772c24cb93c8b97cbdad5cb9e46c86bbdb1b9d8a743ee00e2fb1fc5d"
   end
 
   resource "rackspace-auth-openstack" do
@@ -405,8 +408,8 @@ class AnsibleAT19 < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/source/i/ipaddress/ipaddress-1.0.14.tar.gz"
-    sha256 "226f4be44c6cb64055e23060848266f51f329813baae28b53dc50e93488b3b3e"
+    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
+    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
   end
 
   resource "jsonpatch" do
@@ -442,11 +445,6 @@ class AnsibleAT19 < Formula
   resource "os-client-config" do
     url "https://files.pythonhosted.org/packages/source/o/os-client-config/os-client-config-1.10.2.tar.gz"
     sha256 "b0e24a97224469ad814d933d55d575678c0e26d633918844e8b7338fce631841"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/source/p/pycparser/pycparser-2.14.tar.gz"
-    sha256 "7959b4a74abdc27b312fed1c21e6caf9309ce0b29ea86b591fd2e99ecdf27f73"
   end
 
   resource "pyOpenSSL" do
@@ -523,6 +521,9 @@ class AnsibleAT19 < Formula
     vendor_site_packages = libexec/"vendor/lib/python2.7/site-packages"
     ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
 
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     resources.each do |r|
       r.stage do
         system "python", *Language::Python.setup_install_args(libexec/"vendor")
@@ -550,7 +551,7 @@ class AnsibleAT19 < Formula
     execution environment, which is inherited by Python scripts invoked
     by ansible. If this causes problems, you can modify your playbooks
     to invoke python with -E, which causes python to ignore PYTHONPATH.
-    EOS
+  EOS
   end
 
   test do

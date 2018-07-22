@@ -32,6 +32,10 @@ class Cadaver < Formula
     system "make", "-C", "lib/intl"
     system "make", "install"
   end
+
+  test do
+    assert_match "cadaver #{version}", shell_output("#{bin}/cadaver -V", 255)
+  end
 end
 
 __END__

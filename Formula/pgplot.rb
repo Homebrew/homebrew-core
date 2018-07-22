@@ -6,12 +6,12 @@ class Pgplot < Formula
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 "fa50b8dc562ae8e2311640f8158564c1552a31cfdc9aed960129e4ec7f1804a1" => :high_sierra
-    sha256 "511d11937071d598d49eb9ed1ad959bfcd377a378825b63564790b5146b90dee" => :sierra
-    sha256 "53e71eff08e868a148f06c1624e94c3156e504cb8e9101aec9db22410fe0101e" => :el_capitan
+    sha256 "bf57239170c6561ac52e61af82eeb2ed44abbcac2b8a5f26ad85359efa78dc21" => :high_sierra
+    sha256 "6181ab3056141c9892b2264adda9e579f5568917710706d86e2d63438bc5e97c" => :sierra
+    sha256 "17eaa41f5879047b156f4820d22688f568fdeb136435ce2cd0b778db75a6af9e" => :el_capitan
   end
 
   depends_on "gcc" # for gfortran
@@ -67,7 +67,7 @@ class Pgplot < Formula
       SYSDIR="$SYSDIR"
       CSHARED_LIB="libcpgplot.dylib"
       CSHARED_LD="gfortan -dynamiclib -single_module $LDFLAGS -lX11"
-      EOS
+    EOS
 
     mkdir "build" do
       # activate drivers

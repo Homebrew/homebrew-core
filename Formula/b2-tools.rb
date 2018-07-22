@@ -3,17 +3,17 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.1.0.tar.gz"
-  sha256 "fae0dd48a2b6ab38cb142b91d7907a66144659d599bdfbf3c8995788ed29313b"
+  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.3.0.tar.gz"
+  sha256 "1deeea2f9e76bccc15514df2d032b8beca63f65989fd8441acf1b26e96a027c7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "94ddeb7d56a0c164120429cf819001d950cce3ec7996f8057a7a1e20bf33f99b" => :high_sierra
-    sha256 "6210536251b3a1a4066a7b2cd0bc3e7a0b0173525a792da2e4003b917799b4d7" => :sierra
-    sha256 "a15207e3615b4865877c8d48976708c926e0d095303b4c95a49b196e14acda04" => :el_capitan
+    sha256 "06e656b0942c203fe07009457d4d78a37b8c29d55dbd9678c6e8366c5477bb47" => :high_sierra
+    sha256 "b9e0764f69119e3f1fbbf6ec371828a2afb94dfbbec2587d8e5877f17e768c77" => :sierra
+    sha256 "5bc08b320850a7fa47ec9ff2ea9c11c6ae95cf303d5fe164f334141a5790787b" => :el_capitan
   end
 
-  depends_on "python" if MacOS.version <= :snow_leopard
+  depends_on "python@2"
 
   conflicts_with "boost-build", :because => "both install `b2` binaries"
 

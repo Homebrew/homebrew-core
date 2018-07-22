@@ -28,7 +28,7 @@ class PinentryMac < Formula
 
     ~/.gnupg/gpg-agent.conf
         pinentry-program #{HOMEBREW_PREFIX}/bin/pinentry-mac
-    EOS
+  EOS
   end
 
   test do

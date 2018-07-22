@@ -1,21 +1,22 @@
 class Headphones < Formula
   desc "Automatic music downloader for SABnzbd"
   homepage "https://github.com/rembo10/headphones"
-  url "https://github.com/rembo10/headphones/archive/v0.5.18.tar.gz"
-  sha256 "5558669ee64448c82a90a4f2d8755ef9e7337b95b44354772fb2898769a04aeb"
+  url "https://github.com/rembo10/headphones/archive/v0.5.19.tar.gz"
+  sha256 "604365d356c2079bd55955aa8448a70c39cc5f32a71049a49876847423ce5d12"
   head "https://github.com/rembo10/headphones.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6038f613b50ab4d7c3f67a1a45547ba2349d96fc158fd99d4e1a46357e5d7992" => :high_sierra
-    sha256 "913f1f0ea6600b6aa4bb6f4f9fcfd6c5447f072334b024faf40da2d7ed6b0600" => :sierra
-    sha256 "fb9288d3885ac6ee18b6ee3292d7fe886f8b5d538b4876f3bdd32309e3643431" => :el_capitan
-    sha256 "be688187ebdfd25f221b227a9aa6df3e8015788f564bdfdc524cd99834540d80" => :yosemite
+    sha256 "c22670540bfa23e92a25a0efa6af4fe9f29967a45d4b8c5d8de0b28c060ac9d5" => :high_sierra
+    sha256 "d64f16c7ce5484cd9e69902d1b4ea8299e9b093b8837c624ed0ef623aeb748fb" => :sierra
+    sha256 "a17c424aac1d91fb570d3e63db548c37b4c64f92ed988bb935cb4fa02c12fc5a" => :el_capitan
   end
 
+  depends_on "python@2"
+
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/d4/32/642bd580c577af37b00a1eb59b0eaa996f2d11dfe394f3dd0c7a8a2de81a/Markdown-2.6.7.tar.gz"
-    sha256 "daebf24846efa7ff269cfde8c41a48bb2303920c7b2c7c5e04fa82e6282d05c0"
+    url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"
+    sha256 "a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
   end
 
   resource "Cheetah" do
@@ -27,7 +28,7 @@ class Headphones < Formula
     #!/bin/bash
     export PYTHONPATH="#{libexec}/lib/python2.7/site-packages:$PYTHONPATH"
     python "#{libexec}/Headphones.py" --datadir="#{etc}/headphones" "$@"
-    EOS
+  EOS
   end
 
   def install
@@ -70,7 +71,7 @@ class Headphones < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

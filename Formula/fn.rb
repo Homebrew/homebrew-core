@@ -1,14 +1,14 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.53.tar.gz"
-  sha256 "519213ddf1366c3cf5ef22e260ca635ec740528da9def8fc80716d41336c1fb6"
+  url "https://github.com/fnproject/cli/archive/0.4.131.tar.gz"
+  sha256 "fe2ad8554c6661e632a166ed05e5464f02d60a7e396d0f5903d04d985e2de4ab"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f386c3b13b4203fd6dac39f486d783b59faa40b055008ab0294ce863a76ec226" => :high_sierra
-    sha256 "68499ca656270cc1c001ad1825ccb03d1ed4a478692b801dd03436f63a809081" => :sierra
-    sha256 "02990cc80cd06e767d3bebb36fc29e0cea3a70b5a11f00b23c2777afb32348a9" => :el_capitan
+    sha256 "ea3afa537e1a1f46eaab83fc2b9d2a60b0661461792245a3ae743f4f4d3b3549" => :high_sierra
+    sha256 "be8cf7918a7b0a12b8661cb53f2cb60b8025f3e6aebe3e3d7d51f469b8862e28" => :sierra
+    sha256 "d5c6dbca167efc6cb1bfafab8898aa286b1636597a663dbe87f0012aa86a8cd5" => :el_capitan
   end
 
   depends_on "dep" => :build
@@ -19,7 +19,7 @@ class Fn < Formula
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
     cd dir do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", "#{bin}/fn"
       prefix.install_metafiles
     end
@@ -49,7 +49,7 @@ class Fn < Formula
       ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"
       expected = "/myfunc created with fnproject/myfunc"
-      output = shell_output("#{bin}/fn routes create myapp myfunc --image fnproject/myfunc:0.0.1")
+      output = shell_output("#{bin}/fn create routes myapp myfunc fnproject/myfunc:0.0.1")
       assert_match expected, output.chomp
     ensure
       Process.kill("TERM", pid)

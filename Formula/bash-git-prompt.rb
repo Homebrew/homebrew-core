@@ -22,7 +22,7 @@ class BashGitPrompt < Formula
         __GIT_PROMPT_DIR="#{opt_share}"
         source "#{opt_share}/gitprompt.sh"
       fi
-    EOS
+  EOS
   end
 
   test do

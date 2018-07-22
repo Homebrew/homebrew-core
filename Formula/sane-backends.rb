@@ -1,17 +1,16 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
-  url "https://alioth.debian.org/frs/download.php/file/4224/sane-backends-1.0.27.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+  url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
   mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
   sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
-  revision 4
-  head "https://anonscm.debian.org/cgit/sane/sane-backends.git"
+  revision 5
+  head "https://salsa.debian.org/debian/sane-backends.git"
 
   bottle do
-    sha256 "687b773de141d0d79fbf16d882be2066a2fcdf4056ba86803fb40669752e2c79" => :high_sierra
-    sha256 "0af3374d96090f87e273ee9446154a481bc3c8461b81659ea54710e3cd6b39c3" => :sierra
-    sha256 "ff90535945b9082a1d47b22535b31135b3622e61280c73d0194516e1e1d31605" => :el_capitan
+    sha256 "7e17e4e13a6b9d4c532c3f4f498711c016c0c23331a25e9c4fe2543c1241bebf" => :high_sierra
+    sha256 "c1c278d995f33f438ad6009ba4928157dd2ca74ec17a344a57b7af972c64e190" => :sierra
+    sha256 "6073b7b25829eb031616894fe6ea5c34408fed9b42d3b421e6eba94d6cbbf948" => :el_capitan
   end
 
   depends_on "jpeg"

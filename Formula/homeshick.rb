@@ -1,8 +1,8 @@
 class Homeshick < Formula
   desc "Git dotfiles synchronizer written in bash"
   homepage "https://github.com/andsens/homeshick"
-  url "https://github.com/andsens/homeshick/archive/1.0.0.tar.gz"
-  sha256 "8bd3c46f1cfd68d82d97fa72a68a07c966092c77f276d1335cb390b2ec6062bf"
+  url "https://github.com/andsens/homeshick/archive/v1.1.0.tar.gz"
+  sha256 "1894675f4f2ab002a97574445c03c7c7336c996c01023b7fc5e6668dce7d5a3c"
   head "https://github.com/andsens/homeshick.git"
 
   bottle :unneeded

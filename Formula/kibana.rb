@@ -3,21 +3,23 @@ require "language/node"
 class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
+  # Pinned at 6.2.x because of a licencing issue
+  # See: https://github.com/Homebrew/homebrew-core/pull/28995
   url "https://github.com/elastic/kibana.git",
-      :tag => "v6.2.2",
-      :revision => "24d8d9d6e66efdf6c3686b47641b1a8513de6d3e"
+      :tag => "v6.2.4",
+      :revision => "ee501cfd9c1281cfbd6948e1c5f80dc9356ee56f"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "6c87a2af00440c561cc7422740ffa85eed2336d00afb528eb41b937a976c7f14" => :high_sierra
-    sha256 "54aa514aa6c63020a323573d3fff3f73231bd981aa6ca5920e3dda36ad370c3c" => :sierra
-    sha256 "ba6031f2eb4dfedd446104ac5f4b45e35f2d2c28c5fa9b3abd6231231c7a20b2" => :el_capitan
+    sha256 "990d72d9eb8572e62424519be38041c48c24e3e3206b8f1e58f72449c3c34906" => :high_sierra
+    sha256 "de9ecf592509e75446c5298a8423982ed9e9d705691818233242f6a35519a50c" => :sierra
+    sha256 "057d166935aa00f6564b4ca6ee4eb237b3c7f08a3d9d9bf351f3c08f5d08bff7" => :el_capitan
   end
 
   resource "node" do
     url "https://github.com/nodejs/node.git",
-        :tag => "v6.12.2",
-        :revision => "381f5ec383dbb164cf3edd1a9de1811cf1cfdc65"
+        :tag => "v6.14.0",
+        :revision => "2c93af2da3b696e2389ba46608efb9bdffd8badd"
   end
 
   def install
@@ -60,7 +62,7 @@ class Kibana < Formula
     If you wish to preserve your plugins upon upgrade, make a copy of
     #{opt_prefix}/plugins before upgrading, and copy it into the
     new keg location after upgrading.
-    EOS
+  EOS
   end
 
   plist_options :manual => "kibana"
