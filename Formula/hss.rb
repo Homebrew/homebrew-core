@@ -1,8 +1,8 @@
 class Hss < Formula
   desc "Interactive parallel SSH client"
   homepage "https://github.com/six-ddc/hss"
-  url "https://github.com/six-ddc/hss/archive/1.6.tar.gz"
-  sha256 "8516f3e24c9908f9c7ac02ee5247ce78f2a344e7fcca8a14081a92949db70049"
+  url "https://github.com/six-ddc/hss/archive/1.7.tar.gz"
+  sha256 "99371c15fde236c806f7b6ed21b12bafc4f559fcbb636e0ab2112b09faa0e44a"
 
   bottle do
     cellar :any
