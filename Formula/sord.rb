@@ -6,10 +6,9 @@ class Sord < Formula
 
   bottle do
     cellar :any
-    sha256 "82abe13de14ae4d3a03e4c52653a08682b568f535e8ad321ac227f1b19f416e4" => :high_sierra
-    sha256 "79ac2ab52531da8fbf650a4415907e6098e5038fea13c8a00db4efb0b6e343cc" => :sierra
-    sha256 "1d2d04b071394a4b7381f89812ecc05f6967b87936935131d077c95f13b9a2f2" => :el_capitan
-    sha256 "b4c0d5559e0c1aae7e8de803e75cdf84858f67bad70ba663979efc29c07b081f" => :yosemite
+    sha256 "c51813aa91714be7ff72372606538ccf028f3019a2e3b1c9eb1af184d925cd2c" => :high_sierra
+    sha256 "cdc2488f62b363e161df7412fc459fc4b6aa564d5b7d92c841e71d462629751a" => :sierra
+    sha256 "f83681f6abcdf47721ed6a8af9d6e2a17219808bd08f7951c4c145920e9fdf94" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
