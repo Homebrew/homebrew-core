@@ -37,6 +37,6 @@ class Hyperkit < Formula
   end
 
   test do
-    pipe_output("#{bin}/hyperkit", "v")
+    pipe_output("#{bin}/hyperkit -v")
   end
 end
