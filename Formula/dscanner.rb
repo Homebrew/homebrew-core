@@ -7,9 +7,9 @@ class Dscanner < Formula
   head "https://github.com/dlang-community/Dscanner.git"
 
   bottle do
-    sha256 "4a89c558303b0dd7da3654f1436c2d095b1bcc85f43a80694834dd5e8f598f90" => :high_sierra
-    sha256 "13677ecd641a86b9a2e87f47b5a8d5aeafc9958bb155de9b6a5351ed3d0caa61" => :sierra
-    sha256 "2c4a31c5d8fc9d45a925e918c413326a8a50c29fc4641a5a20e0219cae1fb6ea" => :el_capitan
+    sha256 "82f4f4431c569e21ab2d340c749fbae7f65a09dfcbc29822d7599ed9eff5c4d8" => :high_sierra
+    sha256 "9191d8114416f8629e8ad43c1676c90e15f866092c1cb8cea7edd15e8e03c22e" => :sierra
+    sha256 "2437e819fac2bfec60117af405ec3df43fa7ae29a71b22b6e5795c0b627d5d5e" => :el_capitan
   end
 
   depends_on "dmd" => :build
