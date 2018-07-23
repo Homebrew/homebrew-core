@@ -36,7 +36,7 @@ class Arpack < Formula
     lib.install_symlink Dir["#{libexec}/lib/*"].select { |f| File.file?(f) }
     (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
-                     "TESTS/mmio.f", "TESTS/debug-arpack.h"
+                     "TESTS/mmio.f", "TESTS/debug.h"
 
     if build.with? "mpi"
       (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
