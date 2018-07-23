@@ -1,8 +1,8 @@
 class Hyperkit < Formula
   desc "Toolkit for embedding hypervisor capabilities in your application"
   homepage "https://github.com/moby/hyperkit"
-  url "https://github.com/moby/hyperkit/archive/v0.20180123.tar.gz"
-  sha256 "382933118da3835056203d3d05923b554f36cc41a555a821516e11ccb7d16bf3"
+  url "https://github.com/moby/hyperkit/archive/v0.20180403.tar.gz"
+  sha256 "e2739b034f20d9437696de48ace42600f55b7213292ec255032b2ef55f508297"
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build
