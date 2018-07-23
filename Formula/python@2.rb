@@ -27,13 +27,13 @@ class PythonAT2 < Formula
   depends_on "tcl-tk" => :optional
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/1a/04/d6f1159feaccdfc508517dba1929eb93a2854de729fa68da9d5c6b48fa00/setuptools-39.2.0.zip"
-    sha256 "f7cddbb5f5c640311eb00eab6e849f7701fa70bf6a183fc8a2c33dd1d1672fb2"
+    url "https://files.pythonhosted.org/packages/d3/3e/1d74cdcb393b68ab9ee18d78c11ae6df8447099f55fe86ee842f9c5b166c/setuptools-40.0.0.zip"
+    sha256 "012adb8e25fbfd64c652e99e7bab58799a3aaf05d39ab38561f69190a909015f"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz"
-    sha256 "f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68"
+    url "https://files.pythonhosted.org/packages/69/81/52b68d0a4de760a2f1979b0931ba7889202f302072cc7a0d614211bc7579/pip-18.0.tar.gz"
+    sha256 "a0e11645ee37c90b40c46d607070c4fd583e2cd46231b1c06e389c5e814eed76"
   end
 
   resource "wheel" do
