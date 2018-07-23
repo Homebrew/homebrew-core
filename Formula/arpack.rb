@@ -6,9 +6,9 @@ class Arpack < Formula
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
-    sha256 "4b197f6e47b233c9674ca7a46871096142f187677e22c9dff627a8cdcbb3d370" => :high_sierra
-    sha256 "35b0aa89b21b81d55568b7ab1adbff0c3e22029abcfe13c62722f9d549f62f48" => :sierra
-    sha256 "68f38c961ae168d4e61e6693bddcf37b02fc7860e32c95dddc45e24ab58a0bb6" => :el_capitan
+    sha256 "9a34eecb233b2d3ad6d397ea4ab9b6588bf75a99d2557415060937e48875432c" => :high_sierra
+    sha256 "87c8fe199cb780dc38719680b0242ff480d1f523dba54939be8d38ce52422e76" => :sierra
+    sha256 "940bb3597599ce0620b73363dddc9bdde122ec84ede13ae89812318e1965c33c" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"
