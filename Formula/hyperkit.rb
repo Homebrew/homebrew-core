@@ -29,7 +29,9 @@ class Hyperkit < Formula
            "qcow-tool", "mirage-block-unix.2.9.0", "conf-libev", "logs", "fmt",
            "mirage-unix", "prometheus-app"
 
-    system "opam", "config", "exec", "--", "make"
+    args = []
+    args << "GIT_VERSION=#{version}" if build.stable?
+    system "opam", "config", "exec", "--", "make", *args
 
     bin.install "build/hyperkit"
   end
