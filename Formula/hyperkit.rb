@@ -9,7 +9,6 @@ class Hyperkit < Formula
   depends_on "libev"
 
   depends_on :xcode => ["9.0", :build]
-  depends_on :macos => :yosemite
 
   def install
     system "opam", "init", "--no-setup"
