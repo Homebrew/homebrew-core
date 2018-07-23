@@ -9,6 +9,6 @@ class Sshw < Formula
   end
 
   test do
-    system "sshw -version"
+    system "sshw", "-version"
   end
 end
