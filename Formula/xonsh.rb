@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "http://xon.sh"
-  url "https://github.com/xonsh/xonsh/archive/0.7.0.tar.gz"
-  sha256 "75fef71b4367a4bef3e4a54cf83dbb9d78a2ea580c03398dc64b2af756813003"
+  url "https://github.com/xonsh/xonsh/archive/0.7.1.tar.gz"
+  sha256 "87a9407b90e297d57fbb92a0c1e675cf5a10a65410c05902b90e77c0345b6887"
   head "https://github.com/xonsh/xonsh.git"
 
   bottle do
@@ -17,7 +17,9 @@ class Xonsh < Formula
   depends_on "python"
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create libexec, "python3"
+    venv.pip_install ["ply==3.11", "prompt-toolkit==2.0.4", "Pygments==2.2.0", "setproctitle==1.1.10", "six==1.11.0", "wcwidth==0.1.7"]
+    venv.pip_install_and_link buildpath
   end
 
   test do
