@@ -91,16 +91,16 @@ class Pgplot < Formula
   end
 
   test do
-    # test Fortran version
-    (testpath/"test.f90").write <<~EOS
+    # build Fortran version of test program
+    (testpath/"pgtest.f90").write <<~EOS
          PROGRAM SIMPLE
          INTEGER I, IER, PGBEG
          REAL XR(100), YR(100)
          REAL XS(5), YS(5)
          data XS/1.,2.,3.,4.,5./
          data YS/1.,4.,9.,16.,25./
-         IER = PGBEG(0,'?',1,1)
-         IF (IER.NE.1) STOP
+         IER = PGOPEN('pgtest.png/PNG')
+         IF (IER.LE.0) STOP
          CALL PGENV(0.,10.,0.,20.,0,1)
          CALL PGLAB('(x)', '(y)', 'A Simple Graph')
          CALL PGPT(5,XS,YS,9)
@@ -109,13 +109,12 @@ class Pgplot < Formula
              YR(I) = XR(I)**2
       10 CONTINUE
          CALL PGLINE(60,XR,YR)
-         CALL PGEND
+         CALL PGCLOS
          END
     EOS
-    system "gfortran", "-o", "test", "test.f90", "-I/usr/X11/include",
-           "-L/usr/X11/lib", "-L#{lib}", "-lpgplot", "-lX11"
+    system "gfortran", "-o", "pgtest", "pgtest.f90", "-L#{lib}", "-lpgplot"
 
-    # test C version
+    # build C version of test program
     (testpath/"cpgtest.c").write <<~EOS
       #include "cpgplot.h"
 
@@ -130,7 +129,7 @@ class Pgplot < Formula
         static float ys[] = {1.0, 4.0, 9.0, 16.0, 25.0 };
         float xr[60], yr[60];
         int n = sizeof(xr) / sizeof(xr[0]);
-        if(cpgbeg(0, "?", 1, 1) != 1)
+        if(cpgopen("cpgtest.png/PNG") <= 0)
           return EXIT_FAILURE;
         cpgenv(0.0, 10.0, 0.0, 20.0, 0, 1);
         cpglab("(x)", "(y)", "A Simple Graph");
@@ -140,12 +139,17 @@ class Pgplot < Formula
           yr[i] = xr[i]*xr[i];
         }
         cpgline(n, xr, yr);
-        cpgend();
+        cpgclos();
         return EXIT_SUCCESS;
       }
     EOS
     system ENV.cc, "-c", "-I#{include}", "cpgtest.c"
     system "gfortran", "-o", "cpgtest", "cpgtest.o",
            "-L#{lib}", "-lcpgplot", "-lpgplot"
+
+    # Produce PNG output with both programs and check if identical
+    system "./pgtest"
+    system "./cpgtest"
+    assert_equal (testpath/"pgtest.png").read, (testpath/"cpgtest.png").read
   end
 end
