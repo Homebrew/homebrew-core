@@ -1,14 +1,22 @@
 class Sshw < Formula
   desc "🐝  ssh client wrapper for automatic login"
   homepage "https://github.com/yinheli/sshw"
-  url "https://github.com/yinheli/sshw/releases/download/v1.0.2/sshw-darwin-amd64.tar.gz"
-  sha256 "4dd11ea34bfcac3c4d318a917557b109c8001bd4157abf6ed7c777c0ada0b48d"
+  url "https://github.com/yinheli/sshw/archive/v1.0.2.tar.gz"
+  sha256 "5bb4de182683797d44cd8921a26d8732e7f29f2eb382bea47a57372c44ccaaab"
+
+  depends_on "go" => :build
 
   def install
-    bin.install "sshw"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/yinheli/sshw").install buildpath.children
+
+    cd "src/github.com/yinheli/sshw" do
+      system "make", "sshw"
+      bin.install "release/sshw"
+    end
   end
 
   test do
-    system "sshw", "-version"
+    system "#{bin}/sshw", "-version"
   end
 end
