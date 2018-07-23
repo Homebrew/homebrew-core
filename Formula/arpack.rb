@@ -1,8 +1,8 @@
 class Arpack < Formula
   desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
-  url "https://github.com/opencollab/arpack-ng/archive/3.6.1.tar.gz"
-  sha256 "c753f929d3f1092d84bb0883a8ffe2551a8cb94d5ab891e63f596a876e44c351"
+  url "https://github.com/opencollab/arpack-ng/archive/3.6.2.tar.gz"
+  sha256 "673c8202de996fd3127350725eb1818e534db4e79de56d5dcee8c00768db599a"
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
@@ -36,7 +36,7 @@ class Arpack < Formula
     lib.install_symlink Dir["#{libexec}/lib/*"].select { |f| File.file?(f) }
     (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
-                     "TESTS/mmio.f", "TESTS/debug-arpack.h"
+                     "TESTS/mmio.f", "TESTS/debug.h"
 
     if build.with? "mpi"
       (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
