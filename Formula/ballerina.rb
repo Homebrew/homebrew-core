@@ -16,24 +16,21 @@ class Ballerina < Formula
     chmod 0755, "bin/composer"
 
     inreplace ["bin/ballerina"] do |s|
-      s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{prefix}"
+      s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{libexec}"
       s.gsub! /\r?/, ""
     end
 
     inreplace ["bin/composer"] do |s|
-      s.gsub! /^BASE_DIR=.*$/, "BASE_DIR=#{bin}"
-      s.gsub! /^PRGDIR=.*$/, "PRGDIR=#{bin}"
+      s.gsub! /^BASE_DIR=.*$/, "BASE_DIR=#{libexec}/bin"
+      s.gsub! /^PRGDIR=.*$/, "PRGDIR=#{libexec}/bin"
       s.gsub! /\r?/, ""
     end
 
-    prefix.install "bin/ballerina", "bin/composer"
-    prefix.install Dir["*"]
-    prefix.env_script_all_files(prefix/"bin", Language::Java.java_home_env("1.8"))
-
-    # Remove non-executables
-    rm prefix/"bin/COPYRIGHT"
-    rm prefix/"bin/LICENSE"
-    rm prefix/"bin/README.md"
+    bin.install "bin/ballerina", "bin/composer"
+    libexec.install Dir["*"]
+    #link tooling-plugin jar for the vscode
+    lib.install_symlink libexec/"lib/resources" => "resources"
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
