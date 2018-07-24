@@ -6,9 +6,9 @@ class Libosmium < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dee4926e6cdcf98ccc680d82478562711301ec0a7209eab0ec71f50b3fa37fd2" => :high_sierra
-    sha256 "dee4926e6cdcf98ccc680d82478562711301ec0a7209eab0ec71f50b3fa37fd2" => :sierra
-    sha256 "dee4926e6cdcf98ccc680d82478562711301ec0a7209eab0ec71f50b3fa37fd2" => :el_capitan
+    sha256 "859c27ebb1cf975cd895b27a628f86a64043ac06763ea1ea634b5479f4135515" => :high_sierra
+    sha256 "859c27ebb1cf975cd895b27a628f86a64043ac06763ea1ea634b5479f4135515" => :sierra
+    sha256 "859c27ebb1cf975cd895b27a628f86a64043ac06763ea1ea634b5479f4135515" => :el_capitan
   end
 
   depends_on "cmake" => :build
