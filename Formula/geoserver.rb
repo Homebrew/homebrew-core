@@ -1,8 +1,8 @@
 class Geoserver < Formula
   desc "Java server to share and edit geospatial data"
   homepage "http://geoserver.org/"
-  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.13.1/geoserver-2.13.1-bin.zip"
-  sha256 "a7f619c76e964157da5fd082a9b1db2130050101f5b9eccd6888afa1d675cae0"
+  url "https://downloads.sourceforge.net/project/geoserver/GeoServer/2.13.2/geoserver-2.13.2-bin.zip"
+  sha256 "a8bbfe1341014ff99eab3b6ada8f19ad0f7d2133e38a3a06b8aac9db79f99f4d"
 
   bottle :unneeded
 
