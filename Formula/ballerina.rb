@@ -1,8 +1,8 @@
 class Ballerina < Formula
   desc "The flexible, powerful and beautiful programming language"
   homepage "https://ballerina.io/"
-  url "https://product-dist.ballerina.io/downloads/0.980.0/ballerina-platform-0.980.0.zip"
-  sha256 "7fe3470a8e82e11d85f78a2578ebc27bee42214a52c80ae85a064ef02a736531"
+  url "https://product-dist.ballerina.io/downloads/0.980.1/ballerina-platform-0.980.1.zip"
+  sha256 "758337f808862e8e0d7a58b0eddd6bb74153f66691b334ca4066d8fe2a273eaf"
 
   bottle :unneeded
 
@@ -16,19 +16,19 @@ class Ballerina < Formula
     chmod 0755, "bin/composer"
 
     inreplace ["bin/ballerina"] do |s|
-      s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{libexec}"
+      s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{prefix}"
       s.gsub! /\r?/, ""
     end
 
     inreplace ["bin/composer"] do |s|
-      s.gsub! /^BASE_DIR=.*$/, "BASE_DIR=#{libexec}/bin"
-      s.gsub! /^PRGDIR=.*$/, "PRGDIR=#{libexec}/bin"
+      s.gsub! /^BASE_DIR=.*$/, "BASE_DIR=#{prefix}/bin"
+      s.gsub! /^PRGDIR=.*$/, "PRGDIR=#{prefix}/bin"
       s.gsub! /\r?/, ""
     end
 
-    bin.install "bin/ballerina", "bin/composer"
-    libexec.install Dir["*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    prefix.install "bin/ballerina", "bin/composer"
+    prefix.install Dir["*"]
+    prefix.env_script_all_files(prefix/"bin", Language::Java.java_home_env("1.8"))
   end
 
   test do
