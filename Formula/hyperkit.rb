@@ -34,6 +34,7 @@ class Hyperkit < Formula
     system "opam", "config", "exec", "--", "make", *args
 
     bin.install "build/hyperkit"
+    man1.install "hyperkit.1"
   end
 
   test do
