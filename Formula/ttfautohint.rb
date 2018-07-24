@@ -1,8 +1,8 @@
 class Ttfautohint < Formula
   desc "Auto-hinter for TrueType fonts"
   homepage "https://www.freetype.org/ttfautohint"
-  url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.1/ttfautohint-1.8.1.tar.gz"
-  sha256 "12df5120be194d2731e2a3c596892aa218681614c4f924e24279baf69bb7d4f9"
+  url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.2/ttfautohint-1.8.2.tar.gz"
+  sha256 "386741701596a8b2d5fb744901922ed2bd740490f7e6c81e5d7e83ac677889a7"
 
   bottle do
     cellar :any
