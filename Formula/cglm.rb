@@ -6,9 +6,9 @@ class Cglm < Formula
 
   bottle do
     cellar :any
-    sha256 "4fd398f7eee4f84aab35a0adcb4fff189f63efd2b35b0f85d67075e48fff6775" => :high_sierra
-    sha256 "6d9450442f80bc905713142d8d97f67f93bd94a464f8fee7d8773fefaf128444" => :sierra
-    sha256 "cc2a2d0c0d630290a63d5c46a76af23a8fa5c759133dfe7853160a7356f24db3" => :el_capitan
+    sha256 "10e06c19e9582cfd6e5c2508278c609709a26d807cc2970be6c3c9450cd932c4" => :high_sierra
+    sha256 "b250b903e4bce29ecb2df3a34502b235ee93bb1b16cc1581866fae6434310958" => :sierra
+    sha256 "95403a62a99918a57d7fcb8312430cb50935eac086ad339047c0b4c825247ec6" => :el_capitan
   end
 
   depends_on "autoconf" => :build
