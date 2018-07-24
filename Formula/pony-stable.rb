@@ -6,9 +6,9 @@ class PonyStable < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10436ef965fc48695cd616fba08553c6c148c2342ffc84b544065235b8598f24" => :high_sierra
-    sha256 "81a1d524559da660cc210f1bf291de9416000174e8a3bdb123879c54287c50a1" => :sierra
-    sha256 "6358aced5d98bebec8aac6c26bbf44ff0001a8a0997feb30bd7a159d6b91b939" => :el_capitan
+    sha256 "571fd986d8e2bd5fc89e382b14d8753c8ce1c3192c9965685564ee5cdb31e697" => :high_sierra
+    sha256 "5d0b08013d2cf38ffbd4e0fe521caf03281e897b3c64e565fd169c885bf56c22" => :sierra
+    sha256 "2396f10782e12343c245196d0265df84e106cd2a26496f1e7f1c90f9b55a99b3" => :el_capitan
   end
 
   depends_on "ponyc"
