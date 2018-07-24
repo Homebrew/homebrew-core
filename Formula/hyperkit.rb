@@ -30,7 +30,7 @@ class Hyperkit < Formula
            "mirage-unix", "prometheus-app"
 
     args = []
-    args << "GIT_VERSION=#{version}" if build.stable?
+    args << "GIT_VERSION=#{version}"
     system "opam", "config", "exec", "--", "make", *args
 
     bin.install "build/hyperkit"
@@ -40,7 +40,6 @@ class Hyperkit < Formula
   test do
     assert_match(version.to_s, shell_output("#{bin}/hyperkit -v 2>&1"))
     assert_match("kexec: failed to load kernel null",
-      shell_output("#{bin}/hyperkit -f kexec,null 2>&1", 134)
-    )
+                 shell_output("#{bin}/hyperkit -f kexec,null 2>&1", 134))
   end
 end
