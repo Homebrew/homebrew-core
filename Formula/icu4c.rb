@@ -13,11 +13,18 @@ class Icu4c < Formula
     sha256 "6936900be3acec316cc0d05c5fa0a07d727a2b7a3fd736bc5fd1db2be9798cb8" => :el_capitan
   end
 
+  head do
+    url "https://github.com/unicode-org/icu.git"
+    depends_on "git-lfs" => :build
+  end
+
   keg_only :provided_by_macos, "macOS provides libicucore.dylib (but nothing else)"
 
   def install
     args = %W[--prefix=#{prefix} --disable-samples --disable-tests --enable-static]
     args << "--with-library-bits=64" if MacOS.prefer_64_bit?
+
+    cd "icu4c" if build.head?
 
     cd "source" do
       system "./configure", *args
