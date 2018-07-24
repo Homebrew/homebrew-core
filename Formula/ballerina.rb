@@ -28,7 +28,7 @@ class Ballerina < Formula
 
     bin.install "bin/ballerina", "bin/composer"
     libexec.install Dir["*"]
-    #link tooling-plugin jar for the vscode
+    # Link tooling-plugin jar for the vscode
     lib.install_symlink libexec/"lib/resources" => "resources"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
