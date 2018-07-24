@@ -38,6 +38,9 @@ class Hyperkit < Formula
   end
 
   test do
-    pipe_output("#{bin}/hyperkit -v")
+    assert_match(version.to_s, shell_output("#{bin}/hyperkit -v 2>&1"))
+    assert_match("kexec: failed to load kernel null",
+      shell_output("#{bin}/hyperkit -f kexec,null 2>&1", 134)
+    )
   end
 end
