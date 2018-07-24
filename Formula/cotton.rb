@@ -6,11 +6,11 @@ class Cotton < Formula
     depends_on "go" => :build
 
     def install
-      system "bash", "build.sh"
-      bin.install "/tmp/.gobuild/bin/cotton" => "cotton"
+        system "bash", "build.sh"
+        bin.install "/tmp/.gobuild/bin/cotton" => "cotton"
     end
 
     test do
-      system "#{bin}/cotton", "-v"
+        system "#{bin}/cotton", "-v"
     end
 end
