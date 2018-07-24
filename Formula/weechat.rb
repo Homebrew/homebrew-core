@@ -18,8 +18,6 @@ class Weechat < Formula
   option "with-debug", "Build with debug information"
   option "without-tcl", "Do not build the tcl module"
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
