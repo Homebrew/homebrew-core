@@ -8,6 +8,7 @@ class Swiftformat < Formula
   bottle do
     cellar :any_skip_relocation
     sha256 "55fe805e7e5727d2635e91c72c3cb65be363873dc8e8bd7624ae33a6a2472043" => :high_sierra
+    sha256 "cf50765e6cf0c8e84cc28103012a696bd8ac6b4487a613256428d26382d9d6d1" => :sierra
   end
 
   depends_on :xcode => ["9.3", :build]
