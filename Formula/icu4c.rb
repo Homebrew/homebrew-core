@@ -5,7 +5,6 @@ class Icu4c < Formula
   mirror "https://downloads.sourceforge.net/project/icu/ICU4C/62.1/icu4c-62_1-src.tgz"
   version "62.1"
   sha256 "3dd9868d666350dda66a6e305eecde9d479fb70b30d5b55d78a1deffb97d5aa3"
-  head "https://ssl.icu-project.org/repos/icu/trunk/icu4c/", :using => :svn
 
   bottle do
     cellar :any
