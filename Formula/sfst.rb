@@ -14,13 +14,11 @@ class Sfst < Formula
 
   test do
     require "open3"
-    # this simple example is from the manual.
-    # first compile a simple grammar
+
     (testpath/"foo.fst").write "Hello"
     system "#{bin}/fst-compiler", "foo.fst", "foo.a"
     assert_predicate testpath/"foo.a", :exist?, "Foo.a should exist but does not!"
 
-    # then parse simple input using that grammar
     Open3.popen3("#{bin}/fst-mor", "foo.a") do |stdin, stdout, _|
       stdin.write("Hello")
       stdin.close
