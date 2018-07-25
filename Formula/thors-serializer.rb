@@ -5,6 +5,13 @@ class ThorsSerializer < Formula
       :tag => "1.5.7",
       :revision => "c391b49a36c7432a3fadbbb3e602bba1f61d4078"
 
+  bottle do
+    cellar :any
+    sha256 "f3429e96fc02eaa5eb53dcb0a48b336250474cc38b8545db1709af0f503888a7" => :high_sierra
+    sha256 "54b135ef2f8d1ff1d1b89d68735bfb62fd89399e195da8d3ce41c064c8fbc6b9" => :sierra
+    sha256 "bd14308153006ba3d434cc2d152c45aae079bb9946d57512a3fcebc539973914" => :el_capitan
+  end
+
   depends_on "libyaml"
 
   needs :cxx14
