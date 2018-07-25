@@ -1,4 +1,4 @@
-class Thorsserializer < Formula
+class ThorsSerializer < Formula
   desc "Declarative serialization library (Json/Yaml) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
