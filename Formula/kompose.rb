@@ -6,9 +6,9 @@ class Kompose < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ee1a1afb895190147b4cf5ab1ae770833454780bc147c63e7be1013515b71b61" => :high_sierra
-    sha256 "5ca9c20425f482f2a8c139df7279f3d914585444af98fb5aecf36a373f8589dc" => :sierra
-    sha256 "1e3fb882eea685db4ef0c5dabacf315706018558529bbd64d3da4fe8d576cbf5" => :el_capitan
+    sha256 "7145d8df93bf1772cbb5b826a6841488a594c4ef478a71a66c865e078af23475" => :high_sierra
+    sha256 "e9232115913c414ab9feaffee2bd79941e19c0f4344105482bc5ace2799f0912" => :sierra
+    sha256 "3b86936f56b37ffc35f272163ae3f9b04c277f88cfe404ef9291f1fa3572579f" => :el_capitan
   end
 
   depends_on "go" => :build
