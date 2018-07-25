@@ -1,9 +1,9 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0199.tar.gz"
-  version "0.199"
-  sha256 "cf4511d6c893e699fd5bc510133aee75c852942321e1c668c9d5802229bec116"
+  url "https://github.com/mamedev/mame/archive/mame0200.tar.gz"
+  version "0.200"
+  sha256 "a6c43323e120f55b32c072726bdda357aa221a599070989b6e3406ee4e3983fe"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
