@@ -1,8 +1,8 @@
 class Ballerina < Formula
   desc "The flexible, powerful and beautiful programming language"
   homepage "https://ballerina.io/"
-  url "https://product-dist.ballerina.io/downloads/0.980.0/ballerina-platform-0.980.0.zip"
-  sha256 "7fe3470a8e82e11d85f78a2578ebc27bee42214a52c80ae85a064ef02a736531"
+  url "https://product-dist.ballerina.io/downloads/0.980.1/ballerina-platform-0.980.1.zip"
+  sha256 "758337f808862e8e0d7a58b0eddd6bb74153f66691b334ca4066d8fe2a273eaf"
 
   bottle :unneeded
 
@@ -28,6 +28,7 @@ class Ballerina < Formula
 
     bin.install "bin/ballerina", "bin/composer"
     libexec.install Dir["*"]
+    lib.install_symlink libexec/"lib/resources"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
