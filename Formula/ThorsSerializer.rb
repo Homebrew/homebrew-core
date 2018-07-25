@@ -12,7 +12,6 @@ class Thorsserializer < Formula
 
     system "./configure", "--disable-binary",
                           "--disable-vera",
-                          "--with-thor-build-on-travis",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
