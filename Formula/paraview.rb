@@ -26,8 +26,8 @@ class Paraview < Formula
   depends_on "libtiff"
   depends_on "fontconfig"
   depends_on "libpng"
-  depends_on "mesa" if OS.linux?
-  depends_on "glu" if OS.linux? && (build.without? "osmesa")
+  depends_on "linuxbrew/xorg/mesa" if OS.linux?
+  depends_on "linuxbrew/xorg/glu" if OS.linux? && (build.without? "osmesa")
 
   def install
     dylib = OS.mac? ? "dylib" : "so"
