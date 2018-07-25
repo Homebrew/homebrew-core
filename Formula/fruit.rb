@@ -6,9 +6,9 @@ class Fruit < Formula
 
   bottle do
     cellar :any
-    sha256 "2add10596b4985eea2a53b903fc41004a9ecd0e981c993296da90937d3a6bcc7" => :high_sierra
-    sha256 "d6829fcd71d8080f76dd21dc5d35fafa4f6c51beeb0dfff14ff4ab8821a736c0" => :sierra
-    sha256 "1c2a0ee998216c8fa2cea8a9a4eb5d478efabcf0aa713480a94c365989375055" => :el_capitan
+    sha256 "68d203232c339e922d31b8202abd16d2548bab5fdfbe4ce1167822adc8ef1b00" => :high_sierra
+    sha256 "41d0398cabe780492baaaed4d04ab18f30a880d8ef5a951a8c3b7c8aa24ce4af" => :sierra
+    sha256 "5c1ec3722f8337844cd19ec5fa3f53005fbfb439ab65e2b704ab882df9b9a921" => :el_capitan
   end
 
   depends_on "cmake" => :build
