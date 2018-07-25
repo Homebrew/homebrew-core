@@ -1,19 +1,21 @@
 class DockerMachineDriverHyperkit < Formula
   desc "Docker Machine driver for hyperkit"
-  homepage "https://github.com/kubernetes/minikube"
-  url "https://github.com/kubernetes/minikube.git",
-    :tag => "v0.28.0",
-    :revision => "80e934b8450578c2ac24d6b9c9fe2b42dc4b0d93"
+  homepage "https://github.com/machine-drivers/docker-machine-driver-hyperkit"
+  url "https://github.com/machine-drivers/docker-machine-driver-hyperkit.git",
+    :tag => "v1.0.0",
+    :revision => "88bae774eacefa283ef549f6ea6bc202d97ca07a"
 
+  depends_on "dep" => :build
   depends_on "go" => :build
   depends_on :macos => :yosemite
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/k8s.io/minikube").install buildpath.children
-    cd "src/k8s.io/minikube" do
-      system "go", "build", "-o", "#{bin}/docker-machine-driver-hyperkit", "-ldflags",
-             "-X main.version=#{version}", "k8s.io/minikube/cmd/drivers/hyperkit"
+    (buildpath/"src/github.com/machine-drivers/docker-machine-driver-hyperkit").install buildpath.children
+    cd "src/github.com/machine-drivers/docker-machine-driver-hyperkit" do
+      system "dep", "ensure"
+      system "go", "build", "-o", "#{bin}/docker-machine-driver-hyperkit",
+             "-ldflags", "-X main.version=#{version}"
       prefix.install_metafiles
     end
   end
