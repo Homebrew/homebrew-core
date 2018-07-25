@@ -8,9 +8,9 @@ class Nginx < Formula
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "d8ee21f38a40ca729164d937652ad0b7cf6d3a56736f5f2e9f4fb4fa2ed28d70" => :high_sierra
-    sha256 "5f3f6bfc0144d5abd9a0f7c37816a35c5395bb5a1a047e4e640192a187fb2d6c" => :sierra
-    sha256 "14cb3d13b65ef7e1a02ddf3fd49b2a6d1ffb0fcb5fe1d8e5394bbde9de318f1b" => :el_capitan
+    sha256 "d5bf234af2cb08f928d2c4835102dbf690815e9a24e79c74967d6e2d96afa1ae" => :high_sierra
+    sha256 "91e82e12c69c861fd19e11c2f47d86b4c7fe0df5a94d1369cb105e81f88f7e9a" => :sierra
+    sha256 "6504e5bf7043b3f77e435aed6193bbda6995c19c6a7e95219ae508bbecb68ed2" => :el_capitan
   end
 
   option "with-passenger", "Compile with support for Phusion Passenger module"
