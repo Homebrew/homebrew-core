@@ -1,5 +1,5 @@
 class Thorsserializer < Formula
-  desc "Declarative Serialization Library (Json/Yaml) for C++"
+  desc "Declarative serialization library (Json/Yaml) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
     :tag => "1.5.7",
