@@ -12,8 +12,8 @@ class Php < Formula
   end
 
   devel do
-    url "https://downloads.php.net/~cmb/php-7.3.0alpha3.tar.xz"
-    sha256 "78a3154997e7fc0debc66e4979506b30725cd8b0c6dfa4142caebf24044362c6"
+    url "https://downloads.php.net/~cmb/php-7.3.0alpha4.tar.xz"
+    sha256 "32670f40aecce130727d841e3191d30237caff643a239d3c16cd579e762bc4c6"
 
     depends_on "openldap"
   end
