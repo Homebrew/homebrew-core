@@ -62,7 +62,7 @@ class Paraview < Formula
       ]
     end
  
-     args << "-DPARAVIEW_BUILD_QT_GUI:BOOL=OFF" if build.without? "qt"
+    args << "-DPARAVIEW_BUILD_QT_GUI:BOOL=OFF" if build.without? "qt"
     args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "open-mpi"
     args << "-DPARAVIEW_USE_MPI:BOOL=ON" if build.with? "mpich"
     args << "-DPARAVIEW_ENABLE_FFMPEG:BOOL=ON" if build.with? "ffmpeg"
