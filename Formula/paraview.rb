@@ -1,7 +1,7 @@
 class Paraview < Formula
   desc "Multi-platform data analysis and visualization application"
   homepage "https://www.paraview.org/"
-  url "https://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.4&type=source&os=Sources&downloadFile=ParaView-v5.4.0.tar.gz"
+  url "https://www.paraview.org/paraview-downloads/download.php?submit=Download&version=v5.4&type=source&os=Sources&downloadFile=ParaView-v5.4.1.tar.gz"
   sha256 "390d0f5dc66bf432e202a39b1f34193af4bf8aad2355338fa5e2778ea07a80e4"
   revision 4
 
