@@ -6,9 +6,9 @@ class Wabt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "456ff14ecd21adbe9c8c5947f984940bdf87a3a0707ca88264eec5a92570352e" => :high_sierra
-    sha256 "e0f6b5920135fadb829643738d1364a2eb2c13681832e2c63abb36e2eabb6c5a" => :sierra
-    sha256 "4a7ceb54efc5c65127dc488d5251c02b528ed6e88a395e72699c5e0aa952aca8" => :el_capitan
+    sha256 "5465305c722c45351b3f5b883c4fba1789f14316dd2e34bee34ab913b0ba2125" => :high_sierra
+    sha256 "9d196438eeb0a45d26ebb080d9f3fe0d3b13662d30f0167ba12f8db2debac15c" => :sierra
+    sha256 "0f4ff53ff017c470baa1ab2f97d201a73d423e02289a3a20b5e990bc1c7def20" => :el_capitan
   end
 
   depends_on "cmake" => :build
