@@ -6,8 +6,6 @@ class Minikube < Formula
       :revision => "6ded2b647d1b1f62100c630bcfcc1363c631ce2d"
   head "https://github.com/kubernetes/minikube.git"
 
-  depends_on "go" => :build
-  depends_on "go-bindata" => :build
   depends_on "icu4c"
   depends_on "kubernetes-cli" => :optional
 
