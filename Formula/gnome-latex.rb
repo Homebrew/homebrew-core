@@ -1,8 +1,8 @@
 class GnomeLatex < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/gnome-latex/3.30/gnome-latex-3.30.0.tar.xz"
-  sha256 "56e64bf2c48bf98831d32fdbb6dc3d0309ee43f413873311151e688bcd96cb8e"
+  url "https://download.gnome.org/sources/gnome-latex/3.30/gnome-latex-3.30.1.tar.xz"
+  sha256 "881bd3c135b31a8c07f590537471ec2fd6c2fdbede6021fff5b1ce18c2b8737b"
 
   bottle do
     sha256 "96a12edb8cc5d2aac5c423491172e763cce7bcd81e299374361bc5e3a2f4dd9f" => :high_sierra
