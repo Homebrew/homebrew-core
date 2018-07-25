@@ -25,12 +25,7 @@ class Plantuml < Formula
       GRAPHVIZ_DOT="#{Formula["graphviz"].opt_bin}/dot" exec java -jar #{libexec}/#{jar} "$@"
     EOS
     chmod 0555, bin/"plantuml"
-
-    if build.with? "pdf-support"
-      resources.each do |r|
-        libexec.install r
-      end
-    end
+    libexec.install resource("pdf-support") if build.with? "pdf-support"
   end
 
   test do
