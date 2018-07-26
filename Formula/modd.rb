@@ -1,8 +1,8 @@
 class Modd < Formula
   desc "Flexible tool for responding to filesystem changes"
   homepage "https://github.com/cortesi/modd"
-  url "https://github.com/cortesi/modd/archive/v0.6.tar.gz"
-  sha256 "589741193c3a699ca0df0e1f5b957461107376c8442fca97d29f59ec458c264e"
+  url "https://github.com/cortesi/modd/archive/v0.7.tar.gz"
+  sha256 "3619c9b8dd4f8ef5bf03f50b5841de114383dde9bc0bef866d0a8dc977bf3005"
   head "https://github.com/cortesi/modd.git"
 
   bottle do
