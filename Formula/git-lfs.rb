@@ -1,8 +1,8 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/archive/v2.4.2.tar.gz"
-  sha256 "130a552a27c8f324ac0548baf9db0519c4ae96c26a85f926c07ebe0f15a69fc2"
+  url "https://github.com/git-lfs/git-lfs/archive/v2.5.0.tar.gz"
+  sha256 "a09304d8bc767643469d738d3a1defbe5b3627dd4777bc668517a6a4f6018373"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,21 +17,23 @@ class GitLfs < Formula
   depends_on "ruby" => :build if MacOS.version <= :sierra
 
   def install
-    begin
-      deleted = ENV.delete "SDKROOT"
-      ENV["GEM_HOME"] = buildpath/"gem_home"
+    ENV["GOPATH"] = buildpath
+    ENV["GIT_LFS_SHA"] = ""
+    ENV["VERSION"] = version
+
+    (buildpath/"src/github.com/git-lfs/git-lfs").install buildpath.children
+    cd "src/github.com/git-lfs/git-lfs" do
+      ENV["GEM_HOME"] = ".gem_home"
       system "gem", "install", "ronn"
-      ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-    ensure
-      ENV["SDKROOT"] = deleted
+
+      system "make"
+      system "make", "man", "RONN=.gem_home/bin/ronn"
+
+      bin.install "bin/git-lfs"
+      man1.install Dir["man/*.1"]
+      man5.install Dir["man/*.5"]
+      doc.install Dir["man/*.html"]
     end
-
-    system "./script/bootstrap"
-    system "./script/man"
-
-    bin.install "bin/git-lfs"
-    man1.install Dir["man/*.1"]
-    doc.install Dir["man/*.html"]
   end
 
   def caveats; <<~EOS
