@@ -39,7 +39,5 @@ class Hyperkit < Formula
 
   test do
     assert_match(version.to_s, shell_output("#{bin}/hyperkit -v 2>&1"))
-    assert_match('Error opening bootrom "null": No such file or directory',
-                 shell_output("#{bin}/hyperkit -f bootrom,null 2>&1", 1))
   end
 end
