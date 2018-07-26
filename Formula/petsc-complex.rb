@@ -1,4 +1,4 @@
-class Petsc < Formula
+class PetscComplex < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation"
   homepage "https://www.mcs.anl.gov/petsc/"
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.9.3.tar.gz"
@@ -30,7 +30,7 @@ class Petsc < Formula
       --with-debugging=0
       --with-x=0
     ]
-    system "./configure", "--with-scalar-type=real", *args
+    system "./configure", "--with-scalar-type=complex", *args
     system "make", "all"
     system "make", "install"
   end
