@@ -17,7 +17,7 @@ class PetscComplex < Formula
   depends_on "open-mpi"
   depends_on "scalapack"
   depends_on "suite-sparse"
-  conflicts_with "petsc", :because => "petsc must be installed with either real or complex support"
+  conflicts_with "petsc", :because => "petsc must be installed with either real or complex support, not both"
 
   def install
     ENV["CC"] = "mpicc"
