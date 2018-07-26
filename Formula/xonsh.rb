@@ -16,6 +16,9 @@ class Xonsh < Formula
 
   depends_on "python"
 
+  # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
+  # See http://xon.sh/osx.html#dependencies
+
   resource "prompt_toolkit" do
     url "https://files.pythonhosted.org/packages/77/bf/5d7664605c91db8f39a3e49abb57a3c933731a90b7a58cdcafd4a9bcbe97/prompt_toolkit-2.0.4.tar.gz"
     sha256 "ff58ce8bb82c11c43416dd3eec7701dcbe8c576e2d7649f1d2b9d21a2fd93808"
