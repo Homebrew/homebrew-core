@@ -17,14 +17,6 @@ class GitLfs < Formula
   depends_on "ruby" => :build if MacOS.version <= :sierra
 
   def install
-    begin
-      deleted = ENV.delete "SDKROOT"
-      deleted_gopath = ENV.delete "GOPATH"
-    ensure
-      ENV["SDKROOT"] = deleted
-      ENV["GOPATH"] = deleted_gopath
-    end
-
     ENV["GOPATH"] = buildpath
     ENV["GIT_LFS_SHA"] = ""
     ENV["VERSION"] = version
