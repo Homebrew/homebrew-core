@@ -1,9 +1,9 @@
 class TomcatAT8 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28.tar.gz"
-  sha256 "f2da60969b942ef60d12bda2fab6580be18895e34e3dce0ddd70f0fdaaed1a07"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32.tar.gz"
+  sha256 "8f69bb5d86813cc7a9e7dcfa1d7722e7f35cdd7600c319590e5728e037df0947"
 
   bottle :unneeded
 
@@ -14,9 +14,9 @@ class TomcatAT8 < Formula
   depends_on :java => "1.7+"
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28-fulldocs.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.28/bin/apache-tomcat-8.5.28-fulldocs.tar.gz"
-    sha256 "4ca9a62864a1d423b349947c2403dc3951aefb5404010484a0af6345bcdaf100"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32-fulldocs.tar.gz"
+    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.32/bin/apache-tomcat-8.5.32-fulldocs.tar.gz"
+    sha256 "954ac60b25b0531164735f15ab7beb3cbe6714b433ac0761aa9c9126c4ecadec"
   end
 
   def install
