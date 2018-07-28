@@ -1,7 +1,7 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
-  homepage "https://nominum.com/measurement-tools/"
-  url "ftp://ftp.nominum.com/pub/nominum/dnsperf/2.1.0.0/dnsperf-src-2.1.0.0-1.tar.gz"
+  homepage "https://www.akamai.com/us/en/products/network-operator/measurement-tools.jsp"
+  url "http://wwwns.akamai.com/dnsperf-src-2.1.0.0-1.tar.gz"
   version "2.1.0.0"
   sha256 "64b5f0a680e1ad60bca5fd709f1a9a8404ac2fd85af6138bd22ca9a28b616e0e"
 
