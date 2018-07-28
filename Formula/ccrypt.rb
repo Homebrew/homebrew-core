@@ -1,9 +1,8 @@
 class Ccrypt < Formula
   desc "Encrypt and decrypt files and streams"
   homepage "https://ccrypt.sourceforge.io/"
-  url "https://ccrypt.sourceforge.io/download/ccrypt-1.10.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/c/ccrypt/ccrypt_1.10.orig.tar.gz"
-  sha256 "87d66da2170facabf6f2fc073586ae2c7320d4689980cfca415c74688e499ba0"
+  url "https://downloads.sourceforge.net/project/ccrypt/1.11/ccrypt-1.11.tar.gz"
+  sha256 "b19c47500a96ee5fbd820f704c912f6efcc42b638c0a6aa7a4e3dc0a6b51a44f"
 
   bottle do
     rebuild 1
