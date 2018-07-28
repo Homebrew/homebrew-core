@@ -5,10 +5,9 @@ class JpegTurbo < Formula
   sha256 "778876105d0d316203c928fd2a0374c8c01f755d0a00b12a1c8934aeccff8868"
 
   bottle do
-    cellar :any
-    sha256 "f40b0fe6a775f787436bace3e201c0cd9b441fe24c64093c948ddc369e94b0fd" => :high_sierra
-    sha256 "0a499d6cc6e1de389154fb0d859fe2def77a973c629125ac8c783cb872e055db" => :sierra
-    sha256 "6912770fdaefa0941c3259cbec3abf670ba8b6067239fde276686ed610599dda" => :el_capitan
+    sha256 "3419adae8718b8b9fc41cd7e7f74803bdc4437d2f754605a59e8768d2630512f" => :high_sierra
+    sha256 "68d14fd1b5a59c349e9bdd639d25841947f790f48d3eb788898599bb62515560" => :sierra
+    sha256 "5782250ca2948367083ccd42aacba569efe888bd5a2727faa01d6ad6234d02ab" => :el_capitan
   end
 
   head do
