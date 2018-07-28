@@ -1,8 +1,8 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.60.tar.gz"
-  sha256 "a34112e1748823f6dfd0d129fe29a629cf35b8702f9dfaf1f24caf89ab523d1c"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.61.tar.gz"
+  sha256 "62a7f8aeb9c6c4d5a127f7254500878d9d172b70ad9639b098f3c01731f1fbf0"
 
   bottle do
     sha256 "58d3b7af4537b97428916c2805bee69959debcd29bbea928bfad9f0f817f15f0" => :high_sierra
