@@ -7,9 +7,9 @@ class Tup < Formula
 
   bottle do
     cellar :any
-    sha256 "5b630c0ea08ac946d49e0ef52a2c6d6204794885920c53b27e139c6a377a5d6f" => :high_sierra
-    sha256 "211ce4e27db6b82a1d3d46bed73e3b41da1e861536890985a0fbbf638f11bebe" => :sierra
-    sha256 "35f968fb45943e792b353cec72e7a6233ca5c8f1985b3cbda523a740cc1b46b4" => :el_capitan
+    sha256 "830062df2cda63864ade8c15667a239216a9a2bdc318bd1df9665075834a9968" => :high_sierra
+    sha256 "3df4d4ca62f3997058093bc2c019224a4dd24ece381a8a8010ea6098c31f9ba0" => :sierra
+    sha256 "7549fb6a80aa8a9e7bf8e1c9a83e333c903f2911578728ecaaa3f71f50d7b135" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
