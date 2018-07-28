@@ -5,9 +5,9 @@ class LinkGrammar < Formula
   sha256 "ce8934e3be937611e3dff4e2b61a2675380752ad6815b63336ebac917d9013f5"
 
   bottle do
-    sha256 "a3289ef82e81d36999f3c4db312627a98fd95d01ce19135ce9e63748a224f75d" => :high_sierra
-    sha256 "09a09a54891582145c35b5570193481e7c84b50ba2d9ee1ca976695a42cda633" => :sierra
-    sha256 "04daa313935550f697304588eaf4fc9ce291645b62f46ba0ce5dcd4db84e0c4d" => :el_capitan
+    sha256 "bff34f809816e033a10581fee1c99ca4adbedeb30968fdb466ade860584bbf3e" => :high_sierra
+    sha256 "68fafbe26912384cb709f2c107fa463c8844753ec7396e94d43b5ee36dc7f42e" => :sierra
+    sha256 "fc038b1a0ab421ed785705cf4bc7e9a64113c735d60a270f4f3771b755a43612" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
