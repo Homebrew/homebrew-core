@@ -1,7 +1,7 @@
 class Ccrypt < Formula
   desc "Encrypt and decrypt files and streams"
   homepage "https://ccrypt.sourceforge.io/"
-  url "http://ccrypt.sourceforge.net/download/1.11/ccrypt-1.11.tar.gz"
+  url "https://downloads.sourceforge.net/project/ccrypt/1.11/ccrypt-1.11.tar.gz"
   sha256 "b19c47500a96ee5fbd820f704c912f6efcc42b638c0a6aa7a4e3dc0a6b51a44f"
 
   bottle do
