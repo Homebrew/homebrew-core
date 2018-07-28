@@ -120,7 +120,7 @@ class MysqlAT55 < Formula
   def post_install
     # Make sure the datadir exists
     datadir.mkpath
-    unless (datadir/"mysql/user.frm").exist?
+    unless (datadir/"mysql/general_log.CSM").exist?
       ENV["TMPDIR"] = nil
       system bin/"mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
         "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
