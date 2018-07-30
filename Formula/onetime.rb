@@ -1,10 +1,10 @@
 class Onetime < Formula
   desc "Encryption with one-time pads"
-  homepage "http://red-bean.com/onetime/"
+  homepage "https://www.red-bean.com/onetime/"
   revision 1
 
   stable do
-    url "http://red-bean.com/onetime/onetime-1.81.tar.gz"
+    url "https://www.red-bean.com/onetime/onetime-1.81.tar.gz"
     sha256 "36a83a83ac9f4018278bf48e868af00f3326b853229fae7e43b38d167e628348"
 
     # Fixes the Makefile to permit destination specification
@@ -29,7 +29,7 @@ class Onetime < Formula
   end
 
   devel do
-    url "http://red-bean.com/onetime/onetime-2.0-beta13.tar.gz"
+    url "https://www.red-bean.com/onetime/onetime-2.0-beta13.tar.gz"
     # FIXME: I can't rememeber why the custom version was added now, but
     # we're stuck with it now as 2.0-beta(n) is "less" than 2.0.0(n).
     version "2.0.13"
