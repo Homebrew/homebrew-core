@@ -1,7 +1,8 @@
 class Ekg2 < Formula
   desc "Multiplatform, multiprotocol, plugin-based instant messenger"
-  homepage "http://en.ekg2.org"
-  url "http://pl.ekg2.org/ekg2-0.3.1.tar.gz"
+  homepage "https://github.com/ekg2/ekg2"
+  # Canonical URL inaccessible: "http://pl.ekg2.org/ekg2-0.3.1.tar.gz"
+  url "https://src.fedoraproject.org/lookaside/extras/ekg2/ekg2-0.3.1.tar.gz/68fc05b432c34622df6561eaabef5a40/ekg2-0.3.1.tar.gz"
   sha256 "6ad360f8ca788d4f5baff226200f56922031ceda1ce0814e650fa4d877099c63"
   revision 2
 
