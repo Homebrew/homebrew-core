@@ -54,6 +54,13 @@ class Sdl < Formula
     sha256 "ee7eccb51cefff15c6bf8313a7cc7a3f347dc8e9fdba7a3c3bd73f958070b3eb"
   end
 
+  # BEXT wave files crash fix.
+  # https://bugzilla.libsdl.org/show_bug.cgi?id=1673
+  patch do
+    url "https://bugzilla-attachments.libsdl.org/attachment.cgi?id=3273"
+    sha256 "2c6b6b0d4b5e62e1b4c4548c79a33b09619ff5a52cb7e56b7f6eff09228d9143"
+  end
+
   def install
     # we have to do this because most build scripts assume that all sdl modules
     # are installed to the same prefix. Consequently SDL stuff cannot be
