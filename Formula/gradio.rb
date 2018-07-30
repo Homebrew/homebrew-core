@@ -5,19 +5,18 @@ class Gradio < Formula
   sha256 "7b350583124f00f9030daaf4042cd54c9d340d67124dad298266d2dfa81ba766"
   head "https://github.com/haecker-felix/Gradio.git"
 
-  depends_on "meson" => :build
-  depends_on "ninja" => :build
+  depends_on "cairo"
   depends_on "gettext" => :build
-  depends_on "python"
-  depends_on "gtk+3"
   depends_on "glib"
+  depends_on "gstreamer"
+  depends_on "gst-libav"
+  depends_on "gst-plugins-base"
+  depends_on "gtk+3"
   depends_on "libsoup"
   depends_on "json-glib"
-  depends_on "gstreamer"
-  depends_on "gst-plugins-base"
-  depends_on "gst-libav" => :recommended
-  depends_on "sqlite"
-  depends_on "cairo"
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "python"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
