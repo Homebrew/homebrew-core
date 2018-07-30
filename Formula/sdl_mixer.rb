@@ -21,6 +21,12 @@ class SdlMixer < Formula
   depends_on "fluid-synth" => :optional
   depends_on "smpeg" => :optional
 
+  # Source file for sdl_mixer example
+  resource "playwave" do
+    url "https://hg.libsdl.org/SDL_mixer/raw-file/a4e9c53d9c30/playwave.c"
+    sha256 "92f686d313f603f3b58431ec1a3a6bf29a36e5f792fb78417ac3d5d5a72b76c9"
+  end
+
   def install
     inreplace "SDL_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
 
@@ -38,5 +44,14 @@ class SdlMixer < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    testpath.install resource("playwave")
+    system ENV.cc, "-o", "playwave", "playwave.c", "-I#{include}/SDL",
+                   "-I#{Formula["sdl"].opt_include}/SDL", "-lSDL_mixer",
+                   "-lSDLmain", "-lSDL", "-Wl,-framework,Cocoa"
+    system "SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=disk ./playwave #{test_fixtures("test.wav")}"
+    assert_predicate testpath/"sdlaudio.raw", :exist?
   end
 end
