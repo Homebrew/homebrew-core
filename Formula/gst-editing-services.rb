@@ -3,6 +3,7 @@ class GstEditingServices < Formula
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
   url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.14.2.tar.xz"
   sha256 "05b280d19eb637f17634d32eb3b5ac8963fc9b667aeff29dab3594dbdfc61f34"
+  revision 1
 
   bottle do
     cellar :any
@@ -11,6 +12,7 @@ class GstEditingServices < Formula
     sha256 "ac06a59d8c48026c42c86c8ee216b98e0ca4b490144c4b9c5c4efd59cef0c84d" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gstreamer"
   depends_on "gst-plugins-base"
