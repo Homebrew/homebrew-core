@@ -14,7 +14,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "cairo"
   depends_on "libffi"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
@@ -30,7 +30,7 @@ class GobjectIntrospection < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-python=#{Formula["python@2"].opt_bin}/python2"
+                          "--with-python=#{Formula["python"].opt_bin}/python3"
     system "make"
     system "make", "install"
   end
