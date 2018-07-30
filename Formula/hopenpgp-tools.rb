@@ -5,9 +5,9 @@ class HopenpgpTools < Formula
 
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools-0.21.1/hopenpgp-tools-0.21.1.tar.gz"
-  sha256 "8a17a224c21115134c02844e12fa1e6c5eb5070d761fcf32d48415138b8dc77f"
-  head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
+  url "https://hackage.haskell.org/package/hopenpgp-tools-0.21.2/hopenpgp-tools-0.21.2.tar.gz"
+  sha256 "b418dfc81e9fb19216ffe31cdc74c78c054a049d1eb6c01f3a4acbe5c722068c"
+  head "https://salsa.debian.org/clint/hOpenPGP.git"
 
   bottle do
     cellar :any
