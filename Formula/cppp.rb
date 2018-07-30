@@ -1,7 +1,7 @@
 class Cppp < Formula
   desc "Partial Preprocessor for C"
-  homepage "http://www.muppetlabs.com/~breadbox/software/cppp.html"
-  url "http://www.muppetlabs.com/~breadbox/pub/software/cppp-2.6.tar.gz"
+  homepage "https://www.muppetlabs.com/~breadbox/software/cppp.html"
+  url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.6.tar.gz"
   sha256 "d42cd410882c3b660c77122b232f96c209026fe0a38d819c391307761e651935"
 
   bottle do
