@@ -25,7 +25,7 @@ class Configen < Formula
       <plist version="1.0">
       <dict>
         <key>testURL</key>
-        <string>http://example.com/api</string>
+        <string>https://example.com/api</string>
         <key>retryCount</key>
         <integer>2</integer>
       </dict>
@@ -37,7 +37,7 @@ class Configen < Formula
     EOS
     system bin/"configen", "-p", "test.plist", "-h", "test.map", "-n", "AppConfig", "-o", testpath
     assert_predicate testpath/"AppConfig.swift", :exist?, "Failed to create config class!"
-    assert_match "static let testURL: URL = URL(string: \"http://example.com/api\")", File.read("AppConfig.swift")
+    assert_match "static let testURL: URL = URL(string: \"https://example.com/api\")", File.read("AppConfig.swift")
     assert_match "static let retryCount: Int = 2", File.read("AppConfig.swift")
   end
 end
