@@ -8,6 +8,7 @@ class ZshLovers < Formula
   bottle :unneeded
 
   def install
+    system "tar", "xf", "zsh-lovers_#{version}_all.deb"
     system "tar", "xf", "data.tar.xz"
     system "gunzip", *Dir["usr/**/*.gz"]
     prefix.install_metafiles "usr/share/doc/zsh-lovers"
