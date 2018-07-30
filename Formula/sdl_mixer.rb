@@ -21,6 +21,20 @@ class SdlMixer < Formula
   depends_on "fluid-synth" => :optional
   depends_on "smpeg" => :optional
 
+  # Fix for "crash on double free if loading WAV file failed"
+  # https://bugzilla.libsdl.org/show_bug.cgi?id=1418
+  patch do
+    url "https://git.archlinux.org/svntogit/packages.git/plain/trunk/double-free-crash.patch?h=packages/sdl_mixer"
+    sha256 "b707f5c8d1229d1612cc8a9f4e976f0a3b19ea40d7bd1d5bc1cbd5c9f8bca56d"
+  end
+
+  # playwav.c, a sdl_mixer example.
+  resource "test_artifact" do
+    url "https://hg.libsdl.org/SDL_mixer/raw-file/a4e9c53d9c30/playwave.c"
+    version "1"
+    sha256 "92f686d313f603f3b58431ec1a3a6bf29a36e5f792fb78417ac3d5d5a72b76c9"
+  end
+
   def install
     inreplace "SDL_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
 
@@ -38,5 +52,14 @@ class SdlMixer < Formula
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    testpath.install resource("test_artifact")
+    system ENV.cc, "-o", "playwave", "playwave.c", "-I/usr/local/include/SDL",
+                   "-D_GNU_SOURCE=1", "-D_THREAD_SAFE", "-L/usr/local/lib",
+                   "-lSDLmain", "-lSDL", "-Wl,-framework,Cocoa", "-lSDL_mixer"
+    output = "SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=disk ./playwave /usr/local/Homebrew/Library/Homebrew/test/support/fixtures/test.wav"
+    system output
   end
 end
