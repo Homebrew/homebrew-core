@@ -1,7 +1,7 @@
 class Gjstest < Formula
   desc "Fast JavaScript unit testing framework that runs on the V8 engine"
   homepage "https://github.com/google/gjstest"
-  revision 14
+  revision 15
   head "https://github.com/google/gjstest.git"
 
   stable do
