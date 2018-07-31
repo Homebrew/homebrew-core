@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.14.00.source.tar.gz"
-  version "6.14.00"
-  sha256 "7946430373489310c2791ff7a3520e393dc059db1371272bcd9d9cf0df347a0b"
-  revision 2
+  url "https://root.cern.ch/download/root_v6.14.02.source.tar.gz"
+  version "6.14.02"
+  sha256 "93816519523e87ac75924178d87112d1573eaa108fc65691aea9a9dd5bc05b3e"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -32,10 +31,10 @@ class Root < Formula
 
   skip_clean "bin"
 
-  # Upstream PR from 30 Jun 2018 "Fixes for Python 3.7"
+  # Upstream commit from 30 Jun 2018 "Fixes for Python 3.7"
   patch do
-    url "https://github.com/root-project/root/pull/2276.patch?full_index=1"
-    sha256 "5c8e404a01b7df801c7fa6ec7c54d0ebfc0f46086b58f34340822e89fc67a750"
+    url "https://github.com/root-project/root/commit/94412f7eab8.patch?full_index=1"
+    sha256 "29a719b00931381cbe75b0e23c5e970d03aa28a8455a5f840e82a8cae83d9c24"
   end
 
   def install
