@@ -12,19 +12,31 @@ class Kcov < Formula
     system "cmake", "-G", "Unix Makefiles", *std_cmake_args
     system "make"
 
-    # As per notes in https://github.com/SimonKagstrom/kcov/issues/166
-    MachO::Tools.change_install_name(
-      "src/kcov",
-      "@rpath/LLDB.framework/LLDB",
-      MacOS::Xcode.bundle_path.join("Contents/SharedFrameworks/LLDB.framework/LLDB").to_s,
-    )
-
     system "make", "install"
   end
 
   pour_bottle? do
-    reason "Need to set the XCode path explicitly"
-    satisfy { false }
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end
+
+  def post_install
+    if MachO::Tools.dylibs("#{bin}/kcov").include?("@rpath/LLDB.framework/LLDB")
+      # Need to temporarily make it writeable..
+      File.chmod(0777, "#{bin}/kcov")
+
+      lldb = `lldb -P`
+      lldb_path = File.absolute_path(File.join(lldb, "..", "..", "LLDB"))
+
+      # As per notes in https://github.com/SimonKagstrom/kcov/issues/166
+      MachO::Tools.change_install_name(
+        "#{bin}/kcov",
+        "@rpath/LLDB.framework/LLDB",
+        lldb_path,
+      )
+      # Don't need to write to it anymore
+      File.chmod(0555, "#{bin}/kcov")
+    end
   end
 
   test do
