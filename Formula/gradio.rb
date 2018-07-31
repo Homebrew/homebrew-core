@@ -4,6 +4,12 @@ class Gradio < Formula
   url "https://github.com/haecker-felix/Gradio/archive/v7.1.tar.gz"
   sha256 "7b350583124f00f9030daaf4042cd54c9d340d67124dad298266d2dfa81ba766"
 
+  bottle do
+    sha256 "54a1da06a3d61538adbf564a0676330e11e84b8e06e5c7c10ccf3e952d663b10" => :high_sierra
+    sha256 "cc714c194d3bcdc8566ded85a06622b0d6d9f1a1866987588bc0f5015c24a72d" => :sierra
+    sha256 "d493064dfa5b122cfff42d6fe697f7f6f65269e8bf9b562c7556dd9385af53ed" => :el_capitan
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "adwaita-icon-theme"
