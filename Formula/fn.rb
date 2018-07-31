@@ -6,9 +6,9 @@ class Fn < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c8922756b9ba314f697a255ff78e39eb57fa20ec7eadb5bf73d7546549422a6b" => :high_sierra
-    sha256 "364ab82af45cc73823615c1a5437677a0493201beeaa4423568338fbd7bfd87f" => :sierra
-    sha256 "e3501aeb38d8bb45302d69f5bcf8269c4b9c2f5ac5d59f8a5c278f7e24e3b9c7" => :el_capitan
+    sha256 "f41ee1f34b1d6b305d55da97d9f20b402c48690d023b373b135179bca6b7dc17" => :high_sierra
+    sha256 "57a347b4c4f9384e6002837258c77b838b440900ae90c5d2eacdc1ab42d45a83" => :sierra
+    sha256 "2f2b05a166cae3131175d42245233eb3be78a1535f597faf03d1f1714e147580" => :el_capitan
   end
 
   depends_on "dep" => :build
