@@ -15,6 +15,7 @@ class Hadoop < Formula
     libexec.install %w[bin sbin libexec share etc]
     bin.write_exec_script Dir["#{libexec}/bin/*"]
     sbin.write_exec_script Dir["#{libexec}/sbin/*"]
+    libexec.write_exec_script Dir["#{libexec}/libexec/*"]
   end
 
   test do
