@@ -3,19 +3,18 @@ class Gradio < Formula
   homepage "https://github.com/haecker-felix/Gradio"
   url "https://github.com/haecker-felix/Gradio/archive/v7.1.tar.gz"
   sha256 "7b350583124f00f9030daaf4042cd54c9d340d67124dad298266d2dfa81ba766"
-  head "https://github.com/haecker-felix/Gradio.git"
 
-  depends_on "gettext" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "cairo"
+  depends_on "gettext"
   depends_on "glib"
   depends_on "gst-libav"
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "gtk+3"
-  depends_on "adwaita-icon-theme"
   depends_on "json-glib"
-  depends_on "meson" => :build
-  depends_on "ninja" => :build
   depends_on "libsoup"
   depends_on "python"
 
