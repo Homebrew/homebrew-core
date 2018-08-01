@@ -1,8 +1,8 @@
 class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "http://www.tboox.org"
-  url "https://github.com/waruqi/tbox/archive/v1.6.2.tar.gz"
-  sha256 "26ede7fd61e33c3635bf2d6657ae4040a4a75c82a5da88855fd965db2f834025"
+  url "https://github.com/waruqi/tbox/archive/v1.6.3.tar.gz"
+  sha256 "1ea225195ad6d41a29389137683fee7a853fa42f3292226ddcb6d6d862f5b33c"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do
