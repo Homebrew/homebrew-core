@@ -1,19 +1,9 @@
-class FreeimageHttpDownloadStrategy < CurlDownloadStrategy
-  def stage
-    # need to convert newlines or patch chokes
-    quiet_safe_system "/usr/bin/unzip", { :quiet_flag => "-qq" }, "-aa", cached_location
-    chdir
-  end
-end
-
 class Freeimage < Formula
   desc "Library for FreeImage, a dependency-free graphics library"
   homepage "https://sourceforge.net/projects/freeimage"
-  url "https://downloads.sourceforge.net/project/freeimage/Source%20Distribution/3.17.0/FreeImage3170.zip",
-    :using => FreeimageHttpDownloadStrategy
-  version "3.17.0"
-  sha256 "fbfc65e39b3d4e2cb108c4ffa8c41fd02c07d4d436c594fff8dab1a6d5297f89"
-  revision 1
+  url "https://downloads.sourceforge.net/project/freeimage/Source%20Distribution/3.18.0/FreeImage3180.zip"
+  version "3.18.0"
+  sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
 
   bottle do
     cellar :any
@@ -26,12 +16,6 @@ class Freeimage < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/4dcf528/freeimage/3.17.0.patch"
     sha256 "8ef390fece4d2166d58e739df76b5e7996c879efbff777a8a94bcd1dd9a313e2"
-  end
-
-  # fix GCC 5.0 compile.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f2b4fb19/freeimage/gcc5.diff"
-    sha256 "da0e052e2519b61b57fe9f371b517114f8be81dd2d3dd1721b8fb630dc67edff"
   end
 
   def install
