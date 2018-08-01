@@ -1,9 +1,9 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.1.tar.xz"
-  sha256 "af61a0263858e69c5dce51eab26662ff3d2ad9aa68da9583e8143b5426be4b34"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.1.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.1.1.tar.xz"
+  sha256 "97dcc3169bd430270fc29adb65145846a58c1b55cdbb73382a4a89307bdad03c"
 
   bottle do
     sha256 "43a6d6cca157ef70d13848f35c04e11d832dc0c96f5bcf53a43330f524b3ac40" => :high_sierra
@@ -38,14 +38,6 @@ class Gdb < Formula
       clang: error: unable to execute command: Segmentation fault: 11
       Test done on: Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
     EOS
-  end
-
-  # Remove for > 8.1
-  # Equivalent to upstream commit from 9 Jun 2018 "Fix build issue with Python 3.7"
-  # See https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=863d5065467b16304f6b5c80a186e3bcc68c48a6
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6648fc7/gdb/python37.diff"
-    sha256 "42363cb1652abf706dc3c8a535c61dade894a253ffe7fe2fd0356bddbec16f3a"
   end
 
   def install
