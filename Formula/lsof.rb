@@ -6,10 +6,9 @@ class Lsof < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "553ae69481b898fa1125b5d9d97c51cf49c4c31f11e1fe5d33a86c415a845e8d" => :high_sierra
-    sha256 "2312dceb501fa6d9301fa506370784456937404ac43381354457ce63d99ccd56" => :sierra
-    sha256 "fb14a3aef899327098b92d6d2c283e8978fc34d55b42019b8a54338abe8d4853" => :el_capitan
-    sha256 "8a63b65f74b992e4a70ac3e18a7e4b810a73e183b13086b40f30286256e646e0" => :yosemite
+    sha256 "276399b5b42f5a9dc167515add55c3bb2e545faec1299516b06793b1581a9311" => :high_sierra
+    sha256 "9d57eea962770c2f3c5b56d26d9fdb9b0bbdde559dfc92d0c9db3dcaae33cc43" => :sierra
+    sha256 "59c8c1a9455e3f10c8d6326bab49ab33a85c3cfa702627aa4ba2dd9600cc7d72" => :el_capitan
   end
 
   def install
