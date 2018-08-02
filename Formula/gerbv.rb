@@ -2,9 +2,8 @@ class Gerbv < Formula
   desc "Gerber (RS-274X) viewer"
   homepage "http://gerbv.gpleda.org/"
   # 2.6.1 is the latest official stable release but it is very buggy and incomplete
-  url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.6.0/gerbv-2.6.0.tar.gz"
-  sha256 "5c55425c3493bc8407949be8b4e572434a6b378f5727cc0dcef97dc2e7574dd0"
-  revision 2
+  url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.6.2/gerbv-2.6.2.tar.gz"
+  sha256 "f1049ba16e9a2acba0d39f838bf036c09ee90c52700ed014d7136110ad9988b3"
 
   bottle do
     sha256 "98a3d08ffa212c3a7f2bfb47995492a12b1d4aa81b85d2df588a72bb99ea5b14" => :high_sierra
