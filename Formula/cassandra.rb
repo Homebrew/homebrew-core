@@ -1,9 +1,8 @@
 class Cassandra < Formula
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.2/apache-cassandra-3.11.2-bin.tar.gz"
-  sha256 "e922770ad95d5288d42442c3cfa1475938597b38418b7be5c4234a9de388c720"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.3/apache-cassandra-3.11.3-bin.tar.gz"
+  sha256 "d82e0670cb41b091e88fff55250ce945c4ea026c87a5517d3cf7b6b351d5e2ba"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +16,8 @@ class Cassandra < Formula
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/e0/02/2b14188e06ddf61e5b462e216b15d893e8472fca28b1b0c5d9272ad7e87c/setuptools-38.5.2.zip"
-    sha256 "8246123e984cadf687163bdcd1bb58eb325e2891b066e1f0224728a41c8d9064"
+    url "https://files.pythonhosted.org/packages/d3/3e/1d74cdcb393b68ab9ee18d78c11ae6df8447099f55fe86ee842f9c5b166c/setuptools-40.0.0.zip"
+    sha256 "012adb8e25fbfd64c652e99e7bab58799a3aaf05d39ab38561f69190a909015f"
   end
 
   resource "futures" do
@@ -42,8 +41,8 @@ class Cassandra < Formula
   end
 
   resource "cassandra-driver" do
-    url "https://files.pythonhosted.org/packages/2d/77/2e344b58ffe8b11271735c1ee88fa668c897c5b72ed1913067dd86e1a966/cassandra-driver-3.13.0.tar.gz"
-    sha256 "61b670fb2ba95d51d91fa7b589aae3666df494713f5d1ed78bb5c510778d77f0"
+    url "https://files.pythonhosted.org/packages/4b/10/a464029e6bcfcde7ba9db5b0b8a25b28b2f09d3e270b68ce04a96f2b1876/cassandra-driver-3.14.0.tar.gz"
+    sha256 "b65218e2582277f5b77d1436e420db8616f63e3437a9e839cdcd7172d760e861"
   end
 
   def install
