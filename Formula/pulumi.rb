@@ -1,9 +1,8 @@
 class Pulumi < Formula
   desc "Define cloud applications and infrastructure in your favorite language"
   homepage "https://pulumi.io/"
-  version "0.14.3"
-  url "https://github.com/Tirke/pulumi.git",
-      :branch => "try-fix-python-sdk-deps"
+  url "https://github.com/pulumi/pulumi.git",
+      :tag => "v0.14.3"
 
   depends_on "dep" => :build
   depends_on "go" => :build
