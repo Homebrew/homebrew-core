@@ -1,8 +1,8 @@
 class Csvprintf < Formula
   desc "Command-line utility for parsing CSV files"
   homepage "https://github.com/archiecobbs/csvprintf"
-  url "https://github.com/archiecobbs/csvprintf/archive/1.0.3.tar.gz"
-  sha256 "484db6a5f0cdb1a09b375274b30fbbde3c886d5da974d3f247c83b0bf853ef83"
+  url "https://github.com/archiecobbs/csvprintf/archive/1.0.4.tar.gz"
+  sha256 "022188ced570203d6084e6eab68f7ad96054a4ab8aa54db1857a8fd076280568"
 
   bottle do
     cellar :any_skip_relocation
