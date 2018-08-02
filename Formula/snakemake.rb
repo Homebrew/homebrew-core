@@ -1,8 +1,8 @@
 class Snakemake < Formula
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/67/fc/d4f3c3cf5f0c2c3b351881cb2500aae3dd0cb1159499fa34f34ef1d5844b/snakemake-5.2.1.tar.gz"
-  sha256 "bfafeb51c0ae2b77eb0986b797993f7ac2a9ed74debbe402b02cf5f5ba9ba957"
+  url "https://files.pythonhosted.org/packages/5a/a5/704ff1f58a121acf8b96f13a9b0abdbbb27a1a78cf52c676bd0bbd2c5f40/snakemake-5.2.2.tar.gz"
+  sha256 "adffe7e24b4a613a9e8bf0a2a320b3cea236d86afb9132bb0bbbc08b8e35a3a3"
   head "https://bitbucket.org/snakemake/snakemake.git"
 
   bottle do
@@ -15,8 +15,8 @@ class Snakemake < Formula
   depends_on "python"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b3/ae/971d3b936a7ad10e65cb7672356cff156000c5132cf406cb0f4d7a980fd3/Cython-0.28.3.tar.gz"
-    sha256 "1aae6d6e9858888144cea147eb5e677830f45faaff3d305d77378c3cba55f526"
+    url "https://files.pythonhosted.org/packages/d2/12/8ef44cede251b93322e8503fd6e1b25a0249fa498bebec191a5a06adbe51/Cython-0.28.4.tar.gz"
+    sha256 "76ac2b08d3d956d77b574bb43cbf1d37bd58b9d50c04ba281303e695854ebc46"
   end
 
   resource "appdirs" do
