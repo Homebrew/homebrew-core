@@ -1,13 +1,33 @@
 class Pulumi < Formula
   desc "Define cloud applications and infrastructure in your favorite language"
   homepage "https://pulumi.io/"
-  url "https://get.pulumi.com/releases/sdk/pulumi-v0.14.3-darwin-x64.tar.gz"
-  version "0.14.3"
-  sha256 "57bd3e41f62fc06fdd5742356d659bfd78538153f2cf55cd88faceabc8518b75"
+  url "https://github.com/pulumi/pulumi.git",
+      :tag => "v0.14.3"
+
+  depends_on "dep" => :build
+  depends_on "go" => :build
+  depends_on "node@8" => :build
+  depends_on "pandoc" => :build
+  depends_on "pipenv" => :build
+  depends_on "python@2" => :build
+  depends_on "yarn" => :build
 
   def install
-    ENV["PULUMI_INSTALL_PATH"] = prefix
-    system "/bin/sh", "install.sh"
+    ENV.deparallelize
+    ENV["GOPATH"] = buildpath
+    # Remove once opt/pulumi/bin is not needed anymore
+    ENV["PULUMI_ROOT"] = buildpath / "opt/pulumi/bin"
+    (buildpath / "opt/pulumi/bin").mkpath
+
+    contents = Dir["{*,.git,.gitignore}"]
+    (buildpath / "src/github.com/pulumi/pulumi").install contents
+    (buildpath / "bin").mkpath
+
+    cd "src/github.com/pulumi/pulumi" do
+      system "make", "ensure"
+      system "make", "only_build"
+      bin.install Dir["#{buildpath}/bin/*"]
+    end
   end
 
   test do
