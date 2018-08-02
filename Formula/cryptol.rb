@@ -5,8 +5,8 @@ class Cryptol < Formula
 
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-2.5.0/cryptol-2.5.0.tar.gz"
-  sha256 "910928617beb1434ad5681672b78ede5dda7715b85dcb8246fa8d9ddb2261cf1"
+  url "https://hackage.haskell.org/package/cryptol-2.6.0/cryptol-2.6.0.tar.gz"
+  sha256 "5f8abbfa2765ac0f6bb887edbec7032677d107c39581a4c78614e97382738f42"
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
@@ -17,18 +17,12 @@ class Cryptol < Formula
     sha256 "6679c45e92d3093e89b54bcddeb1e107445afb47243a766b197240362c281d1a" => :el_capitan
   end
 
-  depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
   depends_on "z3"
 
   def install
-    # Remove the "happy<1.19.6" for cryptol > 2.5.0
-    # See revision 1 of https://hackage.haskell.org/package/cryptol-2.5.0/revisions/
-    if build.stable?
-      install_cabal_package :using => ["alex", "happy<1.19.6"]
-    else
-      install_cabal_package :using => ["alex", "happy"]
-    end
+    install_cabal_package :using => ["alex", "happy"]
   end
 
   test do
