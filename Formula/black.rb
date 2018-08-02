@@ -1,7 +1,7 @@
 class Black < Formula
   include Language::Python::Virtualenv
 
-  desc "The uncompromising Python code formatter"
+  desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
   url "https://files.pythonhosted.org/packages/2d/43/64205493cfb4c8e1720208d73502a121ace2a195cd4d1d49bd7470e4fd92/black-18.6b4.tar.gz"
   sha256 "22158b89c1a6b4eb333a1e65e791a3f8b998cf3b11ae094adb2570f31f769a44"
