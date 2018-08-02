@@ -1,8 +1,8 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v3.13.0.0.tar.gz"
-  sha256 "c9b4038fc018406e9019f52e2e94d246caf0fb523fc9b13790526a23c415915d"
+  url "https://github.com/EttusResearch/uhd/archive/v3.13.0.1.tar.gz"
+  sha256 "ee5475e7ffbb14441b323cc2fc73950cde2326fd00772dab62efa677f27a97bf"
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
