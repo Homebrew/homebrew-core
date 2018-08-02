@@ -1,9 +1,8 @@
 class Zebra < Formula
   desc "Information management system"
   homepage "https://www.indexdata.com/zebra"
-  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.1.3.tar.gz"
-  sha256 "5975c054a4cf50fb97d261b239f6f04f65dec7a2f72022b5abadea4e64405ee3"
-  revision 3
+  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.1.4.tar.gz"
+  sha256 "f45b0461cf40fafddd97d447695a087be0ba0981c108bf509d4c11f6d1db1ae2"
 
   bottle do
     sha256 "a2e63e5a50737a0f4cb291287a8a0279a8e197afa0fc4702576f7eab5ed8b6b0" => :high_sierra
