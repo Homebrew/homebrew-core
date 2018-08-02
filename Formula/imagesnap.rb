@@ -6,9 +6,10 @@ class Imagesnap < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aad1fdf9cd4f97e787fe909e1edd5b303ed79db9d1ef4749fc4096fa26301feb" => :high_sierra
-    sha256 "bfee8ffebe9c16cbd6d33de6e39d2e1661f76a5211c625fedf49c7c77da360aa" => :sierra
-    sha256 "02a2db58a63115170c3cfae52c8a6b6b15ffa8bebee81254dc5624aeea375899" => :el_capitan
+    rebuild 1
+    sha256 "6b40f134d9180d7874db92f4a79dad69a74669791f13233e435eed8710c2f4d2" => :high_sierra
+    sha256 "6cd7d838362754709f98d28c3fe45736f188bfdc8662cf1986089091c5d1e3d0" => :sierra
+    sha256 "bbe0115174e191a6eaeedcdb3136e4c9248e7bab649bb30ddd4e07d27ea4e553" => :el_capitan
   end
 
   depends_on :xcode => :build
