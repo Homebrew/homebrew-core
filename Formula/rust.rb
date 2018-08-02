@@ -13,6 +13,8 @@ class Rust < Formula
     end
 
     resource "racer" do
+      # racer should stay before 2.1 for now due to which requires the nightly build of
+      # rust as metioned in https://github.com/racer-rust/racer/tree/v2.1.2#installation
       url "https://github.com/racer-rust/racer/archive/2.0.14.tar.gz"
       sha256 "0442721c01ae4465843cb73b24f6caa0127c3308d72b944ad75736164756e522"
     end
