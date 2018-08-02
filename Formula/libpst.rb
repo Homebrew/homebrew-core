@@ -6,10 +6,9 @@ class Libpst < Formula
 
   bottle do
     cellar :any
-    sha256 "23a35d1d7f679083d680723ca988801d9d215f7397fc5c87bf7f69e9982ee325" => :high_sierra
-    sha256 "e869aa195bf9ad6d4d07d62cb48d9a4a52a289ecd79d1e61a44f84384d278878" => :sierra
-    sha256 "85834aa1da7888a054391c7fe036d9d72f2a889adb6df3ec911193a3919a7db3" => :el_capitan
-    sha256 "4b61b07a89496925c88f0f47d361465cf646f7b3caa01e470ba7eba7945442aa" => :yosemite
+    sha256 "f07260d9a5ef17c294acc30f4405d90467110fda3e824b62cc2e2a0b5cb557da" => :high_sierra
+    sha256 "bc247e859e53a24a53b99f4e088341dac9c197b96b2c58bd0953baab39b8c4f8" => :sierra
+    sha256 "154c2402a1949c8bcd7b784181b9f1d47705b035ea996506f6d142c3c92e2423" => :el_capitan
   end
 
   option "with-pst2dii", "Build pst2dii using gd"
