@@ -7,9 +7,9 @@ class Logtalk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "76fed54df59e8c192c6888c05a762d53ba8d6dd4e36ff0e85b71e8c69d86af94" => :high_sierra
-    sha256 "ee45142748660a689cf94968ab570b4be268d0ce95bd00c98d8035aece4dfc8c" => :sierra
-    sha256 "00ac3bcd9ee04f242158092375708e0f0f14c74bc68b5acec0b095cef5e11ba2" => :el_capitan
+    sha256 "f40c4264d9fca2a1150d11aca1f87084ea117a0f5506e66e10270e14fc18ffa1" => :high_sierra
+    sha256 "70de3fe49de350e4cbeba478e169fc7328c15c6c1aedeefaf9613370af752f34" => :sierra
+    sha256 "34cfb0bded918ff8110e79d1631009ea3f1707e8438bc6f4085e5e1994b8a761" => :el_capitan
   end
 
   option "with-swi-prolog", "Build using SWI Prolog as backend"
