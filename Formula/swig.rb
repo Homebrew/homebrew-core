@@ -13,6 +13,7 @@ class Swig < Formula
 
   head do
     url "https://github.com/swig/swig.git"
+
     depends_on "automake" => :build
     depends_on "autoconf" => :build
   end
