@@ -1,8 +1,8 @@
 class Abcde < Formula
   desc "Better CD Encoder"
   homepage "https://abcde.einval.com"
-  url "https://abcde.einval.com/download/abcde-2.9.1.tar.gz"
-  sha256 "70ec6e06b791115fbe88dee313f58f691f9b559ee992f2af5ed64fe6ad2e55d7"
+  url "https://abcde.einval.com/download/abcde-2.9.2.tar.gz"
+  sha256 "34356c6ea4cc39b33c807261bfdf8e8da8905b2ed50313147c78b283eef6858d"
   head "https://git.einval.com/git/abcde.git"
 
   bottle do
@@ -22,11 +22,6 @@ class Abcde < Formula
   depends_on "glyr" => :optional
 
   def install
-    # Fixes MD5SUM being set to nonexistent md5sum
-    # Reported upstream 2017-03-18 18:03 GMT
-    # https://abcde.einval.com/bugzilla/show_bug.cgi?id=59
-    inreplace "abcde", "OSFLAVOUR=OSX", "MD5SUM=md5\n\tOSFLAVOUR=OSX"
-
     system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}"
   end
 
