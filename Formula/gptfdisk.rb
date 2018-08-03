@@ -8,18 +8,15 @@ class Gptfdisk < Formula
 
   def install
     system "make", "-f", "Makefile.mac"
-    sbin.install "gdisk", "cgdisk", "sgdisk", "fixparts"
-    man8.install Dir["*.8"]
+    %w[cgdisk fixparts gdisk sgdisk].each do |program|
+      bin.install program   
+      man8.install "#{program}.8"
+    end
   end
 
   test do
-    assert_match /GPT fdisk \(gdisk\) version #{Regexp.escape(version)}/,
-                 pipe_output("#{sbin}/gdisk", "\n")
-
-    output = pipe_output(
-      "/usr/bin/hdiutil create -size 128k test.dmg " \
-      "&& #{sbin}/gdisk -l test.dmg", nil, 0
-    )
-    assert_match /^Found valid GPT with protective MBR/, output
+    system "hdiutil", "create", "-size", "128k", "test.dmg"
+    output = shell_output("#{bin}/gdisk -l test.dmg")
+    assert_match "Found valid GPT with protective MBR", output
   end
 end
