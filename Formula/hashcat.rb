@@ -2,9 +2,9 @@ class Hashcat < Formula
   desc "World's fastest and most advanced password recovery utility"
   homepage "https://hashcat.net/hashcat/"
   # Note the mirror will return 301 until the version becomes outdated.
-  url "https://hashcat.net/files/hashcat-4.1.0.tar.gz"
-  mirror "https://hashcat.net/files_legacy/hashcat-4.1.0.tar.gz"
-  sha256 "bd23997153c5a8c8b35da3931ff74a808561399de3f3e07058ff4d2f8617119c"
+  url "https://hashcat.net/files/hashcat-4.2.0.tar.gz"
+  mirror "https://hashcat.net/files_legacy/hashcat-4.2.0.tar.gz"
+  sha256 "ed23c7188b6fc6f111052f1bb4cc56a2f26cfd37470ee3b466b77a26efccaa38"
   version_scheme 1
   head "https://github.com/hashcat/hashcat.git"
 
