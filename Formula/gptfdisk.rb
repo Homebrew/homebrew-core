@@ -4,6 +4,13 @@ class Gptfdisk < Formula
   url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.4/gptfdisk-1.0.4.tar.gz"
   sha256 "b663391a6876f19a3cd901d862423a16e2b5ceaa2f4a3b9bb681e64b9c7ba78d"
 
+  bottle do
+    cellar :any
+    sha256 "ece7354d9226677e040f8e755f16cf51f7d2fd32ef3d761ba797bc2e19ffceb9" => :high_sierra
+    sha256 "b21ce2f459eb281e2fe616c2f15908411b082d4a6c6e1952fa582768001dfa2b" => :sierra
+    sha256 "8af410758295279a4f75bf0d787d47066446b7e21f78b035a5a9e5134035706c" => :el_capitan
+  end
+
   depends_on "popt"
 
   def install
