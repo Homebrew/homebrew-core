@@ -22,7 +22,6 @@
   "grads": "homebrew/cask",
   "gtkwave": "homebrew/cask",
   "helios": "spotify/public",
-  "hexchat": "homebrew/cask",
   "horndis": "homebrew/cask",
   "inkscape": "homebrew/cask",
   "jsl": "homebrew/cask",
@@ -34,7 +33,6 @@
   "pdf-tools": "dunn/emacs",
   "pebble-sdk": "pebble/pebble-sdk",
   "quassel": "homebrew/cask",
-  "sqlitebrowser": "homebrew/cask",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
   "tuntap": "homebrew/cask"
 }
