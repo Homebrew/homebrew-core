@@ -3,6 +3,7 @@ class Wxmac < Formula
   homepage "https://www.wxwidgets.org"
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.4/wxWidgets-3.0.4.tar.bz2"
   sha256 "96157f988d261b7368e5340afa1a0cad943768f35929c22841f62c25b17bf7f0"
+  revision 1
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
@@ -47,9 +48,6 @@ class Wxmac < Formula
       "--disable-precomp-headers",
       # This is the default option, but be explicit
       "--disable-monolithic",
-      # Enabling mediactrl leads to wxconfig trying to pull in a non-existent
-      # 64-bit QuickTime framework: https://trac.wxwidgets.org/ticket/17639
-      "--disable-mediactrl",
       # Set with-macosx-version-min to avoid configure defaulting to 10.5
       "--with-macosx-version-min=#{MacOS.version}",
     ]
