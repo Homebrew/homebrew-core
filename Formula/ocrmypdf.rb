@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/ef/b2/b9d4d796d485852f583c34d16d20f20be3f5926049e859e1dd1d991205d9/ocrmypdf-7.0.0.tar.gz"
-  sha256 "4cd434fd2d71993ed9d66d5363c56707e5f8007c382793ac0024e34778df66ec"
+  url "https://files.pythonhosted.org/packages/a8/e6/e3f7ae709ddc9581b8863032db2a8e2f586e462954dac3026b628b2b1b15/ocrmypdf-7.0.1.tar.gz"
+  sha256 "121f7eee1d35ee4b9f124035572bd439a695bb6f73fae9535667ca81e49fd2fa"
 
   bottle do
     cellar :any
@@ -33,13 +33,13 @@ class Ocrmypdf < Formula
   end
 
   resource "img2pdf" do
-    url "https://files.pythonhosted.org/packages/7e/a2/4f06081f674920be757d894b4bab874e6a3b5227e730cb7618430b366e69/img2pdf-0.2.4.tar.gz"
-    sha256 "140b70fa3a3bfb54e92947818cee01483a4f1492b5d1d02b0f649257f5ffc9ae"
+    url "https://files.pythonhosted.org/packages/a6/5a/410a05ebefe60885dd8a13e18b82692d23bbf0fc74f2807b0ae3e7c6bfb1/img2pdf-0.3.0.tar.gz"
+    sha256 "8d81bb05abfe73172a31afced1019e7636aaddd13a75207daef032350cec21fc"
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/50/03/f5af2251b8c206a7768a315c0487572a25e8225b6c9549d0b142862626c0/pikepdf-0.2.2.tar.gz"
-    sha256 "88b01fa8f87db20b345c76e1fa63a5b82c5c4a5e0f3702bdb8a1328fbc25a728"
+    url "https://files.pythonhosted.org/packages/39/97/9dd6f1e2158f61100f2cb8828de2e6f35f9edb634af405ecc0146ba70567/pikepdf-0.3.0.tar.gz"
+    sha256 "c757a3d84b09494f0b402b890511107da3a9f4d845a53d142edfb69b1165ffe7"
   end
 
   resource "Pillow" do
@@ -68,8 +68,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/87/f9/53b34c58d3735a6df7d5c542bf4de60d699cfa6035e113ca08b3ecdcca3f/reportlab-3.4.0.tar.gz"
-    sha256 "5beaf35e59dfd5ebd814fdefd76908292e818c982bd7332b5d347dfd2f01c343"
+    url "https://files.pythonhosted.org/packages/54/8b/ebc5f52dfd8175b7e831caae7f1c491cdef5834667bd6e5fd41627b5c07a/reportlab-3.5.2.tar.gz"
+    sha256 "08986267eaf25d62c3802512f0a97dc3426d0c82f52c8beb576689582eb85b7f"
   end
 
   resource "ruffus" do
