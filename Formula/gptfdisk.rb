@@ -9,7 +9,7 @@ class Gptfdisk < Formula
   def install
     system "make", "-f", "Makefile.mac"
     %w[cgdisk fixparts gdisk sgdisk].each do |program|
-      bin.install program   
+      bin.install program
       man8.install "#{program}.8"
     end
   end
