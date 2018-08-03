@@ -11,9 +11,17 @@ class Swig < Formula
     sha256 "3443dbf17f78be0cecb5419772c71bb418caa91763590072224c196a57317717" => :yosemite
   end
 
+  head do
+    url "https://github.com/swig/swig.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+  end
+
   depends_on "pcre"
 
   def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"
