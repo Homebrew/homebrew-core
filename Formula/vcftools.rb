@@ -1,8 +1,8 @@
 class Vcftools < Formula
   desc "Tools for working with VCF files"
   homepage "https://vcftools.github.io/"
-  url "https://github.com/vcftools/vcftools/releases/download/v0.1.15/vcftools-0.1.15.tar.gz"
-  sha256 "31e47afd5be679d89ece811a227525925b6907cce4af2c86f10f465e080383e3"
+  url "https://github.com/vcftools/vcftools/releases/download/v0.1.16/vcftools-0.1.16.tar.gz"
+  sha256 "dbfc774383c106b85043daa2c42568816aa6a7b4e6abc965eeea6c47dde914e3"
 
   bottle do
     cellar :any_skip_relocation
