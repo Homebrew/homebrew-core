@@ -2,9 +2,9 @@ class Dbus < Formula
   # releases: even (1.10.x) = stable, odd (1.11.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.8.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.8.orig.tar.gz"
-  sha256 "e2dc99e7338303393b6663a98320aba6a63421bcdaaf571c8022f815e5896eb3"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.10.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.10.orig.tar.gz"
+  sha256 "4b693d24976258c3f2fa9cc33ad9288c5fbfa7a16481dbd9a8a429f7aa8cdcf7"
 
   bottle do
     sha256 "6eaf963c1f7bc2604c5fe8c800cdd52721cfb21200267c1c56e701a05426eac2" => :high_sierra
@@ -13,8 +13,8 @@ class Dbus < Formula
   end
 
   devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.13.4.tar.gz"
-    sha256 "8a8f0b986ac6214da9707da521bea9f49f09610083c71fdc8eddf8b4c54f384b"
+    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.13.6.tar.gz"
+    sha256 "b533693232d36d608a09f70c15440c1816319bac3055433300d88019166c1ae4"
   end
 
   head do
