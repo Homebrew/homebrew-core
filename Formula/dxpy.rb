@@ -7,10 +7,10 @@ class Dxpy < Formula
   sha256 "4f2921b0a54940f0c3fdb2cb606a8135bf6284eee8d0b74fd7eceb3397ec2c2a"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b5d35df80be660470c7d7116f6463567044866e2a8b5a1ae783fbed997c3b3fc" => :high_sierra
-    sha256 "35c5878e4775e96903484dc8a5734ae78d7e4e3b9fd2ea31184bcfe1292fa9cc" => :sierra
-    sha256 "1aea695dfcc85d4e1bfcc26de344b6145e8df9f2c3567afa26de5c79be1c5a84" => :el_capitan
+    cellar :any
+    sha256 "33302a1e8c2c9fb6e43f481eeb343cadb4b79117fe73b32f4e6504db70b28d2c" => :high_sierra
+    sha256 "a20ab42ef1070a1a07118119bf816cb2b81c7f1e8190ce71d3dbc8afc172ac64" => :sierra
+    sha256 "d9033d4721bf08b29af34e5752d34b7a3ef0e63e6ab02f30cee86c34a3372521" => :el_capitan
   end
 
   depends_on "python@2"
