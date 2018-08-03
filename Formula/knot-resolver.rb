@@ -6,9 +6,9 @@ class KnotResolver < Formula
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
-    sha256 "a455f229e3d2da2839a148f7904fd87b4c35d800c602c4fd160354c8b037988f" => :high_sierra
-    sha256 "75f2dfe6a52d014a1c3a3523656fed24d64cee4e66e1ba76c5b9a6367a71fec3" => :sierra
-    sha256 "904106071027db6c61b3fbbf2cbd85425d6ed40a1a7437f911cc9bb219df2c06" => :el_capitan
+    sha256 "118e08e55cb9e2cd6c37b6631b842214ff38d62f5a6020a7afc3a08c1758ca80" => :high_sierra
+    sha256 "27c36c964efda256d661a7f3c91d5d44f281b4cec9eb35430602abaea9e07a86" => :sierra
+    sha256 "41b1cd73550b8c1d48945f29f52f0aa09cc23cf3e43267858b419570b9a92016" => :el_capitan
   end
 
   option "without-nettle", "Compile without DNS cookies support"
