@@ -39,6 +39,8 @@ class Emacs < Formula
   depends_on "imagemagick@6" => :optional
   depends_on "mailutils" => :optional
 
+  depends_on :x11 => :optional
+
   def install
     args = %W[
       --disable-dependency-tracking
@@ -47,8 +49,14 @@ class Emacs < Formula
       --infodir=#{info}/emacs
       --prefix=#{prefix}
       --with-gnutls
-      --without-x
     ]
+
+    if build.with? "x11"
+      args << "--with-x"
+      args << "--with-gif=no"
+    else
+      args << "--without-x"
+    end
 
     if build.with? "libxml2"
       args << "--with-xml2"
