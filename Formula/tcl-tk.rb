@@ -49,6 +49,10 @@ class TclTk < Formula
 
   option "without-tcllib", "Don't build tcllib (utility modules)"
   option "without-tk", "Don't build the Tk (window toolkit)"
+  option "with-x11", "Build X11-based Tk instead of Aqua-based Tk"
+
+  depends_on :x11 => :optional
+  depends_on "pkg-config" => :build if build.with? "x11"
 
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
@@ -76,8 +80,12 @@ class TclTk < Formula
 
       resource("tk").stage do
         cd "unix" do
-          system "./configure", *args, "--enable-aqua=yes",
-                                "--without-x", "--with-tcl=#{lib}"
+          if build.with? "x11"
+            system "./configure", *args, "--with-x", "--with-tcl=#{lib}"
+          else
+            system "./configure", *args, "--enable-aqua=yes",
+                                  "--without-x", "--with-tcl=#{lib}"
+          end
           system "make"
           system "make", "install"
           system "make", "install-private-headers"
