@@ -3,6 +3,7 @@ class Nnn < Formula
   homepage "https://github.com/jarun/nnn"
   url "https://github.com/jarun/nnn/archive/v1.8.tar.gz"
   sha256 "65c364a9797178e40ec7ec653b2cfa8e211e556b75250bf72eb5eea57f5e0cdc"
+  head "https://github.com/jarun/nnn.git"
 
   bottle do
     cellar :any
