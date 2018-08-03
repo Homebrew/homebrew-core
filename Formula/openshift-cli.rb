@@ -2,8 +2,8 @@ class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
   url "https://github.com/openshift/origin.git",
-    :tag => "v3.9.0",
-    :revision => "191fece9305a76f262baacc9de72c2c8cb4d5601",
+    :tag => "v3.10.0",
+    :revision => "dd10d172758d4d02f6d2e24869234fac6c7841a7",
     :shallow => false
   head "https://github.com/openshift/origin.git"
 
@@ -15,7 +15,7 @@ class OpenshiftCli < Formula
     sha256 "59173e57dadf60d0f5961200d69a31bf1786ec25a248248a6c9b5d5286c8e8f5" => :el_capitan
   end
 
-  depends_on "go@1.9" => :build
+  depends_on "go" => :build
   depends_on "socat"
 
   def install
