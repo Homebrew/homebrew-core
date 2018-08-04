@@ -1,8 +1,8 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-0.8.0.tar.xz"
-  sha256 "e829265db04e0aebfb0591b6dc3377b64599558167846c3f5ee5c5e53641fe6d"
+  url "https://xkbcommon.org/download/libxkbcommon-0.8.1.tar.xz"
+  sha256 "8d1df6bdf216950da611e66cff1af576710aad79772de3be6e131019f761f897"
 
   bottle do
     sha256 "7428e9599baa3dfca4a9c181c4d3a2ab934f37987aaad270c8a6fc3921da2c41" => :high_sierra
