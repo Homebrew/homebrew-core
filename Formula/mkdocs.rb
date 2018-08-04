@@ -3,8 +3,8 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.17.5.tar.gz"
-  sha256 "716068cc4f3f5a01c708d66c702f39a181a4e29f4b41aa3d9f591e7c4e4a66cb"
+  url "https://github.com/mkdocs/mkdocs/archive/1.0.tar.gz"
+  sha256 "200b88b0a58b5b7497df86103ef3894d77de4f3a6c8261e5b9a68d2a044ad23d"
 
   bottle do
     cellar :any_skip_relocation
@@ -20,14 +20,14 @@ class Mkdocs < Formula
     sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
   end
 
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
-    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
-  end
-
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
     sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+  end
+
+  resource "futures" do
+    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
+    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "Jinja2" do
@@ -66,8 +66,8 @@ class Mkdocs < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/e3/7b/e29ab3d51c8df66922fea216e2bddfcb6430fb29620e5165b16a216e0d3c/tornado-4.5.3.tar.gz"
-    sha256 "6d14e47eab0e15799cf3cdcc86b0b98279da68522caace2bd7ce644287685f0a"
+    url "https://files.pythonhosted.org/packages/45/ec/f2a03a0509bcfca336bef23a3dab0d07504893af34fd13064059ba4a0503/tornado-5.1.tar.gz"
+    sha256 "4f66a2172cb947387193ca4c2c3e19131f1c70fa8be470ddbbd9317fd0801582"
   end
 
   def install
@@ -78,7 +78,7 @@ class Mkdocs < Formula
     # build a very simple site that uses the "readthedocs" theme.
     (testpath/"mkdocs.yml").write <<~EOS
       site_name: MkLorum
-      pages:
+      nav:
         - Home: index.md
       theme: readthedocs
     EOS
