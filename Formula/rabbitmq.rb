@@ -3,6 +3,7 @@ class Rabbitmq < Formula
   homepage "https://www.rabbitmq.com"
   url "https://dl.bintray.com/rabbitmq/all/rabbitmq-server/3.7.7/rabbitmq-server-generic-unix-3.7.7.tar.xz"
   sha256 "640fc5d0b10705f838419191bbf917e66f3ff5eb35f07fc51c2f197fda0aa170"
+  revision 1
 
   bottle :unneeded
 
