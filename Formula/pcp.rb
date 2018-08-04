@@ -13,6 +13,8 @@ class Pcp < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "CC=clang", "CXX=clang", "--without-manager"
     system "make", "install"
+    ln_sf "/usr/local/Cellar/pcp/4.1.1/etc/pcp.env", "/etc/pcp.env"
+    ln_sf "/usr/local/Cellar/pcp/4.1.1/etc/pcp.conf", "/etc/pcp.conf"
   end
 
   test do
