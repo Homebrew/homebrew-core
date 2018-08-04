@@ -16,8 +16,6 @@ class Pcp < Formula
   end
 
   test do
-    # `test do` will create, run in and delete a temporary directory.
-    # Run the test with `brew test pcp`.
-    system "false"
+    system "#{bin}/pcp", "--version"
   end
 end
