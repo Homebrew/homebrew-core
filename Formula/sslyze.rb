@@ -5,8 +5,8 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.4.2.tar.gz"
-    sha256 "5dfa5e3e2dc5b6b57c50370dcb234c6625fba64e4b10c8de197df90dd9cbb838"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.4.3.tar.gz"
+    sha256 "d9ae34d58cc577ab62aaf58e687ffb23805400a82ed813d37ff15f64d25f6cf0"
 
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/1.1.3.tar.gz"
@@ -31,7 +31,6 @@ class Sslyze < Formula
 
   depends_on :arch => :x86_64
   depends_on "python@2"
-  depends_on "openssl"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -54,13 +53,13 @@ class Sslyze < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
+    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
-    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
+    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
+    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
   end
 
   resource "pycparser" do
@@ -103,7 +102,7 @@ class Sslyze < Formula
     venv = virtualenv_create(libexec)
 
     res = resources.map(&:name).to_set
-    res -= %w[nassl openssl-legacy openssl-modern zlib]
+    res -= %w[cryptography nassl openssl-legacy openssl-modern zlib]
 
     res.each do |r|
       venv.pip_install resource(r)
@@ -131,11 +130,20 @@ class Sslyze < Formula
       end
       system "python", "run_tests.py"
       venv.pip_install nassl_path
+
+      # Link cryptography against the openssl modern used by nassl above
+      # Avoid "TypeError - object of type 'UnrecognizedExtension' has no len()"
+      # Work around https://github.com/pyca/cryptography/issues/4373
+      # See https://github.com/nabla-c0d3/sslyze/issues/323
+      ENV.prepend "CPPFLAGS", "-I#{nassl_path}/bin/openssl-modern/include"
+      ENV.prepend "LDFLAGS", "-L#{nassl_path}/bin/openssl-modern/darwin64"
+      venv.pip_install resource("cryptography")
     end
     venv.pip_install_and_link buildpath
   end
 
   test do
     assert_match "SCAN COMPLETED", shell_output("#{bin}/sslyze --regular google.com")
+    assert_no_match /exception/, shell_output("#{bin}/sslyze --certinfo letsencrypt.org")
   end
 end
