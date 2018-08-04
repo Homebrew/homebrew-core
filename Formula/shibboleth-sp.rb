@@ -3,6 +3,7 @@ class ShibbolethSp < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/SHIB2"
   url "https://shibboleth.net/downloads/service-provider/3.0.2/shibboleth-sp-3.0.2.tar.bz2"
   sha256 "7aab399aeaf39145c60e1713dbc29a65f618e9eca84505f5ed03cee63e3f31a3"
+  revision 1
 
   bottle do
     sha256 "ea68592d27b642e356112d9f41ed43a449e8c206628ccdffffdead4742ac30bd" => :high_sierra
@@ -12,7 +13,7 @@ class ShibbolethSp < Formula
 
   depends_on "pkg-config" => :build
   depends_on :macos => :yosemite
-  depends_on "curl" => "with-openssl"
+  depends_on "openssl"
   depends_on "httpd" if MacOS.version >= :high_sierra
   depends_on "opensaml"
   depends_on "xml-tooling-c"
