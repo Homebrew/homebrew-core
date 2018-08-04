@@ -13,10 +13,47 @@ class Pcp < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "CC=clang", "CXX=clang", "--without-manager"
     system "make", "install"
-    ln_sf "/usr/local/Cellar/pcp/4.1.1/etc/pcp.env", "/etc/pcp.env"
-    ln_sf "/usr/local/Cellar/pcp/4.1.1/etc/pcp.conf", "/etc/pcp.conf"
+
   end
 
+  plist_options :manual => "pcp"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+        <key>RunAtLoad</key>         <true/>
+        <key>KeepAlive</key>         <true/>
+        <key>Label</key>             <string>io.pcp.startup</string>
+        
+        <key>ProgramArguments</key>
+            <array>
+              <string>ln</string>
+                <string>-s</string>
+                <string>/usr/local/Cellar/pcp/4.1.1/etc/pcp.env</string>
+                <string>/etc/pcp.env</string>
+            </array>
+
+        <key>ProgramArguments</key>
+            <array>
+              <string>ln</string>
+                <string>-s</string>
+                <string>/usr/local/Cellar/pcp/4.1.1/etc/pcp.conf</string>
+                <string>/etc/pcp.conf</string>
+            </array>
+
+        <key>ProgramArguments</key>
+            <array>
+                <string>/usr/local/Cellar/pcp/4.1.1/etc/init.d/pmcd</string>
+                <string>start</string>
+            </array>
+
+    </dict>
+    </plist>
+  EOS
+  end
+  
   test do
     system "#{bin}/pcp", "--version"
   end
