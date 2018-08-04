@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v1.3.4.tar.gz"
-  sha256 "ff5e61b0b4cfc2cc05058b3f4f2a5503bc8b66784dbdd32cf3b870c0952f7dc1"
+  url "https://github.com/cloudreach/sceptre/archive/v1.4.0.tar.gz"
+  sha256 "ecc93f44ad4463a1a4510795457c12a0967af4d34b72daedef274e04b50c3efb"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,18 +16,18 @@ class Sceptre < Formula
   depends_on "python@2"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8a/aa/8d3b788083d6b983e863e907f723d4575e3643d73ffa22317c57f6b33461/boto3-1.5.35.tar.gz"
-    sha256 "74e38e9fd0d6450d8a95dae2158cb6f4c7279bb3249b486b4ebe00819db643b9"
+    url "https://files.pythonhosted.org/packages/59/b9/4feff1e46e3fa99c3ad232459e8a0f0cb3f2d04fdad334400d1633396dec/boto3-1.7.70.tar.gz"
+    sha256 "37853caa02f7141d7b1fb2537cc878bc58d2b1386224e3cf551af7f6ae3e4893"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e7/22/8dc6f2ff47294d7d59edd79223eab4771f31e27d18fce2548365fb69b9a6/botocore-1.8.49.tar.gz"
-    sha256 "fe0b45216e3a34507aefdf7a67bf53f9303abb23ba4b1899824d16ecfa0433fd"
+    url "https://files.pythonhosted.org/packages/1e/44/388579f461c78b1c5b0483233b5371d4997caf9ca35fa9c09f7c7dad2b8b/botocore-1.10.70.tar.gz"
+    sha256 "7a3759d346bf297d33091a4c154d3c50f0c3dc7b428badb6c950f87ea390e5b1"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
-    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
+    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
+    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
   resource "colorama" do
@@ -46,8 +46,8 @@ class Sceptre < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
-    sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
+    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
+    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
   end
 
   resource "jmespath" do
@@ -71,13 +71,13 @@ class Sceptre < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "s3transfer" do
