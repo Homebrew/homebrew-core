@@ -1,10 +1,9 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-2.2.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.3.tar.xz"
-  sha256 "8353a8849cd7aa77be66af04bd6bf7a6207440d2f8722e46672232bb9f0a4086"
-  revision 1
+  url "https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.4.tar.xz"
+  sha256 "d9e8b94af7b206fcf52bec6501b921bd7d0bd7a31fb7e896a35ba8253678e31e"
 
   bottle do
     rebuild 1
@@ -21,6 +20,7 @@ class Guile < Formula
     depends_on "gettext" => :build
   end
 
+  depends_on "gnu-sed" => :build
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "libtool"
   depends_on "libffi"
@@ -36,13 +36,6 @@ class Guile < Formula
 
   def install
     system "./autogen.sh" unless build.stable?
-
-    # Fixes "sed: -i may not be used with stdin"
-    # Reported 7 Jan 2018 https://debbugs.gnu.org/cgi/bugreport.cgi?bug=30011
-    inreplace "libguile/Makefile.in",
-      /-e 's,\[@\]GUILE_EFFECTIVE_VERSION\[@\],\$\(GUILE_EFFECTIVE_VERSION\),g'      \\\n         -i/,
-      "\\0 ''"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",
