@@ -4,6 +4,12 @@ class Pijul < Formula
   url "https://pijul.org/releases/pijul-0.10.0.tar.gz"
   sha256 "da3fcba4ab39a4371cda7273691364c2355c9b216bb7867d92dae5812ebb71d2"
 
+  bottle do
+    sha256 "471d6fe7837fa61170561c1e19d5a0fe455bae57a5a793b4e087cc3ff0d49e41" => :high_sierra
+    sha256 "8682e459dd342214e3524ecb8849e19dbf38ec5a91fc192d1818d44f1d8e84d7" => :sierra
+    sha256 "6343c522e7fe764dee0141721648060078f20364df4d2c3100683ed1063adf6a" => :el_capitan
+  end
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libsodium"
