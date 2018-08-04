@@ -3,8 +3,8 @@ class Proselint < Formula
 
   desc "Linter for prose"
   homepage "http://proselint.com"
-  url "https://files.pythonhosted.org/packages/f3/e8/97487c264e3aa08171bc9a028f65e023ecd1e77680b23df67b871c840fda/proselint-0.10.1.tar.gz"
-  sha256 "64ddfb036b63fa062c1303a784924c842e490ff6b7d90ee84bf9622422f888d8"
+  url "https://files.pythonhosted.org/packages/42/ff/8e7ad0108b8faffdf2ec7d170b4a8a3c9bc91f5077debf5381ef14702588/proselint-0.10.2.tar.gz"
+  sha256 "3a87eb393056d1bc77d898e4bcf8998f50e9ad84f7b9ff7cf2720509ac8ef904"
   head "https://github.com/amperser/proselint.git"
 
   bottle do
