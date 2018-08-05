@@ -63,6 +63,12 @@ class Valgrind < Formula
     system "make", "install"
   end
 
+  def caveats; <<~EOS
+    For macOS 10.13, install valgrind using the following command:
+    $ brew install --HEAD valgrind
+  EOS
+  end
+
   test do
     system "#{bin}/valgrind", "ls", "-l"
   end
