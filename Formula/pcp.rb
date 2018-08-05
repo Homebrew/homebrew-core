@@ -43,17 +43,10 @@ class Pcp < Formula
                 <string>/etc/pcp.conf</string>
             </array>
 
-        <key>ProgramArguments</key>
-            <array>
-                <string>/usr/local/Cellar/pcp/4.1.1/etc/init.d/pmcd</string>
-                <string>start</string>
-            </array>
-
     </dict>
     </plist>
   EOS
   end
-  
   test do
     system "#{bin}/pcp", "--version"
   end
