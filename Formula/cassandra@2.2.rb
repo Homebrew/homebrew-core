@@ -5,6 +5,13 @@ class CassandraAT22 < Formula
   mirror "https://archive.apache.org/dist/cassandra/2.2.11/apache-cassandra-2.2.11-bin.tar.gz"
   sha256 "866e1acd88e6e2ec0c3d201bea4c3e4494c5f6189dd810366ec9b6154bad6964"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e89e0b33db1c6156c9cbcd7b73c75e5457164526b4760aacaba7414c6af5ab1f" => :high_sierra
+    sha256 "24bb59ccb8f3b22a1f9722a1b856f548b3e667ebd696586751919eee6f562295" => :sierra
+    sha256 "6e2a39b1b3c700ad7dbff61b6c355a8dc9fe77a648cd3e4f67c1215b3cc839a5" => :el_capitan
+  end
+
   keg_only :versioned_formula
 
   depends_on "cython" => :build
