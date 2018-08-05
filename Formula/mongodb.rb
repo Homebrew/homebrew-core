@@ -1,8 +1,8 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.0.tar.gz"
-  sha256 "34a15085ed65413add38f68028bccebb3e9462777c15e42c1fb291a5c9440798"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.1.tar.gz"
+  sha256 "c9b2ab4ea6899b631e77b7aed3b3653eed1086a75cb0f3bf74910c49d55a7dff"
 
   bottle do
     sha256 "3a024cfb577d8e4d8edd36565228a461ae5f83b8a3157e8890d60489e09cfee2" => :high_sierra
@@ -27,8 +27,8 @@ class Mongodb < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "typing" do
