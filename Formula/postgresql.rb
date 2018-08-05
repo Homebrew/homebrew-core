@@ -16,6 +16,13 @@ class Postgresql < Formula
   option "with-dtrace", "Build with DTrace support"
   option "with-python", "Enable PL/Python3 (incompatible with --with-python@2)"
   option "with-python@2", "Enable PL/Python2"
+  # If --with-icu is not passed to configure, PostgreSQL's error message when
+  # attempting to create a collation using the ICU provider is:
+  #   ERROR:  ICU is not supported in this build
+  #   HINT:  You need to rebuild PostgreSQL using --with-icu.
+  # Make the formula option --with-icu instead of the more standard --with-icu4c
+  # to mirror the hint.
+  option "with-icu", "Build with the ICU collation provider"
 
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "no-tcl" => "without-tcl"
@@ -25,6 +32,8 @@ class Postgresql < Formula
   depends_on "openssl"
   depends_on "readline"
 
+  depends_on "icu4c" if build.with? "icu"
+  depends_on "pkg-config" => :build if build.with? "icu"
   depends_on "python" => :optional
   depends_on "python@2" => :optional
 
@@ -83,6 +92,8 @@ class Postgresql < Formula
 
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
+
+    args << "--with-icu" if build.with? "icu"
 
     system "./configure", *args
     system "make"
