@@ -51,13 +51,10 @@ class Mpv < Formula
     # that's good enough for building the manpage.
     ENV["LC_ALL"] = "C"
 
-    # Prevents a conflict between python2 and python3 when
-    # gobject-introspection is using brewed python.
-    ENV.delete("PYTHONPATH") if MacOS.version <= :mavericks
-
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python#{xy}/site-packages"
     resource("docutils").stage do
-      system "python2.7", *Language::Python.setup_install_args(buildpath/"vendor")
+      system "python3", *Language::Python.setup_install_args(buildpath/"vendor")
     end
     ENV.prepend_path "PATH", buildpath/"vendor/bin"
 
