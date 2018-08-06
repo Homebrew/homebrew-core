@@ -1,8 +1,8 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
   homepage "https://github.com/kouya/snownews"
-  url "https://github.com/kouya/snownews/archive/v1.5.13.tar.gz"
-  sha256 "9a06cd58dee7846cbb18166c3b60153c1b7ee963261b205633d77feaa5410455"
+  url "https://github.com/kouya/snownews/archive/1.6.10.tar.gz"
+  sha256 "8c78067aef75e283df4b3cca1c966587b6654e9e84a3e6e5eb8bdd5829799242"
 
   bottle do
     sha256 "192c7a039cfc5d4f8041982da9a0b0510745e8680754aea64202440c8ace9d6b" => :high_sierra
@@ -10,6 +10,7 @@ class Snownews < Formula
     sha256 "4ba563f80e1a79532136538595e36bd1f802fcc396515cad3dccb5f7dfcd21e2" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "openssl"
 
