@@ -3,6 +3,7 @@ class MysqlAT55 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.5/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.61.tar.gz"
   sha256 "62a7f8aeb9c6c4d5a127f7254500878d9d172b70ad9639b098f3c01731f1fbf0"
+  revision 1
 
   bottle do
     sha256 "34989af26f90153946aa5df913fab80fcb715203f66feb1915acf17c6f5624db" => :high_sierra
@@ -30,7 +31,7 @@ class MysqlAT55 < Formula
   depends_on "openssl"
 
   def datadir
-    var/"mysql"
+    var/"mysql@5.5"
   end
 
   def install

@@ -3,6 +3,7 @@ class MysqlAT56 < Formula
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
   url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.41.tar.gz"
   sha256 "4a223c3daed88f8450fa2fc8fd0e7afe2b1a122dd58b74c4ea6526d6a72563ce"
+  revision 1
 
   bottle do
     sha256 "f38c2f721f15779682345a364ed5adf2550163986a1dd50e7bfc945ddc3b68cf" => :high_sierra
@@ -30,7 +31,7 @@ class MysqlAT56 < Formula
   depends_on "openssl"
 
   def datadir
-    var/"mysql"
+    var/"mysql@5.6"
   end
 
   def install
