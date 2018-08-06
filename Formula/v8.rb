@@ -1,10 +1,10 @@
-# Track Chrome stable.
-# https://omahaproxy.appspot.com/
+# Track Chrome stable, see https://omahaproxy.appspot.com/
 class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
-  url "https://github.com/v8/v8-git-mirror/archive/5.1.281.47.tar.gz"
-  sha256 "63c9933227d6912689ea6bc012eea6a1fabaf526ac04bc245d9381e3ea238bf6"
+  url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
+      :revision => "d61997d37c8f7cc68080f39d4b516fb7b269b46c"
+  version "6.8.275.26" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
@@ -15,98 +15,84 @@ class V8 < Formula
     sha256 "7bcd1bbd66c11305eeea0c36ca472de8a639f511abe0909c8815b1208dbce7b6" => :mavericks
   end
 
-  option "with-readline", "Use readline instead of libedit"
+  # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
+  depends_on :macos => :el_capitan
 
-  # not building on Snow Leopard:
-  # https://github.com/Homebrew/homebrew/issues/21426
-  depends_on :macos => :lion
-
-  # gyp doesn't run under 2.6 or lower
+  # depot_tools/GN require Python 2.7+
   depends_on "python@2" => :build
-
-  depends_on "readline" => :optional
 
   needs :cxx11
 
-  # Update from "DEPS" file in tarball.
-  # Note that we don't require the "test" DEPS because we don't run the tests.
-  resource "gyp" do
-    url "https://chromium.googlesource.com/external/gyp.git",
-        :revision => "4ec6c4e3a94bd04a6da2858163d40b2429b8aad1"
-  end
-
-  resource "icu" do
-    url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        :revision => "c291cde264469b20ca969ce8832088acb21e0c48"
-  end
-
-  resource "buildtools" do
-    url "https://chromium.googlesource.com/chromium/buildtools.git",
-        :revision => "80b5126f91be4eb359248d28696746ef09d5be67"
-  end
-
-  resource "common" do
-    url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        :revision => "c8c8665c2deaf1cc749d9f8e153256d4f67bf1b8"
-  end
-
-  resource "swarming_client" do
-    url "https://chromium.googlesource.com/external/swarming.client.git",
-        :revision => "df6e95e7669883c8fe9ef956c69a544154701a49"
-  end
-
-  resource "gtest" do
-    url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        :revision => "6f8a66431cb592dad629028a50b3dd418a408c87"
-  end
-
-  resource "gmock" do
-    url "https://chromium.googlesource.com/external/googlemock.git",
-        :revision => "0421b6f358139f02e102c9c332ce19a33faf75be"
-  end
-
-  resource "clang" do
-    url "https://chromium.googlesource.com/chromium/src/tools/clang.git",
-        :revision => "faee82e064e04e5cbf60cc7327e7a81d2a4557ad"
-  end
-
   def install
-    # Bully GYP into correctly linking with c++11
-    ENV.cxx11
-    ENV["GYP_DEFINES"] = "clang=1 mac_deployment_target=#{MacOS.version}"
-    # https://code.google.com/p/v8/issues/detail?id=4511#c3
-    ENV.append "GYP_DEFINES", "v8_use_external_startup_data=0"
+    # Add depot_tools in PATH
+    ENV.prepend_path "PATH", buildpath
+    # Prevent from updating depot_tools on every call
+    # see https://www.chromium.org/developers/how-tos/depottools#TOC-Disabling-auto-update
+    ENV["DEPOT_TOOLS_UPDATE"] = "0"
 
-    # fix up libv8.dylib install_name
-    # https://github.com/Homebrew/homebrew/issues/36571
-    # https://code.google.com/p/v8/issues/detail?id=3871
-    inreplace "tools/gyp/v8.gyp",
-              "'OTHER_LDFLAGS': ['-dynamiclib', '-all_load']",
-              "\\0, 'DYLIB_INSTALL_NAME_BASE': '#{opt_lib}'"
+    # Initialize and sync gclient
+    system "gclient", "root"
+    system "gclient", "config", "--spec", <<~EOS
+      solutions = [
+        {
+          "url": "https://chromium.googlesource.com/v8/v8.git",
+          "managed": False,
+          "name": "v8",
+          "deps_file": "DEPS",
+          "custom_deps": {},
+        },
+      ]
+      target_os = [ "mac" ]
+      target_os_only = True
+      cache_dir = "#{HOMEBREW_CACHE}/gclient_cache"
+    EOS
 
-    (buildpath/"build/gyp").install resource("gyp")
-    (buildpath/"third_party/icu").install resource("icu")
-    (buildpath/"buildtools").install resource("buildtools")
-    (buildpath/"base/trace_event/common").install resource("common")
-    (buildpath/"tools/swarming_client").install resource("swarming_client")
-    (buildpath/"testing/gtest").install resource("gtest")
-    (buildpath/"testing/gmock").install resource("gmock")
-    (buildpath/"tools/clang").install resource("clang")
+    system "gclient", "sync",
+      "-j", ENV.make_jobs,
+      "-r", version,
+      "--no-history",
+      "-vvv"
 
-    system "make", "native", "library=shared", "snapshot=on",
-                   "console=readline", "i18nsupport=off",
-                   "strictaliasing=off"
+    # Enter the v8 checkout
+    cd "v8" do
+      output_path = "out.gn/x64.release"
 
-    include.install Dir["include/*"]
+      gn_args = {
+        :is_debug => false,
+        :is_component_build => true,
+        :v8_use_external_startup_data => false,
+        :v8_enable_i18n_support => true,
+      }
 
-    cd "out/native" do
-      rm ["libgmock.a", "libgtest.a"]
-      lib.install Dir["lib*"]
-      bin.install "d8", "mksnapshot", "process", "shell" => "v8"
+      # Transform to args string
+      gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
+
+      # Build with gn + ninja
+      system "gn", "gen", "--args=#{gn_args_string}", output_path
+
+      system "ninja", "-j", ENV.make_jobs, "-C", output_path,
+             "-v", "d8"
+
+      # Install all the things
+      include.install Dir["include/*"]
+
+      cd output_path do
+        lib.install Dir["lib*.dylib"]
+
+        # Install d8 and icudtl.dat in libexec and symlink
+        # because they need to be in the same directory.
+        libexec.install Dir["d8", "icudt*.dat"]
+        (bin/"d8").write <<~EOS
+          #!/bin/bash
+          exec "#{libexec}/d8" --icu-data-file="#{libexec}/icudtl.dat" "$@"
+        EOS
+      end
     end
   end
 
   test do
-    assert_equal "Hello World!", pipe_output("#{bin}/v8 -e 'print(\"Hello World!\")'").chomp
+    assert_equal "Hello World!", shell_output("#{bin}/d8 -e 'print(\"Hello World!\");'").chomp
+    t = "#{bin}/d8 -e 'print(new Intl.DateTimeFormat(\"en-US\").format(new Date(\"2012-12-20T03:00:00\")));'"
+    assert_match %r{12/\d{2}/2012}, shell_output(t).chomp
   end
 end
