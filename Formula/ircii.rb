@@ -1,7 +1,7 @@
 class Ircii < Formula
   desc "IRC and ICB client"
   homepage "http://www.eterna.com.au/ircii/"
-  url "http://ircii.warped.com/ircii-20170704.tar.bz2"
+  url "https://ircii.warped.com/ircii-20170704.tar.bz2"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/ircii/ircii_20170704.orig.tar.bz2"
   sha256 "4e5a70fc4577de06fd5855ab7ca0a501fd16e02d5fd34e434a2b5abac80a2eda"
 

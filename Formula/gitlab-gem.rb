@@ -48,7 +48,7 @@ class GitlabGem < Formula
   end
 
   test do
-    ENV["GITLAB_API_ENDPOINT"] = "http://example.com"
+    ENV["GITLAB_API_ENDPOINT"] = "https://example.com/"
     ENV["GITLAB_API_PRIVATE_TOKEN"] = "token"
     output = shell_output("#{bin}/gitlab user 2>&1", 1)
     assert_match "The response is not a valid JSON", output

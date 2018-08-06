@@ -3,13 +3,13 @@ require "language/node"
 class Triton < Formula
   desc "Joyent Triton CLI"
   homepage "https://www.npmjs.com/package/triton"
-  url "https://registry.npmjs.org/triton/-/triton-6.0.0.tgz"
-  sha256 "b5211e61732d3ea656da561e749b2b6b0c3076ba23deea7c7c8405c92f130740"
+  url "https://registry.npmjs.org/triton/-/triton-6.1.2.tgz"
+  sha256 "8178ba4944ec4bdd889f512c75757b4957a849cd1a25a156c6a4590c6f51daaa"
 
   bottle do
-    sha256 "dff2adfb606119f4d3fcefcabc4e2b1e73783fbc357afc6eccd41a4d0599de5d" => :high_sierra
-    sha256 "8f654575429e7f236a2135aa5e909ceefce958ea209de986d4cfb5f5324e02ce" => :sierra
-    sha256 "3c9560f04c445b6cbf93ae2c816363a8673190fdd28908d7e459547236f23ffb" => :el_capitan
+    sha256 "636d290a02708b0da5bd5253255992577582f7f302c1525646a05dd12106e189" => :high_sierra
+    sha256 "6c50d2c6a7afa147faf8933c7ab6eefcede05a12aadcc5060b58b0883d0f8089" => :sierra
+    sha256 "b0aa58088e9ae79da67cfcb9c277116b53906e1a528629edb8350c797976568d" => :el_capitan
   end
 
   depends_on "node"

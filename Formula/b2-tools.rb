@@ -3,14 +3,14 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.2.0.tar.gz"
-  sha256 "7f6269257045d571ace6738a3b30bc395bb83f8721b44e06088485f5d2a1ca6a"
+  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.3.2.tar.gz"
+  sha256 "55cfd021ddc484c0b7252c02c208bc455a9cb20b32fd8401a23b9b62858f3bfb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "14aff17debc942de445e1bed7412f535056ef7fb13bad841c4b80a328fd9bb90" => :high_sierra
-    sha256 "387a86e2ab8693340550a1131a02184b11a357c013bab086668c617d445d9212" => :sierra
-    sha256 "8e3e9bde7540a41fc5e0a4fe6a4d6f154ff7eef1e07940d14c8cd35ee6a7004d" => :el_capitan
+    sha256 "01517d6b0e7f180d3c7b5690aecc0464331aa3600aa68cdbac80b9b1e45bf7bb" => :high_sierra
+    sha256 "53cc59436c1e10ad71ee34f8c01592b46f74ea823f2680309724f9bcb1084596" => :sierra
+    sha256 "00c627b7326ad35003e2d614332be1e3de0ef1cd1de0a14a55b12aaaa1bf36c4" => :el_capitan
   end
 
   depends_on "python@2"

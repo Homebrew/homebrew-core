@@ -1,14 +1,14 @@
 class Arpack < Formula
   desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
-  url "https://github.com/opencollab/arpack-ng/archive/3.6.1.tar.gz"
-  sha256 "c753f929d3f1092d84bb0883a8ffe2551a8cb94d5ab891e63f596a876e44c351"
+  url "https://github.com/opencollab/arpack-ng/archive/3.6.2.tar.gz"
+  sha256 "673c8202de996fd3127350725eb1818e534db4e79de56d5dcee8c00768db599a"
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
-    sha256 "4b197f6e47b233c9674ca7a46871096142f187677e22c9dff627a8cdcbb3d370" => :high_sierra
-    sha256 "35b0aa89b21b81d55568b7ab1adbff0c3e22029abcfe13c62722f9d549f62f48" => :sierra
-    sha256 "68f38c961ae168d4e61e6693bddcf37b02fc7860e32c95dddc45e24ab58a0bb6" => :el_capitan
+    sha256 "9a34eecb233b2d3ad6d397ea4ab9b6588bf75a99d2557415060937e48875432c" => :high_sierra
+    sha256 "87c8fe199cb780dc38719680b0242ff480d1f523dba54939be8d38ce52422e76" => :sierra
+    sha256 "940bb3597599ce0620b73363dddc9bdde122ec84ede13ae89812318e1965c33c" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"
@@ -36,7 +36,7 @@ class Arpack < Formula
     lib.install_symlink Dir["#{libexec}/lib/*"].select { |f| File.file?(f) }
     (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
-                     "TESTS/mmio.f", "TESTS/debug-arpack.h"
+                     "TESTS/mmio.f", "TESTS/debug.h"
 
     if build.with? "mpi"
       (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children

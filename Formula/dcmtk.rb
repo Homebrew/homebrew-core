@@ -3,7 +3,7 @@ class Dcmtk < Formula
   homepage "https://dicom.offis.de/dcmtk.php.en"
   url "https://dicom.offis.de/download/dcmtk/dcmtk363/dcmtk-3.6.3.tar.gz"
   sha256 "63c373929f610653f10cbb8218ec643804eec6f842d3889d2b46a227da1ed530"
-  head "http://git.dcmtk.org/dcmtk.git"
+  head "https://git.dcmtk.org/dcmtk.git"
 
   bottle do
     sha256 "ebc1492ba0b008c2d84e84cce1be2da9eb9210ffa8809bcfc710a0bcf35d5575" => :high_sierra

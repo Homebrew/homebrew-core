@@ -3,25 +3,27 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.27.1-src.tar.gz"
-    sha256 "2133beb01ddc3aa09eebc769dd884533c6cfb08ce684f042497e097068d733d1"
+    url "https://static.rust-lang.org/dist/rustc-1.28.0-src.tar.gz"
+    sha256 "1d5a81729c6f23a0a23b584dd249e35abe9c6f7569cee967cc42b1758ecd6486"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.28.0",
-          :revision => "1e95190e5ffd6e6b701ad87dab4671246b96a9ce"
+          :tag => "0.29.0",
+          :revision => "96a2c7d16249cb47c61c887fc95ca8be60e7ef0a"
     end
 
     resource "racer" do
+      # Racer should stay < 2.1 for now as 2.1 needs the nightly build of rust
+      # See https://github.com/racer-rust/racer/tree/v2.1.2#installation
       url "https://github.com/racer-rust/racer/archive/2.0.14.tar.gz"
       sha256 "0442721c01ae4465843cb73b24f6caa0127c3308d72b944ad75736164756e522"
     end
   end
 
   bottle do
-    sha256 "2c679cf854b41c0fcebd1b137282e0e5e5fbb6e7b88c176a5d5e99c3043eb003" => :high_sierra
-    sha256 "ad050528292e92449eab0b2a3d78ecac7ded466d11b30a019eff79a98776641b" => :sierra
-    sha256 "c72c9b52af9b0a0dd8c0ca28ba776a61cfa786e0568672fdeba269b954d3b025" => :el_capitan
+    sha256 "8bf1223d11b97f9cf1cedc9352fb0a1de81caa05384368a1603170a214327fc5" => :high_sierra
+    sha256 "e625d56848f386aea2ad7d895a1c1a73ea9e18fd2815fd2961420672a3ce4e99" => :sierra
+    sha256 "bba983b145cd112f1c06961b654c096a29e98397e3d5bb199c70c23c0c01e0b8" => :el_capitan
   end
 
   head do
@@ -55,8 +57,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2018-05-10/cargo-0.27.0-x86_64-apple-darwin.tar.gz"
-    sha256 "5a21a7569a67b9d06442063a1b4c2c2e42279e3d67f843ea77df647d87937eb5"
+    url "https://static.rust-lang.org/dist/2018-07-20/cargo-0.28.0-x86_64-apple-darwin.tar.gz"
+    sha256 "bc995c0710913b21ac979aa911669fbb1a11fbdda52eb0b4bb5e72fbcbb82085"
   end
 
   def install

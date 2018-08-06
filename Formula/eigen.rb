@@ -1,34 +1,15 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
+  url "https://bitbucket.org/eigen/eigen/get/3.3.5.tar.bz2"
+  sha256 "7352bff3ea299e4c7d7fbe31c504f8eb9149d7e685dec5a12fbaa26379f603e2"
   head "https://bitbucket.org/eigen/eigen", :using => :hg
-
-  stable do
-    url "https://bitbucket.org/eigen/eigen/get/3.3.4.tar.bz2"
-    sha256 "dd254beb0bafc695d0f62ae1a222ff85b52dbaa3a16f76e781dce22d0d20a4a6"
-
-    # Fix "CMake Error: CMAKE_Fortran_COMPILER not set, after EnableLanguage"
-    # Upstream commit from 20 Jun 2017 "Make sure CMAKE_Fortran_COMPILER is set
-    # before checking for Fortran functions"
-    patch do
-      url "https://bitbucket.org/eigen/eigen/commits/dbab66d00651bf050d1426334a39b627abe7216e/raw"
-      sha256 "04b679525437f2a7672ed51ef864cf7ddffa61ce2025035d2355bc065d962823"
-    end
-
-    # Remove for > 3.3.4
-    # Upstream commit from 6 Apr 2018 "Fix cmake scripts with no fortran compiler"
-    patch do
-      url "https://bitbucket.org/eigen/eigen/commits/ba14974d054ae9ae4ba88e5e58012fa6c2729c32/raw"
-      sha256 "5e4977b195f0199243ec7b78f1398596108d7969dfba02ada41f26ce2c76e244"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4cc2b76353629941ff0098928d331e1620c5e27e5d55f337deae8b35f8af1b97" => :high_sierra
-    sha256 "73b77dbad9910ff34a3b3dfe24db8c9e84b0bf0dc6e2ea8ebd9cb663083fa9e1" => :sierra
-    sha256 "8bd6a07c4625266bd8631f636b317b19916611308e7f9eeec5f5b8b847327ef9" => :el_capitan
-    sha256 "8bd6a07c4625266bd8631f636b317b19916611308e7f9eeec5f5b8b847327ef9" => :yosemite
+    sha256 "058b1692b9ccb2e54d062cd1ef947ee89984cc5f818202100284218d6e3a3b32" => :high_sierra
+    sha256 "058b1692b9ccb2e54d062cd1ef947ee89984cc5f818202100284218d6e3a3b32" => :sierra
+    sha256 "058b1692b9ccb2e54d062cd1ef947ee89984cc5f818202100284218d6e3a3b32" => :el_capitan
   end
 
   depends_on "cmake" => :build

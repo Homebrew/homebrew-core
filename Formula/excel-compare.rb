@@ -7,7 +7,7 @@ class ExcelCompare < Formula
   bottle :unneeded
 
   resource "sample_workbook" do
-    url "https://github.com/na-ka-na/ExcelCompare/raw/0.6.1/test/resources/ss1.xlsx", :using => :nounzip
+    url "https://github.com/na-ka-na/ExcelCompare/raw/0.6.1/test/resources/ss1.xlsx"
     sha256 "f362153aea24092e45a3d306a16a49e4faa19939f83cdcb703a215fe48cc196a"
   end
 

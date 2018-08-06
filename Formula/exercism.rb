@@ -1,15 +1,15 @@
 class Exercism < Formula
   desc "Command-line tool to interact with exercism.io"
-  homepage "http://cli.exercism.io"
-  url "https://github.com/exercism/cli/archive/v3.0.2.tar.gz"
-  sha256 "9a3425fc19ec31a3ecb26a920d808ed813b5dc2e134971b5e8c56ec94dfe1f42"
+  homepage "https://cli.exercism.io/"
+  url "https://github.com/exercism/cli/archive/v3.0.6.tar.gz"
+  sha256 "f990789929ce41e9bfa698204194dbc14d9550fc17568d39e48f79af5d5eae79"
   head "https://github.com/exercism/cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d0f8c38f7dcf7b94ae0e9533446aa2d0ad106e8a9aa4c3d9b03a4d19c6d6edca" => :high_sierra
-    sha256 "c7d1280150c377e5b2d3268dd0e63bc5c05633bd0777c9665819a8f920d4b06b" => :sierra
-    sha256 "4fc9d31b82b6dac2e028290b231c6b87f0c5602c398119d648eba0205e77aa86" => :el_capitan
+    sha256 "14bc43a45b2d2b8940e64cef3bf1cb0d7b4c3e7210bf5608f02f2726881e36f9" => :high_sierra
+    sha256 "ff63c8245a5bad5c673839a569b800f7d8fb2a543bdd7e9d945f47abb9a8c24e" => :sierra
+    sha256 "5b5e298209a7a32a45633557e82f8a82c5740141b592e92442ac3168cb763d5a" => :el_capitan
   end
 
   depends_on "dep" => :build

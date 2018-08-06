@@ -1,13 +1,13 @@
 class PerconaServerMongodb < Formula
   desc "Drop-in MongoDB replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.5-1.3/source/tarball/percona-server-mongodb-3.6.5-1.3.tar.gz"
-  version "3.6.5-1.3"
-  sha256 "2a223f41d9ecfb7f01cda3308684efce09d767ca2fc372313a0f4fee8041896a"
+  url "https://www.percona.com/downloads/percona-server-mongodb-3.6/percona-server-mongodb-3.6.6-1.4/source/tarball/percona-server-mongodb-3.6.6-1.4.tar.gz"
+  version "3.6.6-1.4"
+  sha256 "a30d3932c449b61df049807a51d7fbaf6c3534b68116e82829f63049dff69d2a"
 
   bottle do
-    sha256 "bcc8865c30e10740f48a2d1b937686f7c2203de8ebca261fdf7d14393b9e048c" => :high_sierra
-    sha256 "83c98feaca87eb0121584e65cf0b6241669cc580e0813d4c8375aaed0c578bfe" => :sierra
+    sha256 "a6649a385a19ab31d07d50c45779aea87bbd8ea149b099d57975859a6cb546ce" => :high_sierra
+    sha256 "62478907290b11c522b15b06ceb4038a0244f90d2ac2da2587534f3fcb476707" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with this formula"
@@ -29,8 +29,8 @@ class PerconaServerMongodb < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "typing" do

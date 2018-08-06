@@ -1,8 +1,8 @@
 class AdrTools < Formula
   desc "CLI tool for working with Architecture Decision Records"
   homepage "https://github.com/npryce/adr-tools"
-  url "https://github.com/npryce/adr-tools/archive/2.2.0.tar.gz"
-  sha256 "26eb7f445ba1d77a3a42f49aaeb17def5766e3166fdcd4a79a71a8f5c91ae5b7"
+  url "https://github.com/npryce/adr-tools/archive/3.0.0.tar.gz"
+  sha256 "9490f31a457c253c4113313ed6352efcbf8f924970a309a08488833b9c325d7c"
 
   bottle :unneeded
 

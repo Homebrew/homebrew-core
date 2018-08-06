@@ -1,15 +1,14 @@
 class Megatools < Formula
   desc "Command-line client for Mega.co.nz"
   homepage "https://megatools.megous.com/"
-  url "https://megatools.megous.com/builds/megatools-1.9.98.tar.gz"
-  sha256 "9b0521a4d27dbc417fc8e12610ac1e1da729bf6d6eb5bef927ef3670b372a16f"
+  url "https://megatools.megous.com/builds/megatools-1.10.1.tar.gz"
+  sha256 "9938127db27b579d49aa8722bfdddd17833fe90668aa2670ce88d1c889452d67"
 
   bottle do
     cellar :any
-    sha256 "dc602b26c3ac44df6084fde93ce90f7408145817963a184916dfd48e2a060276" => :high_sierra
-    sha256 "570c02df45849ba7a223391ebb9df3bc31faabeb399a902256f013dbef167441" => :sierra
-    sha256 "8a661afef3e014425b600bb65c4e20a3e71cd96b179e9d86cfde5e974a596d0a" => :el_capitan
-    sha256 "26b90b76a9e2170b0c336d4175eff71665bc4f606e7ed4a86e66d3170fd4c4cf" => :yosemite
+    sha256 "b907af7c88a5b1f23643bd5576050ba6e228a0475246e8645b8f0d71dd97d81e" => :high_sierra
+    sha256 "67fc6d534eb92276f21feea903ae682f8b5318da9eb59b1a94cc3887f9855c1f" => :sierra
+    sha256 "e0bae7222466e43ae48615a9cea006527be27d4d44b9943b0b37d7e45f623704" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

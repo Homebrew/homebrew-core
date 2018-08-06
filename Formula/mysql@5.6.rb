@@ -1,13 +1,13 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.40.tar.gz"
-  sha256 "1048a7abedba851efa62868e4d28d0be8828162b53903cd68e4f29546418d92d"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.41.tar.gz"
+  sha256 "4a223c3daed88f8450fa2fc8fd0e7afe2b1a122dd58b74c4ea6526d6a72563ce"
 
   bottle do
-    sha256 "d683940c0440a6c5239d6d813c839f240f76bafeab7e5374abff8a78e4acacb3" => :high_sierra
-    sha256 "98d873b995e0482d00dd73cf8827d79d9930df18d03601d98599ed7c2b8b6beb" => :sierra
-    sha256 "a64b9c0df5a3e278382fdefedc538ed95edbc68eb235a085b03691259bdc9795" => :el_capitan
+    sha256 "f38c2f721f15779682345a364ed5adf2550163986a1dd50e7bfc945ddc3b68cf" => :high_sierra
+    sha256 "a85b38c407bd23ed63683c5e66c0cc2bb3e4727c737c94a43956b3fd442f91a4" => :sierra
+    sha256 "7f668566960c8671fdc237eb3af7cdce546a51445b5933288e4b6ed196296396" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -120,7 +120,7 @@ class MysqlAT56 < Formula
   def post_install
     # Make sure the datadir exists
     datadir.mkpath
-    unless (datadir/"mysql/user.frm").exist?
+    unless (datadir/"mysql/general_log.CSM").exist?
       ENV["TMPDIR"] = nil
       system bin/"mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
         "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"

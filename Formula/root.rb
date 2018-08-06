@@ -1,16 +1,15 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.14.00.source.tar.gz"
-  version "6.14.00"
-  sha256 "7946430373489310c2791ff7a3520e393dc059db1371272bcd9d9cf0df347a0b"
-  revision 1
+  url "https://root.cern.ch/download/root_v6.14.02.source.tar.gz"
+  version "6.14.02"
+  sha256 "93816519523e87ac75924178d87112d1573eaa108fc65691aea9a9dd5bc05b3e"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "d21e759311b538c11f5ddf870ca676e23f8255628dd571f9af8c88c911a80b38" => :high_sierra
-    sha256 "211c63b9860f5801d88e8f5a6c8a01eadcf4f31133e55a7d0099abe0a8881977" => :sierra
-    sha256 "b35598bcca5c050ec6e410f56602433b010747add394cbf3c5019757c90bb78f" => :el_capitan
+    sha256 "735843cdf42536af424d90471cba12e4834f42b728b40b2d170b6dc13dd863c1" => :high_sierra
+    sha256 "d77502bde56a1b0aa8c2d2f8b249f730c77d92c9d3729cbaf6a721052a6ad669" => :sierra
+    sha256 "7b3f1c52f9aa32d8e7c47376b1ae74b09e94df9030c10e4bc87d8e556298fdc6" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -32,10 +31,10 @@ class Root < Formula
 
   skip_clean "bin"
 
-  # Upstream PR from 30 Jun 2018 "Fixes for Python 3.7"
+  # Upstream commit from 30 Jun 2018 "Fixes for Python 3.7"
   patch do
-    url "https://github.com/root-project/root/pull/2276.patch?full_index=1"
-    sha256 "5c8e404a01b7df801c7fa6ec7c54d0ebfc0f46086b58f34340822e89fc67a750"
+    url "https://github.com/root-project/root/commit/94412f7eab8.patch?full_index=1"
+    sha256 "29a719b00931381cbe75b0e23c5e970d03aa28a8455a5f840e82a8cae83d9c24"
   end
 
   def install
@@ -54,13 +53,16 @@ class Root < Formula
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
+      -Dbuiltin_cfitsio=OFF
       -Ddavix=ON
+      -Dfitsio=OFF
       -Dfftw3=ON
       -Dfortran=ON
       -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Dmysql=OFF
+      -Dpgsql=OFF
       -Droofit=ON
       -Dssl=ON
       -Dimt=ON

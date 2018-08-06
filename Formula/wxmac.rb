@@ -3,13 +3,14 @@ class Wxmac < Formula
   homepage "https://www.wxwidgets.org"
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.4/wxWidgets-3.0.4.tar.bz2"
   sha256 "96157f988d261b7368e5340afa1a0cad943768f35929c22841f62c25b17bf7f0"
+  revision 1
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   bottle do
     cellar :any
-    sha256 "a097b021a66c4933caa0cfbcb91e7cf64d86c32b8fa8b8ea3ab0b236c52c19c9" => :high_sierra
-    sha256 "44691ee842a15573abd83dd0aa4f66acf97e0b5b536868fd74add1800834a862" => :sierra
-    sha256 "d52dd8b84d6387f38c07771c0b373ababc72d95faeb3f65e1e5b2aedecc629c7" => :el_capitan
+    sha256 "32357b2ab1590b209e89c02fd36c54b5378fe79d32e82abc4047ab4fbae2663c" => :high_sierra
+    sha256 "666f423fdee434b4e4f91d6035678f658cf149df8077dae01151c0ebe781445a" => :sierra
+    sha256 "6acfa572e370c0f9c2f48f89ab8807a42d81726151e8ebddccca48aa634514de" => :el_capitan
   end
 
   devel do
@@ -47,9 +48,6 @@ class Wxmac < Formula
       "--disable-precomp-headers",
       # This is the default option, but be explicit
       "--disable-monolithic",
-      # Enabling mediactrl leads to wxconfig trying to pull in a non-existent
-      # 64-bit QuickTime framework: https://trac.wxwidgets.org/ticket/17639
-      "--disable-mediactrl",
       # Set with-macosx-version-min to avoid configure defaulting to 10.5
       "--with-macosx-version-min=#{MacOS.version}",
     ]

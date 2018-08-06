@@ -1,16 +1,17 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.14.1.tar.xz"
-  sha256 "7e7c0962f39388cdf81b5e0d9f768eb15e30f58b346fd79f1ea778979eae113e"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gstreamer-editing-services-1.14.2.tar.xz"
+  sha256 "05b280d19eb637f17634d32eb3b5ac8963fc9b667aeff29dab3594dbdfc61f34"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "dddd6a905cf531080a04e7f8af75c8dfa9406387aa29a086dee47765460be518" => :high_sierra
-    sha256 "52be6d8262363557d5148a2b780521bede1da5a3c08e7a3b1d8c88534af65486" => :sierra
-    sha256 "071cfb5213cf5b6ed166e79b59c9dfe12ec1c9270e152c79f9cd6755e196b29e" => :el_capitan
+    sha256 "831ffe600c209b6cf5de232ec88d855766c266ddc583a72552c06c8c1070d5cb" => :high_sierra
+    sha256 "2165a0043372021c8c264fcb5a388fc5b01ed1b54f7afcef17cc5ba19a2051fd" => :sierra
+    sha256 "58a5e50c51b8db69d11a1e2d4e7f92f87f53deadc68606bc307766b246df4d8f" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gstreamer"
   depends_on "gst-plugins-base"

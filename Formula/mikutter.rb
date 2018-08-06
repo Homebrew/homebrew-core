@@ -1,14 +1,14 @@
 class Mikutter < Formula
   desc "Extensible Twitter client"
   homepage "https://mikutter.hachune.net/"
-  url "https://mikutter.hachune.net/bin/mikutter.3.7.2.tar.gz"
-  sha256 "fa79ad090f11e94e7bb877aff2b3f8c33b9731ff48d92321cfdf0c32f934b69e"
+  url "https://mikutter.hachune.net/bin/mikutter.3.7.4.tar.gz"
+  sha256 "7695a76a809555b2688b56f5335834fd876f82ce1b645815ec2020aedbdff55c"
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "d049ccbc82b043b4de9cdd17f2e4b13b66dbda9e04a33c67d989a2dceb4043a1" => :high_sierra
-    sha256 "71a35a07d9b56f05f37b53bc02cd9143e8bbf2231bf6b633a3f16176ae7e5d42" => :sierra
-    sha256 "135a20d2e807cfc6803fb2e1d779c058c0019171ada371afa6006d9e174e03a3" => :el_capitan
+    sha256 "7442f4d12dd47710da2850344ad7018b11eddd70a0de67464ee50d26441e240e" => :high_sierra
+    sha256 "47fba2f490337125a30444cd12b6a45225da657e37229935db6d68925914a395" => :sierra
+    sha256 "0eac4501f4250559c29d49417e277f9e365fe485019cd893ce2c0dc056007adb" => :el_capitan
   end
 
   depends_on "gobject-introspection"
@@ -128,8 +128,8 @@ class Mikutter < Formula
   end
 
   resource "nokogiri" do
-    url "https://rubygems.org/gems/nokogiri-1.8.2.gem"
-    sha256 "382af505a11b735e97f52ec6279ea484be7a7560d5599e81def40943601fd515"
+    url "https://rubygems.org/gems/nokogiri-1.8.4.gem"
+    sha256 "ecad8473fbaebaadd060eec15a872fb67c4bd7c6d64904ebbe15d40113ad36c1"
   end
 
   resource "oauth" do

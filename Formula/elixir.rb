@@ -1,14 +1,14 @@
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "https://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.6.6.tar.gz"
-  sha256 "74507b0646bf485ee3af0e7727e3fdab7123f1c5ecf2187a52a928ad60f93831"
+  url "https://github.com/elixir-lang/elixir/archive/v1.7.2.tar.gz"
+  sha256 "3258eca6b5caa5e98b67dd033f9eb1b0b7ecbdb7b0f07c111b704700962e64cc"
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "03338ebc23828982d3c820d3dcce3b1b3fc1500729b4fc4d4c8efc9e9aa59015" => :high_sierra
-    sha256 "83894f92745ac1dbe5c318847306a022e6fa67739e79b7856c4b6f176044efac" => :sierra
-    sha256 "ed6c4717320f5f200b43a760c343cd53a5f001cc8325c0c8b00708720bc663c9" => :el_capitan
+    sha256 "3cd820e9f0ec6a3cc75302b4bf40528a7dc0412104cf93838121609872b806b8" => :high_sierra
+    sha256 "d08bb4ae8f2d619d3350f0ba87430247ef593b9a47d8b982fbd36445831391cd" => :sierra
+    sha256 "a8b1602ae833557331db2ff654801039336f7af098b5fd853ccf0d48796e3bf5" => :el_capitan
   end
 
   depends_on "erlang"

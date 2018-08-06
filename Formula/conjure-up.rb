@@ -3,15 +3,14 @@ class ConjureUp < Formula
 
   desc "Big software deployments so easy it's almost magical"
   homepage "https://conjure-up.io/"
-  url "https://github.com/conjure-up/conjure-up/archive/2.5.9.tar.gz"
-  sha256 "f474a7419fb0f948ea1cb16c14e229002a67339187b0a9af3e093f97e5ff309a"
+  url "https://github.com/conjure-up/conjure-up/archive/2.6.0.tar.gz"
+  sha256 "b39afd2fdff2affb29c4255133c2e8b7984f291feb209a4b7cf6e2c492a93cb1"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "11399e4627c321f806f4122b8c0e21fea79eb080ea8598f2437662a84fb5f0a5" => :high_sierra
-    sha256 "46bc2d41c6f3dcbce8a8cce944b90db22b6d156a61bcaf16833a1a41d61f523a" => :sierra
-    sha256 "44385321f8ce0eba885ba17e9021f424d4d3711ce6278d281b630a4aa7d514c1" => :el_capitan
+    sha256 "30f18ecddf24005e85b4f155b6fb1acfae01b71bccd669d505d4946985eb99f1" => :high_sierra
+    sha256 "2fac93758693efeedfecf58cda5fff8f2ce2cd6608096d378699792d63e65cc5" => :sierra
+    sha256 "4f06009d8c2cc5ae0e58f8f3fb91a340e46b6964c2462463ad362632c51c982d" => :el_capitan
   end
 
   depends_on "libyaml"
@@ -75,8 +74,8 @@ class ConjureUp < Formula
   end
 
   resource "juju" do
-    url "https://files.pythonhosted.org/packages/c7/c0/a315341dc251a9f2e9dfe32a8b9f1667a15c80be8e1396fdd35e6617b4c9/juju-0.9.0.tar.gz"
-    sha256 "8726a58d5d68c49a2d3589566db33b8686cd85779e09739c2db03fd70e72f185"
+    url "https://files.pythonhosted.org/packages/ae/35/168c89f79ae296a67ec7ce4fb54a21344feafd0c91444de53d7c2a3b8b60/juju-0.9.1.tar.gz"
+    sha256 "530f96c7088f83dbb7faf00a48604f0d94c149ca88ef6535cfd65e0adcd13adb"
   end
 
   resource "juju-wait" do
@@ -235,9 +234,8 @@ class ConjureUp < Formula
   end
 
   resource "websockets" do
-    url "https://github.com/battlemidget/websockets/archive/5.0.1_1.tar.gz"
-    version "5.0.1-1"
-    sha256 "0d3b8bb2ae266831695b1d157830fea42409628c48c75b9956f74d4b1a6815a1"
+    url "https://files.pythonhosted.org/packages/4e/2a/56e60bb4c3696bc736998cc13c3fa1a36210609d7e1a3f2519857b420245/websockets-6.0.tar.gz"
+    sha256 "8f3b956d11c5b301206382726210dc1d3bee1a9ccf7aadf895aaf31f71c3716c"
   end
 
   def install

@@ -1,15 +1,14 @@
 class Distcc < Formula
   desc "Distributed compiler client and server"
   homepage "https://github.com/distcc/distcc/"
-  url "https://github.com/distcc/distcc/releases/download/v3.3/distcc-3.3.tar.gz"
-  sha256 "125897f848b2dc00cbdb62cf9e618a5e942eb7d70350a2b7b66e741cf3200045"
+  url "https://github.com/distcc/distcc/releases/download/v3.3.2/distcc-3.3.2.tar.gz"
+  sha256 "64894de2970c631801d29c9962553673ea7a1d150e6855d7e166d273fca5cdfc"
   head "https://github.com/distcc/distcc.git"
 
   bottle do
-    rebuild 1
-    sha256 "9bb480cdefe02b8bb94ed823eaa7debbfc0b860891c7c7d5333b4e7e73c823d5" => :high_sierra
-    sha256 "086bc49f3e9e497e608fb9111761c7bfe22c81ed9b8adf9a12fda10b23f1136a" => :sierra
-    sha256 "e3b99a82bd2ed5861c76b5715a73d50e74171189805d05c7d48bf665e3b1ad47" => :el_capitan
+    sha256 "ba97d2888c977f6a5d51e690cebe27362ebbbef81767c4f349c41d7d9e822a19" => :high_sierra
+    sha256 "90ee0314ef321c86ed4872f42043a02c385d95e0cb1f0fa4b14ac5877e12b07d" => :sierra
+    sha256 "c13dc99f83f891e47906851ed16c2095bb2a3e72f0f320aae0ff53dc23fd3afa" => :el_capitan
   end
 
   depends_on "autoconf" => :build

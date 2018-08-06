@@ -1,14 +1,14 @@
 class JenkinsJobBuilder < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/system-config/jjb.html"
-  url "https://files.pythonhosted.org/packages/0c/8b/592111d8bca3d84a1d9d170b44f80411b4c5ba4cfaadeb6162921b568a83/jenkins-job-builder-2.1.0.tar.gz"
-  sha256 "2e4f622da9e9d96c570e3299f650909ece826978f47bfda49f11e87d9b8adeff"
+  url "https://files.pythonhosted.org/packages/ef/69/e3a890870f8a3c7ac376fea8093c05874c1bcf233835a3b04622bd7b7219/jenkins-job-builder-2.2.1.tar.gz"
+  sha256 "38d928e3959002a3f9e96eb3a257edc4a52f92a8358455fdb57265812f19bbdc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8a6c2bd6955aa3dc19f6956bfe79138a364305191ea78c182f956690ba6dcd04" => :high_sierra
-    sha256 "d2aeef0ad06bfb8d4bb36e0c9ae657b2c349116ea746e96a683726d99f1c12e4" => :sierra
-    sha256 "07277a5cf6f697b95d8a815f767c295e95f31c5ad52195ac9b6edfe649667413" => :el_capitan
+    sha256 "7ab5c434641a00420289e0d2c6a39fbccbb298d98877d2b702a5468c84abf2db" => :high_sierra
+    sha256 "9b86bb6f7a27f596aa05cb44b2f9be3ab23dc9b56eb1b9e466ba6c745ca90091" => :sierra
+    sha256 "312f595af21ab47389ece35ef6e6044a58cbb27519db54267b07cf1fc7cc406b" => :el_capitan
   end
 
   depends_on "python@2"
@@ -54,8 +54,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/04/69/25fb4c68ae8093cf7698cec37dbbfdd3f6161ccd94a407aea0c6c1d8ce29/pbr-4.1.0.tar.gz"
-    sha256 "e0f23b61ec42473723b2fec2f33fb12558ff221ee551962f01dd4de9053c2055"
+    url "https://files.pythonhosted.org/packages/c8/c3/935b102539529ea9e6dcf3e8b899583095a018b09f29855ab754a2012513/pbr-4.2.0.tar.gz"
+    sha256 "1b8be50d938c9bb75d0eaf7eda111eec1bf6dc88a62a6412e33bf077457e0f45"
   end
 
   resource "python-jenkins" do
@@ -79,8 +79,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/ba/40/92295187c3157c109fde84eb2d4002c2bb3ab5a9c1df09f7fd96e6dfd5c9/stevedore-1.28.0.tar.gz"
-    sha256 "f1c7518e7b160336040fee272174f1f7b29a46febb3632502a8f2055f973d60b"
+    url "https://files.pythonhosted.org/packages/61/c9/1d10fc4ffd9657caea9e3f0428cad6e0eefed9dfea11435f97ab34c1927f/stevedore-1.29.0.tar.gz"
+    sha256 "1e153545aca7a6a49d8337acca4f41c212fbfa60bf864ecd056df0cafb9627e8"
   end
 
   resource "urllib3" do

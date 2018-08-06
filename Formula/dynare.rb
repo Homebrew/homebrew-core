@@ -1,14 +1,13 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
-  url "https://www.dynare.org/release/source/dynare-4.5.5.tar.xz"
-  sha256 "9e2f604aa7a722cbcc6a4150af0b7fb78874490cf0b4868b2a410193ae1e3727"
-  revision 1
+  url "https://www.dynare.org/release/source/dynare-4.5.6.tar.xz"
+  sha256 "a4ff0ee5892a044d169ead2778e96fefcf617535fab28d25b977d8d008c7fe87"
 
   bottle do
-    sha256 "efbdb7ef31ff4470593294f0bb04188c2adc9fbf3e83c068146610eab8118a07" => :high_sierra
-    sha256 "8039dfd3518f0610fcce60859da27f5b60b46a2d7c203185aed25f7e42006d3a" => :sierra
-    sha256 "9cf193a8cd86ecd6c8afd4440f64482fb8399dac81c107d59013d7a6d414b8cb" => :el_capitan
+    sha256 "a3a46e0dd6d811f510c275b84e0d42324cc661482fea9ec485df327224344301" => :high_sierra
+    sha256 "d1fea9df7018a686ebb088e7e2c9572d3774c792121069237800e2be3f774eb1" => :sierra
+    sha256 "42a668b2f4ec04dcb33985af6bd58238e6c1c06833640c9969a1236353e1102b" => :el_capitan
   end
 
   head do

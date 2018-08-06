@@ -1,6 +1,6 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
-  homepage "http://www.infradead.org/openconnect.html"
+  homepage "https://www.infradead.org/openconnect/"
   url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz"
   sha256 "1c44ec1f37a6a025d1ca726b9555649417f1d31a46f747922b84099ace628a03"
   revision 1

@@ -1,15 +1,14 @@
 class Pazpar2 < Formula
   desc "Metasearching middleware webservice"
   homepage "https://www.indexdata.com/pazpar2"
-  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.13.0.tar.gz"
-  sha256 "06adfbb0e215ae37bdbf7ddc173ba619359213c893d059e7a2203e91ac877f45"
-  revision 4
+  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.13.1.tar.gz"
+  sha256 "d3cdeff52914a82c4d815e4570f6aab0e14586754377b5d2b9cffdcbcb1ccc29"
 
   bottle do
     cellar :any
-    sha256 "a757c82fe5cb1b6e0b2e42608d0222d99899bc9dde01ddd29af687c6cc7e97a1" => :high_sierra
-    sha256 "83a327732668b5e2fbdb05c7a8341edd53d607594cf1ca23db7ab187114e2c18" => :sierra
-    sha256 "d9af4c53fb66ba2ea5b0fc438772561a56a599becb3882c0dcd205928bfc32d7" => :el_capitan
+    sha256 "8116479eacfc5e7d9d463a98b0bbef1eca4f89b878a9ffd8ef37a02b149f68f8" => :high_sierra
+    sha256 "234f0ac36ece60e82c0fd808df4aba614222c231db5181014e8a4e694456809c" => :sierra
+    sha256 "2e691d6a0a7f5bf18c69d6eb624af3e4c7166b4197ce9918c02d6a12686316e3" => :el_capitan
   end
 
   head do

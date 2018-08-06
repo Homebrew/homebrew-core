@@ -1,14 +1,14 @@
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
-  url "https://github.com/gokcehan/lf/archive/r6.tar.gz"
-  sha256 "43298a4e391d97643ace9bcb96429a63f9b7a8d321da4b4d36151998abc5cd03"
+  url "https://github.com/gokcehan/lf/archive/r7.tar.gz"
+  sha256 "53cdfac3dc6e8794b1a979ca7f53dda2a3b049ace3892938a2c20ed393bf27dd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fff48b734877b86947a30288cc0caecf840ae74ebda3d6ed723a0577a79219c2" => :high_sierra
-    sha256 "23ee5f5ee1897e086c4af696b6cb43f619c39f78c89b976363c6409f96bbfe42" => :sierra
-    sha256 "9223b0cb384af3ca6df7897d48903b7bf51919ebee573d4c95c8ed6d1f288405" => :el_capitan
+    sha256 "10075f60b348ba17a6e4abe63ed4c9a59b9ec3d0d7b0fe241584b8e5673ff91a" => :high_sierra
+    sha256 "51263ccfdd0fadb1093bc89719bb55e2b7d1ed56dc4a667d21ea4c8c35e3ac25" => :sierra
+    sha256 "c28796e95d3bf98239bae162cd01ea0ea75dd1b090db1301506ba64b58c767b1" => :el_capitan
   end
 
   depends_on "dep" => :build

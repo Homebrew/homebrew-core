@@ -1,15 +1,14 @@
 class XmlSecurityC < Formula
   desc "Implementation of primary security standards for XML"
   homepage "https://santuario.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/santuario/c-library/xml-security-c-1.7.3.tar.gz"
-  sha256 "e5226e7319d44f6fd9147a13fb853f5c711b9e75bf60ec273a0ef8a190592583"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=/santuario/c-library/xml-security-c-2.0.1.tar.bz2"
+  sha256 "e7e9ccb8fd9d67eb1b981b191c724112f0b45f5b601f5fcc64708ebd6906e791"
 
   bottle do
     cellar :any
-    sha256 "61e946e23456e4572fa15865bc8d113a8941a5831b9c1572d7ec871fff603098" => :high_sierra
-    sha256 "9c6fbd5beba054bfa6c023133f27efb2a5441bd7facc05682101045d96e78b21" => :sierra
-    sha256 "c0ae50ab8c6dff34a904a2419ac386f6da960d64b3ba745c0244cbfbd75bd1bc" => :el_capitan
+    sha256 "0abac2dae270972195b05a448fbdbda33715debbc6d4dbc8f13635fe677abce2" => :high_sierra
+    sha256 "775625bac9adfbfc9112f82f70e716c4d8053354ac62de4bde39416ff4bf7a7a" => :sierra
+    sha256 "a1b7250c76b65481fdb7d4f368ade7111ec495dde8c77b3739887c7d17415303" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -17,12 +16,6 @@ class XmlSecurityC < Formula
   depends_on "openssl"
 
   needs :cxx11
-
-  # See https://issues.apache.org/jira/browse/SANTUARIO-471
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xml-security-c/c%2B%2B11.patch"
-    sha256 "b8ced4b8b7977d7af0d13972e1a0c6623cbc29804ec9fea1eb588f0869503b1c"
-  end
 
   def install
     ENV.cxx11
@@ -33,6 +26,6 @@ class XmlSecurityC < Formula
   end
 
   test do
-    assert_match /All tests passed/, pipe_output("#{bin}/xtest 2>&1")
+    assert_match /All tests passed/, pipe_output("#{bin}/xsec-xtest 2>&1")
   end
 end

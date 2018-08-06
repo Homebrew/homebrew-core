@@ -1,14 +1,14 @@
 class Opensaml < Formula
   desc "Library for Security Assertion Markup Language"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
-  url "https://shibboleth.net/downloads/c++-opensaml/2.6.1/opensaml-2.6.1.tar.bz2"
-  sha256 "69516b165858d381fcf1d8ce809c101246824d383aa635a3676648c88b242a83"
+  url "https://shibboleth.net/downloads/c++-opensaml/3.0.0/opensaml-3.0.0.tar.bz2"
+  sha256 "a9cb72e41cc9d1af08a3d7c7843410eb41d4e97d88d516db7f0e2da1243e296e"
 
   bottle do
     cellar :any
-    sha256 "465fc254c7398254be2853488c53ca06c490dda783bbfc3041a5031a3e0507c4" => :high_sierra
-    sha256 "dc7242ca3ea9c197b99c2a1f9ef1fe4a752a8d170656e045c524b87d48bce9c2" => :sierra
-    sha256 "db4e0d6d46638982c5fb0c90cbd9aba13696761533c025c7852c4b4dbf5bc567" => :el_capitan
+    sha256 "a243122e77ac69b74e01e69201b8bcaab5499b9b6859bfa11f7dd5e6e5bd5da9" => :high_sierra
+    sha256 "5287589b2ee6abc84823ea9e39fff2352b790876df6a4cea1251358926738476" => :sierra
+    sha256 "2134b9b9be0a181807065f905a874639d2fb780e50628cb6c365e889e65faf32" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

@@ -1,14 +1,13 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.5.0.tar.gz"
-  sha256 "b4c7f4d800ae5696e6ada04bd91b299f4a5e4ff9e8e07deeed79c6923747e274"
-  revision 2
+  url "https://github.com/dartsim/dart/archive/v6.6.0.tar.gz"
+  sha256 "c0146f7da1b3367c1e2178f45e42bfed553a26cf085db815cb7ef96032bdac1f"
 
   bottle do
-    sha256 "b7c4adad128053abce97c8ec8ad1fc1ad0e714a1118944e86054fc9707a660b8" => :high_sierra
-    sha256 "c67e4b67b2a88a66d8375527810c6d781e79d2a166b3ce382da10bf066141b3f" => :sierra
-    sha256 "26e1308e9698626497b131d3a45ef441f7d8ce90d4f036a8904fddf43364e02b" => :el_capitan
+    sha256 "f9aa024aced5c0bca16258e71579c11fefc790e0d93f7b043e190e5467b7de25" => :high_sierra
+    sha256 "967cc95e91c762211e4935dd43d4c836801c839684f78e2659f41d85c53ab9ca" => :sierra
+    sha256 "2e604afcf67d1c59f7e56fa25680f887468579a2efb54715a00be63e60a1c6ac" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -19,7 +18,6 @@ class Dartsim < Formula
   depends_on "eigen"
   depends_on "fcl"
   depends_on "flann"
-  depends_on "freeglut"
   depends_on "libccd"
   depends_on "nlopt"
   depends_on "ode"
@@ -31,7 +29,10 @@ class Dartsim < Formula
 
   def install
     ENV.cxx11
-    system "cmake", ".", *std_cmake_args
+
+    # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
+    system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
+                         *std_cmake_args
     system "make", "install"
 
     # Avoid revision bumps whenever fcl's or libccd's Cellar paths change

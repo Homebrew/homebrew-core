@@ -1,8 +1,7 @@
 class Pwsafe < Formula
   desc "Generate passwords and manage encrypted password databases"
-  homepage "http://nsd.dyndns.org/pwsafe/"
-  url "http://nsd.dyndns.org/pwsafe/releases/pwsafe-0.2.0.tar.gz"
-  mirror "https://src.fedoraproject.org/repo/pkgs/pwsafe/pwsafe-0.2.0.tar.gz/4bb36538a2772ecbf1a542bc7d4746c0/pwsafe-0.2.0.tar.gz"
+  homepage "https://github.com/nsd20463/pwsafe"
+  url "https://src.fedoraproject.org/repo/pkgs/pwsafe/pwsafe-0.2.0.tar.gz/4bb36538a2772ecbf1a542bc7d4746c0/pwsafe-0.2.0.tar.gz"
   sha256 "61e91dc5114fe014a49afabd574eda5ff49b36c81a6d492c03fcb10ba6af47b7"
   revision 2
 
@@ -19,8 +18,7 @@ class Pwsafe < Formula
 
   # A password database for testing is provided upstream. How nice!
   resource "test-pwsafe-db" do
-    url "http://nsd.dyndns.org/pwsafe/test.dat"
-    mirror "https://raw.githubusercontent.com/nsd20463/pwsafe/208de3a94339df36b6e9cd8aeb7e0be0a67fd3d7/test.dat"
+    url "https://raw.githubusercontent.com/nsd20463/pwsafe/208de3a94339df36b6e9cd8aeb7e0be0a67fd3d7/test.dat"
     sha256 "7ecff955871e6e58e55e0794d21dfdea44a962ff5925c2cd0683875667fbcc79"
   end
 

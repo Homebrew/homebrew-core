@@ -1,25 +1,15 @@
 class Wireshark < Formula
   desc "Graphical network analyzer and capture tool"
   homepage "https://www.wireshark.org"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-2.6.2.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.6.2.tar.xz"
+  sha256 "49b2895ee3ba17ef9ef0aebfdc4d32a778e0f36ccadde184516557d5f3357094"
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
-  stable do
-    url "https://www.wireshark.org/download/src/all-versions/wireshark-2.6.1.tar.xz"
-    mirror "https://1.eu.dl.wireshark.org/src/wireshark-2.6.1.tar.xz"
-    sha256 "ab6e5bbc3464c956347b8671ce8397950ad5daff3bf9964c967d495f4ddbcd88"
-
-    # Fix header includes for Qt 5.11.
-    # TODO: Committed upstream, remove on next .z release.
-    patch do
-      url "https://github.com/wireshark/wireshark/commit/b8e8aa87f43c12ad564426b3359f593305cd45a1.patch?full_index=1"
-      sha256 "39ff775cabc2cc31d8c2152b78a0b05a0a7686fd3b5dd0807d359493c3681c9a"
-    end
-  end
-
   bottle do
-    sha256 "0b3c8f3dec1fb90c9704d7009adcb09281491583eb92fc3f38e1210d6ef895b0" => :high_sierra
-    sha256 "ec69fa058d4d165234182069940a20f8b6b9a08898818854eec88c4890ca69e3" => :sierra
-    sha256 "cbd0649938676719180cf30b2c8932e7d49f400e302978a5e8719a33b37d0502" => :el_capitan
+    sha256 "a0e08a86c763b6d102b09a4bcef154b4959e13e38f978132fd5f0d28b0c1282c" => :high_sierra
+    sha256 "28ed5d2ad2b272d17dd104f0a58dbfb63b37a91438b70f631a9cec398d3f1626" => :sierra
+    sha256 "1b2cea3e894914ee3b853eb9d082720d988182c862c0c9b6514b7fc8685e7dda" => :el_capitan
   end
 
   deprecated_option "with-qt5" => "with-qt"

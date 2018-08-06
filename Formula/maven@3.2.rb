@@ -5,15 +5,11 @@ class MavenAT32 < Formula
   mirror "https://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz"
   sha256 "8c190264bdf591ff9f1268dc0ad940a2726f9e958e367716a09b8aaa7e74a755"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "1168aa8865a130bd89fa502a88397aee160cf864c526ab86d089e8676edc387a" => :high_sierra
-    sha256 "a29e76e46f1ba51fca6a76e3895ac347824a0c37fca5854d9a1aa2831f0e0510" => :sierra
-    sha256 "963e0b933d75dfb2fb4189da9ff20796bbab4dc8f1318ecc7964dc99fab9e9df" => :el_capitan
-    sha256 "963e0b933d75dfb2fb4189da9ff20796bbab4dc8f1318ecc7964dc99fab9e9df" => :yosemite
-  end
+  bottle :unneeded
 
-  depends_on :java
+  keg_only :versioned_formula
+
+  depends_on :java => "1.7+"
 
   def install
     # Remove windows files

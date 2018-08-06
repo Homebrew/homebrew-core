@@ -1,14 +1,13 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.28/file-roller-3.28.0.tar.xz"
-  sha256 "c17139b46dd4c566ae70a7e3cb930b16e46597c7f9931757fcab900e5015f696"
-  revision 1
+  url "https://download.gnome.org/sources/file-roller/3.28/file-roller-3.28.1.tar.xz"
+  sha256 "574b084eaac142357f54419f8406b029038059845eb16b05eb8e314d2b5dc227"
 
   bottle do
-    sha256 "d7abde518cde71c0560862adee45af2d50ba7680f706969bd4336342a7348d8e" => :high_sierra
-    sha256 "837a8976176c65b2746324224cc839aa1d06e4acc5b33a1ea182569feaa589ea" => :sierra
-    sha256 "0b2ffcb564df4f03c429f8b8c0f7f19afe7e0e8f73a706471005fdff98a25dee" => :el_capitan
+    sha256 "dc131fb4a57b17de6f6d6541d2c0376b363be969492ee294545180d5e3e304d1" => :high_sierra
+    sha256 "b6e43d46515f1a99c6d483e5ead0cce4759eebdd8b43c9fb104dd8b2067ad5d1" => :sierra
+    sha256 "8b8025260e526e13c853a6fd0dfe37b9fda89ed3ef4943f0fa0b7b4925826bd4" => :el_capitan
   end
 
   depends_on "meson" => :build

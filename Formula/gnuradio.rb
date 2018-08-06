@@ -1,14 +1,14 @@
 class Gnuradio < Formula
   desc "SDK providing the signal processing runtime and processing blocks"
   homepage "https://gnuradio.org/"
-  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.3.tar.gz"
-  sha256 "1e07ce40fa3c3eede1fb54e320dad8a221a3c01de341e9cef2d7b265ed06a6e9"
+  url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
+  sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "edac401c118a1270555af4e814c577ecede9c08a2c7d1d03a15133d6f95ed659" => :high_sierra
-    sha256 "983e14b04e0c10e4390e2d741da88be0f78699ecf72870c436078be85a382eeb" => :sierra
-    sha256 "8abf350ee530f8e18ae57dcc6a5dd3f7280e8120f1efefd087fc39397eb605d0" => :el_capitan
+    sha256 "bd03698a2b1a89f865eceb8d22eb335ec0b80cc5afb6a03c4c96f71560390e6c" => :high_sierra
+    sha256 "8967e3a4fb54a2f0a191d42fefa74066ffc3384290792c325b5d6ce72e1819d5" => :sierra
+    sha256 "dc19d373b871c7cf3325e5ff041a5a46aa3fe75cee2c8efa36b33b70bb492b73" => :el_capitan
   end
 
   option "without-python@2", "Build without python support"
@@ -52,8 +52,8 @@ class Gnuradio < Formula
   # cheetah ends here
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e8/5d/98f56e274bdf17f2e0d9016d1788ca80d26d8987dcd5e1d9416d86ee0625/lxml-4.2.1.tar.gz"
-    sha256 "e2629cdbcad82b83922a3488937632a4983ecc0fed3e5cfbf430d069382eeb9b"
+    url "https://files.pythonhosted.org/packages/54/a6/43be8cf1cc23e3fa208cab04ba2f9c3b7af0233aab32af6b5089122b44cd/lxml-4.2.3.tar.gz"
+    sha256 "622f7e40faef13d232fb52003661f2764ce6cdef3edb0a59af7c1559e4cc36d1"
   end
 
   resource "MarkupSafe" do
