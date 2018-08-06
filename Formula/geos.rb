@@ -1,8 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "https://download.osgeo.org/geos/geos-3.6.2.tar.bz2"
-  sha256 "045a13df84d605a866602f6020fc6cbf8bf4c42fb50de237a08926e1d7d7652a"
+  url "https://download.osgeo.org/geos/geos-3.6.3.tar.bz2"
+  sha256 "ab9eaa0a67f7068866ac1e4dbf717b0c49f96254d65e9ce23ed7af1cccbe3e4b"
 
   bottle do
     cellar :any
