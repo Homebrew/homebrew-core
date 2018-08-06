@@ -49,10 +49,8 @@ class Fontconfig < Formula
       ~/Library/Fonts
     ]
 
-    if MacOS.version == :sierra
-      font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font3"
-    elsif MacOS.version >= :high_sierra
-      font_dirs << "/System/Library/Assets/com_apple_MobileAsset_Font4"
+    if MacOS.version >= :sierra
+      font_dirs << Dir["/System/Library/Assets/com_apple_MobileAsset_Font*"].max
     end
 
     system "autoreconf", "-iv" if build.head?
