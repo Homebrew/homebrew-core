@@ -1,8 +1,8 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v0.17.0.tar.gz"
-  sha256 "94f74fd1b3344733d1db3de2ec22e6cbeb769f93a8baa0d4a22b1f62dc7369f8"
+  url "https://github.com/gabime/spdlog/archive/v1.0.0.tar.gz"
+  sha256 "90d5365121bcd2c41ce94dfe6a460e89507a2dfef6133fe5fad5bb35ac4ef0a1"
   head "https://github.com/gabime/spdlog.git"
 
   bottle do
