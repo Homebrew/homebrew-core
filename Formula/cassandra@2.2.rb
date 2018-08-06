@@ -5,7 +5,7 @@ class CassandraAT22 < Formula
   mirror "https://archive.apache.org/dist/cassandra/2.2.11/apache-cassandra-2.2.11-bin.tar.gz"
   sha256 "866e1acd88e6e2ec0c3d201bea4c3e4494c5f6189dd810366ec9b6154bad6964"
 
-  bottle :unneeded
+  keg_only :versioned_formula
 
   depends_on "cython" => :build
   depends_on "python@2"
