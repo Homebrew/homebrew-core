@@ -1,9 +1,8 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.61.tar.gz"
-  sha256 "b8e19743cd499436dce58af67479997e621fe50e21e31f08f440d2303e11f5d6"
-  revision 1
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.62.tar.gz"
+  sha256 "b219270310255493c881a09bb4a5569f34a72cdaf3c3be920c1036a2450317ce"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
@@ -28,8 +27,8 @@ class Corsixth < Formula
   end
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/v_1_6_3.tar.gz"
-    sha256 "5525d2b8ec7774865629a6a29c2f94cb0f7e6787987bf54cd37e011bfb642068"
+    url "https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz"
+    sha256 "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
   end
 
   def install
