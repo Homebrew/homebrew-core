@@ -3,6 +3,7 @@ class Creduce < Formula
   homepage "https://embed.cs.utah.edu/creduce/"
   url "https://embed.cs.utah.edu/creduce/creduce-2.8.0.tar.gz"
   sha256 "77f622453a7fc52aa061a89aed457f23ab538b12270df0a2a79b6957fd381def"
+  revision 1
   head "https://github.com/csmith-project/creduce.git"
 
   bottle do
@@ -13,6 +14,7 @@ class Creduce < Formula
   end
 
   depends_on "astyle"
+  depends_on "clang-format"
   depends_on "delta"
   depends_on "llvm"
 
