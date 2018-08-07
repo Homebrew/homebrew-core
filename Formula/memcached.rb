@@ -30,6 +30,12 @@ class Memcached < Formula
     system "make", "install"
   end
 
+  def caveats; <<~EOS
+    The configuration file is here:
+      #{plist_path}
+  EOS
+  end
+
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/memcached/bin/memcached"
 
   def plist; <<~EOS
