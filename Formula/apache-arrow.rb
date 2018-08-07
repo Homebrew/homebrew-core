@@ -16,14 +16,31 @@ class ApacheArrow < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "jemalloc"
+  depends_on "python" => :optional
+  depends_on "python@2" => :optional
 
   needs :cxx11
 
+  # Arrow build error with the latest clang-10 https://github.com/apache/arrow/issues/2105
+  # Will be fixed in next release.
+  patch do
+    url "https://github.com/apache/arrow/pull/2106.patch?full_index=1"
+    sha256 "545a733304e1f9e62b70b6e9c8dc9cae5b33f7b9c32e1df8d47a375d66296ae6"
+  end
+
   def install
     ENV.cxx11
+    args = []
+
+    if build.with?("python") && build.with?("python@2")
+      odie "Cannot provide both --with-python and --with-python@2"
+    end
+    Language::Python.each_python(build) do |python, _version|
+      args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{which python}"
+    end
 
     cd "cpp" do
-      system "cmake", ".", *std_cmake_args
+      system "cmake", ".", *std_cmake_args, *args
       system "make", "unittest"
       system "make", "install"
     end

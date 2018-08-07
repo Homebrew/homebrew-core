@@ -1,14 +1,14 @@
 class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
-  url "https://mafft.cbrc.jp/alignment/software/mafft-7.402-with-extensions-src.tgz"
-  sha256 "79d794636bdb7962b8aa7023aa9f01b3fc7bbbee333b544947f86451515d8ac3"
+  url "https://mafft.cbrc.jp/alignment/software/mafft-7.407-with-extensions-src.tgz"
+  sha256 "1840b51a0b93f40b4d6076af996ee46396428d8dbaf7ba1d847abff9cb1463e5"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ff0119ff36cfdc7b40fad648d5f417a1ec59d50748bf21e18ee3a11dd37d4bf8" => :high_sierra
-    sha256 "9ca6bfbdb2d1d95077e2963763f25c8e1e68147f88576eb3328176f31e047223" => :sierra
-    sha256 "a5995ed3fff7986d3ee00401f81db8a9ae0412a75a4a457b459911c0fa64f831" => :el_capitan
+    sha256 "b9d448733821c30381607630d773547758b378697760b448cd177d3d19e7e9e2" => :high_sierra
+    sha256 "29fcbb6f12a136d0638c00726813706491f6822f6f6bf1f73bd178198cbd7558" => :sierra
+    sha256 "8a3bcbc305bf8d1c5aebe9e98e972c1050cbf10cc39669e0b33098045eab3557" => :el_capitan
   end
 
   depends_on :macos => :lion

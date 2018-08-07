@@ -1,16 +1,14 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.61.tar.gz"
-  sha256 "b8e19743cd499436dce58af67479997e621fe50e21e31f08f440d2303e11f5d6"
-  revision 1
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.62.tar.gz"
+  sha256 "b219270310255493c881a09bb4a5569f34a72cdaf3c3be920c1036a2450317ce"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
-    cellar :any
-    sha256 "f6fff1b9d33191fb30fc3b6ddd02b5690a1f23d1f0c80ab5e495c0b3ac8a05a2" => :high_sierra
-    sha256 "8c3fcdadd2f5aa7e23e72d516ca41bb23fcf148d7480243531eb4fd2a92cff94" => :sierra
-    sha256 "1b22606a88b9d76e6fa41d4892bc40ec8553740a9b5467fb5be17b1871376dbd" => :el_capitan
+    sha256 "1fc4ddc6726b87f9c390068aea8e50d9edb077d5f332ca0c873b3ca1237e7fcb" => :high_sierra
+    sha256 "de102648ce1e10ca2de0dde2755ee995d68a677d91501db471d575de5e3318b7" => :sierra
+    sha256 "574549efed705584e927187deb7fc44db7c40ff44b80b6239a5f175299ce56f4" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -28,8 +26,8 @@ class Corsixth < Formula
   end
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/v_1_6_3.tar.gz"
-    sha256 "5525d2b8ec7774865629a6a29c2f94cb0f7e6787987bf54cd37e011bfb642068"
+    url "https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz"
+    sha256 "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
   end
 
   def install
