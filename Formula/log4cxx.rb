@@ -3,7 +3,7 @@ class Log4cxx < Formula
   homepage "https://logging.apache.org/log4cxx/index.html"
   url "https://www.apache.org/dyn/closer.cgi?path=logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz"
   sha256 "0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -31,6 +31,13 @@ class Log4cxx < Formula
   patch :p0 do
     url "https://gist.githubusercontent.com/cawka/b4a79f6b883c46ac1672/raw/4188731bd771a961a91fcfbe561f3999b555b9c3/LOG4CXX-417---r1556413.patch"
     sha256 "eca194ec349b4925d0ad53d2b67c18b6a1aa7a979e7bd8729cfd1ed1ef4994c7"
+  end
+
+  # https://issues.apache.org/jira/browse/LOGCXX-394
+  # https://github.com/apache/logging-log4cxx/commit/a522f99209a63fedc852b31d133b2b30918fc3ed
+  patch :p1 do
+    url "https://gist.githubusercontent.com/kekkokk/dde9192bec36c94005b1a1b14f74e341/raw/84c8718c56f918f1df6dde7f78d3617679a93e46/LOG4CXX-394.patch"
+    sha256 "6fc7386470f335f14250ebb8ce962d68c77e9e6eccca8bcc6fec78cbed0ec42d"
   end
 
   # https://issues.apache.org/jira/browse/LOGCXX-400 (reported)
