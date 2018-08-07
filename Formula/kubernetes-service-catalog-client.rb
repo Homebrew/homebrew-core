@@ -5,6 +5,13 @@ class KubernetesServiceCatalogClient < Formula
       :tag => "v0.1.28",
       :revision => "0aaf02aba556b945a357fce4e82f62122d158f2a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "248125a777509f0c94f9825d2b22ea0f8f756507ce598acedfecded19d165f7a" => :high_sierra
+    sha256 "130114ff4eb4007d2d4a8399a23867e61b749e714357db30cc66cc4bfa85b3d4" => :sierra
+    sha256 "280d41bc66799984f7082c4b8a911235d069beec2b39991ec5fd712284238100" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
