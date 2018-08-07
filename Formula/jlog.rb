@@ -1,8 +1,8 @@
 class Jlog < Formula
   desc "Pure C message queue with subscribers and publishers for logs"
   homepage "https://labs.omniti.com/labs/jlog"
-  url "https://github.com/omniti-labs/jlog/archive/2.3.1.tar.gz"
-  sha256 "fadf34614bcf33415af516f08e2f0e9889e7bae0a493be33ac934d85143af376"
+  url "https://github.com/omniti-labs/jlog/archive/2.3.1.1.tar.gz"
+  sha256 "6f66452e3310228280a78cc22b92b6ecaf590741223635d146895ceb15b20dce"
   head "https://github.com/omniti-labs/jlog.git"
 
   bottle do
