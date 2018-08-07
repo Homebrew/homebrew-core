@@ -2,7 +2,7 @@ require "language/node"
 
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular applications"
-  homepage "https://jhipster.github.io/"
+  homepage "https://www.jhipster.tech/"
   url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-5.1.0.tgz"
   sha256 "c35886b708e03f85dccd505d4c974c47b4958f49358a086dc038cf21695d50bc"
 
