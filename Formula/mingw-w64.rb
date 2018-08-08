@@ -3,6 +3,7 @@ class MingwW64 < Formula
   homepage "https://mingw-w64.org/"
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.4.tar.bz2"
   sha256 "5527e1f6496841e2bb72f97a184fc79affdcd37972eaa9ebf7a5fd05c31ff803"
+  revision 1
 
   bottle do
     sha256 "8e771aba7e63de9862159c3f93c2056e261b5b10fa7b7627d741fcab87f0348f" => :high_sierra
@@ -10,26 +11,30 @@ class MingwW64 < Formula
     sha256 "72afbecb32b3ffacf0ffd441a326329cd2cefbcd2e9664504330e66775dabdb1" => :el_capitan
   end
 
-  option "with-posix", "Compile with posix thread model"
+  option "without-posix", "Compile without posix thread model support"
 
   depends_on "gmp"
-  depends_on "mpfr"
-  depends_on "libmpc"
   depends_on "isl"
+  depends_on "libmpc"
+  depends_on "mpfr"
 
   # Apple's makeinfo is old and has bugs
   depends_on "texinfo" => :build
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.30.tar.gz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.30.tar.gz"
-    sha256 "8c3850195d1c093d290a716e20ebcaa72eda32abf5e3d8611154b39cff79e9ea"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.1.tar.gz"
+    sha256 "e88f8d36bd0a75d3765a4ad088d819e35f8d7ac6288049780e2fefcad18dde88"
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.1.0/gcc-8.1.0.tar.xz"
-    sha256 "1d1866f992626e61349a1ccd0b8d5253816222cdc13390dcfaa74b093aa2b153"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
+
+    # isl 0.20 compatibility, remove in next GCC version
+    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+    patch :DATA
   end
 
   def target_archs
@@ -175,3 +180,17 @@ class MingwW64 < Formula
     end
   end
 end
+
+__END__
+diff --git a/gcc/graphite.h b/gcc/graphite.h
+index 4e0e58c..be0a22b 100644
+--- a/gcc/graphite.h
++++ b/gcc/graphite.h
+@@ -37,6 +37,8 @@ along with GCC; see the file COPYING3.  If not see
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
+ #include <isl/schedule_node.h>
++#include <isl/id.h>
++#include <isl/space.h>
+
+ typedef struct poly_dr *poly_dr_p;
