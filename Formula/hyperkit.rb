@@ -4,8 +4,8 @@ class Hyperkit < Formula
   url "https://github.com/moby/hyperkit/archive/v0.20180403.tar.gz"
   sha256 "e2739b034f20d9437696de48ace42600f55b7213292ec255032b2ef55f508297"
 
-  depends_on "ocaml" => :build
   depends_on "aspcud" => :build
+  depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on :xcode => ["9.0", :build]
 
