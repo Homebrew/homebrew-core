@@ -1,8 +1,8 @@
 class Eccodes < Formula
   desc "Decode and encode messages in the GRIB 1/2 and  BUFR 3/4 formats"
   homepage "https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home"
-  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.8.0-Source.tar.gz"
-  sha256 "e0ba24c27cdd8133670fa3ea32be951d54030f2b880cacc9a9d87d9dbf372e1b"
+  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.8.2-Source.tar.gz"
+  sha256 "36e6e73d654027b31c323b0eddd15e4d1f011ad81e79e9c71146ba96293d712a"
 
   bottle do
     sha256 "cd97957bebc77e3ef8b03398570640369804b0ea2caa8ee5a6e2b4bf18b88f01" => :high_sierra
