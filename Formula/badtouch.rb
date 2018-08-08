@@ -4,6 +4,12 @@ class Badtouch < Formula
   url "https://github.com/kpcyrd/badtouch/archive/v0.6.1.tar.gz"
   sha256 "62181ac05a68a552e1984dd42206f6a5ca195e51addc48cbfdf55a60afc7c3ae"
 
+  bottle do
+    sha256 "4965a902bbe8a22452039b145d5937f785fdac750674dc3c44ada3ca822c4aa4" => :high_sierra
+    sha256 "0d24c83275c2988cb09befda551377ee9b803fffdfca094bb4649dbdc2624899" => :sierra
+    sha256 "f579fb45cbfd1ee3908f5afd25c91c017d68ab380a8d2d36dc125fcd5031b293" => :el_capitan
+  end
+
   depends_on "rust" => :build
   depends_on "openssl"
 
