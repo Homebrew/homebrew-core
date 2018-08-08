@@ -6,6 +6,13 @@ class Black < Formula
   url "https://files.pythonhosted.org/packages/2d/43/64205493cfb4c8e1720208d73502a121ace2a195cd4d1d49bd7470e4fd92/black-18.6b4.tar.gz"
   sha256 "22158b89c1a6b4eb333a1e65e791a3f8b998cf3b11ae094adb2570f31f769a44"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "759cb37625946fd94f5c8adb9134b4d96f6e93c4d8503eb47cf18e948d4a1281" => :high_sierra
+    sha256 "72eec6847ef869a472ee07ace9a4a5d90a570fc37f8c87b59c6d3ee267eb42b6" => :sierra
+    sha256 "ab475a413e817787eea8d7119fdbb34463ab210d08249574e3a863f2bd3a0c5b" => :el_capitan
+  end
+
   depends_on "python"
 
   resource "appdirs" do
