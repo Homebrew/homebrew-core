@@ -79,6 +79,58 @@ class Llvm < Formula
     sha256 "cdfb1c08bf5a0862c51edf302b6edba29eff09414bb8ac35093b7d74863a7cfb" => :el_capitan
   end
 
+  devel do
+    url "http://prereleases.llvm.org/7.0.0/rc1/llvm-7.0.0rc1.src.tar.xz"
+    sha256 "5c5179b225ba76b475407570bd000e4dfa2d4b4508ec465b19cc4d0fa289eb1c"
+
+    resource "clang" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/cfe-7.0.0rc1.src.tar.xz"
+      sha256 "f9fc73a797af82ba2815a785188f07ae81322caafeebc4da01cc8a298d4a41f2"
+    end
+
+    resource "clang-extra-tools" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/clang-tools-extra-7.0.0rc1.src.tar.xz"
+      sha256 "e04f3ac9e9ce1299de8c2e0da842b2a66ac76bf2a11944274ef5302dffcd259f"
+    end
+
+    resource "compiler-rt" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/compiler-rt-7.0.0rc1.src.tar.xz"
+      sha256 "40974415a26249411c8846c3b4c9debe8ab3b280160b06aa9e7a066852515c69"
+    end
+
+    # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
+    # https://clang.llvm.org/get_started.html
+    resource "libcxx" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/libcxx-7.0.0rc1.src.tar.xz"
+      sha256 "2ce8fb8d86456bdcd61d83611eaaf99c47ce2ec9d2122740714a7d17b6cfbd1e"
+    end
+
+    resource "libunwind" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/libunwind-7.0.0rc1.src.tar.xz"
+      sha256 "537743afa95bbf2b6d2258a5218056c2f7f8f1cea663cede7670af5697b78772"
+    end
+
+    resource "lld" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/lld-7.0.0rc1.src.tar.xz"
+      sha256 "a9472ae984cbbb7624eed396f07c705334a92597fbe74745e2cf0a0594376aa2"
+    end
+
+    resource "lldb" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/lldb-7.0.0rc1.src.tar.xz"
+      sha256 "d92a8aa6cc56ac6379eca29de9fc55339b7ccbc1de0ced73ffcfcebbb101475d"
+    end
+
+    resource "openmp" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/openmp-7.0.0rc1.src.tar.xz"
+      sha256 "bf79df103390010a050f7d3cfb95024afd0abf569305cea12933f9476745f997"
+    end
+
+    resource "polly" do
+      url "http://prereleases.llvm.org/7.0.0/rc1/polly-7.0.0rc1.src.tar.xz"
+      sha256 "32c9ed6543e50d87dc1968b711e5088acec208e6181163b7ef32f1c0d64a1f46"
+    end
+  end
+
   head do
     url "https://llvm.org/git/llvm.git"
 
@@ -316,8 +368,10 @@ class Llvm < Formula
       }
     EOS
 
+    clean_version = version.to_s[/(\d+\.?)+/]
+
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{version}/include",
+                           "-I#{lib}/clang/#{clean_version}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
