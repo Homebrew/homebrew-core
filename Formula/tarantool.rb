@@ -1,9 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.0.61.tar.gz"
-  sha256 "0045aaf8be05e12957f8ad7cd249789ffddb3021d7adaa5d90aef3646bce26d2"
-  revision 1
+  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.1.63.tar.gz"
+  sha256 "2d035e33f1abbdc35fc3ecce2e93e506e52362a9d2474d31b19daa4289445683"
   head "https://github.com/tarantool/tarantool.git", :branch => "2.0", :shallow => false
 
   bottle do
