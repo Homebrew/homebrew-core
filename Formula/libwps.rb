@@ -1,8 +1,8 @@
 class Libwps < Formula
   desc "Library to import files in MS Works format"
   homepage "https://libwps.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.9/libwps-0.4.9.tar.xz"
-  sha256 "13beb0c733bb1544a542b6ab1d9d205f218e9a2202d1d4cac056f79f6db74922"
+  url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.10/libwps-0.4.10.tar.xz"
+  sha256 "1421e034286a9f96d3168a1c54ea570ee7aa008ca07b89de005ad5ce49fb29ca"
 
   bottle do
     cellar :any
