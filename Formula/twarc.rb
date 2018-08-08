@@ -8,9 +8,9 @@ class Twarc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "788453090806759f5308e9bbd4846fa86b5c5a952ae36953adf107302ad35908" => :high_sierra
-    sha256 "e7e283eb224661309d138ebb54a86572d9382d0fc9c8ec2f1b4ac56cff3a8fec" => :sierra
-    sha256 "54abdcab9ff7e5d07fd65aa4bd6c144ef2d9e9666300d45a02e8c8ef393b4efa" => :el_capitan
+    sha256 "0aea1a36d79ca322e23db21734b89004791fd46349116bc335852f51d3e8fb12" => :high_sierra
+    sha256 "54273c2c6e3931455cc8468e4e015b5ade2b20bb60a90cb28ec3ab9b8650ca3d" => :sierra
+    sha256 "90c4c6a4250c4c0c73a08e3b7f1d5d96533ccf5ca03ccba0572fbddce95b362b" => :el_capitan
   end
 
   depends_on "python@2"
