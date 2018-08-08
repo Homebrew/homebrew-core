@@ -4,6 +4,12 @@ class Weaver < Formula
   url "https://github.com/scribd/Weaver/archive/0.10.0.tar.gz"
   sha256 "93dee436fcb13e60d379393da2e7d734c44037d95e97f2917982351446c81c69"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "6dbf501d3f737498d524288aa7b43b92adea16768b79c4deb15ffaafe61fc7a0" => :high_sierra
+    sha256 "9fb37fbc0afb25c1453f7bff075bbe9770b7cedc6672719545e283954ad57787" => :sierra
+  end
+
   depends_on :xcode => ["9.0", :build]
 
   def install
