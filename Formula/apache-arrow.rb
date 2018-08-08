@@ -20,6 +20,14 @@ class ApacheArrow < Formula
 
   needs :cxx11
 
+  # Fix "Invalid character ('{') in a variable name: 'ENV'"
+  # Upstream PR 08 Aug 2018 "[C++] Fix a typo in `FindClangTools.cmake`."
+  # See https://github.com/apache/arrow/pull/2404
+  patch do
+    url "https://github.com/apache/arrow/pull/2404.patch?full_index=1"
+    sha256 "77a03e841186e132b44d8a6212c7ca6934b1b9bd77173f91cff53507b0906f3e"
+  end
+
   def install
     ENV.cxx11
     args = []
