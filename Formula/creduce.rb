@@ -4,6 +4,7 @@ class Creduce < Formula
   url "https://embed.cs.utah.edu/creduce/creduce-2.8.0.tar.gz"
   sha256 "77f622453a7fc52aa061a89aed457f23ab538b12270df0a2a79b6957fd381def"
   head "https://github.com/csmith-project/creduce.git"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,9 +14,9 @@ class Creduce < Formula
   end
 
   depends_on "astyle"
+  depends_on "clang-format"
   depends_on "delta"
   depends_on "llvm"
-  depends_on "clang-format"
 
   depends_on :macos => :mavericks
 
