@@ -7,9 +7,9 @@ class Restic < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b40713df09aaf7bdd279882ded7a4ebdbfe23858c2449e2e22b9b02f73c8257a" => :high_sierra
-    sha256 "38a643ada5131fdc41ad404205c8d7859cf31ec4fda34c1a72325ce3c866b186" => :sierra
-    sha256 "585ccdbe4b1ec107e5e313104e3aa4863b27e4815b26fc862137577958dfbf10" => :el_capitan
+    sha256 "f223541a4d3567fc95f9b44413f7cf9170b396f431b10433a8f7827b854955a3" => :high_sierra
+    sha256 "bf6074d53fe90a37c27c0ca19d63a482c157eada58f047fea0ed3d674b69dd90" => :sierra
+    sha256 "b030816d6f9b924585bedbc014fde1e45748aadb935e3f4eb9bc46802e1dfc32" => :el_capitan
   end
 
   depends_on "go" => :build
