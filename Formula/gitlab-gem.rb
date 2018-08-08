@@ -1,8 +1,8 @@
 class GitlabGem < Formula
   desc "Ruby client and CLI for GitLab API"
   homepage "https://github.com/NARKOZ/gitlab"
-  url "https://github.com/NARKOZ/gitlab/archive/v4.4.0.tar.gz"
-  sha256 "4f560b818007989acfe25adbcf66c2d6ac21cf89c7c9f8d1666493cf38fd03cd"
+  url "https://github.com/NARKOZ/gitlab/archive/v4.5.0.tar.gz"
+  sha256 "d273ea69e35ca0a3bdc795fbb29bb0c1a9b91f875c5ac296d2ab77965a5d616d"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,8 +29,8 @@ class GitlabGem < Formula
   end
 
   resource "unicode-display_width" do
-    url "https://rubygems.org/gems/unicode-display_width-1.3.3.gem"
-    sha256 "38c078f93b1d2998574672913571e265c9346ba747d6e14217980cc39fb6e157"
+    url "https://rubygems.org/gems/unicode-display_width-1.4.0.gem"
+    sha256 "a72802fd6345c0da220e8088b27f1800924b74d222621a06477757769b5e8000"
   end
 
   def install
