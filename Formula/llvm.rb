@@ -168,6 +168,12 @@ class Llvm < Formula
     build.with?("libcxx") || !MacOS::CLT.installed?
   end
 
+  # Clang cannot find system headers if Xcode CLT is not installed
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
+  end
+
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
