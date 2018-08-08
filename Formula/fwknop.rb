@@ -1,9 +1,8 @@
 class Fwknop < Formula
   desc "Single Packet Authorization and Port Knocking"
   homepage "https://www.cipherdyne.org/fwknop/"
-  url "https://github.com/mrash/fwknop/archive/2.6.9.tar.gz"
-  sha256 "0a8de8d3e2073ad08f5834d39def6c33fd035809cfddbea252174e7dc06a5a51"
-  revision 1
+  url "https://github.com/mrash/fwknop/archive/2.6.10.tar.gz"
+  sha256 "a7c465ba84261f32c6468c99d5512f1111e1bf4701477f75b024bf60b3e4d235"
   head "https://github.com/mrash/fwknop.git"
 
   bottle do
