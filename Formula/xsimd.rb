@@ -3,6 +3,7 @@ class Xsimd < Formula
   homepage "https://xsimd.readthedocs.io/en/latest/"
   url "https://github.com/QuantStack/xsimd/archive/6.1.5.tar.gz"
   sha256 "ecc781520f7b2bfdeb51d1385683694f2e89be1a05b77b222b9783cfeb645034"
+
   depends_on "cmake" => :build
 
   def install
