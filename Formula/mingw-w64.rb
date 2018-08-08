@@ -14,9 +14,9 @@ class MingwW64 < Formula
   option "without-posix", "Compile without posix thread model support"
 
   depends_on "gmp"
-  depends_on "mpfr"
-  depends_on "libmpc"
   depends_on "isl"
+  depends_on "libmpc"
+  depends_on "mpfr"
 
   # Apple's makeinfo is old and has bugs
   depends_on "texinfo" => :build
@@ -32,7 +32,7 @@ class MingwW64 < Formula
     mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
     sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
 
-    # isl 0.20 compatibility
+    # isl 0.20 compatibility, remove in next GCC version
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
     patch :DATA
   end
@@ -87,10 +87,10 @@ class MingwW64 < Formula
         --with-isl=#{Formula["isl"].opt_prefix}
         --disable-multilib
       ]
-      if build.without? "posix"
-        args << "--enable-threads=win32"
-      else
+      if build.with? "posix"
         args << "--enable-threads=posix"
+      else
+        args << "--enable-threads=win32"
       end
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
