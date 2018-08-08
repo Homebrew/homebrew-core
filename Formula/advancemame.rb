@@ -1,8 +1,8 @@
 class Advancemame < Formula
   desc "MAME with advanced video support"
   homepage "https://www.advancemame.it/"
-  url "https://github.com/amadvance/advancemame/releases/download/v3.7/advancemame-3.7.tar.gz"
-  sha256 "36c88305dc485e85ff86854b3d8bb75c4c81fa7356f6dbfcbfd6a5e192199b2c"
+  url "https://github.com/amadvance/advancemame/releases/download/v3.8/advancemame-3.8.tar.gz"
+  sha256 "f0a5d20f8d512e3bf54078c85fcab209718c172cf7d795391edaa29612e96015"
 
   bottle do
     sha256 "cebd9f5bdee213f0994527f63a3c8ad6d78cb43e377bdd19978fa2d9e03acd15" => :high_sierra
@@ -10,6 +10,7 @@ class Advancemame < Formula
     sha256 "e5f14218046ce7f164a270378743aefff119d0fc7c69987bfb78fc8d1105ea7b" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "sdl"
   depends_on "freetype"
 
