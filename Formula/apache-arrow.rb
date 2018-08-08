@@ -1,9 +1,8 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.9.0/apache-arrow-0.9.0.tar.gz"
-  sha256 "beb1c684b2f7737f64407a7b19eb7a12061eec8de3b06ef6e8af95d5a30b899a"
-  revision 1
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.10.0/apache-arrow-0.10.0.tar.gz"
+  sha256 "943207a2fcc7ba8de0e50bdb6c6ea4e9ed7f7e7bf55f6b426d7f867f559e842d"
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -20,13 +19,6 @@ class ApacheArrow < Formula
   depends_on "python@2" => :optional
 
   needs :cxx11
-
-  # Arrow build error with the latest clang-10 https://github.com/apache/arrow/issues/2105
-  # Will be fixed in next release.
-  patch do
-    url "https://github.com/apache/arrow/pull/2106.patch?full_index=1"
-    sha256 "545a733304e1f9e62b70b6e9c8dc9cae5b33f7b9c32e1df8d47a375d66296ae6"
-  end
 
   def install
     ENV.cxx11
