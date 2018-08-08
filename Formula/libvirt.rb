@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-4.5.0.tar.xz"
-  sha256 "e7e95edc0ca553046761ed55a8d01a06a3a3a4238bbeaedb3ba34680a277ab09"
+  url "https://libvirt.org/sources/libvirt-4.6.0.tar.xz"
+  sha256 "b4ac6cd1825d89b9bbafff53f6308f1ac292a44d78eee67bebe01973e2574066"
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
@@ -16,7 +16,6 @@ class Libvirt < Formula
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libgcrypt"
-  depends_on "yajl"
 
   if build.head?
     depends_on "autoconf" => :build
@@ -38,7 +37,6 @@ class Libvirt < Formula
       --with-test
       --with-vbox
       --with-vmware
-      --with-yajl
       --without-qemu
     ]
 
