@@ -5,9 +5,9 @@ class Pcapplusplus < Formula
   sha256 "dff6f7c677b2050f880043b125e984238cd8af0f1c25864e09e87fb8d71ec9ab"
 
   def install
-    system "./configure-mac_os_x.sh", "--install-dir", prefix.to_s
+    system "./configure-mac_os_x.sh", "--install-dir", prefix
 
-    # library requires to run 'make all' and 'make install' in two sepearate commands
+    # library requires to run 'make all' and 'make install' in two separate commands
     system "make", "all"
     system "make", "install"
   end
@@ -25,7 +25,7 @@ class Pcapplusplus < Formula
     EOS
 
     (testpath/"Makefile").write <<~EOS
-      include /usr/local/etc/PcapPlusPlus.mk
+      include #{etc}/PcapPlusPlus.mk
       all:
       \tg++ $(PCAPPP_BUILD_FLAGS) $(PCAPPP_INCLUDES) -c -o test.o test.cpp
       \tg++ $(PCAPPP_LIBS_DIR) -o test test.o $(PCAPPP_LIBS)
