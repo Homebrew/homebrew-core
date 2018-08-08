@@ -3,8 +3,8 @@ class Platformio < Formula
 
   desc "Ecosystem for IoT development (Arduino and ARM mbed compatible)"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/79/a5/e12f61cc6769722f3ff11f9f74050ff75665744fcbca5a940383ce692c9e/platformio-3.5.4.tar.gz"
-  sha256 "31fe659624c3b14c7a574c4999e15cf672f5ae974f4ffdf8917b36b71479cc8c"
+  url "https://files.pythonhosted.org/packages/19/ba/7a25560f3c774fb14d4c6d7ec770409bb88ba92dd03af4f8a920c354cc3e/platformio-3.6.0.tar.gz"
+  sha256 "566725f39e3bbe3e5fe3b8257817c186d4802201a3b8f0d8c4d5ea050e720a2a"
 
   bottle do
     cellar :any_skip_relocation
@@ -43,11 +43,6 @@ class Platformio < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
     sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
-  end
-
-  resource "lockfile" do
-    url "https://files.pythonhosted.org/packages/17/47/72cb04a58a35ec495f96984dddb48232b551aafb95bde614605b754fe6f7/lockfile-0.12.2.tar.gz"
-    sha256 "6aed02de03cba24efabcd600b30540140634fc06cfa603822d508d5361e9f799"
   end
 
   resource "pyserial" do
