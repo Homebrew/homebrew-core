@@ -1,8 +1,8 @@
 class Skktools < Formula
   desc "SKK dictionary maintenance tools"
   homepage "http://openlab.jp/skk/index-j.html"
-  url "http://openlab.ring.gr.jp/skk/tools/skktools-1.3.3.tar.gz"
-  sha256 "0b4c17b6ca5c5147e08e89e66d506065bda06e7fdbeee038e85d7a7c4d10216d"
+  url "http://openlab.ring.gr.jp/skk/tools/skktools-1.3.4.tar.gz"
+  sha256 "84cc5d3344362372e0dfe93a84790a193d93730178401a96248961ef161f2168"
 
   bottle do
     cellar :any
@@ -23,5 +23,51 @@ class Skktools < Formula
     system "make", "CC=#{ENV.cc}"
     ENV.deparallelize
     system "make", "install"
+  end
+
+  test do
+    (testpath/"SKK-JISYO.TEST").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+      わるs /悪/
+      わるk /悪/
+      わるi /悪/
+    EOS
+
+    (testpath/"SKK-JISYO.SHUFFLE").write <<~EOS.tap { |s| s.encode("euc-jis-2004") }
+      わるs /悪/
+      わるi /悪/
+      わるk /悪/
+    EOS
+
+    expect_shuffle = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+      ;; okuri-ari entries.
+      わるs /悪/
+      わるk /悪/
+      わるi /悪/
+    EOS
+
+    (testpath/"SKK-JISYO.SPLIT1").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+      わるs /悪/
+      わるk /悪/
+    EOS
+
+    (testpath/"SKK-JISYO.SPLIT2").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+      わるk /悪/
+      わるi /悪/
+    EOS
+
+    (testpath/"SKK-JISYO.SPLIT3").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+      わるi /悪/
+    EOS
+
+    expect_expr = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+      ;; okuri-ari entries.
+      わるs /悪/
+      わるk /悪/
+    EOS
+
+    assert_equal "SKK-JISYO.TEST: 3 candidates", shell_output("#{bin}/skkdic-count SKK-JISYO.TEST").strip
+    assert_equal expect_shuffle, shell_output("cat SKK-JISYO.SHUFFLE | #{bin}/skkdic-sort").strip
+    assert_equal expect_expr, shell_output("#{bin}/skkdic-expr SKK-JISYO.SPLIT1 + SKK-JISYO.SPLIT2 - SKK-JISYO.SPLIT3 | #{bin}/skkdic-sort").strip
+    assert_equal expect_expr, shell_output("#{bin}/skkdic-expr2 SKK-JISYO.SPLIT1 + SKK-JISYO.SPLIT2 - SKK-JISYO.SPLIT3 | #{bin}/skkdic-sort").strip
   end
 end
