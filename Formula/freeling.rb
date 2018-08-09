@@ -29,7 +29,6 @@ class Freeling < Formula
       end
 
       bootstrap_args = %W[
-        --without-icu
         --prefix=#{libexec}/boost
         --libdir=#{libexec}/boost/lib
         --with-icu=#{Formula["icu4c"].opt_prefix}
