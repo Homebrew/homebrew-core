@@ -1,14 +1,17 @@
 class Emojify < Formula
   desc "Emoji on the command-line :scream:"
   homepage "https://github.com/mrowa44/emojify"
-  url "https://github.com/mrowa44/emojify/archive/v1.0.2.tar.gz"
-  sha256 "a75d49d623f92974d7852526591d5563c27b7655c20ebdd66a07b8a47dae861c"
+  url "https://github.com/mrowa44/emojify/archive/2.0.0.tar.gz"
+  sha256 "61f4532381d5505511f752ff1f867ceeb0f1921a3e68716bea11185fbd730cbb"
   head "https://github.com/mrowa44/emojify.git"
 
   bottle :unneeded
 
+  depends_on "bash"
+
   def install
-    bin.install "emojify"
+    (libexec/"bin").install "emojify"
+    bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["bash"].opt_bin}:$PATH")
   end
 
   test do
