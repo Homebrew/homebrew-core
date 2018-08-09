@@ -7,10 +7,10 @@ class Xsimd < Formula
   depends_on "cmake" => :build
 
   def install
-    cmake_args = std_cmake_args
-    cmake_args << "-DBUILD_TESTS=OFF"
+    args = std_cmake_args
+    args << "-DBUILD_TESTS=OFF"
 
-    system "cmake", ".", *cmake_args
+    system "cmake", ".", *args
     system "make", "install"
   end
 
