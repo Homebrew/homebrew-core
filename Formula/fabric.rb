@@ -3,8 +3,8 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "http://www.fabfile.org"
-  url "https://github.com/fabric/fabric/archive/2.2.2.tar.gz"
-  sha256 "0b5c02a5e06d491e3a57548f5e96eba093a2f7864d9543158d66c5853acb7346"
+  url "https://github.com/fabric/fabric/archive/2.3.1.tar.gz"
+  sha256 "99c8c893cb8219be8a580f92a57efce0a55972ca70519ffd6eb594b04e0ffe0d"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
