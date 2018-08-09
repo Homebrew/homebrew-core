@@ -7,11 +7,11 @@ class RangeV3 < Formula
 
   def install
     system "cmake", ".",
-        "-DRANGE_V3_TESTS=OFF",
-        "-DRANGE_V3_HEADER_CHECKS=OFF",
-        "-DRANGE_V3_EXAMPLES=OFF",
-        "-DRANGE_V3_PERF=OFF",
-        *std_cmake_args
+      "-DRANGE_V3_TESTS=OFF",
+      "-DRANGE_V3_HEADER_CHECKS=OFF",
+      "-DRANGE_V3_EXAMPLES=OFF",
+      "-DRANGE_V3_PERF=OFF",
+      *std_cmake_args
     system "make", "install"
   end
 
