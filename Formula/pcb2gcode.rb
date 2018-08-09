@@ -3,7 +3,7 @@ class Pcb2gcode < Formula
   homepage "https://github.com/pcb2gcode/pcb2gcode"
   url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.2/pcb2gcode-1.3.2.tar.gz"
   sha256 "c4135cd3981c4a5d6baffa81b7f8e890ae29776107b0d1938b744a8dfebdbc63"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -21,15 +21,63 @@ class Pcb2gcode < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "boost"
   depends_on "gtkmm"
   depends_on "gerbv"
 
+  # Upstream maintainer claims that the geometry library from boost >= 1.67
+  # is severely broken. Remove the vendoring once fixed.
+  # See https://github.com/Homebrew/homebrew-core/pull/30914#issuecomment-411662760
+  # and https://svn.boost.org/trac10/ticket/13645
+  resource "boost" do
+    url "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.bz2"
+    sha256 "5721818253e6a0989583192f96782c4a98eb6204965316df9f5ad75819225ca9"
+  end
+
   def install
+    resource("boost").stage do
+      # Force boost to compile with the desired compiler
+      open("user-config.jam", "a") do |file|
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+      end
+
+      bootstrap_args = %W[
+        --prefix=#{buildpath}/boost
+        --libdir=#{buildpath}/boost/lib
+        --with-libraries=program_options
+        --without-icu
+      ]
+
+      args = %W[
+        --prefix=#{buildpath}/boost
+        --libdir=#{buildpath}/boost/lib
+        -d2
+        -j#{ENV.make_jobs}
+        --ignore-site-config
+        --layout=tagged
+        --user-config=user-config.jam
+        install
+        threading=multi
+        link=static
+        optimization=space
+        variant=release
+        cxxflags=-std=c++11
+      ]
+
+      if ENV.compiler == :clang
+        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
+      end
+
+      system "./bootstrap.sh", *bootstrap_args
+      system "./b2", "headers"
+      system "./b2", *args
+    end
+
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-boost=#{buildpath}/boost",
+                          "--enable-static-boost"
     system "make", "install"
   end
 
