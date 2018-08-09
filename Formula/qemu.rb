@@ -22,8 +22,8 @@ class Qemu < Formula
   end
 
   devel do
-    url "https://download.qemu.org/qemu-3.0.0-rc3.tar.xz"
-    sha256 "44279480069daaf6394232b1955c0a6109a767e636551a113f20c7a603f8c27c"
+    url "https://download.qemu.org/qemu-3.0.0-rc4.tar.xz"
+    sha256 "420409d0c47169c4323b29d8af0a14d8276f4f038a74f37891829650dfb9d8cd"
   end
 
   depends_on "pkg-config" => :build
