@@ -1,8 +1,8 @@
 class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://github.com/apple/swift"
-  url "https://github.com/apple/swift/archive/swift-4.1-RELEASE.tar.gz"
-  sha256 "f957f107b8e726b80c66a4902b769b0c3795e7bfde1af2e1c833948f6398acdb"
+  url "https://github.com/apple/swift/archive/swift-4.1.3-RELEASE.tar.gz"
+  sha256 "3b1b6666744c5d74c8581820d33a4653f241929e8c42e25a7f4354c4a7ae3b00"
 
   bottle do
     cellar :any
@@ -22,33 +22,33 @@ class Swift < Formula
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.
   resource "clang" do
-    url "https://github.com/apple/swift-clang/archive/swift-4.1-RELEASE.tar.gz"
-    sha256 "e03c4508f714837c54da39a1c45ce78110c47428d970bbdde3ebc12068c15da2"
+    url "https://github.com/apple/swift-clang/archive/swift-4.1.3-RELEASE.tar.gz"
+    sha256 "73001677afb29fcac692aa94b1b91ae9c99310df37b84bb00c832da4872617a4"
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-4.1-RELEASE.tar.gz"
-    sha256 "21fc799d557838cc730e8e4e833cee18fea5e5733bdda6212f75c9331b9461ac"
+    url "https://github.com/apple/swift-cmark/archive/swift-4.1.3-RELEASE.tar.gz"
+    sha256 "49a8c9407a0dea12dc5377a79e76f740466b1d69eb31ff6b4979ecf5f515a583"
   end
 
   resource "compiler-rt" do
-    url "https://github.com/apple/swift-compiler-rt/archive/swift-4.1-RELEASE.tar.gz"
-    sha256 "2110384f8cfa97334d4b9a2a17b1966b286189fb3a1526db8f2382c8872df189"
+    url "https://github.com/apple/swift-compiler-rt/archive/swift-4.1.3-RELEASE.tar.gz"
+    sha256 "d0ea7a395137cb488979570deeb63cd767c5da6af63c132f3f8ba623ffc571d3"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-4.1-RELEASE.tar.gz"
-    sha256 "88f2451e8c78a27ea18379b0062eb8e4fc961fca3089b5d485b6ceaeb7f67360"
+    url "https://github.com/apple/swift-llbuild/archive/swift-4.1.3-RELEASE.tar.gz"
+    sha256 "15c5a8efa87343134cef485f07a9999c8d38cfbdf3cc6bc4fec9f479db5cbb1c"
   end
 
   resource "llvm" do
-    url "https://github.com/apple/swift-llvm/archive/swift-4.1-RELEASE.tar.gz"
-    sha256 "c8632074d178e04abc9ab3becb40618373c1b6f810053e18ddd7ff91dbbc8a48"
+    url "https://github.com/apple/swift-llvm/archive/swift-4.1.3-RELEASE.tar.gz"
+    sha256 "3d51d1b66c5706deb78e394f2751ea0bb1caa1eaf4fda61bacaaae7eafbb79be"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-4.1-RELEASE.tar.gz"
-    sha256 "fcb4f55349143b9e8ad5ba0a5237beaa93a2bc42844ebb3d85c6df8a01e14142"
+    url "https://github.com/apple/swift-package-manager/archive/swift-4.1.3-RELEASE.tar.gz"
+    sha256 "7b655c994c092bf88245775e77d4c4d39f6d880cab59b67d2290df02505ed355"
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
