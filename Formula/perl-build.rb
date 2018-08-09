@@ -1,8 +1,8 @@
 class PerlBuild < Formula
   desc "Perl builder"
   homepage "https://github.com/tokuhirom/Perl-Build"
-  url "https://github.com/tokuhirom/Perl-Build/archive/1.23.tar.gz"
-  sha256 "a2ca1217197a7509ad27673532438a088ad1e09a8e9a5137bdba7c97837dc255"
+  url "https://github.com/tokuhirom/Perl-Build/archive/1.24.tar.gz"
+  sha256 "0d9180f890401619f78ed0e82bfbd042a0e90fa7aca1e3d643ceefbe7f7e7eeb"
   head "https://github.com/tokuhirom/perl-build.git"
 
   bottle do
@@ -11,6 +11,41 @@ class PerlBuild < Formula
     sha256 "bcfeb9326b4783d8fb60c0e9850854528677e5d81bf7c6863584bba9f27d52e0" => :sierra
     sha256 "a6a0f5a53f5755544ac0422288a7f163ca41a8a7f6747bc6564c3498dfae4320" => :el_capitan
     sha256 "5b52eb99f45233a8776170cb31fc0b1e9057b1c74e7e5d9ceddd8bad1460b61d" => :yosemite
+  end
+
+  resource "inc::latest" do
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/inc-latest-0.500.tar.gz"
+    sha256 "daa905f363c6a748deb7c408473870563fcac79b9e3e95b26e130a4a8dc3c611"
+  end
+
+  resource "Module::Build" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4222.tar.gz"
+    sha256 "e74b45d9a74736472b74830599cec0d1123f992760f9cd97104f94bee800b160"
+  end
+
+  resource "Module::Build::Tiny" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-Tiny-0.039.tar.gz"
+    sha256 "7d580ff6ace0cbe555bf36b86dc8ea232581530cbeaaea09bccb57b55797f11c"
+  end
+
+  resource "ExtUtils::Config" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Config-0.008.tar.gz"
+    sha256 "ae5104f634650dce8a79b7ed13fb59d67a39c213a6776cfdaa3ee749e62f1a8c"
+  end
+
+  resource "ExtUtils::Helpers" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-Helpers-0.026.tar.gz"
+    sha256 "de901b6790a4557cf4ec908149e035783b125bf115eb9640feb1bc1c24c33416"
+  end
+
+  resource "ExtUtils::InstallPaths" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/ExtUtils-InstallPaths-0.012.tar.gz"
+    sha256 "84735e3037bab1fdffa3c2508567ad412a785c91599db3c12593a50a1dd434ed"
+  end
+
+  resource "HTTP::Tinyish" do
+    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.14.tar.gz"
+    sha256 "43fd54bd6d015827801343202f227844ac5af8c9f93c72d9683369be0bd5c194"
   end
 
   # Perl::Strip dependency
@@ -30,8 +65,13 @@ class PerlBuild < Formula
   end
 
   resource "CPAN::Perl::Releases" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/CPAN-Perl-Releases-3.14.tar.gz"
-    sha256 "c27d718004adaa22c7f6f0ccb471237610c4fc1ed928306e9900e2bb0d20ab56"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/CPAN-Perl-Releases-3.72.tar.gz"
+    sha256 "48685fa0e53bb5820edc3bc0a5abed4ab708b42eaf35921d3a720cb884ef4ace"
+  end
+
+  resource "CPAN::Perl::Releases::MetaCPAN" do
+    url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/CPAN-Perl-Releases-MetaCPAN-0.006.tar.gz"
+    sha256 "d78ef4ee4f0bc6d95c38bbcb0d2af81cf59a31bde979431c1b54ec50d71d0e1b"
   end
 
   resource "File::pushd" do
@@ -143,28 +183,37 @@ class PerlBuild < Formula
 
     # Ensure we don't install the pre-packed script
     (buildpath/"perl-build").unlink
+    # Remove this apparently dead symlink.
+    (buildpath/"bin/perl-build").unlink
 
-    inreplace "author/fatpack.sh" do |s|
-      # We already set PERL5LIB above
-      s.sub!(/^export PERL5LIB=.*$/, "")
-
-      # Don't install anything
-      s.gsub!(/^plenv .*$/, "")
-      s.gsub!(/^cpanm .*$/, "")
-    end
-
+    build_pl = ["Module::Build::Tiny", "CPAN::Perl::Releases::MetaCPAN"]
     resources.each do |r|
       r.stage do
+        next if build_pl.include? r.name
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make"
         system "make", "install"
       end
     end
 
-    ENV.prepend_path "PATH", libexec/"bin"
-    system "bash", "-ex", "./author/fatpack.sh"
+    build_pl.each do |name|
+      resource(name).stage do
+        system "perl", "Build.PL", "--install_base", libexec
+        system "./Build"
+        system "./Build", "install"
+      end
+    end
 
-    bin.install "perl-build", "bin/plenv-install", "bin/plenv-uninstall"
+    ENV.prepend_path "PATH", libexec/"bin"
+    system "perl", "Build.PL", "--install_base", libexec
+    # Replace the dead symlink we removed earlier.
+    (buildpath/"bin").install_symlink buildpath/"script/perl-build"
+    system "./Build"
+    system "./Build", "install"
+
+    %w[perl-build plenv-install plenv-uninstall].each do |cmd|
+      (bin/cmd).write_env_script(libexec/"bin/#{cmd}", :PERL5LIB => ENV["PERL5LIB"])
+    end
   end
 
   test do
