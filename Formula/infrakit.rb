@@ -7,7 +7,6 @@ class Infrakit < Formula
 
   depends_on "go" => :build
   depends_on "libvirt" => :build
-  depends_on "pkg-config" => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -20,8 +19,8 @@ class Infrakit < Formula
   end
 
   test do
-    ENV["INFRAKIT_HOME"] = ENV["HOME"]
-    ENV["INFRAKIT_CLI_DIR"] = ENV["HOME"]
+    ENV["INFRAKIT_HOME"] = testpath
+    ENV["INFRAKIT_CLI_DIR"] = testpath
     assert_match revision.to_s, shell_output("#{bin}/infrakit version")
   end
 end
