@@ -3,6 +3,7 @@ class GstPluginsBad < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.2.tar.xz"
   sha256 "34fab7da70994465a64468330b2168a4a0ed90a7de7e4c499b6d127c6c1b1eaf"
+  revision 1
 
   bottle do
     sha256 "b499a552981622eed6fd8439e564348835ebf523b483bab4d6aea09d410a7f27" => :high_sierra
@@ -19,6 +20,7 @@ class GstPluginsBad < Formula
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "openssl"
@@ -48,6 +50,7 @@ class GstPluginsBad < Formula
       --disable-examples
       --disable-debug
       --disable-dependency-tracking
+      --enable-introspection=yes
     ]
 
     if build.head?
