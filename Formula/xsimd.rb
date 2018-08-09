@@ -4,6 +4,13 @@ class Xsimd < Formula
   url "https://github.com/QuantStack/xsimd/archive/6.1.5.tar.gz"
   sha256 "ecc781520f7b2bfdeb51d1385683694f2e89be1a05b77b222b9783cfeb645034"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "45dd6378d60d276d7071333b5fd2a787c54d164488d478654c15538c57a6796e" => :high_sierra
+    sha256 "45dd6378d60d276d7071333b5fd2a787c54d164488d478654c15538c57a6796e" => :sierra
+    sha256 "45dd6378d60d276d7071333b5fd2a787c54d164488d478654c15538c57a6796e" => :el_capitan
+  end
+
   depends_on "cmake" => :build
 
   def install
