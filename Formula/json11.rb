@@ -14,7 +14,8 @@ class Json11 < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <json11.hpp>
-      #include <iostream>
+      #include <string>
+      using namespace json11;
 
       int main() {
         Json my_json = Json::object {
@@ -22,11 +23,11 @@ class Json11 < Formula
           { "key2", false },
           { "key3", Json::array { 1, 2, 3 } },
         };
-        std::cout << my_json.dump() << std::endl;
+        auto json_str = my_json.dump();
         return EXIT_SUCCESS;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-ljson11", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-ljson11", "-o", "test"
     system "./test"
   end
 end
