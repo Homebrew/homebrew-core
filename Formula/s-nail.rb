@@ -1,7 +1,7 @@
 class SNail < Formula
   desc "Fork of Heirloom mailx"
   homepage "https://www.sdaoden.eu/code.html"
-  url "http://www.sdaoden.eu/downloads/s-nail-14.9.11.tar.gz"
+  url "https://www.sdaoden.eu/downloads/s-nail-14.9.11.tar.gz"
   sha256 "279202687409b8e7b4f267e178aed1bd4c68b79c01c10b80f07197f2f73d6695"
 
   bottle do
@@ -36,7 +36,6 @@ class SNail < Formula
     expected = <<~EOS
       From reproducible_build #{date1.chomp}
       Date: #{date2.chomp}
-      To:
       User-Agent: s-nail reproducible_build
 
       Hello oh you Hammer2!
