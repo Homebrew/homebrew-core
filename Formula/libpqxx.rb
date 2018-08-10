@@ -3,6 +3,7 @@ class Libpqxx < Formula
   homepage "http://pqxx.org/development/libpqxx/"
   url "https://github.com/jtv/libpqxx/archive/6.2.4.tar.gz"
   sha256 "91a295d9e06fc36db5d993970aa1928e053a57ec03bf6284a1c534844ed35ed3"
+  revision 1
 
   bottle do
     cellar :any
