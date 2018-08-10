@@ -1,9 +1,8 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/v1.2.tar.gz"
-  sha256 "d340e3a0aa1625161bc00068ffccbe291b7866729a5fff7ff859904480ec0df3"
-  revision 1
+  url "https://github.com/Genymobile/scrcpy/archive/v1.3.tar.gz"
+  sha256 "e0e157341f6c052dc2e50ee6e912cf94df0bdda039759f19abb1eece37345f75"
 
   bottle do
     sha256 "99a059d8d8aed9011eeb165d9c0059e637b50f4c3cdc790588ea5e3a96a71364" => :high_sierra
@@ -14,13 +13,12 @@ class Scrcpy < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-
   depends_on "ffmpeg"
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.2/scrcpy-server-v1.2.jar"
-    sha256 "cb39654ed2fda3d30ddff292806950ccc5c394375ea12b974f790c7f38f61f60"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.3/scrcpy-server-v1.3.jar"
+    sha256 "0f9a5a217f33f0ed7a1498ceb3c0cccf31c53533893aa952e674c1571d2740c1"
   end
 
   def install
@@ -31,7 +29,7 @@ class Scrcpy < Formula
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
                       "--buildtype=release",
-                      "-Dprebuilt_server=#{buildpath/"prebuilt-server.jar"}",
+                      "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
                       ".."
 
       system "ninja", "install"
