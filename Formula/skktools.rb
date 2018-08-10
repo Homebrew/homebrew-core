@@ -26,48 +26,63 @@ class Skktools < Formula
   end
 
   test do
-    (testpath/"SKK-JISYO.TEST").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+    test_dic = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
       わるs /悪/
       わるk /悪/
       わるi /悪/
     EOS
+    (testpath/"SKK-JISYO.TEST").write test_dic
 
-    (testpath/"SKK-JISYO.SHUFFLE").write <<~EOS.tap { |s| s.encode("euc-jis-2004") }
+    test_shuffle = <<~EOS.tap { |s| s.encode("euc-jis-2004") }
       わるs /悪/
       わるi /悪/
       わるk /悪/
     EOS
 
-    expect_shuffle = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+    expect_shuffle = <<~EOS.tap { |s| s.encode("euc-jis-2004") }
       ;; okuri-ari entries.
       わるs /悪/
       わるk /悪/
       わるi /悪/
     EOS
 
-    (testpath/"SKK-JISYO.SPLIT1").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+    test_sp1 = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
       わるs /悪/
       わるk /悪/
     EOS
+    (testpath/"test.sp1").write test_sp1
 
-    (testpath/"SKK-JISYO.SPLIT2").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+    test_sp2 = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
       わるk /悪/
       わるi /悪/
     EOS
+    (testpath/"test.sp2").write test_sp2
 
-    (testpath/"SKK-JISYO.SPLIT3").write <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+    test_sp3 = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
       わるi /悪/
     EOS
+    (testpath/"test.sp3").write test_sp3
 
-    expect_expr = <<~EOS.strip.tap { |s| s.encode("euc-jis-2004") }
+    expect_expr = <<~EOS.tap { |s| s.encode("euc-jis-2004") }
       ;; okuri-ari entries.
       わるs /悪/
       わるk /悪/
     EOS
 
-    assert_equal "SKK-JISYO.TEST: 3 candidates", shell_output("#{bin}/skkdic-count SKK-JISYO.TEST").strip
-    assert_equal expect_shuffle, shell_output("cat SKK-JISYO.SHUFFLE | #{bin}/skkdic-sort").strip
-    assert_equal expect_expr, shell_output("#{bin}/skkdic-expr SKK-JISYO.SPLIT1 + SKK-JISYO.SPLIT2 - SKK-JISYO.SPLIT3 | #{bin}/skkdic-sort").strip
-    assert_equal expect_expr, shell_output("#{bin}/skkdic-expr2 SKK-JISYO.SPLIT1 + SKK-JISYO.SPLIT2 - SKK-JISYO.SPLIT3 | #{bin}/skkdic-sort").strip
+    # test skkdic-count
+    expect_count = "SKK-JISYO.TEST: 3 candidates\n"
+    actual_count = pipe_output("#{bin}/skkdic-count SKK-JISYO.TEST", nil, 0)
+    assert_equal expect_count, actual_count
+
+    # test skkdic-sort
+    actual_shuffle = pipe_output("#{bin}/skkdic-sort", test_shuffle, 0)
+    assert_equal expect_shuffle, actual_shuffle
+
+    # test skkdic-expr,skkdic-expr2
+    ["skkdic-expr", "skkdic-expr2"].each do |cmd|
+      expr_cmd = "#{bin}/#{cmd} test.sp1 + test.sp2 - test.sp3"
+      actual_expr = shell_output(expr_cmd)
+      assert_equal expect_expr, pipe_output("#{bin}/skkdic-sort", actual_expr)
+    end
   end
 end
