@@ -21,14 +21,14 @@ class RangeV3 < Formula
       #include <range/v3/all.hpp>
       #include <iostream>
       #include <string>
-      using std::cout;
+
       int main() {
         std::string s{ "hello" };
-        ranges::for_each( s, [](char c){ cout << c << " "; });
-        cout << "\n";
+        ranges::for_each( s, [](char c){ std::cout << c << " "; });
+        std::cout << std::endl;
       }
     EOS
-    system ENV.cc, "-std=c++11", "-o", "test", "test.cpp"
-    assert_equal "./test", 0
+    system ENV.cc, "-std=c++11", "-stdlib=libc++", "-lc++", "-o", "test", "test.cpp"
+    assert_equal "h e l l o \n", shell_output("./test")
   end
 end
