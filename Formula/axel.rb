@@ -1,9 +1,8 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
-  homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/archive/v2.15.tar.gz"
-  sha256 "0e223f18954e4c6c34b882a474c526b9c7d107168220c2f3892598248236a172"
-  head "https://github.com/eribertomota/axel.git"
+  homepage "https://github.com/axel-download-accelerator/axel"
+  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.16.1/axel-2.16.1.tar.gz"
+  sha256 "675a8608ffa305b98624a3c2684c84e4696572e3fd7dce6d12e0a9b61d64b67f"
 
   bottle do
     sha256 "18d458adef55854c33e4be487ce77eaa294fa9b7c8f09bcd3aff68cea063c2ab" => :high_sierra
@@ -11,13 +10,19 @@ class Axel < Formula
     sha256 "10257917ed87edf070064ad51dac4a3685415f969a6999a5a55938aab355f584" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/eribertomota/axel.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "openssl"
 
   def install
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
