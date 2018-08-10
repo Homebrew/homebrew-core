@@ -2,8 +2,8 @@ class KubernetesServiceCatalogClient < Formula
   desc "Consume Services in k8s using the OSB API"
   homepage "https://svc-cat.io/"
   url "https://github.com/kubernetes-incubator/service-catalog.git",
-      :tag => "v0.1.28",
-      :revision => "0aaf02aba556b945a357fce4e82f62122d158f2a"
+      :tag => "v0.1.29",
+      :revision => "44182ac234fdf184a5dcca63d01c9f67a56c4e75"
 
   bottle do
     cellar :any_skip_relocation
