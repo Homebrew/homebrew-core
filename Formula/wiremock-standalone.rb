@@ -1,5 +1,5 @@
 class WiremockStandalone < Formula
-  desc "WireMock is a simulator for HTTP-based APIs"
+  desc "Simulator for HTTP-based APIs"
   homepage "http://wiremock.org/docs/running-standalone/"
   url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-standalone/2.18.0/wiremock-standalone-2.18.0.jar"
   sha256 "b6ca6b6c9e0dbbf8ec6d6752f93f61beb99325c88fe067377e4250fd390c03c9"
@@ -10,7 +10,7 @@ class WiremockStandalone < Formula
 
   def install
     libexec.install "wiremock-standalone-#{version}.jar"
-    bin.write_jar_script libexec / "wiremock-standalone-#{version}.jar", "wiremock"
+    bin.write_jar_script libexec/"wiremock-standalone-#{version}.jar", "wiremock"
   end
 
   test do
