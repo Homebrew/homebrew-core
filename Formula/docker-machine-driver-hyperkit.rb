@@ -13,7 +13,7 @@ class DockerMachineDriverHyperkit < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/machine-drivers/docker-machine-driver-hyperkit").install buildpath.children
     cd "src/github.com/machine-drivers/docker-machine-driver-hyperkit" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", "#{bin}/docker-machine-driver-hyperkit",
              "-ldflags", "-X main.version=#{version}"
       prefix.install_metafiles
@@ -25,7 +25,7 @@ class DockerMachineDriverHyperkit < Formula
     enable, execute
         sudo chown root:wheel #{opt_bin}/docker-machine-driver-hyperkit
         sudo chmod u+s #{opt_bin}/docker-machine-driver-hyperkit
-    EOS
+  EOS
   end
 
   test do
