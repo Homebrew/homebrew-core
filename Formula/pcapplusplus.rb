@@ -7,7 +7,8 @@ class Pcapplusplus < Formula
   def install
     system "./configure-mac_os_x.sh", "--install-dir", prefix
 
-    # library requires to run 'make all' and 'make install' in two separate commands
+    # library requires to run 'make all' and 'make install'
+    # in two separate commands
     system "make", "all"
     system "make", "install"
   end
@@ -17,10 +18,14 @@ class Pcapplusplus < Formula
       #include "stdlib.h"
       #include "PcapLiveDeviceList.h"
       int main() {
-        pcpp::PcapLiveDevice* dev = pcpp::PcapLiveDeviceList::getInstance().getPcapLiveDeviceByName("en0");
-        if (dev == NULL)
-          exit(1);
-        exit(0);
+        const std::vector<pcpp::PcapLiveDevice*>& devList =
+          pcpp::PcapLiveDeviceList::getInstance().getPcapLiveDevicesList();
+        if (devList.size() > 0) {
+          if (devList[0]->getName() == NULL)
+            return 1;
+          return 0;
+        }
+        return 0;
       }
     EOS
 
@@ -32,5 +37,6 @@ class Pcapplusplus < Formula
     EOS
 
     system "make", "all"
+    system "./test"
   end
 end
