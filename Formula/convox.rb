@@ -18,6 +18,7 @@ class Convox < Formula
     (buildpath/"src/github.com/convox/rack").install Dir["*"]
     system "go", "build", "-ldflags=-X main.Version=#{version}",
            "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
+    prefix.install_metafiles
   end
 
   test do
