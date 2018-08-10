@@ -4,8 +4,8 @@ class Quicktype < Formula
   desc "Generate types and converters from JSON, Schema, and GraphQL"
   homepage "https://github.com/quicktype/quicktype"
   # quicktype should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.90.tgz"
-  sha256 "9090ff20f7c93bc900e461ec6cea459323fbfb652829ac5e353a93e35d58a475"
+  url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.100.tgz"
+  sha256 "ea9ff46abbacf6c2969c8438e83f5eb1fb71b56c4580721d63cfacbb6273d56d"
 
   bottle do
     cellar :any_skip_relocation
