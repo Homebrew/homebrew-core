@@ -1,8 +1,8 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/v2.14.1.tar.gz"
-  sha256 "153aa563265c37e29ac00ab06c2e8affa285e4606488605d688ef274993e9485"
+  url "https://github.com/IntelRealSense/librealsense/archive/v2.15.0.tar.gz"
+  sha256 "c855fcce74b686efb09caeb6b8d306d90027ded428f1434ed8ba982e36bcb98f"
   head "https://github.com/IntelRealSense/librealsense.git"
 
   bottle do
@@ -12,16 +12,18 @@ class Librealsense < Formula
     sha256 "eb5df67af149d585a4d723ec28f32cb70435de25ff94122f97dfb82ef2df04d6" => :el_capitan
   end
 
-  option "with-examples", "Install examples"
+  option "with-glfw", "Build & install examples"
+
+  deprecated_option "with-examples" => "with-glfw"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glfw" if build.with? "examples"
+  depends_on "glfw" => :optional
   depends_on "libusb"
 
   def install
     args = std_cmake_args
-    args << "-DBUILD_EXAMPLES=OFF" if build.without? "examples"
+    args << "-DBUILD_EXAMPLES=OFF" if build.without? "glfw"
 
     system "cmake", ".", "-DBUILD_WITH_OPENMP=OFF", *args
     system "make", "install"
