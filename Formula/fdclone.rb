@@ -1,8 +1,8 @@
 class Fdclone < Formula
   desc "Console-based file manager"
   homepage "https://hp.vector.co.jp/authors/VA012337/soft/fd/"
-  url "http://www.unixusers.net/src/fdclone/FD-3.01g.tar.gz"
-  sha256 "d055a2e146e40491810a210006d59722406c9ce1ef551de1d62a9fe39ffea4b4"
+  url "http://www.unixusers.net/src/fdclone/FD-3.01h.tar.gz"
+  sha256 "24be8af52faa48cd6f123d55cfca45d21e5fd1dc16bed24f6686497429f3e2cf"
 
   bottle do
     sha256 "f51d900beceb9154a0de12860a705b6090d91217bacdefcd7d62d43827b7a6bc" => :high_sierra
@@ -28,12 +28,12 @@ class Fdclone < Formula
       prefix.install file => "#{file}.ja"
     end
 
-    share.install "_fdrc" => "fd2rc.dist"
+    pkgshare.install "_fdrc" => "fd2rc.dist"
   end
 
   def caveats; <<~EOS
     To install the initial config file:
-        install -c -m 0644 #{share}/fd2rc.dist ~/.fd2rc
+        install -c -m 0644 #{opt_pkgshare}/fd2rc.dist ~/.fd2rc
     To set application messages to Japanese, edit your .fd2rc:
         MESSAGELANG="ja"
   EOS
