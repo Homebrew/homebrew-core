@@ -1,8 +1,8 @@
 class Nnn < Formula
   desc "Free, fast, friendly file browser"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v1.8.tar.gz"
-  sha256 "65c364a9797178e40ec7ec653b2cfa8e211e556b75250bf72eb5eea57f5e0cdc"
+  url "https://github.com/jarun/nnn/archive/v1.9.tar.gz"
+  sha256 "7ba298a55a579640fe0ae37f553be739957da0c826f532beac46acfb56e2d726"
   head "https://github.com/jarun/nnn.git"
 
   bottle do
@@ -21,6 +21,7 @@ class Nnn < Formula
   test do
     # Testing this curses app requires a pty
     require "pty"
+
     PTY.spawn(bin/"nnn") do |r, w, _pid|
       w.write "q"
       assert_match testpath.realpath.to_s, r.read
