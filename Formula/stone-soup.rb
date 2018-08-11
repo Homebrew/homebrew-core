@@ -1,8 +1,8 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/0.21/stone_soup-0.21.1.tar.xz"
-  sha256 "4aa309cf27ed1df56bb24be7e07099d3e2b47f9f0bc9d53d2377849a42ccbee3"
+  url "https://crawl.develz.org/release/0.22/stone_soup-0.22.0.tar.xz"
+  sha256 "02e36ccc458747e89ab84835f6dd7df554e8e40537397797c5bb61a4d376597d"
 
   bottle do
     sha256 "5f7b2cd8ee4e2c0b08a4ef9c0e6935395062133379eac64df21cdf5af2320505" => :high_sierra
@@ -79,6 +79,7 @@ class StoneSoup < Formula
   end
 
   test do
-    assert shell_output("#{bin}/crawl --version").start_with? "Crawl version #{version}"
+    output = shell_output("#{bin}/crawl --version")
+    assert_match "Crawl version #{version}", output
   end
 end
