@@ -4,7 +4,7 @@ class Yafc < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
   sha256 "4b3ebf62423f21bdaa2449b66d15e8d0bb04215472cb63a31d473c3c3912c1e0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "40c44b84a96b4cf65ee0c1d09a2770ede71e5cfd7fdf9c24504723a8b1eaef3f" => :high_sierra
