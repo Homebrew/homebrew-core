@@ -17,10 +17,6 @@ class Unixodbc < Formula
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
   def install
-    # Fixes "sed: -e: No such file or directory"
-    # Reported 22 Mar 2018 to nick AT unixodbc DOT org
-    inreplace "exe/Makefile.in", "@sed -i -e", "@sed -i '' -e"
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
