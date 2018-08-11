@@ -7,9 +7,9 @@ class Twoping < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2498b6a53b330f5c4a8bb4be89cda6ca3be4e0bc27efbdf7cdfc17660d6b5356" => :high_sierra
-    sha256 "2498b6a53b330f5c4a8bb4be89cda6ca3be4e0bc27efbdf7cdfc17660d6b5356" => :sierra
-    sha256 "2498b6a53b330f5c4a8bb4be89cda6ca3be4e0bc27efbdf7cdfc17660d6b5356" => :el_capitan
+    sha256 "9c26393a8739488bdce5ec1353343df5adad1f6ef0be90552ad1679e00db8e10" => :high_sierra
+    sha256 "9c26393a8739488bdce5ec1353343df5adad1f6ef0be90552ad1679e00db8e10" => :sierra
+    sha256 "9c26393a8739488bdce5ec1353343df5adad1f6ef0be90552ad1679e00db8e10" => :el_capitan
   end
 
   depends_on "python"
