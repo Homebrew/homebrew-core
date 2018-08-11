@@ -1,8 +1,8 @@
 class Armadillo < Formula
   desc "C++ linear algebra library"
   homepage "https://arma.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/arma/armadillo-8.600.0.tar.xz"
-  sha256 "5f00c735e97fc23c910a225d1b6db9541af76022cc74f9b8b327dfa347926b40"
+  url "https://downloads.sourceforge.net/project/arma/armadillo-8.600.1.tar.xz"
+  sha256 "b942d10bbd0b6a30f5bbe63cb7e8820f64227adcf3a2ba4bb1bc785526bb957b"
 
   bottle do
     cellar :any
@@ -32,6 +32,6 @@ class Armadillo < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-larmadillo", "-o", "test"
-    assert_equal `./test`.to_i, version.to_s.to_i
+    assert_equal Utils.popen_read("./test").to_i, version.to_s.to_i
   end
 end
