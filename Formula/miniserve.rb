@@ -4,6 +4,12 @@ class Miniserve < Formula
   url "https://github.com/svenstaro/miniserve/archive/v0.2.0.tar.gz"
   sha256 "2a0d4c7563b3b1b75ba0cccc69236976dc916378a41e7f994e28f8a766bded4c"
 
+  bottle do
+    sha256 "95064e1def8c354c4401f0082ffbd6956581a8b1b0bb65a00762b560c65f21ef" => :high_sierra
+    sha256 "e5f0e8da39d4b8939a2de3662d944c3be2f86ecc51b8fb2b2ccc814684608e47" => :sierra
+    sha256 "674c1b2e298092c866168ce996633b5130f084991810d9b74d2dcc6ab9adf38f" => :el_capitan
+  end
+
   depends_on "rust" => :build
 
   def install
