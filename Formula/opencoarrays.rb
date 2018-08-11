@@ -46,6 +46,6 @@ class Opencoarrays < Formula
       end program
     EOS
     system "#{bin}/caf", "tally.f90", "-o", "tally"
-    system "#{bin}/cafrun", "-np", "3", "./tally"
+    system "#{bin}/cafrun", "-np", "3", "--oversubscribe", "./tally"
   end
 end
