@@ -47,17 +47,6 @@ class Libclang < Formula
       #include <stdlib.h>
       #include <clang-c/Index.h>
 
-      const char *_getTokenKindSpelling(CXTokenKind kind) {
-        switch (kind) {
-          case CXToken_Punctuation: return "Punctuation"; break;
-          case CXToken_Keyword:     return "Keyword"; break;
-          case CXToken_Identifier:  return "Identifier"; break;
-          case CXToken_Literal:     return "Literal"; break;
-          case CXToken_Comment:     return "Comment"; break;
-          default:                  return "Unknown"; break;
-        }
-      }
-
       unsigned get_filesize(const char *fileName) {
         FILE *fp = fopen(fileName, "r");
         fseek(fp, 0, SEEK_END);
