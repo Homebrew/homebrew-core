@@ -1,7 +1,8 @@
 class Xsane < Formula
   desc "Graphical scanning frontend"
   homepage "http://www.xsane.org"
-  url "http://www.xsane.org/download/xsane-0.999.tar.gz"
+  url "https://ftp.osuosl.org/pub/blfs/conglomeration/xsane/xsane-0.999.tar.gz"
+  mirror "https://fossies.org/linux/misc/xsane-0.999.tar.gz"
   sha256 "5782d23e67dc961c81eef13a87b17eb0144cae3d1ffc5cf7e0322da751482b4b"
   revision 3
 
