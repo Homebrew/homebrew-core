@@ -1,8 +1,8 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  url "https://github.com/svenstaro/miniserve/archive/v0.1.5.tar.gz"
-  sha256 "b435471cd08f3dbe080e26a0b6937c824502a87659948f49b5d2e54f07de64e0"
+  url "https://github.com/svenstaro/miniserve/archive/v0.2.0.tar.gz"
+  sha256 "2a0d4c7563b3b1b75ba0cccc69236976dc916378a41e7f994e28f8a766bded4c"
 
   depends_on "rust" => :build
 
@@ -18,7 +18,7 @@ class Miniserve < Formula
     server.close
 
     pid = fork do
-      exec "#{bin}/miniserve", "#{bin}/miniserve", "--interface", "127.0.0.1", "--port", port.to_s
+      exec "#{bin}/miniserve", "#{bin}/miniserve", "--if", "127.0.0.1", "--port", port.to_s
     end
 
     sleep 2
