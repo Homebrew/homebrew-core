@@ -15,10 +15,6 @@ class Fn < Formula
   depends_on "go" => :build
 
   def install
-    # Remove once fixed, due to upstream incorrectly hardcoded version number.
-    # See https://github.com/fnproject/cli/issues/376
-    inreplace "config/version.go", "0.4.135", version
-
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
