@@ -1,9 +1,8 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
   homepage "http://opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.0.0/OpenCoarrays-2.0.0.tar.gz"
-  sha256 "996633f5f7563aa516e895817f26a43ef03c652d337972d64744e40dff343301"
-  revision 1
+  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.2.0/OpenCoarrays-2.2.0.tar.gz"
+  sha256 "9311547a85a21853111f1e8555ceab4593731c6fd9edb64cfb9588805f9d1a0d"
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
@@ -47,6 +46,6 @@ class Opencoarrays < Formula
       end program
     EOS
     system "#{bin}/caf", "tally.f90", "-o", "tally"
-    system "#{bin}/cafrun", "-np", "3", "./tally"
+    system "#{bin}/cafrun", "-np", "3", "--oversubscribe", "./tally"
   end
 end
