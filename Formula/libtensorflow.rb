@@ -1,8 +1,8 @@
 class Libtensorflow < Formula
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.9.0.tar.gz"
-  sha256 "ffc3151b06823d57b4a408261ba8efe53601563dfe93af0866751d4f6ca5068c"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.10.0.tar.gz"
+  sha256 "ee9cb98d9e0d8106f2f4ed52a38fe89399324af303e1401567e5b64a9f86744b"
 
   bottle do
     cellar :any
