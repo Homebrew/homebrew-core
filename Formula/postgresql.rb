@@ -3,6 +3,7 @@ class Postgresql < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v10.4/postgresql-10.4.tar.bz2"
   sha256 "1b60812310bd5756c62d93a9f93de8c28ea63b0df254f428cd1cf1a4d9020048"
+  revision 1
   head "https://github.com/postgres/postgres.git"
 
   bottle do
@@ -22,6 +23,8 @@ class Postgresql < Formula
   deprecated_option "enable-dtrace" => "with-dtrace"
   deprecated_option "with-python3" => "with-python"
 
+  depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
 
@@ -58,6 +61,7 @@ class Postgresql < Formula
       --with-pam
       --with-libxml
       --with-libxslt
+      --with-icu
     ]
 
     args << "--with-perl" if build.with? "perl"
