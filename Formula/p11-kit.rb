@@ -1,8 +1,8 @@
 class P11Kit < Formula
   desc "Library to load and enumerate PKCS#11 modules"
   homepage "https://p11-glue.freedesktop.org"
-  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.12/p11-kit-0.23.12.tar.gz"
-  sha256 "58bae22f19db1de1a1103e7ca4149eed6e303e727878c2cd5ea9e6fe445fd403"
+  url "https://github.com/p11-glue/p11-kit/releases/download/0.23.13/p11-kit-0.23.13.tar.gz"
+  sha256 "aa65403e3ac7c3aba17ca60f28db17b9c76d988b66b91789b8e8c145ae9922f1"
 
   bottle do
     sha256 "9b1b9073d5bc3e1685afa141a9c06ad2735060aedd9d2a09ad26707d32152a67" => :high_sierra
