@@ -1,10 +1,8 @@
 class ZeroInstall < Formula
   desc "Zero Install is a decentralised software installation system"
   homepage "https://0install.net/"
-  url "https://github.com/0install/0install/archive/v2.12-1.tar.gz"
-  version "2.12-1"
-  sha256 "317ac6ac680d021cb475962b7f6c2bcee9c35ce7cf04ae00d72bba8113f13559"
-  revision 2
+  url "https://downloads.sourceforge.net/project/zero-install/0install/2.13/0install-2.13.tar.bz2"
+  sha256 "10726e05ac262c7c5dd1ae109deddf9aa61a146db8fc75c997dd4efc3a4d35ca"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,13 +27,28 @@ class ZeroInstall < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
     system "opam", "init", "--no-setup"
-    modules = %w[yojson xmlm ounit react ppx_tools lwt<3 extlib ocurl sha]
-    modules << "lablgtk" if build.with? "gtk+"
+    modules = %w[
+      cppo
+      yojson
+      xmlm
+      ounit
+      lwt_react
+      ocurl
+      obus
+      sha
+      cppo_ocamlbuild
+    ]
+    modules << "lablgtk" << "lwt_glib" if build.with? "gtk+"
     system "opam", "config", "exec", "opam", "install", *modules
 
-    system "opam", "config", "exec", "make"
-    inreplace "dist/install.sh", '"/usr/local"', prefix
-    inreplace "dist/install.sh", '"${PREFIX}/man"', man
+    # mkdir: <buildpath>/build: File exists.
+    # https://github.com/0install/0install/issues/87
+    ENV.deparallelize { system "opam", "config", "exec", "make" }
+
+    inreplace "dist/install.sh" do |s|
+      s.gsub! '"/usr/local"', prefix
+      s.gsub! '"${PREFIX}/man"', man
+    end
     system "make", "install"
   end
 
