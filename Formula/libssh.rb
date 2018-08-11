@@ -1,8 +1,8 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://red.libssh.org/attachments/download/218/libssh-0.7.5.tar.xz"
-  sha256 "54e86dd5dc20e5367e58f3caab337ce37675f863f80df85b6b1614966a337095"
+  url "https://www.libssh.org/files/0.8/libssh-0.8.1.tar.xz"
+  sha256 "d17f1267b4a5e46c0fbe66d39a3e702b8cefe788928f2eb6e339a18bb00b1924"
   head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
@@ -18,7 +18,9 @@ class Libssh < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DWITH_STATIC_LIB=ON", *std_cmake_args
+      system "cmake", "..", "-DWITH_STATIC_LIB=ON",
+                            "-DWITH_SYMBOL_VERSIONING=OFF",
+                            *std_cmake_args
       system "make", "install"
     end
   end
