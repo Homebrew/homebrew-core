@@ -3,6 +3,7 @@ class GlibNetworking < Formula
   homepage "https://launchpad.net/glib-networking"
   url "https://download.gnome.org/sources/glib-networking/2.56/glib-networking-2.56.1.tar.xz"
   sha256 "df47b0e0a037d2dcf6b1846cbdf68dd4b3cc055e026bb40c4a55f19f29f635c8"
+  revision 1
 
   bottle do
     sha256 "da2db63fe14a07847b4e39456e71b694e40b5d13280c9cdea09d865bbf5966e0" => :high_sierra
@@ -29,10 +30,6 @@ class GlibNetworking < Formula
     ENV["DESTDIR"] = ""
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
-                      # Remove when p11-kit >= 0.20.7 builds on OSX
-                      # see https://github.com/Homebrew/homebrew/issues/36323
-                      # and https://bugs.freedesktop.org/show_bug.cgi?id=91602
-                      "-Dpkcs11_support=false",
                       "-Dlibproxy_support=false",
                       "-Dca_certificates_path=#{etc}/openssl/cert.pem",
                       ".."
