@@ -6,9 +6,9 @@ class Discount < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68cf5d30c76b372b89e9fa1ac9f4b30cf3f19592bbf257e1f792fc6afdc45bc1" => :high_sierra
-    sha256 "b65dbaa7a1245f7f343707591630dae94449a8f979e766858550b4dbe2841c62" => :sierra
-    sha256 "a8672b207a923a0b681e0abf20ce27b72421dd4c0ddd4fd816b1e63a2acd29c0" => :el_capitan
+    sha256 "d992c08149b8fc5ee583bfb78c3fa8dc16a6e036890353e6fb3ec18dcfdc25a0" => :high_sierra
+    sha256 "727610146b825e993f7e03690394b9e6678afeefa25e16780e63a4522b43a3d6" => :sierra
+    sha256 "80228f78ed111492fcad89a4739944cc43334b71d68b9550cc67f29ad894b560" => :el_capitan
   end
 
   option "with-fenced-code", "Enable Pandoc-style fenced code blocks."
