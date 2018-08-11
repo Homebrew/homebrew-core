@@ -1,8 +1,8 @@
 class Exomizer < Formula
   desc "6502 compressor with CBM PET 4032 support"
   homepage "https://bitbucket.org/magli143/exomizer/wiki/Home"
-  url "https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer-3.0.0.zip"
-  sha256 "89b7c4167de44d6e76954979c0d86a565a26d84da37c4769d083d3c3b44c1a62"
+  url "https://bitbucket.org/magli143/exomizer/wiki/downloads/exomizer-3.0.1.zip"
+  sha256 "82b68de9de4b9ac07599fcc961b401e6e545d1c6d6ac7fe564d29760b1008a78"
 
   bottle do
     cellar :any_skip_relocation
