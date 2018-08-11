@@ -5,6 +5,7 @@ class DockerMachineDriverHyperkit < Formula
       :tag => "v1.0.0",
       :revision => "88bae774eacefa283ef549f6ea6bc202d97ca07a"
 
+  depends_on "docker-machine"
   depends_on "dep" => :build
   depends_on "go" => :build
   depends_on :macos => :yosemite
