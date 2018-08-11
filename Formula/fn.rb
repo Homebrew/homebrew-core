@@ -1,8 +1,8 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.143.tar.gz"
-  sha256 "b716f79ecad44e1ee7742bd4a4ec5c3321578d32c7346e5a1d818c4383e9cfcc"
+  url "https://github.com/fnproject/cli/archive/0.4.144.tar.gz"
+  sha256 "6705582b64be4b3eae5a361f8ae213ce2e135df931ecb8b327ee7888cef09534"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,10 +15,6 @@ class Fn < Formula
   depends_on "go" => :build
 
   def install
-    # Remove once fixed, due to upstream incorrectly hardcoded version number.
-    # See https://github.com/fnproject/cli/issues/376
-    inreplace "config/version.go", "0.4.135", version
-
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
