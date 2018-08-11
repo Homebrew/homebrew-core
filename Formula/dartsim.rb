@@ -1,8 +1,8 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.6.0.tar.gz"
-  sha256 "c0146f7da1b3367c1e2178f45e42bfed553a26cf085db815cb7ef96032bdac1f"
+  url "https://github.com/dartsim/dart/archive/v6.6.1.tar.gz"
+  sha256 "4000ad91dc20a5fee89f2252c9eb28cef62c89df88bff218374b70f38245a61c"
 
   bottle do
     sha256 "f9aa024aced5c0bca16258e71579c11fefc790e0d93f7b043e190e5467b7de25" => :high_sierra
