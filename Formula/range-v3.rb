@@ -4,6 +4,11 @@ class RangeV3 < Formula
   url "https://github.com/ericniebler/range-v3/archive/0.3.6.tar.gz"
   sha256 "ce6e80c6b018ca0e03df8c54a34e1fd04282ac1b068cd39e902e2e5201ac117f"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "9bf428673c29823dd64d70ace970439b9d5e83bf4ffed0116e3c2ff86aaca445" => :el_capitan_or_later
+  end
+
   depends_on "cmake" => :build
 
   def install
