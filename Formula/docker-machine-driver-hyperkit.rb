@@ -5,6 +5,13 @@ class DockerMachineDriverHyperkit < Formula
       :tag => "v1.0.0",
       :revision => "88bae774eacefa283ef549f6ea6bc202d97ca07a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "41aecb9ebaf6d8b45780cef4acd16a3b40b4e6be0020d1aae8a68d4d314adeda" => :high_sierra
+    sha256 "4cdd1e0ed1b3d36dc19b31ad22d1f03578221504ce4c731ba30c0179f2c1ee00" => :sierra
+    sha256 "92bef33ec9ad5fbdfb887fcabe550603c886065c8ec3c677732a55f84a4c7520" => :el_capitan
+  end
+
   depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "docker-machine"
