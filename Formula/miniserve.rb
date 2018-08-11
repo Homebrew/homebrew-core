@@ -11,8 +11,24 @@ class Miniserve < Formula
   end
 
   test do
-    # miniserve has no options that do not immediately start listening on ports
-    # that may already be in use.
-    system "#{bin}/miniserve", "-V"
+    require "socket"
+
+    server = TCPServer.new(0)
+    port = server.addr[1]
+    server.close
+
+    pid = fork do
+      exec "#{bin}/miniserve", "#{bin}/miniserve", "--interface", "127.0.0.1", "--port", port.to_s
+    end
+
+    sleep 2
+
+    begin
+      read = (bin/"miniserve").read
+      assert_equal read, shell_output("curl localhost:#{port}")
+    ensure
+      Process.kill("SIGINT", pid)
+      Process.wait(pid)
+    end
   end
 end
