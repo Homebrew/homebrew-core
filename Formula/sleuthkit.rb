@@ -23,6 +23,8 @@ class Sleuthkit < Formula
     :because => "both install a 'ffind' executable."
 
   def install
+    ENV.append_to_cflags "-DNDEBUG"
+
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
