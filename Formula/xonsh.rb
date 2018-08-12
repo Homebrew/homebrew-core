@@ -2,7 +2,7 @@ class Xonsh < Formula
   include Language::Python::Virtualenv
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
-  homepage "http://xon.sh"
+  homepage "https://xon.sh/"
   url "https://github.com/xonsh/xonsh/archive/0.7.2.tar.gz"
   sha256 "0e88ad84c6e3dbe1a49b4979bcef495d4e10bb998e597ae6553a085d794320b7"
   head "https://github.com/xonsh/xonsh.git"
@@ -17,7 +17,7 @@ class Xonsh < Formula
   depends_on "python"
 
   # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
-  # See http://xon.sh/osx.html#dependencies
+  # See https://xon.sh/osx.html#dependencies
 
   resource "prompt_toolkit" do
     url "https://files.pythonhosted.org/packages/77/bf/5d7664605c91db8f39a3e49abb57a3c933731a90b7a58cdcafd4a9bcbe97/prompt_toolkit-2.0.4.tar.gz"
