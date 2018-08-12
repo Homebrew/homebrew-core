@@ -14,6 +14,6 @@ class CashCli < Formula
   end
 
   test do
-    raise "Test not implemented."
+    assert_match "Conversion of INR 100", shell_output("#{bin}/cash 100 INR USD GBP")
   end
 end
