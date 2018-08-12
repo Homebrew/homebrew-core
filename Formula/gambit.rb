@@ -4,6 +4,13 @@ class Gambit < Formula
   url "https://github.com/gambitproject/gambit/archive/v15.1.1.tar.gz"
   sha256 "fb4dce2f386e46bbfc72cb75471f43716535937c96ad5a730cad22f97c6a65e6"
 
+  bottle do
+    cellar :any
+    sha256 "8419c4b938c3ee82df324d4e4fbc0de03302a973ebeb82b917c90be04fa10569" => :high_sierra
+    sha256 "1d0324bc5c27cfe5660be48a8d2e7c9d01ac342e5d3ee1ee6d89f30b9c149afa" => :sierra
+    sha256 "86626efb984f8bb90daca5421cfdb2cbb2b9669ac26b271d0381219e1374e1b2" => :el_capitan
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
