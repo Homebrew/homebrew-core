@@ -1,6 +1,6 @@
 class Bzip2 < Formula
   desc "Freely available high-quality data compressor"
-  homepage "http://www.bzip.org/"
+  homepage "https://en.wikipedia.org/wiki/Bzip2"
   url "https://ftp.osuosl.org/pub/clfs/conglomeration/bzip2/bzip2-1.0.6.tar.gz"
   mirror "https://fossies.org/linux/misc/bzip2-1.0.6.tar.gz"
   sha256 "a2848f34fcd5d6cf47def00461fcb528a0484d8edef8208d6d2e2909dc61d9cd"
