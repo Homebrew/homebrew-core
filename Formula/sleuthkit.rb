@@ -11,36 +11,26 @@ class Sleuthkit < Formula
     sha256 "994034b47b0992fa5c651787de90a548edf5a2ccddee7eb4e7a96bd74b23b470" => :el_capitan
   end
 
-  option "with-jni", "Build Sleuthkit with JNI bindings"
-
+  depends_on "ant" => :build
   depends_on "afflib"
+  depends_on :java
   depends_on "libewf"
   depends_on "libpq"
   depends_on "sqlite"
-
-  if build.with? "jni"
-    depends_on :java
-    depends_on "ant" => :build
-  end
 
   conflicts_with "irods", :because => "both install `ils`"
   conflicts_with "ffind",
     :because => "both install a 'ffind' executable."
 
   def install
-    args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    args << "--disable-java" if build.without? "jni"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
 
-    if build.with? "jni"
-      cd "bindings/java" do
-        system "ant"
-      end
-      prefix.install "bindings"
+    cd "bindings/java" do
+      system "ant"
     end
+    prefix.install "bindings"
   end
 
   test do
