@@ -3,8 +3,8 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.3.2.tar.gz"
-  sha256 "55cfd021ddc484c0b7252c02c208bc455a9cb20b32fd8401a23b9b62858f3bfb"
+  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.3.4.tar.gz"
+  sha256 "3e224cb19b16ffd293048b73ac59a2c3d99b8ab0059469ce36ce5f290dfabe69"
 
   bottle do
     cellar :any_skip_relocation
@@ -30,6 +30,6 @@ class B2Tools < Formula
 
   test do
     cmd = "#{bin}/b2 authorize_account BOGUSACCTID BOGUSAPPKEY 2>&1"
-    assert_match "bad_auth_token", shell_output(cmd, 1)
+    assert_match "unable to authorize account", shell_output(cmd, 1)
   end
 end
