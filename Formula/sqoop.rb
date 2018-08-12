@@ -4,6 +4,7 @@ class Sqoop < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=sqoop/1.4.6/sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz"
   version "1.4.6"
   sha256 "d582e7968c24ff040365ec49764531cb76dfa22c38add5f57a16a57e70d5d496"
+  revision 1
 
   bottle :unneeded
 
@@ -23,10 +24,12 @@ class Sqoop < Formula
 
   def sqoop_envs
     <<~EOS
-      export HADOOP_HOME="#{HOMEBREW_PREFIX}"
+      export HADOOP_HOME="#{Formula["hadoop"].opt_prefix}"
       export HBASE_HOME="#{HOMEBREW_PREFIX}"
       export HIVE_HOME="#{HOMEBREW_PREFIX}"
+      export HCAT_HOME="#{HOMEBREW_PREFIX}"
       export ZOOCFGDIR="#{etc}/zookeeper"
+      export ZOOKEEPER_HOME="#{Formula["zookeeper"].opt_prefix}"
     EOS
   end
 
