@@ -4,6 +4,7 @@ class Automake < Formula
   url "https://ftp.gnu.org/gnu/automake/automake-1.16.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/automake/automake-1.16.1.tar.xz"
   sha256 "5d05bb38a23fd3312b10aea93840feec685bdf4a41146e78882848165d3ae921"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +14,13 @@ class Automake < Formula
   end
 
   depends_on "autoconf"
+
+  # http://gnu-automake.7480.n7.nabble.com/bug-31222-automake-1-16-1-am-pep3147-tweak-bug-td22937.html
+  # Remove this when applying any future 1.16.2 update.
+  patch do
+    url "https://git.savannah.gnu.org/cgit/automake.git/patch/?id=a348d830659fffd2cfc42994524783b07e69b4b5"
+    sha256 "7a57ca2b91f7f3c0b168cf5ffbc8a1b2168f3886bcadcc15412281472dace3ce"
+  end
 
   def install
     ENV["PERL"] = "/usr/bin/perl"
