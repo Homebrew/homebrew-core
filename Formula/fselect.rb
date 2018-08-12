@@ -5,9 +5,9 @@ class Fselect < Formula
   sha256 "02019ff2a74799aa041efb615cb302b42c85757325be66f0f353233bd2858928"
 
   bottle do
-    sha256 "bde60b778534ff4e6f199d7d30249eb53d11b71b3c9342c65c5096feaaee0453" => :high_sierra
-    sha256 "d4eacbba6f24de0a3437774d233a0d4a17d59d94c02ca082a9ec6ffc4501521c" => :sierra
-    sha256 "ec4b3ba4ca9cae917df8e8a983e0322bcff8e2d6c3f8c1d8e5c3d61e28ca64dd" => :el_capitan
+    sha256 "6007a1c3479f73914e2341b752427e6a000de5370179371a3c5331ec5e855461" => :high_sierra
+    sha256 "c2636e4e5080329d6b646b373155266a5c058a5f14a6831cca7c57066d157661" => :sierra
+    sha256 "0955736ae167f904bf08473713910ef4ecc95bb487776eb4e1f6db3e11085431" => :el_capitan
   end
 
   depends_on "rust" => :build
