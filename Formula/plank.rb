@@ -22,7 +22,7 @@ class Plank < Formula
         "id": "pin.json",
         "title": "pin",
         "description" : "Schema definition of a Pin",
-        "$schema": "http://json-schema.org/schema#",
+        "$schema": "https://json-schema.org/schema#",
         "type": "object",
         "properties": {
           "id": { "type": "string" },
