@@ -1,6 +1,6 @@
 class Infer < Formula
   desc "Static analyzer for Java, C, C++, and Objective-C"
-  homepage "http://fbinfer.com/"
+  homepage "https://fbinfer.com/"
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
       :tag => "v0.15.0",
@@ -100,7 +100,7 @@ class Infer < Formula
     EOS
 
     shell_output("#{bin}/infer --fail-on-issue -- clang -c FailingTest.c", 2)
-    shell_output("#{bin}/infer --fail-on-issue -- clang -c PassingTest.c", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- clang -c PassingTest.c")
 
     (testpath/"FailingTest.java").write <<~EOS
       class FailingTest {
@@ -137,6 +137,6 @@ class Infer < Formula
     EOS
 
     shell_output("#{bin}/infer --fail-on-issue -- javac FailingTest.java", 2)
-    shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java", 0)
+    shell_output("#{bin}/infer --fail-on-issue -- javac PassingTest.java")
   end
 end
