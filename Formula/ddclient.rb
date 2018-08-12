@@ -6,6 +6,10 @@ class Ddclient < Formula
   head "https://github.com/wimpunk/ddclient.git"
 
   bottle do
+    cellar :any_skip_relocation
+    sha256 "f53e130d1b87b70e10fc6746ef5270d4e25031c8c6f4ba2e2ffcb3d3799e09ca" => :high_sierra
+    sha256 "3314806cf6fe3e64da60949fb77973ef4c38d56830050a404fcdabf5ba27c777" => :sierra
+    sha256 "d3ef79c5455f31ed75a662be41262c51838a6164fd68b08868ed90c2ee511efc" => :el_capitan
   end
 
   resource "Data::Validate::IP" do
