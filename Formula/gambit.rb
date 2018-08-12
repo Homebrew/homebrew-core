@@ -10,30 +10,26 @@ class Gambit < Formula
   depends_on "wxmac"
 
   def install
-    system "aclocal"
-    system "glibtoolize"
-    system "automake", "--add-missing"
-    system "autoconf"
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    share.mkpath
-    share.install "contrib"
+    pkgshare.install "contrib"
   end
 
   test do
-    system bin/"gambit-enumpure", share/"contrib/games/e02.efg"
-    system bin/"gambit-enumpoly", share/"contrib/games/e01.efg"
-    system bin/"gambit-enummixed", share/"contrib/games/e02.nfg"
-    system bin/"gambit-gnm", share/"contrib/games/e02.nfg"
-    system bin/"gambit-ipa", share/"contrib/games/e02.nfg"
-    system bin/"gambit-lcp", share/"contrib/games/e02.efg"
-    system bin/"gambit-lp", share/"contrib/games/2x2const.nfg"
-    system bin/"gambit-liap", share/"contrib/games/e02.nfg"
-    system bin/"gambit-simpdiv", share/"contrib/games/e02.nfg"
-    system bin/"gambit-logit", share/"contrib/games/e02.efg"
-    system bin/"gambit-convert", "-O", "html", share/"contrib/games/2x2.nfg"
+    system bin/"gambit-enumpure", pkgshare/"contrib/games/e02.efg"
+    system bin/"gambit-enumpoly", pkgshare/"contrib/games/e01.efg"
+    system bin/"gambit-enummixed", pkgshare/"contrib/games/e02.nfg"
+    system bin/"gambit-gnm", pkgshare/"contrib/games/e02.nfg"
+    system bin/"gambit-ipa", pkgshare/"contrib/games/e02.nfg"
+    system bin/"gambit-lcp", pkgshare/"contrib/games/e02.efg"
+    system bin/"gambit-lp", pkgshare/"contrib/games/2x2const.nfg"
+    system bin/"gambit-liap", pkgshare/"contrib/games/e02.nfg"
+    system bin/"gambit-simpdiv", pkgshare/"contrib/games/e02.nfg"
+    system bin/"gambit-logit", pkgshare/"contrib/games/e02.efg"
+    system bin/"gambit-convert", "-O", "html", pkgshare/"contrib/games/2x2.nfg"
   end
 end
