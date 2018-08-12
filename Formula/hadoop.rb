@@ -3,6 +3,7 @@ class Hadoop < Formula
   homepage "https://hadoop.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-3.1.0/hadoop-3.1.0.tar.gz"
   sha256 "670d2ced595fa42d9fa1a93c4e39b39f47002cad1553d9df163ee828ca5143e7"
+  revision 1
 
   bottle :unneeded
 
@@ -15,6 +16,9 @@ class Hadoop < Formula
     libexec.install %w[bin sbin libexec share etc]
     bin.write_exec_script Dir["#{libexec}/bin/*"]
     sbin.write_exec_script Dir["#{libexec}/sbin/*"]
+    libexec.write_exec_script Dir["#{libexec}/libexec/*.sh"]
+    # Temporary fix until https://github.com/Homebrew/brew/pull/4512 is fixed
+    chmod 0755, Dir["#{libexec}/*.sh"]
   end
 
   test do
