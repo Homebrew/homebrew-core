@@ -1,8 +1,8 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nco/nco-4.7.5.tar.gz"
-  sha256 "36f2132482a2eb9910ff9f760f0e61168aee874ad473a187cd8e5f7db2d2e617"
+  url "https://downloads.sourceforge.net/project/nco/nco-4.7.6.tar.gz"
+  sha256 "c7926163b204573b7bf7b6e3c9bcfa15b2cc04c0f494dbc0c6829ee8c2f015b3"
 
   bottle do
     cellar :any
@@ -23,7 +23,7 @@ class Nco < Formula
   depends_on "texinfo"
   depends_on "udunits"
 
-  resource("example_nc") do
+  resource "example_nc" do
     url "https://www.unidata.ucar.edu/software/netcdf/examples/WMI_Lear.nc"
     sha256 "e37527146376716ef335d01d68efc8d0142bdebf8d9d7f4e8cbe6f880807bdef"
   end
