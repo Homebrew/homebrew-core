@@ -26,9 +26,9 @@ class Gjstest < Formula
   end
 
   bottle do
-    sha256 "1b61074dc9a8e50b39794cb984cf3c9de841a83f6f31c59b614eb751d545f0ab" => :high_sierra
-    sha256 "dbe651fdbf5d55fd4813a7ec46bb855651d6866078931e8da304a7c68e5fe270" => :sierra
-    sha256 "0ca5e3fe6dcc0d49844462285f8db439c4471d448e17e0a1f948147a21ae2064" => :el_capitan
+    sha256 "8b1152102634720119529ce4aab3822e1d94b3d131d8c3140df85af7086ff708" => :high_sierra
+    sha256 "0d388431981f66d048e7fa4acad173d8afe4778e80483ebb8257d804b18c5a4e" => :sierra
+    sha256 "0f0e4651730acdd762fced659605887a1c42d3846cc5e17c2e29a39b0e8f1074" => :el_capitan
   end
 
   depends_on :macos => :mavericks
