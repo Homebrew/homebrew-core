@@ -1,9 +1,8 @@
 class Hh < Formula
   desc "Bash and zsh history suggest box"
   homepage "https://github.com/dvorka/hstr"
-  url "https://github.com/dvorka/hstr/archive/1.25.tar.gz"
-  sha256 "9d50e46d2eefc667f4d2b9cd41856be6ffb33a897ab1b036886573d61cadb27f"
-  head "https://github.com/dvorka/hstr.git"
+  url "https://github.com/dvorka/hstr/releases/download/1.27/hh-1.27.0-tarball.tgz"
+  sha256 "32d7ae015c9a055fd9d0e1dc3f946a851feb4f17fb777281e7c4602ba07b6819"
 
   bottle do
     cellar :any
@@ -12,14 +11,19 @@ class Hh < Formula
     sha256 "e8b147fea236a8f50fe8b63e83050d3060348ebca7fb53ed08d592d85675e41f" => :el_capitan
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/dvorka/hstr.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "readline"
 
   def install
-    system "autoreconf", "-fvi"
+    system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
