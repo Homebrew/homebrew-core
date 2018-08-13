@@ -33,7 +33,7 @@ class Crystal < Formula
   depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
-  depends_on "llvm@5"
+  depends_on "llvm"
   depends_on "pcre"
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libyaml" if build.with? "shards"
