@@ -5,9 +5,9 @@ class Lighttpd < Formula
   sha256 "29378312d8887cbc14ffe8a7fadef2d5a08c7e7e1be942795142346ad95629eb"
 
   bottle do
-    sha256 "0d2df35cb64ebd3682f2b6763fcf14faac60341673842efe84b737255633e819" => :high_sierra
-    sha256 "5ab375350e1069b70e1216b0065f05d23aae5d46fbab078b8eb73c37426cb3e4" => :sierra
-    sha256 "3c439deb2e84a3e1cc4bc2d6fdc2ffd2ad041f810bfbb329143687cc62f8cc1a" => :el_capitan
+    sha256 "9434517884196a66f4638ef886428e4ebb0220d68a44e987fb82b9e4015e5741" => :high_sierra
+    sha256 "7cf2702a5e55fd0c304b6f6ebb2f4370a3149afedddb0e3b6e221f6f292cf6a7" => :sierra
+    sha256 "c7d4f9a437e97d8b085d499dc39e7b78b753291cfbed93dfd7d9ca13f9e48bd4" => :el_capitan
   end
 
   option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
