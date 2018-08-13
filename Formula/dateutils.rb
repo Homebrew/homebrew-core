@@ -1,8 +1,8 @@
 class Dateutils < Formula
   desc "Tools to manipulate dates with a focus on financial data"
   homepage "https://www.fresse.org/dateutils/"
-  url "https://bitbucket.org/hroptatyr/dateutils/downloads/dateutils-0.4.3.tar.xz"
-  sha256 "b0d579062bc957823fb7efcb2c520fb6fb43ab79a352026402b06ecfc4c58f1a"
+  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.4/dateutils-0.4.4.tar.xz"
+  sha256 "a9cc2efbb10681130ac725946984e12330e94f43877d865d7f5c131dcf09c84f"
 
   bottle do
     sha256 "21e481eb6f462bc525ac1b37dd816ea63f8d56fba328f34540c10a8a2d367dfd" => :high_sierra
@@ -26,6 +26,7 @@ class Dateutils < Formula
   end
 
   test do
-    assert_equal "2012-03-01-00", shell_output("#{bin}/dconv 2012-03-04 -f \"%Y-%m-%c-%w\"").strip
+    output = shell_output("#{bin}/dconv 2012-03-04 -f \"%Y-%m-%c-%w\"").strip
+    assert_equal "2012-03-01-00", output
   end
 end
