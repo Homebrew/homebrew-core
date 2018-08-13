@@ -1,13 +1,29 @@
 class Ddclient < Formula
   desc "Update dynamic DNS entries"
   homepage "https://sourceforge.net/p/ddclient/wiki/Home"
-  url "https://downloads.sourceforge.net/project/ddclient/ddclient/ddclient-3.8.3/ddclient-3.8.3.tar.bz2"
-  sha256 "d40e2f1fd3f4bff386d27bbdf4b8645199b1995d27605a886b8c71e44d819591"
+  url "https://downloads.sourceforge.net/project/ddclient/ddclient/ddclient-3.9.0/ddclient-3.9.0.tar.gz"
+  sha256 "9c4ae902742e8a37790d3cc8fad4e5b0f38154c76bba3643f4423d8f96829e3b"
   head "https://github.com/wimpunk/ddclient.git"
 
-  bottle :unneeded
+  bottle do
+  end
+
+  resource "Data::Validate::IP" do
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Data-Validate-IP-0.27.tar.gz"
+    sha256 "e1aa92235dcb9c6fd9b6c8cda184d1af73537cc77f4f83a0f88207a8bfbfb7d6"
+  end
 
   def install
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    resources.each do |r|
+      r.stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make"
+        system "make", "install"
+      end
+    end
+
     # Adjust default paths in script
     inreplace "ddclient" do |s|
       s.gsub! "/etc/ddclient", "#{etc}/ddclient"
@@ -15,6 +31,7 @@ class Ddclient < Formula
     end
 
     sbin.install "ddclient"
+    sbin.env_script_all_files(libexec/"sbin", :PERL5LIB => ENV["PERL5LIB"])
 
     # Install sample files
     inreplace "sample-ddclient-wrapper.sh",
@@ -31,10 +48,11 @@ class Ddclient < Formula
       sample-etc_cron.d_ddclient
       sample-etc_ddclient.conf
     ]
+  end
 
-    # Create etc & var paths
-    (etc+"ddclient").mkpath
-    (var+"run/ddclient").mkpath
+  def post_install
+    (etc/"ddclient").mkpath
+    (var/"run/ddclient").mkpath
   end
 
   def caveats; <<~EOS
