@@ -1,9 +1,10 @@
 class Sqoop < Formula
   desc "Transfer bulk data between Hadoop and structured datastores"
   homepage "https://sqoop.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=sqoop/1.4.6/sqoop-1.4.6.bin__hadoop-2.0.4-alpha.tar.gz"
-  version "1.4.6"
-  sha256 "d582e7968c24ff040365ec49764531cb76dfa22c38add5f57a16a57e70d5d496"
+  url "https://www.apache.org/dyn/closer.cgi?path=sqoop/1.4.7/sqoop-1.4.7.tar.gz"
+  version "1.4.7"
+  sha256 "0278dc4e0cd6f3797d8c9cb7c205994f5aaed050b86afe59fb0e9328739231c7"
+  revision 1
 
   bottle :unneeded
 
@@ -14,19 +15,14 @@ class Sqoop < Formula
   depends_on "zookeeper"
   depends_on "coreutils"
 
-  # Patch for readlink -f missing on macOS. Should be fixed in 1.4.7.
-  # https://issues.apache.org/jira/browse/SQOOP-2531
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/77adf73/sqoop/1.4.6.patch"
-    sha256 "f13af5c6525f5bf8f3b993c3ece4f21133680fdbebb663fd4b7b6db9039b07b4"
-  end
-
   def sqoop_envs
     <<~EOS
-      export HADOOP_HOME="#{HOMEBREW_PREFIX}"
+      export HADOOP_HOME="#{Formula["hadoop"].opt_prefix}"
       export HBASE_HOME="#{HOMEBREW_PREFIX}"
       export HIVE_HOME="#{HOMEBREW_PREFIX}"
+      export HCAT_HOME="#{HOMEBREW_PREFIX}"
       export ZOOCFGDIR="#{etc}/zookeeper"
+      export ZOOKEEPER_HOME="#{Formula["zookeeper"].opt_prefix}"
     EOS
   end
 
