@@ -1,8 +1,8 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/6.11.tar.gz"
-  sha256 "74ee598bb0eba87780becb56586e4342d1b9a85282c53a11cb5ef87d2b66256b"
+  url "https://github.com/cesanta/mongoose/archive/6.12.tar.gz"
+  sha256 "cde4f61bf541c0df7507c5f138d0068fc643aea19ab3241414db2e659b71ddb3"
 
   bottle do
     cellar :any
@@ -11,11 +11,10 @@ class Mongoose < Formula
     sha256 "788bd2c11b0edf968e786cb4869b8ca383df694f868c81cc269ca2f3eb7fc5f7" => :el_capitan
   end
 
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
 
   def install
     # No Makefile but is an expectation upstream of binary creation
-    # https://github.com/cesanta/mongoose/blob/master/docs/Usage.md
     # https://github.com/cesanta/mongoose/issues/326
     cd "examples/simplest_web_server" do
       system "make"
