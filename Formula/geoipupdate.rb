@@ -5,9 +5,9 @@ class Geoipupdate < Formula
   sha256 "0caa618b5b541fe6ef12a29362f0a19138ce6ab89b7581aaa9b21a2605534dac"
 
   bottle do
-    sha256 "22feb6fb330b62c077482b443ac637c2fa3f60626b4113d815fc0fd85a255ee2" => :high_sierra
-    sha256 "d28503bce47a42732d54cece163675f6c6169539327a95bb8d4bbdfd16aa9e35" => :sierra
-    sha256 "ab7981329380d9bf0fee2efe0bfed2a1745cc3ecf681356ba21a02cd6604acf2" => :el_capitan
+    sha256 "a3003ca29d2493ea0c12bc36858d0e7a7ab3c7c98d617c885e35e93e08e0a55b" => :high_sierra
+    sha256 "ca8143cde1b5ec7772c50fbbfb424f4e9bf5ea828cb68955434036d708eb9c6e" => :sierra
+    sha256 "0a09000bf9f1e502eae25793603b9b374ef3756e5bda1cbeb36958d1aa6cbef1" => :el_capitan
   end
 
   head do
