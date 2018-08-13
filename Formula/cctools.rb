@@ -3,8 +3,8 @@ class Cctools < Formula
   homepage "https://opensource.apple.com/"
 
   if MacOS.version >= :snow_leopard
-    url "https://opensource.apple.com/tarballs/cctools/cctools-855.tar.gz"
-    sha256 "751748ddf32c8ea84c175f32792721fa44424dad6acbf163f84f41e9617dbc58"
+    url "https://opensource.apple.com/tarballs/cctools/cctools-895.tar.gz"
+    sha256 "ce66034fa35117f9ae76bbb7dd72d8068c405778fa42e877e8a13237a10c5cb7"
   else
     # 806 (from Xcode 4.1) is the latest version that supports Tiger or PowerPC
     url "https://opensource.apple.com/tarballs/cctools/cctools-806.tar.gz"
@@ -47,10 +47,16 @@ class Cctools < Formula
       sha256 "f49162b5c5d2753cf19923ff09e90949f01379f8de5604e86c59f67441a1214c"
     end
 
-    # Fix building libtool with LTO disabled
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/libtool-no-lto.diff"
-      sha256 "3b687f2b9388ac6c4acac2b7ba28d9fd07f2a16e7d2dad09aa2255d98ec1632b"
+    # Fix building strings with LTO disabled
+    patch :p0 do
+      url "https://gist.githubusercontent.com/al3xtjames/8d68ef87c4c2138ef89d3d6e20879401/raw/d178e955c0f6cfcb91d775c016cb5ad95da43db0/cctools-895-strings-no-lto.diff"
+      sha256 "885302f6573d7bf472f7bff4600b6387234df9aea8cd4187e736e0fe89551eab"
+    end
+
+    # Fix objdump/llvm-objdump paths in otool
+    patch :p0 do
+      url "https://gist.githubusercontent.com/al3xtjames/ac4096fa2508af7024ba410fef67b9df/raw/38752e5c4353b59589842e93f3cf3007e1d06e6e/cctools-895-otool-objdump-path.diff"
+      sha256 "3616ae52100f5cd04909eb500dd5f091a1f29d9179bbd4d74f4977b7e6c3d69a"
     end
 
     # strnlen patch only needed on Snow Leopard
@@ -101,6 +107,18 @@ class Cctools < Formula
 
     if build.with? "llvm"
       inreplace "libstuff/lto.c", "@@LLVM_LIBDIR@@", Formula["llvm"].opt_lib
+    end
+
+    if MacOS.version >= :snow_leopard
+      inreplace "misc/Makefile", "$(RAW_DSTROOT)/usr/libexec/DeveloperTools", "$(DSTROOT)/libexec/DeveloperTools"
+      inreplace "otool/main.c", "@@CLT_BINDIR@@", "/Library/Developer/CommandLineTools/usr/bin"
+
+      if build.with? "llvm"
+        inreplace "as/driver.c", "makestr(prefix, CLANG, NULL)", "makestr(\"#{Formula["llvm"].opt_bin}/\", CLANG, NULL)"
+        inreplace "otool/main.c", "@@LLVM_BINDIR@@", Formula["llvm"].opt_bin
+      else
+        inreplace "as/driver.c", "makestr(prefix, CLANG, NULL)", "makestr(\"/Library/Developer/CommandLineTools/usr/bin/\", CLANG, NULL)"
+      end
     end
 
     args = %W[
