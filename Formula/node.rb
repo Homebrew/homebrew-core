@@ -46,7 +46,7 @@ class Node < Formula
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
-    args << "--shared-openssl" if build.with? "openssl@1.1"
+    args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl@1.1"
     args << "--tag=head" if build.head?
 
     system "./configure", *args
