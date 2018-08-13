@@ -1,5 +1,5 @@
 class Pcapplusplus < Formula
-  desc "Multiplatform C++ network sniffing and packet parsing and crafting"
+  desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://seladb.github.io/PcapPlusPlus-Doc"
   url "https://github.com/seladb/PcapPlusPlus/archive/v18.08.tar.gz"
   sha256 "dff6f7c677b2050f880043b125e984238cd8af0f1c25864e09e87fb8d71ec9ab"
@@ -14,8 +14,8 @@ class Pcapplusplus < Formula
   def install
     system "./configure-mac_os_x.sh", "--install-dir", prefix
 
-    # library requires to run 'make all' and 'make install'
-    # in two separate commands
+    # library requires to run 'make all' and
+    # 'make install' in two separate commands.
     system "make", "all"
     system "make", "install"
   end
