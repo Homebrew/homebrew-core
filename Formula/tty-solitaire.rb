@@ -1,8 +1,8 @@
 class TtySolitaire < Formula
   desc "Ncurses-based klondike solitaire game"
   homepage "https://github.com/mpereira/tty-solitaire"
-  url "https://github.com/mpereira/tty-solitaire/archive/v1.0.0.tar.gz"
-  sha256 "d3512beb8844ffb295cbea03bb3515fec12851bce38692e05cd55494beb2cc1f"
+  url "https://github.com/mpereira/tty-solitaire/archive/v1.1.0.tar.gz"
+  sha256 "46c531e2439733282cd6a1e09646d7b9c03b25fb5c0e888b36443c42cc5ee6f2"
 
   bottle do
     cellar :any_skip_relocation
