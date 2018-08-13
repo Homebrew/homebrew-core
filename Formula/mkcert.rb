@@ -6,9 +6,9 @@ class Mkcert < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e356ccb74c7c12ed8b1dd0c4d0f9865eade7a885c8e2cb33f85f2e39f56a52a" => :high_sierra
-    sha256 "0dae653fbb70fd686941fdc96fe9ba7db533fb45a4612534a842244b4095240f" => :sierra
-    sha256 "2f30ce277935e1c81313013379257c3d8733270c755bac936ee001d5d7105694" => :el_capitan
+    sha256 "961fef7c3f09f4777b857db48f8bc6f37390c6747b6617781f9b087bbaa3dfe5" => :high_sierra
+    sha256 "050eb6efb186aadcdbaf2d20ed6396074f09e8e777a666955e69fde0ff588198" => :sierra
+    sha256 "34f2c89fc0d5cdfd197948ea68d40405887b4eaa048d1402bb4a80555b14c33b" => :el_capitan
   end
 
   depends_on "go" => :build
