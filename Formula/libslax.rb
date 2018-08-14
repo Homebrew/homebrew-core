@@ -28,6 +28,8 @@ class Libslax < Formula
   depends_on "curl" if MacOS.version <= :lion
   depends_on "openssl"
 
+  conflicts_with "genometools", :because => "both install `bin/gt`"
+
   def install
     # configure remembers "-lcrypto" but not the link path.
     ENV.append "LDFLAGS", "-L#{Formula["openssl"].opt_lib}"
