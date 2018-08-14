@@ -1,31 +1,15 @@
 class Proxysql < Formula
-  desc "General-purpose data compression with high compression ratio"
+  desc "High Performance Advanced Proxy for MySQL"
   homepage "http://www.proxysql.com/"
-  url "https://github.com/sysown/proxysql/archive/v1.4.9.tar.gz"
-  sha256 "28ee75735716ab2e882b377466f37f5836ce108cfcfe4cf36f31574f81cce401"
+  url "https://github.com/sysown/proxysql/archive/v1.4.10.tar.gz"
+  sha256 "29020cba75b778ef45b06c5469ee5930ce80afbd0290a112d8c2a6652b4c8a2e"
 
   # Build dependencies listed here: https://github.com/sysown/proxysql/blob/master/INSTALL.md
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "make" => :build
   depends_on "mysql@5.6" => :test
-  depends_on "curl"
   depends_on "openssl"
-
-  # https://github.com/sysown/proxysql/pull/1564
-  # TODO when the 1.4.10 release is cut, this formula should be updated and
-  # this patch should be removed.
-  patch do
-    url "https://github.com/sysown/proxysql/compare/v1.4.10...zbentley:v1.4.10.diff?full_index=1"
-    sha256 "c0beccc67a834b5eb2b9d2d70ac28556eaf0268cc456453c97e326e68c894622"
-  end
-
-  # Fixed upstream, not yet released.
-  # TODO when the 1.4.10 release is cut, this formula should be updated
-  # and this patch should be removed.
-  patch do
-    url "https://github.com/sysown/proxysql/commit/9dab0eba12a717b738264d6928599034ea3ebe81.diff?full_index=1"
-  end
 
   def install
     system "make"
