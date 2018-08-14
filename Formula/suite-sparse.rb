@@ -14,6 +14,8 @@ class SuiteSparse < Formula
   depends_on "cmake" => :build
   depends_on "metis"
 
+  conflicts_with "mongoose", :because => "suite-sparse vendors libmongoose.dylib"
+
   def install
     mkdir "GraphBLAS/build" do
       system "cmake", "..", *std_cmake_args
