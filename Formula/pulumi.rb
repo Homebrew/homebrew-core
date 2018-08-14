@@ -1,27 +1,21 @@
 class Pulumi < Formula
   desc "Define cloud applications and infrastructure in your favorite language"
   homepage "https://pulumi.io/"
-  version "666"
-  url "https://github.com/Tirke/pulumi.git",
-      :branch => "tirke-test"
-  # url "https://github.com/pulumi/pulumi.git",
-  #     :tag => "v0.15.0-rc1",
-  #     :revision => "cf93373a84a257e732efa96cc54291eccee87b21"
-  head "https://github.com/pulumi/pulumi.git",
-       :shallow => false
+  url "https://github.com/pulumi/pulumi.git",
+      :tag => "v0.15.0",
+      :revision => "23cbfa503d856f57a3e00599d53c04fe69c93cf0"
 
   depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/pulumi/pulumi"
+    dir.install buildpath.children
+    (buildpath/"bin").mkpath
 
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath / "src/github.com/pulumi/pulumi").install contents
-    (buildpath / "bin").mkpath
-
-    cd "src/github.com/pulumi/pulumi" do
-      system "dep", "ensure", "-v"
+    cd dir do
+      system "dep", "ensure", "-vendor-only"
       system "make", "dist"
       bin.install Dir["#{buildpath}/bin/*"]
     end
@@ -29,10 +23,8 @@ class Pulumi < Formula
 
   test do
     ENV["PULUMI_ACCESS_TOKEN"] = "local://"
-    ENV["PULUMI_TEMPLATE_PATH"] = testpath
-    system "pulumi", "new", "aws-typescript", "--generate-only", "-y"
-    # assert_equal "v0.14.3", output
-    # system bin/"ng", "new", "angular-homebrew-test", "--skip-install"
-    # assert_predicate testpath/"angular-homebrew-test/package.json", :exist?, "Project was not created"
+    ENV["PULUMI_TEMPLATE_PATH"] = testpath/"templates"
+    system "#{bin}/pulumi", "new", "aws-typescript", "--generate-only", "-y"
+    assert_predicate testpath/"Pulumi.yaml", :exist?, "Project was not created"
   end
 end
