@@ -1,9 +1,18 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.community/"
-  url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.0.tar.gz"
-  sha256 "5c77d0dab496489d1418d562a4ef90710f9ff70628a35e6089269605788953df"
   head "https://github.com/beast-dev/beast-mcmc.git"
+
+  stable do
+    url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.1.tar.gz"
+    sha256 "bceed133e21fcde567a6c32e3fc4a07ef77791c5b48fb01769bb2a6431edcb5f"
+
+    # Fix build system on 1.10.1. Remove after next release
+    patch do
+      url "https://github.com/beast-dev/beast-mcmc/commit/0b6ab7d5771648051e430579c4baa51aea497c65.patch?full_index=1"
+      sha256 "0db99329d47062d0e507c5387d5dacbb44c83273ec2e5e30ee18bc7adba2c9de"
+    end
+  end
 
   bottle do
     cellar :any_skip_relocation
