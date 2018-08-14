@@ -71,7 +71,7 @@ class Skktools < Formula
 
     # test skkdic-count
     expect_count = "SKK-JISYO.TEST: 3 candidates\n"
-    actual_count = pipe_output("#{bin}/skkdic-count SKK-JISYO.TEST", nil, 0)
+    actual_count = shell_output("#{bin}/skkdic-count SKK-JISYO.TEST")
     assert_equal expect_count, actual_count
 
     # test skkdic-sort
