@@ -18,6 +18,8 @@ class Genometools < Formula
   depends_on "pango"
   depends_on "python@2"
 
+  conflicts_with "libslax", :because => "both install `bin/gt`"
+
   def install
     system "make", "prefix=#{prefix}"
     system "make", "install", "prefix=#{prefix}"
