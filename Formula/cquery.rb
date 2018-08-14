@@ -2,8 +2,8 @@ class Cquery < Formula
   desc "C/C++ language server"
   homepage "https://github.com/cquery-project/cquery"
   # pull from git tag to get submodules
-  url "https://github.com/cquery-project/cquery.git", :tag => "v20180302",
-                                                      :revision => "f3e9e756e182b122bef8826a77047f6ccf5529b6"
+  url "https://github.com/cquery-project/cquery.git", :tag => "v20180718",
+                                                      :revision => "b523aa928acf8ffb3de6b22c79db7366a9672489"
   head "https://github.com/cquery-project/cquery.git"
 
   bottle do
@@ -13,10 +13,16 @@ class Cquery < Formula
     sha256 "9692d28682c009a9bec583ff20aa16ce5c790975375755a5a48a28ec3e3953c4" => :el_capitan
   end
 
+  # error: 'shared_timed_mutex' is unavailable: introduced in macOS 10.12
+  depends_on :macos => :sierra
+  depends_on "cmake" => :build
+  depends_on "llvm"
+
+  needs :cxx14
+
   def install
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf", "build"
-    system "./waf", "install"
+    system "cmake", ".", "-DSYSTEM_CLANG=ON", *std_cmake_args
+    system "make", "install"
   end
 
   test do
