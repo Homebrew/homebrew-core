@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.1/sleuthkit-4.6.1.tar.gz"
-  sha256 "1f68f3b5983acdb871a30592fb735a32f4db93f041fcf318bcf3ec87128ab433"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.2/sleuthkit-4.6.2.tar.gz"
+  sha256 "12369a753739fa6079177d8a034da4d0e4c7075c59031af53960059757042ace"
 
   bottle do
     cellar :any
@@ -11,37 +11,28 @@ class Sleuthkit < Formula
     sha256 "994034b47b0992fa5c651787de90a548edf5a2ccddee7eb4e7a96bd74b23b470" => :el_capitan
   end
 
-  option "with-jni", "Build Sleuthkit with JNI bindings"
-  option "with-debug", "Build debug version"
-
-  depends_on "afflib" => :optional
-  depends_on "libewf" => :optional
-
-  if build.with? "jni"
-    depends_on :java
-    depends_on "ant" => :build
-  end
+  depends_on "ant" => :build
+  depends_on "afflib"
+  depends_on :java
+  depends_on "libewf"
+  depends_on "libpq"
+  depends_on "sqlite"
 
   conflicts_with "irods", :because => "both install `ils`"
   conflicts_with "ffind",
     :because => "both install a 'ffind' executable."
 
   def install
-    ENV.append_to_cflags "-DNDEBUG" if build.without? "debug"
+    ENV.append_to_cflags "-DNDEBUG"
 
-    args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    args << "--disable-java" if build.without? "jni"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
 
-    if build.with? "jni"
-      cd "bindings/java" do
-        system "ant"
-      end
-      prefix.install "bindings"
+    cd "bindings/java" do
+      system "ant"
     end
+    prefix.install "bindings"
   end
 
   test do
