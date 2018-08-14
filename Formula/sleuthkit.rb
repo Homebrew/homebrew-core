@@ -3,6 +3,7 @@ class Sleuthkit < Formula
   homepage "https://www.sleuthkit.org/"
   url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.6.1/sleuthkit-4.6.1.tar.gz"
   sha256 "1f68f3b5983acdb871a30592fb735a32f4db93f041fcf318bcf3ec87128ab433"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,10 +13,11 @@ class Sleuthkit < Formula
   end
 
   option "with-jni", "Build Sleuthkit with JNI bindings"
-  option "with-debug", "Build debug version"
 
-  depends_on "afflib" => :optional
-  depends_on "libewf" => :optional
+  depends_on "afflib"
+  depends_on "libewf"
+  depends_on "libpq"
+  depends_on "sqlite"
 
   if build.with? "jni"
     depends_on :java
@@ -27,8 +29,6 @@ class Sleuthkit < Formula
     :because => "both install a 'ffind' executable."
 
   def install
-    ENV.append_to_cflags "-DNDEBUG" if build.without? "debug"
-
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     args << "--disable-java" if build.without? "jni"
 
