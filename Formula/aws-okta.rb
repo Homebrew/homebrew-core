@@ -16,12 +16,17 @@ class AwsOkta < Formula
   end
 
   test do
-    require 'pty'
+    require "pty"
 
-    PTY.spawn("#{bin}/aws-okta add") do |input, output, pid|
-      output.puts "organization\n"; input.gets
-      output.puts "username\n"; input.gets
-      output.puts "password\n"; input.gets
+    PTY.spawn("#{bin}/aws-okta --backend file add") do |input, output, _pid|
+      output.puts "organization\n"
+      input.gets
+      output.puts "username\n"
+      input.gets
+      output.puts "password\n"
+      input.gets
+      output.puts "\n"
+      input.gets
       input.gets
       assert_match "Added credentials for user username", input.gets.chomp
       input.close
