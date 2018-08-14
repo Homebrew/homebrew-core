@@ -6,9 +6,9 @@ class ProtobufC < Formula
 
   bottle do
     cellar :any
-    sha256 "3486e2c1d4d3c8156fbd752c695702df5ddde99f858c12a0f98266a4e76c9157" => :high_sierra
-    sha256 "0ce7864014c70e653332527804ad07039406f3563204f4f7e66612d682c1a480" => :sierra
-    sha256 "193f27c0ff5c6dbcd2b1eba8572fed7b91f66866ec4c323ba9b4b6189886146f" => :el_capitan
+    sha256 "f34001d304aba14031d91c27eb8262431b7423936c1d16fe803ba751b4d79b6e" => :high_sierra
+    sha256 "cd1d4d0e7586c6068e1429ebf08c12810290d2e33f248ba54af82fdd83d30956" => :sierra
+    sha256 "34f20c4367ae1d7e61dd28de40cbd910a4e81d7fc6b1b186c93bd6f55aa89eb3" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
