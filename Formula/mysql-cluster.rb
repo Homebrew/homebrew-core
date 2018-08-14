@@ -31,6 +31,8 @@ class MysqlCluster < Formula
   conflicts_with "memcached", :because => "both install `bin/memcached`"
   conflicts_with "mysql", "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
+  conflicts_with "mysql-connector-c",
+    :because => "both install `bin/my_print_defaults`"
 
   fails_with :clang do
     build 500
