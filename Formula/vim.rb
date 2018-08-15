@@ -4,6 +4,7 @@ class Vim < Formula
   # vim should only be updated every 50 releases on multiples of 50
   url "https://github.com/vim/vim/archive/v8.1.0250.tar.gz"
   sha256 "f35193627469f4dc307e9286b21b2c818faaa2c67f03fb4983b58010f26f7f78"
+  revision 1
   head "https://github.com/vim/vim.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Vim < Formula
 
   option "with-override-system-vi", "Override system vi"
   option "with-gettext", "Build vim with National Language Support (translated messages, keymaps)"
-  option "with-client-server", "Enable client/server mode"
+  option "without-client-server", "Disable client/server mode"
 
   LANGUAGES_OPTIONAL = %w[lua python@2 tcl].freeze
   LANGUAGES_DEFAULT  = %w[python].freeze
@@ -138,5 +139,6 @@ class Vim < Formula
     if build.with? "gettext"
       assert_match "+gettext", shell_output("#{bin}/vim --version")
     end
+    assert_match "+X11", shell_output("#{bin}/vim --version")
   end
 end
