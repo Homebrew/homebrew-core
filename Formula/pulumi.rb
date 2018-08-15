@@ -12,12 +12,12 @@ class Pulumi < Formula
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/pulumi/pulumi"
     dir.install buildpath.children
-    (buildpath/"bin").mkpath
 
     cd dir do
       system "dep", "ensure", "-vendor-only"
       system "make", "dist"
       bin.install Dir["#{buildpath}/bin/*"]
+      prefix.install_metafiles
     end
   end
 
