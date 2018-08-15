@@ -7,6 +7,7 @@ class Xvid < Formula
 
   bottle do
     cellar :any
+    sha256 "c1c30c17a4715958fa2fa27fb060b2835c02818b46342d6534131af8729ebd65" => :mojave
     sha256 "618a58566676d49621cafc2278f1d94e5eaa443a57b1621ea4b040f49972ff94" => :high_sierra
     sha256 "6e62d9ca4544df9545b7bffbadd3c80a609d49ce12a94886f3310578ea2aaf88" => :sierra
     sha256 "1161fb4826f77c79deb33c494c31d934b9f46eac60d61ec3e5ea5c56b018d614" => :el_capitan
