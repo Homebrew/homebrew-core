@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
-  sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
+  url "https://releases.llvm.org/6.0.1/openmp-6.0.1.src.tar.xz"
+  sha256 "66afca2b308351b180136cf899a3b22865af1a775efaf74dc8a10c96d4721c5a"
 
   bottle do
     cellar :any
