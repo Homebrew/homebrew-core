@@ -8,9 +8,9 @@ class Mkdocs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7092199f6eb3fab4d4d596eeb0e18b4c5d13a9198699b26ef1e0d43e16275875" => :high_sierra
-    sha256 "d537dc36d8c18d9afdc563530f5d5ad99bf0d3f841a303a30cfec4664961ef4f" => :sierra
-    sha256 "7fa0c48d2c0fc51883378f5c59259a2ae6a33b35cc0d066128056c3be57592f4" => :el_capitan
+    sha256 "2d0111eb6060ac6305f3f06f385bb55186a2dbe0dc04d5d48cbb73220bb311e7" => :high_sierra
+    sha256 "a35e42cb48ab5da9fb49a6d17c8ab3f4ea02574a7d83c2de8e6a27fa6b037738" => :sierra
+    sha256 "d34abf4f7f090303e1b8d012c9fcb822b1cefb75e9646aad148bc6b78dcbad3e" => :el_capitan
   end
 
   depends_on "python@2"
