@@ -6,10 +6,10 @@ class Libswiftnav < Formula
 
   bottle do
     cellar :any
-    sha256 "ec5142cb510d648fbc57b8e3acb7ff4925d720a305c18efd34511aae16aeb066" => :high_sierra
-    sha256 "3f0e52c5a7be06dbcf140870af9ee3f74520d78a51104973d8279793f7919d1d" => :sierra
-    sha256 "c5730d05abf427a9213faf36dd13517771bf1905f8df01619932c173c581e550" => :el_capitan
-    sha256 "96e3a1e2e74ddce115e6ea88c389aa970c9acabaf6e75b3322ac0f23858fec85" => :yosemite
+    rebuild 1
+    sha256 "528d7e5e52b8ff8cdcb9be22a884d8e8b49e08f9ef90d0b99362526e7117e9ee" => :high_sierra
+    sha256 "739033ca99d860134475385ee3fe9180366d36f51d0a08326b2c8bab4a84dbf8" => :sierra
+    sha256 "9bea031f090e48b33e9fa24b8dc5d0391b64dfdc93613ac6aed23c2643ad6e7b" => :el_capitan
   end
 
   depends_on "cmake" => :build
