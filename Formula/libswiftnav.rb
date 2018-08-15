@@ -1,8 +1,8 @@
 class Libswiftnav < Formula
   desc "C library implementing GNSS related functions and algorithms"
-  homepage "https://github.com/swift-nav/libswiftnav"
-  url "https://github.com/swift-nav/libswiftnav/archive/v0.21.tar.gz"
-  sha256 "99e7ac3f190d76b2c1ceb17dae76d24b86d1a71501db4f6a49759539bb393756"
+  homepage "https://github.com/swift-nav/libswiftnav-legacy"
+  url "https://github.com/swift-nav/libswiftnav-legacy/archive/v0.21.tar.gz"
+  sha256 "087c7264c0d0d735414f8bffbfa52ab44696c500ba14a43262d98d6aa093221f"
 
   bottle do
     cellar :any
