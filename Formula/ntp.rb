@@ -1,9 +1,9 @@
 class Ntp < Formula
   desc "The Network Time Protocol (NTP) Distribution"
   homepage "https://www.eecis.udel.edu/~mills/ntp/html/"
-  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p11.tar.gz"
-  version "4.2.8p11"
-  sha256 "f14a39f753688252d683ff907035ffff106ba8d3db21309b742e09b5c3cd278e"
+  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p12.tar.gz"
+  version "4.2.8p12"
+  sha256 "709b222b5013d77d26bfff532b5ea470a8039497ef29d09363931c036cb30454"
 
   bottle do
     sha256 "7f31f03699629db42395a843e01800a3733b5615aab17fee1a631ae1a791042c" => :high_sierra
