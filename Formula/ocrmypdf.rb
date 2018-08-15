@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/ca/80/3ec566e800057bfb9c7d9c7278eb7fcc6d2f15195e544214433c649a6daf/ocrmypdf-7.0.2.tar.gz"
-  sha256 "0070cec34acda08a06667fe6ab6bca3257822811428cd455198071a465eb777e"
+  url "https://files.pythonhosted.org/packages/bd/78/26738c05ad79a67e315490463d974e98bb682c989eef3c9cf067f64bb81f/ocrmypdf-7.0.3.tar.gz"
+  sha256 "ba330ba8a82a228986d5d00d6147c1f2a51d8456065608af1e9160f8d454428a"
 
   bottle do
     cellar :any
@@ -33,23 +33,18 @@ class Ocrmypdf < Formula
   end
 
   resource "img2pdf" do
-    url "https://files.pythonhosted.org/packages/a6/5a/410a05ebefe60885dd8a13e18b82692d23bbf0fc74f2807b0ae3e7c6bfb1/img2pdf-0.3.0.tar.gz"
-    sha256 "8d81bb05abfe73172a31afced1019e7636aaddd13a75207daef032350cec21fc"
+    url "https://files.pythonhosted.org/packages/3e/40/aa7b63857908566b76d1849065a700248b088bf502c244e839fa2548d99e/img2pdf-0.3.1.tar.gz"
+    sha256 "4409c12293eca94fdcd8e0da1ad2392b6ee3adfcedf438bb8b685924dc1b3a1c"
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/39/97/9dd6f1e2158f61100f2cb8828de2e6f35f9edb634af405ecc0146ba70567/pikepdf-0.3.0.tar.gz"
-    sha256 "c757a3d84b09494f0b402b890511107da3a9f4d845a53d142edfb69b1165ffe7"
+    url "https://files.pythonhosted.org/packages/cd/e8/1de3832c09826b50babefe0d833e452bb2caee61800b047d1094f9fde5ec/pikepdf-0.3.1.tar.gz"
+    sha256 "7cdf0a874de395c8cf00c92605a7c55445bbf41df9f0aae7c4d1625b66c4be26"
   end
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/d3/c4/b45b9c0d549f482dd072055e2d3ced88f3b977f7b87c7a990228b20e7da1/Pillow-5.2.0.tar.gz"
     sha256 "f8b3d413c5a8f84b12cd4c5df1d8e211777c9852c6be3ee9c094b626644d3eab"
-  end
-
-  resource "pybind11" do
-    url "https://files.pythonhosted.org/packages/95/30/788a5c943f1399e05b52148504dffa7a801ea52eb5bb5cac0cc828306278/pybind11-2.2.3.tar.gz"
-    sha256 "87ff3ae777d9326349af5272974581270b2a0909b2392dc0cc57eb28ce23bcc3"
   end
 
   resource "pycparser" do
@@ -68,8 +63,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/54/8b/ebc5f52dfd8175b7e831caae7f1c491cdef5834667bd6e5fd41627b5c07a/reportlab-3.5.2.tar.gz"
-    sha256 "08986267eaf25d62c3802512f0a97dc3426d0c82f52c8beb576689582eb85b7f"
+    url "https://files.pythonhosted.org/packages/20/79/533165435ad718d6ab3cc5ec40c1ac31654809db8f6510329b5eb2ef50fd/reportlab-3.5.5.tar.gz"
+    sha256 "d18485c5b7561519138fd94a29239d8361cb3e204d38342f98f40c8d7774b4a5"
   end
 
   resource "ruffus" do
