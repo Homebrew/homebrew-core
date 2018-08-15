@@ -1,19 +1,19 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php\?name\=neo4j-community-3.3.4-unix.tar.gz"
-  sha256 "cc2fda6ededfc4678d1fc9be9dc1c5c2902fe2bc184125b59ae6f9183a98571c"
+  url "https://neo4j.com/artifact.php\?name\=neo4j-community-3.4.5-unix.tar.gz"
+  sha256 "af53823776645e11d04436a513368e7e417b515572d6228da6b2977c8490ffbb"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  # Upstream does not intend to provide Java 8+ support until 4.0
+  # and there are various issues with running against newer Javas.
+  # https://github.com/neo4j/neo4j/issues/11728#issuecomment-387038804
+  # https://github.com/neo4j/neo4j-browser/issues/671#issuecomment-346224754
+  # https://github.com/Homebrew/homebrew-core/issues/31090
+  depends_on :java => "1.8"
 
   def install
-    inreplace %w[bin/cypher-shell bin/neo4j bin/neo4j-admin bin/neo4j-import
-                 bin/neo4j-shell],
-              'JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"',
-              'JAVA_HOME="$(/usr/libexec/java_home -v 1.8+)"'
-
     ENV["NEO4J_HOME"] = libexec
     # Remove windows files
     rm_f Dir["bin/*.bat"]
