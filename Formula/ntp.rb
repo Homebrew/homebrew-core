@@ -6,9 +6,9 @@ class Ntp < Formula
   sha256 "709b222b5013d77d26bfff532b5ea470a8039497ef29d09363931c036cb30454"
 
   bottle do
-    sha256 "7f31f03699629db42395a843e01800a3733b5615aab17fee1a631ae1a791042c" => :high_sierra
-    sha256 "fa9f1682235a5b26539f86fc1f96deab602898f90c9014a81e4409e06606d842" => :sierra
-    sha256 "9f49c8fb9b0f4ac8b5cf730d45d13656e4e80fbd030e6f5a92d26b1d5fe6b9bb" => :el_capitan
+    sha256 "d0e19a944a165087388ef43010a9d5407c08a96b461574dedb13b4a0e1a4079b" => :high_sierra
+    sha256 "e177b88d4a9bb828bdae90f935fe138ca59eba94c7aafa1ab13bfc65caf0a82e" => :sierra
+    sha256 "bd59b6a069f159a7a226f12ac254e41702fb992b2c6763adb9af25e659dd18f3" => :el_capitan
   end
 
   option "with-net-snmp", "Build ntpsnmpd, the SNMP MIB agent for ntpd"
