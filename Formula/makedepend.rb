@@ -8,6 +8,7 @@ class Makedepend < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "f8fe4a9c0346e86c2a8b675a1818f21024a28c8bd228c2eb2b47c90179705531" => :mojave
     sha256 "648d18f27ef8ea0067a1d315ac9ffedece1734d950fa1228175ddd6f04c02ecf" => :high_sierra
     sha256 "9e56751537ccf63d38f7d44c34cdcc565895a774d6f81d844c4900e008399712" => :sierra
     sha256 "0f13329fdaa980ab3e4440f352a70e99aa3afdcfba0ad9bc60e9bc2e828f1b3b" => :el_capitan
