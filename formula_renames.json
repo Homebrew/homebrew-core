@@ -129,7 +129,6 @@
   "nimrod": "nim",
   "node010": "node@0.10",
   "node012": "node@0.12",
-  "node4-lts": "node@4",
   "node6-lts": "node@6",
   "objective-caml": "ocaml",
   "offline-imap": "offlineimap",
