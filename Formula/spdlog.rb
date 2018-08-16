@@ -45,10 +45,10 @@ class Spdlog < Formula
         }
       }
     EOS
- 
+
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-o", "test"
     system "./test"
     assert_predicate testpath/"basic-log.txt", :exist?
-    assert (testpath/"basic-log.txt").read.chomp.include? "Test"
+    assert_match "Test", (testpath/"basic-log.txt").read
   end
 end
