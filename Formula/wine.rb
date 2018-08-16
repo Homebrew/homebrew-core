@@ -7,6 +7,7 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
+  revision 1
 
   stable do
     url "https://dl.winehq.org/wine/source/3.0/wine-3.0.2.tar.xz"
@@ -68,9 +69,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2o.tar.gz"
-    mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2o.tar.gz"
-    sha256 "ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d"
+    url "https://www.openssl.org/source/openssl-1.0.2p.tar.gz"
+    mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2p.tar.gz"
+    sha256 "50a98e07b1a89eb8f6a99477f262df71c6fa7bef77df4dc83025a2845c827d00"
   end
 
   resource "libtool" do
@@ -89,6 +90,23 @@ class Wine < Formula
     url "https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
     mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
     sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
+
+    # All of these have been reported upstream & should
+    # be fixed in the next release, but please check.
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
+      sha256 "4e145dcde596e0c406a9f482680f9ddd09bed61a0dc6d3ac7e4c77c8ae2dd383"
+      apply "patches/CVE-2017-9935.patch",
+            "patches/CVE-2017-18013.patch",
+            "patches/CVE-2018-5784.patch",
+            "patches/CVE-2017-11613_part1.patch",
+            "patches/CVE-2017-11613_part2.patch",
+            "patches/CVE-2018-7456.patch",
+            "patches/CVE-2017-17095.patch",
+            "patches/CVE-2018-8905.patch",
+            "patches/CVE-2018-10963.patch"
+    end
   end
 
   resource "little-cms2" do
@@ -98,9 +116,9 @@ class Wine < Formula
   end
 
   resource "libpng" do
-    url "https://downloads.sourceforge.net/libpng/libpng-1.6.34.tar.xz"
-    mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.34/libpng-1.6.34.tar.xz"
-    sha256 "2f1e960d92ce3b3abd03d06dfec9637dfbd22febf107a536b44f7a47c60659f6"
+    url "https://downloads.sourceforge.net/libpng/libpng-1.6.35.tar.xz"
+    mirror "https://sourceforge.mirrorservice.org/l/li/libpng/libpng16/1.6.35/libpng-1.6.35.tar.xz"
+    sha256 "23912ec8c9584917ed9b09c5023465d71709dce089be503c7867fec68a93bcd7"
   end
 
   resource "freetype" do
@@ -133,14 +151,13 @@ class Wine < Formula
   end
 
   resource "libgphoto2" do
-    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.18/libgphoto2-2.5.18.tar.bz2"
-    mirror "https://fossies.org/linux/privat/libgphoto2-2.5.18.tar.bz2"
-    sha256 "5b17b89d7ca0ec35c72c94ac3701e87d49e52371f9509b8e5c08c913ae57a7ec"
+    url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.19/libgphoto2-2.5.19.tar.bz2"
+    sha256 "62523e52e3b8542301e072635b518387f2bd0948347775cf10cb2da9a6612c63"
   end
 
   resource "net-snmp" do
-    url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.7.3/net-snmp-5.7.3.tar.gz"
-    sha256 "12ef89613c7707dc96d13335f153c1921efc9d61d3708ef09f3fc4a7014fb4f0"
+    url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.8/net-snmp-5.8.tar.gz"
+    sha256 "b2fc3500840ebe532734c4786b0da4ef0a5f67e51ef4c86b3345d697e4976adf"
   end
 
   resource "sane-backends" do
@@ -382,10 +399,7 @@ class Wine < Formula
 
       resource("net-snmp").stage do
         # https://sourceforge.net/p/net-snmp/bugs/2504/
-        ln_s "darwin13.h", "include/net-snmp/system/darwin14.h"
-        ln_s "darwin13.h", "include/net-snmp/system/darwin15.h"
-        ln_s "darwin13.h", "include/net-snmp/system/darwin16.h"
-        ln_s "darwin13.h", "include/net-snmp/system/darwin17.h"
+        ln_s "darwin13.h", "include/net-snmp/system/darwin18.h"
 
         system "./configure", "--disable-debugging",
                               "--prefix=#{libexec}",
