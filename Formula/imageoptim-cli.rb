@@ -9,9 +9,9 @@ class ImageoptimCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :high_sierra
-    sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :sierra
-    sha256 "4e2ecb52446d8a0cdf464189d1bc5900cf06b132b7964638b70732c43c4b9e9f" => :el_capitan
+    sha256 "32d15b612091c5a6efe37374f6a49245579561e9a46b651875fef52241efc76a" => :high_sierra
+    sha256 "1df36a9f85175e39aeadde4dadcef277dd948c84a1ca8a1dd396e6d25894e3c0" => :sierra
+    sha256 "1f061b2328960f327bdba6e6ef3447d4d4c789a3bc9e8e0b6229a21d25ee7533" => :el_capitan
   end
 
   depends_on "node" => :build
