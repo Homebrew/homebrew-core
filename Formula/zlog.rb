@@ -6,7 +6,7 @@ class Zlog < Formula
 
   def install
     system "make"
-    system "make", "install"
+    system "make", "PREFIX=#{prefix}", "install"
   end
   
   test do
