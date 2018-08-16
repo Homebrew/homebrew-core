@@ -1,29 +1,14 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
+  url "https://download.qemu.org/qemu-3.0.0.tar.xz"
+  sha256 "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
   head "https://git.qemu.org/git/qemu.git"
-
-  stable do
-    url "https://download.qemu.org/qemu-2.12.0.tar.bz2"
-    sha256 "c9f4a147bc915d24df9784affc611a115f42d24720a89210b479f1ba7a3f679c"
-
-    # https://lists.nongnu.org/archive/html/qemu-devel/2018-06/msg03856.html
-    # https://github.com/Homebrew/homebrew-core/issues/27146
-    patch do
-      url "https://git.qemu.org/?p=qemu.git;a=patch;h=656282d245b49b84d4a1a47d7b7ede482d541776"
-      sha256 "9f34465a06115bbffa171502e863e90a776ff6f897cd82ccebe287a91daad975"
-    end
-  end
 
   bottle do
     sha256 "ef4da4274e0e582cff223d46736d386ea78444e7943bcb47f4541bec9e6b7786" => :high_sierra
     sha256 "c896fa77d0b63a9c7fc5e7ad9ee64ab72c3d0995cc1031ef9326b41a3d189240" => :sierra
     sha256 "95a8d1f152c57161dee4f0f36a7409ff413631d0ca5afb7fe5d986b13abaf0ae" => :el_capitan
-  end
-
-  devel do
-    url "https://download.qemu.org/qemu-3.0.0-rc4.tar.xz"
-    sha256 "420409d0c47169c4323b29d8af0a14d8276f4f038a74f37891829650dfb9d8cd"
   end
 
   depends_on "pkg-config" => :build
