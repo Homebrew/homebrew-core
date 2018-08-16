@@ -8,7 +8,6 @@ class PythonAT2 < Formula
 
   bottle do
     rebuild 1
-    sha256 "16dc983c117ec9ba8997bed9675f55090fea0d007103e4a5b088f8dd31486d97" => :mojave
     sha256 "3a2d38bf7b65da1813753a618aa0781cdc753380056e33b81decb21a75fde3d8" => :high_sierra
     sha256 "437054bac1266ae143ed1569dffbd3f8f4d88bd8b21780eec88e837d51d3cd57" => :sierra
     sha256 "a1dcdc5031324e2f35b6fa4ca5f07e36faa60e92306bf472527bc0d671c66ce0" => :el_capitan
