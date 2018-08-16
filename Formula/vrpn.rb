@@ -1,8 +1,8 @@
 class Vrpn < Formula
   desc "Virtual reality peripheral network"
   homepage "https://github.com/vrpn/vrpn/wiki"
-  url "https://github.com/vrpn/vrpn/releases/download/v07.33/vrpn_07_33.zip"
-  sha256 "3cb9e71f17eb756fbcf738e6d5084d47b3b122b68b66d42d6769105cb18a79be"
+  url "https://github.com/vrpn/vrpn/releases/download/version_07.34/vrpn_07.34.zip"
+  sha256 "1ecb68f25dcd741c4bfe161ce15424f1319a387a487efa3fbf49b8aa249c9910"
   head "https://github.com/vrpn/vrpn.git"
 
   bottle do
@@ -22,15 +22,8 @@ class Vrpn < Formula
   depends_on "doxygen" => :build if build.with? "docs"
   depends_on "libusb" # for HID support
 
-  # Upstream commit fixes Xcode 9 build failure, remove in next version
-  # https://github.com/vrpn/vrpn/issues/187
-  patch do
-    url "https://github.com/vrpn/vrpn/commit/855af40d.patch?full_index=1"
-    sha256 "601335e211cee722814650a6a31cfc6a4278ae52d5e9527a2799df3dd47758b9"
-  end
-
   def install
-    ENV.libstdcxx
+    ENV.libstdcxx unless MacOS.version > :mavericks
 
     args = std_cmake_args
     args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
