@@ -1,9 +1,8 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.11.3/node-v8.11.3.tar.xz"
-  sha256 "577c751fdca91c46c60ffd8352e5b465881373bfdde212c17c3a3c1bd2616ee0"
-  revision 1
+  url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
+  sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
 
   bottle do
     sha256 "8972065cc254cd688996153d2b352480ddb06c97d071298e19ac089ed75fd718" => :high_sierra
@@ -40,7 +39,7 @@ class NodeAT8 < Formula
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
-    args << "--shared-openssl" if build.with? "openssl"
+    args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl"
 
     system "./configure", *args
     system "make", "install"
