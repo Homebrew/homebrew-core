@@ -6,10 +6,43 @@ class Zlog < Formula
 
   def install
     system "make"
-    system "make", "prefix=#{prefix}", "install"
+    system "make", "PREFIX=#{prefix}", "install"
   end
   
   test do
-    system "#{bin}/zlog-chk-conf", "-h"
+    (testpath/"zlog.conf").write <<~EOS
+      [formats]
+      simple = "%m%n"
+      [rules]
+      my_cat.DEBUG    >stdout; simple
+    EOS
+    (testpath/"zlog.c").write <<~EOS
+      #include <stdio.h>
+      #include <zlog.h>
+      int main() {
+        int rc;
+        zlog_category_t *c;
+
+        rc = zlog_init("zlog.conf");
+        if (rc) {
+          printf("init failed!");
+          return -1;
+        }
+
+        c = zlog_get_category("my_cat");
+        if (!c) {
+          printf("get cat failed!");
+          zlog_fini();
+          return -2;
+        }
+
+        zlog_info(c, "hello, zlog!");
+        zlog_fini();
+
+        return 0;
+      }
+    EOS
+    system ENV.cc, "zlog.c", "-L#{lib}", "-lzlog", "-lpthread", "-o", "zlog"
+    system "./zlog"
   end
 end
