@@ -4,15 +4,8 @@ class Qemu < Formula
   head "https://git.qemu.org/git/qemu.git"
 
   stable do
-    url "https://download.qemu.org/qemu-2.12.0.tar.bz2"
-    sha256 "c9f4a147bc915d24df9784affc611a115f42d24720a89210b479f1ba7a3f679c"
-
-    # https://lists.nongnu.org/archive/html/qemu-devel/2018-06/msg03856.html
-    # https://github.com/Homebrew/homebrew-core/issues/27146
-    patch do
-      url "https://git.qemu.org/?p=qemu.git;a=patch;h=656282d245b49b84d4a1a47d7b7ede482d541776"
-      sha256 "9f34465a06115bbffa171502e863e90a776ff6f897cd82ccebe287a91daad975"
-    end
+    url "https://download.qemu.org/qemu-3.0.0.tar.xz"
+    sha256 "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
   end
 
   bottle do
@@ -22,11 +15,9 @@ class Qemu < Formula
   end
 
   devel do
-    url "https://download.qemu.org/qemu-3.0.0.tar.xz"
-    sha256 "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
+    url "https://download.qemu.org/qemu-3.0.0-rc4.tar.xz"
+    sha256 "420409d0c47169c4323b29d8af0a14d8276f4f038a74f37891829650dfb9d8cd"
   end
-
-  option "with-hvf", "Enable Hypervisor.framework support (3.x)"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
@@ -83,7 +74,6 @@ class Qemu < Formula
     args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
     args << (build.with?("gtk+3") ? "--enable-gtk" : "--disable-gtk")
     args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
-    args << (build.with?("hvf") ? "--enable-hvf" : "--disable-hvf")
 
     system "./configure", *args
     system "make", "V=1", "install"
