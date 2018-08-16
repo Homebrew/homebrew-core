@@ -117,7 +117,6 @@ class Mpd < Formula
       - $XDG_CONFIG_HOME/mpd/mpd.conf
       - ~/.mpd/mpd.conf
       - ~/.mpdconf
-      - /etc/mpd.conf
     and tailor it to your needs.
   EOS
   end
