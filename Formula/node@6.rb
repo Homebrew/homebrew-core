@@ -1,8 +1,8 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.14.3/node-v6.14.3.tar.xz"
-  sha256 "e3f187729f7e4b13d9c053f70cc12717d6e6734e0544cb8ba935aa72d07479c9"
+  url "https://nodejs.org/dist/v6.14.4/node-v6.14.4.tar.xz"
+  sha256 "9a4bfc99787f8bdb07d5ae8b1f00ec3757e7b09c99d11f0e8a5e9a16a134ec0f"
 
   bottle do
     sha256 "f291232380137e55151587da07e54b7e504d1889446bb8d6c96774bfe36b1e00" => :high_sierra
@@ -40,7 +40,7 @@ class NodeAT6 < Formula
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
-    args << "--shared-openssl" if build.with? "openssl"
+    args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl"
 
     if build.with? "full-icu"
       resource("icu4c").stage buildpath/"deps/icu"
