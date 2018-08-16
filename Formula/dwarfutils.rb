@@ -1,8 +1,8 @@
 class Dwarfutils < Formula
   desc "Dump and produce DWARF debug information in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-20180129.tar.gz"
-  sha256 "8bd91b57064b0c14ade5a009d3a1ce819f1b6ec0e189fc876eb8f42a8720d8a6"
+  url "https://www.prevanders.net/libdwarf-20180809.tar.gz"
+  sha256 "63e5947fbd8f342240d25bed2081251f8ec5428ee09e24dfad3b6956168bc400"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,7 +29,7 @@ class Dwarfutils < Formula
 
     bin.install "dwarfdump/dwarfdump"
     man1.install "dwarfdump/dwarfdump.1"
-    lib.install "libdwarf/libdwarf.a"
+    lib.install "libdwarf/.libs/libdwarf.a"
     include.install "libdwarf/dwarf.h"
     include.install "libdwarf/libdwarf.h"
   end
