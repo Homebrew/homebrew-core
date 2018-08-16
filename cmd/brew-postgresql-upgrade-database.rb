@@ -65,7 +65,7 @@ begin
   initdb_run = true
 
   (var/"log").cd do
-    system "#{bin}/pg_upgrade",
+    raise unless system "#{bin}/pg_upgrade",
       "-r",
       "-b", old_bin,
       "-B", bin,
