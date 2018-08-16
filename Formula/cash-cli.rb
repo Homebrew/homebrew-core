@@ -6,6 +6,13 @@ class CashCli < Formula
   url "https://registry.npmjs.org/cash-cli/-/cash-cli-2.0.7.tgz"
   sha256 "f5dc22657510ef80ceb2dc7da38fd88da682d32abac5a2be129fccf968c68cb6"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "82ce4c7f0b52ea68df08614453a5d6c5ead0a46bafcd02bc6b3db13dfc355fb3" => :high_sierra
+    sha256 "eccf8aa349797727e8332b7f7990000d49edd3ca5d0de991b8c6b23911ed9f81" => :sierra
+    sha256 "3b353f58868294256d20c00fff8ee2b7af9dab8281bdeebeace7d59ced2e103a" => :el_capitan
+  end
+
   depends_on "node"
 
   def install
