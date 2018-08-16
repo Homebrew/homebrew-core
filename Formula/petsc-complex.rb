@@ -4,6 +4,12 @@ class PetscComplex < Formula
   url "http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.9.3.tar.gz"
   sha256 "8828fe1221f038d78a8eee3325cdb22ad1055a2f0671871815ee9f47365f93bb"
 
+  bottle do
+    sha256 "679041473b4edbe331d89f4e15df8dccea99959b97fcb956bf62e14ff7622af3" => :high_sierra
+    sha256 "89de145714cbb40b721927bed4b96cda0334da62d9107d541e89bf13a812e6f4" => :sierra
+    sha256 "85b62f488b405282f84c943f5faf688766be4e68781b8f0ff0b9601472e6a13a" => :el_capitan
+  end
+
   depends_on "hdf5"
   depends_on "hwloc"
   depends_on "metis"
