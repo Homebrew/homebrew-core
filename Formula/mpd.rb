@@ -112,7 +112,14 @@ class Mpd < Formula
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
 
-  plist_options :manual => "mpd #{HOMEBREW_PREFIX}/etc/mpd/mpd.conf"
+  def caveats; <<~EOS
+    MPD requires a config file to start. Create the directory ~/.config/mpd and copy the default config:
+      mkdir -p ~/.config/mpd
+      cp #{etc}/mpd/mpd.conf ~/.config/mpd
+  EOS
+  end
+
+  plist_options :manual => "mpd"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -127,7 +134,6 @@ class Mpd < Formula
         <array>
             <string>#{opt_bin}/mpd</string>
             <string>--no-daemon</string>
-            <string>#{etc}/mpd/mpd.conf</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
