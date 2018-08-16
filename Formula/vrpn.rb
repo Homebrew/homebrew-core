@@ -27,6 +27,7 @@ class Vrpn < Formula
 
     args = std_cmake_args
     args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
+    args << "-DVRPN_BUILD_JAVA:BOOL=OFF"
 
     if build.with? "clients"
       args << "-DVRPN_BUILD_CLIENTS:BOOL=ON"
