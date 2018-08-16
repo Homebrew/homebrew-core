@@ -1,8 +1,8 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/v3.8.0.tar.gz"
-  sha256 "eb6cade9eaf09b8242dff0476ff690c4c428fbdcf7e5df93ac762346e81198da"
+  url "https://github.com/VirusTotal/yara/archive/v3.8.1.tar.gz"
+  sha256 "283527711269354d3c60e2705f7f74b1f769d2d35ddba8f7f9ce97d0fd5cb1ca"
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
