@@ -17,6 +17,7 @@ class Petsc < Formula
   depends_on "open-mpi"
   depends_on "scalapack"
   depends_on "suite-sparse"
+
   conflicts_with "petsc-complex", :because => "petsc must be installed with either real or complex support, not both"
 
   def install
@@ -24,19 +25,16 @@ class Petsc < Formula
     ENV["CXX"] = "mpicxx"
     ENV["F77"] = "mpif77"
     ENV["FC"] = "mpif90"
-
-    args = %W[
-      --prefix=#{prefix}
-      --with-debugging=0
-      --with-x=0
-    ]
-    system "./configure", "--with-scalar-type=real", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-debugging=0",
+                          "--with-scalar-type=real",
+                          "--with-x=0"
     system "make", "all"
     system "make", "install"
   end
 
   test do
-    test_case = "#{share}/petsc/examples/ksp/ksp/examples/tutorials/ex1.c"
+    test_case = "#{pkgshare}/examples/ksp/ksp/examples/tutorials/ex1.c"
     system "mpicc", test_case, "-I#{include}", "-L#{lib}", "-lpetsc", "-o", "test"
     output = shell_output("./test")
     # This PETSc example prints several lines of output. The last line contains
