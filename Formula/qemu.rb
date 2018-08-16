@@ -22,9 +22,11 @@ class Qemu < Formula
   end
 
   devel do
-    url "https://download.qemu.org/qemu-3.0.0-rc4.tar.xz"
-    sha256 "420409d0c47169c4323b29d8af0a14d8276f4f038a74f37891829650dfb9d8cd"
+    url "https://download.qemu.org/qemu-3.0.0.tar.xz"
+    sha256 "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
   end
+
+  option "with-hvf", "Enable Hypervisor.framework support (3.x)"
 
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
@@ -81,6 +83,7 @@ class Qemu < Formula
     args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
     args << (build.with?("gtk+3") ? "--enable-gtk" : "--disable-gtk")
     args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
+    args << (build.with?("hvf") ? "--enable-hvf" : "--disable-hvf")
 
     system "./configure", *args
     system "make", "V=1", "install"
