@@ -19,7 +19,7 @@ class Osquery < Formula
   depends_on "cmake" => :build
   depends_on "python@2" => :build
   depends_on "augeas"
-  depends_on "boost"
+  depends_on "boost@1.67"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libarchive"
