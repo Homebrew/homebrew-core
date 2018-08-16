@@ -18,6 +18,13 @@ class NetSnmp < Formula
   depends_on "python@2" => :optional
 
   def install
+    # https://sourceforge.net/p/net-snmp/bugs/2504/
+    # I suspect upstream will fix this in the first post-Mojave release but
+    # if it's not fixed in that release this should be reported upstream.
+    (buildpath/"include/net-snmp/system/darwin18.h").write <<~EOS
+      #include <net-snmp/system/darwin17.h>
+    EOS
+
     args = %W[
       --disable-debugging
       --prefix=#{prefix}
