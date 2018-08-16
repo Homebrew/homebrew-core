@@ -1,8 +1,8 @@
 class Chakra < Formula
   desc "The core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.10.1.tar.gz"
-  sha256 "3c281b273c26017a539eed74301430a82c2e74714cdbc5e1c50e9521f603f56f"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.10.2.tar.gz"
+  sha256 "702ef581509e0eb9bdf55e6cdb9e268d32246bca1678291a5ff6f764d8749355"
 
   bottle do
     cellar :any
@@ -25,7 +25,7 @@ class Chakra < Formula
     ]
 
     # Build dynamically for the shared library
-    system "./build.sh", *args             
+    system "./build.sh", *args
     # Then statically to get a usable binary
     system "./build.sh", "--static", *args
 
