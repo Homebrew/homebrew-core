@@ -1,9 +1,11 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.4.2/virtuoso-opensource-7.2.4.2.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/virtuoso/virtuoso/7.2.4.2/virtuoso-opensource-7.2.4.2.tar.gz"
-  sha256 "028075d3cf1970dbb9b79f660c833771de8be5be7403b9001d6907f64255b889"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.5.1/virtuoso-opensource-7.2.5.tar.gz"
+  # Upstream pushed a hot-fix retag of 7.2.5 as 7.2.5.1.
+  # This explicit version should be safe to remove next release.
+  version "7.2.5.1"
+  sha256 "826477d25a8493a68064919873fb4da4823ebe09537c04ff4d26ba49d9543d64"
 
   bottle do
     cellar :any
