@@ -1,5 +1,5 @@
 class Pulumi < Formula
-  desc "Define cloud applications and infrastructure in your favorite language"
+  desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
       :tag => "v0.15.0",
