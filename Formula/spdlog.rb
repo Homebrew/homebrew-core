@@ -29,15 +29,26 @@ class Spdlog < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include "spdlog/spdlog.h"
+      #include "spdlog/sinks/basic_file_sink.h"
       #include <iostream>
       #include <memory>
       int main()
       {
-        auto console = spdlog::stdout_logger_mt("console");
+        try {
+          auto console = spdlog::basic_logger_mt("basic_logger", "#{testpath}/basic-log.txt");
+          console->info("Test");
+        }
+        catch (const spdlog::spdlog_ex &ex)
+        {
+          std::cout << "Log init failed: " << ex.what() << std::endl;
+          return 1;
+        }
       }
     EOS
+ 
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-o", "test"
     system "./test"
+    assert_predicate testpath/"basic-log.txt", :exist?
+    assert (testpath/"basic-log.txt").read.chomp.include? "Test"
   end
 end
