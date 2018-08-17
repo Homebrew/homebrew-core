@@ -5,9 +5,9 @@ class Mosquitto < Formula
   sha256 "8557bc7ae34dfaf32a0fb56d2491b7a7f731269c88337227233013502df4d5b0"
 
   bottle do
-    sha256 "db6cc90bff7409aa2d287a9e090458fc5ffd2ef882c6d38efee28bfe9bc43bae" => :high_sierra
-    sha256 "88a6fd908f71fdf46ed19f0baa7154759751227c92234afe30ba27bf218db653" => :sierra
-    sha256 "d3195ebbcd82c77b56a0e65c1752ae803d5593d2a39b665e0524c853a0520878" => :el_capitan
+    sha256 "b7f54c6f51a798b11d33bde6fe7a927aba784de317a1abc0e6e0ff0ef2d9f2c6" => :high_sierra
+    sha256 "67afe32dcd96e598b112b1b26cec5f0725f6db8e2e898644c197594bb7fef020" => :sierra
+    sha256 "0d984daefe7158e3c049d100f80327789425cb15dc2ca86b64134fb42befd9a6" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
