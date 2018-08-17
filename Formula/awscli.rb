@@ -10,9 +10,9 @@ class Awscli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cfd5b752be947ef6337cd6af89f219d2faade0b590543feb7decc36f7c8968a7" => :high_sierra
-    sha256 "a4441f9fc0738ae08d74f9a6be04ff468c1018d866a9f9df5e58bfdbd720e81e" => :sierra
-    sha256 "738dbd5f551a597c69498343fbff2f4c06453108ba3d27f2e90bf4905ef53036" => :el_capitan
+    sha256 "48d04f82e6bece6f7b5ee2717a5eb6d3eb790a0ccb129579d19678bd4b66767f" => :high_sierra
+    sha256 "68daad45897b13ebc6bc899a144af5a4ac1ee253f219993d805e49663cc7bcf4" => :sierra
+    sha256 "ef121913dee249a4e2e574cab2c8c7f0e61a8864f7730adab725a29ecf0bf143" => :el_capitan
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
