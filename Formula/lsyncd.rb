@@ -59,6 +59,8 @@ class Lsyncd < Formula
     "10.13.3"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
     "10.13.4"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
     "10.13.5"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.6"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.14"    => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
   }
 
   if xnu_headers.key? MacOS.full_version
