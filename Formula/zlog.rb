@@ -4,6 +4,13 @@ class Zlog < Formula
   url "https://github.com/HardySimpson/zlog/archive/1.2.12.tar.gz"
   sha256 "9c6014a3f74d136c70255539beba11f30e1d3617d07ce7ea917b35f3e52bac20"
 
+  bottle do
+    cellar :any
+    sha256 "8c69d89489366fc6fbb92af4f89ed34dd82e44aea0587591998a52dc2d43392b" => :high_sierra
+    sha256 "88179deeaf4acb8638c155acc887661da3eb191e05b23ecd6c64757ffaedb6d9" => :sierra
+    sha256 "c18ad86b3c5f8721f18a1090e6d372564a89ac972d1cfaa8a6819c5ecaec25ee" => :el_capitan
+  end
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
