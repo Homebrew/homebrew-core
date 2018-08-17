@@ -1,9 +1,8 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-1.4.14.tar.gz"
-  sha256 "156b1fa731d12baad4b8b22f7b6a8af50ba881fc711b81e9919ec103cf2942d1"
-  revision 2
+  url "https://mosquitto.org/files/source/mosquitto-1.5.1.tar.gz"
+  sha256 "8557bc7ae34dfaf32a0fb56d2491b7a7f731269c88337227233013502df4d5b0"
 
   bottle do
     sha256 "db6cc90bff7409aa2d287a9e090458fc5ffd2ef882c6d38efee28bfe9bc43bae" => :high_sierra
@@ -13,7 +12,6 @@ class Mosquitto < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "c-ares"
   depends_on "openssl"
   depends_on "libwebsockets" => :recommended
 
