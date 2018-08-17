@@ -14,11 +14,6 @@ class Qemu < Formula
     sha256 "95a8d1f152c57161dee4f0f36a7409ff413631d0ca5afb7fe5d986b13abaf0ae" => :el_capitan
   end
 
-  devel do
-    url "https://download.qemu.org/qemu-3.0.0-rc4.tar.xz"
-    sha256 "420409d0c47169c4323b29d8af0a14d8276f4f038a74f37891829650dfb9d8cd"
-  end
-
   depends_on "pkg-config" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
