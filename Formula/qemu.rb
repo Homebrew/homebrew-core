@@ -6,9 +6,9 @@ class Qemu < Formula
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    sha256 "ef4da4274e0e582cff223d46736d386ea78444e7943bcb47f4541bec9e6b7786" => :high_sierra
-    sha256 "c896fa77d0b63a9c7fc5e7ad9ee64ab72c3d0995cc1031ef9326b41a3d189240" => :sierra
-    sha256 "95a8d1f152c57161dee4f0f36a7409ff413631d0ca5afb7fe5d986b13abaf0ae" => :el_capitan
+    sha256 "5e968020a7c3d0c1722702abf46daa494d9d5bb6c3f09372e34be52dd7f8ae73" => :high_sierra
+    sha256 "e9614f27e5079515cb4af27c9407e1518244e7ea787f4deb84c90fd004627838" => :sierra
+    sha256 "5ef45b8990941c95ece335b513433466a42c821ec0b1d7d99d74f80558b7a60f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
