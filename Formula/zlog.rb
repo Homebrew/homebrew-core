@@ -42,7 +42,7 @@ class Zlog < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "zlog.c", "-L#{lib}", "-lzlog", "-lpthread", "-o", "zlog"
-    system "./zlog"
+    system ENV.cc, "zlog.c", "-L#{lib}", "-lzlog", "-lpthread", "-o", "test"
+    system "./test"
   end
 end
