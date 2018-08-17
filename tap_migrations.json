@@ -1,5 +1,6 @@
 {
   "adobe-air-sdk": "homebrew/cask",
+  "amber": "amberframework/amber",
   "android-ndk": "homebrew/cask",
   "android-platform-tools": "homebrew/cask",
   "android-sdk": "homebrew/cask",
