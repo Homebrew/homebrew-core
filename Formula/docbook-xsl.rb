@@ -3,6 +3,7 @@ class DocbookXsl < Formula
   homepage "https://docbook.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/docbook/docbook-xsl/1.79.1/docbook-xsl-1.79.1.tar.bz2"
   sha256 "725f452e12b296956e8bfb876ccece71eeecdd14b94f667f3ed9091761a4a968"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
