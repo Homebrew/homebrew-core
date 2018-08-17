@@ -1,9 +1,8 @@
 class Travis < Formula
   desc "Command-line client for Travis CI"
   homepage "https://github.com/travis-ci/travis.rb/"
-  url "https://github.com/travis-ci/travis.rb/archive/v1.8.8.tar.gz"
-  sha256 "468158ee2b46c67c1a002a237a9e04472b22e8f4926cb68b1ca49a1a0b2eaf3b"
-  revision 3
+  url "https://github.com/travis-ci/travis.rb/archive/v1.8.9.tar.gz"
+  sha256 "7a143bd0eb90e825370c808d38b70cca8c399c68bea8138442f40f09b6bbafc4"
 
   bottle do
     cellar :any
@@ -30,8 +29,8 @@ class Travis < Formula
   end
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-0.15.0.gem"
-    sha256 "4a29d584a33d189ea745bb3b3db36661e28f32a035c62632f09b70df3bdb61b7"
+    url "https://rubygems.org/gems/faraday-0.15.2.gem"
+    sha256 "affa23f5e5ee27170cbb5045c580af9b396bac525516c6583661c2bb08038f92"
   end
 
   resource "faraday_middleware" do
@@ -40,8 +39,8 @@ class Travis < Formula
   end
 
   resource "ffi" do
-    url "https://rubygems.org/gems/ffi-1.9.23.gem"
-    sha256 "f993798158e205925aa1b80024f2dae1ce0f043fb0d0c39a531cc9bafdba867f"
+    url "https://rubygems.org/gems/ffi-1.9.25.gem"
+    sha256 "f854f08f08190fec772a12e863f33761d02ad3efea3c3afcdeffc8a06313f54a"
   end
 
   resource "gh" do
@@ -90,8 +89,8 @@ class Travis < Formula
   end
 
   resource "websocket" do
-    url "https://rubygems.org/gems/websocket-1.2.5.gem"
-    sha256 "c9de8b82226f9b4647522a9c73be4a1cd60b166b103c993717f94277cb453228"
+    url "https://rubygems.org/gems/websocket-1.2.8.gem"
+    sha256 "1d8155c1cdaab8e8e72587a60e08423c9dd84ee44e4e827358ce3d4c2ccb2138"
   end
 
   def install
