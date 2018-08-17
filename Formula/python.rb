@@ -36,8 +36,8 @@ class Python < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d3/3e/1d74cdcb393b68ab9ee18d78c11ae6df8447099f55fe86ee842f9c5b166c/setuptools-40.0.0.zip"
-    sha256 "012adb8e25fbfd64c652e99e7bab58799a3aaf05d39ab38561f69190a909015f"
+    url "https://files.pythonhosted.org/packages/5a/df/b2e3d9693bb0dcbeac516a73dd7a9eb82b126ae52e4a74605a9b01beddd5/setuptools-40.1.0.zip"
+    sha256 "664500268e4d649ce5b9f9dc0af0edc2b144666b1544d64af0453da94aa72b70"
   end
 
   resource "pip" do
