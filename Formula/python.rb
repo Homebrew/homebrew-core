@@ -5,10 +5,10 @@ class Python < Formula
   sha256 "0382996d1ee6aafe59763426cf0139ffebe36984474d0ec4126dd1c40a8b3549"
 
   bottle do
-    rebuild 1
-    sha256 "f942b7caf05766275911a9e16bf166397133ab97f71d8cb451aba75e27d1fe7a" => :high_sierra
-    sha256 "f1e4eba0893a930a2cb30a77244f3cc48374dcc6c5c03a815427c7774b130bd7" => :sierra
-    sha256 "1b35843fa0a2ae8a778e2e2e4022b4c9cae674481fd8e43c49b97af8baea248d" => :el_capitan
+    rebuild 2
+    sha256 "e433d47197b846293fb281cadbbbc40f57bfbd09426d9e581c87a8cbf1dc1464" => :high_sierra
+    sha256 "e90c9a6e56e783966f820bd07c56822a56b87a90bd5c7c3a1b936abfcf774e3e" => :sierra
+    sha256 "acc30a248983b8eb264d5f7b659a8f0fac46b707f4d5ef819b6122bef62a8a49" => :el_capitan
   end
 
   head do
