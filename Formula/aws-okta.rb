@@ -5,6 +5,13 @@ class AwsOkta < Formula
   url "https://github.com/segmentio/aws-okta/archive/v0.19.0.tar.gz"
   sha256 "fc2c25fbbc95a2baf9d72504821a7ecf5e1d5561572cceda1c0656c90b8df46a"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "98feb794d9aa6815ea069854d2c65661dcb8a1e7419ef9e07a8eebfb09faa77a" => :high_sierra
+    sha256 "eebe1457c408b7ed7687d39248353eb113bc9d5cb8ef5a1310a5e8c2fd0221c0" => :sierra
+    sha256 "8ac1a68120147f27b299ab203208aba3980cb47e08d0a1259b352ca6a96439e2" => :el_capitan
+  end
+
   depends_on "go" => :build
 
   def install
