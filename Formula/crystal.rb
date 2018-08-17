@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.25.1.tar.gz"
-    sha256 "9b5a7bd2de67ab36cc5430133228a1e656a431fc7d928a37a61109bd8da77fc6"
+    url "https://github.com/crystal-lang/crystal/archive/0.26.0.tar.gz"
+    sha256 "e98cf1403d5182fce888a120cda61918c329244765eaa265a17038bbfb217ba3"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -33,15 +33,15 @@ class Crystal < Formula
   depends_on "libatomic_ops" => :build # for building bdw-gc
   depends_on "libevent"
   depends_on "bdw-gc"
-  depends_on "llvm@5"
+  depends_on "llvm"
   depends_on "pcre"
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.25.0/crystal-0.25.0-2-darwin-x86_64.tar.gz"
-    version "0.25.0-2"
-    sha256 "4f538660c097b7e6607df2953f34a6d6a1693e5a984cf4b1b1e77024029dc8fb"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.25.1/crystal-0.25.1-2-darwin-x86_64.tar.gz"
+    version "0.25.1-2"
+    sha256 "6a72db4b4b9323186b6da3f72c7c4b1aaaa06a036707bd9fe4ffb60575edc6db"
   end
 
   def install
