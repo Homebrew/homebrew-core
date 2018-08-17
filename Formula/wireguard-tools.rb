@@ -14,7 +14,6 @@ class WireguardTools < Formula
     sha256 "631fa59397ceddfa898bdf18b76107f38908fe3aa6fd808c2d560e25269bc6b9" => :el_capitan
   end
 
-  depends_on "bash"
   depends_on "wireguard-go"
 
   def install
