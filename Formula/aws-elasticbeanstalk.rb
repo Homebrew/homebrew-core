@@ -3,8 +3,8 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/6f/32/5222b792607a0ba24c9e802ed5a8d5a240f51b410c78e23bdd0920b36ae9/awsebcli-3.14.3.tar.gz"
-  sha256 "ea9659c1a98e44f75b143ef9eaf0e46420a82916ba02b0f81158da59d80e4e32"
+  url "https://files.pythonhosted.org/packages/ff/82/9a27ae46f6b24ebca506f6f635e07273c7f5ac495a7136d044d5a77dd0d3/awsebcli-3.14.4.tar.gz"
+  sha256 "197dc510f249ecd762fd5b09c0405b15740620b90cb310af823307c67bcc4cd1"
 
   bottle do
     cellar :any_skip_relocation
@@ -26,8 +26,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/50/59/253a1402ad6e9cb17c2551cf2e9c49e4ed05f6e3019df1d1ddb89495deaf/botocore-1.10.60.tar.gz"
-    sha256 "c03fd2b80c3f369f0b892c05a8dade0b6383ce076ad6ba43c3aabea408a163ea"
+    url "https://files.pythonhosted.org/packages/ac/79/258014267203e71efde74de7b388073b4897f755a3e48d6f6145ee387985/botocore-1.10.79.tar.gz"
+    sha256 "03f383e2403e6f9d5b01abb67c2d0ed1c9d90184c8beab6abeb927eb8e2ca947"
   end
 
   resource "cached-property" do
@@ -41,8 +41,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
-    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
+    url "https://files.pythonhosted.org/packages/53/0d/d1d13a63563cc50a27b310f5612645bef06d29a5022a7e79ac659dd0fc50/certifi-2018.8.13.tar.gz"
+    sha256 "4c1d68a1408dd090d2f3a869aa94c3947cc1d967821d1ed303208c9f41f0f2f4"
   end
 
   resource "chardet" do
@@ -56,8 +56,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/f4/cb/5e15c50ec90daa926777f79e7e5cbc00fe2539e677a14c0a491d01f45479/docker-3.4.1.tar.gz"
-    sha256 "ad077b49660b711d20f50f344f70cfae014d635ef094bf21b0d7df5f0aeedf99"
+    url "https://files.pythonhosted.org/packages/66/d0/2f6702857613e8dc9190bd1224434be6e8b25bb86812a1642947baf320b8/docker-3.5.0.tar.gz"
+    sha256 "bc693be5a84b3b9e5aaf156068c5c0a445ee5138c638c3fbc857133bf67ebe07"
   end
 
   resource "docker-compose" do
@@ -171,8 +171,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/28/85/df04ec21c622728316b591c2852fd20a0e74324eeb6ca26f351844ba815f/websocket_client-0.48.0.tar.gz"
-    sha256 "18f1170e6a1b5463986739d9fd45c4308b0d025c1b2f9b88788d8f69e8a5eb4a"
+    url "https://files.pythonhosted.org/packages/72/5a/8b6ce52468708a725c4b32b18cacad63150be0f523490bc888e27a795e4a/websocket_client-0.49.0.tar.gz"
+    sha256 "bf36b4b4726cab3bf93e842deef3c5bf12bd9c134e45e9a852c76140309f5ae2"
   end
 
   def install
