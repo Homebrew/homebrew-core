@@ -3,6 +3,7 @@ class Jasper < Formula
   homepage "https://www.ece.uvic.ca/~frodo/jasper/"
   url "https://github.com/mdadams/jasper/archive/version-2.0.14.tar.gz"
   sha256 "85266eea728f8b14365db9eaf1edc7be4c348704e562bb05095b9a077cf1a97b"
+  revision 1
 
   bottle do
     sha256 "086de22e8e8a01299962f3bea5374c90490b66e84b7e10a4078f172e64b0079f" => :high_sierra
@@ -10,10 +11,15 @@ class Jasper < Formula
     sha256 "c481b8887b8d29e3c63735dd2151c9246e08f21bf50334033de4a054f700a6db" => :el_capitan
   end
 
+  option "with-large-image-support", "Allows handling inputs with more than 67108864 samples (Allows 536870912 samples)."
+
   depends_on "cmake" => :build
   depends_on "jpeg"
 
   def install
+    if build.with?("large-image-support")
+      inreplace "src/libjasper/include/jasper/jas_config.h.in", "(64 * ((size_t) 1048576))", "(512 * ((size_t) 1048576))"
+    end
     mkdir "build" do
       # Make sure macOS's GLUT.framework is used, not XQuartz or freeglut
       # Reported to CMake upstream 4 Apr 2016 https://gitlab.kitware.com/cmake/cmake/issues/16045
@@ -31,3 +37,4 @@ class Jasper < Formula
     assert_predicate testpath/"test.bmp", :exist?
   end
 end
+
