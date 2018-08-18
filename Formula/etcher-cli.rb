@@ -4,8 +4,8 @@ class EtcherCli < Formula
   desc "Flash OS images to SD cards & USB drives, safely and easily"
   homepage "https://etcher.io/"
   url "https://github.com/resin-io/etcher.git",
-    :tag => "1.4.4",
-    :revision => "434af7b11dd33641231f1b48b8432e68eb472e46"
+    :tag => "v1.4.4",
+    :revision => "cbd531e161a12721fb763b526781f66ef8237ac9"
 
   depends_on "python" => :build
   depends_on "jq"
@@ -13,13 +13,11 @@ class EtcherCli < Formula
 
   def install
     Language::Node.setup_npm_environment
-    ENV["RELEASE_TYPE"] = "production"
-    system "make", "cli-develop"
-    system "make", "package-cli"
+    system "make", "cli-develop", "package-cli", "test-cli", "RELEASE_TYPE=production"
     bin.install "dist/Etcher-cli-1.4.4-darwin-x64/etcher"
   end
 
   test do
-    system "make", "test-cli"
+    assert_equal pipe_output("#{bin}/etcher --version").chomp, "1.4.4"
   end
 end
