@@ -11,6 +11,14 @@ class GnuTar < Formula
     sha256 "1a559b78e6f1a6594b18a9ba2aa2e9828af2736aacc4aec07911fe7638e80e68" => :el_capitan
   end
 
+  head do
+    url "https://git.savannah.gnu.org/git/tar.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "gettext" => :build
+  end
+
   option "with-default-names", "Do not prepend 'g' to the binary"
 
   def install
@@ -25,6 +33,7 @@ class GnuTar < Formula
     args = ["--prefix=#{prefix}", "--mandir=#{man}"]
     args << "--program-prefix=g" if build.without? "default-names"
 
+    system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
