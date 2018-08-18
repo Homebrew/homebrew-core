@@ -1,15 +1,14 @@
 require "language/node"
-class EtcherCli < Formula
 
+class EtcherCli < Formula
   desc "Flash OS images to SD cards & USB drives, safely and easily"
   homepage "https://etcher.io/"
   url "https://github.com/resin-io/etcher/archive/v1.4.4.tar.gz",
     :tag => "1.4.4",
     :revision => "434af7b11dd33641231f1b48b8432e68eb472e46"
-  sha256 "02082bc1caac746e1cdcd95c2892c9b41ff8d45a672b52f8467548cad4850f5d"
 
   depends_on "python" => :build
-  depends_on 'jq'
+  depends_on "jq"
   depends_on "node"
 
   def install
