@@ -1,10 +1,17 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-  sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
   head "svn://gcc.gnu.org/svn/gcc/trunk"
+
+  stable do
+    url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
+    sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
+
+    # isl 0.20 compatibility
+    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+    patch :DATA
+  end
 
   bottle do
     sha256 "594126c80c83e927daa11244f00d85e199a07733bfd196192a5b137be6192f77" => :high_sierra
@@ -37,10 +44,6 @@ class Gcc < Formula
       version.to_s.slice(/\d/)
     end
   end
-
-  # isl 0.20 compatibility
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
-  patch :DATA
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
