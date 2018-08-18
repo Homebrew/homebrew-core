@@ -1,8 +1,8 @@
 class SshPermitA38 < Formula
   desc "Central management and deployment for SSH keys"
   homepage "https://github.com/ierror/ssh-permit-a38"
-  url "https://github.com/ierror/ssh-permit-a38/archive/v0.1.0.tar.gz"
-  sha256 "933ba4512def25216d7798a6cf3c455634be8193098e2a55a82cb189ad8554e3"
+  url "https://github.com/ierror/ssh-permit-a38/archive/v0.2.0.tar.gz"
+  sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
 
   bottle do
     sha256 "d774fd98f0b2aefcaba0db410063585db805e4ab9023b998f35fd8718fd5adf6" => :high_sierra
