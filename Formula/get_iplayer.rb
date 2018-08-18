@@ -1,8 +1,8 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.16.tar.gz"
-  sha256 "790495d9f57c75c7818640e6f078941115c8561c94a9b0f5a5253ee14450eb0f"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.17.tar.gz"
+  sha256 "12d8780311d73bb4f573f4c019f88332c97ee1d7a676b5dc7989cd8c37562566"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
@@ -23,13 +23,13 @@ class GetIplayer < Formula
   end
 
   resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.056.tar.gz"
-    sha256 "91451ecc28b243a78b438f0a42db24c4b60a86f088879b38e40bdbd697818259"
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.059.tar.gz"
+    sha256 "217debbe0a79f0b7c5669978b4d733271998df4497f4718f78456e5f54d64849"
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.87.tar.gz"
-    sha256 "898a24a4344eaafe97cf0b8da2fbc89e0e21cc328f5e5a39a44774f8144989b1"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.93.tar.gz"
+    sha256 "00c30fc566fee0823af0a75bdf4f170531655df14beca6d51f0e453a43aaad5d"
   end
 
   resource "Mozilla::CA" do
