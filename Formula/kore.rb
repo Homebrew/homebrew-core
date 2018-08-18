@@ -1,8 +1,8 @@
 class Kore < Formula
   desc "Web application framework for writing web APIs in C"
   homepage "https://kore.io/"
-  url "https://github.com/jorisvink/kore/releases/download/2.0.0-release/kore-2.0.0-release.tar.gz"
-  sha256 "b538bb9f4fb7aa904c5f925d69acc1ef3542bc216a2af752e6479b72526799f5"
+  url "https://kore.io/releases/kore-3.1.0.tar.gz"
+  sha256 "3f78fb03262046ffa036a7e112dbcbc45fbfca509a949b42f87a55da409f6595"
   head "https://github.com/jorisvink/kore.git"
 
   bottle do
@@ -13,9 +13,7 @@ class Kore < Formula
     sha256 "d6f89fc8e1527340fe295bc916327b1d41baf97dd5f0c8cd1f3f4b92c39c3da3" => :yosemite
   end
 
-  # src/pool.c:151:6: error: use of undeclared identifier 'MAP_ANONYMOUS'
-  # Reported 4 Aug 2016: https://github.com/jorisvink/kore/issues/140
-  depends_on :macos => :yosemite
+  depends_on :macos => :sierra # needs clock_gettime
 
   depends_on "openssl"
   depends_on "postgresql" => :optional
@@ -38,10 +36,10 @@ class Kore < Formula
   end
 
   test do
-    system bin/"kore", "create", "test"
+    system bin/"kodev", "create", "test"
     cd "test" do
-      system bin/"kore", "build"
-      system bin/"kore", "clean"
+      system bin/"kodev", "build"
+      system bin/"kodev", "clean"
     end
   end
 end
