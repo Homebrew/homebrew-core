@@ -5,9 +5,9 @@ class SshPermitA38 < Formula
   sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
 
   bottle do
-    sha256 "d774fd98f0b2aefcaba0db410063585db805e4ab9023b998f35fd8718fd5adf6" => :high_sierra
-    sha256 "beb046cddc23b07fc4515801f88518a51fb64d3e8700216dc43726d651cafb2c" => :sierra
-    sha256 "9e0ed513b2f1881c5e68c753be1991b17405aea15ac7933945ac43559f97f9ad" => :el_capitan
+    sha256 "d4a7dc99358b86444ccde5f25ca78c1750eb28ae9e602b2021884660c88efe04" => :high_sierra
+    sha256 "9cd48f3b1c0bd568dd5a303bd4b69f42e84ef29e883bc5f9738cfd84030c066d" => :sierra
+    sha256 "548a878a784eda04a5c1601dcf17d7fb908b65eebd9fe44b39b3d7bc609d1575" => :el_capitan
   end
 
   depends_on "cmake" => :build
