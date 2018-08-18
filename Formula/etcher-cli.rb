@@ -13,6 +13,7 @@ class EtcherCli < Formula
 
   def install
     Language::Node.setup_npm_environment
+    system "make", "RELEASE_TYPE=production", "cli-develop"
     system "make", "RELEASE_TYPE=production", "package-cli"
 
     inreplace "Makefile", "	mocha", "	npx -p node@6 mocha"
