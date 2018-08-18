@@ -1,6 +1,6 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
-  homepage "https://fnproject.github.io"
+  homepage "https://fnproject.io"
   url "https://github.com/fnproject/cli/archive/0.4.147.tar.gz"
   sha256 "77d54ba27bfb4946205f41dbadb3a3b099d2928d581dbc4bf182fcd3f1f14d11"
 
