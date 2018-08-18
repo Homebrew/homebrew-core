@@ -6,9 +6,9 @@ class Uriparser < Formula
 
   bottle do
     cellar :any
-    sha256 "8abfde79da3b47d6926720fe55ad6c0aa9da10333e129385dc1baf085ec82acb" => :high_sierra
-    sha256 "adb7098ddf448c77f4a307ffd7cca24a8c9c15bb9239cd04d8501f670442f490" => :sierra
-    sha256 "7ceba640674cfe1049e0a9befad30a10837f382fce85f28a4b2f22383a774cf5" => :el_capitan
+    sha256 "8b2843833bbd7c3cb5ebb780fcd600b54be3c547ef03067e6a095ab772105a0c" => :high_sierra
+    sha256 "00f888952c50bb33c23b95400867018e16751604f2bf6f98b57345988cb64415" => :sierra
+    sha256 "baed8adf0a6359236ac8b588470f02dbf257cfefb76ba484f6133ddb97ea6f61" => :el_capitan
   end
 
   head do
