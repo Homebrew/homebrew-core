@@ -1,8 +1,8 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
-  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.8.5/uriparser-0.8.5.tar.bz2"
-  sha256 "58eacd5c03d9e341c04eb0b30831faec89f3b415949ff8d72254e63432352cdd"
+  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.8.6/uriparser-0.8.6.tar.bz2"
+  sha256 "0709a7e572417db763f0356250d91686c19a64ab48e9da9f5a1e8055dc2a4a54"
 
   bottle do
     cellar :any
