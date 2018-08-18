@@ -13,7 +13,6 @@ class EtcherCli < Formula
 
   def install
     Language::Node.setup_npm_environment
-    system "make", "RELEASE_TYPE=production", "cli-develop"
     system "make", "RELEASE_TYPE=production", "package-cli"
 
     inreplace "Makefile", "	mocha", "	npx -p node@6 mocha"
@@ -21,7 +20,6 @@ class EtcherCli < Formula
 
     cd "dist/Etcher-cli-1.4.4-darwin-x64" do
       bin.install "etcher"
-      rm "node_modules/node_modules"
       prefix.install "node_modules"
     end
   end
