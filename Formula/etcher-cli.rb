@@ -6,11 +6,11 @@ class EtcherCli < Formula
   url "https://github.com/resin-io/etcher/archive/v1.4.4.tar.gz",
     :tag => "1.4.4",
     :revision => "434af7b11dd33641231f1b48b8432e68eb472e46"
-  head "https://github.com/resin-io/etcher.git"
   sha256 "02082bc1caac746e1cdcd95c2892c9b41ff8d45a672b52f8467548cad4850f5d"
+
+  depends_on "python" => :build
   depends_on 'jq'
   depends_on "node"
-  depends_on "python" => :build
 
   def install
     Language::Node.setup_npm_environment
