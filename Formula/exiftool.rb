@@ -9,6 +9,7 @@ class Exiftool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fff5493b09dda517dcea7518635fbdbb9ff33829a8a9b3721550d14201355052" => :mojave
     sha256 "6d05a04c4c409b2d31c05693636bae88220a2f602682fe8b241c7bd8bfbebcc1" => :high_sierra
     sha256 "6d05a04c4c409b2d31c05693636bae88220a2f602682fe8b241c7bd8bfbebcc1" => :sierra
     sha256 "6d05a04c4c409b2d31c05693636bae88220a2f602682fe8b241c7bd8bfbebcc1" => :el_capitan
