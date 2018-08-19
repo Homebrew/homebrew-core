@@ -5,6 +5,7 @@ class Gnupg < Formula
   sha256 "6278eaabffa1ebc9fa2ceb3dc53eea9a1505ab02a668a86dd6fec06951af2164"
 
   bottle do
+    sha256 "579ed56a6549e4275b03b878f32a477c4a355ccf145bb7241e6b4f4ca13b9f3c" => :mojave
     sha256 "6fdabe5ae04b57c9f6f3123509bead3417efc65989c7c6cc463cd2abd3fdda95" => :high_sierra
     sha256 "f61567dcf8dd3b1762db06af321755fb451700c30ad47a794336991916e4a33b" => :sierra
     sha256 "fe77bee08d5f6e23b3910aa7bcebcc5ba4bf0e3453e0a519d1f6ee03e977cc01" => :el_capitan
