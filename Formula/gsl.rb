@@ -7,6 +7,7 @@ class Gsl < Formula
 
   bottle do
     cellar :any
+    sha256 "2b76f0bb640a36340efb3bc44a9df6e8b1694cc251637f95eca02c541add53ff" => :mojave
     sha256 "a11e16ee61294794105faf42908ae1547617c822b19edca88a627917feb87f28" => :high_sierra
     sha256 "79ad420d6c495d16a7a3ed57c5a5000dcd4f77cb98af27b3eb6c21e1a748a451" => :sierra
     sha256 "af4c116bf27bc4880d85d1a50c62ba435e2a9bfae0b6a7f2a09f974791a91408" => :el_capitan
