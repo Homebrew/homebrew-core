@@ -10,6 +10,7 @@ class ImagemagickAT6 < Formula
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
+    sha256 "a0a74142e00fd4fe31ae67def53d0d04e57f7a79c1a18fdbe7197b8c96f7e0fb" => :mojave
     sha256 "8899eaaf94e60d52e4f43dfc2f1bcf1877411799364e5140803e4fc01996b9a9" => :high_sierra
     sha256 "c72492a6a862faf674591c703819189f1d5803c27c5c9345f331c1869bf85f03" => :sierra
     sha256 "7281a714d15c687e0dfcd5fe26fb2e09a8d65b047c5ad1b0173e3345dd768825" => :el_capitan
