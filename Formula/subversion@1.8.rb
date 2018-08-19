@@ -21,7 +21,6 @@ class SubversionAT18 < Formula
   option "with-java", "Build Java bindings"
   option "with-perl", "Build Perl bindings"
   option "with-ruby", "Build Ruby bindings"
-  option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
 
@@ -40,7 +39,6 @@ class SubversionAT18 < Formula
   depends_on "openssl"
 
   # Other optional dependencies
-  depends_on "gpg-agent" => :optional
   depends_on :java => :optional
 
   resource "serf" do
@@ -121,7 +119,6 @@ class SubversionAT18 < Formula
             "--without-berkeley-db"]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
-    args << "--without-gpg-agent" if build.without? "gpg-agent"
 
     if MacOS::CLT.installed? && MacOS.version < :sierra
       args << "--with-apr=/usr"
