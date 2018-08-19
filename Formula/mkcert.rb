@@ -1,8 +1,8 @@
 class Mkcert < Formula
   desc "Simple tool to make locally trusted development certificates"
   homepage "https://github.com/FiloSottile/mkcert"
-  url "https://github.com/FiloSottile/mkcert/archive/v1.1.0.tar.gz"
-  sha256 "3b040210e46977921871d8d065b86ac7fec3bcab63d2b96f8bfb2d580d26943d"
+  url "https://github.com/FiloSottile/mkcert/archive/v1.1.1.tar.gz"
+  sha256 "9b44ce4c5d4539458416ae9e84a0fec8df92592bef4d9198c42f793df684af73"
 
   bottle do
     cellar :any_skip_relocation
