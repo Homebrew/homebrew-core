@@ -19,20 +19,19 @@ end
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
-  revision 1
 
   stable do
-    url "https://radare.mikelloc.com/get/2.7.0/radare2-2.7.0.tar.gz"
-    sha256 "d89c86b764edb06acb1cf0e70bdceb15dcbd7f4df551e856b471c03b34063ba3"
+    url "https://radare.mikelloc.com/get/2.8.0/radare2-2.8.0.tar.gz"
+    sha256 "015c0b54cbeab2f055ca45ea57675ac5fcddb9be788249143e20bb64554a769e"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.7.0/radare2-bindings-2.7.0.tar.gz"
-      sha256 "df9537fd4b1bc0474fa4abba1c87687239003c047987e155ec1483a0ce988d0f"
+      url "https://radare.mikelloc.com/get/2.8.0/radare2-bindings-2.8.0.tar.gz"
+      sha256 "4a3b6e8101093033342e862b6834c92072bc6d902583dbca36b45a4684a4d40f"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.7.0/radare2-extras-2.7.0.tar.gz"
-      sha256 "c972afb865fd69b3fd2c4d6c4e6810df875a67842497efd930e6a8e49cef6f3c"
+      url "https://radare.mikelloc.com/get/2.8.0/radare2-extras-2.8.0.tar.gz"
+      sha256 "f11f16faec355eddc509e3615e42b5c9de565858d68790a5c7591b6525488f75"
     end
   end
 
