@@ -2,8 +2,8 @@ class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
   # check the changelog for the latest stable version: https://cyberduck.io/changelog/
-  url "https://dist.duck.sh/duck-src-6.7.0.28613.tar.gz"
-  sha256 "be2eaba6f7f6af418c787caa4f43eca4a66881f3b499902cc78de39aaf588d10"
+  url "https://dist.duck.sh/duck-src-6.7.1.28683.tar.gz"
+  sha256 "567ecd08e6a26ec2024d00274311c2a2b0110d3ac4fdf83ac0ddc7c6bfcffb53"
   head "https://svn.cyberduck.io/trunk/"
 
   bottle do
@@ -19,7 +19,8 @@ class Duck < Formula
 
   def install
     revision = version.to_s.rpartition(".").last
-    system "mvn", "-DskipTests", "-Dgit.commitsCount=#{revision}", "--projects", "cli/osx", "--also-make", "verify"
+    system "mvn", "-DskipTests", "-Dgit.commitsCount=#{revision}",
+                  "--projects", "cli/osx", "--also-make", "verify"
     libexec.install Dir["cli/osx/target/duck.bundle/*"]
     bin.install_symlink "#{libexec}/Contents/MacOS/duck" => "duck"
   end
