@@ -7,6 +7,7 @@ class Rename < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c6d199c9b373fa8d7a39515350812c12cd5165a5a38d5cddec5f19c74502fd51" => :mojave
     sha256 "131f754e5ea1245b32b79acca0f77ef5749973ed8326d5aac196a4c7f14efecf" => :high_sierra
     sha256 "9c92c253b431d5c821048a32309aebb2e7453e2121ae7661f7afcbd74479078c" => :sierra
     sha256 "29ee5c40a54dc5d1e7a157e28c19790120cd71ac5b072aa8bc1a07fdb4ad5dae" => :el_capitan
