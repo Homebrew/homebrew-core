@@ -3,12 +3,12 @@ class Ldc < Formula
   homepage "https://wiki.dlang.org/LDC"
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.10.0/ldc-1.10.0-src.tar.gz"
-    sha256 "99b6e2b8dcaf28a2947318fb25e43fa0b96dd3a6377995146f987c4d17dd8371"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.11.0/ldc-1.11.0-src.tar.gz"
+    sha256 "85464fae47bc605308910afd6cfc6ddeafe95a8ad5b61e2c0c23caff82119f70"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
-      sha256 "7aa540a135f9fa1ee9722cad73100a8f3600a07f9a11d199d8be68887cc90008"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.6/ldc-0.17.6-src.tar.gz"
+      sha256 "868b8c07ab697306ea65f0006fc2b6b96db4df226e82f8f11cafbed6fa9ac561"
     end
   end
 
@@ -22,7 +22,9 @@ class Ldc < Formula
     url "https://github.com/ldc-developers/ldc.git", :shallow => false
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc.git", :shallow => false, :branch => "ltsmaster"
+      url "https://github.com/ldc-developers/ldc.git",
+          :shallow => false,
+          :branch => "ltsmaster"
     end
   end
 
@@ -30,7 +32,7 @@ class Ldc < Formula
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "llvm@5"
+  depends_on "llvm"
 
   def install
     ENV.cxx11
@@ -39,7 +41,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
+          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
         system "cmake", "..", *args
         system "make"
@@ -47,7 +49,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
         -DLDC_WITH_LLD=OFF
