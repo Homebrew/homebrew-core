@@ -5,6 +5,7 @@ class Httpd < Formula
   sha256 "fa53c95631febb08a9de41fd2864cfff815cf62d9306723ab0d4b8d7aa1638f0"
 
   bottle do
+    sha256 "d93c6b2fe63d1be1cc9b14f6dfa3a5cff34b42f4b800405830b523a90f0046ea" => :mojave
     sha256 "b9222c17b32a71e50280e0c7b2abe4403ba4bbe798740384abfd6c2945f0ff1f" => :high_sierra
     sha256 "89ccaa244937376a776103f8e602748e77907894dac554e94e5c57c8eae36d00" => :sierra
     sha256 "4cade2e0cbc30a772272f88deb9aa2b335c637b16f0b11ab1531a644a7e3dff1" => :el_capitan
