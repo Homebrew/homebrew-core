@@ -7,6 +7,7 @@ class Cowsay < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bff466bf07d7aba50b954b4b37b15eb338da542244450843ed6f1fd8223a5eab" => :mojave
     sha256 "9dd1c2263533507d55a6cfc8747ad6a68c0c042c7631512f0611001831dd441c" => :high_sierra
     sha256 "17a1a4620885c9a4b7104b43072ed32348b37f6bb43a1120fe23a46d893e87ea" => :sierra
     sha256 "360390af15a3c4793e07eda95f55f4a5466ffafc766cb6b62f9790146080a62a" => :el_capitan
