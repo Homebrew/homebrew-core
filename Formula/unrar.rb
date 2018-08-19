@@ -6,6 +6,7 @@ class Unrar < Formula
 
   bottle do
     cellar :any
+    sha256 "4a0e577122077019c2fb4f59036dc5a38109554dc5ceec2a344469c569f60dd9" => :mojave
     sha256 "6ed76c131d2be88fee4fab0b838dc203046379c38797c875b87b38808397eef0" => :high_sierra
     sha256 "05b71d60e374d78ff5a68a97d784c7bad899039d38ff9fb7863fa47350febd28" => :sierra
     sha256 "e7145bddaebe83d758911d6aa9493f78311a9a49d54f6501f9e060671ad54700" => :el_capitan
