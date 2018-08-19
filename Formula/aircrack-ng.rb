@@ -5,6 +5,7 @@ class AircrackNg < Formula
   sha256 "8ae08a7c28741f6ace2769267112053366550e7f746477081188ad38410383ca"
 
   bottle do
+    sha256 "c47198e7e5c719f81b9c0c4ab4bc8c33b0827881aca068bc53eb0a251953a5b6" => :mojave
     sha256 "64d5f8a6fd5613bafe78e3164810e9945683bcafab0dae5b6f03ef55d5727e4f" => :high_sierra
     sha256 "3e82549857d088ce8fff9fd9785f86bb4f46ee1bebfad0ccc5c2c95bbdf97d23" => :sierra
     sha256 "235df2c791c923907ee5ce8cc3304c1599407cfc390f0e18afef2bd761a4beca" => :el_capitan
