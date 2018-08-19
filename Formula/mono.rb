@@ -5,6 +5,7 @@ class Mono < Formula
   sha256 "d4f5fa2e8188d66fbc8054f4145711e45c1faa6d070e63600efab93d1d189498"
 
   bottle do
+    sha256 "f31bcdbf40da4f3160c6257e62532e82fda34f00e8170424d85b3737cc166c74" => :mojave
     sha256 "32a208795022a8aa55c86c4f77aca63725d9fe957998c160e43b9048898ce2fa" => :high_sierra
     sha256 "5b881b5ed9b9fdcef2003dc6f525887f27df2278349644dc8ba446ea4a1b62e5" => :sierra
     sha256 "22551363ddcd90271af6bac89055ea7bfdf0647455b9ea0be355649dfc6e6e9a" => :el_capitan
