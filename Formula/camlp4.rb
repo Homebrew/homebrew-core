@@ -8,6 +8,7 @@ class Camlp4 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "83245cd4c3c676b924ca2e50a22e3ce2691fe8222b57ceb20a668e61cedf2134" => :mojave
     sha256 "a54248473ee2730cd7a78f204bf98067ddda11aeafaebbe5c2842021ae766f43" => :high_sierra
     sha256 "fa95192b50365b2b75ea025aa99b9f9bbaf5c1362c612d1eac1b4eebee012dc5" => :sierra
     sha256 "bf8b4e53abfca6f7721315d0f898406cd3dcbafc02675f582dd6fb9d08c1cf82" => :el_capitan
