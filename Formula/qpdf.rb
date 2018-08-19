@@ -1,8 +1,8 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
   homepage "https://qpdf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qpdf/qpdf/8.2.0/qpdf-8.2.0.tar.gz"
-  sha256 "debf7fd07b5336d8e772f6f6d090b124353f99d8b74030dd0feefe7a11e35cbd"
+  url "https://downloads.sourceforge.net/project/qpdf/qpdf/8.2.1/qpdf-8.2.1.tar.gz"
+  sha256 "f445d3ebda833fe675b7551378f41fa1971cc6f7a7921bbbb94d3a71a404abc9"
 
   bottle do
     cellar :any
