@@ -6,6 +6,7 @@ class Metis < Formula
 
   bottle do
     cellar :any
+    sha256 "f3cdcf0cc5af4ddd27a4550d4a73cffcb34058fe34604b09d453610460d24465" => :mojave
     sha256 "88b6965d941a87044150238387971c4bb94ed2ffca327affccaf311d666a2b4b" => :high_sierra
     sha256 "9c8deed80ece8c24e7ebccbce8410557b27afe711d3f59fccb7d781254d0cc34" => :sierra
     sha256 "54f75262475744bc6ad3ba66ac801e03c18bbac00a9bcf0ca9d05853f2022498" => :el_capitan
