@@ -3,7 +3,7 @@ class Singular < Formula
   homepage "https://www.singular.uni-kl.de/"
   url "http://www.mathematik.uni-kl.de/ftp/pub/Math/Singular/SOURCES/4-1-1/singular-4.1.1.tar.gz"
   sha256 "3792c5707b60c1748298bf47e2277de20303d60563b797372cc0e1eff4bbc583"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "5a90a68c177c836bed7b326c055ac9993e434e901f03a7f4c69b24a01e97c2a0" => :high_sierra
