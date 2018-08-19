@@ -6,9 +6,9 @@ class Elektra < Formula
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   bottle do
-    sha256 "a8c5ce2977f85bf0451d6f95c6bc04b2f6431491681664424783b9a20964217b" => :high_sierra
-    sha256 "c16c814f081317dc3dbd3593d062734784f2ee6733d695ea63c4900390f9e6bf" => :sierra
-    sha256 "285a50672d49a6273f89fd81083e7e1f1c502dc52615a8f31b905ffef2e52482" => :el_capitan
+    sha256 "f547a7e7adb757772d85a1fdc7de5854191605e2d116c87948da982fb4e35194" => :high_sierra
+    sha256 "651713da404920c213be01e9495b7696e4183dfdc8cf5324d2152746d9b37013" => :sierra
+    sha256 "f4646cbfc24e57040d68e1de12d92bad49c91886fb3a4318a43f7f3d47ba460b" => :el_capitan
   end
 
   option "with-qt", "Build GUI frontend"
