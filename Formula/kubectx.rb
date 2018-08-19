@@ -24,7 +24,7 @@ class Kubectx < Formula
   end
 
   test do
-    assert_match "USAGE:", shell_output("#{bin}/kubectx -h 2>&1", 1)
-    assert_match "USAGE:", shell_output("#{bin}/kubens -h 2>&1", 1)
+    assert_match "USAGE:", shell_output("#{bin}/kubectx -h 2>&1")
+    assert_match "USAGE:", shell_output("#{bin}/kubens -h 2>&1")
   end
 end
