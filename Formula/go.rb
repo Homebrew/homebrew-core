@@ -29,6 +29,16 @@ class Go < Formula
     sha256 "1f1e1e34114c80fe7b74410d7b5337f976c84a3f83171d35b8db1af7f5937b39" => :el_capitan
   end
 
+  devel do
+    url "https://dl.google.com/go/go1.11rc1.src.tar.gz"
+    sha256 "fcb8778ad5d1bb7f5bfd1564ba4107894011f1d65f69be9fa1e693f6b5143828"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go1.11"
+    end
+  end
+
   head do
     url "https://go.googlesource.com/go.git"
 
