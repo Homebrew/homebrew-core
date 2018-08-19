@@ -1,8 +1,8 @@
 class Nyancat < Formula
   desc "Renders an animated, color, ANSI-text loop of the Poptart Cat"
   homepage "https://github.com/klange/nyancat"
-  url "https://github.com/klange/nyancat/archive/1.5.1.tar.gz"
-  sha256 "c948c769d230b4e41385173540ae8ab1f36176de689b6e2d6ed3500e9179b50a"
+  url "https://github.com/klange/nyancat/archive/1.5.2.tar.gz"
+  sha256 "88cdcaa9c7134503dd0364a97fa860da3381a09cb555c3aae9918360827c2032"
 
   bottle do
     cellar :any_skip_relocation
