@@ -6,6 +6,7 @@ class MysqlClient < Formula
   sha256 "d05700ec5c1c6dae9311059dc1713206c29597f09dbd237bf0679b3c6438e87a"
 
   bottle do
+    sha256 "39470cf4e34f770eebda0c89249f90c18a84e6ef03d33ee464db90c0049d74aa" => :mojave
     sha256 "8b73614068a82ed9f82f19e52fdd621adcd4d017fc3767703f216cbf7b00e60e" => :high_sierra
     sha256 "8e3637ada6ee42d7e224809eab698e814befde0f164e276f7f91f1664f7460b2" => :sierra
     sha256 "84a90d2d3f24f9270bf4d41eef99741a1ba16c65148672411e9ee9a676551c21" => :el_capitan
