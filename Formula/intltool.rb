@@ -6,6 +6,7 @@ class Intltool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "52ccb5bfce1cda123f30c84335172335cee0706973e6769ec9a5358cb160f364" => :mojave
     sha256 "7924c9c7dc7b3eee0056171df8c6b66c2e0e8888e4638232e967a5ea31ca5b86" => :high_sierra
     sha256 "e587e46b6ebdebb7864eb4f9cb17c221024d9167ae0148899adedb6127b2bdfb" => :sierra
     sha256 "14bb0680842b8b392cb1a5f5baf142e99a54a538d1a587f6d1158785b276ffc6" => :el_capitan
