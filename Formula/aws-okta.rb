@@ -1,7 +1,6 @@
 class AwsOkta < Formula
   desc "Authenticate with AWS using your Okta credentials"
   homepage "https://github.com/segmentio/aws-okta"
-
   url "https://github.com/segmentio/aws-okta/archive/v0.19.0.tar.gz"
   sha256 "fc2c25fbbc95a2baf9d72504821a7ecf5e1d5561572cceda1c0656c90b8df46a"
 
