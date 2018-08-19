@@ -10,6 +10,7 @@ class Netpbm < Formula
 
   bottle do
     cellar :any
+    sha256 "6b9d5fac4ba4a69e7e8c2c358e85b51e728665a8f30eb767b1f421c71595bb29" => :mojave
     sha256 "19c9c04e9b7bf75584fd62982521802ddd73e8ff7ce7c897cda0802090911469" => :high_sierra
     sha256 "3d70d1f884a2403712a5049c90822aaa0eabf1f8d583655238e08e891f958626" => :sierra
     sha256 "c703cfef4c6aee5892cdf276ec131aba6a19854fd7f7b98fda6f62b4b3baa4b8" => :el_capitan
