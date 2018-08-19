@@ -3,6 +3,7 @@ class Php < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.2.9.tar.xz/from/this/mirror"
   sha256 "3585c1222e00494efee4f5a65a8e03a1e6eca3dfb834814236ee7f02c5248ae0"
+  revision 1
 
   bottle do
     sha256 "0be2d919f78c5aabd6e5166ed98576f6e94cfd32c62cc81ca23859e87f81dc3e" => :high_sierra
@@ -28,6 +29,9 @@ class Php < Formula
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libsodium"
+  # libxml2 required due to https://bugs.php.net/bug.php?id=76403, can be
+  # removed once resolved.
+  depends_on "libxml2"
   depends_on "libzip"
   depends_on "openssl"
   depends_on "pcre"
@@ -116,6 +120,7 @@ class Php < Formula
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos
       --with-layout=GNU
+      --with-libxml-dir=#{Formula["libxml2"].opt_prefix}
       --with-ldap
       --with-ldap-sasl
       --with-libedit
@@ -290,12 +295,18 @@ class Php < Formula
   end
 
   test do
-    assert_match /^Zend OPcache$/, shell_output("#{bin}/php -i"), "Zend OPCache extension not loaded"
+    assert_match /^Zend OPcache$/, shell_output("#{bin}/php -i"),
+      "Zend OPCache extension not loaded"
+    # Test related to libxml2 and
+    # https://github.com/Homebrew/homebrew-core/issues/28398
+    assert_includes MachO::Tools.dylibs("#{bin}/php"),
+      "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
     system "#{sbin}/php-fpm", "-t"
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
     # Prevent SNMP extension to be added
-    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"), "SNMP extension doesn't work reliably with Homebrew on High Sierra"
+    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"),
+      "SNMP extension doesn't work reliably with Homebrew on High Sierra"
     begin
       require "socket"
 
