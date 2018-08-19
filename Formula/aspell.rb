@@ -7,6 +7,7 @@ class Aspell < Formula
   revision 1
 
   bottle do
+    sha256 "f0264ded1cf174eb37c8a4175bc5f900d8abbe2d06e7f8109aa96106dd044f25" => :mojave
     sha256 "d5927b312520252d7634902269336fe28148dac0d986e7bb0883327233462f01" => :high_sierra
     sha256 "69c2de621e5d6c0a18ca7bf43b153deefef24eaa65d8ae3f5939a106d52948ce" => :sierra
     sha256 "d107e964156e9932303a3569cbfc489d96593d67c5a724e70c45dbe2ed961516" => :el_capitan
