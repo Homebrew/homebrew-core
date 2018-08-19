@@ -6,9 +6,9 @@ class Fd < Formula
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
-    sha256 "2644d73cbba8a1dd1520f6c2a2628c9c7417dbc58f39fac6936ae290dcea4774" => :high_sierra
-    sha256 "e71f013de3825b3fe467304af14e50e3a3712b76628978628896b2ecdc6a5625" => :sierra
-    sha256 "f5363d8f9a41dfbefe1368abb7baadf9d0cc5dc0294676af3ef531a9eced33a0" => :el_capitan
+    sha256 "be21df7d1288190659327d2dc4329989fa5700c15a50aef6049b7b54d6ac0602" => :high_sierra
+    sha256 "b4098c7dfa787e8d44a617788f327b052b8c411ea30104fb20a841a84efe0ec8" => :sierra
+    sha256 "829fddb0560b4b0ac2e198b05134508cfa13dc370ae7bd9c870172a6bd5c65e5" => :el_capitan
   end
 
   depends_on "rust" => :build
