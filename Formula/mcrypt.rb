@@ -6,6 +6,7 @@ class Mcrypt < Formula
 
   bottle do
     rebuild 1
+    sha256 "de99a56fa872e7e30958cb6268af59c03e788791445a8efd71c87ac9efb2da02" => :mojave
     sha256 "892bc8fe3e910389a4499a3466e240740d9eba2eae92974cb0d8c7ba0182d635" => :high_sierra
     sha256 "c2d358a3e8b7c547c2b136bcd8c7e53c095ca9902ccc81c7af56cc007bfd1202" => :sierra
     sha256 "3cac7c430b1673877ba52bada82c3f710024dbd9f8dd0ff230c17c4623987beb" => :el_capitan
