@@ -5,6 +5,7 @@ class Htop < Formula
   sha256 "d9d6826f10ce3887950d709b53ee1d8c1849a70fa38e91d5896ad8cbc6ba3c57"
 
   bottle do
+    sha256 "f85004078bc63b5fa9b5febd99a4a1c67be7cd8e83ed079b95e613a9a126aa5e" => :mojave
     sha256 "67d87dbcf3999869beff0dd10916a01aa44cc063873c1b80a1636ad2fc14c894" => :high_sierra
     sha256 "be217a990dab3c3ebc946cb249ba092ffcba8b6fbd3757323fd7d3c9d129ec54" => :sierra
     sha256 "c53584a82a9d6de21ac49a99f4747580b2a614313f3707318b5ccbd77c7813f8" => :el_capitan
