@@ -7,10 +7,9 @@ class Yafc < Formula
   revision 2
 
   bottle do
-    sha256 "40c44b84a96b4cf65ee0c1d09a2770ede71e5cfd7fdf9c24504723a8b1eaef3f" => :high_sierra
-    sha256 "05ea440c672b5283feaf2597a8c0525d3ff4228cd2347aabd3a69d282d245dd2" => :sierra
-    sha256 "9cbbd25ce9019d92e6ed3c8ce5af9533b0d79d79f96b01fc8741016a3bd4eb39" => :el_capitan
-    sha256 "3ac839135bac59b4d1d98cb662adc558109167fd21e69976dd39e1e3602de25b" => :yosemite
+    sha256 "a94fb7d29a96a322dad97aa8370c54036e792a593043b3ddf2e3536e59433af7" => :high_sierra
+    sha256 "4a53da30ad16393321ca6e7b23afe335190b798045e9fa78a0ba8fe116e99718" => :sierra
+    sha256 "ab8dc2d5aa90802d38bbc27344803a84bcce37df8854f7fe19035d3de77b12a2" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
