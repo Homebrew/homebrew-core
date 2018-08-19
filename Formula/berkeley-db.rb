@@ -7,6 +7,7 @@ class BerkeleyDb < Formula
 
   bottle do
     cellar :any
+    sha256 "033c836af359a4169a73b7778b837814d0df74fa514e5dd01efdc0b2272e830f" => :mojave
     sha256 "b3ee1f3ef01f18bb4c958cac6b84b593718d9fb8e43cf480abd44dad2c6a1c8a" => :high_sierra
     sha256 "95ffd72a00ed6faa8131b13482dd4592311410f8d4010934949b43b7a273c03e" => :sierra
     sha256 "12b3dcf8c9549ee7a6afdafbc0ff7235fe069af06a28d26525e57b8f8ae37a61" => :el_capitan
