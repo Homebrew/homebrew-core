@@ -6,6 +6,7 @@ class ErlangAT18 < Formula
 
   bottle do
     cellar :any
+    sha256 "35ca0e0acbecd171e586bcebb53b2313ca02fc756b390d750cc73ee86f8f6702" => :mojave
     sha256 "2a379d09b405738143d3f05a719738e2cac285107e1c5115ae6bceb301ef1c44" => :high_sierra
     sha256 "3d70eb44b2d7e4038d85c946973b57fd1bc0ddfb638e4f84b001393d3bcbc699" => :sierra
     sha256 "66f38b4af3fc08e302d421d1bd4bd5e40125d920968a46c1aed7d4056ec7a033" => :el_capitan
