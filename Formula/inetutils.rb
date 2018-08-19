@@ -7,6 +7,7 @@ class Inetutils < Formula
   revision 1
 
   bottle do
+    sha256 "7516d588827d17639de90dbec68a726763880500d1423773390e55b5ef97c8d9" => :mojave
     sha256 "83a83d549780840164b9b3da28d3aef47e41378415d6cdb6c6aee48d04623340" => :high_sierra
     sha256 "538f028274c5afbc0d4eb397b142f724d48c68a85acc6e1c5c30e00e652d5afb" => :sierra
     sha256 "08419e32bd90cdc6c6b4715e64b2facae634a3cd45ecc7e54da87cab7b112458" => :el_capitan
