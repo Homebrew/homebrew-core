@@ -1,8 +1,8 @@
 class Xcodegen < Formula
   desc "Generate your Xcode project from a spec file and your folder structure"
   homepage "https://github.com/yonaskolb/XcodeGen"
-  url "https://github.com/yonaskolb/XcodeGen/archive/1.10.3.tar.gz"
-  sha256 "30944e90b9855ff893c6581e0d6dcdf7e8ab2c0c5edadacba7fb5ce27164975a"
+  url "https://github.com/yonaskolb/XcodeGen/archive/1.11.0.tar.gz"
+  sha256 "f1fbfe042183898251bd5ec391efe143e83e307a5a3468cec8ca9145c50e9a62"
 
   bottle do
     cellar :any_skip_relocation
