@@ -4,6 +4,13 @@ class Perltidy < Formula
   url "https://downloads.sourceforge.net/project/perltidy/20180220/Perl-Tidy-20180220.tar.gz"
   sha256 "e9973ce28b7518108c1e68fa767c6566822480e739df275375a0dfcc9c2b3370"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "74062f9591fa421b637127521c7aa79b140d7741042671a1f21d2148cb50c3f0" => :high_sierra
+    sha256 "62a1de49e77f4214b8f689c74f0b5de888e6df0d2e51741d2e5650c2df09ed02" => :sierra
+    sha256 "ed1fbd3fcb92487349a6d5431a32f1c9824ce63ecce9e7d2d9371636da42a3a6" => :el_capitan
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
