@@ -14,11 +14,12 @@ class Subversion < Formula
   deprecated_option "java" => "with-java"
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
+  deprecated_option "with-gpg-agent" => "with-gnupg"
 
   option "with-java", "Build Java bindings"
   option "without-ruby", "Build without Ruby bindings"
   option "without-perl", "Build without Perl bindings"
-  option "with-gpg-agent", "Build with support for GPG Agent"
+  option "with-gnupg", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
@@ -36,7 +37,7 @@ class Subversion < Formula
   depends_on "openssl"
 
   # Other optional dependencies
-  depends_on "gpg-agent" => :optional
+  depends_on "gnupg" => :optional
   depends_on "gettext" => :optional
   depends_on :java => ["1.8", :optional]
 
@@ -104,7 +105,7 @@ class Subversion < Formula
     ]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
-    args << "--without-gpg-agent" if build.without? "gpg-agent"
+    args << "--without-gpg-agent" if build.without? "gnupg"
     args << "--disable-nls" if build.without? "gettext"
 
     if build.with? "ruby"
