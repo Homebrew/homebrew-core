@@ -6,6 +6,7 @@ class Msgpack < Formula
   head "https://github.com/msgpack/msgpack-c.git"
 
   bottle do
+    sha256 "258bd5b7a97878495c916e81e558aea7bc822518f93b28210398164c86be0e53" => :mojave
     sha256 "d0683a821c655fa6ae4a935c49a306990f84f248c538458b4d74407d714eb2a0" => :high_sierra
     sha256 "12ea364cdd16afea06f408fbf3f3f6a9873f2293b02e34d4b0659c30ecb77f07" => :sierra
     sha256 "e21eb481e8fbb4b5ce76d6e800a971c4df95428efe8a4a9e2b2c3712aea6d6fa" => :el_capitan
