@@ -7,10 +7,9 @@ class Libssh < Formula
 
   bottle do
     cellar :any
-    sha256 "287869ae7536b9a6fc3ff22fe130e6e0fb5c7cb41dcf711fe3a52539263b821a" => :high_sierra
-    sha256 "5b8593c4a2ec1d79736a8e37ed840c41801e9b9acba0f08e52eef8f64fb30558" => :sierra
-    sha256 "9c752b4da40e1f978b808a927f3efb0ac06f2e48328c3e2a544b541c6f9131ee" => :el_capitan
-    sha256 "fb6872e410e6ab010d1ec7b2a51cb55075c32745676ef462a276cca87ad18a62" => :yosemite
+    sha256 "735a1ab76bda6801ee0907737939903f923ab469af509303bef63df7ae264e4b" => :high_sierra
+    sha256 "ccabcfaadcf5a25ea951f8eaec4310caa83a2bd76fd90589e405d64d3eb4d918" => :sierra
+    sha256 "76c42f9c092b0249dcfdbd1ddd0be57eb73a099ee5c6d9a213a7ff7cdc6f4393" => :el_capitan
   end
 
   depends_on "cmake" => :build
