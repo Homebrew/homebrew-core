@@ -1,8 +1,8 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/eb/3c/702e89ad33529c0107d44ebc1a7eca97c4fd77ae2784060923a65864fcbd/Sphinx-1.7.6.tar.gz"
-  sha256 "217ad9ece2156ed9f8af12b5d2c82a499ddf2c70a33c5f81864a08d8c67b9efc"
+  url "https://files.pythonhosted.org/packages/18/66/5aabe11160435a905ca137788c12c3d58c8693ad71cf9e7bb86e84b77d2a/Sphinx-1.7.7.tar.gz"
+  sha256 "71531900af3f68625a29c4e00381bee8f85255219a3d500a3e255076a45b735e"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +21,8 @@ class SphinxDoc < Formula
 
   # generated from sphinx, setuptools, numpydoc and python-docs-theme
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d3/3e/1d74cdcb393b68ab9ee18d78c11ae6df8447099f55fe86ee842f9c5b166c/setuptools-40.0.0.zip"
-    sha256 "012adb8e25fbfd64c652e99e7bab58799a3aaf05d39ab38561f69190a909015f"
+    url "https://files.pythonhosted.org/packages/5a/df/b2e3d9693bb0dcbeac516a73dd7a9eb82b126ae52e4a74605a9b01beddd5/setuptools-40.1.0.zip"
+    sha256 "664500268e4d649ce5b9f9dc0af0edc2b144666b1544d64af0453da94aa72b70"
   end
 
   resource "alabaster" do
@@ -36,8 +36,8 @@ class SphinxDoc < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
-    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
+    url "https://files.pythonhosted.org/packages/53/0d/d1d13a63563cc50a27b310f5612645bef06d29a5022a7e79ac659dd0fc50/certifi-2018.8.13.tar.gz"
+    sha256 "4c1d68a1408dd090d2f3a869aa94c3947cc1d967821d1ed303208c9f41f0f2f4"
   end
 
   resource "chardet" do
@@ -91,8 +91,8 @@ class SphinxDoc < Formula
   end
 
   resource "python-docs-theme" do
-    url "https://files.pythonhosted.org/packages/9f/6d/5f04061edd1035654ff36396ac36eabc4eea5be7ab973e5f8d12be15ec24/python-docs-theme-2018.2.tar.gz"
-    sha256 "f9a7e0d44af1719f8975f089632c7ce10c6cf85ee6f08028147b993781d0baa7"
+    url "https://files.pythonhosted.org/packages/77/f9/8c63766fe271549db3a578b652dea6678b90b593300315507b9c922f7173/python-docs-theme-2018.7.tar.gz"
+    sha256 "018a5bf2a7318c9c9a8346303dac8afc6bc212d92e86561c9b95a3372714155a"
   end
 
   resource "pytz" do
