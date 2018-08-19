@@ -5,6 +5,7 @@ class Pstoedit < Formula
   sha256 "ad31d13bf4dd1b9e2590dccdbe9e4abe74727aaa16376be85cd5d854f79bf290"
 
   bottle do
+    sha256 "44f8a102c1d605669e13f3e36daae3842fb5c43136be27bf858ebdf28d021d79" => :mojave
     sha256 "11f3efb3f5f5aa6912bc34f72be786abbfd176406bf6635166a5057415e6af08" => :high_sierra
     sha256 "83a6324270f93ae5bca3843f52e0ae84050fc72f68c150d3456947b961f4f16a" => :sierra
     sha256 "fd0e52881d4397cbca26f851b2fbbc65b382ee3c70ba46c362b90b30d9280428" => :el_capitan
