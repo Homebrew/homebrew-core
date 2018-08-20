@@ -5,6 +5,7 @@ class Orbit < Formula
   sha256 "55c900a905482992730f575f3eef34d50bda717c197c97c08fa5a6eafd857550"
 
   bottle do
+    sha256 "a70cbcdfb9d4350141ed258c4f61e0b16dddbf9bc9ce2658dfad9609a4ab3b22" => :mojave
     sha256 "4d44dbf8d5a6dcfabcbf71a0f42fb0a3f961cd7beae541f3dd657789065269c2" => :high_sierra
     sha256 "a267317818996e273fdd78837bc6e18709f273a31c21ca7dae7f09d1c634637f" => :sierra
     sha256 "11bb24fb06daef1ccea017470e23e56706c24265a4f7551a14d99e4f88121781" => :el_capitan
