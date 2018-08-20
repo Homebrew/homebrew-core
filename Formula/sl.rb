@@ -7,6 +7,7 @@ class Sl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e489648bcc7eff8f065855dcc891eb55f3793a5ff464d96726e313a1bc74d00f" => :mojave
     sha256 "627b0b5f8027f876466d03038da7dd0d75804cccc3bbcf45f0fe9c91199be3c3" => :high_sierra
     sha256 "afd30cb3a99d238a8ac52810834244d5f47fc2ff597db9ad61012bd2014395b9" => :sierra
     sha256 "f186cb86f4d48929aa671434dbd6be0a861069608098a30dc952697bcca85972" => :el_capitan
