@@ -6,6 +6,7 @@ class Opensc < Formula
   head "https://github.com/OpenSC/OpenSC.git"
 
   bottle do
+    sha256 "6784d3e0123aa57babbec1f6d88d01d37ef749b35aad0ab8c0b2944d255eb460" => :mojave
     sha256 "84b81199751659ed73c4209849aa1f0ed5534788fcdab9c2748f1e765613820f" => :high_sierra
     sha256 "107d1798ed7303d793aeeae634e44a05cff93a7e65ae6a3635a4567e117d47df" => :sierra
     sha256 "8be12043d847a94cd56524734f99e49f5bfa884d84ea3c70fa9347d30b8a7ea1" => :el_capitan
