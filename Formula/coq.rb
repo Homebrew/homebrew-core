@@ -18,6 +18,7 @@ class Coq < Formula
   head "https://github.com/coq/coq.git"
 
   bottle do
+    sha256 "2738358e5a1ffac095a9ac7e20c9562ece444ac66baf82f8492274c60d0d5e3f" => :mojave
     sha256 "e0d8da0099992c2de50cbc3264aea7c0a3c6ad9238c39a8c22137debc5adaa3f" => :high_sierra
     sha256 "a4cf3ba3ae5b3c9d748b07be8d18786ffd178975dbd0b471c5f399f966c46241" => :sierra
     sha256 "cee62528a526eef69eac559fe8ed89d77b84f77dbcaffe3b219f7bb977ab153d" => :el_capitan
