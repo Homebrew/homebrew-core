@@ -8,6 +8,7 @@ class Rmtrash < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "c2da781e4931d89a398983d0ac065a0647298417ce4f9fa1e0d6aacb8109f6f3" => :mojave
     sha256 "1acafe5b7c1d492c6f3aa685c37a56c51972fdd62b6653ee6efb2f2f0b9a7715" => :high_sierra
     sha256 "e9770d2d1fef053ba9743548537fb70ca491755c10c0a6b6d106e919d86c4b54" => :sierra
     sha256 "a8b6815f555377a91e800085db9680cc9234b27a4b114ea13e6664a2b1b663d3" => :el_capitan
