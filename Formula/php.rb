@@ -43,6 +43,7 @@ class Php < Formula
   depends_on "libzip"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
 
@@ -85,8 +86,6 @@ class Php < Formula
 
     # Prevent homebrew from harcoding path to sed shim in phpize script
     ENV["lt_cv_path_SED"] = "sed"
-
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
 
     args = %W[
       --prefix=#{prefix}
@@ -144,13 +143,13 @@ class Php < Formula
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
       --with-pdo-pgsql=#{Formula["libpq"].opt_prefix}
-      --with-pdo-sqlite=#{sdk}/usr
+      --with-pdo-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-pgsql=#{Formula["libpq"].opt_prefix}
       --with-pic
       --with-png-dir=#{Formula["libpng"].opt_prefix}
       --with-pspell=#{Formula["aspell"].opt_prefix}
       --with-sodium=#{Formula["libsodium"].opt_prefix}
-      --with-sqlite3=#{sdk}/usr
+      --with-sqlite3=#{Formula["sqlite"].opt_prefix}
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
