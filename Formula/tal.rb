@@ -8,6 +8,7 @@ class Tal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3e9ac201bb27300afd327dd1a24c093e602376c4a4e36af27f7d1047ffae9b5d" => :mojave
     sha256 "852023d9d33d893ca0852f36d795b044212e69911e2380cc4f0d22f99e22c1c2" => :high_sierra
     sha256 "9c2c4e5f9d6922f9a9d434485dea4ddf321744728c83adcda822c3c314f6a86e" => :sierra
     sha256 "bbdef6b2c92650352b7199cc2a9e3bc4698bf2a14fce46397eebcee72c1de419" => :el_capitan
