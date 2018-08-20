@@ -6,6 +6,7 @@ class Tivodecode < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "efa83924ac8d8e07e539c6d9b3aa5d5d7440fd34bccc1da793ead1224eabdbbf" => :mojave
     sha256 "0016f711d79454b154708804c574633c48e472b9a81c257730e5cf4aa00dd220" => :high_sierra
     sha256 "5682668b2e721933054656cebc49ccb46c382428b77409d94251c6f1dfd3092d" => :sierra
     sha256 "d50450e62c6fcf71643ceaf5f33dcf4e904e389c89597ccbe148de3053839ccd" => :el_capitan
