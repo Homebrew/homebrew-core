@@ -8,6 +8,7 @@ class Simh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8f4311a11b45c96213c82f0f08fad24442b7b901145836b6eec8bce6a02e9fe2" => :mojave
     sha256 "48f8dbc43fbcec170807bc4a0730ace70fd6e99c0619ecb26897e32d3bd3f03b" => :high_sierra
     sha256 "5b766137d34b8728a8a2ae3357c6c14063e2aabf3fa4e1107118764f05bc7cb0" => :sierra
     sha256 "38663141007d531b100b6408f27e1f8c3a43d3ec3cb5dc3b0086ac257077ea3f" => :el_capitan
