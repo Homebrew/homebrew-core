@@ -5,7 +5,7 @@ class LuaAT51 < Formula
   url "https://www.lua.org/ftp/lua-5.1.5.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
   sha256 "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
-  revision 7
+  revision 8
 
   bottle do
     cellar :any
@@ -17,7 +17,6 @@ class LuaAT51 < Formula
 
   option "with-completion", "Enables advanced readline support"
   option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
-  option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
@@ -39,11 +38,6 @@ class LuaAT51 < Formula
       url "https://luajit.org/patches/lua-5.1.4-advanced_readline.patch"
       sha256 "dfd17e720d1079dcb64529af3e4fea4a4abc0115c934f365282a489d134cceb4"
     end
-  end
-
-  resource "luarocks" do
-    url "https://luarocks.org/releases/luarocks-2.4.4.tar.gz"
-    sha256 "3938df33de33752ff2c526e604410af3dceb4b7ff06a770bc4a240de80a1f934"
   end
 
   def install
@@ -75,7 +69,8 @@ class LuaAT51 < Formula
 
     # Renaming from Lua to Lua51.
     # Note that the naming must be both lua-version & lua.version.
-    # Software can't find the libraries without supporting both the hyphen or full stop.
+    # Software can't find the libraries without supporting both the
+    # hyphen and full stop.
     mv bin/"lua", bin/"lua-5.1"
     mv bin/"luac", bin/"luac-5.1"
     mv man1/"lua.1", man1/"lua-5.1.1"
@@ -86,53 +81,16 @@ class LuaAT51 < Formula
     include.install_symlink "lua-5.1" => "lua5.1"
     (lib/"pkgconfig").install_symlink "lua-5.1.pc" => "lua5.1.pc"
     (libexec/"lib/pkgconfig").install_symlink lib/"pkgconfig/lua-5.1.pc" => "lua.pc"
-
-    # This resource must be handled after the main install, since there's a lua dep.
-    # Keeping it in install rather than postinstall means we can bottle.
-    if build.with? "luarocks"
-      resource("luarocks").stage do
-        ENV.prepend_path "PATH", bin
-
-        system "./configure", "--prefix=#{libexec}", "--rocks-tree=#{HOMEBREW_PREFIX}",
-                              "--sysconfdir=#{etc}/luarocks51", "--with-lua=#{prefix}",
-                              "--with-lua-include=#{include}/lua-5.1", "--lua-version=5.1",
-                              "--versioned-rocks-dir"
-        system "make", "build"
-        system "make", "install"
-
-        (share/"lua/5.1/luarocks").install_symlink Dir["#{libexec}/share/lua/5.1/luarocks/*"]
-        bin.install_symlink libexec/"bin/luarocks-5.1"
-        bin.install_symlink libexec/"bin/luarocks-admin-5.1"
-
-        # This block ensures luarock exec scripts don't break across updates.
-        inreplace libexec/"share/lua/5.1/luarocks/site_config.lua" do |s|
-          s.gsub! libexec, opt_libexec
-          s.gsub! include, HOMEBREW_PREFIX/"include"
-          s.gsub! lib, HOMEBREW_PREFIX/"lib"
-          s.gsub! bin, HOMEBREW_PREFIX/"bin"
-        end
-      end
-    end
   end
 
   def caveats; <<~EOS
-    Please be aware due to the way Luarocks is designed any binaries installed
-    via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
-
-    This is, for now, unavoidable. If this is troublesome for you, you can build
-    rocks with the `--tree=` command to a special, non-conflicting location and
-    then add that to your `$PATH`.
+    You may also want luarocks:
+      brew install luarocks
   EOS
   end
 
   test do
     system "#{bin}/lua5.1", "-e", "print ('Ducks are cool')"
-
-    if File.exist?(bin/"luarocks-5.1")
-      mkdir testpath/"luarocks"
-      system bin/"luarocks-5.1", "install", "moonscript", "--tree=#{testpath}/luarocks"
-      assert_predicate testpath/"luarocks/bin/moon", :exist?
-    end
   end
 end
 
