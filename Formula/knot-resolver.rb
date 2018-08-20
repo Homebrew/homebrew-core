@@ -1,8 +1,8 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-2.4.1.tar.xz"
-  sha256 "e8044316cd897ad29b3c5284de06652e1568c4d5861e3147ec2191fbacd8d9ff"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-3.0.0.tar.xz"
+  sha256 "68a0137e0e15061ee7dec53a2e424aa3266611720db3843853c6e7774a414f40"
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
@@ -12,8 +12,6 @@ class KnotResolver < Formula
   end
 
   option "without-nettle", "Compile without DNS cookies support"
-  option "with-hiredis", "Compile with Redis cache storage support"
-  option "with-libmemcached", "Compile with memcached cache storage support"
 
   depends_on "cmocka" => :build
   depends_on "pkg-config" => :build
@@ -23,8 +21,6 @@ class KnotResolver < Formula
   depends_on "libuv"
   depends_on "lmdb"
   depends_on "nettle" => :recommended
-  depends_on "hiredis" => :optional
-  depends_on "libmemcached" => :optional
 
   def install
     # Since we don't run `make install` or `make etc-install`, we need to
