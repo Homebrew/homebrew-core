@@ -6,6 +6,7 @@ class Whohas < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9d2750cb7494536df98d8df50d3ae9d6e3e48e8f12aebe4bb38c5fd8219b7f62" => :mojave
     sha256 "ad57fdefa6da7a779c1bd503f336634dc55b8f524f8e59cfa74fb2a6eba42ebd" => :high_sierra
     sha256 "0fc69ababba028f6408233021f0dfbbe6b1d29abcbce8416b8eb109c24a570d1" => :sierra
     sha256 "5b879543999158c4f55a52fdb9e643267ac1ad46aa69e56448f43799f1cce771" => :el_capitan
