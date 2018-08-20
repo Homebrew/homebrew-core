@@ -2,6 +2,7 @@ class GmtAT4 < Formula
   desc "Manipulation of geographic and Cartesian data sets"
   homepage "https://gmt.soest.hawaii.edu/"
   url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.18-src.tar.bz2"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-4.5.18-src.tar.bz2"
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-4.5.18-src.tar.bz2"
   sha256 "27c30b516c317fed8e44efa84a0262f866521d80cfe76a61bf12952efb522b63"
 
