@@ -6,6 +6,7 @@ class Xtail < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1c50e24a2e599f9adc556452e3d1493cbfc5bc665858363d7c0f956acf6136a8" => :mojave
     sha256 "483c983bc4d4c15a2d157c700d91cbe801f383956ea5e554a5d96e4a8f476ba5" => :high_sierra
     sha256 "d230b5111c213e9294f86f01c651501a87c42f60ed30929144e21ed4bbef4ecb" => :sierra
     sha256 "a579041c4d693dd444464228dcd0175e79f31708b62ad3ccf55a8f545ce67ed7" => :el_capitan
