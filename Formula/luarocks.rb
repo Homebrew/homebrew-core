@@ -11,8 +11,8 @@ class Luarocks < Formula
     sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :el_capitan
   end
 
-  depends_on "lua"
   depends_on "lua@5.1" => :test
+  depends_on "lua"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -43,22 +43,20 @@ class Luarocks < Formula
     system "lua", "-e", "require('lfs')"
     assert_match testpath.to_s, shell_output("lua lfs_53test.lua")
 
-    if build.with? "lua@5.1"
-      ENV["LUA_PATH"] = "#{testpath}/share/lua/5.1/?.lua"
-      ENV["LUA_CPATH"] = "#{testpath}/lib/lua/5.1/?.so"
+    ENV["LUA_PATH"] = "#{testpath}/share/lua/5.1/?.lua"
+    ENV["LUA_CPATH"] = "#{testpath}/lib/lua/5.1/?.so"
 
-      (testpath/"lfs_51test.lua").write <<~EOS
-        require("lfs")
-        lfs.mkdir("blank_space")
-      EOS
+    (testpath/"lfs_51test.lua").write <<~EOS
+      require("lfs")
+      lfs.mkdir("blank_space")
+    EOS
 
-      system "#{bin}/luarocks", "--tree=#{testpath}",
-                                "--lua-dir=#{Formula["lua@5.1"].opt_prefix}",
-                                "install", "luafilesystem"
-      system "lua5.1", "-e", "require('lfs')"
-      system "lua5.1", "lfs_51test.lua"
-      assert_predicate testpath/"blank_space", :directory?,
-        "Luafilesystem failed to create the expected directory"
-    end
+    system "#{bin}/luarocks", "--tree=#{testpath}",
+                              "--lua-dir=#{Formula["lua@5.1"].opt_prefix}",
+                              "install", "luafilesystem"
+    system "lua5.1", "-e", "require('lfs')"
+    system "lua5.1", "lfs_51test.lua"
+    assert_predicate testpath/"blank_space", :directory?,
+      "Luafilesystem failed to create the expected directory"
   end
 end
