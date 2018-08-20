@@ -7,6 +7,7 @@ class A2ps < Formula
 
   bottle do
     rebuild 3
+    sha256 "b3d7d7bd0bfcada7fc2bc2340ab67362e5087e53b4d611d84aafedf713bde6c3" => :mojave
     sha256 "99646196c8b9e6d5a7b67ecca1589160749d690128bb89aace3b79d4c355dfde" => :high_sierra
     sha256 "5a1c466a3f833797710464dd1aaf4ad6c9ff0a47de33ab3b2ba9cf0c2be36bfd" => :sierra
     sha256 "532c3f14debcd59028285dad1d6fe41dbad481718cc1752b1b9e7c05fd82e27f" => :el_capitan
