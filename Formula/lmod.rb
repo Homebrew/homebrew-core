@@ -12,6 +12,7 @@ class Lmod < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "luarocks" => :build
   depends_on "lua"
 
   resource "luafilesystem" do
