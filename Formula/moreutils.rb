@@ -8,6 +8,7 @@ class Moreutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8c565db71d64ea9d4f7086a4dcce5476d6f1b9e80436bd6970c0567fc3d739fd" => :mojave
     sha256 "82df31e79d7946b055bb7be4e0cedf745bd96448114514d58509559736fe85fc" => :high_sierra
     sha256 "6f32d96f7023379b6cf4637bd65cf3e4fc0eb0b721991a625f0d38ba5145bfff" => :sierra
     sha256 "9f2e15ade4e996988704728fa9d3b9263a1337b33847ba68afb8863a3293162d" => :el_capitan
