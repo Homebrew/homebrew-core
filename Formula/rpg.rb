@@ -7,6 +7,7 @@ class Rpg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "995850411f4a47126309c849e2da32c76abaddf40317515d7af5b8d2e2d6d680" => :mojave
     sha256 "27b65a242fd862d805460bc06c91d7f164935dd14f8ded5cfa62924a1b973a42" => :high_sierra
     sha256 "ddb4f887b798101d95300f0b0c22a0760d06158c09796e9bfb65869f28b69434" => :sierra
     sha256 "be6550c915e361dcc0e020048f9a5f4ea37f1c5890a526282a3d70c610594981" => :el_capitan
