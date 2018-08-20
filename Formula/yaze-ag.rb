@@ -6,6 +6,7 @@ class YazeAg < Formula
   sha256 "d46c861eb0725b87dd5567062f277860b98d538fca477d8686f17b36ef39d9bd"
 
   bottle do
+    sha256 "86fb203ac02bad9477b7d3c7b78022df5feb126ae08df3ff93238d766f08a362" => :mojave
     sha256 "9f3e2a6e51423a97f03e99ed2bca0c7778fcf4f6b223332a824743bdbad20e09" => :high_sierra
     sha256 "daa83753710abc22b99dcdb20761673e9022e4205b5ddf225d7a6fdfdf47ed79" => :sierra
     sha256 "7df38aea48a13d73f0a040f1775d915b6bc543d7f7daafbb3eda0b77ee4fdbf6" => :el_capitan
