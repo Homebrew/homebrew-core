@@ -7,10 +7,9 @@ class Lua < Formula
 
   bottle do
     cellar :any
-    sha256 "e4878844eb5b248ac72df3fead9d5dac8b432ad4385c1956d8577884fb2520c1" => :mojave
-    sha256 "0519eedf38f18d868842cead8c66ea1784ead938e0eed940d89e7d50c8259884" => :high_sierra
-    sha256 "e93b77f260956a5f16ff0df19c8bdaa6047ff6fe7cde806f65624c728db63ae9" => :sierra
-    sha256 "79caa0554afffb84b0827f50e65dc57d7e7d34ff83db76341427ed5293b3a21c" => :el_capitan
+    sha256 "fcf36c0a4785ed9f515a1a18d8e158ad806c8ff92a5359959fbfa1b84bc52454" => :high_sierra
+    sha256 "17947facfc289e35fc19a1c4091f4d26387bdc254150df75e0aa95d881e58135" => :sierra
+    sha256 "b6e9699312e768aaa800d06e1f1e445f1bed64c8eb614083915c60e0a2e3d746" => :el_capitan
   end
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
