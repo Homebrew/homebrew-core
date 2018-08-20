@@ -7,6 +7,7 @@ class Pass < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a2bf83b71ce976cc0e8af7df62266645931a9a142140e3e13a43ff38df4a3604" => :mojave
     sha256 "268b81c3a5a7c7dd6ee63ed1b466e6e7b5bb6f26f21c7ac8b7a9bc860a2b2bd8" => :high_sierra
     sha256 "268b81c3a5a7c7dd6ee63ed1b466e6e7b5bb6f26f21c7ac8b7a9bc860a2b2bd8" => :sierra
     sha256 "268b81c3a5a7c7dd6ee63ed1b466e6e7b5bb6f26f21c7ac8b7a9bc860a2b2bd8" => :el_capitan
