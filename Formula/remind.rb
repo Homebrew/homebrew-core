@@ -6,6 +6,7 @@ class Remind < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "eec9be8332d946fd16913b846d163b74a1547b44682852e943c9d4af7597c726" => :mojave
     sha256 "c0d65b1c0428721038f25d11e4ad00de344b34bca29e23afa5354e4efcfbd955" => :high_sierra
     sha256 "b89632422362efd9660eb98e53dfe3ca62006003c34a03d3b57bb8698b3a53a1" => :sierra
     sha256 "c720948c84996b651176968c096492da2242cb6b57226e04e25f9251c782491a" => :el_capitan
