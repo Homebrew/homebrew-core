@@ -9,6 +9,7 @@ class GhcAT82 < Formula
   sha256 "bb8ec3634aa132d09faa270bbd604b82dfa61f04855655af6f9d14a9eedc05fc"
 
   bottle do
+    sha256 "e7650911076879185c002c576337a642e07421618839fcc80ecf1481f2552675" => :mojave
     sha256 "3e712f2fd81912376f95e010b6612fd7214d84c0cf6f97ca47daafb0523f4b30" => :high_sierra
     sha256 "f079ae6408f3d27dcc407e0f6ed89e09a62d77b52e44e69d3df84494e99a37cc" => :sierra
     sha256 "d830f4b1f555c80f6de364e2d9a9defe8e62202415419ff9a6106dfff25ad5fb" => :el_capitan
