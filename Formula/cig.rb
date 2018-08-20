@@ -10,6 +10,7 @@ class Cig < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "a7298ca161ad636a1efb286bf336975d3d17c90625d40433c1207983562c5e3e" => :mojave
     sha256 "a48e341826857fe9753dc444fa86d5ce121f4acc28a67e79c4955156c9707ccd" => :high_sierra
     sha256 "8d6219bd7d8f795608a58bf95fed5489cf8aa8266b3d06e6ff506037fa449ead" => :sierra
     sha256 "c64c5aaab66ee0853e0b3437c002dcf233fd543a019e4b411f9cf3f9555de702" => :el_capitan
