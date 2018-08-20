@@ -8,6 +8,7 @@ class OsspUuid < Formula
 
   bottle do
     cellar :any
+    sha256 "a6852dac557e1b804a240b4f558d9b2e262adebb64424061f2ee8002a3d19476" => :mojave
     sha256 "a04214b22c58bd5167778925cb9e55b98f28330bcc6c6a37929e6085ea3a0162" => :high_sierra
     sha256 "3c15cd0e25e3039e0d05b94d14b714745cec3033863d5dc7a6d9ddd7cacc1c71" => :sierra
     sha256 "ac4456fc1c29db7e0d565ebdd392cf827be315b52c9eb3abcd113c4c7b981f25" => :el_capitan
