@@ -5,6 +5,7 @@ class Ssed < Formula
   sha256 "af7ff67e052efabf3fd07d967161c39db0480adc7c01f5100a1996fec60b8ec4"
 
   bottle do
+    sha256 "f9ed77103129ce1f3534eb7e7b735a72f5ea83442d46c11664b4a8a3883b1a0a" => :mojave
     sha256 "0cc13b472591ed0dab6bcb69f8c08e89cc217342c655355982b44e07a5f7318c" => :high_sierra
     sha256 "0834fb44e8acc946a9a7030b4313295777c3c9d8808f67c24daaaa2ce6c6a2ed" => :sierra
     sha256 "6c8c5a5547c7c97e59f1f7284083f46d5e61e7ab80ac08ebdfeec4a4b4e95fbb" => :el_capitan
