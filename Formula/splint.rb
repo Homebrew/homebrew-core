@@ -6,6 +6,7 @@ class Splint < Formula
   sha256 "c78db643df663313e3fa9d565118391825dd937617819c6efc7966cdf444fb0a"
 
   bottle do
+    sha256 "eb5d2c9dd5a4ad5a95870ff62d4d4d2cf5744b7d901a918c303f4c74eab4e0c8" => :mojave
     sha256 "4d97939d58a64670256ea18422ae7ddd75ea1d12e89d12f40faa0b54e6d9d3a8" => :high_sierra
     sha256 "e5847a77e137e1f2339b55ae1fff93a94de33c6ad1a3a34c8a45b3d06a6bf0f9" => :sierra
     sha256 "9eac9f8e530c1d9fc238b57f9d4e143fbf5727450657ba92e6d721660777753b" => :el_capitan
