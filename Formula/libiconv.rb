@@ -7,6 +7,7 @@ class Libiconv < Formula
 
   bottle do
     cellar :any
+    sha256 "e6e824f8f346ff3199168aca022fe0dae9f00a1d8d3ecba5fb855a9b29767588" => :mojave
     sha256 "2e16b57017ea3f5c34a57ea7fe39f2aa22db73452eb438d67eb43a4ba8d5bc9d" => :high_sierra
     sha256 "53766c5e51bc8e63b0e4c03bae4bcd22d414882eb484a4b55cb3ebe735e20a09" => :sierra
     sha256 "1b7a98758ed53e484768a99cfdd0941bad8393ffce23d0f9650bbeff945da1f0" => :el_capitan
