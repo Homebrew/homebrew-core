@@ -5,6 +5,7 @@ class Smake < Formula
   sha256 "27566aa731a400c791cd95361cc755288b44ff659fa879933d4ea35d052259d4"
 
   bottle do
+    sha256 "6dd776264c5583a982b9a8270956c84274387719aeae7b057d7c581ebc438c70" => :mojave
     sha256 "5b1860ab709b7a27201f781f31a34ccf6db6da600ef60741fd918a95c3beedb7" => :high_sierra
     sha256 "b1afe84c5a7b535738d2b2ee3f2abf879c908cf4f3b9c5a6f9f9cdd3fc403536" => :sierra
     sha256 "a5cb6ea4fab2d0ce67342f482fd0efb4dcc20483722e56ae120880d2a97ebab0" => :el_capitan
