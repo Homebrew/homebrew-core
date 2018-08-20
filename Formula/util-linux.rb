@@ -7,6 +7,7 @@ class UtilLinux < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "642b5ab01b27fba0cd38010786d156a4bffd4bbaaf4a3e911810bb6e724b7438" => :mojave
     sha256 "6efcade13c334a732e716ac6ce5779d23016fcc621a726af497b8a468620c680" => :high_sierra
     sha256 "f08ce5604fe17b7d14d2dcca3902e7e01836368d41b3f05dd23a08fdb59bdd61" => :sierra
     sha256 "ef8aea494486a2cb3c49c18a1772c596f12f4bed557cdbbec94639b279a4e969" => :el_capitan
