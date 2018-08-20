@@ -3,6 +3,7 @@ class Lua < Formula
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.3.5.tar.gz"
   sha256 "0c2eed3f960446e1a3e4b9a1ca2f3ff893b6ce41942cf54d5dd59ab4b3b058ac"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,17 +13,10 @@ class Lua < Formula
     sha256 "79caa0554afffb84b0827f50e65dc57d7e7d34ff83db76341427ed5293b3a21c" => :el_capitan
   end
 
-  option "without-luarocks", "Don't build with Luarocks support embedded"
-
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/legacy-homebrew/pull/5043
   # ***Update me with each version bump!***
   patch :DATA
-
-  resource "luarocks" do
-    url "https://luarocks.org/releases/luarocks-2.4.4.tar.gz"
-    sha256 "3938df33de33752ff2c526e604410af3dceb4b7ff06a770bc4a240de80a1f934"
-  end
 
   def install
     # Subtitute formula prefix in `src/Makefile` for install name (dylib ID).
@@ -51,34 +45,6 @@ class Lua < Formula
     lib.install_symlink "liblua.5.3.dylib" => "liblua5.3.dylib"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua5.3.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-5.3.pc"
-
-    # This resource must be handled after the main install, since there's a lua dep.
-    # Keeping it in install rather than postinstall means we can bottle.
-    if build.with? "luarocks"
-      resource("luarocks").stage do
-        ENV.prepend_path "PATH", bin
-
-        system "./configure", "--prefix=#{libexec}", "--rocks-tree=#{HOMEBREW_PREFIX}",
-                              "--sysconfdir=#{etc}/luarocks53", "--with-lua=#{prefix}",
-                              "--lua-version=5.3", "--versioned-rocks-dir"
-        system "make", "build"
-        system "make", "install"
-
-        (pkgshare/"5.3/luarocks").install_symlink Dir["#{libexec}/share/lua/5.3/luarocks/*"]
-        bin.install_symlink libexec/"bin/luarocks-5.3"
-        bin.install_symlink libexec/"bin/luarocks-admin-5.3"
-        bin.install_symlink libexec/"bin/luarocks"
-        bin.install_symlink libexec/"bin/luarocks-admin"
-
-        # This block ensures luarock exec scripts don't break across updates.
-        inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
-          s.gsub! libexec, opt_libexec
-          s.gsub! include, HOMEBREW_PREFIX/"include"
-          s.gsub! lib, HOMEBREW_PREFIX/"lib"
-          s.gsub! bin, HOMEBREW_PREFIX/"bin"
-        end
-      end
-    end
   end
 
   def pc_file; <<~EOS
@@ -105,23 +71,13 @@ class Lua < Formula
   end
 
   def caveats; <<~EOS
-    Please be aware due to the way Luarocks is designed any binaries installed
-    via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
-
-    This is, for now, unavoidable. If this is troublesome for you, you can build
-    rocks with the `--tree=` command to a special, non-conflicting location and
-    then add that to your `$PATH`.
+    You may also want luarocks:
+      brew install luarocks
   EOS
   end
 
   test do
     system "#{bin}/lua", "-e", "print ('Ducks are cool')"
-
-    if File.exist?(bin/"luarocks-5.3")
-      (testpath/"luarocks").mkpath
-      system bin/"luarocks-5.3", "install", "moonscript", "--tree=#{testpath}/luarocks"
-      assert_predicate testpath/"luarocks/bin/moon", :exist?
-    end
   end
 end
 
