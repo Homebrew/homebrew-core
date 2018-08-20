@@ -20,8 +20,8 @@ class Lua < Formula
   patch :DATA
 
   resource "luarocks" do
-    url "https://luarocks.org/releases/luarocks-2.4.4.tar.gz"
-    sha256 "3938df33de33752ff2c526e604410af3dceb4b7ff06a770bc4a240de80a1f934"
+    url "https://luarocks.org/releases/luarocks-3.0.1.tar.gz"
+    sha256 "b989c4b60d6c9edcd65169e5e42fcffbd39cdbebe6b138fa5aea45102f8d9ec0"
   end
 
   def install
@@ -71,12 +71,12 @@ class Lua < Formula
         bin.install_symlink libexec/"bin/luarocks-admin"
 
         # This block ensures luarock exec scripts don't break across updates.
-        inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
-          s.gsub! libexec, opt_libexec
-          s.gsub! include, HOMEBREW_PREFIX/"include"
-          s.gsub! lib, HOMEBREW_PREFIX/"lib"
-          s.gsub! bin, HOMEBREW_PREFIX/"bin"
-        end
+        # inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
+        #  s.gsub! libexec, opt_libexec
+        #  s.gsub! include, HOMEBREW_PREFIX/"include"
+        #  s.gsub! lib, HOMEBREW_PREFIX/"lib"
+        #  s.gsub! bin, HOMEBREW_PREFIX/"bin"
+        # end
       end
     end
   end
