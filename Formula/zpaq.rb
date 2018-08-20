@@ -8,6 +8,7 @@ class Zpaq < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bf0cfe4bbed251ea8a8503e310df77fe38d7da0180394e1e0deb313841ba48d2" => :mojave
     sha256 "d6f9b354e10afef1ac343485074ec8c3a1379163aa1c57ed91813832b23572ef" => :high_sierra
     sha256 "63f132c8cbff5b22daddc07289837ad710c4af7785fa36351a498cc99e77c6ec" => :sierra
     sha256 "beafa9e6d0ba28368a77d9ddcbaf3b04a3f02716f08eb4b2a345745c45fcf9d2" => :el_capitan
