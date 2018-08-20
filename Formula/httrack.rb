@@ -7,6 +7,7 @@ class Httrack < Formula
   sha256 "3477a0e5568e241c63c9899accbfcdb6aadef2812fcce0173688567b4c7d4025"
 
   bottle do
+    sha256 "8542fa3b1a4badf7290315b4174d5026c81e79c5add75432176bb5385f6a1e5e" => :mojave
     sha256 "e46c52519cd4b7caf7ff5bd034ab016362e79d4df73840305b3a54d679fa33b4" => :high_sierra
     sha256 "16e5fb0657a1cdafcfa94d9f5e1362f7f1f89e86633e371b7ad86d17b7caa37b" => :sierra
     sha256 "34e26e1534cdf1cf32f10c861833c2ab8405def4a0f2d08253acfe15e37a8b90" => :el_capitan
