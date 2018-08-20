@@ -5,6 +5,7 @@ class Shellharden < Formula
   sha256 "91660e4908bd07105f091a62e6f77bc9ed42045096b38abe31503cd2609cb7a0"
 
   bottle do
+    sha256 "269df3104e06ccdef8b6aa4fa4d06a048a8e6ccd207b01320fef4dc5ad740be4" => :mojave
     sha256 "247faad7689b5f46f3fedb9263c8b165ff557e4ae1d5063c969ac38a11d92721" => :high_sierra
     sha256 "823ff667956ce5b7e3484ff65fa112d9a81bb58bd90a4b22c47103abfc9f8c9b" => :sierra
     sha256 "ef39962f0ba91f0fa40d49b20263e17e2bdc3d22b06c565c45dc8e95e8b76c70" => :el_capitan
