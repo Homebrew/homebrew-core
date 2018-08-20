@@ -6,10 +6,9 @@ class XmlToolingC < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "86825d5ddf6c43e7c3d21b31a4a2d2a401298f77bae69271c97e96a3758d36e7" => :high_sierra
-    sha256 "2878f5cae902c814c2da3f7de43fe68f4d3d10e8e6798b565badbbce3ce45348" => :sierra
-    sha256 "45eb412468e872aa65d2f4552311ca1ef78d579b9944baf2a613ef129cb87d72" => :el_capitan
+    sha256 "9f79c4dcb252510563bed587cb6daf46f559170c8d18dcdf578e381df82cf826" => :high_sierra
+    sha256 "8bed31c20f47ad632bc18520331ec52c7cfe67a365e6f66979816993e600f74a" => :sierra
+    sha256 "8c46bd6bc746ec5e91e56fc44daeb3f003b65e79db3486db8aaed0951191213d" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
