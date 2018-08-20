@@ -7,6 +7,7 @@ class Bgrep < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8a3633a884feda24b875005550fddbd613987c89edc9418dd23783b4c2f7e8af" => :mojave
     sha256 "c2357ea00756425fec65d8367e7b8653a4d6845b6aa044106b8952d8b8ead0ca" => :high_sierra
     sha256 "eaed7c05fd07c77cd5aeb6f1232abcf5c9678b86fdaf7e7daf5049476acc690c" => :sierra
     sha256 "29f0b2d7ab307eae228a03d4f42f677d9ff0884edc5c96771da36182cb592cd2" => :el_capitan
