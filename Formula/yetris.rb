@@ -6,6 +6,7 @@ class Yetris < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ace31e89cefd33d38a65864d7343baad6dbda23aee0ba2a10f6b19480b9708e0" => :mojave
     sha256 "21537f5957c5ce90281195e6d962363920bda756a6c965ca107c329ec712f126" => :high_sierra
     sha256 "cf350d8daaf62f863b7466477aebea02145abf1f14e50ee56ad324c99dcee018" => :sierra
     sha256 "fd08bc62fc0c4687ed7e76fe604c345a647fb52a348c55cf446fcbf52c7af8dd" => :el_capitan
