@@ -6,6 +6,7 @@ class Vavrdiasm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5b0c0f8ae850c12118808020420ed94d9c7b221f1bb64ec81fe5553b089424e4" => :mojave
     sha256 "14295cb0db6aa3259a2b1e2c8ba020fee253804135aea259695ac00bdd906764" => :high_sierra
     sha256 "c04a9755b9f2e15fa512fdb08d28b95b8cf0304287f3a7930975b4ad75417fcf" => :sierra
     sha256 "0671b1062a86e8d596a9f404fd843cb37d6d2d1bb28ebb2b8a8f6cbdd763c97c" => :el_capitan
