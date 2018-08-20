@@ -8,6 +8,7 @@ class SaneBackends < Formula
   head "https://salsa.debian.org/debian/sane-backends.git"
 
   bottle do
+    sha256 "19a5dd6aab043b2552e4ddb785c4f41c184019a7854e5bf28054ee809839a81f" => :mojave
     sha256 "7e17e4e13a6b9d4c532c3f4f498711c016c0c23331a25e9c4fe2543c1241bebf" => :high_sierra
     sha256 "c1c278d995f33f438ad6009ba4928157dd2ca74ec17a344a57b7af972c64e190" => :sierra
     sha256 "6073b7b25829eb031616894fe6ea5c34408fed9b42d3b421e6eba94d6cbbf948" => :el_capitan
