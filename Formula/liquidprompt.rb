@@ -4,6 +4,11 @@ class Liquidprompt < Formula
   url "https://github.com/nojhan/liquidprompt/archive/v_1.11.tar.gz"
   sha256 "669dde6b8274a57b3e39dc41539d157a86252e40e39bcc4c3102b5a81bd8f2f5"
   head "https://github.com/nojhan/liquidprompt.git", :branch => "develop"
+  devel do
+    url "https://github.com/nojhan/liquidprompt.git",
+        :branch => "master"
+    version "1.11.revised"
+  end
 
   bottle :unneeded
 
