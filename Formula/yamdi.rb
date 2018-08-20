@@ -6,6 +6,7 @@ class Yamdi < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "228b23059d21ed0a540d3b19c87f3319bb8f99ff57465b8b313d2063660a8567" => :mojave
     sha256 "1c524b6c2d791792b27d15941ecd179b487fbdcd299640f06cbf17bd5f8cf434" => :high_sierra
     sha256 "546a4c5400ef75431ecd3a39dbabda5e5599d82ac3f65f6dafc5d3745a90d8e2" => :sierra
     sha256 "cfaf451a985b0a8cba24a0131c8e0e9a6102eb4b6c315e045ce258999cb19494" => :el_capitan
