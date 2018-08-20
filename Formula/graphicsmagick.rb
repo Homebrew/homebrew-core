@@ -6,6 +6,7 @@ class Graphicsmagick < Formula
   head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
 
   bottle do
+    sha256 "cdaf146d656352ce0cbca35f097f55065499340e9383a807b83d4390a46fe531" => :mojave
     sha256 "701f65ee9855e57d1801bcb9e506cfe4ea559e0d91d80a2d3353114f567e1b05" => :high_sierra
     sha256 "16d2ca5041f489588fe34683c114190a3f7aeaf7ec9e75eab1f69b69f04d2850" => :sierra
     sha256 "3bfb42383538f63bb9ede1efe7b74517283e8f23aeb37727da8d747dc7bc9165" => :el_capitan
