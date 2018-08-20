@@ -49,7 +49,9 @@ class Glog < Formula
         LOG(INFO) << "test";
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}", "-lglog", "-lgflags", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}",
+                    "-lglog", "-I#{Formula["gflags"].opt_lib}", "-lgflags",
+                    "-o", "test"
     system "./test"
   end
 end
