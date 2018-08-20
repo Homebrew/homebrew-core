@@ -6,6 +6,7 @@ class Tinysvm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "56f1afa09c931eb7e8dfaf46f1a814c1df306e4c20269ef78fddfbdf85a7251a" => :mojave
     sha256 "62f0920fdf8f5b7f29cebacc1add1396daef668c67e3d10644d9d35d1b49afc5" => :high_sierra
     sha256 "a6ad14c984b337bee83372ac6a29ffe7c0491180a302cfcd8f53b1a3ee6816e1" => :sierra
     sha256 "2b84b75043ba1d97172e2756e3da870a8ec8e074167ab5402e7a4e1b4c923864" => :el_capitan
