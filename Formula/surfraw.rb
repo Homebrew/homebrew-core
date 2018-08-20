@@ -6,6 +6,7 @@ class Surfraw < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c9f5fc8020b021799c68cd204d4612f487c44315c15967be78a037576b378920" => :mojave
     sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :high_sierra
     sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :sierra
     sha256 "69920395cbde5fdc2492aa27fc765d4dafe910e26d9d3a05777888425310a0a9" => :el_capitan
