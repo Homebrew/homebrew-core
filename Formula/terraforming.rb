@@ -7,6 +7,7 @@ class Terraforming < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0057055c61a6d42d25133fe3816a5d6d32117c179f93ecbc9f22e36d5fff2a2d" => :mojave
     sha256 "e0725b2299c049d2ff8e2f05c40b4ed26c4425a2db80edadd522d5a3fe74d02f" => :high_sierra
     sha256 "9be52ca74b16d7b408370e3cdea144fe8a422cc3678981d13dde72968aedb71b" => :sierra
     sha256 "55ae998ef2c0bbcf4f45964136c89eefc477f8ac1992d03c89b6413409846ecc" => :el_capitan
