@@ -6,6 +6,7 @@ class Ucon64 < Formula
   head "https://svn.code.sf.net/p/ucon64/svn/trunk/ucon64"
 
   bottle do
+    sha256 "84609c8e92dae09a76f12eebe5c19d1769eb22d28029db5d15c14949800c358f" => :mojave
     sha256 "3fc97894b8edaa28fa90a2cb494976be49fa7a28fb875797bd5f56ddc3b2fd69" => :high_sierra
     sha256 "6fe6e1cf1db14e4592eb3486c6629bff06813a42c34b9ae8e188a5ad02745344" => :sierra
     sha256 "015cfd4803ea86f02429fc9a1f5de59d72012c9d0e32a92c9f996922ef422084" => :el_capitan
