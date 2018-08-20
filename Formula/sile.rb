@@ -21,6 +21,7 @@ class Sile < Formula
   depends_on "libtool" => :build
 
   depends_on "pkg-config" => :build
+  depends_on "luarocks" => :build
   depends_on "harfbuzz"
   depends_on "fontconfig"
   depends_on "libpng"
