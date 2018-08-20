@@ -19,6 +19,7 @@ class Hidapi < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "8d436545e94c2dc7a1c14964ca399e2919c51d02a67b115e266bfa626988436f" => :mojave
     sha256 "c534434485aeac388fa1ab7223264ceb9915c4c8aa3815895939d9d6c2fd13b0" => :high_sierra
     sha256 "2c16239b99b23f5fee3992391f8450a317b3c421d61efd248ad69c063cb7ffef" => :sierra
     sha256 "cea4750ae62177a9b399b43d463eec41852161f691a148b03d7b7f91789932fc" => :el_capitan
