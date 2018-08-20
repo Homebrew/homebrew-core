@@ -1,11 +1,10 @@
 class GmtAT4 < Formula
   desc "Manipulation of geographic and Cartesian data sets"
   homepage "https://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.17-src.tar.bz2"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-4.5.17-src.tar.bz2"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-4.5.17-src.tar.bz2"
-  sha256 "d69c4e2075f16fb7c153ba77429a7b60e45c44583ebefd7aae63ae05439d1d41"
-  revision 2
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-4.5.18-src.tar.bz2"
+  mirror "https://fossies.org/linux/misc/GMT/gmt-4.5.18-src.tar.bz2"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-4.5.18-src.tar.bz2"
+  sha256 "27c30b516c317fed8e44efa84a0262f866521d80cfe76a61bf12952efb522b63"
 
   bottle do
     sha256 "1881b5ae177fd5a46b998c2b3b91b3f19d9e1f6d3d118e069255d2bd425f3017" => :high_sierra
