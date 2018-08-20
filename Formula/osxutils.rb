@@ -7,6 +7,7 @@ class Osxutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "744e327d1fb2183de8785880c3f7a127abdd896977e3d30cade00933ea137521" => :mojave
     sha256 "d665cbec1973b73e1e1d290014786b95d36d9cfe7028fd69fa37f698d18e81dd" => :high_sierra
     sha256 "8021183b4ad9c646920020e51446e555210bbb24e22da923557e1e0370353dfd" => :sierra
     sha256 "3bd65cf2550b709c111e31db7cb7d829a9260ed5dd35a682c370ed01593c1989" => :el_capitan
