@@ -5,6 +5,7 @@ class Goffice < Formula
   sha256 "550fceefa74622b8fe57dd0b030003e31db50edf7f87068ff5e146365108b64e"
 
   bottle do
+    sha256 "cf001985ed27e0ab8d4d4967d52ced7ea8a5ce633aecb443217280c698859ba0" => :mojave
     sha256 "021129e362b37a1d99e22e7bc095994beafebee0426436ca52629f5b6e68a6cc" => :high_sierra
     sha256 "2ed487a826b071a325c2274ab4361a5ca1d2ac38891304a2dc07366967c84334" => :sierra
     sha256 "5822cba55dd86f142cd2b803b539c5726dde7b27bbcad0497f5f5de1786a0b04" => :el_capitan
