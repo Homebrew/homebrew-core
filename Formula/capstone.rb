@@ -7,6 +7,7 @@ class Capstone < Formula
 
   bottle do
     cellar :any
+    sha256 "15cc782e0990bd7b4f531a4bc18c14f2c34318355e3f56d10225d3e26af9306c" => :mojave
     sha256 "90c24c16624b06137aeec9cf9040c6cf91ccc5045a4fa5606c4ee39be8b06991" => :high_sierra
     sha256 "e3cd9819d2ff6cc1ee026458463c939070085a78558a99a85aab34243f7f63ea" => :sierra
     sha256 "8d2b3cb82b16a0e40242f9413335fbdb60d99860e2f3ba85a4dab442fc72f804" => :el_capitan
