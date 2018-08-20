@@ -6,6 +6,7 @@ class Perl < Formula
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
+    sha256 "c5357179155c25061e34b2c7e6a1abbc5f5516cfe53641ccf8e5dcf7732b38ce" => :mojave
     sha256 "c8e7f61c69fcbd16146f85dde1bf90996bd2d9c182b449fbd466d24ebb55333d" => :high_sierra
     sha256 "7fc5042a68f4e4b68f0d9abd025c3a5d4629868222cabbef30f6e860b6c294c0" => :sierra
     sha256 "e755049a030476dd12fcdbc22488392dcb0ee92be80edbf74ec3d19008ce789c" => :el_capitan
