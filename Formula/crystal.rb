@@ -13,6 +13,7 @@ class Crystal < Formula
   end
 
   bottle do
+    sha256 "18af384d3dda852dfc86683c3696ac3d35986ab45a9562fb17f698d422a2c103" => :mojave
     sha256 "42bbf810ed2f3bad9708b596409989265281c32ed801963d99e744c8c9743a34" => :high_sierra
     sha256 "8fa840a8c937bc01eba1bb298255102ff960d9d945bd63b35798ed0b44f53841" => :sierra
     sha256 "8b4bb9364d4d1a367e3e3037584621d525452e84eb46a715f9efa5a6167f2fb7" => :el_capitan
