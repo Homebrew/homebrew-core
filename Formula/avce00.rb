@@ -6,6 +6,7 @@ class Avce00 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "285b4eb74ff189689097df36f62fa4c2a48b68ece7442156a5700b6c36feb743" => :mojave
     sha256 "40b26638adfaf290bc07ae792da49106b493ea3109a97c1fac775723a0463ac4" => :high_sierra
     sha256 "576b5ea62376b42733d56e7bd862522588c16160ac1abb5f382c1c12055248e1" => :sierra
     sha256 "45f18e289431af4de0d1e96c1fadd6a056e80907a1650654f8ee0dd1dafab401" => :el_capitan
