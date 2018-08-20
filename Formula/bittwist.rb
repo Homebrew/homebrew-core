@@ -6,6 +6,7 @@ class Bittwist < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5a282944a4d5c10caaea1217aa1b9e6225a2a5d8f5fb941bb3a77eed747cdc90" => :mojave
     sha256 "b19dd7e9297e5f4d26472e93f1fc90bbe5c2b7d11cd18ab04606d3176d064fb7" => :high_sierra
     sha256 "b69084cc099ecb0fcea860d9d07fb8a271b1bd645bef603abfe0cb20f4979902" => :sierra
     sha256 "215b6353dcedd6ad0908e725c68204f2aa8413bf32ae3eb0a3afa96eb6c17d60" => :el_capitan
