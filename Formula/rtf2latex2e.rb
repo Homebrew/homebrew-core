@@ -6,6 +6,7 @@ class Rtf2latex2e < Formula
   sha256 "7ef86edea11d5513cd86789257a91265fc82d978541d38ab2c08d3e9d6fcd3c3"
 
   bottle do
+    sha256 "bed54dc624378c20df3c352618645058a3ae3956d9cb5811af63836ffaa2dd10" => :mojave
     sha256 "b31c9387003920d4c27cb846da71203d69711638ed284825861a12247eeabca9" => :high_sierra
     sha256 "bbab54edbb07cbc3e16da33bdb0bd68258a330a3d1e2fceb175d1b753e6b81de" => :sierra
     sha256 "0aa7144c74e8af3a935a87c2b9c822581c38566e24351a50ae601bbedca4aec3" => :el_capitan
