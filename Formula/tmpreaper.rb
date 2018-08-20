@@ -9,6 +9,7 @@ class Tmpreaper < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "cd7fa68eb0292ea2831b7792b7319ac29dfe005c1a1ec868877b7a04d1ad6490" => :mojave
     sha256 "be0cf74a352a88dc2c6f616ad1bd695e37ff0736826f20007a1727e48ce16b84" => :high_sierra
     sha256 "44d3eb40f2c063642d57ccd7d65460901e7240abda5bda8b54721d77f731d755" => :sierra
     sha256 "e9992640d7c0e139caef8ccb130af90548f6435b3789b61c8c873f619e55ade9" => :el_capitan
