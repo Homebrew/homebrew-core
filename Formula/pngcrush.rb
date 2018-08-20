@@ -6,6 +6,7 @@ class Pngcrush < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "904e958b1198e2931ab233981764b1ec66b26da793445c0fa10182588b5369a7" => :mojave
     sha256 "db13f642eae1815e00e1a80d363228e0311d85ca510e9c9de94dba8483fa2d87" => :high_sierra
     sha256 "f648ad0c664699f67bba8ba791358e8b294d0c1d975f026aa67fc1635badbc73" => :sierra
     sha256 "2633aff1e7cec8bb6c55da5c4daf9f555c74e516ebcc5f3027589588f76d3e17" => :el_capitan
