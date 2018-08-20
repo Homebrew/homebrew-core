@@ -6,9 +6,10 @@ class Corsixth < Formula
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
-    sha256 "1fc4ddc6726b87f9c390068aea8e50d9edb077d5f332ca0c873b3ca1237e7fcb" => :high_sierra
-    sha256 "de102648ce1e10ca2de0dde2755ee995d68a677d91501db471d575de5e3318b7" => :sierra
-    sha256 "574549efed705584e927187deb7fc44db7c40ff44b80b6239a5f175299ce56f4" => :el_capitan
+    rebuild 1
+    sha256 "05097a9e407ea4d7407fd869c44341e6f85e81ac22471f39778ebf319345f82a" => :high_sierra
+    sha256 "cfdcbdee3fe6f3bebc10ff7c2c4009d46e15ba42a78717741931dc36dd097f14" => :sierra
+    sha256 "b599f6fedf4dfe0c62d40b191007c51fa25f066c761e2fd251349b48ef0d59d8" => :el_capitan
   end
 
   depends_on "cmake" => :build
