@@ -6,6 +6,7 @@ class BashCompletionAT2 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ed117a12f9b0fff798402a52c6823e3f7b167bcaadbbe1e42798870aa04ac80e" => :mojave
     sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :high_sierra
     sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :sierra
     sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :el_capitan
