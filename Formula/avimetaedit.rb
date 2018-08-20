@@ -7,6 +7,7 @@ class Avimetaedit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2ee42355aa90d5bc5ca8c61dc0c02274edd9c723b8a5b65595285319e9b7dda6" => :mojave
     sha256 "323673de85bd3c8f272d5f8d0b32d34304faaa02f88c2ce44f08c697266e889e" => :high_sierra
     sha256 "75d65e8ef1ecf31ebb016aa7e1a940bdaac33042af895729a230b6ee4beab3f0" => :sierra
     sha256 "41873fc416d070f417f1387e50515ffa099018c2f8ef27a2b8ce8b8a94b5c43f" => :el_capitan
