@@ -3,6 +3,7 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
   sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
+  revision 1
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Vtk < Formula
   deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost@1.67"
   depends_on "fontconfig"
   depends_on "hdf5"
   depends_on "jpeg"
