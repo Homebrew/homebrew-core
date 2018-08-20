@@ -8,6 +8,7 @@ class Libtar < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "070d9355e6d03dcb64ea33ecf7e3b99972e0b3ca5fc8e60e89616f0a061ee0e5" => :mojave
     sha256 "a263cfaa1499f0c82902009964df0a310e7841ddff29409c67ede0a79157c31e" => :high_sierra
     sha256 "68bdebde24477a815ea03289878ad57e8a1f719b417bef430bf477c2d760cad7" => :sierra
     sha256 "018f1c9897f52b783878db67db39a5933a4863a3f9dedc2af9b6bf13f2161957" => :el_capitan
