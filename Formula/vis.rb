@@ -12,6 +12,7 @@ class Vis < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "luarocks" => :build
   depends_on "libtermkey"
   depends_on "lua"
 
