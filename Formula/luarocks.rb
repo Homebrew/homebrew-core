@@ -4,6 +4,13 @@ class Luarocks < Formula
   url "https://luarocks.org/releases/luarocks-3.0.1.tar.gz"
   sha256 "b989c4b60d6c9edcd65169e5e42fcffbd39cdbebe6b138fa5aea45102f8d9ec0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :high_sierra
+    sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :sierra
+    sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :el_capitan
+  end
+
   depends_on "lua"
   depends_on "lua@5.1" => :test
 
