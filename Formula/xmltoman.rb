@@ -6,6 +6,7 @@ class Xmltoman < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3e302a54f0f28d8e560d7015acef0f395f75a209a94401b8f8d01aa73d2b578a" => :mojave
     sha256 "029c288b1f70c0dc7711304b9b1af40a95f8f343a3af29f25dabb5dbc1cbad67" => :high_sierra
     sha256 "06a29d1545388d2111008cc244733f36971638e05408e1a7353fe9e142f91b76" => :sierra
     sha256 "010af030c01ebe6528bbdecfa1153fac5f6e082fa088e1803d0768bb268a509b" => :el_capitan
