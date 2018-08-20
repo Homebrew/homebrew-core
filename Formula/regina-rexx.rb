@@ -5,6 +5,7 @@ class ReginaRexx < Formula
   sha256 "5d13df26987e27f25e7779a2efa87a5775213beeda449a9efac59b57a5d5f3ee"
 
   bottle do
+    sha256 "6b7b8db55ec8b3491edb68232d4537b3080a55953d39e05bc90e1037080656d7" => :mojave
     sha256 "26829912ce6476406e696694d27d1f758bcf3c43841969bc4f4ba4587e1fc2f4" => :high_sierra
     sha256 "9380b7c431fc2bc4cee9f3dc4997c9f7e568bc7884f3dc9aade5c2c73d805dbe" => :sierra
     sha256 "99ea4d0288bda8704830d1c1730d63e27d68a5d4e5c0c2fe2b078ba4c8e39b63" => :el_capitan
