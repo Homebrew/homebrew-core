@@ -7,6 +7,7 @@ class Afio < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "365c570b59790368b8ef4f47b375ad8bc64b4017f89ecfb6facca16d8a8ea672" => :mojave
     sha256 "ae3eea7cafc324521405f6ebfe697e04f109dd48b66e60054238ffba470e867b" => :high_sierra
     sha256 "5863378152ea720ffb5614cceb27eabcd98a2e2734810830f7908af3262ee303" => :sierra
     sha256 "4bbebea8c0ea4bc79d0614dcf04a12aa44282198a0af4d9fee40fa0b70abb745" => :el_capitan
