@@ -5,6 +5,7 @@ class RustupInit < Formula
   sha256 "9671934a6352366d8055769f1f5b297d9a15b4448634ee9fdf7c31c246fa5a4e"
 
   bottle do
+    sha256 "cf31b6b49d05a67299fb353eeb24eba85b1e4bdb2f336e12e6cf98e967333b86" => :mojave
     sha256 "166334f4bf7af2cc6335495b819768b72dc7bee50b570ba33f48df77ed344872" => :high_sierra
     sha256 "becab830323956eca35d690d749dc9f40f0456d087c7ce6596ba6655cc5285d9" => :sierra
     sha256 "3cc2809a672b5a2dd905ca3258d92352f105c89d5a9dae14b02fdddea9da990d" => :el_capitan
