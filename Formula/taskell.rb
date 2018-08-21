@@ -10,6 +10,7 @@ class Taskell < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f91a550bb15dd832776e86b33eae16b2956b93e7b741dadd0468963a7d988c7e" => :mojave
     sha256 "cee86ae14a02377bbdad3561883d7b3dbe8542cc624a0675663a66e4b32508ea" => :high_sierra
     sha256 "ecbf13ef7e552db7018eeffd94df291c27f1d5175264d400567a430d3b564692" => :sierra
     sha256 "a7d7886bc48bb6a6c9ba8152b08e89e323c002be98b55eb03d6357b7db0500cb" => :el_capitan
