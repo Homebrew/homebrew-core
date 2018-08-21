@@ -105,15 +105,22 @@ class PythonAT2 < Formula
     ldflags  = []
     cppflags = []
 
-    unless MacOS::CLT.installed?
-      # Help Python's build system (setuptools/pip) to build things on Xcode-only systems
+    if !MacOS::CLT.installed? || MacOS.version >= :mojave
+      # Help Python's build system (setuptools/pip) to build things on
+      # Xcode-only systems or systems where headers are not in /usr/include
+      if !MacOS::CLT.installed?
+        sdk = MacOS.sdk_path
+      else
+        sdk = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+      end
+
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags   << "-isysroot #{MacOS.sdk_path}"
-      ldflags  << "-isysroot #{MacOS.sdk_path}"
-      cppflags << "-I#{MacOS.sdk_path}/usr/include" # find zlib
+      cflags   << "-isysroot #{sdk}"
+      ldflags  << "-isysroot #{sdk}"
+      cppflags << "-I#{sdk}/usr/include" # find zlib
       # For the Xlib.h, Python needs this header dir with the system Tk
       if build.without? "tcl-tk"
-        cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+        cflags << "-I#{sdk}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
     end
 
@@ -339,6 +346,7 @@ class PythonAT2 < Formula
     system "#{bin}/python", "-c", "import sqlite3"
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
+    system "#{bin}/python", "-c", "import zlib"
     system "#{bin}/python", "-c", "import gdbm"
     system bin/"pip", "list", "--format=columns"
   end
