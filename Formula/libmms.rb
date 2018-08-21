@@ -7,6 +7,7 @@ class Libmms < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "4ac527e54af063a3fa760b1e4d43b56dd51ade89cbb971ac9bea9dd3500dfc70" => :mojave
     sha256 "adc24aaa1656c02f41b20b4453f6a2deda8f3597c919eed1ae8befb732fc920f" => :high_sierra
     sha256 "5319927f799dd20effbfc9f8bb90ebc844b39852c433bf434ab6b36c11c36417" => :sierra
     sha256 "61c4dd24598198386342dd9c700e218b6b83c82627efc781daa89acfaca96066" => :el_capitan
