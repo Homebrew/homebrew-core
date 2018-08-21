@@ -6,6 +6,7 @@ class Dungeon < Formula
   revision 3
 
   bottle do
+    sha256 "c05df30f6a33327dd4c47324625b0a8a51261914ce8cd2fda6acfa6e466e1f2f" => :mojave
     sha256 "85f19d2f55617a90e061fce84224bbad7034045720241313713c9017ab427909" => :high_sierra
     sha256 "7530638329eeba02b2d3099155524129f4b9d1e28c05206b283bbfdfac6c2353" => :sierra
     sha256 "bad6d9bf2fc5b4343f3c5f3c677675552c7fef9facec15a7793f68c56bce4de8" => :el_capitan
