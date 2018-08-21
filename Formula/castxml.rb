@@ -9,6 +9,7 @@ class Castxml < Formula
 
   bottle do
     cellar :any
+    sha256 "48412e52013e09c3830b4eb5653bd447c2b5be398db9b05f71ca1065fa582867" => :mojave
     sha256 "094c47bde5f666aad5078e7b8652f71aca7f14cecb233977e7949e6e721ec685" => :high_sierra
     sha256 "0664be25be8a34110f61ff8cfba1b871aa956b9dfa0e8e0b89e3c75a8b2f6b4f" => :sierra
     sha256 "7c6ed31aa80033884da9f2a3265caaf7a5796736ca1d0f1743e1d93aad2cf993" => :el_capitan
