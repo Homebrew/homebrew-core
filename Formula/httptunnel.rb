@@ -7,6 +7,7 @@ class Httptunnel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b6072c89e94ba53852f28c25ec85e6bdb24e7ebbce7eee35b418c9d609e68670" => :mojave
     sha256 "6012d5967ab7263658ce1da99ee7bbdd051e37243b922b0702f4279ed047c014" => :high_sierra
     sha256 "64b548d12c4e3012cb9d8d9f5171e0fc47e594c13f4d4ae35c5f97be1582b263" => :sierra
     sha256 "b328d4e1f1e2638764d3ac2ed32a4f4e06935e4e9ef83af281936df4ab805aa5" => :el_capitan
