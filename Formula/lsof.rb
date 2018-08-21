@@ -6,6 +6,7 @@ class Lsof < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "830be0b158cbb5ff2f6bf019a517e6c89ff013760a6297fe8e285e66322b8e1a" => :mojave
     sha256 "276399b5b42f5a9dc167515add55c3bb2e545faec1299516b06793b1581a9311" => :high_sierra
     sha256 "9d57eea962770c2f3c5b56d26d9fdb9b0bbdde559dfc92d0c9db3dcaae33cc43" => :sierra
     sha256 "59c8c1a9455e3f10c8d6326bab49ab33a85c3cfa702627aa4ba2dd9600cc7d72" => :el_capitan
