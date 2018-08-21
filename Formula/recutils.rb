@@ -8,6 +8,7 @@ class Recutils < Formula
 
   bottle do
     cellar :any
+    sha256 "e27983655f55a523db7775de1b86728ba2b4ff289d608f64bcf99e0dc224714d" => :mojave
     sha256 "577f81582b338d44b2b231ab7a353ceaa0b01cf899b9a5042924568d95b20ec5" => :high_sierra
     sha256 "13ded271da7be4d07cce7f454d5c6ad871151c08b319f5a1670bdefd882a62da" => :sierra
     sha256 "e11f1ef2e988f963ddf52088c8d50626c4179b4065b19e254315ae75486439c1" => :el_capitan
