@@ -6,6 +6,7 @@ class Libdill < Formula
 
   bottle do
     cellar :any
+    sha256 "95db2e72846bfdd82d699ff3f306a1996b1f5e63b5524a562f5cdffa9f66d12d" => :mojave
     sha256 "08bb496704c214d723b7d9295249d646f612d27f170071aca1e25dc5fee7d6ff" => :high_sierra
     sha256 "83a241fa02747f2231076dfaea8d87af44816db11d6af15f0e10efd4bfe87432" => :sierra
     sha256 "59f60913aa966a30939e189adf0bc969ef82c379fc3131dab70262cca0b3e5ba" => :el_capitan
