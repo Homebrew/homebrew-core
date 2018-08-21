@@ -7,6 +7,7 @@ class Cputhrottle < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1ccf8955c3a4f740ae831c8d1620ff50bf7e09b3f989b0968b7420596901ba68" => :mojave
     sha256 "14cfa66d900ac9b9623452b1734476d9a2b7c90358ea3f0f3f028169d08b1f52" => :high_sierra
     sha256 "e7b1f37f5624959be9ebd8b7ddb44eb90907e2d08f1a1755ed818e38370a30c9" => :sierra
     sha256 "44fe4915b0be45c45c9ce09036869b54c2172742d787c3888b3cb5a7f0a30330" => :el_capitan
