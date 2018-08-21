@@ -7,6 +7,7 @@ class Libmodbus < Formula
 
   bottle do
     cellar :any
+    sha256 "5fb8b99f7f627463dfc980ca02e9d0edc16c8d93238395e980c38b928682eb58" => :mojave
     sha256 "a3c060ca8f3d80e7e2a42f2a87ffbeb157105632e5e2a9a107e4c0f3523199d3" => :high_sierra
     sha256 "4cf11a1c8739b213105a05bbaf49331b35b226dd90191d6a494898b3021aba6e" => :sierra
     sha256 "3335403ddd6011372473fe338ae2cac2ab7f168f214a0624620aa9c1575477be" => :el_capitan
