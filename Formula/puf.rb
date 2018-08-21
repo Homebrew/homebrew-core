@@ -6,6 +6,7 @@ class Puf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0135ce2eda650af382ccefebc51bce5b83b356234ad02177a311309a1799af79" => :mojave
     sha256 "e9f5c12dedbca6d80be8321abdea89162af0097d68401b77aadf93605877a967" => :high_sierra
     sha256 "3153e22f42620f0ceb69f11080e6ba113765d7847cbbb2672f30a7a6766db972" => :sierra
     sha256 "24952b79335eb08d7a8880a16714e6afe3b73a65f5f26c59b106020198c1b3f3" => :el_capitan
