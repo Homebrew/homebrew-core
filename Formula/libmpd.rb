@@ -7,6 +7,7 @@ class Libmpd < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "704760154c39e2917a85dc30eae29de1f3f7f114ac037715911edf7dcfbb4844" => :mojave
     sha256 "366b75cc5d921e946f5d987cb2627a9d66d04db36032ff98f5dd881ff0df754e" => :high_sierra
     sha256 "e5affb45da15f4b7df327b993216d44f76f88da1e8c2f1051a8045c63a5a9d04" => :sierra
     sha256 "d4b932dc975f7fe87d8e26ebe9080d3633c33a66438c29d0403160adb6c7ada5" => :el_capitan
