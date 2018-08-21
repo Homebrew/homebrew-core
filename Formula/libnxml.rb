@@ -7,6 +7,7 @@ class Libnxml < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "61e076a06cab737a7410a8a2adf9c29c3d32e44467caaef25d54c7be63093bd6" => :mojave
     sha256 "a6b51b3ed4d09a603b7d232040b7e53fb26013a16ea9b4b86f415c45200faf43" => :high_sierra
     sha256 "ddeb6f19f803f29eb44f498ed687dd76a5bdeb0b6416c67759e1690ab9fa4f14" => :sierra
     sha256 "de106efa2da60ccb8567403547f904485c1c6431dd492ce4e1bbd66599c7f961" => :el_capitan
