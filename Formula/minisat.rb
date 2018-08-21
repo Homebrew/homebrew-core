@@ -6,6 +6,7 @@ class Minisat < Formula
   revision 2
 
   bottle do
+    sha256 "391a3fa8d268b34fe03a50a2cce15794dac827cd23f1ac86a8a45c88c87fb570" => :mojave
     sha256 "20256b35c118c4b338cd8eb74fc81838dc3da50c2f3464238ad1c9b042574b03" => :high_sierra
     sha256 "902e87ede339024a790a70fdfad1d4c6d0a7c18f10b0392cc0b4b32bceedca7f" => :sierra
     sha256 "8fd1e0f6dfaae107599581e674f1ed229436187d3a85a9290e5ff1c16cc21047" => :el_capitan
