@@ -7,6 +7,7 @@ class Gengetopt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "db306b0c86e66795ae1cbead1eda1777d3386ae87a1f1bbc49ab8ed7cbba6ef6" => :mojave
     sha256 "dce4c1fd06b1a70d2aece23379ae49dd24ccc9b2059a428774484d7bdbde2a3a" => :high_sierra
     sha256 "2ce885fcf985bb56f993894cff3cbf94067b55dc9d59ba63d63cfdfcb4ea6e5d" => :sierra
     sha256 "b551e59fe1e883d0c5e06ddb441777d3c07a60a9305fa08eaedcfd326f55ef26" => :el_capitan
