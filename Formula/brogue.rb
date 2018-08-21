@@ -10,6 +10,7 @@ class Brogue < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "f6d023201e095ac198e08b069abaee68715f81e0540c5fdd17bdc04a8c7e0178" => :mojave
     sha256 "15ae767cca7777781ec2a6d89e63ffc1822b1ab982ea966e1082d625ed5172ca" => :high_sierra
     sha256 "7843893c8f71ec2824a571324ada4818a24b9d0cdf3ee896a2fe986c2eb3d96e" => :sierra
     sha256 "29b76f520e06b81094b7036d6c8bc1d9e259d2df18dc82514ed1156027dbfa87" => :el_capitan
