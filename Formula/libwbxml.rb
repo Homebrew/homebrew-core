@@ -7,6 +7,7 @@ class Libwbxml < Formula
 
   bottle do
     cellar :any
+    sha256 "0b80a2ec6e800983272e0ba9708cee8566f7893d92c4e1b61d37fd1c7d7d5594" => :mojave
     sha256 "d9793123d4fde1307610f37fe64251bd4d92da7bbb531289868867a9b5bc1fdf" => :high_sierra
     sha256 "137d796ea2bcd0263c51d4d92ce96527ce73c23e933d66f226270baa97d1359f" => :sierra
     sha256 "56dd0a5203520961413655ecbc8d60058b639179ac5c704848005a3a5179d78f" => :el_capitan
