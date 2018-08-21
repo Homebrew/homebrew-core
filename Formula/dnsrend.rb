@@ -7,6 +7,7 @@ class Dnsrend < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "50426241b5ffb70ce749cb114c48927fbada7082264daa232c79b0dc6e293e7c" => :mojave
     sha256 "6db5eb20d3b550e317c0fd51d2dea70688db5663f83b1ac3146e99f74aced1cc" => :high_sierra
     sha256 "ff7281e230ada3a6ebf6ec6b46f5a0a5b28597c2f817cf99df9b2b32c3f175b7" => :sierra
     sha256 "fd38fc65be2c773804e6b7713cabee7fbdbc9ac344e72382e36174aaf258a41f" => :el_capitan
