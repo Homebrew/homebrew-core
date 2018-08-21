@@ -6,6 +6,7 @@ class Libstxxl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "be650cf787270080a323cbebf05109bcc72d94ea508b0e7c265c6592b871065a" => :mojave
     sha256 "a8b116ba332c5d32055f754db6fb491e3c3fd87b4b4a317213a2e0963d34ddeb" => :high_sierra
     sha256 "0f9cb534bcdc8d344dd5da5b8381cca527e515d1a3df2bf5b3785783f7f482d7" => :sierra
     sha256 "8753b0c9ec11f1f6195fa52c346b4d6015652931908156dcdb4468cc94103d1c" => :el_capitan
