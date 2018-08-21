@@ -6,6 +6,7 @@ class Cvsutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e497ac1ba036fec1ccd8d34b2ec6262f9721ab805d0636f073c5406ef4fbd922" => :mojave
     sha256 "102456ac28b63271b03a5722e8421d6273005c54203f4f818678be065479463b" => :high_sierra
     sha256 "d1f2e13e0df6dbb767a04f7e206114c119f9e6435f227e07e14b4d200e6aba8f" => :sierra
     sha256 "f8e35c8b0ed2db868e7dd12f653c20d7d2709059fb5a773fd49084a2655f4ca0" => :el_capitan
