@@ -1,8 +1,8 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.1.18.tar.gz"
-  sha256 "49670fd71a115c3f12ae5b9c84f9bf1e0f47734a4501ad3cc1ea980068066de7"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.0.tar.gz"
+  sha256 "909b7e613dd94cb09db3d44b2f92daff32f1b3f97f01a8fefd9c6adf0a34aa02"
 
   bottle do
     cellar :any_skip_relocation
