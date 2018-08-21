@@ -7,6 +7,7 @@ class Libgosu < Formula
 
   bottle do
     cellar :any
+    sha256 "9761ae6de5a6c2b93b67ca3891e0e2bbcec9659270c5083adce2bf2cb46d3e2c" => :mojave
     sha256 "3630e9cf325de71b57cb8353797da6c46ef27e0310ab704a86a68a424cf4d908" => :high_sierra
     sha256 "471b6470e480332ab0b69946fbcf526ddf0e4d39d5ebfa27624bc2d4a614a31c" => :sierra
     sha256 "79a59bd09dd302ec10e3ad36fb6920e877628b0047011efa2a9f748e90d6dd96" => :el_capitan
