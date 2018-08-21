@@ -6,6 +6,7 @@ class CsvFix < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "93a9586c3ef8614be909c0e5ac5bb463536dab6fcbfc00bb1e94fc6affbe7248" => :mojave
     sha256 "e02b2cb8929617c91a258c313481097146259a9ed68094bd759c30c3cc75806e" => :high_sierra
     sha256 "b52224f7cd1dd228ffe751c67993f854a8a59f17d6099d40fca02374f1949d02" => :sierra
     sha256 "ba19053a978b57b6b962f8fa24d099d964ceb90cd28304e3a6c2a7fe0d3abc32" => :el_capitan
