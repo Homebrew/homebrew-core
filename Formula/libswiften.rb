@@ -6,6 +6,7 @@ class Libswiften < Formula
   revision 1
 
   bottle do
+    sha256 "5c73d53cf6bff9ca3fe3e998f696e21f557ee506bddc4967f95bb6f17be54696" => :mojave
     sha256 "6aa48ae140c14532465fc4b875fc19fe339646d9b3ba141c6a030db873f07383" => :high_sierra
     sha256 "e0501ba8ac4d5f61fb1769d13595c1eb81d0126c2abb2181b5313dd3e42d642e" => :sierra
     sha256 "374fbcd5d163aeaeaee0ea17356df25244799c2b30d3e760dfc644f6e6c70e6a" => :el_capitan
