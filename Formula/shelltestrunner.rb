@@ -10,6 +10,7 @@ class Shelltestrunner < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "de0ba4e228df9e3b290ce49af7b0bbe1f3983306a2b7af418ca84a628e9e08f7" => :mojave
     sha256 "e6c941fb8a8b18e51789a9523fab1d1e8ab312d6c0ce93af72f2caf495a54870" => :high_sierra
     sha256 "3ddd0cf1e9baf4f31e667bb1477af3e7a7b905071041569bb1bd6031118a377b" => :sierra
     sha256 "2f954da156e2d7aea6059738913124883a78797d1118ba11b8366bc4b7dd03dd" => :el_capitan
