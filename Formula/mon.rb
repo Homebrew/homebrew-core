@@ -7,6 +7,7 @@ class Mon < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "ac4640eab6cb255b7cc14f7009b5e8c5a18f9b623559950a1e6d55eb134d483e" => :mojave
     sha256 "66fe59cb8307fd1371885fe1739a824d01becb1644a8480f8e27584726494f09" => :high_sierra
     sha256 "0d22815460538deda7a6a979d0b7dcdf38124ed9473764f6a90d8252cb9bf1aa" => :sierra
     sha256 "4f2d05a85fac75167df3a445a0803f7d5eddb2bacf967b10738db5066955024a" => :el_capitan
