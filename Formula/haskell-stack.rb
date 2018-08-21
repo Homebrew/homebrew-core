@@ -12,6 +12,7 @@ class HaskellStack < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "848150f9b160487717c4e660bf796a26d38b4d6c33b97084965fe1238f073308" => :mojave
     sha256 "fda2391548b3ff62866e09f584458fa7e4b894273c77024134a99f90b56850e6" => :high_sierra
     sha256 "e02d867825d757031ea0dc945f598b794d097b3398fb202b0de8ba9684198d1e" => :sierra
     sha256 "d303035dc4e8fcdc8d1aecd5c0c56a8db0421cd21cc5d168442289b9d2e10168" => :el_capitan
