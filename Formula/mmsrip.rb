@@ -7,6 +7,7 @@ class Mmsrip < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "1cff3346265ccfa27553e90225de862c7a1ac61ff54c8fdb8fabfc4204d1bad3" => :mojave
     sha256 "e7c12a6c8e6ef612d1c789fad3e06c0b21acfe6e4dbac1643ae7797faeafcb35" => :high_sierra
     sha256 "b4578327661828737b3aa71615806ba6e2781d7c0815a12815023242ac80e598" => :sierra
     sha256 "cf0bc6b407f4861b174eddf55ae5da45330d37abc428013ca19f173d36a96d2a" => :el_capitan
