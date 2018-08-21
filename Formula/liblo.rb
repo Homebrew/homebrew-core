@@ -6,6 +6,7 @@ class Liblo < Formula
 
   bottle do
     cellar :any
+    sha256 "47694db74756045244bdd32db28174e143f3cc0812809d340fafa862c7f8b540" => :mojave
     sha256 "961d1559e59bdcf92134a61c799456db776434d4309c2b1dc0ba17581fca7084" => :high_sierra
     sha256 "a618d8405b4e13bc1871a5a24da2489a2b64f3d08bff3b7920bf8a6b2b3d6302" => :sierra
     sha256 "4d5fb18d769550dd5415441b78e167533813c36391819f3c67ea7ea1e69ce7a2" => :el_capitan
