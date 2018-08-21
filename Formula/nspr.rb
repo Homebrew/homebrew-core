@@ -6,6 +6,7 @@ class Nspr < Formula
 
   bottle do
     cellar :any
+    sha256 "0fbc18c4f776a2c6662bf547da74cde325b85bfee8dc254661d65f91b5f1124e" => :mojave
     sha256 "e422c79b0be3e83e776034c41583ff7321b23b627b0e8de577615a1546fcc3b9" => :high_sierra
     sha256 "d58d218efa11c262e774476d5ca85a9b0e239c6c5c01f2b11cb0c43d2c31b0df" => :sierra
     sha256 "437a7baf3aaddbcfe35b4a51351c3993e92b8f82b1171759a76ea144da3a5100" => :el_capitan
