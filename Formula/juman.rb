@@ -5,6 +5,7 @@ class Juman < Formula
   sha256 "64bee311de19e6d9577d007bb55281e44299972637bd8a2a8bc2efbad2f917c6"
 
   bottle do
+    sha256 "36bae86cd2b24c5b3b4e75aed31ab0cf5da261b7a77e7ffe8a9b279ca3b801d6" => :mojave
     sha256 "7e2b144bf77ccdb11ae0166827dd45feae62a950de00310dcb863d7f926a9510" => :high_sierra
     sha256 "5c1dfea7f62d1afce55c9d1ed2478f9ff3b1744285fbbf08c29eb171cc672fa7" => :sierra
     sha256 "6bd46cdc6ff4e159463f8d4fecda2b803c3054ec28305f3baa1ea4969c4da723" => :el_capitan
