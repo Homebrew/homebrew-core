@@ -6,6 +6,7 @@ class Libxmp < Formula
 
   bottle do
     cellar :any
+    sha256 "d86f0bd86f2cada740f5a87d9f18216b30e2383d9d572200c5a684fd73b8a9a4" => :mojave
     sha256 "642c904938aa1797b3512f3f820283d4104a8153d2b0144003110accdc48a877" => :high_sierra
     sha256 "019ff8e51453bf527ba6ec46fd289acc5396208e230445afb0332a18752d72e2" => :sierra
     sha256 "8da81ed699c312c831be38295df20218663fef23aec1cab91afa7e425baaa4ab" => :el_capitan
