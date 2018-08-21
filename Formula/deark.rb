@@ -8,6 +8,7 @@ class Deark < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "070b4cdd7806bdd67fbf17af2789a9e5f4041c094a4e5e636cd14001e7f0236f" => :mojave
     sha256 "d0b5c220343bfb1c65373c61e7f5676294860c5d7a934a8f080d79c4ef2bb487" => :high_sierra
     sha256 "5631ef8609234b791f6eb744d6f6097ce0f75dbbb4ce2975451af7e21ebe57cf" => :sierra
     sha256 "baebc1b49688c321b02cb9cd84d727f8aa5e1d66a29bef86d8ac3f194411efa0" => :el_capitan
