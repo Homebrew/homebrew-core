@@ -6,6 +6,7 @@ class Hdf5 < Formula
   revision 1
 
   bottle do
+    sha256 "cfeca5869568190f998d813ad67add1f8b7e23fe0a6574544f26445c649ebd86" => :mojave
     sha256 "72e40fa6e9e97cf46ab63aa7a19349468ea0eeadbd9bf37c8b334d08c9a861d5" => :high_sierra
     sha256 "122dab3a3506271ea97536c45e8bc43c8755c3e92c1b96734ee283fae40182fa" => :sierra
     sha256 "bcadc6edbfba74f441e32d7a2a57f6b12b07feb780b1db491af006f18302863d" => :el_capitan
