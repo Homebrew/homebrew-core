@@ -7,6 +7,7 @@ class Logcheck < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ea40eb4c4191e7cbf09c7cd90e92eeb3ee04f9a51874169be0bba833bb3c5c02" => :mojave
     sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :high_sierra
     sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :sierra
     sha256 "5afc20f769f2b9326958a81eb7349e6475d599e08f1c1ffc1f9dcd7d3f3c1218" => :el_capitan
