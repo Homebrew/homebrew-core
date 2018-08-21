@@ -6,6 +6,7 @@ class Libsquish < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d3a42b4342fab6548ec4e2467a571631edf0891d1c4c51a6573b14afda5b0972" => :mojave
     sha256 "734574ea8d63c2d52f291c1d3c96e18ee7fb6f404b5039245a31625fcb6277df" => :high_sierra
     sha256 "ebfa2b4d94a71334548800ceb00803ed1ed1e91226f6892048f376d73ee7ef74" => :sierra
     sha256 "4af6195448040889de7ada48fcb6fc6dd945e47f001a04807b70b4f5b3982663" => :el_capitan
