@@ -5,6 +5,7 @@ class Latex2rtf < Formula
   sha256 "19f3763177d8ea7735511438de269b78c24ccbfafcd71d7a47aabc20b9ea05a8"
 
   bottle do
+    sha256 "774648348334e79b63d29040f1b97af185a7a888abe30097f1fa239ca105f3a2" => :mojave
     sha256 "e6b76e602030f83a900b57ce5f05f52dfcc3ecac8e8c988780ddfee350cd7979" => :high_sierra
     sha256 "04c09c3d1a6feb91ae3127b7e8391870ad9d9a9bda322dd14ebf9be4896aa1f1" => :sierra
     sha256 "15571803586d7a3465a9b6c73bb0879861afe3824650a85b5c15869622128e2f" => :el_capitan
