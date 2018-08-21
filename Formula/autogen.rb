@@ -7,6 +7,7 @@ class Autogen < Formula
   revision 1
 
   bottle do
+    sha256 "bf05048f02504d4dd73f5204abcfd7b880dca3ef65ed6c1a11a2836fed1efd80" => :mojave
     sha256 "c9835af12e309b7992918e64fc766f59ca50ff3f4e846434d74141859d638cd8" => :high_sierra
     sha256 "c80dbb65f3afee35378aadaf766cd3d772d39256ec6d48b9864ecab018a931e9" => :sierra
     sha256 "ff8c66ca7d86c309e884dad0fcc49aadf65a830768a0551c5711cba2f6d6a046" => :el_capitan
