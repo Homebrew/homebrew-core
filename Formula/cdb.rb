@@ -7,6 +7,7 @@ class Cdb < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "49748511d9e05e7ae4158ca4e4bbf14af858686f0104c85240de06b2acfe9b9c" => :mojave
     sha256 "f187d9ff7ddb1a1532e83924d32d02521afc943738e4b21c79da5712340b0bbb" => :high_sierra
     sha256 "16b08929c8c42feeb2df4eaed5b46967eca487aaa20585dc5869ba44a28f0fe8" => :sierra
     sha256 "ac5a34c222875d86113275127632fe02ccc15c0332c7719cdac8321aa0f83bc4" => :el_capitan
