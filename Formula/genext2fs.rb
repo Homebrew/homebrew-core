@@ -6,6 +6,7 @@ class Genext2fs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9a22f21cd781def8a9c4f89eee4158c1ad525766f2bb2d54aa1d00362c399706" => :mojave
     sha256 "b74a72de535c529c5c5aa9ac3b77618e6f95f8114ded59e7e84124a829b6bb16" => :high_sierra
     sha256 "82ac8092d73d2f81fd0770b15bad060f4f3b010c089a0cda5131f9bcec3318ea" => :sierra
     sha256 "3842e46ce4c24b75364337fbe4a10243cd01a8aaf4b51feca6631c7cf0649aa6" => :el_capitan
