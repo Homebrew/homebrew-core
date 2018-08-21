@@ -6,6 +6,7 @@ class Lxsplit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ffc9b9b7e9669e1cff8a46b3930d052ffa149179897134439b1228d8ee178777" => :mojave
     sha256 "da1b73f5843b77ce947ce546fb77a47f2c1b989efbf70fdd61b9d05f81a386b5" => :high_sierra
     sha256 "f4d271c94546ca73b9e5262ff53bf7b51dcde2a83998d5a2e4b663109f2f69d8" => :sierra
     sha256 "25699d54183a01f446015fb02521a50b3967ef2d250e56bb1fe3fd0a5aaec2e1" => :el_capitan
