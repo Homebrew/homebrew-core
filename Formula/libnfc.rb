@@ -5,6 +5,7 @@ class Libnfc < Formula
   sha256 "945e74d8e27683f9b8a6f6e529557b305d120df347a960a6a7ead6cb388f4072"
 
   bottle do
+    sha256 "a6f032e306967d4df3177c22363c8c93336ba314216431c5e4ff3380b3823456" => :mojave
     sha256 "6123f4b6cba07ac11b327e378b9b774fca3609cec3e7ef58d6dcb6f6270dc36e" => :high_sierra
     sha256 "18ebd76ab92ace056da2f014b3bbfb872d152ff6dc5d66ae274c7bd67474defa" => :sierra
     sha256 "792064362ef2b224a15190b6fcf97066c7a1d47a3bee13495134aafb067cc11d" => :el_capitan
