@@ -6,6 +6,7 @@ class DfuUtil < Formula
 
   bottle do
     cellar :any
+    sha256 "811d4e5d574bf5d3cb8783374927c6861c083e05711f538925a819490c5a49c7" => :mojave
     sha256 "c1e5f33cee759c8273ed5b9088262c442773342378939cecd374c99889126f8b" => :high_sierra
     sha256 "3b9f9f6cf990becc1f2979fbec2cf2833d6f0ee2ab1ba3db4979203f1d591ee2" => :sierra
     sha256 "49975a34b6bacad4549871097effce90e376d3cd26ed24b2d7dfd925a199f0f8" => :el_capitan
