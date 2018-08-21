@@ -6,6 +6,7 @@ class Gvp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dce646d2b2bbc9cfecbeb99360b0df2d1149b758a40af3ab81138b544a6e3871" => :mojave
     sha256 "c62a176dc8bee30dcd1453a8b3c608dcd059dc133167df74802d515931470f6d" => :high_sierra
     sha256 "2405a1e481ebfafcd4fbfdc2874feacc402b851fafdc69596d1afa120924c157" => :sierra
     sha256 "ddd00ded9d21c3ecfe23e807619d3ab1b3011bc586db0d7d4aa8d5d87e3689c6" => :el_capitan
