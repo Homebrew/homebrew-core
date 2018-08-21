@@ -7,6 +7,7 @@ class Libu2fServer < Formula
 
   bottle do
     cellar :any
+    sha256 "4171f31751c8bd489ff38e66de80340f1abff5442472dca02b2b2be5d6bd1b12" => :mojave
     sha256 "8b2986796fde4c4af2ceea03780de6310932f5b26744118d56920694777e0738" => :high_sierra
     sha256 "90ec17a1fccbb6d6ed4e8cd95d6828ef1b0fe80f173435e7124fab938d3af812" => :sierra
     sha256 "566d3f52eef7dca1671f93f8f2b1f351e960b3c98a3737ed7f14843296d5a601" => :el_capitan
