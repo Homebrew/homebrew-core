@@ -6,6 +6,7 @@ class Libfixbuf < Formula
 
   bottle do
     cellar :any
+    sha256 "c548bdfc48db5ee2b971849ab0bf52c856c96f40de77146f7d796842f8689e99" => :mojave
     sha256 "8c0d314feb7ee75cfe4ef108d15285e6da0fdc7d3c5bcf0dd2a44c059af42bda" => :high_sierra
     sha256 "1cd8bd7f2552f30c27120a4a7ba803a2cc95e6b4d356e5489eda61b59ded001c" => :sierra
     sha256 "92f84cb8a1c4541693ff62533464fe2d04ff6b92c930cb4bb84eab6bac33fedb" => :el_capitan
