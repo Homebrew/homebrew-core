@@ -3,9 +3,8 @@ class KeepkeyAgent < Formula
 
   desc "Keepkey Hardware-based SSH/GPG agent"
   homepage "https://github.com/romanz/trezor-agent"
-  url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
-  sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
-  revision 1
+  url "https://files.pythonhosted.org/packages/65/ab/4dfcc20234fae12ee40c714b98077d6e3a10652496bd1488fa4828529b22/numpy-1.15.1.zip"
+  sha256 "7b9e37f194f8bcdca8e9e6af92e2cbad79e360542effc2dd6b98d63955d8d8a3"
 
   bottle do
     cellar :any_skip_relocation
