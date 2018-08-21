@@ -6,6 +6,7 @@ class Exomizer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bb996d43879386e136aa04b484f48c1838d36ce27f254823829c7213a6136d35" => :mojave
     sha256 "6b429036fa98cd25f0bac0bff18910a88e40423fdd6b21645526eb43f63e6ad4" => :high_sierra
     sha256 "f2a9e57c54a37a16298e33df0f43a290358df4daa683e33182bbb51660370bd8" => :sierra
     sha256 "1e0320a30f23c616069326fe176d49fee7bb10e1910ebe4ce4accb5306540475" => :el_capitan
