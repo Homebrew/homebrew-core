@@ -8,6 +8,7 @@ class Pmccabe < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "660ae3ce966863082ba287ba9e52c0772c41e1d58571e02c3d898b71ac4682a5" => :mojave
     sha256 "054dd89d0934715b169875d8d0bcce39db919550752eab9cadc083eab0e148cf" => :high_sierra
     sha256 "220285c0f0ae07835785574504d1d7730fb2abc06ddacfb76e1fe73f999d2cc1" => :sierra
     sha256 "d6189f6ae7341da933653c687adec0bb8952b14ed8a2883b19aec4db90b65eea" => :el_capitan
