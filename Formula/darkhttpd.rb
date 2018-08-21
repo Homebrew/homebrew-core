@@ -6,6 +6,7 @@ class Darkhttpd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5af24e2fb0bd38aec2b8b3c0bcf685b54297bde3e1311f2d38d48f0bf10912ab" => :mojave
     sha256 "b0da49675fa62225da80fd711cc426d2b58116355ae8c89c80de080479b777a5" => :high_sierra
     sha256 "1271ecbcd73b02bc8977235ea0bfcfdceb1819cb476213e74bd7d352df8a464f" => :sierra
     sha256 "cf8e5885072baed885238dc1a6b23466f80d96a32eb48d5f61f3b9d519df88b5" => :el_capitan
