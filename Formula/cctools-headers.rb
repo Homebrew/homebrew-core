@@ -7,6 +7,7 @@ class CctoolsHeaders < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "aad0aa77b9dfdfa2b0f45a83f67cdd21f819f08890e744f686088950c5fc0ea5" => :mojave
     sha256 "867d6edac7d3c9e0ebdec8cb97e4ec8e2e32a1cb894cc2f5d73e282e1fc1ed03" => :high_sierra
     sha256 "b30ece09a0ea68969de159ea1004f8bf7b764e0d1930acb199331c915494c8a7" => :sierra
     sha256 "ca835a4d93f50715875bc1ab323630f788e64a0573ac994a7e5d60c9b064268d" => :el_capitan
