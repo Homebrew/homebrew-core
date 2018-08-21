@@ -6,6 +6,7 @@ class Dvdrtools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "77bee36a67611f862c4fd8fbff7b1bbc7e307f5f618508664f02193df7347865" => :mojave
     sha256 "f697f22349d9ed05ad580d06b5dc38c4b626187d50cfc364af4bb5634f16b152" => :high_sierra
     sha256 "afa198a1854643ac7657ad1c93bfc5f9b05760e3b3375dd3ec43ad0b51e4ea7e" => :sierra
     sha256 "8d29698226d26f42559f4913a13920632b85cafc389122697fa2c5c4d0cd2d8b" => :el_capitan
