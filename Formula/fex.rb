@@ -6,6 +6,7 @@ class Fex < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c3daa86f0f51e3bd7be8cd890a46bd2a50e6a0fb728f664ce1847edb6b5f7f0c" => :mojave
     sha256 "1b293789f75a67d36037f9d80641814119c8f4534a78dbf321744276a41f2c15" => :high_sierra
     sha256 "e42328824017f1432ace562fdd70061e504c5524d2702f3d4b470c40b1bf105e" => :sierra
     sha256 "952c166ae7efc5c7955bba3c54fefc1e5c18fe2296804b15554a8703285034e1" => :el_capitan
