@@ -5,8 +5,8 @@ class Elm < Formula
 
   desc "Functional programming language for building browser-based GUIs"
   homepage "http://elm-lang.org"
-  url "https://github.com/elm/compiler/archive/0.18.0.tar.gz"
-  sha256 "7f941f4b9c066aea70a24a195f9920d61415b27540770b497f922561460cf6d0"
+  url "https://github.com/elm/compiler/archive/0.19.0.tar.gz"
+  sha256 "facf9310edebc40d9965263d23c5cb93dae8557fb05a77cdfaac6f08b0ae9333"
 
   bottle do
     sha256 "4a7232fc62d4c340ddf49f6e63924734f66f5cb0861ea4fc042d41cebc139884" => :high_sierra
