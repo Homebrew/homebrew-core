@@ -6,6 +6,7 @@ class Hh < Formula
 
   bottle do
     cellar :any
+    sha256 "7ffa119045c433257ecdae566d44cac9eec4a9ba9682083452eec22689b3a4f0" => :mojave
     sha256 "a1e2b478c301d6c582040bcc4f8f05efad260de69fac49e979305e0f7e9b3221" => :high_sierra
     sha256 "662118b81ed13840b804b8d22a850f1762465be491cf8132ffd8824fc46a2ec6" => :sierra
     sha256 "e19f7381ac79726f29069c21f95b0ad64f1d880e428765bebab40e8cfdfff426" => :el_capitan
