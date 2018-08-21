@@ -7,6 +7,7 @@ class Ohcount < Formula
 
   bottle do
     cellar :any
+    sha256 "dc7239bfaeebfb31a1a0ed7ae71dfdf178394e4f0842a74e457ec0e576e3683c" => :mojave
     sha256 "bf00398e44c1f2c1e2b9fa22614037ce203e3e196c7675dec4273e975837d8b4" => :high_sierra
     sha256 "15e8921a693b674c5ea24bc518a776b7b3ef80c207f9d2e1dd498248fce40f7a" => :sierra
     sha256 "2227295bd7e77ef3881186a3835718e8018738f8b443314ec16c2c7a5ceadea8" => :el_capitan
