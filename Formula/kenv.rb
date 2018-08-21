@@ -3,7 +3,6 @@ class Kenv < Formula
   homepage "https://github.com/thisendout/kenv"
   url "https://github.com/thisendout/kenv/archive/v0.3.1.tar.gz"
   sha256 "c245583aee13cb0e1b6ec44e7d16fe83455fbca2657b73f49f1d7328b8594204"
-  head "https://github.com/thisendout/kenv"
   depends_on "go" => :build
 
   def install
