@@ -1,7 +1,9 @@
 class PdflibLite < Formula
   desc "Subset of the functionality of PDFlib 7"
   homepage "https://www.pdflib.com/download/free-software/pdflib-lite-7/"
-  url "https://www.pdflib.com/binaries/PDFlib/705/PDFlib-Lite-7.0.5p3.tar.gz"
+  url "https://dl.bintray.com/homebrew/mirror/pdflib-lite--7.0.5p3.tar.xz"
+  mirror "https://fossies.org/linux/misc/old/PDFlib-Lite-7.0.5p3.tar.gz"
+  mirror "https://www.pdflib.com/binaries/PDFlib/705/PDFlib-Lite-7.0.5p3.tar.gz"
   version "7.0.5p3"
   sha256 "e5fb30678165d28b2bf066f78d5f5787e73a2a28d4902b63e3e07ce1678616c9"
 
