@@ -6,6 +6,7 @@ class Cdargs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d06682d3e4d5ad57b05b00ee2d15f6b34da528e420ea038604b4897c570efd8d" => :mojave
     sha256 "10a170bfe1b70f6c8909ddb6fb88b7615219d6847576e72ee1e4011aba482e9b" => :high_sierra
     sha256 "5ba84d6dff14f5743296721a91e6d01ce984bf6e4589ce2128041b1ed9560a3a" => :sierra
     sha256 "de9d5777eb0179f9ffacb5bcbb0ff0ce7f0c1fb208bb992290eb5a36e1d3f159" => :el_capitan
