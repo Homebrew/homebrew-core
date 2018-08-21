@@ -7,6 +7,7 @@ class Libsmf < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "b8c949d8998c9270096abcb32361adf247a3820eaa84c092b029c1d1164e1005" => :mojave
     sha256 "fe3d74c8f7ef3e623e00c7ae3e9bfbba1746047e6334fcc2f46464179f6594e3" => :high_sierra
     sha256 "69c8d53cfacadd06dc4669cb3713028d67333b306e82f36ba1b2d2eae0b9ddb1" => :sierra
     sha256 "c2cd00a63de6490b025d343c349eebda8e4d4545e2669acf116c7d8f84e48dca" => :el_capitan
