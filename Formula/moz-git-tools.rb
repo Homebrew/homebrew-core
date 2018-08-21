@@ -7,6 +7,7 @@ class MozGitTools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "101a581f5a39b97b8e6742bfe6d3eff742c590427ca07c768751376530bcb54f" => :mojave
     sha256 "0901261be02f9a82cd6ab1b287160e047c4160d81a443f4edc0a7326fdf08a6d" => :high_sierra
     sha256 "7a771b0e71a44dafd3fc4eb2210f909d412f9ea541a7ff50a96ce272204cc501" => :sierra
     sha256 "c5ddb2e842a6fb26ba5feacdee6bac287d94732abd888bd11bc5c80be4f100a4" => :el_capitan
