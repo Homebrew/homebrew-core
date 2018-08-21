@@ -6,6 +6,7 @@ class Ekhtml < Formula
 
   bottle do
     cellar :any
+    sha256 "99d523757e0870bdc36093895d0ac451586895ec8bed6d4df7b85da86ed13ffc" => :mojave
     sha256 "d081597008ebd37b0bc69adeb365bedf296cf9a251cb81fa07671b12143a6aa8" => :high_sierra
     sha256 "a4e245b9e7b3643dea35dc0b6dece64f92b76d27ec59ba28c30ea7a666254396" => :sierra
     sha256 "d606a2fe3d466a5e76f22a0736f0b485be613bad4a09575d496d9396d3a71903" => :el_capitan
