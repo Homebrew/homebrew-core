@@ -15,8 +15,8 @@ class OpensslAT11 < Formula
   end
 
   devel do
-    url "https://www.openssl.org/source/openssl-1.1.1-pre8.tar.gz"
-    sha256 "1205cd763dd92c910cc590658a5b0774599e8587d89d6debd948f242b949321e"
+    url "https://www.openssl.org/source/openssl-1.1.1-pre9.tar.gz"
+    sha256 "95ebdfbb05e8451fb01a186ccaa4a7da0eff9a48999ede9fe1a7d90db75ccb4c"
   end
 
   keg_only :versioned_formula
