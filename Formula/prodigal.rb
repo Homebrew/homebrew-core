@@ -6,6 +6,7 @@ class Prodigal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8751eedad40b08714b52a78b9cf48e4101ffa4b871a0ab943830a59137a67e53" => :mojave
     sha256 "c120fed8e29bb3b1a4ff69d5ca05e051a0fe3822784b3d585e142da3452d1ac1" => :high_sierra
     sha256 "a27fe5316181d4826e5aa5291d0fc1b1a7087c32c7b4e6aedabf1209d5a8ac36" => :sierra
     sha256 "70b432e3d3da1f4089680b06c0745b7dac3611f05d8ec9440faa918bc82d6fe5" => :el_capitan
