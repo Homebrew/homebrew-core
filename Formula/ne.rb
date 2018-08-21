@@ -6,6 +6,7 @@ class Ne < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bb10903d98d42fe07cef9c7982ac8f127209c401568b170bca75a5766ac13706" => :mojave
     sha256 "ebf14e2778e53688a4c1c0051187b79994e9374fc599332b20b0b362d6517c49" => :high_sierra
     sha256 "1aee5fa253900a888bfa27d92a3b0e262a01acf03da2987285064c916105a388" => :sierra
     sha256 "7bdd3016890a03f6bc006d924cf2373a97b3915bf8d7ddc1a6bb81741085ecff" => :el_capitan
