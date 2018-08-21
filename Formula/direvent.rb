@@ -6,6 +6,7 @@ class Direvent < Formula
   sha256 "c461600d24183563a4ea47c2fd806037a43354ea68014646b424ac797a959bdb"
 
   bottle do
+    sha256 "1218acf77df6b8002615b9ee3d66f586aa9b3fcba9ee28cef01d77f1c94dbe5d" => :mojave
     sha256 "4600ba9633193fa0fd4c7f726ac21b3aed197cfeadf80e3457f45d53568dd12c" => :high_sierra
     sha256 "9bc340296e903dd37848907cd76ce5a67c74e78076ef615ff824617ff0d37db8" => :sierra
     sha256 "0d9c0063931a3dc02e5c24742bfb85fc173b3bec6f31771507aa1b48c892138d" => :el_capitan
