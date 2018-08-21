@@ -7,6 +7,7 @@ class Liblastfm < Formula
 
   bottle do
     cellar :any
+    sha256 "666b4220844dbab8143a3b04fafc086f08d2246d41eaa7fd6fac9b9cfb60db6a" => :mojave
     sha256 "b064d2c0725d5500cb5c9b3dff12e3e01fc10c0855b1763885dd489ab9c3c034" => :high_sierra
     sha256 "ed421bdd81c4643de07048e5d73575bb4a6909fce584c5e5b6760a5103cd0617" => :sierra
     sha256 "40e10cadb1dc55904ae6114a13597e7209596e1d274b94db8ac96f1ebf7da979" => :el_capitan
