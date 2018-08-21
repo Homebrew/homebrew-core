@@ -6,6 +6,7 @@ class EotUtils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9e3a062c4d2e5345703442a1428f51bcc1554d07a94f6e540d8a631c2ba2633d" => :mojave
     sha256 "56f30e1b637149b8b34d003ff4c43865175950eb25d528e0cda69dd4e9261b06" => :high_sierra
     sha256 "320909b9801c96b10491dca13de7c793dae8b0d0864839c6b7a65cbaa1e8e036" => :sierra
     sha256 "b2a4e0f385fa861baf54ac3c483f5599bc96994b3797fe00430653f1a5c28ba4" => :el_capitan
