@@ -6,6 +6,7 @@ class Daemonize < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "45a895642c3be14e888b66607c2a4567408657111686437a431a730358b2feea" => :mojave
     sha256 "bc501e9e4ba9fd11390fa9749a7b9a38a70353edaf75499bd969c45921d06bfe" => :high_sierra
     sha256 "d4d5109292158ef32eb73a37b9b6a037dcae620e234be945410ea927322bb998" => :sierra
     sha256 "5e05991cf0462e4fe32dd70354d2520a378831d2b1c0fc2cf0b4fbca8dc85489" => :el_capitan
