@@ -6,6 +6,7 @@ class Dcfldd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "63b3928acc96ad685b064fa3de4f44c4b96d1cbb610d4ea8b7c205a41385a4e7" => :mojave
     sha256 "95b0c080c543745a3a81751cc175fb99a1b75a7e124518d8e5d3337b76a97e72" => :high_sierra
     sha256 "0958d948042f047d4249a7400f8c4f7adfe41f11c20aa04a0dbaac09c718ea2a" => :sierra
     sha256 "0d5ff357d74fa90a97d80e202ddb5b5554bfec35efa2c4cb6e0f7e6dc9cf8ece" => :el_capitan
