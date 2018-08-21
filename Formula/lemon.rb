@@ -5,6 +5,7 @@ class Lemon < Formula
   sha256 "bc7c1cae233b6af48f4b436ee900843106a15bdb1dc810bc463d8c6aad0dd916"
 
   bottle do
+    sha256 "ba917fc3f6df28ea62f91bdd45cbe4c43dd8148c2573fc263cd1bcfcb7915a6e" => :mojave
     sha256 "b01253f24f206fb1a1e76656ec4c9f43d3132d8dcaaa60708d1478e0a3546a12" => :high_sierra
     sha256 "54fc18e48b3e9bfa4e14317158e3aef097d075bc3819d6424cb5b48a5845a7d8" => :sierra
     sha256 "9016fa354fa9f34abf2db3cdca2e13a6dd6223534ff9ea08001ddaff053fe446" => :el_capitan
