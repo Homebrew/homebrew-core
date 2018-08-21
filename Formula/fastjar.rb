@@ -6,6 +6,7 @@ class Fastjar < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bd0faa9a7294fe6dcee4e48d6fa987f46b3c713390594251244a280ee20a71b5" => :mojave
     sha256 "0884c36bf9d1ea07880caa682fbf64076ae86eb732fb151a5ee42e02a76ff272" => :high_sierra
     sha256 "5d03ecf7d89b4c9cd3ca25735692b77f55ae7df83bdb4073e013f5361256c689" => :sierra
     sha256 "996937a030b443cee74e1de1945e3199022fc27514cf9925c332ed5d5804c80a" => :el_capitan
