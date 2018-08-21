@@ -7,6 +7,7 @@ class MecabKo < Formula
 
   bottle do
     rebuild 1
+    sha256 "a1a0b40d2cb5a689ae24a439af990c7a85f8136bfa2bc5c3fd0708300b2fd111" => :mojave
     sha256 "d254239a9fec5e99de9590feb8d7c82f87e31324908003b059aea9a5d6092f2a" => :high_sierra
     sha256 "86b35c767cb97ab0b5e895475c3254589b101bdc3c8666abc694ea9a480421ec" => :sierra
     sha256 "c348042904040c28772c3f8f299debe574c6ebaaed7e41b23cac4980aeb8aa97" => :el_capitan
