@@ -9,6 +9,7 @@ class Dpkg < Formula
   sha256 "818046927a7f77c1bcbbad7d8dbc04cdf0f3e6ec4e1a4f9d313378ecc69d85b5"
 
   bottle do
+    sha256 "3a6ebd1764ca6c912b556ea1b61915877f3ca2a908a817319919be35000e9c41" => :mojave
     sha256 "2625583e8129fb3959591f6d7d430c9451eab4038683dcfa0fc7ae4a25959416" => :high_sierra
     sha256 "1b4c89505755fcbeef7ac38c11bfdbc15edc4575b3d26bb9e4bfede8b080c3bc" => :sierra
     sha256 "635a73cdaa0752fe4eb653d4c183286701e6218cac4beba160eb363752fb995e" => :el_capitan
