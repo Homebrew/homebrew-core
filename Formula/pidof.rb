@@ -8,6 +8,7 @@ class Pidof < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "1a88c923954c4511fb64fe6cbfb27f5248c39d1676053c671ab71c652a377a2f" => :mojave
     sha256 "fd5f89cf3a9685142e08a23980d9438e961096d74ee508a96ccbaecb55da6e1a" => :high_sierra
     sha256 "6991d110a73724959f84edc398647e3cac5a029645daedef5f263ae51218130d" => :sierra
     sha256 "d02c826db5564d7750c0e309a771b164f7764250507955d0b87d09837c3c2ba6" => :el_capitan
