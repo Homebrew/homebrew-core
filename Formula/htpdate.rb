@@ -6,6 +6,7 @@ class Htpdate < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8116eeebe02e935b9d2421f53b7a01ef16bf58b03ca57002389600d0f306c089" => :mojave
     sha256 "2814f0254b6e9398fe30003348f9f0b455b25c20c42ced875d1dad5d22feadaf" => :high_sierra
     sha256 "c5490cb23845604c332f2e5536639d7cb87ecc75fc3b6f8e0f8e799fc959a320" => :sierra
     sha256 "fbdf082a4cbde49e5a9e5ea28f8f9c76e634d1f4fc79397e70e55306947c37b8" => :el_capitan
