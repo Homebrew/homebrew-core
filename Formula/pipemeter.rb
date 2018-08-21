@@ -6,6 +6,7 @@ class Pipemeter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2e8cc64e9e25c27c2c18680f22f59b68962740d04f6f80c9406ca915747ae990" => :mojave
     sha256 "977077866b51a7c0620fe036431ea207b72d38bc383422d682dbfde40a90d6a6" => :high_sierra
     sha256 "19c2d3933e5d0ac8e80559ae77ea09ad83bb8746ebf313d4cdd8a30374eadaa3" => :sierra
     sha256 "bf99d50927a1277c1a481af0eea25314dfbd1449dbd1394368f7a933da367e9a" => :el_capitan
