@@ -13,6 +13,7 @@ class EmacsClangCompleteAsync < Formula
   end
 
   bottle do
+    sha256 "18f453799c1a970ed786f58def3826c9ad07d67fd099a3335f42bb9f08c4d60d" => :mojave
     sha256 "0ba317a80f92e3edc59b0e9205cd4854f2b8debcec89e7844c6c4a82570b9b1e" => :high_sierra
     sha256 "75d385e6d09ad1ca380891f2835d07ba1eaf3091ab0d82d063a4c977464d5cd0" => :sierra
     sha256 "9501489cb080eef8a51eb5d3891df8d75f1ccb2211b5d1e95e4ac52c031ab191" => :el_capitan
