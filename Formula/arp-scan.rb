@@ -6,6 +6,7 @@ class ArpScan < Formula
   head "https://github.com/royhills/arp-scan.git"
 
   bottle do
+    sha256 "7153ecf5150f40336844f247ee9dffb440d9781ff8ce966bd906a308e1ec14a4" => :mojave
     sha256 "7feff35163c765888d5d5d9e729d1a54e3310e13ff8bbc2decaf2e9ce3d90679" => :high_sierra
     sha256 "9f09dcbe83bd1f139911b531a123b5cf05a64f6006fc7de52f5d1d8496c46709" => :sierra
     sha256 "4bda8ae4da7c735c08d45cfa7fc58987413e6600267f9e5ae7f4cfa5d174599a" => :el_capitan
