@@ -6,6 +6,7 @@ class Libplctag < Formula
 
   bottle do
     cellar :any
+    sha256 "b525c3fe324e992683bffed84b70994e1d7173486699753f13047ba7a2d4485b" => :mojave
     sha256 "9aa1c20182ec17e0fb4cdc65d22bd1f742a62f13c1dbf0de57f1c8dd750b0b83" => :high_sierra
     sha256 "89d58532b7a32285a54729dd342af43b07c2c000711503c1adf44b1baf43de3c" => :sierra
     sha256 "387804acb86d5d50e0c5a22a2c83c6a83c83d6ab2966e7b2be00d2886ef9cf17" => :el_capitan
