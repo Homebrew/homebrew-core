@@ -7,6 +7,7 @@ class Netcdf < Formula
   revision 2
 
   bottle do
+    sha256 "fa3169a43279f6d11ffad65cd2ed8bbd7ddc0780d3f10ddcc12db302cdcf8c62" => :mojave
     sha256 "abcb78a704284d5bf17cb43ca1be29c1fa9f90e9c4bd34aa6eb9e4030fa85627" => :high_sierra
     sha256 "8a1046712a354d16f1ad76be178ec99eeaeb77d1fb3db070707ac0bd09ac7119" => :sierra
     sha256 "2f02d1db2d1c78afcb0e3a1f6bf42dced39f3b1eff880495d796528139b0cbb4" => :el_capitan
