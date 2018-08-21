@@ -7,6 +7,7 @@ class Libbs2b < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "b1236f81550a661e9b6ca6db5c828465d32cf0ca8e7db9504cb94871760c4a22" => :mojave
     sha256 "0d2faffb7452ddd66d306746065dc7264d66c3e8f60a3525ee4eb911cd546bcd" => :high_sierra
     sha256 "0431cb3f7cac90d18d854abe956ad296ba399832b733293e55ea58f0f11ba1b1" => :sierra
     sha256 "7949aa7768466a789d992d079a63d5933d19e76ebfb330b38d3b4822929a71ac" => :el_capitan
