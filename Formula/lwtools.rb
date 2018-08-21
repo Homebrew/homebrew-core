@@ -6,6 +6,7 @@ class Lwtools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fd7e751cd045083974d3063b620d2e029936193713a35235cc0207a60e2c2198" => :mojave
     sha256 "60c533f65bf648768d5f1f3b7187c71c2e4144571f6e24009aabfbd512858146" => :high_sierra
     sha256 "5519f50965bf8fa7f3f2361eab1ae240f7cfd2ac1c9e0c2fecc045950e14768a" => :sierra
     sha256 "4c3bd277100d597d7b773fe4ef352658cb1c47c9af62d4a832bcb314048e7a7e" => :el_capitan
