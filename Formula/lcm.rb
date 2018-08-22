@@ -7,6 +7,7 @@ class Lcm < Formula
 
   bottle do
     cellar :any
+    sha256 "560d28a5bc86d18e76d19c811e4d462a025fb6bf73cb4aa0b18fec44f7ea2213" => :mojave
     sha256 "e14ef8beac71ba643f8794caf62b9e9b4059a3f4687dba5470af43f1983147a0" => :high_sierra
     sha256 "9b4244f4884bcbf572f44becf98509001add67ca0117a05180cc28ca6e53acbc" => :sierra
     sha256 "c3cf28a9d9c7d57846c17580dfb56c5516e06a728f6ec8f98edbcfcf2328ac39" => :el_capitan
