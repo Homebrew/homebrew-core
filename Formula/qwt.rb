@@ -6,6 +6,7 @@ class Qwt < Formula
   revision 4
 
   bottle do
+    sha256 "62822bdbe6aa248f6382c23a2540bfc4ed38a77cff8f60872568e4a430ff2d94" => :mojave
     sha256 "d91a8d16588cd615df09fc8bdf288c1eea5be8c0ad7e0fe894ad70914eb47488" => :high_sierra
     sha256 "5e25de79818df25e3dab96795d24c4de066a39ae9d616d77c05f528ace671f6f" => :sierra
     sha256 "b486e9d7b4a9d15886b51d9536ea6b32a642262d3acff5a7ea6985d7fd88db1a" => :el_capitan
