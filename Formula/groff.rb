@@ -6,6 +6,7 @@ class Groff < Formula
   sha256 "3a48a9d6c97750bfbd535feeb5be0111db6406ddb7bb79fc680809cda6d828a5"
 
   bottle do
+    sha256 "5bdaafdace945e11059affc078fe7fea5bd367e18072c5391cfb9bb93b32bb84" => :mojave
     sha256 "fc636952c14127c45b4846e6a7fea45710514ecaf6282dc24094029393f38f10" => :high_sierra
     sha256 "bc116f66735a0b9113319e2fa8fc52172ce7e34dbfb7683f79664093ee119432" => :sierra
     sha256 "7a83070643f180e6e2644a4631a24ee908f80158e43166d7d9fabd1f60d039ca" => :el_capitan
