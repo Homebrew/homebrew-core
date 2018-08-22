@@ -7,6 +7,7 @@ class Libmrss < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "ee283af3f89ae1e38408a4fe77df32218845aef0dc096aefc49149bcb42e611b" => :mojave
     sha256 "0aa71e057813f04d6ec6682f81c1b0dfdde634cb37f3adadb1083a5337fd1ad8" => :high_sierra
     sha256 "18314ef43a046f7944ef92cc3d08fdff60168a170fadb89aeeaa33ed927c9d01" => :sierra
     sha256 "85da9deb7189d65de0cd834a3b6777358a2cc263b4626de3b4036cc99a82fa8c" => :el_capitan
