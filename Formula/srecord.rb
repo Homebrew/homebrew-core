@@ -6,6 +6,7 @@ class Srecord < Formula
 
   bottle do
     cellar :any
+    sha256 "6b3b825b501d1ea1635d107fb62021dde713f6da375f53f1a1fdcb59070df63a" => :mojave
     sha256 "f6341ba9022e6cbc057c519fcdc7c7518247c850025777b80d2463341315d88c" => :high_sierra
     sha256 "0601896fc392a13f7ef861fc3840fadfc7ddc7313763c1d374555129f4301c0d" => :sierra
     sha256 "6a0df3e5fb40699d9b1198562b3b3a4e1745c3a0d12923c461246b7784b8324c" => :el_capitan
