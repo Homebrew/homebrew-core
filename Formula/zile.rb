@@ -7,6 +7,7 @@ class Zile < Formula
   revision 2
 
   bottle do
+    sha256 "eb3ccf733c6a85290d419c7098aafd1d844880f689973276decd6bf9c19fe965" => :mojave
     sha256 "f17882759df971a7e3184638a13b889576eba380d61a005e3bbd33d3d32cc84e" => :high_sierra
     sha256 "5be3657e02aa7dca41fd0432bbff60a3d96623a89179280a31b18cbde1a6b836" => :sierra
     sha256 "25330278315a0e2fbc7cd731d69e88ba8205cd4d622ca7a0abbc638f95e6d937" => :el_capitan
