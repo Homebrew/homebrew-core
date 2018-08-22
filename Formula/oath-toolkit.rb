@@ -7,6 +7,7 @@ class OathToolkit < Formula
 
   bottle do
     rebuild 1
+    sha256 "e56c414cf742ef44cef4c904c7bac6138d2fe3dde08d4733fcb6d94c62e75eae" => :mojave
     sha256 "dbf06b9def1ea821269ff0b6d44f54e05c64af1fe57799803de5deb3a355c0d2" => :high_sierra
     sha256 "af3c35a9cd1139b813bf5bbea9b9c0eff5890fc9beff8096d4405218d6398a42" => :sierra
     sha256 "e72016ad2981cdfd75cc76aa8913ad8b41eca71eec82a769addb14cd94fc162e" => :el_capitan
