@@ -7,6 +7,7 @@ class ThcPptpBruter < Formula
 
   bottle do
     cellar :any
+    sha256 "96b0991f521b87d0a839ad676210c5ea940f529c40cb29df81ef7275a26bb09d" => :mojave
     sha256 "ef9ccd5b90616a66263fa9779c31fc3858a32fc5ec0bd69d98df3329072415a7" => :high_sierra
     sha256 "bf0734c5bac73d3948b6b10856c9cff316f28dcac7d5213323f42dcd7f210306" => :sierra
     sha256 "29311d0d9c7592bcaae2acbf529bc6cb836df622361a9343aeb37543a0ff7f48" => :el_capitan
