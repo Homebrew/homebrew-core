@@ -6,6 +6,7 @@ class Confuse < Formula
 
   bottle do
     cellar :any
+    sha256 "24e05e5b2e29feab1222d9087e064349131023b97b3e5b8f847c8babe968cea2" => :mojave
     sha256 "6e5f40a3ca684e8aeef00fe121a0742214a434d23ed45810d0b7b6c1e5ff65ac" => :high_sierra
     sha256 "8a34f5dee392fb5c572df1e636821b1b6af62a197aca7a2de0c49b4f55bb2874" => :sierra
     sha256 "8547a54095de338b895476e8fc2cfabc27ed9039996f37bdcb48040759c67f79" => :el_capitan
