@@ -3,7 +3,7 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
-  revision 10
+  revision 11
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -21,15 +21,82 @@ class Ledger < Formula
   deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
-  depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "python@2" => :recommended
-  depends_on "boost-python" if build.with? "python@2"
+
+  resource "boost" do
+    url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
+    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+  end
 
   needs :cxx11
 
   def install
+    resource("boost").stage do
+      # Force boost to compile with the desired compiler
+      open("user-config.jam", "a") do |file|
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+      end
+
+      with_libraries = %w[
+        date_time
+        filesystem
+        system
+        iostreams
+        regex
+        test
+      ]
+
+      with_libraries << "python" if build.with? "python@2"
+
+      bootstrap_args = %W[
+        --prefix=#{libexec}/boost
+        --libdir=#{libexec}/boost/lib
+        --with-libraries=#{with_libraries.join(",")}
+        --without-icu
+      ]
+
+      args = %W[
+        --prefix=#{libexec}/boost
+        --libdir=#{libexec}/boost/lib
+        -d2
+        -j#{ENV.make_jobs}
+        --ignore-site-config
+        --layout=tagged
+        --user-config=user-config.jam
+        install
+        threading=multi
+        link=shared
+        optimization=space
+        variant=release
+        cxxflags=-std=c++11
+      ]
+
+      if ENV.compiler == :clang
+        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
+      end
+
+      if build.with? "python@2"
+        bootstrap_args << "--with-python=python"
+        args << "python=#{Language::Python.major_minor_version "python"}"
+      end
+
+      system "./bootstrap.sh", *bootstrap_args
+      system "./b2", "headers"
+      system "./b2", *args
+    end
+
+    Dir["#{libexec}/boost/lib/libboost_*.dylib"].each do |dylib|
+      macho = MachO.open(dylib)
+      macho.change_dylib_id(dylib)
+      macho.dylib_load_commands.map(&:name).map(&:to_s).each do |dylib_name|
+        next unless dylib_name =~ /^@loader_path\/libboost_/
+        macho.change_dylib(dylib_name, "#{libexec}/boost/lib/#{File.basename dylib_name}")
+      end
+      macho.write!
+    end
+
     ENV.cxx11
 
     # Boost >= 1.67 Python components require a Python version suffix
@@ -42,7 +109,7 @@ class Ledger < Formula
       --jobs=#{ENV.make_jobs}
       --output=build
       --prefix=#{prefix}
-      --boost=#{Formula["boost"].opt_prefix}
+      --boost=#{libexec}/boost
     ]
     args << "--python" if build.with? "python@2"
     args += %w[-- -DBUILD_DOCS=1]
