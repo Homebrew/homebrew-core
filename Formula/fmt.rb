@@ -6,6 +6,7 @@ class Fmt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "da972155cdc9897f1204e4edc01f8e5ff1bb8377398c0e141766a7fb4ecb8cb1" => :mojave
     sha256 "a07e95135a5f30a82ed33acbec754a098d8bb067af92fac76e5284e655c5165d" => :high_sierra
     sha256 "ac28bddecfb892da9bfee11f325d2250781f42149a06764211aa688e4dbf2273" => :sierra
     sha256 "c7fdc37809065820b45e4404c172d5f795b32bc2b20b00b3c1b7031b00aefae9" => :el_capitan
