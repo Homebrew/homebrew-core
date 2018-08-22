@@ -3,7 +3,6 @@ class Luit < Formula
   homepage "http://invisible-island.net/luit/"
   url "ftp://ftp.invisible-island.net/luit/luit-20180628.tgz"
   sha256 "7b84f63072589e9b03bb3e99e01ef344bb37793b76ad1cbb7b11f05000d64844"
-  depends_on "cmake" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}"
