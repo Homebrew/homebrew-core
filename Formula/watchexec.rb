@@ -5,10 +5,9 @@ class Watchexec < Formula
   sha256 "64a3ade996d83facf5d5aad05667425c3c0293dd7dab82e7675af483f59275fd"
 
   bottle do
-    sha256 "4794aa7240ea6f79a3324b7c1720610c5570623cca529ec129a57836f3ccec7b" => :mojave
-    sha256 "1187169dd33f3a96a46e4e47f718250fe18a9876e8d6aaa2a2b470d64d6ea9f8" => :high_sierra
-    sha256 "6e0d65a52c506214c0ce5d82d3e3c492224cd5aa33b9eca268e792b5071a2e1e" => :sierra
-    sha256 "31ee106d09477b9a6d3d1959f115d7469174b4383bf368bc423ece55e91890af" => :el_capitan
+    sha256 "9cad2fb47c861b5d869f5817f1695a8ec637fff14fa9717f435751ba93266fb4" => :high_sierra
+    sha256 "f2ada633c74f85797288543b8971e198b4ad1dd78b228aa3932be132352120fe" => :sierra
+    sha256 "958b13bd21fe5276520427052887a67cab82e57ff28113020f6ccbe62de89a2d" => :el_capitan
   end
 
   depends_on "rust" => :build
