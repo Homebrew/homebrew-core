@@ -3,6 +3,7 @@ class Unbound < Formula
   homepage "https://www.unbound.net"
   url "https://www.unbound.net/downloads/unbound-1.7.3.tar.gz"
   sha256 "c11de115d928a6b48b2165e0214402a7a7da313cd479203a7ce7a8b62cba602d"
+  head "https://nlnetlabs.nl/svn/unbound/trunk/", :using => :svn
 
   bottle do
     sha256 "ba7b02c6e9347d2301f8ba1d4ef7f5e9ae6f5a31fce8a4b2f6ed170f189fad5f" => :high_sierra
