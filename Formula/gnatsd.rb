@@ -7,6 +7,7 @@ class Gnatsd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d393647351ecc8888b2b1a862042c75ec2ba6b34232cb5feed381d07b95aec9a" => :mojave
     sha256 "90b0d83d6c017b0cc00719737766caf1ddeb561937bf716eb6df8912b311803d" => :high_sierra
     sha256 "06fe209745c21694dd9a0b96a8e7135322d944271017f5ddd928f774a9549ec7" => :sierra
     sha256 "4c840c3e72fff4fa9a74663e698d3be2c18e33c19639a7fe2e37cd4cbf7cf015" => :el_capitan
