@@ -6,6 +6,7 @@ class Giter8 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "29b044181c0109b44e2cf9c1ecd303d4ad06189b6da0ce8ae12f1d9682d17a2e" => :mojave
     sha256 "679fef3c2993cec5df50162c0d975dfaf6e5b7a52bab3e45cba129d7ffac0d14" => :high_sierra
     sha256 "67cd41a4fd7e296501a7711edbebf6637795f5a9b5f62543b1997dbe99ddde41" => :sierra
     sha256 "2894b4cc95e79a537fa8f279a64806f53720621f4bfc2f2bf81183ad1f99642e" => :el_capitan
