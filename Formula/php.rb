@@ -159,7 +159,7 @@ class Php < Formula
       args << "--with-curl"
     end
 
-    if devel?
+    if build.devel?
       args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
     else
       args << "--with-ldap"
