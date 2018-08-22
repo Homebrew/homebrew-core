@@ -6,6 +6,7 @@ class Bwctl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fbde1025f5c75ec448c07252cdaea22bcc62fa6f1247c46631c8400045bc4083" => :mojave
     sha256 "6b2ff7de11ab2b22180d8f59349b403f74c5d5321c60e44cb1f493fa25a5e786" => :high_sierra
     sha256 "23f32c2e2b5203c4b4fecfb33e2152e5d732305e60ef5b02e4bbf1a9f7355c73" => :sierra
     sha256 "ac9e615919ebd84515022f9650f42194d9ad4b1c1f5f97509e1293962a96e943" => :el_capitan
