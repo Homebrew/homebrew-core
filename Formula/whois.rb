@@ -8,6 +8,7 @@ class Whois < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "feea8f6fc296db981e7eb39bedbf9d6647184d79fb5b926a5f86cdbaa8974da2" => :mojave
     sha256 "a44e35933c977f5510daea2b8486e7843edf26551b077b718508471902653b06" => :high_sierra
     sha256 "e6ca1417a99c060555de387381139d1ba3f0181bf92f19ae30d3a23558f6616c" => :sierra
     sha256 "d40af5a93e8a0b7daa1ebb5de3a25a00cd834283c18f26957e33aec3329ef8b3" => :el_capitan
