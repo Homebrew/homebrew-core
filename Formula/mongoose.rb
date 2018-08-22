@@ -6,6 +6,7 @@ class Mongoose < Formula
 
   bottle do
     cellar :any
+    sha256 "f03da6ce9b67eb2e7bf29fd1c54b729eac7da0482915eeb03c7a6671b1143240" => :mojave
     sha256 "b55ab50af9bea08d026102370b6bf9b24d9d1926caa97dddf8a47520ff69d3ce" => :high_sierra
     sha256 "a71f64a6f888bb252486be06bc75bc02d5f7ec8dee799300fe49653ce914b4ce" => :sierra
     sha256 "e80290df08f6d557b0fe750c882de3d87c0edc2ee12853afd3628d06c26147f3" => :el_capitan
