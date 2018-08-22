@@ -9,6 +9,7 @@ class Davix < Formula
 
   bottle do
     cellar :any
+    sha256 "7266206226db685a5bab507dee4d2e69e213da29d3035d0f5dfe1d9159f4e5ce" => :mojave
     sha256 "81684262b74eb8206b2775e5387cb693ff3b8dc64cb08a7f556a105a27d9eb52" => :high_sierra
     sha256 "3870bc1e60426091f1a0631fdf36536a66c2b3772a6fc69cd4f91630b79693e7" => :sierra
     sha256 "f59c81532a3c82c01fc6b5743bd505eeee06f7c4369c7cf5f82e112aec66870e" => :el_capitan
