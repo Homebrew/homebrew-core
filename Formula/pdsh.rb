@@ -6,6 +6,7 @@ class Pdsh < Formula
   head "https://github.com/chaos/pdsh.git"
 
   bottle do
+    sha256 "82769b0edd10de8fd1bd4d5b8968589b691e7bd567627bad51d079c6e363a5e3" => :mojave
     sha256 "d5f3224c594de679ee23cd87faf41371decf42083026925b70299690d3d93437" => :high_sierra
     sha256 "2c3294c33073829999df1f6c5c3a1c179375781170234a72cd4344fd989582d1" => :sierra
     sha256 "73f9503afaf38dfbdb91ad6ac18098fc3676396c2d5a16a8a1dbba0dda2e415e" => :el_capitan
