@@ -8,6 +8,7 @@ class Gost < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fa38308f78e658ab3b414c8c68e0c77c8d492a8214d8077075dd953720180f36" => :mojave
     sha256 "c8407066ad901c76a0974c8f649082e74f5916b3b364443fe26bc52bd878ec6c" => :high_sierra
     sha256 "45dee0c06d08b7db1b38509e496e8374d682ca1bfaad6a403fe4454ef3f4e5ef" => :sierra
     sha256 "42a60235f9f31d12b59d33867b4f74ac4e4fa979fd92f7066bd5720da2eb607b" => :el_capitan
