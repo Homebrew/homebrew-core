@@ -6,6 +6,7 @@ class GumboParser < Formula
 
   bottle do
     cellar :any
+    sha256 "aa6ed085625f40a65ecead082bd711dcb16af9aed6f74372edb7dc19e44fba5c" => :mojave
     sha256 "ed0957fe59981b55c1baf149022a5b0f3a163f1a6eb6e03e402da2f018406b9f" => :high_sierra
     sha256 "7c911b3f74827405abdf92cb6f6265cf7185043af4101d851eb68c5e69ea71e6" => :sierra
     sha256 "56f5446eb431b628655748659a8a7479466e00addf7d90070464364a3f3cafa9" => :el_capitan
