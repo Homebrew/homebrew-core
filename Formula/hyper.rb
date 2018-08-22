@@ -8,6 +8,7 @@ class Hyper < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9dda15ac5bc72c947a8d4604c7f2e7274b81bda9227522b08b66f44cadd527c2" => :mojave
     sha256 "7421ad982d00cd24c1397431aafcc5714db16236a50d8971eb59fdbb919a04ff" => :high_sierra
     sha256 "3d42b5e882de272e6830ee779ea7c3d0c430492a685309764f9a11520f5a7761" => :sierra
     sha256 "749d420319b8514008f33eaa78ec3bebb760bcae24d1541a676b9777272444d6" => :el_capitan
