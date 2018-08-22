@@ -1,8 +1,8 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.7.tar.gz"
-  sha256 "516f41b5c77e2068deb1624a338d1b7e0a37d44f30690942e038622881121636"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.8.tar.gz"
+  sha256 "a03c69d9a3e9abd4378628b35e8e3364011d51eeded5b1b31d879d22ef3da31d"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,8 +21,8 @@ class Kubeless < Formula
       ldflags = %W[
         -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
       ]
-      system "go", "build", "-o", bin/"kubeless", "-ldflags", ldflags.join(" "),
-             "./cmd/kubeless"
+      system "go", "build", "-o", bin/"kubeless", "-ldflags",
+             ldflags.join(" "), "./cmd/kubeless"
       prefix.install_metafiles
     end
   end
