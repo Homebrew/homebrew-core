@@ -19,6 +19,13 @@ class Php < Formula
     depends_on "openldap"
   end
 
+  devel do
+    url "https://downloads.php.net/~cmb/php-7.3.0beta2.tar.xz"
+    sha256 "28f040680ff517b6c3da403fd1048054de0e867246c47da36342f6a488661c70"
+
+    depends_on "openldap"
+  end
+
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "apr"
