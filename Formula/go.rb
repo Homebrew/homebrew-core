@@ -19,6 +19,8 @@ class Go < Formula
       url "https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15.patch?full_index=1"
       sha256 "9b879e3e759d56093ca7660305c3e4f8aee8acdd87126dc10985360395704139"
     end
+
+    depends_on :macos => :mountain_lion
   end
 
   bottle do
@@ -37,6 +39,8 @@ class Go < Formula
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go1.11"
     end
+
+    depends_on :macos => :yosemite
   end
 
   head do
@@ -49,8 +53,6 @@ class Go < Formula
 
   option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-race", "Build without race detector"
-
-  depends_on :macos => :mountain_lion
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
