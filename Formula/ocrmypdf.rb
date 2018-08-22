@@ -89,10 +89,7 @@ class Ocrmypdf < Formula
       venv.pip_install Pathname.pwd
     end
 
-    # pybind11 must be installed before pikepdf
-    venv.pip_install "pybind11"
-
-    res = resources.map(&:name).to_set - ["Pillow", "pybind11"]
+    res = resources.map(&:name).to_set - ["Pillow"]
     res.each do |r|
       venv.pip_install resource(r)
     end
