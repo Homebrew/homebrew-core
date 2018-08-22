@@ -6,6 +6,7 @@ class Xdelta < Formula
 
   bottle do
     cellar :any
+    sha256 "29a63934406537a96b023609a87998574d41943ed2cfe816b3febc24b7cc7db1" => :mojave
     sha256 "a65a726ce73eeebb9abfdf8069b08658dc4fad13527d4d162d1119cc32702b11" => :high_sierra
     sha256 "7f51b76d06a6ac8aae36c10b41776a374d5fafa6b55c4908a885be7a88194676" => :sierra
     sha256 "e07f928aadf6a9d8beb8a19fb72cb673cf0ae13c339ccd75c5df134cb3bc5c09" => :el_capitan
