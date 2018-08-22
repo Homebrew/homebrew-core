@@ -12,4 +12,5 @@ class Luit < Formula
   test do
     system "#{bin}/luit", "-V"
   end
+
 end
