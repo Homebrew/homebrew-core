@@ -6,6 +6,7 @@ class GnuIndent < Formula
   sha256 "8a9b41be5bfcab5d8c1be74204b10ae78789fc3deabea0775fdced8677292639"
 
   bottle do
+    sha256 "df1f57f1896c8b5d88d9f2e6e072dd9fc3800e2057b78879a49b67118173cad6" => :mojave
     sha256 "f8d8bd7eaa2694912f9f3cd247e252c66d21ed61a98220e768e5919f4572c022" => :high_sierra
     sha256 "6139793b451fdb8d5310729a06286ed66b23aac02d0179bfd27b61df1cc9f931" => :sierra
     sha256 "cdad0b612a3236fed1b625be2bab6500e02578ba271552e6a8a19d2cdf12df2e" => :el_capitan
