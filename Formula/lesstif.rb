@@ -6,6 +6,7 @@ class Lesstif < Formula
 
   bottle do
     rebuild 1
+    sha256 "4c7d5c15896694afd346ed12b62b8bfc7a7241d0067238ce546838014fcfdf67" => :mojave
     sha256 "1691f111917e5dcc96f5cc3faf77743d9ac135c16b4a1c2bf7c4f8e55cd26dbf" => :high_sierra
     sha256 "d3c4ea1fe9c0e12a88f9a35dbdd4903d93b69bf89b570e9b1a0e15c8d1104275" => :sierra
     sha256 "bc26ea0e27740c5b3a045b776737ff94ea0bc68b833fc013b92177511271bbcd" => :el_capitan
