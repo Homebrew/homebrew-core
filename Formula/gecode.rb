@@ -6,6 +6,7 @@ class Gecode < Formula
 
   bottle do
     cellar :any
+    sha256 "9f2ce554a2852d01938f6e87f078eff106ae6e6fc4f57de2847d0ad37a504129" => :mojave
     sha256 "da783568e09b883d70dd917593545d8031468d6315ec7a26294f11b3c31e223b" => :high_sierra
     sha256 "32c20941d3c2fd4f4aa215e5e2b1986592f0d823a10eb2ff9caf97ed779802fe" => :sierra
     sha256 "f75705cf2c1313eeb00e99c4699bb631b0c8ff4911ea322bc53c424e502d68cb" => :el_capitan
