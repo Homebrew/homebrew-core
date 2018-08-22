@@ -5,9 +5,9 @@ class Modules < Formula
   sha256 "7eaf26b66cbf3ba101ec5a693b7bfb3a47f3c86cad09e47c4126f3d785864c55"
 
   bottle do
-    sha256 "114cc45a31e4def1cd2f2696fd3b1c2186ee40c213cf75bea851f2c8c83f03ad" => :high_sierra
-    sha256 "d3905f277d578cf15ff6ce9067109a7aee8d78eab80029da676f7252d07a6bab" => :sierra
-    sha256 "d3b77d5de4c9f08221797e7771061e18f76012f2cd0328b2fc2acccbbea5ca99" => :el_capitan
+    sha256 "29eacb986d942b621d5aa161952c962250cc6d96acb9929425d8a5284f7a6ca2" => :high_sierra
+    sha256 "4e45ab192bad2a47c3b63e7de10d61c701a1f8a70a011956b21203074dee8418" => :sierra
+    sha256 "b3a8d7c48c0b6c56a706357da2a0b6087c593f2254acd7b84956e6870053b8e1" => :el_capitan
   end
 
   depends_on "grep" => :build # configure checks for ggrep
