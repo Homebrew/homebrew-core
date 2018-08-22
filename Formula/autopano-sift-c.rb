@@ -7,6 +7,7 @@ class AutopanoSiftC < Formula
 
   bottle do
     cellar :any
+    sha256 "4ccc74538e6f6b01fd42c659991d0ba67e2544eb135f130d052dd1d2688070d8" => :mojave
     sha256 "1127a58fa18f17bdf4776de9fa8871df153d80447ac7b03388aceef71da87b8a" => :high_sierra
     sha256 "8b3c5657e1b4b29848bc583b8794eb1739018058c42a291bf3016fee02ab0532" => :sierra
     sha256 "9845348b5630218469ee555c666677303fa8d9cf45cd7aa51b26e1bef81cd76f" => :el_capitan
