@@ -6,6 +6,7 @@ class XmlToolingC < Formula
   revision 1
 
   bottle do
+    sha256 "2fd69122b2fa8f8b4029ac2c99e57914213691f1cf225fc2cf92eb7664cd95f7" => :mojave
     sha256 "9f79c4dcb252510563bed587cb6daf46f559170c8d18dcdf578e381df82cf826" => :high_sierra
     sha256 "8bed31c20f47ad632bc18520331ec52c7cfe67a365e6f66979816993e600f74a" => :sierra
     sha256 "8c46bd6bc746ec5e91e56fc44daeb3f003b65e79db3486db8aaed0951191213d" => :el_capitan
