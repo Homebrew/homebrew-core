@@ -6,6 +6,7 @@ class XercesC < Formula
 
   bottle do
     cellar :any
+    sha256 "828f9eac5c4f3797e8abec3dfcbaffff9efd6db6cf7a9ff4b71056b331736e74" => :mojave
     sha256 "4573b8dc10a8a27fd7ec3f90b8461d24374b0e7b6edf0de1320b838e71b857a5" => :high_sierra
     sha256 "41b0b011bba42bcf10aff5b6eb675d6c43e273cd07ab45487b9fbc8d34358e63" => :sierra
     sha256 "c57035c626055d274e947b2bb338389d1100951e1545c4f933c74d2ac52dda32" => :el_capitan
