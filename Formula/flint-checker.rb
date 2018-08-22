@@ -6,6 +6,7 @@ class FlintChecker < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8cd18ca30e932554d379b710cd9d1adc9b14c073d2c7bf7f993c4e98c2349947" => :mojave
     sha256 "b1d4e65bc48b267d9d05b31ad5321d534717a5b0122d80a8bf5d483bd4c00662" => :high_sierra
     sha256 "0d246b741b5a09fcb7aa0641ba2322e55db92eb98b755f6528171e0ce82c782e" => :sierra
     sha256 "be77f701f14ecabf655ddbf92eb132aa0cca9413196343783032a665ce2b33c0" => :el_capitan
