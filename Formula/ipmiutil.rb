@@ -6,6 +6,7 @@ class Ipmiutil < Formula
 
   bottle do
     cellar :any
+    sha256 "5ccb298e95d2a6f8303bc8c5d3a6b4631022f9fab3497c758c852f014301dbf1" => :mojave
     sha256 "50cce938979cf77f307cb2e17e08fe6a1402b1f785561a578360d75308138288" => :high_sierra
     sha256 "896eea4929dcd86ede955f0657424d1bb40e9a08e1aeb4d42658f4a8c00a9095" => :sierra
     sha256 "25f46961b538e12edffb311b07cd90af6ad7e4dc323431b6e512375f243e9f21" => :el_capitan
