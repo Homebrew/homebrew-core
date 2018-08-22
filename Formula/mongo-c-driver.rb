@@ -7,6 +7,7 @@ class MongoCDriver < Formula
 
   bottle do
     cellar :any
+    sha256 "7dc4baf7e63dcf6c5d6def86f184a7adcc81aaa8a1c13299617b026302895374" => :mojave
     sha256 "be1b35f4be7bb51c1a197dcff0bf9fd3eb889be9bafbdb7e0a78b71c12e37fe7" => :high_sierra
     sha256 "a6690410b366cc788567a3820f7a4d723a125152b4d12469c58b66a22fbfd062" => :sierra
     sha256 "78197ada6b5453007e6dd8b49409c260ff7ed458f2db7040b8ee6d85f72d629e" => :el_capitan
