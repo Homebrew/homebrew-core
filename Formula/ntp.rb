@@ -6,6 +6,7 @@ class Ntp < Formula
   sha256 "709b222b5013d77d26bfff532b5ea470a8039497ef29d09363931c036cb30454"
 
   bottle do
+    sha256 "68a5e42380f38ebc941864ff5f2cf710d8b23a1ceda7b612996f7bd27fd37d51" => :mojave
     sha256 "d0e19a944a165087388ef43010a9d5407c08a96b461574dedb13b4a0e1a4079b" => :high_sierra
     sha256 "e177b88d4a9bb828bdae90f935fe138ca59eba94c7aafa1ab13bfc65caf0a82e" => :sierra
     sha256 "bd59b6a069f159a7a226f12ac254e41702fb992b2c6763adb9af25e659dd18f3" => :el_capitan
