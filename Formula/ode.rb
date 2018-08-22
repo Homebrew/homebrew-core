@@ -8,6 +8,7 @@ class Ode < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "db6d5149c20d30e8ce3492ea197f27c2d0506b8c290576ffb08b82e8b64839ce" => :mojave
     sha256 "d392aba8c14119ee6072c2677835e928d9a9cca95d4b3c0ef0b82aedf1bc0147" => :high_sierra
     sha256 "34670979e3b841475cbbef0038203bae036baa753a6c03af179a0aff7b27d168" => :sierra
     sha256 "4f2986f5867bd16da6836dc9a580f1ca2a01f4d7177fd3308b4fcea41443ac7e" => :el_capitan
