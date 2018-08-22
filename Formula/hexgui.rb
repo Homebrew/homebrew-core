@@ -7,10 +7,9 @@ class Hexgui < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "28ebbb4d02ce30c52cce946c83003779b9dd17d31cc8af13697ee784a641462f" => :high_sierra
-    sha256 "a42e53240607300a36a09e6effb73597491ccfad44a8c6d004238ac72ccfd960" => :sierra
-    sha256 "c9b7f2d9bc024be5b468e952e20ed25b2e779907998569e5065ad3cb5a472170" => :el_capitan
+    sha256 "01862818b35ba08d8c4f2d10242797b8ae60a6db4621dd53ce8b5fd41722dcc9" => :high_sierra
+    sha256 "4021eba73364a966aff074205f33d5718ab9b51fc0ff6f4e7d5676d97439fb01" => :sierra
+    sha256 "7be565ccc6959d4373fea52cb9fa0d23bc42039b1c8fb29fbe53a101f23685d7" => :el_capitan
   end
 
   depends_on "ant" => :build
