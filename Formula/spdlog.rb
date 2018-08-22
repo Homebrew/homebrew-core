@@ -7,6 +7,7 @@ class Spdlog < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "727a543cc70521b2001d46c8d0ff809b5471a80877a17389107f4fd475058e69" => :mojave
     sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :high_sierra
     sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :sierra
     sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :el_capitan
