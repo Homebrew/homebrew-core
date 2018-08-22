@@ -6,6 +6,7 @@ class Plank < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a8ef5d8f039de6c40a87101d69a0fea96a151008fc72796be3d1eb1598d465c8" => :mojave
     sha256 "b5731e67f8155038764e927d6363c16f04cce69edc3c25bff78d9c39beaae4f9" => :high_sierra
     sha256 "374262fdc60398fdf217c8bb2e458641ce683eb5dc6c5979cea84f0a5a4adc82" => :sierra
   end
