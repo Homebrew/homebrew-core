@@ -1,8 +1,8 @@
 class Hexgui < Formula
   desc "GUI for playing Hex over Hex Text Protocol"
   homepage "https://sourceforge.net/p/benzene/hexgui/"
-  url "https://github.com/apetresc/hexgui/archive/v0.9.1.tar.gz"
-  sha256 "7ed1af209617ad2e4877e5f46b4ba78eced14f94fa581b65ac3111abc7613c08"
+  url "https://github.com/apetresc/hexgui/archive/v0.9.2.tar.gz"
+  sha256 "8c4c808b72412e4f3d506921f21692ec63ed28a783179fbdee4eb19ed82fdeb8"
   head "https://github.com/apetresc/hexgui.git"
 
   bottle do
