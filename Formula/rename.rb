@@ -9,13 +9,9 @@ class Rename < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c6d199c9b373fa8d7a39515350812c12cd5165a5a38d5cddec5f19c74502fd51" => :mojave
-    sha256 "131f754e5ea1245b32b79acca0f77ef5749973ed8326d5aac196a4c7f14efecf" => :high_sierra
-    sha256 "9c92c253b431d5c821048a32309aebb2e7453e2121ae7661f7afcbd74479078c" => :sierra
-    sha256 "29ee5c40a54dc5d1e7a157e28c19790120cd71ac5b072aa8bc1a07fdb4ad5dae" => :el_capitan
-    sha256 "2ed1a6afa1543ca67c85763ac9cc23e40bb85d359234e2d4af0fe79db8439a89" => :yosemite
-    sha256 "70f3263cbca5dbda0b477bf9838fdf4447c101ee89cd7f72fe2105657892431c" => :mavericks
-    sha256 "c632dad8b0ddc1853db87eb88a408ee352a79a95a68f5574a0c2ba6512cf02ce" => :mountain_lion
+    sha256 "b40d758f416765733e0071705fae180c62c63058b350c379b9f36da9da98fad1" => :high_sierra
+    sha256 "b40d758f416765733e0071705fae180c62c63058b350c379b9f36da9da98fad1" => :sierra
+    sha256 "b40d758f416765733e0071705fae180c62c63058b350c379b9f36da9da98fad1" => :el_capitan
   end
 
   conflicts_with "util-linux", :because => "both install `rename` binaries"
