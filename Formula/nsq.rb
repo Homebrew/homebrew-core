@@ -9,6 +9,7 @@ class Nsq < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "12610284372b58cdc9957d40bcbf0ecb4ee2cc05014a3b522d4ffa079f82317a" => :mojave
     sha256 "bf7029656b4cf5fbefaa252ed1cac50dc49a31139eda7b583165bfcacaec1e42" => :high_sierra
     sha256 "5bb322677d0bbb1f4f5fa7be1584cafbfcec01e67c0063f6ee14a13933389c6e" => :sierra
     sha256 "2f04a20ef5c05ddd00893198ca5134a455869d1a231893d7931603c60a4dd497" => :el_capitan
