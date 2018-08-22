@@ -5,6 +5,7 @@ class Chezscheme < Formula
   sha256 "a1d9f93bd8a683ea3d8f2f1b4880f85ea40bf9a482ee6b84cb0fe0ab6148a98c"
 
   bottle do
+    sha256 "7599610cda8eeda8b10921d4e8092f939b02fa32810201fea5df0bcb7b0623d4" => :mojave
     sha256 "6d2cbd144310fa2c0fcd8aed0e673ed5b301bea98351122b98aad497ca474db1" => :high_sierra
     sha256 "e3a63252006520a340f1a208506cca2c4210e08865b322bfd9be7cf83babbeaf" => :sierra
     sha256 "684d39c61e2d1279106dba378d1d1d9de0b1a10a7668a73d9c59f44e6a450f1c" => :el_capitan
