@@ -6,6 +6,7 @@ class Elektra < Formula
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   bottle do
+    sha256 "12873d0d52af242cc27c7a97d11c0c67436f22aae1d30fb1ca8a7555bbde9f7c" => :mojave
     sha256 "f547a7e7adb757772d85a1fdc7de5854191605e2d116c87948da982fb4e35194" => :high_sierra
     sha256 "651713da404920c213be01e9495b7696e4183dfdc8cf5324d2152746d9b37013" => :sierra
     sha256 "f4646cbfc24e57040d68e1de12d92bad49c91886fb3a4318a43f7f3d47ba460b" => :el_capitan
