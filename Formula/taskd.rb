@@ -7,6 +7,7 @@ class Taskd < Formula
   head "https://github.com/GothenburgBitFactory/taskserver.git"
 
   bottle do
+    sha256 "5114191cccfbb5cfcff6ce3b6d7ad5a6e373d8153653e7af734f362a9e70239c" => :mojave
     sha256 "53ea3abeff00da4d69f53d089416c1e003bae625decbc44412b8ff51b9ccf302" => :high_sierra
     sha256 "93b3a449cc983885491a01511275b3b4b8ff6cc624aa4326a9e268d4a28ff4af" => :sierra
     sha256 "d7806f456a540d6052928f6e1c9fcd5e89f0d1b3c5496d552e187b117fc94b24" => :el_capitan
