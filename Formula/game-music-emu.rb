@@ -7,6 +7,7 @@ class GameMusicEmu < Formula
 
   bottle do
     cellar :any
+    sha256 "69d5f7bf77f715adde6f957f3cc381f62cc1df1d320bf9c5b539f32f5ba4bdaf" => :mojave
     sha256 "fa5d01d37320f200b61257cabe024ff4e51b801f37fcf217b455ba06abeca197" => :high_sierra
     sha256 "11069c82318a509cefef8132816ecac1e84d857fcc317532fbfd73b040c1e225" => :sierra
     sha256 "df8297b2e54ef3a24291d03006a4b0b9e2c7c004e3f9abe1f278a204a0efd031" => :el_capitan
