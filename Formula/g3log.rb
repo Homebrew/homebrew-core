@@ -6,6 +6,7 @@ class G3log < Formula
 
   bottle do
     cellar :any
+    sha256 "ff0722f39f2bf0496565930e9a6fca1cb053c5e120d0628bcdc8ad336c2c9f54" => :mojave
     sha256 "59c77b06d62ea06a4aa96ce6ecf1903a415d32248631cadc2c1787e291f006fc" => :high_sierra
     sha256 "be3b9045a3cc0e011db0e9d9bd7b8feda8080a0fb591edb33a846d990395f4f6" => :sierra
     sha256 "4cd2f01ea225e95a348d1a514cf14f2c51eb47b1ef2f86c8d3e7c8218ba0eb31" => :el_capitan
