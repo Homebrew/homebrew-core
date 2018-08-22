@@ -7,6 +7,7 @@ class Tinyxml2 < Formula
 
   bottle do
     cellar :any
+    sha256 "a5a063becd2eb23cb60d027dff701e383c4004ccfe64b678f2f25d99d9ddc3b2" => :mojave
     sha256 "2ab6bb019753ec963c3809c7a309752641a4610a324a232e019d38ef1a98d0cc" => :high_sierra
     sha256 "b7a71975137d0e8e5cf427ff671657c1abda3aeff595b47bb64aa134c0f1bf78" => :sierra
     sha256 "64c3d24dbee1c26d102936bd65dc4fe6235f4146b9f8cdfc303849787d95e66b" => :el_capitan
