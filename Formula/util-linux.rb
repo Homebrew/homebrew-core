@@ -3,6 +3,7 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz"
   sha256 "86e6707a379c7ff5489c218cfaf1e3464b0b95acf7817db0bc5f179e356a67b2"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,6 +13,8 @@ class UtilLinux < Formula
     sha256 "f08ce5604fe17b7d14d2dcca3902e7e01836368d41b3f05dd23a08fdb59bdd61" => :sierra
     sha256 "ef8aea494486a2cb3c49c18a1772c596f12f4bed557cdbbec94639b279a4e969" => :el_capitan
   end
+
+  conflicts_with "rename", :because => "both install `rename` binaries"
 
   def install
     system "./configure", "--disable-debug",
