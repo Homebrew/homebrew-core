@@ -9,6 +9,7 @@ class Libkate < Formula
   bottle do
     cellar :any
     rebuild 3
+    sha256 "8f075fa46eccd65fe664e8caf42754b6d03ff1fa7f305566287af0cd6e72b396" => :mojave
     sha256 "65f687ae05918aa2f2fb4e27f384d6645a0f64231e8dc9343c8435347895d792" => :high_sierra
     sha256 "e7b6c1288455b12044889d768b4593a7a08beac5c4c2534f24565adb58f4a9b5" => :sierra
     sha256 "244a27eb03227b1455bea4ffd9f8a73ccd660389c44e9719d62bba1a4247bdf6" => :el_capitan
