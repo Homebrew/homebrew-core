@@ -6,6 +6,7 @@ class Kore < Formula
   head "https://github.com/jorisvink/kore.git"
 
   bottle do
+    sha256 "ba5415f507f276e25c99857270e24da3354eb784a9fb659db854987b2e467d9b" => :mojave
     sha256 "74d9babde97c58bab9e763510d60762b6be89237eb5129073b4820d31a6fe43c" => :high_sierra
     sha256 "533aba9652749af143e213d66217d4330d7e5829334cd5258c22437266e78468" => :sierra
     sha256 "226f73e82833adaecc36f648c742619b4ae8795f2fb30fc77c6e37cd5c9e73f1" => :el_capitan
