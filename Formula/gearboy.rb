@@ -8,6 +8,7 @@ class Gearboy < Formula
 
   bottle do
     cellar :any
+    sha256 "cbb37a8ffbb9649763f36f75236c1f8f2b4001a16c1efc56af7069247a0408cb" => :mojave
     sha256 "1d670f7aa0fabb668cdd96c5f3ef369f96f791e70586191e23ee244ffc024bfb" => :high_sierra
     sha256 "91bfab6b8f83e80620d72c40cc1ca4256d7f15910d48d2919a6ba9c152939425" => :sierra
     sha256 "35e8aeca3e1204cfa1fd105634994d94e4c69f86bca4bf791fcd937c9da2ab29" => :el_capitan
