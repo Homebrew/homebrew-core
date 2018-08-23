@@ -1,8 +1,8 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.1.18.tar.gz"
-  sha256 "49670fd71a115c3f12ae5b9c84f9bf1e0f47734a4501ad3cc1ea980068066de7"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.0.tar.gz"
+  sha256 "909b7e613dd94cb09db3d44b2f92daff32f1b3f97f01a8fefd9c6adf0a34aa02"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +19,8 @@ class TerraformLandscape < Formula
   end
 
   resource "commander" do
-    url "https://rubygems.org/gems/commander-4.4.5.gem"
-    sha256 "d6ee57931e589e89c5ed27b2fdb1661ba28c6c021c635bbac6e96ded55363e6b"
+    url "https://rubygems.org/gems/commander-4.4.6.gem"
+    sha256 "8e73079a5a1efb5c51b604ce427485bd071563ab7e5fb2675f4db40896164d87"
   end
 
   resource "diffy" do
@@ -48,7 +48,7 @@ class TerraformLandscape < Formula
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
       system "gem", "install", r.cached_download, "--no-document",
-                    "--install-dir", libexec
+                    "--ignore-dependencies", "--install-dir", libexec
     end
     system "gem", "build", "terraform_landscape.gemspec"
     system "gem", "install", "--ignore-dependencies", "terraform_landscape-#{version}.gem"
