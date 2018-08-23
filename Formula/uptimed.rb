@@ -5,6 +5,7 @@ class Uptimed < Formula
   sha256 "01b16519bbdd3b99c97a09e910b74e4dceb5eea74e3ab20b6c90c76c8cb55905"
 
   bottle do
+    sha256 "607e02ebcebdeb8413890a529bc3b2a74e886dc8ba530b87be890519e8c3a8f4" => :mojave
     sha256 "7dda8cf4cbda86ba76db57c3352b916726da78640e656c49edf5c8b63441a817" => :high_sierra
     sha256 "01e1e14e4af2adc149ef379042fbb223fd9ce27fbc7f2b0e4711088c90bf9dd1" => :sierra
     sha256 "9b0d74450aa29f5fbbc1f6d2749b9d35c9af37e4594c88b53bb4c950a7c4c73b" => :el_capitan
