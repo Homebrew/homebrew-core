@@ -6,6 +6,7 @@ class Mboxgrep < Formula
 
   bottle do
     cellar :any
+    sha256 "93f800f8bae502815c85bac9dd2d7ec85599caa1ee08b6a4860ca8db11ab7276" => :mojave
     sha256 "431d64ae6c1387c69b052942ee6b268ac9afbcd5bfff9d02bc21aeeaaa9807dd" => :high_sierra
     sha256 "44a294d075cb08e577c4d1c1e45c222bea93f3c8488f9bed54ded5b36797f536" => :sierra
     sha256 "ecc1d1a83a7ffbc3414feb24c970b89509737f7d1de5c0d8dbd71ba55e008220" => :el_capitan
