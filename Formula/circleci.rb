@@ -5,8 +5,6 @@ class Circleci < Formula
       :tag => "v0.1.1430",
       :revision => "9788d7512e7e4018f3f98f471d874cab66475175"
 
-  bottle :unneeded
-
   depends_on "go" => :build
   depends_on "docker"
 
@@ -20,7 +18,7 @@ class Circleci < Formula
       ldflags = %W[
         -s -w
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
-        -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}"
+        -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
       system "go", "build", "-ldflags", ldflags.join(" "),
              "-o", bin/"circleci"
