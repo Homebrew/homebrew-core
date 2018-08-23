@@ -8,6 +8,7 @@ class Exodriver < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "2fae34af7c35f396fd6cc26143da484be3ca4bf51a900a76650096bbe40adb5c" => :mojave
     sha256 "2be616189c54c4d1046b8d8fbddfb6366a64149f37927ed692413c154cbdae96" => :high_sierra
     sha256 "7d02fce0526573c60aebe7a30e0b3b60d114cc95f4e59f0575b508b65409f187" => :sierra
     sha256 "15753f1e5a45758a67429900cafdc4954fe9bc00c2ed0b2cf45b7a2a4544c24f" => :el_capitan
