@@ -6,6 +6,7 @@ class Ortp < Formula
   revision 3
 
   bottle do
+    sha256 "82e6500bf0f685aba6eb59a9198b6f3f8fb3928a9f9e2a72b1734cd9e875ae7a" => :mojave
     sha256 "29ed10dcce917af7edef44a75ff57ddc13d8b7d1c6e1495b4316dd3ff9a19da4" => :high_sierra
     sha256 "25d22aed8eb680d38e3b1ad9665a16923a8e602bf1425a7f52138e2f5a534a95" => :sierra
     sha256 "fee93f3d2e3a72616d1718b1211c0828442635d0433ae89bde6567adeea98038" => :el_capitan
