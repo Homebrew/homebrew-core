@@ -20,6 +20,7 @@ class Bitlbee < Formula
   end
 
   bottle do
+    sha256 "4e397710ecbbb772f346151ea9c99dd2b5a80e05bf93d4f0be2e23fb21e1bbea" => :mojave
     sha256 "75272001af19553b23bd5d999c76570e9f53c5f0386fe8377f4e8af6e525fb50" => :high_sierra
     sha256 "a73fcc3ea892e02dff11eda82c9338230f16778d786dbcfecae89802fb0859cb" => :sierra
     sha256 "f1e4ace83358ed1164d5d8cfbe7ffe239b5698d24211150b86dbf4d4fb589a37" => :el_capitan
