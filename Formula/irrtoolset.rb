@@ -6,6 +6,7 @@ class Irrtoolset < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "762255e42d2e0241eaf12e4367b7212657ff097f58fbd2cb80d599cb6489c58c" => :mojave
     sha256 "d80526a2be3e45463d775c12d4e53a4d16bee7d6b153f13df679c4b02c291dcc" => :high_sierra
     sha256 "c3bdb3567581aff255053d8ee218f3715e94cb05555456406982186a1bcffda0" => :sierra
     sha256 "3ab236e3d5041ddc54bf932d23f0a4da30d6dd876cb6ad4ec61a9b570c910779" => :el_capitan
