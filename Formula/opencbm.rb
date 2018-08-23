@@ -6,6 +6,7 @@ class Opencbm < Formula
   head "https://git.code.sf.net/p/opencbm/code.git"
 
   bottle do
+    sha256 "489ae793f9f226c93667cf67f23d7eac1cde97d4ed33549bbe9731fcc824eb2a" => :mojave
     sha256 "d9555da83fc70f801663f13cfc4ed34241feec72d29125fb12a2105fce414210" => :high_sierra
     sha256 "6ff076233d442f7f15e22595623cf46c38cf1024997240bd48db1e4bb01c44c2" => :sierra
     sha256 "6ba3fc869e59f002f6ae897cbb34b4ece023c11371c3d611453b330714b65cba" => :el_capitan
