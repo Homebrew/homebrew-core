@@ -7,6 +7,7 @@ class Corsixth < Formula
 
   bottle do
     rebuild 1
+    sha256 "70626a4eebd24a186e7a41cb7fea3aaacc2d6942cda1b3bccebceb035b592d24" => :mojave
     sha256 "05097a9e407ea4d7407fd869c44341e6f85e81ac22471f39778ebf319345f82a" => :high_sierra
     sha256 "cfdcbdee3fe6f3bebc10ff7c2c4009d46e15ba42a78717741931dc36dd097f14" => :sierra
     sha256 "b599f6fedf4dfe0c62d40b191007c51fa25f066c761e2fd251349b48ef0d59d8" => :el_capitan
