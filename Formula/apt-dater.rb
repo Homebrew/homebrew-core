@@ -7,6 +7,7 @@ class AptDater < Formula
 
   bottle do
     rebuild 2
+    sha256 "ee24c55759d197401d4b4c930837c48a5343edf1ed9bb308c7fdedde2be19cd8" => :mojave
     sha256 "2263ba095d1b5250428fd765b4c591886a4f7c117b1bb62719df1033a246de32" => :high_sierra
     sha256 "026b29a9428c2c1d77e70001c8651f8e8ac20b20dee1ba62a89e0d69e2da570e" => :sierra
     sha256 "a2f37094132e6f5cd8ad9b287bf299eea8acbc99b1d468002dfe875a8a14985d" => :el_capitan
