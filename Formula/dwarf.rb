@@ -5,6 +5,7 @@ class Dwarf < Formula
   sha256 "a64656f53ded5166041ae25cc4b1ad9ab5046a5c4d4c05b727447e73c0d83da0"
 
   bottle do
+    sha256 "13e3227b35f3efb0ccd3d91c8ce2786b10fc24a2060a478fa36581197b237c23" => :mojave
     sha256 "47af5ca1f6349c0d8c49f1ef72cbed7fbaa6e91c263c8a284afd841e8ced56f9" => :high_sierra
     sha256 "69a1b11620f73e519cf6abade5a23e478a4c7c44cd4fbc9996b05c464c53e8d7" => :sierra
     sha256 "042c140300ff583047ec5f51e3877b4ecf22a3c25a6108c11ae067b9e525d05b" => :el_capitan
