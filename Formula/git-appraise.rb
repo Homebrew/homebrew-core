@@ -7,6 +7,7 @@ class GitAppraise < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f5f69cc84ebca243907d1e735b8f80807f48de36b3d6eea42a8ab99edbd48eb0" => :mojave
     sha256 "e515979b703cef062e19829399ddb441c91d835e25814614c938af36764fc0d4" => :high_sierra
     sha256 "c048f2cce708e7c85c74d18758e47d3959cce29e2f8e70bca021b1564e65092d" => :sierra
     sha256 "e12ce185286565f4f07f48f1deb2fd4a19043bcafb337de94b9ba7148291b91b" => :el_capitan
