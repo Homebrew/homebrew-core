@@ -6,6 +6,7 @@ class DmtxUtils < Formula
 
   bottle do
     cellar :any
+    sha256 "fe694e604d62e41231d194d13fde0908c12b1e6495e48409479567c2a7d5f85b" => :mojave
     sha256 "05d42a829bd84a769a9c96d6cc26737eb86f9a32126d210cccc55fa0ceef3d22" => :high_sierra
     sha256 "0a9fde419f3e14cb13b3f1f527e83653e66f61f054727f93da9e7b4bbd709ea6" => :sierra
     sha256 "f9b43f0bbeada1a08355536d51c63a068d51897cf968f7d65699c6f6745f2f81" => :el_capitan
