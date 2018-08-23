@@ -6,6 +6,7 @@ class Djview4 < Formula
   revision 1
 
   bottle do
+    sha256 "9eebefeb3550c14c8f72b75d78ef07cb1ae226c3ddb6ecfad69c07039f202dc2" => :mojave
     sha256 "8674ef6625416ddcb9d5f7a8a5b50c4e6846d19f04630de7038c759fbef95bac" => :high_sierra
     sha256 "8cc214252ddf146d8e4b65210436036197b556ff40b136e2784a1d95c9a4f43e" => :sierra
     sha256 "82c4310f2e0af35fb98fce109660ec79bdc4075205b8f5c053d58b4b87b37099" => :el_capitan
