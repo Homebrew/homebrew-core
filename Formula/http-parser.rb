@@ -6,6 +6,7 @@ class HttpParser < Formula
 
   bottle do
     cellar :any
+    sha256 "327ccd7d4ada0dce46e116ec2c26b3f931c7f2ef88d849a76d14f7d8798e3753" => :mojave
     sha256 "7178c5fe4dc5c38d129d81f7abc654919e8ac0a7dbe33e9409e765258deef09f" => :high_sierra
     sha256 "c4ad12da88940514f531b5cb1c13ee8aab7e069ac1680b391d5bd74b7fc1ec86" => :sierra
     sha256 "6f80645e6e13d73eb0521daf7f244492015767110cd1282ccc8c827c5b97c5b0" => :el_capitan
