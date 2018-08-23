@@ -7,12 +7,10 @@ class Lrzsz < Formula
   revision 1
 
   bottle do
-    sha256 "22a62f1fa5fe2efa9f81b0b1ac747b10b47bdf4e3b64c3672a71b87f6a8ae14f" => :mojave
-    sha256 "90c283b839ebd3dc24c81192955e8ba697368fb2c2dd641d66ebbf7baf41d0f2" => :high_sierra
-    sha256 "1ae883de3fa1c03f926ab1c35c5a8564fc955096ca166a801bfcfdeefa9dc860" => :sierra
-    sha256 "578641aa80e798cfea91cd20b1d6f0b6a3190f2656dc81e3ccc24caadcf1c3b2" => :el_capitan
-    sha256 "c417cab543224228762023031d93f2b4acfe0f970ed3ea1cc6616893e83cad6b" => :yosemite
-    sha256 "2644d211f486bbc5e67094d80454025a53e9dbda37154e9161f6a5908958788c" => :mavericks
+    cellar :any_skip_relocation
+    sha256 "c23cc0b0c9a0a7fae5a2e3d69ba01a7e6d09ad5e5a7d06c76620b72773ffebed" => :high_sierra
+    sha256 "997f5b81f84b7814b0f4f78f056404f6c309eba1e62136e5f8ddf4b34d953b59" => :sierra
+    sha256 "1d6517842b64582f629f36e469b61ee91563e1ef1a1b1841a8a4634759dcb0f1" => :el_capitan
   end
 
   patch :p0 do
