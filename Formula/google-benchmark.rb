@@ -7,6 +7,7 @@ class GoogleBenchmark < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "038a46b4f7139afe7e8e7fe5da555d850e0f39d79194873ddfe00a9aefd668fa" => :mojave
     sha256 "d3a9c1aa49fd97e55567a04255cbcb3b580e7cee8f9a3a3c0de78358b72bfd69" => :high_sierra
     sha256 "14c6adb0f7f835bdd5477a6a2ae1d4b4b835ad7a9b71dcfddfbe361bef54a147" => :sierra
     sha256 "913d4450128edb4509f2cf8a9168fad45fb5e14d0f6808d81694ad0a20c45ec1" => :el_capitan
