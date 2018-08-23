@@ -6,6 +6,7 @@ class Libmwaw < Formula
 
   bottle do
     cellar :any
+    sha256 "40ec393d7902f99e589a5cc5ed73695bf042dde3a3e9a0468ed986e794dbb344" => :mojave
     sha256 "560cf0431ce0404f25c2f5cc35be0f075419342ee31002bd0cdbc8deaedab4f0" => :high_sierra
     sha256 "5a99c929ca6737472d990294729e666eb1e8a1ba98f95d8c7aa667f7d07a3ade" => :sierra
     sha256 "ce9e272ecd44be8276faa76ea9084f34e22082074b85a929cc2fcd64ac87e5c2" => :el_capitan
