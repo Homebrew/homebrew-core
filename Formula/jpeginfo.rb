@@ -7,6 +7,7 @@ class Jpeginfo < Formula
 
   bottle do
     cellar :any
+    sha256 "ea481ba295f3e6a7dcaa4b220dc63ecbada6b652b5f4f83ad01d49dbbde96aaf" => :mojave
     sha256 "afafe6f163b0e058975470f6281907d125408e0c1c678ade5ef141024b6d20ed" => :high_sierra
     sha256 "0ec9e97f1ce99e36c9e5d4de8be48ca6b5bfc2d807ee590115426a7c57e26d00" => :sierra
     sha256 "ca1548c5ed9e3f18cf2e013f49d22a00276c9ef0b3d829fd256ae48178ed9974" => :el_capitan
