@@ -6,6 +6,7 @@ class Beagle < Formula
 
   bottle do
     cellar :any
+    sha256 "9b7d3783ddf2ebf6c6fc66593d99f088a1301fc5864ddd8297388f0ef22f82c4" => :mojave
     sha256 "67d0ab1ff1e002ee1e7cd8c2c115e0b99c48f37e3f19f960a172c4ef5ac72689" => :high_sierra
     sha256 "4fa457aa7ce867b6147d07c9a8b1043e69a45cd1f3190566d1697e8acdf08415" => :sierra
     sha256 "9bd4cc062508f497135833251d2e12dca80ed702dcd675e6374719bef33e42e2" => :el_capitan
