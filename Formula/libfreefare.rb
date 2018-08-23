@@ -7,6 +7,7 @@ class Libfreefare < Formula
 
   bottle do
     cellar :any
+    sha256 "3a645119486107a89e8654559680673476b926c82988e00aa9b15157092639bc" => :mojave
     sha256 "6c2de11e9321e8ed3bb09dd15ab5f383c9d0208e5902545c5e69f18071b78b58" => :high_sierra
     sha256 "03d3fffd9c4cf59b2a5a735e2b32262a7bbe1dde56e7ebf6d0e9f71eff8def87" => :sierra
     sha256 "3314a682b1c0443f3e924bdc4a3294de0d3d979860224f72b74531701915f914" => :el_capitan
