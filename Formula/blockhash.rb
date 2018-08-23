@@ -7,6 +7,7 @@ class Blockhash < Formula
 
   bottle do
     cellar :any
+    sha256 "6ffdc13e9245f06147a95870dbf8b0b380bda2cb4fb0036988cf1d9f4a96ce2c" => :mojave
     sha256 "c4b04968387672dded5493575dbc182f9a8cd43dce80943c5eaca9450cee1a44" => :high_sierra
     sha256 "e684a55045cca7db8816b9fdb0881290c5cf80c20230dab454aef1d90f45adf4" => :sierra
     sha256 "aadd5917fdb402fad8d6b7b02ca379cdefec0151edf0b8fa1135ccf1767e610f" => :el_capitan
