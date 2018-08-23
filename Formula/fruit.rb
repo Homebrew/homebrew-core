@@ -6,6 +6,7 @@ class Fruit < Formula
 
   bottle do
     cellar :any
+    sha256 "01b77df0ea53c6672c766f464b753583ac530f6f759cc74c0235e3b2b88cf75b" => :mojave
     sha256 "68d203232c339e922d31b8202abd16d2548bab5fdfbe4ce1167822adc8ef1b00" => :high_sierra
     sha256 "41d0398cabe780492baaaed4d04ab18f30a880d8ef5a951a8c3b7c8aa24ce4af" => :sierra
     sha256 "5c1ec3722f8337844cd19ec5fa3f53005fbfb439ab65e2b704ab882df9b9a921" => :el_capitan
