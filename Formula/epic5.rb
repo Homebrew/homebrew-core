@@ -7,6 +7,7 @@ class Epic5 < Formula
   head "http://git.epicsol.org/epic5.git"
 
   bottle do
+    sha256 "3a2cb94433761c281fbdb3329bc3249b9f61eedcaa0c2585c101ae5b93a93170" => :mojave
     sha256 "202fe91849aeafe5d8838554f4ee4a31286cae844b418402408b6e91121ddc01" => :high_sierra
     sha256 "9aeed705e50bf7f3459d0a8d0dd086c8c2c86d8b6028c22a002d60e3a5183183" => :sierra
     sha256 "0040885911e6bbab3b2b7b1c29e99e31363e6f24ff83d982afb54a1d11623715" => :el_capitan
