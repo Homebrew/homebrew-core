@@ -7,6 +7,7 @@ class Spandsp < Formula
 
   bottle do
     cellar :any
+    sha256 "d38722be71b9d6b3311ee51cb85bc406b2bc34eaf5741851c3b4ed432aecacf2" => :mojave
     sha256 "0b4bb6795c931452181252754da3db80189e6557c344e743296de823cb711efa" => :high_sierra
     sha256 "c0b8349525680304f99e464d328df804279be85398969974f2b708e5167c89fe" => :sierra
     sha256 "428120be3841ca77961f2d19fe8f98f1615972db4f568e3cfa2c0a44cae44e77" => :el_capitan
