@@ -1,9 +1,8 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  url "https://github.com/facebook/osquery/archive/3.2.6.tar.gz"
-  sha256 "54d49f00eae5907f0f0c065b0ea01ffc48a1c977366d9b67d0aa3913f387d7bd"
-  revision 2
+  url "https://github.com/facebook/osquery/archive/3.3.0.tar.gz"
+  sha256 "b633b41bd9ec7a8569eb03060cc22dd53a36d3ba4ca7fb66a976d7f9f800bf52"
 
   bottle do
     cellar :any
@@ -30,6 +29,7 @@ class Osquery < Formula
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
+  depends_on "ssdeep"
   depends_on "thrift"
   depends_on "yara"
   depends_on "xz"
@@ -80,6 +80,10 @@ class Osquery < Formula
     # Skip test and benchmarking.
     ENV["SKIP_TESTS"] = "1"
     ENV["SKIP_DEPS"] = "1"
+
+    # Skip SMART drive tables.
+    # SMART requires a dependency that isn't packaged by brew.
+    ENV["SKIP_SMART"] = "1"
 
     # Link dynamically against brew-installed libraries.
     ENV["BUILD_LINK_SHARED"] = "1"
