@@ -6,6 +6,7 @@ class Bochs < Formula
   revision 2
 
   bottle do
+    sha256 "92cfa3291e3e8733d0902aaf5f2bcd3bb08c2649e2d305545eaa325e75c40755" => :mojave
     sha256 "6704008062d55a66ca8a8ab359db801f806f5e40b18a2ae2af18ac76353ea187" => :high_sierra
     sha256 "f866b444fc8dd6c31a5104d8f6115720bd0e0ee46775d92a4258f68ccea214ce" => :sierra
     sha256 "d7c0d5ee817ba9f3c596ab6364c62b0160c74aefce2db1033438cb17978a8291" => :el_capitan
