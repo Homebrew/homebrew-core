@@ -3,7 +3,7 @@ class UtilLinux < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz"
   sha256 "86e6707a379c7ff5489c218cfaf1e3464b0b95acf7817db0bc5f179e356a67b2"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -13,18 +13,26 @@ class UtilLinux < Formula
     sha256 "f3040a39ad4ffb9eabd9446843dfc3b66df01b3264c875dc68e7339636830357" => :el_capitan
   end
 
+  option "with-uuid", "Enable uuid support"
+
   conflicts_with "rename", :because => "both install `rename` binaries"
+  conflicts_with "ossp-uuid" if build.with? "uuid"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-ipcs",        # does not build on macOS
-                          "--disable-ipcrm",       # does not build on macOS
-                          "--disable-wall",        # already comes with macOS
-                          "--disable-libuuid",     # conflicts with ossp-uuid
-                          "--disable-libsmartcols" # macOS already ships 'column'
+    args = [
+      "--disable-debug",
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--prefix=#{prefix}",
+      "--disable-ipcs",        # does not build on macOS
+      "--disable-ipcrm",       # does not build on macOS
+      "--disable-wall",        # already comes with macOS
+      "--disable-libsmartcols" # macOS already ships 'column'
+    ]
+
+    args.append("--disable-libuuid") if build.without? "uuid" # conflicts with ossp-uuid)
+
+    system "./configure", *args
 
     system "make", "install"
 
