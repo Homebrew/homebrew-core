@@ -8,6 +8,7 @@ class Chipmunk < Formula
 
   bottle do
     cellar :any
+    sha256 "a01faa519baf4dda632dae3a4d00e7e2833298ef03f5ebc3d96b605ebf9f6a53" => :mojave
     sha256 "9ea9773afde1b99b00d08aa462562175e0c42c961027d5d2f0e84d51565f6609" => :high_sierra
     sha256 "11d92de45ec0fa8a25872f5ac18c92e3d1686c1d515d05d48731d19f5d3c30b3" => :sierra
     sha256 "8848acb3fa314fad434f5eb143788831544453598d047342fe20c99045225d26" => :el_capitan
