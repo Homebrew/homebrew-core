@@ -15,6 +15,7 @@ class Gmtl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f69dd084cade396219047d066439043e0aaa689797082ee207db7a1335787286" => :mojave
     sha256 "66ae5e3ccd2a0cbf4608b4ffee45bccb9c3be33148af25787c76652c1c0967ac" => :high_sierra
     sha256 "ee8d0c9f5f52453421a189c040459b5126a5b739231493a3e39d331c934c6478" => :sierra
     sha256 "8aa9f0f1fb77376dd333bb03e9c5a07f6457b76008a74018a932dca930148606" => :el_capitan
