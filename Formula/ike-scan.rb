@@ -6,6 +6,7 @@ class IkeScan < Formula
   revision 1
 
   bottle do
+    sha256 "7e6dde3a63dd30648a77deb4caf5ef6c85d102604a94f0a1db6f7f00e2d7c171" => :mojave
     sha256 "a6497e65e3fd817d9f55e8a92999ea94e80ae8a68e7c7d1aaf00264482f617f2" => :high_sierra
     sha256 "36d4250aba9099fefd630e3a585f4dc035ccb43d53d3270fc41bb08e92242a49" => :sierra
     sha256 "65df0ddc049fadf6c9deb605442092026ec1c4ef5a6358a63ed96928085ac155" => :el_capitan
