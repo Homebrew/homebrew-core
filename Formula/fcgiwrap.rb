@@ -6,6 +6,7 @@ class Fcgiwrap < Formula
 
   bottle do
     cellar :any
+    sha256 "c871c0641217165e88fcdde225c8058a62d043083e434fe3b371c0b7d58ea45f" => :mojave
     sha256 "92140b4ed813b4a718ec9ed035b664fe744a6ae860a4b533ed7425b014e25f22" => :high_sierra
     sha256 "ed81f5b0cec39f7138a877cea2a0e397007d3271393805af53739b837537bd0f" => :sierra
     sha256 "c0a70c3cc726788dfac52d8b23c79c1a4ef31a8c7e1418ac335cfe182b94f05d" => :el_capitan
