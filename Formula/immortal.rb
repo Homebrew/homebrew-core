@@ -7,6 +7,7 @@ class Immortal < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b8f62dd8a76c4597cf35c00b0ac322f8463be2b2918094fc997932f1b8aae9a0" => :mojave
     sha256 "1798dbf2f4030b312903b768ba308c1e2b4cc77e927fd77b25eec7346ce62654" => :high_sierra
     sha256 "09a9e753d342cd5b42aacd9784e98d693d233ae8de5029abdb625216d31f24bf" => :sierra
     sha256 "415c779202d33ea45bac3eb387b75fe672482c54b8c3e969e63348f668d82973" => :el_capitan
