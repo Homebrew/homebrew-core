@@ -30,7 +30,7 @@ class Pango < Formula
   # This fixes a font-size problem in gtk
   # For discussion, see https://bugzilla.gnome.org/show_bug.cgi?id=787867
   patch do
-    url "https://gitlab.gnome.org/tschoonj/pango/commit/60df2b006e5d4553abc7bb5fe9a99539c91b0022.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e0aa10/pango/pango_font_size.patch"
     sha256 "d5ece753cf393ef507dd2b0415721b4381159da5e2f40793c6d85741b1b163bc"
   end
 
