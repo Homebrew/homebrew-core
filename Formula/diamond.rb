@@ -6,6 +6,7 @@ class Diamond < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "31c196b7b7d312e6e700650da58ca61e7154b442ff89d69800003821d164f3d3" => :mojave
     sha256 "469c7756dc9eca0ed7ebd8a156af03da9352ac0358f2bcfd0eb3d346d00b6d51" => :high_sierra
     sha256 "607d100998ea30e170cf8660efd0db2ada0cf2aff0fc01d753b8f562780f1066" => :sierra
     sha256 "6b5c96a2c5847c0e6ecef931175082b90c4436d91fbcd7331cda92a9bb682bb5" => :el_capitan
