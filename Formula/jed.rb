@@ -6,6 +6,7 @@ class Jed < Formula
   sha256 "5eed5fede7a95f18b33b7b32cb71be9d509c6babc1483dd5c58b1a169f2bdf52"
 
   bottle do
+    sha256 "941724406131fe66ca70a76684651b60e8aa3d1e80d3671c200bef831da5c1b1" => :mojave
     sha256 "c1e26f1498c5b47b04cde3bfaa7788acb72a52b54c50eb277368990ad2f27330" => :high_sierra
     sha256 "e99d46b4cea705e44633346466d725842b13ead13a1f9e2d08bfeb5f9edc41a7" => :sierra
     sha256 "a437b8f62da67b6c5177ee34df0a0f0906e94336454ec81f915cbbe90536cb07" => :el_capitan
