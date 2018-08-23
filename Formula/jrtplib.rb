@@ -6,6 +6,7 @@ class Jrtplib < Formula
 
   bottle do
     cellar :any
+    sha256 "9436c9b7df944ba95d9ec795b31fb728a49a39d4a764bfd86383e5dec4f726c9" => :mojave
     sha256 "afdd30606aacd4cb269b56a21176efcc3cff8f567bf43a48eedc0a54b9c9e4f1" => :high_sierra
     sha256 "8d57a4fbc612f51765e6dc13d47c695494e42f15584ebadc4b4042200e6061ee" => :sierra
     sha256 "1400bec305155882b16aa95fca1db8016011c2f9e39f4b1eb4ea28472072bacb" => :el_capitan
