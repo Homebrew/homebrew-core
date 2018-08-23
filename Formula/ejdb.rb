@@ -8,6 +8,7 @@ class Ejdb < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "3be122c7eda269b79e711ed5dd0792d336c4ed6f7d879566f5c23a2e5cb88e3e" => :mojave
     sha256 "75817c5481e57bdbf55d29289f2d22dabf162810cf94308826a2c40d40904f52" => :high_sierra
     sha256 "1ef9acee32b25883f868a7148e72f5b22303b504c347711f0509d2324425fdae" => :sierra
     sha256 "6d470ca361e813d40dbff0e27ef7589d5062bba9a7b005f5b360bd595c343ded" => :el_capitan
