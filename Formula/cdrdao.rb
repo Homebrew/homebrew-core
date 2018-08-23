@@ -5,6 +5,7 @@ class Cdrdao < Formula
   sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
 
   bottle do
+    sha256 "f8894deccbd18e7d5362ace73618666d9a79b233cea5dc6af367ab9e257332e0" => :mojave
     sha256 "1efaa356872419da65763a5e28faf262b79f5a37e2eb83c06c22e9846bae188f" => :high_sierra
     sha256 "cd0c72a2c84f084e4f5fe28df185e9154409645138e55502ffb9c4075ae4dfea" => :sierra
     sha256 "d49e947354162d163937e801fd00468823b16d8462e179f6cfe20a84eb19ffb5" => :el_capitan
