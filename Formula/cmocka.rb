@@ -7,6 +7,7 @@ class Cmocka < Formula
 
   bottle do
     cellar :any
+    sha256 "5c4a778fac256d934fe4943884b23a18f9a1a4b51c3a4d8bbb0145e5cbc145d2" => :mojave
     sha256 "46556c6832c5781bf424d04a8c1a2dacf16561452eb5dbccf5e25661108ec89b" => :high_sierra
     sha256 "cfadb41736fe22bec1e1dbe87223047b8faee2a179cf0928590fbd6090f447c9" => :sierra
     sha256 "becddf7837ddaf693f3ad6ac509886a10acef70208be90570cdabe574002e767" => :el_capitan
