@@ -8,6 +8,7 @@ class SpaceinvadersGo < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3f6f5106ba62445e33e2181facd9644dde99bb0f527455e4b49cecdb56cb56aa" => :mojave
     sha256 "5a512f039b4a9698eb5ce766798f462b134e98944e07ab3eccf712ee35c811d1" => :high_sierra
     sha256 "672db5956f42626d3e9fc18defe431c4f2c18cd647f8cd534f9f522c314a0c49" => :sierra
     sha256 "2ac0b623df41e8c9e9da05fc7f21e842bce1e71c0b9d4db52ef685cca9e040b0" => :el_capitan
