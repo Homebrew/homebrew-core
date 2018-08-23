@@ -7,6 +7,7 @@ class Owfs < Formula
 
   bottle do
     cellar :any
+    sha256 "0347d5b92cf6e7c42975d5556609f30c4034936472843b7513ab5a208134d1c2" => :mojave
     sha256 "51bd18872d4b55af34626459c3f6e039139647124abff190b280e4ddf2c4012f" => :high_sierra
     sha256 "5dd1116b1058b7eb849905b6af987e7ea71fd3486ccc8f1670cf841b6583802f" => :sierra
     sha256 "06a2b3710c371730028a58bab488064f967ef6e820f0877e723f38a4e5eaf5e7" => :el_capitan
