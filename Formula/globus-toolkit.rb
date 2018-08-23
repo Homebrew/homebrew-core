@@ -6,6 +6,7 @@ class GlobusToolkit < Formula
   sha256 "ef7b127174016627e1e161a99a95a4558b1c47fc0d368c4c3e84320924f14081"
 
   bottle do
+    sha256 "c9640e4f0b1829702b05fa33971fdc7dca2aa433fd1808c3ebc378b420ad3e45" => :mojave
     sha256 "577a734a0ff849eb0cbbaf4e450d9fb415d2501d2d44a1d98130e246150252af" => :high_sierra
     sha256 "4041ca27df42d80bd92076712489b5e596acc830d7b3c5071b87e2ec8510d6a8" => :sierra
     sha256 "71d60e108bb9d726fdefdecf582436c563af54ba25bf2eab11186fea6ec17b1b" => :el_capitan
