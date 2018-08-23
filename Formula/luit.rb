@@ -10,6 +10,6 @@ class Luit < Formula
   end
 
   test do
-    system "#{bin}/luit", "-V"
+    system "#{bin}/luit", "-list"
   end
 end
