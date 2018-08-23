@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.15.2/bazel-0.15.2-dist.zip"
-  sha256 "bf53ec73be3a6d412d85ef612cec6e9c85db45da42001fab0cf1dad44cfc03f1"
+  url "https://releases.bazel.build/0.16.1/release/bazel-0.16.1-dist.zip"
+  sha256 "09c66b94356c82c52f212af52a81ac28eb06de1313755a2f23eeef84d167b36c"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,9 @@ class Bazel < Formula
     sha256 "4edb4d88f886980bc1933be3fe9f704bc48fc1663e74c3fadb49ce7333d4642a" => :el_capitan
   end
 
-  depends_on :java => "1.8"
+  depends_on "zip" => :build
+  depends_on "unzip" => :build
+  depends_on :java => "1.9+"
   depends_on :macos => :yosemite
 
   def install
@@ -29,7 +31,7 @@ class Bazel < Formula
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
       bin.install "output/bazel" => "bazel-real"
-      bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+      bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.9+"))
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
       zsh_completion.install "scripts/zsh_completion/_bazel"
