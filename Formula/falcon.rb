@@ -7,6 +7,7 @@ class Falcon < Formula
 
   bottle do
     rebuild 1
+    sha256 "f9741251c89c441ae25ada11413ae31e988f00f84ddc05b80549d62fd2db31a4" => :mojave
     sha256 "6349ea1828c7474157a6bac4131c4ac952aba1330014ffd92efeaecc6ebe486f" => :high_sierra
     sha256 "560217a0114fb31f303271eb925da7959d8e02fb8e3d118c0ea449f34ddd3e7b" => :sierra
     sha256 "48f3fc7a4ee3f479b0dafae18262cb900d64f43f5a3f2fa32727b65f6836f81e" => :el_capitan
