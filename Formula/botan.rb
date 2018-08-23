@@ -6,6 +6,7 @@ class Botan < Formula
   head "https://github.com/randombit/botan.git"
 
   bottle do
+    sha256 "6caab4a7ebb6d816dcb5b7ca6ef1b8496fe6591d48f08322d5c83a9aa0957b5a" => :mojave
     sha256 "c68dce2f0c95d9992f46a0481c5067f2f73cb5a78593e5075334704751a9205c" => :high_sierra
     sha256 "f23e22e379f69bab321a47a7afe17a10153f94a3a9f5107544f71c63172f3c64" => :sierra
     sha256 "693252ff477a8c5ce0a0703538682d90a2bb0e63e52237d279c8fa7a7863a2a8" => :el_capitan
