@@ -6,6 +6,7 @@ class Cvsync < Formula
 
   bottle do
     rebuild 1
+    sha256 "d013612af119b2f7361bc76264fb3f803798bc95570b935f7b661ed22f272599" => :mojave
     sha256 "77f37d3a029bced4283a805186c371c11525cf678d760cbe0095a248afe6c6a8" => :high_sierra
     sha256 "fcea1a0cb513de493fdf74adca3ca2a6d07ca78638521412d8bc9dbed0c0b5c4" => :sierra
     sha256 "f76f09e679c8bfe1454cc0602fe38c119ec94af456716ead97add4244f2eb2b0" => :el_capitan
