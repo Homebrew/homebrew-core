@@ -7,6 +7,7 @@ class Lhasa < Formula
 
   bottle do
     cellar :any
+    sha256 "9b7b3503673097759714a75dc5ebc5a4c4e1184c88a80fa036bb39b2d896f0d8" => :mojave
     sha256 "36f6530ca2f2908bed047741ce52e41f4ec0d0d726bdd8ecb664958da821b527" => :high_sierra
     sha256 "d0abfc9315cfeff37781861e8c7ba2d3eb34003684560ee22a5dfb2acc4dfd5a" => :sierra
     sha256 "0d407f1058853c656a4aef717c1e72ff57472e0622fb344a5ef57c4c9ad8c3ee" => :el_capitan
