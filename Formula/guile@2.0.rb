@@ -7,6 +7,7 @@ class GuileAT20 < Formula
   revision 2
 
   bottle do
+    sha256 "d01c7d48a4cce82507e6d333802567e8277d72229c1a793184450db51c71db44" => :mojave
     sha256 "3fca39f27f821031d9c60f1a2bc6ccb083013d3b7cf205096524dd64620d428c" => :high_sierra
     sha256 "5c9d28f80fa92deb7d958460cf37a3f93428f0ccb614e81afdfe6bfdc252052e" => :sierra
     sha256 "ff173311b57975634fbf11d7c552ccc08e0214d01cf1a359b116588db5b3b28a" => :el_capitan
