@@ -7,6 +7,7 @@ class KnownHosts < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "62e7b000f7c4ba73c10a879a8ad9c1b14e356799204de92249f1e3bdcd577359" => :mojave
     sha256 "8e823e73e385c7d11c19e02a0fad28751447a96332222fed825505b98e5c4003" => :high_sierra
     sha256 "729e8dc06654b9dae55b1f4ff15a40ee28de3642285f82deb2f67f08a031f9b2" => :sierra
     sha256 "b1f7982e9fb744226dcdf2be12467613ca97fa9a05f92673a4c785f6f445333c" => :el_capitan
