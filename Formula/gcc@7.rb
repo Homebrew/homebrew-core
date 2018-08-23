@@ -49,6 +49,10 @@ class GccAT7 < Formula
     end
   end
 
+  # isl 0.20 compatibility
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+  patch :DATA
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
@@ -169,3 +173,17 @@ class GccAT7 < Formula
     assert_equal "Done\n", `./test`
   end
 end
+
+__END__
+diff --git a/gcc/graphite.h b/gcc/graphite.h
+index 578fa1a..e4fad06 100644
+--- a/gcc/graphite.h
++++ b/gcc/graphite.h
+@@ -37,6 +37,8 @@ along with GCC; see the file COPYING3.  If not see
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
+ #include <isl/schedule_node.h>
++#include <isl/id.h>
++#include <isl/space.h>
+
+ typedef struct poly_dr *poly_dr_p;
