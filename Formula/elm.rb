@@ -9,10 +9,10 @@ class Elm < Formula
   sha256 "494df33724224307d6e2b4d0b342448cc927901483384ee4f8cfee2cb38e993c"
 
   bottle do
-    sha256 "4a7232fc62d4c340ddf49f6e63924734f66f5cb0861ea4fc042d41cebc139884" => :high_sierra
-    sha256 "64f0a490d8bce84b1541a2a219c7298d515d64b3042bb48c41d52f83adf9260d" => :sierra
-    sha256 "1c3f415cf011dbadc6265a22fd1671c2461f3e906cecc54172b67c7295b28344" => :el_capitan
-    sha256 "428fb7d2719fee543d9cc8a5e25d0cbd697fe447e585e322f01f29f35fcc1011" => :yosemite
+    cellar :any_skip_relocation
+    sha256 "4655392e3e985c90f9e23b03438a8587475b48c1e1b0dabc2d74358f1b06daef" => :high_sierra
+    sha256 "e0e45eb3388efe4a8147a65121d067ffad875952146c11519e8e564095de139b" => :sierra
+    sha256 "e2a5f47750fb6a487e5220a3ac234b209acdb7edcde7e42c2ebe2507f8a3a5cf" => :el_capitan
   end
 
   depends_on "ghc@8.2" => :build
