@@ -1,22 +1,36 @@
 class Circleci < Formula
   desc "Enables you to reproduce the CircleCI environment locally"
   homepage "https://circleci.com/docs/2.0/local-cli/"
-  url "https://github.com/circleci/local-cli/releases/download/v0.1.0/circleci_v0.1.0.tar.gz"
-  sha256 "e6b86954c8ccb38ca16b77cfcd642a1be20c9fa471ed811c49f7105bcb96739c"
+  url "https://github.com/CircleCI-Public/circleci-cli.git",
+      :tag => "v0.1.1430",
+      :revision => "9788d7512e7e4018f3f98f471d874cab66475175"
 
-  bottle :unneeded
-
+  depends_on "go" => :build
   depends_on "docker"
 
   def install
-    bin.install "circleci.sh" => "circleci"
+    ENV["GOPATH"] = buildpath
+    dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
+    dir.install buildpath.children
+
+    cd dir do
+      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+      ldflags = %W[
+        -s -w
+        -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
+        -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
+      ]
+      system "go", "build", "-ldflags", ldflags.join(" "),
+             "-o", bin/"circleci"
+      prefix.install_metafiles
+    end
   end
 
   test do
     # assert basic script execution
-    assert_match version.to_s, shell_output("#{bin}/circleci --version")
+    assert_match /#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip
     # assert script fails for missing docker (docker not on homebrew CI servers)
-    output = shell_output("#{bin}/circleci config validate 2>&1", 1)
-    assert_match "Is the docker daemon running", output
+    output = shell_output("#{bin}/circleci build 2>&1", 255)
+    assert_match "failed to pull latest docker image", output
   end
 end
