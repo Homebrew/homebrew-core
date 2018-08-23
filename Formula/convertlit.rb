@@ -7,6 +7,7 @@ class Convertlit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7d06d34736082be89b9e6c0db2fa42c4d2b4fb15469bef2922003d3d299680c8" => :mojave
     sha256 "f41e31b1f6f53d1441bf670e75e0315f6a0f0e938de75e9973678ed565b6b4b8" => :high_sierra
     sha256 "43e28e7711f27843223b29d351ba0ce03a4deee76bbc99c4bdac50969b8eaeb7" => :sierra
     sha256 "66b05c2c6371f16620c82b31b507413556b511b859644322c65f4ceea4a83a64" => :el_capitan
