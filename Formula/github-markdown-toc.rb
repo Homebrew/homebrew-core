@@ -6,6 +6,7 @@ class GithubMarkdownToc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f1954c607fab0ee457851918418d40fc6d5ada7396058bba445fd0e47e2db657" => :mojave
     sha256 "8853e0adc3d20ec4838d84e954bfb90e343154e86545843a1641c8424029565b" => :high_sierra
     sha256 "aa55273d31e7668f919e05084ee86d020079ea88c960e50acd040e03f54f1e6e" => :sierra
     sha256 "0a625d0131a7f928c82194ee3aeec6cfbaffb81e690ae9a66b8bc95267493c9c" => :el_capitan
