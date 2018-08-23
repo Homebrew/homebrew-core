@@ -7,6 +7,7 @@ class Jlog < Formula
 
   bottle do
     cellar :any
+    sha256 "80dc6e45c65a7996c623393b47b21c453de726ef69a319ef817d31e1e727e3c0" => :mojave
     sha256 "7459242c359ce4afe0b57ed447723f35c496ba6d633eb26fe59f86aca126c113" => :high_sierra
     sha256 "f8578c0d25a1c317d1b534231b0a6c50038288105ee7dfd07efa8e31183874bb" => :sierra
     sha256 "a3432d256f8fd10b9dafd442167a076311c8b19640326c9a5218b4ca231c3347" => :el_capitan
