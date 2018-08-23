@@ -6,6 +6,7 @@ class HowardHinnantDate < Formula
 
   bottle do
     cellar :any
+    sha256 "4fa9af2ae9c888fdc73395b7d243bbcc36dbeee17b4165b3754444a21b803fc5" => :mojave
     sha256 "92fa4808e4dcde7540032ce0aac6a0a33e468e654944706ba2661187e2111616" => :high_sierra
     sha256 "f42440908ef92ade61d8b1b3c152355162768b0a5eaca3fcc1ed3deae72f8c17" => :sierra
     sha256 "c3902905c2a51ae0e35fe54b84b00f68d97408f502d83b21f293087d16b9e175" => :el_capitan
