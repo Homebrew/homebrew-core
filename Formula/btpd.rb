@@ -7,6 +7,7 @@ class Btpd < Formula
 
   bottle do
     cellar :any
+    sha256 "6957aac8c38ccf8faa140f961de205bcd1bf7e7ee3dd68ae545dd0b94d16da19" => :mojave
     sha256 "81d4cb1f1407e4619120e6551258888fc7266ab1d98968095fbbef76e80d1f42" => :high_sierra
     sha256 "c951cbaadc8a4a04dbe95fe28fdb6f2ad760352c58fba5a36309ed3fdff69e16" => :sierra
     sha256 "4dce615bca726cf8ea3adfd0ab5e18f4f1e3d95d1a4d98ce38d6f894b1206a25" => :el_capitan
