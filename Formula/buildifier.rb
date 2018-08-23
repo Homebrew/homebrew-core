@@ -7,6 +7,7 @@ class Buildifier < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f65e357cd34f1105fc721ceff67b386eb0e83fc7e6c1271cfeb4d0af56ee5435" => :mojave
     sha256 "e92d3cbd94d67add3af2c92c5eba11d7636206803f3ecc13df545c63f3615462" => :high_sierra
     sha256 "72dcd4638b5b093eb1342b53f0429f31eaef8b5213ef3e0c88baf2f0129bf6e8" => :sierra
     sha256 "cda4c2d96781f5c2d03a0d2c27c53ac0ec863a85e483326a0f369095c001e600" => :el_capitan
