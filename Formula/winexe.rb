@@ -6,6 +6,7 @@ class Winexe < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "43444e53e90a4f739a533e4a865952369874d9386460205e501631fa2b3ad2bb" => :mojave
     sha256 "765ad670de08f86b8c9b11ec43493148d1368e6c3ffa5e65d1bca898480996c2" => :high_sierra
     sha256 "e9594f927f9ef58608951175c0bd118b82cf7b25d5b829453195b66f45c2cbc1" => :sierra
     sha256 "58080b3729c9b261a65c7db2072ec867176bfd6a802c23f9b343feb44592789a" => :el_capitan
