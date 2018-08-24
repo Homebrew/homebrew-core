@@ -7,6 +7,7 @@ class Rkflashtool < Formula
 
   bottle do
     cellar :any
+    sha256 "192628d1c348870f6ea1bc381aeb87023cc0bd19b2c198ea3c14b63e954db88e" => :mojave
     sha256 "72e99558b94cd4e26a5aeb62209c99e03f8e91059fbfbe83bdfbd755fc83f54f" => :high_sierra
     sha256 "cbeb2509bcd210026250c915a9909e8f056e9e2da1f599d7a611695c334f4966" => :sierra
     sha256 "7a8b5c66395b179ce38845c36369b1a65c6eacc73fd29227809597257669af6d" => :el_capitan
