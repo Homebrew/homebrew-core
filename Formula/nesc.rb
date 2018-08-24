@@ -6,6 +6,7 @@ class Nesc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4343650dbcaf2e7d0cf5e886054a5d61cb9660b72f8e79f24a04b15b53a75c4a" => :mojave
     sha256 "9dd650a7f3697a4e59216e992b4d9cac4d2bb3254d8d6f547774fcf895f7e3ee" => :high_sierra
     sha256 "18e2b390839870bda5cae2840be9228e4792ba7f4784a9bb7d7d2573dd228f2c" => :sierra
     sha256 "9bb55ca81ee1ecbed59220ced5045e25b2641dbf24c330f85bfa4c21dbe483fa" => :el_capitan
