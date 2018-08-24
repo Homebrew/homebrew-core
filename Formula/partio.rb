@@ -6,6 +6,7 @@ class Partio < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "553577c6a9293fbfc098cea8153e6b273e2dc6584db96aa0ea7071be4f6ddd12" => :mojave
     sha256 "42d4fe9271be76bca99f13bc73146328265995f707fdf50d3c274f5a65193cdd" => :high_sierra
     sha256 "1db67357f3ce32f14c84788605a167838753433a1a81e17f40758fb2f2630445" => :sierra
     sha256 "da106b6a4b5667f84b6528081510b12d0da2acb1bfd74afbf3f7af72316afe63" => :el_capitan
