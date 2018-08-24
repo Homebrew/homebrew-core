@@ -19,14 +19,14 @@ class GitlabRunner < Formula
   depends_on "docker" => :recommended
 
   resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.2.0/docker/prebuilt-x86_64.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.0.2/docker/prebuilt-x86_64.tar.xz",
         :using => :nounzip
     version "11.0.2"
     sha256 "a5b6fc4ae25577966d24ef34aa68ed296001b2f166851052b2db0facd89a0cdb"
   end
 
   resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.2.0/docker/prebuilt-arm.tar.xz",
+    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.0.2/docker/prebuilt-arm.tar.xz",
         :using => :nounzip
     version "11.0.2"
     sha256 "bc54019871aa2446cf2f76853d604b2ed77eac601818ed3f798fd865df5bd862"
