@@ -7,6 +7,7 @@ class Webalizer < Formula
   revision 2
 
   bottle do
+    sha256 "525c739550139303d96d823e9f50aca6255bb77eac70d45f2c1259aa59755f6b" => :mojave
     sha256 "e27c0dd7038a5a82e6fa127428c0b98750801e343b1b973b05bb08f38b055cdd" => :high_sierra
     sha256 "cb42abb300bb5dc9639c811a13e24cca1be2cceee01d02eabb1ec149414569d4" => :sierra
     sha256 "2bae3de97730aa72807cadcfda25ac395f3e30608d865df998fb474e75d4c780" => :el_capitan
