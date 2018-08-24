@@ -8,6 +8,7 @@ class Websocketd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7e060ae07f4fcb9cfc4ff0eb8c3bfdd11135966957f4d2dcb84de0f4fbe15de2" => :mojave
     sha256 "69523ab9efd2f2b8f595b4ae4d282f6af64fbbe24fd3b16b7011210b8d1ea87b" => :high_sierra
     sha256 "38ebd8e10260501352e81966e3bba46bf00d38e00b408f763ef8042a418099e3" => :sierra
     sha256 "eec1080e0a40bf336ea48950c1c21e0ab50e038ee46874cb59bd6b16791309a3" => :el_capitan
