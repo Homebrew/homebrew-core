@@ -3,7 +3,7 @@ class Libmatio < Formula
   homepage "https://matio.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.12/matio-1.5.12.tar.gz"
   sha256 "8695e380e465056afa5b5e20128935afe7d50e03830f9f7778a72e1e1894d8a9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
