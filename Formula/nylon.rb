@@ -6,6 +6,7 @@ class Nylon < Formula
   revision 1
 
   bottle do
+    sha256 "81bb68359ab8969a66c60b467890e9be12a1d003844d7a76f85ca2b4c3c47ea9" => :mojave
     sha256 "ad3ce3dde251f725f9659926ff529ca23e3e052a084221052bb6f4f1bf715abd" => :high_sierra
     sha256 "aea3b5d69a3a6b1046597e7d5b26ff3b2084e7bd47c3f2f44933d2ff351da1d2" => :sierra
     sha256 "e11dbfcb33533384db298fe84ed065f613db0c3503cd211b4404c586bfd19218" => :el_capitan
