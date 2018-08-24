@@ -6,6 +6,7 @@ class Xmrig < Formula
 
   bottle do
     cellar :any
+    sha256 "972836a637782b6a91f7b8210b553686b70c9600ca560fb46068456f72aa41c4" => :mojave
     sha256 "74ccbba60b4e8f0ac0aa9f6f213721d489d0ed202af9586543fca93364a022cb" => :high_sierra
     sha256 "13c058cb692d9eb3d6e7fb27687196f4d1bd1ca77d73ba8c02404635119c352b" => :sierra
     sha256 "06507683d291d3e445e62c91747067fd48c1083ea4e92e02415b2544e1fa4948" => :el_capitan
