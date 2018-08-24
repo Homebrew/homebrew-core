@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "The official GitLab CI runner written in Go"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v11.0.2",
-      :revision => "1db57d4aea2aa85adaa5b020493b6756107466c6"
+      :tag => "v11.2.0",
+      :revision => "35e8515d8af4d757f39f50cda7e17a9de131ffbf"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
@@ -15,22 +15,7 @@ class GitlabRunner < Formula
   end
 
   depends_on "go" => :build
-  depends_on "go-bindata" => :build
   depends_on "docker" => :recommended
-
-  resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.0.2/docker/prebuilt-x86_64.tar.xz",
-        :using => :nounzip
-    version "11.0.2"
-    sha256 "a5b6fc4ae25577966d24ef34aa68ed296001b2f166851052b2db0facd89a0cdb"
-  end
-
-  resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v11.0.2/docker/prebuilt-arm.tar.xz",
-        :using => :nounzip
-    version "11.0.2"
-    sha256 "bc54019871aa2446cf2f76853d604b2ed77eac601818ed3f798fd865df5bd862"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -38,14 +23,6 @@ class GitlabRunner < Formula
     dir.install buildpath.children
 
     cd dir do
-      Pathname.pwd.install resource("prebuilt-x86_64.tar.xz"),
-                           resource("prebuilt-arm.tar.xz")
-      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy",
-                           "-nometadata", "-o",
-                           "#{dir}/executors/docker/bindata.go",
-                           "prebuilt-x86_64.tar.xz",
-                           "prebuilt-arm.tar.xz"
-
       proj = "gitlab.com/gitlab-org/gitlab-runner"
       commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
       branch = version.to_s.split(".")[0..1].join("-") + "-stable"
