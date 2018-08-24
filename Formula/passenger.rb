@@ -6,6 +6,7 @@ class Passenger < Formula
   head "https://github.com/phusion/passenger.git", :branch => "stable-5.1"
 
   bottle do
+    sha256 "5c86a39bffaa900fa96f0b0be935749ba808de2326d15b2b77ef31e7885944ee" => :mojave
     sha256 "5c11bdf0ff526294d0b85be7a19a9bc53ca8be20c56341edea4e2de786b891b8" => :high_sierra
     sha256 "81af8455cab5108cedceeadf408c38333fb59e1cc483284330f7fb15307095b2" => :sierra
     sha256 "da74a0f998fc0b38c866aa4e51287b51c43a98f841e6c218ef224a33fef1ba39" => :el_capitan
