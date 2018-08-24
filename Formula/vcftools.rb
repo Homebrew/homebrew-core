@@ -6,6 +6,7 @@ class Vcftools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5d52f2eafbf96fcffd2b8f9804c2d0ca9752af4242c27ed5fe15a6f8cb935498" => :mojave
     sha256 "2fc4ca7c7c23841a1eed8539910737b5986079be6d22d1ff8375f052266bf478" => :high_sierra
     sha256 "32c81874b5d34dee1e36f2dd628cb7eaba8ecef3d612985d7c02c61d6790c5b6" => :sierra
     sha256 "866bc9927660b97ae5bc34dc38db397212163ab289b3284db2d8c610b2aff3d4" => :el_capitan
