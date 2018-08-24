@@ -9,6 +9,7 @@
   "auctex": "homebrew/tex",
   "avidemux": "homebrew/cask",
   "awsenv": "Luzifer/tools",
+  "bazel": "bazelbuild/tap",
   "chromedriver": "homebrew/cask",
   "cloudfoundry-cli": "pivotal/tap",
   "cmucl": "homebrew/cask",
