@@ -7,11 +7,9 @@ class Giflib < Formula
 
   bottle do
     cellar :any
-    sha256 "0bd2799f9326dc4a61652dddd4bac9cabaff0795fc31c3d2f3b7c6eaea8884dd" => :mojave
-    sha256 "250915de5db6a37044cb2341299d1099a3d6530f8cccd5101f37751ae3aece5c" => :high_sierra
-    sha256 "8562233fdcf07c8d1bc8b0a00654c8e344293afa6fa874b11132d3531e1feca2" => :sierra
-    sha256 "36dc6bff0a8c5f9569ba2427a5d935388f93efa7701c80727fa4c8e2103860f6" => :el_capitan
-    sha256 "b24a3b1647c0d8184415ee392a5b7f2e6b5046d4aed0ed1b901098b2ac83a9a0" => :yosemite
+    sha256 "0c9517138125951ae8fd38f026aa970bb877f1ae7564e47863cdf64a2adebb2e" => :high_sierra
+    sha256 "a298e371464c6bcbe67c5f0c8b23de398980ad3a5ac3e8507f0ee29fef0c9e13" => :sierra
+    sha256 "91161dd227491e058a9ca79ca89bb647d2bac5e368bed5457fc80a30d383ff2d" => :el_capitan
   end
 
   # CVE-2016-3977
