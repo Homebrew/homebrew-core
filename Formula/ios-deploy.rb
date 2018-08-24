@@ -1,9 +1,16 @@
 class IosDeploy < Formula
   desc "Install and debug iPhone apps from the command-line"
   homepage "https://github.com/phonegap/ios-deploy"
-  url "https://github.com/phonegap/ios-deploy/archive/1.9.2.tar.gz"
-  sha256 "fbf9a60ba38cb15afc9a35a39c44d1e536a57d0f6c26126385792793e7d9d43a"
+  url "https://github.com/ios-control/ios-deploy/archive/1.9.3.tar.gz"
+  sha256 "9ef7430d20a777cd2916ab9d6aac849de11b349e85cf80048c95eca47d026e6c"
   head "https://github.com/phonegap/ios-deploy.git"
+
+  # Fix upstream bug https://github.com/ios-control/ios-deploy/issues/349
+  # Remove with next version
+  patch do
+    url "https://github.com/ios-control/ios-deploy/commit/9b23447e.diff?full_index=1"
+    sha256 "9c676388e84e20d3032156ea6dc81ba29dee4b4ffb99d78a81b34aa0b81c12e3"
+  end
 
   bottle do
     cellar :any_skip_relocation
