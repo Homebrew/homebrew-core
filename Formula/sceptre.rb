@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v1.4.0.tar.gz"
-  sha256 "ecc93f44ad4463a1a4510795457c12a0967af4d34b72daedef274e04b50c3efb"
+  url "https://github.com/cloudreach/sceptre/archive/v1.4.1.tar.gz"
+  sha256 "98afb02780cc63a32d2c02eb7bf0fb4b8a74d148da6c5ad3efb6f071e02dffe2"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,13 +16,13 @@ class Sceptre < Formula
   depends_on "python@2"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/59/b9/4feff1e46e3fa99c3ad232459e8a0f0cb3f2d04fdad334400d1633396dec/boto3-1.7.70.tar.gz"
-    sha256 "37853caa02f7141d7b1fb2537cc878bc58d2b1386224e3cf551af7f6ae3e4893"
+    url "https://files.pythonhosted.org/packages/2f/2b/7010a5189859eec725c36081b1d1c8e721000ebdf81a1682ec6b64e1c373/boto3-1.7.84.tar.gz"
+    sha256 "64496f2c814e454e26c024df86bd08fb4643770d0e2b7a8fd70055fc6683eb9d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/1e/44/388579f461c78b1c5b0483233b5371d4997caf9ca35fa9c09f7c7dad2b8b/botocore-1.10.70.tar.gz"
-    sha256 "7a3759d346bf297d33091a4c154d3c50f0c3dc7b428badb6c950f87ea390e5b1"
+    url "https://files.pythonhosted.org/packages/67/01/43759329a6f7036aa739e86d446b908fa207222e224e537cd3d66fdb4c29/botocore-1.10.84.tar.gz"
+    sha256 "d3e4b5a2c903ea30d19d41ea2f65d0e51dce54f4f4c4dfd6ecd7b04f240844a8"
   end
 
   resource "click" do
