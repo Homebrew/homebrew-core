@@ -6,6 +6,7 @@ class Mfoc < Formula
 
   bottle do
     cellar :any
+    sha256 "5a4fe631caec6c2070b408158048c9d5976da9aa0fc8f1e60bd43dc64616db39" => :mojave
     sha256 "854390fb4717577ae0cfa33cffc50c0d5d568f23b28401aee6c81661b12dede4" => :high_sierra
     sha256 "be07709faf874fb9b9457950201a71b5f683f7971f2a3a7d61de630f78a2e69c" => :sierra
     sha256 "d895fdd47221e48e45f6858a1dc1c39c79ae743419b93ec4dfce84baa80af0a9" => :el_capitan
