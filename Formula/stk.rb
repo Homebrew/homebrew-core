@@ -6,6 +6,7 @@ class Stk < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c4097ebf1065c8a253d41902fa54573748ca47f24cd8ec88f340db1f74ecd418" => :mojave
     sha256 "67c1c6c12bbf98d866bac55955d4715f94c05c63551bd0687646c6acd549de91" => :high_sierra
     sha256 "70c1c7e91fc3477055e6bc1a39dd5ef160c4e496887bb22b88d7fd149b03bfa6" => :sierra
     sha256 "e333e99c0fe8611be1fc7fb54d3e4e77f4cde210bb1c281031ed54b74187ef4d" => :el_capitan
