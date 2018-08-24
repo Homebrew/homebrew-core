@@ -2,7 +2,7 @@ class Fabric < Formula
   include Language::Python::Virtualenv
 
   desc "Library and command-line tool for SSH"
-  homepage "http://www.fabfile.org"
+  homepage "https://www.fabfile.org/"
   url "https://github.com/fabric/fabric/archive/2.3.1.tar.gz"
   sha256 "99c8c893cb8219be8a580f92a57efce0a55972ca70519ffd6eb594b04e0ffe0d"
   head "https://github.com/fabric/fabric.git"
