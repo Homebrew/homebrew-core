@@ -5,6 +5,7 @@ class Sbcl < Formula
   sha256 "904ee7e90fd6d66dfb4da578ec9e3dab1a2a49b61b13fa1fbf30ce8b80593cc9"
 
   bottle do
+    sha256 "614d06cbdb1f49bb96a193e854fa910addb748cb018b8a4ac41a68d3217fe3dd" => :mojave
     sha256 "5a073212dddfaf8259f47ab0afbc3d9c6ae77560678c7a15008baaa7814b54ab" => :high_sierra
     sha256 "d555a650c0517b2599e0125f58db9abdd6025c15de287abb4b7e59425fedc36d" => :sierra
     sha256 "3a8dfb4403e202c55e1ba1dfa89ed4114a1d699fcdc5be9dc469a5d6f5c2c1dd" => :el_capitan
