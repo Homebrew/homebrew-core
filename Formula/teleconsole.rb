@@ -8,6 +8,7 @@ class Teleconsole < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0f51cf4866e3e7955dadc31e6a73c30fd99566c110674394d34dfdefc042453c" => :mojave
     sha256 "a00b04aeb2e57c8ae3cca20632033bb2a60e1c3ec242497bee4a14240e5276a5" => :high_sierra
     sha256 "77f2ea18e72c3662cdc3a9b204752b4d18ee65df2a4d9b47d53b31a7440a5109" => :sierra
     sha256 "d7b7e6dd7c164f7145532f14fae09909651c4f997e75c8b8b2f5b98b9512a117" => :el_capitan
