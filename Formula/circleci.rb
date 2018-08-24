@@ -1,6 +1,7 @@
 class Circleci < Formula
   desc "Enables you to reproduce the CircleCI environment locally"
   homepage "https://circleci.com/docs/2.0/local-cli/"
+  # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
       :tag => "v0.1.1430",
       :revision => "9788d7512e7e4018f3f98f471d874cab66475175"
