@@ -6,6 +6,7 @@ class Nxengine < Formula
   sha256 "cf9cbf15dfdfdc9936720a714876bb1524afbd2931e3eaa4c89984a40b21ad68"
 
   bottle do
+    sha256 "e9e11b68627fbe16f938ba6c2b0c5fd8cb5fe3c5515ea477ff7c1556a6a34b4c" => :mojave
     sha256 "32b384c1e7fdd33ecf71ccf88641096ca191402cce0c0ec4866575502ced50b3" => :high_sierra
     sha256 "6f24e86f6bf1b4a41b9938a99feafffc83469561031d16d5160543e0bf24e251" => :sierra
     sha256 "2002c715a6f1d169ac67eedef28c924392abc9f3a4620913d96992b6a0ae6e85" => :el_capitan
