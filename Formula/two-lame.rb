@@ -8,6 +8,7 @@ class TwoLame < Formula
 
   bottle do
     cellar :any
+    sha256 "e93246816c3f6b18a43053c9009364975e718cbe8dc823138b9300b1d080a905" => :mojave
     sha256 "0bad839179bba19b437592c323dc39efcf8ef33ad1f69b9c3acddef7b8b743f6" => :high_sierra
     sha256 "aaa23ea68a8e9ce852c99bc4edbaa4eb008f596d64c1b694a4dd8ed53888d4ad" => :sierra
     sha256 "f42b6a20cbe1d020ed818145180be176361ceda2c203a09bddc0bc1f4c903530" => :el_capitan
