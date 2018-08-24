@@ -7,6 +7,7 @@ class Natalie < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5010d3c20e1ff431b881e997ede4673564f79016e7271888b462f8a39d40900f" => :mojave
     sha256 "5b574a8d5a8c2e386b1eedeee8b20e77db84138898be95dcc4b0ab2fcb81fc88" => :high_sierra
   end
 
