@@ -1,10 +1,10 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
-  homepage "http://www.inform-fiction.org/inform6.html"
+  homepage "https://inform-fiction.org/inform6.html"
   head "https://github.com/DavidGriffith/inform6unix.git"
 
   stable do
-    url "https://ifarchive.info/if-archive/programming/glulx/compilers/inform/source/inform-6.33-6.12.1.tar.gz"
+    url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/old/inform-6.33-6.12.1.tar.gz"
     version "6.33-6.12.1"
     sha256 "9170d6a0283aa65e1205621e89f78d674c8df978ee9c0b1c67f8b1aea4722a77"
   end
@@ -17,7 +17,7 @@ class Inform6 < Formula
   end
 
   resource "Adventureland.inf" do
-    url "http://inform-fiction.org/examples/Adventureland/Adventureland.inf"
+    url "https://inform-fiction.org/examples/Adventureland/Adventureland.inf"
     sha256 "3961388ff00b5dfd1ccc1bb0d2a5c01a44af99bdcf763868979fa43ba3393ae7"
   end
 
