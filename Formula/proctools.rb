@@ -6,6 +6,7 @@ class Proctools < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f7466405a3aab3cd7b00669ea685b1fe463a19bbdd7fef8b8c25f86595de2d34" => :mojave
     sha256 "d41f76776e37f54cabf5d76ce2cb89d13052f1221a70b325245f600a7bd047ae" => :high_sierra
     sha256 "8567dd0ffde620f8b1dd18e0529d670a235bcde6dac7b3f19d6528ecf843613a" => :sierra
     sha256 "ed8136da9f7b607eec69d014b1c3f81b9ef3f004f38cc2904400861c0d6adab0" => :el_capitan
