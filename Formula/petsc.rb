@@ -6,6 +6,7 @@ class Petsc < Formula
 
   bottle do
     rebuild 1
+    sha256 "b03109bfbe4896ef2326797e7726bb7cf4c9514a4ca0aef209f31dd3983e852d" => :mojave
     sha256 "a8f87b8dfda728cb297bb27b18d2238d50f6774086e9170698913597abfe80d7" => :high_sierra
     sha256 "6366422eb66c5b6d100fbfcb69e657f5f3b74807345c052e0a4a5d601ef27f60" => :sierra
     sha256 "d1e6494ab696ef49852a59e1e8e4e81a90f06da95ba8dfbf05662372580e7c53" => :el_capitan
