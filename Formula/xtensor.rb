@@ -16,8 +16,8 @@ class Xtensor < Formula
   needs :cxx14
 
   resource "xtl" do
-    url "https://github.com/QuantStack/xtl/archive/0.4.14.tar.gz"
-    sha256 "f32390060315a7a941d9601ea1f0200c723e21313bd034f36dd5aae52b7a58c8"
+    url "https://github.com/QuantStack/xtl/archive/0.4.15.tar.gz"
+    sha256 "550ca5ca2ae7fedec6421b7545d592f4474bcd15bb9dec49c644f17b547b9ff6"
   end
 
   def install
