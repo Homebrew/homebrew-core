@@ -7,6 +7,7 @@ class XmlCoreutils < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "9be4dcb20fd773296a26df8495c5097b273a2a0d89f6abc1545a713ba94e1b07" => :mojave
     sha256 "83023841339cb02ad53de64e30aa0c491e4acd4ae4602bd84847aca42ac02e00" => :high_sierra
     sha256 "5f7519c9be40f731b0dca6238b3bedf4070f0663fc47ab8e4b0eff02d187718c" => :sierra
     sha256 "19bdcacd49657e78f82fd7743a50266ff4945e644b069ac2c39a8787a57911a5" => :el_capitan
