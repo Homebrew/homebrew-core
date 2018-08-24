@@ -6,6 +6,7 @@ class Mp3unicode < Formula
 
   bottle do
     cellar :any
+    sha256 "b0b4f5e1d3bcee44c469cd1948f173175b0826569503bad26d027f10a1ebb92e" => :mojave
     sha256 "5d288104d6bf3c0bdce26b509f29b49adba281ebcf1eb713a578298cec4b1305" => :high_sierra
     sha256 "4d8a82928bc851fc314a6c8f57a3897d6f75df65aad84e79b451783d217ebd1d" => :sierra
     sha256 "e9db3c9529d5358f83bb67d5966c6b508851f27a3bc61d5212b674d620a03a7e" => :el_capitan
