@@ -9,6 +9,7 @@ class Virtuoso < Formula
 
   bottle do
     cellar :any
+    sha256 "699c3f1bf4711cc0ec3a0c81f69047fcf721f4f2a38db629858f7b155217d1f8" => :mojave
     sha256 "b01c3c149c4f025ea1456fc5a5d3c5ca68eb6d99797226e35204dbd80cb43cb1" => :high_sierra
     sha256 "b7df838df0d82a95a0f7fc40177b5fb94fb0e47559d559c75baa473af7956b92" => :sierra
     sha256 "4bacfd4bbaf1d4a048a68f4993b06fc2b6a9a2c1145f9cea78fb8fbff23166a1" => :el_capitan
