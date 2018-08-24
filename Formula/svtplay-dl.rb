@@ -8,9 +8,9 @@ class SvtplayDl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "08152f1fa8a69f00d1ab5395ff56c2acd95158dd510c9a9466d3c91fe587dcb5" => :high_sierra
-    sha256 "1459efa77e0c4ba52ca8be3f24457f32f25933311d8aebe365340381a170d46b" => :sierra
-    sha256 "689675a28ef799324c2ca527ff70a089251314d42a2a0c7b7ee6e1b050da56dd" => :el_capitan
+    sha256 "9f090e7ce1ee778440d61006dba57b3a058b085f69485004804beab550887615" => :high_sierra
+    sha256 "d5105e033b738d80c8ece2d47cf0628a8bb04855a7a392a787c68cb957541771" => :sierra
+    sha256 "85d7bb2d9674c45dc6c3605b44dd361a80ea0c9553d1ac5311f9fde63e7515ad" => :el_capitan
   end
 
   depends_on "openssl"
