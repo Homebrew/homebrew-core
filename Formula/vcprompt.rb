@@ -7,6 +7,7 @@ class Vcprompt < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "9c1a9204571d68401cca95f2ee1acbf5c1b0cd22f0f9251d506a4a201d795dfc" => :mojave
     sha256 "cd5abc9fe361da52bef71b639adc956a8b18f02cbf95272ddf9802862d469090" => :high_sierra
     sha256 "9416ab35f637cc751b667f1a8481d17936faa58f39749d87e4e32b07b647f229" => :sierra
     sha256 "11e4de5f008aec3510274ef2265d6d30d214249e127cc1d3045b01b47232c96b" => :el_capitan
