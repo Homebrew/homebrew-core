@@ -1,11 +1,9 @@
 class Openssh < Formula
   desc "OpenBSD freely-licensed SSH connectivity tools"
   homepage "https://www.openssh.com/"
-  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz"
-  mirror "https://mirror.vdms.io/pub/OpenBSD/OpenSSH/portable/openssh-7.7p1.tar.gz"
-  version "7.7p1"
-  sha256 "d73be7e684e99efcd024be15a30bffcbe41b012b2f7b3c9084aed621775e6b8f"
-  revision 1
+  url "https://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-7.8p1.tar.gz"
+  version "7.8p1"
+  sha256 "1a484bb15152c183bb2514e112aa30dd34138c3cfb032eee5490a66c507144ca"
 
   bottle do
     sha256 "e748ef7bf9feb3b0bb2917cc00fb2a36fb4d4fca131eefb892ccf8926b5fccd8" => :high_sierra
@@ -39,8 +37,8 @@ class Openssh < Formula
   # CVE-2018-15473. Patch safe to remove on next upstream release.
   # http://www.openwall.com/lists/oss-security/2018/08/15/5
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/openssh/openssh_7.7p1-4.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/o/openssh/openssh_7.7p1-4.debian.tar.xz"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/o/openssh/openssh_7.8p1-4.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/o/openssh/openssh_7.8p1-4.debian.tar.xz"
     sha256 "a7d3a5f9c2b91639f128620c231792698199a2ba0a74fb28dd26204714ccd865"
     apply "patches/upstream-delay-bailout-for-invalid-authenticating-user.patch"
   end
