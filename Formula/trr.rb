@@ -7,6 +7,7 @@ class Trr < Formula
   revision 1
 
   bottle do
+    sha256 "14b4972311987725cc19c4278503c4ecf24cc98599c0caf411363f859dcc1f5e" => :mojave
     sha256 "cf2a952840541507c0f5b830d6db985a9aa9e4dab5bdc80bef4d8b7683303da8" => :high_sierra
     sha256 "85385ce899c573ebe08ccca03a8993b2ecffb7d064ae9cc85e337ce8462650e5" => :sierra
     sha256 "2b5abc44babd72072cd9303e305d7586574ae65df2c350ca474764dede329035" => :el_capitan
