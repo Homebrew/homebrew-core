@@ -6,6 +6,7 @@ class Ntl < Formula
 
   bottle do
     cellar :any
+    sha256 "499ee8006071fea07f6d6d8321fdb43ff13422b250a14b079fc6603c983cccba" => :mojave
     sha256 "e605a8e8d766ed861bbb53f8bc310f1fded4eeaecef5499de156c5992a98360c" => :high_sierra
     sha256 "48b5d4f40cec55c8782b8bd631d470739cf0e681f1abe6dec0772d7d870534ff" => :sierra
     sha256 "a9f60e9f64f1b8dd11519f3afbd9ff466a76e2410be9b9299cbc54527fea6203" => :el_capitan
