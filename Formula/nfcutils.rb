@@ -6,6 +6,7 @@ class Nfcutils < Formula
 
   bottle do
     cellar :any
+    sha256 "5eaf6ffe3b96a94d1b6fbc150473aa6684dd98bca031b0a69883ca919467feb4" => :mojave
     sha256 "bb263a7a1a406e79c94e97cd3ea7dd1ab4894f7d91ed8246c22b30957b83f897" => :high_sierra
     sha256 "3f0145b6a563c0f401f567fb314a1485b3a5bc9b3a843f53d8d1fda72492b8fa" => :sierra
     sha256 "ae0ac5663ac10557da9d42a12986268f5ab6149661c8e394df5a314b405d3b30" => :el_capitan
