@@ -30,6 +30,7 @@ class Giflib < Formula
   end
 
   test do
-    assert_match /Screen Size - Width = 1, Height = 1/, shell_output("#{bin}/giftext #{test_fixtures("test.gif")}")
+    output = shell_output("#{bin}/giftext #{test_fixtures("test.gif")}")
+    assert_match "Screen Size - Width = 1, Height = 1", output
   end
 end
