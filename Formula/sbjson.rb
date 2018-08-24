@@ -7,6 +7,7 @@ class Sbjson < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "634ba12a265ba3f273d2b321dada0a1a9192f57fa9988c210d202445cc15a30c" => :mojave
     sha256 "c269d25dc05df3ee48da8f91f31a00c09b33ee1dfb135cec4783df44509f9478" => :high_sierra
     sha256 "aded461aca135b96288154c6fe6219d7c093a0836dafc6fdec90899256e8f8db" => :sierra
     sha256 "ce91cd42fb178216f3fe2ef6c617f9ca91a9e981b85142a22a8cc715ab105fc3" => :el_capitan
