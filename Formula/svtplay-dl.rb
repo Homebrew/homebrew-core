@@ -17,9 +17,9 @@ class SvtplayDl < Formula
   depends_on "python"
   depends_on "rtmpdump"
 
-  resource "pycrypto" do
-    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
-    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  resource "pycryptodome" do
+    url "https://files.pythonhosted.org/packages/94/7f/33b748dd22ea889fcb1a6c6f1f30ad1e5a70066cd7615dbce7d9a6392106/pycryptodome-3.6.6.tar.gz"
+    sha256 "b3cb4af317d9b84f6df50f0cfa6840ba69556af637a83fd971537823e13d601a"
   end
 
   resource "certifi" do
