@@ -6,6 +6,7 @@ class ProtobufAT25 < Formula
 
   bottle do
     cellar :any
+    sha256 "9b8bd06980b0e7b9b3f86c405f5da1fceac9c756e6d2937fb07646e13cee123e" => :mojave
     sha256 "57b751631332e48464f3547d6608b24422001d7e98f50eb67bc8594f3dfc6284" => :high_sierra
     sha256 "2666bcf184708bdd23c1df2c209f3bf6fcdfe4769e02db878632be3b2267a106" => :sierra
     sha256 "738a1b9437b4fa18d607d9b385e83c5065c683da3aee3d88b7b30c06a85b7960" => :el_capitan
