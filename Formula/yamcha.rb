@@ -7,6 +7,7 @@ class Yamcha < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "37ce1ca98c2de4978de9d8877752570680fffae4c41026c5e560c83b5f4b3473" => :mojave
     sha256 "003ba175b22691b3ced58178504a83bda7455cfd599685c0e002ccbf91efb88d" => :high_sierra
     sha256 "b9f2e9521d25dafc70617857f32b1742b8bb29046b3ea930eafb3261a0727e36" => :sierra
     sha256 "b65fade9c6ddcced1d3c3fc6700f18ed2ddd16b62437fc71f9a85a3568851520" => :el_capitan
