@@ -7,6 +7,7 @@ class Lightning < Formula
 
   bottle do
     cellar :any
+    sha256 "1eae478d637843e90a1d6ad9597f8479ab79dda1e56fd12b37428f7d5c8c5a15" => :mojave
     sha256 "ed3fb8e5552f78ef17fa4a5eab54a69068113c28f50723e2a9d9fa68ca9a554d" => :high_sierra
     sha256 "b3898ab467ddc57c03f72615e95fedadf4bbf249ba76ed9de8cc410efe58b114" => :sierra
     sha256 "ddea1c93ea261eb8f49f998deb8769b8b67d44ec955e6dbbe8509d90f5ae9b6e" => :el_capitan
