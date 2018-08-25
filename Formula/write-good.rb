@@ -8,6 +8,7 @@ class WriteGood < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c9793f3718f3fb1e3ff668427e62356825b60c263dd4a8db60b3e437bcb8cdde" => :mojave
     sha256 "9f8ad372e5eeb289fdb436c64c17cf69b360f18a0442c1eec3a6c01672f413ee" => :high_sierra
     sha256 "24e7a9e9bd36b2b42760876bfacd3eb1a963291cf8ec19a4f4569358bba3c578" => :sierra
     sha256 "5e184f772e79b219537e6bb327c73b2e64506754a1fa7b64f19cca1695dcdd41" => :el_capitan
