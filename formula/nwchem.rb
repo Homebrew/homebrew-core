@@ -15,7 +15,7 @@ class Nwchem < Formula
     cd "src" do
       system "make", "nwchem_config", "NWCHEM_MODULES=nwdft python", "NWCHEM_TOP=#{Dir.pwd}/.."
       system "make", "64_to_32", "NWCHEM_TOP=#{Dir.pwd}/.."
-      system "make", "NWCHEM_TARGET=LINUX64", "USE_MPI=Y", "NWCHEM_TOP=#{Dir.pwd}/..", "BLASOPT=-L#{Formula["openblas"].opt_lib} -lopenblas", "BLAS_SIZE=4", "SCALAPACK=-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack", "USE_64TO32=y", "PYTHONVERSION=2.7", "PYHTONHOME=/usr"
+      system "make", "NWCHEM_TARGET=LINUX64", "USE_MPI=Y", "NWCHEM_TOP=#{Dir.pwd}/..", "BLASOPT=-L#{Formula["openblas"].opt_lib} -lopenblas", "BLAS_SIZE=4", "SCALAPACK=-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack", "USE_64TO32=y", "PYTHONVERSION=2.7", "PYTHONHOME=/usr"
     end
   end
 
