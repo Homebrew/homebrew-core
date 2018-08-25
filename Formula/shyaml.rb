@@ -11,6 +11,7 @@ class Shyaml < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "1f553d4c50f311b1702c973a189e64a0bae519885d94af51b14fd09e82ade8e0" => :mojave
     sha256 "ff016e9adec1fcde3aed838decd83cd643e1da3b4fdda4f3760edc706a96204e" => :high_sierra
     sha256 "f56ae02770869a49ec55215d3444dfd07bdd2fb1788e4cc6f124bd63bfaf2769" => :sierra
     sha256 "ff1078dcd1f6df8b14d7389704cec6ab3d60c79a926d741db4600af72ed87c55" => :el_capitan
