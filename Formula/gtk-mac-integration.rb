@@ -19,6 +19,7 @@ class GtkMacIntegration < Formula
 
   bottle do
     rebuild 1
+    sha256 "99f446a854580ede1ac39c3c6c9bb7575e989391f0ad2b73bfd5e394dd2cd9f1" => :mojave
     sha256 "ec24d3b0e4c0509dcae72e6d6b9a55d1045de25ecd45d923d0d2744e0775010f" => :high_sierra
     sha256 "a81bce6683ec07ebe6acf464f5dabf417681ea5785194bf69f1614cef2353c2c" => :sierra
     sha256 "1be8f19849300cb593fd454d4407620c25fbb04ca4f4d7dc0e16261b1d26e04e" => :el_capitan
