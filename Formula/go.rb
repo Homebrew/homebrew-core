@@ -3,24 +3,15 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.10.3.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.10.3.src.tar.gz"
-    sha256 "567b1cc66c9704d1c019c50bef946272e911ec6baf244310f87f4e678be155f2"
+    url "https://dl.google.com/go/go1.11.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.11.src.tar.gz"
+    sha256 "afc1e12f5fe49a471e3aae7d906c73e9d5b1fdd36d52d72652dde8f6250152fb"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
       url "https://go.googlesource.com/tools.git",
           :branch => "release-branch.go#{go_version}"
     end
-
-    # Backports the following commit from 1.10/1.11:
-    # https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15
-    patch do
-      url "https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15.patch?full_index=1"
-      sha256 "9b879e3e759d56093ca7660305c3e4f8aee8acdd87126dc10985360395704139"
-    end
-
-    depends_on :macos => :mountain_lion
   end
 
   bottle do
@@ -29,18 +20,6 @@ class Go < Formula
     sha256 "f4093fe6e5a685528a7baf4a9c84aaeca4978f4f21faaa635d7a3952ab15f9c6" => :high_sierra
     sha256 "21e43c921f7221923d0740a8952a548e0cbb6b4b43945c7494d57341bcdee33b" => :sierra
     sha256 "1f1e1e34114c80fe7b74410d7b5337f976c84a3f83171d35b8db1af7f5937b39" => :el_capitan
-  end
-
-  devel do
-    url "https://dl.google.com/go/go1.11rc2.src.tar.gz"
-    sha256 "5947695c5289ddb6ddc22d01d498b94ddb86bb6775593d772156c4e72a482516"
-
-    resource "gotools" do
-      url "https://go.googlesource.com/tools.git",
-          :branch => "release-branch.go1.11"
-    end
-
-    depends_on :macos => :yosemite
   end
 
   head do
@@ -53,6 +32,8 @@ class Go < Formula
 
   option "without-cgo", "Build without cgo (also disables race detector)"
   option "without-race", "Build without race detector"
+
+  depends_on :macos => :yosemite
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
