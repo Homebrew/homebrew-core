@@ -6,6 +6,7 @@ class Python < Formula
 
   bottle do
     rebuild 3
+    sha256 "20b266a4d9a15ec3c88620bfc02fc70c7901104dfeb173a393804516d48367a7" => :mojave
     sha256 "6524b4cac1faeade2aee55ece641e4cf337cec1007218d8f72e9c705ecf37a4f" => :high_sierra
     sha256 "7e239b400ecc59d83c54fe7876d7db8069a590a1ff728ec27fa1a8019728d688" => :sierra
     sha256 "ca2fd2fa89e5c8408b69060716782286dc764c290754866f38bced1fede3eaf6" => :el_capitan
