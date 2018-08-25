@@ -6,6 +6,7 @@ class Librsvg < Formula
   revision 2
 
   bottle do
+    sha256 "1a8708ea79f5c93c222fd76fdd9226cb09e84b84299dbd775a3f4931d248c892" => :mojave
     sha256 "9fbc01305791dd1bcc471457267e3f92a14676c748806afb931077b4a5d7cad0" => :high_sierra
     sha256 "358ee8bd09767179968af8cf3d2b6fe2f0c881ed1a1ca3f033a7fac59cecd409" => :sierra
     sha256 "6d7418c2911ce65c4895ce5c39e49ff8cac58e6c424295089533189802c868bc" => :el_capitan
