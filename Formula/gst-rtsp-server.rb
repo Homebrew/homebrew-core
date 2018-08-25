@@ -5,6 +5,7 @@ class GstRtspServer < Formula
   sha256 "f7387755cf6ac5f334d4610f1f5aa7da4ff396a487dd5b789bb707f160222c98"
 
   bottle do
+    sha256 "c8c347d25b4a15edee29f415341a42066919acebcad5f0222e2337c96478e00d" => :mojave
     sha256 "bc42f7610e13790e829b778f8a9679cad2d9c810d2163b595e10d1f21cef7513" => :high_sierra
     sha256 "62ed2331f3cc48a6727e15ab566c2f4ba9defeccb244c6b6519b1055f87dcefc" => :sierra
     sha256 "3b7206a9f9db8c57051246607ed6fd4669ab902cb33a556f4b40ab0489af007a" => :el_capitan
