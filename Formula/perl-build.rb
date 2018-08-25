@@ -1,8 +1,8 @@
 class PerlBuild < Formula
   desc "Perl builder"
   homepage "https://github.com/tokuhirom/Perl-Build"
-  url "https://github.com/tokuhirom/Perl-Build/archive/1.24.tar.gz"
-  sha256 "0d9180f890401619f78ed0e82bfbd042a0e90fa7aca1e3d643ceefbe7f7e7eeb"
+  url "https://github.com/tokuhirom/Perl-Build/archive/1.25.tar.gz"
+  sha256 "1a3b666ebdab1ce0c58f3d19dfff5ea85b7f803b51a77c4165fe65ff4313ec48"
   head "https://github.com/tokuhirom/perl-build.git"
 
   bottle do
