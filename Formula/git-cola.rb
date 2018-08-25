@@ -1,9 +1,8 @@
 class GitCola < Formula
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://github.com/git-cola/git-cola/archive/v3.1.tar.gz"
-  sha256 "a7a083f84697a56ee7c910ccfc680d36c5c447c6b5a3522e01bff9de91474f57"
-  revision 1
+  url "https://github.com/git-cola/git-cola/archive/v3.2.tar.gz"
+  sha256 "4005e714db78b073c1ef8bde55485452dc7a31e3b8cc0b4d60d6112ffb5ea228"
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
