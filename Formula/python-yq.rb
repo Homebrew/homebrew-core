@@ -6,6 +6,7 @@ class PythonYq < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ca6ade4e6bdf9cc0897ea3c58bd5460fbf010b2bfed250aff40d9543ea04cac2" => :mojave
     sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :high_sierra
     sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :sierra
     sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :el_capitan
