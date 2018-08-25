@@ -69,6 +69,11 @@ class Gtkglext < Formula
     sha256 "0d112b417d6c51022e31701037aa49ea50f270d3a34c263599ac0ef64c2f6743"
   end
 
+  patch :p0 do
+    url "https://trac.macports.org/raw-attachment/ticket/56260/patch-index-gdkglshapes-osx.diff"
+    sha256 "699ddd676b12a6c087e3b0a7064cc9ef391eac3d84c531b661948bf1699ebcc5"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
