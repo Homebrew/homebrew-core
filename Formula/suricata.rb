@@ -5,6 +5,7 @@ class Suricata < Formula
   sha256 "74dacb4359d57fbd3452e384eeeb1dd77b6ae00f02e9994ad5a7b461d5f4c6c2"
 
   bottle do
+    sha256 "7b41bdf288494d0a227e895e0b9c4dc24a8c0f00f4d8bd164e8f6f78905cb854" => :mojave
     sha256 "1225733c82f67b32bc7c4c15f6946b0d5a56f97bf87522b89a7fb703c6fd5808" => :high_sierra
     sha256 "017a69cecd0cfb8437eb585f0c0b6a86f6b277cf99e369476a2d329feace7c76" => :sierra
     sha256 "b6f820a45e9e169a7bde63fe1d2baa0045f39c1dd9e793cfd6a370f349841926" => :el_capitan
