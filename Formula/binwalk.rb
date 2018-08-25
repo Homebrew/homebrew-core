@@ -7,6 +7,7 @@ class Binwalk < Formula
   head "https://github.com/devttys0/binwalk.git"
 
   bottle do
+    sha256 "77e4186284adedf74110c0cd5e802547bd1221ccd1a9b0d51e0d1c232aaded6b" => :mojave
     sha256 "b6d9fbd57f0c85a9bd976926b1e6714c5514efcde5a1934854ad98dad5c4852d" => :high_sierra
     sha256 "a3a9ef3ccbbdb69bdc35708ee8e12cccc0140ed3deb0c27cd2826937df6d6e1d" => :sierra
     sha256 "8c46fd5acd679261ed1b82518b90099c871ddddb3765909f56e1b433f7fb062d" => :el_capitan
