@@ -6,6 +6,7 @@ class Librest < Formula
   revision 1
 
   bottle do
+    sha256 "395cfe3524a16bb5f6b11501b5abaa58091498af73cf6fa44b900e16f8cfd0e4" => :mojave
     sha256 "677a14fd8dde39e068cc8bb4fe771619a13bdde7e92903756ecb056b79ee69e7" => :high_sierra
     sha256 "79fed6ba59358147b84ee7f793df20542e21c1537f3b7a1ff0572296d5503e20" => :sierra
     sha256 "5333e6b41033827ec7db0fedb3510fe4ab442cd53180c5cd1ebc613b4e1b3bfc" => :el_capitan
