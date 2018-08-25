@@ -6,6 +6,7 @@ class Pssh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c1fd4fa8d8ecf0d14653822cba442d183a8a2d79b016ecab5c54e565c6972ed2" => :mojave
     sha256 "ce781e0051a5a1855088a25df9eeb828b7a4bbbdafff90b2713c557acba2b19d" => :high_sierra
     sha256 "b4a9f92943bcfb34d5230d90658176ef5fe3a304f3abe48a1aad5fbda38c8efb" => :sierra
     sha256 "b13dcf5091ba493f21cd44c9ef43d028a4e23627b7b855ab4d299f0d543037a1" => :el_capitan
