@@ -8,6 +8,7 @@ class Alexjs < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f7802ccccbe316a876959d65ee0f967752811d486b99e228dc3336e98dcddf80" => :mojave
     sha256 "98235c0024fdbf9109169020bfbe6e184e6d64843ee29d0c532aa2703650ba08" => :high_sierra
     sha256 "89e37a748cc72279043da0fd9d7208f5dbe4612d1823d628de33b1a8c6f9e90e" => :sierra
     sha256 "2010daebcecbbe252a3d57b1144734793177027d699826cf67a632ea4d6b475d" => :el_capitan
