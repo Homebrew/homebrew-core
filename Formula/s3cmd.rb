@@ -7,6 +7,7 @@ class S3cmd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fb5fd2e51e89a0d47767d8838bc13dda9498e11a420e7c5612a5ace035761f49" => :mojave
     sha256 "6edd51ae84e001e4c7e7e87c9bd47d3ef2ef9bf2a7e171f61aa92ee475c918ba" => :high_sierra
     sha256 "6edd51ae84e001e4c7e7e87c9bd47d3ef2ef9bf2a7e171f61aa92ee475c918ba" => :sierra
     sha256 "6edd51ae84e001e4c7e7e87c9bd47d3ef2ef9bf2a7e171f61aa92ee475c918ba" => :el_capitan
