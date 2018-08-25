@@ -5,6 +5,7 @@ class Mongodb < Formula
   sha256 "c9b2ab4ea6899b631e77b7aed3b3653eed1086a75cb0f3bf74910c49d55a7dff"
 
   bottle do
+    sha256 "9a70b71283d1e40606baea296cfa4170438aaa11fd59f138e3dead00fa8fa9cc" => :mojave
     sha256 "fef24dba4cdac561759718cd417bf23198c4553049dc6eec5e92b9f8a6d86df7" => :high_sierra
     sha256 "04dbbfdb23c17f3e7760275db91a032c5187ec14bbe6d9db181906cdbcc03c95" => :sierra
   end
