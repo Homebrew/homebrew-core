@@ -5,6 +5,7 @@ class Clingo < Formula
   sha256 "b0d406d2809352caef7fccf69e8864d55e81ee84f4888b0744894977f703f976"
 
   bottle do
+    sha256 "7d5361d6a0eeae3dd864ca98abcca889c6020d3e6b00158065d2a22bb07ef247" => :mojave
     sha256 "3e86b87aafa82aec26e952283c53f64a4856a7e7baae383c75f76e48fdea36ad" => :high_sierra
     sha256 "2c5f76428bc4b2ee00588770b95de5793a7cd3aac22cdbf211e48df4c260f3fb" => :sierra
     sha256 "29f93ed547c63e8881840cf9dd6b68b154cbff5436a002ddc584f16789e44fc3" => :el_capitan
