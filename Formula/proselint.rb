@@ -9,6 +9,7 @@ class Proselint < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "79d56a468954642ab86ebcb78268b4928fb5a2d0e1741f5830de42d288601f42" => :mojave
     sha256 "c6c0425dc06297b4d4200e2f53920732e44bcc6009108e6cc5d5ce752e3913a2" => :high_sierra
     sha256 "5c21d30d5a33124a411e7c6f79581f8ac7478c7508e100ac1a71e7d25b0e6a76" => :sierra
     sha256 "791b9de22b93ff3e09a6bff939ccb5edfc1be84dc32d16692ee68603c46f6d31" => :el_capitan
