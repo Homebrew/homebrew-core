@@ -6,6 +6,7 @@ class Libgda < Formula
   revision 2
 
   bottle do
+    sha256 "c8e13219f324e8398a33dbf0b7aaf9ae1385dc42971af89013f0c71a1606a1ae" => :mojave
     sha256 "39e348596409d69d57609d0a00c6e9506a9fd52a4f90e585e3b6840bf03ea67e" => :high_sierra
     sha256 "e165830cedc3a0955989746145b310cc03fe96b84f18b33c4c3f2b827bdd473c" => :sierra
     sha256 "7809bb97ebcd233a740c1e5b5cb0f291a902639a6479d5e53fdcfedd928b6582" => :el_capitan
