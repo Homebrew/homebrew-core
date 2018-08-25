@@ -1,8 +1,8 @@
 class JenkinsJobBuilder < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/system-config/jjb.html"
-  url "https://files.pythonhosted.org/packages/ef/69/e3a890870f8a3c7ac376fea8093c05874c1bcf233835a3b04622bd7b7219/jenkins-job-builder-2.2.1.tar.gz"
-  sha256 "38d928e3959002a3f9e96eb3a257edc4a52f92a8358455fdb57265812f19bbdc"
+  url "https://files.pythonhosted.org/packages/91/9b/ee136841a4d0ec799656e9ccc25becaa416aa680efc230320607bc27c1c6/jenkins-job-builder-2.3.0.tar.gz"
+  sha256 "f4f257b9c2720f300d4c424b4f9ab552d925175c2220ae7953655cc2609e15e1"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,8 +14,8 @@ class JenkinsJobBuilder < Formula
   depends_on "python@2"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
-    sha256 "13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7"
+    url "https://files.pythonhosted.org/packages/e1/0f/f8d5e939184547b3bdc6128551b831a62832713aa98c2ccdf8c47ecc7f17/certifi-2018.8.24.tar.gz"
+    sha256 "376690d6f16d32f9d1fe8932551d80b23e9d393a8578c5633a2ed39a64861638"
   end
 
   resource "chardet" do
@@ -59,8 +59,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "python-jenkins" do
-    url "https://files.pythonhosted.org/packages/74/38/43f8b4a0ac108b6331a9514699c3bfcf0510c28fa04777b7798bf35857e6/python-jenkins-1.1.0.tar.gz"
-    sha256 "38224194d5a5055489f547b9c994bd8f6f9f6c2bbe69255255a20344b2bcca4c"
+    url "https://files.pythonhosted.org/packages/4d/2e/58ab460a6bc77b25823e9acc82c38bbde7c26ada7f627500d8cb7f68861e/python-jenkins-1.2.1.tar.gz"
+    sha256 "62114d830cc95dee9d9a75f5c4e0fd2ea7b0ca17b0f09357a01a22432c09d325"
   end
 
   resource "PyYAML" do
@@ -104,7 +104,7 @@ class JenkinsJobBuilder < Formula
   end
 
   test do
-    assert_match(/Managed by Jenkins Job Builder/,
+    assert_match("Managed by Jenkins Job Builder",
                  pipe_output("#{bin}/jenkins-jobs test /dev/stdin",
                              "- job:\n    name: test-job\n\n", 0))
   end
