@@ -1,8 +1,8 @@
 class ZitaConvolver < Formula
   desc "Fast, partitioned convolution engine library"
   homepage "https://kokkinizita.linuxaudio.org/linuxaudio/"
-  url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-4.0.0.tar.bz2"
-  sha256 "e3186f807dd76befbbb1c009f6bb4f83567b5d3c93b49a71b334034d1171a73b"
+  url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-4.0.2.tar.bz2"
+  sha256 "1245451c52a33ef3476ffc4007a9e100ee282df0648c961be235b6a8ef748e77"
 
   bottle do
     cellar :any
@@ -15,8 +15,14 @@ class ZitaConvolver < Formula
   depends_on "fftw"
 
   def install
-    cd "libs" do
-      system "make", "-f", "Makefile-osx", "install", "PREFIX=#{prefix}", "SUFFIX="
+    cd "source" do
+      inreplace "Makefile" do |s|
+        s.gsub! ".so", ".dylib"
+        s.gsub! "-soname", "-install_name"
+        s.gsub! "ldconfig", ""
+      end
+
+      system "make", "install", "PREFIX=#{prefix}", "SUFFIX="
     end
   end
 
