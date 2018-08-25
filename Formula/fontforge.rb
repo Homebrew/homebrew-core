@@ -6,6 +6,7 @@ class Fontforge < Formula
   revision 3
 
   bottle do
+    sha256 "dcac27239080e9920c17216802485a9fe5fe589a63517087972303e9d008cec7" => :mojave
     sha256 "06dbc9a8d4bc58b2097d455074118db2b0c9063d6e341e8f36034f7dbb896aec" => :high_sierra
     sha256 "c1c341cc9e10bb504fee8b8cdcb827ae1ee32db9a2c723743a79e39df32da8fd" => :sierra
     sha256 "ec69ac98f88c91f84f83d929310c6b7bdb4ccdc731e2603d2402dbdccd54a6d2" => :el_capitan
