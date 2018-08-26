@@ -6,9 +6,8 @@ class EtcherCli < Formula
   url "https://github.com/resin-io/etcher/archive/v1.4.4.tar.gz"
   sha256 "02082bc1caac746e1cdcd95c2892c9b41ff8d45a672b52f8467548cad4850f5d"
 
+  depends_on "node@6" => :build # must be abi compatiable to the node version used with pkg
   depends_on "python" => :build
-  depends_on "jq"
-  depends_on "node"
 
   def install
     Language::Node.setup_npm_environment
