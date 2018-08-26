@@ -10,6 +10,7 @@ class GitAnnex < Formula
   head "git://git-annex.branchable.com/"
 
   bottle do
+    sha256 "a7213119a6e8893e3763675ef1f64179bf03b79cd21509f1a786d985284f4854" => :mojave
     sha256 "c9677a3f23c1a615c2553dc1aea48e1e70bef126c678048d7ce35cf8376f3e2e" => :high_sierra
     sha256 "4019012ef3033838ab1f0722e8c1211bdb4889519697b43a3dd5ca403d52695a" => :sierra
     sha256 "f472290298c766891396007fc6fdb0e63bccd83ce20ac82e91145378f8e0996f" => :el_capitan
