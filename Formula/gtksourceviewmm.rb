@@ -7,6 +7,7 @@ class Gtksourceviewmm < Formula
 
   bottle do
     cellar :any
+    sha256 "7e3c4284ace0c86f7ccfda14541283048c16f690e46ab1b6e492af5b2afd203c" => :mojave
     sha256 "aea70d259d3fcdf70e4230cda3b234c5bb1c3ea16839a668c329adbaaad3d05f" => :high_sierra
     sha256 "f80d564b3ef86998d12118e1f82294178b7d252aba69c536b5dd242a7dc43308" => :sierra
     sha256 "5081201035ee520569f9dc730e753d73d605a9717bca20c640f3d0365773903b" => :el_capitan
