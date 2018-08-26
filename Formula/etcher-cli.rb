@@ -3,9 +3,8 @@ require "language/node"
 class EtcherCli < Formula
   desc "Flash OS images to SD cards & USB drives, safely and easily"
   homepage "https://etcher.io/"
-  url "https://github.com/resin-io/etcher.git",
-    :tag => "v1.4.4",
-    :revision => "cbd531e161a12721fb763b526781f66ef8237ac9"
+  url "https://github.com/resin-io/etcher/archive/v1.4.4.tar.gz"
+  sha256 "02082bc1caac746e1cdcd95c2892c9b41ff8d45a672b52f8467548cad4850f5d"
 
   depends_on "python" => :build
   depends_on "jq"
