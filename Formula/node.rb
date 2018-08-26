@@ -6,6 +6,7 @@ class Node < Formula
   head "https://github.com/nodejs/node.git"
 
   bottle do
+    sha256 "3af738be7f8a6b50eb6a09d6df56cce19661cc7d87bfd422ecbab306fe11244a" => :mojave
     sha256 "138227f17d4a6008517cdb01025432f1c276a3ce2d64b7f51d77a9e58adb33a1" => :high_sierra
     sha256 "632d18a31ced33fb9872b4f67c7bc6785363fcf82b77393820bd9a645ad4b05f" => :sierra
     sha256 "d4eecaab1ae687dfc204fcc08dda5efd72cc63b76a602016c496898b5e08b80e" => :el_capitan

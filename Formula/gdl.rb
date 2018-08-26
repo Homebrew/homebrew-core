@@ -6,6 +6,7 @@ class Gdl < Formula
   revision 1
 
   bottle do
+    sha256 "5143863d01c94bc6eb765615922b302de5d73f8d3ea40982b9ad29b3221b7e19" => :mojave
     sha256 "7395131d564a60d6b225c82f109403aa92bbc5f75a59eccd1ec3f98a13052f6f" => :high_sierra
     sha256 "9267cd085c7e131ffb16b13a3c4f6b39ae5b3093fd16f77925263ea305b3536b" => :sierra
     sha256 "c366de7b473f8af12cbb38b4a2fabbde7438d76915a8f06663ef1e0703548e6b" => :el_capitan

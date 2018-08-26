@@ -5,6 +5,7 @@ class JsonGlib < Formula
   sha256 "2d7709a44749c7318599a6829322e081915bdc73f5be5045882ed120bb686dc8"
 
   bottle do
+    sha256 "31e217c0ce04015a4d5b57396fc6a27cc543a0bddd129aeee31b93e90067d294" => :mojave
     sha256 "d27d9aaeadd8072a2eeb91984b2cf9b8e13b7c6cbc2cc1e4debe4738bce90f36" => :high_sierra
     sha256 "ef55b4676e0ef1e3dcde3fd642bc7cb6da0d091921720281b4b3400e169cbffa" => :sierra
     sha256 "f5baf172b136c33fb8fa7b9e8e7e923cc0f9eabf6012f8765ff665b4380c29c8" => :el_capitan

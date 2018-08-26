@@ -9,6 +9,7 @@ class Cookiecutter < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ad413fa480c0d967b683a10270385e49e41cd8e3cb849682f880826df8a1a3f6" => :mojave
     sha256 "c41fc38106412dbff9fabc1d996610ffc781e7a620552c8d71a8efed878a2052" => :high_sierra
     sha256 "a6ff87583db4af994e8987cd6335960bfb2613f820c484af3276e7b42f041a04" => :sierra
     sha256 "2add95022eec8b10c91f28bfa209ba1bd866e474a8d65350a965d081211b4584" => :el_capitan

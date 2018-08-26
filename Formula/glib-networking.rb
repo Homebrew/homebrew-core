@@ -6,6 +6,7 @@ class GlibNetworking < Formula
   revision 1
 
   bottle do
+    sha256 "c63f6875382dd5a2f1f434f71ec37ebdd7901cf2f2c6241443c4bdea7b570346" => :mojave
     sha256 "848ca8306d7132d621325029270190bdfc1ceb4c27260ac1bb924a1d586f1bcc" => :high_sierra
     sha256 "fe7eee17a3d576796fb8201eed5e0957726fc5af4e08500b2fc443cd2b8d3527" => :sierra
     sha256 "4992ba80139c7bea88e579e24756b1c1793e0ff7f4cf30450123f405e0bc7e70" => :el_capitan

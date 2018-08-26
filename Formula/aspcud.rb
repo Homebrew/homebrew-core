@@ -6,6 +6,7 @@ class Aspcud < Formula
   revision 1
 
   bottle do
+    sha256 "663b82ae45395f7235e1ee0acb7dfc8821efb2a799569c65275ecac90d96570d" => :mojave
     sha256 "07f0e44c6cf608f20da7a37744d7559c1f7b77fc3151bcd37ea0af9fbd39cde7" => :high_sierra
     sha256 "c3c886728b9713da9ec4837b7faf19832219636743654f5b94dbe83b09c83bae" => :sierra
     sha256 "d9f4bb9cd64ba31b4786fc848813cf665ff5f37c761cfb0bacd6c70b50fd9a58" => :el_capitan

@@ -7,6 +7,7 @@ class Hashpump < Formula
 
   bottle do
     cellar :any
+    sha256 "01755a1227fb876736e267b3d269ecc673141cbc88cdaf74abbb65461a125d05" => :mojave
     sha256 "479a1f7187b1d126ada855c3368179a97d4cddd5bcd6e869a6418e6f1349d586" => :high_sierra
     sha256 "53dd1f981a635e415dc0459f410a8854b90e04ffc034b87e6abed97bab5027d8" => :sierra
     sha256 "981c229f983ad5b42e4b975e21112ecb0d3715b61b5b278037ceba5a03f82fe8" => :el_capitan

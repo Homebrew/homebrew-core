@@ -8,6 +8,7 @@ class Liblwgeom < Formula
 
   bottle do
     cellar :any
+    sha256 "9d6b721be4984a42861a14ba798dd15deb54f524d5a710c7ad78d2097d309503" => :mojave
     sha256 "61f2cd87123236e471f469467319665664743837a35c5074e868c9908824843e" => :high_sierra
     sha256 "49cff9c152a94004541516365c60decf5dd5107977e300ef9185d1e9bf8d6db6" => :sierra
     sha256 "38054f5facd281c4acbe75597f67bed2133549efe33bef0f6200116dd47605d2" => :el_capitan

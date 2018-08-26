@@ -7,9 +7,11 @@ class WebtorrentCli < Formula
   sha256 "e3e1db7e1d57d322e9263be1454e6af31e9713295fef0edb242d9ac0d97bf71b"
 
   bottle do
-    sha256 "6fbb55968853c2b24de34a5384f9f72741510027e9caa79b561e4eaf9d45c17a" => :high_sierra
-    sha256 "fdb996ba461d104d7d544598d1a447eb7fb1717f5fcbca21ec7c76d59e4310cb" => :sierra
-    sha256 "3af31f91caf30b82dcd19f491d6fbb9a58255e0d19de6ed8c0e38c3c1a1b29d9" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "f742fef76f23303d2e3f00aecc58f0e330151395827b0c1e86965aea15de86fb" => :high_sierra
+    sha256 "684233d167eda9cd325ea50016c1000ac4c4a19764a65da4810bebaa5f49a156" => :sierra
+    sha256 "5fccaa04d58abeed5146887b970264758a3aff86a048766e9d40386bb5ad3dff" => :el_capitan
   end
 
   depends_on "node"

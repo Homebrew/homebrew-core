@@ -5,6 +5,7 @@ class GobjectIntrospection < Formula
   sha256 "5b2875ccff99ff7baab63a34b67f8c920def240e178ff50add809e267d9ea24b"
 
   bottle do
+    sha256 "28c0c311eb0f5d5856629b978e0e4128e694b3ec98ae973cd541dc89b4fbdc13" => :mojave
     sha256 "7e3896225d492382272968eb6eebf0d4fb94e233b1833dc8ef5e2216b846efe0" => :high_sierra
     sha256 "9446ae0d9ea409e8698886e09ddb77f614dd380f00d4aee7189d03067de19adc" => :sierra
     sha256 "4b07786d56ecc06fe369c3dcdbb0462e9ada2741a68d8725256f2826ee80c3fe" => :el_capitan

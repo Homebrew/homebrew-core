@@ -7,6 +7,7 @@ class Flann < Formula
 
   bottle do
     cellar :any
+    sha256 "40398c04b80cbb5d59a4387f1efb4ede7ee9516e5f996e165dd8132c6c8acad0" => :mojave
     sha256 "5f8c131f79f06edb6340b707ba999c20b2dc9b77bb2f47436dbddffb38e0dc31" => :high_sierra
     sha256 "ae8fc018e89e774c317af7fe27ec7e3b193cfc45c1252ddd796c38817d63fe2a" => :sierra
     sha256 "1b5f2d3f1e1cb483473871b6df9aba70900110e6888d45480d829a27f4600428" => :el_capitan

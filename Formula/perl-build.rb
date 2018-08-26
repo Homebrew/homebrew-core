@@ -1,15 +1,15 @@
 class PerlBuild < Formula
   desc "Perl builder"
   homepage "https://github.com/tokuhirom/Perl-Build"
-  url "https://github.com/tokuhirom/Perl-Build/archive/1.24.tar.gz"
-  sha256 "0d9180f890401619f78ed0e82bfbd042a0e90fa7aca1e3d643ceefbe7f7e7eeb"
+  url "https://github.com/tokuhirom/Perl-Build/archive/1.25.tar.gz"
+  sha256 "1a3b666ebdab1ce0c58f3d19dfff5ea85b7f803b51a77c4165fe65ff4313ec48"
   head "https://github.com/tokuhirom/perl-build.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "daed2573c264133e4ef0fa76171389b23625fcb24d68244e7041bc98a59d74c0" => :high_sierra
-    sha256 "aa30d54e85b3f53e5dc51655100dbb7ba0491e8843e67debc818d0c0ae75b0b1" => :sierra
-    sha256 "bfe06ffe85c53b7a112110c3e0974aea0c7c8a38b43bdbc57b4b06ade1abd6db" => :el_capitan
+    sha256 "334d758431276eab85dedb6d85f49ba231cbf6f1403a924ee09bbe036c97778b" => :high_sierra
+    sha256 "db1311750f48a2bd5cb8571f4dc7688c59b510855ca5481f65d57042cbdfc883" => :sierra
+    sha256 "fd55b31409de788975a6118a73786b845a131e944edc8cf41877c5eea21044bf" => :el_capitan
   end
 
   resource "inc::latest" do

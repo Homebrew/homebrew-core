@@ -7,6 +7,7 @@ class BoostPython3 < Formula
   head "https://github.com/boostorg/boost.git"
 
   bottle do
+    sha256 "3a3159573d928cdfcb02aae4071ddcb3010ab971c2d47215e72482082d1c268d" => :mojave
     sha256 "bae03c8db2771e0c2e6ede980f63709933b9aeff3a6c2caa455eddbf0720d7a4" => :high_sierra
     sha256 "f40cf6faac668e9bb6fe21997b71b3ad323e7c6a63320450f2fbaee4cf254e0a" => :sierra
     sha256 "4a021ea3b65eadb5fd799d5a45a837e18981ef12d622f1eaf841d51b95230a7f" => :el_capitan

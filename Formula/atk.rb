@@ -6,6 +6,7 @@ class Atk < Formula
   revision 2
 
   bottle do
+    sha256 "c891f2e04a6bb4c77f9f45b673494da1762f51dbc9b567bfad411fd5f27fb302" => :mojave
     sha256 "2fa9dc887ac9710977281e59a7ae22a571596b234ac738479ee26afedbdaba34" => :high_sierra
     sha256 "960f53ddcbd54d708f7fb70ea655a8f14a8f315e20121d157e7927354dae4068" => :sierra
     sha256 "2a03378b3903fbca6caca6811a3e3658fd75914a62dc5dda3a801dd4e16d7a0a" => :el_capitan

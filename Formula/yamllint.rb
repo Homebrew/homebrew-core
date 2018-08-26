@@ -10,6 +10,7 @@ class Yamllint < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "c20c73fe3d322eb529b94a05a795d4f890c87a28e7d884c301f1e85c0ef13940" => :mojave
     sha256 "3ffaafca879769be72b0a8a98be07f8ffe746f8488f4430863fb8380544ab01c" => :high_sierra
     sha256 "921109aebc30770d96997b33565faf1d21f5821d4bf9e19d18fc6e0f5908712a" => :sierra
     sha256 "17ec47b0462e157f33a61fa95462c1b6f7bdd329fd687a870317c4eb4aeeaf9c" => :el_capitan

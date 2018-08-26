@@ -12,6 +12,7 @@ class Geeqie < Formula
   revision 1
 
   bottle do
+    sha256 "a559b5497adfaadb9ae785d47abf74f856ee0aa34126325a380565a0ec6836ad" => :mojave
     sha256 "0bf35c40d3d0fc9a3bb6d69cd079e7e3f9aae4d1c050cead01aca59bea009d22" => :high_sierra
     sha256 "54a1af6f886c7a95b3f66ea0996a6acfa1531b940d274921a84cdef57c1fc54f" => :sierra
     sha256 "2f84465d9d6eba2db0031c71033b735d33a6d6294dd2a15fd13d65674b60783b" => :el_capitan

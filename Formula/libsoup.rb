@@ -5,6 +5,7 @@ class Libsoup < Formula
   sha256 "d312ade547495c2093ff8bda61f9b9727a98cfdae339f3263277dd39c0451172"
 
   bottle do
+    sha256 "cc9c243383ddba287cfc44bc278c6ba871310fa83292caffcb4a32462a0950d6" => :mojave
     sha256 "4aa8d356d3617c754488b56982d41f93fee2ed9103c05e6687e226bfc0dfd26d" => :high_sierra
     sha256 "43a1ddb3bcdb5d0c4a29ea7c0dc23a34f396da7604b32e425d5e450921f948fa" => :sierra
     sha256 "86c8301beb1a991dbfcf76866ffcd6fff9f8b7c758722467125f0c9221ce55d6" => :el_capitan

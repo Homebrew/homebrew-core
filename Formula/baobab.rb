@@ -7,6 +7,7 @@ class Baobab < Formula
 
   bottle do
     cellar :any
+    sha256 "82714fced60aab9783af682b720830e4b0bed8b4cfb816372f387ac3d41cb715" => :mojave
     sha256 "df91083504c615b21a90f0d1a8ec164f711fa336c5884feec211ac46678aee32" => :high_sierra
     sha256 "1e5b3391a333627116594477b5fe8a8bc8348312f84a518a757f53b1d12a89cb" => :sierra
     sha256 "6b271f297efc4b0e0c27537b2334f3aff80e8a3ac4486c5abfe48737ab4f2251" => :el_capitan
