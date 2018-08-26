@@ -17,6 +17,7 @@ class Eslint < Formula
     (testpath/".eslintrc.json").write("{}") # minimal config
     (testpath/"syntax-error.js").write("{}}")
     # https://eslint.org/docs/user-guide/command-line-interface#exit-codes
-    shell_output("#{bin}/eslint syntax-error.js", 1)
+    output = shell_output("#{bin}/eslint syntax-error.js", 1)
+    assert_match "Unexpected token }", output
   end
 end
