@@ -2,12 +2,13 @@ class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
   url "https://github.com/dartsim/dart/archive/v6.6.1.tar.gz"
-  sha256 "4000ad91dc20a5fee89f2252c9eb28cef62c89df88bff218374b70f38245a61c"
+  sha256 "86cc3249938602754f773e0843f415c290bd2608729ab3e219de78f90bdd4d6b"
+  revision 1
 
   bottle do
-    sha256 "fa6a8387829bde1eef29583c3619d0064110a0fa5f6aae3362351497e333c61c" => :high_sierra
-    sha256 "375682ec7bfacd41e5c3a5ccbdc145bab74d21c29f94c87e970c9fcd116b02c3" => :sierra
-    sha256 "2fa5ebd80eacb6406ed823a9e85cd380afad0a5abcf42a1a6399bcddc0ac623e" => :el_capitan
+    sha256 "16ffea1569e6e599a3f8989086677f4f6471201fddcc2321aa21af8c7f18a0a8" => :high_sierra
+    sha256 "f3f3c75b85ef340ec42c2cd800d0a89c519c355b2669a23e994caf6dae779d0b" => :sierra
+    sha256 "9c41c800dc14ebff50b06f28313aeada21d73c7045e794b42e09251bcb47807e" => :el_capitan
   end
 
   depends_on "cmake" => :build
