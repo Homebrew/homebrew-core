@@ -6,6 +6,7 @@ class Distcc < Formula
   head "https://github.com/distcc/distcc.git"
 
   bottle do
+    sha256 "29e22720fd883fa08b9cf4c3dfb05711b47708435cc4d64db95ba53e1e2ad06f" => :mojave
     sha256 "ba97d2888c977f6a5d51e690cebe27362ebbbef81767c4f349c41d7d9e822a19" => :high_sierra
     sha256 "90ee0314ef321c86ed4872f42043a02c385d95e0cb1f0fa4b14ac5877e12b07d" => :sierra
     sha256 "c13dc99f83f891e47906851ed16c2095bb2a3e72f0f320aae0ff53dc23fd3afa" => :el_capitan

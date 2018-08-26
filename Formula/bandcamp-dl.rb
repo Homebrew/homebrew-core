@@ -11,6 +11,7 @@ class BandcampDl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "50d7b4c3692ef76fa071c0a4c5ca78c25901fac4a07ad9d3d7b58f6b0228af3a" => :mojave
     sha256 "b56b8c31c2a86b66f5944bf7a85213ce00fd6d7e87e7ce02212be3ad532e2d94" => :high_sierra
     sha256 "57ba4b30e2ee269ba946bf9a784212f669d8f829ec8e586436c895d6dc0f0b10" => :sierra
     sha256 "d0ec20e1cdd9b41230d038ba8b93c4d09c185768bfc60c77a98c13a7f2465935" => :el_capitan

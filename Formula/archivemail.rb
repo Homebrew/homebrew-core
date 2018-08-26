@@ -6,6 +6,7 @@ class Archivemail < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b5958a4375c0b3d15ed6053b2c8c4432118f9bc09944700e82abff5d628f94df" => :mojave
     sha256 "1a06300e7ac704103b3847aa7d03762aa0ed7725afd671939b7065f9e02f55e4" => :high_sierra
     sha256 "6855a80277b3f76a46c29272db16490e5bc927f3975fb97ff762b4cc449b3b53" => :sierra
     sha256 "f95de4796d99f6c4a2174e973bac2efe5edd42237f0916cccfc1ebcdfbce92ba" => :el_capitan

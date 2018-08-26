@@ -9,6 +9,7 @@ class Libbtbb < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "92ec56d2dbd72674fa341fecc7d71ef6c6c2ee08fea3e36d29f90d3a69f2a117" => :mojave
     sha256 "3b83b0f80659a8e8e5f774f0c75e8de9e867397e6420cfc09d7640f6d816f65f" => :high_sierra
     sha256 "b7dc719910c8c6fe4a14bf016dd98a6e9aeff4163bcc2763ba79c1030cf60432" => :sierra
     sha256 "904bceae63d8ad367c07e90ffc095d0e3163bb45116b90bf1986791b030beb32" => :el_capitan

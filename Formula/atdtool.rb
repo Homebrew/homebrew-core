@@ -6,6 +6,7 @@ class Atdtool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f46618b97d24a264a5d2ffbc9c4b27ec20e2b0b146cc10f7adb7db540ec3fa40" => :mojave
     sha256 "c1c1b8c7468e0b649ba93da43344eaed88f3e8db4e09bd656398f91b6ebaeef4" => :high_sierra
     sha256 "c1c1b8c7468e0b649ba93da43344eaed88f3e8db4e09bd656398f91b6ebaeef4" => :sierra
     sha256 "c1c1b8c7468e0b649ba93da43344eaed88f3e8db4e09bd656398f91b6ebaeef4" => :el_capitan

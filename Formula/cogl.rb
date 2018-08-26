@@ -6,6 +6,7 @@ class Cogl < Formula
   revision 1
 
   bottle do
+    sha256 "e8101f1075c0f7754670e94355b6adee2981cbc06f2cd06221e06009a730213f" => :mojave
     sha256 "d5cf5821953809ef2d1cefbffec2f6e44a6eaa65ce377e867e938b03983f7125" => :high_sierra
     sha256 "29ba6e0eea677529b8558de0fc4a81b0ca3c26a6a8c517b92d3108785476d206" => :sierra
     sha256 "cb19f43f005213580caec8ef9bacb024df5839b0d5a2a337ec6c189340d78548" => :el_capitan

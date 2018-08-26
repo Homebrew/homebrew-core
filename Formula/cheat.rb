@@ -9,6 +9,7 @@ class Cheat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bc90cf2a0bbaa461b36019f4f95458f53a9e1270b2f8076d3b2ddeb438782789" => :mojave
     sha256 "17c9c8e02a78c0276549519e9594ebcf74d3fbed7d89781227e560e2506e5387" => :high_sierra
     sha256 "374a7773ba02b820b7e24c2ae37c06a69d6e11c506e65fe9c1bdc76d6fce02c5" => :sierra
     sha256 "03c6ddbad8d372487e30bccd793a19f80e1aaa45970943bf0300710fe119b2b0" => :el_capitan

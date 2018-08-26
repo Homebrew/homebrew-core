@@ -7,6 +7,7 @@ class Gmt < Formula
   sha256 "30fe868c91df30c51a637d54cb9ac52a64fe57e15daa9e08a73a4d1f0847e69f"
 
   bottle do
+    sha256 "b22c034be3134b652cd00914dfcbf0c35a7f30c9157e5a6aec675d42e7d33651" => :mojave
     sha256 "456593df6ad7441fde5c58a4579a3aa1428c52059db4449c0f578ff37bb18f32" => :high_sierra
     sha256 "b91a84ab1a4f943a19e0faeaf447cdab87f5b531d1f9b299dffcd4ded44ed47c" => :sierra
     sha256 "6c5a59359819a5ad38f8d2dd5968fdd00892590309e61ba6d882911436f167f5" => :el_capitan

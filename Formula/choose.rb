@@ -8,6 +8,7 @@ class Choose < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "0e7bcfe64dc4848d019fcce039fff1674a6453732f008f273bb8eb9553ec9b36" => :mojave
     sha256 "8c99ba985ed4102767beb1413508731726f78ab7329e192cd54461f5d5c78856" => :high_sierra
     sha256 "f1f78c46406518bfb8197922d199737d5ae44913e86e1753df84a759c6670556" => :sierra
     sha256 "0e597243f20f7a5a0699d72dcd4d0395976e481a1fc32c24725c2a4b4fee6992" => :el_capitan
