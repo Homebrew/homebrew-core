@@ -7,6 +7,7 @@ class Abcde < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "99162c8df7fc5eafd59e0e9eb858abbbfb34205fffb5a20134c6551502638a57" => :mojave
     sha256 "6b7ee1b87d6c028ce17940bb59890f2f6e3d256310a06b8dc21bf35d07bf650b" => :high_sierra
     sha256 "6b7ee1b87d6c028ce17940bb59890f2f6e3d256310a06b8dc21bf35d07bf650b" => :sierra
     sha256 "6b7ee1b87d6c028ce17940bb59890f2f6e3d256310a06b8dc21bf35d07bf650b" => :el_capitan
