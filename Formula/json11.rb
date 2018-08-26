@@ -4,6 +4,13 @@ class Json11 < Formula
   url "https://github.com/dropbox/json11/archive/v1.0.0.tar.gz"
   sha256 "bab960eebc084d26aaf117b8b8809aecec1e86e371a173655b7dffb49383b0bf"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3c6b7776a4702bb90d046f3c6f4ace063ea04d3355c7ce51127824292cb4506f" => :high_sierra
+    sha256 "e7a717f73162477010c156c2e4d281bb4b5f26ea3c53a5aaffc82998954d119c" => :sierra
+    sha256 "d5345ad5224fb7aeda2562d1a46350c44f66cf98486d142bc81b8186e5aa74cc" => :el_capitan
+  end
+
   depends_on "cmake" => :build
 
   needs :cxx11
