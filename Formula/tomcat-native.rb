@@ -1,8 +1,8 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.16/source/tomcat-native-1.2.16-src.tar.gz"
-  sha256 "1e9409584c19d868efd056f7dbafc767a630a5a95ee3cd516de8b7aaa4cd97b6"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.17/source/tomcat-native-1.2.17-src.tar.gz"
+  sha256 "e16858e6ad91c26c17491a26f3ed4a53ab441c44fb3490caf09075ef4dda857e"
 
   bottle do
     cellar :any
