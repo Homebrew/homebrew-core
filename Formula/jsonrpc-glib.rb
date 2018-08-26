@@ -5,6 +5,7 @@ class JsonrpcGlib < Formula
   sha256 "cf2ac25944c3990904d63999deea3add38d99ea2fad16f335a996fd9a8706e2b"
 
   bottle do
+    sha256 "d4abbc2258745ab94a07e6a05d3db29910daa631a8d81465bbe4020a7f0ac4c7" => :mojave
     sha256 "5bc3503c765ac68aefbbf6b4d13ce5f7f16abfe19b4e47434631e397f597344c" => :high_sierra
     sha256 "19e6c73cc0974615cb6ad8f2a321dc12dd8d6b62564d1959b91a65603c98fcd8" => :sierra
     sha256 "c8d9b3ff3b6a69eb3cc6f52c551284578ce7edaadf38409e88974e0ac5deeace" => :el_capitan
