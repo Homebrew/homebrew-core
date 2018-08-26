@@ -10,6 +10,14 @@ class Nwchem < Formula
   depends_on "scalapack"
 
   def install
+    cd "QA" do
+      (prefix/"QA").mkdir
+      (prefix/"QA/tests").mkdir
+      cp "runtests.mpi.unix", prefix/"QA"
+      cp "nwparse.pl", prefix/"QA"
+      cp_r "tests/dft_he2+", prefix/"QA/tests"
+      cp_r "tests/prop_mep_gcube", prefix/"QA/tests"
+    end
     cd "src" do
       (prefix/"etc").mkdir
       (prefix/"etc/nwchemrc").write <<~EOS
@@ -41,6 +49,8 @@ class Nwchem < Formula
       rm Dir["#{share}/libraryps/*F"]
       rm Dir["#{share}/libraryps/*fh"]
       rm Dir["#{share}/libraryps/*ake*ile"]
+      rm Dir["#{share}/libraryps/dep*ies"]
+      rm Dir["#{share}/libraryps/incl*mp"]
     end
   end
 
@@ -48,6 +58,9 @@ class Nwchem < Formula
     cd "QA" do
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
+    ENV["NWCHEM_TOP"] = "/"
+    ENV["NWCHEM_TARGET"] = "MACX64"
+    ENV["NWCHEM_EXECUTABLE"] = "/usr/local/bin/nwchem"
     system "runtests.mpi.unix", "procs", "2", "dft_he2+", "prop_mep_gcube"
     end
   end
