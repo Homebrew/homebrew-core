@@ -55,13 +55,14 @@ class Nwchem < Formula
   end
 
   test do
+    cp_r prefix/"QA", testpath
     cd "QA" do
     # The installed folder is not in the path, so use the entire path to any
     # executables being tested: `system "#{bin}/program", "do", "something"`.
-    ENV["NWCHEM_TOP"] = "/"
+    ENV["NWCHEM_TOP"] = "/usr/local/Cellar/nwchem/6.8.1"
     ENV["NWCHEM_TARGET"] = "MACX64"
     ENV["NWCHEM_EXECUTABLE"] = "/usr/local/bin/nwchem"
-    system "runtests.mpi.unix", "procs", "2", "dft_he2+", "prop_mep_gcube"
+    system "./runtests.mpi.unix", "procs", "2", "dft_he2+", "prop_mep_gcube"
     end
   end
 end
