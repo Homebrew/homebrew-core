@@ -6,6 +6,7 @@ class YubicoPivTool < Formula
 
   bottle do
     cellar :any
+    sha256 "937153d97a7495bbba63fb7da805f9fd64274ff4d82f4ad3855b059330c58345" => :mojave
     sha256 "7d4062cf3aae4444e599b5a6ff2fccbdd1fb27e254a912a3cb9826d7bb82beb1" => :high_sierra
     sha256 "7ea8049034bb54c27226492a5948417ea6f21984e8272d4696456d7a43565b1c" => :sierra
     sha256 "02b0f5330bec47807df4639a354a41523ff7d4d97d1bcc352f6b66415bc1249c" => :el_capitan
