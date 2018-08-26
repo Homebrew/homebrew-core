@@ -6,6 +6,7 @@ class Goocanvas < Formula
   revision 1
 
   bottle do
+    sha256 "3449f3d31f5b9f3b6fed3cd4ea5a2941663a7ff4f8e1559a3439996f0d79068b" => :mojave
     sha256 "79ef1d7dd6f20f0b26c171bbe38243d8e21167b27080488b45723ef1a1eb53b1" => :high_sierra
     sha256 "e006d106b20aa040106983b51142bf134dd1925f4e6df11f09a89fea96189a22" => :sierra
     sha256 "26d6c8d30f7a9056af03e59691a4112147cff745855042244413b83be99c7ae9" => :el_capitan
