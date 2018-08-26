@@ -10,17 +10,20 @@ class EtcherCli < Formula
   depends_on "python" => :build
 
   def install
-    Language::Node.setup_npm_environment
-    system "make", "RELEASE_TYPE=production", "cli-develop"
-    system "make", "RELEASE_TYPE=production", "package-cli"
+    ENV["NODE_ENV"] = "production"
+    system "npm", "install", *Language::Node.local_npm_install_args
+    inreplace buildpath/"node_modules/lzma-native/index.js",
+              "var native = require(binding_path);",
+              "var native = require(path.join(__dirname, 'binding', 'lzma_native.node'));"
 
-    inreplace "Makefile", "	mocha", "	npx -p node@6 mocha"
-    system "make", "test-cli"
+    system "npm", "install", *Language::Node.local_npm_install_args, "pkg@4.3.0", "--prefix=#{buildpath}/pkg"
 
-    cd "dist/Etcher-cli-1.4.4-darwin-x64" do
-      bin.install "etcher"
-      prefix.install "node_modules"
-    end
+    system buildpath/"pkg/node_modules/.bin/pkg", "--output", libexec/"etcher", "--build",
+           "-t", "node6-macos-x64", "--debug", "lib/cli/etcher.js"
+    system buildpath/"scripts/build/dependencies-npm-extract-addons.sh",
+           "-d", buildpath/"node_modules", "-o", libexec/"node_modules"
+
+    bin.install_symlink libexec/"etcher"
   end
 
   test do
