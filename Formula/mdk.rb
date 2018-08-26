@@ -7,6 +7,7 @@ class Mdk < Formula
   revision 3
 
   bottle do
+    sha256 "92c84c52d81c15c8df91fc27eee924bbf92bcf3a72f6c602843a9109cd76ab6e" => :mojave
     sha256 "2182d170320ab65c99e6ae1cadb466226102aa0efa061688f3ea91cac4a60765" => :high_sierra
     sha256 "a3be192cba5f0eee43813911d6204235358a478c64a4f3c4bdd8f083a2abba82" => :sierra
     sha256 "89057b07b4bd94ba0b18d0f3c8e22c4b27bf1ba70ab1d7c2f34c0bbb656ecb9d" => :el_capitan
