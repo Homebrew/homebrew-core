@@ -5,6 +5,7 @@ class MongodbAT34 < Formula
   sha256 "bbed7821560cc3c9e3215708e34243e20d490891b08a39f216188398ede9d790"
 
   bottle do
+    sha256 "5ab02d2ca2f40c585de6aff3422da6be33e18e2a3d3c3589881975ba32f968d0" => :mojave
     sha256 "a3a784e75234eb5651a4b1bf3a4cef4ad7f4df70f75d6ab827930d31c9b1d2f6" => :high_sierra
     sha256 "13b9f0745052a6a1aef4f624c810c05c16817e966ae564a9bc7b0cb55ff4e3d4" => :sierra
     sha256 "83c48d38953e20c8838b5b3471d9f93dccae76328e2b2a8e25002c8f3ade582a" => :el_capitan
