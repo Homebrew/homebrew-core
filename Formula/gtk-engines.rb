@@ -7,6 +7,7 @@ class GtkEngines < Formula
 
   bottle do
     cellar :any
+    sha256 "81cf03638e971d511d0e86d65c1f01c8310aa7754e590711a27eed80d294db9a" => :mojave
     sha256 "e6128438b5f07db8e57605a7ed9c1b03179eecb8e749f11c4098299d2a70e3bc" => :high_sierra
     sha256 "b1bd8d6ea69096a0c424b839e79a1ccf9af63bb043e240172e26e591b4b31641" => :sierra
     sha256 "fb5dc9cc323a8c02b699bb31285fb33ae9d43ada7a2e3034dba67228f693ca17" => :el_capitan
