@@ -3,17 +3,17 @@ class S6 < Formula
   homepage "https://skarnet.org/software/s6/"
 
   stable do
-    url "https://skarnet.org/software/s6/s6-2.7.1.1.tar.gz"
-    sha256 "f37547f2890eb50bcb4cd46ffa38bad5ec9e6fd6bc7b73a8df0bdf0cf11f01a9"
+    url "https://skarnet.org/software/s6/s6-2.7.2.0.tar.gz"
+    sha256 "af54fcbae7028a90bd12c7ee71a8f3954a74c6a4de376a427cc664587fb68a09"
 
     resource "skalibs" do
-      url "https://skarnet.org/software/skalibs/skalibs-2.6.4.0.tar.gz"
-      sha256 "30ac73f1e8da6387fcfa19cfe1e326a143b4d811aaf532988b280daefa56dcc7"
+      url "https://skarnet.org/software/skalibs/skalibs-2.7.0.0.tar.gz"
+      sha256 "96494d76669d2f8622511d5d616b6367801a42683c0bb11a8855114e5ccbd756"
     end
 
     resource "execline" do
-      url "https://skarnet.org/software/execline/execline-2.3.0.4.tar.gz"
-      sha256 "e4bb8fc8f20cca96f4bac9f0f74ebce5081b4b687bb11c79c843faf12507a64b"
+      url "https://skarnet.org/software/execline/execline-2.5.0.1.tar.gz"
+      sha256 "8d07d14e9e9abb1301e08be271313c4ffa5ddf7248fd262dda19588e78e31049"
     end
   end
 
@@ -75,18 +75,18 @@ class S6 < Formula
   end
 
   test do
-    # Test execline
-    test_script = testpath/"test.eb"
-    test_script.write <<~EOS
-      import PATH
-      if { [ ! -z ${PATH} ] }
-        true
+    (testpath/"test.eb").write <<~EOS
+      foreground
+      {
+        sleep 1
+      }
+      "echo"
+      "Homebrew"
     EOS
-    system "#{bin}/execlineb", test_script
+    assert_match "Homebrew", shell_output("#{bin}/execlineb test.eb")
 
-    # Test s6
     (testpath/"log").mkpath
-    pipe_output("#{bin}/s6-log #{testpath}/log", "Test input\n")
+    pipe_output("#{bin}/s6-log #{testpath}/log", "Test input\n", 0)
     assert_equal "Test input\n", File.read(testpath/"log/current")
   end
 end
