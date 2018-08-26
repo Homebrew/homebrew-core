@@ -5,6 +5,7 @@ class MariadbAT100 < Formula
   sha256 "edf5c73b171ebdd0ef1d847c16f6702e831c351662515bf570bdf025d727f1ce"
 
   bottle do
+    sha256 "3fa95d075bb940f91102bee60f3cf201b8b7af4afc867b0c7b4d90f2bcdd6915" => :mojave
     sha256 "a594cccab73353240192522566c3417a18c6bcd444259c859577be7757604951" => :high_sierra
     sha256 "56a4d40024e7eac10d022844ffe689b98dcbfa1d6677939747243adaba5ae4de" => :sierra
     sha256 "488770be03939157c2dd98efbe073b9a57db19a5aad840421e2b9dc1cd7b973b" => :el_capitan
