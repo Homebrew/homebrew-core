@@ -92,4 +92,8 @@ class Docbook < Formula
     export XML_CATALOG_FILES="#{etc}/xml/catalog"
   EOS
   end
+
+  test do
+    assert_predicate etc/"xml/catalog", :exist?
+  end
 end
