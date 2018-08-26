@@ -6,6 +6,7 @@ class Libtensorflow < Formula
 
   bottle do
     cellar :any
+    sha256 "3d5fe3570ab9fae79f05b15de3553d80ae39f26487e8a0e396f13277fe6dd567" => :mojave
     sha256 "bb37d21865620cede51698a2ef0ba910fe291dbfbe2b6fa968ed29b90f763564" => :high_sierra
     sha256 "700655b132a6ff84a5bb1bb8c37d0f61813463f5fccca5cde45906e3b070ef21" => :sierra
     sha256 "e88b3b9e0d3f0f60d9719b3bbb35fdc4c56c2ee10df3afe5b684342c3d5f0660" => :el_capitan
