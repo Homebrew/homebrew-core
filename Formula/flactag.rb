@@ -7,6 +7,7 @@ class Flactag < Formula
 
   bottle do
     cellar :any
+    sha256 "89733c2da8653a9e86b2a4fc3e5693c3c7c434305d9aade353e52fd76f457dda" => :mojave
     sha256 "d066a517308ad0f3cbc6603fd7eeb53dba73dc796298163b6c1ec8c0379f72f6" => :high_sierra
     sha256 "c23293dce964c701fbaa822bda3a5f87602b28216b3862afced4da53c12728f3" => :sierra
     sha256 "d3e7a517f69ba267c5ff36c065837a4c2925a31d2b0cfe6f5cb32d8d0582fd8a" => :el_capitan
