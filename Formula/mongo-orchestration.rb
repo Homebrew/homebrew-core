@@ -9,6 +9,7 @@ class MongoOrchestration < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "271513e272623600b25417b908f07bba8cf299660349916faa4a3900043ff37f" => :mojave
     sha256 "6cd36a0183dc892ad08209dbd418f0e337ca5aff993adfb86e17a4a43b63352d" => :high_sierra
     sha256 "9633282e00a2bdfa3d0ba93b5302177d6a9be34f06f645b6e78edfa8aa6e950c" => :sierra
     sha256 "21d36a51b5f5896bfce70e39a815728939a8d875333c3dbdbb672e627b7dd3a5" => :el_capitan
