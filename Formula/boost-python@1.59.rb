@@ -7,6 +7,7 @@ class BoostPythonAT159 < Formula
 
   bottle do
     rebuild 1
+    sha256 "41234d5b67b98b22b823c701b88874caaca57053e18f7069f3a40e308e882a2c" => :mojave
     sha256 "ab4e76cbdd45a69200580916a736c1aa9d0b76d25ecedd72f3e017804375d43b" => :high_sierra
     sha256 "50b61de8e17320c4bd1d095a165cbacb6505631b825133135e4517999079488e" => :sierra
     sha256 "79d9b0b2a2af2ddf37af79cc611d27733b3dbba6c5ca5bb86868a5521e9e37dd" => :el_capitan
