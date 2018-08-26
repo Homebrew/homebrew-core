@@ -10,6 +10,7 @@ class Inform6 < Formula
   end
 
   bottle do
+    sha256 "30308254bda21b87550ffb0701e8264d58c8474ad8845d1767264bf7104c0dc0" => :mojave
     sha256 "99fbc0e56d7a8eb8b5dad3c7604332a04286908cbfe51c385c52b958a058ff37" => :high_sierra
     sha256 "9ba31815431daff2d34c193bc48acaeb7d97cf312162efd809a28ea53c0e3e04" => :sierra
     sha256 "7907b51b7c5b95d258a0418e6c8a455b814266ca72498d28573b9021761a57e2" => :el_capitan
