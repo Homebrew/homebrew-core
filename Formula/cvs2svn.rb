@@ -7,6 +7,7 @@ class Cvs2svn < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "56ec125399395caadd7b419d484d7403a7f638135ef36d46960d24234578c846" => :mojave
     sha256 "2f09535e501bc80b9cd4b911b678e2e583a4eba9cd4d91be41e80b1f768f4631" => :high_sierra
     sha256 "147e9169c114da7c54cf8e35ea15c0e00213f49416f11c13f9d205cf4dd715b4" => :sierra
     sha256 "c3c7bfaf4dd467504aecd039742152ce173529c6d3ff53ef0d6e2cbee0d5f5e6" => :el_capitan
