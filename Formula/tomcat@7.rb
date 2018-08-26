@@ -1,8 +1,8 @@
 class TomcatAT7 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82.tar.gz"
-  sha256 "2f19ca3fd578b8d04e72a7fd20b43beddbcece2c49eb3472265465506261676d"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.90/bin/apache-tomcat-7.0.90.tar.gz"
+  sha256 "fd59f8fb1e5f1184aa714e63cebba27952c30be311043642395d1af979d067b0"
 
   bottle :unneeded
 
@@ -13,8 +13,8 @@ class TomcatAT7 < Formula
   depends_on :java
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.82/bin/apache-tomcat-7.0.82-fulldocs.tar.gz"
-    sha256 "58ef01d1a320fd98416d9b5e83b61c1cddc3fbecc7b6e2bfaee84b14c04b7528"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.90/bin/apache-tomcat-7.0.90-fulldocs.tar.gz"
+    sha256 "0ec9ea2cac2dd795cd207da47f9313f3df5276980142f7383e2f53909dcaaf62"
   end
 
   # Keep log folders
