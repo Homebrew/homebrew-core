@@ -6,6 +6,7 @@ class Kyua < Formula
   revision 1
 
   bottle do
+    sha256 "a210c64c138b1656093b103ae27d9354972d7c2ec1e7220b0d94a9bc6806522c" => :mojave
     sha256 "ecf3850322d6a575b63519a21f6bfe7eb652c67564f7292f017306d468cbf49d" => :high_sierra
     sha256 "b533f71a13a6b8bdbbc4778515f5701774175879d6171804f43c1da8e12b4217" => :sierra
     sha256 "e2449019eb1bd161b222fc73136990a4bed0ab4349b288ceff49add0b8958572" => :el_capitan
