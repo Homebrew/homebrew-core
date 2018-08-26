@@ -1,7 +1,7 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  revision 3
+  revision 4
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   stable do
@@ -25,7 +25,7 @@ class Pcl < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "boost@1.67"
   depends_on "cminpack"
   depends_on "eigen"
   depends_on "flann"

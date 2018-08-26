@@ -3,6 +3,7 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2018.08.20.00.tar.gz"
   sha256 "3a18fa5564feee64aa5bcdaf3bbe1c63b4ed728da23dcc8ab9c3d8416d71a3cd"
+  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -20,7 +21,7 @@ class Folly < Formula
   depends_on "double-conversion"
   depends_on "glog"
   depends_on "gflags"
-  depends_on "boost"
+  depends_on "boost@1.67"
   depends_on "libevent"
   depends_on "xz"
   depends_on "snappy"
@@ -42,7 +43,8 @@ class Folly < Formula
     cd "folly" do
       system "autoreconf", "-fvi"
       system "./configure", "--prefix=#{prefix}", "--disable-silent-rules",
-                            "--disable-dependency-tracking"
+                            "--disable-dependency-tracking",
+                            "--with-boost=#{Formula["boost@1.67"].opt_prefix}"
       system "make"
       system "make", "install"
     end

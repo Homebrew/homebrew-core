@@ -3,6 +3,7 @@ class Mkvtoolnix < Formula
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
   url "https://mkvtoolnix.download/sources/mkvtoolnix-25.0.0.tar.xz"
   sha256 "834cb7abdd8849da3a6864055c8207cea44d14768147830918cd1a723c40bc33"
+  revision 1
 
   bottle do
     sha256 "1a1e0c3a2ebbb2ae243d6fd0adf77d0d24f9887caf90f633dc763cb579096b78" => :mojave
@@ -26,7 +27,7 @@ class Mkvtoolnix < Formula
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
   depends_on "ruby" => :build if MacOS.version <= :mountain_lion
-  depends_on "boost"
+  depends_on "boost@1.67"
   depends_on "libebml"
   depends_on "libmatroska"
   depends_on "libogg"
@@ -58,7 +59,7 @@ class Mkvtoolnix < Formula
     args = %W[
       --disable-debug
       --prefix=#{prefix}
-      --with-boost=#{Formula["boost"].opt_prefix}
+      --with-boost=#{Formula["boost@1.67"].opt_prefix}
       --with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
       --with-extra-includes=#{extra_includes}
       --with-extra-libs=#{extra_libs}

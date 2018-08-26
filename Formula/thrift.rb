@@ -3,6 +3,7 @@ class Thrift < Formula
   homepage "https://thrift.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.11.0/thrift-0.11.0.tar.gz"
   sha256 "c4ad38b6cb4a3498310d405a91fef37b9a8e79a50cd0968148ee2524d2fa60c2"
+  revision 1
 
   bottle do
     cellar :any
@@ -31,7 +32,7 @@ class Thrift < Formula
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "bison" => :build
-  depends_on "boost"
+  depends_on "boost@1.67"
   depends_on "openssl"
   depends_on "libevent" => :optional
   depends_on "python@2" => :optional
