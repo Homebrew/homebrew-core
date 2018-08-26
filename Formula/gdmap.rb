@@ -6,6 +6,7 @@ class Gdmap < Formula
   revision 1
 
   bottle do
+    sha256 "7961b8a0a3bc85fec15b20e2dbc993f5248052004fcfb7aba6596dadfb0f6859" => :mojave
     sha256 "a1cb2de04ea76b624f09a4662ae3d65313d7c8a43b3b95110a53429af8cad2b2" => :high_sierra
     sha256 "37ace64b950b2d1565728d490e0ed505c1cbdb1a20cf1fa894a4934784a83a18" => :sierra
     sha256 "4f48204465a1ce93f84eae2d5f54e2a7d9dad6e9ce5994829590ad14d3640914" => :el_capitan
