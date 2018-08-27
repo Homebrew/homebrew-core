@@ -1,8 +1,8 @@
 class TarsnapGui < Formula
   desc "Cross-platform GUI for the Tarsnap command-line client"
   homepage "https://github.com/Tarsnap/tarsnap-gui/wiki"
-  url "https://github.com/Tarsnap/tarsnap-gui/archive/v1.0.1.tar.gz"
-  sha256 "502e53a4eacb2795bfbe62b9e6ef236cce6fdb43cb15153c0fc4ad61c161eb97"
+  url "https://github.com/Tarsnap/tarsnap-gui/archive/v1.0.2.tar.gz"
+  sha256 "3b271f474abc0bbeb3d5d62ee76b82785c7d64145e6e8b51fa7907b724c83eae"
   head "https://github.com/Tarsnap/tarsnap-gui.git"
 
   bottle do
