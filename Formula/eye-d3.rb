@@ -6,6 +6,7 @@ class EyeD3 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2ec8290ab11c15f6b8aeab626e1092574daa737c47007d92480e8c9c39a82f32" => :mojave
     sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :high_sierra
     sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :sierra
     sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :el_capitan

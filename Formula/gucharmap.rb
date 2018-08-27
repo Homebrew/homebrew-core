@@ -6,6 +6,7 @@ class Gucharmap < Formula
   revision 1
 
   bottle do
+    sha256 "0ba5d5b0e3b45fc66d9568e9b18c6bed85b486e2e2e9eef92d6ef29c8c5116ba" => :mojave
     sha256 "ce68b7dd70eadd29a809252189b6d6ff5f76aa148df1c483314946fd6991922e" => :high_sierra
     sha256 "620a04f5700067b146dbde3f30ef940a1c718bb8b589fd409d4ff4b7e223155f" => :sierra
     sha256 "d4ae8426ee7b26ab5b0ea79df0102ffdc2a670a4e078d9948324ba3529ca3a84" => :el_capitan

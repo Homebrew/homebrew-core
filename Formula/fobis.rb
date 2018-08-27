@@ -8,6 +8,7 @@ class Fobis < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c99de2a4f32e73f815fabd7732692617fe502f5147422a8bf4d1e292829ccacc" => :mojave
     sha256 "e0b6839e9335bdc48820c8e789dc2adaa8700cc307f2c52c2d476beb4257f547" => :high_sierra
     sha256 "0807879b1f5695795660ee05979727c38b6992e77214b3fcca5eeba52203b303" => :sierra
     sha256 "9be1a5d77e8c9d546b2eb129b4ecf607fd501eb1ad2e025276261c4144d0bf02" => :el_capitan

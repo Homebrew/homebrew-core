@@ -8,6 +8,7 @@ class GrOsmosdr < Formula
 
   bottle do
     cellar :any
+    sha256 "d353f505e4868896ca2d7fa9a902ef8ba6f0b8f782c59510a6924ffebcacfd46" => :mojave
     sha256 "1b2946f58b69f2a4490163cfc45ffa895363434f3a0006464bb640a44ed68ec6" => :high_sierra
     sha256 "37ba90f9c4c1b429723fa3efe5106beae45025821c47e07e527ccd0b0c53c9bd" => :sierra
     sha256 "4bf8a0d3223f32cbcb73218f267a6ef146d92b91ae65ea38d0dffd7b76db770c" => :el_capitan

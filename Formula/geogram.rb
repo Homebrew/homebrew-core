@@ -5,6 +5,7 @@ class Geogram < Formula
   sha256 "08211b1d6f21e14701e3fd5c79adbe331cdf66b8af84efdb54cd7048244691b5"
 
   bottle do
+    sha256 "279b1bb9d8c52aabeab534be248d9c7c126565998bc0b7de4ec3e41a3c1f915a" => :mojave
     sha256 "6c20bea924c40ce4f562ed335b3b4212714c8d68701e49dbe2f0d494cd374c1a" => :high_sierra
     sha256 "25450ace93eaf2c390501e144fb49e166d791fc3dcd4863e13841b3da2e528b3" => :sierra
     sha256 "160e9ea1e305ae1c73e65e2c0b87c89c0530b0dc8a80cf592d2549b2c04da76e" => :el_capitan

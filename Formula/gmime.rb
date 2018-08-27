@@ -6,6 +6,7 @@ class Gmime < Formula
   revision 1
 
   bottle do
+    sha256 "be7c56035c82619abe2b97de729cf8d0f5b96134343e19625554a6e09927b915" => :mojave
     sha256 "4cefcf587984cfb905ec956527479f3b081bfb750ebec54a5ca074edc26333cc" => :high_sierra
     sha256 "910361d5b4bc083a5365a366a3d9f39fe96ca6e9e78bd88bc4a6fdaeac634d14" => :sierra
     sha256 "a2a9001ff723c5766ae4761c5b0553d7d6d5fb54c09cdb4154d659c3bbb614f8" => :el_capitan

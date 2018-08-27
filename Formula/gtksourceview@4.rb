@@ -5,6 +5,7 @@ class GtksourceviewAT4 < Formula
   sha256 "15829fc728f74e2005e2fc65c2aada4b223f3b361b2200b7e02ff7a9014b5fac"
 
   bottle do
+    sha256 "c738e9a67ed3d3dd457b91efe0ad0e416835e37291306c582ad9d21b8d89c395" => :mojave
     sha256 "90df7061e6dee49a9c29094f477b9db19639ce77497294c145529cd4031ff317" => :high_sierra
     sha256 "920c8c6023eff56dceefc105212b8bc9c408e380cd46556110b5a88107887896" => :sierra
     sha256 "ae4e361b65ea527647cf0aa58969517f5a8d559f82e5fe549e22bfe484e47b4a" => :el_capitan

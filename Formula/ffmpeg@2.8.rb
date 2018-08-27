@@ -5,6 +5,7 @@ class FfmpegAT28 < Formula
   sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
 
   bottle do
+    sha256 "95179f517090dd0fbdca100668ca9baea81b6d4bb9ebd3b1888f5f49970abbf2" => :mojave
     sha256 "77714c2ed74758ffca2e0852c7784022a06903be46a4094b5813cdcd3a3f7caf" => :high_sierra
     sha256 "e5c3822571957ffa442a96f4287c591b4943bf03c89d8fe3dafbf3efc7e98013" => :sierra
     sha256 "aaa810b670d9d60e1f81d8bd7f0cd6bebba3732b48f42749af59b1839a4c5727" => :el_capitan

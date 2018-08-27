@@ -6,6 +6,7 @@ class GnuplotAT4 < Formula
   revision 2
 
   bottle do
+    sha256 "3037a97469725cc72728cecbbdbf8c415258b58f67faac8cb9bc511750ebbfa4" => :mojave
     sha256 "27435780b2fd1a5aa6cae54d829758af3e67f09814e393af2a4b99ba7680be4f" => :high_sierra
     sha256 "22c1e2e18e582e43a234b4e4d98c1a332093d95c20b5bfd05cd74317c9bafaad" => :sierra
     sha256 "bf1eda673d961f221a4183993e966e6ff93818a2edb566b18e0d80f2cf0daed3" => :el_capitan

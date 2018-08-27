@@ -79,8 +79,9 @@ class Opam < Formula
       # already downloaded the necessary files.
       resources.each do |r|
         r.verify_download_integrity(r.fetch)
-        original_name = r.cached_download.basename.sub(/^#{Regexp.escape(name)}--/, "")
-        cp r.cached_download, buildpath/"src_ext/#{original_name}"
+        oname = r.cached_download.basename.sub(/^#{Regexp.escape(name)}--/, "")
+        rname = oname.sub(/#{Regexp.escape(r.name)}--/, "#{r.name}-")
+        cp r.cached_download, buildpath/"src_ext/#{rname}"
       end
 
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
