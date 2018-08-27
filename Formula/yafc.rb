@@ -7,6 +7,7 @@ class Yafc < Formula
   revision 2
 
   bottle do
+    sha256 "0f008ef8835a41818a9134d5acf03e0832feb7d52a463f005279c10e745a4d15" => :mojave
     sha256 "a94fb7d29a96a322dad97aa8370c54036e792a593043b3ddf2e3536e59433af7" => :high_sierra
     sha256 "4a53da30ad16393321ca6e7b23afe335190b798045e9fa78a0ba8fe116e99718" => :sierra
     sha256 "ab8dc2d5aa90802d38bbc27344803a84bcce37df8854f7fe19035d3de77b12a2" => :el_capitan
