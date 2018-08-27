@@ -1,15 +1,24 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.67.0.tar.xz"
-  sha256 "a34a4f1a0f5b610c584c65824e92e3ba3e08a89d8ab4622aee11b8ceea5366f9"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
+  stable do
+    url "https://poppler.freedesktop.org/poppler-0.68.0.tar.xz"
+    sha256 "f90d04f0fb8df6923ecb0f106ae866cf9f8761bb537ddac64dfb5322763d0e58"
+
+    # https://gitlab.freedesktop.org/poppler/poppler/merge_requests/18
+    # Should be safe to remove on next release but check if merged.
+    patch do
+      url "https://gitlab.freedesktop.org/poppler/poppler/merge_requests/18.diff"
+      sha256 "ef7d7b7fed6799911b7ef925395b8de552aadaf3754d7b02fe3505649518808c"
+    end
+  end
+
   bottle do
-    sha256 "70384a7280c49efffea70c7b050d2d4a2593e9ab765847f18ae5adf6e2bd7075" => :mojave
-    sha256 "190faa3e8ab648a374570e94ef0fe7f3bcddc40319951f9db088d1b3ef25ff4c" => :high_sierra
-    sha256 "3d5bf3e91d6cf3fe5fcb63d99340583fdd01f87e269ecb0efd24e40a71266aff" => :sierra
-    sha256 "670869115562ce49ec960918ade78512b0d9adc4289b7618dcc9ef93c4a2e1df" => :el_capitan
+    sha256 "5669b0631c862647c4d47f7efb410593d3d1207f0795ba23b8e30dd1d4d96d26" => :high_sierra
+    sha256 "9b54804d8b9378a64477b1da9c022ee1557387a3a3dc17b10a582b982eed072d" => :sierra
+    sha256 "424693d9dd27b19b4da42e8847d056e968720b5c52f3acddf3a07954c4e0936a" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
