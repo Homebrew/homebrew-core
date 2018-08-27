@@ -10,6 +10,7 @@ class Snapcraft < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "6a758f28fa8e8cb1eb1e64c94c47dc932f2025f93275f4e7ce676371690ca348" => :mojave
     sha256 "7e23ba146aee75e1e7bb35e461ee2c52f6b13bea083a12aa366b7b4b9b9a1607" => :high_sierra
     sha256 "ea61e7fdcfc9b2586dd886d95c184d78f428b39ea22ae4c5db0550ff46f29515" => :sierra
     sha256 "e288bdc6dff6e58a6b8bf88a30dfd1a692773b6c4192eeeb23861c2790f61cda" => :el_capitan

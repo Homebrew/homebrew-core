@@ -5,6 +5,7 @@ class TemplateGlib < Formula
   sha256 "6c74426efd4358fd91a52c32ed030c0cad1633f900fd55ac81a8b3e4026171a1"
 
   bottle do
+    sha256 "dc15b3cbf2afe6eba04e8e54e46842040423f488c9ad94ef19690b930b7c282b" => :mojave
     sha256 "e69fb0604b5389c1e52cef2eed885b167a836c251b4bedda056f10a1569e6867" => :high_sierra
     sha256 "f3c4d2849cf3d95c885a278e4b1db431beae9d5b8099457ca45df55f54e1436e" => :sierra
     sha256 "c20b6fc9631b3bbf72179a030c6e3ac01829d8513452c8bda55cc8096153491c" => :el_capitan

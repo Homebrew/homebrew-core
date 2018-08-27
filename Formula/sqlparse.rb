@@ -8,6 +8,7 @@ class Sqlparse < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3aa1d886f3d97466e0cb8e7f87458461d9051442097647a22b281ab83fef8ba8" => :mojave
     sha256 "e4ec0cc5f8d0b388deee1a472d90dc3007f97ea34f5850e103b72fd3861242fa" => :high_sierra
     sha256 "81b99b0f9d66e749b781faaf3beabf199a9381ada9723bb2ef1ebb1b80240154" => :sierra
     sha256 "7155f5eca1b0f127a1f82846842c50e540460093ebc0b6735b724979594b6a06" => :el_capitan

@@ -4,12 +4,13 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.4.1.tar.xz"
   sha256 "7e4e9ac67ed809bd56768fb69807abae0d229f4e169db63a37c11c9f08215f90"
+  revision 1
 
   bottle do
-    sha256 "1591b93a6ea1f8d04c92adfc05e3068e80129340fa4e9d4041696bdaf9a86572" => :mojave
-    sha256 "2ea3658a30bc9b73bf2a5a0eac3112bc3cd5de32a3aa9ce8f363037dcb120c4d" => :high_sierra
-    sha256 "c2e07a092b1a11b0bb90cc78b408f5e37b4454b57188cd67ae5d84d7f7605d3f" => :sierra
-    sha256 "ecfd8554bc84d90e4512d18f68e2ccee4b370446193d973379d4b5b5320febcd" => :el_capitan
+    sha256 "810246aba07277ed78ad9619bcadea57a630a1e3e5bc67bc018d17c3e8d0b036" => :mojave
+    sha256 "87db66946554f51ed6262374bcdb9cb6305dd7eee92b4f7eeccc0753fa82b50d" => :high_sierra
+    sha256 "d35b841df256eadcd0ab74da2dae20f9e6064e7580930c5878f5d3525d9ad16d" => :sierra
+    sha256 "cb50ca8777de46163a9f9dc9431deae955c49092815801113d0cf008d4ed4294" => :el_capitan
   end
 
   head do

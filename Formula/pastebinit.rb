@@ -6,6 +6,7 @@ class Pastebinit < Formula
   revision 1
 
   bottle do
+    sha256 "e9a0967af35772fecd4908ed2a8f5476def47e8f278b40f88f1e92d3a67cfc3d" => :mojave
     sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :high_sierra
     sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :sierra
     sha256 "4ca7c20ef94d78dcfb93241855c10be2113f538eae93e0a31702049a4d95e825" => :el_capitan

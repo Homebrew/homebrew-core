@@ -1,17 +1,17 @@
 class IsoCodes < Formula
   desc "Provides lists of various ISO standards"
   homepage "https://salsa.debian.org/iso-codes-team/iso-codes"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/iso-codes/iso-codes_3.79.orig.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/i/iso-codes/iso-codes_3.79.orig.tar.xz"
-  sha256 "cbafd36cd4c588a254c0a5c42e682190c3784ceaf2a098da4c9c4a0cbc842822"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/iso-codes/iso-codes_4.0.orig.tar.xz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.0.orig.tar.xz"
+  sha256 "771fe4f87997b9c8ff33b6af7f9bde4de87b54410cdebd2742ac6a38cb746a8c"
   head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5002e42bc48087bb4fe89b5e71816c97594a5419d09c057f8ac259c37984bf0" => :mojave
-    sha256 "cf5cafde9f48d495c89e65fbc616a555a74d77799ba3300b9bf72486decca6d3" => :high_sierra
-    sha256 "cf5cafde9f48d495c89e65fbc616a555a74d77799ba3300b9bf72486decca6d3" => :sierra
-    sha256 "cf5cafde9f48d495c89e65fbc616a555a74d77799ba3300b9bf72486decca6d3" => :el_capitan
+    sha256 "09a225b6c89068799a337b88b9f4b0a22e8f04bc609b91318190c37d8eb16405" => :mojave
+    sha256 "5d780c5026dd9e639ce62e07f93709bea286482f85a401dec25b89bfe2c0d505" => :high_sierra
+    sha256 "5d780c5026dd9e639ce62e07f93709bea286482f85a401dec25b89bfe2c0d505" => :sierra
+    sha256 "5d780c5026dd9e639ce62e07f93709bea286482f85a401dec25b89bfe2c0d505" => :el_capitan
   end
 
   depends_on "gettext" => :build

@@ -7,6 +7,7 @@ class OsrmBackend < Formula
 
   bottle do
     cellar :any
+    sha256 "3e6d5e366452759b28916ad2ef8a58bc025d494dafdcd71c44d4088df898dc89" => :mojave
     sha256 "f5195f12aac91662e4523d7e22557e1a027d6588a69b913ba91f688160662539" => :high_sierra
     sha256 "90d3930e7744678a686e111ed9f334eb65cb46c72b1a84faf81e4c976ba9fce7" => :sierra
     sha256 "82c744cc45f7347ebac04b5af6528ecfe49b5715e77401ae9a39af8c03038a20" => :el_capitan

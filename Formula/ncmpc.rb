@@ -6,6 +6,7 @@ class Ncmpc < Formula
   revision 1
 
   bottle do
+    sha256 "98e442dd1d85222e8c38ab91bd5f1c578e8b4d52645431ffb3a564d2a2d1a42d" => :mojave
     sha256 "c9ed9273d7098162bb04e79d9d21b1fb35fdad6aadc2904c326f8aafb840caf4" => :high_sierra
     sha256 "b2782d26fd0dc87901d2d0f833a44bee7e702745e9a6b3601284411412b926dd" => :sierra
     sha256 "66ea4904dfb7452663a9fd694a6188ac278eb4d45e40e9af72aeb15209fe3f1d" => :el_capitan
