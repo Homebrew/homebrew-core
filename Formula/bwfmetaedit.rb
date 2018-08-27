@@ -1,9 +1,9 @@
 class Bwfmetaedit < Formula
   desc "Tool for embedding, validating, and exporting BWF file metadata"
   homepage "https://mediaarea.net/BWFMetaEdit"
-  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.4/BWFMetaEdit_CLI_1.3.4_GNU_FromSource.tar.bz2"
-  version "1.3.4"
-  sha256 "57e45ec18bfa70d903fad606a323e68a819c0147a6d507b7f0b5f4d59d6fc337"
+  url "https://mediaarea.net/download/binary/bwfmetaedit/1.3.5/BWFMetaEdit_CLI_1.3.5_GNU_FromSource.tar.bz2"
+  version "1.3.5"
+  sha256 "387984febfda75299454056eccb1b059d975dc819a0410f4978843774d8bfca2"
 
   bottle do
     cellar :any_skip_relocation
