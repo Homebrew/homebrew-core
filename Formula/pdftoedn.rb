@@ -7,9 +7,9 @@ class Pdftoedn < Formula
 
   bottle do
     cellar :any
-    sha256 "191b70b1a420ee93aba92688cdab7e3421b8b848b66490b244f6823783091984" => :high_sierra
-    sha256 "3787658cee0707c949d5b0eadaf44951ce4e4dacb63f46db58b2049fa9769ea6" => :sierra
-    sha256 "53593a56c313b7fd292100062d8f2513a8d52a868e4f93422645c95ee681d63f" => :el_capitan
+    sha256 "dc9f6d75e1aeb5465baeb41d864cfe1b0a45133d5c5224b50becff40d4207a2c" => :high_sierra
+    sha256 "39e1fd4083e7d19ae217b1dbe5402e49f453588f58d494df9c2ddc1839c74688" => :sierra
+    sha256 "5a8222824bb091c375e44d689095fac4626966b8b8241875ffd112a5e020f8c2" => :el_capitan
   end
 
   needs :cxx11
