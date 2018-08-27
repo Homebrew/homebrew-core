@@ -6,6 +6,7 @@ class Prefixsuffix < Formula
   revision 1
 
   bottle do
+    sha256 "87b5aed4fa1e4dd94b2d5f296d47078cd3f177e0c68bc7b16e285f2b8c40b83c" => :mojave
     sha256 "0a0937d3ebef51cf2c39007ea99e31f75490c07f7b6b441f64f7a87bbda54a7c" => :high_sierra
     sha256 "68a7a15fe3b8ea30c1f09e90dfbf8d95348367f74e497b9c1b31ac1795e71211" => :sierra
     sha256 "48cc4b33c63c410b4d5827f689ccf6ea59608deee4735f84edea90c2ddc394f1" => :el_capitan
