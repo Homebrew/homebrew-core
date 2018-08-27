@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.26.0.tar.gz"
-    sha256 "e98cf1403d5182fce888a120cda61918c329244765eaa265a17038bbfb217ba3"
+    url "https://github.com/crystal-lang/crystal/archive/0.26.1.tar.gz"
+    sha256 "b7c755a7d0f49f572ae5c08b8b0139fcb1c6862c9479dfae74f00e2c8424fcb0"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -40,9 +40,9 @@ class Crystal < Formula
   depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.25.1/crystal-0.25.1-2-darwin-x86_64.tar.gz"
-    version "0.25.1-2"
-    sha256 "6a72db4b4b9323186b6da3f72c7c4b1aaaa06a036707bd9fe4ffb60575edc6db"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.26.0/crystal-0.26.0-1-darwin-x86_64.tar.gz"
+    version "0.26.0-1"
+    sha256 "13ccd6425593f33f7423423553bc5c2fdcf5d76b6b97b82bf4204bc55831ec43"
   end
 
   def install
