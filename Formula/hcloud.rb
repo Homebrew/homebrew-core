@@ -1,8 +1,8 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/v1.6.0.tar.gz"
-  sha256 "8ada1db53f812774666d579722bce1d63cfd0212a70dd0d3ca734608610584b1"
+  url "https://github.com/hetznercloud/cli/archive/v1.6.1.tar.gz"
+  sha256 "c9aa89fbd2992f1c710c2a81aa72a8f4e0f6cc9ca2b990ace4b01926442753b6"
 
   bottle do
     cellar :any_skip_relocation
