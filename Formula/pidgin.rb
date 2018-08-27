@@ -6,6 +6,7 @@ class Pidgin < Formula
   revision 2
 
   bottle do
+    sha256 "4ebf5677a98572c213b2b2a0a15145140affd52ad659a1bf71da6c705651cea0" => :mojave
     sha256 "39388fd5f805236cb972d68da78f54cbb042f650a2194c6fbb4231dd2f2a2fb0" => :high_sierra
     sha256 "3e89f23e44404b8299562785f612259140d25c8b1af4c5c77d9da0008d1bdd84" => :sierra
     sha256 "5bb5d41124e21b68b6172c025f0faf342d70a87fd95da067b7c450b76d3ab8cb" => :el_capitan
