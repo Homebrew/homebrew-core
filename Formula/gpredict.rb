@@ -6,6 +6,7 @@ class Gpredict < Formula
   revision 1
 
   bottle do
+    sha256 "400c62dd8752cdb30a94167fcd70d935fe45e724d0639a734ab2b4bf2ebd46f4" => :mojave
     sha256 "06a86999dd0aef8b9b48a6d2331f61cd402820cf9538933c9b0e1b3582a6a919" => :high_sierra
     sha256 "4dcd55867a496978ba69a96690e331610c944ed7f22a4561e7cca141ba4aad15" => :sierra
     sha256 "24336d811bd9568792d69f4a13d71e4184fd5ccd9282615e2a8a1277616dae32" => :el_capitan
