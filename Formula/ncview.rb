@@ -7,9 +7,9 @@ class Ncview < Formula
   revision 7
 
   bottle do
-    sha256 "fd045c094963d71459d70bdc7cea679810611c4060bf9cbc0a884e71ed5232e4" => :high_sierra
-    sha256 "4ecd94086339db2cf56fa2ec9cf95ab31e08a47fe9589fcb1091d49737f14516" => :sierra
-    sha256 "dbc52647ec527a30388c233c1361164b427fc3eefd88c540208f536bded9e8b8" => :el_capitan
+    sha256 "93de594b654c796c01c878a4ed3c6121670803d1253c0b9ffb931b7926483e48" => :high_sierra
+    sha256 "66e3fc9112e66697150bdd2236287c713353e9e95a9ad95839332eef82c8a88e" => :sierra
+    sha256 "c3415470f5b7b41bc7b5ee57515a7bd35b762115c89eb1d5e2c76ea9d375c531" => :el_capitan
   end
 
   depends_on "netcdf"
