@@ -6,6 +6,7 @@ class Json11 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fa88a6f0691e52c7b7830f08287c3c8379337b66694161175ec85f1ded4b40ae" => :mojave
     sha256 "3c6b7776a4702bb90d046f3c6f4ace063ea04d3355c7ce51127824292cb4506f" => :high_sierra
     sha256 "e7a717f73162477010c156c2e4d281bb4b5f26ea3c53a5aaffc82998954d119c" => :sierra
     sha256 "d5345ad5224fb7aeda2562d1a46350c44f66cf98486d142bc81b8186e5aa74cc" => :el_capitan
