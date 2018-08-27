@@ -1,7 +1,7 @@
 class ProtobufAT26 < Formula
   desc "Protocol buffers - Google data interchange format"
-  homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.bz2"
+  homepage "https://github.com/protocolbuffers/protobuf/"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.bz2"
   sha256 "ee445612d544d885ae240ffbcbf9267faa9f593b7b101f21d58beceb92661910"
 
   bottle do
@@ -48,13 +48,13 @@ class ProtobufAT26 < Formula
   end
 
   # Fixes the unexpected identifier error when compiling software against protobuf:
-  # https://github.com/google/protobuf/issues/549
+  # https://github.com/protocolbuffers/protobuf/issues/549
   patch :p1, :DATA
 
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
-    # https://github.com/google/protobuf/blob/e9a122eb19ec54dbca15da80355ed0c17cada9b1/configure.ac#L71-L74
+    # https://github.com/protocolbuffers/protobuf/blob/e9a122eb19ec54dbca15da80355ed0c17cada9b1/configure.ac#L71-L74
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11 if build.cxx11?
 
