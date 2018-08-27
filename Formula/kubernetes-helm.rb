@@ -15,6 +15,7 @@ class KubernetesHelm < Formula
 
   depends_on "mercurial" => :build
   depends_on "go" => :build
+  depends_on "gox" => :build
   depends_on "glide" => :build
 
   def install
