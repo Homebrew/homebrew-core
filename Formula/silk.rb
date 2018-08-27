@@ -5,6 +5,7 @@ class Silk < Formula
   sha256 "70b74eceafce7b724ceccd9e801909f4bd28985406eb8c42a94c8d25e7d58194"
 
   bottle do
+    sha256 "531e76cd41beeeb302ce8a9d5af81b68f158e7237a0841eec82e6e005d525c72" => :mojave
     sha256 "ccc428b66b99acc23d7affb07092cc98e77a3fd8802501500273b272f3f16043" => :high_sierra
     sha256 "5ba88cf5e142bb839c006ee1663b01795eb29dd987d8ed0738a61fbf4b922321" => :sierra
     sha256 "d90ea3352ba364ec403c56712b0503fe2c4e67e678d4a5147868eb1c233926ff" => :el_capitan
