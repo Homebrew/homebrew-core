@@ -5,6 +5,7 @@ class Hdf5 < Formula
   sha256 "c65cdcce4724a57fd3f8da9f0d109b497be30092acb9fac634d1291190d905a9"
 
   bottle do
+    sha256 "85e9a3bb0e67f75843eefb3d008aa4c9f116efc8de32aa73071cd93270ebca44" => :mojave
     sha256 "42dd926b15a93a466d0b2b376fc20e2dc14d9cdda100f8a7050e6368684f6398" => :high_sierra
     sha256 "18ab613ad07b9b92a6d33118ea595689e833d64f6b4b421bbb2b59a8da6cb304" => :sierra
     sha256 "73437652f5963038481fb143d3f847206a11522ebd326b5af21db939f56fe661" => :el_capitan
