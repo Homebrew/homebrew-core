@@ -3,6 +3,7 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
   sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
+  revision 1
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
