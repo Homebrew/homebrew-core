@@ -1,7 +1,7 @@
 class ProtobufAT31 < Formula
   desc "Protocol buffers (Google's data interchange format)"
-  homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.1.0.tar.gz"
+  homepage "https://github.com/protocolbuffers/protobuf/"
+  url "https://github.com/protocolbuffers/protobuf/archive/v3.1.0.tar.gz"
   sha256 "fb2a314f4be897491bb2446697be693d489af645cb0e165a85e7e64e07eb134d"
 
   bottle do
@@ -83,7 +83,7 @@ class ProtobufAT31 < Formula
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
-    # https://github.com/google/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
+    # https://github.com/protocolbuffers/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
