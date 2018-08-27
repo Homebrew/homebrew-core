@@ -8,6 +8,7 @@ class Sshguard < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "64f1cdc325ebfd0cbb29926c2e98e0d1c04ea8661a05aecab217c63a2d23244a" => :mojave
     sha256 "2b979c2504070e5f23e74567eb309128a89ce468e1fbdb0507467fa59f48fe59" => :high_sierra
     sha256 "db07c4e6798f424c73a343fd52ce08b026bfa7457e88de3c9af7a92428312df0" => :sierra
     sha256 "e7abf2b9d63c4051e10e565f37cbf069748ff7836932aa1e3971abd98356d6ac" => :el_capitan
