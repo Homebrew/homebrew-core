@@ -8,6 +8,7 @@ class Redex < Formula
 
   bottle do
     cellar :any
+    sha256 "1238aba94a455c15ab04cbe425c6b42afb8b0c31e117d9146686a1986386c6e4" => :mojave
     sha256 "3af2c80e3680ee759285ebb1939530b8f5e15315c6a98d64e2334ac6f1abb907" => :high_sierra
     sha256 "eeca9a5992edfc721cf08ea9c86d59c4110998af603e447213da01cc84d6216c" => :sierra
     sha256 "6bf545087ea1d01922b9cc5a157b941785b3e1abe339d45a50745ddfdf21d8fd" => :el_capitan
