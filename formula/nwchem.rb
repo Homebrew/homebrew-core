@@ -4,6 +4,7 @@ class Nwchem < Formula
   url "https://github.com/nwchemgit/nwchem/releases/download/6.8.1-release/nwchem-6.8.1-release.revision-v6.8-133-ge032219-src.2018-06-14.tar.bz2"
   version "6.8.1"
   sha256 "23ce8241a5977a93d8224f66433851c81a08ad58a4c551858ae031485b095ab7"
+
   depends_on "openblas"
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
@@ -21,6 +22,7 @@ class Nwchem < Formula
       cp_r "tests/tddft_h2o", prefix/"QA/tests"
       cp_r "tests/pspw", prefix/"QA/tests"
     end
+
     cd "src" do
       (prefix/"etc").mkdir
       (prefix/"etc/nwchemrc").write <<~EOS
@@ -35,12 +37,14 @@ class Nwchem < Formula
         charmm_s #{share}/charmm_s/
         charmm_x #{share}/charmm_x/
       EOS
+
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
       inreplace "config/makefile.h" do |s|
         s.gsub! /-mtune=native/, "-mtune=generic"
         s.gsub! /-mfpmath=sse/, " "
         s.gsub! /-msse3/, " "
       end
+
       ENV["NWCHEM_TOP"] = "#{Dir.pwd}/.."
       ENV["PYTHONVERSION"] = "2.7"
       ENV["PYTHONHOME"] = "/usr"
@@ -52,6 +56,7 @@ class Nwchem < Formula
       system "make", "nwchem_config", "NWCHEM_MODULES=all python"
       system "make", "64_to_32"
       system "make", "NWCHEM_TARGET=MACX64", "USE_MPI=Y"
+
       bin.install "../bin/MACX64/nwchem"
       (prefix/"share").mkdir
       share.install "basis/libraries"
