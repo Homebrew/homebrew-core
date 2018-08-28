@@ -3,6 +3,7 @@ class Kakoune < Formula
   homepage "https://github.com/mawww/kakoune"
   url "https://github.com/mawww/kakoune/releases/download/v2018.04.13/kakoune-2018.04.13.tar.bz2"
   sha256 "cd8ccf8d833a7de8014b6d64f0c34105bc5996c3671275b00ced77996dd17fce"
+  head "https://github.com/mawww/kakoune.git"
 
   bottle do
     sha256 "963dcb1f0cb83f49b4fca50b556299f7b817d6186cf0ccf57ace72ec465f449e" => :high_sierra
