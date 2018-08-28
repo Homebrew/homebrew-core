@@ -6,10 +6,10 @@ class Urbit < Formula
       :revision => "7633b5cc9cf249d873f16f08c09a1ee10a4f24d2"
 
   bottle do
-    cellar :any
-    sha256 "1f63270c438e77f54190e37ef7c2ee65cb56f9a0f34c752921a57aa4ebca4029" => :high_sierra
-    sha256 "663d154873ba029384388b447fb035de0106913e0dab6ca6954bec675ab8bd23" => :sierra
-    sha256 "f87e0b247871c0a9ba4ebb2904e44480160ecaf49f5efc12821d76fa5755b6fe" => :el_capitan
+    rebuild 1
+    sha256 "b13f985e22cb451d6bd2bf0060b0d106f706550100805388bc295d0553a4272e" => :high_sierra
+    sha256 "b983f7e4aa657b96409603575589f3c411cf639c93586930b796ac278ad6e3ac" => :sierra
+    sha256 "02b46f9c7977498538159ecfbcb394a7b5cf77a6a547676534c8fd04a6d0e987" => :el_capitan
   end
 
   depends_on "meson" => :build
