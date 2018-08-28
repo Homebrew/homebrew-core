@@ -3,6 +3,7 @@ class Openblas < Formula
   homepage "https://www.openblas.net/"
   url "https://github.com/xianyi/OpenBLAS/archive/v0.3.2.tar.gz"
   sha256 "e8ba64f6b103c511ae13736100347deb7121ba9b41ba82052b1a018a65c0cb15"
+  revision 1
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
@@ -20,6 +21,13 @@ class Openblas < Formula
   depends_on "gcc" # for gfortran
 
   fails_with :clang if build.with? "openmp"
+
+  # Fixes CMake symbol export bug; this patch will be in the OpenBLAS
+  # 0.3.3 release
+  patch do
+    url "https://github.com/xianyi/OpenBLAS/pull/1703.patch?full_index=1"
+    sha256 "b7c6909b0630b6ae73c9e98cedf5acb494ac4b94bb5c974f674bd77b66b82c27"
+  end
 
   def install
     ENV["DYNAMIC_ARCH"] = "1" if build.bottle?
