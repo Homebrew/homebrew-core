@@ -1,8 +1,8 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.11.0-src/pyside-setup-everywhere-src-5.11.0.tar.xz"
-  sha256 "fbc412c4544bca308291a08a5173a949ca530d801f00b8337902a5067e490922"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.11.1-src/pyside-setup-everywhere-src-5.11.1.tar.xz"
+  sha256 "9cbc3cbb03c6c1ddba8de7a651c84b269f87ebd4a0991a1f9acc8b2d0ccdfb83"
 
   bottle do
     sha256 "8b9e5689c3a267f36d88cf2933a56cb9f93d4537edc3daafac89774846abf570" => :high_sierra
@@ -15,22 +15,6 @@ class Pyside < Formula
   depends_on "python"
   depends_on "python@2"
   depends_on "qt"
-
-  # Remove for > 5.11.0
-  # Edited patch to fix clang header include issue in 5.11.0
-  # See https://code.qt.io/cgit/pyside/pyside-setup.git/commit/?h=5.11.0&id=5662706937bd6a1449538539e3a503c6cbc45399
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7895c8a/pyside/pyside-homebrew.patch"
-    sha256 "3a6a62ae8d4a7ab34f9ca66b5358e45a5e08c66f327f635f901bb68d6f97c8a4"
-  end
-
-  # Remove for > 5.11.0
-  # Patch to add Python 3.7 support on 5.11.0
-  # See https://code.qt.io/cgit/pyside/pyside-setup.git/commit/?h=5.11&id=4a32f9d00b043b7255b590b95e9b35e9de44c4ed
-  patch do
-    url "https://code.qt.io/cgit/pyside/pyside-setup.git/patch/?id=4a32f9d00b043b7255b590b95e9b35e9de44c4ed"
-    sha256 "3b88c02242172c7f58626bcb670fd0e2ef3259f628d50b755967c5dfb37e8a3b"
-  end
 
   def install
     args = %W[
