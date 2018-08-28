@@ -11,7 +11,8 @@ class Hdf5 < Formula
     sha256 "73437652f5963038481fb143d3f847206a11522ebd326b5af21db939f56fe661" => :el_capitan
   end
 
-  option "with-mpi", "Enable parallel support"
+  option "with-mpi",                  "Enable parallel support"
+  option "with-mpi-cxx-unsupported",  "Enable parallelized C++ API (unsupported)"
 
   deprecated_option "enable-parallel" => "with-mpi"
 
@@ -19,7 +20,8 @@ class Hdf5 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
-  depends_on "open-mpi" if build.with? "mpi"
+  depends_on "open-mpi" if build.with?("mpi") \
+                        or build.with?("mpi-cxx-unsupported")
   depends_on "szip"
 
   def install
@@ -39,22 +41,54 @@ class Hdf5 < Formula
       --enable-fortran
     ]
 
-    if build.without?("mpi")
+    if build.without?("mpi") and build.without?("mpi-cxx-unsupported")
       args << "--enable-cxx"
-    else
-      args << "--disable-cxx"
+    elsif build.with?("mpi-cxx-unsupported")
+      args << "--enable-cxx"
+      args << "--enable-parallel"
+      args << "--enable-unsupported"
+      ENV["CC"] = ENV["CXX"] = ENV["FC"] = "mpi"
+       ENV["CC"] += "cc"
+      ENV["CXX"] += "cxx"
+       ENV["FC"] += "f90"
     end
 
-    if build.with? "mpi"
-      ENV["CC"] = "mpicc"
-      ENV["CXX"] = "mpicxx"
-      ENV["FC"] = "mpif90"
-
+    if build.with?("mpi")
       args << "--enable-parallel"
+      if build.without?("mpi-cxx-unsupported")
+        args << "--disable-cxx"
+      end
+      ENV["CC"] = ENV["CXX"] = ENV["FC"] = "mpi"
+       ENV["CC"] += "cc"
+      ENV["CXX"] += "cxx"
+       ENV["FC"] += "f90"
     end
 
     system "./configure", *args
     system "make", "install"
+  end
+
+  def caveats
+    if build.with?("mpi-cxx-unsupported")
+      s = <<~EOS
+      
+      You have built HDF5 with both paralellism and the C++ bindings
+      enabled.
+      
+      This combination of options requires running HDF5’s configure
+      script with the “--enable-unsupported” option. Use the build
+      products of this library, as rendered with these options, at
+      your own risk; the behavior of this permutation of the library
+      is explicitly not supported by the publisher.
+      
+      For more information, q.v. the HDF5 group note sub.:
+      https://support.hdfgroup.org/HDF5/hdf5-quest.html#p5thread
+      
+      EOS
+   else
+     s = nil
+   end
+  s
   end
 
   test do
