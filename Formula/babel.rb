@@ -1,10 +1,11 @@
 require "language/node"
+require "json"
 
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/babel-cli/-/babel-cli-6.26.0.tgz"
-  sha256 "81ac501721ff18200581c58542fa6226986766c53be35ad8f921fabd47834d02"
+  url "https://registry.npmjs.org/@babel/cli/-/cli-7.0.0.tgz"
+  sha256 "08dbc5415dc2de14994c96c5ae7190d4f4b01872629f6d8706d111d53b01c900"
 
   bottle do
     sha256 "8bef30b9b787762a98410e78ad4e7901a8e12eb3af780076cacf25c4c007cd2a" => :mojave
@@ -13,14 +14,22 @@ class Babel < Formula
     sha256 "79ed0bda434eccc0d634407fcafebc419f529246472a807d16fb05739b9dc4f6" => :el_capitan
   end
 
-  devel do
-    url "https://registry.npmjs.org/babel-cli/-/babel-cli-7.0.0-alpha.12.tgz"
-    sha256 "a81e2421486ca48d3961c4ab1fada8acd3bb3583ccfb28822cbb0b16a2635144"
-  end
-
   depends_on "node"
 
+  resource "babel-core" do
+    url "https://registry.npmjs.org/@babel/core/-/core-7.0.0.tgz"
+    sha256 "fb8f654c0d1fcc05d047301c5de81865c25c192ee4f51761e47277fc05cd8132"
+  end
+
   def install
+    (buildpath/"node_modules/@babel/core").install resource("babel-core")
+
+    # declare babel-core as a bundledDependency of babel-cli
+    pkg_json = JSON.parse(IO.read("package.json"))
+    pkg_json["dependencies"]["@babel/core"] = resource("babel-core").version
+    pkg_json["bundledDependencies"] = ["@babel/core"]
+    IO.write("package.json", JSON.pretty_generate(pkg_json))
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
@@ -32,5 +41,7 @@ class Babel < Formula
 
     system bin/"babel", "script.js", "--out-file", "script-compiled.js"
     assert_predicate testpath/"script-compiled.js", :exist?, "script-compiled.js was not generated"
+
+    assert_equal version, resource("babel-core").version
   end
 end
