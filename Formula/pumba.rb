@@ -3,6 +3,7 @@ class Pumba < Formula
   homepage "https://github.com/alexei-led/pumba"
   url "https://github.com/alexei-led/pumba/archive/0.5.0.tar.gz"
   sha256 "a748b9c676dcb5504322e653998f3c2faaba4fe27183314a2142ff6421006c40"
+  revision 1
   head "https://github.com/alexei-led/pumba.git"
 
   bottle do
@@ -14,7 +15,6 @@ class Pumba < Formula
   end
 
   depends_on "go" => :build
-  depends_on "docker" => :recommended
 
   def install
     ENV["GOPATH"] = buildpath
