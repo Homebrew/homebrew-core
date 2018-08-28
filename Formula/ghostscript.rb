@@ -49,6 +49,7 @@ class Ghostscript < Formula
 
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
+  depends_on "libtiff"
   depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
@@ -65,6 +66,7 @@ class Ghostscript < Formula
       --disable-gtk
       --disable-fontconfig
       --without-libidn
+      --with-system-libtiff
     ]
     args << "--without-x" if build.without? "x11"
 
