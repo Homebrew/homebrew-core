@@ -4,6 +4,7 @@ class GitlabRunner < Formula
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
       :tag => "v11.2.0",
       :revision => "35e8515d8af4d757f39f50cda7e17a9de131ffbf"
+  revision 1
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
   bottle do
@@ -15,7 +16,6 @@ class GitlabRunner < Formula
   end
 
   depends_on "go" => :build
-  depends_on "docker" => :recommended
 
   def install
     ENV["GOPATH"] = buildpath
