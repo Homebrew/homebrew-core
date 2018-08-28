@@ -5,6 +5,7 @@ class Circleci < Formula
   url "https://github.com/CircleCI-Public/circleci-cli.git",
       :tag => "v0.1.1430",
       :revision => "9788d7512e7e4018f3f98f471d874cab66475175"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,6 @@ class Circleci < Formula
   end
 
   depends_on "go" => :build
-  depends_on "docker"
 
   def install
     ENV["GOPATH"] = buildpath
