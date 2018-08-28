@@ -1,8 +1,33 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.xz"
-  sha256 "1fcedc27d4d6081105cdf35606cb3f809523423a6cf9e3c23cead3525d6ae8d9"
+  revision 1
+
+  stable do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.xz"
+    sha256 "1fcedc27d4d6081105cdf35606cb3f809523423a6cf9e3c23cead3525d6ae8d9"
+
+    # https://bugs.chromium.org/p/project-zero/issues/detail?id=1640
+    # https://www.kb.cert.org/vuls/id/332928
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
+      sha256 "1dfce2417808cf299ce9d6cb07751ae2d285772e71506a5752f084d7a90472ff"
+      apply "patches/020180821~0d39011.patch",
+            "patches/020180821~0edd3d6.patch",
+            "patches/020180821~a054156.patch",
+            "patches/020180821~b326a71.patch",
+            "patches/020180821~c3476dd.patch",
+            "patches/020180823~0b6cd19.patch",
+            "patches/020180823~8e9ce50.patch",
+            "patches/020180823~241d911.patch",
+            "patches/020180823~78911a0.patch",
+            "patches/020180823~b575e1e.patch",
+            "patches/020180823~c432131.patch",
+            "patches/020180824~5516c61.patch",
+            "patches/020180824~e01e77a.patch"
+    end
+  end
 
   bottle do
     sha256 "61cd3ed2bde23ff760b16c83607a452016dc0c9b377c544d6a646fa853fbcec9" => :mojave
