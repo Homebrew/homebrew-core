@@ -7,8 +7,8 @@ class CassandraReaper < Formula
   # The inline patch is temporary to update the 'cassandra-reaper' script for brew.
   # Since PR [thelastpickle/cassandra-reaper#533](https://github.com/thelastpickle/cassandra-reaper/pull/533) is merged, it will be obsolete once next version is released.
   patch :p3 do
-    url "https://github.com/thelastpickle/cassandra-reaper/commit/4e26e1c70de8aa564e57ada287fffd6e7544914f.diff?full_index=1"
-    sha256 "0b1812e1121225fdcaaf97c2a9db00010ddc055ea14efd9674e5621fd4510bf9"
+    url "https://github.com/thelastpickle/cassandra-reaper/commit/4e26e1c70de8aa564e57ada287fffd6e7544914f.patch?full_index=1"
+    sha256 "7fdea1d12524e121db191c70effa91825948fa08b24b2c914d51dbfdceff485a"
   end
 
   def install
