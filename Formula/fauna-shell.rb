@@ -3,8 +3,8 @@ require "language/node"
 class FaunaShell < Formula
   desc "Interactive shell for FaunaDB"
   homepage "https://fauna.com/"
-  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.5.0.tgz"
-  sha256 "b365080e638d85104a9ae533c6271c2dae692a5d6cc09f7fdb15d5c8870a96aa"
+  url "https://registry.npmjs.org/fauna-shell/-/fauna-shell-0.7.0.tgz"
+  sha256 "c8d617a00d164a0bce549eaac3fdc0691db9dc610c9e1455f76864bf6055b3fe"
 
   bottle do
     cellar :any_skip_relocation
