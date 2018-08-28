@@ -6,10 +6,11 @@ class Xorriso < Formula
   sha256 "ec82069e04096cd9c18be9b12b87b750ade0b5e37508978feabcde36b2278481"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c7f85c8568eda3ebd6679c20fcc637abaa92993d66ad1818bf9c21a9918a1c46" => :high_sierra
-    sha256 "ec7b002127b53ef237e0c7004e567b0b15ee23deca813ae9ba93dbbc8e9d37d5" => :sierra
-    sha256 "050eba14607cb39d805ac97cd2869f59e617b01b537c4ee4d7189a6a2bb11d46" => :el_capitan
+    rebuild 1
+    sha256 "3bf163215648c9e63a6fa03746ebff1dec15c9aff6204788db2a43e24ab9cb28" => :mojave
+    sha256 "45f3af489e20189f73248b0c5444cc0a986f1028c23959aeaf240173bebabeee" => :high_sierra
+    sha256 "e7ddc12178ac466d7aceaa3786b070829582b6c5adeb59ca383eeab3fa866e89" => :sierra
+    sha256 "dd920cbec3a5d95504763a4129aa915031bc124285ddb16d7ff76c15cecb9724" => :el_capitan
   end
 
   def install
