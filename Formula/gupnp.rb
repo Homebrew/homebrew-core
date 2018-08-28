@@ -6,6 +6,7 @@ class Gupnp < Formula
 
   bottle do
     cellar :any
+    sha256 "683d25f39758fb26c5f379f752452c3d55e4987f25240d853580af5e13f9eb1c" => :mojave
     sha256 "a89d7df0d7f7b89bb3b2218445c908497a9ab9e0d61a4c5d6b56d4fcbf265f65" => :high_sierra
     sha256 "5bd40488125dc5c85ea820941128948bbd0cfcf040d26e0871128a62efbc1c52" => :sierra
     sha256 "1af28d4893393c049714b924eb012c6c2554d8ddf3acf95d9b765ef74fe6f6d3" => :el_capitan
