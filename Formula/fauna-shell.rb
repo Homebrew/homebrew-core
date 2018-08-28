@@ -8,10 +8,9 @@ class FaunaShell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c74cf761b3354938d35f713128e78afb610d93fba0fde9206dde9a4d0d06f861" => :mojave
-    sha256 "941fd32dc26568e076a23a0596ae4a8baee48344977164220261b093f7e9003a" => :high_sierra
-    sha256 "c057a90e347ce2e728c037993f671e77e06ebe79a6273bd059c050cf57514b74" => :sierra
-    sha256 "84f9a21962a5fb407ee12d19e930820781ac2d00825d54917f17a675e0a130d5" => :el_capitan
+    sha256 "f859d1f423b9224099bb48b2254d53e049ef733e11c09e33fdea57a6e75b243a" => :high_sierra
+    sha256 "a071222007d77fa0f154a02510b3728b2b39d82b3791f48318b8491400093c46" => :sierra
+    sha256 "dd5b056d7a18577ece3807c3c9461d5dbfe2a1e21003d2f30c3a59421d375729" => :el_capitan
   end
 
   depends_on "node"
