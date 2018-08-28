@@ -5,37 +5,27 @@ class Nwchem < Formula
   version "6.8.1"
   sha256 "23ce8241a5977a93d8224f66433851c81a08ad58a4c551858ae031485b095ab7"
 
-  depends_on "openblas"
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "scalapack"
+  depends_on "openblas" => :recommended
 
   def install
-    cd "QA" do
-      (prefix/"QA").mkdir
-      (prefix/"QA/tests").mkdir
-      cp "runtests.mpi.unix", prefix/"QA"
-      cp "nwparse.pl", prefix/"QA"
-      cp_r "tests/dft_he2+", prefix/"QA/tests"
-      cp_r "tests/prop_mep_gcube", prefix/"QA/tests"
-      cp_r "tests/tce_n2", prefix/"QA/tests"
-      cp_r "tests/tddft_h2o", prefix/"QA/tests"
-      cp_r "tests/pspw", prefix/"QA/tests"
-    end
+    pkgshare.install "QA"
 
     cd "src" do
       (prefix/"etc").mkdir
       (prefix/"etc/nwchemrc").write <<~EOS
-        nwchem_basis_library #{share}/libraries/
-        nwchem_nwpw_library #{share}/libraryps/
+        nwchem_basis_library #{pkgshare}/libraries/
+        nwchem_nwpw_library #{pkgshare}/libraryps/
         ffield amber
-        amber_1 #{share}/amber_s/
-        amber_2 #{share}/amber_q/
-        amber_3 #{share}/amber_x/
-        amber_4 #{share}/amber_u/
-        spce    #{share}/solvents/spce.rst
-        charmm_s #{share}/charmm_s/
-        charmm_x #{share}/charmm_x/
+        amber_1 #{pkgshare}/amber_s/
+        amber_2 #{pkgshare}/amber_q/
+        amber_3 #{pkgshare}/amber_x/
+        amber_4 #{pkgshare}/amber_u/
+        spce    #{pkgshare}/solvents/spce.rst
+        charmm_s #{pkgshare}/charmm_s/
+        charmm_x #{pkgshare}/charmm_x/
       EOS
 
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
@@ -45,11 +35,15 @@ class Nwchem < Formula
         s.gsub! /-msse3/, " "
       end
 
-      ENV["NWCHEM_TOP"] = "#{Dir.pwd}/.."
+      ENV["NWCHEM_TOP"] = buildpath
       ENV["PYTHONVERSION"] = "2.7"
       ENV["PYTHONHOME"] = "/usr"
       ENV["NWCHEM_LONG_PATHS"] = "Y"
-      ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+      if build.with? "openblas"
+        ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
+      else
+        ENV["BLASOPT"] = "-framework Accelerate"
+      end
       ENV["BLAS_SIZE"] = "4"
       ENV["SCALAPACK"] = "-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack"
       ENV["USE_64TO32"] = "y"
@@ -58,28 +52,19 @@ class Nwchem < Formula
       system "make", "NWCHEM_TARGET=MACX64", "USE_MPI=Y"
 
       bin.install "../bin/MACX64/nwchem"
-      (prefix/"share").mkdir
-      share.install "basis/libraries"
-      share.install "nwpw/libraryps"
-      share.install Dir["data/*"]
-      rm Dir["#{share}/libraryps/*F"]
-      rm Dir["#{share}/libraryps/*fh"]
-      rm Dir["#{share}/libraryps/*ake*ile"]
-      rm Dir["#{share}/libraryps/dep*ies"]
-      rm Dir["#{share}/libraryps/incl*mp"]
+      pkgshare.install "basis/libraries"
+      pkgshare.install "nwpw/libraryps"
+      pkgshare.install Dir["data/*"]
     end
   end
 
   test do
-    cp_r prefix/"QA", testpath
+    cp_r pkgshare/"QA", testpath
     cd "QA" do
-      ENV["NWCHEM_TOP"] = "/usr/local/Cellar/nwchem/6.8.1"
+      ENV["NWCHEM_TOP"] = pkgshare
       ENV["NWCHEM_TARGET"] = "MACX64"
       ENV["NWCHEM_EXECUTABLE"] = "/usr/local/bin/nwchem"
-      system "./runtests.mpi.unix", "procs", "2", "dft_he2+", "prop_mep_gcube"
-      system "./runtests.mpi.unix", "procs", "2", "pspw"
-      system "./runtests.mpi.unix", "procs", "2", "tddft_h2o"
-      system "./runtests.mpi.unix", "procs", "2", "tce_n2"
+      system "./runtests.mpi.unix", "procs", "2", "dft_he2+", "prop_mep_gcube", "pspw", "tddft_h2o", "tce_n2"
     end
   end
 end
