@@ -1,8 +1,9 @@
 class Monax < Formula
   desc "Blockchain application platform CLI"
-  homepage "https://erisindustries.com"
+  homepage "https://github.com/monax/monax"
   url "https://github.com/monax/monax/archive/v0.18.0.tar.gz"
   sha256 "8ad3166e3ca76738c6542bd8b85dcef1643b68a3755abe3e0a7f3c9cdd027afb"
+  revision 1
   version_scheme 1
 
   bottle do
@@ -15,8 +16,6 @@ class Monax < Formula
   end
 
   depends_on "go" => :build
-  depends_on "docker"
-  depends_on "docker-machine"
 
   def install
     ENV["GOPATH"] = buildpath
