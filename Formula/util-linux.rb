@@ -16,8 +16,7 @@ class UtilLinux < Formula
   conflicts_with "rename", :because => "both install `rename` binaries"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--disable-ipcs",        # does not build on macOS
@@ -34,11 +33,6 @@ class UtilLinux < Formula
       rm_f sbin/prog
       rm_f man1/"#{prog}.1"
       rm_f man8/"#{prog}.8"
-      rm_f share/"bash-completion/completions/#{prog}"
-    end
-
-    # these conflict with bash-completion-1.3
-    %w[chsh mount rfkill rtcwake].each do |prog|
       rm_f share/"bash-completion/completions/#{prog}"
     end
 
