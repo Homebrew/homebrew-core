@@ -28,13 +28,11 @@ class PdfRedactTools < Formula
   end
 
   test do
-    # Modifies the file in the directory the file is placed in.
-    cp test_fixtures("test.pdf"), "test.pdf"
-    system bin/"pdf-redact-tools", "-e", "test.pdf"
-    assert_predicate testpath/"test_pages/page-0.png", :exist?
-    rm_rf "test_pages"
-
-    system bin/"pdf-redact-tools", "-s", "test.pdf"
-    assert_predicate testpath/"test-final.pdf", :exist?
+    # Ensures pdf-redact-tools correctly recognises the file isn't a
+    # PDF and exits. Cannot test further than this without loosening
+    # our default imagemagick security policy.
+    cp test_fixtures("test.png"), "test"
+    output = shell_output("#{bin}/pdf-redact-tools --sanitize test 2>&1", 2)
+    assert_match "file must be a PDF", output
   end
 end
