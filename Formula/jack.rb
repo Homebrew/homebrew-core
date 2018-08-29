@@ -24,12 +24,16 @@ class Jack < Formula
   depends_on "libsamplerate"
 
   def install
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
 
     # Makefile hardcodes Carbon header location
     inreplace Dir["drivers/coreaudio/Makefile.{am,in}"],
       "/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h",
       "#{sdk}/System/Library/Frameworks/Carbon.framework/Headers/Carbon.h"
+
+    # https://github.com/jackaudio/jack1/issues/81
+    inreplace "configure", "-mmacosx-version-min=10.4",
+                           "-mmacosx-version-min=#{MacOS.version}"
 
     ENV["LINKFLAGS"] = ENV.ldflags
     system "./configure", "--prefix=#{prefix}"
@@ -46,7 +50,7 @@ class Jack < Formula
       <key>Label</key>
       <string>#{plist_name}</string>
       <key>WorkingDirectory</key>
-      <string>#{prefix}</string>
+      <string>#{opt_prefix}</string>
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/jackd</string>
