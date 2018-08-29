@@ -1,8 +1,8 @@
 class Hugo < Formula
   desc "Configurable static site generator"
   homepage "https://gohugo.io/"
-  url "https://github.com/gohugoio/hugo/archive/v0.47.1.tar.gz"
-  sha256 "1c47fef843812c5e2621f28bde445117bc90413e3221f72800512ed82db94c5f"
+  url "https://github.com/gohugoio/hugo/archive/v0.48.tar.gz"
+  sha256 "0fa6bf285fc586fccacbf782017a5c0c9d164f6bf0670b12dd21526b32328cb2"
   head "https://github.com/gohugoio/hugo.git"
 
   bottle do
@@ -13,14 +13,11 @@ class Hugo < Formula
     sha256 "9e84b719eac13b3123a18d2f357cfd9daf86cfcc2cd51248e1dd0de70e86defd" => :el_capitan
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/gohugoio/hugo").install buildpath.children
     cd "src/github.com/gohugoio/hugo" do
-      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"hugo", "-tags", "extended", "main.go"
 
       # Build bash completion
