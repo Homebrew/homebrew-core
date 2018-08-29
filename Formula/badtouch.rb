@@ -19,7 +19,7 @@ class Badtouch < Formula
     ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
     ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
 
-    system "cargo", "install", "--root", prefix
+    system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "docs/badtouch.1"
   end
 
