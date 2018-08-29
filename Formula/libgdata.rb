@@ -55,6 +55,7 @@ class Libgdata < Formula
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{liboauth.opt_include}
       -I#{libsoup.opt_include}/libsoup-2.4
+      -I#{MacOS.sdk_path}/usr/include/libxml2
       -D_REENTRANT
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
@@ -70,11 +71,6 @@ class Libgdata < Formula
       -lsoup-2.4
       -lxml2
     ]
-    if MacOS::CLT.installed?
-      flags << "-I/usr/include/libxml2"
-    else
-      flags << "-I#{MacOS.sdk_path}/usr/include/libxml2"
-    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
