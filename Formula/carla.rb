@@ -5,10 +5,10 @@ class Carla < Formula
   revision 0
 
   depends_on "pkg-config" => :build
-  depends_on :macos => :mavericks
   depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libmagic"
+  depends_on :macos => :mavericks
   depends_on "pyqt"
   depends_on "python"
 
@@ -17,7 +17,6 @@ class Carla < Formula
       PREFIX=#{prefix}
     ]
 
-    # list all available carla features based on dependencies
     system "make"
     system "make", "install", *args
   end
