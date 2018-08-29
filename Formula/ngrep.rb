@@ -12,7 +12,7 @@ class Ngrep < Formula
   end
 
   def install
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
     system "./configure", "--enable-ipv6",
                           "--prefix=#{prefix}",
                           # this line required to make configure succeed
