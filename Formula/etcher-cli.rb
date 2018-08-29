@@ -10,12 +10,8 @@ class EtcherCli < Formula
   depends_on "python" => :build
 
   def install
-    ENV["NODE_ENV"] = "production"
-    system "npm", "install", *Language::Node.local_npm_install_args
-    inreplace buildpath/"node_modules/lzma-native/index.js",
-              "var native = require(binding_path);",
-              "var native = require(path.join(__dirname, 'binding', 'lzma_native.node'));"
-
+    rm "npm-shrinkwrap.json"
+    system "npm", "install", "--production", *Language::Node.local_npm_install_args
     system "npm", "install", *Language::Node.local_npm_install_args, "pkg@4.3.0", "--prefix=#{buildpath}/pkg"
 
     system buildpath/"pkg/node_modules/.bin/pkg", "--output", libexec/"etcher", "--build",
