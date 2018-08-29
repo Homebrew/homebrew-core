@@ -16,7 +16,7 @@ class Fd < Formula
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
-    system "cargo", "install", "--root", prefix
+    system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "doc/fd.1"
     bash_completion.install "fd.bash"
     fish_completion.install "fd.fish"
