@@ -23,10 +23,10 @@ class Djbdns < Formula
     (buildpath/"conf-home").write prefix
     (buildpath/"conf-ld").write "gcc"
 
-    if MacOS::CLT.installed?
-      (buildpath/"conf-cc").write "gcc -O2 -include /usr/include/errno.h"
-    else
+    if MacOS.sdk_path_if_needed
       (buildpath/"conf-cc").write "gcc -O2 -include #{MacOS.sdk_path}/usr/include/errno.h"
+    else
+      (buildpath/"conf-cc").write "gcc -O2 -include /usr/include/errno.h"
     end
 
     bin.mkpath
@@ -35,6 +35,6 @@ class Djbdns < Formula
   end
 
   test do
-    assert_match /localhost/, shell_output("#{bin}/dnsname 127.0.0.1")
+    assert_match "localhost", shell_output("#{bin}/dnsname 127.0.0.1").chomp
   end
 end
