@@ -6,11 +6,11 @@ class Carla < Formula
 
   depends_on "pkg-config" => :build
   depends_on :macos => :mavericks
-  depends_on "fluid-synth" => :recommended
-  depends_on "liblo" => :recommended
-  depends_on "libmagic" => :recommended
-  depends_on "pyqt" => :recommended
-  depends_on "python" => :recommended
+  depends_on "fluid-synth"
+  depends_on "liblo"
+  depends_on "libmagic"
+  depends_on "pyqt"
+  depends_on "python"
 
   def install
     args = %W[
