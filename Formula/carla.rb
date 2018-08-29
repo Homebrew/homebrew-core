@@ -1,6 +1,4 @@
 class Carla < Formula
-  include Language::Python::Virtualenv
-
   desc "Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more"
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
   url "https://github.com/falkTX/carla", :using => :git, :tag => "v1.9.9", :revision => "c03571a9ef95ac0e9564b95347f5de819aa7fb54"
