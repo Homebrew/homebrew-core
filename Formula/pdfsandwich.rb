@@ -1,9 +1,8 @@
 class Pdfsandwich < Formula
   desc "Generate sandwich OCR PDFs from scanned file"
   homepage "http://www.tobias-elze.de/pdfsandwich/"
-  url "https://downloads.sourceforge.net/project/pdfsandwich/pdfsandwich%200.1.6/pdfsandwich-0.1.6.tar.bz2"
-  sha256 "96831eb191bcd43e730dcce169d5c14b47bba0b6cd5152a8703e3b573013a2a2"
-  revision 1
+  url "https://downloads.sourceforge.net/project/pdfsandwich/pdfsandwich%200.1.7/pdfsandwich-0.1.7.tar.bz2"
+  sha256 "9795ffea84b9b6b501f38d49a4620cf0469ddf15aac31bac6dbdc9ec1716fa39"
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
   bottle do
@@ -33,9 +32,9 @@ class Pdfsandwich < Formula
   end
 
   test do
-    system "#{bin}/pdfsandwich", "-o", testpath/"test_ocr.pdf",
-           test_fixtures("test.pdf")
-    assert_predicate testpath/"test_ocr.pdf", :exist?,
-                     "Failed to create ocr file"
+    # Cannot test more than this without removing our default security
+    # policy for Imagemagick, which this formula isn't popular enough
+    # to justify doing.
+    assert_match version.to_s, shell_output("#{bin}/pdfsandwich -version")
   end
 end
