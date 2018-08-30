@@ -38,6 +38,10 @@ class Luajit < Formula
       f.change_make_var! "CCOPT_x86", ""
     end
 
+    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
+    # is not set then it's forced to 10.4, which breaks compile on Mojave.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     ENV.O2 # Respect the developer's choice.
 
     args = %W[PREFIX=#{prefix}]
