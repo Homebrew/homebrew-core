@@ -2,7 +2,7 @@ class Pyinvoke < Formula
   include Language::Python::Virtualenv
 
   desc "Pythonic task management & command execution"
-  homepage "http://pyinvoke.org/"
+  homepage "https://www.pyinvoke.org/"
   url "https://github.com/pyinvoke/invoke/archive/1.1.1.tar.gz"
   sha256 "772b340244c16db1910ed91c61bc1a817ba87bed66156d99af9ebddc14869e64"
   head "https://github.com/pyinvoke/invoke.git"
