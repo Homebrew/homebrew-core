@@ -40,6 +40,19 @@ class Ansible < Formula
   #   dnspython (DNS Lookup - dig)
   #   pysphere (VMware vSphere support)
   #   python-consul (Consul support)
+  #   credstash (CredStash lookup plugin)
+  #   flatdict (Logentries callback plugin)
+  #   hvac (HashiCorp Vault lookup plugin)
+  #   junit-xml (JUnit callback plugin)
+  #   keyring (keyring lookup plugin)
+  #   PyChef (Chef Data Bag lookup plugin)
+  #   python-logstash (Logstash callback plugin)
+  #   python-memcached (Memcached cache plugin)
+  #   pexpect (WinRM connection plugin)
+  #   pymongo (MongoDB cache plugin)
+  #   redis (Redis cache and lookup plugins)
+  #   textfsm (Network filters plugin)
+  #   xmpppy (Jabber callback plugin)
 
   ### setup_requires dependencies
   resource "pbr" do
@@ -90,6 +103,11 @@ class Ansible < Formula
   resource "PrettyTable" do
     url "https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2"
     sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
+  end
+
+  resource "PyChef" do
+    url "https://files.pythonhosted.org/packages/f9/31/17cde137e3b8ada4d7c80fd4504264f2abed329a9a8100c3622a044c485e/PyChef-0.3.0.tar.gz"
+    sha256 "afc2a538fc0492b387f43de72af21ba829cb5b3d2b5e46861a8d15523845bf7d"
   end
 
   resource "PyNaCl" do
@@ -172,6 +190,11 @@ class Ansible < Formula
     sha256 "509f9419ee91cdd00ba34443217d5ca51f5a364a404e1dce9e8979cea969ca48"
   end
 
+  resource "credstash" do
+    url "https://files.pythonhosted.org/packages/92/b3/5590e3404b4ed051112ba6e2091296105763004c7fb259bc4c94c2f57fe6/credstash-1.14.0.tar.gz"
+    sha256 "718b337f7a6fa001e014386071f05c59900525d0507009126d2fe8d75fe0761d"
+  end
+
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/79/a2/61c8625f96c8582d3053f89368c483ba62e56233d055e58e372f94a393f0/cryptography-2.3.tar.gz"
     sha256 "c132bab45d4bd0fff1d3fe294d92b0a6eb8404e93337b3127bdec9f21de117e6"
@@ -222,6 +245,11 @@ class Ansible < Formula
     sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
+  resource "flatdict" do
+    url "https://files.pythonhosted.org/packages/6c/ed/a17e9d48bf3ab8e0aff10c653093c56cfc7b711c67b9836deea101b29508/flatdict-1.2.0.tar.gz"
+    sha256 "84b744b44632960041b1e9771daded133343627434d2a8b1a439f6c3d0bfb55d"
+  end
+
   resource "funcsigs" do
     url "https://files.pythonhosted.org/packages/94/4a/db842e7a0545de1cdb0439bb80e6e42dfe82aaeaadd4072f2263a4fbed23/funcsigs-1.0.2.tar.gz"
     sha256 "a7bb0f2cf3a3fd1ab2732cb49eba4252c2af4240442415b4abce3b87022a8f50"
@@ -230,6 +258,11 @@ class Ansible < Formula
   resource "futures" do
     url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
     sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
+  end
+
+  resource "hvac" do
+    url "https://files.pythonhosted.org/packages/75/74/dac99a4243f74b8d90ef1fc7eaf1ccae78c920861c707f58162ddf43c72c/hvac-0.5.0.tar.gz"
+    sha256 "2c9308334301daee3b5c6d56a032ca2c81eeb97d2777b73d795e201e8d037687"
   end
 
   resource "ipaddress" do
@@ -257,6 +290,11 @@ class Ansible < Formula
     sha256 "c192ba86648e05fdae4f08a17ec25180a9aef5008d973407b581798a83975362"
   end
 
+  resource "junit-xml" do
+    url "https://files.pythonhosted.org/packages/a6/2a/f8d5aab80bb31fcc789d0f2b34b49f08bd6121cd8798d2e37f416df2b9f8/junit-xml-1.8.tar.gz"
+    sha256 "602f1c480a19d64edb452bf7632f76b5f2cb92c1938c6e071dcda8ff9541dc21"
+  end
+
   resource "junos-eznc" do
     url "https://files.pythonhosted.org/packages/a4/e0/b23ad9e4dbc00ef6b8984d21b2360d6a604a3bf621761a102f202ba8925b/junos-eznc-2.1.8.tar.gz"
     sha256 "daa62e5abfc66ef12e4fb43a1c264673e662e6f2d937cd10666c1c6dcf2ac6ac"
@@ -270,6 +308,11 @@ class Ansible < Formula
   resource "kerberos" do
     url "https://files.pythonhosted.org/packages/34/18/9c86fdfdb27e0f7437b7d5a9e22975dcc382637b2a68baac07843be512fc/kerberos-1.3.0.tar.gz"
     sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
+  end
+
+  resource "keyring" do
+    url "https://files.pythonhosted.org/packages/d8/07/e862b57168e088f3ba880fba2471f05f78c19e75b1632be0143d116e7fa3/keyring-12.2.1.tar.gz"
+    sha256 "4498eaa2e32fc69a8b36749116b670c379d36a1a9ad4ab107df1e19c8a120ffe"
   end
 
   resource "keystoneauth1" do
@@ -382,6 +425,11 @@ class Ansible < Formula
     sha256 "3d948f64138c25633613f303bcc471126eae67c04d5e3f6b7b8ce6242f8653e0"
   end
 
+  resource "pexpect" do
+    url "https://files.pythonhosted.org/packages/89/43/07d07654ee3e25235d8cea4164cdee0ec39d1fda8e9203156ebe403ffda4/pexpect-4.6.0.tar.gz"
+    sha256 "2a8e88259839571d1251d278476f3eec5db26deb73a70be5ed5dc5435e418aba"
+  end
+
   resource "pyasn1" do
     url "https://files.pythonhosted.org/packages/10/46/059775dc8e50f722d205452bced4b3cc965d27e8c3389156acd3b1123ae3/pyasn1-0.4.4.tar.gz"
     sha256 "f58f2a3d12fd754aa123e9fa74fb7345333000a035f3921dbdaa08597aa53137"
@@ -395,6 +443,11 @@ class Ansible < Formula
   resource "pycrypto" do
     url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
     sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  end
+
+  resource "pymongo" do
+    url "https://files.pythonhosted.org/packages/a3/fe/826348375bfe2d11c96cdc7b7cbabbd84b8b15b62eb33638ee3241fca5f9/pymongo-3.6.1.tar.gz"
+    sha256 "f7ebcb846962ee40374db2d9014a89bea9c983ae63c1877957c3a0a756974796"
   end
 
   resource "pyparsing" do
@@ -437,6 +490,16 @@ class Ansible < Formula
     sha256 "7fb770e194760fa3508e758e6ad316fc55d5b4ff97aa688867ef50f62f687624"
   end
 
+  resource "python-logstash" do
+    url "https://files.pythonhosted.org/packages/4e/8d/7ff2e8e8e2613e7bb7654790480bb4cf51a55721371adbb631b16cb16dce/python-logstash-0.4.6.tar.gz"
+    sha256 "10943e5df83f592b4d61b63ad1afff855ccc8c9467f78718f0a59809ba1fe68c"
+  end
+
+  resource "python-memcached" do
+    url "https://files.pythonhosted.org/packages/90/59/5faf6e3cd8a568dd4f737ddae4f2e54204fd8c51f90bf8df99aca6c22318/python-memcached-1.59.tar.gz"
+    sha256 "a2e28637be13ee0bf1a8b6843e7490f9456fd3f2a4cb60471733c7b5d5557e4f"
+  end
+
   resource "python-neutronclient" do
     url "https://files.pythonhosted.org/packages/ce/c0/8c1eb986be1bbed597395f20f09438e1694843b301fa070df8ed6b3e7023/python-neutronclient-6.9.0.tar.gz"
     sha256 "2e9ce009832ca91752ad76f7c18a2d9e8babf8c9c4a92b476195c422a4647321"
@@ -445,6 +508,11 @@ class Ansible < Formula
   resource "pywinrm" do
     url "https://files.pythonhosted.org/packages/5b/8b/eae19a3574256c834213838310364838a869d128538609da2099cb027c25/pywinrm-0.3.0.tar.gz"
     sha256 "799fc3e33fec8684443adf5778860388289102ea4fa1458f1bf307d167855573"
+  end
+
+  resource "redis" do
+    url "https://files.pythonhosted.org/packages/09/8d/6d34b75326bf96d4139a2ddd8e74b80840f800a0a79f9294399e212cb9a7/redis-2.10.6.tar.gz"
+    sha256 "a22ca993cea2962dbb588f9f30d0015ac4afcc45bee27d3978c0dbe9e97c6c0f"
   end
 
   resource "requests" do
@@ -502,6 +570,11 @@ class Ansible < Formula
     sha256 "eb2b989cf03ffc7166339eb34f1aa26c5ace255243337b1e22dab7caa1166687"
   end
 
+  resource "textfsm" do
+    url "https://files.pythonhosted.org/packages/a1/0d/a1b490503545b3b4600b965eae5d44cc2b6ce27cfb44f4debc563dbb56d3/textfsm-0.4.1.tar.gz"
+    sha256 "21a31e212d625d84a8c7a52f35055d536bd3a1c63d3d41ed65ee5d8bd5f29f00"
+  end
+
   resource "unicodecsv" do
     url "https://files.pythonhosted.org/packages/6f/a4/691ab63b17505a26096608cc309960b5a6bdf39e4ba1a793d5f9b1a53270/unicodecsv-0.14.1.tar.gz"
     sha256 "018c08037d48649a0412063ff4eda26eaa81eff1546dbffa51fa5293276ff7fc"
@@ -530,6 +603,11 @@ class Ansible < Formula
   resource "xmltodict" do
     url "https://files.pythonhosted.org/packages/57/17/a6acddc5f5993ea6eaf792b2e6c3be55e3e11f3b85206c818572585f61e1/xmltodict-0.11.0.tar.gz"
     sha256 "8f8d7d40aa28d83f4109a7e8aa86e67a4df202d9538be40c0cb1d70da527b0df"
+  end
+
+  resource "xmpppy" do
+    url "https://files.pythonhosted.org/packages/40/cc/ad79aed6f33e8f1f20879ec21678ffede4990d607460be33615389bac218/xmpppy-0.5.0rc1.tar.gz"
+    sha256 "8a1cd2d5807fc8880c8630a124504f09f27ee717f8bb504862c8f0bbc739d1f2"
   end
 
   resource "zabbix-api" do
