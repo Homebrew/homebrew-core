@@ -1,5 +1,5 @@
 class CassandraReaper < Formula
-  desc "A management interface for Cassandra"
+  desc "Management interface for Cassandra"
   homepage "http://cassandra-reaper.io"
   url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.2.2/cassandra-reaper-1.2.2-release.tar.gz"
   sha256 "720aff69e3205301bc07399afc46dae3568d8effffa3712f1852a169ce9801db"
@@ -12,11 +12,9 @@ class CassandraReaper < Formula
   end
 
   def install
-    prefix.install "bin"
-    mv "server/target", "cassandra-reaper"
-    share.install "cassandra-reaper"
-    mv "resource", "cassandra-reaper"
-    etc.install "cassandra-reaper"
+    bin.install_symlink "bin/cassandra-reaper"
+    share.install "server/target" => "cassandra-reaper"
+    etc.install "resource" => "cassandra-reaper"
   end
 
   test do
