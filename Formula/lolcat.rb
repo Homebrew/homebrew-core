@@ -12,6 +12,8 @@ class Lolcat < Formula
     sha256 "ae227d19279381bb06454be4ab732955f0c98aefe4ec5096af51f89afefb22e2" => :sierra
     sha256 "720bcfcc342a16b3c7df9b5a558561d42d09f268f9708fac4f7f24af9fec81df" => :el_capitan
   end
+  
+  depends_on "ruby" if MacOS.version <= :sierra
 
   def install
     ENV["GEM_HOME"] = libexec
