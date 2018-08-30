@@ -6,11 +6,11 @@ class Mobiledevice < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "53f8b0184fc5c88f112c380da96e3d86744242c32c6f8abeaf670a8d65e3a74c" => :sierra
-    sha256 "27f7b9fa9c4f1e34711c75bef34a06925ca50933987d1f925587a356492f7046" => :el_capitan
-    sha256 "110dd69008feb20cbe6343169dfcc278d209e9430d59d44ab0bf6ce7eb920362" => :yosemite
-    sha256 "18d5472c4b517413472be3b97ff66217d55690773ef952933e652dc8a57133bf" => :mavericks
-    sha256 "19eb775bc12305341abe780c06308cf32f5fd6060227fefa4cd0f2ef28a3dae2" => :mountain_lion
+    rebuild 1
+    sha256 "e7cace974bdc389f01ff6ec4fb0719cc73bd56ff485045b209150bae2bdc1462" => :mojave
+    sha256 "b848e30f816b76adea5e301e00123ac80a624db9461ef3a8b1324d84ad5d7c44" => :high_sierra
+    sha256 "0ff270eba2d01738d98d3a3a1570c46f2d0cdee93317b5b448e44d85ef4163c3" => :sierra
+    sha256 "6e7b8b74e3fe54132245a6f6720a77385c1a0185d6b2fdfbdb7391229e9e8b7a" => :el_capitan
   end
 
   # Upstream is pretty dead but this is a simple change
