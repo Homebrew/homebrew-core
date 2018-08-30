@@ -1,7 +1,7 @@
 class Sleepwatcher < Formula
   desc "Monitors sleep, wakeup, and idleness of a Mac"
-  homepage "http://www.bernhard-baehr.de/"
-  url "http://www.bernhard-baehr.de/sleepwatcher_2.2.tgz"
+  homepage "https://www.bernhard-baehr.de/"
+  url "https://www.bernhard-baehr.de/sleepwatcher_2.2.tgz"
   sha256 "c04ac1c49e2b5785ed5d5c375854c9c0b9e959affa46adab57985e4123e8b6be"
 
   bottle do
