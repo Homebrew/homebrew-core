@@ -19,7 +19,8 @@ class Sccache < Formula
     ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
     ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
 
-    system "cargo", "install", "--root", prefix, "--features", "all"
+    system "cargo", "install", "--root", prefix, "--path", ".",
+                               "--features", "all"
   end
 
   test do

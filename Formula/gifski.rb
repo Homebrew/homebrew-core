@@ -22,7 +22,7 @@ class Gifski < Formula
   def install
     args = []
     args << "--features=openmp" if build.with? "openmp"
-    system "cargo", "install", "--root", prefix, *args
+    system "cargo", "install", "--root", prefix, "--path", ".", *args
   end
 
   test do

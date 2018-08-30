@@ -19,7 +19,7 @@ class Pngquant < Formula
   depends_on "little-cms2"
 
   def install
-    system "cargo", "install", "--root", prefix
+    system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "pngquant.1"
   end
 

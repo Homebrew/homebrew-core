@@ -1,14 +1,39 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.xz"
-  sha256 "1fcedc27d4d6081105cdf35606cb3f809523423a6cf9e3c23cead3525d6ae8d9"
+  revision 1
+
+  stable do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.xz"
+    sha256 "1fcedc27d4d6081105cdf35606cb3f809523423a6cf9e3c23cead3525d6ae8d9"
+
+    # https://bugs.chromium.org/p/project-zero/issues/detail?id=1640
+    # https://www.kb.cert.org/vuls/id/332928
+    patch do
+      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
+      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
+      sha256 "1dfce2417808cf299ce9d6cb07751ae2d285772e71506a5752f084d7a90472ff"
+      apply "patches/020180821~0d39011.patch",
+            "patches/020180821~0edd3d6.patch",
+            "patches/020180821~a054156.patch",
+            "patches/020180821~b326a71.patch",
+            "patches/020180821~c3476dd.patch",
+            "patches/020180823~0b6cd19.patch",
+            "patches/020180823~8e9ce50.patch",
+            "patches/020180823~241d911.patch",
+            "patches/020180823~78911a0.patch",
+            "patches/020180823~b575e1e.patch",
+            "patches/020180823~c432131.patch",
+            "patches/020180824~5516c61.patch",
+            "patches/020180824~e01e77a.patch"
+    end
+  end
 
   bottle do
-    sha256 "61cd3ed2bde23ff760b16c83607a452016dc0c9b377c544d6a646fa853fbcec9" => :mojave
-    sha256 "dc2e6603867294e34d8f7910e436c096227c8b791ae886c7acc3a5c2fb03dc91" => :high_sierra
-    sha256 "f08fd9db80054129d5b2abc8528f74afbb89bb658ad4ed39daf38908b6957173" => :sierra
-    sha256 "d0ddb0ab33db756543f7616b9a3558f43527784495df0ae7e717c2b0daa738ec" => :el_capitan
+    sha256 "ce61f1e6b265f170d1ac925fb81c3df1f3f925a649595df2dc034d2ab965477e" => :mojave
+    sha256 "0845918822922f58d2626e462c542139508de4719db7dbef90aac3436e45af16" => :high_sierra
+    sha256 "912f4c4ac48029b0686f7cdfe64b5cc1e4f9b1c3c19b877e29eb3df3b5f474d4" => :sierra
+    sha256 "84742f0e7e695527153fe753d30a5e294722b34db4373a51caa9d08a5eca4168" => :el_capitan
   end
 
   head do
@@ -24,6 +49,7 @@ class Ghostscript < Formula
 
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
+  depends_on "libtiff"
   depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
@@ -40,6 +66,7 @@ class Ghostscript < Formula
       --disable-gtk
       --disable-fontconfig
       --without-libidn
+      --with-system-libtiff
     ]
     args << "--without-x" if build.without? "x11"
 

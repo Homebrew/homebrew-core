@@ -14,7 +14,10 @@ class Libofx < Formula
   depends_on "open-sp"
 
   def install
+    opensp = Formula["open-sp"]
     system "./configure", "--disable-dependency-tracking",
+                          "--with-opensp-includes=#{opensp.opt_include}/OpenSP",
+                          "--with-opensp-libs=#{opensp.opt_lib}",
                           "--prefix=#{prefix}"
     system "make", "install"
   end

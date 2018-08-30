@@ -16,7 +16,7 @@ class Gutenberg < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--root", prefix
+    system "cargo", "install", "--root", prefix, "--path", "."
 
     bash_completion.install "completions/gutenberg.bash-completion"
     zsh_completion.install "completions/_gutenberg"
