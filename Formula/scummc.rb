@@ -1,8 +1,8 @@
 class Scummc < Formula
   desc "Set of tools allowing to create SCUMM games"
   homepage "https://github.com/AlbanBedel/scummc#readme"
-  url "https://github.com/AlbanBedel/scummc.git", :revision => "b947f61fc9f550bcdcf66e771fc36795b6cd3687"
-  version "0.2.0+20171206"
+  url "https://github.com/AlbanBedel/scummc/releases/download/v0.2.1/scummc-0.2.1.tar.gz"
+  sha256 "91e1755a704571699186eedd6e3ebb90d753b72211c17b44b6e328a479639c97"
 
   depends_on "bison" => :build
   depends_on "freetype" => :build
