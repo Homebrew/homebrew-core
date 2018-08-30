@@ -45,6 +45,7 @@ class Ansible < Formula
   #   hvac (HashiCorp Vault lookup plugin)
   #   junit-xml (JUnit callback plugin)
   #   keyring (keyring lookup plugin)
+  #   openshift (OpenShift/K8s inventory and lookup plugins)
   #   PyChef (Chef Data Bag lookup plugin)
   #   python-logstash (Logstash callback plugin)
   #   python-memcached (Memcached cache plugin)
@@ -359,6 +360,11 @@ class Ansible < Formula
   resource "ntlm-auth" do
     url "https://files.pythonhosted.org/packages/b5/f4/9df9b6713cf3527453d18b2a4567d49893ca1a1c95a566a88baefcb9796e/ntlm-auth-1.2.0.tar.gz"
     sha256 "7bc02a3fbdfee7275d3dc20fce8028ed8eb6d32364637f28be9e9ae9160c6d5c"
+  end
+
+  resource "openshift" do
+    url "https://files.pythonhosted.org/packages/6a/b3/319b8baacab75d8f21d3104344d8bc9b84bd7f97c9dc15c2cd0d1bdce718/openshift-0.6.2.tar.gz"
+    sha256 "aab848277e61ad10446e6187c79781ba65256392ffd13aa874619a588c238dae"
   end
 
   resource "openstacksdk" do
