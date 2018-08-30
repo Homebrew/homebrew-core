@@ -5,10 +5,11 @@ class Luajit < Formula
   sha256 "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
 
   bottle do
-    sha256 "4848129fc7affc5949c240f571c5e8d0684bbd142f8dc2e18176b3a8f165b2bb" => :high_sierra
-    sha256 "bdebedd2ab2bea98e10591308a5246c81aa7628ee7d17a0f20aeebeebf8bec22" => :sierra
-    sha256 "1d7aaa71d670da1e52b92e6db270ba935b9047e08e5cda52c70b14623d1b5bdf" => :el_capitan
-    sha256 "a96de1c4d07aac2ee35f8df2498e305da7466fed04ae291d42bd63c24e8dc658" => :yosemite
+    rebuild 1
+    sha256 "9093866c951b8ec11c896fa2508043081322fcd6a336e6f7710f20b39e535561" => :mojave
+    sha256 "ec3757b184301eba2c0364b7c93a9dbb12357ed045aef02246cab9068d0c14d5" => :high_sierra
+    sha256 "2bec1138cd0114e4df5c56cd14ec2cc88f6e397c1fb7dc1e1763926670645078" => :sierra
+    sha256 "c6090283a2708cf2fb818d2f33845d80d6b01d236ce1306b6f56d7c6879b0b34" => :el_capitan
   end
 
   devel do
