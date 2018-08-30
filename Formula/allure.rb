@@ -2,6 +2,7 @@ class Allure < Formula
   desc "Flexible lightweight test report tool"
   homepage "https://github.com/allure-framework/allure2"
   url "https://github.com/allure-framework/allure2/releases/download/2.7.0/allure-2.7.0.zip"
+  sha256 "https://github.com/allure-framework/allure2/releases/download/2.7.0/allure-2.7.0.zip"
 
   bottle :unneeded
 
