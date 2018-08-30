@@ -13,9 +13,15 @@ class Mobiledevice < Formula
     sha256 "19eb775bc12305341abe780c06308cf32f5fd6060227fefa4cd0f2ef28a3dae2" => :mountain_lion
   end
 
-  depends_on MaximumMacOSRequirement => :sierra
+  # Upstream is pretty dead but this is a simple change
+  # that permits building on newer versions of macOS.
+  patch do
+    url "https://github.com/imkira/mobiledevice/pull/20.patch?full_index=1"
+    sha256 "adb46783a6cce1e988e2efd3440e2991ac5c5ce55f59b9049c9ccc2936ae8a02"
+  end
 
   def install
+    (buildpath/"symlink_framework.sh").chmod 0555
     system "make", "install", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
   end
 
