@@ -6,10 +6,10 @@ class Htmldoc < Formula
   head "https://github.com/michaelrsweet/htmldoc.git"
 
   bottle do
-    sha256 "293e519b1f45009a7af3751e6373eb5e001b233d3de349b47522b48206d374f0" => :mojave
-    sha256 "127a8c2832a800ad89e5925cb0a34b84a405c535d46267b80e8c53eecc363f2b" => :high_sierra
-    sha256 "bab767a8ea4093422d480a9fde4d0156eb9509f3bac026886f174d43cfdf325d" => :sierra
-    sha256 "7a1a44691173eb534dad23b2991fc7f0d4cfa2471dba7cea1d24ab16ce058f58" => :el_capitan
+    sha256 "f3b51bd3e85a38093908ab37219d10776fe295285dd7f94bb376ea6cca14153a" => :mojave
+    sha256 "ebd8051ed1665fde7427941aab99352e3aa2d3874d3733ac2bf3b13756231417" => :high_sierra
+    sha256 "9febf8082b8b70eb5f1864b20fd7d893df306c2cccf3af84341d22347f987d0d" => :sierra
+    sha256 "a53860f24217691f3ae9ae565d8c4661d89869b45d95cc79efc12df567f3d297" => :el_capitan
   end
 
   depends_on "libpng"
