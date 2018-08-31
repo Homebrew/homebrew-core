@@ -5,10 +5,6 @@ class Libdatrie < Formula
   sha256 "452dcc4d3a96c01f80f7c291b42be11863cd1554ff78b93e110becce6e00b149"
 
   depends_on "autoconf" => :build
-  depends_on "autoconf-archive" => :build
-  depends_on "automake" => :build
-  depends_on "doxygen" => :build
-  depends_on "pkg-config" => :build
 
   def install
     system "./configure", "--disable-debug",
@@ -20,6 +16,6 @@ class Libdatrie < Formula
   end
 
   test do
-    system "#{bin}/trietool"
+    system "make" "check"
   end
 end
