@@ -6,10 +6,11 @@ class Ncmpc < Formula
   revision 1
 
   bottle do
-    sha256 "98e442dd1d85222e8c38ab91bd5f1c578e8b4d52645431ffb3a564d2a2d1a42d" => :mojave
-    sha256 "c9ed9273d7098162bb04e79d9d21b1fb35fdad6aadc2904c326f8aafb840caf4" => :high_sierra
-    sha256 "b2782d26fd0dc87901d2d0f833a44bee7e702745e9a6b3601284411412b926dd" => :sierra
-    sha256 "66ea4904dfb7452663a9fd694a6188ac278eb4d45e40e9af72aeb15209fe3f1d" => :el_capitan
+    rebuild 1
+    sha256 "91d0a96cb5759db8de8d2fccce6be795cc671937adea732424376c76ff9ddd3b" => :mojave
+    sha256 "74568bc0dcd4f4ad0408328ae49fb85ae3e93efcbefb649d43736e72f8c27a5e" => :high_sierra
+    sha256 "0f155e4eaba3842210c76adeda3250c61f6819bfe108bfee429819c5c579b661" => :sierra
+    sha256 "45b4d4d41251246e32f9ceea92faf205f8059fac4c37fd69f7da2b72fd8e8bcc" => :el_capitan
   end
 
   depends_on "meson" => :build
