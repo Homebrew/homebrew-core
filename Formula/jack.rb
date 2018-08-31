@@ -13,9 +13,11 @@ class Jack < Formula
   revision 3
 
   bottle do
-    sha256 "fccd8282d9bfb354ae7d6963eb4433b93a52c22cdfab047733ea1c93326fafad" => :high_sierra
-    sha256 "b9f624c969a2f782abe7c1cf4adbff04a9492db383584c5ca6cb24aa46d3857e" => :sierra
-    sha256 "825f40e89b4566ffaf11fd7feeb22cec00b2216de1890900442b3dda3fec1287" => :el_capitan
+    rebuild 1
+    sha256 "0df230c0f3646fb29ed5ff3041c810f92220d6ce012ace2e5c001f3d7eb05298" => :mojave
+    sha256 "fd05eff6fde13c465c68d03bdd1f66f25e6e4b630348ed19cb2966f71a724601" => :high_sierra
+    sha256 "651fef8ee2b8b844006b41c23c89a787664a76fb2614f9c6b47a8827adee091d" => :sierra
+    sha256 "ee93da9885f06dde0f305fca2d5af6d6213c2133466ca93857a87ffb731ce43f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
