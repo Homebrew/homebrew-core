@@ -7,6 +7,7 @@ class Neovim < Formula
 
   bottle do
     rebuild 1
+    sha256 "835e46667217de080cd08db9e6bd180cf9870f7759b6be31e0e0a26018da42ca" => :mojave
     sha256 "315fe4f3aec480fb8d7c4d47b49bf505d35b8b95131190245a743b726d077836" => :high_sierra
     sha256 "9926409ab57d24213668063e4587d3108dba111523e1aa5884370d4cb177721d" => :sierra
     sha256 "3e344efabcf387d60ba6913490f42b53d1cf0e31ef709dec4eb5818e4f6b50d3" => :el_capitan
