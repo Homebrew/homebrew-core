@@ -1,8 +1,8 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.56/glib-2.56.2.tar.xz"
-  sha256 "d64abd16813501c956c4e123ae79f47f1b58de573df9fdd3b0795f1e2c1aa789"
+  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.0.tar.xz"
+  sha256 "c0f4ce0730b4f95c47b711613b5406a887c2ee13ea6d25930d72a4fa7fdb77f6"
 
   bottle do
     sha256 "fdb7ec14e392902e6554650bc88075d23ceb4435d720f57ba503b23975ce5b68" => :mojave
@@ -20,6 +20,7 @@ class Glib < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gtk-doc" => :build
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
@@ -56,8 +57,9 @@ class Glib < Formula
       --with-gio-module-dir=#{HOMEBREW_PREFIX}/lib/gio/modules
     ]
 
-    # next line can be removed when bug 780271 is fixed and gio.patch is modified accordingly
-    system "autoreconf", "-i", "-f"
+    # next two lines can be removed when bug 780271 is fixed and gio.patch is modified accordingly
+    ENV["NOCONFIGURE"] = "1"
+    system "./autogen.sh"
 
     system "./configure", *args
 
@@ -78,8 +80,6 @@ class Glib < Formula
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
     end
-
-    (share+"gtk-doc").rmtree
   end
 
   def post_install
