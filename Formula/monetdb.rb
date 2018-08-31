@@ -16,8 +16,8 @@ end
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Mar2018-SP1/MonetDB-11.29.7.tar.xz"
-  sha256 "88810c03c50e769224ca72348eab993e7d510e5cc8597f760d5fcce178f52cf9"
+  url "https://www.monetdb.org/downloads/sources/Aug2018/MonetDB-11.31.7.tar.xz"
+  sha256 "4ff3dedc647bc70ed22b410ec1e0ff9a77beb09a477feb34da03bb76bb650eb3"
 
   bottle do
     sha256 "a5cedc359686dc241264ba8a6578e7f355431c1b153118db4dcae099026319b9" => :mojave
@@ -35,14 +35,11 @@ class Monetdb < Formula
     depends_on "autoconf" => :build
   end
 
-  option "with-java", "Build the JDBC driver"
-  option "with-ruby", "Build the Ruby driver"
   option "with-r", "Build the R integration module"
 
   depends_on RRequirement => :optional
 
   depends_on "pkg-config" => :build
-  depends_on "ant" => :build
   depends_on "libatomic_ops" => [:build, :recommended]
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit.
@@ -50,7 +47,6 @@ class Monetdb < Formula
 
   depends_on "unixodbc" => :optional # Build the ODBC driver
   depends_on "geos" => :optional # Build the GEOM module
-  depends_on "gsl" => :optional
   depends_on "cfitsio" => :optional
 
   def install
@@ -64,8 +60,6 @@ class Monetdb < Formula
             "--enable-testing=no",
             "--with-readline=#{Formula["readline"].opt_prefix}"]
 
-    args << "--with-java=no" if build.without? "java"
-    args << "--with-rubygem=no" if build.without? "ruby"
     args << "--disable-rintegration" if build.without? "r"
 
     system "./configure", *args
