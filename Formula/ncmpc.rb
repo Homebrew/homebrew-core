@@ -26,7 +26,7 @@ class Ncmpc < Formula
   end
 
   def install
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
 
     # Fix undefined symbols _COLORS, _COLS, etc.
     # Reported 21 Sep 2017 https://github.com/MusicPlayerDaemon/ncmpc/issues/6
