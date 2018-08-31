@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.7.1.tar.xz"
-  sha256 "7d6ae20ada0f0ee7700d5df17f47f86b49eb21ee34977d0d70de6a0947371381"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.7.2.tar.xz"
+  sha256 "cb70b2ee1c7ecbaad8774a1e0c449a68c6a6f7c9d60595524f003201d6e38431"
 
   bottle do
     sha256 "c3b7da9b2a046a6cf9fefb2416a165111075bd0a8815b05c201f10702104365f" => :mojave
@@ -25,10 +25,7 @@ class Knot < Formula
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "gnutls"
-  depends_on "jansson"
   depends_on "libidn"
-  depends_on "nettle"
-  depends_on "openssl"
   depends_on "userspace-rcu"
   depends_on "protobuf-c"
   depends_on "fstrm"
@@ -41,7 +38,7 @@ class Knot < Formula
                           "--with-storage=#{var}/knot",
                           "--with-rundir=#{var}/run/knot",
                           "--prefix=#{prefix}",
-                          "--with-bash-completions=#{bash_completion}",
+                          "--with-module-dnstap",
                           "--enable-dnstap"
 
     inreplace "samples/Makefile", "install-data-local:", "disable-install-data-local:"
