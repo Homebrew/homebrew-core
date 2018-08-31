@@ -6,10 +6,11 @@ class Libgdata < Formula
   revision 1
 
   bottle do
-    sha256 "a5213a4b6133123de80343fe0cda0b829849018dd7e3d38445e95b1eb29ad663" => :mojave
-    sha256 "99f1efb99549e0736e1ab6108ccb6e9702f99ce145dc4e7c20a193b556320dcd" => :high_sierra
-    sha256 "67210e17e165c71cbdb4cb163397b430aa68a408dd1b8968019cc768401936bf" => :sierra
-    sha256 "aca8b4bf410899111f080723a70c8d7ce67f180255cae83ae93bcdba5c7da117" => :el_capitan
+    rebuild 1
+    sha256 "b9a231d986b30cbc220d874b4447ded9425fecb9efd43247fc427a772273bae1" => :mojave
+    sha256 "e292ca01fe35e383276337177173f0def97c0e0fa18210f8b56db148f9eeb80a" => :high_sierra
+    sha256 "701b8a026fcaaa40985ea56bd63de5c83a1e6ccf181d308e962a08ee53beab97" => :sierra
+    sha256 "a74b12eca5e8cd51967c1dac09799e394da01d30bf421805da93c1107d5e96dd" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
