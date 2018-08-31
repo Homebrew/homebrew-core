@@ -8,7 +8,6 @@ class ElmFormat < Formula
   url "https://github.com/avh4/elm-format.git",
       :tag => "0.8.0",
       :revision => "f19ac28046d7e83ff95f845849c033cc616f1bd6"
-  version "0.8.0"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
