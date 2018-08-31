@@ -35,28 +35,28 @@ class Elm < Formula
     elm_json_path = testpath/"elm.json"
     elm_json_path.write <<~EOS
       {
-	"type": "application",
-	"source-directories": [
-            "."
-	],
-	"elm-version": "0.19.0",
-	"dependencies": {
-          "direct": {
-              "elm/browser": "1.0.0",
-              "elm/core": "1.0.0",
-              "elm/html": "1.0.0"
-          },
-          "indirect": {
-              "elm/json": "1.0.0",
-              "elm/time": "1.0.0",
-              "elm/url": "1.0.0",
-              "elm/virtual-dom": "1.0.0"
-          }
-	},
-	"test-dependencies": {
-		"direct": {},
-		  "indirect": {}
-	}
+        "type": "application",
+        "source-directories": [
+                  "."
+        ],
+        "elm-version": "0.19.0",
+        "dependencies": {
+                "direct": {
+                    "elm/browser": "1.0.0",
+                    "elm/core": "1.0.0",
+                    "elm/html": "1.0.0"
+                },
+                "indirect": {
+                    "elm/json": "1.0.0",
+                    "elm/time": "1.0.0",
+                    "elm/url": "1.0.0",
+                    "elm/virtual-dom": "1.0.0"
+                }
+        },
+        "test-dependencies": {
+          "direct": {},
+            "indirect": {}
+        }
       }
     EOS
 
