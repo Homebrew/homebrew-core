@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/bd/78/26738c05ad79a67e315490463d974e98bb682c989eef3c9cf067f64bb81f/ocrmypdf-7.0.3.tar.gz"
-  sha256 "ba330ba8a82a228986d5d00d6147c1f2a51d8456065608af1e9160f8d454428a"
+  url "https://files.pythonhosted.org/packages/2b/c1/d734ed25a1c60a43096d74e15f2f2ee4ff5e0447d40a058e0d8c7c12c9e5/ocrmypdf-7.0.4.tar.gz"
+  sha256 "65f0df062b25cad3fe1c8e46c45705c7db48df37a54dd202109a50f15b89987a"
 
   bottle do
     cellar :any
@@ -38,8 +38,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/cd/e8/1de3832c09826b50babefe0d833e452bb2caee61800b047d1094f9fde5ec/pikepdf-0.3.1.tar.gz"
-    sha256 "7cdf0a874de395c8cf00c92605a7c55445bbf41df9f0aae7c4d1625b66c4be26"
+    url "https://files.pythonhosted.org/packages/30/bd/7afb368ea0872e64208e9940c729afde2c27eff7ffe1bbb28a64b1bb5340/pikepdf-0.3.2.tar.gz"
+    sha256 "574ab287d326ef80ed5fe042ac3493831f1feba6c6deff552ef4a101da4a5d3c"
   end
 
   resource "Pillow" do
@@ -63,8 +63,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/20/79/533165435ad718d6ab3cc5ec40c1ac31654809db8f6510329b5eb2ef50fd/reportlab-3.5.5.tar.gz"
-    sha256 "d18485c5b7561519138fd94a29239d8361cb3e204d38342f98f40c8d7774b4a5"
+    url "https://files.pythonhosted.org/packages/70/4c/19fe74b800e7d74b3dd636137aac6e8df4b19286e318c1a5b6d8ca4b17fd/reportlab-3.5.6.tar.gz"
+    sha256 "3836a49e7ea7bce458f437cbc094633c7fd4ac027180565875c18ecc726f261e"
   end
 
   resource "ruffus" do
@@ -77,7 +77,7 @@ class Ocrmypdf < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
-        sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+        sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
         s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
         s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
         s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
