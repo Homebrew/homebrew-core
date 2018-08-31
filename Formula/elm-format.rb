@@ -47,6 +47,7 @@ class ElmFormat < Formula
       main = text "Hello, world!"
     EOS
 
-    system bin/"elm-format-0.17", testpath/"Hello.elm", "--yes"
+    system bin/"elm-format-0.18", testpath/"Hello.elm", "--yes"
+    system bin/"elm-format-0.19", testpath/"Hello.elm", "--yes"
   end
 end
