@@ -6,10 +6,11 @@ class Gupnp < Formula
 
   bottle do
     cellar :any
-    sha256 "683d25f39758fb26c5f379f752452c3d55e4987f25240d853580af5e13f9eb1c" => :mojave
-    sha256 "a89d7df0d7f7b89bb3b2218445c908497a9ab9e0d61a4c5d6b56d4fcbf265f65" => :high_sierra
-    sha256 "5bd40488125dc5c85ea820941128948bbd0cfcf040d26e0871128a62efbc1c52" => :sierra
-    sha256 "1af28d4893393c049714b924eb012c6c2554d8ddf3acf95d9b765ef74fe6f6d3" => :el_capitan
+    rebuild 1
+    sha256 "42609b06fc41288eea51b93cd7f5b1148eb37643487e9e98e0f6843f4427c2d2" => :mojave
+    sha256 "7e27871e73f36e0a957dc59f591aa09972471cc8c3a25e7994735382e2f02daa" => :high_sierra
+    sha256 "b7e235858bce8ebc12d6f4c61a2506c6cf6fefd2ffdea083a0c474486374be6c" => :sierra
+    sha256 "3382f7c4a3b884bb604179f554d55e31028e40ba97c031fc29c4284ac8c4c19f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
