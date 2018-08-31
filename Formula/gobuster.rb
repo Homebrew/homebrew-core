@@ -3,8 +3,8 @@ require "language/go"
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/v1.4.2.tar.gz"
-  sha256 "e90990f45f06324eb2378369b795a526a6145ca12c8a631493505f1ecfada74f"
+  url "https://github.com/OJ/gobuster/archive/v2.0.1.tar.gz"
+  sha256 "2409acffe1fa46424a1de465bca1d3d026bdaba9a7e6bccc1d934f7ae51c24e0"
   head "https://github.com/OJ/gobuster.git"
 
   bottle do
@@ -17,24 +17,29 @@ class Gobuster < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/hashicorp/go-multierror" do
-    url "https://github.com/hashicorp/go-multierror.git",
-        :revision => "b7773ae218740a7be65057fc60b366a49b538a44"
+  go_resource "github.com/hashicorp/errwrap" do
+    url "https://github.com/hashicorp/errwrap.git",
+        :revision => "8a6fb523712970c966eefc6b39ed2c5e74880354"
   end
 
-  go_resource "github.com/satori/go.uuid" do
-    url "https://github.com/satori/go.uuid.git",
-        :revision => "36e9d2ebbde5e3f13ab2e25625fd453271d6522e"
+  go_resource "github.com/hashicorp/go-multierror" do
+    url "https://github.com/hashicorp/go-multierror.git",
+        :revision => "886a7fbe3eb1c874d46f623bfa70af45f425b3d1"
+  end
+
+  go_resource "github.com/google/uuid" do
+    url "https://github.com/google/uuid.git",
+        :revision => "e704694aed0ea004bb7eb1fc2e911d048a54606a"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "a49355c7e3f8fe157a85be2f77e6e269a0f89602"
+        :revision => "182538f80094b6a8efaade63a8fd8e0d9d5843dd"
   end
 
   go_resource "golang.org/x/sys" do
     url "https://go.googlesource.com/sys.git",
-        :revision => "1b2967e3c290b7c545b3db0deeda16e9be4f98a2"
+        :revision => "49385e6e15226593f68b26af201feec29d5bba22"
   end
 
   def install
@@ -46,6 +51,15 @@ class Gobuster < Formula
   end
 
   test do
-    assert_match(/\[!\] WordList \(-w\): Must be specified/, shell_output("#{bin}/gobuster -q"))
+    (testpath/"words.txt").write <<~EOS
+      dog
+      cat
+      horse
+      snake
+      ape
+    EOS
+
+    output = shell_output("#{bin}/gobuster -u https://buffered.io -w words.txt 2>&1")
+    assert_match "Finished", output
   end
 end
