@@ -134,8 +134,16 @@ class Ooniprobe < Formula
   end
 
   resource "pypcap" do
-    url "https://files.pythonhosted.org/packages/83/25/dab6b3fda95a5699503c91bf722abf9d9a5c960a4480208e4bad8747dd0c/pypcap-1.1.5.tar.gz"
-    sha256 "4b60d331e83c5bff3e25c7d99e902ea0910027fe9ce7986f0eecf5e0af6e8274"
+    url "https://files.pythonhosted.org/packages/33/21/d1f24d8a93e4e11bf604d77e04080c05ecb0308a5606936a051bd2b2b5da/pypcap-1.2.2.tar.gz"
+    sha256 "a32322f45d63ff6196e33004c568b9f5019202a40aa2b16008b7f94e7e119c1f"
+
+    # https://github.com/pynetwork/pypcap/pull/79
+    # Adds support for the new CLT SDK with the 10.x
+    # series of development tools.
+    patch do
+      url "https://github.com/pynetwork/pypcap/pull/79.patch?full_index=1"
+      sha256 "cb0c9b271d293e49e504793bed296e0fa73cca546dbc2814e0ea01351e66d9b2"
+    end
   end
 
   resource "PyYAML" do
@@ -199,6 +207,10 @@ class Ooniprobe < Formula
       var_lib = #{var}/lib/ooni
       etc = #{etc}/ooni
     EOS
+
+    if MacOS.sdk_path_if_needed
+      ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
+    end
 
     virtualenv_install_with_resources
 
