@@ -8,9 +8,11 @@ class Blastem < Formula
 
   bottle do
     cellar :any
-    sha256 "950fdcccc00508c7648fb2df90267bf5a9a2bf1844f00a14e320ec274c9c30bd" => :high_sierra
-    sha256 "530e0fbfb551845ed326faa4942da3e4516b4fb77885f8a8cc7e99a40c2f179e" => :sierra
-    sha256 "572a00653d2a1c8d51ba5ae77d1ad0bddbcc69e9f535c594f334d73176d09f5b" => :el_capitan
+    rebuild 1
+    sha256 "bc38d936759fca569d4d4e74928134d43faee7775605bcba99f5bd3479e27a1a" => :mojave
+    sha256 "733eb0a2e78065fdbb4909a23e4e3f004bfe9ae8340fc9cf2a020201122ba02d" => :high_sierra
+    sha256 "c6f50055cec8cc49df276ff30beb14290c6587796c0684ae4caf7df7a9353e9f" => :sierra
+    sha256 "ddd56aef9836a1bca79a55aa3757879bf205942a23c666a0d9b8af772c7de5ad" => :el_capitan
   end
 
   depends_on "freetype" => :build
