@@ -7,11 +7,10 @@ class Capnp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bef9feb71e7b29a5e4635358440a11cc9558b4d565665f0a4af50254a9316404" => :mojave
-    sha256 "dd976dfecf6bb362aa6f4471722b7a66c9dede1b231a77b56231ed31a66660ad" => :high_sierra
-    sha256 "02d729a3d9c6267ff0bea777ade442da70410f04f4f478e789d6f02ca4ad8069" => :sierra
-    sha256 "2393cf083cccf35613b7bd293d87a52f201a4f0cd48bce8d0cd60300808ee203" => :el_capitan
-    sha256 "726278b97a0fab5be359b604b08dc8ea9b5cd7a8a1e350e6724aaa40b7bbd5a2" => :yosemite
+    sha256 "86b0a4f0bbc70a1bc04cbdd1b2312974e2acd56e606a2865e1dfbc48f07c2d1e" => :mojave
+    sha256 "a4720c5dc1b0866536b4649a87e16149d29cdaa730ced45acd7e557918dc5285" => :high_sierra
+    sha256 "56c4c541de5388071f53d582a12b7d0672c476ecf15130122d527bde2af4f358" => :sierra
+    sha256 "c828367f66d7b83289de33b8b3d47cc32dcc1b8da555469bdf886f2a7febdf2b" => :el_capitan
   end
 
   depends_on "cmake" => :build
