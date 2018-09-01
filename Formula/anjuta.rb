@@ -6,10 +6,10 @@ class Anjuta < Formula
   revision 2
 
   bottle do
-    sha256 "b55080a83e124784266b42ea56e0f4d3f3b03ca94af6b4ca4a72d9cdc8c1f7e1" => :mojave
-    sha256 "e038d342a81ee2f5db084d5ad6d1ff87144194aeae66bef28b3f764b8e0cd6d3" => :high_sierra
-    sha256 "d402812770fad67e94aed33484c6ca12cdcd89a4d290e2d313b27f627caeea07" => :sierra
-    sha256 "4b5db4d330a8386085efc7cb24771ae7cb49cc3c523c9babb53e177befce9f3b" => :el_capitan
+    sha256 "3a7427832904f3e1de9884ef7bc770b83440f5252d3d30eb2aa77691e0b12de5" => :mojave
+    sha256 "fda24ffc6e28c9ec6ff0110f2c22f688947f08291f5c59522e0597658baa8815" => :high_sierra
+    sha256 "f0ee5bba46be9a314b2454e789e97bba477d1044dd7fac957bda39366286a870" => :sierra
+    sha256 "cf198c5bada78c4b4e0d71cc1c1f52b9af4e069ddbcfa678672b66a40aa1b41d" => :el_capitan
   end
 
   depends_on "python@2"
