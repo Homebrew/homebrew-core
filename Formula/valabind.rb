@@ -5,6 +5,7 @@ class Valabind < Formula
   sha256 "0d266486655c257fd993758c3e4cc8e32f0ec6f45d0c0e15bb6e6be986e4b78e"
   revision 1
   head "https://github.com/radare/valabind.git"
+  revision 1
 
   bottle do
     cellar :any
