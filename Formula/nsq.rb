@@ -1,9 +1,9 @@
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
-  url "https://github.com/nsqio/nsq/archive/v1.0.0-compat.tar.gz"
-  version "1.0.0"
-  sha256 "c279d339eceb84cad09e2c2bc21e069e37988d0f6b7343d77238374081c9fd29"
+  url "https://github.com/nsqio/nsq/archive/v1.1.0.tar.gz"
+  version "1.1.0"
+  sha256 "85cb15cc9a7b50e779bc8e76309cff9bf555b2f925c2c8abe81d28d690fb1940"
   revision 1
   head "https://github.com/nsqio/nsq.git"
 
@@ -16,14 +16,15 @@ class Nsq < Formula
   end
 
   depends_on "go" => :build
-  depends_on "gpm" => :build
+  depends_on "dep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p "src/github.com/nsqio"
-    ln_s buildpath, "src/github.com/nsqio/nsq"
-    system "gpm", "install"
-    system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
+    (buildpath/"src/github.com/nsqio/nsq").install buildpath.children
+    cd "src/github.com/nsqio/nsq" do
+      system "dep", "ensure"
+      system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
+    end
   end
 
   def post_install
