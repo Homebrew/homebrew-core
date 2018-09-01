@@ -3,7 +3,7 @@ class Allegro < Formula
   homepage "https://liballeg.org/"
   url "https://github.com/liballeg/allegro5/releases/download/5.2.4.0/allegro-5.2.4.0.tar.gz"
   sha256 "346163d456c5281c3b70271ecf525e1d7c754172aef4bab15803e012b12f2af1"
-  head "https://github.com/liballeg/allegro5.git", :branch => "master"
+  head "https://github.com/liballeg/allegro5.git"
 
   bottle do
     cellar :any
@@ -27,7 +27,7 @@ class Allegro < Formula
   def install
     args = std_cmake_args
     args << "-DWANT_DOCS=OFF"
-    args << "-DWANT_MODAUDIO=1" if build.with?("dumb")
+    args << "-DWANT_MODAUDIO=1" if build.with? "dumb"
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
@@ -47,7 +47,8 @@ class Allegro < Formula
       }
     EOS
 
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lallegro", "-lallegro_main", "-o", "allegro_test", "allegro_test.cpp"
+    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lallegro", "-lallegro_main",
+                    "-o", "allegro_test", "allegro_test.cpp"
     system "./allegro_test"
   end
 end
