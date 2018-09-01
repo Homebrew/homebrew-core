@@ -11,7 +11,7 @@ class Rbspy < Formula
   end
 
   test do
-    sample_recording = <<~EOS
+    recording = <<~EOS
       H4sICCOlhlsAA2JyZXdfdGVzdF9yZXN1bHQAvdHBCsIwDAbgu08hOQ/nHKgM8S08iYy0Vlds0
       5J2Dhl7d3eZTNxN8Rb4yf9BwiL4xzKbtRAZpYLi2AKh7QfYyfmlJhm1oz0kwMpg1HdVeoxVH9
       d0I9dQn6AIztRxSKg2JgGjSZGDYtklr0ZEnCgKleNYenZXRrtg8dkI6SEoDmnlrEoFqyYNaL1
@@ -20,12 +20,9 @@ class Rbspy < Formula
 
     expected_result = "100.00   100.00  aaa - short_program.rb"
 
-    File.open("recording.gz", "wb") do |f|
-      f.write(Base64.decode64(sample_recording.delete("\n")))
-    end
+    (testpath/"recording.gz").write Base64.decode64(recording.delete("\n"))
 
-    shell_output("#{bin}/rbspy report -f summary -i recording.gz -o result")
-
+    system("#{bin}/rbspy report -f summary -i recording.gz -o result")
     assert_includes File.read("result"), expected_result
   end
 end
