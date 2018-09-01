@@ -24,7 +24,7 @@ class Wcslib < Formula
   end
 
   test do
-    pipe_output("#{bin}/fitshdr",
-                "SIMPLE  ="+" "*20+"T / comment"+" "*40+"END"+" "*2797)
+    piped = "SIMPLE  =" + " "*20 + "T / comment" + " "*40 + "END" + " "*2797
+    pipe_output("#{bin}/fitshdr", piped, 0)
   end
 end
