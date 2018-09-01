@@ -1,8 +1,8 @@
 class Mdp < Formula
   desc "Command-line based markdown presentation tool"
   homepage "https://github.com/visit1985/mdp"
-  url "https://github.com/visit1985/mdp/archive/1.0.13.tar.gz"
-  sha256 "e4348c908406c2aaeeb4715cbe168f793237ff6a6deaeeacca2ef95b05b4b4f2"
+  url "https://github.com/visit1985/mdp/archive/1.0.14.tar.gz"
+  sha256 "8dc6313dc8d1821df4818fce6443b71e266dddc80f1db1d2cb4877d35b947806"
   head "https://github.com/visit1985/mdp.git"
 
   bottle do
