@@ -1,6 +1,6 @@
 class Wsk < Formula
   desc "OpenWhisk Command-Line Interface (CLI)"
-  homepage "http://openwhisk.org"
+  homepage "https://openwhisk.apache.org/"
   url "https://github.com/apache/incubator-openwhisk-cli/archive/0.9.0-incubating.tar.gz"
   version "0.9.0-incubating"
   sha256 "76ec64d1a505c88f7d13df898b07cdea7b13b9799747d432e0bde55f7dc2c8b9"
