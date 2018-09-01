@@ -9,11 +9,10 @@ class Cataclysm < Formula
 
   bottle do
     cellar :any
-    sha256 "ddb29138ec2243c2dd68f29782161ee740a75d19f9757ca085fe1f43c5ba1a37" => :mojave
-    sha256 "6e602bda6632b19b42f907e952407b9669398604c7ee43aa19dbcca50166ab71" => :high_sierra
-    sha256 "1a821cdc40c5170e95c32877acdeb086fedecf366a505e27c559c557003b31de" => :sierra
-    sha256 "939d8b6b945457b91f77860f31675d9facf57a842e1b033ea4ed889ee91ab165" => :el_capitan
-    sha256 "e7ea748e9dd53bd0ace6c8456c4eb351616dc9c879621b6724ce742ae2b0d4f2" => :yosemite
+    sha256 "1c28c1bc74e941c741f682d9460af8ff2200a6189bc3cae5467f4b461e5a918e" => :mojave
+    sha256 "c7bbaff919572a6c1bc00fb30b5038c567106de67c8a41d5b84f7c2acec8555a" => :high_sierra
+    sha256 "305fe2048d73af85ae4d7cfbb71f23532ec66de88d75959648c1186d8f8da035" => :sierra
+    sha256 "436d0b956cd5c0470926a416dc22e98ad0b846172c7ab58737665eb0e62eecfa" => :el_capitan
   end
 
   needs :cxx11
