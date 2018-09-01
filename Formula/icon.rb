@@ -25,6 +25,8 @@ class Icon < Formula
   end
 
   test do
-    assert_equal "Hello, World!", shell_output("#{bin}/icon -P 'procedure main(); writes(\"Hello, World!\"); end'")
+    args = "'procedure main(); writes(\"Hello, World!\"); end'"
+    output = shell_output("#{bin}/icon -P #{args}")
+    assert_equal "Hello, World!", output
   end
 end
