@@ -6,10 +6,11 @@ class GccAT7 < Formula
   sha256 "832ca6ae04636adbb430e865a1451adf6979ab44ca1c8374f61fba65645ce15c"
 
   bottle do
-    rebuild 1
-    sha256 "5f798446d0193232ceeb27fa34965ef988ed42796b6aab63e6983304a771afc0" => :high_sierra
-    sha256 "47b785a673df97f76b974aed4de9f80426ab69db455f56387f0746d744a375d6" => :sierra
-    sha256 "4fed764370e0b2b283d498ac06de3f3d028edad121bc1a3659f4c10c8665ac73" => :el_capitan
+    rebuild 2
+    sha256 "3104d5deacc8ae3d55b06ba3c136fc8c169a0900b89f0fdebb39b9e414e5c4f1" => :mojave
+    sha256 "ef426133228689c2db55b41bcf0f426b17ca0f88ee07df8093dd365feff733c4" => :high_sierra
+    sha256 "965dfc7b6d640f7bdb04d9918a3372781af67df86ad6a8c553a8e1c9ba460bbc" => :sierra
+    sha256 "c58a2425c823986c8107ec1f4eb03a70395697690a8828df04b7ea1c9d779548" => :el_capitan
   end
 
   option "with-jit", "Build just-in-time compiler"
