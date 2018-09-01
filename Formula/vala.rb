@@ -1,8 +1,8 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.40/vala-0.40.9.tar.xz"
-  sha256 "c7ff0480779b2d78d6ff78f5fd165b3ba972e4fa9e9da1b411ff4375a78c6a7b"
+  url "https://download.gnome.org/sources/vala/0.42/vala-0.42.0.tar.xz"
+  sha256 "62a55986da23cf3aaafd7624c32db2a1af11c8419e0bb0751727d10f1f7ab7be"
 
   bottle do
     sha256 "a2b12447ee4a20773f0000dadf897f9d6c3a762f119e8b096e231eaa04045f7b" => :mojave
