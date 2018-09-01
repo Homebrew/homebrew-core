@@ -4,6 +4,7 @@ class Cataclysm < Formula
   url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.C.tar.gz"
   version "0.C"
   sha256 "69e947824626fffb505ca4ec44187ec94bba32c1e5957ba5c771b3445f958af6"
+  revision 1
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
   bottle do
@@ -15,40 +16,62 @@ class Cataclysm < Formula
     sha256 "e7ea748e9dd53bd0ace6c8456c4eb351616dc9c879621b6724ce742ae2b0d4f2" => :yosemite
   end
 
-  option "with-tiles", "Enable tileset support"
-
   needs :cxx11
 
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-
-  if build.with? "tiles"
-    depends_on "sdl2"
-    depends_on "sdl2_image"
-    depends_on "sdl2_ttf"
-  end
+  depends_on "lua"
+  depends_on "sdl2"
+  depends_on "sdl2_image"
+  depends_on "sdl2_mixer"
+  depends_on "sdl2_ttf"
+  depends_on "libvorbis"
+  depends_on "libogg"
 
   def install
     ENV.cxx11
 
     args = %W[
-      NATIVE=osx RELEASE=1 OSX_MIN=#{MacOS.version}
+      NATIVE=osx
+      RELEASE=1
+      OSX_MIN=#{MacOS.version}
+      LUA=1
+      USE_HOME_DIR=1
+      TILES=1
+      SOUND=1
     ]
 
-    args << "TILES=1" if build.with? "tiles"
     args << "CLANG=1" if ENV.compiler == :clang
 
     system "make", *args
 
     # no make install, so we have to do it ourselves
-    if build.with? "tiles"
-      libexec.install "cataclysm-tiles", "data", "gfx"
-    else
-      libexec.install "cataclysm", "data"
-    end
+    libexec.install "cataclysm-tiles", "data", "gfx", "lua"
 
     inreplace "cataclysm-launcher" do |s|
       s.change_make_var! "DIR", libexec
     end
     bin.install "cataclysm-launcher" => "cataclysm"
+  end
+
+  test do
+    # make user config directory
+    user_config_dir = testpath/"Library/Application Support/Cataclysm/"
+    mkdir(user_config_dir)
+
+    # run cataclysm for 5 seconds
+    game = fork do
+      system bin/"cataclysm"
+    end
+
+    sleep 5
+    Process.kill("HUP", game)
+
+    assert_predicate user_config_dir/"config",
+                     :exist?, "User config directory exist"
+    assert_predicate user_config_dir/"templates",
+                     :exist?, "User template directory exist"
+    assert_predicate user_config_dir/"save",
+                     :exist?, "User save directory exist"
   end
 end
