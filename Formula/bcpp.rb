@@ -1,7 +1,7 @@
 class Bcpp < Formula
   desc "C(++) beautifier"
   homepage "https://invisible-island.net/bcpp/"
-  url "ftp://ftp.invisible-island.net/bcpp/bcpp-20180401.tgz"
+  url "https://invisible-mirror.net/archives/bcpp/bcpp-20180401.tgz"
   mirror "https://dl.bintray.com/homebrew/mirror/bcpp-20180401.tgz"
   sha256 "3fee78476833a8d6c647f0b9f6ad85209cdb104a538349bc24538c7f7aede81f"
 
