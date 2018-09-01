@@ -4,17 +4,14 @@ class CassandraReaper < Formula
   url "https://github.com/thelastpickle/cassandra-reaper/releases/download/1.2.2/cassandra-reaper-1.2.2-release.tar.gz"
   sha256 "720aff69e3205301bc07399afc46dae3568d8effffa3712f1852a169ce9801db"
 
-  # The inline patch is temporary to update the 'cassandra-reaper' script for reading from /usr/local/.
-  # Since PR [thelastpickle/cassandra-reaper#533](https://github.com/thelastpickle/cassandra-reaper/pull/533) is merged, it will be obsolete once next version is released.
-  patch :p3 do
-    url "https://github.com/thelastpickle/cassandra-reaper/commit/4e26e1c70de8aa564e57ada287fffd6e7544914f.patch?full_index=1"
-    sha256 "7fdea1d12524e121db191c70effa91825948fa08b24b2c914d51dbfdceff485a"
-  end
-
   def install
-    bin.install_symlink "bin/cassandra-reaper"
-    share.install "server/target" => "cassandra-reaper"
+    prefix.install "bin/cassandra-reaper"
+    mv "server/target", "cassandra-reaper"
+    share.install "cassandra-reaper"
     etc.install "resource" => "cassandra-reaper"
+    inreplace prefix/"cassandra-reaper", "etc", etc
+    env={ :CLASS_PATH => "#{pkgshare}/cassandra-reaper-?.?.?.jar" }
+    (bin/"reaper").write_env_script(prefix/"cassandra-reaper", env)
   end
 
   test do
