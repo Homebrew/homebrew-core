@@ -7,10 +7,11 @@ class GccAT6 < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "1e33eda2bb05662fe7f061765332f32451d7b9ac0dc70651e94ff5dfd6ef2d07" => :high_sierra
-    sha256 "dfc7cef94a96b5c9e38463ae771726747576b77af63e91c2158d5344c189d681" => :sierra
-    sha256 "929f81db0795b08b4768f667780cff9ef0950990faa7d7215f4498c9752df7cd" => :el_capitan
+    rebuild 2
+    sha256 "ddcbc0f556c7a9489a161186ec12f3cb745d8fe996c2530cb199f21c32305c0e" => :mojave
+    sha256 "976bbd556683514b2495eccd2bab36d984f26c795aa580dcf361e9bae4d29511" => :high_sierra
+    sha256 "341c3917417ac6cfe1712f3005ce89cd1d94db8e0876bfcc36ecd34ed6b21d16" => :sierra
+    sha256 "e40695e1d6b66eb170469798844a4757ca9b1ac8e48bab6e37039bd1cbfec52b" => :el_capitan
   end
 
   option "with-all-languages", "Enable all compilers and languages, except Ada"
