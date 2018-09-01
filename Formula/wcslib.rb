@@ -16,7 +16,7 @@ class Wcslib < Formula
                           "--disable-fortran"
 
     # Currently doesn't support parallel make.  Patch sent to author 2018/08/31.
-    # Author expects to integrate end of 2018/09.
+    # Author (mcalabre@atnf.csiro.au) expects to integrate by end of 2018/09.
     # Patch: https://gist.github.com/dstndstn/0492f69eb27a11cdd622d01105643dd0
     ENV.deparallelize
     system "make"
@@ -24,7 +24,7 @@ class Wcslib < Formula
   end
 
   test do
-  pipe_output("#{bin}/fitshdr",
-              "SIMPLE  =" + " "*20 + "T / comment" + " "*40 + "END" + " "*2797)
+    pipe_output("#{bin}/fitshdr",
+                "SIMPLE  ="+" "*20+"T / comment"+" "*40+"END"+" "*2797)
   end
 end
