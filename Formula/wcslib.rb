@@ -15,6 +15,9 @@ class Wcslib < Formula
                           "--without-pgplot",
                           "--disable-fortran"
 
+    # Currently doesn't support parallel make.  Patch sent to author 2018/08/31.
+    # Author expects to integrate end of 2018/09.
+    # Patch: https://gist.github.com/dstndstn/0492f69eb27a11cdd622d01105643dd0
     ENV.deparallelize
     system "make"
     system "make", "install"
