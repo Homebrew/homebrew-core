@@ -19,10 +19,10 @@ class Md5deep < Formula
   depends_on "automake" => :build
 
   # Fix compilation error due to pointer comparison
-  if MacOS.version >= :high_sierra
+  if MacOS.version >= :sierra
     patch do
-      url "https://github.com/jessek/hashdeep/pull/361.diff?full_index=1"
-      sha256 "26af2c70fc573bbe09cf67af7fd9d121799771b448a460ee0efa958cbd80e584"
+      url "https://github.com/jessek/hashdeep/commit/8776134.patch?full_index=1"
+      sha256 "3d4e3114aee5505d1336158b76652587fd6f76e1d3af784912277a1f93518c64"
     end
   end
 
