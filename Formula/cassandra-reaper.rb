@@ -11,7 +11,7 @@ class CassandraReaper < Formula
     etc.install "resource" => "cassandra-reaper"
     inreplace prefix/"cassandra-reaper", "etc", etc
     env={ :CLASS_PATH => "#{pkgshare}/cassandra-reaper-?.?.?.jar" }
-    (bin/"reaper").write_env_script(prefix/"cassandra-reaper", env)
+    (bin/"cassandra-reaper").write_env_script(prefix/"cassandra-reaper", env)
   end
 
   test do
