@@ -24,7 +24,6 @@ class Wcslib < Formula
   end
 
   test do
-    header = "SIMPLE  =                    T / file does conform to FITS standard             END" + " "*2797
-    system "echo '" + header + "' | #{bin}/fitshdr"
+    pipe_output("#{bin}/fitshdr", "SIMPLE  =" + ' '*20 + "T / comment" + " "*40 + "END" + " "*2797)
   end
 end
