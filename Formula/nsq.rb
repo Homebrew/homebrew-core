@@ -2,9 +2,7 @@ class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
   url "https://github.com/nsqio/nsq/archive/v1.1.0.tar.gz"
-  version "1.1.0"
   sha256 "85cb15cc9a7b50e779bc8e76309cff9bf555b2f925c2c8abe81d28d690fb1940"
-  revision 1
   head "https://github.com/nsqio/nsq.git"
 
   bottle do
@@ -22,8 +20,9 @@ class Nsq < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/nsqio/nsq").install buildpath.children
     cd "src/github.com/nsqio/nsq" do
-      system "dep", "ensure"
+      system "dep", "ensure", "--vendor-only"
       system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
+      prefix.install_metafiles
     end
   end
 
