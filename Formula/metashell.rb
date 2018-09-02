@@ -37,7 +37,7 @@ class Metashell < Formula
       template <class T> struct add_const { using type = const T; };
       add_const<int>::type
     EOS
-    output = pipe_output("#{bin}/metashell -H", "cat #{testpath}/test.hpp, 0)
+    output = pipe_output("#{bin}/metashell -H", "cat #{testpath}/test.hpp", 0)
     assert_match "const int", output
   end
 end
