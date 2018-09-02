@@ -15,7 +15,7 @@ class Mkcert < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/FiloSottile/mkcert").install buildpath.children
 
     cd "src/github.com/FiloSottile/mkcert" do
