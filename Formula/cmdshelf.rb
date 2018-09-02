@@ -13,6 +13,8 @@ class Cmdshelf < Formula
   end
 
   test do
-    assert_equal "2.0.0", shell_output("#{bin}/cmdshelf --version").chomp
+    system "#{bin}/cmdshelf remote add test git@github.com:toshi0383/scripts.git"
+    list_output = shell_output("#{bin}/cmdshelf remote list").chomp
+    assert_equal "test:git@github.com:toshi0383/scripts.git", list_output
   end
 end
