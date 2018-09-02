@@ -13,7 +13,10 @@ class SqliteAnalyzer < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--with-tcl=/System/Library/Frameworks/Tcl.framework/", "--prefix=#{prefix}"
+    sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+    system "./configure", "--disable-debug",
+                          "--with-tcl=#{sdkprefix}/System/Library/Frameworks/Tcl.framework/",
+                          "--prefix=#{prefix}"
     system "make", "sqlite3_analyzer"
     bin.install "sqlite3_analyzer"
   end
