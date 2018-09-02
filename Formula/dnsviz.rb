@@ -51,6 +51,50 @@ class Dnsviz < Formula
   end
 
   test do
+    message_1 = <<~EOS
+      6heBoAABAA4AAAABAAACAAEAAAIAAQAAQEQAFAFqDHJvb3Qtc2VydmVycwNuZXQAAAACAAEAA
+      EBEAAQBZsAeAAACAAEAAEBEAAQBa8AeAAACAAEAAEBEAAQBZcAeAAACAAEAAEBEAAQBZMAeAA
+      ACAAEAAEBEAAQBacAeAAACAAEAAEBEAAQBaMAeAAACAAEAAEBEAAQBY8AeAAACAAEAAEBEAAQ
+      BZ8AeAAACAAEAAEBEAAQBYsAeAAACAAEAAEBEAAQBbMAeAAACAAEAAEBEAAQBYcAeAAACAAEA
+      AEBEAAQBbcAeAAAuAAEAAEBEARMAAggAAAfpAFgqllBYGWTAmXsAco8uPM6BjFcEV4KkRvruu
+      C/2W4UHu5GcXkZKs9SbBc4i7KHFM+oyr4IPBZiNUEtn9L7rKJxyRdas+y3+uFld4jy7r0nhsx
+      cQnsQ1KvpwQPGJfzZnHYqSLofyXx2v3zWp1TItBHA4719vgGbj0ZsbnsonyvZt6N+t8cF0rFK
+      s2eWWcSwSFRGOOvxw2shQsvxQhDw4hC1jxkiG94xhJCbhZcmJq3DEc27I25amDYik9NkYROgf
+      mIA9+UcsmJ0tFJ0u4OBS6JN9iMomPOXcPFz/ZF3wGdCV1Jcx3Kj3ytOX2XccjAMF4kvbwx2/U
+      +pEm1xBDebTTOXC8biZ6gHF3AVRFgAAKQIAAACAAAAA
+    EOS
+
+    message_2 = <<~EOS
+      rQmBoAABAAIAAAABAAAGAAEAAAYAAQAATiEAQAFhDHJvb3Qtc2VydmVycwNuZXQABW5zdGxkD
+      HZlcmlzaWduLWdycwNjb20AeCtmeAAABwgAAAOEAAk6gAABUYAAAC4AAQAATiEBEwAGCAAAAV
+      GAWCqWUFgZZMCZewAlgFTcjso0WCaN8gG1M1bAGce8KhyDRZsYGIHzMpJmSZyB6TIJMuFq+/a
+      9VDqDXcUq5F3EVjppXN8v8yLYMUoQmW3JmkXMlH/70ID2AImRVciDFhQO48WY4wgq1lhRe/nx
+      mp7Qxvk8b2G4BQma4Qkel4f/UAaFogDpv7DtTfvQydDi8ZcduN2MbDiQqZZCV/CPGf2ekJZX7
+      YRrC3j+VfLfyck5VFv2xzzP7aWxtpzhk7L4xeGvDsmbaiU0xNb+oq+mhw7SU1AZLsQUhXe3v1
+      uxFlhMc0au6BSskHwDIsaNX/cS+8NM1DsNU7neZNzHteekzKcHpwcJhfJx+GS/XtKAAAApAgA
+      AAIAAAAA=
+    EOS
+
+    # message_3 is inlined because it is not >80 characters.
+    message_4 = <<~EOS
+      ex6BoAABAAMAAAABAAAwAAEAADAAAQAAM3wBCAEBAwgDAQABqAAgqVVmukLohruATNqE5H71b
+      b167GEmFVUs7JBtIRbQ7yBwKMUVVBRN/q/nx8uPAF3RgjQTOsBxCoEYLOH9FK0ig7yDQ1+d8v
+      YxMlGTGhdt8NpR5U9C5gSGDfs1lYAlD1WcxUPE/9Ucvj3oz9BnGSN/n8R+5ynaBoNfpFLoJem
+      hjrwuy89WNHRlLDPPVqkDO8312XMSF5fsgIkEG24DobctCnNbmE4DaHMJMyMk8nwtuoXp2xXo
+      OgFDOC6XSwYhwY5iXs7JB1d9nnut6VJBqB676KkB1NMnbkCxFMCi5vw40ZwuaqsCZEsoE/V1/
+      CFgHg3uSc2e6WpDED5STWKHPQAAMAABAAAzfAEIAQADCAMBAAGG4p2rhwPaFG+GhjbSSK3qch
+      qGMtDi9Na7yIb6N0VjfwofKdguGRJKb1GJMe+K/SaYKzrIyjr/iUHSrU9rvAMRo1KB/MfB3aQ
+      4jFe156ViaPcAMZRbQ7WzJz8EUN3VrE9aeZsqxnJuxBSfY+ypogBBuYRrHr2anJ6jDlvUBZJq
+      f8zNExWF2FqugLAKH9rmai1MnfpxyFtExrGhzM3EzXwPFsPjmFe0eG3Ef/HnQhKOjgIfY+PEd
+      YUbbjtXtjEHZ5CE3PQyZYweAqtYECsL/5Lu5gL5hblpEaLTGSBTd7w4aZqZsuzNAtRB0kQID/
+      h5G5S0UCjj58CP1ZLCRFOH5p4ZAAAuAAEAADN8ARMAMAgAAAKjAFgqT/9YFomASlwALPuldf5
+      oWFdSHSTPYL5WvrvwJTElxY6LTEw2Cit0JOcVAbZG6LLCmlpCJ55Ngf/sdE4UXUPJ/m6CFRYT
+      +aAePvEWrjRPGGX64V82oCeCPyAqD4XHd3CIQi3LBYk8ZbEktyvBX+VS16rbSEQib7xNYvoht
+      iJ0dRiw/wjr6YVF8xUdYO1vvXPYOGXISYwW4vDiKAuyLDGuoLRh/F9GZQxBPwv6Bmx8/JfNCf
+      IygbnZ/8qIZUsFH68DPbAHPBqwR1GP+haAa6vQPhXwn4p+Vci7rYNzfPzdQfDNWsQ+8ur8xxS
+      danAZcZRrytaidLtIQx4DeGANdwmNjnAn8ZSg6q8etQAAKQIAAACAAAAA
+    EOS
+
     (testpath/"test.json").write <<~EOS
       {
         ".": {
@@ -84,7 +128,7 @@ class Dnsviz < Formula
               "responses": {
                 "127.0.0.1": {
                   "127.0.0.1": {
-                    "message": "6heBoAABAA4AAAABAAACAAEAAAIAAQAAQEQAFAFqDHJvb3Qtc2VydmVycwNuZXQAAAACAAEAAEBEAAQBZsAeAAACAAEAAEBEAAQBa8AeAAACAAEAAEBEAAQBZcAeAAACAAEAAEBEAAQBZMAeAAACAAEAAEBEAAQBacAeAAACAAEAAEBEAAQBaMAeAAACAAEAAEBEAAQBY8AeAAACAAEAAEBEAAQBZ8AeAAACAAEAAEBEAAQBYsAeAAACAAEAAEBEAAQBbMAeAAACAAEAAEBEAAQBYcAeAAACAAEAAEBEAAQBbcAeAAAuAAEAAEBEARMAAggAAAfpAFgqllBYGWTAmXsAco8uPM6BjFcEV4KkRvruuC/2W4UHu5GcXkZKs9SbBc4i7KHFM+oyr4IPBZiNUEtn9L7rKJxyRdas+y3+uFld4jy7r0nhsxcQnsQ1KvpwQPGJfzZnHYqSLofyXx2v3zWp1TItBHA4719vgGbj0ZsbnsonyvZt6N+t8cF0rFKs2eWWcSwSFRGOOvxw2shQsvxQhDw4hC1jxkiG94xhJCbhZcmJq3DEc27I25amDYik9NkYROgfmIA9+UcsmJ0tFJ0u4OBS6JN9iMomPOXcPFz/ZF3wGdCV1Jcx3Kj3ytOX2XccjAMF4kvbwx2/U+pEm1xBDebTTOXC8biZ6gHF3AVRFgAAKQIAAACAAAAA",
+                    "message": "#{message_1.delete!("\n")}",
                     "msg_size": 525,
                     "time_elapsed": 25,
                     "history": []
@@ -107,7 +151,7 @@ class Dnsviz < Formula
               "responses": {
                 "127.0.0.1": {
                   "127.0.0.1": {
-                    "message": "rQmBoAABAAIAAAABAAAGAAEAAAYAAQAATiEAQAFhDHJvb3Qtc2VydmVycwNuZXQABW5zdGxkDHZlcmlzaWduLWdycwNjb20AeCtmeAAABwgAAAOEAAk6gAABUYAAAC4AAQAATiEBEwAGCAAAAVGAWCqWUFgZZMCZewAlgFTcjso0WCaN8gG1M1bAGce8KhyDRZsYGIHzMpJmSZyB6TIJMuFq+/a9VDqDXcUq5F3EVjppXN8v8yLYMUoQmW3JmkXMlH/70ID2AImRVciDFhQO48WY4wgq1lhRe/nxmp7Qxvk8b2G4BQma4Qkel4f/UAaFogDpv7DtTfvQydDi8ZcduN2MbDiQqZZCV/CPGf2ekJZX7YRrC3j+VfLfyck5VFv2xzzP7aWxtpzhk7L4xeGvDsmbaiU0xNb+oq+mhw7SU1AZLsQUhXe3v1uxFlhMc0au6BSskHwDIsaNX/cS+8NM1DsNU7neZNzHteekzKcHpwcJhfJx+GS/XtKAAAApAgAAAIAAAAA=",
+                    "message": "#{message_2.delete!("\n")}",
                     "msg_size": 389,
                     "time_elapsed": 26,
                     "history": []
@@ -153,7 +197,7 @@ class Dnsviz < Formula
               "responses": {
                 "127.0.0.1": {
                   "127.0.0.1": {
-                    "message": "ex6BoAABAAMAAAABAAAwAAEAADAAAQAAM3wBCAEBAwgDAQABqAAgqVVmukLohruATNqE5H71bb167GEmFVUs7JBtIRbQ7yBwKMUVVBRN/q/nx8uPAF3RgjQTOsBxCoEYLOH9FK0ig7yDQ1+d8vYxMlGTGhdt8NpR5U9C5gSGDfs1lYAlD1WcxUPE/9Ucvj3oz9BnGSN/n8R+5ynaBoNfpFLoJemhjrwuy89WNHRlLDPPVqkDO8312XMSF5fsgIkEG24DobctCnNbmE4DaHMJMyMk8nwtuoXp2xXoOgFDOC6XSwYhwY5iXs7JB1d9nnut6VJBqB676KkB1NMnbkCxFMCi5vw40ZwuaqsCZEsoE/V1/CFgHg3uSc2e6WpDED5STWKHPQAAMAABAAAzfAEIAQADCAMBAAGG4p2rhwPaFG+GhjbSSK3qchqGMtDi9Na7yIb6N0VjfwofKdguGRJKb1GJMe+K/SaYKzrIyjr/iUHSrU9rvAMRo1KB/MfB3aQ4jFe156ViaPcAMZRbQ7WzJz8EUN3VrE9aeZsqxnJuxBSfY+ypogBBuYRrHr2anJ6jDlvUBZJqf8zNExWF2FqugLAKH9rmai1MnfpxyFtExrGhzM3EzXwPFsPjmFe0eG3Ef/HnQhKOjgIfY+PEdYUbbjtXtjEHZ5CE3PQyZYweAqtYECsL/5Lu5gL5hblpEaLTGSBTd7w4aZqZsuzNAtRB0kQID/h5G5S0UCjj58CP1ZLCRFOH5p4ZAAAuAAEAADN8ARMAMAgAAAKjAFgqT/9YFomASlwALPuldf5oWFdSHSTPYL5WvrvwJTElxY6LTEw2Cit0JOcVAbZG6LLCmlpCJ55Ngf/sdE4UXUPJ/m6CFRYT+aAePvEWrjRPGGX64V82oCeCPyAqD4XHd3CIQi3LBYk8ZbEktyvBX+VS16rbSEQib7xNYvohtiJ0dRiw/wjr6YVF8xUdYO1vvXPYOGXISYwW4vDiKAuyLDGuoLRh/F9GZQxBPwv6Bmx8/JfNCfIygbnZ/8qIZUsFH68DPbAHPBqwR1GP+haAa6vQPhXwn4p+Vci7rYNzfPzdQfDNWsQ+8ur8xxSdanAZcZRrytaidLtIQx4DeGANdwmNjnAn8ZSg6q8etQAAKQIAAACAAAAA",
+                    "message": "#{message_4.delete!("\n")}",
                     "msg_size": 864,
                     "time_elapsed": 30,
                     "history": []
