@@ -49,10 +49,14 @@ class Irssi < Formula
     args << "--disable-ssl" if build.without? "openssl"
 
     if build.head?
+      ENV["NOCONFIGURE"] = "yes"
       system "./autogen.sh", *args
-    else
-      system "./configure", *args
     end
+
+    # https://github.com/irssi/irssi/pull/927
+    inreplace "configure", "^DUIfm", "^DUIifm"
+
+    system "./configure", *args
     # "make" and "make install" must be done separately on some systems
     system "make"
     system "make", "install"
@@ -63,5 +67,11 @@ class Irssi < Formula
       pipe.puts "/quit\n"
       pipe.close_write
     end
+
+    # This is not how you'd use Perl with Irssi but it is enough to be
+    # sure the Perl element didn't fail to compile, which is needed
+    # because upstream treats Perl build failures as non-fatal.
+    ENV["PERL5LIB"] = lib/"perl5/site_perl"
+    system "perl", "-e", "use Irssi"
   end
 end
