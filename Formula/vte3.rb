@@ -1,8 +1,8 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.52/vte-0.52.2.tar.xz"
-  sha256 "0f2657cef52accbfe56feede553155552d7c1984b1291838af3cb8cfc19b26af"
+  url "https://download.gnome.org/sources/vte/0.54/vte-0.54.0.tar.xz"
+  sha256 "ae09697006300d61a8de0c7ecebe0b36959179e5329a124f5ba2f45684dfa523"
 
   bottle do
     sha256 "4da7b2b2de1fb62da25093fc0365e964668c13f2b52704e5ca844b93ab1bb3e3" => :mojave
