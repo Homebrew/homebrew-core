@@ -19,6 +19,11 @@ class Multimarkdown < Formula
   conflicts_with "discount", :because => "both install `markdown` binaries"
 
   def install
+    # Reported upstream 2 Sep 2018 https://github.com/fletcher/MultiMarkdown-6/issues/142
+    inreplace "CMakeLists.txt",
+              "SET(CMAKE_OSX_DEPLOYMENT_TARGET \"10.4\"",
+              "SET(CMAKE_OSX_DEPLOYMENT_TARGET \"#{MacOS.version}\""
+
     system "make", "release"
 
     cd "build" do
