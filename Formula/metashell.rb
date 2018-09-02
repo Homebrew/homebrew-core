@@ -6,11 +6,10 @@ class Metashell < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "eea9e8e3467f067df5c18021e70d529fca81444b1b5a58987d585fea9c14e234" => :mojave
-    sha256 "ea62126c211e42451b2272b250b877c2714c470a654d4d81dbf40a26c79fd4f0" => :high_sierra
-    sha256 "b2ed4c805b490c689c9d2f8f8407b19a936a9d8bcc26b167d3a7727b1d503a5b" => :sierra
-    sha256 "4d55dfb291e53beb8397f88d49121f8fb403c451a5f0eea05b819240449d740e" => :el_capitan
+    sha256 "4629398ca4b1bf5cf7779b8d5c9e6f066ea5e96f66063c265f0b13e106a0cba0" => :mojave
+    sha256 "05387acf4adf651aaa011d02f5a08ddf49725a550440cc7eb496c1112166852b" => :high_sierra
+    sha256 "14fc35b7b932170333d8260b8bda881844ffc68870aeb1a120ebd74072ef900c" => :sierra
+    sha256 "209c4c475fa58cb42a2e98bd34c11a983463465ce4ee5470474177d6740fb2e5" => :el_capitan
   end
 
   depends_on "cmake" => :build
