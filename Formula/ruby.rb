@@ -18,7 +18,7 @@ class Ruby < Formula
   end
 
   head do
-    url "https://svn.ruby-lang.org/repos/ruby/trunk/"
+    url "https://github.com/ruby/ruby.git"
     depends_on "autoconf" => :build
   end
 
