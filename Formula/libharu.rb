@@ -30,7 +30,7 @@ class Libharu < Formula
       --with-png=#{Formula["libpng"].opt_prefix}
     ]
 
-    args << "--with-zlib=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    args << "--with-zlib=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
 
     system "./configure", *args
     system "make", "install"
