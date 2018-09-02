@@ -18,7 +18,13 @@ class Ldid < Formula
   depends_on "openssl"
 
   def install
-    inreplace "./make.sh", %r{^.*/Applications/Xcode-5.1.1.app.*}, ""
+    inreplace "make.sh" do |s|
+      s.gsub! %r{^.*/Applications/Xcode-5.1.1.app.*}, ""
+
+      # Reported upstream 2 Sep 2018 (to saurik via email)
+      s.gsub! "-mmacosx-version-min=10.4", "-mmacosx-version-min=#{MacOS.version}"
+      s.gsub! "for arch in i386 x86_64; do", "for arch in x86_64; do" if MacOS.version >= :mojave
+    end
     system "./make.sh"
     bin.install "ldid"
   end
