@@ -14,6 +14,7 @@ class Youtubeuploader < Formula
     cd path do
       system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", "#{bin}/youtubeuploader"
+      prefix.install_metafiles
     end
   end
 
