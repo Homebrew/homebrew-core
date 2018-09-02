@@ -7,7 +7,6 @@ class Cmdshelf < Formula
   depends_on "rust" => :build
 
   def install
-    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--root", prefix, "--path", "."
     man.install Dir["docs/man/*"]
     bash_completion.install "cmdshelf-completion.bash"
