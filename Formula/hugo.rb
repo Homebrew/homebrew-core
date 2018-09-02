@@ -16,7 +16,9 @@ class Hugo < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/gohugoio/hugo").install buildpath.children
+
     cd "src/github.com/gohugoio/hugo" do
       system "go", "build", "-o", bin/"hugo", "-tags", "extended", "main.go"
 
