@@ -17,7 +17,7 @@ class Ruby < Formula
   end
 
   head do
-    url "https://svn.ruby-lang.org/repos/ruby/trunk/"
+    url "https://github.com/ruby/ruby.git"
     depends_on "autoconf" => :build
   end
 
@@ -193,9 +193,13 @@ class Ruby < Formula
   test do
     hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
     assert_equal "hello\n", hello_text
+
     ENV["GEM_HOME"] = testpath
+    ENV["GEM_SPEC_CACHE"] = testpath/"specs"
     system "#{bin}/gem", "install", "json"
 
+    ENV["BUNDLE_PATH"] = testpath
+    ENV["BUNDLE_DISABLE_SHARED_GEMS"] = "true"
     (testpath/"Gemfile").write <<~EOS
       source 'https://rubygems.org'
       gem 'gemoji'
