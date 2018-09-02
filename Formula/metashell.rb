@@ -1,8 +1,8 @@
 class Metashell < Formula
   desc "Metaprogramming shell for C++ templates"
   homepage "http://metashell.org"
-  url "https://github.com/metashell/metashell/archive/v3.0.0.tar.gz"
-  sha256 "012f48508bbf0dbecf7775b4cca399512c5bbd1604d78f2016fe23a6352af90b"
+  url "https://github.com/metashell/metashell/archive/v4.0.0.tar.gz"
+  sha256 "02a88204fe36428cc6c74453059e8c399759d4306e8156d0920aefa4c07efc64"
 
   bottle do
     cellar :any_skip_relocation
