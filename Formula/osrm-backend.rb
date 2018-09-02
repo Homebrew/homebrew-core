@@ -35,13 +35,17 @@ class OsrmBackend < Formula
   end
 
   test do
+    node1 = 'visible="true" version="1" changeset="676636" timestamp="2008-09-21T21:37:45Z"'
+    node2 = 'visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"'
+    node3 = 'visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"'
+
     (testpath/"test.osm").write <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <osm version="0.6">
        <bounds minlat="54.0889580" minlon="12.2487570" maxlat="54.0913900" maxlon="12.2524800"/>
-       <node id="1" lat="54.0901746" lon="12.2482632" user="a" uid="46882" visible="true" version="1" changeset="676636" timestamp="2008-09-21T21:37:45Z"/>
-       <node id="2" lat="54.0906309" lon="12.2441924" user="a" uid="36744" visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"/>
-       <node id="3" lat="52.0906309" lon="12.2441924" user="a" uid="36744" visible="true" version="1" changeset="323878" timestamp="2008-05-03T13:39:23Z"/>
+       <node id="1" lat="54.0901746" lon="12.2482632" user="a" uid="46882" #{node1}/>
+       <node id="2" lat="54.0906309" lon="12.2441924" user="a" uid="36744" #{node2}/>
+       <node id="3" lat="52.0906309" lon="12.2441924" user="a" uid="36744" #{node3}/>
        <way id="10" user="a" uid="55988" visible="true" version="5" changeset="4142606" timestamp="2010-03-16T11:47:08Z">
         <nd ref="1"/>
         <nd ref="2"/>

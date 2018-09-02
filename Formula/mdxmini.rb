@@ -35,11 +35,13 @@ class Mdxmini < Formula
     end
 
     # Makefile doesn't build a dylib
-    system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libmdxmini.dylib", "-o", "libmdxmini.dylib", "-undefined", "dynamic_lookup", *Dir["obj/*"]
+    system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libmdxmini.dylib",
+                   "-o", "libmdxmini.dylib", "-undefined", "dynamic_lookup",
+                   *Dir["obj/*"]
 
     bin.install "mdxplay" if build.without? "lib-only"
     lib.install "libmdxmini.dylib"
-    (include+"libmdxmini").install Dir["src/*.h"]
+    (include/"libmdxmini").install Dir["src/*.h"]
   end
 
   test do
@@ -59,11 +61,19 @@ class Mdxmini < Formula
     EOS
     system ENV.cc, "mdxtest.c", "-L#{lib}", "-lmdxmini", "-o", "mdxtest"
 
-    result = `#{testpath}/mdxtest #{testpath}/pop-00.mdx #{testpath}`.chomp
+    result = shell_output("#{testpath}/mdxtest #{testpath}/pop-00.mdx #{testpath}").chomp
     result.force_encoding("ascii-8bit") if result.respond_to? :force_encoding
+
     # Song title is in Shift-JIS
-    expected = "\x82\xDB\x82\xC1\x82\xD5\x82\xE9\x83\x81\x83C\x83\x8B         \x83o\x83b\x83N\x83A\x83b\x83v\x8D\xEC\x90\xAC          (C)Falcom 1992 cv.\x82o\x82h. ass.\x82s\x82`\x82o\x81{"
+    # Trailing whitespace is intentional & shouldn't be removed.
+    l1 = "\x82\xDB\x82\xC1\x82\xD5\x82\xE9\x83\x81\x83C\x83\x8B         "
+    l2 = "\x83o\x83b\x83N\x83A\x83b\x83v\x8D\xEC\x90\xAC          "
+    expected = <<~EOS
+      #{l1}
+      #{l2}
+      (C)Falcom 1992 cv.\x82o\x82h. ass.\x82s\x82`\x82o\x81{
+    EOS
     expected.force_encoding("ascii-8bit") if result.respond_to? :force_encoding
-    assert_equal expected, result
+    assert_equal expected.delete!("\n"), result
   end
 end

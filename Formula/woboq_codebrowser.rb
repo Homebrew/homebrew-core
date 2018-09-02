@@ -13,13 +13,18 @@ class WoboqCodebrowser < Formula
     sha256 "c04a6cd9fd7102e2ca5858dce5068bbfcede09e3d655e0512a2942d83f5a75e8" => :el_capitan
   end
 
-  depends_on "llvm"
   depends_on "cmake" => :build
+  depends_on "llvm"
 
   def install
-    system "cmake", ".", "-DLLVM_CONFIG_EXECUTABLE=#{Formula["llvm"].opt_bin}/llvm-config", "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DLLVM_CONFIG_EXECUTABLE=#{Formula["llvm"].opt_bin}/llvm-config
+      -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+    ]
+    system "cmake", ".", *args
     system "make"
-    bin.install "indexgenerator/codebrowser_indexgenerator", "generator/codebrowser_generator"
+    bin.install "indexgenerator/codebrowser_indexgenerator",
+                "generator/codebrowser_generator"
     prefix.install "data"
   end
 
@@ -30,7 +35,11 @@ class WoboqCodebrowser < Formula
       printf(\"hi!\");
       }
     EOS
-    system "#{bin}/codebrowser_generator", "-o=#{Dir.pwd}", "-p", "test:#{Dir.pwd}", "#{Dir.pwd}/test.c", "--", "clang", "#{Dir.pwd}/test.c"
+    system "#{bin}/codebrowser_generator", "-o=#{testpath}", "-p",
+                                           "test:#{testpath}",
+                                           "#{testpath}/test.c",
+                                           "--", "clang", "#{testpath}/test.c"
+
     assert_predicate testpath/"test/test.c.html", :exist?
     assert_predicate testpath/"refs/printf", :exist?
     assert_predicate testpath/"include/sys/stdio.h.html", :exist?
