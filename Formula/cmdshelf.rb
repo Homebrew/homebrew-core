@@ -13,7 +13,7 @@ class Cmdshelf < Formula
   end
 
   test do
-    system "#{bin}/cmdshelf remote add test git@github.com:toshi0383/scripts.git"
+    system "#{bin}/cmdshelf", "remote", "add", "test", "git@github.com:toshi0383/scripts.git"
     list_output = shell_output("#{bin}/cmdshelf remote list").chomp
     assert_equal "test:git@github.com:toshi0383/scripts.git", list_output
   end
