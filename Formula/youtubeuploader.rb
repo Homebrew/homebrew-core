@@ -13,12 +13,12 @@ class Youtubeuploader < Formula
     path.install Dir["*"]
     cd path do
       system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", "#{bin}/youtubeuploader"
+      system "go", "build", "-a", "-ldflags", "-s -X main.appVersion=#{version}", "-o", "#{bin}/youtubeuploader"
       prefix.install_metafiles
     end
   end
 
   test do
-    system "#{bin}/youtubeuploader", "-v"
+    assert_match version.to_s, shell_output("#{bin}/youtubeuploader -v")
   end
 end
