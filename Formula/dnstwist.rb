@@ -9,11 +9,10 @@ class Dnstwist < Formula
 
   bottle do
     cellar :any
-    sha256 "0b0b3cdb216228cf3b666f393b9f3964906486d4e77e6ded8ea1f8ef11301525" => :high_sierra
-    sha256 "c64ccf688eca59bad28d3df047cb987ad4911416be945e33cba9d0b5e68f0131" => :sierra
-    sha256 "c4a4ede766163bf4dc8acc41f968198b574f6527d687a547ece0c227845488c1" => :el_capitan
-    sha256 "6ec5b4eded505da0cbc5a37ea12c720293510ba5f05f12a2e0067d4257bbb8c5" => :yosemite
-    sha256 "22426190a5dad132035572a609f3f612716837b050f7ec68707bd5aee87b7418" => :mavericks
+    sha256 "cf4a5057220657f45260be438795243acc4101f93cf7a36149257d13a01e574a" => :mojave
+    sha256 "6184f0f31777c11e6384390a6ba3715dc92293c8a58dfdc81d5d83bd1a15962c" => :high_sierra
+    sha256 "ad0f9359efd7ed2ea15f51e538480a0b49ffd39f05078489141da1a42d417009" => :sierra
+    sha256 "230e8045cf7cc1e644dcf8f960da522bf60d85ad8ec60f6ab1494f4da66a06ea" => :el_capitan
   end
 
   depends_on "python@2"
