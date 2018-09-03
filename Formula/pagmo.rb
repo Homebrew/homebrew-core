@@ -52,6 +52,8 @@ class Pagmo < Formula
           for (const auto &isl : archi) {
               std::cout << isl.get_population().champion_f()[0] << std::endl;
           }
+
+          return 0;
       }
     EOS
     system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
