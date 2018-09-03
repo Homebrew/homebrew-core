@@ -1,10 +1,10 @@
 require "language/node"
 
 class Jhipster < Formula
-  desc "Generate, develop and deploy Spring Boot + Angular applications"
+  desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-5.2.1.tgz"
-  sha256 "f783a5e35c60b9a332ef7a263dcb67e8f70da7b3b526764932bbf2c39c546f40"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-5.3.0.tgz"
+  sha256 "c41f7d79c4ccd2a28497dff78f88b36b513f6e7a4414496257cf2a7e0e8c8af5"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,6 @@ class Jhipster < Formula
   end
 
   depends_on "node"
-  depends_on "yarn"
   depends_on :java => "1.8+"
 
   def install
