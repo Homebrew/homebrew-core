@@ -1,8 +1,8 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.1.3.tar.bz2"
-  sha256 "c133455f7abc1e44800603c134cdadf1968b802f77348555179087734c7da88b"
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.1.4.tar.bz2"
+  sha256 "b19f4353bea3fe54a581a4e7ace101637f8474f5ebfe925e2d3ff4910b71b550"
 
   bottle do
     sha256 "afcfca15bce37c107014ad88606e7b9e104da96a711bcb0afe34f49fdc527d57" => :mojave
