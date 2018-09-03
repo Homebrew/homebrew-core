@@ -5,12 +5,12 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.4.3.tar.gz"
-    sha256 "d9ae34d58cc577ab62aaf58e687ffb23805400a82ed813d37ff15f64d25f6cf0"
+    url "https://github.com/nabla-c0d3/sslyze/archive/2.0.0.tar.gz"
+    sha256 "cda81b4a1a9776cb3153377b3d1be4d0ce0064c9222c84f7d7b7795372b6dbb4"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/1.1.3.tar.gz"
-      sha256 "09aa98d630710c2da74aebeda1eccc4e878bd8ececa1c3ad5464d6e777b44eb6"
+      url "https://github.com/nabla-c0d3/nassl/archive/2.1.0.tar.gz"
+      sha256 "3008c445966da6cd159f185264aec17eefaa25a3515e58d69887489efdf5a35e"
     end
   end
 
@@ -31,7 +31,7 @@ class Sslyze < Formula
   end
 
   depends_on :arch => :x86_64
-  depends_on "python@2"
+  depends_on "python"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -44,23 +44,13 @@ class Sslyze < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
-    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
+    url "https://files.pythonhosted.org/packages/79/a2/61c8625f96c8582d3053f89368c483ba62e56233d055e58e372f94a393f0/cryptography-2.3.tar.gz"
+    sha256 "c132bab45d4bd0fff1d3fe294d92b0a6eb8404e93337b3127bdec9f21de117e6"
   end
 
   resource "idna" do
     url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
     sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
-  end
-
-  resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
-    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
   end
 
   resource "pycparser" do
@@ -78,11 +68,6 @@ class Sslyze < Formula
     sha256 "869ad3c8a45e73bcbb3bf0dd094f0345675c830e851576f42585af1a60c2b0e5"
   end
 
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/ec/cc/28444132a25c113149cec54618abc909596f0b272a74c55bab9593f8876c/typing-3.6.4.tar.gz"
-    sha256 "d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
-  end
-
   resource "zlib" do
     url "https://zlib.net/zlib-1.2.11.tar.gz"
     mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.2.11/zlib-1.2.11.tar.gz"
@@ -96,7 +81,7 @@ class Sslyze < Formula
 
   resource "openssl-modern" do
     url "https://github.com/openssl/openssl.git",
-        :revision => "1f5878b8e25a785dde330bf485e6ed5a6ae09a1a"
+        :revision => "354e010757b95d27fb36d364412ee7a5e7111963"
   end
 
   def install
@@ -109,7 +94,12 @@ class Sslyze < Formula
       venv.pip_install resource(r)
     end
 
-    ENV.prepend_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+
+    if MacOS.sdk_path_if_needed
+      ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" # libffi
+    end
 
     resource("nassl").stage do
       nassl_path = Pathname.pwd
@@ -127,9 +117,9 @@ class Sslyze < Formula
         (nassl_path/"zlib-#{resource("zlib").version}").install resource("zlib")
         (nassl_path/"openssl-1.0.2e").install resource("openssl-legacy")
         (nassl_path/"openssl-master").install resource("openssl-modern")
-        system "python", "build_from_scratch.py"
+        system "python3", "build_from_scratch.py"
       end
-      system "python", "run_tests.py"
+      system "python3", "run_tests.py"
       venv.pip_install nassl_path
 
       # Link cryptography against the openssl modern used by nassl above
@@ -145,6 +135,6 @@ class Sslyze < Formula
 
   test do
     assert_match "SCAN COMPLETED", shell_output("#{bin}/sslyze --regular google.com")
-    assert_no_match /exception/, shell_output("#{bin}/sslyze --certinfo letsencrypt.org")
+    assert_no_match "exception", shell_output("#{bin}/sslyze --certinfo letsencrypt.org")
   end
 end
