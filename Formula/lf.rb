@@ -6,10 +6,10 @@ class Lf < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "85a9bc68395a515639ffd52ebfdc9cf420bdc68d49cdb6956630943715e5a251" => :mojave
-    sha256 "10075f60b348ba17a6e4abe63ed4c9a59b9ec3d0d7b0fe241584b8e5673ff91a" => :high_sierra
-    sha256 "51263ccfdd0fadb1093bc89719bb55e2b7d1ed56dc4a667d21ea4c8c35e3ac25" => :sierra
-    sha256 "c28796e95d3bf98239bae162cd01ea0ea75dd1b090db1301506ba64b58c767b1" => :el_capitan
+    sha256 "ef903843e3c9ae32ff3f09158f526b0db1a95f06ec7de56ad63aa1228a5f5260" => :mojave
+    sha256 "79c3902898bcfcd00c801c471d6dacaae5aa7ba15c7d8433af53c2e41116e1f0" => :high_sierra
+    sha256 "6a3b8a8b61d2470ea28a7d4bcca4755294a85bb89e78764c040d9236665142b2" => :sierra
+    sha256 "424581c37cd4cc18da1a7690c9513b837ae4e405d93e3048470ea2aa148c25b5" => :el_capitan
   end
 
   depends_on "dep" => :build
