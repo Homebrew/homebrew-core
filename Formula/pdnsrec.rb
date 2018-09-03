@@ -5,10 +5,10 @@ class Pdnsrec < Formula
   sha256 "b19f4353bea3fe54a581a4e7ace101637f8474f5ebfe925e2d3ff4910b71b550"
 
   bottle do
-    sha256 "afcfca15bce37c107014ad88606e7b9e104da96a711bcb0afe34f49fdc527d57" => :mojave
-    sha256 "8cf7484b0cb02cc9d1222ca9e474cb3fcafe8bdcbd7720d69c9375dd9c9cd2a4" => :high_sierra
-    sha256 "dffa06d1d83406770f09da3966937f3b0d68783b222d350143e0540c9e2d5e8b" => :sierra
-    sha256 "74103d04843378c90a90eedcb20ab037db6f3f80df300d2e16676d2e9a4af68c" => :el_capitan
+    sha256 "324b5650c13c396603b3a3146ec1d34cae0ee6f6581e6a03d4c4cf3f4279e98c" => :mojave
+    sha256 "0bec1537a23c906110eb882451e7f6a23c8cd1f4efe4f0b8d231441aee29712c" => :high_sierra
+    sha256 "13d7deb2f2f06d40842f60f1f641bbd0c00006bbc69673e93a0885563f9cb562" => :sierra
+    sha256 "6c2a044482066cbdf24c8fcf7a828f5035d4757ba678c7640db526f4d6126230" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
