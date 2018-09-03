@@ -5,6 +5,7 @@ class Pagmo < Formula
   sha256 "d482650e0c79a49ce0312c7e9e5722f3a1b24327e08af11daa66c59374bed3b4"
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "eigen"
   depends_on "nlopt"
 
