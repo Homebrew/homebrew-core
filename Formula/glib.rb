@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.58/glib-2.58.0.tar.xz"
   sha256 "c0f4ce0730b4f95c47b711613b5406a887c2ee13ea6d25930d72a4fa7fdb77f6"
+  revision 1
 
   bottle do
     sha256 "ca271e3fc42d83b0c22223cf364c0d34ea201ec36b2c03dfe05ce495e9f9d565" => :mojave
@@ -65,6 +66,10 @@ class Glib < Formula
 
     # disable creating directory for GIO_MODULE_DIR, we will do this manually in post_install
     inreplace "gio/Makefile", "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)", ""
+
+    # ensure giomoduledir contains prefix, as this pkgconfig variable will be used
+    # by glib-networking and glib-openssl to determine where to install their modules
+    inreplace "gio-2.0.pc", "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules", "giomoduledir=${prefix}/lib/gio/modules"
 
     system "make"
     # the spawn-multithreaded tests require more open files
