@@ -7,6 +7,7 @@ class Kakoune < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "50176fd868ebf3bf357ec583000d9dff76e6a155dc2457518630d5e2b1e16a56" => :mojave
     sha256 "16dfec7140e99f6780b24d81fc45bb7a8703dce51e8ebe080b7d73f855126615" => :high_sierra
     sha256 "ab41d37bb6e4d47208eea741354b09a48ffbe8ea5a32f88456a60643738c6f8c" => :sierra
     sha256 "6122fb695a150e34742fcb544f92b9261180730ec335f3ee730bcc7f5d7e2db4" => :el_capitan
