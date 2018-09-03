@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v0.13.8.tar.gz"
-  sha256 "0c3235974d003b4e6979f7944bdc01df46eb8672ceef89dc537ca3e23742b765"
+  url "https://github.com/fluent/fluent-bit/archive/v0.14.1.tar.gz"
+  sha256 "0879e5801f56d56d75462bdb9505cf1fb061797444560dd7657fa2c311532111"
   head "https://github.com/fluent/fluent-bit.git"
 
   bottle do
@@ -19,6 +19,11 @@ class FluentBit < Formula
   conflicts_with "msgpack", :because => "fluent-bit includes msgpack libraries."
 
   def install
+    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
+    # is not set then it's forced to 10.4, which breaks compile on Mojave.
+    # fluent-bit ships an embedded Luajit.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     system "cmake", ".", "-DWITH_IN_MEM=OFF", *std_cmake_args
     system "make", "install"
   end
