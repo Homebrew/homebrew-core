@@ -1,9 +1,9 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.4.1/mesos-1.4.1.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.4.1/mesos-1.4.1.tar.gz"
-  sha256 "5973795a739c9fa8f1d56b7d0ab1e71e015d5915ffdefb46484ac6546306f4b0"
+  url "https://www.apache.org/dyn/closer.cgi?path=mesos/1.6.1/mesos-1.6.1.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.6.1/mesos-1.6.1.tar.gz"
+  sha256 "96147dd665379c561ffa652f04bcefa033a7566d6ad7474ab2eb7b6c708ef48a"
 
   bottle do
     rebuild 2
@@ -14,8 +14,8 @@ class Mesos < Formula
 
   depends_on :java => "1.8"
   depends_on :macos => :mountain_lion
-  depends_on "apr-util" => :build
   depends_on "maven" => :build
+  depends_on "apr-util"
   depends_on "python@2"
   depends_on "subversion"
 
@@ -23,29 +23,29 @@ class Mesos < Formula
     :because => "they depend on an incompatible version of protobuf"
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/e0/2f/690a5f047e2cfef40c9c5eec0877b496dc1f5a0625ca6b0ac1cd11f12f6a/protobuf-3.2.0.tar.gz"
-    sha256 "a48475035c42d13284fd7bf3a2ffa193f8c472ad1e8539c8444ea7e2d25823a1"
+    url "https://files.pythonhosted.org/packages/1b/90/f531329e628ff34aee79b0b9523196eb7b5b6b398f112bb0c03b24ab1973/protobuf-3.6.1.tar.gz"
+    sha256 "1489b376b0f364bcc6f89519718c057eb191d7ad6f1b395ffd93d1aa45587811"
   end
 
   # build dependencies for protobuf
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
-    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/f7/c7/08e54702c74baf9d8f92d0bc331ecabf6d66a56f6d36370f0a672fc6a535/pytz-2016.6.1.tar.bz2"
-    sha256 "b5aff44126cf828537581e534cc94299b223b945a2bb3b5434d37bf8c7f3a10c"
+    url "https://files.pythonhosted.org/packages/ca/a9/62f96decb1e309d6300ebe7eee9acfd7bccaeedd693794437005b9067b44/pytz-2018.5.tar.gz"
+    sha256 "ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"
   end
 
   resource "python-gflags" do
-    url "https://files.pythonhosted.org/packages/ea/30/b8469c0d1837ce58fe3706e1f7169cbf6ca1fb87d1f84cece5182b67cb0b/python-gflags-3.1.1.tar.gz"
-    sha256 "aaff6449ca74320c709052e4664a52337832b2338f4a4267088564f3e98f6c63"
+    url "https://files.pythonhosted.org/packages/df/ec/e31302d355bcb9d207d9b858adc1ecc4a6d8c855730c8ba4ddbdd3f8eb8d/python-gflags-3.1.2.tar.gz"
+    sha256 "40ae131e899ef68e9e14aa53ca063839c34f6a168afe622217b5b875492a1ee2"
   end
 
   resource "google-apputils" do
@@ -87,7 +87,7 @@ class Mesos < Formula
 
     # work around distutils abusing CC instead of using CXX
     # https://issues.apache.org/jira/browse/MESOS-799
-    # https://github.com/Homebrew/homebrew/pull/37087
+    # https://github.com/Homebrew/legacy-homebrew/pull/37087
     native_patch = <<~EOS
       import os
       os.environ["CC"] = os.environ["CXX"]
@@ -115,21 +115,15 @@ class Mesos < Formula
               "<url>http://mesos.apache.org</url>",
               maven_javadoc_patch
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --with-svn=#{Formula["subversion"].opt_prefix}
-    ]
-
-    unless MacOS::CLT.installed?
-      args << "--with-apr=#{Formula["apr-util"].opt_libexec}"
-    end
-
     ENV.cxx11
 
-    system "./configure", "--disable-python", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--with-svn=#{Formula["subversion"].opt_prefix}",
+                          "--with-apr=#{Formula["apr"].opt_libexec}",
+                          "--disable-python"
     system "make"
     system "make", "install"
 
@@ -137,7 +131,13 @@ class Mesos < Formula
     # link to Subversion libraries if Homebrew isn't installed in `/usr/local`.
     ENV.append_to_cflags "-L#{Formula["subversion"].opt_lib}"
 
-    system "./configure", "--enable-python", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--with-svn=#{Formula["subversion"].opt_prefix}",
+                          "--with-apr=#{Formula["apr"].opt_libexec}",
+                          "--enable-python"
     ["native", "interface", "executor", "scheduler", "cli", ""].each do |p|
       cd "src/python/#{p}" do
         system "python", *Language::Python.setup_install_args(prefix)
