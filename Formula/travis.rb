@@ -121,5 +121,7 @@ class Travis < Formula
     assert_match "valid", output
     output = shell_output("#{bin}/travis init 2>&1", 1)
     assert_match "Can't figure out GitHub repo name", output
+
+    assert_match shell_output("fgrep --version"), shell_output("/usr/bin/fgrep --version")
   end
 end
