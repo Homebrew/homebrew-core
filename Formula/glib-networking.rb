@@ -1,9 +1,8 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.56/glib-networking-2.56.1.tar.xz"
-  sha256 "df47b0e0a037d2dcf6b1846cbdf68dd4b3cc055e026bb40c4a55f19f29f635c8"
-  revision 1
+  url "https://download.gnome.org/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz"
+  sha256 "bdfa0255e031b8ee003cc283002536b77ee76450105f1dc6ab066b9bf4330068"
 
   bottle do
     sha256 "c63f6875382dd5a2f1f434f71ec37ebdd7901cf2f2c6241443c4bdea7b570346" => :mojave
@@ -23,25 +22,15 @@ class GlibNetworking < Formula
   link_overwrite "lib/gio/modules"
 
   def install
-    # Install files to `lib` instead of `HOMEBREW_PREFIX/lib`.
-    inreplace "meson.build", "gio_dep.get_pkgconfig_variable('giomoduledir',", "'#{lib}/gio/modules'"
-    inreplace "meson.build", "define_variable: ['libdir', libdir])", ""
-
     # stop meson_post_install.py from doing what needs to be done in the post_install step
-    ENV["DESTDIR"] = ""
+    ENV["DESTDIR"] = "/"
+
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
                       "-Dlibproxy_support=false",
-                      "-Dca_certificates_path=#{etc}/openssl/cert.pem",
                       ".."
-      system "ninja"
-      system "ninja", "install"
-    end
-
-    # rename .dylib to .so, which is what glib expects
-    # see https://github.com/mesonbuild/meson/issues/3053
-    Dir.glob(lib/"gio/modules/*.dylib").each do |f|
-      mv f, "#{File.dirname(f)}/#{File.basename(f, ".dylib")}.so"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 
