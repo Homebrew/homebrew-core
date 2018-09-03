@@ -5,10 +5,10 @@ class Gedit < Formula
   sha256 "bd5c26499f988a1d608591beadb4eb408697dc8c2a61cde9909aeec71e2aef79"
 
   bottle do
-    sha256 "7fa19d4e52e59a127f53ba081a0725de26e8e9b79e8611c4a37b11ac3aba4d3e" => :mojave
-    sha256 "d13c0a492327dcb25d501310572e496594cfbd1e0bd204a806b829a22ff689a5" => :high_sierra
-    sha256 "98f28fd13d07188e0c81d839797cef91ac4d629feb75442afc8671a7c8464a00" => :sierra
-    sha256 "98abdcb202c3d289de4a16d7a55b2a4cf1cf8be55a3253718524e2aec78cb6c1" => :el_capitan
+    sha256 "cd84946b9ebfc67814c911026aaf51c8eb945b87e938ba77ef119be4e48e2087" => :mojave
+    sha256 "14e82e6206a6dc06a27f3e9a2a8827286391e578b5f23bc9c6b9cdf6611c6cf2" => :high_sierra
+    sha256 "92e5d0ca51c3fb5e44f0f02c58d31de2384a91377aef108bc4d9b8639354eeb5" => :sierra
+    sha256 "96283f1bda650ad0ed5264eb874952faa568db8c9089177169effc1f9568bd61" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
