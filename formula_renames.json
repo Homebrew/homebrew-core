@@ -107,7 +107,6 @@
   "libpng12": "libpng@1.2",
   "libpqxx3": "libpqxx@3",
   "libxml278": "libxml2@2.7",
-  "llvm37": "llvm@3.7",
   "llvm38": "llvm@3.8",
   "logstash24": "logstash@2.4",
   "lua51": "lua@5.1",
