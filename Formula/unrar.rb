@@ -1,8 +1,8 @@
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "https://www.rarlab.com/"
-  url "https://www.rarlab.com/rar/unrarsrc-5.6.5.tar.gz"
-  sha256 "eba36a421bf41491818dee9507d934064622bc0bd9db6bbb8422a4706f200898"
+  url "https://www.rarlab.com/rar/unrarsrc-5.6.6.tar.gz"
+  sha256 "5dbdd3cff955c4bc54dd50bf58120af7cb30dec0763a79ffff350f26f96c4430"
 
   bottle do
     cellar :any
