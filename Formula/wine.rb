@@ -206,6 +206,16 @@ class Wine < Formula
   end
 
   def install
+    # 32-bit support has been removed by Apple.
+    if DevelopmentTools.clang_build_version >= 1000
+      odie <<~EOS
+        Wine cannot currently be installed from source on
+        macOS #{MacOS.version}.
+        You may wish to try:
+          brew install wine --force-bottle
+      EOS
+    end
+
     ENV.prepend_create_path "PATH", "#{libexec}/bin"
     ENV.prepend_create_path "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig"
 

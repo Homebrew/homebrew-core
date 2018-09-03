@@ -17,8 +17,8 @@ class Pijul < Formula
   depends_on "openssl"
 
   def install
-    # Ensure that the `openssl-sys` crate picks up the intended library.
-    # (If we're not careful, LibreSSL or OpenSSL 1.1 gets used instead.)
+    # Ensure that the `openssl` crate picks up the intended library.
+    # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
 
     cd "pijul" do

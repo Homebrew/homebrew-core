@@ -20,7 +20,9 @@ class Scw < Formula
     ENV["GOBIN"] = buildpath
     (buildpath/"src/github.com/scaleway/scaleway-cli").install Dir["*"]
 
-    system "go", "build", "-o", "#{bin}/scw", "-v", "-ldflags", "-X  github.com/scaleway/scaleway-cli/pkg/scwversion.GITCOMMIT=homebrew", "github.com/scaleway/scaleway-cli/cmd/scw/"
+    system "go", "build", "-o", "#{bin}/scw", "-v", "-ldflags",
+           "-X github.com/scaleway/scaleway-cli/pkg/scwversion.GITCOMMIT=homebrew",
+           "github.com/scaleway/scaleway-cli/cmd/scw/"
 
     bash_completion.install "src/github.com/scaleway/scaleway-cli/contrib/completion/bash/scw.bash"
     zsh_completion.install "src/github.com/scaleway/scaleway-cli/contrib/completion/zsh/_scw"

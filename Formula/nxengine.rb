@@ -31,12 +31,21 @@ class Nxengine < Formula
       s.gsub! "htole16", "OSSwapHostToLittleInt16"
     end
     # Use var/nxengine for extracted data files, without messing current directory
-    inreplace "graphics/font.cpp", /(fontfile) = "(\w+\.(bmp|ttf))"/, "\\1 = \"#{var}/nxengine/\\2\""
-    inreplace "platform.cpp", /(return .*fopen)\((fname), mode\);/, "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn, mode);"
-    inreplace "graphics/nxsurface.cpp", /(image = SDL_LoadBMP)\((pbm_name)\);/, "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn);"
-    inreplace "extract/extractpxt.cpp", /(mkdir)\((\".+\")/, "char dir[256]; strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\2); \\1(dir"
+    inreplace "graphics/font.cpp",
+              /(fontfile) = "(\w+\.(bmp|ttf))"/,
+              "\\1 = \"#{var}/nxengine/\\2\""
+    inreplace "platform.cpp",
+              /(return .*fopen)\((fname), mode\);/,
+              "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn, mode);"
+    inreplace "graphics/nxsurface.cpp",
+              /(image = SDL_LoadBMP)\((pbm_name)\);/,
+              "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn);"
+    inreplace "extract/extractpxt.cpp",
+              /(mkdir)\((\".+\")/,
+              "char dir[256]; strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\2); \\1(dir"
     inreplace "extract/extractfiles.cpp" do |s|
-      s.gsub! /char \*dir = strdup\((fname)\);/, "char *dir = (char *)malloc(256); strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\1);"
+      s.gsub! /char \*dir = strdup\((fname)\);/,
+             "char *dir = (char *)malloc(256); strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\1);"
       s.gsub! "strchr", "strrchr"
     end
 
