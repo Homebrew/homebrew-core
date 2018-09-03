@@ -5,10 +5,10 @@ class FileRoller < Formula
   sha256 "190b20fc624f682ebb798db6c382e466c1820f9e027d56010760d71dba614ff5"
 
   bottle do
-    sha256 "08791e4ab671af0c89fde770ff1e2b95724b00903ca83faa010f75c05ab29a89" => :mojave
-    sha256 "dc131fb4a57b17de6f6d6541d2c0376b363be969492ee294545180d5e3e304d1" => :high_sierra
-    sha256 "b6e43d46515f1a99c6d483e5ead0cce4759eebdd8b43c9fb104dd8b2067ad5d1" => :sierra
-    sha256 "8b8025260e526e13c853a6fd0dfe37b9fda89ed3ef4943f0fa0b7b4925826bd4" => :el_capitan
+    sha256 "f295f376988b74dc42a3185677819afceb662471ea647e0655c5cae73f7f4ed8" => :mojave
+    sha256 "052246a8799e0d10a9bc545911b25f280559a0246fcc612f7a3f0e5dff64de3c" => :high_sierra
+    sha256 "99b1d9035dfe548389701946fe7966b57684f5d71f8c60c38afd17afbfa63e39" => :sierra
+    sha256 "6f81289357b9cbab497aa47493934effd1952654f1fadf13c7529f4bd83c2c36" => :el_capitan
   end
 
   depends_on "meson" => :build
