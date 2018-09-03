@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.28/gedit-3.28.1.tar.xz"
-  sha256 "f174be0958ce63771fef9a81d06da6769358dab8705364a6abb5c7d10ec8211d"
+  url "https://download.gnome.org/sources/gedit/3.30/gedit-3.30.0.tar.xz"
+  sha256 "bd5c26499f988a1d608591beadb4eb408697dc8c2a61cde9909aeec71e2aef79"
 
   bottle do
     sha256 "7fa19d4e52e59a127f53ba081a0725de26e8e9b79e8611c4a37b11ac3aba4d3e" => :mojave
