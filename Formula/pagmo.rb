@@ -4,6 +4,14 @@ class Pagmo < Formula
   url "https://github.com/esa/pagmo2/archive/v2.9.tar.gz"
   sha256 "d482650e0c79a49ce0312c7e9e5722f3a1b24327e08af11daa66c59374bed3b4"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "dbafe3f25a46bc9393034034e3c4ec0d646e0f05156d0c40f9e18dfca4cbb36b" => :mojave
+    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :high_sierra
+    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :sierra
+    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
