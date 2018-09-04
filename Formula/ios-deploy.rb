@@ -5,6 +5,13 @@ class IosDeploy < Formula
   sha256 "9ef7430d20a777cd2916ab9d6aac849de11b349e85cf80048c95eca47d026e6c"
   head "https://github.com/phonegap/ios-deploy.git"
 
+  # Fix upstream bug https://github.com/ios-control/ios-deploy/issues/349
+  # Remove with next version
+  patch do
+    url "https://github.com/ios-control/ios-deploy/commit/9b23447e.diff?full_index=1"
+    sha256 "9c676388e84e20d3032156ea6dc81ba29dee4b4ffb99d78a81b34aa0b81c12e3"
+  end
+
   bottle do
     cellar :any_skip_relocation
     sha256 "34d44f6f2252037c01251e1ea0b19ac80eed08731547a0cf877b58886b8a24aa" => :high_sierra
