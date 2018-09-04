@@ -1,8 +1,10 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "http://www.live555.com/liveMedia/public/live.2018.04.25.tar.gz"
-  sha256 "bfb72d79cfa42779115dd7e5db705b863e30f7956638407c8637e97cefcf4005"
+  url "http://www.live555.com/liveMedia/public/live.2018.08.28a.tar.gz"
+  # Keep a mirror as upstream tarballs are removed after each version
+  mirror "http://ftp.videolan.org/videolan/testing/contrib/live555/live.2018.08.28a.tar.gz"
+  sha256 "0aa6f60c8acf8a309119c02ad1bafca40af8105ce411ba2e6fdfbed9222f91ba"
 
   bottle do
     cellar :any_skip_relocation
