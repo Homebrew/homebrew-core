@@ -17,7 +17,7 @@ class Bzt < Formula
 
   depends_on "python@2"
 
-resource "apiritif" do
+  resource "apiritif" do
     url "https://files.pythonhosted.org/packages/3e/4d/cc49edec3128c558e6476da68d165f1614b9250bca538aa86af2476d842e/apiritif-0.6.7.tar.gz"
     sha256 "9667c04724aacf8f501f05178b6788dc138180c4909cb876a78d23b9a0f35af9"
   end
