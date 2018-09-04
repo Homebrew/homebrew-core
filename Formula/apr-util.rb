@@ -16,34 +16,13 @@ class AprUtil < Formula
 
   depends_on "apr"
   depends_on "openssl"
-  depends_on "postgresql" => :optional
-  depends_on "mysql" => :optional
-  depends_on "freetds" => :optional
-  depends_on "unixodbc" => :optional
-  depends_on "sqlite" => :optional
-  depends_on "openldap" => :optional
 
   def install
-    # Stick it in libexec otherwise it pollutes lib with a .exp file.
-    args = %W[
-      --prefix=#{libexec}
-      --with-apr=#{Formula["apr"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
-      --with-crypto
-    ]
-
-    args << "--with-pgsql=#{Formula["postgresql"].opt_prefix}" if build.with? "postgresql"
-    args << "--with-mysql=#{Formula["mysql"].opt_prefix}" if build.with? "mysql"
-    args << "--with-freetds=#{Formula["freetds"].opt_prefix}" if build.with? "freetds"
-    args << "--with-odbc=#{Formula["unixodbc"].opt_prefix}" if build.with? "unixodbc"
-
-    if build.with? "openldap"
-      args << "--with-ldap"
-      args << "--with-ldap-lib=#{Formula["openldap"].opt_lib}"
-      args << "--with-ldap-include=#{Formula["openldap"].opt_include}"
-    end
-
-    system "./configure", *args
+    # Install in libexec otherwise it pollutes lib with a .exp file.
+    system "./configure", "--prefix=#{libexec}",
+                          "--with-apr=#{Formula["apr"].opt_prefix}",
+                          "--with-crypto",
+                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
     system "make"
     system "make", "install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
