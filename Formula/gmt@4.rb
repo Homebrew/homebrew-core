@@ -8,6 +8,7 @@ class GmtAT4 < Formula
   revision 1
 
   bottle do
+    sha256 "bf936092777345ea6977e2e7c2856bee1226d7a1a29f17c9ad1a9d47e87d27c7" => :mojave
     sha256 "ed486f18b1de6cbf1470cbe9a3a3800628ed8ee02fd1e773afdd4d6e48664e27" => :high_sierra
     sha256 "00131f50e07e8d62408b4a5deeb15f01f8f4d58227f59092cc00fe3aa64c31c7" => :sierra
     sha256 "2365d6c8e21218609bcd0dbd9974b314f777f2214fb5d67df3a075929964f2ae" => :el_capitan
