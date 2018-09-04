@@ -4,6 +4,7 @@ class Euca2ools < Formula
   desc "Eucalyptus client API tools-works with Amazon EC2 and IAM"
   homepage "https://github.com/eucalyptus/euca2ools"
   url "https://downloads.eucalyptus.com/software/euca2ools/3.4/source/euca2ools-3.4.1.tar.xz"
+  mirror "https://src.fedoraproject.org/lookaside/extras/euca2ools/euca2ools-3.4.1.tar.xz/sha512/5f7a2238f2475c5d8422069446292cce841bfe33b5c4a65f4a209e15e3d0e3cc6be14743aca086fc1b14da629c0e9860411f50826fe21f3dfc9fd0539af34716/euca2ools-3.4.1.tar.xz"
   sha256 "af2027306cf7829ee512c02c1160e96a8f9c152b77f6eb408bf3dee4d4bb551d"
   head "https://github.com/eucalyptus/euca2ools.git"
 
