@@ -5,10 +5,10 @@ class AtSpi2Core < Formula
   sha256 "0175f5393d19da51f4c11462cba4ba6ef3fa042abf1611a70bdfed586b7bfb2b"
 
   bottle do
-    sha256 "f47d8d5a2490d9455e366642b150b2466bcf8a2f3c2cea6e46e61f75f2d14898" => :mojave
-    sha256 "8b86b7d87d5cb4ee218dc60c6b8e27b4d3a89b6a82599423e0fd5edb40e71c3a" => :high_sierra
-    sha256 "7434c8470321ce6eaf7e0e8ae770b74234c861f912bba3fb1d81177bbd337478" => :sierra
-    sha256 "76ad7476a165d57556940a9511d640e812a1b87d8148814e8a1a735217475822" => :el_capitan
+    sha256 "fba527a12118cfbb6668f6517e6edd875e0ffb5a06d8ef5cb7efce62f6f362e9" => :mojave
+    sha256 "649bacc1ff2fa519645dd267e2ad3591a28777d0170c62dd94cb6b1bd7ab474a" => :high_sierra
+    sha256 "55cfa9b412a347885868f9429e79a8757501d634608b3bc677fbfb573a812458" => :sierra
+    sha256 "29cdd716e1961e90a94fd6a73a8f62b57f7a6180ce64aa23e08e84e61c0acd19" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
