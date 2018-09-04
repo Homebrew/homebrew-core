@@ -22,7 +22,11 @@ class SwitchaudioOsx < Formula
     xcodebuild "-project", "AudioSwitcher.xcodeproj",
                "-target", "SwitchAudioSource",
                "SYMROOT=build",
-               "-verbose"
+               "-verbose",
+               # Force 64-bit for Mojave
+               "-arch", "x86_64",
+               # Default target is 10.5, which fails on Mojave
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     prefix.install Dir["build/Release/*"]
     bin.write_exec_script "#{prefix}/SwitchAudioSource"
     chmod 0755, "#{bin}/SwitchAudioSource"
