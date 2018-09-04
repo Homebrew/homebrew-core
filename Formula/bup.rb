@@ -13,14 +13,7 @@ class Bup < Formula
     sha256 "462b39a188a6fd32d9df4812a629b3bf8692f38439125d98e58e306261277903" => :yosemite
   end
 
-  option "with-pandoc", "Build and install the manpages"
-  option "with-test", "Run unit tests after compilation"
-  option "without-web", "Build without repository access via `bup web`"
-
-  deprecated_option "run-tests" => "with-test"
-  deprecated_option "with-tests" => "with-test"
-
-  depends_on "pandoc" => [:optional, :build]
+  depends_on "pandoc" => :build
   depends_on "python@2"
 
   resource "backports_abc" do
@@ -60,23 +53,18 @@ class Bup < Formula
       if test -n \"$run_test\"; then
     EOS
 
-    if build.with? "web"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-      resources.each do |r|
-        r.stage do
-          system "python", *Language::Python.setup_install_args(libexec/"vendor")
-        end
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     system "make"
-    system "make", "test" if build.bottle? || build.with?("test")
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX="
 
-    if build.with? "web"
-      mv bin/"bup", libexec/"bup.py"
-      (bin/"bup").write_env_script libexec/"bup.py", :PYTHONPATH => ENV["PYTHONPATH"]
-    end
+    mv bin/"bup", libexec/"bup.py"
+    (bin/"bup").write_env_script libexec/"bup.py", :PYTHONPATH => ENV["PYTHONPATH"]
   end
 
   test do
