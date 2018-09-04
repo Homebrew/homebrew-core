@@ -152,6 +152,11 @@ class MariadbAT100 < Formula
       <true/>
       <key>WorkingDirectory</key>
       <string>#{var}</string>
+      <key>SoftResourceLimits</key>
+      <dict>
+      <key>NumberOfFiles</key>
+        <integer>4096</integer>
+      </dict>
     </dict>
     </plist>
   EOS

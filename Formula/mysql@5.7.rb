@@ -161,6 +161,11 @@ class MysqlAT57 < Formula
       <true/>
       <key>WorkingDirectory</key>
       <string>#{datadir}</string>
+      <key>SoftResourceLimits</key>
+      <dict>
+      <key>NumberOfFiles</key>
+        <integer>4096</integer>
+      </dict>
     </dict>
     </plist>
   EOS
