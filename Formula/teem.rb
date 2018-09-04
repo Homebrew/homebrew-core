@@ -15,26 +15,15 @@ class Teem < Formula
     sha256 "96733ab04a4a3a7feb5db5c95f58b0a0c1ef418b91988d1000898a46c142a3ec" => :mountain_lion
   end
 
-  option "with-experimental-apps", "Build experimental apps"
-  option "with-experimental-libs", "Build experimental libs"
-
-  deprecated_option "experimental-apps" => "with-experimental-apps"
-  deprecated_option "experimental-libs" => "with-experimental-libs"
-
   depends_on "cmake" => :build
   depends_on "libpng"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_SHARED_LIBS:BOOL=ON"
-    args << "-DBUILD_EXPERIMENTAL_APPS:BOOL=ON" if build.with? "experimental-apps"
-    args << "-DBUILD_EXPERIMENTAL_LIBS:BOOL=ON" if build.with? "experimental-libs"
-
     # Installs CMake archive files directly into lib, which we discourage.
     # Workaround by adding version to libdir & then symlink into expected structure.
-    args << "-DTeem_USE_LIB_INSTALL_SUBDIR:BOOL=ON"
-
-    system "cmake", *args
+    system "cmake", *std_cmake_args,
+                    "-DBUILD_SHARED_LIBS:BOOL=ON",
+                    "-DTeem_USE_LIB_INSTALL_SUBDIR:BOOL=ON"
     system "make", "install"
 
     lib.install_symlink Dir.glob(lib/"Teem-#{version}/*.dylib")
