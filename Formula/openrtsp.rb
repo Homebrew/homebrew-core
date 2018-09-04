@@ -3,7 +3,7 @@ class Openrtsp < Formula
   homepage "http://www.live555.com/openRTSP"
   url "http://www.live555.com/liveMedia/public/live.2018.08.28a.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  mirror "http://ftp.videolan.org/videolan/testing/contrib/live555/live.2018.08.28a.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2018.08.28a.tar.gz"
   sha256 "0aa6f60c8acf8a309119c02ad1bafca40af8105ce411ba2e6fdfbed9222f91ba"
 
   bottle do
