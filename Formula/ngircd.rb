@@ -13,34 +13,16 @@ class Ngircd < Formula
     sha256 "678de9420c8bd5661ec0a6c9418539684a874298c1b35a99684368aac365d2e2" => :yosemite
   end
 
-  option "with-iconv", "Enable character conversion using libiconv."
-  option "with-pam", "Enable user authentication using PAM."
-  option "with-sniffer", "Enable IRC traffic sniffer (also enables additional debug output)."
-  option "with-debug", "Enable additional debug output."
-
-  # Older Formula used the next option by default, so keep it unless
-  # deactivated by the user:
-  option "without-ident", "Disable 'IDENT' ('AUTH') protocol support."
-
-  depends_on "libident" if build.with? "ident"
+  depends_on "libident"
   depends_on "openssl"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --sysconfdir=#{HOMEBREW_PREFIX}/etc
-      --enable-ipv6
-      --with-openssl
-    ]
-
-    args << "--with-iconv" if build.with? "iconv"
-    args << "--with-ident" if build.with? "ident"
-    args << "--with-pam" if build.with? "pam"
-    args << "--enable-debug" if build.with? "debug"
-    args << "--enable-sniffer" if build.with? "sniffer"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{HOMEBREW_PREFIX}/etc",
+                          "--enable-ipv6",
+                          "--with-ident",
+                          "--with-openssl"
     system "make", "install"
 
     prefix.install "contrib/MacOSX/de.barton.ngircd.plist.tmpl" => "de.barton.ngircd.plist"
