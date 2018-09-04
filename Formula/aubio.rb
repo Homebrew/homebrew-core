@@ -14,15 +14,12 @@ class Aubio < Formula
   end
 
   depends_on :macos => :lion
-  depends_on "pkg-config" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "numpy"
   depends_on "python@2"
-  depends_on "libav" => :optional
-  depends_on "libsndfile" => :optional
-  depends_on "libsamplerate" => :optional
   depends_on "fftw" => :optional
-  depends_on "jack" => :optional
+  depends_on "libav" => :optional
 
   def install
     # Needed due to issue with recent cland (-fno-fused-madd))
