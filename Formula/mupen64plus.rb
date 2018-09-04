@@ -13,21 +13,11 @@ class Mupen64plus < Formula
     sha256 "6d9d9900813b21abc89149ded185d4b74147a85c1a350d54511ee535acde171c" => :el_capitan
   end
 
-  option "without-osd", "Disables the On Screen Display"
-  option "with-new-dynarec", "Replace dynamic recompiler with Ari64's experimental dynarec"
-  option "with-src", "Build with libsamplerate"
-  option "with-speex", "Build with libspeexdsp"
-
-  deprecated_option "disable-osd" => "without-osd"
-  deprecated_option "enable-new-dynarec" => "with-new-dynarec"
-
   depends_on "pkg-config" => :build
+  depends_on "boost"
+  depends_on "freetype"
   depends_on "libpng"
   depends_on "sdl"
-  depends_on "boost"
-  depends_on "freetype" if build.with? "osd"
-  depends_on "libsamplerate" if build.with? "src"
-  depends_on "speex" => :optional
 
   resource "rom" do
     url "https://github.com/mupen64plus/mupen64plus-rom/raw/76ef14c876ed036284154444c7bdc29d19381acc/m64p_test_rom.v64"
@@ -44,40 +34,34 @@ class Mupen64plus < Formula
     inreplace "source/mupen64plus-video-glide64mk2/src/Glide64/3dmath.cpp",
               "__builtin_ia32_storeups", "_mm_storeu_ps"
 
-    common_args = ["install", "PREFIX=#{prefix}", "INSTALL_STRIP_FLAG=-S"]
+    args = ["install", "PREFIX=#{prefix}", "INSTALL_STRIP_FLAG=-S"]
 
     cd "source/mupen64plus-core/projects/unix" do
-      args = common_args.dup
-      args << "OSD=0" if build.without? "osd"
-      args << "NEW_DYNAREC=1" if build.with? "new-dynarec"
       system "make", *args
     end
 
     cd "source/mupen64plus-audio-sdl/projects/unix" do
-      args = common_args.dup
-      args << "NO_SRC=1" if build.without? "src"
-      args << "NO_SPEEX=1" if build.without? "speex"
-      system "make", *args
+      system "make", *args, "NO_SRC=1", "NO_SPEEX=1"
     end
 
     cd "source/mupen64plus-input-sdl/projects/unix" do
-      system "make", *common_args
+      system "make", *args
     end
 
     cd "source/mupen64plus-rsp-hle/projects/unix" do
-      system "make", *common_args
+      system "make", *args
     end
 
     cd "source/mupen64plus-video-glide64mk2/projects/unix" do
-      system "make", *common_args
+      system "make", *args
     end
 
     cd "source/mupen64plus-video-rice/projects/unix" do
-      system "make", *common_args
+      system "make", *args
     end
 
     cd "source/mupen64plus-ui-console/projects/unix" do
-      system "make", *common_args
+      system "make", *args
     end
   end
 
