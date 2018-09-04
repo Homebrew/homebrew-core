@@ -22,6 +22,7 @@ class Jump < Formula
 
     system "go", "build", "-o", "#{bin}/jump"
     man1.install "man/jump.1"
+    man1.install "man/j.1"
   end
 
   test do
