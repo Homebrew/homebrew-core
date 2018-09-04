@@ -11,20 +11,11 @@ class Udunits < Formula
     sha256 "5fbd4d1d36e471bc71720b61a1d4a76b363e115fc71b74208fc5284883087bda" => :el_capitan
   end
 
-  option "with-html-docs", "Installs html documentation"
-  option "with-pdf-docs", "Installs pdf documentation"
-
-  deprecated_option "html-docs" => "with-html-docs"
-  deprecated_option "pdf-docs" => "with-pdf-docs"
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    args = %w[install]
-    args << "install-html" if build.with? "html-docs"
-    args << "install-pdf" if build.with? "pdf-docs"
-    system "make", *args
+    system "make", "install"
   end
 
   test do
