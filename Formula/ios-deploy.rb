@@ -14,10 +14,10 @@ class IosDeploy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34d44f6f2252037c01251e1ea0b19ac80eed08731547a0cf877b58886b8a24aa" => :high_sierra
-    sha256 "a37ba013cacf7f27f31e4637464313135b5813c323b79796cef8bec77b5304c5" => :sierra
-    sha256 "c8d610c15df4311f02670d578629dbea1f8ba31cdea6bdb7e36f1ead75e48be5" => :el_capitan
-    sha256 "a4849694da9a396a14a6e2f67418da862363d2c2f14a514eeab32d79c320587e" => :yosemite
+    sha256 "7d7f28b6bad93d0ffaaa4a0656f10caf03329a1dd087ff1dfd5b1b474665d2d6" => :mojave
+    sha256 "9a8dd08fb6f05f9aa94253cfcff8ee8d95d6e4ebd47df0273ef184c3a308f52e" => :high_sierra
+    sha256 "22cd1a7a916691d1a425377db4eceff20f686f83092c2141306bc4cdb3905573" => :sierra
+    sha256 "29649cb0452652d45245eedccd4c16474efd07a629f4a916540117a73865e0c0" => :el_capitan
   end
 
   depends_on :xcode => :build
