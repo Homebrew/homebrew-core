@@ -5,20 +5,20 @@ class I2pd < Formula
   sha256 "e424c368f92be5050f3dd5e98ed9ce2ea8d6076e36444c99b96e3b10f69420b1"
 
   depends_on "boost"
-  depends_on "openssl@1.1"
   depends_on "miniupnpc"
+  depends_on "openssl@1.1"
 
   needs :cxx11
 
   # That patches will be here till next release
   patch do
-    url "https://github.com/PurpleI2P/i2pd/commit/064460b95f656cb211995f88c66bea94d88224d4.diff"
-    sha256 "cb7652bda2c594f8d68773300eb150efd821da7a0999f4ec2122358547893e5d"
+    url "https://github.com/PurpleI2P/i2pd/commit/064460b95f656cb211995f88c66bea94d88224d4.diff?full_index=1"
+    sha256 "0d8503b7188bd7172d12c6b75e2928ab80606cc75400912a62eb28a4b0809978"
   end
 
   patch do
-    url "https://github.com/PurpleI2P/i2pd/commit/6fe1de5d869343a2b80fdd168c4276880bc57b3f.diff"
-    sha256 "c38bee106d97b20be3d474a9b8e8e51b32f590539feaef69eb5e600b5ac94ab1"
+    url "https://github.com/PurpleI2P/i2pd/commit/6fe1de5d869343a2b80fdd168c4276880bc57b3f.diff?full_index=1"
+    sha256 "073ba6c44eddeadbbb28c37846a9faedb5715b82b82519c6d00420f01f0fac6d"
   end
 
   def install
