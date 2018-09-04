@@ -13,32 +13,17 @@ class Vrpn < Formula
     sha256 "36e5273f8006b1fe5f1655e258f8937e06e9abc4ad849e2c9b1e7a1462fe790d" => :el_capitan
   end
 
-  option "with-clients", "Build client apps and tests"
-  option "with-docs", "Build doxygen-based API documentation"
-
-  deprecated_option "docs" => "with-docs"
-  deprecated_option "clients" => "with-clients"
-
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build if build.with? "docs"
   depends_on "libusb" # for HID support
 
   def install
     ENV.libstdcxx unless MacOS.version > :mavericks
 
-    args = std_cmake_args
-    args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
-    args << "-DVRPN_BUILD_JAVA:BOOL=OFF"
-
-    if build.with? "clients"
-      args << "-DVRPN_BUILD_CLIENTS:BOOL=ON"
-    else
-      args << "-DVRPN_BUILD_CLIENTS:BOOL=OFF"
-    end
-
     mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "doc" if build.with? "docs"
+      system "cmake", "..", *std_cmake_args,
+                            "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}",
+                            "-DVRPN_BUILD_CLIENTS:BOOL=OFF",
+                            "-DVRPN_BUILD_JAVA:BOOL=OFF"
       system "make", "install"
     end
   end
