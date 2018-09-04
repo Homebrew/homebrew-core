@@ -54,6 +54,8 @@ class Octave < Formula
   depends_on "texinfo"
   depends_on "veclibfort"
 
+  depends_on "qt" => :optional
+
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
@@ -63,6 +65,9 @@ class Octave < Formula
     # cause linking problems.
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
+    args = []
+    args << "--without-qt" if build.without? "qt"
+
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
@@ -71,13 +76,13 @@ class Octave < Formula
                           "--enable-shared",
                           "--disable-static",
                           "--without-osmesa",
-                          "--without-qt",
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
                           "--with-x=no",
                           "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
                           "--with-portaudio",
-                          "--with-sndfile"
+                          "--with-sndfile",
+                          *args
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
