@@ -12,21 +12,20 @@ class X3270 < Formula
   end
 
   option "with-x11", "Include x3270 (X11-based version)"
-  option "without-c3270", "Exclude c3270 (curses-based version)"
-  option "without-s3270", "Exclude s3270 (displayless version)"
-  option "without-tcl3270", "Exclude tcl3270 (integrated with Tcl)"
-  option "without-pr3287", "Exclude pr3287 (printer emulation)"
 
-  depends_on :x11 => :optional
   depends_on "openssl"
+  depends_on :x11 => :optional
 
   def install
-    args = ["--prefix=#{prefix}"]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-c3270
+      --enable-pr3287
+      --enable-s3270
+      --enable-tcl3270
+    ]
+
     args << "--enable-x3270" if build.with? "x11"
-    args << "--enable-c3270" if build.with? "c3270"
-    args << "--enable-s3270" if build.with? "s3270"
-    args << "--enable-tcl3270" if build.with? "tcl3270"
-    args << "--enable-pr3287" if build.with? "pr3287"
 
     system "./configure", *args
     system "make", "install"
