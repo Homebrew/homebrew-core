@@ -2,7 +2,7 @@ class Dante < Formula
   desc "SOCKS server and client, implementing RFC 1928 and related standards"
   homepage "https://www.inet.no/dante/"
   url "https://www.inet.no/dante/files/dante-1.4.2.tar.gz"
-  sha256 "baa25750633a7f9f37467ee43afdf7a95c80274394eddd7dcd4e1542aa75caad"
+  sha256 "4c97cff23e5c9b00ca1ec8a95ab22972813921d7fbf60fc453e3e06382fc38a7"
 
   bottle do
     cellar :any
