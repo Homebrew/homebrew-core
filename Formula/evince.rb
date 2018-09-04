@@ -1,8 +1,8 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.28/evince-3.28.3.tar.xz"
-  sha256 "9c02e8d60d36b73cded2c61d858453504ff0550eb4c4e598376284f72ec20642"
+  url "https://download.gnome.org/sources/evince/3.30/evince-3.30.0.tar.xz"
+  sha256 "cbd02d1c515fd7f17af1c96935e456d6ccba4d612d2d972a12079cc6b24e8cb9"
 
   bottle do
     sha256 "c330bc3a2c64ffc3803a017f474a9c489d8f69d8f0f5224bbe097048c4327394" => :mojave
@@ -15,16 +15,17 @@ class Evince < Formula
   depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "poppler"
-  depends_on "libxml2"
+  depends_on "adwaita-icon-theme"
+  depends_on "djvulibre"
+  depends_on "gspell"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
   depends_on "libsecret"
   depends_on "libspectre"
-  depends_on "shared-mime-info"
-  depends_on "djvulibre"
+  depends_on "libxml2"
+  depends_on "poppler"
   depends_on "python@2"
+  depends_on "shared-mime-info"
 
   def install
     # Fix build failure "ar: illegal option -- D"
