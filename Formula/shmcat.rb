@@ -12,28 +12,11 @@ class Shmcat < Formula
     sha256 "1b6ddaf528253df2e2d5b93e97b6f4ade717ff8f3f6bcf829ed7cf9d9e682539" => :el_capitan
   end
 
-  option "with-ftok", "Build the ftok utility"
-  option "with-gettext", "Build with Native Language Support"
-
-  deprecated_option "with-nls" => "with-gettext"
-
-  depends_on "gettext" => :optional
-
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--disable-ftok" if build.without? "ftok"
-
-    if build.with? "gettext"
-      args << "--with-libintl-prefix=#{Formula["gettext"].opt_include}"
-    else
-      args << "--disable-nls"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-ftok",
+                          "--disable-nls"
     system "make", "install"
   end
 
