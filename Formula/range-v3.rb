@@ -6,8 +6,10 @@ class RangeV3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a837181bf6969fd404634f358777025ac73923b44d6b79911f37770a2641564" => :mojave
-    sha256 "9bf428673c29823dd64d70ace970439b9d5e83bf4ffed0116e3c2ff86aaca445" => :el_capitan_or_later
+    rebuild 1
+    sha256 "a93d105ccdb20a6fd049ca369eb7eb4732432ed0d71a15a7434c5487209a11ba" => :high_sierra
+    sha256 "0332e059707ac24e467f524ce53c034d069c5cc5e9f4f64dac55a09a3c462c7e" => :sierra
+    sha256 "0332e059707ac24e467f524ce53c034d069c5cc5e9f4f64dac55a09a3c462c7e" => :el_capitan
   end
 
   depends_on "cmake" => :build
