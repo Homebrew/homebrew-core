@@ -3,7 +3,7 @@ class Gdal < Formula
   homepage "https://www.gdal.org/"
   url "https://download.osgeo.org/gdal/2.3.1/gdal-2.3.1.tar.xz"
   sha256 "9c4625c45a3ee7e49a604ef221778983dd9fd8104922a87f20b99d9bedb7725a"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "5fa9c5dde1d07ca4b273bb39eba94e7e10060299ce3784777d8d5689781c3586" => :mojave
@@ -40,6 +40,7 @@ class Gdal < Formula
   depends_on "python"
   depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
+  depends_on "zstd"
 
   depends_on "mysql" => :optional
 
@@ -92,6 +93,7 @@ class Gdal < Formula
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
       "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
       "--with-static-proj4=#{Formula["proj"].opt_prefix}",
+      "--with-zstd=#{Formula["zstd"].opt_prefix}",
 
       # Explicitly disable some features
       "--without-grass",
