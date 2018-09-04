@@ -15,10 +15,6 @@ class Libquicktime < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "jpeg" => :optional
-  depends_on "lame" => :optional
-  depends_on "schroedinger" => :optional
-  depends_on "libvorbis" => :optional
 
   # Fix CVE-2016-2399. Applied upstream on March 6th 2017.
   # Also, fixes from upstream for CVE-2017-9122 through CVE-2017-9128, applied
@@ -37,8 +33,8 @@ class Libquicktime < Formula
                           "--prefix=#{prefix}",
                           "--enable-gpl",
                           "--without-doxygen",
-                          "--without-x",
-                          "--without-gtk"
+                          "--without-gtk",
+                          "--without-x"
     system "make"
     system "make", "install"
   end
