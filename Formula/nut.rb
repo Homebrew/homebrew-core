@@ -21,25 +21,9 @@ class Nut < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-serial", "Omits serial drivers"
-  option "without-libusb-compat", "Omits USB drivers"
-  option "with-dev", "Includes dev headers"
-  option "with-net-snmp", "Builds SNMP support"
-  option "with-neon", "Builds XML-HTTP support"
-  option "with-powerman", "Builds powerman PDU support"
-  option "with-freeipmi", "Builds IPMI PSU support"
-  option "with-cgi", "Builds CGI wrappers"
-  option "with-libltdl", "Adds dynamic loading support of plugins using libltdl"
-
   depends_on "pkg-config" => :build
-  depends_on "libusb-compat" => :recommended
-  depends_on "net-snmp" => :optional
-  depends_on "neon" => :optional
-  depends_on "powerman" => :optional
-  depends_on "freeipmi" => :optional
+  depends_on "libusb-compat"
   depends_on "openssl"
-  depends_on "libtool" => :build
-  depends_on "gd" if build.with? "cgi"
 
   conflicts_with "rhino", :because => "both install `rhino` binaries"
 
@@ -49,29 +33,24 @@ class Nut < Formula
       system "./autogen.sh"
     end
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --localstatedir=#{var}
-      --without-doc
-      --without-avahi
-      --with-macosx_ups
-      --with-openssl
-      --without-nss
-      --without-wrap
-    ]
-    args << (build.with?("serial") ? "--with-serial" : "--without-serial")
-    args << (build.with?("libusb-compat") ? "--with-usb" : "--without-usb")
-    args << (build.with?("dev") ? "--with-dev" : "--without-dev")
-    args << (build.with?("net-snmp") ? "--with-snmp" : "--without-snmp")
-    args << (build.with?("neon") ? "--with-neon" : "--without-neon")
-    args << (build.with?("powerman") ? "--with-powerman" : "--without-powerman")
-    args << (build.with?("ipmi") ? "--with-ipmi" : "--without-ipmi")
-    args << "--with-freeipmi" if build.with? "ipmi"
-    args << (build.with?("libltdl") ? "--with-libltdl" : "--without-libltdl")
-    args << (build.with?("cgi") ? "--with-cgi" : "--without-cgi")
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--localstatedir=#{var}",
+                          "--with-macosx_ups",
+                          "--with-openssl",
+                          "--with-serial",
+                          "--with-usb",
+                          "--without-avahi",
+                          "--without-cgi",
+                          "--without-dev",
+                          "--without-doc",
+                          "--without-ipmi",
+                          "--without-libltdl",
+                          "--without-neon",
+                          "--without-nss",
+                          "--without-powerman",
+                          "--without-snmp",
+                          "--without-wrap"
     system "make", "install"
   end
 
