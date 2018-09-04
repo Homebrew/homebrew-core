@@ -14,14 +14,8 @@ class Mjpegtools < Formula
     sha256 "ba1ec63066197a9bb7fc53f075b17d66f739936b151e90e39a741b33f19eaa9f" => :yosemite
   end
 
-  depends_on :x11 => :optional
-
   depends_on "pkg-config" => :build
   depends_on "jpeg"
-  depends_on "libquicktime" => :optional
-  depends_on "libdv" => :optional
-  depends_on "gtk+" => :optional
-  depends_on "sdl_gfx" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
