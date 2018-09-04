@@ -1,5 +1,5 @@
 class Bzt < Formula
-  include Language::Python::Virtualenv 
+  include Language::Python::Virtualenv
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org"
