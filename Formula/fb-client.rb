@@ -8,9 +8,11 @@ class FbClient < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9f26906cb79f3255907b72fba1b42d8279004423d4203a7798ef99acedb09ea0" => :high_sierra
-    sha256 "e418a5b2e251764a73ed964a44d29373df204a8574d6957bb34b494f83fb7c6a" => :sierra
-    sha256 "8a0ca7bc19e9028a04c2e6e3f326bd09589ae41f504700e6c257d5b2857f96e2" => :el_capitan
+    rebuild 1
+    sha256 "57a826c072389e851488aa7926270a6ad3c5202bd9d3a878bcaebdd4df8d186c" => :mojave
+    sha256 "0ccd2fc01043e8f066d492105435ecf2230776d32873c1c2e389211efe5e4bc7" => :high_sierra
+    sha256 "af9c5a5aab957f2e99cf1a7b86dd0b108408a61c4b7d8438f0c1e28840118b4d" => :sierra
+    sha256 "f14ed5ba4447ed1161209080646351f3e4dcdf4d2872142d28d81b3a7fbcee4c" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
