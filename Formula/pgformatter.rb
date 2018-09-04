@@ -3,6 +3,7 @@ class Pgformatter < Formula
   homepage "https://sqlformat.darold.net/"
   url "https://github.com/darold/pgFormatter/archive/v3.0.tar.gz"
   sha256 "8cf2452d0e4a6448e86b80e9a0dbc9252729544150f3141d14192e33bc86fedb"
+  head "https://github.com/darold/pgFormatter.git"
 
   bottle do
     cellar :any_skip_relocation
