@@ -13,11 +13,7 @@ class Opencolorio < Formula
     sha256 "9eac0c648be323730035b3885b376db665408f02290efa9dd1263655029a914f" => :el_capitan
   end
 
-  option "with-test", "Verify the build with its unit tests (~1min)"
-  option "with-docs", "Build the documentation"
-
   deprecated_option "with-python" => "with-python@2"
-  deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -26,21 +22,15 @@ class Opencolorio < Formula
 
   def install
     args = std_cmake_args
-    args << "-DOCIO_BUILD_TESTS=ON" if build.with? "test"
-    args << "-DOCIO_BUILD_DOCS=ON" if build.with? "docs"
     args << "-DCMAKE_VERBOSE_MAKEFILE=OFF"
 
-    # Python note:
     # OCIO's PyOpenColorIO.so doubles as a shared library. So it lives in lib, rather
     # than the usual HOMEBREW_PREFIX/lib/python2.7/site-packages per developer choice.
     args << "-DOCIO_BUILD_PYGLUE=OFF" if build.without? "python@2"
 
-    args << ".."
-
     mkdir "macbuild" do
-      system "cmake", *args
+      system "cmake", *args, ".."
       system "make"
-      system "make", "test" if build.with? "test"
       system "make", "install"
     end
   end
