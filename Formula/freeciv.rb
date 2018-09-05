@@ -20,31 +20,20 @@ class Freeciv < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-nls", "Disable NLS support"
-  option "without-sdl", "Disable the SDL Freeciv client"
-
-  depends_on "gettext" if build.with? "nls"
-  depends_on "icu4c"
   depends_on "pkg-config" => :build
+  depends_on "atk"
+  depends_on "freetype"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "gtk+"
+  depends_on "icu4c"
+  depends_on "pango"
   depends_on "readline"
-
-  depends_on "sdl" => :recommended
-  if build.with? "sdl"
-    depends_on "freetype"
-    depends_on "sdl_image"
-    depends_on "sdl_gfx"
-    depends_on "sdl_mixer"
-    depends_on "sdl_ttf"
-  end
-
-  depends_on "gtk+" => :recommended
-  depends_on "gtk+3" => :optional
-  if build.with?("gtk+") || build.with?("gtk+3")
-    depends_on "atk"
-    depends_on "glib"
-    depends_on "pango"
-  end
-  depends_on "gdk-pixbuf" if build.with? "gtk+3"
+  depends_on "sdl"
+  depends_on "sdl_gfx"
+  depends_on "sdl_image"
+  depends_on "sdl_mixer"
+  depends_on "sdl_ttf"
 
   def install
     ENV["ac_cv_lib_lzma_lzma_code"] = "no"
@@ -55,15 +44,9 @@ class Freeciv < Formula
       --disable-gtktest
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
+      CFLAGS=-I#{Formula["gettext"].include}
+      LDFLAGS=-L#{Formula["gettext"].lib}
     ]
-
-    if build.without? "nls"
-      args << "--disable-nls"
-    else
-      gettext = Formula["gettext"]
-      args << "CFLAGS=-I#{gettext.include}"
-      args << "LDFLAGS=-L#{gettext.lib}"
-    end
 
     if build.head?
       inreplace "./autogen.sh", "libtoolize", "glibtoolize"
