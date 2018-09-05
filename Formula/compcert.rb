@@ -1,8 +1,8 @@
 class Compcert < Formula
   desc "Formally verified C compiler"
   homepage "http://compcert.inria.fr"
-  url "https://github.com/AbsInt/CompCert/archive/v3.3.tar.gz"
-  sha256 "9677806d7fef5651dd23e39f7bb26e6aecbe7d70d2f466cb746187a938c3b99b"
+  url "https://github.com/AbsInt/CompCert/archive/v3.4.tar.gz"
+  sha256 "7098136318ea1db90d9807a58fd27e90306e8022cb7d6e335ca2c13f3787ec89"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,24 +11,15 @@ class Compcert < Formula
     sha256 "93636c31e770c928d59079a5e7dc8845ad226452b7a35852d80d942fc30dd9e7" => :el_capitan
   end
 
-  option "with-config-x86_64", "Build Compcert with ./configure 'x86_64'"
-
   depends_on "coq" => :build
   depends_on "menhir" => :build
   depends_on "ocaml" => :build
 
   def install
-    ENV.permit_arch_flags
-
-    # Compcert's configure script hard-codes gcc. On Lion and under, this
-    # creates problems since Xcode's gcc does not support CFI,
-    # but superenv will trick it into using clang which does. This
-    # causes problems with the compcert compiler at runtime.
-    inreplace "configure", "${toolprefix}gcc", "${toolprefix}#{ENV.cc}"
-
-    args = ["-prefix", prefix]
-    args << (build.with?("config-x86_64") ? "x86_64-macosx" : "ia32-macosx")
-    system "./configure", *args
+    # We pass -ignore-coq-version, otherwise every new version of coq
+    # breaks the strict version check.
+    system "./configure", "-prefix", prefix, "x86_64-macosx",
+                          "-ignore-coq-version"
     system "make", "all"
     system "make", "install"
   end
