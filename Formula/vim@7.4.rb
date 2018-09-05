@@ -3,12 +3,13 @@ class VimAT74 < Formula
   homepage "https://www.vim.org/"
   url "https://github.com/vim/vim/archive/v7.4.2367.tar.gz"
   sha256 "a9ae4031ccd73cc60e771e8bf9b3c8b7f10f63a67efce7f61cd694cd8d7cda5c"
-  revision 10
+  revision 14
 
   bottle do
-    sha256 "1deefc2ef842a11dcb981e2082fee269124e021ea9c3716410058c047d346b3b" => :high_sierra
-    sha256 "c0cab85366ccef4d0c71df731aae3444b5c372461e78265351442c52b5b65bf3" => :sierra
-    sha256 "fb9421dcebf3adda3585a4829319ba4753090d8d2e49d0546eb97402a60ea56d" => :el_capitan
+    sha256 "56e20d97f411cfdc5e7a9bb24328687b72a6b2a1ed26e5356841c2649713084f" => :mojave
+    sha256 "18d50a974f9700ecae9d6c5164f091d27c1fcde4fc5841865201372f367df580" => :high_sierra
+    sha256 "e2d5e6d6f2f0880158daa46c2a6f8e283d515cd0a48902dfcd92812cab5e55f2" => :sierra
+    sha256 "5ed9a339642f5e553511886013d6eecd363827c5560033725142c4e193be5e78" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -35,6 +36,12 @@ class VimAT74 < Formula
   depends_on "luajit" => :optional
   depends_on "python@2" => :optional
   depends_on :x11 if build.with? "client-server"
+
+  # Python 3.7 compat
+  # Equivalent to upstream commit 24 Mar 2018 "patch 8.0.1635: undefining
+  # _POSIX_THREADS causes problems with Python 3"
+  # See https://github.com/vim/vim/commit/16d7eced1a08565a9837db8067c7b9db5ed68854
+  patch :DATA
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
@@ -118,3 +125,21 @@ class VimAT74 < Formula
     end
   end
 end
+
+__END__
+diff --git a/src/if_python3.c b/src/if_python3.c
+index 02d913492c..59c115dd8d 100644
+--- a/src/if_python3.c
++++ b/src/if_python3.c
+@@ -34,11 +34,6 @@
+ 
+ #include <limits.h>
+ 
+-/* Python.h defines _POSIX_THREADS itself (if needed) */
+-#ifdef _POSIX_THREADS
+-# undef _POSIX_THREADS
+-#endif
+-
+ #if defined(_WIN32) && defined(HAVE_FCNTL_H)
+ # undef HAVE_FCNTL_H
+ #endif

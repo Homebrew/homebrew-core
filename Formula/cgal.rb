@@ -1,20 +1,15 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases/CGAL-4.11.1/CGAL-4.11.1.tar.xz"
-  sha256 "fb152fc30f007e5911922913f8dc38e0bb969b534373ca0fbe85b4d872300e8b"
+  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.12.1/CGAL-4.12.1.tar.xz"
+  sha256 "8c4a65875a8aaad2e93001aba7ae1c6ccaba4f8fe03be3ad6195f773d6b3eaba"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "920a76fb9d6819cea0d8ca6c1e73539fceac1bba745b64748d881654052d504f" => :high_sierra
-    sha256 "979289bb481185a4eff6e23f611135e621de187066a4bb04ca41ac3782d5d81d" => :sierra
-    sha256 "fbc33a19d551d6996919117223f3343610e3b24cb9a88dbe6e1e2c5eec584554" => :el_capitan
-  end
-
-  devel do
-    url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.12-beta1/CGAL-4.12-beta1.tar.xz"
-    sha256 "32e877c60b4027c9daf9dd9c8c8359097e333327d06fe18d3768bb80e89183db"
+    sha256 "c8645dcc07c0c2be479d8521a835b824cc25a05a3be3857c8ab3c2240af265b3" => :mojave
+    sha256 "4996b3af224bece9348288878c47f4b1a6de780311c711a044ed85ee25b21d47" => :high_sierra
+    sha256 "b21b64f5f7806d599edf51dc030ec367aa420160d505e6ba8abb1752bacc9321" => :sierra
+    sha256 "ccbaa0179fe268ce00bb467759c29e626ff606b537963a6ee099980789c9f519" => :el_capitan
   end
 
   option "with-eigen", "Build with Eigen3 support"

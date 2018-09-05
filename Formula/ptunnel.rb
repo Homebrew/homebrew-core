@@ -7,6 +7,7 @@ class Ptunnel < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "3c8f8ec4d66e42ad4a6513a4c92e0f3e0babfebe25fb08ff4c690b1a37557fdd" => :mojave
     sha256 "67bd833b70dc704ab565d526fd99044e122a4e2fcd583b083db0a5f642d46041" => :high_sierra
     sha256 "048404c7b3fe3365abfc24fb623bf9548ed7e61458a00148348bbdc2f5f12f33" => :sierra
     sha256 "516181dbd16539c1f8817d65637bd42cc951d551e1a3b61a4d83dc6c71dc6397" => :el_capitan
@@ -23,7 +24,7 @@ class Ptunnel < Formula
 
     Alternatively, you can try using the -u flag to start ptunnel in 'unprivileged' mode,
     but this is not recommended. See https://www.cs.uit.no/~daniels/PingTunnel/ for details.
-    EOS
+  EOS
   end
 
   test do

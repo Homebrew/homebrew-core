@@ -6,6 +6,7 @@ class Serd < Formula
 
   bottle do
     cellar :any
+    sha256 "f93b549178bcccb52cc2cc939f25f772ad1c5d05c521ff4c277baae360ddb4a6" => :mojave
     sha256 "0c55076d7655da6d7d5154e24cd3d720fd9afcd610f5e7e9ee5af23859ab85f7" => :high_sierra
     sha256 "7c7c1f9317f0fd595bfcdb8214e510c10648f99cdf9be1464b272abd4fa223ea" => :sierra
     sha256 "8c0c40af6e4aaa222c37cd154d2ef80c6b13a50744d97e94139250a5e1a778a0" => :el_capitan

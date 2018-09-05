@@ -3,15 +3,16 @@ require "language/node"
 class IosSim < Formula
   desc "Command-line application launcher for the iOS Simulator"
   homepage "https://github.com/phonegap/ios-sim"
-  url "https://registry.npmjs.org/ios-sim/-/ios-sim-6.1.2.tgz"
-  sha256 "b0d9e6101ac8f3c2ee9cbb123d9d2bd68a8dc24f83b822f7e64b546033f4098a"
+  url "https://registry.npmjs.org/ios-sim/-/ios-sim-7.0.0.tgz"
+  sha256 "6893781e5caa9e036bfe2044b3044c3a937b2b96b5de18bed3e93b7508a87615"
   head "https://github.com/phonegap/ios-sim.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "379955a35ac341fa19eae987a941047ffcd6fb2c56a040294235551b90e71355" => :high_sierra
-    sha256 "fadd81993914e35a09afaf60ce846befbb5f99a0ca23b96044aff2a3a7d88425" => :sierra
-    sha256 "4f2f61d51031e95de2087d180deae32766a5e6251c43237460ae0b9a69e78627" => :el_capitan
+    sha256 "60e2635ae2bbf479b2fa0e474b015c66961b22896c77288309d60083a396dda2" => :mojave
+    sha256 "e4a81b35877e946824eb95f0c22b89f58078feaa14f7a4a3fc7891da6fbb744e" => :high_sierra
+    sha256 "e7d0afc30d8d276117fe47b8b4459af879e96a020b7eb4f6149aad99741fcbbb" => :sierra
+    sha256 "3285f588ff7aa51200a44b4a69497653b0bbef1df3399315a015f690bdd5c2df" => :el_capitan
   end
 
   depends_on :macos => :mountain_lion

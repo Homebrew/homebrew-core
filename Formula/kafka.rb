@@ -1,15 +1,15 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/1.0.0/kafka_2.12-1.0.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/1.0.0/kafka_2.12-1.0.0.tgz"
-  sha256 "d5b1d00752252d9c129e9284f26f8280e9899dd374167f257e29d5346eb544b3"
+  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/2.0.0/kafka_2.12-2.0.0.tgz"
+  sha256 "b5f1539c4030e6f6e64d0c14a9acea31156e7cbf2cb66c93ca2b6ca732ba7955"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b7cf01a3db765e85c0cc38399348822e7f628c43c36561d42fa241f119c5b0f3" => :high_sierra
-    sha256 "b7cf01a3db765e85c0cc38399348822e7f628c43c36561d42fa241f119c5b0f3" => :sierra
-    sha256 "b7cf01a3db765e85c0cc38399348822e7f628c43c36561d42fa241f119c5b0f3" => :el_capitan
+    sha256 "13097f912dc848c19d1f207f73c74adecfb43721245ff62f38fc9b384b03cc79" => :mojave
+    sha256 "723fb5b585ad4822695b985ced2e306aac2a45c2a8cd3f9d9cc4c8bc008f9f2a" => :high_sierra
+    sha256 "723fb5b585ad4822695b985ced2e306aac2a45c2a8cd3f9d9cc4c8bc008f9f2a" => :sierra
+    sha256 "723fb5b585ad4822695b985ced2e306aac2a45c2a8cd3f9d9cc4c8bc008f9f2a" => :el_capitan
   end
 
   depends_on "zookeeper"
@@ -74,7 +74,7 @@ class Kafka < Formula
         <string>#{var}/log/kafka/kafka_output.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
@@ -101,7 +101,7 @@ class Kafka < Formula
 
       system "#{bin}/kafka-topics --zookeeper localhost:2181 --create --if-not-exists --replication-factor 1 --partitions 1 --topic test > #{testpath}/kafka/demo.out 2>/dev/null"
       pipe_output("#{bin}/kafka-console-producer --broker-list localhost:9092 --topic test 2>/dev/null", "test message")
-      system "#{bin}/kafka-console-consumer --zookeeper localhost:2181 --topic test --from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
+      system "#{bin}/kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
       system "#{bin}/kafka-topics --zookeeper localhost:2181 --delete --topic test >> #{testpath}/kafka/demo.out 2>/dev/null"
     ensure
       system "#{bin}/kafka-server-stop"

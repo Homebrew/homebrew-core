@@ -1,15 +1,14 @@
 class Mlkit < Formula
   desc "Compiler for the Standard ML programming language"
   homepage "https://melsman.github.io/mlkit"
-  url "https://github.com/melsman/mlkit/archive/mlkit-4.3.9.tar.gz"
-  sha256 "3c6adbeb9a85f7b3586d0961fd3b170ff31e09fa0ff12889b76b9ceb459059c4"
+  url "https://github.com/melsman/mlkit/archive/mlkit-4.3.15.tar.gz"
+  sha256 "d047c7569318aef5160833aef434aee72c1aa5a7721e0db819fbeb9ad82bacb6"
   head "https://github.com/melsman/mlkit.git"
 
   bottle do
-    rebuild 1
-    sha256 "506bb73d7421593ea3bd76f8958ce61d161c9a7e724c525b1b32bedae61fa8dd" => :high_sierra
-    sha256 "2f6e573272e385556c38437c83017ce3ffb9279b091bdd3f6d815d6ef401940b" => :sierra
-    sha256 "3b1eeb563a56a67b8335bcfe94359482b068d12b9a34b033158ee642a2536056" => :el_capitan
+    sha256 "62c07bb142e52797537d38097653b3593954f5a2e3ea60c91eb0f377918962a9" => :high_sierra
+    sha256 "3ef50b1e44b2c41bc888a830b69488ac927303cd45c79bf7c902cf3d4e9a0f87" => :sierra
+    sha256 "6f88fc12dfebf563bd7ea7a96bf5a377c3e0fc0cfaed3c8205f9a75bcdec817e" => :el_capitan
   end
 
   depends_on "autoconf" => :build

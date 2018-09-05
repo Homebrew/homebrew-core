@@ -7,6 +7,7 @@ class Mpdviz < Formula
   sha256 "c34243ec3f3d91adbc36d608d5ba7082ff78870f2fd76a6650d5fb3218cc2ba3"
 
   bottle do
+    sha256 "7bec2924c89ed7553aff5a5c8c0d1fe611024f8533fbb0f257ce244a262aec24" => :mojave
     sha256 "f05e8482d844ded6507acbc60440add0e9cffb93060e4c57d0735e20493fc8a1" => :high_sierra
     sha256 "f76523028928595c731469cfaecbf2ab9201a90290d7c21e176b2cfc4560956d" => :sierra
     sha256 "9ba7f88de1dec1c4c6d4bdbb2f45541d43ae56c5039b2193c92186202a74322c" => :el_capitan

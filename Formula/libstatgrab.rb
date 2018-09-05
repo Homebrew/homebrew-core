@@ -7,6 +7,7 @@ class Libstatgrab < Formula
 
   bottle do
     cellar :any
+    sha256 "c8326d6713914ba30322309ed22bf7b43a602a052d3512c77d1ddf32a05c1655" => :mojave
     sha256 "100b7116b96c56d4643954b0bb9558b77480ee03f639239b32ed331f3b51d720" => :high_sierra
     sha256 "00a91b891f940b01a5ca5d341fb6c9248da6c87312b9ecefbd0aae9cc49b62c3" => :sierra
     sha256 "5cb49282a895e5b5229a59eedaae8a7ce7517ff6d56dc4837ddbd1601b72eaa9" => :el_capitan

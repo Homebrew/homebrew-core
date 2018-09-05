@@ -6,6 +6,7 @@ class Lrdf < Formula
 
   bottle do
     cellar :any
+    sha256 "1940f0eb408453bc179cc15c2588ad90eedeef608ec830a10881faee75c00d87" => :mojave
     sha256 "e15d0f6129cd4ba502860f0ab0367eceadf2a377be9dd25af30c52ebffd064c6" => :high_sierra
     sha256 "27f0d95eed42b70eb6685ffe8608465b0f39b88b544dbee080fe3decf81512ed" => :sierra
     sha256 "f615e775140216eff74cd0fe751ace5993030c00921574da635a44b41d8bba57" => :el_capitan

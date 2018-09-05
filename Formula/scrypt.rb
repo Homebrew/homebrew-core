@@ -6,6 +6,7 @@ class Scrypt < Formula
 
   bottle do
     cellar :any
+    sha256 "dbe434d01b09f02e1cc7fee6e163acd87d70270aecc355907fbf99dbc98fd59c" => :mojave
     sha256 "fa929a235e8b07184fd77a35fb38d0ce08e4d627130057144ba40873b355702d" => :high_sierra
     sha256 "d2f0f0170d78fae63833094fbdcb920489c9e04fb4579a0b82ca527ebd7bb12f" => :sierra
     sha256 "2028c6a6a14d6753deae95d35d94c75cfcc64633ed69b3fea7f9da7a47d079b1" => :el_capitan

@@ -5,6 +5,7 @@ class Dopewars < Formula
   sha256 "23059dcdea96c6072b148ee21d76237ef3535e5be90b3b2d8239d150feee0c19"
 
   bottle do
+    sha256 "4f3ddc708a41e33de69e23a625f40582edc8510c66bafd144eb6a20cb8d54fb9" => :mojave
     sha256 "86b78c8cee8505ad3bde0e2d52bf45a60ac388735c034a1450d3be1117937749" => :high_sierra
     sha256 "2cd2bcd5c69422ea725622831b054ce4d75656f085e7e919d2a5a055fed30037" => :sierra
     sha256 "019168fe18bb28f596bad5858bfd782473800920d9bb5cf71ce94ac90c4fcf5d" => :el_capitan

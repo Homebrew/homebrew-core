@@ -6,6 +6,7 @@ class Ironcli < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "99be404dee323b0bb405e77576414392ce3ff66462230efa129636e6a4e2c2a3" => :mojave
     sha256 "c4f4ad82734f93b32a2f64e1adaaf493fa38b4e34cbc9298fbbdc02851003343" => :high_sierra
     sha256 "14d4bcd4ac89e89fb09b27994ba372d1e25690724c99b7ffbfb0231466c01bca" => :sierra
     sha256 "62bed7f56cf23a148407527ff2b1234638ae0b365806ccc79c602ee081eed1dc" => :el_capitan
@@ -18,7 +19,7 @@ class Ironcli < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/iron-io/ironcli").install buildpath.children
     cd "src/github.com/iron-io/ironcli" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"iron"
       prefix.install_metafiles
     end

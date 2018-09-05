@@ -1,19 +1,16 @@
 class ChromeCli < Formula
   desc "Control Google Chrome from the command-line"
   homepage "https://github.com/prasmussen/chrome-cli"
-  url "https://github.com/prasmussen/chrome-cli/archive/1.5.0.tar.gz"
-  sha256 "c53a391b112411adef70b7162d2af1ba420cc9975ba1886bc2cfe56793b5ef91"
+  url "https://github.com/prasmussen/chrome-cli/archive/1.6.0.tar.gz"
+  sha256 "ff1fba560743cba7b661e8daef52d4494acc084da4a21c3fad211f7cdf5e971f"
   head "https://github.com/prasmussen/chrome-cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 4
-    sha256 "377700e9560a44f93c18af032346e333c944776d972b1d1e2d77f19526db60aa" => :high_sierra
-    sha256 "203479f2f1fc35640bdabe89ee6fa038a1e59dfc7a8abec1db79b74c63d0253a" => :sierra
-    sha256 "9bfb2379f8697da91606ea8b6e7c63240e6d20b184d5cdf72c4c7e63a959be16" => :el_capitan
-    sha256 "05deec5813a4979652a645737a7ed7868878934f77ee5c4cc27140e11811b2d1" => :yosemite
-    sha256 "4b40b52e047b6b8db966a75155d94d5c42d293c5b8058d1e887eb294e96129c9" => :mavericks
-    sha256 "ccdfa38c03563f671508958ec1be43ef47fa368e3bb7c78743964a809409acba" => :mountain_lion
+    sha256 "45226a0320842d8e3d717ffdf6e8828b9d1b5f52609757670f4d542fd722ee68" => :mojave
+    sha256 "b34f789eefdbb6312b05e4e55a71e9deaf889fe740e2d976cdf4279a0d74dd36" => :high_sierra
+    sha256 "31abf08f56dc906ec882cb4d7dc167424177c8849b8de8ecb71098afb249fc84" => :sierra
+    sha256 "e1d04616371d4c7147f884886d2e61df3bdea48c388dc50a684434f89b417792" => :el_capitan
   end
 
   depends_on :xcode => :build

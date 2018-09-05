@@ -6,6 +6,7 @@ class YamlCpp < Formula
 
   bottle do
     cellar :any
+    sha256 "ad5862fe71b309d1b37f9cda29e969e803b3c3ef93432b38faf68c4b7b5cf4f3" => :mojave
     sha256 "5e1d0907d3cb39861ff36476f8cabb78d9bdf4a9b228cd860502b03b280c226d" => :high_sierra
     sha256 "d081b409a0e7c60fc5c4d2c965b63fc0f0c7f3b1e36f61274719982ac5799b09" => :sierra
     sha256 "5ad764dbd25373bc0bd68b213c611650694fe69f36c90fcd746aa90bc876e8f3" => :el_capitan

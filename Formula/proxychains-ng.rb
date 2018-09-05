@@ -1,17 +1,15 @@
 class ProxychainsNg < Formula
   desc "Hook preloader"
   homepage "https://sourceforge.net/projects/proxychains-ng/"
-  url "https://github.com/rofl0r/proxychains-ng/releases/download/v4.12/proxychains-ng-4.12.tar.xz"
-  sha256 "482a549935060417b629f32ddadd14f9c04df8249d9588f7f78a3303e3d03a4e"
-  revision 1
-
+  url "https://github.com/rofl0r/proxychains-ng/archive/v4.13.tar.gz"
+  sha256 "ff15295efc227fec99c2b8131ad532e83e833a02470c7a48ae7e7f131e1b08bc"
   head "https://github.com/rofl0r/proxychains-ng.git"
 
   bottle do
-    sha256 "0ffdd8d99f0b9e6f3d90829dfb8237cefee718b9095c9432bd39d929b31c7240" => :high_sierra
-    sha256 "5e6fec4ad1150223a3c97d353b22085632dd634181ff85f7c125f49b74975710" => :sierra
-    sha256 "ac61e782f334b00180f7b0008e4c5da35ee9f5632821a806c99af7b144938916" => :el_capitan
-    sha256 "2298ad9f27411a1da59bd925bf9cf49ae5579d368acbaebf1c29103e84684a09" => :yosemite
+    sha256 "9d1d0ca3e57ab91965b863c2bf350242ef65bf7d7de275c19c01f29a9ea5d506" => :mojave
+    sha256 "71c967d3a664d42441ccd0917e4c47f58a5077c4e316279b9960529733826ac0" => :high_sierra
+    sha256 "231b56ce95d2df4d3949f919176033afca0ad5ac80250ee73fbdad5c2ee2709d" => :sierra
+    sha256 "211eff05f188af0e1555b44d0d93fce74458f5018280a9e1e02007c61192511c" => :el_capitan
   end
 
   def install

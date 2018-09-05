@@ -1,17 +1,15 @@
 class JpegArchive < Formula
   desc "Utilities for archiving JPEGs for long term storage"
   homepage "https://github.com/danielgtaylor/jpeg-archive"
-  url "https://github.com/danielgtaylor/jpeg-archive/archive/2.1.1.tar.gz"
-  sha256 "494534f5308f99743f11f3a7c151a8d5ca8a5f1f8b61ea119098511d401bc618"
+  url "https://github.com/danielgtaylor/jpeg-archive/archive/v2.2.0.tar.gz"
+  sha256 "3da16a5abbddd925dee0379aa51d9fe0cba33da0b5703be27c13a2dda3d7ed75"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6ed7044f3a66b2b5cfbb836105151f4fb191b3b2282d8dc8113c0381976d4545" => :high_sierra
-    sha256 "4b120d35b36e93a25730a5b5a074ecf0b0c8b10776c248bae55d91f924e320bf" => :sierra
-    sha256 "92d2c0b15ef19ef8f5a56cb0360f1ebaf897e5abf0040df6d8d49209dad5ae4d" => :el_capitan
-    sha256 "09a1ace83762b6f6f03eef2d86508d2c318f92657ec4ee6b763f2112003f02c2" => :yosemite
-    sha256 "2edb74f1692d640928729274949d673740dc08963e7abc99bb249da1bc1a2923" => :mavericks
-    sha256 "d28abe9b06370bce61d4520aa0c7943fc61eb70a847a01a3c541d211b542a22d" => :mountain_lion
+    sha256 "1fe424d0224c4d76e83aadcdbdbe7b2a4e63873651049ee13c66bc8c55fa916c" => :mojave
+    sha256 "2bb41fa08a695f6552524c21bd5e32434f248f8e41bd11574ce8a9d4cf104ea1" => :high_sierra
+    sha256 "fe29c7341dffa1ac8d52635ca217e5808c25a98c74748d71c389d951a46fe1cd" => :sierra
+    sha256 "0f70f902c57261d92bcb9c8602d46b939ca8f7a55bb535cce67324ae3f3920c7" => :el_capitan
   end
 
   depends_on "mozjpeg"

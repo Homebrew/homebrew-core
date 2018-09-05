@@ -1,6 +1,6 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
-  homepage "http://mapserver.org/"
+  homepage "https://mapserver.org/"
   url "https://download.osgeo.org/mapserver/mapserver-7.0.7.tar.gz"
   sha256 "37a8c3008328bae0fea05109d6d544a3284f756a23956e8a2f5ec10a6b5fef67"
   revision 2
@@ -105,7 +105,7 @@ class Mapserver < Formula
         extension="#{opt_lib}/php/extensions/php_mapscript.so"
       * Execute "php -m"
       * You should see MapScript in the module list
-    EOS
+  EOS
   end
 
   test do

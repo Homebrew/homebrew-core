@@ -7,6 +7,7 @@ class WatchSim < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c4f22fd7f296de0c9ace463d4a6b292212178e45a5c483201ee247cc9d33be75" => :mojave
     sha256 "79348a2b95cd3ad0398977a30e46a379cff2b7319941061eebd394342f90d8b2" => :high_sierra
     sha256 "4c0b4b9cf453585d826f3950eba375d8dea80194c50c8d5ab3a014dec9a49c0d" => :sierra
     sha256 "1a7666cc09ecf2228350ea766d0f8e3bd32ab545ac44d9b17b7dc42107c6f15d" => :el_capitan

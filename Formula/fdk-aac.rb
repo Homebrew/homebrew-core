@@ -6,6 +6,7 @@ class FdkAac < Formula
 
   bottle do
     cellar :any
+    sha256 "24dd7503944327a21fecc4b599364e4e75ac587d8e765ad533444161c27c29dd" => :mojave
     sha256 "d2ae46afcc4d6ac9357ab182950800d481d755eeac3dd8e53dcafa207cc6e27b" => :high_sierra
     sha256 "ba9e98f8efdc369531aba9de7d25e442c4c1392c3d4297e051ca3c58dcdb368f" => :sierra
     sha256 "f055e0e9755cf384a607738e2672ddfc2b63721f1ed271db5c16c7de1f868e01" => :el_capitan

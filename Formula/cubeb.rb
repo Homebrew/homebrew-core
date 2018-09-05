@@ -3,11 +3,11 @@ class Cubeb < Formula
   homepage "https://github.com/kinetiknz/cubeb"
   url "https://github.com/kinetiknz/cubeb/archive/cubeb-0.2.tar.gz"
   sha256 "cac10876da4fa3b3d2879e0c658d09e8a258734562198301d99c1e8228e66907"
-
   head "https://github.com/kinetiknz/cubeb.git"
 
   bottle do
     cellar :any
+    sha256 "d34baf923b56edec2ae8201857c55426584f35b47ef8e2e6577a38f684fbab75" => :mojave
     sha256 "618debffabe494dcde3e0d7e2231078df124ead8ee342886ab38ad7373f73e37" => :high_sierra
     sha256 "f89e89027370ea9da99f72f0af0529f9b63fbe31c434d3ccafdc7230664a41c2" => :sierra
     sha256 "f7e738b374bb07e1c420e56dfeb72caa814495b446c71d8158ef98c9b33d3a60" => :el_capitan

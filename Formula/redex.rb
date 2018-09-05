@@ -8,6 +8,7 @@ class Redex < Formula
 
   bottle do
     cellar :any
+    sha256 "1238aba94a455c15ab04cbe425c6b42afb8b0c31e117d9146686a1986386c6e4" => :mojave
     sha256 "3af2c80e3680ee759285ebb1939530b8f5e15315c6a98d64e2334ac6f1abb907" => :high_sierra
     sha256 "eeca9a5992edfc721cf08ea9c86d59c4110998af603e447213da01cc84d6216c" => :sierra
     sha256 "6bf545087ea1d01922b9cc5a157b941785b3e1abe339d45a50745ddfdf21d8fd" => :el_capitan
@@ -22,7 +23,7 @@ class Redex < Formula
   depends_on "jsoncpp"
 
   resource "test_apk" do
-    url "https://raw.githubusercontent.com/facebook/redex/master/test/instr/redex-test.apk"
+    url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
     sha256 "7851cf2a15230ea6ff076639c2273bc4ca4c3d81917d2e13c05edcc4d537cc04"
   end
 

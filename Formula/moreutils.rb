@@ -8,6 +8,7 @@ class Moreutils < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8c565db71d64ea9d4f7086a4dcce5476d6f1b9e80436bd6970c0567fc3d739fd" => :mojave
     sha256 "82df31e79d7946b055bb7be4e0cedf745bd96448114514d58509559736fe85fc" => :high_sierra
     sha256 "6f32d96f7023379b6cf4637bd65cf3e4fc0eb0b721991a625f0d38ba5145bfff" => :sierra
     sha256 "9f2e15ade4e996988704728fa9d3b9263a1337b33847ba68afb8863a3293162d" => :el_capitan
@@ -25,13 +26,11 @@ class Moreutils < Formula
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
     sha256 "458205b528818e741757b2854afac5f9af257f983000aae0c0b1d04b5a9cbbb8"
   end
 
   resource "IPC::Run" do
     url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/IPC-Run-0.94.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/T/TO/TODDR/IPC-Run-0.94.tar.gz"
     sha256 "2eb336c91a2b7ea61f98e5b2282d91020d39a484f16041e2365ffd30f8a5605b"
   end
 

@@ -5,11 +5,11 @@ class Vaulted < Formula
   homepage "https://github.com/miquella/vaulted"
   url "https://github.com/miquella/vaulted/archive/v2.2.0.tar.gz"
   sha256 "2b92f4973d4273dfb508f7e11469d072e91d0762864cf60ee720998024c0feb4"
-
   head "https://github.com/miquella/vaulted.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "41f696160fa092b0d80d6d4d267ff05f5fa10bdbb43ab2984bfb4ed93ded0540" => :mojave
     sha256 "db68eee1cf7831a4fcd07b446b1ec9e4e31f61180e43dc78d5609974d233bb89" => :high_sierra
     sha256 "f26213f97d628b3fd09da3499599ce809836d35a8d9066c4ca0956337e8004e2" => :sierra
     sha256 "d6cb9dee20339fe668adcf97447a6451f59e970ccef032cb97665582fa064ce4" => :el_capitan

@@ -6,6 +6,7 @@ class Pdftohtml < Formula
 
   bottle do
     rebuild 1
+    sha256 "bce2abacc7dcc8f397e0d4f82538492bdc00b085124e9c4ec71cd087f13d0d1a" => :mojave
     sha256 "082040145afee0addd7252e2042526113986eb251185923a0210333e6b5a3316" => :high_sierra
     sha256 "22264623cdbc31cb0d24f1a7fa5afa22a7fbea71f420877ab921611ea9b5c983" => :sierra
     sha256 "8ecdcb1b267387509e8efc6637f119c782a70c6d4326201e0e76f06eb29dbcc1" => :el_capitan

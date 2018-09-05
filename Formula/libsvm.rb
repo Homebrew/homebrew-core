@@ -7,6 +7,7 @@ class Libsvm < Formula
 
   bottle do
     cellar :any
+    sha256 "3fba9f6c0ce647a202c653b1f024d7dd53174aecbb4082b9333a1122309b36af" => :mojave
     sha256 "6fae589e624777638a8a5bc1c8b03e3bb48f88a61380b608273b44bd2d25aec4" => :high_sierra
     sha256 "39f3552e425be4bcb6e42d917b508bf94904520526c49ec52712c017680583fd" => :sierra
     sha256 "67867d2ddde33efd85da4c1a03757af0e3dcf591186552140876ddd11916d5df" => :el_capitan

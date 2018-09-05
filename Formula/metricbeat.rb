@@ -1,13 +1,15 @@
 class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/products/beats/metricbeat"
+  # Pinned at 6.2.x because of a licencing issue
+  # See: https://github.com/Homebrew/homebrew-core/pull/28995
   url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
   sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
-
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "61b1556e02c1e15dcf152b52ad3f0016314e6c631aa4a0597ce3907e0bd75f9f" => :mojave
     sha256 "5b8962f3d4f0a6844d029063b8df98e61a29b7ae5b0e41692222c3bdaa2b8aa9" => :high_sierra
     sha256 "8d569b6b800ea8681496651812b2431dd478a28028e2059a5ed8b3a1833ac8aa" => :sierra
     sha256 "f8c5c12f3fdf6dff8abaf1cb7077f8c71a26e8bafc9561f5a08f3d2e6fbbbe2d" => :el_capitan

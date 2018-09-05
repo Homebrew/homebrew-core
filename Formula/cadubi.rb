@@ -14,7 +14,7 @@ class Cadubi < Formula
   end
 
   test do
-    output = shell_output("script -q /dev/null #{bin}/cadubi -v | cat")
-    assert_match "cadubi (Creative ASCII Drawing Utility By Ian) #{version}\r\nCopyright (c) 2015 Ian Langworth", output # complete match because we are not checking the exit code
+    output = pipe_output("script -q /dev/null #{bin}/cadubi -v", "cat")
+    assert_match "cadubi (Creative ASCII Drawing Utility By Ian) #{version}", output
   end
 end

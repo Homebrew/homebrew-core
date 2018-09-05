@@ -7,6 +7,7 @@ class Lastfmfpclient < Formula
 
   bottle do
     cellar :any
+    sha256 "0b13f5df198a0118fc7d53df0d9155e4504598b8153fed1e1ab3617621b8fbab" => :mojave
     sha256 "65b9b1840dd935c6320b45eeffbba1251ee4a414ecd103c9bbe185416a9d36cd" => :high_sierra
     sha256 "f7bcdf3d68d7e4e5fcf1797a879755e97ea218c157ffb027d21d9d1f452ae6d7" => :sierra
     sha256 "f54f327160766c2b10f3f74fcdf698556200cec2e632370065675618470e02e1" => :el_capitan

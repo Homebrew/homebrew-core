@@ -3,11 +3,14 @@ class Ncmpc < Formula
   homepage "https://www.musicpd.org/clients/ncmpc/"
   url "https://www.musicpd.org/download/ncmpc/0/ncmpc-0.30.tar.xz"
   sha256 "e3fe0cb58b8a77f63fb1645c2f974b334f1614efdc834ec698ee7d861f1b12a3"
+  revision 1
 
   bottle do
-    sha256 "6ccc21b95ad0603a163fb790bd920ed680313ae75a93aac79e57a11ada7fbf6a" => :high_sierra
-    sha256 "fc2d55287927be971b13587c1cda6b379ad5804ec09ac8bbc85cd6b87c064e26" => :sierra
-    sha256 "242415e2c3fc29b9c863fd0ce5ff5b4ac66eccc17f79af4b102f43fddaf543fb" => :el_capitan
+    rebuild 1
+    sha256 "91d0a96cb5759db8de8d2fccce6be795cc671937adea732424376c76ff9ddd3b" => :mojave
+    sha256 "74568bc0dcd4f4ad0408328ae49fb85ae3e93efcbefb649d43736e72f8c27a5e" => :high_sierra
+    sha256 "0f155e4eaba3842210c76adeda3250c61f6819bfe108bfee429819c5c579b661" => :sierra
+    sha256 "45b4d4d41251246e32f9ceea92faf205f8059fac4c37fd69f7da2b72fd8e8bcc" => :el_capitan
   end
 
   depends_on "meson" => :build
@@ -24,7 +27,7 @@ class Ncmpc < Formula
   end
 
   def install
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
 
     # Fix undefined symbols _COLORS, _COLS, etc.
     # Reported 21 Sep 2017 https://github.com/MusicPlayerDaemon/ncmpc/issues/6

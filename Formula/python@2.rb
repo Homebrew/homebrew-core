@@ -1,21 +1,17 @@
 class PythonAT2 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/2.7.14/Python-2.7.14.tar.xz"
-  sha256 "71ffb26e09e78650e424929b2b457b9c912ac216576e6bd9e7d204ed03296a66"
-  revision 3
+  url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
+  sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
+  revision 1
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 1
-    sha256 "02d0b530c0fee00c7564a24ae9c0bde6c3b9028eb2a1b88e1b09a69481cb7ae5" => :high_sierra
-    sha256 "8ad21131c5fbc3843d5f9aa754ea5c352de0433c69f693f56e465ac3f7b96424" => :sierra
-    sha256 "99865efdb594d21e65bc74674267a73081fe1087043263b1f12675c046414d62" => :el_capitan
-  end
-
-  devel do
-    url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15rc1.tar.xz"
-    sha256 "d022fe643281d0f83a29dfd254d9c66d066bce0e2d57452d256b0886530227ec"
+    rebuild 3
+    sha256 "e715eaa42c561322bde619842486904e62269a3f04e93a1a5ee1d914aa98ae80" => :mojave
+    sha256 "b713f6116757c5899450836f1e4484c086d14e4d31a759b4faea45ee860d4e9a" => :high_sierra
+    sha256 "a690d38a18c08f8082384cd1009b2d5737c0f8f024592c38cc31350a6dd2cbaa" => :sierra
+    sha256 "d09aa60dc7f5aca86c285807cf6f6202b63a02e5a6cd3a112c6d81e8a7652b17" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
@@ -33,18 +29,18 @@ class PythonAT2 < Formula
   depends_on "tcl-tk" => :optional
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/e0/02/2b14188e06ddf61e5b462e216b15d893e8472fca28b1b0c5d9272ad7e87c/setuptools-38.5.2.zip"
-    sha256 "8246123e984cadf687163bdcd1bb58eb325e2891b066e1f0224728a41c8d9064"
+    url "https://files.pythonhosted.org/packages/ef/1d/201c13e353956a1c840f5d0fbf0461bd45bbd678ea4843ebf25924e8984c/setuptools-40.2.0.zip"
+    sha256 "47881d54ede4da9c15273bac65f9340f8929d4f0213193fa7894be384f2dcfa6"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
-    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
+    url "https://files.pythonhosted.org/packages/69/81/52b68d0a4de760a2f1979b0931ba7889202f302072cc7a0d614211bc7579/pip-18.0.tar.gz"
+    sha256 "a0e11645ee37c90b40c46d607070c4fd583e2cd46231b1c06e389c5e814eed76"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/fa/b4/f9886517624a4dcb81a1d766f68034344b7565db69f13d52697222daeb72/wheel-0.30.0.tar.gz"
-    sha256 "9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
+    url "https://files.pythonhosted.org/packages/2a/fb/aefe5d5dbc3f4fe1e815bcdb05cbaab19744d201bbc9b59cfa06ec7fc789/wheel-0.31.1.tar.gz"
+    sha256 "0a2e54558a0628f2145d2fc822137e322412115173e8a2ddbe1c9024338ae83c"
   end
 
   # Patch to disable the search for Tk.framework, since Homebrew's Tk is
@@ -100,7 +96,7 @@ class PythonAT2 < Formula
     # https://bugs.python.org/issue32616
     # https://github.com/Homebrew/homebrew-core/issues/22743
     if DevelopmentTools.clang_build_version >= 802 &&
-       DevelopmentTools.clang_build_version < 1000
+       DevelopmentTools.clang_build_version < 902
       args << "--without-computed-gotos"
     end
 
@@ -110,14 +106,16 @@ class PythonAT2 < Formula
     ldflags  = []
     cppflags = []
 
-    unless MacOS::CLT.installed?
-      # Help Python's build system (setuptools/pip) to build things on Xcode-only systems
+    if MacOS.sdk_path_if_needed
+      # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags   << "-isysroot #{MacOS.sdk_path}"
-      ldflags  << "-isysroot #{MacOS.sdk_path}"
-      cppflags << "-I#{MacOS.sdk_path}/usr/include" # find zlib
+      cflags  << "-isysroot #{MacOS.sdk_path}"
+      ldflags << "-isysroot #{MacOS.sdk_path}"
+      cflags  << "-I/usr/include" # find zlib
       # For the Xlib.h, Python needs this header dir with the system Tk
       if build.without? "tcl-tk"
+        # Yep, this needs the absolute path where zlib needed
+        # a path relative to the SDK.
         cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
     end
@@ -335,7 +333,7 @@ class PythonAT2 < Formula
       #{site_packages}
 
     See: https://docs.brew.sh/Homebrew-and-Python
-    EOS
+  EOS
   end
 
   test do

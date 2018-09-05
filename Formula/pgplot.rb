@@ -6,12 +6,13 @@ class Pgplot < Formula
   mirror "https://gentoo.osuosl.org/distfiles/pgplot522.tar.gz"
   version "5.2.2"
   sha256 "a5799ff719a510d84d26df4ae7409ae61fe66477e3f1e8820422a9a4727a5be4"
-  revision 5
+  revision 7
 
   bottle do
-    sha256 "fa50b8dc562ae8e2311640f8158564c1552a31cfdc9aed960129e4ec7f1804a1" => :high_sierra
-    sha256 "511d11937071d598d49eb9ed1ad959bfcd377a378825b63564790b5146b90dee" => :sierra
-    sha256 "53e71eff08e868a148f06c1624e94c3156e504cb8e9101aec9db22410fe0101e" => :el_capitan
+    sha256 "6cad7a8a0a86d1da33229741e3eaef5076f7d74b543e86c804c4be8f7e87dc7f" => :mojave
+    sha256 "6d5b648916ed3ba123ef88b51634ddb83e095cf6439fa8ed4b2ac948e8da57b7" => :high_sierra
+    sha256 "ae03d19097ec74e38a52ccef1782da14024cbd5df13f2d1b58cab1d0b1e43ee2" => :sierra
+    sha256 "91bd322f1fd2220e95fddad56b024c93ae6f446cd501cb6fbeafa4619fee9588" => :el_capitan
   end
 
   depends_on "gcc" # for gfortran
@@ -66,8 +67,8 @@ class Pgplot < Formula
       MFLAGC=""
       SYSDIR="$SYSDIR"
       CSHARED_LIB="libcpgplot.dylib"
-      CSHARED_LD="gfortan -dynamiclib -single_module $LDFLAGS -lX11"
-      EOS
+      CSHARED_LD="gfortran -dynamiclib -single_module $LDFLAGS -lX11"
+    EOS
 
     mkdir "build" do
       # activate drivers
@@ -91,15 +92,16 @@ class Pgplot < Formula
   end
 
   test do
-    (testpath/"test.f90").write <<~EOS
+    # build Fortran version of test program
+    (testpath/"pgtest.f90").write <<~EOS
          PROGRAM SIMPLE
          INTEGER I, IER, PGBEG
          REAL XR(100), YR(100)
          REAL XS(5), YS(5)
          data XS/1.,2.,3.,4.,5./
          data YS/1.,4.,9.,16.,25./
-         IER = PGBEG(0,'?',1,1)
-         IF (IER.NE.1) STOP
+         IER = PGOPEN('pgtest.png/PNG')
+         IF (IER.LE.0) STOP
          CALL PGENV(0.,10.,0.,20.,0,1)
          CALL PGLAB('(x)', '(y)', 'A Simple Graph')
          CALL PGPT(5,XS,YS,9)
@@ -108,10 +110,49 @@ class Pgplot < Formula
              YR(I) = XR(I)**2
       10 CONTINUE
          CALL PGLINE(60,XR,YR)
-         CALL PGEND
+         CALL PGCLOS
          END
     EOS
-    system "gfortran", "-o", "test", "test.f90", "-I/usr/X11/include",
-           "-L/usr/X11/lib", "-L#{lib}", "-lpgplot", "-lX11"
+    system "gfortran", "-o", "pgtest", "pgtest.f90", "-L#{lib}", "-lpgplot"
+
+    # build C version of test program
+    (testpath/"cpgtest.c").write <<~EOS
+      #include "cpgplot.h"
+
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <math.h>
+
+      int main()
+      {
+        int i;
+        static float xs[] = {1.0, 2.0, 3.0, 4.0, 5.0 };
+        static float ys[] = {1.0, 4.0, 9.0, 16.0, 25.0 };
+        float xr[60], yr[60];
+        int n = sizeof(xr) / sizeof(xr[0]);
+        if(cpgopen("cpgtest.png/PNG") <= 0)
+          return EXIT_FAILURE;
+        cpgenv(0.0, 10.0, 0.0, 20.0, 0, 1);
+        cpglab("(x)", "(y)", "A Simple Graph");
+        cpgpt(5, xs, ys, 9);
+        for(i=0; i<n; i++) {
+          xr[i] = 0.1*i;
+          yr[i] = xr[i]*xr[i];
+        }
+        cpgline(n, xr, yr);
+        cpgclos();
+        return EXIT_SUCCESS;
+      }
+    EOS
+    system ENV.cc, "-c", "-I#{include}", "cpgtest.c"
+    system "gfortran", "-o", "cpgtest", "cpgtest.o",
+           "-L#{lib}", "-lcpgplot", "-lpgplot"
+
+    # Produce PNG output with both programs and check if identical
+    system "./pgtest"
+    system "./cpgtest"
+    assert_predicate testpath/"pgtest.png", :exist?
+    assert_predicate testpath/"cpgtest.png", :exist?
+    assert_equal (testpath/"pgtest.png").read, (testpath/"cpgtest.png").read
   end
 end

@@ -7,6 +7,7 @@ class Redsocks < Formula
 
   bottle do
     cellar :any
+    sha256 "1b67d9a87cd77d247cb92ed210394d0fbdb91ac38b4c149f9c165e7c35030114" => :mojave
     sha256 "d0e52f2f1ceb50e6edb7f524a7bb62c7df2eaec870dffa7626dada91f25a5f9f" => :high_sierra
     sha256 "ccfba64129d3e3a01b1bba7d18564e7b1ac174ce4b7a1c41424e2985d7a97523" => :sierra
     sha256 "5d9e3f0dcc812146c27c7916052605be3f08b4be45682ccda27a9ab0dc97f574" => :el_capitan

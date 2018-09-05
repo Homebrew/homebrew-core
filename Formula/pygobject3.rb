@@ -1,35 +1,45 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
-  homepage "https://live.gnome.org/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.28/pygobject-3.28.2.tar.xz"
-  sha256 "ac443afd14fcb9ff5744b65d6e2b380e70510278404fb8684a9b9fb089e6f2ca"
+  homepage "https://wiki.gnome.org/Projects/PyGObject"
+  url "https://download.gnome.org/sources/pygobject/3.30/pygobject-3.30.0.tar.xz"
+  sha256 "7d20ba1475df922f4c26c69274ab89f7e7730d2101e46846caaddc53afd56bd0"
 
   bottle do
-    cellar :any
-    sha256 "40f262ce96d07a14e9e7949d42b9dda053203ce6ab5d5e16fa4fa6543dd8908c" => :high_sierra
-    sha256 "09e59b39dec8b7e44a6f3a74fe14c1c6ad06a5b879b0d936ba1478a766909564" => :sierra
-    sha256 "08a11bcd044482d90ce0b7482e5be7bd967e580e6224d85d39bb02e64f6a9906" => :el_capitan
+    sha256 "b2dc5ccd1ccb7a27c869edf6b4b8653088457e2fff29c2e83a5771b3284529de" => :mojave
+    sha256 "e7cdcda8c8b08569363811da5ddf6453b85975847dd30103181ac4c503d80fde" => :high_sierra
+    sha256 "974dc882d220f378dc2ea44a8bff6fa87b020fa48fe049e97cff24defa6cc170" => :sierra
+    sha256 "62af7aa4ba704a7b7ea9d55b9d08a7ce9ce787a30f13840523a5c67cf671e3e0" => :el_capitan
   end
 
   option "without-python", "Build without python3 support"
   option "with-python@2", "Build with python2 support"
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "libffi" => :optional
-  depends_on "glib"
+  depends_on "python" => [:build, :recommended]
+  depends_on "gobject-introspection"
   depends_on "python@2" => :optional
-  depends_on "python" => :recommended
   depends_on "py2cairo" if build.with? "python@2"
   depends_on "py3cairo" if build.with? "python"
-  depends_on "gobject-introspection"
 
   def install
-    Language::Python.each_python(build) do |python, _version|
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}",
-                            "PYTHON=#{python}"
-      system "make", "install"
-      system "make", "clean"
+    Language::Python.each_python(build) do |python, version|
+      mkdir "build#{version}" do
+        system "meson", "--prefix=#{prefix}",
+                        "-Dpycairo=true",
+                        "-Dpython=#{python}",
+                        ".."
+
+        # avoid linking against python framework
+        # reported at https://gitlab.gnome.org/GNOME/pygobject/issues/253
+        libs = Utils.popen_read("pkg-config --libs python-#{version}").chomp.split
+        dylib = libs[0][2..-1] + "/lib" + libs[1][2..-1] + ".dylib"
+        inreplace "build.ninja", dylib, ""
+
+        system "ninja", "-v"
+        system "ninja", "install"
+      end
     end
   end
 

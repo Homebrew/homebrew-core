@@ -24,7 +24,7 @@ class Hyperspec < Formula
          (setq common-lisp-hyperspec-issuex-table
                (concat common-lisp-hyperspec-root "Data/Map_IssX.txt"))))
 
-    EOS
+  EOS
   end
 
   test do

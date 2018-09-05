@@ -1,18 +1,21 @@
 class Yq < Formula
   desc "Process YAML documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/1.14.1.tar.gz"
-  sha256 "960aea76717309d9a4348dae77547a1e80bfd9646799e9e9a758d8554e761ca4"
+  url "https://github.com/mikefarah/yq/archive/v2.1.0.tar.gz"
+  sha256 "e451e5b53935be9d752c4d39a7c3ad311e483c4f3ffdd4a30bdbebfd13f89e93"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fa3095e1fcb4f8eeabd575089b7b28915164f10e0c595966e6ad5a452a5407e0" => :high_sierra
-    sha256 "4e9da4dd26496cd6de7852afa0c2c9ff4d951adf1ba384940ac06d924b65ee8a" => :sierra
-    sha256 "da5acccd05b210a6cea087ff1dd9b7d7f337693070c3898f891516f11b5aeb4d" => :el_capitan
+    sha256 "3e29166336ab371a3d42fb12f548642fd8a82e6e45fe6c5667197604540b2d31" => :mojave
+    sha256 "71c45044c484d75a7a6f6990fafb81ea00a629a7e9431f21f7ecfa847e733ebf" => :high_sierra
+    sha256 "2fa1a39829cfe39f5cdac1e256d4b2f958bbf3b41f282ff156f638e38b0f9dd5" => :sierra
+    sha256 "5ddee8d32af2a9b5013dfa36b5fcc3bb25a11faa444d2163b479455d67722a74" => :el_capitan
   end
 
   depends_on "go" => :build
   depends_on "govendor" => :build
+
+  conflicts_with "python-yq", :because => "both install `yq` executables"
 
   def install
     ENV["GOPATH"] = buildpath

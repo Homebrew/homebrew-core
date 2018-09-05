@@ -1,21 +1,22 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0h.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1-1.1.0h.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0h.tar.gz"
-  sha256 "5835626cde9e99656585fc7aaa2302a73a7e1340bf8c14fd635a62c66802a517"
+  url "https://www.openssl.org/source/openssl-1.1.0i.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1--1.1.0i.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0i.tar.gz"
+  sha256 "ebbfc844a8c8cc0ea5dc10b86c9ce97f401837f3fa08c17b2cdadc118253cf99"
   version_scheme 1
 
   bottle do
-    sha256 "bbd397eec4b1eccc2da9da7b546c07913339fdb475e46ddfeb034f628e17b2d9" => :high_sierra
-    sha256 "b9626f5fa02f1dd1087fe97fc801be03e531c200bf46eb86be0deba1a6d7cb18" => :sierra
-    sha256 "aefb8af514d06dcf80d50855bc5ca64ab128602a2ca6bf2dfe66844b94b462d8" => :el_capitan
+    sha256 "09e138ea390a64a51ab23fe12420eb59be0f693497833a7e4f10dc52a6029dcb" => :mojave
+    sha256 "1428d5cd74ef3781741afd1f88f94333c511876a6573297a32bb569c3f3b9a8a" => :high_sierra
+    sha256 "e4120f47f54bffed780ac6668607c9d397c8e4f514425856a076454ac25ef35f" => :sierra
+    sha256 "8a79a8364490b31e89614d7e92399bd809bf4ef5c584c0df8ad87ac9b6e7e7b8" => :el_capitan
   end
 
   devel do
-    url "https://www.openssl.org/source/openssl-1.1.1-pre5.tar.gz"
-    sha256 "0e5ff2f216cea5fa89af6dcd429c3c142acd7c786b0c4868a039689a2641cf3d"
+    url "https://www.openssl.org/source/openssl-1.1.1-pre9.tar.gz"
+    sha256 "95ebdfbb05e8451fb01a186ccaa4a7da0eff9a48999ede9fe1a7d90db75ccb4c"
   end
 
   keg_only :versioned_formula
@@ -98,7 +99,7 @@ class OpensslAT11 < Formula
 
     and run
       #{opt_bin}/c_rehash
-    EOS
+  EOS
   end
 
   test do

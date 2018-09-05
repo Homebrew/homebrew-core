@@ -6,6 +6,7 @@ class Envconsul < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3afd485ef223e959379e56774968260824b561a3be85328abcf5179f4d67839a" => :mojave
     sha256 "bcc86e79f07b429a1f11e23b0dec1d359fd5bbed13f7aba1ce300c2da8f6e637" => :high_sierra
     sha256 "6f66466edce5064c839d4328b819ea5e915474512153e72beea08b5846cb2b77" => :sierra
     sha256 "be7343c9cfa1c58fb65ad6eef20c99f27cd0a5dcfc5aba5851593c534e41882c" => :el_capitan

@@ -6,6 +6,7 @@ class Ck < Formula
 
   bottle do
     cellar :any
+    sha256 "6e2e0d09b44b40f9b7de309b651986e24666d33912e53fc2aefe98bdd1953345" => :mojave
     sha256 "1b22dfdda525fb4bd152a435f12753c83d13a585bbe5b201304a4b3fdfdc7e74" => :high_sierra
     sha256 "29ded4898ebd1f8dfa7fc5adb377a7b3404b8a9c1d11db5ab2e85c3cb6f62ad7" => :sierra
     sha256 "4e74455ae32382c6eb1b7077d1166e72c2d1f8f66c5c74fc0fc975323c6e1e40" => :el_capitan

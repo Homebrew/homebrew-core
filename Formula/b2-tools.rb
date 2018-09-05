@@ -3,14 +3,15 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.1.0.tar.gz"
-  sha256 "fae0dd48a2b6ab38cb142b91d7907a66144659d599bdfbf3c8995788ed29313b"
+  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.3.6.tar.gz"
+  sha256 "077d5e9b186d4cb0be1fcbeb3b80e1788d8b941b0fcfbf2c7386b8c6a653740c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "94ddeb7d56a0c164120429cf819001d950cce3ec7996f8057a7a1e20bf33f99b" => :high_sierra
-    sha256 "6210536251b3a1a4066a7b2cd0bc3e7a0b0173525a792da2e4003b917799b4d7" => :sierra
-    sha256 "a15207e3615b4865877c8d48976708c926e0d095303b4c95a49b196e14acda04" => :el_capitan
+    sha256 "d98488a36cf4eaab1e9b3b211ad1057a7dadf2ba2353a1f47a5d68efd4bb7533" => :mojave
+    sha256 "7b17d1d2aa1671dcbf66276656e9d5f53bb5854931a3e111c60c4d8975491a47" => :high_sierra
+    sha256 "1defd127e8d8aee3ee51a6c2d53409b1e29ba8c83dfef133d557c08f9935daa7" => :sierra
+    sha256 "3501141422e516c220615b4d30770cce7e65da9b6dcd6c55ea83ac183724714a" => :el_capitan
   end
 
   depends_on "python@2"
@@ -30,6 +31,6 @@ class B2Tools < Formula
 
   test do
     cmd = "#{bin}/b2 authorize_account BOGUSACCTID BOGUSAPPKEY 2>&1"
-    assert_match "bad_auth_token", shell_output(cmd, 1)
+    assert_match "unable to authorize account", shell_output(cmd, 1)
   end
 end

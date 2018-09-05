@@ -2,15 +2,15 @@ class Dcd < Formula
   desc "Auto-complete program for the D programming language"
   homepage "https://github.com/dlang-community/DCD"
   url "https://github.com/dlang-community/DCD.git",
-      :tag => "v0.9.2",
-      :revision => "d47d07aba8f07d053e104cf29f83fce60d8174a6"
-
+      :tag => "v0.9.10",
+      :revision => "5a73968870fc7b9ba76a76be1ae193c32d420b13"
   head "https://github.com/dlang-community/dcd.git", :shallow => false
 
   bottle do
-    sha256 "08cbfd6da2e2461e50c10f9229a1317485452115c0797860427c6bbe429c8dbc" => :high_sierra
-    sha256 "4faa1f86772d366d9ee6858bb2cd5a777d1a21868074c0d9cab4ee4d56e55abb" => :sierra
-    sha256 "17ed040b21aeffe43b2918b1a48cdcc7bbdd25b7c769e6c186292248ff21eecd" => :el_capitan
+    sha256 "f7c3ab067e1c1153857d8916aba9b00cc04e2dfb8dfa231a198f2d1ad602acb4" => :mojave
+    sha256 "739d4a82c6dbf4efe3adf9de486bef9365d559f505394f47820994259851cc26" => :high_sierra
+    sha256 "53c121c43c821cd3c6afdca30488f91448b76e1d292961edcd1fe4c632a89a58" => :sierra
+    sha256 "d6d1e661f523049d5bb6dde2008fbc9b2dccad64c847951f9aeb94ce30b27a97" => :el_capitan
   end
 
   depends_on "dmd" => :build

@@ -38,7 +38,7 @@ class Couchpotatoserver < Formula
         <string>#{`whoami`.chomp}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   def startup_script; <<~EOS
@@ -47,7 +47,7 @@ class Couchpotatoserver < Formula
            "--pid_file=#{var}/run/couchpotatoserver.pid"\
            "--data_dir=#{etc}/couchpotatoserver"\
            "$@"
-    EOS
+  EOS
   end
 
   test do

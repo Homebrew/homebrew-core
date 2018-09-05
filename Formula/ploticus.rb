@@ -7,6 +7,7 @@ class Ploticus < Formula
   revision 1
 
   bottle do
+    sha256 "b9ba4732a13508d6aba81b81c31a71ca65543fbcda431d57263f28255072087f" => :mojave
     sha256 "bfdaab8cdaf7c0c97e02caea8fa79e76e7ac85704d21591ced4a59914b4c5c26" => :high_sierra
     sha256 "06456d2606a86782cd75ee63f67e738e7ce33271902d3f4e7807d2061c0a5f4a" => :sierra
     sha256 "088f4ba0eea75ed4b401f94331b70dd64e23f02fa0d95731fbaccf6904c8cea5" => :el_capitan

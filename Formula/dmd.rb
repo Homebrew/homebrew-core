@@ -3,49 +3,30 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.079.1.tar.gz"
-    sha256 "86f125bcc9d1c3d47ed9211b033ebbb38f827a9d37466aa1d91cc1d76b2bb1e8"
+    url "https://github.com/dlang/dmd/archive/v2.081.2.tar.gz"
+    sha256 "390b51ff994da52fb02fd95ce71282540caa2e8ffd38945b37ee700559b4a3ec"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.079.1.tar.gz"
-      sha256 "9e943fbf38912ef8f71dd7252c0ca2284a23681c8e61a6ee38b317232b676792"
+      url "https://github.com/dlang/druntime/archive/v2.081.0.tar.gz"
+      sha256 "ab8a7b5c99a94a8e58b6761309997f5b54b317269769a8fe3b4a994aa65a4946"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.079.1.tar.gz"
-      sha256 "a8585ef4bbd19d02fab4054619324126985db4fdf4d4751a91bd2e6fb23b5fe9"
+      url "https://github.com/dlang/phobos/archive/v2.081.0.tar.gz"
+      sha256 "cd5785ebd83a5edc11cb31732042582c4a741c4aca491e538dc4ee382a60881f"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.079.1.tar.gz"
-      sha256 "37e04b77a0ff5e13350662945327dccba4bcd4975d45b61db2524eadad3d56fe"
+      url "https://github.com/dlang/tools/archive/v2.081.0.tar.gz"
+      sha256 "452ba1709dc6aa50a0a4363916119d9ed7bd261c421483c2b187f55f8c774d17"
     end
   end
 
   bottle do
-    sha256 "806f580107fd5d3984d77c186408d8c1f244571f40e59e6bc699eb6e5977e1b7" => :high_sierra
-    sha256 "34e236cd3c59bc213a497d822642cd32023b2eaa95c31daab2d90073eb158830" => :sierra
-    sha256 "4fb028165c2f6afb94b1c930f31069b8607e74344d74dbdc1e5e84580fd5a7e9" => :el_capitan
-  end
-
-  devel do
-    url "https://github.com/dlang/dmd/archive/v2.080.0-beta.1.tar.gz"
-    sha256 "a3ec6f5fe3705555263920299e5464e024892c7ad037b89f90b375cc97635dfa"
-
-    resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.080.0-beta.1.tar.gz"
-      sha256 "3ce24d7fb91575c0ffc88c84dd36f0de3782c5d9f1753b2a8a14c2c38eafbb25"
-    end
-
-    resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.080.0-beta.1.tar.gz"
-      sha256 "e2a989a424f4f571eee0f59b6b6f5bf438c15c28d7e18b1e127225e6666b9c3f"
-    end
-
-    resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.080.0-beta.1.tar.gz"
-      sha256 "f11f5849e350f8241865fefd026249b0eb036949e258d83254ff70449d99036a"
-    end
+    sha256 "8b2428199cef0f5d3eadd0e7f947d24c530597ae21d2b544afae54bb8f9509cc" => :mojave
+    sha256 "cd78f901eae3971a0bc6967ebf7da89d58f86a0a23a59b1c7afc95179b0a2b4d" => :high_sierra
+    sha256 "0916214f85d530de232bf969209a9326e5b5cd83421b581025c142f0a745b4fe" => :sierra
+    sha256 "2e0357261b2b1d3ece749d287c6496790831c9aa343499ff5b4b8384ba5b5423" => :el_capitan
   end
 
   head do
@@ -65,9 +46,11 @@ class Dmd < Formula
   end
 
   def install
-    make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "-f", "posix.mak"]
+    make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "BUILD=release", "-f", "posix.mak"]
 
-    system "make", "SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "RELEASE=1", *make_args
+    dmd_make_args = ["SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "ENABLE_RELEASE=1"]
+
+    system "make", *dmd_make_args, *make_args
 
     make_args.unshift "DMD_DIR=#{buildpath}", "DRUNTIME_PATH=#{buildpath}/druntime", "PHOBOS_PATH=#{buildpath}/phobos"
 

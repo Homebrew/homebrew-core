@@ -6,6 +6,7 @@ class Libguess < Formula
 
   bottle do
     cellar :any
+    sha256 "5de6d50300296e7913ad028c22275e773dc10d85fbef025b7b4811de7c6fe6a1" => :mojave
     sha256 "09045b0737c259c15b0cc7e44877d85b27a9b2f8fb5919fdb311cc2ce73784df" => :high_sierra
     sha256 "ddd983bfe42d5d862959ab0de2b27e398f149419c4b13d5ec5714925082f4c32" => :sierra
     sha256 "a498514b576d430711723ec36937902a326b29056655cc14e66398419cfd07a9" => :el_capitan

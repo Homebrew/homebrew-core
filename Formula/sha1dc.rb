@@ -10,6 +10,7 @@ class Sha1dc < Formula
 
   bottle do
     cellar :any
+    sha256 "1c12564c84282e1ddbac545864bd695527dca9026411725e4a4604eaed81ec8b" => :mojave
     sha256 "a489f11b91a88486274717eace83368f6b072b134ddc62001157b1fae9873dab" => :high_sierra
     sha256 "9eba4b19247672b715376e2086689e7418235d850a158636d2ba3deb46851933" => :sierra
     sha256 "32d59c039a26d232b35f3c1877ca8c78ba0a303866adefee002c017359b03267" => :el_capitan

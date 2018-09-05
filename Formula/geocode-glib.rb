@@ -6,6 +6,7 @@ class GeocodeGlib < Formula
   revision 1
 
   bottle do
+    sha256 "1d31652721465573282224be5d8221fe96eccd107ed511bcc0d23a2d8604b0a6" => :mojave
     sha256 "780bb3b6c0a4254b86b7ea19aaa38b7aefd64d3e426bb0ecffd1bec2ca0e48ff" => :high_sierra
     sha256 "46f57b5d17d403eac2ac15a9d855cc97419c657d6956d41893f9f9ac02809354" => :sierra
     sha256 "58a18aaf640e1b4788876082272dee570c7b8c3bf459463ec72f14d10a8bfc59" => :el_capitan

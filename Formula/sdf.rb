@@ -1,12 +1,13 @@
 class Sdf < Formula
   desc "Syntax Definition Formalism: high-level description of grammars"
-  homepage "http://strategoxt.org/Sdf/WebHome"
+  homepage "https://strategoxt.org/Sdf/WebHome"
   url "http://www.meta-environment.org/releases/sdf-2.6.3.tar.gz"
   sha256 "181ae979118d75c6163f2acec8e455952f3033378a4518b0b829d26a96e10b3d"
 
   bottle do
     cellar :any
     rebuild 1
+    sha256 "622635ef7983bccc9510e1c95e96af57da34345bbe20d85021a1145ee195be2d" => :mojave
     sha256 "7bb04c7929c2a4ba22edb621f57f5d3ae9dd27713978ed7ae3efe7cfe295503d" => :high_sierra
     sha256 "e30e7e02213cfabc3cf5a6499905eed7657ccaf84e4612a8b9ef1bba1b4b308b" => :sierra
     sha256 "7b99bc3c67466c7bde1e59908b82f023962e14df0e0ae83bfcebcd2e11ca5f29" => :el_capitan

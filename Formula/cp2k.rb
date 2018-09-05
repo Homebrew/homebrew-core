@@ -3,12 +3,13 @@ class Cp2k < Formula
   homepage "https://www.cp2k.org/"
   url "https://downloads.sourceforge.net/project/cp2k/cp2k-5.1.tar.bz2"
   sha256 "e23613b593354fa82e0b8410e17d94c607a0b8c6d9b5d843528403ab09904412"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "85d3a5ad5abc2e16391d30ad91ebe10517652598f17beac62265bd66f67a1eef" => :high_sierra
-    sha256 "9b516e4a0764b18f236a369b8f884d877a4ab08bf4fdfe66a29004f61695116b" => :sierra
-    sha256 "0f1e0c6fd23c666c9b6b253d9c6e035d1e973ea4dd6f65d02211e38be65700c1" => :el_capitan
+    sha256 "ad145bfd6e2388fcb2d9570b6470573290980fe849342b9366ffc812c042656b" => :mojave
+    sha256 "203473746541add0010fb52680c36cd541b1ace79e90de200a980fe772c44b46" => :high_sierra
+    sha256 "754a13384f62a38e102f2661e71cd3fe37c8e8c21b45812e72ba4daa994130c8" => :sierra
+    sha256 "4e5abf5bafe177b02507a4275802bdaf3ae0a2b7b88edd59b8d423af6bdb3b79" => :el_capitan
   end
 
   depends_on "fftw"

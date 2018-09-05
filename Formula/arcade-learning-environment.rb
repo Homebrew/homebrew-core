@@ -8,6 +8,7 @@ class ArcadeLearningEnvironment < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "1beafa718ffc4e150cf3ad410f6172488c6700f5004fe95898f5f7d20d39d154" => :mojave
     sha256 "f89556072efec9025561b663ab9f2f5c613104e014bd28b9bd2e39b98de1aae3" => :high_sierra
     sha256 "58daf6e1208b05e9fe09825a671c6821acc550d6f13ae4419bd47dee0c421181" => :sierra
     sha256 "453a32af23fe2e68897267d4cd0e8ed728b50e4623d98c6b9d55612e2bdcba29" => :el_capitan

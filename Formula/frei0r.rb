@@ -6,6 +6,7 @@ class Frei0r < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6e266a992b3858deb72a4d66af7682af477c5e28b0e47006dcaf56f247d80039" => :mojave
     sha256 "28ca48192fd55c2cf008a7a82fadc7336b35c27baae7388f52c6a5b7d2663605" => :high_sierra
     sha256 "c5c4efcf43d6c2cd495c82bfcf3839574b1d7f507b963151284ed186f53974a5" => :sierra
     sha256 "4f4e3e6ed474ba0e667f161e7e05c8cd8a3b67ad67201818ebc0cdac8e737220" => :el_capitan

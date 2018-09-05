@@ -1,16 +1,16 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.14.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.14.1.tar.gz"
-  sha256 "cdceff00ffe014495bed3aed71c7910aa88bf29379f795abc0f46d4ee5f8bc5f"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.18.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.18.tar.gz"
+  sha256 "b8822cb4769e2d759c828c06f196614936c88c141c3132b18252fe25c2b635ce"
 
   bottle do
     cellar :any
-    sha256 "72e9246d6863e40f2a552113ded63acb544ff1be01b362f5bbb738f92a2bf7da" => :high_sierra
-    sha256 "ea9588f15f24f3fc82dda8d41f669df639787481f3a7a3663e4b0f384ae7251f" => :sierra
-    sha256 "31da3139f5dc5bb66d02c3e677b9f975a2fd2f74ff1a8a6cb6468f39eb7d7e8d" => :el_capitan
+    sha256 "170273e1f15c2072f3ecd0fdd07c401780e839a9b52467aae7566dcfbd05a1d9" => :mojave
+    sha256 "8fff772638744417c4ff4794915f040d329f0406fbb807fa1320025deb3236f5" => :high_sierra
+    sha256 "114bf9b606f3801a8d6e553185503031342c803d92b423c4dcc94f6a973930d7" => :sierra
+    sha256 "115eabe29f9a47c93808e8670f0a5d8209bad4926947596d5c587a4db7cce0a0" => :el_capitan
   end
 
   option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
@@ -29,9 +29,6 @@ class Gdbm < Formula
 
     system "./configure", *args
     system "make", "install"
-
-    # Avoid breaking zsh login shells unnecessarily
-    ln_s "libgdbm.5.dylib", lib/"libgdbm.4.dylib"
   end
 
   test do

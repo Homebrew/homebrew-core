@@ -3,13 +3,12 @@ class LaunchSocketServer < Formula
   homepage "https://github.com/sstephenson/launch_socket_server"
   url "https://github.com/sstephenson/launch_socket_server/archive/v1.0.0.tar.gz"
   sha256 "77b7eebf54a1f0e0ce250b3cf3fa19eb6bee6cb6d70989a9b6cd5b6a95695608"
-
   revision 2
-
   head "https://github.com/sstephenson/launch_socket_server.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9b24bccedd9e8e8dde7e2efaec197cd7e7695830692074f64ebe916b4b5c8822" => :mojave
     sha256 "fe79eb83f0516ca648f75c0f0e2442ddbdd7475971b799e2cca56c75ae2f2cae" => :high_sierra
     sha256 "c41218460d421b9cbed6740f00ac0e1cd3a2d1a5fd91a58ba58f354e77faba55" => :sierra
     sha256 "393c5e9e891e553aa69f0233ac5966b014df4e63beda2a567e8c59bf34a167f8" => :el_capitan

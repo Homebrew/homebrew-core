@@ -1,12 +1,13 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
-  homepage "https://live.gnome.org/libgxps"
+  homepage "https://wiki.gnome.org/Projects/libgxps"
   url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
   sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
   revision 2
 
   bottle do
     cellar :any
+    sha256 "b1980e4de0e2d17d0232472ba8d1591d81196514461d89ea1b32a20d469ad4ad" => :mojave
     sha256 "c3e944367cacd85f4a7d2baa0c2d6174d80b586591b9664ef4b36f758ae597f9" => :high_sierra
     sha256 "4cfffe7346052e0b1e58d90c121a3f5019a5dbc84ba615f2b61d12489b6f83a6" => :sierra
     sha256 "98487c22daa05bf49ae4975759c71f568b574a55f96cdbdd9834c4d05293155c" => :el_capitan
@@ -65,20 +66,20 @@ class Libgxps < Formula
       <FixedDocumentSequence>
       <DocumentReference Source="/Documents/1/FixedDocument.fdoc"/>
       </FixedDocumentSequence>
-      EOS
+    EOS
     (testpath/"Documents/1/FixedDocument.fdoc").write <<~EOS
       <FixedDocument>
       <PageContent Source="/Documents/1/Pages/1.fpage"/>
       </FixedDocument>
-      EOS
+    EOS
     (testpath/"Documents/1/Pages/1.fpage").write <<~EOS
       <FixedPage Width="1" Height="1" xml:lang="und" />
-      EOS
+    EOS
     (testpath/"_rels/.rels").write <<~EOS
       <Relationships>
       <Relationship Target="/FixedDocumentSequence.fdseq" Type="http://schemas.microsoft.com/xps/2005/06/fixedrepresentation"/>
       </Relationships>
-      EOS
+    EOS
     [
       "_rels/FixedDocumentSequence.fdseq.rels",
       "Documents/1/_rels/FixedDocument.fdoc.rels",
@@ -86,7 +87,7 @@ class Libgxps < Formula
     ].each do |f|
       (testpath/f).write <<~EOS
         <Relationships />
-        EOS
+      EOS
     end
 
     Dir.chdir(testpath) do

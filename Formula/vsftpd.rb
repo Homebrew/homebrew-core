@@ -7,6 +7,7 @@ class Vsftpd < Formula
 
   bottle do
     rebuild 2
+    sha256 "5605a908ab4b24008e48f2280107695a7afaae8a1a521964b8f2248d2baa960a" => :mojave
     sha256 "dbfc9b28f5ea49dda09d31fb630d995b72fd63b83b358e04156329252c3ab25b" => :high_sierra
     sha256 "22349437bd4d75b1ffd2fddfd90f92367e0a4f478f540b9086457541883f2c3b" => :sierra
     sha256 "108243559f3fea06d140173a3e3cb497c2f22c47d45e85ae108c088c1a1370df" => :el_capitan
@@ -76,7 +77,7 @@ class Vsftpd < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

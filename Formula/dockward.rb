@@ -10,6 +10,7 @@ class Dockward < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "9c4eb789740a0b589faa9ccedcf3df90b6f68f1ab561806fe9aa750b91722800" => :mojave
     sha256 "50c2b838bbd89349e40050810a833cfea2803ac699cd006d47e796075be975b2" => :high_sierra
     sha256 "3dcac3afd57773d1c4b07b72f7f1bc9d66953dccccb0b3eadf7f40e43175d89b" => :sierra
     sha256 "b1b33f2b4db8242f9b422232d49bfde4c9b8fa0fa5053437366a9bc16795d9b5" => :el_capitan

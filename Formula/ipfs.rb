@@ -2,15 +2,16 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      :tag => "v0.4.14",
-      :revision => "5db38464bfea73e94cb96e011cf93051fe691e65"
+      :tag => "v0.4.17",
+      :revision => "dfd19c470e162ef906382683fd743a8571cede95"
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df19f3a4470facb659a08ae6ac3fe5c9ecaf9a8fd7eee23586e326c73a4c7d6f" => :high_sierra
-    sha256 "11842cd3d44b6ab9b0f07fb664d5c9df5ea2cf63f301b39b958bdf3fac97f71c" => :sierra
-    sha256 "5598b26f5293b4a12def593467ab5bfd1175cf82890ca6f45e9c28fed33bd3f0" => :el_capitan
+    sha256 "f5afb66ed65cc3feb8d4c05a3b108e41f0b8f10739aeaa53b588aa619e92053e" => :mojave
+    sha256 "5b3973c60e1c5bc3f84204941c94110ccdd3ebcfb8c67f25a11f83d1454c3e47" => :high_sierra
+    sha256 "6c536497e72cb744d729fb7a9aae9eca170ec491600996637ab44ab793ce4dee" => :sierra
+    sha256 "61a83ec128f164cac19cc3ead46edba2b2350b747a3190bee9340f8faaef5cf1" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -43,7 +44,7 @@ class Ipfs < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

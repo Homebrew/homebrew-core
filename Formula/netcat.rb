@@ -6,12 +6,11 @@ class Netcat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "002f66c9cae7c890fef27e7090c5815e0267a3a678c746702abe8578080b6d38" => :high_sierra
-    sha256 "5a8c59723d1f2a1f0ecf4772064469dd01dacf9ff40db0be7eaa1c4ef25dc910" => :sierra
-    sha256 "a600542d98c534b9790961b1f25c3e23276d1f7483c51efd06523129070a3f0e" => :el_capitan
-    sha256 "7ae495a909a2a25f6d8314857009a475034994234186682cc8dace4ea3c40b0c" => :yosemite
-    sha256 "fcdf724d792f286ff086a53f214b26eb2ebf61d6430e0f9305bf274b5faf85a5" => :mavericks
-    sha256 "d30aa6a393e3b6b28542e1d2a79252cda875e9a0dc817ad6b4920385669a2aaa" => :mountain_lion
+    rebuild 1
+    sha256 "3ac133de6b67a147954d78b9bd0c4c4cf4e0f43bdbbb98f51d8d962bb752d973" => :mojave
+    sha256 "879d9c32f09e9ef31cb672983707f9d95341f6639bb8a4db54d7a6ea0878b946" => :high_sierra
+    sha256 "9027fd429d5407fba0b3206bd0cd198c669f4744155efcf8e0dbdd6ba69b6d34" => :sierra
+    sha256 "1f346605e0236ea7880258da2abf0bde1d7d8d8735a07d6d32feaf12425ff6da" => :el_capitan
   end
 
   def install
@@ -21,6 +20,7 @@ class Netcat < Formula
                           "--mandir=#{man}",
                           "--infodir=#{info}"
     system "make", "install"
+    man1.install_symlink "netcat.1" => "nc.1"
   end
 
   test do

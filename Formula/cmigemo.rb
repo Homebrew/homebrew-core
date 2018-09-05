@@ -12,6 +12,7 @@ class Cmigemo < Formula
   end
   bottle do
     cellar :any
+    sha256 "28db47c1cedcff4dc6ee2d48bd07a147ae18f400e035e6a583d6b8e6cb36dfa1" => :mojave
     sha256 "a56e9422e30145d388649e9c85bf814adb58688c2c5e374385f4260b8daa049a" => :high_sierra
     sha256 "612544771bde1676044d35e8cb1f64134788580b76c59ced3b651e8996d46b51" => :sierra
     sha256 "866dfa4f493c088c1b2eb3cff23ed04e33862f7bc5dcff0976ce5b7cb4835dd2" => :el_capitan
@@ -34,7 +35,7 @@ class Cmigemo < Formula
   def caveats; <<~EOS
     See also https://github.com/emacs-jp/migemo to use cmigemo with Emacs.
     You will have to save as migemo.el and put it in your load-path.
-    EOS
+  EOS
   end
 end
 

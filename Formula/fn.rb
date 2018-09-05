@@ -1,14 +1,15 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
-  homepage "https://fnproject.github.io"
-  url "https://github.com/fnproject/cli/archive/0.4.72.tar.gz"
-  sha256 "d2f1e1052bce8b89bdf3d250e76ab98a8a8217731cbca5e0906398120345c7a7"
+  homepage "https://fnproject.io"
+  url "https://github.com/fnproject/cli/archive/0.4.151.tar.gz"
+  sha256 "5a1134757e31d3bd9f1d0c0d61f66b08aa5ccfdd36d27e692738a3e59fc2f2ca"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b6b5bf093a36071f04eb16569b308039b5539c269bea36cb3d7bef5cb472ef57" => :high_sierra
-    sha256 "152b89f110c3e38a2e85ba0dea450e36e03aa7a59bc615115571cd184f7fa629" => :sierra
-    sha256 "6163bfcd97160633d573e758dffd470a2b95e3764b8111b8830343a7cdc3922a" => :el_capitan
+    sha256 "180e8c667ad053b2c05a8314ef1b4d9d9d5b8239e2f28ed88f96897f0a92d5bf" => :mojave
+    sha256 "debb3aa6a0953083afd794e7e0e3a8f21ac2be7fd49167664ea9348221c4a905" => :high_sierra
+    sha256 "2f1a8785734b729300a12c480d427b65d42304c2ce4d4c171d2faa9282015d9d" => :sierra
+    sha256 "5a5c3a5ceba73b5033213ab06f9df0b019566a8c98274b14e454bf9780dbc11a" => :el_capitan
   end
 
   depends_on "dep" => :build
@@ -19,7 +20,7 @@ class Fn < Formula
     dir = buildpath/"src/github.com/fnproject/cli"
     dir.install Dir["*"]
     cd dir do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", "#{bin}/fn"
       prefix.install_metafiles
     end
@@ -49,7 +50,7 @@ class Fn < Formula
       ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"
       expected = "/myfunc created with fnproject/myfunc"
-      output = shell_output("#{bin}/fn routes create myapp myfunc --image fnproject/myfunc:0.0.1")
+      output = shell_output("#{bin}/fn create routes myapp myfunc fnproject/myfunc:0.0.1")
       assert_match expected, output.chomp
     ensure
       Process.kill("TERM", pid)

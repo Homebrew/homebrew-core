@@ -1,52 +1,44 @@
 class Gitup < Formula
+  include Language::Python::Virtualenv
+
   desc "Update multiple git repositories at once"
   homepage "https://github.com/earwig/git-repo-updater"
   url "https://github.com/earwig/git-repo-updater.git",
-    :revision => "bf66406c10d3e7654ca3f56f4ec6b57bcc068fea",
-    :tag => "v0.4.1"
+      :tag => "v0.5",
+      :revision => "ba5eec698999c36cb3d603ae46baa6f076b7b695"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8a11d7864ef368045ba5ebed1580fe3a22f4e04b24f4f24c9678eefbf186afc7" => :high_sierra
-    sha256 "8a11d7864ef368045ba5ebed1580fe3a22f4e04b24f4f24c9678eefbf186afc7" => :sierra
-    sha256 "c1659d82d045517de16860042a53360b5ce061c8d13e57b8ea15db624ad7289f" => :el_capitan
+    sha256 "80a1da9109342ec500c6cdb89c7a90b79048a80438d20368169cfc03b2f57776" => :mojave
+    sha256 "013423ddf1b0b48b22cf16fcc60b35f3e06e73615f24dc226fa004669d09e392" => :high_sierra
+    sha256 "2b3a5f5cdc84e26488f87e2fdc390612bc79c016fb5ce2915eddc8c49dc71473" => :sierra
+    sha256 "3099d2c8e9b7adb5150b23d08f95832808e8d175186f25109459f106c3d31564" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/source/c/colorama/colorama-0.3.9.tar.gz"
+    url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
     sha256 "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"
   end
 
-  resource "smmap2" do
-    url "https://files.pythonhosted.org/packages/source/s/smmap2/smmap2-2.0.3.tar.gz"
-    sha256 "c7530db63f15f09f8251094b22091298e82bf6c699a6b8344aaaef3f2e1276c3"
-  end
-
   resource "gitdb2" do
-    url "https://files.pythonhosted.org/packages/source/g/gitdb2/gitdb2-2.0.3.tar.gz"
-    sha256 "b60e29d4533e5e25bb50b7678bbc187c8f6bcff1344b4f293b2ba55c85795f09"
+    url "https://files.pythonhosted.org/packages/b9/36/4bdb753087a9232899ac482ee2d5da25f50b63998d661aa4e8170acd95b5/gitdb2-2.0.4.tar.gz"
+    sha256 "bb4c85b8a58531c51373c89f92163b92f30f81369605a67cd52d1fc21246c044"
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/source/G/GitPython/GitPython-2.1.8.tar.gz"
-    sha256 "ad61bc25deadb535b047684d06f3654c001d9415e1971e51c9c20f5b510076e9"
+    url "https://files.pythonhosted.org/packages/4d/e8/98e06d3bc954e3c5b34e2a579ddf26255e762d21eb24fede458eff654c51/GitPython-2.1.11.tar.gz"
+    sha256 "8237dc5bfd6f1366abeee5624111b9d6879393d84745a507de0fda86043b65a8"
+  end
+
+  resource "smmap2" do
+    url "https://files.pythonhosted.org/packages/ad/e9/0fb974b182ff41d28ad267d0b4201b35159619eb610ea9a2e036817cb0b8/smmap2-2.0.4.tar.gz"
+    sha256 "dc216005e529d57007ace27048eb336dcecb7fc413cfb3b2f402bb25972b69c6"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    %w[colorama smmap2 gitdb2 GitPython].each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

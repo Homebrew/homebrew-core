@@ -30,7 +30,7 @@ class TomeeWebprofile < Formula
       #{opt_libexec}
     To run Apache TomEE:
       #{opt_libexec}/bin/tomee-webprofile-startup
-    EOS
+  EOS
   end
 
   test do

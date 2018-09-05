@@ -7,6 +7,7 @@ class GnuApl < Formula
 
   bottle do
     rebuild 1
+    sha256 "a9eb61a290f98be04bf57a90202a6c86f74e485c0ee5e7c0178d15d254bb1b00" => :mojave
     sha256 "33e8f7db591cfbd0fda5b244acbf13f21e9507a6b534b9cd2735c2dc37f16424" => :high_sierra
     sha256 "1b7b6f3d268ac7f32f1d23e64be979cbf382b728c92c6e852f75b09eb19fddfb" => :sierra
     sha256 "797a920a7f564443b7a7b5c5ee065e6d6da25e2395c87dc6f1846adc3dedd109" => :el_capitan

@@ -6,6 +6,7 @@ class Nrpe < Formula
 
   bottle do
     cellar :any
+    sha256 "d17a16f0cac16d2c1e075df0834a6c77e4a3489339185e0dc645250597f69cbf" => :mojave
     sha256 "98eb09fe948052448134155aad5cc16892f9cffeba075cfc9afeb38219047806" => :high_sierra
     sha256 "d589496fa3b62e1425f93ebf928234bcfec81cf342837e7b741c9def56ea3e28" => :sierra
     sha256 "50cafb3e1545d93f0ad248a2696b83b90fa3fbb6e5afc731d72779ddab0bf6a0" => :el_capitan
@@ -69,7 +70,7 @@ class Nrpe < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

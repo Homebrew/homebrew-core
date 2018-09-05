@@ -7,6 +7,7 @@ class Ib < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9ef753d03b8c2d62f37fc8d2eb112f14ca6fb9227d409a42e6c75c6f0b4f48e1" => :mojave
     sha256 "51b002426c06c820d4133e3b88ac9264aad81b7c554d08991ced951a0f43e0e1" => :high_sierra
     sha256 "51b002426c06c820d4133e3b88ac9264aad81b7c554d08991ced951a0f43e0e1" => :sierra
     sha256 "51b002426c06c820d4133e3b88ac9264aad81b7c554d08991ced951a0f43e0e1" => :el_capitan

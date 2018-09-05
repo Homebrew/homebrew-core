@@ -1,26 +1,19 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
-  revision 2
 
   stable do
-    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.0.tar.xz"
-    sha256 "6afa35747d528d3ab4ed8f5eac13f7235d7d28100d6a24dd78f81ec7c0d04688"
+    url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.2.tar.xz"
+    sha256 "c0575e2811860bfff59b865b8d125153859a01f0615fa41e279b64d88d25caad"
 
-    if MacOS.version == :high_sierra
-      # Fix for illegal instruction error in osxvideosink https://bugzilla.gnome.org/show_bug.cgi?id=786047
-      patch do
-        url "https://bug786047.bugzilla-attachments.gnome.org/attachment.cgi?id=357262"
-        sha256 "1268a98ae3463ee61e5be3ea186701e75fb84fc9a0c9d280c2fc07faa2732201"
-      end
-    end
     depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "999b68468918483a764a23bb92d4069bb017751276100ec7f6886844d2388334" => :high_sierra
-    sha256 "b44a2a8ebec5d6a1957b05e76f8f287bca69ec4cebe3f7a701a6ad3646fe6857" => :sierra
-    sha256 "19874be2a3749c2b4f4f9c6c31c3b04062117894644a6f333c31e96111e2705a" => :el_capitan
+    sha256 "65d6095b61597becf765646e35d30e0a58293fe2e94ea8f716d20509905e0d57" => :mojave
+    sha256 "d9662303e702a1dd2c521ce3b4d0acf85181ec72ffe8e29e97b01ae97af19d5a" => :high_sierra
+    sha256 "42582defb0dff9b1d6bdec017f8bfb22440d6fe8f479b2e1736eb8e4b711c043" => :sierra
+    sha256 "5c40515683b558638307ea9511b63b86f3970038fd06be9eb21b660eb2a2cff5" => :el_capitan
   end
 
   head do
@@ -47,7 +40,8 @@ class GstPluginsGood < Formula
   depends_on "gdk-pixbuf" => :optional
   depends_on "aalib" => :optional
   depends_on "cairo" => :optional
-  depends_on "flac" => [:optional, "with-libogg"]
+  depends_on "flac" => :optional
+  depends_on "gtk+3" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
   depends_on "libpng" => :optional
@@ -59,8 +53,6 @@ class GstPluginsGood < Formula
   depends_on "pulseaudio" => :optional
   depends_on "jack" => :optional
 
-  depends_on "libogg" if build.with? "flac"
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -71,6 +63,8 @@ class GstPluginsGood < Formula
       --disable-dependency-tracking
       --disable-silent-rules
     ]
+
+    args << "--enable-gtk3" if build.with? "gtk+3"
 
     if build.with? "x11"
       args << "--with-x"

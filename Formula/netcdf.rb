@@ -4,11 +4,13 @@ class Netcdf < Formula
   url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-4.6.1.tar.gz"
   mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.6.1.tar.gz"
   sha256 "89c7957458740b763ae828c345240b8a1d29c2c1fed0f065f99b73181b0b2642"
+  revision 3
 
   bottle do
-    sha256 "0ab18b0e0cb8e0e389573de7b712da2195ab70457d857a308b21183b943771bf" => :high_sierra
-    sha256 "edb5de2eae06ecbc8fda68165596e7d86b6bbe3428b01f75b933cf61003c9bfe" => :sierra
-    sha256 "600a7793a3e2a425f89ec51b36acd480841116f6b43fde4594a1f187aa2027bb" => :el_capitan
+    sha256 "a3a1ca395fa37e0038e4c65c2f17feb256f456c0f1339e3383b3a3a0ef224a68" => :mojave
+    sha256 "b2664c9bc67a255c809daed9c618dbf9ed09145c3be8567d22509a97c7aef20e" => :high_sierra
+    sha256 "d69ae7f3b53834ff7d3e05ba44cafd2e7d4019d51045c390015f88bdcc80aa07" => :sierra
+    sha256 "2a6555bfb8b699afe5ca234afbdecd028630e0be668c7ded37ac5246063c4c8c" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -134,7 +136,7 @@ class Netcdf < Formula
           if (status /= nf90_noerr) call abort
         end subroutine check
       end program test
-      EOS
+    EOS
     system "gfortran", "test.f90", "-L#{lib}", "-I#{include}", "-lnetcdff",
                        "-o", "testf"
     system "./testf"

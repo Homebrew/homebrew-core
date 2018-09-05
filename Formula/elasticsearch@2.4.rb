@@ -3,12 +3,13 @@ class ElasticsearchAT24 < Formula
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.6/elasticsearch-2.4.6.tar.gz"
   sha256 "5f7e4bb792917bb7ffc2a5f612dfec87416d54563f795d6a70637befef4cfc6f"
+  revision 1
 
   bottle :unneeded
 
   keg_only :versioned_formula
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -49,7 +50,9 @@ class ElasticsearchAT24 < Formula
     (etc/"elasticsearch/scripts").mkpath
     (libexec/"config").rmtree
 
-    bin.write_exec_script Dir[libexec/"bin/elasticsearch"]
+    bin.install libexec/"bin/elasticsearch",
+                libexec/"bin/plugin"
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
   def post_install
@@ -66,7 +69,7 @@ class ElasticsearchAT24 < Formula
     Plugins: #{libexec}/plugins/
     Config:  #{etc}/elasticsearch/
     plugin script: #{libexec}/bin/plugin
-    EOS
+  EOS
   end
 
   plist_options :manual => "elasticsearch"

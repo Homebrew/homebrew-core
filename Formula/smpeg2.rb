@@ -6,6 +6,7 @@ class Smpeg2 < Formula
 
   bottle do
     cellar :any
+    sha256 "4ecef89d7ee22d5d23703a5ac29fb6b4fc0cd025e249219a194ca325d79dfa85" => :mojave
     sha256 "927cb1d5dd58481afd16e893868a0794b42d56588e7fe9d51b881812e2f26eb6" => :high_sierra
     sha256 "05ea6a84c6ff07c3c88e89f0ecd153c5cd92866d3edb8cc4b4dfd06f445971b7" => :sierra
     sha256 "52aba7403eee04f66c9184a741354b747dfcd0994fa3bd7de9058b65a30fcf19" => :el_capitan

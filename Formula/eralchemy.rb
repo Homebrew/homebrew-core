@@ -8,6 +8,7 @@ class Eralchemy < Formula
 
   bottle do
     cellar :any
+    sha256 "e92dc6f10456db2268f2375b102c5e33d3aa663db6a9a527201f9e1b7322a3d9" => :mojave
     sha256 "f94720536c124634d8ffd602459dfca472367deb61ba95258960a0a3bfbae0be" => :high_sierra
     sha256 "4dea4cbf9c81590fef898ae6cc6fc7ad4a1552e843f0cd8c21830de044bda64f" => :sierra
     sha256 "9bd0f4f745b3934599ac0b4286aa96202b3610e224630ecd5fc0870cf23f9d2f" => :el_capitan

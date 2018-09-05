@@ -1,15 +1,15 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.1/VTK-8.1.0.tar.gz"
-  sha256 "6e269f07b64fb13774f5925161fb4e1f379f4e6a0131c8408c555f6b58ef3cb7"
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
+  sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
   revision 1
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "491015b614d28cd9b9a60fc7150553451bdb58dbc9df870e26672360d8636db6" => :high_sierra
-    sha256 "f4f05ff2088b6ab12b8eb40c685e9cb1f3f375ae16d84c269783cedd786e3250" => :sierra
-    sha256 "7c874c41cebc5b6d318e30b2ae072a2de5496def96273af90dbabc06f486d009" => :el_capitan
+    sha256 "a3e2898884b2b0f7901bb94cae76fc43cc578ad48eb1a214eb4bfb585c32f4b4" => :high_sierra
+    sha256 "b3c1352797f5a0c7eca2b84710797161156730930bcdd67af3aa984644a48602" => :sierra
+    sha256 "f56d03fcbb8d26afa1e0ed7f92f80de0306cb39f9c2c377e48dabea918e257ab" => :el_capitan
   end
 
   option "without-python@2", "Build without python2 support"
@@ -100,6 +100,20 @@ class Vtk < Formula
       system "make"
       system "make", "install"
     end
+
+    # Avoid hard-coding Python 2 or 3's Cellar paths
+    inreplace Dir["#{lib}/cmake/**/vtkPython.cmake"].first do |s|
+      if build.with? "python"
+        s.gsub! Formula["python"].prefix.realpath, Formula["python"].opt_prefix
+      end
+      if build.with? "python@2"
+        s.gsub! Formula["python@2"].prefix.realpath, Formula["python@2"].opt_prefix
+      end
+    end
+
+    # Avoid hard-coding HDF5's Cellar path
+    inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
+      Formula["hdf5"].prefix.realpath, Formula["hdf5"].opt_prefix
   end
 
   def caveats; <<~EOS
@@ -107,7 +121,7 @@ class Vtk < Formula
     from python. Alternatively, you can integrate the RenderWindowInteractor
     in PyQt5, Tk or Wx at runtime. Read more:
       import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
-    EOS
+  EOS
   end
 
   test do

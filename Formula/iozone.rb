@@ -1,21 +1,15 @@
 class Iozone < Formula
   desc "File system benchmark tool"
   homepage "http://www.iozone.org/"
-  url "http://www.iozone.org/src/current/iozone3_471.tar"
-  sha256 "2dd29703c251044513069e0fdad0205e117ba846a0b54b45a93a684eda58c370"
+  url "http://www.iozone.org/src/current/iozone3_482.tar"
+  sha256 "2733feb63c96f77177c68f3d938f2294d5394d8554b2767c45cbe138b2f3ae30"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0fdabe9bac1f9c8c14a0f5c6cf4a9477b5b2f4f0a4119e2fd5d49c278261120b" => :high_sierra
-    sha256 "424dc5b525a599763f2c0d1d5e7ac88e040fcabb4c410e20a7709382f52255e5" => :sierra
-    sha256 "1d692fc382bce67c04f2c3581e5388df4e7a77d6d735d1f4efee9226b470b235" => :el_capitan
-  end
-
-  # Remove for > 3.471
-  # Upstream fix for "fileop.c:127:6: error: expected parameter declarator"
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7e8a57a/iozone/bzero.patch"
-    sha256 "0121dc8a43c99727d754c9c418ca79136cbf47f5713825d176f8e9f061401f2b"
+    sha256 "018eef36a5d786cada35067fe9ea7f07c9105714cacdc1499c5f00192c5fe7d7" => :mojave
+    sha256 "62705cc571622d994f5613ee4883772cc72509ea3e05abe31cbc4777da6e7b57" => :high_sierra
+    sha256 "e469596b5c9555e2eed85a8b2fe3aefa5a308d42c23bee66c2d0a79144fc669a" => :sierra
+    sha256 "f4116538d4101eb4f62bb35d956de0c30f918b3028616c78bc69d66375e2bdc7" => :el_capitan
   end
 
   def install

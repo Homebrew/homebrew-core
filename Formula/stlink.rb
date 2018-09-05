@@ -3,7 +3,6 @@ class Stlink < Formula
   homepage "https://github.com/texane/stlink"
   url "https://github.com/texane/stlink/archive/1.5.0.tar.gz"
   sha256 "ce26b3db73f0bdf87ced78a2a90f3d515914f7d1211b1ca4b9acdf1882ca9d81"
-
   head "https://github.com/texane/stlink.git"
 
   bottle do

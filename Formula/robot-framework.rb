@@ -3,15 +3,16 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "http://robotframework.org/"
-  url "https://github.com/robotframework/robotframework/archive/v3.0.3.tar.gz"
-  sha256 "38f87f2a93fde27efa8dd2774beb998e5875a7b3a0186a3dfa8410778822a546"
+  url "https://github.com/robotframework/robotframework/archive/v3.0.4.tar.gz"
+  sha256 "1557c83f456ae90645f9c88f1e3366571cc3fe0843bea20330601b9d00c47ece"
   head "https://github.com/robotframework/robotframework.git"
 
   bottle do
     cellar :any
-    sha256 "cc96a85dfe7f76b768f7791936c1cd9c0c94bf5b1bcfbcb89c38cda1a9db6b53" => :high_sierra
-    sha256 "dbd67447336c36b404904504f6726ff69f4b3003d8d8a4757357389babfa2420" => :sierra
-    sha256 "c47ec28f12736d281f7d79ec12ba66cfc60feca75bc1b94e895e5ef1b15442ef" => :el_capitan
+    sha256 "c3da5bd979215a6043160ac821d91a62bb278a8cc98bb42ebf14ae1aefb5d353" => :mojave
+    sha256 "4ba23cd77588a92f77606f3d2682414036267a30ec0020d212cab0b78f66a584" => :high_sierra
+    sha256 "bc307ba65c8df63d4e26ee888afb59aafdcf8c493a7337f17a12d96056b9d3b9" => :sierra
+    sha256 "fe9630b653c9e4a74afb0d71f68dc6201356f4da81b89ea05acd3b4cb00f44e9" => :el_capitan
   end
 
   depends_on :x11
@@ -49,8 +50,8 @@ class RobotFramework < Formula
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
-    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
+    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
+    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
   end
 
   resource "paramiko" do

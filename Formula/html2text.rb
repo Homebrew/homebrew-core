@@ -6,6 +6,7 @@ class Html2text < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c8b7e49edc4b7a234546fa7ae983cefd374b43254fcd197771c6178f4b8522d3" => :mojave
     sha256 "651c7204ba8de17d552b8ccef6cb381f41bd1ca8f0f3b2577543e0daf4d92899" => :high_sierra
     sha256 "8f0adab889fb872e10fd26d57d063b9501298e11db2f996d495db0951662596f" => :sierra
     sha256 "766f16608d01f0fdf581e64e96a92d311cf96589b938cd87957d0543bb7fd1df" => :el_capitan

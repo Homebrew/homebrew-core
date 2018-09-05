@@ -5,6 +5,7 @@ class Htmlcxx < Formula
   sha256 "07542b5ea2442143b125ba213b6823ff4a23fff352ecdd84bbebe1d154f4f5c1"
 
   bottle do
+    sha256 "c46b81a03d14ee9287b79bf6e668669a4c12196b2e9ea7f4b22e8610d61c0943" => :mojave
     sha256 "c948a4b11b8bcc60f03ebc0629bef746189379aed5af0a6391cb5fb66c0fe0b8" => :high_sierra
     sha256 "ebcdff901aaafb18cac1e1bf94e849a4b995e3b583519495fe53c431ed68896a" => :sierra
     sha256 "2be957cd2a735529bc4e921733cdee1b7a7afdfc6614914c76e9fcd08a89c90e" => :el_capitan

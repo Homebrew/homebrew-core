@@ -7,6 +7,7 @@ class Autojump < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "80aef4fa4699bad12cae0c1a6d6db2632d15c13b503796db5c9889f7b43a3279" => :mojave
     sha256 "8e302e0a90b898349749c4b83b3c758f4af76ad415f6ac5e245cc0df9c2c90e6" => :high_sierra
     sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :sierra
     sha256 "29d37b9fc31a978d0767c4925e88fa9fe3cebf4a9f9278fa82a96baf5caa0db4" => :el_capitan
@@ -31,7 +32,7 @@ class Autojump < Formula
 
     If you use the Fish shell then add the following line to your ~/.config/fish/config.fish:
       [ -f #{HOMEBREW_PREFIX}/share/autojump/autojump.fish ]; and source #{HOMEBREW_PREFIX}/share/autojump/autojump.fish
-    EOS
+  EOS
   end
 
   test do

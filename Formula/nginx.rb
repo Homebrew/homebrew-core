@@ -1,14 +1,17 @@
 class Nginx < Formula
   desc "HTTP(S) server and reverse proxy, and IMAP/POP3 proxy server"
   homepage "https://nginx.org/"
-  url "https://nginx.org/download/nginx-1.13.12.tar.gz"
-  sha256 "fb92f5602cdb8d3ab1ad47dbeca151b185d62eedb67d347bbe9d79c1438c85de"
+  # Use "mainline" releases only (odd minor version number), not "stable"
+  # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
+  url "https://nginx.org/download/nginx-1.15.3.tar.gz"
+  sha256 "9391fb91c3e2ebd040a4e3ac2b2f0893deb6232edc30a8e16fcc9c3fa9d6be85"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "f00ac0a380462607107e7969d07984e6b8c0c71086200e150cbd7184fac40bc3" => :high_sierra
-    sha256 "985bcaa01f621f1872a8becb352fd405d0ae1a394d0188c46af5cbb00dc7872e" => :sierra
-    sha256 "3a31e1d75973c69df73bfad8060e1edb4c06a3c78d62d3aad7e3580cc0521d00" => :el_capitan
+    sha256 "8b8c9bf42173d933764db310a46da71796685ef559fd04c86c775a175ec1f534" => :mojave
+    sha256 "cf9ba487a9900301e2d1cd8dd70ff23f2788e67b2519489874c9df76dd38e573" => :high_sierra
+    sha256 "c87d6607c4d5448749075ad65d490042d20a2773c31769621767c5bd031e8d09" => :sierra
+    sha256 "65b3cb83abbe4d0e5b297aadd60bc4b48811f72caa72d461b5c503546f50df8a" => :el_capitan
   end
 
   option "with-passenger", "Compile with support for Phusion Passenger module"
@@ -125,7 +128,7 @@ class Nginx < Formula
     To activate Phusion Passenger, add this to #{etc}/nginx/nginx.conf, inside the 'http' context:
       passenger_root #{Formula["passenger"].opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
       passenger_ruby /usr/bin/ruby;
-    EOS
+  EOS
   end
 
   def caveats
@@ -164,7 +167,7 @@ class Nginx < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,15 +1,14 @@
 class Archivemount < Formula
   desc "File system for accessing archives using libarchive"
-  homepage "http://www.cybernoia.de/software/archivemount.html"
-  url "http://www.cybernoia.de/software/archivemount/archivemount-0.8.7.tar.gz"
-  sha256 "47045ca8d4d62fbe0b4248574c65cf90a6d29b488d166aec8c365b6aafe131b6"
-  head "http://cybernoia.de/software/archivemount/git"
+  homepage "https://www.cybernoia.de/software/archivemount.html"
+  url "https://www.cybernoia.de/software/archivemount/archivemount-0.8.12.tar.gz"
+  sha256 "247e475539b84e6d2a13083fd6df149995560ff1ea92fe9fdbfc87569943cb89"
 
   bottle do
     cellar :any
-    sha256 "ea8ba60b9451893f0f2e10f8c985ce00cfd5f45dd054f8cb46b64a39411c9098" => :high_sierra
-    sha256 "7999cff6e0bb57e80804a0c9076d2740a4ae8f480b9dd1f6e420e6206001ab47" => :sierra
-    sha256 "2629b61b54bac6b65b9f9d5a2065d1fb87c6ebf4b2c4cbb67cd1665f9163cc22" => :el_capitan
+    sha256 "e5ec32c8e34385931fe8a9cbd97b02dbba56650194e8cf8d0bfae628132ca096" => :high_sierra
+    sha256 "bbe1f730c843b49dbdf8fcb05822314eacec63535e5a13096bf672e4446bc0c0" => :sierra
+    sha256 "0723ee2f777084e9ed749c996ef0f48dd68d55925a008ed4283902c814e5748e" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

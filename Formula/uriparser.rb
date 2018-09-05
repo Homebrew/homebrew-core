@@ -1,14 +1,15 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
-  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.8.5/uriparser-0.8.5.tar.bz2"
-  sha256 "58eacd5c03d9e341c04eb0b30831faec89f3b415949ff8d72254e63432352cdd"
+  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.8.6/uriparser-0.8.6.tar.bz2"
+  sha256 "0709a7e572417db763f0356250d91686c19a64ab48e9da9f5a1e8055dc2a4a54"
 
   bottle do
     cellar :any
-    sha256 "8abfde79da3b47d6926720fe55ad6c0aa9da10333e129385dc1baf085ec82acb" => :high_sierra
-    sha256 "adb7098ddf448c77f4a307ffd7cca24a8c9c15bb9239cd04d8501f670442f490" => :sierra
-    sha256 "7ceba640674cfe1049e0a9befad30a10837f382fce85f28a4b2f22383a774cf5" => :el_capitan
+    sha256 "a2613afbad390f2280861e6d7ddeb71337a13689db42cc75d2bf79f3efb4e75d" => :mojave
+    sha256 "8b2843833bbd7c3cb5ebb780fcd600b54be3c547ef03067e6a095ab772105a0c" => :high_sierra
+    sha256 "00f888952c50bb33c23b95400867018e16751604f2bf6f98b57345988cb64415" => :sierra
+    sha256 "baed8adf0a6359236ac8b588470f02dbf257cfefb76ba484f6133ddb97ea6f61" => :el_capitan
   end
 
   head do

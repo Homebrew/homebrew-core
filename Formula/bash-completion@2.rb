@@ -1,16 +1,22 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.1+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.7/bash-completion-2.7.tar.xz"
-  sha256 "41ba892d3f427d4a686de32673f35401bc947a7801f684127120cdb13641441e"
-  head "https://github.com/scop/bash-completion.git"
+  url "https://github.com/scop/bash-completion/releases/download/2.8/bash-completion-2.8.tar.xz"
+  sha256 "c01f5570f5698a0dda8dc9cfb2a83744daa1ec54758373a6e349bd903375f54d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cbd57a0d85d776ca61c6d9dbf6ae3a81d1c2f89c98852a355b5b0ccb5dec20dc" => :high_sierra
-    sha256 "e6f6452c42646f3bc8687ed02811612c8689c34d8b12b6826042ea3b0598f53d" => :sierra
-    sha256 "f3b55c185807dc431ec0d01693c99fdad34c25f644bd2e9d54225df2610f7734" => :el_capitan
-    sha256 "f3b55c185807dc431ec0d01693c99fdad34c25f644bd2e9d54225df2610f7734" => :yosemite
+    sha256 "ed117a12f9b0fff798402a52c6823e3f7b167bcaadbbe1e42798870aa04ac80e" => :mojave
+    sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :high_sierra
+    sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :sierra
+    sha256 "08ccf4c84786d7881c5d58fd9122b62e828859c57b28652df923a105f9a94b8b" => :el_capitan
+  end
+
+  head do
+    url "https://github.com/scop/bash-completion.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "bash"
@@ -20,6 +26,7 @@ class BashCompletionAT2 < Formula
   def install
     inreplace "bash_completion", "readlink -f", "readlink"
 
+    system "autoreconf", "-i" if build.head?
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     ENV.deparallelize
     system "make", "install"
@@ -30,7 +37,7 @@ class BashCompletionAT2 < Formula
       if [ -f #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion ]; then
         . #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion
       fi
-    EOS
+  EOS
   end
 
   test do

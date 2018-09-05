@@ -6,6 +6,7 @@ class Ufraw < Formula
   revision 2
 
   bottle do
+    sha256 "374d46188ae4127e29b0e8bd3da65341a68ba7473aebb4592873bda2621f31e9" => :mojave
     sha256 "73a19c1aa3644f1b53174226a8ee2853ad6354315859ac90b59739e884e4544b" => :high_sierra
     sha256 "74d32fc9213f4f8f9aa16249e17f5c23d6cb92c706bfe85a51f36ee5d05bd3a1" => :sierra
     sha256 "7f60c27241d80fbd9b2a2aa1ed5a8635de6a7326850321a7dcafd819fb7aa564" => :el_capitan

@@ -1,7 +1,6 @@
 class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
-
   head "https://github.com/harbour/core.git"
 
   # Missing a header that was deprecated by libcurl @ version 7.12.0 and
@@ -15,6 +14,7 @@ class Harbour < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "feb82703d6fbf9d406f32b825d44bcf2fd40867a262a20df52f1b732863bc702" => :mojave
     sha256 "3b7edfe9c3878bbfe632cca9abc40a4b109b420b7ab856b90ce44fbc05624f85" => :high_sierra
     sha256 "815dacae2d2ac3d7e9c16d158a42e3bc500758f6d30fc5d0eedec8ae88b1bf26" => :sierra
     sha256 "21c3269b41d9b8ea334949334febed047c7ffd4fc9ca7e0686ba6a472929a2b8" => :el_capitan

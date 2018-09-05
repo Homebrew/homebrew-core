@@ -6,6 +6,7 @@ class Blitz < Formula
 
   bottle do
     cellar :any
+    sha256 "b50b71c622b1f767abd0c17ca545738cb03907f39c78e22a99f08f1cd3242f72" => :mojave
     sha256 "4c1910cab6c8b254aa71326a1504935c023258cf8e0c9724cfba0989d1f8a1ee" => :high_sierra
     sha256 "93ec8092122febb4110ce1da374ee5272c6270b7e83fe5da29da4e7f1f1fea6f" => :sierra
     sha256 "dda71ed3f79b926b50f988a931794674908884a411c19b2899ab2a0996a8b71a" => :el_capitan
@@ -19,6 +20,7 @@ class Blitz < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "python@2" => :build
   end
 
   def install
@@ -44,7 +46,7 @@ class Blitz < Formula
         A = 17, 2, 97;
         cout << "A = " << A << endl;
         return 0;}
-      EOS
+    EOS
     system ENV.cxx, "testfile.cpp", "-o", "testfile"
     output = shell_output("./testfile")
     var = "/A\ =\ \(0,2\)\ x\ \(0,0\)\n\[\ 17\ \n\ \ 2\ \n\ \ 97\ \]\n\n/"

@@ -6,6 +6,7 @@ class Libdvdcss < Formula
 
   bottle do
     cellar :any
+    sha256 "645422cdd6facba8137146fd12df0538b27432a72bc79c5ca8c2667ab9fc70bc" => :mojave
     sha256 "4029db91ed7536435bd29db6b67f55509be13e70b6170337edec72daad8992c4" => :high_sierra
     sha256 "907d51957c4674ddeb27b458dcf5f1f4b382219bda893fc8908147acc1c2b1ea" => :sierra
     sha256 "0aaed21ecd3c8d3b4a9997300a599de5a541689ab200a6ffce52167b2ce5b664" => :el_capitan

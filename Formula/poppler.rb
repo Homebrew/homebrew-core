@@ -1,14 +1,25 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.64.0.tar.xz"
-  sha256 "b21df92ca99f78067785cf2dc8e06deb04726b62389c0ee1f5d8b103c77f64b1"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
+  stable do
+    url "https://poppler.freedesktop.org/poppler-0.68.0.tar.xz"
+    sha256 "f90d04f0fb8df6923ecb0f106ae866cf9f8761bb537ddac64dfb5322763d0e58"
+
+    # https://gitlab.freedesktop.org/poppler/poppler/merge_requests/18
+    # Should be safe to remove on next release but check if merged.
+    patch do
+      url "https://gitlab.freedesktop.org/poppler/poppler/merge_requests/18.diff"
+      sha256 "ef7d7b7fed6799911b7ef925395b8de552aadaf3754d7b02fe3505649518808c"
+    end
+  end
+
   bottle do
-    sha256 "fae8e28f893316a98df04746bd437233c5a8cd63df27ffee5fb82f79bd139d77" => :high_sierra
-    sha256 "14430fd4f774cd862215b91c9e9a4801a064c943638a576038c139fd617495d9" => :sierra
-    sha256 "b24d5a380d95dc37576bb7929906d54704cc58270f66100cd783cfe0b695ae00" => :el_capitan
+    sha256 "bc1012f84c9fb5188560f90fecf555b97609df433f4b55585697f3d1731c68c6" => :mojave
+    sha256 "5669b0631c862647c4d47f7efb410593d3d1207f0795ba23b8e30dd1d4d96d26" => :high_sierra
+    sha256 "9b54804d8b9378a64477b1da9c022ee1557387a3a3dc17b10a582b982eed072d" => :sierra
+    sha256 "424693d9dd27b19b4da42e8847d056e968720b5c52f3acddf3a07954c4e0936a" => :el_capitan
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -39,22 +50,13 @@ class Poppler < Formula
     :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz"
-    sha256 "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.9.tar.gz"
+    sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
   end
 
   needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
   def install
-    # Remove for > 0.64.0
-    # Fix "error: implicit instantiation of undefined template 'std::__1::array<double, 257>'"
-    # Upstream issue from 18 Apr 2018 "0.64.0 build with qt5 fails"
-    # See https://bugs.freedesktop.org/show_bug.cgi?id=106118
-    if build.with? "qt"
-      inreplace "qt5/src/ArthurOutputDev.cc", /#include <QPicture>/,
-                                              "\\0\n#include <array>"
-    end
-
     ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
     args = std_cmake_args + %w[
@@ -90,8 +92,10 @@ class Poppler < Formula
     end
 
     libpoppler = (lib/"libpoppler.dylib").readlink
-    ["#{lib}/libpoppler-cpp.dylib", "#{lib}/libpoppler-glib.dylib",
-     *Dir["#{bin}/*"]].each do |f|
+    to_fix = ["#{lib}/libpoppler-cpp.dylib", "#{lib}/libpoppler-glib.dylib",
+              *Dir["#{bin}/*"]]
+    to_fix << "#{lib}/libpoppler-qt5.dylib" if build.with?("qt")
+    to_fix.each do |f|
       macho = MachO.open(f)
       macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
       macho.write!

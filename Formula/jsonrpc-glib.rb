@@ -1,13 +1,14 @@
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
-  url "https://download.gnome.org/sources/jsonrpc-glib/3.28/jsonrpc-glib-3.28.0.tar.xz"
-  sha256 "ba0b0f05d58ba47d5938a54787b44ea875648214f032f75d4344162d8f736a25"
+  url "https://download.gnome.org/sources/jsonrpc-glib/3.30/jsonrpc-glib-3.30.0.tar.xz"
+  sha256 "841780eb93f0ad3e79a6bda61e803210bdddf21648afac9403d0bfd4e814fb7c"
 
   bottle do
-    sha256 "75857274eb9e324e75aba750264b6619851460ad946dd02f0f5ea455a036fced" => :high_sierra
-    sha256 "4b198f2c21d0eed24f6d8d99f84ec7e596947bcf9b693fa02c622cc7aa3c8b75" => :sierra
-    sha256 "3f82ca1afc7630f79e6f923d1c7964081171764f3de9a5905faf1d566bfb65f8" => :el_capitan
+    sha256 "08055f3b024c2ef7edfeb02c4a96596b74c24262c0744795aa6988b00bd07e51" => :mojave
+    sha256 "8fa9192a292b11295854bb1e542e70eefee5cdc92f409c4f9fb583ae8ac95b84" => :high_sierra
+    sha256 "b05435b22585488d3592c2cb2c06214855fda1760ac390fabf524398e0ed8ed8" => :sierra
+    sha256 "fdb2d0e079eaf266fd929122c4b24f9e130fba6f98e20290163a42276ed2f4ea" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build

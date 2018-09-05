@@ -8,6 +8,7 @@ class Piknik < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "eee56739c24346b50d4fb7afa1285c87fbea135f3acd5fa90d1c2b9a81f84284" => :mojave
     sha256 "1209dc34580813c42b1075174e9f78e049f43449845c63aa3f033e761ecf0bd0" => :high_sierra
     sha256 "fffe6c2329ae0840061a464162703ec7cd26649cd985d1ff4de37315059b9357" => :sierra
     sha256 "40b1bdb322e89f3c955519a3156f8ab9ed7aa3833f0887f1bb1ccf6224038de8" => :el_capitan
@@ -34,7 +35,28 @@ class Piknik < Formula
   def caveats; <<~EOS
     In order to get convenient shell aliases, put something like this in #{shell_profile}:
       . #{etc}/profile.d/piknik.sh
-    EOS
+  EOS
+  end
+
+  plist_options :manual => "piknik -server"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/piknik</string>
+          <string>-server</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+    </plist>
+  EOS
   end
 
   test do

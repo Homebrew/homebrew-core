@@ -4,12 +4,12 @@ class Ffmbc < Formula
   url "https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU"
   version "0.7.2"
   sha256 "caaae2570c747077142db34ce33262af0b6d0a505ffbed5c4bdebce685d72e42"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 "5272f1aa52aba79e565722123ed3401cc86816b0c9e603fdfb8927acf4e28e22" => :high_sierra
-    sha256 "81d7e5b5ef7e47f71ed4692408ea3bbfc0f0a31d42b1c61a1115696e9359ffc3" => :sierra
-    sha256 "24674461649845f8258b388025bf870a4f821f10cec4d71a54bbe7a5a1c166e8" => :el_capitan
+    sha256 "42c6aeb47134046a3aff40034342233f86fe21c834cfba6d35cc0846a79a32d1" => :high_sierra
+    sha256 "c6cc044c9ef2a89a5f8ab81e57bc9cb55c0f7a77561188d53b9045c83a5bb5d1" => :sierra
+    sha256 "54eb992aee2503bbfdb90ec483ed92a8c3606245692ea587af27f6a6c7af9e41" => :el_capitan
   end
 
   depends_on "texi2html" => :build
@@ -27,6 +27,7 @@ class Ffmbc < Formula
   def install
     args = ["--prefix=#{prefix}",
             "--disable-debug",
+            "--disable-indev=jack",
             "--disable-shared",
             "--enable-gpl",
             "--enable-libfaac",

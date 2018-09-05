@@ -7,6 +7,7 @@ class Libcddb < Formula
 
   bottle do
     cellar :any
+    sha256 "fd4deef19baf21adb361af69392b1f33921d84e0fb4fbd268e08f5abcf3d0a30" => :mojave
     sha256 "94d7f528e8a973b10e501b390e5bd1c7173b2b63cbcaec311975ab70fba5dc36" => :high_sierra
     sha256 "05158c1d03538f29cb8f4bd932925efaceba92eb87a748538deb25977b5f3238" => :sierra
     sha256 "bf7769869336f10b416971cef25252e3afd93a791c4d96ce5d4e134f449a8991" => :el_capitan
@@ -23,5 +24,17 @@ class Libcddb < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <cddb/cddb.h>
+      int main(void) {
+        cddb_track_t *track = cddb_track_new();
+        cddb_track_destroy(track);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lcddb", "-o", "test"
+    system "./test"
   end
 end

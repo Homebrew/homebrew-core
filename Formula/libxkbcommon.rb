@@ -1,13 +1,14 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-0.8.0.tar.xz"
-  sha256 "e829265db04e0aebfb0591b6dc3377b64599558167846c3f5ee5c5e53641fe6d"
+  url "https://xkbcommon.org/download/libxkbcommon-0.8.2.tar.xz"
+  sha256 "7ab8c4b3403d89d01898066b72cb6069bddeb5af94905a65368f671a026ed58c"
 
   bottle do
-    sha256 "7428e9599baa3dfca4a9c181c4d3a2ab934f37987aaad270c8a6fc3921da2c41" => :high_sierra
-    sha256 "62e85d6d91d4f603d0ab2796904f07a754a782f6a0f23f424810a08b5deff347" => :sierra
-    sha256 "32ee1c478aa17d7120d86370fd619de9b9ac39671d45d77a7a31ac550b0453d4" => :el_capitan
+    sha256 "95c1b24529a35cc2653397c3d7505fa26332e531264163e3ca6c96b15fef9a67" => :mojave
+    sha256 "68c2c32d4a35e4c7b3984fd4df45b29aef77a3cb74da4bb301ce9e3fff86f2ff" => :high_sierra
+    sha256 "b8deb446b227b5d6b19e752083486168f76e9c911e542b2cad2bf00f310612ec" => :sierra
+    sha256 "ca1f6ac28d09ce0178b219003a3368e60ed3c7de36ec48cb9ea8c57eb844e643" => :el_capitan
   end
 
   head do

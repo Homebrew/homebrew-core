@@ -8,6 +8,7 @@ class Flif < Formula
 
   bottle do
     cellar :any
+    sha256 "41d1a634a2442550395bd454b84606570cc9f670fa2df158d39fddb70de39367" => :mojave
     sha256 "40b85a93738e195a6eec2b3bf9bfe7b2831f74d464e1e5145681f9ec2c3cfe68" => :high_sierra
     sha256 "756f685e55f7c798743756723815fb3f39d82ef92f5cc78eb175d8cea52498a3" => :sierra
     sha256 "3fd4e69366470a6810815d111a8e0188c627fe7d50375cd93c0da00ad6617fb2" => :el_capitan

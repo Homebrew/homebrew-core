@@ -6,6 +6,7 @@ class Quvi < Formula
 
   bottle do
     cellar :any
+    sha256 "403d1157a64341c76067353225c6acbe1c0f3e9c0b69634ed80f0bb6400c4c7c" => :mojave
     sha256 "10fe26a54bcdf8e33e9798b399a3a72e8b571c9668e4398a3f8d1a7952f9c652" => :high_sierra
     sha256 "9e3b86dff84297edec9c63ff1593136c2ce62e8a9f8d523e9d9137943da939bb" => :sierra
     sha256 "c5a8c9b53432e15b4ec31a9c1374bde130d56f73f8ee43e392917a52f34ab945" => :el_capitan

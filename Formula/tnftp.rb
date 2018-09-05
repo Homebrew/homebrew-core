@@ -7,6 +7,7 @@ class Tnftp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "286b8f6bfb0217e88c81305e28eb32aaa78c3d0528518372191c8364c080f351" => :mojave
     sha256 "d10b32070661a883375a361016f73c3be47f9702be5fa902ca491d3f12ed8022" => :high_sierra
     sha256 "8aca7a23ac918f7a69b13df67452420fb711e320cc57743cefd15134516da1ab" => :sierra
     sha256 "fdaf7c1ab1fcb48226a9846452b352e4da302ac6aca61a74a67f97b8bb21c942" => :el_capitan

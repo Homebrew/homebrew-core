@@ -1,13 +1,14 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.1.tar.bz2"
-  sha256 "663450d1ee7838b03644507e8a76edfb1fba23e601e9e0b5b2a738e54acd785d"
+  url "https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.2.tar.bz2"
+  sha256 "c654ed847f34a278c52a15c98add40402b4a90f0c540779f1ae6c489af8a76c5"
 
   bottle do
-    sha256 "0ec480af5e4facf76d8437b3bd095f24ec7e94b9fd0479e58517706a8aefb9a7" => :high_sierra
-    sha256 "a7e3dd3ff80c79a47fe7ef03c51275d1022d6b74aed2214d08bc63713f1df790" => :sierra
-    sha256 "35541c62f4741d3ca520984cc7d38d7a5e6c730b8f9a4e0f75fe5b8e801b0bb1" => :el_capitan
+    sha256 "09dd9c512eaa10461506dc9485253e2c202cf1a63ece9a8c0732ea33a3cbdfbb" => :mojave
+    sha256 "98887a827636d5611624a0b62cf444815481e893b6ab60b7c1372f18b1c97303" => :high_sierra
+    sha256 "32f6346af5d336a1509ec79b84894ea9ed1a898c1a9b013f38c649b1f1da97d5" => :sierra
+    sha256 "30a4804d11cc46e96aa0a625a0c70fc5a7d6905d9a3b7cb5e36b6d4cbe9aca80" => :el_capitan
   end
 
   head do
@@ -29,7 +30,6 @@ class OpenMpi < Formula
   depends_on "libevent"
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
-  conflicts_with "lcdf-typetools", :because => "both install same set of binaries"
 
   needs :cxx11
 

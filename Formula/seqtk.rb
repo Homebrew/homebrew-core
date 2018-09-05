@@ -1,14 +1,15 @@
 class Seqtk < Formula
   desc "Toolkit for processing sequences in FASTA/Q formats"
   homepage "https://github.com/lh3/seqtk"
-  url "https://github.com/lh3/seqtk/archive/v1.2.tar.gz"
-  sha256 "bd53316645ab10f0aaba59e1e72c28442ee4c9c37fddaacce5e24757eff78d7b"
+  url "https://github.com/lh3/seqtk/archive/v1.3.tar.gz"
+  sha256 "5a1687d65690f2f7fa3f998d47c3c5037e792f17ce119dab52fff3cfdca1e563"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a2fcc7104562aeba2bcbbfd43ca2af2d6adc9825d6823776fad2c2332248a66e" => :high_sierra
-    sha256 "e2c95a305e1a1f0624e909739e6c27ac4e4665790101c5d3d7ca1086f37b59c6" => :sierra
-    sha256 "8a8ca9859f928227a15443d4203507bbe0fec28ac1c21938d1298c8180d66b35" => :el_capitan
+    sha256 "b695a43103700d7d0d4a07d50d8effec280f7d7a781ff518a42dec2bef44801e" => :mojave
+    sha256 "4f377caf93e5d334e739375a5dcf06782f1d85516988a26df3f8f53d172b1e6f" => :high_sierra
+    sha256 "fd3ecced5ba8f5a9eab13f8f2184f6a69d08b58c1ef53ad6e74bb45cab9324f4" => :sierra
+    sha256 "55541e7e9249ef15bd4423ad9a45903918c2b4b54f632bc0472fb24aee683701" => :el_capitan
   end
 
   def install

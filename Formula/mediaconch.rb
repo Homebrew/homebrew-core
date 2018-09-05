@@ -7,6 +7,7 @@ class Mediaconch < Formula
 
   bottle do
     cellar :any
+    sha256 "8828246691975f172635147cf5f89ce679397112288276d3fcde40252edc637f" => :mojave
     sha256 "d888f17d7347095c3516e1a51238fe01636578c1a2cf1d3e0162bd05e027ed5e" => :high_sierra
     sha256 "07b38dfc6333a72b2333562fc017ccb175a91de98d21c4046c445b62e7dbeb6a" => :sierra
     sha256 "b110435077f1d4164238760baa2bfaaa5e63b3a49a9600a86d710cfefc594e89" => :el_capitan

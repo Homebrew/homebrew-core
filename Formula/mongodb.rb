@@ -1,12 +1,13 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.4.tar.gz"
-  sha256 "1a9697c3ad2f5545b5160d5e32d5f3c0f6f0a3371ceb9fa85961aec513acd7ac"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.2.tar.gz"
+  sha256 "adadf5c7f71bee774eb316f64e96c02690fa3ef53b9b5480a97e44cf4df09b86"
 
   bottle do
-    sha256 "175c4f8d79a08cc16b73224386120048da35e1c1dcf4f2131b610249fb2c003d" => :high_sierra
-    sha256 "2e7a2af3866c4464cd7929761abb5dc8ab3b9233ddc60c7441596ad0450feb4b" => :sierra
+    sha256 "1f125f14f9c648d90fd801d6eb47cd27c3af53210eab19e14f933813ab06fd7d" => :mojave
+    sha256 "79d1c7436a276d587b3b6b1a4da1387681d32c9f96e964853c1c030acad63f49" => :high_sierra
+    sha256 "f9ac22d0c18f6d592176b3b6d022bfe9107dbe83dfd236d04caa02c6db5e2ce7" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -14,6 +15,7 @@ class Mongodb < Formula
 
   depends_on :xcode => ["8.3.2", :build]
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :macos => :mountain_lion
   depends_on "python@2"
@@ -26,8 +28,8 @@ class Mongodb < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "typing" do
@@ -119,7 +121,7 @@ class Mongodb < Formula
       dbPath: #{var}/mongodb
     net:
       bindIp: 127.0.0.1
-    EOS
+  EOS
   end
 
   plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
@@ -159,7 +161,7 @@ class Mongodb < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

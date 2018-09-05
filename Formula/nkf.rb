@@ -7,6 +7,7 @@ class Nkf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4d3956870eb3cc800ffa0fbe527ce6012a14b81f98d4af9485fab8e99316560c" => :mojave
     sha256 "1078899ada2ce3d45e4025e0c41f46f5e97856acfabb1c1d07f78fa1bb6f7048" => :high_sierra
     sha256 "f0f532f5f6bba92842ed4da8d9cddbbb949c95933bc6251e6c58575aa5e27949" => :sierra
     sha256 "71a4b7a8a2eef8ae33e8c6f81ebfd8afbcae8237c03720783d2157dcd307b600" => :el_capitan

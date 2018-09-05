@@ -6,6 +6,7 @@ class Vert < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a2fbb031b72d6b4524dc31add5536acef1fdb913c5db28240bd4352c107da638" => :mojave
     sha256 "b7c63c671335e19afca83f08091a987c35576eb4cb94f1d7b00490d1448f3e77" => :high_sierra
     sha256 "e189a592a062ef9e2cc19506f99272ffc9f97f3e529a54eddd7287f0c9574935" => :sierra
     sha256 "534043c69cbd56a22d656ba873e180e628b3a0ace433d8f020b886212afa050e" => :el_capitan
@@ -18,7 +19,7 @@ class Vert < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/Masterminds/vert").install buildpath.children
     cd "src/github.com/Masterminds/vert" do
-      system "dep", "ensure"
+      system "dep", "ensure", "-vendor-only"
       system "make", "build"
       bin.install "vert"
       prefix.install_metafiles

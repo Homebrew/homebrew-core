@@ -9,20 +9,21 @@ class RRequirement < Requirement
     - install R
     -- run brew install r or brew cask install r-app
     - remove the --with-r option
-    EOS
+  EOS
   end
 end
 
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Mar2018/MonetDB-11.29.3.tar.xz"
-  sha256 "bf7c2d110add2ab3ce49db5c86cb3c415b20ebb736358f70f5e2ba33b4dd27c0"
+  url "https://www.monetdb.org/downloads/sources/Aug2018/MonetDB-11.31.7.tar.xz"
+  sha256 "4ff3dedc647bc70ed22b410ec1e0ff9a77beb09a477feb34da03bb76bb650eb3"
 
   bottle do
-    sha256 "524334a54122d87d29e15f15da8620d804ee6a791396a8da698cc378fe8db10a" => :high_sierra
-    sha256 "b0c68409cc0783fcf83fd84496556a3a6c80bbe4bb1414f687cd10c3eddd85da" => :sierra
-    sha256 "c17635a041cf7fdf5458ed70f4cf8b10f53fe1a5ccf2109d5c8e262b978eab16" => :el_capitan
+    sha256 "986a25a32d9830eae1e1e4a4a636fbfdc47e0b0d105249173ad80e7229b212f8" => :mojave
+    sha256 "f6a9a6028655594c2f2283fd61eb7f3011b7d28d1d262e5addde594c0f1032aa" => :high_sierra
+    sha256 "1b1faa664924133af82b89628f01d1bf8a86a577cb1ddf939515ac2d9029b911" => :sierra
+    sha256 "98ee12501f9fc81cbe6f9b1389850d36e35e66bf1486a50919f9532687d70190" => :el_capitan
   end
 
   head do
@@ -34,14 +35,11 @@ class Monetdb < Formula
     depends_on "autoconf" => :build
   end
 
-  option "with-java", "Build the JDBC driver"
-  option "with-ruby", "Build the Ruby driver"
   option "with-r", "Build the R integration module"
 
   depends_on RRequirement => :optional
 
   depends_on "pkg-config" => :build
-  depends_on "ant" => :build
   depends_on "libatomic_ops" => [:build, :recommended]
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit.
@@ -49,7 +47,6 @@ class Monetdb < Formula
 
   depends_on "unixodbc" => :optional # Build the ODBC driver
   depends_on "geos" => :optional # Build the GEOM module
-  depends_on "gsl" => :optional
   depends_on "cfitsio" => :optional
 
   def install
@@ -63,8 +60,6 @@ class Monetdb < Formula
             "--enable-testing=no",
             "--with-readline=#{Formula["readline"].opt_prefix}"]
 
-    args << "--with-java=no" if build.without? "java"
-    args << "--with-rubygem=no" if build.without? "ruby"
     args << "--disable-rintegration" if build.without? "r"
 
     system "./configure", *args

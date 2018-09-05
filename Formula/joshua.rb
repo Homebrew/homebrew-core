@@ -8,6 +8,7 @@ class Joshua < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "a72914bf2b7fc045e74110fbe593bd2b7a7620161d60b82032b1dac396067280" => :mojave
     sha256 "15cd2defc70734d455c6adda067193905e0debe97c21c551e364bb67a4e5157b" => :high_sierra
     sha256 "7b04fb7031b9f002a418eb7d674d2ceb05be0926c0a7d8abfea644be6d381df4" => :sierra
     sha256 "b649095ea4a944799fbc1ccd8425464b7d2711b0a149049b4d2d5e92d604c5ae" => :el_capitan
@@ -15,30 +16,11 @@ class Joshua < Formula
     sha256 "176fa47a6a2722fb5b6bf1e2efba8da32bab6355f3d844424a817882ed7b3a8e" => :mavericks
   end
 
-  option "with-es-en-phrase-pack", "Build with Spanish–English phrase-based model [1.9 GB]."
-  option "with-ar-en-phrase-pack", "Build with Arabic–English phrase-based model [2.1 GB]."
-  option "with-zh-en-hiero-pack", "Build with Chinese->English hiero-based model [2.4 GB]."
-
   depends_on :java
   depends_on "ant" => :build
   depends_on "boost" => :build
   depends_on "md5sha1sum" => :build
   depends_on "python@2" => :build
-
-  resource "es-en-phrase-pack" do
-    url "https://cs.jhu.edu/~post/language-packs/language-pack-es-en-phrase-2015-03-06.tgz"
-    sha256 "213e05bbdcfbfa05b31e263c31f10a0315695fee26c2f37b0a78fb918bad9b5d"
-  end
-
-  resource "ar-en-phrase-pack" do
-    url "https://cs.jhu.edu/~post/language-packs/language-pack-ar-en-phrase-2015-03-18.tgz"
-    sha256 "2b6665b58b11e4c25d48191d3d5b62b7c591851a9767b14f9ccebf1951fddf90"
-  end
-
-  resource "zh-en-hiero-pack" do
-    url "https://cs.jhu.edu/~post/language-packs/zh-en-hiero-2016-01-13.tgz"
-    sha256 "ded27fe639d019c91cfefce513abb762ad41483962b957474573e2042c786d46"
-  end
 
   def install
     rm Dir["lib/*.{gr,tar.gz}"]
@@ -46,21 +28,6 @@ class Joshua < Formula
     rm_rf "bin/.gitignore"
     head do
       system "ant"
-    end
-    if build.with? "es-en-phrase-pack"
-      resource("es-en-phrase-pack").stage do
-        (libexec/"language-pack-es-en-phrase-2015-03-06").install Dir["*"]
-      end
-    end
-    if build.with? "ar-en-phrase-pack"
-      resource("ar-en-phrase-pack").stage do
-        (libexec/"language-pack-ar-en-phrase-2015-03-18").install Dir["*"]
-      end
-    end
-    if build.with? "zh-en-hiero-pack"
-      resource("zh-en-hiero-pack").stage do
-        (libexec/"zh-en-hiero-pack-2016-01").install Dir["*"]
-      end
     end
     libexec.install Dir["*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]

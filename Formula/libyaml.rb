@@ -1,19 +1,23 @@
 class Libyaml < Formula
   desc "YAML Parser"
-  homepage "https://pyyaml.org/wiki/LibYAML"
-  url "https://pyyaml.org/download/libyaml/yaml-0.1.7.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/liby/libyaml/libyaml_0.1.7.orig.tar.gz"
-  sha256 "8088e457264a98ba451a90b8661fcb4f9d6f478f7265d48322a196cec2480729"
+  homepage "https://github.com/yaml/libyaml"
+  url "https://github.com/yaml/libyaml/archive/0.2.1.tar.gz"
+  sha256 "1d2aeb87f7d317f1496e4c39410d913840714874a354970300f375eec9303dc4"
 
   bottle do
     cellar :any
-    sha256 "1b44e5e2bc63def5c491b74d6a3538913690c126e071d95081d5ec06d436db48" => :high_sierra
-    sha256 "697f644d61983bd75f1ff5e7d4cccce26cc9a81cb8c78c066931dfc7c0dc94ba" => :sierra
-    sha256 "ad9d3bee24a05281ecccd88dba5ac246cf27b99f32161b3572c109993c75238e" => :el_capitan
-    sha256 "3a7788655c3c8f3b7ad73521928277ca5433789e134f437534702145171b1104" => :yosemite
+    sha256 "75e21c4d4b49696e527ab91b7af6f061e844b10b7de99e6019724dbaa0fe04f9" => :mojave
+    sha256 "8771eba64f60fea66813d1e373606ddd9333e3731f51e36a1fc8ea780610015d" => :high_sierra
+    sha256 "376cfe0eb3328d5446f3621ee7eae39fdf8a7c25155bdfa399aacb903eecf40b" => :sierra
+    sha256 "24656930e8eeadd31f07b75aede75aa186dae9e3f122598535d93a7feff61384" => :el_capitan
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    system "./bootstrap"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end

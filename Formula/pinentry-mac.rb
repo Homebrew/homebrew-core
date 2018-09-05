@@ -7,6 +7,7 @@ class PinentryMac < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6b2e8f260b2c9d2d7cd3f39516d7794656492cf7726a92a847aa86ba02d83179" => :mojave
     sha256 "aa7a00ec594541e43a74cf7ae16cb05317d5b73c7b6b6647ca349584280eaad7" => :high_sierra
     sha256 "3da6a88abbd4bb04eb2455d8e6998f4fc4db77c3f765d52b7eadf364e82aeaa7" => :sierra
     sha256 "c3d508c96256c50b6a62f9e64fc4cb28810a910927c21f7defbe8af11a3c5961" => :el_capitan
@@ -16,6 +17,12 @@ class PinentryMac < Formula
   end
 
   depends_on :xcode => :build
+
+  patch do
+    # patch header locations for macOS 10.14
+    url "https://github.com/GPGTools/pinentry-mac/pull/7.patch?full_index=1"
+    sha256 "d4bcf2003fa1345ecb1809461140179a3737e8e03eb49d623435beb3c2f09b64"
+  end
 
   def install
     system "make"
@@ -28,7 +35,7 @@ class PinentryMac < Formula
 
     ~/.gnupg/gpg-agent.conf
         pinentry-program #{HOMEBREW_PREFIX}/bin/pinentry-mac
-    EOS
+  EOS
   end
 
   test do

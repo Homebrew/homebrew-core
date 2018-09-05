@@ -6,6 +6,7 @@ class GoogleAuthenticatorLibpam < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "428d356d17333863422ec8418dc347890939f340c35d55b555d726f5baf0861d" => :mojave
     sha256 "6b76859ee4008c2d66712585617f0b47d5a40cb4583fda5784f9b7f05260387e" => :high_sierra
     sha256 "1082f7a7a81ac9e3045176b66baedbdf956aca8ccd7e4b008013b24f0d2ed3c2" => :sierra
     sha256 "2d48707e7e2dc9821c6954295c983ad76c9edcd6bac71f9da1cb2ecdb7b560a2" => :el_capitan
@@ -34,7 +35,7 @@ class GoogleAuthenticatorLibpam < Formula
       "nullok" | sudo tee -a /etc/pam.d/sshd
 
     (Or just manually edit /etc/pam.d/sshd)
-    EOS
+  EOS
   end
 
   test do

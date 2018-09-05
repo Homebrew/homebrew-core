@@ -3,31 +3,32 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://github.com/cloudreach/sceptre/archive/v1.3.4.tar.gz"
-  sha256 "ff5e61b0b4cfc2cc05058b3f4f2a5503bc8b66784dbdd32cf3b870c0952f7dc1"
+  url "https://github.com/cloudreach/sceptre/archive/v1.4.1.tar.gz"
+  sha256 "98afb02780cc63a32d2c02eb7bf0fb4b8a74d148da6c5ad3efb6f071e02dffe2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "45cb7a0ca23781f26b2f5059f39ba1046e34dd0493c5124adabf256225678e3a" => :high_sierra
-    sha256 "7fe30dbafcd16639056663dbba081c6d8f7d9974b897e15013647f9dcc232680" => :sierra
-    sha256 "0a45099ba571f62d7fbb780a481652e1ad77206473a46b25b2dfbcc265b5a742" => :el_capitan
+    sha256 "1cf9af381c7cdcc3efebd9e570b2931aa26019802a0212676b6ab98615507a6b" => :mojave
+    sha256 "314210447c718ef04836ad43162af39f607d2bc956101e8be888146a8896bfa0" => :high_sierra
+    sha256 "bead4efc6aad30d0e3cbb15eb96dc235118da5dd1b2f8c4836419e4cf42f296b" => :sierra
+    sha256 "054cd91f322d08a265ca42f8ad1ba9fa12014b461ff276edb4464499faae3401" => :el_capitan
   end
 
   depends_on "python@2"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8a/aa/8d3b788083d6b983e863e907f723d4575e3643d73ffa22317c57f6b33461/boto3-1.5.35.tar.gz"
-    sha256 "74e38e9fd0d6450d8a95dae2158cb6f4c7279bb3249b486b4ebe00819db643b9"
+    url "https://files.pythonhosted.org/packages/2f/2b/7010a5189859eec725c36081b1d1c8e721000ebdf81a1682ec6b64e1c373/boto3-1.7.84.tar.gz"
+    sha256 "64496f2c814e454e26c024df86bd08fb4643770d0e2b7a8fd70055fc6683eb9d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e7/22/8dc6f2ff47294d7d59edd79223eab4771f31e27d18fce2548365fb69b9a6/botocore-1.8.49.tar.gz"
-    sha256 "fe0b45216e3a34507aefdf7a67bf53f9303abb23ba4b1899824d16ecfa0433fd"
+    url "https://files.pythonhosted.org/packages/67/01/43759329a6f7036aa739e86d446b908fa207222e224e537cd3d66fdb4c29/botocore-1.10.84.tar.gz"
+    sha256 "d3e4b5a2c903ea30d19d41ea2f65d0e51dce54f4f4c4dfd6ecd7b04f240844a8"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
-    sha256 "cc6a19da8ebff6e7074f731447ef7e112bd23adf3de5c597cf9989f2fd8defe9"
+    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
+    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
   resource "colorama" do
@@ -46,8 +47,8 @@ class Sceptre < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
-    sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
+    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
+    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
   end
 
   resource "jmespath" do
@@ -71,13 +72,13 @@ class Sceptre < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "s3transfer" do

@@ -1,14 +1,16 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.3/postgresql-10.3.tar.bz2"
-  sha256 "6ea268780ee35e88c65cdb0af7955ad90b7d0ef34573867f223f14e43467931a"
+  url "https://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2"
+  sha256 "6c8e616c91a45142b85c0aeb1f29ebba4a361309e86469e0fb4617b6a73c4011"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "632a988ae9a6b45acd3fca3f05af7dbec02e01fa91814ff8ba238cc20d1a7f38" => :high_sierra
-    sha256 "c5412eb34006856a6f0aca2ca2c69e2b8da706f1c6a6aae200aa81d0cda23207" => :sierra
-    sha256 "0581e9efe089864abbcc938f70a5175ff5595ffd701062bafec0be041ba56258" => :el_capitan
+    rebuild 1
+    sha256 "4a8a8b196a2d8eec90d8d1db38986af58427033a4819b670638e4a4113f81631" => :mojave
+    sha256 "b41e5c816f6827ef75fa91b4ccffbe432ec2dfdf33c6757f7272c8744face3a6" => :high_sierra
+    sha256 "cff481b53df41d58ac4bf5911757c36959643c0b87566bb172bd33c9b3d65d39" => :sierra
+    sha256 "abd8104c82358d6067399b8001aec86738d2aced1a0c78cd1c9cb33b129098a5" => :el_capitan
   end
 
   option "without-perl", "Build without Perl support"
@@ -22,6 +24,8 @@ class Postgresql < Formula
   deprecated_option "enable-dtrace" => "with-dtrace"
   deprecated_option "with-python3" => "with-python"
 
+  depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
 
@@ -58,6 +62,7 @@ class Postgresql < Formula
       --with-pam
       --with-libxml
       --with-libxslt
+      --with-icu
     ]
 
     args << "--with-perl" if build.with? "perl"
@@ -84,11 +89,42 @@ class Postgresql < Formula
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
 
+    # As of Xcode/CLT 10.x the Perl headers were moved from /System
+    # to inside the SDK, so we need to use `-iwithsysroot` instead
+    # of `-I` to point to the correct location.
+    # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
+    if DevelopmentTools.clang_build_version >= 1000
+      inreplace "configure",
+                "-I$perl_archlibexp/CORE",
+                "-iwithsysroot $perl_archlibexp/CORE"
+      inreplace "contrib/hstore_plperl/Makefile",
+                "-I$(perl_archlibexp)/CORE",
+                "-iwithsysroot $(perl_archlibexp)/CORE"
+      inreplace "src/pl/plperl/GNUmakefile",
+                "-I$(perl_archlibexp)/CORE",
+                "-iwithsysroot $(perl_archlibexp)/CORE"
+    end
+
     system "./configure", *args
     system "make"
-    system "make", "install-world", "datadir=#{pkgshare}",
-                                    "libdir=#{lib}",
-                                    "pkglibdir=#{lib}/postgresql"
+
+    dirs = %W[datadir=#{pkgshare} libdir=#{lib} pkglibdir=#{lib}/postgresql]
+
+    # Temporarily disable building/installing the documentation.
+    # Postgresql seems to "know" the build system has been altered and
+    # tries to regenerate the documentation when using `install-world`.
+    # This results in the build failing:
+    #  `ERROR: `osx' is missing on your system.`
+    # Attempting to fix that by adding a dependency on `open-sp` doesn't
+    # work and the build errors out on generating the documentation, so
+    # for now let's simply omit it so we can package Postgresql for Mojave.
+    if DevelopmentTools.clang_build_version >= 1000
+      system "make", "all"
+      system "make", "-C", "contrib", "install", "all", *dirs
+      system "make", "install", "all", *dirs
+    else
+      system "make", "install-world", *dirs
+    end
   end
 
   def post_install
@@ -102,7 +138,7 @@ class Postgresql < Formula
   def caveats; <<~EOS
     To migrate existing data from a previous major version of PostgreSQL run:
       brew postgresql-upgrade-database
-    EOS
+  EOS
   end
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres start"
@@ -132,7 +168,7 @@ class Postgresql < Formula
       <string>#{var}/log/postgres.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

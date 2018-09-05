@@ -7,6 +7,7 @@ class Rogue < Formula
   sha256 "7d37a61fc098bda0e6fac30799da347294067e8e079e4b40d6c781468e08e8a1"
 
   bottle do
+    sha256 "9430b23cc0c9123d38e8ce01dc269e3a88c8b0ed686a0bb06a72587b857c7b95" => :mojave
     sha256 "004f3700d269910925bdbdd3edbdb6737deaf3edbf8b4d891810e38b71e3f7b6" => :high_sierra
     sha256 "0caa3e02fb718c2c282f98eaaff70ef3b9e78f9f52897e18f17b09a1d0e0ce2b" => :sierra
     sha256 "5a751dbc338983c191661bae45dd34337b25feaa37c090e239f10b263b0d8674" => :el_capitan

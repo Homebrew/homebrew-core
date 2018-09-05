@@ -1,14 +1,15 @@
 class Fq < Formula
   desc "Brokered message queue optimized for performance"
   homepage "https://github.com/circonus-labs/fq"
-  url "https://github.com/circonus-labs/fq/archive/v0.10.9.tar.gz"
-  sha256 "ce0f62738fe387371c7c40174dc2c4398a0c0493fc611eda6aae0da96c2ac4ba"
+  url "https://github.com/circonus-labs/fq/archive/v0.10.12.tar.gz"
+  sha256 "7c51ad6bec6fc095f9bc08a434fd61624891cf38e98d7c9c77800a6fef370161"
   head "https://github.com/circonus-labs/fq.git"
 
   bottle do
-    sha256 "92652cbe71c96ebed9d9b8c61e56b826d7ebc42d5fb8f2064309b85603332c0d" => :high_sierra
-    sha256 "b0e4d4c4906e472661bf7b521cfa0543034bec859aa3abbb81851abefea877ac" => :sierra
-    sha256 "f77b781f1f47787dd3dfd2d5123a216058783432d25e110a61ee45f6657ec05e" => :el_capitan
+    sha256 "25885b6f1939bb966519a4f1c7347e47612fb4913179444d0d0942216a0aff53" => :mojave
+    sha256 "0e070a7f846a052fd753d5d40d53e24e6591cea1515999f74103043ff92d8df7" => :high_sierra
+    sha256 "ae4e13c72c53b3c46f71d312ed89cc84571c60dcaa943758ffa4373e2c2d2a95" => :sierra
+    sha256 "0abc3a43e557ec72656618ebb33cf7377de6a282a299278ceb9df339bb430908" => :el_capitan
   end
 
   depends_on "concurrencykit"

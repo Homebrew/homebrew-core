@@ -6,6 +6,7 @@ class Ren < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dd045987a704bd9690e5466337f7a55105c25c98807e430c74ad4b8702f4b292" => :mojave
     sha256 "7cf1fe07fb7a4cd0e6171f65a8fda8187973c879b8853e416c39282527f1c0ef" => :high_sierra
     sha256 "bf3e11211d6884d8969fc99ccf8a42b3132dc48bd3100492a442eb5a41fdbd88" => :sierra
     sha256 "966876dfcc9f36c4bc3d1358a9a8500c79d9324ebd8697033571146f1e482685" => :el_capitan

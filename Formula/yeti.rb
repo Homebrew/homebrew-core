@@ -3,11 +3,11 @@ class Yeti < Formula
   homepage "https://mth.github.io/yeti/"
   url "https://github.com/mth/yeti/archive/v0.9.9.1.tar.gz"
   sha256 "c552018993570724313fc0624d225e266cd95e993d121850b34aa706f04e3dfe"
-
   head "https://github.com/mth/yeti.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5945caa7c11f1424c971fbd1df5c0e904526dc69b35897bab7c34fcd1a2895e9" => :mojave
     sha256 "b9d0083c8220cb02f5b994998149904613bceb589b7fb265bb9964e5af7dbb18" => :high_sierra
     sha256 "5298c83ec842d28b26bf4d1cec151e2ae674509c27778de0aeacaf365711e7b9" => :sierra
     sha256 "268781d28a766896e5ef40dc5c364b8a40617e6c28a3c96b693eba473c56e660" => :el_capitan

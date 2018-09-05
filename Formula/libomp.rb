@@ -1,14 +1,15 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://releases.llvm.org/5.0.1/openmp-5.0.1.src.tar.xz"
-  sha256 "adb635cdd2f9f828351b1e13d892480c657fb12500e69c70e007bddf0fca2653"
+  url "https://releases.llvm.org/6.0.1/openmp-6.0.1.src.tar.xz"
+  sha256 "66afca2b308351b180136cf899a3b22865af1a775efaf74dc8a10c96d4721c5a"
 
   bottle do
     cellar :any
-    sha256 "b979a1127556d48732079825ee9386df0454124b86062a1bbd9dfce4cc15e80c" => :high_sierra
-    sha256 "9e869b95916c6246647f5ff75e0e117d47ba7cdde5c6d408f46e4535c2e848ec" => :sierra
-    sha256 "f3b27cb2f45233a981b9a9cd62ab77fb0935857ec4b7b386c17485be1f9f6f39" => :el_capitan
+    sha256 "dbaecca3bef86692ab838e66ab605ee75b5d1cd08350b06a28177c17b2859762" => :mojave
+    sha256 "046f659ad8a2cc336049a1e7f7be0dac2f2e28ce322409f10396f9582b94b660" => :high_sierra
+    sha256 "ba1b9a78326c671fb864a95d93f2fcf47f3af2ef8f12f6c7ee54a7c0cf7802b4" => :sierra
+    sha256 "0ea5b6ae3e9e0b32a2b49a7430fb0f653430107164089b067a7b0039e91ce527" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -34,7 +35,7 @@ class Libomp < Formula
     For CMake, the following flags will cause the OpenMP::OpenMP_CXX target to
     be set up correctly:
       -DOpenMP_CXX_FLAGS="-Xpreprocessor -fopenmp -I#{opt_include}" -DOpenMP_CXX_LIB_NAMES="omp" -DOpenMP_omp_LIBRARY=#{opt_lib}/libomp.dylib
-    EOS
+  EOS
   end
 
   test do
@@ -53,7 +54,7 @@ class Libomp < Formula
         else
             return 1;
       }
-      EOS
+    EOS
     system ENV.cxx, "-Werror", "-Xpreprocessor", "-fopenmp", "test.cpp",
                     "-L#{lib}", "-lomp", "-o", "test"
     system "./test"

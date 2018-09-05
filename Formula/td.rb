@@ -6,6 +6,7 @@ class Td < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b77b89e4f9b100d834c786d0e60c17aa80a51ed452ffab032589837c11c00714" => :mojave
     sha256 "91a8beaacb3c67dff0dd12a717c10868df7874d9668a043eb658be4eb180390a" => :high_sierra
     sha256 "55f7d879795bcf5cde8af98b463f4751c6c5426ceed96a46a0c1531b1324a60f" => :sierra
     sha256 "e740be06065aac7f578e47d0bbf6ef803993a6246d0d7fa74c90367b5f3ea080" => :el_capitan

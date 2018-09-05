@@ -6,6 +6,7 @@ class Pacvim < Formula
   head "https://github.com/jmoon018/PacVim.git"
 
   bottle do
+    sha256 "adb164c1decfda7414827e3c7932f6b49c055ef093618dfc6f9381f118df2e73" => :mojave
     sha256 "ce8a3d33ea044109ca9d32e486a8373e732dfea439bc68169335a260c5947659" => :high_sierra
     sha256 "7cdbfca5fe0209e68f3f79e7949a6e60c96435c3a8da68e59036142d54a706dc" => :sierra
     sha256 "91b0806e76c36ddb814f6a54cac2722b21784f9be1604aee45e7091099172f8a" => :el_capitan

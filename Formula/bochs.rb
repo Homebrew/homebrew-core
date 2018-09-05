@@ -3,13 +3,13 @@ class Bochs < Formula
   homepage "https://bochs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/bochs/bochs/2.6.9/bochs-2.6.9.tar.gz"
   sha256 "ee5b677fd9b1b9f484b5aeb4614f43df21993088c0c0571187f93acb0866e98c"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "1acbd357ca0d7394d2ca6ac261a7cbecf4d42d73fac2f5a6e237e7b33a01e51d" => :high_sierra
-    sha256 "8dd191ff5085b435ff26cd53026d8afada7fa9e18d84a985da2a6a9d6b179a64" => :sierra
-    sha256 "395ce5d3047ee0b98c8eb2130a8661d319a0926c19e7ebf6b31fc01dee0e8edf" => :el_capitan
-    sha256 "b32844f457ead67e1a656a1a6d05c0a67d56cc1b68d0ffb60f86d3c8ec0f50cf" => :yosemite
+    sha256 "92cfa3291e3e8733d0902aaf5f2bcd3bb08c2649e2d305545eaa325e75c40755" => :mojave
+    sha256 "6704008062d55a66ca8a8ab359db801f806f5e40b18a2ae2af18ac76353ea187" => :high_sierra
+    sha256 "f866b444fc8dd6c31a5104d8f6115720bd0e0ee46775d92a4258f68ccea214ce" => :sierra
+    sha256 "d7c0d5ee817ba9f3c596ab6364c62b0160c74aefce2db1033438cb17978a8291" => :el_capitan
   end
 
   option "with-gdb-stub", "Enable GDB Stub"
@@ -52,8 +52,7 @@ class Bochs < Formula
       --enable-clgd54xx
       --enable-avx
       --enable-vmx=2
-      --enable-smp
-      --enable-long-phy-addres
+      --enable-long-phy-address
       --with-term
     ]
 
@@ -63,6 +62,7 @@ class Bochs < Formula
       args << "--enable-gdb-stub"
     else
       args << "--enable-debugger"
+      args << "--enable-smp"
     end
 
     system "./configure", *args

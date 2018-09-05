@@ -1,17 +1,17 @@
 class Ubertooth < Formula
   desc "Host tools for Project Ubertooth"
   homepage "https://github.com/greatscottgadgets/ubertooth/wiki"
-  url "https://github.com/greatscottgadgets/ubertooth/releases/download/2017-03-R2/ubertooth-2017-03-R2.tar.xz"
-  version "2017-03-R2"
-  sha256 "fbf83fc0129cb9a4e2df614b19fce8ea73419d1a01831142987d25148a9bcd00"
+  url "https://github.com/greatscottgadgets/ubertooth/releases/download/2018-08-R1/ubertooth-2018-08-R1.tar.xz"
+  version "2018-08-R1"
+  sha256 "6115e49aaf99bc000fbb5319d61d8be14a2b62c4617fab75ce3328af333f02a0"
   head "https://github.com/greatscottgadgets/ubertooth.git"
 
   bottle do
     cellar :any
-    sha256 "a54024bcd4be30d09776fc854c16d99efbc32866f54f613dbaf70db382f65b4c" => :high_sierra
-    sha256 "fac20ea8ff4542694b9981becf324613ffcf18017b0d9336543a17e218c2970a" => :sierra
-    sha256 "48273e1db5b00160de2e06c4bf91316fd6e100547a2ef44b2e654c7f3b672422" => :el_capitan
-    sha256 "5b88c567e8fd85a7bed6a064836a9ce09190c0df0f728c2577d5025d6b3ed1ee" => :yosemite
+    sha256 "7636cc62d42ca21c46725016dca62e3d7d866804d1a4b7a500eef9cbcafea540" => :mojave
+    sha256 "f4cba66c8ce58e6e3044c566401591fa1374d8537162a131b39d974a9f8ae4e1" => :high_sierra
+    sha256 "fe2308a7adbcd8fc7f8fafc1df12e6216a9077869cbdfa3027e8481018d09d6e" => :sierra
+    sha256 "dcfe19e7ccbc1641673d09fd5409382a4b3eb5102f9bed6f2d52a0a98dd1efc8" => :el_capitan
   end
 
   depends_on "cmake" => :build

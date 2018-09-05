@@ -1,18 +1,18 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/0.33.6.tar.gz"
-  sha256 "fd7da7da41c2083c2d75cb71d553a926b4c499d59f77481f2ccc111791a6b474"
-
+  url "https://github.com/nicklockwood/SwiftFormat/archive/0.35.3.tar.gz"
+  sha256 "5ab1e1d3f59440616e3be56b6ff522a61e4d7983c362bb0b8d7d366d971de857"
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "352c3d512e1dfcf832bbdf3c8aa5e1a8fd77c33924e6d7d7ff25ec843d02e1d5" => :high_sierra
-    sha256 "cd4c61865e95492a04f573f9bfb7bdd7db80338cf0c1f458ea83eea85bb921e4" => :sierra
+    sha256 "ba76e76f4d8dfe5899d0f7fcd2badcf1bd324a01f2f79065e399caffd6fc08d2" => :mojave
+    sha256 "2b7176b2600f4ce1d7a63d65179d74d0a1e00ef65248fdb0300da51e97aa98a3" => :high_sierra
+    sha256 "89771036d1faaab071b7b26033ae5cb08bf49ff8dd34dc74f5351b41953a3804" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["9.2", :build]
 
   def install
     xcodebuild "-project",

@@ -5,20 +5,21 @@ class Sslyze < Formula
   homepage "https://github.com/nabla-c0d3/sslyze"
 
   stable do
-    url "https://github.com/nabla-c0d3/sslyze/archive/1.3.4.tar.gz"
-    sha256 "cefb66e87b98b5399fe1f841c79acbfdc6a49bb26f20d7d6aef98e0c7ab6be88"
+    url "https://github.com/nabla-c0d3/sslyze/archive/1.4.3.tar.gz"
+    sha256 "d9ae34d58cc577ab62aaf58e687ffb23805400a82ed813d37ff15f64d25f6cf0"
 
     resource "nassl" do
-      url "https://github.com/nabla-c0d3/nassl/archive/1.0.3.tar.gz"
-      sha256 "5b42c95b824e08ea165d56fe75197a7621b5fb23f75c6c5c089830c852051e95"
+      url "https://github.com/nabla-c0d3/nassl/archive/1.1.3.tar.gz"
+      sha256 "09aa98d630710c2da74aebeda1eccc4e878bd8ececa1c3ad5464d6e777b44eb6"
     end
   end
 
   bottle do
-    cellar :any
-    sha256 "7c663b9807bd9b53c9e6e848363367ca927686610c0e55df04b7d517f1d46adc" => :high_sierra
-    sha256 "9c1e92e0c9b369ac9758bd92f57902ff1d65f1355abab085ca544fb31423dfb8" => :sierra
-    sha256 "d62b1e35802f77cf8020dc27c53fc5a481e36c4948b76581313018ec496d38d2" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "75cedd2004b9268d5abac35bf71be4205955221a6dc9aeeee65fc934cffe7b0f" => :mojave
+    sha256 "c84dcbe2c30a40bfcd36cafc7418c8842435bf81aa9bbd82a18286892d76b3a5" => :high_sierra
+    sha256 "f65561a05b88c4561c00c024fcecd1def2f5ba65a92875255342ca601732a38f" => :sierra
+    sha256 "ce82f4e5b63f2893b81f9d95cea808cb340a973fab0a0510346cd4a4156190a1" => :el_capitan
   end
 
   head do
@@ -31,7 +32,6 @@ class Sslyze < Formula
 
   depends_on :arch => :x86_64
   depends_on "python@2"
-  depends_on "openssl"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -39,13 +39,13 @@ class Sslyze < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/10/f7/3b302ff34045f25065091d40e074479d6893882faef135c96f181a57ed06/cffi-1.11.4.tar.gz"
-    sha256 "df9083a992b17a28cd4251a3f5c879e0198bb26c9e808c4647e0a18739f1d11d"
+    url "https://files.pythonhosted.org/packages/e7/a7/4cd50e57cc6f436f1cc3a7e8fa700ff9b8b4d471620629074913e3735fb2/cffi-1.11.5.tar.gz"
+    sha256 "e90f17980e6ab0f3c2f3730e56d1fe9bcba1891eeea58966e89d352492cc74f4"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/78/c5/7188f15a92413096c93053d5304718e1f6ba88b818357d05d19250ebff85/cryptography-2.1.4.tar.gz"
-    sha256 "e4d967371c5b6b2e67855066471d844c5d52d210c36c28d49a8507b96e2c5291"
+    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
+    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
   end
 
   resource "enum34" do
@@ -54,13 +54,13 @@ class Sslyze < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/65/c4/80f97e9c9628f3cac9b98bfca0402ede54e0563b56482e3e6e45c43c4935/idna-2.7.tar.gz"
+    sha256 "684a38a6f903c1d71d6d5fac066b58d7768af4de2b832e426ec79c30daa94a16"
   end
 
   resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/f0/ba/860a4a3e283456d6b7e2ab39ce5cf11a3490ee1a363652ac50abf9f0f5df/ipaddress-1.0.19.tar.gz"
-    sha256 "200d8686011d470b5e4de207d803445deee427455cd0cb7c982b68cf82524f81"
+    url "https://files.pythonhosted.org/packages/97/8d/77b8cedcfbf93676148518036c6b1ce7f8e14bf07e95d7fd4ddcb8cc052f/ipaddress-1.0.22.tar.gz"
+    sha256 "b146c751ea45cad6188dd6cf2d9b757f6f4f8d6ffb96a023e6f2e26eea02a72c"
   end
 
   resource "pycparser" do
@@ -96,14 +96,14 @@ class Sslyze < Formula
 
   resource "openssl-modern" do
     url "https://github.com/openssl/openssl.git",
-        :branch => "tls1.3-draft-18"
+        :revision => "1f5878b8e25a785dde330bf485e6ed5a6ae09a1a"
   end
 
   def install
     venv = virtualenv_create(libexec)
 
     res = resources.map(&:name).to_set
-    res -= %w[nassl openssl-legacy openssl-modern zlib]
+    res -= %w[cryptography nassl openssl-legacy openssl-modern zlib]
 
     res.each do |r|
       venv.pip_install resource(r)
@@ -120,22 +120,31 @@ class Sslyze < Formula
         mv "bin/openssl-legacy/include", "nassl_openssl_legacy_include"
         mv "bin/openssl-modern/include", "nassl_openssl_modern_include"
         rm_rf "bin" # make sure we don't use the prebuilt binaries
-        (nassl_path/"bin/openssl-legacy").mkpath
-        (nassl_path/"bin/openssl-modern").mkpath
+        (nassl_path/"bin/openssl-legacy/darwin64").mkpath
+        (nassl_path/"bin/openssl-modern/darwin64").mkpath
         mv "nassl_openssl_legacy_include", "bin/openssl-legacy/include"
         mv "nassl_openssl_modern_include", "bin/openssl-modern/include"
         (nassl_path/"zlib-#{resource("zlib").version}").install resource("zlib")
         (nassl_path/"openssl-1.0.2e").install resource("openssl-legacy")
-        (nassl_path/"openssl-tls1.3-draft-18").install resource("openssl-modern")
+        (nassl_path/"openssl-master").install resource("openssl-modern")
         system "python", "build_from_scratch.py"
       end
       system "python", "run_tests.py"
       venv.pip_install nassl_path
+
+      # Link cryptography against the openssl modern used by nassl above
+      # Avoid "TypeError - object of type 'UnrecognizedExtension' has no len()"
+      # Work around https://github.com/pyca/cryptography/issues/4373
+      # See https://github.com/nabla-c0d3/sslyze/issues/323
+      ENV.prepend "CPPFLAGS", "-I#{nassl_path}/bin/openssl-modern/include"
+      ENV.prepend "LDFLAGS", "-L#{nassl_path}/bin/openssl-modern/darwin64"
+      venv.pip_install resource("cryptography")
     end
     venv.pip_install_and_link buildpath
   end
 
   test do
     assert_match "SCAN COMPLETED", shell_output("#{bin}/sslyze --regular google.com")
+    assert_no_match /exception/, shell_output("#{bin}/sslyze --certinfo letsencrypt.org")
   end
 end

@@ -7,6 +7,7 @@ class Bdsup2sub < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "85a39af781d4dccdd6e2915d90cd892a2c6874d70e37bcd82d5c530d64f95a88" => :mojave
     sha256 "178ef2ffa1129b31b099c923f6842302efc2b34bcbdd0e89782bf4ffc82c3c71" => :high_sierra
     sha256 "36971d050455a728d555831b7b1c554ae658bbceb6a7a26687435e04861c2bb1" => :sierra
     sha256 "59b0eccde943ecb9e614dc409ab7ddf7064479b75310c8a782bd7b777d7e25f2" => :el_capitan
@@ -16,12 +17,12 @@ class Bdsup2sub < Formula
   depends_on :java
 
   resource "macify" do
-    url "http://www.java2s.com/Code/JarDownload/macify/macify-1.4.jar.zip"
+    url "https://www.java2s.com/Code/JarDownload/macify/macify-1.4.jar.zip"
     sha256 "c0ceb1b1ea3e0a59ef106ce3fe497297718ae69097a65a1519c69b8b9779c914"
   end
 
   resource "java-image-scaling" do
-    url "http://www.java2s.com/Code/JarDownload/java-image/java-image-scaling-0.8.5.jar.zip"
+    url "https://www.java2s.com/Code/JarDownload/java-image/java-image-scaling-0.8.5.jar.zip"
     sha256 "5b082321bd40eb79072615346373b972286b63d11432f0073fcc2c3ae4bc2799"
   end
 

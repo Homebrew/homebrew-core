@@ -1,4 +1,3 @@
-
 class Ksh < Formula
   desc "KornShell, ksh93"
   homepage "http://www.kornshell.com"
@@ -11,6 +10,7 @@ class Ksh < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 3
+    sha256 "d6a44587ba5c9ef60ccd4df40bb4e5b4be2a6fbf6c3269d1732ba7376b341c8c" => :mojave
     sha256 "5ca742b83c55b817a0fa09f737d73530c0f73d89618c60a19ec2ea5251ef8cd4" => :high_sierra
     sha256 "37a9f6c57702896fabe762fe90ebe454f04f3523aea311a28d34dc884d53736e" => :sierra
     sha256 "5148e18444c7f1a4e7b71f72982362491aa5581101296acaa6d9c2a782d620b1" => :el_capitan

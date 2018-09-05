@@ -4,11 +4,13 @@ class Euca2ools < Formula
   desc "Eucalyptus client API tools-works with Amazon EC2 and IAM"
   homepage "https://github.com/eucalyptus/euca2ools"
   url "https://downloads.eucalyptus.com/software/euca2ools/3.4/source/euca2ools-3.4.1.tar.xz"
+  mirror "https://src.fedoraproject.org/lookaside/extras/euca2ools/euca2ools-3.4.1.tar.xz/sha512/5f7a2238f2475c5d8422069446292cce841bfe33b5c4a65f4a209e15e3d0e3cc6be14743aca086fc1b14da629c0e9860411f50826fe21f3dfc9fd0539af34716/euca2ools-3.4.1.tar.xz"
   sha256 "af2027306cf7829ee512c02c1160e96a8f9c152b77f6eb408bf3dee4d4bb551d"
   head "https://github.com/eucalyptus/euca2ools.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3173978424f772083ede9f0fa9d306bf6a36f7b1afb4c6f01d1627f0c0902bb3" => :mojave
     sha256 "41df1d51edc8fa162cf3f1c0ad60dbda2a3c03ca791a98ae92777c2bfe2accd9" => :high_sierra
     sha256 "7efc52eafdb0791e2fcd47913a2a09b31da507fc6178d002c584b95f975601f9" => :sierra
     sha256 "1c2cd17c3d6264962ce1e2a056362ecbb3e0007b1a3de8bfff23afe4bf7c0b25" => :el_capitan

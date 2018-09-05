@@ -7,6 +7,7 @@ class Leiningen < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ca856209def0f8e2b09dc55c6ec44993187c9138c00178dd0dc3747fc7f63dff" => :mojave
     sha256 "ff380881c20232aaa4e2dbc81f1ce15ea23da26f65bb753d9571694b4bb1c6a4" => :high_sierra
     sha256 "ff380881c20232aaa4e2dbc81f1ce15ea23da26f65bb753d9571694b4bb1c6a4" => :sierra
     sha256 "ff380881c20232aaa4e2dbc81f1ce15ea23da26f65bb753d9571694b4bb1c6a4" => :el_capitan
@@ -37,7 +38,7 @@ class Leiningen < Formula
     Dependencies will be installed to:
       $HOME/.m2/repository
     To play around with Clojure run `lein repl` or `lein help`.
-    EOS
+  EOS
   end
 
   test do

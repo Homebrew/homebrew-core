@@ -3,36 +3,37 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.37.37.tar.gz"
-    sha256 "54dd609a85014e7b2784a99984f29b0853c7a2fdbc80737445fac9dda45e4bfb"
+    url "https://github.com/kripken/emscripten/archive/1.38.11.tar.gz"
+    sha256 "5521e8eefbee284b6a72797c7f63ce606d37647930cd8f4d48d45d02c4e1da95"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/1.37.37.tar.gz"
-      sha256 "4f4903a598eb636f840441833b727d45fc2675d660962f40bd1512a5aaef6acc"
+      url "https://github.com/kripken/emscripten-fastcomp/archive/1.38.11.tar.gz"
+      sha256 "55ddc1b1f045a36ac34ab60bb0e1a0370a40249eba8d41cd4e427be95beead18"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.37.37.tar.gz"
-      sha256 "a5fb2db0c8c8ffd25f5dc0f8bb0c8043609b7bdb54272d5d60ee4d89e791f13c"
+      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.38.11.tar.gz"
+      sha256 "1d2ac9f8dab54f0f17e4a77c3cd4653fe9f890831ef6e405320850fd7351f795"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "19ff0a582db9cd1e0fff7d7f8bd4044b19bf28714377349789abd1df60a92f6f" => :high_sierra
-    sha256 "8d833a98e1a4808f070532e359eb30d3da52b20b452fdb6b4151d4381bab0f72" => :sierra
-    sha256 "665595f5cdf1d8f5015a0a1343cb987ce6ab806f0175e672ccabbf14dab6ff8e" => :el_capitan
+    sha256 "6c63244c305c3e0beee06e2191d2bcc579c64a610945d95ead8838ec01eb5621" => :mojave
+    sha256 "b9e701eb522a8313faa8f2dc9c261531c14f02f5b548341ea462514c028c284f" => :high_sierra
+    sha256 "71207bc58a3937279d90e7591d9122217bb4a19dcf4f25cfd6c931fab5c7be9a" => :sierra
+    sha256 "e0b6b11c056d89a4cb9584abd2850924882b5d5f2f44ec6713635b11a49f102b" => :el_capitan
   end
 
   head do
-    url "https://github.com/kripken/emscripten.git", :branch => "master"
+    url "https://github.com/kripken/emscripten.git", :branch => "incoming"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "master"
+      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "incoming"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "master"
+      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "incoming"
     end
   end
 
@@ -46,12 +47,12 @@ class Emscripten < Formula
 
   def install
     ENV.cxx11
-    # OSX doesn't provide a "python2" binary so use "python" instead.
-    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/.*python2$ #{buildpath}`
+    # rewrite hardcoded paths from system python to homebrew python
+    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/python #{buildpath}`
     python2_shebang_files = python2_shebangs.lines.sort.uniq
     python2_shebang_files.map! { |f| Pathname(f.chomp) }
     python2_shebang_files.reject! &:symlink?
-    inreplace python2_shebang_files, %r{^(#!/usr/bin/.*python)2$}, "\\1"
+    inreplace python2_shebang_files, %r{^#!/usr/bin/python2?$}, "#!#{Formula["python@2"].opt_bin}/python2"
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git
@@ -90,7 +91,7 @@ class Emscripten < Formula
       #{opt_libexec}/llvm/bin
     and comment out BINARYEN_ROOT
     in ~/.emscripten after running `emcc` for the first time.
-    EOS
+  EOS
   end
 
   test do

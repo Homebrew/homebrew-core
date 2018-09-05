@@ -4,12 +4,12 @@ class Jbigkit < Formula
   url "https://www.cl.cam.ac.uk/~mgk25/jbigkit/download/jbigkit-2.1.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/j/jbigkit/jbigkit_2.1.orig.tar.gz"
   sha256 "de7106b6bfaf495d6865c7dd7ac6ca1381bd12e0d81405ea81e7f2167263d932"
-
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit",
        :using => :git
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "887d4f100ed2264220232720a7732a969ee97df32a1c87f03897952920b6019a" => :mojave
     sha256 "c8a003d12559b6f506fbd912c3b68163f7ab6022fd53e069bfbd55c813f52df5" => :high_sierra
     sha256 "831dd1ec7e8013ddc6c23641a21292eae26f397e8b61d95382a6240f18fc5602" => :sierra
     sha256 "bdec08cd92dd59183b698c6bbd9072881fdfce64b4ecb6182e405e0f2ad26c00" => :el_capitan

@@ -25,6 +25,7 @@ class GitCinnabar < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c1bc858159849754768cb460e3078c59832f1ace5c91e8491aeaf9338f759c79" => :mojave
     sha256 "30cc00b0406ccca2d8c5e29ca6217cf0ae8cb6925e7607b0fb67385aab973f63" => :high_sierra
     sha256 "fddd63b61e1e4b624bf7e9585f32467915437bbc093588e2e0c6c209b649b5bb" => :sierra
     sha256 "8549a043b40628b7141ed2d58cd8d473bb49345b52e4f6586554d5990770ddd3" => :el_capitan
@@ -32,28 +33,9 @@ class GitCinnabar < Formula
 
   devel do
     url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.5.0b2",
-        :revision => "419f4d2de0f1f0229ca0900774a576db5668e60e"
-    version "0.5.0b2"
-
-    # 7 Jul 2017 "Properly handle the case where there is no file metadata to store"
-    # This is needed for the nearly empty test repo below to succeed
-    patch do
-      url "https://github.com/glandium/git-cinnabar/commit/fbce645.patch?full_index=1"
-      sha256 "e905bc05886d212399dac7025f9fb583fed61d1b74679294ed2974c853f8935a"
-    end
-
-    # same as in stable
-    patch do
-      url "https://github.com/glandium/git-cinnabar/commit/7ea77b0.patch?full_index=1"
-      sha256 "e28fdf1b9afa94dbd17289e739cd68af34bf7ae708b827cfa9e23286dbbbb57c"
-    end
-
-    # same as in stable
-    patch do
-      url "https://github.com/glandium/git-cinnabar/commit/5c59ae1.patch?full_index=1"
-      sha256 "263c13fb9a59ed790957fcf337671b093e0b4d434c37b69cf1d0e03fd2a4102b"
-    end
+        :tag => "0.5.0b4",
+        :revision => "125ae46f06383fd69c6b9febac9a33317d12b368"
+    version "0.5.0b4"
   end
 
   depends_on "mercurial"

@@ -1,13 +1,14 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.59.tar.gz"
-  sha256 "ee920177c9dec770c30b673a21143d5e92a67e8207f9b720d41d51cda05d8513"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.61.tar.gz"
+  sha256 "62a7f8aeb9c6c4d5a127f7254500878d9d172b70ad9639b098f3c01731f1fbf0"
 
   bottle do
-    sha256 "0f3e0b62063f28d43ad0e14e2d5a30c341e4c556a6b7bfc43130dec765d7cd65" => :high_sierra
-    sha256 "10ec1d0e791a67f21ea30cdb6bdb9d5672f3a9deb7cc1c298f63822f76da11ba" => :sierra
-    sha256 "d1dafa246bc2153d33af3ad12e55dfc72cc8e73d4d66274459b9acd76684539f" => :el_capitan
+    sha256 "dbf782c3467edebbbb49d71d37e019c5f1d759ce77232898d922c1f572adb935" => :mojave
+    sha256 "34989af26f90153946aa5df913fab80fcb715203f66feb1915acf17c6f5624db" => :high_sierra
+    sha256 "aa32e2bc58954a27a59ea001436f3a9641ee1b7a0588aeebd77bfe793406c011" => :sierra
+    sha256 "56be14277230c80d37d60fed292d8a558ce4f451f04c0036b3cbc5c07cb5aaa3" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -120,7 +121,7 @@ class MysqlAT55 < Formula
   def post_install
     # Make sure the datadir exists
     datadir.mkpath
-    unless (datadir/"mysql/user.frm").exist?
+    unless (datadir/"mysql/general_log.CSM").exist?
       ENV["TMPDIR"] = nil
       system bin/"mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
         "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
@@ -135,7 +136,7 @@ class MysqlAT55 < Formula
 
     To connect:
         #{opt_bin}/mysql -uroot
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql@5.5/bin/mysql.server start"
@@ -160,7 +161,7 @@ class MysqlAT55 < Formula
       <string>#{datadir}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

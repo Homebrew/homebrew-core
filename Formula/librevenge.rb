@@ -7,6 +7,7 @@ class Librevenge < Formula
 
   bottle do
     cellar :any
+    sha256 "8621d9448ed04170c2990e1e002822a5d609310a968701684cb17204f4db643c" => :mojave
     sha256 "807378d354736300cb44c4e5105b0fc0bff09a4fe14fcb3a0cae40c7bf167fee" => :high_sierra
     sha256 "2f8a2a371c35b578d181d1ce8d45084a2f699bbed95cabd10f5cd75977249542" => :sierra
     sha256 "827a37488cc92f16ba8f4d7343e7944c7faed4b8cf9d930f49d93e4104784c94" => :el_capitan

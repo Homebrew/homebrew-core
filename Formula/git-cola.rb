@@ -1,16 +1,16 @@
 class GitCola < Formula
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://github.com/git-cola/git-cola/archive/v3.0.tar.gz"
-  sha256 "61958f998d4618e09ce0dd473411921818d13df838f32102ef5ded984a0d1a50"
-  revision 2
+  url "https://github.com/git-cola/git-cola/archive/v3.2.tar.gz"
+  sha256 "4005e714db78b073c1ef8bde55485452dc7a31e3b8cc0b4d60d6112ffb5ea228"
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ee403537d80c7edf3fc250c5b19bf49d8687c9dbc3d34eda979a7d921aaf9f4" => :high_sierra
-    sha256 "1ee403537d80c7edf3fc250c5b19bf49d8687c9dbc3d34eda979a7d921aaf9f4" => :sierra
-    sha256 "1ee403537d80c7edf3fc250c5b19bf49d8687c9dbc3d34eda979a7d921aaf9f4" => :el_capitan
+    sha256 "281d8fd5e61c4846c0ba868a07da1caf59bc3810c027838b9c47f79c861c4e18" => :mojave
+    sha256 "23f64ddbebe8299219d29c41c024b7b8af65f1fb949458997f04d52557d77bf5" => :high_sierra
+    sha256 "23f64ddbebe8299219d29c41c024b7b8af65f1fb949458997f04d52557d77bf5" => :sierra
+    sha256 "23f64ddbebe8299219d29c41c024b7b8af65f1fb949458997f04d52557d77bf5" => :el_capitan
   end
 
   option "with-docs", "Build manpages and HTML docs"

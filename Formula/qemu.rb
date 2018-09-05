@@ -1,19 +1,15 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-2.11.1.tar.bz2"
-  sha256 "d9df2213ceed32e91dab7bc9dd19c1af83f91ba72c7aeef7605dfaaf81732ccb"
+  url "https://download.qemu.org/qemu-3.0.0.tar.xz"
+  sha256 "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    sha256 "8239d88e31f56993977b0d6ba1d63e15c61436c76a6b04ffa46c0dd40f376c4c" => :high_sierra
-    sha256 "84a89e0db4091794605084ed08c5991f1bc60c68474ab44f5e78ac220c664335" => :sierra
-    sha256 "55c6b1cf7d0fdaf5e5f131c84bf62566954edb56557df0dd088c90a436bb25a3" => :el_capitan
-  end
-
-  devel do
-    url "https://download.qemu.org/qemu-2.12.0-rc3.tar.xz"
-    sha256 "e64b6ba7939a0339aaf82e5720f54b93f46cba032dddaf40fbba028e75397ac7"
+    sha256 "cd3947c51aef37a498acce4e8b9d50ebf220c140450881b950e62d1b2ddb98ff" => :mojave
+    sha256 "5e968020a7c3d0c1722702abf46daa494d9d5bb6c3f09372e34be52dd7f8ae73" => :high_sierra
+    sha256 "e9614f27e5079515cb4af27c9407e1518244e7ea787f4deb84c90fd004627838" => :sierra
+    sha256 "5ef45b8990941c95ece335b513433466a42c821ec0b1d7d99d74f80558b7a60f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -26,11 +22,12 @@ class Qemu < Formula
   depends_on "libpng" => :recommended
   depends_on "vde" => :optional
   depends_on "sdl2" => :optional
-  depends_on "gtk+" => :optional
+  depends_on "gtk+3" => :optional
   depends_on "libssh2" => :optional
   depends_on "libusb" => :optional
 
   deprecated_option "with-sdl" => "with-sdl2"
+  deprecated_option "with-gtk+" => "with-gtk+3"
 
   fails_with :gcc_4_0 do
     cause "qemu requires a compiler with support for the __thread specifier"
@@ -60,7 +57,7 @@ class Qemu < Formula
     ]
 
     # Cocoa and SDL2/GTK+ UIs cannot both be enabled at once.
-    if build.with?("sdl2") || build.with?("gtk+")
+    if build.with?("sdl2") || build.with?("gtk+3")
       args << "--disable-cocoa"
     else
       args << "--enable-cocoa"
@@ -68,7 +65,7 @@ class Qemu < Formula
 
     args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
     args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
-    args << (build.with?("gtk+") ? "--enable-gtk" : "--disable-gtk")
+    args << (build.with?("gtk+3") ? "--enable-gtk" : "--disable-gtk")
     args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
 
     system "./configure", *args

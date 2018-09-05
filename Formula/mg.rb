@@ -1,22 +1,26 @@
 class Mg < Formula
   desc "Small Emacs-like editor"
-  homepage "https://devio.us/~bcallah/mg/"
-  url "https://devio.us/~bcallah/mg/mg-20170917.tar.gz"
-  sha256 "def9237a89ec6a14241abaf12714bc5fcb3b0e2f8d9d466ff7561628d35b7ff1"
+  # https://devio.us/~bcallah/mg/ is temporarily offline
+  homepage "https://github.com/ibara/mg"
+  # https://devio.us/~bcallah/mg/mg-20180421.tar.gz is temporarily offline
+  url "https://dl.bintray.com/homebrew/mirror/mg-20180421.tar.gz"
+  sha256 "11215613a360cf72ff16c2b241ea4e71b4b80b2be32c62a770c1969599e663b2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd9c1d6d792d7c9ba725c46e8247053c6fcaa5af5f6e5807d91a7219bf72cff0" => :high_sierra
-    sha256 "279095340e89cd20a28008b3db888d6dbe7fa0d0d023f95ee7c71ad07f22aef3" => :sierra
-    sha256 "8e2193d88c0ae77696b0612ce830a7fbdf73aa633d0680ec8c84a9d71a30c529" => :el_capitan
+    sha256 "2815679e76a4eb25d454d8f8399f61fd38def65f6bcd4ac5a6b699e4c8f2344a" => :mojave
+    sha256 "6ddda40fecee0d8866684f50b248bf87172df8ccbe108306226ffc3cc2d8d74b" => :high_sierra
+    sha256 "e8df146cd84a6d153066c1c5398fb0846dace0529d090dbb063624f46556fb00" => :sierra
+    sha256 "f0ea843971bc8cdabbfdfbc663b7ef0d89c8b1d37b5eb303bfcebf83ff6d97a7" => :el_capitan
   end
 
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
 
-  conflicts_with "mg3a", :because => "both install `mg` binaries"
-
   def install
-    system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--mandir=#{man}"
+    system "make"
+    system "make", "install"
   end
 
   test do

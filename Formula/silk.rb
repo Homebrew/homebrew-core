@@ -1,13 +1,14 @@
 class Silk < Formula
   desc "Collection of traffic analysis tools"
   homepage "https://tools.netsa.cert.org/silk/"
-  url "https://tools.netsa.cert.org/releases/silk-3.16.1.tar.gz"
-  sha256 "a45f2842821c565d984f20b68afdbf7f05e81c0fe65c2816e3286efce0d6078b"
+  url "https://tools.netsa.cert.org/releases/silk-3.17.2.tar.gz"
+  sha256 "70b74eceafce7b724ceccd9e801909f4bd28985406eb8c42a94c8d25e7d58194"
 
   bottle do
-    sha256 "88d56947e5912978cfffc9e5e421ba7b923df3128ad4c303351c1d62dc605816" => :high_sierra
-    sha256 "fe1cb39f2915226df00b8fd321d5265eafa3a804996b4946a69a1e48de24adc5" => :sierra
-    sha256 "9fa14b7dac6e5e8fcd6197cc90f581440b18ea6fa2fc35e46bd449f8f5d1f697" => :el_capitan
+    sha256 "531e76cd41beeeb302ce8a9d5af81b68f158e7237a0841eec82e6e005d525c72" => :mojave
+    sha256 "ccc428b66b99acc23d7affb07092cc98e77a3fd8802501500273b272f3f16043" => :high_sierra
+    sha256 "5ba88cf5e142bb839c006ee1663b01795eb29dd987d8ed0738a61fbf4b922321" => :sierra
+    sha256 "d90ea3352ba364ec403c56712b0503fe2c4e67e678d4a5147868eb1c233926ff" => :el_capitan
   end
 
   option "with-python@2", "Build with the PySiLK python interface"

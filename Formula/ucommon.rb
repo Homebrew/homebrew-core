@@ -5,6 +5,7 @@ class Ucommon < Formula
   sha256 "6ac9f76c2af010f97e916e4bae1cece341dc64ca28e3881ff4ddc3bc334060d7"
 
   bottle do
+    sha256 "34ef3423a4f8f0de02e05e8a00a5f1cb12bd0b9790103354792c24b7613ccb80" => :mojave
     sha256 "650bda43b289012df676190269cde7bb3be3e1337f4f2eddc6f472ae38bbda1c" => :high_sierra
     sha256 "0546fbc44ac1e17d8757b41a67b2d68b15bc872b4b19fea649e5d7fe54a4d2d4" => :sierra
     sha256 "57756d7809936ed885ef8fc7a284498ab12a5be6cc1ad41ad148dd45074fc322" => :el_capitan

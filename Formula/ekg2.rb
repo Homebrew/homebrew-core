@@ -1,11 +1,13 @@
 class Ekg2 < Formula
   desc "Multiplatform, multiprotocol, plugin-based instant messenger"
-  homepage "http://en.ekg2.org"
-  url "http://pl.ekg2.org/ekg2-0.3.1.tar.gz"
+  homepage "https://github.com/ekg2/ekg2"
+  # Canonical URL inaccessible: "http://pl.ekg2.org/ekg2-0.3.1.tar.gz"
+  url "https://src.fedoraproject.org/lookaside/extras/ekg2/ekg2-0.3.1.tar.gz/68fc05b432c34622df6561eaabef5a40/ekg2-0.3.1.tar.gz"
   sha256 "6ad360f8ca788d4f5baff226200f56922031ceda1ce0814e650fa4d877099c63"
   revision 2
 
   bottle do
+    sha256 "ca01c5798e1d0ec70dfb19a1b35c2c076af2ea02a8b0e1ea96b2090f2d292e57" => :mojave
     sha256 "59cef56ba8d42aa5f198e11b7c342ddeabe8382543562ef9a13fc169ab5d4efa" => :high_sierra
     sha256 "77d62ccb6a0ff4e9126850aa1c5287e583cc5f643f6fbe2505199e694de7a337" => :sierra
     sha256 "34a9b94c6161be85b1b42a57395528982965357cffd7f4771456c01309fb402e" => :el_capitan

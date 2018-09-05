@@ -1,19 +1,24 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.6.5/Python-3.6.5.tar.xz"
-  sha256 "f434053ba1b5c8a5cc597e966ead3c5143012af827fd3f0697d21450bb8d87a6"
-  head "https://github.com/python/cpython.git"
+  url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tar.xz"
+  sha256 "0382996d1ee6aafe59763426cf0139ffebe36984474d0ec4126dd1c40a8b3549"
 
   bottle do
-    sha256 "6ec7a1efb260f95627a0f76689090f429ef2b0eab08c04f27c4e163f018adf5b" => :high_sierra
-    sha256 "fe2883208ee5cac0735a36cb747b56c2ee6a2f54fa5f53717ba2fa8d3adac982" => :sierra
-    sha256 "17d00dd31407b64ab8f466de043a24f7b7191b958b56adb8880dfc9737c7e846" => :el_capitan
+    rebuild 3
+    sha256 "20b266a4d9a15ec3c88620bfc02fc70c7901104dfeb173a393804516d48367a7" => :mojave
+    sha256 "6524b4cac1faeade2aee55ece641e4cf337cec1007218d8f72e9c705ecf37a4f" => :high_sierra
+    sha256 "7e239b400ecc59d83c54fe7876d7db8069a590a1ff728ec27fa1a8019728d688" => :sierra
+    sha256 "ca2fd2fa89e5c8408b69060716782286dc764c290754866f38bced1fede3eaf6" => :el_capitan
   end
 
-  devel do
-    url "https://www.python.org/ftp/python/3.7.0/Python-3.7.0b3.tar.xz"
-    sha256 "2b152788486c61ee6c3e9feaeb4c3fe9679f0a76a19a4c82eb4c665989c340fb"
+  head do
+    url "https://github.com/python/cpython.git"
+
+    resource "blurb" do
+      url "https://files.pythonhosted.org/packages/f2/2d/541cf1d8054dbb320aca5e9dcce5d66efb227be9adb75d2697ee45d1f742/blurb-1.0.6.tar.gz"
+      sha256 "90c7d2e5d141d7d1fc6ca0fe660025317ac81ca078e6045c46b1bc5a675ce5d1"
+    end
   end
 
   option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
@@ -28,22 +33,22 @@ class Python < Formula
   depends_on "xz"
   depends_on "tcl-tk" => :optional
 
-  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6"
-  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6"
+  skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7"
+  skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/72/c2/c09362ab29338413ab687b47dab03bab4a792e2bbb727a1eb5e0a88e3b86/setuptools-39.0.1.zip"
-    sha256 "bec7badf0f60e7fc8153fac47836edc41b74e5d541d7692e614e635720d6a7c7"
+    url "https://files.pythonhosted.org/packages/ef/1d/201c13e353956a1c840f5d0fbf0461bd45bbd678ea4843ebf25924e8984c/setuptools-40.2.0.zip"
+    sha256 "47881d54ede4da9c15273bac65f9340f8929d4f0213193fa7894be384f2dcfa6"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/c4/44/e6b8056b6c8f2bfd1445cc9990f478930d8e3459e9dbf5b8e2d2922d64d3/pip-9.0.3.tar.gz"
-    sha256 "7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796"
+    url "https://files.pythonhosted.org/packages/69/81/52b68d0a4de760a2f1979b0931ba7889202f302072cc7a0d614211bc7579/pip-18.0.tar.gz"
+    sha256 "a0e11645ee37c90b40c46d607070c4fd583e2cd46231b1c06e389c5e814eed76"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/fa/b4/f9886517624a4dcb81a1d766f68034344b7565db69f13d52697222daeb72/wheel-0.30.0.tar.gz"
-    sha256 "9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8"
+    url "https://files.pythonhosted.org/packages/2a/fb/aefe5d5dbc3f4fe1e815bcdb05cbaab19744d201bbc9b59cfa06ec7fc789/wheel-0.31.1.tar.gz"
+    sha256 "0a2e54558a0628f2145d2fc822137e322412115173e8a2ddbe1c9024338ae83c"
   end
 
   fails_with :clang do
@@ -85,6 +90,7 @@ class Python < Formula
       --enable-loadable-sqlite-extensions
       --without-ensurepip
       --with-dtrace
+      --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
@@ -93,14 +99,16 @@ class Python < Formula
     ldflags  = []
     cppflags = []
 
-    unless MacOS::CLT.installed?
-      # Help Python's build system (setuptools/pip) to build things on Xcode-only systems
+    if MacOS.sdk_path_if_needed
+      # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags   << "-isysroot #{MacOS.sdk_path}"
-      ldflags  << "-isysroot #{MacOS.sdk_path}"
-      cppflags << "-I#{MacOS.sdk_path}/usr/include" # find zlib
+      cflags  << "-isysroot #{MacOS.sdk_path}"
+      ldflags << "-isysroot #{MacOS.sdk_path}"
+      cflags  << "-I/usr/include" # find zlib
       # For the Xlib.h, Python needs this header dir with the system Tk
       if build.without? "tcl-tk"
+        # Yep, this needs the absolute path where zlib needed
+        # a path relative to the SDK.
         cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       end
     end
@@ -112,12 +120,6 @@ class Python < Formula
     inreplace "setup.py",
       "do_readline = self.compiler.find_library_file(lib_dirs, 'readline')",
       "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
-
-    if build.stable?
-      inreplace "setup.py", "/usr/local/ssl", Formula["openssl"].opt_prefix
-    else
-      args << "--with-openssl=#{Formula["openssl"].opt_prefix}"
-    end
 
     inreplace "setup.py" do |s|
       s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"
@@ -188,6 +190,14 @@ class Python < Formula
     end
 
     cd "Doc" do
+      if build.head?
+        system bin/"python3", "-m", "venv", "./venv"
+        resource("blurb").stage do
+          system buildpath/"Doc/venv/bin/python3", "-m", "pip", "install", "-v",
+                 "--no-deps", "--no-binary", ":all", "--ignore-installed", "."
+        end
+      end
+
       system "make", "html"
       doc.install Dir["build/html/*"]
     end
@@ -326,7 +336,7 @@ class Python < Formula
     if prefix.exist?
       xy = (prefix/"Frameworks/Python.framework/Versions").children.min.basename.to_s
     else
-      xy = version.to_s.slice(/(3\.\d)/) || "3.6"
+      xy = version.to_s.slice(/(3\.\d)/) || "3.7"
     end
     text = <<~EOS
       Python has been installed as

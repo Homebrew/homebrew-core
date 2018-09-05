@@ -6,6 +6,7 @@ class Quotatool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2d2b6f53466ec7b211f44b0319966b7120e3bbf0e1d57c1f0ae3d272bc8f4ce4" => :mojave
     sha256 "bbf7543458972806f3c15b25bf7cd71276159b54ae1ada3beb12e6d29328ec0e" => :high_sierra
     sha256 "4d04c382c8cf8b0376b34ce12813be06e879fdf6b60711cf90643d08887304fb" => :sierra
     sha256 "da5c90f85204fa90a38da073765ec5c0f0a20333bcdcd131d79b682afa74233f" => :el_capitan

@@ -4,15 +4,11 @@ class MavenAT31 < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.1.1/binaries/apache-maven-3.1.1-bin.tar.gz"
   sha256 "077ed466455991d5abb4748a1d022e2d2a54dc4d557c723ecbacdc857c61d51b"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "816abdeb1351192b568e21da788f39fb53d80bacb97c25b453efffe77456320a" => :high_sierra
-    sha256 "eebf2748f352b0bc30d358f47e0ecd33ddb1d4286a801c2971fa54ba10639ae8" => :sierra
-    sha256 "ea999fb27f3944de65bc42f824b6f16a6b8f4d31c04624ac233e997908284310" => :el_capitan
-    sha256 "ea999fb27f3944de65bc42f824b6f16a6b8f4d31c04624ac233e997908284310" => :yosemite
-  end
+  bottle :unneeded
 
-  depends_on :java
+  keg_only :versioned_formula
+
+  depends_on :java => "1.7+"
 
   def install
     # Remove windows files

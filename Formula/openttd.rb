@@ -3,7 +3,6 @@ class Openttd < Formula
   homepage "https://www.openttd.org/"
   url "https://binaries.openttd.org/releases/1.8.0/openttd-1.8.0-source.tar.xz"
   sha256 "c2d32d9d736d27202a020027a3729ae763f5432ae6f424891e57a4095eeb087f"
-
   head "https://git.openttd.org/openttd/trunk.git"
 
   bottle do

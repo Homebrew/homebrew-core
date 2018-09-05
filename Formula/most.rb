@@ -3,10 +3,10 @@ class Most < Formula
   homepage "https://www.jedsoft.org/most/"
   url "https://www.jedsoft.org/releases/most/most-5.0.0a.tar.bz2"
   sha256 "94cb5a2e71b6b9063116f4398a002a757e59cd1499f1019dde8874f408485aa9"
-
   head "git://git.jedsoft.org/git/most.git"
 
   bottle do
+    sha256 "af9a922f4a08dbd0afd272fbe8eef56bd2437691721cdff0571531255a61b0ca" => :mojave
     sha256 "90678b6798fb5eaadf38359fc8f1652fb8dbe3c96c58113742a0727a3d3fb51c" => :high_sierra
     sha256 "33ff883a9327d71e8d8eaffeb7e12e224ac1e04f06bd3d940317e7d9c431145b" => :sierra
     sha256 "9e645b60950d18dea0b58c95b0525992cb55bbddc5cdc664dce11e94b552e568" => :el_capitan

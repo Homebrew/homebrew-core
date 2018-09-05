@@ -6,6 +6,7 @@ class Tinyxml < Formula
 
   bottle do
     cellar :any
+    sha256 "c1fc1d7fa9e6934412294e921cde90bcfd107b68dbdddd9acf8cae4927190718" => :mojave
     sha256 "ec0f83018a9ff93c11b6a8c92483056b2771359a14aedfb6dc46e1ab078ce9ac" => :high_sierra
     sha256 "ef8c7bbbae6148e161b6f3369ede8bd3533a32847dc716000b46d26e6fb1c26c" => :sierra
     sha256 "16e6052892b43e68c45f5122b6802e9bc32001dc9478dfcd89511a24544660e5" => :el_capitan
@@ -54,7 +55,7 @@ class Tinyxml < Formula
     Version: #{version}
     Libs: -L${libdir} -ltinyxml
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   test do

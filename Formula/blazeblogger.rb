@@ -7,6 +7,7 @@ class Blazeblogger < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "c7350b4fc7cb74eb436f431aed0e54160bb2da31593f623573b6396287342148" => :mojave
     sha256 "7cb9d122a9c892a89d36a886c2be63536ca339def18d2766fde8f96e87c0d0cd" => :high_sierra
     sha256 "8e6e405d5b586a95006ab1f47d2f5cef961a2dbdaa9759fb4427663edcd12adf" => :sierra
     sha256 "0d6bf439fa6f880cb9457581da66082f49f514f8b0fd4b57ac81180948aaa5e1" => :el_capitan

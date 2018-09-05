@@ -9,6 +9,7 @@ class EchoprintCodegen < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "3bc7594efc0e206f367e80a7168962e97d6b4b38b3bbaa3425dd9e2c65450b93" => :mojave
     sha256 "d23aa4f269c7c0f526363243a437b54bdc7331735a0e20b3846a6ebddf7d23a0" => :high_sierra
     sha256 "1c071bc8bcbb1a74f0930c07f2d11058d86b8d2f576b262eaaa7a79af0a5dfd3" => :sierra
     sha256 "06f93b8c6bb025d833ff7757048ea0680b240e3cdd6a51f4dd2fb4e6aad3f7dd" => :el_capitan

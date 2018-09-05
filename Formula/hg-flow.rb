@@ -28,7 +28,7 @@ class HgFlow < Formula
         [flow]
         autoshelve = true
 
-    EOS
+  EOS
   end
 
   test do

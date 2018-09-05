@@ -6,6 +6,7 @@ class OsmGpsMap < Formula
   revision 1
 
   bottle do
+    sha256 "3fc5e8704885ee52388758422a586fe36f67f0bb88f260107d8d51ddaee69131" => :mojave
     sha256 "9b4ff596f15ef4dd79f8a52869ce0f0dc4e104c827f79dd223c3ff3c60631c5c" => :high_sierra
     sha256 "5303392a0018ff176e67b844d1808834500c1b0ac8dd5362ad5f2a70939d1bc2" => :sierra
     sha256 "05bc6efb9676e68162e553bfe41f7467e5f7d8da85cb9cfda5256bf5a79ff884" => :el_capitan

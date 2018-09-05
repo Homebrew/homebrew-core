@@ -7,6 +7,7 @@ class ZxingCpp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "47ee11475358da3bbb978d1bb8d7962538ce8737053361d6f1c2360e60d3d12b" => :mojave
     sha256 "3e97795a3c99d198ed353e23fe34af838c4c564b60c528b66534b4c39c610001" => :high_sierra
     sha256 "d7e4ad48851787a6a5d0b13909fc933cc23d3a84b6373537db376d2838ea75b8" => :sierra
     sha256 "91fa0ff78f6bb7a12b708ac7d11976386fd74a7e472047697a90d8b9e8c652ee" => :el_capitan

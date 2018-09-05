@@ -1,14 +1,21 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.2.4.tar.xz/from/this/mirror"
-  sha256 "7916b1bd148ddfd46d7f8f9a517d4b09cd8a8ad9248734e7c8dd91ef17057a88"
-  revision 1
+  url "https://php.net/get/php-7.2.9.tar.xz/from/this/mirror"
+  sha256 "3585c1222e00494efee4f5a65a8e03a1e6eca3dfb834814236ee7f02c5248ae0"
+  revision 2
 
   bottle do
-    sha256 "190fb8fc34fd7e7879914b02dba524a1c616c685c95279a0906d8be6edde5f33" => :high_sierra
-    sha256 "215c8efdfe894775e587018a5ccabddcfd01161c30871b5181d1dd9ff7927217" => :sierra
-    sha256 "9e3791eae064eb9d68098b862d58473550843433da910d0366749882298f8c0e" => :el_capitan
+    sha256 "d07638547d13283054f853d25939163a978b6e36a0ee01748fb1e9de207120ea" => :high_sierra
+    sha256 "e467935817c7eac6dde90cc5846328a272ec4bf3719504f9ebb515fb6dea6dee" => :sierra
+    sha256 "4f49e74fd768a08fa55548d9535cd04881d84914f7adfe3310b4658efd925056" => :el_capitan
+  end
+
+  devel do
+    url "https://downloads.php.net/~cmb/php-7.3.0beta2.tar.xz"
+    sha256 "28f040680ff517b6c3da403fd1048054de0e867246c47da36342f6a488661c70"
+
+    depends_on "openldap"
   end
 
   depends_on "httpd" => [:build, :test]
@@ -29,9 +36,13 @@ class Php < Formula
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libsodium"
+  # libxml2 required due to https://bugs.php.net/bug.php?id=76403, can be
+  # removed once resolved.
+  depends_on "libxml2"
   depends_on "libzip"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "sqlite"
   depends_on "unixodbc"
   depends_on "webp"
 
@@ -67,9 +78,6 @@ class Php < Formula
 
     # Required due to icu4c dependency
     ENV.cxx11
-
-    # icu4c 61.1 compatability
-    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
 
     config_path = etc/"php/#{php_version}"
     # Prevent system pear config from inhibiting pear install
@@ -120,7 +128,7 @@ class Php < Formula
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos
       --with-layout=GNU
-      --with-ldap
+      --with-libxml-dir=#{Formula["libxml2"].opt_prefix}
       --with-ldap-sasl
       --with-libedit
       --with-libzip
@@ -134,11 +142,13 @@ class Php < Formula
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
       --with-pdo-pgsql=#{Formula["libpq"].opt_prefix}
+      --with-pdo-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-pgsql=#{Formula["libpq"].opt_prefix}
       --with-pic
       --with-png-dir=#{Formula["libpng"].opt_prefix}
       --with-pspell=#{Formula["aspell"].opt_prefix}
       --with-sodium=#{Formula["libsodium"].opt_prefix}
+      --with-sqlite3=#{Formula["sqlite"].opt_prefix}
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
@@ -152,6 +162,12 @@ class Php < Formula
       args << "--with-curl"
     end
 
+    if build.devel?
+      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
+    else
+      args << "--with-ldap"
+    end
+
     system "./configure", *args
     system "make"
     system "make", "install"
@@ -160,7 +176,7 @@ class Php < Formula
     extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
-    inreplace "php.ini-development", "; extension_dir = \"./\"",
+    inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {
@@ -178,23 +194,6 @@ class Php < Formula
       (var/"log").mkpath
       touch var/"log/php-fpm.log"
     end
-  end
-
-  def caveats
-    <<~EOS
-      To enable PHP in Apache add the following to httpd.conf and restart Apache:
-          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
-
-          <FilesMatch \\.php$>
-              SetHandler application/x-httpd-php
-          </FilesMatch>
-
-      Finally, check DirectoryIndex includes index.php
-          DirectoryIndex index.php index.html
-
-      The php.ini and php-fpm.ini file can be found in:
-          #{etc}/php/#{php_version}/
-    EOS
   end
 
   def post_install
@@ -262,6 +261,23 @@ class Php < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      To enable PHP in Apache add the following to httpd.conf and restart Apache:
+          LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
+
+          <FilesMatch \\.php$>
+              SetHandler application/x-httpd-php
+          </FilesMatch>
+
+      Finally, check DirectoryIndex includes index.php
+          DirectoryIndex index.php index.html
+
+      The php.ini and php-fpm.ini file can be found in:
+          #{etc}/php/#{php_version}/
+    EOS
+  end
+
   def php_version
     version.to_s.split(".")[0..1].join(".")
   end
@@ -290,16 +306,22 @@ class Php < Formula
         <string>#{var}/log/php-fpm.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
-    assert_match /^Zend OPcache$/, shell_output("#{bin}/php -i"), "Zend OPCache extension not loaded"
+    assert_match /^Zend OPcache$/, shell_output("#{bin}/php -i"),
+      "Zend OPCache extension not loaded"
+    # Test related to libxml2 and
+    # https://github.com/Homebrew/homebrew-core/issues/28398
+    assert_includes MachO::Tools.dylibs("#{bin}/php"),
+      "#{Formula["libpq"].opt_lib}/libpq.5.dylib"
     system "#{sbin}/php-fpm", "-t"
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
     # Prevent SNMP extension to be added
-    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"), "SNMP extension doesn't work reliably with Homebrew on High Sierra"
+    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"),
+      "SNMP extension doesn't work reliably with Homebrew on High Sierra"
     begin
       require "socket"
 

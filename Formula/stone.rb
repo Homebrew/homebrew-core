@@ -6,6 +6,7 @@ class Stone < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0d2db17e57c53f2be5b1b8feea072923bddd3c86efe37c9a8db6296087ee5687" => :mojave
     sha256 "579a9dee4b6fb57f0f1313a656250b00a428bdff7c2401431bb96d0ef0496c25" => :high_sierra
     sha256 "540bd64b2264bfe03d88ad620a7138a1d96742d6810eec301fd7e5ea63970ee9" => :sierra
     sha256 "9d4038c7882d2fe256d77340b5e0ec52a551697b9869fb61f3a22b0be917e92b" => :el_capitan

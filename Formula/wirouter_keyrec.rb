@@ -6,6 +6,7 @@ class WirouterKeyrec < Formula
   sha256 "3e59138f35502b32b47bd91fe18c0c232921c08d32525a2ae3c14daec09058d4"
 
   bottle do
+    sha256 "ca8371cae9a6a4ce5ce4541a811d17260d877695426b16777e4b89d0fb912332" => :mojave
     sha256 "60a9b2a5fffe6027b296ad5b320377dd98a28658b628d6b3acbe94126e54ff3e" => :high_sierra
     sha256 "2accae4664406559e45909d53eaf6a8a8569773c8e0d932e2d3a8090706f8f18" => :sierra
     sha256 "3982522d8e15ced547c4f1d3019fe3ca6ddaa88d33fad03d2c97a53c849ec217" => :el_capitan

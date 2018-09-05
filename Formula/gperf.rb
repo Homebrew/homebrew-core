@@ -7,6 +7,7 @@ class Gperf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "85c9bd450b0a0d7453584c343fe6770c94f8f3941aaa6f95d735f1923209b6ed" => :mojave
     sha256 "d71157cd1baddf951e91477b85b533ade99dfe97a5876bb993fe7f6e8336f780" => :high_sierra
     sha256 "3cbaa18692ac53ce98a754d46e07e89d6dddca4bef3bbb312e762abf5a30093d" => :sierra
     sha256 "27f661ef9546ff113279654e92c08bb8d8ab837f7dc8b308c1a2beeafdcebc76" => :el_capitan

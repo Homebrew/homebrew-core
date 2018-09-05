@@ -5,22 +5,22 @@ class Agda < Formula
 
   desc "Dependently typed functional programming language"
   homepage "http://wiki.portal.chalmers.se/agda/"
-  revision 3
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.3/Agda-2.5.3.tar.gz"
-    sha256 "aa14d4a3582013100f71e64d71c5deff6caa2a286083e20fc16f6dbb0fdf0065"
+    url "https://hackage.haskell.org/package/Agda-2.5.4.1/Agda-2.5.4.1.tar.gz"
+    sha256 "7759aa76936e6a35325c2e186a7546553921775155a426c8edc9a234f58ab72f"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "c06437e4ebb5365d502fb0a79775e5c591ab8ae5" # v0.15
+          :revision => "a1a10b39d35b8fc40e87723a89f5682252d46380"
     end
   end
 
   bottle do
-    sha256 "6506de625f9f04509c0e36b2b5659764c511d96a6c321f3f49d5034f09630ba4" => :high_sierra
-    sha256 "6f901334a92e1f22593bb9bf058f981b71359153bb922017364626e7d7f0ce5a" => :sierra
-    sha256 "dfb13015d80bee654406a639a907f004c422aa87c102fc6db2cddf48c460615f" => :el_capitan
+    sha256 "ff07f75efd1934c0b729a2130bf55ce2c3a50eb8462998a4e905852f9215dca8" => :mojave
+    sha256 "a040cb1a273037a0ed2983be3c7ccddf8c606e762e976f22da5b7c89a7c5ae8a" => :high_sierra
+    sha256 "b097269cfd028fae6bf73db2eccb41e253d4962340ae962e104196e36868985b" => :sierra
+    sha256 "8b189b0fa2e7c2332d9ca1239c21f0dca0df714f59eb2fd5dd5e0483f33bd90a" => :el_capitan
   end
 
   head do
@@ -31,18 +31,18 @@ class Agda < Formula
     end
   end
 
-  deprecated_option "without-ghc" => "without-ghc@8.2"
-  deprecated_option "without-malonzo" => "without-ghc@8.2"
+  deprecated_option "without-ghc@8.2" => "without-ghc"
+  deprecated_option "without-malonzo" => "without-ghc"
 
   option "without-stdlib", "Don't install the Agda standard library"
-  option "without-ghc@8.2", "Disable the GHC backend"
+  option "without-ghc", "Disable the GHC backend"
 
-  depends_on "ghc@8.2" => :recommended
-  if build.with? "ghc@8.2"
+  depends_on "ghc" => :recommended
+  if build.with? "ghc"
     depends_on "cabal-install" => [:build, :test]
   else
     depends_on "cabal-install" => :build
-    depends_on "ghc@8.2" => :build
+    depends_on "ghc" => :build
   end
 
   depends_on "emacs" => :recommended
@@ -167,8 +167,7 @@ class Agda < Formula
     system bin/"agda", "--js", simpletest
 
     # test the GHC backend
-    if build.with? "ghc@8.2"
-      ENV.prepend_path "PATH", Formula["ghc@8.2"].opt_bin
+    if build.with? "ghc"
       cabal_sandbox do
         cabal_install "text", "ieee754"
         dbpath = Dir["#{testpath}/.cabal-sandbox/*-packages.conf.d"].first

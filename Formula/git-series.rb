@@ -6,6 +6,7 @@ class GitSeries < Formula
 
   bottle do
     rebuild 1
+    sha256 "530a8604bce82c2b2ea08123873fc3ac29b0f1c4805a59aa876ff8a04668b057" => :mojave
     sha256 "f22eb16a878279e6613c26c92348d48e5c3aa9916bb9598589857d9bcc7596da" => :high_sierra
     sha256 "602d435ffa40726db60f3bd69bd7d1e6eacc51f587daeb4afb022e3b147068a3" => :sierra
     sha256 "3365e4bad3de55810eb4b8fa8788c19b7d56f2a28bc76b0a03601c1d9a37cd0c" => :el_capitan
@@ -16,8 +17,7 @@ class GitSeries < Formula
   depends_on "libssh2"
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/git-series"
+    system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "git-series.1"
   end
 

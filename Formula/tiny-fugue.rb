@@ -7,6 +7,7 @@ class TinyFugue < Formula
 
   bottle do
     rebuild 1
+    sha256 "65a9e5f9d8ad9890474161ba55b5ebc73f46398a2145c800d506bc975e5b995b" => :mojave
     sha256 "870605dd7981a86165e8af6c79e18b5ac556bd5f933a46ff6ef000be50a87714" => :high_sierra
     sha256 "f4df3ef186829f13f9f4d5512faf3e65e01eaf14aefd42b0f6895aded918fe79" => :sierra
     sha256 "8b87d1b3de3a1ed16b2c587897c1716b00d011d152476ecdaa922a1406f2846a" => :el_capitan

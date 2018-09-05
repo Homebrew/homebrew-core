@@ -6,6 +6,7 @@ class Tcsh < Formula
   sha256 "b89de7064ab54dac454a266cfe5d8bf66940cb5ed048d0c30674ea62e7ecef9d"
 
   bottle do
+    sha256 "26605931ba06f06560ff0efbbec205d80a8129eee50b5106cf508d3f2ad08f65" => :mojave
     sha256 "7a37ce9d651ee573cfd079ef0743089ddd4929817827296972b41f8af74158bd" => :high_sierra
     sha256 "3a59ccfdab60133b8854d528465882a3a8aaaa874f70ef1e4a0deee2f06802c6" => :sierra
     sha256 "d43bbcefe883ba5bd0dc998e5c4e6e9afcd35bacc780864fdcfe5a560002d7d1" => :el_capitan

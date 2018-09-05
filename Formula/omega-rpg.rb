@@ -6,6 +6,7 @@ class OmegaRpg < Formula
   revision 1
 
   bottle do
+    sha256 "10390c232402e60f1397665338d15d0448dc992c950a09a72fbf94c812af9aa8" => :mojave
     sha256 "f4a5911b81f9919e68c5bd35f8e3d13240045b09e57b622f4766e747bb3e6a03" => :high_sierra
     sha256 "06008f528a9ac14c6b7e1f9be84a5e76a4ad4df234344e7e13eaedb108ce4b04" => :sierra
     sha256 "d46db018d9c54c5a0460f46763a218b6bff1bf277aca19fe91b17965dac3a367" => :el_capitan

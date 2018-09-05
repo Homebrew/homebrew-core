@@ -1,27 +1,14 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  revision 1
-
-  stable do
-    url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.18.tar.xz"
-    sha256 "6a582dc2ae90b94ff3853f9ffd7d80b2c2b5fe2e2c35cb1da0b36f3f3dfad434"
-
-    # Remove for > 0.20.18
-    # Fix missing user-provided default constructor with old clang
-    # Upstream commit from 24 Feb 2018 "net/Init: work around -Werror=unused-variable"
-    if MacOS.version <= :el_capitan
-      patch do
-        url "https://github.com/MusicPlayerDaemon/MPD/commit/418f71ec0.patch?full_index=1"
-        sha256 "c059916176841f52d0f5a377b7c6dd19d012dc833a83fad55d4b2b31d41a6c8f"
-      end
-    end
-  end
+  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.21.tar.xz"
+  sha256 "8322764dc265c20f05c8c8fdfdd578b0722e74626bef56fcd8eebfb01acc58dc"
 
   bottle do
-    sha256 "2df2abc02059332578ff7139451bf4bc27a4ca65da637780b91f0d6a2d741f73" => :high_sierra
-    sha256 "c8767688009084bf848efd226081ae0b5b80773d0512058707056ddfc29077ce" => :sierra
-    sha256 "56f964034fde44336da897f2d3ace5746c954f24c0e7f719ddfc825d186f2eaa" => :el_capitan
+    sha256 "e8745fde74d53001ceab4881a52b8484d2251e9bd695a7ca0b49fd2fdd1fcdf0" => :mojave
+    sha256 "da4ed86f57b7cf8dfafb0eda2292761adfb1a472c519b45574667bcecc3cb277" => :high_sierra
+    sha256 "dea4dd579189abb931a01a9d499e07d283a07d452c27f71ba0c43d151b901d2d" => :sierra
+    sha256 "aff57f03edaf545460b4474be279f4a0c7062a11ead05f8ee7a985e3b49fb59d" => :el_capitan
   end
 
   head do
@@ -99,6 +86,7 @@ class Mpd < Formula
       --enable-fluidsynth
       --enable-osx
       --disable-libwrap
+      --disable-mpc
     ]
 
     args << "--disable-mad" if build.without? "mad"
@@ -122,6 +110,16 @@ class Mpd < Formula
     system "make", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
+  end
+
+  def caveats; <<~EOS
+    MPD requires a config file to start.
+    Please copy it from #{etc}/mpd/mpd.conf into one of these paths:
+      - $XDG_CONFIG_HOME/mpd/mpd.conf
+      - ~/.mpd/mpd.conf
+      - ~/.mpdconf
+    and tailor it to your needs.
+  EOS
   end
 
   plist_options :manual => "mpd"
@@ -148,7 +146,7 @@ class Mpd < Formula
         <string>Interactive</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

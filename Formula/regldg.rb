@@ -6,6 +6,7 @@ class Regldg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "15f7e95f3d84d091a942e836ab9a27b3df2594e3f378da26f10371e7ba01be5c" => :mojave
     sha256 "45950c0b432b227711570e3b9ea79fe9bf96b3239a062c5a736f9a3fdf294fb5" => :high_sierra
     sha256 "26f12ca7e41b36a167d94f403b97557490fd1ad0ed1a2d4d0b30c86164ae9d39" => :sierra
     sha256 "52c64d6766b68a1ed602d3878368109d3ac3e5e60d6fc14a4606518d14f6e678" => :el_capitan

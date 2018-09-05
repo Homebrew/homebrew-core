@@ -7,6 +7,7 @@ class Mp4v2 < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "bd4c8e435216cbfc4ed60030e1cd4135156643f8befa1477061c1e59292394bb" => :mojave
     sha256 "359eecfb160a0d31975961933b50c7ba512891aedd053e3e9153edba1da364c3" => :high_sierra
     sha256 "6cab2b32c845f6d54cdb8d64c558126cec39c27fb77a92f204bb8abda1c0ccfa" => :sierra
     sha256 "52d299e61126db288d73a3e6e8b40c3eff25af1c7498c4a74787dce2dda02e9a" => :el_capitan
@@ -14,6 +15,9 @@ class Mp4v2 < Formula
     sha256 "bb51275338ca5b157b303fb9d024922c9b73ddcac69973ba2fe9d880ad6dc914" => :mavericks
     sha256 "ec42cf726369e5f6c3a4956cffbf44ab8d4b74f5bec35892a0c041641c2f4d4c" => :mountain_lion
   end
+
+  conflicts_with "bento4",
+    :because => "both install `mp4extract` and `mp4info` binaries"
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"

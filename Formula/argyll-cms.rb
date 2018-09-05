@@ -1,16 +1,16 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V2.0.0_src.zip"
-  version "2.0.0"
-  sha256 "5492896c040b406892864c467466ad6b50eb62954b5874ef0eb9174d1764ff41"
-  revision 1
+  url "https://www.argyllcms.com/Argyll_V2.0.1_src.zip"
+  version "2.0.1"
+  sha256 "7d6542c16118bb93ba252d72bc9562bf2b01d3ae62cc0583cf4331e766b3a512"
 
   bottle do
     cellar :any
-    sha256 "01c60cb156c926f759f5c57e01a39298d0aea1ccb1b811efc3ee3c5110f2622e" => :high_sierra
-    sha256 "045fc296278fa225916cfafeeb499439b6ddd5a041a630cfd041831687f47819" => :sierra
-    sha256 "edf9250bc28f993481fb89496fbc725e4214e85027ae746bc3c7f4e7fa45dc5d" => :el_capitan
+    sha256 "94100f30f5b6b9bf796a0dcf9eeefbcae6cb5fcacb4f31d5ad726c07c108b1f8" => :mojave
+    sha256 "c7b3fb56921cc2285eb9a965530128aff808a625ee1807fe605be0c872e93123" => :high_sierra
+    sha256 "547e64c39eaaaecd4796a175f83e9217197ee90929b33b1572e9be483d097f3c" => :sierra
+    sha256 "433106360daf2a1af397b19ab3790c742c701a8a49e595b60a847d29154d5bb5" => :el_capitan
   end
 
   depends_on "jam" => :build

@@ -3,11 +3,11 @@ class Libuvc < Formula
   homepage "https://github.com/ktossell/libuvc"
   url "https://github.com/ktossell/libuvc/archive/v0.0.6.tar.gz"
   sha256 "42175a53c1c704365fdc782b44233925e40c9344fbb7f942181c1090f06e2873"
-
   head "https://github.com/ktossell/libuvc.git"
 
   bottle do
     cellar :any
+    sha256 "e140501b9e4ce540e79ebfed9a461cd471a68b88e06af08575f669e874229aae" => :mojave
     sha256 "7aad3af5a7a5f2936d2fde1a208a6efcc6dbf7e80a2b61202b0a208c45abb7df" => :high_sierra
     sha256 "0e2f8e177ecefcf0cd2a2c2be399d3e45fe18956642363b6f0e9b6632a7019da" => :sierra
     sha256 "2223e66660b7c600b71cb13cc9921c687bcc33e9e85fee7ab351c383e1533657" => :el_capitan

@@ -1,25 +1,25 @@
 class Hexgui < Formula
   desc "GUI for playing Hex over Hex Text Protocol"
   homepage "https://sourceforge.net/p/benzene/hexgui/"
-  url "https://github.com/apetresc/hexgui/archive/v0.9.1.tar.gz"
-  sha256 "7ed1af209617ad2e4877e5f46b4ba78eced14f94fa581b65ac3111abc7613c08"
+  url "https://github.com/apetresc/hexgui/archive/v0.9.2.tar.gz"
+  sha256 "8c4c808b72412e4f3d506921f21692ec63ed28a783179fbdee4eb19ed82fdeb8"
   head "https://github.com/apetresc/hexgui.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2cc22dcd291b736c4f3924282bffe306b80192ada7b52dca936d06080eef017a" => :high_sierra
-    sha256 "9aa7e7d783c781df16193ce402675ffb5cd6d652a91fb52adc08f64e87949c30" => :sierra
-    sha256 "6f3b7e06bd291e264d37d3d6d2118e34f8ce417d056a2b47d0a9a30add3c3491" => :el_capitan
-    sha256 "d65b66b60e2aa05daf90732381b8f3778dfd66476f004a420c5a8ff2f7b6b0f3" => :yosemite
+    sha256 "fd20a0ef344f16b48caa919f9035fae68e581bf7f2513b550b1381b1ad50d9f0" => :mojave
+    sha256 "01862818b35ba08d8c4f2d10242797b8ae60a6db4621dd53ce8b5fd41722dcc9" => :high_sierra
+    sha256 "4021eba73364a966aff074205f33d5718ab9b51fc0ff6f4e7d5676d97439fb01" => :sierra
+    sha256 "7be565ccc6959d4373fea52cb9fa0d23bc42039b1c8fb29fbe53a101f23685d7" => :el_capitan
   end
 
   depends_on "ant" => :build
-  depends_on :java => "1.6+"
+  depends_on :java => "1.8"
 
   def install
     system "ant"
     libexec.install Dir["*"]
-    (bin/"hexgui").write_env_script libexec/"bin/hexgui", Language::Java.java_home_env("1.6+")
+    (bin/"hexgui").write_env_script libexec/"bin/hexgui", Language::Java.java_home_env("1.8")
   end
 
   test do

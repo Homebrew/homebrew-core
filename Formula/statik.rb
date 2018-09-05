@@ -9,6 +9,7 @@ class Statik < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2ed6a6bb627324266fea054896a52ec9e2486a4300f5f81c1a27bb73bf63cece" => :mojave
     sha256 "1e06fe468903f6e079711016b117c9710acc5b8515d31281516180359056885c" => :high_sierra
     sha256 "17f94e0fe1ff71273675d4140e34230970387b3733ba4d7e96de7d8d4a8d955d" => :sierra
     sha256 "9854b3a59217e9f747890fdad3cba25245bb264dcd72350a8b805701e8b46870" => :el_capitan

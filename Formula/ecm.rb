@@ -7,6 +7,7 @@ class Ecm < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0ee8841213cd082cb18043cbc1bb6d38563abc05f5477906649b68665e82539f" => :mojave
     sha256 "985409c27f6eff735bda8566c07ee787fd2ed4c92ac72c303376076d14e08dd9" => :high_sierra
     sha256 "888612dee7486ca5413e2b1e0090a4e1bd5ea7f2fe5cc53fe02bb326ed4f3d4c" => :sierra
     sha256 "3ecb325a368ef42737e77003e9ecc13a8d402a34da3a25c039b36565fef0b55d" => :el_capitan

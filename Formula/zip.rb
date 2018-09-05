@@ -1,6 +1,6 @@
 class Zip < Formula
   desc "Compression and file packaging/archive utility"
-  homepage "http://www.info-zip.org/Zip.html"
+  homepage "https://infozip.sourceforge.io/Zip.html"
   url "https://downloads.sourceforge.net/project/infozip/Zip%203.x%20%28latest%29/3.0/zip30.tar.gz"
   version "3.0"
   sha256 "f0e8bb1f9b7eb0b01285495a2699df3a4b766784c1765a8f1aeedf63c0806369"
@@ -8,6 +8,7 @@ class Zip < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "b76c061fa0a226fb5b484fc790582bb07e5138648738f35726fa278ab5e8a612" => :mojave
     sha256 "d218e0b7d82c7864a1ead12186b5bc09b43c2aa3749651008ac8dbcf32ec0d7c" => :high_sierra
     sha256 "be282c3dfde4da608ab090910b3fe3cbec914d435122854f17acc0f718cc3a15" => :sierra
     sha256 "54ea09b9be1a8c8a20b94e7cadff551ed243f5762a0d8da79f1aaedc4c9492a9" => :el_capitan

@@ -8,7 +8,6 @@ class Fuego < Formula
   end
   version "1.1.SVN"
   revision 2
-
   head "https://svn.code.sf.net/p/fuego/code/trunk"
 
   bottle do

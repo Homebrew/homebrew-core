@@ -7,6 +7,7 @@ class Lpc21isp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "bf40168803e67310ecdf47f5ad8f1c8738d6775a91b99b5cda221fdc85e65a51" => :mojave
     sha256 "fa1c7462808e18f1b2a180c5db6c0ccd4481b5c0d29c5e834dd1feb888c96dba" => :high_sierra
     sha256 "68c3756fd99268814cfdc861e971d1201bac42bf5b922ab37119fcb082c86a1c" => :sierra
     sha256 "c12b33d514be2490a3a5bb9d3c1f8468e7e24d13eee0a636a9d067f486af59fc" => :el_capitan

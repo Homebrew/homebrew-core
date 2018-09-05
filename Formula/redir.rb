@@ -7,6 +7,7 @@ class Redir < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5681e33f5a5cb66759b5781989bef550558752c7cd3c1b3e4b590c5441a47082" => :mojave
     sha256 "8a94df616b4af201fe512de86ab7310bed38136397ee53b37d6f0a4a2729282e" => :high_sierra
     sha256 "cb7132731ff0121978a4e72208203d30d4fd91a10731fda2ac474619ab4472cb" => :sierra
     sha256 "6109cd43a30457b4306b701f12088b6b7c1b40dddfb592b805e5ba4eb6b56158" => :el_capitan

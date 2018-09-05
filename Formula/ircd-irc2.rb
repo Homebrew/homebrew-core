@@ -6,6 +6,7 @@ class IrcdIrc2 < Formula
   sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
 
   bottle do
+    sha256 "81e5c21532c98066b89bddc0ec6285eba22d2fcfb2c620b00ada8a6f4d641c7f" => :mojave
     sha256 "ebc4e1007b994ae418cd522ecc70fa2c738dbf7eb52a883f775e7dcc9b06892e" => :high_sierra
     sha256 "72b85345931772dc3ac1fe96201906db0c70c24e129e9ee7006253080926bd2f" => :sierra
     sha256 "259ddceb29a5d5e0705c3b0a130368053de98282ecec2036c17d30062bd6f9f4" => :el_capitan
@@ -82,7 +83,7 @@ class IrcdIrc2 < Formula
       <string>#{var}/ircd.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

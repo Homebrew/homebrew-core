@@ -3,19 +3,23 @@ class OsmPbf < Formula
   homepage "https://wiki.openstreetmap.org/wiki/PBF_Format"
   url "https://github.com/scrosby/OSM-binary/archive/v1.3.3.tar.gz"
   sha256 "a109f338ce6a8438a8faae4627cd08599d0403b8977c185499de5c17b92d0798"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b3e9e0d80e66fd758e6b27e3956564315265ea86a3acacd724e11ff9b0a41a0f" => :high_sierra
-    sha256 "5a8c5f67cbaf2fca7171faeeeafd535fe16f5f1cb3399bed97e67c371b2cdf7b" => :sierra
-    sha256 "c38b6254cdbb12ab370e807d8c6dcd756e081ab95b684ea5efad449238e52f00" => :el_capitan
-    sha256 "2aa7a626188511fe06efa26f99b6d438391c7299ce7026ca08fa4c4069d6cc03" => :yosemite
+    sha256 "3199cc807995df84916d63c216d0a2793ed8af5513bed9488d397e4efcf745c2" => :mojave
+    sha256 "68e5bf0c9924719525b0522da2656ae43a7cdb11bcdf3a6c05e481c3f5b242ec" => :high_sierra
+    sha256 "c4f104fa72861e982b9071e656675a3ed3c4bf2d37fddeab3c5eb952d7864d9b" => :sierra
+    sha256 "6e6902ebcdb50d95ab0aeeb9fcc086956eb768110f1646839dba876b1f31c643" => :el_capitan
   end
 
   depends_on "protobuf"
 
+  needs :cxx11
+
   def install
+    ENV.cxx11
+
     cd "src" do
       system "make"
       lib.install "libosmpbf.a"

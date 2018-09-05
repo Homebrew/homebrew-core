@@ -7,6 +7,7 @@ class Ctail < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "d81e805d4a80fd83b36fa579dff3c71a364b7bbc50ff6addf74a0d3790a92643" => :mojave
     sha256 "de6e121995f86ec3dbfddf8bee861d9389c548648316f4901cbde691ca26a8d5" => :high_sierra
     sha256 "829ed2ea1ac94bf32fd1817f714b87301abf2c488cf151675239d5d9bf6f6ef8" => :sierra
     sha256 "80a2ae43fba99e6eb5eb4b50b52ee0e32213d521f59e147a109444439b86365d" => :el_capitan

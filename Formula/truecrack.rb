@@ -8,6 +8,7 @@ class Truecrack < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "8eff51aec7a5413b11d35adcc1559e036687ae31aee11a477cc7d62f603fd1e1" => :mojave
     sha256 "fd148aa52883969c30029e25889c560443347575cb064fe9e93d48e9940afcb6" => :high_sierra
     sha256 "96ecdedf66599ec83da60c5a64de37dce4aa3411bf3a575bb5d5e1b6646fd5b3" => :sierra
     sha256 "2905997955799043b8f07c7cb28854d0a0acd3a84131b92b6c49780570dd198f" => :el_capitan

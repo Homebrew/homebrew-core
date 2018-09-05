@@ -7,6 +7,7 @@ class Shtool < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7d9087a21cd6724aa82694ceca768d3044d5ab854c5ba95ae04146b3b83c2bf5" => :mojave
     sha256 "fc22505f6424dece01dcdee55907eebcb490a299763f2f217511fa14c5927711" => :high_sierra
     sha256 "172a4e2c133efcc6235aa3901bbc89ea11c48cfa70833fe67801240236d1757d" => :sierra
     sha256 "17dcf1289dd178b75b670d8061d54e4b2004feeb7de0d9e1ea43ffb46220e4fd" => :el_capitan

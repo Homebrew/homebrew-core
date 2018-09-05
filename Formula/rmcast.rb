@@ -6,6 +6,7 @@ class Rmcast < Formula
 
   bottle do
     cellar :any
+    sha256 "37226d25db0ae3fe7491c530e1f382b869d134d7e38a851acfbe13cb308f7c1d" => :mojave
     sha256 "d30e495d583d02a5ea74cd7ec82d1bd67b62981248d853ce7138a7997f6b6ed2" => :high_sierra
     sha256 "9ef73c5d52886029cd89d829cdceccca0d03bce0dc72647d8cce6704d492f080" => :sierra
     sha256 "4fe0a1745659bb99748972c2fa0640e6b864e92739ba192a89ed12c0614b1372" => :el_capitan

@@ -1,16 +1,15 @@
 class Ptex < Formula
   desc "Texture mapping system"
   homepage "http://ptex.us"
-  url "https://github.com/wdas/ptex/archive/v2.1.28.tar.gz"
-  sha256 "919af3cc56a7617079757bac5c0202f4375acf21861a3990e313739e56a6142c"
+  url "https://github.com/wdas/ptex/archive/v2.1.33.tar.gz"
+  sha256 "7c437de43fbfd45b8355f528b0276650e6f6a82357591a8540ca4b7e2012a327"
 
   bottle do
     cellar :any
-    sha256 "9d1e1f6639ef3339990cb8e55bb1ec3e8d9246b84296d8fbb0ccb027ac2954b1" => :high_sierra
-    sha256 "38572ce52fb672e652c3ac27a9704eebabef60b673e6e7a21d11ae14b565a75e" => :sierra
-    sha256 "fd5994b3ab6f116c242a997a186a39a149a4ad2318d43cc587456f8e12797d87" => :el_capitan
-    sha256 "71d3eee613d7825583ee7eb673928e6ad6a8876310f6628cb70f8ecb82ff53fb" => :yosemite
-    sha256 "ef6b1d4b5969dd1512299cdc9e00e520464792ca37081a16ea4d77abcb253dcb" => :mavericks
+    sha256 "d7c01bb272e283de0f1bba6f923f42a63513b419fbd2c02f512ad3dbd35b9a9c" => :mojave
+    sha256 "4da50057c397b08a7dabbc621947f607b98cfbc887cd43f0bfa41960b36c6466" => :high_sierra
+    sha256 "227c2b01f8398714d38c494061a630385dfd630e1b30bf5a651c14667c9f0621" => :sierra
+    sha256 "12d030b336d928a80776188daa86fe4de608e5bc4516b8382d52a508a5a4091f" => :el_capitan
   end
 
   depends_on "cmake" => :build

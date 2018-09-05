@@ -1,7 +1,7 @@
 class Audacious < Formula
   desc "Free and advanced audio player based on GTK+"
   homepage "https://audacious-media-player.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-3.9.tar.bz2"
@@ -21,9 +21,10 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 "9115f577830a8691166d2bc7d96f1444e46911c6eb2aeae2c7e44d803022c65f" => :high_sierra
-    sha256 "0920c1ca0fb150ca7433223aaf7ce454815f990e065cd7aca9d3061919348728" => :sierra
-    sha256 "0f333d2363477f6aa749d15bb2baf1ff23f858ee333783ab26a514ddf420f2dd" => :el_capitan
+    sha256 "e32b10763bb9ff68a632a6f5adfbd55f3884637dbdb892830ea77ab91d1446e0" => :mojave
+    sha256 "facd97bdfb3935149d7c51035b38e3a1f7f3c7b705074eb75a1a795844bf739a" => :high_sierra
+    sha256 "1acf6566b58d9ab31e088ed8e3f30aba30e171a32e0121f46f0f954a3871f7e9" => :sierra
+    sha256 "c9238f08f8f9328ca7b427e2616698d6bea975b33fbcbe2e52c8a2f4b8f5b009" => :el_capitan
   end
 
   head do
@@ -95,7 +96,7 @@ class Audacious < Formula
     audtool does not work due to a broken dbus implementation on macOS, so is not built
     coreaudio output has been disabled as it does not work (Fails to set audio unit input property.)
     GTK+ gui is not built by default as the QT gui has better integration with macOS, and when built, the gtk gui takes precedence
-    EOS
+  EOS
   end
 
   test do

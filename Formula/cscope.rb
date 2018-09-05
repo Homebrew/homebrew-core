@@ -6,6 +6,7 @@ class Cscope < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d13055e5d40c7b29ca273be19d611db2d9c157198bddbaf85bf6ca58323e0dc4" => :mojave
     sha256 "c341d01145d24da1e42347e3c8924569e97158c826ab5a118c2708baa3733ecc" => :high_sierra
     sha256 "7065f35c7c69268a0c293c7108e936c92c83fa6c1aff78d9fb6eb4d6178cb3c9" => :sierra
     sha256 "97930be35cbcd08980651597acf931adbb50a80df10960d6564497f19d9c8032" => :el_capitan

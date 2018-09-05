@@ -6,6 +6,7 @@ class Libnotify < Formula
   revision 1
 
   bottle do
+    sha256 "d45147d1218ee584b2d67ce23e6bd60553a83424c3c0a69cd8a14f6e238a398c" => :mojave
     sha256 "f88f445a6b5719c695aa606da3050d3e24ddc1c7a586f6541186025551d273e6" => :high_sierra
     sha256 "09166e1efa743eed930b7aca87b084de644735f8af17133bf697e24b70f8018f" => :sierra
     sha256 "0139ddf8047c88ee6c29abfa8a112dce897150d54a0d83b9d2892d5033829a6d" => :el_capitan

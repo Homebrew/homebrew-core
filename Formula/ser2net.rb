@@ -1,30 +1,39 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-2.10.1.tar.gz"
-  sha256 "cee4ad8fb3531281e8761751694dfab39d681022b2363b1edeba764d397c3c99"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-3.5.tar.gz"
+  sha256 "ba9e1d60a89fd7ed075553b4a2074352902203f7fbd9b65b15048c05f0e3f3be"
 
   bottle do
-    rebuild 1
-    sha256 "6cfa743d0e2090bed8f8c2e0495a840dfe77b1f3544582f60a0483315dcfe5ba" => :high_sierra
-    sha256 "63b36a1ef39e534d2a8ae91caede4abea2dcfc4ed9ba1ef69f2da6a30baf7b31" => :sierra
-    sha256 "5b94f195c765af83306e29f0d8e2556751cbdad1669866761faaeaf199023805" => :el_capitan
+    sha256 "36da05b58e05873eec72b04da6bb5e719d26814d8820927bc8684ac680f67587" => :mojave
+    sha256 "4533ef4f7200f9fe786332af987740b6db93e9e24b298b32909d9387eb168b3a" => :high_sierra
+    sha256 "e14422b545c872c363edc5618c61a2d5772838c54d521c3b2688ac88ed2596d0" => :sierra
   end
 
+  depends_on :macos => :sierra # needs clock_gettime
+
   def install
+    # values.h doesn't exist on macOS
+    # https://github.com/cminyard/ser2net/pull/4
+    inreplace "readconfig.c", "#include <values.h>", ""
+
     # Fix etc location
     inreplace ["ser2net.c", "ser2net.8"], "/etc/ser2net.conf", "#{etc}/ser2net.conf"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system "make", "install"
+
+    # LIBS is set to "-lpthread -lrt" but librt doesn't exist on macOS
+    # https://github.com/cminyard/ser2net/issues/3
+    system "make", "install", "LIBS=-lpthread"
+
     etc.install "ser2net.conf"
   end
 
   def caveats; <<~EOS
     To configure ser2net, edit the example configuration in #{etc}/ser2net.conf
-    EOS
+  EOS
   end
 
   plist_options :manual => "ser2net -p 12345"
@@ -50,7 +59,7 @@ class Ser2net < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
   test do
     assert_match version.to_s, shell_output("#{sbin}/ser2net -v")

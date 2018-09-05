@@ -6,6 +6,7 @@ class Gpsd < Formula
 
   bottle do
     cellar :any
+    sha256 "5eb90753d0b3ff4a585d41fc35d26068092592a14ca271202c3acd1a2deb9525" => :mojave
     sha256 "89237ff11349f301e4a41a9f1d0ad7948f9a257d91a95be6ec6b4c9e26187f72" => :high_sierra
     sha256 "1a7912b32f3cc2d59d5d7b615ec3e8e2d14399d0256f2768b91be029f64e2438" => :sierra
     sha256 "6fb615b0aba85f6692cf6f8ac529ee8a2777d300bba6a9d8ff8abe90784d0fa5" => :el_capitan
@@ -24,7 +25,7 @@ class Gpsd < Formula
     need to force it to connect to your GPS:
 
       GPSD_SOCKET="#{var}/gpsd.sock" #{sbin}/gpsdctl add /dev/tty.usbserial-XYZ
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/gpsd -N -F #{HOMEBREW_PREFIX}/var/gpsd.sock /dev/tty.usbserial-XYZ"
@@ -55,7 +56,7 @@ class Gpsd < Formula
       <string>#{var}/log/gpsd.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

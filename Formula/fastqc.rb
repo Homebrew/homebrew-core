@@ -1,8 +1,8 @@
 class Fastqc < Formula
   desc "Quality control tool for high throughput sequence data"
   homepage "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/"
-  url "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.5.zip"
-  sha256 "dd7a5ad80ceed2588cf6d6ffe35e0f161c0d9977ed08355f5e4d9473282cbd66"
+  url "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.11.7.zip"
+  sha256 "59cf50876bbe5f363442eb989e43ae3eaab8d932c49e8cff2c1a1898dd721112"
 
   bottle :unneeded
 
@@ -20,7 +20,7 @@ class Fastqc < Formula
       CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
       +SRR098281.1 HWUSI-EAS1599_1:2:1:0:318 length=35
       #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-     EOS
+    EOS
     assert_match "Analysis complete for test.fasta", shell_output("#{bin}/fastqc test.fasta")
   end
 end

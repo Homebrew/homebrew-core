@@ -7,6 +7,7 @@ class Pixman < Formula
 
   bottle do
     cellar :any
+    sha256 "ba7cd2b7be2df5b079a506d507ed4cbe5563258b98a1a6dd0ac832600bf258a2" => :mojave
     sha256 "8274aac0ad9775aaff37e1400d3659fdeec765db0381e142de873598075eb063" => :high_sierra
     sha256 "5271f5c3bb4c524047aaa1aaafa183908b6fa8ea8c5224fd30a04c53cd6c317d" => :sierra
     sha256 "47f660837d496427e5ff69f64d4b175f3dfa553580197dd06990803ba3eedc20" => :el_capitan
@@ -14,6 +15,16 @@ class Pixman < Formula
   end
 
   depends_on "pkg-config" => :build
+
+  # Fix "error: use of unknown builtin '__builtin_shuffle'"
+  # Upstream issue 31 Jan 2018 "Fails to build pixman-0.34.0 with clang 5.x or later"
+  # See https://bugs.freedesktop.org/show_bug.cgi?id=104886
+  if DevelopmentTools.clang_build_version >= 902
+    patch do
+      url "https://bugs.freedesktop.org/attachment.cgi?id=137100"
+      sha256 "2af5b3700e38600297f2cb66059218b1128337d995cba799b385ad09942c934f"
+    end
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

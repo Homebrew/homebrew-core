@@ -1,21 +1,16 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.8.1.tar.gz"
-  sha256 "79ad2dca0679f6d8b6a4d75e7ccea7930957134743bba290c949d5aa1aa53a14"
+  url "https://github.com/dlang/dub/archive/v1.10.0.tar.gz"
+  sha256 "db6c3a9e45408d2431bc3d1138a31b561fb71665c1d89db4b0cb3725b2b12faa"
   version_scheme 1
-
   head "https://github.com/dlang/dub.git"
 
   bottle do
-    sha256 "7484306cfaba14aff965a6a32ab47d194592ea8ae6720f617b545de586db3785" => :high_sierra
-    sha256 "309c7a42cdf6b1eda8dfc8c3500c51ece625be157ee9ee6233b75655f9a14413" => :sierra
-    sha256 "0f12587d134ada1588db6f6f228f8ff679101c0c53db4715bdb93a03292b65da" => :el_capitan
-  end
-
-  devel do
-    url "https://github.com/dlang/dub/archive/v1.9.0-beta.1.tar.gz"
-    sha256 "505729f13eb14845d0faf4665ae69f93430c49c03f4d67541a32052b98794c71"
+    sha256 "30cb1d3cd0c76748175727c4de5c8c98d5fdd8d94fe4254dfc81d4cad7943491" => :mojave
+    sha256 "502b6a1a71ad2011885eaf6172e20a5cf626e16c201357bb1072aab7f9b77ed7" => :high_sierra
+    sha256 "18799640f91b1210ccd5d1349f34c1c91b32cf3603bc2ea442b68ce0694f74dd" => :sierra
+    sha256 "30ae62ba7e76e4ec3e73e5454a3d96bb607bddee02af6a1e7644b077940dd52e" => :el_capitan
   end
 
   depends_on "pkg-config" => :recommended

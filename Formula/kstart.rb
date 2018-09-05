@@ -6,6 +6,7 @@ class Kstart < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6c78dc7caaf8986ecf39687e5aee453aa451f885a9e1b39416a1f294a0aba12f" => :mojave
     sha256 "1e587dc42a73f770ae6a6793de1fbc46a540fbbdf0935be7505b8da8646965d6" => :high_sierra
     sha256 "271ec8468ad4aa1e46dbe4674f9e214d563fc2ea689279e860b4b8324d2196d8" => :sierra
     sha256 "493a3dcca4b6b50ba44687c8b4d78cebf044a9c6ab465eb344aa3d29c64a39fc" => :el_capitan

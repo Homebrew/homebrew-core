@@ -1,13 +1,14 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.4.1.6.tar.bz2"
-  sha256 "bdfda0fe9ad5ce20bb2cf9e9bf28fed40f324141297479824e1f65d97da565df"
+  url "https://download.mono-project.com/sources/mono/mono-5.14.0.177.tar.bz2"
+  sha256 "d4f5fa2e8188d66fbc8054f4145711e45c1faa6d070e63600efab93d1d189498"
 
   bottle do
-    sha256 "4180790335196a33a716ddb0bb1b6ba6a3487babedd8baac6de2458aff038906" => :high_sierra
-    sha256 "8ae5763ad3b6e84ac078ca83f729fe47e5f8d048a87ab0a5892c2b22b4c5854a" => :sierra
-    sha256 "8476cab8863aabdd7c64bff4a31b57aed56192baa71383b8f3ffcc8f41a45fb5" => :el_capitan
+    sha256 "f31bcdbf40da4f3160c6257e62532e82fda34f00e8170424d85b3737cc166c74" => :mojave
+    sha256 "32a208795022a8aa55c86c4f77aca63725d9fe957998c160e43b9048898ce2fa" => :high_sierra
+    sha256 "5b881b5ed9b9fdcef2003dc6f525887f27df2278349644dc8ba446ea4a1b62e5" => :sierra
+    sha256 "22551363ddcd90271af6bac89055ea7bfdf0647455b9ea0be355649dfc6e6e9a" => :el_capitan
   end
 
   # xbuild requires the .exe files inside the runtime directories to
@@ -23,8 +24,6 @@ class Mono < Formula
 
   option "without-fsharp", "Build without support for the F# language."
 
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on "cmake" => :build
 
@@ -32,8 +31,15 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "4.1.23",
-        :revision => "35a4a5b1f26927259c3213465a47b27ffcd5cb4d"
+        :tag => "10.0.2",
+        :revision => "0020622135540ad8ef835d19175902fd8a2dd31e"
+  end
+
+  # When upgrading Mono, make sure to use the revision from
+  # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
+  resource "msbuild" do
+    url "https://github.com/mono/msbuild.git",
+        :revision => "8af44c5b9e727c096833a88fae05c3ddb76716d0"
   end
 
   def install
@@ -53,12 +59,21 @@ class Mono < Formula
     # run directly, so we move them out of bin
     libexec.install bin/"mono-gdb.py", bin/"mono-sgen-gdb.py"
 
-    # Now build and install fsharp as well
+    # We'll need mono for msbuild, and then later msbuild for fsharp
+    ENV.prepend_path "PATH", bin
+
+    # Next build msbuild
+    resource("msbuild").stage do
+      system "./build.sh", "-hostType", "mono", "-configuration", "Release", "-skipTests"
+      system "./artifacts/mono-msbuild/msbuild", "mono/build/install.proj",
+             "/p:MonoInstallPrefix=#{prefix}", "/p:Configuration=Release-MONO",
+             "/p:IgnoreDiffFailure=true"
+    end
+
+    # Finally build and install fsharp as well
     if build.with? "fsharp"
       resource("fsharp").stage do
-        ENV.prepend_path "PATH", bin
         ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
-        system "./autogen.sh", "--prefix=#{prefix}"
         system "make"
         system "make", "install"
       end
@@ -70,7 +85,7 @@ class Mono < Formula
       export MONO_GAC_PREFIX="#{HOMEBREW_PREFIX}"
     Note that the 'mono' formula now includes F#. If you have
     the 'fsharp' formula installed, remove it with 'brew uninstall fsharp'.
-    EOS
+  EOS
   end
 
   test do

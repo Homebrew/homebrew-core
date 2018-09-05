@@ -3,17 +3,14 @@ class Wemux < Formula
   homepage "https://github.com/zolrath/wemux"
   url "https://github.com/zolrath/wemux/archive/v3.2.0.tar.gz"
   sha256 "8de6607df116b86e2efddfe3740fc5eef002674e551668e5dde23e21b469b06c"
-
   head "https://github.com/zolrath/wemux.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f8831b9e8be8db403ab615f14f82d0547d6816a5dfffdb78cc97b7bc93b3626f" => :high_sierra
-    sha256 "8f4b4487c79752dd628e4dcbadf862520da5a6d4be677114528425b65e5f130c" => :sierra
-    sha256 "882a3d58408b8a3f1d8d8701f23d96e2b73ea2a4cfe3ae60d6c9fa10d62a0681" => :el_capitan
-    sha256 "413d8099b66ae483fdedfecc79bcff2116d9ea579a23c5c4d3b4c24ec68db6cb" => :yosemite
-    sha256 "37be489fca544a7add785cfa20c419e3a313c2a8b3e1ba8ee611c1f7a1677467" => :mavericks
+    rebuild 2
+    sha256 "d2abdfef10f58397bd2432229ad301f75f1f2f615aca6151165c93822ed208be" => :mojave
+    sha256 "4da7fcb0ac46c071491e9c8a3946ae4515414b64a5513c75acde7d71650daa4d" => :high_sierra
+    sha256 "4da7fcb0ac46c071491e9c8a3946ae4515414b64a5513c75acde7d71650daa4d" => :sierra
+    sha256 "4da7fcb0ac46c071491e9c8a3946ae4515414b64a5513c75acde7d71650daa4d" => :el_capitan
   end
 
   depends_on "tmux"
@@ -36,7 +33,7 @@ class Wemux < Formula
 
     Either edit the file in your text editor of choice or run `wemux conf` to
     open the file in your $EDITOR.
-    EOS
+  EOS
   end
 
   test do

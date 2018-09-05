@@ -1,16 +1,14 @@
 class Ccrypt < Formula
   desc "Encrypt and decrypt files and streams"
   homepage "https://ccrypt.sourceforge.io/"
-  url "https://ccrypt.sourceforge.io/download/ccrypt-1.10.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/c/ccrypt/ccrypt_1.10.orig.tar.gz"
-  sha256 "87d66da2170facabf6f2fc073586ae2c7320d4689980cfca415c74688e499ba0"
+  url "https://downloads.sourceforge.net/project/ccrypt/1.11/ccrypt-1.11.tar.gz"
+  sha256 "b19c47500a96ee5fbd820f704c912f6efcc42b638c0a6aa7a4e3dc0a6b51a44f"
 
   bottle do
-    rebuild 1
-    sha256 "a1f0fa02b623955333f98118473c16a7af7e740c18455d48866133ce7dd9a97b" => :high_sierra
-    sha256 "41561da9ecb852e0e704b6c9d6693f1eac65a02d0ff1419eb55b4221550d6aa7" => :sierra
-    sha256 "006c8e5eb58e88305dec70559d6d64fd0203881dcaca36db50cbb44d3aaae61b" => :el_capitan
-    sha256 "44efc492cc7cf2d4f1061f14fd5aa213517406434c41c96e297d9b4f06d7e1a7" => :yosemite
+    sha256 "49054d9d502ab13e65ab873cc9d355ab75438372a7770c38c4c7c35c84c31e3a" => :mojave
+    sha256 "a4d270d5b5f467870f0b265f6f2d1861762d853df46756a34ac7e6a6d83e2121" => :high_sierra
+    sha256 "048295cb4f95c9f0f3c5f1a619141e08c0326b6d8252c62c97608fb028cb48f7" => :sierra
+    sha256 "a98ea0f3dbee5e9086bea342ac8291303970b1d8a85344be2b4d91330a919ae9" => :el_capitan
   end
 
   conflicts_with "ccat", :because => "both install `ccat` binaries"

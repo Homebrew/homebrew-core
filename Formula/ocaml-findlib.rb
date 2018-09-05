@@ -1,13 +1,14 @@
 class OcamlFindlib < Formula
   desc "OCaml library manager"
   homepage "http://projects.camlcity.org/projects/findlib.html"
-  url "http://download.camlcity.org/download/findlib-1.7.3.tar.gz"
-  sha256 "d196608fa23c36c2aace27d5ef124a815132a5fcea668d41fa7d6c1ca246bd8b"
+  url "http://download.camlcity.org/download/findlib-1.8.0.tar.gz"
+  sha256 "2b7b7d6d65bb0f3f8a2c51c63c02b0bcf1fea4c23513f866140dc7dc24fe27ad"
 
   bottle do
-    sha256 "9bd28f2ff2625dc8e6b80407f04f7068b352206c1c4c16bb683bec1baf1707d7" => :high_sierra
-    sha256 "fdab15304db637ae7d50f2c3f402bf7604282046e6eb0db5a92d49f7c83dfcc4" => :sierra
-    sha256 "0b8067816185fa2f8bd249ac37a5405c0fbb78631885197731a8a5f686439dbd" => :el_capitan
+    sha256 "6399780e078bca007730b218f4561ef4a513ba2296230aca2bcd9b6cfc75ea98" => :mojave
+    sha256 "8c2e25008b18bde6fdbefacf85397ecd93a2b916d98c1e1954532509abbfd756" => :high_sierra
+    sha256 "16682aa54745337c9aaae81fdd22000831c2b85b021250c6d4112fb94ab918a1" => :sierra
+    sha256 "22b0228a6a116a7f22728b763c4d3e80b30b246a110fe726c5c572dde2d1073b" => :el_capitan
   end
 
   depends_on "ocaml"

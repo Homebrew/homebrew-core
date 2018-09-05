@@ -1,8 +1,8 @@
 class Fantom < Formula
   desc "Object oriented, portable programming language"
-  homepage "http://fantom.org"
-  url "https://bitbucket.org/fantom/fan-1.0/downloads/fantom-1.0.70.zip"
-  sha256 "bd4ded8ccdc90102dd9696dffc9b85c29ba56eaaec4fb29a47f8080e3c809a7c"
+  homepage "https://fantom.org/"
+  url "https://bitbucket.org/fantom/fan-1.0/downloads/fantom-1.0.71.zip"
+  sha256 "68b2f238548b12a913012d86552e84dc7376e69dac09b56a0488a5330df2f875"
 
   bottle :unneeded
 

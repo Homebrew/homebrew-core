@@ -3,13 +3,14 @@ class Jags < Formula
   homepage "https://mcmc-jags.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcmc-jags/JAGS/4.x/Source/JAGS-4.3.0.tar.gz"
   sha256 "8ac5dd57982bfd7d5f0ee384499d62f3e0bb35b5f1660feb368545f1186371fc"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "63cd65d1d545e7240d4fff3a2be5795a78808952b39edf94bb6c6ae96b6e6647" => :high_sierra
-    sha256 "16837555592d5d29b1d7b62cb2f680f7a16d46946e05e5ec3c9e129c0e577ba0" => :sierra
-    sha256 "eeff9d00549785074a04c0c12b1ef0551a4b6787a704f561397bcc0dd8489f2f" => :el_capitan
+    sha256 "73dd05de303d75d9a252fd9cf40242036d6227d20ff0e40bdad8a9b4fb5ac093" => :mojave
+    sha256 "6f3e40e482b03deb728487e3b9c7089d900f1aa518c74de0859a2877833b16b0" => :high_sierra
+    sha256 "0651db81905348bb0c48c20529c5bab0d4eb735da50fcc9ec26aef38672cf26f" => :sierra
+    sha256 "6c82f61d6cacec46e7863f9b9cb92f33eac63339822fd196e6a029a75dfb01f7" => :el_capitan
   end
 
   depends_on "gcc" # for gfortran

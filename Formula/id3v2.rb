@@ -6,6 +6,7 @@ class Id3v2 < Formula
 
   bottle do
     cellar :any
+    sha256 "f0e2da49b513dce2ab73589b2aed98ae2cca184dbe082f92502d87e96ba9731d" => :mojave
     sha256 "ca2c1296318425931c5eec52c70adf98665edeb19d5b681271c3b6353ddf171a" => :high_sierra
     sha256 "3b1d75af49217a58f5ecb6f0e9e34564b299903898c76145218a6496de3a7778" => :sierra
     sha256 "941e267b5a214013c8085c7918c0d8c1805c906cacf162191b764d2ae1df265f" => :el_capitan

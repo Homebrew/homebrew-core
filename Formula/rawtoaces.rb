@@ -3,12 +3,13 @@ class Rawtoaces < Formula
   homepage "https://github.com/ampas/rawtoaces"
   url "https://github.com/ampas/rawtoaces/archive/v1.0.tar.gz"
   sha256 "9d15e7e30c4fe97baedfdafb5fddf95534eee26392002b23e81649bbe6e501e9"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 "966afd878bb5e6fd3e7fa494b6b75a551df8d32dd75eca1303cc26b4b7b0e1e3" => :high_sierra
-    sha256 "fa253177e28a4ff685c7ca513cd7a85010a51f752c67feca2faddc7496434af0" => :sierra
-    sha256 "e36620881bb6a6bc53683708b2189083be8c6cc21e1ec7b377a6010c8a8c0c63" => :el_capitan
+    sha256 "35b1c3038fc3ac5f2afa237a02b0de3215fd0b5fd6ddc98e4efda984e2f8cf31" => :mojave
+    sha256 "2dc85c4d307896a2db9e4ed9458f4f9c002d75d1799969c9b81f1d6ccfb8eb99" => :high_sierra
+    sha256 "59cc3b6b51f62226c3de9329a336789401ab060126d5bc7d11aebc666acdeb1d" => :sierra
+    sha256 "a6f274bcb805bca7ba760d7c194d82bca3b900f4b4196e317f240737ce59f015" => :el_capitan
   end
 
   depends_on "cmake" => :build

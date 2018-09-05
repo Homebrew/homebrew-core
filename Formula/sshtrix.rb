@@ -3,20 +3,22 @@ class Sshtrix < Formula
   homepage "http://www.nullsecurity.net/tools/cracker.html"
   url "https://github.com/nullsecuritynet/tools/raw/master/cracker/sshtrix/release/sshtrix-0.0.2.tar.gz"
   sha256 "dc90a8b2fbb62689d1b59333413b56a370a0715c38bf0792f517ed6f9763f5df"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "8755bd6e5e55baf13212c26b752aa7477e19ca7925b7951f08b7bd7609bbea94" => :high_sierra
-    sha256 "406825d6203b5d5c2dc6652617a37373d99d15be4c47aa7474414eb2c226c191" => :sierra
-    sha256 "7e1510ecc837aaf0d2ec15af981fdd101bdd71812c0b298645b31a6a97e80b4a" => :el_capitan
-    sha256 "2fd9c4a2d64419d0e3599b17ea244911420276ecd8c0f4ded909730413121ec0" => :yosemite
-    sha256 "91023afd20f82c8d93497c460344fb00a718343fa52e1ad48299b876c8699be1" => :mavericks
-    sha256 "c4c325be267741bdc3ba858f21834b8666f734463c28b28e2ad652bbee154b95" => :mountain_lion
+    sha256 "d684736818642560692ea0a2efa0bb2d43f41bb128312f0161a5ad21fabd8ad4" => :mojave
+    sha256 "9e5ef47ca5780f4e6e855cb787a6f7926e90f007b5f45bd600f35c3e9782d393" => :high_sierra
+    sha256 "820c6cbfc33a7705efdc801657111376ae4380a0a068df08011c2a0c6c3f50ee" => :sierra
+    sha256 "4aa5c719528b14df3b6aedb0db15e97767492703c2fb3de0a48927224e1f126d" => :el_capitan
   end
 
   depends_on "libssh"
 
   def install
+    # https://github.com/nullsecuritynet/tools/issues/6
+    inreplace "Makefile", "-lssh_threads", ""
+
     bin.mkpath
     system "make", "sshtrix", "CC=#{ENV.cc}"
     system "make", "DISTDIR=#{prefix}", "install"

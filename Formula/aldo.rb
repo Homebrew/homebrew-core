@@ -7,6 +7,7 @@ class Aldo < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "4c510b7da186be5d55c990d97265952de8fad51079ad2fa18058b8a57d8eeebb" => :mojave
     sha256 "d30e5e60defc2e2d2110cf52a60898d94ae3331a679f1c228e0d598421a594d9" => :high_sierra
     sha256 "ad5216c04fce4d1f4da63af2fa4d298a3414073db186991ec4389a942799ddd1" => :sierra
     sha256 "0691c4b9b7ae5b6f104c5b5205f731d4348563b8a9a8c3631395f619ce00aabf" => :el_capitan

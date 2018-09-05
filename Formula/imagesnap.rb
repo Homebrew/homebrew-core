@@ -6,12 +6,28 @@ class Imagesnap < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "aad1fdf9cd4f97e787fe909e1edd5b303ed79db9d1ef4749fc4096fa26301feb" => :high_sierra
-    sha256 "bfee8ffebe9c16cbd6d33de6e39d2e1661f76a5211c625fedf49c7c77da360aa" => :sierra
-    sha256 "02a2db58a63115170c3cfae52c8a6b6b15ffa8bebee81254dc5624aeea375899" => :el_capitan
+    rebuild 1
+    sha256 "f407afef9b42d250115f21c69a28a9e4fd143619d71cac9f4d92c0d17d3512ad" => :mojave
+    sha256 "6b40f134d9180d7874db92f4a79dad69a74669791f13233e435eed8710c2f4d2" => :high_sierra
+    sha256 "6cd7d838362754709f98d28c3fe45736f188bfdc8662cf1986089091c5d1e3d0" => :sierra
+    sha256 "bbe0115174e191a6eaeedcdb3136e4c9248e7bab649bb30ddd4e07d27ea4e553" => :el_capitan
   end
 
   depends_on :xcode => :build
+
+  # Fixes running on 10.13+: https://github.com/rharder/imagesnap/issues/16
+  # Merged into master, will be in the next release.
+  patch do
+    url "https://github.com/rharder/imagesnap/commit/cd33ff8963006c37170872a7bdd0f29a7eae9a29.patch?full_index=1"
+    sha256 "2747d93a27892fcc585e014365f6081e56904e23dcdb84c581ba94b0c061f41a"
+  end
+
+  # Fixes filename specification: https://github.com/rharder/imagesnap/issues/19
+  # Merged into master, will be in the next release.
+  patch do
+    url "https://github.com/rharder/imagesnap/commit/c727968f278d09a792fd0dbbb19903c48518ba24.patch?full_index=1"
+    sha256 "b43cb2be1a577a472af1bc990007411860c451c0bca9528340598eeb2cb36ff5"
+  end
 
   def install
     xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build", "-sdk", MacOS.sdk_path

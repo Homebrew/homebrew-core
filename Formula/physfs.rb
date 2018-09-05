@@ -7,6 +7,7 @@ class Physfs < Formula
 
   bottle do
     cellar :any
+    sha256 "4b2cf49af5b93bb1d0a0670ceccae84cb26c77a51c4e8230dd792c9da4dc0962" => :mojave
     sha256 "03128f703af35b557fe9e6792dc93dec7b520e7d38a86b782cfdc5e00f850a71" => :high_sierra
     sha256 "9549999aa9862efb9f59fd0448eef8bdfb458cef44367bad6a4fe436584e1977" => :sierra
     sha256 "a8b9f8b640dc1aca30c1505fd738474f71f6122d86216bdaa33e4e3135d97367" => :el_capitan
@@ -30,7 +31,7 @@ class Physfs < Formula
     (testpath/"test").write <<~EOS
       addarchive test.zip 1
       cat test.txt
-      EOS
+    EOS
     assert_match /Successful\.\nhomebrew/, shell_output("#{bin}/test_physfs < test 2>&1")
   end
 end

@@ -1,13 +1,14 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.6.tar.bz2"
-  sha256 "e64d8c5fa2d05938a5080cb784a98ac21be0812f2a26f844b18f0d6a0e711984"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.10.tar.bz2"
+  sha256 "799dd37a86a1448732e339bd20440f4f5ee6e69755f6fd7a73ee8af30840c915"
 
   bottle do
-    sha256 "38302b573c7a247dec8aae9645c2164071b911ad572521d0bc16df1dad1843ec" => :high_sierra
-    sha256 "46f211169ee4edff53add04a711b204f04ada612186820a2f7ad0822a9d512a5" => :sierra
-    sha256 "04cc4e03c7db3eb6ca2bab83b8c7109a1203b893affafe7ca073b1497dc5b677" => :el_capitan
+    sha256 "7190eeef3372dec0d663f29f59fdc192b4f2b684b00b684405a3fd086b3fddcf" => :mojave
+    sha256 "a6c89bd1575cd29b96454f64f782b321105725a6e35228724f3654403c9a47f4" => :high_sierra
+    sha256 "2ec723b779f410e4facb11c0523fe3ce1a1b31514228d348857e06ae02d70188" => :sierra
+    sha256 "92b34de0e0713e1a5179a5c82ee4aec1579d798a6a2e5772db2716f30d791d9b" => :el_capitan
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
@@ -70,7 +71,7 @@ class Gnupg < Formula
 
     For full details on each change and how it could impact you please see
       https://www.gnupg.org/faq/whats-new-in-2.1.html
-    EOS
+  EOS
   end
 
   test do

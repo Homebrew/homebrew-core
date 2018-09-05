@@ -7,6 +7,7 @@ class Apparix < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "5b26fe074f048cdf1ba973e21e91bd51eb7f275ba05928ffaaf2e56c15671bbd" => :mojave
     sha256 "1170198d8bafd2b2a6795257dec1e4c15cb1c92d1af7eea44ee816c0a58ac8a1" => :high_sierra
     sha256 "889da718a73f128fa8baaca4a66ae80316ef6cb00ccc03937ea191c8eb781930" => :sierra
     sha256 "89d7d52f9f2e76f1dd6b91075f407fa71000be0b09bd4548c11a6fd820b87ab3" => :el_capitan

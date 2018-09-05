@@ -1,13 +1,15 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
-  homepage "http://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.2.4/gdal-2.2.4.tar.xz"
-  sha256 "441eb1d1acb35238ca43a1a0a649493fc91fdcbab231d0747e9d462eea192278"
+  homepage "https://www.gdal.org/"
+  url "https://download.osgeo.org/gdal/2.3.1/gdal-2.3.1.tar.xz"
+  sha256 "9c4625c45a3ee7e49a604ef221778983dd9fd8104922a87f20b99d9bedb7725a"
+  revision 1
 
   bottle do
-    sha256 "e12a190d34c9b0e93bdad0b0511b66b4ea30d88a1eb421139a1692c5319a3568" => :high_sierra
-    sha256 "e5b261299699570aacc75f5d97a85c9e6ff834f46d0561d63557c5efdedd6196" => :sierra
-    sha256 "1f5ce5618a147582fdb21c786def1b14ad170c561cacf504612b62f30a50a952" => :el_capitan
+    sha256 "5fa9c5dde1d07ca4b273bb39eba94e7e10060299ce3784777d8d5689781c3586" => :mojave
+    sha256 "8fd9f4bea010ab1a734b9e93e7768ba1232929f0c55584e55f4a0f518933edd2" => :high_sierra
+    sha256 "b4a94d1d2cb9944db72ceacf3eae46b16ffedd0e23690d993f877962b1496899" => :sierra
+    sha256 "0329fd8ff5722be6e43b4e16ed56ff71096f5464e76141dd633c08a553eb31d4" => :el_capitan
   end
 
   head do
@@ -32,8 +34,11 @@ class Gdal < Formula
   depends_on "libspatialite"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "numpy"
   depends_on "pcre"
   depends_on "proj"
+  depends_on "python"
+  depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
 
   depends_on "mysql" => :optional
@@ -97,6 +102,7 @@ class Gdal < Formula
       "--without-python",
       "--without-ruby",
       "--with-armadillo=no",
+      "--with-qhull=no",
     ]
 
     if build.with?("mysql")
@@ -130,6 +136,14 @@ class Gdal < Formula
     system "make"
     system "make", "install"
 
+    if build.stable? # GDAL 2.3 handles Python differently
+      cd "swig/python" do
+        system "python3", *Language::Python.setup_install_args(prefix)
+        system "python2", *Language::Python.setup_install_args(prefix)
+      end
+      bin.install Dir["swig/python/scripts/*.py"]
+    end
+
     system "make", "man" if build.head?
     # Force man installation dir: https://trac.osgeo.org/gdal/ticket/5092
     system "make", "install-man", "INST_MAN=#{man}"
@@ -141,5 +155,9 @@ class Gdal < Formula
     # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
+    if build.stable? # GDAL 2.3 handles Python differently
+      system "python3", "-c", "import gdal"
+      system "python2", "-c", "import gdal"
+    end
   end
 end

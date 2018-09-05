@@ -7,6 +7,7 @@ class Qjson < Formula
 
   bottle do
     cellar :any
+    sha256 "02abebab98b79dd60197c0e2d5f7a468e96cb738e5c2065a3664db0bf59cf59e" => :mojave
     sha256 "1bd2a1a0fcabf72acedd8a7c9d68bae090d31cc6a673515461ce487f15b88772" => :high_sierra
     sha256 "bd50e784f99285df8e70448f041c67fe1f8c79f5d6b17f130a2e3a11bc19227d" => :sierra
     sha256 "befe6eeb2426c2f698dd54999398fa569d91246d239aef3e877680902a20f945" => :el_capitan

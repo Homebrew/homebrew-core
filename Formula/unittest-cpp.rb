@@ -6,6 +6,7 @@ class UnittestCpp < Formula
 
   bottle do
     cellar :any
+    sha256 "9837dfbba5a3014097d3b406bd48e174a6a788d0c0b3107bd1fabeeb0ce6b89e" => :mojave
     sha256 "206f44c35a82fac519b64b8c4ae6bc397e360d8404e8279a24b906d7729efed2" => :high_sierra
     sha256 "91d028b464f32fcf6edda6b791be2b70d9b770934edd7af7d2b8ff24e9c5eb06" => :sierra
     sha256 "6136d8cdc420681130c59d9f77327ddad6b46a35d29da5be760b522c7456e2a2" => :el_capitan

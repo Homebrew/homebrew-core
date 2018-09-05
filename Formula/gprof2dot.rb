@@ -3,11 +3,11 @@ class Gprof2dot < Formula
   homepage "https://github.com/jrfonseca/gprof2dot"
   url "https://files.pythonhosted.org/packages/9d/36/f977122502979f3dfb50704979c9ed70e6b620787942b089bf1af15f5aba/gprof2dot-2017.9.19.tar.gz"
   sha256 "cebc7aa2782fd813ead415ea1fae3409524343485eadc7fb60ef5bd1e810309e"
-
   head "https://github.com/jrfonseca/gprof2dot.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "3141494b024f2303016fc172921c489551acf416074c31d5b94908aa2bb133da" => :mojave
     sha256 "b557363c9161ff1cd9de06cfb116eac29886c31f655c57d031ef2c6641fe876c" => :high_sierra
     sha256 "4cbf98d1320170ed6287d0b58bc7c810e29529de2ea5d5c4c2545443c6f5e3e2" => :sierra
     sha256 "2fe7080ddad320a9f73638f8d1ad072e97d6ba80825221414bae015019672852" => :el_capitan

@@ -1,11 +1,12 @@
 class Icecast < Formula
   desc "Streaming MP3 audio server"
-  homepage "http://www.icecast.org/"
+  homepage "https://icecast.org/"
   url "https://downloads.xiph.org/releases/icecast/icecast-2.4.3.tar.gz"
   sha256 "c85ca48c765d61007573ee1406a797ae6cb31fb5961a42e7f1c87adb45ddc592"
 
   bottle do
     cellar :any
+    sha256 "23034293d31b692fc9a8e7ae3c69d69d5cb21627a4b00a2e2ecea21943e33a86" => :mojave
     sha256 "da71d730b60e2dd85a9be89974ec9e7418ae594644bc4652e4ee273cb3739dd6" => :high_sierra
     sha256 "f3660f43ecaab1b126d38916d1bbb4644f395301130e05f80855c3923729fa5a" => :sierra
     sha256 "6904fc3c70e67be98bd73a0cd362f7ae7960b0a8beab1cd924ab84ae42a782a3" => :el_capitan

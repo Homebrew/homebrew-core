@@ -1,18 +1,16 @@
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
-  # http://gondor.apana.org.au/~herbert/dash/ is offline
-  homepage "https://packages.debian.org/source/sid/shells/dash"
-  # http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.9.1.tar.gz is offline
-  url "https://dl.bintray.com/homebrew/mirror/dash-0.5.9.1.tar.gz"
-  mirror "https://ftp.cc.uoc.gr/mirrors/linux/lfs/LFS/svn/d/dash-0.5.9.1.tar.gz"
-  sha256 "5ecd5bea72a93ed10eb15a1be9951dd51b52e5da1d4a7ae020efd9826b49e659"
+  homepage "http://gondor.apana.org.au/~herbert/dash/"
+  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.10.2.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/dash-0.5.10.2.tar.gz"
+  sha256 "3c663919dc5c66ec991da14c7cf7e0be8ad00f3db73986a987c118862b5f6071"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6bbb2ddfda0414be7bc04f4128e24c616321f50a24bb5474a8823ec334b104d3" => :high_sierra
-    sha256 "a5706775cbe31c1571a6634d36b3ac6383ed4a4e7334772bae9c49f375ed678c" => :sierra
-    sha256 "807944242d102a2ab60498cd18377092e4055bbc6a68b950a76b11f013431aa4" => :el_capitan
-    sha256 "dd1cccafe8f7a004d396bccf8382e0049aa472be062281cbf75902e2258a91c4" => :yosemite
+    sha256 "08b5b8cb7c8ba7946a800dc477faede8d13fe877af4305b11d91ea9e5afba4cb" => :mojave
+    sha256 "11463b8d52c2d9616c2deaf40a4a4a186baf6c2b4724c3c8b35efc527f6ad0ef" => :high_sierra
+    sha256 "ab44bf2512098fca3db4d0655191c1deaa0d0d8311d531976603242b1c7136e4" => :sierra
+    sha256 "c634e0bb97fc544fc425c62d429e239519d7ecf447df4debc6406792ba1eb476" => :el_capitan
   end
 
   head do

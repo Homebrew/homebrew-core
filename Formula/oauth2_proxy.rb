@@ -7,6 +7,7 @@ class Oauth2Proxy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2c73a65a1965ae0d0b25bc8160f6bdabb743461a039415ae350af95cab233bb0" => :mojave
     sha256 "062e2e65e4a9e233eeb94b711b642eb061f9eee949ef43e10845353b8fbcb9d8" => :high_sierra
     sha256 "48fde51ae6c8f7c1ea348526117953ced48616c0e9a7678867c31998fdc13612" => :sierra
     sha256 "56c173bc0afde492037cd5c572ae600562058ae0c9c0dc8b0155d902332bbe37" => :el_capitan
@@ -29,7 +30,7 @@ class Oauth2Proxy < Formula
 
   def caveats; <<~EOS
     #{etc}/oauth2_proxy/oauth2_proxy.cfg must be filled in.
-    EOS
+  EOS
   end
 
   plist_options :manual => "oauth2_proxy"
@@ -54,7 +55,7 @@ class Oauth2Proxy < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,6 +1,6 @@
 class Unzip < Formula
   desc "Extraction utility for .zip compressed archives"
-  homepage "http://www.info-zip.org/pub/infozip/UnZip.html"
+  homepage "https://infozip.sourceforge.io/UnZip.html"
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
@@ -8,6 +8,7 @@ class Unzip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ac4f4f1d2450f39747f0def0c33230015688d2223dcc64a73b7c52e545f7072c" => :mojave
     sha256 "c69a3531f5c1c834132c89124e11e580cb052870515875240f035dd471977893" => :high_sierra
     sha256 "72cf9820bc8fe8c008bdb1cf7b231afbb0bc6b48511f4d40e5e4840f5bb5df65" => :sierra
     sha256 "8a2bfa62e728c9a9bc44d7acb9f34698e599b47f8200c45290b62502c682a6ec" => :el_capitan

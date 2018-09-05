@@ -6,6 +6,7 @@ class AvroC < Formula
 
   bottle do
     rebuild 1
+    sha256 "7f7098067243213f259c937131f4ffd8456ba8086b6e5af77b4889f6861ff182" => :mojave
     sha256 "6f4d948dcf0e1700b7a770f9bb8612f5495ff0c5c01c9f0ee3a73f3d3c58165e" => :high_sierra
     sha256 "b1340938b27551d73c1343d5323b9aa1a42a173fa10e4a7db9445e11e84fdc54" => :sierra
     sha256 "8358b34088a77ba07d32505350e5b119274ed69f3adf1016cd1fbf0b15034227" => :el_capitan

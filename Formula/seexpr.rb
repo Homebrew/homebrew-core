@@ -6,6 +6,7 @@ class Seexpr < Formula
 
   bottle do
     cellar :any
+    sha256 "f240a108c552c37d6f070d5048f1f00a33055243a5a82e6f017481fd452847a0" => :mojave
     sha256 "a5a7e8224eb7669dc0fea2178df7d51be1733f9fb82d4c0bb1851608f18c4722" => :high_sierra
     sha256 "762881f740d763d3c2477f5ead9b2fc7c549f38721b39e999f9b6634f5215b68" => :sierra
     sha256 "0a374c2f84169d0b4ab064dfdd2dee856d5f80c9b8b27eee57e3d1614abffaa9" => :el_capitan

@@ -5,6 +5,7 @@ class Opencc < Formula
   sha256 "34e728ba9819477e8f8e12726867965e6aa55e7f3390225b2c031f9138b404cb"
 
   bottle do
+    sha256 "4c5e5a613f0b12b3fd1dd9ca7d4dce6c67d0b1b9edd2d7b6cf52446e35d1eb27" => :mojave
     sha256 "9a4d1024105557dbb8caad9548473bbbc384b4178e880a996d1b843eeaac5df1" => :high_sierra
     sha256 "3c228bd803e8914ee9ca3ed00eb67fa9dfcacd8f1a99c5532962d5c4a87acb57" => :sierra
     sha256 "9ddf2bdf0563a14a3e1bff8e5a067c605ac59b9f1611c69640035cdb7df6ddfd" => :el_capitan

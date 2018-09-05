@@ -1,14 +1,15 @@
 class Libgsm < Formula
   desc "Lossy speech compression library"
   homepage "http://www.quut.com/gsm/"
-  url "http://www.quut.com/gsm/gsm-1.0.17.tar.gz"
-  sha256 "855a57d1694941ddf3c73cb79b8d0b3891e9c9e7870b4981613b734e1ad07601"
+  url "http://www.quut.com/gsm/gsm-1.0.18.tar.gz"
+  sha256 "04f68087c3348bf156b78d59f4d8aff545da7f6e14f33be8f47d33f4efae2a10"
 
   bottle do
     cellar :any
-    sha256 "a09c56c1092d573d0f0e2eac64cc0b24c052d644e882c83f7fa1479809490d99" => :high_sierra
-    sha256 "81adb1475c78284f6794e172a8259c3a16bd60a6cb322e015443bedd24238597" => :sierra
-    sha256 "0aaa622ead97802072f54ebb8e33e4aeac94607fa66a38c36ff9b4b96aac8518" => :el_capitan
+    sha256 "b06d7e8a936f19fe705d0b5cfe9a0da91d78acbcec4521fe1b61fcb37a97a77d" => :mojave
+    sha256 "430c06d59d788bae3b9081924d68bb8c800cf0792fb533219e0e6c94887a0e22" => :high_sierra
+    sha256 "1efa5fae6b9cf7bc802a42845836522bdb89fa0acf5bae88ca36dd75b823a5de" => :sierra
+    sha256 "72ab3562f8bafc91a0c6dd0149956ed1c1e97ddacb409a695e2b4581317a9260" => :el_capitan
   end
 
   # Builds a dynamic library for gsm, this package is no longer developed

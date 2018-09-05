@@ -6,6 +6,7 @@ class Dupseek < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "487097be0d37b3fb4d15062dcb6a6b92dca302aa95e5a458a9e737f0e3c7efaa" => :mojave
     sha256 "fec3e17a1d9f120895a8b70df43cc366347656f2971a461e9d7251a9ea0c0927" => :high_sierra
     sha256 "c1782462d69bba5735a53dc65adb20beb42577fdb543debe9a7d19446fa16171" => :sierra
     sha256 "576106465507f9281685d12dba4409e1b409f090fc6ac1397c92b5190a5416d4" => :el_capitan

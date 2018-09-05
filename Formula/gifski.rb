@@ -1,39 +1,33 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/0.8.2.tar.gz"
-  sha256 "d7bf1b6515c273b822c94fc78e6d10fbc45d444a04bc3487fe3e799d6aa836e0"
+  url "https://github.com/ImageOptim/gifski/archive/0.8.4.tar.gz"
+  sha256 "e78da4306f01bf4070d7904066f5253058866a9888ca59fc3a08a2a547607b5c"
 
   bottle do
-    sha256 "48f7b226aad64ed09df2ba12aef1c5eb4d50bdd2892338205050a9508b4b441d" => :high_sierra
-    sha256 "bd9d8fa459ecd0be1163d188f2dce0df132a2a6a1df11c718e74c746c8da34c0" => :sierra
-    sha256 "8451f3f386963c5a48e48ae62028c8c954c9c91395ac2b47dcf51e87380b987b" => :el_capitan
+    sha256 "cb7b99424c08b3e7a378af0be915e93938742fa80f94c1cc6dfa395e1873a83d" => :mojave
+    sha256 "c3f9147ebd6b71ad2ee29f642b9eb9ab7ec6ca57d07b2f93f716833e045f26a2" => :high_sierra
+    sha256 "dc70290671ad0e3f7b89be4d9a205280cb5361d89e3432794dfab0e2df2d0b30" => :sierra
+    sha256 "723cddd4ed7608e4c1f56915c7a7a26362a94525d70432ba0d803552a9645b7a" => :el_capitan
   end
 
   option "with-openmp", "Enable OpenMP multithreading"
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "ffmpeg"
   depends_on "gcc" if build.with? "openmp"
 
   fails_with :clang if build.with? "openmp"
 
   def install
-    args = ["--release"]
-
-    if build.with? "openmp"
-      args << "--features=video,openmp"
-    else
-      args << "--features=video"
-    end
-
-    system "cargo", "build", *args
-    bin.install "target/release/gifski"
+    args = []
+    args << "--features=openmp" if build.with? "openmp"
+    system "cargo", "install", "--root", prefix, "--path", ".", *args
   end
 
   test do
-    system bin/"gifski", "-o", "out.gif", test_fixtures("test.png")
+    png = test_fixtures("test.png")
+    system bin/"gifski", "-o", "out.gif", png, png
     assert_predicate testpath/"out.gif", :exist?
     refute_predicate (testpath/"out.gif").size, :zero?
   end

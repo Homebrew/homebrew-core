@@ -1,31 +1,29 @@
 class Kubeless < Formula
   desc "Kubernetes Native Serverless Framework"
   homepage "https://github.com/kubeless/kubeless"
-  url "https://github.com/kubeless/kubeless.git",
-      :tag => "v0.5.0",
-      :revision => "a954695ecb48394a510a3501b4b5b565e959b0ed"
+  url "https://github.com/kubeless/kubeless/archive/v1.0.0-alpha.8.tar.gz"
+  sha256 "a03c69d9a3e9abd4378628b35e8e3364011d51eeded5b1b31d879d22ef3da31d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1430b72c0446a5b882c5f5bac5ec308e8cb0e1bc61152a6e5f69c07122b0ec3b" => :high_sierra
-    sha256 "af971109da488edf33b59b0c6eebdf7b558120cbd7fe3e63e648a623e72b25bc" => :sierra
-    sha256 "e983496b579d3680541b593b87a6c744f8b926bb166ac8c43bcd15abf338da32" => :el_capitan
+    sha256 "acc63f3785304f4315f1081fa85a3716fa238c1037ffe6e5dbbd260c1ae07864" => :mojave
+    sha256 "bb6998e774e37318701a6a66c90946b0715eb02e28e824aeda6093e83cba988e" => :high_sierra
+    sha256 "2b3cb765a118f41d26459d3488ff848c1304bac2b40c7a7e499e854b65dff11e" => :sierra
+    sha256 "d8e5e3453bc4a1a2d18e3f65d9d7ca5ca59246c7bcf9fe39f066282b826cc859" => :el_capitan
   end
 
   depends_on "go" => :build
   depends_on "kubernetes-cli" => :recommended
 
   def install
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/kubeless/kubeless").install buildpath.children
     cd "src/github.com/kubeless/kubeless" do
       ldflags = %W[
-        -w -X github.com/kubeless/kubeless/cmd/kubeless/version.VERSION=v#{version}
-        -X github.com/kubeless/kubeless/cmd/kubeless/version.GITCOMMIT=#{commit}
+        -w -X github.com/kubeless/kubeless/pkg/version.Version=v#{version}
       ]
-      system "go", "build", "-o", bin/"kubeless", "-ldflags", ldflags.join(" "),
-             "./cmd/kubeless"
+      system "go", "build", "-o", bin/"kubeless", "-ldflags",
+             ldflags.join(" "), "./cmd/kubeless"
       prefix.install_metafiles
     end
   end

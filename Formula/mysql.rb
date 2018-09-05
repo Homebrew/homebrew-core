@@ -1,25 +1,13 @@
 class Mysql < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.21.tar.gz"
-  sha256 "ad29ecb6fb3c3571394fe231633a2d1d188d49e9eb749daa4e8799b7630daa09"
+  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.12.tar.gz"
+  sha256 "99abae6660b53a462cff7c9fefb56d17f52823e9a964831aee1ae5633d9a2982"
 
   bottle do
-    sha256 "a7c26e2b52bb4efa8948c808270baabd9a77b7d88b7c66367497f6a4aa1b5954" => :high_sierra
-    sha256 "54954ee3932c803edf8dcbcf9b9d1eb6efca440803874715c84bcf8ae57fe3e5" => :sierra
-    sha256 "8fe03949331ab255c0b26e3bf88a311cf6f9f5f2de46ef01798d696d2b500652" => :el_capitan
-  end
-
-  devel do
-    url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.4-rc.tar.gz"
-    sha256 "648b1e39f45d7e4b65bae572f5d475db4a0c5e9db6ede75d8a3762972f312833"
-
-    fails_with :clang do
-      build 800
-      cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
-    end
-    # GCC is not supported either, so exclude for El Capitan.
-    depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
+    sha256 "56bf45ecb466d8320771777d0924b7169af5a01e49666686072b5211c5d60cc9" => :mojave
+    sha256 "963bbfbd11282a5dee036f5dafe93c4eb5d9a900e7063fcd883dad5bab826492" => :high_sierra
+    sha256 "44e56ac21c0258735e906b6d01c18a562131b35e2e9d1b5d8f09677562b8b411" => :sierra
   end
 
   option "with-debug", "Build with debug support"
@@ -37,9 +25,18 @@ class Mysql < Formula
   depends_on "openssl"
 
   # https://github.com/Homebrew/homebrew-core/issues/1475
-  # Needs at least Clang 3.3, which shipped alongside Lion.
-  # Note: MySQL themselves don't support anything below El Capitan.
-  depends_on :macos => :lion
+  # Needs at least Clang 3.6, which shipped alongside Yosemite.
+  # Note: MySQL themselves don't support anything below Sierra.
+  depends_on :macos => :yosemite
+
+  # https://bugs.mysql.com/bug.php?id=86711
+  # https://github.com/Homebrew/homebrew-core/pull/20538
+  fails_with :clang do
+    build 800
+    cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
+  end
+  # GCC is not supported either, so exclude for El Capitan.
+  depends_on :macos => :sierra if DevelopmentTools.clang_build_version == 800
 
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
     :because => "mysql, mariadb, and percona install the same binaries."
@@ -90,13 +87,6 @@ class Mysql < Formula
     # Build with InnoDB Memcached plugin
     args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
 
-    # To enable unit testing at build, we need to download the unit testing suite
-    if build.with? "test"
-      args << "-DENABLE_DOWNLOADS=ON"
-    else
-      args << "-DWITH_UNIT_TESTS=OFF"
-    end
-
     system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
@@ -131,7 +121,7 @@ class Mysql < Formula
   def post_install
     # Make sure the datadir exists
     datadir.mkpath
-    unless (datadir/"mysql/user.frm").exist?
+    unless (datadir/"mysql/general_log.CSM").exist?
       ENV["TMPDIR"] = nil
       system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
         "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
@@ -180,7 +170,7 @@ class Mysql < Formula
       <string>#{datadir}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

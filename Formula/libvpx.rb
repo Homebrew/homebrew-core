@@ -6,6 +6,7 @@ class Libvpx < Formula
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
+    sha256 "582a9263b17830dd1ed640bd21e1779843071e8e638a53774bb32a19ef7b7839" => :mojave
     sha256 "5df5088250c3061e8e6d508525b46959ee3cb46504097b95342bf06a1f2d92ef" => :high_sierra
     sha256 "75b004234a3bd81686d4ddd985bc87327a6f32937a484d12209aa23e85a74292" => :sierra
     sha256 "853cfd3f79bfa0c8006ea37644a8ccf1674a2e24abf03521c12457ee99d8242d" => :el_capitan

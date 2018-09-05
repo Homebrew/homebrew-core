@@ -6,6 +6,7 @@ class Perceptualdiff < Formula
 
   bottle do
     cellar :any
+    sha256 "1d3d02c27772801105fe9cf3e3ad697bcbeb4db9b260f134bd3e342344455481" => :mojave
     sha256 "683d05fc64186ee518180b56345d446be90ff2c42666c80adb86bc185d20d283" => :high_sierra
     sha256 "eb2da458eda1cebc7872b2621c96e5aa627d9711f8d31fb792cb092d92d060db" => :sierra
     sha256 "d47d680df91ee88897f95123e6b9f972351a603a5f4921726b2877cc2e67924f" => :el_capitan

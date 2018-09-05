@@ -6,6 +6,7 @@ class Latexdiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ddcf64d90ce3117e7b5ae80fe87968ac37e573c2d5baaa70d9824a5003f6c887" => :mojave
     sha256 "defcfd366232b19b67f087f085113a30d18f9e42f70ee2b44eb03828ef1f0727" => :high_sierra
     sha256 "defcfd366232b19b67f087f085113a30d18f9e42f70ee2b44eb03828ef1f0727" => :sierra
     sha256 "defcfd366232b19b67f087f085113a30d18f9e42f70ee2b44eb03828ef1f0727" => :el_capitan

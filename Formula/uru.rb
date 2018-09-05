@@ -6,6 +6,7 @@ class Uru < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "de2f402198ecf4ccba8b6c585f74cd67b1d29eca00357be1ba71b0700c41b361" => :mojave
     sha256 "095e47012069ab3116fb5d014367a3407c1fbadc3711bb0e063109924a54943c" => :high_sierra
     sha256 "123829f2ee276cde74be11222b7ae9aed54ba3c3708bdb0ec94c2b5cf32b5577" => :sierra
     sha256 "c510cfeea72b21ce8928095a53bdc8176fda8210507ac12ac1c04cd55d7f4f43" => :el_capitan
@@ -25,7 +26,7 @@ class Uru < Formula
   def caveats; <<~EOS
     Append to ~/.profile on Ubuntu, or to ~/.zshrc on Zsh
     $ echo 'eval "$(uru_rt admin install)"' >> ~/.bash_profile
-    EOS
+  EOS
   end
 
   test do

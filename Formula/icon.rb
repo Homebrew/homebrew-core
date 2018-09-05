@@ -7,6 +7,7 @@ class Icon < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "824e189b6c174efa7e0f675c7bd4d90f19810f379d71b0195b508d2f6ec43986" => :mojave
     sha256 "7c2d0794956448b8bebf166c97a65aa23fde0847eeb7c6c9f8197eff2835ffb5" => :high_sierra
     sha256 "13d3963ef90d3f94f13a97e922185ea640233aee356e3bf8c2a0336de278482c" => :sierra
     sha256 "5218afb915b7892d4c242c659218735293136c3b100f54aa7199bcc716915939" => :el_capitan
@@ -24,6 +25,8 @@ class Icon < Formula
   end
 
   test do
-    assert_equal "Hello, World!", shell_output("#{bin}/icon -P 'procedure main(); writes(\"Hello, World!\"); end'")
+    args = "'procedure main(); writes(\"Hello, World!\"); end'"
+    output = shell_output("#{bin}/icon -P #{args}")
+    assert_equal "Hello, World!", output
   end
 end

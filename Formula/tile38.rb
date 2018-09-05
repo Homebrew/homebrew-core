@@ -1,15 +1,16 @@
 class Tile38 < Formula
   desc "In-memory geolocation data store, spatial index, and realtime geofence"
-  homepage "http://tile38.com"
-  url "https://github.com/tidwall/tile38/archive/1.11.1.tar.gz"
-  sha256 "e5eac0cb54eae755ccf88463985bdd5f0e30c7575d9793f0427e5eae1257e134"
+  homepage "https://tile38.com/"
+  url "https://github.com/tidwall/tile38/archive/1.13.0.tar.gz"
+  sha256 "fc8e3044f1f549ca1ec47fb327cde0260db24b0f44adbfb269b5e5927d49d224"
   head "https://github.com/tidwall/tile38.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f599ed5e984d370a1a57476cafcc53a5fd46eca4ed91e953632d4ab64e4dcb1a" => :high_sierra
-    sha256 "4781e8b1782f0dfd1b30834db0c4e0072998a129edcc9e9d6db62592f7fe1458" => :sierra
-    sha256 "f20e835db4787e1504a4457078cb22e1c0b337a9a85281b5bc12aced1edbe590" => :el_capitan
+    sha256 "c85948df65781a2a62d3a30d14a40c3323fe63ab5b8b316e28e818e7959aa667" => :mojave
+    sha256 "dd86dd798c5a4575ebf55c5cbd164462c4d8b562cd1a2c2005616dd1d8e1a01c" => :high_sierra
+    sha256 "e629c66daaff30fba7ce873210b602bf70f4a9244a577a690804ae9757d648cc" => :sierra
+    sha256 "04a78cae9d41de1c6bfe5288fd03bed664c55f45e57374dc0892af9326c0b179" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -32,12 +33,41 @@ class Tile38 < Formula
   end
 
   def caveats; <<~EOS
-    Data directory created at #{datadir}. To start the server:
-        tile38-server -d #{datadir}
+    To connect: tile38-cli
+  EOS
+  end
 
-    To connect:
-        tile38-cli
-    EOS
+  plist_options :manual => "tile38-server -d #{HOMEBREW_PREFIX}/var/tile38/data"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <dict>
+          <key>SuccessfulExit</key>
+          <false/>
+        </dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/tile38-server</string>
+          <string>-d</string>
+          <string>#{datadir}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/tile38.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/tile38.log</string>
+      </dict>
+    </plist>
+  EOS
   end
 
   test do

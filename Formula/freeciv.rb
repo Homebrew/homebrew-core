@@ -1,14 +1,14 @@
 class Freeciv < Formula
   desc "Free and Open Source empire-building strategy game"
   homepage "https://freeciv.wikia.com/"
-  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.5/2.5.11/freeciv-2.5.11.tar.bz2"
-  sha256 "4c9c526952fe977cb4b302b8ccf75798fd066c6dde670f72f677fe4964259aad"
-  revision 1
+  url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.0/freeciv-2.6.0.tar.bz2"
+  sha256 "7c20399198d6c7d846fed9a69b02e01134ae5340a3ae0f99d1e38063ade6c999"
 
   bottle do
-    sha256 "b054ce3c05e877006cf79b4c99cd2b63dfc8ce0f68c9d70c2f3ab2d874d6722e" => :high_sierra
-    sha256 "5c2378c9054dee7927d0e14970a95c58aa9919e7ae0d525057f99439ab524539" => :sierra
-    sha256 "1d3e7934bc8cdd6448251cdde65b8e29a53c1923a952ce2cc5fc04418170ddc3" => :el_capitan
+    sha256 "d7c127c1bbe7d964de0fe50dcd44515d644e805511b1418f05cf1b9c9285d9c8" => :mojave
+    sha256 "8ba7771987465daac08790cf9325c8d1c28df67cb55a1e3a257504618c1a803b" => :high_sierra
+    sha256 "e123133c2ebbac4dce6d5b443f25b94cf8c90359c745fdfcd43fa56110817bb9" => :sierra
+    sha256 "933abaa9e21126537f6864f2e6389480df81c8b38f4a47e2beea72ecfd0928da" => :el_capitan
   end
 
   head do
@@ -47,6 +47,8 @@ class Freeciv < Formula
   depends_on "gdk-pixbuf" if build.with? "gtk+3"
 
   def install
+    ENV["ac_cv_lib_lzma_lzma_code"] = "no"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -75,7 +77,7 @@ class Freeciv < Formula
 
   test do
     system bin/"freeciv-manual"
-    assert_predicate testpath/"manual6.html", :exist?
+    assert_predicate testpath/"classic6.mediawiki", :exist?
 
     server = fork do
       system bin/"freeciv-server", "-l", testpath/"test.log"

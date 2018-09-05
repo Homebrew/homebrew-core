@@ -7,6 +7,7 @@ class GitIntegration < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "28a8ee3e850ef67bef47e6de8e59b2d631f6a5e1357647bf7a910dcf4ffb675b" => :mojave
     sha256 "483d5e5411d0a197e8e1e123f88fb2559745506115e3884064616b5118f1c5c3" => :high_sierra
     sha256 "c4679cfcf05245017bf840a67eeecf0fde1b52862d46d00e9f80d267c33aedbe" => :sierra
     sha256 "f91de5bf8a16b8b54db99566b81862c7d1e898dd332fd2d4d4bd457694443d62" => :el_capitan

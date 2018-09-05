@@ -7,6 +7,7 @@ class Chgems < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9b24233632189a803f6e65fcd408bf8220b25ad225fda970a141eb0f7bad4d8c" => :mojave
     sha256 "a9913aa39c5901bc434ce9774d5ccf3e618fa20784a709f7185bc3e26430b367" => :high_sierra
     sha256 "01e2e0335391df51b5fb2003e79d4994a48b4515077904b4e924062a0bf79b3c" => :sierra
     sha256 "395b45c3493721bccfc7fdefa2d81ec61b7f07f8cfd799eac5f1e96011a618f3" => :el_capitan

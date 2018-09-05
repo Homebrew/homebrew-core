@@ -6,6 +6,7 @@ class Orc < Formula
 
   bottle do
     cellar :any
+    sha256 "6ed19a8c63bbd23187a05d0d09a9c6d288625b4c234f8b60a022bb16763cea3f" => :mojave
     sha256 "bc08fab45dc2650b71950bff090bb09e64595778f3810bca442775b7973a43dd" => :high_sierra
     sha256 "6eafe23ac5c17b765ca6f59eb65c52d782d2858bbca7a4f374b77258dedb828f" => :sierra
     sha256 "c640dd001774b981101cbc223c51e31aafb35a6b8bc2e2fc3fc2c15dbfe3fbae" => :el_capitan

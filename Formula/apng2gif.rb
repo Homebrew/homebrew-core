@@ -7,6 +7,7 @@ class Apng2gif < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "f0f18d7ae3beaaac092bc06bccc3f5fdcd0c7de11df6ded61e8fde151d3e2276" => :mojave
     sha256 "810005bcbc32c60c7084b248eef3d007e756180842051f64385fb90cfac66c63" => :high_sierra
     sha256 "fa18274f18fb0d3a2b3f5c360c24587b805db3f4734972c350643c35b8677174" => :sierra
     sha256 "42d033ae0a661d75b588af8d7c0cdb67a81bfc481aa88665973d95d3e4fb64ec" => :el_capitan

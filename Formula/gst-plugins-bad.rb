@@ -1,14 +1,15 @@
 class GstPluginsBad < Formula
   desc "GStreamer plugins less supported, not fully tested"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.0.tar.xz"
-  sha256 "ed5e2badb6f2858f60017b93334d91fe58a0e3f85ed2f37f2e931416fafb4f9f"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-bad/gst-plugins-bad-1.14.2.tar.xz"
+  sha256 "34fab7da70994465a64468330b2168a4a0ed90a7de7e4c499b6d127c6c1b1eaf"
   revision 1
 
   bottle do
-    sha256 "308d9c4c72913fc8765a01448ca32570df1bc502440ff44fbffc340964348b54" => :high_sierra
-    sha256 "84f80a511ddcb9943756c51b7ae6590d1edd56dca35db1db80ec3a525c0de29e" => :sierra
-    sha256 "1d376f912b04d799e2fc4a23c272540520737134995ac5025fd1312946b7a8a6" => :el_capitan
+    sha256 "250f3095d2e3396dee744f37312e6f01ac04f1e4a62c3c05af8cfff3c9f10bf3" => :mojave
+    sha256 "473b9f9c10b10f8ae73f34db6481191bcde0db8943c3bb46032744077470d24c" => :high_sierra
+    sha256 "4d0393b043fd7e6d9f12c6fad71857d37e43c75a466b77cbeda13ef25b25938e" => :sierra
+    sha256 "26230d031fcbd1e026a2de06816708ebbc0a1d4d04c752add82033f690f4d0a1" => :el_capitan
   end
 
   head do
@@ -20,6 +21,7 @@ class GstPluginsBad < Formula
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "openssl"
@@ -30,7 +32,6 @@ class GstPluginsBad < Formula
   depends_on "faad2" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "gnutls" => :optional
-  depends_on "gtk+3" => :optional
   depends_on "libdvdread" => :optional
   depends_on "libexif" => :optional
   depends_on "libmms" => :optional
@@ -50,9 +51,8 @@ class GstPluginsBad < Formula
       --disable-examples
       --disable-debug
       --disable-dependency-tracking
+      --enable-introspection=yes
     ]
-
-    args << "--with-gtk=3.0" if build.with? "gtk+3"
 
     if build.head?
       # autogen is invoked in "stable" build because we patch configure.ac

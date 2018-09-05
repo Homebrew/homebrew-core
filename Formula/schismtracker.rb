@@ -1,15 +1,16 @@
 class Schismtracker < Formula
   desc "Portable reimplementation of Impulse Tracker"
   homepage "http://schismtracker.org/"
-  url "https://github.com/schismtracker/schismtracker/archive/20180209.tar.gz"
-  sha256 "260d7ef333e740adb0293b2ca21447db81595f277b1151108020723ef1f31f9b"
+  url "https://github.com/schismtracker/schismtracker/archive/20180810.tar.gz"
+  sha256 "1f159958a1d1a290b5af61bb1b283b429fe05171987736c2ebca00f4a60c1fe9"
   head "https://github.com/schismtracker/schismtracker.git"
 
   bottle do
     cellar :any
-    sha256 "21d1920a28276e4ff416000decc452fe51d092e9de47ad1e3c563c0abea61cb1" => :high_sierra
-    sha256 "84bc0f506bd91c86c0d60efcfee9366a2a5a488381ccf2ed0716c0c2f8ed6a55" => :sierra
-    sha256 "e1d0f44a61bb7bcd306368ac51e147be6598a990a8b0b0c60084a49495e115bd" => :el_capitan
+    sha256 "33e177bd2dcf065a78fec1e6c209f8c3bb1abf5cd71ee1e04c68358f0f6bf9f4" => :mojave
+    sha256 "e23c65a61cff81729816d167bf68bc2ff73febf01fc8ad66b493f8801515b399" => :high_sierra
+    sha256 "d9381cb1a53c0f5d822d77308cdca06000c48e8501130ea3cdc58cf0b94ae1d1" => :sierra
+    sha256 "5f31b90bcd0d75eb16ac32b5f588ea838c852a088fc8978fec36402a8705c223" => :el_capitan
   end
 
   depends_on "autoconf" => :build

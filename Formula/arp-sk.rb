@@ -1,12 +1,13 @@
 class ArpSk < Formula
   desc "ARP traffic generation tool"
-  homepage "http://sid.rstack.org/arp-sk/"
-  url "http://sid.rstack.org/arp-sk/files/arp-sk-0.0.16.tgz"
+  homepage "https://web.archive.org/web/sid.rstack.org/arp-sk/"
+  url "https://web.archive.org/web/20180123194412/sid.rstack.org/arp-sk/files/arp-sk-0.0.16.tgz"
   mirror "http://distcache.freebsd.org/ports-distfiles/arp-sk-0.0.16.tgz"
   sha256 "6e1c98ff5396dd2d1c95a0d8f08f85e51cf05b1ed85ea7b5bcf73c4ca5d301dd"
 
   bottle do
     cellar :any
+    sha256 "b0c8b814c565ed44ce9bf1a52f9555fa6223d64a51bece46749a71403d1988fd" => :mojave
     sha256 "db71e1610feac13246511f6c67bbf224e20b49e9a130d76dc5ca3317fe755601" => :high_sierra
     sha256 "d933c37e26f227918a6e770dc3214a76f06ca79abbf1f646a6c00447ad9933ac" => :sierra
     sha256 "5d112e8d54329bff104270b7ca27cd4884e48f8c47904bb5838a2e107c035736" => :el_capitan

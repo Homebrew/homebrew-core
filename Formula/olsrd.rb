@@ -6,6 +6,7 @@ class Olsrd < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4f10d4e0d33d101369a9b216adcdc445cd8bce3ee6a1c09548578688c7dc8ac9" => :mojave
     sha256 "27524e71f30ba6e64fa5184058b6c73c4dfbfda348b2c2817258db758fcdeb99" => :high_sierra
     sha256 "1131b24ca42d043af8eb8a338337150c8ad9f10d9d71968e119779c3eae1bc93" => :sierra
     sha256 "88c836acf65237195c3b0d74a7fde0813c2008ab79c216ba8b36e789e58192ab" => :el_capitan
@@ -47,7 +48,7 @@ class Olsrd < Formula
         </dict>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

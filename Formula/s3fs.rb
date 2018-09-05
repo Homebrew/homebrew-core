@@ -1,16 +1,15 @@
 class S3fs < Formula
   desc "FUSE-based file system backed by Amazon S3"
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
-  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.83.tar.gz"
-  sha256 "8f060accef304c1e5adde0c9d6976a3a69fd9935444a4985517c6cefa86b34ef"
-
+  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.84.tar.gz"
+  sha256 "39b844fe94b44af48ab8d57645a0a3fd9a64486bb54413ba7f928111cb4093a3"
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 
   bottle do
     cellar :any
-    sha256 "a2561b0db0c7eb9a4355b42a38f307f4e432da3db3b3580a68eeee8001b12ffd" => :high_sierra
-    sha256 "d6b4884bb5138ff0f10f2149668b09685567c8f55069525ec5557f54033d191f" => :sierra
-    sha256 "9dcbe3450e2fdf5498c18e11390c9d48474c91c1bcd4f8cad6a7e3057fb9b3ee" => :el_capitan
+    sha256 "92b9e79dc1d0422f2d9b0acf78cc7a0525a65bb86e9c2420d7bb32ff3bedb589" => :high_sierra
+    sha256 "9e307d0ddd940c86fee609493f7b9d4539ee1949b8915eb34bc575249769df2f" => :sierra
+    sha256 "d375bdefb6de55ae1793ef7e05f99e52c93be2b9500c9b5bba7f55ae57091efe" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -34,7 +33,7 @@ class S3fs < Formula
     details:
 
       https://code.google.com/p/s3fs/issues/detail?id=73
-    EOS
+  EOS
   end
 
   test do

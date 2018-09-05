@@ -7,6 +7,7 @@ class Lv < Formula
 
   bottle do
     rebuild 1
+    sha256 "6072b4788195dcb51fe2b9d08431ad22bd60eaaeae162c84bc9c2a7560bb7388" => :mojave
     sha256 "912eaa08af6da7ddba73f4169695073614641d67561f4e632e47960f0c07c6b3" => :high_sierra
     sha256 "01c44c5b3d18aa1602c00bc3ce8d0b71ae02cee6dfcff66d7e8df74b424b8de8" => :sierra
     sha256 "49ad4ebf6830c1ef3f6899486e711f99bc293d422317f8851f174cf18de2a98f" => :el_capitan

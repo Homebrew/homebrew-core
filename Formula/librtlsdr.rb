@@ -1,19 +1,16 @@
 class Librtlsdr < Formula
   desc "Use Realtek DVT-T dongles as a cheap SDR"
   homepage "https://sdr.osmocom.org/trac/wiki/rtl-sdr"
-  url "https://github.com/steve-m/librtlsdr/archive/v0.5.3.tar.gz"
-  sha256 "98fb5c34ac94d6f2235a0bb41a08f8bed7949e1d1b91ea57a7c1110191ea58de"
+  url "https://github.com/steve-m/librtlsdr/archive/0.6.0.tar.gz"
+  sha256 "80a5155f3505bca8f1b808f8414d7dcd7c459b662a1cde84d3a2629a6e72ae55"
   head "git://git.osmocom.org/rtl-sdr.git", :shallow => false
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "b25561edb0a980bf69d4d8054b143ae69c65a9917a61b00ec1d78e06d39e3fed" => :high_sierra
-    sha256 "bfeabfcc68c270b5dc4ef8829e466cf406c87e9068cc4a1985eebdc849e2c79c" => :sierra
-    sha256 "63a2184d097f6da5f72eec471ed24f498efe3699834e45a25ba6b55c47b57df5" => :el_capitan
-    sha256 "d9e6bf3b47b6600d9fb3251cdcb0c7d89dcb9d292609453808303944df2f8981" => :yosemite
-    sha256 "3c7027468e4ae312373a62d166a2860be9e27711663fb5f0e52b6e3a3ddc5c6d" => :mavericks
-    sha256 "1d6986e78140d3135492e087356435b19647f090d902b334b400315bc8baebd5" => :mountain_lion
+    sha256 "0e9b14804b722d9efc959940e40ebcef7bf716eb636f0bb0dc600770cb005531" => :mojave
+    sha256 "71f28a8abd8e9e0245a61f841fcebcb7a179d952be786199bf21fae0edd11f6c" => :high_sierra
+    sha256 "d1b83b24f32d4857205be289f7c632ee3bd77af802e3445d7565bb9ba9e4f3b1" => :sierra
+    sha256 "f5196572498f20ff0ea38d4e7ceed95aea1199a558f29dd6aac5cec9db65ce33" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -25,5 +22,19 @@ class Librtlsdr < Formula
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include "rtl-sdr.h"
+
+      int main()
+      {
+        rtlsdr_get_device_count();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lrtlsdr", "test.c", "-o", "test"
+    system "./test"
   end
 end

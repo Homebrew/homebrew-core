@@ -5,14 +5,17 @@ class SwiProlog < Formula
   sha256 "2d3d7aabd6d99a02dcc2da5d7604e3500329e541c6f857edc5aa06a3b1267891"
 
   bottle do
+    sha256 "5076f120b7f2775fc0968885d2d0e82cb7a93f3040c1c39243abdd8ec3ba1e59" => :mojave
     sha256 "7a1a76d4b9160e0fea1899a8af0dcd448f71efef8476b1732d75e8d0339ac419" => :high_sierra
     sha256 "af00bfcc0da68a800dd50e608aabc6620db00de1a7bf1b986a7bc49ae58ea234" => :sierra
     sha256 "2016d9b076b252805f48f705181d03cd26183b0f74a026c029cd34f9e8afb79d" => :el_capitan
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.9.tar.gz"
-    sha256 "2d4b9c9b346c2d6df42e1cf399dee5cf1396ec381391292c65880e64a376ef97"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.19.tar.gz"
+    sha256 "a7820510afd89c2d7cad977ff455841350e7163f8c532d25ce94e70336564a82"
+
+    depends_on "zlib" if MacOS.version <= :el_capitan
   end
 
   head do

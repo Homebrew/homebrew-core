@@ -3,14 +3,15 @@ class Mkdocs < Formula
 
   desc "Project documentation with Markdown"
   homepage "https://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.17.3.tar.gz"
-  sha256 "dc104ea8677a5e55cde4d5a2cf6be613dbc905c4111e09d434d8d9183851c2da"
+  url "https://github.com/mkdocs/mkdocs/archive/1.0.2.tar.gz"
+  sha256 "c555849d28066075a35f1bbf3786871311010c1ae097061eed270b500e258039"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dbabb4392de12114a773ebff7517558cd60b3061d1ce17562a3304d52af74147" => :high_sierra
-    sha256 "d681555682de9b035d13f700e1c36dac36f61c444e93883a6c579c794619a132" => :sierra
-    sha256 "687d04afebfe2c6894688e2e189062f66efb200cd2ef7cfeb5aa86079cbe24f4" => :el_capitan
+    sha256 "de9d4dfd6c69c5dd4c1f9bc658bfdfd800308cce845f03860b4c9d32dcaf08e6" => :mojave
+    sha256 "ed13a1551149247f367f1bc5855809cc8178d11d9ce338027ecaae12094e14c4" => :high_sierra
+    sha256 "245835b4f6b2e09d6068d906d3c2d33eca5239f26c4e2ae4ace0d3659012585e" => :sierra
+    sha256 "d8fd48a2bbe180fe4d4a646f06e10c7a217eb063b2e934982633c8e9fd627cf3" => :el_capitan
   end
 
   depends_on "python@2"
@@ -20,14 +21,14 @@ class Mkdocs < Formula
     sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
   end
 
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
-  end
-
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
     sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+  end
+
+  resource "futures" do
+    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
+    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "Jinja2" do
@@ -36,13 +37,13 @@ class Mkdocs < Formula
   end
 
   resource "livereload" do
-    url "https://files.pythonhosted.org/packages/e9/2e/c4972828cf526a2e5f5571d647fb2740df68f17e8084a9a1092f4d209f4c/livereload-2.5.1.tar.gz"
-    sha256 "422de10d7ea9467a1ba27cbaffa84c74b809d96fb1598d9de4b9b676adf35e2c"
+    url "https://files.pythonhosted.org/packages/f7/1b/aa5fb8c59fc683bbabdfdcfd4455673d07ac05f391d6b1244ad204b33ebc/livereload-2.5.2.tar.gz"
+    sha256 "dd4469a8f5a6833576e9f5433f1439c306de15dbbfeceabd32479b1123380fa5"
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/29/82/dfe242bcfd9eec0e7bf93a80a8f8d8515a95b980c44f5c0b45606397a423/Markdown-2.6.9.tar.gz"
-    sha256 "73af797238b95768b3a9b6fe6270e250e5c09d988b8e5b223fd5efa4e06faf81"
+    url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"
+    sha256 "a856869c7ff079ad84a3e19cd87a64998350c2b94e9e08e44270faef33400f81"
   end
 
   resource "MarkupSafe" do
@@ -51,8 +52,8 @@ class Mkdocs < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "singledispatch" do
@@ -66,8 +67,8 @@ class Mkdocs < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz"
-    sha256 "1fb8e494cd46c674d86fac5885a3ff87b0e283937a47d74eb3c02a48c9e89ad0"
+    url "https://files.pythonhosted.org/packages/45/ec/f2a03a0509bcfca336bef23a3dab0d07504893af34fd13064059ba4a0503/tornado-5.1.tar.gz"
+    sha256 "4f66a2172cb947387193ca4c2c3e19131f1c70fa8be470ddbbd9317fd0801582"
   end
 
   def install
@@ -78,7 +79,7 @@ class Mkdocs < Formula
     # build a very simple site that uses the "readthedocs" theme.
     (testpath/"mkdocs.yml").write <<~EOS
       site_name: MkLorum
-      pages:
+      nav:
         - Home: index.md
       theme: readthedocs
     EOS

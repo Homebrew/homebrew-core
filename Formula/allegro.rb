@@ -1,13 +1,13 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
-  homepage "http://liballeg.org/"
+  homepage "https://liballeg.org/"
   url "https://github.com/liballeg/allegro5/releases/download/5.2.4.0/allegro-5.2.4.0.tar.gz"
   sha256 "346163d456c5281c3b70271ecf525e1d7c754172aef4bab15803e012b12f2af1"
-
-  head "https://github.com/liballeg/allegro5.git", :branch => "master"
+  head "https://github.com/liballeg/allegro5.git"
 
   bottle do
     cellar :any
+    sha256 "aca4cdee848e807c5feea0a8d69c8a885e9e5865e40c333aace9c1417d8095e0" => :mojave
     sha256 "13e8c8518d9925dd1480b7217233262ac098e40728d5f4f3be6c2dcc6f872340" => :high_sierra
     sha256 "7b8fdcdbfc49555517f654a9b8ad961bb675509b7e365aa58d5f0b7f6b23024c" => :sierra
     sha256 "b8ab4c72c7e3f6b8a46fba5af812ebe7f7b1821c44485facd6bec622a1f00300" => :el_capitan
@@ -27,7 +27,7 @@ class Allegro < Formula
   def install
     args = std_cmake_args
     args << "-DWANT_DOCS=OFF"
-    args << "-DWANT_MODAUDIO=1" if build.with?("dumb")
+    args << "-DWANT_MODAUDIO=1" if build.with? "dumb"
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
@@ -47,7 +47,8 @@ class Allegro < Formula
       }
     EOS
 
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lallegro", "-lallegro_main", "-o", "allegro_test", "allegro_test.cpp"
+    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lallegro", "-lallegro_main",
+                    "-o", "allegro_test", "allegro_test.cpp"
     system "./allegro_test"
   end
 end

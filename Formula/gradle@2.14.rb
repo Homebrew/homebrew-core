@@ -6,9 +6,13 @@ class GradleAT214 < Formula
 
   bottle :unneeded
 
+  keg_only :versioned_formula
+
+  depends_on :java => "1.8"
+
   def install
     libexec.install %w[bin lib]
-    bin.install_symlink libexec+"bin/gradle"
+    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.java_home_env("1.8")
   end
 
   test do

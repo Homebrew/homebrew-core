@@ -1,14 +1,15 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.39.tar.xz"
-  sha256 "73f23fbf05f3fa98343208b751db04b31a7ff743c2d828e1a0a130c566f1bc4f"
-  revision 1
+  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.43.tar.xz"
+  sha256 "550fceefa74622b8fe57dd0b030003e31db50edf7f87068ff5e146365108b64e"
 
   bottle do
-    sha256 "6e8a61488941cfc97b13521a4a1ba0a1577a8c4a35895568df0a5bcd60dedc94" => :high_sierra
-    sha256 "3426ceb193fd1b5df10f1ce41cfcbd5eaebe33c18f04730127cc99677fbaae76" => :sierra
-    sha256 "847fe6099207cf8d7abcdb0b80d3f367534586ab8446889aa2cad06c041bcac3" => :el_capitan
+    rebuild 1
+    sha256 "3aa7ce0a18a158cf827c10c522d2e9763871cfd8356fa1f8c510ff5b1ddb0388" => :mojave
+    sha256 "eba0611c7b574b806fe4be80e3301c55d4f57bfb05cc42ff3cc1371dc1d7be71" => :high_sierra
+    sha256 "52e5c5738c9a59056e0d016e04f27ac2fdc26a1cff375ea98eccd99573690e9d" => :sierra
+    sha256 "ca9f9afa31c7bcde1d87c20a33cfb773499f94d8da43ced4dc89b628c4d336d2" => :el_capitan
   end
 
   head do
@@ -57,7 +58,7 @@ class Goffice < Formula
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
-           "-I/usr/include/libxml2",
+           "-I#{MacOS.sdk_path}/usr/include/libxml2",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "-I#{Formula["cairo"].opt_include}/cairo",

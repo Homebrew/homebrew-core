@@ -7,6 +7,7 @@ class Libid3tag < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "51257e9e96bedecb39c15f25bdefc4150ba636f76c828240df0c214c6dc8381f" => :mojave
     sha256 "42909989a248048c3c03c64d937ab3ffc655dbf8fc90d6deffaa74f979bdbdba" => :high_sierra
     sha256 "f80ff2abda5796fcabba3ff54405d9626628c3969f844723e9232d66e85e745f" => :sierra
     sha256 "75e446174dd2a9dc17326c998757c4218a89cddb734f3000d0b0506de801732a" => :el_capitan
@@ -23,7 +24,7 @@ class Libid3tag < Formula
     "file-write"                         => "eff855cabd8a51866a29246a1b257da64f46aab72d4b8e163e2a4c0d15165bf1",
   }.each do |name, sha|
     patch do
-      url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch?id=56bd759df1d0"
       sha256 sha
     end
   end
@@ -35,14 +36,14 @@ class Libid3tag < Formula
     "tag"          => "ca7262ddad158ab0be804429d705f8c6a1bb120371dec593323fa4876c1b277f",
   }.each do |name, sha|
     patch :p0 do
-      url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch?id=56bd759df1d0"
       sha256 sha
     end
   end
 
   # corrects "a cappella" typo
   patch :p2 do
-    url "https://raw.githubusercontent.com/gentoo/gentoo/56bd759df1d0/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch"
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch?id=56bd759df1d0"
     sha256 "5e86270ebb179d82acee686700d203e90f42e82beeed455b0163d8611657d395"
   end
 
@@ -66,6 +67,6 @@ class Libid3tag < Formula
     Conflicts:
     Libs: -L${libdir} -lid3tag -lz
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 end

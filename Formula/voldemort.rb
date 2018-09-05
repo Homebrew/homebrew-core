@@ -1,11 +1,12 @@
 class Voldemort < Formula
   desc "Distributed key-value storage system"
-  homepage "http://www.project-voldemort.com/"
+  homepage "https://www.project-voldemort.com/"
   url "https://github.com/voldemort/voldemort/archive/release-1.10.25-cutoff.tar.gz"
   sha256 "29f21adee7c8c67c57dacef5c204ceb3c92132dac32d0577418bcd2c5cfb81d2"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e2f8f6dde12ef90163844ddda4aba3ab3e37157b446f3b728d1863d36c21b1bc" => :mojave
     sha256 "efab24efd6b897345a5ddb3932e4aa25600feed32a2efea1b66362f29637bed7" => :high_sierra
     sha256 "76ba2152aec4e7334fbffe43f9597b0c13aca9f039d69b6d44dcf6c162b017a0" => :sierra
     sha256 "272761b8757206fe1f31f7cc6b1ea36f7a6a804f6deb06ed14873eea6f894dfe" => :el_capitan
@@ -13,7 +14,7 @@ class Voldemort < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8"
 
   def install
     system "./gradlew", "build", "-x", "test"

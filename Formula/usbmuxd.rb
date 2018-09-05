@@ -16,6 +16,7 @@ class Usbmuxd < Formula
 
   bottle do
     cellar :any
+    sha256 "2305d6794314c64d0fb8c3339c2d75a8e01d218715bc871560e4fe9fcad486a8" => :mojave
     sha256 "253be465f391159e278a0a9625775075503f75b0a404aa64b9f557486de3b82c" => :high_sierra
     sha256 "37a70014ca7c861639b8dc0f280b66306c082091731dfc3a53d1ef709ab98d5e" => :sierra
     sha256 "e7227fb7deaefc2990e23d9cfdb3aa4305fc7f31e902560fa46272168c85e151" => :el_capitan

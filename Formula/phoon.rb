@@ -7,6 +7,7 @@ class Phoon < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fc8ebcd250b06b5f4b387f7ff84c9935b10a0b2cd4515f2d1dfc993d64f528dc" => :mojave
     sha256 "b02d96f879caf26f69d807a5f7e4ede911e3d8d954fa3ab943e27efe6da15814" => :high_sierra
     sha256 "ef7e685f7a9894e894807a555c4a9d52dd947184c15986f0a5578a46d892e46a" => :sierra
     sha256 "ae91a1dc089678416ddeab9bd3dfbe76f0fd9f4789a86b187740167d0658926d" => :el_capitan
@@ -19,5 +20,9 @@ class Phoon < Formula
     system "make"
     bin.install "phoon"
     man1.install "phoon.1"
+  end
+
+  test do
+    system "#{bin}/phoon"
   end
 end

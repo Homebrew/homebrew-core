@@ -1,14 +1,14 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.1.tar.gz"
-  sha256 "f1b87684d75496a1054405ae3ee0b6573acaf3dad39eaf4f1d66fdd7e03dc852"
-  revision 2
+  url "https://github.com/opencv/opencv/archive/3.4.2.tar.gz"
+  sha256 "81dbd5e7e9f8a4c936b94629bf4765745942a1d634ae38ec08bc57b73b28ffc5"
 
   bottle do
-    sha256 "53b96688ef9738e17b20339b21c46d14abf62983e99e601560f6641a80988d2b" => :high_sierra
-    sha256 "b944d135014d64352d7c3a120811960f552e26cbf29db15bb1174f4e6af387ce" => :sierra
-    sha256 "b2322e9c0c5469549b8e8f1dc08820f2bfa8083d40d071347bc05877ac3221b9" => :el_capitan
+    sha256 "75c1eaf814866f9478c92e44e671046305c356cadc6b80bdd925a023a2d36070" => :mojave
+    sha256 "e8a878f981fbd9ae7daf6f6f73be39dcd20baaf34911b1937ef9b91e0d6d889e" => :high_sierra
+    sha256 "7d42a502f14163663c985247cea157a19f714e1fd2641bd5fc2f653f85592473" => :sierra
+    sha256 "3ca5f6be0e49fe59a3b9274ebda00741de5e8265b6de35813fef43c00086148c" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -27,8 +27,8 @@ class Opencv < Formula
   needs :cxx11
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.1.tar.gz"
-    sha256 "298c69ee006d7675e1ff9d371ba8b0d9e7e88374bb7ba0f9d0789851d352ec6e"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.2.tar.gz"
+    sha256 "45a52764ebd2558fa0b7fd8dc47379b37dd0956d912abbf7c786228374fdf60d"
   end
 
   def install
@@ -57,7 +57,9 @@ class Opencv < Formula
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
       -DBUILD_ZLIB=OFF
+      -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
+      -DBUILD_opencv_text=OFF
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DWITH_1394=OFF
@@ -91,6 +93,11 @@ class Opencv < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      system "make"
+      lib.install Dir["lib/*.a"]
+      lib.install Dir["3rdparty/**/*.a"]
     end
   end
 

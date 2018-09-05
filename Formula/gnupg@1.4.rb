@@ -1,15 +1,16 @@
 class GnupgAT14 < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.22.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.22.tar.bz2"
-  sha256 "9594a24bec63a21568424242e3f198b9d9828dea5ff0c335e47b06f835f930b4"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-1.4.23.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-1.4.23.tar.bz2"
+  sha256 "c9462f17e651b6507848c08c430c791287cd75491f8b5a8b50c6ed46b12678ba"
+  revision 1
 
   bottle do
-    sha256 "a2a568ff85ea47d7486fcc0403332004af5230132fb5f9c17afbfa9279299eee" => :high_sierra
-    sha256 "b34d26fe050fbb87ee0e5e002b1b1d1e5738dd695dc0a02c1b57bb3503ce092b" => :sierra
-    sha256 "4ee6d442e1cb7636c0669cd4a9e83af555c1c5a9cb502405c54a575195884979" => :el_capitan
-    sha256 "68e1c879a85d9e9ce68dc0b1bfa338a04cec76f8293911d335e1c1ae059bdd65" => :yosemite
+    sha256 "32f23f8ceec79b8073f8b69a2c7f1278adf9020c00d78d2cd9d07c1e5f3bdb89" => :mojave
+    sha256 "dbd43b52f11e65c2bb6dadf3adbf8ccf7f740af33b56e4d8c8b037611840f127" => :high_sierra
+    sha256 "abc1e142397fbe833f2f7c5f71409d925ce690506d77296f7f3d41656a0791f2" => :sierra
+    sha256 "397c92b88bd189ef61dfb01d5fe2e27e0477a63de64a713ffb883eb799dcbb87" => :el_capitan
   end
 
   depends_on "curl" if MacOS.version <= :mavericks
@@ -37,10 +38,17 @@ class GnupgAT14 < Formula
     # https://lists.gnupg.org/pipermail/gnupg-devel/2016-August/031533.html
     inreplace bin/"gpg-zip1", "GPG=gpg", "GPG=gpg1"
 
+    # link to libexec binaries without the "1" suffix
+    # gpg1 will call them without the suffix when it needs to
+    %w[curl finger hkp ldap].each do |cmd|
+      cmd.prepend("gpgkeys_")
+      (libexec/"gnupg").install_symlink (cmd + "1") => cmd
+    end
+
     # Although gpg2 support should be pretty universal these days
     # keep vanilla `gpg` executables available, at least for now.
-    %w[gpg-zip1 gpg1 gpgsplit1 gpgv1].each do |cmd|
-      (libexec/"gpgbin").install_symlink bin/cmd => cmd.to_s.sub(/1/, "")
+    %w[gpg-zip gpg gpgsplit gpgv].each do |cmd|
+      (libexec/"gpgbin").install_symlink bin/(cmd + "1") => cmd
     end
   end
 
@@ -59,7 +67,7 @@ class GnupgAT14 < Formula
 
     Note that doing so may interfere with GPG-using formulae installed via
     Homebrew.
-    EOS
+  EOS
   end
 
   test do

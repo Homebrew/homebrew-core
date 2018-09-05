@@ -6,6 +6,7 @@ class Connect < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9950d137f925a1a64a241235fa355ec0b73238e1d89c9b31cc979ce8ccba3f98" => :mojave
     sha256 "406798ed3fe31bdf93780ea4f33b3be0c14b3d262ff09c3fa11eb6bad509a643" => :high_sierra
     sha256 "20658283a4ed9ee93c6a6faeb2b33d0b3721ababb31068b6d898da5db77b0a68" => :sierra
     sha256 "af244ce650bc1ebd50209b62d98c9780df9ff3b90b2b7496f7b74426f33349a6" => :el_capitan

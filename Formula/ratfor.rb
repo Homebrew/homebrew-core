@@ -3,13 +3,14 @@ class Ratfor < Formula
   homepage "http://www.dgate.org/ratfor/"
   url "http://www.dgate.org/ratfor/tars/ratfor-1.03.tar.gz"
   sha256 "d77497cd0856aad43e0d122f04aef4965994b744f1af9ab1237d7cd6849d139c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e26348fdb8d1f44321bcb7cef4f69c48c9d16cad5fec96b421b9fd1030bf1529" => :high_sierra
-    sha256 "46728e56e09c117379d3d588eafe15aa9f7ecd18055e3d7ae34d437b130bde30" => :sierra
-    sha256 "78444ca50e14d07eb52c827c9760f706acf4745d467fae4d2e05953a7c921b95" => :el_capitan
+    sha256 "1778a37f2498200cef410a1b208d1f21f591f909f13b566b139bb66f70734f88" => :mojave
+    sha256 "4a9b3b69f2eadb0023747734a5b1145717d3d776742eb555c35ae20edd0e5d59" => :high_sierra
+    sha256 "ab06a92daf0033b37df76b0a8f8b0191718017d1b7c629c1af82eca0117c8da2" => :sierra
+    sha256 "f6556cca206a70a3dca1ac897078cdbbe61be5c3b2c5e70e540b11998f8f0f5e" => :el_capitan
   end
 
   depends_on "gcc" # for gfortran

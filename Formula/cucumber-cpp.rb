@@ -1,22 +1,20 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/v0.4.tar.gz"
-  sha256 "57391dfade3639e5c219463cecae2ee066c620aa29fbb89e834a7067f9b8e0c8"
-  revision 4
+  url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
+  sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bd077e11bfdca0049b6a0cf328325a1862e682e3342f7dedb824def2cb145511" => :high_sierra
-    sha256 "dd3b90818b60c6842e150c3f324591d7e3135bad7a224a0ca810de1b2f367549" => :sierra
-    sha256 "1a2858aef5463172589ebab10d30b639581f455605749aed275096d769b2c8c3" => :el_capitan
+    sha256 "7643cc92d9c2045584fe6dd8fc4814c6af59ccb2cec2e1d1d375e71f0417cce1" => :mojave
+    sha256 "caf710ea8279840cb59c20f419a53b296a6fc5b0a0ab24dd0f92194671aa3425" => :high_sierra
+    sha256 "496edf97e35ca40d61fe88ac8dfd8ee4ad44f005913a7b60736e7994d5cb0949" => :sierra
+    sha256 "31ff1a02caa46a38a66ee8e97626b1f4356938e9f4854c6a85c11fac8ec920b9" => :el_capitan
   end
 
   depends_on "cmake" => :build
-
-  # Upstream issue from 19 Dec 2017 "Build fails with Boost 1.66.0"
-  # See https://github.com/cucumber/cucumber-cpp/issues/178
-  depends_on "boost@1.60"
+  depends_on "ruby" => :test if MacOS.version <= :sierra
+  depends_on "boost"
 
   def install
     args = std_cmake_args
@@ -26,8 +24,7 @@ class CucumberCpp < Formula
     args << "-DCUKE_DISABLE_BOOST_TEST=on"
     system "cmake", ".", *args
     system "cmake", "--build", "."
-    include.install "include/cucumber-cpp"
-    lib.install Dir["src/*.a"]
+    system "make", "install"
   end
 
   test do
@@ -56,9 +53,9 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
-           "-lcucumber-cpp", "-I#{Formula["boost@1.60"].opt_include}",
-           "-L#{Formula["boost@1.60"].opt_lib}", "-lboost_regex", "-lboost_system",
-           "-lboost_program_options", "-lboost_filesystem"
+           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
+           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lboost_program_options", "-lboost_filesystem", "-lboost_chrono"
     begin
       pid = fork { exec "./test" }
       expected = <<~EOS

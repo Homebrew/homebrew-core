@@ -1,32 +1,25 @@
 class Libmatroska < Formula
   desc "Extensible, open standard container format for audio/video"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.8.tar.xz"
-  sha256 "d8c72b20d4c5bf888776884b0854f95e74139b5267494fae1f395f7212d7c992"
+  url "https://dl.matroska.org/downloads/libmatroska/libmatroska-1.4.9.tar.xz"
+  sha256 "38a61dd5d87c070928b5deb3922b63b2b83c09e2e4a10f9393eecb6afa9795c8"
+  head "https://github.com/Matroska-Org/libmatroska.git"
 
   bottle do
     cellar :any
-    sha256 "e4f4d97646cb4860e229532d6a37ac3edeabac4dcc35fb66ff73aa4bd2baad62" => :high_sierra
-    sha256 "d9d618b79e33db74df3d594bbb8ce997c7fb3347861ad2ea6e5677cd607a3197" => :sierra
-    sha256 "53cffc64b37eec80b8325437f3fd7d84ffdf0626bb87499c1565eaa063c63854" => :el_capitan
+    sha256 "9cf80937bba8b956bd15e78252ef23cc06afa902c3594baa3a3337aa26f7a1e3" => :mojave
+    sha256 "04ec9b92408b8b08f201ae9e31da5d9abd0383a468938b999007ec51530fa50d" => :high_sierra
+    sha256 "8f8b94c254e55a0c79aae5d9ad6a3ea60e16caca379594d8613c5d92f9e8dc00" => :sierra
+    sha256 "8df1a83ae264b0597d714f843e2b3d322be80a30ea0f0400dc86fed6b5d6c0ee" => :el_capitan
   end
 
-  head do
-    url "https://github.com/Matroska-Org/libmatroska.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "libebml"
 
   def install
-    system "autoreconf", "-fi" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=YES", *std_cmake_args
+      system "make", "install"
+    end
   end
 end

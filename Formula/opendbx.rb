@@ -6,6 +6,7 @@ class Opendbx < Formula
   revision 1
 
   bottle do
+    sha256 "a98f96a0a70e29bba16f505dc13ea7638ef82ec398de40d6430eced24afbb4c9" => :mojave
     sha256 "42ed70ef4eb93be7351b5d66ff131ad13cb92290d9dee6a721d9050ae3a187cd" => :high_sierra
     sha256 "275e19f854b29f8d1d0560a4cca55395854312d678c5c64ad3c2597df7569aef" => :sierra
     sha256 "84a0f694107dd4d15b949dd68474e5a270da583058b7eff29688370ef3a8e18f" => :el_capitan

@@ -1,31 +1,34 @@
 class Cayley < Formula
   desc "Graph database inspired by Freebase and Knowledge Graph"
   homepage "https://github.com/cayleygraph/cayley"
-  url "https://github.com/cayleygraph/cayley/archive/v0.7.2.tar.gz"
-  sha256 "12be10ef129fef84392f2056a56a9f29ac8e1ecfb8facf1d5b5cff17a81e8e97"
+  url "https://github.com/cayleygraph/cayley/archive/v0.7.4.tar.gz"
+  sha256 "37e2bb3014060f16a7b727a1157aa5420cf4fbc8746d3465c305f3b7ae147f66"
   head "https://github.com/google/cayley.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da3ebc16ae88c74fe4d4fcf1e4721e009f93eb3f237f846585120936a251bd41" => :high_sierra
-    sha256 "f66d9137ad0bed1614ef52b3bf654fd9ccb55dd4479d45f9622d88f3ec1e34b5" => :sierra
-    sha256 "2404473b2973f8d47fb40a0eac16998d1e27b1036901261f47f07a7cbccdc713" => :el_capitan
+    sha256 "0f04d33fbc9b14445fde2b9fb7015b18e9559c9e90fbcb29c116dfdd3ab81e64" => :mojave
+    sha256 "9a1b558fe6b45116bba953495630eaa0690cfd85c13ff5dbf1a152ec28d17278" => :high_sierra
+    sha256 "58ef82f20c9db1fa8c472d7c9958bea9a58f693c879b934c526636a3d852340a" => :sierra
+    sha256 "45699dd103618510a86c61a57cb32c7d3dabec1718d05e2b0dee278b3f193ee3" => :el_capitan
   end
 
   option "without-samples", "Don't install sample data"
 
   depends_on "bazaar" => :build
-  depends_on "mercurial" => :build
-  depends_on "glide" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "mercurial" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+
+    # remove for > 0.7.3
+    inreplace "version/version.go", "0.7.3", "0.7.4" if build.stable?
 
     (buildpath/"src/github.com/cayleygraph/cayley").install buildpath.children
     cd "src/github.com/cayleygraph/cayley" do
-      system "glide", "install"
+      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"cayley", "-ldflags",
              "-X main.Version=#{version}", ".../cmd/cayley"
 
@@ -81,7 +84,7 @@ class Cayley < Formula
         <string>#{var}/log/cayley.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

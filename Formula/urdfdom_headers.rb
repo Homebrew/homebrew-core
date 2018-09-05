@@ -6,6 +6,7 @@ class UrdfdomHeaders < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cbd3025633aa48a122b312f6693d9e8e493b51cc34e6024c06e048e5fbe2a0ff" => :mojave
     sha256 "3b937204b1bd92e9c290dfc9df366c2978352be8551a47910ac637d863a6f585" => :high_sierra
     sha256 "3b937204b1bd92e9c290dfc9df366c2978352be8551a47910ac637d863a6f585" => :sierra
     sha256 "3b937204b1bd92e9c290dfc9df366c2978352be8551a47910ac637d863a6f585" => :el_capitan

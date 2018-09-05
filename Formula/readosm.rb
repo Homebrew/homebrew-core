@@ -6,6 +6,7 @@ class Readosm < Formula
 
   bottle do
     cellar :any
+    sha256 "9267299755eb50ddd6330cafba8d81d8a0ee48821414162ef767bb4a7a2d4195" => :mojave
     sha256 "953aeb6917d8ad465d11d2832ac4ba20fd673c694562fdca9ccf7cef0346d280" => :high_sierra
     sha256 "98fc0238ad218a95df4bea4a3520f84fc66f9dc8bba3e0b6ad7fa774813f16e8" => :sierra
     sha256 "3637140ac264e9fc4e7cd8e78e1754d5b6861ef98d7ae38ba7e70c9825241069" => :el_capitan

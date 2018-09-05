@@ -6,6 +6,7 @@ class Cf < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0cbd888d1a69516d55ce6572208b6adbdcbe9df7195199ac5d6e678e3e794f85" => :mojave
     sha256 "b94cceb52c7da6995ed4acd014350e6d9b1dbeb7d03b0c8f2256a12e7f520b01" => :high_sierra
     sha256 "5f37fd5ff05bdc66d21e9006f8907f1d19c92743bdffc2a5463251f6f681bd20" => :sierra
     sha256 "658dbcf6f4868922582db207b8713c8a9009bc99d3d976866ecfacbb9f95dfd5" => :el_capitan

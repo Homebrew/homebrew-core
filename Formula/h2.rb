@@ -10,7 +10,7 @@ class H2 < Formula
   def script; <<~EOS
     #!/bin/sh
     cd #{libexec} && bin/h2.sh "$@"
-    EOS
+  EOS
   end
 
   def install
@@ -56,7 +56,7 @@ class H2 < Formula
         <string>#{HOMEBREW_PREFIX}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,11 +1,12 @@
 class Sleepwatcher < Formula
   desc "Monitors sleep, wakeup, and idleness of a Mac"
-  homepage "http://www.bernhard-baehr.de/"
-  url "http://www.bernhard-baehr.de/sleepwatcher_2.2.tgz"
+  homepage "https://www.bernhard-baehr.de/"
+  url "https://www.bernhard-baehr.de/sleepwatcher_2.2.tgz"
   sha256 "c04ac1c49e2b5785ed5d5c375854c9c0b9e959affa46adab57985e4123e8b6be"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "43b0b73e895cdd2bcaeb353ae65002642d400004112878df4fbf31ecb1cd5143" => :mojave
     sha256 "f9683fbee55fd410cd2650b2e12a01a322e316ceaf39484e5faa4ca3bec25ea3" => :high_sierra
     sha256 "b9ebee67696518e4d79efee6e8d564de9b6ccc67fbfea07f68b264b8c6a2a80a" => :sierra
     sha256 "d1abbc5f4752f77a01b1dfbadf831f58affc245137535d030992bd5cd3b1dd9c" => :el_capitan
@@ -56,6 +57,6 @@ class Sleepwatcher < Formula
       #{Dir["#{prefix}/*.plist"].join("\n      ")}
 
     These are the examples provided by the author.
-    EOS
+  EOS
   end
 end

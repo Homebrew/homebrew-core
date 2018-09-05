@@ -6,9 +6,11 @@ class Libquicktime < Formula
   revision 4
 
   bottle do
-    sha256 "f507d898a0237474e45a9780d08113887e00ddd6ae35934bbac4ef4e65d58dca" => :high_sierra
-    sha256 "9256a6709e81af34e6ad4655436fc533a30471c0ea06a18805c38ab2e086e510" => :sierra
-    sha256 "9a98dacafd9b7be723a9549d4b51709495ab1d3cbf4b1b1c8837045a99735d31" => :el_capitan
+    rebuild 1
+    sha256 "2bd4f42d7ce3fe5201adc32a8a861a6a2dffc3fb9a7aaf8abbdd2e976ef37cfd" => :mojave
+    sha256 "aece680a44a90c17ec0302731951e9d6be28e3805faebbcb2c83112051faa621" => :high_sierra
+    sha256 "2d5e161d907515618e2a90795803069d0ceec5d2480b1126041706e480349ded" => :sierra
+    sha256 "bb90ed12e349973bbc4cfd143718801aa60de918325e1a109dd60b704497faae" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -16,24 +18,15 @@ class Libquicktime < Formula
   depends_on "jpeg" => :optional
   depends_on "lame" => :optional
   depends_on "schroedinger" => :optional
-  depends_on "ffmpeg" => :optional
   depends_on "libvorbis" => :optional
-
-  # Fixes compilation with ffmpeg 2.x; applied upstream
-  # https://sourceforge.net/p/libquicktime/mailman/message/30792767/
-  patch :p0 do
-    url "https://sourceforge.net/p/libquicktime/mailman/attachment/51812B9E.3090802%40mirriad.com/1/"
-    sha256 "ae9773d11db5e60824d4cd8863daa6931e980b7385c595eabc37c7bb8319f225"
-  end
-  patch :DATA
 
   # Fix CVE-2016-2399. Applied upstream on March 6th 2017.
   # Also, fixes from upstream for CVE-2017-9122 through CVE-2017-9128, applied
   # by Debian since 30 Jun 2017.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-11.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-11.debian.tar.xz"
-    sha256 "3f655fdab37fcad2d2e7d20672ff8bad6eec64a9d5a7dc702c79082346ba878b"
+    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-12.debian.tar.xz"
+    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-12.debian.tar.xz"
+    sha256 "e5b5fa3ec8391b92554d04528568d04ea9eb5145835e0c246eac7961c891a91a"
     apply "patches/CVE-2016-2399.patch"
     apply "patches/CVE-2017-9122_et_al.patch"
   end
@@ -57,27 +50,3 @@ class Libquicktime < Formula
     assert_predicate testpath/".libquicktime_codecs", :exist?
   end
 end
-
-__END__
-diff --git a/plugins/ffmpeg/audio.c b/plugins/ffmpeg/audio.c
-index bc8d750..b185587 100644
---- a/plugins/ffmpeg/audio.c
-+++ b/plugins/ffmpeg/audio.c
-@@ -515,7 +515,7 @@ static int decode_chunk_vbr(quicktime_t * file, int track)
-   if(!chunk_packets)
-     return 0;
- 
--  new_samples = num_samples + AVCODEC_MAX_AUDIO_FRAME_SIZE / (2 * track_map->channels);
-+  new_samples = num_samples + 192000 / (2 * track_map->channels);
-   
-   if(codec->sample_buffer_alloc <
-      codec->sample_buffer_end - codec->sample_buffer_start + new_samples)
-@@ -671,7 +671,7 @@ static int decode_chunk(quicktime_t * file, int track)
-    */
- 
-   num_samples += 8192;
--  new_samples = num_samples + AVCODEC_MAX_AUDIO_FRAME_SIZE / (2 * track_map->channels);
-+  new_samples = num_samples + 192000 / (2 * track_map->channels);
-   
-   /* Reallocate sample buffer */
-   

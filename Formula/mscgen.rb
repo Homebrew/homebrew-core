@@ -7,6 +7,7 @@ class Mscgen < Formula
 
   bottle do
     cellar :any
+    sha256 "241bdc84315a1f7109d0e46fab01f0770353a4fdd91ea9dad3dd72e22b09296f" => :mojave
     sha256 "d3f14e39bea3447400747ed8083c6cdf97e613f3fa23eaa91cc074939560cef9" => :high_sierra
     sha256 "e58e70827fcb36172f35a829427e1d6f6bdd571a54fd68880ea3322314827c83" => :sierra
     sha256 "114a6b0dd6ee338029b012910fc1074ae2bb56fc0a2ff229e24d1bc1e56d126c" => :el_capitan

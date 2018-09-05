@@ -6,6 +6,7 @@ class Exa < Formula
   head "https://github.com/ogham/exa.git"
 
   bottle do
+    sha256 "ae1ff39bfde4c8c26eac3a6e83b936941dfb8ec07c79520884a0e3a3563198fd" => :mojave
     sha256 "e10e5f5d86fbab6f6d558c620a73f1caf157d42c5a01c54636f2de08f4aaee4b" => :high_sierra
     sha256 "beb45a502b3e7a61689f14e298b310d83765c5242181ef0c7e12f72c8b7c7736" => :sierra
     sha256 "bf8070b4da1dbf25d8f7f12b324e845de5282dc5c028045af298cb41d2c30831" => :el_capitan

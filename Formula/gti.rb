@@ -3,11 +3,11 @@ class Gti < Formula
   homepage "http://r-wos.org/hacks/gti"
   url "https://github.com/rwos/gti/archive/v1.6.1.tar.gz"
   sha256 "6dd5511b92b64df115b358c064e7701b350b343f30711232a8d74c6274c962a5"
-
   head "https://github.com/rwos/gti.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8e648f9d219c21b6cb8477ec7902c059c936b907bd5d8cae49519b8f22533b41" => :mojave
     sha256 "125203670f0704594bf4a1779feab364ea04ea7d6cff9a83205628ea85485ac4" => :high_sierra
     sha256 "9918086fee473669a1ec8ea62eb3b30c0969334790a9c6ba549c7d95e79b6a66" => :sierra
     sha256 "a3b6c788ea2f773a73b7ff2e04e6a8c44aabe6e090c52b668dfb0c7116b9cae5" => :el_capitan

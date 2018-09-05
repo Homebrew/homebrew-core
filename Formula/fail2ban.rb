@@ -5,6 +5,7 @@ class Fail2ban < Formula
   sha256 "7ee3fd0e94d58c94298718b25e6bcfa96932712b7aa683580e162403f68d40c8"
 
   bottle do
+    sha256 "91a2bf679c865a054a60cc9b980b1c5649649686d7e99a95b7daefe51db7d9f8" => :mojave
     sha256 "dd979343b0371718a514dfdca9cfca9b5166740f94ab76af2fa81afb6402b3f3" => :high_sierra
     sha256 "acaefca421f5398fc61bdae2eaffd29ce70cbd03ec5af2be4a1e8d13eec080d4" => :sierra
     sha256 "bec9fda21d0e11efd2fa52930b13ecbca598d9f0dfc522c0c2a1b54a5d7c7b59" => :el_capitan

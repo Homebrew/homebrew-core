@@ -6,6 +6,7 @@ class Apcupsd < Formula
 
   bottle do
     rebuild 1
+    sha256 "2308c0cbde96d244e535e9fae11c501a49dc4aafa33fc1475b9285a3246e581e" => :mojave
     sha256 "beee3be60fc8aafbd2a8fdb215ec8f0d531cc6750d00fd176039a0e5d8ee0d1e" => :high_sierra
     sha256 "8cf3f4840ec564f859fa0b02eda9aec274180de519b512e28e19a31b6eab583c" => :sierra
     sha256 "d000cc771fde79714b634a49b31afd207d6a26b76924c586e0af9fa80f539db5" => :el_capitan

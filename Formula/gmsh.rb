@@ -3,14 +3,15 @@ class Gmsh < Formula
   homepage "https://gmsh.info/"
   url "https://gmsh.info/src/gmsh-3.0.6-source.tgz"
   sha256 "9700bcc440d7a6b16a49cbfcdcdc31db33efe60e1f5113774316b6fa4186987b"
-  revision 1
+  revision 2
   head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
     cellar :any
-    sha256 "57cdad859b421b6cc48f6cf164570f67a1101c03c9b276ec18dce3b5c250e995" => :high_sierra
-    sha256 "85e7c6527a94fa3b02d14cce788dc32f6a0b545fa17124f5e4c19288890d8fc6" => :sierra
-    sha256 "d9d6657a71acd75de3833f50d46b454c757f6186f1fe44fdf090ac1604c84f70" => :el_capitan
+    sha256 "f32487ea4bb0bb69c5a919114a8a47fb4553c067b0c13b8c7c3fea02349740e8" => :mojave
+    sha256 "ee0290632bf696cb34e1a554f7c2f749a1b89b18bde9a219e95e80b944fe24f9" => :high_sierra
+    sha256 "404d8578f91b65a4fc305c0eacb24a5673e6b576ebb071b1186f2c1e86c3db21" => :sierra
+    sha256 "901558025b6a05e1982f7d93330089a3432445e5ae3d97d9815d7917f677ddf8" => :el_capitan
   end
 
   option "with-opencascade", "Build with opencascade support"

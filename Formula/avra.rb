@@ -7,6 +7,7 @@ class Avra < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e24312ed64192fa3e90f497d6f37eee1f9a3cb9505f943018f28c29b8ce2c044" => :mojave
     sha256 "0c4ac95218144b45bfed147a584707c8f2b8f0ec7c75b2ac4fdfae5592029b92" => :high_sierra
     sha256 "2fd31c2a27b2ef237a6c9e33d7b378682dcba6b79131717f6c97264999b85658" => :sierra
     sha256 "a53990c229653465948d9d66fc972e695591cddf6529c25ad834fed7fbd7267d" => :el_capitan

@@ -5,6 +5,7 @@ class Reaver < Formula
   sha256 "add3050a4a05fe0ab6bfb291ee2de8e9b8a85f1e64ced93ee27a75744954b22d"
 
   bottle do
+    sha256 "386ed8ae2562ae032f0d622d52d7302be2e99bbe671f1ca5ba3acb88b86f6417" => :mojave
     sha256 "c2c6d45abc45f5639b74da0bdb294a5ee83548f548642f6b61d764d05801352e" => :high_sierra
     sha256 "e7fc0f43b7a306d5fe2baaf4b41e9ce445db12e2e74d41904b3de5d2c372741d" => :sierra
     sha256 "d9adddf27928b284492cc87b565d2748490c1017b0b463bc15223c935f63bb6c" => :el_capitan

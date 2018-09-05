@@ -1,13 +1,14 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/27/ngspice-27.tar.gz"
-  sha256 "0c08c7d57a2e21cf164496f3237f66f139e0c78e38345fbe295217afaf150695"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/28/ngspice-28.tar.gz"
+  sha256 "94804fa78c8db2f90f088902e8c27f7b732a66767a58c70f37612bff5a16df66"
 
   bottle do
-    sha256 "f1470393444748a5fb604cdadc7974402753827cca715f1588508fd7305c8d30" => :high_sierra
-    sha256 "841be3e66bf1f3dd18a74f2dfd201b95acebfd32e1bd180d99037193e3437bf3" => :sierra
-    sha256 "ef9fab04fd5b79cc361fa14642b59d762c7f589ea37c22e41273e97841712537" => :el_capitan
+    sha256 "62d5c4b9ee7a4126e7dfb18b3fd762c6d4b7325283702b58646d640a1c1773ec" => :mojave
+    sha256 "ad14b322a63580cbee9940bb67546cce89d654072446cbb90bd75020f359e3f6" => :high_sierra
+    sha256 "bfae0f3f17b4f5493b1c3dab4f2ad45f33d276d9da2ebe44ec68c808d5204ffb" => :sierra
+    sha256 "81fa4c4a1da3fb720f921274fde37cdd540ffce16d6bec9c35bbae8399aa728c" => :el_capitan
   end
 
   head do
@@ -18,11 +19,6 @@ class Libngspice < Formula
     depends_on "bison" => :build
     depends_on "flex" => :build
     depends_on "libtool" => :build
-
-    # Currently, headers don't get installed to include/*.
-    # There is a patch upstream that addresses this for HEAD.
-    # Upstream ticket: https://sourceforge.net/p/ngspice/bugs/327
-    patch :DATA
   end
 
   def install
@@ -31,11 +27,6 @@ class Libngspice < Formula
       "--disable-dependency-tracking", "--with-ngshared", "--enable-cider",
       "--enable-xspice"
     system "make", "install"
-
-    # To avoid rerunning autogen.sh for stable builds, work around the
-    # includedir bug by symlinking.  Upstream ticket:
-    # https://sourceforge.net/p/ngspice/bugs/327
-    include.install_symlink Dir[share/"ngspice/include/*"] if build.stable?
   end
 
   test do
@@ -53,22 +44,3 @@ class Libngspice < Formula
     system "./test"
   end
 end
-__END__
-diff --git a/src/include/ngspice/Makefile.am b/src/include/ngspice/Makefile.am
-index 216816e..fd7fec0 100644
---- a/src/include/ngspice/Makefile.am
-+++ b/src/include/ngspice/Makefile.am
-@@ -1,11 +1,9 @@
- ## Process this file with automake to produce Makefile.in
-
--includedir = $(pkgdatadir)/include/ngspice
--
--nodist_include_HEADERS = \
-+nodist_pkginclude_HEADERS = \
-	config.h
-
--include_HEADERS = \
-+pkginclude_HEADERS = \
-	tclspice.h	\
-	acdefs.h	\
-	bdrydefs.h	\

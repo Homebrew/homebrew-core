@@ -6,6 +6,7 @@ class Mstch < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c01c3c4afec3f7c29c4f26f93cce9516c4de3d9e070fd2b11c7419a04352d532" => :mojave
     sha256 "c7ff132ee06fc7abf10d5cc4d9acc5b48eee1f6c7ce1136d31998b12ee3e5631" => :high_sierra
     sha256 "95a01f3a3a5dc6619d44a7e3df98b1f886ddac249d2a84f17a49d7edcebca2be" => :sierra
     sha256 "0869a4b14d4b9130852d5556d27e945c20239385d3bd30497c32833352fea1e3" => :el_capitan
@@ -34,7 +35,7 @@ class Mstch < Formula
     Version: 1.0.1
     Libs: -L${libdir} -lmstch
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 
   test do

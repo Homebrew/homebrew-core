@@ -8,6 +8,7 @@ class Libdrawtext < Formula
 
   bottle do
     cellar :any
+    sha256 "62b2abf2b3daeb3832174f342b63d9b684f9c5314305dcd53aedc20c64be9cf3" => :mojave
     sha256 "56701e24e6d2d89dfab1e6857ee450394ca155409e659d87578874e5dcb09fdc" => :high_sierra
     sha256 "b964ecf876b0e7118dbc8f6b39f0295f3f93244db5109d512258f0f036975e9b" => :sierra
     sha256 "f0ea7bf5a4ddaa71eabcf015be0c774a707eb44c0bab20dbb87633f3fbe11941" => :el_capitan

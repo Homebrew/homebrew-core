@@ -7,6 +7,7 @@ class Beansdb < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "895c915b759be757dede0375aaf5abaf05a0f5f981d869c6c61367645fd2a564" => :mojave
     sha256 "a8afd6d03a43a317c306f1de555edc6f804ddb4798ab88d93d9cfb3705887d8f" => :high_sierra
     sha256 "0c93cb38fd445baab2c301b3cb76ce0b6c7af9d3e879113d4c78bf761756bc08" => :sierra
     sha256 "5bb5311949ba21cde40848d1c1f58cf3317d8e8d604d3d0590dab2e9953a5ece" => :el_capitan
@@ -61,7 +62,7 @@ class Beansdb < Formula
       <string>#{var}/log/beansdb.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

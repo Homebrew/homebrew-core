@@ -6,6 +6,7 @@ class Wakeonlan < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5fc2054a08a4ce9d08b5d004917acb1b57b198611f693503fca252550778a90b" => :mojave
     sha256 "876e4fd4919523eb2db07159a7c7d82fa30bec74972f0ef69c55588831db8a4d" => :high_sierra
     sha256 "2cb19ca9617f87fc2c14536434f17b44174336a739fed3ad83404ccfb412ee31" => :sierra
     sha256 "7da7f512ae921016be21fa3899d4f01841e3da5bc96570fcd85b530e4e720c06" => :el_capitan

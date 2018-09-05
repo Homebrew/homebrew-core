@@ -1,16 +1,16 @@
 class Tbox < Formula
   desc "Glib-like multi-platform c library"
   homepage "http://www.tboox.org"
-  url "https://github.com/waruqi/tbox/archive/v1.6.2.tar.gz"
-  sha256 "26ede7fd61e33c3635bf2d6657ae4040a4a75c82a5da88855fd965db2f834025"
+  url "https://github.com/waruqi/tbox/archive/v1.6.3.tar.gz"
+  sha256 "1ea225195ad6d41a29389137683fee7a853fa42f3292226ddcb6d6d862f5b33c"
   head "https://github.com/waruqi/tbox.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f0f21bf74192941533d179299f25027727c7e9f6f1478462d10762112a5cc09" => :high_sierra
-    sha256 "06b1ebd6756e7bb2cedf152a5cf41b127fdeac7c4ac070bb6b70dc286aebbed3" => :sierra
-    sha256 "fa1644f34db9e0e187448f06d5400c88493612dc1b78608dabcaff7eab6661a6" => :el_capitan
-    sha256 "b9c2d0df34fc3062f4963765fe2524cd5378ad126f2f611d971b5efd7c727c75" => :yosemite
+    sha256 "63a75febf95f9f60e187e2100e6d64f772f3ef59d3e2e5603a1fdb7cbe77b992" => :mojave
+    sha256 "2f34f5d60397588aff11eefc308a6d23f3a23fe451d118094b04b00024877832" => :high_sierra
+    sha256 "956ff755fecde9ad86e5920b9ecd01cf1de767354b60f68476d61a4583c04c81" => :sierra
+    sha256 "7b238a754afed5af34b0ccc0caa47b2997791c34ad24b3a403334711e2ec71d4" => :el_capitan
   end
 
   depends_on "xmake" => :build

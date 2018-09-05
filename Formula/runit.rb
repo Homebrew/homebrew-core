@@ -5,6 +5,7 @@ class Runit < Formula
   sha256 "6fd0160cb0cf1207de4e66754b6d39750cff14bb0aa66ab49490992c0c47ba18"
 
   bottle do
+    sha256 "e70c75527e992d70255d13631b56e7f1629cb1dc3583881967c6f4468fd296ef" => :mojave
     sha256 "6f5e25b4f9d7d9128726aa72f97fda3b480cd36a5002041210e11303811f2369" => :high_sierra
     sha256 "4eefe737db7b327dd6c595f57f34a8b564e170427ffc24ab35c4cd5ee79a6ec1" => :sierra
     sha256 "3dbc4f1ba3d86e5f3d6900a19ff90b32d2aff91ffb68914be8740d916f3622da" => :el_capitan
@@ -43,6 +44,6 @@ class Runit < Formula
          runsvdir -P #{var}/service
 
     Depending on the services managed by runit, this may need to start as root.
-    EOS
+  EOS
   end
 end

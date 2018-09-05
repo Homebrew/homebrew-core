@@ -3,13 +3,14 @@ class OcamlNum < Formula
   homepage "https://github.com/ocaml/num"
   url "https://github.com/ocaml/num/archive/v1.1.tar.gz"
   sha256 "04ac85f6465b9b2bf99e814ddc798a25bcadb3cca2667b74c1af02b6356893f6"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "18368aa58ebeb352fade8f41b20f34d7817d37ebdbf5511fc253cd12a456b017" => :high_sierra
-    sha256 "a59f29f535f567c689c92b65389e54f4d234b97a09a14e18004f0224db49fa58" => :sierra
-    sha256 "c7eec65f527ecb97aeafe235aa3a5f21b5e2f3b5aad8391ea5e0575498fef0b9" => :el_capitan
+    sha256 "787b74eaca216e9d2d3215c31eb5ca64a3b5761729bb562a5ce18e11e330897a" => :mojave
+    sha256 "377c48b9d8974ec93b982451ffd9dae4c13b78f3d1ed8751a5e0361ac764d4d8" => :high_sierra
+    sha256 "53e86f2602bc51ff1efa5ef4d7b73e1cb4552f268375b2d963ef96996859f0df" => :sierra
+    sha256 "8b1751663a6a654443ed00dc489aabe149987e3def3fedab6697294e05b0b65d" => :el_capitan
   end
 
   depends_on "ocaml-findlib" => :build

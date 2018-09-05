@@ -7,6 +7,7 @@ class Tcpdump < Formula
 
   bottle do
     cellar :any
+    sha256 "8fdb5a59a18ca1ae658fa29e258f6760343da172c96977a15d13b2309874939c" => :mojave
     sha256 "321254c4ef9c9d005b59bd6ecc2511a6c8444eda92c93f836db4ffecaf4c36c9" => :high_sierra
     sha256 "f383f086f232e06e01c9d206c98f65d9df5109366f13ba684910b8e249e35a6e" => :sierra
     sha256 "10486fd04e4b4df5f7fbd2b9aba3d48c903730c53df3ee9b7f57887db0347df8" => :el_capitan

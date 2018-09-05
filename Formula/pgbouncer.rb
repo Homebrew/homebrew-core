@@ -1,14 +1,15 @@
 class Pgbouncer < Formula
   desc "Lightweight connection pooler for PostgreSQL"
   homepage "https://wiki.postgresql.org/wiki/PgBouncer"
-  url "https://pgbouncer.github.io/downloads/files/1.8.1/pgbouncer-1.8.1.tar.gz"
-  sha256 "fa8bde2a2d2c8c80d53a859f8e48bc6713cf127e31c77d8f787bbc1d673e8dc8"
+  url "https://pgbouncer.github.io/downloads/files/1.9.0/pgbouncer-1.9.0.tar.gz"
+  sha256 "39eca9613398636327e79cbcbd5b41115035bca9ca1bd3725539646468825f04"
 
   bottle do
     cellar :any
-    sha256 "c6c51632e0c13fcccac322fe8ee11217af80b3bfa02f737b0ad05528511ceeff" => :high_sierra
-    sha256 "8831a6603870ca7e6e2833acaaced55ee1ae89065d0841454ddfc510433bf7fb" => :sierra
-    sha256 "37b2e592b6d012a6b59f69bb7f55187465f0e91771d9cc2aa84b8d78f4c69fa2" => :el_capitan
+    sha256 "ff4be2490697fe770c31b0daee18fae4c8911652162dd7590c36e6c10f645f91" => :mojave
+    sha256 "ef9421f5cb50c9ac632151f5058f78976fcd80dbb395fca5344a849e497368ff" => :high_sierra
+    sha256 "1913c8bc33932cb10583a2cbbb37735345db29a2d84571c4f137d0d9d9c68336" => :sierra
+    sha256 "2bd0cd45ec8291fbf9db4965a50a063a9d6b2137f6ef160170a07bdb7a068629" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
@@ -34,7 +35,7 @@ class Pgbouncer < Formula
 
     The auth_file option should point to the #{etc}/userlist.txt file which
     can be populated by the #{bin}/mkauth.py script.
-    EOS
+  EOS
   end
 
   plist_options :manual => "pgbouncer -q #{HOMEBREW_PREFIX}/etc/pgbouncer.ini"

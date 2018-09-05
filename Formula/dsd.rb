@@ -17,6 +17,7 @@ class Dsd < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "13ad3b853e55baf65d4cb74b2bd8a0a7dcba68cb7069710006174e1130aa243c" => :mojave
     sha256 "e2d97e165fa3d3a5d19c11a4c2d78475645df572be75dfd8d0b64782c7b3b416" => :high_sierra
     sha256 "78b44aa3504849a7bc49c9d0a2937494f23ee269acb3473e58b52cc02d529faa" => :sierra
     sha256 "760f775d1f2d91ef2f8c7cc8f69f521747538f1a701d2bba0e475267f939ad82" => :el_capitan

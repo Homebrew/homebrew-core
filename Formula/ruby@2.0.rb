@@ -6,6 +6,7 @@ class RubyAT20 < Formula
   revision 6
 
   bottle do
+    sha256 "19eeccaaff442801eb475401ba7b5260a67934b06ccd3c974e0a7343061067ca" => :mojave
     sha256 "654d5bcfe7e6de9d11b56e2e2f74856524b3a1e64dc3b2ab6e6d6435beb5c347" => :high_sierra
     sha256 "904af6d6af1c1244c16baad5705a23afd1d9909413697bc06ff68de0e0b6b82d" => :sierra
     sha256 "80e640febc6fc4a40ff2abcf1e665a644bbed97b8ff0d157de32f48c0fefea72" => :el_capitan
@@ -142,7 +143,7 @@ class RubyAT20 < Formula
         "#{opt_bin}/ruby"
       end
     end
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
@@ -150,7 +151,7 @@ class RubyAT20 < Formula
       #{rubygems_bindir}
 
     You may want to add this to your PATH.
-    EOS
+  EOS
   end
 
   test do

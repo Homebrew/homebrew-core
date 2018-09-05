@@ -5,14 +5,15 @@ class Hledger < Formula
 
   desc "Command-line accounting tool"
   homepage "http://hledger.org"
-  url "https://hackage.haskell.org/package/hledger-1.9/hledger-1.9.tar.gz"
-  sha256 "b5fa4c5cce79210342524503fe5b512f7ec96c00b68a65627ee77daf72809a82"
+  url "https://hackage.haskell.org/package/hledger-1.10/hledger-1.10.tar.gz"
+  sha256 "f64420f852502e84dfa9374ace1d00a06ecf1641ad9fd3b22d7c2c48c1d5c4d3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "565012c295cccdf2458a7c8b97a753406dce0dff3272a3195f3c9603a93532bf" => :high_sierra
-    sha256 "783c9ac9f6f52c2980e228f67f5bc27cf06c3bcfe36d6493f47164374a57ed26" => :sierra
-    sha256 "1701f551254a3e7d1cd76abc881e2080d0431f2d70bd25932653b508a80a8999" => :el_capitan
+    sha256 "7d195e01de4bfa26d518d8b85f4df54e591863325db9095dba2061d09982b598" => :mojave
+    sha256 "4ae8f7b5ff4619b067064183e3939da3cbb62f4cd317803a24ef29d3ae955815" => :high_sierra
+    sha256 "1ac46662414ced9e4e8949060c5060a8c9e55a9894dc362f59198ce388893184" => :sierra
+    sha256 "d36fc1aa14f0a5f14dbf4a3bed694a5a9a1d507735ebc6955470c1eae64ff4a4" => :el_capitan
   end
 
   depends_on "cabal-install" => :build

@@ -3,11 +3,11 @@ class Cpulimit < Formula
   homepage "https://github.com/opsengine/cpulimit"
   url "https://github.com/opsengine/cpulimit/archive/v0.2.tar.gz"
   sha256 "64312f9ac569ddcadb615593cd002c94b76e93a0d4625d3ce1abb49e08e2c2da"
-
   head "https://github.com/opsengine/cpulimit.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b9c7f99cbc62eb7c02b19c63a9b7e3f9186175707ff853a7107447fd7b2ee249" => :mojave
     sha256 "077ab8835a3b44ce77e3b8bf867633115b1d056046b232e49aeac96ac30e731c" => :high_sierra
     sha256 "fa5bc8d713837693c6bbd6139bec5e48b8a1d46ef669b2e042715dd1318b1655" => :sierra
     sha256 "9d7320465152a12ba75ce924beada5a3ce365b14becaa75e08ee8334c2cb2f6a" => :el_capitan

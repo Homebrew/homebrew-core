@@ -1,35 +1,20 @@
-class HbaseLZORequirement < Requirement
-  fatal true
-
-  satisfy(:build_env => false) { Tab.for_name("hbase").with?("lzo") }
-
-  def message; <<~EOS
-    hbase must not have disabled lzo compression to use it in opentsdb:
-      brew install hbase
-      not
-      brew install hbase --without-lzo
-    EOS
-  end
-end
-
 class Opentsdb < Formula
   desc "Scalable, distributed Time Series Database"
   homepage "http://opentsdb.net/"
-  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.0/opentsdb-2.3.0.tar.gz"
-  sha256 "90e982fecf8a830741622004070fe13a55fb2c51d01fc1dc5785ee013320375a"
+  url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.1/opentsdb-2.3.1.tar.gz"
+  sha256 "4dba914a19cf0a56b1d0cc22b4748ebd0d0136e633eb4514a5518790ad7fc1d1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cbf21f845ccb3f79b9f0a31f44c7581de4f59cfedf62283ea8793d740b74c945" => :high_sierra
-    sha256 "4ef2e9151ebc7aafccdeb170495d2a3308ce92f8cbac68cf88c71558d4b8aaf7" => :sierra
-    sha256 "0e8eb571054d13d3abcb06940c481814dd54dbb94104cedcdedbd57c09721743" => :el_capitan
-    sha256 "07ba3d636bad55c244e259d5eb619f09367f16b3e14e8caea74bbd19c33f44d5" => :yosemite
+    sha256 "f1d531453d09dc0b70dd1f803d117f26a09c4ab6990845aa40bf082d2c3a0eef" => :mojave
+    sha256 "a6b9311bccbf95f6117413ef081f3eb6d52f50fec4f9b1829cf4440e119cafc7" => :high_sierra
+    sha256 "4933e90ddc979787f2e477ecefcd36e5075c33cc91a5a88f5d4ddec49dfc3b8f" => :sierra
+    sha256 "440446c0474ce94a7c4724de2971cef50786285c636d32f1dea9f2164dccbb5d" => :el_capitan
   end
 
   depends_on "hbase"
-  depends_on :java => "1.6+"
-  depends_on "lzo" => :recommended
-  depends_on HbaseLZORequirement if build.with?("lzo")
+  depends_on :java => "1.8"
+  depends_on "lzo"
   depends_on "gnuplot" => :optional
 
   def install
@@ -46,9 +31,9 @@ class Opentsdb < Formula
 
     env = {
       :HBASE_HOME => Formula["hbase"].opt_libexec,
-      :COMPRESSION => (build.with?("lzo") ? "LZO" : "NONE"),
+      :COMPRESSION => "LZO",
     }
-    env = Language::Java.java_home_env.merge(env)
+    env = Language::Java.java_home_env("1.8").merge(env)
     create_table = pkgshare/"tools/create_table_with_env.sh"
     create_table.write_env_script pkgshare/"tools/create_table.sh", env
     create_table.chmod 0755
@@ -69,6 +54,10 @@ class Opentsdb < Formula
         --auto-metric \\
         "$@"
     EOS
+    (bin/"start-tsdb.sh").chmod 0755
+
+    libexec.mkpath
+    bin.env_script_all_files(libexec, env)
   end
 
   def post_install
@@ -111,7 +100,7 @@ class Opentsdb < Formula
       <string>#{var}/opentsdb/opentsdb.err</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

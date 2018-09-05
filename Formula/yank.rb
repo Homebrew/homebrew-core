@@ -6,6 +6,7 @@ class Yank < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "80cb484aee8017a93216c8897c1724b67614d2aa24655395e3323f202f381704" => :mojave
     sha256 "aa67d326b2059610675288a2ff20edb1f156327f8c4399e0d725fed6bb3962f1" => :high_sierra
     sha256 "07b4356f309e74541d37da6c1a619e836e7743ad206e38d4e1ce66204ca03ce1" => :sierra
     sha256 "3c5ebdc4717d374aa9775c137129463fea9d255080e6a90d1380443c50cf192e" => :el_capitan

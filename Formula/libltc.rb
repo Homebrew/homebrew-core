@@ -6,6 +6,7 @@ class Libltc < Formula
 
   bottle do
     cellar :any
+    sha256 "28d1c8f3eefb0397ee41e69bbdfef98088e1995cab468ebf8c5a6acbc55d21cf" => :mojave
     sha256 "ede5ce5a9de5f89bc42c9201da577af1249415435cbab06b5abcb51577ef6902" => :high_sierra
     sha256 "5ce9e5d2072877c2d7ba32260047aa900b0918a796bd07ecc069c098d0763a6c" => :sierra
     sha256 "39c5b5eae78f0abb51a5ac965f9e3f89bf831861ca88347b170f4fd4a9562b6e" => :el_capitan

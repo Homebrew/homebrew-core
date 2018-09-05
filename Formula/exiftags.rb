@@ -6,6 +6,7 @@ class Exiftags < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8287c22dcfeaaf6a28a4036ce26c4a1febfe8a3bc01a1d7320b667d56d0b2e43" => :mojave
     sha256 "1ba9c96bf8630f50faf8bb5045bace46c5c24962d439a496a6f606b7bc886a08" => :high_sierra
     sha256 "7aaa2a8e78b03e4f842c84a46ce7fb5ed8ff1a956ababde1f26bc716431a67e0" => :sierra
     sha256 "47d75e83f89d0db4a54d779d9c9820fbb788c102738824e86b83a441d9a60af8" => :el_capitan

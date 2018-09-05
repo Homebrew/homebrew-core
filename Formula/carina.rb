@@ -8,6 +8,7 @@ class Carina < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4db2ef26df674487552ac898f0b844407041b7326925a4d60370e57f81bc6bdb" => :mojave
     sha256 "33040c78e42a9611b87dda596e8a346c028b2ad84d8a4ba5cf2a12800e693ab8" => :high_sierra
     sha256 "ee6c8cdf2eddda983618f7de29bf3bcc7e81d8d9a7085a037d67cd7cdb25377a" => :sierra
     sha256 "34086f8b3418d96c3ee5c2f50ad5ffc7ee839fd26b36d0e8911c364a8c82586e" => :el_capitan

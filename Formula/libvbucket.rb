@@ -7,6 +7,7 @@ class Libvbucket < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "99703e4bfe795310481070096dd496b41185cdde224aa2381a2a7b2dcc618278" => :mojave
     sha256 "bce41a629d7cf6504a1d5fa518d31cc46fcc93b8c82187167d4ab9306f2d593d" => :high_sierra
     sha256 "69c96d5758926202939b79930d82da27bd65d50e0ef19d844ac705cacd99ba58" => :sierra
     sha256 "cc3333f73161a96deb410ae0b8185a74e0c2a5bc8e62018929b17efe6ef732b8" => :el_capitan
@@ -34,7 +35,7 @@ class Libvbucket < Formula
     expected = <<~EOS
       key: hello master: server1:11211 vBucketId: 0 couchApiBase: (null) replicas: server2:11210 server3:11211
       key: world master: server2:11210 vBucketId: 3 couchApiBase: (null) replicas: server3:11211 server1:11211
-      EOS
+    EOS
 
     output = pipe_output("#{bin}/vbuckettool - hello world", json)
     assert_equal expected, output

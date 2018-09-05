@@ -1,14 +1,15 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.5.1/zsh-5.5.1.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.5.1.tar.xz"
-  sha256 "e1c38808fcbe0cc1344d55c9a758349f7ba1e317325b154621ac37eddac4aa80"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.6/zsh-5.6.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.6.tar.xz"
+  sha256 "746b1fcb11e8d129d1454f9ca551448c8145b6bcb157116c12407c518880e6d6"
 
   bottle do
-    sha256 "5629f78ced1b1a592bfd13536d5e9f4c265e22cb825c40992c3eea6d71727c80" => :high_sierra
-    sha256 "a78193d233d74739539a258be269c8e66460984de44def032c1856f1a20bdeff" => :sierra
-    sha256 "306e6694538f7fff80f240a7d99156139a931f5fc8f13403a7b8c95fc588df09" => :el_capitan
+    sha256 "e72ccdeef9033f74e65410eadbf4fbaacc7a7118a515ef9f055ad6cb6770ba2a" => :mojave
+    sha256 "478c10749c48b184588adae0cab8df4393e7c2ab3c6f04b990a9aaf21d6af01c" => :high_sierra
+    sha256 "c1374dd72fcd75e18aa2f75f61311d336006d6ca1fa9000c1bdefafab053b321" => :sierra
+    sha256 "ef68a27a7946cfb0f49e8573fd7c4ef564c1428421d52a62152cbcc6719fec11" => :el_capitan
   end
 
   head do
@@ -25,9 +26,9 @@ class Zsh < Formula
   depends_on "pcre" => :optional
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.5.1/zsh-5.5.1-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.5.1-doc.tar.xz"
-    sha256 "41ce13a89a6bc7e709b6f110e54288d59f02ba2becd2646895d28188d4dd6283"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.6/zsh-5.6-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.6-doc.tar.xz"
+    sha256 "96e641b3311f67904f067b2bd353d875c609843677522b0e2a7cc7efd6edcbd9"
   end
 
   def install

@@ -1,15 +1,16 @@
 class ShadowsocksLibev < Formula
   desc "Libev port of shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-libev"
-  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.1.3/shadowsocks-libev-3.1.3.tar.gz"
-  sha256 "58fb438d2cfe33cfa6ac8c50e587e2138c50e59a4b943f88d22883bf2e192a96"
+  url "https://github.com/shadowsocks/shadowsocks-libev/releases/download/v3.2.0/shadowsocks-libev-3.2.0.tar.gz"
+  sha256 "5521cf623a07fd1e393528516a83acd2b66c5d4bb4535a52662806a6a060c606"
   revision 1
 
   bottle do
     cellar :any
-    sha256 "2fa13435a11345fa19167a84cc1ee3684278759f8ad53b6b3176992429a37d4c" => :high_sierra
-    sha256 "893a0626a0090207276993ce97cedd3b96cec4d94d40d83fc9927d6f4fdd9c1c" => :sierra
-    sha256 "a7811988ac7c3b2418b6d8c9362494ffbc5bce560b9e180c2b11478e0cad228f" => :el_capitan
+    sha256 "e654f0ca835ad618255bfb430491abfbe5254d496b79765729b1e0f212679d3c" => :mojave
+    sha256 "5b9bb640113ecfd9426b55339404d1c064ffbbaefaf2678d9c2dd2f17f4aac36" => :high_sierra
+    sha256 "6945b5311692ffefa6fac0fd421e83067d90eec3bf5d13e0b33878789392aa80" => :sierra
+    sha256 "226e9842234e7a323a3264cef3f7141fd99e8b71f06374a573cc21751c0815dd" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
@@ -65,7 +66,7 @@ class ShadowsocksLibev < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

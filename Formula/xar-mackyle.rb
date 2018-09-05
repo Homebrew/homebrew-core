@@ -7,6 +7,7 @@ class XarMackyle < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "75fda2bbc38449b34578325d64c2427786a5f39e8dac598e002bdee648f57735" => :mojave
     sha256 "fcca4c13a2fcaade1a8be7ea395849fc2578f466527b7dfc75c7dea97f7bc796" => :high_sierra
     sha256 "192cc85dd14c2f3fcf7900135f3f29363f895f568b07f569a15e1894530d113f" => :sierra
     sha256 "5b81069ab3ea6d376c675affcee92a4809af67c4e7644ea83d8cf7f56134578c" => :el_capitan

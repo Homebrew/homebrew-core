@@ -7,6 +7,7 @@ class Jpcsp < Formula
 
   bottle do
     cellar :any
+    sha256 "21f906f30e0edee0e7883fba926f24b259714cf45b642f8d1337b858fb380217" => :mojave
     sha256 "ae41109bff3e00d7d62a2ed9bd29be94bad124a3cc1dfdec551bd1149ee4a83c" => :high_sierra
     sha256 "ef7a92493281cd2c18af2ec4d73a291c89f6e6e93613b71520ed6a3f067ae8f8" => :sierra
     sha256 "eb76d37c11b46c6ad7545456604aeba4efe127a213de2aab97cba3bd6d2de8f0" => :el_capitan
@@ -31,6 +32,6 @@ class Jpcsp < Formula
 
     To avoid any incidental wipeout upon future updates, change it to
     a safe location (under Options > Settings > General > UMD path folders).
-    EOS
+  EOS
   end
 end

@@ -6,12 +6,14 @@ class Zurl < Formula
 
   bottle do
     cellar :any
+    sha256 "16717a421d3a1f80a4bac2cbee9444d87afba83aad445df4e998996522e031a8" => :mojave
     sha256 "f94e3fbd570a122222ad66c0013b9b3425c5d49ca8f0e082e0377b1b7e6a538c" => :high_sierra
     sha256 "9ebde17a2751ce4b04a0215fe90ffebe880b4e07ab822897b5b8f7e44f4f273e" => :sierra
     sha256 "9deb04a87b09d9805a2fdfd443744fca5e61bcd00c79ecd067dc67c6319ef88f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@2" => :test
   depends_on "curl" if MacOS.version < :lion
   depends_on "qt"
   depends_on "zeromq"
@@ -40,7 +42,7 @@ class Zurl < Formula
       in_req_spec=ipc://#{ipcfile}
       defpolicy=allow
       timeout=10
-      EOS
+    EOS
                   )
 
     runfile.write(<<~EOS
@@ -84,7 +86,7 @@ class Zurl < Formula
       resp = json.loads(sock.recv()[1:])
       assert('type' not in resp)
       assert(resp['body'] == 'test response\\n')
-      EOS
+    EOS
                  )
 
     pid = fork do

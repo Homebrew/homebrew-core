@@ -2,17 +2,17 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v1.0.7",
-      :revision => "fb848fc48818f58690db09d14640513aa6bf3c02"
-
+      :tag => "v1.2.2",
+      :revision => "e716d1b5f8be252b3e53906c6d5632e0228f30fa"
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ade3c8fcdabfeff4d80e117ad4bb5d7ae6283d267821e1db1832babc376b1d8d" => :high_sierra
-    sha256 "f43e89d32840ea89158fbe6f2c6c6a6ee4299d2527a64893ede956c36b26e322" => :sierra
-    sha256 "f82d247ef707dedad419c1ec78a48c3c75b624f82f8e4d360447828cede8e920" => :el_capitan
+    sha256 "ee7971cb60d017441c8ef6f6eeba4134072dd399b6890e80814ac25018b95e70" => :mojave
+    sha256 "27cc8cea3461a8be43039220c89b8b3e627f6d07d104365dea6e94f34b0ae84b" => :high_sierra
+    sha256 "f0bb8a6258e98bebd61bce7d780283868d9f9d2798e86a89e4ef57fdedfdd584" => :sierra
+    sha256 "29bafd051614ba7a3698ecf9fedbffecd9d448dbb6dc2021de9ec13ab71dd3dc" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -69,7 +69,7 @@ class Consul < Formula
         <string>#{var}/log/consul.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

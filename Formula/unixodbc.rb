@@ -1,13 +1,14 @@
 class Unixodbc < Formula
   desc "ODBC 3 connectivity for UNIX"
   homepage "http://www.unixodbc.org/"
-  url "http://www.unixodbc.org/unixODBC-2.3.6.tar.gz"
-  sha256 "88b637f647c052ecc3861a3baa275c3b503b193b6a49ff8c28b2568656d14d69"
+  url "http://www.unixodbc.org/unixODBC-2.3.7.tar.gz"
+  sha256 "45f169ba1f454a72b8fcbb82abd832630a3bf93baa84731cf2949f449e1e3e77"
 
   bottle do
-    sha256 "cd5a1ea2f0ba6db321b63514b2c33c0c1d74ada9541de8390cca0bc349f4845d" => :high_sierra
-    sha256 "2ccf3f7384697dd2460631a4afb685465a93c8f64fb0217c7485ab8919606e7d" => :sierra
-    sha256 "3330aee67c21712979a5e0cca8360f691b3e3bd0dd751fdeb15af998d2e6814c" => :el_capitan
+    sha256 "c4f375c528496bae444824f4d01922e31a9a8b0c6822cd97da89f5843e740025" => :mojave
+    sha256 "6f16f12d3463655c3b3fc8251083f77a31b0a690ecf6ac88f4b0daea2f060044" => :high_sierra
+    sha256 "4cf86c20705681ed7978e0a390d84df26264d1c41b21899e034da47c8e1803ad" => :sierra
+    sha256 "85be7365deb1229df2f46ccaa71ed1a5f6083135649e42a4b345ce9e55db4140" => :el_capitan
   end
 
   depends_on "libtool"
@@ -17,10 +18,6 @@ class Unixodbc < Formula
   conflicts_with "virtuoso", :because => "Both install `isql` binaries."
 
   def install
-    # Fixes "sed: -e: No such file or directory"
-    # Reported 22 Mar 2018 to nick AT unixodbc DOT org
-    inreplace "exe/Makefile.in", "@sed -i -e", "@sed -i '' -e"
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -7,6 +7,7 @@ class Leveldb < Formula
 
   bottle do
     cellar :any
+    sha256 "0878e6a22d6c0738811874a4e305620e3179361017796bda9a08ed6a4a06f7bb" => :mojave
     sha256 "e033753dfe79996691998e974bef0cb3e468de581e5e005a06961144c47d2717" => :high_sierra
     sha256 "8528df5b2af7fab91b1ab1a6382f1b6ccd6d62da462c6a309cb76660a7225b4b" => :sierra
     sha256 "360b7c40470a5e3a4d4d7759983d310257be68d3e79518dbf71896a13093c6d0" => :el_capitan

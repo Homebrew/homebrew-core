@@ -7,6 +7,7 @@ class Cmatrix < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "6ae9acaacb6023d2837e2cbf5f7b09acd65035771f61e3c75efc58a4cbcf7dd7" => :mojave
     sha256 "f5969f9baee33db8614d7fa1b54f3d923474b8516deb7f8d77f31160be174af2" => :high_sierra
     sha256 "ae46840a9d0e08909665694d161a3a8e0962a5936c523812057dc39d61eda8fd" => :sierra
     sha256 "da919a1964d6ef0633eac14bd7138ab91f6676d4dfc36fd5e27f956943714d22" => :el_capitan

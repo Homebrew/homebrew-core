@@ -7,6 +7,7 @@ class Makefile2graph < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5b5cb69a698628af41b3de70146580bbcb2e88a8b6d87d7fe9b4f58a2f2fdfb2" => :mojave
     sha256 "51231ed0ef44fd31a10f4ea0a7500570181332786ddd5a8a9a886958ad1b1408" => :high_sierra
     sha256 "274ee025c45df9757d608249d64105b9314c8e59fc52a81ad6906f807498b67c" => :sierra
     sha256 "ed1939b1b0fd106f3e328e310a887cf454b81481f78fdf57ce75c0480a922d7d" => :el_capitan

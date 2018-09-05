@@ -6,6 +6,7 @@ class Libyubikey < Formula
 
   bottle do
     cellar :any
+    sha256 "f5f99ad5056fe1d8bfa69a389983ac9ae0f5e65c60d984de4fb9591b6b19daba" => :mojave
     sha256 "8440f766e153b537a092f55a07990c0fd28e0b244407bf6824d21fedb3d97f32" => :high_sierra
     sha256 "23f550d2f6e2cd6310756e3625c17868e206c90029e241fbc915a408f4761263" => :sierra
     sha256 "2b1fbc1860932dd4a4c2b09928d838bc3646ff0b2a97bc5c538981befdc21760" => :el_capitan

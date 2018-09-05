@@ -1,18 +1,20 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.61.tar.gz"
-  sha256 "b8e19743cd499436dce58af67479997e621fe50e21e31f08f440d2303e11f5d6"
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.62.tar.gz"
+  sha256 "b219270310255493c881a09bb4a5569f34a72cdaf3c3be920c1036a2450317ce"
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
-    cellar :any
-    sha256 "6ed1751a2ddcfa5ffcbeeb40797b30d59ccbec494c5f6e9e5d66d35393ac5943" => :high_sierra
-    sha256 "bc67037ff45a70573990e1203857bd74642f08d15846364143d3c4a4bb602ee9" => :sierra
-    sha256 "fd4afc63d1915ab1d7cf66c962e3ea58ca8959d8fe3f95a88e6158c30efce544" => :el_capitan
+    rebuild 1
+    sha256 "70626a4eebd24a186e7a41cb7fea3aaacc2d6942cda1b3bccebceb035b592d24" => :mojave
+    sha256 "05097a9e407ea4d7407fd869c44341e6f85e81ac22471f39778ebf319345f82a" => :high_sierra
+    sha256 "cfdcbdee3fe6f3bebc10ff7c2c4009d46e15ba42a78717741931dc36dd097f14" => :sierra
+    sha256 "b599f6fedf4dfe0c62d40b191007c51fa25f066c761e2fd251349b48ef0d59d8" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "luarocks" => :build
   depends_on :xcode => :build
   depends_on "ffmpeg"
   depends_on "freetype"
@@ -27,8 +29,8 @@ class Corsixth < Formula
   end
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/v_1_6_3.tar.gz"
-    sha256 "5525d2b8ec7774865629a6a29c2f94cb0f7e6787987bf54cd37e011bfb642068"
+    url "https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz"
+    sha256 "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
   end
 
   def install
@@ -45,7 +47,7 @@ class Corsixth < Formula
       end
     end
 
-    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}",
+    system "cmake", ".", "-DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua",
                          "-DLUA_LIBRARY=#{Formula["lua"].opt_lib}/liblua.dylib",
                          "-DLUA_PROGRAM_PATH=#{Formula["lua"].opt_bin}/lua",
                          *std_cmake_args

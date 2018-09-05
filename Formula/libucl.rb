@@ -6,6 +6,7 @@ class Libucl < Formula
 
   bottle do
     cellar :any
+    sha256 "270f1f5a88f1a9116398d45fbe041d92d1f244ae247a1dfc1dd93891503f8b41" => :mojave
     sha256 "e30a7ebee16c366f71c7fb29b38a41b1c9e95cfc1f373f9d7ea7e1bbc47b8617" => :high_sierra
     sha256 "9a39086f31e5dbbafb5524f0d5a2609bdfc2155b436b6c3db99f3689bc507be1" => :sierra
     sha256 "ba333fada04cdb99bfbfeefdbe21d2261baa76a5f814278c08a57b7821d27ace" => :el_capitan

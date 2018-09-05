@@ -3,13 +3,16 @@ require "language/node"
 class WebtorrentCli < Formula
   desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
-  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-1.11.0.tgz"
-  sha256 "682f4c5f21aa40974fab3c2e2ea032f0e4af2c09472c9f934efa58e4514b8a03"
+  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-1.12.3.tgz"
+  sha256 "e3e1db7e1d57d322e9263be1454e6af31e9713295fef0edb242d9ac0d97bf71b"
 
   bottle do
-    sha256 "7a7c8ea2a2205599d99b767cf0eb6b2bda52c2e1327887e337c53d577fbb1e25" => :high_sierra
-    sha256 "bef775f7a8c307010d204911fcd5f682af88e97d94751cf2af257c894dead67b" => :sierra
-    sha256 "468d90082e2916c432816e26cd9455d71f12899617e1c187a2f0569daa8a9800" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "b36cb12217855e7f846904787edff56b262191c3027dc80f695152197d877158" => :mojave
+    sha256 "f742fef76f23303d2e3f00aecc58f0e330151395827b0c1e86965aea15de86fb" => :high_sierra
+    sha256 "684233d167eda9cd325ea50016c1000ac4c4a19764a65da4810bebaa5f49a156" => :sierra
+    sha256 "5fccaa04d58abeed5146887b970264758a3aff86a048766e9d40386bb5ad3dff" => :el_capitan
   end
 
   depends_on "node"

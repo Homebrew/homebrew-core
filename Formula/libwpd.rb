@@ -6,6 +6,7 @@ class Libwpd < Formula
 
   bottle do
     cellar :any
+    sha256 "7fbbb8923d393d8c4cef19deb6e3696b9ce6c4ec9df63e687822de2541269326" => :mojave
     sha256 "b240b96a69dc164ef6f4cdc3cdff10339cb1ce5d1593380319e8f41004d82d26" => :high_sierra
     sha256 "5e7bd127154ff012858b889ab8b40c47498887f7cf5ef5c9d71eb8230d7ac68e" => :sierra
     sha256 "c5368f8e62e66db7f5afcf1fb6b807af0d4a2ac5673863a787b16329e484f457" => :el_capitan
@@ -29,9 +30,13 @@ class Libwpd < Formula
         return libwpd::WPD_OK;
       }
     EOS
-    system ENV.cc, "test.cpp", "-o", "test",
-                   "-lrevenge-0.0", "-I#{Formula["librevenge"].include}/librevenge-0.0",
-                   "-lwpd-0.10", "-I#{include}/libwpd-0.10"
+    system ENV.cc, "test.cpp",
+                   "-I#{Formula["librevenge"].opt_include}/librevenge-0.0",
+                   "-I#{include}/libwpd-0.10",
+                   "-L#{Formula["librevenge"].opt_lib}",
+                   "-L#{lib}",
+                   "-lwpd-0.10", "-lrevenge-0.0",
+                   "-o", "test"
     system "./test"
   end
 end

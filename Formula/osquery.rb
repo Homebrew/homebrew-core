@@ -1,13 +1,14 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  url "https://github.com/facebook/osquery/archive/3.2.3.tar.gz"
-  sha256 "dcbdce8751a8b87293d3fc6fc1e56db5229fcd21cbf16bc7dc2c7caa3868eb7b"
+  url "https://github.com/facebook/osquery/archive/3.3.0.tar.gz"
+  sha256 "b633b41bd9ec7a8569eb03060cc22dd53a36d3ba4ca7fb66a976d7f9f800bf52"
 
   bottle do
     cellar :any
-    sha256 "295698b4d3d1b34afa332e2f81ec428059b6092d823804200b444da21dff4741" => :high_sierra
-    sha256 "cbb762ebb73c10125e5a1f0bf1426ab3324e6d72548b9d8840eb8504b2634928" => :sierra
+    sha256 "6a72b32baee92352531bf8b2b65384affdc66217c68688859b65d094d2630621" => :mojave
+    sha256 "8aa49f8ab62b8132333ade19ae7c07fac43ea01f3e02592b64fb5caea9a695b0" => :high_sierra
+    sha256 "d1d464d11894f3dd91946aa03d0178baf6fa5b9cd2623d6544e42d1c295e0d5a" => :sierra
   end
 
   fails_with :gcc => "6"
@@ -29,6 +30,7 @@ class Osquery < Formula
   depends_on "rapidjson"
   depends_on "rocksdb"
   depends_on "sleuthkit"
+  depends_on "ssdeep"
   depends_on "thrift"
   depends_on "yara"
   depends_on "xz"
@@ -79,6 +81,10 @@ class Osquery < Formula
     # Skip test and benchmarking.
     ENV["SKIP_TESTS"] = "1"
     ENV["SKIP_DEPS"] = "1"
+
+    # Skip SMART drive tables.
+    # SMART requires a dependency that isn't packaged by brew.
+    ENV["SKIP_SMART"] = "1"
 
     # Link dynamically against brew-installed libraries.
     ENV["BUILD_LINK_SHARED"] = "1"

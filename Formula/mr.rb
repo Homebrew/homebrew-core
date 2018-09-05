@@ -1,13 +1,16 @@
 class Mr < Formula
   desc "Multiple Repository management tool"
   homepage "https://myrepos.branchable.com/"
-  url "git://myrepos.branchable.com/", :tag => "1.20171231", :revision => "b1e830c793785d2ca9e0644150091293e0c234a9"
+  url "git://myrepos.branchable.com/",
+      :tag => "1.20180726",
+      :revision => "0ad7a17bb455de1fec3b2375c7aac72ab2a22ac4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dd785ab43994c4209e80bcad7d676b641839ef6df50c5ec1bad08492c212c714" => :high_sierra
-    sha256 "952a63655282b3a8926920c103d61a37df79610ce4c03bdfe9259cc239556369" => :sierra
-    sha256 "b7af2995198e84cf2dce5ffceabd485e485c17054bd11e3f0032c07968d4b4c8" => :el_capitan
+    sha256 "73c8b9b421ea776366f9ded68d90c6c3b75b50401172b5c5248556f6f7f47d6e" => :mojave
+    sha256 "a41bcee5b050ec9f98cf5960a457421528b05773867d8c8dbb8eb32716e09fd5" => :high_sierra
+    sha256 "bcac4176692f69d47a83cd961cee92e096f6b35f19cb7206973f77b15a1ba71c" => :sierra
+    sha256 "75fd9c6fbf6dcf833243e4dc9baf0afe81c422e55d3e251f5cfe040b8bc6a254" => :el_capitan
   end
 
   resource("test-repo") do

@@ -7,6 +7,7 @@ class M4 < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a131363a4ea9a121e2e836ceabb216ba400632ae93b15ee09bd2d033de1dc5c9" => :mojave
     sha256 "066b43f14d9422bee66df1a6f62778e805a0308a36243d99e2d584e08a579dd8" => :high_sierra
     sha256 "b0fe54c5705842618e6446c4c804330df89a78ed09bd5b013b2c5fabf34b218f" => :sierra
     sha256 "7daa296cf49de573214b4f2c72e3b621bbbc1ef5bfebfbe00fb18a70ba8e3152" => :el_capitan

@@ -6,6 +6,7 @@ class H264bitstream < Formula
 
   bottle do
     cellar :any
+    sha256 "c085b29b8aba3d0a8b80a4bd94292cfdc01af1a19cdcadc5d7394923ab28f632" => :mojave
     sha256 "b671d3f1f37da9a1e095c82cb3cc0229945f202957c36656a49b625e230e1854" => :high_sierra
     sha256 "5542dfab9f67f04540bf57c72720eaaf48a17ebdc20020a7c6b61ee64d41d0c2" => :sierra
     sha256 "cb603960e6eb5ab5f78cc41546c6c4f1bdf53f07fcf7c7af7c4e714ad4b14dce" => :el_capitan

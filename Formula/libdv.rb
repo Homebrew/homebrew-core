@@ -7,6 +7,7 @@ class Libdv < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "ec2564e27b321ebb35a3278d6e7411d17d1b1acad5dbcd40106cbcaf24205b53" => :mojave
     sha256 "0f7c7db1baa95682ad66b9d628d51978f162558f6d8296715a38150f83a7c72f" => :high_sierra
     sha256 "9ea1a006d7aa954c5a1d61497f9f7f43e0b1bd5bce911b6d334a693d8af58671" => :sierra
     sha256 "0624e82748111d0a8a050a802ec4251c443127c39c93b3b2469a00816a602040" => :el_capitan

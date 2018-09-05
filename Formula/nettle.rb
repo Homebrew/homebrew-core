@@ -7,6 +7,7 @@ class Nettle < Formula
 
   bottle do
     cellar :any
+    sha256 "919ede5990f293392071368b6af796e5607cba014168eb05d1421caf3949ddd9" => :mojave
     sha256 "d5f8ed7557a26c0a2a34031b10a34b12c0c8f518782ed1d17fb13930ecfcdf45" => :high_sierra
     sha256 "d03831c4b2217900338b2316bf73b0074271b0007c2aaaa8fddf606a5f71d7ee" => :sierra
     sha256 "a8f3221e9f9281d5493e09b9cbbddc7038de24fbb6375e0255294cae822b866a" => :el_capitan
@@ -17,6 +18,15 @@ class Nettle < Formula
   def install
     # macOS doesn't use .so libs. Emailed upstream 04/02/2016.
     inreplace "testsuite/dlopen-test.c", "libnettle.so", "libnettle.dylib"
+
+    # The LLVM shipped with Xcode/CLT 10+ compiles binaries/libraries with
+    # ___chkstk_darwin, which upsets nettle's expected symbol check.
+    # https://github.com/Homebrew/homebrew-core/issues/28817#issuecomment-396762855
+    # https://lists.lysator.liu.se/pipermail/nettle-bugs/2018/007300.html
+    if DevelopmentTools.clang_build_version >= 1000
+      inreplace "testsuite/symbols-test", "get_pc_thunk",
+                                          "get_pc_thunk|(_*chkstk_darwin)"
+    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

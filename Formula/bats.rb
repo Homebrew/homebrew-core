@@ -7,6 +7,8 @@ class Bats < Formula
 
   bottle :unneeded
 
+  conflicts_with "bats-core", :because => "both install `bats` executables"
+
   def install
     system "./install.sh", prefix
   end

@@ -1,13 +1,13 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/18.03/ejabberd-18.03.tgz"
-  sha256 "9688dc8eafd7746b8c6594fa7e2857d7dfdffa501e4d1103fb88031371c89c6e"
+  url "https://www.process-one.net/downloads/ejabberd/18.06/ejabberd-18.06.tgz"
+  sha256 "ac9dbe8b58aec5403ecfe48cb90f11e7f55664185094bac94615c6c9323690b0"
 
   bottle do
-    sha256 "51e4b5ec56674844bf385ec14dabb3e5cf338d24960e9e35daa9c62436c41b93" => :high_sierra
-    sha256 "9eafe8585cb38b7a70a8608010a8191f1c9c1a9da975e3d8332d7751e095df75" => :sierra
-    sha256 "bd8ab1e7b90c84deb8f383e2a10b8a40c95e4903a40f866505678ff8947968ab" => :el_capitan
+    sha256 "0a4bc49006e4d917c28848056ef3abf54cb9057a6fc953e2caaf9586b5c4aacd" => :high_sierra
+    sha256 "12380faf294c170e1e8475717b8072c3a52388583868366a05000817c6e62584" => :sierra
+    sha256 "e80a35aae6b8109ad5ed4b1f127eb80c03b9c92c10ee104be5ecd24f6d002a4a" => :el_capitan
   end
 
   head do
@@ -56,7 +56,7 @@ class Ejabberd < Formula
     If you face nodedown problems, concat your machine name to:
       /private/etc/hosts
     after 'localhost'.
-    EOS
+  EOS
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/ejabberdctl start"
@@ -84,7 +84,7 @@ class Ejabberd < Formula
       <string>#{var}/lib/ejabberd</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -6,6 +6,7 @@ class Tn5250 < Formula
   revision 1
 
   bottle do
+    sha256 "879e6a667127db850dc7cf94959bfbe1f1accb5b70c8c70b8d8418566ed34b6e" => :mojave
     sha256 "57cf521a088585c906d03536052352540749f01dd2325f1b39a5416b187e9f64" => :high_sierra
     sha256 "677c563daec583859a4ad6ffd0c57d2a2b74e1cc42d6b380fc2f8ac18a3abcec" => :sierra
     sha256 "3d799f665866c2fa21ca2712682178ba64cdb2b5bf0ad77705de6ec869c529c7" => :el_capitan

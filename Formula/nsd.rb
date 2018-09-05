@@ -1,13 +1,14 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.1.20.tar.gz"
-  sha256 "8a97f61d7bbb98a2ce04dc4425596f9023677a5f1c5ea743ff408d487f82f713"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.1.24.tar.gz"
+  sha256 "4fb687c8e494610ad8692a127ac101ed73df851142a42766c33de06e54449311"
 
   bottle do
-    sha256 "c424d27cec3fa434513f7c6e259fe7c70ce7f3050f284b6acfa033e753785b6a" => :high_sierra
-    sha256 "a9d32854dab1a8aa5814c57c4d025f7b5d225350129d75d7179f08133d491f86" => :sierra
-    sha256 "34efcdbf02f61a9740f1ee8d3e71149dd6f311e62eb3dbd282455980ac664bf4" => :el_capitan
+    sha256 "e0dec26dde18a5b5f1cee25e60db7231a61f3fe7302890977569782768f93097" => :mojave
+    sha256 "ef0ff89248877b6653322d3290897f885cb8d4b48d6eb248acfc8f2d06d56c47" => :high_sierra
+    sha256 "762e0ca75b35d762a64149b9e9f748fdd9c3190ccad497643388b9b7f36d3a91" => :sierra
+    sha256 "1e5bf01ae719b8588c92d56b59a6d8edab91671f2f38d6c2ddc128220b4d86dc" => :el_capitan
   end
 
   option "with-root-server", "Allow NSD to run as a root name server"

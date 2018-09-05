@@ -6,9 +6,12 @@ class GnomeAutoar < Formula
   revision 1
 
   bottle do
-    sha256 "0273f2d8e8e89ab1e3e53ea465ef940ab3641dd1e259b0642866df8e616e4374" => :high_sierra
-    sha256 "2b75c73250644bb5e8bdac7bc72d61d08373a25f54081f71e52fd4e71fed727d" => :sierra
-    sha256 "1f47eb5329f01e3e898280e71608d6089525919849dc58a9b29d28a56fef3dfb" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "df3a4bb92f24256d2fdd61c1d8bf0e99df2e5d3ff5caa8e4b9a5fab86335a264" => :mojave
+    sha256 "0278e7cbdbdb3115090a0a27cb7328ededbd8b3952d71b9568060db5c1b60198" => :high_sierra
+    sha256 "af8b60ddb40832e09b435e12a5e2d047ef36dcb7ac1cb0ae4c3a0577c19dcb7d" => :sierra
+    sha256 "3b15fdd123e16bddd846335e4e1d473770fb337007ef88ffa33fc6de90052e7b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

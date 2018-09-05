@@ -5,6 +5,7 @@ class Pdf2json < Formula
   sha256 "69394ef5d5d5504f7106e8b55e15bf491c48d906d611e6bc2e5952005a85b593"
 
   bottle do
+    sha256 "d04e13e9a3dcb0593b594575afbc67acc1c6e0bda8e2cefa85b2027fa97b2036" => :mojave
     sha256 "60d1c24f08283b8040f2e7e9154f7fcccaa415199fb77fefe843eebb74583019" => :high_sierra
     sha256 "586c26331ad9becac719c803c71be519ea3684c28ab80db457e8f61df9485234" => :sierra
     sha256 "92852d5246f34ed87340f347f8645c60e39f7cbd924c2e94cf199f4f9d42ddc6" => :el_capitan

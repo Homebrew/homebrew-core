@@ -6,6 +6,7 @@ class Libestr < Formula
 
   bottle do
     cellar :any
+    sha256 "6dd3aa33fa74f62679745de0a6e934231b3eba2c453a4d552612336ad3d851fa" => :mojave
     sha256 "0413d6b2e350cf0b96ac51277aea7cc138ce848b81091e7172c4cbbb6efd1102" => :high_sierra
     sha256 "180b2620f9ba546d062835b15753236a616ecd53fa01bacb07bf6368d4825b64" => :sierra
     sha256 "a95f0ed48b7a7879128ea8b7d1dfac5d6c736ee504d88a65155c040eff6ea134" => :el_capitan

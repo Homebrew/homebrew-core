@@ -6,6 +6,7 @@ class Warp < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0d48b2519458f997d8591c1f3bc645e9877486b95849656651865376450bf2d0" => :mojave
     sha256 "214fdbd64070317a1a5026b54a590d1783c295ac7240ac442092314ab861a252" => :high_sierra
     sha256 "562aed9e482aa4423476a0a83e9ecb36822ac19968f4440362a3b273bdcaf4dc" => :sierra
     sha256 "cc33305d446538db611f039f585648afed84268b1c98fc9a0c5ded76185eee0e" => :el_capitan

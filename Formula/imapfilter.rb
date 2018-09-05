@@ -6,6 +6,7 @@ class Imapfilter < Formula
   revision 1
 
   bottle do
+    sha256 "5a50b18109dc9055b6a16d1cf0ac3e167b8c75660c02056f30a14a710a49bbea" => :mojave
     sha256 "02803ddbca53c23b2d5cb2a5a8f35ae793345d76edc1950425237fcf988e2b96" => :high_sierra
     sha256 "93dc1b7812665fe71b765e12febee6e82d73508e28f151221e25f127af916e2a" => :sierra
     sha256 "b167861900fb3f72c9852c2db920a96eb10aeb3b96f075b6f25e90ad99b03ddd" => :el_capitan
@@ -21,7 +22,9 @@ class Imapfilter < Formula
     end
 
     # find Homebrew's libpcre and lua
-    ENV.append "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+    ENV.append "LDFLAGS", "-L#{Formula["pcre"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["lua"].opt_lib}"
     ENV.append "LDFLAGS", "-liconv"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "LDFLAGS=#{ENV.ldflags}"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "install"
@@ -33,7 +36,7 @@ class Imapfilter < Formula
     You will need to create a ~/.imapfilter/config.lua file.
     Samples can be found in:
       #{prefix}/samples
-    EOS
+  EOS
   end
 
   test do

@@ -7,6 +7,7 @@ class Polyglot < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8427c9bc2e5ca5137ee27ce8f6fc5f74cf0c216519ec20a66270fdff8547fb33" => :mojave
     sha256 "7192204bd2c30b3d2d3eb482678c76e0c6069e7bb931864a26728f961116982f" => :high_sierra
     sha256 "de7a79cd7b59fb412b245a50c601ec0546da345f5901b2bec260fba86fc27ce9" => :sierra
     sha256 "36d5170db384175c1f6f097f6d179243d265c3a06dcf34a11266cbd370be5aad" => :el_capitan

@@ -6,6 +6,7 @@ class Libsoxr < Formula
 
   bottle do
     cellar :any
+    sha256 "060d8d9eff5fc5152bdb8e1be67e2dbbdeebc6bfeb1deaf0561f96ba0a2de184" => :mojave
     sha256 "10b952f7e1ca5f9c839f87a2920e6739d4e3c262e88b05a3b8a62074de69e5ac" => :high_sierra
     sha256 "b469390e789389d10825c86d2ed825e1cb64efd14ecf98870043178846ed38ab" => :sierra
     sha256 "473b6f61851824ec47918a423295332f00d2ac802f2da4ef7058c621a4f365b0" => :el_capitan

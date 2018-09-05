@@ -3,11 +3,13 @@ class GnuCobol < Formula
   homepage "https://sourceforge.net/projects/open-cobol/"
   url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.2/gnucobol-2.2.tar.xz"
   sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
+  revision 1
 
   bottle do
-    sha256 "5ddea71e8cdfe35bcf7affb34e375a5e81a7766c89fad399413bc1c5a343cdbd" => :high_sierra
-    sha256 "edca8c6964dcf160fe177b015ac015386f75925da3ab0e58d7c397fb0dca401d" => :sierra
-    sha256 "cbaa173aa41c70f1c58c084fc76a25d875724c541289012b58d5850b1c1783ed" => :el_capitan
+    sha256 "504014842e719e925712356bb311815d358486517cd5391d679730c1c079162f" => :mojave
+    sha256 "3f1a9e81a977db52d0884546897928f6d2d903aa730298bf8ab5d75846afe20a" => :high_sierra
+    sha256 "047bbc915d20c25913075b9a71b0bb4fedb0576c262c4a7084890ee6a608e4a0" => :sierra
+    sha256 "ad0bd9c0dceccde4ee7685152ba2bdd7d1c878d284e9e57f6fc46180522b250c" => :el_capitan
   end
 
   depends_on "berkeley-db"

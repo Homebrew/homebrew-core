@@ -6,6 +6,7 @@ class BulkExtractor < Formula
   revision 2
 
   bottle do
+    sha256 "968df238e7bd0e1738215310de5362bcc3fe146f9bc3930118c2331f723004da" => :mojave
     sha256 "bd8be8ebe8f00ce1b0d2a1d52d1c8eec1390337e78cf415414c42548558032bc" => :high_sierra
     sha256 "e2773083f3813a2ed5ecde53ff965a13ca9a995b4c9f3b2abee42162c0492f2c" => :sierra
     sha256 "cb2049ff2cd30733ec9a2456a4aefdabfa97511849d4c9b2f93de1526ee1f5ba" => :el_capitan

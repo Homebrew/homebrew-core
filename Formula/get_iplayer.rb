@@ -1,15 +1,16 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.13.tar.gz"
-  sha256 "56cb08599f66f0d06526a496b9e020a72c054cb32ab9a9df907e0f7435ace550"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.17.tar.gz"
+  sha256 "12d8780311d73bb4f573f4c019f88332c97ee1d7a676b5dc7989cd8c37562566"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7c7706235ae3652ea869c4bd40da92ee5adfb0a9572d0a261f04d16a787a3de0" => :high_sierra
-    sha256 "6fdc175390d53d1e42798bf07c5ef1e0c14dcb16b51259f224d25bca69186761" => :sierra
-    sha256 "0b1aee4d4dac869fea6d010d9bc5a8b0fc9fdd9eafdd00a894ec3ad827bcbe7f" => :el_capitan
+    sha256 "d7f47b8f30950265cfc1010066f87dcd4f3cd61743f38037e1303765eedfba2a" => :mojave
+    sha256 "dc3c42a07aa2a22c6aa5f1e067e48221e43f2b713106a433eb05c4b1f5302f63" => :high_sierra
+    sha256 "59be794be7558023379a54ccb7800c1d7b8013eacb809782e9a70d7591216729" => :sierra
+    sha256 "fa56ddecbfe51c9763840b83b7dfa9a1138edb41baa21cf91aa28df955583818" => :el_capitan
   end
 
   depends_on "atomicparsley" => :recommended
@@ -23,13 +24,18 @@ class GetIplayer < Formula
   end
 
   resource "IO::Socket::SSL" do
-    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.056.tar.gz"
-    sha256 "91451ecc28b243a78b438f0a42db24c4b60a86f088879b38e40bdbd697818259"
+    url "https://cpan.metacpan.org/authors/id/S/SU/SULLR/IO-Socket-SSL-2.059.tar.gz"
+    sha256 "217debbe0a79f0b7c5669978b4d733271998df4497f4718f78456e5f54d64849"
   end
 
   resource "Mojolicious" do
-    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.71.tar.gz"
-    sha256 "25d8ab46fd7c340abcbbe740f690c197df6ff40a9c3dddf907629211bf3ad905"
+    url "https://cpan.metacpan.org/authors/id/S/SR/SRI/Mojolicious-7.93.tar.gz"
+    sha256 "00c30fc566fee0823af0a75bdf4f170531655df14beca6d51f0e453a43aaad5d"
+  end
+
+  resource "Mozilla::CA" do
+    url "https://cpan.metacpan.org/authors/id/A/AB/ABH/Mozilla-CA-20180117.tar.gz"
+    sha256 "f2cc9fbe119f756313f321e0d9f1fac0859f8f154ac9d75b1a264c1afdf4e406"
   end
 
   def install

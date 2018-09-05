@@ -7,6 +7,7 @@ class Vultr < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4c2dc53809a93069890fd09c539e9ccb32cdaa6a56b6ec8af66322b87fb95abc" => :mojave
     sha256 "223b1b559d163410cae027526f5c6de0c7f9ac766bafbf77b7abf1e4a2f3e83a" => :high_sierra
     sha256 "97fec16060a7e644402ea8e24fe57aa0dcf4a8e31b6505dc8f57574fd1b57f2c" => :sierra
     sha256 "b97a438ef61327a2c876a934417d61f0cebc710520f0a17eb123217b57a13d2f" => :el_capitan

@@ -3,6 +3,7 @@ class RakeCompletion < Formula
   homepage "https://github.com/JoeNyland/rake-completion"
   url "https://github.com/JoeNyland/rake-completion/archive/v1.0.0.tar.gz"
   sha256 "2d619d0d1d8052994011209c62f926b9e41d45e9268da4b9858fa45911b04cd1"
+
   bottle :unneeded
 
   def install

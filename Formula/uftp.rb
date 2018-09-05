@@ -1,14 +1,15 @@
 class Uftp < Formula
   desc "Secure, reliable, efficient multicast file transfer program"
   homepage "https://uftp-multicast.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-4.9.5.tar.gz"
-  sha256 "83870a5ad05c9e2d18eaa0de7cf43149f489712d8b72a1a00497695881829aaa"
+  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-4.9.8.tar.gz"
+  sha256 "e98c6318e497124d777ca71eae752d213207c35de9f782c8bcaaf82ece20e599"
 
   bottle do
     cellar :any
-    sha256 "1cb23384f86d4265575b2f04f4a83bf3702f38197f939aaa29b2f5850c2bb2c1" => :high_sierra
-    sha256 "ab7bd052ac6a97f7fbc4eefd86a64759c85cd409988d2cba830d6f3022152b16" => :sierra
-    sha256 "224310f641844d95920d4da4b3d09b6c7c7bd7f87a957d7916c20ab2f4a46c0d" => :el_capitan
+    sha256 "1e9cf93c7cf204be2c2fa257321adc3c561e38f2232b1cb730d1b7afe246dabb" => :mojave
+    sha256 "69cc89d4b25477b115b242297b7c2ea4385a2097870d433b344e36333e874a9c" => :high_sierra
+    sha256 "8df58014e1e469d45a7f703387464a31663f0d632693b906fee835179000f95f" => :sierra
+    sha256 "b59605f65f2224aab208aaeac7867d25a05c8abe92afe8aff6a71a60a1e9e297" => :el_capitan
   end
 
   depends_on "openssl"
@@ -43,7 +44,7 @@ class Uftp < Formula
       <string>#{var}</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,8 +1,8 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.7/bin/apache-tomcat-9.0.7.tar.gz"
-  sha256 "2fdac002c29e219f69f75dfc433471998634e400cc84b155e483bb2b457b8e48"
+  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.11/bin/apache-tomcat-9.0.11.tar.gz"
+  sha256 "baa62b93404d0e795657adb1c0cd41e83a415f10870e657d4441c104bb176471"
 
   bottle :unneeded
 
@@ -11,8 +11,8 @@ class Tomcat < Formula
   depends_on :java => "1.8+"
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.7/bin/apache-tomcat-9.0.7-fulldocs.tar.gz"
-    sha256 "97d73425c711346dbd9bb3ddde7f230fbea005bdac11281bad6b896c551d8777"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.11/bin/apache-tomcat-9.0.11-fulldocs.tar.gz"
+    sha256 "96c21710e039ddbd631c1d3dbefee73cc40a769e04d035581c3f0c241925c23b"
   end
 
   def install
@@ -47,7 +47,7 @@ class Tomcat < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

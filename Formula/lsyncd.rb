@@ -1,15 +1,16 @@
 class Lsyncd < Formula
   desc "Synchronize local directories with remote targets"
   homepage "https://github.com/axkibe/lsyncd"
-  url "https://github.com/axkibe/lsyncd/archive/release-2.2.2.tar.gz"
-  sha256 "0bdb12f40f1a52ed2d8e6cb47242d296663a42b30f38d2b8efcb66b43129e009"
-  revision 1
+  url "https://github.com/axkibe/lsyncd/archive/release-2.2.3.tar.gz"
+  sha256 "7bcd0f4ae126040bb078c482ff856c87e61c22472c23fa3071798dcb1dc388dd"
 
   bottle do
     cellar :any
-    sha256 "33bed2e034b0d0f72dbcedd747c8d58a54a9b40f92959da63c3ec5a07ce873df" => :high_sierra
-    sha256 "c22a4a49e5637ca930be2e56f725ffed9adfdcc95c1a5688a6ca947e1979d0d6" => :sierra
-    sha256 "37d51f683969cf0c109fedba13f2d08cc04f9e2e4e72cc1b1a80e05d48f33a70" => :el_capitan
+    rebuild 1
+    sha256 "79143a6d1505de3fee15c1137236501c5d0b6b7a9d7e58da05eba5d4f0a48150" => :mojave
+    sha256 "df6dd8f53c045216218e7c323bfcf67a638df49c6e9e33783892f349e49b34ab" => :high_sierra
+    sha256 "fb96c8e31a06e71725c2b2ccba2cf450532337e4d1e84d49d08887010c64bf12" => :sierra
+    sha256 "febda4db3866e4f047bf95fbe53730988c2d89897f7c99443e101216e8956f17" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -58,6 +59,10 @@ class Lsyncd < Formula
     "10.13.1"  => ["xnu-4570.20.62.tar.gz",  "4968ae345a83d7aca3a8da65bf09bdc637e2eefbc236f7931c38abb879fe05df"],
     "10.13.2"  => ["xnu-4570.31.3.tar.gz",   "1c364646d001f1a6eee80fa71f746b1142121203eabd808f1eab18317ade576c"],
     "10.13.3"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.4"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.5"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.13.6"  => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
+    "10.14"    => ["xnu-4570.41.2.tar.gz",   "e26ea5451126278d22dff7399b956c0fd1fbbdca82d90d4bb105b1ad0731162d"],
   }
 
   if xnu_headers.key? MacOS.full_version

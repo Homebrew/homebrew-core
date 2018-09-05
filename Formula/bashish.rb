@@ -6,6 +6,7 @@ class Bashish < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7f2b297190ede9e55c0def858e37b25682268e6f0bc3df2c507e347e7ac353a5" => :mojave
     sha256 "b7caabd1274134f33dd458ac444bbe14a139de76b91f8bebb56349377b840a5e" => :high_sierra
     sha256 "31134b56c7ad43b04ef186485af8581dbf8d8d8fcf615d259554d9c5adc7233f" => :sierra
     sha256 "114d2ce95e530c6850bc36a52a1053ecf05185d774ed499bd1725811b3c1b88c" => :el_capitan

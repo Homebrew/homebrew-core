@@ -6,13 +6,14 @@ class Libxslt < Formula
   sha256 "526ecd0abaf4a7789041622c3950c0e7f2c4c8835471515fd77eec684a355460"
 
   bottle do
+    sha256 "9ec247ef3cb3dcb30a5f2392150ef3323e49c5270d959cec3ffb008c2192ad52" => :mojave
     sha256 "502430d08fb7c8d0462ca5421b66caee4d9b8e39f3c7460c2bfca91be37091f9" => :high_sierra
     sha256 "5d68588f3afbdd93022aeaf81b9c6403c0c6b8aac24e5ba25a195c5ec5bad7e5" => :sierra
     sha256 "66854da0ffbb83f60863c23b985e5522037db4957aca70e2b49346a243a30991" => :el_capitan
   end
 
   head do
-    url "https://git.gnome.org/browse/libxslt.git"
+    url "https://gitlab.gnome.org/GNOME/libxslt.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -46,7 +47,7 @@ class Libxslt < Formula
   def caveats; <<~EOS
     To allow the nokogiri gem to link against this libxslt run:
       gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
-    EOS
+  EOS
   end
 
   test do

@@ -1,20 +1,21 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/0.11.2.tar.gz"
-  sha256 "0be23addc7ae986158cbef263393539f9e07f67969a1d51b82aec78cb7d0d21a"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/0.14.0.tar.gz"
+  sha256 "890548cd42d0ba08ebc78c182304b956ae3ccc0f6cda9ae2545ace6f313f9817"
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7a9b2c78ce0029175aebcd204dea5f68506328cf9223168b04b7e2bd6df70edf" => :high_sierra
-    sha256 "08040bff659f7a1cdd8deb115c3a0996413c443f133917d223eb3f7356c7b8ad" => :sierra
+    sha256 "80364efc5f696093c2a938f219362acf24da7aa4e1c11a582ee2c43324330f44" => :high_sierra
   end
 
   depends_on :xcode => "6.0"
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.3", :build]
 
   def install
+    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
+
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
            "-static-stdlib"
     bin.install ".build/release/sourcery"

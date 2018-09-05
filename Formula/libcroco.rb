@@ -6,6 +6,7 @@ class Libcroco < Formula
 
   bottle do
     cellar :any
+    sha256 "af3b14a1519dbc7b5bd979997df77ef3152f3575b6257b4f35177abc66fa5d28" => :mojave
     sha256 "0bf41b44e72e39031c1ece76c12b20dc8bc566931c87baa484787c478f5fe4b7" => :high_sierra
     sha256 "26530657c9133fb47b9749889603507bc493cb85e4a61818014a1939e3cbd692" => :sierra
     sha256 "2e8e7dfb8acc4e79089f3409a4a4772ec0b243e1e773070d4e8323acb939e668" => :el_capitan

@@ -5,6 +5,7 @@ class Libsecret < Formula
   sha256 "5efbc890ba41a323ffe0599cd260fd12bd8eb62a04aa1bd1b2762575d253d66f"
 
   bottle do
+    sha256 "716ae8c743ec4c3224178708663b404572386a8f416023b8f729e5256ed4db17" => :mojave
     sha256 "6a4ab070179363f9468424a354267afc31c61d6c50fca9f082ec4bae96d69769" => :high_sierra
     sha256 "600584d69e9688bdcecb510b7e10d1fab9593e789ce72a27c57a7da8cfb54488" => :sierra
     sha256 "9d64c0daf3b3f02d44eb2e24d156a76526afa0d00b6b911a5aecdfa8ccfd81b4" => :el_capitan

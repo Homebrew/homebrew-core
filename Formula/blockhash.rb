@@ -1,16 +1,16 @@
 class Blockhash < Formula
   desc "Perceptual image hash calculation tool"
   homepage "https://github.com/commonsmachinery/blockhash"
-  url "https://github.com/commonsmachinery/blockhash/archive/v0.3.tar.gz"
-  sha256 "a4fbe16dc8d1e9b82de860d97222ce6259495f7832c7dfe3de9e0bb42f85995e"
-  revision 1
+  url "https://github.com/commonsmachinery/blockhash/archive/v0.3.1.tar.gz"
+  sha256 "56e8d2fecf2c7658c9f8b32bfb2d29fdd0d0535ddb3082e44b45a5da705aca86"
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
     cellar :any
-    sha256 "d93acc3ec087d317d7e0fbe166d83745f516d2f85d32c3acc8fa0a18b764853c" => :high_sierra
-    sha256 "e4cce87334c21ede18f40f74ccb2f00a9d298e3b4f4e46b4aaedeefe0341e95e" => :sierra
-    sha256 "41faab24b6b7e72dff9719972dd7c2fc16864c2b99a69aa5d6250816b27aa2e3" => :el_capitan
+    sha256 "6ffdc13e9245f06147a95870dbf8b0b380bda2cb4fb0036988cf1d9f4a96ce2c" => :mojave
+    sha256 "c4b04968387672dded5493575dbc182f9a8cd43dce80943c5eaca9450cee1a44" => :high_sierra
+    sha256 "e684a55045cca7db8816b9fdb0881290c5cf80c20230dab454aef1d90f45adf4" => :sierra
+    sha256 "aadd5917fdb402fad8d6b7b02ca379cdefec0151edf0b8fa1135ccf1767e610f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

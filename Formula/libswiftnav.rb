@@ -1,15 +1,16 @@
 class Libswiftnav < Formula
   desc "C library implementing GNSS related functions and algorithms"
-  homepage "https://github.com/swift-nav/libswiftnav"
-  url "https://github.com/swift-nav/libswiftnav/archive/v0.21.tar.gz"
-  sha256 "99e7ac3f190d76b2c1ceb17dae76d24b86d1a71501db4f6a49759539bb393756"
+  homepage "https://github.com/swift-nav/libswiftnav-legacy"
+  url "https://github.com/swift-nav/libswiftnav-legacy/archive/v0.21.tar.gz"
+  sha256 "087c7264c0d0d735414f8bffbfa52ab44696c500ba14a43262d98d6aa093221f"
 
   bottle do
     cellar :any
-    sha256 "ec5142cb510d648fbc57b8e3acb7ff4925d720a305c18efd34511aae16aeb066" => :high_sierra
-    sha256 "3f0e52c5a7be06dbcf140870af9ee3f74520d78a51104973d8279793f7919d1d" => :sierra
-    sha256 "c5730d05abf427a9213faf36dd13517771bf1905f8df01619932c173c581e550" => :el_capitan
-    sha256 "96e3a1e2e74ddce115e6ea88c389aa970c9acabaf6e75b3322ac0f23858fec85" => :yosemite
+    rebuild 1
+    sha256 "e8ab824fddb8ffcb2aea530d7124c9c7debd4592dce3b0f0e649d4d63bea587b" => :mojave
+    sha256 "528d7e5e52b8ff8cdcb9be22a884d8e8b49e08f9ef90d0b99362526e7117e9ee" => :high_sierra
+    sha256 "739033ca99d860134475385ee3fe9180366d36f51d0a08326b2c8bab4a84dbf8" => :sierra
+    sha256 "9bea031f090e48b33e9fa24b8dc5d0391b64dfdc93613ac6aed23c2643ad6e7b" => :el_capitan
   end
 
   depends_on "cmake" => :build

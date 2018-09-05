@@ -7,6 +7,7 @@ class Udptunnel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7923707e0f1851b728643b010aba4b2052e076f935467a1b0ec8ef05d0cbe54b" => :mojave
     sha256 "938663a675b5ef62316fa1f7f4f33895d1b28af656ee722c5f8cf6ba94123f4e" => :high_sierra
     sha256 "c129b87c78c3297365d7e78b77985b69deb4def8d030b029d812bb25610b8bb0" => :sierra
     sha256 "acbc74c384071aa6be92bea754274c5025de0123afd389d1b174e444a7beec42" => :el_capitan

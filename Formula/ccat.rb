@@ -6,6 +6,7 @@ class Ccat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0170dc610f0561cd562a2614f5bb0139cad5d37133a4181318a0edc08b3182c9" => :mojave
     sha256 "895c26dc74369ef72990fd79447e654f5266dda9c662d3bed2926caab7180678" => :high_sierra
     sha256 "aab86cfae41d1f4f9c93ad3a1680f21a5a0e9fad61190101582235174e4e214c" => :sierra
     sha256 "10eb7df98a05c968f006bbda2c6f690bd7d5053e4bb6d2c9c4a043616648a23b" => :el_capitan

@@ -6,9 +6,18 @@ class GnuTar < Formula
   sha256 "4725cc2c2f5a274b12b39d1f78b3545ec9ebb06a6e48e8845e1995ac8513b088"
 
   bottle do
+    sha256 "2a112e5b1a9c895ef51cb85d5ae0f02c9804ada9e9f55cbd8f698ec63b51c69b" => :mojave
     sha256 "ad87e1488b6d1a2db804c348abf05143b6b7310402c7928f725305c295599708" => :high_sierra
     sha256 "5a04574acb1ff235b2509e70cb207e6379a8c83191986131bba52717c328fc1b" => :sierra
     sha256 "1a559b78e6f1a6594b18a9ba2aa2e9828af2736aacc4aec07911fe7638e80e68" => :el_capitan
+  end
+
+  head do
+    url "https://git.savannah.gnu.org/git/tar.git"
+
+    depends_on "automake" => :build
+    depends_on "autoconf" => :build
+    depends_on "gettext" => :build
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
@@ -25,6 +34,7 @@ class GnuTar < Formula
     args = ["--prefix=#{prefix}", "--mandir=#{man}"]
     args << "--program-prefix=g" if build.without? "default-names"
 
+    system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
@@ -49,7 +59,7 @@ class GnuTar < Formula
 
           MANPATH="#{opt_libexec}/gnuman:$MANPATH"
 
-      EOS
+    EOS
     end
   end
 

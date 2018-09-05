@@ -1,13 +1,16 @@
 class PdflibLite < Formula
   desc "Subset of the functionality of PDFlib 7"
   homepage "https://www.pdflib.com/download/free-software/pdflib-lite-7/"
-  url "https://www.pdflib.com/binaries/PDFlib/705/PDFlib-Lite-7.0.5p3.tar.gz"
+  url "https://dl.bintray.com/homebrew/mirror/pdflib-lite--7.0.5p3.tar.xz"
+  mirror "https://fossies.org/linux/misc/old/PDFlib-Lite-7.0.5p3.tar.gz"
+  mirror "https://www.pdflib.com/binaries/PDFlib/705/PDFlib-Lite-7.0.5p3.tar.gz"
   version "7.0.5p3"
   sha256 "e5fb30678165d28b2bf066f78d5f5787e73a2a28d4902b63e3e07ce1678616c9"
 
   bottle do
     cellar :any
     rebuild 2
+    sha256 "67334e52d81135fa1c1fbc5ff4065b745087d2072955b052aac6fad79520f663" => :mojave
     sha256 "7a3783e63304556c7c93604449ac09718cca6ea4e2244ff5819edb2a5d99f8f7" => :high_sierra
     sha256 "466701d2cac2d101b470fbdb122ba3a8f4f9169fe6a28fc8846859d8f7cfafc8" => :sierra
     sha256 "c05f42bfb25d1fa204440a1d421af10f9bf853e94dd17c7325e0382d7683d589" => :el_capitan
@@ -36,6 +39,6 @@ class PdflibLite < Formula
     pdflib-lite is not open source software; usage restrictions apply!
     Be sure to understand and obey the license terms, which can be found at:
     https://www.pdflib.com/download/free-software/pdflib-lite-7/pdflib-lite-licensing/
-    EOS
+  EOS
   end
 end

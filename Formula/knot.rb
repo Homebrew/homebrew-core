@@ -1,13 +1,14 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-2.6.6.tar.xz"
-  sha256 "9119d8a56828a596d246431492be8c015f918de65ba793d76071122567c3080a"
+  url "https://secure.nic.cz/files/knot-dns/knot-2.7.2.tar.xz"
+  sha256 "cb70b2ee1c7ecbaad8774a1e0c449a68c6a6f7c9d60595524f003201d6e38431"
 
   bottle do
-    sha256 "25e135ae044bbedfe185941c0a18abbc493ad29ac984c7f03e12dee4fbbaa97f" => :high_sierra
-    sha256 "9fbde4bf86177ffb4be3403f0b99061705a7db6cc8abd0c09f95ec04db242a93" => :sierra
-    sha256 "be9dfd6cbdb0849942e54a54bca60f98d51082e21b37f2d571257835070cb3bd" => :el_capitan
+    sha256 "135a46329ede38410c4ed016f553db2d839174912758a2c6befa7d4350bbb5a1" => :mojave
+    sha256 "aee994511ac0cd229f9967addc33de1506f8125aedf22a9545b101fca2074df0" => :high_sierra
+    sha256 "bb53f92b3b1ed5c65f0bfe0339a4f4003776efb6b2c34bc7a67615dc06402961" => :sierra
+    sha256 "1aed5ce5f2847b6a8b22e086879142e5c19dd4bd68428dbbcc9a14a7c9653ede" => :el_capitan
   end
 
   head do
@@ -24,10 +25,7 @@ class Knot < Formula
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "gnutls"
-  depends_on "jansson"
   depends_on "libidn"
-  depends_on "nettle"
-  depends_on "openssl"
   depends_on "userspace-rcu"
   depends_on "protobuf-c"
   depends_on "fstrm"
@@ -40,7 +38,7 @@ class Knot < Formula
                           "--with-storage=#{var}/knot",
                           "--with-rundir=#{var}/run/knot",
                           "--prefix=#{prefix}",
-                          "--with-bash-completions=#{bash_completion}",
+                          "--with-module-dnstap",
                           "--enable-dnstap"
 
     inreplace "samples/Makefile", "install-data-local:", "disable-install-data-local:"
@@ -73,7 +71,7 @@ class Knot < Formula
     template:
       - id: "default"
         storage: "#{var}/knot"
-    EOS
+  EOS
   end
 
   plist_options :startup => true
@@ -103,7 +101,7 @@ class Knot < Formula
       <string>#{var}/log/knot.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -7,14 +7,13 @@ class GccAT6 < Formula
   revision 2
 
   bottle do
-    sha256 "2d073860c3899b3d61441931ebb230ccb7249e2ac63d957860c408c01ecc081b" => :high_sierra
-    sha256 "c9f0ebfe118e7c43a081e952dd0135e7b6621a9f935426fd08372486fa5ddea9" => :sierra
-    sha256 "cfb7468673433e7ef683f1746fb94ce9719c181e9c7e86f4d70453578c1822cc" => :el_capitan
+    rebuild 2
+    sha256 "ddcbc0f556c7a9489a161186ec12f3cb745d8fe996c2530cb199f21c32305c0e" => :mojave
+    sha256 "976bbd556683514b2495eccd2bab36d984f26c795aa580dcf361e9bae4d29511" => :high_sierra
+    sha256 "341c3917417ac6cfe1712f3005ce89cd1d94db8e0876bfcc36ecd34ed6b21d16" => :sierra
+    sha256 "e40695e1d6b66eb170469798844a4757ca9b1ac8e48bab6e37039bd1cbfec52b" => :el_capitan
   end
 
-  # GCC's Go compiler is not currently supported on macOS.
-  # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
-  option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-jit", "Build the jit compiler"
@@ -24,7 +23,6 @@ class GccAT6 < Formula
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "isl"
-  depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   fails_with :gcc_4_0
 
@@ -57,6 +55,10 @@ class GccAT6 < Formula
     end
   end
 
+  # isl 0.20 compatibility
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
+  patch :DATA
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
@@ -65,13 +67,12 @@ class GccAT6 < Formula
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
       # (gnat) to bootstrap. GCC 4.6.0 adds go as a language option, but it is
       # currently only compilable on Linux.
-      languages = %w[c c++ objc obj-c++ fortran java jit]
+      languages = %w[c c++ objc obj-c++ fortran jit]
     else
       # C, C++, ObjC compilers are always built
       languages = %w[c c++ objc obj-c++]
 
       languages << "fortran" if build.with? "fortran"
-      languages << "java" if build.with? "java"
       languages << "jit" if build.with? "jit"
     end
 
@@ -115,10 +116,6 @@ class GccAT6 < Formula
 
     args << "--disable-nls" if build.without? "nls"
 
-    if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
-    end
-
     if MacOS.prefer_64_bit?
       args << "--enable-multilib"
     else
@@ -127,16 +124,22 @@ class GccAT6 < Formula
 
     args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
 
+    # Xcode 10 dropped 32-bit support
+    args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      unless MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path.
-        # "native-system-headers" will be appended
+      if !MacOS::CLT.installed?
+        # For Xcode-only systems, we need to tell the sysroot path
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{MacOS.sdk_path}"
+      elsif MacOS.version >= :mojave
+        # System headers are no longer located in /usr/include
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
       end
 
       system "../configure", *args
@@ -200,3 +203,18 @@ class GccAT6 < Formula
     end
   end
 end
+
+__END__
+diff --git a/gcc/graphite.h b/gcc/graphite.h
+index 578fa1a..e4fad06 100644
+--- a/gcc/graphite.h
++++ b/gcc/graphite.h
+@@ -36,6 +36,8 @@ along with GCC; see the file COPYING3.  If not see
+ #include <isl/ilp.h>
+ #include <isl/schedule.h>
+ #include <isl/ast_build.h>
++#include <isl/id.h>
++#include <isl/space.h>
+
+ #ifdef HAVE_ISL_OPTIONS_SET_SCHEDULE_SERIALIZE_SCCS
+ /* isl 0.15 or later.  */

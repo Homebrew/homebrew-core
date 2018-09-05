@@ -6,6 +6,7 @@ class Radamsa < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0d267d4e20c85e8da62cc4efadb2cf22386ecd9e87c23a0d1c46ff06a483bf4f" => :mojave
     sha256 "a971e3bf09f3854d724549a31b98854458b8c49cdfd88593fb14c380066d7bc1" => :high_sierra
     sha256 "d13369632654e12471ff029aa6c08f57e9572df60b9d5b18040ce341ca8b4b09" => :sierra
     sha256 "3b09d787e73444964136ab042bc458610eb4cf08f4ba015cbe7e1d13ab8509f5" => :el_capitan
@@ -28,7 +29,7 @@ class Radamsa < Formula
     Tests can be run with:
       $ make .seal-of-quality
 
-    EOS
+  EOS
   end
 
   test do

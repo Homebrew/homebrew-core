@@ -1,15 +1,15 @@
 class Libraw < Formula
   desc "Library for reading RAW files from digital photo cameras"
   homepage "https://www.libraw.org/"
-  url "https://www.libraw.org/data/LibRaw-0.18.8.tar.gz"
-  mirror "https://fossies.org/linux/privat/LibRaw-0.18.8.tar.gz"
-  sha256 "56aca4fd97038923d57d2d17d90aa11d827f1f3d3f1d97e9f5a0d52ff87420e2"
+  url "https://www.libraw.org/data/LibRaw-0.19.0.tar.gz"
+  sha256 "e83f51e83b19f9ba6b8bd144475fc12edf2d7b3b930d8d280bdebd8a8f3ed259"
 
   bottle do
     cellar :any
-    sha256 "78c084fc5afcd3ad27b4e3c2d204dccca0245bb7fe2ecb83e548da3029a72347" => :high_sierra
-    sha256 "d05775198333d419870e088f3a2dfa80561de9679ab8c40feb82cee947894fc9" => :sierra
-    sha256 "32ab54331d95ab449411a0cc92068885eaac78e5de0019c5e09cdad510671e0e" => :el_capitan
+    sha256 "28a8d643501d0ba5d5b91e081a78e4f39038116de99598787e8c9af5f3394cb3" => :mojave
+    sha256 "3304c2735f53a0967fd6ca446365d12e455119fe331b36af666b6b64bbcafa08" => :high_sierra
+    sha256 "b8fd178ff8f28172a77b109daa7b8e71f564291fe9725f0e096988ec258f742f" => :sierra
+    sha256 "aa91b68a3f4aa66cca36c0348e2167339319ee1628ab0369031473b4a4cfe043" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -18,29 +18,13 @@ class Libraw < Formula
   depends_on "little-cms2"
 
   resource "librawtestfile" do
-    url "https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF",
-      :using => :nounzip
+    url "https://www.rawsamples.ch/raws/nikon/d1/RAW_NIKON_D1.NEF"
     sha256 "7886d8b0e1257897faa7404b98fe1086ee2d95606531b6285aed83a0939b768f"
   end
 
-  resource "gpl2" do
-    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL2-0.18.8.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL2-0.18.8.tar.gz"
-    sha256 "0b24bcf7bbb5d13fde58bb071f94dc9354be09bc44b2bba0698493065e99f8da"
-  end
-
-  resource "gpl3" do
-    url "https://www.libraw.org/data/LibRaw-demosaic-pack-GPL3-0.18.8.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/gentoo/distfiles/LibRaw-demosaic-pack-GPL3-0.18.8.tar.gz"
-    sha256 "ffd6916cd66c8101e4e6b589799f256c897748d2fd2486aa34c3705146dbc701"
-  end
-
   def install
-    %w[gpl2 gpl3].each { |f| (buildpath/f).install resource(f) }
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--enable-demosaic-pack-gpl2=#{buildpath}/gpl2",
-                          "--enable-demosaic-pack-gpl3=#{buildpath}/gpl3"
+                          "--disable-dependency-tracking"
     system "make"
     system "make", "install"
     doc.install Dir["doc/*"]

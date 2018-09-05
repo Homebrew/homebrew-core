@@ -1,12 +1,15 @@
 class ApmServer < Formula
   desc "Server for shipping APM metrics to Elasticsearch"
   homepage "https://www.elastic.co/"
+  # Pinned at 6.2.x because of a licencing issue
+  # See: https://github.com/Homebrew/homebrew-core/pull/28995
   url "https://github.com/elastic/apm-server/archive/v6.2.4.tar.gz"
   sha256 "b0d85f62851dd0cc7cb7a54c8549d36fb7c29bdb8f83c91b3a6487a8e9acba39"
   head "https://github.com/elastic/apm-server.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "5a4ab76cc1b52263994f71d69b3a9d94457833f9091d066c9f75696eb1db3090" => :mojave
     sha256 "8371817897ace0a1c3ed28700f684a555214a6f61acbefa52253f07170902634" => :high_sierra
     sha256 "1f6ed039a917a43dfd5eebb7e392324e4a63ac05d22516ce2cd6a0f11821ec6c" => :sierra
     sha256 "a0be0b0f6241c98bca1de560dfa7ebd1b153ca09708ac34dd19693cc4c5cbba7" => :el_capitan

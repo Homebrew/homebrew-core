@@ -3,12 +3,12 @@ class GitCal < Formula
   homepage "https://github.com/k4rthik/git-cal"
   url "https://github.com/k4rthik/git-cal/archive/v0.9.1.tar.gz"
   sha256 "783fa73197b349a51d90670480a750b063c97e5779a5231fe046315af0a946cd"
-
   head "https://github.com/k4rthik/git-cal.git"
 
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "b6b4128e6c8dfc678bf4301a506795533a3c1a20a449d342e57b78cd3274db5d" => :mojave
     sha256 "286c10cc47b2b26de4511fac0518d6edef3e05c676a45c14b32d8342891ecf2f" => :high_sierra
     sha256 "82847887556bd0334e65c1c7a3a063c2d62e5f71e81e89c53aa8e0df1cc41e31" => :sierra
     sha256 "8f928d65dc3414900ace5751d9e93bc712f03ffcabfefeb0d659e18db3998622" => :el_capitan

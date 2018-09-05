@@ -1,17 +1,14 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://www.hdfgroup.org/package/source-bzip2/?wpdmdl=4300"
-  mirror "https://dl.bintray.com/homebrew/mirror/hdf5-1.10.1"
-  version "1.10.1"
-  sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
-  revision 2
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.3/src/hdf5-1.10.3.tar.bz2"
+  sha256 "c65cdcce4724a57fd3f8da9f0d109b497be30092acb9fac634d1291190d905a9"
 
   bottle do
-    rebuild 1
-    sha256 "ce60d6ad246ecf8baae4e007a359da7c1cae8c3e199a2f9422f601fb0dc50e03" => :high_sierra
-    sha256 "13fb989ccd1ce01a88be9159d15afd1898e7d358e7f338fec8542cef1204903c" => :sierra
-    sha256 "fffbe4774667aa473e7ab6b004dea0247b98fab63ae7581b70ea129b6092c369" => :el_capitan
+    sha256 "85e9a3bb0e67f75843eefb3d008aa4c9f116efc8de32aa73071cd93270ebca44" => :mojave
+    sha256 "42dd926b15a93a466d0b2b376fc20e2dc14d9cdda100f8a7050e6368684f6398" => :high_sierra
+    sha256 "18ab613ad07b9b92a6d33118ea595689e833d64f6b4b421bbb2b59a8da6cb304" => :sierra
+    sha256 "73437652f5963038481fb143d3f847206a11522ebd326b5af21db939f56fe661" => :el_capitan
   end
 
   option "with-mpi", "Enable parallel support"
@@ -99,7 +96,7 @@ class Hdf5 < Formula
       if (error /= 0) call abort
       write (*,"(I0,'.',I0,'.',I0)") major, minor, rel
       end
-      EOS
+    EOS
     system "#{bin}/h5fc", "test.f90"
     assert_equal version.to_s, shell_output("./a.out").chomp
   end

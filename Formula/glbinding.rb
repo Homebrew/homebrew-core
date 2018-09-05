@@ -6,6 +6,7 @@ class Glbinding < Formula
 
   bottle do
     cellar :any
+    sha256 "720c3c74d33cef2dae21328440ce107660fc417059dbb3cb98128ed947c9be6b" => :mojave
     sha256 "fd4ecf93841f884924c9394e6c9ce1ceadbd4d4a5d93a8e816ba547873fe8f84" => :high_sierra
     sha256 "17af598a7d19f598412b3c94efe9166ab31f027d81ed3ded7aa7e2e318c2d166" => :sierra
     sha256 "206ed78988d76389de106d58d8b8ffb8417fc1e48ed32141f58e3ebc1f41b77e" => :el_capitan
@@ -35,7 +36,7 @@ class Glbinding < Formula
       {
         glbinding::Binding::initialize();
       }
-      EOS
+    EOS
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
                     "-I#{include}/glbinding", "-I#{lib}/glbinding", "-framework", "OpenGL",
                     "-L#{lib}", "-lglbinding", *ENV.cflags.to_s.split

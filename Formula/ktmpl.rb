@@ -6,6 +6,7 @@ class Ktmpl < Formula
   head "https://github.com/InQuicker/ktmpl.git"
 
   bottle do
+    sha256 "baa701366440c52fcd4463d4215625a16300f17360d925ca6fea7dbbeabf4dc5" => :mojave
     sha256 "b9012d8fb7919b22b93d5b44cdd7304ed2398c81a2627cb2c78302950e6016c7" => :high_sierra
     sha256 "53bd12218388a8a5d3db81c0638d85582bf04358266309bf9b62ada65901560e" => :sierra
     sha256 "9c969b22228adccf275ff10decb4f5667f0b9489d143679208b3100be683356b" => :el_capitan
@@ -15,8 +16,7 @@ class Ktmpl < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/ktmpl"
+    system "cargo", "install", "--root", prefix, "--path", "."
   end
 
   test do

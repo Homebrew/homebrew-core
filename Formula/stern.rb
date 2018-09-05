@@ -1,17 +1,17 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
   homepage "https://github.com/wercker/stern"
-  url "https://github.com/wercker/stern/archive/1.6.0.tar.gz"
-  sha256 "47cafbe6033b82ecb4ce2a6fe7d84f1d412631e503a6f9164e56f000d9f4bc7a"
-
+  url "https://github.com/wercker/stern/archive/1.8.0.tar.gz"
+  sha256 "e9c60dbbc35ff2982081e4ea4509d1cde4d3ce033ce5e74e7fffaad8f7ef540a"
   head "https://github.com/wercker/stern.git",
     :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a68996e613063c260146902daa371db533ae911f96a4836e0ad797f7fcf750df" => :high_sierra
-    sha256 "c2499dd1dc239e477cf726824882505bcc8dec9dc88167c3ee8ce5bf97dd4c8e" => :sierra
-    sha256 "a859e5e08c7b14c4dc73d0af89327658af4731c9d522929e930741c326adc3f2" => :el_capitan
+    sha256 "36dc29b51837d012b3ebcd16ee812708c0853e03a953e7cb275b24d74ed9e837" => :mojave
+    sha256 "c503a548f27a1f3d14bfa8cb8be7224981098c7bb4c72ead1b4f492490d28200" => :high_sierra
+    sha256 "14fa8371954f1ff8555553e67687061e23e9a9634adbbd3673d3e80c9df2baa8" => :sierra
+    sha256 "dbf1bfa163ad8f6793a248e35f2c0c4a21fe1cf5162ab97b9c275166ee363c77" => :el_capitan
   end
 
   depends_on "go" => :build

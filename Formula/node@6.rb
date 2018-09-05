@@ -1,14 +1,13 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.14.1/node-v6.14.1.tar.xz"
-  sha256 "115eda89ff718abe811cb14c31dec891efa20b92c99e715f5e094641bc56bec3"
-  head "https://github.com/nodejs/node.git", :branch => "v6.x-staging"
+  url "https://nodejs.org/dist/v6.14.4/node-v6.14.4.tar.xz"
+  sha256 "9a4bfc99787f8bdb07d5ae8b1f00ec3757e7b09c99d11f0e8a5e9a16a134ec0f"
 
   bottle do
-    sha256 "00b8ea8aee3762410703951ceb8c5ba56ad7cc59bab252bce74bcfb7b2e2b5cd" => :high_sierra
-    sha256 "1f82ba7dff3602718581f83db1c125c09591fe05c71457c96f0835646e8de1e4" => :sierra
-    sha256 "9b638e565c841ef3da43bd295b0d0a5cd76883540c2cb2e50eddbbbfdc691192" => :el_capitan
+    sha256 "c0fe2f41ed0533f5fdf262291fbdcdf880a9c6c292b37d9436a7968e60fe09be" => :high_sierra
+    sha256 "174a693040cf7b8e036a4221faf7b83fee3f8e37c9be4b48779843b9b62601de" => :sierra
+    sha256 "a169290323f22eab6e34c03b6ac07c23ff9ef5e457c9c0930913190918530270" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -41,7 +40,7 @@ class NodeAT6 < Formula
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
-    args << "--shared-openssl" if build.with? "openssl"
+    args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl"
 
     if build.with? "full-icu"
       resource("icu4c").stage buildpath/"deps/icu"
@@ -103,7 +102,7 @@ class NodeAT6 < Formula
       assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{bin}/npm", *npm_args, "install", "npm@latest"
-      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
+      system "#{bin}/npm", *npm_args, "install", "bignum"
     end
   end
 end

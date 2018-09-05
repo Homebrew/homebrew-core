@@ -16,6 +16,7 @@ class Cdrtools < Formula
 
   bottle do
     rebuild 1
+    sha256 "4a7ba59af434b1302056aafd200f273470e91d27c9ad2a19f05a834ee41dc3be" => :mojave
     sha256 "465c4ba80bc7733b2ac85a9d17ca7149a32072d453d750795374e8c2021e207b" => :high_sierra
     sha256 "f97ea5375a9dd443000397890ab8424905f02ea278ab8dd4568ff4c7288d038a" => :sierra
     sha256 "4724b3dfe367cf28dbd98dad6ddd47179e5b5d1b599a8fff8f0fa8cc4621acb2" => :el_capitan

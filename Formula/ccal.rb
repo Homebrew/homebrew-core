@@ -1,11 +1,12 @@
 class Ccal < Formula
   desc "Create Chinese calendars for print or browsing"
-  homepage "http://ccal.chinesebay.com/ccal"
-  url "http://ccal.chinesebay.com/ccal/ccal-2.5.3.tar.gz"
+  homepage "https://ccal.chinesebay.com/ccal"
+  url "https://ccal.chinesebay.com/ccal/ccal-2.5.3.tar.gz"
   sha256 "3d4cbdc9f905ce02ab484041fbbf7f0b7a319ae6a350c6c16d636e1a5a50df96"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "618a97f2a627d06c22fe6483f0ef1f40815815cd0b7f7d56c49681285a0cab43" => :mojave
     sha256 "1d836266f41a1123f7421b92390b0affe29ca15105b6bad5ae458c147940693c" => :high_sierra
     sha256 "8ab4cd19d0e0e86ec136ef120dd8308682a34b43f17981cddc4e80d1e17042f2" => :sierra
     sha256 "2a09b1b16f9b1ea0c89a807ebd2b9cfe43e22d1e35cd576780b1a3c986b4b0d1" => :el_capitan

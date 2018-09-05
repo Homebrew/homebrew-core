@@ -6,6 +6,7 @@ class Bookloupe < Formula
 
   bottle do
     cellar :any
+    sha256 "a0a98b728bad89aa1e75a6a6ac3cd359a8d619ba0903db6acff8dc111fb51593" => :mojave
     sha256 "4fe58e56ba2306c1edd1d8d9c6cc73c8b8be1a2a9c90cb077c2d19a695af03c0" => :high_sierra
     sha256 "8f914d9f48856a9de6e24aaa1fc392f9b99f18fcd49a2688d5dae3272772a96b" => :sierra
     sha256 "78a85f95ef2f53a4c6fdba498ab703d8e41273842df43e23b6a8d0d5e043ceed" => :el_capitan

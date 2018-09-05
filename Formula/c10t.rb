@@ -6,6 +6,7 @@ class C10t < Formula
 
   bottle do
     cellar :any
+    sha256 "dc393e5a17643389d4f9ce45157a61d053ae30847bcbbb2ec9b36d743cec2447" => :mojave
     sha256 "eaf300efd0b907d3cead85f0e2338b3ebc7162143d29874e841504a2645a126d" => :high_sierra
     sha256 "81effa3d15bf65343a17befabbab5ddf9e40953336d4dec27b379e62fac98439" => :sierra
     sha256 "a7e8fa78424c478351d68d8db77577b1d93208da645e975be9dfd5696d0cf851" => :el_capitan

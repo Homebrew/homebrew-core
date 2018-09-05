@@ -1,30 +1,32 @@
 class Puzzles < Formula
   desc "Collection of one-player puzzle games"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
-  url "https://mirrors.kernel.org/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20161228.7cae89f.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20161228.7cae89f.orig.tar.gz"
-  version "20161228.7cae89f"
-  sha256 "96b6915941b8490188652ab5c81bcb3ee42117e6fb7c03eed3e4333fa97ed852"
-
+  # Extract https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles.tar.gz to get the version number
+  url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20180725.1db5961.tar.gz"
+  version "20180725"
+  sha256 "8be48ff12294686a82f62f4cacd5d278a47be352cd56586a8ebfa893197d92b6"
   head "https://git.tartarus.org/simon/puzzles.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d283d7e9cc4ec3bef4cafb41d4739cc301bdaf31d62af81494f84f9a04319db4" => :high_sierra
-    sha256 "57b04776dc4696ac93b9230c4df569f3aecd36b238a05e73dcde3493659dc847" => :sierra
-    sha256 "57b04776dc4696ac93b9230c4df569f3aecd36b238a05e73dcde3493659dc847" => :el_capitan
-    sha256 "e01a6fc502cf54a2fc1d1c05a8d1e04b3762defb50aadd9d67e4049435649676" => :yosemite
+    sha256 "535f863dda75dd311e6d16372768097281ae6fe25d8a1f081dcba95de67067be" => :high_sierra
+    sha256 "9d93a8a1cd45ef6a1dc5fbc752b0bd423ea72056ef090c180ba1294fd7eeb9fd" => :sierra
+    sha256 "7a43c8742fbf291eac5338f0846d2fdb85c161323b11e025af9bbc3e2724030d" => :el_capitan
   end
 
   depends_on "halibut"
 
   def install
+    # Prevent "lipo: Puzzles.i386.bin and Puzzles.x86_64.bin have the same
+    # architectures (x86_64) and can't be in the same fat output file"
+    ENV.permit_arch_flags
+
     system "perl", "mkfiles.pl"
     system "make", "-d", "-f", "Makefile.osx", "all"
     prefix.install "Puzzles.app"
   end
 
   test do
-    assert_predicate prefix/"Puzzles.app/Contents/MacOS/puzzles", :executable?
+    assert_predicate prefix/"Puzzles.app/Contents/MacOS/Puzzles", :executable?
   end
 end

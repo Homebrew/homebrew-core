@@ -23,7 +23,7 @@ class TomeeJaxRs < Formula
       #{opt_libexec}
     To run Apache TomEE:
       #{opt_libexec}/bin/tomee-jax-rs-startup
-    EOS
+  EOS
   end
 
   test do

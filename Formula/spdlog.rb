@@ -1,15 +1,16 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v0.16.3.tar.gz"
-  sha256 "b88d7be261d9089c817fc8cee6c000d69f349b357828e4c7f66985bc5d5360b8"
+  url "https://github.com/gabime/spdlog/archive/v1.1.0.tar.gz"
+  sha256 "3dbcbfd8c07e25f5e0d662b194d3a7772ef214358c49ada23c044c4747ce8b19"
   head "https://github.com/gabime/spdlog.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5ad4050e75f506fe5d6cd5a36331058942e490755d565f0da8f1cc1b399e2b87" => :high_sierra
-    sha256 "5ad4050e75f506fe5d6cd5a36331058942e490755d565f0da8f1cc1b399e2b87" => :sierra
-    sha256 "5ad4050e75f506fe5d6cd5a36331058942e490755d565f0da8f1cc1b399e2b87" => :el_capitan
+    sha256 "727a543cc70521b2001d46c8d0ff809b5471a80877a17389107f4fd475058e69" => :mojave
+    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :high_sierra
+    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :sierra
+    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -29,15 +30,26 @@ class Spdlog < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include "spdlog/spdlog.h"
+      #include "spdlog/sinks/basic_file_sink.h"
       #include <iostream>
       #include <memory>
       int main()
       {
-        auto console = spdlog::stdout_logger_mt("console");
+        try {
+          auto console = spdlog::basic_logger_mt("basic_logger", "#{testpath}/basic-log.txt");
+          console->info("Test");
+        }
+        catch (const spdlog::spdlog_ex &ex)
+        {
+          std::cout << "Log init failed: " << ex.what() << std::endl;
+          return 1;
+        }
       }
     EOS
+
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-o", "test"
     system "./test"
+    assert_predicate testpath/"basic-log.txt", :exist?
+    assert_match "Test", (testpath/"basic-log.txt").read
   end
 end

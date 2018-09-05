@@ -6,6 +6,7 @@ class B2sum < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "a82ef919d2964758ec362f58a177f74d114a4c3186d2ca1b499dfe9f9ea602de" => :mojave
     sha256 "788c7a6c48666983e7ad84b1a360e7cff97769c2ceeb720f854cc11cd3c2225b" => :high_sierra
     sha256 "26e11b434c3416172d848b237f67ca5e171c7c11188a5f86c83a5d54a53a8a3f" => :sierra
     sha256 "ff4a36110ddee427728c3c7027b6e64d4ecdcab4bbe73bf69cf200cbfd877657" => :el_capitan
@@ -21,7 +22,11 @@ class B2sum < Formula
   end
 
   test do
-    assert_equal "ba80a53f981c4d0d6a2797b69f12f6e94c212f14685ac4b74b12bb6fdbffa2d17d87c5392aab792dc252d5de4533cc9518d38aa8dbf1925ab92386edd4009923  -",
+    checksum = <<~EOS
+      ba80a53f981c4d0d6a2797b69f12f6e94c212f14685ac4b74b12bb6fdbffa2d17d87c5392
+      aab792dc252d5de4533cc9518d38aa8dbf1925ab92386edd4009923  -
+    EOS
+    assert_equal checksum.delete!("\n"),
                  pipe_output("#{bin}/b2sum -", "abc").chomp
   end
 end

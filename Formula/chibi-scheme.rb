@@ -6,6 +6,7 @@ class ChibiScheme < Formula
   head "https://github.com/ashinn/chibi-scheme.git"
 
   bottle do
+    sha256 "a26682417fc6eeef25d87b9ad844fa4b3a1ec9a607b5d80da337d44f4766363a" => :mojave
     sha256 "532cd642ab70f1e37ed670206fab9828f0a0b3e93dc20fadb786305f50e80a19" => :high_sierra
     sha256 "c6efeccee97565c675a3f149855dd9550a6f8b7313694b52429e42e4cee9001d" => :sierra
     sha256 "283522e8939e5a2b724b476ce3a1830f4bb48e70b778ffef14030498cd877b16" => :el_capitan

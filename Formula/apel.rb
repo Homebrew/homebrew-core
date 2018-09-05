@@ -6,6 +6,7 @@ class Apel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1943ce15491aba8c8ef257e45336ad96fff4e41d3fa4127c226fd243252350d2" => :mojave
     sha256 "0886fb7b0cf5358b7354ccc81a7f95fff446c61b8dbf3bb3d66b8f322e455cee" => :high_sierra
     sha256 "f39010912a4a48b6dfce1b64e420bf3e3979a373a15a16dd5d5440c97c2d3a76" => :sierra
     sha256 "f47d90fd2aea06a0e52a75b84af03c7a97f479f00f621168eb5afb6f911e999f" => :el_capitan

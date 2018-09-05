@@ -1,16 +1,15 @@
 class ZitaConvolver < Formula
   desc "Fast, partitioned convolution engine library"
   homepage "https://kokkinizita.linuxaudio.org/linuxaudio/"
-  url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-3.1.0.tar.bz2"
-  sha256 "bf7e93b582168b78d40666974460ad8142c2fa3c3412e327e4ab960b3fb31993"
+  url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-4.0.0.tar.bz2"
+  sha256 "e3186f807dd76befbbb1c009f6bb4f83567b5d3c93b49a71b334034d1171a73b"
 
   bottle do
     cellar :any
-    sha256 "5becab8a6db13cc2b525032600f0e80ee908d023d9228641c89644b729363e0a" => :high_sierra
-    sha256 "ec36965fa37b904736673784cc408780b71dcca831f4a5ac5e05088774159e93" => :sierra
-    sha256 "04d09876460f0e255618113fc69a7f30093f034bdb695990c2f2850f8e31afd5" => :el_capitan
-    sha256 "c6676066535c069104449a12324299a7361435f46fc6983ed0e28b85b585e6af" => :yosemite
-    sha256 "7419429613f3fa768f8f0b86a9bc6928f346d97270e0d701f653f195b29dcdd4" => :mavericks
+    sha256 "affeedb6852f411c86d7219df7614a1d308e8d46c703cb2dc914188593a79076" => :mojave
+    sha256 "d65f312660d0ca92081a0d217a696a8e03a64f604f6924cd95b9e7a4956979f6" => :high_sierra
+    sha256 "39433124f4b7d8fa9b6eb20f40708ba9ded27322049b09178f3a3ef8e5ce5c1e" => :sierra
+    sha256 "d040044f83b7cd6d2bc2e4d8625a38c08820723744b9a653fc23fc9e3f33e5d2" => :el_capitan
   end
 
   depends_on "fftw"

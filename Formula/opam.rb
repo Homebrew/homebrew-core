@@ -8,6 +8,7 @@ class Opam < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "07f2777f0dda170b36e409a6db773a5aae0e202e812127b388a05afaa89b3949" => :mojave
     sha256 "b5e2621c1bca5f8374ee07ef878e5572e04debf9ba1d3aa4a2e16b8e26728e68" => :high_sierra
     sha256 "cd52d891272efc754a838e8a08a4a7c5030ff908430c3ed1303a549cd1a4f73d" => :sierra
     sha256 "74f8341302bb5a933276cff7f9dff7240ad59a4d968050674b63869d9963de7e" => :el_capitan
@@ -79,8 +80,9 @@ class Opam < Formula
       # already downloaded the necessary files.
       resources.each do |r|
         r.verify_download_integrity(r.fetch)
-        original_name = r.cached_download.basename.sub(/^#{Regexp.escape(name)}--/, "")
-        cp r.cached_download, buildpath/"src_ext/#{original_name}"
+        oname = r.cached_download.basename.sub(/^#{Regexp.escape(name)}--/, "")
+        rname = oname.sub(/#{Regexp.escape(r.name)}--/, "#{r.name}-")
+        cp r.cached_download, buildpath/"src_ext/#{rname}"
       end
 
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
@@ -115,7 +117,7 @@ class Opam < Formula
 
     Documentation and tutorials are available at https://opam.ocaml.org, or
     via "man opam" and "opam --help".
-    EOS
+  EOS
   end
 
   test do

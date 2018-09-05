@@ -7,6 +7,7 @@ class Libcsv < Formula
   bottle do
     cellar :any
     rebuild 2
+    sha256 "ad3c84168c138aef88134f7666f870dcb17f8b779b5e5b54417515f7c9b740af" => :mojave
     sha256 "6946a6ff37a03f75d464cdc1229eb72251ae6b5d2726a658a016e39e862f0e33" => :high_sierra
     sha256 "6d89efd634be6551134f099e458225325d76d69f55ba37676a3ccf7bea6c4e59" => :sierra
     sha256 "3f69bb369fafd5c207f1c8ea500dc1e725e8e7dfe005215ff14b61fc25ac28e6" => :el_capitan
@@ -18,5 +19,17 @@ class Libcsv < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <csv.h>
+      int main(void) {
+        struct csv_parser p;
+        csv_init(&p, CSV_STRICT);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcsv", "-o", "test"
+    system "./test"
   end
 end

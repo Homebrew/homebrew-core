@@ -1,13 +1,14 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.4.4/link-grammar-5.4.4.tar.gz"
-  sha256 "c1533379dba0d81e3a924445216aa98a5bf3be9974586a68b00071b654fa69b9"
+  url "https://www.abisource.com/downloads/link-grammar/5.5.1/link-grammar-5.5.1.tar.gz"
+  sha256 "ce8934e3be937611e3dff4e2b61a2675380752ad6815b63336ebac917d9013f5"
 
   bottle do
-    sha256 "e0c5c0dbb3435ebd4e8a1d38952ef86cf5b0ad455815ab06fff397c7386d715c" => :high_sierra
-    sha256 "f2f1d0ffcc7dac4d9f24a6592a37e2f98c5e7b846ec6fe74691b1a08b70b00ab" => :sierra
-    sha256 "0ff66e42430938c6dd84a669a8e63d1dc1ff29551dc3e4f77c4e7102a376a9fa" => :el_capitan
+    sha256 "550961c684c2ff78765d558024d180cdfc044ff22655f242746ca7b4987b6c2a" => :mojave
+    sha256 "bff34f809816e033a10581fee1c99ca4adbedeb30968fdb466ade860584bbf3e" => :high_sierra
+    sha256 "68fafbe26912384cb709f2c107fa463c8844753ec7396e94d43b5ee36dc7f42e" => :sierra
+    sha256 "fc038b1a0ab421ed785705cf4bc7e9a64113c735d60a270f4f3771b755a43612" => :el_capitan
   end
 
   depends_on "pkg-config" => :build

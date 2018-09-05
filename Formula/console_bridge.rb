@@ -6,6 +6,7 @@ class ConsoleBridge < Formula
 
   bottle do
     cellar :any
+    sha256 "e20a0552bba0038ff4d9ec1d48a389c119949154f562e42611a09e2d6e38ee87" => :mojave
     sha256 "e58f4cb5a2e01bd7c014e7bc96b83046bce93bbf3f6664dc51820a49bfc2b012" => :high_sierra
     sha256 "3dd9b0b3f0171241bf9dea73bd958788f240f51c394b3e7268b677e0df86e962" => :sierra
     sha256 "adaf8ded297007d29b83556a470fdb24993d56df90defa75dab2a7a32a224c2a" => :el_capitan

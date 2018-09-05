@@ -7,6 +7,7 @@ class Atool < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 2
+    sha256 "afc78205d3558294d008a801f7b06e8fcc94509a34bb0832f914575c196d6f8d" => :mojave
     sha256 "0f28ddbd664675c6b3fe440f6cfba6ac8cc6fc1f97141979bbce485080a759f4" => :high_sierra
     sha256 "656b59fcaa79956c81af4ce21afc06dbf9f6ffaecc0ff52b1a063da2c911fe89" => :sierra
     sha256 "dcfdcb720aa3704b9103aa01bb8efac42d24327bc8664baa420a9a69d75a98b6" => :el_capitan

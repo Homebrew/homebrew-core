@@ -1,15 +1,16 @@
 class Ott < Formula
   desc "Tool for writing definitions of programming languages and calculi"
   homepage "https://www.cl.cam.ac.uk/~pes20/ott/"
-  url "https://github.com/ott-lang/ott/archive/0.27.tar.gz"
-  sha256 "e0ebb3742a6632312cf4de71dad4e4eadfe420b6b86a5d6df6776c4135044ac5"
+  url "https://github.com/ott-lang/ott/archive/0.28.tar.gz"
+  sha256 "30c7613802cdd7f03eb1df1d634da3e13197e210d5697252382d29b5f03618f2"
   head "https://github.com/ott-lang/ott.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7fb0b277c00fc9de9fe639b9718d9bf252550c275206e22c85f7242f29296914" => :high_sierra
-    sha256 "cee50c7683cff89e76c10cd959e19c71b6542d110c2c3a1c1e79dfdd62b06f72" => :sierra
-    sha256 "7d91858f513335a2df3db69127741dfebe47bed71ed27cde02dfd3d6c86bb309" => :el_capitan
+    sha256 "a64451a61a2d6cb0d34e327459bdd789233d8acc2fd89673b931220a7780b869" => :mojave
+    sha256 "d590c5c215ca73f47baceb8c851836c1e9ea0d78fcb6f253c02568c6db56a65d" => :high_sierra
+    sha256 "d2132bd134e79d0e73a4b4ea6e23363f9b14ade49b550fa65b5744dc41c35fd9" => :sierra
+    sha256 "12177801e7faf22a9d875d6c0e222fd7eff9fcab5755f5a6266223296ec01ef4" => :el_capitan
   end
 
   depends_on "ocaml" => :build

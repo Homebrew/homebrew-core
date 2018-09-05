@@ -1,18 +1,20 @@
 class Pspg < Formula
   desc "Unix pager optimized for psql"
   homepage "https://github.com/okbob/pspg"
-  url "https://github.com/okbob/pspg/archive/1.0.0.tar.gz"
-  sha256 "1035015f8fb29c749d5c1d023db0c391c79c2fa7180cfecdf788dd7e9c9a0fbc"
+  url "https://github.com/okbob/pspg/archive/1.2.2.tar.gz"
+  sha256 "e305ded645c096f4993960f33b4ef217d60077193fb06b89dd594060cf4c73fd"
   head "https://github.com/okbob/pspg.git"
 
   bottle do
     cellar :any
-    sha256 "e61513e3232835b661761a4143e71d74ab3b1ad59ff5b5e44d8fc8512049930e" => :high_sierra
-    sha256 "000505b737172b0a55cd9b429c6080fa43987c9a7e2991f03cd0276432b99905" => :sierra
-    sha256 "4d84ee7f6369b4c215487d1d7e3281040be599bd261100c6fd99bbe94a36f374" => :el_capitan
+    sha256 "89c02d73dc9a56ac626d892152b897d1e52be4788c857b73c04208d8ca48ab47" => :mojave
+    sha256 "e0eb4303b033ffa69fe977126c28643ff3bf61beee66596b86f014e567e9f9de" => :high_sierra
+    sha256 "d9cdfe0d7e161a44e939c1a4536d3fad54f25d49e38c4fafb9f448876c6a37fa" => :sierra
+    sha256 "eeb5cca908747d61f994a965fe5b5a83de898a8ce3338923c8c2fe54891251ab" => :el_capitan
   end
 
   depends_on "ncurses"
+  depends_on "readline"
 
   def install
     system "./configure", "--disable-debug",
@@ -25,7 +27,7 @@ class Pspg < Formula
       \\setenv PAGER pspg
       \\pset border 2
       \\pset linestyle unicode
-    EOS
+  EOS
   end
 
   test do

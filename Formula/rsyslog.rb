@@ -1,31 +1,40 @@
 class Rsyslog < Formula
   desc "Enhanced, multi-threaded syslogd"
   homepage "https://www.rsyslog.com/"
-  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-7.4.5.tar.gz"
-  sha256 "f5e46e9324e366f20368162b4f561cf7a76fecb4aa0570edcaaa49e9f8c2fe70"
+  url "https://www.rsyslog.com/files/download/rsyslog/rsyslog-8.37.0.tar.gz"
+  sha256 "295c289b4c8abd8f8f3fe35a83249b739cedabe82721702b910255f9faf147e7"
 
   bottle do
-    sha256 "cf810ad399795d9a031783649e1f1d19df652d0e346d9c93b1569a6f8090a95e" => :high_sierra
-    sha256 "edf1c58262540bc3d4409d6a74a5784114ce31e9481064c6a147d299d61fa0b3" => :sierra
-    sha256 "fe4b4b7732000b54f6bcc09495920fa27d2f09f31b575d424b9f71b73e32ae6e" => :el_capitan
-    sha256 "a3434bafdb1c54eb0ea50fcbabbbf87f241dac07dd68be55c4de344db3daa114" => :yosemite
-    sha256 "2f41f4e354de6cb6cd95630ed396a2099753adef10a63e0304fba550097f6237" => :mavericks
+    sha256 "86ca9ebf3b35b31e61464b02603532d29c2bbb4f74690c004cbe2e599d102d49" => :mojave
+    sha256 "a7830278d2bddc26ab55d32cf4b424f9ef46fe4e14d3a152594560b65e8cccc4" => :high_sierra
+    sha256 "162a2cff81e34d67cca2696f5b0b09a511b13c56236828eb2014f05f2e6416ff" => :sierra
+    sha256 "a46359fabb1218e33e0fbdddf71ebe7361504d1c40b5473a8484b2f5f4ed2784" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "libestr"
-  depends_on "json-c"
 
-  patch :DATA
+  resource "libfastjson" do
+    url "http://download.rsyslog.com/libfastjson/libfastjson-0.99.8.tar.gz"
+    sha256 "3544c757668b4a257825b3cbc26f800f59ef3c1ff2a260f40f96b48ab1d59e07"
+  end
 
   def install
+    resource("libfastjson").stage do
+      system "./configure", "--disable-dependency-tracking",
+                            "--disable-silent-rules",
+                            "--prefix=#{libexec}"
+      system "make", "install"
+    end
+
+    ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
+
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
       --enable-imfile
       --enable-usertools
       --enable-diagtools
-      --enable-cached-man-pages
       --disable-uuid
       --disable-libgcrypt
     ]
@@ -61,21 +70,6 @@ class Rsyslog < Formula
         <string>#{var}/log/rsyslogd.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 end
-
-__END__
-diff --git i/grammar/parserif.h w/grammar/parserif.h
-index aa271ec..03c4db9 100644
---- i/grammar/parserif.h
-+++ w/grammar/parserif.h
-@@ -3,7 +3,7 @@
- #include "rainerscript.h"
- int cnfSetLexFile(char*);
- int yyparse();
--char *cnfcurrfn;
-+extern char *cnfcurrfn;
- void dbgprintf(char *fmt, ...) __attribute__((format(printf, 1, 2)));
- void parser_errmsg(char *fmt, ...) __attribute__((format(printf, 1, 2)));
- void tellLexEndParsing(void);

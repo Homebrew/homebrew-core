@@ -1,8 +1,8 @@
 class Maxwell < Formula
   desc "Maxwell's daemon, a mysql-to-json kafka producer"
   homepage "http://maxwells-daemon.io/"
-  url "https://github.com/zendesk/maxwell/releases/download/v1.13.5/maxwell-1.13.5.tar.gz"
-  sha256 "41c325791a4f8d09c03043ac9c50bbd4fffc4904392e6e4d05cf578c414caefd"
+  url "https://github.com/zendesk/maxwell/releases/download/v1.17.1/maxwell-1.17.1.tar.gz"
+  sha256 "54d9a4ab5313e96b2a7efb833eac8fa455d11ed4494cd3d571ba168347cb7d8d"
 
   bottle :unneeded
 

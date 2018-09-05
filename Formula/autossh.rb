@@ -1,18 +1,16 @@
 class Autossh < Formula
   desc "Automatically restart SSH sessions and tunnels"
   homepage "http://www.harding.motd.ca/autossh/"
-  url "http://www.harding.motd.ca/autossh/autossh-1.4e.tgz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/a/autossh/autossh_1.4e.orig.tar.gz"
-  sha256 "9e8e10a59d7619176f4b986e256f776097a364d1be012781ea52e08d04679156"
+  url "http://www.harding.motd.ca/autossh/autossh-1.4f.tgz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/autossh/autossh_1.4f.orig.tar.gz"
+  sha256 "0172e5e1bea40c642e0ef025334be3aadd4ff3b4d62c0b177ed88a8384e2f8f2"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4840d0f94cc2f432c5aa1460b7e4d4773c704b9692753f1882f8b25c4db853e5" => :high_sierra
-    sha256 "aa82735df29eb9635d27b75e1b6aef72ca2014cea20370f2640f13257ce2069e" => :sierra
-    sha256 "9eb45f4246ed8db8cf639772bb252cedca944b480e7b8bedeeff4e96635a7a97" => :el_capitan
-    sha256 "5926ad9cc35738f1fc5eebc8dd68770a0cc62f8a1c5344cc01547c246821e7c1" => :yosemite
-    sha256 "4c86bc07f832f9ffeffc6542ecd102925fdebb363cfc354903cba2e9faa7900c" => :mavericks
+    sha256 "80ea151fa465a49fc65ff6de0e5ed75300c42b37179012c87eea4aebfaa28443" => :mojave
+    sha256 "d9bb50e0a96fe80d177541ed317032e4f0d1d66af70aed5fcb804299384bdd87" => :high_sierra
+    sha256 "75d84cea4022291022508dd13d231c6beb599e95256759856051e1cdcc385541" => :sierra
+    sha256 "fea4dce29ebf3308cddd9f36f209a401933998821b3b8fa8845130d340d487e2" => :el_capitan
   end
 
   patch :DATA

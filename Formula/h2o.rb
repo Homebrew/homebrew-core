@@ -1,13 +1,14 @@
 class H2o < Formula
   desc "HTTP server with support for HTTP/1.x and HTTP/2"
   homepage "https://github.com/h2o/h2o/"
-  url "https://github.com/h2o/h2o/archive/v2.2.4.tar.gz"
-  sha256 "ebacf3b15f40958c950e18e79ad5a647f61e989c6dbfdeea858ce943ef5e3cd8"
+  url "https://github.com/h2o/h2o/archive/v2.2.5.tar.gz"
+  sha256 "eafb40aa2d93b3de1af472bb046c17b2335c3e5a894462310e1822e126c97d24"
 
   bottle do
-    sha256 "18a5cc03a32ef932ef0ab7da282b493218f552c7d9fb928957dace5ac343119c" => :high_sierra
-    sha256 "2aa8bba21a1ca614e9924a069463710cc48c9a1926300a3e2acd56da0f64974f" => :sierra
-    sha256 "b54f61f4a00bb1a0fe01b8c1525a48ab6a361497d3d8415cc0267d030c53961e" => :el_capitan
+    sha256 "0810858740e6e248344e472d6b2ae7e78d831542da78f72a7e7eb2c870f83f80" => :mojave
+    sha256 "8aa6209db25f8ae5bd584ddda2d189245a927a060ddc50d24a4273f26f384ee7" => :high_sierra
+    sha256 "108be952a5875616441024a213e34eef7799d9e9cd16ff13d3fa44187c40384b" => :sierra
+    sha256 "828eb276e4173b6c89fe4cc36bc8e253960f678dcebf36e1f9424087582f085b" => :el_capitan
   end
 
   option "with-libuv", "Build the H2O library in addition to the executable"
@@ -26,6 +27,7 @@ class H2o < Formula
 
     args = std_cmake_args
     args << "-DWITH_BUNDLED_SSL=OFF"
+    args << "-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"
     args << "-DWITH_MRUBY=OFF" if build.without? "mruby"
 
     system "cmake", *args
@@ -42,6 +44,7 @@ class H2o < Formula
     # Write up a basic example conf for testing.
     (buildpath/"brew/h2o.conf").write conf_example
     (etc/"h2o").install buildpath/"brew/h2o.conf"
+    pkgshare.install "examples"
   end
 
   # This is simplified from examples/h2o/h2o.conf upstream.
@@ -52,14 +55,14 @@ class H2o < Formula
         paths:
           /:
             file.dir: #{var}/h2o/
-    EOS
+  EOS
   end
 
   def caveats; <<~EOS
     A basic example configuration file has been placed in #{etc}/h2o.
-    You can find fuller, unmodified examples here:
-      https://github.com/h2o/h2o/tree/master/examples/h2o
-    EOS
+
+    You can find fuller, unmodified examples in #{opt_pkgshare}/examples.
+  EOS
   end
 
   plist_options :manual => "h2o"
@@ -83,7 +86,7 @@ class H2o < Formula
         </array>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -1,14 +1,15 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "http://ftp.denx.de/pub/u-boot/u-boot-2018.03.tar.bz2"
-  sha256 "7e7477534409d5368eb1371ffde6820f0f79780a1a1f676161c48442cb303dfd"
+  url "http://ftp.denx.de/pub/u-boot/u-boot-2018.07.tar.bz2"
+  sha256 "9f10df88bc91b35642e461217f73256bbaeeca9ae2db8db56197ba5e89e1f6d4"
 
   bottle do
     cellar :any
-    sha256 "9a25ab5ca27da21bdb3d08ac501183fe768f35e01e2348d294e0aa66610bae84" => :high_sierra
-    sha256 "740277c82ff08c39612c984e0139c3095f3962994ba8fb84765569afaf693730" => :sierra
-    sha256 "1198346b6b3afdbd2fc20d566174ab3ecd4b0f85f39d9bce155b9473ded49c82" => :el_capitan
+    sha256 "2a61d2b7b9dc8a9e242db1d089ecd65ee47dee4b2a29b1503f11e751598b900f" => :mojave
+    sha256 "a40ea4b2bdf0f635900646f460f709198c61fdf93940d3ff99eec6b09a6b71a5" => :high_sierra
+    sha256 "f3027edb62b61fd54ba7e59787e4889de71d05507819feb700c8b683afdbe85e" => :sierra
+    sha256 "09855b71f13bd90be588002c3133783a9bb96c7f9ca2ea193e88dcacf5357a14" => :el_capitan
   end
 
   depends_on "openssl"

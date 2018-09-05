@@ -1,13 +1,14 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.31.1/nghttp2-1.31.1.tar.xz"
-  sha256 "65b9c83ae95a7760a14410aeefa9d441c34453027bc938df7a2272520f32e103"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.33.0/nghttp2-1.33.0.tar.xz"
+  sha256 "4879ce9ff3320f5344b910ee1c46ed5e366edc2272620cf17d8e762724d7df1e"
 
   bottle do
-    sha256 "776d4bda15c834ce38880ba49e2c7351aa6c7be51c817d3cc65b93a47c1a8839" => :high_sierra
-    sha256 "362ee9d8c0a93e48c903ec66337ce957cdf51ba8f08145faadd28820a377c3aa" => :sierra
-    sha256 "086cb6979e10c7e27f19d053eb7a1910c2862fbe854a7143e612c8a90d810cf5" => :el_capitan
+    sha256 "a0a79d8de3450162bf674dcf8a6dec4f293f814542ea6c3499401988eab5fe6e" => :mojave
+    sha256 "d3c1efec430bbb8ac88ac24583100a561018a5b80039208478e781f8aceaf1e8" => :high_sierra
+    sha256 "a94cbf23943a9892a100227a68aa29c3164d4a16219fb8c76e0752f43a864f58" => :sierra
+    sha256 "3988e15fb6b5392e5c57f2b6cd710309afc065675892fca42b9b9aac075c5a18" => :el_capitan
   end
 
   head do
@@ -37,8 +38,8 @@ class Nghttp2 < Formula
   depends_on "jemalloc" => :recommended
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/be/08/bb5ffd1c32a951cbc26011ecb8557e59dc7a0a4975f0ad98b2cd7446f7dd/Cython-0.28.1.tar.gz"
-    sha256 "152ee5f345012ca3bb7cc71da2d3736ee20f52cd8476e4d49e5e25c5a4102b12"
+    url "https://files.pythonhosted.org/packages/79/9d/dea8c5181cdb77d32e20a44dd5346b0e4bac23c4858f2f66ad64bbcf4de8/Cython-0.28.2.tar.gz"
+    sha256 "634e2f10fc8d026c633cffacb45cd8f4582149fa68e1428124e762dbc566e68a"
   end
 
   # https://github.com/tatsuhiro-t/nghttp2/issues/125
@@ -59,6 +60,8 @@ class Nghttp2 < Formula
     ]
 
     args << "--enable-examples" if build.with? "examples"
+    # requires thread-local storage features only available in 10.11+
+    args << "--disable-threads" if MacOS.version < :el_capitan
     args << "--with-xml-prefix=/usr" if MacOS.version > :lion
     args << "--without-jemalloc" if build.without? "jemalloc"
 

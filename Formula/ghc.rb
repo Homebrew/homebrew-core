@@ -5,13 +5,14 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.4.1/ghc-8.4.1-src.tar.xz"
-  sha256 "39ae2f25192408f355693e5a3c8b6ff613ddb7c4da998fdf26210143a61839d2"
+  url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-src.tar.xz"
+  sha256 "ae47afda985830de8811243255aa3744dfb9207cb980af74393298b2b62160d6"
 
   bottle do
-    sha256 "81c9afe34c5b941cbb18f7fe6059364171645e5266d2753e1a01eb20661abbc9" => :high_sierra
-    sha256 "60cfe5533fc63992d7d1ebef161292fa3a0f34d06a8e54d09a96024252570fa1" => :sierra
-    sha256 "f9af82a3385f326978c85f5c59dc37ecb3b0e84a5484024411829005fb7794f4" => :el_capitan
+    sha256 "02efe429ad3b258784afb6c4313f71ff6b9b6210d4ee86594349fb7ecdc6faeb" => :mojave
+    sha256 "fcf4fd3d4a75b5b71f6f047cb652820d290ceb55856ee62d63c23746dcfb66ee" => :high_sierra
+    sha256 "b488193dbf9877a9a3195d0ada5883b07adc8e537d6576678c096014567d8673" => :sierra
+    sha256 "8efdc2390e8379da21a4212730d29d12d168903f945918c5f226783ba4dd3c37" => :el_capitan
   end
 
   head do
@@ -22,8 +23,8 @@ class Ghc < Formula
     depends_on "libtool" => :build
 
     resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-2.0.0.1/cabal-install-2.0.0.1.tar.gz"
-      sha256 "f991e36f3adaa1c7e2f0c422a2f2a4ab21b7041c82a8896f72afc9843a0d5d99"
+      url "https://hackage.haskell.org/package/cabal-install-2.2.0.0/cabal-install-2.2.0.0.tar.gz"
+      sha256 "c856a2dd93c5a7b909597c066b9f9ca27fbda1a502b3f96077b7918c0f64a3d9"
     end
   end
 
@@ -57,13 +58,13 @@ class Ghc < Formula
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.4.1/ghc-8.4.1-x86_64-apple-darwin.tar.xz"
-    sha256 "d774e39f3a0105843efd06709b214ee332c30203e6c5902dd6ed45e36285f9b7"
+    url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-x86_64-apple-darwin.tar.xz"
+    sha256 "af0b455f6c46b9802b4b48dad996619cfa27cc6e2bf2ce5532387b4a8c00aa64"
   end
 
   resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.4.1/ghc-8.4.1-testsuite.tar.xz"
-    sha256 "6dfbbbeb1bb760698af99d82f05e4e0db3b3606d65be3fa779177117c6381841"
+    url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-testsuite.tar.xz"
+    sha256 "ff43a015f803005dd9d9248ea9ffa92f9ebe79e146cfd044c3f48e0a7e58a5fc"
   end
 
   def install

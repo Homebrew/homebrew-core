@@ -6,6 +6,7 @@ class Etl < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "27f07c7c05a3b86b5e5a55238fb5400ed15c4d3ba1a23b7759346dda9317c428" => :mojave
     sha256 "2ed5639481b7ab8003063620f6714b4372d1cb8229e2b8369153906024b9c95f" => :high_sierra
     sha256 "7275d40af2ee9e99feec8a04a9296b1167b24ca8f7125a875d08c13b4913e81b" => :sierra
     sha256 "10244415e0dbf71f94c7585595632a09773a49dbc5bf5ac8de7e062f29c7f2b4" => :el_capitan

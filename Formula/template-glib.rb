@@ -1,13 +1,14 @@
 class TemplateGlib < Formula
   desc "GNOME templating library for GLib"
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
-  url "https://download.gnome.org/sources/template-glib/3.28/template-glib-3.28.0.tar.xz"
-  sha256 "6c74426efd4358fd91a52c32ed030c0cad1633f900fd55ac81a8b3e4026171a1"
+  url "https://download.gnome.org/sources/template-glib/3.30/template-glib-3.30.0.tar.xz"
+  sha256 "cf690d391bfc71036e31867df6da90315a3db83f739a8657f580b941b96e3649"
 
   bottle do
-    sha256 "e69fb0604b5389c1e52cef2eed885b167a836c251b4bedda056f10a1569e6867" => :high_sierra
-    sha256 "f3c4d2849cf3d95c885a278e4b1db431beae9d5b8099457ca45df55f54e1436e" => :sierra
-    sha256 "c20b6fc9631b3bbf72179a030c6e3ac01829d8513452c8bda55cc8096153491c" => :el_capitan
+    sha256 "bc65703062e59b6f45e161ec7e3c6c050ed6961e046498880cf2de28bf2aa4bb" => :mojave
+    sha256 "f0f00da3b21f9e4899f833cd559c1ec1a010031212e639a1e1410bc50e4aafaf" => :high_sierra
+    sha256 "8f5560f08f8b609a77aec92fb6542350f69097242e695738d62bc9536aa43d37" => :sierra
+    sha256 "d1d5b7cf68a80849bc6d95c0a29093aac2b639aeb924b6d8061d31fbe458d772" => :el_capitan
   end
 
   depends_on "bison" => :build # does not appear to work with system bison
@@ -19,8 +20,6 @@ class TemplateGlib < Formula
   depends_on "gobject-introspection"
 
   def install
-    ENV.refurbish_args
-
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", "-Dwith_vapi=false", ".."
       system "ninja"

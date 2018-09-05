@@ -6,6 +6,7 @@ class Btparse < Formula
 
   bottle do
     cellar :any
+    sha256 "fde0cd871550d86f76b0ea302315b837cb0c018bbd20b8c4b7168043f4ba83ae" => :mojave
     sha256 "217d4a3998eb3848424a13783333a0440fa78f77943bfe4d1a4b06d5d406b4f5" => :high_sierra
     sha256 "02d9860c4b80590a96b5053cc9b6bfc7646fd204cef602c766665a53382ed116" => :sierra
     sha256 "52b3216a39c5eab22adf83c51843c18789e680bf9bca531a29c2e76c01d00371" => :el_capitan

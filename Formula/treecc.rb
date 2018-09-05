@@ -6,6 +6,7 @@ class Treecc < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4e9b82d074d10eae24c0c7e95879435ec8896072669d826614f34213843bfe5e" => :mojave
     sha256 "c05c019775b00f92fe2ea47a02c999356105789b9aa5536c4356090ccbb9ba99" => :high_sierra
     sha256 "0b3e61d5a910222d170fcee80d094be0dcd2707b7bebc6d40667a8f25b4b2e5c" => :sierra
     sha256 "e74d23594113e594ad8021fe55b0f0f863fcd4b01140c3fd8b1a5f2bb6c8ad74" => :el_capitan

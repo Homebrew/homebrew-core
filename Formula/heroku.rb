@@ -3,24 +3,34 @@ require "language/node"
 class Heroku < Formula
   desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
-  url "https://registry.npmjs.org/heroku-cli/-/heroku-cli-6.16.15.tgz"
-  sha256 "ccbe729ab1bdb405e662775631b1fc558b681bd2bb3a0032630b3f3cf5dcbba4"
+  # heroku should only be updated every 10 releases on multiples of 10
+  url "https://registry.npmjs.org/heroku/-/heroku-7.14.2.tgz"
+  sha256 "3356034a5f2cfa1e9fe7b9c439d62669524674628dd0ae895a8936ce77e5d224"
   head "https://github.com/heroku/cli.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "989b158f4b7afd03375cea5b44e5830a2b51f47d9a4a2f98563b8b6313b7e66a" => :high_sierra
-    sha256 "61f8b69ae7819ae5a5672919e18081062f2b5e1d9a5a6839993fff5345bbd055" => :sierra
-    sha256 "47f6d1ef7dd8c4f5db08de4587f60c977814c4b945d4e7c216337e75092799ee" => :el_capitan
+    sha256 "20448386ca27a11b4ad7a1c7a43c895e3dd23e7ba0d1d99b0fa2fecc8b8262a9" => :mojave
+    sha256 "4879b0140e86fc83dd4bad26df554157dc91232f4f5de60f1bd15b5bfea91517" => :high_sierra
+    sha256 "3c693df3f580a079b35c2d55f6e5400cd87056eca173ed8e45e5992d7a6ea622" => :sierra
+    sha256 "22bb36c8dc835c9651d8ce7a3b8df61aab4efb5d3652b6d9d39c8c3a1e60ffb4" => :el_capitan
   end
 
   depends_on "node"
 
   def install
-    inreplace "bin/run" do |s|
-      s.gsub! "npm update -g heroku-cli", "brew upgrade heroku"
-      s.gsub! "#!/usr/bin/env node", "#!#{Formula["node"].opt_bin}/node"
-    end
+    # disable migrator
+    inreplace "lib/hooks/update/brew.js", "if (this.config.platform !== 'darwin')",
+                                          "if (true)"
+
+    # disable outdated check
+    inreplace "package.json", /.*plugin-warn-if-update-available.*$\n/, ""
+
+    # replace `heroku update` messaging
+    inreplace "bin/run", "npm update -g heroku", "brew upgrade heroku"
+
+    inreplace "bin/run", "#!/usr/bin/env node",
+                         "#!#{Formula["node"].opt_bin}/node"
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end

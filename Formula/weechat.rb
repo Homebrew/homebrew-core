@@ -1,14 +1,15 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-2.1.tar.xz"
-  sha256 "cda0f81ff8243fd25cca76c8e490e2fdb5b8fbb2554d7aa87cb3b0beda16ed38"
+  url "https://weechat.org/files/src/weechat-2.2.tar.xz"
+  sha256 "48cf555fae00d6ce876d08bb802707b657a1134808762630837617392899a12f"
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "7aa5f3fe12d6d3480110a5f6da0b5db854be8b867a0a07c94e7f350b62f9d18b" => :high_sierra
-    sha256 "75a32256d8605e51838172c82ce845f94740da23a0cfff440026e152c61f9cc3" => :sierra
-    sha256 "28381b3e219908e19860b10d5dd680f8e25efb3145da6164df51d6d9070a6739" => :el_capitan
+    sha256 "dbcf559ef0e456d692aa89131f29c24246a203ea6fc2ad97cb57238e222071fe" => :mojave
+    sha256 "0dd89c3cb155ddd24fd088b678a54a1db651959c27c1ea0de46fe7e0003d52fd" => :high_sierra
+    sha256 "668533dfc9307c64260a154a06ad3e0245b7033b6ca2d36a6c291394c1f721e1" => :sierra
+    sha256 "3b3c0b275171c06a0aa3f29b3a239f2f7a30cf70e88839a489fba5892253b8fb" => :el_capitan
   end
 
   option "with-perl", "Build the perl module"
@@ -17,8 +18,7 @@ class Weechat < Formula
   option "with-debug", "Build with debug information"
   option "without-tcl", "Do not build the tcl module"
 
-  deprecated_option "with-python" => "with-python@2"
-
+  depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
@@ -33,6 +33,7 @@ class Weechat < Formula
 
   def install
     args = std_cmake_args + %W[
+      -DENABLE_MAN=ON
       -DENABLE_GUILE=OFF
       -DCA_FILE=#{etc}/openssl/cert.pem
       -DENABLE_JAVASCRIPT=OFF

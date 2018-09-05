@@ -6,6 +6,7 @@ class Xpa < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c73a6afbb9764d9b7d6b5199b45bc5ed39edf5778c81f01a17b7dcd6e6c2e621" => :mojave
     sha256 "c9163ee736fde3dd56d4420121fc61a710bf88feab805e5b2c9cc31630a3be1f" => :high_sierra
     sha256 "6aa70ab2200ded59d1bbd466b915311c52313bf07f2c398362ce8f5bbb29c597" => :sierra
     sha256 "f8b188638f71cecd974279f07d55b932be7c657f83c7e55634c011df7cb44a63" => :el_capitan

@@ -1,29 +1,31 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  revision 2
 
   stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.8.0/ldc-1.8.0-src.tar.gz"
-    sha256 "e421a1f4bbf97d173bd277125794862ca5b6a09409586b806cec23b922955c7f"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.11.0/ldc-1.11.0-src.tar.gz"
+    sha256 "85464fae47bc605308910afd6cfc6ddeafe95a8ad5b61e2c0c23caff82119f70"
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.5/ldc-0.17.5-src.tar.gz"
-      sha256 "7aa540a135f9fa1ee9722cad73100a8f3600a07f9a11d199d8be68887cc90008"
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.6/ldc-0.17.6-src.tar.gz"
+      sha256 "868b8c07ab697306ea65f0006fc2b6b96db4df226e82f8f11cafbed6fa9ac561"
     end
   end
 
   bottle do
-    sha256 "99490b9435a79c78061962991d83d5be2ffd6cdc16512f479024e0035c4e96da" => :high_sierra
-    sha256 "c45b6622177a989f9b14f9722ce0cf8406a9b3af4c2a55aa87ca7dfad26eb899" => :sierra
-    sha256 "abd3dbef86edde7285bfbb7d66956341e5f2fca7445c876e1d8a525a8754650e" => :el_capitan
+    sha256 "2883f5d1da9d605b0e2cd1b6dc710f986ac618dcdc5c440f95cf8c495c1eefb2" => :mojave
+    sha256 "0995bbd559274edf5ca88e702f0eca2dadec42804f5e7a11d6708447474c3663" => :high_sierra
+    sha256 "6e0fd2df7225ce4595ce4bb0003ceff4d0d63aef713d2a283192216467bd4696" => :sierra
+    sha256 "5d0dcb4e222e1586d4d3d9cbb9a106f70d07d150f64e73cb6daa864e815229af" => :el_capitan
   end
 
   head do
     url "https://github.com/ldc-developers/ldc.git", :shallow => false
 
     resource "ldc-lts" do
-      url "https://github.com/ldc-developers/ldc.git", :shallow => false, :branch => "ltsmaster"
+      url "https://github.com/ldc-developers/ldc.git",
+          :shallow => false,
+          :branch => "ltsmaster"
     end
   end
 
@@ -31,7 +33,7 @@ class Ldc < Formula
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "llvm@5"
+  depends_on "llvm"
 
   def install
     ENV.cxx11
@@ -40,7 +42,7 @@ class Ldc < Formula
     cd "ldc-lts" do
       mkdir "build" do
         args = std_cmake_args + %W[
-          -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
+          -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         ]
         system "cmake", "..", *args
         system "make"
@@ -48,7 +50,7 @@ class Ldc < Formula
     end
     mkdir "build" do
       args = std_cmake_args + %W[
-        -DLLVM_ROOT_DIR=#{Formula["llvm@5"].opt_prefix}
+        -DLLVM_ROOT_DIR=#{Formula["llvm"].opt_prefix}
         -DINCLUDE_INSTALL_DIR=#{include}/dlang/ldc
         -DD_COMPILER=#{buildpath}/ldc-lts/build/bin/ldmd2
         -DLDC_WITH_LLD=OFF

@@ -1,15 +1,15 @@
 class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
-  homepage "https://supertuxproject.org/"
+  homepage "https://www.supertux.org/"
   url "https://github.com/SuperTux/supertux/releases/download/v0.5.1/SuperTux-v0.5.1-Source.tar.gz"
   sha256 "c9dc3b42991ce5c5d0d0cb94e44c4ec2373ad09029940f0e92331e7e9ada0ac5"
   revision 3
-
   head "https://github.com/SuperTux/supertux.git"
 
   bottle do
     cellar :any
     rebuild 1
+    sha256 "006225504f80952487eb62f66359ac5976248ec4de46f266915f41f543e4742a" => :mojave
     sha256 "66385b85ba64e6ce35f5d74e9c2304e73795b977b75f814ff4eeb55cbfccba0b" => :high_sierra
     sha256 "fbde2e2249a89401fd9893b095857b283c4a7a3a4ab9dec47b8c30d2030d0268" => :sierra
     sha256 "c66b6e14fc23160f5024ad7790286ec0bcb7f8ed262ce6c400dc8757c1c16ba8" => :el_capitan

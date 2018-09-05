@@ -1,13 +1,15 @@
 class PostgresqlAT96 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.8/postgresql-9.6.8.tar.bz2"
-  sha256 "eafdb3b912e9ec34bdd28b651d00226a6253ba65036cb9a41cad2d9e82e3eb70"
+  url "https://ftp.postgresql.org/pub/source/v9.6.10/postgresql-9.6.10.tar.bz2"
+  sha256 "8615acc56646401f0ede97a767dfd27ce07a8ae9c952afdb57163b7234fe8426"
 
   bottle do
-    sha256 "65a15219e94cb7d5d37e9897a5089201bf37ae764d58483d25637cc766d7ec27" => :high_sierra
-    sha256 "25610e42e781365da3baf3f1bcdea23cdadf0c662fcc0170aa63a48840ac8022" => :sierra
-    sha256 "0aa048011d36027d078c5d1efd720518439fdf05b5356ac4ec4f8cacd6598d99" => :el_capitan
+    rebuild 1
+    sha256 "50f7b551e865c43c91507073c44bf454c22f52889326a161b033888dfaba190f" => :mojave
+    sha256 "da0d71fb4913b6ad4fc959a770295416b69c7d04ceb3995b5d46006949fc1c46" => :high_sierra
+    sha256 "ab319da939279bf3409c03ea44885dc96fff01b973c3c20c250b5a52478abc3a" => :sierra
+    sha256 "eb38e039d8390e99f13deb51be32ec9543437f9804bcd9fe391698d8d2ce37df" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -82,11 +84,42 @@ class PostgresqlAT96 < Formula
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
 
+    # As of Xcode/CLT 10.x the Perl headers were moved from /System
+    # to inside the SDK, so we need to use `-iwithsysroot` instead
+    # of `-I` to point to the correct location.
+    # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
+    if DevelopmentTools.clang_build_version >= 1000
+      inreplace "configure",
+                "-I$perl_archlibexp/CORE",
+                "-iwithsysroot $perl_archlibexp/CORE"
+      inreplace "contrib/hstore_plperl/Makefile",
+                "-I$(perl_archlibexp)/CORE",
+                "-iwithsysroot $(perl_archlibexp)/CORE"
+      inreplace "src/pl/plperl/GNUmakefile",
+                "-I$(perl_archlibexp)/CORE",
+                "-iwithsysroot $(perl_archlibexp)/CORE"
+    end
+
     system "./configure", *args
     system "make"
-    system "make", "install-world", "datadir=#{pkgshare}",
-                                    "libdir=#{lib}",
-                                    "pkglibdir=#{lib}"
+
+    dirs = %W[datadir=#{pkgshare} libdir=#{lib} pkglibdir=#{lib}]
+
+    # Temporarily disable building/installing the documentation.
+    # Postgresql seems to "know" the build system has been altered and
+    # tries to regenerate the documentation when using `install-world`.
+    # This results in the build failing:
+    #  `ERROR: `osx' is missing on your system.`
+    # Attempting to fix that by adding a dependency on `open-sp` doesn't
+    # work and the build errors out on generating the documentation, so
+    # for now let's simply omit it so we can package Postgresql for Mojave.
+    if DevelopmentTools.clang_build_version >= 1000
+      system "make", "all"
+      system "make", "-C", "contrib", "install", "all", *dirs
+      system "make", "install", "all", *dirs
+    else
+      system "make", "install-world", *dirs
+    end
   end
 
   def post_install
@@ -110,7 +143,7 @@ class PostgresqlAT96 < Formula
 
       You will need your previous PostgreSQL installation from brew to perform `pg_upgrade`.
         Do not run `brew cleanup postgresql@9.6` until you have performed the migration.
-    EOS
+  EOS
   end
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@9.6 start"
@@ -138,7 +171,7 @@ class PostgresqlAT96 < Formula
       <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

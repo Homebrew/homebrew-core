@@ -20,7 +20,7 @@ class Zplug < Formula
     In order to use zplug, please add the following to your .zshrc:
       export ZPLUG_HOME=#{opt_prefix}
       source $ZPLUG_HOME/init.zsh
-    EOS
+  EOS
   end
 
   test do

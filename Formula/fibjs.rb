@@ -1,15 +1,15 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "http://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.23.0/fullsrc.zip"
-  sha256 "b2525373ce6eaa1edacdd3f43a2f2121311a51ce50f9c9539c195eaa513b52c8"
-
+  url "https://github.com/fibjs/fibjs/releases/download/v0.26.1/fullsrc.zip"
+  sha256 "36bf6add810959c9474a0f247473fe3b2a34f49cb7a3bcc4a5ac5d7fced17068"
   head "https://github.com/fibjs/fibjs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80628451ce3f7d10b52fedca68488f9f9d79aa87d41c96a16af1d2d98972121c" => :high_sierra
-    sha256 "575b15fdaa9e83a5cfd3b5359e70aece2d5b6b716275ee3f3889ea82e4abe592" => :sierra
+    sha256 "184dbe978e4283f82ec7a9c8760beb7de36beea4e1ec318bd4441f0df3b20619" => :mojave
+    sha256 "b0644c726c59d6e378117861dd7df2f461160eea7c10a14b551ce6999667eef3" => :high_sierra
+    sha256 "c92cd08f2df73f58392e8cb756c37cd0a7cc428658a4a38dce831e8357682987" => :sierra
   end
 
   depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)

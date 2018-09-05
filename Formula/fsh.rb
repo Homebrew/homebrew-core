@@ -6,6 +6,7 @@ class Fsh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1600e94eda45d61acf6980d5483a7a225fd431e545b817a493c0b38b359d8cb4" => :mojave
     sha256 "71abf994ecf91d4675daef2c6604e6d414d9e33c2b66b5dc6240ee44f888f442" => :high_sierra
     sha256 "13a7134ef9d20899642d8dd96e77603d74573cf3a0e1ef5063f6eefc856dbd37" => :sierra
     sha256 "cec52eb07f9db79b15ff5907f30363bbb538c01b7c4eb7ae8634e7ce17eb5431" => :el_capitan

@@ -3,11 +3,11 @@ class PathExtractor < Formula
   homepage "https://github.com/edi9999/path-extractor"
   url "https://github.com/edi9999/path-extractor/archive/v0.2.0.tar.gz"
   sha256 "7d6c7463e833305e6d27c63727fec1029651bfe8bca5e8d23ac7db920c2066e7"
-
   head "https://github.com/edi9999/path-extractor.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8feb5be3e88fa0370593d8d349a90b54ac953a504439ec61722cff7e843153cc" => :mojave
     sha256 "38faa134c10a82b9ac28077d6df73da8b1ce2fed2fb8fe4f24ddebb08c18b623" => :high_sierra
     sha256 "bf30c2d715d52035b57b640d849c21e1508fb189259b5e02343f8104f50d6624" => :sierra
     sha256 "90521da4fd1834db41fbf19b7b6ce9f82a943ab2412acd41b6c5d749146770e7" => :el_capitan

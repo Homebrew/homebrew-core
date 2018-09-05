@@ -6,6 +6,7 @@ class Apr < Formula
 
   bottle do
     cellar :any
+    sha256 "a08388526a4d3d6b7855d3de6b4a18c7fd807237c875dd1d27e9a90cdf169dfb" => :mojave
     sha256 "df09dd9ba91dc0db6a6f5ac8d97b82203d5930af14494a790860b9cf3635c0a4" => :high_sierra
     sha256 "2e3d88d6204b023756dd52d70385dcbd405bdc91295b023b7d04e1bfe1f95ccf" => :sierra
     sha256 "16cdb68cf34cc80919c8689c64310313b04a181c6a57901440398d19a668dd38" => :el_capitan

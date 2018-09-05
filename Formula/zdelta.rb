@@ -3,11 +3,11 @@ class Zdelta < Formula
   homepage "http://cis.poly.edu/zdelta/"
   url "http://cis.poly.edu/zdelta/downloads/zdelta-2.1.tar.gz"
   sha256 "03e6beb2e1235f2091f0146d7f41dd535aefb6078a48912d7d11973d5306de4c"
-
   head "https://github.com/snej/zdelta.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "d98c1b4f7a6b63238bacd06d0a5640e7f0d07838bb4b3e15ac7dc9d699a5835a" => :mojave
     sha256 "12c977074ebb388cb671b3a996cacda4c5c47fbf96100f73ffddcbf83976824d" => :high_sierra
     sha256 "49b891fbf6b6f93796cb3080dcbefc1d873000e84d74a4bf2dd851b625e6a698" => :sierra
     sha256 "3a186612374b9b2aca2e56f5dd68049c0b1ef952e4cb0b07263faf2ea62f136a" => :el_capitan

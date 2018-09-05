@@ -7,6 +7,7 @@ class Sslmate < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "340326a5058b9c0df31d10f21ab66d7e9041c7827362f468e141408cac1f5415" => :mojave
     sha256 "5b829450ad24c38b9b4ee19e853422387345710473df25f689ef10e388f1dee0" => :high_sierra
     sha256 "5b829450ad24c38b9b4ee19e853422387345710473df25f689ef10e388f1dee0" => :sierra
     sha256 "5b829450ad24c38b9b4ee19e853422387345710473df25f689ef10e388f1dee0" => :el_capitan
@@ -32,7 +33,6 @@ class Sslmate < Formula
   if MacOS.version <= :mountain_lion
     resource "JSON::PP" do
       url "https://cpan.metacpan.org/authors/id/M/MA/MAKAMAKA/JSON-PP-2.27300.tar.gz"
-      mirror "http://search.cpan.org/CPAN/authors/id/M/MA/MAKAMAKA/JSON-PP-2.27300.tar.gz"
       sha256 "5feef3067be4acd99ca0ebb29cf1ac1cdb338fe46977585bd1e473ea4bab71a3"
     end
   end

@@ -4,17 +4,17 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2o.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.2o.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2o.tar.gz"
-  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2o.tar.gz"
-  sha256 "ec3f5c9714ba0fd45cb4e087301eb1336c317e0d20b575a125050470e8089e4d"
-  revision 1
+  url "https://www.openssl.org/source/openssl-1.0.2p.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2p.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2p.tar.gz"
+  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2p.tar.gz"
+  sha256 "50a98e07b1a89eb8f6a99477f262df71c6fa7bef77df4dc83025a2845c827d00"
 
   bottle do
-    sha256 "67a795f419adcc7f2cc9c204538f2606ed9cf11f2e9587dea9c4f8189a592dee" => :high_sierra
-    sha256 "06ae39a0167691a104a490b5518600f314f72944a18dc1fbdae8405d000b585b" => :sierra
-    sha256 "3470a25f36a68d96b00dffcd1452d3d5d171ab3656e126f6e2cf233e2705423d" => :el_capitan
+    sha256 "cabda4ca62a0b206366658e36ce7175e7da5f8ad24846843611ed19d7759404b" => :mojave
+    sha256 "f5f498c4e8dee3e835c1750cb4140c2f7c52ae21f18f699894d0f0e418970ec3" => :high_sierra
+    sha256 "f5b1eb9a6be49ffa4f1de54542156564ead972408d893c9a4ee54ba59d7ad66c" => :sierra
+    sha256 "62ed09b9c268f32a9ab73869d7e11d9ad9b07e5e207928e5773471952b34ba9d" => :el_capitan
   end
 
   keg_only :provided_by_macos,
@@ -36,7 +36,6 @@ class Openssl < Formula
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
-    no-comp
     no-ssl2
     no-ssl3
     no-zlib
@@ -102,7 +101,7 @@ class Openssl < Formula
 
     and run
       #{opt_bin}/c_rehash
-    EOS
+  EOS
   end
 
   test do

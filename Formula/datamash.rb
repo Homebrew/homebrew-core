@@ -7,6 +7,7 @@ class Datamash < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2f62847e83bb67f3637a924ed2f9bac2704c4b2694855a38ff5cc7bb8f9aaa7b" => :mojave
     sha256 "46375109fe618b238ce55f363a4ff37e1f02519446272b1164feacf7bd5614a4" => :high_sierra
     sha256 "9e2c6fb923dae81c0969ec63851c520c9b74fc9160a2b884a228e23afccee9c7" => :sierra
     sha256 "e8cee270f739abd46bea4dde5ae139b858e49cabacd4265b4d39b41a4c03eb1a" => :el_capitan

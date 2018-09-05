@@ -1,14 +1,15 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v2.5.1.tar.gz"
-  sha256 "6547004d136dbd9496cd21b49c890c326fcdea853dd11305ab2af67cf7cd506d"
+  url "https://github.com/xmrig/xmrig/archive/v2.6.4.tar.gz"
+  sha256 "94640ba6d3971a6ba91113ce24a5afec95189cf007f8146011f9a3b367011a69"
 
   bottle do
     cellar :any
-    sha256 "d0db6ce3b516a92c48a68a0e269696345267ed9d050dc39109270503fd8740ef" => :high_sierra
-    sha256 "7f886124955464d0eb3577e4fcaf819b6555753c8ab9d971e34a3eac64045168" => :sierra
-    sha256 "0de4ef4360fb67e3f1a7021be77b95a6cc3f126cafcd4fc6d13f30eb30ec568e" => :el_capitan
+    sha256 "972836a637782b6a91f7b8210b553686b70c9600ca560fb46068456f72aa41c4" => :mojave
+    sha256 "74ccbba60b4e8f0ac0aa9f6f213721d489d0ed202af9586543fca93364a022cb" => :high_sierra
+    sha256 "13c058cb692d9eb3d6e7fb27687196f4d1bd1ca77d73ba8c02404635119c352b" => :sierra
+    sha256 "06507683d291d3e445e62c91747067fd48c1083ea4e92e02415b2544e1fa4948" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -17,7 +18,8 @@ class Xmrig < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DUV_LIBRARY=#{Formula["libuv"].opt_lib}/libuv.a", *std_cmake_args
+      system "cmake", "..", "-DUV_LIBRARY=#{Formula["libuv"].opt_lib}/libuv.dylib",
+                            *std_cmake_args
       system "make"
       bin.install "xmrig"
     end
@@ -25,18 +27,22 @@ class Xmrig < Formula
   end
 
   test do
-    require "open3"
+    assert_match version.to_s, shell_output("#{bin}/xmrig -V", 2)
     test_server="donotexist.localhost:65535"
     timeout=10
-    Open3.popen2e("#{bin}/xmrig", "--no-color", "--max-cpu-usage=1", "--print-time=1",
-                  "--threads=1", "--retries=1", "--url=#{test_server}") do |stdin, stdouts, _wait_thr|
-      start_time=Time.now
-      stdin.close_write
-
-      stdouts.each do |line|
-        assert (Time.now - start_time <= timeout), "No server connect after timeout"
-        break if line.include? "\] \[#{test_server}\] DNS error: \"unknown node or service\""
+    begin
+      read, write = IO.pipe
+      pid = fork do
+        exec "#{bin}/xmrig", "--no-color", "--max-cpu-usage=1", "--print-time=1",
+             "--threads=1", "--retries=1", "--url=#{test_server}", :out => write
       end
+      start_time=Time.now
+      loop do
+        assert (Time.now - start_time <= timeout), "No server connect after timeout"
+        break if read.gets.include? "\] \[#{test_server}\] DNS error: \"unknown node or service\""
+      end
+    ensure
+      Process.kill("SIGINT", pid)
     end
   end
 end

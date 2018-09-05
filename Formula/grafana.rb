@@ -1,15 +1,16 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.0.4.tar.gz"
-  sha256 "a25032755ed8a825efbe1ba641de59b002495dcec0a3c92b9606aa3eb35c6439"
+  url "https://github.com/grafana/grafana/archive/v5.2.3.tar.gz"
+  sha256 "f65668e8524219e5733e310574b40530f21357076879c11daed74fd4fc018aa7"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bcf396e04eae62fd6a8dd71f3afa722a39d18a37e2d6c320edd8cb01ddcff826" => :high_sierra
-    sha256 "3602463dd5d34a7b18c654d1bbee001a52f85d725e5da79e2917193b5e29e530" => :sierra
-    sha256 "0406bcab3dac6da556567187454f42a686a48d7699050d91755a38cc2c8c36cb" => :el_capitan
+    sha256 "037c93ae40e1bdb0b50ae97a7f5fc9be25f7ddfd0e40f99eb6ad0af8835c858d" => :mojave
+    sha256 "75437195866668bcf5c27a14d780785d8e7dc56250bde18fbb9d2725533c877f" => :high_sierra
+    sha256 "239cb98d2bd797dd77d135a7a3c378eddb46168f38a74315c20c36a1ef2ba8aa" => :sierra
+    sha256 "e816a8bcf5853521265f7fce67eaaadab250924e10c7590e2edff3d35f6cdb9b" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -31,13 +32,13 @@ class Grafana < Formula
       args << "--force" unless build.bottle?
       system "node_modules/grunt-cli/bin/grunt", *args
 
-      bin.install "bin/grafana-cli"
-      bin.install "bin/grafana-server"
+      bin.install "bin/darwin-amd64/grafana-cli"
+      bin.install "bin/darwin-amd64/grafana-server"
       (etc/"grafana").mkpath
       cp("conf/sample.ini", "conf/grafana.ini.example")
       etc.install "conf/sample.ini" => "grafana/grafana.ini"
       etc.install "conf/grafana.ini.example" => "grafana/grafana.ini.example"
-      pkgshare.install "conf", "vendor", "public"
+      pkgshare.install "conf", "public", "tools", "vendor"
       prefix.install_metafiles
     end
   end
@@ -87,7 +88,7 @@ class Grafana < Formula
         </dict>
       </dict>
     </plist>
-   EOS
+  EOS
   end
 
   test do
@@ -120,7 +121,7 @@ class Grafana < Formula
     listening = Timeout.timeout(5) do
       li = false
       r.each do |l|
-        if l =~ /Initializing HTTP Server/
+        if l =~ /Initializing HTTPServer/
           li = true
           break
         end

@@ -5,6 +5,7 @@ class Xsw < Formula
   sha256 "d7f86047716d9c4d7b2d98543952d59ce871c7d11c63653f2e21a90bcd7a6085"
 
   bottle do
+    sha256 "ea85521cec4aed7642dd1c5c4e1d44532292064c4ea1ca4d3bfd4a779484b428" => :mojave
     sha256 "09e57751cad18711cdc71cf47442366fda1bdb0adf6d156605c0ad2cc49be4fd" => :high_sierra
     sha256 "02e0d7c1f309b1743d11555af5601ddbf462c835e81f6188dd3f46835978a86a" => :sierra
     sha256 "b7a6391cf0df4a4d514a33188dc67a8fac551a3f66e82da626c4d4877cfe5274" => :el_capitan

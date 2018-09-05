@@ -4,7 +4,6 @@ class PipCompletion < Formula
   url "https://github.com/ekalinin/pip-bash-completion.git",
     :revision => "92faa3e4504428ea658a1e83e54caf08cdbb555a"
   version "20150819"
-
   head "https://github.com/ekalinin/pip-bash-completion.git"
 
   bottle :unneeded

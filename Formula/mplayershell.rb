@@ -3,11 +3,11 @@ class Mplayershell < Formula
   homepage "https://github.com/donmelton/MPlayerShell"
   url "https://github.com/donmelton/MPlayerShell/archive/0.9.3.tar.gz"
   sha256 "a1751207de9d79d7f6caa563a3ccbf9ea9b3c15a42478ff24f5d1e9ff7d7226a"
-
   head "https://github.com/donmelton/MPlayerShell.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "1be2bb2a8eccce7fa190b85af6e67fb7fe36393c32a8295852af0e6e390b6ee9" => :mojave
     sha256 "c0b558e0508d80fe05a1d9617b7aa1986066c54bc0a3da585631eb406da5eb93" => :high_sierra
     sha256 "e9377eaebb65903037105bf3ed6ee301a182452791e9daeaadd08ccb732d9d1b" => :sierra
     sha256 "ae4c1c9d069053afa7e71867256b577e23bd0dec87a90ccab2ebeab089a3634b" => :el_capitan

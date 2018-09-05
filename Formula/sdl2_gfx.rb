@@ -1,14 +1,15 @@
 class Sdl2Gfx < Formula
   desc "SDL2 graphics drawing primitives and other support functions"
-  homepage "http://cms.ferzkopp.net/index.php/software/13-sdl-gfx"
-  url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.3.tar.gz"
-  sha256 "a4066bd467c96469935a4b1fe472893393e7d74e45f95d59f69726784befd8f8"
+  homepage "https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/"
+  url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.4.tar.gz"
+  sha256 "63e0e01addedc9df2f85b93a248f06e8a04affa014a835c2ea34bfe34e576262"
 
   bottle do
     cellar :any
-    sha256 "fb9dcdd449ce4f71e30556975e193b6f2cd1e67488c631f648bd825c1fc09f97" => :high_sierra
-    sha256 "5f65128809ec994585f79c338f1328d74ee7026ab15c3e2d5941aa4856f9b95b" => :sierra
-    sha256 "b50afba34ca19059fc84e893738d449504d4b68fd130f155368b1d4d05d2233a" => :el_capitan
+    sha256 "0854ac56a8c0e0b3b5f7fe380fb0bde03dfb2da984920bcbc61ba6e4738f9ca6" => :mojave
+    sha256 "6563ae4bda51a996e537cfe88509da94402b52469e11b92211b5bca58800ab24" => :high_sierra
+    sha256 "fba875841d99a80ba39af65733a0df33adf220d29fbd5e313dfcc695b61bc8e4" => :sierra
+    sha256 "aaec64e6b0020e3a0b2faf6ca37e5bc4b27d7327125a58831b0cd34803935cc7" => :el_capitan
   end
 
   depends_on "sdl2"
@@ -18,5 +19,19 @@ class Sdl2Gfx < Formula
                           "--prefix=#{prefix}",
                           "--disable-sdltest"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <SDL2/SDL2_imageFilter.h>
+
+      int main()
+      {
+        int mmx = SDL_imageFilterMMXdetect();
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lsdl2_gfx", "test.c", "-o", "test"
+    system "./test"
   end
 end

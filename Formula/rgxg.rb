@@ -6,6 +6,7 @@ class Rgxg < Formula
 
   bottle do
     cellar :any
+    sha256 "6104ec3b5902403a86044b75d4f97f522450f42021dead1445c5a08d0b09c35a" => :mojave
     sha256 "5a3dcbe7906757077109d8a6b2c6cce5389de96175392ee38daeb657da2e5e5a" => :high_sierra
     sha256 "3b15445df62f8f57c4447a85cd719251f8820596548913e76d9738124d08f763" => :sierra
     sha256 "e84c6dfcb4195ef84bd4c5373bfa6029ea4d8600f94b58bc97fbee7334bf3f74" => :el_capitan

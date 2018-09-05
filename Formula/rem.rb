@@ -6,6 +6,7 @@ class Rem < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4226be6dc999a4467a061055cb36a68babe84a835f40f32a5a23f6137ddd59b4" => :mojave
     sha256 "0a3365c8653023f2b4de8c5b6243aec2de7c180d1be982adcdbe58afc159800e" => :high_sierra
     sha256 "326f7a21f696b7614a55a5edeb57e08482ff7b4c72506bcecff5deaa0552828e" => :sierra
     sha256 "c9892df4f6aa5d58097e4cc4d62388ccbb1e0c02604b1139cfe829d47d992442" => :el_capitan

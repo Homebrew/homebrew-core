@@ -6,6 +6,7 @@ class Jthread < Formula
 
   bottle do
     cellar :any
+    sha256 "e2dcd37c6dbeda04e3a9408d9f09f8d00ff669a3eb7ee8b098742887d800162e" => :mojave
     sha256 "2d9c8a2d9e52f9419cd1015d982e06d58963e29c43a44f7ddfbbf6f149e20cc0" => :high_sierra
     sha256 "099b841458d4d6f4ac3f5e7b453d4ec5b2a50f4dd1a6ccac9614ac72a1c1c90f" => :sierra
     sha256 "0e846e47e0350f6dc4ca15f5eb6f9e9d2cf7345c115476bc93fc78ac2cb056af" => :el_capitan

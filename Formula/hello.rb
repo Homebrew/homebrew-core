@@ -6,6 +6,7 @@ class Hello < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f9d6285eafa4317c5a653bd02832bdabe4df9f6b18702274d551b28cc45d8b23" => :mojave
     sha256 "1b66790d42664fe95d44f56d2c82db7ea2ce03e01bda0c8e9932f3b768342c7b" => :high_sierra
     sha256 "9691f91e7c6897d525b76f5910144e0ed0adcb8bd8f7bb155f29fd431d8ff431" => :sierra
     sha256 "54ac46b692fcca2abe77aeeca41976172a2dc24a6762f84a47fabcaba336df89" => :el_capitan

@@ -32,9 +32,6 @@ class GccAT5 < Formula
     sha256 "b900bb57ad020106cfc83d07c6579611b9c7083ce004ee03ce1a2d099e4e2378" => :el_capitan
   end
 
-  # GCC's Go compiler is not currently supported on Mac OS X.
-  # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
-  option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
@@ -44,7 +41,6 @@ class GccAT5 < Formula
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   resource "isl" do
     url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-0.14.tar.bz2"
@@ -98,13 +94,12 @@ class GccAT5 < Formula
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
       # (gnat) to bootstrap. GCC 4.6.0 add go as a language option, but it is
       # currently only compilable on Linux.
-      languages = %w[c c++ fortran java objc obj-c++ jit]
+      languages = %w[c c++ fortran objc obj-c++ jit]
     else
       # C, C++, ObjC compilers are always built
       languages = %w[c c++ objc obj-c++]
 
       languages << "fortran" if build.with? "fortran"
-      languages << "java" if build.with? "java"
       languages << "jit" if build.with? "jit"
     end
 
@@ -139,10 +134,6 @@ class GccAT5 < Formula
     ]
 
     args << "--disable-nls" if build.without? "nls"
-
-    if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
-    end
 
     if MacOS.prefer_64_bit?
       args << "--enable-multilib"

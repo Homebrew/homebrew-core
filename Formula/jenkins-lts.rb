@@ -1,8 +1,8 @@
 class JenkinsLts < Formula
   desc "Extendable open-source CI server"
   homepage "https://jenkins.io/index.html#stable"
-  url "http://mirrors.jenkins.io/war-stable/2.107.2/jenkins.war"
-  sha256 "079ab885be74ea3dd4d2a57dd804a296752fae861f2d7c379bce06b674ae67ed"
+  url "http://mirrors.jenkins.io/war-stable/2.121.3/jenkins.war"
+  sha256 "50fbce11fa147d0ecd9ecf36cdae83ef795fb7d4776f33b5ea13bc15bf6e3c13"
 
   bottle :unneeded
 
@@ -17,7 +17,7 @@ class JenkinsLts < Formula
 
   def caveats; <<~EOS
     Note: When using launchctl the port will be 8080.
-    EOS
+  EOS
   end
 
   plist_options :manual => "jenkins-lts"
@@ -46,7 +46,7 @@ class JenkinsLts < Formula
         <true/>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

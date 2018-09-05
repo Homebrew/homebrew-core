@@ -1,14 +1,16 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.27.0.tar.gz"
-  sha256 "545b0458292c786aba334f1bf1c8f73600ae73dd7205a7bb791a187ee48ab8d2"
+  url "https://github.com/libgit2/libgit2/archive/v0.27.4.tar.gz"
+  sha256 "0b7ca31cb959ff1b22afa0da8621782afe61f99242bf716c403802ffbdb21d51"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
-    sha256 "c7ca6de5235f71479870522ff8e186f4b7544b957e21eb1a3f4b8deaae6993a5" => :high_sierra
-    sha256 "0114891147f171d306ec9873b32ce528c98d63015180a6fa667c643c2f0a5a22" => :sierra
-    sha256 "71afc13830e7dc580aa57f6ca48ac9536627d4f6010f6b18380fc66fc390dd75" => :el_capitan
+    cellar :any
+    sha256 "9dfc432eeeebbb09ce24b9dadb62e9c45755ee7c4644e3a04801246c48dbe0ed" => :mojave
+    sha256 "eaaf186da6c4ee4ba89f2225142a1c9fd52eac009c3666cc23a2d45dbcae9f6a" => :high_sierra
+    sha256 "6b4866ccdddc9ddef5267ec2b612c9fc664d96b1495d510b49d0e8d379665579" => :sierra
+    sha256 "4808ebcf65a6398a7619ba978e2c27ae195c7a748b3f3596730e004544cd9a61" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -32,6 +34,10 @@ class Libgit2 < Formula
                                       "rev-list", "rev-parse", "showindex",
                                       "status", "tag"
       end
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      system "make"
+      lib.install "libgit2.a"
     end
   end
 

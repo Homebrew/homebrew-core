@@ -5,23 +5,23 @@ class Mgba < Formula
   head "https://github.com/mgba-emu/mgba.git"
 
   stable do
-    url "https://github.com/mgba-emu/mgba/archive/0.6.1.tar.gz"
-    sha256 "7c78feb0aa12930b993ca1b220d282ed178e306621559e48bb168623030eb876"
+    url "https://github.com/mgba-emu/mgba/archive/0.6.3.tar.gz"
+    sha256 "35c8906c01206adae714fee9c2bc39698c514a4adb32c9c4a5a3fa58b2d10f9a"
 
-    # Remove for > 0.6.1
-    # Fix "MemoryModel.cpp:102:15: error: no viable overloaded '='"
-    # Upstream commit from 11 Dec 2017 "Qt: Fix build with Qt 5.10"
+    # Fix build with Qt 5.11.0
+    # https://github.com/Homebrew/homebrew-core/issues/28455
     patch do
-      url "https://github.com/mgba-emu/mgba/commit/e31373560.patch?full_index=1"
-      sha256 "5311b19dea0848772bdd00b354f9fca741b2bfd2cf65eab8a8c556e6fb748b8e"
+      url "https://github.com/mgba-emu/mgba/commit/7f41dd35417.patch?full_index=1"
+      sha256 "14a3c1100830d13f0e6e1656b502c34cfc527b6e4db0d47a07e613caa622d47d"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "225961abcc72b538b35be18e5348a5af0c0f6fe46b0daef9b581594b26a6b0d0" => :high_sierra
-    sha256 "79d5e25543474d0715a369cfbe862f1c8d79b79c260a7cecdba2f38f6031f42d" => :sierra
-    sha256 "9b7ad131ba17d492c53af30d996aeaac3814acd810aa5f3f9a73bfe098727ca4" => :el_capitan
+    sha256 "05f047199b814a992bd330dae526874a425f52d0e0ef674b4040950d0053b4ec" => :mojave
+    sha256 "b35eb17585007f58d73104a6cee5c9fd4ade4073f714f8cd4d595eeb9b1e9073" => :high_sierra
+    sha256 "c4a7b9598e074a904a466d4f7f540a67c511131f780a6898b1b8def3e33058ba" => :sierra
+    sha256 "fafaa47a86e92ad1877814abcf7a6d7159188e02ba2e63ad8f171116d49f5546" => :el_capitan
   end
 
   depends_on "cmake" => :build

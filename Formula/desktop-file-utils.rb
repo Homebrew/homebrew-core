@@ -5,6 +5,7 @@ class DesktopFileUtils < Formula
   sha256 "6c094031bdec46c9f621708f919084e1cb5294e2c5b1e4c883b3e70cb8903385"
 
   bottle do
+    sha256 "c0538ee53f8e6f466cd601436f2a62209e871e41cbd2e2ef16ed38b2746b76ae" => :mojave
     sha256 "0a3b290ebd40ce3b911268125379b6a0cd839db7fdaf9d88751eb442e2b00e1f" => :high_sierra
     sha256 "a30b539cc22f037ccacfd1ff1993fbc6292e0fa399f2d796195a0870832bb12b" => :sierra
     sha256 "8c18c3fe21f8d2b1bdb4befdadd2b6dabbbe89dcb9ebb7fbaf4a8a3c7a2153a1" => :el_capitan

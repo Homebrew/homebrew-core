@@ -1,16 +1,16 @@
 class Nudoku < Formula
   desc "ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/0.2.5.tar.gz"
-  sha256 "1478c339409abe8f1b857bf3e54c5edbeb43954432fb6e427e52a3ff6251cc25"
+  url "https://github.com/jubalh/nudoku/archive/1.0.0.tar.gz"
+  sha256 "80fb9996c28642920951c20cfd5ca6e370d75240255bc6f11067ae68b6e44eca"
   head "https://github.com/jubalh/nudoku.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "28ef5a1b2afb61c7a05566ee16cdae9c818ede41745e267b0624e51bd08ebfef" => :high_sierra
-    sha256 "870aa64540cf2bae6d49d983615c562618f141c3c4a807abf98eda7715df43b8" => :sierra
-    sha256 "ea861756fb383524cdbf08ea0b7a432b6d0d85be5254bbd4b986126e49821276" => :el_capitan
-    sha256 "74de3c6c3589cc42e9f74bad4610d7a055245465ad6ff45401052052a8c67917" => :yosemite
+    sha256 "d82e9887a876b3762c2f676c95e36fbf5b98bc4306f584618397c0fb30c97f46" => :mojave
+    sha256 "b6a14adadee0fb01f92397a5fdc31189492468e3d87875bed408ca41824d09b4" => :high_sierra
+    sha256 "d4cea1e1c0f97655feb301910aa70c65a223959ba39a8493f31ca1a614eec175" => :sierra
+    sha256 "8f4cd53a9cd87ac8b9b1b48a986329708134608e3ff4423e8f449e1a6c81d6f1" => :el_capitan
   end
 
   depends_on "autoconf" => :build

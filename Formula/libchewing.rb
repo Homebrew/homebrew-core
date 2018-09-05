@@ -5,6 +5,7 @@ class Libchewing < Formula
   sha256 "9708c63415fa6034435c0f38100e7d30d0e1bac927f67bec6dfeb3fef016172b"
 
   bottle do
+    sha256 "12587daf43f76f20ea5959322e97d6ed150783e660e2e076b413e420e8ed9ea4" => :mojave
     sha256 "97cabdc8a613af7fddb5331b2c42b847143d4f526bd902cac708e50b2e72c523" => :high_sierra
     sha256 "0904b10b3636020c7ce81d9917d92a56be5204bbd0aac60760bca8f009e4f07a" => :sierra
     sha256 "88a9b836056148fe60b312550a1e7484bf9b53e8ffad3c16e98032862a3e38f2" => :el_capitan

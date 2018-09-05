@@ -9,15 +9,42 @@
 class Gpac < Formula
   desc "Multimedia framework for research and academic purposes"
   homepage "https://gpac.wp.mines-telecom.fr/"
-  url "https://github.com/gpac/gpac/archive/v0.7.1.tar.gz"
-  sha256 "c7a18b9eea1264fee392e7222d16b180e0acdd6bb173ff6b8baadbf50b3b1d7f"
+  revision 1
   head "https://github.com/gpac/gpac.git"
 
+  stable do
+    url "https://github.com/gpac/gpac/archive/v0.7.1.tar.gz"
+    sha256 "c7a18b9eea1264fee392e7222d16b180e0acdd6bb173ff6b8baadbf50b3b1d7f"
+
+    # Fix for CVE-2018-7752.
+    patch do
+      url "https://github.com/gpac/gpac/commit/90dc7f853d31b0a4e9441cba97feccf36d8b69a4.patch?full_index=1"
+      sha256 "a31790cab731633e13fba815d851371314842bf8dedbdd4c749c9df9b5205312"
+    end
+
+    # Fix for CVE-2018-13005 & CVE-2018-13006.
+    patch do
+      url "https://github.com/gpac/gpac/commit/bceb03fd2be95097a7b409ea59914f332fb6bc86.patch?full_index=1"
+      sha256 "716579315fa7ee9880f5b94d4bc906163a5d0e7b123041a66d69b27cfb22babe"
+    end
+
+    # Below two patches fix compile when building against recent versions of ffmpeg.
+    patch do
+      url "https://github.com/gpac/gpac/commit/b12b86e995db235e9a7e0c4fcd0fd54eb37bcee4.patch?full_index=1"
+      sha256 "714bc320e9aac54782e5f4c661d5ae18f0fe002e23805d60bec4946725466d20"
+    end
+
+    patch do
+      url "https://github.com/gpac/gpac/commit/855aafe47677de558a7dd5f772b8094b54bfe61a.patch?full_index=1"
+      sha256 "dac3d143aef7fb399efefac16217902090b3868d624ff9d77317d71176a99f9b"
+    end
+  end
+
   bottle do
-    sha256 "f804e53b18a3ce388ebd48b0e14ee159835b38bc0c917b7f8ee09858f809b40a" => :high_sierra
-    sha256 "d685f84d817cfc62818f37d0eac9d743458973d7ec261a90fc9e8d1524f9f8bd" => :sierra
-    sha256 "fa0031a62d043da3a90d3d63113bcc8206313cf0ce649d6e8ca5b5edfb23818c" => :el_capitan
-    sha256 "d0ae48d8fd147077cf818df012921e7ae7e39a1768d61d9f82a9f361c1fff067" => :yosemite
+    sha256 "e035d74171aa4179277bf62734f21fb06688f0a7b10bb6ac57bcdc7124b0453f" => :mojave
+    sha256 "1e369830820f2e7553bcc498af2a839005c3f8a6327781cd4f6f46252ae42ca6" => :high_sierra
+    sha256 "c9d6d00656293f4d40185460807b7c489d8d2e7db4bc4e95af9ede968260f4e1" => :sierra
+    sha256 "46428c9cb8fdf15ebe9014667f9158444b263e60b5836688625b300f389c64e4" => :el_capitan
   end
 
   depends_on "openssl"
@@ -32,6 +59,8 @@ class Gpac < Formula
   depends_on "sdl" => :optional
   depends_on "theora" => :optional
   depends_on "ffmpeg" => :optional
+
+  conflicts_with "bento4", :because => "both install `mp42ts` binaries"
 
   def install
     args = ["--disable-wx",

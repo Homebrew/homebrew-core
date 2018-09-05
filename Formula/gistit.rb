@@ -3,11 +3,11 @@ class Gistit < Formula
   homepage "https://gistit.herokuapp.com/"
   url "https://github.com/jrbasso/gistit/archive/v0.1.3.tar.gz"
   sha256 "b7203c318460c264bd19b35a767da1cef33e5cae2c65b057e401fe20f47e1cca"
-
   head "https://github.com/jrbasso/gistit.git"
 
   bottle do
     cellar :any
+    sha256 "56cf73e5a5c9742640a146b1b37ed2aea557b356b2e5a96ff437130a6aab4dfb" => :mojave
     sha256 "decb56c455eb39e379b94b6832281ea06ae8a42c745eb6c108c15883a0ef2fad" => :high_sierra
     sha256 "269b7429070e11980d6764f2f6bd1d870d2e391cfd919f948159cb35cfab1184" => :sierra
     sha256 "b968a2885e3ac3e0c717fdabb9986149a39d58d031476d4ef3ada7a9e1ad07e9" => :el_capitan

@@ -1,25 +1,27 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.1.tar.xz"
-  sha256 "af61a0263858e69c5dce51eab26662ff3d2ad9aa68da9583e8143b5426be4b34"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.1.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.1.1.tar.xz"
+  sha256 "97dcc3169bd430270fc29adb65145846a58c1b55cdbb73382a4a89307bdad03c"
 
   bottle do
-    sha256 "43a6d6cca157ef70d13848f35c04e11d832dc0c96f5bcf53a43330f524b3ac40" => :high_sierra
-    sha256 "fe7c6261f9164e7a744c9c512ba7e5afff0e74e373ece9b5aa19d5da6443bfc2" => :sierra
-    sha256 "cd89001bcf8c93b5d6425ab91a400aeffe0cd5bbb0eccd8ab38c719ab5ca34ba" => :el_capitan
+    sha256 "ec01160c639d73a80d047c53f7a61a81ddc3ed7d2fbe0e429c2f214b22e0fa59" => :mojave
+    sha256 "711fc738fc3438157b9588e034544d448386ee6bb2e550a2594f07a0b212766b" => :high_sierra
+    sha256 "f019f7fbb7fad0cd0d62025ff61de5e34bb08f05ca6058f12e1cd235816039dc" => :sierra
+    sha256 "ecd74563cbd79997a5396f882c44c113540e1a6987c7295ed934cd17b388eeba" => :el_capitan
   end
 
   deprecated_option "with-brewed-python" => "with-python@2"
   deprecated_option "with-guile" => "with-guile@2.0"
-  deprecated_option "with-python" => "with-python@2"
 
   option "with-python", "Use the Homebrew version of Python; by default system Python is used"
+  option "with-python@2", "Use the Homebrew version of Python 2; by default system Python is used"
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
+  depends_on "python" => :optional
   depends_on "python@2" => :optional
   depends_on "guile@2.0" => :optional
 
@@ -49,8 +51,14 @@ class Gdb < Formula
     args << "--with-guile" if build.with? "guile@2.0"
     args << "--enable-targets=all" if build.with? "all-targets"
 
-    if build.with? "python@2"
-      args << "--with-python=#{Formula["python"].opt_libexec}/bin"
+    if build.with?("python@2") && build.with?("python")
+      odie "Options --with-python and --with-python@2 are mutually exclusive."
+    elsif build.with?("python@2")
+      args << "--with-python=#{Formula["python@2"].opt_bin}/python2"
+      ENV.append "CPPFLAGS", "-I#{Formula["python@2"].opt_libexec}"
+    elsif build.with?("python")
+      args << "--with-python=#{Formula["python"].opt_bin}/python3"
+      ENV.append "CPPFLAGS", "-I#{Formula["python"].opt_libexec}"
     else
       args << "--with-python=/usr"
     end
@@ -77,7 +85,7 @@ class Gdb < Formula
     On 10.12 (Sierra) or later with SIP, you need to run this:
 
       echo "set startup-with-shell off" >> ~/.gdbinit
-    EOS
+  EOS
   end
 
   test do

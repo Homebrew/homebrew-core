@@ -7,6 +7,7 @@ class Mad < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "8e94986575bc44817f6db6f5c9c777c457c3cadc3124ba57481a0fe9f2da490c" => :mojave
     sha256 "a053f1e30d1d04f8c1f472d9b0b243d9572c3e7ff2c3e46a665564021bf37432" => :high_sierra
     sha256 "1b48168bf5df9fc66703afc68ad3574b9ceb723fbcbf0f1e84c3c1c18fe6ff92" => :sierra
     sha256 "a8a162813aad00169410a8f14a39927028969c914929fafb0685f0eb80075546" => :el_capitan
@@ -35,6 +36,6 @@ class Mad < Formula
     Conflicts:
     Libs: -L${libdir} -lmad -lm
     Cflags: -I${includedir}
-    EOS
+  EOS
   end
 end

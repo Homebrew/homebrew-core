@@ -7,6 +7,7 @@ class VorbisTools < Formula
 
   bottle do
     rebuild 1
+    sha256 "92c11dabfc26b7fd84178700b02329fac05ab8eaff5eb55a613132ad93fe8e65" => :mojave
     sha256 "b764cae12c12c9338b96023d5e855aa6f39b989c19dea650d43edc219135b17d" => :high_sierra
     sha256 "a062b8dbfe05458dc18c311b16260da2ae12b00b3537643b4336094d731f8808" => :sierra
     sha256 "5ec349e8c68d23599b9e3185c6b8b1a6a3294d3f0056b740e7b29f141a4c70b3" => :el_capitan

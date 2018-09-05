@@ -1,13 +1,14 @@
 class SshPermitA38 < Formula
   desc "Central management and deployment for SSH keys"
   homepage "https://github.com/ierror/ssh-permit-a38"
-  url "https://github.com/ierror/ssh-permit-a38/archive/v0.1.0.tar.gz"
-  sha256 "933ba4512def25216d7798a6cf3c455634be8193098e2a55a82cb189ad8554e3"
+  url "https://github.com/ierror/ssh-permit-a38/archive/v0.2.0.tar.gz"
+  sha256 "cb8d94954c0e68eb86e3009d6f067b92464f9c095b6a7754459cfce329576bd9"
 
   bottle do
-    sha256 "d774fd98f0b2aefcaba0db410063585db805e4ab9023b998f35fd8718fd5adf6" => :high_sierra
-    sha256 "beb046cddc23b07fc4515801f88518a51fb64d3e8700216dc43726d651cafb2c" => :sierra
-    sha256 "9e0ed513b2f1881c5e68c753be1991b17405aea15ac7933945ac43559f97f9ad" => :el_capitan
+    sha256 "79aa6e33c91a8cb2dd5c2f30277bc17b26b877010cf07a49ca212e2882085c2b" => :mojave
+    sha256 "d4a7dc99358b86444ccde5f25ca78c1750eb28ae9e602b2021884660c88efe04" => :high_sierra
+    sha256 "9cd48f3b1c0bd568dd5a303bd4b69f42e84ef29e883bc5f9738cfd84030c066d" => :sierra
+    sha256 "548a878a784eda04a5c1601dcf17d7fb908b65eebd9fe44b39b3d7bc609d1575" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -15,10 +16,11 @@ class SshPermitA38 < Formula
   depends_on "openssl"
 
   def install
-    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
-    ENV["DEP_OPENSSL_INCLUDE"] = Formula["openssl"].opt_include
-    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
-    system "cargo", "install", "--root", prefix
+    # Ensure that the `openssl` crate picks up the intended library.
+    # https://crates.io/crates/openssl#manual-configuration
+    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+
+    system "cargo", "install", "--root", prefix, "--path", "."
   end
 
   test do

@@ -6,6 +6,7 @@ class SubversionAT18 < Formula
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
 
   bottle do
+    sha256 "8f940fc03a334713836d6ed93f748fe573fc51dc5468dd575e14d7a614a4fb0a" => :mojave
     sha256 "3a4e79dead2f4d209e06fe631903ed870610ddfc9ac091ec7d734f5025d0642e" => :high_sierra
     sha256 "a3d73ecc8eddacfe764f5a83d5215220b7d3100d694c17ac3bed68089984e863" => :sierra
     sha256 "0a39c347943ac7f025af06571378987e5d69805ab45cafd38215b5929a5a3722" => :el_capitan
@@ -21,7 +22,6 @@ class SubversionAT18 < Formula
   option "with-java", "Build Java bindings"
   option "with-perl", "Build Perl bindings"
   option "with-ruby", "Build Ruby bindings"
-  option "with-gpg-agent", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
 
@@ -40,7 +40,6 @@ class SubversionAT18 < Formula
   depends_on "openssl"
 
   # Other optional dependencies
-  depends_on "gpg-agent" => :optional
   depends_on :java => :optional
 
   resource "serf" do
@@ -121,7 +120,6 @@ class SubversionAT18 < Formula
             "--without-berkeley-db"]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
-    args << "--without-gpg-agent" if build.without? "gpg-agent"
 
     if MacOS::CLT.installed? && MacOS.version < :sierra
       args << "--with-apr=/usr"

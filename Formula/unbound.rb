@@ -1,13 +1,16 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.7.0.tar.gz"
-  sha256 "94dd9071fb13d8ccd122a3ac67c4524a3324d0e771fc7a8a7c49af8abfb926a2"
+  url "https://www.unbound.net/downloads/unbound-1.7.3.tar.gz"
+  sha256 "c11de115d928a6b48b2165e0214402a7a7da313cd479203a7ce7a8b62cba602d"
+  head "https://nlnetlabs.nl/svn/unbound/trunk/", :using => :svn
 
   bottle do
-    sha256 "8c7e2cd18ce125440cfc6545de5fb437c4e4a386786211c9b0956406b00169e7" => :high_sierra
-    sha256 "9cfd4dc5892ae2a762b5413b2fe61ff18c59aea036a56a6616699e5b992e234b" => :sierra
-    sha256 "701dbf2f8fbccfee9a8f843814639eb65d8fbcc57a8802a96964077a95f059b8" => :el_capitan
+    rebuild 1
+    sha256 "f47192f79b85a6d21f7837aa85d0061cdd97a4976e41b5fbf49cf215b0482959" => :mojave
+    sha256 "c6a5ac9d52f141bcf0e2d8c3625a95a125c7868663e3145cb4cdccbcacaa7bbd" => :high_sierra
+    sha256 "388a28ae2b7f4cb03fc7e1461115671799f0e356aa375d35313c29f1e0448f9b" => :sierra
+    sha256 "457aefbc06c993b8c8712d7686f8542b59fc993d49f2efe4493543404be95ace" => :el_capitan
   end
 
   deprecated_option "with-python" => "with-python@2"
@@ -16,13 +19,6 @@ class Unbound < Formula
   depends_on "libevent"
   depends_on "python@2" => :optional
   depends_on "swig" if build.with? "python@2"
-
-  # https://www.nlnetlabs.nl/bugs-script/show_bug.cgi?id=4043
-  # Remove for unbound >1.7.0
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2081bc5e/unbound/unbound-1.7.0-fix-v6-make-test.diff"
-    sha256 "acae8f6aa8f5d1044dab9a9bf8782263786c853bb38e1b59a9f18d866e01a1f4"
-  end
 
   def install
     args = %W[
@@ -41,7 +37,7 @@ class Unbound < Formula
       args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
     end
 
-    args << "--with-libexpat=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
     system "./configure", *args
 
     inreplace "doc/example.conf", 'username: "unbound"', 'username: "@@HOMEBREW-UNBOUND-USER@@"'
@@ -86,7 +82,7 @@ class Unbound < Formula
         <string>/dev/null</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

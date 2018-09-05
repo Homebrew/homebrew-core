@@ -6,6 +6,7 @@ class Docx2txt < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b7540b467b577f25c72f86a0d23581f6eb613bcd6482de7ea5b01405cf2f6358" => :mojave
     sha256 "fb8efe02d448cdbda874a9fe06b11ebd0ace98b88d4e1792aab632fd0371e178" => :high_sierra
     sha256 "001618f763145ba1027169c8b7f687cd1ceacd09bc5b4c7e64e61deaa2a1ec4c" => :sierra
     sha256 "c3a67138c91e968e6c2a6ff1033bca0fe8527ebdcaaa208194c073b4f75dd453" => :el_capitan
@@ -14,7 +15,7 @@ class Docx2txt < Formula
   end
 
   resource "sample_doc" do
-    url "https://calibre-ebook.com/downloads/demos/demo.docx", :using => :nounzip
+    url "https://calibre-ebook.com/downloads/demos/demo.docx"
     sha256 "269329fc7ae54b3f289b3ac52efde387edc2e566ef9a48d637e841022c7e0eab"
   end
 

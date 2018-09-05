@@ -3,13 +3,14 @@ require "language/node"
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-1.7.4.tgz"
-  sha256 "deb044ec8823bfee8f44f8b16ecc4807a79f7eaa5dec1d13a7b25f6cae8b2cd5"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-6.1.5.tgz"
+  sha256 "5c33dc17b37354f93da7087e3019031cb87ade290e6cb9a515f31cbb3301cca5"
 
   bottle do
-    sha256 "b45c98aa3778d71746f37070a04aa8790e13f8d0c3bd9ba0de7d751962889d40" => :high_sierra
-    sha256 "9ebe8ce1757fcb44d731a05c42136c6770321a64e7bb809946740feef26adb44" => :sierra
-    sha256 "b8af388f528b186b3b0d65fd2c5afabbdcc2622f5e54b494f4c0cb794d97e6e9" => :el_capitan
+    sha256 "4022ab39bf3b578a9a5c80e889afec32e4d840ff8b66840af0b05de42fed3ab2" => :mojave
+    sha256 "5ab20db2e52cdb3130aad7cd7acd550f08eeaf491b78e76f1e2a0e3c652b86a4" => :high_sierra
+    sha256 "8f8b7697107f27b0b450ba5c30f030acc004ae783aaabdfd6a9f64b8c8e98ad6" => :sierra
+    sha256 "138bb6cace2526a4fdb77b567ced66521c8b3227b957ae0b162d03e7c2dfe03f" => :el_capitan
   end
 
   depends_on "node"
@@ -20,7 +21,7 @@ class AngularCli < Formula
   end
 
   test do
-    system bin/"ng", "new", "--skip-install", "angular-homebrew-test"
+    system bin/"ng", "new", "angular-homebrew-test", "--skip-install"
     assert_predicate testpath/"angular-homebrew-test/package.json", :exist?, "Project was not created"
   end
 end

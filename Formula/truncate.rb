@@ -7,6 +7,7 @@ class Truncate < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "99e774220ef9a0cdb89f4300c671ac9eb74840cf5ed2d0731f12d20e680ff939" => :mojave
     sha256 "e1386eda3a93dddd528d1c3bf33b78c9c4da12039d7434b8db956e05eace9482" => :high_sierra
     sha256 "c4c892f0afbdf3a401ccb0af2a7cf8c65b37ccfdfe2412dda5284faa94f562ff" => :sierra
     sha256 "299b80454c20134c5d0916da25fb3d5f0b6843e620dac6babebe01a899253a69" => :el_capitan

@@ -6,6 +6,7 @@ class Mmix < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "8b1cc6672a548ea1c3320ac4889e6b081792c3181fd4ecfc126ebe9c2fb18365" => :mojave
     sha256 "7bc054e2d244fe693b4ed5ef47c56e23ac4952b15ddc5de55d19150d4dc2bf30" => :high_sierra
     sha256 "b694920e61edf2dec094618910be78fcd4fbbcad22d4d37363555aad38ee0af0" => :sierra
     sha256 "c1e8e0d2d627b3ab2c2c68a8b358981dab07466c3c70f3a2e4df8557006deb92" => :el_capitan

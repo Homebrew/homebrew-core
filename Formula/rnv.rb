@@ -6,6 +6,7 @@ class Rnv < Formula
 
   bottle do
     cellar :any
+    sha256 "06a2cb705d679da7de638434f45e28764dcd448863d31f6b39ab090dfde4c04f" => :mojave
     sha256 "9bf4571824c6d8e837cfcad7ac5e16c6bfc120d4638f0428cdfb8f14203b8c41" => :high_sierra
     sha256 "8dd3263bb656dcca22605b12faf4c6f54d65e5040e58a7a464c85b69ca19dc99" => :sierra
     sha256 "1c1aa519b786f842b39720e33900e92a2f2f8deef403755e79e2d3b518897ff1" => :el_capitan

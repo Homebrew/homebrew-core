@@ -3,15 +3,16 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/4f/a7/fc647e9ce711cd630873c37219c0bd4438b8171211d813c7e6b316811e02/ipython-6.3.1.tar.gz"
-  sha256 "a6ac981381b3f5f604b37a293369963485200e3639fb0404fa76092383c10c41"
+  url "https://files.pythonhosted.org/packages/1a/76/0b51dc7dd3a801477d00e6db065f50cce9fe5bdbea3c911fce62c9f02c23/ipython-6.5.0.tar.gz"
+  sha256 "b0f2ef9eada4a68ef63ee10b6dde4f35c840035c50fd24265f8052c98947d5a4"
   head "https://github.com/ipython/ipython.git"
 
   bottle do
     cellar :any
-    sha256 "7773df5e8d3f5f036295a1c84e5ef41ce3ab896c7ae684b2a6f9962c3f0a2fee" => :high_sierra
-    sha256 "bc300384122efe5b00855177d5ae20d7fa5bfbd6ddca82ededb9a7a94150c018" => :sierra
-    sha256 "f541136cbc94ef6bd8678cef4784d3b39fe8bfb77a504f61dc0e68ddc81601e7" => :el_capitan
+    sha256 "ed963107648f032858875ac60f47d3a504aabea8408a92d3f84c6d998441ff39" => :mojave
+    sha256 "0b98380684d45704caf81a175eda38c8a32832a70c634d5490ed72d471b98a92" => :high_sierra
+    sha256 "c5871b5b3d313d43e8ccbdc3afccc7c560a1f20b647023fe34d8480c3da2601f" => :sierra
+    sha256 "c6b3f9384c546e1a0be9956acd818ba449771f3acd026292c53335f72f023952" => :el_capitan
   end
 
   depends_on "python"
@@ -28,8 +29,8 @@ class Ipython < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/70/f1/cb9373195639db13063f55eb06116310ad691e1fd125e6af057734dc44ea/decorator-4.2.1.tar.gz"
-    sha256 "7d46dd9f3ea1cf5f06ee0e4e1277ae618cf48dfb10ada7c8427cd46c42702a0e"
+    url "https://files.pythonhosted.org/packages/6f/24/15a229626c775aae5806312f6bf1e2a73785be3402c0acdec5dbddd8c11e/decorator-4.3.0.tar.gz"
+    sha256 "c39efa13fbdeb4506c476c9b3babf6a718da943dab7811c206005a4a956c080c"
   end
 
   resource "ipykernel" do
@@ -43,8 +44,8 @@ class Ipython < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/d2/41/430b325e411d564b1afc37bc7286c3549f4c415ada750a617fb1943c593d/jedi-0.11.1.tar.gz"
-    sha256 "d6e799d04d1ade9459ed0f20de47c32f2285438956a677d083d3c98def59fa97"
+    url "https://files.pythonhosted.org/packages/49/2f/cdfb8adc8cfc9fc2e5673e724d9b9098619dc1a2772cc6b8af34c6b7bef9/jedi-0.12.1.tar.gz"
+    sha256 "b409ed0f6913a701ed474a614a3bb46e6953639033e31f769ca7581da5bd1ec1"
   end
 
   resource "jupyter_client" do
@@ -58,13 +59,13 @@ class Ipython < Formula
   end
 
   resource "parso" do
-    url "https://files.pythonhosted.org/packages/14/3b/15cfd9c7a8bd9e3a2fe956e20fbc4e7c5768e06aea347d8eb68a05a71653/parso-0.1.1.tar.gz"
-    sha256 "5815f3fe254e5665f3c5d6f54f086c2502035cb631a91341591b5a564203cffb"
+    url "https://files.pythonhosted.org/packages/46/31/60de7c9cbb97cac56b193a5b61a1fd4d21df84843a570b370ec34781316b/parso-0.3.1.tar.gz"
+    sha256 "35704a43a3c113cce4de228ddb39aab374b8004f4f2407d070b6a2ca784ce8a2"
   end
 
   resource "pexpect" do
-    url "https://files.pythonhosted.org/packages/fa/c3/60c0cbf96f242d0b47a82e9ca634dcd6dcb043832cf05e17540812e1c707/pexpect-4.4.0.tar.gz"
-    sha256 "67b85a1565968e3d5b5e7c9283caddc90c3947a2625bed1905be27bd5a03e47d"
+    url "https://files.pythonhosted.org/packages/89/43/07d07654ee3e25235d8cea4164cdee0ec39d1fda8e9203156ebe403ffda4/pexpect-4.6.0.tar.gz"
+    sha256 "2a8e88259839571d1251d278476f3eec5db26deb73a70be5ed5dc5435e418aba"
   end
 
   resource "pickleshare" do
@@ -78,8 +79,8 @@ class Ipython < Formula
   end
 
   resource "ptyprocess" do
-    url "https://files.pythonhosted.org/packages/51/83/5d07dc35534640b06f9d9f1a1d2bc2513fb9cc7595a1b0e28ae5477056ce/ptyprocess-0.5.2.tar.gz"
-    sha256 "e64193f0047ad603b71f202332ab5527c5e52aa7c8b609704fc28c0dc20c4365"
+    url "https://files.pythonhosted.org/packages/7d/2d/e4b8733cf79b7309d84c9081a4ab558c89d8c89da5961bf4ddb050ca1ce0/ptyprocess-0.6.0.tar.gz"
+    sha256 "923f299cc5ad920c68f2bc0bc98b75b9f838b93b599941a6b63ddbc2476394c0"
   end
 
   resource "Pygments" do
@@ -88,13 +89,13 @@ class Ipython < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/c5/39/4da7c2dbc4f023fba5fb2325febcadf0d0ce0efdc8bd12083a0f65d20653/python-dateutil-2.7.2.tar.gz"
-    sha256 "9d8074be4c993fbe4947878ce593052f71dac82932a677d49194d8ce9778002e"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/9f/f6/85a33a25128a4a812c3482547e3d458eebdb19ee0b4699f9199cdb2ad731/pyzmq-17.0.0.tar.gz"
-    sha256 "0145ae59139b41f65e047a3a9ed11bbc36e37d5e96c64382fcdff911c4d8c3f0"
+    url "https://files.pythonhosted.org/packages/aa/fd/f2e65a05558ff8b58b71404efc79c2b03cef922667260e1d703896597b93/pyzmq-17.1.0.tar.gz"
+    sha256 "2199f753a230e26aec5238b0518b036780708a4c887d4944519681a920b9dee4"
   end
 
   resource "simplegeneric" do
@@ -108,8 +109,8 @@ class Ipython < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/66/60/5b34caa5014eb3f1deb16d0e72cc08abeec7a9c9823486da7984ddadc95f/tornado-5.0.1.tar.gz"
-    sha256 "3e9a2333362d3dad7876d902595b64aea1a2f91d0df13191ea1f8bca5a447771"
+    url "https://files.pythonhosted.org/packages/45/ec/f2a03a0509bcfca336bef23a3dab0d07504893af34fd13064059ba4a0503/tornado-5.1.tar.gz"
+    sha256 "4f66a2172cb947387193ca4c2c3e19131f1c70fa8be470ddbbd9317fd0801582"
   end
 
   resource "traitlets" do

@@ -6,6 +6,7 @@ class Aqbanking < Formula
   revision 1
 
   bottle do
+    sha256 "153049e5417652e7dbf7ea864751552faf1eb0d4fd5abcdf1f67208bb6c1ef04" => :mojave
     sha256 "454fb80632eebfc602c32f417dfd761b83a3fb7a047a6a74e8c05bec00c6f930" => :high_sierra
     sha256 "76d2ae1f5935d4e4ffd666a8f84ba612d83a1e1777d17f7c76bee3d8aa3a98dc" => :sierra
     sha256 "a0a0d87e3aa8fc53f5e2fef317be081c30be7472ef2e2fda9b64d4ea3fd21357" => :el_capitan
@@ -19,13 +20,13 @@ class Aqbanking < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gwenhywfar"
   depends_on "libxmlsec1"
   depends_on "libxslt"
   depends_on "libxml2"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "pkg-config" => :build
   depends_on "ktoblzcheck" => :recommended
 
   def install
@@ -88,6 +89,9 @@ class Aqbanking < Formula
         } # accountInfo
       } # accountInfoList
     EOS
-    assert_match /^Account\s+110000000\s+000123456789\s+STRIPE TEST BANK\s+03.01.2014\s+12:00\s+1324.36\s+USD\s+$/, shell_output("#{bin}/aqbanking-cli listbal -c #{context}")
+
+    match = "Account 110000000 000123456789 STRIPE TEST BANK 03.01.2014 12:00 1324.36 USD"
+    out = shell_output("#{bin}/aqbanking-cli listbal -c #{context}")
+    assert_match match, out.gsub(/\s+/, " ")
   end
 end

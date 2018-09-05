@@ -1,16 +1,16 @@
 class TheSilverSearcher < Formula
   desc "Code-search similar to ack"
   homepage "https://github.com/ggreer/the_silver_searcher"
-  url "https://github.com/ggreer/the_silver_searcher/archive/2.1.0.tar.gz"
-  sha256 "cb416a0da7fe354a009c482ae709692ed567f8e7d2dad4d242e726dd7ca202f0"
+  url "https://github.com/ggreer/the_silver_searcher/archive/2.2.0.tar.gz"
+  sha256 "6a0a19ca5e73b2bef9481c29a508d2413ca1a0a9a5a6b1bd9bbd695a7626cbf9"
   head "https://github.com/ggreer/the_silver_searcher.git"
 
   bottle do
     cellar :any
-    sha256 "5d2380526afe423df25d9bd4eea9ea177023918ee3b534d93a72bd6c7c9bd333" => :high_sierra
-    sha256 "252dabfa42a9a4769ddd62cf2265566d57eb1af1e39b8dcd75b6684402becd35" => :sierra
-    sha256 "e731e1c3b4f85267dd4dea5c42ad1ff35c2def78b2c9f83ff8988bf0266f34ae" => :el_capitan
-    sha256 "5e4ba79f17f087e697afb62cf738e321ebd4d6f2b001a4caaaed525a1ce75166" => :yosemite
+    sha256 "e57f89664f48c131dfb462dc4be2f5265867d827f82efb1c3841ba71d9156ed0" => :mojave
+    sha256 "0bf5394d8ab5f61b8fbb593249f556f13b358d16eb0d3c97215be3da0476e94b" => :high_sierra
+    sha256 "2365e24e5d0b1bef64b35c6a8f9e4f61d1f38eafe38c06d6e0acefc6a9a955db" => :sierra
+    sha256 "1f35dcee133d638a16462db711560b624020e9dd8f732ac5a6f13a09b694421a" => :el_capitan
   end
 
   depends_on "autoconf" => :build

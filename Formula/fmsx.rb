@@ -85,7 +85,7 @@ class Fmsx < Formula
     Bundled ROM files are located the following directory:
       #{pkgshare}
     You may want to use this directory to set `-home` option.
-    EOS
+  EOS
   end
 
   test do

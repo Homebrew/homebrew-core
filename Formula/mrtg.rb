@@ -1,17 +1,15 @@
 class Mrtg < Formula
   desc "Multi router traffic grapher"
   homepage "https://oss.oetiker.ch/mrtg/"
-  url "https://oss.oetiker.ch/mrtg/pub/mrtg-2.17.4.tar.gz"
-  sha256 "5efa7fae8040159208472e5f889be5b41d8c8a2ea6b31616f0f75cc7f48d2365"
+  url "https://oss.oetiker.ch/mrtg/pub/mrtg-2.17.7.tar.gz"
+  sha256 "9b94cb268fb15b0304ad3bb3ec92b9a8a16dacfcee72baac19298224a2c332c3"
 
   bottle do
     cellar :any
-    sha256 "31b4ac53af7cc4837fe3d6ff5371d84c809a9b82a88ffe0223c58e1cc7067223" => :high_sierra
-    sha256 "29cabfb55377881ed481039099a9fdbe172034d50fbcb94be21b161a7581d7b3" => :sierra
-    sha256 "2b11f3d52ea65403831ae316e27faf4790272f19cc35a41175f04405174ac370" => :el_capitan
-    sha256 "8adea0c04d0319c2bc9a68455cb77c83286a0a0ad0eae32ef386966ec6165abb" => :yosemite
-    sha256 "c957f2205d67cd3d35272fcd8ed2a2f61b1938d9541b22e863b55c60fc8b56ee" => :mavericks
-    sha256 "be4e5079f3f26f05b3f4eea7e9cb69ec4034d2c67b6a30669b07f29b9d5439a4" => :mountain_lion
+    sha256 "cca3b58b58a453636d67bd041f56df487ce86eb7f592178bd9f8745e35e0f5f0" => :mojave
+    sha256 "8a76630f04f1c8b6883d7621cf9c72456e22fa5206a8b2b3eb6527547d048fbb" => :high_sierra
+    sha256 "71561d0dbd12007514597dc85bf8ecb5e76e32f0feb35eb126b0998a30db49c8" => :sierra
+    sha256 "0d434588f3d22e55db11fe23baa82a5e1a4a8ccbcab84dfd74ddc1a0dafc085c" => :el_capitan
   end
 
   depends_on "gd"

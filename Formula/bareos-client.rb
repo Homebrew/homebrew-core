@@ -1,13 +1,14 @@
 class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.org/"
-  url "https://github.com/bareos/bareos/archive/Release/17.2.5.tar.gz"
-  sha256 "720bcfbbb26d2e773088b3044b728b48fea2340b3fb0f622a0e07a88bec35bac"
+  url "https://github.com/bareos/bareos/archive/Release/17.2.7.tar.gz"
+  sha256 "99a5f907e3422532c783ee254dcf5c737d2b1b53522c00924d3e1009289d2fd2"
 
   bottle do
-    sha256 "24a55a8fb482d7edc6664806606acce8c6e8a1b88739b3379275fe2d70fb2bb3" => :high_sierra
-    sha256 "fa9f973fa11543ef695cf6c1110e0d0f26670051c263cee5b59577477f309ce7" => :sierra
-    sha256 "6d7c271e7797895b4feb62b20294bc26dcd3c0f5f4af1ac41552d3573a787baf" => :el_capitan
+    sha256 "01f5bffbfc61c4727bd33e1ac7a3fac8141dcd912c926ef1334727eb44ca703b" => :mojave
+    sha256 "960cf9d487fd3d121e32a3c36e33770022088033bde312464c0b279f01f8b9a8" => :high_sierra
+    sha256 "dd6c16847877563bf2efe7d590ece4f03ebeec9725016a0ffbb1927522dec29c" => :sierra
+    sha256 "396b873eb5b9a55611ce2f8342547d2dc452f636e01acca5323db0dcb92c3a0b" => :el_capitan
   end
 
   depends_on "openssl"

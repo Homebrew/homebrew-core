@@ -16,7 +16,7 @@ class Vf < Formula
   def caveats; <<~EOS
     To complete installation, add the following line to your shell's rc file:
       source #{opt_prefix}/vf.sh
-    EOS
+  EOS
   end
 
   test do

@@ -6,6 +6,7 @@ class Pcrexx < Formula
 
   bottle do
     cellar :any
+    sha256 "74eb2f78269663a150978c7a221af9bb453c459f14838cbe551f9b25cba222ce" => :mojave
     sha256 "65018b1dd42de0fc89e533f5343754cf8b07e0b989d0fc1820483fd76a36caab" => :high_sierra
     sha256 "04da88d9c66600d7f636106f00b496e90fbd213431b7c4a2c20cc43f7e206a21" => :sierra
     sha256 "5c30b4cbf987ad3b9a05521f83c672419b636277714838b6f7dee5a656c9868b" => :el_capitan
@@ -42,7 +43,7 @@ class Pcrexx < Formula
     The man page has been renamed to pcre++.3 to avoid conflicts with
     pcre in case-insensitive file system.  Please use "man pcre++"
     instead.
-    EOS
+  EOS
   end
 end
 

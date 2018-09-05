@@ -1,25 +1,26 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.10.0.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.10.0.tar.bz2"
-  sha256 "2cf23f3abb837dea0585a6b0ebd70e80e01f95bddef7c1aa097c18e3eaa6b584"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.10.2.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.10.2.tar.bz2"
+  sha256 "5b35e3a858d948de9e8892bf494893c9f7886782f6abbe166c0487c19cf6ed88"
 
   bottle do
-    rebuild 1
-    sha256 "f5f091b47946655098099ad8304f0457e0b964ed7235b11537499158a333cd59" => :high_sierra
-    sha256 "7af63d290ed502ee5fbe7bb0bc85d2f39b4d1c3ed165dddd4a41eff3ff622fa5" => :sierra
-    sha256 "091e9f89b482496cd0d981cea8178090f26a05151c4c24aa3c1b9c18350b262c" => :el_capitan
+    sha256 "2115c4455e243a34fe537da1f901779d1fd2668937e2da48ccb5f7bad484249f" => :mojave
+    sha256 "b40f591a44176f1e7f7f1c0aaebe8772657687b13e672286f3ab45b69f22db0b" => :high_sierra
+    sha256 "274b5e82027f90b8d707c859cf143808672b55e243b4070c4d18f0f6e914d6f3" => :sierra
+    sha256 "c5fee4ce6dae3f2c7398dd01a5c6df56f0227ec2323b4be107a2d26196339b6c" => :el_capitan
   end
 
   deprecated_option "java" => "with-java"
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
+  deprecated_option "with-gpg-agent" => "with-gnupg"
 
   option "with-java", "Build Java bindings"
   option "without-ruby", "Build without Ruby bindings"
   option "without-perl", "Build without Perl bindings"
-  option "with-gpg-agent", "Build with support for GPG Agent"
+  option "with-gnupg", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
@@ -37,7 +38,7 @@ class Subversion < Formula
   depends_on "openssl"
 
   # Other optional dependencies
-  depends_on "gpg-agent" => :optional
+  depends_on "gnupg" => :optional
   depends_on "gettext" => :optional
   depends_on :java => ["1.8", :optional]
 
@@ -105,7 +106,7 @@ class Subversion < Formula
     ]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
-    args << "--without-gpg-agent" if build.without? "gpg-agent"
+    args << "--without-gpg-agent" if build.without? "gnupg"
     args << "--disable-nls" if build.without? "gettext"
 
     if build.with? "ruby"
@@ -206,6 +207,7 @@ class Subversion < Formula
   test do
     system "#{bin}/svnadmin", "create", "test"
     system "#{bin}/svnadmin", "verify", "test"
+    system "perl", "-e", "use SVN::Client; new SVN::Client()"
   end
 end
 

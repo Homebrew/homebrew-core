@@ -6,6 +6,7 @@ class Queequeg < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "81b1cab8f793052ad99133b4f6f4f917c6400171cdd4b6545dec3bf9d1a1a1ae" => :mojave
     sha256 "d8c26c0d9f1ddff16db0a9e0268b42ce30f6f430a0a729e351ece66e85cfec86" => :high_sierra
     sha256 "0d8427cef8ea21dd597e46e443b02cb60c07efcaac7df2c731cce370b80a9bb1" => :sierra
     sha256 "be1c951e32a68fa5f324f499bbe5ee721f40292467425eed6d96c2056eecc2bb" => :el_capitan

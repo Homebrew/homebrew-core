@@ -8,6 +8,7 @@ class Schroedinger < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "ab901d9879b3bc110eeb7eadd5ab815af7d7fc446b2f5577795737c410c3bf4e" => :mojave
     sha256 "1e9953cbef67e87a7ca9ebecfcc4af5f0eb2261d17f3a1195386b7512b9312be" => :high_sierra
     sha256 "7d2d6d343f571e21f27ce5c13645ebe7039e4d45d2b96dba550f6383185c18f6" => :sierra
     sha256 "1b990c49b7d72f3030bcee52bf70094a6cf16111867565cdb7541f670636cf05" => :el_capitan

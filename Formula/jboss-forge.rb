@@ -1,9 +1,9 @@
 class JbossForge < Formula
   desc "Tools to help set up and configure a project"
   homepage "https://forge.jboss.org/"
-  url "https://downloads.jboss.org/forge/releases/3.8.1.Final/forge-distribution-3.8.1.Final-offline.zip"
-  version "3.8.1.Final"
-  sha256 "7bb83b529de25c5505b6066f9c170492ffdf656dcdc591612c6d45c3b64a868e"
+  url "https://downloads.jboss.org/forge/releases/3.9.1.Final/forge-distribution-3.9.1.Final-offline.zip"
+  version "3.9.1.Final"
+  sha256 "0ff5eb756e7ab6f0663e134e362268098dfc4df5719511bc0b036fbf40c8f75b"
 
   bottle :unneeded
 

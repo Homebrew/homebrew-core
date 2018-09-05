@@ -6,6 +6,7 @@ class Tcpsplit < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "b3a7f083a50a33edf1799fc16b6d52db71eee85bd69bad9d1d3d42e6de5cfa6f" => :mojave
     sha256 "0b603f1737a000ec2452bd3ac48df7c4e04d6cfb15fc48dabca96bd23137f40a" => :high_sierra
     sha256 "2e9d12ee609d30075f141527c3804ce78a8c312e5b72ce6eb655ed08521faf45" => :sierra
     sha256 "5014edcbc87913b2103c9347dd4b132ca1b4c3b1a007c853eda75213481e7d30" => :el_capitan

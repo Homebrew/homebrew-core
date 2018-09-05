@@ -4,10 +4,11 @@ class Vit < Formula
   url "https://taskwarrior.org/download/vit-1.2.tar.gz"
   sha256 "a78dee573130c8d6bc92cf60fafac0abc78dd2109acfba587cb0ae202ea5bbd0"
   revision 1
-  head "https://git.tasktools.org/scm/ex/vit.git"
+  head "https://github.com/scottkosty/vit.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "ab438fe55ae7d9fa33079d907a9fd432a9a4c094a9eaf3257592cf1aeadbe8a8" => :mojave
     sha256 "d2ffe07bc8ede58d12bcb7401db8f3086eaba071f57b3ec4ce377e0ad18e4d3d" => :high_sierra
     sha256 "26c2d6376f2c94d32d11972dbd061e5d4ef1edd31c889a084558339494c34b5b" => :sierra
     sha256 "148f01bcfe731892cbfbc63eb9e8d95fded12f07c2d56a7429f8ddea27207f51" => :el_capitan

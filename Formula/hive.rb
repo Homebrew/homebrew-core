@@ -1,8 +1,8 @@
 class Hive < Formula
   desc "Hadoop-based data summarization, query, and analysis"
   homepage "https://hive.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hive/hive-2.3.1/apache-hive-2.3.1-bin.tar.gz"
-  sha256 "83e92539abbdad9cbfd40eb1347963e807b153dfa8a56a6049c65574675f11aa"
+  url "https://www.apache.org/dyn/closer.cgi?path=hive/hive-3.1.0/apache-hive-3.1.0-bin.tar.gz"
+  sha256 "f90b5988d4d81dafa97fa3059cfbb89ac6c8c1015b34b20f1e72902ddbb9927e"
 
   bottle :unneeded
 
@@ -25,7 +25,7 @@ class Hive < Formula
 
     If you want to use HCatalog with Pig, set $HCAT_HOME in your profile:
       export HCAT_HOME=#{opt_libexec}/hcatalog
-    EOS
+  EOS
   end
 
   test do

@@ -1,16 +1,14 @@
 class NetSnmp < Formula
   desc "Implements SNMP v1, v2c, and v3, using IPv4 and IPv6"
   homepage "http://www.net-snmp.org/"
-  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.7.3/net-snmp-5.7.3.tar.gz"
-  sha256 "12ef89613c7707dc96d13335f153c1921efc9d61d3708ef09f3fc4a7014fb4f0"
+  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.8/net-snmp-5.8.tar.gz"
+  sha256 "b2fc3500840ebe532734c4786b0da4ef0a5f67e51ef4c86b3345d697e4976adf"
 
   bottle do
-    rebuild 3
-    sha256 "810f52fc141c942236b6cc2439f577528d406c337c0dd3f331e02396078ff529" => :high_sierra
-    sha256 "02542e6f3fd23d1833059c86563c961fc24a230a013e0887d3a2d50b42eb2887" => :sierra
-    sha256 "e3209635fdbb10b65e4c405c94e0ac05010be95bde728875fca399209ddee114" => :el_capitan
-    sha256 "1c11e18b727f83f3a736df297d492952867d7de129608b584555edf7c0d7aec6" => :yosemite
-    sha256 "ae16cd409d8bfac5bfc80135ad3d9ba1439b95c963e3e9ded30c4dc379c3ac33" => :mavericks
+    sha256 "09d497fa5910198db3a3834d097df9f1069b8f211cb38b57b9ac78738fad9272" => :mojave
+    sha256 "05d9e1c66150e58af4a5c4167193551684b8bd06bfbbe0320a2ac4bf33099544" => :high_sierra
+    sha256 "366c28c25db9b040e115850a606c1859e7c61b3efd9ad4580fe57d7464065ee1" => :sierra
+    sha256 "00d85edcab504df6828344a70d1b4d8eddfce656ef379144e49bf52d55572863" => :el_capitan
   end
 
   keg_only :provided_by_macos
@@ -21,6 +19,13 @@ class NetSnmp < Formula
   depends_on "python@2" => :optional
 
   def install
+    # https://sourceforge.net/p/net-snmp/bugs/2504/
+    # I suspect upstream will fix this in the first post-Mojave release but
+    # if it's not fixed in that release this should be reported upstream.
+    (buildpath/"include/net-snmp/system/darwin18.h").write <<~EOS
+      #include <net-snmp/system/darwin17.h>
+    EOS
+
     args = %W[
       --disable-debugging
       --prefix=#{prefix}
@@ -40,12 +45,6 @@ class NetSnmp < Formula
       args << "--with-python-modules"
       ENV["PYTHONPROG"] = which("python2.7")
     end
-
-    # https://sourceforge.net/p/net-snmp/bugs/2504/
-    ln_s "darwin13.h", "include/net-snmp/system/darwin14.h"
-    ln_s "darwin13.h", "include/net-snmp/system/darwin15.h"
-    ln_s "darwin13.h", "include/net-snmp/system/darwin16.h"
-    ln_s "darwin13.h", "include/net-snmp/system/darwin17.h"
 
     system "./configure", *args
     system "make"

@@ -1,32 +1,54 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.12.06.source.tar.gz"
-  version "6.12.06"
-  sha256 "aedcfd2257806e425b9f61b483e25ba600eb0ea606e21262eafaa9dc745aa794"
+  url "https://root.cern.ch/download/root_v6.14.02.source.tar.gz"
+  version "6.14.02"
+  sha256 "93816519523e87ac75924178d87112d1573eaa108fc65691aea9a9dd5bc05b3e"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "26c632e4a43db19c05cb4680feb9769d07d167e2df8faaa60b218b6784d134c4" => :high_sierra
-    sha256 "7a4b7823f8a2af91ebe3cc42ef96a4d6766fff7a0928c2b853bd00297eb1efa7" => :sierra
-    sha256 "0d60e875c6b6a135ca98ead7436ca3cf8a073e2a2c5fe5aef64867d24da52ce5" => :el_capitan
+    sha256 "3a719955696eeea0845072edb1bf1717285f0374a967510f5d90b962ab45cbbe" => :mojave
+    sha256 "735843cdf42536af424d90471cba12e4834f42b728b40b2d170b6dc13dd863c1" => :high_sierra
+    sha256 "d77502bde56a1b0aa8c2d2f8b249f730c77d92c9d3729cbaf6a721052a6ad669" => :sierra
+    sha256 "7b3f1c52f9aa32d8e7c47376b1ae74b09e94df9030c10e4bc87d8e556298fdc6" => :el_capitan
   end
 
   depends_on "cmake" => :build
+  depends_on "davix"
   depends_on "fftw"
   depends_on "gcc" # for gfortran.
   depends_on "graphviz"
   depends_on "gsl"
+  depends_on "lz4"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # For LZMA.
   depends_on "python" => :recommended
   depends_on "python@2" => :optional
 
+  # https://github.com/Homebrew/homebrew-core/issues/30726
+  # strings libCling.so | grep Xcode:
+  #  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1
+  #  /Applications/Xcode.app/Contents/Developer
+  pour_bottle? do
+    reason "The bottle hardcodes locations inside Xcode.app"
+    satisfy do
+      MacOS::Xcode.installed? &&
+        MacOS::Xcode.prefix.to_s.include?("/Applications/Xcode.app/")
+    end
+  end
+
   needs :cxx11
 
   skip_clean "bin"
+
+  # Upstream commit from 30 Jun 2018 "Fixes for Python 3.7"
+  patch do
+    url "https://github.com/root-project/root/commit/94412f7eab8.patch?full_index=1"
+    sha256 "29a719b00931381cbe75b0e23c5e970d03aa28a8455a5f840e82a8cae83d9c24"
+  end
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
@@ -44,14 +66,19 @@ class Root < Formula
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -Dbuiltin_freetype=ON
+      -Dbuiltin_cfitsio=OFF
+      -Ddavix=ON
+      -Dfitsio=OFF
       -Dfftw3=ON
       -Dfortran=ON
       -Dgdml=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Dmysql=OFF
+      -Dpgsql=OFF
       -Droofit=ON
       -Dssl=ON
+      -Dimt=ON
       -Dxrootd=ON
     ]
 
@@ -117,7 +144,7 @@ class Root < Formula
       pushd #{HOMEBREW_PREFIX} >/dev/null; . bin/thisroot.sh; popd >/dev/null
     For csh/tcsh users:
       source #{HOMEBREW_PREFIX}/bin/thisroot.csh
-    EOS
+  EOS
   end
 
   test do

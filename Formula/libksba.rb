@@ -7,6 +7,7 @@ class Libksba < Formula
 
   bottle do
     cellar :any
+    sha256 "40e173dd9633f0178efe61bbc102e22396ccaf8e397a26726491873d043fbefc" => :mojave
     sha256 "d4fff673a919dd666e81cf857af1b5fbb32b21e1c35df1e05d299401a08d5334" => :high_sierra
     sha256 "b7b47004aa87a4464b74992bca866d0fe7960597085f99463598d37264ed2a01" => :sierra
     sha256 "65fbc5b34f507b1bac6d7a3dc926eab3aeb90e028f1e4dad5868039d61dfdf76" => :el_capitan

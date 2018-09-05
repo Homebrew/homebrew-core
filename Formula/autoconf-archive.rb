@@ -7,6 +7,7 @@ class AutoconfArchive < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "608a8ec40924375525fa4f33280088ea7b4136b2255525da34f7f76fee954c5f" => :mojave
     sha256 "10e2660afcbb3d970cd7cac44ad0ebf84f521ab89fd9de25091e752aa0aa9959" => :high_sierra
     sha256 "10e2660afcbb3d970cd7cac44ad0ebf84f521ab89fd9de25091e752aa0aa9959" => :sierra
     sha256 "10e2660afcbb3d970cd7cac44ad0ebf84f521ab89fd9de25091e752aa0aa9959" => :el_capitan

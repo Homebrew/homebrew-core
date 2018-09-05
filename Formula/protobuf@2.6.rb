@@ -1,14 +1,14 @@
 class ProtobufAT26 < Formula
   desc "Protocol buffers - Google data interchange format"
-  homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/releases/download/v2.6.0/protobuf-2.6.0.tar.bz2"
-  sha256 "0a2f8533b2e0587a2b4efce0c4c8aea21bbfae1c41c466634d958dedf580f6aa"
+  homepage "https://github.com/protocolbuffers/protobuf/"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.bz2"
+  sha256 "ee445612d544d885ae240ffbcbf9267faa9f593b7b101f21d58beceb92661910"
 
   bottle do
-    sha256 "188fe3c8779e7c0568829bff058ea06244f17f4b736dd06a32b087a1c579268d" => :high_sierra
-    sha256 "86267a38f98ad22da8d222ff0cbaff8ffb65e8b7f56c7bad788f1a2c451ff668" => :sierra
-    sha256 "10be7a7a45c9ea4ec06f70f62522f3296f3d3b49ec6fb9e3fe071268f262ef88" => :el_capitan
-    sha256 "6337d6ac951577be7ec1bac4587b6c91325bacb53f6e3523ced7bd4b78fd6f7d" => :yosemite
+    sha256 "0c9e16290618523a67f58df3ef0ab7690ae86bafc74fead2ad199840e30ca57b" => :mojave
+    sha256 "1ceb82b9eea2e86848d959bab4d5468b9388c45b7d687330cc709a11d591f893" => :high_sierra
+    sha256 "c3a17e095f0bba62fc1dc9a84adf830b4ab9d1198ec497c8bb2575fde97b5d30" => :sierra
+    sha256 "e1bf141c14c28ea10aec3cde34d228facbe0082c40dbb69d4d997b7103b72662" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -49,13 +49,13 @@ class ProtobufAT26 < Formula
   end
 
   # Fixes the unexpected identifier error when compiling software against protobuf:
-  # https://github.com/google/protobuf/issues/549
+  # https://github.com/protocolbuffers/protobuf/issues/549
   patch :p1, :DATA
 
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
-    # https://github.com/google/protobuf/blob/e9a122eb19ec54dbca15da80355ed0c17cada9b1/configure.ac#L71-L74
+    # https://github.com/protocolbuffers/protobuf/blob/e9a122eb19ec54dbca15da80355ed0c17cada9b1/configure.ac#L71-L74
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11 if build.cxx11?
 
@@ -96,7 +96,7 @@ class ProtobufAT26 < Formula
   def caveats; <<~EOS
     Editor support and examples have been installed to:
       #{doc}
-    EOS
+  EOS
   end
 
   test do
@@ -109,7 +109,7 @@ class ProtobufAT26 < Formula
         message Test {
           repeated TestCase case = 1;
         }
-        EOS
+      EOS
     (testpath/"test.proto").write(testdata)
     system bin/"protoc", "test.proto", "--cpp_out=."
     if build.with? "python@2"

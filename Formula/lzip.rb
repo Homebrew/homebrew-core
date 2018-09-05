@@ -6,6 +6,7 @@ class Lzip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "c43e2df881d99817f8769e144703f4fd297a2fe6a561f6d27c1db3f0bbbbdea5" => :mojave
     sha256 "f854fdd0c02100534ebeeba5f120a40524b3e5048665fadb0b2e30519310dbb7" => :high_sierra
     sha256 "8fd74d6652d03e9d5af035e0948e6835f38fd6ca45758c0392f825f232e4b4c6" => :sierra
     sha256 "1b61136446eba909e98195b10340174e3aba0c28264336242408a1c61f4cca90" => :el_capitan

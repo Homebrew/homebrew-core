@@ -6,6 +6,7 @@ class Ifstat < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "cd3e855e0608177b9aebf545faeb17a4bad84e093a8ed6a84193b9583a94dc92" => :mojave
     sha256 "8e385a8fdf00266e63bd7a3af17cdcf07da3cb86a08bd3431cfa3b4cc88bb7a5" => :high_sierra
     sha256 "99eada14bfc555bd8f64d447bddd8a53c7325afed40446e5edbcfb5d7bdc7dd6" => :sierra
     sha256 "e3b3f843c9fba2770a49dd7abcdacc30aa6b5e57f06b5ed96f09d20ada58bd6f" => :el_capitan
@@ -21,6 +22,10 @@ class Ifstat < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/ifstat", "-v"
   end
 end
 

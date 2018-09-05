@@ -16,6 +16,7 @@ class Screen < Formula
   end
 
   bottle do
+    sha256 "ba5b400eb46f44507a473fb6fc749e384cb1d8f1677303135228bfb1a0d9de1b" => :mojave
     sha256 "8f49501b0a53d9160060c05b46c2b120334795a19134ac80a021b298c731e864" => :high_sierra
     sha256 "6c1a701f2166ccb235bbb961b0ce4e526bad87dd1d923c97fb00fc15cb1fc961" => :sierra
     sha256 "f01ac1d6e94e5d5fabef9dd7c458ebe30cad4ecdde37c188e40bb4c5247cdb1d" => :el_capitan

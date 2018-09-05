@@ -1,14 +1,13 @@
 class PhpAT56 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-5.6.35.tar.xz/from/this/mirror"
-  sha256 "9985cb64cb8224c289effff5b34f670d14f838175f76daea0507d643eec650d2"
-  revision 1
+  url "https://php.net/get/php-5.6.37.tar.xz/from/this/mirror"
+  sha256 "5000d82610f9134aaedef28854ec3591f68dedf26a17b8935727dac2843bd256"
 
   bottle do
-    sha256 "f88d7b5964aa5ebc0c1a970ba61854c3ddc3a86e723c96e2e5ffe691ea928102" => :high_sierra
-    sha256 "b2fd7898cda6e6aa673e87cc3d91f194efaca778bb7415fab2d7a2952e1e99b4" => :sierra
-    sha256 "d9328c21d27e3be48fc72020c09502258a04c0e146ee35ab17ba64c9fef45c99" => :el_capitan
+    sha256 "14133219d9c0328f8cb6e4a4474d84fe6c0f991473cf85e05eaa283428064ec5" => :high_sierra
+    sha256 "f962cab36eedcafacbc14019d1584d1206de07797c0ddc34bfd719583c515fea" => :sierra
+    sha256 "04bfc4f5bde8daae641b8140b46e6610ef71adead5f829c46792fcc03969a1ee" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -182,23 +181,6 @@ class PhpAT56 < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      To enable PHP in Apache add the following to httpd.conf and restart Apache:
-          LoadModule php5_module #{opt_lib}/httpd/modules/libphp5.so
-
-          <FilesMatch \\.php$>
-              SetHandler application/x-httpd-php
-          </FilesMatch>
-
-      Finally, check DirectoryIndex includes index.php
-          DirectoryIndex index.php index.html
-
-      The php.ini and php-fpm.ini file can be found in:
-          #{etc}/php/#{php_version}/
-    EOS
-  end
-
   def post_install
     pear_prefix = pkgshare/"pear"
     pear_files = %W[
@@ -264,6 +246,23 @@ class PhpAT56 < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      To enable PHP in Apache add the following to httpd.conf and restart Apache:
+          LoadModule php5_module #{opt_lib}/httpd/modules/libphp5.so
+
+          <FilesMatch \\.php$>
+              SetHandler application/x-httpd-php
+          </FilesMatch>
+
+      Finally, check DirectoryIndex includes index.php
+          DirectoryIndex index.php index.html
+
+      The php.ini and php-fpm.ini file can be found in:
+          #{etc}/php/#{php_version}/
+    EOS
+  end
+
   def php_version
     version.to_s.split(".")[0..1].join(".")
   end
@@ -292,7 +291,7 @@ class PhpAT56 < Formula
         <string>#{var}/log/php-fpm.log</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

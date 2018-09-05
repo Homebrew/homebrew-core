@@ -3,11 +3,11 @@ class Cpprestsdk < Formula
   homepage "https://github.com/Microsoft/cpprestsdk"
   url "https://github.com/Microsoft/cpprestsdk/archive/v2.10.2.tar.gz"
   sha256 "fb0b611007732d8de9528bc37bd67468e7ef371672f89c88f225f73cdc4ffcf1"
-
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any
+    sha256 "7a07bbeb8e65fcea88390712f7c5f2e3e39dcf8752727dbd410c5f464cd967a9" => :mojave
     sha256 "d14bed2a2b49d91649d9fc8aa9708b1dc37b3c5b2b8bffcbdda79c2df8542319" => :high_sierra
     sha256 "f72554353c248a4f479be76e8382fef549c9abb2690445adb6bcb49d8f867bd1" => :sierra
     sha256 "53b4cdfd9b0b964a1803920d02ae066a4ddb2be58e68477d34906ba44048e52a" => :el_capitan

@@ -1,16 +1,16 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/v3.7.1.tar.gz"
-  sha256 "df077a29b0fffbf4e7c575f838a440f42d09b215fcb3971e6fb6360318a64892"
+  url "https://github.com/VirusTotal/yara/archive/v3.8.1.tar.gz"
+  sha256 "283527711269354d3c60e2705f7f74b1f769d2d35ddba8f7f9ce97d0fd5cb1ca"
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "cea34d77102cd791be85ce47e01a945b8b0fcf629a8b0c59b3bbd9a2874a1b2e" => :high_sierra
-    sha256 "4e473c3955f931aee46ac0af42e4370a66d9c024d8ac209500d3901bf3a1c036" => :sierra
-    sha256 "052f368216242605b274aff17dc5f97517830660c137c6083361544810ed7320" => :el_capitan
+    sha256 "b1da7a088423fe04c3f9378f035371f740d3a2704b92c4b651bf9b6da29d1b1b" => :mojave
+    sha256 "f937b52ce311ad61726d374c7be876dae61fd61f9f85f86db207d30b08d70f26" => :high_sierra
+    sha256 "3fc4f5981873940a9cd6518f923575e0d9ce2bc51d078881c4fc11d0a7618161" => :sierra
+    sha256 "9219080a0d50dd78539fb6f0ac7fb0f620462bd2cad8cbcbd1c334a0af38af1d" => :el_capitan
   end
 
   depends_on "autoconf" => :build

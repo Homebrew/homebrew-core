@@ -1,13 +1,14 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.tar.gz"
-  sha256 "deb5d0b749a52a0c6083367b5f50a99e08003208d81954fb49e7009e1b1fd0e9"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.3.tar.gz"
+  sha256 "4423a49224972969c52af7b1f151579cea6ab52148d8d7cbae28c183520aa291"
 
   bottle do
-    sha256 "c9a80ad8b736c718b8dad61a2150239cf362f471e5651e31e29f9c7eac50698c" => :high_sierra
-    sha256 "f2591692c45ce6f2b584eb62c113e72143c1930276b9cdcfa5072f191add99f9" => :sierra
-    sha256 "2da1f5cc720905623d23591b30adf60a1c78bb09b25735949dfd2c426dac287f" => :el_capitan
+    sha256 "7e7a91d9324d2eea4c6095a7b469c9b59a103d3e7a564e16f7f647f084c82433" => :mojave
+    sha256 "ecef5c12a18508f6f7a0b6273f606680121f5a2ddc9df2c792cbbbd4ff9463cf" => :high_sierra
+    sha256 "da427af1b26005972c484923bd199ee0fb642096123ed7a1ca5b00916d0353ff" => :sierra
+    sha256 "9096c516ac4cb6cb3e21cf07d1ddbe1e2647ae92c031f2c8d2330ee72a6bfbc0" => :el_capitan
   end
 
   option "with-double", "Enables double precision"
@@ -25,7 +26,8 @@ class Gromacs < Formula
     args << "-DGMX_MPI=ON" if build.with? "mpi"
     args << "-DGMX_X11=ON" if build.with? "x11"
 
-    inreplace "scripts/CMakeLists.txt", "BIN_INSTALL_DIR", "DATA_INSTALL_DIR"
+    inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
+                                        "CMAKE_INSTALL_DATADIR"
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -42,7 +44,7 @@ class Gromacs < Formula
   def caveats; <<~EOS
     GMXRC and other scripts installed to:
       #{HOMEBREW_PREFIX}/share/gromacs
-    EOS
+  EOS
   end
 
   test do

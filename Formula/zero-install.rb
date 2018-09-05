@@ -1,16 +1,15 @@
 class ZeroInstall < Formula
   desc "Zero Install is a decentralised software installation system"
-  homepage "http://0install.net/"
-  url "https://github.com/0install/0install/archive/v2.12-1.tar.gz"
-  version "2.12-1"
-  sha256 "317ac6ac680d021cb475962b7f6c2bcee9c35ce7cf04ae00d72bba8113f13559"
-  revision 2
+  homepage "https://0install.net/"
+  url "https://downloads.sourceforge.net/project/zero-install/0install/2.13/0install-2.13.tar.bz2"
+  sha256 "10726e05ac262c7c5dd1ae109deddf9aa61a146db8fc75c997dd4efc3a4d35ca"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5a736e35a617a5c234f7d8ba42a20c4add1af4243a03a44c69555fe4047ce6ae" => :high_sierra
-    sha256 "e1f05fd470aba09720acfa93b2b32523d9124816d28adc09bd890464c1f4062f" => :sierra
-    sha256 "9296e314e4d685afa1df4306f086af9fe6de208889f6d6014261207ea55899c2" => :el_capitan
+    sha256 "12d16e6e7c193b0525bf783a931e178a43cb2357a6821de8628d5b1945e5b8c0" => :mojave
+    sha256 "29434cfb80b552cb133e47b6a0a8e4d9929656de096c6fb383ab53dae9d6af5a" => :high_sierra
+    sha256 "5e6a18d83dc1503a71545506b25de4b0c97efbdf0a4ce6632a30369bc96e0cc2" => :sierra
+    sha256 "0fa494c5e2852f8ebcadadc9c441302145444da6f580efce516263f9c1b33e4f" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -29,13 +28,28 @@ class ZeroInstall < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
     system "opam", "init", "--no-setup"
-    modules = %w[yojson xmlm ounit react ppx_tools lwt<3 extlib ocurl sha]
-    modules << "lablgtk" if build.with? "gtk+"
+    modules = %w[
+      cppo
+      yojson
+      xmlm
+      ounit
+      lwt_react
+      ocurl
+      obus
+      sha
+      cppo_ocamlbuild
+    ]
+    modules << "lablgtk" << "lwt_glib" if build.with? "gtk+"
     system "opam", "config", "exec", "opam", "install", *modules
 
-    system "opam", "config", "exec", "make"
-    inreplace "dist/install.sh", '"/usr/local"', prefix
-    inreplace "dist/install.sh", '"${PREFIX}/man"', man
+    # mkdir: <buildpath>/build: File exists.
+    # https://github.com/0install/0install/issues/87
+    ENV.deparallelize { system "opam", "config", "exec", "make" }
+
+    inreplace "dist/install.sh" do |s|
+      s.gsub! '"/usr/local"', prefix
+      s.gsub! '"${PREFIX}/man"', man
+    end
     system "make", "install"
   end
 

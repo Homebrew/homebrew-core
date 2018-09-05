@@ -1,26 +1,26 @@
 class Pilosa < Formula
   desc "Distributed bitmap index that queries across data sets"
   homepage "https://www.pilosa.com"
-  url "https://github.com/pilosa/pilosa/archive/v0.8.8.tar.gz"
-  sha256 "d430cb86f99595e26817fcff1441af815055485ef213a91c54af59181182dfd8"
+  url "https://github.com/pilosa/pilosa/archive/v1.1.0.tar.gz"
+  sha256 "1129cb41bb653dd93d170a6b23caf0aca8f02d56efe56f6c966eb663d3b49d3a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b53e5982845292ea5a836866bb38356a1ef78b302f26ed687c46355bedfe1178" => :high_sierra
-    sha256 "cffc67a81a17cf30cfd37ad219593703806af37c9c000f8ee183f4fba4c80c80" => :sierra
-    sha256 "b803765ae2cfb19131293a09de26f4b18d3b7033fa7d4f52262b8f297471a2e7" => :el_capitan
+    sha256 "a7e431a20b9e90a0dc0e22218956bba6bbbd2e1c8c99ccbbb65b527f1fe06442" => :mojave
+    sha256 "e63c7d2de244ca57b2b6032901ff9a99eb6a0335f1738d6e832d8f03ceb85ea7" => :high_sierra
+    sha256 "0dad658a2c78686af07c7012870541ca193b1d2189f3a0122a1356076f23614b" => :sierra
+    sha256 "fe22b919c424b81169929e3be5f675f53a337ab52c5d47bd762dfadb5b130b34" => :el_capitan
   end
 
   depends_on "dep" => :build
   depends_on "go" => :build
-  depends_on "go-statik" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/pilosa/pilosa").install buildpath.children
 
     cd "src/github.com/pilosa/pilosa" do
-      system "make", "generate-statik", "pilosa", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
+      system "make", "build", "FLAGS=-o #{bin}/pilosa", "VERSION=v#{version}"
       prefix.install_metafiles
     end
   end
@@ -50,7 +50,7 @@ class Pilosa < Formula
         <string>#{var}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
@@ -60,7 +60,6 @@ class Pilosa < Formula
       end
       sleep 0.5
       assert_match("Welcome. Pilosa is running.", shell_output("curl localhost:10101"))
-      assert_match("<!DOCTYPE html>", shell_output("curl --user-agent NotCurl localhost:10101"))
     ensure
       Process.kill "TERM", server
       Process.wait server

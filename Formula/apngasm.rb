@@ -3,12 +3,12 @@ class Apngasm < Formula
   homepage "https://github.com/apngasm/apngasm"
   url "https://github.com/apngasm/apngasm/archive/3.1.6.tar.gz"
   sha256 "0068e31cd878e07f3dffa4c6afba6242a753dac83b3799470149d2e816c1a2a7"
-
   head "https://github.com/apngasm/apngasm.git"
 
   bottle do
     cellar :any
     rebuild 1
+    sha256 "9385f652fd7fae83e373a823d7cd7b090213f3e6e17d1eee415022a4eb454cf4" => :mojave
     sha256 "df11f91ea8d27997410b38d42e435b58c34d54dd2bb58a714745ffcfaaacdda2" => :high_sierra
     sha256 "87cb9f81d1ec12b561e8750d259e27d1d97daa654742fcce032863e0185baf0f" => :sierra
     sha256 "073f74cacea8907e430113f4aae80d248887fc1d18de36f64889e683c08e3441" => :el_capitan

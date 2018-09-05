@@ -6,6 +6,7 @@ class GoAT14 < Formula
   version "1.4.3-20170922"
 
   bottle do
+    sha256 "e536b386ba7a48440f789fca96f2908840bce637a99861a7149301429ff15813" => :mojave
     sha256 "af2c899f899666f852bd9a99ba7b0e2159cdc366888b6068fa5fe5b0c5d4b2ea" => :high_sierra
     sha256 "eae6cbf2799ae38c2a909d97ab904d1962df7e7f2a3a62d106ada55ca06754c0" => :sierra
     sha256 "4322879a2d4024591b1c1cd33886184fa1838d33a6c64e5f14105cfef75a631f" => :el_capitan
@@ -88,7 +89,7 @@ class GoAT14 < Formula
 
     You may wish to add the GOROOT-based install location to your PATH:
       export PATH=$PATH:#{opt_libexec}/bin
-    EOS
+  EOS
   end
 
   test do

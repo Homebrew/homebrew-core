@@ -7,6 +7,7 @@ class Giflossy < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "83353790febd1f793da50d6f4e04e4b04bc07031263d2b9d172b1b39cb33b7d0" => :mojave
     sha256 "b81704f64e9bdac63646b92be361303215e24088f662a24c257a01de7fb4f734" => :high_sierra
     sha256 "1b720c57508a15ac50a2f6340532115049a455098e2db1e98ea621e175dfd04a" => :sierra
     sha256 "a770a479a8fcd961ceef0274fc8aa75f70fa7b1f4bb8cb34736c0d6902340e1c" => :el_capitan

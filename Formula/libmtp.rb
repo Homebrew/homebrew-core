@@ -6,6 +6,7 @@ class Libmtp < Formula
 
   bottle do
     cellar :any
+    sha256 "7eddb5328ad0c361cc1458fc42f04296a4da0d58f75f86c121bfbebd1fd8ead7" => :mojave
     sha256 "a72d40dc60cea24e65a17ec6b617776522442a07a18e4bd562a240f3596d9090" => :high_sierra
     sha256 "93a46eef872afe4cc3b784d7c7448d2780fe463c5a80a529e12fd7466e0a58a4" => :sierra
     sha256 "752d53d11b32a60717d6398c564beeebe2f70eae06d19222e2874e15bde8351b" => :el_capitan

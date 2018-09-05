@@ -1,14 +1,14 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.0.tar.gz"
-  sha256 "6f57134ea74a39f1c7b24c285e6278cf906c47f6c681573b86d12173a466efed"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.2.tar.gz"
+  sha256 "762c6601f32a761c7a0556766097558f453f23b983dd75bcf90f922e2d077a34"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "1c347539e968f1920c78b8570e1ff32ed60e741c02adbd6a9d5cfa5834e413a5" => :high_sierra
-    sha256 "e65d17f485dbfeca6c4709712b4ac197f70bcc78766ca78381b633be551d76e0" => :sierra
-    sha256 "665ffa5bb902daee0b54b97d68a104b763fc02ed04299c6eb71065daa66a4145" => :el_capitan
+    sha256 "dd7194908f34e8479a276f578701b52f539d1b93c29bafd8ddf92537669bcade" => :high_sierra
+    sha256 "282763d2d6c9845dc71385c083ef91317e1eae857fce72a1480a7d9bc4caba6a" => :sierra
+    sha256 "53f1f0213c088c02506e66dbf6af11c6837e672e10ef8c4521773676e4045d4a" => :el_capitan
   end
 
   option "with-docs", "Build the documentation with Doxygen and Graphviz"

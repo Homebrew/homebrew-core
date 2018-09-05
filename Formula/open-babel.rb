@@ -7,6 +7,7 @@ class OpenBabel < Formula
   head "https://github.com/openbabel/openbabel.git"
 
   bottle do
+    sha256 "4dfa1e352686274b2fb985bb6dbf2b5926565dc669266f9c85f0413fa72e3f07" => :mojave
     sha256 "2e830e6b8a7ae79015bb06e05b04935f6a63525cac28cca53dcb72f49334bc83" => :high_sierra
     sha256 "28bb84f75639741efbbf3a19ebffc1fc122d15fa74584440b84e265cdfd18db0" => :sierra
     sha256 "d2ca98556d58c6268b6be3f93cfc9a00a79559d081d7713ed14bc7882212b2ef" => :el_capitan

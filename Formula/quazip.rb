@@ -7,6 +7,7 @@ class Quazip < Formula
 
   bottle do
     cellar :any
+    sha256 "b13bd6ecd6f2a2272146f0116db139338e734d094df442e695b9e4520a3d1ac4" => :mojave
     sha256 "907e72c7b9ee1af624c684c960925b3227409d3c95324bfc00aef2ad6384d22c" => :high_sierra
     sha256 "9ec688664e0354803611744d1aaeec073cf0912762652be352404ac1c1fadfb4" => :sierra
     sha256 "ce3454f5f7c5c8083df617ec63ccaf7291091da544287719573fc2c3dbb744c6" => :el_capitan

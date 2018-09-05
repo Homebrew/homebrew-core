@@ -1,28 +1,30 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v9.11.1/node-v9.11.1.tar.xz"
-  sha256 "23dc3d133924f5c7453c479d5eceb3b6af932415cb67d99798c313573d9b9d4c"
+  url "https://nodejs.org/dist/v10.9.0/node-v10.9.0.tar.xz"
+  sha256 "d17ef8eb72d6a31f50a663d554beb9bcb55aa2ce57cf189abfc9b1ba20530d02"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "a4c2d90a60930aa6e2cff330a81d8cec3636cdd9fc002ce79da30540499052d2" => :high_sierra
-    sha256 "0aae3fdf9ac8d330b536671ac4e9b20cc88f1eeeee6f8432e64e141c3b472af0" => :sierra
-    sha256 "f6af24d8ed4594db47b3c9ed4c525c524a7798101c4b2ad122164516e1a6ef7f" => :el_capitan
+    sha256 "3af738be7f8a6b50eb6a09d6df56cce19661cc7d87bfd422ecbab306fe11244a" => :mojave
+    sha256 "138227f17d4a6008517cdb01025432f1c276a3ce2d64b7f51d77a9e58adb33a1" => :high_sierra
+    sha256 "632d18a31ced33fb9872b4f67c7bc6785363fcf82b77393820bd9a645ad4b05f" => :sierra
+    sha256 "d4eecaab1ae687dfc204fcc08dda5efd72cc63b76a602016c496898b5e08b80e" => :el_capitan
   end
 
   option "with-debug", "Build with debugger hooks"
-  option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
+  option "with-openssl@1.1", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
   option "without-icu4c", "Build with small-icu (English only) instead of system-icu (all locales)"
 
   deprecated_option "enable-debug" => "with-debug"
+  deprecated_option "with-openssl" => "with-openssl@1.1"
 
   depends_on "python@2" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c" => :recommended
-  depends_on "openssl" => :optional
+  depends_on "openssl@1.1" => :optional
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
@@ -35,8 +37,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-5.6.0.tgz"
-    sha256 "b1f0de3767136c1d7b4b0f10e6eb2fb3397e2fe11e4c9cddcd0030ad1af9eddd"
+    url "https://registry.npmjs.org/npm/-/npm-6.2.0.tgz"
+    sha256 "c40214b4181c50f8390c6c5a692438381054bf319062a36ef52f540599b1935f"
   end
 
   def install
@@ -45,7 +47,7 @@ class Node < Formula
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
-    args << "--shared-openssl" if build.with? "openssl"
+    args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl@1.1"
     args << "--tag=head" if build.head?
 
     system "./configure", *args
@@ -135,7 +137,7 @@ class Node < Formula
       assert_predicate HOMEBREW_PREFIX/"bin/npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "npm@latest"
-      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bignum" unless head?
+      system "#{HOMEBREW_PREFIX}/bin/npm", *npm_args, "install", "bufferutil" unless head?
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :exist?, "npx must exist"
       assert_predicate HOMEBREW_PREFIX/"bin/npx", :executable?, "npx must be executable"
       assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx cowsay hello")

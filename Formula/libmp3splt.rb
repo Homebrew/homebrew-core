@@ -5,6 +5,7 @@ class Libmp3splt < Formula
   sha256 "30eed64fce58cb379b7cc6a0d8e545579cb99d0f0f31eb00b9acc8aaa1b035dc"
 
   bottle do
+    sha256 "bd099b1f7f07b73c0ba90a0d506a5c169f9197abc3c0c2d787725f3c36262e94" => :mojave
     sha256 "08c048a165564eab43d0ec34f837309eec4bc5fd9f63ef80177c1d2da72c1d47" => :high_sierra
     sha256 "e513672ee4682c1f722e710d4446fc2721325875acb65ccaaee0e5de113cb82b" => :sierra
     sha256 "587226a840b162aeef70cc8022bdbcd61218e1be6dd1b98418774f3f48405072" => :el_capitan

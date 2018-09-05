@@ -7,6 +7,7 @@ class Mtools < Formula
 
   bottle do
     rebuild 1
+    sha256 "28dcb27b6096706c6ca6fc1661af20485a3211cb248e0c3ec258d70e89e505f5" => :mojave
     sha256 "6f51a942eb679aabcad3e9a14ee2afe687421d7837aba20f4f69ca3a296acedb" => :high_sierra
     sha256 "9038497db92b296b077c375fb23c56faccd1879877c13088cd5e4c9f17ceaeab" => :sierra
     sha256 "29b49f7ac62634261b8e9de9ecd1459d0a9d298a525dbe09091aa8e015b72e7a" => :el_capitan

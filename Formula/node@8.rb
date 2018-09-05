@@ -1,14 +1,14 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.11.1/node-v8.11.1.tar.xz"
-  sha256 "40a6eb51ea37fafcf0cfb58786b15b99152bec672cccf861c14d1cca0ad4758a"
-  head "https://github.com/nodejs/node.git", :branch => "v8.x-staging"
+  url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
+  sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
 
   bottle do
-    sha256 "5e3ce9b3e65f15b6bcb9a9915b5ca97c01a35d094e17bfbd6748cf5045e8a0cc" => :high_sierra
-    sha256 "0448b3fb796373b1d8f7ac8830260a31aac9d537b6f793fabe9b5bde782298be" => :sierra
-    sha256 "227cf4a570c8bf41b12f18c2903c5ccb92f079ff0b3ec9f11a42e8912dc632cf" => :el_capitan
+    sha256 "04f87bf0e908c98d294d64952d9534fa20d6f743645f86bb3ce40d81f8e6527c" => :mojave
+    sha256 "e2e5cb7bef2374d387a0bfc098b4f37d72fde5aca476c739695ceb2a8dc30f61" => :high_sierra
+    sha256 "5936c758dcad44a07ab035897a62e04d43d0de5257847c60ef8805253308bfe7" => :sierra
+    sha256 "2184abe84827b56361d269c734dc11c5e6eef942d9d5b29750b8603f2a9caf33" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -40,8 +40,7 @@ class NodeAT8 < Formula
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
-    args << "--shared-openssl" if build.with? "openssl"
-    args << "--tag=head" if build.head?
+    args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl"
 
     system "./configure", *args
     system "make", "install"
@@ -84,7 +83,7 @@ class NodeAT8 < Formula
       assert_predicate bin/"npm", :executable?, "npm must be executable"
       npm_args = ["-ddd", "--cache=#{HOMEBREW_CACHE}/npm_cache", "--build-from-source"]
       system "#{bin}/npm", *npm_args, "install", "npm@latest"
-      system "#{bin}/npm", *npm_args, "install", "bignum" unless head?
+      system "#{bin}/npm", *npm_args, "install", "bignum"
       assert_predicate bin/"npx", :exist?, "npx must exist"
       assert_predicate bin/"npx", :executable?, "npx must be executable"
       assert_match "< hello >", shell_output("#{bin}/npx cowsay hello")

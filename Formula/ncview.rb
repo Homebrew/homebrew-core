@@ -2,13 +2,15 @@ class Ncview < Formula
   desc "Visual browser for netCDF format files"
   homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/ncview--2.1.7.tar.gz"
   sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 5
+  revision 7
 
   bottle do
-    sha256 "bd2df1b3290bf6fc03543fecf727698064f858329b62d7665f516bff8e094067" => :high_sierra
-    sha256 "df920fc488f54f8f128f635c42c618fed9cf82beaed5e99087b44397e3770066" => :sierra
-    sha256 "65e303f36bc95f74adcac5eac2c6f11a3d474ad1babd573016576c8467320214" => :el_capitan
+    sha256 "11e7107a478f0f40a08e14895813a9af65d16d401573e948e8b970c3bf57039d" => :mojave
+    sha256 "93de594b654c796c01c878a4ed3c6121670803d1253c0b9ffb931b7926483e48" => :high_sierra
+    sha256 "66e3fc9112e66697150bdd2236287c713353e9e95a9ad95839332eef82c8a88e" => :sierra
+    sha256 "c3415470f5b7b41bc7b5ee57515a7bd35b762115c89eb1d5e2c76ea9d375c531" => :el_capitan
   end
 
   depends_on "netcdf"

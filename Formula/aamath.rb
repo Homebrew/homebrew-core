@@ -6,6 +6,7 @@ class Aamath < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "79ef03b1d334136b693131b133944109545b07aca2dfd9165531016e4250444c" => :mojave
     sha256 "41223cb51bc006abfba33b6af77b665c28de4155d19e5f43d0561b885b73368f" => :high_sierra
     sha256 "d537cb11d2dcbac9b5d5356c471775699312e83450635ba7676083f381a531cd" => :sierra
     sha256 "8b805e37fd5f4536b4fbf7f3ae6251b645b4b132027d56ccd015a6036c304744" => :el_capitan

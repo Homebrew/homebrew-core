@@ -3,11 +3,11 @@ class Pwnat < Formula
   homepage "https://samy.pl/pwnat/"
   url "https://samy.pl/pwnat/pwnat-0.3-beta.tgz"
   sha256 "d5d6ea14f1cf0d52e4f946be5c3630d6440f8389e7467c0117d1fe33b9d130a2"
-
   head "https://github.com/samyk/pwnat.git"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "483e476edd037e89dc1c24fbf115132a815a9a4d6fcb987ceea6a4c07a5944da" => :mojave
     sha256 "3a4bf09acd5eda4e54fbe21d0028948613fa398a3a1272722957079a9f18c836" => :high_sierra
     sha256 "f8319cece67a334c14129e706f9d1b249d7905cf1ad62df9b5ee9553dbb8d001" => :sierra
     sha256 "0149fc977622f2fd55db5845a377437028df31bb847230d3fd73d548e481e289" => :el_capitan

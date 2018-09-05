@@ -7,6 +7,7 @@ class Tpl < Formula
 
   bottle do
     cellar :any
+    sha256 "668ff54097397dbf1f934f6fc380611459c1ec0c36336d1058171d4eeb349ad7" => :mojave
     sha256 "18b15a737709ac6d8ec47963fb02fba255b5e9f6c8968c126dc60bb3a0d7adee" => :high_sierra
     sha256 "1d8a496506b276702c07d594e17b9c7be4f43c1a4651120b765b2015c18bbe54" => :sierra
     sha256 "a887350815a2791312bdec2ecdf82795d6f54c67f9e76842236e8bb1f507108d" => :el_capitan

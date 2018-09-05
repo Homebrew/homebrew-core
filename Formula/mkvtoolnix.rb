@@ -1,18 +1,18 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-22.0.0.tar.xz"
-  sha256 "88c5074d6731b65d5c2ddd02113ae064373eb83ef3e6e00a04876f88c0be7f67"
-  revision 1
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-26.0.0.tar.xz"
+  sha256 "d51e63c356f9f0c92cc0b01ff6e78253954c74186be6ef4c40c5690d18fda7e0"
 
   bottle do
-    sha256 "0607ccfa007e11c15f8cd2d11efc081ac53826ee65730b7fe8804aa6e71b3b0c" => :high_sierra
-    sha256 "440e03507aa00d9463a5d3f18a701a3d0e8fdd47506b1da2a92d6b855bf08a52" => :sierra
-    sha256 "90feb78e8778395e986195327ddb7333e0cd277218437b59b4349ef104963d1e" => :el_capitan
+    sha256 "031dbd7e9a4857a879274816d285a014c7760b7b1d26b871a9af62556a4e9477" => :mojave
+    sha256 "1692e116a1223e9e09c133ee3cc4e56b586c9b910fb288e295d047042109075b" => :high_sierra
+    sha256 "064613975686c3506595cb04558854e66caecd59e2e67f879758d3f315d91755" => :sierra
+    sha256 "95bb0752af9db6417ebc3d797557824305d71054d347909af17c0e8f4a757df2" => :el_capitan
   end
 
   head do
-    url "https://github.com/mbunkus/mkvtoolnix.git"
+    url "https://gitlab.com/mbunkus/mkvtoolnix.git"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build

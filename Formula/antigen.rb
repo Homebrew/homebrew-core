@@ -14,7 +14,7 @@ class Antigen < Formula
   def caveats; <<~EOS
     To activate antigen, add the following to your ~/.zshrc:
       source #{HOMEBREW_PREFIX}/share/antigen/antigen.zsh
-    EOS
+  EOS
   end
 
   test do

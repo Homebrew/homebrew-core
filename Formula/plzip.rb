@@ -6,6 +6,7 @@ class Plzip < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "85137992bdd087a806159c860ca47685dc9633c82d2c7892bd149c50fbbadec5" => :mojave
     sha256 "af30afb47c2eb2b2392c4402fa4deaeb505d34bc1a9dbd31d25fed666cfdc6a9" => :high_sierra
     sha256 "4461870d7a81404b53b7aae5d73180cbb3677bf65e2b815808311ad0573e5494" => :sierra
     sha256 "69b750626b5cdd03b7b2c6b6e260d8ebe5caf99e2a712503743c085baece4d8a" => :el_capitan

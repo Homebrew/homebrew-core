@@ -3,12 +3,14 @@ class Libu2fServer < Formula
   homepage "https://developers.yubico.com/libu2f-server/"
   url "https://developers.yubico.com/libu2f-server/Releases/libu2f-server-1.1.0.tar.xz"
   sha256 "8dcd3caeacebef6e36a42462039fd035e45fa85653dcb2013f45e15aad49a277"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "bd520ddb4ac4b6a55d657b3ad17511f72dafe7b5a1c40b2a92e291db2a1e0c7a" => :high_sierra
-    sha256 "25226b190bc6af0d7e7ec008d9404b29366d15d742b798cac0ab8e395c506106" => :sierra
-    sha256 "89817d12379495c19e917cd35e288c5c46a2bb5dfe8c16855ff5ce5635b60a80" => :el_capitan
+    sha256 "4171f31751c8bd489ff38e66de80340f1abff5442472dca02b2b2be5d6bd1b12" => :mojave
+    sha256 "8b2986796fde4c4af2ceea03780de6310932f5b26744118d56920694777e0738" => :high_sierra
+    sha256 "90ec17a1fccbb6d6ed4e8cd95d6828ef1b0fe80f173435e7124fab938d3af812" => :sierra
+    sha256 "566d3f52eef7dca1671f93f8f2b1f351e960b3c98a3737ed7f14843296d5a601" => :el_capitan
   end
 
   depends_on "check" => :build

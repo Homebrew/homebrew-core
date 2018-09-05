@@ -6,6 +6,7 @@ class Lilv < Formula
 
   bottle do
     cellar :any
+    sha256 "a1d348209b1ddb44062fb1503c4abbf7ee6173810e7f3a284cadc2e8925becc3" => :mojave
     sha256 "ea7d9e940e919d52ac64f21364a7498b0c25642ddc2056d83220e14eab4b01a3" => :high_sierra
     sha256 "4ee314969758f0d53d10eae544d858cca171cceacb5119698368ac9c6b8d7765" => :sierra
     sha256 "860fd323f1c16c13857584328ebd97b4603986d405e6f8fe64cfc2394084243d" => :el_capitan

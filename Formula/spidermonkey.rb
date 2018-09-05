@@ -5,11 +5,11 @@ class Spidermonkey < Formula
   version "1.8.5"
   sha256 "5d12f7e1f5b4a99436685d97b9b7b75f094d33580227aa998c406bbae6f2a687"
   revision 2
-
   head "https://hg.mozilla.org/mozilla-central", :using => :hg
 
   bottle do
     cellar :any
+    sha256 "2f0aefda519eaec139f47c54efe01b01c58883dbf1a0285f603c85635463f9f6" => :mojave
     sha256 "03c8a52da69c69fd7dba21cfb6fad8f3f95f6aa63b0fde61572c39124cbaea41" => :high_sierra
     sha256 "62193341691f6f35a1d844409c587b431aa7540b70c02d90451e2cb3623788de" => :sierra
     sha256 "5e7789a8ba4e3259364bd3ae827037ba83bf3a076633799bf8f5869b885db399" => :el_capitan

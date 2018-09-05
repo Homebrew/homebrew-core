@@ -7,6 +7,7 @@ class Gox < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "dcae7995f2a767bfad7e51926e5bdf1706c6e289870b7bea71b9d7e48728c244" => :mojave
     sha256 "ce011971b907d6924b60ea48d2beafea504d9ba4129e5c6ad089efea5f414e4f" => :high_sierra
     sha256 "a7e5f38c3b24a79734e12ad94dcf926cbc9cff4d7ffbff09053d86a14558d0ef" => :sierra
     sha256 "5372595ec41b8a5abb86f730b28f60cee89459bb1dfa32a4e8c6b599428c14b6" => :el_capitan

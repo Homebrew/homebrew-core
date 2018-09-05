@@ -5,6 +5,7 @@ class Bitchx < Formula
   sha256 "2d270500dd42b5e2b191980d584f6587ca8a0dbda26b35ce7fadb519f53c83e2"
 
   bottle do
+    sha256 "e247158fcd923d2d4737671a1d5c3f71481f280074361e720f0bae4faaa8d19a" => :mojave
     sha256 "42821be4a7f1514e6559a7104ac6c30d12633399b38f64581138940254352bd0" => :high_sierra
     sha256 "6ebed76309cfd3d35bcd700515e8fb97610102fbfa072a62e5769032c5e2dbe4" => :sierra
     sha256 "c76cb88aaa53b51248620ce021b6ea771adc77716b04291dcbaa36d98021b20b" => :el_capitan
@@ -38,7 +39,7 @@ class Bitchx < Formula
       (or a similar, compatible encoding)
     * A font capable of extended ASCII characters:
       See: https://www.google.com/search?q=perfect+dos+vga+437
-    EOS
+  EOS
   end
 
   test do

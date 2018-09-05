@@ -13,7 +13,8 @@ class Afsctool < Formula
   end
 
   # Fixes High Sierra "Expecting f_type of 17 or 23. f_type is 24" issue
-  # Acknowledged by upstream 12 Apr 2018 https://github.com/Homebrew/homebrew-core/pull/20898#issuecomment-380727547
+  # Acknowledged by upstream 12 Apr 2018:
+  # https://github.com/Homebrew/homebrew-core/pull/20898#issuecomment-380727547
   patch :DATA
 
   bottle do

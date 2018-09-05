@@ -7,6 +7,7 @@ class Mbelib < Formula
 
   bottle do
     cellar :any
+    sha256 "85f9f705e2e25ea205b637ad34bdc1e3d24734e646e6e6e53d39ab085a691303" => :mojave
     sha256 "710bc1a0458b96c12c0a3b675a3410b1d86257ceb36370fd94952891e1a9b744" => :high_sierra
     sha256 "45f0f9fafbe773fab43f621c62ce0c117c1d9a01fe32528b8b18fa6e94671a22" => :sierra
     sha256 "8cd7158aaccceca6fe78a8031f1d58189b269b0dee86a10c349d3d514c4e33e2" => :el_capitan

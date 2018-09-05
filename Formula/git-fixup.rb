@@ -1,18 +1,16 @@
 class GitFixup < Formula
   desc "Alias for git commit --fixup <ref>"
   homepage "https://github.com/keis/git-fixup"
-  url "https://github.com/keis/git-fixup/archive/v1.1.1.tar.gz"
-  sha256 "1843caf40fb54bfd746f966fc04fac68613fe8ec2f18b2af99f9d32a40ea0809"
-
+  url "https://github.com/keis/git-fixup/archive/v1.1.2.tar.gz"
+  sha256 "d34b5b45591bfd08e1091d7435b07b1a60af1e53463b94e9ce727a341ee6bdbb"
   head "https://github.com/keis/git-fixup.git", :branch => "master"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea6a6ead131ad504711f0905aa3899c60412f8a287ee1308aeb2824a10f17ba3" => :high_sierra
-    sha256 "478f6c76e15aa1fe183711e609fdc492bb9be5970a555b2b6a1ccfbbd3b96be0" => :sierra
-    sha256 "0145c568d255c20a0f728d14152aad8a83a0ceb25e9f833d016efc57d19191c8" => :el_capitan
-    sha256 "077bcf80be63e6da3bdd7699f6b82549d99014210ff8e015e5319234d8a9e75a" => :yosemite
-    sha256 "f0c6934dbd1317abae4ef8c0e1440d624dbc7025f06eb1006d654c0c2925cc5b" => :mavericks
+    sha256 "07f6718a5bd6bc0517a88793b05bb50e077cfb97567af3b495978b064d6582b7" => :mojave
+    sha256 "3c6e69dcc8a9dd6ad1bef0181b729cf310a8ff36c75f4671f0606272203dbf67" => :high_sierra
+    sha256 "3c6e69dcc8a9dd6ad1bef0181b729cf310a8ff36c75f4671f0606272203dbf67" => :sierra
+    sha256 "3c6e69dcc8a9dd6ad1bef0181b729cf310a8ff36c75f4671f0606272203dbf67" => :el_capitan
   end
 
   def install
@@ -25,7 +23,7 @@ class GitFixup < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     (testpath/"test").write "foo"
     system "git", "add", "test"

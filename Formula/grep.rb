@@ -7,10 +7,11 @@ class Grep < Formula
 
   bottle do
     cellar :any
-    sha256 "8dadfa6959ee17790ef8cc578981ede226b29339549c72d26eaaa1c1dab5e0e8" => :high_sierra
-    sha256 "75fd5efc0986b1771c3082e08b9dc2d8495546f81ad1a38a9a05f506c8046687" => :sierra
-    sha256 "867dffadb33d24d4a743df13c95ec08ff526f3be96b4965ae5e97ec08d46192d" => :el_capitan
-    sha256 "72ea449768eb5745712b40464b8eb1e7b9dc908ce26c8353e453681ee824ec89" => :yosemite
+    rebuild 1
+    sha256 "151b6433e22f799b0a3b4bcd68e98d96333a46fd1e0a4c7be2cf90c443207ff5" => :mojave
+    sha256 "17972d85803a24a567b92b1b25df46c5510684fe7ca64f29e277d27f9ca134b2" => :high_sierra
+    sha256 "65cb0f628d3678c4dd7bf6af1c736d717c1eb8975e203619123379447063fec1" => :sierra
+    sha256 "1556c6afb5cbc430e647e70fcd521ce42e203a0c5833cb6a2c6be4413b200c3b" => :el_capitan
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
@@ -34,6 +35,16 @@ class Grep < Formula
     system "./configure", *args
     system "make"
     system "make", "install"
+
+    if build.without? "default-names"
+      (libexec/"gnubin").install_symlink bin/"ggrep" => "grep"
+      (libexec/"gnubin").install_symlink bin/"gegrep" => "egrep"
+      (libexec/"gnubin").install_symlink bin/"gfgrep" => "fgrep"
+
+      (libexec/"gnuman/man1").install_symlink man1/"ggrep.1" => "grep.1"
+      (libexec/"gnuman/man1").install_symlink man1/"gegrep.1" => "egrep.1"
+      (libexec/"gnuman/man1").install_symlink man1/"gfgrep.1" => "fgrep.1"
+    end
   end
 
   def caveats
@@ -41,7 +52,15 @@ class Grep < Formula
       The command has been installed with the prefix "g".
       If you do not want the prefix, install using the "with-default-names"
       option.
-      EOS
+
+      If you need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
+
+      Additionally, you can access their man pages with normal names if you add
+      the "gnuman" directory to your MANPATH from your bashrc as well:
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+    EOS
     end
   end
 

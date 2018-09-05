@@ -1,16 +1,16 @@
 class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
-  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.22/pkcs11-helper-1.22.tar.bz2"
-  sha256 "fbc15f5ffd5af0200ff2f756cb4388494e0fb00b4f2b186712dce6c48484a942"
+  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.25.1/pkcs11-helper-1.25.1.tar.bz2"
+  sha256 "10dd8a1dbcf41ece051fdc3e9642b8c8111fe2c524cb966c0870ef3413c75a77"
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
   bottle do
     cellar :any
-    sha256 "ca5771cd93df0806db6938324c5726948111690190a34fed5ea972f4e7a181b9" => :high_sierra
-    sha256 "5b23024c360d1bb3bd84887d4983354d1b335fc84d693f7505e5633ee23b2411" => :sierra
-    sha256 "20249bea63ab70e0daafd8d398b26638cc2941caab4773360828bf775506c0f6" => :el_capitan
-    sha256 "e37790f0d0ca3f4fe29b0ecb88fe8c2e6711a5e020c96c2ffbd73a2aae3eec31" => :yosemite
+    sha256 "f3691f198461a3454a23d28ad1654300fab2a06f0f552bb40120f30ace2a310c" => :mojave
+    sha256 "8ef9dab823d0d222506ad95b9501797230e8ff6a79ac1bc45137de708f0862e8" => :high_sierra
+    sha256 "98e6529b783c275380faa8282d2d0bd17be5c3d65d41db184d652ea85978ed98" => :sierra
+    sha256 "2cf6979b8f750c8e58005c4150171a547b6b4a06bdd758fcf77bc52a05d48ac2" => :el_capitan
   end
 
   option "without-threading", "Build without threading support"
@@ -35,5 +35,21 @@ class Pkcs11Helper < Formula
     system "autoreconf", "--verbose", "--install", "--force"
     system "./configure", *args
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <stdlib.h>
+      #include <pkcs11-helper-1.0/pkcs11h-core.h>
+
+      int main() {
+        printf("Version: %08x", pkcs11h_getVersion ());
+        return 0;
+      }
+    EOS
+    system ENV.cc, testpath/"test.c", "-I#{include}", "-L#{lib}",
+                   "-lpkcs11-helper", "-o", "test"
+    system "./test"
   end
 end

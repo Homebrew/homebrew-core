@@ -1,13 +1,14 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.34.tar.bz2"
-  sha256 "5ca2227655ebf1ab2e252cee3eede219c758336394288ef301b93264b9411304"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.8.tar.bz2"
+  sha256 "719468eec56ac5b191626a0cb6238f3abe9117e80594890c246acdc89183ae49"
 
   bottle do
-    sha256 "09f29798f78a11c4e6b5813e955879e3af62bfad0904c982cc7f7f01519f816a" => :high_sierra
-    sha256 "f09063b27a891d9eaa8620fae6796109ce6c5a119e25887af781d2fad0604e02" => :sierra
-    sha256 "4592f2a5042fba0873e36dd54fa3f152b1df15df86fa1f308c01ea4184c2773c" => :el_capitan
+    sha256 "ac42f2a90467b4f7dbbbfb97a22d5a732c8f1533a5dc9c7e210bb72bbbf90038" => :mojave
+    sha256 "ed9407e3b8786f1840bde01d52a0c590b4a2a9c3ca0f4b91070a7ccdc7320f2f" => :high_sierra
+    sha256 "acd3639be39b4ab8c32e1045fe1da34ba6a9ed2629f088f6e77d591aa434bf7a" => :sierra
+    sha256 "b750b42ab0c76b316bfe9e247764d5c6a1fdb47584c9408a1e989c0d2b0ce850" => :el_capitan
   end
 
   head do
@@ -62,7 +63,7 @@ class Gegl < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/gegl-0.3", "-L#{lib}", "-lgegl-0.3",
+    system ENV.cc, "-I#{include}/gegl-0.4", "-L#{lib}", "-lgegl-0.4",
            "-I#{Formula["babl"].opt_include}/babl-0.1",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",

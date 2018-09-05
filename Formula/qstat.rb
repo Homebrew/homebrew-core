@@ -5,6 +5,7 @@ class Qstat < Formula
   sha256 "16f0c0f55567597d7f2db5136a0858c56effb4481a2c821a48cd0432ea572150"
 
   bottle do
+    sha256 "1225042ca663297e1a38ab1da3a13998fa169dea184c569a17c3f0905894a64f" => :mojave
     sha256 "a1eb6ad1e866332084773b799ae547f75d4b9f9684ce44d6177c8ee6d0bf3778" => :high_sierra
     sha256 "816789bcb602cd112a64dadad943752fed3c7f32785e60a10e486026d5b26adc" => :sierra
     sha256 "2f674bb005dab3dcce93c131e5b238f0813638a974f82c85bffdbbeef49eb698" => :el_capitan

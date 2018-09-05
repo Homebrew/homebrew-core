@@ -7,6 +7,7 @@ class Slacknimate < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "2cae878e05448d6f0a7679319269e7c95fb2b879f4620b84a6b2b35d6ee739f4" => :mojave
     sha256 "6d93b3bbccb0190be8a2702d7fa3e587fa768110567e76b2a43f167381981707" => :high_sierra
     sha256 "f546be3bc842ef924e62c2dee561acdf114ee5206253d6e06a848eefd98dcafe" => :sierra
     sha256 "e07155d74980ed24bf07acce56c890a86668eb359aecae8dae6eb6973c38cfd8" => :el_capitan

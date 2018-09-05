@@ -22,7 +22,7 @@ class Nodebrew < Formula
 
     To use Homebrew's directories rather than ~/.nodebrew add to your profile:
       export NODEBREW_ROOT=#{var}/nodebrew
-    EOS
+  EOS
   end
 
   test do

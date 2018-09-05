@@ -1,14 +1,14 @@
 class Nagios < Formula
   desc "Network monitoring and management system"
   homepage "https://www.nagios.org/"
-  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.3.4/nagios-4.3.4.tar.gz"
-  sha256 "c90b7812d9e343db12be19a572e15c415c5d6353a91c5e226e432c2d4aaa44f1"
+  url "https://downloads.sourceforge.net/project/nagios/nagios-4.x/nagios-4.4.2/nagios-4.4.2.tar.gz"
+  sha256 "3418923f326aa86dc8c84cfd0df788fa495a90d772f8071acf40fdbef0736853"
 
   bottle do
-    sha256 "d1d4071289fd037542a4f36f205ba522d3aae397e5379def5c402e6befb19f72" => :high_sierra
-    sha256 "979dbfa690a58f825c7c06376e2c27ed0b680a1415a996a4666325a2dfaf9ed3" => :sierra
-    sha256 "0f33981e12c49a84137d57bfd3c9163da1632ab9c1a9ab97f699d4a7f722811a" => :el_capitan
-    sha256 "a521392cf589fab9d9dda30b4cb1e5a7c23baf22b898114a3d65b40a830b2a81" => :yosemite
+    sha256 "9d36b9cbf38eb6eba90297622401db6a0e9d7d1f1ad183b4bb2f2cdf91702a13" => :mojave
+    sha256 "0abc72531983bb73c1bf18ff524c3eda9dd011ef3010a4cecf9350169b8a4208" => :high_sierra
+    sha256 "289f19421ed2ca7f36b159fcaffb9167400da75f427d34f682419c8cede08726" => :sierra
+    sha256 "584570d4e0cd38b238fcd53b84fe70035dd664ba56e349d598f5a6bc3e6b63e2" => :el_capitan
   end
 
   depends_on "gd"
@@ -102,7 +102,7 @@ class Nagios < Formula
 
       open http://localhost/nagios
 
-    EOS
+  EOS
   end
 
   plist_options :startup => true, :manual => "nagios #{HOMEBREW_PREFIX}/etc/nagios/nagios.cfg"
@@ -129,7 +129,7 @@ class Nagios < Formula
       <string>/dev/null</string>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

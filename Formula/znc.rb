@@ -1,13 +1,14 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
-  url "https://znc.in/releases/archive/znc-1.6.6.tar.gz"
-  sha256 "7fb841bc71dc1749b1dc081e9eaf22ceb56ebb03c6b1d8804a4f9eb8bbd59525"
+  url "https://znc.in/releases/archive/znc-1.7.1.tar.gz"
+  sha256 "44cfea7158ea05dc2547c7c6bc22371e66c869def90351de0ab90a9c200d39c4"
 
   bottle do
-    sha256 "cccf19254d52f863a4601feff82e27be9609aa908f735481bdb04e6db5154fa3" => :high_sierra
-    sha256 "ad84c8a556a11af8f22cdfe48c6698a102a3e3db7204b6783a032925e429295a" => :sierra
-    sha256 "ea1dcaa03bc34f801d0ee5c2c7d357c26a04fde92c02bed347c00f40f5f96c9b" => :el_capitan
+    sha256 "6e0e342f1ad9e82d60324026d9e96b25e3b23e3c5ab4407c19d76cc5bba77e08" => :mojave
+    sha256 "b5479f556dbf81da0072d6d3687ece4de9eb44646ba2d12d291f365ece7645a2" => :high_sierra
+    sha256 "9c6a0c69290b5413baadaff4322e28866c7faae43716b162a509d45194230004" => :sierra
+    sha256 "6e69785ddb3031400dc95fc860387fdc312f0db4be8d74d192cdeb5b4227670a" => :el_capitan
   end
 
   head do
@@ -73,7 +74,7 @@ class Znc < Formula
         <integer>300</integer>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

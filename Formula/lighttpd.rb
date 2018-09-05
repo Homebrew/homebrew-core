@@ -1,13 +1,14 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.48.tar.xz"
-  sha256 "0f8ad5aac7529d7b948b9d7e8cd0b4a9e177309d85d6bf6516e28e6e40d74f36"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.50.tar.xz"
+  sha256 "29378312d8887cbc14ffe8a7fadef2d5a08c7e7e1be942795142346ad95629eb"
 
   bottle do
-    sha256 "b7b7b0351d2ad65f6c71c594f4df2f865c31834007e0811d99356c339c53c3e4" => :high_sierra
-    sha256 "2eaa0285cf8e0e4616b804e5a7d4059e0d8549e90c167dfc8bea2ef269706f80" => :sierra
-    sha256 "c8aaafd41d8b8bdd4b823a09694246752b64cd3db9a8557e8c4c0d0716372785" => :el_capitan
+    sha256 "7cf8159d02248fa5ea43fbfa417806c2770257e156962ee3cf081632635ce0c6" => :mojave
+    sha256 "9434517884196a66f4638ef886428e4ebb0220d68a44e987fb82b9e4015e5741" => :high_sierra
+    sha256 "7cf2702a5e55fd0c304b6f6ebb2f4370a3149afedddb0e3b6e221f6f292cf6a7" => :sierra
+    sha256 "c7d4f9a437e97d8b085d499dc39e7b78b753291cfbed93dfd7d9ca13f9e48bd4" => :el_capitan
   end
 
   option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
@@ -17,6 +18,7 @@ class Lighttpd < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "openldap"
   depends_on "pcre"
   depends_on "openssl"
   depends_on "lua@5.1" => :optional
@@ -26,19 +28,19 @@ class Lighttpd < Formula
   MAX_FDS = 512
 
   def config_path
-    etc+"lighttpd"
+    etc/"lighttpd"
   end
 
   def log_path
-    var+"log/lighttpd"
+    var/"log/lighttpd"
   end
 
   def www_path
-    var+"www"
+    var/"www"
   end
 
   def run_path
-    var+"lighttpd"
+    var/"lighttpd"
   end
 
   def install
@@ -100,7 +102,7 @@ class Lighttpd < Formula
 
     The default port has been set in #{config_path}/lighttpd.conf to 8080 so that
     lighttpd can run without sudo.
-    EOS
+  EOS
   end
 
   plist_options :manual => "lighttpd -f #{HOMEBREW_PREFIX}/etc/lighttpd/lighttpd.conf"
@@ -141,10 +143,10 @@ class Lighttpd < Formula
       </dict>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do
-    system "#{bin}/lighttpd", "-t", "-f", config_path+"lighttpd.conf"
+    system "#{bin}/lighttpd", "-t", "-f", config_path/"lighttpd.conf"
   end
 end

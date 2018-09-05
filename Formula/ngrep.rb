@@ -6,13 +6,15 @@ class Ngrep < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca38ebeb13f8eb4bbccd30f73e7dc7fc50147b1be878bdc19440af3ee062ef02" => :high_sierra
-    sha256 "0343c66af5a27bfd98dffd1e81fb73cca734b90996bc2d66761dc942c1ad729d" => :sierra
-    sha256 "e01abe517e9dca78fe2e89f787ef373be7cf00aef686e221b14a8c9fe2b48355" => :el_capitan
+    rebuild 1
+    sha256 "0d1948b2fbf7c60fb6e46f15d32a51a3f7754e7372924e4e984cce98282ca281" => :mojave
+    sha256 "390424274552105e21b3f3e926b933322a09333cee02274d2f84a5e23f4ea74d" => :high_sierra
+    sha256 "0e915d1e3b7e7da8e58a48457de4e40359cb0f870eb45a77302d36c1b767d044" => :sierra
+    sha256 "d057c167d3b695ff915c13fd39e3cd7b3e6e2a5b3f82bce6bb8ea4c030e8f6e7" => :el_capitan
   end
 
   def install
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
     system "./configure", "--enable-ipv6",
                           "--prefix=#{prefix}",
                           # this line required to make configure succeed

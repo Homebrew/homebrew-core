@@ -3,14 +3,14 @@ class Bgpstream < Formula
   homepage "https://bgpstream.caida.org/"
   url "https://bgpstream.caida.org/bundles/caidabgpstreamwebhomepage/dists/bgpstream-1.1.0.tar.gz"
   sha256 "b89cef45bcc5ae4011aa3c42f689ae9fd7b5c8fd25e06ab18589577b5e077f89"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "f6da890ff38f26be2528dce9a095a30864a9e0741b0350ac415472751479d8e0" => :high_sierra
-    sha256 "02ddb40b74b138a5838d5bdcdb44caa37d1974abffe129ad37957c1bd8dd4152" => :sierra
-    sha256 "5a94e3a2f3e36a0aa93c9c06e33d126079307080a7a8237cf719c9eb20c23272" => :el_capitan
-    sha256 "c7fa0c3adcebc76cafb1cdb56116e8fcd111a62d144c82a00226676e5f6a1950" => :yosemite
-    sha256 "a0a45f0c9c135d94c64772d273bf0e3cb462eb6b83663388b343665f0894015a" => :mavericks
+    sha256 "5de3479fc0a9c0d4e97c852584ac29f0b0df86302dba981c1120a6b94bdbe58b" => :mojave
+    sha256 "f6db5e754c3c44b70aa1f2af5436fce55ec8046d70d51fcce8f6f2f7e4bfa4a8" => :high_sierra
+    sha256 "56f712d3a9f3540b0056c9496c9a038b195eddcde7656cf8599d3a450858f12f" => :sierra
+    sha256 "28b012b8368630b46e02d0d94c9099e06db88022f02ce0bee6596fdd21755649" => :el_capitan
   end
 
   depends_on "wandio"

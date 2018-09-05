@@ -1,15 +1,15 @@
 class Webdis < Formula
   desc "Redis HTTP interface with JSON output"
   homepage "https://webd.is/"
-  url "https://github.com/nicolasff/webdis/archive/0.1.3.tar.gz"
-  sha256 "cfcfca786db8ccf6a7779945405d3591567f50bc78bde78a9624982575bc36f2"
+  url "https://github.com/nicolasff/webdis/archive/0.1.4.tar.gz"
+  sha256 "2e384eae48cfc2e4503e3311c61d4790e5d3b3ab5cf82ec554c0bef5d84c6807"
 
   bottle do
     cellar :any
-    sha256 "58a95727b9e25d21fbdd5d4547ec6a419fbde87990e6ce2cfc24b6707a512534" => :high_sierra
-    sha256 "19f382600f096b6787d6bacf561edf8e68100ff275bc4c4df157afaa91d8aa3b" => :sierra
-    sha256 "07d2d4499db3ad6dcccb16261d8c45e74a8ec4b9d23ecad9e60f31a06ca56559" => :el_capitan
-    sha256 "102e1b2a88158fb3ada215c432b1dbbf3d1f1d8a692e784baa9b5277f717dce9" => :yosemite
+    sha256 "212a9557b0dc359e000c970e6d7810f5511fc9da3e207adcec92e80c349bed02" => :mojave
+    sha256 "6d657c81a720f4891f8d04e3f7d575cfe1df10c70a30047ce06de33ff8fd57fc" => :high_sierra
+    sha256 "3d8b342f5638b134799bd307af578c0d95a28ccd3ecb8060749a6c026140510e" => :sierra
+    sha256 "2b8ba2575cd03917af7362218324fbefa38336306565875565f40daa20b0f050" => :el_capitan
   end
 
   depends_on "libevent"
@@ -55,7 +55,7 @@ class Webdis < Formula
         <string>#{var}</string>
       </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

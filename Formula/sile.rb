@@ -5,14 +5,15 @@ class Sile < Formula
   url "https://github.com/simoncozens/sile.git",
       :revision => "befcd813e1dd46f7af6d11ffd0b0ee525e8db1fc"
   version "0.9.5-alpha"
-  revision 4
+  revision 5
   head "https://github.com/simoncozens/sile.git"
 
   bottle do
     cellar :any
-    sha256 "025f5c7b9073e61b21d3451d7add001613b78c22f4a880ae303249a5675c7ee6" => :high_sierra
-    sha256 "f1492a384c604a8bc9c652b08b4e981c7d6cefa1a3e2d6a8fcdddc4d14df9d9c" => :sierra
-    sha256 "1f059d8322cf7a0c6d7da2d342cd731586eba09654d264a5262b67ab1b3fe9f5" => :el_capitan
+    rebuild 1
+    sha256 "949bf321f680df35a69a49c4c129815cefa396cd58f4e4dd538b99ad25176ffc" => :high_sierra
+    sha256 "243d2626d6d80f1083f049b7561818ace9330958358e617fcfb5ff3dde3fbbed" => :sierra
+    sha256 "28ac8b22cdd7cfd21a48d5632b780bc6c613319190785549a17b99f8d9ed93da" => :el_capitan
   end
 
   # These three should return to being head-only when >0.9.4 is released.
@@ -21,6 +22,7 @@ class Sile < Formula
   depends_on "libtool" => :build
 
   depends_on "pkg-config" => :build
+  depends_on "luarocks" => :build
   depends_on "harfbuzz"
   depends_on "fontconfig"
   depends_on "libpng"

@@ -1,27 +1,18 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.3.0.tar.bz2"
-  sha256 "aa67cd4db8404a13ed4ed1097dd850203dab8a327372f72bb140df11ef7eba08"
+  url "https://downloads.powerdns.com/releases/dnsdist-1.3.2.tar.bz2"
+  sha256 "0be7704e5a418a8ed6908fc110ecfb9bc23f270b5af8a5525f1fa934ef0e6bc4"
 
   bottle do
-    sha256 "7aacb96a39ca2fc3f8bf08ca62f2a2bd7bcff290f06cfb0517ba552e9bdf5cdb" => :high_sierra
-    sha256 "bf56956092df94ba2ede745dff8ea37fb5059f252593cb4dc7c0699fe3b081ac" => :sierra
-    sha256 "009d81af1fcec266485d5706bf9df16850346d5ac0285a75d695c12a3ef49869" => :el_capitan
+    sha256 "62320372f4328e35695e03165f4565a2a229ecbc6b9d4a9a8943fbe68a010ff9" => :high_sierra
+    sha256 "8665f0e58905c19d1270b14914b9373ba286abbc4891307f91c67e7ab1327e53" => :sierra
+    sha256 "02106300b645be33f32a0bd38dadabce717a5bea74a75dcd353854d3b629580c" => :el_capitan
   end
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
   depends_on "lua"
-
-  # Remove for > 1.3.0
-  # Boost 1.67 compatibility; backported by Jan Beich in FreeBSD
-  # Upstream fix from 16 Mar 2018 "Logging: have a global g_log"
-  # See https://github.com/PowerDNS/pdns/commit/e6a9dde524b57bb57f1d063ef195bb1e2667c5fc
-  patch :p0 do
-    url "https://raw.githubusercontent.com/freebsd/freebsd-ports/6fa3dca03cf2e321018d6894ddce6f7f33b64305/dns/dnsdist/files/patch-boost-1.67"
-    sha256 "58f2e42ccd55e97429e3692aeeda6c9f24e4c4300bf384eaffc12ac3e8079dfb"
-  end
 
   def install
     # error: unknown type name 'mach_port_t'

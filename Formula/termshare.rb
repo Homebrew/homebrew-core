@@ -6,12 +6,12 @@ class Termshare < Formula
   url "https://github.com/progrium/termshare/archive/v0.2.0.tar.gz"
   sha256 "fa09a5492d6176feff32bbcdb3b2dc3ff1b5ab2d1cf37572cc60eb22eb531dcd"
   revision 1
-
   head "https://github.com/progrium/termshare.git"
 
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "bb86a376d3ec20e2ccfe1359f90f394b515dedd9d2015a8e0e753704ffbefbdf" => :mojave
     sha256 "9f20373c2b495c9308ed1b798d1d928e06318cbe996093b97e0126b038e76085" => :high_sierra
     sha256 "5d883c6747f478ab161ca648923a7397a782f437bb59d660df6a252b21f62e99" => :sierra
     sha256 "c540732aab70ec29b60459c19bb4ee55c0584b3a63476473219a115d2ec380af" => :el_capitan

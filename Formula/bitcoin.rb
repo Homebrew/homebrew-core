@@ -1,15 +1,14 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.16.0/bitcoin-0.16.0.tar.gz"
-  sha256 "8cbec0397d932cab7297a8c23c918392f6eebd410646b4b954787de9f4a3ee40"
-  revision 2
+  url "https://bitcoin.org/bin/bitcoin-core-0.16.2/bitcoin-0.16.2.tar.gz"
+  sha256 "1910c58b7d8e13acbd05b0e8fd9b4b61cbac5776f058ee10bc80c1d2a7c707d8"
 
   bottle do
     cellar :any
-    sha256 "0df28afa3424cd564072c92d92047e49f82136c02509b2979e645dd3559a7922" => :high_sierra
-    sha256 "de00614e3315fb047faa56140735c153d967b98150fba07a4b9bbd25a05739b2" => :sierra
-    sha256 "c1d5a0641573188ea59a06ed75498e4b779c5067662d07c853c1223dd085e3c1" => :el_capitan
+    sha256 "7bf881724620ca2fe46e336af30236fbeecdbcb7d158bc04d86ea34c7e7f83ff" => :high_sierra
+    sha256 "9b6fe31e4ac46d30fb87bb72740ff9df0366547177ac57a845c9c998e24d340d" => :sierra
+    sha256 "32b9c3faf016814ab252904d12635bbc399b469eacf0085f88e3f031d28f6a4b" => :el_capitan
   end
 
   head do
@@ -62,7 +61,7 @@ class Bitcoin < Formula
       <true/>
     </dict>
     </plist>
-    EOS
+  EOS
   end
 
   test do

@@ -7,6 +7,7 @@ class CernNdiff < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "71c875b8f5dd7af66d370f862fcdabcd6586158c16b611c3488d8fc6ce0b9397" => :mojave
     sha256 "968aec80d215b1ee9b73ebd4434c090771c9a729a232fe5974af89348476594c" => :high_sierra
     sha256 "3d9d4e7b36137b7cdef5f3f5b63e8ec33400766c8d104e3f8849d8eb3781d804" => :sierra
     sha256 "8e7e455e086ec860d08e709b2db00da57a70a9275e5060f4969cd145fa624c56" => :el_capitan

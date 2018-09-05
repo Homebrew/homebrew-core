@@ -1,7 +1,7 @@
 class Ffmpeg2theora < Formula
   desc "Convert video files to Ogg Theora format"
   homepage "https://v2v.cc/~j/ffmpeg2theora/"
-  revision 1
+  revision 2
 
   stable do
     url "https://v2v.cc/~j/ffmpeg2theora/downloads/ffmpeg2theora-0.30.tar.bz2"
@@ -12,11 +12,10 @@ class Ffmpeg2theora < Formula
 
   bottle do
     cellar :any
-    sha256 "5676c96cbb017ac656477e71e2e28c8ba4fa1448e2dbbb63558fd40089a6b5d0" => :high_sierra
-    sha256 "211e0c77738398710c757d4d9ea0380485a0a7afef072b3940a9fb0408912c7f" => :sierra
-    sha256 "a5083a14925664a830e8af88404e4668e5e48546c8ca283f5494fe26dca76f86" => :el_capitan
-    sha256 "1d40350a4a67d4ac2da6c55c67d45adee2ca537e1ecd1ccbb59d0c22968fca79" => :yosemite
-    sha256 "8e750ddb6435e83d99f6b77ed4736743f361ade2a89efd11868e67b18c114ece" => :mavericks
+    sha256 "a517dd9bad22e77eb93ca62d3ad06f47f2a75c0104e651ae610b12158e9b1788" => :mojave
+    sha256 "e77079f5d599e4caeb3db3892d16234436918a6c4d8fe2cb2adb3b263ca57250" => :high_sierra
+    sha256 "f3dac1a662858bce6a7249233075612405fc438e78d81c4076daeb0e15d445db" => :sierra
+    sha256 "a85645fc31da1e0180c316eb93f8ad54e903d4c61bf3ef42aab17e5d6b5cd21c" => :el_capitan
   end
 
   head do

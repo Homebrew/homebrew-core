@@ -1,14 +1,15 @@
 class VowpalWabbit < Formula
   desc "Online learning algorithm"
   homepage "https://github.com/JohnLangford/vowpal_wabbit"
-  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.5.0.tar.gz"
-  sha256 "f90167312b0e12e85331e4fdd790268eab508c2a59764ae164bacc7cd6149732"
+  url "https://github.com/JohnLangford/vowpal_wabbit/archive/8.6.1.tar.gz"
+  sha256 "452c3e83b73fd67f5e9cfae8bfbaf398cda73dc688186b376e6106c376ec5eb1"
 
   bottle do
     cellar :any
-    sha256 "aca04f30b22b854907c635cc93f78c51ac37b5da4ccd4cecece365e53cd54d19" => :high_sierra
-    sha256 "7d343e1b5fd2cc0a9510e444b25ba402ae383f7b5b50307408bb3af6436480dd" => :sierra
-    sha256 "46c458b48728a214b102e724dcee15d8c2f6a25c1ec29ac87c5182529564abca" => :el_capitan
+    sha256 "de51b144ef201d85cb2ff3edc21e4903186a5acf890fbe2032c1ae405cd61e18" => :mojave
+    sha256 "48a939d6399a4ad1ed2f3f0babd8d7a9edc5a6e801683b5b06f12b5f0daf5d55" => :high_sierra
+    sha256 "18283653fa6b9fdfafdf1361a86b43bf1f56a609934499e0f31634b960b69862" => :sierra
+    sha256 "23598d455b5a62bdf8f65df7b266b07be980738cfe69f664e5f1cb110ec72cf1" => :el_capitan
   end
 
   depends_on "autoconf" => :build

@@ -1,9 +1,8 @@
 class Titlecase < Formula
   desc "Script to convert text to title case"
   homepage "http://plasmasturm.org/code/titlecase/"
-  url "https://github.com/ap/titlecase/archive/v1.003.tar.gz"
-  sha256 "3eb87fe415a830386c344b0a8a25d7630bd5d9b15b662e00fe11f3adcb78635c"
-
+  url "https://github.com/ap/titlecase/archive/v1.004.tar.gz"
+  sha256 "fbaafdb66ab4ba26f1f03fa292771d146c050fff0a3a640e11314ace322c2d92"
   head "https://github.com/ap/titlecase.git"
 
   bottle :unneeded

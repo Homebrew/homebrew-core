@@ -1,14 +1,14 @@
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.14.0.tar.xz"
-  sha256 "3fb9ea5fc8a2de4b3eaec4128d71c6a2d81dd19befe1cd87cb833b98bcb542d1"
-  revision 1
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.14.2.tar.xz"
+  sha256 "55e097d9d93921fdcf7abb0ff92d23b21dd9098e632f1ba433603b3bd1cf3d69"
 
   bottle do
-    sha256 "c044dce7cd68dcd9a1771c580ccc09c7a112c11cf0157a685c200b79b47ddef7" => :high_sierra
-    sha256 "cc8902278d517194478ed6beabba0920cced90b9b502def335f6bb3002ada28d" => :sierra
-    sha256 "a89ea2c077a7d99a81b549af1afe7b663249756bab460b0cc5c08edbf10b9e36" => :el_capitan
+    sha256 "46cc39665b41cd6e46d2c68eddcaa1888daf33954fcf5ec8a83c070e9f4c6d03" => :mojave
+    sha256 "7878c28501220a493d75fa0c29ad6563b6219c8659914e2d1e4be905c6126450" => :high_sierra
+    sha256 "dbc63b0a8bc0c244f098d1bbc25204b77c2725a3dcc0a77c4baf371856e667c1" => :sierra
+    sha256 "a841c09a70c36550073c252a5e4c6d017401da21a61c967b739f374e229b8733" => :el_capitan
   end
 
   head do

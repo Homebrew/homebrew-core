@@ -6,6 +6,7 @@ class Mp3val < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4ca5fe184a5427aea0df6910d654955c162268f803c1c372d11dd2305ad67513" => :mojave
     sha256 "f17a5c03d59e7665d2b85db559561a3375ff03a6e02911514a0adde35e188a06" => :high_sierra
     sha256 "649cf78ba7bc387f346a6685b8c83bec495a5e75ea0fa6d93135cc36ec898f5f" => :sierra
     sha256 "d13a9b31c885d1704a0cc5e1ff6b995acd616248abcf5276fc068b78f7be785f" => :el_capitan

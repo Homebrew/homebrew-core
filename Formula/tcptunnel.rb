@@ -6,6 +6,7 @@ class Tcptunnel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "4084370b62478a4a3bc1943035542dd9b4d452b606ae9bf738bbc4fa53e19fd5" => :mojave
     sha256 "b70d7f63371b5a638fa4d2f0e1cc3f27995f3f20ca1aa1712bb711bb6c9b928c" => :high_sierra
     sha256 "8243b6410ae3d61df3d9c400be33c24b8da0fd0807161a02f38440c18d984661" => :sierra
     sha256 "e387a861c4a9ceb3014883c851cdc43a56eddba635e1d313d976095ff78bb686" => :el_capitan

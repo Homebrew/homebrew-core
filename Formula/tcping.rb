@@ -7,6 +7,7 @@ class Tcping < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "7e63d5e3df764f4b351a2d168c13de68e0725b9520c21880e83a4ad6145f13c5" => :mojave
     sha256 "bb3e69e0576e29ca536a5b88fc5d14fddf400e94b2e6a27e4e2f6629a500c292" => :high_sierra
     sha256 "96b44e7048d867ee871abd1728e6672490e230ab0070c00844c9991e4f12fc70" => :sierra
     sha256 "2fb4f218abf6de64e4a8ee49447567aa0666f212dfb49f45a4f8d8f30ef40076" => :el_capitan
