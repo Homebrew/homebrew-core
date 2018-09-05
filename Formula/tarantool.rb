@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.1.63.tar.gz"
-  sha256 "2d035e33f1abbdc35fc3ecce2e93e506e52362a9d2474d31b19daa4289445683"
+  url "https://download.tarantool.org/tarantool/1.9/src/tarantool-1.9.2.0.tar.gz"
+  sha256 "0b59c3aff12a5f1ff41a0073cf65101e20ba20bcc65b460b99f76c58d545e52d"
   head "https://github.com/tarantool/tarantool.git", :branch => "2.0", :shallow => false
 
   bottle do
@@ -20,6 +20,8 @@ class Tarantool < Formula
     sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
 
     args = std_cmake_args
+
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
