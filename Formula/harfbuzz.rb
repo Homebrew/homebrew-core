@@ -28,6 +28,8 @@ class Harfbuzz < Formula
   depends_on "cairo"
   depends_on "glib"
 
+  needs :cxx11
+
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
     sha256 "9535d35dab9e002963eef56757c46881f6b3d3b27db24eefcc80929781856c77"
