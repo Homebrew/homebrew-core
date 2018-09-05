@@ -14,33 +14,20 @@ class Pulseaudio < Formula
   head do
     url "https://anongit.freedesktop.org/git/pulseaudio/pulseaudio.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
-    depends_on "intltool" => :build
+    depends_on "automake" => :build
     depends_on "gettext" => :build
+    depends_on "intltool" => :build
   end
-
-  option "with-nls", "Build with native language support"
-
-  deprecated_option "without-speex" => "without-speexdsp"
 
   depends_on "pkg-config" => :build
-
-  if build.with? "nls"
-    depends_on "intltool" => :build
-    depends_on "gettext" => :build
-  end
-
-  depends_on "libtool"
   depends_on "json-c"
   depends_on "libsndfile"
   depends_on "libsoxr"
+  depends_on "libtool"
   depends_on "openssl"
-  depends_on "speexdsp" => :recommended
+  depends_on "speexdsp"
   depends_on "glib" => :optional
-  depends_on "gconf" => :optional
-  depends_on "gtk+3" => :optional
-  depends_on "jack" => :optional
 
   fails_with :clang do
     build 421
@@ -54,12 +41,11 @@ class Pulseaudio < Formula
       --prefix=#{prefix}
       --enable-coreaudio-output
       --disable-neon-opt
+      --disable-nls
+      --disable-x11
       --with-mac-sysroot=#{MacOS.sdk_path}
       --with-mac-version-min=#{MacOS.version}
-      --disable-x11
     ]
-
-    args << "--disable-nls" if build.without? "nls"
 
     if build.head?
       # autogen.sh runs bootstrap.sh then ./configure
