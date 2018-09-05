@@ -1,8 +1,8 @@
 class TemplateGlib < Formula
   desc "GNOME templating library for GLib"
   homepage "https://gitlab.gnome.org/GNOME/template-glib"
-  url "https://download.gnome.org/sources/template-glib/3.28/template-glib-3.28.0.tar.xz"
-  sha256 "6c74426efd4358fd91a52c32ed030c0cad1633f900fd55ac81a8b3e4026171a1"
+  url "https://download.gnome.org/sources/template-glib/3.30/template-glib-3.30.0.tar.xz"
+  sha256 "cf690d391bfc71036e31867df6da90315a3db83f739a8657f580b941b96e3649"
 
   bottle do
     sha256 "dc15b3cbf2afe6eba04e8e54e46842040423f488c9ad94ef19690b930b7c282b" => :mojave
@@ -20,8 +20,6 @@ class TemplateGlib < Formula
   depends_on "gobject-introspection"
 
   def install
-    ENV.refurbish_args
-
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", "-Dwith_vapi=false", ".."
       system "ninja"
