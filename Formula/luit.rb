@@ -18,6 +18,6 @@ class Luit < Formula
   end
 
   test do
-    system "#{bin}/luit", "-encoding=GBK", "ls "
+    system "#{bin}/luit", "--encoding=GBK", "ls "
   end
 end
