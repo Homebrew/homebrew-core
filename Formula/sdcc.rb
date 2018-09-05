@@ -12,21 +12,11 @@ class Sdcc < Formula
     sha256 "560804d50e214be12ce4417fd5edc5137d2d987c3d1617d4659284d8b614a1bf" => :el_capitan
   end
 
-  option "with-avr-port", "Enables the AVR port (UNSUPPORTED, MAY FAIL)"
-  option "with-xa51-port", "Enables the xa51 port (UNSUPPORTED, MAY FAIL)"
-
-  deprecated_option "enable-avr-port" => "with-avr-port"
-  deprecated_option "enable-xa51-port" => "with-xa51-port"
-
   depends_on "gputils"
   depends_on "boost"
 
   def install
-    args = %W[--prefix=#{prefix}]
-    args << "--enable-avr-port" if build.with? "avr-port"
-    args << "--enable-xa51-port" if build.with? "xa51-port"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
     system "make", "all"
     system "make", "install"
     rm Dir["#{bin}/*.el"]
