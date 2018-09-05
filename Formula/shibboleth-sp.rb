@@ -6,10 +6,10 @@ class ShibbolethSp < Formula
   revision 2
 
   bottle do
-    sha256 "12dd8db6bf6142c6fb2be24c5513e9b27cae0830b234f52a40cd92c3a39129a9" => :mojave
-    sha256 "c135bc6082bdfcf28d4db188a0263d08e84fb11bb79a79d785aca8f16da7ef05" => :high_sierra
-    sha256 "2d2dcdeeaf7b23fa5fb09633dc73804bd0b917dfa6bf143fae096fcb3a39ef74" => :sierra
-    sha256 "ce407e628b733ce46224e30cd82cb33e850a727df71b1901ec981f651b274e08" => :el_capitan
+    sha256 "cfa12a8f9c4c972451927b7aec45dc0e9409773ba8c81307a2dba9dcb1b4e772" => :mojave
+    sha256 "8a541caff18ccbde586b7a699e233b738a688cdb22dbd8c940ce4fc544393f81" => :high_sierra
+    sha256 "4476bda34101304e690b5e7c98df4ef5e5cbb31d30c4043329d27e18900cc430" => :sierra
+    sha256 "c8d4e77021c1b2b576df886d36d930aedc025d1918de55dcc33276847489a5d7" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
