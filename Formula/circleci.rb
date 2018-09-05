@@ -39,7 +39,8 @@ class Circleci < Formula
     # assert basic script execution
     assert_match /#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip
     # assert script fails because 2.1 config is not supported for local builds
-    output = shell_output("echo '{version: 2.1}' | #{bin}/circleci build - 2>&1", 255)
+    (testpath/".circleci.yml").write("{version: 2.1}")
+    output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
     assert_match "Local builds do not support that version at this time", output
   end
 end
