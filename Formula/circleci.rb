@@ -3,9 +3,8 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag => "v0.1.1430",
-      :revision => "9788d7512e7e4018f3f98f471d874cab66475175"
-  revision 1
+      :tag => "v0.1.2061",
+      :revision => "3eae4e7eaa2f09f44a8bf812a292de729d1b681d"
 
   bottle do
     cellar :any_skip_relocation
@@ -38,8 +37,9 @@ class Circleci < Formula
   test do
     # assert basic script execution
     assert_match /#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip
-    # assert script fails for missing docker (docker not on homebrew CI servers)
-    output = shell_output("#{bin}/circleci build 2>&1", 255)
-    assert_match "failed to pull latest docker image", output
+    # assert script fails because 2.1 config is not supported for local builds
+    (testpath/".circleci.yml").write("{version: 2.1}")
+    output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
+    assert_match "Local builds do not support that version at this time", output
   end
 end
