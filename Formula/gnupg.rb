@@ -11,51 +11,31 @@ class Gnupg < Formula
     sha256 "92b34de0e0713e1a5179a5c82ee4aec1579d798a6a2e5772db2716f30d791d9b" => :el_capitan
   end
 
-  option "with-gpgsplit", "Additionally install the gpgsplit utility"
-  option "with-gpg-zip", "Additionally install the gpg-zip utility"
-  option "with-large-secmem", "Additionally allocate extra secure memory"
-  option "without-libusb", "Disable the internal CCID driver"
-
-  deprecated_option "without-libusb-compat" => "without-libusb"
-
   depends_on "pkg-config" => :build
   depends_on "sqlite" => :build if MacOS.version == :mavericks
-  depends_on "npth"
-  depends_on "gnutls"
-  depends_on "libgpg-error"
-  depends_on "libgcrypt"
-  depends_on "libksba"
-  depends_on "libassuan"
-  depends_on "pinentry"
-  depends_on "gettext"
   depends_on "adns"
-  depends_on "libusb" => :recommended
-  depends_on "readline" => :optional
-  depends_on "encfs" => :optional
+  depends_on "gettext"
+  depends_on "gnutls"
+  depends_on "libassuan"
+  depends_on "libgcrypt"
+  depends_on "libgpg-error"
+  depends_on "libksba"
+  depends_on "libusb"
+  depends_on "npth"
+  depends_on "pinentry"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --sbindir=#{bin}
-      --sysconfdir=#{etc}
-      --enable-symcryptrun
-      --with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry
-      --enable-all-tests
-    ]
-
-    args << "--disable-ccid-driver" if build.without? "libusb"
-    args << "--with-readline=#{Formula["readline"].opt_prefix}" if build.with? "readline"
-    args << "--enable-large-secmem" if build.with? "large-secmem"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--sbindir=#{bin}",
+                          "--sysconfdir=#{etc}",
+                          "--enable-all-tests",
+                          "--enable-symcryptrun",
+                          "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry"
     system "make"
     system "make", "check"
     system "make", "install"
-
-    bin.install "tools/gpgsplit" if build.with? "gpgsplit"
-    bin.install "tools/gpg-zip" if build.with? "gpg-zip"
   end
 
   def post_install
