@@ -13,11 +13,13 @@ class Luit < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-encodings-dir=auto"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/luit", "-encoding", "GBK", "ls"
+    require "pty"
+    PTY.spawn(bin/"luit", "-encoding", "GBK", "ls") do |r, _w, _pid|
+    end
   end
 end
