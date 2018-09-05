@@ -1,27 +1,28 @@
 class Carla < Formula
   desc "Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more"
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
-  url "https://github.com/falkTX/carla", :using => :git, :tag => "v1.9.9", :revision => "c03571a9ef95ac0e9564b95347f5de819aa7fb54"
-  revision 0
+  url "https://github.com/falkTX/Carla/archive/v1.9.9.tar.gz"
+  sha256 "13cff6febb0879190e4e8906f8cbb0e6a61ac1344cd8dbec0331598b59576548"
 
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libmagic"
-  depends_on :macos => :mavericks
   depends_on "pyqt"
   depends_on "python"
 
   def install
-    args = %W[
-      PREFIX=#{prefix}
-    ]
+    args = []
+    if ENV.compiler == :clang and MacOS.version <= :mountain_lion
+        args << "MACOS_OLD=true"
+    end
 
-    system "make"
-    system "make", "install", *args
+    system "make", *args
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
     system bin/"carla", "--version"
+    system bin/"carla-discovery-native", internal, :all
   end
 end
