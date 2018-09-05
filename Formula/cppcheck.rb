@@ -12,50 +12,20 @@ class Cppcheck < Formula
     sha256 "55c59fc078a4c2311ed7d4c1f048ae1114dbcf30956249441979e6bc91e7762b" => :el_capitan
   end
 
-  option "without-rules", "Build without rules (no pcre dependency)"
-  option "with-qt", "Build the cppcheck GUI (requires Qt)"
-
-  deprecated_option "no-rules" => "without-rules"
-  deprecated_option "with-gui" => "with-qt"
-  deprecated_option "with-qt5" => "with-qt"
-
-  depends_on "pcre" if build.with? "rules"
-  depends_on "qt" => :optional
+  depends_on "pcre"
 
   needs :cxx11
 
   def install
     ENV.cxx11
 
-    # Man pages aren't installed as they require docbook schemas.
-
-    # Pass to make variables.
-    if build.with? "rules"
-      system "make", "HAVE_RULES=yes", "CFGDIR=#{prefix}/cfg"
-    else
-      system "make", "HAVE_RULES=no", "CFGDIR=#{prefix}/cfg"
-    end
+    system "make", "HAVE_RULES=yes", "CFGDIR=#{prefix}/cfg"
 
     # CFGDIR is relative to the prefix for install, don't add #{prefix}.
     system "make", "DESTDIR=#{prefix}", "BIN=#{bin}", "CFGDIR=/cfg", "install"
 
     # Move the python addons to the cppcheck pkgshare folder
     (pkgshare/"addons").install Dir.glob(bin/"*.py")
-
-    if build.with? "qt"
-      cd "gui" do
-        if build.with? "rules"
-          system "qmake", "HAVE_RULES=yes",
-                          "INCLUDEPATH+=#{Formula["pcre"].opt_include}",
-                          "LIBS+=-L#{Formula["pcre"].opt_lib}"
-        else
-          system "qmake", "HAVE_RULES=no"
-        end
-
-        system "make"
-        prefix.install "cppcheck-gui.app"
-      end
-    end
   end
 
   test do
