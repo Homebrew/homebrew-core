@@ -6,11 +6,10 @@ class Libarchive < Formula
 
   bottle do
     cellar :any
-    sha256 "f08ea15d8cb921b8c97a29810a7849b8956fc29ade42a1e61253c187a8dfe445" => :mojave
-    sha256 "ee8c56199da11b8e6ac30e577792288d729233dda36100dbd16192af656bff5d" => :high_sierra
-    sha256 "3afbbb3c4c12dcac7f55d7a038249e4553c4b13bb5c6a5251db1099277446490" => :sierra
-    sha256 "0805b457512f14129a12148c7ad4fc5880c7594515781bc2a11e3a5431c220ec" => :el_capitan
-    sha256 "8ef52679c4f98f7aa7ce0ecdb854d3fea70b46192011e447fabdde8aec5cd940" => :yosemite
+    sha256 "382799f81cebbdd3b22a681cfc5f5d2ada51db5025d4bdd9454a3c59c404a78a" => :mojave
+    sha256 "8848eb337cc9646fb2499539175b664cc00680d0e5897fa0fe1b137091f4c16c" => :high_sierra
+    sha256 "7aa83e866dbdc3b92443b24c684e0392fbee5542246156822718e08331419235" => :sierra
+    sha256 "6cf2c9dda85ef5ec4f312c509c8843c30fedde748282886be4a2b88b0e877788" => :el_capitan
   end
 
   keg_only :provided_by_macos
