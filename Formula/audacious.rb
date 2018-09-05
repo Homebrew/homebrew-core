@@ -59,22 +59,17 @@ class Audacious < Formula
   depends_on "sdl2"
   depends_on "wavpack"
   depends_on "python@2"
-  depends_on "qt" => :recommended
-  depends_on "gtk+" => :optional
-  depends_on "jack" => :optional
-  depends_on "libmms" => :optional
-  depends_on "libmodplug" => :optional
+  depends_on "qt"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --disable-coreaudio
-      --enable-mac-media-keys
+      --disable-gtk
       --disable-mpris2
+      --enable-mac-media-keys
+      --enable-qt
     ]
-
-    args << "--enable-qt" if build.with? "qt"
-    args << "--disable-gtk" if build.without? "gtk+"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
