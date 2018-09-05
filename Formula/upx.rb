@@ -1,20 +1,9 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  revision 1
+  url "https://github.com/upx/upx/releases/download/v3.95/upx-3.95-src.tar.xz"
+  sha256 "3b0f55468d285c760fcf5ea865a070b27696393002712054c69ff40d8f7f5592"
   head "https://github.com/upx/upx.git", :branch => :devel
-
-  stable do
-    url "https://github.com/upx/upx/releases/download/v3.94/upx-3.94-src.tar.xz"
-    sha256 "81ef72cdac7d8ccda66c2c1ab14f4cd54225e9e7b10cd40dd54be348dbf25621"
-
-    # Fixes decompressing Mach binaries: https://github.com/upx/upx/issues/161
-    # Fixed upstream; this adjusts the patch to work on 3.94.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/9e37f000/upx/fix_decompression.patch"
-      sha256 "a63d6da220c99b7507f1b6c0fd51008cdfd33fb66e22f374fc8f377a3f1a51d8"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
