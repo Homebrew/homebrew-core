@@ -15,11 +15,11 @@ class SdlImage < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on "sdl"
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "webp" => :recommended
+  depends_on "webp"
 
   # Fix graphical glitching
   # https://github.com/Homebrew/homebrew-python/issues/281
@@ -32,19 +32,14 @@ class SdlImage < Formula
   def install
     inreplace "SDL_image.pc.in", "@prefix@", HOMEBREW_PREFIX
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-imageio
-      --disable-sdltest
-    ]
-
-    args << "--disable-png-shared" if build.with? "libpng"
-    args << "--disable-jpg-shared" if build.with? "jpeg"
-    args << "--disable-tif-shared" if build.with? "libtiff"
-    args << "--disable-webp-shared" if build.with? "webp"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-imageio",
+                          "--disable-jpg-shared",
+                          "--disable-png-shared",
+                          "--disable-sdltest",
+                          "--disable-tif-shared",
+                          "--disable-webp-shared"
     system "make", "install"
   end
 end
