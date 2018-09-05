@@ -6,10 +6,10 @@ class Gauge < Formula
   head "https://github.com/getgauge/gauge.git"
 
   bottle do
-    sha256 "04d3b30eb27824cbe9dcd6c23f5c5af7722c6b2b44cb83aa70ee8140bd3c05a7" => :mojave
-    sha256 "c9ab05af16d66e08c7a1847eca63821f198eff42a863c9fc862347988fd74956" => :high_sierra
-    sha256 "ec90f73026d039563c630e0e221e7e95210c55c9702ab413cd041cbc8e2833e4" => :sierra
-    sha256 "adc703beb018fbb854d9e615a5fe5f81edf33af7a2c66db8d18240b99a493d87" => :el_capitan
+    sha256 "cf2dd183dc2df8dba76b838bae22f8fdf237ab1a2b319d90c319326b2e8ff20b" => :mojave
+    sha256 "da853081d620c5dd83cc688049dca2cc1bc9bd4afd9ae46b392bc899e25b6326" => :high_sierra
+    sha256 "eca01c6ab16140a7c519e4c9cee43183e6fba1de6c7e86442683991eba179971" => :sierra
+    sha256 "d7ba00c58601266044fdaaef8ce42cb9ba33823251e665944d5330873a673118" => :el_capitan
   end
 
   depends_on "go" => :build
