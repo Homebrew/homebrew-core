@@ -38,8 +38,8 @@ class Circleci < Formula
   test do
     # assert basic script execution
     assert_match /#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip
-    # assert script fails for missing docker (docker not on homebrew CI servers)
-    output = shell_output("#{bin}/circleci build 2>&1", 255)
-    assert_match "failed to pull latest docker image", output
+    # assert script fails because 2.1 config is not supported for local builds
+    output = shell_output("echo '{version: 2.1}' | #{bin}/circleci build - 2>&1", 255)
+    assert_match "Local builds do not support that version at this time", output
   end
 end
