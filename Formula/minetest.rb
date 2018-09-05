@@ -27,27 +27,23 @@ class Minetest < Formula
     end
   end
 
-  depends_on :x11
   depends_on "cmake" => :build
+  depends_on "freetype"
+  depends_on "gettext"
   depends_on "irrlicht"
   depends_on "jpeg"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "luajit" => :recommended
-  depends_on "freetype" => :recommended
-  depends_on "gettext" => :recommended
-  depends_on "leveldb" => :optional
-  depends_on "redis" => :optional
+  depends_on "luajit"
+  depends_on :x11
 
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
 
     args = std_cmake_args - %w[-DCMAKE_BUILD_TYPE=None]
     args << "-DCMAKE_BUILD_TYPE=Release" << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
-    args << "-DENABLE_REDIS=1" if build.with? "redis"
-    args << "-DENABLE_LEVELDB=1" if build.with? "leveldb"
-    args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'" if build.with? "freetype"
-    args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}" if build.with? "gettext"
+    args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'"
+    args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}"
 
     # -ffast-math compiler flag is an issue on Mac
     # https://github.com/minetest/minetest/issues/4274
