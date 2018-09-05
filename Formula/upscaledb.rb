@@ -32,16 +32,11 @@ class Upscaledb < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-java", "Do not build the Java wrapper"
-  option "without-protobuf", "Disable access to remote databases"
-
-  deprecated_option "without-remote" => "without-protobuf"
-
   depends_on "boost"
   depends_on "gnutls"
   depends_on "openssl"
-  depends_on :java => :recommended
-  depends_on "protobuf" => :recommended
+  depends_on "protobuf"
+  depends_on :java
 
   resource "libuv" do
     url "https://github.com/libuv/libuv/archive/v0.10.37.tar.gz"
@@ -62,33 +57,20 @@ class Upscaledb < Formula
 
     system "./bootstrap.sh" if build.head?
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    if build.with? "java"
-      args << "JDK=#{ENV["JAVA_HOME"]}"
-    else
-      args << "--disable-java"
+    resource("libuv").stage do
+      system "make", "libuv.dylib", "SO_LDFLAGS=-Wl,-install_name,#{libexec}/libuv/lib/libuv.dylib"
+      (libexec/"libuv/lib").install "libuv.dylib"
+      (libexec/"libuv").install "include"
     end
 
-    if build.with? "protobuf"
-      resource("libuv").stage do
-        system "make", "libuv.dylib", "SO_LDFLAGS=-Wl,-install_name,#{libexec}/libuv/lib/libuv.dylib"
-        (libexec/"libuv/lib").install "libuv.dylib"
-        (libexec/"libuv").install "include"
-      end
+    ENV.prepend "LDFLAGS", "-L#{libexec}/libuv/lib"
+    ENV.prepend "CFLAGS", "-I#{libexec}/libuv/include"
+    ENV.prepend "CPPFLAGS", "-I#{libexec}/libuv/include"
 
-      ENV.prepend "LDFLAGS", "-L#{libexec}/libuv/lib"
-      ENV.prepend "CFLAGS", "-I#{libexec}/libuv/include"
-      ENV.prepend "CPPFLAGS", "-I#{libexec}/libuv/include"
-    else
-      args << "--disable-remote"
-    end
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "JDK=#{ENV["JAVA_HOME"]}"
     system "make", "install"
 
     pkgshare.install "samples"
