@@ -23,6 +23,6 @@ class Carla < Formula
 
   test do
     system bin/"carla", "--version"
-    system bin/"carla-discovery-native", internal, :all
+    system lib/"carla/carla-discovery-native", "internal", ":all"
   end
 end
