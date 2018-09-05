@@ -11,17 +11,6 @@ class PerconaServer < Formula
     sha256 "8d4b7018c451090ba8af05928eee7d082f9986211ed3dc9eaf83010456a3bd5b" => :el_capitan
   end
 
-  option "with-debug", "Build with debug support"
-  option "with-embedded", "Build the embedded server"
-  option "with-local-infile", "Build with local infile loading support"
-  option "with-memcached", "Build with InnoDB Memcached plugin"
-  option "with-test", "Build with unit tests"
-
-  deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "enable-local-infile" => "with-local-infile"
-  deprecated_option "enable-memcached" => "with-memcached"
-  deprecated_option "with-tests" => "with-test"
-
   depends_on "cmake" => :build
   depends_on "openssl"
 
@@ -91,24 +80,7 @@ class PerconaServer < Formula
     # https://bugs.launchpad.net/percona-server/+bug/1531446
     args.concat %w[-DWITHOUT_TOKUDB=1]
 
-    # Build with debug support
-    args << "-DWITH_DEBUG=1" if build.with? "debug"
-
-    # Build the embedded server
-    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
-
-    # Build with local infile loading support
-    args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
-
-    # Build with InnoDB Memcached plugin
-    args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
-
-    # To enable unit testing at build, we need to download the unit testing suite
-    if build.with? "test"
-      args << "-DENABLE_DOWNLOADS=ON"
-    else
-      args << "-DWITH_UNIT_TESTS=OFF"
-    end
+    args << "-DWITH_UNIT_TESTS=OFF"
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
@@ -118,8 +90,8 @@ class PerconaServer < Formula
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
 
-    # Remove the tests directory if they are not built
-    rm_rf prefix/"mysql-test" if build.without? "test"
+    # Remove the tests directory
+    rm_rf prefix/"mysql-test"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
