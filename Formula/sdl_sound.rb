@@ -27,10 +27,6 @@ class SdlSound < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl"
-  depends_on "flac" => :optional
-  depends_on "libmikmod" => :optional
-  depends_on "speex" => :optional
-  depends_on "physfs" => :optional
 
   def install
     if build.head?
