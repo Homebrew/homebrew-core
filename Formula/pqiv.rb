@@ -16,11 +16,11 @@ class Pqiv < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
-  depends_on "libspectre" => :recommended
-  depends_on "poppler" => :recommended
-  depends_on "imagemagick" => :recommended
-  depends_on "libarchive" => :recommended
-  depends_on "webp" => :recommended
+  depends_on "imagemagick"
+  depends_on "libarchive"
+  depends_on "libspectre"
+  depends_on "poppler"
+  depends_on "webp"
 
   def install
     system "./configure", "--prefix=#{prefix}"
