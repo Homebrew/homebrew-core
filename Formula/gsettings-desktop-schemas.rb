@@ -6,10 +6,10 @@ class GsettingsDesktopSchemas < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d2497db3658d1fc9875491523c7611b5d62df452910d49c8e4c480108804c90a" => :mojave
-    sha256 "0bd6835780ef3b7b9b2940c8c2e33b8257bc367883d897905e3c55ace5c35033" => :high_sierra
-    sha256 "0bd6835780ef3b7b9b2940c8c2e33b8257bc367883d897905e3c55ace5c35033" => :sierra
-    sha256 "0bd6835780ef3b7b9b2940c8c2e33b8257bc367883d897905e3c55ace5c35033" => :el_capitan
+    sha256 "84d8b9449e20e599ee00ce1d661c1bd0e4941344fe3631439c8d52133471bae8" => :mojave
+    sha256 "39ef6c65974fe55184a8997c8b3a8de5f0dcc5b71f0bc457887381c2f567c154" => :high_sierra
+    sha256 "39ef6c65974fe55184a8997c8b3a8de5f0dcc5b71f0bc457887381c2f567c154" => :sierra
+    sha256 "39ef6c65974fe55184a8997c8b3a8de5f0dcc5b71f0bc457887381c2f567c154" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
