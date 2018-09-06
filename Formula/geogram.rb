@@ -1,7 +1,7 @@
 class Geogram < Formula
   desc "Programming library of geometric algorithms"
   homepage "http://alice.loria.fr/software/geogram/doc/html/index.html"
-  url "https://gforge.inria.fr/frs/download.php/file/37635/geogram_1.6.6.tar.gz"
+  url "https://gforge.inria.fr/frs/download.php/file/37635/geogram_1.6.7.tar.gz"
   sha256 "08211b1d6f21e14701e3fd5c79adbe331cdf66b8af84efdb54cd7048244691b5"
 
   bottle do
@@ -20,10 +20,6 @@ class Geogram < Formula
   end
 
   def install
-    # Workaround for undefined _mm_set_pd1 in clang; fixed in next release.
-    # https://lists.gforge.inria.fr/pipermail/geogram-users/2018-August/000158.html
-    inreplace "src/lib/geogram/numerics/predicates.cpp", "_mm_set_pd1", "_mm_set1_pd"
-
     (buildpath/"CMakeOptions.txt").append_lines <<~EOS
       set(CMAKE_INSTALL_PREFIX #{prefix})
       set(GEOGRAM_USE_SYSTEM_GLFW3 ON)
