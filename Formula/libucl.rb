@@ -25,6 +25,7 @@ class Libucl < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
+      --enable-utils
       --prefix=#{prefix}
     ]
     args << "--enable-lua" if build.with? "lua"
