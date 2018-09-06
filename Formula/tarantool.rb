@@ -19,10 +19,10 @@ class Tarantool < Formula
   def install
     sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
 
-    args = std_cmake_args
-
+    # Necessary for luajit to build on macOS Mojave (see luajit formula)
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
+    args = std_cmake_args
     args << "-DCMAKE_INSTALL_MANDIR=#{doc}"
     args << "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}"
     args << "-DCMAKE_INSTALL_LOCALSTATEDIR=#{var}"
