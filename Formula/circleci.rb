@@ -5,7 +5,6 @@ class Circleci < Formula
   url "https://github.com/CircleCI-Public/circleci-cli.git",
       :tag => "v0.1.2061",
       :revision => "3eae4e7eaa2f09f44a8bf812a292de729d1b681d"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
