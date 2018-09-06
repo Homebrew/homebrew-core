@@ -13,8 +13,8 @@ class Carla < Formula
 
   def install
     args = []
-    if ENV.compiler == :clang and MacOS.version <= :mountain_lion
-        args << "MACOS_OLD=true"
+    if ENV.compiler == :clang && MacOS.version <= :mountain_lion
+      args << "MACOS_OLD=true"
     end
 
     system "make", *args
