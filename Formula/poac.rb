@@ -7,7 +7,6 @@ class Poac < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "curl"
   depends_on "openssl"
   depends_on "yaml-cpp"
 
