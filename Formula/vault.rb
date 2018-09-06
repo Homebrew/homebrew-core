@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag => "v0.11.0",
-      :revision => "87492f9258e0227f3717e3883c6a8be5716bf564"
+      :tag => "v0.11.1",
+      :revision => "8575f8fedcf8f5a6eb2b4701cb527b99574b5286"
   head "https://github.com/hashicorp/vault.git"
 
   bottle do
@@ -31,7 +31,6 @@ class Vault < Formula
     (buildpath/"bin").mkpath
 
     cd "src/github.com/hashicorp/vault" do
-      system "make", "fmt"
       target = build.with?("dynamic") ? "dev-dynamic" : "dev"
       system "make", target
       bin.install "bin/vault"
