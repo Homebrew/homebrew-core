@@ -14,6 +14,13 @@ class ApacheBrooklynCli < Formula
   depends_on "glide" => :build
   depends_on "go" => :build
 
+  # Fix NodePrime dependency issue, can be removed in next version
+  # https://lists.apache.org/thread.html/10a74756dbeb1243928eb87c379b01ba58357a6204149d98676fa025@%3Cdev.brooklyn.apache.org%3E
+  patch do
+    url "https://github.com/apache/brooklyn-client/commit/2da4c0.diff?full_index=1"
+    sha256 "3e66824bc6f21eebeda10bb12f1b3e683175c788e9a876a219f190271fa56948"
+  end
+
   def install
     ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
