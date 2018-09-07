@@ -1,8 +1,8 @@
 class Libre < Formula
   desc "Toolkit library for asynchronous network I/O with protocol stacks"
   homepage "http://www.creytiv.com"
-  url "http://www.creytiv.com/pub/re-0.5.8.tar.gz"
-  sha256 "190fd652da167d8d6351b7a26fa0aef2ddab75fe5e8d5de77edf023988440e70"
+  url "http://www.creytiv.com/pub/re-0.5.9.tar.gz"
+  sha256 "882ba05cae77e07099add1d24195863d08fcddfef62d1586d8d07f1721b59612"
 
   bottle do
     cellar :any
@@ -14,7 +14,7 @@ class Libre < Formula
   depends_on "openssl"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "SYSROOT=#{MacOS.sdk_path}/usr", "install", "PREFIX=#{prefix}"
   end
 
   test do
