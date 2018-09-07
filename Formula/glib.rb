@@ -58,18 +58,25 @@ class Glib < Formula
       --with-gio-module-dir=#{HOMEBREW_PREFIX}/lib/gio/modules
     ]
 
-    # next two lines can be removed when bug 780271 is fixed and gio.patch is modified accordingly
+    # next two lines can be removed when bug 780271 is fixed and gio.patch
+    # is modified accordingly
     ENV["NOCONFIGURE"] = "1"
     system "./autogen.sh"
 
     system "./configure", *args
 
-    # disable creating directory for GIO_MODULE_DIR, we will do this manually in post_install
-    inreplace "gio/Makefile", "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)", ""
+    # disable creating directory for GIO_MODULE_DIR, we will do
+    # this manually in post_install
+    inreplace "gio/Makefile",
+              "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)",
+              ""
 
-    # ensure giomoduledir contains prefix, as this pkgconfig variable will be used
-    # by glib-networking and glib-openssl to determine where to install their modules
-    inreplace "gio-2.0.pc", "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules", "giomoduledir=${prefix}/lib/gio/modules"
+    # ensure giomoduledir contains prefix, as this pkgconfig variable will be
+    # used by glib-networking and glib-openssl to determine where to install
+    # their modules
+    inreplace "gio-2.0.pc",
+              "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
+              "giomoduledir=${prefix}/lib/gio/modules"
 
     system "make"
     # the spawn-multithreaded tests require more open files
