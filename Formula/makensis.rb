@@ -34,11 +34,6 @@ class Makensis < Formula
     sha256 "a03fd15af45e91964fb980a30422073bc3f3f58683e9fdafadad3f7db10762b1"
   end
 
-  # scons appears to have no builtin way to override the compiler selection,
-  # and the only options supported on macOS are 'gcc' and 'g++'.
-  # Use the right compiler by forcibly altering the scons config to set these
-  patch :DATA
-
   def install
     # requires zlib (win32) to build utils
     resource("zlib-win32").stage do
