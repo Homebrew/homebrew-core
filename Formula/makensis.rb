@@ -46,6 +46,8 @@ class Makensis < Formula
     end
 
     args = [
+      "CC=#{ENV.cc}",
+      "CXX=#{ENV.cxx}",
       "PREFIX_DOC=#{share}/nsis/Docs",
       "SKIPUTILS=NSIS Menu",
       # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
@@ -73,24 +75,3 @@ class Makensis < Formula
     system "#{bin}/makensis", "#{testpath}/test.nsi"
   end
 end
-
-__END__
-diff --git a/SCons/config.py b/SCons/config.py
-index a344456..37c575b 100755
---- a/SCons/config.py
-+++ b/SCons/config.py
-@@ -1,3 +1,5 @@
-+import os
-+
- Import('defenv')
-
- ### Configuration options
-@@ -440,6 +442,9 @@ Help(cfg.GenerateHelpText(defenv))
- env = Environment()
- cfg.Update(env)
-
-+defenv['CC'] = os.environ['CC']
-+defenv['CXX'] = os.environ['CXX']
-+
- def AddValuedDefine(define):
-   defenv.Append(NSIS_CPPDEFINES = [(define, env[define])])
