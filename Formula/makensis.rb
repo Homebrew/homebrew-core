@@ -45,9 +45,14 @@ class Makensis < Formula
       @zlib_path = Dir.pwd
     end
 
-    # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
-    args = ["STRIP=0", "ZLIB_W32=#{@zlib_path}", "SKIPUTILS=NSIS Menu",
-            "PREFIX_DOC=#{share}/nsis/Docs", "VERSION=#{version}"]
+    args = [
+      "PREFIX_DOC=#{share}/nsis/Docs",
+      "SKIPUTILS=NSIS Menu",
+      # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
+      "STRIP=0",
+      "VERSION=#{version}",
+      "ZLIB_W32=#{@zlib_path}"
+    ]
     args << "NSIS_CONFIG_LOG=yes" if build.with? "advanced-logging"
     args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
     scons "makensis", *args
@@ -78,12 +83,12 @@ index a344456..37c575b 100755
 +import os
 +
  Import('defenv')
- 
+
  ### Configuration options
 @@ -440,6 +442,9 @@ Help(cfg.GenerateHelpText(defenv))
  env = Environment()
  cfg.Update(env)
- 
+
 +defenv['CC'] = os.environ['CC']
 +defenv['CXX'] = os.environ['CXX']
 +
