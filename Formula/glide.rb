@@ -16,6 +16,13 @@ class Glide < Formula
 
   depends_on "go"
 
+  # Fix issue which shows up at runtime (when building calicoctl and
+  # kubernetes-helm): https://github.com/Masterminds/glide/pull/990
+  patch do
+    url "https://github.com/Masterminds/glide/pull/990.patch?full_index=1"
+    sha256 "f3711026b3261b62ca67fbf737ccae6889922f50d7fa25ba9b9a025b6bafdb6b"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     glidepath = buildpath/"src/github.com/Masterminds/glide"
