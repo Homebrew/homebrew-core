@@ -3,17 +3,17 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.38.11.tar.gz"
-    sha256 "5521e8eefbee284b6a72797c7f63ce606d37647930cd8f4d48d45d02c4e1da95"
+    url "https://github.com/kripken/emscripten/archive/1.38.12.tar.gz"
+    sha256 "7c07a8e4671f268f3941245d6cd2e43d8d6c38fea04f86a872a33022fdd6b71f"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/1.38.11.tar.gz"
-      sha256 "55ddc1b1f045a36ac34ab60bb0e1a0370a40249eba8d41cd4e427be95beead18"
+      url "https://github.com/kripken/emscripten-fastcomp/archive/1.38.12.tar.gz"
+      sha256 "932213e11efc42ada365a13d99ec270573962e76a4f33e4c3d1315ff252e1d87"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.38.11.tar.gz"
-      sha256 "1d2ac9f8dab54f0f17e4a77c3cd4653fe9f890831ef6e405320850fd7351f795"
+      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.38.12.tar.gz"
+      sha256 "406750b6bbe635436266a73ff5e996d60597f39b0ff46b728a75aa56a7e8cac5"
     end
   end
 
@@ -37,13 +37,13 @@ class Emscripten < Formula
     end
   end
 
-  needs :cxx11
-
-  depends_on "python@2"
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "closure-compiler" => :optional
+  depends_on "python@2"
   depends_on "yuicompressor"
+  depends_on "closure-compiler" => :optional
+
+  needs :cxx11
 
   def install
     ENV.cxx11
