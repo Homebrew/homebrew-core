@@ -5,7 +5,6 @@ class TrezorAgent < Formula
   homepage "https://github.com/romanz/trezor-agent"
   url "https://files.pythonhosted.org/packages/16/0f/077ff482453b92ad78736fe63cdb8050351f0fefa734eb0d0c4ebcbae4e0/trezor_agent-0.9.3.tar.gz"
   sha256 "0c1ef62903534d8b01260dbd6304780e278bc83e0bc21f6a83beee76e48e1580"
-  revision 1
 
   bottle do
     cellar :any_skip_relocation
