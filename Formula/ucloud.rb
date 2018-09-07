@@ -16,6 +16,6 @@ class Ucloud < Formula
   end
 
   test do
-    system "go", "test", "./..."
+    system "#{bin}/ucloud", "config", "ls"
   end
 end
