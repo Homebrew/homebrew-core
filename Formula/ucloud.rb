@@ -12,6 +12,7 @@ class Ucloud < Formula
     dir.install buildpath.children
     cd dir do
       system "go", "build", "-o", bin/"ucloud"
+      prefix.install_metafiles
     end
   end
 
