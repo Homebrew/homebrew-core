@@ -17,6 +17,11 @@ class Ucloud < Formula
   end
 
   test do
-    system "#{bin}/ucloud", "config", "ls"
+    system "#{bin}/ucloud", "config", "set", "region", "cn-bj2"
+    system "#{bin}/ucloud", "config", "set", "project-id", "org-test"
+    config_json = (testpath/".ucloud/config.json").read
+    assert_match '"region":"cn-bj2"', config_json
+    assert_match '"project_id":"org-test"', config_json
+    assert_match version.to_s, shell_output("#{bin}/ucloud version")
   end
 end
