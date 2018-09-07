@@ -1,8 +1,8 @@
 class Diffoscope < Formula
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/8d/e7/b8881e47097497471c7112ef2abc4328496f66e5c91772837ef365f39dc1/diffoscope-99.tar.gz"
-  sha256 "9d204ac51cc8ae59de755e1be0f7600e52b59badc32969942af4684c3f6f3f03"
+  url "https://files.pythonhosted.org/packages/2a/c4/32e8addb6f7f8365f765ad182b4df7456c41db837f6de56bc078ede658c6/diffoscope-100.tar.gz"
+  sha256 "88f0afe17b979b6ad94769012b7f2c5f8eb864b4d9e07e2852b7d9128d78076a"
 
   bottle do
     cellar :any_skip_relocation
@@ -43,7 +43,7 @@ class Diffoscope < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
     libarchive = Formula["libarchive"].opt_lib/"libarchive.dylib"
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"],
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"],
                                             :LIBARCHIVE => libarchive)
   end
 
