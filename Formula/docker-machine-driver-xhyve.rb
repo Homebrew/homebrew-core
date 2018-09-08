@@ -2,8 +2,8 @@ class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
   homepage "https://github.com/zchee/docker-machine-driver-xhyve"
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-    :tag => "v0.3.3",
-    :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
+      :tag => "v0.3.3",
+      :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
   head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
@@ -20,6 +20,7 @@ class DockerMachineDriverXhyve < Formula
   depends_on :macos => :yosemite
   depends_on "go" => :build
   depends_on "docker-machine" => :recommended
+
   if build.with? "qcow2"
     depends_on "ocaml" => :build
     depends_on "opam" => :build
@@ -27,18 +28,21 @@ class DockerMachineDriverXhyve < Formula
   end
 
   def install
-    (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install Dir["{*,.git,.gitignore,.gitmodules}"]
+    dir = buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve"
+    dir.install Dir["{*,.git,.gitignore,.gitmodules}"]
 
     ENV["GOPATH"] = "#{buildpath}/gopath"
-    build_root = buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve"
     build_tags = "lib9p"
 
-    cd build_root do
-      git_hash = `git rev-parse --short HEAD --quiet`.chomp
-      git_hash = "HEAD-#{git_hash}" if build.head?
+    cd dir do
+      commit = Utils.popen_read("git rev-parse --short HEAD --quiet").chomp
+      commit = "HEAD-#{git_hash}" if build.head?
 
-      go_ldflags = "-w -s -X 'github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{git_hash}'"
-      ENV["GO_LDFLAGS"] = go_ldflags
+      ldflags = %W[
+        -w -s
+        -X github.com/zchee/docker-machine-driver-xhyve/xhyve.GitCommit=Homebrew#{commit}
+      ]
+      ENV["GO_LDFLAGS"] = ldflags.join(" ")
       ENV["GO_BUILD_TAGS"] = build_tags
       ENV["LIBEV_FILE"] = "#{Formula["libev"].opt_lib}/libev.a"
 
@@ -76,13 +80,14 @@ class DockerMachineDriverXhyve < Formula
   def caveats; <<~EOS
     This driver requires superuser privileges to access the hypervisor. To
     enable, execute
-        sudo chown root:wheel #{opt_prefix}/bin/docker-machine-driver-xhyve
-        sudo chmod u+s #{opt_prefix}/bin/docker-machine-driver-xhyve
+      sudo chown root:wheel #{opt_bin}/docker-machine-driver-xhyve
+      sudo chmod u+s #{opt_bin}/docker-machine-driver-xhyve
   EOS
   end
 
   test do
-    assert_match "xhyve-memory-size",
-    shell_output("#{Formula["docker-machine"].bin}/docker-machine create --driver xhyve -h")
+    docker_machine = Formula["docker-machine"].opt_bin/"docker-machine"
+    cmd = "#{docker_machine} create --driver xhyve -h"
+    assert_match "xhyve-memory-size", shell_output(cmd)
   end
 end
