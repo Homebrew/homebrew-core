@@ -6,11 +6,11 @@ class St < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "89ad132448c9402d954300c28ed7dfc9c251d33b7583e5b0437a3e987112e1a5" => :mojave
-    sha256 "24ec6966ca1cc95f214570c0063deb7b87e3d662449618e0db62e1867f3135d1" => :high_sierra
-    sha256 "55e719bafc7c95b7a52111c55d1df8845237a723370bc69ab099321cc555ec0d" => :sierra
-    sha256 "4c8d388a914a238851b44beff95a1e75523c406e5731d3e894dcda324c260a82" => :el_capitan
-    sha256 "05b683f39a6b30d377d4217e5145369053014f8f66b6dd103fb2ee2219aa4225" => :yosemite
+    rebuild 1
+    sha256 "8c8e5c11bd061f1a90ba17ebc19a285b4cf1494c5790ea6d7c046035ddc65956" => :mojave
+    sha256 "3de383c349b1db5c6bd1d6a85f0c3637615430c55a4b2cc0f7e19208735ef221" => :high_sierra
+    sha256 "cc4150103a1c9c5268355d937664401a04c2fa1ad478aa541ef7535004a75210" => :sierra
+    sha256 "2df47c1388ef527487527c1173508ebdaf217b0f03c70a6e4567d037a912e214" => :el_capitan
   end
 
   def install
