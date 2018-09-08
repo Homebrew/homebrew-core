@@ -1,8 +1,8 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/0.9.0.tar.gz"
-  sha256 "871a24ad29a4c5b6d82f6049156db2662e6a9820cca6f361547b8ab8bc1be7ae"
+  url "https://github.com/BurntSushi/ripgrep/archive/0.10.0.tar.gz"
+  sha256 "a2a6eb7d33d75e64613c158e1ae450899b437e37f1bfbd54f713b011cd8cc31e"
   head "https://github.com/BurntSushi/ripgrep.git"
 
   bottle do
@@ -14,12 +14,16 @@ class Ripgrep < Formula
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "pcre2"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    system "cargo", "install", "--root", prefix, "--path", "."
+    system "cargo", "install", "--root", prefix,
+                               "--path", ".",
+                               "--features", "pcre2"
 
     # Completion scripts and manpage are generated in the crate's build
     # directory, which includes a fingerprint hash. Try to locate it first
