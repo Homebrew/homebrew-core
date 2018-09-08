@@ -5,10 +5,10 @@ class Cmdshelf < Formula
   sha256 "e3f3934ce4d90183b3caac1e35eb584848588450694c494a89d6585685842407"
 
   bottle do
-    sha256 "f52956d5a64e1c9ac364b8186b83420e51faae062a4ce9a5dd9a4bb1a97fccb6" => :mojave
-    sha256 "f166a78a1e54d46d12058b984580429500b282e3be4c0fd57af620c17cc3c0cd" => :high_sierra
-    sha256 "26aa9a9c5adb85ae48b9fe841dd0fca5db78b1ee221bedae9333c1a44e5c1228" => :sierra
-    sha256 "06d6a7d68886507cd82229a08e89bce1c0be508c472192f1fdd01c670037851a" => :el_capitan
+    sha256 "89d91fc1b52b9eba5d184713d1b9d7e732e7514be8255263a1b04fdaa064a3e6" => :mojave
+    sha256 "08cc63b65230834d2a2ed4280c9245dcd0009d906d135ad91fe603fd8009e8e4" => :high_sierra
+    sha256 "816b6386a012be243dd4d987e3204444e29f4eef0bf1077ba634c53748a2afd3" => :sierra
+    sha256 "f9629700f2de22a4cc47e7fcb990de68839ce5e62bb59d7f12432836faa156fb" => :el_capitan
   end
 
   depends_on "rust" => :build
