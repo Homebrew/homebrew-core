@@ -1,9 +1,9 @@
 class GnuIndent < Formula
   desc "C code prettifier"
   homepage "https://www.gnu.org/software/indent/"
-  url "https://ftp.gnu.org/gnu/indent/indent-2.2.10.tar.gz"
-  mirror "https://ftpmirror.gnu.org/indent/indent-2.2.10.tar.gz"
-  sha256 "8a9b41be5bfcab5d8c1be74204b10ae78789fc3deabea0775fdced8677292639"
+  url "https://ftp.gnu.org/gnu/indent/indent-2.2.12.tar.gz"
+  mirror "https://ftpmirror.gnu.org/indent/indent-2.2.12.tar.gz"
+  sha256 "e77d68c0211515459b8812118d606812e300097cfac0b4e9fb3472664263bb8b"
 
   bottle do
     sha256 "df1f57f1896c8b5d88d9f2e6e072dd9fc3800e2057b78879a49b67118173cad6" => :mojave
