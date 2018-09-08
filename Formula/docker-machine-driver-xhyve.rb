@@ -4,7 +4,6 @@ class DockerMachineDriverXhyve < Formula
   url "https://github.com/zchee/docker-machine-driver-xhyve.git",
       :tag => "v0.3.3",
       :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
-  head "https://github.com/zchee/docker-machine-driver-xhyve.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -36,7 +35,6 @@ class DockerMachineDriverXhyve < Formula
 
     cd dir do
       commit = Utils.popen_read("git rev-parse --short HEAD --quiet").chomp
-      commit = "HEAD-#{git_hash}" if build.head?
 
       ldflags = %W[
         -w -s
@@ -60,6 +58,11 @@ class DockerMachineDriverXhyve < Formula
           '["./configure"', '["./configure" "-no-graph"' # Avoid X11
 
         ENV.deparallelize { system "opam", "switch", "4.05.0" }
+
+        (buildpath/".brew_home/.opam/config").append_lines <<~EOS
+          cflags: "-I#{MacOS.sdk_path}/usr/include"
+          cppflags: "-I#{MacOS.sdk_path}/usr/include"
+        EOS
 
         system "opam", "config", "exec", "--",
                "opam", "install", "-y", "uri", "qcow-format", "io-page.1.6.1",
