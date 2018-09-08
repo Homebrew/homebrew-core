@@ -7,11 +7,11 @@ class PdfRedactTools < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "11fd822d0242f88b0f6a165b386f882209e50e349f439f9680c949507be30604" => :mojave
-    sha256 "7f079c910f0bc8287cfdabfcafd92c57662b0d40c07e2d3fb6b55a953631c330" => :high_sierra
-    sha256 "80b4e04bd761bad0cfdea11abfcd19cf96b785cf4e2877998f17bb8a8136afb0" => :sierra
-    sha256 "b462fadc539b2c646c9ff8a59b98df344d0a6cb2fb010c2d4a82785d2f0007e6" => :el_capitan
-    sha256 "b462fadc539b2c646c9ff8a59b98df344d0a6cb2fb010c2d4a82785d2f0007e6" => :yosemite
+    rebuild 1
+    sha256 "57ca77cff062d910ddf754b3b8604e6bbc25c0cef9d5eed10d9be31a3e09f9c6" => :mojave
+    sha256 "2f365098071c52ccf595a93d708dec02fa25fbaee0a9c0a30026b20d313b8147" => :high_sierra
+    sha256 "2f365098071c52ccf595a93d708dec02fa25fbaee0a9c0a30026b20d313b8147" => :sierra
+    sha256 "2f365098071c52ccf595a93d708dec02fa25fbaee0a9c0a30026b20d313b8147" => :el_capitan
   end
 
   depends_on "python@2"
