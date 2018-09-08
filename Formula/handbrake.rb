@@ -6,10 +6,10 @@ class Handbrake < Formula
   head "https://github.com/HandBrake/HandBrake.git"
 
   bottle do
-    sha256 "862666c1fd2a86ec3fd161ad4f2a33e747ce57d1013a9c5d74b7f3e8d7e04f83" => :mojave
-    sha256 "e143886a0b8828b68b1560df985811d38cdf980aa411719d59a5d39794ccb256" => :high_sierra
-    sha256 "10a69efc0815df7c540d40780d721b69a35810965fc2e0e90a0599c0cc2fb243" => :sierra
-    sha256 "fafeee816388b23bd375ffa83f3a7e7051bc70b463a1a5b1db6a7e60e870abc8" => :el_capitan
+    sha256 "ec78b6794e70d906a4814ad3622ae2ee4d8d65961ec0c70b979dd316303b043a" => :mojave
+    sha256 "2e3ddd3d1b7a0df8b0ef9f2cab5f51f9994008c3a543578a6795db3d1ffd4f89" => :high_sierra
+    sha256 "97484268f8fc9f9996634f916d72a7b348c6dba83b37beb1a032f3b614b1cd3e" => :sierra
+    sha256 "8c758733f241bf05a42ce06ad752bbba16b36ef520a0b9df239539af9863c356" => :el_capitan
   end
 
   depends_on "autoconf" => :build
