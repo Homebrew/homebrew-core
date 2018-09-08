@@ -2,8 +2,8 @@ class DockerLs < Formula
   desc "Tools for browsing and manipulating docker registries"
   homepage "https://github.com/mayflower/docker-ls"
   url "https://github.com/mayflower/docker-ls.git",
-    :tag => "v0.3.1",
-    :revision => "d80310976c9707e261e57ebfa9acf4e0b1781460"
+      :tag => "v0.3.1",
+      :revision => "d80310976c9707e261e57ebfa9acf4e0b1781460"
 
   bottle do
     cellar :any_skip_relocation
