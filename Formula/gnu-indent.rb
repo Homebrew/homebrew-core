@@ -6,12 +6,10 @@ class GnuIndent < Formula
   sha256 "e77d68c0211515459b8812118d606812e300097cfac0b4e9fb3472664263bb8b"
 
   bottle do
-    sha256 "df1f57f1896c8b5d88d9f2e6e072dd9fc3800e2057b78879a49b67118173cad6" => :mojave
-    sha256 "f8d8bd7eaa2694912f9f3cd247e252c66d21ed61a98220e768e5919f4572c022" => :high_sierra
-    sha256 "6139793b451fdb8d5310729a06286ed66b23aac02d0179bfd27b61df1cc9f931" => :sierra
-    sha256 "cdad0b612a3236fed1b625be2bab6500e02578ba271552e6a8a19d2cdf12df2e" => :el_capitan
-    sha256 "8e19891033bc8a96894692bf0a27898112d72de5bcc78e269ba505b75b17b64f" => :yosemite
-    sha256 "ff3a53ac15b4baaf030f1f1556b24a7f69788175559660ac841e039d7aee996b" => :mavericks
+    sha256 "d2273d950e095a6a5ae131cb51c7ba62ed6f2bda565551f46c9518182c31cd34" => :mojave
+    sha256 "6d603a5f968605c2ed9af1ff18d6b76eed05d49836ff26358b01be6b740654e0" => :high_sierra
+    sha256 "07577059357f159117de4b92172c4241f276efbc42ae1bf0faf818288e9e59b4" => :sierra
+    sha256 "516664bba21882339cedbb539ee3ac5a262d5929c4472de1b935a4b9a4737db8" => :el_capitan
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
