@@ -1,6 +1,6 @@
 class Gdnsd < Formula
   desc "Authoritative-only DNS server"
-  homepage "http://gdnsd.org/"
+  homepage "https://gdnsd.org/"
   url "https://github.com/gdnsd/gdnsd/releases/download/v2.4.0/gdnsd-2.4.0.tar.xz"
   sha256 "3d56ccbb27054dc155839d94df136d760ac361abe868aa6a8c3dbfc9e464bb99"
 
