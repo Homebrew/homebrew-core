@@ -25,8 +25,8 @@ class MpsYoutube < Formula
   end
 
   resource "youtube_dl" do
-	url "https://github.com/rg3/youtube-dl/releases/download/2018.09.08/youtube-dl-2018.09.08.tar.gz"
-  	sha256 "05381dd1651398a664ce5c22eff9172c170b4c9ef53b52ed58b9b58695238c6f"
+	url "https://files.pythonhosted.org/packages/97/b2/4848a0e67c29dcda416b018ac83883e8c0dc478de432d9043b86abcfd6f2/youtube_dl-2018.9.8.tar.gz"
+  	sha256 "42c2e82280c943ce618969c3ceeea56666554f311e86a8082c72ec91a63885a9"
   end
 
   def install
