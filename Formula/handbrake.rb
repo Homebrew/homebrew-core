@@ -1,8 +1,8 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://download.handbrake.fr/releases/1.1.1/HandBrake-1.1.1-source.tar.bz2"
-  sha256 "e3390c5fd901fb06d72e29c62a63d373d5fb5b3467295d114d815ae7b78a9d7a"
+  url "https://download.handbrake.fr/releases/1.1.2/HandBrake-1.1.2-source.tar.bz2"
+  sha256 "ba9a4a90a7657720f04e4ba0a2880ed055be3bd855e99c0c13af944c3904de2e"
   head "https://github.com/HandBrake/HandBrake.git"
 
   bottle do
@@ -27,6 +27,12 @@ class Handbrake < Formula
     if MacOS.version <= :el_capitan
       inreplace "contrib/libvpx/module.defs", /--disable-unit-tests/,
                                               "\\0 --disable-avx512"
+    end
+
+    if MacOS.version >= :mojave
+      # Upstream issue 8 Sep 2018 "HandBrake 1.1.2: libvpx failed to be configured on macOS 10.14 Mojave"
+      # See https://github.com/HandBrake/HandBrake/issues/1578
+      inreplace "contrib/libvpx/module.defs", "--target=x86_64-darwin11-gcc", "--target=x86_64-darwin14-gcc"
     end
 
     system "./configure", "--prefix=#{prefix}",
