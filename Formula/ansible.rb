@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://releases.ansible.com/ansible/ansible-2.6.3.tar.gz"
-  sha256 "1027f627e6d8a2d51f3a79abb01447716a78aa646e0c2f9860cfde273256a28c"
+  url "https://releases.ansible.com/ansible/ansible-2.6.4.tar.gz"
+  sha256 "e06b795372fd7a6d0b46b8f105497fb637fbd323f5aec1d8e51fd60cd98047e1"
   head "https://github.com/ansible/ansible.git", :branch => "devel"
 
   bottle do
