@@ -25,8 +25,6 @@ class I2pd < Formula
   end
 
   def install
-    ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
-
     system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes", "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"
 
     # preinstall to prevent overwriting changed by user configs
