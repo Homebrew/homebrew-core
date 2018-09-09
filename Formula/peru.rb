@@ -30,5 +30,7 @@ class Peru < Formula
         url: https://github.com/buildinspace/peru.git
     EOS
     system "#{bin}/peru", "sync"
+    assert_predicate testpath/".peru", :exist?
+    assert_predicate testpath/"peru", :exist?
   end
 end
