@@ -1,9 +1,8 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.28/atk-2.28.1.tar.xz"
-  sha256 "cd3a1ea6ecc268a2497f0cd018e970860de24a6d42086919d6bf6c8e8d53f4fc"
-  revision 2
+  url "https://download.gnome.org/sources/atk/2.30/atk-2.30.0.tar.xz"
+  sha256 "dd4d90d4217f2a0c1fee708a555596c2c19d26fef0952e1ead1938ab632c027b"
 
   bottle do
     sha256 "c891f2e04a6bb4c77f9f45b673494da1762f51dbc9b567bfad411fd5f27fb302" => :mojave
@@ -61,18 +60,19 @@ end
 
 __END__
 diff --git a/meson.build b/meson.build
-index 7d5a31b..b5c695a 100644
+index 59abf5e..7af4f12 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -80,11 +80,6 @@ if host_machine.system() == 'linux'
-   endforeach
+@@ -73,11 +73,6 @@ if host_machine.system() == 'linux'
+   common_ldflags += cc.get_supported_link_arguments(test_ldflags)
  endif
 
 -# Maintain compatibility with autotools on macOS
 -if host_machine.system() == 'darwin'
--  common_ldflags += [ '-compatibility_version=1', '-current_version=1.0', ]
+-  common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
 -endif
 -
  # Functions
  checked_funcs = [
    'bind_textdomain_codeset',
+
