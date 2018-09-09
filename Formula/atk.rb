@@ -5,10 +5,10 @@ class Atk < Formula
   sha256 "dd4d90d4217f2a0c1fee708a555596c2c19d26fef0952e1ead1938ab632c027b"
 
   bottle do
-    sha256 "c891f2e04a6bb4c77f9f45b673494da1762f51dbc9b567bfad411fd5f27fb302" => :mojave
-    sha256 "2fa9dc887ac9710977281e59a7ae22a571596b234ac738479ee26afedbdaba34" => :high_sierra
-    sha256 "960f53ddcbd54d708f7fb70ea655a8f14a8f315e20121d157e7927354dae4068" => :sierra
-    sha256 "2a03378b3903fbca6caca6811a3e3658fd75914a62dc5dda3a801dd4e16d7a0a" => :el_capitan
+    sha256 "ef98c860ad49b7c335854dc8a558e193353a8afad8d22d0bc1be1d82ccc716c7" => :mojave
+    sha256 "13a414fd51dc409c7fb66ff5a91920f11cda4a18e311b16249df7a1395e8f2b5" => :high_sierra
+    sha256 "945bbdb2a8e1ed4802a9b437fcdfccd59d0de099bcbee66e32a42f7cf9c86896" => :sierra
+    sha256 "786efff084a599afbdc9ab706da2e64ae1c4fc29110ab8f7379649a9651599e2" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
