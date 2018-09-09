@@ -7,10 +7,10 @@ class Terragrunt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6f7dc8ff72d61864e18979bc983d2e95081b1d06d14d84f9169f42ddb78ab273" => :mojave
-    sha256 "a6d0009e4dc784d9f3eb4ff28a35277a7214b79e1a0e75452f48c033c38d7d5e" => :high_sierra
-    sha256 "76b13c28ef117e8cd2d42430f830774b437152d511fced793033e8311d45e3c4" => :sierra
-    sha256 "642a2ebfc45531e672458f2ec0f78adc06465b89a09dbafc44aeb5a0b11459c8" => :el_capitan
+    sha256 "9506f66085da0d81e3acac36da1263710e5c53a0acb5f908b40078a68f5955ae" => :mojave
+    sha256 "86067cd14cb33e817302d499deff195576c8028fc6274c613ec66f4b183b22bf" => :high_sierra
+    sha256 "a60626811c5e281e47365034268889badbb1a3d2b7065eaad8a9196d27c026fe" => :sierra
+    sha256 "c238bbc939c8ce9ddc3e9512051e5e06f12cb7dd81d09f6f2461fefc74e44c3d" => :el_capitan
   end
 
   depends_on "glide" => :build
