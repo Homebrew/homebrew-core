@@ -6,10 +6,10 @@ class AtSpi2Atk < Formula
 
   bottle do
     cellar :any
-    sha256 "a4d80ea77ada0be681e165d9bcf3836677036b9b7e7a2516475d015da37055fc" => :mojave
-    sha256 "fa992dfbe9bcb014cb0d5bc3fa2700cd6cb51d82ff18a3998cde6b9fa3ea75a6" => :high_sierra
-    sha256 "958cc79b52ac7917259dd5dd4dd47b770722447843b25ae4c8272b36efa868d8" => :sierra
-    sha256 "01c0e01277843d36e5cacb8b8c07e1096f1a3c53d92ed49aba4af8a96e0e15dc" => :el_capitan
+    sha256 "c2027dd839ea861984aee1587108e89be54661d4ceada586a48b4ca4f6cd0d41" => :mojave
+    sha256 "93b22bd8e17c750e71f8afbe96d2ed1011884f3a9461eeeeff7689b7473675ad" => :high_sierra
+    sha256 "a017537217c5c1533adc6a9c2ed209349186380ccda808375d10a3e8d7b393ed" => :sierra
+    sha256 "ac94ce79b4199253f019f7fd270e60931e2fbc301b86ec7e45aca16f58d0fc58" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
