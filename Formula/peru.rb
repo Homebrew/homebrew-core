@@ -23,13 +23,12 @@ class Peru < Formula
   end
 
   test do
-    peru_yaml = <<~PERU
+    (testpath/"peru.yaml").write <<~EOS
       imports:
         peru: peru
       git module peru:
         url: https://github.com/buildinspace/peru.git
-    PERU
-    File.write("peru.yaml", peru_yaml)
+    EOS
     system "#{bin}/peru", "sync"
   end
 end
