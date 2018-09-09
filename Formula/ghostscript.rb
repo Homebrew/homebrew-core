@@ -1,33 +1,8 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  revision 1
-
-  stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.xz"
-    sha256 "1fcedc27d4d6081105cdf35606cb3f809523423a6cf9e3c23cead3525d6ae8d9"
-
-    # https://bugs.chromium.org/p/project-zero/issues/detail?id=1640
-    # https://www.kb.cert.org/vuls/id/332928
-    patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
-      sha256 "1dfce2417808cf299ce9d6cb07751ae2d285772e71506a5752f084d7a90472ff"
-      apply "patches/020180821~0d39011.patch",
-            "patches/020180821~0edd3d6.patch",
-            "patches/020180821~a054156.patch",
-            "patches/020180821~b326a71.patch",
-            "patches/020180821~c3476dd.patch",
-            "patches/020180823~0b6cd19.patch",
-            "patches/020180823~8e9ce50.patch",
-            "patches/020180823~241d911.patch",
-            "patches/020180823~78911a0.patch",
-            "patches/020180823~b575e1e.patch",
-            "patches/020180823~c432131.patch",
-            "patches/020180824~5516c61.patch",
-            "patches/020180824~e01e77a.patch"
-    end
-  end
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs924/ghostpdl-9.24.tar.xz"
+  sha256 "022e1c27fdd874f5c2a2284ad2c26ff566fbc4d28076aa7e314cf90ea982a9f8"
 
   bottle do
     sha256 "ce61f1e6b265f170d1ac925fb81c3df1f3f925a649595df2dc034d2ab965477e" => :mojave
@@ -91,11 +66,13 @@ class Ghostscript < Formula
 end
 
 __END__
-diff --git a/base/unix-dll.mak b/base/unix-dll.mak
-index ae2d7d8..4f4daed 100644
---- a/base/unix-dll.mak
-+++ b/base/unix-dll.mak
-@@ -64,12 +64,12 @@ GS_SONAME_MAJOR_MINOR=$(GS_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR)$(G
+diff --git i/base/unix-dll.mak w/base/unix-dll.mak
+index f50c09c00adb..8855133b400c 100644
+--- i/base/unix-dll.mak
++++ w/base/unix-dll.mak
+@@ -89,18 +89,33 @@ GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR
+ # similar linkers it must containt the trailing "="
+ # LDFLAGS_SO=-shared -Wl,$(LD_SET_DT_SONAME)$(LDFLAGS_SO_PREFIX)$(GS_SONAME_MAJOR)
  
  
  # MacOS X
@@ -109,8 +86,26 @@ index ae2d7d8..4f4daed 100644
 +GS_SONAME_MAJOR_MINOR=$(GS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
  #LDFLAGS_SO=-dynamiclib -flat_namespace
 -#LDFLAGS_SO_MAC=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
-+LDFLAGS_SO_MAC=-dynamiclib -install_name __PREFIX__/lib/$(GS_SONAME_MAJOR_MINOR)
++GS_LDFLAGS_SO=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
  #LDFLAGS_SO=-dynamiclib -install_name $(FRAMEWORK_NAME)
  
++PCL_SONAME=$(PCL_SONAME_BASE).$(GS_SOEXT)
++PCL_SONAME_MAJOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++PCL_SONAME_MAJOR_MINOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++PCL_LDFLAGS_SO=-dynamiclib -install_name $(PCL_SONAME_MAJOR_MINOR)
++
++XPS_SONAME=$(XPS_SONAME_BASE).$(GS_SOEXT)
++XPS_SONAME_MAJOR=$(XPS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++XPS_SONAME_MAJOR_MINOR=$(XPS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++XPS_LDFLAGS_SO=-dynamiclib -install_name $(XPS_SONAME_MAJOR_MINOR)
++
++GPDL_SONAME=$(GPDL_SONAME_BASE).$(GS_SOEXT)
++GPDL_SONAME_MAJOR=$(GPDL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++GPDL_LDFLAGS_SO=-dynamiclib -install_name $(GPDL_SONAME_MAJOR_MINOR)
++
  GS_SO=$(BINDIR)/$(GS_SONAME)
-
+ GS_SO_MAJOR=$(BINDIR)/$(GS_SONAME_MAJOR)
+ GS_SO_MAJOR_MINOR=$(BINDIR)/$(GS_SONAME_MAJOR_MINOR)
+ 
+ PCL_SO=$(BINDIR)/$(PCL_SONAME)
