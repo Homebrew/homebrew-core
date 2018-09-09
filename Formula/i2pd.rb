@@ -11,6 +11,9 @@ class I2pd < Formula
   needs :cxx11
 
   # That patches will be here till next release
+  # Upstream commits:
+  # https://github.com/PurpleI2P/i2pd/commit/064460b95f656cb211995f88c66bea94d88224d4
+  # https://github.com/PurpleI2P/i2pd/commit/6fe1de5d869343a2b80fdd168c4276880bc57b3f
   patch do
     url "https://github.com/PurpleI2P/i2pd/commit/064460b95f656cb211995f88c66bea94d88224d4.diff?full_index=1"
     sha256 "0d8503b7188bd7172d12c6b75e2928ab80606cc75400912a62eb28a4b0809978"
@@ -24,25 +27,18 @@ class I2pd < Formula
   def install
     ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
 
-    args = %W[
-      DEBUG=no
-      HOMEBREW=1
-      USE_UPNP=yes
-      USE_AESNI=no
-      USE_AVX=no
-      PREFIX=#{prefix}
-    ]
+    system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes", "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"
 
-    system "make", "install", *args
-    (etc/"i2pd").mkpath
-    (etc/"i2pd").install prefix/"etc/i2pd/i2pd.conf", prefix/"etc/i2pd/subscriptions.txt", prefix/"etc/i2pd/tunnels.conf"
+    # preinstall to prevent overwriting changed by user configs
+    confdir = etc/"i2pd"
+    rm_rf prefix/"etc"
+    confdir.install doc/"i2pd.conf", doc/"subscriptions.txt", doc/"tunnels.conf"
   end
 
   def post_install
     # i2pd uses datadir from variable below. If that path not exists, create that directory and create symlinks to certificates and configs.
     # Certificates can be updated between releases, so we must re-create symlinks to latest version of it on upgrade.
     datadir = var/"lib/i2pd"
-
     if datadir.exist?
       rm datadir/"certificates"
       datadir.install_symlink pkgshare/"certificates"
