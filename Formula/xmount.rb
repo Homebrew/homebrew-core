@@ -3,7 +3,8 @@ class Xmount < Formula
   homepage "https://www.pinguin.lu/xmount/"
   url "https://code.pinguin.lu/diffusion/XMOUNT/xmount.git",
       :tag => "v0.7.6",
-      :revision => "a417af7382c3e18fb8bd1341cc3307b09eefd578"
+      :revision => "d0f67c46632a69ff1b608e90ed2fba8344ab7f3d"
+  revision 1
 
   bottle do
     sha256 "88504e5b0c50741041083d475e74d3133556f72d5c07ac7ec5bc6425ea864422" => :high_sierra
