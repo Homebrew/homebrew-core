@@ -1,8 +1,8 @@
 class MongodbAT34 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.14.tar.gz"
-  sha256 "bbed7821560cc3c9e3215708e34243e20d490891b08a39f216188398ede9d790"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.17.tar.gz"
+  sha256 "6044e4c811a87bffd512a96fd2a4e4af9513af12f407bf7cd7c6281ccfb46484"
 
   bottle do
     sha256 "5ab02d2ca2f40c585de6aff3422da6be33e18e2a3d3c3589881975ba32f968d0" => :mojave
@@ -16,11 +16,12 @@ class MongodbAT34 < Formula
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
   option "with-sasl", "Compile with SASL support"
 
-  depends_on "boost" => :optional
   depends_on "go" => :build
-  depends_on :macos => :mountain_lion
+  depends_on "pkg-config" => :build
   depends_on "scons" => :build
+  depends_on :macos => :mountain_lion
   depends_on "openssl" => :recommended
+  depends_on "boost" => :optional
 
   needs :cxx11
 
