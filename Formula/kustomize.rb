@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag => "v1.0.6",
-      :revision => "017c4ae0aa19195db2a51ecc5aa82c56a1f1c99b"
+      :tag => "v1.0.7",
+      :revision => "633c43a672715dc4c39eaa983a8886ecd21be2e5"
 
   bottle do
     cellar :any_skip_relocation
