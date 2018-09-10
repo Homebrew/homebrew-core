@@ -1,10 +1,8 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  # Pinned at 6.2.x because of a licencing issue
-  # See: https://github.com/Homebrew/homebrew-core/pull/28995
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.4.tar.gz"
-  sha256 "91e6f1ea1e1dd39011e7a703d2751ca46ee374665b08b0bfe17e0c0c27000e8e"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.4.1.tar.gz"
+  sha256 "ac166e9615decb09d0b3eddd7cdded553f7cd36cfa3a766d77f8472b3637de29"
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -68,6 +66,8 @@ class Elasticsearch < Formula
     ln_s etc/"elasticsearch", libexec/"config"
     (var/"elasticsearch/plugins").mkpath
     ln_s var/"elasticsearch/plugins", libexec/"plugins"
+    # fix test not being able to create keystore because of sandbox permissions
+    system bin/"elasticsearch-keystore", "create"
   end
 
   def caveats
