@@ -5,9 +5,11 @@ class Cracklib < Formula
   sha256 "17cf76943de272fd579ed831a1fd85339b393f8d00bf9e0d17c91e972f583343"
 
   bottle do
-    sha256 "c7f22644746f0ea3abb20e772625b633ab8a73f0f773b57baa7d71a3620b367c" => :high_sierra
-    sha256 "d7d9452c277c47b1a7ad681a08c48f1e7ee5db4c9745520d271eb7f3a6f32757" => :sierra
-    sha256 "4e16e0eefb0560fab07c517fa54a6c79d77f989b725adff642c9c496c2879b25" => :el_capitan
+    rebuild 1
+    sha256 "a21962259717ab187dc477310b0e68b28449135839312f7c632f0e46414efcf1" => :mojave
+    sha256 "52c1e0acde52e27553ca3884dba490596ebc4a45019181bbb355ed9bad50e778" => :high_sierra
+    sha256 "e2cfe716fb290d4dd26558290707596146e15ca8da510b38897c128f961779b6" => :sierra
+    sha256 "12665f56731ad7a8c56143d5f263b99e7a8484cbb0e2f22b955978f63e724138" => :el_capitan
   end
 
   depends_on "gettext"
