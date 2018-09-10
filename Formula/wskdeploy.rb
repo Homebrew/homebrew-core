@@ -1,8 +1,9 @@
 class Wskdeploy < Formula
   desc "Apache OpenWhisk project deployment utility"
   homepage "http://openwhisk.org/"
-  url "https://github.com/apache/incubator-openwhisk-wskdeploy/archive/0.9.7.tar.gz"
-  sha256 "15f586aeb3221e67b583941b988fcc572eebafc64c58d4a2df2787007344f064"
+  url "https://github.com/apache/incubator-openwhisk-wskdeploy/archive/0.9.8-incubating.tar.gz"
+  version "0.9.8"
+  sha256 "10ff548bf43448d734e0e6f4b6aee8d306759a4ff8a5a7deaa61329c0f3376a6"
 
   bottle do
     cellar :any_skip_relocation
