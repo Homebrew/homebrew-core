@@ -26,6 +26,9 @@ class Glib < Formula
   depends_on "libffi"
   depends_on "pcre"
 
+  # Cocoa detection fails, cf. https://gitlab.gnome.org/GNOME/glib/issues/1381
+  fails_with :gcc if MacOS.version <= :lion
+
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
   # id file.
