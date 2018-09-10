@@ -3,11 +3,11 @@ class Spim < Formula
   homepage "https://spimsimulator.sourceforge.io/"
   # No source code tarball exists
   if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/spimsimulator/code", :revision => 707
+    url "https://svn.code.sf.net/p/spimsimulator/code", :revision => 712
   else
-    url "http://svn.code.sf.net/p/spimsimulator/code", :revision => 707
+    url "http://svn.code.sf.net/p/spimsimulator/code", :revision => 712
   end
-  version "9.1.19"
+  version "9.1.20"
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
