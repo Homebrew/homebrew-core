@@ -1,10 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  # Pinned at 6.2.x because of a licencing issue
-  # See: https://github.com/Homebrew/homebrew-core/pull/28995
-  url "https://artifacts.elastic.co/downloads/logstash/logstash-6.2.4.tar.gz"
-  sha256 "4040c2b6a1e9c6908b12885659021a35dca415c6b884cef6938fcc589e94431e"
+  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-6.4.1.tar.gz"
+  sha256 "97d1d7785122692070105dded4958a3ba9228d92bbc72ef86097119749ca5906"
   head "https://github.com/elastic/logstash.git"
 
   bottle :unneeded
