@@ -7,10 +7,10 @@ class Wskdeploy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f6342230cb38eca41460648c719df2c57c8c05e3cde2cb036a82bf2b4f23d59f" => :mojave
-    sha256 "dbcca1feeecc26d9f62340e5c46cda27ec091b27f20706aa41801fdb9fa6d4c0" => :high_sierra
-    sha256 "7595301f3c9537a6c783e192e845ef02fac4c49b79a0fbe391dcc814d55e1d92" => :sierra
-    sha256 "daa53af3f825acbeac28e02cb5cedec6783b436667273d4d7dded30f6485c145" => :el_capitan
+    sha256 "af115b7e657349574b92dffab3e7609fbf60706fb9dc9ae1c6a030812e21755f" => :mojave
+    sha256 "6b420b7cfe07d10a7f37664dd2e906bc7a7ef0e8d9e15124ddaaee0ed7846d3d" => :high_sierra
+    sha256 "e11f904c7afd3555efabcebbee7bfba2957cbbf157279f37c77f070185715080" => :sierra
+    sha256 "837e83f970a1ad4951560d37937b30a47b162c17700ee03838f642a18c355e55" => :el_capitan
   end
 
   depends_on "go" => :build
