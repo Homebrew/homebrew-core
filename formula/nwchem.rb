@@ -63,7 +63,7 @@ class Nwchem < Formula
     cd "QA" do
       ENV["NWCHEM_TOP"] = pkgshare
       ENV["NWCHEM_TARGET"] = "MACX64"
-      ENV["NWCHEM_EXECUTABLE"] = "/usr/local/bin/nwchem"
+      ENV["NWCHEM_EXECUTABLE"] = "#{bin}/nwchem"
       system "./runtests.mpi.unix", "procs", "2", "dft_he2+", "prop_mep_gcube", "pspw", "tddft_h2o", "tce_n2"
     end
   end
