@@ -15,7 +15,7 @@ class Cracklib < Formula
   # Upstream commit from 25 Aug 2016 "Apply patch to fix CVE-2016-6318"
   patch :p2 do
     url "https://github.com/cracklib/cracklib/commit/47e5dec.patch?full_index=1"
-    sha256 "8b9d455525fb967813cc51cb82eff637d608ba5578e59abd3c7290b5892d2708"
+    sha256 "7b3604d503208365951038b04990eef24b8ef90ce845fd84e2d2ab88a9a4f56b"
   end
 
   resource "cracklib-words" do
