@@ -1,9 +1,9 @@
 class DoubleConversion < Formula
   desc "Binary-decimal and decimal-binary routines for IEEE doubles"
-  homepage "https://github.com/floitsch/double-conversion"
+  homepage "https://github.com/google/double-conversion"
   url "https://github.com/google/double-conversion/archive/3.1.0.tar.gz"
   sha256 "aef5f528dab826b269b54766a4c2d179e361866c75717af529f91c56b4034665"
-  head "https://github.com/floitsch/double-conversion.git"
+  head "https://github.com/google/double-conversion.git"
 
   bottle do
     cellar :any_skip_relocation
