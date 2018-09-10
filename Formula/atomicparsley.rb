@@ -1,8 +1,9 @@
 class Atomicparsley < Formula
   desc "MPEG-4 command-line tool"
   homepage "https://bitbucket.org/wez/atomicparsley/overview/"
-  url "https://bitbucket.org/dinkypumpkin/atomicparsley/downloads/atomicparsley-0.9.6.tar.bz2"
-  sha256 "49187a5215520be4f732977657b88b2cf9203998299f238067ce38f948941562"
+  url "https://bitbucket.org/wez/atomicparsley/get/0.9.6.tar.bz2"
+  sha256 "e28d46728be86219e6ce48695ea637d831ca0170ca6bdac99810996a8291ee50"
+  revision 1
   head "https://bitbucket.org/wez/atomicparsley", :using => :hg
 
   bottle do
