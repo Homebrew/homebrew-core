@@ -8,13 +8,10 @@ class Atomicparsley < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "780dc30f8faab0c4a6beb01929f37032ef6f5190bc133e3052c7031cf75b202e" => :mojave
-    sha256 "ea4399b0ed2025590068deda729e9c566094cda9a9e38149e116d97fc6d034d4" => :high_sierra
-    sha256 "345eb5a19de38e476a0b39627ea243efdfc9a7a7dd980e5e51e4db74599c3f20" => :sierra
-    sha256 "b43ba5577c7e8b2dd9b4852a5d6652e1600a460584096646f38b69b7d103cee9" => :el_capitan
-    sha256 "b1825326c53079bd37a098cf100ae29d2b2763c985be0f2592ba89f10b914eb3" => :yosemite
-    sha256 "8797e94e5a1083d41fd9843a94362a714a48430918ed95fa9d7f37b31e0ba1e9" => :mavericks
+    sha256 "d32a565f675bd0b2c5ebf1b5aee01fb79d9d42b072dedf724b7ee03b2cc242ee" => :mojave
+    sha256 "05c4cdc1dfc14fa6f06fdbbcadead5055a9fb53091d014458b86ecb4b22111fe" => :high_sierra
+    sha256 "d5f8672d420511ff76fd9ecc4d41c8aee5eecbf4382d7c4bd3fb04400c4617f4" => :sierra
+    sha256 "c0a7964ced998b2db7150f95b9329e138f28f0768be50d531fd4d82754e0ebde" => :el_capitan
   end
 
   depends_on "autoconf" => :build
