@@ -7,11 +7,10 @@ class DoubleConversion < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b31ab13dc2ee0c0e6892dfec9f96647009c7dba5b607a1fe4659fd384b225ad8" => :mojave
-    sha256 "a90962bc9b0d25bd4d1c69e8892af60ffa4c8c18efd5653265debdad1736996e" => :high_sierra
-    sha256 "bb2a51610649c9f86c06adc2ae66764a42b66e4d95166d306b05dff35e91e422" => :sierra
-    sha256 "30a844eb4530cbe35e05fefed118fe096bf34de61c536283e6a1845f2f087639" => :el_capitan
-    sha256 "dae47f87d852b0df160efaa57b1d2b81f96f31a8a2526e478f073f7fd0fc0beb" => :yosemite
+    sha256 "ea685a125c6a84ec8eba498628a91b18ee8417b4e0b2f51d21cdd125519287f4" => :mojave
+    sha256 "ea9f34958fb3d97b9ed50446bbf784de9f86430e26b68229f46c86ea02cf2d67" => :high_sierra
+    sha256 "70fe99bf8106928a4f7d1b8c94b7624d7dd18b29b37c13edbb711c19d2223ebf" => :sierra
+    sha256 "b9d0e8483f1622b55cda3f1107c4264134758f0fb47e328edab279721b5b8c16" => :el_capitan
   end
 
   depends_on "cmake" => :build
