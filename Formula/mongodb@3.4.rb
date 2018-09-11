@@ -5,10 +5,10 @@ class MongodbAT34 < Formula
   sha256 "6044e4c811a87bffd512a96fd2a4e4af9513af12f407bf7cd7c6281ccfb46484"
 
   bottle do
-    sha256 "5ab02d2ca2f40c585de6aff3422da6be33e18e2a3d3c3589881975ba32f968d0" => :mojave
-    sha256 "a3a784e75234eb5651a4b1bf3a4cef4ad7f4df70f75d6ab827930d31c9b1d2f6" => :high_sierra
-    sha256 "13b9f0745052a6a1aef4f624c810c05c16817e966ae564a9bc7b0cb55ff4e3d4" => :sierra
-    sha256 "83c48d38953e20c8838b5b3471d9f93dccae76328e2b2a8e25002c8f3ade582a" => :el_capitan
+    sha256 "11173a5fea9cad93d1403d56be3e4e7ab23a74633b5d824455dd05751f2d12aa" => :mojave
+    sha256 "8594cd085d34d119a68af057286470cfc77ec788cc53f4f54bd12cf531fe09c8" => :high_sierra
+    sha256 "510ba4ba3c09de4e7c24c263331566bd2213f088f64e9cb5df3d3274c735f965" => :sierra
+    sha256 "53a845e7697c3fb54b3b663424c2ac67c8c80fd5ef925bbac5b82190e70008e7" => :el_capitan
   end
 
   keg_only :versioned_formula
