@@ -16,11 +16,12 @@ class MongodbAT34 < Formula
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
   option "with-sasl", "Compile with SASL support"
 
-  depends_on "boost" => :optional
-  depends_on "go" => :build
   depends_on :macos => :mountain_lion
+  depends_on "go" => :build
+  depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "openssl" => :recommended
+  depends_on "boost" => :optional
 
   needs :cxx11
 
