@@ -1,8 +1,8 @@
 class AmazonEcsCli < Formula
   desc "CLI for Amazon ECS to manage clusters and tasks for development"
   homepage "https://aws.amazon.com/ecs"
-  url "https://github.com/aws/amazon-ecs-cli/archive/v1.7.0.tar.gz"
-  sha256 "b25d3defae2977aa696532b0e68afebd1e587f90eb4c39c64883a4c15906e19b"
+  url "https://github.com/aws/amazon-ecs-cli/archive/v1.8.0.tar.gz"
+  sha256 "24a6fabfaeb1efb38608360843ff9b90ab541cd062d824b9894c9ce1fa857338"
 
   bottle do
     cellar :any_skip_relocation
