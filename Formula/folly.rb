@@ -6,7 +6,6 @@ class Folly < Formula
   head "https://github.com/facebook/folly.git"
 
   bottle do
-    prefix "/usr/local"
     cellar :any
     sha256 "41e37bee2259d1b50b5bf94d5e2209c864fb85ae4e5467e5fad0bd30c156371d" => :mojave
     sha256 "9a3536c18d58dba20636a8662e370b328eeeb4af5dd37f9a5faca9a09b65e8da" => :high_sierra
