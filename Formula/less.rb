@@ -1,9 +1,8 @@
 class Less < Formula
   desc "Pager program similar to more"
   homepage "http://www.greenwoodsoftware.com/less/index.html"
-  url "https://ftp.gnu.org/gnu/less/less-530.tar.gz"
-  mirror "https://ftpmirror.gnu.org/less/less-530.tar.gz"
-  sha256 "503f91ab0af4846f34f0444ab71c4b286123f0044a4964f1ae781486c617f2e2"
+  url "http://www.greenwoodsoftware.com/less/less-535.tar.gz"
+  sha256 "4cf29238841e01fef74eb9d692f64f3d55cad3eaed6d8d3649a82fee901e8eba"
 
   bottle do
     sha256 "6e0881558623d909107e5ebfab32772d164a772863b54cebec8144352ce66ccf" => :mojave
