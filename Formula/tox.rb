@@ -41,6 +41,11 @@ class Tox < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/0e/e8/1aa958599e5326b690a31334112da68a9b75e7563879e2c5103ca219d30a/toml-0.9.6.tar.gz"
+    sha256 "380178cde50a6a79f9d2cf6f42a62a5174febe5eea4126fe4038785f1d888d42"
+  end
+
   resource "virtualenv" do
     url "https://files.pythonhosted.org/packages/33/bc/fa0b5347139cd9564f0d44ebd2b147ac97c36b2403943dbee8a25fd74012/virtualenv-16.0.0.tar.gz"
     sha256 "ca07b4c0b54e14a91af9f34d0919790b016923d157afda5efdde55c96718f752"
