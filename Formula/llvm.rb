@@ -81,54 +81,54 @@ class Llvm < Formula
   end
 
   devel do
-    url "https://prereleases.llvm.org/7.0.0/rc2/llvm-7.0.0rc2.src.tar.xz"
-    sha256 "f6af877a59d708ea1011af2f1b17c68589d4b81eb70872fab6e0608e4950e8f4"
+    url "https://prereleases.llvm.org/7.0.0/rc3/llvm-7.0.0rc3.src.tar.xz"
+    sha256 "0adba9857ccf69d7456dba26961846986c9eca0befd3a519ea0c838872d64864"
 
     resource "clang" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/cfe-7.0.0rc2.src.tar.xz"
-      sha256 "43d881a04844dc59d7bd9ef07e0317fe74c6e22e0c9f184121c6e98ad2b4584b"
+      url "https://prereleases.llvm.org/7.0.0/rc3/cfe-7.0.0rc3.src.tar.xz"
+      sha256 "ec3258b3d0bb950e90db7f16c8542a34f9a7e2fe95cf20d178455c6a44bc4aa1"
     end
 
     resource "clang-extra-tools" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/clang-tools-extra-7.0.0rc2.src.tar.xz"
-      sha256 "70bb5893272a9824552d4d000f3e86dd43285ea5c5601e5d38eb4bdd24d9e49e"
+      url "https://prereleases.llvm.org/7.0.0/rc3/clang-tools-extra-7.0.0rc3.src.tar.xz"
+      sha256 "c71e69d615346561de5bfc168210cc1173e46289fe8ccef307a159f1c8a71b66"
     end
 
     resource "compiler-rt" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/compiler-rt-7.0.0rc2.src.tar.xz"
-      sha256 "d2da501ba8fec4fd197a2626080925b54b77923bd37214ccf0775f78d3cddc29"
+      url "https://prereleases.llvm.org/7.0.0/rc3/compiler-rt-7.0.0rc3.src.tar.xz"
+      sha256 "8108718f605b949dfa6c8c6d8c74089f2fbe5a287adcac08956d0213217a9064"
     end
 
     # Only required to build & run Compiler-RT tests on macOS, optional otherwise.
     # https://clang.llvm.org/get_started.html
     resource "libcxx" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/libcxx-7.0.0rc2.src.tar.xz"
-      sha256 "fc142ad7aadb7c64b89a1a93700da196c1c1c295a482ca881d537e16aadeb56f"
+      url "https://prereleases.llvm.org/7.0.0/rc3/libcxx-7.0.0rc3.src.tar.xz"
+      sha256 "e586c6bb071e568b2cc47af5f1ec0c31225f12cf0ea12a55d4691d1f9b469cfa"
     end
 
     resource "libunwind" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/libunwind-7.0.0rc2.src.tar.xz"
-      sha256 "b4aaf17337b76f39fe60ba73e076b618744cd85adfc99a045d36b737c001ad4c"
+      url "https://prereleases.llvm.org/7.0.0/rc3/libunwind-7.0.0rc3.src.tar.xz"
+      sha256 "30fdee53d3c41b601239e2ec201a964fc86f70960df4a0d0d198f95386a0accd"
     end
 
     resource "lld" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/lld-7.0.0rc2.src.tar.xz"
-      sha256 "71012b64bd28a52ea791f319769c2a5275e81cfbcc2333551ea675d4a99c4fd6"
+      url "https://prereleases.llvm.org/7.0.0/rc3/lld-7.0.0rc3.src.tar.xz"
+      sha256 "2d16a09306238c319fedc020a3e13a463c78a633b21151f486a1eb3b23f6e882"
     end
 
     resource "lldb" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/lldb-7.0.0rc2.src.tar.xz"
-      sha256 "f783e221b3f567e530c6d33f5495f9240f1d2902b9652de184f29a9a45f2dcf5"
+      url "https://prereleases.llvm.org/7.0.0/rc3/lldb-7.0.0rc3.src.tar.xz"
+      sha256 "f7d9d6141bd8880f0e3c2ddc70b08dbccdfe0777ba1269c752ebdb82b08a52e8"
     end
 
     resource "openmp" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/openmp-7.0.0rc2.src.tar.xz"
-      sha256 "188e8da2b6dd1427d82c5e54bbca78e49cd80496ea047cfe62f99865861d7dcd"
+      url "https://prereleases.llvm.org/7.0.0/rc3/openmp-7.0.0rc3.src.tar.xz"
+      sha256 "bc4d2d64838f8a311b9c4311911da71220acc789eb53fd5dcfa54258b0a411a5"
     end
 
     resource "polly" do
-      url "https://prereleases.llvm.org/7.0.0/rc2/polly-7.0.0rc2.src.tar.xz"
-      sha256 "a7888707c80a74156ee9074f188de19a00bd9bd482fd46948e4dc743f1a9e067"
+      url "https://prereleases.llvm.org/7.0.0/rc3/polly-7.0.0rc3.src.tar.xz"
+      sha256 "09ec98ec96022489f41b547a48e8790fc6dd38a2a4c0682c8fc21df2c815f134"
     end
   end
 
