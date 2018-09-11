@@ -3,8 +3,9 @@ require "language/go"
 class Mmark < Formula
   desc "Powerful markdown processor in Go geared towards the IETF"
   homepage "https://github.com/miekg/mmark"
-  url "https://github.com/miekg/mmark/archive/v1.3.6.tar.gz"
-  sha256 "9c49d335d0591003c9ac838f6f74f3ae8e0ac50dec892b6ed3485b17a8bedd77"
+  url "https://github.com/mmarkdown/mmark"
+  version "2.0.7"
+  sha256 "970e5c4a58a90bc450c1fd5b3404b255f3f25d9c4f3f01b79f00c9528287b896"
 
   bottle do
     cellar :any_skip_relocation
