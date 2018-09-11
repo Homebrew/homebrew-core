@@ -53,6 +53,9 @@ class Curl < Formula
   def install
     system "./buildconf" if build.head?
 
+    # Allow to build on Lion, lowering from the upstream setting of 10.8
+    ENV.append_to_cflags "-mmacosx-version-min=10.7" if MacOS.version <= :lion
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
