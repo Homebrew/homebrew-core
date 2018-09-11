@@ -1,8 +1,8 @@
 class Watchexec < Formula
   desc "Execute commands when watched files change"
-  homepage "https://github.com/mattgreen/watchexec"
-  url "https://github.com/watchexec/watchexec/archive/1.9.0.tar.gz"
-  sha256 "64a3ade996d83facf5d5aad05667425c3c0293dd7dab82e7675af483f59275fd"
+  homepage "https://github.com/watchexec/watchexec"
+  url "https://github.com/watchexec/watchexec/archive/1.9.2.tar.gz"
+  sha256 "dcb41cf075d1f07a7274a3b1138dfc585368d1a55595424290988804b58fdb96"
 
   bottle do
     sha256 "0116f0f38962434caf7895f761daeaf3261d499d04b6636057ae1bc118e60046" => :mojave
