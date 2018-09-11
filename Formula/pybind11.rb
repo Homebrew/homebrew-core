@@ -5,7 +5,6 @@ class Pybind11 < Formula
   sha256 "b69e83658513215b8d1443544d0549b7d231b9f201f6fc787a2b2218b408181e"
 
   bottle do
-    prefix "/usr/local"
     cellar :any_skip_relocation
     sha256 "416f1b42821bc2c4fae7753e6d1e002496ab68827289c9c6c81ef8573f080335" => :mojave
     sha256 "56e63099ecd908c86fed027a4fd2c83c63325f1aa715fa1df5b8cf9d6491f6af" => :high_sierra
