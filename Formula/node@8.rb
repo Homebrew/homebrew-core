@@ -1,8 +1,8 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
-  sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
+  url "https://nodejs.org/dist/v8.12.0/node-v8.12.0.tar.xz"
+  sha256 "5a9dff58016c18fb4bf902d963b124ff058a550ebcd9840c677757387bce419a"
 
   bottle do
     sha256 "04f87bf0e908c98d294d64952d9534fa20d6f743645f86bb3ce40d81f8e6527c" => :mojave
