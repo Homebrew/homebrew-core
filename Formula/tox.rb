@@ -7,7 +7,6 @@ class Tox < Formula
   sha256 "433bb93c57edae263150767e672a0d468ab4fefcc1958eb4013e56a670bb851e"
 
   bottle do
-    prefix "/usr/local"
     cellar :any_skip_relocation
     sha256 "46cdec66c79c5870c3e65c7e3661a60f7567dca583411e58e67f23dabd49d547" => :mojave
     sha256 "2a627b356bb3986c506afaec5f2ea42ce062b2e947c567c28d8ca4295455caa8" => :high_sierra
