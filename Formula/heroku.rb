@@ -9,7 +9,6 @@ class Heroku < Formula
   head "https://github.com/heroku/cli.git"
 
   bottle do
-    prefix "/usr/local"
     cellar :any_skip_relocation
     sha256 "5505495cee468c816d9c56d7c6a9c845bbdf6e3c0f1439159e8913b6415a15b0" => :mojave
     sha256 "fc51e8bcebe8e299a48be3842c7b1555865c8766011e09694505f2e272ae7bc5" => :high_sierra
