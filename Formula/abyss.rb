@@ -1,9 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.1.0/abyss-2.1.0.tar.gz"
-  sha256 "fe28aee5e2ee24ea2c550518bfeb65577f8f9900831bf4fb0858ac1829fd86fa"
-  revision 1
+  url "https://github.com/bcgsc/abyss/releases/download/2.1.1/abyss-2.1.1.tar.gz"
+  sha256 "aca9e5ad984282ced81038dfc20205ba0bb59ff4edf427419451b632aa567e9f"
 
   bottle do
     sha256 "cced51c7524930f52dc80b4f7a5d444a58a1187d46a5bb1493cff54cbbfb9c05" => :high_sierra
@@ -33,10 +32,13 @@ class Abyss < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
+    system "./configure", "--enable-maxk=128",
                           "--prefix=#{prefix}",
-                          "--enable-maxk=128"
+                          "--with-boost=#{Formula["boost"].include}",
+                          "--with-mpi=#{Formula["open-mpi"].prefix}",
+                          "--with-sparsehash=#{Formula["google-sparsehash"].prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules"
     system "make", "install"
   end
 
