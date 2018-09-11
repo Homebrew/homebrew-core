@@ -5,10 +5,10 @@ class Homebank < Formula
   sha256 "8e5421e0f3e782bb403f26d713791671e0e51d887157169d915637e54e720908"
 
   bottle do
-    sha256 "95c5ffa07316efe39f9d4a786bc665520dd93230dd7e2f5ad3fe126da5949b1f" => :mojave
-    sha256 "c707ac6ee4d62d6bb72302915188d2d07deb3fabe38a91c907e93037aecd4d0b" => :high_sierra
-    sha256 "d0ea1d56222a494e67b60dbad29892a8376be5712ecb59ade3ebb3611d292b8c" => :sierra
-    sha256 "cfb98afe0dce332cc996ea309b801cc66d8afeb0ec15fcb5568aee4b29a82950" => :el_capitan
+    sha256 "6714b6331c71bcde205ec1ec301331fe3355d64ca29801f09f9a547e343cb1d6" => :mojave
+    sha256 "d62df5ebd994fa030be7667bb8fb75ccce33d4c557554e19300ef48c1a960f5f" => :high_sierra
+    sha256 "486d1d5f5d8d2132d2d1cb814e68b6d1241886b2746fc083886dc0068c5b2eee" => :sierra
+    sha256 "9766b5b98e8386e815d4851be914cc0306526de66cb35d99eb022371af0a0708" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
