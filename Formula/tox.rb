@@ -7,11 +7,12 @@ class Tox < Formula
   sha256 "433bb93c57edae263150767e672a0d468ab4fefcc1958eb4013e56a670bb851e"
 
   bottle do
+    prefix "/usr/local"
     cellar :any_skip_relocation
-    sha256 "a68c668210b0fbc24cc63b3e2b7df0e2068a32dfe1843f0ee1dc29063b71e420" => :mojave
-    sha256 "da3eb3eaa8bac87f538da3aea7e7086791b5ccd15f2e9783ffc385dce063f0f1" => :high_sierra
-    sha256 "1040bdfc83b2e77131e04e08202ddd2f1d90b60c8b100bcbeab8db35d46cd65f" => :sierra
-    sha256 "324e2557543f10392fc947c6b34d3ff3d352a00f92504ae25bb6c994dc3bfad1" => :el_capitan
+    sha256 "46cdec66c79c5870c3e65c7e3661a60f7567dca583411e58e67f23dabd49d547" => :mojave
+    sha256 "2a627b356bb3986c506afaec5f2ea42ce062b2e947c567c28d8ca4295455caa8" => :high_sierra
+    sha256 "e9c4fc4b74993e2d6bbb7d953a7dd6ab9c8aa65b6dc3c2e27dee077dd01fd978" => :sierra
+    sha256 "042a9edf97959b862f1534c5b925224bd1b8365685b37a7a4c908a247da80b28" => :el_capitan
   end
 
   depends_on "python"
