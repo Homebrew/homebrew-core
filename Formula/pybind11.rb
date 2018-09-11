@@ -5,11 +5,12 @@ class Pybind11 < Formula
   sha256 "b69e83658513215b8d1443544d0549b7d231b9f201f6fc787a2b2218b408181e"
 
   bottle do
+    prefix "/usr/local"
     cellar :any_skip_relocation
-    sha256 "caaed439082daa9dd9a60bc86117dbb6bd95aac75afcccf08dcb126644c0caf3" => :mojave
-    sha256 "02d3aca317248329194743cf122d6f64f4a5068e62a64d8f0310c68f84d213f4" => :high_sierra
-    sha256 "02d3aca317248329194743cf122d6f64f4a5068e62a64d8f0310c68f84d213f4" => :sierra
-    sha256 "02d3aca317248329194743cf122d6f64f4a5068e62a64d8f0310c68f84d213f4" => :el_capitan
+    sha256 "416f1b42821bc2c4fae7753e6d1e002496ab68827289c9c6c81ef8573f080335" => :mojave
+    sha256 "56e63099ecd908c86fed027a4fd2c83c63325f1aa715fa1df5b8cf9d6491f6af" => :high_sierra
+    sha256 "56e63099ecd908c86fed027a4fd2c83c63325f1aa715fa1df5b8cf9d6491f6af" => :sierra
+    sha256 "56e63099ecd908c86fed027a4fd2c83c63325f1aa715fa1df5b8cf9d6491f6af" => :el_capitan
   end
 
   depends_on "cmake" => :build
