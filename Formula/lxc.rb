@@ -5,7 +5,6 @@ class Lxc < Formula
   sha256 "2bf5221c49d5b7dfdde3c8a679dac55564cbbff0f2b0877b5e1fde51ecc61f1c"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "b86063e97a278e8bbd6e6e170dc9883c145fdffdefa550d47ba460b2ce546b16" => :mojave
     sha256 "81e41e4aef9a571517ed086e97bfcaf82de5340a527ae42a1ed0f44657b5e5a2" => :high_sierra
