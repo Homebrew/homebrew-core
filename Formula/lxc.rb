@@ -5,11 +5,12 @@ class Lxc < Formula
   sha256 "2bf5221c49d5b7dfdde3c8a679dac55564cbbff0f2b0877b5e1fde51ecc61f1c"
 
   bottle do
+    root_url "https://homebrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "7586204cab5b2bb28c01e393569f89ec6c9df7bcad35147d7749db36285ea38b" => :mojave
-    sha256 "c6df3c61a2e3d6345f5d219e0153be0c2bddea141101aa20cfb5649851a82c08" => :high_sierra
-    sha256 "7584a5da68b9f3be6febf6e88c3353fc51a9d3d7d3ced74da1a8609cf2fd224d" => :sierra
-    sha256 "49e32a3821d790f65ee7017ad40e0fa1a6a84af56f509d0e86cc17051c2a754d" => :el_capitan
+    sha256 "b86063e97a278e8bbd6e6e170dc9883c145fdffdefa550d47ba460b2ce546b16" => :mojave
+    sha256 "81e41e4aef9a571517ed086e97bfcaf82de5340a527ae42a1ed0f44657b5e5a2" => :high_sierra
+    sha256 "1ce01ea1feacdcd27039d75db593ad80b15cfbfa4bda682c34235c2550618cb3" => :sierra
+    sha256 "c268964365567d83ef74757d42bf6c5f43b60dcbbb7060a903d8c0d1c7a4243f" => :el_capitan
   end
 
   depends_on "go" => :build
