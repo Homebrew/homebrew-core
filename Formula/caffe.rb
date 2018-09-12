@@ -6,9 +6,9 @@ class Caffe < Formula
   revision 4
 
   bottle do
-    sha256 "83e25328f24db450489314e5a5e16aa3676459b429a382cb06cb644b456b40f8" => :high_sierra
-    sha256 "819a8f7a28eb097205ebc108d7937ea1e364e5c904a1983b698ddf85d76554a1" => :sierra
-    sha256 "5a956d080f1795897f83a2be969ec4963f6a8ec9ba7353675a9fedecd6f29708" => :el_capitan
+    sha256 "0bdb0a30abe7fa59b042452fb40d71915adb008d06fd6440eddebbeda002f32f" => :high_sierra
+    sha256 "b95d74d2bcc906afdd717a5ecd1c79ada8c6acb89215a2f8928086882a3ad625" => :sierra
+    sha256 "2d6c0ba3d484c41e76eb821048e0c0c97dcd851d236f0e86d86a9afeff9cfffd" => :el_capitan
   end
 
   depends_on "cmake" => :build
