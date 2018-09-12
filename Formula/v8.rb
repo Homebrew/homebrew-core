@@ -3,8 +3,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-      :revision => "e323bd9d2263bec69e692526123bacfc2cb84b16"
-  version "6.9.427.19" # the version of the v8 checkout, not a depot_tools version
+      :revision => "0425ebd2b395dd754606e3639c296c5619757451"
+  version "6.9.427.22" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
