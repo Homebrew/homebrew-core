@@ -18,12 +18,14 @@ class Webarchiver < Formula
   depends_on :xcode => ["6.0.1", :build]
 
   def install
-    xcodebuild "SYMROOT=build"
+    # Force 64 bit-only build, otherwise it fails on Mojave
+    xcodebuild "SYMROOT=build", "-arch", "x86_64"
+
     bin.install "./build/Release/webarchiver"
   end
 
   test do
     system "#{bin}/webarchiver", "-url", "https://www.google.com", "-output", "foo.webarchive"
-    assert_match /Apple binary property list/, shell_output("file foo.webarchive", 0)
+    assert_match /Apple binary property list/, shell_output("file foo.webarchive")
   end
 end
