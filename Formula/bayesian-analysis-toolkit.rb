@@ -8,7 +8,7 @@ class BayesianAnalysisToolkit < Formula
   depends_on "root"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--with-cuba"
+    system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}/bat", "--with-cuba"
     system "make", "install"
     (pkgshare/"examples").install "examples/basic"
     (pkgshare/"examples").install "examples/advanced"
