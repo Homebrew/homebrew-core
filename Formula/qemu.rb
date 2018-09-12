@@ -63,6 +63,13 @@ class Qemu < Formula
       args << "--enable-cocoa"
     end
 
+    # Sharing Samba directories in QEMU requires the samba.org smbd which is
+    # incompatible with the macOS-provided version. This will lead to
+    # silent runtime failures, so we set it to a Homebrew path in order to
+    # obtain sensible runtime errors. This will also be compatible with
+    # Samba installations from external taps.
+    args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
+
     args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
     args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
     args << (build.with?("gtk+3") ? "--enable-gtk" : "--disable-gtk")
