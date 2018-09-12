@@ -5,11 +5,12 @@ class Bitrise < Formula
   sha256 "bf44bff3542ee2790d7331bee1d63ad561bd7df63a2f9a89c2048878d2105fe5"
 
   bottle do
+    root_url "https://homebrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "de70c8b1098da143a3778336785dcb37d824e4b4880db750dfffd83250168b8b" => :mojave
-    sha256 "b4cd5b3caadcca98adc65b65a8a358da9a5b83ca8ea2fa642f08bf54392b2ef9" => :high_sierra
-    sha256 "da833ad68e187c01765492f5728e1fc7247016ddea47a36a6e8e229cf26df371" => :sierra
-    sha256 "20871bc1c156812f8b3502f818e789f69cfb26bbcd0b17387060393420ffeb02" => :el_capitan
+    sha256 "b2109fc1a22d224f075767e0898057e30374dbd7f03411829ab7db98da9a72d5" => :mojave
+    sha256 "e5fa1bd541dbba52a2302c3f1cc898c5b8d7214475733c36e906562f29ec8fd4" => :high_sierra
+    sha256 "ed3ec5f67894d2837eb4d158126f82c515a6880271491dfbb746e7dcd228764c" => :sierra
+    sha256 "4ad2d7bd87ec7bf66ab70708783daf3e98ac9c5156e994e68e71dd530617bde0" => :el_capitan
   end
 
   depends_on "go" => :build
