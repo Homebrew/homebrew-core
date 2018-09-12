@@ -8,10 +8,10 @@ class V8 < Formula
 
   bottle do
     cellar :any
-    sha256 "f019523bff9e9a575e2318ca0edf7f19700e721e9729d5574736784a9023c56e" => :mojave
-    sha256 "b2cb043c72be9c902e32ab9e478586766b8982942788421d877ce36f80914bf7" => :high_sierra
-    sha256 "ceaaf3d2bb67c9c7f384041c3a883ccd1f51076eccf6ff4cee961b206b7a139a" => :sierra
-    sha256 "dd4d21b2b4ac9bd6cf745936158b35a878507552a4579149a57f17f63301cbca" => :el_capitan
+    sha256 "5fddb309d16e9186101e5513bb7ec109ff2388211da0dc078f572fa9fc19d80a" => :mojave
+    sha256 "d5a8d6ad8b7aaaf92b2fcb3d3a60d2cdaed65c91f4ecd26631f85fd51e9077d8" => :high_sierra
+    sha256 "e9d06d6783c0de8961159b3e0436e22aa83fa2a7c149de6eb339123538e47037" => :sierra
+    sha256 "d815f9bd1254c2dee18667c7c51201e6108c2cfd7de447c771300bf91784ffe9" => :el_capitan
   end
 
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
