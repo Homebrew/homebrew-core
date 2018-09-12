@@ -16,11 +16,11 @@ class Wumpus < Formula
   # can be removed in the next release
   patch do
     url "https://gitlab.com/esr/wumpus/commit/ea272d4786a55dbaa493d016324b7a05b4f165b9.diff"
-    sha256 "9a6d625e10425674329f14c625dba43b78b66c8137d356453d021e6c39ec339b"
+    sha256 "7b95a5e12447b69d0958cf00bb6413a42612ffea47cdf483c6225a1980f97fb0"
   end
   patch do
     url "https://gitlab.com/esr/wumpus/commit/99022db86e54c3338d6a670f219a0845fd531530.diff"
-    sha256 "72e40a834eb87e8deef51e8f064c50d93880e85ff9904a50be6b7c85052cc157"
+    sha256 "143cba3992b27addb8e25e245624902b935b29cc5465cbe947dd5ae573dafdca"
   end
 
   def install
