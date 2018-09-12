@@ -1,9 +1,8 @@
 class Ocamlbuild < Formula
   desc "Generic build tool for OCaml"
   homepage "https://github.com/ocaml/ocamlbuild"
-  url "https://github.com/ocaml/ocamlbuild/archive/0.12.0.tar.gz"
-  sha256 "d9de56aa961f585896844b24c6f7695a9e7ad9d00263fdfe50a17f38b13b9ce1"
-  revision 2
+  url "https://github.com/ocaml/ocamlbuild/archive/0.13.0.tar.gz"
+  sha256 "63339330d863f83990d005f94143a5472500266051c8c46b7300f0a03e4e7ed3"
   head "https://github.com/ocaml/ocamlbuild.git"
 
   bottle do
