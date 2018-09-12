@@ -7,11 +7,10 @@ class Jump < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "74316d2be4f5c013c6a7fcfed532391a205104dfe59eb44e2dd4cf5499675f26" => :mojave
-    sha256 "bc2b9263678fb825075b4d7221418d92b8e497c15b4d8c59c0e73d4b73877809" => :high_sierra
-    sha256 "36e8f4ad78dca0facb3ebd2023829c70046a667ad079d036b4084b5a2bad5930" => :sierra
-    sha256 "c80701e56abf728f1ccd1e4a65c5161d94c6192e662bf81af3f9c9f8a80b3903" => :el_capitan
+    sha256 "e9736821da1fb38d78d6a929f81a1df81d24dd2b1c6731b8ace9dd28a78c5876" => :mojave
+    sha256 "50a516dd7eeb10a2234772ded9b818e45ccebbf880d06d70b569b7cd48725d87" => :high_sierra
+    sha256 "0b902ba49493c1eb2b4221ef158bc9313aa040108da369fc488379d65e56fb9c" => :sierra
+    sha256 "1a7872797c5f8b458696a71ac073fd142a71037bcf2c0a5d9c86d7685dfecd41" => :el_capitan
   end
 
   depends_on "go" => :build
