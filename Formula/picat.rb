@@ -9,7 +9,8 @@ class Picat < Formula
   def install
     inreplace "emu/Makefile.picat.mac64", "/usr/local/bin/gcc", HOMEBREW_PREFIX/"bin/gcc-8"
     system "make", "-C", "emu", "-f", "Makefile.picat.mac64"
-    prefix.install Dir["doc", "emu", "exs", "lib"]
+    mv "lib", "pi_lib"
+    prefix.install Dir["doc", "emu", "exs", "pi_lib"]
   end
 
   def post_install
