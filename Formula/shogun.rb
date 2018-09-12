@@ -49,7 +49,7 @@ class Shogun < Formula
   # deprecated json-c is_error() macro which got removed in json-c 0.13.1.
   patch do
     url "https://github.com/shogun-toolbox/shogun/commit/365ce4c4c7.patch?full_index=1"
-    sha256 "e7d90ed1ff448d86762449223b926de247e49ae6eeffa7f38c2395f69b1e16fc"
+    sha256 "0a1c3e2e16b2ce70855c1f15876bddd5e5de35ab29290afceacdf7179c4558cb"
   end
 
   resource "jblas" do
