@@ -3,6 +3,7 @@ class Backupninja < Formula
   homepage "https://0xacab.org/riseuplabs/backupninja"
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/b/backupninja/backupninja_1.0.2.orig.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/b/backupninja/backupninja_1.0.2.orig.tar.gz"
+  mirror "http://ftp.riken.jp/Linux/ubuntu/pool/universe/b/backupninja/backupninja_1.0.2.orig.tar.gz"
   sha256 "fdb399de331493c8f959a784318349b19a01fbeece275da2ecd70ec9847a80b6"
 
   bottle do
