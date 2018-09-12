@@ -71,7 +71,6 @@ class Llvm < Formula
   end
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles"
     cellar :any
     rebuild 1
     sha256 "a1aa83b378bfe41b9795495095f9383629aefa4cdb1e9827f223b030c3d19b94" => :mojave
