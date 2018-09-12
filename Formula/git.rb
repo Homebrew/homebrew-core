@@ -3,6 +3,7 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.19.0.tar.xz"
   sha256 "180feff58fc0d965d23ea010aa2c69ead92ec318eb9b09cf737529aec62f3ef4"
+  revision 1
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -12,9 +13,8 @@ class Git < Formula
     sha256 "bec8956a4e80bd8eeff0abc640b776afe637bfeb3b6d323f5a95d00074565df4" => :el_capitan
   end
 
-  deprecated_option "with-pcre" => "with-pcre2"
-
-  depends_on "pcre2" => :optional
+  depends_on "gettext"
+  depends_on "pcre2"
 
   if MacOS.version < :yosemite
     depends_on "openssl"
@@ -44,10 +44,11 @@ class Git < Formula
     # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
-    ENV["NO_GETTEXT"] = "1"
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
+    ENV["USE_LIBPCRE2"] = "1"
+    ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
     perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
@@ -64,11 +65,6 @@ class Git < Formula
 
     unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
       ENV["NO_PERL_MAKEMAKER"] = "1"
-    end
-
-    if build.with? "pcre2"
-      ENV["USE_LIBPCRE2"] = "1"
-      ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     end
 
     args = %W[
