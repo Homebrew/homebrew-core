@@ -5,7 +5,6 @@ class Bitrise < Formula
   sha256 "bf44bff3542ee2790d7331bee1d63ad561bd7df63a2f9a89c2048878d2105fe5"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "b2109fc1a22d224f075767e0898057e30374dbd7f03411829ab7db98da9a72d5" => :mojave
     sha256 "e5fa1bd541dbba52a2302c3f1cc898c5b8d7214475733c36e906562f29ec8fd4" => :high_sierra
