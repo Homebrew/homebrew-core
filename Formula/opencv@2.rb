@@ -33,7 +33,7 @@ class OpencvAT2 < Formula
   # Upstream PR from 21 Apr 2018 "Fix build with FFmpeg 4.0"
   patch do
     url "https://github.com/opencv/opencv/commit/99091a62463.patch?full_index=1"
-    sha256 "7e33c5c009aea0798cd9bd3edb0f7a2122a9f3b2a962977e53a0fccd55e1db40"
+    sha256 "c60be5bc53bc8964550c0a2467a41e391c730fb090219954a2cd8d9a54a1a5a7"
   end
 
   def install
