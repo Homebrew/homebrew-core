@@ -1,13 +1,9 @@
 class Lcs < Formula
   desc "Satirical console-based political role-playing/strategy game"
   homepage "https://sourceforge.net/projects/lcsgame/"
-  if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
-  else
-    url "http://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
-  end
+  url "http://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
   version "4.07.4b"
-  head "https://svn.code.sf.net/p/lcsgame/code/trunk"
+  head "http://svn.code.sf.net/p/lcsgame/code/trunk"
 
   bottle do
     sha256 "5b640b7b87dfe6603670addce1b6af77b0cd7ebbda10c445fddc6d365960e761" => :high_sierra
