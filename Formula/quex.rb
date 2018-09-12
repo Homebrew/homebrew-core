@@ -3,7 +3,7 @@ class Quex < Formula
   homepage "http://quex.org/"
   url "https://downloads.sourceforge.net/project/quex/DOWNLOAD/quex-0.68.2.tar.gz"
   sha256 "b6a9325f92110c52126fec18432d0d6c9bd8a7593bde950db303881aac16a506"
-  head "https://svn.code.sf.net/p/quex/code/trunk"
+  head "http://svn.code.sf.net/p/quex/code/trunk"
 
   bottle do
     cellar :any_skip_relocation
