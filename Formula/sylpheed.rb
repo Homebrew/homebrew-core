@@ -6,6 +6,7 @@ class Sylpheed < Formula
   revision 1
 
   bottle do
+    sha256 "7b90f17a71f0bd70435538753b63f18583f4d0ea9a5650a6bb4be5b394088044" => :mojave
     sha256 "382c0840297de273c0fb68ecee4462ca4e91cdd6cd7a56b0164a7456d485ff97" => :high_sierra
     sha256 "99c858ab66bba990574fed5a1b4ba6dcc485c75b15983c12e49039f4c624a138" => :sierra
     sha256 "05959f61b600d6d9f323b29a0085b275442c92499657f7a4750b88a9ec36a60e" => :el_capitan

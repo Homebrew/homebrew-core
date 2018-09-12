@@ -6,6 +6,7 @@ class Zssh < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "0b1567c1d4aef681ff463f058a884eead039fb0c50a1c03820a03c9f67786b52" => :mojave
     sha256 "9cb26f1bd359977406fae945abd311b2cdc5770570e6350f2ac278bfbe458f5b" => :high_sierra
     sha256 "49e01bb86097999f21f3d96b0f9cd63a975d4fd52f6e286d42ceee16ee996eb7" => :sierra
     sha256 "04212f19c1d9a6b97fd56ffe937606f1779849fdf04b93e3f285889599845c8f" => :el_capitan

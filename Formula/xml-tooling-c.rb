@@ -3,13 +3,13 @@ class XmlToolingC < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
   url "https://shibboleth.net/downloads/c++-opensaml/3.0.0/xmltooling-3.0.2.tar.bz2"
   sha256 "5709cf30c9d7cfc786599ac2433653fac8cc64d425781068af86019c8ce8d689"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "2fd69122b2fa8f8b4029ac2c99e57914213691f1cf225fc2cf92eb7664cd95f7" => :mojave
-    sha256 "9f79c4dcb252510563bed587cb6daf46f559170c8d18dcdf578e381df82cf826" => :high_sierra
-    sha256 "8bed31c20f47ad632bc18520331ec52c7cfe67a365e6f66979816993e600f74a" => :sierra
-    sha256 "8c46bd6bc746ec5e91e56fc44daeb3f003b65e79db3486db8aaed0951191213d" => :el_capitan
+    sha256 "f9abea4ed4e7ecebb332288f4341f817c3fbd57853938ef9a115c5abd16e164c" => :mojave
+    sha256 "a84eb9b4d9ec6d1112e90f5a7db858ddaf174a44d296ae83992da42f74007d07" => :high_sierra
+    sha256 "bd80c1aadca3759c995f39d16291623752df1566f37e8f5b75bbffcaad2a0f15" => :sierra
+    sha256 "d9ce481e3c1a53f864ddd93b03573acff1003639a2816bd4a1bfc5c984e33e5b" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
@@ -20,9 +20,9 @@ class XmlToolingC < Formula
   depends_on "openssl"
 
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.61.0.tar.bz2"
-    mirror "https://curl.askapache.com/download/curl-7.61.0.tar.bz2"
-    sha256 "5f6f336921cf5b84de56afbd08dfb70adeef2303751ffb3e570c936c6d656c9c"
+    url "https://curl.haxx.se/download/curl-7.61.1.tar.bz2"
+    mirror "https://curl.askapache.com/download/curl-7.61.1.tar.bz2"
+    sha256 "a308377dbc9a16b2e994abd55455e5f9edca4e31666f8f8fcfe7a1a4aea419b9"
   end
 
   needs :cxx11

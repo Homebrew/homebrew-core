@@ -22,26 +22,6 @@ class Sdl < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-x11", "Compile with support for X11 video driver"
-  option "with-test", "Compile and install the tests"
-
-  deprecated_option "with-x11-driver" => "with-x11"
-  deprecated_option "with-tests" => "with-test"
-
-  depends_on :x11 => :optional
-
-  if build.with? "x11"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-
-    # Fix build against recent libX11; requires regenerating configure script
-    patch do
-      url "https://hg.libsdl.org/SDL/raw-rev/91ad7b43317a"
-      sha256 "04fa6aaf1ae1043e82d85f367fdb3bea5532e60aa944ce17357030ee93bb856c"
-    end
-  end
-
   # Fix for a bug preventing SDL from building at all on OSX 10.9 Mavericks
   # Related ticket: https://bugzilla.libsdl.org/show_bug.cgi?id=2085
   patch do
@@ -61,19 +41,13 @@ class Sdl < Formula
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl.pc.in sdl-config.in], "@prefix@", HOMEBREW_PREFIX
 
-    system "./autogen.sh" if build.head? || build.with?("x11")
+    system "./autogen.sh" if build.head?
 
-    args = %W[--prefix=#{prefix}]
+    args = %W[--prefix=#{prefix} --without-x]
     args << "--disable-nasm" unless MacOS.version >= :mountain_lion # might work with earlier, might only work with new clang
     # LLVM-based compilers choke on the assembly code packaged with SDL.
     if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
       args << "--disable-assembly"
-    end
-
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--without-x"
     end
 
     system "./configure", *args
@@ -81,26 +55,6 @@ class Sdl < Formula
 
     # Copy source files needed for Ojective-C support.
     libexec.install Dir["src/main/macosx/*"] if build.stable?
-
-    if build.with? "test"
-      ENV.prepend_path "PATH", bin
-      # We need the build to point at the newly-built (not yet linked) copy of SDL.
-      inreplace bin/"sdl-config", "prefix=#{HOMEBREW_PREFIX}", "prefix=#{prefix}"
-      cd "test" do
-        system "./configure"
-        system "make"
-        # Tests don't have a "make install" target
-        (pkgshare/"tests").install %w[checkkeys graywin loopwave testalpha testbitmap testblitspeed testcdrom
-                                      testcursor testdyngl testerror testfile testgamma testgl testhread testiconv
-                                      testjoystick testkeys testloadso testlock testoverlay testoverlay2 testpalette
-                                      testplatform testsem testsprite testtimer testver testvidinfo testwin testwm
-                                      threadwin torturethread]
-        (pkgshare/"test_extras").install %w[icon.bmp moose.dat picture.xbm sail.bmp sample.bmp sample.wav]
-        bin.write_exec_script Dir["#{pkgshare}/tests/*"]
-      end
-      # Point sdl-config back at the normal prefix once we've built everything.
-      inreplace bin/"sdl-config", "prefix=#{prefix}", "prefix=#{HOMEBREW_PREFIX}"
-    end
   end
 
   test do

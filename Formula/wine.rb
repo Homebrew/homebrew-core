@@ -29,15 +29,15 @@ class Wine < Formula
 
   bottle do
     rebuild 1
-    sha256 "8f214b6291164461664d6b48af8db303a94293ee85ce6de9eb8d4b3d959a5775" => :high_sierra
+    sha256 "8f214b6291164461664d6b48af8db303a94293ee85ce6de9eb8d4b3d959a5775" => :high_sierra_or_later
     sha256 "682e3be7ce2094501b00bb8835fd7fd6c72273554aa22ad2de8d21a522aeed26" => :sierra
     sha256 "8263513cedd9086122996f4233ff3449bbe2b0c8e759392843cc18d83a44f070" => :el_capitan
   end
 
   devel do
-    url "https://dl.winehq.org/wine/source/3.x/wine-3.14.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.14.tar.xz"
-    sha256 "47896634c255c202d04b85f884b4f1bceb02e1d7bb2ff257b6bc8d69d4b0b005"
+    url "https://dl.winehq.org/wine/source/3.x/wine-3.15.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.15.tar.xz"
+    sha256 "2ca2cd95b69f2d89aaa481db34db20cbb249c6aba28ad77ecf383270326ab51e"
 
     resource "mono" do
       url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
@@ -206,6 +206,16 @@ class Wine < Formula
   end
 
   def install
+    # 32-bit support has been removed by Apple.
+    if DevelopmentTools.clang_build_version >= 1000
+      odie <<~EOS
+        Wine cannot currently be installed from source on
+        macOS #{MacOS.version}.
+        You may wish to try:
+          brew install wine --force-bottle
+      EOS
+    end
+
     ENV.prepend_create_path "PATH", "#{libexec}/bin"
     ENV.prepend_create_path "PKG_CONFIG_PATH", "#{libexec}/lib/pkgconfig"
 

@@ -6,6 +6,7 @@ class KnotResolver < Formula
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   bottle do
+    sha256 "fdfabc08c1b1c0a2c841a1303ea2d0e674ff3aca6d300cf2329f8ddac05501d7" => :mojave
     sha256 "4b5b17ee520db61baaf982ea76a8588db8c5e51ae3bbbd2cd32519d462b41b15" => :high_sierra
     sha256 "61fec1dd8c0827d136bd6c3a220279c5802d89c7d0032ebc2471ff04c0c8ba8c" => :sierra
     sha256 "01138521630da787d776d5f0d017e09d19fa7448376a9187aebb624f7b9ca1b8" => :el_capitan

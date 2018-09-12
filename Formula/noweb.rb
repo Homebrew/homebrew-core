@@ -2,11 +2,13 @@ class Noweb < Formula
   desc "WEB-like literate-programming tool"
   homepage "https://www.cs.tufts.edu/~nr/noweb/"
   url "ftp://www.eecs.harvard.edu/pub/nr/noweb.tgz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/noweb/noweb_2.11b.orig.tar.gz"
   version "2.11b"
   sha256 "c913f26c1edb37e331c747619835b4cade000b54e459bb08f4d38899ab690d82"
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "e37f2dd197cbd312c8635ab73e92d904b1d02d485879aac2077b5361986fcc0f" => :mojave
     sha256 "7d794eab58f440c640358ba7454f04f007b26b3b35a0d19acec1915c97c25c5b" => :high_sierra
     sha256 "3235ad9e73a3371058c59319f6c2363444e66e1c43e9576af3e08e14dfca682b" => :sierra
     sha256 "1a3ec7b1f7fba58e0d8064d279d518d69e50b1f813284792deb6b7db702eae38" => :el_capitan

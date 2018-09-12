@@ -5,6 +5,7 @@ class GnomeBuilder < Formula
   sha256 "05281f01e66fde8fcd89af53709053583cf74d0ae4ac20b37185664f25396b45"
 
   bottle do
+    sha256 "1bde6ecb92fb4a42b3de47323b4efe1a5234aee985f40721e0bc9b59b8a7e839" => :mojave
     sha256 "b2068860adae8eee244a324fba083aa3bfdefef7962c894c320741802f199ad3" => :high_sierra
     sha256 "f0f008cab0a9c58973980c8386b9bf76e1305aa8d934d98b5916b861251fc87d" => :sierra
     sha256 "4845a2b8a31cd6eeca400f5216aa806a3521f4640ddf6957de89646cc86abe06" => :el_capitan

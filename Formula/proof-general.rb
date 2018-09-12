@@ -7,11 +7,11 @@ class ProofGeneral < Formula
   head "https://github.com/ProofGeneral/PG.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :high_sierra
-    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :sierra
-    sha256 "8da318e9023c99e198d2be9df2d053ef4e60ebbe70d54041e522309f7b258e6e" => :el_capitan
+    rebuild 2
+    sha256 "fb33f343985000a24f2f3b8737ac8732d22cdfc43c178b089652abe50297c54b" => :mojave
+    sha256 "da11c2494db95b66a9db3528a98198878d1ac56cc63ac104b6bedafb1676a9a4" => :high_sierra
+    sha256 "da11c2494db95b66a9db3528a98198878d1ac56cc63ac104b6bedafb1676a9a4" => :sierra
+    sha256 "da11c2494db95b66a9db3528a98198878d1ac56cc63ac104b6bedafb1676a9a4" => :el_capitan
   end
 
   depends_on "texi2html" => :build

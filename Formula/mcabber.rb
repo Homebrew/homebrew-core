@@ -20,18 +20,13 @@ class Mcabber < Formula
     depends_on "libtool" => :build
   end
 
-  deprecated_option "enable-aspell" => "with-aspell"
-  deprecated_option "enable-enchant" => "with-enchant"
-
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "loudmouth"
   depends_on "gpgme"
   depends_on "libgcrypt"
-  depends_on "libotr"
   depends_on "libidn"
-  depends_on "aspell" => :optional
-  depends_on "enchant" => :optional
+  depends_on "libotr"
+  depends_on "loudmouth"
 
   def install
     if build.head?
@@ -40,14 +35,10 @@ class Mcabber < Formula
       system "./autogen.sh"
     end
 
-    args = ["--disable-debug", "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--enable-otr"]
-
-    args << "--enable-aspell" if build.with? "aspell"
-    args << "--enable-enchant" if build.with? "enchant"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-otr"
     system "make", "install"
 
     pkgshare.install %w[mcabberrc.example contrib]

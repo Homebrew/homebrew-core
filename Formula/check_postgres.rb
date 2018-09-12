@@ -7,6 +7,7 @@ class CheckPostgres < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "7bb41d490549f9dd7f98dfbbd9da8d0faf59770eae547cd4b891473dfc20feaa" => :mojave
     sha256 "6d722bc7277678495996ecaecf62f5b61ea5de5f225286cab5ad36be3d467a9a" => :high_sierra
     sha256 "6d722bc7277678495996ecaecf62f5b61ea5de5f225286cab5ad36be3d467a9a" => :sierra
     sha256 "6d722bc7277678495996ecaecf62f5b61ea5de5f225286cab5ad36be3d467a9a" => :el_capitan

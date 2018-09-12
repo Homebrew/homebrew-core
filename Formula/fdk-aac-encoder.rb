@@ -1,17 +1,15 @@
 class FdkAacEncoder < Formula
   desc "Command-line encoder frontend for libfdk-aac"
   homepage "https://github.com/nu774/fdkaac"
-  url "https://github.com/nu774/fdkaac/archive/v0.6.3.tar.gz"
-  sha256 "16ad555403743b0d288fd113b6d8451a4e787112d4edbfd2da36280a062290c6"
+  url "https://github.com/nu774/fdkaac/archive/1.0.0.tar.gz"
+  sha256 "1cb1a245d3b230d9c772e69aea091e6195073cbd8cc7d63e684af7d69b495365"
 
   bottle do
     cellar :any
-    sha256 "021a1c74b981de6949c5af262bc2c8ad35db89660853780474de6bb020b7a483" => :mojave
-    sha256 "40b98a23002f12df182d0bc814aa11ce6b9ef3fea9bf092e02f5dd5a437f873d" => :high_sierra
-    sha256 "786e3ce4a555ea473a8915df451f51ad81f5c27749c29b1e87e64d80c799588f" => :sierra
-    sha256 "4a157e1d1f0f69db4c8070dd0f9c48e5099710aa516c41a3db83c25a0c84adb6" => :el_capitan
-    sha256 "03fbc5fed2792b358a9bf8e777678bbfca219cb8c9e969b6e3a6c5292de7b65f" => :yosemite
-    sha256 "1232969391e4d3efa420638de1724313ee56b06397b8f730af0e608609b6ba05" => :mavericks
+    sha256 "625b44542938aed259728a61cde68d3ed035132ab1e0cc41b241769caebbcedd" => :mojave
+    sha256 "37f34d998eb6cc54f6b49d1abfdf7e0e4d256c98764f36e8befce86ee118dcbf" => :high_sierra
+    sha256 "2ae9013ce4ba2137734d76d6b9911b65cc16a90e4499b582973bc045e9c931f2" => :sierra
+    sha256 "eb1aadd4cd6b6d6982854b351703e175fd683ebc81f16e5f98858ee38c0675e0" => :el_capitan
   end
 
   depends_on "autoconf" => :build

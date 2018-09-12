@@ -6,6 +6,7 @@ class OpencvAT2 < Formula
   revision 2
 
   bottle do
+    sha256 "5781c0a672d879e15a23b38a08322662afb805abbe25452ebfbe0f20c2f73733" => :mojave
     sha256 "15ee653e5cdc6bb5f0a65249860fe1007a6102612f27068b8613685b09f1ea6f" => :high_sierra
     sha256 "b50bd28d7e579757d40596a6005722570bddcae31201058195acf1ca2c86bba0" => :sierra
     sha256 "53c00a44de3f8df943479f448a4c5156b205a93fa6857456a3130d76a31918f1" => :el_capitan
@@ -33,7 +34,7 @@ class OpencvAT2 < Formula
   # Upstream PR from 21 Apr 2018 "Fix build with FFmpeg 4.0"
   patch do
     url "https://github.com/opencv/opencv/commit/99091a62463.patch?full_index=1"
-    sha256 "7e33c5c009aea0798cd9bd3edb0f7a2122a9f3b2a962977e53a0fccd55e1db40"
+    sha256 "c60be5bc53bc8964550c0a2467a41e391c730fb090219954a2cd8d9a54a1a5a7"
   end
 
   def install

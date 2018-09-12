@@ -11,33 +11,21 @@ class OpenSceneGraph < Formula
     sha256 "53f1f0213c088c02506e66dbf6af11c6837e672e10ef8c4521773676e4045d4a" => :el_capitan
   end
 
-  option "with-docs", "Build the documentation with Doxygen and Graphviz"
-
-  deprecated_option "docs" => "with-docs"
-
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
+  depends_on "graphviz" => :build
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
-  depends_on "gtkglext"
   depends_on "freetype"
+  depends_on "gtkglext"
+  depends_on "jpeg"
   depends_on "sdl"
-  depends_on "gdal" => :optional
-  depends_on "jasper" => :optional
-  depends_on "openexr" => :optional
-  depends_on "dcmtk" => :optional
-  depends_on "librsvg" => :optional
   depends_on "collada-dom" => :optional
-  depends_on "gnuplot" => :optional
   depends_on "ffmpeg" => :optional
+  depends_on "gdal" => :optional
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
   patch :DATA
-
-  if build.with? "docs"
-    depends_on "doxygen" => :build
-    depends_on "graphviz" => :build
-  end
 
   def install
     # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
@@ -47,31 +35,21 @@ class OpenSceneGraph < Formula
     end
 
     args = std_cmake_args
-    # Disable opportunistic linkage
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON" if build.without? "gdal"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON" if build.without? "jasper"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_OpenEXR=ON" if build.without? "openexr"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_DCMTK=ON" if build.without? "dcmtk"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_RSVG=ON" if build.without? "librsvg"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_COLLADA=ON" if build.without? "collada-dom"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON" if build.without? "ffmpeg"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON"
+    args << "-DBUILD_DOCUMENTATION=ON"
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON"
-
-    args << "-DBUILD_DOCUMENTATION=" + (build.with?("docs") ? "ON" : "OFF")
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON"
     args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
-
-    if MacOS.prefer_64_bit?
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_64_bit}"
-      args << "-DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio"
-      args << "-DOSG_WINDOWING_SYSTEM=Cocoa"
-    else
-      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_32_bit}"
-    end
+    args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_64_bit}"
+    args << "-DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio"
+    args << "-DOSG_WINDOWING_SYSTEM=Cocoa"
 
     if build.with? "collada-dom"
+      args << "-DCMAKE_DISABLE_FIND_PACKAGE_COLLADA=ON"
       args << "-DCOLLADA_INCLUDE_DIR=#{Formula["collada-dom"].opt_include}/collada-dom2.4"
     end
+
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON" if build.without? "ffmpeg"
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON" if build.without? "gdal"
 
     mkdir "build" do
       system "cmake", "..", *args

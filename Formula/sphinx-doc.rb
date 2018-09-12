@@ -1,15 +1,15 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/18/66/5aabe11160435a905ca137788c12c3d58c8693ad71cf9e7bb86e84b77d2a/Sphinx-1.7.7.tar.gz"
-  sha256 "71531900af3f68625a29c4e00381bee8f85255219a3d500a3e255076a45b735e"
+  url "https://files.pythonhosted.org/packages/90/11/d31b44f273f9dcdf58a36d9b21542ee71cb57e358214cc8f88d0469c85e9/Sphinx-1.7.9.tar.gz"
+  sha256 "217a7705adcb573da5bbe1e0f5cab4fa0bd89fd9342c9159121746f593c2d5a4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2c5fcd23cd542290535c524201c64cf3c5617ac0d16c378377e80eb1bae6e6cb" => :mojave
-    sha256 "6dbb2a8b4d7781d88f7116fdae9b0462cfe123d6c6d9985031e8962584c15afe" => :high_sierra
-    sha256 "6b6db7ee369c8e1f7ed6c126e82d0f56a4ae6289067e7f9f7a7a4b2162a914da" => :sierra
-    sha256 "a2407114e130cc94100f5d0c18597eb1da8abdd7c0f65eb5f8cce895b77a1f63" => :el_capitan
+    sha256 "2b87e309d551c36d758efda05701519276e7d41f1c23b7ed6fb88e724186046e" => :mojave
+    sha256 "895bfc51da501bf759a127538323a99b1143f3b4f3fbe344d07ca8b17150838d" => :high_sierra
+    sha256 "84f16735ca6255c2e1cb1f401bdd0da4e68a83c256019dc4defbc0e89f37c869" => :sierra
+    sha256 "7a3ffe0a23c567a0608282e20f06aeee9ecafa0d8d116977963951500bb1b7e9" => :el_capitan
   end
 
   keg_only <<~EOS
@@ -21,8 +21,8 @@ class SphinxDoc < Formula
 
   # generated from sphinx, setuptools, numpydoc and python-docs-theme
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/5a/df/b2e3d9693bb0dcbeac516a73dd7a9eb82b126ae52e4a74605a9b01beddd5/setuptools-40.1.0.zip"
-    sha256 "664500268e4d649ce5b9f9dc0af0edc2b144666b1544d64af0453da94aa72b70"
+    url "https://files.pythonhosted.org/packages/ef/1d/201c13e353956a1c840f5d0fbf0461bd45bbd678ea4843ebf25924e8984c/setuptools-40.2.0.zip"
+    sha256 "47881d54ede4da9c15273bac65f9340f8929d4f0213193fa7894be384f2dcfa6"
   end
 
   resource "alabaster" do
@@ -36,8 +36,8 @@ class SphinxDoc < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/53/0d/d1d13a63563cc50a27b310f5612645bef06d29a5022a7e79ac659dd0fc50/certifi-2018.8.13.tar.gz"
-    sha256 "4c1d68a1408dd090d2f3a869aa94c3947cc1d967821d1ed303208c9f41f0f2f4"
+    url "https://files.pythonhosted.org/packages/e1/0f/f8d5e939184547b3bdc6128551b831a62832713aa98c2ccdf8c47ecc7f17/certifi-2018.8.24.tar.gz"
+    sha256 "376690d6f16d32f9d1fe8932551d80b23e9d393a8578c5633a2ed39a64861638"
   end
 
   resource "chardet" do
@@ -56,8 +56,8 @@ class SphinxDoc < Formula
   end
 
   resource "imagesize" do
-    url "https://files.pythonhosted.org/packages/c6/3f/1db2da33804e8d7ef3a868b27b7bdc1aae6a4f693f0162d2aeeaf503864f/imagesize-1.0.0.tar.gz"
-    sha256 "5b326e4678b6925158ccc66a9fa3122b6106d7c876ee32d7de6ce59385b96315"
+    url "https://files.pythonhosted.org/packages/41/f5/3cf63735d54aa9974e544aa25858d8f9670ac5b4da51020bbfc6aaade741/imagesize-1.1.0.tar.gz"
+    sha256 "f3832918bc3c66617f92e35f5d70729187676313caa60c187eb0f28b8fe5e3b5"
   end
 
   resource "Jinja2" do
@@ -121,8 +121,8 @@ class SphinxDoc < Formula
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/ec/cc/28444132a25c113149cec54618abc909596f0b272a74c55bab9593f8876c/typing-3.6.4.tar.gz"
-    sha256 "d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
+    url "https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz"
+    sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
   resource "urllib3" do

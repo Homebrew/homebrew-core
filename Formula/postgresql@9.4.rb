@@ -5,9 +5,11 @@ class PostgresqlAT94 < Formula
   sha256 "03776b036b2a05371083558e10c21cc4b90bde9eb3aff60299c4ce7c084c168b"
 
   bottle do
-    sha256 "b593ab2e71cfa12c23b1f4f8de5503a914c84fa7f7c1eb494562dfc604f0d8fb" => :high_sierra
-    sha256 "4f0e3954fdb63d05fec7fb5a5defe6be9f2c0521a7ac3c4a5b07b8f7fcc3fa2f" => :sierra
-    sha256 "cbd349a265798fd5d07d0d75377c3bb6c0eac238e72d1c2307b1908df487f9fe" => :el_capitan
+    rebuild 1
+    sha256 "bf71496f747f1e90c621ffc1e6ad3b131e06e4bf23e7b93e75433cbb0dccddf6" => :mojave
+    sha256 "687baf2e20e8c7e839c83ae4225d7e4e125d0adb5ce1774cde11c59395330c0b" => :high_sierra
+    sha256 "cdc01c855445b500b4fe65dc6a2051f76b6276310c00656f8ba427583d5acc36" => :sierra
+    sha256 "6553e72e7f9ef8dd4263a3723369b7e46b4e1227eec868ffd6a576b6b8f25706" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -67,8 +69,36 @@ class PostgresqlAT94 < Formula
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
 
+    # As of Xcode/CLT 10.x the Perl headers were moved from /System
+    # to inside the SDK, so we need to use `-iwithsysroot` instead
+    # of `-I` to point to the correct location.
+    # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
+    if DevelopmentTools.clang_build_version >= 1000
+      inreplace "configure",
+                "-I$perl_archlibexp/CORE",
+                "-iwithsysroot $perl_archlibexp/CORE"
+      inreplace "src/pl/plperl/GNUmakefile",
+                "-I$(perl_archlibexp)/CORE",
+                "-iwithsysroot $(perl_archlibexp)/CORE"
+    end
+
     system "./configure", *args
-    system "make", "install-world"
+
+    # Temporarily disable building/installing the documentation.
+    # Postgresql seems to "know" the build system has been altered and
+    # tries to regenerate the documentation when using `install-world`.
+    # This results in the build failing:
+    #  `ERROR: `osx' is missing on your system.`
+    # Attempting to fix that by adding a dependency on `open-sp` doesn't
+    # work and the build errors out on generating the documentation, so
+    # for now let's simply omit it so we can package Postgresql for Mojave.
+    if DevelopmentTools.clang_build_version >= 1000
+      system "make", "all"
+      system "make", "-C", "contrib", "install", "all"
+      system "make", "install", "all"
+    else
+      system "make", "install-world"
+    end
   end
 
   def post_install

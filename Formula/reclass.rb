@@ -8,6 +8,7 @@ class Reclass < Formula
   bottle do
     cellar :any_skip_relocation
     rebuild 1
+    sha256 "39bfa06a41ec34cd0b04b3498d1370b3e722a2cae350d8d114e3e588b28afadf" => :mojave
     sha256 "4fb34da3464d6ea2ddc038149328613613bc09ca5c4350e26dc2c25b15524c0d" => :high_sierra
     sha256 "0c381ac12c60fa23c9069f670cf262ce1068d346fe1e577ecb28ee566aa3fe51" => :sierra
     sha256 "92c143420d36d71d49ecde69eca47da2a46f1ae6d37e0f7522cb95a9d19735e7" => :el_capitan

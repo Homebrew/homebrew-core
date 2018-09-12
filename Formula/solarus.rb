@@ -18,6 +18,7 @@ class Solarus < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "f8c784ab5cc03a3bfc41cc53c9eaa037373f97046fa28044492b2286faa3e2ee" => :mojave
     sha256 "b03dd0139fb3496f90a23c2847b42908e63366c37f92ad8b219f23bada2c4422" => :high_sierra
     sha256 "03b09b647d7d940febe3405420b127567922251f493c15e96945b808a11a041d" => :sierra
     sha256 "270c69a61d8bbc33033b4ca18bc669fabbba1e58c7ad67dcd5cb1150f039160a" => :el_capitan

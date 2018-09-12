@@ -17,10 +17,7 @@ class Hydra < Formula
   depends_on "pkg-config" => :build
   depends_on "mysql-client"
   depends_on "openssl"
-  depends_on "subversion" => :optional
-  depends_on "libidn" => :optional
   depends_on "libssh" => :optional
-  depends_on "pcre" => :optional
   depends_on "gtk+" => :optional
 
   def install
@@ -31,7 +28,7 @@ class Hydra < Formula
       s.gsub! "/opt/local/*ssl", Formula["openssl"].opt_lib
       s.gsub! "/opt/*ssl/include", Formula["openssl"].opt_include
       # Avoid opportunistic linking of subversion
-      s.gsub! "libsvn", "oh_no_you_dont" if build.without? "subversion"
+      s.gsub! "libsvn", "oh_no_you_dont"
       # Avoid opportunistic linking of libssh
       s.gsub! "libssh", "certainly_not" if build.without? "libssh"
     end

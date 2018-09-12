@@ -3,19 +3,18 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag => "v0.1.1430",
-      :revision => "9788d7512e7e4018f3f98f471d874cab66475175"
+      :tag => "v0.1.2061",
+      :revision => "3eae4e7eaa2f09f44a8bf812a292de729d1b681d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "387d512f7c858724af4924ccfceb705124112e6b88df144c2e98d89b9af2bfea" => :mojave
-    sha256 "dd57d668341d8b7cf038c0deb84b62c7f33dad6b1bc062e3d2555e1f31a11808" => :high_sierra
-    sha256 "2b5313b8046e4e2a57c42b91eb0ee774bedc973d5f48e0f4c40d6b3a806e5fa1" => :sierra
-    sha256 "c7ddaab682323694fbf54de39ec56f47a5f9a7c420841f5b3a13e517c774c9ee" => :el_capitan
+    sha256 "ff5e35c76d0a39229cd8200e667f7cb9229836445fd78a3ff884511c374631b6" => :mojave
+    sha256 "aebfc7302bd2598c26e722e543585346f3473125a212596b8e1b7c8845f8221a" => :high_sierra
+    sha256 "61a586a8b1c32c592b33a580cfcbbdf3e7957183f88d2a3475be4f400fa9dfb0" => :sierra
+    sha256 "8256dbe0550293b6be5ffffda2baf2ffbf1f0d6909132605694023a377829ca6" => :el_capitan
   end
 
   depends_on "go" => :build
-  depends_on "docker"
 
   def install
     ENV["GOPATH"] = buildpath
@@ -38,8 +37,9 @@ class Circleci < Formula
   test do
     # assert basic script execution
     assert_match /#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip
-    # assert script fails for missing docker (docker not on homebrew CI servers)
-    output = shell_output("#{bin}/circleci build 2>&1", 255)
-    assert_match "failed to pull latest docker image", output
+    # assert script fails because 2.1 config is not supported for local builds
+    (testpath/".circleci.yml").write("{version: 2.1}")
+    output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
+    assert_match "Local builds do not support that version at this time", output
   end
 end

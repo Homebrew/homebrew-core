@@ -12,8 +12,8 @@ class SwiProlog < Formula
   end
 
   devel do
-    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.18.tar.gz"
-    sha256 "596f350eb01ae9b7ba1ab394f33ef24d7484d5239e537efee148daad7906b4bd"
+    url "http://www.swi-prolog.org/download/devel/src/swipl-7.7.19.tar.gz"
+    sha256 "a7820510afd89c2d7cad977ff455841350e7163f8c532d25ce94e70336564a82"
 
     depends_on "zlib" if MacOS.version <= :el_capitan
   end
@@ -24,11 +24,8 @@ class SwiProlog < Formula
     depends_on "autoconf" => :build
   end
 
-  option "with-lite", "Disable all packages"
   option "with-jpl", "Enable JPL (Java Prolog Bridge)"
   option "with-xpce", "Enable XPCE (Prolog Native GUI Library)"
-
-  deprecated_option "lite" => "with-lite"
 
   depends_on "pkg-config" => :build
   depends_on "readline"
@@ -57,9 +54,6 @@ class SwiProlog < Formula
     # the Homebrew-generated CFLAGS into COFLAGS here.
     ENV["CIFLAGS"] = ENV.cppflags
     ENV["COFLAGS"] = ENV.cflags
-
-    # Build the packages unless --with-lite option specified
-    args << "--with-world" if build.without? "lite"
 
     # './prepare' prompts the user to build documentation
     # (which requires other modules). '3' is the option

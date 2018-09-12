@@ -3,15 +3,15 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.org/"
-  url "https://files.pythonhosted.org/packages/ad/fe/55b245f4d4b30baafee29fe0f78dcd9eee89e0e222f4b22789f0fb84ae07/tox-3.2.1.tar.gz"
-  sha256 "eb61aa5bcce65325538686f09848f04ef679b5cd9b83cc491272099b28739600"
+  url "https://files.pythonhosted.org/packages/4e/9e/4a586cc3fc6bcd36b78aaeefca09a9fe6204752b9fb5a8c060e0bcc5fb40/tox-3.3.0.tar.gz"
+  sha256 "433bb93c57edae263150767e672a0d468ab4fefcc1958eb4013e56a670bb851e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a68c668210b0fbc24cc63b3e2b7df0e2068a32dfe1843f0ee1dc29063b71e420" => :mojave
-    sha256 "da3eb3eaa8bac87f538da3aea7e7086791b5ccd15f2e9783ffc385dce063f0f1" => :high_sierra
-    sha256 "1040bdfc83b2e77131e04e08202ddd2f1d90b60c8b100bcbeab8db35d46cd65f" => :sierra
-    sha256 "324e2557543f10392fc947c6b34d3ff3d352a00f92504ae25bb6c994dc3bfad1" => :el_capitan
+    sha256 "46cdec66c79c5870c3e65c7e3661a60f7567dca583411e58e67f23dabd49d547" => :mojave
+    sha256 "2a627b356bb3986c506afaec5f2ea42ce062b2e947c567c28d8ca4295455caa8" => :high_sierra
+    sha256 "e9c4fc4b74993e2d6bbb7d953a7dd6ab9c8aa65b6dc3c2e27dee077dd01fd978" => :sierra
+    sha256 "042a9edf97959b862f1534c5b925224bd1b8365685b37a7a4c908a247da80b28" => :el_capitan
   end
 
   depends_on "python"
@@ -27,8 +27,8 @@ class Tox < Formula
   end
 
   resource "py" do
-    url "https://files.pythonhosted.org/packages/35/77/a0a2a4126cf454e6ac772942898379e2fe78f2b7885df0461a5b8f8a8040/py-1.5.4.tar.gz"
-    sha256 "3fd59af7435864e1a243790d322d763925431213b6b8529c6ca71081ace3bbf7"
+    url "https://files.pythonhosted.org/packages/4f/38/5f427d1eedae73063ce4da680d2bae72014995f9fdeaa57809df61c968cd/py-1.6.0.tar.gz"
+    sha256 "06a30435d058473046be836d3fc4f27167fd84c45b99704f2fb5509ef61f9af1"
   end
 
   resource "pyparsing" do
@@ -39,6 +39,11 @@ class Tox < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  end
+
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/0e/e8/1aa958599e5326b690a31334112da68a9b75e7563879e2c5103ca219d30a/toml-0.9.6.tar.gz"
+    sha256 "380178cde50a6a79f9d2cf6f42a62a5174febe5eea4126fe4038785f1d888d42"
   end
 
   resource "virtualenv" do

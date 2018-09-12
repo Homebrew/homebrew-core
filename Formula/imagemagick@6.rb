@@ -4,16 +4,17 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406--6.9.10-10.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.10-10.tar.xz"
-  sha256 "f09488e6d8e4c703609a3be4244690a5f533d765fd2b0822c05dbd6a6ae71c2c"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406--6.9.10-11.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.10-11.tar.xz"
+  sha256 "2d1c61999a9b1f663a085d6657cc4db4b1652af6462256d1aa3c467df3e9e6eb"
+  revision 1
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
-    sha256 "a0a74142e00fd4fe31ae67def53d0d04e57f7a79c1a18fdbe7197b8c96f7e0fb" => :mojave
-    sha256 "8899eaaf94e60d52e4f43dfc2f1bcf1877411799364e5140803e4fc01996b9a9" => :high_sierra
-    sha256 "c72492a6a862faf674591c703819189f1d5803c27c5c9345f331c1869bf85f03" => :sierra
-    sha256 "7281a714d15c687e0dfcd5fe26fb2e09a8d65b047c5ad1b0173e3345dd768825" => :el_capitan
+    sha256 "ab5d21b20cec6731e0280af1330fe19296875221790941fe1931326c330e744f" => :mojave
+    sha256 "53c0800630c4b4d7d1d636df5f126acb8c870c3b327dd8de2082502b81440947" => :high_sierra
+    sha256 "749a6d4ddc979e300b33df84c38dd069cbe07daf1ef01c609a7f7633b2e8471e" => :sierra
+    sha256 "3e46e140fe8d9fc140c65f7c31b4a28412a778d5800fca9ea565d509f9c361fd" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -62,6 +63,17 @@ class ImagemagickAT6 < Formula
 
   skip_clean :la
 
+  # This isn't an upstream issue and this patch should not be removed.
+  # Imagemagick delegate configuring secure defaults to users/packagers
+  # and ship the most "open" (and thus potentially unsafe) configuration
+  # possible out of the box. This policy is inspired by both Debian's and
+  # the advice on Imagemagick's related page:
+  # https://www.imagemagick.org/script/security-policy.php
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a95f9dd/imagemagick/imagemagick_safer_defaults.diff"
+    sha256 "3f22b13e206d2403b53692412b7b69d175530f5977350486b81da5027c548b44"
+  end
+
   def install
     args = %W[
       --disable-osx-universal-binary
@@ -102,7 +114,14 @@ class ImagemagickAT6 < Formula
       args << "--without-openjp2"
     end
 
-    args << "--without-gslib" if build.without? "ghostscript"
+    if build.with? "ghostscript"
+      inreplace "config/policy.xml",
+                /.*EPS,PS2,PS3,PS,PDF,XPS.*$/,
+                "  <!-- \\0 -->"
+    else
+      args << "--without-gslib"
+    end
+
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
     args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
@@ -130,5 +149,12 @@ class ImagemagickAT6 < Formula
     %w[Modules freetype jpeg png tiff].each do |feature|
       assert_match feature, features
     end
+
+    # Check our security policy is working as expected.
+    cp test_fixtures("test.pdf"), testpath
+    output = shell_output("#{bin}/convert test.pdf test.jpg 2>&1", 1)
+    assert_match "not authorized", output
+    refute_predicate testpath/"test.jpg", :exist?,
+      "Imagemagick's security policy was not enforced as expected"
   end
 end

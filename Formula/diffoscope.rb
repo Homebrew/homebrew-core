@@ -1,15 +1,15 @@
 class Diffoscope < Formula
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/8d/e7/b8881e47097497471c7112ef2abc4328496f66e5c91772837ef365f39dc1/diffoscope-99.tar.gz"
-  sha256 "9d204ac51cc8ae59de755e1be0f7600e52b59badc32969942af4684c3f6f3f03"
+  url "https://files.pythonhosted.org/packages/2a/c4/32e8addb6f7f8365f765ad182b4df7456c41db837f6de56bc078ede658c6/diffoscope-100.tar.gz"
+  sha256 "88f0afe17b979b6ad94769012b7f2c5f8eb864b4d9e07e2852b7d9128d78076a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "688126529db84361761ad02fd3b29e87fd8fad7ff132eb0d28b44a50064960ad" => :mojave
-    sha256 "a73bcac36a13c0fe57649aa74d4c732d747beea812ff8530edfc23f75013b025" => :high_sierra
-    sha256 "a73bcac36a13c0fe57649aa74d4c732d747beea812ff8530edfc23f75013b025" => :sierra
-    sha256 "a73bcac36a13c0fe57649aa74d4c732d747beea812ff8530edfc23f75013b025" => :el_capitan
+    sha256 "65daa58c325c633a0c405706e86887f8cf89aaadf28166116208381f8ca5e797" => :mojave
+    sha256 "07046b82f51513157e08f0613946e6d8f09a3a82ab937b40e6a4480b65b4f8e4" => :high_sierra
+    sha256 "07046b82f51513157e08f0613946e6d8f09a3a82ab937b40e6a4480b65b4f8e4" => :sierra
+    sha256 "07046b82f51513157e08f0613946e6d8f09a3a82ab937b40e6a4480b65b4f8e4" => :el_capitan
   end
 
   depends_on "libmagic"
@@ -43,7 +43,7 @@ class Diffoscope < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
     libarchive = Formula["libarchive"].opt_lib/"libarchive.dylib"
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"],
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"],
                                             :LIBARCHIVE => libarchive)
   end
 

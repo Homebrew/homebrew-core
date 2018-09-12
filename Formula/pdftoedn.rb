@@ -1,15 +1,15 @@
 class Pdftoedn < Formula
   desc "Extract PDF document data and save the output in EDN format"
   homepage "https://github.com/edporras/pdftoedn"
-  url "https://github.com/edporras/pdftoedn/archive/v0.35.2.tar.gz"
-  sha256 "a18bbca8011e4e6c04c97f0a58c588047d88a2a1fcf1710eeb7a8a0a9b181517"
-  revision 1
+  url "https://github.com/edporras/pdftoedn/archive/v0.35.3.tar.gz"
+  sha256 "b73c0f95b79882dad639828629c9e66455899edb5d601d4f1daef78844dacebf"
 
   bottle do
     cellar :any
-    sha256 "191b70b1a420ee93aba92688cdab7e3421b8b848b66490b244f6823783091984" => :high_sierra
-    sha256 "3787658cee0707c949d5b0eadaf44951ce4e4dacb63f46db58b2049fa9769ea6" => :sierra
-    sha256 "53593a56c313b7fd292100062d8f2513a8d52a868e4f93422645c95ee681d63f" => :el_capitan
+    sha256 "244e254498ca8effe544f34c59b9736a5af30fde2d4919b71640e991ed07dfb0" => :mojave
+    sha256 "f7447fa849fc719c63d60af5c4a943a6a5c1652c628eb84210ea4878561be7ab" => :high_sierra
+    sha256 "6fc656b3cfab4baa234bf448df039d3b1d04adf2b00494d58f6125170c0bd66d" => :sierra
+    sha256 "6c183e93d3579a69b5bc3092bee87059b93581fd34c95a92d164977aeb0708af" => :el_capitan
   end
 
   needs :cxx11

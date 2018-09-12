@@ -6,6 +6,7 @@ class Plplot < Formula
   revision 5
 
   bottle do
+    sha256 "f1a2091723c4fae1dcfe3e9d9c45c9604748db213238dba8a6f33d5186dbc751" => :mojave
     sha256 "f148ea712e0e42c68b4c42a91a374c81dc24da3a00a57ecc98d878f2cbeae360" => :high_sierra
     sha256 "746e17fd844ed430c8bbc8e2f120a4c5ea2122324419798391ae6c6189d649d5" => :sierra
     sha256 "4e42e6722a1e5cea2624829631f93985bb4c82d60237697f05bb6e0bafd97a08" => :el_capitan

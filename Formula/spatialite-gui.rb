@@ -8,6 +8,7 @@ class SpatialiteGui < Formula
   bottle do
     cellar :any
     rebuild 1
+    sha256 "877a0b1d4981a2b13031769a812f25549f824817978c6d30b57b2ddecd734f14" => :mojave
     sha256 "329a43210fc2f99c3d2c8090bb304bff81e5fc2450778f15f052b32100230151" => :high_sierra
     sha256 "1ab0a3f3a0ce183dac239210c4bf2f632cdfe827a59a86f34bf3229bf2df93e4" => :sierra
     sha256 "e04f2392b64ad916bb50e62d2267b075eab00ca44f7b8001f7a9f5e30c447e3e" => :el_capitan

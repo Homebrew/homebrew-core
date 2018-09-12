@@ -20,13 +20,13 @@ class Aqbanking < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gwenhywfar"
   depends_on "libxmlsec1"
   depends_on "libxslt"
   depends_on "libxml2"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "pkg-config" => :build
   depends_on "ktoblzcheck" => :recommended
 
   def install
@@ -89,6 +89,9 @@ class Aqbanking < Formula
         } # accountInfo
       } # accountInfoList
     EOS
-    assert_match /^Account\s+110000000\s+000123456789\s+STRIPE TEST BANK\s+03.01.2014\s+12:00\s+1324.36\s+USD\s+$/, shell_output("#{bin}/aqbanking-cli listbal -c #{context}")
+
+    match = "Account 110000000 000123456789 STRIPE TEST BANK 03.01.2014 12:00 1324.36 USD"
+    out = shell_output("#{bin}/aqbanking-cli listbal -c #{context}")
+    assert_match match, out.gsub(/\s+/, " ")
   end
 end

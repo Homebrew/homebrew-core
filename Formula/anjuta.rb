@@ -3,13 +3,13 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.28/anjuta-3.28.0.tar.xz"
   sha256 "b087b0a5857952d0edd24dae458616eb166a3257bc647d5279a9e71495544779"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "b55080a83e124784266b42ea56e0f4d3f3b03ca94af6b4ca4a72d9cdc8c1f7e1" => :mojave
-    sha256 "e038d342a81ee2f5db084d5ad6d1ff87144194aeae66bef28b3f764b8e0cd6d3" => :high_sierra
-    sha256 "d402812770fad67e94aed33484c6ca12cdcd89a4d290e2d313b27f627caeea07" => :sierra
-    sha256 "4b5db4d330a8386085efc7cb24771ae7cb49cc3c523c9babb53e177befce9f3b" => :el_capitan
+    sha256 "3a7427832904f3e1de9884ef7bc770b83440f5252d3d30eb2aa77691e0b12de5" => :mojave
+    sha256 "fda24ffc6e28c9ec6ff0110f2c22f688947f08291f5c59522e0597658baa8815" => :high_sierra
+    sha256 "f0ee5bba46be9a314b2454e789e97bba477d1044dd7fac957bda39366286a870" => :sierra
+    sha256 "cf198c5bada78c4b4e0d71cc1c1f52b9af4e069ddbcfa678672b66a40aa1b41d" => :el_capitan
   end
 
   depends_on "python@2"
@@ -40,13 +40,15 @@ class Anjuta < Formula
   end
 
   def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    hshare = HOMEBREW_PREFIX/"share"
+
+    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", hshare/"glib-2.0/schemas"
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", hshare/"icons/hicolor"
     # HighContrast is provided by gnome-themes-standard
-    if File.file?("#{HOMEBREW_PREFIX}/share/icons/HighContrast/.icon-theme.cache")
-      system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/HighContrast"
+    if File.file?("#{hshare}/icons/HighContrast/.icon-theme.cache")
+      system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", hshare/"icons/HighContrast"
     end
-    system "#{Formula["shared-mime-info"].opt_bin}/update-mime-database", "#{HOMEBREW_PREFIX}/share/mime"
+    system "#{Formula["shared-mime-info"].opt_bin}/update-mime-database", hshare/"mime"
   end
 
   test do

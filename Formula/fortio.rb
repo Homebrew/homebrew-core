@@ -1,15 +1,16 @@
 class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
-  homepage "https://github.com/istio/fortio"
-  url "https://github.com/istio/fortio.git",
-      :tag => "v1.1.0",
-      :revision => "d13f3b92c63db22136bac4e0896562404bd4ef6e"
+  homepage "https://fortio.org/"
+  url "https://github.com/fortio/fortio.git",
+      :tag => "v1.2.1",
+      :revision => "4a5012fb92ee87ecbdd80ed2cb031f5cf9c50cbc"
 
   bottle do
-    sha256 "c6e60b4774edcecbb8452175d4b62ee157f2743ffc729c8ac8655d4c314056ab" => :mojave
-    sha256 "9f383a159618023334af96f850ca159115f4be8c52cd9ff0bb752d79fd962ea5" => :high_sierra
-    sha256 "0cae47563c0bf4373858329aae4bb60ae19f6b78ec3d084cc36a36e891a0e01c" => :sierra
-    sha256 "b60701c47ad35b607779a2b2396b6367bb005ccd12b769089cb1ac6d0cff1be0" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "8abcb388d6c1737b0cae6c1ae2779c44fa976fb49bf52286e550aec4f53f4bb8" => :mojave
+    sha256 "c36297e933f48b4307acbab89d0c2a6b668e6fed1ce4e80315d147452618e769" => :high_sierra
+    sha256 "22e5517fdbb61112158dd8e6d99f03430d5f58cc0571bd636de759e71a390792" => :sierra
+    sha256 "89c457c56935ac4771ffe48639db8c0a829b1baf37070a4a772859e3de9147ef" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -17,8 +18,8 @@ class Fortio < Formula
   def install
     ENV["GOPATH"] = buildpath
 
-    (buildpath/"src/istio.io/fortio").install buildpath.children
-    cd "src/istio.io/fortio" do
+    (buildpath/"src/fortio.org/fortio").install buildpath.children
+    cd "src/fortio.org/fortio" do
       system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio",
              "LIB_DIR=#{lib}", "DATA_DIR=."
       lib.install "ui/static", "ui/templates"

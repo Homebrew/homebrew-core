@@ -1,26 +1,33 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.36/gdk-pixbuf-2.36.12.tar.xz"
-  sha256 "fff85cf48223ab60e3c3c8318e2087131b590fd6f1737e42cb3759a3b427a334"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.0.tar.xz"
+  sha256 "dd50973c7757bcde15de6bcd3a6d462a445efd552604ae6435a0532fbbadae47"
 
   bottle do
-    sha256 "17ddba8d07c3afca15aa54cd28aebaf0dc61d14f3707d274f9af919392a764f5" => :mojave
-    sha256 "ffac03d4a01258c3d552a1edbd94da33197d252d4439d97cba6c4321654c0d4b" => :high_sierra
-    sha256 "c2504014e5e54d6052c50f741869ce09ef5480c718f155e65f62cca41f162c32" => :sierra
-    sha256 "bba846fded156d40a4921ce17e69579735875e9b4cd58953abb5206d04b8e120" => :el_capitan
+    sha256 "f49a95e28e72c80d2376a0028cfe8ea77b8343c1aadb71fbe5ccb5c31100674f" => :mojave
+    sha256 "b5fcfc3b0f9217182ead5b34ddb23dfdf5793fd249a813995f64296cff599ffb" => :high_sierra
+    sha256 "fa967244c2682026689bf53ffa3b77792470c8a5fb1db261c13af564253e43bc" => :sierra
+    sha256 "cafc68c2bfb6013f6f6f0fad456eb6454065346f38679b11c23a2fed75e714e6" => :el_capitan
   end
 
-  option "without-modules", "Disable dynamic module loading"
   option "with-included-loaders=", "Build the specified loaders into gdk-pixbuf"
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
   depends_on "glib"
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "libpng"
   depends_on "jasper" => :optional
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3d39ffd/gdk-pixbuf/meson-patches.diff"
+    sha256 "eb78bdfd5452c617ea0873629a5ec8f502a986357aa2d1a462dc9f2551b37c38"
+  end
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
@@ -35,30 +42,32 @@ class GdkPixbuf < Formula
   end
 
   def install
-    # fix libtool versions
-    # https://bugzilla.gnome.org/show_bug.cgi?id=776892
-    inreplace "configure", /LT_VERSION_INFO=.+$/, "LT_VERSION_INFO=\"3602:0:3602\""
-    ENV.append_to_cflags "-DGDK_PIXBUF_LIBDIR=\\\"#{HOMEBREW_PREFIX}/lib\\\""
+    inreplace "gdk-pixbuf/meson.build",
+              "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format(gdk_pixbuf_libdir)",
+              "-DGDK_PIXBUF_LIBDIR=\"@0@\"'.format('#{HOMEBREW_PREFIX}/lib')"
+
     args = %W[
-      --disable-dependency-tracking
-      --disable-maintainer-mode
-      --enable-debug=no
       --prefix=#{prefix}
-      --disable-Bsymbolic
-      --enable-static
-      --without-gdiplus
-      --enable-introspection=yes
+      -Dx11=false
+      -Ddocs=false
+      -Dgir=true
+      -Drelocatable=false
+      -Dnative_windows_loaders=false
+      -Dinstalled_tests=false
+      -Dman=false
     ]
 
-    args << "--with-libjasper" if build.with?("jasper")
-    args << "--disable-modules" if build.without?("modules")
+    args << "-Djasper=true" if build.with?("jasper")
 
     included_loaders = ARGV.value("with-included-loaders")
-    args << "--with-included-loaders=#{included_loaders}" if included_loaders
+    args << "-Dbuiltin_loaders=#{included_loaders}" if included_loaders
 
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    ENV["DESTDIR"] = "/"
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install"
+    end
 
     # Other packages should use the top-level modules directory
     # rather than dumping their files into the gdk-pixbuf keg.
@@ -67,9 +76,6 @@ class GdkPixbuf < Formula
       s.change_make_var! "gdk_pixbuf_binarydir",
         HOMEBREW_PREFIX/"lib/gdk-pixbuf-#{gdk_so_ver}"/libv
     end
-
-    # Remove the cache. We will regenerate it in post_install
-    (lib/"gdk-pixbuf-#{gdk_so_ver}/#{gdk_module_ver}/loaders.cache").unlink
   end
 
   # The directory that loaders.cache gets linked into, also has the "loaders"

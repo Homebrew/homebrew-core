@@ -7,10 +7,11 @@ class GccAT6 < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 "1e33eda2bb05662fe7f061765332f32451d7b9ac0dc70651e94ff5dfd6ef2d07" => :high_sierra
-    sha256 "dfc7cef94a96b5c9e38463ae771726747576b77af63e91c2158d5344c189d681" => :sierra
-    sha256 "929f81db0795b08b4768f667780cff9ef0950990faa7d7215f4498c9752df7cd" => :el_capitan
+    rebuild 2
+    sha256 "ddcbc0f556c7a9489a161186ec12f3cb745d8fe996c2530cb199f21c32305c0e" => :mojave
+    sha256 "976bbd556683514b2495eccd2bab36d984f26c795aa580dcf361e9bae4d29511" => :high_sierra
+    sha256 "341c3917417ac6cfe1712f3005ce89cd1d94db8e0876bfcc36ecd34ed6b21d16" => :sierra
+    sha256 "e40695e1d6b66eb170469798844a4757ca9b1ac8e48bab6e37039bd1cbfec52b" => :el_capitan
   end
 
   option "with-all-languages", "Enable all compilers and languages, except Ada"
@@ -123,16 +124,22 @@ class GccAT6 < Formula
 
     args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
 
+    # Xcode 10 dropped 32-bit support
+    args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      unless MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path.
-        # "native-system-headers" will be appended
+      if !MacOS::CLT.installed?
+        # For Xcode-only systems, we need to tell the sysroot path
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{MacOS.sdk_path}"
+      elsif MacOS.version >= :mojave
+        # System headers are no longer located in /usr/include
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
       end
 
       system "../configure", *args

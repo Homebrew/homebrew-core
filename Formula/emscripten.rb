@@ -3,26 +3,26 @@ class Emscripten < Formula
   homepage "https://kripken.github.io/emscripten-site/"
 
   stable do
-    url "https://github.com/kripken/emscripten/archive/1.38.11.tar.gz"
-    sha256 "5521e8eefbee284b6a72797c7f63ce606d37647930cd8f4d48d45d02c4e1da95"
+    url "https://github.com/kripken/emscripten/archive/1.38.12.tar.gz"
+    sha256 "7c07a8e4671f268f3941245d6cd2e43d8d6c38fea04f86a872a33022fdd6b71f"
 
     resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/1.38.11.tar.gz"
-      sha256 "55ddc1b1f045a36ac34ab60bb0e1a0370a40249eba8d41cd4e427be95beead18"
+      url "https://github.com/kripken/emscripten-fastcomp/archive/1.38.12.tar.gz"
+      sha256 "932213e11efc42ada365a13d99ec270573962e76a4f33e4c3d1315ff252e1d87"
     end
 
     resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.38.11.tar.gz"
-      sha256 "1d2ac9f8dab54f0f17e4a77c3cd4653fe9f890831ef6e405320850fd7351f795"
+      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.38.12.tar.gz"
+      sha256 "406750b6bbe635436266a73ff5e996d60597f39b0ff46b728a75aa56a7e8cac5"
     end
   end
 
   bottle do
     cellar :any
-    sha256 "6c63244c305c3e0beee06e2191d2bcc579c64a610945d95ead8838ec01eb5621" => :mojave
-    sha256 "b9e701eb522a8313faa8f2dc9c261531c14f02f5b548341ea462514c028c284f" => :high_sierra
-    sha256 "71207bc58a3937279d90e7591d9122217bb4a19dcf4f25cfd6c931fab5c7be9a" => :sierra
-    sha256 "e0b6b11c056d89a4cb9584abd2850924882b5d5f2f44ec6713635b11a49f102b" => :el_capitan
+    sha256 "b1b75e61ac30e21bd6ba3fd59c35ef8f8deeda74135bee1f5f33a7678f1387d9" => :mojave
+    sha256 "57955f338f884f10d6cd44505521164822473bdbfade81bd29fe3c139d248b16" => :high_sierra
+    sha256 "7b246813a47d17ab7a50079665fcf7d1aa7164f5cb342663eca939d1bc8c81d5" => :sierra
+    sha256 "d2a6a0937780734f7d1f527ab2a7c15f64d2a984ac5c382ad437a03f2dcb6318" => :el_capitan
   end
 
   head do
@@ -37,13 +37,13 @@ class Emscripten < Formula
     end
   end
 
-  needs :cxx11
-
-  depends_on "python@2"
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "closure-compiler" => :optional
+  depends_on "python@2"
   depends_on "yuicompressor"
+  depends_on "closure-compiler" => :optional
+
+  needs :cxx11
 
   def install
     ENV.cxx11

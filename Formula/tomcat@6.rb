@@ -2,6 +2,7 @@ class TomcatAT6 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.53/bin/apache-tomcat-6.0.53.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-6/v6.0.53/bin/apache-tomcat-6.0.53.tar.gz"
   sha256 "35249a4b40f41fb5f602f5602142d59faaa96dc1567df807d108d4d2b942e2f0"
 
   bottle :unneeded

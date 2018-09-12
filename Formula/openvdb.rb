@@ -13,23 +13,17 @@ class Openvdb < Formula
   end
 
   option "with-glfw", "Installs the command-line tool to view OpenVDB files"
-  option "with-test", "Installs the unit tests for the OpenVDB library"
-  option "with-logging", "Requires log4cplus"
-  option "with-docs", "Installs documentation"
 
-  deprecated_option "with-tests" => "with-test"
   deprecated_option "with-viewer" => "with-glfw"
 
+  depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "ilmbase"
+  depends_on "jemalloc"
   depends_on "openexr"
   depends_on "tbb"
-  depends_on "jemalloc" => :recommended
-
   depends_on "glfw" => :optional
-  depends_on "cppunit" if build.with? "test"
-  depends_on "doxygen" if build.with? "docs"
-  depends_on "log4cplus" if build.with? "logging"
+
   needs :cxx11
 
   resource "test_file" do
@@ -42,23 +36,23 @@ class Openvdb < Formula
     # Adjust hard coded paths in Makefile
     args = [
       "DESTDIR=#{prefix}",
+      "BLOSC_INCL_DIR=", # Blosc is not yet supported
       "BOOST_INCL_DIR=#{Formula["boost"].opt_include}",
       "BOOST_LIB_DIR=#{Formula["boost"].opt_lib}",
       "BOOST_THREAD_LIB=-lboost_thread-mt",
-      "TBB_INCL_DIR=#{Formula["tbb"].opt_include}",
-      "TBB_LIB_DIR=#{Formula["tbb"].opt_lib}",
+      "CONCURRENT_MALLOC_LIB_DIR=#{Formula["jemalloc"].opt_lib}",
+      "CPPUNIT_INCL_DIR=", # Do not use cppunit
+      "CPPUNIT_LIB_DIR=",
+      "DOXYGEN=doxygen",
       "EXR_INCL_DIR=#{Formula["openexr"].opt_include}/OpenEXR",
       "EXR_LIB_DIR=#{Formula["openexr"].opt_lib}",
-      "BLOSC_INCL_DIR=", # Blosc is not yet supported.
-      "PYTHON_VERSION=",
+      "LOG4CPLUS_INCL_DIR=", # Do not use log4cplus
+      "LOG4CPLUS_LIB_DIR=",
       "NUMPY_INCL_DIR=",
+      "PYTHON_VERSION=",
+      "TBB_INCL_DIR=#{Formula["tbb"].opt_include}",
+      "TBB_LIB_DIR=#{Formula["tbb"].opt_lib}",
     ]
-
-    if build.with? "jemalloc"
-      args << "CONCURRENT_MALLOC_LIB_DIR=#{Formula["jemalloc"].opt_lib}"
-    else
-      args << "CONCURRENT_MALLOC_LIB="
-    end
 
     if build.with? "glfw"
       args << "GLFW_INCL_DIR=#{Formula["glfw"].opt_include}"
@@ -70,34 +64,10 @@ class Openvdb < Formula
       args << "GLFW_LIB="
     end
 
-    if build.with? "docs"
-      args << "DOXYGEN=doxygen"
-    else
-      args << "DOXYGEN="
-    end
-
-    if build.with? "test"
-      args << "CPPUNIT_INCL_DIR=#{Formula["cppunit"].opt_include}"
-      args << "CPPUNIT_LIB_DIR=#{Formula["cppunit"].opt_lib}"
-    else
-      args << "CPPUNIT_INCL_DIR=" << "CPPUNIT_LIB_DIR="
-    end
-
-    if build.with? "logging"
-      args << "LOG4CPLUS_INCL_DIR=#{Formula["log4cplus"].opt_include}"
-      args << "LOG4CPLUS_LIB_DIR=#{Formula["log4cplus"].opt_lib}"
-    else
-      args << "LOG4CPLUS_INCL_DIR=" << "LOG4CPLUS_LIB_DIR="
-    end
-
     ENV.append_to_cflags "-I #{buildpath}"
 
     cd "openvdb" do
       system "make", "install", *args
-      if build.with? "test"
-        system "make", "vdb_test", *args
-        bin.install "vdb_test"
-      end
     end
   end
 

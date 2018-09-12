@@ -6,6 +6,7 @@ class ClutterGtk < Formula
   revision 1
 
   bottle do
+    sha256 "6e59404c7b4172bfb03b701bd7090dd3c9e917a1f3013e5669a05704369add8a" => :mojave
     sha256 "20e4d6eafb36559b56406f5e26e8989d7d636945cabe9f6d4aa29a1661e46500" => :high_sierra
     sha256 "2b0b873bc1f679f76216ee07ebc79fa0dffb8a0be3f7239868141f342e2a700e" => :sierra
     sha256 "ce3e5e2f2a6107b17b521812fe7ab985e8d6e1cf57b8a3aa84a19cb760809e16" => :el_capitan

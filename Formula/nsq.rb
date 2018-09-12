@@ -1,29 +1,29 @@
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
-  url "https://github.com/nsqio/nsq/archive/v1.0.0-compat.tar.gz"
-  version "1.0.0"
-  sha256 "c279d339eceb84cad09e2c2bc21e069e37988d0f6b7343d77238374081c9fd29"
-  revision 1
+  url "https://github.com/nsqio/nsq/archive/v1.1.0.tar.gz"
+  sha256 "85cb15cc9a7b50e779bc8e76309cff9bf555b2f925c2c8abe81d28d690fb1940"
   head "https://github.com/nsqio/nsq.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "12610284372b58cdc9957d40bcbf0ecb4ee2cc05014a3b522d4ffa079f82317a" => :mojave
-    sha256 "bf7029656b4cf5fbefaa252ed1cac50dc49a31139eda7b583165bfcacaec1e42" => :high_sierra
-    sha256 "5bb322677d0bbb1f4f5fa7be1584cafbfcec01e67c0063f6ee14a13933389c6e" => :sierra
-    sha256 "2f04a20ef5c05ddd00893198ca5134a455869d1a231893d7931603c60a4dd497" => :el_capitan
+    sha256 "2fa867147f43fa78509dc153f725c5e3325a1a268500811db2dfe5d90db6b823" => :mojave
+    sha256 "ff5ee1076510935d467a359172c57a487f5c4fa50537c28643f60b6254d60348" => :high_sierra
+    sha256 "e06823b1c505fff73402522d13a74f386106987c96c83dcccb0b8e68e169449a" => :sierra
+    sha256 "02225f180c8e5ebc9d5e0ecd30c0875738b10904143c031a07709a6661362243" => :el_capitan
   end
 
   depends_on "go" => :build
-  depends_on "gpm" => :build
+  depends_on "dep" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p "src/github.com/nsqio"
-    ln_s buildpath, "src/github.com/nsqio/nsq"
-    system "gpm", "install"
-    system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
+    (buildpath/"src/github.com/nsqio/nsq").install buildpath.children
+    cd "src/github.com/nsqio/nsq" do
+      system "dep", "ensure", "--vendor-only"
+      system "make", "DESTDIR=#{prefix}", "PREFIX=", "install"
+      prefix.install_metafiles
+    end
   end
 
   def post_install

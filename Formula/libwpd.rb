@@ -30,9 +30,13 @@ class Libwpd < Formula
         return libwpd::WPD_OK;
       }
     EOS
-    system ENV.cc, "test.cpp", "-o", "test",
-                   "-lrevenge-0.0", "-I#{Formula["librevenge"].include}/librevenge-0.0",
-                   "-lwpd-0.10", "-I#{include}/libwpd-0.10"
+    system ENV.cc, "test.cpp",
+                   "-I#{Formula["librevenge"].opt_include}/librevenge-0.0",
+                   "-I#{include}/libwpd-0.10",
+                   "-L#{Formula["librevenge"].opt_lib}",
+                   "-L#{lib}",
+                   "-lwpd-0.10", "-lrevenge-0.0",
+                   "-o", "test"
     system "./test"
   end
 end

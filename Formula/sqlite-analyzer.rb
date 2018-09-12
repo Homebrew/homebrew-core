@@ -7,13 +7,17 @@ class SqliteAnalyzer < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "9785e58a092d5e8d49bea1cae2e6fa6e0f1495a89fe00359f08e3ce6aae41dec" => :mojave
     sha256 "31234588897314b6021b0705a59750943af2135c51e2498cff04cf99d8c4bb4c" => :high_sierra
     sha256 "657ab818ffae1e7a9564f73bf4a625056692f86bef79fcb0478e534eb662a87b" => :sierra
     sha256 "cbc30384739a71051f243808e4973d19730292399da929a3f85781c105d63c50" => :el_capitan
   end
 
   def install
-    system "./configure", "--disable-debug", "--with-tcl=/System/Library/Frameworks/Tcl.framework/", "--prefix=#{prefix}"
+    sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+    system "./configure", "--disable-debug",
+                          "--with-tcl=#{sdkprefix}/System/Library/Frameworks/Tcl.framework/",
+                          "--prefix=#{prefix}"
     system "make", "sqlite3_analyzer"
     bin.install "sqlite3_analyzer"
   end

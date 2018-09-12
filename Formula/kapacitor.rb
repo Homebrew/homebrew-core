@@ -2,16 +2,16 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      :tag => "v1.5.0",
-      :revision => "4f10efc41b4dcac070495cf95ba2c41cfcc2aa3a"
+      :tag => "v1.5.1",
+      :revision => "89828ffff6cf5cd4cb2b34bf883e134395f734de"
   head "https://github.com/influxdata/kapacitor.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fab68d96539108cae9f6fd22b9f0cc71f8102bfe92bedea0cc59d40c1cbf19bf" => :mojave
-    sha256 "b263a69c8dbf4317a5cc9a1057fb084d7aa8703aef74080662021d446d60a2e1" => :high_sierra
-    sha256 "2847c38f6bedba0749516563129d32676e71261a4083ead32cb07794e2dd91a0" => :sierra
-    sha256 "9ecf350daf920ac6ce487401d1d895664920426c3fb2e4595544af5fb59ce810" => :el_capitan
+    sha256 "1a4e79d992f1f1ad814d966bd0e92f1406644e47382b421e025c17729103cd77" => :mojave
+    sha256 "0402f7ec1ec87fc16ee4c1c7ed963e27fbb25c2e0d8704a933fd21a1036bb113" => :high_sierra
+    sha256 "ece9de540c79c9b311e99b245855d2233ab685668e6ee65c308eaeabc97289c3" => :sierra
+    sha256 "89991463ddc94584786e4190811d3b624bd6ce559a55264df1a8782aa29c7ea5" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -20,8 +20,8 @@ class Kapacitor < Formula
     ENV["GOPATH"] = buildpath
     kapacitor_path = buildpath/"src/github.com/influxdata/kapacitor"
     kapacitor_path.install Dir["*"]
-    revision = `git rev-parse HEAD`.strip
-    version = `git describe --tags`.strip
+    revision = Utils.popen_read("git rev-parse HEAD").strip
+    version = Utils.popen_read("git describe --tags").strip
 
     cd kapacitor_path do
       system "go", "install",

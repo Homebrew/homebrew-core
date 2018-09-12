@@ -7,23 +7,24 @@ class Webarchiver < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "589ff1af350f78b387e96e5b121f03271e12b0cb67d22a2c17e227e4da02d797" => :high_sierra
-    sha256 "d62bc4e985e7fe36519af669c626f5fdd3ef56b17ddaaba5d5fdad2505c8277d" => :sierra
-    sha256 "63b8f54ff998596d2fab065f616f38d0c72dee9a48ae80a06c433a78813b4b11" => :el_capitan
-    sha256 "0c86758734efe96b1f6d0fc8294691ff62e4d191d97312b614511d20b0f989f3" => :yosemite
-    sha256 "404f9ffdf69b13cd1e89a51c331b4f8478400944eaf109a5d6f380dcf97bbddb" => :mavericks
+    rebuild 2
+    sha256 "92e1e8c98a3290a9653c827bee0ffa2cd153241fa69a27c1a7ed12bba9c497f6" => :mojave
+    sha256 "9e5fc94fce8dce5c085a99e14ba6ded678bf381297716fb99790c18cde27067a" => :high_sierra
+    sha256 "73c16d1980c3faef25f9a869c342890504eff94e29c36b2819236448b3433e2f" => :sierra
+    sha256 "4b8f78ddd15e234ae0d5c1842a8ccd7e6a9c5b18bd8626ef7b1d8d88d23b6014" => :el_capitan
   end
 
   depends_on :xcode => ["6.0.1", :build]
 
   def install
-    xcodebuild "SYMROOT=build"
+    # Force 64 bit-only build, otherwise it fails on Mojave
+    xcodebuild "SYMROOT=build", "-arch", "x86_64"
+
     bin.install "./build/Release/webarchiver"
   end
 
   test do
     system "#{bin}/webarchiver", "-url", "https://www.google.com", "-output", "foo.webarchive"
-    assert_match /Apple binary property list/, shell_output("file foo.webarchive", 0)
+    assert_match /Apple binary property list/, shell_output("file foo.webarchive")
   end
 end

@@ -11,29 +11,18 @@ class Gwenhywfar < Formula
     sha256 "1760007de92dd5e7282a82f2534feb65380338fd8cb11632eef8914c2ddb56a4" => :el_capitan
   end
 
-  option "without-cocoa", "Build without cocoa support"
-  option "with-test", "Run build-time check"
-
-  deprecated_option "with-check" => "with-test"
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "openssl"
   depends_on "libgcrypt"
-  depends_on "gtk+" => :optional
 
   def install
-    guis = []
-    guis << "gtk2" if build.with? "gtk+"
-    guis << "cocoa" if build.with? "cocoa"
-
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-guis=#{guis.join(" ")}"
-    system "make", "check" if build.with? "test"
+                          "--with-guis=cocoa"
     system "make", "install"
   end
 

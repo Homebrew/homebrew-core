@@ -21,28 +21,18 @@ class Powerman < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-curl", "Omits httppower"
-  option "with-net-snmp", "Builds snmppower"
-
-  depends_on "curl" => :recommended
-  depends_on "net-snmp" => :optional
-  depends_on "genders" => :optional
+  depends_on "curl"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --localstatedir=#{var}
-    ]
-
-    args << (build.with?("curl") ? "--with-httppower" : "--without-httppower")
-    args << (build.with?("net-snmp") ? "--with-snmppower" : "--without-snmppower")
-    args << (build.with?("genders") ? "--with-genders" : "--without-genders")
-    args << "--with-ncurses"
-    args << "--without-tcp-wrappers"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--localstatedir=#{var}",
+                          "--with-httppower",
+                          "--with-ncurses",
+                          "--without-genders",
+                          "--without-snmppower",
+                          "--without-tcp-wrappers"
     system "make", "install"
   end
 

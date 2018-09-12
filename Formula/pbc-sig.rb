@@ -6,6 +6,7 @@ class PbcSig < Formula
 
   bottle do
     cellar :any
+    sha256 "af397bbffe6ae6d891187d74fc0ba821f97484d706a4eb075a8532625cadad74" => :mojave
     sha256 "f6dcb432ad9143a883b5eeefb2bf2efd7cc139cba99cc180a18789294f2c6875" => :high_sierra
     sha256 "be0d7bea5943fcdcfafe6c4526617a8cb7b5b99489fa4fce07d1217a5970a9fe" => :sierra
     sha256 "bef7dfdc8f790b1b1d774e886090b4ddad91ed0781d08e214a55b3656aae9618" => :el_capitan

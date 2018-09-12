@@ -1,7 +1,7 @@
 class Mpage < Formula
   desc "Many to one page printing utility"
-  homepage "http://www.mesa.nl/pub/mpage/README"
-  url "http://www.mesa.nl/pub/mpage/mpage-2.5.7.tgz"
+  homepage "https://mesa.nl/pub/mpage/README"
+  url "https://mesa.nl/pub/mpage/mpage-2.5.7.tgz"
   sha256 "51ab9c4e5fdd37e03c90df6756f30c0b61a34f066cb625f8924feedc4b3ec3fe"
 
   bottle do

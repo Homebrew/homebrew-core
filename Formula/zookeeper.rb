@@ -22,13 +22,6 @@ class Zookeeper < Formula
     depends_on "automake" => :build
   end
 
-  option "with-perl", "Build Perl bindings"
-
-  deprecated_option "perl" => "with-perl"
-  deprecated_option "with-python" => "with-python@2"
-
-  depends_on "python@2" => :optional
-
   def shim_script(target)
     <<~EOS
       #!/usr/bin/env bash
@@ -73,22 +66,6 @@ class Zookeeper < Formula
                             "--prefix=#{prefix}",
                             "--without-cppunit"
       system "make", "install"
-    end
-
-    if build.with? "python@2"
-      cd "src/contrib/zkpython" do
-        system "python", "src/python/setup.py", "build"
-        system "python", "src/python/setup.py", "install", "--prefix=#{prefix}"
-      end
-    end
-
-    if build.with? "perl"
-      cd "src/contrib/zkperl" do
-        system "perl", "Makefile.PL", "PREFIX=#{prefix}",
-                                      "--zookeeper-include=#{include}",
-                                      "--zookeeper-lib=#{lib}"
-        system "make", "install"
-      end
     end
 
     rm_f Dir["bin/*.cmd"]
