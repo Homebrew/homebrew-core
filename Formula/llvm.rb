@@ -71,11 +71,13 @@ class Llvm < Formula
   end
 
   bottle do
+    root_url "https://homebrew.bintray.com/bottles"
     cellar :any
-    sha256 "0e4e8c41e45e2dd0811c5b4c24e61ffa6ffe53294932bf6fa1284bfddcbc916a" => :mojave
-    sha256 "7faa7e25bd2e1b9391689e4261f4649738369a7dbbb01199390542ed4e2fdff2" => :high_sierra
-    sha256 "d4b1c4fff2714eb55e8b9bee5a9df356ec12f8ca58eea7bc7d0cff005add966d" => :sierra
-    sha256 "cdfb1c08bf5a0862c51edf302b6edba29eff09414bb8ac35093b7d74863a7cfb" => :el_capitan
+    rebuild 1
+    sha256 "a1aa83b378bfe41b9795495095f9383629aefa4cdb1e9827f223b030c3d19b94" => :mojave
+    sha256 "fa421bedb8bc2e4dd0dcb9d40c0d9c1f5d29b7f4364af3b03ec69e6a6a2fd228" => :high_sierra
+    sha256 "3880d3191f26508516e3ae8059c71180dbf0a1bbbf4c471d8dc40d5e9217b55a" => :sierra
+    sha256 "fef6a7a52d8a3e8a78b115b4ec09c366f0a54ec0f491e2df4d5d820ca9a01d1d" => :el_capitan
   end
 
   devel do
