@@ -11,7 +11,7 @@ class Wrangler < Formula
     # upstream commit "Fix -spec's to compile in Erlang/OTP 19"
     patch do
       url "https://github.com/RefactoringTools/wrangler/commit/d81b888f.patch?full_index=1"
-      sha256 "19f99f7ec8b70ec78ed59cbc0ba203d050ae09b7ed524d0ca06ad77d23564ba3"
+      sha256 "b7911206315c32ee08fc89776015cf5b26c97b6cb4f6eff0b73dcf2d583cfe31"
     end
   end
 
