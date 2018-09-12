@@ -5,7 +5,6 @@ class SphinxDoc < Formula
   sha256 "95acd6648902333647a0e0564abdb28a74b0a76d2333148aa35e5ed1f56d3c4b"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles"
     cellar :any_skip_relocation
     sha256 "2867e566cb8dd9a9e76d62ec34e9a0ba55f406b81d81e01169cbbd9427dc09a2" => :mojave
     sha256 "f6b4ce4f8e2c33f641e38438ddeba4b2c0964fb1726c6085fe42889194bf3fc9" => :high_sierra
