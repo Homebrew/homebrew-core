@@ -2,13 +2,9 @@ class Spim < Formula
   desc "MIPS32 simulator"
   homepage "https://spimsimulator.sourceforge.io/"
   # No source code tarball exists
-  if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/spimsimulator/code", :revision => 707
-  else
-    url "http://svn.code.sf.net/p/spimsimulator/code", :revision => 707
-  end
+  url "http://svn.code.sf.net/p/spimsimulator/code", :revision => 707
   version "9.1.19"
-  head "https://svn.code.sf.net/p/spimsimulator/code/"
+  head "http://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
     sha256 "dd734941f466f62278aae0826a7fa05a4a960bed55bde3318a5b3f46810c3175" => :high_sierra
