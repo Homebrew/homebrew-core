@@ -1,8 +1,8 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.7.3.tar.gz"
-  sha256 "c11de115d928a6b48b2165e0214402a7a7da313cd479203a7ce7a8b62cba602d"
+  url "https://www.unbound.net/downloads/unbound-1.8.0.tar.gz"
+  sha256 "78f79d6d3b643fdcd74a14fc76542250da886c82f82bc55b51e189663d61b83f"
   head "https://nlnetlabs.nl/svn/unbound/trunk/", :using => :svn
 
   bottle do
@@ -15,7 +15,7 @@ class Unbound < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "libevent"
   depends_on "python@2" => :optional
   depends_on "swig" if build.with? "python@2"
@@ -25,7 +25,7 @@ class Unbound < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-libevent=#{Formula["libevent"].opt_prefix}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     if build.with? "python@2"
