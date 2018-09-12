@@ -1,9 +1,9 @@
 class Backupninja < Formula
   desc "Backup automation tool"
   homepage "https://0xacab.org/riseuplabs/backupninja"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/b/backupninja/backupninja_1.0.2.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/b/backupninja/backupninja_1.0.2.orig.tar.gz"
-  sha256 "fdb399de331493c8f959a784318349b19a01fbeece275da2ecd70ec9847a80b6"
+  url "https://0xacab.org/riseuplabs/backupninja/uploads/6c50939c6e0690d9f04ff19d8eb9364b/backupninja-1.1.0.tar.gz"
+  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/b/backupninja/backupninja_1.1.0.orig.tar.gz"
+  sha256 "abe444d0c7520ede7847b9497da4b1253a49579f59293b043c47b1dd9833280a"
 
   bottle do
     cellar :any_skip_relocation
