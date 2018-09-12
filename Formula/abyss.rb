@@ -5,9 +5,10 @@ class Abyss < Formula
   sha256 "aca9e5ad984282ced81038dfc20205ba0bb59ff4edf427419451b632aa567e9f"
 
   bottle do
-    sha256 "cced51c7524930f52dc80b4f7a5d444a58a1187d46a5bb1493cff54cbbfb9c05" => :high_sierra
-    sha256 "ad906d48b6ae28236e962d4e0a5b23f8140fb1bbfa0e4a79832a71cfd34de296" => :sierra
-    sha256 "2d3412f059574cc554ef1ae2fc50b952c9030aeefe6e413abb4a678a2c2bbf4f" => :el_capitan
+    sha256 "80ab108b5ce547a63be711284367e2a29c7657eeee4f23ac0da1ec621113fe5f" => :mojave
+    sha256 "47829fcb41eca26386d6c5db4b2d3d7ff999205ddea5db86059911cbd426fa3f" => :high_sierra
+    sha256 "48729e38eecf5f49df1f05654a80e0539f5b44732f6ec43856e68b108dd96bce" => :sierra
+    sha256 "e82ef97ceb8f9e93afd70c435fbf5798b15a96d7dd9c86e6cd79713c0064cc15" => :el_capitan
   end
 
   head do
