@@ -5,11 +5,12 @@ class SphinxDoc < Formula
   sha256 "95acd6648902333647a0e0564abdb28a74b0a76d2333148aa35e5ed1f56d3c4b"
 
   bottle do
+    root_url "https://homebrew.bintray.com/bottles"
     cellar :any_skip_relocation
-    sha256 "2b87e309d551c36d758efda05701519276e7d41f1c23b7ed6fb88e724186046e" => :mojave
-    sha256 "895bfc51da501bf759a127538323a99b1143f3b4f3fbe344d07ca8b17150838d" => :high_sierra
-    sha256 "84f16735ca6255c2e1cb1f401bdd0da4e68a83c256019dc4defbc0e89f37c869" => :sierra
-    sha256 "7a3ffe0a23c567a0608282e20f06aeee9ecafa0d8d116977963951500bb1b7e9" => :el_capitan
+    sha256 "2867e566cb8dd9a9e76d62ec34e9a0ba55f406b81d81e01169cbbd9427dc09a2" => :mojave
+    sha256 "f6b4ce4f8e2c33f641e38438ddeba4b2c0964fb1726c6085fe42889194bf3fc9" => :high_sierra
+    sha256 "88fb81c1d2acfdbe4813060e2a2688ffd15e1e770f7623561f39c4ca838f524e" => :sierra
+    sha256 "cc5a262cd6cf845c2d5012a525c962544fa9e5ea11743aeff17be202c9ffaef3" => :el_capitan
   end
 
   keg_only <<~EOS
