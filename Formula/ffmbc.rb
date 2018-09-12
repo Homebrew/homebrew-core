@@ -1,9 +1,10 @@
 class Ffmbc < Formula
   desc "FFmpeg customized for broadcast and professional usage"
   homepage "https://code.google.com/p/ffmbc/"
-  url "https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU"
-  version "0.7.2"
-  sha256 "caaae2570c747077142db34ce33262af0b6d0a505ffbed5c4bdebce685d72e42"
+  # Original URL is: https://drive.google.com/uc?export=download&id=0B0jxxycBojSwTEgtbjRZMXBJREU
+  # whose content is identical to the github link below
+  url "https://github.com/darealshinji/ffmbc/archive/v0.7.2.tar.gz"
+  sha256 "0a3807160ba0701225bfe9cfcae8fba662990f46932b2eb105e434c751c8944f"
   revision 6
 
   bottle do
