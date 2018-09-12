@@ -5,7 +5,7 @@ class AwsSessionmanager < Formula
   version "1.0.0.0"
   sha256 "a68e716f618937e6671b1f01b1a7c2b986457a21c0274426effba8383e15c042"
 
-  depends_on "python"
+  depends_on "awsci"
 
   def install
     bin.install "bin/session-manager-plugin"
