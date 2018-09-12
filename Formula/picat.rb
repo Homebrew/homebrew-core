@@ -17,6 +17,6 @@ class Picat < Formula
   end
 
   test do
-    system "picat", "#{prefix}/exs/euler/p1.pi"
+    system "#{bin}/picat", "#{prefix}/exs/euler/p1.pi"
   end
 end
