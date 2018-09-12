@@ -1,8 +1,8 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
-  homepage "https://iperf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/iperf/iperf-2.0.5.tar.gz"
-  sha256 "636b4eff0431cea80667ea85a67ce4c68698760a9837e1e9d13096d20362265b"
+  homepage "https://sourceforge.net/projects/iperf2/"
+  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.0.12.tar.gz"
+  sha256 "367f651fb1264b13f6518e41b8a7e08ce3e41b2a1c80e99ff0347561eed32646"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,15 +16,7 @@ class Iperf < Formula
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-
-    # Otherwise this definition confuses system headers on 10.13
-    # https://github.com/Homebrew/homebrew-core/issues/14418#issuecomment-324082915
-    if MacOS.version >= :high_sierra
-      inreplace "config.h", "#define bool int", ""
-    end
-
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 
