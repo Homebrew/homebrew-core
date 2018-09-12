@@ -24,7 +24,7 @@ class Ctags < Formula
   end
 
   head do
-    url "https://svn.code.sf.net/p/ctags/code/trunk"
+    url "http://svn.code.sf.net/p/ctags/code/trunk"
     depends_on "autoconf" => :build
   end
 
