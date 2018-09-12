@@ -15,6 +15,7 @@ class Git < Formula
   deprecated_option "with-pcre" => "with-pcre2"
 
   depends_on "pcre2" => :optional
+  depends_on "gettext" => :optional
 
   if MacOS.version < :yosemite
     depends_on "openssl"
@@ -44,7 +45,6 @@ class Git < Formula
     # If these things are installed, tell Git build system not to use them
     ENV["NO_FINK"] = "1"
     ENV["NO_DARWIN_PORTS"] = "1"
-    ENV["NO_GETTEXT"] = "1"
     ENV["NO_R_TO_GCC_LINKER"] = "1" # pass arguments to LD correctly
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
@@ -65,6 +65,8 @@ class Git < Formula
     unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
       ENV["NO_PERL_MAKEMAKER"] = "1"
     end
+
+    ENV["NO_GETTEXT"] = "1" if build.without? "gettext"
 
     if build.with? "pcre2"
       ENV["USE_LIBPCRE2"] = "1"
