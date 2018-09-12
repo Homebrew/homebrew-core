@@ -14,6 +14,6 @@ class Picat < Formula
   end
 
   test do
-    system "#{HOMEBREW_PREFIX}/bin/picat", "#{prefix}/exs/euler/p1.pi"
+    assert_equal "Sum of all the multiples of 3 or 5 below 1000 is 233168", shell_output("#{HOMEBREW_PREFIX}/bin/picat #{prefix}/exs/euler/p1.pi").chomp
   end
 end
