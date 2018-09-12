@@ -4,10 +4,9 @@ class Picat < Formula
   url "http://picat-lang.org/download/picat24_src.tar.gz"
   version "2.4.8"
   sha256 "72b452a8ba94d6187d837dcdb46aab0d7dc724651bac99a8cf2ada5c0a3543dd"
-  depends_on "gcc"
 
   def install
-    inreplace "emu/Makefile.picat.mac64", "/usr/local/bin/gcc", HOMEBREW_PREFIX/"bin/gcc-8"
+    inreplace "emu/Makefile.picat.mac64", "/usr/local/bin/gcc", "gcc"
     system "make", "-C", "emu", "-f", "Makefile.picat.mac64"
     mv "lib", "pi_lib"
     prefix.install Dir["doc", "emu", "exs", "pi_lib"]
