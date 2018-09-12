@@ -7,10 +7,10 @@ class Ttyd < Formula
 
   bottle do
     cellar :any
-    sha256 "a43dd374f6b62d64e41b869b30657b9b823c81fbffefdc67ead877bcec15f2b1" => :mojave
-    sha256 "4985fdd0d5d2ac07bb33733b34aceefaa0dc5cb5ae1195a01414679782d3c663" => :high_sierra
-    sha256 "5f33c79299fdd719ac076a067733a45aa15793e59a1ebf761cb5fd55cd2424d2" => :sierra
-    sha256 "999e8c8645e1d053802f376819d09846445749673ba60bc1450b6b8ea9b9b4e1" => :el_capitan
+    sha256 "b1829acbdc4bec9917e837e2800480c48da5988f56c016481b42c338084a82c5" => :mojave
+    sha256 "28dda203aabd87961d0a9413d0f236235c464fa709e313862247f6c2bf9ebd20" => :high_sierra
+    sha256 "e8d50fd876c89a417e815506a3a3e08673c145d3d33a8fedc54d01cfc3928ac9" => :sierra
+    sha256 "02a707935652bfcdd92adeb0db5a2bcee70657c0a3049f72c32d83520cc6df45" => :el_capitan
   end
 
   depends_on "cmake" => :build
