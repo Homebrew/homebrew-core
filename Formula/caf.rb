@@ -17,9 +17,6 @@ class Caf < Formula
   needs :cxx11
 
   option "with-opencl", "build with support for OpenCL actors"
-  option "without-test", "skip unit tests (not recommended)"
-
-  deprecated_option "without-check" => "without-test"
 
   depends_on "cmake" => :build
 
@@ -29,7 +26,7 @@ class Caf < Formula
 
     system "./configure", *args
     system "make"
-    system "make", "test" if build.with? "test"
+    system "make", "test"
     system "make", "install"
   end
 
