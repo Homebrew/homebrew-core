@@ -20,23 +20,20 @@ class GnuSmalltalk < Formula
     sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
   end
 
-  option "with-test", "Verify the build with make check (this may hang)"
   option "with-tcltk", "Build the Tcl/Tk module that requires X11"
 
-  deprecated_option "tests" => "with-test"
-  deprecated_option "with-tests" => "with-test"
   deprecated_option "tcltk" => "with-tcltk"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool"
-  depends_on "pkg-config" => :build
   depends_on "gawk" => :build
-  depends_on "readline"
-  depends_on "gnutls"
+  depends_on "pkg-config" => :build
   depends_on "gdbm"
-  depends_on "libffi" => :recommended
-  depends_on "libsigsegv" => :recommended
+  depends_on "gnutls"
+  depends_on "libffi"
+  depends_on "libsigsegv"
+  depends_on "libtool"
+  depends_on "readline"
   depends_on "glew" => :optional
   depends_on :x11 if build.with? "tcltk"
 
@@ -61,15 +58,12 @@ class GnuSmalltalk < Formula
       args << "--without-tcl" << "--without-tk" << "--without-x"
     end
 
-    # disable generational gc in 32-bit and if libsigsegv is absent
-    if !MacOS.prefer_64_bit? || build.without?("libsigsegv")
-      args << "--disable-generational-gc"
-    end
+    # Disable generational gc in 32-bit
+    args << "--disable-generational-gc" if !MacOS.prefer_64_bit?
 
     system "autoreconf", "-ivf"
     system "./configure", *args
     system "make"
-    system "make", "-j1", "check" if build.with? "test"
     system "make", "install"
   end
 
