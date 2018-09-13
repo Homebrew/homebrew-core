@@ -2,7 +2,7 @@ class Nuttcp < Formula
   desc "Network performance measurement tool"
   homepage "https://www.nuttcp.net/nuttcp"
   url "https://www.nuttcp.net/nuttcp/nuttcp-8.1.4.tar.bz2"
-  sha256 "5c5f4f6ae04adb8a86d11e1995939c1308b90e1946ebc77c9988b5eb85961bb5"
+  sha256 "737f702ec931ec12fcf54e66c4c1d5af72bd3631439ffa724ed2ac40ab2de78d"
 
   bottle do
     cellar :any_skip_relocation
