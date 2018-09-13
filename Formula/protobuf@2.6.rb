@@ -13,14 +13,11 @@ class ProtobufAT26 < Formula
 
   keg_only :versioned_formula
 
-  # this will double the build time approximately if enabled
-  option "with-test", "Run build-time check"
   option "without-python@2", "Build without python2 support"
   option :cxx11
 
   depends_on "python@2" => :recommended
 
-  deprecated_option "with-check" => "with-test"
   deprecated_option "without-python" => "without-python@2"
 
   resource "six" do
@@ -63,7 +60,7 @@ class ProtobufAT26 < Formula
            "--prefix=#{prefix}",
            "--with-zlib"
     system "make"
-    system "make", "check" if (build.with? "test") || build.bottle?
+    system "make", "check" if build.bottle?
     system "make", "install"
 
     # Install editor support and examples
