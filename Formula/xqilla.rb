@@ -2,7 +2,7 @@ class Xqilla < Formula
   desc "XQuery and XPath 2 command-line interpreter"
   homepage "https://xqilla.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.4.tar.gz"
-  sha256 "adfd4df011fcda08be3f51771006da23e852bac81e2fe63159beddc3633b3f55"
+  sha256 "292631791631fe2e7eb9727377335063a48f12611d641d0296697e0c075902eb"
 
   bottle do
     cellar :any
