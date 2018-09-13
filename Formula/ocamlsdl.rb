@@ -13,12 +13,12 @@ class Ocamlsdl < Formula
     sha256 "c59f56c6176d701173eb224d430889132a57053cc1a4856940c272bda9d51cac" => :el_capitan
   end
 
-  depends_on "sdl"
   depends_on "ocaml"
-  depends_on "sdl_mixer" => :recommended
-  depends_on "sdl_image" => :recommended
-  depends_on "sdl_gfx" => :recommended
-  depends_on "sdl_ttf" => :recommended
+  depends_on "sdl"
+  depends_on "sdl_gfx"
+  depends_on "sdl_image"
+  depends_on "sdl_mixer"
+  depends_on "sdl_ttf"
 
   def install
     ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
