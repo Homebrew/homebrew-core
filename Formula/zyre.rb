@@ -20,24 +20,16 @@ class Zyre < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-drafts", "Build and install draft classes and methods"
-
   depends_on "pkg-config" => :build
-  depends_on "zeromq"
   depends_on "czmq"
+  depends_on "zeromq"
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-    ]
-
-    args << "--enable-drafts" if build.with? "drafts"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
     system "make"
     system "make", "check-verbose"
     system "make", "install"
