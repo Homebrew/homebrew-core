@@ -1,15 +1,14 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
-  revision 3
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.2.tar.gz"
-    sha256 "3d7f7934d983623a586132d2602f25b630614f1d3ae73c56d6290deed1af19ee"
+    url "https://github.com/ntop/ntopng/archive/3.6.tar.gz"
+    sha256 "43a90940936e6c7c39cb35c6e87ff4f1cd80b7620941686341fe1713421949cc"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/2.2.tar.gz"
-      sha256 "25607db12f466ba88a1454ef8b378e0e9eb59adffad6baa4b5610859a102a5dd"
+      url "https://github.com/ntop/nDPI/archive/2.4.tar.gz"
+      sha256 "5243e16b1c4a2728e9487466b2b496d8ffef18a44ff7ee6dfdc21e72008c6d29"
     end
   end
 
@@ -34,9 +33,10 @@ class Ntopng < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "zeromq" => :build
-
   depends_on "geoip"
   depends_on "json-c"
+  depends_on "libmaxminddb"
+  depends_on "lua"
   depends_on "mysql-client"
   depends_on "redis"
   depends_on "rrdtool"
