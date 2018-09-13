@@ -13,24 +13,13 @@ class Libzdb < Formula
     sha256 "051d58c0f1b5f39bebf8966311553f8be784daf7693e2b6960030aa791586803" => :el_capitan
   end
 
-  deprecated_option "without-mysql" => "without-mysql-client"
-
+  depends_on "mysql-client"
   depends_on "openssl"
-  depends_on "postgresql" => :recommended
-  depends_on "mysql-client" => :recommended
-  depends_on "sqlite" => :recommended
+  depends_on "postgresql"
+  depends_on "sqlite"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--without-postgresql" if build.without? "postgresql"
-    args << "--without-mysql" if build.without? "mysql-client"
-    args << "--without-sqlite" if build.without? "sqlite"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
 end
