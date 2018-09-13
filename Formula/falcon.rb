@@ -16,12 +16,6 @@ class Falcon < Formula
     sha256 "9730e050c70ad2803afdf9cd03b108b8c4bb57b797bd92595523ad0731639b81" => :mountain_lion
   end
 
-  option "with-editline", "Use editline instead of readline"
-  option "with-feathers", "Include feathers (extra libraries)"
-
-  deprecated_option "editline" => "with-editline"
-  deprecated_option "feathers" => "with-feathers"
-
   depends_on "cmake" => :build
   depends_on "pcre"
 
@@ -33,21 +27,11 @@ class Falcon < Formula
       -DFALCON_BIN_DIR=#{bin}
       -DFALCON_LIB_DIR=#{lib}
       -DFALCON_MAN_DIR=#{man1}
+      -DFALCON_WITH_EDITLINE=OFF
+      -DFALCON_WITH_FEATHERS=NO
       -DFALCON_WITH_INTERNAL_PCRE=OFF
       -DFALCON_WITH_MANPAGES=ON
     ]
-
-    if build.with? "editline"
-      args << "-DFALCON_WITH_EDITLINE=ON"
-    else
-      args << "-DFALCON_WITH_EDITLINE=OFF"
-    end
-
-    if build.with? "feathers"
-      args << "-DFALCON_WITH_FEATHERS=feathers"
-    else
-      args << "-DFALCON_WITH_FEATHERS=NO"
-    end
 
     system "cmake", *args
     system "make"
