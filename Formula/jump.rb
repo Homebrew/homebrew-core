@@ -1,8 +1,8 @@
 class Jump < Formula
   desc "Helps you navigate your file system faster by learning your habits"
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://github.com/gsamokovarov/jump/archive/v0.20.0.tar.gz"
-  sha256 "8f4eba45110e7200dd06efb8f895ab9f2618ef2e25c7b892acee9b368c8de3a1"
+  url "https://github.com/gsamokovarov/jump/archive/v0.21.0.tar.gz"
+  sha256 "27a5cf4f48164806bd1ed6c33cf014368db8c0250a1b7f0fb6fe55827dcbaf18"
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do
@@ -21,6 +21,7 @@ class Jump < Formula
     (buildpath/"src/github.com/gsamokovarov").mkpath
     ln_s buildpath, buildpath/"src/github.com/gsamokovarov/jump"
 
+    ENV["GO111MODULE"] = "off"
     system "go", "build", "-o", "#{bin}/jump"
     man1.install "man/jump.1"
     man1.install "man/j.1"
