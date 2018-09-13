@@ -1,9 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.14.02.source.tar.gz"
-  version "6.14.02"
-  sha256 "93816519523e87ac75924178d87112d1573eaa108fc65691aea9a9dd5bc05b3e"
+  url "https://root.cern.ch/download/root_v6.14.04.source.tar.gz"
+  version "6.14.04"
+  sha256 "463ec20692332a422cfb5f38c78bedab1c40ab4d81be18e99b50cf9f53f596cf"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -43,12 +43,6 @@ class Root < Formula
   needs :cxx11
 
   skip_clean "bin"
-
-  # Upstream commit from 30 Jun 2018 "Fixes for Python 3.7"
-  patch do
-    url "https://github.com/root-project/root/commit/94412f7eab8.patch?full_index=1"
-    sha256 "29a719b00931381cbe75b0e23c5e970d03aa28a8455a5f840e82a8cae83d9c24"
-  end
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
