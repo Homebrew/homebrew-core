@@ -12,10 +12,6 @@ class Stk < Formula
     sha256 "e333e99c0fe8611be1fc7fb54d3e4e77f4cde210bb1c281031ed54b74187ef4d" => :el_capitan
   end
 
-  option "with-debug", "Compile with debug flags and modified CFLAGS for easier debugging"
-
-  deprecated_option "enable-debug" => "with-debug"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
@@ -25,19 +21,8 @@ class Stk < Formula
   end
 
   def install
-    args = %W[--prefix=#{prefix}]
-
-    if build.with? "debug"
-      inreplace "configure", 'CFLAGS="-g -O2"', 'CFLAGS="-g -O0"'
-      inreplace "configure", 'CXXFLAGS="-g -O2"', 'CXXFLAGS="-g -O0"'
-      inreplace "configure", 'CPPFLAGS="$CPPFLAGS $cppflag"', ' CPPFLAGS="$CPPFLAGS $cppflag -g -O0"'
-      args << "--enable-debug"
-    else
-      args << "--disable-debug"
-    end
-
     system "autoreconf", "-fiv"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-debug"
     system "make"
 
     lib.install "src/libstk.a"
