@@ -9,6 +9,7 @@ class Samba < Formula
   depends_on "gnutls"
   depends_on "krb5"
   depends_on "openssl"
+  depends_on "readline" # Without the readline dependency the build fails on macOS 10.14+
 
   def install
     # Samba can be used to share directories with the guest in QEMU user-mode (SLIRP) networking
