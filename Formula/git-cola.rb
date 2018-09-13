@@ -8,10 +8,11 @@ class GitCola < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "281d8fd5e61c4846c0ba868a07da1caf59bc3810c027838b9c47f79c861c4e18" => :mojave
-    sha256 "23f64ddbebe8299219d29c41c024b7b8af65f1fb949458997f04d52557d77bf5" => :high_sierra
-    sha256 "23f64ddbebe8299219d29c41c024b7b8af65f1fb949458997f04d52557d77bf5" => :sierra
-    sha256 "23f64ddbebe8299219d29c41c024b7b8af65f1fb949458997f04d52557d77bf5" => :el_capitan
+    rebuild 1
+    sha256 "434cfe046abbea9ebb1456c52c9a40be912d14d6fa5a267b4ea4a404d4b17709" => :mojave
+    sha256 "4283d675b4f870c944c088575fffde74986173042acffb9301d7107b3ffa6bcf" => :high_sierra
+    sha256 "4283d675b4f870c944c088575fffde74986173042acffb9301d7107b3ffa6bcf" => :sierra
+    sha256 "4283d675b4f870c944c088575fffde74986173042acffb9301d7107b3ffa6bcf" => :el_capitan
   end
 
   depends_on "sphinx-doc" => :build
