@@ -6,6 +6,8 @@ class Picat < Formula
   sha256 "72b452a8ba94d6187d837dcdb46aab0d7dc724651bac99a8cf2ada5c0a3543dd"
 
   def install
+    # Hardcode in Makefile issue is reported to upstream in the official Google Groups
+    # https://groups.google.com/d/msg/picat-lang/0kZYUJKgnkY/3Vig5X1NCAAJ
     inreplace "emu/Makefile.picat.mac64", "/usr/local/bin/gcc", "gcc"
     system "make", "-C", "emu", "-f", "Makefile.picat.mac64"
     mv "lib", "pi_lib"
