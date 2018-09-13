@@ -20,8 +20,6 @@ class Yaws < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-yapp", "Omit yaws applications"
-
   depends_on "erlang@20"
 
   # the default config expects these folders to exist
@@ -36,11 +34,9 @@ class Yaws < Formula
                           "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security"
     system "make", "install"
 
-    if build.with? "yapp"
-      cd "applications/yapp" do
-        system "make"
-        system "make", "install"
-      end
+    cd "applications/yapp" do
+      system "make"
+      system "make", "install"
     end
 
     # the default config expects these folders to exist
