@@ -8,11 +8,11 @@ class Libiscsi < Formula
 
   bottle do
     cellar :any
-    sha256 "502c36ea151063d4711a1c7786f35a8ba971990b603e9270b5d500aa28656eaa" => :mojave
-    sha256 "319702bf0cb05a72681ac15f18534515e27b6618909a09659a8d718ad1663614" => :high_sierra
-    sha256 "5ca0c39a5aba32abddd1fdd4ffad754baa0d61380579fa1cd03c511e331a24a9" => :sierra
-    sha256 "fb4e0bf29a4500377478c42476b9cf1c20f96fd1891397ed0fad499fe5555117" => :el_capitan
-    sha256 "c89e40197b9aebd712c67d43fbe7a4e085ddb7a1b58861c6e98444271fd9e383" => :yosemite
+    rebuild 1
+    sha256 "8fa9581efc6326e9b980813067cc40b46cd288109f50720260a58e1530604d69" => :mojave
+    sha256 "b7d473398d94e269df98015f2187a791f61eaffcd1cc2dd4f043056e57d1820f" => :high_sierra
+    sha256 "be04eca8be4587455ea7e5f7f696a0d473102093da3ef32c969ddc5f7e3263e7" => :sierra
+    sha256 "7436d0d7cd21c2620f5144cc9137f8dcf8288a31310ec9e5fe951d868b2a889a" => :el_capitan
   end
 
   depends_on "autoconf" => :build
