@@ -18,20 +18,10 @@ class Jbigkit < Formula
     sha256 "0afb6297101bc3269f0ebca1590cda66a62cbd90e3fdbec38dc011131711d32b" => :mountain_lion
   end
 
-  option "with-test", "Verify the library during install"
-
-  deprecated_option "with-check" => "with-test"
-
   conflicts_with "netpbm", :because => "both install `pbm.5` and `pgm.5` files"
 
   def install
     system "make", "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}"
-
-    if build.with? "test"
-      # It needs j1 to make the tests happen in sequence.
-      ENV.deparallelize
-      system "make", "test"
-    end
 
     cd "pbmtools" do
       bin.install %w[pbmtojbg jbgtopbm pbmtojbg85 jbgtopbm85]
