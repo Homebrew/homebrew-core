@@ -15,17 +15,13 @@ class Cln < Formula
     sha256 "048947d9343c8848897be272cae74d98cd869fa3d64fa6f2bfe82cb68ca100b9" => :mavericks
   end
 
-  option "without-test", "Skip compile-time checks (Not recommended)"
-
-  deprecated_option "without-check" => "without-test"
-
   depends_on "gmp"
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
     system "make"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 
