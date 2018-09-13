@@ -15,8 +15,6 @@ class Rdup < Formula
     sha256 "ddfd0b0a7116c618739caffb054a0b149e17c7bf517c512ccb1543c3e7784275" => :mavericks
   end
 
-  option "with-test", "Verify the build with `make check`"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
@@ -26,27 +24,10 @@ class Rdup < Formula
   depends_on "libarchive"
   depends_on "mcrypt"
 
-  if build.with? "test"
-    depends_on "deja-gnu" => :build
-    depends_on "gnu-sed" => :build
-    depends_on "coreutils" => :build
-    depends_on "gnu-tar" => :build
-  end
-
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
     system "make"
-
-    if build.with? "test"
-      saved_path = ENV["PATH"]
-      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
-      ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
-      ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
-      system "make", "check"
-      ENV["PATH"] = saved_path
-    end
-
     system "make", "install"
   end
 
