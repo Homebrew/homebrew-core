@@ -17,22 +17,17 @@ class GnuplotAT4 < Formula
   option "with-pdflib-lite", "Build the PDF terminal using pdflib-lite"
   option "with-wxmac", "Build the wxWidgets terminal using pango"
   option "with-cairo", "Build the Cairo based terminals"
-  option "without-lua@5.1", "Build without the lua/TikZ terminal"
-  option "with-test", "Verify the build with make check (1 min)"
-  option "without-emacs", "Do not build Emacs lisp files"
   option "with-aquaterm", "Build with AquaTerm support"
   option "with-x11", "Build with X11 support"
 
-  deprecated_option "without-lua" => "without-lua@5.1"
-
   depends_on "pkg-config" => :build
-  depends_on "lua@5.1" => :recommended
-  depends_on "gd" => :recommended
-  depends_on "readline"
-  depends_on "libpng"
-  depends_on "jpeg"
-  depends_on "libtiff"
   depends_on "fontconfig"
+  depends_on "gd"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "lua@5.1"
+  depends_on "readline"
   depends_on "pango" if (build.with? "cairo") || (build.with? "wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "wxmac" => :optional
@@ -51,29 +46,24 @@ class GnuplotAT4 < Formula
       inreplace "configure", "-laquaterm", ""
     end
 
-    # Help configure find libraries
-    readline = Formula["readline"].opt_prefix
-    pdflib = Formula["pdflib-lite"].opt_prefix
-    gd = Formula["gd"].opt_prefix
-
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-readline=#{readline}
+      --with-gd=#{Formula["gd"].opt_prefix}
+      --with-lispdir=#{elisp}
+      --with-readline=#{Formula["readline"].opt_prefix}
       --without-latex
     ]
 
+    pdflib = Formula["pdflib-lite"].opt_prefix
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
-    args << (build.with?("gd") ? "--with-gd=#{gd}" : "--without-gd")
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    args << "--without-lua" if build.without? "lua@5.1"
-    args << (build.with?("emacs") ? "--with-lispdir=#{elisp}" : "--without-lisp-files")
     args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
     args << (build.with?("x11") ? "--with-x" : "--without-x")
 
@@ -86,7 +76,6 @@ class GnuplotAT4 < Formula
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
-    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 
