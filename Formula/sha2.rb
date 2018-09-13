@@ -15,13 +15,9 @@ class Sha2 < Formula
     sha256 "34650fbb427aa57f452acc23a338696756792907bd7e127d7b495a7fd7e4573a" => :mavericks
   end
 
-  option "without-test", "Skip compile-time tests"
-
-  deprecated_option "without-check" => "without-test"
-
   def install
     system ENV.cc, "-o", "sha2", "sha2prog.c", "sha2.c"
-    system "perl", "sha2test.pl" if build.with? "test"
+    system "perl", "sha2test.pl"
     bin.install "sha2"
   end
 
