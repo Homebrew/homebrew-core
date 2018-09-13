@@ -15,13 +15,11 @@ class Httest < Formula
 
   depends_on "apr"
   depends_on "apr-util"
+  depends_on "lua@5.1"
+  depends_on "nghttp2"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "lua@5.1" => :recommended
-  depends_on "nghttp2" => :recommended
-  depends_on "spidermonkey" => :recommended
-
-  deprecated_option "without-lua" => "without-lua@5.1"
+  depends_on "spidermonkey"
 
   def install
     inreplace "configure",
@@ -38,19 +36,15 @@ class Httest < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
     end
 
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--enable-html-module",
-      "--enable-xml-module",
-      "--with-apr=#{Formula["apr"].opt_bin}",
-      "--with-lua=#{Formula["lua@5.1"].opt_prefix}",
-    ]
-    args << "--enable-lua-module" if build.with? "lua@5.1"
-    args << "--enable-h2-module" if build.with? "nghttp2"
-    args << "--enable-js-module" if build.with? "spidermonkey"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-h2-module",
+                          "--enable-html-module",
+                          "--enable-js-module",
+                          "--enable-lua-module",
+                          "--enable-xml-module",
+                          "--with-apr=#{Formula["apr"].opt_bin}",
+                          "--with-lua=#{Formula["lua@5.1"].opt_prefix}"
     system "make", "install"
   end
 
