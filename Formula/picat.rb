@@ -11,8 +11,8 @@ class Picat < Formula
     inreplace "emu/Makefile.picat.mac64", "/usr/local/bin/gcc", "gcc"
     system "make", "-C", "emu", "-f", "Makefile.picat.mac64"
     mv "lib", "pi_lib"
-    prefix.install Dir["doc", "emu", "exs", "pi_lib"]
-    bin.install_symlink prefix/"emu/picat_macx" => "picat"
+    prefix.install "emu/picat_macx", Dir["doc", "exs", "pi_lib"]
+    bin.install_symlink prefix/"picat_macx" => "picat"
   end
 
   test do
