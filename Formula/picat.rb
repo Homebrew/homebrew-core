@@ -14,7 +14,7 @@ class Picat < Formula
     bin.install "emu/picat_macx" => "picat"
     prefix.install "lib" => "pi_lib"
     doc.install Dir["doc/*"]
-    pkgshare.install Dir["exs"]
+    pkgshare.install "exs"
   end
 
   test do
