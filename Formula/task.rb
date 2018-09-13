@@ -14,17 +14,13 @@ class Task < Formula
     sha256 "7888e42210edb6691ff57d056585536abd318d62b43a898bb98e286373519164" => :mavericks
   end
 
-  option "without-gnutls", "Don't use gnutls; disables sync support"
-
   depends_on "cmake" => :build
-  depends_on "gnutls" => :recommended
+  depends_on "gnutls"
 
   needs :cxx11
 
   def install
-    args = std_cmake_args
-    args << "-DENABLE_SYNC=OFF" if build.without? "gnutls"
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
     bash_completion.install "scripts/bash/task.sh"
     zsh_completion.install "scripts/zsh/_task"
