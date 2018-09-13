@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.28.0-src.tar.gz"
-    sha256 "1d5a81729c6f23a0a23b584dd249e35abe9c6f7569cee967cc42b1758ecd6486"
+    url "https://static.rust-lang.org/dist/rustc-1.29.0-src.tar.gz"
+    sha256 "a4eb34ffd47f76afe2abd813f398512d5a19ef00989d37306217c9c9ec2f61e9"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -58,8 +58,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2018-07-20/cargo-0.28.0-x86_64-apple-darwin.tar.gz"
-    sha256 "bc995c0710913b21ac979aa911669fbb1a11fbdda52eb0b4bb5e72fbcbb82085"
+    url "https://static.rust-lang.org/dist/2018-08-02/cargo-0.29.0-x86_64-apple-darwin.tar.gz"
+    sha256 "24ea65fba1e1c317842c2d554659f483748a6b155cea53204b1126b142de9125"
   end
 
   def install
