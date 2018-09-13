@@ -15,15 +15,11 @@ class ProtobufAT25 < Formula
 
   keg_only :versioned_formula
 
-  # this will double the build time approximately if enabled
-  option "with-test", "Run build-time check"
   option :cxx11
 
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "python@2" => :optional
-
-  deprecated_option "with-check" => "with-test"
 
   def install
     # Don't build in debug mode. See:
@@ -36,7 +32,7 @@ class ProtobufAT25 < Formula
                           "--prefix=#{prefix}",
                           "--with-zlib"
     system "make"
-    system "make", "check" if build.with?("test") || build.bottle?
+    system "make", "check" if build.bottle?
     system "make", "install"
 
     # Install editor support and examples

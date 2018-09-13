@@ -14,8 +14,6 @@ class ProtobufAT31 < Formula
 
   keg_only :versioned_formula
 
-  # this will double the build time approximately if enabled
-  option "with-test", "Run build-time check"
   option "without-python@2", "Build without python support"
   option :cxx11
 
@@ -94,7 +92,7 @@ class ProtobufAT31 < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
-    system "make", "check" if build.with?("test") || build.bottle?
+    system "make", "check" if build.bottle?
     system "make", "install"
 
     # Install editor support and examples
