@@ -14,12 +14,8 @@ class Mypy < Formula
     sha256 "95a7fda13b3fbace3617e4145719e839002b4523fbf5b35a3457e49ede590edb" => :el_capitan
   end
 
-  option "without-sphinx-doc", "Don't build documentation"
-
-  deprecated_option "without-docs" => "without-sphinx-doc"
-
+  depends_on "sphinx-doc" => :build
   depends_on "python"
-  depends_on "sphinx-doc" => [:build, :recommended]
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/51/9e/0f8f5423ce28c9109807024f7bdde776ed0b1161de20b408875de7e030c3/psutil-5.4.6.tar.gz"
@@ -39,22 +35,20 @@ class Mypy < Formula
   def install
     xy = Language::Python.major_minor_version "python3"
 
-    if build.with? "sphinx-doc"
-      # https://github.com/python/mypy/issues/2593
-      version_static = buildpath/"mypy/version_static.py"
-      version_static.write "__version__ = '#{version}'\n"
-      inreplace "docs/source/conf.py", "mypy.version", "mypy.version_static"
+    # https://github.com/python/mypy/issues/2593
+    version_static = buildpath/"mypy/version_static.py"
+    version_static.write "__version__ = '#{version}'\n"
+    inreplace "docs/source/conf.py", "mypy.version", "mypy.version_static"
 
-      (buildpath/"docs/sphinx_rtd_theme").install resource("sphinx_rtd_theme")
-      # Inject sphinx_rtd_theme's path into sys.path
-      inreplace "docs/source/conf.py",
-                "sys.path.insert(0, os.path.abspath('../..'))",
-                "sys.path[:0] = [os.path.abspath('../..'), os.path.abspath('../sphinx_rtd_theme')]"
-      system "make", "-C", "docs", "html"
-      doc.install Dir["docs/build/html/*"]
+    (buildpath/"docs/sphinx_rtd_theme").install resource("sphinx_rtd_theme")
+    # Inject sphinx_rtd_theme's path into sys.path
+    inreplace "docs/source/conf.py",
+              "sys.path.insert(0, os.path.abspath('../..'))",
+              "sys.path[:0] = [os.path.abspath('../..'), os.path.abspath('../sphinx_rtd_theme')]"
+    system "make", "-C", "docs", "html"
+    doc.install Dir["docs/build/html/*"]
 
-      rm version_static
-    end
+    rm version_static
 
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
