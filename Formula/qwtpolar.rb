@@ -13,8 +13,6 @@ class Qwtpolar < Formula
     sha256 "e9ac24fce3339281d5b17f38a6c0fc1ff11b2d1afa3f7f727b620992348bf4c4" => :yosemite
   end
 
-  option "without-plugin", "Skip building the Qt Designer plugin"
-
   depends_on "qt"
   depends_on "qwt"
 
@@ -33,7 +31,6 @@ class Qwtpolar < Formula
     inreplace "qwtpolarconfig.pri" do |s|
       s.gsub! /^(\s*)QWT_POLAR_INSTALL_PREFIX\s*=\s*(.*)$/,
               "\\1QWT_POLAR_INSTALL_PREFIX=#{prefix}"
-      s.sub! /\+(=\s*QwtPolarDesigner)/, "-\\1" if build.without? "plugin"
       # Don't build examples now, since linking flawed until qwtpolar installed
       s.sub! /\+(=\s*QwtPolarExamples)/, "-\\1"
 
