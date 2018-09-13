@@ -13,10 +13,8 @@ class Assimp < Formula
     sha256 "5991caf1877f8193889d0929399aa24790e8eeab96736c3c1d28800966d75169" => :el_capitan
   end
 
-  option "without-boost", "Compile without thread safe logging or multithreaded computation if boost isn't installed"
-
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "boost" => [:recommended, :build]
 
   # Fix "unzip.c:150:11: error: unknown type name 'z_crc_t'"
   # Upstream PR from 12 Dec 2017 "unzip: fix build with older zlib"
