@@ -11,7 +11,7 @@ class GitSecret < Formula
     # Upstream PR from 12 Jun 2018 "Revert 'migrate from bats to bats-core'"
     patch do
       url "https://github.com/sobolevn/git-secret/pull/203.patch?full_index=1"
-      sha256 "c80d63075906d5e7f9145fc5c96d5dfbef0b6ef209f2e879dedb0b9febb0421a"
+      sha256 "ee4e263b9725aee59f8b52196d4749a09791dbb4c745a9e81da523d27fcf3f09"
     end
   end
 
