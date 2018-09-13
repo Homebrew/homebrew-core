@@ -14,12 +14,9 @@ class JsonFortran < Formula
   end
 
   option "with-unicode-support", "Build json-fortran to support unicode text in json objects and files"
-  option "without-docs", "Do not build and install FORD generated documentation for json-fortran"
-
-  deprecated_option "without-robodoc" => "without-docs"
 
   depends_on "cmake" => :build
-  depends_on "ford" => :build if build.with? "docs"
+  depends_on "ford" => :build
   depends_on "gcc" # for gfortran
 
   def install
@@ -27,7 +24,6 @@ class JsonFortran < Formula
       args = std_cmake_args
       args << "-DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE" # Use more GNU/Homebrew-like install layout
       args << "-DENABLE_UNICODE:BOOL=TRUE" if build.with? "unicode-support"
-      args << "-DSKIP_DOC_GEN:BOOL=TRUE" if build.without? "docs"
       system "cmake", "..", *args
       system "make", "install"
     end
