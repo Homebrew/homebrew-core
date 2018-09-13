@@ -12,26 +12,10 @@ class Ii < Formula
     sha256 "7f1cb092b6940dc4d9b1e1e47b78165c6f37c0dc322dc0bfd5053afcb42e3fb6" => :el_capitan
   end
 
-  # Update Makefile, upstream commit:
-  # https://git.suckless.org/ii/commit/e32415744c0e7f2d75d4669addefc1b50f977cd6.html
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4a447b87/ii/e32415.diff"
-    sha256 "4fe81cad8507c2cc06141171039f3c1337c2ff68f4923ff7aad9e13b79c5ca82"
-  end
-
-  # Provide an option to use the system strlcpy, upstream commit:
-  # https://git.suckless.org/ii/commit/51cb204eb2a7ee840a86cc66b762ddfff56f01b2.html
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4a447b87/ii/51cb20.diff"
-    sha256 "1ca71e4fe1197dadef95b9b63b594b71c5161ab0e28fe255a456f412bb8ca428"
-  end
-
   def install
-    inreplace "config.mk" do |s|
-      s.gsub! "/usr/local", prefix
-      s.gsub! "strlcpy.o", ""
-      s.gsub! "-DNEED_STRLCPY", ""
-    end
-    system "make", "install"
+    # Fixed upstream, drop for next version
+    inreplace "Makefile", "SRC = ii.c strlcpy.c", "SRC = ii.c"
+
+    system "make", "install", "PREFIX=#{prefix}"
   end
 end
