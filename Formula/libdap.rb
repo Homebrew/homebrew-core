@@ -19,10 +19,8 @@ class Libdap < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-test", "Skip build-time tests (Not recommended)"
-
-  depends_on "pkg-config" => :build
   depends_on "bison" => :build
+  depends_on "pkg-config" => :build
   depends_on "libxml2"
   depends_on "openssl"
 
@@ -50,7 +48,7 @@ class Libdap < Formula
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
     system "make"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
 
     # Ensure no Cellar versioning of libxml2 path in dap-config entries
