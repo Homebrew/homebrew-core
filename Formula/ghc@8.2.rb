@@ -17,14 +17,9 @@ class GhcAT82 < Formula
 
   keg_only :versioned_formula
 
-  option "with-test", "Verify the build using the testsuite"
-  option "without-docs", "Do not build documentation (including man page)"
-  deprecated_option "tests" => "with-test"
-  deprecated_option "with-tests" => "with-test"
-
   depends_on :macos => :lion
-  depends_on "python" => :build if build.bottle? || build.with?("test")
-  depends_on "sphinx-doc" => :build if build.with? "docs"
+  depends_on "python" => :build if build.bottle?
+  depends_on "sphinx-doc" => :build
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
@@ -119,7 +114,7 @@ class GhcAT82 < Formula
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
-    if build.bottle? || build.with?("test")
+    if build.bottle?
       resource("testsuite").stage { buildpath.install Dir["*"] }
       cd "testsuite" do
         system "make", "clean"
