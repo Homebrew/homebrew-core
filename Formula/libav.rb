@@ -12,22 +12,9 @@ class Libav < Formula
     sha256 "d91489215ba05ef1a9c93c3c18d6c13e20fdc901fad4e9d6c47922775be77ecb" => :el_capitan
   end
 
-  option "without-faac", "Disable AAC encoder via faac"
-  option "without-lame", "Disable MP3 encoder via libmp3lame"
-  option "without-libvorbis", "Disable Vorbis encoding via libvorbis"
-  option "without-libvpx", "Disable VP8 de/encoding via libvpx"
-  option "without-x264", "Disable H.264 encoder via x264"
-  option "without-xvid", "Disable Xvid MPEG-4 video encoder via xvid"
-
-  option "with-opencore-amr", "Enable AMR-NB de/encoding and AMR-WB decoding " \
-    "via libopencore-amrnb and libopencore-amrwb"
   option "with-openssl", "Enable SSL support"
-  option "with-rtmpdump", "Enable RTMP protocol support"
-  option "with-schroedinger", "Enable Dirac video format"
   option "with-sdl", "Enable avplay"
-  option "with-speex", "Enable Speex de/encoding via libspeex"
   option "with-theora", "Enable Theora encoding via libtheora"
-  option "with-libvo-aacenc", "Enable VisualOn AAC encoder"
 
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
@@ -35,26 +22,18 @@ class Libav < Formula
   # manpages won't be built without texi2html
   depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
 
-  depends_on "faac" => :recommended
-  depends_on "fdk-aac" => :recommended
-  depends_on "freetype" => :recommended
-  depends_on "lame" => :recommended
-  depends_on "libvorbis" => :recommended
-  depends_on "libvpx" => :recommended
-  depends_on "opus" => :recommended
-  depends_on "x264" => :recommended
-  depends_on "xvid" => :recommended
+  depends_on "faac"
+  depends_on "fdk-aac"
+  depends_on "freetype"
+  depends_on "lame"
+  depends_on "libvorbis"
+  depends_on "libvpx"
+  depends_on "opus"
+  depends_on "x264"
+  depends_on "xvid"
 
-  depends_on "fontconfig" => :optional
-  depends_on "frei0r" => :optional
-  depends_on "gnutls" => :optional
-  depends_on "libvo-aacenc" => :optional
-  depends_on "opencore-amr" => :optional
   depends_on "openssl" => :optional
-  depends_on "rtmpdump" => :optional
-  depends_on "schroedinger" => :optional
   depends_on "sdl" => :optional
-  depends_on "speex" => :optional
   depends_on "theora" => :optional
 
   # https://bugzilla.libav.org/show_bug.cgi?id=1033
@@ -64,39 +43,30 @@ class Libav < Formula
   end
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-shared",
-      "--disable-indev=jack",
-      "--prefix=#{prefix}",
-      "--enable-gpl",
-      "--enable-nonfree",
-      "--enable-version3",
-      "--enable-vda",
-      "--cc=#{ENV.cc}",
-      "--host-cflags=#{ENV.cflags}",
-      "--host-ldflags=#{ENV.ldflags}",
+    args = %W[
+      --disable-debug
+      --disable-shared
+      --disable-indev=jack
+      --prefix=#{prefix}
+      --cc=#{ENV.cc}
+      --host-cflags=#{ENV.cflags}
+      --host-ldflags=#{ENV.ldflags}
+      --enable-gpl
+      --enable-libfaac
+      --enable-libfdk-aac
+      --enable-libfreetype
+      --enable-libmp3lame
+      --enable-libopus
+      --enable-libvorbis
+      --enable-libvpx
+      --enable-libx264
+      --enable-libxvid
+      --enable-nonfree
+      --enable-vda
+      --enable-version3
     ]
 
-    args << "--enable-frei0r" if build.with? "frei0r"
-    args << "--enable-gnutls" if build.with? "gnutls"
-    args << "--enable-libfaac" if build.with? "faac"
-    args << "--enable-libfdk-aac" if build.with? "fdk-aac"
-    args << "--enable-libfontconfig" if build.with? "fontconfig"
-    args << "--enable-libfreetype" if build.with? "freetype"
-    args << "--enable-libmp3lame" if build.with? "lame"
-    args << "--enable-libopencore-amrnb" if build.with? "opencore-amr"
-    args << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
-    args << "--enable-libopus" if build.with? "opus"
-    args << "--enable-librtmp" if build.with? "rtmpdump"
-    args << "--enable-libschroedinger" if build.with? "schroedinger"
-    args << "--enable-libspeex" if build.with? "speex"
     args << "--enable-libtheora" if build.with? "theora"
-    args << "--enable-libvo-aacenc" if build.with? "libvo-aacenc"
-    args << "--enable-libvorbis" if build.with? "libvorbis"
-    args << "--enable-libvpx" if build.with? "libvpx"
-    args << "--enable-libx264" if build.with? "x264"
-    args << "--enable-libxvid" if build.with? "xvid"
     args << "--enable-openssl" if build.with? "openssl"
 
     system "./configure", *args
