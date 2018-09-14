@@ -1,7 +1,7 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
+  head "https://gcc.gnu.org/git/gcc.git"
 
   stable do
     url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
