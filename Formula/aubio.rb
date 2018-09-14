@@ -18,8 +18,6 @@ class Aubio < Formula
   depends_on "pkg-config" => :build
   depends_on "numpy"
   depends_on "python@2"
-  depends_on "fftw" => :optional
-  depends_on "libav" => :optional
 
   def install
     # Needed due to issue with recent cland (-fno-fused-madd))

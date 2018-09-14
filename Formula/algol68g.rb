@@ -12,8 +12,6 @@ class Algol68g < Formula
     sha256 "8b635fbd56159120fef7b0dca5364de8baa2b7d9a2f87956b86d31e4dd51a111" => :yosemite
   end
 
-  depends_on "gsl" => :optional
-
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

@@ -15,17 +15,12 @@ class Dex < Formula
     sha256 "ce004b66bad4f8ad7d363f45a0b6af15fc96f719a591f3383cd2a84dc424d9e3" => :mavericks
   end
 
-  depends_on "ncurses" => :optional
-  depends_on "libiconv" => :optional
-
   def install
     args = ["prefix=#{prefix}",
             "CC=#{ENV.cc}",
             "HOST_CC=#{ENV.cc}"]
 
     args << "VERSION=#{version}" if build.head?
-
-    inreplace "Makefile", /-lcurses/, "-lncurses" if build.with? "ncurses"
 
     system "make", "install", *args
   end

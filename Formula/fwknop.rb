@@ -12,10 +12,9 @@ class Fwknop < Formula
     sha256 "ec59a9d13d78f441a695776767038fb830acc4cdbfe28b30cc41ec2b7ea76f1f" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "wget" => :optional
   depends_on "gpgme"
 
   def install

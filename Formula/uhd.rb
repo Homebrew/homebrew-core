@@ -3,6 +3,7 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   url "https://github.com/EttusResearch/uhd/archive/v3.13.0.1.tar.gz"
   sha256 "ee5475e7ffbb14441b323cc2fc73950cde2326fd00772dab62efa677f27a97bf"
+  revision 1
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
@@ -13,11 +14,10 @@ class Uhd < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "libusb"
   depends_on "python@2"
-  depends_on "doxygen" => [:build, :optional]
-  depends_on "gpsd" => :optional
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
