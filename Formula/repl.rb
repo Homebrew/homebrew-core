@@ -6,8 +6,6 @@ class Repl < Formula
 
   bottle :unneeded
 
-  depends_on "rlwrap" => :optional
-
   def install
     bin.install "bin/repl"
     man1.install "man/repl.1"
