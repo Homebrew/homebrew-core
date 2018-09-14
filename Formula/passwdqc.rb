@@ -1,7 +1,7 @@
 class Passwdqc < Formula
   desc "Password/passphrase strength checking and enforcement toolset"
-  homepage "http://www.openwall.com/passwdqc/"
-  url "http://www.openwall.com/passwdqc/passwdqc-1.3.1.tar.gz"
+  homepage "https://www.openwall.com/passwdqc/"
+  url "https://www.openwall.com/passwdqc/passwdqc-1.3.1.tar.gz"
   sha256 "d1fedeaf759e8a0f32d28b5811ef11b5a5365154849190f4b7fab670a70ffb14"
 
   bottle do
