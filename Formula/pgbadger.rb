@@ -1,9 +1,9 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
-  homepage "https://dalibo.github.io/pgbadger/"
-  url "https://github.com/dalibo/pgbadger/archive/v9.2.tar.gz"
-  sha256 "2107466309a409fb9e40f11bb77cac1f9ba7910d5328e7b2e08eb7a1c6d760ec"
-  head "https://github.com/dalibo/pgbadger.git"
+  homepage "https://pgbadger.darold.net/"
+  url "https://github.com/darold/pgbadger/archive/v10.1.tar.gz"
+  sha256 "cf8993bf557504fb935a1da737a4b1f0a36dfcf13525a039faa6ce3eb940e276"
+  head "https://github.com/darold/pgbadger.git"
 
   bottle do
     cellar :any_skip_relocation
