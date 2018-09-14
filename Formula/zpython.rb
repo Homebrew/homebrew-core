@@ -1,6 +1,7 @@
 class Zpython < Formula
   desc "Embeds a Python interpreter into zsh"
   homepage "https://bitbucket.org/ZyX_I/zsh"
+  revision 1
   head "https://bitbucket.org/ZyX_I/zsh.git", :branch => "zpython"
 
   stable do
@@ -42,6 +43,7 @@ class Zpython < Formula
       --disable-gdbm
       --enable-zpython
       --with-tcsetpgrp
+      DL_EXT=bundle
     ]
 
     system "autoreconf"
@@ -51,7 +53,7 @@ class Zpython < Formula
     inreplace "Makefile", "subdir in Src Doc;", "subdir in Src;"
 
     system "make"
-    (lib/"zpython/zsh").install "Src/Modules/zpython.so"
+    (lib/"zpython/zsh").install "Src/Modules/zpython.bundle"
   end
 
   def caveats; <<~EOS
