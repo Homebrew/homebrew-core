@@ -14,7 +14,6 @@ class Libosinfo < Formula
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "vala" => :optional
   depends_on "check"
   depends_on "gettext"
   depends_on "glib"
@@ -32,15 +31,10 @@ class Libosinfo < Formula
       --sysconfdir=#{etc}
       --disable-silent-rules
       --disable-udev
-      --enable-tests
+      --disable-vala
       --enable-introspection
+      --enable-tests
     ]
-
-    if build.with? "vala"
-      args << "--enable-vala"
-    else
-      args << "--disable-vala"
-    end
 
     system "./configure", *args
 
