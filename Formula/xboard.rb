@@ -20,12 +20,12 @@ class Xboard < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "fairymax" => :recommended
-  depends_on "polyglot" => :recommended
-  depends_on "gettext"
   depends_on "cairo"
-  depends_on "librsvg"
+  depends_on "fairymax"
+  depends_on "gettext"
   depends_on "gtk+"
+  depends_on "librsvg"
+  depends_on "polyglot"
 
   def install
     system "./autogen.sh" if build.head?
