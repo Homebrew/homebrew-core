@@ -16,15 +16,9 @@ class Libkate < Formula
     sha256 "473e0de088ba513006bb5212fd9ca21390d848c9cd5e33a7951ee3cba24220ac" => :yosemite
   end
 
-  option "with-docs", "Build documentation"
-  option "with-examples", "Build example streams"
-
   depends_on "pkg-config" => :build
-  depends_on "doxygen" => :build if build.with? "docs"
-  depends_on "oggz" if build.with? "examples"
-  depends_on "libpng"
   depends_on "libogg"
-  depends_on "wxmac" => :optional
+  depends_on "libpng"
 
   fails_with :gcc do
     build 5666
