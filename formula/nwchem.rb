@@ -29,11 +29,6 @@ class Nwchem < Formula
       EOS
 
       inreplace "util/util_nwchemrc.F", "/etc/nwchemrc", "#{etc}/nwchemrc"
-      inreplace "config/makefile.h" do |s|
-        s.gsub! /-mtune=native/, "-mtune=generic"
-        s.gsub! /-mfpmath=sse/, " "
-        s.gsub! /-msse3/, " "
-      end
 
       ENV["NWCHEM_TOP"] = buildpath
       ENV["PYTHONVERSION"] = "2.7"
