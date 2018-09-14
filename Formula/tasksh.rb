@@ -14,7 +14,7 @@ class Tasksh < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "task" => :recommended
+  depends_on "task"
 
   def install
     system "cmake", ".", *std_cmake_args
