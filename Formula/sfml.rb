@@ -18,13 +18,12 @@ class Sfml < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :optional
+  depends_on "doxygen" => :build
   depends_on "flac"
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "openal-soft" => :optional
 
   # https://github.com/Homebrew/homebrew/issues/40301
   depends_on :macos => :lion
@@ -38,15 +37,14 @@ class Sfml < Formula
               "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
               "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
 
-    args = std_cmake_args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
-    args << "-DSFML_BUILD_DOC=TRUE" if build.with? "doxygen"
-
     # Always remove the "extlibs" to avoid install_name_tool failure
     # (https://github.com/Homebrew/homebrew/pull/35279) but leave the
     # headers that were moved there in https://github.com/SFML/SFML/pull/795
     rm_rf Dir["extlibs/*"] - ["extlibs/headers"]
 
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args,
+                         "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
+                         "-DSFML_BUILD_DOC=TRUE"
     system "make", "install"
   end
 
