@@ -7,8 +7,6 @@ class Autopsy < Formula
   bottle :unneeded
 
   depends_on "sleuthkit"
-  depends_on "afflib" => :optional
-  depends_on "libewf" => :optional
 
   # fixes weird configure script that wouldn't work nicely with homebrew
   patch :DATA
