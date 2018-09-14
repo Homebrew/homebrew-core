@@ -6,10 +6,11 @@ class Homebank < Formula
   revision 1
 
   bottle do
-    sha256 "6714b6331c71bcde205ec1ec301331fe3355d64ca29801f09f9a547e343cb1d6" => :mojave
-    sha256 "d62df5ebd994fa030be7667bb8fb75ccce33d4c557554e19300ef48c1a960f5f" => :high_sierra
-    sha256 "486d1d5f5d8d2132d2d1cb814e68b6d1241886b2746fc083886dc0068c5b2eee" => :sierra
-    sha256 "9766b5b98e8386e815d4851be914cc0306526de66cb35d99eb022371af0a0708" => :el_capitan
+    rebuild 1
+    sha256 "1415637e372f7cb1b9e9149e20e0251a1fcec59d04d4524889010c87b84c41df" => :mojave
+    sha256 "577622794a58c1c55d6972fc1ec338df9a4cfca664eb9a118bb58993cf8e342a" => :high_sierra
+    sha256 "2a155e05b50ffffcb25d42f56c5ee8d1c246693a25452657f0516b0171315f61" => :sierra
+    sha256 "10465995b0a5b3a0ae35d6bf27be427e69e251d809c810f51aba910dc81c3056" => :el_capitan
   end
 
   depends_on "intltool" => :build
