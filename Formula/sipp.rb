@@ -12,12 +12,8 @@ class Sipp < Formula
     sha256 "f2c60af09d5edba1322541c8484c01291b948b2cb2cf78cbc4e0aa854faf0931" => :el_capitan
   end
 
-  depends_on "openssl" => :optional
-
   def install
-    args = ["--with-pcap"]
-    args << "--with-openssl" if build.with? "openssl"
-    system "./configure", *args
+    system "./configure", "--with-pcap"
     system "make", "DESTDIR=#{prefix}"
     bin.install "sipp"
   end
