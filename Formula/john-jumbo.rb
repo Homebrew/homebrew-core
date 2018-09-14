@@ -16,8 +16,6 @@ class JohnJumbo < Formula
     sha256 "b36f66b0469b5c6cde95f780671db5b32e4e4dd7c16c4e7e591043bfdef2b65c" => :mavericks
   end
 
-  option "without-completion", "bash/zsh completion will not be installed"
-
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "gmp"
@@ -61,10 +59,8 @@ class JohnJumbo < Formula
     (share/"john").install Dir["run/*"]
     bin.install_symlink share/"john/john"
 
-    if build.with? "completion"
-      bash_completion.install share/"john/john.bash_completion" => "john.bash"
-      zsh_completion.install share/"john/john.zsh_completion" => "_john"
-    end
+    bash_completion.install share/"john/john.bash_completion" => "john.bash"
+    zsh_completion.install share/"john/john.zsh_completion" => "_john"
 
     # Source code defaults to "john.ini", so rename
     mv share/"john/john.conf", share/"john/john.ini"
