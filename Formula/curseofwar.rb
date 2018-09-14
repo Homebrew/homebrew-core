@@ -14,23 +14,13 @@ class Curseofwar < Formula
     sha256 "6b1368e3d4875b19c9817c413037edbeaf49120519032b725207079b86913c8a" => :yosemite
   end
 
-  depends_on "sdl" => :optional
-
   def install
     system "make"
     bin.install "curseofwar"
     man6.install "curseofwar.6"
-
-    if build.with? "sdl"
-      system "make", "SDL=yes"
-      bin.install "curseofwar-sdl"
-      man6.install "curseofwar-sdl.6"
-      pkgshare.install "images"
-    end
   end
 
   test do
     assert_equal version.to_s, shell_output("#{bin}/curseofwar -v", 1).chomp
-    assert_equal version.to_s, shell_output("#{bin}/curseofwar-sdl -v", 1).chomp if build.with? "sdl"
   end
 end
