@@ -13,19 +13,15 @@ class Asio < Formula
     sha256 "fbb2170a86dcb1af7b899e0a877dd5351ae891abf3a3bc82e0afc7ce3b5dfa24" => :el_capitan
   end
 
-  option "with-boost-coroutine", "Use Boost.Coroutine to implement stackful coroutines"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
-  depends_on "boost" => :optional
-  depends_on "boost" if build.with?("boost-coroutine")
   depends_on "openssl"
 
-  needs :cxx11 if build.without? "boost"
+  needs :cxx11
 
   def install
-    ENV.cxx11 if build.without? "boost"
+    ENV.cxx11
 
     if build.head?
       cd "asio"
@@ -33,15 +29,11 @@ class Asio < Formula
     else
       system "autoconf"
     end
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --with-boost=#{(build.with?("boost") || build.with?("boost-coroutine")) ? Formula["boost"].opt_include : "no"}
-    ]
-    args << "--enable-boost-coroutine" if build.with? "boost-coroutine"
 
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-boost=no"
     system "make", "install"
     pkgshare.install "src/examples"
   end
