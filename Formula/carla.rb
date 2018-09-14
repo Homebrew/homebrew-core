@@ -4,6 +4,13 @@ class Carla < Formula
   url "https://github.com/falkTX/Carla/archive/v1.9.9.tar.gz"
   sha256 "13cff6febb0879190e4e8906f8cbb0e6a61ac1344cd8dbec0331598b59576548"
 
+  bottle do
+    sha256 "aaf263dfdcfd89676cfb9e2c5e8afad08425280350ef0586b49c7738cc9d9971" => :mojave
+    sha256 "253d05aa4397a1066d66c0573e768ce537f8551e82e0f9873db75ee227ec7762" => :high_sierra
+    sha256 "d7f8da23413a513676722920c2aa2855b8b89fda5a6a3a890c0d9dc065292a25" => :sierra
+    sha256 "311941a8c4a5eb1b2b9104811ffc99ff6641fd22c1e689098f77e58ba34979a1" => :el_capitan
+  end
+
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "liblo"
