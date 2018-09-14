@@ -7,10 +7,6 @@ class ImgurScreenshot < Formula
 
   bottle :unneeded
 
-  option "with-terminal-notifier", "Needed for macOS Notifications"
-
-  depends_on "terminal-notifier" => :optional
-
   def install
     bin.install "imgur-screenshot.sh"
   end
