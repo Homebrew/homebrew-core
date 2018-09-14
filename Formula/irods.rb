@@ -16,9 +16,6 @@ class Irods < Formula
     sha256 "6b0aa76607c2fec9b0007a6ad4fdca8ab53e7615edc01e3dccd35facbea9bb39" => :mountain_lion
   end
 
-  option "with-osxfuse", "Install iRODS FUSE client"
-
-  depends_on :osxfuse => :optional
   depends_on "openssl"
 
   conflicts_with "sleuthkit", :because => "both install `ils`"
@@ -35,21 +32,6 @@ class Irods < Formula
 
       system "make"
       bin.install Dir["clients/icommands/bin/*"].select { |f| File.executable? f }
-
-      # patch in order to use osxfuse
-      if build.with? "osxfuse"
-        inreplace "config/config.mk" do |s|
-          s.gsub! "# IRODS_FS = 1", "IRODS_FS = 1"
-          s.gsub! "fuseHomeDir=/home/mwan/adil/fuse-2.7.0", "fuseHomeDir=#{HOMEBREW_PREFIX}"
-        end
-        inreplace "clients/fuse/Makefile" do |s|
-          s.gsub! "lfuse", "losxfuse"
-          s.gsub! "-I$(fuseHomeDir)/include", "-I$(fuseHomeDir)/include/osxfuse"
-        end
-
-        system "make", "-C", "clients/fuse"
-        bin.install Dir["clients/fuse/bin/*"].select { |f| File.executable? f }
-      end
     end
   end
 
