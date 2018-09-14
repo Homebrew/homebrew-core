@@ -21,33 +21,25 @@ class Subversion < Formula
   end
 
   deprecated_option "java" => "with-java"
-  deprecated_option "perl" => "with-perl"
-  deprecated_option "ruby" => "with-ruby"
-  deprecated_option "with-gpg-agent" => "with-gnupg"
 
   option "with-java", "Build Java bindings"
-  option "without-ruby", "Build without Ruby bindings"
-  option "without-perl", "Build without Perl bindings"
-  option "with-gnupg", "Build with support for GPG Agent"
 
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "apr-util"
   depends_on "apr"
 
-  # Always build against Homebrew versions instead of system versions for consistency.
+  # Always build against Homebrew versions for consistency
   depends_on "lz4"
+  depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
-  depends_on "perl" => :recommended
 
   # For Serf
   depends_on "scons" => :build
   depends_on "openssl"
 
   # Other optional dependencies
-  depends_on "gnupg" => :optional
-  depends_on "gettext" => :optional
   depends_on :java => ["1.8", :optional]
 
   resource "serf" do
@@ -61,14 +53,12 @@ class Subversion < Formula
   # Prevent linking into a Python Framework
   patch :DATA
 
-  if build.with?("perl") || build.with?("ruby")
-    # When building Perl or Ruby bindings, need to use a compiler that
-    # recognizes GCC-style switches, since that's what the system languages
-    # were compiled against.
-    fails_with :clang do
-      build 318
-      cause "core.c:1: error: bad value (native) for -march= switch"
-    end
+  # When building Perl or Ruby bindings, need to use a compiler that
+  # recognizes GCC-style switches, since that's what the system languages
+  # were compiled against.
+  fails_with :clang do
+    build 318
+    cause "core.c:1: error: bad value (native) for -march= switch"
   end
 
   def install
@@ -102,26 +92,22 @@ class Subversion < Formula
       --prefix=#{prefix}
       --disable-debug
       --enable-optimize
-      --with-zlib=/usr
-      --with-sqlite=#{Formula["sqlite"].opt_prefix}
-      --with-apr=#{Formula["apr"].opt_prefix}
-      --with-apr-util=#{Formula["apr-util"].opt_prefix}
-      --with-apxs=no
-      --with-serf=#{serf_prefix}
       --disable-mod-activation
+      --disable-nls
+      --with-apr-util=#{Formula["apr-util"].opt_prefix}
+      --with-apr=#{Formula["apr"].opt_prefix}
+      --with-apxs=no
+      --with-ruby-sitedir=#{lib}/ruby
+      --with-serf=#{serf_prefix}
+      --with-sqlite=#{Formula["sqlite"].opt_prefix}
+      --with-zlib=/usr
       --without-apache-libexecdir
       --without-berkeley-db
+      --without-gpg-agent
+      RUBY=/usr/bin/ruby
     ]
 
     args << "--enable-javahl" << "--without-jikes" if build.with? "java"
-    args << "--without-gpg-agent" if build.without? "gnupg"
-    args << "--disable-nls" if build.without? "gettext"
-
-    if build.with? "ruby"
-      args << "--with-ruby-sitedir=#{lib}/ruby"
-      # Peg to system Ruby
-      args << "RUBY=/usr/bin/ruby"
-    end
 
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
@@ -144,62 +130,48 @@ class Subversion < Formula
     system "make", "install-swig-py"
     (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    if build.with? "perl"
-      # In theory SWIG can be built in parallel, in practice...
-      ENV.deparallelize
+    # In theory SWIG can be built in parallel, in practice...
+    ENV.deparallelize
 
-      archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
-      perl_core = Pathname.new(archlib)/"CORE"
-      onoe "'#{perl_core}' does not exist" unless perl_core.exist?
+    archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
+    perl_core = Pathname.new(archlib)/"CORE"
+    onoe "'#{perl_core}' does not exist" unless perl_core.exist?
 
-      inreplace "Makefile" do |s|
-        s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
-      end
-      system "make", "swig-pl"
-      system "make", "install-swig-pl"
-
-      # This is only created when building against system Perl, but it isn't
-      # purged by Homebrew's post-install cleaner because that doesn't check
-      # "Library" directories. It is however pointless to keep around as it
-      # only contains the perllocal.pod installation file.
-      rm_rf prefix/"Library/Perl"
+    inreplace "Makefile" do |s|
+      s.change_make_var! "SWIG_PL_INCLUDES",
+        "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
     end
+    system "make", "swig-pl"
+    system "make", "install-swig-pl"
+
+    # This is only created when building against system Perl, but it isn't
+    # purged by Homebrew's post-install cleaner because that doesn't check
+    # "Library" directories. It is however pointless to keep around as it
+    # only contains the perllocal.pod installation file.
+    rm_rf prefix/"Library/Perl"
 
     if build.with? "java"
       system "make", "javahl"
       system "make", "install-javahl"
     end
 
-    if build.with? "ruby"
-      # Peg to system Ruby
-      system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
-      system "make", "install-swig-rb"
-    end
+    # Peg to system Ruby
+    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
+    system "make", "install-swig-rb"
   end
 
   def caveats
     s = <<~EOS
       svntools have been installed to:
         #{opt_libexec}
+
+      The perl bindings are located in various subdirectories of:
+        #{opt_lib}/perl5
+
+      If you wish to use the Ruby bindings you may need to add:
+        #{HOMEBREW_PREFIX}/lib/ruby
+      to your RUBYLIB.
     EOS
-
-    if build.with? "perl"
-      s += "\n"
-      s += <<~EOS
-        The perl bindings are located in various subdirectories of:
-          #{opt_lib}/perl5
-      EOS
-    end
-
-    if build.with? "ruby"
-      s += "\n"
-      s += <<~EOS
-        If you wish to use the Ruby bindings you may need to add:
-          #{HOMEBREW_PREFIX}/lib/ruby
-        to your RUBYLIB.
-      EOS
-    end
 
     if build.with? "java"
       s += "\n"
