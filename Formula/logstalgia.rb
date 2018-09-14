@@ -1,6 +1,6 @@
 class Logstalgia < Formula
   desc "Web server access log visualizer with retro style"
-  homepage "http://logstalgia.io/"
+  homepage "https://logstalgia.io/"
   url "https://github.com/acaudwell/Logstalgia/releases/download/logstalgia-1.1.2/logstalgia-1.1.2.tar.gz"
   sha256 "ed3f4081e401f4a509761a7204bdbd7c34f8f1aff9dcb030348885fb3995fca9"
 
