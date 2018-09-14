@@ -15,25 +15,10 @@ class Glulxe < Formula
     sha256 "b50be16e36671d7818d123403937496f258882c98bbc6f4d8242c2e6eb97b310" => :yosemite
   end
 
-  option "with-glkterm", "Build with glkterm (without wide character support)"
-
-  depends_on "cheapglk" => [:build, :optional]
-  depends_on "glkterm" => [:build, :optional]
-  depends_on "glktermw" => :build if build.without?("cheapglk") && build.without?("glkterm")
+  depends_on "glktermw" => :build
 
   def install
-    if build.with?("cheapglk") && build.with?("glkterm")
-      odie "Options --with-cheapglk and --with-glkterm are mutually exclusive."
-    end
-
-    if build.with? "cheapglk"
-      glk = Formula["cheapglk"]
-    elsif build.with? "glkterm"
-      glk = Formula["glkterm"]
-    else
-      glk = Formula["glktermw"]
-    end
-
+    glk = Formula["glktermw"]
     inreplace "Makefile", "GLKINCLUDEDIR = ../cheapglk", "GLKINCLUDEDIR = #{glk.include}"
     inreplace "Makefile", "GLKLIBDIR = ../cheapglk", "GLKLIBDIR = #{glk.lib}"
     inreplace "Makefile", "Make.cheapglk", "Make.#{glk.name}"
@@ -43,10 +28,6 @@ class Glulxe < Formula
   end
 
   test do
-    if build.with? "cheapglk"
-      assert shell_output("#{bin}/glulxe").start_with? "Welcome to the Cheap Glk Implementation"
-    else
-      assert pipe_output("#{bin}/glulxe -v").start_with? "GlkTerm, library version"
-    end
+    assert pipe_output("#{bin}/glulxe -v").start_with? "GlkTerm, library version"
   end
 end
