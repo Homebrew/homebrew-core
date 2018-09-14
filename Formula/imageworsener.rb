@@ -21,9 +21,8 @@ class Imageworsener < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "libpng" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "webp" => :optional
+  depends_on "libpng"
+  depends_on "jpeg"
 
   def install
     if build.head?
@@ -31,15 +30,8 @@ class Imageworsener < Formula
       system "./scripts/autogen.sh"
     end
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-    args << "--without-png" if build.without? "libpng"
-    args << "--without-jpeg" if build.without? "jpeg"
-    args << "--without-webp" if build.without? "webp"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}", "--without-webp"
     system "make", "install"
     pkgshare.install "tests"
   end
