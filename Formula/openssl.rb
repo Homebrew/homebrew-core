@@ -91,6 +91,13 @@ class Openssl < Formula
 
     openssldir.mkpath
     (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
+
+    # manpage
+    %w[man1 man3 man5 man7].each do |man|
+      mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
+      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/*.{1ssl, 3ssl, 5ssl, 7ssl}"]
+      cp Dir[prefix/"share/man/#{man}/*.{1ssl, 3ssl, 5ssl, 7ssl}"], HOMEBREW_PREFIX/"share/man/#{man}"
+    end
   end
 
   def caveats; <<~EOS
