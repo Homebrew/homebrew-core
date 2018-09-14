@@ -6,10 +6,10 @@ class Apr < Formula
 
   bottle do
     cellar :any
-    sha256 "a08388526a4d3d6b7855d3de6b4a18c7fd807237c875dd1d27e9a90cdf169dfb" => :mojave
-    sha256 "df09dd9ba91dc0db6a6f5ac8d97b82203d5930af14494a790860b9cf3635c0a4" => :high_sierra
-    sha256 "2e3d88d6204b023756dd52d70385dcbd405bdc91295b023b7d04e1bfe1f95ccf" => :sierra
-    sha256 "16cdb68cf34cc80919c8689c64310313b04a181c6a57901440398d19a668dd38" => :el_capitan
+    sha256 "0111bfb48f0a020292bd503c2c8e1b374f9ea844c3cc32a0b35a670234adc055" => :mojave
+    sha256 "314c8ebd08304a0f7dcebe3ca7fe5cc6b1c283b744f12d19d0931b91fac4fe20" => :high_sierra
+    sha256 "71cb98918a64daac38641bf4bbfb9457693ffd4109c023f0c3a50bfa029141f7" => :sierra
+    sha256 "a3e0d0b44862e575f529d9b6fdf467b507dced4bfcf9afc30d06d3ddc5e51a0e" => :el_capitan
   end
 
   keg_only :provided_by_macos, "Apple's CLT package contains apr"
