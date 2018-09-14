@@ -1,9 +1,8 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.2.9.tar.xz/from/this/mirror"
-  sha256 "3585c1222e00494efee4f5a65a8e03a1e6eca3dfb834814236ee7f02c5248ae0"
-  revision 2
+  url "https://php.net/get/php-7.2.10.tar.xz/from/this/mirror"
+  sha256 "01c2154a3a8e3c0818acbdbc1a956832c828a0380ce6d1d14fea495ea21804f0"
 
   bottle do
     rebuild 1
@@ -14,8 +13,8 @@ class Php < Formula
   end
 
   devel do
-    url "https://downloads.php.net/~cmb/php-7.3.0beta2.tar.xz"
-    sha256 "28f040680ff517b6c3da403fd1048054de0e867246c47da36342f6a488661c70"
+    url "https://downloads.php.net/~cmb/php-7.3.0RC1.tar.xz"
+    sha256 "f6af9e4e2376f1aadee8d1b4b7a60c5080bf53fe8816e141c78d4f72c93c5075"
 
     depends_on "openldap"
   end
