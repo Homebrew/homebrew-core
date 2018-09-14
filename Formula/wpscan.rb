@@ -33,8 +33,9 @@ class Wpscan < Formula
 
     (bin/"wpscan").write <<~EOS
       #!/bin/bash
-      GEM_HOME=#{libexec} BUNDLE_GEMFILE=#{libexec}/Gemfile \
-        exec #{bundle} exec ruby #{libexec}/wpscan.rb "$@"
+      GEM_HOME="#{libexec}" BUNDLE_GEMFILE="#{libexec}/Gemfile" \\
+        exec "#{bundle}" exec "#{Formula["ruby"].opt_bin}/ruby" \\
+        "#{libexec}/wpscan.rb" "$@"
     EOS
   end
 
