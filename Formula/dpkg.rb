@@ -28,7 +28,7 @@ class Dpkg < Formula
 
     # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences
     # of the CVE-2017-8283 vulnerability.
-    # http://www.openwall.com/lists/oss-security/2017/04/20/2
+    # https://www.openwall.com/lists/oss-security/2017/04/20/2
     ENV["PATCH"] = Formula["gpatch"].opt_bin/"patch"
 
     # Theoretically, we could reinsert a patch here submitted upstream previously
