@@ -73,7 +73,7 @@ class MitScheme < Formula
   end
 
   test do
-    # ftp://ftp.cs.indiana.edu/pub/scheme-repository/code/num/primes.scm
+    # https://www.cs.indiana.edu/pub/scheme-repository/code/num/primes.scm
     (testpath/"primes.scm").write <<~EOS
       ;
       ; primes
