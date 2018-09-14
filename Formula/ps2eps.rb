@@ -6,13 +6,11 @@ class Ps2eps < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4b2fba5bee1787538237990e264abca18447052094b69241b35b1aa57d8a06a2" => :mojave
-    sha256 "4e0d89ac5be6cb6357d84988a1adc26e6667f4e9cdd8047071d0204cbecee58e" => :high_sierra
-    sha256 "55396ec4ff00cfc85c4e34f1f7b872834264d8640677cd430c16b10fe67f2fa9" => :sierra
-    sha256 "a651d45a267206348a36d213620790b0951e5343070d8613548b80066ec5a584" => :el_capitan
-    sha256 "99b3838d2a7135d8794e4f48e428bd8afc0f18db8998f071c74faa449591ad7f" => :yosemite
-    sha256 "01fbee92f6a8534a4618bb94b9d21913f203b42f7abe41023c7c2b2f68775880" => :mavericks
-    sha256 "4671a8ae732598cbf5c006b7cf6f9924455a8f61dcc660733e14104707974c27" => :mountain_lion
+    rebuild 1
+    sha256 "62472599f3fcc54199d9ce91a531c8f4b214f203c3ffca3e11c9bdc695a13f67" => :mojave
+    sha256 "d4d32e9dc8797d307a015aa1212b551238f540be6fc14f5c08c97a34ab37607f" => :high_sierra
+    sha256 "33db202a803be71441bf48c5588262ed4cf7d3cb41121f91d881e1a304dac6df" => :sierra
+    sha256 "c4196890ab40c69d270da676c9039ae80b58c9241fb3d11211903c126a42443e" => :el_capitan
   end
 
   depends_on "ghostscript"
