@@ -7,10 +7,10 @@ class Bullet < Formula
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
-    sha256 "c8947838fbb0b995a0c374138ebd9c3e92e29f68b4e89c58f369da95d99f218e" => :mojave
-    sha256 "26f10d89d53f5c384d473bf21d06e8db1104ca8d300285a89b68b657a0ff4753" => :high_sierra
-    sha256 "3a3fd3a1ead5ef2aefc65f752533bb96596fdd552d72fab5de86bba492f63104" => :sierra
-    sha256 "460cea95c022dc7116e09277715f9da51d3e7afa7901c4561af68b4ba5372795" => :el_capitan
+    sha256 "4e3b53253b5bdc5f075c5e9d63e3b3ab21e16eb90da57f13051d9beb80cdd6ae" => :mojave
+    sha256 "67ebb227d1add969049c669c21436f6b10b8054d312771f9d796ddadaf8a918b" => :high_sierra
+    sha256 "1b6bdf19a76d98b448c6768edfe7d7340df249aadea6d841226bd4b86c25173b" => :sierra
+    sha256 "40daef7c06fe9352e96a60b6ea5abb7177484f2fb14e0bff505bb88f73a8186d" => :el_capitan
   end
 
   option "with-framework", "Build frameworks"
