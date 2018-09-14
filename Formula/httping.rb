@@ -16,7 +16,6 @@ class Httping < Formula
 
   depends_on "gettext"
   depends_on "openssl"
-  depends_on "fftw" => :optional
 
   def install
     # Reported upstream, see: https://github.com/Homebrew/homebrew/pull/28653
