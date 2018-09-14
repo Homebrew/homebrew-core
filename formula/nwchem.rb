@@ -8,7 +8,7 @@ class Nwchem < Formula
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "scalapack"
-  depends_on "openblas" => :recommended
+  depends_on "openblas" 
 
   def install
     pkgshare.install "QA"
@@ -39,11 +39,7 @@ class Nwchem < Formula
       ENV["PYTHONVERSION"] = "2.7"
       ENV["PYTHONHOME"] = "/usr"
       ENV["NWCHEM_LONG_PATHS"] = "Y"
-      if build.with? "openblas"
-        ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-      else
-        ENV["BLASOPT"] = "-framework Accelerate"
-      end
+      ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
       ENV["SCALAPACK"] = "-L#{Formula["scalapack"].opt_prefix}/lib -lscalapack"
       ENV["USE_64TO32"] = "y"
