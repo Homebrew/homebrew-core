@@ -18,8 +18,6 @@ class Libfishsound < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
-  depends_on "speex" => :optional
-  depends_on "flac" => :optional
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
