@@ -1,13 +1,8 @@
 class Libcanberra < Formula
   desc "Implementation of XDG Sound Theme and Name Specifications"
   homepage "http://0pointer.de/lennart/projects/libcanberra/"
-
-  stable do
-    url "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
-    sha256 "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
-
-    depends_on "gtk-doc" => :optional
-  end
+  url "http://0pointer.de/lennart/projects/libcanberra/libcanberra-0.30.tar.xz"
+  sha256 "c2b671e67e0c288a69fc33dc1b6f1b534d07882c2aceed37004bf48c601afa72"
 
   bottle do
     sha256 "63be18f829bb64854eff3c78b7fc75a0bda59dcffa510f86f776734b178a8cc0" => :mojave
@@ -29,8 +24,6 @@ class Libcanberra < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool"
   depends_on "libvorbis"
-  depends_on "pulseaudio" => :optional
-  depends_on "gstreamer" => :optional
 
   def install
     system "./autogen.sh" if build.head?
