@@ -15,30 +15,20 @@ class R3 < Formula
     sha256 "26bd4bc4114b54d57d9f39bd00f15914f03eea7407fbcc50df4c1925b412a879" => :mavericks
   end
 
-  option "with-graphviz", "Enable Graphviz functions"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "jemalloc"
   depends_on "pcre"
-  depends_on "graphviz" => :optional
-  depends_on "jemalloc" => :recommended
 
   def install
     system "./autogen.sh"
-
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-    ]
-
-    args << "--enable-graphviz" if build.with? "graphviz"
-    args << "--with-malloc=jemalloc" if build.with? "jemalloc"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-malloc=jemalloc"
     system "make", "install"
   end
 
