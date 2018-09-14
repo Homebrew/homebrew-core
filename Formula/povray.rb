@@ -3,6 +3,7 @@ class Povray < Formula
   homepage "http://www.povray.org/"
   url "https://github.com/POV-Ray/povray/archive/v3.7.0.8.tar.gz"
   sha256 "53d11ebd2972fc452af168a00eb83aefb61387662c10784e81b63e44aa575de4"
+  revision 1
 
   bottle do
     sha256 "630bf618ea1593b3b6716092d6c77c8dd8622b9c0cd6aa22bc3c94721297b497" => :mojave
@@ -18,9 +19,7 @@ class Povray < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openexr" => :optional
-
-  deprecated_option "use-openexr" => "with-openexr"
+  depends_on "openexr"
 
   needs :cxx11
 
@@ -34,11 +33,10 @@ class Povray < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --with-boost=#{Formula["boost"].opt_prefix}
+      --with-openexr=#{Formula["openexr"].opt_prefix}
       --without-libsdl
       --without-x
     ]
-
-    args << "--with-openexr=#{Formula["openexr"].opt_prefix}" if build.with? "openexr"
 
     # Adjust some scripts to search for `etc` in HOMEBREW_PREFIX.
     %w[allanim allscene portfolio].each do |script|
