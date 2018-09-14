@@ -46,6 +46,7 @@ class Zsh < Formula
       --enable-multibyte
       --enable-zsh-secure-free
       --with-tcsetpgrp
+      DL_EXT=bundle
     ]
 
     args << "--disable-gdbm" if build.without? "gdbm"
