@@ -15,10 +15,7 @@ class Mdxmini < Formula
     sha256 "d08a617e3a8791b9e5dc93426f3d471408550a4a0bab85e33a726ccdcdcb683c" => :mavericks
   end
 
-  option "with-lib-only", "Do not build commandline player"
-  deprecated_option "lib-only" => "with-lib-only"
-
-  depends_on "sdl" if build.without? "lib-only"
+  depends_on "sdl"
 
   resource "test_song" do
     url "https://ftp.modland.com/pub/modules/MDX/-%20unknown/Popful%20Mail/pop-00.mdx"
@@ -28,18 +25,14 @@ class Mdxmini < Formula
   def install
     # Specify Homebrew's cc
     inreplace "mak/general.mak", "gcc", ENV.cc
-    if build.with? "lib-only"
-      system "make", "-f", "Makefile.lib"
-    else
-      system "make"
-    end
+    system "make"
 
     # Makefile doesn't build a dylib
     system ENV.cc, "-dynamiclib", "-install_name", "#{lib}/libmdxmini.dylib",
                    "-o", "libmdxmini.dylib", "-undefined", "dynamic_lookup",
                    *Dir["obj/*"]
 
-    bin.install "mdxplay" if build.without? "lib-only"
+    bin.install "mdxplay"
     lib.install "libmdxmini.dylib"
     (include/"libmdxmini").install Dir["src/*.h"]
   end
