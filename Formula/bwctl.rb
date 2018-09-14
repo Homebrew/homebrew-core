@@ -16,8 +16,6 @@ class Bwctl < Formula
   end
 
   depends_on "i2util" => :build
-  depends_on "iperf3" => :optional
-  depends_on "thrulay" => :optional
 
   def install
     # configure mis-sets CFLAGS for I2util
