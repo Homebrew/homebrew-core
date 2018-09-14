@@ -24,12 +24,10 @@ class Graphviz < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-bindings", "Build Perl/Python/Ruby/etc. bindings"
-  option "with-pango", "Build with Pango/Cairo for alternate PDF output"
   option "with-app", "Build GraphViz.app (requires full XCode install)"
   option "with-gts", "Build with GNU GTS support (required by prism)"
+  option "with-pango", "Build with Pango/Cairo for alternate PDF output"
 
-  deprecated_option "with-x" => "with-x11"
   deprecated_option "with-pangocairo" => "with-pango"
 
   depends_on "pkg-config" => :build
@@ -37,18 +35,9 @@ class Graphviz < Formula
   depends_on "gd"
   depends_on "libpng"
   depends_on "libtool"
-  depends_on "freetype" => :optional
   depends_on "gts" => :optional
   depends_on "librsvg" => :optional
   depends_on "pango" => :optional
-  depends_on :x11 => :optional
-
-  if build.with? "bindings"
-    depends_on "swig" => :build
-    depends_on :java
-    depends_on "python@2"
-    depends_on "ruby"
-  end
 
   def install
     # Only needed when using superenv, which causes qfrexp and qldexp to be
@@ -60,27 +49,19 @@ class Graphviz < Formula
     # Alternative fixes include using stdenv or using "xcrun make"
     inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", ""
 
-    if build.with? "bindings"
-      # the ruby pkg-config file is version specific
-      inreplace "configure" do |s|
-        s.gsub! "ruby-1.9", "ruby-#{Formula["ruby"].stable.version.to_f}"
-        s.gsub! "if test `$SWIG -php7 2>&1", "if test `$SWIG -php0 2>&1"
-      end
-    end
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --without-qt
-      --with-quartz
       --disable-php
+      --disable-swig
+      --with-quartz
+      --without-freetype2
+      --without-qt
+      --without-x
     ]
     args << "--with-gts" if build.with? "gts"
-    args << "--disable-swig" if build.without? "bindings"
     args << "--without-pangocairo" if build.without? "pango"
-    args << "--without-freetype2" if build.without? "freetype"
-    args << "--without-x" if build.without? "x11"
     args << "--without-rsvg" if build.without? "librsvg"
 
     if build.head?
