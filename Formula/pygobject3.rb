@@ -1,8 +1,8 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.30/pygobject-3.30.0.tar.xz"
-  sha256 "7d20ba1475df922f4c26c69274ab89f7e7730d2101e46846caaddc53afd56bd0"
+  url "https://download.gnome.org/sources/pygobject/3.30/pygobject-3.30.1.tar.xz"
+  sha256 "e1335b70e36885bf1ae207ec1283a369b8fc3e080688046c1edb5a676edc11ce"
 
   bottle do
     sha256 "b2dc5ccd1ccb7a27c869edf6b4b8653088457e2fff29c2e83a5771b3284529de" => :mojave
@@ -30,13 +30,6 @@ class Pygobject3 < Formula
                         "-Dpycairo=true",
                         "-Dpython=#{python}",
                         ".."
-
-        # avoid linking against python framework
-        # reported at https://gitlab.gnome.org/GNOME/pygobject/issues/253
-        libs = Utils.popen_read("pkg-config --libs python-#{version}").chomp.split
-        dylib = libs[0][2..-1] + "/lib" + libs[1][2..-1] + ".dylib"
-        inreplace "build.ninja", dylib, ""
-
         system "ninja", "-v"
         system "ninja", "install"
       end
