@@ -1,8 +1,8 @@
 class Codequery < Formula
   desc "Code-understanding, code-browsing or code-search tool"
   homepage "https://github.com/ruben2020/codequery"
-  url "https://github.com/ruben2020/codequery/archive/v0.21.0.tar.gz"
-  sha256 "32c4fd9e7d1c05246b0b3866bb1ccb6eab5cf246b589ffcb9f1b32b07b5e6ff7"
+  url "https://github.com/ruben2020/codequery/archive/v0.21.1.tar.gz"
+  sha256 "c20050dc6963472c7cb7ed4621c7187e24089fa458eb68748ef9d2aae53d991f"
 
   bottle do
     cellar :any
