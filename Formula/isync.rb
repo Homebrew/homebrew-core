@@ -55,6 +55,7 @@ class Isync < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_bin}/mbsync</string>
+          <string>-a</string>
           <string>Periodic</string>
         </array>
         <key>StartInterval</key>
