@@ -102,7 +102,7 @@ class Wireshark < Formula
     Wireshark.app can be downloaded directly from the website:
       https://www.wireshark.org/
 
-    Alternatively, install with Homebrew-Cask:
+    Alternatively, install with Homebrew Cask:
       brew cask install wireshark
 
     If your list of available capture interfaces is empty
