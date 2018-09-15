@@ -81,7 +81,7 @@ class Fontforge < Formula
     FontForge.app can be downloaded directly from the website:
       https://fontforge.github.io
 
-    Alternatively, install with Homebrew-Cask:
+    Alternatively, install with Homebrew Cask:
       brew cask install fontforge
   EOS
   end
