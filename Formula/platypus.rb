@@ -36,7 +36,7 @@ class Platypus < Formula
     The GUI can be downloaded from Platypus' website:
       https://sveinbjorn.org/platypus
 
-    Alternatively, install with Homebrew-Cask:
+    Alternatively, install with Homebrew Cask:
       brew cask install platypus
   EOS
   end
