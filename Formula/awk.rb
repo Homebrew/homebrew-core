@@ -1,9 +1,9 @@
 class Awk < Formula
   desc "Text processing scripting language"
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
-  url "https://www.cs.princeton.edu/~bwk/btl.mirror/awk.tar.gz"
-  version "20121220"
-  sha256 "8dc092165c5a4e1449f964286483d06d0dbfba4b0bd003cb5dab30de8f6d9b83"
+  url "https://github.com/onetrueawk/awk/archive/20180827.tar.gz"
+  sha256 "c9232d23410c715234d0c26131a43ae6087462e999a61f038f1790598ce4807f"
+  head "https://github.com/onetrueawk/awk.git"
 
   bottle do
     cellar :any_skip_relocation
