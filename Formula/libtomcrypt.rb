@@ -12,21 +12,7 @@ class Libtomcrypt < Formula
     sha256 "9ecd9f9965864d6c58970ebd6d0c3b1871e38ef787ed8732ef12072a651fd3c3" => :el_capitan
   end
 
-  option "with-gmp", "enable gmp as MPI provider"
-  option "with-libtommath", "enable libtommath as MPI provider"
-
-  depends_on "gmp" => :optional
-  depends_on "libtommath" => :optional
-
   def install
-    if build.with? "gmp"
-      ENV.append "CFLAGS", "-DUSE_GMP -DGMP_DESC"
-      ENV.append "EXTRALIBS", "-lgmp"
-    end
-    if build.with? "libtommath"
-      ENV.append "CFLAGS", "-DUSE_LTM -DLTM_DESC"
-      ENV.append "EXTRALIBS", "-ltommath"
-    end
     system "make", "test"
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "test"
