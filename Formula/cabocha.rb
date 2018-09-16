@@ -15,20 +15,9 @@ class Cabocha < Formula
     sha256 "b1aaf6623ac7332459c795ebd992ed92224b0d0b9e20fb57dd0313fbeea7647c" => :mountain_lion
   end
 
-  option "with-charset=", "choose default charset: EUC-JP, CP932, UTF8"
-  option "with-posset=", "choose default posset: IPA, JUMAN, UNIDIC"
-
-  deprecated_option "charset=" => "with-charset="
-  deprecated_option "posset=" => "with-posset="
-
   depends_on "crf++"
   depends_on "mecab"
-
-  # To see which dictionaries are available, run:
-  #     ls `mecab-config --libs-only-L`/mecab/dic/
-  depends_on "mecab-ipadic" => :recommended
-  depends_on "mecab-jumandic" => :optional
-  depends_on "mecab-unidic" => :optional
+  depends_on "mecab-ipadic"
 
   def install
     ENV["LIBS"] = "-liconv"
@@ -38,14 +27,11 @@ class Cabocha < Formula
       s.change_make_var! "CXXFLAGS", ENV.cflags
     end
 
-    charset = ARGV.value("with-charset") || "UTF8"
-    posset = ARGV.value("with-posset") || "IPA"
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-charset=#{charset}
-      --with-posset=#{posset}
+      --with-charset=UTF8
+      --with-posset=IPA
     ]
 
     system "./configure", *args
