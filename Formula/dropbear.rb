@@ -8,7 +8,7 @@ class Dropbear < Formula
     sha256 "f2fb9167eca8cf93456a5fc1d4faf709902a3ab70dd44e352f3acbc3ffdaea65"
 
     # Fixes CVE-2018-15599. Safe to remove on next release.
-    # http://lists.ucc.gu.uwa.edu.au/pipermail/dropbear/2018q3/002108.html
+    # https://lists.ucc.gu.uwa.edu.au/pipermail/dropbear/2018q3/002108.html
     patch do
       url "https://secure.ucc.asn.au/hg/dropbear/raw-rev/5d2d1021ca00"
       sha256 "42b5720cf6c888638cfb84fdd862fc0d323b2e023cbe5f9ccdaa2e0c35b6873e"
