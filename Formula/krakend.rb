@@ -13,7 +13,7 @@ class Krakend < Formula
   end
 
   depends_on "dep" => :build
-  depends_on "go" => :build
+  depends_on "go@1.10" => :build
 
   def install
     ENV["GOPATH"] = buildpath
