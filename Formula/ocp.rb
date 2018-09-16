@@ -13,10 +13,9 @@ class Ocp < Formula
     sha256 "d2a095ce47bdea35fad3f6f7ffac500ccc4dc8dd149a9c1dbbae2bbf92809886" => :mavericks
   end
 
+  depends_on "flac"
   depends_on "libvorbis"
-  depends_on "mad" => :recommended
-  depends_on "flac" => :recommended
-  depends_on "adplug" => :optional
+  depends_on "mad"
 
   def install
     ENV.deparallelize
@@ -27,10 +26,6 @@ class Ocp < Formula
       --without-sdl
       --without-desktop_file_install
     ]
-
-    args << "--without-mad"  if build.without? "mad"
-    args << "--without-flac" if build.without? "flac"
-    args << "--with-adplug"  if build.with? "adplug"
 
     system "./configure", *args
     system "make"
