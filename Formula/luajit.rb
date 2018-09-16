@@ -3,6 +3,7 @@ class Luajit < Formula
   homepage "https://luajit.org/luajit.html"
   url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
   sha256 "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
+  head "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
 
   bottle do
     rebuild 1
@@ -15,10 +16,6 @@ class Luajit < Formula
   devel do
     url "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz"
     sha256 "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
-  end
-
-  head do
-    url "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
   end
 
   def install
