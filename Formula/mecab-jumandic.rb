@@ -14,22 +14,16 @@ class MecabJumandic < Formula
     sha256 "4b821839b99982c506a1e262c9fa8b650620bc546a8725a5eaa1dc54b45e4822" => :yosemite
   end
 
-  # Via ./configure --help, valid choices are utf8 (default), euc-jp, sjis
-  option "with-charset=", "Select charset: utf8 (default), euc-jp, or sjis"
-
-  deprecated_option "charset=" => "with-charset="
-
   depends_on "mecab"
 
   link_overwrite "lib/mecab/dic"
 
   def install
-    charset = ARGV.value("with-charset") || "utf8"
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-charset=#{charset}
+      --with-charset=utf8
       --with-dicdir=#{lib}/mecab/dic/jumandic
     ]
 
