@@ -32,9 +32,9 @@ class Pdfsandwich < Formula
   end
 
   test do
-    # Cannot test more than this without removing our default security
-    # policy for Imagemagick, which this formula isn't popular enough
-    # to justify doing.
-    assert_match version.to_s, shell_output("#{bin}/pdfsandwich -version")
+    system "#{bin}/pdfsandwich", "-o", testpath/"test_ocr.pdf",
+           test_fixtures("test.pdf")
+    assert_predicate testpath/"test_ocr.pdf", :exist?,
+                     "Failed to create ocr file"
   end
 end
