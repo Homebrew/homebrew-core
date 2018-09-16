@@ -7,11 +7,11 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 3
-    sha256 "e715eaa42c561322bde619842486904e62269a3f04e93a1a5ee1d914aa98ae80" => :mojave
-    sha256 "b713f6116757c5899450836f1e4484c086d14e4d31a759b4faea45ee860d4e9a" => :high_sierra
-    sha256 "a690d38a18c08f8082384cd1009b2d5737c0f8f024592c38cc31350a6dd2cbaa" => :sierra
-    sha256 "d09aa60dc7f5aca86c285807cf6f6202b63a02e5a6cd3a112c6d81e8a7652b17" => :el_capitan
+    rebuild 4
+    sha256 "796c58550d1d62e994f34edc7a099729547f13b09aada90bdc0f4eabf34e3205" => :mojave
+    sha256 "5894d770f6753743409f6c4c977357a296b339fcc341176b9ec78be5537d5214" => :high_sierra
+    sha256 "74febbcb492e4aef745a97930c2aa1f71337a4524bfc9a234473cddb1f1de4ed" => :sierra
+    sha256 "aa91de4efb6a0bfe9387809f02ce573bd8ac581a9d0f828c8cc66e8e403eb0fa" => :el_capitan
   end
 
   # Please don't add a wide/ucs4 option as it won't be accepted.
