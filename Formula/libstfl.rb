@@ -13,17 +13,12 @@ class Libstfl < Formula
     sha256 "6b6bc9bf835c1ea33fd9183034a4c8a6c719e00ead5d66fa4fbc4c3cfbc00350" => :el_capitan
   end
 
-  option "without-perl", "Build without Perl support"
-  option "without-python", "Build without Python 2 support"
-  option "without-ruby", "Build without Ruby support"
-
-  depends_on "ruby" => :recommended
-  depends_on "swig" => :build if build.with?("python") || build.with?("ruby") || build.with?("perl")
+  depends_on "swig" => :build
+  depends_on "ruby"
 
   def install
     ENV.append "LDLIBS", "-liconv"
-    ENV.append "LIBS", "-lncurses -liconv"
-    ENV.append "LIBS", "-lruby" if build.with? "ruby"
+    ENV.append "LIBS", "-lncurses -liconv -lruby"
 
     %w[
       stfl.pc.in
@@ -40,31 +35,25 @@ class Libstfl < Formula
       s.gsub! "-Wl,-soname,$(SONAME)", "-Wl"
       s.gsub! "libstfl.so.$(VERSION)", "libstfl.$(VERSION).dylib"
       s.gsub! "libstfl.so", "libstfl.dylib"
-      s.gsub! "include perl5/Makefile.snippet", "" if build.without? "perl"
-      s.gsub! "include python/Makefile.snippet", "" if build.without? "python"
-      s.gsub! "include ruby/Makefile.snippet", "" if build.without? "ruby"
     end
 
-    if build.with? "python"
-      inreplace "python/Makefile.snippet" do |s|
-        # Install into the site-packages in the Cellar (so uninstall works)
-        s.change_make_var! "PYTHON_SITEARCH", lib/"python2.7/site-packages"
-        s.gsub! "lib-dynload/", ""
-        s.gsub! "ncursesw", "ncurses"
-        s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`python-config --cflags`.chomp}"
-        s.gsub! "-lncurses", "-lncurses -liconv"
-      end
-
-      # Fails race condition of test:
-      #   ImportError: dynamic module does not define init function (init_stfl)
-      #   make: *** [python/_stfl.so] Error 1
-      ENV.deparallelize
+    inreplace "python/Makefile.snippet" do |s|
+      # Install into the site-packages in the Cellar (so uninstall works)
+      s.change_make_var! "PYTHON_SITEARCH", lib/"python2.7/site-packages"
+      s.gsub! "lib-dynload/", ""
+      s.gsub! "ncursesw", "ncurses"
+      s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`python-config --cflags`.chomp}"
+      s.gsub! "-lncurses", "-lncurses -liconv"
     end
+
+    # Fails race condition of test:
+    #   ImportError: dynamic module does not define init function (init_stfl)
+    #   make: *** [python/_stfl.so] Error 1
+    ENV.deparallelize
 
     system "make"
 
-    inreplace "perl5/Makefile", "Network/Library", libexec/"lib/perl5" if build.with? "perl"
-
+    inreplace "perl5/Makefile", "Network/Library", libexec/"lib/perl5"
     system "make", "install", "prefix=#{prefix}"
   end
 
