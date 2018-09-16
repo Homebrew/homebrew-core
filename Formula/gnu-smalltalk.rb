@@ -59,7 +59,7 @@ class GnuSmalltalk < Formula
     end
 
     # Disable generational gc in 32-bit
-    args << "--disable-generational-gc" if !MacOS.prefer_64_bit?
+    args << "--disable-generational-gc" unless MacOS.prefer_64_bit?
 
     system "autoreconf", "-ivf"
     system "./configure", *args
