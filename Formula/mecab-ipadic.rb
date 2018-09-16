@@ -18,22 +18,16 @@ class MecabIpadic < Formula
     sha256 "c70d627c447086a66b6eaca37cd98e1da099f65bfb6b87f2c47d1901d5e4a090" => :mountain_lion
   end
 
-  # Via ./configure --help, valid choices are utf8 (default), euc-jp, sjis
-  option "with-charset=", "Select charset: utf8 (default), euc-jp, or sjis"
-
-  deprecated_option "charset=" => "with-charset="
-
   depends_on "mecab"
 
   link_overwrite "lib/mecab/dic"
 
   def install
-    charset = ARGV.value("with-charset") || "utf8"
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-charset=#{charset}
+      --with-charset=utf8
       --with-dicdir=#{lib}/mecab/dic/ipadic
     ]
 

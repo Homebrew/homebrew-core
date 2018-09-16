@@ -15,20 +15,11 @@ class Luajit < Formula
   devel do
     url "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz"
     sha256 "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
-
-    option "with-gc64", "Build with 64-bit support"
   end
 
   head do
     url "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
-
-    option "with-gc64", "Build with 64-bit support"
   end
-
-  deprecated_option "enable-debug" => "with-debug"
-
-  option "with-debug", "Build with debugging symbols"
-  option "with-52compat", "Build with additional Lua 5.2 compatibility"
 
   def install
     # 1 - Override the hardcoded gcc.
@@ -47,14 +38,8 @@ class Luajit < Formula
 
     args = %W[PREFIX=#{prefix}]
 
-    cflags = []
-    cflags << "-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
-    cflags << "-DLUAJIT_ENABLE_GC64" if !build.stable? && build.with?("gc64")
-
-    args << "XCFLAGS=#{cflags.join(" ")}" unless cflags.empty?
-
-    # This doesn't yet work under superenv because it removes "-g"
-    args << "CCDEBUG=-g" if build.with? "debug"
+    # Build with 64-bit support
+    args << "XCFLAGS=-DLUAJIT_ENABLE_GC64" unless build.stable?
 
     # The development branch of LuaJIT normally does not install "luajit".
     args << "INSTALL_TNAME=luajit" if build.devel?
@@ -74,7 +59,7 @@ class Luajit < Formula
               "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
       s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
               "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
-      if build.without? "gc64"
+      if build.stable?
         s.gsub! "Libs:",
                 "Libs: -pagezero_size 10000 -image_base 100000000"
       end

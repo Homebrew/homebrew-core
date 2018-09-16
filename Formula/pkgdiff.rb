@@ -14,11 +14,9 @@ class Pkgdiff < Formula
     sha256 "a9ccac49037c91c63af967e67256daa24e878f38fd17959ba30fffb8e1fcc2a2" => :mavericks
   end
 
-  depends_on "wdiff"
+  depends_on "binutils"
   depends_on "gawk"
-  depends_on "binutils" => :recommended
-  depends_on "rpm" => :optional
-  depends_on "dpkg" => :optional
+  depends_on "wdiff"
 
   def install
     system "perl", "Makefile.pl", "--install", "--prefix=#{prefix}"

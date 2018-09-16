@@ -6,14 +6,12 @@ class Nuxeo < Formula
 
   bottle :unneeded
 
-  depends_on "poppler" => :recommended
-  depends_on "pdftohtml" => :optional
-  depends_on "imagemagick"
-  depends_on "ghostscript"
-  depends_on "ufraw"
-  depends_on "libwpd"
   depends_on "exiftool"
-  depends_on "ffmpeg" => :optional
+  depends_on "ghostscript"
+  depends_on "imagemagick"
+  depends_on "libwpd"
+  depends_on "poppler"
+  depends_on "ufraw"
 
   def install
     libexec.install Dir["#{buildpath}/*"]
