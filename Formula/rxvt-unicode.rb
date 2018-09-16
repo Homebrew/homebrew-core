@@ -13,11 +13,6 @@ class RxvtUnicode < Formula
     sha256 "9b674dd3738ab25fa6145680f92ca036df470ced089448abcb6647439320e075" => :yosemite
   end
 
-  option "without-iso14755", "Disable ISO 14775 Shift+Ctrl hotkey"
-  option "without-unicode3", "Disable 21-bit Unicode 3 (non-BMP) character support"
-
-  deprecated_option "disable-iso14755" => "without-iso14755"
-
   depends_on "pkg-config" => :build
   depends_on :x11
 
@@ -32,10 +27,8 @@ class RxvtUnicode < Formula
       --with-term=rxvt-unicode-256color
       --with-terminfo=/usr/share/terminfo
       --enable-smart-resize
+      --enable-unicode3
     ]
-
-    args << "--disable-iso14755" if build.without? "iso14755"
-    args << "--enable-unicode3" if build.with? "unicode3"
 
     system "./configure", *args
     system "make", "install"
