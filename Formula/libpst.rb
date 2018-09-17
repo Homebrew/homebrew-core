@@ -17,12 +17,12 @@ class Libpst < Formula
   deprecated_option "pst2dii" => "with-pst2dii"
   deprecated_option "with-python" => "with-python@2"
 
-  depends_on "python@2" => :optional
   depends_on "pkg-config" => :build
-  depends_on "gd" if build.with? "pst2dii"
   depends_on "boost"
+  depends_on "gd" if build.with? "pst2dii"
   depends_on "gettext"
   depends_on "libgsf"
+  depends_on "python@2" => :optional
   depends_on "boost-python" if build.with? "python@2"
 
   def install
