@@ -16,13 +16,12 @@ class Ld64 < Formula
   keg_only :provided_by_macos,
     "ld64 is an updated version of the ld shipped by Apple"
 
-  depends_on MaximumMacOSRequirement => :snow_leopard
-
   # Tiger either includes old versions of these headers,
   # or doesn't ship them at all
   depends_on "cctools-headers" => :build
   depends_on "dyld-headers" => :build
   depends_on "libunwind-headers" => :build
+  depends_on MaximumMacOSRequirement => :snow_leopard
   depends_on "openssl"
 
   resource "makefile" do
