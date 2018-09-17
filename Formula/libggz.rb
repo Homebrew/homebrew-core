@@ -15,9 +15,9 @@ class Libggz < Formula
     sha256 "6408ac1f15a3cfa780197456ffed4f4e152fc3b7c0eb5dc8938b17ab280f7d11" => :yosemite
   end
 
+  depends_on "gettext"
   # Libggz of this version is unable to build with gnutls-30 and later.
   depends_on "libgcrypt"
-  depends_on "gettext"
 
   def install
     ENV.append "CPPFLAS", "-I#{Formula["gettext"].opt_prefix}/include"
