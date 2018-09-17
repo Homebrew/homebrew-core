@@ -13,11 +13,11 @@ class Libvisio < Formula
     sha256 "c2132d94aceadaa37f518681b517e656b42ad6134476cc2b76862c4ec41c55a4" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cppunit" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "librevenge"
   depends_on "icu4c"
+  depends_on "librevenge"
 
   def install
     # Needed for Boost 1.59.0 compatibility.
