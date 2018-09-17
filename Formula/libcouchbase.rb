@@ -16,11 +16,11 @@ class Libcouchbase < Formula
 
   deprecated_option "with-libev-plugin" => "with-libev"
 
-  depends_on "libev" => :optional
-  depends_on "libuv" => :optional
+  depends_on "cmake" => :build
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "cmake" => :build
+  depends_on "libev" => :optional
+  depends_on "libuv" => :optional
 
   def install
     args = std_cmake_args << "-DLCB_NO_TESTS=1" << "-DLCB_BUILD_LIBEVENT=ON"
