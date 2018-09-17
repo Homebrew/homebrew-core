@@ -6,8 +6,8 @@ class Jadx < Formula
 
   head do
     url "https://github.com/skylot/jadx.git"
-    depends_on :java => "1.8+"
     depends_on "gradle" => :build
+    depends_on :java => "1.8+"
   end
 
   bottle :unneeded
