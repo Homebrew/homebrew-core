@@ -19,12 +19,12 @@ class Libnids < Formula
   deprecated_option "disable-libnet" => "without-libnet"
   deprecated_option "disable-libglib" => "without-glib"
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "libnet" => :recommended
+  depends_on "pkg-config" => :build
   depends_on "glib" => :recommended
+  depends_on "libnet" => :recommended
 
   # Patch fixes -soname and .so shared library issues. Unreported.
   patch :DATA
