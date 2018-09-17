@@ -13,9 +13,9 @@ class Lcdproc < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libusb"
-  depends_on "libhid"
   depends_on "libftdi0"
+  depends_on "libhid"
+  depends_on "libusb"
 
   def install
     system "./configure", "--disable-debug",
