@@ -16,10 +16,10 @@ class Liboil < Formula
     sha256 "eaf6e1262d13a992443c25dd4d26acacb3c1e05851e8ec2a2e0a6cdd948885fe" => :mountain_lion
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def install
     ENV.append "CFLAGS", "-fheinous-gnu-extensions" if ENV.compiler == :clang
