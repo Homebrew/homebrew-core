@@ -29,8 +29,8 @@ class PythonAT2 < Formula
   depends_on "tcl-tk" => :optional
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ef/1d/201c13e353956a1c840f5d0fbf0461bd45bbd678ea4843ebf25924e8984c/setuptools-40.2.0.zip"
-    sha256 "47881d54ede4da9c15273bac65f9340f8929d4f0213193fa7894be384f2dcfa6"
+    url "https://files.pythonhosted.org/packages/80/f1/89d8a18ed758d4de4efbc56712676052b0f8a94f0d5c115d080b219f29af/setuptools-40.3.0.zip"
+    sha256 "d7051b952509a24623469193935162daeb500b8a00a9efef88080fa242f6d7fc"
   end
 
   resource "pip" do
