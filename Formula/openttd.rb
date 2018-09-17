@@ -11,9 +11,9 @@ class Openttd < Formula
     sha256 "b2b8d6cf06c840acbf425d4b89daf146541d46f19cd3aa7f09a622d7897b3a9f" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "lzo"
   depends_on "xz"
-  depends_on "pkg-config" => :build
 
   resource "opengfx" do
     url "https://bundles.openttdcoop.org/opengfx/releases/0.5.4/opengfx-0.5.4.zip"
