@@ -13,8 +13,8 @@ class Madplay < Formula
     sha256 "2b1967955d83ca172724b119e837457aec0eeaa7ded354c810f3635dafbec057" => :mavericks
   end
 
-  depends_on "mad"
   depends_on "libid3tag"
+  depends_on "mad"
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/f6c5992c/madplay/patch-audio_carbon.c"
