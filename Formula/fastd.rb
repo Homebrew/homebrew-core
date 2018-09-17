@@ -24,12 +24,12 @@ class Fastd < Formula
     sha256 "e097588f07f37954bbb525e7f08a9d69dd9bb18bff63616aa942329f7fe15dc1" => :el_capitan
   end
 
-  depends_on "cmake" => :build
-  depends_on "libuecc"
-  depends_on "libsodium"
   depends_on "bison" => :build # fastd requires bison >= 2.5
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "json-c"
+  depends_on "libsodium"
+  depends_on "libuecc"
   depends_on "openssl" => :optional
   depends_on :tuntap => :optional
 
