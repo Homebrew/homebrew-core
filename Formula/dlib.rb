@@ -13,11 +13,10 @@ class Dlib < Formula
     sha256 "828d6e762e3c39c4efff6d7b5f32da406bac2d8bc710ebef791b728e3d27f06f" => :el_capitan
   end
 
-  depends_on :macos => :el_capitan # needs thread-local storage
-
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "openblas" => :optional
   depends_on :x11 => :optional
 
