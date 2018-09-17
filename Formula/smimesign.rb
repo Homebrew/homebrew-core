@@ -4,8 +4,8 @@ class Smimesign < Formula
   url "https://github.com/github/smimesign/archive/0.0.3.tar.gz"
   sha256 "69dfa16737c715679e067d0d929dd964790060b33981695d71bd6b047ae64e97"
 
-  depends_on :macos => :sierra
   depends_on "go" => :build
+  depends_on :macos => :sierra
 
   def install
     ENV["GOPATH"] = buildpath
