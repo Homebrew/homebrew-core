@@ -12,16 +12,16 @@ class Freedink < Formula
     sha256 "69db51ab48473114449682010dfa7e03c992184a7fea6df1dd4e6c6a6e7ca72a" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "check"
-  depends_on "sdl2_image"
-  depends_on "sdl_mixer"
-  depends_on "sdl_ttf"
-  depends_on "sdl_gfx"
-  depends_on "sdl_image"
+  depends_on "fontconfig"
   depends_on "gettext"
   depends_on "libzip"
-  depends_on "fontconfig"
-  depends_on "pkg-config" => :build
+  depends_on "sdl2_image"
+  depends_on "sdl_gfx"
+  depends_on "sdl_image"
+  depends_on "sdl_mixer"
+  depends_on "sdl_ttf"
 
   resource "freedink-data" do
     url "https://ftp.gnu.org/gnu/freedink/freedink-data-1.08.20170409.tar.gz"
