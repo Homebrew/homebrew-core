@@ -13,9 +13,9 @@ class Gsmartcontrol < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "smartmontools"
   depends_on "gtkmm3"
   depends_on "pcre"
+  depends_on "smartmontools"
 
   needs :cxx11
 
