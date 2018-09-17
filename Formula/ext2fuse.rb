@@ -12,8 +12,8 @@ class Ext2fuse < Formula
     sha256 "01064d0a21a3a1d60686657df9146194700c879e5b43447c4a6cbc80cc62705b" => :yosemite
   end
 
-  depends_on :osxfuse
   depends_on "e2fsprogs"
+  depends_on :osxfuse
 
   def install
     ENV.append "LIBS", "-losxfuse"
