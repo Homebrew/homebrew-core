@@ -19,9 +19,9 @@ class Ldapvi < Formula
   depends_on "xz" => :build # Homebrew bug. Shouldn't need declaring explicitly.
   depends_on "gettext"
   depends_on "glib"
+  depends_on "openssl"
   depends_on "popt"
   depends_on "readline"
-  depends_on "openssl"
 
   # These patches are applied upstream but release process seems to be dead.
   # http://www.lichteblau.com/git/?p=ldapvi.git;a=commit;h=256ced029c235687bfafdffd07be7d47bf7af39b
