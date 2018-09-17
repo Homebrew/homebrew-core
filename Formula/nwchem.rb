@@ -32,7 +32,8 @@ class Nwchem < Formula
 
       ENV["NWCHEM_TOP"] = buildpath
       ENV["PYTHONVERSION"] = "2.7"
-      ENV["PYTHONHOME"] = "/usr"
+      pyhome = `python-config --prefix`.chomp
+      ENV["PYTHONHOME"] = pyhome
       ENV["NWCHEM_LONG_PATHS"] = "Y"
       ENV["BLASOPT"] = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       ENV["BLAS_SIZE"] = "4"
