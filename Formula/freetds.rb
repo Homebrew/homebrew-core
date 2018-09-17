@@ -32,9 +32,9 @@ class Freetds < Formula
   deprecated_option "enable-krb" => "with-krb5"
 
   depends_on "pkg-config" => :build
-  depends_on "unixodbc" => :optional
-  depends_on "libiodbc" => :optional
   depends_on "openssl" => :recommended
+  depends_on "libiodbc" => :optional
+  depends_on "unixodbc" => :optional
 
   def install
     if build.with?("unixodbc") && build.with?("libiodbc")
