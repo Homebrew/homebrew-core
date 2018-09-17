@@ -26,8 +26,8 @@ class Libwebsockets < Formula
 
   depends_on "cmake" => :build
   depends_on "libev"
-  depends_on "libuv"
   depends_on "libevent"
+  depends_on "libuv"
   depends_on "openssl"
 
   def install
