@@ -13,16 +13,16 @@ class Clamav < Formula
   head do
     url "https://github.com/Cisco-Talos/clamav-devel.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "pcre" => :recommended
-  depends_on "yara" => :optional
   depends_on "json-c" => :optional
+  depends_on "yara" => :optional
 
   skip_clean "share/clamav"
 
