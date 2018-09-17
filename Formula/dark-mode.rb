@@ -13,8 +13,8 @@ class DarkMode < Formula
     sha256 "7557075bff978e306c392f81e713d987147ef8433da753656c8569de17611879" => :el_capitan
   end
 
-  depends_on :macos => :el_capitan
   depends_on :xcode => :build
+  depends_on :macos => :el_capitan
 
   def install
     system "./build"
