@@ -14,9 +14,9 @@ class Enchant < Formula
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :optional
-  depends_on "glib"
   depends_on "aspell"
+  depends_on "glib"
+  depends_on "python@2" => :optional
 
   # https://pythonhosted.org/pyenchant/
   resource "pyenchant" do
