@@ -16,8 +16,8 @@ class Ddar < Formula
   end
 
   depends_on "xmltoman" => :build
-  depends_on "python@2"
   depends_on "protobuf"
+  depends_on "python@2"
 
   def install
     system "make", "-f", "Makefile.prep", "pydist"
