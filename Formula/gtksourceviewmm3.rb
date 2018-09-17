@@ -13,9 +13,9 @@ class Gtksourceviewmm3 < Formula
     sha256 "a48149e166ef1dd135c004d1e4ac78fba00f0301791d7f34f0ea4e6f70f438e0" => :el_capitan
   end
 
-  depends_on "gtksourceview3"
   depends_on "pkg-config" => :build
   depends_on "gtkmm3"
+  depends_on "gtksourceview3"
 
   needs :cxx11
 
