@@ -15,8 +15,8 @@ class Darkstat < Formula
 
   head do
     url "https://www.unix4lyfe.org/git/darkstat", :using => :git
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   # Patch reported to upstream on 2017-10-08
