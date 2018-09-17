@@ -11,17 +11,17 @@ class FileRoller < Formula
     sha256 "6f81289357b9cbab497aa47493934effd1952654f1fadf13c7529f4bd83c2c36" => :el_capitan
   end
 
+  depends_on "itstool" => :build
   depends_on "meson" => :build
-  depends_on "python" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "itstool" => :build
-  depends_on "gtk+3"
-  depends_on "json-glib"
-  depends_on "libmagic"
-  depends_on "libarchive"
-  depends_on "hicolor-icon-theme"
+  depends_on "python" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "gtk+3"
+  depends_on "hicolor-icon-theme"
+  depends_on "json-glib"
+  depends_on "libarchive"
+  depends_on "libmagic"
 
   def install
     ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
