@@ -15,18 +15,19 @@ class Folly < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "double-conversion"
-  depends_on "glog"
-  depends_on "gflags"
   depends_on "boost"
+  depends_on "double-conversion"
+  depends_on "gflags"
+  depends_on "glog"
   depends_on "libevent"
-  depends_on "xz"
-  depends_on "snappy"
   depends_on "lz4"
-  depends_on "openssl"
 
   # https://github.com/facebook/folly/issues/451
   depends_on :macos => :el_capitan
+
+  depends_on "openssl"
+  depends_on "snappy"
+  depends_on "xz"
 
   needs :cxx11
 
