@@ -14,13 +14,13 @@ class MingwW64 < Formula
 
   option "without-posix", "Compile without posix thread model support"
 
+  # Apple's makeinfo is old and has bugs
+  depends_on "texinfo" => :build
+
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
-
-  # Apple's makeinfo is old and has bugs
-  depends_on "texinfo" => :build
 
   resource "binutils" do
     url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
