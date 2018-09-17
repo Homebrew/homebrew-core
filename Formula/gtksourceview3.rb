@@ -11,10 +11,10 @@ class Gtksourceview3 < Formula
     sha256 "4d51151381859b173b349c6445ce6a67e40a8d06eb735003697c5134fcbb083b" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "vala" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
