@@ -15,9 +15,9 @@ class Liblas < Formula
   option "with-test", "Verify during install with `make test`"
 
   depends_on "cmake" => :build
-  depends_on "libgeotiff"
-  depends_on "gdal"
   depends_on "boost"
+  depends_on "gdal"
+  depends_on "libgeotiff"
   depends_on "laszip" => :optional
 
   # Fix build for Xcode 9 with upstream commit
