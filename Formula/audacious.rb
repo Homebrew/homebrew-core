@@ -34,8 +34,8 @@ class Audacious < Formula
       url "https://github.com/audacious-media-player/audacious-plugins.git"
     end
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
@@ -56,10 +56,10 @@ class Audacious < Formula
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "neon"
-  depends_on "sdl2"
-  depends_on "wavpack"
   depends_on "python@2"
   depends_on "qt"
+  depends_on "sdl2"
+  depends_on "wavpack"
 
   def install
     args = %W[
