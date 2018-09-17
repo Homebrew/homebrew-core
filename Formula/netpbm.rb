@@ -16,10 +16,10 @@ class Netpbm < Formula
     sha256 "c703cfef4c6aee5892cdf276ec131aba6a19854fd7f7b98fda6f62b4b3baa4b8" => :el_capitan
   end
 
-  depends_on "libtiff"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libtiff"
 
   conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
 
