@@ -14,8 +14,8 @@ class Flashrom < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libusb-compat"
   depends_on "libftdi0"
+  depends_on "libusb-compat"
 
   def install
     ENV["CONFIG_GFXNVIDIA"] = "0"
