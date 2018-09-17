@@ -15,9 +15,9 @@ class Ekg2 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "openssl"
   depends_on "readline"
   depends_on "libgadu" => :optional
-  depends_on "openssl"
 
   # Fix the build on OS X 10.9+
   # http://bugs.ekg2.org/issues/152
