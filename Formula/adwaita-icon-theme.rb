@@ -12,10 +12,10 @@ class AdwaitaIconTheme < Formula
     sha256 "15085020944f26d8572772fc1f28566e2f85b0bb81b99dd688a8200b2ef5c758" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "gettext" => :build
   depends_on "gtk+3" => :build # for gtk3-update-icon-cache
+  depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "librsvg"
 
   def install
