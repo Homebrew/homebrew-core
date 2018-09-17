@@ -15,8 +15,8 @@ class IsoCodes < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "python"
   depends_on "pkg-config"
+  depends_on "python"
 
   def install
     system "./configure", "--prefix=#{prefix}"
