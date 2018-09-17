@@ -15,9 +15,9 @@ class Libchamplain < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "clutter"
-  depends_on "libsoup"
-  depends_on "gtk+3"
   depends_on "clutter-gtk"
+  depends_on "gtk+3"
+  depends_on "libsoup"
   depends_on "vala" => :optional
 
   def install
