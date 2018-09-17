@@ -21,15 +21,15 @@ class Libgda < Formula
     sha256 "db6c7f10a9ed832585aae65eb135b718a69c5151375aa21e475ba3031beb0068"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "readline"
   depends_on "libgcrypt"
-  depends_on "sqlite"
   depends_on "openssl"
+  depends_on "readline"
+  depends_on "sqlite"
 
   def install
     system "./configure", "--disable-debug",
