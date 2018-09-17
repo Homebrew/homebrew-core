@@ -13,16 +13,16 @@ class Gobby < Formula
     sha256 "315099a2c3c991cb122bdff320c8dc050c5ae352d8bce91d38695482f7462f39" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "gtkmm3"
-  depends_on "gsasl"
-  depends_on "gnutls"
-  depends_on "libxml++"
-  depends_on "gtksourceview3"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "gnutls"
+  depends_on "gsasl"
+  depends_on "gtkmm3"
+  depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"
   depends_on "libinfinity"
+  depends_on "libxml++"
 
   needs :cxx11
 
