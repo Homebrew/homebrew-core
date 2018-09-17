@@ -15,8 +15,8 @@ class Mpdviz < Formula
     sha256 "063b1d5a369b91869c21ae8aa5dbfa96cd1e9b3c4d5091fc573c965e1b253493" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
   depends_on "fftw"
 
   go_resource "github.com/lucy/go-fftw" do
