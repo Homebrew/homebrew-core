@@ -13,8 +13,8 @@ class Gosu < Formula
     sha256 "ee811bdaa15babb338a88e9625750113c94abfe8f3c0b07e6da0080d1ef55b72" => :el_capitan
   end
 
-  depends_on :java => "1.8"
   depends_on "maven" => :build
+  depends_on :java => "1.8"
 
   skip_clean "libexec/ext"
 
