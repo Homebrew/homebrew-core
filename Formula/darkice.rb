@@ -15,12 +15,12 @@ class Darkice < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libvorbis"
-  depends_on "lame"
-  depends_on "two-lame"
   depends_on "faac"
-  depends_on "libsamplerate"
   depends_on "jack"
+  depends_on "lame"
+  depends_on "libsamplerate"
+  depends_on "libvorbis"
+  depends_on "two-lame"
 
   def install
     # Fixes  "invalid conversion from 'const float*' to 'float*' [-fpermissive]"
