@@ -6,8 +6,8 @@ class Hive < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
   depends_on "hadoop"
+  depends_on :java => "1.7+"
 
   def install
     rm_f Dir["bin/*.cmd", "bin/ext/*.cmd", "bin/ext/util/*.cmd"]
