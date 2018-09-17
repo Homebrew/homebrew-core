@@ -18,8 +18,8 @@ class NodeAT6 < Formula
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
 
-  depends_on "python@2" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@2" => :build
   depends_on "openssl" => :optional
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
