@@ -28,9 +28,9 @@ class GnuplotAT4 < Formula
   depends_on "libtiff"
   depends_on "lua@5.1"
   depends_on "readline"
-  depends_on "pango" if (build.with? "cairo") || (build.with? "wxmac")
   depends_on "pdflib-lite" => :optional
   depends_on "wxmac" => :optional
+  depends_on "pango" if (build.with? "cairo") || (build.with? "wxmac")
   depends_on :x11 => :optional
 
   def install
