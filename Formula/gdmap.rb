@@ -12,8 +12,8 @@ class Gdmap < Formula
     sha256 "4f48204465a1ce93f84eae2d5f54e2a7d9dad6e9ce5994829590ad14d3640914" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+"
