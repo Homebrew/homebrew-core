@@ -16,9 +16,9 @@ class Ffmpegthumbnailer < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ffmpeg"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "ffmpeg"
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
