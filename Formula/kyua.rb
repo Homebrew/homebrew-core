@@ -12,10 +12,10 @@ class Kyua < Formula
     sha256 "e2449019eb1bd161b222fc73136990a4bed0ab4349b288ceff49add0b8958572" => :el_capitan
   end
 
-  depends_on "atf"
-  depends_on "lutok"
   depends_on "pkg-config" => :build
+  depends_on "atf"
   depends_on "lua"
+  depends_on "lutok"
   depends_on "sqlite"
 
   def install
