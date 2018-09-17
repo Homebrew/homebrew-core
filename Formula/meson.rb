@@ -13,8 +13,8 @@ class Meson < Formula
     sha256 "84505889d56e7a674ad755c2a10c0068436ba0cf85ae32aedf7e163ceb027ea5" => :el_capitan
   end
 
-  depends_on "python"
   depends_on "ninja"
+  depends_on "python"
 
   def install
     version = Language::Python.major_minor_version("python3")
