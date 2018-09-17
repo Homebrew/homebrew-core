@@ -20,8 +20,8 @@ class Osslsigncode < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "libgsf" => :optional
 
