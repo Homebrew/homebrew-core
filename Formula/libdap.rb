@@ -14,8 +14,8 @@ class Libdap < Formula
   head do
     url "https://github.com/OPENDAP/libdap4.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
