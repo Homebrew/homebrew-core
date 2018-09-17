@@ -12,9 +12,9 @@ class Evince < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "djvulibre"
   depends_on "gspell"
