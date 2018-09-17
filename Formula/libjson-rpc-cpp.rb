@@ -15,9 +15,9 @@ class LibjsonRpcCpp < Formula
 
   depends_on "cmake" => :build
   depends_on "argtable"
+  depends_on "hiredis"
   depends_on "jsoncpp"
   depends_on "libmicrohttpd"
-  depends_on "hiredis"
 
   def install
     system "cmake", ".", *std_cmake_args
