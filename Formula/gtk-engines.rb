@@ -13,10 +13,10 @@ class GtkEngines < Formula
     sha256 "fb5dc9cc323a8c02b699bb31285fb33ae9d43ada7a2e3034dba67228f693ca17" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "gettext"
+  depends_on "pkg-config" => :build
   depends_on "cairo"
+  depends_on "gettext"
   depends_on "gtk+"
 
   def install
