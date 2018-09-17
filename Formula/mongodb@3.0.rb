@@ -20,10 +20,10 @@ class MongodbAT30 < Formula
 
   needs :cxx11
 
-  depends_on "boost" => :optional
   depends_on "go" => :build
-  depends_on :macos => :mountain_lion
   depends_on "scons" => :build
+  depends_on :macos => :mountain_lion
+  depends_on "boost" => :optional
   depends_on "openssl" => :optional
 
   go_resource "github.com/mongodb/mongo-tools" do
