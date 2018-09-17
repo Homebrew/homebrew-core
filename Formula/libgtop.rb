@@ -19,9 +19,9 @@ class Libgtop < Formula
   depends_on "gnome-common" => :build
   depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
+  depends_on "intltool" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "gettext"
   depends_on "glib"
 
