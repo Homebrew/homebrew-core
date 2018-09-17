@@ -82,6 +82,7 @@ class Ffmpeg < Formula
   depends_on "sdl2" => :optional
   depends_on "snappy" => :optional
   depends_on "speex" => :optional
+  depends_on "srt" => :optional
   depends_on "tesseract" => :optional
   depends_on "theora" => :optional
   depends_on "two-lame" => :optional
@@ -91,7 +92,6 @@ class Ffmpeg < Formula
   depends_on "xz" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
-  depends_on "srt" => :optional
 
   def install
     args = %W[
