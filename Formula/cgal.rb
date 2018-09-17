@@ -25,8 +25,8 @@ class Cgal < Formula
   depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "qt" => :optional
   depends_on "eigen" => :optional
+  depends_on "qt" => :optional
 
   def install
     args = std_cmake_args + %W[
