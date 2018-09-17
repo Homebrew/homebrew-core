@@ -17,13 +17,13 @@ class Expect < Formula
 
   deprecated_option "enable-threads" => "with-threads"
 
-  depends_on "tcl-tk" if build.with? "brewed-tk"
-
   # Autotools are introduced here to regenerate configure script. Remove
   # if the patch has been applied in newer releases.
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  depends_on "tcl-tk" if build.with? "brewed-tk"
 
   def install
     args = %W[
