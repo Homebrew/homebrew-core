@@ -23,8 +23,8 @@ class Mkvdts2ac3 < Formula
     sha256 "336cc7357b741d3e045a2c9a32f19f8daba41cfd3d00d2d3422d7b31c91ad538" => :mavericks
   end
 
-  depends_on "mkvtoolnix"
   depends_on "ffmpeg"
+  depends_on "mkvtoolnix"
 
   def install
     bin.install "mkvdts2ac3.sh" => "mkvdts2ac3"
