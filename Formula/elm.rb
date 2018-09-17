@@ -16,8 +16,8 @@ class Elm < Formula
     sha256 "e2a5f47750fb6a487e5220a3ac234b209acdb7edcde7e42c2ebe2507f8a3a5cf" => :el_capitan
   end
 
-  depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
