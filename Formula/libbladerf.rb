@@ -13,8 +13,8 @@ class Libbladerf < Formula
     sha256 "9de01abf00d154167160155eb6c64e9c9f83f11f8c0ce2ba862e94db43c9cbe2" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "libusb"
 
   # Fix cmake issue https://github.com/Nuand/bladeRF/issues/509
