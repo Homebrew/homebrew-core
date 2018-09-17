@@ -47,18 +47,18 @@ class Gpac < Formula
     sha256 "46428c9cb8fdf15ebe9014667f9158444b263e60b5836688625b300f389c64e4" => :el_capitan
   end
 
-  depends_on "openssl"
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
+  depends_on "openssl"
   depends_on "a52dec" => :optional
-  depends_on "jpeg" => :optional
   depends_on "faad2" => :optional
+  depends_on "ffmpeg" => :optional
+  depends_on "jpeg" => :optional
   depends_on "libogg" => :optional
   depends_on "libvorbis" => :optional
   depends_on "mad" => :optional
   depends_on "sdl" => :optional
   depends_on "theora" => :optional
-  depends_on "ffmpeg" => :optional
+  depends_on :x11 => :optional
 
   conflicts_with "bento4", :because => "both install `mp42ts` binaries"
 
