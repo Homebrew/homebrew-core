@@ -14,8 +14,8 @@ class Nghttp2 < Formula
   head do
     url "https://github.com/nghttp2/nghttp2.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
@@ -24,18 +24,18 @@ class Nghttp2 < Formula
 
   deprecated_option "with-python3" => "with-python"
 
-  depends_on "python" => :optional
-  depends_on "sphinx-doc" => :build
-  depends_on "libxml2" if MacOS.version <= :lion
-  depends_on "pkg-config" => :build
   depends_on "cunit" => :build
-  depends_on "c-ares"
-  depends_on "libev"
-  depends_on "openssl"
-  depends_on "libevent"
-  depends_on "jansson"
+  depends_on "pkg-config" => :build
+  depends_on "sphinx-doc" => :build
   depends_on "boost"
+  depends_on "c-ares"
+  depends_on "jansson"
+  depends_on "libev"
+  depends_on "libevent"
+  depends_on "libxml2" if MacOS.version <= :lion
+  depends_on "openssl"
   depends_on "jemalloc" => :recommended
+  depends_on "python" => :optional
 
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/79/9d/dea8c5181cdb77d32e20a44dd5346b0e4bac23c4858f2f66ad64bbcf4de8/Cython-0.28.2.tar.gz"
