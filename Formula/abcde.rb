@@ -18,9 +18,9 @@ class Abcde < Formula
   depends_on "id3v2"
   depends_on "mkcue"
   depends_on "flac" => :optional
+  depends_on "glyr" => :optional
   depends_on "lame" => :optional
   depends_on "vorbis-tools" => :optional
-  depends_on "glyr" => :optional
 
   def install
     system "make", "install", "prefix=#{prefix}", "sysconfdir=#{etc}"
