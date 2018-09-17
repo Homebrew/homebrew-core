@@ -13,12 +13,12 @@ class Fox < Formula
     sha256 "a12e69c87858187ed33f11713e06c98a482308b3cb78884441ba279f4f51523e" => :el_capitan
   end
 
-  depends_on :x11
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "libtiff"
+  depends_on :x11
 
   def install
     system "./configure", "--disable-dependency-tracking",
