@@ -22,9 +22,9 @@ class OpusTools < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "opus"
   depends_on "flac"
   depends_on "libogg"
+  depends_on "opus"
 
   def install
     system "./autogen.sh" if build.head?
