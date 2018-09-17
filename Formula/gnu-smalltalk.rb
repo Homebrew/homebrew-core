@@ -34,8 +34,8 @@ class GnuSmalltalk < Formula
   depends_on "libsigsegv"
   depends_on "libtool"
   depends_on "readline"
-  depends_on "glew" => :optional
   depends_on :x11 if build.with? "tcltk"
+  depends_on "glew" => :optional
 
   def install
     ENV.m32 unless MacOS.prefer_64_bit?
