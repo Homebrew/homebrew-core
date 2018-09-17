@@ -13,8 +13,8 @@ class Libucl < Formula
     sha256 "ca86c64fe729bae95050208ef904752473da24592e9221c774e65206df3d8567" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "lua" => :optional
