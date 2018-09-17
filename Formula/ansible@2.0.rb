@@ -17,9 +17,9 @@ class AnsibleAT20 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python@2"
   depends_on "libyaml"
   depends_on "openssl"
+  depends_on "python@2"
 
   #
   # ansible (core dependencies)
