@@ -1,8 +1,9 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
-  homepage "http://tigervnc.org/"
+  homepage "https://tigervnc.org/"
   url "https://github.com/TigerVNC/tigervnc/archive/v1.9.0.tar.gz"
   sha256 "f15ced8500ec56356c3bf271f52e58ed83729118361c7103eab64a618441f740"
+  revision 1
 
   bottle do
     sha256 "d182b89bdf904b1f17cf494bf69cbd218f0159b8b1df5fb0da9ed7221ef4465f" => :mojave
@@ -27,5 +28,10 @@ class TigerVnc < Formula
     ]
     system "cmake", *args
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/vncviewer -h 2>&1", 1)
+    assert_match "TigerVNC Viewer 64-bit v#{version}", output
   end
 end
