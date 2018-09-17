@@ -25,8 +25,8 @@ class Coq < Formula
   end
 
   depends_on "ocaml-findlib" => :build
-  depends_on Camlp5TransitionalModeRequirement
   depends_on "camlp5"
+  depends_on Camlp5TransitionalModeRequirement
   depends_on "ocaml"
   depends_on "ocaml-num"
 
