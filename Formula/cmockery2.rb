@@ -16,8 +16,8 @@ class Cmockery2 < Formula
     sha256 "c7fbc1a75a2c4c517cea269fdd9567c6ebd74d6917624e4d084932edf13bb77b" => :mountain_lion
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
