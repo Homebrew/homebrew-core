@@ -15,14 +15,14 @@ class Mat < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
-  depends_on "python@2" => :optional
+  depends_on "gettext" => :build
+  depends_on "intltool" => :build
   depends_on "coreutils"
   depends_on "poppler"
   depends_on "py2cairo"
   depends_on "pygobject3" => "with-python@2"
   depends_on "exiftool" => :optional
-  depends_on "gettext" => :build
-  depends_on "intltool" => :build
+  depends_on "python@2" => :optional
 
   resource "hachoir-core" do
     url "https://files.pythonhosted.org/packages/source/h/hachoir-core/hachoir-core-1.3.3.tar.gz"
