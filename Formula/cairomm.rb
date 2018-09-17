@@ -16,10 +16,9 @@ class Cairomm < Formula
   needs :cxx11
 
   depends_on "pkg-config" => :build
-  depends_on "libsigc++"
-
-  depends_on "libpng"
   depends_on "cairo"
+  depends_on "libpng"
+  depends_on "libsigc++"
 
   def install
     ENV.cxx11
