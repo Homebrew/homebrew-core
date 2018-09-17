@@ -13,10 +13,11 @@ class Libxmlsec1 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libxml2" if MacOS.version <= :lion
+
   # Yes, it wants both ssl/tls variations.
-  depends_on "openssl" => :recommended
   depends_on "gnutls" => :recommended
   depends_on "libgcrypt" if build.with? "gnutls"
+  depends_on "openssl" => :recommended
 
   # Add HOMEBREW_PREFIX/lib to dl load path
   patch :DATA
