@@ -15,9 +15,9 @@ class LibsvgCairo < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libsvg"
-  depends_on "libpng"
   depends_on "cairo"
+  depends_on "libpng"
+  depends_on "libsvg"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--disable-debug",
