@@ -17,8 +17,8 @@ class JohnJumbo < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
   depends_on "gmp"
+  depends_on "openssl"
 
   conflicts_with "john", :because => "both install the same binaries"
 
