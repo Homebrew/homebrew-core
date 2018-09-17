@@ -18,8 +18,8 @@ class Node < Formula
 
   deprecated_option "with-openssl" => "with-openssl@1.1"
 
-  depends_on "python@2" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@2" => :build
   depends_on "icu4c" => :recommended
   depends_on "openssl@1.1" => :optional
 
