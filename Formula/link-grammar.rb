@@ -11,12 +11,12 @@ class LinkGrammar < Formula
     sha256 "fc038b1a0ab421ed785705cf4bc7e9a64113c735d60a270f4f3771b755a43612" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "ant" => :build
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "ant" => :build
+  depends_on "pkg-config" => :build
 
   def install
     ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
