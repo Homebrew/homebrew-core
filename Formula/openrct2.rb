@@ -14,6 +14,7 @@ class Openrct2 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "freetype" # for sdl2_ttf
   depends_on "icu4c"
   depends_on "jansson"
   depends_on "libpng"
@@ -23,7 +24,6 @@ class Openrct2 < Formula
   depends_on "sdl2"
   depends_on "sdl2_ttf"
   depends_on "speexdsp"
-  depends_on "freetype" # for sdl2_ttf
 
   resource "title-sequences" do
     url "https://github.com/OpenRCT2/title-sequences/releases/download/v0.1.2/title-sequence-v0.1.2.zip",
