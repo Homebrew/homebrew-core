@@ -14,8 +14,8 @@ class Magnetix < Formula
     sha256 "ed629c950ac52c6efee73a2e77e7004e0e33a85fe920d793a2e8621a484d7cdc" => :yosemite
   end
 
-  depends_on :macos => :lion
   depends_on :xcode => :build
+  depends_on :macos => :lion
 
   # Port audio code from QTKit to AVFoundation
   # Required since 10.12 SDK no longer includes QTKit.
