@@ -8,8 +8,8 @@ class Asdf < Formula
 
   depends_on "autoconf"
   depends_on "automake"
-  depends_on "libtool"
   depends_on "coreutils"
+  depends_on "libtool"
   depends_on "libyaml"
   depends_on "openssl"
   depends_on "readline"
