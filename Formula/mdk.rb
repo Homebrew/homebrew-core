@@ -15,11 +15,11 @@ class Mdk < Formula
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
-  depends_on "libglade"
-  depends_on "glib"
   depends_on "flex"
+  depends_on "glib"
+  depends_on "gtk+"
   depends_on "guile"
+  depends_on "libglade"
   depends_on "readline"
 
   def install
