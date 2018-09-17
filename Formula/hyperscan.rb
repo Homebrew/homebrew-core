@@ -14,11 +14,11 @@ class Hyperscan < Formula
 
   option "with-debug", "Build with debug symbols"
 
-  depends_on "python@2" => :build
   depends_on "boost" => :build
-  depends_on "ragel" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@2" => :build
+  depends_on "ragel" => :build
 
   def install
     mkdir "build" do
