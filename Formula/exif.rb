@@ -18,8 +18,8 @@ class Exif < Formula
   option "with-gettext", "Build with Native Language Support"
 
   depends_on "pkg-config" => :build
-  depends_on "popt"
   depends_on "libexif"
+  depends_on "popt"
   depends_on "gettext" => :optional
 
   def install
