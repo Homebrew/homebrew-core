@@ -24,8 +24,8 @@ class Mosh < Formula
   deprecated_option "without-check" => "without-test"
 
   depends_on "pkg-config" => :build
-  depends_on "protobuf"
   depends_on "tmux" => :build if build.with?("test") || build.bottle?
+  depends_on "protobuf"
 
   needs :cxx11
 
