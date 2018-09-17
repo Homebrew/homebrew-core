@@ -17,9 +17,9 @@ class Exult < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "sdl2"
 
   # Upstream's fix for recent clang (Xcode 9)
   # https://github.com/exult/exult/commit/083ea2fa
