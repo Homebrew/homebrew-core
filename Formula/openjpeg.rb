@@ -18,9 +18,9 @@ class Openjpeg < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => [:build, :recommended]
-  depends_on "little-cms2"
-  depends_on "libtiff"
   depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "little-cms2"
 
   def install
     args = std_cmake_args
