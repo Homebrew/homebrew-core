@@ -17,28 +17,25 @@ class Gnuradio < Formula
   deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => [:build, :optional] # For documentation
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :recommended
+  depends_on "sphinx-doc" => [:build, :optional] # For documentation
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
   depends_on "zeromq"
+  depends_on "portaudio" => :recommended
+  depends_on "python@2" => :recommended
+  depends_on "uhd" => :recommended
+  depends_on "jack" => :optional
+  depends_on "pygtk" => :optional
+  depends_on "sdl" => :optional
+  depends_on "wxpython" => :optional
 
   if build.with? "python@2"
     depends_on "swig" => :build
     depends_on "numpy"
   end
-
-  # For documentation
-  depends_on "doxygen" => [:build, :optional]
-  depends_on "sphinx-doc" => [:build, :optional]
-
-  depends_on "uhd" => :recommended
-  depends_on "sdl" => :optional
-  depends_on "jack" => :optional
-  depends_on "portaudio" => :recommended
-  depends_on "pygtk" => :optional
-  depends_on "wxpython" => :optional
 
   # cheetah starts here
   resource "Markdown" do
