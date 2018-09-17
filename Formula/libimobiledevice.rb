@@ -22,10 +22,10 @@ class Libimobiledevice < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtasn1"
   depends_on "libplist"
-  depends_on "usbmuxd"
+  depends_on "libtasn1"
   depends_on "openssl"
+  depends_on "usbmuxd"
 
   def install
     system "./autogen.sh" if build.head?
