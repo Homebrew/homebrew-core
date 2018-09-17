@@ -13,8 +13,8 @@ class Fmsx < Formula
     sha256 "6fcd0c12e2aa9be7a21e35ad51f307d958abb7cefcec3f57cfe33746fac7777b" => :yosemite
   end
 
-  depends_on :x11
   depends_on "pulseaudio"
+  depends_on :x11
 
   resource "msx-rom" do
     url "https://fms.komkon.org/fMSX/src/MSX.ROM"
