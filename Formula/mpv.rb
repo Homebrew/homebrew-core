@@ -18,9 +18,10 @@ class Mpv < Formula
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
 
-  depends_on "libass"
   depends_on "ffmpeg"
+  depends_on "libass"
   depends_on "lua@5.1"
+  depends_on :macos => :mountain_lion
 
   depends_on "jpeg" => :recommended
   depends_on "little-cms2" => :recommended
@@ -39,8 +40,6 @@ class Mpv < Formula
   depends_on "uchardet" => :optional
   depends_on "vapoursynth" => :optional
   depends_on :x11 => :optional
-
-  depends_on :macos => :mountain_lion
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/05/25/7b5484aca5d46915493f1fd4ecb63c38c333bd32aa9ad6e19da8d08895ae/docutils-0.13.1.tar.gz"
