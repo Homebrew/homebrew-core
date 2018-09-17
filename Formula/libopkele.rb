@@ -35,13 +35,14 @@ class Libopkele < Formula
 
   option "with-docs", "Build and install documentation"
 
-  depends_on "pkg-config" => :build
   depends_on "doxygen" => :build if build.with? "docs"
-  depends_on "openssl"
+  depends_on "pkg-config" => :build
 
   # It rejects the tr1/memory that ships on 10.9 & above
   # and refuses to compile. It can use Boost, per configure.
   depends_on "boost" if MacOS.version > :mountain_lion
+
+  depends_on "openssl"
 
   def install
     system "./autogen.bash" if build.head?
