@@ -13,8 +13,8 @@ class Alure < Formula
     sha256 "6dc7f359b7cdb67e741a48c276ba57e22d5b9c5d55d4881fcb798f52356c1a10" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
 
   # Fix missing unistd include
   # Reported by email to author on 2017-08-25
