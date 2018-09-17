@@ -32,11 +32,10 @@ class Gjstest < Formula
     sha256 "bb6aebafefa77510dc0b07b6e1cd4dd763336626fb12d26f4360417b3b4417aa" => :el_capitan
   end
 
-  depends_on :macos => :mavericks
-
   depends_on "gflags"
   depends_on "glog"
   depends_on "libxml2"
+  depends_on :macos => :mavericks
   depends_on "protobuf"
   depends_on "re2"
   depends_on "v8"
