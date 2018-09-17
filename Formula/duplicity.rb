@@ -14,11 +14,11 @@ class Duplicity < Formula
     sha256 "d87a8bb6f95c5206aacef311443ee49bb0aed0752ce5b2a6408641f3f06bd38f" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "gnupg"
   depends_on "librsync"
   depends_on "openssl"
+  depends_on "python@2"
   depends_on "par2" => :optional
-  depends_on "gnupg"
 
   # Generated with homebrew-pypi-poet from
   # for i in azure-storage boto dropbox fasteners kerberos mega.py
