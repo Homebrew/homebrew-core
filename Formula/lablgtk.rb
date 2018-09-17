@@ -12,12 +12,12 @@ class Lablgtk < Formula
     sha256 "7c19ea1b679cc0da78498ab2b9f2ca080cd7f12294a7fb915947940196c6c974" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "camlp4" => :build
-  depends_on "ocaml"
+  depends_on "pkg-config" => :build
   depends_on "gtk+"
-  depends_on "librsvg"
   depends_on "gtksourceview"
+  depends_on "librsvg"
+  depends_on "ocaml"
 
   def install
     system "./configure", "--bindir=#{bin}",
