@@ -12,8 +12,8 @@ class Libconfig < Formula
     sha256 "a7b8640a4f169cf82eb6e9aa79e01b59ed1d2914f373abcd2602241b5a21c518" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
