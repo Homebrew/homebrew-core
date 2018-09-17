@@ -19,9 +19,9 @@ class Libxkbcommon < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :x11
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
+  depends_on :x11
 
   def install
     system "./autogen.sh" if build.head?
