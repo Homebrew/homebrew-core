@@ -14,15 +14,15 @@ class Libmp3splt < Formula
     sha256 "a6100bee5fe14afed4702b474360078b75bddaa0328290b2fcf902c3f808c78c" => :mountain_lion
   end
 
-  depends_on "libtool"
   depends_on "pkg-config" => :build
-  depends_on "gettext"
-  depends_on "pcre"
-  depends_on "libid3tag"
-  depends_on "mad"
-  depends_on "libvorbis"
   depends_on "flac"
+  depends_on "gettext"
+  depends_on "libid3tag"
   depends_on "libogg"
+  depends_on "libtool"
+  depends_on "libvorbis"
+  depends_on "mad"
+  depends_on "pcre"
 
   def install
     system "./configure", "--disable-debug",
