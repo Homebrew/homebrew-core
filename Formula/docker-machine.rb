@@ -14,8 +14,8 @@ class DockerMachine < Formula
     sha256 "5bf5fcfbf8931b1a07fb8a21dda2e3dc3f73cfe0cc8aee85f25eee0ecabd8ac4" => :el_capitan
   end
 
-  depends_on "go" => :build
   depends_on "automake" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
