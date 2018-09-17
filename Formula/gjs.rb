@@ -11,8 +11,8 @@ class Gjs < Formula
     sha256 "a61878736e0d935d053ac6eea9f92cf32a1e172c6ac5fd24bbfec4c768fd8097" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf@2.13" => :build
+  depends_on "pkg-config" => :build
   depends_on "gobject-introspection"
   depends_on "nspr"
   depends_on "readline"
