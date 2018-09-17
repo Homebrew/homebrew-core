@@ -12,10 +12,10 @@ class Gtkspell3 < Formula
     sha256 "63b6f8d3dc5fc4b01348f91b79013ff3db1b834163c93476609dfd13e6e0930f" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "gtk+3"
+  depends_on "pkg-config" => :build
   depends_on "enchant"
+  depends_on "gtk+3"
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
