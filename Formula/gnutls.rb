@@ -19,10 +19,10 @@ class Gnutls < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtasn1"
   depends_on "gmp"
-  depends_on "nettle"
+  depends_on "libtasn1"
   depends_on "libunistring"
+  depends_on "nettle"
   depends_on "p11-kit" => :recommended
   depends_on "guile" => :optional
   depends_on "unbound" => :optional
