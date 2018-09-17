@@ -14,8 +14,8 @@ class Librasterlite < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libpng"
   depends_on "libgeotiff"
+  depends_on "libpng"
   depends_on "libspatialite"
   depends_on "sqlite"
 
