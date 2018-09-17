@@ -16,8 +16,8 @@ class Minimodem < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libsndfile"
   depends_on "fftw"
+  depends_on "libsndfile"
   depends_on "pulseaudio"
 
   def install
