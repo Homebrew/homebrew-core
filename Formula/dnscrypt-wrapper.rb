@@ -14,8 +14,8 @@ class DnscryptWrapper < Formula
   end
 
   depends_on "autoconf" => :build
-  depends_on "libsodium"
   depends_on "libevent"
+  depends_on "libsodium"
 
   def install
     system "make", "configure"
