@@ -23,8 +23,8 @@ class Midgard2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "dbus-glib"
+  depends_on "glib"
   depends_on "libgda"
 
   def install
