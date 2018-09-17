@@ -11,11 +11,11 @@ class Gucharmap < Formula
     sha256 "7c84a8518219abc1e1e96aa365391fcb738c8bef2c07b24ad772acdcc7665b27" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "coreutils" => :build
+  depends_on "desktop-file-utils" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "desktop-file-utils" => :build
-  depends_on "coreutils" => :build
+  depends_on "pkg-config" => :build
   depends_on "gtk+3"
 
   def install
