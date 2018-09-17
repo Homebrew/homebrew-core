@@ -14,11 +14,11 @@ class Libgdata < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "libsoup"
+  depends_on "pkg-config" => :build
   depends_on "json-glib"
   depends_on "liboauth"
+  depends_on "libsoup"
   depends_on "vala" => :optional
 
   # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=754821
