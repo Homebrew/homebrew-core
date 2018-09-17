@@ -13,8 +13,8 @@ class Libwpg < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libwpd"
   depends_on "librevenge"
+  depends_on "libwpd"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
