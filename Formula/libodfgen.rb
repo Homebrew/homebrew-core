@@ -14,12 +14,12 @@ class Libodfgen < Formula
     sha256 "a3062a3348ba437f1cad676dd5c3c58e1541b0ec8cdd5413ab165248d18bd63e" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
-  depends_on "libwpg" => :build
   depends_on "libetonyek" => :build
-  depends_on "libwpd"
+  depends_on "libwpg" => :build
+  depends_on "pkg-config" => :build
   depends_on "librevenge"
+  depends_on "libwpd"
 
   def install
     system "./configure", "--without-docs",
