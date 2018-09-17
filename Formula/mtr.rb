@@ -14,11 +14,11 @@ class Mtr < Formula
     sha256 "90aa1e5d224e98d572525b09715390f0fbf2b72954cd3c0b87b9cd6af6ff8ac2" => :yosemite
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+" => :optional
   depends_on "glib" => :optional
+  depends_on "gtk+" => :optional
 
   def install
     # We need to add this because nameserver8_compat.h has been removed in Snow Leopard
