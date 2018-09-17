@@ -12,9 +12,9 @@ class Cfengine < Formula
   end
 
   depends_on "libxml2" if MacOS.version < :mountain_lion
-  depends_on "pcre"
   depends_on "lmdb"
   depends_on "openssl"
+  depends_on "pcre"
 
   resource "masterfiles" do
     url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.12.0.tar.gz"
