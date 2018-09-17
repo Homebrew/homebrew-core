@@ -26,8 +26,8 @@ class CmuSphinxbase < Formula
   depends_on "pkg-config" => :build
   # If these are found, they will be linked against and there is no configure
   # switch to turn them off.
-  depends_on "libsndfile"
   depends_on "libsamplerate" => "with-libsndfile"
+  depends_on "libsndfile"
 
   def install
     if build.head?
