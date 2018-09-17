@@ -14,15 +14,15 @@ class Lighttpd < Formula
   option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
   deprecated_option "with-lua51" => "with-lua@5.1"
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "openldap"
-  depends_on "pcre"
   depends_on "openssl"
-  depends_on "lua@5.1" => :optional
+  depends_on "pcre"
   depends_on "libev" => :optional
+  depends_on "lua@5.1" => :optional
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
   MAX_FDS = 512
