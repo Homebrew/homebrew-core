@@ -14,9 +14,9 @@ class Gtkmm3 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "atkmm"
   depends_on "gtk+3"
   depends_on "pangomm"
-  depends_on "atkmm"
 
   needs :cxx11
 
