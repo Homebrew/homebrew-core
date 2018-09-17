@@ -18,10 +18,10 @@ class Opencv < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "numpy"
   depends_on "openexr"
   depends_on "python"
   depends_on "python@2"
-  depends_on "numpy"
   depends_on "tbb"
 
   needs :cxx11
