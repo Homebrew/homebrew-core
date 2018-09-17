@@ -15,9 +15,9 @@ class Cclive < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "quvi"
   depends_on "boost"
   depends_on "pcre"
+  depends_on "quvi"
 
   conflicts_with "clozure-cl", :because => "both install a ccl binary"
 
