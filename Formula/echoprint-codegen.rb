@@ -15,9 +15,9 @@ class EchoprintCodegen < Formula
     sha256 "06f93b8c6bb025d833ff7757048ea0680b240e3cdd6a51f4dd2fb4e6aad3f7dd" => :el_capitan
   end
 
+  depends_on "boost"
   depends_on "ffmpeg"
   depends_on "taglib"
-  depends_on "boost"
 
   # Removes unnecessary -framework vecLib; can be removed in the next release
   patch do
