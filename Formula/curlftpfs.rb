@@ -13,13 +13,13 @@ class Curlftpfs < Formula
     sha256 "4d610ca926b0698aa25633af0fa5ad1e9352de396f16c7f26e9beff682d4020f" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on :x11
-  depends_on :osxfuse
+  depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on :osxfuse
+  depends_on :x11
 
   def install
     ENV.append "CPPFLAGS", "-D__off_t=off_t"
