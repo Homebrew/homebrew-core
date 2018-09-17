@@ -22,9 +22,9 @@ class Mu < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libgpg-error" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "xapian"
