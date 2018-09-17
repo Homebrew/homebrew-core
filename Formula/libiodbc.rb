@@ -14,8 +14,8 @@ class Libiodbc < Formula
     sha256 "47fecc486608df1edc094742a3afbd33c7159c8957429528e11a6fb6f551ebc4" => :mavericks
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
