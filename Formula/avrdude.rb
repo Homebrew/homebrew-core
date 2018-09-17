@@ -22,9 +22,9 @@ class Avrdude < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "libusb-compat"
-  depends_on "libftdi0"
   depends_on "libelf"
+  depends_on "libftdi0"
+  depends_on "libusb-compat"
   depends_on "libhid" => :optional
 
   def install
