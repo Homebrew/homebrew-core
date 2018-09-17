@@ -18,9 +18,9 @@ class Cadaver < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "readline"
   depends_on "neon"
   depends_on "openssl"
+  depends_on "readline"
 
   # enable build with the latest neon
   patch :DATA
