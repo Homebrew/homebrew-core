@@ -12,8 +12,8 @@ class Libprotoident < Formula
     sha256 "9a631567b1642854a7d8572f047cf4e02fff34bae11c43e7d91dbf16c0529a3b" => :el_capitan
   end
 
-  depends_on "libtrace"
   depends_on "libflowmanager"
+  depends_on "libtrace"
 
   def install
     system "./configure", "--disable-dependency-tracking",
