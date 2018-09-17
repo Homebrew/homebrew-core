@@ -13,8 +13,8 @@ class Nsq < Formula
     sha256 "02225f180c8e5ebc9d5e0ecd30c0875738b10904143c031a07709a6661362243" => :el_capitan
   end
 
-  depends_on "go" => :build
   depends_on "dep" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
