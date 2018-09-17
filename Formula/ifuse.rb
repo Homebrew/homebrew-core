@@ -13,10 +13,10 @@ class Ifuse < Formula
     sha256 "9ea6fd7a09dbfba5bb1f1a7335330977440c1e3d73dac29b8a6433a6a35d1bff" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libimobiledevice"
   depends_on :osxfuse
