@@ -17,9 +17,9 @@ class Grpc < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "c-ares"
+  depends_on "gflags"
   depends_on "openssl"
   depends_on "protobuf"
-  depends_on "gflags"
 
   resource "gtest" do
     url "https://github.com/google/googletest/archive/release-1.8.0.tar.gz"
