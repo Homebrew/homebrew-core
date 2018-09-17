@@ -13,8 +13,8 @@ class Biogeme < Formula
     sha256 "cceacdb78b3866310b0dbe2cf59148ab9b0d2c398f2f5f13bea6a218ef69cc46" => :el_capitan
   end
 
-  depends_on "python"
   depends_on "gtkmm3"
+  depends_on "python"
 
   def install
     system "./configure", "--prefix=#{prefix}"
