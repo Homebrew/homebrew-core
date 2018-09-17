@@ -17,8 +17,8 @@ class Libbpg < Formula
 
   depends_on "cmake" => :build
   depends_on "yasm" => :build if build.with? "x265"
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     bin.mkpath
