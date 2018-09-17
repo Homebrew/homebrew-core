@@ -19,10 +19,8 @@ class Gource < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :x11 => :optional
-
-  depends_on "pkg-config" => :build
   depends_on "glm" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "freetype"
   depends_on "glew"
@@ -30,6 +28,7 @@ class Gource < Formula
   depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"
+  depends_on :x11 => :optional
 
   needs :cxx11
 
