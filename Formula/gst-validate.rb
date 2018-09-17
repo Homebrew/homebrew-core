@@ -22,8 +22,8 @@ class GstValidate < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gstreamer"
   depends_on "gst-plugins-base"
+  depends_on "gstreamer"
   depends_on "json-glib"
 
   def install
