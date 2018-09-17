@@ -13,9 +13,9 @@ class DbusGlib < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "dbus"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "dbus"
 
   def install
     system "./configure", "--disable-dependency-tracking",
