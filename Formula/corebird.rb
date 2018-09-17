@@ -13,15 +13,15 @@ class Corebird < Formula
 
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "gtk+3"
-  depends_on "librest"
-  depends_on "libsoup"
-  depends_on "json-glib"
   depends_on "gspell"
-  depends_on "gst-plugins-good"
+  depends_on "gst-libav"
   depends_on "gst-plugins-bad"
   depends_on "gst-plugins-base"
-  depends_on "gst-libav"
+  depends_on "gst-plugins-good"
+  depends_on "gtk+3"
+  depends_on "json-glib"
+  depends_on "librest"
+  depends_on "libsoup"
 
   def install
     system "./configure", "--disable-debug",
