@@ -14,8 +14,8 @@ class GstEditingServices < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gstreamer"
   depends_on "gst-plugins-base"
+  depends_on "gstreamer"
 
   def install
     system "./configure", "--prefix=#{prefix}",
