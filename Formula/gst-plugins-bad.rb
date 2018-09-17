@@ -19,9 +19,9 @@ class GstPluginsBad < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "gst-plugins-base"
   depends_on "openssl"
