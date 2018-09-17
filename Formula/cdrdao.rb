@@ -12,10 +12,10 @@ class Cdrdao < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "lame"
   depends_on "libao"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "lame"
 
   # first patch fixes build problems under 10.6
   # see https://sourceforge.net/p/cdrdao/patches/23/
