@@ -13,9 +13,9 @@ class Mpg321 < Formula
     sha256 "bf86f590672fdb27f6fc92c706db1bfcb2ca0a1e35129c5435821640a11a422f" => :mavericks
   end
 
-  depends_on "mad"
-  depends_on "libid3tag"
   depends_on "libao"
+  depends_on "libid3tag"
+  depends_on "mad"
 
   # 1. Apple defines semun already. Skip redefining it to fix build errors.
   #    This is a homemade patch fashioned using deduction.
