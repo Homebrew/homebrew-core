@@ -15,8 +15,8 @@ class Lesstif < Formula
     sha256 "07279be1550eef882ed3b9f751cdd152412e84285c5d4e719dfd7fa21c897046" => :mountain_lion
   end
 
-  depends_on :x11
   depends_on "freetype"
+  depends_on :x11
 
   conflicts_with "openmotif",
     :because => "Lesstif and Openmotif are complete replacements for each other"
