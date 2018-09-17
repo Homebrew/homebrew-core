@@ -13,12 +13,12 @@ class Libmspub < Formula
     sha256 "77d32faa735ab867c48b947a83c9cf12ba3bbe747e0c94c43615d721a94b8d2d" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
   depends_on "libwpg" => :build
-  depends_on "libwpd"
+  depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "librevenge"
+  depends_on "libwpd"
 
   def install
     system "./configure", "--without-docs",
