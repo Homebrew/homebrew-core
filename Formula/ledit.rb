@@ -12,8 +12,8 @@ class Ledit < Formula
     sha256 "952162580a2542b7038b2702b8a2ed9223e519ca703b221daf054566723ecd59" => :el_capitan
   end
 
-  depends_on "ocaml"
   depends_on "camlp5"
+  depends_on "ocaml"
 
   def install
     # like camlp5, this build fails if the jobs are parallelized
