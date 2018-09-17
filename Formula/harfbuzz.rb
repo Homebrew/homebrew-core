@@ -20,13 +20,13 @@ class Harfbuzz < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "freetype" => :recommended
-  depends_on "graphite2" => :recommended
-  depends_on "icu4c" => :recommended
+  depends_on "pkg-config" => :build
   depends_on "cairo"
+  depends_on "freetype"
   depends_on "glib"
+  depends_on "graphite2"
+  depends_on "icu4c"
 
   resource "ttf" do
     url "https://github.com/behdad/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
@@ -37,31 +37,16 @@ class Harfbuzz < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-coretext=yes
+      --enable-introspection=yes
       --enable-static
       --with-cairo=yes
+      --with-coretext=yes
+      --with-freetype=yes
       --with-glib=yes
       --with-gobject=yes
-      --enable-introspection=yes
+      --with-graphite2=yes
+      --with-icu=yes
     ]
-
-    if build.with? "freetype"
-      args << "--with-freetype=yes"
-    else
-      args << "--with-freetype=no"
-    end
-
-    if build.with? "graphite2"
-      args << "--with-graphite2=yes"
-    else
-      args << "--with-graphite2=no"
-    end
-
-    if build.with? "icu4c"
-      args << "--with-icu=yes"
-    else
-      args << "--with-icu=no"
-    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
