@@ -14,13 +14,13 @@ class Clutter < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
-  depends_on "gdk-pixbuf"
-  depends_on "cogl"
-  depends_on "cairo" # for cairo-gobject
   depends_on "atk"
-  depends_on "pango"
+  depends_on "cairo" # for cairo-gobject
+  depends_on "cogl"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "json-glib"
+  depends_on "pango"
 
   def install
     args = %W[
