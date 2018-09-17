@@ -23,9 +23,9 @@ class Mplayer < Formula
 
   depends_on "yasm" => :build
   depends_on "libcaca" => :optional
-  depends_on "libdvdread" => :optional
   depends_on "libdvdnav" => :optional
   depends_on "pkg-config" => :build if build.with? "libdvdnav"
+  depends_on "libdvdread" => :optional
 
   unless MacOS.prefer_64_bit?
     fails_with :clang do
