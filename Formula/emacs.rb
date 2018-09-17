@@ -34,10 +34,10 @@ class Emacs < Formula
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "dbus" => :optional
-  depends_on "librsvg" => :optional
   # Emacs does not support ImageMagick 7:
   # Reported on 2017-03-04: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25967
   depends_on "imagemagick@6" => :optional
+  depends_on "librsvg" => :optional
   depends_on "mailutils" => :optional
 
   def install
