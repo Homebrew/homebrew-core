@@ -13,8 +13,8 @@ class Libcdr < Formula
     sha256 "bd3236bfd5383a7e98226b41a743f661e407df92f8b15672bd61bbea537a2805" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cppunit" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "icu4c"
   depends_on "librevenge"
