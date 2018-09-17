@@ -15,9 +15,9 @@ class Dnstwist < Formula
     sha256 "230e8045cf7cc1e644dcf8f960da522bf60d85ad8ec60f6ab1494f4da66a06ea" => :el_capitan
   end
 
+  depends_on "geoip"
   depends_on "python@2"
   depends_on "ssdeep"
-  depends_on "geoip"
 
   resource "GeoIP" do
     url "https://files.pythonhosted.org/packages/f2/7b/a463b7c3df8ef4b9c92906da29ddc9e464d4045f00c475ad31cdb9a97aae/GeoIP-1.3.2.tar.gz"
