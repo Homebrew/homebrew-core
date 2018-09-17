@@ -16,8 +16,8 @@ class Libnet < Formula
     sha256 "fb6a96f3af1521fa09982657342381cee8a681efe4f90cf50626a0a8a720c967" => :mountain_lion
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   # Fix raw sockets support
