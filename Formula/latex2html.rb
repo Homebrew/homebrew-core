@@ -12,8 +12,8 @@ class Latex2html < Formula
     sha256 "484dc0ebe2273a16cf1f35bd76a1ef551eee16406fd5927d551c86a7a788212e" => :el_capitan
   end
 
-  depends_on "netpbm"
   depends_on "ghostscript"
+  depends_on "netpbm"
 
   def install
     system "./configure", "--prefix=#{prefix}",
