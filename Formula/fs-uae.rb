@@ -15,20 +15,20 @@ class FsUae < Formula
 
   head do
     url "https://github.com/FrodeSolheim/fs-uae.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
-  depends_on "libpng"
-  depends_on "libmpeg2"
-  depends_on "glib"
-  depends_on "gettext"
   depends_on "freetype"
+  depends_on "gettext"
   depends_on "glew"
+  depends_on "glib"
+  depends_on "libmpeg2"
+  depends_on "libpng"
   depends_on "openal-soft" if MacOS.version <= :mavericks
+  depends_on "sdl2"
 
   def install
     system "./bootstrap" if build.head?
