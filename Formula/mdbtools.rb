@@ -15,10 +15,10 @@ class Mdbtools < Formula
 
   option "with-man-pages", "Build manual pages"
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "txt2man" => :build if build.with? "man-pages"
   depends_on "glib"
   depends_on "readline"
