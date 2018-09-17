@@ -16,10 +16,10 @@ class NestopiaUe < Formula
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
   depends_on "libao"
   depends_on "libarchive"
   depends_on "libepoxy"
+  depends_on "sdl2"
 
   def install
     system "autoreconf", "-fiv"
