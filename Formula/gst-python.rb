@@ -15,10 +15,9 @@ class GstPython < Formula
   option "with-python@2", "Build with python 2 support"
 
   depends_on "gst-plugins-base"
-  depends_on "python@2" => :optional
   depends_on "python" => :recommended
-
   depends_on "pygobject3" if build.with? "python"
+  depends_on "python@2" => :optional
   depends_on "pygobject3" => "with-python@2" if build.with? "python@2"
 
   link_overwrite "lib/python2.7/site-packages/gi/overrides"
