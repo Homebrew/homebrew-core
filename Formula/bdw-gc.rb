@@ -19,8 +19,8 @@ class BdwGc < Formula
     depends_on "libtool"  => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "libatomic_ops" => :build
+  depends_on "pkg-config" => :build
 
   def install
     system "./autogen.sh" if build.head?
