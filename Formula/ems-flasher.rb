@@ -15,8 +15,8 @@ class EmsFlasher < Formula
 
   head do
     url "https://github.com/mikeryan/ems-flasher.git"
-    depends_on "gawk" => :build
     depends_on "coreutils" => :build
+    depends_on "gawk" => :build
   end
 
   depends_on "pkg-config" => :build
