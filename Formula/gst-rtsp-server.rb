@@ -15,8 +15,8 @@ class GstRtspServer < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gstreamer"
   depends_on "gst-plugins-base"
+  depends_on "gstreamer"
 
   def install
     system "./configure", "--prefix=#{prefix}",
