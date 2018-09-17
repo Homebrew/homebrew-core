@@ -7,8 +7,8 @@ class Nwchem < Formula
 
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "scalapack"
   depends_on "openblas" 
+  depends_on "scalapack"
 
   def install
     pkgshare.install "QA"
