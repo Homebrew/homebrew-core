@@ -13,10 +13,10 @@ class Libsndfile < Formula
     sha256 "9df59790751d64c7f61682233a733030de9e6406682f3a15e30e708103930038" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "libogg"
   depends_on "libvorbis"
