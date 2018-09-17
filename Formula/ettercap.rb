@@ -22,61 +22,30 @@ class Ettercap < Formula
     sha256 "5d9ce456cf6d6cab416fdae7c935501ab607020a94bd73cdfa41536f6751dbf1" => :yosemite
   end
 
-  option "without-curses", "Install without curses interface"
-  option "without-plugins", "Install without plugins support"
-  option "without-ipv6", "Install without IPv6 support"
-
   depends_on "cmake" => :build
-  depends_on "ghostscript" => [:build, :optional]
   depends_on "pcre"
   depends_on "libnet"
   depends_on "openssl"
   depends_on "curl" if MacOS.version <= :mountain_lion # requires >= 7.26.0.
   depends_on "gtk+" => :optional
   depends_on "gtk+3" => :optional
-  depends_on "luajit" => :optional
 
   def install
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
+      -DENABLE_CURSES=ON
+      -DENABLE_IPV6=ON
+      -DENABLE_LUA=OFF
+      -DENABLE_PDF_DOCS=OFF
+      -DENABLE_PLUGINS=ON
       -DINSTALL_SYSCONFDIR=#{etc}
     ]
-
-    if build.with? "curses"
-      args << "-DENABLE_CURSES=ON"
-    else
-      args << "-DENABLE_CURSES=OFF"
-    end
-
-    if build.with? "plugins"
-      args << "-DENABLE_PLUGINS=ON"
-    else
-      args << "-DENABLE_PLUGINS=OFF"
-    end
-
-    if build.with? "ipv6"
-      args << "-DENABLE_IPV6=ON"
-    else
-      args << "-DENABLE_IPV6=OFF"
-    end
-
-    if build.with? "ghostscript"
-      args << "-DENABLE_PDF_DOCS=ON"
-    else
-      args << "-DENABLE_PDF_DOCS=OFF"
-    end
 
     if build.with?("gtk+") || build.with?("gtk+3")
       args << "-DENABLE_GTK=ON" << "-DINSTALL_DESKTOP=ON"
       args << "-DGTK_BUILD_TYPE=GTK3" if build.with? "gtk+3"
     else
       args << "-DENABLE_GTK=OFF" << "-DINSTALL_DESKTOP=OFF"
-    end
-
-    if build.with? "luajit"
-      args << "-DENABLE_LUA=ON"
-    else
-      args << "-DENABLE_LUA=OFF"
     end
 
     mkdir "build" do
