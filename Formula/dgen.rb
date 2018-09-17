@@ -15,16 +15,16 @@ class Dgen < Formula
 
   head do
     url "https://git.code.sf.net/p/dgen/dgen.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   option "with-docs", "Build documentation"
   option "with-debugger", "Enable debugger"
 
-  depends_on "sdl"
-  depends_on "libarchive"
   depends_on "doxygen" if build.with? "docs"
+  depends_on "libarchive"
+  depends_on "sdl"
 
   def install
     args = %W[
