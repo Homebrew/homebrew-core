@@ -20,8 +20,8 @@ class AwsApigatewayImporter < Formula
     sha256 "bbe12dac66d033674840eace741bcf5c3549e7317ab9ca6fa9f349418a6c9861" => :yosemite
   end
 
-  depends_on :java => "1.8"
   depends_on "maven" => :build
+  depends_on :java => "1.8"
 
   def install
     system "mvn", "assembly:assembly"
