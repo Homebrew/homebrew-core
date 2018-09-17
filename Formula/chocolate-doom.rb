@@ -15,16 +15,16 @@ class ChocolateDoom < Formula
   head do
     url "https://github.com/chocolate-doom/chocolate-doom.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "sdl2"
-  depends_on "sdl2_net"
   depends_on "sdl2_mixer"
-  depends_on "libsamplerate" => :recommended
+  depends_on "sdl2_net"
   depends_on "libpng" => :recommended
+  depends_on "libsamplerate" => :recommended
 
   def install
     system "./autogen.sh" if build.head?
