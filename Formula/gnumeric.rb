@@ -14,13 +14,13 @@ class Gnumeric < Formula
 
   deprecated_option "python-scripting" => "with-python-scripting"
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "gettext"
   depends_on "goffice"
-  depends_on "rarian"
-  depends_on "adwaita-icon-theme"
   depends_on "pygobject" if build.with? "python-scripting"
+  depends_on "rarian"
 
   # Issue from 26 Nov 2017 "itstool-2.0.4: problem with gnumeric-1.12.35"
   # See https://github.com/itstool/itstool/issues/22
