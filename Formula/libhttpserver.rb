@@ -16,12 +16,11 @@ class Libhttpserver < Formula
     sha256 "aec3bba3f8db0cb1e9fd99d66aafb1f2ed399197f11af43654f911205b62d5ee" => :mavericks
   end
 
-  depends_on "libmicrohttpd"
-
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libmicrohttpd"
 
   def install
     args = [
