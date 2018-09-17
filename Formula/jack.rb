@@ -22,8 +22,8 @@ class Jack < Formula
 
   depends_on "pkg-config" => :build
   depends_on "berkeley-db"
-  depends_on "libsndfile"
   depends_on "libsamplerate"
+  depends_on "libsndfile"
 
   def install
     sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
