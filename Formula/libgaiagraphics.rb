@@ -14,9 +14,9 @@ class Libgaiagraphics < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libgeotiff"
-  depends_on "jpeg"
   depends_on "cairo"
+  depends_on "jpeg"
+  depends_on "libgeotiff"
   depends_on "libpng"
   depends_on "proj"
 
