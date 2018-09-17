@@ -4,6 +4,14 @@ class Oclgrind < Formula
   url "https://github.com/jrprice/Oclgrind/archive/v18.3.tar.gz"
   sha256 "90518d47573e64c6c28e173dc6f10c4e0ca53a99543ef2f1afaac1cbf725fe90"
 
+  bottle do
+    cellar :any
+    sha256 "fef83d451c0545143c476dee9115177b185520a96d0712264f33b2b3d7da321a" => :mojave
+    sha256 "02bef522dafb0e6a4ebdb57caf496642c21c3ae3b05eb455c91c3dee540107bb" => :high_sierra
+    sha256 "4c5246e9cbe98976a83a8626667cc9ce792756f5e7bba5efd318d93ab56321b0" => :sierra
+    sha256 "30bad2aec84a6d1d1ce222f083266fba3a483bcde59b4223035e5a838e225ee9" => :el_capitan
+  end
+
   depends_on "cmake" => :build
   depends_on "llvm" => :build
 
