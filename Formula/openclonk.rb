@@ -15,17 +15,17 @@ class Openclonk < Formula
     sha256 "e3ebb625a585702c150f2f74aa71fca61d6bf5d61085fe31e6b42ac42d68ede6" => :yosemite
   end
 
-  # Requires some C++14 features missing in Mavericks
-  depends_on :macos => :yosemite
   depends_on "cmake" => :build
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "freetype"
-  depends_on "glew"
-  depends_on "libogg"
-  depends_on "libvorbis"
   depends_on "boost"
   depends_on "freealut"
+  depends_on "freetype"
+  depends_on "glew"
+  depends_on "jpeg"
+  depends_on "libogg"
+  depends_on "libpng"
+  depends_on "libvorbis"
+  # Requires some C++14 features missing in Mavericks
+  depends_on :macos => :yosemite
 
   needs :cxx11
 
