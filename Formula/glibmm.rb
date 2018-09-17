@@ -14,8 +14,8 @@ class Glibmm < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libsigc++"
   depends_on "glib"
+  depends_on "libsigc++"
 
   # Remove for > 2.56.0
   # Upstream commit from 26 Apr 2018 "ustring: Fix wchar conversion on macOS with libc++"
