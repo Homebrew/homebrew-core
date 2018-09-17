@@ -17,9 +17,9 @@ class Libsvg < Formula
     sha256 "32f69e5b156747638e952ec45a3b12a7eead5e479a9881e9db30582ca06f880e" => :mountain_lion
   end
 
-  depends_on "libpng"
   depends_on "pkg-config" => :build
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     system "./configure", "--prefix=#{prefix}"
