@@ -11,8 +11,8 @@ class Mosquitto < Formula
     sha256 "0d984daefe7158e3c049d100f80327789425cb15dc2ca86b64134fb42befd9a6" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "libwebsockets" => :recommended
 
