@@ -13,8 +13,8 @@ class Neofetch < Formula
     sha256 "f87e12ccbe4ef1de1757f4f0d2f03c4aebee3db21d0f27cb2e54451f572f3836" => :el_capitan
   end
 
-  depends_on "screenresolution" => :recommended
   depends_on "imagemagick" => :recommended
+  depends_on "screenresolution" => :recommended
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
