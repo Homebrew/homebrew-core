@@ -15,8 +15,8 @@ class Hatari < Formula
 
   depends_on "cmake" => :build
   depends_on "libpng"
-  depends_on "sdl2"
   depends_on "portaudio"
+  depends_on "sdl2"
 
   # Download EmuTOS ROM image
   resource "emutos" do
