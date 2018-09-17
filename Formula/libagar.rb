@@ -14,10 +14,10 @@ class Libagar < Formula
     sha256 "c030ffe2c1a718afb161bef162b9252a9dd3dad5e4318c818a3f3203c27bdf0d" => :yosemite
   end
 
-  depends_on "sdl"
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "sdl"
 
   def install
     # Parallel builds failed to install config binaries
