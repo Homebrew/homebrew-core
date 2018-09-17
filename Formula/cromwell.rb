@@ -11,8 +11,8 @@ class Cromwell < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
   depends_on "akka"
+  depends_on :java => "1.8+"
 
   resource "womtool" do
     url "https://github.com/broadinstitute/cromwell/releases/download/34/womtool-34.jar"
