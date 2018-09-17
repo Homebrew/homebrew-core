@@ -13,22 +13,22 @@ class Gitg < Formula
     sha256 "e3b511e5c3a4892e27ca0f777be10a7bfbcfdb25dd98a976217f0d1e2fa40607" => :el_capitan
   end
 
+  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "intltool" => :build
-  depends_on "gtksourceview3"
+  depends_on "adwaita-icon-theme"
   depends_on "gobject-introspection"
-  depends_on "libgit2"
-  depends_on "libgit2-glib"
   depends_on "gsettings-desktop-schemas"
-  depends_on "libgee"
-  depends_on "json-glib"
-  depends_on "libsecret"
-  depends_on "libpeas"
-  depends_on "libsoup"
+  depends_on "gtksourceview3"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
+  depends_on "json-glib"
+  depends_on "libgee"
+  depends_on "libgit2"
+  depends_on "libgit2-glib"
+  depends_on "libpeas"
+  depends_on "libsecret"
+  depends_on "libsoup"
 
   def install
     system "./configure", "--disable-debug",
