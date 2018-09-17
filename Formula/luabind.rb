@@ -15,8 +15,8 @@ class Luabind < Formula
   end
 
   depends_on "boost-build" => :build
-  depends_on "lua@5.1"
   depends_on "boost"
+  depends_on "lua@5.1"
 
   # boost 1.57 compatibility
   # https://github.com/Homebrew/homebrew/pull/33890#issuecomment-67723688
