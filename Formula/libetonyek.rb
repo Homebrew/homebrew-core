@@ -10,10 +10,10 @@ class Libetonyek < Formula
     sha256 "d811b416c6cc4cee0c770d476a993ab2b2ad9917068f31bb772a0ad3704cdcc1" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
-  depends_on "librevenge"
+  depends_on "pkg-config" => :build
   depends_on "glm"
+  depends_on "librevenge"
   depends_on "mdds"
 
   resource "liblangtag" do
