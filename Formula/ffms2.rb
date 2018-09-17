@@ -17,8 +17,8 @@ class Ffms2 < Formula
   head do
     url "https://github.com/FFMS/ffms2.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
