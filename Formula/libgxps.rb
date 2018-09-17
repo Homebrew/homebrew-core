@@ -17,9 +17,9 @@ class Libgxps < Formula
   head do
     url "https://github.com/GNOME/libgxps.git"
 
-    depends_on "libtool" => :build
     depends_on "gnome-common" => :build
     depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "autoconf" => :build
