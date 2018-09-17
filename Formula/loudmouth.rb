@@ -22,10 +22,10 @@ class Loudmouth < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
-  depends_on "libidn"
-  depends_on "gnutls"
   depends_on "gettext"
+  depends_on "glib"
+  depends_on "gnutls"
+  depends_on "libidn"
 
   def install
     system "./autogen.sh", "-n" if build.head?
