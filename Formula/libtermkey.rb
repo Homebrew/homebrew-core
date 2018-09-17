@@ -13,8 +13,8 @@ class Libtermkey < Formula
     sha256 "07bfd3dd2f19032d05d2415642569df0ec8a74f48f545b3e5e1a8548849e9b42" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
   def install
     system "make", "PREFIX=#{prefix}"
