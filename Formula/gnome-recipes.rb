@@ -13,23 +13,21 @@ class GnomeRecipes < Formula
     sha256 "5fba96e2200b9a7763cae02c8998a43422c8a69543f362b058fb92adad950ee8" => :el_capitan
   end
 
+  depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "itstool" => :build
   depends_on "python" => :build
-  depends_on "gtk+3"
   depends_on "adwaita-icon-theme"
-  depends_on "libcanberra"
   depends_on "gnome-autoar"
-  depends_on "gspell"
-  depends_on "libsoup"
   depends_on "gnu-tar"
+  depends_on "gspell"
+  depends_on "gtk+3"
+  depends_on "json-glib" # for goa
+  depends_on "libcanberra"
+  depends_on "librest" # for goa
+  depends_on "libsoup"
   depends_on "libxml2"
-
-  # dependencies for goa
-  depends_on "json-glib"
-  depends_on "librest"
 
   resource "goa" do
     url "https://download.gnome.org/sources/gnome-online-accounts/3.30/gnome-online-accounts-3.30.0.tar.xz"
