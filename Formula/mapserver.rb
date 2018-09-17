@@ -17,19 +17,19 @@ class Mapserver < Formula
   option "with-php", "Build PHP MapScript module"
   option "with-postgresql", "Build support for PostgreSQL as a data source"
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "swig" => :build
+  depends_on "fcgi" if build.with? "fastcgi"
   depends_on "freetype"
-  depends_on "libpng"
-  depends_on "giflib"
   depends_on "gd"
-  depends_on "proj"
   depends_on "gdal"
+  depends_on "giflib"
+  depends_on "libpng"
+  depends_on "proj"
+  depends_on "cairo" => :optional
   depends_on "geos" => :optional
   depends_on "postgresql" => :optional unless MacOS.version >= :lion
-  depends_on "cairo" => :optional
-  depends_on "fcgi" if build.with? "fastcgi"
 
   def install
     # Harfbuzz support requires fribidi and fribidi support requires
