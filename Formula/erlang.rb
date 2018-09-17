@@ -2,16 +2,16 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.0.6.tar.gz"
-  sha256 "a7da6ad97106b5ba087394658d41174ac1123d1f017bce02fbb9e43b49676f40"
+  url "https://github.com/erlang/otp/archive/OTP-21.0.9.tar.gz"
+  sha256 "fbbd21358ddcf657b3125db636ef2260d421f5024ff9b4ad03c5e690651ec0dd"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "3723fa8dcf35584e6b5ca5c02f40c599aa560816f5b7c336b3b8c1481ddfb60f" => :mojave
-    sha256 "9c58a22b3c86f14c8b5eecf444ea61dea1fa731f86222f9e9106f9ae6b804503" => :high_sierra
-    sha256 "9eab6e65753afe104bb79b5be8322dd418e2354a160c8af987707be58b36216e" => :sierra
-    sha256 "0a3cca80b71459a243ecc55cb6f9d580c16c7be6ca1687509433e390fdc73a27" => :el_capitan
+    sha256 "3d460f11022513a695147f656985c6a81d1aabe96f70f454c4e834442fb570b0" => :mojave
+    sha256 "a8a8d12a61826e8085015b4fe38511c3eaa1207200e7720ee90a72360e9e6d86" => :high_sierra
+    sha256 "7a71903323f6e50a928b46fd3f0abf1ea3f3c795b97d713055a87a2baf84f1c9" => :sierra
+    sha256 "de6637dd1b603329da49aae2996e133ca0df5f828ea05dd6c0b468d28aea99fa" => :el_capitan
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
@@ -27,9 +27,9 @@ class Erlang < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
+  depends_on "wxmac" => :recommended # for GUI apps like observer
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
-  depends_on "wxmac" => :recommended # for GUI apps like observer
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.0.tar.gz"

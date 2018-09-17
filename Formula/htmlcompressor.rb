@@ -12,8 +12,8 @@ class Htmlcompressor < Formula
   deprecated_option "yuicompressor" => "with-yuicompressor"
   deprecated_option "closure-compiler" => "with-closure-compiler"
 
-  depends_on "yuicompressor" => :optional
   depends_on "closure-compiler" => :optional
+  depends_on "yuicompressor" => :optional
 
   def install
     libexec.install "htmlcompressor-#{version}.jar"

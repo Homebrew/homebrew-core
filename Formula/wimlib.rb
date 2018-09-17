@@ -14,7 +14,6 @@ class Wimlib < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ntfs-3g" => :optional
   depends_on "openssl"
 
   def install
@@ -23,11 +22,10 @@ class Wimlib < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
-      --without-fuse
       --prefix=#{prefix}
+      --without-fuse
+      --without-ntfs-3g
     ]
-
-    args << "--without-ntfs-3g" if build.without? "ntfs-3g"
 
     system "./configure", *args
     system "make", "install"

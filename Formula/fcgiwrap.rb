@@ -14,9 +14,9 @@ class Fcgiwrap < Formula
     sha256 "15a4dc62dba901bdc25f8d898674069b8cad09b3d2c00458900f31c143305a4e" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "fcgi"
 
   def install

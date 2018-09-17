@@ -28,8 +28,6 @@ class Bitlbee < Formula
   end
 
   option "with-pidgin", "Use finch/libpurple for all communication with instant messaging networks"
-  option "with-libotr", "Build with otr (off the record) support"
-  option "with-libevent", "Use libevent for the event-loop handling rather than glib."
 
   deprecated_option "with-finch" => "with-pidgin"
 
@@ -39,8 +37,6 @@ class Bitlbee < Formula
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "pidgin" => :optional
-  depends_on "libotr" => :optional
-  depends_on "libevent" => :optional
 
   def install
     args = %W[
@@ -55,8 +51,6 @@ class Bitlbee < Formula
     ]
 
     args << "--purple=1" if build.with? "pidgin"
-    args << "--otr=1" if build.with? "libotr"
-    args << "--events=libevent" if build.with? "libevent"
 
     system "./configure", *args
 

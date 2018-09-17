@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.28.0-src.tar.gz"
-    sha256 "1d5a81729c6f23a0a23b584dd249e35abe9c6f7569cee967cc42b1758ecd6486"
+    url "https://static.rust-lang.org/dist/rustc-1.29.0-src.tar.gz"
+    sha256 "a4eb34ffd47f76afe2abd813f398512d5a19ef00989d37306217c9c9ec2f61e9"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -21,10 +21,10 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "bca6e54631fd869d9a5e2d50435f4e9c4fdbbcd32ec4d7343c00a2e80807640a" => :mojave
-    sha256 "8bf1223d11b97f9cf1cedc9352fb0a1de81caa05384368a1603170a214327fc5" => :high_sierra
-    sha256 "e625d56848f386aea2ad7d895a1c1a73ea9e18fd2815fd2961420672a3ce4e99" => :sierra
-    sha256 "bba983b145cd112f1c06961b654c096a29e98397e3d5bb199c70c23c0c01e0b8" => :el_capitan
+    sha256 "5d4480af0b60f5699a557302eed57233872ad70f96375308bec363572255ef48" => :mojave
+    sha256 "44d3670ef4aced0d8afe37f51286f7995d050ab8b00917bab6b58e4252b5bb41" => :high_sierra
+    sha256 "1bc77afd18b8dcb29e9807731a3d656fa4533231cbccfdc9aa907feb33fa1a06" => :sierra
+    sha256 "9cd966cd787a7fefb5cfb5f40c623b71078225e36ebdfdfe770f8f7cacde849b" => :el_capitan
   end
 
   head do
@@ -58,8 +58,8 @@ class Rust < Formula
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2018-07-20/cargo-0.28.0-x86_64-apple-darwin.tar.gz"
-    sha256 "bc995c0710913b21ac979aa911669fbb1a11fbdda52eb0b4bb5e72fbcbb82085"
+    url "https://static.rust-lang.org/dist/2018-08-02/cargo-0.29.0-x86_64-apple-darwin.tar.gz"
+    sha256 "24ea65fba1e1c317842c2d554659f483748a6b155cea53204b1126b142de9125"
   end
 
   def install
@@ -67,10 +67,9 @@ class Rust < Formula
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
-    # Prevent cargo from linking against a different library (like openssl@1.1)
-    # from libssh2 and causing segfaults
-    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
-    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
+    # Ensure that the `openssl` crate picks up the intended library.
+    # https://crates.io/crates/openssl#manual-configuration
+    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
 
     # Fix build failure for cmake v0.1.24 "error: internal compiler error:
     # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for
@@ -98,7 +97,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "install", "--root", prefix
+      system "cargo", "install", "--root", prefix, "--path", "."
     end
 
     resource("racer").stage do
@@ -106,7 +105,7 @@ class Rust < Formula
       cargo_home = buildpath/"cargo_home"
       cargo_home.mkpath
       ENV["CARGO_HOME"] = cargo_home
-      system "cargo", "install", "--root", libexec
+      system "cargo", "install", "--root", libexec, "--path", "."
       (bin/"racer").write_env_script(libexec/"bin/racer", :RUST_SRC_PATH => pkgshare/"rust_src")
     end
 

@@ -13,9 +13,9 @@ class Gtksourceviewmm < Formula
     sha256 "5081201035ee520569f9dc730e753d73d605a9717bca20c640f3d0365773903b" => :el_capitan
   end
 
-  depends_on "gtksourceview"
   depends_on "pkg-config" => :build
   depends_on "gtkmm"
+  depends_on "gtksourceview"
 
   needs :cxx11
 

@@ -1,17 +1,16 @@
 class Awk < Formula
   desc "Text processing scripting language"
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
-  url "https://www.cs.princeton.edu/~bwk/btl.mirror/awk.tar.gz"
-  version "20121220"
-  sha256 "8dc092165c5a4e1449f964286483d06d0dbfba4b0bd003cb5dab30de8f6d9b83"
+  url "https://github.com/onetrueawk/awk/archive/20180827.tar.gz"
+  sha256 "c9232d23410c715234d0c26131a43ae6087462e999a61f038f1790598ce4807f"
+  head "https://github.com/onetrueawk/awk.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e924a14afca65c45751bc294926f2034a0a67e50fcd22303e31ec8196a8b7a1a" => :mojave
-    sha256 "da4358a83f3e939323eea96b4dc4db74a71157bd7d702b9599811a54a393e26c" => :high_sierra
-    sha256 "40dbcdf8549b662e7775074fe8c172f364862705b0c0ba00495c2da6e1440a70" => :sierra
-    sha256 "593cdb489ae25ec556af3a02e26b957efc3a67731f8edf48335a994fa58d533e" => :el_capitan
-    sha256 "d74b6dc04cd9dac3791216744a56813b8396c419f325244526c79c433ca95b3d" => :yosemite
+    sha256 "da17e7e893d2a2fb4ab267fb9ead8785ef9417dead77d6c84204d2151330bf47" => :mojave
+    sha256 "3e7c18b44cd1f1783a28c34edbc2215a2b975021ec42ccaa0f792243d3cb320b" => :high_sierra
+    sha256 "2c55499ad7ed357a30d643430dd00d426fd3cfa2f5705c772f5a3dd8c8cd020c" => :sierra
+    sha256 "a844637c334c68f7d7079a1ef6bc45c4df242c93cf6ed891b6d551269518c9c7" => :el_capitan
   end
 
   conflicts_with "gawk",

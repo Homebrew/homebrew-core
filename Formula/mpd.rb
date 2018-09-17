@@ -115,7 +115,6 @@ class Mpd < Formula
   def caveats; <<~EOS
     MPD requires a config file to start.
     Please copy it from #{etc}/mpd/mpd.conf into one of these paths:
-      - $XDG_CONFIG_HOME/mpd/mpd.conf
       - ~/.mpd/mpd.conf
       - ~/.mpdconf
     and tailor it to your needs.

@@ -6,32 +6,32 @@ class GnomeRecipes < Formula
   revision 6
 
   bottle do
-    sha256 "7e43f9bf6e1195b10cae436af57429908ae4e6fb7686ac8b3ac1c7df41bbba23" => :high_sierra
-    sha256 "078cd939f7da09bb99f11b8587376a3988ae6677e12951aa0dc0710165428183" => :sierra
-    sha256 "42047634605fc4712aaf5aad6d64a157ed727d0be5bf6faaae334572d1420394" => :el_capitan
+    rebuild 1
+    sha256 "ec344aea10673e323e449140a75ec6b0d1f0e7d2df311a7d1b74ba5d38060e59" => :mojave
+    sha256 "4e26ec4a2a2ed06ef948fca74364265d2d02416575e67117000531abe7fef756" => :high_sierra
+    sha256 "6c2bdccb10c2fd094cf6a618b57b7361b1a4ff60377aaebe69b9891c60d7e05d" => :sierra
+    sha256 "5fba96e2200b9a7763cae02c8998a43422c8a69543f362b058fb92adad950ee8" => :el_capitan
   end
 
+  depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "itstool" => :build
   depends_on "python" => :build
-  depends_on "gtk+3"
   depends_on "adwaita-icon-theme"
-  depends_on "libcanberra"
   depends_on "gnome-autoar"
-  depends_on "gspell"
-  depends_on "libsoup"
   depends_on "gnu-tar"
+  depends_on "gspell"
+  depends_on "gtk+3"
+  depends_on "json-glib" # for goa
+  depends_on "libcanberra"
+  depends_on "librest" # for goa
+  depends_on "libsoup"
   depends_on "libxml2"
 
-  # dependencies for goa
-  depends_on "json-glib"
-  depends_on "librest"
-
   resource "goa" do
-    url "https://download.gnome.org/sources/gnome-online-accounts/3.28/gnome-online-accounts-3.28.0.tar.xz"
-    sha256 "87bc4ef307604f1ce4f09f6e5c9996ef8d37ca5e0a3bf76f6b27d71844adb40c"
+    url "https://download.gnome.org/sources/gnome-online-accounts/3.30/gnome-online-accounts-3.30.0.tar.xz"
+    sha256 "27d9d88942aa02a1f8d003dfe515483d8483f216ba1e297a8ef67a42cf4bcfc3"
   end
 
   def install

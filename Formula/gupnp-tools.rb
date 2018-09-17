@@ -11,13 +11,13 @@ class GupnpTools < Formula
     sha256 "dd76de959f08a89e5cba3c135607af53a922413f584397cd141fb6a93b52587c" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gupnp"
-  depends_on "gupnp-av"
   depends_on "gtk+3"
   depends_on "gtksourceview3"
+  depends_on "gupnp"
+  depends_on "gupnp-av"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

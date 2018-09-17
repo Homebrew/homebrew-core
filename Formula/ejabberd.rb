@@ -13,14 +13,14 @@ class Ejabberd < Formula
   head do
     url "https://github.com/processone/ejabberd.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
-  depends_on "openssl"
   depends_on "erlang"
   depends_on "gd"
   depends_on "libyaml"
+  depends_on "openssl"
   # for CAPTCHA challenges
   depends_on "imagemagick" => :optional
 

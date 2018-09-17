@@ -48,10 +48,10 @@ class Freerdp < Formula
     depends_on :xcode => :build
   end
 
-  depends_on :x11
-  depends_on "openssl"
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "openssl"
+  depends_on :x11
 
   def install
     cmake_args = std_cmake_args

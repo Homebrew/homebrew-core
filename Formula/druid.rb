@@ -8,8 +8,8 @@ class Druid < Formula
 
   option "with-mysql", "Build with mysql-metadata-storage plugin"
 
-  depends_on "zookeeper"
   depends_on :java => "1.8"
+  depends_on "zookeeper"
 
   resource "mysql-metadata-storage" do
     url "http://static.druid.io/artifacts/releases/mysql-metadata-storage-0.12.2.tar.gz"

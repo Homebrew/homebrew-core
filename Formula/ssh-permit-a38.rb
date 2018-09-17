@@ -16,9 +16,10 @@ class SshPermitA38 < Formula
   depends_on "openssl"
 
   def install
-    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].opt_include
-    ENV["DEP_OPENSSL_INCLUDE"] = Formula["openssl"].opt_include
-    ENV["OPENSSL_LIB_DIR"] = Formula["openssl"].opt_lib
+    # Ensure that the `openssl` crate picks up the intended library.
+    # https://crates.io/crates/openssl#manual-configuration
+    ENV["OPENSSL_DIR"] = Formula["openssl"].opt_prefix
+
     system "cargo", "install", "--root", prefix, "--path", "."
   end
 

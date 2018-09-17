@@ -15,8 +15,8 @@ class Clhep < Formula
   head do
     url "https://gitlab.cern.ch/CLHEP/CLHEP.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "cmake" => :build

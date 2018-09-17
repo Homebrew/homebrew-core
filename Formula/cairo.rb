@@ -12,19 +12,24 @@ class Cairo < Formula
     sha256 "bec85433a35605164bdbf5f8913e29eb6d9ceb5acc5569dd9d864706ae6c8d49" => :el_capitan
   end
 
+  devel do
+    url "https://cairographics.org/snapshots/cairo-1.15.12.tar.xz"
+    sha256 "7623081b94548a47ee6839a7312af34e9322997806948b6eec421a8c6d0594c9"
+  end
+
   head do
     url "https://anongit.freedesktop.org/git/cairo", :using => :git
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "freetype"
   depends_on "fontconfig"
+  depends_on "freetype"
+  depends_on "glib"
   depends_on "libpng"
   depends_on "pixman"
-  depends_on "glib"
 
   def install
     if build.head?

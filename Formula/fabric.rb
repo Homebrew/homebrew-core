@@ -3,20 +3,20 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "https://www.fabfile.org/"
-  url "https://github.com/fabric/fabric/archive/2.3.1.tar.gz"
-  sha256 "99c8c893cb8219be8a580f92a57efce0a55972ca70519ffd6eb594b04e0ffe0d"
+  url "https://github.com/fabric/fabric/archive/2.4.0.tar.gz"
+  sha256 "cb562fe648c8a473be8684a5a36494c0b8d1d2b3654776f1628df2c0808f236b"
   head "https://github.com/fabric/fabric.git"
 
   bottle do
     cellar :any
-    sha256 "33fd14a665dcdeae27786cb6bf880e14fd0da7d01ba2cbc1d0ff73e727d6f1c2" => :mojave
-    sha256 "c9d2cd238d0523c58949578a23789c6b23dd457fe73aceb7d89c854d871cfeb4" => :high_sierra
-    sha256 "6538e4dae114480e16d6a3e1f01e204f52eff1145db7b6956dae30ea471f549c" => :sierra
-    sha256 "0303732d7abca2d6754f846faa28b7f145413811b9b2276cf1eb3f38c7b9e90f" => :el_capitan
+    sha256 "fb39966f6966150e490021102c782b2287a95d919db0dba65b40328c9cd32d8a" => :mojave
+    sha256 "e2a1544a2aa319c80f66f2e05b67d88ea4a2fbf05fe4b63f6e90bc95dfe48a8b" => :high_sierra
+    sha256 "3567ea0e87326c04a20ecf969fe7d296c219e3780946a8d5164c4068da6b2f46" => :sierra
+    sha256 "a2b96e26930efd22aff054c45c62db2af074dd3feb444ea367ffcaf67d2ecbc3" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "openssl"
+  depends_on "python@2"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -34,8 +34,8 @@ class Fabric < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/79/a2/61c8625f96c8582d3053f89368c483ba62e56233d055e58e372f94a393f0/cryptography-2.3.tar.gz"
-    sha256 "c132bab45d4bd0fff1d3fe294d92b0a6eb8404e93337b3127bdec9f21de117e6"
+    url "https://files.pythonhosted.org/packages/22/21/233e38f74188db94e8451ef6385754a98f3cad9b59bedf3a8e8b14988be4/cryptography-2.3.1.tar.gz"
+    sha256 "8d10113ca826a4c29d5b85b2c4e045ffa8bad74fb525ee0eceb1d38d4c70dfd6"
   end
 
   resource "enum34" do
@@ -49,8 +49,8 @@ class Fabric < Formula
   end
 
   resource "invoke" do
-    url "https://files.pythonhosted.org/packages/5c/54/bb21679f58d85574fe2a17addef3c9b619217758856b6ba1a7cbbdec26dd/invoke-1.1.0.tar.gz"
-    sha256 "265eead8c89805a2ac5083200842db6da7636ac63fb4fe0d1121b930770f3e2a"
+    url "https://files.pythonhosted.org/packages/ef/80/cef14194e2dd62582cc0a4f5f2db78fb00de3ba5d1bc0e50897b398ea984/invoke-1.2.0.tar.gz"
+    sha256 "dc492f8f17a0746e92081aec3f86ae0b4750bf41607ea2ad87e5a7b5705121b7"
   end
 
   resource "ipaddress" do
@@ -64,8 +64,8 @@ class Fabric < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/0d/33/3466a3210321a02040e3ab2cd1ffc6f44664301a5d650a7e44be1dc341f2/pyasn1-0.4.3.tar.gz"
-    sha256 "fb81622d8f3509f0026b0683fe90fea27be7284d3826a5f2edf97f69151ab0fc"
+    url "https://files.pythonhosted.org/packages/10/46/059775dc8e50f722d205452bced4b3cc965d27e8c3389156acd3b1123ae3/pyasn1-0.4.4.tar.gz"
+    sha256 "f58f2a3d12fd754aa123e9fa74fb7345333000a035f3921dbdaa08597aa53137"
   end
 
   resource "pycparser" do

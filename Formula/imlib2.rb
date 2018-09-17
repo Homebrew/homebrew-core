@@ -15,11 +15,10 @@ class Imlib2 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "libpng" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "giflib" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "libid3tag" => :optional
+  depends_on "giflib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on :x11 => :recommended
 
   def install
@@ -27,9 +26,9 @@ class Imlib2 < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --enable-amd64=no
+      --without-id3
     ]
     args << "--without-x" if build.without? "x11"
-    args << "--without-id3" if build.without? "libid3tag"
 
     system "./configure", *args
     system "make", "install"

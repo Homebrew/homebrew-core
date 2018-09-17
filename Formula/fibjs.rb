@@ -12,8 +12,8 @@ class Fibjs < Formula
     sha256 "c92cd08f2df73f58392e8cb756c37cd0a7cc428658a4a38dce831e8357682987" => :sierra
   end
 
-  depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
   depends_on "cmake" => :build
+  depends_on :macos => :sierra # fibjs requires >= Xcode 8.3 (or equivalent CLT)
 
   def install
     # the build script breaks when CI is set by Homebrew

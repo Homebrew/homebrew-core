@@ -12,8 +12,8 @@ class Gforth < Formula
   end
 
   depends_on "emacs" => :build
-  depends_on "libtool"
   depends_on "libffi"
+  depends_on "libtool"
   depends_on "pcre"
 
   def install

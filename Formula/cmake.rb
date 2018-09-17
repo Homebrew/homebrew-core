@@ -1,16 +1,16 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.12/cmake-3.12.1.tar.gz"
-  sha256 "c53d5c2ce81d7a957ee83e3e635c8cda5dfe20c9d501a4828ee28e1615e57ab2"
+  url "https://cmake.org/files/v3.12/cmake-3.12.2.tar.gz"
+  sha256 "0f97485799e51a7070cc11494f3e02349b0fc3a24cc12b082e737bf67a0581a4"
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef3b141cc855a6e5518c135546d1cc7695ed5dae3cbca099d409872c704c9ab6" => :mojave
-    sha256 "df5ffff29e5af535a248bd317dff6b7c866be68b8eaacf0c6d8b9ff250f632d8" => :high_sierra
-    sha256 "ce3c2f7cf8cfacdf2ea08ea362cc96b7723c26933e0a442e2f8ddd36f6bfc0c6" => :sierra
-    sha256 "103b2e1a04cc2d1356be4197356ba69633f647f7a8130501e42464ea3ee5a778" => :el_capitan
+    sha256 "467775398419045ade07ae6f406fcc41299094f1c2d94eeda1b192eda2cb7e90" => :mojave
+    sha256 "852ff3e17fd4b18dad1b321043a2e89020bed0e8b1cabcaf1ca93f454c38e182" => :high_sierra
+    sha256 "10dd90b3aedb656af4ef26f53ff62a6f3b34391fc4774f5704959f643535cb09" => :sierra
+    sha256 "14ad6305d2b795cabe082779eea3875591ddb3b3c881a6056f9c792243fe7135" => :el_capitan
   end
 
   option "without-docs", "Don't build man pages"
@@ -26,6 +26,10 @@ class Cmake < Formula
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
+
+    # Avoid the following compiler error:
+    # SecKeychain.h:102:46: error: shift expression '(1853123693 << 8)' overflows
+    ENV.append_to_cflags "-fpermissive" if MacOS.version <= :lion
 
     args = %W[
       --prefix=#{prefix}

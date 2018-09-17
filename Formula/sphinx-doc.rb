@@ -1,15 +1,15 @@
 class SphinxDoc < Formula
   desc "Tool to create intelligent and beautiful documentation"
   homepage "http://sphinx-doc.org"
-  url "https://files.pythonhosted.org/packages/ac/54/4ef326d0c654da1ed91341a7a1f43efc18a8c770ddd2b8e45df97cb79d82/Sphinx-1.7.8.tar.gz"
-  sha256 "a07050845cc9a2f4026a6035cc8ed795a5ce7be6528bbc82032385c10807dfe7"
+  url "https://files.pythonhosted.org/packages/52/f2/eb65961b97479eec6f89f53572113cb8bd5df70ed93c50a630a5b1bf5598/Sphinx-1.8.0.tar.gz"
+  sha256 "95acd6648902333647a0e0564abdb28a74b0a76d2333148aa35e5ed1f56d3c4b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af5faac5c24a12db96d82ae7a4214314b1e2a1a2e1a98e667c03a02d5e1fce47" => :mojave
-    sha256 "11a99cbedf0d8d134a8b2971e670c98bbfafc5c2d45125d8affa0be5a4d364db" => :high_sierra
-    sha256 "4e784381d62b6443086fe4cb7f81a3e99373f559c5705b184520cff1230a3a22" => :sierra
-    sha256 "236a8ceed0418120d6a6baddccd186b075e15d2b7b80490142bdaf47ff376049" => :el_capitan
+    sha256 "2867e566cb8dd9a9e76d62ec34e9a0ba55f406b81d81e01169cbbd9427dc09a2" => :mojave
+    sha256 "f6b4ce4f8e2c33f641e38438ddeba4b2c0964fb1726c6085fe42889194bf3fc9" => :high_sierra
+    sha256 "88fb81c1d2acfdbe4813060e2a2688ffd15e1e770f7623561f39c4ca838f524e" => :sierra
+    sha256 "cc5a262cd6cf845c2d5012a525c962544fa9e5ea11743aeff17be202c9ffaef3" => :el_capitan
   end
 
   keg_only <<~EOS
@@ -56,8 +56,8 @@ class SphinxDoc < Formula
   end
 
   resource "imagesize" do
-    url "https://files.pythonhosted.org/packages/c6/3f/1db2da33804e8d7ef3a868b27b7bdc1aae6a4f693f0162d2aeeaf503864f/imagesize-1.0.0.tar.gz"
-    sha256 "5b326e4678b6925158ccc66a9fa3122b6106d7c876ee32d7de6ce59385b96315"
+    url "https://files.pythonhosted.org/packages/41/f5/3cf63735d54aa9974e544aa25858d8f9670ac5b4da51020bbfc6aaade741/imagesize-1.1.0.tar.gz"
+    sha256 "f3832918bc3c66617f92e35f5d70729187676313caa60c187eb0f28b8fe5e3b5"
   end
 
   resource "Jinja2" do

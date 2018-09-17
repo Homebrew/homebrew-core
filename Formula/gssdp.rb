@@ -13,8 +13,8 @@ class Gssdp < Formula
     sha256 "7927b712f8f9570c0a7e21593786bd41edf0daf2e14b7998886af9a00a8c2ab0" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"

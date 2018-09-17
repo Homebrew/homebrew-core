@@ -12,8 +12,8 @@ class Grsync < Formula
     sha256 "b47c5cd30b84d999349e938281966586697485ff23bbe8af96e18977653c94a4" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
 

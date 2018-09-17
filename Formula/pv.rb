@@ -13,20 +13,9 @@ class Pv < Formula
     sha256 "0c4d4a90c188370ed312490b7ff76fdb8a31399170cdc0ad5dfc1542af4c4fc0" => :yosemite
   end
 
-  option "with-gettext", "Build with Native Language Support"
-
-  depends_on "gettext" => :optional
-
   def install
-    args = %W[
-      --disable-debug
-      --prefix=#{prefix}
-      --mandir=#{man}
-    ]
-
-    args << "--disable-nls" if build.without? "gettext"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug", "--prefix=#{prefix}",
+                          "--mandir=#{man}", "--disable-nls"
     system "make", "install"
   end
 

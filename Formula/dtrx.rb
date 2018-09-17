@@ -14,11 +14,8 @@ class Dtrx < Formula
     sha256 "c023c31dfc27c2a198ff310bfa0438fac034209f39e42800ee5d462bb2be3e6b" => :mavericks
   end
 
-  depends_on "cabextract" => :optional
-  depends_on "lha" => :optional
-  depends_on "unshield" => :optional
-  depends_on "unrar" => :recommended
-  depends_on "p7zip" => :recommended
+  depends_on "p7zip"
+  depends_on "unrar"
 
   def install
     system "python", "setup.py", "install", "--prefix=#{prefix}"

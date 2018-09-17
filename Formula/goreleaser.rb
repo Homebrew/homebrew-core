@@ -1,15 +1,15 @@
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
-  url "https://github.com/goreleaser/goreleaser/archive/v0.83.3.tar.gz"
-  sha256 "37614330b19709de4fab649a8e15b78208dca3a119314256fa064cbc4ad8acac"
+  url "https://github.com/goreleaser/goreleaser/archive/v0.85.2.tar.gz"
+  sha256 "9414bebd31b82fc7ef78115379e31af3de233c9e34de231c5b72879d4b811c3a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e90cb100fecffbc3844085534047ca4b1fbd2dce023b3bfc975480b5c25957e" => :mojave
-    sha256 "9c20b99ccf58b35e28e855ce05ccf2a48cca10c9a879809d1534bcf25d0346bc" => :high_sierra
-    sha256 "b8c3299239d31d221b255002830eeda9be834ef29b8e76eccc9262c55baeb6e3" => :sierra
-    sha256 "d00255045647e84a162c325034c2b5425fa2c747c6e9fe6182980f1cd599fea2" => :el_capitan
+    sha256 "1b1b173f930a58397accb15844b67f08ccb2cb5adbf2417de6ae6d8c90fb3f4e" => :mojave
+    sha256 "113969de2c4a5e379f0efa9b359245b58cf323498a5d8f815ed5c42dea92eff6" => :high_sierra
+    sha256 "6fff151cd205c32918ede68fb8f4e659d3509f4f6b3ca13d11f9335db4da0807" => :sierra
+    sha256 "4e3ae6c84016b38b784de65ebcb3a7691b2b7064c831f781529ddb69a0220b8d" => :el_capitan
   end
 
   depends_on "dep" => :build

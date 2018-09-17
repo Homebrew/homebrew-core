@@ -7,13 +7,21 @@ class Glide < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "78889b92f507a115f040eacdbcc58822e411f11ba98c7ce5eef0b14eb17dc78b" => :mojave
-    sha256 "caf9796752ea6c302aad5ccb6d2d415961e338743ad93a849c012654f1826057" => :high_sierra
-    sha256 "31aa6f3b39c0a101dd94e9dda1a7d76fa6d22d8865effa0e96ae5d61d799233e" => :sierra
-    sha256 "9a400081061df8e2cbd82463b763e20e2029df47f750a8622ba6e3e81f21fa66" => :el_capitan
+    rebuild 2
+    sha256 "8d32d75cd6719bdcb4d7a00f3128935b06fdeda1ba1eec6cdfbe1e2b285957eb" => :mojave
+    sha256 "de16e0ce83205bf22987d8bb040c22e050db00e8c4f31b2354e395c9fc930074" => :high_sierra
+    sha256 "7f1500c002a50fd4fe5639e6a00b948847f05e1274c9e926c34c3c15fa4703b7" => :sierra
+    sha256 "b20e6e4df389ab498279ea283347a99db7e62091bbe85302c2a6692aec73c783" => :el_capitan
   end
 
   depends_on "go"
+
+  # Fix issue which shows up at runtime (when building calicoctl and
+  # kubernetes-helm): https://github.com/Masterminds/glide/pull/990
+  patch do
+    url "https://github.com/Masterminds/glide/pull/990.patch?full_index=1"
+    sha256 "f3711026b3261b62ca67fbf737ccae6889922f50d7fa25ba9b9a025b6bafdb6b"
+  end
 
   def install
     ENV["GOPATH"] = buildpath

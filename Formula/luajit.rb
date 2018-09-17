@@ -3,31 +3,20 @@ class Luajit < Formula
   homepage "https://luajit.org/luajit.html"
   url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
   sha256 "874b1f8297c697821f561f9b73b57ffd419ed8f4278c82e05b48806d30c1e979"
+  head "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
 
   bottle do
-    sha256 "4848129fc7affc5949c240f571c5e8d0684bbd142f8dc2e18176b3a8f165b2bb" => :high_sierra
-    sha256 "bdebedd2ab2bea98e10591308a5246c81aa7628ee7d17a0f20aeebeebf8bec22" => :sierra
-    sha256 "1d7aaa71d670da1e52b92e6db270ba935b9047e08e5cda52c70b14623d1b5bdf" => :el_capitan
-    sha256 "a96de1c4d07aac2ee35f8df2498e305da7466fed04ae291d42bd63c24e8dc658" => :yosemite
+    rebuild 1
+    sha256 "9093866c951b8ec11c896fa2508043081322fcd6a336e6f7710f20b39e535561" => :mojave
+    sha256 "ec3757b184301eba2c0364b7c93a9dbb12357ed045aef02246cab9068d0c14d5" => :high_sierra
+    sha256 "2bec1138cd0114e4df5c56cd14ec2cc88f6e397c1fb7dc1e1763926670645078" => :sierra
+    sha256 "c6090283a2708cf2fb818d2f33845d80d6b01d236ce1306b6f56d7c6879b0b34" => :el_capitan
   end
 
   devel do
     url "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz"
     sha256 "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
-
-    option "with-gc64", "Build with 64-bit support"
   end
-
-  head do
-    url "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
-
-    option "with-gc64", "Build with 64-bit support"
-  end
-
-  deprecated_option "enable-debug" => "with-debug"
-
-  option "with-debug", "Build with debugging symbols"
-  option "with-52compat", "Build with additional Lua 5.2 compatibility"
 
   def install
     # 1 - Override the hardcoded gcc.
@@ -38,18 +27,16 @@ class Luajit < Formula
       f.change_make_var! "CCOPT_x86", ""
     end
 
+    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
+    # is not set then it's forced to 10.4, which breaks compile on Mojave.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     ENV.O2 # Respect the developer's choice.
 
     args = %W[PREFIX=#{prefix}]
 
-    cflags = []
-    cflags << "-DLUAJIT_ENABLE_LUA52COMPAT" if build.with? "52compat"
-    cflags << "-DLUAJIT_ENABLE_GC64" if !build.stable? && build.with?("gc64")
-
-    args << "XCFLAGS=#{cflags.join(" ")}" unless cflags.empty?
-
-    # This doesn't yet work under superenv because it removes "-g"
-    args << "CCDEBUG=-g" if build.with? "debug"
+    # Build with 64-bit support
+    args << "XCFLAGS=-DLUAJIT_ENABLE_GC64" unless build.stable?
 
     # The development branch of LuaJIT normally does not install "luajit".
     args << "INSTALL_TNAME=luajit" if build.devel?
@@ -69,7 +56,7 @@ class Luajit < Formula
               "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
       s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
               "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
-      if build.without? "gc64"
+      if build.stable?
         s.gsub! "Libs:",
                 "Libs: -pagezero_size 10000 -image_base 100000000"
       end

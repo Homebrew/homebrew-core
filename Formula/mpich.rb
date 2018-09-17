@@ -14,8 +14,8 @@ class Mpich < Formula
   end
 
   devel do
-    url "https://www.mpich.org/static/downloads/3.3b1/mpich-3.3b1.tar.gz"
-    sha256 "f0c822ac48ee01037ec63ec882a945b0730cea6e2f28f262624983e51a983c98"
+    url "https://www.mpich.org/static/downloads/3.3b3/mpich-3.3b3.tar.gz"
+    sha256 "73a881c065f798a47a7db1e0ad34ad16c4cb73bf7ebf34c97618aac152c416bf"
   end
 
   head do

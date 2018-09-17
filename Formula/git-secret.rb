@@ -11,15 +11,17 @@ class GitSecret < Formula
     # Upstream PR from 12 Jun 2018 "Revert 'migrate from bats to bats-core'"
     patch do
       url "https://github.com/sobolevn/git-secret/pull/203.patch?full_index=1"
-      sha256 "c80d63075906d5e7f9145fc5c96d5dfbef0b6ef209f2e879dedb0b9febb0421a"
+      sha256 "ee4e263b9725aee59f8b52196d4749a09791dbb4c745a9e81da523d27fcf3f09"
     end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "397fe1116f278a2a49fc864fc6a1f0bf2b6b7f872b0c5be146b9fc6cfe15821a" => :high_sierra
-    sha256 "397fe1116f278a2a49fc864fc6a1f0bf2b6b7f872b0c5be146b9fc6cfe15821a" => :sierra
-    sha256 "397fe1116f278a2a49fc864fc6a1f0bf2b6b7f872b0c5be146b9fc6cfe15821a" => :el_capitan
+    rebuild 1
+    sha256 "0fb8db338cf111c40a9ddd2a4d02dcb7779c2f50c88364b118d7cb9442bdfb22" => :mojave
+    sha256 "d7a78350338c3f42505215eb1c4d7e48309bf8e5495d1bb91b8517c05ba6398c" => :high_sierra
+    sha256 "d7a78350338c3f42505215eb1c4d7e48309bf8e5495d1bb91b8517c05ba6398c" => :sierra
+    sha256 "d7a78350338c3f42505215eb1c4d7e48309bf8e5495d1bb91b8517c05ba6398c" => :el_capitan
   end
 
   depends_on "gawk"

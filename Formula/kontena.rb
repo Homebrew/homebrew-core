@@ -140,6 +140,7 @@ class Kontena < Formula
   end
 
   bottle do
+    sha256 "37d589d3a85402e006dd3dd7a75fbcb010f0d4984a4080f7d5eeffcead791631" => :mojave
     sha256 "3cf1b8ba751a53d3db948cd92a24e6e7ccf50f92be34df053c44bcfd42ce1b1a" => :high_sierra
     sha256 "52ed5b767e77161f2e8857e34e22f7e86db5ff35a5ad45724399ec60ccfe5f41" => :sierra
     sha256 "4f875785a3849869b78bf9788d7c3949dd20ce8fdb027f1e0380ec7f8f190719" => :el_capitan

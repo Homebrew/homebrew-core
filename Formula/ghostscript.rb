@@ -1,39 +1,14 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  revision 1
-
-  stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs923/ghostscript-9.23.tar.xz"
-    sha256 "1fcedc27d4d6081105cdf35606cb3f809523423a6cf9e3c23cead3525d6ae8d9"
-
-    # https://bugs.chromium.org/p/project-zero/issues/detail?id=1640
-    # https://www.kb.cert.org/vuls/id/332928
-    patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/ghostscript/ghostscript_9.22~dfsg-3.debian.tar.xz"
-      sha256 "1dfce2417808cf299ce9d6cb07751ae2d285772e71506a5752f084d7a90472ff"
-      apply "patches/020180821~0d39011.patch",
-            "patches/020180821~0edd3d6.patch",
-            "patches/020180821~a054156.patch",
-            "patches/020180821~b326a71.patch",
-            "patches/020180821~c3476dd.patch",
-            "patches/020180823~0b6cd19.patch",
-            "patches/020180823~8e9ce50.patch",
-            "patches/020180823~241d911.patch",
-            "patches/020180823~78911a0.patch",
-            "patches/020180823~b575e1e.patch",
-            "patches/020180823~c432131.patch",
-            "patches/020180824~5516c61.patch",
-            "patches/020180824~e01e77a.patch"
-    end
-  end
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs925/ghostpdl-9.25.tar.xz"
+  sha256 "9a6f382badeb86cc5474f0f8f85cde57c0b898bf236be00494754988d0aa0133"
 
   bottle do
-    sha256 "ce61f1e6b265f170d1ac925fb81c3df1f3f925a649595df2dc034d2ab965477e" => :mojave
-    sha256 "0845918822922f58d2626e462c542139508de4719db7dbef90aac3436e45af16" => :high_sierra
-    sha256 "912f4c4ac48029b0686f7cdfe64b5cc1e4f9b1c3c19b877e29eb3df3b5f474d4" => :sierra
-    sha256 "84742f0e7e695527153fe753d30a5e294722b34db4373a51caa9d08a5eca4168" => :el_capitan
+    sha256 "1656cd0d6c7d2a2c0efca4af5c0f70cc96d233708cc0908a3bdfa77d01737af2" => :mojave
+    sha256 "18cfe88d14ecd3c60c053d218af67f3b1220a97a4fd066ff49d750e175d950b5" => :high_sierra
+    sha256 "a1222a6abf93355e5040c89a41a46fbcfb4036d0bab8142f8876cc96bc234055" => :sierra
+    sha256 "ab95b5d129618a49ceee70bb508ab4f6b336ab142f28b7a735062a135a7838ff" => :el_capitan
   end
 
   head do
@@ -48,8 +23,8 @@ class Ghostscript < Formula
   patch :DATA # Uncomment macOS-specific make vars
 
   depends_on "pkg-config" => :build
-  depends_on "little-cms2"
   depends_on "libtiff"
+  depends_on "little-cms2"
   depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
@@ -91,11 +66,13 @@ class Ghostscript < Formula
 end
 
 __END__
-diff --git a/base/unix-dll.mak b/base/unix-dll.mak
-index ae2d7d8..4f4daed 100644
---- a/base/unix-dll.mak
-+++ b/base/unix-dll.mak
-@@ -64,12 +64,12 @@ GS_SONAME_MAJOR_MINOR=$(GS_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR)$(G
+diff --git i/base/unix-dll.mak w/base/unix-dll.mak
+index f50c09c00adb..8855133b400c 100644
+--- i/base/unix-dll.mak
++++ w/base/unix-dll.mak
+@@ -89,18 +89,33 @@ GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR
+ # similar linkers it must containt the trailing "="
+ # LDFLAGS_SO=-shared -Wl,$(LD_SET_DT_SONAME)$(LDFLAGS_SO_PREFIX)$(GS_SONAME_MAJOR)
  
  
  # MacOS X
@@ -109,8 +86,26 @@ index ae2d7d8..4f4daed 100644
 +GS_SONAME_MAJOR_MINOR=$(GS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
  #LDFLAGS_SO=-dynamiclib -flat_namespace
 -#LDFLAGS_SO_MAC=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
-+LDFLAGS_SO_MAC=-dynamiclib -install_name __PREFIX__/lib/$(GS_SONAME_MAJOR_MINOR)
++GS_LDFLAGS_SO=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
  #LDFLAGS_SO=-dynamiclib -install_name $(FRAMEWORK_NAME)
  
++PCL_SONAME=$(PCL_SONAME_BASE).$(GS_SOEXT)
++PCL_SONAME_MAJOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++PCL_SONAME_MAJOR_MINOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++PCL_LDFLAGS_SO=-dynamiclib -install_name $(PCL_SONAME_MAJOR_MINOR)
++
++XPS_SONAME=$(XPS_SONAME_BASE).$(GS_SOEXT)
++XPS_SONAME_MAJOR=$(XPS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++XPS_SONAME_MAJOR_MINOR=$(XPS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++XPS_LDFLAGS_SO=-dynamiclib -install_name $(XPS_SONAME_MAJOR_MINOR)
++
++GPDL_SONAME=$(GPDL_SONAME_BASE).$(GS_SOEXT)
++GPDL_SONAME_MAJOR=$(GPDL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++GPDL_LDFLAGS_SO=-dynamiclib -install_name $(GPDL_SONAME_MAJOR_MINOR)
++
  GS_SO=$(BINDIR)/$(GS_SONAME)
+ GS_SO_MAJOR=$(BINDIR)/$(GS_SONAME_MAJOR)
+ GS_SO_MAJOR_MINOR=$(BINDIR)/$(GS_SONAME_MAJOR_MINOR)
 
+ PCL_SO=$(BINDIR)/$(PCL_SONAME)

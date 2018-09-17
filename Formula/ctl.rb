@@ -13,10 +13,10 @@ class Ctl < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libtiff"
-  depends_on "ilmbase"
-  depends_on "openexr"
   depends_on "aces_container"
+  depends_on "ilmbase"
+  depends_on "libtiff"
+  depends_on "openexr"
 
   def install
     ENV.delete "CTL_MODULE_PATH"

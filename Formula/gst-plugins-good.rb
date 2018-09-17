@@ -30,28 +30,26 @@ class GstPluginsGood < Formula
   depends_on "gst-plugins-base"
   depends_on "libsoup"
 
-  depends_on :x11 => :optional
-
   # Dependencies based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
   # and Homebrew formulae.
   depends_on "jpeg" => :recommended
   depends_on "orc" => :recommended
-  depends_on "gdk-pixbuf" => :optional
   depends_on "aalib" => :optional
   depends_on "cairo" => :optional
   depends_on "flac" => :optional
+  depends_on "gdk-pixbuf" => :optional
   depends_on "gtk+3" => :optional
+  depends_on "jack" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
   depends_on "libpng" => :optional
   depends_on "libshout" => :optional
-  depends_on "speex" => :optional
-  depends_on "taglib" => :optional
-
   depends_on "libvpx" => :optional
   depends_on "pulseaudio" => :optional
-  depends_on "jack" => :optional
+  depends_on "speex" => :optional
+  depends_on "taglib" => :optional
+  depends_on :x11 => :optional
 
   def install
     args = %W[

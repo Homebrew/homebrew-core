@@ -6,10 +6,10 @@ class Dasht < Formula
 
   bottle :unneeded
 
-  depends_on "sqlite"
   depends_on "socat"
-  depends_on "wget"
+  depends_on "sqlite"
   depends_on "w3m"
+  depends_on "wget"
 
   def install
     bin.install Dir["bin/*"]

@@ -12,19 +12,14 @@ class Wesnoth < Formula
     sha256 "f4de6ae40204fa43e16e0a970e508d7b9869965b06b1170e3a8b1c935f187c9c" => :el_capitan
   end
 
-  option "with-ccache", "Speeds recompilation, convenient for beta testers"
-  option "with-debug", "Build with debugging symbols"
-
-  depends_on "scons" => :build
   depends_on "gettext" => :build
-  depends_on "ccache" => :optional
-  depends_on "fribidi"
+  depends_on "scons" => :build
   depends_on "boost"
-  depends_on "libpng"
-  depends_on "fontconfig"
   depends_on "cairo"
+  depends_on "fontconfig"
+  depends_on "fribidi"
+  depends_on "libpng"
   depends_on "pango"
-
   depends_on "sdl"
   depends_on "sdl_image" # Must have png support
   depends_on "sdl_mixer" # The music is in .ogg format
@@ -41,8 +36,6 @@ class Wesnoth < Formula
     args << "wesnoth"
     args << "wesnothd"
     args << "-j#{ENV.make_jobs}"
-    args << "ccache=true" if build.with? "ccache"
-    args << "build=debug" if build.with? "debug"
 
     scons *args
   end

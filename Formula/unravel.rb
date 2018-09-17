@@ -8,6 +8,7 @@ class Unravel < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "fc60902e32d40beca8a58844d98e27d9fe45cb735154dd88d492ba243a9753da" => :mojave
     sha256 "ea6f701ccd6c808661420c77e5c2b2b73b3b3a3a646f18e91e235c3c3843a560" => :high_sierra
     sha256 "9110d228db2cf18125861f289705c135fc7c5ac9b3ebdd01aa69726d7b758ed3" => :sierra
     sha256 "34d1aca980ed2894b743656b271aa42a36b69a4828763c1c1c5ded1638110570" => :el_capitan

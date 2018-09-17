@@ -10,16 +10,11 @@ class PerconaXtrabackup < Formula
     sha256 "39b82780d9716d07186228027a09feb53ded26e25e671abcf463273687d45750" => :el_capitan
   end
 
-  option "without-docs", "Build without man pages (which requires python-sphinx)"
-  option "without-mysql-client", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
-
-  deprecated_option "without-mysql" => "without-mysql-client"
-
   depends_on "cmake" => :build
-  depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on "mysql-client" => :recommended
+  depends_on "sphinx-doc" => :build
   depends_on "libev"
   depends_on "libgcrypt"
+  depends_on "mysql-client"
   depends_on "openssl"
 
   resource "DBD::mysql" do
@@ -36,20 +31,13 @@ class PerconaXtrabackup < Formula
     cmake_args = %w[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
+      -DINSTALL_MANDIR=share/man
+      -DWITH_MAN_PAGES=ON
     ]
 
-    if build.with? "docs"
-      cmake_args.concat %w[
-        -DWITH_MAN_PAGES=ON
-        -DINSTALL_MANDIR=share/man
-      ]
-
-      # macOS has this value empty by default.
-      # See https://bugs.python.org/issue18378#msg215215
-      ENV["LC_ALL"] = "en_US.UTF-8"
-    else
-      cmake_args << "-DWITH_MAN_PAGES=OFF"
-    end
+    # macOS has this value empty by default.
+    # See https://bugs.python.org/issue18378#msg215215
+    ENV["LC_ALL"] = "en_US.UTF-8"
 
     # 1.59.0 specifically required. Detailed in cmake/boost.cmake
     (buildpath/"boost_1_59_0").install resource("boost")
@@ -61,21 +49,19 @@ class PerconaXtrabackup < Formula
     system "make"
     system "make", "install"
 
-    share.install "share/man" if build.with? "docs"
+    share.install "share/man"
 
     rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
     # remove conflicting libraries that are already installed by mysql
     rm lib/"libmysqlservices.a"
     rm lib/"plugin/keyring_file.so"
 
-    if build.with? "mysql-client"
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-      resource("DBD::mysql").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make", "install"
-      end
-      bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+    resource("DBD::mysql").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make", "install"
     end
+    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
   end
 
   test do

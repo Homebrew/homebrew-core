@@ -16,8 +16,8 @@ class Elm < Formula
     sha256 "e2a5f47750fb6a487e5220a3ac234b209acdb7edcde7e42c2ebe2507f8a3a5cf" => :el_capitan
   end
 
-  depends_on "ghc@8.2" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.2" => :build
 
   def install
     # elm-compiler needs to be staged in a subdirectory for the build process to succeed
@@ -35,28 +35,28 @@ class Elm < Formula
     elm_json_path = testpath/"elm.json"
     elm_json_path.write <<~EOS
       {
-	"type": "application",
-	"source-directories": [
-            "."
-	],
-	"elm-version": "0.19.0",
-	"dependencies": {
-          "direct": {
-              "elm/browser": "1.0.0",
-              "elm/core": "1.0.0",
-              "elm/html": "1.0.0"
-          },
-          "indirect": {
-              "elm/json": "1.0.0",
-              "elm/time": "1.0.0",
-              "elm/url": "1.0.0",
-              "elm/virtual-dom": "1.0.0"
-          }
-	},
-	"test-dependencies": {
-		"direct": {},
-		  "indirect": {}
-	}
+        "type": "application",
+        "source-directories": [
+                  "."
+        ],
+        "elm-version": "0.19.0",
+        "dependencies": {
+                "direct": {
+                    "elm/browser": "1.0.0",
+                    "elm/core": "1.0.0",
+                    "elm/html": "1.0.0"
+                },
+                "indirect": {
+                    "elm/json": "1.0.0",
+                    "elm/time": "1.0.0",
+                    "elm/url": "1.0.0",
+                    "elm/virtual-dom": "1.0.0"
+                }
+        },
+        "test-dependencies": {
+          "direct": {},
+            "indirect": {}
+        }
       }
     EOS
 

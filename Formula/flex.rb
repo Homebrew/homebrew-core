@@ -15,11 +15,12 @@ class Flex < Formula
   head do
     url "https://github.com/westes/flex.git"
 
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+
     # https://github.com/westes/flex/issues/294
     depends_on "gnu-sed" => :build
 
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 

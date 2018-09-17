@@ -18,8 +18,8 @@ class HighlightingKate < Formula
     sha256 "bce28e772d40cc270aa78c376a1d6fed78eaba841ca7b90e4290daad0f72d058" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     install_cabal_package "-f", "executable"

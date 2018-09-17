@@ -13,10 +13,6 @@ class Ibex < Formula
     sha256 "8f4d1957bbe546215cf3d328ce06ae6aae6657c764ca2658895654358596f256" => :el_capitan
   end
 
-  option "with-java", "Enable Java bindings for CHOCO solver."
-  option "with-ampl", "Use AMPL file loader plugin"
-
-  depends_on :java => ["1.8+", :optional]
   depends_on "bison" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => :build
@@ -29,21 +25,10 @@ class Ibex < Formula
     # Reported 9 Oct 2017 https://github.com/ibex-team/ibex-lib/issues/286
     ENV.deparallelize
 
-    if build.with?("java") && build.with?("ampl")
-      odie "Cannot set options --with-java and --with-ampl simultaneously for now."
-    end
-
-    args = %W[
-      --prefix=#{prefix}
-      --enable-shared
-      --with-optim
-      --lp-lib=soplex
-    ]
-
-    args << "--with-jni" if build.with? "java"
-    args << "--with-ampl" if build.with? "ampl"
-
-    system "./waf", "configure", *args
+    system "./waf", "configure", "--prefix=#{prefix}",
+                                 "--enable-shared",
+                                 "--lp-lib=soplex",
+                                 "--with-optim"
     system "./waf", "install"
 
     pkgshare.install %w[examples plugins/solver/benchs]

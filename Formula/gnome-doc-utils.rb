@@ -13,12 +13,12 @@ class GnomeDocUtils < Formula
     sha256 "7f90a3db07a45313f84139a416127d24dc37e2e044841d70f643ec53924eecb3" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "python@2"
+  depends_on "pkg-config" => :build
   depends_on "docbook"
   depends_on "gettext"
   depends_on "libxml2"
+  depends_on "python@2"
 
   def install
     # Find our docbook catalog

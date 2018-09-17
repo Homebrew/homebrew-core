@@ -6,9 +6,11 @@ class Shogun < Formula
   revision 2
 
   bottle do
-    sha256 "5cba717ac215389123c61b18d67fa4b4b3fa22ecda0db6ce8b02d6e7520b3318" => :high_sierra
-    sha256 "f00f871d3811235b18e8b3f1b9ff79ffa2c7d511f777c242ff6da11c3ba17d31" => :sierra
-    sha256 "83732a82aefc44d78643400747406d44cf53ab0aca8137bb152ce287d1842e81" => :el_capitan
+    rebuild 1
+    sha256 "63a2ac799dc302da4fa23cf042c7d7195ef226533feba6b83b09b8ecebe06371" => :mojave
+    sha256 "fed5e4edc265b1b7dbee4000c7972bbb19b428a9939ebfba14b8404c8f27ac61" => :high_sierra
+    sha256 "cc8ae55e009ed40250df44fb1a9f3e7297104a77f3680c485c30c3708bb4e2df" => :sierra
+    sha256 "f6783d7ee05413b27b300470fb866731bd1a34398e99598a4d4d7b1b6e61fa6e" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -49,7 +51,7 @@ class Shogun < Formula
   # deprecated json-c is_error() macro which got removed in json-c 0.13.1.
   patch do
     url "https://github.com/shogun-toolbox/shogun/commit/365ce4c4c7.patch?full_index=1"
-    sha256 "e7d90ed1ff448d86762449223b926de247e49ae6eeffa7f38c2395f69b1e16fc"
+    sha256 "0a1c3e2e16b2ce70855c1f15876bddd5e5de35ab29290afceacdf7179c4558cb"
   end
 
   resource "jblas" do

@@ -15,8 +15,8 @@ class Hackrf < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libusb"
   depends_on "fftw"
+  depends_on "libusb"
 
   def install
     cd "host" do

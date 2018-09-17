@@ -15,8 +15,8 @@ class Epeg < Formula
     sha256 "82b3b35c9aae9cbcfe6502489d04ec44a478d058261e8456cba79f791da70a92" => :yosemite
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "jpeg"
   depends_on "libexif"

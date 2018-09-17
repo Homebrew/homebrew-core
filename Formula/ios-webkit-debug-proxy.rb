@@ -13,13 +13,13 @@ class IosWebkitDebugProxy < Formula
     sha256 "7358c4272d5e3f924c6d9849bef1f8f7cc9f570bba4eb5ef66f34aff32ecf7ee" => :el_capitan
   end
 
-  depends_on :macos => :lion
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libimobiledevice"
   depends_on "libplist"
+  depends_on :macos => :lion
   depends_on "usbmuxd"
 
   def install

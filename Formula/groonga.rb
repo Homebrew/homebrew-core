@@ -18,34 +18,16 @@ class Groonga < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-glib", "With benchmark program for developer use"
-  option "with-zeromq", "With suggest plugin for suggesting"
-  option "with-stemmer", "Build with libstemmer support"
-
-  deprecated_option "enable-benchmark" => "with-glib"
-  deprecated_option "with-benchmark" => "with-glib"
-  deprecated_option "with-suggest-plugin" => "with-zeromq"
-
   depends_on "pkg-config" => :build
-  depends_on "pcre"
   depends_on "msgpack"
   depends_on "openssl"
-  depends_on "glib" => :optional
-  depends_on "lz4" => :optional
+  depends_on "pcre"
   depends_on "mecab" => :optional
   depends_on "mecab-ipadic" if build.with? "mecab"
-  depends_on "zeromq" => :optional
-  depends_on "libevent" if build.with? "zeromq"
-  depends_on "zstd" => :optional
 
   resource "groonga-normalizer-mysql" do
     url "https://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.3.tar.gz"
     sha256 "e4534c725de244f5da72b2b05ddcbf1cfb4e56e71ac40f01acae817adf90d72c"
-  end
-
-  resource "stemmer" do
-    url "https://github.com/snowballstem/snowball.git",
-        :revision => "1964ce688cbeca505263c8f77e16ed923296ce7a"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
@@ -55,35 +37,14 @@ class Groonga < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-zlib
-      --with-ssl
+      --disable-zeromq
       --enable-mruby
+      --with-ssl
+      --with-zlib
+      --without-libstemmer
     ]
 
-    if build.with? "zeromq"
-      args << "--enable-zeromq"
-    else
-      args << "--disable-zeromq"
-    end
-
-    if build.with? "stemmer"
-      resource("stemmer").stage do
-        system "make", "dist_libstemmer_c"
-        system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
-        Dir.chdir buildpath.join("libstemmer_c")
-        system "make"
-        mkdir "lib"
-        mv "libstemmer.o", "lib/libstemmer.a"
-        args << "--with-libstemmer=#{Dir.pwd}"
-      end
-    else
-      args << "--without-libstemmer"
-    end
-
-    args << "--enable-benchmark" if build.with? "glib"
     args << "--with-mecab" if build.with? "mecab"
-    args << "--with-lz4" if build.with? "lz4"
-    args << "--with-zstd" if build.with? "zstd"
 
     if build.head?
       args << "--with-ruby"

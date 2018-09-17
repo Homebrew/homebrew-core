@@ -14,8 +14,8 @@ class JsonSpirit < Formula
     sha256 "fba55377ce6098174e392e66df972e070f58f9a259aa38cad592eaf2e808eace" => :mavericks
   end
 
-  depends_on "boost"
   depends_on "cmake" => :build
+  depends_on "boost"
 
   def install
     args = std_cmake_args

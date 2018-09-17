@@ -12,13 +12,12 @@ class Lensfun < Formula
     sha256 "a057800dfa6b88a006cab751aa2708579b7d2f1816ac3c59c24fc4b12e4e4b76" => :el_capitan
   end
 
-  depends_on "python"
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "glib"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "glib"
   depends_on "libpng"
-  depends_on "doxygen" => :optional
+  depends_on "python"
 
   def install
     system "cmake", ".", *std_cmake_args

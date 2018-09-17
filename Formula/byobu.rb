@@ -15,14 +15,14 @@ class Byobu < Formula
   head do
     url "https://github.com/dustinkirkland/byobu.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "coreutils"
   depends_on "gnu-sed" # fails with BSD sed
-  depends_on "tmux"
   depends_on "newt"
+  depends_on "tmux"
 
   conflicts_with "ctail", :because => "both install `ctail` binaries"
 

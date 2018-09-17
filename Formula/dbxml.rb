@@ -11,9 +11,9 @@ class Dbxml < Formula
     sha256 "e2c82383d79f243654a0bbebdfb141334bbf683c6925b5a8f3ce0d1568024fec" => :el_capitan
   end
 
+  depends_on "berkeley-db"
   depends_on "xerces-c"
   depends_on "xqilla"
-  depends_on "berkeley-db"
 
   needs :cxx11
 

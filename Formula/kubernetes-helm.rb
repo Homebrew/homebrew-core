@@ -13,9 +13,9 @@ class KubernetesHelm < Formula
     sha256 "987174d800b65c9350e198152cf05a5f605f49149da382d81c39b8e6da2c97e5" => :el_capitan
   end
 
-  depends_on "mercurial" => :build
-  depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "go" => :build
+  depends_on "mercurial" => :build
 
   def install
     ENV["GOPATH"] = buildpath

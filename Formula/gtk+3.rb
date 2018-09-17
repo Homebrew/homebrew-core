@@ -13,12 +13,12 @@ class Gtkx3 < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gdk-pixbuf"
   depends_on "atk"
-  depends_on "libepoxy"
-  depends_on "pango"
+  depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "hicolor-icon-theme"
+  depends_on "libepoxy"
+  depends_on "pango"
   depends_on "gsettings-desktop-schemas" => :recommended
 
   def install

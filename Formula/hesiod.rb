@@ -12,8 +12,8 @@ class Hesiod < Formula
     sha256 "71c59e1287dd90d1cef092e87f1e05ab408fbd85ca101b6093d1513a4d63ffdc" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "libidn"
 

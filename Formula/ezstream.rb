@@ -16,11 +16,11 @@ class Ezstream < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libvorbis"
-  depends_on "libshout"
-  depends_on "theora"
-  depends_on "speex"
   depends_on "libogg"
+  depends_on "libshout"
+  depends_on "libvorbis"
+  depends_on "speex"
+  depends_on "theora"
 
   def install
     system "./configure", "--disable-debug",

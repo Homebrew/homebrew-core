@@ -13,8 +13,8 @@ class Jabba < Formula
     sha256 "3a8fbb3a2ac28a91ad50c1391b9f637a8877d89acc2eeabaa0ec79eb6a2bda2b" => :el_capitan
   end
 
-  depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath

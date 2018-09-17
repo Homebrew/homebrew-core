@@ -21,8 +21,8 @@ class FreetdsAT091 < Formula
   option "without-openssl", "Build without OpenSSL support (default is to use brewed OpenSSL)"
 
   depends_on "pkg-config" => :build
-  depends_on "unixodbc" => :optional
   depends_on "openssl" => :recommended
+  depends_on "unixodbc" => :optional
 
   def install
     args = %W[

@@ -21,9 +21,16 @@ class Logstash < Formula
       cd "tar"
     end
 
-    inreplace %w[bin/logstash], %r{^\. "\$\(cd `dirname \${SOURCEPATH}`\/\.\.; pwd\)\/bin\/logstash\.lib\.sh\"}, ". #{libexec}/bin/logstash.lib.sh"
-    inreplace %w[bin/logstash-plugin], %r{^\. "\$\(cd `dirname \$0`\/\.\.; pwd\)\/bin\/logstash\.lib\.sh\"}, ". #{libexec}/bin/logstash.lib.sh"
-    inreplace %w[bin/logstash.lib.sh], /^LOGSTASH_HOME=.*$/, "LOGSTASH_HOME=#{libexec}"
+    inreplace "bin/logstash",
+              %r{^\. "\$\(cd `dirname \${SOURCEPATH}`\/\.\.; pwd\)\/bin\/logstash\.lib\.sh\"},
+              ". #{libexec}/bin/logstash.lib.sh"
+    inreplace "bin/logstash-plugin",
+              %r{^\. "\$\(cd `dirname \$0`\/\.\.; pwd\)\/bin\/logstash\.lib\.sh\"},
+              ". #{libexec}/bin/logstash.lib.sh"
+    inreplace "bin/logstash.lib.sh",
+              /^LOGSTASH_HOME=.*$/,
+              "LOGSTASH_HOME=#{libexec}"
+
     libexec.install Dir["*"]
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
@@ -69,16 +76,22 @@ class Logstash < Formula
 
   test do
     # workaround https://github.com/elastic/logstash/issues/6378
-    mkdir testpath/"config"
-    ["jvm.options", "log4j2.properties", "startup.options"].each { |f| cp prefix/"libexec/config/#{f}", testpath/"config" }
+    (testpath/"config").mkpath
+    ["jvm.options", "log4j2.properties", "startup.options"].each do |f|
+      cp prefix/"libexec/config/#{f}", testpath/"config"
+    end
     (testpath/"config/logstash.yml").write <<~EOS
       path.queue: #{testpath}/queue
     EOS
-    mkdir testpath/"data"
-    mkdir testpath/"logs"
-    mkdir testpath/"queue"
+    (testpath/"data").mkpath
+    (testpath/"logs").mkpath
+    (testpath/"queue").mkpath
 
-    output = pipe_output("#{bin}/logstash -e '' --path.data=#{testpath}/data --path.logs=#{testpath}/logs --path.settings=#{testpath}/config --log.level=fatal", "hello world\n")
-    assert_match /hello world/, output
+    data = "--path.data=#{testpath}/data"
+    logs = "--path.logs=#{testpath}/logs"
+    settings = "--path.settings=#{testpath}/config"
+
+    output = pipe_output("#{bin}/logstash -e '' #{data} #{logs} #{settings} --log.level=fatal", "hello world\n")
+    assert_match "hello world", output
   end
 end

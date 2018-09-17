@@ -17,9 +17,6 @@ class Pachi < Formula
 
   fails_with :clang if MacOS.version <= :mavericks
 
-  option "without-patterns", "Don't download pattern files for improved performance"
-  option "without-book", "Don't download a fuseki opening book"
-
   resource "patterns" do
     url "https://sainet-dist.s3.amazonaws.com/pachi_patterns.zip"
     sha256 "73045eed2a15c5cb54bcdb7e60b106729009fa0a809d388dfd80f26c07ca7cbc"
@@ -37,20 +34,18 @@ class Pachi < Formula
     system "make"
     bin.install "pachi"
 
-    pkgshare.install resource("patterns") if build.with? "patterns"
-    pkgshare.install resource("book") if build.with? "book"
+    pkgshare.install resource("patterns")
+    pkgshare.install resource("book")
   end
 
-  def caveats
-    return if build.without?("patterns") || build.without?("book")
-    <<~EOS
-      This formula also downloads additional data, such as opening books
-      and pattern files. They are stored in #{opt_pkgshare}.
+  def caveats; <<~EOS
+    This formula also downloads additional data, such as opening books
+    and pattern files. They are stored in #{opt_pkgshare}.
 
-      At present, pachi cannot be pointed to external files, so make sure
-      to set the working directory to #{opt_pkgshare} if you want pachi
-      to take advantage of these additional files.
-    EOS
+    At present, pachi cannot be pointed to external files, so make sure
+    to set the working directory to #{opt_pkgshare} if you want pachi
+    to take advantage of these additional files.
+  EOS
   end
 
   test do

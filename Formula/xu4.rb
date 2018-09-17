@@ -1,16 +1,13 @@
 class Xu4 < Formula
   desc "Remake of Ultima IV"
   homepage "https://xu4.sourceforge.io/"
-  if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/xu4/code/trunk/u4", :revision => "3088"
-  else
-    url "http://svn.code.sf.net/p/xu4/code/trunk/u4", :revision => "3088"
-  end
+  url "http://svn.code.sf.net/p/xu4/code/trunk/u4", :revision => "3088"
   version "1.0beta4+r3088"
-  head "https://svn.code.sf.net/p/xu4/code/trunk/u4"
+  head "http://svn.code.sf.net/p/xu4/code/trunk/u4"
 
   bottle do
     cellar :any
+    sha256 "0454e0ccdb0c16122e0acaaf34e7ff256d6f8fa8c5f3860c97d68217ad1d1aaf" => :mojave
     sha256 "e7aac43710b9180710c9af0dcd80a955aa095d6264f92eb482cbe2322c01146d" => :high_sierra
     sha256 "9d490768b07abfa8c105c88dc0d2a6be97e175f6535afcee0a4c63e37d976f6f" => :sierra
     sha256 "47700a341c1dc6a700d5a0f2925846b2457e3f470b25c2288c8c0c132202d027" => :el_capitan

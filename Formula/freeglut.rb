@@ -13,8 +13,8 @@ class Freeglut < Formula
     sha256 "c2816abf98614e8bf4fc1e6fb65a10d637bf1b85659cf7e9e524bee4d46b3ebe" => :yosemite
   end
 
-  depends_on :x11
   depends_on "cmake" => :build
+  depends_on :x11
 
   patch :DATA
 

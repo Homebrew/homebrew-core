@@ -26,26 +26,21 @@ class Libgxps < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "libarchive"
   depends_on "freetype"
+  depends_on "jpeg"
+  depends_on "libarchive"
   depends_on "libpng"
-  depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "little-cms2" => :recommended
-  depends_on "gtk+" => :optional
+  depends_on "libtiff"
+  depends_on "little-cms2"
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--enable-man",
-      "--prefix=#{prefix}",
+    args = %W[
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-man
     ]
-
-    args << "--without-libjpeg" if build.without? "jpeg"
-    args << "--without-libtiff" if build.without? "libtiff"
-    args << "--without-liblcms2" if build.without? "lcms2"
 
     if build.head?
       ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

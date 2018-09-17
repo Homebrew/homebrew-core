@@ -16,10 +16,8 @@ class Urweb < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "mlton" => :build
-  depends_on "openssl"
   depends_on "gmp"
-  depends_on "postgresql" => :optional
-  depends_on "mysql" => :optional
+  depends_on "openssl"
 
   def install
     args = %W[

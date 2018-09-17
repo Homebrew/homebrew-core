@@ -20,17 +20,17 @@ class Cmus < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libao"
-  depends_on "mad"
-  depends_on "libogg"
-  depends_on "libvorbis"
   depends_on "faad2"
   depends_on "flac"
-  depends_on "mp4v2"
+  depends_on "libao"
   depends_on "libcue"
+  depends_on "libogg"
+  depends_on "libvorbis"
+  depends_on "mad"
+  depends_on "mp4v2"
   depends_on "ffmpeg" => :optional
-  depends_on "opusfile" => :optional
   depends_on "jack" => :optional
+  depends_on "opusfile" => :optional
 
   def install
     system "./configure", "prefix=#{prefix}", "mandir=#{man}"

@@ -12,10 +12,10 @@ class Coccinelle < Formula
     sha256 "96f2460057f45cc77e03c1980edff643cdc26a2d2cced838567c798d3ee89748" => :el_capitan
   end
 
-  depends_on "ocaml"
-  depends_on "camlp4"
-  depends_on "opam" => :build
   depends_on "hevea" => :build
+  depends_on "opam" => :build
+  depends_on "camlp4"
+  depends_on "ocaml"
 
   def install
     ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat

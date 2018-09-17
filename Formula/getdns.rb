@@ -19,12 +19,10 @@ class Getdns < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "libevent"
+  depends_on "libidn"
   depends_on "openssl"
-  depends_on "unbound" => :recommended
-  depends_on "libidn" => :recommended
-  depends_on "libevent" => :recommended
-  depends_on "libuv" => :optional
-  depends_on "libev" => :optional
+  depends_on "unbound"
 
   def install
     if build.head?
@@ -32,18 +30,11 @@ class Getdns < Formula
       system "autoreconf", "-fi"
     end
 
-    args = [
-      "--with-ssl=#{Formula["openssl"].opt_prefix}",
-      "--with-trust-anchor=#{etc}/getdns-root.key",
-      "--without-stubby",
-    ]
-    args << "--enable-stub-only" if build.without? "unbound"
-    args << "--without-libidn" if build.without? "libidn"
-    args << "--with-libevent" if build.with? "libevent"
-    args << "--with-libuv" if build.with? "libuv"
-    args << "--with-libev" if build.with? "libev"
-
-    system "./configure", "--prefix=#{prefix}", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-libevent",
+                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-trust-anchor=#{etc}/getdns-root.key",
+                          "--without-stubby"
     system "make"
     ENV.deparallelize
     system "make", "install"

@@ -15,15 +15,11 @@ class Rapidjson < Formula
     sha256 "806e4c788a675bbb0cff3cc9af68f8cdf46ac3d5bf49a47a94b331cc67ca0f4d" => :mavericks
   end
 
-  option "without-docs", "Don't build documentation"
-
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build if build.with? "docs"
+  depends_on "doxygen" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DRAPIDJSON_BUILD_DOC=OFF" if build.without? "docs"
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 

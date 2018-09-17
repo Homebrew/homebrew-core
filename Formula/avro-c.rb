@@ -15,8 +15,8 @@ class AvroC < Formula
   option "with-snappy", "Build with Snappy codec support"
   option "with-xz", "Build with LZMA codec support"
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "jansson"
   depends_on "snappy" => :optional
   depends_on "xz" => :optional

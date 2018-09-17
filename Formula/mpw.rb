@@ -15,19 +15,16 @@ class Mpw < Formula
     sha256 "7090c3d31289d2ac5529bd0a6bae2632a36ba7fcd4bb7974248bb36a15f67c7e" => :el_capitan
   end
 
-  option "without-json-c", "Disable JSON configuration support"
-  option "without-ncurses", "Disable colorized identicon support"
-
+  depends_on "json-c"
   depends_on "libsodium"
-  depends_on "json-c" => :recommended
-  depends_on "ncurses" => :recommended
+  depends_on "ncurses"
 
   def install
     cd "platform-independent/cli-c" if build.head?
 
     ENV["targets"] = "mpw"
-    ENV["mpw_json"] = build.with?("json-c") ? "1" : "0"
-    ENV["mpw_color"] = build.with?("ncurses") ? "1" : "0"
+    ENV["mpw_json"] = "1"
+    ENV["mpw_color"] = "1"
 
     system "./build"
     system "./mpw-cli-tests"

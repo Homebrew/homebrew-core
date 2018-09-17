@@ -3,7 +3,7 @@ class Qmmp < Formula
   homepage "http://qmmp.ylsoftware.com/"
   url "http://qmmp.ylsoftware.com/files/qmmp-1.2.2.tar.bz2"
   sha256 "e9dc5723f7f2a04d36167585ce1b4223c09f36c6dad1215de877dc51d1f3d606"
-  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
+  head "http://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
 
   bottle do
     sha256 "a04d42f4f3baa02d04cae3038de05335c283c0522f78f7272faa257d07c39d12" => :mojave

@@ -12,8 +12,8 @@ class ArpScan < Formula
     sha256 "4bda8ae4da7c735c08d45cfa7fc58987413e6600267f9e5ae7f4cfa5d174599a" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libpcap" => :optional
 
   def install

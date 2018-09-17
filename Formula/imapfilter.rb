@@ -13,8 +13,8 @@ class Imapfilter < Formula
   end
 
   depends_on "lua"
-  depends_on "pcre"
   depends_on "openssl"
+  depends_on "pcre"
 
   def install
     inreplace "src/Makefile" do |s|

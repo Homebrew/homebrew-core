@@ -14,12 +14,12 @@ class Huexpress < Formula
     sha256 "61d7da52fc3ad3e4a83b57e81dc66233a211bd7a850008ac2c7c3226d75b7071" => :el_capitan
   end
 
-  depends_on "scons" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
-  depends_on "sdl2_mixer"
+  depends_on "scons" => :build
   depends_on "libvorbis"
   depends_on "libzip"
+  depends_on "sdl2"
+  depends_on "sdl2_mixer"
 
   def install
     scons

@@ -16,14 +16,13 @@ class Imageworsener < Formula
 
   head do
     url "https://github.com/jsummers/imageworsener.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "libpng" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "webp" => :optional
+  depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     if build.head?
@@ -31,15 +30,8 @@ class Imageworsener < Formula
       system "./scripts/autogen.sh"
     end
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-    args << "--without-png" if build.without? "libpng"
-    args << "--without-jpeg" if build.without? "jpeg"
-    args << "--without-webp" if build.without? "webp"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}", "--without-webp"
     system "make", "install"
     pkgshare.install "tests"
   end

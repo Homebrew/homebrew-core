@@ -16,10 +16,10 @@ class Herrie < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libvorbis"
   depends_on "libid3tag"
-  depends_on "mad"
   depends_on "libsndfile"
+  depends_on "libvorbis"
+  depends_on "mad"
 
   def install
     ENV["PREFIX"] = prefix

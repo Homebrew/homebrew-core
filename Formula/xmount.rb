@@ -3,12 +3,13 @@ class Xmount < Formula
   homepage "https://www.pinguin.lu/xmount/"
   url "https://code.pinguin.lu/diffusion/XMOUNT/xmount.git",
       :tag => "v0.7.6",
-      :revision => "a417af7382c3e18fb8bd1341cc3307b09eefd578"
+      :revision => "d0f67c46632a69ff1b608e90ed2fba8344ab7f3d"
+  revision 1
 
   bottle do
-    sha256 "88504e5b0c50741041083d475e74d3133556f72d5c07ac7ec5bc6425ea864422" => :high_sierra
-    sha256 "4b036597229de4f7a2c45a9107d86abbc26ba37a2c574c77df4a8b56258f9fec" => :sierra
-    sha256 "c86fd3b1b1f512190b38a3a937c23f496e365360c59c09943e0d0bbec2fe9504" => :el_capitan
+    sha256 "79b616ecf3e76ae690945cccd66b04b716aadaa61a82e34917be86c6ac4a367c" => :high_sierra
+    sha256 "9fce7eb9aef96aaab3584783fedb7cece191cc9a218aba2ccc4ea7aefe38eb91" => :sierra
+    sha256 "07295242dc494ee0f5612f2fb542011170725c0839f003fb876d3dc6eff6ac48" => :el_capitan
   end
 
   depends_on "cmake" => :build

@@ -7,8 +7,8 @@ class HgFlow < Formula
 
   bottle :unneeded
 
-  depends_on "python@2"
   depends_on "mercurial"
+  depends_on "python@2"
 
   def install
     if build.head?

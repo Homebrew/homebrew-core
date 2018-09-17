@@ -24,9 +24,9 @@ class ErlangAT18 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
+  depends_on "wxmac" => :recommended # for GUI apps like observer
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
-  depends_on "wxmac" => :recommended # for GUI apps like observer
 
   # Check if this patch can be removed when OTP 18.3.5 is released.
   # Erlang will crash on macOS 10.13 any time the crypto lib is used.

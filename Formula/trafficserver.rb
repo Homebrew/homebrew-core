@@ -28,8 +28,6 @@ class Trafficserver < Formula
     end
   end
 
-  option "with-experimental-plugins", "Enable experimental plugins"
-
   depends_on "openssl"
   depends_on "pcre"
 
@@ -50,9 +48,8 @@ class Trafficserver < Formula
       --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --with-group=admin
       --disable-silent-rules
+      --enable-experimental-plugins
     ]
-
-    args << "--enable-experimental-plugins" if build.with? "experimental-plugins"
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args

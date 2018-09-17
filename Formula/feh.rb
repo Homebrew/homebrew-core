@@ -11,8 +11,8 @@ class Feh < Formula
     sha256 "f6e54c8feb1a2151cf62ba17bb44730df7d2486482d4f3063a673b04f8e5e5aa" => :el_capitan
   end
 
-  depends_on :x11
   depends_on "imlib2"
+  depends_on :x11
   depends_on "libexif" => :recommended
 
   def install

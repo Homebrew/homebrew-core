@@ -13,16 +13,16 @@ class Libspectrum < Formula
   end
 
   head do
-    url "https://svn.code.sf.net/p/fuse-emulator/code/trunk/libspectrum"
+    url "http://svn.code.sf.net/p/fuse-emulator/code/trunk/libspectrum"
     depends_on "automake" => :build
     depends_on "autoconf" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libgcrypt" => :recommended
-  depends_on "glib" => :recommended
-  depends_on "audiofile" => :recommended
+  depends_on "audiofile"
+  depends_on "glib"
+  depends_on "libgcrypt"
 
   def install
     system "./autogen.sh" if build.head?

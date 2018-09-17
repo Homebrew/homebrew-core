@@ -14,8 +14,8 @@ class JujuQuickstart < Formula
     sha256 "b4c3a7b5d42d808bd96ec8b1a398e4d2950e1f5e3c0d1e00cfd259069e1191f5" => :mavericks
   end
 
-  depends_on "python@2"
   depends_on "juju"
+  depends_on "python@2"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"

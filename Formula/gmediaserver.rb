@@ -15,8 +15,8 @@ class Gmediaserver < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libupnp"
   depends_on "libmagic"
+  depends_on "libupnp"
   depends_on "id3lib" => :optional
   depends_on "taglib" => :optional
 

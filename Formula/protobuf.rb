@@ -2,22 +2,19 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag => "v3.6.0",
-      :revision => "ab8edf1dbe2237b4717869eaab11a2998541ad8d"
+      :tag => "v3.6.1",
+      :revision => "48cb18e5c419ddd23d9badcfe4e9df7bde1979b2"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    sha256 "dffa48f050afeca2debd445de6751c9c61c000524f9ffc512179e7a3e282003d" => :mojave
-    sha256 "a0c09f5c20f415652959bf8ec943a37078ee66994372fa17bf5576b880b026e3" => :high_sierra
-    sha256 "0ac3d15ee2510736bb3b497bb21d6a4b769be8ae56e4a8f2d0106a4a5e73d189" => :sierra
-    sha256 "889ece6ab87970f1457159c972b4cf45be835c546e2007ea00df1e50c87651cf" => :el_capitan
+    sha256 "47bfed73e275684cd1b74d0817239661bdeab555744ac7345467abba4fa58216" => :mojave
+    sha256 "0f5f2cf5d166e083f7456e08f3dca248625b1c385e91fd1fd7c8bf9f46162092" => :high_sierra
+    sha256 "a667c98b9cf7d81bd81436d50bc8ad4dea8e8e063ab1ed1be7f95625cddf4eb2" => :sierra
+    sha256 "ef87974beb704c499ee6233211358e900372c89b09c3438d8933f18af70b1750" => :el_capitan
   end
 
-  # this will double the build time approximately if enabled
-  option "with-test", "Run build-time check"
   option "without-python@2", "Build without python2 support"
 
-  deprecated_option "with-check" => "with-test"
   deprecated_option "without-python" => "with-python@2"
   deprecated_option "with-python3" => "with-python"
 
@@ -51,7 +48,7 @@ class Protobuf < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
-    system "make", "check" if build.with?("test") || build.bottle?
+    system "make", "check" if build.bottle?
     system "make", "install"
 
     # Install editor support and examples

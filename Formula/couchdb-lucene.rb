@@ -12,8 +12,8 @@ class CouchdbLucene < Formula
     sha256 "cd92c8cd8f4759a2525c02b54fbefccde7e15afd071f7bd9d3c2b1ef5dd00fef" => :el_capitan
   end
 
-  depends_on "couchdb"
   depends_on "maven" => :build
+  depends_on "couchdb"
   depends_on :java
 
   def install

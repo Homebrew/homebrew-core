@@ -14,14 +14,10 @@ class GoogleSparsehash < Formula
     sha256 "570c4d250a4fe18d99f11167653a501a1d8a82ff74d2413336a85bc7fa8cbb81" => :mavericks
   end
 
-  option "without-test", "Skip build-time tests (not recommended)"
-
-  deprecated_option "without-check" => "without-test"
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 end

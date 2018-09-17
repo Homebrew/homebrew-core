@@ -12,8 +12,8 @@ class Gtksourceview < Formula
     sha256 "2924c33793615aa02e2e46917ba58a3e8e8db1aaf0f7f9210b54acd725b76ef0" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
   depends_on "gtk-mac-integration"

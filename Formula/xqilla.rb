@@ -2,13 +2,15 @@ class Xqilla < Formula
   desc "XQuery and XPath 2 command-line interpreter"
   homepage "https://xqilla.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.4.tar.gz"
-  sha256 "adfd4df011fcda08be3f51771006da23e852bac81e2fe63159beddc3633b3f55"
+  sha256 "292631791631fe2e7eb9727377335063a48f12611d641d0296697e0c075902eb"
 
   bottle do
     cellar :any
-    sha256 "44d063c9ae223e0c7fadc62711bbf2b09bd780be2316fac2693ec8da7aff3d92" => :high_sierra
-    sha256 "06e5550ca3a1b779ac47209f155af8888183edc2eb97c68ef47bdc70b6e6c0e9" => :sierra
-    sha256 "6f106b38d852616826712cdb3e35a61cf4690a8e7cfc120375723a57157a1322" => :el_capitan
+    rebuild 1
+    sha256 "93ae09129c45ee7b1a4ecfe996c305791e06833c1e73b604b33282e5ea90248a" => :mojave
+    sha256 "38579e6ab1b6f6801ca5404cc79fcd972f395b9dd2e981672889b3eac5441c86" => :high_sierra
+    sha256 "0f1ef8f2aa1349b723062426a3e44fba2821bcf93316bacabf4c5e2948093bc4" => :sierra
+    sha256 "4326ec876d3e05647320c4ab55824c37531af997cc723f303fac4c4b40153753" => :el_capitan
   end
 
   depends_on "xerces-c"

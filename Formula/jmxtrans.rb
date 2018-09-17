@@ -13,8 +13,8 @@ class Jmxtrans < Formula
     sha256 "3a21472f2c7858af301650a533be93ff9d4589e8497a7ada7dfe9165a4b00987" => :el_capitan
   end
 
-  depends_on :java => "1.8"
   depends_on "maven" => :build
+  depends_on :java => "1.8"
 
   def install
     cmd = Language::Java.java_home_cmd("1.8")

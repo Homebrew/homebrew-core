@@ -3,14 +3,14 @@ require "language/go"
 class MongodbAT32 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.20.tar.gz"
-  sha256 "a8d453e343a52f4358e68e4da40966d666706e802235796b41e2b2bd93a77d74"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.21.tar.gz"
+  sha256 "8263befc10319809ea14e5cbf230c55113de7b38510b42a6ad27125dfa674371"
 
   bottle do
-    sha256 "e78ad906e46fe68c3285fea13968561361a4132ec55d2e44080fc5524f57cf47" => :mojave
-    sha256 "f8824d4d0cdfee620a9fcebd6766fb086550979f7dd870d81704ba4ce03dfc45" => :high_sierra
-    sha256 "abbc2fb832b07b539ee476ae74cd4da51a05b039baa9b988cdd714179476d833" => :sierra
-    sha256 "3548d045d64f8102667abcef479a287ad6ae9b4c47487d2c11ab75db0ea2b120" => :el_capitan
+    sha256 "6068932526af487dd50264aa1ead11dc199ed2bab849fd0adc04b67f90a89113" => :mojave
+    sha256 "3cc0ca816b495f169afc2d5f4b92463808424f5993ee9d3ec3f8b70354a89fcd" => :high_sierra
+    sha256 "d36d4031c58cee0a35b3f0445f995efad701eb519da8e3b66cf8eeb558092e6e" => :sierra
+    sha256 "8fc6948abb95eca2ecdfdf4411e9ff958616dc5a917376786546e981222852c8" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -26,7 +26,7 @@ class MongodbAT32 < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.2.20",
+        :tag => "r3.2.21",
         :revision => "f207093c46939fd42f12980a058370c013c26338",
         :shallow => false
   end

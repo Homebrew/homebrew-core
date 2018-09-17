@@ -2,13 +2,14 @@ class Fortio < Formula
   desc "HTTP and gRPC load testing and visualization tool and server"
   homepage "https://fortio.org/"
   url "https://github.com/fortio/fortio.git",
-      :tag => "v1.2.0",
-      :revision => "36bffaa50c7cc47038fc7572c83221640a603425"
+      :tag => "v1.3.0",
+      :revision => "bf3f2d9ff07ed03ef16be56af20d58dc0300e60f"
 
   bottle do
-    sha256 "ec027b129bf54d10cc153a617df246bc5a356cfb2c39915340b45f5cd54ea024" => :high_sierra
-    sha256 "69846957b5049c2fa3eb835a21651e8c9675d36d69a042b464e929c166111c18" => :sierra
-    sha256 "95a65023e84f7ce6bc05bca350c2355e21ab8f35af8c04546e0a4482119cc491" => :el_capitan
+    sha256 "1114e2a7b9118aa315ac68e447363c93606046528887ec03b2cac9796049c8f8" => :mojave
+    sha256 "6d8f7f7f49a78f4b4098a09139f8c3ed4eeb9449bb8fa18155bfd913787e4d22" => :high_sierra
+    sha256 "d99a857e10699fbcacb2898f0295385e9742a9c0a92cbacb73b70d939ae1030c" => :sierra
+    sha256 "e999074fdd6de777309dfa615fd357e5d71a31e5877792e5106d455cdd7bc80d" => :el_capitan
   end
 
   depends_on "go" => :build
@@ -19,7 +20,7 @@ class Fortio < Formula
     (buildpath/"src/fortio.org/fortio").install buildpath.children
     cd "src/fortio.org/fortio" do
       system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio",
-             "LIB_DIR=#{lib}", "DATA_DIR=."
+             "LIB_DIR=#{lib}"
       lib.install "ui/static", "ui/templates"
       prefix.install_metafiles
     end

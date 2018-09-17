@@ -15,8 +15,8 @@ class Gegl < Formula
     # Use the Github mirror because official git unreliable.
     url "https://github.com/GNOME/gegl.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
@@ -28,28 +28,18 @@ class Gegl < Formula
   depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libpng"
-  depends_on "cairo" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "lua" => :optional
-  depends_on "pango" => :optional
-  depends_on "sdl" => :optional
 
   conflicts_with "coreutils", :because => "both install `gcut` binaries"
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-docs
-      --without-jasper
-      --without-umfpack
-    ]
-
-    args << "--without-cairo" if build.without? "cairo"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--disable-docs",
+                          "--without-cairo",
+                          "--without-jasper",
+                          "--without-umfpack"
     system "make", "install"
   end
 

@@ -10,10 +10,12 @@ class AmdatuBootstrap < Formula
 
   def install
     libexec.install %w[amdatu-bootstrap bootstrap.jar conf]
-    (bin/"amdatu-bootstrap").write_env_script libexec/"amdatu-bootstrap", Language::Java.java_home_env("1.8")
+    (bin/"amdatu-bootstrap").write_env_script libexec/"amdatu-bootstrap",
+      Language::Java.java_home_env("1.8")
   end
 
   test do
-    assert_match "Amdatu Bootstrap R9", shell_output("#{bin}/amdatu-bootstrap --info")
+    output = shell_output("#{bin}/amdatu-bootstrap --info")
+    assert_match "Amdatu Bootstrap R9", output
   end
 end

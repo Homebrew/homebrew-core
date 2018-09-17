@@ -2,13 +2,15 @@ class Nuttcp < Formula
   desc "Network performance measurement tool"
   homepage "https://www.nuttcp.net/nuttcp"
   url "https://www.nuttcp.net/nuttcp/nuttcp-8.1.4.tar.bz2"
-  sha256 "5c5f4f6ae04adb8a86d11e1995939c1308b90e1946ebc77c9988b5eb85961bb5"
+  sha256 "737f702ec931ec12fcf54e66c4c1d5af72bd3631439ffa724ed2ac40ab2de78d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "80b4a1b94e21a1b94d960fefddfbe235597ccc687f3f815a7aee989fb0d53a07" => :high_sierra
-    sha256 "50f44fadb6a471f65fac82065681ed42b44cf1c6ea78680db9e0ade3725577a0" => :sierra
-    sha256 "6b2eab6b736721543d321f9577ac8ee94c3cefd5026bb0d39084c4d721853249" => :el_capitan
+    rebuild 1
+    sha256 "82951677c224a70e463033f266791122d7419dd5308bef61da5474738151497b" => :mojave
+    sha256 "bb494c46c81a914bb8eb66ad4476c2503e0345fc8f9dcf82c5cd2576fe005869" => :high_sierra
+    sha256 "9f4ca632e04e072eea5d17a54cd42e22d63ef7902e452d1133d42fea0ca2f829" => :sierra
+    sha256 "c38cac9cdf461d9f44a34dc1c7db83909a38faee07c1f5c43af3a4f816527493" => :el_capitan
   end
 
   def install

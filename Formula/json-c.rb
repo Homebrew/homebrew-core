@@ -16,9 +16,9 @@ class JsonC < Formula
   head do
     url "https://github.com/json-c/json-c.git"
 
-    depends_on "libtool" => :build
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   def install

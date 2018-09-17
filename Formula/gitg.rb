@@ -6,27 +6,29 @@ class Gitg < Formula
   revision 4
 
   bottle do
-    sha256 "cba645da392eb236781a1d0cd27016ff9bf3b8f14af4bbc517367d430435e1a9" => :high_sierra
-    sha256 "c1a1d0b07991fbccda16bbef128d6113be858bdcd2942c3c0bde0e6b70510e5e" => :sierra
-    sha256 "8f5741a6c698eea4b46b9996a4a8f69072dc2e66e9a1a37eb6a7eeac4268b501" => :el_capitan
+    rebuild 1
+    sha256 "d564572062da36ddb977eb799aa4394923622583d796c7198d020fbc4eee9558" => :mojave
+    sha256 "49afdc45be635182e05346030c603b71690cbae0f845a577af2386c72d7bf2b8" => :high_sierra
+    sha256 "c0510a1824cea49680dd1384713573e5894bff20fb8f8795e7fb1a0309a352e8" => :sierra
+    sha256 "e3b511e5c3a4892e27ca0f777be10a7bfbcfdb25dd98a976217f0d1e2fa40607" => :el_capitan
   end
 
+  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "intltool" => :build
-  depends_on "gtksourceview3"
+  depends_on "adwaita-icon-theme"
   depends_on "gobject-introspection"
-  depends_on "libgit2"
-  depends_on "libgit2-glib"
   depends_on "gsettings-desktop-schemas"
-  depends_on "libgee"
-  depends_on "json-glib"
-  depends_on "libsecret"
-  depends_on "libpeas"
-  depends_on "libsoup"
+  depends_on "gtksourceview3"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
+  depends_on "json-glib"
+  depends_on "libgee"
+  depends_on "libgit2"
+  depends_on "libgit2-glib"
+  depends_on "libpeas"
+  depends_on "libsecret"
+  depends_on "libsoup"
 
   def install
     system "./configure", "--disable-debug",
@@ -68,7 +70,7 @@ class Gitg < Formula
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2-glib"].opt_libexec/"libgit2"
+    libgit2 = Formula["libgit2"]
     libgit2_glib = Formula["libgit2-glib"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
@@ -107,7 +109,7 @@ class Gitg < Formula
       -L#{gobject_introspection.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{libgee.opt_lib}
-      -L#{libgit2}/lib
+      -L#{libgit2.opt_lib}
       -L#{libgit2_glib.opt_lib}
       -L#{libsoup.opt_lib}
       -L#{lib}

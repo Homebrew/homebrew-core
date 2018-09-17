@@ -21,12 +21,12 @@ class Guile < Formula
   end
 
   depends_on "gnu-sed" => :build
-  depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
-  depends_on "libtool"
-  depends_on "libffi"
-  depends_on "libunistring"
   depends_on "bdw-gc"
   depends_on "gmp"
+  depends_on "libffi"
+  depends_on "libtool"
+  depends_on "libunistring"
+  depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
   fails_with :clang do

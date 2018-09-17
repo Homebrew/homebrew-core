@@ -3,18 +3,17 @@ class DockerSquash < Formula
   homepage "https://github.com/goldmann/docker-squash"
   url "https://github.com/goldmann/docker-squash/archive/1.0.7.tar.gz"
   sha256 "0c9d3be78c4d0ce478a6e1358ba07fc3a22f6d68eb426533d503bb7e9f3ba829"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d13023253690bc109716badb78b2b14ad913a21df2d76a1a16196bbbfb77cbce" => :mojave
-    sha256 "7bdc059a7e417506bff16c9ea5144fb135fd8a1a7ee37cdb5197531a9c99f94f" => :high_sierra
-    sha256 "7bdc059a7e417506bff16c9ea5144fb135fd8a1a7ee37cdb5197531a9c99f94f" => :sierra
-    sha256 "7bdc059a7e417506bff16c9ea5144fb135fd8a1a7ee37cdb5197531a9c99f94f" => :el_capitan
+    sha256 "07e9ba30b27562a60d33be4a6ee85a330d2ed5d3e4e41d045953a56eae837094" => :mojave
+    sha256 "1ef756a3498a2fab26e94bc87eb6767eb707e51b17ef8ab58045eeb80c127ed1" => :high_sierra
+    sha256 "1ef756a3498a2fab26e94bc87eb6767eb707e51b17ef8ab58045eeb80c127ed1" => :sierra
+    sha256 "1ef756a3498a2fab26e94bc87eb6767eb707e51b17ef8ab58045eeb80c127ed1" => :el_capitan
   end
 
   depends_on "python@2"
-  depends_on "docker" => :recommended
-  depends_on "docker-machine" => :recommended
 
   resource "backports.ssl_match_hostname" do
     url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"

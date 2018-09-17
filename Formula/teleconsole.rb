@@ -19,47 +19,47 @@ class Teleconsole < Formula
 
   go_resource "github.com/Sirupsen/logrus" do
     url "https://github.com/Sirupsen/logrus.git",
-      :revision => "d26492970760ca5d33129d2d799e34be5c4782eb"
+        :revision => "d26492970760ca5d33129d2d799e34be5c4782eb"
   end
 
   go_resource "github.com/gravitational/trace" do
     url "https://github.com/gravitational/trace.git",
-      :revision => "6e153c7add15eb07e311f892779fb294373c4cfa"
+        :revision => "6e153c7add15eb07e311f892779fb294373c4cfa"
   end
 
   go_resource "github.com/gravitational/teleport" do
     url "https://github.com/gravitational/teleport.git",
-      :revision => "002b640a16f097e2f834b4ae33c9edfb81d5798c"
+        :revision => "002b640a16f097e2f834b4ae33c9edfb81d5798c"
   end
 
   go_resource "github.com/jonboulle/clockwork" do
     url "https://github.com/jonboulle/clockwork.git",
-      :revision => "bcac9884e7502bb2b474c0339d889cb981a2f27f"
+        :revision => "bcac9884e7502bb2b474c0339d889cb981a2f27f"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-      :revision => "9477e0b78b9ac3d0b03822fd95422e2fe07627cd"
+        :revision => "9477e0b78b9ac3d0b03822fd95422e2fe07627cd"
   end
 
   go_resource "golang.org/x/net" do
     url "https://go.googlesource.com/net.git",
-      :revision => "55a3084c9119aeb9ba2437d595b0a7e9cb635da9"
+        :revision => "55a3084c9119aeb9ba2437d595b0a7e9cb635da9"
   end
 
   go_resource "github.com/fatih/color" do
     url "https://github.com/fatih/color.git",
-      :revision => "bf82308e8c8546dc2b945157173eb8a959ae9505"
+        :revision => "bf82308e8c8546dc2b945157173eb8a959ae9505"
   end
 
   go_resource "github.com/mattn/go-colorable" do
     url "https://github.com/mattn/go-colorable.git",
-      :revision => "d228849504861217f796da67fae4f6e347643f15"
+        :revision => "d228849504861217f796da67fae4f6e347643f15"
   end
 
   go_resource "github.com/mattn/go-isatty" do
     url "https://github.com/mattn/go-isatty.git",
-      :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
+        :revision => "66b8e73f3f5cda9f96b69efd03dd3d7fc4a5cdb8"
   end
 
   patch do

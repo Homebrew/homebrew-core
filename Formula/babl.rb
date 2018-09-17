@@ -15,8 +15,8 @@ class Babl < Formula
     # Use Github instead of GNOME's git. The latter is unreliable.
     url "https://github.com/GNOME/babl.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 

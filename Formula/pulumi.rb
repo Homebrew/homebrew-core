@@ -2,15 +2,15 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      :tag => "v0.15.0",
-      :revision => "23cbfa503d856f57a3e00599d53c04fe69c93cf0"
+      :tag => "v0.15.2",
+      :revision => "8ef626503359c4039b45f1296958ecf6e6630501"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "850187ca982ac53209d434c3a468235c1345dd74bee1ba7f348df298ecf47891" => :mojave
-    sha256 "140b7ea62f0038ffeaa2ced0dfab9184c3cb2f82f01e5ad873016bfa5bf209db" => :high_sierra
-    sha256 "9cb183af9d970e678068d00a1b4d6b171d11290f87b3c52cb9e7497a02a8d1f5" => :sierra
-    sha256 "3add0c804ea9331e002bcdf0c246facbeef75d9e2f0f5a2584193f4bd8b420d1" => :el_capitan
+    sha256 "f9c3793568e1678d58958bcd6aed14190a59a5dfe174256b6a646de82f585e87" => :mojave
+    sha256 "d0423a5ed5f5b88d9b267027c48c273ed4300d145649f71aa7c634c1794e78ae" => :high_sierra
+    sha256 "816497652c9c42ed72abe3d5b498bf99854bd188bce124c28e49a67377d68963" => :sierra
+    sha256 "c4fb3caad4c8490d198274396f6ff0f9b8fd8a1cd4c136f8cfefc922206bedd5" => :el_capitan
   end
 
   depends_on "dep" => :build
@@ -32,7 +32,8 @@ class Pulumi < Formula
   test do
     ENV["PULUMI_ACCESS_TOKEN"] = "local://"
     ENV["PULUMI_TEMPLATE_PATH"] = testpath/"templates"
-    system "#{bin}/pulumi", "new", "aws-typescript", "--generate-only", "-y"
+    system "#{bin}/pulumi", "new", "aws-typescript", "--generate-only",
+                                                     "--force", "-y"
     assert_predicate testpath/"Pulumi.yaml", :exist?, "Project was not created"
   end
 end

@@ -1,16 +1,16 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch"
-  url "https://root.cern.ch/download/root_v6.14.02.source.tar.gz"
-  version "6.14.02"
-  sha256 "93816519523e87ac75924178d87112d1573eaa108fc65691aea9a9dd5bc05b3e"
+  url "https://root.cern.ch/download/root_v6.14.04.source.tar.gz"
+  version "6.14.04"
+  sha256 "463ec20692332a422cfb5f38c78bedab1c40ab4d81be18e99b50cf9f53f596cf"
   head "http://root.cern.ch/git/root.git"
 
   bottle do
-    sha256 "3a719955696eeea0845072edb1bf1717285f0374a967510f5d90b962ab45cbbe" => :mojave
-    sha256 "735843cdf42536af424d90471cba12e4834f42b728b40b2d170b6dc13dd863c1" => :high_sierra
-    sha256 "d77502bde56a1b0aa8c2d2f8b249f730c77d92c9d3729cbaf6a721052a6ad669" => :sierra
-    sha256 "7b3f1c52f9aa32d8e7c47376b1ae74b09e94df9030c10e4bc87d8e556298fdc6" => :el_capitan
+    sha256 "503f8bc262b408cbd5fc944b50bd4d86808266db073312b367bd0f553679a42d" => :mojave
+    sha256 "5c541f80bc3f6df5a0c613d747024a593f0ce238617b9dc2053ca8d65fa5ff95" => :high_sierra
+    sha256 "a1f202c443dbe01d43269d29887fde412eaea9b2d83b5ff2ce08bf4d8c26ce5a" => :sierra
+    sha256 "9cedd1dc275ae988976e8be78afe7cfa12471d4e501c772d8549082807ea0651" => :el_capitan
   end
 
   depends_on "cmake" => :build
@@ -43,12 +43,6 @@ class Root < Formula
   needs :cxx11
 
   skip_clean "bin"
-
-  # Upstream commit from 30 Jun 2018 "Fixes for Python 3.7"
-  patch do
-    url "https://github.com/root-project/root/commit/94412f7eab8.patch?full_index=1"
-    sha256 "29a719b00931381cbe75b0e23c5e970d03aa28a8455a5f840e82a8cae83d9c24"
-  end
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"

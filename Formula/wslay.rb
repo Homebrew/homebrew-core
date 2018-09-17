@@ -20,15 +20,15 @@ class Wslay < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-docs", "Don't generate or install documentation"
-
-  depends_on "sphinx-doc" => :build if build.with? "docs"
   depends_on "cunit" => :build
   depends_on "pkg-config" => :build
+  depends_on "sphinx-doc" => :build
 
   def install
     system "autoreconf", "-fvi" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--disable-silent-rules"
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules"
     system "make", "check"
     system "make", "install"
   end

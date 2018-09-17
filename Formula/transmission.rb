@@ -44,7 +44,7 @@ class Transmission < Formula
     Transmission.app can be downloaded directly from the website:
       https://www.transmissionbt.com/
 
-    Alternatively, install with Homebrew-Cask:
+    Alternatively, install with Homebrew Cask:
       brew cask install transmission
   EOS
   end

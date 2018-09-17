@@ -3,14 +3,14 @@ class Libspectre < Formula
   homepage "https://wiki.freedesktop.org/www/Software/libspectre/"
   url "https://libspectre.freedesktop.org/releases/libspectre-0.2.8.tar.gz"
   sha256 "65256af389823bbc4ee4d25bfd1cc19023ffc29ae9f9677f2d200fa6e98bc7a8"
-  revision 4
+  revision 6
 
   bottle do
     cellar :any
-    sha256 "3afb0796896de415243b40be9186bf6079078e858d7b815761c7c66f1c014f81" => :mojave
-    sha256 "5d4409361dfe7ff5da24015a349ea06427de2f53619e7a970fa028bb0a6a5144" => :high_sierra
-    sha256 "763d2771dc3bb190961cb4dadca99f233568f8520179be01c7d01c0f279276c9" => :sierra
-    sha256 "a2dcff59a6f432ee7e070ccff8963a5c9681f803ac0187b83f240f7f09382899" => :el_capitan
+    sha256 "f6dd2d46d2a096a398262555563ac774b369401cedbb99a8e3f2cb7222e57bff" => :mojave
+    sha256 "cfbe54d38fb4d49ce132b370fc84760e38b32587e8707a701c6dda63954c21dd" => :high_sierra
+    sha256 "b4365eb95f7392f34dffbee073f009651756ccd9693a7d3d8ccee274c669a607" => :sierra
+    sha256 "18445d5a2699d790134fc04c3ae70a8a6dcc9ac816ddd2f50210c7e337e618b6" => :el_capitan
   end
 
   depends_on "ghostscript"

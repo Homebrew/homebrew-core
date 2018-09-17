@@ -13,9 +13,9 @@ class ClutterGst < Formula
 
   depends_on "pkg-config" => :build
   depends_on "clutter"
-  depends_on "gstreamer"
-  depends_on "gst-plugins-base"
   depends_on "gdk-pixbuf"
+  depends_on "gst-plugins-base"
+  depends_on "gstreamer"
 
   def install
     args = %W[

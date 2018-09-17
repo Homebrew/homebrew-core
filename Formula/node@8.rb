@@ -1,14 +1,15 @@
 class NodeAT8 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
-  sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
+  url "https://nodejs.org/dist/v8.12.0/node-v8.12.0.tar.xz"
+  sha256 "5a9dff58016c18fb4bf902d963b124ff058a550ebcd9840c677757387bce419a"
 
   bottle do
-    sha256 "04f87bf0e908c98d294d64952d9534fa20d6f743645f86bb3ce40d81f8e6527c" => :mojave
-    sha256 "e2e5cb7bef2374d387a0bfc098b4f37d72fde5aca476c739695ceb2a8dc30f61" => :high_sierra
-    sha256 "5936c758dcad44a07ab035897a62e04d43d0de5257847c60ef8805253308bfe7" => :sierra
-    sha256 "2184abe84827b56361d269c734dc11c5e6eef942d9d5b29750b8603f2a9caf33" => :el_capitan
+    rebuild 1
+    sha256 "46b430483d0541dd6b8d5f4bc834fcba14719c53233dfd59d9a9e24283c0f80e" => :mojave
+    sha256 "2c13559186878d8562fe5acea407aa9f1a57dd33a5b147b3e3f0aac61661f2fd" => :high_sierra
+    sha256 "60c20bd219f2dab1593a3624749b8f6fa1db25fb0a17c4a79e0b762f6f2407f0" => :sierra
+    sha256 "e24f5ad36356819ce8728108440a3cd1e1b6938cc2beaa9a86516cf7fe8ea2d0" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -33,9 +34,6 @@ class NodeAT8 < Formula
   end
 
   def install
-    # icu4c 61.1 compatability
-    ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
-
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
     args << "--debug" if build.with? "debug"

@@ -24,13 +24,12 @@ class Ola < Formula
   deprecated_option "with-ftdi" => "with-libftdi"
 
   depends_on "pkg-config" => :build
+  depends_on "liblo"
   depends_on "libmicrohttpd"
+  depends_on "libusb"
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
   depends_on "python@2"
-  depends_on "liblo" => :recommended
-  depends_on "libusb" => :recommended
-  depends_on "doxygen" => :optional
   depends_on "libftdi" => :optional
   depends_on "libftdi0" if build.with? "libftdi"
 
@@ -60,7 +59,6 @@ class Ola < Formula
     ]
 
     args << "--enable-rdm-tests" if build.with? "rdm-tests"
-    args << "--enable-doxygen-man" if build.with? "doxygen"
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args

@@ -12,16 +12,16 @@ class FuseEmulator < Formula
   end
 
   head do
-    url "https://svn.code.sf.net/p/fuse-emulator/code/trunk/fuse"
-    depends_on "automake" => :build
+    url "http://svn.code.sf.net/p/fuse-emulator/code/trunk/fuse"
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl"
-  depends_on "libspectrum"
   depends_on "libpng"
+  depends_on "libspectrum"
+  depends_on "sdl"
 
   def install
     system "./autogen.sh" if build.head?

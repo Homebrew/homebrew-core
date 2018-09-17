@@ -12,8 +12,8 @@ class Kafka < Formula
     sha256 "723fb5b585ad4822695b985ced2e306aac2a45c2a8cd3f9d9cc4c8bc008f9f2a" => :el_capitan
   end
 
-  depends_on "zookeeper"
   depends_on :java => "1.8"
+  depends_on "zookeeper"
 
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034
   # Since Kafka does not currently set the source or target compability version inside build.gradle

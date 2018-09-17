@@ -13,12 +13,12 @@ class Grace < Formula
     sha256 "e1dc9c34d5417798dbd2d0c834fe099e7f1d8b395863964ffeb9fcb69e4b3c33" => :yosemite
   end
 
-  depends_on :x11
-  depends_on "pdflib-lite"
-  depends_on "jpeg"
   depends_on "fftw"
-  depends_on "openmotif"
+  depends_on "jpeg"
   depends_on "libpng"
+  depends_on "openmotif"
+  depends_on "pdflib-lite"
+  depends_on :x11
 
   def install
     ENV.O1 # https://github.com/Homebrew/homebrew/issues/27840#issuecomment-38536704

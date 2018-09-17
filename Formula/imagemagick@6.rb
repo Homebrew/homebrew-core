@@ -7,13 +7,14 @@ class ImagemagickAT6 < Formula
   url "https://dl.bintray.com/homebrew/mirror/imagemagick%406--6.9.10-11.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-6.9.10-11.tar.xz"
   sha256 "2d1c61999a9b1f663a085d6657cc4db4b1652af6462256d1aa3c467df3e9e6eb"
+  revision 2
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
-    sha256 "0254e5b8c4b6b89f9e4303226656ee96a68d9590934f755db9d6205651c4d27c" => :mojave
-    sha256 "7baf94f2c7d0662ee80aae378253a66e573e52097accdd9f6ea1509c2c088798" => :high_sierra
-    sha256 "3e49a20a7994f3e76babc965b292292be067c4d2153c5a68a5971b0285ae72cc" => :sierra
-    sha256 "c19a1cf44470f4d41fffc2346df4156903a65683632a086efd958112c6846712" => :el_capitan
+    sha256 "e37c4f6e5761fccb8decb085b95388005e27f394ef6fe6671d072c7301280383" => :mojave
+    sha256 "7fa7338e26a15333f22302f0d666ef6ee5cdbec01ceedd840e5e3d9fb5560cf5" => :high_sierra
+    sha256 "3c81a4c7d9abf68b4a683014b269bf8715039d6ef8ee316342183d3a9afa21b6" => :sierra
+    sha256 "8c66f808de96341237465735a468533c1a604bb6019ad3b03aad18472ae02337" => :el_capitan
   end
 
   keg_only :versioned_formula
@@ -36,24 +37,24 @@ class ImagemagickAT6 < Formula
   depends_on "libtool"
   depends_on "xz"
 
+  depends_on "freetype" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "freetype" => :recommended
 
+  depends_on "fftw" => :optional
   depends_on "fontconfig" => :optional
+  depends_on "ghostscript" => :optional
+  depends_on "liblqr" => :optional
+  depends_on "librsvg" => :optional
+  depends_on "libwmf" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "liblqr" => :optional
   depends_on "openexr" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "fftw" => :optional
   depends_on "pango" => :optional
   depends_on "perl" => :optional
+  depends_on "webp" => :optional
 
   if build.with? "openmp"
     depends_on "gcc"

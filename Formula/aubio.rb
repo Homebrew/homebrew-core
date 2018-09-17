@@ -13,16 +13,11 @@ class Aubio < Formula
     sha256 "ad6cdea7d6a62f5b6d4101f4b4225e4d4fe4f940d5ab0eae8cdf1b1cf3a60d01" => :el_capitan
   end
 
-  depends_on :macos => :lion
-  depends_on "pkg-config" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on :macos => :lion
   depends_on "numpy"
   depends_on "python@2"
-  depends_on "libav" => :optional
-  depends_on "libsndfile" => :optional
-  depends_on "libsamplerate" => :optional
-  depends_on "fftw" => :optional
-  depends_on "jack" => :optional
 
   def install
     # Needed due to issue with recent cland (-fno-fused-madd))

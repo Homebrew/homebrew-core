@@ -8,9 +8,11 @@ class Ooniprobe < Formula
 
   bottle do
     cellar :any
-    sha256 "63c467de1c93e89d6eb555587ccf5048fc7d48646a1359ae51549635d619fe27" => :high_sierra
-    sha256 "190aa6d0fc5824a8f34c364ba6c436c6a7c4a6485afd10b9aaf39885ee2e870c" => :sierra
-    sha256 "21c9bbeaf1f5ab28751714147db3257824535eda0068c701707c8ad02fe50372" => :el_capitan
+    rebuild 1
+    sha256 "5190bd77c40eecf39da965167329fc552690965ec9d7930352c2828814e35d0d" => :mojave
+    sha256 "32e3e7e10bfd2105caafb57a2c91d23eb1077c6508e155766ae618ed20e66a3c" => :high_sierra
+    sha256 "1482b823d3d9ee2fa338fc9b08cf30de5d29f770a1aedf339115283d1c07465e" => :sierra
+    sha256 "38b51f8ef56029ca251c100887a1b66df0dfdd099f582913ca020027b3010f83" => :el_capitan
   end
 
   depends_on "geoip"
@@ -134,8 +136,16 @@ class Ooniprobe < Formula
   end
 
   resource "pypcap" do
-    url "https://files.pythonhosted.org/packages/83/25/dab6b3fda95a5699503c91bf722abf9d9a5c960a4480208e4bad8747dd0c/pypcap-1.1.5.tar.gz"
-    sha256 "4b60d331e83c5bff3e25c7d99e902ea0910027fe9ce7986f0eecf5e0af6e8274"
+    url "https://files.pythonhosted.org/packages/33/21/d1f24d8a93e4e11bf604d77e04080c05ecb0308a5606936a051bd2b2b5da/pypcap-1.2.2.tar.gz"
+    sha256 "a32322f45d63ff6196e33004c568b9f5019202a40aa2b16008b7f94e7e119c1f"
+
+    # https://github.com/pynetwork/pypcap/pull/79
+    # Adds support for the new CLT SDK with the 10.x
+    # series of development tools.
+    patch do
+      url "https://github.com/pynetwork/pypcap/pull/79.patch?full_index=1"
+      sha256 "cb0c9b271d293e49e504793bed296e0fa73cca546dbc2814e0ea01351e66d9b2"
+    end
   end
 
   resource "PyYAML" do
@@ -199,6 +209,10 @@ class Ooniprobe < Formula
       var_lib = #{var}/lib/ooni
       etc = #{etc}/ooni
     EOS
+
+    if MacOS.sdk_path_if_needed
+      ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
+    end
 
     virtualenv_install_with_resources
 

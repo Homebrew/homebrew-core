@@ -12,14 +12,14 @@ class GnomeLatex < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
-  depends_on "vala" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "gspell"
-  depends_on "tepl"
-  depends_on "libgee"
+  depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "gspell"
+  depends_on "libgee"
+  depends_on "tepl"
   depends_on "gnome-themes-standard" => :optional
 
   def install

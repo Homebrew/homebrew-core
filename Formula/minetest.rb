@@ -13,6 +13,7 @@ class Minetest < Formula
   end
 
   bottle do
+    sha256 "4da5f8bebc6588cdf99b23cd2646e91425e15e2c625b8516728bd6970ed2e25b" => :mojave
     sha256 "7aa7a7e5a509efeb89b1ab0a897c250950ba117cc658c70c0892a3a4d4b882d5" => :high_sierra
     sha256 "7c76e9b683a0205f116403f6571c7e7c7cbd40f7bc16951ef0c350512cfc017e" => :sierra
     sha256 "ed87de74a782d339eee51f30e2d183eefd25a37e595df5f42157883afbeec133" => :el_capitan
@@ -26,27 +27,23 @@ class Minetest < Formula
     end
   end
 
-  depends_on :x11
   depends_on "cmake" => :build
+  depends_on "freetype"
+  depends_on "gettext"
   depends_on "irrlicht"
   depends_on "jpeg"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "luajit" => :recommended
-  depends_on "freetype" => :recommended
-  depends_on "gettext" => :recommended
-  depends_on "leveldb" => :optional
-  depends_on "redis" => :optional
+  depends_on "luajit"
+  depends_on :x11
 
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
 
     args = std_cmake_args - %w[-DCMAKE_BUILD_TYPE=None]
     args << "-DCMAKE_BUILD_TYPE=Release" << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
-    args << "-DENABLE_REDIS=1" if build.with? "redis"
-    args << "-DENABLE_LEVELDB=1" if build.with? "leveldb"
-    args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'" if build.with? "freetype"
-    args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}" if build.with? "gettext"
+    args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'"
+    args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}"
 
     # -ffast-math compiler flag is an issue on Mac
     # https://github.com/minetest/minetest/issues/4274

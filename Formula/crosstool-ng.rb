@@ -15,13 +15,13 @@ class CrosstoolNg < Formula
   depends_on "help2man" => :build
   depends_on "autoconf"
   depends_on "automake"
-  depends_on "libtool"
   depends_on "binutils"
   depends_on "coreutils"
   depends_on "flex"
   depends_on "gawk"
   depends_on "gnu-sed"
   depends_on "grep"
+  depends_on "libtool"
   depends_on "m4"
   depends_on "xz"
 

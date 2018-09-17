@@ -12,8 +12,8 @@ class Ivykis < Formula
     sha256 "83e68479a554c2ca649ce1cd69206d896fa71b9fa81c37835e00cdafa6ecbedd" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install

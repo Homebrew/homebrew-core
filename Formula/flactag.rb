@@ -14,16 +14,16 @@ class Flactag < Formula
     sha256 "f5f0123f156ccf4c40e810fc5f0acc83638e35da13ed900b2f7165fbea28e080" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "pkg-config" => :build
   depends_on "flac"
+  depends_on "jpeg"
+  depends_on "libdiscid"
   depends_on "libmusicbrainz"
   depends_on "neon"
-  depends_on "libdiscid"
   depends_on "s-lang"
   depends_on "unac"
-  depends_on "jpeg"
 
   # jpeg 9 compatibility
   patch do

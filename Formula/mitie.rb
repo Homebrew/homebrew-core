@@ -13,8 +13,6 @@ class Mitie < Formula
     sha256 "de7e18c61774eff595acafeeaa22733c13269face211a179f3a46c0b6aa7dc60" => :el_capitan
   end
 
-  option "without-models", "Don't download the v0.2 models (~415MB)"
-
   depends_on "python@2"
 
   resource "models-english" do
@@ -23,9 +21,7 @@ class Mitie < Formula
   end
 
   def install
-    if build.with? "models"
-      (share/"MITIE-models").install resource("models-english")
-    end
+    (share/"MITIE-models").install resource("models-english")
 
     inreplace "mitielib/makefile", "libmitie.so", "libmitie.dylib"
     system "make", "mitielib"

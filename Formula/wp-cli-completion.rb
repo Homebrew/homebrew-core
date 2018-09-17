@@ -1,10 +1,8 @@
 class WpCliCompletion < Formula
   desc "Bash completion for Wpcli"
   homepage "https://github.com/wp-cli/wp-cli"
-  # Checksum mismatch for 1.5.1
-  # See https://github.com/Homebrew/homebrew-core/pull/28579
-  url "https://dl.bintray.com/homebrew/mirror/wpcli-completion-1.5.1.tar.gz"
-  sha256 "4fdef45ab8e15438837b7d58f22e90ca66ce3c394f492bb26aa984b6ab2047b3"
+  url "https://github.com/wp-cli/wp-cli/archive/v2.0.1.tar.gz"
+  sha256 "92f3605721687c9cf6dd505ced00f96ddd4b765f551083e8dc1977f5c71dd9d9"
   head "https://github.com/wp-cli/wp-cli.git"
 
   bottle :unneeded

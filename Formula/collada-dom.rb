@@ -28,8 +28,8 @@ class ColladaDom < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pcre"
   depends_on "boost"
+  depends_on "pcre"
 
   def install
     system "cmake", ".", *std_cmake_args

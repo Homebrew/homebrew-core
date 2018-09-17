@@ -1,37 +1,38 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.28/pygobject-3.28.3.tar.xz"
-  sha256 "3dd3e21015d06e00482ea665fc1733b77e754a6ab656a5db5d7f7bfaf31ad0b0"
-  revision 1
+  url "https://download.gnome.org/sources/pygobject/3.30/pygobject-3.30.1.tar.xz"
+  sha256 "e1335b70e36885bf1ae207ec1283a369b8fc3e080688046c1edb5a676edc11ce"
 
   bottle do
-    cellar :any
-    sha256 "fda3dbf39e910b3c48b71fb8651231e9acb9fb8509199132e4a3398d88f3a399" => :mojave
-    sha256 "47aa7d49c32d6805573f84732d9f0a1ff2d88547493b0d7ee2eaa09bdeacbdcb" => :high_sierra
-    sha256 "c667c8ad161a8c3a3b86eeb7e74a499d3d0208b216a104211b5714f590525d7c" => :sierra
-    sha256 "d9a345b4bda8c9f669377486bd661332a5ece0e9cc429f59189356167733584b" => :el_capitan
+    sha256 "d2f915f9926b904ca20f3976c003be9f777403f4f0ac76646c6c410990a34285" => :mojave
+    sha256 "4d929370081936dfebf95767696c62be500c1e3197ee38d1b6cc6468f432daca" => :high_sierra
+    sha256 "9c9c97adeff1513f3f14f84dc6d1f17aea83dc322efea5c3733603e18b246947" => :sierra
+    sha256 "61a4cb205453ebb9c2e9bc1c9c92d7a93fb26b7886c94a7e03406c7f1541a72a" => :el_capitan
   end
 
   option "without-python", "Build without python3 support"
   option "with-python@2", "Build with python2 support"
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "libffi" => :optional
-  depends_on "glib"
+  depends_on "python" => [:build, :recommended]
+  depends_on "gobject-introspection"
   depends_on "python@2" => :optional
-  depends_on "python" => :recommended
   depends_on "py2cairo" if build.with? "python@2"
   depends_on "py3cairo" if build.with? "python"
-  depends_on "gobject-introspection"
 
   def install
-    Language::Python.each_python(build) do |python, _version|
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{prefix}",
-                            "PYTHON=#{python}"
-      system "make", "install"
-      system "make", "clean"
+    Language::Python.each_python(build) do |python, version|
+      mkdir "build#{version}" do
+        system "meson", "--prefix=#{prefix}",
+                        "-Dpycairo=true",
+                        "-Dpython=#{python}",
+                        ".."
+        system "ninja", "-v"
+        system "ninja", "install"
+      end
     end
   end
 

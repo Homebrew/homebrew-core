@@ -1,15 +1,15 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.5.1/zsh-5.5.1.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.5.1.tar.xz"
-  sha256 "e1c38808fcbe0cc1344d55c9a758349f7ba1e317325b154621ac37eddac4aa80"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.6.2.tar.xz"
+  sha256 "a50bd66c0557e8eca3b8fa24e85d0de533e775d7a22df042da90488623752e9e"
 
   bottle do
-    sha256 "93030b98b6f56656fe02470549deaf8d3e2fbe688a99cdb58784d1f5cb98761b" => :mojave
-    sha256 "5629f78ced1b1a592bfd13536d5e9f4c265e22cb825c40992c3eea6d71727c80" => :high_sierra
-    sha256 "a78193d233d74739539a258be269c8e66460984de44def032c1856f1a20bdeff" => :sierra
-    sha256 "306e6694538f7fff80f240a7d99156139a931f5fc8f13403a7b8c95fc588df09" => :el_capitan
+    sha256 "443795937f11b04a0bff7047fb183c18f48dabff111d1b9f7f576a9881285f58" => :mojave
+    sha256 "b907030adf23a3a218eca94e4a3d25b55167ab5a3b27ee1eaab75955dfc3eb70" => :high_sierra
+    sha256 "abbb8bd5136e9d550bab6c6d44e36df3246f7f4027fa716a1237e3d8432ebd95" => :sierra
+    sha256 "a5df51c6e413290baa02137530f3834a783f69ce942bf2928d5da77575b524ea" => :el_capitan
   end
 
   head do
@@ -26,9 +26,9 @@ class Zsh < Formula
   depends_on "pcre" => :optional
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.5.1/zsh-5.5.1-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.5.1-doc.tar.xz"
-    sha256 "41ce13a89a6bc7e709b6f110e54288d59f02ba2becd2646895d28188d4dd6283"
+    url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.6.2-doc.tar.xz"
+    sha256 "98973267547cbdd8471b52e3a2bbe415be2c2c473246536ed8914f685e260114"
   end
 
   def install
@@ -46,6 +46,7 @@ class Zsh < Formula
       --enable-multibyte
       --enable-zsh-secure-free
       --with-tcsetpgrp
+      DL_EXT=bundle
     ]
 
     args << "--disable-gdbm" if build.without? "gdbm"

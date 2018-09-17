@@ -15,22 +15,12 @@ class Minbif < Formula
     sha256 "b88890787abd2c0f692a7c371e363ac2c0bed49f361b597ce1557f102ec94b67" => :el_capitan
   end
 
-  option "with-pam", "Build with PAM support, patching for OSX PAM headers"
-
-  deprecated_option "pam" => "with-pam"
-
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "glib"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "pidgin"
+  depends_on "glib"
   depends_on "gnutls"
-  depends_on "imlib2" => :optional
-  depends_on "libcaca" => :optional
-
-  # Problem:  Apple doesn't have <security/pam_misc.h> so don't ask for it.
-  # Reported: https://symlink.me/issues/917
-  patch :DATA if build.with? "pam"
+  depends_on "pidgin"
 
   def install
     inreplace "minbif.conf" do |s|
@@ -38,18 +28,14 @@ class Minbif < Formula
       s.gsub! "motd = /etc", "motd = #{etc}"
     end
 
-    args = %W[
-      PREFIX=#{prefix}
-      ENABLE_MINBIF=ON
-      ENABLE_PLUGIN=ON
-      ENABLE_VIDEO=OFF
-      ENABLE_TLS=ON
-    ]
-    args << "ENABLE_IMLIB=" + (build.with?("imlib2") ? "ON" : "OFF")
-    args << "ENABLE_CACA=" + (build.with?("libcaca") ? "ON" : "OFF")
-    args << "ENABLE_PAM=" + (build.with?("pam") ? "ON" : "OFF")
-
-    system "make", *args
+    system "make", "PREFIX=#{prefix}",
+                   "ENABLE_CACA=OFF",
+                   "ENABLE_IMLIB=OFF",
+                   "ENABLE_MINBIF=ON",
+                   "ENABLE_PAM=OFF",
+                   "ENABLE_PLUGIN=ON",
+                   "ENABLE_TLS=ON",
+                   "ENABLE_VIDEO=OFF"
     system "make", "install"
 
     (var/"lib/minbif/users").mkpath
@@ -67,18 +53,3 @@ class Minbif < Formula
     system "#{bin}/minbif", "--version"
   end
 end
-
-__END__
---- a/src/im/auth_pam.h	2012-05-14 02:44:27.000000000 -0700
-+++ b/src/im/auth_pam.h	2012-10-12 10:16:47.000000000 -0700
-@@ -21,7 +21,10 @@
-
- #include "auth.h"
- #include <security/pam_appl.h>
-+
-+#ifndef __APPLE__
- #include <security/pam_misc.h>
-+#endif
-
- struct _pam_conv_func_data {
-	bool update;

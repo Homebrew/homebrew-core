@@ -14,14 +14,11 @@ class Timidity < Formula
     sha256 "a6c27dd89a2a68505faa01a3be6b770d5c89ae79a9b4739a5f7f1d226bfedb2d" => :mountain_lion
   end
 
-  option "without-darwin", "Build without Darwin CoreAudio support"
-  option "without-freepats", "Build without the Freepats instrument patches from https://freepats.zenvoid.org/"
-
-  depends_on "libogg" => :recommended
-  depends_on "libvorbis" => :recommended
-  depends_on "flac" => :recommended
-  depends_on "speex" => :recommended
-  depends_on "libao" => :recommended
+  depends_on "flac"
+  depends_on "libao"
+  depends_on "libogg"
+  depends_on "libvorbis"
+  depends_on "speex"
 
   resource "freepats" do
     url "https://freepats.zenvoid.org/freepats-20060219.zip"
@@ -29,29 +26,18 @@ class Timidity < Formula
   end
 
   def install
-    args = ["--disable-debug",
-            "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--mandir=#{man}"]
-
-    formats = []
-    formats << "darwin" if build.with? "darwin"
-    formats << "vorbis" if build.with?("libogg") && build.with?("libvorbis")
-    formats << "flac" if build.with? "flac"
-    formats << "speex" if build.with? "speex"
-    formats << "ao" if build.with? "libao"
-
-    args << "--enable-audio=" + formats.join(",") if formats.any?
-
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}",
+                          "--enable-audio=darwin,vorbis,flac,speex,ao"
     system "make", "install"
 
-    if build.with? "freepats"
-      (share/"freepats").install resource("freepats")
-      pkgshare.install_symlink share/"freepats/Tone_000",
-                               share/"freepats/Drum_000",
-                               share/"freepats/freepats.cfg" => "timidity.cfg"
-    end
+    # Freepats instrument patches from https://freepats.zenvoid.org/
+    (share/"freepats").install resource("freepats")
+    pkgshare.install_symlink share/"freepats/Tone_000",
+                             share/"freepats/Drum_000",
+                             share/"freepats/freepats.cfg" => "timidity.cfg"
   end
 
   test do

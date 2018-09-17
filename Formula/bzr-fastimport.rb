@@ -16,8 +16,8 @@ class BzrFastimport < Formula
     sha256 "fab457013d0f24e2d88b2dd76ad72d6b0101b9356e231bb0255b71866d318259" => :mountain_lion
   end
 
-  depends_on "python@2"
   depends_on "bazaar"
+  depends_on "python@2"
 
   resource "python-fastimport" do
     url "https://launchpad.net/python-fastimport/trunk/0.9.2/+download/python-fastimport-0.9.2.tar.gz"

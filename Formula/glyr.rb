@@ -15,8 +15,8 @@ class Glyr < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gettext"
+  depends_on "glib"
 
   def install
     system "cmake", ".", *std_cmake_args

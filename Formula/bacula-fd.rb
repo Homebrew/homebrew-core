@@ -11,8 +11,8 @@ class BaculaFd < Formula
     sha256 "cf30893eb978f8da240416e6bcece5154caf59ecc70afb1d8217cf18ffb9421b" => :el_capitan
   end
 
-  depends_on "readline"
   depends_on "openssl"
+  depends_on "readline"
 
   conflicts_with "bareos-client",
     :because => "Both install a `bconsole` executable."

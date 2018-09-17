@@ -6,6 +6,7 @@ class ZeroInstall < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "12d16e6e7c193b0525bf783a931e178a43cb2357a6821de8628d5b1945e5b8c0" => :mojave
     sha256 "29434cfb80b552cb133e47b6a0a8e4d9929656de096c6fb383ab53dae9d6af5a" => :high_sierra
     sha256 "5e6a18d83dc1503a71545506b25de4b0c97efbdf0a4ce6632a30369bc96e0cc2" => :sierra
     sha256 "0fa494c5e2852f8ebcadadc9c441302145444da6f580efce516263f9c1b33e4f" => :el_capitan

@@ -18,9 +18,6 @@ class Swftools < Formula
   option "with-xpdf", "Build with PDF support"
 
   depends_on :x11 if build.with? "xpdf"
-  depends_on "jpeg" => :optional
-  depends_on "lame" => :optional
-  depends_on "fftw" => :optional
 
   resource "xpdf" do
     url "https://src.fedoraproject.org/repo/pkgs/xpdf/xpdf-3.04.tar.gz/3bc86c69c8ff444db52461270bef3f44/xpdf-3.04.tar.gz", :using => :nounzip

@@ -13,10 +13,10 @@ class Duck < Formula
     sha256 "470f922732207586a55c84141aa438d367613b96edcbb3043fe1c1e20a333244" => :el_capitan
   end
 
-  depends_on :java => ["1.8+", :build]
-  depends_on :xcode => :build
   depends_on "ant" => :build
+  depends_on :java => ["1.8+", :build]
   depends_on "maven" => :build
+  depends_on :xcode => :build
 
   def install
     revision = version.to_s.rpartition(".").last

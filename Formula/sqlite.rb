@@ -1,35 +1,26 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2018/sqlite-autoconf-3240000.tar.gz"
-  version "3.24.0"
-  sha256 "d9d14e88c6fb6d68de9ca0d1f9797477d82fc3aed613558f87ffbdbbc5ceb74a"
+  url "https://sqlite.org/2018/sqlite-autoconf-3250000.tar.gz"
+  version "3.25.0"
+  sha256 "de1a93dfc1ea23d93ee85440fe4347d0b9cd936f25c29645ee0ee170d1307f71"
 
   bottle do
     cellar :any
-    sha256 "7655b8e98e05ff4153d8c21dd495bf7fae82725e2146684ae6fad501901247d1" => :mojave
-    sha256 "a51a1d0a22f6648b41980363dae433223785b55cf62bd9c67a78c15eadad7a99" => :high_sierra
-    sha256 "420f968d54ba111108f4e53d99765dfba26fb4ad2c2e1f6836d5c6ab82358692" => :sierra
-    sha256 "be63f67e5dd205236d60823bb733381a787c6a82ecbe3b6f85c5cc35dd7a67ae" => :el_capitan
+    sha256 "e8f585ebf7392da621a9c02a2a3e0699b6fc37919bb7726d86acea46ee42a825" => :mojave
+    sha256 "4d0bd588c5bfed64a198ad773714c66e46b6a8222fa82b347b0c300f99ffb91b" => :high_sierra
+    sha256 "e446b76306db6c6a1f508ea96814bbfaf9801614b63a568294d20e6fa06a72a4" => :sierra
+    sha256 "23c9552652b32c7060d0e756eb7368b84f824ed6653291d7de2817d20ec9394f" => :el_capitan
   end
 
   keg_only :provided_by_macos, "macOS provides an older sqlite3"
 
-  option "with-docs", "Install HTML documentation"
-  option "without-rtree", "Disable the R*Tree index module"
   option "with-fts", "Enable the FTS3 module"
   option "with-fts5", "Enable the FTS5 module (experimental)"
-  option "with-secure-delete", "Defaults secure_delete to on"
-  option "with-unlock-notify", "Enable the unlock notification feature"
-  option "with-icu4c", "Enable the ICU module"
   option "with-functions", "Enable more math and string functions for SQL queries"
-  option "with-dbstat", "Enable the 'dbstat' virtual table"
   option "with-json1", "Enable the JSON1 extension"
-  option "with-session", "Enable the session extension"
-  option "with-soundex", "Enable the SOUNDEX function"
 
-  depends_on "readline" => :recommended
-  depends_on "icu4c" => :optional
+  depends_on "readline"
 
   resource "functions" do
     url "https://sqlite.org/contrib/download/extension-functions.c?get=25"
@@ -37,42 +28,23 @@ class Sqlite < Formula
     sha256 "991b40fe8b2799edc215f7260b890f14a833512c9d9896aa080891330ffe4052"
   end
 
-  resource "docs" do
-    url "https://sqlite.org/2018/sqlite-doc-3240000.zip"
-    version "3.24.0"
-    sha256 "77b104df2b57a32c40d0336bbf77ab013a1a95ab49a5fe0ea92250e9f2ae82c1"
-  end
-
   def install
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_COLUMN_METADATA=1"
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
     ENV.append "CPPFLAGS", "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
-    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1" if build.with? "rtree"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1" if build.with? "fts"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS5=1" if build.with? "fts5"
-    ENV.append "CPPFLAGS", "-DSQLITE_SECURE_DELETE=1" if build.with? "secure-delete"
-    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_UNLOCK_NOTIFY=1" if build.with? "unlock-notify"
-    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_DBSTAT_VTAB=1" if build.with? "dbstat"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1" if build.with? "json1"
-    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_PREUPDATE_HOOK=1 -DSQLITE_ENABLE_SESSION=1" if build.with? "session"
-    ENV.append "CPPFLAGS", "-DSQLITE_SOUNDEX" if build.with? "soundex"
 
-    if build.with? "icu4c"
-      icu4c = Formula["icu4c"]
-      icu4cldflags = `#{icu4c.opt_bin}/icu-config --ldflags`.tr("\n", " ")
-      icu4ccppflags = `#{icu4c.opt_bin}/icu-config --cppflags`.tr("\n", " ")
-      ENV.append "LDFLAGS", icu4cldflags
-      ENV.append "CPPFLAGS", icu4ccppflags
-      ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_ICU=1"
-    end
-
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
-      "--enable-dynamic-extensions",
+    args = %W[
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --enable-dynamic-extensions
+      --enable-readline
+      --disable-editline
     ]
-    args << "--enable-readline" << "--disable-editline" if build.with? "readline"
 
     system "./configure", *args
     system "make", "install"
@@ -86,7 +58,6 @@ class Sqlite < Formula
                      *ENV.cflags.to_s.split
       lib.install "libsqlitefunctions.dylib"
     end
-    doc.install resource("docs") if build.with? "docs"
   end
 
   def caveats
@@ -111,22 +82,21 @@ class Sqlite < Formula
            0.707106781186548
       EOS
     end
-    if build.with? "readline"
-      user_history = "~/.sqlite_history"
-      user_history_path = File.expand_path(user_history)
-      if File.exist?(user_history_path) && File.read(user_history_path).include?("\\040")
-        s += <<~EOS
-          Homebrew has detected an existing SQLite history file that was created
-          with the editline library. The current version of this formula is
-          built with Readline. To back up and convert your history file so that
-          it can be used with Readline, run:
 
-            sed -i~ 's/\\\\040/ /g' #{user_history}
+    user_history = "~/.sqlite_history"
+    user_history_path = File.expand_path(user_history)
+    if File.exist?(user_history_path) && File.read(user_history_path).include?("\\040")
+      s += <<~EOS
+        Homebrew has detected an existing SQLite history file that was created
+        with the editline library. The current version of this formula is
+        built with Readline. To back up and convert your history file so that
+        it can be used with Readline, run:
 
-          before using the `sqlite` command-line tool again. Otherwise, your
-          history will be lost.
-        EOS
-      end
+          sed -i~ 's/\\\\040/ /g' #{user_history}
+
+        before using the `sqlite` command-line tool again. Otherwise, your
+        history will be lost.
+      EOS
     end
     s
   end

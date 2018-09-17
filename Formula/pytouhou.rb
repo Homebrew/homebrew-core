@@ -35,7 +35,7 @@ class Pytouhou < Formula
   end
 
   resource "demo" do
-    url "http://www16.big.or.jp/~zun/data/soft/kouma_tr013.lzh"
+    url "https://www16.big.or.jp/~zun/data/soft/kouma_tr013.lzh"
     sha256 "77ea64ade20ae7d890a4b0b1623673780c34dd2aa48bf2410603ade626440a8b"
   end
 

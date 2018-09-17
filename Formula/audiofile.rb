@@ -34,10 +34,6 @@ class Audiofile < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-test", "Run the test suite during install (~30sec)"
-
-  deprecated_option "with-check" => "with-test"
-
   # These have all been reported upstream but beside
   # 03_CVE-2015-7747 not yet merged or fixed.
   # https://github.com/mpruett/audiofile/issues/31
@@ -75,7 +71,6 @@ class Audiofile < Formula
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
     system configure, *args
     system "make"
-    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 

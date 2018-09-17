@@ -12,28 +12,14 @@ class Dcmtk < Formula
     sha256 "586903834cdc7bbc4ffc7adb5478b63fb80df1f95b1a631a8b41d5b54bbc275f" => :el_capitan
   end
 
-  option "with-docs", "Install development libraries/headers and HTML docs"
-  option "with-libiconv", "Build with brewed libiconv. Dcmtk and system libiconv can have problems with utf8."
-  option "with-dicomdict", "Build with baked-in DICOM data dictionary."
-
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build if build.with? "docs"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl" => :recommended
-  depends_on "libiconv" => :optional
+  depends_on "openssl"
 
   def install
-    args = std_cmake_args
-    args << "-DDCMTK_WITH_OPENSSL=NO" if build.without? "openssl"
-    args << "-DDCMTK_WITH_DOXYGEN=YES" if build.with? "docs"
-    args << "-DDCMTK_ENABLE_BUILTIN_DICTIONARY=YES -DDCMTK_ENABLE_EXTERNAL_DICTIONARY=NO" if build.with? "dicomdict"
-    args << "-DDCMTK_WITH_ICONV=YES -DLIBICONV_DIR=#{Formula["libiconv"].opt_prefix}" if build.with? "libiconv"
-    args << ".."
-
     mkdir "build" do
-      system "cmake", *args
-      system "make", "DOXYGEN" if build.with? "docs"
+      system "cmake", *std_cmake_args, ".."
       system "make", "install"
     end
   end
