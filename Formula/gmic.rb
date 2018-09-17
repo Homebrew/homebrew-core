@@ -15,25 +15,22 @@ class Gmic < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "fftw" => :recommended
-  depends_on "opencv@2" => :optional
+  depends_on "fftw"
+  depends_on "jpeg"
+  depends_on "libpng"
   depends_on "ffmpeg" => :optional
   depends_on "libtiff" => :optional
+  depends_on "opencv@2" => :optional
   depends_on "openexr" => :optional
 
   def install
     cp "resources/CMakeLists.txt", buildpath
     args = std_cmake_args
     args << "-DENABLE_X=OFF"
-    args << "-DENABLE_JPEG=OFF" if build.without? "jpeg"
-    args << "-DENABLE_PNG=OFF" if build.without? "libpng"
-    args << "-DENABLE_FFTW=OFF" if build.without? "fftw"
-    args << "-DENABLE_OPENCV=OFF" if build.without? "opencv"
     args << "-DENABLE_FFMPEG=OFF" if build.without? "ffmpeg"
-    args << "-DENABLE_TIFF=OFF" if build.without? "libtiff"
+    args << "-DENABLE_OPENCV=OFF" if build.without? "opencv"
     args << "-DENABLE_OPENEXR=OFF" if build.without? "openexr"
+    args << "-DENABLE_TIFF=OFF" if build.without? "libtiff"
     system "cmake", *args
     system "make", "install"
   end
