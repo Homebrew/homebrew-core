@@ -21,8 +21,8 @@ class Goaccess < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libmaxminddb" => :optional
   depends_on "tokyo-cabinet"
+  depends_on "libmaxminddb" => :optional
 
   def install
     system "autoreconf", "-vfi"
