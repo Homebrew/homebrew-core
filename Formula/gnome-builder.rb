@@ -12,24 +12,24 @@ class GnomeBuilder < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "python" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "dbus"
+  depends_on "gspell"
   depends_on "gtk+3"
-  depends_on "libdazzle"
   depends_on "gtksourceview3"
+  depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "jsonrpc-glib"
-  depends_on "template-glib"
-  depends_on "libpeas"
-  depends_on "vte3"
-  depends_on "libxml2"
+  depends_on "libdazzle"
   depends_on "libgit2-glib"
-  depends_on "gspell"
-  depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
+  depends_on "libpeas"
+  depends_on "libxml2"
+  depends_on "template-glib"
+  depends_on "vte3"
 
   # fix sandbox violation and remove unavailable linker option
   patch :DATA
