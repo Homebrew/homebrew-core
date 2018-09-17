@@ -14,8 +14,8 @@ class Irssi < Formula
 
   head do
     url "https://github.com/irssi/irssi.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
     depends_on "lynx" => :build
   end
