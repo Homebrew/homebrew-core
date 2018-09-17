@@ -12,21 +12,21 @@ class Anjuta < Formula
     sha256 "cf198c5bada78c4b4e0d71cc1c1f52b9af4e069ddbcfa678672b66a40aa1b41d" => :el_capitan
   end
 
-  depends_on "python@2"
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "gtksourceview3"
-  depends_on "libxml2"
-  depends_on "libgda"
-  depends_on "gdl"
-  depends_on "vte3"
-  depends_on "hicolor-icon-theme"
+  depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "gdl"
   depends_on "gnutls"
+  depends_on "gtksourceview3"
+  depends_on "hicolor-icon-theme"
+  depends_on "libgda"
+  depends_on "libxml2"
+  depends_on "python@2"
   depends_on "shared-mime-info"
-  depends_on "vala" => :recommended
+  depends_on "vte3"
   depends_on "autogen" => :recommended
+  depends_on "vala" => :recommended
   depends_on "gnome-themes-standard" => :optional
 
   def install
