@@ -13,9 +13,9 @@ class Gom < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "gdk-pixbuf"
   depends_on "gettext"
