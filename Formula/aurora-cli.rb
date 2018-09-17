@@ -11,13 +11,6 @@ class AuroraCli < Formula
     sha256 "a97a66254586aace43a789ae73df85781bff46c3d2837a0b9ad8d07bf9358dc7" => :el_capitan
   end
 
-  if MacOS.version == :mojave
-    patch do
-      url "https://raw.githubusercontent.com/thinker0/aurora/pants-update/pants-update.diff"
-      sha256 "f558cf58ad54601e0b3366617b015d1a8c704bbd5af2de8f5c6299beb5b897f6"
-    end
-  end
-
   depends_on "python@2"
 
   def install
