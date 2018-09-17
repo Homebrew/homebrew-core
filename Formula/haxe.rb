@@ -21,9 +21,9 @@ class Haxe < Formula
     depends_on "pkg-config" => :build
   end
 
-  depends_on "ocaml" => :build
   depends_on "camlp4" => :build
   depends_on "cmake" => :build
+  depends_on "ocaml" => :build
   depends_on "neko"
   depends_on "pcre"
 
