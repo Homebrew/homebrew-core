@@ -15,8 +15,8 @@ class GnomeAutoar < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libarchive"
   depends_on "gtk+3"
+  depends_on "libarchive"
 
   def install
     ENV.delete "SDKROOT"
