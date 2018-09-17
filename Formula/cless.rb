@@ -18,8 +18,8 @@ class Cless < Formula
     sha256 "660d59f6fe5f0b319091559c727a8b1b241f62244b877fc35ecdf34d69bf7713" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     # GHC 8 compat
