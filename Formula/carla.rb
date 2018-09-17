@@ -5,10 +5,10 @@ class Carla < Formula
   sha256 "b79e13f204309c6cafdb51a753314732898a5c37b502e3f922d283a1b94bfea5"
 
   bottle do
-    sha256 "aaf263dfdcfd89676cfb9e2c5e8afad08425280350ef0586b49c7738cc9d9971" => :mojave
-    sha256 "253d05aa4397a1066d66c0573e768ce537f8551e82e0f9873db75ee227ec7762" => :high_sierra
-    sha256 "d7f8da23413a513676722920c2aa2855b8b89fda5a6a3a890c0d9dc065292a25" => :sierra
-    sha256 "311941a8c4a5eb1b2b9104811ffc99ff6641fd22c1e689098f77e58ba34979a1" => :el_capitan
+    sha256 "ddb9025f85cf9ca17196e925c7a7740a11de4cb1eda8a5a023062b7afdd40250" => :mojave
+    sha256 "45ba611e4561f9517bee5f6ea23205513918d17b842e455e14ead3c94537e677" => :high_sierra
+    sha256 "8bb3273617fc9022664f1b00a3e122ca6d815c293266fc630f8698fdf1e1db3f" => :sierra
+    sha256 "4106e1d3fd40b994df4303f5b70a189258305ee5b82aa2946d47bda8bfd91be4" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
