@@ -25,8 +25,8 @@ class ErlangAT17 < Formula
   depends_on "libtool" => :build
   depends_on "openssl"
   depends_on "unixodbc" if MacOS.version >= :mavericks
-  depends_on "fop" => :optional # enables building PDF docs
   depends_on "wxmac" => :recommended # for GUI apps like observer
+  depends_on "fop" => :optional # enables building PDF docs
 
   # Erlang will crash on macOS 10.13 any time the crypto lib is used.
   # The Erlang team has an open PR for the patch but it needs to be applied to
