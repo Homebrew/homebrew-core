@@ -14,14 +14,14 @@ class ConjureUp < Formula
     sha256 "4f06009d8c2cc5ae0e58f8f3fb91a340e46b6964c2462463ad362632c51c982d" => :el_capitan
   end
 
-  depends_on "libyaml"
+  depends_on "awscli"
+  depends_on "jq"
   depends_on "juju"
   depends_on "juju-wait"
-  depends_on "jq"
-  depends_on "redis"
-  depends_on "awscli"
+  depends_on "libyaml"
   depends_on "pwgen"
   depends_on "python"
+  depends_on "redis"
 
   # list generated from the 'requirements.txt' file in the repository root
   resource "aiofiles" do
