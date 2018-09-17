@@ -16,8 +16,8 @@ class Mimms < Formula
     sha256 "88b2e83cfdf9abca4ff712bddacb76611ce29aa2c58218c05e8abf3ed7d0be2b" => :yosemite
   end
 
-  depends_on "python@2"
   depends_on "libmms"
+  depends_on "python@2"
 
   # Switch shared library loading to Mach-O naming convention (.dylib)
   # Matching upstream bug report: https://savannah.nongnu.org/bugs/?29684
