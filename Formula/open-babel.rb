@@ -21,13 +21,13 @@ class OpenBabel < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "python@2" => :optional
-  depends_on "wxmac" => :optional
-  depends_on "cairo" => :optional
+  depends_on "pkg-config" => :build
   depends_on "eigen"
+  depends_on "cairo" => :optional
+  depends_on "python@2" => :optional
   depends_on "swig" if build.with?("python@2") || build.with?("java")
+  depends_on "wxmac" => :optional
 
   def install
     args = std_cmake_args
