@@ -16,11 +16,11 @@ class Joshua < Formula
     sha256 "176fa47a6a2722fb5b6bf1e2efba8da32bab6355f3d844424a817882ed7b3a8e" => :mavericks
   end
 
-  depends_on :java
   depends_on "ant" => :build
   depends_on "boost" => :build
   depends_on "md5sha1sum" => :build
   depends_on "python@2" => :build
+  depends_on :java
 
   def install
     rm Dir["lib/*.{gr,tar.gz}"]
