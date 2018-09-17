@@ -38,8 +38,8 @@ class GtkMacIntegration < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
-  depends_on "gtk+3" => :recommended
   depends_on "pygtk"
+  depends_on "gtk+3" => :recommended
 
   def install
     args = %W[
