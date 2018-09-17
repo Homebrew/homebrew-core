@@ -17,8 +17,8 @@ class Dvdauthor < Formula
   # But we don't add either as deps because they are big.
 
   depends_on "pkg-config" => :build
-  depends_on "libdvdread"
   depends_on "freetype"
+  depends_on "libdvdread"
   depends_on "libpng"
   depends_on "libxml2" if MacOS.version <= :el_capitan
 
