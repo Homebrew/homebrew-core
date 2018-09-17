@@ -18,19 +18,19 @@ class Gtkx < Formula
   head do
     url "https://gitlab.gnome.org/GNOME/gtk.git", :branch => "gtk-2-24"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
-    depends_on "libtool" => :build
+    depends_on "automake" => :build
     depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gdk-pixbuf"
-  depends_on "jasper" => :optional
   depends_on "atk"
-  depends_on "pango"
+  depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
+  depends_on "pango"
+  depends_on "jasper" => :optional
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
   # See:
