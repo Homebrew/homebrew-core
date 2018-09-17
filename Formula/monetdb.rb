@@ -14,17 +14,17 @@ class Monetdb < Formula
   head do
     url "https://dev.monetdb.org/hg/MonetDB", :using => :hg
 
-    depends_on "libtool" => :build
-    depends_on "gettext" => :build
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "libatomic_ops" => :build
+  depends_on "pkg-config" => :build
+  depends_on "openssl"
   depends_on "pcre"
   depends_on "readline" # Compilation fails with libedit
-  depends_on "openssl"
 
   def install
     ENV["M4DIRS"] = "#{Formula["gettext"].opt_share}/aclocal" if build.head?
