@@ -23,8 +23,8 @@ class Numpy < Formula
   option "without-python@2", "Build without python2 support"
 
   depends_on "gcc" => :build # for gfortran
-  depends_on "python@2" => :recommended
   depends_on "python" => :recommended
+  depends_on "python@2" => :recommended
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
