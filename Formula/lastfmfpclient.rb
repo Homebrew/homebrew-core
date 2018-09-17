@@ -16,10 +16,10 @@ class Lastfmfpclient < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "taglib"
   depends_on "fftw"
-  depends_on "mad"
   depends_on "libsamplerate"
+  depends_on "mad"
+  depends_on "taglib"
 
   def inreplace_fix
     # This project was made on Windows (LOL), patches against Windows
