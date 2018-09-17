@@ -15,8 +15,8 @@ class ObjcCodegenutils < Formula
     sha256 "b2a970d293782e5dc6cdf2902df97c89dfa3552aeb5994c7b035a256e5659868" => :mountain_lion
   end
 
-  depends_on :macos => :mountain_lion
   depends_on :xcode => :build
+  depends_on :macos => :mountain_lion
 
   def install
     xcodebuild "-project", "codegenutils.xcodeproj", "-target", "assetgen", "-configuration", "Release", "SYMROOT=build", "OBJROOT=build"
