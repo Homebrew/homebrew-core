@@ -18,8 +18,8 @@ class IkeScan < Formula
   head do
     url "https://github.com/royhills/ike-scan.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
