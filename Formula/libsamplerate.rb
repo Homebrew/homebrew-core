@@ -14,8 +14,8 @@ class Libsamplerate < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libsndfile" => :optional
   depends_on "fftw" => :optional
+  depends_on "libsndfile" => :optional
 
   # configure adds `/Developer/Headers/FlatCarbon` to the include, but this is
   # very deprecated. Correct the use of Carbon.h to the non-flat location.
