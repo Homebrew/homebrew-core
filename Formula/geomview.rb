@@ -14,8 +14,8 @@ class Geomview < Formula
     sha256 "edc57089dc5ba7f2e7ec43c66202f19c460c4a1970f9c60984c0f3fe6c481012" => :yosemite
   end
 
-  depends_on :x11
   depends_on "openmotif"
+  depends_on :x11
 
   def install
     system "./configure", "--disable-dependency-tracking",
