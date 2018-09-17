@@ -16,18 +16,18 @@ class Couchdb < Formula
     url "https://github.com/apache/couchdb.git"
 
     depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
     depends_on "autoconf-archive" => :build
-    depends_on "pkg-config" => :build
+    depends_on "automake" => :build
     depends_on "help2man" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
   end
 
   option "with-geocouch", "Build with GeoCouch spatial index extension"
 
   depends_on "erlang@19"
-  depends_on "spidermonkey"
   depends_on "icu4c"
+  depends_on "spidermonkey"
 
   resource "geocouch" do
     url "https://github.com/couchbase/geocouch/archive/couchdb1.3.x.tar.gz"
