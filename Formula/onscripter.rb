@@ -16,12 +16,12 @@ class Onscripter < Formula
   option "with-english", "Build with single-byte character mode"
 
   depends_on "pkg-config" => :build
+  depends_on "jpeg"
   depends_on "sdl"
-  depends_on "sdl_ttf"
   depends_on "sdl_image"
   depends_on "sdl_mixer"
+  depends_on "sdl_ttf"
   depends_on "smpeg"
-  depends_on "jpeg"
   depends_on "lua" => :recommended
 
   # jpeg 9 compatibility
