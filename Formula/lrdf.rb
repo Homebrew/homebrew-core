@@ -13,10 +13,10 @@ class Lrdf < Formula
     sha256 "053602eb98310d03ea0ba7838cd0f746dd34a60759a35fcbae7c41ca08a2919f" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "raptor"
 
   def install
