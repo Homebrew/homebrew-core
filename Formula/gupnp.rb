@@ -13,12 +13,12 @@ class Gupnp < Formula
     sha256 "3382f7c4a3b884bb604179f554d55e31028e40ba97c031fc29c4284ac8c4c19f" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libsoup"
   depends_on "gssdp"
+  depends_on "libsoup"
 
   def install
     system "./configure", "--disable-debug",
