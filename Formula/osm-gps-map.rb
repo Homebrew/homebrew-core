@@ -14,18 +14,18 @@ class OsmGpsMap < Formula
 
   head do
     url "https://github.com/nzjrs/osm-gps-map.git"
-    depends_on "gnome-common" => :build
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
-    depends_on "libtool" => :build
+    depends_on "automake" => :build
+    depends_on "gnome-common" => :build
     depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
+  depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "gdk-pixbuf"
   depends_on "libsoup"
 
   def install
