@@ -13,8 +13,8 @@ class OpenCobol < Formula
     sha256 "c9fc1e375ec061b9a90a5cc29446a61fe7f49e75d1a78c6888adee889e9258d5" => :el_capitan
   end
 
-  depends_on "gmp"
   depends_on "berkeley-db"
+  depends_on "gmp"
 
   conflicts_with "gnu-cobol",
     :because => "both install `cob-config`, `cobc` and `cobcrun` binaries"
