@@ -14,12 +14,12 @@ class Gconf < Formula
     sha256 "91bbb172f214d7fc407f20eef91a6d4dcf0140da4e91d99f4e0c2fd1e902815d" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "gettext"
+  depends_on "pkg-config" => :build
   depends_on "dbus"
-  depends_on "glib"
   depends_on "dbus-glib"
+  depends_on "gettext"
+  depends_on "glib"
   depends_on "orbit"
 
   def install
