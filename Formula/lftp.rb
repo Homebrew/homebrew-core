@@ -11,9 +11,9 @@ class Lftp < Formula
     sha256 "080ba35e879de061f9c794bb3ee59f32259897395dd6b774471aed16a91279f8" => :el_capitan
   end
 
-  depends_on "readline"
-  depends_on "openssl"
   depends_on "libidn"
+  depends_on "openssl"
+  depends_on "readline"
 
   def install
     system "./configure", "--disable-dependency-tracking",
