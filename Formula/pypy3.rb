@@ -14,10 +14,10 @@ class Pypy3 < Formula
   depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
   depends_on "pypy" => :build
-  depends_on "gdbm" => :recommended
-  depends_on "sqlite" => :recommended
+  depends_on "gdbm"
   depends_on "openssl"
-  depends_on "xz" => :recommended
+  depends_on "sqlite"
+  depends_on "xz"
 
   # packaging depends on pyparsing
   resource "pyparsing" do
@@ -89,10 +89,7 @@ class Pypy3 < Formula
 
     libexec.mkpath
     cd "pypy/tool/release" do
-      package_args = %w[--archive-name pypy3 --targetdir .]
-      package_args << "--without-gdbm" if build.without? "gdbm"
-      package_args << "--without-lzma" if build.without? "xz"
-      system python, "package.py", *package_args
+      system python, "package.py", "--archive-name", "pypy3", "--targetdir", "."
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy3.tar.bz2"
     end
 
