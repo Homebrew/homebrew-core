@@ -12,8 +12,8 @@ class Htmldoc < Formula
     sha256 "a53860f24217691f3ae9ae565d8c4661d89869b45d95cc79efc12df567f3d297" => :el_capitan
   end
 
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     system "./configure", "--disable-debug",
