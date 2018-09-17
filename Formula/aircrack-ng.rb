@@ -15,9 +15,9 @@ class AircrackNg < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "sqlite"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "sqlite"
 
   # Remove root requirement from OUI update script. See:
   # https://github.com/Homebrew/homebrew/pull/12755
