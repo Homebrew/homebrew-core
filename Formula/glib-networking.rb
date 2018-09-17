@@ -12,8 +12,8 @@ class GlibNetworking < Formula
   end
 
   depends_on "meson" => :build
-  depends_on "pkg-config" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "glib"
   depends_on "gnutls"
