@@ -14,8 +14,8 @@ class LibreadlineJava < Formula
     sha256 "21a487377ac0dae6c47753dd25d3f850b10fcc7ccde8f6a726b4f730bb05a3da" => :yosemite
   end
 
-  depends_on "readline"
   depends_on :java => "1.8"
+  depends_on "readline"
 
   # Fix "non-void function should return a value"-Error
   # https://sourceforge.net/p/java-readline/patches/2/
