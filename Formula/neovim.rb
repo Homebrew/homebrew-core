@@ -14,8 +14,8 @@ class Neovim < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "luarocks" => :build
   depends_on "lua@5.1" => :build
+  depends_on "luarocks" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "jemalloc"
