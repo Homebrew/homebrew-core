@@ -14,10 +14,10 @@ class Libwmf < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gd"
   depends_on "freetype"
-  depends_on "libpng"
+  depends_on "gd"
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
