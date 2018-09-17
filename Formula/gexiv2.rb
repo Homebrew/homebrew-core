@@ -11,11 +11,11 @@ class Gexiv2 < Formula
     sha256 "be2ec9b0a9a314e982626156bb1b262648332334e57a03bc6c45b4ef14e223a1" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "python@2"
-  depends_on "glib"
+  depends_on "pkg-config" => :build
   depends_on "exiv2"
+  depends_on "glib"
+  depends_on "python@2"
 
   # bug report opened on 2017/12/25, closed on 2018/01/05, reopened on 2018/02/06
   # https://bugzilla.gnome.org/show_bug.cgi?id=791941
