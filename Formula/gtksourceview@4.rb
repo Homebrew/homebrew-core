@@ -11,10 +11,10 @@ class GtksourceviewAT4 < Formula
     sha256 "9f47547c03530d5fcaba7ae636b2d52adaef645c624dc3c0fde3c22988326046" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "gobject-introspection" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
