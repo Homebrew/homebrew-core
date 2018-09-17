@@ -12,8 +12,8 @@ class Nesc < Formula
     sha256 "9bb55ca81ee1ecbed59220ced5045e25b2641dbf24c330f85bfa4c21dbe483fa" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on :java => :build
 
   def install
