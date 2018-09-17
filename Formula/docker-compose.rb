@@ -16,8 +16,8 @@ class DockerCompose < Formula
     sha256 "a626ce2379b1b9f635eb2917498452f0d50c4944ba9c9636387be121370e8f5f" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "libyaml"
+  depends_on "python@2"
 
   def install
     system "./script/build/write-git-sha" if build.head?
