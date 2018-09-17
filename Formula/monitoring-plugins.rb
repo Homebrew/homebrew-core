@@ -13,8 +13,8 @@ class MonitoringPlugins < Formula
   end
 
   depends_on "openssl"
-  depends_on "postgresql" => :optional
   depends_on "mysql" => :optional
+  depends_on "postgresql" => :optional
 
   conflicts_with "nagios-plugins", :because => "nagios-plugins ships their plugins to the same folder."
 
