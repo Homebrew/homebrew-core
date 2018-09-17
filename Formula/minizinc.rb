@@ -13,8 +13,8 @@ class Minizinc < Formula
     sha256 "806dfb571c83b5ad4028098455ac5e277c5c0437cddbbd50e5dd2c54b87ac19c" => :el_capitan
   end
 
-  depends_on :arch => :x86_64
   depends_on "cmake" => :build
+  depends_on :arch => :x86_64
 
   def install
     mkdir "build" do
