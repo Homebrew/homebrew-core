@@ -13,8 +13,8 @@ class Librtlsdr < Formula
     sha256 "f5196572498f20ff0ea38d4e7ceed95aea1199a558f29dd6aac5cec9db65ce33" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "libusb"
 
   def install
