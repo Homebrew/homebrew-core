@@ -14,8 +14,8 @@ class Gpsim < Formula
     sha256 "4049efd02de96753275cfb5119efc843d1da0eba30f314b7b2b3e4776b5cd430" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "gputils" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "popt"
 
