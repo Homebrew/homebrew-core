@@ -13,9 +13,9 @@ class Cpprestsdk < Formula
     sha256 "53b4cdfd9b0b964a1803920d02ae066a4ddb2be58e68477d34906ba44048e52a" => :el_capitan
   end
 
+  depends_on "cmake" => :build
   depends_on "boost"
   depends_on "openssl"
-  depends_on "cmake" => :build
 
   def install
     system "cmake", "-DBUILD_SAMPLES=OFF", "-DBUILD_TESTS=OFF", "Release", *std_cmake_args
