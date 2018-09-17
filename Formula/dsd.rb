@@ -25,8 +25,8 @@ class Dsd < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libsndfile"
   depends_on "itpp"
+  depends_on "libsndfile"
   depends_on "portaudio"
 
   resource "mbelib-1.2.5" do
