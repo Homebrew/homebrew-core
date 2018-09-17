@@ -16,8 +16,8 @@ class Jigdo < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "wget" => :recommended
   depends_on "berkeley-db"
+  depends_on "wget" => :recommended
 
   # Use MacPorts patch for compilation on 10.9; this software is no longer developed.
   patch :p0 do
