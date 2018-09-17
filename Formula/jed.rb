@@ -17,8 +17,8 @@ class Jed < Formula
 
   head do
     url "git://git.jedsoft.org/git/jed.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "s-lang"
