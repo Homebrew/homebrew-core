@@ -5,6 +5,13 @@ class Nwchem < Formula
   version "6.8.1"
   sha256 "23ce8241a5977a93d8224f66433851c81a08ad58a4c551858ae031485b095ab7"
 
+  bottle do
+    sha256 "46f8eb78babc97687fbac76eb04e55f01959a7fab673f7a48acfbff59f53de1d" => :mojave
+    sha256 "f87a722df2be89e7fd9e474188262bb4b41bf6e4467acca982e564b164a4c4c8" => :high_sierra
+    sha256 "ddb53955186a426eaa0c6021b92b0d0fd76bf5fc403e8f0ccc13e062075e5470" => :sierra
+    sha256 "28aa3d416c88f27440b6711ecea2001b1fd442ff4c2a67d05cd1157bc4dc4570" => :el_capitan
+  end
+
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "openblas"
