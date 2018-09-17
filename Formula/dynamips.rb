@@ -12,8 +12,8 @@ class Dynamips < Formula
     sha256 "a6a7863cea9ce3666dc90117f6bcbbf81e1b97a2e6466a3760e83c1b72cc6dc1" => :el_capitan
   end
 
-  depends_on "libelf"
   depends_on "cmake" => :build
+  depends_on "libelf"
 
   def install
     ENV.append "CFLAGS", "-I#{Formula["libelf"].include}/libelf"
