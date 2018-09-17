@@ -17,15 +17,15 @@ class Mapnik < Formula
   depends_on "boost"
   depends_on "freetype"
   depends_on "harfbuzz"
+  depends_on "icu4c"
+  depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "proj"
-  depends_on "icu4c"
-  depends_on "jpeg"
   depends_on "webp"
+  depends_on "cairo" => :optional
   depends_on "gdal" => :optional
   depends_on "postgresql" => :optional
-  depends_on "cairo" => :optional
 
   needs :cxx11
 
