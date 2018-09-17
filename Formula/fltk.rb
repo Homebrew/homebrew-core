@@ -13,8 +13,8 @@ class Fltk < Formula
     sha256 "5481ffce354c2c98ed7634b036d678c7476780085e1a518af186f2e4b22d2c31" => :el_capitan
   end
 
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     system "./configure", "--prefix=#{prefix}",
