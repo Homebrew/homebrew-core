@@ -14,11 +14,11 @@ class Liblastfm < Formula
     sha256 "0d5342788a8f4eb95ea970d2247e829d7dac17db2d43713aacbf4617e742bbba" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "libsamplerate"
+  depends_on "qt"
 
   def install
     mkdir "build" do
