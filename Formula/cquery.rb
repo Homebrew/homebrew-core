@@ -13,10 +13,11 @@ class Cquery < Formula
     sha256 "ac3ad5aada30ca31d70f36e6e3ba76d96aa0e235ccdd62259a086578fe182b44" => :sierra
   end
 
-  # error: 'shared_timed_mutex' is unavailable: introduced in macOS 10.12
-  depends_on :macos => :sierra
   depends_on "cmake" => :build
   depends_on "llvm"
+
+  # error: 'shared_timed_mutex' is unavailable: introduced in macOS 10.12
+  depends_on :macos => :sierra
 
   needs :cxx14
 
