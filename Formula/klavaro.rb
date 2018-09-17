@@ -12,8 +12,8 @@ class Klavaro < Formula
     sha256 "298080d48f362d502364a1048a6dceb581137c918da31d68d526ffcc14118d64" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gtk+3"
 
   def install
