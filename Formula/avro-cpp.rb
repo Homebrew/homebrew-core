@@ -13,8 +13,8 @@ class AvroCpp < Formula
     sha256 "30de5dd8b0328916218197bf57e6d74695c770a9c53194a0ec4d2676934dc27b" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
 
   def install
