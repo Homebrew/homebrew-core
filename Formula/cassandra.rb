@@ -12,8 +12,8 @@ class Cassandra < Formula
     sha256 "39b89a51d9a193a5602f06c03099bfa097895520addacbb81307774830226ea5" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "cython"
+  depends_on "python@2"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
