@@ -13,8 +13,8 @@ class Lasso < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libxmlsec1"
   depends_on "glib"
+  depends_on "libxmlsec1"
   depends_on "openssl"
 
   def install
