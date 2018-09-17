@@ -11,8 +11,8 @@ class Hevea < Formula
     sha256 "b036e8c8233b6800187efaab19171c39f25c4d82b8ba32442abdec688aa61296" => :el_capitan
   end
 
-  depends_on "ocaml"
   depends_on "ocamlbuild" => :build
+  depends_on "ocaml"
   depends_on "ghostscript" => :optional
 
   def install
