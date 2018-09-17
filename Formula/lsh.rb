@@ -16,9 +16,9 @@ class Lsh < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11 => :optional # For libXau library
-  depends_on "nettle"
   depends_on "gmp"
+  depends_on "nettle"
+  depends_on :x11 => :optional # For libXau library
 
   resource "liboop" do
     url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libo/liboop/liboop_1.0.orig.tar.gz"
