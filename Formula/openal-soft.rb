@@ -15,11 +15,11 @@ class OpenalSoft < Formula
 
   keg_only :provided_by_macos, "macOS provides OpenAL.framework"
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "fluid-synth" => :optional
   depends_on "portaudio" => :optional
   depends_on "pulseaudio" => :optional
-  depends_on "fluid-synth" => :optional
 
   # clang 4.2's support for alignas is incomplete
   fails_with(:clang) { build 425 }
