@@ -13,8 +13,8 @@ class Dub < Formula
     sha256 "30ae62ba7e76e4ec3e73e5454a3d96bb607bddee02af6a1e7644b077940dd52e" => :el_capitan
   end
 
-  depends_on "pkg-config" => :recommended
   depends_on "dmd" => :build
+  depends_on "pkg-config" => :recommended
 
   def install
     ENV["GITVER"] = version.to_s
