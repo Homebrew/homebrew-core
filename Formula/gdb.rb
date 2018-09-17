@@ -21,9 +21,9 @@ class Gdb < Formula
   option "with-all-targets", "Build with support for all targets"
 
   depends_on "pkg-config" => :build
+  depends_on "guile@2.0" => :optional
   depends_on "python" => :optional
   depends_on "python@2" => :optional
-  depends_on "guile@2.0" => :optional
 
   fails_with :clang do
     build 800
