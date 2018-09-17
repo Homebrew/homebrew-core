@@ -13,8 +13,8 @@ class Libmypaint < Formula
     sha256 "d7402148eaf2c7d18fa7c2fdefe62ca27cd181146dabea1ab8eae15e03b53ce6" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "json-c"
 
