@@ -18,8 +18,8 @@ class Libgit2Glib < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "libgit2"
   depends_on "glib"
+  depends_on "libgit2"
 
   def install
     ENV.refurbish_args
