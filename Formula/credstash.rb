@@ -15,8 +15,8 @@ class Credstash < Formula
     sha256 "cad326b5145a3d6705e84765fc21c9f25f342e3e149f701a1f5413764614c02d" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "openssl"
+  depends_on "python@2"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
