@@ -14,10 +14,10 @@ class Mscgen < Formula
     sha256 "af3dff86415fae2f80ff8f6c49a32b440e65a785db7573c74ef77487192e0811" => :yosemite
   end
 
-  depends_on :x11
   depends_on "pkg-config" => :build
-  depends_on "gd"
   depends_on "freetype"
+  depends_on "gd"
+  depends_on :x11
 
   def install
     system "./configure", "--prefix=#{prefix}",
