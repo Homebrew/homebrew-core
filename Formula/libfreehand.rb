@@ -13,8 +13,8 @@ class Libfreehand < Formula
     sha256 "97056ac49cee3fcdb9b69a1e7113dd38828a6c4b676d89f72114e2025abfdac5" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
+  depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
