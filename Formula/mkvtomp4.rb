@@ -16,9 +16,9 @@ class Mkvtomp4 < Formula
   end
 
   depends_on "gpac"
-  depends_on "ffmpeg" => :recommended
   depends_on "mkvtoolnix"
   depends_on "python@2"
+  depends_on "ffmpeg" => :recommended
 
   def install
     ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
