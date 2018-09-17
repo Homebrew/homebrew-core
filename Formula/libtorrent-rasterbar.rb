@@ -14,17 +14,17 @@ class LibtorrentRasterbar < Formula
 
   head do
     url "https://github.com/arvidn/libtorrent.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
+  depends_on "boost"
   depends_on "openssl"
   depends_on "python@2" => :optional
-  depends_on "boost"
   depends_on "boost-python" if build.with? "python@2"
 
   def install
