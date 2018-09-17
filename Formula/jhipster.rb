@@ -14,8 +14,8 @@ class Jhipster < Formula
     sha256 "bf2cd3efff3eee72713582f5cf72de69b8e574f1a98827b9e8370486005b8831" => :el_capitan
   end
 
-  depends_on "node"
   depends_on :java => "1.8+"
+  depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
