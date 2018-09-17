@@ -12,10 +12,10 @@ class Cutter < Formula
     sha256 "10fdffef5ec4b8983db6547225491720d17cfbcdcbd34b9524facd9f48da04b6" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "glib"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "glib"
 
   def install
     system "./configure", "--prefix=#{prefix}",
