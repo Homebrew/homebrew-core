@@ -13,16 +13,17 @@ class OsrmBackend < Formula
     sha256 "82c744cc45f7347ebac04b5af6528ecfe49b5715e77401ae9a39af8c03038a20" => :el_capitan
   end
 
-  # "invalid use of non-static data member 'offset'"
-  # https://github.com/Project-OSRM/osrm-backend/issues/3719
-  depends_on :macos => :el_capitan
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "libstxxl"
   depends_on "libxml2"
   depends_on "libzip"
   depends_on "lua"
+
+  # "invalid use of non-static data member 'offset'"
+  # https://github.com/Project-OSRM/osrm-backend/issues/3719
+  depends_on :macos => :el_capitan
+
   depends_on "tbb"
 
   def install
