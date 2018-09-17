@@ -13,9 +13,9 @@ class Libnfs < Formula
     sha256 "e83eac3ac327b5e4da5e6d7aa39668ce7067ee0fa8cab04023f268339977ee1e" => :yosemite
   end
 
-  depends_on "libtool" => :build
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
     system "./bootstrap"
