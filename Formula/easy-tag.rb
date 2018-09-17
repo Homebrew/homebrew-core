@@ -12,20 +12,19 @@ class EasyTag < Formula
     sha256 "eb0d0b85c5d5047d06aa311784e859041bffdb447e57c13fec7587f60a6e6043" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "adwaita-icon-theme"
+  depends_on "flac"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
   depends_on "id3lib"
   depends_on "libid3tag"
-  depends_on "taglib"
-
-  depends_on "libvorbis"
-  depends_on "flac"
   depends_on "libogg"
+  depends_on "libvorbis"
   depends_on "speex"
+  depends_on "taglib"
   depends_on "wavpack"
 
   # disable gtk-update-icon-cache
