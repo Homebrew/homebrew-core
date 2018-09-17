@@ -15,8 +15,8 @@ class Flac123 < Formula
     sha256 "4f76ae1d865f10de27f44c57242178c06ffb33017ac3646a4dd2115fc2882c61" => :mountain_lion
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   depends_on "flac"
   depends_on "libao"
