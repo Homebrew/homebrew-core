@@ -6,10 +6,10 @@ class TigerVnc < Formula
   revision 1
 
   bottle do
-    sha256 "d182b89bdf904b1f17cf494bf69cbd218f0159b8b1df5fb0da9ed7221ef4465f" => :mojave
-    sha256 "d752a41b65a44ccdbccc7fb28b8a3c2a7d79d789bbbcef5f8afc8ee3258ef247" => :high_sierra
-    sha256 "56dfa034d853ad90172c4768cea4f2c5c943539d31bc474cb1fdd49ef05ab726" => :sierra
-    sha256 "37cf3c2d2d7d7624f0b2c16851a049c86fa59832921db81d6e8e55e28b759851" => :el_capitan
+    sha256 "4ad5a8b50a61a62438621ea836b22da7635a85b71147f4edba7079e840e70792" => :mojave
+    sha256 "904d4aa7c63b84d8f4104a8e24616923f9c24718b5b27649fc86903c37a961ec" => :high_sierra
+    sha256 "3a880103ebe8542903019c855d9fd12edaa4646d32748af10fb5e6a0e4f57bfc" => :sierra
+    sha256 "d510cb87760d8d36e312410d95a49ab30208b63912fc453faeefd39164167373" => :el_capitan
   end
 
   depends_on "cmake" => :build
