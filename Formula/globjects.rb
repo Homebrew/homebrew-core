@@ -16,8 +16,8 @@ class Globjects < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "glm"
   depends_on "glbinding"
+  depends_on "glm"
 
   needs :cxx11
 
