@@ -12,8 +12,8 @@ class G3log < Formula
     sha256 "4cd2f01ea225e95a348d1a514cf14f2c51eb47b1ef2f86c8d3e7c8218ba0eb31" => :el_capitan
   end
 
-  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "cmake" => :build
+  depends_on :macos => :el_capitan # needs thread-local storage
 
   def install
     system "cmake", ".", *std_cmake_args
