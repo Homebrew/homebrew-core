@@ -14,14 +14,14 @@ class Openslide < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libpng"
-  depends_on "jpeg"
-  depends_on "libxml2"
-  depends_on "libtiff"
-  depends_on "glib"
-  depends_on "openjpeg"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
+  depends_on "glib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "libxml2"
+  depends_on "openjpeg"
 
   resource "svs" do
     url "http://openslide.cs.cmu.edu/download/openslide-testdata/Aperio/CMU-1-Small-Region.svs"
