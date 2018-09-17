@@ -12,11 +12,11 @@ class GtkDoc < Formula
     sha256 "be0ea15d4d139ca270cb09222baed7e0107d5ce406086efe8e849a5b547bb3d0" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "itstool" => :build
-  depends_on "gettext"
+  depends_on "pkg-config" => :build
   depends_on "docbook"
   depends_on "docbook-xsl"
+  depends_on "gettext"
   depends_on "libxml2"
   depends_on "python@2"
   depends_on "source-highlight"
