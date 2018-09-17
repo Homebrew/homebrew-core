@@ -12,9 +12,9 @@ class Arangodb < Formula
     sha256 "99ec338ddd1ee96abfef7a2a1d833114d42b3b9b2cb4d0d22bdf6be54f9164c1" => :el_capitan
   end
 
-  depends_on :macos => :yosemite
   depends_on "cmake" => :build
   depends_on "go" => :build
+  depends_on :macos => :yosemite
   depends_on "openssl"
 
   needs :cxx11
