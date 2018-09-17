@@ -13,10 +13,10 @@ class Libsoundio < Formula
     sha256 "594c0042c86a0a6aeca3b7286435b3cc9593ffa158f921092df90f0aef3a865e" => :yosemite
   end
 
+  depends_on "cmake" => :build
+
   # fatal error: 'stdatomic.h' file not found
   depends_on :macos => :yosemite
-
-  depends_on "cmake" => :build
 
   def install
     system "cmake", ".", *std_cmake_args
