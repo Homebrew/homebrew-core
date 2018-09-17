@@ -12,13 +12,13 @@ class Leptonica < Formula
     sha256 "de45c709e91297e100e645f795bcecdb884a2c00e88505313cb8339fb435fe26" => :el_capitan
   end
 
-  depends_on "libpng" => :recommended
+  depends_on "pkg-config" => :build
   depends_on "jpeg" => :recommended
+  depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
   depends_on "openjpeg" => :optional
   depends_on "webp" => :optional
-  depends_on "pkg-config" => :build
 
   def install
     args = %W[
