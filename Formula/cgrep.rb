@@ -17,8 +17,8 @@ class Cgrep < Formula
     sha256 "a3570fdcf951b804efe6994162af327c2984650e3d1fe4a1a54e3a473af8630a" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
   depends_on "pcre"
 
   def install
