@@ -23,8 +23,8 @@ class Ghostscript < Formula
   patch :DATA # Uncomment macOS-specific make vars
 
   depends_on "pkg-config" => :build
-  depends_on "little-cms2"
   depends_on "libtiff"
+  depends_on "little-cms2"
   depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
