@@ -17,8 +17,8 @@ class Hydra < Formula
   depends_on "pkg-config" => :build
   depends_on "mysql-client"
   depends_on "openssl"
-  depends_on "libssh" => :optional
   depends_on "gtk+" => :optional
+  depends_on "libssh" => :optional
 
   def install
     inreplace "configure" do |s|
