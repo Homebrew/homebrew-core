@@ -12,8 +12,8 @@ class EyeD3 < Formula
     sha256 "6eb7f5ba88abde8ebea81ab48095c0b2f0f4f21aed5f9cc099730c5446cf51a3" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "libmagic"
+  depends_on "python@2"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
