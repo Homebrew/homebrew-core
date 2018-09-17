@@ -15,11 +15,11 @@ class Corectl < Formula
     sha256 "ae67e7433832ac259736eaa9879e18d7b724f6ffc823f487b31eb1447780f72a" => :yosemite
   end
 
-  depends_on "go" => :build
-  depends_on "libev"
-  depends_on "ocaml" => :build
   depends_on "aspcud" => :build
+  depends_on "go" => :build
+  depends_on "ocaml" => :build
   depends_on "opam" => :build
+  depends_on "libev"
   depends_on :macos => :yosemite
 
   def install
