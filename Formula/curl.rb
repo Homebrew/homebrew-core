@@ -44,11 +44,11 @@ class Curl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "rtmpdump" => :optional
-  depends_on "libssh2" => :optional
   depends_on "c-ares" => :optional
   depends_on "libmetalink" => :optional
+  depends_on "libssh2" => :optional
   depends_on "nghttp2" => :optional
+  depends_on "rtmpdump" => :optional
 
   def install
     system "./buildconf" if build.head?
