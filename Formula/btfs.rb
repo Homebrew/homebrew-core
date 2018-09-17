@@ -16,8 +16,8 @@ class Btfs < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on :osxfuse
   depends_on "libtorrent-rasterbar"
+  depends_on :osxfuse
 
   def install
     ENV.cxx11
