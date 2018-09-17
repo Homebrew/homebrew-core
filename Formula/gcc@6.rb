@@ -20,9 +20,9 @@ class GccAT6 < Formula
   option "without-fortran", "Build without the gfortran compiler"
 
   depends_on "gmp"
+  depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "isl"
 
   fails_with :gcc_4_0
 
