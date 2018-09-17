@@ -16,8 +16,8 @@ class Mitmproxy < Formula
   end
 
   depends_on "openssl"
-  depends_on "python"
   depends_on "protobuf"
+  depends_on "python"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
