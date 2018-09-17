@@ -13,8 +13,8 @@ class Dcraw < Formula
     sha256 "022f85e8da7b4cd8c68d7251d39bf3084ec28a15cb859d9cfe49bd439e312466" => :el_capitan
   end
 
-  depends_on "jpeg"
   depends_on "jasper"
+  depends_on "jpeg"
   depends_on "little-cms2"
 
   def install
