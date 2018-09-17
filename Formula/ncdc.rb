@@ -24,8 +24,8 @@ class Ncdc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "sqlite"
   depends_on "gnutls"
+  depends_on "sqlite"
   depends_on "geoip" => :optional
 
   def install
