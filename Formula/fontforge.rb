@@ -18,18 +18,18 @@ class Fontforge < Formula
   deprecated_option "with-gif" => "with-giflib"
 
   depends_on "pkg-config" => :build
-  depends_on "libtool"
-  depends_on "gettext"
-  depends_on "pango"
   depends_on "cairo"
   depends_on "fontconfig"
+  depends_on "gettext"
   depends_on "libpng"
+  depends_on "libtool"
+  depends_on "pango"
+  depends_on "python@2"
   depends_on "jpeg" => :recommended
   depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
   depends_on "libuninameslist" => :optional
-  depends_on "python@2"
 
   # Remove for > 20170731
   # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
