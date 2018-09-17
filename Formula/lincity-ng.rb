@@ -24,8 +24,8 @@ class LincityNg < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "pkg-config" => :build
   depends_on "jam" => :build
+  depends_on "pkg-config" => :build
   depends_on "physfs"
   depends_on "sdl"
   depends_on "sdl_gfx"
