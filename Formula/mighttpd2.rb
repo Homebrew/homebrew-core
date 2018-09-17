@@ -16,8 +16,8 @@ class Mighttpd2 < Formula
     sha256 "53b61f1044d2ef60b1dde3ebe5b5adcce01838c6c962fac14e9ba1e92b123d31" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     install_cabal_package
