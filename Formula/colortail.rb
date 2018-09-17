@@ -16,8 +16,8 @@ class Colortail < Formula
     sha256 "cba08e3d00b530eca42cd2d95dc0c3ed9419f199e7f26edc068b5b1074c3fe51" => :mountain_lion
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   # Upstream PR to fix the build on ML
   patch do
