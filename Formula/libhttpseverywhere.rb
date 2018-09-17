@@ -15,13 +15,13 @@ class Libhttpseverywhere < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
-  depends_on "vala" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "json-glib"
-  depends_on "libsoup"
-  depends_on "libgee"
   depends_on "libarchive"
+  depends_on "libgee"
+  depends_on "libsoup"
 
   def install
     mkdir "build" do
