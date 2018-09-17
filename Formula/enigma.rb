@@ -19,17 +19,17 @@ class Enigma < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "pkg-config" => :build
   depends_on "imagemagick" => :build
+  depends_on "pkg-config" => :build
+  depends_on "enet"
+  depends_on "freetype"
+  depends_on "gettext"
+  depends_on "libpng"
   depends_on "sdl"
   depends_on "sdl_image"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
-  depends_on "freetype"
-  depends_on "libpng"
   depends_on "xerces-c"
-  depends_on "gettext"
-  depends_on "enet"
 
   needs :cxx11
 
