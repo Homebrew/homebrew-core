@@ -29,17 +29,17 @@ class Ntopng < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "libtool" => :build
-  depends_on "json-glib" => :build
-  depends_on "zeromq" => :build
   depends_on "gnutls" => :build
+  depends_on "json-glib" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "zeromq" => :build
 
-  depends_on "json-c"
-  depends_on "rrdtool"
   depends_on "geoip"
-  depends_on "redis"
+  depends_on "json-c"
   depends_on "mysql-client"
+  depends_on "redis"
+  depends_on "rrdtool"
 
   def install
     resource("nDPI").stage do
