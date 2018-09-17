@@ -11,26 +11,26 @@ class Gedit < Formula
     sha256 "96283f1bda650ad0ed5264eb874952faa568db8c9089177169effc1f9568bd61" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "vala" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "vala" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "atk"
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "pango"
+  depends_on "gobject-introspection"
+  depends_on "gsettings-desktop-schemas"
+  depends_on "gspell"
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
-  depends_on "gobject-introspection"
-  depends_on "gspell"
-  depends_on "iso-codes"
-  depends_on "libxml2"
-  depends_on "libpeas"
   depends_on "gtksourceview3"
-  depends_on "gsettings-desktop-schemas"
-  depends_on "adwaita-icon-theme"
+  depends_on "iso-codes"
+  depends_on "libpeas"
+  depends_on "libxml2"
+  depends_on "pango"
 
   def install
     system "./configure", "--disable-dependency-tracking",
