@@ -14,8 +14,8 @@ class Libopendkim < Formula
     sha256 "d1399f0f0bf8f13aee75557d516b7e09cc31155c3b72da6159e13f25ff94cbd8" => :mavericks
   end
 
-  depends_on "unbound"
   depends_on "openssl"
+  depends_on "unbound"
 
   def install
     # --disable-filter: not needed for the library build
