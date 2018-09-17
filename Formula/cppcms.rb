@@ -13,8 +13,8 @@ class Cppcms < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pcre"
   depends_on "openssl"
+  depends_on "pcre"
 
   needs :cxx11
 
