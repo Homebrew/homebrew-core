@@ -10,8 +10,8 @@ class Baresip < Formula
     sha256 "f23e3075e1d9b114d1b4022d831f9d4639d3a17438b2f79eb6919dc9819c3387" => :el_capitan
   end
 
-  depends_on "librem"
   depends_on "libre"
+  depends_on "librem"
 
   def install
     # baresip doesn't like the 10.11 SDK when on Yosemite
