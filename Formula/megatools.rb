@@ -12,8 +12,8 @@ class Megatools < Formula
     sha256 "e0bae7222466e43ae48615a9cea006527be27d4d44b9943b0b37d7e45f623704" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "asciidoc" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "glib-networking"
   depends_on "openssl"
