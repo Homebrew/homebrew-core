@@ -12,10 +12,10 @@ class Mesos < Formula
     sha256 "92af4a0cb4c54669854d2dbbbd07509005318bbae72fff6674f2c47c9ebb596a" => :el_capitan
   end
 
-  depends_on :java => "1.8"
-  depends_on :macos => :mountain_lion
   depends_on "maven" => :build
   depends_on "apr-util"
+  depends_on :java => "1.8"
+  depends_on :macos => :mountain_lion
   depends_on "python@2"
   depends_on "subversion"
 
