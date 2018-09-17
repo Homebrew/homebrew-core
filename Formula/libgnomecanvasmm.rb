@@ -14,8 +14,8 @@ class Libgnomecanvasmm < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libgnomecanvas"
   depends_on "gtkmm"
+  depends_on "libgnomecanvas"
 
   needs :cxx11
 
