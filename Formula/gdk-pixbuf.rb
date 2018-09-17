@@ -18,8 +18,8 @@ class GdkPixbuf < Formula
   depends_on "python" => :build
   depends_on "glib"
   depends_on "jpeg"
-  depends_on "libtiff"
   depends_on "libpng"
+  depends_on "libtiff"
   depends_on "jasper" => :optional
 
   patch do
