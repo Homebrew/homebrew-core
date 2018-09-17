@@ -6,10 +6,10 @@ class Prototool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9267ebafbf8b194ba5800e6211f61432abd0a25f04fe245a504141d14170850e" => :mojave
-    sha256 "2ea17c28849ebb1212f3a2c4d63ca9adffa1147781f7f43f9aaefa18124ff431" => :high_sierra
-    sha256 "aa4f8820b92a22358fff4b0f35a10fdd5b2a56a7dad9def55fc51b84d847c509" => :sierra
-    sha256 "38ca6e71116f21fba39601114cdba08c24b7a8455246c748847e9abbf28ef6b3" => :el_capitan
+    sha256 "b596a61d1a00123c749d473b87460d2dc84123c1b6b2a25307b5a3557232da0e" => :mojave
+    sha256 "d0c768377d7336ace520a3476ec40740a21249b46b600d44c6ef95b23d6dfed0" => :high_sierra
+    sha256 "b2781bc1baccfb8957ecfd2db0c1a67d337dcb6eb123f7cd681ec74bb3157b0f" => :sierra
+    sha256 "b159f5c718bea7a8dae0c5a920ceb9e3de783e7bad8bed4c1898eff874003321" => :el_capitan
   end
 
   depends_on "glide" => :build
