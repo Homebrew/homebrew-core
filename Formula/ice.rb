@@ -20,10 +20,10 @@ class Ice < Formula
   option "with-java", "Build Ice for Java and the IceGrid GUI app"
   option "without-xcode-sdk", "Build without the Xcode SDK for iOS development (includes static libs)"
 
-  depends_on "mcpp"
   depends_on "lmdb"
-  depends_on :java => ["1.8+", :optional]
   depends_on :macos => :mavericks
+  depends_on "mcpp"
+  depends_on :java => ["1.8+", :optional]
 
   def install
     ENV.O2 # Os causes performance issues
