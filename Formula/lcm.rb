@@ -16,10 +16,10 @@ class Lcm < Formula
   head do
     url "https://github.com/lcm-proj/lcm.git"
 
-    depends_on "xz" => :build
-    depends_on "libtool" => :build
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "xz" => :build
   end
 
   deprecated_option "with-python3" => "with-python"
