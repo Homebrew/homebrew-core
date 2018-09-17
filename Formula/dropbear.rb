@@ -26,8 +26,8 @@ class Dropbear < Formula
   head do
     url "https://github.com/mkj/dropbear.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   def install
