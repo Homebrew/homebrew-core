@@ -30,8 +30,8 @@ class Itstool < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "python@2"
   depends_on "libxml2"
+  depends_on "python@2"
 
   def install
     ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
