@@ -17,9 +17,9 @@ class Dnsmasq < Formula
   deprecated_option "with-idn" => "with-libidn"
 
   depends_on "pkg-config" => :build
+  depends_on "nettle" if build.with? "dnssec"
   depends_on "libidn" => :optional
   depends_on "gettext" if build.with? "libidn"
-  depends_on "nettle" if build.with? "dnssec"
 
   def install
     ENV.deparallelize
