@@ -23,8 +23,8 @@ class Libass < Formula
 
   option "with-fontconfig", "Disable CoreText backend in favor of the more traditional fontconfig"
 
-  depends_on "pkg-config" => :build
   depends_on "nasm" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "freetype"
   depends_on "fribidi"
