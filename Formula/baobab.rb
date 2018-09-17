@@ -11,15 +11,15 @@ class Baobab < Formula
     sha256 "fac932ecf76732c1284ab91d1da849a514e5b818a684de9b2d4b792cfc6d9a37" => :el_capitan
   end
 
+  depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python@2" => :build
-  depends_on "itstool" => :build
   depends_on "vala" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
