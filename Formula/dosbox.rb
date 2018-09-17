@@ -20,11 +20,11 @@ class Dosbox < Formula
 
   option "with-debugger", "Enable internal debugger"
 
+  depends_on "libpng"
+  depends_on "ncurses" if build.with?("debugger")
   depends_on "sdl"
   depends_on "sdl_net"
   depends_on "sdl_sound"
-  depends_on "libpng"
-  depends_on "ncurses" if build.with?("debugger")
 
   conflicts_with "dosbox-x", :because => "both install `dosbox` binaries"
 
