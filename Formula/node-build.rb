@@ -8,8 +8,8 @@ class NodeBuild < Formula
   bottle :unneeded
 
   depends_on "autoconf" => :recommended
-  depends_on "pkg-config" => :recommended
   depends_on "openssl" => :recommended
+  depends_on "pkg-config" => :recommended
 
   def install
     ENV["PREFIX"] = prefix
