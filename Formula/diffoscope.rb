@@ -12,9 +12,9 @@ class Diffoscope < Formula
     sha256 "07046b82f51513157e08f0613946e6d8f09a3a82ab937b40e6a4480b65b4f8e4" => :el_capitan
   end
 
-  depends_on "libmagic"
-  depends_on "libarchive"
   depends_on "gnu-tar"
+  depends_on "libarchive"
+  depends_on "libmagic"
   depends_on "python"
 
   resource "libarchive-c" do
