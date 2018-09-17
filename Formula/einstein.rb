@@ -14,8 +14,8 @@ class Einstein < Formula
   end
 
   depends_on "sdl"
-  depends_on "sdl_ttf"
   depends_on "sdl_mixer"
+  depends_on "sdl_ttf"
 
   # Fixes a cast error on compilation
   patch :p0, :DATA
