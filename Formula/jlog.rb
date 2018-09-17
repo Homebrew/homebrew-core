@@ -13,8 +13,8 @@ class Jlog < Formula
     sha256 "a3432d256f8fd10b9dafd442167a076311c8b19640326c9a5218b4ca231c3347" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     system "autoconf"
