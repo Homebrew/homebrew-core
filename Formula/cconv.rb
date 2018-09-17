@@ -14,8 +14,8 @@ class Cconv < Formula
     sha256 "e4c46fb9d36be065327eada53be03aa8a83665add22340805ef96d0fa5fdb8d6" => :mavericks
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
