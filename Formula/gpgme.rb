@@ -15,8 +15,8 @@ class Gpgme < Formula
 
   depends_on "swig" => :build
   depends_on "gnupg"
-  depends_on "libgpg-error"
   depends_on "libassuan"
+  depends_on "libgpg-error"
 
   def install
     system "./configure", "--disable-dependency-tracking",
