@@ -15,8 +15,8 @@ class Ftimes < Formula
     sha256 "fbe09e2f091d3b828a2f3802674203f4f72b6e0136fe6f442bf8313234be5373" => :mountain_lion
   end
 
-  depends_on "pcre"
   depends_on "openssl"
+  depends_on "pcre"
 
   def install
     system "./configure", "--prefix=#{prefix}",
