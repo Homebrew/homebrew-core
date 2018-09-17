@@ -14,9 +14,9 @@ class Gstreamermm < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gstreamer"
   depends_on "glibmm"
   depends_on "gst-plugins-base"
+  depends_on "gstreamer"
 
   needs :cxx11
 
