@@ -12,12 +12,13 @@ class Openvpn < Formula
     sha256 "6fd9609026d5f56b688f15856f19a5774f868262251cb1c8b6599a11c41a2fa1" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "lz4"
+  depends_on "lzo"
+
   # Requires tuntap for < 10.10
   depends_on :macos => :yosemite
 
-  depends_on "pkg-config" => :build
-  depends_on "lzo"
-  depends_on "lz4"
   depends_on "openssl"
 
   resource "pkcs11-helper" do
