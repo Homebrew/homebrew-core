@@ -19,15 +19,15 @@ class Logstalgia < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
   depends_on "glm" => :build
-  depends_on "sdl2"
-  depends_on "sdl2_image"
+  depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "glew"
   depends_on "libpng"
   depends_on "pcre"
+  depends_on "sdl2"
+  depends_on "sdl2_image"
 
   needs :cxx11
 
