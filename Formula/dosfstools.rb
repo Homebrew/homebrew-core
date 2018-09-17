@@ -25,8 +25,8 @@ class Dosfstools < Formula
   option "with-compat-symlinks",
     "Symlink older names of the tools to the current ones on installation"
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
 
   def install
