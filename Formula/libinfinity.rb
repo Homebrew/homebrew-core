@@ -14,9 +14,9 @@ class Libinfinity < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gtk+3"
   depends_on "gnutls"
   depends_on "gsasl"
+  depends_on "gtk+3"
 
   # MacPorts patch to fix pam include. This is still applicable to 0.6.4.
   patch :p0 do
