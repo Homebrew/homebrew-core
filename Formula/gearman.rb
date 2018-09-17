@@ -18,14 +18,14 @@ class Gearman < Formula
   depends_on "sphinx-doc" => :build
   depends_on "boost"
   depends_on "libevent"
-  depends_on "libpqxx" if build.with? "postgresql"
-  depends_on "mysql" => :optional
-  depends_on "postgresql" => :optional
   depends_on "hiredis" => :optional
   depends_on "libmemcached" => :optional
+  depends_on "mysql" => :optional
   depends_on "openssl" => :optional
-  depends_on "wolfssl" => :optional
+  depends_on "postgresql" => :optional
+  depends_on "libpqxx" if build.with? "postgresql"
   depends_on "tokyo-cabinet" => :optional
+  depends_on "wolfssl" => :optional
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
