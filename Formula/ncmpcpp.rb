@@ -31,11 +31,11 @@ class Ncmpcpp < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "fftw" if build.with? "visualizer"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"
   depends_on "taglib"
-  depends_on "fftw" if build.with? "visualizer"
 
   needs :cxx11
 
