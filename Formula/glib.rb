@@ -16,12 +16,13 @@ class Glib < Formula
 
   deprecated_option "test" => "with-test"
 
-  depends_on "pkg-config" => :build
-  # next three lines can be removed when bug 780271 is fixed and gio.patch is modified accordingly
+  # autoconf, automake and libtool can be removed when
+  # bug 780271 is fixed and gio.patch is modified accordingly
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool" => :build
   depends_on "gtk-doc" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
