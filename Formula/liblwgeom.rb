@@ -18,13 +18,13 @@ class Liblwgeom < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gpp" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gpp" => :build
 
-  depends_on "proj"
   depends_on "geos"
   depends_on "json-c"
+  depends_on "proj"
 
   def install
     # See postgis.rb for comments about these settings
