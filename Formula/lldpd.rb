@@ -14,9 +14,9 @@ class Lldpd < Formula
   option "with-snmp", "Build SNMP subagent support"
 
   depends_on "pkg-config" => :build
-  depends_on "readline"
   depends_on "libevent"
   depends_on "net-snmp" if build.with? "snmp"
+  depends_on "readline"
 
   def install
     readline = Formula["readline"]
