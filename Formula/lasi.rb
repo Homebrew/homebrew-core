@@ -15,8 +15,8 @@ class Lasi < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
   depends_on "doxygen" => :build
+  depends_on "pkg-config" => :build
   depends_on "pango"
 
   def install
