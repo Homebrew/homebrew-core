@@ -18,9 +18,9 @@ class Nvc < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "llvm" => :build
   depends_on "check" => :build
+  depends_on "llvm" => :build
+  depends_on "pkg-config" => :build
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
