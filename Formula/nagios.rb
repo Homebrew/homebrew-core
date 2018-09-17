@@ -12,8 +12,8 @@ class Nagios < Formula
   end
 
   depends_on "gd"
-  depends_on "nagios-plugins"
   depends_on "libpng"
+  depends_on "nagios-plugins"
 
   def nagios_sbin
     prefix/"cgi-bin"
