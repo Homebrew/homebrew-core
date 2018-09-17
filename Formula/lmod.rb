@@ -13,8 +13,8 @@ class Lmod < Formula
     sha256 "5f3de3a02d6851fe8283a9d3c8a2eada52fd84c538e604de420bf1bf2a6af869" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "luarocks" => :build
+  depends_on "pkg-config" => :build
   depends_on "lua"
 
   resource "luafilesystem" do
