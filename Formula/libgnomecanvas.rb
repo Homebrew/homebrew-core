@@ -13,12 +13,12 @@ class Libgnomecanvas < Formula
     sha256 "b1a71d30655833a45b35af8770181fbe3f5df7e66d1b08f491900d5e875acfef" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "libglade"
-  depends_on "libart"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
+  depends_on "libart"
+  depends_on "libglade"
 
   def install
     system "./configure", "--disable-dependency-tracking",
