@@ -18,8 +18,8 @@ class Liblcf < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
   depends_on "expat"
+  depends_on "icu4c"
 
   def install
     system "autoreconf", "-i"
