@@ -15,11 +15,11 @@ class LtcTools < Formula
     sha256 "660401226bf452b88ef65a043577a0693bcdb7518ef885e5ea9d83d33da2bfbd" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "help2man" => :build
+  depends_on "pkg-config" => :build
+  depends_on "jack"
   depends_on "libltc"
   depends_on "libsndfile"
-  depends_on "jack"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
