@@ -14,9 +14,9 @@ class Links < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl" => :recommended
-  depends_on "libtiff" => :optional
   depends_on "jpeg" => :optional
   depends_on "librsvg" => :optional
+  depends_on "libtiff" => :optional
   depends_on :x11 => :optional
 
   def install
