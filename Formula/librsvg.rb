@@ -12,9 +12,9 @@ class Librsvg < Formula
     sha256 "6d7418c2911ce65c4895ce5c39e49ff8cac58e6c424295089533189802c868bc" => :el_capitan
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "gobject-introspection" => :build
   depends_on "cairo"
   depends_on "gdk-pixbuf"
   depends_on "glib"
