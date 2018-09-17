@@ -14,8 +14,8 @@ class Gwenhywfar < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
-  depends_on "openssl"
   depends_on "libgcrypt"
+  depends_on "openssl"
 
   def install
     system "autoreconf", "-fiv" if build.head?
