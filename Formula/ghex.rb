@@ -12,10 +12,10 @@ class Ghex < Formula
     sha256 "7e8089a2904c7864315d8b7eca37dd7df04460d7703a084a0924856fa52383be" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "libxml2" => :build
+  depends_on "pkg-config" => :build
   depends_on "python@2" => :build
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
