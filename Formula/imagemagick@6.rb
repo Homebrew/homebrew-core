@@ -37,24 +37,24 @@ class ImagemagickAT6 < Formula
   depends_on "libtool"
   depends_on "xz"
 
+  depends_on "freetype" => :recommended
   depends_on "jpeg" => :recommended
   depends_on "libpng" => :recommended
   depends_on "libtiff" => :recommended
-  depends_on "freetype" => :recommended
 
+  depends_on "fftw" => :optional
   depends_on "fontconfig" => :optional
+  depends_on "ghostscript" => :optional
+  depends_on "liblqr" => :optional
+  depends_on "librsvg" => :optional
+  depends_on "libwmf" => :optional
   depends_on "little-cms" => :optional
   depends_on "little-cms2" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "liblqr" => :optional
   depends_on "openexr" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
   depends_on "openjpeg" => :optional
-  depends_on "fftw" => :optional
   depends_on "pango" => :optional
   depends_on "perl" => :optional
+  depends_on "webp" => :optional
 
   if build.with? "openmp"
     depends_on "gcc"
