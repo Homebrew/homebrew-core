@@ -13,9 +13,9 @@ class GnomeThemesStandard < Formula
     sha256 "4732342c9072f0ab20bb83dcf358b44358a77176eb8275260669ba5badef0acf" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "gettext" => :build
+  depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gtk+"
 
   def install
