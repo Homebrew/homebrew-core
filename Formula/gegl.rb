@@ -15,8 +15,8 @@ class Gegl < Formula
     # Use the Github mirror because official git unreliable.
     url "https://github.com/GNOME/gegl.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
