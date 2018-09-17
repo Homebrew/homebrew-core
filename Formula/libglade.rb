@@ -13,8 +13,8 @@ class Libglade < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libxml2"
   depends_on "gtk+"
+  depends_on "libxml2"
 
   def install
     ENV.append "LDFLAGS", "-lgmodule-2.0"
