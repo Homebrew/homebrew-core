@@ -18,9 +18,9 @@ class KnotResolver < Formula
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "knot"
-  depends_on "luajit"
   depends_on "libuv"
   depends_on "lmdb"
+  depends_on "luajit"
   depends_on "nettle" => :recommended
 
   def install
