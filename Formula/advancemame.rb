@@ -12,8 +12,8 @@ class Advancemame < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl"
   depends_on "freetype"
+  depends_on "sdl"
 
   conflicts_with "advancemenu", :because => "both install `advmenu` binaries"
 
