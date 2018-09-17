@@ -12,8 +12,8 @@ class KyotoTycoon < Formula
     sha256 "33d857c99b29a62a42965ebd5639990cdbfeb3584adee249caff81ab0cdf4328" => :el_capitan
   end
 
-  depends_on "lua" => :recommended
   depends_on "kyoto-cabinet"
+  depends_on "lua" => :recommended
 
   patch :DATA if MacOS.version >= :mavericks
 
