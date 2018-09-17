@@ -17,9 +17,9 @@ class Onepass < Formula
     sha256 "beb5a20a0642cff5f9e43b6ce1ce9a9c45589ba748150f333e81a0c70090b7f2" => :mavericks
   end
 
-  depends_on "python@2"
   depends_on "swig" => :build
   depends_on "openssl" # For M2Crypto
+  depends_on "python@2"
 
   resource "m2crypto" do
     url "https://files.pythonhosted.org/packages/source/M/M2Crypto/M2Crypto-0.23.0.tar.gz"
