@@ -19,8 +19,8 @@ class Arpack < Formula
   depends_on "libtool" => :build
 
   depends_on "gcc" # for gfortran
-  depends_on "veclibfort"
   depends_on "open-mpi" if build.with? "mpi"
+  depends_on "veclibfort"
 
   def install
     args = %W[ --disable-dependency-tracking
