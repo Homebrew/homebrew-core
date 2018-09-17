@@ -15,8 +15,8 @@ class Nutcracker < Formula
     sha256 "8e66691c40fe71934bb5eab848c61ef07f8f427774e253c0065eb64cc5410f9b" => :mavericks
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
