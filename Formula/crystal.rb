@@ -27,17 +27,14 @@ class Crystal < Formula
     end
   end
 
-  option "without-release", "Do not build the compiler in release mode"
-  option "without-shards", "Do not include `shards` dependency manager"
-
-  depends_on "pkg-config" => :build
   depends_on "libatomic_ops" => :build # for building bdw-gc
-  depends_on "libevent"
+  depends_on "pkg-config" => :build
   depends_on "bdw-gc"
+  depends_on "gmp" # std uses it but it's not linked
+  depends_on "libevent"
+  depends_on "libyaml"
   depends_on "llvm"
   depends_on "pcre"
-  depends_on "gmp" # std uses it but it's not linked
-  depends_on "libyaml" if build.with? "shards"
 
   resource "boot" do
     url "https://github.com/crystal-lang/crystal/releases/download/0.26.0/crystal-0.26.0-1-darwin-x86_64.tar.gz"
@@ -60,18 +57,18 @@ class Crystal < Formula
     system "make", "deps"
     (buildpath/".build").mkpath
 
-    command = ["bin/crystal", "build", "-D", "without_openssl", "-D", "without_zlib", "-o", ".build/crystal", "src/compiler/crystal.cr"]
-    command.concat ["--release", "--no-debug"] if build.with? "release"
+    system "bin/crystal", "build",
+                          "-D", "without_openssl",
+                          "-D", "without_zlib",
+                          "-o", ".build/crystal",
+                          "src/compiler/crystal.cr",
+                          "--release", "--no-debug"
 
-    system *command
-
-    if build.with? "shards"
-      resource("shards").stage do
-        system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
-      end
-      bin.install ".build/shards"
+    resource("shards").stage do
+      system buildpath/"bin/crystal", "build", "-o", buildpath/".build/shards", "src/shards.cr"
     end
 
+    bin.install ".build/shards"
     bin.install ".build/crystal"
     prefix.install "src"
     bash_completion.install "etc/completion.bash" => "crystal"
