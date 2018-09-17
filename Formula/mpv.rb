@@ -3,6 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.28.2.tar.gz"
   sha256 "aada14e025317b5b3e8e58ffaf7902e8b6e4ec347a93d25a7c10d3579426d795"
+  revision 1
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
@@ -45,6 +46,13 @@ class Mpv < Formula
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/05/25/7b5484aca5d46915493f1fd4ecb63c38c333bd32aa9ad6e19da8d08895ae/docutils-0.13.1.tar.gz"
     sha256 "718c0f5fb677be0f34b781e04241c4067cbd9327b66bdd8e763201130f5175be"
+  end
+
+  # Upstream issue 28 Jun 2018 "10.14 crashes"
+  # See https://github.com/mpv-player/mpv/pull/5953
+  patch do
+    url "https://github.com/mpv-player/mpv/pull/5953.patch?full_index=1"
+    sha256 "27deaf250d94a24ecd8b13ad1263d2405b088fba3ce5f49f3b6c72552a57464f"
   end
 
   def install
