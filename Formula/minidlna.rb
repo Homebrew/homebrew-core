@@ -17,18 +17,18 @@ class Minidlna < Formula
     url "https://git.code.sf.net/p/minidlna/git.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "libtool" => :build
     depends_on "gettext" => :build
+    depends_on "libtool" => :build
   end
 
-  depends_on "libexif"
-  depends_on "jpeg"
-  depends_on "libid3tag"
+  depends_on "ffmpeg"
   depends_on "flac"
+  depends_on "jpeg"
+  depends_on "libexif"
+  depends_on "libid3tag"
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sqlite"
-  depends_on "ffmpeg"
 
   def install
     system "./autogen.sh" if build.head?
