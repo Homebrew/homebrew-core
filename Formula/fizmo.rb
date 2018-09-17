@@ -12,12 +12,12 @@ class Fizmo < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :x11
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libsndfile"
   depends_on "sdl2"
+  depends_on :x11
 
   def install
     system "./configure", "--prefix=#{prefix}",
