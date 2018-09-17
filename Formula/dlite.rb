@@ -14,10 +14,11 @@ class Dlite < Formula
     sha256 "d1244ccccc75ab8747a86c01aceeb25fee219617d9d4a2c3a3c6cd0bad45c0ee" => :yosemite
   end
 
+  depends_on "go" => :build
+
   # DLite depends on the Hypervisor framework which only works on
   # OS X versions 10.10 (Yosemite) or newer
   depends_on :macos => :yosemite
-  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
