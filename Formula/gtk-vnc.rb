@@ -11,11 +11,6 @@ class GtkVnc < Formula
     sha256 "e7c133b6fa20f0c68cb50bb773c80c7e747571dfeaddded32b1fee52c45a5c4b" => :el_capitan
   end
 
-  # Fails with Xcode 7.1 or older
-  # error: use of undeclared identifier 'MAP_ANONYMOUS'
-  # Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=602371
-  depends_on :macos => :yosemite
-
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
@@ -24,6 +19,12 @@ class GtkVnc < Formula
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "libgcrypt"
+
+  # Fails with Xcode 7.1 or older
+  # error: use of undeclared identifier 'MAP_ANONYMOUS'
+  # Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=602371
+  depends_on :macos => :yosemite
+
   depends_on "pulseaudio" => :optional
   depends_on "vala" => :optional
 
