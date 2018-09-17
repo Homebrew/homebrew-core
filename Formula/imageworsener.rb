@@ -16,13 +16,13 @@ class Imageworsener < Formula
 
   head do
     url "https://github.com/jsummers/imageworsener.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     if build.head?
