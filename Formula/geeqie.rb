@@ -26,23 +26,23 @@ class Geeqie < Formula
     sha256 "00bad28d46aafaaed99965a5c054bf04679c100c6f4f13ee82cf83c2782de349"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "intltool" => :build
-  depends_on "gettext"
-  depends_on "gtk+3"
-  depends_on "gdk-pixbuf"
-  depends_on "pango"
-  depends_on "cairo"
-  depends_on "libtiff"
-  depends_on "jpeg"
-  depends_on "atk"
-  depends_on "glib"
-  depends_on "imagemagick"
-  depends_on "exiv2"
-  depends_on "little-cms2"
+  depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "atk"
+  depends_on "cairo"
+  depends_on "exiv2"
+  depends_on "gdk-pixbuf"
+  depends_on "gettext"
+  depends_on "glib"
+  depends_on "gtk+3"
+  depends_on "imagemagick"
+  depends_on "jpeg"
+  depends_on "libtiff"
+  depends_on "little-cms2"
+  depends_on "pango"
 
   def install
     ENV["NOCONFIGURE"] = "yes"
