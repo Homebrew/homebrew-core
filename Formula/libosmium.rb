@@ -12,13 +12,13 @@ class Libosmium < Formula
     sha256 "859c27ebb1cf975cd895b27a628f86a64043ac06763ea1ea634b5479f4135515" => :el_capitan
   end
 
-  depends_on "cmake" => :build
   depends_on "boost" => :build
-  depends_on "google-sparsehash" => :optional
+  depends_on "cmake" => :build
+  depends_on "doxygen" => :optional
   depends_on "expat" => :optional
   depends_on "gdal" => :optional
+  depends_on "google-sparsehash" => :optional
   depends_on "proj" => :optional
-  depends_on "doxygen" => :optional
 
   resource "protozero" do
     url "https://github.com/mapbox/protozero/archive/v1.6.3.tar.gz"
