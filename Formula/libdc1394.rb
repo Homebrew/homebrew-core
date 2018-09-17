@@ -27,11 +27,11 @@ class Libdc1394 < Formula
 
   head do
     url "https://git.code.sf.net/p/libdc1394/code.git"
-    depends_on "libusb"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
     depends_on "pkg-config" => :build
+    depends_on "libusb"
   end
 
   depends_on "sdl"
