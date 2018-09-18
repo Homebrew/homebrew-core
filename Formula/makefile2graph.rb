@@ -16,11 +16,11 @@ class Makefile2graph < Formula
     sha256 "52dea69b4d18c1c6fa451ab834a43e1ca57ba64d9efb4c63972126a387682040" => :mountain_lion
   end
 
-  depends_on "graphviz" => :recommended
+  depends_on "graphviz"
 
   def install
     system "make"
-    system "make", "test" if build.with? "graphviz"
+    system "make", "test"
     bin.install "make2graph", "makefile2graph"
     man1.install "make2graph.1", "makefile2graph.1"
     doc.install "LICENSE", "README.md", "screenshot.png"
