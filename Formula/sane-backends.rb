@@ -14,13 +14,13 @@ class SaneBackends < Formula
     sha256 "6073b7b25829eb031616894fe6ea5c34408fed9b42d3b421e6eba94d6cbbf948" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libusb"
-  depends_on "openssl"
   depends_on "net-snmp"
-  depends_on "pkg-config" => :build
+  depends_on "openssl"
 
   def install
     system "./configure", "--disable-dependency-tracking",
