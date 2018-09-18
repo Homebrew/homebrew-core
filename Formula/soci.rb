@@ -18,8 +18,8 @@ class Soci < Formula
   option "with-odbc", "Enable ODBC support."
   option "with-pg", "Enable PostgreSQL support."
 
-  depends_on "cmake" => :build
   depends_on "boost" => [:build, :optional]
+  depends_on "cmake" => :build
   depends_on "sqlite" if MacOS.version <= :snow_leopard
 
   fails_with :clang do
