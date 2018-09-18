@@ -18,8 +18,8 @@ class Treefrog < Formula
   option "with-postgresql", "enable --with-postgresql option for Qt build"
   option "with-qt", "build and link with QtGui module"
 
-  depends_on :macos => :el_capitan
   depends_on :xcode => [:build, "8.0"]
+  depends_on :macos => :el_capitan
 
   qt_build_options = []
   qt_build_options << "with-mysql" if build.with?("mysql")
