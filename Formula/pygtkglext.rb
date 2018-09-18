@@ -14,9 +14,9 @@ class Pygtkglext < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pygtk"
   depends_on "gtkglext"
   depends_on "pygobject"
+  depends_on "pygtk"
 
   def install
     inreplace "gtk/gdkgl/gdkglext.override", "#include <GL/gl.h>", "#include <gl.h>"
