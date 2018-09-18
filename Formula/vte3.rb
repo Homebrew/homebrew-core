@@ -12,13 +12,13 @@ class Vte3 < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "gtk+3"
   depends_on "gnutls"
-  depends_on "vala"
+  depends_on "gtk+3"
   depends_on "pcre2"
+  depends_on "vala"
 
   def install
     args = [
