@@ -13,11 +13,11 @@ class RomTools < Formula
     sha256 "d2de8fa4d8da18ba7a9cbc59508a060f9a1b7a4209febd971edb6718eeb37a78" => :el_capitan
   end
 
-  depends_on "python@2" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
+  depends_on "python@2" => :build
   depends_on "flac"
   depends_on "portmidi"
+  depends_on "sdl2"
   depends_on "utf8proc"
 
   def install
