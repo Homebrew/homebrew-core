@@ -12,8 +12,8 @@ class MysqlCluster < Formula
     sha256 "29692861b897e6b013d01396bd0cea9541b109a7d691007ddb67a64de91d0a44" => :yosemite
   end
 
-  depends_on :java => "1.8"
   depends_on "cmake" => :build
+  depends_on :java => "1.8"
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
