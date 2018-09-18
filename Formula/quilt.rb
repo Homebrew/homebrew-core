@@ -14,8 +14,8 @@ class Quilt < Formula
     sha256 "8ea83c73d0043e442c32351e84c591a39305abd13745a5968993c43f750c046a" => :yosemite
   end
 
-  depends_on "gnu-sed"
   depends_on "coreutils"
+  depends_on "gnu-sed"
 
   def install
     system "./configure", "--prefix=#{prefix}",
