@@ -14,18 +14,18 @@ class Synfig < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gettext"
-  depends_on "etl"
-  depends_on "libsigc++"
-  depends_on "libxml++"
-  depends_on "libpng"
-  depends_on "freetype"
-  depends_on "cairo"
-  depends_on "pango"
   depends_on "boost"
-  depends_on "openexr"
-  depends_on "mlt"
+  depends_on "cairo"
+  depends_on "etl"
+  depends_on "freetype"
+  depends_on "gettext"
+  depends_on "libpng"
+  depends_on "libsigc++"
   depends_on "libtool"
+  depends_on "libxml++"
+  depends_on "mlt"
+  depends_on "openexr"
+  depends_on "pango"
 
   needs :cxx11
 
