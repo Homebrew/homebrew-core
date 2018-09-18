@@ -12,8 +12,8 @@ class Sdcc < Formula
     sha256 "560804d50e214be12ce4417fd5edc5137d2d987c3d1617d4659284d8b614a1bf" => :el_capitan
   end
 
-  depends_on "gputils"
   depends_on "boost"
+  depends_on "gputils"
 
   def install
     system "./configure", "--prefix=#{prefix}"
