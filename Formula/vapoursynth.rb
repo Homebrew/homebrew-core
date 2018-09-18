@@ -17,8 +17,8 @@ class Vapoursynth < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
   depends_on "nasm" => :build
+  depends_on "pkg-config" => :build
 
   depends_on "libass"
   depends_on :macos => :el_capitan # due to zimg dependency
