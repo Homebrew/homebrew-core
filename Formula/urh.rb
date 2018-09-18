@@ -17,8 +17,8 @@ class Urh < Formula
   depends_on "pkg-config" => :build
 
   depends_on "numpy"
-  depends_on "python"
   depends_on "pyqt"
+  depends_on "python"
   depends_on "zeromq"
 
   depends_on "hackrf" => :optional
