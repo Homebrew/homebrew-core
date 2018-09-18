@@ -15,8 +15,8 @@ class Pla < Formula
     sha256 "81969ccdf4fe754600e348d7aa34243ccf86d4ee4bcaf85b12fa5b5df99d9ec7" => :mountain_lion
   end
 
-  depends_on "cairo"
   depends_on "pkg-config" => :build
+  depends_on "cairo"
 
   def install
     system "make"
