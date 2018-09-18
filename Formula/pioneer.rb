@@ -17,11 +17,11 @@ class Pioneer < Formula
   depends_on "pkg-config" => :build
   depends_on "assimp"
   depends_on "freetype"
-  depends_on "sdl2"
-  depends_on "sdl2_image"
+  depends_on "libpng"
   depends_on "libsigc++"
   depends_on "libvorbis"
-  depends_on "libpng"
+  depends_on "sdl2"
+  depends_on "sdl2_image"
 
   needs :cxx11
 
