@@ -12,9 +12,9 @@ class Ponyc < Formula
     sha256 "c511daeb62e02b7dd2ccb95ff2ca7b00849d777f5cbfe72e64674d25bf0f4fa3" => :el_capitan
   end
 
-  depends_on :macos => :yosemite
-  depends_on "llvm@3.9"
   depends_on "libressl"
+  depends_on "llvm@3.9"
+  depends_on :macos => :yosemite
   depends_on "pcre2"
   needs :cxx11
 
