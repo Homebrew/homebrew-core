@@ -15,11 +15,11 @@ class Paps < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "pango"
-  depends_on "freetype"
   depends_on "fontconfig"
-  depends_on "glib"
+  depends_on "freetype"
   depends_on "gettext"
+  depends_on "glib"
+  depends_on "pango"
 
   def install
     system "./autogen.sh"
