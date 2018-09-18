@@ -12,9 +12,6 @@ class Zorba < Formula
     sha256 "9dc07aa5daadc49cbbdeee1fee3ef14800a604069e996859ec58b441c1738bdd" => :el_capitan
   end
 
-  option "with-big-integer", "Use 64 bit precision instead of arbitrary precision for performance"
-  option "with-ssl-verification", "Enable SSL peer certificate verification"
-
   depends_on "cmake" => :build
   depends_on "flex"
   depends_on "icu4c"
@@ -32,8 +29,6 @@ class Zorba < Formula
     ENV.cxx11
 
     args = std_cmake_args
-    args << "-DZORBA_VERIFY_PEER_SSL_CERTIFICATE=ON" if build.with? "ssl-verification"
-    args << "-DZORBA_WITH_BIG_INTEGER=ON" if build.with? "big-integer"
 
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     # usual superenv fix doesn't work since zorba doesn't use HAVE_CLOCK_GETTIME
