@@ -16,9 +16,9 @@ class Pytouhou < Formula
 
   option "with-demo", "Install demo version of Touhou 6"
 
-  depends_on "python"
   depends_on "pkg-config" => :build
   depends_on "libepoxy"
+  depends_on "python"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
