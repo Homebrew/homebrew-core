@@ -16,9 +16,9 @@ class Tlsdate < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libevent" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libevent" => :build
   depends_on "openssl"
 
   # Upstream PR to fix the build on macOS
