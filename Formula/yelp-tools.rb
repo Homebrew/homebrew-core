@@ -14,12 +14,12 @@ class YelpTools < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "gtk+3"
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "libxml2" => :build
   depends_on "libxslt" => :build
   depends_on "pkg-config" => :build
+  depends_on "gtk+3"
 
   resource "yelp-xsl" do
     url "https://download.gnome.org/sources/yelp-xsl/3.30/yelp-xsl-3.30.0.tar.xz"
