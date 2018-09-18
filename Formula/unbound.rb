@@ -15,8 +15,8 @@ class Unbound < Formula
 
   deprecated_option "with-python" => "with-python@2"
 
-  depends_on "openssl"
   depends_on "libevent"
+  depends_on "openssl"
   depends_on "python@2" => :optional
   depends_on "swig" if build.with? "python@2"
 
