@@ -14,10 +14,10 @@ class Harfbuzz < Formula
   head do
     url "https://github.com/behdad/harfbuzz.git"
 
-    depends_on "ragel" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+    depends_on "ragel" => :build
   end
 
   depends_on "gobject-introspection" => :build
