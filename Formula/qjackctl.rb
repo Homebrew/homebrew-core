@@ -13,8 +13,8 @@ class Qjackctl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt"
   depends_on "jack"
+  depends_on "qt"
 
   needs :cxx11
 
