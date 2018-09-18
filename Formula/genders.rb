@@ -14,16 +14,8 @@ class Genders < Formula
     sha256 "c455a536ad6b100887fbc6badf0e054157cf961ea02802f67a694c5e8dd30b96" => :mavericks
   end
 
-  option "with-non-shortened-hostnames", "Allow non shortened hostnames that can include dots e.g. www.google.com"
-
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --with-java-extensions=no
-    ]
-    args << "--with-non-shortened-hostnames" if build.with? "non-shortened-hostnames"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--with-java-extensions=no"
     system "make", "install"
   end
 end
