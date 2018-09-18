@@ -42,15 +42,15 @@ class Qca < Formula
 
   deprecated_option "with-gpg2" => "with-gnupg"
 
+  # commented dep = plugin
+  # (QCA needs at least one plugin to do anything useful)
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "qt"
-
-  # Plugins (QCA needs at least one plugin to do anything useful)
   depends_on "openssl" # qca-ossl
+  depends_on "qt"
   depends_on "botan" => :optional # qca-botan
-  depends_on "libgcrypt" => :optional # qca-gcrypt
   depends_on "gnupg" => :optional # qca-gnupg
+  depends_on "libgcrypt" => :optional # qca-gcrypt
   depends_on "nss" => :optional # qca-nss
   depends_on "pkcs11-helper" => :optional # qca-pkcs11
 
