@@ -17,17 +17,17 @@ class Sile < Formula
   end
 
   # These three should return to being head-only when >0.9.4 is released.
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on "pkg-config" => :build
   depends_on "luarocks" => :build
-  depends_on "harfbuzz"
+  depends_on "pkg-config" => :build
   depends_on "fontconfig"
+  depends_on "harfbuzz"
+  depends_on "icu4c"
   depends_on "libpng"
   depends_on "lua"
-  depends_on "icu4c"
 
   resource "lpeg" do
     url "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.1.tar.gz"
