@@ -19,9 +19,9 @@ class Submarine < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
+  depends_on "libarchive"
   depends_on "libgee"
   depends_on "libsoup"
-  depends_on "libarchive"
 
   def install
     # Parallelization build failure reported 2 Oct 2017 to rastersoft AT gmail
