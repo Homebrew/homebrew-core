@@ -3,6 +3,7 @@ class Cpmtools < Formula
   homepage "http://www.moria.de/~michael/cpmtools/"
   url "http://www.moria.de/~michael/cpmtools/files/cpmtools-2.20.tar.gz"
   sha256 "d8c7e78a9750994124f3aab6e461da8fa0021acc7dbad76eafbac8b0ed8279d3"
+  revision 1
 
   bottle do
     rebuild 1
@@ -14,13 +15,10 @@ class Cpmtools < Formula
     sha256 "b810122c220af6b36ab9316deec811adca68313d4371f8a0121239c40b94a015" => :mavericks
   end
 
-  depends_on "libdsk" => :optional
+  depends_on "libdsk"
 
   def install
-    args = %W[--prefix=#{prefix}]
-    args << "--with-libdsk" if build.with? "libdsk"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--with-libdsk"
 
     bin.mkpath
     man1.mkpath
