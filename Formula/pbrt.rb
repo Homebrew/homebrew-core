@@ -13,8 +13,8 @@ class Pbrt < Formula
     sha256 "f9104d3cf2dc87dc5b8cdc6b43b7c32447508ad4282d4caa850136e9742b61be" => :el_capitan
   end
 
-  depends_on "openexr"
   depends_on "flex"
+  depends_on "openexr"
 
   def install
     system "make", "-C", "src"
