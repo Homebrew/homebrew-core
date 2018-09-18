@@ -12,9 +12,9 @@ class Riak < Formula
     sha256 "803da1ba13fca2ff1c5ed1d341c064218a03697d8114e40c325553a430920653" => :yosemite
   end
 
-  depends_on :macos => :mountain_lion
   depends_on :arch => :x86_64
   depends_on "erlang@17"
+  depends_on :macos => :mountain_lion
 
   # rebar tries to fetch fuse using git over ssh
   resource "fuse" do
