@@ -33,8 +33,8 @@ class Zpython < Formula
     sha256 "6763da884b7a5bc7e8fa01e5888fa07be6fa7a1ecb1d271e6045c8445e91c8db" => :el_capitan
   end
 
-  depends_on "zsh"
   depends_on "autoconf" => :build
+  depends_on "zsh"
 
   def install
     args = %w[
