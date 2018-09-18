@@ -27,16 +27,15 @@ class Postgis < Formula
   option "with-api-docs", "Generate developer API documentation (long process)"
   option "with-protobuf-c", "Build with protobuf-c to enable Geobuf and Mapbox Vector Tile support"
 
-  depends_on "pkg-config" => :build
   depends_on "gpp" => :build
+  depends_on "pkg-config" => :build
+  depends_on "geos"
+  depends_on "gtk+" if build.with? "gui"
+  depends_on "json-c" # For GeoJSON and raster handling
   depends_on "postgresql"
   depends_on "proj"
-  depends_on "geos"
-
-  depends_on "gtk+" if build.with? "gui"
 
   # For GeoJSON and raster handling
-  depends_on "json-c"
   depends_on "gdal" => :recommended
   depends_on "pcre" if build.with? "gdal"
 
