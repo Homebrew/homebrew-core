@@ -14,10 +14,10 @@ class Zbackup < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "lzo"
   depends_on "openssl"
   depends_on "protobuf"
   depends_on "xz" # get liblzma compression algorithm library from XZutils
-  depends_on "lzo"
 
   # These fixes are upstream and can be removed in version 1.5+
   patch do
