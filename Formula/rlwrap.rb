@@ -13,9 +13,9 @@ class Rlwrap < Formula
     sha256 "7b8a163bb614b481b88a627ad9a579e5b0acb24deb736ccea02da2606b6dc8a0" => :yosemite
   end
 
-  depends_on "readline"
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "readline"
 
   def install
     system "autoreconf", "-v", "-i"
