@@ -17,8 +17,8 @@ class Shyaml < Formula
     sha256 "ff1078dcd1f6df8b14d7389704cec6ab3d60c79a926d741db4600af72ed87c55" => :el_capitan
   end
 
-  depends_on "python"
   depends_on "libyaml"
+  depends_on "python"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
