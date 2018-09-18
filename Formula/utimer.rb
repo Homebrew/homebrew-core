@@ -13,8 +13,8 @@ class Utimer < Formula
     sha256 "a1841baa5d50002615efb07d07d5049e5965c06099e120f71654eec83dd4f1a3" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
 
