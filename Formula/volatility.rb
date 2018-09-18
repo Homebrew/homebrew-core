@@ -17,10 +17,10 @@ class Volatility < Formula
     sha256 "31481a560abecead5deaa382da5cb5689c7d37d9fe7e1074a971bb849b2ee415" => :el_capitan
   end
 
+  depends_on "freetype"
+  depends_on "jpeg"
   depends_on "python@2"
   depends_on "yara"
-  depends_on "jpeg"
-  depends_on "freetype"
 
   resource "distorm3" do
     url "https://files.pythonhosted.org/packages/28/f9/8ff25a8f3edb581b5bc0efbed6382dcca22e5e7eff39464346c629105739/distorm3-3.3.4.zip"
