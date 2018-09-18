@@ -19,10 +19,6 @@ class Dgen < Formula
     depends_on "automake" => :build
   end
 
-  option "with-docs", "Build documentation"
-  option "with-debugger", "Enable debugger"
-
-  depends_on "doxygen" if build.with? "docs"
   depends_on "libarchive"
   depends_on "sdl"
 
@@ -33,7 +29,6 @@ class Dgen < Formula
       --disable-sdltest
       --prefix=#{prefix}
     ]
-    args << "--enable-debugger" if build.with? "debugger"
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
