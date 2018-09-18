@@ -14,8 +14,8 @@ class Rrdtool < Formula
 
   head do
     url "https://github.com/oetiker/rrdtool-1.x.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
