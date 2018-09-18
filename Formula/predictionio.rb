@@ -7,10 +7,10 @@ class Predictionio < Formula
 
   bottle :unneeded
 
+  depends_on "apache-spark"
   depends_on "elasticsearch"
   depends_on "hadoop"
   depends_on "hbase"
-  depends_on "apache-spark"
   depends_on :java => "1.7+"
 
   def install
