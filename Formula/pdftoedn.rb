@@ -13,15 +13,15 @@ class Pdftoedn < Formula
   end
 
   needs :cxx11
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "freetype"
-  depends_on "libpng"
-  depends_on "poppler"
   depends_on "boost"
+  depends_on "freetype"
   depends_on "leptonica"
+  depends_on "libpng"
   depends_on "openssl"
+  depends_on "poppler"
   depends_on "rapidjson"
 
   def install
