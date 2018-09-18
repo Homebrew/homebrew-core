@@ -27,14 +27,14 @@ class Usbmuxd < Formula
   head do
     url "https://git.sukimashita.com/libusbmuxd.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libusb"
   depends_on "libplist"
+  depends_on "libusb"
 
   def install
     system "./autogen.sh" if build.head?
