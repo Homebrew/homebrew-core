@@ -15,9 +15,9 @@ class Superlu < Formula
 
   option "with-openmp", "Enable OpenMP multithreading"
 
-  depends_on "openblas" => :optional
   depends_on "gcc" if build.with? "openmp"
   depends_on "veclibfort" if build.without? "openblas"
+  depends_on "openblas" => :optional
 
   fails_with :clang if build.with? "openmp"
 
