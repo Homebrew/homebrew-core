@@ -31,11 +31,11 @@ class VimAT74 < Formula
 
   depends_on "perl"
   depends_on "ruby"
+  depends_on :x11 if build.with? "client-server"
   depends_on "python" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on "python@2" => :optional
-  depends_on :x11 if build.with? "client-server"
 
   # Python 3.7 compat
   # Equivalent to upstream commit 24 Mar 2018 "patch 8.0.1635: undefining
