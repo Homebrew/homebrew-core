@@ -16,8 +16,8 @@ class Scrypt < Formula
   head do
     url "https://github.com/Tarsnap/scrypt.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "openssl"
