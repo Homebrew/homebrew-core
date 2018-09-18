@@ -19,9 +19,9 @@ class Pygobject3 < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => [:build, :recommended]
   depends_on "gobject-introspection"
+  depends_on "py3cairo" if build.with? "python"
   depends_on "python@2" => :optional
   depends_on "py2cairo" if build.with? "python@2"
-  depends_on "py3cairo" if build.with? "python"
 
   def install
     Language::Python.each_python(build) do |python, version|
