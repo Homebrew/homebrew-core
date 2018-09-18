@@ -18,8 +18,8 @@ class Scipy < Formula
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
   depends_on "numpy"
-  depends_on "python@2" => :recommended
   depends_on "python" => :recommended
+  depends_on "python@2" => :recommended
 
   cxxstdlib_check :skip
 
