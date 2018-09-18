@@ -12,13 +12,14 @@ class Stoken < Formula
     sha256 "f29de39d399ca3b9acbdae0e170e82173f2fbcd5806663a8697c10695b5d1b82" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "nettle"
   depends_on "gtk+3" => :optional
+
   if build.with? "gtk+3"
     depends_on "adwaita-icon-theme"
     depends_on "hicolor-icon-theme"
   end
-  depends_on "pkg-config" => :build
-  depends_on "nettle"
 
   def install
     args = %W[
