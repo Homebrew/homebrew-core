@@ -17,7 +17,6 @@ class Somagic < Formula
   depends_on "libgcrypt"
   depends_on "libusb"
   depends_on "somagic-tools"
-  depends_on "mplayer" => :optional
 
   def install
     system "make"
