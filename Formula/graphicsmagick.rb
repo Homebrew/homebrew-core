@@ -21,9 +21,9 @@ class Graphicsmagick < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
-  depends_on "little-cms2" => :optional
-  depends_on "libwmf" => :optional
   depends_on "ghostscript" => :optional
+  depends_on "libwmf" => :optional
+  depends_on "little-cms2" => :optional
   depends_on "webp" => :optional
   depends_on :x11 => :optional
 
