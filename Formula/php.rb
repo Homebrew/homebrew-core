@@ -38,8 +38,8 @@ class Php < Formula
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
-  depends_on "openssl"
   depends_on "openldap" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
   depends_on "unixodbc"
