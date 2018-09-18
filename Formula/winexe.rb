@@ -14,8 +14,8 @@ class Winexe < Formula
     sha256 "32261fefc9c9fd32e91ddb0776d6e43dcdda32b958f9382a8d784972ba09eb3e" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
+  depends_on "pkg-config" => :build
 
   # This patch removes second definition of event context, which *should* break the build
   # virtually everywhere, but for some reason it only breaks it on macOS.
