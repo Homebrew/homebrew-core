@@ -14,11 +14,11 @@ class Ttfautohint < Formula
 
   head do
     url "http://repo.or.cz/ttfautohint.git"
-    depends_on "bison" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "pkg-config" => :build
+    depends_on "bison" => :build
     depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
   end
 
   deprecated_option "with-qt5" => "with-qt"
@@ -27,8 +27,8 @@ class Ttfautohint < Formula
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "libpng"
   depends_on "harfbuzz"
+  depends_on "libpng"
   depends_on "qt" => :optional
 
   def install
