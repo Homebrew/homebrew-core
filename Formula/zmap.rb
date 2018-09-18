@@ -13,13 +13,13 @@ class Zmap < Formula
     sha256 "517ccb75b370f3deee62725a9e74b53a7d3949f3ef214a8769983c7eab72f83e" => :el_capitan
   end
 
+  depends_on "byacc" => :build
   depends_on "cmake" => :build
   depends_on "gengetopt" => :build
-  depends_on "byacc" => :build
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "libdnet"
   depends_on "json-c"
+  depends_on "libdnet"
   depends_on "hiredis" => :optional
   depends_on "mongo-c-driver" => :optional
 
