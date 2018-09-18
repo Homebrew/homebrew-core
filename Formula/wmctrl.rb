@@ -14,8 +14,8 @@ class Wmctrl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "gettext"
+  depends_on "glib"
   depends_on :x11
 
   # Fix for 64-bit arch. See:
