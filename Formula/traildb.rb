@@ -13,8 +13,8 @@ class Traildb < Formula
     sha256 "381ac2503006105329e6b915501cf8bfdd787121df79c23da4721e04a8b838a9" => :yosemite
   end
 
-  depends_on "libarchive"
   depends_on "pkg-config" => :build
+  depends_on "libarchive"
 
   resource "judy" do
     url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
