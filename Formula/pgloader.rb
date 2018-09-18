@@ -11,10 +11,10 @@ class Pgloader < Formula
     sha256 "125532b10e7cbbc7f3246290ce0d3ea1915c68f1e1b6d6277b4875f316c20fd2" => :el_capitan
   end
 
-  depends_on "sphinx-doc" => :build
-  depends_on "sbcl"
-  depends_on "freetds"
   depends_on "buildapp" => :build
+  depends_on "sphinx-doc" => :build
+  depends_on "freetds"
+  depends_on "sbcl"
   depends_on "postgresql" => :recommended
 
   # Resource stanzas are generated automatically by quicklisp-roundup.
