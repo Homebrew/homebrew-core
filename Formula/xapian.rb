@@ -18,9 +18,9 @@ class Xapian < Formula
   deprecated_option "ruby" => "with-ruby"
   deprecated_option "with-python" => "with-python@2"
 
-  depends_on "ruby" => :optional if MacOS.version <= :sierra
   depends_on "python@2" => :optional
   depends_on "sphinx-doc" => :build if build.with? "python@2"
+  depends_on "ruby" => :optional if MacOS.version <= :sierra
 
   skip_clean :la
 
