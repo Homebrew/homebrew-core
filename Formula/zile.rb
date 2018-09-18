@@ -22,8 +22,8 @@ class Zile < Formula
     cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "help2man" => :build
+  depends_on "pkg-config" => :build
   depends_on "bdw-gc"
 
   def install
