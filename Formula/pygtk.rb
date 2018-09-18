@@ -14,11 +14,11 @@ class Pygtk < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "atk"
   depends_on "glib"
   depends_on "gtk+"
-  depends_on "atk"
-  depends_on "pygobject"
   depends_on "py2cairo"
+  depends_on "pygobject"
   depends_on "libglade" => :optional
 
   def install
