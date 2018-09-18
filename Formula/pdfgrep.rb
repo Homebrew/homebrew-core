@@ -14,9 +14,9 @@ class Pdfgrep < Formula
 
   head do
     url "https://gitlab.com/pdfgrep/pdfgrep.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
     depends_on "asciidoc" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
