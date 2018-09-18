@@ -14,9 +14,9 @@ class X11vnc < Formula
     sha256 "38e07e6c3a26cf1e8d60f1a4e7061da400afb9bb2803f0dd79566c5a3bfd0d22" => :yosemite
   end
 
-  depends_on :x11 => :optional
-  depends_on "openssl"
   depends_on "jpeg"
+  depends_on "openssl"
+  depends_on :x11 => :optional
 
   # Patch solid.c so a non-void function returns a NULL instead of a void.
   # An email has been sent to the maintainers about this issue.
