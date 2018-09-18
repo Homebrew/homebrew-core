@@ -17,11 +17,11 @@ class Snort < Formula
   deprecated_option "enable-debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "luajit"
   depends_on "daq"
   depends_on "libdnet"
-  depends_on "pcre"
+  depends_on "luajit"
   depends_on "openssl"
+  depends_on "pcre"
 
   def install
     openssl = Formula["openssl"]
