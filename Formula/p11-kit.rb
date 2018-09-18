@@ -20,8 +20,8 @@ class P11Kit < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "libffi"
   depends_on "pkg-config" => :build
+  depends_on "libffi"
 
   def install
     # https://bugs.freedesktop.org/show_bug.cgi?id=91602#c1
