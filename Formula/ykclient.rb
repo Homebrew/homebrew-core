@@ -20,8 +20,8 @@ class Ykclient < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "help2man" => :build
+  depends_on "pkg-config" => :build
 
   def install
     system "autoreconf", "-iv" if build.head?
