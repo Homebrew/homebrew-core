@@ -19,10 +19,10 @@ class Sox < Formula
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
+  depends_on "libao" => :optional
+  depends_on "libsndfile" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "opusfile" => :optional
-  depends_on "libsndfile" => :optional
-  depends_on "libao" => :optional
 
   def install
     system "./configure", "--disable-debug",
