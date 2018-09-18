@@ -16,8 +16,8 @@ class Spidermonkey < Formula
     sha256 "38d1b7f54b5dbdd4a0e28e3a1077aed2ada42a9266cfaddeda6a08d761a2d8b2" => :yosemite
   end
 
-  depends_on "readline"
   depends_on "nspr"
+  depends_on "readline"
 
   conflicts_with "narwhal", :because => "both install a js binary"
 
