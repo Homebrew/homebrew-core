@@ -16,7 +16,6 @@ class Ogmtools < Formula
 
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "libdvdread" => :optional
 
   # Borrow patch from MacPorts
   patch :p0 do
