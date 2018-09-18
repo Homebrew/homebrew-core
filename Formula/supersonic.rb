@@ -15,8 +15,8 @@ class Supersonic < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "glog"
   depends_on "gflags"
+  depends_on "glog"
   depends_on "protobuf"
 
   needs :cxx11
