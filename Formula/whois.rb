@@ -16,8 +16,8 @@ class Whois < Formula
 
   option "with-libidn2", "Compile with IDN support"
 
-  depends_on "pkg-config" => :build if build.with? "libidn2"
   depends_on "libidn2" => :optional
+  depends_on "pkg-config" => :build if build.with? "libidn2"
 
   def install
     ENV.append "LDFLAGS", "-L/usr/lib -liconv"
