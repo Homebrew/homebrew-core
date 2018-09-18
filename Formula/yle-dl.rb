@@ -13,8 +13,8 @@ class YleDl < Formula
     sha256 "4892f9607cb95b78a8b19978b6ebf5d4a7b20726963475ec2af6d41f38e805f9" => :el_capitan
   end
 
-  depends_on "rtmpdump"
   depends_on "python@2"
+  depends_on "rtmpdump"
 
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
