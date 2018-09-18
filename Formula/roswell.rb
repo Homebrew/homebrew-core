@@ -12,8 +12,8 @@ class Roswell < Formula
     sha256 "b06a44335b3153ec53c260db673f71116d12e70312ce32a5f6afa59caca382c3" => :el_capitan
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     system "./bootstrap"
