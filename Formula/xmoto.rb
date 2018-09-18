@@ -13,20 +13,20 @@ class Xmoto < Formula
 
   head do
     url "svn://svn.tuxfamily.org/svnroot/xmoto/xmoto/trunk"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libxdg-basedir"
+  depends_on "libxml2"
+  depends_on "ode"
   depends_on "sdl"
   depends_on "sdl_mixer"
   depends_on "sdl_net"
   depends_on "sdl_ttf"
-  depends_on "ode"
-  depends_on "libpng"
-  depends_on "jpeg"
-  depends_on "libxml2"
   depends_on "gettext" => :recommended
-  depends_on "libxdg-basedir"
   depends_on "lua@5.1" => :recommended
 
   deprecated_option "without-lua" => "without-lua@5.1"
