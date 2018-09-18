@@ -13,9 +13,9 @@ class Rocksdb < Formula
   end
 
   needs :cxx11
-  depends_on "snappy"
-  depends_on "lz4"
   depends_on "gflags"
+  depends_on "lz4"
+  depends_on "snappy"
 
   def install
     ENV.cxx11
