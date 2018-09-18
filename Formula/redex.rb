@@ -19,8 +19,8 @@ class Redex < Formula
   depends_on "libevent" => :build
   depends_on "libtool" => :build
   depends_on "boost"
-  depends_on "python"
   depends_on "jsoncpp"
+  depends_on "python"
 
   resource "test_apk" do
     url "https://raw.githubusercontent.com/facebook/redex/fa32d542d4074dbd485584413d69ea0c9c3cbc98/test/instr/redex-test.apk"
