@@ -13,13 +13,13 @@ class Uwsgi < Formula
 
   deprecated_option "with-python3" => "with-python"
 
+  depends_on "go" => [:build, :optional]
   depends_on "pkg-config" => :build
-  depends_on "pcre"
   depends_on "openssl"
+  depends_on "pcre"
   depends_on "python@2"
   depends_on "yajl"
 
-  depends_on "go" => [:build, :optional]
   depends_on "libyaml" => :optional
   depends_on "python" => :optional
   depends_on "zeromq" => :optional
