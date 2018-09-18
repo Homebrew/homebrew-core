@@ -15,8 +15,8 @@ class StoneSoup < Formula
   option "without-lua@5.1", "Disable Lua bindings for user scripts"
 
   depends_on "pkg-config" => :build
-  depends_on "lua@5.1" => :recommended
   depends_on "pcre"
+  depends_on "lua@5.1" => :recommended
 
   if build.with? "tiles"
     depends_on "sdl2"
