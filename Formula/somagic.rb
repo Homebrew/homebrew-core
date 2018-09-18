@@ -14,8 +14,8 @@ class Somagic < Formula
     sha256 "0684417c6e1f1b498d10c5d24171217fb2e70ed0c8f9bacdd7365e8be8af20fc" => :mavericks
   end
 
-  depends_on "libusb"
   depends_on "libgcrypt"
+  depends_on "libusb"
   depends_on "somagic-tools"
   depends_on "mplayer" => :optional
 
