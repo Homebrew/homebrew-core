@@ -14,8 +14,8 @@ class Xshogi < Formula
     sha256 "62c11f796225f439e5698ad87abafbfe55d2184d895b86fd13abe3dc924b2030" => :yosemite
   end
 
-  depends_on :x11
   depends_on "gnu-shogi"
+  depends_on :x11
 
   def install
     system "./configure", "--prefix=#{prefix}",
