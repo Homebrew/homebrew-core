@@ -27,16 +27,16 @@ class Upscaledb < Formula
   head do
     url "https://github.com/cruppstahl/upscaledb.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "boost"
   depends_on "gnutls"
+  depends_on :java
   depends_on "openssl"
   depends_on "protobuf"
-  depends_on :java
 
   resource "libuv" do
     url "https://github.com/libuv/libuv/archive/v0.10.37.tar.gz"
