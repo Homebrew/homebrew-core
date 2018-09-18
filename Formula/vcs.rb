@@ -15,8 +15,8 @@ class Vcs < Formula
   end
 
   depends_on "ffmpeg"
-  depends_on "gnu-getopt"
   depends_on "ghostscript"
+  depends_on "gnu-getopt"
   depends_on "imagemagick"
   depends_on "mplayer" => :optional
 
