@@ -18,6 +18,7 @@ class Pcl < Formula
   end
 
   bottle do
+    sha256 "40a34cb7b6045c2037ac695bc3fb05f723342eae2316ae6dcd19ab696fa48f66" => :mojave
     sha256 "2bab97939b9af9238391df29d00c1959d2f4e1d9786279ae56af5ee2684cf3ca" => :high_sierra
     sha256 "c90c0dd905b0883dd60d4eb4f940cdf087f6ffcb39847c54a2bcf099ed5a10fe" => :sierra
     sha256 "5f485acc6e2590c030cbaed865e201414384555ca6bdcc51f62feb8cac23d931" => :el_capitan
