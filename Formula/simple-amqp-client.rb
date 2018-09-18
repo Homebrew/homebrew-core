@@ -19,8 +19,8 @@ class SimpleAmqpClient < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "rabbitmq-c"
   depends_on "boost"
+  depends_on "rabbitmq-c"
 
   def install
     system "cmake", ".", *std_cmake_args
