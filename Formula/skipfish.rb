@@ -13,8 +13,8 @@ class Skipfish < Formula
   end
 
   depends_on "libidn"
-  depends_on "pcre"
   depends_on "openssl"
+  depends_on "pcre"
 
   def install
     ENV.append "CFLAGS", "-I#{HOMEBREW_PREFIX}/include"
