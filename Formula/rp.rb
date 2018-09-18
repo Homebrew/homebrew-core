@@ -16,8 +16,8 @@ class Rp < Formula
     sha256 "398c2c7776b0da352930a13a9339cd66b4e74c773313eb347740cfd2ea8ccf24" => :mavericks
   end
 
-  depends_on :macos => :lion
   depends_on "cmake" => :build
+  depends_on :macos => :lion
 
   # In order to have the same binary name in 32 and 64 bits.
   patch :DATA
