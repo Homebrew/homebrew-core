@@ -8,12 +8,12 @@ class Sqoop < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.6+"
+  depends_on "coreutils"
   depends_on "hadoop"
   depends_on "hbase"
   depends_on "hive"
+  depends_on :java => "1.6+"
   depends_on "zookeeper"
-  depends_on "coreutils"
 
   # Patch for readlink -f missing on macOS. Should be fixed in 1.4.7.
   # https://issues.apache.org/jira/browse/SQOOP-2531
