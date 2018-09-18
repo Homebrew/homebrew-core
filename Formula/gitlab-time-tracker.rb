@@ -14,6 +14,6 @@ class GitlabTimeTracker < Formula
   end
 
   test do
-    system bin/"gtt", "--version"
+    assert_match /#{version}/, shell_output("#{bin}/gtt --version")
   end
 end
