@@ -27,6 +27,6 @@ class Aravis < Formula
   end
 
   test do
-    system "#{bin}/arv-tool-0.6"
+    system "gst-inspect-1.0 #{lib}/gstreamer-1.0/libgstaravis.0.6.so"
   end
 end
