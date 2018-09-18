@@ -15,18 +15,11 @@ class Whitedb < Formula
     sha256 "aa86b2acca68b9999ecb4cb9da7c64f659a97ffbd50d7aeb78c021df13866474" => :mountain_lion
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
-  depends_on "python@2" => :optional
-
   def install
     # https://github.com/priitj/whitedb/issues/15
     ENV.append "CFLAGS", "-std=gnu89"
 
-    args = ["--prefix=#{prefix}"]
-    args << "--with-python" if build.with? "python@2"
-    system "./configure", *args
-
+    system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
