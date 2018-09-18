@@ -13,8 +13,8 @@ class Pillar < Formula
     sha256 "1f2264e263268d479e04a584003127c833eec237a3514c607f7d8090de48084c" => :el_capitan
   end
 
-  depends_on :java => "1.8"
   depends_on "sbt" => :build
+  depends_on :java => "1.8"
 
   def install
     inreplace "src/main/bash/pillar" do |s|
