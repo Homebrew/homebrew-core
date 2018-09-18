@@ -14,9 +14,9 @@ class Pc6001vx < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "ffmpeg"
   depends_on "qt"
   depends_on "sdl2"
-  depends_on "ffmpeg"
 
   def install
     # Need to explicitly set up include directories
