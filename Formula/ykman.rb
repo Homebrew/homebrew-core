@@ -15,12 +15,12 @@ class Ykman < Formula
     sha256 "186d9b52c6e97c0f9f68f59b225683051173b5e1f575ffd59ca9d42498e09816" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "swig" => :build
-  depends_on "ykpers"
   depends_on "libu2f-host"
   depends_on "libusb"
   depends_on "openssl"
+  depends_on "python@2"
+  depends_on "ykpers"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
