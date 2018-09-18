@@ -13,8 +13,8 @@ class Serialosc < Formula
     sha256 "538a58e048362ab6561a3ba60a4bce9a262ec6245c2bdbf2c3b07a21c8f725cc" => :el_capitan
   end
 
-  depends_on "liblo"
   depends_on "confuse"
+  depends_on "liblo"
   depends_on "libmonome"
 
   def install
