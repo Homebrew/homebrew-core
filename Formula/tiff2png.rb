@@ -14,9 +14,9 @@ class Tiff2png < Formula
     sha256 "bf11412cac81c328f8e8de50c182be049696d053ac900b56302685e858562811" => :yosemite
   end
 
-  depends_on "libtiff"
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
 
   def install
     bin.mkpath
