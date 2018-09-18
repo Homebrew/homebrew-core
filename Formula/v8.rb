@@ -14,11 +14,11 @@ class V8 < Formula
     sha256 "d815f9bd1254c2dee18667c7c51201e6108c2cfd7de447c771300bf91784ffe9" => :el_capitan
   end
 
-  # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
-  depends_on :macos => :el_capitan
-
   # depot_tools/GN require Python 2.7+
   depends_on "python@2" => :build
+
+  # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
+  depends_on :macos => :el_capitan
 
   needs :cxx11
 
