@@ -18,8 +18,8 @@ class Scrub < Formula
 
   head do
     url "https://github.com/chaos/scrub.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
