@@ -5,10 +5,10 @@ class JsonGlib < Formula
   sha256 "720c5f4379513dc11fd97dc75336eb0c0d3338c53128044d9fabec4374f4bc47"
 
   bottle do
-    sha256 "31e217c0ce04015a4d5b57396fc6a27cc543a0bddd129aeee31b93e90067d294" => :mojave
-    sha256 "d27d9aaeadd8072a2eeb91984b2cf9b8e13b7c6cbc2cc1e4debe4738bce90f36" => :high_sierra
-    sha256 "ef55b4676e0ef1e3dcde3fd642bc7cb6da0d091921720281b4b3400e169cbffa" => :sierra
-    sha256 "f5baf172b136c33fb8fa7b9e8e7e923cc0f9eabf6012f8765ff665b4380c29c8" => :el_capitan
+    sha256 "5955c4e1bb25115e61252ef5b11e6a4c7e2211b4ff71c56cae5a76c6a73c5064" => :mojave
+    sha256 "896582a3d39376e8ae3ed1093344f5de02505d81d4639d6256db8d4f292a24ce" => :high_sierra
+    sha256 "ac347ffca088d57e22296de1b717dd0d21086e09b04d20919f530c3a20f4a3dd" => :sierra
+    sha256 "19690e86594be958118eddeb8a50cfd8175c00e122bc83120cfefd9914dd1eea" => :el_capitan
   end
 
   depends_on "gobject-introspection" => :build
