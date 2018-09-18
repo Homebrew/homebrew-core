@@ -16,10 +16,10 @@ class Sxiv < Formula
     sha256 "de711fb6eb1c6ac0093ad182dd820c9debdb5d08ce03430de6462fbf9568c5e3" => :yosemite
   end
 
-  depends_on :x11
-  depends_on "imlib2"
   depends_on "giflib"
+  depends_on "imlib2"
   depends_on "libexif"
+  depends_on :x11
 
   def install
     system "make", "config.h"
