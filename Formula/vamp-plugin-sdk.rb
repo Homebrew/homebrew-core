@@ -16,9 +16,9 @@ class VampPluginSdk < Formula
 
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libsndfile"
-  depends_on "libogg"
   depends_on "flac"
+  depends_on "libogg"
+  depends_on "libsndfile"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
