@@ -13,10 +13,10 @@ class Pass < Formula
     sha256 "268b81c3a5a7c7dd6ee63ed1b466e6e7b5bb6f26f21c7ac8b7a9bc860a2b2bd8" => :el_capitan
   end
 
-  depends_on "qrencode"
-  depends_on "tree"
   depends_on "gnu-getopt"
   depends_on "gnupg"
+  depends_on "qrencode"
+  depends_on "tree"
 
   def install
     system "make", "PREFIX=#{prefix}", "WITH_ALLCOMP=yes", "BASHCOMPDIR=#{bash_completion}", "ZSHCOMPDIR=#{zsh_completion}", "FISHCOMPDIR=#{fish_completion}", "install"
