@@ -15,19 +15,14 @@ class Libspnav < Formula
     sha256 "0d0a4943d1eee96936b7ccf0a200d353a3fd35bbf67d46695e0e4e41d498df16" => :mountain_lion
   end
 
-  option "with-x11", "Enable support for sending mouse events through the x11 protocol"
-
-  depends_on :x11 => :optional
-
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --disable-x11
     ]
-
-    args << "--disable-x11" if build.without? "x11"
 
     system "./configure", *args
     system "make", "install"
