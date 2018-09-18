@@ -13,9 +13,9 @@ class Saldl < Formula
     sha256 "92835135c56b58d1902bc181e678d75e7175969894957ad67bdedcbf1b3059cc" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "pkg-config" => :build
   depends_on "curl" # curl >= 7.55 is required
   depends_on "libevent"
 
