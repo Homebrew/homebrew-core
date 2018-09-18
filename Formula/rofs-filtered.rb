@@ -12,8 +12,8 @@ class RofsFiltered < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :osxfuse
   depends_on :macos => :yosemite
+  depends_on :osxfuse
 
   def install
     mkdir "build" do
