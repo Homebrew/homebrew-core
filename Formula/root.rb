@@ -13,6 +13,8 @@ class Root < Formula
     sha256 "9cedd1dc275ae988976e8be78afe7cfa12471d4e501c772d8549082807ea0651" => :el_capitan
   end
 
+  option "with-tmva", "Include the Toolkit for Multivariate Data Analysis with ROOT (TMVA)"
+  
   depends_on "cmake" => :build
   depends_on "davix"
   depends_on "fftw"
@@ -75,6 +77,10 @@ class Root < Formula
       -Dimt=ON
       -Dxrootd=ON
     ]
+
+    if build.with? "tmva"
+      args << "-Dtmva=ON"
+    end
 
     if build.with?("python") && build.with?("python@2")
       odie "Root: Does not support building both python 2 and 3 wrappers"
