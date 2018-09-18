@@ -15,8 +15,8 @@ class Sdl2Ttf < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
   depends_on "freetype"
+  depends_on "sdl2"
 
   def install
     inreplace "SDL2_ttf.pc.in", "@prefix@", HOMEBREW_PREFIX
