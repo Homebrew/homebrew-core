@@ -13,10 +13,10 @@ class RakudoStar < Formula
 
   option "with-jvm", "Build also for jvm as an alternate backend."
 
+  depends_on "libffi"
   depends_on "gmp" => :optional
   depends_on "icu4c" => :optional
   depends_on "pcre" => :optional
-  depends_on "libffi"
 
   conflicts_with "parrot"
 
