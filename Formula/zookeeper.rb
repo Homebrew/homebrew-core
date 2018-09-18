@@ -16,10 +16,10 @@ class Zookeeper < Formula
     url "https://svn.apache.org/repos/asf/zookeeper/trunk"
 
     depends_on "ant" => :build
-    depends_on "cppunit" => :build
-    depends_on "libtool" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "cppunit" => :build
+    depends_on "libtool" => :build
   end
 
   def shim_script(target)
