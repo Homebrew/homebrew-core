@@ -14,8 +14,8 @@ class Yaz < Formula
 
   head do
     url "https://github.com/indexdata/yaz.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
