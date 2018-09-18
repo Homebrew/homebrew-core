@@ -11,19 +11,19 @@ class Suricata < Formula
     sha256 "b6f820a45e9e169a7bde63fe1d2baa0045f39c1dd9e793cfd6a370f349841926" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "pkg-config" => :build
   depends_on "libmagic"
   depends_on "libnet"
   depends_on "libyaml"
-  depends_on "pcre"
-  depends_on "nss"
   depends_on "nspr"
+  depends_on "nss"
+  depends_on "pcre"
+  depends_on "python@2"
   depends_on "geoip" => :optional
+  depends_on "hiredis" => :optional
+  depends_on "jansson" => :optional
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
-  depends_on "jansson" => :optional
-  depends_on "hiredis" => :optional
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/source/a/argparse/argparse-1.4.0.tar.gz"
