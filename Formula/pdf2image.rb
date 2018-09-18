@@ -12,9 +12,9 @@ class Pdf2image < Formula
     sha256 "a0bb792123e4754d5cf80cf248e8932dd1885616af2c4c9c7f00e35cda962725" => :yosemite
   end
 
-  depends_on :x11
   depends_on "freetype"
   depends_on "ghostscript"
+  depends_on :x11
 
   conflicts_with "poppler", "xpdf",
     :because => "pdf2image, poppler, and xpdf install conflicting executables"
