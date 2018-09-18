@@ -11,8 +11,8 @@ class Zenity < Formula
     sha256 "eb4386c1857fb2b4a41f5d0c8fb596b58add38a4e3f30d78b7223233aefa18c9" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "itstool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gtk+3"
 
   def install
