@@ -18,8 +18,8 @@ class Patchutils < Formula
 
   head do
     url "https://github.com/twaugh/patchutils.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "docbook" => :build
   end
 
