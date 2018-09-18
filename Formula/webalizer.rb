@@ -13,8 +13,8 @@ class Webalizer < Formula
     sha256 "2bae3de97730aa72807cadcfda25ac395f3e30608d865df998fb474e75d4c780" => :el_capitan
   end
 
-  depends_on "gd"
   depends_on "berkeley-db"
+  depends_on "gd"
   depends_on "libpng"
 
   def install
