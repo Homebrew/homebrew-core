@@ -12,9 +12,9 @@ class Pgcli < Formula
     sha256 "5e92f1b75b24851236bd9ceee16a9477c69358100ed4415866bd631e352e0101" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "libpq"
   depends_on "openssl"
+  depends_on "python@2"
 
   resource "backports.csv" do
     url "https://files.pythonhosted.org/packages/c5/d2/6adc8e81e57a847fbe63b7967223aa13e340875a273be218ef15f162037d/backports.csv-1.0.6.tar.gz"
