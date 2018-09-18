@@ -24,21 +24,21 @@ class Zbar < Formula
   head do
     url "https://github.com/ZBar/ZBar.git"
 
-    depends_on "gettext" => :build
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
     depends_on "libtool" => :build
     depends_on "xmlto" => :build
   end
 
-  depends_on :x11 => :optional
   depends_on "pkg-config" => :build
-  depends_on "jpeg"
+  depends_on "freetype"
   depends_on "imagemagick"
+  depends_on "jpeg"
+  depends_on "libtool"
   depends_on "ufraw"
   depends_on "xz"
-  depends_on "freetype"
-  depends_on "libtool"
+  depends_on :x11 => :optional
 
   def install
     if build.head?
