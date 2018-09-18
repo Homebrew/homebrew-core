@@ -13,8 +13,8 @@ class XmlSecurityC < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "xerces-c"
   depends_on "openssl"
+  depends_on "xerces-c"
 
   needs :cxx11
 
