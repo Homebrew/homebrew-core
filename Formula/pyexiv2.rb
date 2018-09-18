@@ -13,9 +13,9 @@ class Pyexiv2 < Formula
   end
 
   depends_on "scons" => :build
-  depends_on "exiv2"
   depends_on "boost"
   depends_on "boost-python"
+  depends_on "exiv2"
 
   def install
     # this build script ignores CPPFLAGS, but it honors CXXFLAGS
