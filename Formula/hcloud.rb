@@ -15,7 +15,6 @@ class Hcloud < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/hetznercloud/cli").install buildpath.children
 
     cd "src/github.com/hetznercloud/cli" do
