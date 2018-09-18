@@ -16,11 +16,11 @@ class Ppsspp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
+  depends_on "ffmpeg"
   depends_on "glew"
   depends_on "libzip"
+  depends_on "sdl2"
   depends_on "snappy"
-  depends_on "ffmpeg"
 
   def install
     args = std_cmake_args
