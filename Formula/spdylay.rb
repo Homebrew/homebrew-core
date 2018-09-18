@@ -18,9 +18,9 @@ class Spdylay < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libevent" => :recommended
   depends_on "libxml2" if MacOS.version <= :lion
   depends_on "openssl"
+  depends_on "libevent" => :recommended
 
   def install
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
