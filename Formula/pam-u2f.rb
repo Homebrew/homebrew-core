@@ -13,11 +13,11 @@ class PamU2f < Formula
     sha256 "10730971bc1100e4288204cec75f3115235e0cbbaef19f8acad1ddf9a4aeb0d2" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "libtool" => :build
+  depends_on "asciidoc" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "asciidoc" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "libu2f-host"
   depends_on "libu2f-server"
 
