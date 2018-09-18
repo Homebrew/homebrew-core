@@ -16,8 +16,8 @@ class Poco < Formula
 
   option "with-static", "Build static libraries (instead of shared)"
 
-  depends_on "openssl"
   depends_on "cmake" => :build
+  depends_on "openssl"
 
   def install
     ENV.cxx11
