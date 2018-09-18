@@ -16,8 +16,8 @@ class Unrtf < Formula
     sha256 "7e680da7a4c4da9ed3b21f04e5125721cf506cc9579a2e95b4635078b0606cb2" => :mountain_lion
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     system "./bootstrap"
