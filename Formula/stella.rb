@@ -14,8 +14,8 @@ class Stella < Formula
   end
 
   depends_on :xcode => :build
-  depends_on "sdl2"
   depends_on "libpng"
+  depends_on "sdl2"
 
   def install
     sdl2 = Formula["sdl2"]
