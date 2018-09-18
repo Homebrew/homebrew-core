@@ -12,11 +12,11 @@ class SimpleMtpfs < Formula
     sha256 "64c1df0ab967904c00f8b61d41bd4de70ed75f01902d552594ccac990cba5b24" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :osxfuse
+  depends_on "pkg-config" => :build
   depends_on "libmtp"
+  depends_on :osxfuse
 
   needs :cxx11
 
