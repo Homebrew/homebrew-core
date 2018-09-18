@@ -17,11 +17,11 @@ class Weboob < Formula
     sha256 "1438d5ef99fed1262698b71e24d31d63e2c8b27413e1f46d1b70c1b07a191951" => :el_capitan
   end
 
-  depends_on "python@2"
   depends_on "freetype"
+  depends_on "gnupg"
   depends_on "jpeg"
   depends_on "libyaml"
-  depends_on "gnupg"
+  depends_on "python@2"
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/e0/82/ec499c78bfe4ecaa91c2f3000040451d187ed0a816d58b8543e29c48827f/Pillow-4.3.0.tar.gz"
