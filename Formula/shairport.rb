@@ -16,9 +16,9 @@ class Shairport < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pulseaudio" => :optional
-  depends_on "libao" => :optional
   depends_on "openssl"
+  depends_on "libao" => :optional
+  depends_on "pulseaudio" => :optional
 
   def install
     system "./configure"
