@@ -12,8 +12,8 @@ class Qdae < Formula
     sha256 "1a4eeaff6ff2a86179b673c04837aebe2664ca1eeb065e3081296f653b762cc7" => :yosemite
   end
 
-  depends_on "sdl"
   depends_on "libxml2"
+  depends_on "sdl"
 
   def install
     system "./configure", "--disable-debug",
