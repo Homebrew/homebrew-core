@@ -12,12 +12,12 @@ class S3fs < Formula
     sha256 "d375bdefb6de55ae1793ef7e05f99e52c93be2b9500c9b5bba7f55ae57091efe" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "gnutls"
-  depends_on "nettle"
   depends_on "libgcrypt"
+  depends_on "nettle"
 
   depends_on :osxfuse
 
