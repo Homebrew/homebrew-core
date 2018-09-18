@@ -14,8 +14,8 @@ class Shivavg < Formula
     sha256 "e9bdb03d76c994311a7e38c95eb40561bcb8f7fefdc12ac80137724f39a6bb4a" => :mavericks
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install
