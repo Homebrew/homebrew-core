@@ -13,8 +13,8 @@ class Vis < Formula
     sha256 "d902e9dbb59c21ab7b8d3476c9125a160c8633599ed1097caa001f32ac50f3b4" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "luarocks" => :build
+  depends_on "pkg-config" => :build
   depends_on "libtermkey"
   depends_on "lua"
 
