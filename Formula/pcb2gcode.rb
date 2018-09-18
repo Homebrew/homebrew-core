@@ -22,8 +22,8 @@ class Pcb2gcode < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gtkmm"
   depends_on "gerbv"
+  depends_on "gtkmm"
 
   # Upstream maintainer claims that the geometry library from boost >= 1.67
   # is severely broken. Remove the vendoring once fixed.
