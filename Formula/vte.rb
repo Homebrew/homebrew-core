@@ -12,8 +12,8 @@ class Vte < Formula
     sha256 "f57ca7c969e677208d1df618243a7fc453ae49660d114de05365467b51d97adc" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gtk+"
