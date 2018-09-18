@@ -14,13 +14,13 @@ class Pianobar < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libao"
-  depends_on "mad"
   depends_on "faad2"
-  depends_on "gnutls"
-  depends_on "libgcrypt"
-  depends_on "json-c"
   depends_on "ffmpeg"
+  depends_on "gnutls"
+  depends_on "json-c"
+  depends_on "libao"
+  depends_on "libgcrypt"
+  depends_on "mad"
 
   def install
     # Discard Homebrew's CFLAGS as Pianobar reportedly doesn't like them
