@@ -32,12 +32,12 @@ class Vim < Formula
 
   depends_on "perl"
   depends_on "ruby"
+  depends_on :x11 if build.with? "client-server"
   depends_on "python" => :recommended if build.without? "python@2"
   depends_on "gettext" => :optional
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on "python@2" => :optional
-  depends_on :x11 if build.with? "client-server"
 
   conflicts_with "ex-vi",
     :because => "vim and ex-vi both install bin/ex and bin/view"
