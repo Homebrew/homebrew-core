@@ -14,11 +14,11 @@ class Ucg < Formula
     sha256 "e4699a681ae9d2e9d68ce7da85fc050907070bc9650fad0c4f76faf991f3a422" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
-  depends_on "automake" => :build
   depends_on "argp-standalone" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre2"
 
   # Fix Xcode 9 compilation issue: https://github.com/gvansickle/ucg/issues/118
