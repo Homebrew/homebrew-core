@@ -15,8 +15,8 @@ class SdlTtf < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl"
   depends_on "freetype"
+  depends_on "sdl"
 
   # Fix broken TTF_RenderGlyph_Shaded()
   # https://bugzilla.libsdl.org/show_bug.cgi?id=1433
