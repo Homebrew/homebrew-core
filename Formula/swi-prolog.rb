@@ -28,9 +28,9 @@ class SwiProlog < Formula
   option "with-xpce", "Enable XPCE (Prolog Native GUI Library)"
 
   depends_on "pkg-config" => :build
-  depends_on "readline"
   depends_on "gmp"
   depends_on "openssl"
+  depends_on "readline"
   depends_on "libarchive" => :optional
 
   if build.with? "xpce"
