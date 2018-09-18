@@ -17,8 +17,8 @@ class Sha1dc < Formula
     sha256 "939388a0fe029d8cba8080a778269322489c55f787301947c82fb30cf8433b08" => :yosemite
   end
 
-  depends_on "libtool" => :build
   depends_on "coreutils" => :build # GNU install
+  depends_on "libtool" => :build
 
   def install
     system "make", "INSTALL=ginstall", "PREFIX=#{prefix}", "install"
