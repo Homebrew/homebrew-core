@@ -14,8 +14,8 @@ class Scrollkeeper < Formula
     sha256 "7e302cb0c50b34bf47cceefa2c79a8b565b06e7d850ea07f10992598c2058773" => :mavericks
   end
 
-  depends_on "gettext"
   depends_on "docbook"
+  depends_on "gettext"
 
   conflicts_with "rarian",
     :because => "scrollkeeper and rarian install the same binaries."
