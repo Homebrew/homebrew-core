@@ -18,11 +18,11 @@ class Pypy < Formula
                               "perform the translation (adds 30-60 minutes " \
                               "to build)"
 
-  depends_on :arch => :x86_64
   depends_on "pkg-config" => :build
+  depends_on :arch => :x86_64
+  depends_on "openssl"
   depends_on "gdbm" => :recommended
   depends_on "sqlite" => :recommended
-  depends_on "openssl"
 
   resource "bootstrap" do
     url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"
