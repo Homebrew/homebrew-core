@@ -15,15 +15,15 @@ class Supertux < Formula
     sha256 "c66b6e14fc23160f5024ad7790286ec0bcb7f8ed262ce6c400dc8757c1c16ba8" => :el_capitan
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost" => :build
+  depends_on "glew"
+  depends_on "libogg"
+  depends_on "libvorbis"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
-  depends_on "libogg"
-  depends_on "libvorbis"
-  depends_on "glew"
 
   # Fix symlink passing to physfs
   # https://github.com/SuperTux/supertux/issues/614
