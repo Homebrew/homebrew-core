@@ -13,8 +13,8 @@ class Tenyr < Formula
     sha256 "1b09019bb0131b4ce6599612e55a828d22390757473c22dceab47aa30671fd1f" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "bison" => :build # tenyr requires bison >= 2.5
+  depends_on "pkg-config" => :build
   # sdl2_image implies sdl2. If we specify sdl2 separately, we create
   # nonsensical possibilities like `--with-sdl2_image --without-sdl2`
   # tenyr requires sdl2_image --with-png
