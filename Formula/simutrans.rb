@@ -13,8 +13,8 @@ class Simutrans < Formula
     sha256 "ee6fb59f8452c16a57b13b55d7cf2a0954e1362259e4ecc9669610e0c403ae79" => :el_capitan
   end
 
-  depends_on :macos => :lion
   depends_on "libpng"
+  depends_on :macos => :lion
   depends_on "sdl2"
 
   resource "pak64" do
