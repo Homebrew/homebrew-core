@@ -14,8 +14,8 @@ class Sdcv < Formula
     sha256 "f50d16cbcc92cc9bdfdea0aed25e10f8403f877f7a44830de420246eb2a4dfe7" => :yosemite
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "readline"
