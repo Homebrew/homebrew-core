@@ -25,19 +25,18 @@ class Subversion < Formula
   option "with-java", "Build Java bindings"
 
   depends_on "pkg-config" => :build
+  depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
-  depends_on "apr-util"
   depends_on "apr"
+  depends_on "apr-util"
 
-  # Always build against Homebrew versions for consistency
+  # build against Homebrew versions of
+  # lz4, perl, sqlite and utf8proc for consistency
   depends_on "lz4"
+  depends_on "openssl" # For Serf
   depends_on "perl"
   depends_on "sqlite"
   depends_on "utf8proc"
-
-  # For Serf
-  depends_on "scons" => :build
-  depends_on "openssl"
 
   # Other optional dependencies
   depends_on :java => ["1.8", :optional]
