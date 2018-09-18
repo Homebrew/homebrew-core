@@ -17,10 +17,9 @@ class Libav < Formula
   option "with-theora", "Enable Theora encoding via libtheora"
 
   depends_on "pkg-config" => :build
-  depends_on "yasm" => :build
-
   # manpages won't be built without texi2html
   depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
+  depends_on "yasm" => :build
 
   depends_on "faac"
   depends_on "fdk-aac"
