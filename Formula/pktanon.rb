@@ -13,8 +13,8 @@ class Pktanon < Formula
     sha256 "2699dcad19aa003e10fc32651e1a0a6f93f38812393221a762793e27eafa2c5f" => :el_capitan
   end
 
-  depends_on "xerces-c"
   depends_on "boost"
+  depends_on "xerces-c"
 
   def install
     # fix compile failure caused by undefined function 'sleep'.
