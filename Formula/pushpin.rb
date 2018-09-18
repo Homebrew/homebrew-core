@@ -13,9 +13,9 @@ class Pushpin < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "mongrel2"
   depends_on "qt"
   depends_on "zeromq"
-  depends_on "mongrel2"
   depends_on "zurl"
 
   def install
