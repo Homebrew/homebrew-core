@@ -20,8 +20,8 @@ class Pce < Formula
     sha256 "aaad3db24b5fabbd308afbb8d2f242236b8abf7d48b010f726a4367f16ec2681"
   end
 
-  depends_on "sdl"
   depends_on "readline"
+  depends_on "sdl"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
