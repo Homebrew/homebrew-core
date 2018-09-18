@@ -15,9 +15,9 @@ class RedisLeveldb < Formula
     sha256 "4cf802ff434be42c86043c45f539cfdb0f137cfd37df4815560e3495da5f9d1b" => :yosemite
   end
 
-  depends_on "libev"
   depends_on "gmp"
   depends_on "leveldb"
+  depends_on "libev"
   depends_on "snappy"
 
   def install
