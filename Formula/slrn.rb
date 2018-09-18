@@ -13,8 +13,8 @@ class Slrn < Formula
     sha256 "06d71ffeb008854c63eeadf6f45633cf692e648490cb20c2ba5f3229cc3dc808" => :yosemite
   end
 
-  depends_on "s-lang"
   depends_on "openssl"
+  depends_on "s-lang"
 
   def install
     bin.mkpath
