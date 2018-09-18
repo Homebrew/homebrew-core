@@ -16,8 +16,8 @@ class Wv < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libgsf"
-  depends_on "libwmf"
   depends_on "libpng"
+  depends_on "libwmf"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
