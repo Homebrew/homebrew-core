@@ -16,7 +16,7 @@ class DockerMachineDriverVultr < Formula
 
   depends_on "go" => :build
   depends_on "godep" => :build
-  depends_on "docker-machine" => :recommended
+  depends_on "docker-machine"
 
   def install
     ENV["GOPATH"] = buildpath
