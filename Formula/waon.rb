@@ -15,9 +15,9 @@ class Waon < Formula
     sha256 "bccba5b437852618f1d67fb521dfc2684bb4d70461c61966e97cdd286be40842" => :mountain_lion
   end
 
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "libsndfile"
-  depends_on "pkg-config" => :build
 
   def install
     system "make", "-f", "Makefile.waon", "waon"
