@@ -12,20 +12,19 @@ class ShibbolethSp < Formula
     sha256 "c8d4e77021c1b2b576df886d36d930aedc025d1918de55dcc33276847489a5d7" => :el_capitan
   end
 
+  depends_on "apr" => :build
+  depends_on "apr-util" => :build
   depends_on "pkg-config" => :build
-  depends_on :macos => :yosemite
-  depends_on "openssl"
+  depends_on "boost"
   depends_on "httpd" if MacOS.version >= :high_sierra
+  depends_on "log4shib"
+  depends_on :macos => :yosemite
   depends_on "opensaml"
-  depends_on "xml-tooling-c"
+  depends_on "openssl"
+  depends_on "unixodbc"
   depends_on "xerces-c"
   depends_on "xml-security-c"
-  depends_on "log4shib"
-  depends_on "boost"
-  depends_on "unixodbc"
-
-  depends_on "apr-util" => :build
-  depends_on "apr" => :build
+  depends_on "xml-tooling-c"
 
   needs :cxx11
 
