@@ -14,17 +14,17 @@ class Pango < Formula
   head do
     url "https://gitlab.gnome.org/GNOME/pango.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
-    depends_on "libtool" => :build
+    depends_on "automake" => :build
     depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "fribidi"
   depends_on "fontconfig"
+  depends_on "fribidi"
   depends_on "glib"
   depends_on "harfbuzz"
 
