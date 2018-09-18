@@ -17,8 +17,8 @@ class Planck < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
-  depends_on "libzip"
   depends_on "icu4c"
+  depends_on "libzip"
   depends_on :macos => :mavericks
 
   def install
