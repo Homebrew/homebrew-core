@@ -7,8 +7,8 @@ class SpacemanDiff < Formula
 
   bottle :unneeded
 
-  depends_on "jp2a"
   depends_on "imagemagick"
+  depends_on "jp2a"
 
   def install
     bin.install "spaceman-diff"
