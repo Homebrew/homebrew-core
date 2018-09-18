@@ -15,9 +15,9 @@ class RobotFramework < Formula
     sha256 "fe9630b653c9e4a74afb0d71f68dc6201356f4da81b89ea05acd3b4cb00f44e9" => :el_capitan
   end
 
-  depends_on :x11
-  depends_on "python@2"
   depends_on "openssl"
+  depends_on "python@2"
+  depends_on :x11
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
