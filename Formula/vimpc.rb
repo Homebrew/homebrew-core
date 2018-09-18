@@ -23,9 +23,9 @@ class Vimpc < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost" => :build unless MacOS.version >= :mavericks
-  depends_on "taglib"
   depends_on "libmpdclient"
   depends_on "pcre"
+  depends_on "taglib"
 
   def install
     system "./autogen.sh" if build.head?
