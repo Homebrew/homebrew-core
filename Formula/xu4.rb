@@ -14,9 +14,9 @@ class Xu4 < Formula
     sha256 "aab6d22274a345209ff25516b2dd11b715088ccab2d31588b8253f65e29f0e96" => :yosemite
   end
 
+  depends_on "libpng"
   depends_on "sdl"
   depends_on "sdl_mixer"
-  depends_on "libpng"
 
   resource "ultima4" do
     url "https://www.thatfleminggent.com/ultima/ultima4.zip", :using => :nounzip
