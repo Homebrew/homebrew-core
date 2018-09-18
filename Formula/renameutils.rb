@@ -14,8 +14,8 @@ class Renameutils < Formula
     sha256 "3854a97491ab39937687fd00623e4786205163f87522e901bbd7cca6e054b574" => :yosemite
   end
 
-  depends_on "readline" # Use instead of system libedit
   depends_on "coreutils"
+  depends_on "readline" # Use instead of system libedit
 
   # Use the GNU versions of certain system utilities. See:
   # https://trac.macports.org/ticket/24525
