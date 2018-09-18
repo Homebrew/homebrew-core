@@ -13,8 +13,8 @@ class Rethinkdb < Formula
     sha256 "a17c6864cef6dfc7f1e8ab7da2fcd640d85a504991c0d61175e2f6c78e1ba6ee" => :yosemite
   end
 
-  depends_on :macos => :lion
   depends_on "boost" => :build
+  depends_on :macos => :lion
   depends_on "openssl"
 
   fails_with :gcc do
