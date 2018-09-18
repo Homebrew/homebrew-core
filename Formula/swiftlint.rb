@@ -13,8 +13,8 @@ class Swiftlint < Formula
     sha256 "fd36f14e08a2ec39fcd9ed0eca050a204ee29d58141f9fcbce555331af9138e8" => :sierra
   end
 
-  depends_on :xcode => "8.0"
   depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => "8.0"
 
   def install
     ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
