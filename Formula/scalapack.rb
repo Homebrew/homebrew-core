@@ -16,8 +16,8 @@ class Scalapack < Formula
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "openblas" => :optional
   depends_on "veclibfort" if build.without?("openblas")
+  depends_on "openblas" => :optional
 
   def install
     if build.with? "openblas"
