@@ -14,17 +14,17 @@ class Widelands < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "libpng"
-  depends_on "minizip"
+  depends_on "doxygen"
   depends_on "gettext"
+  depends_on "glew"
+  depends_on "icu4c"
+  depends_on "libpng"
+  depends_on "lua"
+  depends_on "minizip"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_net"
   depends_on "sdl2_ttf"
-  depends_on "doxygen"
-  depends_on "glew"
-  depends_on "lua"
-  depends_on "icu4c"
 
   needs :cxx11
 
