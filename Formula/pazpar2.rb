@@ -14,14 +14,14 @@ class Pazpar2 < Formula
 
   head do
     url "https://github.com/indexdata/pazpar2.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "icu4c" => :recommended
   depends_on "yaz"
+  depends_on "icu4c" => :recommended
 
   def install
     system "./buildconf.sh" if build.head?
