@@ -54,10 +54,10 @@ class Wine < Formula
     end
   end
 
-  depends_on :macos => :el_capitan
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
+  depends_on "pkg-config" => :build
+  depends_on :macos => :el_capitan
 
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi"
