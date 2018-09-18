@@ -14,13 +14,13 @@ class SharedMimeInfo < Formula
 
   head do
     url "https://anongit.freedesktop.org/git/xdg/shared-mime-info.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "intltool" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
 
