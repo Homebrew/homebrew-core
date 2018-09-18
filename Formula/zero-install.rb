@@ -12,11 +12,11 @@ class ZeroInstall < Formula
     sha256 "0fa494c5e2852f8ebcadadc9c441302145444da6f580efce516263f9c1b33e4f" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "camlp4" => :build
   depends_on "ocaml" => :build
   depends_on "ocamlbuild" => :build
   depends_on "opam" => :build
-  depends_on "camlp4" => :build
+  depends_on "pkg-config" => :build
   depends_on "gnupg"
   depends_on "gtk+" => :optional
 
