@@ -14,8 +14,8 @@ class Vorbisgain < Formula
     sha256 "7bff88a3512ff2d28846b89b89f1cfd130e5934f1f6301d36e66ccc26b896281" => :mavericks
   end
 
-  depends_on "libvorbis"
   depends_on "libogg"
+  depends_on "libvorbis"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
