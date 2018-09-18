@@ -6,26 +6,13 @@ class ApacheCtakes < Formula
 
   bottle :unneeded
 
-  option "with-ctakes-resources", "Install prebuilt dictionaries and models"
-
   depends_on :java => "1.8+"
-
-  resource "ctakes-resources" do
-    url "https://downloads.sourceforge.net/project/ctakesresources/ctakes-resources-4.0-bin.zip"
-    sha256 "c72b5f64e1572c207c139f1dfbe6fa8b5e3708bc66e1f5d6f4c8863055121351"
-  end
 
   def install
     rm_f Dir["bin/*.bat", "bin/*.cmd", "bin/ctakes.profile", "bin/ctakes-ytex",
              "libexec/*.bat", "libexec/*.cmd"]
     libexec.install %w[bin config desc lib resources]
     pkgshare.install_symlink libexec/"resources/org/apache/ctakes/examples"
-
-    if build.with? "ctakes-resources"
-      resource("ctakes-resources").stage do
-        system "ditto", "resources", libexec/"resources"
-      end
-    end
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
