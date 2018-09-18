@@ -56,10 +56,11 @@ class Radare2 < Formula
 
   option "with-code-signing", "Codesign executables to provide unprivileged process attachment"
 
-  depends_on "pkg-config" => :build
-  depends_on "valabind" => :build
-  depends_on "swig" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "pkg-config" => :build
+  depends_on "swig" => :build
+  depends_on "valabind" => :build
+  depends_on CodesignRequirement if build.with? "code-signing"
   depends_on "gmp"
   depends_on "jansson"
   depends_on "libewf"
@@ -67,8 +68,6 @@ class Radare2 < Formula
   depends_on "lua"
   depends_on "openssl"
   depends_on "yara"
-
-  depends_on CodesignRequirement if build.with? "code-signing"
 
   def install
     # Build Radare2 before bindings, otherwise compile = nope.
