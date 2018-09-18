@@ -13,8 +13,8 @@ class VarnishAT4 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "pkg-config" => :build
   depends_on "docutils" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre"
 
   def install
