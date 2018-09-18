@@ -20,8 +20,8 @@ class Pazpar2 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "yaz"
-  depends_on "icu4c" => :recommended
 
   def install
     system "./buildconf.sh" if build.head?
