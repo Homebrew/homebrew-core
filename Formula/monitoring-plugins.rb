@@ -13,8 +13,6 @@ class MonitoringPlugins < Formula
   end
 
   depends_on "openssl"
-  depends_on "mysql" => :optional
-  depends_on "postgresql" => :optional
 
   conflicts_with "nagios-plugins", :because => "nagios-plugins ships their plugins to the same folder."
 
@@ -25,8 +23,6 @@ class MonitoringPlugins < Formula
       --libexecdir=#{libexec}/sbin
       --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
-
-    args << "--with-pgsql=#{Formula["postgresql"].opt_prefix}" if build.with? "postgresql"
 
     system "./configure", *args
     system "make", "install"
