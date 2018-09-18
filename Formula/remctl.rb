@@ -11,8 +11,8 @@ class Remctl < Formula
     sha256 "301065db3a4020b2237268eee8709a639d33dac24b21a3294641f7d9beef0ab0" => :el_capitan
   end
 
-  depends_on "pcre"
   depends_on "libevent"
+  depends_on "pcre"
 
   def install
     system "./configure", "--disable-dependency-tracking",
