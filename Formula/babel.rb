@@ -8,10 +8,10 @@ class Babel < Formula
   sha256 "4bdf9954f05402825a0bf5fb0903f7146d9edf75e1b0479ed2aa70d636d044a4"
 
   bottle do
-    sha256 "5e03035442ff70071de03101d64dec324d5eb95c368eb1dd669df5ef1150eab3" => :mojave
-    sha256 "dd7ce2af3685152476a0a6fdda7dd4ae3f0d3fb53242591cee0ef9571ea7ba44" => :high_sierra
-    sha256 "78cc76dc8759216c18a5dc9a1a9151b7011276f8380b815d87f8f7225eeb195f" => :sierra
-    sha256 "37bee0976593bbf281d30f1ea955a7b40c58f5f52fc0dc091993cfbde84b28fe" => :el_capitan
+    sha256 "1e2bd66b50516b91a8ac4a74d90f4b02035631ff2cf8a894a0628a4a8cdcf562" => :mojave
+    sha256 "76bb0d58cf2403e39f695254df896481bf6eb5552e553e742f9c3758446b9290" => :high_sierra
+    sha256 "6e9aea1b016b41e75486739ccafc0b5e627c58bc7c0902cac8fb9643758a3b9b" => :sierra
+    sha256 "f60037a2c766012a20f2e2219f3ea110eb5f4bf76af2d6ee147a13e79e4c05a5" => :el_capitan
   end
 
   depends_on "node"
