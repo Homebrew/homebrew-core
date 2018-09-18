@@ -15,10 +15,10 @@ class RabbitmqC < Formula
 
   option "without-tools", "Build without command-line tools"
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "popt" if build.with? "tools"
+  depends_on "pkg-config" => :build
   depends_on "openssl"
+  depends_on "popt" if build.with? "tools"
 
   def install
     args = std_cmake_args
