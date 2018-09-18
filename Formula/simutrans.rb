@@ -8,9 +8,10 @@ class Simutrans < Formula
 
   bottle do
     cellar :any
-    sha256 "5a907f0eb27745f123e0605d5f8949ab2e11f67f00f0fba0e6c956227c77e1c4" => :high_sierra
-    sha256 "bed263f91db1565b569ed74dceab5eba88f904ccebf25459b35b534252556fc2" => :sierra
-    sha256 "ee6fb59f8452c16a57b13b55d7cf2a0954e1362259e4ecc9669610e0c403ae79" => :el_capitan
+    sha256 "5a6c026584d0519b0b7adf626a4f7b0b7d7689615de27241232593569a906868" => :mojave
+    sha256 "d20fe9c5a2039bd438fd6f96e24979424acc9c1e7e442d9496ecd1a244640211" => :high_sierra
+    sha256 "e4ac8b4e3ece8ee265e46419db351cba744c6b66b89683d3443ab35e65b936cd" => :sierra
+    sha256 "0c7270b180b815014d92577de3e255d247f422ada4545e0c836bcaafa9a0b94b" => :el_capitan
   end
 
   depends_on "libpng"
