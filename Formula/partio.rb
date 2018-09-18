@@ -15,8 +15,8 @@ class Partio < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "swig" => :build
   depends_on "doxygen" => :build
+  depends_on "swig" => :build
 
   # These fixes are upstream and can be removed in the next released version.
   patch do
