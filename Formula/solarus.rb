@@ -25,14 +25,14 @@ class Solarus < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libmodplug"
+  depends_on "libogg"
+  depends_on "libvorbis"
+  depends_on "luajit"
+  depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_ttf"
-  depends_on "libvorbis"
-  depends_on "libogg"
-  depends_on "libmodplug"
-  depends_on "physfs"
-  depends_on "luajit"
 
   def install
     mkdir "build" do
