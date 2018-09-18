@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.14.04.source.tar.gz"
   version "6.14.04"
   sha256 "463ec20692332a422cfb5f38c78bedab1c40ab4d81be18e99b50cf9f53f596cf"
+  revision 1
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -74,6 +75,7 @@ class Root < Formula
       -Dssl=ON
       -Dimt=ON
       -Dxrootd=ON
+      -Dtmva=ON
     ]
 
     if build.with?("python") && build.with?("python@2")
