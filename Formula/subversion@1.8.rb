@@ -24,23 +24,18 @@ class SubversionAT18 < Formula
   option "with-ruby", "Build Ruby bindings"
 
   depends_on "pkg-config" => :build
-
-  depends_on "apr-util"
+  depends_on "scons" => :build # For Serf
   depends_on "apr"
+  depends_on "apr-util"
+  depends_on "openssl" # For Serf
+  depends_on "sqlite" # build against Homebrew version for consistency
 
-  # Always build against Homebrew versions instead of system versions for consistency.
-  depends_on "sqlite"
+  # Other optional dependencies
+  depends_on :java => :optional
   depends_on "python@2" => :optional
 
   # Bindings require swig
   depends_on "swig" if build.with?("perl") || build.with?("python@2") || build.with?("ruby")
-
-  # For Serf
-  depends_on "scons" => :build
-  depends_on "openssl"
-
-  # Other optional dependencies
-  depends_on :java => :optional
 
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
