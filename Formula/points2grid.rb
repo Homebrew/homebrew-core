@@ -12,11 +12,10 @@ class Points2grid < Formula
     sha256 "498339350edde2ace1538bf8f361ae8a81afb5e7563859687f6309326525db1b" => :el_capitan
   end
 
-  depends_on :macos => :mavericks
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gdal"
+  depends_on :macos => :mavericks
 
   def install
     args = std_cmake_args + ["-DWITH_GDAL=ON"]
