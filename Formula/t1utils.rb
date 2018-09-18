@@ -16,8 +16,8 @@ class T1utils < Formula
   head do
     url "https://github.com/kohler/t1utils.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   def install
