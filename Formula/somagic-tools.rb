@@ -14,8 +14,8 @@ class SomagicTools < Formula
     sha256 "0fad2574c7dbb306c975cb68b84a3c317965d9fab4c5b0e0787533cacf8f7988" => :mavericks
   end
 
-  depends_on "libusb"
   depends_on "libgcrypt"
+  depends_on "libusb"
 
   def install
     system "make"
