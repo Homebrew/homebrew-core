@@ -13,13 +13,13 @@ class Rpm < Formula
     sha256 "1ec620b4d0063e71f35d9812d0862fbd42d7711beb08859f60c33f99f31d631c" => :el_capitan
   end
 
-  depends_on "pkg-config"
   depends_on "berkeley-db"
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "lua@5.1"
   depends_on "openssl"
+  depends_on "pkg-config"
   depends_on "popt"
   depends_on "xz"
   depends_on "zstd"
