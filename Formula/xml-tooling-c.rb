@@ -13,11 +13,11 @@ class XmlToolingC < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "boost"
   depends_on "log4shib"
+  depends_on "openssl"
   depends_on "xerces-c"
   depends_on "xml-security-c"
-  depends_on "boost"
-  depends_on "openssl"
 
   resource "curl" do
     url "https://curl.haxx.se/download/curl-7.61.1.tar.bz2"
