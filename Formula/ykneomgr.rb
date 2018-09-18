@@ -17,8 +17,8 @@ class Ykneomgr < Formula
     url "https://github.com/Yubico/libykneomgr.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "libtool" => :build
     depends_on "gengetopt" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "help2man" => :build
