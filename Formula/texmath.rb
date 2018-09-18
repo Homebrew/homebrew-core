@@ -16,8 +16,8 @@ class Texmath < Formula
     sha256 "11e33b5482f731bbf4983b1f208a32273cf4b1f85ad8bac9b0b03843ad4fe2c0" => :el_capitan
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc" => :build
 
   def install
     install_cabal_package "--enable-tests", :flags => ["executable"] do
