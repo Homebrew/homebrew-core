@@ -13,26 +13,24 @@ class Pdf2htmlex < Formula
     sha256 "5c72b64128d75ce84c0158f6c90c8e710c299de71f593a5b15868c006c5396fb" => :el_capitan
   end
 
-  depends_on :macos => :lion
+  depends_on "autoconf" => :build # for fontforge
+  depends_on "automake" => :build # for fontforge
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo" # for fontforge
+  depends_on "freetype" # for fontforge
+  depends_on "gettext" # for fontforge
+  depends_on "giflib" # for fontforge
+  depends_on "glib" # for fontforge
   depends_on "gnu-getopt"
+  depends_on "jpeg" # for fontforge
+  depends_on "libpng" # for fontforge
+  depends_on "libtiff" # for fontforge
+  depends_on "libtool" # for fontforge
+  depends_on :macos => :lion
   depends_on "openjpeg" # for poppler
+  depends_on "pango" # for fontforge
   depends_on "ttfautohint"
-
-  # Fontforge dependencies
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool"
-  depends_on "cairo"
-  depends_on "freetype"
-  depends_on "gettext"
-  depends_on "giflib"
-  depends_on "glib"
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
-  depends_on "pango"
 
   # Pdf2htmlex use an outdated, customised Fontforge installation.
   # See https://github.com/coolwanglu/pdf2htmlEX/wiki/Building
