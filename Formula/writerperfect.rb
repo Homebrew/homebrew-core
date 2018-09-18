@@ -12,8 +12,8 @@ class Writerperfect < Formula
     sha256 "549f41525d1a5cf4cad493650ea0f8daae0208246f36984d6a56a4af533fc881" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "boost" => :build
+  depends_on "pkg-config" => :build
   depends_on "libodfgen"
   depends_on "libwpd"
   depends_on "libwpg"
