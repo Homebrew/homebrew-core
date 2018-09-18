@@ -13,23 +13,23 @@ class Qmmp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
+  depends_on "libbs2b"
+  depends_on "libmms"
+  depends_on "libogg"
+  depends_on "libsamplerate"
+  depends_on "libsndfile"
+  depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "libogg"
-  depends_on "libsoxr"
-  depends_on "faad2"
+  depends_on "mplayer"
+  depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
-  depends_on "mplayer"
-  depends_on "libbs2b"
-  depends_on "libsndfile"
-  depends_on "musepack"
+  depends_on "qt"
   depends_on "taglib"
-  depends_on "libmms"
-  depends_on "libsamplerate"
 
   def install
     system "cmake", "./", "-USE_SKINNED", "-USE_ENCA", "-USE_QMMP_DIALOG", *std_cmake_args
