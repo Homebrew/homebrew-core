@@ -11,10 +11,10 @@ class Vala < Formula
     sha256 "6aa59e49e9f7d10414abc3162c9085e46a1bb84919dd7583e633d5dd11a71a1b" => :el_capitan
   end
 
-  depends_on "pkg-config"
   depends_on "gettext"
   depends_on "glib"
   depends_on "graphviz"
+  depends_on "pkg-config"
 
   def install
     system "./configure", "--disable-dependency-tracking",
