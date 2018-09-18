@@ -13,8 +13,8 @@ class Pev < Formula
     sha256 "1013086fe324f7b6147181762541d89dcf4837bd29bd89756d7df23c26fad1f2" => :yosemite
   end
 
-  depends_on "pcre"
   depends_on "openssl"
+  depends_on "pcre"
 
   def install
     ENV.deparallelize
