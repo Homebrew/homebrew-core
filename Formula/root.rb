@@ -4,6 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.14.04.source.tar.gz"
   version "6.14.04"
   sha256 "463ec20692332a422cfb5f38c78bedab1c40ab4d81be18e99b50cf9f53f596cf"
+  revision 1
   head "http://root.cern.ch/git/root.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Root < Formula
     sha256 "a1f202c443dbe01d43269d29887fde412eaea9b2d83b5ff2ce08bf4d8c26ce5a" => :sierra
     sha256 "9cedd1dc275ae988976e8be78afe7cfa12471d4e501c772d8549082807ea0651" => :el_capitan
   end
-  
+
   depends_on "cmake" => :build
   depends_on "davix"
   depends_on "fftw"
