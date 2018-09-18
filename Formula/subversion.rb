@@ -12,6 +12,14 @@ class Subversion < Formula
     sha256 "c5fee4ce6dae3f2c7398dd01a5c6df56f0227ec2323b4be107a2d26196339b6c" => :el_capitan
   end
 
+  head do
+    url "https://github.com/apache/subversion.git", :branch => "trunk"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+  end
+
   deprecated_option "java" => "with-java"
   deprecated_option "perl" => "with-perl"
   deprecated_option "ruby" => "with-ruby"
@@ -123,6 +131,7 @@ class Subversion < Formula
               "toolsdir = @bindir@/svn-tools",
               "toolsdir = @libexecdir@/svn-tools"
 
+    system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
     system "make", "install"
