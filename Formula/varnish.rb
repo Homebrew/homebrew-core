@@ -11,8 +11,8 @@ class Varnish < Formula
     sha256 "b7265d3a93695df60133c9ef3d7089a80c5f2dfb4eb338a3377e134c154d8f6e" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "docutils" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre"
 
   def install
