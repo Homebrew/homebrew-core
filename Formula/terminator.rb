@@ -22,13 +22,13 @@ class Terminator < Formula
     sha256 "00e85432871cb5e7df4bcbe8e835cf9ad619f772de9018c41ed781bef4fa6643" => :el_capitan
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "pango"
+  depends_on "pygobject"
+  depends_on "pygtk"
   depends_on "python@2"
   depends_on "vte"
-  depends_on "pygtk"
-  depends_on "pygobject"
-  depends_on "pango"
 
   def install
     ENV.prepend_create_path "PYTHONPATH", lib/"python2.7/site-packages"
