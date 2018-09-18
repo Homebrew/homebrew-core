@@ -14,9 +14,9 @@ class Qcli < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qwt"
-  depends_on "qt"
   depends_on "ffmpeg"
+  depends_on "qt"
+  depends_on "qwt"
 
   def install
     ENV["QCTOOLS_USE_BREW"]="true"
