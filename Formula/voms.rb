@@ -14,8 +14,8 @@ class Voms < Formula
     sha256 "7f8dc56553a8b31c5080ef32493ee1d509b4945c7493a16fa9def20daed57d54" => :mavericks
   end
 
-  depends_on :java
   depends_on "maven" => :build
+  depends_on :java
   depends_on "openssl"
 
   def install
