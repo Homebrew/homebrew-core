@@ -13,8 +13,8 @@ class Verilator < Formula
 
   head do
     url "http://git.veripool.org/git/verilator", :using => :git
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
