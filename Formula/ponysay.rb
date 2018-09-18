@@ -13,8 +13,8 @@ class Ponysay < Formula
     sha256 "594b78b627cad84edef6de6dba32879cf5547215b33e7946bb3ee44c73e49214" => :el_capitan
   end
 
-  depends_on "python"
   depends_on "coreutils"
+  depends_on "python"
 
   def install
     system "./setup.py",
