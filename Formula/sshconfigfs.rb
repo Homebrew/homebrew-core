@@ -14,8 +14,8 @@ class Sshconfigfs < Formula
     sha256 "f84991229a6701f9483c79232c5e25f3e4577d2e6748c06b5f49808c0ee8354b" => :yosemite
   end
 
-  depends_on "python@2"
   depends_on :osxfuse
+  depends_on "python@2"
 
   resource "fusepy" do
     url "https://github.com/terencehonles/fusepy/archive/v2.0.2.tar.gz"
