@@ -14,12 +14,12 @@ class Ufraw < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libpng"
   depends_on "dcraw"
   depends_on "gettext"
   depends_on "glib"
   depends_on "jasper"
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
   depends_on "exiv2" => :optional
