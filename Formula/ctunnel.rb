@@ -16,10 +16,11 @@ class Ctunnel < Formula
   end
 
   depends_on "openssl"
-  depends_on :tuntap => :optional
 
   def install
-    inreplace "Makefile.cfg", "TUNTAP=yes", "TUNTAP=no" if build.without? "tuntap"
+    # Do not require tuntap
+    inreplace "Makefile.cfg", "TUNTAP=yes", "TUNTAP=no"
+
     system "make"
     bin.mkpath
     system "make", "-B", "install", "PREFIX=#{prefix}"
