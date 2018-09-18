@@ -20,24 +20,14 @@ class Ncdc < Formula
     depends_on "automake" => :build
   end
 
-  option "with-geoip", "Build with geoip support"
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "sqlite"
-  depends_on "geoip" => :optional
 
   def install
     system "autoreconf", "-ivf" if build.head?
-
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-    ]
-    args << "--with-geoip" if build.with? "geoip"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 
