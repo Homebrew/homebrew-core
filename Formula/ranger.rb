@@ -1,8 +1,8 @@
 class Ranger < Formula
   desc "File browser"
   homepage "https://ranger.github.io"
-  url "https://ranger.github.io/ranger-1.9.1.tar.gz"
-  sha256 "40411b0dd08b0abd2632399751b111359786ae5f1e6df047f49653cb7a9edfd2"
+  url "https://ranger.github.io/ranger-1.9.2.tar.gz"
+  sha256 "0e1d1b1d3f78c227a6cfa783822e98591ca76a35c643d4814f40f73515d66b8a"
   head "https://github.com/ranger/ranger.git"
 
   bottle :unneeded
