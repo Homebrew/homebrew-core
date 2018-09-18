@@ -11,9 +11,9 @@ class Pound < Formula
     sha256 "d16c3c0aba3eafe8f50bc4e79401a0ce3129519860d0b3bca8cdfd10023ff7b5" => :el_capitan
   end
 
+  depends_on "gperftools"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "gperftools" => :recommended
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-tcmalloc"
