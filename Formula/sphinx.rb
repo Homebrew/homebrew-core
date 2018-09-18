@@ -21,8 +21,8 @@ class Sphinx < Formula
   deprecated_option "pgsql" => "with-postgresql"
 
   depends_on "mysql" => :optional
-  depends_on "postgresql" => :optional
   depends_on "openssl" if build.with? "mysql"
+  depends_on "postgresql" => :optional
 
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
