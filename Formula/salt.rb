@@ -15,11 +15,11 @@ class Salt < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "python@2"
-  depends_on "zeromq"
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "openssl" # For M2Crypto
+  depends_on "python@2"
+  depends_on "zeromq"
 
   # Saltstack's Git filesystem backend depends on pygit2 which depends on libgit2
   # pygit2 must be the same version as libgit2 - mismatched versions are incompatible
