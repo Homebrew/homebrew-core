@@ -13,8 +13,8 @@ class SwaggerCodegen < Formula
     sha256 "4bf5f529fad00809762b99a5fb93e52560f7509cdb7b074c2d02a5081f8bbbd5" => :el_capitan
   end
 
-  depends_on :java => "1.8"
   depends_on "maven" => :build
+  depends_on :java => "1.8"
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
