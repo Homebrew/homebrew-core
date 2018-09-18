@@ -15,9 +15,9 @@ class Ttyd < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
   depends_on "json-c"
   depends_on "libwebsockets"
+  depends_on "openssl"
 
   def install
     cmake_args = std_cmake_args + ["-DOPENSSL_ROOT_DIR=#{Formula["openssl"].opt_prefix}"]
