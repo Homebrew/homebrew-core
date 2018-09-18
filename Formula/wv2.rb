@@ -14,8 +14,8 @@ class Wv2 < Formula
     sha256 "e91c85bf622d483194ab85c78c7b8131de245f54f64ee61a961c0b24d31545cc" => :mavericks
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libgsf"
 
