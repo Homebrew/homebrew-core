@@ -14,9 +14,9 @@ class Xsw < Formula
   end
 
   depends_on "sdl"
-  depends_on "sdl_ttf"
-  depends_on "sdl_image"
   depends_on "sdl_gfx"
+  depends_on "sdl_image"
+  depends_on "sdl_ttf"
 
   def install
     system "./configure", "--prefix=#{prefix}"
