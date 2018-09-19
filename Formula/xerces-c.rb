@@ -6,10 +6,10 @@ class XercesC < Formula
 
   bottle do
     cellar :any
-    sha256 "828f9eac5c4f3797e8abec3dfcbaffff9efd6db6cf7a9ff4b71056b331736e74" => :mojave
-    sha256 "4573b8dc10a8a27fd7ec3f90b8461d24374b0e7b6edf0de1320b838e71b857a5" => :high_sierra
-    sha256 "41b0b011bba42bcf10aff5b6eb675d6c43e273cd07ab45487b9fbc8d34358e63" => :sierra
-    sha256 "c57035c626055d274e947b2bb338389d1100951e1545c4f933c74d2ac52dda32" => :el_capitan
+    sha256 "771f01c9ce075308908902181a5e157f3b4d47d6844d619e2df81f6c936b89fe" => :mojave
+    sha256 "a0e99437d0b12ce946b34a71ab008abeefa139a1abd7c7603c4fc5ad6829f414" => :high_sierra
+    sha256 "3ea12573e166b772836cd4daa98810ba4ce785f8a988d0974aa44d5a08bd74fb" => :sierra
+    sha256 "acbba9a978fd03c8fc23b015e6c1537ea7d411248cce14505aeb6ce30c0e1092" => :el_capitan
   end
 
   depends_on "cmake" => :build
