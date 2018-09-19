@@ -12,6 +12,11 @@ class Tor < Formula
     sha256 "7e7908fd91af63e0bdb5553d1c4b21eed201211baf87239d32ea4ac7e7940459" => :el_capitan
   end
 
+  devel do
+    url "https://www.torproject.org/dist/tor-0.3.5.1-alpha.tar.gz"
+    sha256 "46146e0fa7a957136bd324889082315911ea3d1b6d2e7eadd2338a64e8b95bc7"
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "openssl"
