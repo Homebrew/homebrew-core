@@ -1,8 +1,8 @@
 class HapiFhirCli < Formula
   desc "Command-line interface for the HAPI FHIR library"
   homepage "http://hapifhir.io/doc_cli.html"
-  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.4.0/hapi-fhir-3.4.0-cli.tar.bz2"
-  sha256 "e2acdcad6a04a5bcc16a3eb5bfeaafaeb1016025c33ff0faeed8a44207319965"
+  url "https://github.com/jamesagnew/hapi-fhir/releases/download/v3.5.0/hapi-fhir-3.5.0-cli.zip"
+  sha256 "c6e35df72d9d67d3bb5fd04ebdedd2c4acfc1f3a1f7fc403de26650afea59603"
 
   bottle :unneeded
 
