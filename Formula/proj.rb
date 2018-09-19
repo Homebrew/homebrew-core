@@ -1,8 +1,8 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-5.1.0.tar.gz"
-  sha256 "6b1379a53317d9b5b8c723c1dc7bf2e3a8eb22ceb46b8807a1ce48ef65685bb3"
+  url "https://download.osgeo.org/proj/proj-5.2.0.tar.gz"
+  sha256 "ef919499ffbc62a4aae2659a55e2b25ff09cccbbe230656ba71c6224056c7e60"
 
   bottle do
     sha256 "37559bd7ccb893df2307b91d65f83589166cf765e0886dc28f803f1fee6cd984" => :mojave
@@ -24,8 +24,8 @@ class Proj < Formula
 
   # The datum grid files are required to support datum shifting
   resource "datumgrid" do
-    url "https://download.osgeo.org/proj/proj-datumgrid-1.7.zip"
-    sha256 "ffcad4453fac3b4a13ca678ef343e688496e18019f35709ef03c5f200e9fb85a"
+    url "https://download.osgeo.org/proj/proj-datumgrid-1.8.zip"
+    sha256 "b9838ae7e5f27ee732fb0bfed618f85b36e8bb56d7afb287d506338e9f33861e"
   end
 
   # Vertical datum files
