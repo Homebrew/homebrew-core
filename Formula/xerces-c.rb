@@ -1,8 +1,8 @@
 class XercesC < Formula
   desc "Validating XML parser"
   homepage "https://xerces.apache.org/xerces-c/"
-  url "https://www.apache.org/dyn/closer.cgi?path=xerces/c/3/sources/xerces-c-3.2.1.tar.gz"
-  sha256 "6dd4602b8844a9e1ab206e0270935d0c9b5f9d88771026e7f350e429bd2d04a0"
+  url "https://www.apache.org/dyn/closer.cgi?path=xerces/c/3/sources/xerces-c-3.2.2.tar.gz"
+  sha256 "dd6191f8aa256d3b4686b64b0544eea2b450d98b4254996ffdfe630e0c610413"
 
   bottle do
     cellar :any
