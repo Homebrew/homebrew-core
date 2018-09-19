@@ -6,7 +6,7 @@ class Opam < Formula
   head "https://github.com/ocaml/opam.git"
 
   depends_on "glpk" => :build
-  depends_on "ocaml" => :build if build.without? "ocaml"
+  depends_on "ocaml" => :build
 
   bottle do
     cellar :any_skip_relocation
@@ -19,16 +19,9 @@ class Opam < Formula
   def install
     ENV.deparallelize
 
-    build_ocaml = build.without? "ocaml"
-
-    if build_ocaml
-      system "make", "cold", "CONFIGURE_ARGS=--prefix #{prefix} --mandir #{man}"
-      ENV.prepend_path "PATH", "#{buildpath}/bootstrap/ocaml/bin"
-    else
-      system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
-      system "make", "lib-ext"
-      system "make"
-    end
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+    system "make", "lib-ext"
+    system "make"
     system "make", "man"
     system "make", "install"
 
@@ -41,7 +34,6 @@ class Opam < Formula
     initialize it first by running (as a normal user):
 
     $  opam init
-
   EOS
   end
 
