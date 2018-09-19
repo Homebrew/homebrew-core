@@ -18,7 +18,6 @@ class Lsh < Formula
   depends_on "automake" => :build
   depends_on "gmp"
   depends_on "nettle"
-  depends_on :x11 => :optional # For libXau library
 
   resource "liboop" do
     url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libo/liboop/liboop_1.0.orig.tar.gz"
@@ -80,13 +79,8 @@ class Lsh < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --without-x
     ]
-
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--without-x"
-    end
 
     # Find the sandboxed liboop.
     ENV.append "LDFLAGS", "-L#{libexec}/liboop/lib"

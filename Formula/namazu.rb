@@ -14,23 +14,7 @@ class Namazu < Formula
     sha256 "ca6e854a626eaafd4ac26661b9a3db86dc9bc140f4aa98effd5843882aba7ecb" => :mavericks
   end
 
-  option "with-japanese", "Support for japanese character encodings."
-
-  depends_on "kakasi" if build.with? "japanese"
-
-  resource "text-kakasi" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/Text-Kakasi-2.04.tar.gz"
-    sha256 "844c01e78ba4bfb89c0702995a86f488de7c29b40a75e7af0e4f39d55624dba0"
-  end
-
   def install
-    if build.with? "japanese"
-      resource("text-kakasi").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make", "install"
-      end
-    end
-
     cd "File-MMagic" do
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "install"

@@ -13,28 +13,15 @@ class Freediameter < Formula
     sha256 "ae4a0a662111c28c542ba2b15f2ff5f0d6955dd62c474b7216f12bda8a54041c" => :el_capitan
   end
 
-  option "with-all-extensions", "Enable all extensions"
-
   depends_on "cmake" => :build
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "libidn"
 
-  if build.with? "all-extensions"
-    depends_on "swig" => :build
-    depends_on "postgresql"
-    depends_on "mysql"
-  end
-
   def install
-    args = std_cmake_args + %W[
-      -DDEFAULT_CONF_PATH=#{etc}
-      -DDISABLE_SCTP=ON
-    ]
-    args << "-DALL_EXTENSIONS=ON" if build.with? "all-extensions"
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DDEFAULT_CONF_PATH=#{etc}",
+                      "-DDISABLE_SCTP=ON"
       system "make"
       system "make", "install"
     end

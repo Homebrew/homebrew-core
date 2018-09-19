@@ -18,7 +18,7 @@ class ScummvmTools < Formula
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "wxmac" => :recommended
+  depends_on "wxmac"
 
   def install
     system "./configure", "--prefix=#{prefix}"

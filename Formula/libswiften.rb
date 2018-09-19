@@ -15,13 +15,12 @@ class Libswiften < Formula
   depends_on "scons" => :build
   depends_on "boost"
   depends_on "libidn"
-  depends_on "lua@5.1" => :recommended
-
-  deprecated_option "without-lua" => "without-lua@5.1"
+  depends_on "lua@5.1"
 
   def install
     boost = Formula["boost"]
     libidn = Formula["libidn"]
+    lua = Formula["lua@5.1"]
 
     args = %W[
       -j #{ENV.make_jobs}
@@ -36,17 +35,12 @@ class Libswiften < Formula
       libidn_libdir=#{libidn.lib}
       SWIFTEN_INSTALLDIR=#{prefix}
       openssl=no
+      SLUIFT_INSTALLDIR=#{prefix}
+      lua_includedir=#{lua.include}/lua-5.1
+      lua_libdir=#{lua.lib}
+      lua_libname=lua.5.1
+      #{prefix}
     ]
-
-    if build.with? "lua@5.1"
-      lua = Formula["lua@5.1"]
-      args << "SLUIFT_INSTALLDIR=#{prefix}"
-      args << "lua_includedir=#{lua.include}/lua-5.1"
-      args << "lua_libdir=#{lua.lib}"
-      args << "lua_libname=lua.5.1"
-    end
-
-    args << prefix
 
     scons *args
   end

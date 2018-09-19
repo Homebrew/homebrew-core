@@ -13,23 +13,14 @@ class KyotoTycoon < Formula
   end
 
   depends_on "kyoto-cabinet"
-  depends_on "lua" => :recommended
+  depends_on "lua"
 
   patch :DATA if MacOS.version >= :mavericks
 
   def install
-    # Locate kyoto-cabinet for non-/usr/local builds
-    cabinet = Formula["kyoto-cabinet"].opt_prefix
-    args = ["--prefix=#{prefix}", "--with-kc=#{cabinet}"]
-
-    if build.with? "lua"
-      lua = Formula["lua"].opt_prefix
-      args << "--with-lua=#{lua}"
-    else
-      args << "--enable-lua"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-kc=#{Formula["kyoto-cabinet"].opt_prefix}",
+                          "--with-lua=#{Formula["lua"].opt_prefix}"
     system "make"
     system "make", "install"
   end

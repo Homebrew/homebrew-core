@@ -15,26 +15,12 @@ class GitIf < Formula
     sha256 "e727f112e350e8a12b87094715800e9c2abc03f2d45ad521c0d78e4c6bfff3ad" => :yosemite
   end
 
-  option "with-glkterm", "Build with glkterm (without wide character support)"
-
-  depends_on "cheapglk" => [:build, :optional]
-  depends_on "glkterm" => [:build, :optional]
-  depends_on "glktermw" => :build if build.without?("cheapglk") && build.without?("glkterm")
+  depends_on "glktermw" => :build
 
   def install
-    if build.with?("cheapglk") && build.with?("glkterm")
-      odie "Options --with-cheapglk and --with-glkterm are mutually exclusive."
-    end
+    glk = Formula["glktermw"]
 
-    if build.with? "cheapglk"
-      glk = Formula["cheapglk"]
-    elsif build.with? "glkterm"
-      glk = Formula["glkterm"]
-    else
-      glk = Formula["glktermw"]
-    end
-
-    inreplace "Makefile", "GLK = cheapglk", "GLK = #{glk.name}" if build.without? "cheapglk"
+    inreplace "Makefile", "GLK = cheapglk", "GLK = #{glk.name}"
     inreplace "Makefile", "GLKINCLUDEDIR = ../$(GLK)", "GLKINCLUDEDIR = #{glk.include}"
     inreplace "Makefile", "GLKLIBDIR = ../$(GLK)", "GLKLIBDIR = #{glk.lib}"
     inreplace "Makefile", /^OPTIONS = /, "OPTIONS = -DUSE_MMAP -DUSE_INLINE"
@@ -44,10 +30,6 @@ class GitIf < Formula
   end
 
   test do
-    if build.with? "cheapglk"
-      assert shell_output("#{bin}/git-if").start_with? "usage: git gamefile.ulx"
-    else
-      assert pipe_output("#{bin}/git-if -v").start_with? "GlkTerm, library version"
-    end
+    assert pipe_output("#{bin}/git-if -v").start_with? "GlkTerm, library version"
   end
 end

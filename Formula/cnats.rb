@@ -3,6 +3,7 @@ class Cnats < Formula
   homepage "https://github.com/nats-io/cnats"
   url "https://github.com/nats-io/cnats/archive/v1.7.6.tar.gz"
   sha256 "9155102243c6c7a3e9a6b37b259f7587bcfbad5f9521fbe466be58a4517df769"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,13 +14,14 @@ class Cnats < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libevent"
+  depends_on "libuv"
   depends_on "openssl"
-  depends_on "libevent" => :optional
-  depends_on "libuv" => :optional
 
   def install
-    local_cmake_args = ["-DNATS_INSTALL_PREFIX=#{prefix}", "-DBUILD_TESTING=OFF"]
-    system "cmake", ".", *local_cmake_args, *std_cmake_args
+    local_cmake_args = 
+    system "cmake", ".", "-DNATS_INSTALL_PREFIX=#{prefix}",
+                         "-DBUILD_TESTING=OFF", *std_cmake_args
     system "make", "install"
   end
 
