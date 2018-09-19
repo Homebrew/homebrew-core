@@ -6,7 +6,7 @@ class Opam < Formula
   head "https://github.com/ocaml/opam.git"
 
   depends_on "glpk" => :build
-  depends_on "ocaml" => :recommended
+  depends_on "ocaml" => :build if build.without? "ocaml"
 
   bottle do
     cellar :any_skip_relocation
