@@ -36,7 +36,7 @@ class Opam < Formula
 
     Run the following to initialize your environment variables:
 
-    $  eval `opam env`
+    $  eval $(opam env)
 
     To export the needed variables every time, add them to your dotfiles.
       * On Bash, add them to `~/.bash_profile`.
