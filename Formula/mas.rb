@@ -1,8 +1,8 @@
 class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
-  url "https://github.com/mas-cli/mas/archive/v1.4.1.tar.gz"
-  sha256 "4fd91c13b46d403b52dbee3891adb3cd6571e07ad20cf58de0100c9f695e6c24"
+  url "https://github.com/mas-cli/mas/archive/v1.4.2.tar.gz"
+  sha256 "f9a751ff84e6dcbaedd4b2ca95b3ca623c739fd3af0b6ca950c321f2ce840bfe"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
