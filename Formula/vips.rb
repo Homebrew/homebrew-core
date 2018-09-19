@@ -1,8 +1,8 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/jcupitt/libvips"
-  url "https://github.com/jcupitt/libvips/releases/download/v8.6.5/vips-8.6.5.tar.gz"
-  sha256 "8702af0e340e220e0c08f8ded6c8248b18e7043938d9e8a2426631fd37a9d5db"
+  url "https://github.com/jcupitt/libvips/releases/download/v8.7.0/vips-8.7.0.tar.gz"
+  sha256 "c4473ea3fd90654a39076f896828fc67c9c9800d77ba643ea58454f31a340898"
 
   bottle do
     sha256 "c7f36c1f4fd29836799ee740813dde1b89526b3b6bf5973a3326475b33c532f7" => :mojave
@@ -16,7 +16,6 @@ class Vips < Formula
   depends_on "gettext"
   depends_on "giflib"
   depends_on "glib"
-  depends_on "gobject-introspection"
   depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
@@ -26,7 +25,6 @@ class Vips < Formula
   depends_on "little-cms2"
   depends_on "orc"
   depends_on "pango"
-  depends_on "pygobject3"
   depends_on "webp"
   depends_on "fftw" => :recommended
   depends_on "graphicsmagick" => :recommended
@@ -43,8 +41,6 @@ class Vips < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --enable-pyvips8
-      PYTHON=#{Formula["python"].opt_bin}/python3
     ]
 
     if build.with? "graphicsmagick"
