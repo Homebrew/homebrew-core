@@ -6,13 +6,10 @@ class Cpmtools < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "269e37845b24ece736287f50a49948eac9ca02f8582c956a5d1abccb2e72ac37" => :mojave
-    sha256 "183df2503351339576b3b8d72d9ed0e9a6e14db55a41fc7fbb660a8d060b12e2" => :high_sierra
-    sha256 "b9074a4680a3fedd140d31d6597f286a8b49fd47cdedae36b45356ec2f60b18f" => :sierra
-    sha256 "a659a233dc338bb7ec669185e22f0c19d03d9697bbe3521473cb7ff791fd010a" => :el_capitan
-    sha256 "a127034e7197c21acbcc172b86d476988754ed56bb44b0d9b447f362017fc8bd" => :yosemite
-    sha256 "b810122c220af6b36ab9316deec811adca68313d4371f8a0121239c40b94a015" => :mavericks
+    sha256 "2a7281836c39574fe905ee34110756703298b774984d6796663c55d04dee7ea2" => :mojave
+    sha256 "c4d8d3aa660ecea66f519582bd216b37e2f23b0c6714e70ad297c913fb297fe9" => :high_sierra
+    sha256 "996f6ec337721c7d57a6c5b033ed4653b6a1f5f4998304c85e2a809c7e1cf0f0" => :sierra
+    sha256 "e3fdab874e376cacefccd916de4c96bfaada75d1cc5af6f53e6bf9a625d3aa72" => :el_capitan
   end
 
   depends_on "libdsk"
