@@ -3,10 +3,10 @@ class Bullet < Formula
   homepage "https://bulletphysics.org/"
   url "https://github.com/bulletphysics/bullet3/archive/2.87.tar.gz"
   sha256 "438c151c48840fe3f902ec260d9496f8beb26dba4b17769a4a53212903935f95"
+  revision 1
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
-    cellar :any
     sha256 "c8947838fbb0b995a0c374138ebd9c3e92e29f68b4e89c58f369da95d99f218e" => :mojave
     sha256 "26f10d89d53f5c384d473bf21d06e8db1104ca8d300285a89b68b657a0ff4753" => :high_sierra
     sha256 "3a3fd3a1ead5ef2aefc65f752533bb96596fdd552d72fab5de86bba492f63104" => :sierra
@@ -24,8 +24,9 @@ class Bullet < Formula
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
       -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF -DBUILD_PYBULLET=OFF
+      -DCMAKE_INSTALL_RPATH=#{lib}
     ]
     args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
 
