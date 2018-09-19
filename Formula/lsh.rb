@@ -29,42 +29,42 @@ class Lsh < Formula
   # This patch set can be removed on release of lsh v2.2
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/0c197c83fa04bc99629520ba47c9f757e9ffd5a4.diff"
-    sha256 "7a4f763e004313c7e36186a843964d1e3a3e6d940b0dc3a7284fa49a5163e5f4"
+    sha256 "3ce6d9184899e9ece4d1a1be945a1055a3c2bc39df3852e38b224e78479d2c91"
   end
 
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/b782b3abcf3b74d7b6bc0a89de988e1866e9a1a2.diff"
-    sha256 "cda00077a101b31437883e6001c1a705483112ce6fbf9916789564f0bb4b2d6f"
+    sha256 "70198d5e9f0f0c4235dfa036aef68699b6c29ceeac693fe24c5b2f9b2e36e4d5"
   end
 
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/faf69a2890e5457b3bd4c2efe8d52ae0f00c2562.diff"
-    sha256 "63040afd415141b0f1673b9fb4757b92fa0c982c3582ad689c3124e4be38c73d"
+    sha256 "4431eaeeaa8f6c3b34a82b23668e154175b105f8540a2c62124a7f32987cd1fa"
   end
 
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/dfe2b20109ffacef2b58fa530db820ecf34892b3.diff"
-    sha256 "9f3120d0026d348fcf93016f64e3e3433c1dc10dbb412feb3a191ac64d4c3c5b"
+    sha256 "e3e9fc387c64b89765b104de8094c86cbd15343eb778a513716dbf69b0d91aa7"
   end
 
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/9849e9c2b77624f078c164f7cc15f51e586587b4.diff"
-    sha256 "5d73e11e0ed743d1996f7ea5a796fe79ae2072f2ccfe7a959b09dfdb5934bfdc"
+    sha256 "4afb53901d6ff74dff77ea0452d119125e491d05592879c9aea14b9fcf78b635"
   end
 
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/2ecdd4f40399eda862ed57a5d6c6ed0bb0eeccb4.diff"
-    sha256 "1f079c6cab2984fbc25dc51138d1698729d80e0ac0fa4620ca43259ae62b255b"
+    sha256 "3239f109484a806e6d99b78b47541bf1c7a984535916fbebadb34ea8a2a0045c"
   end
 
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/6d5f1995f9c3439ca7f608eca680e3248df9790a.diff"
-    sha256 "6a187f6d10186b40c4a0d0f069403b43a3a7f526d05f4dc190dd1b9fd5f5d31b"
+    sha256 "1ef582e377e1be3c09895dc34654ab2d5543babbef4a2b2065ce2b8e93c42e83"
   end
 
   patch do
     url "https://git.lysator.liu.se/lsh/lsh/commit/32fc8525ee4828e49859ae2822a2bdc0a5901398.diff"
-    sha256 "8c48fe31b0237ee7d20851f9b5566d8956d2d8e90238f207fb2587110c6b00df"
+    sha256 "f852b52d29eac5cfa650681876570a0601cfc61d0e6c896797a57e4e151943e6"
   end
   # END: Patches for nettle 3.1 support
 
