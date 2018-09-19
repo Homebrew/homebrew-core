@@ -1,8 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.22/gtk+-3.22.30.tar.xz"
-  sha256 "a1a4a5c12703d4e1ccda28333b87ff462741dc365131fbc94c218ae81d9a6567"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.0.tar.xz"
+  sha256 "02e991389277206253d79884d10e5aa06fd78fdf7a5096799dbe3c97a05e32a8"
 
   bottle do
     sha256 "bc0243c2284d6c7b45350f0530b704b8bbf3643ffc6f83eb247db94cc53a79b1" => :mojave
