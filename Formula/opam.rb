@@ -34,19 +34,6 @@ class Opam < Formula
 
     $  opam init
 
-    Run the following to initialize your environment variables:
-
-    $  eval $(opam env)
-
-    To export the needed variables every time, add them to your dotfiles.
-      * On Bash, add them to `~/.bash_profile`.
-      * On Zsh, add them to `~/.zprofile` or `~/.zshrc` instead.
-
-    Starting in 2.0.0 is also possible to set up a shell hook, so this is not
-    required anymore.
-
-    Documentation and tutorials are available at https://opam.ocaml.org, or
-    via "man opam" and "opam --help".
   EOS
   end
 
