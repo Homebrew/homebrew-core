@@ -17,7 +17,7 @@ class Graphviz < Formula
   end
 
   head do
-    url "https://github.com/ellson/graphviz.git"
+    url "https://gitlab.com/graphviz/graphviz.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
