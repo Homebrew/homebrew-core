@@ -26,6 +26,23 @@ class DockerCredentialHelperEcr < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      You MUST update your Docker configuration for the ECR Login Helper to take effect.
+
+      Update your Docker configuration at
+        ~/.docker/config.json
+
+      Under the "auths" item add a new key for your ECR
+        "<aws-acct-no>.dkr.ecr.<aws-region>.amazonaws.com": {}
+
+      Under the "credHelpers" item add a new key for your ECR
+        "<aws-acct-no>.dkr.ecr.<aws-region>.amazonaws.com": "ecr-login"
+
+      See https://github.com/awslabs/amazon-ecr-credential-helper for more info.
+    EOS
+  end
+
   test do
     output = shell_output("#{bin}/docker-credential-ecr-login", 1)
     assert_match %r{^Usage: .*/docker-credential-ecr-login.*}, output
