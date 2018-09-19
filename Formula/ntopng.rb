@@ -13,9 +13,10 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 "3ceccea27791ab2672b93e81a6e6a109776c4b7bda12428f07d18da227abb92e" => :high_sierra
-    sha256 "fb7c5d5175c6122b1eb5a01ef7a7162df85f795d007fd3c7f8e67bb1bd8c4e85" => :sierra
-    sha256 "30ef74e7ed38955b606f01793cc1b32dd7e3c895013e502cc0f86f43ef484387" => :el_capitan
+    sha256 "d9070a2ff65e1ec34243718f4b34ee9553c19ce71a79f5d8bd570c4bbce41bef" => :mojave
+    sha256 "4ea92032db7726e6852c63bd494fd9037cf726cd3628ad83c0dd13f0b4d271bc" => :high_sierra
+    sha256 "c25c7c8f23a1d1f01c0bd1a170ccb0c295272716da1bcf9885a59292ca654962" => :sierra
+    sha256 "5da4764c214a070d75364d2f240c100271d886b0f2b31847a68ea369a4fddc8f" => :el_capitan
   end
 
   head do
