@@ -39,11 +39,12 @@ class Qt < Formula
     sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
   end
 
-  # Chromium build failure with Xcode 10, fixed upstream:
-  # https://chromium.googlesource.com/chromium/src.git/+/a4c9414e54fd65b17a992bce95fc7cad2b624653%5E%21/
+  # Chromium build failures with Xcode 10, fixed upstream:
+  # https://bugs.chromium.org/p/chromium/issues/detail?id=840251
+  # https://bugs.chromium.org/p/chromium/issues/detail?id=849689
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ad14c16b/qt/xcode10.diff"
-    sha256 "b9b9de4569d29163e4a01458d8ebc15118201b3703adeb3fafedd225fd2c1c59"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/962f0f/qt/xcode10.diff"
+    sha256 "c064398411c69f2e1c516c0cd49fcd0755bc29bb19e65c5694c6d726c43389a6"
   end
 
   def install
