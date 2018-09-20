@@ -5,10 +5,10 @@ class Mosquitto < Formula
   sha256 "7e90ccfe95179cfe6bf7d7f725281dd83041f241a8f093c9d3883b926584de9c"
 
   bottle do
-    sha256 "c79522eea6110ddea1497cf252c2f1991107cfafa114f5280f3cf787cd2cf884" => :mojave
-    sha256 "b7f54c6f51a798b11d33bde6fe7a927aba784de317a1abc0e6e0ff0ef2d9f2c6" => :high_sierra
-    sha256 "67afe32dcd96e598b112b1b26cec5f0725f6db8e2e898644c197594bb7fef020" => :sierra
-    sha256 "0d984daefe7158e3c049d100f80327789425cb15dc2ca86b64134fb42befd9a6" => :el_capitan
+    sha256 "9f8a48f1841e761956a31628e8aff3ea38524756f7ddf7d916d5a4f340bfc4e4" => :mojave
+    sha256 "5bc4c7b72153aeeb107e4af15620ad99b5cc553e35ae77b640fa9c21082a1b7a" => :high_sierra
+    sha256 "cf5c2831ebe5680dc875f42864c805dbc8b2d7b5de35f6f7f626f9af09e50953" => :sierra
+    sha256 "d746ae9e41a0c61e1dbaddf0eb96215c9587add7a7913d8ec08669ce118ff2f8" => :el_capitan
   end
 
   depends_on "cmake" => :build
