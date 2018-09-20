@@ -1,8 +1,8 @@
 class Arpack < Formula
   desc "Routines to solve large scale eigenvalue problems"
   homepage "https://github.com/opencollab/arpack-ng"
-  url "https://github.com/opencollab/arpack-ng/archive/3.6.2.tar.gz"
-  sha256 "673c8202de996fd3127350725eb1818e534db4e79de56d5dcee8c00768db599a"
+  url "https://github.com/opencollab/arpack-ng/archive/3.6.3.tar.gz"
+  sha256 "64f3551e5a2f8497399d82af3076b6a33bf1bc95fc46bbcabe66442db366f453"
   head "https://github.com/opencollab/arpack-ng.git"
 
   bottle do
@@ -46,7 +46,8 @@ class Arpack < Formula
 
   test do
     system "gfortran", "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
-                       "-L#{lib}", "-larpack", "-lvecLibFort"
+                       "-L#{lib}", "-larpack",
+                       "-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
 
