@@ -1,8 +1,8 @@
 class Chakra < Formula
   desc "The core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.0.tar.gz"
-  sha256 "f76a775630cf4e2a6132ef77839b7b2a28ba36adbbd86dd24a806bf7dc176538"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.1.tar.gz"
+  sha256 "569e6843748253d5c7c8082ad5cd49815c5b224cd845d5715bfe4d59a74f8113"
 
   bottle do
     cellar :any
@@ -14,13 +14,6 @@ class Chakra < Formula
 
   depends_on "cmake" => :build
   depends_on "icu4c"
-
-  # Teach the build script to recognise LLVM 10+/Clang 1000 as valid.
-  # Merged upstream but not yet in 1.11.0; check again next release.
-  patch do
-    url "https://github.com/Microsoft/ChakraCore/commit/559d432087ea9f6ff92574b618194d7a06d12c41.patch?full_index=1"
-    sha256 "05b80e18a3e70f33ee7442a9c2b236c71e74970ba35b25817147e5e0b6ccd140"
-  end
 
   def install
     args = [
