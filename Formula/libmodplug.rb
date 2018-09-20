@@ -24,7 +24,8 @@ class Libmodplug < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
 
-    system "make", "install"
+    ohai "#{RUBY_PLATFORM}"
+    system "make", "install", "#{RUBY_PLATFORM}"
   end
 
   test do
