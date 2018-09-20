@@ -1,8 +1,8 @@
 class Proxysql < Formula
   desc "High Performance Advanced Proxy for MySQL"
   homepage "http://www.proxysql.com/"
-  url "https://github.com/sysown/proxysql/archive/v1.4.10.tar.gz"
-  sha256 "29020cba75b778ef45b06c5469ee5930ce80afbd0290a112d8c2a6652b4c8a2e"
+  url "https://github.com/sysown/proxysql/archive/v1.4.11.tar.gz"
+  sha256 "9d34be2916e4b341820d2e9346a4697464e70d6ae1fb2a0761006299c96067c8"
 
   # Build dependencies listed here: https://github.com/sysown/proxysql/blob/master/INSTALL.md
   depends_on "automake" => :build
@@ -19,9 +19,7 @@ class Proxysql < Formula
     bin.install "src/proxysql"
     etc.install "etc/proxysql.cnf"
     (var/"lib/proxysql").mkpath
-    inreplace etc/"proxysql.cnf" do |s|
-      s.gsub! %{datadir="/var/lib/proxysql"}, %{datadir="#{var}/lib/proxysql"}
-    end
+    inreplace etc/"proxysql.cnf", 'datadir="/var/lib/proxysql"', %Q(datadir="#{var}/lib/proxysql")
   end
 
   plist_options :manual => "proxysql"
@@ -59,7 +57,7 @@ class Proxysql < Formula
       output = pipe_output(
         "mysql -uadmin -padmin -S#{testpath}/admin.sock --default-auth=mysql_native_password",
         "select * from stats.stats_mysql_global",
-        0
+        0,
       )
       assert_match /ProxySQL_Uptime\s+[1-9]\d*/, output
     ensure
