@@ -7,6 +7,7 @@ class Openjazz < Formula
 
   bottle do
     cellar :any
+    sha256 "c0f7a1ea63036f0fe37ddc60e4d161fadc549ef84de52ee1ec88c3c00516608f" => :mojave
     sha256 "25b2ba3440262667196d729f4e88604dfb74e6c9191b92e30d31a241d9aab090" => :high_sierra
     sha256 "ea4d18c72bc6cf5a5393d9f7ed8c40fc66d8355181c93249a926d47029eeae9c" => :sierra
     sha256 "f410241a95a93323d5dd94fd7469b3912ce4105cbe3c3e5483b301f5ea642794" => :el_capitan
