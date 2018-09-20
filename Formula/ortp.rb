@@ -3,7 +3,7 @@ class Ortp < Formula
   homepage "https://www.linphone.org/technical-corner/ortp/overview"
   url "https://nongnu.askapache.com/linphone/ortp/sources/ortp-0.27.0.tar.gz"
   sha256 "eb61a833ab3ad80978d7007411240f46e9b2d1034373b9d9dfaac88c1b6ec0af"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "82e6500bf0f685aba6eb59a9198b6f3f8fb3928a9f9e2a72b1734cd9e875ae7a" => :mojave
