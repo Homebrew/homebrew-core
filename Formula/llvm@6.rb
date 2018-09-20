@@ -23,6 +23,13 @@ class LlvmAT6 < Formula
   url "https://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz"
   sha256 "b6d6c324f9c71494c0ccaf3dac1f16236d970002b42bb24a6c9e1634f7d0f4e2"
 
+  bottle do
+    cellar :any
+    sha256 "00a274a6799b0dfb2851e7ab0f62bcdacd7d605a95eeda34b7e4e40f57602281" => :mojave
+    sha256 "225ef581098fab984f29fc2f8c6c67bdc399640a4e61df87d2c151ea39682cca" => :sierra
+    sha256 "498629ce0ce23a2ca425cde388b292f78a8d8becb12ecd1248c0b047f0f3016e" => :el_capitan
+  end
+
   resource "clang" do
     url "https://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz"
     sha256 "7c243f1485bddfdfedada3cd402ff4792ea82362ff91fbdac2dae67c6026b667"
