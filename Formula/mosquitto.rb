@@ -1,8 +1,8 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-1.5.1.tar.gz"
-  sha256 "8557bc7ae34dfaf32a0fb56d2491b7a7f731269c88337227233013502df4d5b0"
+  url "https://mosquitto.org/files/source/mosquitto-1.5.2.tar.gz"
+  sha256 "7e90ccfe95179cfe6bf7d7f725281dd83041f241a8f093c9d3883b926584de9c"
 
   bottle do
     sha256 "c79522eea6110ddea1497cf252c2f1991107cfafa114f5280f3cf787cd2cf884" => :mojave
@@ -13,14 +13,11 @@ class Mosquitto < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "libwebsockets"
   depends_on "openssl"
-  depends_on "libwebsockets" => :recommended
 
   def install
-    args = std_cmake_args
-    args << "-DWITH_WEBSOCKETS=ON" if build.with? "libwebsockets"
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DWITH_WEBSOCKETS=ON"
     system "make", "install"
   end
 
