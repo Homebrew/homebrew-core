@@ -1,9 +1,9 @@
 class Fmsx < Formula
   desc "MSX emulator"
   homepage "https://fms.komkon.org/fMSX/"
-  url "https://fms.komkon.org/fMSX/fMSX46.zip"
-  version "4.6"
-  sha256 "07ac1a2728d5ebdafc5867c8935afdaaa9654832229461f2066b5efe968bcd59"
+  url "https://fms.komkon.org/fMSX/fMSX54.zip"
+  version "5.4"
+  sha256 "bd3ac4fd87586912bfe973c4e286ba9c30fee051a02afd5ea2b9fd6fec310825"
 
   bottle do
     cellar :any
