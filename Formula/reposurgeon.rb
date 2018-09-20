@@ -2,8 +2,8 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag => "3.44",
-      :revision => "f37fa1aa8e3235bb4c64cbcd9e85a6907b4dea50"
+      :tag => "3.45",
+      :revision => "4c1ba2dbb9f0bb4f985d54b5483210a9474f9610"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
