@@ -13,7 +13,7 @@ class Opam < Formula
     sha256 "74f8341302bb5a933276cff7f9dff7240ad59a4d968050674b63869d9963de7e" => :el_capitan
   end
 
-  depends_on "ocaml" => :build
+  depends_on "ocaml" => [:build, :test]
 
   def install
     ENV.deparallelize
