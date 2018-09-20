@@ -46,7 +46,8 @@ class Arpack < Formula
 
   test do
     system "gfortran", "-o", "test", pkgshare/"dnsimp.f", pkgshare/"mmio.f",
-                       "-L#{lib}", "-larpack", "-lvecLibFort"
+                       "-L#{lib}", "-larpack",
+                       "-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
 
