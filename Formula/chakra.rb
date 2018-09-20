@@ -15,13 +15,6 @@ class Chakra < Formula
   depends_on "cmake" => :build
   depends_on "icu4c"
 
-  # Teach the build script to recognise LLVM 10+/Clang 1000 as valid.
-  # Merged upstream but not yet in 1.11.0; check again next release.
-  patch do
-    url "https://github.com/Microsoft/ChakraCore/commit/559d432087ea9f6ff92574b618194d7a06d12c41.patch?full_index=1"
-    sha256 "05b80e18a3e70f33ee7442a9c2b236c71e74970ba35b25817147e5e0b6ccd140"
-  end
-
   def install
     args = [
       "--lto-thin",
