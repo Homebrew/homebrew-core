@@ -28,8 +28,8 @@ class Libgtop < Formula
   # Fixes the build on OS X by providing a stub implementation of a new feature
   # https://gitlab.gnome.org/GNOME/libgtop/issues/36
   patch do
-    url "https://github.com/GNOME/libgtop/commit/42b049f338363f92c1e93b4549fc944098eae674.patch?full_index=1"
-    sha256 "f05b31e0490f9f98c905a771c02071a554dac9965378d60137e50f1e50e84bed"
+    url "https://github.com/GNOME/libgtop/commit/42b049f338363f92c1e93b4549fc944098eae674.diff?full_index=1"
+    sha256 "1a208c5a246f51b16413ef5ca370afc6aba3ceebae0c616da1dcf1d8b9c0e2f1"
   end
 
   def install
