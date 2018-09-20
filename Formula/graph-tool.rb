@@ -32,8 +32,8 @@ class GraphTool < Formula
   # Remove for > 2.27
   # Upstream commit from 3 Jul 2018 "Fix incompatibility with Python 3.7"
   patch do
-    url "https://git.skewed.de/count0/graph-tool/commit/0407f41a.patch"
-    sha256 "6ff5d8729bc2dcad9fafe9f2417a60c10ad09d91ea76a3a48031c9171c57ba44"
+    url "https://git.skewed.de/count0/graph-tool/commit/0407f41a.diff"
+    sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
   end
 
   resource "Cycler" do
