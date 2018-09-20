@@ -1,7 +1,7 @@
 class Cattle < Formula
   desc "Brainfuck language toolkit"
   homepage "https://github.com/andreabolognani/cattle"
-  url "https://kiyuko.org/software/cattle/releases/1.2.2/source"
+  url "https://kiyuko.org/software/cattle/releases/cattle-1.2.2.tar.gz"
   sha256 "e8e9baba41c4b25a1fdac552c5b03ad62a4dbb782e9866df3c3463baf6411826"
   revision 1
 
