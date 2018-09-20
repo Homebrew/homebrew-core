@@ -7,7 +7,6 @@ class Proxysql < Formula
   # Build dependencies listed here: https://github.com/sysown/proxysql/blob/master/INSTALL.md
   depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on "make" => :build
   depends_on "mysql" => :test
   depends_on "openssl"
 
