@@ -1,8 +1,8 @@
 class GitArchiveAll < Formula
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
-  url "https://github.com/Kentzo/git-archive-all/archive/1.18.1.tar.gz"
-  sha256 "60438ec520cf8365a8dde561afbe40257b9e2368fe68aae758f1804608de376e"
+  url "https://github.com/Kentzo/git-archive-all/archive/1.18.2.tar.gz"
+  sha256 "a0a969eb12ddf9ebcb39e458a5971c47d15c01483c9f60775deb68426ad1597e"
   head "https://github.com/Kentzo/git-archive-all.git"
 
   bottle do
@@ -28,7 +28,7 @@ class GitArchiveAll < Formula
     system "git", "add", "homebrew"
     system "git", "commit", "--message", "brewing"
 
-    assert_equal "homebrew\n#{testpath.realpath}/homebrew => archive/homebrew",
+    assert_equal "#{testpath.realpath}/homebrew => archive/homebrew",
                  shell_output("#{bin}/git-archive-all --dry-run ./archive").chomp
   end
 end
