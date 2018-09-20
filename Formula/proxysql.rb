@@ -8,7 +8,7 @@ class Proxysql < Formula
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "make" => :build
-  depends_on "mysql@5.6" => :test
+  depends_on "mysql" => :test
   depends_on "openssl"
 
   def install
@@ -27,8 +27,9 @@ class Proxysql < Formula
       exec "#{bin}/proxysql", "-S", "admin.sock"
     end
     begin
+      sleep 2
       # Sleep until the proxy is up (querying it prematurely causes a segfault), then check its uptime.
-      output = pipe_output("sleep 2; echo 'select * from stats.stats_mysql_global' | $(brew --prefix mysql@5.6)/bin/mysql -uadmin -padmin -S admin.sock")
+      output = pipe_output("mysql -uadmin -S admin.sock", "select * from stats.stats_mysql_global", 0)
       assert_match /ProxySQL_Uptime\s+[1-9]\d*/, output
     ensure
       Process.kill("TERM", background_proxysql)
