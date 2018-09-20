@@ -6,6 +6,7 @@ class Gptfdisk < Formula
 
   bottle do
     cellar :any
+    sha256 "3f370d1a7e625f5d07e6c01ad4397ef9a736fe28558ef2f6d308521bc7b52100" => :mojave
     sha256 "ece7354d9226677e040f8e755f16cf51f7d2fd32ef3d761ba797bc2e19ffceb9" => :high_sierra
     sha256 "b21ce2f459eb281e2fe616c2f15908411b082d4a6c6e1952fa582768001dfa2b" => :sierra
     sha256 "8af410758295279a4f75bf0d787d47066446b7e21f78b035a5a9e5134035706c" => :el_capitan
