@@ -6,10 +6,11 @@ class Woff2 < Formula
 
   bottle do
     cellar :any
-    sha256 "0d92977b90e1fe7699d1dc2bf1dd26407173e7c1da0ffc23d9459ca3fa3d24b1" => :mojave
-    sha256 "dbbb582bc42ae47944c1004e3ec8017cc4a227e6167887dd0df6cde2571e2843" => :high_sierra
-    sha256 "dc8769da8c1b1d81d9a186da0cabc8f06ab869ca82d5c7625ec9b3db15531e53" => :sierra
-    sha256 "70df26c10ab652ba4e9f109936d93798922f17a88bc996343a2c840668963735" => :el_capitan
+    rebuild 1
+    sha256 "d3ccc0d5d910483c5fa385cf213bb352bfe886f1b824f8c182d050ae96e77fdd" => :mojave
+    sha256 "f0a9cba72030b62b02336c277f2688ad96bf45c1720e58205cfa597be9860296" => :high_sierra
+    sha256 "965310f79a417663d33d4917880b4dd2a9654ca85f5a9a243465e3e0e86a394d" => :sierra
+    sha256 "59d4f6c77ae933445a0fde4b1445208a094169fa5dac784889dd6c8d4947c997" => :el_capitan
   end
 
   depends_on "cmake" => :build
