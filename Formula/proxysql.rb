@@ -19,17 +19,26 @@ class Proxysql < Formula
     # Configurable target locations are requested in https://github.com/sysown/proxysql/issues/1565
     bin.install "src/proxysql"
     etc.install "etc/proxysql.cnf"
+    (var/"lib/proxysql").mkpath
+    inreplace etc/"proxysql.cnf" do |s|
+      s.gsub! "datadir=\"/var/lib/proxysql\"", "datadir=\"#{var}/lib/proxysql\""
+    end
+    
   end
 
   test do
     system bin/"proxysql", "--help"
-    background_proxysql = fork do
-      exec "#{bin}/proxysql", "-S", "admin.sock"
-    end
     begin
-      sleep 2
+      background_proxysql = fork do
+        exec "#{bin}/proxysql", "-f", "-S", "#{testpath}/admin.sock", "-c", "#{etc}/proxysql.cnf", "--initial", "-D", testpath
+      end
       # Sleep until the proxy is up (querying it prematurely causes a segfault), then check its uptime.
-      output = pipe_output("mysql -uadmin -S admin.sock", "select * from stats.stats_mysql_global", 0)
+      sleep 1
+      output = pipe_output(
+        "mysql -uadmin -padmin -S#{testpath}/admin.sock --default-auth=mysql_native_password",
+        "select * from stats.stats_mysql_global",
+        0
+      )
       assert_match /ProxySQL_Uptime\s+[1-9]\d*/, output
     ensure
       Process.kill("TERM", background_proxysql)
