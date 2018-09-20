@@ -21,9 +21,21 @@ class Proxysql < Formula
     etc.install "etc/proxysql.cnf"
     (var/"lib/proxysql").mkpath
     inreplace etc/"proxysql.cnf" do |s|
-      s.gsub! "datadir=\"/var/lib/proxysql\"", "datadir=\"#{var}/lib/proxysql\""
+      s.gsub! %{datadir="/var/lib/proxysql"}, %{datadir="#{var}/lib/proxysql"}
     end
+
     
+    if not (var/"lib/proxysql/proxysql.db").exist?
+      # Create initial data files so the launchd service can start/stop.
+      # The --initial switch destroys data, so it can't be used in the plist.
+      begin
+        background_proxysql = fork do
+          exec "#{bin}/proxysql", "-f", "-c", "#{etc}/proxysql.cnf", "--initial"
+        end
+      ensure
+        Process.kill("INT", background_proxysql)
+      end
+    end
   end
 
   test do
