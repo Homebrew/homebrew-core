@@ -6,6 +6,7 @@ class Dartsim < Formula
   revision 2
 
   bottle do
+    sha256 "a74157d362af8685ac3fb13eed5fd7e373053dfb353bde7424853308ffb78791" => :mojave
     sha256 "d15af7454c4e2bdf0323fdf6731164748b6c57c295ee346d51059f234d95586f" => :high_sierra
     sha256 "57925e31a3c9365779c2976b97d34b471d082999a56d61c95e8f1253ee7318ba" => :sierra
     sha256 "7e9e02b116f1341cc01889e94b8d0a341cb05852b370d3ee2a4c7e06c59e8ba9" => :el_capitan
