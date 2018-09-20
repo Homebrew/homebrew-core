@@ -44,6 +44,6 @@ class Woff2 < Formula
     resource("roboto_2").stage testpath
     system "#{bin}/woff2_decompress", "KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2"
     output = shell_output("file --brief KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.ttf")
-    assert_match "TrueType font data", output
+    assert_match(/TrueType font data/i, output)
   end
 end
