@@ -5,6 +5,7 @@ class NodeAT6 < Formula
   sha256 "9a4bfc99787f8bdb07d5ae8b1f00ec3757e7b09c99d11f0e8a5e9a16a134ec0f"
 
   bottle do
+    sha256 "ecc570659de3cf194eb2ec670adb6046c109d1af4e34fe01b2d456da321af900" => :mojave
     sha256 "c0fe2f41ed0533f5fdf262291fbdcdf880a9c6c292b37d9436a7968e60fe09be" => :high_sierra
     sha256 "174a693040cf7b8e036a4221faf7b83fee3f8e37c9be4b48779843b9b62601de" => :sierra
     sha256 "a169290323f22eab6e34c03b6ac07c23ff9ef5e457c9c0930913190918530270" => :el_capitan
