@@ -37,7 +37,7 @@ class Opam < Formula
   end
 
   test do
-    system bin/"opam", "init"
+    system bin/"opam", "init", "--disable-sandboxing"
     system bin/"opam", "list"
   end
 end
