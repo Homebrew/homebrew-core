@@ -69,7 +69,8 @@ class Xsd < Formula
     system "#{bin}/xsd", "cxx-tree", schema
     assert_predicate testpath/"meaningoflife.hxx", :exist?
     assert_predicate testpath/"meaningoflife.cxx", :exist?
-    system "c++", "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx", "-lxerces-c"
+    system "c++", "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx",
+                  "-L#{Formula["xerces-c"].opt_lib}, "-lxerces-c"
     assert_predicate testpath/"xsdtest", :exist?
     system testpath/"xsdtest", instance
   end
