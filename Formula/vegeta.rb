@@ -2,8 +2,8 @@ class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
   url "https://github.com/tsenart/vegeta.git",
-      :tag => "cli/v11.0.0",
-      :revision => "6eef4b1ad4cb4a0318f031d517eeb232473d7955"
+      :tag => "cli/v11.3.0",
+      :revision => "c6176ccd5d95c452ad255cccca31c1114a79451d"
 
   bottle do
     cellar :any_skip_relocation
