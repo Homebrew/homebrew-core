@@ -38,7 +38,7 @@ class Glances < Formula
     begin
       read, write = IO.pipe
       pid = fork do
-        exec bin/"glances", "-q", "--export-csv", "/dev/stdout", :out => write
+        exec bin/"glances", "-q", "--export", "csv", "--export-csv", "/dev/stdout", :out => write
       end
       header = read.gets
       assert_match "timestamp", header
