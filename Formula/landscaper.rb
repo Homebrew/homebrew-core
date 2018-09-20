@@ -8,6 +8,7 @@ class Landscaper < Formula
 
   bottle do
     cellar :any_skip_relocation
+    sha256 "f2f954c4e94f527b0f4bced79c54dd5b56e2d033bbb0e54d9197e71cc8140f8b" => :mojave
     sha256 "e124d54f5f5775ccb6fdeb38708d4a5eda94bcc75c3b4d8fb72bb74b8e7f46a5" => :high_sierra
     sha256 "56bd51ee0b2659fd7ececa51d09bd7a16cfc72f2fedb12bcb890c4eccaa9e4e9" => :sierra
     sha256 "457910fab6350bd9155c49d76c9b7d150b9bdd29f8d0191a5a9088ec902a3bbe" => :el_capitan
