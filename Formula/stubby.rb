@@ -6,6 +6,7 @@ class Stubby < Formula
   head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
 
   bottle do
+    sha256 "52c7a16a90d2ae750d1c0bf8936cbf4a575b831e9b44f21a2e8f3fe31402ab31" => :mojave
     sha256 "0a09202232898b51e34ccf898e794eca7ebe920209b535a32b224c28cc188552" => :high_sierra
     sha256 "e027e65ca40fbc66101c7e18889588a825d7b2f528238a616f441c42d297807f" => :sierra
     sha256 "7a1223ce531d26cd4c97690b2c966ef583b8350e508623dee27da418917a0597" => :el_capitan
