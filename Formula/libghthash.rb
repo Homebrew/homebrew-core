@@ -2,6 +2,7 @@ class Libghthash < Formula
   desc "Generic hash table for C++"
   homepage "https://www.bth.se/people/ska/sim_home/libghthash.html"
   url "https://www.bth.se/people/ska/sim_home/filer/libghthash-0.6.2.tar.gz"
+  mirror "http://ftp.internat.freebsd.org/pub/FreeBSD/distfiles/libghthash-0.6.2.tar.gz"
   sha256 "d1ccbb81f4c8afd7008f56ecb874f5cf497de480f49ee06929b4303d5852a7dd"
 
   bottle do
