@@ -23,19 +23,30 @@ class Proxysql < Formula
     inreplace etc/"proxysql.cnf" do |s|
       s.gsub! %{datadir="/var/lib/proxysql"}, %{datadir="#{var}/lib/proxysql"}
     end
+  end
 
-    
-    if not (var/"lib/proxysql/proxysql.db").exist?
-      # Create initial data files so the launchd service can start/stop.
-      # The --initial switch destroys data, so it can't be used in the plist.
-      begin
-        background_proxysql = fork do
-          exec "#{bin}/proxysql", "-f", "-c", "#{etc}/proxysql.cnf", "--initial"
-        end
-      ensure
-        Process.kill("INT", background_proxysql)
-      end
-    end
+  plist_options :manual => "proxysql"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{bin}/proxysql</string>
+          <string>--foreground</string>
+          <string>--config</string>
+          <string>#{etc}/proxysql.cnf</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+    </plist>
+  EOS
   end
 
   test do
