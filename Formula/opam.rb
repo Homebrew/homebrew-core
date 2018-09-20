@@ -5,7 +5,6 @@ class Opam < Formula
   sha256 "9dad4fcb4f53878c9daa6285d8456ccc671e21bfa71544d1f926fb8a63bfed25"
   head "https://github.com/ocaml/opam.git"
 
-  depends_on "glpk" => :build
   depends_on "ocaml" => :build
 
   bottle do
@@ -38,6 +37,7 @@ class Opam < Formula
   end
 
   test do
-    system bin/"opam", "--help"
+    system bin/"opam", "init"
+    system bin/"opam", "list"
   end
 end
