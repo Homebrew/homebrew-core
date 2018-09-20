@@ -12,7 +12,6 @@ class Nng < Formula
     mkdir "build" do
       system "cmake", "..", "-GNinja", "-DNNG_ENABLE_DOC=ON", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "ninja"
-      system "ninja", "test" if build.with? "test"
       system "ninja", "install"
     end
   end
