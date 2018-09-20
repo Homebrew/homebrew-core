@@ -7,11 +7,10 @@ class Jerasure < Formula
 
   bottle do
     cellar :any
-    sha256 "6681a789c9c2c59f9fe1e4e58da3ed332ea26bdcd6e3904d6a4cec93ed88d757" => :high_sierra
-    sha256 "4ffe803f61f99ad40d7e9541f41680aa074632ff35faac680a88d44b5bcf2bcc" => :sierra
-    sha256 "f9b3b18ac272a9a3c96d4fdef5b78c3dca4719b4493b7c1e5171bfa7e5d1731b" => :el_capitan
-    sha256 "4bbf04ae52e868a4b356eb242bb98ede4c2efb744dd32c979b7658cf64a8dfb6" => :yosemite
-    sha256 "8f9b0282b6db808f94a915b83e937ae2e1413a2e5b49e72f2196235f0cff2962" => :mavericks
+    sha256 "1ae9b78eb70cf790c5a2e182508487746b3008ef9b0727b377cb3fd01faa8e29" => :mojave
+    sha256 "8e63bf431836395466d91ef947126a39c8193b274ab22156cf421d6958508607" => :high_sierra
+    sha256 "603646521f0255877f611df53e30ccbc071b07cba6e0f33025404332e9677ffa" => :sierra
+    sha256 "1db6ef4631512bf3b155d614588689b2bacc911178cedf828db8f810d9e18d43" => :el_capitan
   end
 
   depends_on "autoconf" => :build
