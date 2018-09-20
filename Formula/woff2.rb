@@ -26,7 +26,12 @@ class Woff2 < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
+      -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
+    ]
+
+    system "cmake", ".", *args
     system "make", "install"
 
     # make install does not install binaries
@@ -44,6 +49,6 @@ class Woff2 < Formula
     resource("roboto_2").stage testpath
     system "#{bin}/woff2_decompress", "KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.woff2"
     output = shell_output("file --brief KFOmCnqEu92Fr1Mu72xKKTU1Kvnz.ttf")
-    assert_match "TrueType font data", output
+    assert_match(/TrueType font data/i, output)
   end
 end
