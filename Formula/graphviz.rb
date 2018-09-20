@@ -47,7 +47,7 @@ class Graphviz < Formula
     # https://github.com/Homebrew/brew/blob/ab060c9/Library/Homebrew/shims/super/cc#L241
     # https://github.com/Homebrew/legacy-homebrew/issues/14566
     # Alternative fixes include using stdenv or using "xcrun make"
-    inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", ""
+    inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", "" unless build.head?
 
     args = %W[
       --disable-debug
