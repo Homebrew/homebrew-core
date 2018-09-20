@@ -30,6 +30,29 @@ class LlvmAT6 < Formula
     sha256 "498629ce0ce23a2ca425cde388b292f78a8d8becb12ecd1248c0b047f0f3016e" => :el_capitan
   end
 
+  keg_only :versioned_formula
+
+  option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
+  option "with-lldb", "Build LLDB debugger"
+  option "with-python@2", "Build bindings against Homebrew's Python 2"
+
+  deprecated_option "with-python" => "with-python@2"
+
+  # https://llvm.org/docs/GettingStarted.html#requirement
+  depends_on "cmake" => :build
+  depends_on "libffi"
+
+  if MacOS.version <= :snow_leopard
+    depends_on "python@2"
+  else
+    depends_on "python@2" => :optional
+  end
+
+  if build.with? "lldb"
+    depends_on "swig" if MacOS.version >= :lion
+    depends_on CodesignRequirement
+  end
+
   resource "clang" do
     url "https://releases.llvm.org/6.0.1/cfe-6.0.1.src.tar.xz"
     sha256 "7c243f1485bddfdfedada3cd402ff4792ea82362ff91fbdac2dae67c6026b667"
@@ -73,29 +96,6 @@ class LlvmAT6 < Formula
   resource "polly" do
     url "https://releases.llvm.org/6.0.1/polly-6.0.1.src.tar.xz"
     sha256 "e7765fdf6c8c102b9996dbb46e8b3abc41396032ae2315550610cf5a1ecf4ecc"
-  end
-
-  keg_only :versioned_formula
-
-  option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
-  option "with-lldb", "Build LLDB debugger"
-  option "with-python@2", "Build bindings against Homebrew's Python 2"
-
-  deprecated_option "with-python" => "with-python@2"
-
-  # https://llvm.org/docs/GettingStarted.html#requirement
-  depends_on "cmake" => :build
-  depends_on "libffi"
-
-  if MacOS.version <= :snow_leopard
-    depends_on "python@2"
-  else
-    depends_on "python@2" => :optional
-  end
-
-  if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
-    depends_on CodesignRequirement
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
