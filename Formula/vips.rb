@@ -1,7 +1,7 @@
 class Vips < Formula
   desc "Image processing library"
-  homepage "https://github.com/jcupitt/libvips"
-  url "https://github.com/jcupitt/libvips/releases/download/v8.7.0/vips-8.7.0.tar.gz"
+  homepage "https://github.com/libvips/libvips"
+  url "https://github.com/libvips/libvips/releases/download/v8.7.0/vips-8.7.0.tar.gz"
   sha256 "c4473ea3fd90654a39076f896828fc67c9c9800d77ba643ea58454f31a340898"
 
   bottle do
