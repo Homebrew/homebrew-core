@@ -16,9 +16,9 @@ class Glfw < Formula
 
   option "without-shared-library", "Build static library only (defaults to building dylib only)"
 
-  depends_on "cmake" => :build
-
   deprecated_option "static" => "without-shared-library"
+
+  depends_on "cmake" => :build
 
   def install
     args = std_cmake_args + %w[
