@@ -12,6 +12,9 @@ class Qemu < Formula
     sha256 "5ef45b8990941c95ece335b513433466a42c821ec0b1d7d99d74f80558b7a60f" => :el_capitan
   end
 
+  deprecated_option "with-sdl" => "with-sdl2"
+  deprecated_option "with-gtk+" => "with-gtk+3"
+
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -25,9 +28,6 @@ class Qemu < Formula
   depends_on "libusb" => :optional
   depends_on "sdl2" => :optional
   depends_on "vde" => :optional
-
-  deprecated_option "with-sdl" => "with-sdl2"
-  deprecated_option "with-gtk+" => "with-gtk+3"
 
   fails_with :gcc_4_0 do
     cause "qemu requires a compiler with support for the __thread specifier"
