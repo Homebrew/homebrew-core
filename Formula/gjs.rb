@@ -13,9 +13,9 @@ class Gjs < Formula
   depends_on "autoconf@2.13" => :build
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection"
+  depends_on "gtk+3"
   depends_on "nspr"
   depends_on "readline"
-  depends_on "gtk+3" => :recommended
 
   resource "mozjs60" do
     url "https://archive.mozilla.org/pub/firefox/releases/60.1.0esr/source/firefox-60.1.0esr.source.tar.xz"
