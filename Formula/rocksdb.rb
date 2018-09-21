@@ -12,10 +12,11 @@ class Rocksdb < Formula
     sha256 "e07d5748ec17ea316d7b669bf22e69db5b5c12c488030abbc164d17f004ace44" => :el_capitan
   end
 
-  needs :cxx11
   depends_on "gflags"
   depends_on "lz4"
   depends_on "snappy"
+
+  needs :cxx11
 
   def install
     ENV.cxx11
