@@ -14,8 +14,6 @@ class Fastbit < Formula
 
   depends_on :java
 
-  needs :cxx11
-
   conflicts_with "iniparser", :because => "Both install `include/dictionary.h`"
 
   # Fix compilation with Xcode 9, reported by email on 2018-03-13
@@ -23,6 +21,8 @@ class Fastbit < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe9d4e5/fastbit/xcode9.patch"
     sha256 "e1198caf262a125d2216d70cfec80ebe98d122760ffa5d99d34fc33646445390"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11
