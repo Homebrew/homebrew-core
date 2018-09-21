@@ -21,9 +21,9 @@ class Ttfautohint < Formula
     depends_on "pkg-config" => :build
   end
 
-  deprecated_option "with-qt5" => "with-qt"
-
   option "with-qt", "Build ttfautohintGUI also"
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
