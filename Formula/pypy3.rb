@@ -19,6 +19,9 @@ class Pypy3 < Formula
   depends_on "sqlite"
   depends_on "xz"
 
+  # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
+  fails_with :gcc
+
   # packaging depends on pyparsing
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
@@ -52,9 +55,6 @@ class Pypy3 < Formula
     url "https://files.pythonhosted.org/packages/ae/e8/2340d46ecadb1692a1e455f13f75e596d4eab3d11a57446f08259dee8f02/pip-10.0.1.tar.gz"
     sha256 "f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68"
   end
-
-  # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc
 
   def install
     # Work around "dyld: Symbol not found: _utimensat"
