@@ -12,13 +12,13 @@ class Gdb < Formula
     sha256 "ecd74563cbd79997a5396f882c44c113540e1a6987c7295ed934cd17b388eeba" => :el_capitan
   end
 
-  deprecated_option "with-brewed-python" => "with-python@2"
-  deprecated_option "with-guile" => "with-guile@2.0"
-
   option "with-python", "Use the Homebrew version of Python; by default system Python is used"
   option "with-python@2", "Use the Homebrew version of Python 2; by default system Python is used"
   option "with-version-suffix", "Add a version suffix to program"
   option "with-all-targets", "Build with support for all targets"
+
+  deprecated_option "with-brewed-python" => "with-python@2"
+  deprecated_option "with-guile" => "with-guile@2.0"
 
   depends_on "pkg-config" => :build
   depends_on "guile@2.0" => :optional
