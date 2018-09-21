@@ -12,11 +12,11 @@ class Treefrog < Formula
     sha256 "6ea31d04a301bee2b365c5affaea54286814718636386e2e0c9a2bfa9472c1f3" => :el_capitan
   end
 
-  deprecated_option "with-qt5" => "with-qt"
-
   option "with-mysql", "enable --with-mysql option for Qt build"
   option "with-postgresql", "enable --with-postgresql option for Qt build"
   option "with-qt", "build and link with QtGui module"
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on :xcode => [:build, "8.0"]
   depends_on :macos => :el_capitan
