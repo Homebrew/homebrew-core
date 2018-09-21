@@ -24,6 +24,9 @@ class Gawk < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+
+    (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
+    (libexec/"gnuman/man1").install_symlink man1/"gawk.1" => "awk.1"
   end
 
   test do
