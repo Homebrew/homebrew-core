@@ -2,8 +2,8 @@ class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.7.1-xcode10.tar.gz"
-  sha256 "cecc7d92a37b57a24c1cd092f083a7ead8812b867f7ac7df2f2324b4c192a718"
   version "3.7.1"
+  sha256 "cecc7d92a37b57a24c1cd092f083a7ead8812b867f7ac7df2f2324b4c192a718"
   revision 1
 
   bottle do
