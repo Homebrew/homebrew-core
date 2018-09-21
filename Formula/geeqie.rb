@@ -18,14 +18,6 @@ class Geeqie < Formula
     sha256 "2f84465d9d6eba2db0031c71033b735d33a6d6294dd2a15fd13d65674b60783b" => :el_capitan
   end
 
-  # Fixes the build on OS X by assigning a value to a variable
-  # before passing to WEXITVALUE.
-  # https://github.com/BestImageViewer/geeqie/pull/589
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/patches/9cacfd49be1db430d7a956132d6521e23fc85f77/geeqie/wexitstatus_fix.diff"
-    sha256 "00bad28d46aafaaed99965a5c054bf04679c100c6f4f13ee82cf83c2782de349"
-  end
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "intltool" => :build
@@ -43,6 +35,14 @@ class Geeqie < Formula
   depends_on "libtiff"
   depends_on "little-cms2"
   depends_on "pango"
+
+  # Fixes the build on OS X by assigning a value to a variable
+  # before passing to WEXITVALUE.
+  # https://github.com/BestImageViewer/geeqie/pull/589
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/patches/9cacfd49be1db430d7a956132d6521e23fc85f77/geeqie/wexitstatus_fix.diff"
+    sha256 "00bad28d46aafaaed99965a5c054bf04679c100c6f4f13ee82cf83c2782de349"
+  end
 
   def install
     ENV["NOCONFIGURE"] = "yes"
