@@ -17,6 +17,8 @@ class Xmoto < Formula
     depends_on "automake" => :build
   end
 
+  deprecated_option "without-lua" => "without-lua@5.1"
+
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libxdg-basedir"
@@ -28,8 +30,6 @@ class Xmoto < Formula
   depends_on "sdl_ttf"
   depends_on "gettext" => :recommended
   depends_on "lua@5.1" => :recommended
-
-  deprecated_option "without-lua" => "without-lua@5.1"
 
   def install
     # Fix issues reported upstream
