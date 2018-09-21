@@ -18,6 +18,13 @@ class Swift < Formula
   # https://github.com/apple/swift#system-requirements
   depends_on :xcode => ["9.3", :build]
 
+  # According to the official llvm readme, GCC 4.7+ is required
+  fails_with :gcc_4_0
+  fails_with :gcc
+  ("4.3".."4.6").each do |n|
+    fails_with :gcc => n
+  end
+
   # This formula is expected to have broken/missing linkage to
   # both UIKit.framework and AssetsLibrary.framework. This is
   # simply due to the nature of Swift's SDK Overlays.
@@ -49,13 +56,6 @@ class Swift < Formula
   resource "swiftpm" do
     url "https://github.com/apple/swift-package-manager/archive/swift-4.1.3-RELEASE.tar.gz"
     sha256 "7b655c994c092bf88245775e77d4c4d39f6d880cab59b67d2290df02505ed355"
-  end
-
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_0
-  fails_with :gcc
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
   end
 
   def install
