@@ -14,8 +14,9 @@ class Ed < Formula
     sha256 "d8d925d35a5e3a08353960f029423b4f6e7427b2ecc916407ae7e541b0ba3cfa" => :yosemite
   end
 
-  deprecated_option "default-names" => "with-default-names"
   option "with-default-names", "Don't prepend 'g' to the binaries"
+
+  deprecated_option "default-names" => "with-default-names"
 
   def install
     ENV.deparallelize
