@@ -5,12 +5,6 @@ class AwsApigatewayImporter < Formula
   sha256 "8371e3fb1b6333cd50a76fdcdc1280ee8e489aec4bf9a1869325f9b8ebb73b54"
   revision 1
 
-  # Pin aws-sdk-java-core for JSONObject compatibility
-  patch do
-    url "https://github.com/awslabs/aws-apigateway-importer/commit/660e3ce.diff?full_index=1"
-    sha256 "6ff63c504b906e1fb6d0f2a9772761edeef3b37b3dca1e48bba72432d863a852"
-  end
-
   bottle do
     cellar :any_skip_relocation
     sha256 "03baa4d6f79772591dcd0ac5db5a148fbe79633b7ab66de104cd244141fbb0d0" => :mojave
@@ -22,6 +16,12 @@ class AwsApigatewayImporter < Formula
 
   depends_on "maven" => :build
   depends_on :java => "1.8"
+
+  # Pin aws-sdk-java-core for JSONObject compatibility
+  patch do
+    url "https://github.com/awslabs/aws-apigateway-importer/commit/660e3ce.diff?full_index=1"
+    sha256 "6ff63c504b906e1fb6d0f2a9772761edeef3b37b3dca1e48bba72432d863a852"
+  end
 
   def install
     system "mvn", "assembly:assembly"
