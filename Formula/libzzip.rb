@@ -12,13 +12,8 @@ class Libzzip < Formula
     sha256 "0cd5457528cadfb83a31b83b16e16089816f991c290cfbe5446372a3291c676c" => :el_capitan
   end
 
-  option "with-sdl", "Enable SDL usage and create SDL_rwops_zzip.pc"
-
-  deprecated_option "sdl" => "with-sdl"
-
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on "sdl" => :optional
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -28,7 +23,6 @@ class Libzzip < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
-    args << "--enable-sdl" if build.with? "sdl"
     system "./configure", *args
     system "make", "install"
   end
