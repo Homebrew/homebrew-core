@@ -17,15 +17,7 @@ class Ocaml < Formula
   url "https://caml.inria.fr/pub/distrib/ocaml-4.07/ocaml-4.07.0.tar.xz"
   sha256 "f45bf720aadf5c6408400d5179b92ea7130b7e55e501a1768c2d136ef69f9f0f"
   revision 1
-
   head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
-
-  pour_bottle? do
-    # The ocaml compilers embed prefix information in weird ways that the default
-    # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    reason "The bottle needs to be installed into /usr/local."
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
-  end
 
   bottle do
     cellar :any
@@ -33,6 +25,13 @@ class Ocaml < Formula
     sha256 "e662192a30ee7cc037f3665fa68680a35b00a4760c49fb12ccce01d61aa5a977" => :high_sierra
     sha256 "ae0a24f0e8d52b1253d84703060bff3e1a3db657d882459936cde97c3834a357" => :sierra
     sha256 "35d04c6e3b52a99b08e21ab0002992df2dd014a6ab53e857165893438591bf99" => :el_capitan
+  end
+
+  pour_bottle? do
+    # The ocaml compilers embed prefix information in weird ways that the default
+    # brew detection doesn't find, and so needs to be explicitly blacklisted.
+    reason "The bottle needs to be installed into /usr/local."
+    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
   option "with-x11", "Install with the Graphics module"
