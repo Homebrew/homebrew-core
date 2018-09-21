@@ -13,12 +13,12 @@ class Mapcrafter < Formula
     sha256 "5b10b03e8125110487845f76b36dd5fea958e0d98b8f7ef14e72956f1c98b6f2" => :el_capitan
   end
 
-  needs :cxx11
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "jpeg-turbo"
   depends_on "libpng"
+
+  needs :cxx11
 
   def install
     ENV.cxx11
