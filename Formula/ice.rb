@@ -13,14 +13,7 @@ class Ice < Formula
     sha256 "319fa13dfe77aa352dd84fb5495fd548fc7d870305fd7c3ee2137c2f298cbf5e" => :el_capitan
   end
 
-  #
-  # NOTE: we don't build slice2py, slice2js, slice2rb by default to prevent clashes with
-  # the translators installed by the PyPI/GEM/npm packages.
-  #
-
-  option "with-additional-compilers", "Build additional Slice compilers (slice2py, slice2js, slice2rb)"
   option "with-java", "Build Ice for Java and the IceGrid GUI app"
-  option "without-xcode-sdk", "Build without the Xcode SDK for iOS development (includes static libs)"
 
   depends_on "lmdb"
   depends_on :macos => :mavericks
@@ -37,9 +30,11 @@ class Ice < Formula
       "V=1",
       "MCPP_HOME=#{Formula["mcpp"].opt_prefix}",
       "LMDB_HOME=#{Formula["lmdb"].opt_prefix}",
-      "CONFIGS=shared cpp11-shared #{build.with?("xcode-sdk") ? "xcodesdk cpp11-xcodesdk" : ""}",
+      "CONFIGS=shared cpp11-shared xcodesdk cpp11-xcodesdk",
       "PLATFORMS=all",
-      "SKIP=slice2confluence #{build.without?("additional-compilers") ? "slice2py slice2rb slice2js" : ""}",
+      # We don't build slice2py, slice2js, slice2rb to prevent clashes with
+      # the translators installed by the PyPI/GEM/npm packages.
+      "SKIP=slice2confluence slice2py slice2rb slice2js",
       "LANGUAGES=cpp objective-c #{build.with?("java") ? "java java-compat" : ""}",
     ]
     system "make", "install", *args
