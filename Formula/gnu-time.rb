@@ -26,6 +26,10 @@ class GnuTime < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    if build.without? "default-names"
+      (libexec/"gnubin").install_symlink bin/"gtime" => "time"
+    end
   end
 
   test do
