@@ -16,7 +16,7 @@ class Abcl < Formula
 
   depends_on "ant"
   depends_on :java => "1.8"
-  depends_on "rlwrap" => :recommended
+  depends_on "rlwrap"
 
   def install
     cmd = Language::Java.java_home_cmd("1.8")
@@ -28,7 +28,7 @@ class Abcl < Formula
     (bin/"abcl").write <<~EOS
       #!/bin/sh
       export JAVA_HOME=$(#{cmd})
-      #{"rlwrap " if build.with?("rlwrap")}java -cp #{libexec}/abcl.jar:"$CLASSPATH" org.armedbear.lisp.Main "$@"
+      rlwrap java -cp #{libexec}/abcl.jar:"$CLASSPATH" org.armedbear.lisp.Main "$@"
     EOS
   end
 
