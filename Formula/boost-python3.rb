@@ -16,12 +16,12 @@ class BoostPython3 < Formula
   depends_on "boost"
   depends_on "python"
 
-  needs :cxx11
-
   resource "numpy" do
     url "https://files.pythonhosted.org/packages/d5/6e/f00492653d0fdf6497a181a1c1d46bbea5a2383e7faf4c8ca6d6f3d2581d/numpy-1.14.5.zip"
     sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
   end
+
+  needs :cxx11
 
   def install
     # "layout" should be synchronized with boost
