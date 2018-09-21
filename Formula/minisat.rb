@@ -14,6 +14,10 @@ class Minisat < Formula
 
   depends_on "gcc"
 
+  fails_with :clang do
+    cause "error: friend declaration specifying a default argument must be a definition"
+  end
+
   # Upstream commits to fix some declaration errors
   patch do
     url "https://github.com/niklasso/minisat/commit/9bd874980a7e5d65cecaba4edeb7127a41050ed1.patch?full_index=1"
@@ -23,10 +27,6 @@ class Minisat < Formula
   patch do
     url "https://github.com/niklasso/minisat/commit/cfae87323839064832c8b3608bf595548dd1a1f3.patch?full_index=1"
     sha256 "72c4d0f2ba7ae3561eac04418d1757fc5bf185c5b29dcaa775b8e9efab3796bc"
-  end
-
-  fails_with :clang do
-    cause "error: friend declaration specifying a default argument must be a definition"
   end
 
   def install
