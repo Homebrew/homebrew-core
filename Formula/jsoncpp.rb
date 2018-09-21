@@ -13,9 +13,9 @@ class Jsoncpp < Formula
     sha256 "ea9882112cc77b4500803dfb5043c846de7dc9d584f007978d05863f6a8611cb" => :el_capitan
   end
 
-  needs :cxx11
-
   depends_on "cmake" => :build
+
+  needs :cxx11
 
   def install
     ENV.cxx11
