@@ -3,6 +3,7 @@ class Qcachegrind < Formula
   homepage "https://kcachegrind.github.io/"
   url "https://download.kde.org/stable/applications/18.04.3/src/kcachegrind-18.04.3.tar.xz"
   sha256 "2370827f8d3c29ec931fc3ebf34726e42d25aaaab6c2f10dc5dd87f57056acfd"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,7 +14,7 @@ class Qcachegrind < Formula
   end
 
   depends_on "qt"
-  depends_on "graphviz" => :optional
+  depends_on "graphviz"
 
   def install
     cd "qcachegrind" do
