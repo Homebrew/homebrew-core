@@ -15,8 +15,6 @@ class XalanC < Formula
 
   depends_on "xerces-c"
 
-  needs :cxx11
-
   # Fix segfault. See https://issues.apache.org/jira/browse/XALANC-751
   # Build with char16_t casts.  See https://issues.apache.org/jira/browse/XALANC-773
   patch do
@@ -28,6 +26,8 @@ class XalanC < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xalan-c/locator-system-id.patch"
     sha256 "7c317c6b99cb5fb44da700e954e6b3e8c5eda07bef667f74a42b0099d038d767"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11
