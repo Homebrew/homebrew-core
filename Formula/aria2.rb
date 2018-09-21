@@ -3,6 +3,7 @@ class Aria2 < Formula
   homepage "https://aria2.github.io/"
   url "https://github.com/aria2/aria2/releases/download/release-1.34.0/aria2-1.34.0.tar.xz"
   sha256 "3a44a802631606e138a9e172a3e9f5bcbaac43ce2895c1d8e2b46f30487e77a3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Aria2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libssh2" => :optional
+  depends_on "libssh2"
 
   needs :cxx14
 
@@ -27,14 +28,13 @@ class Aria2 < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-appletls
+      --with-libssh2
       --without-openssl
       --without-gnutls
       --without-libgmp
       --without-libnettle
       --without-libgcrypt
     ]
-
-    args << "--with-libssh2" if build.with? "libssh2"
 
     system "./configure", *args
     system "make", "install"
