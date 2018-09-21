@@ -6,6 +6,13 @@ class Afsctool < Formula
   sha256 "bb6a84370526af6ec1cee2c1a7199134806e691d1093f4aef060df080cd3866d"
   revision 2
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "dae94371d947e9ddf0da4efd50425652753944da5f96c6aaa835b5ad1c361596" => :high_sierra
+    sha256 "ad17b0f173670e0e7909de0086dbfc8e3db2fef0a6a576875d199d6c14b8f212" => :sierra
+    sha256 "28e53f9426f88d7aaa41ef956a41aec8a68f5363d9e570a6be70e61e583e6b8f" => :el_capitan
+  end
+
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
   patch do
     url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.diff?full_index=1"
@@ -16,13 +23,6 @@ class Afsctool < Formula
   # Acknowledged by upstream 12 Apr 2018:
   # https://github.com/Homebrew/homebrew-core/pull/20898#issuecomment-380727547
   patch :DATA
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "dae94371d947e9ddf0da4efd50425652753944da5f96c6aaa835b5ad1c361596" => :high_sierra
-    sha256 "ad17b0f173670e0e7909de0086dbfc8e3db2fef0a6a576875d199d6c14b8f212" => :sierra
-    sha256 "28e53f9426f88d7aaa41ef956a41aec8a68f5363d9e570a6be70e61e583e6b8f" => :el_capitan
-  end
 
   def install
     cd "afsctool_34" do
