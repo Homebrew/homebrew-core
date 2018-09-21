@@ -13,11 +13,10 @@ class Openjpeg < Formula
     sha256 "b5041fc90ace09f0b556072ce5fedfa99ff9025f031a4eb70fdee5b90f9aa438" => :el_capitan
   end
 
-  option "without-doxygen", "Do not build HTML documentation."
   option "with-static", "Build a static library."
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => [:build, :recommended]
+  depends_on "doxygen" => :build
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "little-cms2"
@@ -25,7 +24,7 @@ class Openjpeg < Formula
   def install
     args = std_cmake_args
     args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
-    args << "-DBUILD_DOC=ON" if build.with? "doxygen"
+    args << "-DBUILD_DOC=ON"
     system "cmake", ".", *args
     system "make", "install"
   end
