@@ -3,6 +3,7 @@ class Gocr < Formula
   homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
   url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.51.tar.gz"
   sha256 "6eb2ae0fa4eb07cf4163081e0194ea65f605f7db9709dd30680686804dfc2692"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,13 +13,11 @@ class Gocr < Formula
     sha256 "46a821f9815ad964bc58feff3e5344964e9c164db625c9a8faffc0c7450055fb" => :el_capitan
   end
 
-  option "with-lib", "Install library and headers"
-
-  depends_on "jpeg" => :optional
-  depends_on "netpbm" => :optional
+  depends_on "jpeg"
+  depends_on "netpbm"
 
   # Edit makefile to install libs per developer documentation
-  patch :DATA if build.with? "lib"
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug",
@@ -30,7 +29,7 @@ class Gocr < Formula
       s.change_make_var! "mandir", "/share/man"
     end
 
-    system "make", "libs" if build.with? "lib"
+    system "make", "libs"
     system "make", "install"
   end
 
