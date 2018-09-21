@@ -14,6 +14,7 @@ class Reposurgeon < Formula
   end
 
   depends_on "asciidoc" => :build
+  depends_on "go" => :build
   depends_on "xmlto" => :build
   depends_on "pypy"
 
