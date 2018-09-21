@@ -6,6 +6,7 @@ class Cattle < Formula
   revision 1
 
   bottle do
+    sha256 "9fe38957085b82d4f32b8301a4541b7f66400d27677b38852f81f7e0b7dbc497" => :mojave
     sha256 "957d2f936937bd3682063bc0e7386b22ade2ee3398ad8ad29700bf395f2bc4f4" => :high_sierra
     sha256 "6387555e1f0f6804d9d9d967af83c370129d3fc7b4f8644b41b50a6d7b10baf9" => :sierra
     sha256 "42652ee8648cb83d278d274b149c644f9785a13c281edcd8d9dab9baf293da33" => :el_capitan
