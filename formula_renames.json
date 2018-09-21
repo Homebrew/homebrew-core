@@ -82,6 +82,7 @@
   "gst-plugins-ugly010": "gst-plugins-ugly@0.10",
   "gstreamer010": "gstreamer@0.10",
   "gtef": "tepl",
+  "gtksourceview@4": "gtksourceview4",
   "hamsterdb": "upscaledb",
   "heroku-toolbelt": "heroku",
   "htop-osx": "htop",
