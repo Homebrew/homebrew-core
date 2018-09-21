@@ -15,8 +15,6 @@ class Cataclysm < Formula
     sha256 "436d0b956cd5c0470926a416dc22e98ad0b846172c7ab58737665eb0e62eecfa" => :el_capitan
   end
 
-  needs :cxx11
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libogg"
@@ -26,6 +24,8 @@ class Cataclysm < Formula
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
+
+  needs :cxx11
 
   def install
     ENV.cxx11
