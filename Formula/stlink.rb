@@ -7,10 +7,11 @@ class Stlink < Formula
 
   bottle do
     cellar :any
-    sha256 "b888654aa9fedd067d92a2940ee8ec7f5240086db20c4af45679b4b8721e9b56" => :mojave
-    sha256 "93f97f44122457654c9b4d47cfe2af0d9e2c73c040a18763486d06d4ee19d2e1" => :high_sierra
-    sha256 "8c091af82164b5c930eb65f35a71a6dcf7a49144ecfc2fb96153fee31be6f54d" => :sierra
-    sha256 "0109c086ee82894d942c5c1e9a0221ca6783bddcbdb0d810b68db59bc98306e6" => :el_capitan
+    rebuild 1
+    sha256 "65d735edcaf4fbc2d23d564a831309d43bedc1efaa9574b0e697f48256711df2" => :mojave
+    sha256 "9640919d8abfe07ea06e0c208d13dba96988a99bf8ae6080afcc4c332f58b530" => :high_sierra
+    sha256 "9662ae4fc8ff28f24ea2441a9629fbc66732f1c24d9bd71fca94cea4d16a5901" => :sierra
+    sha256 "f74ea6ea462e6c7de089bcdcb92f9b44f1e9809e8989da7cc50a65ade4e1be77" => :el_capitan
   end
 
   depends_on "cmake" => :build
