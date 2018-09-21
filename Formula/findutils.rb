@@ -13,9 +13,9 @@ class Findutils < Formula
     sha256 "bc20b7e2a97c3277ea13fd91b44fbc0015628e8684a2bba203c38a4c7357f6c7" => :el_capitan
   end
 
-  deprecated_option "default-names" => "with-default-names"
-
   option "with-default-names", "Do not prepend 'g' to the binary"
+
+  deprecated_option "default-names" => "with-default-names"
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of
