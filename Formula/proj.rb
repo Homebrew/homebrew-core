@@ -22,6 +22,8 @@ class Proj < Formula
 
   conflicts_with "blast", :because => "both install a `libproj.a` library"
 
+  skip_clean :la
+
   # The datum grid files are required to support datum shifting
   resource "datumgrid" do
     url "https://download.osgeo.org/proj/proj-datumgrid-1.8.zip"
@@ -73,8 +75,6 @@ class Proj < Formula
     url "https://download.osgeo.org/proj/vdatum/egm08_25/egm08_25.gtx"
     sha256 "c18f20d1fe88616e3497a3eff993227371e1d9acc76f96253e8d84b475bbe6bf"
   end
-
-  skip_clean :la
 
   def install
     resources.each do |r|
