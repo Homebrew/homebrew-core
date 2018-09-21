@@ -4,6 +4,7 @@ class Avrdude < Formula
   url "https://download.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz"
   mirror "https://download-mirror.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz"
   sha256 "0f9f731b6394ca7795b88359689a7fa1fba818c6e1d962513eb28da670e0a196"
+  revision 1
 
   bottle do
     sha256 "65f04843495b83a0840c7d1eceae4c1604761083dc9568f267a864881f2c76ad" => :mojave
@@ -24,8 +25,8 @@ class Avrdude < Formula
 
   depends_on "libelf"
   depends_on "libftdi0"
+  depends_on "libhid"
   depends_on "libusb-compat"
-  depends_on "libhid" => :optional
 
   def install
     if build.head?
