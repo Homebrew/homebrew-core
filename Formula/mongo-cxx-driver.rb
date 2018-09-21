@@ -13,10 +13,10 @@ class MongoCxxDriver < Formula
     sha256 "4a6132cb86de1ce4bfd2bb171b9a935ae90e8e0d59512a79bffbdceee3113849" => :el_capitan
   end
 
-  needs :cxx11
-
   depends_on "cmake" => :build
   depends_on "mongo-c-driver"
+
+  needs :cxx11
 
   def install
     mongo_c_prefix = Formula["mongo-c-driver"].opt_prefix
