@@ -13,11 +13,11 @@ class Unnethack < Formula
     sha256 "a6345197d1067ce08e9220bd74701355d19add9c251794b3f12210cded3dce46" => :yosemite
   end
 
-  # directory for temporary level data of running games
-  skip_clean "var/unnethack/level"
-
   option "with-lisp-graphics", "Enable lisp graphics (play in Emacs)"
   option "with-curses-graphics", "Enable curses graphics (play with fanciness)"
+
+  # directory for temporary level data of running games
+  skip_clean "var/unnethack/level"
 
   def install
     # directory for version specific files that shouldn't be deleted when
