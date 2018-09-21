@@ -29,11 +29,11 @@ class Folly < Formula
   depends_on "snappy"
   depends_on "xz"
 
-  needs :cxx11
-
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
+
+  needs :cxx11
 
   def install
     ENV.cxx11
