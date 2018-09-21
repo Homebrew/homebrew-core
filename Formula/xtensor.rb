@@ -14,12 +14,12 @@ class Xtensor < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx14
-
   resource "xtl" do
     url "https://github.com/QuantStack/xtl/archive/0.4.16.tar.gz"
     sha256 "480b1b9afd810838f8635beea9056f0591a0b4fd4181abaf32c698dfd01bf0ea"
   end
+
+  needs :cxx14
 
   def install
     resource("xtl").stage do
