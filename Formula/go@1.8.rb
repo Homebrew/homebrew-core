@@ -23,18 +23,18 @@ class GoAT18 < Formula
         :branch => "release-branch.go1.8"
   end
 
-  # Backports the following commit from 1.10/1.11:
-  # https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15
-  patch do
-    url "https://github.com/Homebrew/formula-patches/raw/e089e057dbb8aff7d0dc36a6c1933c29dca9c77e/go%401.9/go_19_load_commands.patch"
-    sha256 "771b67df44e3d5d5d7c01ea4a0d1693032bc880ea4f16cf82c1bacb42bfd9b10"
-  end
-
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
     url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
     version "1.7"
     sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+  end
+
+  # Backports the following commit from 1.10/1.11:
+  # https://github.com/golang/go/commit/1a92cdbfc10e0c66f2e015264a39159c055a5c15
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/e089e057dbb8aff7d0dc36a6c1933c29dca9c77e/go%401.9/go_19_load_commands.patch"
+    sha256 "771b67df44e3d5d5d7c01ea4a0d1693032bc880ea4f16cf82c1bacb42bfd9b10"
   end
 
   def install
