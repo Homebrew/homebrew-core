@@ -12,9 +12,9 @@ class Jsonnet < Formula
     sha256 "813122fb2e3cb40932a4c270ed9b9163055df3898a2868bda9e18cf06b403e24" => :el_capitan
   end
 
-  needs :cxx11
-
   depends_on :macos => :mavericks
+
+  needs :cxx11
 
   def install
     ENV.cxx11
