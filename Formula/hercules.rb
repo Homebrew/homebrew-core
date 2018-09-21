@@ -11,14 +11,14 @@ class Hercules < Formula
     sha256 "cf3d8203cb207792e0c800aadc86ee78714795316e936870f5a4ceae53bfdacc" => :el_capitan
   end
 
-  skip_clean :la
-
   head do
     url "https://github.com/hercules-390/hyperion.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  skip_clean :la
 
   def install
     system "./autogen.sh" if build.head?
