@@ -17,12 +17,12 @@ class Ipmiutil < Formula
 
   depends_on "openssl"
 
+  conflicts_with "renameutils", :because => "both install `icmd` binaries"
+
   # Ensure ipmiutil does not try to link against (disabled) OpenSSL's MD2
   # support. Patch submitted upstream in
   # https://sourceforge.net/p/ipmiutil/mailman/message/33373858/
   patch :DATA
-
-  conflicts_with "renameutils", :because => "both install `icmd` binaries"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
