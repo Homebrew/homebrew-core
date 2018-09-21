@@ -14,7 +14,6 @@ class Blahtexml < Formula
   end
 
   depends_on "xerces-c"
-  needs :cxx11
 
   # Add missing unistd.h includes, taken from MacPorts
   patch :p0 do
@@ -26,6 +25,8 @@ class Blahtexml < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/0632225f/blahtexml/patch-main.cpp.diff"
     sha256 "d696d10931f2c2ded1cef50842b78887dba36679fbb2e0abc373e7b6405b8468"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11
