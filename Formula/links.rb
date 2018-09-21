@@ -13,7 +13,7 @@ class Links < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
   depends_on "jpeg" => :optional
   depends_on "librsvg" => :optional
   depends_on "libtiff" => :optional
