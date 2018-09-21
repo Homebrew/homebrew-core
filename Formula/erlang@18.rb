@@ -28,6 +28,16 @@ class ErlangAT18 < Formula
   depends_on "fop" => :optional # enables building PDF docs
   depends_on :java => :optional
 
+  resource "man" do
+    url "https://www.erlang.org/download/otp_doc_man_18.3.tar.gz"
+    sha256 "978be100e9016874921b3ad1a65ee46b7b6a1e597b8db2ec4b5ef436d4c9ecc2"
+  end
+
+  resource "html" do
+    url "https://www.erlang.org/download/otp_doc_html_18.3.tar.gz"
+    sha256 "8fd6980fd05367735779a487df107ace7c53733f52fbe56de7ca7844a355676f"
+  end
+
   # Check if this patch can be removed when OTP 18.3.5 is released.
   # Erlang will crash on macOS 10.13 any time the crypto lib is used.
   # The Erlang team has an open PR for the patch but it needs to be applied to
@@ -42,16 +52,6 @@ class ErlangAT18 < Formula
   patch do
     url "https://github.com/erlang/otp/commit/a64c4d806fa54848c35632114585ad82b98712e8.diff?full_index=1"
     sha256 "3261400f8d7f0dcff3a52821daea3391ebfa01fd859f9f2d9cc5142138e26e15"
-  end
-
-  resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_18.3.tar.gz"
-    sha256 "978be100e9016874921b3ad1a65ee46b7b6a1e597b8db2ec4b5ef436d4c9ecc2"
-  end
-
-  resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_18.3.tar.gz"
-    sha256 "8fd6980fd05367735779a487df107ace7c53733f52fbe56de7ca7844a355676f"
   end
 
   def install
