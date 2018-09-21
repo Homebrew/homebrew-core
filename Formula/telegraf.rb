@@ -1,8 +1,8 @@
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://influxdata.com"
-  url "https://github.com/influxdata/telegraf/archive/1.7.4.tar.gz"
-  sha256 "d02432803c10a898449c468c6c1656c4e600e6291026385523f0983ad8b8a989"
+  url "https://github.com/influxdata/telegraf/archive/1.8.0.tar.gz"
+  sha256 "ae838f9d4c2db4f0b87e2735b5749972830564ccc8d33aec45d290dec706b40b"
   head "https://github.com/influxdata/telegraf.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Telegraf < Formula
     sha256 "ff34166035697a54a4cd2b673778357c10112a02dd15f9ef5f0450e3efdc3a7c" => :el_capitan
   end
 
-  depends_on "gdm" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
@@ -21,7 +21,7 @@ class Telegraf < Formula
     dir = buildpath/"src/github.com/influxdata/telegraf"
     dir.install buildpath.children
     cd dir do
-      system "gdm", "restore"
+      system "dep", "ensure", "-vendor-only"
       system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
       prefix.install_metafiles
     end
