@@ -59,6 +59,11 @@ class Wine < Formula
   depends_on "pkg-config" => :build
   depends_on :macos => :el_capitan
 
+  fails_with :clang do
+    build 425
+    cause "Clang prior to Xcode 5 miscompiles some parts of wine"
+  end
+
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi"
     sha256 "3b8a361f5d63952d21caafd74e849a774994822fb96c5922b01d554f1677643a"
@@ -171,11 +176,6 @@ class Wine < Formula
     url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.10/mpg123-1.25.10.tar.bz2"
     mirror "https://www.mpg123.de/download/mpg123-1.25.10.tar.bz2"
     sha256 "6c1337aee2e4bf993299851c70b7db11faec785303cfca3a5c3eb5f329ba7023"
-  end
-
-  fails_with :clang do
-    build 425
-    cause "Clang prior to Xcode 5 miscompiles some parts of wine"
   end
 
   def openssl_arch_args
