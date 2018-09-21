@@ -25,14 +25,14 @@ class Groonga < Formula
   depends_on "mecab" => :optional
   depends_on "mecab-ipadic" if build.with? "mecab"
 
+  link_overwrite "lib/groonga/plugins/normalizers/"
+  link_overwrite "share/doc/groonga-normalizer-mysql/"
+  link_overwrite "lib/pkgconfig/groonga-normalizer-mysql.pc"
+
   resource "groonga-normalizer-mysql" do
     url "https://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.3.tar.gz"
     sha256 "e4534c725de244f5da72b2b05ddcbf1cfb4e56e71ac40f01acae817adf90d72c"
   end
-
-  link_overwrite "lib/groonga/plugins/normalizers/"
-  link_overwrite "share/doc/groonga-normalizer-mysql/"
-  link_overwrite "lib/pkgconfig/groonga-normalizer-mysql.pc"
 
   def install
     args = %W[
