@@ -12,7 +12,6 @@ class Pdftoedn < Formula
     sha256 "6c183e93d3579a69b5bc3092bee87059b93581fd34c95a92d164977aeb0708af" => :el_capitan
   end
 
-  needs :cxx11
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
@@ -23,6 +22,8 @@ class Pdftoedn < Formula
   depends_on "openssl"
   depends_on "poppler"
   depends_on "rapidjson"
+
+  needs :cxx11
 
   def install
     ENV.cxx11
