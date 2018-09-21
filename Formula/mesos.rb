@@ -22,6 +22,20 @@ class Mesos < Formula
   conflicts_with "nanopb-generator",
     :because => "they depend on an incompatible version of protobuf"
 
+  if DevelopmentTools.clang_build_version >= 802 # does not affect < Xcode 8.3
+    # _scheduler.so segfault when Mesos is built with Xcode 8.3.2
+    # Reported 29 May 2017 https://issues.apache.org/jira/browse/MESOS-7583
+    # The issue does not occur with Xcode 9 beta 3.
+    fails_with :clang do
+      build 802
+      cause "Segmentation fault in _scheduler.so"
+    end
+  end
+
+  # error: 'Megabytes(32).Megabytes::<anonymous>' is not a constant expression
+  # because it refers to an incompletely initialized variable
+  fails_with :gcc => "7"
+
   resource "protobuf" do
     url "https://files.pythonhosted.org/packages/1b/90/f531329e628ff34aee79b0b9523196eb7b5b6b398f112bb0c03b24ab1973/protobuf-3.6.1.tar.gz"
     sha256 "1489b376b0f364bcc6f89519718c057eb191d7ad6f1b395ffd93d1aa45587811"
@@ -52,20 +66,6 @@ class Mesos < Formula
     url "https://files.pythonhosted.org/packages/69/66/a511c428fef8591c5adfa432a257a333e0d14184b6c5d03f1450827f7fe7/google-apputils-0.4.2.tar.gz"
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
-
-  if DevelopmentTools.clang_build_version >= 802 # does not affect < Xcode 8.3
-    # _scheduler.so segfault when Mesos is built with Xcode 8.3.2
-    # Reported 29 May 2017 https://issues.apache.org/jira/browse/MESOS-7583
-    # The issue does not occur with Xcode 9 beta 3.
-    fails_with :clang do
-      build 802
-      cause "Segmentation fault in _scheduler.so"
-    end
-  end
-
-  # error: 'Megabytes(32).Megabytes::<anonymous>' is not a constant expression
-  # because it refers to an incompletely initialized variable
-  fails_with :gcc => "7"
 
   needs :cxx11
 
