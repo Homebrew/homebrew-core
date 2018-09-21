@@ -1,9 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.1-xcode10.tar.gz"
-  version "3.7.1"
-  sha256 "cecc7d92a37b57a24c1cd092f083a7ead8812b867f7ac7df2f2324b4c192a718"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.1.tar.gz"
+  sha256 "b1526ab9ba80a3d5f314dacf22674dff005efb9866774903d0efca5a0fab326d"
   revision 1
 
   bottle do
@@ -11,6 +10,11 @@ class Ice < Formula
     sha256 "a6a580aed075a7edcb9f59886bc59b0e6da888623dbf6d81c98f26c4fc472613" => :high_sierra
     sha256 "73cb8a7d1af848b1832d1e837f2a3ec6c35846a8b7431748fd8e175442261df8" => :sierra
     sha256 "319fa13dfe77aa352dd84fb5495fd548fc7d870305fd7c3ee2137c2f298cbf5e" => :el_capitan
+  end
+
+  patch do
+    url "https://github.com/zeroc-ice/ice/compare/v3.7.1..v3.7.1-xcode10.patch?full_index=1"
+    sha256 "25cbdd9a87ccb0a2c0633e90dc9327d7a73c242c00e686d268d812e89a909f5f"
   end
 
   option "with-java", "Build Ice for Java and the IceGrid GUI app"
