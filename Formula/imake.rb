@@ -16,14 +16,14 @@ class Imake < Formula
   depends_on "gcc"
   depends_on :x11
 
-  patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/patches/a0bb3a4/imake/patch-imakemdep.h.diff"
-    sha256 "1f7a24f625d2611c31540d4304a45f228767becafa37af01e1695d74e612459e"
-  end
-
   resource "xorg-cf-files" do
     url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.5.tar.bz2"
     sha256 "ed23b85043edecc38fad4229e0ebdb7ff80b570e746bc03a7c8678d601be7ed4"
+  end
+
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/patches/a0bb3a4/imake/patch-imakemdep.h.diff"
+    sha256 "1f7a24f625d2611c31540d4304a45f228767becafa37af01e1695d74e612459e"
   end
 
   def install
