@@ -13,6 +13,8 @@ class Zmap < Formula
     sha256 "517ccb75b370f3deee62725a9e74b53a7d3949f3ef214a8769983c7eab72f83e" => :el_capitan
   end
 
+  deprecated_option "with-mongo-c" => "with-mongo-c-driver"
+
   depends_on "byacc" => :build
   depends_on "cmake" => :build
   depends_on "gengetopt" => :build
@@ -22,8 +24,6 @@ class Zmap < Formula
   depends_on "libdnet"
   depends_on "hiredis" => :optional
   depends_on "mongo-c-driver" => :optional
-
-  deprecated_option "with-mongo-c" => "with-mongo-c-driver"
 
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
