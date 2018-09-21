@@ -19,12 +19,15 @@ class NordugridArc < Formula
   depends_on "globus-toolkit"
   depends_on "libxml2"
 
-  needs :cxx11
-
   # build fails on Mavericks due to a clang compiler bug
   # and bottling also fails if gcc is being used due to conflicts between
   # libc++ and libstdc++
   depends_on :macos => :yosemite
+
+  fails_with :clang do
+    build 500
+    cause "Fails with 'template specialization requires \"template<>\"'"
+  end
 
   # bug filed upstream at https://bugzilla.nordugrid.org/show_bug.cgi?id=3514
   patch do
@@ -32,10 +35,7 @@ class NordugridArc < Formula
     sha256 "5561ea013ddd03ee4f72437f2e01f22b2c0cac2806bf837402724be281ac2b6d"
   end
 
-  fails_with :clang do
-    build 500
-    cause "Fails with 'template specialization requires \"template<>\"'"
-  end
+  needs :cxx11
 
   def install
     ENV.cxx11
