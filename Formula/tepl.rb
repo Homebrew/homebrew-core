@@ -3,6 +3,7 @@ class Tepl < Formula
   homepage "https://wiki.gnome.org/Projects/Tepl"
   url "https://download.gnome.org/sources/tepl/4.2/tepl-4.2.0.tar.xz"
   sha256 "8839d4428ecdd87fd5abc657ebbe5a9601a57262e9946845e47dec264e669ccd"
+  revision 1
 
   bottle do
     sha256 "6b809b7405ea082477b7e1831c23556b699e8eb7a810c02db9ff5d7b42d14463" => :mojave
@@ -14,7 +15,7 @@ class Tepl < Formula
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "amtk"
-  depends_on "gtksourceview@4"
+  depends_on "gtksourceview4"
   depends_on "uchardet"
 
   def install
@@ -43,7 +44,7 @@ class Tepl < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
-    gtksourceview4 = Formula["gtksourceview@4"]
+    gtksourceview4 = Formula["gtksourceview4"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
