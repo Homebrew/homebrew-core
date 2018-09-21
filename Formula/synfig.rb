@@ -27,13 +27,13 @@ class Synfig < Formula
   depends_on "openexr"
   depends_on "pango"
 
-  needs :cxx11
-
   # bug filed upstream as https://synfig.org/issues/thebuggenie/synfig/issues/904
   patch do
     url "https://gist.githubusercontent.com/tschoonj/06d5de3cdc5d063f8612/raw/26fe46b6eedeecdc686b9fd5aac01de9f2756424/synfig.diff"
     sha256 "0ac5b757ba3dda6a863a79e717fc239648c490eac1e643ff275b8ac232a466a3"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11
