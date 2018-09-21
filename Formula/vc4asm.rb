@@ -13,14 +13,14 @@ class Vc4asm < Formula
     sha256 "871b3b109ac49b09056f83e4488105196060d2388dc5052c679776b43fab5927" => :yosemite
   end
 
-  needs :cxx11
-
   # Fixes "ar: illegal option combination for -r"
   # Reported 13 Apr 2017 https://github.com/maazl/vc4asm/issues/18
   resource "old_makefile" do
     url "https://raw.githubusercontent.com/maazl/vc4asm/c6991f0/src/Makefile"
     sha256 "2ea9a9e660e85dace2e9b1c9be17a57c8a91e89259d477f9f63820aee102a2d3"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11
