@@ -14,9 +14,6 @@ class BulkExtractor < Formula
 
   depends_on "boost"
   depends_on "openssl"
-  depends_on "afflib" => :optional
-  depends_on "exiv2" => :optional
-  depends_on "libewf" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",
