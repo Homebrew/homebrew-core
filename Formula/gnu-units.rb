@@ -24,6 +24,12 @@ class GnuUnits < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    if build.without? "default-names"
+      (libexec/"gnubin").install_symlink bin/"gunits" => "units"
+      (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
+      (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"
+    end
   end
 
   test do

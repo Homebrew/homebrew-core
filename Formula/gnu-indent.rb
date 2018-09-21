@@ -30,6 +30,11 @@ class GnuIndent < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    if build.without? "default-names"
+      (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
+      (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
+    end
   end
 
   test do
