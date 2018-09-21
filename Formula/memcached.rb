@@ -15,10 +15,10 @@ class Memcached < Formula
   option "with-sasl", "Enable SASL support -- disables ASCII protocol!"
   option "with-sasl-pwdb", "Enable SASL with memcached's own plain text password db support -- disables ASCII protocol!"
 
-  depends_on "libevent"
-
   deprecated_option "enable-sasl" => "with-sasl"
   deprecated_option "enable-sasl-pwdb" => "with-sasl-pwdb"
+
+  depends_on "libevent"
 
   conflicts_with "mysql-cluster", :because => "both install `bin/memcached`"
 
