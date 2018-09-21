@@ -25,14 +25,14 @@ class Mame < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
 
-  # Need C++ compiler and standard library support C++14.
-  needs :cxx14
-
   # jpeg 9 compatibility
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b7053a/mame/jpeg9.patch"
     sha256 "be8095e1b519f17ac4b9e6208f2d434e47346d8b4a8faf001b68749aac3efd20"
   end
+
+  # Need C++ compiler and standard library support C++14.
+  needs :cxx14
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
