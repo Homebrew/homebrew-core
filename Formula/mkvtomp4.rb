@@ -15,10 +15,10 @@ class Mkvtomp4 < Formula
     sha256 "3346ab8be87d01200616db3887ed05d0d6693d2003ca4c3d5530c439ef732544" => :mavericks
   end
 
+  depends_on "ffmpeg"
   depends_on "gpac"
   depends_on "mkvtoolnix"
   depends_on "python@2"
-  depends_on "ffmpeg" => :recommended
 
   def install
     ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
