@@ -15,32 +15,11 @@ class Tenyr < Formula
 
   depends_on "bison" => :build # tenyr requires bison >= 2.5
   depends_on "pkg-config" => :build
-  # sdl2_image implies sdl2. If we specify sdl2 separately, we create
-  # nonsensical possibilities like `--with-sdl2_image --without-sdl2`
-  # tenyr requires sdl2_image --with-png
-  depends_on "sdl2_image" => :recommended
+  depends_on "sdl2_image"
 
   def install
-    bison = Formula["bison"].bin/"bison"
-
-    args = []
-
-    # specify our own bison, since we need bison >= 2.5
-    args << "BISON=" + bison
-
-    # JIT build is not available until we can pull in AsmJit somehow
-    # HEAD version can build with JIT enabled, using git submodule
-    # Right now there is no way for `build.with? "jit"` to be true
-    args << "JIT=0" if build.without? "jit"
-
-    # Use our own build directory (tenyr's default build directory encodes
-    # builder platform information in the path)
-    builddir = "build/homebrew"
-    args << "BUILDDIR=" + builddir
-
-    args << "SDL=0" if build.without?("sdl2_image")
-
-    system "make", *args
+    system "make", "BISON=#{Formula["bison"].opt_bin}/bison",
+                   "JIT=0", "BUILDDIR=build/homebrew"
 
     pkgshare.install "rsrc", "plugins"
     cd builddir do
