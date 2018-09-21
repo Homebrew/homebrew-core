@@ -17,6 +17,9 @@ class Renameutils < Formula
   depends_on "coreutils"
   depends_on "readline" # Use instead of system libedit
 
+  conflicts_with "ipmiutil", :because => "both install `icmd` binaries"
+  conflicts_with "irods", :because => "both install `icp` and `imv` binaries"
+
   # Use the GNU versions of certain system utilities. See:
   # https://trac.macports.org/ticket/24525
   # Patches rewritten at version 0.12.0 to handle file changes.
@@ -24,9 +27,6 @@ class Renameutils < Formula
   # make install to fail.  Reported upstream via email and fixed in HEAD.
   # Remove patch #4 at version > 0.12.0.  The first three should persist.
   patch :DATA
-
-  conflicts_with "ipmiutil", :because => "both install `icmd` binaries"
-  conflicts_with "irods", :because => "both install `icp` and `imv` binaries"
 
   def install
     system "./configure", "--disable-dependency-tracking",
