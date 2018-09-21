@@ -39,11 +39,11 @@ class PhpAT70 < Formula
   depends_on "unixodbc"
   depends_on "webp"
 
-  needs :cxx11
-
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
   patch :DATA
+
+  needs :cxx11
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
