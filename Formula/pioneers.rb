@@ -11,17 +11,17 @@ class Pioneers < Formula
     sha256 "e366345048bf9d0ea67815050233846432d6bb8ef15bb5efd92e78e2a2384d1e" => :el_capitan
   end
 
-  fails_with :clang do
-    build 318
-    cause "'#line directive requires a positive integer' argument in generated file"
-  end
-
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+3"
   depends_on "librsvg" # svg images for gdk-pixbuf
+
+  fails_with :clang do
+    build 318
+    cause "'#line directive requires a positive integer' argument in generated file"
+  end
 
   def install
     # fix usage of echo options not supported by sh
