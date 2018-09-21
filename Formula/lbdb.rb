@@ -12,7 +12,7 @@ class Lbdb < Formula
     sha256 "8922d0c2e0905ea7ee43ec738042333b3cfa79558c8529f10d6c26c0c57fbc85" => :el_capitan
   end
 
-  depends_on "abook" => :recommended
+  depends_on "abook"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--libdir=#{lib}/lbdb"
