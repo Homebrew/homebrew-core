@@ -14,8 +14,8 @@ class Ykpers < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "json-c"
   depends_on "libyubikey"
-  depends_on "json-c" => :recommended
 
   def install
     libyubikey_prefix = Formula["libyubikey"].opt_prefix
