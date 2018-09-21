@@ -17,19 +17,17 @@ class Xmoto < Formula
     depends_on "automake" => :build
   end
 
-  deprecated_option "without-lua" => "without-lua@5.1"
-
+  depends_on "gettext"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libxdg-basedir"
   depends_on "libxml2"
+  depends_on "lua@5.1"
   depends_on "ode"
   depends_on "sdl"
   depends_on "sdl_mixer"
   depends_on "sdl_net"
   depends_on "sdl_ttf"
-  depends_on "gettext" => :recommended
-  depends_on "lua@5.1" => :recommended
 
   def install
     # Fix issues reported upstream
