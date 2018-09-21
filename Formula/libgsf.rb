@@ -23,7 +23,6 @@ class Libgsf < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gdk-pixbuf" => :optional
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
