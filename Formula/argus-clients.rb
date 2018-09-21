@@ -13,8 +13,8 @@ class ArgusClients < Formula
     sha256 "1f9efb0c9ed77f8c546595cfda46c60dcaec81e3c0d01e5a4d7a31595a24f88c" => :el_capitan
   end
 
-  depends_on "readline" => :recommended
-  depends_on "rrdtool" => :recommended
+  depends_on "readline"
+  depends_on "rrdtool"
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
