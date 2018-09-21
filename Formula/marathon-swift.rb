@@ -1,8 +1,8 @@
 class MarathonSwift < Formula
   desc "Makes it easy to write, run and manage your Swift scripts"
   homepage "https://github.com/JohnSundell/Marathon"
-  url "https://github.com/JohnSundell/Marathon/archive/1.0.1.tar.gz"
-  sha256 "ebf455159497ae7747784dd9a95b9678dab27db49e8e10c7c6fc2878edcdbce9"
+  url "https://github.com/JohnSundell/Marathon/archive/3.1.0.tar.gz"
+  sha256 "98f454bd788d8e6dc670c99f1fbafdfd1dd0cb75b09a5db3d407e5ef31265120"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,7 +11,7 @@ class MarathonSwift < Formula
     sha256 "80fc6f4b1ff33081f4b27091ea42901c3921e00f6ffc3a2017662e6905e562df" => :sierra
   end
 
-  depends_on :xcode => ["8.3", :build]
+  depends_on :xcode => ["9.0", :build]
 
   def install
     if MacOS::Xcode.version >= "9.0"
