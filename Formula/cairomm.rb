@@ -13,12 +13,12 @@ class Cairomm < Formula
     sha256 "ce58504dbe14cd1a27aeecd7eed1d95c6fa7819b8ff6ab451e02462cdc699e83" => :yosemite
   end
 
-  needs :cxx11
-
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "libpng"
   depends_on "libsigc++"
+
+  needs :cxx11
 
   def install
     ENV.cxx11
