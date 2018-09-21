@@ -7,10 +7,11 @@ class Superlu < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6a32a8ef8869d0b594cbe2bec7e6e2dca0a94ab0454e38fe9a0ed62256667dfa" => :mojave
-    sha256 "ea56d9279bc469e4883304e8a3c7a78500e7ad767c2e9e756043e8b382f2f6df" => :high_sierra
-    sha256 "bf92da15ea05a65a0079658c7e1ac337c2f53fd82351817bc44e159b08bf289d" => :sierra
-    sha256 "0e865bc43b87f76ea4ae55d7b55460e8ea46e3606c8840baba2b1e0e57d1e605" => :el_capitan
+    rebuild 1
+    sha256 "99db35e78ccfb979cfdb922bebf7f79ce9479d5683900d7f64110cb42c92f4c7" => :mojave
+    sha256 "5c037c2cf95a26ea76672e0831ac3fbf34bb8d4378acc21dc99040f7b9b421f7" => :high_sierra
+    sha256 "e4fdd5560b722e5fbb5892cde2795a5dcf18889d4f663315fa29a154a266af3a" => :sierra
+    sha256 "a20af0692236e73bce9cdd4c659ba7b0c98d7dbaf2953bbf0eae4255abec0e1d" => :el_capitan
   end
 
   depends_on "veclibfort"
