@@ -11,10 +11,10 @@ class Inspircd < Formula
     sha256 "35015617fd5117d9eed2d3370572ffb89d3e20cec9c86ceecab61eb26eb73024" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
+
   skip_clean "data"
   skip_clean "logs"
-
-  depends_on "pkg-config" => :build
 
   def install
     system "./configure", "--enable-extras=m_ldapauth.cpp,m_ldapoper.cpp"
