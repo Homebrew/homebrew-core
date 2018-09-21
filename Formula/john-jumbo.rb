@@ -22,14 +22,14 @@ class JohnJumbo < Formula
 
   conflicts_with "john", :because => "both install the same binaries"
 
-  # Patch taken from MacPorts, tells john where to find runtime files.
-  # https://github.com/magnumripper/JohnTheRipper/issues/982
-  patch :DATA
-
   # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
   fails_with :gcc do
     cause "Upstream have a hacky workaround for supporting gcc that we can't use."
   end
+
+  # Patch taken from MacPorts, tells john where to find runtime files.
+  # https://github.com/magnumripper/JohnTheRipper/issues/982
+  patch :DATA
 
   # Previously john-jumbo ignored the value of $HOME; fixed
   # upstream.  See
