@@ -16,11 +16,11 @@ class NicotinePlus < Formula
     sha256 "c8243dedb84548dee2f8c663bd3cd4211885b2a1a928bc733a2ee663a9f63fe0" => :el_capitan
   end
 
+  depends_on "geoip"
   depends_on "gtk+"
+  depends_on "miniupnpc"
   depends_on "pygtk"
   depends_on "python@2"
-  depends_on "geoip" => :recommended
-  depends_on "miniupnpc" => :recommended
 
   resource "mutagen" do
     url "https://files.pythonhosted.org/packages/14/d5/51f49f345d4490a9a6a04677ab136f78e4e0c64ed142e48b4ed818c13c96/mutagen-1.37.tar.gz"
@@ -40,8 +40,8 @@ class NicotinePlus < Formula
   def install
     venv = virtualenv_create(libexec)
     venv.pip_install "mutagen"
-    venv.pip_install "miniupnpc" if build.with? "miniupnpc"
-    venv.pip_install "python-geoip" if build.with? "geoip"
+    venv.pip_install "miniupnpc"
+    venv.pip_install "python-geoip"
     venv.pip_install_and_link buildpath
   end
 
