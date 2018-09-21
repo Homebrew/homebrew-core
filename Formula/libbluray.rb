@@ -24,7 +24,7 @@ class Libbluray < Formula
   depends_on :java => ["1.8", :build]
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
-  depends_on "freetype" => :recommended
+  depends_on "freetype"
 
   def install
     # Need to set JAVA_HOME manually since ant overrides 1.8 with 1.8+
@@ -35,7 +35,6 @@ class Libbluray < Formula
     ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
 
     args = %W[--prefix=#{prefix} --disable-dependency-tracking]
-    args << "--without-freetype" if build.without? "freetype"
 
     system "./bootstrap" if build.head?
     system "./configure", *args
