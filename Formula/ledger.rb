@@ -13,12 +13,11 @@ class Ledger < Formula
     sha256 "9e28e41459615b80d02f5fa9f2459b7a3f75bd0d4fc0cbb1031b1611fe84c52c" => :el_capitan
   end
 
-  deprecated_option "debug" => "with-debug"
-
   option "with-debug", "Build with debugging symbols enabled"
   option "with-docs", "Build HTML documentation"
   option "without-python@2", "Build without python support"
 
+  deprecated_option "debug" => "with-debug"
   deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
