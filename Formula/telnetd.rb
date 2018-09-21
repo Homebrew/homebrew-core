@@ -6,9 +6,11 @@ class Telnetd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "491a7002f9649077f12835b8c94e22e240862cd48b833d80076de26b41399812" => :high_sierra
-    sha256 "933c4dcd343225ea93f09981bb7a92d152f0ad766214b4efd5fbbe8756a72873" => :sierra
-    sha256 "73e799af3062f0b86f86f34840bc2b6b82b0ac5d17d0b451ad52155182a69983" => :el_capitan
+    rebuild 1
+    sha256 "61c06e02268d33b84484ba991221493ef0d01dfcff6c4e655ff831c3f7fc6f51" => :mojave
+    sha256 "6c0d7658f3f74e12ea983a72907635a0444d97290b43c604b96218b4e6ca52d1" => :high_sierra
+    sha256 "43e4d4a2eb55629583d76ce9c6131f2ce1d4868b90d2e24a170ffc63f4947c8a" => :sierra
+    sha256 "87932091398ba2cddf14298d70ce1b17ebb7c1e734e177807f23444a44987df2" => :el_capitan
   end
 
   depends_on :xcode => :build
