@@ -20,8 +20,6 @@ class Ghostscript < Formula
     depends_on "libtool" => :build
   end
 
-  patch :DATA # Uncomment macOS-specific make vars
-
   depends_on "pkg-config" => :build
   depends_on "libtiff"
   depends_on "little-cms2"
@@ -32,6 +30,8 @@ class Ghostscript < Formula
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
   end
+
+  patch :DATA # Uncomment macOS-specific make vars
 
   def install
     args = %W[
