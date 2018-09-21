@@ -14,9 +14,9 @@ class Librdkafka < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "lz4"
   depends_on "lzlib"
   depends_on "openssl"
-  depends_on "lz4" => :recommended
 
   def install
     system "./configure", "--disable-dependency-tracking",
