@@ -18,10 +18,10 @@ class ProtobufSwift < Formula
   depends_on "libtool" => :build
   depends_on "protobuf"
 
-  needs :cxx11
-
   conflicts_with "swift-protobuf",
     :because => "both install `protoc-gen-swift` binaries"
+
+  needs :cxx11
 
   def install
     ENV.cxx11
