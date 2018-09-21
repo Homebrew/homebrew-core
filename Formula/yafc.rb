@@ -14,15 +14,14 @@ class Yafc < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libssh"
   depends_on "readline"
-  depends_on "libssh" => :recommended
 
   def install
     args = %W[
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
     ]
-    args << "--without-ssh" if build.without? "libssh"
 
     system "./configure", *args
     system "make", "install"
