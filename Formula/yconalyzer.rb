@@ -15,6 +15,10 @@ class Yconalyzer < Formula
     sha256 "c2c6d2a81a8b13515192b716bac7df7db078e986f8306d37d3b4da5a2f05ccd6" => :mavericks
   end
 
+  # Fix build issues issue on OS X 10.9/clang
+  # Patch reported to upstream - https://sourceforge.net/p/yconalyzer/bugs/3/
+  patch :p0, :DATA
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -23,10 +27,6 @@ class Yconalyzer < Formula
     chmod 0755, "./install-sh"
     system "make", "install"
   end
-
-  # Fix build issues issue on OS X 10.9/clang
-  # Patch reported to upstream - https://sourceforge.net/p/yconalyzer/bugs/3/
-  patch :p0, :DATA
 end
 __END__
 --- yconalyzer.cc.orig	2014-01-12 14:15:17.000000000 +0800
