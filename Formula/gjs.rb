@@ -18,12 +18,12 @@ class Gjs < Formula
   depends_on "readline"
   depends_on "gtk+3" => :recommended
 
-  needs :cxx11
-
   resource "mozjs60" do
     url "https://archive.mozilla.org/pub/firefox/releases/60.1.0esr/source/firefox-60.1.0esr.source.tar.xz"
     sha256 "a4e7bb80e7ebab19769b2b8940966349136a99aabd497034662cffa54ea30e40"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11
