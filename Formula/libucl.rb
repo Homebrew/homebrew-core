@@ -17,7 +17,6 @@ class Libucl < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "lua" => :optional
 
   def install
     system "./autogen.sh"
@@ -29,7 +28,6 @@ class Libucl < Formula
       --enable-utils
       --prefix=#{prefix}
     ]
-    args << "--enable-lua" if build.with? "lua"
 
     system "./configure", *args
     system "make", "install"
