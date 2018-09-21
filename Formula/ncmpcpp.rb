@@ -21,13 +21,13 @@ class Ncmpcpp < Formula
     depends_on "libtool" => :build
   end
 
-  deprecated_option "outputs" => "with-outputs"
-  deprecated_option "visualizer" => "with-visualizer"
-  deprecated_option "clock" => "with-clock"
-
   option "with-outputs", "Compile with mpd outputs control"
   option "with-visualizer", "Compile with built-in visualizer"
   option "with-clock", "Compile with optional clock tab"
+
+  deprecated_option "outputs" => "with-outputs"
+  deprecated_option "visualizer" => "with-visualizer"
+  deprecated_option "clock" => "with-clock"
 
   depends_on "pkg-config" => :build
   depends_on "boost"
