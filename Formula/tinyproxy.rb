@@ -16,10 +16,10 @@ class Tinyproxy < Formula
   option "with-transparent", "Enable transparent proxying"
   option "with-filter", "Enable url filtering"
 
+  deprecated_option "reverse" => "with-reverse"
+
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
-
-  deprecated_option "reverse" => "with-reverse"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
