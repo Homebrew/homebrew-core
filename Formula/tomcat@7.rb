@@ -13,13 +13,13 @@ class TomcatAT7 < Formula
 
   depends_on :java
 
+  # Keep log folders
+  skip_clean "libexec"
+
   resource "fulldocs" do
     url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.90/bin/apache-tomcat-7.0.90-fulldocs.tar.gz"
     sha256 "0ec9ea2cac2dd795cd207da47f9313f3df5276980142f7383e2f53909dcaaf62"
   end
-
-  # Keep log folders
-  skip_clean "libexec"
 
   def install
     # Remove Windows scripts
