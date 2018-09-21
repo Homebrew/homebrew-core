@@ -14,13 +14,13 @@ class Tracebox < Formula
     sha256 "2c0b3b4bb42d38aafdb702f3b7a5e514588ce75dd5dc459368d40273332b3a7d" => :el_capitan
   end
 
-  needs :cxx11
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "json-c"
   depends_on "lua"
+
+  needs :cxx11
 
   def install
     ENV.libcxx
