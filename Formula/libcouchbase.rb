@@ -13,7 +13,9 @@ class Libcouchbase < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libev"
   depends_on "libevent"
+  depends_on "libuv"
   depends_on "openssl"
 
   def install
@@ -21,8 +23,8 @@ class Libcouchbase < Formula
       system "cmake", "..", *std_cmake_args,
                             "-DLCB_NO_TESTS=1",
                             "-DLCB_BUILD_LIBEVENT=ON",
-                            "-DLCB_BUILD_LIBEV=OFF",
-                            "-DLCB_BUILD_LIBUV=OFF"
+                            "-DLCB_BUILD_LIBEV=ON",
+                            "-DLCB_BUILD_LIBUV=ON"
       system "make", "install"
     end
   end
