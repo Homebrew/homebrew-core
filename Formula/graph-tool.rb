@@ -29,13 +29,6 @@ class GraphTool < Formula
   depends_on "python"
   depends_on "scipy"
 
-  # Remove for > 2.27
-  # Upstream commit from 3 Jul 2018 "Fix incompatibility with Python 3.7"
-  patch do
-    url "https://git.skewed.de/count0/graph-tool/commit/0407f41a.diff"
-    sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
-  end
-
   resource "Cycler" do
     url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
     sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
@@ -69,6 +62,13 @@ class GraphTool < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+  end
+
+  # Remove for > 2.27
+  # Upstream commit from 3 Jul 2018 "Fix incompatibility with Python 3.7"
+  patch do
+    url "https://git.skewed.de/count0/graph-tool/commit/0407f41a.diff"
+    sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
   end
 
   def install
