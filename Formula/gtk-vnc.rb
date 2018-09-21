@@ -5,10 +5,11 @@ class GtkVnc < Formula
   sha256 "3a9a88426809a5df2c14353cd9839b8c8163438cb708b31d8048c79d180fcab7"
 
   bottle do
-    sha256 "e097421c1c9e04dbccc1afdf8878d9ef906e20a19f70dfc04268b5f5a9e7c151" => :mojave
-    sha256 "46f9946e8e7fbfe9003b615350e750795514d0be5ab2ce93232daccc556cd0e1" => :high_sierra
-    sha256 "d519139009c47cc5673efd583ed08d022babfa9315f78d87a0c0d35260f33a6f" => :sierra
-    sha256 "e7c133b6fa20f0c68cb50bb773c80c7e747571dfeaddded32b1fee52c45a5c4b" => :el_capitan
+    rebuild 1
+    sha256 "677145986939e0fe9c01a2fccbd492b06acbe47c58ec7d13f3b13d1f52532304" => :mojave
+    sha256 "510531935bb5d84e4a57c44aec6e62b0b3885f3ba3e4f41add15fcb17b60adf9" => :high_sierra
+    sha256 "1c846c72d56f987696174c43d4251e4966787435245ffc3ba40aee671e9e1a38" => :sierra
+    sha256 "6a624b5f4aa844fe69695d72b8f7c65dea5cc1c2328404c0c78c9670b2c952ac" => :el_capitan
   end
 
   depends_on "gettext" => :build
