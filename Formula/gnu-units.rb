@@ -12,9 +12,9 @@ class GnuUnits < Formula
     sha256 "d735946b103d42cbc06f771b157312db9e513e0a351f285aa7cd681ade7ab437" => :el_capitan
   end
 
-  deprecated_option "default-names" => "with-default-names"
-
   option "with-default-names", "Do not prepend 'g' to the binary"
+
+  deprecated_option "default-names" => "with-default-names"
 
   depends_on "readline"
 
