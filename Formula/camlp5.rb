@@ -14,8 +14,9 @@ class Camlp5 < Formula
     sha256 "f8561228e8b21eeaf36d56b56550c26cc8ddfe84b87489b5855f38d8902e3d08" => :el_capitan
   end
 
-  deprecated_option "strict" => "with-strict"
   option "with-strict", "Compile in strict mode (not recommended)"
+
+  deprecated_option "strict" => "with-strict"
 
   depends_on "ocaml"
 
