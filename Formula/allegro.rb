@@ -22,14 +22,10 @@ class Allegro < Formula
   depends_on "physfs"
   depends_on "theora"
   depends_on "webp"
-  depends_on "dumb" => :optional
 
   def install
-    args = std_cmake_args
-    args << "-DWANT_DOCS=OFF"
-    args << "-DWANT_MODAUDIO=1" if build.with? "dumb"
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DWANT_DOCS=OFF"
       system "make", "install"
     end
   end
