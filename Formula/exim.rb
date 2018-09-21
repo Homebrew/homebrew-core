@@ -11,8 +11,9 @@ class Exim < Formula
     sha256 "df47c95efa6bcfe75fb26898845b341be2d9fbc26e1f0ba82d12dc6463ffbcaf" => :el_capitan
   end
 
-  deprecated_option "support-maildir" => "with-maildir"
   option "with-maildir", "Support delivery in Maildir format"
+
+  deprecated_option "support-maildir" => "with-maildir"
 
   depends_on "berkeley-db@4"
   depends_on "openssl"
