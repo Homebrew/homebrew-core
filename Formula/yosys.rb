@@ -18,13 +18,6 @@ class Yosys < Formula
   depends_on "python"
   depends_on "readline"
 
-  # The makefile in Yosys 0.7 adds library search paths from macports, which a homebrew build
-  # should not be using. It also prints warnings about a missing brew command.
-  # See https://github.com/cliffordwolf/yosys/pull/303 for discussion.
-  # The patch is based on the Makefile changes in this upstream commit:
-  # https://github.com/cliffordwolf/yosys/commit/a431f4ee311b9563f546201d255e429e9ce58cfa
-  patch :DATA
-
   # This ABC revision is specified in the makefile.
   # The makefile by default checks it out using mercurial,
   # but this recipe instead downloads a tar.gz archive.
@@ -32,6 +25,13 @@ class Yosys < Formula
     url "https://bitbucket.org/alanmi/abc/get/eb6eca6807cc.tar.gz"
     sha256 "ae9acddad38a950d48466e2f66de8116f2d21d03c78f5a270fa3bf77c3fd7b5b"
   end
+
+  # The makefile in Yosys 0.7 adds library search paths from macports, which a homebrew build
+  # should not be using. It also prints warnings about a missing brew command.
+  # See https://github.com/cliffordwolf/yosys/pull/303 for discussion.
+  # The patch is based on the Makefile changes in this upstream commit:
+  # https://github.com/cliffordwolf/yosys/commit/a431f4ee311b9563f546201d255e429e9ce58cfa
+  patch :DATA
 
   def install
     resource("abc").stage buildpath/"abc"
