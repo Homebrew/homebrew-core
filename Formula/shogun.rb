@@ -31,6 +31,16 @@ class Shogun < Formula
 
   cxxstdlib_check :skip
 
+  resource "jblas" do
+    url "https://mikiobraun.github.io/jblas/jars/jblas-1.2.3.jar"
+    sha256 "e9328d4e96db6b839abf50d72f63626b2309f207f35d0858724a6635742b8398"
+  end
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/ee/66/7c2690141c520db08b6a6f852fa768f421b0b50683b7bbcd88ef51f33170/numpy-1.14.0.zip"
+    sha256 "3de643935b212307b420248018323a44ec51987a336d1d747c1322afc3c099fb"
+  end
+
   # Fixes the linking of the python interface.
   # Upstream commit from 8 Jan 2018 https://github.com/shogun-toolbox/shogun/commit/ff8840ce0e
   patch do
@@ -52,16 +62,6 @@ class Shogun < Formula
   patch do
     url "https://github.com/shogun-toolbox/shogun/commit/365ce4c4c7.patch?full_index=1"
     sha256 "0a1c3e2e16b2ce70855c1f15876bddd5e5de35ab29290afceacdf7179c4558cb"
-  end
-
-  resource "jblas" do
-    url "https://mikiobraun.github.io/jblas/jars/jblas-1.2.3.jar"
-    sha256 "e9328d4e96db6b839abf50d72f63626b2309f207f35d0858724a6635742b8398"
-  end
-
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/ee/66/7c2690141c520db08b6a6f852fa768f421b0b50683b7bbcd88ef51f33170/numpy-1.14.0.zip"
-    sha256 "3de643935b212307b420248018323a44ec51987a336d1d747c1322afc3c099fb"
   end
 
   needs :cxx11
