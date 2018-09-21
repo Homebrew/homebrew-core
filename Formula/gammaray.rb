@@ -14,11 +14,11 @@ class Gammaray < Formula
 
   option "with-vtk", "Build with VTK-with-Qt support, for object 3D visualizer"
 
-  needs :cxx11
-
   depends_on "cmake" => :build
   depends_on "qt"
   depends_on "graphviz" => :recommended
+
+  needs :cxx11
 
   def install
     # For Mountain Lion
