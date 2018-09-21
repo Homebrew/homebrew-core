@@ -13,11 +13,11 @@ class Wireshark < Formula
     sha256 "2965b3cbbace6a701c9e0c164af91ae432aaa77311e955b6dee763ac4c456467" => :el_capitan
   end
 
-  deprecated_option "with-qt5" => "with-qt"
-
   option "with-qt", "Build the wireshark command with Qt"
   option "with-headers", "Install Wireshark library headers for plug-in development"
   option "with-nghttp2", "Enable HTTP/2 header dissection"
+
+  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "c-ares"
