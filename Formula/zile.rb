@@ -13,6 +13,10 @@ class Zile < Formula
     sha256 "25330278315a0e2fbc7cd731d69e88ba8205cd4d622ca7a0abbc638f95e6d937" => :el_capitan
   end
 
+  depends_on "help2man" => :build
+  depends_on "pkg-config" => :build
+  depends_on "bdw-gc"
+
   # https://github.com/mistydemeo/tigerbrew/issues/215
   fails_with :gcc_4_0 do
     cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
@@ -21,10 +25,6 @@ class Zile < Formula
   fails_with :gcc do
     cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
   end
-
-  depends_on "help2man" => :build
-  depends_on "pkg-config" => :build
-  depends_on "bdw-gc"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
