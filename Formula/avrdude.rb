@@ -7,12 +7,10 @@ class Avrdude < Formula
   revision 1
 
   bottle do
-    sha256 "65f04843495b83a0840c7d1eceae4c1604761083dc9568f267a864881f2c76ad" => :mojave
-    sha256 "cf4744484312894ba0feb9380fae6bf13967655db74bd24c52ccc30c7eacd26c" => :high_sierra
-    sha256 "45c59c4d7821476baa9354c5d57254ee2e7a589f4928f4ecc68f55c93dd648c6" => :sierra
-    sha256 "4e5318b6c2022a2c33f2cd7528c02a23599097227a390855b8ad5f0680c85dd3" => :el_capitan
-    sha256 "5abc4587ae12d475dd95a1b94e1c3045c4c4a64037d7be3dc935ff3a41d0285c" => :yosemite
-    sha256 "17916229c901c02efd79616a053fd6910a1e6c07c90027d868b43c5b536f86d5" => :mavericks
+    sha256 "65fe6de6f540eb1c6ad94d35c847f8a5921cc9059ff044d1bc78f68cc8b8334b" => :mojave
+    sha256 "b0cb94b5c4f01fcc870f286bca293218c98fda23d76397db8a831272f7087038" => :high_sierra
+    sha256 "e8e26af5565cd897867d4e6e71e66e6e946e1e21eb4e27d3cd49f199f088fc5d" => :sierra
+    sha256 "c953526dc893a9b162a109d074edf8bb71d7049c63990282edc994c63de90c44" => :el_capitan
   end
 
   head do
