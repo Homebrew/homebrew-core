@@ -19,7 +19,6 @@ end
 class LlvmAT6 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-
   url "https://releases.llvm.org/6.0.1/llvm-6.0.1.src.tar.xz"
   sha256 "b6d6c324f9c71494c0ccaf3dac1f16236d970002b42bb24a6c9e1634f7d0f4e2"
 
@@ -30,6 +29,12 @@ class LlvmAT6 < Formula
     sha256 "678c82b80c002acc096a4eb9d4554adeae839751e780831a953e21cbd8f368aa" => :high_sierra
     sha256 "9c243e27f8d49570e3fc0378605fa627ab6e57049d6d6e1376c9bbd88aa1f902" => :sierra
     sha256 "ae87b1ab1ca1994f18891831d36b23cff4ecb271265d7629b6c19f2a968f22ba" => :el_capitan
+  end
+
+  # Clang cannot find system headers if Xcode CLT is not installed
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
   end
 
   keg_only :versioned_formula
@@ -53,6 +58,13 @@ class LlvmAT6 < Formula
   if build.with? "lldb"
     depends_on "swig" if MacOS.version >= :lion
     depends_on CodesignRequirement
+  end
+
+  # According to the official llvm readme, GCC 4.7+ is required
+  fails_with :gcc_4_0
+  fails_with :gcc
+  ("4.3".."4.6").each do |n|
+    fails_with :gcc => n
   end
 
   resource "clang" do
@@ -98,19 +110,6 @@ class LlvmAT6 < Formula
   resource "polly" do
     url "https://releases.llvm.org/6.0.1/polly-6.0.1.src.tar.xz"
     sha256 "e7765fdf6c8c102b9996dbb46e8b3abc41396032ae2315550610cf5a1ecf4ecc"
-  end
-
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_0
-  fails_with :gcc
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
-  # Clang cannot find system headers if Xcode CLT is not installed
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
   end
 
   def install
