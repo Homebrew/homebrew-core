@@ -43,8 +43,6 @@ class Tesseract < Formula
     depends_on :x11
   end
 
-  needs :cxx11
-
   resource "tessdata" do
     url "https://github.com/tesseract-ocr/tessdata/archive/3.04.00.tar.gz"
     sha256 "5dcb37198336b6953843b461ee535df1401b41008d550fc9e43d0edabca7adb1"
@@ -64,6 +62,8 @@ class Tesseract < Formula
     url "https://github.com/USCDataScience/counterfeit-electronics-tesseract/raw/319a6eeacff181dad5c02f3e7a3aff804eaadeca/Training%20Tesseract/snum.traineddata"
     sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
   end
+
+  needs :cxx11
 
   def install
     if build.with? "training-tools"
