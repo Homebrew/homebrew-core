@@ -16,9 +16,9 @@ class Slashem < Formula
     sha256 "9220e4e678c8302cd7c1ae15b4af08a733899c38717021c867e35decf79f00a7" => :yosemite
   end
 
-  skip_clean "slashemdir/save"
-
   depends_on "pkg-config" => :build
+
+  skip_clean "slashemdir/save"
 
   # Fixes compilation error in OS X: https://sourceforge.net/p/slashem/bugs/896/
   patch :DATA
