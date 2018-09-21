@@ -24,14 +24,14 @@ class Gobby < Formula
   depends_on "libinfinity"
   depends_on "libxml++"
 
-  needs :cxx11
-
   # Necessary to remove mandatory gtk-mac-integration
   # it's badly broken as it depends on an ancient version of ige-mac-integration
   # since it depends on gtk3, it doesn't even need gtk-mac-integration anymore
   # This has already been fixed upstream: gtk2 support has been dropped completely
   # and all traces of ige-mac-integration have been removed from the code
   patch :DATA
+
+  needs :cxx11
 
   def install
     ENV.cxx11
