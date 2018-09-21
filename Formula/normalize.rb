@@ -15,9 +15,7 @@ class Normalize < Formula
     sha256 "9c12615d384a706feb8ddb693dadacfc5bfc48827e5722dd6476325bbe5e90b9" => :mavericks
   end
 
-  option "without-mad", "Compile without MP3 support"
-
-  depends_on "mad" => :recommended
+  depends_on "mad"
 
   conflicts_with "num-utils", :because => "both install `normalize` binaries"
 
@@ -28,7 +26,6 @@ class Normalize < Formula
       --prefix=#{prefix}
       --mandir=#{man}
     ]
-    args << "--without-mad" if build.without? "mad"
 
     system "./configure", *args
     system "make", "install"
