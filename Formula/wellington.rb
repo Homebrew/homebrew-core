@@ -15,8 +15,6 @@ class Wellington < Formula
     sha256 "224a5a7d40b14cbd89e6cec80c73fd775aaf660c94fba53d651b70aab56524e9" => :yosemite
   end
 
-  needs :cxx11
-
   depends_on "go" => :build
   depends_on "pkg-config" => :build
 
@@ -24,6 +22,8 @@ class Wellington < Formula
     url "https://github.com/golang/net.git",
         :revision => "f09c4662a0bd6bd8943ac7b4931e185df9471da4"
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11 if MacOS.version < :mavericks
