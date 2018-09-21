@@ -12,13 +12,11 @@ class Feh < Formula
   end
 
   depends_on "imlib2"
+  depends_on "libexif"
   depends_on :x11
-  depends_on "libexif" => :recommended
 
   def install
-    args = ["verscmp=0"]
-    args << "exif=1" if build.with? "libexif"
-    system "make", "PREFIX=#{prefix}", *args
+    system "make", "PREFIX=#{prefix}", "verscmp=0", "exif=1"
     system "make", "PREFIX=#{prefix}", "install"
   end
 
