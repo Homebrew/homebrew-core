@@ -7,10 +7,10 @@ class Fmsx < Formula
 
   bottle do
     cellar :any
-    sha256 "ef9f89421934556b6c7ade31c4b027afa275e123cd32f2e1f1116cda38b8febb" => :high_sierra
-    sha256 "8a0005dbba341780f5c384e0b7788e2cb7e0b93b2bb0efa89fccba2407fba619" => :sierra
-    sha256 "c2dc81794aa3bbc933b97196e07292e484f480e69f8fd1aec3b62b12f3902f38" => :el_capitan
-    sha256 "6fcd0c12e2aa9be7a21e35ad51f307d958abb7cefcec3f57cfe33746fac7777b" => :yosemite
+    sha256 "366914aa768a34c0e10507c618ffa73cc3116823a91f30b8d56c94f1efb0ce0e" => :mojave
+    sha256 "888f28e2d549ffcd8507c126c18047c64f36670a0d6d86d9469bceb47245c0e3" => :high_sierra
+    sha256 "dd7617947a4e85063cc5d41fc82eabdd54a3d456475533ad65431d1f2fd6338a" => :sierra
+    sha256 "f17025b7856d7e9fc17d58361a8686bd6d27b4182e28632b0e9d797d0fcf22f9" => :el_capitan
   end
 
   depends_on "pulseaudio"
