@@ -11,6 +11,13 @@ class Mono < Formula
     sha256 "22551363ddcd90271af6bac89055ea7bfdf0647455b9ea0be355649dfc6e6e9a" => :el_capitan
   end
 
+  option "without-fsharp", "Build without support for the F# language."
+
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+
+  conflicts_with "xsd", :because => "both install `xsd` binaries"
+
   # xbuild requires the .exe files inside the runtime directories to
   # be executable
   skip_clean "lib/mono"
@@ -21,13 +28,6 @@ class Mono < Formula
   link_overwrite "bin/fssrgen"
   link_overwrite "lib/mono"
   link_overwrite "lib/cli"
-
-  option "without-fsharp", "Build without support for the F# language."
-
-  depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-
-  conflicts_with "xsd", :because => "both install `xsd` binaries"
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
