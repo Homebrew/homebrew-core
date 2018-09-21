@@ -16,8 +16,6 @@ class Nzbget < Formula
   depends_on "gcc" if MacOS.version <= :mavericks
   depends_on "openssl"
 
-  needs :cxx11
-
   fails_with :clang do
     build 600
     cause "No compiler with C++14 support was found"
@@ -30,6 +28,8 @@ class Nzbget < Formula
       More recent versions require only that they be trivially destructible.
     EOS
   end
+
+  needs :cxx11
 
   def install
     ENV.cxx11
