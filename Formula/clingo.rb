@@ -16,8 +16,6 @@ class Clingo < Formula
   depends_on "lua"
   depends_on "python"
 
-  needs :cxx14
-
   # This formula replaced the clasp & gringo formulae.
   # https://github.com/Homebrew/homebrew-core/pull/20281
   link_overwrite "bin/clasp"
@@ -25,6 +23,8 @@ class Clingo < Formula
   link_overwrite "bin/gringo"
   link_overwrite "bin/lpconvert"
   link_overwrite "bin/reify"
+
+  needs :cxx14
 
   def install
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
