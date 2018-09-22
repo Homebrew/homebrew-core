@@ -21,12 +21,12 @@ class Kustomize < Formula
 
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
     tag = Utils.popen_read("git", "describe", "--tags").strip
-    dir = buildpath/"src/github.com/kubernetes-sigs/kustomize"
+    dir = buildpath/"src/sigs.k8s.io/kustomize"
     dir.install buildpath.children - [buildpath/".brew_home"]
     cd dir do
       ldflags = %W[
-        -s -X github.com/kubernetes-sigs/kustomize/pkg/commands.kustomizeVersion=#{tag}
-        -X github.com/kubernetes-sigs/kustomize/pkg/commands.gitCommit=#{revision}
+        -s -X sigs.k8s.io/kustomize/pkg/commands.kustomizeVersion=#{tag}
+        -X sigs.k8s.io/kustomize/pkg/commands.gitCommit=#{revision}
       ]
       system "go", "install", "-ldflags", ldflags.join(" ")
       bin.install buildpath/"bin/kustomize"
