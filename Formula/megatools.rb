@@ -6,10 +6,10 @@ class Megatools < Formula
 
   bottle do
     cellar :any
-    sha256 "84018a1925024622eb353c091014f2f103248270a19ebf80fd4e89114e9a71fc" => :mojave
-    sha256 "b907af7c88a5b1f23643bd5576050ba6e228a0475246e8645b8f0d71dd97d81e" => :high_sierra
-    sha256 "67fc6d534eb92276f21feea903ae682f8b5318da9eb59b1a94cc3887f9855c1f" => :sierra
-    sha256 "e0bae7222466e43ae48615a9cea006527be27d4d44b9943b0b37d7e45f623704" => :el_capitan
+    sha256 "68c1b72427e231c8bb1d05c79e78b0159eef3a9efec2ab6e11428813ecd39206" => :mojave
+    sha256 "f18ae236c38b575b3524c3dd1762b6291257231fdbadd09c8c84ef166cc3c34c" => :high_sierra
+    sha256 "096b9459462956a3257a8869154f9ce3003decaf3ed4f20ef65ba4d6094abc11" => :sierra
+    sha256 "956a0731c11c8ae3f999386cc95d57a787a19ad7ead8007b09efc7a96412c034" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
