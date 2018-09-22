@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      :tag => "v1.0.7",
-      :revision => "633c43a672715dc4c39eaa983a8886ecd21be2e5"
+      :tag => "v1.0.8",
+      :revision => "58492e2d83c59ed63881311f46ad6251f77dabc3"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,12 +21,12 @@ class Kustomize < Formula
 
     revision = Utils.popen_read("git", "rev-parse", "HEAD").strip
     tag = Utils.popen_read("git", "describe", "--tags").strip
-    dir = buildpath/"src/github.com/kubernetes-sigs/kustomize"
+    dir = buildpath/"src/sigs.k8s.io/kustomize"
     dir.install buildpath.children - [buildpath/".brew_home"]
     cd dir do
       ldflags = %W[
-        -s -X github.com/kubernetes-sigs/kustomize/pkg/commands.kustomizeVersion=#{tag}
-        -X github.com/kubernetes-sigs/kustomize/pkg/commands.gitCommit=#{revision}
+        -s -X sigs.k8s.io/kustomize/pkg/commands.kustomizeVersion=#{tag}
+        -X sigs.k8s.io/kustomize/pkg/commands.gitCommit=#{revision}
       ]
       system "go", "install", "-ldflags", ldflags.join(" ")
       bin.install buildpath/"bin/kustomize"
