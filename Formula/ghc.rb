@@ -5,8 +5,8 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-src.tar.xz"
-  sha256 "ae47afda985830de8811243255aa3744dfb9207cb980af74393298b2b62160d6"
+  url "https://downloads.haskell.org/~ghc/8.6.1/ghc-8.6.1-src.tar.xz"
+  sha256 "2c25c26d1e5c47c7cbb2a1d8e6456524033e7a71409184dd3125e3fc5a3c7036"
 
   bottle do
     sha256 "02efe429ad3b258784afb6c4313f71ff6b9b6210d4ee86594349fb7ecdc6faeb" => :mojave
@@ -16,15 +16,15 @@ class Ghc < Formula
   end
 
   head do
-    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.4"
+    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.6"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
 
     resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-2.2.0.0/cabal-install-2.2.0.0.tar.gz"
-      sha256 "c856a2dd93c5a7b909597c066b9f9ca27fbda1a502b3f96077b7918c0f64a3d9"
+      url "https://hackage.haskell.org/package/cabal-install-2.4.0.0/cabal-install-2.4.0.0.tar.gz"
+      sha256 "1329e9564b736b0cfba76d396204d95569f080e7c54fe355b6d9618e3aa0bef6"
     end
   end
 
@@ -58,8 +58,8 @@ class Ghc < Formula
   end
 
   resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-testsuite.tar.xz"
-    sha256 "ff43a015f803005dd9d9248ea9ffa92f9ebe79e146cfd044c3f48e0a7e58a5fc"
+    url "https://downloads.haskell.org/~ghc/8.6.1/ghc-8.6.1-testsuite.tar.xz"
+    sha256 "5fc72f7d8b2be6f56f33daf531f8d603d739b2b8460dee06725227fee10b69a7"
   end
 
   def install
