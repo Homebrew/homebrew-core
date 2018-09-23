@@ -2,7 +2,6 @@ class Inadyn < Formula
   desc "Dynamic DNS client with IPv4, IPv6, and SSL/TLS support"
   homepage "http://troglobit.com/inadyn.html"
   url "https://github.com/troglobit/inadyn/releases/download/v2.4/inadyn-2.4.tar.gz"
-  revision 0
 
   head do
     url "https://github.com/troglobit/inadyn.git"
@@ -30,7 +29,7 @@ class Inadyn < Formula
   end
 
   def caveats; <<-EOF
-    For inadyn to work, place your DDNS provider's parameters in #{etc}/inadyn.conf
+    Place your DDNS provider's parameters in #{etc}/inadyn.conf
 
     Sample configurations can be found in #{HOMEBREW_PREFIX}/share/doc/inadyn/examples/
   EOF
