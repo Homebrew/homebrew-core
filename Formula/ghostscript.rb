@@ -22,7 +22,6 @@ class Ghostscript < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtiff"
-  depends_on "little-cms2"
   depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
