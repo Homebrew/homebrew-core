@@ -1,8 +1,8 @@
 class Fzy < Formula
   desc "Fast, simple fuzzy text selector with an advanced scoring algorithm"
   homepage "https://github.com/jhawthorn/fzy"
-  url "https://github.com/jhawthorn/fzy/archive/0.9.tar.gz"
-  sha256 "72182686806ddce7807d85c27efc321a1b01087643ce8006b1225e3617eecff5"
+  url "https://github.com/jhawthorn/fzy/releases/download/1.0/fzy-1.0.tar.gz"
+  sha256 "80257fd74579e13438b05edf50dcdc8cf0cdb1870b4a2bc5967bd1fdbed1facf"
   head "https://github.com/jhawthorn/fzy.git"
 
   bottle do
