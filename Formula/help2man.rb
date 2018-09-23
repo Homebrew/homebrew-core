@@ -7,10 +7,10 @@ class Help2man < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af4cc82004bdfd9ea1b8d67177e0a3a3ed6f56264741c7703865443c459d9915" => :mojave
-    sha256 "8c2d747894baec4af17523abb21390651d931b2743dd90f043e434ae35d6f55c" => :high_sierra
-    sha256 "8c2d747894baec4af17523abb21390651d931b2743dd90f043e434ae35d6f55c" => :sierra
-    sha256 "8c2d747894baec4af17523abb21390651d931b2743dd90f043e434ae35d6f55c" => :el_capitan
+    sha256 "9a0227fbdf908f35baa2f00bd00233ca9d075ff54b38eba5efacddc1af4905f5" => :mojave
+    sha256 "8d6c4fbdd50559fac6cfc1ef43009b52a1f6c28cc9c2a823e1f29545d8a712a4" => :high_sierra
+    sha256 "8d6c4fbdd50559fac6cfc1ef43009b52a1f6c28cc9c2a823e1f29545d8a712a4" => :sierra
+    sha256 "8d6c4fbdd50559fac6cfc1ef43009b52a1f6c28cc9c2a823e1f29545d8a712a4" => :el_capitan
   end
 
   def install
