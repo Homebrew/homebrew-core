@@ -1,8 +1,8 @@
 class Immortal < Formula
   desc "OS agnostic (*nix) cross-platform supervisor"
   homepage "https://immortal.run/"
-  url "https://github.com/immortal/immortal/archive/0.20.0.tar.gz"
-  sha256 "729c08265bcb93996215cc64af16155651f8355cd1c571077576d923740f0613"
+  url "https://github.com/immortal/immortal/archive/0.21.0.tar.gz"
+  sha256 "124c2428404f1f3b577d78392ec098f73a4d5bfc5a0bf1a5ccfd61a6729bd425"
   head "https://github.com/immortal/immortal.git"
 
   bottle do
