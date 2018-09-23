@@ -10,7 +10,7 @@ class Sourcery < Formula
     sha256 "80364efc5f696093c2a938f219362acf24da7aa4e1c11a582ee2c43324330f44" => :high_sierra
   end
 
-  depends_on :xcode => ["10", :build]
+  depends_on :xcode => ["10.0", :build]
   depends_on :xcode => "6.0"
 
   def install
