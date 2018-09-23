@@ -1,8 +1,8 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.34.tar.bz2"
-  sha256 "fa53c95631febb08a9de41fd2864cfff815cf62d9306723ab0d4b8d7aa1638f0"
+  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.35.tar.bz2"
+  sha256 "2607c6fdd4d12ac3f583127629291e9432b247b782396a563bec5678aae69b56"
 
   bottle do
     sha256 "d93c6b2fe63d1be1cc9b14f6dfa3a5cff34b42f4b800405830b523a90f0046ea" => :mojave
