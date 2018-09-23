@@ -1,8 +1,8 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.11.1-src/pyside-setup-everywhere-src-5.11.1.tar.xz"
-  sha256 "9cbc3cbb03c6c1ddba8de7a651c84b269f87ebd4a0991a1f9acc8b2d0ccdfb83"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.11.2-src/pyside-setup-everywhere-src-5.11.2.tar.xz"
+  sha256 "18f572f1f832e476083d30fccabab167450f2a8cbe5cd9c6e6e4fa078ccb86c2"
 
   bottle do
     sha256 "ed61c43035a58c0353f5337d511b0df00509a97ee383630004a02558ffd83d3a" => :mojave
