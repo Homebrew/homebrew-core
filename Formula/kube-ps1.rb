@@ -7,7 +7,7 @@ class KubePs1 < Formula
 
   bottle :unneeded
 
-  depends_on "kubernetes-cli" => :recommended
+  depends_on "kubernetes-cli"
 
   def install
     share.install "kube-ps1.sh"

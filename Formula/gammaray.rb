@@ -12,11 +12,9 @@ class Gammaray < Formula
     sha256 "d3295f75b82219d58cd8f529e6f0e72bf8d798321f50b55ba7418af48b624060" => :el_capitan
   end
 
-  option "with-vtk", "Build with VTK-with-Qt support, for object 3D visualizer"
-
   depends_on "cmake" => :build
+  depends_on "graphviz"
   depends_on "qt"
-  depends_on "graphviz" => :recommended
 
   needs :cxx11
 
@@ -24,11 +22,9 @@ class Gammaray < Formula
     # For Mountain Lion
     ENV.libcxx
 
-    args = std_cmake_args
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_VTK=" + (build.without?("vtk") ? "ON" : "OFF")
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_Graphviz=" + (build.without?("graphviz") ? "ON" : "OFF")
-
-    system "cmake", *args
+    system "cmake", *std_cmake_args,
+                    "-DCMAKE_DISABLE_FIND_PACKAGE_Graphviz=ON",
+                    "-DCMAKE_DISABLE_FIND_PACKAGE_VTK=OFF"
     system "make", "install"
   end
 

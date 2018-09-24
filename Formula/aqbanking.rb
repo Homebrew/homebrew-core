@@ -24,10 +24,10 @@ class Aqbanking < Formula
   depends_on "gettext"
   depends_on "gmp"
   depends_on "gwenhywfar"
+  depends_on "ktoblzcheck"
   depends_on "libxml2"
   depends_on "libxmlsec1"
   depends_on "libxslt"
-  depends_on "ktoblzcheck" => :recommended
 
   def install
     ENV.deparallelize

@@ -12,8 +12,6 @@ class KnotResolver < Formula
     sha256 "01138521630da787d776d5f0d017e09d19fa7448376a9187aebb624f7b9ca1b8" => :el_capitan
   end
 
-  option "without-nettle", "Compile without DNS cookies support"
-
   depends_on "cmocka" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
@@ -21,7 +19,7 @@ class KnotResolver < Formula
   depends_on "libuv"
   depends_on "lmdb"
   depends_on "luajit"
-  depends_on "nettle" => :recommended
+  depends_on "nettle"
 
   def install
     # Since we don't run `make install` or `make etc-install`, we need to

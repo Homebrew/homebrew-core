@@ -38,8 +38,8 @@ class GtkMacIntegration < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+"
+  depends_on "gtk+3"
   depends_on "pygtk"
-  depends_on "gtk+3" => :recommended
 
   def install
     args = %W[
@@ -47,11 +47,11 @@ class GtkMacIntegration < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --with-gtk2
+      --with-gtk3
       --enable-python=yes
       --enable-introspection=yes
     ]
 
-    args << (build.without?("gtk+3") ? "--without-gtk3" : "--with-gtk3")
     if build.head?
       system "./autogen.sh", *args
     else
