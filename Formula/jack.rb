@@ -53,6 +53,11 @@ class Jack < Formula
       <string>#{plist_name}</string>
       <key>WorkingDirectory</key>
       <string>#{opt_prefix}</string>
+      <key>EnvironmentVariables</key>
+      <dict>
+        <key>PATH</key>
+        <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
+      </dict>
       <key>ProgramArguments</key>
       <array>
         <string>#{opt_bin}/jackd</string>
