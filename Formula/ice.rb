@@ -7,9 +7,9 @@ class Ice < Formula
 
   bottle do
     cellar :any
-    sha256 "a6a580aed075a7edcb9f59886bc59b0e6da888623dbf6d81c98f26c4fc472613" => :high_sierra
-    sha256 "73cb8a7d1af848b1832d1e837f2a3ec6c35846a8b7431748fd8e175442261df8" => :sierra
-    sha256 "319fa13dfe77aa352dd84fb5495fd548fc7d870305fd7c3ee2137c2f298cbf5e" => :el_capitan
+    sha256 "6078f948a29465feb24209e56ab6e2a98cdf81200c362c391492fe2f0a89e734" => :mojave
+    sha256 "5e82eaebcc364dda7720231d272636d799d3287869d7f56be68141427641efdf" => :high_sierra
+    sha256 "1c1f3181f3e8b82cda5810b4317edd4a40b4185700c2f7b095d1be970d4c539b" => :sierra
   end
 
   option "with-java", "Build Ice for Java and the IceGrid GUI app"
