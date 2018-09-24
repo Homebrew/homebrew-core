@@ -1,19 +1,9 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
+  url "https://poppler.freedesktop.org/poppler-0.69.0.tar.xz"
+  sha256 "637ff943f805f304ff1da77ba2e7f1cbd675f474941fd8ae1e0fc01a5b45a3f9"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
-
-  stable do
-    url "https://poppler.freedesktop.org/poppler-0.68.0.tar.xz"
-    sha256 "f90d04f0fb8df6923ecb0f106ae866cf9f8761bb537ddac64dfb5322763d0e58"
-
-    # https://gitlab.freedesktop.org/poppler/poppler/merge_requests/18
-    # Should be safe to remove on next release but check if merged.
-    patch do
-      url "https://gitlab.freedesktop.org/poppler/poppler/merge_requests/18.diff"
-      sha256 "ef7d7b7fed6799911b7ef925395b8de552aadaf3754d7b02fe3505649518808c"
-    end
-  end
 
   bottle do
     sha256 "bc1012f84c9fb5188560f90fecf555b97609df433f4b55585697f3d1731c68c6" => :mojave
