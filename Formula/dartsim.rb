@@ -61,7 +61,9 @@ class Dartsim < Formula
     EOS
     system ENV.cxx, "test.cpp", "-I#{Formula["eigen"].include}/eigen3",
                     "-I#{include}", "-L#{lib}", "-ldart",
-                    "-lassimp", "-lboost_system", "-std=c++11", "-o", "test"
+                    "-L#{Formula["assimp"].opt_lib}", "-lassimp",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+                    "-std=c++11", "-o", "test"
     system "./test"
   end
 end
