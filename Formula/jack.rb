@@ -56,7 +56,7 @@ class Jack < Formula
       <key>EnvironmentVariables</key>
       <dict>
         <key>PATH</key>
-        <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
       </dict>
       <key>ProgramArguments</key>
       <array>
