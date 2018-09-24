@@ -25,23 +25,14 @@ class GtkVnc < Formula
   # Upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=602371
   depends_on :macos => :yosemite
 
-  depends_on "pulseaudio" => :optional
-  depends_on "vala" => :optional
-
   def install
     args = %W[
       --prefix=#{prefix}
       --with-gtk=3.0
       --with-examples
+      --disable-vala
       --enable-introspection
     ]
-
-    args << "--enable-pulseaudio" if build.with? "pulseaudio"
-    if build.with? "vala"
-      args << "--enable-vala"
-    else
-      args << "--disable-vala"
-    end
 
     # fix "The deprecated ucontext routines require _XOPEN_SOURCE to be defined"
     ENV.append "CPPFLAGS", "-D_XOPEN_SOURCE=600"

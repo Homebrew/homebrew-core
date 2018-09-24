@@ -19,7 +19,6 @@ class Smpeg < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sdl"
-  depends_on "gtk+" => :optional
 
   def install
     args = %W[
@@ -27,16 +26,11 @@ class Smpeg < Formula
       --with-sdl-prefix=#{Formula["sdl"].opt_prefix}
       --disable-dependency-tracking
       --disable-debug
+      --disable-gtk-player
+      --disable-gtktest
+      --disable-opengl-player
       --disable-sdltest
     ]
-
-    if build.without? "gtk"
-      args << "--disable-gtk-player"
-      args << "--disable-gtktest"
-    end
-
-    # Skip glmovie to avoid OpenGL error
-    args << "--disable-opengl-player"
 
     system "./autogen.sh"
     system "./configure", *args
@@ -45,7 +39,8 @@ class Smpeg < Formula
     chmod 0755, "./install-sh"
     system "make", "install"
 
-    rm_f "#{man1}/gtv.1" if build.without? "gtk"
+    # Not present since we do not build with gtk+
+    rm_f "#{man1}/gtv.1"
   end
 
   test do

@@ -4,6 +4,7 @@ class Wdiff < Formula
   url "https://ftp.gnu.org/gnu/wdiff/wdiff-1.2.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/wdiff/wdiff-1.2.2.tar.gz"
   sha256 "34ff698c870c87e6e47a838eeaaae729fa73349139fc8db12211d2a22b78af6b"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +17,7 @@ class Wdiff < Formula
     sha256 "06da8b4a640ef51d0dd884b436d3909c4bd2c5c00ea5da9e81158554a00f0dbe" => :mountain_lion
   end
 
-  depends_on "gettext" => :optional
+  depends_on "gettext"
 
   conflicts_with "montage", :because => "Both install an mdiff executable"
 

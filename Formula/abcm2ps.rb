@@ -12,7 +12,6 @@ class Abcm2ps < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pango" => :optional
 
   def install
     system "./configure", "--prefix=#{prefix}"

@@ -3,7 +3,7 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.28/anjuta-3.28.0.tar.xz"
   sha256 "b087b0a5857952d0edd24dae458616eb166a3257bc647d5279a9e71495544779"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "3a7427832904f3e1de9884ef7bc770b83440f5252d3d30eb2aa77691e0b12de5" => :mojave
@@ -16,7 +16,9 @@ class Anjuta < Formula
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "autogen"
   depends_on "gdl"
+  depends_on "gnome-themes-standard"
   depends_on "gnutls"
   depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"
@@ -24,10 +26,8 @@ class Anjuta < Formula
   depends_on "libxml2"
   depends_on "python@2"
   depends_on "shared-mime-info"
+  depends_on "vala"
   depends_on "vte3"
-  depends_on "autogen" => :recommended
-  depends_on "vala" => :recommended
-  depends_on "gnome-themes-standard" => :optional
 
   def install
     system "./configure", "--disable-debug",

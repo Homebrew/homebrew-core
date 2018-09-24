@@ -29,7 +29,6 @@ class Makepkg < Formula
   # Reported 19 Jun 2016: https://bugs.archlinux.org/task/49771
   depends_on :macos => :yosemite
   depends_on "openssl"
-  depends_on "gpgme" => :optional
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

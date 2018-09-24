@@ -20,7 +20,7 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "pcre" => :recommended
+  depends_on "pcre"
   depends_on "json-c" => :optional
   depends_on "yara" => :optional
 
@@ -33,15 +33,14 @@ class Clamav < Formula
       --prefix=#{prefix}
       --libdir=#{lib}
       --sysconfdir=#{etc}/clamav
-      --disable-zlib-vcheck
       --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-pcre=#{Formula["pcre"].opt_prefix}
+      --disable-zlib-vcheck
       --enable-llvm=no
     ]
 
     args << (build.with?("json-c") ? "--with-libjson=#{Formula["json-c"].opt_prefix}" : "--without-libjson")
-    args << "--with-pcre=#{Formula["pcre"].opt_prefix}" if build.with? "pcre"
     args << "--disable-yara" if build.without? "yara"
-    args << "--without-pcre" if build.without? "pcre"
     args << "--with-zlib=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
 
     pkgshare.mkpath

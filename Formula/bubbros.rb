@@ -14,7 +14,6 @@ class Bubbros < Formula
   end
 
   depends_on "python@2"
-  depends_on :x11 => :optional
 
   # Patches from debian https://sources.debian.net/patches/bubbros
   patch do
@@ -44,7 +43,6 @@ class Bubbros < Formula
 
   def install
     system "make", "-C", "bubbob"
-    system "make", "-C", "display" if build.with? :x11
     system "python", "bubbob/images/buildcolors.py"
 
     man6.install "doc/BubBob.py.1" => "bubbros.6"
@@ -64,15 +62,6 @@ class Bubbros < Formula
     cd "#{prefix}"
     python "#{target}" "$@"
   EOS
-  end
-
-  def caveats
-    s = <<~EOS
-      The Shared Memory extension of X11 display driver is not supported.
-      Run the display client with --shm=no
-        bubbros-client --shm=no
-    EOS
-    s if build.with? :x11
   end
 
   test do
