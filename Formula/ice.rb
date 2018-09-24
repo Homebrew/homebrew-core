@@ -12,17 +12,17 @@ class Ice < Formula
     sha256 "319fa13dfe77aa352dd84fb5495fd548fc7d870305fd7c3ee2137c2f298cbf5e" => :el_capitan
   end
 
-  patch do
-    url "https://github.com/zeroc-ice/ice/compare/v3.7.1..v3.7.1-xcode10.patch?full_index=1"
-    sha256 "25cbdd9a87ccb0a2c0633e90dc9327d7a73c242c00e686d268d812e89a909f5f"
-  end
-
   option "with-java", "Build Ice for Java and the IceGrid GUI app"
 
   depends_on "lmdb"
   depends_on :macos => :mavericks
   depends_on "mcpp"
   depends_on :java => ["1.8+", :optional]
+
+  patch do
+    url "https://github.com/zeroc-ice/ice/compare/v3.7.1..v3.7.1-xcode10.patch?full_index=1"
+    sha256 "28eff5dd6cb6065716a7664f3973213a2e5186ddbdccb1c1c1d832be25490f1b"
+  end
 
   def install
     ENV.O2 # Os causes performance issues
