@@ -1,8 +1,8 @@
 class Ark < Formula
   desc "Disaster recovery for Kubernetes cluster resources and persistent volumes"
   homepage "https://github.com/heptio/ark"
-  url "https://github.com/heptio/ark/archive/v0.9.5.tar.gz"
-  sha256 "1c4efca6e3e4d26579d21c41ee085efbbad7eac3dcbfde48a648403b81338161"
+  url "https://github.com/heptio/ark/archive/v0.9.6.tar.gz"
+  sha256 "1af184c3bd5b8b4227dcc65123dbda600e838c8812423407ff9989d2b76a22d6"
 
   bottle do
     cellar :any_skip_relocation
