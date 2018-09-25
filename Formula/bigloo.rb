@@ -3,7 +3,7 @@ class Bigloo < Formula
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
   url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3c.tar.gz"
   version "4.3c"
-  sha256 "ae1c93c0a9ac5d412223abfa7994fff6595549a71e984c9fedc3120adc6ca92e"
+  sha256 "1f9557fccf9c17a83fcef458384f2fd748b42777aefa8370cd657ed33b7ccef2"
 
   bottle do
     sha256 "1b6fce918e35cc37fb6e2c9d10f36b48866cdeaa577026114ff533efc72fb361" => :high_sierra
