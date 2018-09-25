@@ -1,21 +1,13 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2018-04-24"
+  version "2018-08-24"
 
   stable do
-    if MacOS.version >= :sierra
-      url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-04-24/", :using => :svn
-    else
-      url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-04-24/", :using => :svn
-    end
+    url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-08-24/", :using => :svn
 
     resource "clang" do
-      if MacOS.version >= :sierra
-        url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-04-24/", :using => :svn
-      else
-        url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-04-24/", :using => :svn
-      end
+      url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-08-24/", :using => :svn
     end
   end
 
@@ -28,18 +20,10 @@ class ClangFormat < Formula
   end
 
   head do
-    if MacOS.version >= :sierra
-      url "https://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
-    else
-      url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
-    end
+    url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
 
     resource "clang" do
-      if MacOS.version >= :sierra
-        url "https://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
-      else
-        url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
-      end
+      url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
     end
   end
 
@@ -48,8 +32,8 @@ class ClangFormat < Formula
   depends_on "subversion" => :build
 
   resource "libcxx" do
-    url "https://releases.llvm.org/5.0.0/libcxx-5.0.0.src.tar.xz"
-    sha256 "eae5981e9a21ef0decfcac80a1af584ddb064a32805f95a57c7c83a5eb28c9b1"
+    url "https://releases.llvm.org/7.0.0/libcxx-7.0.0.src.tar.xz"
+    sha256 "9b342625ba2f4e65b52764ab2061e116c0337db2179c6bce7f9a0d70c52134f0"
   end
 
   def install
