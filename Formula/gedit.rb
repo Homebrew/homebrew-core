@@ -5,10 +5,9 @@ class Gedit < Formula
   sha256 "5c16d82b5fb93b10dc81a1bc8daa509b498779ae1db5381600a4765c99826d3f"
 
   bottle do
-    sha256 "cd84946b9ebfc67814c911026aaf51c8eb945b87e938ba77ef119be4e48e2087" => :mojave
-    sha256 "14e82e6206a6dc06a27f3e9a2a8827286391e578b5f23bc9c6b9cdf6611c6cf2" => :high_sierra
-    sha256 "92e5d0ca51c3fb5e44f0f02c58d31de2384a91377aef108bc4d9b8639354eeb5" => :sierra
-    sha256 "96283f1bda650ad0ed5264eb874952faa568db8c9089177169effc1f9568bd61" => :el_capitan
+    sha256 "037e59e85c222531f5f4440d74c0773b91695cb847f058bc8d4616d19b4311bd" => :mojave
+    sha256 "95519332e22f2c53cc413d283716a22807f0d0ac279897038ca5ed666cd07b23" => :high_sierra
+    sha256 "081f111eb2cd22c0089e5b576278dd15582bd4d7a375f72a67b009aed82c5858" => :sierra
   end
 
   depends_on "intltool" => :build
