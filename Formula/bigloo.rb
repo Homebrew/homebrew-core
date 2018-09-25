@@ -15,6 +15,7 @@ class Bigloo < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gmp"
+  depends_on "libunistring"
   depends_on "openssl"
 
   fails_with :clang do
