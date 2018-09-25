@@ -1,8 +1,8 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/0.7.7.tar.gz"
-  sha256 "7e6d9d4d9ec24fa4227655158c9d382f6b1910f8ef78f5bcfc9f5bafe155836d"
+  url "https://github.com/texus/TGUI/archive/v0.8.0.tar.gz"
+  sha256 "ba35b98ff53d7041842d6e770a51d698407e6cb1038cd95872c33036032c167c"
 
   bottle do
     cellar :any
@@ -15,7 +15,8 @@ class Tgui < Formula
   depends_on "sfml"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args,
+                    "-DTGUI_MISC_INSTALL_PREFIX=#{pkgshare}"
     system "make", "install"
   end
 
