@@ -3,8 +3,8 @@ class Unp64 < Formula
   homepage "http://iancoog.altervista.org/"
   url "http://iancoog.altervista.org/C/unp64_235.7z"
   version "2.35"
-  sha256 "32f8606ecafed66180d434853a5e7992d82426d9e1fceb81bec467e1ea6c6921"
-  revision 1
+  sha256 "04645e472f5b2527f9227011da13f23fa12cfcaf61edb07d35272040d2f4db0f"
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
