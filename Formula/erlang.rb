@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.0.9.tar.gz"
-  sha256 "fbbd21358ddcf657b3125db636ef2260d421f5024ff9b4ad03c5e690651ec0dd"
+  url "https://github.com/erlang/otp/archive/OTP-21.1.tar.gz"
+  sha256 "7212f895ae317fa7a086fa2946070de5b910df5d41263e357d44b0f1f410af0f"
   head "https://github.com/erlang/otp.git"
 
   bottle do
@@ -32,15 +32,15 @@ class Erlang < Formula
   depends_on :java => :optional
 
   resource "man" do
-    url "https://www.erlang.org/download/otp_doc_man_21.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_man_21.0.tar.gz"
-    sha256 "10bf0e44b97ee8320c4868d5a4259c49d4d2a74e9c48583735ae0401f010fb31"
+    url "https://www.erlang.org/download/otp_doc_man_21.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_man_21.1.tar.gz"
+    sha256 "021e47b5036eaa4671b6d87a910403b775c967bfcb79b56a87f2183ddc5a5df5"
   end
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_21.0.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_21.0.tar.gz"
-    sha256 "fcc10885e8bf2eef14f7d6e150c34eeccf3fcf29c19e457b4fb8c203e57e153c"
+    url "https://www.erlang.org/download/otp_doc_html_21.1.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_21.1.tar.gz"
+    sha256 "85333f77ad12c2065be4dc40dc7057d1d192f7cf15c416513f0b595583f820ce"
   end
 
   def install
