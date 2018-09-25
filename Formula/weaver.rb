@@ -1,8 +1,8 @@
 class Weaver < Formula
   desc "Command-line tool for Weaver"
   homepage "https://github.com/scribd/Weaver"
-  url "https://github.com/scribd/Weaver/archive/0.10.0.tar.gz"
-  sha256 "93dee436fcb13e60d379393da2e7d734c44037d95e97f2917982351446c81c69"
+  url "https://github.com/scribd/Weaver/archive/0.10.2.tar.gz"
+  sha256 "b76474a09bdf45eab1d03309ad0be980dfe89676f9180739eacef0d57ec0be56"
 
   bottle do
     cellar :any_skip_relocation
@@ -10,7 +10,7 @@ class Weaver < Formula
     sha256 "9fb37fbc0afb25c1453f7bff075bbe9770b7cedc6672719545e283954ad57787" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["10.0", :build]
 
   def install
     # libxml2 has to be included in ISYSTEM_PATH for building one of
