@@ -165,40 +165,40 @@ class Freeswitch < Formula
 
     if build.with?("moh")
       # Should be equivalent to: system "make", "cd-moh-install"
-      mkdir_p prefix/"sounds/music"
+      mkdir_p share/"freeswitch/sounds/music"
       [8, 16, 32, 48].each do |n|
         resource("sounds-music-#{n}000").stage do
-          cp_r ".", prefix/"sounds/music"
+          cp_r ".", share/"freeswitch/sounds/music"
         end
       end
     end
 
     if build.with?("sounds-en")
       # Should be equivalent to: system "make", "cd-sounds-install"
-      mkdir_p prefix/"sounds/en"
+      mkdir_p share/"freeswitch/sounds/en"
       [8, 16, 32, 48].each do |n|
         resource("sounds-en-us-callie-#{n}000").stage do
-          cp_r ".", prefix/"sounds/en"
+          cp_r ".", share/"freeswitch/sounds/en"
         end
       end
     end
 
     if build.with?("sounds-fr")
       # Should be equivalent to: system "make", "cd-sounds-fr-install"
-      mkdir_p prefix/"sounds/fr"
+      mkdir_p share/"freeswitch/sounds/fr"
       [8, 16, 32, 48].each do |n|
         resource("sounds-fr-ca-june-#{n}000").stage do
-          cp_r ".", prefix/"sounds/fr"
+          cp_r ".", share/"freeswitch/sounds/fr"
         end
       end
     end
 
     if build.with?("sounds-ru")
       # Should be equivalent to: system "make", "cd-sounds-ru-install"
-      mkdir_p prefix/"sounds/ru"
+      mkdir_p share/"freeswitch/sounds/ru"
       [8, 16, 32, 48].each do |n|
         resource("sounds-ru-RU-elena-#{n}000").stage do
-          cp_r ".", prefix/"sounds/ru"
+          cp_r ".", share/"freeswitch/sounds/ru"
         end
       end
     end
