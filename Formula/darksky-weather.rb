@@ -1,8 +1,8 @@
 class DarkskyWeather < Formula
   desc "Command-line weather from the darksky.net API"
   homepage "https://github.com/genuinetools/weather"
-  url "https://github.com/genuinetools/weather/archive/v0.15.5.tar.gz"
-  sha256 "89ac1b9e767db0818da8fcf981a27371ebc18b542a47de65713425fed6da53e3"
+  url "https://github.com/genuinetools/weather/archive/v0.15.6.tar.gz"
+  sha256 "a10edddd0e1157dbb95b3c31170806d3789f00939e4192ad90bb23a87a70e48c"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class DarkskyWeather < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/genuinetools/weather").install buildpath.children
 
     cd "src/github.com/genuinetools/weather" do
