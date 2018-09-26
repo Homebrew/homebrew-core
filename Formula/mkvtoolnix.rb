@@ -27,12 +27,12 @@ class Mkvtoolnix < Formula
   depends_on "pugixml" => :build
   depends_on "ruby" => :build if MacOS.version <= :mountain_lion
   depends_on "boost"
+  depends_on "flac"
   depends_on "libebml"
+  depends_on "libmagic"
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "flac" => :recommended
-  depends_on "libmagic" => :recommended
   depends_on "gettext" => :optional
   depends_on "qt" => :optional
   depends_on "cmark" if build.with? "qt"
@@ -42,9 +42,7 @@ class Mkvtoolnix < Formula
   def install
     ENV.cxx11
 
-    features = %w[libogg libvorbis libebml libmatroska]
-    features << "flac" if build.with? "flac"
-    features << "libmagic" if build.with? "libmagic"
+    features = %w[flac libmagic libogg libvorbis libebml libmatroska]
 
     extra_includes = ""
     extra_libs = ""
