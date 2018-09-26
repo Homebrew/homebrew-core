@@ -3,6 +3,7 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.0.tar.gz"
   sha256 "b633b41bd9ec7a8569eb03060cc22dd53a36d3ba4ca7fb66a976d7f9f800bf52"
+  revision 1
 
   bottle do
     cellar :any
@@ -54,6 +55,14 @@ class Osquery < Formula
   resource "aws-sdk-cpp" do
     url "https://github.com/aws/aws-sdk-cpp/archive/1.3.30.tar.gz"
     sha256 "7b5f9b6d4215069fb75d31db2c8ab06081ab27f59ee33d5bb428fec3e30723f1"
+  end
+
+  # Fix "fatal error: 'boost/uuid/sha1.hpp' file not found"
+  # Upstream PR 11 Jul 2018 "Unbreak build against Boost 1.68"
+  # See https://github.com/facebook/osquery/pull/4692
+  patch do
+    url "https://github.com/facebook/osquery/commit/b67563260390f683d3dff2926d5641e55087203d.patch?full_index=1"
+    sha256 "373c285a5b6190244422c91d1bed55267b5120e98ea61bb341bd22b0d124430f"
   end
 
   def install

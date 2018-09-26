@@ -3,7 +3,7 @@ class LibbitcoinClient < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-client"
   url "https://github.com/libbitcoin/libbitcoin-client/archive/v3.5.0.tar.gz"
   sha256 "bafa26647f334ecad04fc4bbef507a1954d7e0682f07bd38b90ab66dba5fe0d2"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
