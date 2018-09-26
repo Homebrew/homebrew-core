@@ -12,11 +12,10 @@ class StoneSoup < Formula
   end
 
   option "with-tiles", "Enable graphic tiles and sound"
-  option "without-lua@5.1", "Disable Lua bindings for user scripts"
 
   depends_on "pkg-config" => :build
+  depends_on "lua@5.1"
   depends_on "pcre"
-  depends_on "lua@5.1" => :recommended
 
   if build.with? "tiles"
     depends_on "sdl2"
@@ -40,6 +39,7 @@ class StoneSoup < Formula
         BUILD_SQLITE=yes
         BUILD_FREETYPE=
         BUILD_LIBPNG=
+        BUILD_LUA=y
         BUILD_SDL2=
         BUILD_SDL2MIXER=
         BUILD_SDL2IMAGE=
@@ -50,12 +50,6 @@ class StoneSoup < Formula
         inreplace "Makefile", "contrib/install/$(ARCH)/lib/libSDL2main.a", ""
         args << "TILES=y"
         args << "SOUND=y"
-      end
-
-      if build.with? "lua@5.1"
-        args << "BUILD_LUA=y"
-      else
-        args << "NO_LUA_BINDINGS=y"
       end
 
       # FSF GCC doesn't support the -rdynamic flag
