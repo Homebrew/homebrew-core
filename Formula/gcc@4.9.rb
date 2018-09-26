@@ -45,6 +45,8 @@ class GccAT49 < Formula
   deprecated_option "enable-nls" => "with-nls"
   deprecated_option "enable-profiled-build" => "with-profiled-build"
 
+  depends_on MaximumMacOSRequirement => :high_sierra
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
