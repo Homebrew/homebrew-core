@@ -15,6 +15,7 @@ class Autogen < Formula
 
   depends_on "pkg-config" => :build
   depends_on "guile"
+  depends_on "libxml2"
 
   # Allow guile 2.2 to be used
   patch do
