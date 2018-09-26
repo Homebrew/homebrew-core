@@ -14,8 +14,8 @@ class ChrubyFish < Formula
     sha256 "042cd9e456a4bf894ef9f40a47f1255cba1ab08020b1dc44476a8dea7658bd16" => :yosemite
   end
 
-  depends_on "chruby" => :recommended
-  depends_on "fish" => :recommended
+  depends_on "chruby"
+  depends_on "fish"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

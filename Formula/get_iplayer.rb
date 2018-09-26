@@ -14,8 +14,8 @@ class GetIplayer < Formula
   end
 
   depends_on :macos => :yosemite
-  depends_on "atomicparsley" => :recommended
-  depends_on "ffmpeg" => :recommended
+  depends_on "atomicparsley"
+  depends_on "ffmpeg"
 
   resource "IO::Socket::IP" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz"
