@@ -21,12 +21,12 @@ class Fontforge < Formula
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "gettext"
+  depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libtiff"
   depends_on "libtool"
   depends_on "pango"
   depends_on "python@2"
-  depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :recommended
   depends_on "giflib" => :optional
   depends_on "libspiro" => :optional
   depends_on "libuninameslist" => :optional
@@ -50,8 +50,6 @@ class Fontforge < Formula
       --without-x
     ]
 
-    args << "--without-libjpeg" if build.without? "jpeg"
-    args << "--without-libtiff" if build.without? "libtiff"
     args << "--without-giflib" if build.without? "giflib"
     args << "--without-libspiro" if build.without? "libspiro"
     args << "--without-libuninameslist" if build.without? "libuninameslist"
