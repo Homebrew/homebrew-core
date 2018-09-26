@@ -1,8 +1,8 @@
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
-  url "https://github.com/Masterminds/glide/archive/v0.13.1.tar.gz"
-  sha256 "84c4e365c9f76a3c8978018d34b4331b0c999332f628fc2064aa79a5a64ffc90"
+  url "https://github.com/Masterminds/glide/archive/v0.13.2.tar.gz"
+  sha256 "0886851af2437b161d47b279a32bef426577e7bec3f5acdadebe34549aae8270"
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
@@ -15,13 +15,6 @@ class Glide < Formula
   end
 
   depends_on "go"
-
-  # Fix issue which shows up at runtime (when building calicoctl and
-  # kubernetes-helm): https://github.com/Masterminds/glide/pull/990
-  patch do
-    url "https://github.com/Masterminds/glide/pull/990.patch?full_index=1"
-    sha256 "f3711026b3261b62ca67fbf737ccae6889922f50d7fa25ba9b9a025b6bafdb6b"
-  end
 
   def install
     ENV["GOPATH"] = buildpath
