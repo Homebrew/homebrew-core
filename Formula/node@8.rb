@@ -14,7 +14,6 @@ class NodeAT8 < Formula
 
   keg_only :versioned_formula
 
-  option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
@@ -36,7 +35,6 @@ class NodeAT8 < Formula
   def install
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
-    args << "--debug" if build.with? "debug"
     args << "--with-intl=system-icu" if build.with? "icu4c"
     args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl"
 
