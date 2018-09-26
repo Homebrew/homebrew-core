@@ -16,7 +16,11 @@ class Llnode < Formula
   depends_on :macos => :yosemite
 
   resource "lldb" do
-    if DevelopmentTools.clang_build_version >= 900
+    if DevelopmentTools.clang_build_version >= 1000
+      # lldb release_60 branch tip of tree commit from 10 Apr 2018
+      url "https://github.com/llvm-mirror/lldb.git",
+          :revision => "b6df24ff1b258b18041161b8f32ac316a3b5d8d9"
+    elsif DevelopmentTools.clang_build_version >= 900
       # lldb release_40 branch tip of tree commit from 12 Jan 2017
       url "https://github.com/llvm-mirror/lldb.git",
           :revision => "fcd2aac9f179b968a20cf0231c3386dcef8a6659"
