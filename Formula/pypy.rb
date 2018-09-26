@@ -13,16 +13,11 @@ class Pypy < Formula
     sha256 "639304dfa0d74fef27ad2566ececf3514288a87e471fb5f147ae4726c0a1f798" => :el_capitan
   end
 
-  option "without-bootstrap", "Translate Pypy with system Python instead of " \
-                              "downloading a Pypy binary distribution to " \
-                              "perform the translation (adds 30-60 minutes " \
-                              "to build)"
-
   depends_on "pkg-config" => :build
   depends_on :arch => :x86_64
+  depends_on "gdbm"
   depends_on "openssl"
-  depends_on "gdbm" => :recommended
-  depends_on "sqlite" => :recommended
+  depends_on "sqlite"
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
   fails_with :gcc
@@ -50,11 +45,8 @@ class Pypy < Formula
     ENV["PYTHONPATH"] = ""
     ENV["PYPY_USESSION_DIR"] = buildpath
 
-    python = "python"
-    if build.with?("bootstrap") && MacOS.prefer_64_bit?
-      resource("bootstrap").stage buildpath/"bootstrap"
-      python = buildpath/"bootstrap/bin/pypy"
-    end
+    resource("bootstrap").stage buildpath/"bootstrap"
+    python = buildpath/"bootstrap/bin/pypy"
 
     cd "pypy/goal" do
       system python, buildpath/"rpython/bin/rpython",
@@ -65,7 +57,6 @@ class Pypy < Formula
     libexec.mkpath
     cd "pypy/tool/release" do
       package_args = %w[--archive-name pypy --targetdir .]
-      package_args << "--without-gdbm" if build.without? "gdbm"
       system python, "package.py", *package_args
       system "tar", "-C", libexec.to_s, "--strip-components", "1", "-xf", "pypy.tar.bz2"
     end
