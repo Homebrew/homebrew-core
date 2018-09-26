@@ -6,11 +6,9 @@ class Tcpflow < Formula
 
   bottle do
     cellar :any
-    sha256 "c971d3d993660862b690239940e4c84d5fd8bffdff776ccba4c038d1eba76169" => :high_sierra
-    sha256 "ff6d43a7c67853c6f7a4ffbe9290028a179f0d722e8075395c1f133386778fe7" => :sierra
-    sha256 "ea92e38288a2fea16c85b9a937951b8ecc0c5ca619ccff050d36590866543356" => :el_capitan
-    sha256 "d5e07b6218d3160b27d12e154910286af4f3edbbbc70fe5879852849a046cfae" => :yosemite
-    sha256 "b0e5f0a0e6f6fc81be55627483028a578a679d1c342a7127aa3a983983acef1a" => :mavericks
+    sha256 "8929b11e0613406e66dae23cb27d38c0dbaf7606fb95cf404e18090a998cac95" => :mojave
+    sha256 "0aadaae80b60771c86b712aee5cc13b0bcca0757698fce835384d992dc3a6a41" => :high_sierra
+    sha256 "25254b1669a0e7d3ad0507c2ab233b5024203eaaad968c7c09aa4b91a6403f0a" => :sierra
   end
 
   head do
