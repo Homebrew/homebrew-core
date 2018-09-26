@@ -21,6 +21,7 @@ class Macvim < Formula
   depends_on :xcode => :build
   depends_on "cscope"
   depends_on "python" => :recommended
+  depends_on "ruby" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
   depends_on "python@2" => :optional
@@ -50,6 +51,9 @@ class Macvim < Formula
       --with-local-dir=#{HOMEBREW_PREFIX}
       --enable-cscope
     ]
+    
+    # Fix bug with ruby on macOS Mojave 
+    args << "--with-ruby-command=#{Formula["ruby"].opt_prefix}/bin/ruby"
 
     if build.with? "lua"
       args << "--enable-luainterp"
