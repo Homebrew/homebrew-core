@@ -13,10 +13,9 @@ class Cmake < Formula
     sha256 "14ad6305d2b795cabe082779eea3875591ddb3b3c881a6056f9c792243fe7135" => :el_capitan
   end
 
-  option "without-docs", "Don't build man pages"
   option "with-completion", "Install Bash completion (Has potential problems with system bash)"
 
-  depends_on "sphinx-doc" => :build if build.with? "docs"
+  depends_on "sphinx-doc" => :build
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
@@ -38,17 +37,16 @@ class Cmake < Formula
       --datadir=/share/cmake
       --docdir=/share/doc/cmake
       --mandir=/share/man
+      --sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
+      --sphinx-man
       --system-zlib
       --system-bzip2
       --system-curl
     ]
 
-    if build.with? "docs"
-      # There is an existing issue around macOS & Python locale setting
-      # See https://bugs.python.org/issue18378#msg215215 for explanation
-      ENV["LC_ALL"] = "en_US.UTF-8"
-      args << "--sphinx-man" << "--sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build"
-    end
+    # There is an existing issue around macOS & Python locale setting
+    # See https://bugs.python.org/issue18378#msg215215 for explanation
+    ENV["LC_ALL"] = "en_US.UTF-8"
 
     system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
     system "make"
