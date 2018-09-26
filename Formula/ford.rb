@@ -15,8 +15,6 @@ class Ford < Formula
     sha256 "4cb8478492d9abbde272fe175cc931105de3206c6d2b4ea36e8f5c349a8e8c3c" => :el_capitan
   end
 
-  option "without-lxml", "Do not install lxml to improve the speed of search  database generation"
-
   depends_on "graphviz"
   depends_on "python@2"
 
@@ -80,8 +78,7 @@ class Ford < Formula
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     venv = virtualenv_create(libexec)
-    deps = build.with?("lxml") ? resources : resources - [resource("lxml")]
-    venv.pip_install deps
+    venv.pip_install resources
     venv.pip_install_and_link buildpath
     doc.install "2008standard.pdf", "2003standard.pdf"
     pkgshare.install "example-project-file.md"
