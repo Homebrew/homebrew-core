@@ -12,8 +12,6 @@ class Hyperscan < Formula
     sha256 "48b0fe0011be4d9853f22d226a5a9ae7c5ddacb2cb30106673a07db526d1cc67" => :el_capitan
   end
 
-  option "with-debug", "Build with debug symbols"
-
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -22,21 +20,7 @@ class Hyperscan < Formula
 
   def install
     mkdir "build" do
-      args = std_cmake_args << "-DBUILD_STATIC_AND_SHARED=on"
-
-      if build.with? "debug"
-        args -= %w[
-          -DCMAKE_BUILD_TYPE=Release
-          -DCMAKE_C_FLAGS_RELEASE=-DNDEBUG
-          -DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG
-        ]
-        args += %w[
-          -DCMAKE_BUILD_TYPE=Debug
-          -DDEBUG_OUTPUT=on
-        ]
-      end
-
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DBUILD_STATIC_AND_SHARED=on"
       system "make", "install"
     end
   end
