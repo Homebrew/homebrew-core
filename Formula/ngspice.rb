@@ -19,8 +19,6 @@ class Ngspice < Formula
     depends_on "libtool" => :build
   end
 
-  option "without-xspice", "Build without x-spice extensions"
-
   deprecated_option "with-x" => "with-x11"
 
   depends_on :x11 => :optional
@@ -32,13 +30,13 @@ class Ngspice < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-editline=yes
+      --enable-xspice
     ]
     if build.with? "x11"
       args << "--with-x"
     else
       args << "--without-x"
     end
-    args << "--enable-xspice" if build.with? "xspice"
 
     system "./configure", *args
     system "make", "install"
