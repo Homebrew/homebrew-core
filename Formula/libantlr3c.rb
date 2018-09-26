@@ -16,21 +16,19 @@ class Libantlr3c < Formula
     sha256 "e734361de9f3f5d81b0a0224cfcb561806fed5b1d5dbeeb86bd2131754aa993d" => :mountain_lion
   end
 
-  option "without-exceptions", "Compile without support for exception handling"
-
   def install
     args = ["--disable-dependency-tracking",
             "--disable-antlrdebug",
             "--prefix=#{prefix}"]
     args << "--enable-64bit" if MacOS.prefer_64_bit?
     system "./configure", *args
-    if build.with? "exceptions"
-      inreplace "Makefile" do |s|
-        cflags = s.get_make_var "CFLAGS"
-        cflags = cflags << " -fexceptions"
-        s.change_make_var! "CFLAGS", cflags
-      end
+
+    inreplace "Makefile" do |s|
+      cflags = s.get_make_var "CFLAGS"
+      cflags = cflags << " -fexceptions"
+      s.change_make_var! "CFLAGS", cflags
     end
+
     system "make", "install"
   end
 
