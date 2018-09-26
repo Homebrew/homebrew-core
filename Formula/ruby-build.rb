@@ -7,9 +7,9 @@ class RubyBuild < Formula
 
   bottle :unneeded
 
-  depends_on "autoconf" => :recommended
-  depends_on "openssl" => :recommended
-  depends_on "pkg-config" => :recommended
+  depends_on "autoconf"
+  depends_on "openssl"
+  depends_on "pkg-config"
 
   def install
     ENV["PREFIX"] = prefix
