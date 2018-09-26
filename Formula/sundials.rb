@@ -12,16 +12,11 @@ class Sundials < Formula
     sha256 "2213f3ae580feabe0874cf229f39e9d9434cbaefe960f88616496a66a11512be" => :el_capitan
   end
 
-  option "with-openmp", "Enable OpenMP multithreading"
-  option "without-mpi", "Do not build with MPI"
-
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
-  depends_on "open-mpi" if build.with? "mpi"
+  depends_on "open-mpi"
   depends_on "suite-sparse"
   depends_on "veclibfort"
-
-  fails_with :clang if build.with? "openmp"
 
   def install
     blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
@@ -33,9 +28,8 @@ class Sundials < Formula
       -DKLU_INCLUDE_DIR=#{Formula["suite-sparse"].opt_include}
       -DLAPACK_ENABLE=ON
       -DLAPACK_LIBRARIES=#{blas};#{blas}
+      -DMPI_ENABLE=ON
     ]
-    args << "-DOPENMP_ENABLE=ON" if build.with? "openmp"
-    args << "-DMPI_ENABLE=ON" if build.with? "mpi"
 
     mkdir "build" do
       system "cmake", "..", *args
