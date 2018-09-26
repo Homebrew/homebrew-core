@@ -12,30 +12,23 @@ class Gnuradio < Formula
     sha256 "dc19d373b871c7cf3325e5ff041a5a46aa3fe75cee2c8efa36b33b70bb492b73" => :el_capitan
   end
 
-  option "without-python@2", "Build without python support"
-
-  deprecated_option "without-python" => "without-python@2"
-
   depends_on "cmake" => :build
-  depends_on "doxygen" => [:build, :optional] # For documentation
+  depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
-  depends_on "sphinx-doc" => [:build, :optional] # For documentation
+  depends_on "sphinx-doc" => :build
+  depends_on "swig" => :build
   depends_on "boost"
   depends_on "fftw"
   depends_on "gsl"
+  depends_on "numpy"
+  depends_on "portaudio"
+  depends_on "python@2"
+  depends_on "uhd"
   depends_on "zeromq"
-  depends_on "portaudio" => :recommended
-  depends_on "python@2" => :recommended
-  depends_on "uhd" => :recommended
   depends_on "jack" => :optional
   depends_on "pygtk" => :optional
   depends_on "sdl" => :optional
   depends_on "wxpython" => :optional
-
-  if build.with? "python@2"
-    depends_on "swig" => :build
-    depends_on "numpy"
-  end
 
   # cheetah starts here
   resource "Markdown" do
@@ -103,26 +96,19 @@ class Gnuradio < Formula
     args = std_cmake_args
     args << "-DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d"
     args << "-DGR_PREFSDIR=#{etc}/gnuradio/conf.d"
-
     args << "-DENABLE_DEFAULT=OFF"
-    enabled_components = %w[gr-analog gr-fft volk gr-filter gnuradio-runtime
-                            gr-blocks gr-pager gr-noaa gr-channels gr-audio
-                            gr-fcd gr-vocoder gr-fec gr-digital gr-dtv gr-atsc
-                            gr-trellis gr-zeromq]
-    if build.with? "python@2"
-      enabled_components << "python"
-      enabled_components << "gr-utils"
-      enabled_components << "grc" if build.with? "pygtk"
-      enabled_components << "gr-wxgui" if build.with? "wxpython"
-    end
-    enabled_components << "gr-wavelet"
-    enabled_components << "gr-video-sdl" if build.with? "sdl"
-    enabled_components << "gr-uhd" if build.with? "uhd"
-    enabled_components << "doxygen" if build.with? "doxygen"
-    enabled_components << "sphinx" if build.with? "sphinx"
 
-    enabled_components.each do |c|
-      args << "-DENABLE_#{c.upcase.split("-").join("_")}=ON"
+    enabled = %w[GR_ANALOG GR_FFT VOLK GR_FILTER GNURADIO_RUNTIME
+                 GR_BLOCKS GR_PAGER GR_NOAA GR_CHANNELS GR_AUDIO
+                 GR_FCD GR_VOCODER GR_FEC GR_DIGITAL GR_DTV GR_ATSC
+                 GR_TRELLIS GR_ZEROMQ GR_WAVELET GR_UHD DOXYGEN SPHINX
+                 PYTHON GR_UTILS]
+    enabled << "GRC" if build.with? "pygtk"
+    enabled << "GR_WXGUI" if build.with? "wxpython"
+    enabled << "GR_VIDEO_SDL" if build.with? "sdl"
+
+    enabled.each do |c|
+      args << "-DENABLE_#{c}=ON"
     end
 
     mkdir "build" do
@@ -173,41 +159,39 @@ class Gnuradio < Formula
            "-lboost_system", testpath/"test.c++", "-o", testpath/"test"
     system "./test"
 
-    if build.with? "python@2"
-      (testpath/"test.py").write <<~EOS
-        from gnuradio import blocks
-        from gnuradio import gr
+    (testpath/"test.py").write <<~EOS
+      from gnuradio import blocks
+      from gnuradio import gr
 
-        class top_block(gr.top_block):
-            def __init__(self):
-                gr.top_block.__init__(self, "Top Block")
-                self.samp_rate = 32000
-                s = gr.sizeof_gr_complex
-                self.blocks_null_source_0 = blocks.null_source(s)
-                self.blocks_null_sink_0 = blocks.null_sink(s)
-                self.blocks_head_0 = blocks.head(s, 1024)
-                self.connect((self.blocks_head_0, 0),
-                             (self.blocks_null_sink_0, 0))
-                self.connect((self.blocks_null_source_0, 0),
-                             (self.blocks_head_0, 0))
+      class top_block(gr.top_block):
+          def __init__(self):
+              gr.top_block.__init__(self, "Top Block")
+              self.samp_rate = 32000
+              s = gr.sizeof_gr_complex
+              self.blocks_null_source_0 = blocks.null_source(s)
+              self.blocks_null_sink_0 = blocks.null_sink(s)
+              self.blocks_head_0 = blocks.head(s, 1024)
+              self.connect((self.blocks_head_0, 0),
+                           (self.blocks_null_sink_0, 0))
+              self.connect((self.blocks_null_source_0, 0),
+                           (self.blocks_head_0, 0))
 
-        def main(top_block_cls=top_block, options=None):
-            tb = top_block_cls()
-            tb.start()
-            tb.wait()
+      def main(top_block_cls=top_block, options=None):
+          tb = top_block_cls()
+          tb.start()
+          tb.wait()
 
-        main()
-      EOS
-      system "python2.7", testpath/"test.py"
+      main()
+    EOS
+    system "python2.7", testpath/"test.py"
 
-      cd testpath do
-        system "#{bin}/gr_modtool", "newmod", "test"
+    cd testpath do
+      system "#{bin}/gr_modtool", "newmod", "test"
 
-        cd "gr-test" do
-          system "#{bin}/gr_modtool", "add", "-t", "general", "test_ff", "-l",
-                 "python", "-y", "--argument-list=''", "--add-python-qa",
-                 "--copyright=brew"
-        end
+      cd "gr-test" do
+        system "#{bin}/gr_modtool", "add", "-t", "general", "test_ff", "-l",
+               "python", "-y", "--argument-list=''", "--add-python-qa",
+               "--copyright=brew"
       end
     end
   end
