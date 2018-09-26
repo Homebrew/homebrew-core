@@ -12,10 +12,6 @@ class Snort < Formula
     sha256 "00de9088a3e7471026430cf17a7cc7d3d9787496398662c2e2c6a7c766c212cd" => :el_capitan
   end
 
-  option "with-debug", "Compile Snort with debug options enabled"
-
-  deprecated_option "enable-debug" => "with-debug"
-
   depends_on "pkg-config" => :build
   depends_on "daq"
   depends_on "libdnet"
@@ -29,27 +25,21 @@ class Snort < Formula
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}/snort
+      --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
+      --enable-active-response
+      --enable-flexresp3
       --enable-gre
       --enable-mpls
-      --enable-targetbased
+      --enable-normalizer
+      --enable-react
+      --enable-reload
       --enable-sourcefire
+      --enable-targetbased
       --with-openssl-includes=#{openssl.opt_include}
       --with-openssl-libraries=#{openssl.opt_lib}
-      --enable-active-response
-      --enable-normalizer
-      --enable-reload
-      --enable-react
-      --enable-flexresp3
     ]
-
-    if build.with? "debug"
-      args << "--enable-debug"
-      args << "--enable-debug-msgs"
-    else
-      args << "--disable-debug"
-    end
 
     system "./configure", *args
     system "make", "install"
