@@ -14,12 +14,7 @@ class Namebench < Formula
     sha256 "ac3d993b71305c18b47fa671ecb4c5875b80fd7ea87a6fff0f123c3c2cfdcb43" => :mavericks
   end
 
-  option "without-third-party", "Do not install bundled third-party modules"
-
-  deprecated_option "no-third-party" => "without-third-party"
-
   def install
-    ENV["NO_THIRD_PARTY"] = "1" if build.without? "third-party"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
 
     system "python", "setup.py", "install", "--prefix=#{libexec}",
