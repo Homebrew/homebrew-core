@@ -13,10 +13,7 @@ class Pyqt < Formula
     sha256 "17ae485e79a5b3e35f0a09bcb3862239517218ebeae10850d7804d49edc1d839" => :el_capitan
   end
 
-  option "with-debug", "Build with debug symbols"
   option "with-docs", "Install HTML documentation and python examples"
-
-  deprecated_option "enable-debug" => "with-debug"
 
   depends_on "qt"
   depends_on "sip"
@@ -44,7 +41,6 @@ class Pyqt < Formula
               "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
               "--qml-plugindir=#{pkgshare}/plugins",
               "--verbose"]
-      args << "--debug" if build.with? "debug"
 
       system python, "configure.py", *args
       system "make"
