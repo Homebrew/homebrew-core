@@ -11,10 +11,6 @@ class Glib < Formula
     sha256 "b79c2f30d938327006a2716bb26bb667f09783c3b258cc4be7e12760fd28ff44" => :el_capitan
   end
 
-  option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
-
-  deprecated_option "test" => "with-test"
-
   # autoconf, automake and libtool can be removed when
   # bug 780271 is fixed and gio.patch is modified accordingly
   depends_on "autoconf" => :build
@@ -79,8 +75,6 @@ class Glib < Formula
               "giomoduledir=${prefix}/lib/gio/modules"
 
     system "make"
-    # the spawn-multithreaded tests require more open files
-    system "ulimit -n 1024; make check" if build.with? "test"
     system "make", "install"
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
