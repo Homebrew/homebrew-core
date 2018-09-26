@@ -12,8 +12,6 @@ class Liblas < Formula
     sha256 "a222f7c1e8b07a512a09d733c14d9fc24632a8a1188b579c34517242cf4e3c88" => :el_capitan
   end
 
-  option "with-test", "Verify during install with `make test`"
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gdal"
@@ -39,7 +37,7 @@ class Liblas < Formula
 
       system "cmake", "..", *args
       system "make"
-      system "make", "test" if build.bottle? || build.with?("test")
+      system "make", "test" if build.bottle?
       system "make", "install"
     end
   end
