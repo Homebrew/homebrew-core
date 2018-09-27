@@ -12,10 +12,6 @@ class Botan < Formula
     sha256 "693252ff477a8c5ce0a0703538682d90a2bb0e63e52237d279c8fa7a7863a2a8" => :el_capitan
   end
 
-  option "with-debug", "Enable debug build of Botan"
-
-  deprecated_option "enable-debug" => "with-debug"
-
   depends_on "pkg-config" => :build
   depends_on "openssl"
 
@@ -34,8 +30,6 @@ class Botan < Formula
       --with-zlib
       --with-bzip2
     ]
-
-    args << "--enable-debug" if build.with? "debug"
 
     system "./configure.py", *args
     system "make", "install"

@@ -13,15 +13,11 @@ class Brainfuck < Formula
     sha256 "f8289bed7e6455b63f05baf367069f60fe478f6c78f064c06ab1e571a181c3b7" => :el_capitan
   end
 
-  option "with-debug", "Extend the interpreter with a debug command"
-
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args + %w[-DBUILD_SHARED_LIB=ON -DBUILD_STATIC_LIB=ON -DINSTALL_EXAMPLES=ON]
-    args << "-DENABLE_DEBUG=ON" if build.with? "debug"
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIB=ON",
+                         "-DBUILD_STATIC_LIB=ON", "-DINSTALL_EXAMPLES=ON"
     system "make", "install"
   end
 
