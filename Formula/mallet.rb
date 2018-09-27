@@ -8,7 +8,6 @@ class Mallet < Formula
 
   def install
     rm Dir["bin/*.{bat,dll,exe}"] # Remove all windows files
-    prefix.install_metafiles
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
