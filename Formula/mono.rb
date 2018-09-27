@@ -39,6 +39,7 @@ class Mono < Formula
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
+        :branch => "mono-2018-04",
         :revision => "8af44c5b9e727c096833a88fae05c3ddb76716d0"
   end
 
