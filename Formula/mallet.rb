@@ -8,6 +8,11 @@ class Mallet < Formula
 
   depends_on :java
 
+  resource "testdata" do
+    url "https://github.com/mimno/Mallet/blob/master/sample-data/stackexchange/tsv/testing.tsv"
+    sha256 "281c76b87c3fa4edc6d9c46a0660ceda74e9a76ac1855da563490b211265a7c9"
+  end
+
   def install
     rm Dir["bin/*.{bat,dll,exe}"] # Remove all windows files
     libexec.install Dir["*"]
@@ -16,6 +21,10 @@ class Mallet < Formula
   end
 
   test do
-    system "#{bin}/mallet | grep Mallet"
+    resource("testdata").stage do
+      system "#{bin}/mallet import-file --input testing.tsv --keep-sequence"
+      out = shell_output("#{bin}/mallet train-topics --input text.vectors --show-topics-interval 0 --num-iterations 100 2>&1")
+      assert_equal "seconds", out.split.last
+    end
   end
 end
