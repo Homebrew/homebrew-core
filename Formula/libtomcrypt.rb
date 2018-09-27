@@ -13,7 +13,7 @@ class Libtomcrypt < Formula
   end
 
   def install
-    system "make", "test"
+    system "make", "test", "CFLAGS+=-DLTM_DESC"
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "test"
     (pkgshare/"tests").install "tests/test.key"
