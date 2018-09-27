@@ -4,6 +4,8 @@ class Mallet < Formula
   url "http://mallet.cs.umass.edu/dist/mallet-2.0.8.tar.gz"
   sha256 "5b2d6fb9bcf600b1836b09881821a6781dd45a7d3032e61d7500d027a5b34faf"
 
+  bottle :unneeded
+
   depends_on :java
 
   def install
