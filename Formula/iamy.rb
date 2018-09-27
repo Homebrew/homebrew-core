@@ -1,8 +1,8 @@
 class Iamy < Formula
   desc "AWS IAM import and export tool"
   homepage "https://github.com/99designs/iamy"
-  url "https://github.com/99designs/iamy/archive/v2.1.1.tar.gz"
-  sha256 "c23e061ab0ebe8009e2db27fef95d733490a5a76a4f7d54bd1323ab8faf2441a"
+  url "https://github.com/99designs/iamy/archive/v2.2.0.tar.gz"
+  sha256 "be315753cd94a3652cfc0872f56e993c64ea0811247361742e3eb0be2ffcc64d"
   head "https://github.com/99designs/iamy.git"
 
   bottle do
