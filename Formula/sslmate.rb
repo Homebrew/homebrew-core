@@ -13,7 +13,7 @@ class Sslmate < Formula
     sha256 "5b829450ad24c38b9b4ee19e853422387345710473df25f689ef10e388f1dee0" => :el_capitan
   end
 
-  option "without-route53", "Disable support for Route 53 DNS approval"
+  depends_on "python@2"
 
   if MacOS.version <= :snow_leopard
     depends_on "perl"
@@ -37,13 +37,9 @@ class Sslmate < Formula
     end
   end
 
-  if build.with? "route53"
-    depends_on "python@2"
-
-    resource "boto" do
-      url "https://files.pythonhosted.org/packages/source/b/boto/boto-2.38.0.tar.gz"
-      sha256 "d9083f91e21df850c813b38358dc83df16d7f253180a1344ecfedce24213ecf2"
-    end
+  resource "boto" do
+    url "https://files.pythonhosted.org/packages/source/b/boto/boto-2.38.0.tar.gz"
+    sha256 "d9083f91e21df850c813b38358dc83df16d7f253180a1344ecfedce24213ecf2"
   end
 
   def install
@@ -51,7 +47,7 @@ class Sslmate < Formula
       ENV.prepend_path "PATH", Formula["perl"].bin
     end
     ENV.prepend_create_path "PERL5LIB", libexec + "vendor/lib/perl5"
-    ENV.prepend_create_path "PYTHONPATH", libexec + "vendor/lib/python2.7/site-packages" if build.with? "route53"
+    ENV.prepend_create_path "PYTHONPATH", libexec + "vendor/lib/python2.7/site-packages"
 
     perl_resources = []
     perl_resources << "URI" << "Term::ReadKey" if MacOS.version <= :snow_leopard
@@ -64,12 +60,8 @@ class Sslmate < Formula
       end
     end
 
-    python_resources = []
-    python_resources << "boto" if build.with? "route53"
-    python_resources.each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec + "vendor")
-      end
+    resource("boto").stage do
+      system "python", *Language::Python.setup_install_args(libexec + "vendor")
     end
 
     system "make", "PREFIX=#{prefix}"
@@ -79,7 +71,7 @@ class Sslmate < Formula
     if MacOS.version <= :snow_leopard
       env[:PATH] = "#{Formula["perl"].bin}:#{Formula["curl"].bin}:$PATH"
     end
-    env[:PYTHONPATH] = ENV["PYTHONPATH"] if build.with? "route53"
+    env[:PYTHONPATH] = ENV["PYTHONPATH"]
     bin.env_script_all_files(libexec + "bin", env)
 
     # Fix failure when Homebrew perl is selected at runtime

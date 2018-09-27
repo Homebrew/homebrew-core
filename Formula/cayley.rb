@@ -13,8 +13,6 @@ class Cayley < Formula
     sha256 "45699dd103618510a86c61a57cb32c7d3dabec1718d05e2b0dee278b3f193ee3" => :el_capitan
   end
 
-  option "without-samples", "Don't install sample data"
-
   depends_on "bazaar" => :build
   depends_on "dep" => :build
   depends_on "go" => :build
@@ -37,10 +35,9 @@ class Cayley < Formula
 
       (pkgshare/"assets").install "docs", "static", "templates"
 
-      if build.with? "samples"
-        system "gzip", "-d", "data/30kmoviedata.nq.gz"
-        (pkgshare/"samples").install "data/testdata.nq", "data/30kmoviedata.nq"
-      end
+      # Install samples
+      system "gzip", "-d", "data/30kmoviedata.nq.gz"
+      (pkgshare/"samples").install "data/testdata.nq", "data/30kmoviedata.nq"
     end
   end
 

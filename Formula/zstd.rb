@@ -12,27 +12,22 @@ class Zstd < Formula
     sha256 "ce6df98dc4ebb218c5189cd5e30fa46c665f4917843a75935d0b9adf9a1baf86" => :el_capitan
   end
 
-  option "without-pzstd", "Build without parallel (de-)compression tool"
-
   depends_on "cmake" => :build
 
   def install
     system "make", "install", "PREFIX=#{prefix}/"
 
-    if build.with? "pzstd"
-      system "make", "-C", "contrib/pzstd", "googletest"
-      system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
-      bin.install "contrib/pzstd/pzstd"
-    end
+    # Build parallel version
+    system "make", "-C", "contrib/pzstd", "googletest"
+    system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
+    bin.install "contrib/pzstd/pzstd"
   end
 
   test do
     assert_equal "hello\n",
       pipe_output("#{bin}/zstd | #{bin}/zstd -d", "hello\n", 0)
 
-    if build.with? "pzstd"
-      assert_equal "hello\n",
-        pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
-    end
+    assert_equal "hello\n",
+      pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
   end
 end

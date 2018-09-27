@@ -14,7 +14,6 @@ class Qwt < Formula
   end
 
   option "with-qwtmathml", "Build the qwtmathml library"
-  option "without-plugin", "Skip building the Qt Designer plugin"
 
   depends_on "qt"
 
@@ -25,7 +24,6 @@ class Qwt < Formula
   def install
     inreplace "qwtconfig.pri" do |s|
       s.gsub! /^\s*QWT_INSTALL_PREFIX\s*=(.*)$/, "QWT_INSTALL_PREFIX=#{prefix}"
-      s.sub! /\+(=\s*QwtDesigner)/, "-\\1" if build.without? "plugin"
 
       # Install Qt plugin in `lib/qt/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_INSTALL_PREFIX\})/(plugins/designer)$},
