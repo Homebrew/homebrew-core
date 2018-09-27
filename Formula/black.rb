@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/2d/43/64205493cfb4c8e1720208d73502a121ace2a195cd4d1d49bd7470e4fd92/black-18.6b4.tar.gz"
-  sha256 "22158b89c1a6b4eb333a1e65e791a3f8b998cf3b11ae094adb2570f31f769a44"
+  url "https://files.pythonhosted.org/packages/e8/5f/0f79fcd943ba465cbd4bf303c9794970c13a95e5456630de9f72e7f37ad4/black-18.9b0.tar.gz"
+  sha256 "e030a9a28f542debc08acceb273f228ac422798e5215ba2a791a6ddeaaca22a5"
 
   bottle do
     cellar :any_skip_relocation
