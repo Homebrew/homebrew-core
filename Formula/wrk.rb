@@ -18,6 +18,7 @@ class Wrk < Formula
 
   def install
     ENV.deparallelize
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     system "make"
     bin.install "wrk"
   end
