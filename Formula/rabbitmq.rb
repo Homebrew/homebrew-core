@@ -16,6 +16,7 @@ class Rabbitmq < Formula
     # Setup the lib files
     (var/"lib/rabbitmq").mkpath
     (var/"log/rabbitmq").mkpath
+    (var/"home/rabbitmq").mkpath
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
     erlang = Formula["erlang"]
@@ -84,7 +85,13 @@ class Rabbitmq < Formula
           <!-- specify the path to the rabbitmq-env.conf file -->
           <key>CONF_ENV_FILE</key>
           <string>#{etc}/rabbitmq/rabbitmq-env.conf</string>
+          <key>HOME</key>
+          <string>#{var}/home/rabbitmq/</string>
         </dict>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/rabbitmq/std_error.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/rabbitmq/std_out.log</string>
       </dict>
     </plist>
   EOS
