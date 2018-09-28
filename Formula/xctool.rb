@@ -1,8 +1,8 @@
 class Xctool < Formula
   desc "Drop-in replacement for xcodebuild with a few extra features"
   homepage "https://github.com/facebook/xctool"
-  url "https://github.com/facebook/xctool/archive/0.3.4.tar.gz"
-  sha256 "e760d6e846f9547487b4238391debf3bfc11e5a41f7bb9a1dafb9d51b1d99295"
+  url "https://github.com/facebook/xctool/archive/0.3.5.tar.gz"
+  sha256 "100df971e106709b07046a16917ae8b052eb1e250ecab305fe65c8d0a50141ef"
   head "https://github.com/facebook/xctool.git"
 
   bottle do
@@ -15,7 +15,13 @@ class Xctool < Formula
   depends_on :xcode => "7.0"
 
   def install
-    system "./scripts/build.sh", "XT_INSTALL_ROOT=#{libexec}", "-IDECustomDerivedDataLocation=#{buildpath}"
+    xcodebuild "-workspace", "xctool.xcworkspace",
+               "-scheme", "xctool",
+               "-configuration", "Release",
+               "SYMROOT=build",
+               "-IDEBuildLocationStyle=Custom",
+               "-IDECustomDerivedDataLocation=#{buildpath}",
+               "XT_INSTALL_ROOT=#{libexec}"
     bin.install_symlink "#{libexec}/bin/xctool"
   end
 
