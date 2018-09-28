@@ -6,6 +6,7 @@ class SimpleMtpfs < Formula
 
   bottle do
     cellar :any
+    sha256 "a393f294fa56695eb464e64898e3607415a3de01b223576cf5d9e9571b2d5a8c" => :mojave
     sha256 "799625dbb36244feab3e209487c12d99467960ac14e80017552dbdd6a4f42ab9" => :high_sierra
     sha256 "e73ec4a78592b0fc76d86d3027615e2e8addc8b9a30da9caad433b2d1fced262" => :sierra
     sha256 "947d0e96fd262e1d493662955b3eb27e247d3fc52ed1e8dc07e58a4fb167892f" => :el_capitan
