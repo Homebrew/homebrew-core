@@ -23,6 +23,11 @@ class Sysbench < Formula
   def install
     system "./autogen.sh"
 
+    # Fix for luajit build breakage.
+    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
+    # is not set then it's forced to 10.4, which breaks compile on Mojave.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     args = ["--prefix=#{prefix}"]
     if build.with? "mysql-client"
       args << "--with-mysql"
