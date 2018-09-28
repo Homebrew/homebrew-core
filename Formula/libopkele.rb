@@ -1,7 +1,7 @@
 class Libopkele < Formula
   desc "C++ implementation of OpenID decentralized identity system"
   homepage "http://kin.klever.net/libopkele/"
-  revision 1
+  revision 2
 
   stable do
     url "http://kin.klever.net/dist/libopkele-2.0.4.tar.bz2"
@@ -33,9 +33,7 @@ class Libopkele < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-docs", "Build and install documentation"
-
-  depends_on "doxygen" => :build if build.with? "docs"
+  depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
 
   # It rejects the tr1/memory that ships on 10.9 & above
@@ -51,9 +49,7 @@ class Libopkele < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    if build.with? "docs"
-      system "make", "dox"
-      doc.install "doxydox/html"
-    end
+    system "make", "dox"
+    doc.install "doxydox/html"
   end
 end
