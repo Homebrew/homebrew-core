@@ -25,6 +25,7 @@ class Ettercap < Formula
   depends_on "cmake" => :build
   depends_on "curl" if MacOS.version <= :mountain_lion # requires >= 7.26.0.
   depends_on "libnet"
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "pcre"
   depends_on "gtk+" => :optional
