@@ -1,9 +1,8 @@
 class Libgda < Formula
   desc "Provides unified data access to the GNOME project"
   homepage "http://www.gnome-db.org/"
-  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.4.tar.xz"
-  sha256 "2cee38dd583ccbaa5bdf6c01ca5f88cc08758b9b144938a51a478eb2684b765e"
-  revision 2
+  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.5.tar.xz"
+  sha256 "e3d2e4c28c08a22efd520767fa9d16e92cc1821f693261d7cb2892cc23ec90c8"
 
   bottle do
     sha256 "c8e13219f324e8398a33dbf0b7aaf9ae1385dc42971af89013f0c71a1606a1ae" => :mojave
@@ -13,6 +12,10 @@ class Libgda < Formula
     sha256 "01e46f8673fcf3fad0bccdd70e9bd6fac08f0f5b7035e85318a3add4db329a9b" => :yosemite
   end
 
+  # bug reported at https://gitlab.gnome.org/GNOME/libgda/issues/142
+  patch :DATA
+
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
@@ -23,14 +26,6 @@ class Libgda < Formula
   depends_on "readline"
   depends_on "sqlite"
 
-  # Fix incorrect encoding of headers
-  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=870741
-  # https://bugzilla.gnome.org/show_bug.cgi?id=788283
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bf4e8e3395/libgda/encoding.patch"
-    sha256 "db6c7f10a9ed832585aae65eb135b718a69c5151375aa21e475ba3031beb0068"
-  end
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -38,8 +33,26 @@ class Libgda < Formula
                           "--prefix=#{prefix}",
                           "--disable-binreloc",
                           "--disable-gtk-doc",
-                          "--without-java"
+                          "--without-java",
+                          "--enable-introspection",
+                          "--enable-gi-system-install=no"
     system "make"
     system "make", "install"
   end
 end
+
+__END__
+diff --git a/libgda/sqlite/virtual/gda-vprovider-data-model.c b/libgda/sqlite/virtual/gda-vprovider-data-model.c
+index d6674de..31c7993 100644
+--- a/libgda/sqlite/virtual/gda-vprovider-data-model.c
++++ b/libgda/sqlite/virtual/gda-vprovider-data-model.c
+@@ -280,7 +280,7 @@ virtual_filtered_data_free (VirtualFilteredData *data)
+ static VirtualFilteredData *
+ virtual_filtered_data_ref (VirtualFilteredData *data)
+ {
+-	g_return_if_fail (data != NULL);
++	g_return_val_if_fail (data != NULL, NULL);
+ 	data->refcount ++;
+ 	return data;
+ }
+
