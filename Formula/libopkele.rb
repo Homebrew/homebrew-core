@@ -16,13 +16,9 @@ class Libopkele < Formula
 
   bottle do
     cellar :any
-    sha256 "c000013e81c4503997a449f79adcc03adf0c484317b9793f227f8f45eece0b45" => :mojave
-    sha256 "115bc1d49f89ab7da2ac38649c84e7321f15b6079e73564ca98a7dc751525b5c" => :high_sierra
-    sha256 "38cac7b6c07814d6bdfe4b9b9b6fdf3daf50cf306689cc6e2396d6664660419c" => :sierra
-    sha256 "b37d5783b40172001ecfa3ec8b19e636c7b9b96d5482dd7d8474e3c941501ece" => :el_capitan
-    sha256 "57dbb32ce8982e2ad8135917ac1794933edf92b8e2514c16a016bccaaaa1c6aa" => :yosemite
-    sha256 "142d206a9bde1877b84e1206fc0b49c6fa47577510b9b22d8d9d07cf385c54bf" => :mavericks
-    sha256 "87db53d167b5954fea2eaf8fd3a3d051a4fc23494aa1b606d94aabbd2152f4c0" => :mountain_lion
+    sha256 "794083c3584728d142e7fa714e5ba29ce3540207b9ce63acdc23fe3910007877" => :mojave
+    sha256 "639c167ac47dfdb707717fa923717c23a0822d67d1062268df9cc1c2f2e6c711" => :high_sierra
+    sha256 "0ac12bda155994cb0bc73acbd4210cbea6c27a5bbbd29716e8b78d6d19dd8b81" => :sierra
   end
 
   head do
