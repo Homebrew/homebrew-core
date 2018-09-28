@@ -11,6 +11,8 @@ class Libtomcrypt < Formula
     sha256 "3b0887710aa1aa5b8e352b6b02d742cb44a4b7bcf99bfd1f38cf1eeca16d77a8" => :sierra
     sha256 "9ecd9f9965864d6c58970ebd6d0c3b1871e38ef787ed8732ef12072a651fd3c3" => :el_capitan
   end
+  
+  depends_on "libtommath"
 
   def install
     system "make", "test", "CFLAGS+=-DLTM_DESC"
