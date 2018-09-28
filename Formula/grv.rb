@@ -15,6 +15,7 @@ class Grv < Formula
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "readline"
 
   def install
