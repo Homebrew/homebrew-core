@@ -6,6 +6,7 @@ class Squashfuse < Formula
 
   bottle do
     cellar :any
+    sha256 "f4cb4305f7773fbf927d51a401453c3cdee1f1d48da2ef33d8fd41d526fa7c0d" => :mojave
     sha256 "ada7e939ff42fcd9fb6b1fb81ab596463d6149ff592f73ca924b5b9dca5ddfc4" => :high_sierra
     sha256 "c1898c81ae091097ae2502ecbdebdd1831db302dd74b814003191007a4d5f018" => :sierra
     sha256 "bf4e6ca88d094fd7d92fbab61dd1c3a4e71b60d7668d23b6044c90e8167833c5" => :el_capitan
