@@ -22,7 +22,7 @@ class Mallet < Formula
 
   test do
     resource("testdata").stage do
-      system "#{bin}/mallet import-file --input testing.tsv --keep-sequence"
+      system "#{bin}/mallet", "import-file", "--input", "testing.tsv", "--keep-sequence"
       out = shell_output("#{bin}/mallet train-topics --input text.vectors --show-topics-interval 0 --num-iterations 100 2>&1")
       assert_equal "seconds", out.split.last
     end
