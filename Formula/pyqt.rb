@@ -13,8 +13,6 @@ class Pyqt < Formula
     sha256 "17ae485e79a5b3e35f0a09bcb3862239517218ebeae10850d7804d49edc1d839" => :el_capitan
   end
 
-  option "with-docs", "Install HTML documentation and python examples"
-
   depends_on "qt"
   depends_on "sip"
   depends_on "python" => :recommended
@@ -47,7 +45,6 @@ class Pyqt < Formula
       system "make", "install"
       system "make", "clean"
     end
-    doc.install "doc/html", "examples" if build.with? "docs"
   end
 
   test do
