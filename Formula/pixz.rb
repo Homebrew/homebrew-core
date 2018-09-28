@@ -3,6 +3,7 @@ class Pixz < Formula
   homepage "https://github.com/vasi/pixz"
   url "https://github.com/vasi/pixz/releases/download/v1.0.6/pixz-1.0.6.tar.gz"
   sha256 "c54a406dddc6c2226779aeb4b5d5b5649c1d3787b39794fbae218f7535a1af63"
+  revision 1
   head "https://github.com/vasi/pixz.git"
 
   bottle do
@@ -15,16 +16,11 @@ class Pixz < Formula
     sha256 "8a7d9c9017d273bb234520e560893bff827e0e43d7b83fde9783031d46b0b0f3" => :mavericks
   end
 
-  option "with-docs", "Build man pages using asciidoc and DocBook"
-
+  depends_on "asciidoc" => :build
+  depends_on "docbook" => :build
   depends_on "pkg-config" => :build
   depends_on "libarchive"
   depends_on "xz"
-
-  if build.with? "docs"
-    depends_on "asciidoc" => :build
-    depends_on "docbook" => :build
-  end
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
@@ -32,11 +28,9 @@ class Pixz < Formula
     system "make"
     system "make", "install"
 
-    if build.with? "docs"
-      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-      system "a2x", "--doctype", "manpage", "--format", "manpage", "src/pixz.1.asciidoc"
-      man1.install "src/pixz.1"
-    end
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "a2x", "--doctype", "manpage", "--format", "manpage", "src/pixz.1.asciidoc"
+    man1.install "src/pixz.1"
   end
 
   test do
