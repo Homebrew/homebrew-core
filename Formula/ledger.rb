@@ -13,17 +13,12 @@ class Ledger < Formula
     sha256 "9e28e41459615b80d02f5fa9f2459b7a3f75bd0d4fc0cbb1031b1611fe84c52c" => :el_capitan
   end
 
-  option "with-docs", "Build HTML documentation"
-  option "without-python@2", "Build without python support"
-
-  deprecated_option "without-python" => "without-python@2"
-
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "boost-python"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "python@2" => :recommended
-  depends_on "boost-python" if build.with? "python@2"
+  depends_on "python@2"
 
   needs :cxx11
 
@@ -39,17 +34,18 @@ class Ledger < Formula
       --output=build
       --prefix=#{prefix}
       --boost=#{Formula["boost"].opt_prefix}
+      --python
+      --
+      -DBUILD_DOCS=1
+      -DBUILD_WEB_DOCS=1
     ]
-    args << "--python" if build.with? "python@2"
-    args += %w[-- -DBUILD_DOCS=1]
-    args << "-DBUILD_WEB_DOCS=1" if build.with? "docs"
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args
     system "./acprep", "opt", "make", "install", *args
 
     (pkgshare/"examples").install Dir["test/input/*.dat"]
     pkgshare.install "contrib"
-    pkgshare.install "python/demo.py" if build.with? "python@2"
+    pkgshare.install "python/demo.py"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
     bash_completion.install pkgshare/"contrib/ledger-completion.bash"
   end
@@ -64,6 +60,6 @@ class Ledger < Formula
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
     assert_equal 0, $CHILD_STATUS.exitstatus
 
-    system "python", pkgshare/"demo.py" if build.with? "python@2"
+    system "python", pkgshare/"demo.py"
   end
 end
