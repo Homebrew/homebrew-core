@@ -6,6 +6,7 @@ class Clamav < Formula
 
   bottle do
     rebuild 1
+    sha256 "b783c48282b431f6a616a41c6e36df75531523910808a96750584490a6aaa611" => :mojave
     sha256 "2e4e3a561a1652ce16cb4810670968e097db1ea87508cc35b40706e26c567c27" => :high_sierra
     sha256 "12b35691fc199071a18ed7e7cd7b05e79a7106164e6dff31356e31ab46bd3814" => :sierra
     sha256 "90ad4d0ddc832c5a96413f877d6967cc4b7c3c67c3ece37a663def3f08b309c3" => :el_capitan
