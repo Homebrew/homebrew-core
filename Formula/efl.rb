@@ -11,9 +11,6 @@ class Efl < Formula
     sha256 "04ee0cab98b1c770ecca86ee6e5935d8e23b5732d1afd663f09d5bb9a7da10d1" => :el_capitan
   end
 
-  option "with-docs", "Install development libraries/headers and HTML docs"
-
-  depends_on "doxygen" => :build if build.with? "docs"
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "bullet"
@@ -36,8 +33,6 @@ class Efl < Formula
   depends_on "poppler"
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
-  depends_on "glib" => :optional
-  depends_on "webp" => :optional
 
   needs :cxx11
 
@@ -51,7 +46,6 @@ class Efl < Formula
 
     system "./configure", *args
     system "make", "install"
-    system "make", "install-doc" if build.with? "docs"
   end
 
   def post_install
