@@ -5,11 +5,9 @@ class Libgda < Formula
   sha256 "e3d2e4c28c08a22efd520767fa9d16e92cc1821f693261d7cb2892cc23ec90c8"
 
   bottle do
-    sha256 "c8e13219f324e8398a33dbf0b7aaf9ae1385dc42971af89013f0c71a1606a1ae" => :mojave
-    sha256 "39e348596409d69d57609d0a00c6e9506a9fd52a4f90e585e3b6840bf03ea67e" => :high_sierra
-    sha256 "e165830cedc3a0955989746145b310cc03fe96b84f18b33c4c3f2b827bdd473c" => :sierra
-    sha256 "7809bb97ebcd233a740c1e5b5cb0f291a902639a6479d5e53fdcfedd928b6582" => :el_capitan
-    sha256 "01e46f8673fcf3fad0bccdd70e9bd6fac08f0f5b7035e85318a3add4db329a9b" => :yosemite
+    sha256 "6dc574ad6963f7779266af499e740d663fd70d26dd3e3212c57cdc556abc7060" => :mojave
+    sha256 "ba273939064c8f4e4adc764660888e80b9be67486554dd25e00f5d941a0c0c0f" => :high_sierra
+    sha256 "2183cd2116b161091c1a421a3e584064a754ab11f7838dbba9e5ece6b13fc3af" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
