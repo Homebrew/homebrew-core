@@ -9,8 +9,8 @@ class Mallet < Formula
   depends_on :java
 
   resource "testdata" do
-    url "https://github.com/mimno/Mallet/blob/master/sample-data/stackexchange/tsv/testing.tsv"
-    sha256 "281c76b87c3fa4edc6d9c46a0660ceda74e9a76ac1855da563490b211265a7c9"
+    url "https://raw.githubusercontent.com/mimno/Mallet/master/sample-data/stackexchange/tsv/testing.tsv"
+    sha256 "06b4a0b3f27afa532ded841e8304449764a604fb202ba60eb762eaa79e9e02f3"
   end
 
   def install
