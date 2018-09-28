@@ -6,6 +6,7 @@ class Wdfs < Formula
 
   bottle do
     cellar :any
+    sha256 "5c94bbb0f8a8139bcedce08d8cdc80cf796c3d801103f1688b415c570be3c298" => :mojave
     sha256 "204b9c0227c3ccf14444259fea4e26cedc42eb2e461ce02952bf4d7f2802fb66" => :high_sierra
     sha256 "d88bd5f277e42a04048c6641e764c919b71b4cec554440ddb590b608c7d02955" => :sierra
     sha256 "7133df159d9ca995fd982a7ffc2e3213112113e740c6ed5a5c48458d1f1bd1c3" => :el_capitan
