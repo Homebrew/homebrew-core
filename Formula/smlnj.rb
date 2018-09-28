@@ -1,8 +1,8 @@
 class Smlnj < Formula
   desc "Standard ML of New Jersey"
   homepage "https://www.smlnj.org/"
-  url "https://www.smlnj.org/dist/working/110.83/config.tgz"
-  sha256 "997d74d1a3e7e6b22c3002bf69a6003173c856d59baba79e93073f9c7f3eacaa"
+  url "http://smlnj.cs.uchicago.edu/dist/working/110.84/config.tgz"
+  sha256 "1810d3ca768222e120c7a3f2f93aafd652705371fc73929423c671dce3cef832"
 
   bottle do
     sha256 "c679fbcd1ebefdb3d376a7696567e567bea7c6c8eba193694f34ba157c00e6f5" => :high_sierra
@@ -15,98 +15,98 @@ class Smlnj < Formula
   depends_on MaximumMacOSRequirement => :high_sierra
 
   resource "cm" do
-    url "https://www.smlnj.org/dist/working/110.83/cm.tgz"
-    sha256 "89ccb520252097d83b8bdd70acc6f8bfbb662880f71bd0e516518c390454b2ca"
+    url "https://www.smlnj.org/dist/working/110.84/cm.tgz"
+    sha256 "7055c60481a887f27a5135ac1f33233565b99a7c99c4aa73e023e28e629b0663"
   end
 
   resource "compiler" do
-    url "https://www.smlnj.org/dist/working/110.83/compiler.tgz"
-    sha256 "4887d767566a2dc5276315ae51c84ae4d2317523c0683f91c7df7e8a4300b463"
+    url "https://www.smlnj.org/dist/working/110.84/compiler.tgz"
+    sha256 "6d23aff2e75727bf6969b05a070128f187e06f60408aabf6a71e0475326fee87"
   end
 
   resource "runtime" do
-    url "https://www.smlnj.org/dist/working/110.83/runtime.tgz"
-    sha256 "0254a24e4438a4b19e4d97a44306d0aa3063dfc5ab2606c7efaa664778c47173"
+    url "https://www.smlnj.org/dist/working/110.84/runtime.tgz"
+    sha256 "5fcf4bbdeaddb247f69a333d2295f5f5c0be55b1f86ff4fbffb63f0021d84d6c"
   end
 
   resource "system" do
-    url "https://www.smlnj.org/dist/working/110.83/system.tgz"
-    sha256 "1d30c9e7ff386b7f09b98863c3778e2a008c9404a50d20f105f3d3dfb950f091"
+    url "https://www.smlnj.org/dist/working/110.84/system.tgz"
+    sha256 "f46b1de790000a98f4aa9830325d39cb1e4867338d4db6b8a102084db1512218"
   end
 
   resource "bootstrap" do
-    url "https://www.smlnj.org/dist/working/110.83/boot.x86-unix.tgz"
-    sha256 "5830522e5981ba9fb6d01201db53f26285e6a251bedaf9dd87db0b9edf540b09"
+    url "https://www.smlnj.org/dist/working/110.84/boot.x86-unix.tgz"
+    sha256 "a29e3b0ca623da197e9c18ea64db4c2a08fe5e6add85c0d053c4ecfa653ace82"
   end
 
   resource "mlrisc" do
-    url "https://www.smlnj.org/dist/working/110.83/MLRISC.tgz"
-    sha256 "1842f9c6db8aa3e685af5b3fa73ab1162b3ce4aefb28a9d1b46f070564152455"
+    url "https://www.smlnj.org/dist/working/110.84/MLRISC.tgz"
+    sha256 "da3c5236018fa7608863c2fe1f3c57b60013df98b5a249fb3d4edc738cdfd072"
   end
 
   resource "lib" do
-    url "https://www.smlnj.org/dist/working/110.83/smlnj-lib.tgz"
-    sha256 "eabb1eee5a4ca09bc5d244625c1a58ad51199df682c572a322b296921d3b2364"
+    url "https://www.smlnj.org/dist/working/110.84/smlnj-lib.tgz"
+    sha256 "3356924655277416d8a491c1d601a0f567ab3d15cb17e243620e85cb28f0e9dd"
   end
 
   resource "ckit" do
-    url "https://www.smlnj.org/dist/working/110.83/ckit.tgz"
-    sha256 "6ab5db28b154c925e538b6cde886d7e0eee0bff24a3e01b950a2bfbdc8866921"
+    url "https://www.smlnj.org/dist/working/110.84/ckit.tgz"
+    sha256 "7e2534e393d2372cad8ff9ddd306881db91bbbcc2b0e0538e76868c86c658c36"
   end
 
   resource "nlffi" do
-    url "https://www.smlnj.org/dist/working/110.83/nlffi.tgz"
-    sha256 "eabcb899e9d16720ce2f44dda074236691aa5dacac05af8741a288e0d2c2dd5b"
+    url "https://www.smlnj.org/dist/working/110.84/nlffi.tgz"
+    sha256 "8b96a82a3d63b000b70a1b982aab9750ce9caa77f316f6a923969e86b0133f31"
   end
 
   resource "cml" do
-    url "https://www.smlnj.org/dist/working/110.83/cml.tgz"
-    sha256 "28e9bff3598dfa0bc58b7aa4d9031509109fbb3b2bb17fc389f4f7c669d531d9"
+    url "https://www.smlnj.org/dist/working/110.84/cml.tgz"
+    sha256 "556110c746db863211ac8a97e1bf097b0e5d45dfea4b3e8194b6c389ac2b569a"
   end
 
   resource "exene" do
-    url "https://www.smlnj.org/dist/working/110.83/eXene.tgz"
-    sha256 "569f39e2468c1fd699092272cfe5f56e5d6d7a010f17881061d242d443f0d508"
+    url "https://www.smlnj.org/dist/working/110.84/eXene.tgz"
+    sha256 "3fe1c6a1a334e7d7359fbcfd053066c88cb7705a90975b60fff946554aa0019c"
   end
 
   resource "ml-lpt" do
-    url "https://www.smlnj.org/dist/working/110.83/ml-lpt.tgz"
-    sha256 "ec9f407659fca997fb0714edafd4079e8d356463f9e6b7cdf787b6bf8b35fdec"
+    url "https://www.smlnj.org/dist/working/110.84/ml-lpt.tgz"
+    sha256 "2f60e1467a69fd4fb5501354244337926bc2a65225dde328f6aa3883b14fb3a5"
   end
 
   resource "ml-lex" do
-    url "https://www.smlnj.org/dist/working/110.83/ml-lex.tgz"
-    sha256 "beb1ef366db2034966eb9832bf6f8168513f58f18f34b38a6b7ab92f960b2e7e"
+    url "https://www.smlnj.org/dist/working/110.84/ml-lex.tgz"
+    sha256 "cc7e045aa9667f1eed055db1defca0e830eed34c08f3dfdf37f698964fe04070"
   end
 
   resource "ml-yacc" do
-    url "https://www.smlnj.org/dist/working/110.83/ml-yacc.tgz"
-    sha256 "2789f4f7b1e1b6ac0874d2232ea4d7aa44adccb655934227058b3153f9be2607"
+    url "https://www.smlnj.org/dist/working/110.84/ml-yacc.tgz"
+    sha256 "cfebaeb5f08810fcc93c49bf171834b7bf14b5f7e76d206e0afa35e18887bdb9"
   end
 
   resource "ml-burg" do
-    url "https://www.smlnj.org/dist/working/110.83/ml-burg.tgz"
-    sha256 "11e079d7ac5dde5e67457480053cd0e37dac343cb35fb0a7135df2bbb48426c5"
+    url "https://www.smlnj.org/dist/working/110.84/ml-burg.tgz"
+    sha256 "62ea37b13788078e3ea77d3b870da42788153c348009f827f2c0b05cfc07d918"
   end
 
   resource "pgraph" do
-    url "https://www.smlnj.org/dist/working/110.83/pgraph.tgz"
-    sha256 "a81a664aef82ad1f336cd9b320d1cd5351abb9bfd915f0179a62054508df6c0b"
+    url "https://www.smlnj.org/dist/working/110.84/pgraph.tgz"
+    sha256 "aa2f14de13a540dbc370b45757156c0b03516a5b8f97b5759292841d7b7ac1cb"
   end
 
   resource "trace-debug-profile" do
-    url "https://www.smlnj.org/dist/working/110.83/trace-debug-profile.tgz"
-    sha256 "1cb5559445805017f16f56df348e7e5c75352e060a8a43ea600e4300cab59a14"
+    url "https://www.smlnj.org/dist/working/110.84/trace-debug-profile.tgz"
+    sha256 "ecc54281b8654c75f8b9d4ebdf1ff67de71ef31297cf1b14115cd75645e46a5a"
   end
 
   resource "heap2asm" do
-    url "https://www.smlnj.org/dist/working/110.83/heap2asm.tgz"
-    sha256 "bf8a2fee9b1b345418b5252b05f059133afd3849b949b0249a7e9635fca43813"
+    url "https://www.smlnj.org/dist/working/110.84/heap2asm.tgz"
+    sha256 "3d33c52b650536762d47534f07709e749cc821ce515aef2fb9a746db11433e95"
   end
 
   resource "c" do
-    url "https://www.smlnj.org/dist/working/110.83/smlnj-c.tgz"
-    sha256 "5974c86a9fda680247ad69b8afc8d3bd32831b8256ce64a231a5dcdefcb793fb"
+    url "https://www.smlnj.org/dist/working/110.84/smlnj-c.tgz"
+    sha256 "145a513becb4c98991af7eae81ae19b8fff336458f1f011eafdc283cb76deee9"
   end
 
   def install
