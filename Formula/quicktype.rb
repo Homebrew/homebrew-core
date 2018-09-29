@@ -9,10 +9,9 @@ class Quicktype < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5845f4eb51875a6634bf74fc67707686f6af005f2253ab7d080d40f6251b52fb" => :mojave
-    sha256 "ba2108f7999343086dd9ceb2b012a937c98d870e5aadfed90388e6b1fdeef25c" => :high_sierra
-    sha256 "c5541eacbe37198f8f93fe0027ec925ede061354ababc0530e7de0914f252921" => :sierra
-    sha256 "65da485e00d53b85d3b040642f42bcecfb98dbca37edf3375234edd37241b099" => :el_capitan
+    sha256 "e6936c09bada8f96f57a3dfc9411a5473f8d8851335c661f5c045d92f6c76edf" => :mojave
+    sha256 "4e141a172b2937788b214a1713bd9cb85a376b735c505c21d8d6ca975f2a3125" => :high_sierra
+    sha256 "205c91ef38792785e68742698cad65d62db842c6b45218d0a4cd2b61116241c5" => :sierra
   end
 
   depends_on "node"
