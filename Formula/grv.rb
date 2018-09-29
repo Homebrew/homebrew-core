@@ -1,8 +1,8 @@
 class Grv < Formula
   desc "Terminal interface for viewing git repositories"
   homepage "https://github.com/rgburke/grv"
-  url "https://github.com/rgburke/grv/releases/download/v0.2.0/grv-0.2.0-src.tar.gz"
-  sha256 "4988bb0a74853ada3808d7c819bd159b2acee741baa1565e97033cd3118224b7"
+  url "https://github.com/rgburke/grv/releases/download/v0.3.0/grv-0.3.0-src.tar.gz"
+  sha256 "ee1b51bfcc1a5c1b4c71b3b84cae6370eced5dfcb4c677c53c75aab370edab63"
   head "https://github.com/rgburke/grv.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Grv < Formula
   depends_on "cmake" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "readline"
 
   def install
