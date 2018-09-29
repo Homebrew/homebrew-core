@@ -7,9 +7,9 @@ class Grv < Formula
 
   bottle do
     cellar :any
-    sha256 "49d394c493aceb17b73c6995255e22f4ae334631862e0bbf5ed6b0182205ab44" => :high_sierra
-    sha256 "685cf936f826b9f12a013f90a2e2eda256a200476283cf09eb4539abb70702cb" => :sierra
-    sha256 "c660e8bb6f3f3d7ac84c03eac926c84e4cb98e7cb4ab338ccc61a17f9eeeef70" => :el_capitan
+    sha256 "1330f549f1aad09f70f7173fdd0e108673b71adb85c37b539b448e31ebc02f90" => :mojave
+    sha256 "a064e3eb5c0346b74f6e48270eb96a788970664671fbad2255b6d04499096b14" => :high_sierra
+    sha256 "0da9d83d788502893b6ca9619b800b16787b3aeada2cf678996fc1b2ccd9f029" => :sierra
   end
 
   depends_on "cmake" => :build
