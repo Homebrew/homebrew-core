@@ -7,7 +7,7 @@ class Qt < Formula
   mirror "https://qt.mirror.constant.com/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-src-5.11.2.tar.xz"
   sha256 "c6104b840b6caee596fa9a35bc5f57f67ed5a99d6a36497b6fe66f990a53ca81"
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.11", :shallow => false
+  head "https://code.qt.io/qt/qt5.git", :branch => "5.12", :shallow => false
 
   bottle do
     sha256 "8c77b5762267b127cc31346ac4da805bbfd59e0180d90e1e8b77fb463e929d60" => :mojave
