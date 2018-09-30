@@ -1,8 +1,8 @@
 class PerlBuild < Formula
   desc "Perl builder"
   homepage "https://github.com/tokuhirom/Perl-Build"
-  url "https://github.com/tokuhirom/Perl-Build/archive/1.25.tar.gz"
-  sha256 "1a3b666ebdab1ce0c58f3d19dfff5ea85b7f803b51a77c4165fe65ff4313ec48"
+  url "https://github.com/tokuhirom/Perl-Build/archive/1.27.tar.gz"
+  sha256 "10bb9e30d775ce08bf66c2bd2ea24b5ee5f3ee956d0fba127dba385abc53556f"
   head "https://github.com/tokuhirom/perl-build.git"
 
   bottle do
@@ -18,8 +18,8 @@ class PerlBuild < Formula
   end
 
   resource "Module::Build" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4222.tar.gz"
-    sha256 "e74b45d9a74736472b74830599cec0d1123f992760f9cd97104f94bee800b160"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4224.tar.gz"
+    sha256 "a6ca15d78244a7b50fdbf27f85c85f4035aa799ce7dd018a0d98b358ef7bc782"
   end
 
   resource "Module::Build::Tiny" do
@@ -43,8 +43,8 @@ class PerlBuild < Formula
   end
 
   resource "HTTP::Tinyish" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.14.tar.gz"
-    sha256 "43fd54bd6d015827801343202f227844ac5af8c9f93c72d9683369be0bd5c194"
+    url "https://cpan.metacpan.org/authors/id/M/MI/MIYAGAWA/HTTP-Tinyish-0.15.tar.gz"
+    sha256 "5d65f0ee20a9e4744acdb3ef12edae78c121f53dcbc9cf00867c5725c4513aa5"
   end
 
   # Perl::Strip dependency
@@ -64,8 +64,8 @@ class PerlBuild < Formula
   end
 
   resource "CPAN::Perl::Releases" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/CPAN-Perl-Releases-3.72.tar.gz"
-    sha256 "48685fa0e53bb5820edc3bc0a5abed4ab708b42eaf35921d3a720cb884ef4ace"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/CPAN-Perl-Releases-3.76.tar.gz"
+    sha256 "12aa472345597295a571e89b2c20ff0b58a647db1ea938b263263a2dd2b22a5d"
   end
 
   resource "CPAN::Perl::Releases::MetaCPAN" do
@@ -74,19 +74,19 @@ class PerlBuild < Formula
   end
 
   resource "File::pushd" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-pushd-1.014.tar.gz"
-    sha256 "b5ab37ffe3acbec53efb7c77b4423a2c79afa30a48298e751b9ebee3fdc6340b"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-pushd-1.016.tar.gz"
+    sha256 "d73a7f09442983b098260df3df7a832a5f660773a313ca273fa8b56665f97cdc"
   end
 
   resource "HTTP::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/HTTP-Tiny-0.070.tar.gz"
-    sha256 "74f385d1e96de887a4df5a222d93afdc7d81ea9ad721a56ff3d8449bb12f7733"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/HTTP-Tiny-0.076.tar.gz"
+    sha256 "ddbdaa2fb511339fa621a80021bf1b9733fddafc4fe0245f26c8b92171ef9387"
   end
 
   # Devel::PatchPerl dependencies
   resource "IO::File" do
-    url "https://cpan.metacpan.org/authors/id/G/GB/GBARR/IO-1.25.tar.gz"
-    sha256 "89790db8b9281235dc995c1a85d532042ff68a90e1504abd39d463f05623e7b5"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/IO-1.39.tar.gz"
+    sha256 "4f0502e7f123ac824188eb8873038aaf2ddcc29f8babc1a0b2e1cd34b55a1fca"
   end
 
   resource "MIME::Base64" do
@@ -105,60 +105,60 @@ class PerlBuild < Formula
   end
 
   resource "Exporter" do
-    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/Exporter-5.72.tar.gz"
-    sha256 "cd13b7a0e91e8505a0ce4b25f40fab2c92bb28a99ef0d03da1001d95a32f0291"
+    url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/Exporter-5.73.tar.gz"
+    sha256 "c5b6e96b0bda7af81c6b444171045cc614fd1f409358ebc810d55f053c8dcde9"
   end
 
   resource "Carp" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Carp-1.38.tar.gz"
-    sha256 "a5a9ce3cbb959dfefa8c2dd16552567199b286d39b0e55053ca247c038977101"
+    url "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/Carp-1.50.tar.gz"
+    sha256 "f5273b4e1a6d51b22996c48cb3a3cbc72fd456c4038f5c20b127e2d4bcbcebd9"
   end
 
   resource "ExtUtils::MakeMaker" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.24.tar.gz"
-    sha256 "416abc97c3bb2cc72bef28852522f2859de53e37bf3d0ae8b292067d78755e69"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.34.tar.gz"
+    sha256 "95f1eb44de480d00b28d031b574ec868f7aeeee199eb5abe5666f6bcbbf68480"
   end
 
   resource "Data::Dumper" do
-    url "https://cpan.metacpan.org/authors/id/S/SM/SMUELLER/Data-Dumper-2.161.tar.gz"
-    sha256 "3aa4ac1b042b3880438165fb2b2139d377564a8e9928ffe689ede5304ee90558"
+    url "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/Data-Dumper-2.172.tar.gz"
+    sha256 "a95a3037163817221021ac145500968be44dc155c261f4097136392c0a9fecd9"
   end
 
   resource "Encode" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/Encode-2.89.tar.gz"
-    sha256 "e6299e67bc7379117015fcff38ba09da37441046a7f16a63dbaaf48b5738fcb4"
+    url "https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/Encode-2.98.tar.gz"
+    sha256 "303d396477c94c43c2f83da1a8025d68de76bd7e52c2cc35fbdf5c59b4c2cffa"
   end
 
   resource "parent" do
-    url "https://cpan.metacpan.org/authors/id/C/CO/CORION/parent-0.236.tar.gz"
-    sha256 "2d837ebd04f6aa4b8634c9fa9d0bead83f1bee4a8072defe862ee6eb82be127a"
+    url "https://cpan.metacpan.org/authors/id/C/CO/CORION/parent-0.237.tar.gz"
+    sha256 "1089d9648565c1d1e655fa4cb603272d3126747b7b5f836ffee685e27e53caae"
   end
 
   resource "PathTools" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/PathTools-3.62.tar.gz"
-    sha256 "36350e12f58871437ba03391f80a506e447e3c6630cc37d0625bc25ff1c7b4d2"
+    url "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/PathTools-3.75.tar.gz"
+    sha256 "a558503aa6b1f8c727c0073339081a77888606aa701ada1ad62dd9d8c3f945a2"
   end
 
   resource "Scalar-List-Utils" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.47.tar.gz"
-    sha256 "c483347372a96972d61fd186522a9dafc2da899ef2951964513b7e8efb37efe1"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.50.tar.gz"
+    sha256 "06aab9c693380190e53be09be7daed20c5d6278f71956989c24cca7782013675"
   end
 
   resource "if" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/if-0.0606.tar.gz"
-    sha256 "63d69282d6c4c9e76370b78d770ca720cea88cfe5ee5b612709240fc6078d50e"
+    url "https://cpan.metacpan.org/authors/id/X/XS/XSAWYERX/if-0.0608.tar.gz"
+    sha256 "37206e10919c4d99273020008a3581bf0947d364e859b8966521c3145b4b3700"
   end
 
   # end of Devel::PatchPerl dependencies
 
   resource "Devel::PatchPerl" do
-    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Devel-PatchPerl-1.48.tar.gz"
-    sha256 "26a9bc8e52af739384cece2773921dd44d2371b6cdf92fe452ecc348eb0d90fe"
+    url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/Devel-PatchPerl-1.52.tar.gz"
+    sha256 "4e69fb6f5f3add09915e6252ed6b3ff96f5ba60feb816e1aca2dfafef4c0d647"
   end
 
   resource "File::Temp" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-Temp-0.2304.tar.gz"
-    sha256 "13415323e48f7c9f34efdedf3d35141a7c3435e2beb8c6b922229dc317d321ac"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/File-Temp-0.2308.tar.gz"
+    sha256 "1ca1cb22e2ab1592e864b17c861113b5960e54d398726befc90559fb8df8d1d4"
   end
 
   resource "Getopt::Long" do
@@ -168,8 +168,8 @@ class PerlBuild < Formula
 
   # Pod::Usage dependency
   resource "Pod::Text" do
-    url "https://cpan.metacpan.org/authors/id/R/RR/RRA/podlators-4.09.tar.gz"
-    sha256 "c86d9633487e47196bfea678622a042ac1c1f910d6f22a06ba4667239f2236ba"
+    url "https://cpan.metacpan.org/authors/id/R/RR/RRA/podlators-4.11.tar.gz"
+    sha256 "5cad029e30a32a3dcde190fbb01399867432a31e8483c12eecfdbf36748fe2b0"
   end
 
   resource "Pod::Usage" do
