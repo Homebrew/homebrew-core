@@ -15,9 +15,15 @@ class Ppl < Formula
 
   depends_on "gmp"
 
+  # Fix compilation with Xcode 10
+  # Upstream commit, remove for next version
+  patch do
+    url "http://www.cs.unipr.it/git/gitweb.cgi?p=ppl/ppl.git;a=commitdiff_plain;h=c39f6a07b51f89e365b05ba4147aa2aa448febd7"
+    sha256 "6786f432784b74b81805b1d97e97cd1cc9f68653077681bb4f531466cbf8dc99"
+  end
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--with-gmp=#{Formula["gmp"].opt_prefix}",
                           "--prefix=#{prefix}"
