@@ -1,8 +1,8 @@
 class Wallpaper < Formula
-  desc "Get or set the desktop wallpaper"
+  desc "Manage the desktop wallpaper"
   homepage "https://github.com/sindresorhus/macos-wallpaper"
-  url "https://github.com/sindresorhus/macos-wallpaper/archive/1.3.0.tar.gz"
-  sha256 "ef5098c47c84d43969ef82c7c0ce7b53abad4c8648d70589ff9426342ec23985"
+  url "https://github.com/sindresorhus/macos-wallpaper/archive/v2.0.0.tar.gz"
+  sha256 "49ab6121dcc78d17aae3219ceeeb1846792855179f11021192e5c42e500b166c"
   head "https://github.com/sindresorhus/macos-wallpaper.git"
 
   bottle do
@@ -14,12 +14,15 @@ class Wallpaper < Formula
     sha256 "7a715b58b8f4e654b409347fd8cff2bce6a3dfc83b0d345c3b83fc223eaf952a" => :yosemite
   end
 
+  depends_on :xcode => ["10.0", :build]
+  depends_on :macos => :sierra
+
   def install
-    system "./build"
-    bin.install "wallpaper"
+    system "swift", "build", "-c", "release", "-Xswiftc", "-static-stdlib", "--disable-sandbox"
+    bin.install ".build/release/wallpaper"
   end
 
   test do
-    system "#{bin}/wallpaper"
+    system "#{bin}/wallpaper", "get"
   end
 end
