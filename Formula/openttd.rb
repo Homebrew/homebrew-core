@@ -6,6 +6,7 @@ class Openttd < Formula
   head "https://git.openttd.org/openttd/trunk.git"
 
   bottle do
+    sha256 "5525bc99e1a325df855a27cc443b2a7ac92e618ae713be9392f52903d92530e0" => :mojave
     sha256 "e5d194e126ec516ca84a4f9187e8415953cf64e319dfe31dedd1bdaa2a4e2339" => :high_sierra
     sha256 "5d74a4c682236213f06a7cdeae2f62f462d59f445a66719fe86e82a872ff112e" => :sierra
     sha256 "b2b8d6cf06c840acbf425d4b89daf146541d46f19cd3aa7f09a622d7897b3a9f" => :el_capitan
