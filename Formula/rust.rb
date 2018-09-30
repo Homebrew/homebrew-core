@@ -48,7 +48,7 @@ class Rust < Formula
 
   # According to the official readme, GCC 4.7+ is required
   fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
   end
