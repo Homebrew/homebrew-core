@@ -3,7 +3,6 @@ class Vice < Formula
   homepage "https://vice-emu.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/vice-emu/releases/vice-3.2.tar.gz"
   sha256 "28d99f5e110720c97ef16d8dd4219cf9a67661d58819835d19378143697ba523"
-  head "https://svn.code.sf.net/p/vice-emu/code/trunk/vice"
 
   bottle do
     cellar :any
@@ -14,8 +13,6 @@ class Vice < Formula
     sha256 "ab4044f958907bd7d756575fc97e0e42ffc24307c621176da0d0522feadb22f4" => :yosemite
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
   depends_on "yasm" => :build
@@ -36,17 +33,12 @@ class Vice < Formula
   patch :DATA
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-bundle
-      --enable-external-ffmpeg
-      --disable-arch
-      --enable-sdlui2
-    ]
-
-    system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-arch",
+                          "--disable-bundle",
+                          "--enable-external-ffmpeg",
+                          "--enable-sdlui2"
     system "make", "install"
   end
 
