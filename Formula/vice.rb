@@ -30,6 +30,8 @@ class Vice < Formula
   depends_on "xz"
   depends_on "sdl2"
 
+  # Fix compilation with recent ffmpeg
+  # https://sourceforge.net/p/vice-emu/patches/175/
   patch :DATA
 
   def install
