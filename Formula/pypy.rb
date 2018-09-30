@@ -20,7 +20,7 @@ class Pypy < Formula
   depends_on "sqlite"
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc
+  fails_with :gcc_4_2
 
   resource "bootstrap" do
     url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-osx64.tar.bz2"

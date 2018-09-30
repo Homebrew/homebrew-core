@@ -20,7 +20,7 @@ class Pypy3 < Formula
   depends_on "xz"
 
   # https://bugs.launchpad.net/ubuntu/+source/gcc-4.2/+bug/187391
-  fails_with :gcc
+  fails_with :gcc_4_2
 
   # packaging depends on pyparsing
   resource "pyparsing" do
