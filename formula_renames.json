@@ -152,7 +152,6 @@
   "pyqt5": "pyqt",
   "python3": "python",
   "qt5": "qt",
-  "qt55": "qt@5.5",
   "racket": "minimal-racket",
   "rebar@3": "rebar3",
   "recipes": "gnome-recipes",
