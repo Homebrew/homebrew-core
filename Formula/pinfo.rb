@@ -5,6 +5,7 @@ class Pinfo < Formula
   sha256 "122180a0c23d11bc9eb569a4de3ff97d3052af96e32466fa62f2daf46ff61c5d"
 
   bottle do
+    sha256 "4a516a4f2b9857e15750d63f4d29bd6965c9e7e8f2f1972bf1413bc0a33c98e5" => :mojave
     sha256 "157eb8d83e00de837d96ffaea390fc7ff0dae3998422349653fd1fb1aecd96b3" => :high_sierra
     sha256 "ae8359dabf4e46535b4dcdb5edeab6ed7809a844143f57ce58eac7e030840bdc" => :sierra
     sha256 "b16b4d3ad4086adbb409cc7b5122cb5002df29f4fcec79510ec1b6b1678139b0" => :el_capitan
