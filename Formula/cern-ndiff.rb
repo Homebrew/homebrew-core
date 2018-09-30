@@ -2,8 +2,9 @@ class CernNdiff < Formula
   desc "Numerical diff tool"
   # Note: ndiff is a sub-project of Mad-X at the moment..
   homepage "https://mad.web.cern.ch/mad/"
-  url "http://svn.cern.ch/guest/madx/tags/5.02.11/madX/tools/numdiff"
-  head "http://svn.cern.ch/guest/madx/trunk/madX/tools/numdiff"
+  url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/5.04.01.tar.gz"
+  sha256 "94e14060d4b5c6bebaa7446f0134d6eccb20423d4a27df39082004dd29288310"
+  head "https://github.com/MethodicalAcceleratorDesign/MAD-X.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +18,10 @@ class CernNdiff < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    cd "tools/numdiff" do
+      system "cmake", ".", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
