@@ -15,6 +15,9 @@ class Pypy3 < Formula
   depends_on "pypy" => :build
   depends_on :arch => :x86_64
   depends_on "gdbm"
+  # pypy does not find system libffi, and its location cannot be given
+  # as a build option
+  depends_on "libffi" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "sqlite"
   depends_on "xz"
