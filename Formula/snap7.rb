@@ -13,7 +13,6 @@ class Snap7 < Formula
   end
 
   def install
-    cd "snap7-full-#{version}"
     lib.mkpath
     system "make", "-C", "build/osx",
                    "-f", "#{MacOS.preferred_arch}_osx.mk",
