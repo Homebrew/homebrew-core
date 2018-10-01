@@ -1,8 +1,8 @@
 class Cmocka < Formula
   desc "Unit testing framework for C"
   homepage "https://cmocka.org/"
-  url "https://cmocka.org/files/1.1/cmocka-1.1.2.tar.xz"
-  sha256 "d11cd1e129827ff240a501c1c43557e808de89e8fcd8ab9e963c8db419332bdd"
+  url "https://cmocka.org/files/1.1/cmocka-1.1.3.tar.xz"
+  sha256 "43eabcf72a9c80e3d03f7c8a1c04e408c18d2db5121eb058a3ef732a9dfabfaf"
   head "https://git.cryptomilk.org/projects/cmocka.git"
 
   bottle do
