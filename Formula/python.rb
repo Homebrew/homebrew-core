@@ -27,8 +27,8 @@ class Python < Formula
     url "https://github.com/python/cpython.git"
 
     resource "blurb" do
-      url "https://files.pythonhosted.org/packages/f2/2d/541cf1d8054dbb320aca5e9dcce5d66efb227be9adb75d2697ee45d1f742/blurb-1.0.6.tar.gz"
-      sha256 "90c7d2e5d141d7d1fc6ca0fe660025317ac81ca078e6045c46b1bc5a675ce5d1"
+      url "https://files.pythonhosted.org/packages/29/4f/268f9aa095cbcf53253c665fd0f5103f22dccf246fe317ab9c5c481b38f5/blurb-1.0.7.tar.gz"
+      sha256 "1849eb2c9ceb74928d24eab847d344a8602e8ee822aeba2e930c4e6c7543e9e4"
     end
   end
 
