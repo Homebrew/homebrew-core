@@ -5,6 +5,13 @@ class Geant4 < Formula
   version "10.4.2"
   sha256 "2cac09e799f2eb609a7f1e4082d3d9d3d4d9e1930a8c4f9ecdad72aad35cdf10"
 
+  bottle do
+    cellar :any
+    sha256 "800c78ecd5b63b1337304914c29ad17163f1b8c9ae51f729db470e64a55d9338" => :mojave
+    sha256 "da797eb6fe9d82232e1f0ab6700918f65b8f88605a2c13341853cfa99fae6cc8" => :high_sierra
+    sha256 "4cf26fde6a885de65a48bfca295cc2cfc6d3513321bedd89fb943c8729f3e6e2" => :sierra
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "qt"
   depends_on "xerces-c"
