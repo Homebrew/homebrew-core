@@ -20,16 +20,27 @@ class Zyre < Formula
     depends_on "libtool" => :build
   end
 
+  # this won't be used much, but makes development and deployment testing of new features a bit easier
+  # https://github.com/Linuxbrew/homebrew-core/commit/1bbcc56c961b881cdcaf00cfce8407779538c781#commitcomment-30702803
+  option "with-drafts", "Build and install draft classes and methods"
+
   depends_on "pkg-config" => :build
   depends_on "czmq"
   depends_on "zeromq"
 
   def install
+    args = [
+      "--disable-debug",
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--prefix=#{prefix}",
+    ]
+
+    args << "--enable-drafts" if build.with? "drafts"
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "./configure", *args
+
     system "make"
     system "make", "check-verbose"
     system "make", "install"
