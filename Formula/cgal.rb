@@ -1,8 +1,8 @@
 class Cgal < Formula
   desc "Computational Geometry Algorithm Library"
   homepage "https://www.cgal.org/"
-  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.12.1/CGAL-4.12.1.tar.xz"
-  sha256 "8c4a65875a8aaad2e93001aba7ae1c6ccaba4f8fe03be3ad6195f773d6b3eaba"
+  url "https://github.com/CGAL/cgal/releases/download/releases%2FCGAL-4.13/CGAL-4.13.tar.xz"
+  sha256 "3e3dd7a64febda58be54c3cbeba329ab6a73b72d4d7647ba4931ecd1fad0e3bc"
 
   bottle do
     cellar :any
@@ -12,44 +12,31 @@ class Cgal < Formula
     sha256 "ccbaa0179fe268ce00bb467759c29e626ff606b537963a6ee099980789c9f519" => :el_capitan
   end
 
-  option "with-eigen", "Build with Eigen3 support"
-  option "with-lapack", "Build with LAPACK support"
   option "with-qt", "Build ImageIO and Qt components of CGAL"
 
   deprecated_option "imaging" => "with-qt"
   deprecated_option "with-imaging" => "with-qt"
-  deprecated_option "with-eigen3" => "with-eigen"
   deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "boost"
+  depends_on "eigen"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "eigen" => :optional
   depends_on "qt" => :optional
 
   def install
     args = std_cmake_args + %W[
       -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
       -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
+      -DWITH_Eigen3=ON
+      -DWITH_LAPACK=ON
     ]
 
     if build.without? "qt"
       args << "-DWITH_CGAL_Qt5=OFF" << "-DWITH_CGAL_ImageIO=OFF"
     else
       args << "-DWITH_CGAL_Qt5=ON" << "-DWITH_CGAL_ImageIO=ON"
-    end
-
-    if build.with? "eigen"
-      args << "-DWITH_Eigen3=ON"
-    else
-      args << "-DWITH_Eigen3=OFF"
-    end
-
-    if build.with? "lapack"
-      args << "-DWITH_LAPACK=ON"
-    else
-      args << "-DWITH_LAPACK=OFF"
     end
 
     system "cmake", ".", *args
