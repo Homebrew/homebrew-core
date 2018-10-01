@@ -1,6 +1,6 @@
 class Isl < Formula
   desc "Integer Set Library for the polyhedral model"
-  homepage "http://isl.gforge.inria.fr"
+  homepage "http://isl.gforge.inria.fr/"
   # Note: Always use tarball instead of git tag for stable version.
   #
   # Currently isl detects its version using source code directory name
@@ -20,7 +20,7 @@ class Isl < Formula
   end
 
   head do
-    url "http://repo.or.cz/r/isl.git"
+    url "https://repo.or.cz/isl.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
