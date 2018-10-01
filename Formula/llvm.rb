@@ -86,42 +86,42 @@ class Llvm < Formula
   end
 
   head do
-    url "https://llvm.org/git/llvm.git"
+    url "https://git.llvm.org/git/llvm.git"
 
     resource "clang" do
-      url "https://llvm.org/git/clang.git"
+      url "https://git.llvm.org/git/clang.git"
     end
 
     resource "clang-extra-tools" do
-      url "https://llvm.org/git/clang-tools-extra.git"
+      url "https://git.llvm.org/git/clang-tools-extra.git"
     end
 
     resource "compiler-rt" do
-      url "https://llvm.org/git/compiler-rt.git"
+      url "https://git.llvm.org/git/compiler-rt.git"
     end
 
     resource "libcxx" do
-      url "https://llvm.org/git/libcxx.git"
+      url "https://git.llvm.org/git/libcxx.git"
     end
 
     resource "libunwind" do
-      url "https://llvm.org/git/libunwind.git"
+      url "https://git.llvm.org/git/libunwind.git"
     end
 
     resource "lld" do
-      url "https://llvm.org/git/lld.git"
+      url "https://git.llvm.org/git/lld.git"
     end
 
     resource "lldb" do
-      url "https://llvm.org/git/lldb.git"
+      url "https://git.llvm.org/git/lldb.git"
     end
 
     resource "openmp" do
-      url "https://llvm.org/git/openmp.git"
+      url "https://git.llvm.org/git/openmp.git"
     end
 
     resource "polly" do
-      url "https://llvm.org/git/polly.git"
+      url "https://git.llvm.org/git/polly.git"
     end
   end
 
