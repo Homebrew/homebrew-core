@@ -25,8 +25,8 @@ class Opencv < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.2.tar.gz"
-    sha256 "45a52764ebd2558fa0b7fd8dc47379b37dd0956d912abbf7c786228374fdf60d"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.3.tar.gz"
+    sha256 "6dfb51326f3dfeb659128df952edecd45683626a965aa4a8e1e9c970c40fb636"
   end
 
   needs :cxx11
