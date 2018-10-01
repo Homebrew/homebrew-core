@@ -15,8 +15,8 @@ class Vice < Formula
 
   depends_on "pkg-config" => :build
   depends_on "texinfo" => :build
-  depends_on "yasm" => :build
   depends_on "xa" => :build
+  depends_on "yasm" => :build
   depends_on "ffmpeg"
   depends_on "flac"
   depends_on "giflib"
@@ -27,8 +27,8 @@ class Vice < Formula
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "portaudio"
-  depends_on "xz"
   depends_on "sdl2"
+  depends_on "xz"
 
   # Fix compilation with recent ffmpeg
   # https://sourceforge.net/p/vice-emu/patches/175/
