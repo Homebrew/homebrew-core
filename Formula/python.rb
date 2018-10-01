@@ -53,8 +53,8 @@ class Python < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c3/a8/a497f2f220fd51a714d0a466a32b8ec7d71dafbb053cb490a427b5fa2a1c/setuptools-40.4.1.zip"
-    sha256 "0565104c1fdc39cc28bcd8131e9d5af9eac6040168933a969f152a247ef59d11"
+    url "https://files.pythonhosted.org/packages/6e/9c/6a003320b00ef237f94aa74e4ad66c57a7618f6c79d67527136e2544b728/setuptools-40.4.3.zip"
+    sha256 "acbc5740dd63f243f46c2b4b8e2c7fd92259c2ddb55a4115b16418a2ed371b15"
   end
 
   resource "pip" do
@@ -63,8 +63,8 @@ class Python < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/2a/fb/aefe5d5dbc3f4fe1e815bcdb05cbaab19744d201bbc9b59cfa06ec7fc789/wheel-0.31.1.tar.gz"
-    sha256 "0a2e54558a0628f2145d2fc822137e322412115173e8a2ddbe1c9024338ae83c"
+    url "https://files.pythonhosted.org/packages/68/f0/545cbeae75f248c4ad7c2d062672cd7e046dd325a81b74fc02c62450d133/wheel-0.32.0.tar.gz"
+    sha256 "a26bc27230baaec9039972b7cb43db94b17c13e4d66a9ff6a4d46a0344c55c9a"
   end
 
   # Homebrew's tcl-tk is built in a standard unix fashion (due to link errors)
