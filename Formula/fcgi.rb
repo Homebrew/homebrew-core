@@ -1,6 +1,6 @@
 class Fcgi < Formula
   desc "Protocol for interfacing interactive programs with a web server"
-  # The original homepage currently has no content: http://www.fastcgi.com/
+  # Last known good original homepage: https://web.archive.org/web/20080906064558/www.fastcgi.com/
   homepage "https://fastcgi-archives.github.io/"
   url "https://downloads.sourceforge.net/project/slackbuildsdirectlinks/fcgi/fcgi-2.4.0.tar.gz"
   mirror "https://fossies.org/linux/www/old/fcgi-2.4.0.tar.gz"
