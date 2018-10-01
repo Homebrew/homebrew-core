@@ -1,8 +1,8 @@
 class Soci < Formula
   desc "Database access library for C++"
   homepage "https://soci.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/soci/soci/soci-3.2.3/soci-3.2.3.zip"
-  sha256 "ab0f82873b0c5620e0e8eb2ff89abad6517571fd63bae4bdcac64dd767ac9a05"
+  url "https://github.com/SOCI/soci/archive/3.2.3.tar.gz"
+  sha256 "1166664d5d7c4552c4c2abf173f98fa4427fbb454930fd04de3a39782553199e"
 
   bottle do
     sha256 "2e20ceced92132166cffae968a007d5150a6e620c1059e54e82ae0938eaf42ed" => :mojave
@@ -21,6 +21,12 @@ class Soci < Formula
   depends_on "boost" => [:build, :optional]
   depends_on "cmake" => :build
   depends_on "sqlite" if MacOS.version <= :snow_leopard
+  depends_on "mysql-client" if build.with?("mysql")
+
+  patch do
+    url "https://github.com/SOCI/soci/commit/165737c4be7d6c9acde92610b92e8f42a4cfe933.diff?full_index=1"
+    sha256 "29e90baac2d8fa3412485352b0c0ce393cd3a482b951268833ae1dc32336ae0e"
+  end
 
   fails_with :clang do
     build 421
@@ -28,7 +34,8 @@ class Soci < Formula
   end
 
   def install
-    args = std_cmake_args + %w[.. -DWITH_SQLITE3:BOOL=ON]
+    args = std_cmake_args + %w[../src -DWITH_SQLITE3:BOOL=ON]
+    args += %W[-DMYSQL_DIR=#{Formula["mysql-client"].opt_prefix}] if build.with?("mysql")
 
     %w[boost mysql oracle odbc pg].each do |arg|
       arg_var = (arg == "pg") ? "postgresql" : arg
