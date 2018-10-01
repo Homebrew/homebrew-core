@@ -3,7 +3,7 @@ class Git < Formula
   homepage "https://git-scm.com"
   url "https://www.kernel.org/pub/software/scm/git/git-2.19.0.tar.xz"
   sha256 "180feff58fc0d965d23ea010aa2c69ead92ec318eb9b09cf737529aec62f3ef4"
-  revision 1
+  revision 2
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
@@ -48,6 +48,7 @@ class Git < Formula
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
     ENV["USE_LIBPCRE2"] = "1"
+    ENV["INSTALL_SYMLINKS"] = "1"
     ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
