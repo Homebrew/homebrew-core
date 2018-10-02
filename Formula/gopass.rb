@@ -28,6 +28,10 @@ class Gopass < Formula
 
     output = Utils.popen_read("#{bin}/gopass completion bash")
     (bash_completion/"gopass-completion").write output
+
+    output = Utils.popen_read("#{bin}/gopass completion zsh")
+    (zsh_completion/"_gopass").write output
+
   end
 
   test do
