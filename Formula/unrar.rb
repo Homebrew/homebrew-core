@@ -1,15 +1,14 @@
 class Unrar < Formula
   desc "Extract, view, and test RAR archives"
   homepage "https://www.rarlab.com/"
-  url "https://www.rarlab.com/rar/unrarsrc-5.6.6.tar.gz"
-  sha256 "5dbdd3cff955c4bc54dd50bf58120af7cb30dec0763a79ffff350f26f96c4430"
+  url "https://www.rarlab.com/rar/unrarsrc-5.6.7.tar.gz"
+  sha256 "ff4613db80a7177da660b20225b2a5162409d4b6a5c5c4dc072e43a3dcf2226b"
 
   bottle do
     cellar :any
-    sha256 "7650add99c8cb709a738401dd1ab893229c213be5ff2c1f299ae3488d1042f82" => :mojave
-    sha256 "9b8a1d5a562965087ec151574c952f03d80e8801193e0c5df1a8af31df56e975" => :high_sierra
-    sha256 "fdb899e76e74ea3250b0f03c01e926695a97f70a182758bc56ebacbc96e2c4f9" => :sierra
-    sha256 "f331f00688a2ca9efb672cf89948cd9dd9f22b1e3851804844db9423952887ee" => :el_capitan
+    sha256 "69cd9ca3f00f1035fa82f935607a636962440dc5b9686ae8ef1344e4a8983657" => :mojave
+    sha256 "017a6f97ca67a56f0ff13f50d13f03b74feaffde52d33d2b6fe4dca963e4a6a7" => :high_sierra
+    sha256 "4ea352e7e1bbd506e9f3d2d243e2e84dc087f8d85a47667576690232584bd552" => :sierra
   end
 
   def install

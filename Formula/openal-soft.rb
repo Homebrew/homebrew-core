@@ -3,7 +3,7 @@ class OpenalSoft < Formula
   homepage "http://kcat.strangesoft.net/openal.html"
   url "http://kcat.strangesoft.net/openal-releases/openal-soft-1.18.2.tar.bz2"
   sha256 "9f8ac1e27fba15a59758a13f0c7f6540a0605b6c3a691def9d420570506d7e82"
-  head "http://repo.or.cz/openal-soft.git"
+  head "https://repo.or.cz/openal-soft.git"
 
   bottle do
     cellar :any
