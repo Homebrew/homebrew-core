@@ -3,6 +3,7 @@ class RakudoStar < Formula
   homepage "https://rakudo.org/"
   url "https://rakudo.perl6.org/downloads/star/rakudo-star-2018.06.tar.gz"
   sha256 "309fbaaf441866ee9454451e83e90e4a21391944d475eacda93f48c7671da888"
+  revision 1
 
   bottle do
     sha256 "eef94343a56257d5784697cbf599af9405ae232b011e1a1c326efc0491cade66" => :mojave
@@ -11,12 +12,10 @@ class RakudoStar < Formula
     sha256 "c3d5e16417976c4d4387f1b3f2bb0cec298371fe12567d8e72c052d3644d69ab" => :el_capitan
   end
 
-  option "with-jvm", "Build also for jvm as an alternate backend."
-
+  depends_on "gmp"
+  depends_on "icu4c"
   depends_on "libffi"
-  depends_on "gmp" => :optional
-  depends_on "icu4c" => :optional
-  depends_on "pcre" => :optional
+  depends_on "pcre"
 
   conflicts_with "parrot"
 
@@ -27,12 +26,8 @@ class RakudoStar < Formula
 
     ENV.deparallelize # An intermittent race condition causes random build failures.
 
-    backends = ["moar"]
-    generate = ["--gen-moar"]
-
-    backends << "jvm" if build.with? "jvm"
-
-    system "perl", "Configure.pl", "--prefix=#{prefix}", "--backends=" + backends.join(","), *generate
+    system "perl", "Configure.pl", "--prefix=#{prefix}",
+                   "--backends=moar", "--gen-moar"
     system "make"
     system "make", "install"
 
