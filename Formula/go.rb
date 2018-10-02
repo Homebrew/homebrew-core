@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.11.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.11.src.tar.gz"
-    sha256 "afc1e12f5fe49a471e3aae7d906c73e9d5b1fdd36d52d72652dde8f6250152fb"
+    url "https://dl.google.com/go/go1.11.1.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.11.1.src.tar.gz"
+    sha256 "558f8c169ae215e25b81421596e8de7572bd3ba824b79add22fba6e284db1117"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -29,9 +29,6 @@ class Go < Formula
     end
   end
 
-  option "without-cgo", "Build without cgo (also disables race detector)"
-  option "without-race", "Build without race detector"
-
   depends_on :macos => :yosemite
 
   # Don't update this unless this version cannot bootstrap the new version.
@@ -48,7 +45,6 @@ class Go < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
-      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
@@ -57,11 +53,7 @@ class Go < Formula
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
-    # Race detector only supported on amd64 platforms.
-    # https://golang.org/doc/articles/race_detector.html
-    if build.with?("cgo") && build.with?("race") && MacOS.prefer_64_bit?
-      system bin/"go", "install", "-race", "std"
-    end
+    system bin/"go", "install", "-race", "std"
 
     # Build and install godoc
     ENV.prepend_path "PATH", bin
@@ -103,9 +95,7 @@ class Go < Formula
     assert_predicate libexec/"bin/godoc", :exist?
     assert_predicate libexec/"bin/godoc", :executable?
 
-    if build.with? "cgo"
-      ENV["GOOS"] = "freebsd"
-      system bin/"go", "build", "hello.go"
-    end
+    ENV["GOOS"] = "freebsd"
+    system bin/"go", "build", "hello.go"
   end
 end
