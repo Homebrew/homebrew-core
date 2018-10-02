@@ -31,11 +31,12 @@ class Cryfs < Formula
     ]
 
     if build.head?
+      libomp = Formula['libomp']
       configure_args.concat(
         [
-          "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I/usr/local/opt/libomp/include'",
+          "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{libomp.include}'",
           "-DOpenMP_CXX_LIB_NAMES=omp",
-          "-DOpenMP_omp_LIBRARY=/usr/local/opt/libomp/lib/libomp.dylib",
+          "-DOpenMP_omp_LIBRARY=#{libomp.lib}/libomp.dylib",
         ],
       )
     end
