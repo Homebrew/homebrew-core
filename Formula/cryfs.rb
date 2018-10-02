@@ -31,7 +31,7 @@ class Cryfs < Formula
     ]
 
     if build.head?
-      libomp = Formula['libomp']
+      libomp = Formula["libomp"]
       configure_args.concat(
         [
           "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{libomp.include}'",
