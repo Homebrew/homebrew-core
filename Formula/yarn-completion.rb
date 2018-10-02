@@ -4,6 +4,8 @@ class YarnCompletion < Formula
   url "https://github.com/dsifford/yarn-completion/archive/v0.9.0.tar.gz"
   sha256 "b28fb51d5417a78b9e18c947e87dafd602de620e80360741ff0183dcf1e9c701"
 
+  depends_on "bash-completion@2"
+  
   bottle :unneeded
 
   def install
