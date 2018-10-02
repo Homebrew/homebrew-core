@@ -7,9 +7,9 @@ class Fpc < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82a121567c94e70b63f92873a6a269cb612a15b344d77218b88444febb3d4924" => :high_sierra
-    sha256 "c7ba05c852bbd1a5737f6b020239353708188f545fe9700159c5b8484fcfc568" => :sierra
-    sha256 "cae838ddb6452c345bcd3779c057a152071c12db666fe2d8a934c78c3d210244" => :el_capitan
+    sha256 "91c82c96317247dd7c5992a559b7ead81ad71e58c9be7331364bfd9a16558c32" => :mojave
+    sha256 "adc48d394c224bd91e22e0963156c53323d6647b09a1ef6588a37a9444d29623" => :high_sierra
+    sha256 "9117ae666c6b4f9b9fb63f9993b530c6910084090a1ae7668a06d7d1f9a1170c" => :sierra
   end
 
   resource "bootstrap" do
