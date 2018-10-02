@@ -38,26 +38,10 @@ class Qca < Formula
     sha256 "7790fd8de8b6ee98ca8d4f687894437137d774538c209a80a340f513a8fbc159" => :el_capitan
   end
 
-  option "with-api-docs", "Build API documentation"
-
-  deprecated_option "with-gpg2" => "with-gnupg"
-
-  # commented dep = plugin
-  # (QCA needs at least one plugin to do anything useful)
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl" # qca-ossl
+  depends_on "openssl" # qca-ossl plugin
   depends_on "qt"
-  depends_on "botan" => :optional # qca-botan
-  depends_on "gnupg" => :optional # qca-gnupg
-  depends_on "libgcrypt" => :optional # qca-gcrypt
-  depends_on "nss" => :optional # qca-nss
-  depends_on "pkcs11-helper" => :optional # qca-pkcs11
-
-  if build.with? "api-docs"
-    depends_on "graphviz" => :build
-    depends_on "doxygen" => :build
-  end
 
   def install
     args = std_cmake_args
@@ -65,12 +49,13 @@ class Qca < Formula
     args << "-DBUILD_TESTS=OFF"
     args << "-DQCA_PLUGINS_INSTALL_DIR=#{lib}/qt5/plugins"
 
-    # Plugins (qca-ossl, qca-cyrus-sasl, qca-logger, qca-softstore always built)
-    args << "-DWITH_botan_PLUGIN=#{build.with?("botan") ? "YES" : "NO"}"
-    args << "-DWITH_gcrypt_PLUGIN=#{build.with?("libgcrypt") ? "YES" : "NO"}"
-    args << "-DWITH_gnupg_PLUGIN=#{build.with?("gnupg") ? "YES" : "NO"}"
-    args << "-DWITH_nss_PLUGIN=#{build.with?("nss") ? "YES" : "NO"}"
-    args << "-DWITH_pkcs11_PLUGIN=#{build.with?("pkcs11-helper") ? "YES" : "NO"}"
+    # Disable some plugins. qca-ossl, qca-cyrus-sasl, qca-logger,
+    # qca-softstore are always built.
+    args << "-DWITH_botan_PLUGIN=NO"
+    args << "-DWITH_gcrypt_PLUGIN=NO"
+    args << "-DWITH_gnupg_PLUGIN=NO"
+    args << "-DWITH_nss_PLUGIN=NO"
+    args << "-DWITH_pkcs11_PLUGIN=NO"
 
     # ensure opt_lib for framework install name and linking (can't be done via CMake configure)
     inreplace "src/CMakeLists.txt",
@@ -79,11 +64,6 @@ class Qca < Formula
 
     system "cmake", ".", *args
     system "make", "install"
-
-    if build.with? "api-docs"
-      system "make", "doc"
-      doc.install "apidocs/html"
-    end
   end
 
   test do
