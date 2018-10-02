@@ -3,7 +3,7 @@ class Caffe < Formula
   homepage "https://caffe.berkeleyvision.org/"
   url "https://github.com/BVLC/caffe/archive/1.0.tar.gz"
   sha256 "71d3c9eb8a183150f965a465824d01fe82826c22505f7aa314f700ace03fa77f"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "4c29c0bd25ae48fd6035ac4b12be523a9a1004b07ea5ee667f3fc88e8b4441ff" => :mojave
@@ -17,12 +17,12 @@ class Caffe < Formula
   depends_on "gflags"
   depends_on "glog"
   depends_on "hdf5"
+  depends_on "leveldb"
+  depends_on "lmdb"
+  depends_on "opencv"
   depends_on "protobuf"
+  depends_on "snappy"
   depends_on "szip"
-  depends_on "leveldb" => :optional
-  depends_on "snappy" if build.with?("leveldb")
-  depends_on "lmdb" => :optional
-  depends_on "opencv" => :optional
 
   resource "test_model_weights" do
     url "http://dl.caffe.berkeleyvision.org/bvlc_reference_caffenet.caffemodel"
@@ -35,19 +35,19 @@ class Caffe < Formula
     ENV.cxx11
 
     args = std_cmake_args + %w[
-      -DCPU_ONLY=ON
-      -DUSE_NCCL=OFF
-      -DBUILD_SHARED_LIBS=ON
-      -DBUILD_python=OFF
-      -DBUILD_matlab=OFF
-      -DBUILD_docs=OFF
-      -DBUILD_python_layer=OFF
       -DALLOW_LMDB_NOLOCK=OFF
+      -DBUILD_SHARED_LIBS=ON
+      -DBUILD_docs=OFF
+      -DBUILD_matlab=OFF
+      -DBUILD_python=OFF
+      -DBUILD_python_layer=OFF
+      -DCPU_ONLY=ON
+      -DUSE_LEVELDB=ON
+      -DUSE_LMDB=ON
+      -DUSE_NCCL=OFF
+      -DUSE_OPENCV=ON
       -DUSE_OPENMP=OFF
     ]
-    args << "-DUSE_OPENCV=" + (build.with?("opencv") ? "ON" : "OFF")
-    args << "-DUSE_LMDB=" + (build.with?("lmdb") ? "ON" : "OFF")
-    args << "-DUSE_LEVELDB=" + (build.with?("leveldb") ? "ON" : "OFF")
 
     system "cmake", ".", *args
     system "make", "install"
