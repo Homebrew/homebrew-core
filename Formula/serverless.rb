@@ -3,8 +3,8 @@ require "language/node"
 class Serverless < Formula
   desc "Build applications with serverless architectures"
   homepage "https://serverless.com"
-  url "https://registry.npmjs.org/serverless/-/serverless-1.29.2.tgz"
-  sha256 "149bd01446ea433bc2e692bf42aa8149b15c9a11db1c8c80597836d1558f6b2a"
+  url "https://registry.npmjs.org/serverless/-/serverless-1.32.0.tgz"
+  sha256 "ad53df78a15e85b7530f3c4bf8c6684247337ce964209789fcf6b818da52e9ea"
 
   bottle do
     cellar :any_skip_relocation
