@@ -11,15 +11,6 @@ class Makensis < Formula
     sha256 "f4516cec938568eb2bea2b162247a10cbd68dedd85c439f5d77170dbc7c5b81b" => :el_capitan
   end
 
-  # From https://nsis.sourceforge.io/Special_Builds#Advanced_logging
-  option "with-advanced-logging", "Enable advanced logging of all installer actions"
-
-  # Build makensis so installers can handle strings > 1024 characters
-  # From https://nsis.sourceforge.io/Special_Builds#Large_strings
-  # Upstream RFE to make this default the default behavior is
-  # https://sourceforge.net/p/nsis/feature-requests/542/
-  option "with-large-strings", "Enable strings up to 8192 characters instead of default 1024"
-
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
@@ -50,8 +41,6 @@ class Makensis < Formula
       "VERSION=#{version}",
       "ZLIB_W32=#{@zlib_path}",
     ]
-    args << "NSIS_CONFIG_LOG=yes" if build.with? "advanced-logging"
-    args << "NSIS_MAX_STRLEN=8192" if build.with? "large-strings"
     scons "makensis", *args
     bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
