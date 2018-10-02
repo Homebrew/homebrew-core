@@ -9,6 +9,7 @@ class Tracebox < Formula
 
   bottle do
     cellar :any
+    sha256 "0e22b5bc6204f1c344f83d8ec69a95bd61b7ab6365c619dfa5dcb53df04c576a" => :mojave
     sha256 "e3e8333e7674ff8829df657bd759353fecc45c6d982afbc33cf35774a6ec23ec" => :high_sierra
     sha256 "52a3ff0ecd8903cee1be17802dfe0624dc89858088354132496a241ea4207561" => :sierra
     sha256 "2c0b3b4bb42d38aafdb702f3b7a5e514588ce75dd5dc459368d40273332b3a7d" => :el_capitan

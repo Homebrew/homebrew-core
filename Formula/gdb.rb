@@ -1,15 +1,15 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.1.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.1.1.tar.xz"
-  sha256 "97dcc3169bd430270fc29adb65145846a58c1b55cdbb73382a4a89307bdad03c"
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.tar.xz"
+  sha256 "c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39"
 
   bottle do
-    sha256 "ec01160c639d73a80d047c53f7a61a81ddc3ed7d2fbe0e429c2f214b22e0fa59" => :mojave
-    sha256 "711fc738fc3438157b9588e034544d448386ee6bb2e550a2594f07a0b212766b" => :high_sierra
-    sha256 "f019f7fbb7fad0cd0d62025ff61de5e34bb08f05ca6058f12e1cd235816039dc" => :sierra
-    sha256 "ecd74563cbd79997a5396f882c44c113540e1a6987c7295ed934cd17b388eeba" => :el_capitan
+    sha256 "66aba1de069c94a7dbd24da8f29bba8a2415ba04ca55fc7e57fa33fa482885c4" => :mojave
+    sha256 "6d35586ed4c646df660b4518838f7809c593a851ad171b86d5d44b6d30c780b4" => :high_sierra
+    sha256 "bbf55e88a59cc9ccedd9771a8cab1c57a5395bbbb91ece45daa1214a2b36f5b9" => :sierra
+    sha256 "cd3d64855ad850a25bdf7cb031ae837138579afbd2faebb5ec806dd3d22ca960" => :el_capitan
   end
 
   option "with-python", "Use the Homebrew version of Python; by default system Python is used"

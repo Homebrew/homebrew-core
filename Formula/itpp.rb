@@ -16,7 +16,7 @@ class Itpp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "fftw" => :recommended
+  depends_on "fftw"
 
   def install
     mkdir "build" do

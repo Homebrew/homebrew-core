@@ -47,6 +47,7 @@ class GccAT5 < Formula
 
   depends_on "gmp"
   depends_on "libmpc"
+  depends_on MaximumMacOSRequirement => :high_sierra
   depends_on "mpfr"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib

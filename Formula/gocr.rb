@@ -3,22 +3,21 @@ class Gocr < Formula
   homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
   url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.51.tar.gz"
   sha256 "6eb2ae0fa4eb07cf4163081e0194ea65f605f7db9709dd30680686804dfc2692"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1e87b2dfc0833449b09d6b0129b53b6c02d92949d414783a630d4e074734c309" => :mojave
-    sha256 "9130f859261ff352e24fc1dc17c5b7c73eae89d4387cbf35bd2fbdfdfbac62d5" => :high_sierra
-    sha256 "45dd1209a1a24c9d63c8817eab5be77690be2c0a2ca1e26c71954c3dbaaeeff2" => :sierra
-    sha256 "46a821f9815ad964bc58feff3e5344964e9c164db625c9a8faffc0c7450055fb" => :el_capitan
+    cellar :any
+    sha256 "8e292594bb5ae676b124f9fc8eab283c855d9f9f37ae9f4cf6c1604ebd2f1058" => :mojave
+    sha256 "b5652dd7beb78696522af201f4ce30247efbbdd9f92c949cf45da6b742ee133f" => :high_sierra
+    sha256 "a918bc515db9bae30544a958c99f76b7f1fab5889828e4c3c9efe91224c369b6" => :sierra
+    sha256 "6f7abd6d0e1d71e456bfef7320cb60f267a3b09881e3eaeada72a99c773a69f3" => :el_capitan
   end
 
-  option "with-lib", "Install library and headers"
-
-  depends_on "jpeg" => :optional
-  depends_on "netpbm" => :optional
+  depends_on "jpeg"
+  depends_on "netpbm"
 
   # Edit makefile to install libs per developer documentation
-  patch :DATA if build.with? "lib"
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug",
@@ -30,7 +29,7 @@ class Gocr < Formula
       s.change_make_var! "mandir", "/share/man"
     end
 
-    system "make", "libs" if build.with? "lib"
+    system "make", "libs"
     system "make", "install"
   end
 

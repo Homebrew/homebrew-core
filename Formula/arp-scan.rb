@@ -3,18 +3,19 @@ class ArpScan < Formula
   homepage "https://github.com/royhills/arp-scan"
   url "https://github.com/royhills/arp-scan/archive/1.9.5.tar.gz"
   sha256 "aa9498af84158a315b7e0ea6c2cddfa746660ca3987cbe7e32c0c90f5382d9d2"
+  revision 1
   head "https://github.com/royhills/arp-scan.git"
 
   bottle do
-    sha256 "7153ecf5150f40336844f247ee9dffb440d9781ff8ce966bd906a308e1ec14a4" => :mojave
-    sha256 "7feff35163c765888d5d5d9e729d1a54e3310e13ff8bbc2decaf2e9ce3d90679" => :high_sierra
-    sha256 "9f09dcbe83bd1f139911b531a123b5cf05a64f6006fc7de52f5d1d8496c46709" => :sierra
-    sha256 "4bda8ae4da7c735c08d45cfa7fc58987413e6600267f9e5ae7f4cfa5d174599a" => :el_capitan
+    sha256 "b2b784e3577ce342c80a646428ebb672971a532679791467b009493e048896f8" => :mojave
+    sha256 "bc0fdf16b93e8793cbe2bc820969b167ef54df05d25e2d1f9162bda984768241" => :high_sierra
+    sha256 "8e372e2939b71602ed646c55ccf80a8a17f16e00c25e3eb2a7a273a7df19a487" => :sierra
+    sha256 "15502dca99f62348373e10510432ff389170fa4b1cbf40a52b546e3c5beecf40" => :el_capitan
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libpcap" => :optional
+  depends_on "libpcap"
 
   def install
     system "autoreconf", "-fiv"

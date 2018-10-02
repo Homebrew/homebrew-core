@@ -19,8 +19,8 @@ class Gdnsd < Formula
   end
 
   depends_on "libev"
+  depends_on "libunwind-headers"
   depends_on "ragel"
-  depends_on "libunwind-headers" => :recommended
 
   def install
     system "autoreconf", "-fvi" if build.head?

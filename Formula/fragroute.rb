@@ -7,6 +7,7 @@ class Fragroute < Formula
   revision 1
 
   bottle do
+    sha256 "79fcf3e14e1efa3a35fe8c0107ceb3830f4a7c4d6ea33b183b70530ba2e0b0e5" => :mojave
     sha256 "65ea82f265aeb3018b59f1c24630ad2e88fc8d3c678579f4e83be4f339005450" => :high_sierra
     sha256 "54e5062ef504ba660fa5bbc67a562c7fd9a80fbca511cf37c10ca65d135cefe7" => :sierra
     sha256 "d9a4634cf2e7759caed69fee95f5f0044e4365cbaaf308a2f5abddfa46f4bec1" => :el_capitan

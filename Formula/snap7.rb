@@ -7,13 +7,13 @@ class Snap7 < Formula
 
   bottle do
     cellar :any
-    sha256 "5540f68aadc159b4a590079b1b4f06b042438f0f714456af3f5dfbfc34af47ac" => :high_sierra
-    sha256 "edd667d4018983951999c21da14d1929b95a9dba2a908c88e721ad7febc2fa5d" => :sierra
-    sha256 "45c77c8c6862e3c2b0840c3a32d23a95d53d73b7b35960f747a380bc5563d00e" => :el_capitan
+    rebuild 1
+    sha256 "71aff7cbb3e78369d6b9a93887820dd7def1afe382ed82211be313942e1bb81d" => :mojave
+    sha256 "b0d670ce6a2d780d13cfaa3346c6aa701f280a85be010dc42c802d6ebd028694" => :high_sierra
+    sha256 "e04dea88411f3b444dcab340d3f11bd739fb853de65701e727546a9481981924" => :sierra
   end
 
   def install
-    cd "snap7-full-#{version}"
     lib.mkpath
     system "make", "-C", "build/osx",
                    "-f", "#{MacOS.preferred_arch}_osx.mk",

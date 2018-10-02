@@ -7,11 +7,10 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 5
-    sha256 "4aa5c31e71e19a65c236ffbd5878ae3417c2cacbf5a840ee88959316b34e14bb" => :mojave
-    sha256 "92dcc8001f90881672303657b2f9b91dfe507fd0acaeb9eed6ba86a05956b824" => :high_sierra
-    sha256 "0dd17b0452b3bd2184a7ba38f4031407983504e1d0fcaae3d7d6dcc5fb770162" => :sierra
-    sha256 "8d95cd5b29ce8cffc0019c4ceab5e3a0bcf115359d91ca4c28e2cb7854fcaff5" => :el_capitan
+    rebuild 6
+    sha256 "208989b262f760f29f4eb0812afca031a1ae85d245759e6a2a252ca0e31a57dd" => :mojave
+    sha256 "d2bedb6e773a75ba972740260e4dadc5e7beab0c92640c8814b13bf0bafcc70d" => :high_sierra
+    sha256 "b1dc52378c83b5f1a91e27680ff889724458313b89ac72f9cd0b4d469a582ebd" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -40,8 +39,8 @@ class PythonAT2 < Formula
   depends_on "tcl-tk" => :optional
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c3/a8/a497f2f220fd51a714d0a466a32b8ec7d71dafbb053cb490a427b5fa2a1c/setuptools-40.4.1.zip"
-    sha256 "0565104c1fdc39cc28bcd8131e9d5af9eac6040168933a969f152a247ef59d11"
+    url "https://files.pythonhosted.org/packages/6e/9c/6a003320b00ef237f94aa74e4ad66c57a7618f6c79d67527136e2544b728/setuptools-40.4.3.zip"
+    sha256 "acbc5740dd63f243f46c2b4b8e2c7fd92259c2ddb55a4115b16418a2ed371b15"
   end
 
   resource "pip" do
@@ -50,8 +49,8 @@ class PythonAT2 < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/2a/fb/aefe5d5dbc3f4fe1e815bcdb05cbaab19744d201bbc9b59cfa06ec7fc789/wheel-0.31.1.tar.gz"
-    sha256 "0a2e54558a0628f2145d2fc822137e322412115173e8a2ddbe1c9024338ae83c"
+    url "https://files.pythonhosted.org/packages/68/f0/545cbeae75f248c4ad7c2d062672cd7e046dd325a81b74fc02c62450d133/wheel-0.32.0.tar.gz"
+    sha256 "a26bc27230baaec9039972b7cb43db94b17c13e4d66a9ff6a4d46a0344c55c9a"
   end
 
   # Patch to disable the search for Tk.framework, since Homebrew's Tk is
@@ -111,7 +110,9 @@ class PythonAT2 < Formula
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
       cflags  << "-isysroot #{MacOS.sdk_path}"
       ldflags << "-isysroot #{MacOS.sdk_path}"
-      cflags  << "-I/usr/include" # find zlib
+      if DevelopmentTools.clang_build_version < 1000
+        cflags  << "-I/usr/include" # find zlib
+      end
       # For the Xlib.h, Python needs this header dir with the system Tk
       if build.without? "tcl-tk"
         # Yep, this needs the absolute path where zlib needed

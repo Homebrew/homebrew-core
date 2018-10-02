@@ -19,7 +19,7 @@ class Macvim < Formula
   deprecated_option "override-system-vim" => "with-override-system-vim"
 
   depends_on :xcode => :build
-  depends_on "cscope" => :recommended
+  depends_on "cscope"
   depends_on "python" => :recommended
   depends_on "lua" => :optional
   depends_on "luajit" => :optional
@@ -48,9 +48,8 @@ class Macvim < Formula
       --with-tlib=ncurses
       --with-compiledby=Homebrew
       --with-local-dir=#{HOMEBREW_PREFIX}
+      --enable-cscope
     ]
-
-    args << "--enable-cscope" if build.with? "cscope"
 
     if build.with? "lua"
       args << "--enable-luainterp"

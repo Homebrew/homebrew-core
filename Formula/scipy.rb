@@ -25,7 +25,7 @@ class Scipy < Formula
 
   # https://github.com/Homebrew/homebrew-python/issues/110
   # There are ongoing problems with gcc+accelerate.
-  fails_with :gcc
+  fails_with :gcc_4_2
 
   def install
     config = <<~EOS

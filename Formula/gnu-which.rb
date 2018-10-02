@@ -8,13 +8,11 @@ class GnuWhich < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6794f84be216616f7d559999373500b4b413b898eae6f88910a81c3c439fb189" => :mojave
-    sha256 "3932d82472cb95be1af5692a3cdaf55b841f2799f80271ffb2ff22b940210dbc" => :high_sierra
-    sha256 "ad546f7de7825dfbadcfbadd27a493d8acdb44c4a7a6855d02473ef96fb2f716" => :sierra
-    sha256 "c7ed10cf7ef215ef098e2e340d1f491037080acac59a38ade51088ebc09e71c4" => :el_capitan
-    sha256 "469d61be66afe0da2758838d1bde62544a661691568eaa30bc4f5abc16402efc" => :yosemite
-    sha256 "b2649bbc23e1b180e3a7b9d4f88765d674696468904b246d253a7ca39106af61" => :mavericks
-    sha256 "5f9dc6704dbc7599c299c6e0dd186efe19d2cdf6680651010c7a9c3b377a983e" => :mountain_lion
+    rebuild 1
+    sha256 "651d91432ad81355ea8189f63807543d160607b5b2f87f034627b4c542d2b07a" => :mojave
+    sha256 "04999e211cff8d6902f740ee08725b26b34ff1dfda82afc85d5e60243dbac927" => :high_sierra
+    sha256 "27e6e35e4915cf7a6c59d3b0033962d1e643c004947dbb0eb97a41d766a8d571" => :sierra
+    sha256 "e6b1179b99922a7d49b3dee829c1d31c3fa7269b000799f862361637594d34e1" => :el_capitan
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
@@ -27,6 +25,11 @@ class GnuWhich < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    if build.without? "default-names"
+      (libexec/"gnubin").install_symlink bin/"gwhich" => "which"
+      (libexec/"gnuman/man1").install_symlink man1/"gwhich.1" => "which.1"
+    end
   end
 
   test do

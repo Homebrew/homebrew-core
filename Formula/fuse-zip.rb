@@ -7,6 +7,7 @@ class FuseZip < Formula
 
   bottle do
     cellar :any
+    sha256 "6749e24126db7a7ea4cdc6b25684f1a60bd5fc16cc377e625d1d68e9ed17b71b" => :mojave
     sha256 "28d48355db992f6b6ac572633483efd83743e6f2d2de5426425dc10e8e4f9bee" => :high_sierra
     sha256 "08fed5ec5f219ce9c9076451cccf0421c6cb4714af8a4d37eae2652b8ae783f2" => :sierra
     sha256 "98e9d774573f5bb6c2ea887b3eaa84ddcdbb3b07f7d9be6182a219e3383eee7f" => :el_capitan

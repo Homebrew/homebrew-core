@@ -1,15 +1,14 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.3.15.tar.gz"
-  sha256 "5284f7b634770c44d4cd1d5e0f5a99df41dd3c86b2f6c4274768b7b1f252aa0a"
+  url "https://download.arangodb.com/Source/ArangoDB-3.3.16.tar.gz"
+  sha256 "01e1ffadf950b396e67a7b5853ff77fd17810f09d7de351bbcd5ca987d2fce9f"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
-    sha256 "fa10003eaf92a8cf760d35b2e9681afd9913287f2957155f045c1afd3c841c7c" => :mojave
-    sha256 "e671281f027604434a948534557bc22fb7d3284951c2b56206fbde8fc2ea451d" => :high_sierra
-    sha256 "3c962e246dbe003c31a7a1e4e34fe8ed34efa6356e536228cfcfab5cba3cf867" => :sierra
-    sha256 "99ec338ddd1ee96abfef7a2a1d833114d42b3b9b2cb4d0d22bdf6be54f9164c1" => :el_capitan
+    sha256 "35772133eabd86c0e7c0f75b4173932845d7db7c53bbb616f39210732bdfdef7" => :mojave
+    sha256 "3f3a5e3afab30c761e665dfbbc874e575d37063ccccbabc320a71038bc3af0bb" => :high_sierra
+    sha256 "ed19027eb6aad0352c86b322b2051d5fdba3c661f8fd9483aad0b41bba7b8426" => :sierra
   end
 
   depends_on "cmake" => :build

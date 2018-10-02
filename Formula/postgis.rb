@@ -1,16 +1,14 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-2.4.4.tar.gz"
-  sha256 "0663efb589210d5048d95c817e5cf29552ec8180e16d4c6ef56c94255faca8c2"
-  revision 1
+  url "https://download.osgeo.org/postgis/source/postgis-2.5.0.tar.gz"
+  sha256 "be73abd747e9665f29748e0e7dc6b3f7b1ce98f32e3567f08259420ca10e36d5"
 
   bottle do
     cellar :any
-    sha256 "a466ae0fe0ad4c57c9dc256e7552f208457c8eef6cd1a3e539801a2c76fe1059" => :mojave
-    sha256 "39ca73e792f68197d9c7543300cfea6a36326c4ced5ac5b1f46484dbffad8fd2" => :high_sierra
-    sha256 "7d4bb0d80a5a7221815514b10781d021901b489cb405b02b0d0975661ea0a348" => :sierra
-    sha256 "2bb8047b0735acf4bec62f60aad084cf7b32a1e426d7def2dc00d8591030f46d" => :el_capitan
+    sha256 "32fb1898e0968379c3f389f367ded066b0a8a7480b8215019fa8855e56c25ee6" => :mojave
+    sha256 "b215ee5f65c4303ecff061913bf943837bdd93b647dce31836f71fed0fd3b356" => :high_sierra
+    sha256 "3fff4467b70a0320fc9e99a72e256a957cc1d8bfcaeac1b3bdbf25d20baed435" => :sierra
   end
 
   head do
@@ -22,36 +20,18 @@ class Postgis < Formula
   end
 
   option "with-gui", "Build shp2pgsql-gui in addition to command line tools"
-  option "without-gdal", "Disable postgis raster support"
-  option "with-html-docs", "Generate multi-file HTML documentation"
-  option "with-api-docs", "Generate developer API documentation (long process)"
   option "with-protobuf-c", "Build with protobuf-c to enable Geobuf and Mapbox Vector Tile support"
 
   depends_on "gpp" => :build
   depends_on "pkg-config" => :build
+  depends_on "gdal" # for GeoJSON and raster handling
   depends_on "geos"
   depends_on "gtk+" if build.with? "gui"
-  depends_on "json-c" # For GeoJSON and raster handling
+  depends_on "json-c" # for GeoJSON and raster handling
+  depends_on "pcre"
   depends_on "postgresql"
   depends_on "proj"
-
-  # For GeoJSON and raster handling
-  depends_on "gdal" => :recommended
-  depends_on "pcre" if build.with? "gdal"
-
-  # For advanced 2D/3D functions
-  depends_on "sfcgal" => :recommended
-
-  if build.with? "html-docs"
-    depends_on "imagemagick"
-    depends_on "docbook-xsl"
-  end
-
-  if build.with? "api-docs"
-    depends_on "graphviz"
-    depends_on "doxygen"
-  end
-
+  depends_on "sfcgal" # for advanced 2D/3D functions
   depends_on "protobuf-c" => :optional
 
   def install
@@ -69,28 +49,11 @@ class Postgis < Formula
     ]
 
     args << "--with-gui" if build.with? "gui"
-    args << "--without-raster" if build.without? "gdal"
-    args << "--with-xsldir=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl" if build.with? "html-docs"
     args << "--with-protobufdir=#{Formula["protobuf-c"].opt_bin}" if build.with? "protobuf-c"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
-
-    if build.with? "html-docs"
-      cd "doc" do
-        ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-        system "make", "chunked-html"
-        doc.install "html"
-      end
-    end
-
-    if build.with? "api-docs"
-      cd "doc" do
-        system "make", "doxygen"
-        doc.install "doxygen/html" => "api"
-      end
-    end
 
     mkdir "stage"
     system "make", "install", "DESTDIR=#{buildpath}/stage"

@@ -1,16 +1,14 @@
 class Pdftoipe < Formula
   desc "Reads arbitrary PDF files and generates an XML file readable by Ipe"
   homepage "https://github.com/otfried/ipe-tools"
-  url "https://github.com/otfried/ipe-tools/archive/v7.2.7.tar.gz"
-  sha256 "889cb31bd8769ba111f541ba795cf53fad474aeeafbc87b7cd37c8a24b2dc6f6"
-  revision 15
+  url "https://github.com/otfried/ipe-tools/archive/v7.2.7.1.tar.gz"
+  sha256 "b45a7d6bec339e878717bd273c32c7957e2d4d87c57e117e772ee3dd3231d7aa"
 
   bottle do
     cellar :any
-    sha256 "7d9b326ef64b51a94da15c8ba71f3fb3aac2187a4a0658b1a5aa04c9ff9d8602" => :mojave
-    sha256 "4d42db92aaa091045dde4d54fd1727ae6fd16a483b17060fc3a64f0dd3046be7" => :high_sierra
-    sha256 "af3ac9f4dc6ab2e4dd1cfcb1dc92d970060f13150b0304c7fd98afbd4bedb5ba" => :sierra
-    sha256 "925d5691450adb4438cd0a83309306fb527a88dcbd283456e822642151b361e3" => :el_capitan
+    sha256 "4a04c9219dc9113a39ba33ddacd28768d139d86c59ee6ddbc87c86188956797e" => :mojave
+    sha256 "95061176fb7818c898729baf87589497f068c9bccb0584d307ba85a50cb0ce47" => :high_sierra
+    sha256 "f7dd43fd6d2883a5195d08f9a371749657107315f190a14bf063952bf12cfc20" => :sierra
   end
 
   depends_on "pkg-config" => :build

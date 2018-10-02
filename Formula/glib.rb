@@ -1,20 +1,15 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.0.tar.xz"
-  sha256 "c0f4ce0730b4f95c47b711613b5406a887c2ee13ea6d25930d72a4fa7fdb77f6"
-  revision 1
+  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.1.tar.xz"
+  sha256 "97d6a9d926b6aa3dfaadad3077cfb43eec74432ab455dff14250c769d526d7d6"
 
   bottle do
-    sha256 "7aaa24ceea95436299ec13251aba2b53b7b75ed622819d94686b54c638f4308b" => :mojave
-    sha256 "cf62335e49678260e16ea6a6af2ddc971d538f535b2e8e83bf5ad4d14b53036a" => :high_sierra
-    sha256 "9d1b90e0fa79961605fccfa3bbc539c80ac23dc4d78b4c53d4b55d317349473b" => :sierra
-    sha256 "3856bc5aeafee8895cae577551aadb0780ad1b7c5a55be1e75c42621cb1755a7" => :el_capitan
+    sha256 "4521831e8fa3b11426f0192fe5f9159d3840f01225c6002ce4ee56d83d5da6d2" => :mojave
+    sha256 "6f4b16f4146bfa8ca324a2e066b60e18ca9c45e1bc0d9ec51ac4970129e7072e" => :high_sierra
+    sha256 "38021da8a98c8d86672b4bdf7fb92568f0599fa202110d23f4b318f1491b0e70" => :sierra
+    sha256 "b79c2f30d938327006a2716bb26bb667f09783c3b258cc4be7e12760fd28ff44" => :el_capitan
   end
-
-  option "with-test", "Build a debug build and run tests. NOTE: Not all tests succeed yet"
-
-  deprecated_option "test" => "with-test"
 
   # autoconf, automake and libtool can be removed when
   # bug 780271 is fixed and gio.patch is modified accordingly
@@ -80,8 +75,6 @@ class Glib < Formula
               "giomoduledir=${prefix}/lib/gio/modules"
 
     system "make"
-    # the spawn-multithreaded tests require more open files
-    system "ulimit -n 1024; make check" if build.with? "test"
     system "make", "install"
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not

@@ -13,16 +13,14 @@ class Onscripter < Formula
     sha256 "dab8de0970901e7c63b32ad3d2071895c4259c5eb20a7abf8701b328d55bb8cf" => :el_capitan
   end
 
-  option "with-english", "Build with single-byte character mode"
-
   depends_on "pkg-config" => :build
   depends_on "jpeg"
+  depends_on "lua"
   depends_on "sdl"
   depends_on "sdl_image"
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
   depends_on "smpeg"
-  depends_on "lua" => :recommended
 
   # jpeg 9 compatibility
   patch do
@@ -35,6 +33,7 @@ class Onscripter < Formula
       `pkg-config --cflags sdl SDL_ttf SDL_image SDL_mixer`.chomp,
       `smpeg-config --cflags`.chomp,
       "-I#{Formula["jpeg"].include}",
+      "-I#{Formula["lua"].opt_include}/lua",
     ]
 
     libs = [
@@ -42,31 +41,18 @@ class Onscripter < Formula
       `smpeg-config --libs`.chomp,
       "-ljpeg",
       "-lbz2",
+      "-L#{Formula["lua"].opt_lib} -llua",
     ]
 
     defs = %w[
       -DMACOSX
       -DUSE_CDROM
+      -DUSE_LUA
       -DUTF8_CAPTION
       -DUTF8_FILESYSTEM
     ]
 
-    ext_objs = []
-
-    if build.with? "lua"
-      lua = Formula["lua"]
-      incs << "-I#{lua.opt_include}/lua"
-      libs << "-L#{lua.opt_lib} -llua"
-      defs << "-DUSE_LUA"
-      ext_objs << "LUAHandler.o"
-    end
-
-    if build.with? "english"
-      defs += %w[
-        -DENABLE_1BYTE_CHAR
-        -DFORCE_1BYTE_CHAR
-      ]
-    end
+    ext_objs = ["LUAHandler.o"]
 
     k = %w[INCS LIBS DEFS EXT_OBJS]
     v = [incs, libs, defs, ext_objs].map { |x| x.join(" ") }

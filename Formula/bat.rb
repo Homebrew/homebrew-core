@@ -1,14 +1,13 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.7.0.tar.gz"
-  sha256 "263e7e4fa3456929cc64eacd2ab01a2241fd10dd197a61f46dbaff2e7479b96b"
+  url "https://github.com/sharkdp/bat/archive/v0.7.1.tar.gz"
+  sha256 "5863895e6ac95f5349da95ff74e196c4b365af3fc3f4a1376cab797df493b7a4"
 
   bottle do
-    sha256 "4783cd85835535740035cbc4e3a4d33d9ea9d78b7e9f1cab71683206df1fbb26" => :mojave
-    sha256 "bacad4154383fc68ff5997c8d37a079809c89d27b2db197b05eb95ad988d9e47" => :high_sierra
-    sha256 "bddb9deddc89b053416f1c9d93cf72620b0ca44b410469db645ec697b219b6a6" => :sierra
-    sha256 "583b188a012c1e59b2f7157d35c24178c6a0f234166d2730f0bc9e4a8a0d266d" => :el_capitan
+    sha256 "62e42c268d73f27f0eada988ddaf5a2f841b72af3cbc8c85d716183788608448" => :mojave
+    sha256 "0ab5a742c1fadeb7749caf7d96bc7005518df5d939c4482396d539aaceb0bd9d" => :high_sierra
+    sha256 "b556a914588cc041a14493fe735d39d1fab438cfde09b79f9f834404c8516ddd" => :sierra
   end
 
   depends_on "cmake" => :build

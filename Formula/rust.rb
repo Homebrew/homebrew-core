@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.29.0-src.tar.gz"
-    sha256 "a4eb34ffd47f76afe2abd813f398512d5a19ef00989d37306217c9c9ec2f61e9"
+    url "https://static.rust-lang.org/dist/rustc-1.29.1-src.tar.gz"
+    sha256 "f1b0728b66ce6bce6d72bbe5ea9e3a24ea22a045665da2ed8fcdfad14f61a349"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.29.0",
-          :revision => "96a2c7d16249cb47c61c887fc95ca8be60e7ef0a"
+          :tag => "0.30.0",
+          :revision => "524a578d75df2869eedd5fbf51054b1d5909cff7"
     end
 
     resource "racer" do
@@ -21,10 +21,9 @@ class Rust < Formula
   end
 
   bottle do
-    sha256 "5d4480af0b60f5699a557302eed57233872ad70f96375308bec363572255ef48" => :mojave
-    sha256 "44d3670ef4aced0d8afe37f51286f7995d050ab8b00917bab6b58e4252b5bb41" => :high_sierra
-    sha256 "1bc77afd18b8dcb29e9807731a3d656fa4533231cbccfdc9aa907feb33fa1a06" => :sierra
-    sha256 "9cd966cd787a7fefb5cfb5f40c623b71078225e36ebdfdfe770f8f7cacde849b" => :el_capitan
+    sha256 "abdc0b0a444ac961f7a9591ba17a8900aff3f172efc31552d1e57bc74198bba8" => :mojave
+    sha256 "6b1085b783dcfa624754c49133fdda48496c087b2de51c8310fb2262437f3e36" => :high_sierra
+    sha256 "960d757af54b677468728e889698cab3be8e368836c11dd09a6c5b35319e7c33" => :sierra
   end
 
   head do
@@ -47,11 +46,9 @@ class Rust < Formula
   depends_on "pkg-config"
   depends_on "llvm" => :optional
 
-  conflicts_with "cargo-completion", :because => "both install shell completion for cargo"
-
   # According to the official readme, GCC 4.7+ is required
   fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
   end

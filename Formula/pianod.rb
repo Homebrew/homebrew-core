@@ -13,13 +13,12 @@ class Pianod < Formula
   end
 
   depends_on "pkg-config" => :build
-
+  depends_on "faad2"
   depends_on "gnutls"
   depends_on "json-c"
   depends_on "libao"
   depends_on "libgcrypt"
-  depends_on "faad2" => :recommended
-  depends_on "mad" => :recommended
+  depends_on "mad"
 
   def install
     system "./configure", "--disable-debug",

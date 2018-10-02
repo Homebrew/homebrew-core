@@ -13,12 +13,10 @@ class Fceux < Formula
     sha256 "013d1b9b126426b76e814b56a5424281c348333e6a6e69db87cf603362c25397" => :el_capitan
   end
 
-  deprecated_option "no-gtk" => "without-gtk+3"
-
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
+  depends_on "gtk+3"
   depends_on "sdl"
-  depends_on "gtk+3" => :recommended
 
   # Fix "error: ordered comparison between pointer and zero"
   if DevelopmentTools.clang_build_version >= 900
@@ -33,14 +31,9 @@ class Fceux < Formula
     # https://sourceforge.net/p/fceultra/bugs/755/
     inreplace "src/drivers/sdl/SConscript", "env.ParseConfig(config_string)", ""
 
-    args = []
-    args << "RELEASE=1"
-    args << "GTK=0"
-    args << "GTK3=1" if build.with? "gtk+3"
     # gdlib required for logo insertion, but headers are not detected
     # https://sourceforge.net/p/fceultra/bugs/756/
-    args << "LOGO=0"
-    scons *args
+    scons "RELEASE=1", "GTK=0", "GTK3=1", "LOGO=0"
     libexec.install "src/fceux"
     pkgshare.install ["output/luaScripts", "output/palettes", "output/tools"]
     (bin/"fceux").write <<~EOS

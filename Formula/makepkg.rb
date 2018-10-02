@@ -7,11 +7,11 @@ class Makepkg < Formula
   head "https://projects.archlinux.org/git/pacman.git"
 
   bottle do
-    sha256 "ed2e72a21190994bb47be024dd2ca83c0bcc0db70ddec5d6e0091c9449dd75cf" => :mojave
-    sha256 "ca90cc4b589587fd656ba11bd2445542a551b8c92c0f472419fb47ac42f01d3e" => :high_sierra
-    sha256 "457411b6d7fd00d32cde12826b55a93fbb6d59552215a19d7289550e64d3880a" => :sierra
-    sha256 "3052d0fdbd76e5e277f0e463eff423249e9b0c08c126a6d27affa1e5c69335ed" => :el_capitan
-    sha256 "64718b5dff7f979eaabd7f9d6aa18d56156bdfbd90f767820f1de6823361d870" => :yosemite
+    rebuild 1
+    sha256 "1398f956766797a114160ee7cbdacab54caac3f0a64871a8bc47385b067682e7" => :mojave
+    sha256 "de52e9169d747dadc908bccae5484a9c08ec0565ec712c0a5546581faa3683be" => :high_sierra
+    sha256 "ed7bc7d8bb37a50a44f0de2f9567c27b2aa246edd1d73d843399509a4046665a" => :sierra
+    sha256 "dc351b9774df4854446ad8cabc1222871d3074b2240a2cbef5e96acfd5bd67ed" => :el_capitan
   end
 
   depends_on "asciidoc" => :build
@@ -29,7 +29,6 @@ class Makepkg < Formula
   # Reported 19 Jun 2016: https://bugs.archlinux.org/task/49771
   depends_on :macos => :yosemite
   depends_on "openssl"
-  depends_on "gpgme" => :optional
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"

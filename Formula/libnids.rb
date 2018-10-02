@@ -16,15 +16,12 @@ class Libnids < Formula
     sha256 "e88e84cda8a3bad62118791243f4642572fa19b9656f30bcdda08c510fd6b366" => :mountain_lion
   end
 
-  deprecated_option "disable-libnet" => "without-libnet"
-  deprecated_option "disable-libglib" => "without-glib"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "glib" => :recommended
-  depends_on "libnet" => :recommended
+  depends_on "glib"
+  depends_on "libnet"
 
   # Patch fixes -soname and .so shared library issues. Unreported.
   patch :DATA
@@ -32,11 +29,8 @@ class Libnids < Formula
   def install
     # autoreconf the old 2005 era code for sanity.
     system "autoreconf", "-ivf"
-    args = ["--prefix=#{prefix}", "--mandir=#{man}", "--enable-shared"]
-    args << "--disable-libnet" if build.without? "libnet"
-    args << "--disable-libglib" if build.without? "glib"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}",
+                          "--enable-shared"
     system "make", "install"
   end
 end

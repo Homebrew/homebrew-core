@@ -4,17 +4,15 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick--7.0.8-11.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-11.tar.xz"
-  sha256 "c15f14c054b4fde417e7b82c23950047203f81e582de7f1270cf3bdfa8a38a03"
-  revision 2
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick--7.0.8-12.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz"
+  sha256 "48df5877fe85603940310fe5c811a89af416882b60379918a95dcd4de6582b55"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "ac3a4c98e2d66029ec651b1a29f5a13011c05d6f089db34ae0acc22a08a03311" => :mojave
-    sha256 "fd6d33cb8b0099d8c2eebc78fecd3a348b93309f4ff45dfa2a74f9058aaaeb36" => :high_sierra
-    sha256 "373389213c553cfe33cbb65a411d994de9c19b79cd03ef5c66545bbb50ede175" => :sierra
-    sha256 "862576f75a3ba912b334994ee7fed20037c15078a7526ca832ddf1c3444fa760" => :el_capitan
+    sha256 "23b2c045087eac2c8f0535c8f469f5f2f48f0a16c2e0fb83b1dc783d7dfcc80e" => :mojave
+    sha256 "a2c78ec559ff121868b854da28fe58b68155a6fdde11c8ee24b1e48d6273a69e" => :high_sierra
+    sha256 "baf6c3ec3eac5bbd571a077ab0c509d6d5f4f8f83010e5db9c6dc76bdfcb6f7f" => :sierra
   end
 
   option "with-fftw", "Compile with FFTW support"
@@ -23,9 +21,6 @@ class Imagemagick < Formula
   option "with-opencl", "Compile with OpenCL support"
   option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
-  option "without-magick-plus-plus", "disable build/install of Magick++"
-  option "without-modules", "Disable support for dynamically loadable modules"
-  option "without-threads", "Disable threads support"
   option "with-zero-configuration", "Disables depending on XML configuration files"
 
   deprecated_option "enable-hdri" => "with-hdri"
@@ -34,13 +29,13 @@ class Imagemagick < Formula
   deprecated_option "with-libde265" => "with-libheif"
 
   depends_on "pkg-config" => :build
+
+  depends_on "freetype"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
   depends_on "libtool"
   depends_on "xz"
-
-  depends_on "freetype" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
 
   depends_on "fftw" => :optional
   depends_on "fontconfig" => :optional
@@ -73,13 +68,9 @@ class Imagemagick < Formula
       --disable-silent-rules
       --enable-shared
       --enable-static
+      --with-freetype=yes
+      --with-modules
     ]
-
-    if build.without? "modules"
-      args << "--without-modules"
-    else
-      args << "--with-modules"
-    end
 
     if build.with? "opencl"
       args << "--enable-opencl"
@@ -108,15 +99,12 @@ class Imagemagick < Formula
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
     args << "--enable-hdri=yes" if build.with? "hdri"
     args << "--without-fftw" if build.without? "fftw"
     args << "--without-pango" if build.without? "pango"
-    args << "--without-threads" if build.without? "threads"
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--without-x" if build.without? "x11"
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--with-freetype=yes" if build.with? "freetype"
     args << "--enable-zero-configuration" if build.with? "zero-configuration"
     args << "--without-wmf" if build.without? "libwmf"
 

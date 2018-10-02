@@ -6,16 +6,14 @@ class SLang < Formula
   sha256 "54f0c3007fde918039c058965dffdfd6c5aec0bad0f4227192cc486021f08c36"
 
   bottle do
-    sha256 "21c9c8888c682720bc8c29d02ee1749398a730c2ad73b39417c72010a3219f11" => :mojave
-    sha256 "ffe303b001b8d560961a6d5112978cc6419ac1795202fb5da0a40b7ae99728c0" => :high_sierra
-    sha256 "aa8fa7cfaaa44eac118cd9f365ecc81a9a16c41637add489d10416f4a4169d9e" => :sierra
-    sha256 "c3dfe3de137e3ab1d26da0b20bd7e9fffae181f3ba9fbf159cf04b8e92707b38" => :el_capitan
-    sha256 "d96458487649104eeaf01ff36dbd9fd4142130bfbc71f47490e69f532fbf3ffa" => :yosemite
+    rebuild 1
+    sha256 "862f29d0ec2a550cfe2fcb3b636de4b6251be184ce468f4a42bbce03f5dfcd05" => :mojave
+    sha256 "d1e3b31d585951f3b7eddd49242573ddd17b7fb15e295e3c987497fc02fbf9c2" => :high_sierra
+    sha256 "587a25f8189a6579e730b9cf5bed62feb55381a66aae4d5fddfb59dfc6868802" => :sierra
+    sha256 "a57f80593cc9b57b7c7eef8252a81b0240b9c421fac756010e01c5292f51bff1" => :el_capitan
   end
 
   depends_on "libpng"
-  depends_on "oniguruma" => :optional
-  depends_on "pcre" => :optional
 
   def install
     png = Formula["libpng"]

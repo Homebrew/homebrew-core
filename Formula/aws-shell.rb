@@ -1,39 +1,36 @@
 class AwsShell < Formula
   desc "Integrated shell for working with the AWS CLI"
   homepage "https://github.com/awslabs/aws-shell"
-  url "https://files.pythonhosted.org/packages/ea/a0/0fba732444bdc23580f5e0290b8a6732b47a934c1978d108407704b01eec/aws-shell-0.2.0.tar.gz"
-  sha256 "b46a673b81254e5e014297e08c9ecab535773aa651ca33dc3786a1fd612f9810"
-  revision 3
+  url "https://files.pythonhosted.org/packages/46/5a/c01bbff96fcbe8051e0b59e6191e07f5917f7f2cf667557c7dcbb85f62c3/aws-shell-0.2.1.tar.gz"
+  sha256 "2044b0ef78c7542c392f2cee4b74a4439545c63dda0a3e28b712fff53e8e5823"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2383124ad573eb21b16474d8af683446cea6751b98e626994f469e156f41e66e" => :mojave
-    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :high_sierra
-    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :sierra
-    sha256 "fa17b3dce1800952ba17ba4a29b4471bb055b46bd0952133b2be0e02783cd1fb" => :el_capitan
+    sha256 "59abd5ef0a98a26b785083daace85db738b945a90cf228c9a7969f5bc5fee24f" => :mojave
+    sha256 "2a5457ef6240db4e5588eea1b52b3d4e0d20554d84efeb282193a20e9b35ea0a" => :high_sierra
+    sha256 "2a5457ef6240db4e5588eea1b52b3d4e0d20554d84efeb282193a20e9b35ea0a" => :sierra
   end
 
   depends_on "python"
 
   resource "awscli" do
-    url "https://files.pythonhosted.org/packages/f9/17/d9d33112aff940a8d8d90cb685718d0eb6e3c2e1a35e46bbb8de95f5d118/awscli-1.15.5.tar.gz"
-    sha256 "738ba6b6aea380886be27b8571d773bfd4a03336a9059b5b181d7606b246d339"
+    url "https://files.pythonhosted.org/packages/71/15/06cd2c5ae1646596542aae02d7a2bd86264673909930526d684526545a94/awscli-1.16.19.tar.gz"
+    sha256 "0b8f86e44d0efbcc1488cb548eddbb30c3ebcc8ba292ee2d607ebc8f55712019"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7c/42/224d9851e4c9d33594851d0f0a11f9096afb92f0d4d6ae7e712740e91114/boto3-1.7.5.tar.gz"
-    sha256 "355cb1c0b7e279854d0f103ad077151ebf97b7b0a13cf1053706d60326b61892"
+    url "https://files.pythonhosted.org/packages/6d/9b/5cc24eeae40906824bbaea729bf474f6f8429963c8a4c54abc133464ba5a/boto3-1.9.9.tar.gz"
+    sha256 "675970103ca5eef49689bea0f8c2dcbc6d70da4fa1ceec2533f5f02c31089b04"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/67/d9/e313271d650b496b752139f3e2392103670fab27a127b0ba1a453a0a2475/botocore-1.10.5.tar.gz"
-    sha256 "190aeedb9badf4e5a867652eab86adbb4de0c75413fa9487f9cf237cf7c5a2d0"
+    url "https://files.pythonhosted.org/packages/09/aa/c48ef4dc4dfcb407a28f18e1904e856ae2a316214514b23cef4331bf4342/botocore-1.12.9.tar.gz"
+    sha256 "b79f1e5b6fe80cdfe951912bf1a08343013d021cf67d973825634ff47248cdb0"
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/f0/d0/21c6449df0ca9da74859edc40208b3a57df9aca7323118c913e58d442030/colorama-0.3.7.tar.gz"
-    sha256 "e043c8d32527607223652021ff648fbb394d5e19cba9f1a698670b338c9d782b"
+    url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
+    sha256 "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"
   end
 
   resource "configobj" do
@@ -57,8 +54,8 @@ class AwsShell < Formula
   end
 
   resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/eb/3d/b7d0fdf4a882e26674c68c20f40682491377c4db1439870f5b6f862f76ed/pyasn1-0.4.2.tar.gz"
-    sha256 "d258b0a71994f7770599835249cece1caef3c70def868c4915e6e5ca49b67d15"
+    url "https://files.pythonhosted.org/packages/10/46/059775dc8e50f722d205452bced4b3cc965d27e8c3389156acd3b1123ae3/pyasn1-0.4.4.tar.gz"
+    sha256 "f58f2a3d12fd754aa123e9fa74fb7345333000a035f3921dbdaa08597aa53137"
   end
 
   resource "Pygments" do
@@ -67,8 +64,8 @@ class AwsShell < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
+    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
   end
 
   resource "PyYAML" do
@@ -91,6 +88,11 @@ class AwsShell < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/3c/d2/dc5471622bd200db1cd9319e02e71bc655e9ea27b8e0ce65fc69de0dac15/urllib3-1.23.tar.gz"
+    sha256 "a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf"
+  end
+
   resource "wcwidth" do
     url "https://files.pythonhosted.org/packages/55/11/e4a2bb08bb450fdbd42cc709dd40de4ed2c472cf0ccb9e64af22279c5495/wcwidth-0.1.7.tar.gz"
     sha256 "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"
@@ -102,15 +104,9 @@ class AwsShell < Formula
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resources.each do |r|
-      next if r.name == "awscli"
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
-    end
-
-    resource("awscli").stage do
-      inreplace "setup.py", "PyYAML>=3.10,<=3.12", "PyYAML>=3.10"
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     system "python3", *Language::Python.setup_install_args(libexec)
