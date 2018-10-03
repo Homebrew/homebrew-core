@@ -5,10 +5,9 @@ class AircrackNg < Formula
   sha256 "96092a8af7af27cdc1923cd5167dfca4a17e9f5fd866973b7b6eb6d3b479e13b"
 
   bottle do
-    sha256 "c47198e7e5c719f81b9c0c4ab4bc8c33b0827881aca068bc53eb0a251953a5b6" => :mojave
-    sha256 "64d5f8a6fd5613bafe78e3164810e9945683bcafab0dae5b6f03ef55d5727e4f" => :high_sierra
-    sha256 "3e82549857d088ce8fff9fd9785f86bb4f46ee1bebfad0ccc5c2c95bbdf97d23" => :sierra
-    sha256 "235df2c791c923907ee5ce8cc3304c1599407cfc390f0e18afef2bd761a4beca" => :el_capitan
+    sha256 "62ed831240300adfc48f02eb00d06108374d8e3b3b6ceeae32a32fe7fd267095" => :mojave
+    sha256 "8971b9a64b607fe31b5022a3cd5a024e1ef94fc2f3a131bc6e7912038f91530d" => :high_sierra
+    sha256 "cf6c2c6d7fdde1ef7c699acd31ff25f7c9c82a01dcf9e4820bd54b64181c4b9c" => :sierra
   end
 
   depends_on "autoconf" => :build
