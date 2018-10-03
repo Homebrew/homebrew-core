@@ -12,8 +12,10 @@ class Libtomcrypt < Formula
     sha256 "9ecd9f9965864d6c58970ebd6d0c3b1871e38ef787ed8732ef12072a651fd3c3" => :el_capitan
   end
 
+  depends_on "libtommath"
+
   def install
-    system "make", "test"
+    system "make", "test", "CFLAGS+=-DLTM_DESC"
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "test"
     (pkgshare/"tests").install "tests/test.key"
