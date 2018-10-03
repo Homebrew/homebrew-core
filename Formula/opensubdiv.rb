@@ -4,6 +4,12 @@ class Opensubdiv < Formula
   url "https://github.com/PixarAnimationStudios/OpenSubdiv/archive/v3_3_3.tar.gz"
   sha256 "2dc81b3a085e692cca3166ac88751e4674a9ddf5b5d7935adf677bb2bd3f2d2f"
 
+  bottle do
+    sha256 "bcd84fb95f1ce06d8073e1ea0ebbc0f7ff6399af21b4249e012edbab1bdb528b" => :mojave
+    sha256 "edd23b3384f3efeb0aaeccf672d082cd727d73b4fc3d1adb6d1762f064966509" => :high_sierra
+    sha256 "5230aab2724b2a0deac3b39adaa8a79092974f11ab0a90ffd5bc0bf785ccbc95" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "glfw"
 
