@@ -63,6 +63,14 @@ class Qemu < Formula
       args << "--enable-cocoa"
     end
 
+    # Samba can be used to share directories with the guest in QEMU user-mode (SLIRP) networking
+    # with the `-net user,id=net0,smb=/share/this/with/guest` option. However, it requires the
+    # samba.org smbd which is incompatible with the one in /usr/sbin. The QEMU configure script
+    # will default to --smbd=/usr/sbin/smbd which causes silent runtime failures if the smb=
+    # option is used. By setting it to <prefix>/sbin/samba-dot-org-smbd, QEMU will print a
+    # sensible runtime error. Users that need the option can then install samba from a tap.
+    args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
+
     args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
     args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
     args << (build.with?("gtk+3") ? "--enable-gtk" : "--disable-gtk")
