@@ -8,7 +8,6 @@ class AzureStorageCpp < Formula
   depends_on "boost"
   depends_on "cpprestsdk"
   depends_on "gettext"
-  depends_on "libxml2"
   depends_on "openssl"
   depends_on "ossp-uuid"
 
