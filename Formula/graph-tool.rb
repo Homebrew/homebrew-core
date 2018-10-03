@@ -5,7 +5,7 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.27.tar.bz2"
   sha256 "4740c69720dfbebf8fb3e77057b3e6a257ccf0432cdaf7345f873247390e4313"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -71,7 +71,18 @@ class GraphTool < Formula
     sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
   end
 
+  # Remove for > 2.27
+  # Fix build with CGAL 4.13
+  patch do
+    url "https://git.skewed.de/count0/graph-tool/commit/aa39e4a6.diff"
+    sha256 "5a4ea386342c2de9422da5b07dd4272d47d2cdbba99d9b258bff65a69da562c1"
+  end
+
   def install
+    # Prevent build failure on High Sierra and later
+    # https://github.com/Homebrew/homebrew-core/pull/32591
+    ENV.delete("SDKROOT")
+
     xy = Language::Python.major_minor_version "python3"
 
     venv = virtualenv_create(libexec, "python3")
