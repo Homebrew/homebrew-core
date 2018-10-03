@@ -26,7 +26,7 @@ class Squid < Formula
     ENV.append "LDFLAGS", "-lresolv"
 
     # For --disable-eui, see:
-    # http://squid-web-proxy-cache.1019090.n4.nabble.com/ERROR-ARP-MAC-EUI-operations-not-supported-on-this-operating-system-td4659335.html
+    # http://www.squid-cache.org/mail-archive/squid-users/201304/0040.html
     args = %W[
       --disable-debug
       --disable-dependency-tracking
