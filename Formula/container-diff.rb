@@ -1,8 +1,8 @@
 class ContainerDiff < Formula
   desc "Diff your Docker containers"
   homepage "https://github.com/GoogleContainerTools/container-diff"
-  url "https://github.com/GoogleContainerTools/container-diff/archive/v0.11.0.tar.gz"
-  sha256 "b86361c6cd091c0d25809743f7ca883b856438a20b9e100c1925638c8296698d"
+  url "https://github.com/GoogleContainerTools/container-diff/archive/v0.12.0.tar.gz"
+  sha256 "3f457c62073fac50493e7e237c247b30e1d1209ffb4c5b703def1a07a7822376"
 
   bottle do
     cellar :any_skip_relocation
