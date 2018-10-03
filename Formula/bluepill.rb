@@ -1,8 +1,8 @@
 class Bluepill < Formula
   desc "iOS testing tool that runs UI tests using multiple simulators"
   homepage "https://github.com/linkedin/bluepill"
-  url "https://github.com/linkedin/bluepill/archive/2.4.0.tar.gz"
-  sha256 "fe021b742e04ace637fe2795848644842ab049e2e2c6d861a088785ef6821461"
+  url "https://github.com/linkedin/bluepill/archive/v3.0.1.tar.gz"
+  sha256 "9586f4c8f2c0f04b91b6c50002bdb1c159edfacd3fbe1b98c428dba8aab0b026"
   head "https://github.com/linkedin/bluepill.git"
 
   bottle do
@@ -14,8 +14,8 @@ class Bluepill < Formula
   depends_on :xcode => ["9.0", :build]
 
   def install
-    xcodebuild "-workspace", "Bluepill.xcworkspace",
-               "-scheme", "bluepill",
+    xcodebuild "-project", "Bluepill-cli/Bluepill-cli.xcodeproj",
+               "-scheme", "BluepillLib ",
                "-configuration", "Release",
                "SYMROOT=../"
     bin.install "Release/bluepill", "Release/bp"
