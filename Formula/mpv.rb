@@ -1,8 +1,8 @@
 class Mpv < Formula
   desc "Media player based on MPlayer and mplayer2"
   homepage "https://mpv.io"
-  url "https://github.com/mpv-player/mpv/archive/v0.28.2.tar.gz"
-  sha256 "aada14e025317b5b3e8e58ffaf7902e8b6e4ec347a93d25a7c10d3579426d795"
+  url "https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz"
+  sha256 "f9f9d461d1990f9728660b4ccb0e8cb5dce29ccaa6af567bec481b79291ca623"
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Mpv < Formula
   option "with-lgpl", "Build with LGPLv2.1 or later license"
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
+  depends_on "python" => :build
 
   depends_on "ffmpeg"
   depends_on "jpeg"
@@ -86,11 +86,11 @@ class Mpv < Formula
     end
 
     system "./bootstrap.py"
-    system "python", "waf", "configure", *args
-    system "python", "waf", "install"
+    system "python3", "waf", "configure", *args
+    system "python3", "waf", "install"
 
     if build.with? "bundle"
-      system "python", "TOOLS/osxbundle.py", "build/mpv"
+      system "python3", "TOOLS/osxbundle.py", "build/mpv"
       prefix.install "build/mpv.app"
     end
   end
