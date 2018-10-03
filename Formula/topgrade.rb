@@ -5,10 +5,9 @@ class Topgrade < Formula
   sha256 "26fadd248a692ef689a6de7ebc96441a6c0e182b986c62a437886ecd5e8f7240"
 
   bottle do
-    sha256 "2934a971a26dab81938a4268717cd8dfb86bb5dc2de9b0dff9c4212d73ec8aee" => :mojave
-    sha256 "6d5be22cfdb13a065b1e140447f8f47b65b93b5dbda38a6b9c8b28f20c23be47" => :high_sierra
-    sha256 "0c0cd8b6a69e2134dc123b507adc9d94636ccb55a7449243e3523f45d5b2564c" => :sierra
-    sha256 "69f76f50f0e6aca35e53fd2964f47fc618b2f9602f5d677d0add20cab5065a97" => :el_capitan
+    sha256 "4b1250a32e4f54a08c9f8327f2440749e504e8f76b9bd3c7eb60bceb7f264774" => :mojave
+    sha256 "0c43097bde30d85f0541ec370a2d61ada00de5485afbcc646c7b7dfcc34d9831" => :high_sierra
+    sha256 "38d5215dacc2da6d2b13870f462c8a07c73b19277b04e35562021cbaa7bf1bb7" => :sierra
   end
 
   depends_on "rust" => :build
