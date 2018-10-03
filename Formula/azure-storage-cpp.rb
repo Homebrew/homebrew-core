@@ -17,6 +17,32 @@ class AzureStorageCpp < Formula
   end
 
   test do
-    system "true"
+    (testpath/"test.cpp").write <<~EOS
+      #include <was/common.h>
+      #include <was/storage_account.h>
+      using namespace azure;
+      int main() {
+        utility::string_t storage_connection_string(_XPLATSTR("DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=myaccountkey"));
+
+        // Initialize storage account
+        try {
+          azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+        }
+        catch(...){
+          // caught expected error
+        }
+      }
+    EOS
+    flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
+             "-I#{Formula["boost"].include}",
+             "-I#{Formula["openssl"].include}",
+             "-I#{Formula["cpprestsdk"].include}",
+             "-L#{Formula["boost"].lib}",
+             "-L#{Formula["cpprestsdk"].lib}",
+             "-L#{Formula["openssl"].lib}",
+             "-L#{lib}",
+             "-lcpprest", "-lboost_system-mt", "-lssl", "-lcrypto", "-lazurestorage"] + ENV.cflags.to_s.split
+    system ENV.cxx, "-o", "test_azurestoragecpp", "test.cpp", *flags
+    system "./test_azurestoragecpp"
   end
 end
