@@ -67,6 +67,9 @@ class Git < Formula
       ENV["NO_PERL_MAKEMAKER"] = "1"
     end
 
+    ENV.append "CFLAGS", "-I#{Formula["gettext"].include}"
+    ENV.append "LDLAGS", "-L#{Formula["gettext"].lib}"
+
     args = %W[
       prefix=#{prefix}
       sysconfdir=#{etc}
