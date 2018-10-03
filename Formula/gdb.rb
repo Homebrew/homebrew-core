@@ -41,6 +41,8 @@ class Gdb < Formula
     EOS
   end
 
+  patch :p0, :DATA
+
   def install
     args = [
       "--prefix=#{prefix}",
@@ -92,3 +94,19 @@ class Gdb < Formula
     system bin/"gdb", bin/"gdb", "-configuration"
   end
 end
+
+__END__
+
+diff -Naru /tmp/aarch64-linux-tdep.c gdb/aarch64-linux-tdep.c.new
+--- gdb/aarch64-linux-tdep.c	2018-09-27 21:05:15.000000000 -0700
++++ gdb/aarch64-linux-tdep.c.new	2018-09-27 21:05:47.000000000 -0700
+@@ -315,7 +315,7 @@
+      passed in SVE regset or a NEON fpregset.  */
+
+   /* Extract required fields from the header.  */
+-  uint64_t vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
++  ULONGEST vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
+ 					  SVE_HEADER_VL_LENGTH, byte_order);
+   uint16_t flags = extract_unsigned_integer (header + SVE_HEADER_FLAGS_OFFSET,
+ 					     SVE_HEADER_FLAGS_LENGTH,
+
