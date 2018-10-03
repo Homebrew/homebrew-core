@@ -9,7 +9,7 @@ class DitaOt < Formula
   depends_on :java => "1.8+"
 
   def install
-    rm_f Dir["bin/*.bat", "startcmd.*"]
+    rm_f Dir["bin/*.bat", "config/env.bat", "startcmd.*"]
     libexec.install Dir["*"]
     bin.install_symlink libexec/"bin/dita"
   end
