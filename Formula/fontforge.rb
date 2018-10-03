@@ -12,24 +12,21 @@ class Fontforge < Formula
     sha256 "ec69ac98f88c91f84f83d929310c6b7bdb4ccdc731e2603d2402dbdccd54a6d2" => :el_capitan
   end
 
-  option "with-giflib", "Build with GIF support"
   option "with-extra-tools", "Build with additional font tools"
-
-  deprecated_option "with-gif" => "with-giflib"
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "gettext"
+  depends_on "giflib"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libspiro"
   depends_on "libtiff"
   depends_on "libtool"
+  depends_on "libuninameslist"
   depends_on "pango"
   depends_on "python@2"
-  depends_on "giflib" => :optional
-  depends_on "libspiro" => :optional
-  depends_on "libuninameslist" => :optional
 
   # Remove for > 20170731
   # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
@@ -43,33 +40,24 @@ class Fontforge < Formula
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
     ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-silent-rules
-      --disable-dependency-tracking
-      --without-x
-    ]
-
-    args << "--without-giflib" if build.without? "giflib"
-    args << "--without-libspiro" if build.without? "libspiro"
-    args << "--without-libuninameslist" if build.without? "libuninameslist"
-
     # Fix header includes to avoid crash at runtime:
     # https://github.com/fontforge/fontforge/pull/3147
     inreplace "fontforgeexe/startnoui.c", "#include \"fontforgevw.h\"", "#include \"fontforgevw.h\"\n#include \"encoding.h\""
 
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--without-x"
     system "make", "install"
 
     # The app here is not functional.
     # If you want GUI/App support, check the caveats to see how to get it.
     (pkgshare/"osx/FontForge.app").rmtree
 
-    if build.with? "extra-tools"
-      cd "contrib/fonttools" do
-        system "make"
-        bin.install Dir["*"].select { |f| File.executable? f }
-      end
+    # Build extra tools
+    cd "contrib/fonttools" do
+      system "make"
+      bin.install Dir["*"].select { |f| File.executable? f }
     end
   end
 

@@ -5,7 +5,7 @@ class Ffmbc < Formula
   # whose content is identical to the github link below
   url "https://github.com/darealshinji/ffmbc/archive/v0.7.2.tar.gz"
   sha256 "0a3807160ba0701225bfe9cfcae8fba662990f46932b2eb105e434c751c8944f"
-  revision 6
+  revision 7
 
   bottle do
     rebuild 1
@@ -19,30 +19,29 @@ class Ffmbc < Formula
   depends_on "yasm" => :build
   depends_on "faac"
   depends_on "lame"
+  depends_on "libvorbis"
+  depends_on "theora"
   depends_on "x264"
   depends_on "xvid"
-  depends_on "libvorbis" => :optional
-  depends_on "libvpx" => :optional
-  depends_on "theora" => :optional
 
   patch :DATA # fix man page generation, fixed in upstream ffmpeg
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--disable-debug",
-            "--disable-indev=jack",
-            "--disable-shared",
-            "--enable-gpl",
-            "--enable-libfaac",
-            "--enable-libmp3lame",
-            "--enable-libx264",
-            "--enable-libxvid",
-            "--enable-nonfree",
-            "--cc=#{ENV.cc}"]
-
-    args << "--enable-libtheora" if build.with? "theora"
-    args << "--enable-libvorbis" if build.with? "libvorbis"
-    args << "--enable-libvpx" if build.with? "libvpx"
+    args = %W[
+      --prefix=#{prefix}
+      --cc=#{ENV.cc}
+      --disable-debug
+      --disable-indev=jack
+      --disable-shared
+      --enable-gpl
+      --enable-libfaac
+      --enable-libmp3lame
+      --enable-libtheora
+      --enable-libvorbis
+      --enable-libx264
+      --enable-libxvid
+      --enable-nonfree
+    ]
 
     system "./configure", *args
     system "make"

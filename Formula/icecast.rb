@@ -16,9 +16,6 @@ class Icecast < Formula
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
   depends_on "openssl"
-  depends_on "libogg" => :optional
-  depends_on "speex"  => :optional
-  depends_on "theora" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -3,6 +3,7 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.69.0.tar.xz"
   sha256 "637ff943f805f304ff1da77ba2e7f1cbd675f474941fd8ae1e0fc01a5b45a3f9"
+  revision 1
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
@@ -12,12 +13,9 @@ class Poppler < Formula
   end
 
   option "with-qt", "Build Qt5 backend"
-  option "with-little-cms2", "Use color management system"
-  option "with-nss", "Use NSS library for PDF signature validation"
 
   deprecated_option "with-qt4" => "with-qt"
   deprecated_option "with-qt5" => "with-qt"
-  deprecated_option "with-lcms2" => "with-little-cms2"
 
   depends_on "cmake" => :build
   depends_on "gobject-introspection" => :build
@@ -30,9 +28,9 @@ class Poppler < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "little-cms2"
+  depends_on "nss"
   depends_on "openjpeg"
-  depends_on "little-cms2" => :optional
-  depends_on "nss" => :optional
   depends_on "qt" => :optional
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
@@ -49,23 +47,18 @@ class Poppler < Formula
     ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
     args = std_cmake_args + %w[
-      -DENABLE_XPDF_HEADERS=ON
-      -DENABLE_GLIB=ON
       -DBUILD_GTK_TESTS=OFF
-      -DWITH_GObjectIntrospection=ON
+      -DENABLE_CMS=lcms2
+      -DENABLE_GLIB=ON
       -DENABLE_QT4=OFF
+      -DENABLE_XPDF_HEADERS=ON
+      -DWITH_GObjectIntrospection=ON
     ]
 
     if build.with? "qt"
       args << "-DENABLE_QT5=ON"
     else
       args << "-DENABLE_QT5=OFF"
-    end
-
-    if build.with? "little-cms2"
-      args << "-DENABLE_CMS=lcms2"
-    else
-      args << "-DENABLE_CMS=none"
     end
 
     system "cmake", ".", *args

@@ -20,9 +20,6 @@ class OpenSceneGraph < Formula
   depends_on "gtkglext"
   depends_on "jpeg"
   depends_on "sdl"
-  depends_on "collada-dom" => :optional
-  depends_on "ffmpeg" => :optional
-  depends_on "gdal" => :optional
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
@@ -37,6 +34,8 @@ class OpenSceneGraph < Formula
 
     args = std_cmake_args
     args << "-DBUILD_DOCUMENTATION=ON"
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON"
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON"
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON"
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON"
     args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
@@ -44,20 +43,12 @@ class OpenSceneGraph < Formula
     args << "-DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio"
     args << "-DOSG_WINDOWING_SYSTEM=Cocoa"
 
-    if build.with? "collada-dom"
-      args << "-DCMAKE_DISABLE_FIND_PACKAGE_COLLADA=ON"
-      args << "-DCOLLADA_INCLUDE_DIR=#{Formula["collada-dom"].opt_include}/collada-dom2.4"
-    end
-
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON" if build.without? "ffmpeg"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON" if build.without? "gdal"
-
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
-      system "make", "doc_openscenegraph" if build.with? "docs"
+      system "make", "doc_openscenegraph"
       system "make", "install"
-      doc.install Dir["#{prefix}/doc/OpenSceneGraphReferenceDocs/*"] if build.with? "docs"
+      doc.install Dir["#{prefix}/doc/OpenSceneGraphReferenceDocs/*"]
     end
   end
 
