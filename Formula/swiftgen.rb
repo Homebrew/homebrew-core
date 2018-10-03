@@ -16,9 +16,6 @@ class Swiftgen < Formula
   depends_on :xcode => ["10.0", :build]
 
   def install
-    # Fix issue with libxml2, see https://github.com/Homebrew/brew/pull/4147
-    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp
-
     # Disable swiftlint build phase to avoid build errors if versions mismatch
     ENV["NO_CODE_LINT"] = "1"
 
