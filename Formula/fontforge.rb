@@ -6,10 +6,10 @@ class Fontforge < Formula
   revision 3
 
   bottle do
-    sha256 "dcac27239080e9920c17216802485a9fe5fe589a63517087972303e9d008cec7" => :mojave
-    sha256 "06dbc9a8d4bc58b2097d455074118db2b0c9063d6e341e8f36034f7dbb896aec" => :high_sierra
-    sha256 "c1c341cc9e10bb504fee8b8cdcb827ae1ee32db9a2c723743a79e39df32da8fd" => :sierra
-    sha256 "ec69ac98f88c91f84f83d929310c6b7bdb4ccdc731e2603d2402dbdccd54a6d2" => :el_capitan
+    rebuild 1
+    sha256 "7917392b435917468ce7f8e4c31822ba376d901cc9303ab354c44ef8155fad49" => :mojave
+    sha256 "5a04540e69d56213fb104a968ad9ce2bc5c2ca152d5c3e0ecfccbd93981f80dc" => :high_sierra
+    sha256 "7c4e3def1ac5f5b374e773d6dd7bda60b09eb304a19c6b231a292125d4d14915" => :sierra
   end
 
   option "with-extra-tools", "Build with additional font tools"
