@@ -1,10 +1,10 @@
 class Gobby < Formula
   desc "Multi-platform collaborative text editor"
-  homepage "http://gobby.0x539.de"
+  homepage "https://gobby.github.io/"
   url "http://releases.0x539.de/gobby/gobby-0.5.0.tar.gz"
   sha256 "8ceb3598d27cfccdf9c9889b781c4c5c8e1731ca6beb183f5d4555644c06bd98"
   revision 4
-  head "git://git.0x539.de/git/gobby.git"
+  head "https://github.com/gobby/gobby"
 
   bottle do
     sha256 "b7bab1f41b0918759bf05c73af7267a27ea5571a5f53af39515e1d69b1933169" => :mojave
