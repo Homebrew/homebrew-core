@@ -1,28 +1,14 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.20.0.tar.gz"
-  sha256 "e424c368f92be5050f3dd5e98ed9ce2ea8d6076e36444c99b96e3b10f69420b1"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.21.0.tar.gz"
+  sha256 "96c15cf7b51feacd5bb3f7032c7d961961325102574a1a4d6cb8dd794e906e5b"
 
   depends_on "boost"
   depends_on "miniupnpc"
   depends_on "openssl@1.1"
 
   needs :cxx11
-
-  # That patches will be here till next release
-  # Upstream commits:
-  # https://github.com/PurpleI2P/i2pd/commit/064460b95f656cb211995f88c66bea94d88224d4
-  # https://github.com/PurpleI2P/i2pd/commit/6fe1de5d869343a2b80fdd168c4276880bc57b3f
-  patch do
-    url "https://github.com/PurpleI2P/i2pd/commit/064460b95f656cb211995f88c66bea94d88224d4.diff?full_index=1"
-    sha256 "0d8503b7188bd7172d12c6b75e2928ab80606cc75400912a62eb28a4b0809978"
-  end
-
-  patch do
-    url "https://github.com/PurpleI2P/i2pd/commit/6fe1de5d869343a2b80fdd168c4276880bc57b3f.diff?full_index=1"
-    sha256 "073ba6c44eddeadbbb28c37846a9faedb5715b82b82519c6d00420f01f0fac6d"
-  end
 
   def install
     system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes", "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"
