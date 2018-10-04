@@ -28,9 +28,9 @@ class AzureStorageCpp < Formula
         utility::string_t storage_connection_string(_XPLATSTR("DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=myaccountkey"));
         try {
           azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
-          return 1;
+          return 0;
         }
-        catch(...){ return 0; }
+        catch(...){ return 1; }
       }
     EOS
     flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
