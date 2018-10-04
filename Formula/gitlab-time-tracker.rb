@@ -3,14 +3,14 @@ require "language/node"
 class GitlabTimeTracker < Formula
   desc "Command-line interface for GitLab's time tracking feature"
   homepage "https://github.com/kriskbx/gitlab-time-tracker"
-  url "https://github.com/kriskbx/gitlab-time-tracker/releases/download/1.7.30/gtt-macos"
-  sha256 "f3b4dd2ef1a938e1ee514a704d16e509fc671b48a1728f7857b817a589df17d7"
+  url "https://registry.npmjs.org/gitlab-time-tracker/-/gitlab-time-tracker-1.7.27.tgz"
+  sha256 "a29b7be0069201688dab67280fa681a1698db80f1f2abab18af962bedf960871"
 
+  depends_on "node"
 
   def install
-    chmod 0755, "gtt-macos"
-    (libexec/"bin").install "gtt-macos"
-    bin.install_symlink "#{libexec}/bin/gtt-macos" => bin/"gtt"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
