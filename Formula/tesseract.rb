@@ -20,7 +20,6 @@ class Tesseract < Formula
 
   option "with-all-languages", "Install recognition data for all languages"
   option "with-training-tools", "Install OCR training tools"
-  option "with-opencl", "Enable OpenCL support"
   option "with-serial-num-pack", "Install serial number recognition pack"
 
   deprecated_option "all-languages" => "with-all-languages"
@@ -79,13 +78,7 @@ class Tesseract < Formula
     ENV.cxx11
 
     system "./autogen.sh"
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-    args << "--enable-opencl" if build.with? "opencl"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
 
     system "make", "install"
     if build.with? "serial-num-pack"
