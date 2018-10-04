@@ -6,10 +6,9 @@ class Geckodriver < Formula
   head "https://hg.mozilla.org/mozilla-central/", :using => :hg
 
   bottle do
-    sha256 "e041d1b1ff915d261ab6af82663cda87c456bde9290a46722d5dd7f5e3c4971d" => :mojave
-    sha256 "9a4373bd72ac4f629e2b7c10c7fe871c22709d6081cd8d0d8efc2de6ac7c2cb0" => :high_sierra
-    sha256 "7061cfa56bbec8f56edf259f64eae25ec14412d19947c8b68b4cbebc21b1139c" => :sierra
-    sha256 "73e74c4cbcae001c4f015e6d0ce2b7a2a4cc8346cfebdd3331dc94fb258def40" => :el_capitan
+    sha256 "15d57a2252a5e6c6aa43d77862ef1bc052854bbe2d22ce2a20675e97b803596c" => :mojave
+    sha256 "1d146bd0da0d5489f1032c35c6dd92b5a4f8dee20ab2881fe8c74ab266c62b10" => :high_sierra
+    sha256 "e6802e185deefb48c408acc7ceef12420e2b7648851e07d0dbd4220184fb40a0" => :sierra
   end
 
   depends_on "rust" => :build
