@@ -4,9 +4,8 @@
 class Rke < Formula
   desc "Rancher Kubernetes Engine, an extremely simple, lightning fast Kubernetes installer that works everywhere."
   homepage "https://rancher.com/docs/rke/v0.1.x/en/"
-  url "https://github.com/rancher/rke/archive/v0.1.9.tar.gz"
-  sha256 "b7d289e7481f11a0b3ecf5237ccc3e9ef2f791047af5bdc9eb07484c7fd69c5e"
-  # depends_on "cmake" => :build
+  url "https://github.com/rancher/rke.git",
+    :tag => "v0.1.9"
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
