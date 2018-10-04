@@ -23,7 +23,7 @@ class Tcc < Formula
 
     ENV.deparallelize
     system "./configure", *args
-    system "make"
+    system "make", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make", "install"
   end
 
