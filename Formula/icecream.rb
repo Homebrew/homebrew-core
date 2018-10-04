@@ -12,13 +12,9 @@ class Icecream < Formula
     sha256 "0adc60662ea9ede33caf1fffb35a129593479a99c34bb36525c1c718b0a77639" => :yosemite
   end
 
-  option "with-docbook2X", "Build with man page"
-  option "without-clang-wrappers", "Don't use symlink wrappers for clang/clang++"
-  option "with-clang-rewrite-includes", "Use by default Clang's -frewrite-includes option"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "docbook2x" => [:optional, :build]
+  depends_on "docbook2x" => :build
   depends_on "libtool" => :build
   depends_on "lzo"
 
@@ -27,10 +23,8 @@ class Icecream < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --enable-clang-wrappers
     ]
-    args << "--without-man" if build.without? "docbook2X"
-    args << "--enable-clang-wrappers" if build.with? "clang-wrappers"
-    args << "--enable-clang-write-includes" if build.with? "clang-rewrite-includes"
 
     system "./autogen.sh"
     system "./configure", *args
@@ -111,28 +105,26 @@ class Icecream < Formula
     system opt_libexec/"icecc/bin/g++", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", shell_output("./hello-cc")
 
-    if build.with? "clang-wrappers"
-      (testpath/"hello-clang.c").write <<~EOS
-        #include <stdio.h>
-        int main()
-        {
-          puts("Hello, world!");
-          return 0;
-        }
-      EOS
-      system opt_libexec/"icecc/bin/clang", "-o", "hello-clang", "hello-clang.c"
-      assert_equal "Hello, world!\n", shell_output("./hello-clang")
+    (testpath/"hello-clang.c").write <<~EOS
+      #include <stdio.h>
+      int main()
+      {
+        puts("Hello, world!");
+        return 0;
+      }
+    EOS
+    system opt_libexec/"icecc/bin/clang", "-o", "hello-clang", "hello-clang.c"
+    assert_equal "Hello, world!\n", shell_output("./hello-clang")
 
-      (testpath/"hello-cclang.cc").write <<~EOS
-        #include <iostream>
-        int main()
-        {
-          std::cout << "Hello, world!" << std::endl;
-          return 0;
-        }
-      EOS
-      system opt_libexec/"icecc/bin/clang++", "-o", "hello-cclang", "hello-cclang.cc"
-      assert_equal "Hello, world!\n", shell_output("./hello-cclang")
-    end
+    (testpath/"hello-cclang.cc").write <<~EOS
+      #include <iostream>
+      int main()
+      {
+        std::cout << "Hello, world!" << std::endl;
+        return 0;
+      }
+    EOS
+    system opt_libexec/"icecc/bin/clang++", "-o", "hello-cclang", "hello-cclang.cc"
+    assert_equal "Hello, world!\n", shell_output("./hello-cclang")
   end
 end
