@@ -5,10 +5,9 @@ class GstPython < Formula
   sha256 "d0fdb24f93b6d889f309d2f526b8ea9577e0084ff0a62b4623ef1aed52e85a1b"
 
   bottle do
-    sha256 "c45fb36e4e3bc890901bef8d695afc8185359f7465672ad6cbc440204b3adc98" => :mojave
-    sha256 "9b6830252dd7c90a8def4565c8e13b5a82a2b325cc3ef04ca44b46331bb9c7b8" => :high_sierra
-    sha256 "e46542b7762d896f51aa74f02393c4b82904d91a4ba8e5d6c7902031d20e4281" => :sierra
-    sha256 "b9a55ab56c0b17a2c60473b896ea34264faffe803eb4191d1ceeaedca69b2298" => :el_capitan
+    sha256 "4412a3a8077e55aa5b1899ff7a89d726afad1f2142e61e93f91d9d54a0b87fe5" => :mojave
+    sha256 "4fe5e40b6897c575602ff3d668bf9408fde1f9fcfea855fcf08067d06401f5ad" => :high_sierra
+    sha256 "c6aa1db5ddb24672448b36d1cbf979cfc826fe57b382015bf35b5a5da646c506" => :sierra
   end
 
   option "without-python", "Build without python 3 support"
