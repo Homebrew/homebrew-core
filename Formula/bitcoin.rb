@@ -1,8 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoin.org/"
-  url "https://bitcoin.org/bin/bitcoin-core-0.16.3/bitcoin-0.16.3.tar.gz"
-  sha256 "836eed97dfc79cff09f356e8fbd6a6ef2de840fb9ff20ebffb51ccffdb100218"
+  url "https://bitcoin.org/bin/bitcoin-core-0.17.0/bitcoin-0.17.0.tar.gz"
+  sha256 "98ef39e851644bba1ac51edaa53c7c47c20a3980333def7bc642c8261a12785e"
 
   bottle do
     cellar :any
