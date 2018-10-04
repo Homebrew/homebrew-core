@@ -7,6 +7,8 @@ class Rke < Formula
   url "https://github.com/rancher/rke.git",
     :tag => "v0.1.9"
 
+  depends_on "go" => :build
+
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
     # Remove unrecognized options if warned by configure
