@@ -49,14 +49,6 @@ class Makensis < Formula
 
   test do
     system "#{bin}/makensis", "-VERSION"
-    (testpath/"test.nsi").write <<~EOS
-      # name the installer
-      OutFile "test.exe"
-      # default section start; every NSIS script has at least one section.
-      Section
-      # default section end
-      SectionEnd
-    EOS
-    system "#{bin}/makensis", "#{testpath}/test.nsi"
+    system "#{bin}/makensis", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null"
   end
 end
