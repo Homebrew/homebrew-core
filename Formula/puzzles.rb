@@ -17,9 +17,8 @@ class Puzzles < Formula
   depends_on "halibut"
 
   def install
-    # Prevent "lipo: Puzzles.i386.bin and Puzzles.x86_64.bin have the same
-    # architectures (x86_64) and can't be in the same fat output file"
-    ENV.permit_arch_flags
+    # Do not build for i386
+    inreplace "mkfiles.pl", /@osxarchs = .*/, "@osxarchs = ('x86_64');"
 
     system "perl", "mkfiles.pl"
     system "make", "-d", "-f", "Makefile.osx", "all"
