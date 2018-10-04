@@ -12,7 +12,10 @@ class AzureStorageCpp < Formula
   depends_on "ossp-uuid"
 
   def install
-    system "cmake", "-DBUILD_SAMPLES=OFF", "-DBUILD_TESTS=OFF", "Microsoft.WindowsAzure.Storage", *std_cmake_args
+    system "cmake", "Microsoft.WindowsAzure.Storage",
+                    "-DBUILD_SAMPLES=OFF",
+                    "-DBUILD_TESTS=OFF",
+                    *std_cmake_args
     system "make", "install"
   end
 
@@ -23,14 +26,11 @@ class AzureStorageCpp < Formula
       using namespace azure;
       int main() {
         utility::string_t storage_connection_string(_XPLATSTR("DefaultEndpointsProtocol=https;AccountName=myaccountname;AccountKey=myaccountkey"));
-
-        // Initialize storage account
         try {
           azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
+          return 1;
         }
-        catch(...){
-          // caught expected error
-        }
+        catch(...){ return 0; }
       }
     EOS
     flags = ["-stdlib=libc++", "-std=c++11", "-I#{include}",
