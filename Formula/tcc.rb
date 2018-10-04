@@ -5,9 +5,10 @@ class Tcc < Formula
   sha256 "de23af78fca90ce32dff2dd45b3432b2334740bb9bb7b05bf60fdbfc396ceb9c"
 
   bottle do
-    sha256 "6e8aa202c393f2788c2f6c6ff43ee9b515e2eeb7a21118f92ce67a53ad0e8624" => :high_sierra
-    sha256 "e54350d4d114a0ceabe1d59176d12578e17fc63ebba65fc8c35dc347f02a6daa" => :sierra
-    sha256 "2e5a483599bcb577bc421db239bc5e53d4c31ad8ca5111c9a264f5c3d71c5266" => :el_capitan
+    rebuild 1
+    sha256 "697164b3427d1993923e2e4c446b4ea87b55916d59cfe5ba64ad04ca3d54bddc" => :mojave
+    sha256 "45a2646746c8a9766aa106ba6aaac155e8b963c2c5ea3afac0b398b0b5501430" => :high_sierra
+    sha256 "f5ce8a5801502da6c214ad9f5e9df024109bbe0c4e5380de35112f0596a373fe" => :sierra
   end
 
   option "with-cross", "Build all cross compilers"
