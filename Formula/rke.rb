@@ -11,7 +11,7 @@ class Rke < Formula
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/rancher/rke/").install Dir["*"]
     system "go", "build", "-ldflags",
-           "-w -X main.VERSION=#{version}",
+           "-w -X main.VERSION=v#{version}",
            "-o", "#{bin}/rke",
            "github.com/rancher/rke/"
   end
