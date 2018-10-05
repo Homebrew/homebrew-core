@@ -17,7 +17,7 @@ class Mscgen < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "gd"
-  depends_on :x11
+  depends_on :x11 => :optional
 
   def install
     system "./configure", "--prefix=#{prefix}",
