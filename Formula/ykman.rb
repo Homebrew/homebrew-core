@@ -3,8 +3,8 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-0.7.1.tar.gz"
-  sha256 "177bbf953b8557b8de68bacbbdfc56764e93733f337b2327e322cfc4ed4f7d18"
+  url "https://developers.yubico.com/yubikey-manager/Releases/yubikey-manager-1.0.0.tar.gz"
+  sha256 "8dabb5bf5392e1caadabb14d0b0d60921de808ef7aec6ae1738a935dc712abe1"
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
@@ -16,10 +16,9 @@ class Ykman < Formula
   end
 
   depends_on "swig" => :build
-  depends_on "libu2f-host"
   depends_on "libusb"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "ykpers"
 
   resource "asn1crypto" do
@@ -38,18 +37,13 @@ class Ykman < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
-    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
+    url "https://files.pythonhosted.org/packages/22/21/233e38f74188db94e8451ef6385754a98f3cad9b59bedf3a8e8b14988be4/cryptography-2.3.1.tar.gz"
+    sha256 "8d10113ca826a4c29d5b85b2c4e045ffa8bad74fb525ee0eceb1d38d4c70dfd6"
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/28/4d/82131eee1b9f95d6c06a87ab03c075b8a36b2772b0cf825d522a7e8bb503/fido2-0.3.0.tar.gz"
-    sha256 "32c0db375458853d68cbbeb04861c412a05c22c873236a0c4f71296dc983ab35"
+    url "https://files.pythonhosted.org/packages/58/0d/655ef526ab14b8eecc70f773294f15b23402d5184da290c4f23d5d893048/fido2-0.4.0.tar.gz"
+    sha256 "f8d84aef5b54cccfb5558f399f196d540f8dcba458862214c14f7f66c22a4488"
   end
 
   resource "idna" do
@@ -63,8 +57,8 @@ class Ykman < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
-    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
+    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
+    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
   end
 
   resource "pyOpenSSL" do
