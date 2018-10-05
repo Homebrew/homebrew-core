@@ -1,8 +1,8 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v0.8.4.tar.gz"
-  sha256 "8dfacd578f2be1ae6cc7af6b2749952f1646344cb95bde17f35eeb78faacd616"
+  url "https://github.com/hashicorp/nomad/archive/v0.8.6.tar.gz"
+  sha256 "e69b447dcc2caeb3d5ecf904cf3c8f327a5185a84442ee4241a796d89f96e143"
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
@@ -13,15 +13,12 @@ class Nomad < Formula
     sha256 "ad5f56803a2484df8bd3828965f941bbe5608904703b9d36e4122cde1b0f0c36" => :el_capitan
   end
 
-  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
-
-  depends_on "go" => :build
+  depends_on "go@1.10" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/hashicorp/nomad").install buildpath.children
     cd "src/github.com/hashicorp/nomad" do
-      ENV["CGO_ENABLED"] = "1" if build.with? "dynamic"
       system "go", "build", "-tags", "ui", "-o", bin/"nomad"
       prefix.install_metafiles
     end
