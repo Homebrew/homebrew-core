@@ -11,6 +11,8 @@ class Ldc < Formula
       url "https://github.com/ldc-developers/ldc/releases/download/v0.17.6/ldc-0.17.6-src.tar.gz"
       sha256 "868b8c07ab697306ea65f0006fc2b6b96db4df226e82f8f11cafbed6fa9ac561"
     end
+
+    depends_on "llvm@6"
   end
 
   bottle do
@@ -18,6 +20,19 @@ class Ldc < Formula
     sha256 "ab5b1cb9864886ad0f56ce5116c271042912724aa609004e7fbf52616c944a4a" => :high_sierra
     sha256 "fbc84d197eed292519c5dd4f7fd5ed90c116cf5ec8753d5488533149c007f6c7" => :sierra
   end
+
+  devel do
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.12.0-beta2/ldc-1.12.0-beta2-src.tar.gz"
+    sha256 "eac644059c2eb42076712c090fbd2fedbb5d36070d95e68ab4776ed2ed680ec5"
+
+    resource "ldc-lts" do
+      url "https://github.com/ldc-developers/ldc/releases/download/v0.17.6/ldc-0.17.6-src.tar.gz"
+      sha256 "868b8c07ab697306ea65f0006fc2b6b96db4df226e82f8f11cafbed6fa9ac561"
+    end
+
+    depends_on "llvm"
+  end
+
 
   head do
     url "https://github.com/ldc-developers/ldc.git", :shallow => false
@@ -27,11 +42,12 @@ class Ldc < Formula
           :shallow => false,
           :branch => "ltsmaster"
     end
+
+    depends_on "llvm"
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "llvm@6"
 
   needs :cxx11
 
