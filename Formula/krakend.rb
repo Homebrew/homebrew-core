@@ -1,6 +1,6 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
-  homepage "http://www.krakend.io/"
+  homepage "https://www.krakend.io/"
   url "https://github.com/devopsfaith/krakend-ce/archive/0.6.1.tar.gz"
   sha256 "f6dd5d8dbb5a3be488516ea5c0b3b234c80a330f7981891f64aaddd356302b2d"
 
@@ -12,7 +12,7 @@ class Krakend < Formula
   end
 
   depends_on "dep" => :build
-  depends_on "go@1.10" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
