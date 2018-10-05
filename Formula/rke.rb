@@ -17,6 +17,7 @@ class Rke < Formula
   end
 
   test do
-    system bin/"rke", "--version"
+    system "#{bin}/rke", "config", "-e"
+    assert File.file? "#{testpath}/cluster.yml"
   end
 end
