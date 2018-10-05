@@ -13,7 +13,7 @@ class Rke < Formula
     system "go", "build", "-ldflags",
            "-w -X main.VERSION=#{version}",
            "-o", "#{bin}/rke",
-           "-v", "github.com/rancher/rke/"
+           "github.com/rancher/rke/"
   end
 
   test do
