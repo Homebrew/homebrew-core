@@ -1,8 +1,8 @@
 class Googler < Formula
   desc "Google Search and News from the command-line"
   homepage "https://github.com/jarun/googler"
-  url "https://github.com/jarun/googler/archive/v3.6.tar.gz"
-  sha256 "514218f5155a2c1bd653462a503507beafca9d7ddff7203aeabb3ab4812e4b44"
+  url "https://github.com/jarun/googler/archive/v3.7.tar.gz"
+  sha256 "8210dfcadc6d63f8415f25ff266e4fd437f448c7ce3179a5ec2769195c207bf5"
   head "https://github.com/jarun/googler.git"
 
   bottle do
