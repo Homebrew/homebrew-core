@@ -13,7 +13,7 @@ class Gopass < Formula
     sha256 "ba11c53440e647a9b16bb90722387e408c6d728592a455a1a99d3de71654d91c" => :el_capitan
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.10" => :build
   depends_on "gnupg"
 
   def install
@@ -31,7 +31,6 @@ class Gopass < Formula
 
     output = Utils.popen_read("#{bin}/gopass completion zsh")
     (zsh_completion/"_gopass").write output
-
   end
 
   test do
