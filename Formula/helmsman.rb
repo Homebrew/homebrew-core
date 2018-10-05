@@ -3,9 +3,10 @@ class Helmsman < Formula
   homepage "https://github.com/Praqma/helmsman"
   url "https://github.com/Praqma/helmsman/archive/v1.6.2.tar.gz"
   sha256 "587ae86423df96fd5f5409f1af1a1ab763274d780c0b3f8651202caf840050dc"
-  head "https://github.com/Praqma/helmsman.git"
 
   depends_on "go" => :build
+  depends_on "kubernetes-cli"
+  depends_on "kubernetes-helm"
 
   def install
     ENV["GOPATH"] = buildpath
