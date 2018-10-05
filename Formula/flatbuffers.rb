@@ -7,10 +7,9 @@ class Flatbuffers < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "572d2cca8c81e7b00d7de075183b439d8dae10bd6f55f55d6adfa025d3b58284" => :mojave
-    sha256 "0ff7c60d4f88899310a9690e4ce0a61652e7435b408ecf0b83902929a558e5a6" => :high_sierra
-    sha256 "6cd9702f17cbae326210eec6d6c96f4d568dcc2eea9c256781e96652da463dd8" => :sierra
-    sha256 "02461c38c5a9f3404b4b7ada348903a6cd67f83e9eb0af8bc07628a9fe5ef7bf" => :el_capitan
+    sha256 "bc51298d7bcf8e3787a3b67f92573571a06e5d54c11ae9551c4c2dcaf6143a3b" => :mojave
+    sha256 "e5605a8aad6a90cec130a9c80b4c1ab9128175bbeafe9c7bf47e2a47967fc0c0" => :high_sierra
+    sha256 "6bcfce8e2e75744a7599eb3cd9ed3773b5790db8d5b605c4672747e891e8fa3c" => :sierra
   end
 
   depends_on "cmake" => :build
