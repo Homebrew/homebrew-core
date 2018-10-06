@@ -25,10 +25,10 @@ class Atf < Formula
 
   test do
     (testpath/"test.sh").write <<~EOS
-      #! /usr/bin/env atf-sh
+      #!/usr/bin/env atf-sh
       echo test
       exit 0
     EOS
-    system "bash test.sh"
+    system "bash", "test.sh"
   end
 end
