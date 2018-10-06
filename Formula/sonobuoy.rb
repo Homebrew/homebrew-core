@@ -6,6 +6,11 @@ class Sonobuoy < Formula
 
   depends_on "go" => :build
 
+  resource "sonobuoyresults" do
+    url "https://raw.githubusercontent.com/heptio/sonobuoy/master/pkg/client/results/testdata/results-0.10.tar.gz"
+    sha256 "a945ba4d475e33820310a6138e3744f301a442ba01977d38f2b635d2e6f24684"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/heptio/sonobuoy").install buildpath.children
@@ -25,7 +30,9 @@ class Sonobuoy < Formula
     assert_match version.to_s, shell_output("#{bin}/sonobuoy version 2>&1")
     output = shell_output("#{bin}/sonobuoy gen 2>&1")
     assert_match "name: heptio-sonobuoy", output
-    output = shell_output("#{bin}/sonobuoy e2e --show=all ./pkg/client/results/testdata/results-0.10.tar.gz 2>&1")
-    assert_match "all tests", output
+    resource("sonobuoyresults").fetch do
+      output = shell_output("#{bin}/sonobuoy e2e --show=all #{testpath}/results-0.10.tar.gz 2>&1")
+      assert_match "all tests", output
+    end
   end
 end
