@@ -30,9 +30,7 @@ class Sonobuoy < Formula
     assert_match version.to_s, shell_output("#{bin}/sonobuoy version 2>&1")
     output = shell_output("#{bin}/sonobuoy gen 2>&1")
     assert_match "name: heptio-sonobuoy", output
-    resource("sonobuoyresults").fetch do
-      output = shell_output("#{bin}/sonobuoy e2e --show=all #{testpath}/results-0.10.tar.gz 2>&1")
-      assert_match "all tests", output
-    end
+    output = shell_output("#{bin}/sonobuoy e2e --show=all " + resource("sonobuoyresults").cached_download + " 2>&1")
+    assert_match "all tests", output
   end
 end
