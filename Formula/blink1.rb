@@ -1,11 +1,10 @@
 class Blink1 < Formula
   desc "Control blink(1) indicator light"
   homepage "https://blink1.thingm.com/"
-  url "https://github.com/todbot/blink1.git",
-      :tag => "v1.98a",
-      :revision => "de6c0a951af253cb4827604ef3ae89b1643efe28"
-  version "1.98a"
-  head "https://github.com/todbot/blink1.git"
+  url "https://github.com/todbot/blink1-tool.git",
+      :tag => "v2.0.1",
+      :revision => "56b90c343fee63d15ad24e33c06def588acaad5f"
+  head "https://github.com/todbot/blink1-tool.git"
 
   bottle do
     cellar :any
@@ -15,12 +14,10 @@ class Blink1 < Formula
   end
 
   def install
-    cd "commandline" do
-      system "make"
-      bin.install "blink1-tool"
-      lib.install "libBlink1.dylib"
-      include.install "blink1-lib.h"
-    end
+    system "make"
+    bin.install "blink1-tool"
+    lib.install "libBlink1.dylib"
+    include.install "blink1-lib.h"
   end
 
   test do
