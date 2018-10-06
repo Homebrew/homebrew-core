@@ -1,6 +1,6 @@
 class OpentracingCpp < Formula
   desc "OpenTracing API for C++"
-  homepage "http://opentracing.io"
+  homepage "https://opentracing.io/"
   url "https://github.com/opentracing/opentracing-cpp/archive/v1.5.0.tar.gz"
   sha256 "4455ca507936bc4b658ded10a90d8ebbbd61c58f06207be565a4ffdc885687b5"
 
