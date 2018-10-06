@@ -25,5 +25,7 @@ class Sonobuoy < Formula
     assert_match version.to_s, shell_output("#{bin}/sonobuoy version 2>&1")
     output = shell_output("#{bin}/sonobuoy gen 2>&1")
     assert_match "name: heptio-sonobuoy", output
+    output = shell_output("#{bin}/sonobuoy e2e --show=all ./pkg/client/results/testdata/results-0.10.tar.gz 2>&1")
+    assert_match "all tests", output
   end
 end
