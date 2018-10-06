@@ -1,8 +1,8 @@
 class Cloc < Formula
   desc "Statistics utility to count lines of code"
   homepage "https://github.com/AlDanial/cloc/"
-  url "https://github.com/AlDanial/cloc/releases/download/1.78/cloc-1.78.tar.gz"
-  sha256 "c868926143652377ca68b8b580d0d616066f20fbbd61cdc2be7310d793e734c9"
+  url "https://github.com/AlDanial/cloc/releases/download/v1.80/cloc-1.80.tar.gz"
+  sha256 "082f53530eee3f9ee84ec449eca59a77ff114250cd7daf9519679537b5b21d67"
   head "https://github.com/AlDanial/cloc.git"
 
   bottle do
@@ -24,8 +24,8 @@ class Cloc < Formula
   end
 
   resource "Parallel::ForkManager" do
-    url "https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-1.19.tar.gz"
-    sha256 "f1de2e9875eeb77d65f80338905dedd522f3913822502982f805aa71cde5a472"
+    url "https://cpan.metacpan.org/authors/id/Y/YA/YANICK/Parallel-ForkManager-1.20.tar.gz"
+    sha256 "7cc4c1c3b0e676b61ffa90f82f4128e8057327449ca86a9beb2f39217023f289"
   end
 
   def install
