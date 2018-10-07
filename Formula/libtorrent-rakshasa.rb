@@ -11,7 +11,7 @@ class LibtorrentRakshasa < Formula
   depends_on "cppunit"
   depends_on "openssl"
 
-  conflicts_with "libtorrent-rasterbar"
+  conflicts_with "libtorrent-rasterbar", :because => "both install the same binaries"
 
   def install
     ENV.append "CXXFLAGS", "-Wno-deprecated-declarations -O3 -std=c++11 -stdlib=libc++"
