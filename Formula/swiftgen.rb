@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "6.0.1",
-      :revision => "a2823362731dd656d97903ea17582e32906d17f7"
+      :tag => "6.0.2",
+      :revision => "b34e66fbeb75f9f625f31cb8a096866dba1ad321"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
