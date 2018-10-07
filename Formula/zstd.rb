@@ -6,10 +6,9 @@ class Zstd < Formula
 
   bottle do
     cellar :any
-    sha256 "0e039b99aa28044067d0d4eb609cdcecbb64215d04a7ce6ab7c04e8d9921183a" => :mojave
-    sha256 "85584f4a814eb5b29942ba9592416bbb042df83394cf413140109470431bd729" => :high_sierra
-    sha256 "59af401ee0f9bf3cae57e4f035f1d7f62b7fdc44f34ccd384c343dc0a68c8ff6" => :sierra
-    sha256 "ce6df98dc4ebb218c5189cd5e30fa46c665f4917843a75935d0b9adf9a1baf86" => :el_capitan
+    sha256 "1952f0a205e53619d8f8d87e1d0583857dbed930864687a2a2ca964fcb86a5d5" => :mojave
+    sha256 "4db618f1cf6ef20fe6c2bddc821ac60d11f3e436645646f56abbaf008726ea2e" => :high_sierra
+    sha256 "daae3ba1398b10e4bfcc3c8ebdf56e5b5519dc94b498339707484f4997ea471c" => :sierra
   end
 
   depends_on "cmake" => :build
