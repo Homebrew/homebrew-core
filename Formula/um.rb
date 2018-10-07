@@ -13,26 +13,21 @@ class Um < Formula
   end
 
   def install
-    bash_completion.install "um-completion.sh"
-    man1.install Dir["doc/man1/*"]
-
-    prefix.install Dir["*"]
+    ENV["GEM_HOME"] = libexec
 
     resource("kramdown").stage do |context|
       system("gem", "install", context.resource.cached_download,
-             "--no-document", "--install-dir", "#{lib}/um/vendor")
+             "--no-document", "--install-dir", libexec)
     end
 
-    (bin/"um").write(exec_script)
-    (prefix/"version.txt").write(version)
-  end
+    system "gem", "build", "um.gemspec"
+    system "gem", "install", "--ignore-dependencies", "um-#{version}.gem"
 
-  def exec_script
-    <<~EOS
-      #! /bin/bash
-      export GEM_HOME="#{HOMEBREW_PREFIX}/lib/um/vendor"
-      exec ruby "#{libexec}/um.rb" "$@"
-    EOS
+    bin.install libexec/"bin/um"
+    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+
+    bash_completion.install "um-completion.sh"
+    man1.install Dir["doc/man1/*"]
   end
 
   test do
