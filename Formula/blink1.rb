@@ -14,12 +14,10 @@ class Blink1 < Formula
   end
 
   def install
-    cd "." do
-      system "make"
-      bin.install "blink1-tool"
-      lib.install "libBlink1.dylib"
-      include.install "blink1-lib.h"
-    end
+    system "make"
+    bin.install "blink1-tool"
+    lib.install "libBlink1.dylib"
+    include.install "blink1-lib.h"
   end
 
   test do
