@@ -43,9 +43,8 @@ class Gnuplot < Formula
   needs :cxx11 if build.with? "qt"
 
   resource "libcerf" do
-    url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.5.tgz"
-    mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/libcerf/libcerf-1.5.tgz"
-    sha256 "e36dc147e7fff81143074a21550c259b5aac1b99fc314fc0ae33294231ca5c86"
+    url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.8.tgz"
+    sha256 "b2001dc594e9d85e2f4133fec52b4f7da02e9c2ea20518175fdebf5c81dd3857"
   end
 
   def install
