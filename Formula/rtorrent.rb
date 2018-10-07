@@ -9,7 +9,7 @@ class Rtorrent < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cppunit"
-  depends_on "libtorrent"
+  depends_on "libtorrent-rakshasa"
   depends_on "xmlrpc-c"
 
   def install

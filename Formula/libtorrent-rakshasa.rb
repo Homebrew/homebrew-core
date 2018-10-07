@@ -1,5 +1,5 @@
-class Libtorrent < Formula
-  desc "BitTorrent library"
+class LibtorrentRakshasa < Formula
+  desc "BitTorrent library for rTorrent"
   homepage "https://github.com/rakshasa/libtorrent"
   url "https://github.com/rakshasa/rtorrent/releases/download/v0.9.7/libtorrent-0.13.7.tar.gz"
   sha256 "c738f60f4d7b6879cd2745fb4310bf24c9287219c1fd619706a9d5499ca7ecc1"
