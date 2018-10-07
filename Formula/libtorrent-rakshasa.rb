@@ -14,9 +14,6 @@ class LibtorrentRakshasa < Formula
   conflicts_with "libtorrent-rasterbar", :because => "both install the same binaries"
 
   def install
-    ENV.append "CXXFLAGS", "-Wno-deprecated-declarations -O3 -std=c++11 -stdlib=libc++"
-    ENV.append "LDFLAGS", "-isysroot #{MacOS.sdk_path}"
-
     args = ["--with-kqueue", "--prefix=#{prefix}"]
 
     system "sh", "autogen.sh"

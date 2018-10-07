@@ -16,9 +16,6 @@ class Rtorrent < Formula
     # Fix file not found errors for /usr/lib/system/libsystem_darwin.dylib
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    ENV.append "CXXFLAGS", "-Wno-deprecated-declarations -O3 -std=c++11 -stdlib=libc++"
-    ENV.append "LDFLAGS", "-isysroot #{MacOS.sdk_path}"
-
     args = ["--with-xmlrpc-c", "--prefix=#{prefix}"]
 
     system "sh", "autogen.sh"
