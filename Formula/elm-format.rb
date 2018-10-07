@@ -6,8 +6,8 @@ class ElmFormat < Formula
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      :tag => "0.8.0",
-      :revision => "f19ac28046d7e83ff95f845849c033cc616f1bd6"
+      :tag => "0.8.1",
+      :revision => "e3f9eb711f05a460557ddae2530802c15ee94d90"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
@@ -24,13 +24,6 @@ class ElmFormat < Formula
   def install
     (buildpath/"elm-format").install Dir["*"]
 
-    # GHC 8.4.1 compat
-    # Reported upstream 21 Mar 2018 https://github.com/avh4/elm-format/issues/464
-    (buildpath/"cabal.config").write <<~EOS
-      allow-newer: elm-format:free, elm-format:optparse-applicative
-      constraints: free < 6, optparse-applicative < 0.15
-    EOS
-
     cabal_sandbox do
       cabal_sandbox_add_source "elm-format"
       cabal_install "--only-dependencies", "elm-format"
@@ -45,7 +38,7 @@ class ElmFormat < Formula
       main = text "Hello, world!"
     EOS
 
-    system bin/"elm-format-0.18", testpath/"Hello.elm", "--yes"
-    system bin/"elm-format-0.19", testpath/"Hello.elm", "--yes"
+    system bin/"elm-format", "--elm-version=0.18", testpath/"Hello.elm", "--yes"
+    system bin/"elm-format", "--elm-version=0.19", testpath/"Hello.elm", "--yes"
   end
 end
