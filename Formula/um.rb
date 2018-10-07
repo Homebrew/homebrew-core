@@ -15,9 +15,10 @@ class Um < Formula
   def install
     ENV["GEM_HOME"] = libexec
 
-    resource("kramdown").stage do |context|
-      system("gem", "install", context.resource.cached_download,
-             "--no-document", "--install-dir", libexec)
+    resources.each do |r|
+      r.verify_download_integrity(r.fetch)
+      system "gem", "install", r.cached_download, "--ignore-dependencies",
+             "--no-document", "--install-dir", libexec
     end
 
     system "gem", "build", "um.gemspec"
