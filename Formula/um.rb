@@ -31,6 +31,8 @@ class Um < Formula
   end
 
   test do
-    shell_output("#{bin}/um version")
+    shell_output("#{bin}/um topic -d") # Set default topic
+    assert_match shell_output("#{bin}/um config default_topic"),
+      shell_output("#{bin}/um topic")
   end
 end
