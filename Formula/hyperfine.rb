@@ -5,10 +5,9 @@ class Hyperfine < Formula
   sha256 "bab21d0dede8b437c0d4351d3959b3bfab8fe9f1d547997ed4d1d0f0c1d5801f"
 
   bottle do
-    sha256 "10594870ce0402cf651c96f235b9882c0c2d887a3666385b1abb267719b85694" => :mojave
-    sha256 "355b50d978d6ae1f8bfd5b963e84396b86023ebd96c7b2b1839981f61fb7da9a" => :high_sierra
-    sha256 "7d510caac6e35c45b1472279e82b237f3e5058d9691ced30a801ed87b35aabc1" => :sierra
-    sha256 "a82d2806e80a0e222f82bde4ea4cd74cd30b9819a4735b064f08ae40ba2e34d9" => :el_capitan
+    sha256 "947ca9a54cd659cda28443dbbc666ae93bf8671d871b9e23deb9ac98247ccb04" => :mojave
+    sha256 "b58701c051461a5b6f43540cbbc5bcf87344443f72b829e43fb92056f9eb83e4" => :high_sierra
+    sha256 "ba7bb49db791503d3ca178157920d086cf092b1afc676f7ed692ce04163ac535" => :sierra
   end
 
   depends_on "rust" => :build
