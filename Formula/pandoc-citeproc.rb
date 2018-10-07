@@ -5,8 +5,8 @@ class PandocCiteproc < Formula
 
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14.4/pandoc-citeproc-0.14.4.tar.gz"
-  sha256 "269d455b5748528967cf125afd9dc8aab9e81ba7baa3352a3e1568b0f80aa802"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.14.5/pandoc-citeproc-0.14.5.tar.gz"
+  sha256 "e8d71c016b7949e8ac25dff19773920ec1f52ca4ce1128ca4dc2212b5c892a46"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
