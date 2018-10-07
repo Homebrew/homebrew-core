@@ -1,8 +1,8 @@
 class Um < Formula
   desc "Command-line utility for creating and maintaining personal man pages"
   homepage "https://github.com/sinclairtarget/um"
-  url "https://github.com/sinclairtarget/um/archive/4.0.0.tar.gz"
-  sha256 "bfcf9906faaddeb831baf3c98120989eb79f3a07b288f0fe3b605634fe1658ad"
+  url "https://github.com/sinclairtarget/um/archive/4.1.0.tar.gz"
+  sha256 "0606cd8da69618d508d06dee859dd1147a4d8846cdff57fb8958c71fe906523f"
 
   bottle :unneeded
   depends_on "ruby"
