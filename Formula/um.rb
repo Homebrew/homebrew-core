@@ -4,7 +4,7 @@ class Um < Formula
   url "https://github.com/sinclairtarget/um/archive/4.1.0.tar.gz"
   sha256 "0606cd8da69618d508d06dee859dd1147a4d8846cdff57fb8958c71fe906523f"
 
-  depends_on "ruby"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   resource "kramdown" do
     url "https://rubygems.org/gems/kramdown-1.17.0.gem"
