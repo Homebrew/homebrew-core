@@ -20,9 +20,12 @@ class Mpc < Formula
     system "meson", "--prefix=#{prefix}", ".", "output"
     system "ninja", "-C", "output"
     system "ninja", "-C", "output", "install"
+
+    bash_completion.install "contrib/mpc-completion.bash" => "mpc"
   end
 
   test do
     assert_match "query", shell_output("#{bin}/mpc list 2>&1", 1)
+    assert_match "-F _mpc", shell_output("source #{bash_completion}/mpc && complete -p mpc")
   end
 end
