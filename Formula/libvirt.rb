@@ -37,7 +37,7 @@ class Libvirt < Formula
       --with-test
       --with-vbox
       --with-vmware
-      --without-qemu
+      --with-qemu
     ]
 
     args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen" if build.head?
