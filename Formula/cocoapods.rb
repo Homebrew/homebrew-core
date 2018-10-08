@@ -11,7 +11,7 @@ class Cocoapods < Formula
     sha256 "d62738d8793c6de966233eccfc2d9cb08de1a932ff9be672add02b89124be6af" => :sierra
     sha256 "825dcdb5aed45f84a5bd6c0a7dc43569e9e87ce1e705af3198015a6966697e5e" => :el_capitan
   end
-  
+
   devel do
     url "https://github.com/CocoaPods/CocoaPods/archive/1.6.0.beta.1.tar.gz"
     sha256 "6c9704f7e4be0903b57039064eebe445016d5acd5060022731d7c90556920195"
