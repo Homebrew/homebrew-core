@@ -1,9 +1,8 @@
 class Hmmer < Formula
   desc "Build profile HMMs and scan against sequence databases"
   homepage "http://hmmer.org/"
-  url "http://eddylab.org/software/hmmer3/3.1b2/hmmer-3.1b2.tar.gz"
-  sha256 "dd16edf4385c1df072c9e2f58c16ee1872d855a018a2ee6894205277017b5536"
-  revision 2
+  url "http://eddylab.org/software/hmmer/hmmer-3.2.1.tar.gz"
+  sha256 "a56129f9d786ec25265774519fc4e736bbc16e4076946dcbd7f2c16efc8e2b9c"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,16 +14,12 @@ class Hmmer < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}"
-
-    # Fix error: install: hmmalign: No such file or directory
-    system "make"
-
+    system "make" # Fix error: install: hmmalign: No such file or directory
     system "make", "install"
     doc.install "Userguide.pdf", "tutorial"
   end
 
   test do
-    output = shell_output("#{bin}/hmmstat #{doc}/tutorial/minifam")
-    assert_match "PF00069.17", output
+    assert_match "PF00069.17", shell_output("#{bin}/hmmstat #{doc}/tutorial/Pkinase.hmm")
   end
 end
