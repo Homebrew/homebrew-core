@@ -1,8 +1,8 @@
 class Tinc < Formula
   desc "Virtual Private Network (VPN) tool"
   homepage "https://www.tinc-vpn.org/"
-  url "https://tinc-vpn.org/packages/tinc-1.0.34.tar.gz"
-  sha256 "c03a9b61dedd452116dd9a8db231545ba08a7c96bce011e0cbd3cfd2c56dcfda"
+  url "https://tinc-vpn.org/packages/tinc-1.0.35.tar.gz"
+  sha256 "18c83b147cc3e2133a7ac2543eeb014d52070de01c7474287d3ccecc9b16895e"
 
   bottle do
     sha256 "17c04d02ac29ebf6cfde343649056d8007892b267f26b50128c6eabcc48f107d" => :mojave
@@ -12,8 +12,8 @@ class Tinc < Formula
   end
 
   devel do
-    url "https://www.tinc-vpn.org/packages/tinc-1.1pre16.tar.gz"
-    sha256 "9934c53f8b22bbcbfa0faae0cb7ea13875fe1990cce75af728a7f4ced2c0230b"
+    url "https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz"
+    sha256 "61b9c9f9f396768551f39216edcc41918c65909ffd9af071feb3b5f9f9ac1c27"
   end
 
   depends_on "lzo"
