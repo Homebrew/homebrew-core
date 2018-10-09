@@ -2,23 +2,20 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag => "6.0.0",
-      :revision => "fa34f944de47bf986c957fae21ee263961894658"
+      :tag => "6.0.2",
+      :revision => "b34e66fbeb75f9f625f31cb8a096866dba1ad321"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
     cellar :any
-    sha256 "e042a26311d14b6315fc764a6ec13568ac5f64cc1fb75eea1cddd80bb8da6bbd" => :mojave
-    sha256 "9f38d026d96ec6279b0418b086fb2bcae7e84b23e15e0ec6d5069a4fc56604e8" => :high_sierra
+    sha256 "ca29c729d9c05e52e26fee13cad5cd544f3b68c4381e57875c7cdcae7327d298" => :mojave
+    sha256 "beac92d79d985ea1d9adbdcdc992f4e2d3fa95175415ea5146895fa58bf2a27b" => :high_sierra
   end
 
   depends_on "ruby" => :build if MacOS.version <= :sierra
   depends_on :xcode => ["10.0", :build]
 
   def install
-    # Fix issue with libxml2, see https://github.com/Homebrew/brew/pull/4147
-    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp
-
     # Disable swiftlint build phase to avoid build errors if versions mismatch
     ENV["NO_CODE_LINT"] = "1"
 

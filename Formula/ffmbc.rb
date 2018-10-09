@@ -5,44 +5,41 @@ class Ffmbc < Formula
   # whose content is identical to the github link below
   url "https://github.com/darealshinji/ffmbc/archive/v0.7.2.tar.gz"
   sha256 "0a3807160ba0701225bfe9cfcae8fba662990f46932b2eb105e434c751c8944f"
-  revision 6
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 "95c4ebf8d5238e8132ab35d38fb0aad2f396b09c9d660b7fe66bf382910aca80" => :mojave
-    sha256 "d525df984f61f4cf2bcfe4e12f5bd359df62dfab089e27735d306493858bfb3c" => :high_sierra
-    sha256 "a17fe2130459a08d60f1a3d6500fc985a5a8e690e066568a077ee0517c2fac5e" => :sierra
-    sha256 "eece8d408f06084a98fd0ab6ff55d99aaa5a5f38db6d5a0b04f48ddf2f4f1e65" => :el_capitan
+    sha256 "bde01b727ef13b2346619529a7c6f858b188a08934fc88309a830f58eed94693" => :mojave
+    sha256 "7877faa373b469dea3b61a17cef5aae2907abd3f89fee6de08813a578703ab5c" => :high_sierra
+    sha256 "94303932fccd9e4ba19bbee4f1820e8410c5e5a48047c02ae36f69895a266f34" => :sierra
   end
 
   depends_on "texi2html" => :build
   depends_on "yasm" => :build
   depends_on "faac"
   depends_on "lame"
+  depends_on "libvorbis"
+  depends_on "theora"
   depends_on "x264"
   depends_on "xvid"
-  depends_on "libvorbis" => :optional
-  depends_on "libvpx" => :optional
-  depends_on "theora" => :optional
 
   patch :DATA # fix man page generation, fixed in upstream ffmpeg
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--disable-debug",
-            "--disable-indev=jack",
-            "--disable-shared",
-            "--enable-gpl",
-            "--enable-libfaac",
-            "--enable-libmp3lame",
-            "--enable-libx264",
-            "--enable-libxvid",
-            "--enable-nonfree",
-            "--cc=#{ENV.cc}"]
-
-    args << "--enable-libtheora" if build.with? "theora"
-    args << "--enable-libvorbis" if build.with? "libvorbis"
-    args << "--enable-libvpx" if build.with? "libvpx"
+    args = %W[
+      --prefix=#{prefix}
+      --cc=#{ENV.cc}
+      --disable-debug
+      --disable-indev=jack
+      --disable-shared
+      --enable-gpl
+      --enable-libfaac
+      --enable-libmp3lame
+      --enable-libtheora
+      --enable-libvorbis
+      --enable-libx264
+      --enable-libxvid
+      --enable-nonfree
+    ]
 
     system "./configure", *args
     system "make"

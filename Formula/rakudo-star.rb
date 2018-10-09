@@ -3,20 +3,18 @@ class RakudoStar < Formula
   homepage "https://rakudo.org/"
   url "https://rakudo.perl6.org/downloads/star/rakudo-star-2018.06.tar.gz"
   sha256 "309fbaaf441866ee9454451e83e90e4a21391944d475eacda93f48c7671da888"
+  revision 1
 
   bottle do
-    sha256 "eef94343a56257d5784697cbf599af9405ae232b011e1a1c326efc0491cade66" => :mojave
-    sha256 "d67db94ca0b2fb416692526612f7221a7c3ba3e16c7806fa8915d41f6bf41675" => :high_sierra
-    sha256 "acface64bccd27b0b25881386e8785650abcfbddce7c04fd678762c35373925f" => :sierra
-    sha256 "c3d5e16417976c4d4387f1b3f2bb0cec298371fe12567d8e72c052d3644d69ab" => :el_capitan
+    sha256 "f923414c9bef7029794d7c14ddd86a65feeda75b1cb388d2f04f48da6639d5c3" => :mojave
+    sha256 "916cc805c8081cd1a5afaffcfd103c0b2d14ad3e3302858b1fa0f3720d1b2c3f" => :high_sierra
+    sha256 "1dda81452078578e44cfcf50b2bd4241573094b72ae4794771f2d7e5d57a5dae" => :sierra
   end
 
-  option "with-jvm", "Build also for jvm as an alternate backend."
-
+  depends_on "gmp"
+  depends_on "icu4c"
   depends_on "libffi"
-  depends_on "gmp" => :optional
-  depends_on "icu4c" => :optional
-  depends_on "pcre" => :optional
+  depends_on "pcre"
 
   conflicts_with "parrot"
 
@@ -27,12 +25,8 @@ class RakudoStar < Formula
 
     ENV.deparallelize # An intermittent race condition causes random build failures.
 
-    backends = ["moar"]
-    generate = ["--gen-moar"]
-
-    backends << "jvm" if build.with? "jvm"
-
-    system "perl", "Configure.pl", "--prefix=#{prefix}", "--backends=" + backends.join(","), *generate
+    system "perl", "Configure.pl", "--prefix=#{prefix}",
+                   "--backends=moar", "--gen-moar"
     system "make"
     system "make", "install"
 

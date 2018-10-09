@@ -20,27 +20,15 @@ class Makensis < Formula
     sha256 "b53a79078f2c6abf21f11d9fe68807f35b228393eb17a0cd3873614190116ba7"
   end
 
-  # v1.2.8 is outdated, but the last version available as compiled DLL
-  resource "zlib-win32" do
-    url "https://downloads.sourceforge.net/project/libpng/zlib/1.2.8/zlib128-dll.zip"
-    sha256 "a03fd15af45e91964fb980a30422073bc3f3f58683e9fdafadad3f7db10762b1"
-  end
-
   def install
-    # requires zlib (win32) to build utils
-    resource("zlib-win32").stage do
-      @zlib_path = Dir.pwd
-    end
-
     args = [
       "CC=#{ENV.cc}",
       "CXX=#{ENV.cxx}",
       "PREFIX_DOC=#{share}/nsis/Docs",
-      "SKIPUTILS=NSIS Menu",
+      "SKIPUTILS=Makensisw,NSIS Menu,zip2exe",
       # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
       "STRIP=0",
       "VERSION=#{version}",
-      "ZLIB_W32=#{@zlib_path}",
     ]
     scons "makensis", *args
     bin.install "build/urelease/makensis/makensis"
@@ -49,14 +37,6 @@ class Makensis < Formula
 
   test do
     system "#{bin}/makensis", "-VERSION"
-    (testpath/"test.nsi").write <<~EOS
-      # name the installer
-      OutFile "test.exe"
-      # default section start; every NSIS script has at least one section.
-      Section
-      # default section end
-      SectionEnd
-    EOS
-    system "#{bin}/makensis", "#{testpath}/test.nsi"
+    system "#{bin}/makensis", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null"
   end
 end

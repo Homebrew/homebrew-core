@@ -1,6 +1,6 @@
 class CrosstoolNg < Formula
   desc "Tool for building toolchains"
-  homepage "http://crosstool-ng.org"
+  homepage "https://crosstool-ng.github.io/"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.23.0.tar.xz"
   sha256 "68a43ea98ccf9cb345cb6eec494a497b224fee24c882e8c14c6713afbbe79196"
   revision 1

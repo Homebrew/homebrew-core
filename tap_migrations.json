@@ -33,6 +33,7 @@
   "osxfuse": "homebrew/cask",
   "pdf-tools": "dunn/emacs",
   "pebble-sdk": "pebble/pebble-sdk",
+  "phantomjs": "homebrew/cask",
   "quassel": "homebrew/cask",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
   "tuntap": "homebrew/cask"
