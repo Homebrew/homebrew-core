@@ -92,7 +92,8 @@ class GraphTool < Formula
                           "PYTHON=python3",
                           "PYTHON_LIBS=-undefined dynamic_lookup",
                           "--with-python-module-path=#{lib}/python#{xy}/site-packages",
-                          "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt"
+                          "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt",
+                          "--with-expat=/usr/local/opt/expat"
     system "make", "install"
 
     site_packages = "lib/python#{xy}/site-packages"
