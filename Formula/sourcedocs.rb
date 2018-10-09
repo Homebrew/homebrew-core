@@ -12,7 +12,7 @@ class Sourcedocs < Formula
   end
 
   test do
-    assert_equal `#{bin}/sourcedocs version`.strip, "SourceDocs v0.5.1"
+    assert_match "SourceDocs v#{version}", shell_output("#{bin}/sourcedocs version")
 
     # There are some issues with SourceKitten running in sandbox mode in Mojave
     # The following test has been disabled on Mojave until that issue is resolved
@@ -22,8 +22,10 @@ class Sourcedocs < Formula
       mkdir "foo" do
         system "swift", "package", "init"
         system "swift", "build", "--disable-sandbox"
-        system "#{bin}/sourcedocs", "generate", "--spm-module", "foo"
-        assert_true File.file?("Documentation/Reference/README.md")
+        system "#{bin}/sourcedocs", "generate",
+               "--spm-module", "foo",
+               "--output-folder", testpath/"Documentation/Reference"
+        assert_predicate testpath/"Documentation/Reference/README.md", :exist?
       end
     end
   end
