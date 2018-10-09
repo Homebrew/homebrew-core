@@ -5,6 +5,7 @@ class Mkdocs < Formula
   homepage "https://www.mkdocs.org/"
   url "https://github.com/mkdocs/mkdocs/archive/1.0.4.tar.gz"
   sha256 "c9a0e1637c1e92b663d290a74ed1370ee7d50c6af165f49215df3a0c10b5bafa"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,21 +14,11 @@ class Mkdocs < Formula
     sha256 "c96d34021105be1b0a2fbbb27334aa327ffe91470dbca269c5f5021ed6776ef4" => :sierra
   end
 
-  depends_on "python@2"
-
-  resource "backports_abc" do
-    url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
-    sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
-  end
+  depends_on "python"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
     sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
-  end
-
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
-    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "Jinja2" do
