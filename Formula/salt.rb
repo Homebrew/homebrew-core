@@ -2,7 +2,7 @@ class Salt < Formula
   include Language::Python::Virtualenv
 
   desc "Dynamic infrastructure communication bus"
-  homepage "http://www.saltstack.org"
+  homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/9b/84/48b46bad5fa13b47c10a71b4f58cf0f3a30fcb32b6a6599fca454b8c6256/salt-2018.3.2.tar.gz"
   sha256 "d86eeea2e5387f4a64bbf0a11d103bfc8aac1122e19d39cc0945d33efdc797bd"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
