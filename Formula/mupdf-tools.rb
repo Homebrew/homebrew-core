@@ -3,6 +3,7 @@ class MupdfTools < Formula
   homepage "https://mupdf.com/"
   url "https://mupdf.com/downloads/archive/mupdf-1.14.0-source.tar.gz"
   sha256 "c443483a678c3fc258fa4adc124146225d0bb443c522619faadebf6b363d7724"
+  revision 1
   head "https://git.ghostscript.com/mupdf.git"
 
   bottle do
@@ -17,6 +18,7 @@ class MupdfTools < Formula
            "build=release",
            "verbose=yes",
            "HAVE_X11=no",
+           "HAVE_GLUT=no",
            "CC=#{ENV.cc}",
            "prefix=#{prefix}"
 
