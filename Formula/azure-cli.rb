@@ -1,8 +1,8 @@
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.46.tar.gz"
-  sha256 "9a571e16e832614a064311dffea884ab4ae4c2739010b58c34fb2b190484d41c"
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.47.tar.gz"
+  sha256 "2e518e5e0cf9ac1e62a5a6d514e2098b5b9c1019259104342c9ea09c74aaf4ce"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
