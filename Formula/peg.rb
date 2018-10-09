@@ -19,4 +19,14 @@ class Peg < Formula
     bin.install %w[peg leg]
     man1.install gzip("src/peg.1")
   end
+
+  test do
+    (testpath/"username.peg").write <<~EOS
+      start <- "username"
+    EOS
+
+    system "#{bin}/peg", "-o", "username.c", "username.peg"
+
+    assert_match /yymatchString\(yy, "username"\)/, File.read("username.c")
+  end
 end
