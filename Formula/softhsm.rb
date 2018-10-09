@@ -1,8 +1,8 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.4.0.tar.gz"
-  sha256 "26aac12bdeaacd15722dc0a24a5a1981a3b711e61d10ac687a23ff0b7075da07"
+  url "https://dist.opendnssec.org/source/softhsm-2.5.0.tar.gz"
+  sha256 "92aa56cf45e25892326e98b851c44de9cac8559e208720e579bf8e2cd1c132b2"
 
   bottle do
     sha256 "2801e74e266fb66c378243b526c36880b6045433a2d7f8f52562297eccd51cf0" => :mojave
