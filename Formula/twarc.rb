@@ -5,6 +5,7 @@ class Twarc < Formula
   homepage "https://github.com/DocNow/twarc"
   url "https://files.pythonhosted.org/packages/e1/f2/2d79badd5fab00826d5fb2a66b0d1923933ef937338edbdbdd01ae3f5181/twarc-1.6.1.tar.gz"
   sha256 "2dc79f58859ceb609a139ae90296b9eff754a2219a0b3faa6cd794d2faf6c18b"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,10 +15,10 @@ class Twarc < Formula
     sha256 "b666a3a1203d44c503437b50f6f3a944a7ff93117ae74390ef2201defeb1b5d4" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "twarc"
