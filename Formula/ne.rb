@@ -1,8 +1,9 @@
 class Ne < Formula
   desc "The nice editor"
-  homepage "http://ne.di.unimi.it"
-  url "http://ne.di.unimi.it/ne-3.1.1.tar.gz"
-  sha256 "ec4f5d919c38b1a5938b609a722d0d88a68c404b4564e3bb654b96b30582add9"
+  homepage "http://ne.di.unimi.it/"
+  url "https://github.com/vigna/ne/archive/3.1.2.tar.gz"
+  sha256 "bdf09a377660527857bd25217fc91505ae2b19c41590f8a25efc91aef785a3e2"
+  head "https://github.com/vigna/ne.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,11 +14,14 @@ class Ne < Formula
     sha256 "00d0ed886fa94db6b33f26dd304f468c79748379ac95c49a96141594fa0b333a" => :yosemite
   end
 
+  depends_on "texinfo" => :build
+
   def install
+    ENV.deparallelize
     cd "src" do
       system "make"
     end
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "build", "PREFIX=#{prefix}", "install"
   end
 
   test do
