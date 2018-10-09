@@ -3,23 +3,11 @@ class Valgrind < Formula
   homepage "http://www.valgrind.org/"
 
   stable do
-    url "https://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2"
-    mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.13.0.tar.bz2"
-    sha256 "d76680ef03f00cd5e970bbdcd4e57fb1f6df7d2e2c071635ef2be74790190c3b"
+    url "https://sourceware.org/pub/valgrind/valgrind-3.14.0.tar.bz2"
+    mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.14.0.tar.bz2"
+    sha256 "037c11bfefd477cc6e9ebe8f193bb237fe397f7ce791b4a4ce3fa1c6a520baa5"
 
-    # valgrind does not yet support High Sierra
-    # https://bugs.kde.org/show_bug.cgi?id=383811
-    depends_on MaximumMacOSRequirement => :sierra
-
-    # Fix build on 10.12 with Xcode 9
-    # Upstream commit from 24 Sep 2017 "Support all Apple clang/LLVM 5.1+"
-    # See https://sourceware.org/git/?p=valgrind.git;a=commit;h=27e1503bc7bd767f3a98824176558beaa5a7c1d5
-    if DevelopmentTools.clang_build_version >= 900
-      patch :p0 do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/b3915f6/valgrind/sierra-xcode9.diff"
-        sha256 "156ea88edd2116dd006d6e5550578af3f2a2e3923818a238b9166cd02e327432"
-      end
-    end
+    depends_on MaximumMacOSRequirement => :high_sierra
   end
 
   bottle do
