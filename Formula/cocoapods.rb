@@ -17,6 +17,8 @@ class Cocoapods < Formula
     sha256 "6c9704f7e4be0903b57039064eebe445016d5acd5060022731d7c90556920195"
   end
 
+  depends_on "ruby" if MacOS.version <= :sierra
+
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "cocoapods.gemspec"
