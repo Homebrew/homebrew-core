@@ -71,6 +71,12 @@ class GraphTool < Formula
     sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
   end
 
+  # Upstream commit from 3 Oct 2018 "Fix compilation with CGAL 4.13"
+  patch do
+    url "https://git.skewed.de/count0/graph-tool/commit/aa39e4a6.diff"
+    sha256 "5a4ea386342c2de9422da5b07dd4272d47d2cdbba99d9b258bff65a69da562c1"
+  end
+
   def install
     xy = Language::Python.major_minor_version "python3"
 
