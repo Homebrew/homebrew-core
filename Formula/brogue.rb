@@ -3,9 +3,9 @@ class Brogue < Formula
   homepage "https://sites.google.com/site/broguegame/"
   # The OS X version doesn't contain a Makefile, so we
   # need to download the Linux version
-  url "https://sites.google.com/site/broguegame/brogue-1.7.4-linux-amd64.tbz2"
-  version "1.7.4"
-  sha256 "eba5f35fe317efad9c97876f117eaf7a26956c435fdd2bc1a5989f0a4f70cfd3"
+  url "https://sites.google.com/site/broguegame/brogue-1.7.5-linux-amd64.tbz2"
+  version "1.7.5"
+  sha256 "a74ff18139564c597d047cfb167f74ab1963dd8608b6fb2e034e7635d6170444"
 
   bottle do
     cellar :any_skip_relocation
