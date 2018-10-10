@@ -9,11 +9,9 @@ class Brogue < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f6d023201e095ac198e08b069abaee68715f81e0540c5fdd17bdc04a8c7e0178" => :mojave
-    sha256 "15ae767cca7777781ec2a6d89e63ffc1822b1ab982ea966e1082d625ed5172ca" => :high_sierra
-    sha256 "7843893c8f71ec2824a571324ada4818a24b9d0cdf3ee896a2fe986c2eb3d96e" => :sierra
-    sha256 "29b76f520e06b81094b7036d6c8bc1d9e259d2df18dc82514ed1156027dbfa87" => :el_capitan
+    sha256 "62d88540558c2f014403686898cf68d9a44c62e0095e285e77958b66e5c1ff3a" => :mojave
+    sha256 "864ae48cf80e2f1f3dc2a31a2ea4811177906eda30b11d12d5e3018ca4f1f3b8" => :high_sierra
+    sha256 "b5f6a25670f2eeb737bcde972b78801892971e2af4e3f7df1bbaa237eb4db50f" => :sierra
   end
 
   # put the highscores file in HOMEBREW_PREFIX/var/brogue/ instead of a
