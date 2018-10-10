@@ -18,7 +18,7 @@ class Openjfx < Formula
   homepage "https://openjfx.io/"
   url "https://hg.openjdk.java.net/openjfx/jfx-dev/rt", :revision => "22c69e868654", :using => :hg
   sha256 "0be0d342dec0c8ca777ddce3e7ab2afa1e4145181ece4dcaec9f6385cf728fbb"
-  mirror "http://hg.openjdk.java.net/openjfx/jfx-dev/rt/archive/22c69e868654.tar.gz"
+  mirror "https://hg.openjdk.java.net/openjfx/jfx-dev/rt/archive/22c69e868654.tar.gz"
   # sha256 "4f0f280dbd62104aac920b30bd299f58db6d8a87c4a2d9e96e9895d9e09f6f43"
   mirror "https://github.com/javafxports/openjdk-jfx/archive/063dd2afaa32572204fd5ca31c73330e10c57c56.tar.gz"
   # sha256 "f9856ea61178e977b07f5f2b105a7fb2c19f27824e401fe790eb37940faf1a4d"
