@@ -3,6 +3,7 @@ class Restview < Formula
   homepage "https://mg.pov.lt/restview/"
   url "https://github.com/mgedmin/restview/archive/2.9.1.tar.gz"
   sha256 "a229119f7730c85ec75e4372c4cf69f9d846381ac4bdbc8ed672302a80c116d2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Restview < Formula
     sha256 "cef6432a97e728c90ef4987999d493e6ae46e5709aa92e240e9dff1a32a5fb5b" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/eb/ea/58428609442130dc31d3a59010bf6cbd263a16c589d01d23b7c1e6997e3b/bleach-2.1.3.tar.gz"
@@ -75,18 +76,19 @@ class Restview < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     res = resources.reject { |r| r.name == "sample" }
 
     res.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
