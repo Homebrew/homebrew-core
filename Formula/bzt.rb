@@ -5,7 +5,8 @@ class Bzt < Formula
   homepage "https://gettaurus.org"
   url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.13.0.tar.gz"
   sha256 "e1ba9929dd5ca0fdc0531fa862dfe01785ee58366f325f21be50320473154783"
-  head "https://github.com/greyfenrir/taurus.git"
+  revision 1
+  head "https://github.com/Blazemeter/taurus.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Bzt < Formula
     sha256 "279ff3a992817e505eeb363e260d6c897fa9ca4e713c56b49b9990b3cb77d838" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "apiritif" do
     url "https://files.pythonhosted.org/packages/3e/4d/cc49edec3128c558e6476da68d165f1614b9250bca538aa86af2476d842e/apiritif-0.6.7.tar.gz"
