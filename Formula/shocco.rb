@@ -7,12 +7,9 @@ class Shocco < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d120e6a9bf2effd457e949c6b618db4ad4d4f748da7d8ddac574bd1eff7f1c62" => :mojave
-    sha256 "95df31b89ec59a76bd4cc17484dc835af8a5e2b88e419a33184ac054f3e95770" => :high_sierra
-    sha256 "de27f8f4ba46c3605130b7ee87b594556afc02aa8b5bf25899a9a71b1e0c8109" => :sierra
-    sha256 "2f372c0e3772a787cfcdf9c707eeb1abe7441aa8c63433959a64357ebeec1345" => :el_capitan
-    sha256 "8ae351f45044b2bced2b2c3192e007d9127c15ddba472c28a5a4a61214d04663" => :yosemite
-    sha256 "b52ada7ff56cf3d34b2c9036f54341ebcc3e713203b53262486cb7ac94bb197b" => :mavericks
+    sha256 "273f7af2f859f819079d33837c72374cf8c0cddce77bc213295d780dc21e81a0" => :mojave
+    sha256 "035ca34f9629648cec2c1bad1acfed26142da87319c773eafc4af0a2d7ced315" => :high_sierra
+    sha256 "035ca34f9629648cec2c1bad1acfed26142da87319c773eafc4af0a2d7ced315" => :sierra
   end
 
   depends_on "markdown"
