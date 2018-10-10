@@ -5,10 +5,10 @@ class Silk < Formula
   sha256 "70b74eceafce7b724ceccd9e801909f4bd28985406eb8c42a94c8d25e7d58194"
 
   bottle do
-    sha256 "531e76cd41beeeb302ce8a9d5af81b68f158e7237a0841eec82e6e005d525c72" => :mojave
-    sha256 "ccc428b66b99acc23d7affb07092cc98e77a3fd8802501500273b272f3f16043" => :high_sierra
-    sha256 "5ba88cf5e142bb839c006ee1663b01795eb29dd987d8ed0738a61fbf4b922321" => :sierra
-    sha256 "d90ea3352ba364ec403c56712b0503fe2c4e67e678d4a5147868eb1c233926ff" => :el_capitan
+    rebuild 1
+    sha256 "4e308eeaef5f1be5c4be0ac6ba57616cd2dc945e2edf9f0916127e8ca6118616" => :mojave
+    sha256 "6465b56369992120281899c1d43bb7163958c976ad50630cbcc1c19284bca0ae" => :high_sierra
+    sha256 "7c50646eddfea6779a412d8a17dc2e80a258ab7fee136c5bc43f9613ec4ba213" => :sierra
   end
 
   depends_on "pkg-config" => :build
