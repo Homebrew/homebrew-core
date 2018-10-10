@@ -14,7 +14,7 @@ class Tnote < Formula
     sha256 "8e3a2baf4185b131e0223e6b0fe113890ace15b6a9c67b5f7a4068b3d767c4e6" => :mavericks
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
