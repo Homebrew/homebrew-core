@@ -26,7 +26,7 @@ class CmuSphinxbase < Formula
   depends_on "pkg-config" => :build
   # If these are found, they will be linked against and there is no configure
   # switch to turn them off.
-  depends_on "libsamplerate" => "with-libsndfile"
+  depends_on "libsamplerate"
   depends_on "libsndfile"
 
   def install
@@ -38,5 +38,22 @@ class CmuSphinxbase < Formula
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include "cmd_ln.h"
+
+      int main(int argc, char **argv) {
+        cmd_ln_t *config = NULL;
+
+        config = cmd_ln_init(NULL, NULL, TRUE,
+          "-hello", "world", NULL);
+        cmd_ln_free_r(config);
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-L#{lib}", "-lsphinxbase", "-I#{include}/sphinxbase", "test.cpp", "-o", "test"
+    system "./test"
   end
 end
