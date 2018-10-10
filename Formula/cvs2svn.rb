@@ -6,10 +6,9 @@ class Cvs2svn < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "56ec125399395caadd7b419d484d7403a7f638135ef36d46960d24234578c846" => :mojave
-    sha256 "2f09535e501bc80b9cd4b911b678e2e583a4eba9cd4d91be41e80b1f768f4631" => :high_sierra
-    sha256 "147e9169c114da7c54cf8e35ea15c0e00213f49416f11c13f9d205cf4dd715b4" => :sierra
-    sha256 "c3c7bfaf4dd467504aecd039742152ce173529c6d3ff53ef0d6e2cbee0d5f5e6" => :el_capitan
+    sha256 "e0d7b7b145ca61199a8d3df0c8573e8b6b189cc5a347271ccd02569842e530c8" => :mojave
+    sha256 "ff57f2529923038acef70f6e307d42500986ccdbdcd2e182b2bdae140e02c23f" => :high_sierra
+    sha256 "979b006250f9c1ecb03b6b7695e15bf7a7981738a584aec6ddcea3af680770fb" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3
