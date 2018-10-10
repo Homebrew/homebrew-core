@@ -2,8 +2,8 @@ class Carthage < Formula
   desc "Decentralized dependency manager for Cocoa"
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
-      :tag => "0.31.0",
-      :revision => "04994e9e844d53220d8796a648a7dad12a5808c9",
+      :tag => "0.31.1",
+      :revision => "784cd382ea7440c34a91b19adb6ae0c4d5f9dcbc",
       :shallow => false
   head "https://github.com/Carthage/Carthage.git", :shallow => false
 
@@ -16,10 +16,6 @@ class Carthage < Formula
   depends_on :xcode => ["9.4", :build]
 
   def install
-    match = "XCODEFLAGS=-workspace 'Carthage.xcworkspace' -scheme 'carthage' DSTROOT=$(CARTHAGE_TEMPORARY_FOLDER)"
-    inreplace "Makefile" do |s|
-      s.sub!(match, match + " OTHER_LDFLAGS=-Wl,-headerpad_max_install_names")
-    end
     system "make", "prefix_install", "PREFIX=#{prefix}"
     bash_completion.install "Source/Scripts/carthage-bash-completion" => "carthage"
     zsh_completion.install "Source/Scripts/carthage-zsh-completion" => "_carthage"
