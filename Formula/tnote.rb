@@ -6,12 +6,10 @@ class Tnote < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4884760da424c2ec27e03b256aef15ee0b13efa81e4c6505b08c804e2708c262" => :mojave
-    sha256 "523668eb1f9eb0fdccaa9626a54ae7c05ecfdd5b1d71e9651482d8c363ff7569" => :high_sierra
-    sha256 "6665cd2351aff6cf025483f711b9620667a2d32e275230cb80d5d790477c5e3f" => :sierra
-    sha256 "63b2c1aea236fd24d2fa5c315bd0772b009d63018b9c18379a5e782f65debfea" => :el_capitan
-    sha256 "de7e2e72f85a8c42133329f77d242aa0b8a6c9cb2edbb305d843a6e7be1ea3b0" => :yosemite
-    sha256 "8e3a2baf4185b131e0223e6b0fe113890ace15b6a9c67b5f7a4068b3d767c4e6" => :mavericks
+    rebuild 1
+    sha256 "54026c946cb475ed1e08617e78307d8f71afaf000fa8d9a92e75a21717694580" => :mojave
+    sha256 "cba19ccd15645c46e579818a294817efe9a80421ae8768572406bf24b26912a2" => :high_sierra
+    sha256 "cba19ccd15645c46e579818a294817efe9a80421ae8768572406bf24b26912a2" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3
