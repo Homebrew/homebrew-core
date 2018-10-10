@@ -3,7 +3,7 @@ class Libgit2Glib < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   url "https://download.gnome.org/sources/libgit2-glib/0.26/libgit2-glib-0.26.4.tar.xz"
   sha256 "97610e42427a0c86ac46b89d5020fb8decb39af47b9dc49f8d078310b4c21e5a"
-  revision 1
+  revision 2
   head "https://github.com/GNOME/libgit2-glib.git"
 
   bottle do
@@ -17,6 +17,8 @@ class Libgit2Glib < Formula
   depends_on "meson-internal" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libgit2"
@@ -40,7 +42,7 @@ class Libgit2Glib < Formula
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
                       "-Dpython=false",
-                      "-Dvapi=false",
+                      "-Dvapi=true",
                       ".."
       system "ninja"
       system "ninja", "install"
