@@ -5,10 +5,9 @@ class Gtkspell3 < Formula
   sha256 "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
 
   bottle do
-    sha256 "7c52aea6699ea8f9eb0e67f78d53ae2efc71c7f7e599985c678188e1cb1dbc0e" => :mojave
-    sha256 "ab277eb4f040f5032fdcf73dc1c7ba270398753c2e0c1cd994df348226bc0740" => :high_sierra
-    sha256 "faf983f8d91c4419199e27a3ccb49c8427b4d51d488cf1734c7db6b3f39f72b3" => :sierra
-    sha256 "63b6f8d3dc5fc4b01348f91b79013ff3db1b834163c93476609dfd13e6e0930f" => :el_capitan
+    sha256 "8649edc45b2ac203946b689fbeb11a5624e17d0f9dbcbad0e7f767a5835a1e78" => :mojave
+    sha256 "9f4f62410af27e84a4cec1f05b4f3017e9712f40f0d937041b89c29cf2a1dcd0" => :high_sierra
+    sha256 "2cf46aa9544572a29d3278fd3420582171e239f2731ade416e00d0521a883f9b" => :sierra
   end
 
   depends_on "autoconf" => :build
