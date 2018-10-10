@@ -7,10 +7,10 @@ class Mat < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d6e4f859dcc101cfd16a19f4bad776e7a60a7a95593302aaf91099838e7c7d34" => :mojave
-    sha256 "b944eae68110eba71a0324548b3f153266d040e5f5144c87d8a1f11189b68bdc" => :high_sierra
-    sha256 "79ca171addde571ff859bcb533842f0b81d71229ca2c94ea06977063a72edf7d" => :sierra
-    sha256 "be9d42344640bddc264ccefc4d11e569187aa109b99e052d0d068cc8046bb2f8" => :el_capitan
+    rebuild 1
+    sha256 "564d84f0aa5dcce93fca87d91859cc87afbea8d9f915e4cc235117aa0f196d05" => :mojave
+    sha256 "b283b291b6bf2c328a5c47c0eff442eb757575e3572071ec17ee7aed5e8e39e7" => :high_sierra
+    sha256 "e03173ae8fc422f595f67c2b878e4e984592b0fa0aba15b1bf1138e8e37c6839" => :sierra
   end
 
   depends_on "gettext" => :build
