@@ -3,9 +3,8 @@ class Passpie < Formula
 
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://files.pythonhosted.org/packages/7a/e5/f808549a4ae369ed1d97795e6039085d38ec4244aa953fac3cb870c66fbc/passpie-1.6.0.tar.gz"
-  sha256 "8d4371b89d02469d7f2cc4e79480f6f1c80dde81da33d2968c9a212d704a2213"
-  revision 1
+  url "https://files.pythonhosted.org/packages/c8/2e/db84fa9d33c9361024343411875835143dc7b73eb3320b41c4f543b40ad6/passpie-1.6.1.tar.gz"
+  sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
@@ -17,7 +16,7 @@ class Passpie < Formula
   end
 
   depends_on "gnupg"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
