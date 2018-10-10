@@ -16,7 +16,7 @@ end
 class Openjfx < Formula
   desc "Open-source, next-generation Java client application platform."
   homepage "https://openjfx.io/"
-  url "http://hg.openjdk.java.net/openjfx/jfx-dev/rt", :revision => "22c69e868654", :using => :hg
+  url "https://hg.openjdk.java.net/openjfx/jfx-dev/rt", :revision => "22c69e868654", :using => :hg
   sha256 "0be0d342dec0c8ca777ddce3e7ab2afa1e4145181ece4dcaec9f6385cf728fbb"
   mirror "http://hg.openjdk.java.net/openjfx/jfx-dev/rt/archive/22c69e868654.tar.gz"
   # sha256 "4f0f280dbd62104aac920b30bd299f58db6d8a87c4a2d9e96e9895d9e09f6f43"
