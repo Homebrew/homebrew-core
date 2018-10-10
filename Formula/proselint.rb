@@ -39,6 +39,6 @@ class Proselint < Formula
 
   test do
     output = pipe_output("#{bin}/proselint --compact -", "John is very unique.")
-    assert_match /weasel_words\.very.*uncomparables/m, output
+    assert_match "Comparison of an uncomparable", output
   end
 end
