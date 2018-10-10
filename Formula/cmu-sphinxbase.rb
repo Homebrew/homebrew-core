@@ -6,12 +6,10 @@ class CmuSphinxbase < Formula
 
   bottle do
     cellar :any
-    sha256 "e8a562cd28291e9552f9698f371ae645490db551c86f2d912d05eab621c9210d" => :mojave
-    sha256 "4d7a06bfa16cf0754c2a8cd1f78bbe22f28963db91786a303f131b2b4608fe99" => :high_sierra
-    sha256 "d0b78556158f96f23fc5ffed7d50cf0de8808de0cce61b681448a8775b8665d3" => :sierra
-    sha256 "3f9d274b9d80b236ca2b567ce6fde2d98daf2ce61363c64b40b8d0f660835164" => :el_capitan
-    sha256 "488fe47cae524867c5a6fc49e4589ae480bb1c162a3bca1442e0a51035e2637b" => :yosemite
-    sha256 "b13d896f6888b96d6178980df2ef8eb0cfa4c994e38a9b7fb29cb69faca96f21" => :mavericks
+    rebuild 1
+    sha256 "b55c9f16e8b89fc515d9bf8bd6ed91f532d0c82a46be01cd9792bb27076a6a51" => :mojave
+    sha256 "2ebde8d649a3e78c3e219c83e1f12e6cee924f5404b0d68e8fe7d220c8dad0f5" => :high_sierra
+    sha256 "fde603304716876e192bef822f8df21c26e09688d43580d3f9a61c78e03dbbb0" => :sierra
   end
 
   head do
