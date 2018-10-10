@@ -9,10 +9,9 @@ class Autopep8 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba4c3f07286967e8aa49c3df38ecd0e9c0260795f15159e0dd4e26693f4f8c92" => :mojave
-    sha256 "f6e77ee274686216dbff20c6d50dc5b45e7788ea044b2cd03f560c2047066956" => :high_sierra
-    sha256 "ec9a39c287040efb7a7266c98839eb4c02ac7ab3a99a44cd453121a3e4164288" => :sierra
-    sha256 "b05bdbcfacaff3c7ac70958cc4056cb8504c5d7a97fb9765d6c8b234e857c6c6" => :el_capitan
+    sha256 "b81cbdf875b0cb713b371b5b4b665c5a3300be278defabe5d80c05639620c427" => :mojave
+    sha256 "4ab4613f65e899e09a35c6acfb158467a26469a164918abf0cf15ae7e7d806b1" => :high_sierra
+    sha256 "822127659150edaf708d23b1175ce82f9c13c4078ea75b687dd17cb2fc38c5db" => :sierra
   end
 
   depends_on "python"
