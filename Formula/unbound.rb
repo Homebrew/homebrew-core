@@ -6,11 +6,10 @@ class Unbound < Formula
   head "https://nlnetlabs.nl/svn/unbound/trunk/", :using => :svn
 
   bottle do
-    rebuild 1
-    sha256 "f47192f79b85a6d21f7837aa85d0061cdd97a4976e41b5fbf49cf215b0482959" => :mojave
-    sha256 "c6a5ac9d52f141bcf0e2d8c3625a95a125c7868663e3145cb4cdccbcacaa7bbd" => :high_sierra
-    sha256 "388a28ae2b7f4cb03fc7e1461115671799f0e356aa375d35313c29f1e0448f9b" => :sierra
-    sha256 "457aefbc06c993b8c8712d7686f8542b59fc993d49f2efe4493543404be95ace" => :el_capitan
+    rebuild 2
+    sha256 "05d20ee709aaa08166007a9602b21a72d4c3fbd7b00f3d832e37a48d5423137e" => :mojave
+    sha256 "c87c9cde683c23c0512626c58655e36416bb3249a0a3f4fd41b4c6c22e95c43b" => :high_sierra
+    sha256 "7f8c5a827a566bbf5e664f434c97a57eb772c79f497d4fe419418fbbc74ec449" => :sierra
   end
 
   depends_on "libevent"
