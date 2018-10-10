@@ -4,6 +4,7 @@ class Libbtbb < Formula
   url "https://github.com/greatscottgadgets/libbtbb/archive/2017-03-R2.tar.gz"
   version "2017-03-R2"
   sha256 "2b3ea5f07b7022e862f367e8a9a217e1d10920aecdc4eba7b7309724fb229cfd"
+  revision 1
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
   bottle do
@@ -17,7 +18,6 @@ class Libbtbb < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@2"
 
   def install
     mkdir "build" do
