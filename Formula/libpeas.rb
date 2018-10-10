@@ -6,10 +6,10 @@ class Libpeas < Formula
   revision 2
 
   bottle do
-    sha256 "e1fc718ffdf83c7c61b376fc3d104a0113f878b7757675d8eafc3ebfd1746b6a" => :mojave
-    sha256 "f33cfee795a9688c79eea11fb7288f00c4544ee942d7accb54ed700922fcd89e" => :high_sierra
-    sha256 "39b4be69280c5c8b4bfce3f2d4253d06345d9a50910891324eb9624256b8b65a" => :sierra
-    sha256 "e564ba0cc81e732fdd1e5632d5628ab1ac9c9a45d094b17e22d01dde345f3946" => :el_capitan
+    rebuild 1
+    sha256 "eb2c9c93ae2f61d692ed967754a535c2f98d8c7b96a5cb4762acbb4d222a165d" => :mojave
+    sha256 "0b4c9d85b0bf36dc9898947b3440d170a7176f5d0cced1ab3ef1e791c7ca58ea" => :high_sierra
+    sha256 "4d3e2f1ca6ecd6ffcfa5e496a4bc98e965293de85631c2e6d5a4f2636adbfe9f" => :sierra
   end
 
   depends_on "gettext" => :build
