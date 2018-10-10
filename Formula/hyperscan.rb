@@ -15,7 +15,6 @@ class Hyperscan < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
   depends_on "ragel" => :build
 
   def install
