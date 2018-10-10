@@ -7,10 +7,9 @@ class Libgit2Glib < Formula
   head "https://github.com/GNOME/libgit2-glib.git"
 
   bottle do
-    sha256 "b8d58cb52170bbb4a4c387a124db4e2be995bdb2b5ecd4973d73456ebd1f121e" => :mojave
-    sha256 "20e1cf8538d46014cf5533510d52c2bb4e98cbfbf6e7a56817fc2e072466200c" => :high_sierra
-    sha256 "fc9f0fa31794d7f4c0b67fd68ff0378de0c1f5668b1bc093937ee0c94a7808a8" => :sierra
-    sha256 "de784ae7a8154369d33eb13cd6fdca5979e2144cc1561ab4a3c85118b0cbbb20" => :el_capitan
+    sha256 "1e2f4b4984fc42797b83695db8352c86c2ba532062a2dddf4ffe1be48a06a33a" => :mojave
+    sha256 "7539e0724fa12247124ae4339c83322f299797ef0672ace33dd7fffa1ed386c4" => :high_sierra
+    sha256 "7d48e7d94780f86ead912526c534c2d327a68f950a213fc5bbc2511d81fbf86b" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
