@@ -3,6 +3,7 @@ class Libproxy < Formula
   homepage "https://libproxy.github.io/libproxy/"
   url "https://github.com/libproxy/libproxy/archive/0.4.15.tar.gz"
   sha256 "18f58b0a0043b6881774187427ead158d310127fc46a1c668ad6d207fb28b4e0"
+  revision 1
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
@@ -14,23 +15,15 @@ class Libproxy < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@2"
-  # Non-fatally fails to build against system Perl, so stick to Homebrew's here.
-  depends_on "perl" => :optional
+  depends_on "python"
 
   def install
     args = std_cmake_args + %W[
       ..
-      -DPYTHON2_SITEPKG_DIR=#{lib}/python2.7/site-packages
-      -DWITH_PYTHON3=OFF
+      -DPYTHON3_SITEPKG_DIR=#{lib}/python2.7/site-packages
+      -DWITH_PERL=OFF
+      -DWITH_PYTHON2=OFF
     ]
-
-    if build.with? "perl"
-      args << "-DPX_PERL_ARCH=#{lib}/perl5/site_perl"
-      args << "-DPERL_LINK_LIBPERL=YES"
-    else
-      args << "-DWITH_PERL=OFF"
-    end
 
     mkdir "build" do
       system "cmake", *args
