@@ -9,12 +9,10 @@ class Subliminal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3d0c18e5df857b897fd5a22e27c167c0992d6d774d310dd0fc7612ebeba12876" => :mojave
-    sha256 "299a246633f54bea9959260d5e210086072525df57661f39188c55193ba064ef" => :high_sierra
-    sha256 "4922e6a2534b5d0e532e7bac72e542631fce649b4adf1eafc6b54f3be8eb7d22" => :sierra
-    sha256 "a5fbb77e9512eeb8e062e66bb58400f2e0a85e10a067e9715a0894aa401e21a8" => :el_capitan
-    sha256 "93cb7e138aa5755bdd190e5d00b60de83187ad0b1876da9ebc22b9f4839d77d2" => :yosemite
-    sha256 "3160c050cb0c9aca25632b20afa9344a9f8dfc645aea44b4f8288a3c00e20d31" => :mavericks
+    rebuild 1
+    sha256 "457861fcc30e065232f158501fd4e3b80fb0c60bcbfbcb12dca0ac3906c37121" => :mojave
+    sha256 "5582303e8dd6e3ddcc82b5ca88454337116ed22e46c08e6bea6b9068c9d91085" => :high_sierra
+    sha256 "1e53262d5fe047cbb56366be5c195f172a28c1d0f24dfaccb1808c7d4bd739ac" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3.7
