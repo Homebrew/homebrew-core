@@ -5,10 +5,19 @@ class Rswift < Formula
       :tag => "v4.0.0",
       :revision => "0306ec185ad0f7753e9ea44fefdbf268d9e62184"
 
+  head "https://github.com/mac-cain13/R.swift.git"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "bb5d11f44ba595f13aa00cfe6439d20e39c84ae78f84a38117cce81150393a30" => :high_sierra
     sha256 "8638bcbaa77fd1861c6d1978bed6d2ff7cbc2bdc7ae6d25df9471428d53b784d" => :sierra
+  end
+
+  devel do
+    url "https://github.com/mac-cain13/R.swift.git",
+        :tag => "v5.0.0.alpha.2",
+        :revision => "2ba7dc0f175c824732e9fcd7aca9e152dfc34432"
+    depends_on :xcode => "10.0"
   end
 
   depends_on :xcode => "9.0"
