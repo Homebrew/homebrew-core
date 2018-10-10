@@ -4,7 +4,7 @@ class Bento4 < Formula
   url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.1-624.tar.gz"
   version "1.5.1-624"
   sha256 "eda725298e77df83e51793508a3a2640eabdfda1abc8aa841eca69983de83a4c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +15,7 @@ class Bento4 < Formula
   end
 
   depends_on :xcode => :build
-  depends_on "python@2"
+  depends_on "python"
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
   conflicts_with "mp4v2",

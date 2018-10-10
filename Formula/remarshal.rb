@@ -5,6 +5,7 @@ class Remarshal < Formula
   homepage "https://github.com/dbohdan/remarshal"
   url "https://github.com/dbohdan/remarshal/archive/v0.8.0.tar.gz"
   sha256 "ab2ab978aaf20e97719680f8f242ea3407090b562d747205486a02cdbf14d17f"
+  revision 1
   head "https://github.com/dbohdan/remarshal.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Remarshal < Formula
     sha256 "ed9cf2d1329e174021492b470f34e3f953fb06148758255607e5acb54d52cd75" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"

@@ -5,6 +5,7 @@ class Cheat < Formula
   homepage "https://github.com/chrisallenlane/cheat"
   url "https://github.com/chrisallenlane/cheat/archive/2.2.3.tar.gz"
   sha256 "adedab2d8047b129e07d67205f5470c120dbf05785f2786520226c412508d9ee"
+  revision 1
   head "https://github.com/chrisallenlane/cheat.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Cheat < Formula
     sha256 "03c6ddbad8d372487e30bccd793a19f80e1aaa45970943bf0300710fe119b2b0" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
