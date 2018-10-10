@@ -6,12 +6,10 @@ class Archivemail < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b5958a4375c0b3d15ed6053b2c8c4432118f9bc09944700e82abff5d628f94df" => :mojave
-    sha256 "1a06300e7ac704103b3847aa7d03762aa0ed7725afd671939b7065f9e02f55e4" => :high_sierra
-    sha256 "6855a80277b3f76a46c29272db16490e5bc927f3975fb97ff762b4cc449b3b53" => :sierra
-    sha256 "f95de4796d99f6c4a2174e973bac2efe5edd42237f0916cccfc1ebcdfbce92ba" => :el_capitan
-    sha256 "92456f5fd90d8151d2dbe666f6b945ed9f47b90e96dc60080f69d41cdd9775d5" => :yosemite
-    sha256 "691e95f5a952a01cf632ebb4d1e3e1bf6b773184e554705ee1893219ac0b0a55" => :mavericks
+    rebuild 1
+    sha256 "33c0fd2530ac1f0d09ff9c357ea3cbd8774e05c1f78b7d73e9674af9b5ab3b42" => :mojave
+    sha256 "fdcee6cb204a8b0aeacb9d3774d782013b2a53e87c0f2995d939f00f7fe669e4" => :high_sierra
+    sha256 "fdcee6cb204a8b0aeacb9d3774d782013b2a53e87c0f2995d939f00f7fe669e4" => :sierra
   end
 
   depends_on "python@2" # does not support Python 3
