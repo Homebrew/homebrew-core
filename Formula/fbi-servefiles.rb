@@ -14,7 +14,7 @@ class FbiServefiles < Formula
     sha256 "5127f1f0897a688db30c54aaaca8303e87a7f93cceed9aaf3cb5baba0cdbde72" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     venv = virtualenv_create(libexec)
