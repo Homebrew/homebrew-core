@@ -5,10 +5,9 @@ class DuoUnix < Formula
   sha256 "b8e7c03be01dd17c77d85b2fc286e037e6f544eeec9753ac5b2bdaa6a3ea25e7"
 
   bottle do
-    sha256 "ce48b3da1184f313289b8006b8272ecfc582f378b9a5eff1c8a2b11b4073aef6" => :mojave
-    sha256 "a2565350e54b87360cf55288030a00910c8e7b9f68478c8f13fcce5fdf5c93d6" => :high_sierra
-    sha256 "e9aba3a8e3ce860fec86c16afab97810a2cc26062701babb4f0c2c85b58c0e23" => :sierra
-    sha256 "d8088e93ca2a1ed00a71d94e58a86778ed26f99f20d2e582695489b1a6bb86d0" => :el_capitan
+    sha256 "cc06fc5784613ca3c397c006e653698fcdb3348fa6ba05f020b652092fede1a0" => :mojave
+    sha256 "0099735c6608ea8c7c0d8c12881d8e1ebc2c65e603eefb3428497b5ded230f9e" => :high_sierra
+    sha256 "72daec9e197e401b3d188ea997b6692b421511aa266575f13ac222b828bc7a3a" => :sierra
   end
 
   depends_on "autoconf" => :build
