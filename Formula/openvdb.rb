@@ -3,6 +3,7 @@ class Openvdb < Formula
   homepage "http://www.openvdb.org/"
   url "https://github.com/dreamworksanimation/openvdb/archive/v5.2.0.tar.gz"
   sha256 "86b3bc51002bc25ae8d69991228228c79b040cb1a5803d87543b407645f6ab20"
+  revision 1
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
@@ -18,6 +19,7 @@ class Openvdb < Formula
 
   depends_on "doxygen" => :build
   depends_on "boost"
+  depends_on "c-blosc"
   depends_on "ilmbase"
   depends_on "jemalloc"
   depends_on "openexr"
@@ -36,7 +38,8 @@ class Openvdb < Formula
     # Adjust hard coded paths in Makefile
     args = [
       "DESTDIR=#{prefix}",
-      "BLOSC_INCL_DIR=", # Blosc is not yet supported
+      "BLOSC_INCL_DIR=#{Formula["c-blosc"].opt_include}",
+      "BLOSC_LIB_DIR=#{Formula["c-blosc"].opt_lib}",
       "BOOST_INCL_DIR=#{Formula["boost"].opt_include}",
       "BOOST_LIB_DIR=#{Formula["boost"].opt_lib}",
       "BOOST_THREAD_LIB=-lboost_thread-mt",
