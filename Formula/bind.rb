@@ -30,7 +30,7 @@ class Bind < Formula
                           "--enable-threads",
                           "--enable-ipv6",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
-                          "--with-libjson=yes"
+                          "--with-libjson=#{Formula["json-c"].opt_prefix}"
 
     # From the bind9 README: "Do not use a parallel "make"
     ENV.deparallelize
