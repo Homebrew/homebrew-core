@@ -6,8 +6,6 @@ class Httpstat < Formula
 
   bottle :unneeded
 
-  depends_on "python@2"
-
   def install
     bin.install "httpstat.py" => "httpstat"
   end
