@@ -17,7 +17,7 @@ class AnsibleLint < Formula
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "ansible" do
     url "https://files.pythonhosted.org/packages/93/53/925881db1049134679908698115752ad0b0fe95c82b3055a632476cd3687/ansible-2.5.5.tar.gz"
@@ -42,11 +42,6 @@ class AnsibleLint < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
     sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do
@@ -90,8 +85,8 @@ class AnsibleLint < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "six" do
