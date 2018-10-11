@@ -3,6 +3,7 @@ class Watchman < Formula
   homepage "https://github.com/facebook/watchman"
   url "https://github.com/facebook/watchman/archive/v4.9.0.tar.gz"
   sha256 "1f6402dc70b1d056fffc3748f2fdcecff730d8843bb6936de395b3443ce05322"
+  revision 1
   head "https://github.com/facebook/watchman.git"
 
   bottle do
@@ -20,24 +21,24 @@ class Watchman < Formula
   depends_on :macos => :yosemite # older versions don't support fstatat(2)
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-pcre",
-                          # we'll do the homebrew specific python
-                          # installation below
+                          # Do homebrew specific Python installation below
                           "--without-python",
                           "--enable-statedir=#{var}/run/watchman"
     system "make"
     system "make", "install"
 
     # Homebrew specific python application installation
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     cd "python" do
-      system "python", *Language::Python.setup_install_args(libexec)
+      system "python3", *Language::Python.setup_install_args(libexec)
     end
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
