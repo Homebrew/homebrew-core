@@ -16,12 +16,8 @@ end
 class Openjfx < Formula
   desc "Open-source, next-generation Java client application platform."
   homepage "https://openjfx.io/"
-  url "https://hg.openjdk.java.net/openjfx/jfx-dev/rt", :revision => "22c69e868654", :using => :hg
-  sha256 "0be0d342dec0c8ca777ddce3e7ab2afa1e4145181ece4dcaec9f6385cf728fbb"
-  mirror "https://hg.openjdk.java.net/openjfx/jfx-dev/rt/archive/22c69e868654.tar.gz"
-  # sha256 "4f0f280dbd62104aac920b30bd299f58db6d8a87c4a2d9e96e9895d9e09f6f43"
-  mirror "https://github.com/javafxports/openjdk-jfx/archive/063dd2afaa32572204fd5ca31c73330e10c57c56.tar.gz"
-  # sha256 "f9856ea61178e977b07f5f2b105a7fb2c19f27824e401fe790eb37940faf1a4d"
+  url "https://github.com/javafxports/openjdk-jfx/archive/11+26.zip"
+  sha256 "71ac64ec75c0ee36fbfa8335492b38d88843a33ecd7e3a10793507fd248b829a"
   version "11"
 
   # I'm not sure if this is actually the case, but better safe than sorry…:
