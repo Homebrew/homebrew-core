@@ -14,7 +14,7 @@ class Bubbros < Formula
     sha256 "989c2af93a6acef698f8e02dbed8c7a282a550cec60aba5b4029db830dcbeff1" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   # Patches from debian https://sources.debian.net/patches/bubbros
   patch do
