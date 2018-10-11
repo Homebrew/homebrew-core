@@ -5,6 +5,7 @@ class Termius < Formula
   homepage "https://termius.com"
   url "https://github.com/Crystalnix/termius-cli/archive/v1.2.11.tar.gz"
   sha256 "cc8553c9786274de828fc2fc71509e525ef1d8befebb0c74728de59f721912d6"
+  revision 1
   head "https://github.com/Crystalnix/termius-cli.git", :branch => "master"
 
   bottle do
@@ -17,11 +18,11 @@ class Termius < Formula
 
   depends_on "bash-completion"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "zsh-completions"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "termius"

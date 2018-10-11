@@ -3,6 +3,7 @@ class Shocco < Formula
   homepage "https://rtomayko.github.io/shocco/"
   url "https://github.com/rtomayko/shocco/archive/1.0.tar.gz"
   sha256 "b3454ca818329955043b166a9808847368fd48dbe94c4b819a9f0c02cf57ce2e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Shocco < Formula
   end
 
   depends_on "markdown"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/source/P/Pygments/Pygments-1.5.tar.gz"

@@ -3,6 +3,7 @@ class Unoconv < Formula
   homepage "http://dag.wiee.rs/home-made/unoconv/"
   url "https://files.pythonhosted.org/packages/a2/b8/3131d20bfa2065e489edc7ca2dbfd66fd8d4fcbbde3476c76605a7e69269/unoconv-0.8.2.tar.gz"
   sha256 "c7091a409384c05b3509b18be6c8d7059d26f491dfa78660ecdfbde3e72b03be"
+  revision 1
   head "https://github.com/dagwieers/unoconv.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Unoconv < Formula
     sha256 "cb6ddbfbd729b82ab62289c996f8150044ea66ea6ec1fa54c64736eccb1fa964" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "make", "install", "prefix=#{prefix}"

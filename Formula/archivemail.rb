@@ -14,7 +14,7 @@ class Archivemail < Formula
     sha256 "691e95f5a952a01cf632ebb4d1e3e1bf6b773184e554705ee1893219ac0b0a55" => :mavericks
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     ENV.prepend_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
