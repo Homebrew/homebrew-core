@@ -1,8 +1,8 @@
 class Howdoi < Formula
   desc "Instant coding answers via the command-line"
   homepage "https://github.com/gleitz/howdoi"
-  url "https://files.pythonhosted.org/packages/67/e0/18ca30a65aeed25c6d6fe7171d71601b3a772bf0b7b8235b9e98d3cb889e/howdoi-1.1.12.tar.gz"
-  sha256 "c8676cea5155a8bb3d996f3555942e2726029338c606e36ed32775717a5e7bac"
+  url "https://files.pythonhosted.org/packages/bc/21/87dd3caacaa7c372a9838de8e2a2a9640043e72f382cf1300574e78e9a86/howdoi-1.1.13.tar.gz"
+  sha256 "96f5e057fd45a84379d77e46233165d95211e6b3ea869cb5c0df172aa322b566"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +12,7 @@ class Howdoi < Formula
     sha256 "899bff6bb142255b716f83d612fc7d9388411b5416b3c2a90a3f19c4847f78d1" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
@@ -68,22 +68,23 @@ class Howdoi < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
-    output = shell_output("#{bin}/howdoi print stack trace python")
-    assert_match "import traceback", output
+    output = shell_output("#{bin}/howdoi square root python")
+    assert_match "sqrt=x**(1/2)", output
   end
 end
