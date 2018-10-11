@@ -14,8 +14,7 @@ class GolangMigrate < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "on"
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/golang-migrate/migrate").install buildpath.children
 
     # Build and install CLI as "migrate"
