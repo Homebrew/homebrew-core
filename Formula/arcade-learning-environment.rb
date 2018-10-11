@@ -3,6 +3,7 @@ class ArcadeLearningEnvironment < Formula
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
   sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
+  revision 1
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
@@ -16,13 +17,13 @@ class ArcadeLearningEnvironment < Formula
 
   depends_on "cmake" => :build
   depends_on "numpy"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "sdl"
 
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-    system "python", *Language::Python.setup_install_args(prefix)
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
@@ -32,6 +33,6 @@ class ArcadeLearningEnvironment < Formula
       from ale_python_interface import ALEInterface;
       ale = ALEInterface();
     EOS
-    assert_match "ale.cfg", shell_output("python test.py 2>&1")
+    assert_match "ale.cfg", shell_output("python3 test.py 2>&1")
   end
 end
