@@ -16,27 +16,7 @@ class BoostAT155 < Formula
 
   keg_only :versioned_formula
 
-  option "with-icu", "Build regexp engine with icu support"
-  option "without-single", "Disable building single-threading variant"
-  option "without-static", "Disable building static library variant"
   option :cxx11
-
-  deprecated_option "with-python3" => "with-python"
-
-  depends_on "python" => :optional
-  depends_on "python@2" => :optional
-
-  if build.with?("python") && build.with?("python@2")
-    odie "boost@1.55: --with-python cannot be specified when using --with-python@2"
-  end
-
-  if build.with? "icu"
-    if build.cxx11?
-      depends_on "icu4c" => "c++11"
-    else
-      depends_on "icu4c"
-    end
-  end
 
   # Patches boost::atomic for LLVM 3.4 as it is used on OS X 10.9 with Xcode 5.1
   # https://github.com/Homebrew/homebrew/issues/27396
@@ -70,62 +50,31 @@ class BoostAT155 < Formula
     # Force boost to compile using the appropriate GCC version.
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"
-
-      # Link against correct version of Python if python3 build was requested
-      if build.with? "python"
-        py3executable = `which python3`.strip
-        py3version = `python3 -c "import sys; print(sys.version[:3])"`.strip
-        py3prefix = `python3 -c "import sys; print(sys.prefix)"`.strip
-
-        file.write <<~EOS
-          using python : #{py3version}
-                       : #{py3executable}
-                       : #{py3prefix}/include/python#{py3version}m
-                       : #{py3prefix}/lib ;
-        EOS
-      end
     end
 
-    # we specify libdir too because the script is apparently broken
-    bargs = ["--prefix=#{prefix}", "--libdir=#{lib}"]
-
-    if build.with? "icu"
-      icu4c_prefix = Formula["icu4c"].opt_prefix
-      bargs << "--with-icu=#{icu4c_prefix}"
-    else
-      bargs << "--without-icu"
-    end
+    # We specify libdir too because the script is apparently broken
+    bargs = %W[--prefix=#{prefix} --libdir=#{lib} --without-icu]
 
     # Handle libraries that will not be built.
-    without_libraries = ["mpi"]
+    without_libraries = ["mpi", "python"]
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
     without_libraries << "log" if ENV.compiler == :gcc
-    without_libraries << "python" if build.without?("python") \
-                                      && build.without?("python@2")
 
     bargs << "--without-libraries=#{without_libraries.join(",")}"
 
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged",
-            "--user-config=user-config.jam",
-            "install"]
-
-    if build.with? "single"
-      args << "threading=multi,single"
-    else
-      args << "threading=multi"
-    end
-
-    if build.with? "static"
-      args << "link=shared,static"
-    else
-      args << "link=shared"
-    end
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged
+      --user-config=user-config.jam
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
     # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
     # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.

@@ -13,12 +13,8 @@ class Unbound < Formula
     sha256 "457aefbc06c993b8c8712d7686f8542b59fc993d49f2efe4493543404be95ace" => :el_capitan
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "python@2" => :optional
-  depends_on "swig" if build.with? "python@2"
 
   def install
     args = %W[
@@ -27,15 +23,6 @@ class Unbound < Formula
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
-
-    if build.with? "python@2"
-      ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
-      ENV.prepend "PYTHON_VERSION", "2.7"
-
-      args << "--with-pyunbound"
-      args << "--with-pythonmodule"
-      args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
-    end
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
     system "./configure", *args

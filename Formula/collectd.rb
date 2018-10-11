@@ -3,7 +3,7 @@ class Collectd < Formula
   homepage "https://collectd.org/"
   url "https://collectd.org/files/collectd-5.8.0.tar.bz2"
   sha256 "b06ff476bbf05533cb97ae6749262cc3c76c9969f032bd8496690084ddeb15c9"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "cc40ab3b126a55310a7e0687be7ce458a5203578015f287377e6a52cbf1d2903" => :mojave
@@ -19,20 +19,11 @@ class Collectd < Formula
     depends_on "automake" => :build
   end
 
-  option "with-java", "Enable Java support"
-  option "with-python", "Enable Python support"
-  option "with-riemann-client", "Enable write_riemann support"
-
-  deprecated_option "java" => "with-java"
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
   depends_on "libtool"
   depends_on "net-snmp"
-  depends_on :java => :optional
-  depends_on "python@2" => :optional
-  depends_on "riemann-client" => :optional
+  depends_on "riemann-client"
 
   fails_with :clang do
     build 318
@@ -48,11 +39,9 @@ class Collectd < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --localstatedir=#{var}
+      --disable-java
+      --enable-write_riemann
     ]
-
-    args << "--disable-java" if build.without? "java"
-    args << "--enable-python" if build.with? "python@2"
-    args << "--enable-write_riemann" if build.with? "riemann-client"
 
     system "./build.sh" if build.head?
     system "./configure", *args

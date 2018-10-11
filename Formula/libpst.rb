@@ -3,6 +3,7 @@ class Libpst < Formula
   homepage "http://www.five-ten-sg.com/libpst/"
   url "http://www.five-ten-sg.com/libpst/packages/libpst-0.6.72.tar.gz"
   sha256 "8a19d891eb077091c507d98ed8e2d24b7f48b3e82743bcce2b00a12040f5d507"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,32 +13,20 @@ class Libpst < Formula
     sha256 "154c2402a1949c8bcd7b784181b9f1d47705b035ea996506f6d142c3c92e2423" => :el_capitan
   end
 
-  option "with-pst2dii", "Build pst2dii using gd"
-
-  deprecated_option "pst2dii" => "with-pst2dii"
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "gd" if build.with? "pst2dii"
+  depends_on "boost-python"
   depends_on "gettext"
   depends_on "libgsf"
-  depends_on "python@2" => :optional
-  depends_on "boost-python" if build.with? "python@2"
+  depends_on "python@2"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-python
+      --with-boost-python=mt
     ]
-
-    args << "--disable-dii" if build.with? "pst2dii"
-
-    if build.with? "python@2"
-      args << "--enable-python" << "--with-boost-python=mt"
-    else
-      args << "--disable-python"
-    end
 
     system "./configure", *args
     system "make"

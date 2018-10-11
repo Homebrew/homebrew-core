@@ -14,22 +14,13 @@ class Pacparser < Formula
     sha256 "3d2092ad71629a2c71d5b88138d0ea7443247d7cd89414ef46a9cab7898b250c" => :yosemite
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
-  depends_on "python@2" => :optional
-
   def install
     # Disable parallel build due to upstream concurrency issue.
     # https://github.com/pacparser/pacparser/issues/27
     ENV.deparallelize
     ENV["VERSION"] = version
     Dir.chdir "src"
-    system "make", "install",
-           "PREFIX=#{prefix}"
-    if build.with? "python@2"
-      system "make", "install-pymod",
-             "EXTRA_ARGS=\"--prefix=#{prefix}\""
-    end
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
