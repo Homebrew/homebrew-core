@@ -5,6 +5,7 @@ class Eralchemy < Formula
   homepage "https://github.com/Alexis-benoist/eralchemy"
   url "https://files.pythonhosted.org/packages/87/40/07b58c29406ad9cc8747e567e3e37dd74c0a8756130ad8fd3a4d71c796e3/ERAlchemy-1.2.10.tar.gz"
   sha256 "be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Eralchemy < Formula
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "pygraphviz" do
     url "https://files.pythonhosted.org/packages/98/bb/a32e33f7665b921c926209305dde66fe41003a4ad934b10efb7c1211a419/pygraphviz-1.3.1.tar.gz"
@@ -35,7 +36,7 @@ class Eralchemy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
 
     res = resources.map(&:name).to_set - ["er_example"]
 
