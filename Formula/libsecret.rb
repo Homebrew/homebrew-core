@@ -3,6 +3,7 @@ class Libsecret < Formula
   homepage "https://wiki.gnome.org/Projects/Libsecret"
   url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.6.tar.xz"
   sha256 "5efbc890ba41a323ffe0599cd260fd12bd8eb62a04aa1bd1b2762575d253d66f"
+  revision 1
 
   bottle do
     sha256 "716ae8c743ec4c3224178708663b404572386a8f416023b8f729e5256ed4db17" => :mojave
@@ -17,9 +18,9 @@ class Libsecret < Formula
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "libgcrypt"
-  depends_on "vala" => :optional
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -30,9 +31,8 @@ class Libsecret < Formula
       --disable-silent-rules
       --prefix=#{prefix}
       --enable-introspection
+      --enable-vala
     ]
-
-    args << "--enable-vala" if build.with? "vala"
 
     system "./configure", *args
 

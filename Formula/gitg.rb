@@ -1,9 +1,8 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.26/gitg-3.26.0.tar.xz"
-  sha256 "26730d437d6a30d6e341b9e8da99d2134dce4b96022c195609f45062f82b54d5"
-  revision 4
+  url "https://download.gnome.org/sources/gitg/3.30/gitg-3.30.0.tar.xz"
+  sha256 "a710ae86fbd62124560ebeae0299f158662f7b31ab646c4dd09d8a03c8570a97"
 
   bottle do
     rebuild 1
@@ -14,15 +13,16 @@ class Gitg < Formula
   end
 
   depends_on "intltool" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gobject-introspection"
-  depends_on "gsettings-desktop-schemas"
+  depends_on "gtk+3"
   depends_on "gtksourceview3"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
-  depends_on "json-glib"
   depends_on "libgee"
   depends_on "libgit2"
   depends_on "libgit2-glib"
@@ -30,14 +30,17 @@ class Gitg < Formula
   depends_on "libsecret"
   depends_on "libsoup"
 
+  # reported upstream: https://gitlab.gnome.org/GNOME/gitg/issues/145
+  patch :DATA
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile",
-                          "--disable-python"
-    system "make", "install"
+    ENV["DESTDIR"] = "/"
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "-Dpython=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   def post_install
@@ -137,3 +140,78 @@ class Gitg < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/libgitg/meson.build b/libgitg/meson.build
+index 793f2c2..fbc42da 100644
+--- a/libgitg/meson.build
++++ b/libgitg/meson.build
+@@ -114,14 +114,13 @@ if gdk_targets.contains('quartz')
+   sources += files('gitg-platform-support-osx.c')
+   gio_system_pkg = 'gio-unix-2.0'
+   deps += [
+-    dependency(gio_system_pkg),
+-    find_library('objc')
++    dependency(gio_system_pkg)
+   ]
+   cflags += '-xobjective-c'
+
+   test_ldflags += [
+-    '-framework Foundation',
+-    '-framework AppKit'
++    '-Wl,-framework', '-Wl,Foundation',
++    '-Wl,-framework', '-Wl,AppKit'
+   ]
+ elif gdk_targets.contains('win32')
+   sources += files('gitg-platform-support-win32.c')
+@@ -134,9 +133,7 @@ else
+ endif
+
+ foreach test_ldflag: test_ldflags
+-  if cc.has_argument(test_ldflag)
+     ldflags += test_ldflag
+-  endif
+ endforeach
+
+ libgitg = shared_library(
+diff --git a/meson.build b/meson.build
+index 0790c5e..61c7417 100644
+--- a/meson.build
++++ b/meson.build
+@@ -79,11 +79,9 @@ endif
+
+ if gitg_debug
+   test_cflags = [
+-    '-Werror=format=2',
+     '-Werror=implicit-function-declaration',
+     '-Werror=init-self',
+     '-Werror=missing-include-dirs',
+-    '-Werror=missing-prototypes',
+     '-Werror=pointer-arith',
+     '-Werror=return-type',
+     '-Wmissing-declarations',
+diff --git a/plugins/diff/meson.build b/plugins/diff/meson.build
+index efc0d5d..d92c558 100644
+--- a/plugins/diff/meson.build
++++ b/plugins/diff/meson.build
+@@ -17,5 +17,6 @@ libdiff = shared_module(
+   dependencies: plugin_deps,
+   c_args: plugin_cflags,
+   install: true,
+-  install_dir: plugin_dir
++  install_dir: plugin_dir,
++  name_suffix: 'so'
+ )
+diff --git a/plugins/files/meson.build b/plugins/files/meson.build
+index 74e34cc..f072fd3 100644
+--- a/plugins/files/meson.build
++++ b/plugins/files/meson.build
+@@ -24,5 +24,6 @@ libfiles = shared_module(
+   dependencies: plugin_deps,
+   c_args: plugin_cflags,
+   install: true,
+-  install_dir: plugin_dir
++  install_dir: plugin_dir,
++  name_suffix: 'so'
+ )
+
