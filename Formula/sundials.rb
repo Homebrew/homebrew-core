@@ -1,8 +1,8 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computation.llnl.gov/casc/sundials/main.html"
-  url "https://computation.llnl.gov/projects/sundials/download/sundials-3.1.2.tar.gz"
-  sha256 "a8985bb1e851d90e24260450667b134bc13d71f5c6effc9e1d7183bd874fe116"
+  url "https://computation.llnl.gov/projects/sundials/download/sundials-3.2.0.tar.gz"
+  sha256 "d2b690afecadf8b5a048bb27ab341de591d714605b98d3518985dfc2250e93f9"
 
   bottle do
     cellar :any
