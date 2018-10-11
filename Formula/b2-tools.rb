@@ -5,6 +5,7 @@ class B2Tools < Formula
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
   url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v1.3.6.tar.gz"
   sha256 "077d5e9b186d4cb0be1fcbeb3b80e1788d8b941b0fcfbf2c7386b8c6a653740c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,12 +15,12 @@ class B2Tools < Formula
     sha256 "3501141422e516c220615b4d30770cce7e65da9b6dcd6c55ea83ac183724714a" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   conflicts_with "boost-build", :because => "both install `b2` binaries"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "b2"
@@ -30,6 +31,7 @@ class B2Tools < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "en_US.UTF-8"
     cmd = "#{bin}/b2 authorize_account BOGUSACCTID BOGUSAPPKEY 2>&1"
     assert_match "unable to authorize account", shell_output(cmd, 1)
   end
