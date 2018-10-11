@@ -3,6 +3,7 @@ class Goolabs < Formula
   homepage "https://pypi.python.org/pypi/goolabs"
   url "https://files.pythonhosted.org/packages/ce/86/2d3b5bd85311ee3a7ae7a661b3619095431503cd0cae03048c646b700cad/goolabs-0.4.0.tar.gz"
   sha256 "4f768a5b98960c507f5ba4e1ca14d45e3139388669148a2750d415c312281527"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,7 +13,7 @@ class Goolabs < Formula
     sha256 "4f4676626f0872b4c86f3c35c0b80e2e028cf9f0f0b5fae8bbf655f55f552513" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
@@ -50,16 +51,17 @@ class Goolabs < Formula
   end
 
   def install
-    ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    system "python", *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
