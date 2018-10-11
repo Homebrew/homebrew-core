@@ -3,10 +3,9 @@ class Iproute2mac < Formula
   homepage "https://github.com/brona/iproute2mac"
   url "https://github.com/brona/iproute2mac/releases/download/v1.2.1/iproute2mac-1.2.1.tar.gz"
   sha256 "26dabecd2cf065c8354984a327784aad730fb019d67561bc2d00b415684ff39f"
+  revision 1
 
   bottle :unneeded
-
-  depends_on "python@2"
 
   def install
     bin.install "src/ip.py" => "ip"
