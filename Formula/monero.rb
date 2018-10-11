@@ -2,8 +2,8 @@ class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      :tag => "v0.12.3.0",
-      :revision => "a486cae407b109a7a95060daa85e4efed2046c01"
+      :tag => "v0.13.0.2",
+      :revision => "77ef8c1839e1984471605e072a20e04d1e7eb6f8"
 
   bottle do
     cellar :any
@@ -16,6 +16,7 @@ class Monero < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "libsodium"
   depends_on "openssl"
   depends_on "readline"
   depends_on "unbound"
