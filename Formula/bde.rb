@@ -3,6 +3,7 @@ class Bde < Formula
   homepage "https://github.com/bloomberg/bde"
   url "https://github.com/bloomberg/bde/archive/BDE_3.0.0.0.tar.gz"
   sha256 "c6f295947c1af5f0d4e728e4d6801c4b29bb35a742faebc058f86b36722e8cdd"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,8 +14,6 @@ class Bde < Formula
     sha256 "3a95b87b049ba7aeb649a85a1948d80ba554d22603d0e336480f1b8787f75f4c" => :yosemite
     sha256 "0a4219cc1a605d20000b22d6a8c1977216b60d99278a8b92553ac30f14b6c595" => :mavericks
   end
-
-  depends_on "python@2"
 
   resource "bde-tools" do
     url "https://github.com/bloomberg/bde-tools/archive/v1.0.tar.gz"
