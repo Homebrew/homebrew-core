@@ -5,6 +5,7 @@ class Legit < Formula
   homepage "https://www.git-legit.org/"
   url "https://files.pythonhosted.org/packages/44/72/a086485566cf7b5ff7b6858b7dc144c76323e021d88f455ceacd5a6c02fd/legit-1.0.1.tar.gz"
   sha256 "e71c2dd4139afc0e4b8c2d1b5ab1265ad930e2cc8e4d6badf92923cee4e5baff"
+  revision 1
   head "https://github.com/kennethreitz/legit.git", :branch => "develop"
 
   bottle do
@@ -15,7 +16,7 @@ class Legit < Formula
     sha256 "d5b4098018676b19f06a15d1438c881cdba2fec784cb8f07477413ae9f3dcfcb" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"

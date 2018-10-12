@@ -5,6 +5,7 @@ class RstLint < Formula
   homepage "https://github.com/twolfson/restructuredtext-lint"
   url "https://github.com/twolfson/restructuredtext-lint/archive/1.1.3.tar.gz"
   sha256 "eb75dda827c656a33be6e60f18b3943c4dd4252205e557ec95d1cf44df8e3a35"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class RstLint < Formula
     sha256 "aebb1a098a77f6e9477c5f426b363895d2f0cc77c46a3d84c871a9fab2f08d54" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
