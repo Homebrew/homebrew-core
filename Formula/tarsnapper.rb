@@ -9,11 +9,9 @@ class Tarsnapper < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5abf132d7d4c1d52f9282ebedbac21128f446522705eb8fa66bc49c2ed2825ae" => :mojave
-    sha256 "1d0bcdf7f096f3eb500f6cc568ead2b1958b9e2b5334e5defc16c6fb5c6fb955" => :high_sierra
-    sha256 "9b1053c30ac6cc1d1f81f287cb84deba9a8df6c353fa90d969a8e104301b7112" => :sierra
-    sha256 "dc172bc2eb7b5f4dc6adf477828e1f2523932e16e2997b4e4c8633b31d3a28a0" => :el_capitan
-    sha256 "47e026fb50a96660899d9128c8c74e0191a3c414d363cecb3078c9a6eae12241" => :yosemite
+    sha256 "ca9c4a44a5014fb5a63d16bd6abb5c9ca2dd7ef103598ae2953736b3da174c61" => :mojave
+    sha256 "8ac2d23a92f7da69ec82e587922dfaad33356fb1dd7d3b168248982b54a33f95" => :high_sierra
+    sha256 "923a9c639afde08b955988b07201a67f2fa57318e11bfa36dbbafcba28e627f2" => :sierra
   end
 
   depends_on "python"
