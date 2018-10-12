@@ -3,7 +3,7 @@ class Suricata < Formula
   homepage "https://suricata-ids.org/"
   url "https://www.openinfosecfoundation.org/download/suricata-4.0.5.tar.gz"
   sha256 "74dacb4359d57fbd3452e384eeeb1dd77b6ae00f02e9994ad5a7b461d5f4c6c2"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "03e7d21ac53d1377f7428adc1f86de957da3c0b5486aa663c71d3f6f7c835296" => :mojave
@@ -19,7 +19,7 @@ class Suricata < Formula
   depends_on "nspr"
   depends_on "nss"
   depends_on "pcre"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/source/a/argparse/argparse-1.4.0.tar.gz"
@@ -32,10 +32,11 @@ class Suricata < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
