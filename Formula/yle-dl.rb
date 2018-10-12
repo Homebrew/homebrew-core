@@ -3,6 +3,7 @@ class YleDl < Formula
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
   url "https://github.com/aajanki/yle-dl/archive/2.34.tar.gz"
   sha256 "9e034bab4103fbf73ede9a49406a6ea1e7662a03a3e55c5d2bb59fd97c3334ed"
+  revision 1
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
@@ -13,7 +14,7 @@ class YleDl < Formula
     sha256 "4892f9607cb95b78a8b19978b6ebf5d4a7b20726963475ec2af6d41f38e805f9" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
   depends_on "rtmpdump"
 
   resource "AdobeHDS.php" do
@@ -92,17 +93,18 @@ class YleDl < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     (resources - [resource("AdobeHDS.php")]).each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     resource("AdobeHDS.php").stage(pkgshare)
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])

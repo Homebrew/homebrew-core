@@ -5,6 +5,7 @@ class MongoOrchestration < Formula
   homepage "https://github.com/10gen/mongo-orchestration"
   url "https://files.pythonhosted.org/packages/6d/b5/624a02d5f6cbfa8eb3c6554f5387c4739ad283bac7efb27ee99434a4d314/mongo-orchestration-0.6.11.tar.gz"
   sha256 "7a09706d36e94ae767e90646fed98a52b426a4d14b0f4f724b185e292ac8f425"
+  revision 1
   head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
@@ -15,7 +16,7 @@ class MongoOrchestration < Formula
     sha256 "21d36a51b5f5896bfce70e39a815728939a8d875333c3dbdbb672e627b7dd3a5" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"

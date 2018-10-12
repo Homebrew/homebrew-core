@@ -3,10 +3,9 @@ class Ydcv < Formula
   homepage "https://github.com/felixonmars/ydcv"
   url "https://github.com/felixonmars/ydcv/archive/0.5.tar.gz"
   sha256 "8f030c15d241ff317381cf97bacf3140080e34c1a4c4c685265dfdb05c8b8a10"
+  revision 1
 
   bottle :unneeded
-
-  depends_on "python@2"
 
   def install
     bin.install "src/ydcv.py" => "ydcv"

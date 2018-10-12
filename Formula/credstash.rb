@@ -5,6 +5,7 @@ class Credstash < Formula
   homepage "https://github.com/fugue/credstash"
   url "https://files.pythonhosted.org/packages/5f/fa/c10fd986419d489e72ed1e0d94424e848ad1dba82ed5299b472ac8618689/credstash-1.15.0.tar.gz"
   sha256 "814560f99ae2409e2c6d906d878f9dadada5d1d0a950aafb6b2c0d535291bdfb"
+  revision 1
   head "https://github.com/fugue/credstash.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Credstash < Formula
   end
 
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -24,13 +25,13 @@ class Credstash < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/4f/28/1642a25573c8ffbdcec0ceb09cf5d941f5bc2a0be71179a5d2220e1df3e0/boto3-1.7.58.tar.gz"
-    sha256 "ce462e7505c03c3e6708ce6f264ac43d478886082af703ff69c502592df5d4f3"
+    url "https://files.pythonhosted.org/packages/4c/3c/920aa91d9628d1c79f4793ee23dd8f3049cacebde4947856892397c0ccf9/boto3-1.9.22.tar.gz"
+    sha256 "2482bd7681e5d7ff7c1b3d53b8b4d23498ec4d6e14a25522339e6a55a7d273fd"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e5/7b/4f0d1613f33b32a8ad8f65c7973a389244e0aecd209db761f5d51291ebc4/botocore-1.10.58.tar.gz"
-    sha256 "e0e6b6d1fdbce81c28151136ee919d2cdeee13041559710cd5c93d7e4035a455"
+    url "https://files.pythonhosted.org/packages/cb/8a/129ec483b581ead78ee08033b9db247c218eb20a59167f4c5aa03aa83055/botocore-1.12.22.tar.gz"
+    sha256 "24d91aab646c5f63b6ad6fd8907228c62d181cd1dc2309b54345663940514867"
   end
 
   resource "cffi" do
@@ -39,23 +40,13 @@ class Credstash < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
-    sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
+    url "https://files.pythonhosted.org/packages/22/21/233e38f74188db94e8451ef6385754a98f3cad9b59bedf3a8e8b14988be4/cryptography-2.3.1.tar.gz"
+    sha256 "8d10113ca826a4c29d5b85b2c4e045ffa8bad74fb525ee0eceb1d38d4c70dfd6"
   end
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
     sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
-  end
-
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
-    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "idna" do
@@ -74,8 +65,8 @@ class Credstash < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/8c/2d/aad7f16146f4197a11f8e91fb81df177adcc2073d36a17b1491fd09df6ed/pycparser-2.18.tar.gz"
-    sha256 "99a8ca03e29851d96616ad0404b4aad7d9ee16f25c9f9708a11faf2810f7b226"
+    url "https://files.pythonhosted.org/packages/68/9e/49196946aee219aead1290e00d1e7fdeab8567783e83e1b9ab5585e6206a/pycparser-2.19.tar.gz"
+    sha256 "a988718abfad80b6b157acce7bf130a30876d27603738ac39f140993246b25b3"
   end
 
   resource "python-dateutil" do
@@ -93,6 +84,11 @@ class Credstash < Formula
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/3c/d2/dc5471622bd200db1cd9319e02e71bc655e9ea27b8e0ce65fc69de0dac15/urllib3-1.23.tar.gz"
+    sha256 "a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf"
+  end
+
   def install
     virtualenv_install_with_resources
   end
@@ -101,6 +97,6 @@ class Credstash < Formula
     ENV["AWS_ACCESS_KEY_ID"] = "test"
     ENV["AWS_SECRET_ACCESS_KEY"] = "test"
     output = shell_output("#{bin}/credstash put test test 2>&1", 1)
-    assert_match "Could not generate key using KMS key alias/credstash", output
+    assert_match "Could not generate key using KMS key", output
   end
 end
