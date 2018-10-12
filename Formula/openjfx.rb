@@ -60,7 +60,7 @@ class Openjfx < Formula
         @Override public void start(Stage stage) {
           String javaVersion = System.getProperty("java.version");
           String javafxVersion = System.getProperty("javafx.version");
-          Label l = new label("Hello, JavaFX " + javafxVersion + " running on Java " + javaVersion + ".  ";
+          Label l = new label("Hello, JavaFX " + javafxVersion + " running on Java " + javaVersion + ".  ");
           Scene scene = new Scene(l, 640, 400);
           stage.setScene(scene);
           stage.show();
