@@ -36,12 +36,6 @@ class Openjfx < Formula
   depends_on XcodeCLTRequirement
 
   def install
-    # java_home = ENV["JAVA_HOME"] # Possibly not necessary, as it may be auto-detected…?
-    # ENV["JDK_HOME"] = java_home # Same here?
-    # ENV.prepend_path "PATH" java_home/"bin" # I think `brew` may handle this automatically…?
-    # ENV.prepend_path "PATH" Formula["gradle"].bin # Ditto for this?
-    # ENV.prepend_path "PATH" Formula["ant"].bin # Same here?
-
     system "gradle"
     prefix.install Dir["#{buildpath}/build/modular-sdk/*"]
   end
