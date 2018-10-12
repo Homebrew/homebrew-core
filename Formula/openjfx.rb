@@ -20,7 +20,7 @@ class Openjfx < Formula
   sha256 "71ac64ec75c0ee36fbfa8335492b38d88843a33ecd7e3a10793507fd248b829a"
   version "11"
 
-  # I'm not sure if this is actually the case, but better safe than sorry…:
+  # I'm not sure if this is actually the case, but better safe than sorry:
   pour_bottle? do
     reason "The bottle needs the Xcode CLT installed in order to run.  "
     satisfy { MacOS::CLT.installed? }
