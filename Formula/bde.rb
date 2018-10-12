@@ -7,12 +7,9 @@ class Bde < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e17261d8657efa70d75ac3825ed108a1047650e6c390d8b22e07e30dd071597" => :mojave
-    sha256 "f5bb245d5fe91341ba6d0ffaf4fa62de029b71c890e695b241a86d2058108798" => :high_sierra
-    sha256 "0f430f9f7d26e6d3ff03a6fa9b2d3f0e8042fb215c83e99a29741eca43f5a1a9" => :sierra
-    sha256 "40fa82df85e35baec799c061a67719d7ada109d150f7eb9043761c4a2e40b0a2" => :el_capitan
-    sha256 "3a95b87b049ba7aeb649a85a1948d80ba554d22603d0e336480f1b8787f75f4c" => :yosemite
-    sha256 "0a4219cc1a605d20000b22d6a8c1977216b60d99278a8b92553ac30f14b6c595" => :mavericks
+    sha256 "f8a7566aaefef652418c0bebca94619c0e47877b25c11f88b57c2c09f157afe6" => :mojave
+    sha256 "4e8255cc3614d7d93e632d28ab697e5ad5749d5f9b463a4dc467466a596a4271" => :high_sierra
+    sha256 "605cff2b1687632dd90ffacc48cee0d1890415816379f8f63814411810a88d74" => :sierra
   end
 
   resource "bde-tools" do
