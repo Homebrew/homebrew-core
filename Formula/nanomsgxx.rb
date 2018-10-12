@@ -7,10 +7,10 @@ class Nanomsgxx < Formula
 
   bottle do
     cellar :any
-    sha256 "62cdddbdde7d7f8fbb1fdc2511a03c5e921039aa04e028a64a7de36b9b59883a" => :mojave
-    sha256 "01db719be7a835bce8c61d3dd3e44895243de87418008498c2083af7f0f7adfc" => :high_sierra
-    sha256 "f127d17530e3327e215c3dc2ffb5765655d491b1d4fa39bec88e7fff4dee670e" => :sierra
-    sha256 "6757cefbf5d92c638b8b32f27414e5ffaf80cf985aee51a8919cd645af0a09a5" => :el_capitan
+    rebuild 1
+    sha256 "ece20152a6ddcd9bd5a931b8c190de6c998da9ad3bacb195ae69fc3671767d50" => :mojave
+    sha256 "dd6e547bd44055f348857c15843c16965b4dd03ea82713069cbb5df9836f1009" => :high_sierra
+    sha256 "25067fb5373110f213ef8fb8e662e274db47c84e6058777e646489e1257d457d" => :sierra
   end
 
   depends_on "pkg-config" => :build
