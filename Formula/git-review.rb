@@ -3,6 +3,7 @@ class GitReview < Formula
   homepage "https://git.openstack.org/cgit/openstack-infra/git-review"
   url "https://files.pythonhosted.org/packages/70/c5/e2930e1017516a9cbe777581767785650b7e8ee89580ba00cabdf992e058/git-review-1.26.0.tar.gz"
   sha256 "487c3c1d7cc81d02b303a1245e432579f683695c827ad454685b3953f70f0b94"
+  revision 1
   head "https://git.openstack.org/openstack-infra/git-review.git"
 
   bottle do
@@ -13,7 +14,7 @@ class GitReview < Formula
     sha256 "661bd93e96795bb2ef4a0260fc441fd6eb437bb109e9f4353a577db638617c58" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
@@ -41,15 +42,16 @@ class GitReview < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     man1.install gzip("git-review.1")
 
