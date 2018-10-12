@@ -4,6 +4,7 @@ class AutoconfAT213 < Formula
   url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz"
   mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz"
   sha256 "f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e"
+  revision 1
 
   bottle do
     sha256 "1ea8c751806adc1ee85dcfef1b66d2d8aaed52d9848362635bed0251b7437fa4" => :mojave
@@ -13,10 +14,11 @@ class AutoconfAT213 < Formula
     sha256 "f6b148c2bcf08f0e143a4757fa6784bf9e0d780d5ca8ec8cd97c042316c50d84" => :yosemite
   end
 
+  keg_only :versioned_formula
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--program-suffix=213",
                           "--prefix=#{prefix}",
                           "--infodir=#{pkgshare}/info",
                           "--datadir=#{pkgshare}"
@@ -24,6 +26,6 @@ class AutoconfAT213 < Formula
   end
 
   test do
-    assert_match "Usage: autoconf", shell_output("#{bin}/autoconf213 --help 2>&1")
+    assert_match "Usage: autoconf", shell_output("#{bin}/autoconf --help 2>&1")
   end
 end
