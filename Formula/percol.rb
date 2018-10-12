@@ -8,12 +8,9 @@ class Percol < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "68c2670697bf7b628e92fdc13fe70b4701e42605079c63358cd41de78a9d470e" => :mojave
-    sha256 "5d11dcf9119aa83ea6d45cc1d15eb94bebda00ffd190527bbdae7dddc5879237" => :high_sierra
-    sha256 "dac0631f61d1fad12ffed033d16c163a237e6d863bf5350971a8305fbd69c171" => :sierra
-    sha256 "e0acd43c0270f0277dc69492da9c31e0e819c2b4bd1ca8f23db012ba2e4e3aab" => :el_capitan
-    sha256 "8a46e774ad1128721b2b425f11083d6494101834b887a575f9071c006abab887" => :yosemite
-    sha256 "a5c8be8d7e307651de4951384ac2603e7ca932bfffbf9434170a597f801b799e" => :mavericks
+    sha256 "43a0d42c2184fcc78ee6cb187c0bd4167133debe35be81d724bd3b2a26848de3" => :mojave
+    sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :high_sierra
+    sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :sierra
   end
 
   depends_on "python"
