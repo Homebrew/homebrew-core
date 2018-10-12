@@ -7,13 +7,10 @@ class Cxxtest < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e6238d8ea9693ce3c98a32c56541220e4bdcb89b8492a3d02124a4200e6e09fb" => :mojave
-    sha256 "b6016aba933e8e047299e4a4dae83549eb8679a9e18e11937d90877b9e94af62" => :high_sierra
-    sha256 "09aa93c60544867a44c3ad711f7ad9207f3f097505ce658e12d4d8ae11287c82" => :sierra
-    sha256 "d35cfbbea5de989734e9f859531b203dffc870fdf931a5a7f12302adc7354c87" => :el_capitan
-    sha256 "a69d95d4c027024e6c14a999c679106cf6259e22bb748205d93dbc5d0596a8e3" => :yosemite
-    sha256 "2e8e487aac953d698f38f89ae9946572f8d072ec35b91683aa66bc147cec2fa4" => :mavericks
-    sha256 "de1e98e94198507c65ecb17ae240b995ae8f03dadeafbde27bb704df2e10737c" => :mountain_lion
+    rebuild 1
+    sha256 "0c97b74f6bc2cee5e0683fcec6bd07da544b5f3e9cd25b9631b6291b86490392" => :mojave
+    sha256 "4ef0fbb78839714da6108883475dce9536df2e59dd9dc7bf42677a86d00f4356" => :high_sierra
+    sha256 "4ef0fbb78839714da6108883475dce9536df2e59dd9dc7bf42677a86d00f4356" => :sierra
   end
 
   depends_on "python"
