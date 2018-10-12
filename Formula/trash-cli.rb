@@ -10,10 +10,9 @@ class TrashCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "32a7f780f46a579882f32207d8a73a6a7a79bf22817c5b32f24ba4d0c4c28c56" => :mojave
-    sha256 "4cf098db9eb5888ad3e513cb222930975089034c9a3e8f2d6c1c53bb93b4ea1c" => :high_sierra
-    sha256 "6c2e56df6aeed7ed8bcbdea702b9d66058ea17be38bc39a26feba5928dbe053a" => :sierra
-    sha256 "92c6ab8dc868bad029103c897ccdc5a04e6e0f6809dfd2759c58aa390a7d5e8f" => :el_capitan
+    sha256 "63895ceb716e9cd3b45bc9dd676afbb973c49f82cf11445aca89ef3cc1e3da69" => :mojave
+    sha256 "c4d324ed98f547cad585e0eaa348c7e8b26e9036c77ab7bbfcc856d76c1ddeb4" => :high_sierra
+    sha256 "5cb6346603e9ba432c92d46bc20f8612dad0dfa4e32e1996e2c0cc1aaab87990" => :sierra
   end
 
   depends_on "python"
