@@ -5,6 +5,7 @@ class Ford < Formula
   homepage "https://github.com/cmacmackin/ford/"
   url "https://github.com/cmacmackin/ford/archive/v6.0.0.tar.gz"
   sha256 "45fd53c7e5263fea2e751c436de6a1513d250647e98e32668b9965677974309e"
+  revision 1
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Ford < Formula
   end
 
   depends_on "graphviz"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/fa/8d/1d14391fdaed5abada4e0f63543fef49b8331a34ca60c88bd521bcf7f782/beautifulsoup4-4.6.0.tar.gz"
@@ -77,7 +78,7 @@ class Ford < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
     venv.pip_install_and_link buildpath
     doc.install "2008standard.pdf", "2003standard.pdf"
