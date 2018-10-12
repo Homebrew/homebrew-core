@@ -4,12 +4,6 @@ class Sundials < Formula
   url "https://computation.llnl.gov/projects/sundials/download/sundials-3.2.0.tar.gz"
   sha256 "d2b690afecadf8b5a048bb27ab341de591d714605b98d3518985dfc2250e93f9"
 
-  depends_on "cmake" => :build
-  depends_on "gcc" # for gfortran
-  depends_on "open-mpi"
-  depends_on "suite-sparse"
-  depends_on "veclibfort"
-
   bottle do
     cellar :any
     sha256 "395df599c4b62d2db1cc65c1823b0711f7d4171f2bc41815354b9ec6a476409f" => :mojave
@@ -17,6 +11,12 @@ class Sundials < Formula
     sha256 "9b679f316ad602b3b5057bb39a81b398f65bdae5fd7f80cb8d8ec3cba08cf7fa" => :sierra
     sha256 "2213f3ae580feabe0874cf229f39e9d9434cbaefe960f88616496a66a11512be" => :el_capitan
   end
+
+  depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
+  depends_on "suite-sparse"
+  depends_on "veclibfort"
 
   def install
     blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
