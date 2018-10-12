@@ -5,6 +5,7 @@ class Pius < Formula
   homepage "https://www.phildev.net/pius/"
   url "https://github.com/jaymzh/pius/archive/v2.2.6.tar.gz"
   sha256 "88727d2377db6d57e9832c0d923d42edd835ba1b14f1e455f90b024eba291921"
+  revision 1
   head "https://github.com/jaymzh/pius.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Pius < Formula
   end
 
   depends_on "gnupg"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"

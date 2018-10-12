@@ -3,6 +3,7 @@ class EyeD3 < Formula
   homepage "http://eyed3.nicfit.net/"
   url "http://eyed3.nicfit.net/releases/eyeD3-0.8.7.tar.gz"
   sha256 "ef924eb2e8fffd7c7e3bd4c94dafad4a3b9047fe2dcb76d5dd7d9c37a1f1f8bb"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class EyeD3 < Formula
   end
 
   depends_on "libmagic"
-  depends_on "python@2"
+  depends_on "python"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
@@ -34,21 +35,22 @@ class EyeD3 < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     # Install in our prefix, not the first-in-the-path python site-packages dir.
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
-    system "python", "setup.py", "install", "--prefix=#{libexec}"
+    system "python3", "setup.py", "install", "--prefix=#{libexec}"
     share.install "docs/plugins", "docs/cli.rst"
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do
