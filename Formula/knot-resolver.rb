@@ -37,6 +37,7 @@ class KnotResolver < Formula
     (etc/"kresd").install "config"
 
     (etc/"kresd").install "etc/root.hints"
+    (etc/"kresd").install "etc/icann-ca.pem"
 
     (buildpath/"root.keys").write(root_keys)
     (var/"kresd").install "root.keys"
