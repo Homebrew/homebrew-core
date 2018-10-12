@@ -9,10 +9,9 @@ class Internetarchive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b87388abb8962723ba2f6ac009ff49b8e91405db27eca0cd0990412f9d0f3d73" => :mojave
-    sha256 "35098a6977bed08d6de52226f7c6a631016dcd9a79230c517a9f0ab4fc4e1f47" => :high_sierra
-    sha256 "b97169838678e7237bf8988db9730ee17837e3c6e54f509b86fd6557550e2dbb" => :sierra
-    sha256 "b34a467a732d82a8de7bbda8fc45d416d4ee1294909fbbc216e9b18c04127ab7" => :el_capitan
+    sha256 "eace6f1af2d97e958c153ca528e145eaab2a021ffa7dab944275265e31c628ff" => :mojave
+    sha256 "6136f0347bc3f61c25efe9370d079ece6a6779264f4e90ea000ce7cba353ada2" => :high_sierra
+    sha256 "13a5f3f6d44baa59f6dc147c43f79e867004e11f2577816fa1eaaa0f2e11770f" => :sierra
   end
 
   depends_on "python"
