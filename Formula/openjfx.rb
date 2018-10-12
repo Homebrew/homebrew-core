@@ -32,8 +32,7 @@ class Openjfx < Formula
   depends_on "gradle"
 
   depends_on :java => "11"
-  depends_on :xcode # '>= 9.1' in the build instructions, but I'm testing on my current system
-                    # first.
+  depends_on :xcode
   depends_on XcodeCLTRequirement
 
   def install
