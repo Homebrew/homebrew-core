@@ -23,6 +23,7 @@ class Ocrmypdf < Formula
   depends_on "leptonica"
   depends_on "libpng"
   depends_on "pngquant"
+  depends_on "pybind11"
   depends_on "python"
   depends_on "qpdf"
   depends_on "tesseract"
