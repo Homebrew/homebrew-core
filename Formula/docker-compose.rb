@@ -5,7 +5,7 @@ class DockerCompose < Formula
   homepage "https://docs.docker.com/compose/"
   url "https://github.com/docker/compose/archive/1.22.0.tar.gz"
   sha256 "d28a2e96976dae306f480f656e4487a0334a5f95c456408f4bbe4acc5760ffa0"
-  revision 1
+  revision 2
   head "https://github.com/docker/compose.git"
 
   bottle do
@@ -17,11 +17,11 @@ class DockerCompose < Formula
   end
 
   depends_on "libyaml"
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "./script/build/write-git-sha" if build.head?
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "docker-compose"

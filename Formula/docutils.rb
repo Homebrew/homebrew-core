@@ -5,6 +5,7 @@ class Docutils < Formula
   homepage "https://docutils.sourceforge.io"
   url "https://downloads.sourceforge.net/project/docutils/docutils/0.14/docutils-0.14.tar.gz"
   sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -15,7 +16,7 @@ class Docutils < Formula
     sha256 "53e168f1335e9198d4948b2d89c434097b8878c835efeb2c6f0f116353212702" => :yosemite
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     virtualenv_install_with_resources
