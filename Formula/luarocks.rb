@@ -12,13 +12,29 @@ class Luarocks < Formula
     sha256 "7a23c8cd3129369ae7502801765242e2e8a1f4afaf6c58d09b812654d5ba2dd3" => :el_capitan
   end
 
+  option "with-luajit", "Build for luajit"
+
+  if build.with?("luajit")
+    depends_on "luajit"
+  else
+    depends_on "lua"
+  end
+
   depends_on "lua@5.1" => :test
-  depends_on "lua"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--rocks-tree=#{HOMEBREW_PREFIX}"
+    args = %W[
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --rocks-tree=#{HOMEBREW_PREFIX}
+    ]
+
+    if build.with? "luajit"
+      args << "--with-lua=/usr/local/opt/luajit"
+      args << "--lua-suffix=jit"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
