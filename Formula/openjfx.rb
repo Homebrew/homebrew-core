@@ -72,7 +72,7 @@ class Openjfx < Formula
       }
     EOS
 
-    system "javac", "--module-path", prefix, "--add-modules=javafx.controls", testpath/"HelloFX.java"
-    system "java", "--module-path", prefix, "--add-modules=javafx.controls", testpath/"HelloFX"
+    system "javac", "--module-path", opt_prefix, "--add-modules=javafx.controls", testpath/"HelloFX.java"
+    system "java", "--module-path", opt_prefix, "--add-modules=javafx.controls", testpath/"HelloFX"
   end
 end
