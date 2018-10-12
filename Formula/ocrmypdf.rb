@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/2b/c1/d734ed25a1c60a43096d74e15f2f2ee4ff5e0447d40a058e0d8c7c12c9e5/ocrmypdf-7.0.4.tar.gz"
-  sha256 "65f0df062b25cad3fe1c8e46c45705c7db48df37a54dd202109a50f15b89987a"
+  url "https://files.pythonhosted.org/packages/c1/32/06c0381653284bab21b26612dee0c923440f35143e59a43a744e4cf1bd12/ocrmypdf-7.2.1.tar.gz"
+  sha256 "e56902d370f3d4766432e7b7f300fd4b0ed51bd98dedadc3923b8af20471b528"
 
   bottle do
     cellar :any
@@ -23,6 +23,7 @@ class Ocrmypdf < Formula
   depends_on "leptonica"
   depends_on "libpng"
   depends_on "pngquant"
+  depends_on "pybind11"
   depends_on "python"
   depends_on "qpdf"
   depends_on "tesseract"
@@ -39,8 +40,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/30/bd/7afb368ea0872e64208e9940c729afde2c27eff7ffe1bbb28a64b1bb5340/pikepdf-0.3.2.tar.gz"
-    sha256 "574ab287d326ef80ed5fe042ac3493831f1feba6c6deff552ef4a101da4a5d3c"
+    url "https://files.pythonhosted.org/packages/09/ef/db0bc644097f52382f8040633ca8bc49b04a54dfbf76147c495398e2949b/pikepdf-0.3.5.tar.gz"
+    sha256 "661d38fd54bf419549bb162b9dab6699395896a52e10ca5d0b52610806122d69"
   end
 
   resource "Pillow" do
