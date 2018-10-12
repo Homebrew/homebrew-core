@@ -17,8 +17,8 @@ class Openjfx < Formula
   desc "Open-source, next-generation Java client application platform"
   homepage "https://openjfx.io/"
   url "https://github.com/javafxports/openjdk-jfx/archive/11+26.zip"
-  sha256 "71ac64ec75c0ee36fbfa8335492b38d88843a33ecd7e3a10793507fd248b829a"
   version "11"
+  sha256 "71ac64ec75c0ee36fbfa8335492b38d88843a33ecd7e3a10793507fd248b829a"
 
   # I'm not sure if this is actually the case, but better safe than sorry:
   pour_bottle? do
