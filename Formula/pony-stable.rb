@@ -3,6 +3,7 @@ class PonyStable < Formula
   homepage "https://github.com/ponylang/pony-stable"
   url "https://github.com/ponylang/pony-stable/archive/0.1.6.tar.gz"
   sha256 "1e980924ff7ea03e07f2eb16e5ae826ff9142f659aa83127ca80c1055af59748"
+  head "https://github.com/ponylang/pony-stable.git"
 
   bottle do
     cellar :any_skip_relocation
