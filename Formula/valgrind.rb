@@ -7,7 +7,7 @@ class Valgrind < Formula
     mirror "https://dl.bintray.com/homebrew/mirror/valgrind-3.14.0.tar.bz2"
     sha256 "037c11bfefd477cc6e9ebe8f193bb237fe397f7ce791b4a4ce3fa1c6a520baa5"
 
-    depends_on MaximumMacOSRequirement => :high_sierra
+    depends_on :maximum_macos => :high_sierra
   end
 
   bottle do
