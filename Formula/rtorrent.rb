@@ -6,15 +6,19 @@ class Rtorrent < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libsigc++" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cppunit"
+  depends_on "openssl"
   depends_on "libtorrent-rakshasa"
   depends_on "xmlrpc-c"
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_darwin.dylib
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
+    ENV.append "LDFLAGS", "-L/usr/local/opt/openssl/lib -lcrypto"
 
     args = ["--with-xmlrpc-c", "--prefix=#{prefix}"]
 
