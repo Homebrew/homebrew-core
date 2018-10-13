@@ -21,7 +21,7 @@ class Ld64 < Formula
   depends_on "cctools-headers" => :build
   depends_on "dyld-headers" => :build
   depends_on "libunwind-headers" => :build
-  depends_on MaximumMacOSRequirement => :snow_leopard
+  depends_on :maximum_macos => :snow_leopard
   depends_on "openssl"
 
   fails_with :gcc_4_0 do
