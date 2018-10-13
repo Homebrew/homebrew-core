@@ -4,6 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.6.2.tar.xz"
   sha256 "a50bd66c0557e8eca3b8fa24e85d0de533e775d7a22df042da90488623752e9e"
+  revision 1
 
   bottle do
     sha256 "443795937f11b04a0bff7047fb183c18f48dabff111d1b9f7f576a9881285f58" => :mojave
@@ -22,6 +23,7 @@ class Zsh < Formula
 
   deprecated_option "disable-etcdir" => "without-etcdir"
 
+  depends_on "ncurses"
   depends_on "gdbm" => :optional
   depends_on "pcre" => :optional
 
