@@ -7,7 +7,11 @@ class Q < Formula
 
   bottle :unneeded
 
+  depends_on "python@2"
+
   def install
+    # Replace shebang with virtualenv python
+    inreplace "bin/q", "#!/usr/bin/env python", "#!/usr/bin/env python2"
     bin.install "bin/q"
   end
 
