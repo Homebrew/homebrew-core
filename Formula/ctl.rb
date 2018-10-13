@@ -3,7 +3,7 @@ class Ctl < Formula
   homepage "https://github.com/ampas/CTL"
   url "https://github.com/ampas/CTL/archive/ctl-1.5.2.tar.gz"
   sha256 "d7fac1439332c4d84abc3c285b365630acf20ea041033b154aa302befd25e0bd"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "16f2a8692af07f7710d558e4de69a88705df2dd153e00dc36fdfb0d3a2accc0e" => :mojave
@@ -17,6 +17,13 @@ class Ctl < Formula
   depends_on "ilmbase"
   depends_on "libtiff"
   depends_on "openexr"
+
+  # Patch to fix build against Ilmbase 3.2
+  # https://github.com/ampas/CTL/issues/71
+  patch do
+    url "https://gist.githubusercontent.com/remia/3184420d763bc3005789ec346abe5408/raw/e1fe73e67ff973fb9b436a3ebe7d5e8c5ffb2e2d/patch-ilmctlsimd.diff"
+    sha256 "2a4d9896a30c452a37532d71250621cf47e6844496f72b96aee75baee2ce64ed"
+  end
 
   def install
     ENV.delete "CTL_MODULE_PATH"
