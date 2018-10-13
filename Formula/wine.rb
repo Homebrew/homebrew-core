@@ -39,7 +39,7 @@ class Wine < Formula
     end
 
     # Does not build with Xcode 10, used on High Sierra and Mojave
-    depends_on MaximumMacOSRequirement => :sierra
+    depends_on :maximum_macos => :sierra
   end
 
   depends_on "cmake" => :build
