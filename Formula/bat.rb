@@ -3,6 +3,7 @@ class Bat < Formula
   homepage "https://github.com/sharkdp/bat"
   url "https://github.com/sharkdp/bat/archive/v0.7.1.tar.gz"
   sha256 "5863895e6ac95f5349da95ff74e196c4b365af3fc3f4a1376cab797df493b7a4"
+  revision 1
 
   bottle do
     sha256 "62e42c268d73f27f0eada988ddaf5a2f841b72af3cbc8c85d716183788608448" => :mojave
@@ -15,6 +16,7 @@ class Bat < Formula
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
+    man1.install "doc/bat.1"
   end
 
   test do
