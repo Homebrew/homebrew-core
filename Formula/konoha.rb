@@ -3,7 +3,7 @@ class Konoha < Formula
   homepage "https://github.com/konoha-project/konoha3"
   url "https://github.com/konoha-project/konoha3/archive/v0.1.tar.gz"
   sha256 "e7d222808029515fe229b0ce1c4e84d0a35b59fce8603124a8df1aeba06114d3"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "8252ef153e0736614d4b4387f4b124ea80bc6d4a78e773ad80148ba1f2ca1811" => :mojave
@@ -23,7 +23,7 @@ class Konoha < Formula
   depends_on "mecab" if MacOS.version >= :mountain_lion
   depends_on "open-mpi"
   depends_on "pcre"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "sqlite"
 
   def install
