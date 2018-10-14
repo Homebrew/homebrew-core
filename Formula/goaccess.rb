@@ -42,12 +42,16 @@ class Goaccess < Formula
   end
 
   test do
-    (testpath/"access.log").write <<~EOS
-      127.0.0.1 - - [04/May/2015:15:48:17 +0200] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"
-    EOS
+    (testpath/"access.log").write \
+      '127.0.0.1 - - [04/May/2015:15:48:17 +0200] "GET / HTTP/1.1" 200 612 "-" ' \
+      '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) ' \
+      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"'
 
-    output = shell_output("#{bin}/goaccess --time-format=%T --date-format=%d/%b/%Y --log-format='%h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\"' -f access.log -o json 2>/dev/null")
+    output = shell_output \
+      "#{bin}/goaccess --time-format=%T --date-format=%d/%b/%Y " \
+      "--log-format='%h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\"' " \
+      "-f access.log -o json 2>/dev/null"
 
-    assert_equal "Chrome", JSON.parse(output)["browsers"]["data"][0]["data"]
+    assert_equal "Chrome", JSON.parse(output)["browsers"]["data"].first["data"]
   end
 end
