@@ -5,6 +5,7 @@ class GandiCli < Formula
   homepage "https://cli.gandi.net/"
   url "https://files.pythonhosted.org/packages/68/fd/1e2d6711a2cb3293288caa732057f97e9e5e529bebcb2692d7e3bb50d7f3/gandi.cli-1.2.tar.gz"
   sha256 "51b5287a285bf665446d7ff47ed9cb447caa79ab8504d29e4212ae825e27086e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class GandiCli < Formula
     sha256 "6adbf5ec8e25c411e3f9514600de37d679083e19b0eed789a6f24775f87ac22e" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"
