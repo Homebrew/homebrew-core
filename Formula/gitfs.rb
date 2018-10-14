@@ -5,7 +5,7 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/PressLabs/gitfs/archive/0.4.5.1.tar.gz"
   sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
-  revision 2
+  revision 3
   head "https://github.com/PressLabs/gitfs.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Gitfs < Formula
 
   depends_on "libgit2"
   depends_on :osxfuse
-  depends_on "python@2"
+  depends_on "python"
 
   resource "atomiclong" do
     url "https://files.pythonhosted.org/packages/86/8c/70aea8215c6ab990f2d91e7ec171787a41b7fbc83df32a067ba5d7f3324f/atomiclong-0.1.1.tar.gz"
@@ -59,7 +59,8 @@ class Gitfs < Formula
   end
 
   test do
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     (testpath/"test.py").write <<~EOS
       import gitfs
@@ -67,7 +68,7 @@ class Gitfs < Formula
       pygit2.init_repository('testing/.git', True)
     EOS
 
-    system "python", "test.py"
+    system "python3", "test.py"
     assert_predicate testpath/"testing/.git/config", :exist?
     cd "testing" do
       system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew.git"
