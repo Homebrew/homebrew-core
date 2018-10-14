@@ -45,9 +45,10 @@ class GccAT5 < Formula
   option "with-jit", "Build the jit compiler"
   option "without-fortran", "Build without the gfortran compiler"
 
+  depends_on :maximum_macos => [:high_sierra, :build]
+
   depends_on "gmp"
   depends_on "libmpc"
-  depends_on :maximum_macos => :high_sierra
   depends_on "mpfr"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
