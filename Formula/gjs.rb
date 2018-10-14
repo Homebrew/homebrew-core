@@ -29,7 +29,9 @@ class Gjs < Formula
     ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
 
     resource("mozjs60").stage do
-      inreplace "config/rules.mk", "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ", "-install_name #{lib}/$(SHARED_LIBRARY) "
+      inreplace "config/rules.mk",
+                "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ",
+                "-install_name #{lib}/$(SHARED_LIBRARY) "
       inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
       mkdir("build") do
         ENV["PYTHON"] = "python"
