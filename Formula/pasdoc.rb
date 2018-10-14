@@ -1,5 +1,5 @@
 class Pasdoc < Formula
-  desc "Documentation tool for ObjectPascal (Free Pascal, Lazarus, Delphi) source code"
+  desc "Documentation tool for ObjectPascal (FP, Lazarus, Delphi) source code"
   homepage "https://github.com/pasdoc/pasdoc/wiki"
   url "https://github.com/pasdoc/pasdoc/archive/v0.15.0.tar.gz"
   sha256 "9863c56a199d12bfc22f2ff06d387831e01f052a59c5ad087717756d9193ed6d"
