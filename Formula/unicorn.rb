@@ -23,6 +23,10 @@ class Unicorn < Formula
     ENV["UNICORN_DEBUG"] = "no"
     system "make"
     system "make", "install"
+
+    cd "bindings/python" do
+      system "python", *Language::Python.setup_install_args(prefix)
+    end
   end
 
   test do
@@ -72,5 +76,7 @@ class Unicorn < Formula
     system ENV.cc, "-o", testpath/"test1", testpath/"test1.c",
       "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
+
+    system "python", "-c", "import unicorn; print(unicorn.__version__)"
   end
 end
