@@ -6,12 +6,12 @@ class Rtorrent < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libsigc++" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cppunit"
-  depends_on "openssl"
+  depends_on "libsigc++"
   depends_on "libtorrent-rakshasa"
+  depends_on "openssl"
   depends_on "xmlrpc-c"
 
   def install
