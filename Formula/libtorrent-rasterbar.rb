@@ -1,9 +1,8 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library by Rasterbar Software"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_8/libtorrent-rasterbar-1.1.8.tar.gz"
-  sha256 "6bbf8fd0430e27037b09a870c89cfc330ea41816102fe1d1d16cc7428df08d5d"
-  revision 1
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_10/libtorrent-rasterbar-1.1.10.tar.gz"
+  sha256 "07b2b391e0d16bc693d793e352338488a0e41f3130b70884bb2e0270ea00b8c2"
 
   bottle do
     cellar :any
@@ -21,9 +20,9 @@ class LibtorrentRasterbar < Formula
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "boost-python"
+  depends_on "boost-python3"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     ENV.cxx11
@@ -36,7 +35,8 @@ class LibtorrentRasterbar < Formula
       --enable-encryption
       --enable-python-binding
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-boost-python=boost_python27-mt
+      --with-boost-python=boost_python37-mt
+      PYTHON=python3
     ]
 
     if build.head?
