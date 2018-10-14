@@ -44,6 +44,11 @@ class Wine < Formula
 
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
+
+  # High Sierra doesn't support 32-bit builds, and thus wine fails to compile.
+  # This will only be safe to remove when upstream support 64-bit builds.
+  depends_on :maximum_macos => [:sierra, :build]
+
   depends_on "pkg-config" => :build
   depends_on :macos => :el_capitan
 
