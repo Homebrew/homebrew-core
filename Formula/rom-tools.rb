@@ -14,7 +14,6 @@ class RomTools < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
   depends_on "flac"
   depends_on "portmidi"
   depends_on "sdl2"
