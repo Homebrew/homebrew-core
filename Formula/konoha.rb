@@ -6,10 +6,9 @@ class Konoha < Formula
   revision 5
 
   bottle do
-    sha256 "8252ef153e0736614d4b4387f4b124ea80bc6d4a78e773ad80148ba1f2ca1811" => :mojave
-    sha256 "540d50178faec6e28c8107531943c25a11ab5776c2b8929905691f2c370b0c47" => :high_sierra
-    sha256 "666717534024275ea2e66e1255e4df3a0f382f43cee5026fbeef2e28a47b8c33" => :sierra
-    sha256 "ce642aff879d5e71a26317da1a98fbb7cf41ba1557cf6dafee0e323c2576ca01" => :el_capitan
+    sha256 "09af29e79d082fb23348ad7b8f5e2976794bd33208502d6ec2ca3dfed5380ed4" => :mojave
+    sha256 "bbf15f9cac98871a21dae84378117cf2517c90172d41ad27106dc3bb446defec" => :high_sierra
+    sha256 "5b4d33a7fdbad806edf3948e53f29e3c7d08695d0538df3ab06cd8ff91bb50b2" => :sierra
   end
 
   head do
