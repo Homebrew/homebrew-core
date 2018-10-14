@@ -4,6 +4,7 @@ class Spades < Formula
   url "http://cab.spbu.ru/files/release3.12.0/SPAdes-3.12.0.tar.gz"
   mirror "https://github.com/ablab/spades/releases/download/v3.12.0/SPAdes-3.12.0.tar.gz"
   sha256 "15b48a3bcbbe6a8ad58fd04ba5d3f1015990fbfd9bdf4913042803b171853ac7"
+  revision 1
 
   bottle do
     cellar :any
@@ -15,7 +16,6 @@ class Spades < Formula
 
   depends_on "cmake" => :build
   depends_on "gcc"
-  depends_on "python@2"
 
   fails_with :clang # no OpenMP support
 
