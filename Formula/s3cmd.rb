@@ -3,6 +3,7 @@ class S3cmd < Formula
   homepage "https://s3tools.org/s3cmd"
   url "https://downloads.sourceforge.net/project/s3tools/s3cmd/2.0.2/s3cmd-2.0.2.tar.gz"
   sha256 "9f244c0c10d58d0ccacbba3aa977463e32491bdd9d95109e27b67e4d46c5bd52"
+  revision 1
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
@@ -13,7 +14,7 @@ class S3cmd < Formula
     sha256 "6edd51ae84e001e4c7e7e87c9bd47d3ef2ef9bf2a7e171f61aa92ee475c918ba" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
@@ -31,13 +32,14 @@ class S3cmd < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
-      r.stage { system "python", *Language::Python.setup_install_args(libexec/"vendor") }
+      r.stage { system "python3", *Language::Python.setup_install_args(libexec/"vendor") }
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])

@@ -5,6 +5,7 @@ class Fabric < Formula
   homepage "https://www.fabfile.org/"
   url "https://github.com/fabric/fabric/archive/2.4.0.tar.gz"
   sha256 "cb562fe648c8a473be8684a5a36494c0b8d1d2b3654776f1628df2c0808f236b"
+  revision 1
   head "https://github.com/fabric/fabric.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Fabric < Formula
   end
 
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/fc/f1/8db7daa71f414ddabfa056c4ef792e1461ff655c2ae2928a2b675bfed6b4/asn1crypto-0.24.0.tar.gz"
@@ -36,11 +37,6 @@ class Fabric < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/22/21/233e38f74188db94e8451ef6385754a98f3cad9b59bedf3a8e8b14988be4/cryptography-2.3.1.tar.gz"
     sha256 "8d10113ca826a4c29d5b85b2c4e045ffa8bad74fb525ee0eceb1d38d4c70dfd6"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do

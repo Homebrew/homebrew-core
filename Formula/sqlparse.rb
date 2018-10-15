@@ -5,6 +5,7 @@ class Sqlparse < Formula
   homepage "https://github.com/andialbrecht/sqlparse"
   url "https://files.pythonhosted.org/packages/79/3c/2ad76ba49f9e3d88d2b58e135b7821d93741856d1fe49970171f73529303/sqlparse-0.2.4.tar.gz"
   sha256 "ce028444cfab83be538752a2ffdb56bc417b7784ff35bb9a3062413717807dec"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +15,7 @@ class Sqlparse < Formula
     sha256 "7155f5eca1b0f127a1f82846842c50e540460093ebc0b6735b724979594b6a06" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     virtualenv_install_with_resources
