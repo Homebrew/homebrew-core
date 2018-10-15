@@ -6,10 +6,9 @@ class Libopusenc < Formula
 
   bottle do
     cellar :any
-    sha256 "f6465a7b4a3a1463682519d74dd19141bea1e7375eb099101877066f1fc63479" => :mojave
-    sha256 "6a9ff9eacc72069a2d16951445772dbd60ab0fe4347ab6c385e8cc42c6b94ee5" => :high_sierra
-    sha256 "611eace04f91c6f8685eb27e60c5bcd4f3f5edfe9904e267a476cce882016884" => :sierra
-    sha256 "9a957d7797f3e346e6aa85a85f96e463dd10c75e5ab3e32e32ee25952874a50f" => :el_capitan
+    sha256 "a44552641cccda9fe5068838fb6177a397384c626c1e4fc420b28bfa1161ea92" => :mojave
+    sha256 "56a5aad7c5af4f705864cffbb5f5cef59c576299dff0ae4529f3bd9a61aac82f" => :high_sierra
+    sha256 "82360661e53da4371b99fb7779aef23993ede434679c2d0c9d6bf1e4fe1978d6" => :sierra
   end
 
   head do
