@@ -28,9 +28,9 @@ class Pacparser < Formula
       function FindProxyForURL(url, host) {
 
         if ((isPlainHostName(host) ||
-            dnsDomainIs(host, ".manugarg.com")) &&
-            !localHostOrDomainIs(host, "www.manugarg.com"))
-          return "plainhost/.manugarg.com";
+            dnsDomainIs(host, ".example.edu")) &&
+            !localHostOrDomainIs(host, "www.example.edu"))
+          return "plainhost/.example.edu";
 
         // Return externaldomain if host matches .*\.externaldomain\.example
         if (/.*\.externaldomain\.example/.test(host))
@@ -72,11 +72,11 @@ class Pacparser < Formula
       },
       {
         "cmd" => "-u http://host1",
-        "res" => "plainhost/.manugarg.com",
+        "res" => "plainhost/.example.edu",
       },
       {
-        "cmd" => "-u http://www1.manugarg.com",
-        "res" => "plainhost/.manugarg.com",
+        "cmd" => "-u http://www1.example.edu",
+        "res" => "plainhost/.example.edu",
       },
       {
         "cmd" => "-u http://manugarg.externaldomain.example",
