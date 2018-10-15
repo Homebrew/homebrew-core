@@ -1,8 +1,8 @@
 class Libopusenc < Formula
   desc "Convenience libraray for creating .opus files"
   homepage "https://opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/libopusenc-0.1.1.tar.gz"
-  sha256 "02e6e0b14cbbe0569d948a46420f9c9a81d93bba32dc576a4007cbf96da68ef3"
+  url "https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz"
+  sha256 "8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9"
 
   bottle do
     cellar :any
