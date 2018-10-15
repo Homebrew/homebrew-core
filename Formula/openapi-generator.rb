@@ -1,8 +1,8 @@
 class OpenapiGenerator < Formula
   desc "Generate clients, server & docs from an OpenAPI spec (v2, v3)"
   homepage "https://openapi-generator.tech/"
-  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/3.3.0/openapi-generator-cli-3.3.0.jar"
-  sha256 "7ff681aa50617778e3e52e05afbcfe21166dd08b4d866fc0d1e2246b85aaef3c"
+  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/3.3.1/openapi-generator-cli-3.3.1.jar"
+  sha256 "e70286bea85185626a47c11ed5cf62b71d99475366247bf307bcbc035db3f729"
 
   head do
     url "https://github.com/OpenAPITools/openapi-generator.git"
@@ -12,7 +12,7 @@ class OpenapiGenerator < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
