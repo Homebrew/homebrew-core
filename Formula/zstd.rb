@@ -1,6 +1,6 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
-  homepage "http://zstd.net/"
+  homepage "https://facebook.github.io/zstd/"
   url "https://github.com/facebook/zstd/releases/download/v1.3.6/zstd-1.3.6.tar.gz"
   sha256 "e832a0c01ea033e2df1f346ac6976d8cf8f9db6416151ba4fc2cae2ac3584594"
 
