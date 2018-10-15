@@ -3,6 +3,7 @@ class Yara < Formula
   homepage "https://github.com/VirusTotal/yara/"
   url "https://github.com/VirusTotal/yara/archive/v3.8.1.tar.gz"
   sha256 "283527711269354d3c60e2705f7f74b1f769d2d35ddba8f7f9ce97d0fd5cb1ca"
+  revision 1
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
@@ -17,7 +18,6 @@ class Yara < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "python@2"
 
   def install
     system "./bootstrap.sh"
