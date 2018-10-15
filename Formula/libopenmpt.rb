@@ -24,6 +24,8 @@ class Libopenmpt < Formula
   end
 
   test do
-    system "#{bin}/openmpt123", "--version"
+    system "curl", "-o", "mystique.s3m", "https://api.modarchive.org/downloads.php?moduleid=54144#mystique.s3m"
+    system "openmpt123", "--probe", "mystique.s3m"
+    $?.success? or raise "Probing a known-good file failed"
   end
 end
