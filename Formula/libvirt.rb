@@ -11,8 +11,6 @@ class Libvirt < Formula
     sha256 "a14f66e2b837a51e358ad53c0565b8655c52d62c336cffa84837a92321eb5d52" => :sierra
   end
 
-  option "without-libvirtd", "Build only the virsh client and development libraries"
-
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libgcrypt"
@@ -41,7 +39,6 @@ class Libvirt < Formula
     ]
 
     args << "ac_cv_path_RPCGEN=#{Formula["rpcgen"].opt_prefix}/bin/rpcgen" if build.head?
-    args << "--without-libvirtd" if build.without? "libvirtd"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
@@ -53,44 +50,40 @@ class Libvirt < Formula
     # Update the SASL config file with the Homebrew prefix
     inreplace "#{etc}/sasl2/libvirt.conf", "/etc/", "#{HOMEBREW_PREFIX}/etc/"
 
-    # If the libvirt daemon is built, update its config file to reflect
-    # the Homebrew prefix
-    if build.with? "libvirtd"
-      inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
-        s.gsub! "/etc/", "#{HOMEBREW_PREFIX}/etc/"
-        s.gsub! "/var/", "#{HOMEBREW_PREFIX}/var/"
-      end
+    # Update the libvirt daemon config file to reflect the Homebrew prefix
+    inreplace "#{etc}/libvirt/libvirtd.conf" do |s|
+      s.gsub! "/etc/", "#{HOMEBREW_PREFIX}/etc/"
+      s.gsub! "/var/", "#{HOMEBREW_PREFIX}/var/"
     end
   end
 
-  unless build.without? "libvirtd"
-    plist_options :manual => "libvirtd"
+  plist_options :manual => "libvirtd"
 
-    def plist; <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>EnvironmentVariables</key>
         <dict>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>PATH</key>
-            <string>#{HOMEBREW_PREFIX}/bin</string>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{sbin}/libvirtd</string>
-          </array>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
+          <key>PATH</key>
+          <string>#{HOMEBREW_PREFIX}/bin</string>
         </dict>
-      </plist>
-    EOS
-    end
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{sbin}/libvirtd</string>
+        </array>
+        <key>KeepAlive</key>
+        <true/>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+    </plist>
+  EOS
   end
+
   test do
     if build.head?
       output = shell_output("#{bin}/virsh -V")
