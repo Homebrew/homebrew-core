@@ -14,7 +14,7 @@ class Platformio < Formula
     sha256 "8462b6534b1d25cdb9f0fd0286af9ff3005ca22322a017d8012ec476a53f0dcc" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"
