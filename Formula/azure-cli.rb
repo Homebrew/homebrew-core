@@ -1,8 +1,8 @@
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.47.tar.gz"
-  sha256 "2e518e5e0cf9ac1e62a5a6d514e2098b5b9c1019259104342c9ea09c74aaf4ce"
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.48.tar.gz"
+  sha256 "cb3110bb355f6aa77a7fc2e7c4fc3cec10096855f88f241a34b28ad22ed844f5"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -106,8 +106,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-compute" do
-    url "https://files.pythonhosted.org/packages/11/18/e9a14b85334bb628529cb6c64a09b48388775320b33343947d5f849979b5/azure-mgmt-compute-4.3.0.zip"
-    sha256 "0bd924a05ac185ba20d8ab6ffd55f5dc0d6b55e5be939e7f80e9ee6baeb349a2"
+    url "https://files.pythonhosted.org/packages/c5/c5/e5a7a49a9b96ec3f70b2332e8919d8df940baed4f799fe1ad7d52ff6a241/azure-mgmt-compute-4.3.1.zip"
+    sha256 "5b0c2390af3e29d910e3d6e7a72b0be59d6e15933740dd193129217c000e4fed"
   end
 
   resource "azure-mgmt-consumption" do
@@ -175,6 +175,11 @@ class AzureCli < Formula
     sha256 "6a3a0cc288c5fb40cff2b88f9abdf783b4dbac287ba1ddb05b3b7e668b89426b"
   end
 
+  resource "azure-mgmt-hdinsight" do
+    url "https://files.pythonhosted.org/packages/54/8d/ae164176232e1d5e03ebe915c06f5dca7c6a5978ca294c131546501b0a17/azure-mgmt-hdinsight-0.1.0.zip"
+    sha256 "89c8a3816742cb8ceba8a16d74d3980289d34323177978a410bb7323f6ddf71c"
+  end
+
   resource "azure-mgmt-iotcentral" do
     url "https://files.pythonhosted.org/packages/fe/00/6b67140a57880f58516230897d580392d9d2e9b476934767834c5c6a4b82/azure-mgmt-iotcentral-0.2.0.zip"
     sha256 "8be8a30acd3c07f05c87e8b3109108d6e19351354e51183743977958cf0ada2e"
@@ -240,6 +245,11 @@ class AzureCli < Formula
     sha256 "8b2287f671529505b296005e6de9150b074344c2c7d1c805b3f053d081d58c52"
   end
 
+  resource "azure-mgmt-policyinsights" do
+    url "https://files.pythonhosted.org/packages/72/f8/ead482ae756cc04b61f96ffa29d4a6dca736dddc5407697cdc98cde17015/azure-mgmt-policyinsights-0.1.0.zip"
+    sha256 "ff94cb12d6e01bf1470c2a6af4ce6960669ab4209106153879ff97addc569ce1"
+  end
+
   resource "azure-mgmt-rdbms" do
     url "https://files.pythonhosted.org/packages/ff/5d/1d867e6f63872880a7682f3e6b37e396ef845ef1811303eec8df190222b9/azure-mgmt-rdbms-1.3.0.zip"
     sha256 "417a7b05653d9e8dc3804f41893640d5c6f79bd66cfb6f5c088214a35149f082"
@@ -258,6 +268,11 @@ class AzureCli < Formula
   resource "azure-mgmt-redis" do
     url "https://files.pythonhosted.org/packages/be/18/3f350eb5ddba594b1775b5f3a0cc60f53357feaf3986b7cd2da5400d2802/azure-mgmt-redis-5.0.0.zip"
     sha256 "374a267b83ec4e71077b8afad537863fb93816c96407595cdd02973235356ded"
+  end
+
+  resource "azure-mgmt-relay" do
+    url "https://files.pythonhosted.org/packages/df/76/f4673094df467c1198dfd944f8a800a25d0ed7f4bbd7c73e9e2605874576/azure-mgmt-relay-0.1.0.zip"
+    sha256 "d9f987cf2998b8a354f331b2a71082c049193f1e1cd345812e14b9b821365acb"
   end
 
   resource "azure-mgmt-reservations" do
@@ -341,8 +356,8 @@ class AzureCli < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e1/0f/f8d5e939184547b3bdc6128551b831a62832713aa98c2ccdf8c47ecc7f17/certifi-2018.8.24.tar.gz"
-    sha256 "376690d6f16d32f9d1fe8932551d80b23e9d393a8578c5633a2ed39a64861638"
+    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
+    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
   end
 
   resource "cffi" do
@@ -356,8 +371,8 @@ class AzureCli < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
-    sha256 "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"
+    url "https://files.pythonhosted.org/packages/55/d5/c35bd3e63757ac767105f8695b055581d8b8dd8c22fef020ebefa2a3725d/colorama-0.4.0.zip"
+    sha256 "c9b54bebe91a6a803e0772c8561d53f2926bfeb17cd141fbabcb08424086595c"
   end
 
   resource "cryptography" do
@@ -411,8 +426,8 @@ class AzureCli < Formula
   end
 
   resource "msrest" do
-    url "https://files.pythonhosted.org/packages/c7/e7/99e7554fe5d910c706837bf7f5e6ac196030c9874ba0d989419d4cf4fa1c/msrest-0.5.5.tar.gz"
-    sha256 "af00590fb26a2203a8aa93e0a645a617f9c8fd5858f7ef079817a762a1ceb68f"
+    url "https://files.pythonhosted.org/packages/f7/63/cf85cfa172be9da3c64c6f1f54430411137b81b398bb0e13a04154e9a6df/msrest-0.6.1.tar.gz"
+    sha256 "c087b91d68281a870e8cdff84f20dd55bbd6685daa76a307493e6e3a4343fc56"
   end
 
   resource "msrestazure" do
@@ -506,8 +521,8 @@ class AzureCli < Formula
   end
 
   resource "scp" do
-    url "https://files.pythonhosted.org/packages/36/bf/2dd8050c17166f731fc081e091aacd3044723cbc6f0fccabd6742d8dbb42/scp-0.11.0.tar.gz"
-    sha256 "ea095dd1d0e131874bc9930c3965bce3d1d70be5adb2a30d811fcaea4708a9ee"
+    url "https://files.pythonhosted.org/packages/b3/b6/0ae7a921028d6375e029aad13ea23476279bbf3e719cff483893516ec12e/scp-0.12.1.tar.gz"
+    sha256 "5199258c18bb1a5e80421a3cf9cfc3302754fe410e05e61bcc9c1ab253605e32"
   end
 
   resource "SecretStorage" do
