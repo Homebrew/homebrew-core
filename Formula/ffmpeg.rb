@@ -49,6 +49,7 @@ class Ffmpeg < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
+  depends_on :x11 => :build
 
   depends_on "lame" => :recommended
   depends_on "x264" => :recommended
