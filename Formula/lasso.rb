@@ -5,11 +5,9 @@ class Lasso < Formula
   sha256 "146bff7a25166467d960003346cbc3291f3f29067e305cb82ebb12354c7d0acf"
 
   bottle do
-    cellar :any
-    sha256 "5a14339bc65d458ffd1b0024be815cd73b8114dcdb9955ecacb66cf79f4d1589" => :high_sierra
-    sha256 "f2e0bc889badb79e430b35c19e8aaf26d23370fb4113c1c1a96d81d0d6296480" => :sierra
-    sha256 "b36834a1ad4134e0ea4c20f93ea48eba5cbe27daa8f4f74df10bf279c34e41f5" => :el_capitan
-    sha256 "5d088dabb95573f5b018ef9338ac1cdf0263e8a6178bda2f519b2c684df6d1c1" => :yosemite
+    sha256 "8b6d5f0e436583e3293a3d2f857ffd9f3cb2950c689aa9db2792810fc4a1a8a9" => :mojave
+    sha256 "bf7e791e207eb49a71fd8369bb1f7ce5433ddf9e83a4cc92b180c23333543e71" => :high_sierra
+    sha256 "9a3af6f2270df07b19b6a3ad94c2fdc9278ed24ec9453ad8351d54d7030df144" => :sierra
   end
 
   depends_on "pkg-config" => :build
