@@ -3,6 +3,7 @@ class Libvirt < Formula
   homepage "https://www.libvirt.org"
   url "https://libvirt.org/sources/libvirt-4.8.0.tar.xz"
   sha256 "c2fd7112d6689fbb4d700b31c01aadd8a0eb275e127dc959cdc166f5f60b3032"
+  revision 1
   head "https://github.com/libvirt/libvirt.git"
 
   bottle do
@@ -15,6 +16,7 @@ class Libvirt < Formula
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "yajl"
 
   if build.head?
     depends_on "autoconf" => :build
