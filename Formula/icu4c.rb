@@ -1,10 +1,10 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "https://ssl.icu-project.org/"
-  url "https://ssl.icu-project.org/files/icu4c/62.1/icu4c-62_1-src.tgz"
-  mirror "https://downloads.sourceforge.net/project/icu/ICU4C/62.1/icu4c-62_1-src.tgz"
-  version "62.1"
-  sha256 "3dd9868d666350dda66a6e305eecde9d479fb70b30d5b55d78a1deffb97d5aa3"
+  url "https://ssl.icu-project.org/files/icu4c/63.1/icu4c-63_1-src.tgz"
+  mirror "https://github.com/unicode-org/icu/releases/download/release-63-1/icu4c-63_1-src.tgz"
+  version "63.1"
+  sha256 "05c490b69454fce5860b7e8e2821231674af0a11d7ef2febea9a32512998cb9d"
 
   bottle do
     cellar :any
