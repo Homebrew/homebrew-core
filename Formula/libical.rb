@@ -3,6 +3,7 @@ class Libical < Formula
   homepage "https://libical.github.io/libical/"
   url "https://github.com/libical/libical/releases/download/v3.0.4/libical-3.0.4.tar.gz"
   sha256 "72b216e10233c3f60cb06062facf41f3b0f70615e5a60b47f9853341a0d5d145"
+  revision 1
 
   bottle do
     sha256 "205026b787a55ff63c648c35f9d1de0236fc699ee7498bc2b09ab3899431b170" => :mojave
