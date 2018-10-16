@@ -3,6 +3,7 @@ class Planck < Formula
   homepage "http://planck-repl.org/"
   url "https://github.com/planck-repl/planck/archive/2.19.0.tar.gz"
   sha256 "bb33984f986a7ac68b331cfd64bd0f9e41daf5391b1a36e158e15d94d886dd04"
+  revision 1
   head "https://github.com/planck-repl/planck.git"
 
   bottle do
