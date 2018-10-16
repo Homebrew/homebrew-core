@@ -1,9 +1,8 @@
 class Wxpython < Formula
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxwidgets.org/"
-  url "https://downloads.sourceforge.net/project/wxpython/wxPython/3.0.2.0/wxPython-src-3.0.2.0.tar.bz2"
-  sha256 "d54129e5fbea4fb8091c87b2980760b72c22a386cb3b9dd2eebc928ef5e8df61"
-  revision 1
+  url "https://files.pythonhosted.org/packages/dd/31/bd55ab40e406a026a7fda0bb5eb61f466682544ae91ac26267c750f5e618/wxPython-4.0.3.tar.gz"
+  sha256 "8d0dfc0146c24749ce00d575e35cc2826372e809d5bc4a57bde6c89031b59e75"
 
   bottle do
     cellar :any
