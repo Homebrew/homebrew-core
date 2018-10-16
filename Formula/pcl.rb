@@ -1,7 +1,7 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  revision 4
+  revision 5
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   stable do
