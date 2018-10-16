@@ -1,9 +1,9 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
-  homepage "https://github.com/coreos/etcd"
-  url "https://github.com/coreos/etcd/archive/v3.3.9.tar.gz"
-  sha256 "96639d35772108004da53e568489ce7572171d39ee507245848cc42fbd3a3032"
-  head "https://github.com/coreos/etcd.git"
+  homepage "https://github.com/etcd-io/etcd"
+  url "https://github.com/etcd-io/etcd/releases/download/v3.3.10/v3.3.10.tar.gz"
+  sha256 "bc8a8afdbb85734e38e089de21302e50d240983425694d5ed9d5823b1de35b60"
+  head "https://github.com/etcd-io/etcd.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +17,8 @@ class Etcd < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p "src/github.com/coreos"
-    ln_s buildpath, "src/github.com/coreos/etcd"
+    mkdir_p "src/github.com/etcd-io"
+    ln_s buildpath, "src/github.com/etcd-io/etcd"
     system "./build"
     bin.install "bin/etcd"
     bin.install "bin/etcdctl"
