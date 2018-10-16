@@ -60,6 +60,19 @@ class Tox < Formula
     virtualenv_install_with_resources
   end
 
+  # Avoid relative paths
+  def post_install
+    lib_python_path = Pathname.glob(libexec/"lib/python*").first
+    lib_python_path.each_child do |f|
+      next unless f.symlink?
+      realpath = f.realpath
+      rm f
+      ln_s realpath, f
+    end
+    inreplace lib_python_path/"orig-prefix.txt",
+              Formula["python"].opt_prefix, Formula["python"].prefix.realpath
+  end
+
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
