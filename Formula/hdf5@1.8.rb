@@ -1,9 +1,8 @@
 class Hdf5AT18 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/current18/src/hdf5-1.8.20.tar.bz2"
-  sha256 "a4f2db7e0a078aa324f64e0216a80731731f73025367fa94d158c9b1d3fbdf6f"
-  revision 1
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.21/src/hdf5-1.8.21.tar.bz2"
+  sha256 "e5b1b1dee44a64b795a91c3321ab7196d9e0871fe50d42969761794e3899f40d"
 
   bottle do
     sha256 "76aa94fd9fb65916b4d6d94ca223b3134ef87add90d6f5d06717b352f4790d91" => :mojave
