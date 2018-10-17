@@ -1,8 +1,8 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.xz"
-  sha256 "886ac5eed41e3b5fc699be837b0087a6a5a3d10f464087560d2d21b3e71b754d"
+  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.2.tar.xz"
+  sha256 "8be6b6afdf09957a6e2c2a6ada4b1982a391a828b34e49072c4beb60febb678d"
 
   bottle do
     sha256 "57ca0ee728d545e4a3e8b91955e4f19733098d017739727394381a7edb42686b" => :mojave
@@ -31,8 +31,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.6.tgz"
-    sha256 "67f714a582a9ce471bbbcb417374ea9cf9c061271c865dbb0d093f3bc3371eeb"
+    url "https://rubygems.org/rubygems/rubygems-2.7.7.tgz"
+    sha256 "4cb2c9a36c0e4a3d5c20eb6795638632858fd72236d281963140221946ab55cb"
   end
 
   def api_version
