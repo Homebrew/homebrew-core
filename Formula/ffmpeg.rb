@@ -24,6 +24,7 @@ class Ffmpeg < Formula
   option "with-openh264", "Enable OpenH264 library"
   option "with-openjpeg", "Enable JPEG 2000 image format"
   option "with-openssl", "Enable SSL support"
+  option "with-pulseaudio", "Enable PulseAudio support"
   option "with-rtmpdump", "Enable RTMP protocol"
   option "with-rubberband", "Enable rubberband library"
   option "with-sdl2", "Enable FFplay media player"
@@ -77,6 +78,7 @@ class Ffmpeg < Formula
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
   depends_on "opus" => :optional
+  depends_on "pulseaudio" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
   depends_on "sdl2" => :optional
@@ -126,6 +128,7 @@ class Ffmpeg < Formula
     args << "--enable-libopencore-amrnb" << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
     args << "--enable-libopenh264" if build.with? "openh264"
     args << "--enable-libopus" if build.with? "opus"
+    args << "--enable-libpulse" if build.with? "pulseaudio"
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-librubberband" if build.with? "rubberband"
