@@ -15,7 +15,7 @@ class CassandraAT21 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   # Only Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do

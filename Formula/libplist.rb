@@ -3,6 +3,7 @@ class Libplist < Formula
   homepage "https://www.libimobiledevice.org/"
   url "https://www.libimobiledevice.org/downloads/libplist-2.0.0.tar.bz2"
   sha256 "3a7e9694c2d9a85174ba1fa92417cfabaea7f6d19631e544948dc7e17e82f602"
+  revision 1
 
   bottle do
     cellar :any
@@ -21,7 +22,6 @@ class Libplist < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "cython" => :build
   depends_on "pkg-config" => :build
 
   def install
@@ -31,6 +31,7 @@ class Libplist < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --without-cython
     ]
 
     system "./autogen.sh" if build.head?

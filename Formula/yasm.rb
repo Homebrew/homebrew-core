@@ -4,7 +4,7 @@ class Yasm < Formula
   url "https://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
   mirror "https://ftp.openbsd.org/pub/OpenBSD/distfiles/yasm-1.3.0.tar.gz"
   sha256 "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
@@ -23,17 +23,12 @@ class Yasm < Formula
     depends_on "gettext"
   end
 
-  depends_on "cython" => :build
-
   def install
     args = %W[
       --disable-debug
       --prefix=#{prefix}
+      --disable-python
     ]
-
-    ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
-    args << "--enable-python"
-    args << "--enable-python-bindings"
 
     # https://github.com/Homebrew/legacy-homebrew/pull/19593
     ENV.deparallelize

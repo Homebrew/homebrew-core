@@ -3,6 +3,7 @@ class Cassandra < Formula
   homepage "https://cassandra.apache.org"
   url "https://www.apache.org/dyn/closer.cgi?path=cassandra/3.11.3/apache-cassandra-3.11.3-bin.tar.gz"
   sha256 "d82e0670cb41b091e88fff55250ce945c4ea026c87a5517d3cf7b6b351d5e2ba"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Cassandra < Formula
   end
 
   depends_on "cython"
-  depends_on "python@2"
+  depends_on "python"
 
   # Only >=Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do
@@ -50,11 +51,12 @@ class Cassandra < Formula
     (var/"lib/cassandra").mkpath
     (var/"log/cassandra").mkpath
 
-    pypath = libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    pypath = libexec/"vendor/lib/python#{xy}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", pypath
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
