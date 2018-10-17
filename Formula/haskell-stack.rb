@@ -5,9 +5,9 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.7.1/stack-1.7.1-sdist-1.tar.gz"
-  version "1.7.1"
-  sha256 "a548fb549b2b1e539e257732596508e4c3d43e3a9d62bd22ecc19dda67c30ce6"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.9.1/stack-1.9.1-sdist-1.tar.gz"
+  version "1.9.1"
+  sha256 "2628d0a02cb9d48a41f7b257d2619c8ba2e333cd91df03d0729029da53cf6855"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
@@ -25,9 +25,9 @@ class HaskellStack < Formula
 
   # Remove when stack.yaml uses GHC 8.4.x
   resource "stack_nightly_yaml" do
-    url "https://raw.githubusercontent.com/commercialhaskell/stack/v1.7.1/stack-nightly.yaml"
-    version "1.7.1"
-    sha256 "08cf289b53983b72d88f48004b58a3154728125f7cff174c0364f1dd936c607e"
+    url "https://raw.githubusercontent.com/commercialhaskell/stack/v1.9.1/stack-nightly.yaml"
+    version "1.9.1"
+    sha256 "9a738cb17dc9b3cc3f8ab0f2c26499c2bad824fbc46a371e4b5a0cf8f5f2ba48"
   end
 
   def install
