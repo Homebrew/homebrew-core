@@ -21,4 +21,8 @@ class Drip < Formula
     libexec.install %w[bin src Makefile]
     bin.install_symlink libexec/"bin/drip"
   end
+
+  test do
+    system "#{bin}/drip", "version"
+  end
 end
