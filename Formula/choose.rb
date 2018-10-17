@@ -3,6 +3,7 @@ class Choose < Formula
   homepage "https://github.com/geier/choose"
   url "https://github.com/geier/choose/archive/v0.1.0.tar.gz"
   sha256 "d09a679920480e66bff36c76dd4d33e8ad739a53eace505d01051c114a829633"
+  revision 1
   head "https://github.com/geier/choose.git"
 
   bottle do
@@ -16,20 +17,21 @@ class Choose < Formula
     sha256 "47d5c12604878a2f3eb75da8c80a15d991b47129a17684fde8f02fe97f16e78b" => :mavericks
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   conflicts_with "choose-gui", :because => "both install a `choose` binary"
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/source/u/urwid/urwid-1.2.1.tar.gz"
-    sha256 "9b9b5dabb7df6c0f12e84feed488f9a9ddd5c2d66d1b7c7c087055720b87c68c"
+    url "https://files.pythonhosted.org/packages/c7/90/415728875c230fafd13d118512bde3184d810d7bf798a631abc05fac09d0/urwid-2.0.1.tar.gz"
+    sha256 "644d3e3900867161a2fc9287a9762753d66bd194754679adb26aede559bcccbc"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     resource("urwid").stage do
-      system "python", *Language::Python.setup_install_args(libexec)
+      system "python3", *Language::Python.setup_install_args(libexec)
     end
 
     bin.install "choose"
