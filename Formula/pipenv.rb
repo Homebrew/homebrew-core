@@ -61,8 +61,10 @@ class Pipenv < Formula
       rm f
       ln_s realpath, f
     end
+    py = Formula["python"]
     inreplace lib_python_path/"orig-prefix.txt",
-              Formula["python"].opt_prefix, Formula["python"].prefix.realpath
+              py.opt_prefix,
+              py.prefix(py.linked_version).realpath
   end
 
   test do
