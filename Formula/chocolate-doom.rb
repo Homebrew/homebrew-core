@@ -46,4 +46,8 @@ class ChocolateDoom < Formula
       #{homepage}
   EOS
   end
+
+  test do
+    system "chocolate-doom; if [ $? -ne 255 ]; then exit -1; else exit 0; fi"
+  end
 end
