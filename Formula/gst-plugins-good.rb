@@ -1,6 +1,7 @@
 class GstPluginsGood < Formula
   desc "GStreamer plugins (well-supported, under the LGPL)"
   homepage "https://gstreamer.freedesktop.org/"
+  revision 1
 
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz"
@@ -25,29 +26,29 @@ class GstPluginsGood < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "cairo"
+  depends_on "flac"
   depends_on "gettext"
   depends_on "gst-plugins-base"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libshout"
   depends_on "libsoup"
+  depends_on "libvpx"
+  depends_on "orc"
+  depends_on "speex"
+  depends_on "taglib"
 
   # Dependencies based on the intersection of
   # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
   # and Homebrew formulae.
-  depends_on "jpeg" => :recommended
-  depends_on "orc" => :recommended
   depends_on "aalib" => :optional
-  depends_on "cairo" => :optional
-  depends_on "flac" => :optional
   depends_on "gdk-pixbuf" => :optional
   depends_on "gtk+3" => :optional
   depends_on "jack" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdv" => :optional
-  depends_on "libpng" => :optional
-  depends_on "libshout" => :optional
-  depends_on "libvpx" => :optional
   depends_on "pulseaudio" => :optional
-  depends_on "speex" => :optional
-  depends_on "taglib" => :optional
   depends_on :x11 => :optional
 
   def install
