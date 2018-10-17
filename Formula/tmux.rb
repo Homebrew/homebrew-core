@@ -5,10 +5,9 @@ class Tmux < Formula
   sha256 "7f6bf335634fafecff878d78de389562ea7f73a7367f268b66d37ea13617a2ba"
 
   bottle do
-    sha256 "857a0fca42078b07a1a0f6dba7c96e193fa2fda0d7dd7f65a4c9a2a74857f9ca" => :mojave
-    sha256 "673822df46dec9d718fc2b4300fd2b95a261093cf3a256d71286d8fa79c6e4ef" => :high_sierra
-    sha256 "79e893ee81d2cd2af20f08aa4ba52297ad24bc9fb2c4d729b61a12f83aa2eec8" => :sierra
-    sha256 "a4f05bb40d0c699fac50f053500710d486aaf1ca0cb4fc96e75cb2d4b8461931" => :el_capitan
+    sha256 "1853b704405374f88dcb00ef4c82c18efbcbac2ce855de681bd7017c3b5e6b36" => :mojave
+    sha256 "b50d0ac39ae8219d84b9fba7ae5f0422143d8a7a9575b9193d7604dc1b3a85f0" => :high_sierra
+    sha256 "d4b259196136dfb9fe4cf68a348d68edc58ac2b6d0954fe60c6694b053826cd3" => :sierra
   end
 
   head do
