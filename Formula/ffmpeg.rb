@@ -3,6 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz"
   sha256 "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
+  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -26,33 +27,28 @@ class Ffmpeg < Formula
   option "with-openssl", "Enable SSL support"
   option "with-rtmpdump", "Enable RTMP protocol"
   option "with-rubberband", "Enable rubberband library"
-  option "with-sdl2", "Enable FFplay media player"
-  option "with-snappy", "Enable Snappy library"
-  option "with-tools", "Enable additional FFmpeg tools"
   option "with-webp", "Enable using libwebp to encode WEBP images"
-  option "with-x265", "Enable x265 encoder"
-  option "with-xz", "Enable decoding of LZMA-compressed TIFF files"
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
-  option "without-lame", "Disable MP3 encoder"
-  option "without-qtkit", "Disable deprecated QuickTime framework"
-  option "without-securetransport", "Disable use of SecureTransport"
-  option "without-x264", "Disable H.264 encoder"
-  option "without-xvid", "Disable Xvid MPEG-4 video encoder"
-  option "without-gpl", "Disable building GPL licensed parts of FFmpeg"
 
-  deprecated_option "with-ffplay" => "with-sdl2"
-  deprecated_option "with-sdl" => "with-sdl2"
   deprecated_option "with-libtesseract" => "with-tesseract"
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
 
-  depends_on "lame" => :recommended
-  depends_on "x264" => :recommended
-  depends_on "xvid" => :recommended
+  depends_on "lame"
+  depends_on "libvorbis"
+  depends_on "libvpx"
+  depends_on "opus"
+  depends_on "sdl2"
+  depends_on "snappy"
+  depends_on "theora"
+  depends_on "x264"
+  depends_on "x265"
+  depends_on "xvid"
+  depends_on "xz"
 
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
@@ -70,26 +66,18 @@ class Ffmpeg < Formula
   depends_on "libsoxr" => :optional
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
-  depends_on "libvorbis" => :optional
-  depends_on "libvpx" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
-  depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "rubberband" => :optional
-  depends_on "sdl2" => :optional
-  depends_on "snappy" => :optional
   depends_on "speex" => :optional
   depends_on "srt" => :optional
   depends_on "tesseract" => :optional
-  depends_on "theora" => :optional
   depends_on "two-lame" => :optional
   depends_on "wavpack" => :optional
   depends_on "webp" => :optional
-  depends_on "x265" => :optional
-  depends_on "xz" => :optional
   depends_on "zeromq" => :optional
   depends_on "zimg" => :optional
 
@@ -104,13 +92,21 @@ class Ffmpeg < Formula
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
+      --enable-ffplay
+      --enable-gpl
+      --enable-libmp3lame
+      --enable-libopus
+      --enable-libsnappy
+      --enable-libtheora
+      --enable-libvorbis
+      --enable-libvpx
+      --enable-libx264
+      --enable-libx265
+      --enable-libxvid
+      --enable-lzma
     ]
 
-    args << "--enable-gpl" if build.with? "gpl"
-    args << "--disable-indev=qtkit" if build.without? "qtkit"
-    args << "--disable-securetransport" if build.without? "securetransport"
     args << "--enable-chromaprint" if build.with? "chromaprint"
-    args << "--enable-ffplay" if build.with? "sdl2"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libass" if build.with? "libass"
     args << "--enable-libbluray" if build.with? "libbluray"
@@ -122,40 +118,25 @@ class Ffmpeg < Formula
     args << "--enable-libgme" if build.with? "game-music-emu"
     args << "--enable-libgsm" if build.with? "libgsm"
     args << "--enable-libmodplug" if build.with? "libmodplug"
-    args << "--enable-libmp3lame" if build.with? "lame"
     args << "--enable-libopencore-amrnb" << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
     args << "--enable-libopenh264" if build.with? "openh264"
-    args << "--enable-libopus" if build.with? "opus"
     args << "--enable-librsvg" if build.with? "librsvg"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-librubberband" if build.with? "rubberband"
-    args << "--enable-libsnappy" if build.with? "snappy"
     args << "--enable-libsoxr" if build.with? "libsoxr"
     args << "--enable-libspeex" if build.with? "speex"
+    args << "--enable-libsrt" if build.with? "srt"
     args << "--enable-libssh" if build.with? "libssh"
     args << "--enable-libtesseract" if build.with? "tesseract"
-    args << "--enable-libtheora" if build.with? "theora"
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
-    args << "--enable-libvorbis" if build.with? "libvorbis"
-    args << "--enable-libvpx" if build.with? "libvpx"
     args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
-    args << "--enable-libx264" if build.with? "x264"
-    args << "--enable-libx265" if build.with? "x265"
-    args << "--enable-libxvid" if build.with? "xvid"
     args << "--enable-libzimg" if build.with? "zimg"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-opencl" if MacOS.version > :lion
-    args << "--enable-videotoolbox" if MacOS.version >= :mountain_lion
     args << "--enable-openssl" if build.with? "openssl"
-    args << "--enable-libsrt" if build.with? "srt"
-
-    if build.with? "xz"
-      args << "--enable-lzma"
-    else
-      args << "--disable-lzma"
-    end
+    args << "--enable-videotoolbox" if MacOS.version >= :mountain_lion
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
@@ -168,13 +149,11 @@ class Ffmpeg < Formula
     args << "--enable-nonfree" if build.with?("fdk-aac") || build.with?("openssl")
 
     system "./configure", *args
-
     system "make", "install"
 
-    if build.with? "tools"
-      system "make", "alltools"
-      bin.install Dir["tools/*"].select { |f| File.executable? f }
-    end
+    # Build and install additional FFmpeg tools
+    system "make", "alltools"
+    bin.install Dir["tools/*"].select { |f| File.executable? f }
   end
 
   test do
