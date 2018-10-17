@@ -60,7 +60,12 @@ class Sile < Formula
         if r.name == "lua-zlib"
           # https://github.com/brimworks/lua-zlib/commit/08d6251700965
           mv "lua-zlib-1.1-0.rockspec", "lua-zlib-1.2-0.rockspec"
-          system "luarocks", "make", "#{r.name}-#{r.version}-0.rockspec", "--tree=#{luapath}"
+          args = %W[
+            #{r.name}-#{r.version}-0.rockspec
+            --tree=#{luapath}
+          ]
+          args << "ZLIB_DIR=#{MacOS.sdk_path}" if MacOS.sdk_path_if_needed
+          system "luarocks", "make", *args
         else
           system "luarocks", "build", r.name, "--tree=#{luapath}"
         end
