@@ -20,23 +20,23 @@ class GstPluginsBad < Formula
   depends_on "gobject-introspection" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "faac"
+  depends_on "faad2"
   depends_on "gettext"
   depends_on "gst-plugins-base"
+  depends_on "jpeg"
+  depends_on "libmms"
   depends_on "openssl"
-  depends_on "jpeg" => :recommended
-  depends_on "orc" => :recommended
+  depends_on "opus"
+  depends_on "orc"
   depends_on "dirac" => :optional
-  depends_on "faac" => :optional
-  depends_on "faad2" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "gnutls" => :optional
   depends_on "libdvdread" => :optional
   depends_on "libexif" => :optional
-  depends_on "libmms" => :optional
   depends_on "libnice" => :optional
   depends_on "libvo-aacenc" => :optional
   depends_on "opencv@2" => :optional
-  depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
   depends_on "sound-touch" => :optional
