@@ -22,16 +22,12 @@ class GstPluginsBase < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gstreamer"
-
-  # The set of optional dependencies is based on the intersection of
-  # https://cgit.freedesktop.org/gstreamer/gst-plugins-base/tree/REQUIREMENTS
-  # and Homebrew formulae
-  depends_on "orc" => :recommended
-  depends_on "pango" => :recommended
-  depends_on "libogg" => :optional
-  depends_on "libvorbis" => :optional
-  depends_on "opus" => :optional
-  depends_on "theora" => :optional
+  depends_on "libogg"
+  depends_on "libvorbis"
+  depends_on "opus"
+  depends_on "orc"
+  depends_on "pango"
+  depends_on "theora"
 
   def install
     # gnome-vfs turned off due to lack of formula for it.
