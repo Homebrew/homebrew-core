@@ -3,6 +3,7 @@ class GstPluginsUgly < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.14.4.tar.xz"
   sha256 "ac02d837f166c35ff6ce0738e281680d0b90052cfb1f0255dcf6aaca5f0f6d23"
+  revision 1
 
   bottle do
     sha256 "f2a66569b4d7a6a5ca09c025b58bb18023d7867617c6c9a4bc8e39f042df92e1" => :mojave
@@ -19,32 +20,32 @@ class GstPluginsUgly < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "flac"
   depends_on "gettext"
   depends_on "gst-plugins-base"
+  depends_on "jpeg"
+  depends_on "lame"
+  depends_on "libmms"
+  depends_on "libshout"
+  depends_on "libvorbis"
+  depends_on "pango"
+  depends_on "theora"
+  depends_on "x264"
 
   # The set of optional dependencies is based on the intersection of
   # gst-plugins-ugly-0.10.17/REQUIREMENTS and Homebrew formulae
-  depends_on "jpeg" => :recommended
   depends_on "a52dec" => :optional
   depends_on "aalib" => :optional
   depends_on "cdparanoia" => :optional
   depends_on "dirac" => :optional
-  depends_on "flac" => :optional
   depends_on "gtk+" => :optional
-  depends_on "lame" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdvdread" => :optional
-  depends_on "libmms" => :optional
   depends_on "libmpeg2" => :optional
   depends_on "liboil" => :optional
-  depends_on "libshout" => :optional
-  depends_on "libvorbis" => :optional
   depends_on "mad" => :optional
   depends_on "opencore-amr" => :optional
-  depends_on "pango" => :optional
-  depends_on "theora" => :optional
   depends_on "two-lame" => :optional
-  depends_on "x264" => :optional
   # Does not work with libcdio 0.9
 
   def install
