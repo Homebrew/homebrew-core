@@ -1,7 +1,7 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://ucloud-sdk.dl.ufileos.com/ucloud-cli-0.1.3.tar.gz"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.3.tar.gz"
   sha256 "897976649717b9e19b7337f0f621321d69a52b679295092a70c072a73b57e51c"
 
   bottle do
