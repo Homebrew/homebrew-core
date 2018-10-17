@@ -3,6 +3,7 @@ class Ngspice < Formula
   homepage "https://ngspice.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/28/ngspice-28.tar.gz"
   sha256 "94804fa78c8db2f90f088902e8c27f7b732a66767a58c70f37612bff5a16df66"
+  revision 1
 
   bottle do
     sha256 "877270fd5047927314c889035105094c64e2f12a6604b3e71c43d9eabe251394" => :high_sierra
@@ -21,6 +22,7 @@ class Ngspice < Formula
 
   deprecated_option "with-x" => "with-x11"
 
+  depends_on "readline"
   depends_on :x11 => :optional
 
   def install
@@ -29,7 +31,7 @@ class Ngspice < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-editline=yes
+      --with-readline=yes
       --enable-xspice
     ]
     if build.with? "x11"
