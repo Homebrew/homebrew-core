@@ -4,8 +4,8 @@ class Heroku < Formula
   desc "Command-line client for the cloud PaaS"
   homepage "https://cli.heroku.com"
   # heroku should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/heroku/-/heroku-7.17.0.tgz"
-  sha256 "da2121cbbe227df6de9cb831ecda1cfe1ff0611a23b9b052ded72383214707e2"
+  url "https://registry.npmjs.org/heroku/-/heroku-7.18.2.tgz"
+  sha256 "2a5c2b51ebdfe92d1ef816881f8ade4bdf634efe012e84ca06f8eea2b82b3cfd"
   head "https://github.com/heroku/cli.git"
 
   bottle do
