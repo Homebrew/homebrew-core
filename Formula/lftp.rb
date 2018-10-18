@@ -11,16 +11,18 @@ class Lftp < Formula
     sha256 "080ba35e879de061f9c794bb3ee59f32259897395dd6b774471aed16a91279f8" => :el_capitan
   end
 
-  depends_on "libidn"
+  depends_on "libidn2"
   depends_on "openssl"
   depends_on "readline"
+
+  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
-                          "--with-libidn=#{Formula["libidn"].opt_prefix}"
+                          "--with-libidn2=#{Formula["libidn2"].opt_prefix}"
     system "make", "install"
   end
 
@@ -28,3 +30,17 @@ class Lftp < Formula
     system "#{bin}/lftp", "-c", "open https://ftp.gnu.org/; ls"
   end
 end
+__END__
+diff --git a/src/Makefile.in b/src/Makefile.in
+index aa27abf..d03f56b 100644
+--- a/src/Makefile.in
++++ b/src/Makefile.in
+@@ -1849,7 +1849,7 @@ liblftp_jobs_la_SOURCES = Job.cc Job.h CmdExec.cc CmdExec.h\
+ liblftp_jobs_la_LIBADD = $(JOB_MODULES_STATIC) liblftp-tasks.la
+ lftp_CPPFLAGS = $(AM_CPPFLAGS) $(READLINE_CFLAGS)
+ lftp_LDFLAGS = -export-dynamic
+-lftp_LDADD = liblftp-jobs.la liblftp-tasks.la $(READLINE_LDFLAGS) $(READLINE_LIBS)
++lftp_LDADD = $(READLINE_LDFLAGS) liblftp-jobs.la liblftp-tasks.la $(READLINE_LIBS)
+ lftp_DEPENDENCIES = liblftp-jobs.la
+ CLEANFILES = *.la
+ AM_CPPFLAGS = -I$(top_srcdir)/lib -I$(top_srcdir)/trio
