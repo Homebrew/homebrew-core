@@ -12,6 +12,7 @@ class Gpgme < Formula
     sha256 "bb4ac5c5bbc9f3f2c54febe2e872c780337d6c8612124778b76826371c673492" => :sierra
   end
 
+  depends_on "python" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
@@ -32,5 +33,6 @@ class Gpgme < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
     system "python2.7", "-c", "import gpg; print gpg.version.versionstr"
+    system "python3", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end
