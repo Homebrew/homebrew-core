@@ -30,20 +30,6 @@ class Wine < Formula
     sha256 "aa34f0a67a92a8bae72b08035c0ef43991b96c0109a4a91a909fbdaf685b0c4d" => :sierra
   end
 
-  devel do
-    url "https://dl.winehq.org/wine/source/3.x/wine-3.18.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.18.tar.xz"
-    sha256 "9be8d44b1b22814c76e6214fe8ce657ae90a7a17879e5cd2b2a87ad6a1391a77"
-
-    resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.3/wine-mono-4.7.3.msi"
-      sha256 "d24a8017371c7e8224a1778bb43a113ed7ed9720efd9d0cda175d42db6106d3a"
-    end
-
-    # Does not build with Xcode 10, used on High Sierra and Mojave
-    depends_on MaximumMacOSRequirement => :sierra
-  end
-
   head do
     url "https://source.winehq.org/git/wine.git"
 
