@@ -3,7 +3,6 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-
   head "https://code.qt.io/qt/qt5.git", :branch => "5.12", :shallow => false
 
   stable do
@@ -36,12 +35,6 @@ class Qt < Formula
     sha256 "096d8894b25b0fdec9b77150704491993872a7848397a04870627534fb95c9e3" => :high_sierra
     sha256 "0464be51d0eb0a45de4a1d1c6200e1d9768eec5e9737050755497a4f4de66a08" => :sierra
     sha256 "22e9abc0b47541bb03b2da7f6a19c5d7640ea2314322564551adc3d22305806e" => :el_capitan
-  end
-
-  devel do
-    url "https://download.qt.io/development_releases/qt/5.12/5.12.0-beta2/single/qt-everywhere-src-5.12.0-beta2.tar.xz"
-    mirror "https://ftp.acc.umu.se/mirror/qt.io/qtproject/development_releases/qt/5.12/5.12.0-beta2/single/qt-everywhere-src-5.12.0-beta2.tar.xz"
-    sha256 "1ea63d6395c4cd99ae2edd28d43648e6b0432ae23d64be57f08fd3d0eeace368"
   end
 
   keg_only "Qt 5 has CMake issues when linked"
