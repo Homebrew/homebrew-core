@@ -12,12 +12,6 @@ class Gnutls < Formula
     sha256 "32ff14835283bea56a1b2ac9aac7d5e2712901a65e098086836dac136eeeb478" => :el_capitan
   end
 
-  devel do
-    url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.2.tar.xz"
-    mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.2.tar.xz"
-    sha256 "bcd5db7b234e02267f36b5d13cf5214baac232b7056a506252b7574ea7738d1f"
-  end
-
   depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on "libtasn1"
