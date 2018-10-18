@@ -10,13 +10,6 @@ class Php < Formula
     sha256 "5c16b674951b548d1b11fe77d172b99bfca57ce90122c315e86ef53a0530ee9b" => :sierra
   end
 
-  devel do
-    url "https://downloads.php.net/~cmb/php-7.3.0RC3.tar.xz"
-    sha256 "bd6c7fa718ff5b430d64ae1b5cfdf3e076ceb0a4a8569927bba8fe65fa04c4b5"
-
-    depends_on "openldap"
-  end
-
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "apr"
@@ -171,7 +164,7 @@ class Php < Formula
       args << "--with-curl#{headers_path}"
     end
 
-    if build.devel? || MacOS.sdk_path_if_needed
+    if MacOS.sdk_path_if_needed
       args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
     else
       args << "--with-ldap"
