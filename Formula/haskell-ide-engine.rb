@@ -4,6 +4,8 @@ class HaskellIdeEngine < Formula
 
   url "https://github.com/haskell/haskell-ide-engine.git",
     :revision => "0.2.1.0"
+  
+  head "https://github.com/haskell/haskell-ide-engine.git"
 
   version "0.2.1.0"
 
