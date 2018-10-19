@@ -3,8 +3,8 @@ require "language/go"
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.11.8.tar.gz"
-  sha256 "c0d7a0b726579574bcfee2ae141be4e82d1c9ab4a339cc6f86f9ec38de9130fb"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.9.tar.gz"
+  sha256 "cf2ecbdc9ea7c5294942f1c633b2871bf2bc620661148bf08546da2d32543784"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
@@ -23,7 +23,7 @@ class Terraform < Formula
   # stringer is a build tool dependency
   go_resource "golang.org/x/tools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.10"
+        :branch => "release-branch.go1.11"
   end
 
   def install
