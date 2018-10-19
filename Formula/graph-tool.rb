@@ -71,6 +71,7 @@ class GraphTool < Formula
     sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
   end
 
+  # Remove for > 2.27
   # Upstream commit from 3 Oct 2018 "Fix compilation with CGAL 4.13"
   patch do
     url "https://git.skewed.de/count0/graph-tool/commit/aa39e4a6.diff"
@@ -86,14 +87,18 @@ class GraphTool < Formula
       venv.pip_install_and_link r
     end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "PYTHON=python3",
-                          "PYTHON_LIBS=-undefined dynamic_lookup",
-                          "--with-python-module-path=#{lib}/python#{xy}/site-packages",
-                          "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt",
-                          "--with-expat=/usr/local/opt/expat"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      PYTHON=python3
+      PYTHON_LIBS=-undefined dynamic_lookup
+      --with-python-module-path=#{lib}/python#{xy}/site-packages
+      --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
+    ]
+    args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+
+    system "./configure", *args
     system "make", "install"
 
     site_packages = "lib/python#{xy}/site-packages"
