@@ -96,7 +96,7 @@ class GraphTool < Formula
       --with-python-module-path=#{lib}/python#{xy}/site-packages
       --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
     ]
-    args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+    args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
 
     system "./configure", *args
     system "make", "install"
