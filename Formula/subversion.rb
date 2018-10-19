@@ -4,7 +4,7 @@ class Subversion < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.11.0.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2"
   sha256 "87c44344b074ac2e9ed7ca9675fb1e5b197051c3deecfe5934e5f6aefbf83e56"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "c75742cfd2ac700aaa37e2763c3ed315b25954d619704cd1d967c689289e6faa" => :mojave
@@ -31,7 +31,8 @@ class Subversion < Formula
   depends_on "apr-util"
 
   # build against Homebrew versions of
-  # lz4, perl, sqlite and utf8proc for consistency
+  # gettext, lz4, perl, sqlite and utf8proc for consistency
+  depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl" # For Serf
   depends_on "perl"
@@ -94,7 +95,6 @@ class Subversion < Formula
       --disable-debug
       --enable-optimize
       --disable-mod-activation
-      --disable-nls
       --disable-plaintext-password-storage
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
