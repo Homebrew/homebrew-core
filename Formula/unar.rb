@@ -17,19 +17,30 @@ class Unar < Formula
 
   depends_on :xcode => :build
 
+  # Fix build for Xcode 10 but remove libstdc++.6.dylib and linking libc++.dylib instead
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a94f6f/unar/xcode10.diff"
+    sha256 "d4ac4abe6f6bcc2175efab6be615432b5a8093f8bfc99fba21552bc820b29703"
+  end
+
   def install
     # ZIP for 1.10.1 additionally contains a `__MACOSX` directory, preventing
     # stripping of the first path component during extraction of the archive.
     mv Dir["The Unarchiver/*"], "."
 
+    args = %W[
+      -project ./XADMaster/XADMaster.xcodeproj
+      SYMROOT=..
+      -configuration Release
+      MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
+    ]
+
     # Build XADMaster.framework, unar and lsar
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-alltargets", "-configuration", "Release", "clean"
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "XADMaster", "SYMROOT=../", "-configuration", "Release"
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "unar", "SYMROOT=../", "-configuration", "Release"
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "lsar", "SYMROOT=../", "-configuration", "Release"
+    xcodebuild "-target", "XADMaster", *args
+    xcodebuild "-target", "unar", *args
+    xcodebuild "-target", "lsar", *args
 
     bin.install "./Release/unar", "./Release/lsar"
-
     lib.install "./Release/libXADMaster.a"
     frameworks.install "./Release/XADMaster.framework"
     (include/"libXADMaster").install_symlink Dir["#{frameworks}/XADMaster.framework/Headers/*"]
