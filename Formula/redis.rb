@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-4.0.11.tar.gz"
-  sha256 "fc53e73ae7586bcdacb4b63875d1ff04f68c5474c1ddeda78f00e5ae2eed1bbb"
+  url "http://download.redis.io/releases/redis-5.0.0.tar.gz"
+  sha256 "70c98b2d0640b2b73c9d8adb4df63bcb62bad34b788fe46d1634b6cf87dc99a4"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
@@ -13,18 +13,11 @@ class Redis < Formula
     sha256 "edf1102538a71e541afca92ab0e44eecfbcc05f430d903bf07dcd5aa50181597" => :el_capitan
   end
 
-  option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
-
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
 
-    args = %W[
-      PREFIX=#{prefix}
-      CC=#{ENV.cc}
-    ]
-    args << "MALLOC=jemalloc" if build.with? "jemalloc"
-    system "make", "install", *args
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
