@@ -8,11 +8,10 @@ class Unar < Formula
 
   bottle do
     cellar :any
-    sha256 "c4f9c710265918eaa77a7f046601bd947c9ed75a2281e4aaf43789e29fe345fb" => :high_sierra
-    sha256 "bd712f6dc4a543d4af936e85d0fcceadc32c2a0ca3c7db11bf484515f2ddd8da" => :sierra
-    sha256 "90f8103e17eedfa6825268488c425e050e24ad703919e8aa63bfbd4c03fcf44f" => :el_capitan
-    sha256 "b337f36dc2ec53be49d52ceee23924670319c819b259e39c76fe57720bfb1659" => :yosemite
-    sha256 "dab9604cafaab887741e0d6511f88e7ca66ad556ee86a41f4b1896ec558d9650" => :mavericks
+    rebuild 1
+    sha256 "da43cef8fa866f3ef1b49207616198f71865a2bd74bea8a4ca6561663c8c5a4a" => :mojave
+    sha256 "83d44f348e559ec06bea6a5e9d9b50252884b2f9eefda0d0834f4b43f9445049" => :high_sierra
+    sha256 "26a7dc14db6b28cc896f5692fd1ba6b3434656c80df5e28fecb41dfa952f31d8" => :sierra
   end
 
   depends_on :xcode => :build
