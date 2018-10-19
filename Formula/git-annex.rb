@@ -15,8 +15,6 @@ class GitAnnex < Formula
     sha256 "3c51fa068af0798623d4e23ee763fe0503d4b880c4822c053b4a7381dec0ac3b" => :sierra
   end
 
-  option "with-git-union-merge", "Build the git-union-merge tool"
-
   depends_on "cabal-install" => :build
   depends_on "ghc@8.2" => :build
   depends_on "pkg-config" => :build
@@ -34,12 +32,6 @@ class GitAnnex < Formula
                           "--constraint", "network<2.7.0.1",
                           :using => ["alex", "happy", "c2hs"],
                           :flags => ["s3", "webapp"] do
-      # this can be made the default behavior again once git-union-merge builds properly when bottling
-      if build.with? "git-union-merge"
-        system "make", "git-union-merge", "PREFIX=#{prefix}"
-        bin.install "git-union-merge"
-        system "make", "git-union-merge.1", "PREFIX=#{prefix}"
-      end
     end
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
