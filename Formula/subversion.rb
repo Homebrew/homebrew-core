@@ -31,7 +31,8 @@ class Subversion < Formula
   depends_on "apr-util"
 
   # build against Homebrew versions of
-  # lz4, perl, sqlite and utf8proc for consistency
+  # gettext, lz4, perl, sqlite and utf8proc for consistency
+  depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl" # For Serf
   depends_on "perl"
@@ -92,7 +93,6 @@ class Subversion < Formula
       --disable-debug
       --enable-optimize
       --disable-mod-activation
-      --disable-nls
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apxs=no
