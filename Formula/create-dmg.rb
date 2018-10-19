@@ -2,7 +2,7 @@ class CreateDmg < Formula
   desc "Shell script to build fancy DMGs"
   homepage "https://github.com/andreyvit/create-dmg"
   url "https://github.com/andreyvit/create-dmg/archive/v1.0.0.4.tar.gz"
-  sha256 "e91fc0fa9ff6938ac81352a4c3ce347fefa18a780e00020096ef1d5636ba0c9b"
+  sha256 "4106eaccae7822db69870e6d36bad47d9d67e2fb690fbcb10ef488e3af061810"
 
   def install
     system "support/brew-me.sh"
@@ -10,8 +10,9 @@ class CreateDmg < Formula
   end
 
   test do
+    File.write(testpath/"Brew-Eula.txt", 'Eula')
     (testpath/"Test-Source").mkpath
     (testpath/"Test-Source/Brew.app").mkpath
-    system "#{bin}/create-dmg", testpath/"Brew-Test.dmg", testpath/"Test-Source"
+    system "#{bin}/create-dmg", "--sandbox-safe", "--eula", testpath/"Brew-Eula.txt", testpath/"Brew-Test.dmg", testpath/"Test-Source"
   end
 end
