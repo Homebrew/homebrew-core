@@ -15,6 +15,8 @@ class Restic < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
+
     system "go", "run", "build.go"
     bin.install "restic"
   end
