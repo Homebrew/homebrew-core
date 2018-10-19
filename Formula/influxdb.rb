@@ -8,10 +8,9 @@ class Influxdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe3d70d99e3de21a1ccff16836df29ca6b85af9bd936442c448cca6e41bd0711" => :mojave
-    sha256 "0e799d292bd0a1709e1f52740034af5df105c5611e673ac05a6c30a82680155b" => :high_sierra
-    sha256 "afaf4f77d403e11d9fd7bd80ea93b8243d6fdc733fdf630bf3b293ff49e0a71e" => :sierra
-    sha256 "7d7dae04fb3eb96d4ef8de31cc3736a694ae42a9eb6f6e0cead4036e18f9e005" => :el_capitan
+    sha256 "f4b3eb8555d77d83cb2aad562f337e7a15f87f92cf260f721b86cb0277bdc7b1" => :mojave
+    sha256 "154ba574ae37bfde1f8461b0dd2fb34afa0ffbb88af1364fc6183d6741212de9" => :high_sierra
+    sha256 "8228d47879736125ec0a32863e424b9a5070196cd917d1e22042292d1a0e62e5" => :sierra
   end
 
   depends_on "gdm" => :build
