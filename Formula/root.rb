@@ -4,7 +4,7 @@ class Root < Formula
   url "https://root.cern.ch/download/root_v6.14.04.source.tar.gz"
   version "6.14.04"
   sha256 "463ec20692332a422cfb5f38c78bedab1c40ab4d81be18e99b50cf9f53f596cf"
-  revision 1
+  revision 2
   head "https://github.com/root-project/root.git"
 
   bottle do
@@ -29,15 +29,18 @@ class Root < Formula
   depends_on "cmake" => :build
   depends_on "davix"
   depends_on "fftw"
-  depends_on "gcc" # for gfortran.
+  depends_on "gcc" # for gfortran
   depends_on "graphviz"
   depends_on "gsl"
+  # Temporarily depend on Homebrew libxml2 to work around a brew issue:
+  # https://github.com/Homebrew/brew/issues/5068
+  depends_on "libxml2" if MacOS.version >= :mojave
   depends_on "lz4"
   depends_on "openssl"
   depends_on "pcre"
   depends_on "tbb"
   depends_on "xrootd"
-  depends_on "xz" # For LZMA.
+  depends_on "xz" # for LZMA
   depends_on "python" => :recommended
   depends_on "python@2" => :optional
 
@@ -60,6 +63,7 @@ class Root < Formula
     args = std_cmake_args + %W[
       -Dgnuinstall=ON
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
+      -DCLING_CXX_PATH=clang++
       -Dbuiltin_freetype=ON
       -Dbuiltin_cfitsio=OFF
       -Ddavix=ON
