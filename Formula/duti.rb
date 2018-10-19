@@ -14,6 +14,12 @@ class Duti < Formula
 
   depends_on "autoconf" => :build
 
+  # Fix compilation on macOS 10.14 Mojave
+  patch do
+    url "https://github.com/moretension/duti/pull/32.patch"
+    sha256 "e249113e27fbcd1daca1c75598eca8cfa65f8ed2c08a276bda390b6c4148e9be"
+  end
+
   def install
     system "autoreconf", "-vfi"
     system "./configure", "--prefix=#{prefix}"
