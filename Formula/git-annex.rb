@@ -21,7 +21,7 @@ class GitAnnex < Formula
   depends_on "gsasl"
   depends_on "libmagic"
   depends_on "quvi"
-  depends_on "xdot" => :recommended
+  depends_on "xdot"
 
   def install
     # Reported 28 Feb 2018 to aws upstream https://github.com/aristidb/aws/issues/244
@@ -31,8 +31,7 @@ class GitAnnex < Formula
     install_cabal_package "--constraint", "http-conduit<2.3",
                           "--constraint", "network<2.7.0.1",
                           :using => ["alex", "happy", "c2hs"],
-                          :flags => ["s3", "webapp"] do
-    end
+                          :flags => ["s3", "webapp"]
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 
