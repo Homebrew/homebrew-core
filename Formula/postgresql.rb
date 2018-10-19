@@ -13,14 +13,9 @@ class Postgresql < Formula
     sha256 "abd8104c82358d6067399b8001aec86738d2aced1a0c78cd1c9cb33b129098a5" => :el_capitan
   end
 
-  option "without-perl", "Build without Perl support"
-  option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
-  option "with-python", "Enable PL/Python3 (incompatible with --with-python@2)"
-  option "with-python@2", "Enable PL/Python2"
+  option "with-python", "Enable PL/Python3"
 
-  deprecated_option "no-perl" => "without-perl"
-  deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
   deprecated_option "with-python3" => "with-python"
 
@@ -30,7 +25,6 @@ class Postgresql < Formula
   depends_on "readline"
 
   depends_on "python" => :optional
-  depends_on "python@2" => :optional
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
@@ -58,22 +52,17 @@ class Postgresql < Formula
       --with-libxml
       --with-libxslt
       --with-icu
+      --with-perl
     ]
 
-    args << "--with-perl" if build.with? "perl"
-
-    which_python = nil
-    if build.with?("python") && build.with?("python@2")
-      odie "Cannot provide both --with-python and --with-python@2"
-    elsif build.with?("python") || build.with?("python@2")
+    if build.with? "python"
       args << "--with-python"
-      which_python = which(build.with?("python") ? "python3" : "python2.7")
+      ENV["PYTHON"] = "python3"
     end
-    ENV["PYTHON"] = which_python
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
+    if MacOS.version >= :mavericks || MacOS::CLT.installed?
       args << "--with-tcl"
 
       if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
