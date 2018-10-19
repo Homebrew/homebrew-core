@@ -3,6 +3,7 @@ class LibjsonRpcCpp < Formula
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
   url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.1.0.tar.gz"
   sha256 "8e699cad9f64e5db5c855ddfb6900dc55e673cc960cb9158818d652b74cb9183"
+  revision 1
   head "https://github.com/cinemast/libjson-rpc-cpp.git"
 
   bottle do
