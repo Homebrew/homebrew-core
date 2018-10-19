@@ -13,7 +13,7 @@ class Mercurial < Formula
     sha256 "1d37cef12a5496c82d1067542e7f2bdc07abe431d0edfbcd45f608b709ff8885" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
