@@ -92,7 +92,7 @@ class GraphTool < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       PYTHON=python3
-      PYTHON_LIBS=-undefined dynamic_lookup
+      PYTHON_LIBS=-undefined\ dynamic_lookup
       --with-python-module-path=#{lib}/python#{xy}/site-packages
       --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
     ]
