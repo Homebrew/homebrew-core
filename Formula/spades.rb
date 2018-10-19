@@ -7,9 +7,9 @@ class Spades < Formula
 
   bottle do
     cellar :any
-    sha256 "6040a9bd289a6da30bc4b47f0d9a484355604d38ccfa91973d023dfc92e266b8" => :mojave
-    sha256 "92dfcc3091aabc822284cba8384d4a18c0f59d1bc297d5052a346a584814794e" => :high_sierra
-    sha256 "7d5a1293aeb3be0efddd29836095d6610e42bb8000f39b5785f5b2f32aada243" => :sierra
+    sha256 "1728c4d25e0f62e1f630de9622a2b6dc1add3703cfa8d7471c415ee21bd6e36e" => :mojave
+    sha256 "3403d415389703649cd92acec88e85646e755a783d289b8a6beb7508ecf96f21" => :high_sierra
+    sha256 "0d01c5eb1d4072a40ae8a1a2436ecd3987250152f4abc3ba76379b914929bc95" => :sierra
   end
 
   depends_on "cmake" => :build
