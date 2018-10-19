@@ -1,8 +1,8 @@
 class Postgresql < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.5/postgresql-10.5.tar.bz2"
-  sha256 "6c8e616c91a45142b85c0aeb1f29ebba4a361309e86469e0fb4617b6a73c4011"
+  url "https://ftp.postgresql.org/pub/source/v11.0/postgresql-11.0.tar.bz2"
+  sha256 "bf9bba03d0c3902c188af12e454b35343c4a9bf9e377ec2fe50132efb44ef36b"
   head "https://github.com/postgres/postgres.git"
 
   bottle do
@@ -34,11 +34,6 @@ class Postgresql < Formula
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
-
-  fails_with :clang do
-    build 211
-    cause "Miscompilation resulting in segfault on queries"
-  end
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -89,42 +84,11 @@ class Postgresql < Formula
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
 
-    # As of Xcode/CLT 10.x the Perl headers were moved from /System
-    # to inside the SDK, so we need to use `-iwithsysroot` instead
-    # of `-I` to point to the correct location.
-    # https://www.postgresql.org/message-id/153558865647.1483.573481613491501077%40wrigleys.postgresql.org
-    if DevelopmentTools.clang_build_version >= 1000
-      inreplace "configure",
-                "-I$perl_archlibexp/CORE",
-                "-iwithsysroot $perl_archlibexp/CORE"
-      inreplace "contrib/hstore_plperl/Makefile",
-                "-I$(perl_archlibexp)/CORE",
-                "-iwithsysroot $(perl_archlibexp)/CORE"
-      inreplace "src/pl/plperl/GNUmakefile",
-                "-I$(perl_archlibexp)/CORE",
-                "-iwithsysroot $(perl_archlibexp)/CORE"
-    end
-
     system "./configure", *args
     system "make"
-
-    dirs = %W[datadir=#{pkgshare} libdir=#{lib} pkglibdir=#{lib}/postgresql]
-
-    # Temporarily disable building/installing the documentation.
-    # Postgresql seems to "know" the build system has been altered and
-    # tries to regenerate the documentation when using `install-world`.
-    # This results in the build failing:
-    #  `ERROR: `osx' is missing on your system.`
-    # Attempting to fix that by adding a dependency on `open-sp` doesn't
-    # work and the build errors out on generating the documentation, so
-    # for now let's simply omit it so we can package Postgresql for Mojave.
-    if DevelopmentTools.clang_build_version >= 1000
-      system "make", "all"
-      system "make", "-C", "contrib", "install", "all", *dirs
-      system "make", "install", "all", *dirs
-    else
-      system "make", "install-world", *dirs
-    end
+    system "make", "install-world", "datadir=#{pkgshare}",
+                                    "libdir=#{lib}",
+                                    "pkglibdir=#{lib}/postgresql"
   end
 
   def post_install
