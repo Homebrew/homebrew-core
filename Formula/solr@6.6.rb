@@ -7,6 +7,8 @@ class SolrAT66 < Formula
 
   bottle :unneeded
 
+  keg_only :versioned_formula
+
   depends_on :java
 
   skip_clean "example/logs"
@@ -21,14 +23,16 @@ class SolrAT66 < Formula
     inreplace "#{bin}/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
 
     # Fix the paths in the sample solrconfig.xml files
-    Dir.glob(["#{prefix}/example/**/solrconfig.xml",
-              "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
-              "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml"]) do |f|
+    Dir.glob([
+               "#{prefix}/example/**/solrconfig.xml",
+               "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
+               "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml",
+             ]) do |f|
       inreplace f, ":../../../..}/", "}/libexec/"
     end
   end
 
-  plist_options :manual => "solr start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/solr@6.6/bin/solr start"
 
   def plist
     <<~EOS
