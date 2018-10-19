@@ -23,6 +23,7 @@ class Git < Formula
 
     option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
     option "with-curl", "Use Homebrew's version of cURL library"
+    option "without-completion", "Install without bash/zsh completion"
 
     depends_on "openssl" => :optional
     depends_on "curl" => :optional
@@ -114,10 +115,12 @@ class Git < Formula
     end
 
     # install the completion script first because it is inside "contrib"
-    bash_completion.install "contrib/completion/git-completion.bash"
-    bash_completion.install "contrib/completion/git-prompt.sh"
-    zsh_completion.install "contrib/completion/git-completion.zsh" => "_git"
-    cp "#{bash_completion}/git-completion.bash", zsh_completion
+    unless build.without?("completion")
+      bash_completion.install "contrib/completion/git-completion.bash"
+      bash_completion.install "contrib/completion/git-prompt.sh"
+      zsh_completion.install "contrib/completion/git-completion.zsh" => "_git"
+      cp "#{bash_completion}/git-completion.bash", zsh_completion
+    end
 
     elisp.install Dir["contrib/emacs/*.el"]
     (share/"git-core").install "contrib"
