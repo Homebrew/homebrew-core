@@ -1,8 +1,8 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.10.0/apache-arrow-0.10.0.tar.gz"
-  sha256 "943207a2fcc7ba8de0e50bdb6c6ea4e9ed7f7e7bf55f6b426d7f867f559e842d"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.11.0/apache-arrow-0.11.0.tar.gz"
+  sha256 "1838faa3775e082062ad832942ebc03aaf95386c0284288346ddae0632be855d"
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -18,14 +18,6 @@ class ApacheArrow < Formula
   depends_on "jemalloc"
   depends_on "python" => :optional
   depends_on "python@2" => :optional
-
-  # Fix "Invalid character ('{') in a variable name: 'ENV'"
-  # Upstream PR 08 Aug 2018 "[C++] Fix a typo in `FindClangTools.cmake`."
-  # See https://github.com/apache/arrow/pull/2404
-  patch do
-    url "https://github.com/apache/arrow/pull/2404.patch?full_index=1"
-    sha256 "77a03e841186e132b44d8a6212c7ca6934b1b9bd77173f91cff53507b0906f3e"
-  end
 
   needs :cxx11
 
