@@ -21,18 +21,6 @@ class Tika < Formula
     bin.write_jar_script libexec/"tika-server-#{version}.jar", "tika-rest-server"
   end
 
-  def caveats; <<~EOS
-    To run Tika:
-      tika
-
-    To run Tika's REST server:
-      tika-rest-server
-
-    See the Tika homepage for more documentation:
-      brew home tika
-  EOS
-  end
-
   test do
     pdf = test_fixtures("test.pdf")
     assert_equal "application/pdf\n", shell_output("#{bin}/tika --detect #{pdf}")
