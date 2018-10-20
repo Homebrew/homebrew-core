@@ -13,11 +13,6 @@ class Kops < Formula
     sha256 "c52f609532178a621b4da9f83801e4168377d2860070a7aa2e7dbffaebe7c6a3" => :el_capitan
   end
 
-  devel do
-    url "https://github.com/kubernetes/kops/archive/1.11.0-alpha.1.tar.gz"
-    sha256 "7ec64e4fd72e7c43da15cac6b13eb99f7bd955254abb440f5f042863f6646bb9"
-  end
-
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
