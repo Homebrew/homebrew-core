@@ -80,7 +80,7 @@ class GraphTool < Formula
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
-    ENV.delete("SDKROOT")
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :high_sierra
 
     xy = Language::Python.major_minor_version "python3"
     venv = virtualenv_create(libexec, "python3")
