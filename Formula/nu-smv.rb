@@ -19,7 +19,7 @@ class NuSmv < Formula
       SPEC TRUE = TRUE
     EOS
 
-    assert_match /#{Regexp.escape("specification TRUE = TRUE  is true")}/,
-      shell_output("#{bin}/NuSMV test.smv")
+    output = shell_output("#{bin}/NuSMV test.smv")
+    assert_match "specification TRUE = TRUE  is true", output
   end
 end
