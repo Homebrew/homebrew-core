@@ -3,6 +3,7 @@ class Numpy < Formula
   homepage "https://www.numpy.org/"
   url "https://files.pythonhosted.org/packages/45/ba/2a781ebbb0cd7962cc1d12a6b65bd4eff57ffda449fdbbae4726dc05fbc3/numpy-1.15.2.zip"
   sha256 "27a0d018f608a3fe34ac5e2b876f4c23c47e38295c47dd0775cc294cd2614bc1"
+  revision 1
 
   bottle do
     sha256 "0d480693793b2a59bcbd6fdd367c99b98e4adc3734c6335a2f49e09947b87d3b" => :mojave
@@ -22,6 +23,7 @@ class Numpy < Formula
   option "without-python@2", "Build without python2 support"
 
   depends_on "gcc" => :build # for gfortran
+  depends_on "openblas"
   depends_on "python" => :recommended
   depends_on "python@2" => :recommended
 
@@ -31,6 +33,19 @@ class Numpy < Formula
   end
 
   def install
+    openblas = Formula["openblas"].opt_prefix
+    ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
+    ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"
+
+    config = <<~EOS
+      [openblas]
+      libraries = openblas
+      library_dirs = #{openblas}/lib
+      include_dirs = #{openblas}/include
+    EOS
+
+    Pathname("site.cfg").write config
+
     Language::Python.each_python(build) do |python, version|
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath
