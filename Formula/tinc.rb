@@ -10,11 +10,6 @@ class Tinc < Formula
     sha256 "0c78ab7901f43d6f2dd2406157308377722df4d225737fb193dcd7e3f3ef7714" => :sierra
   end
 
-  devel do
-    url "https://www.tinc-vpn.org/packages/tinc-1.1pre17.tar.gz"
-    sha256 "61b9c9f9f396768551f39216edcc41918c65909ffd9af071feb3b5f9f9ac1c27"
-  end
-
   depends_on "lzo"
   depends_on "openssl"
 
