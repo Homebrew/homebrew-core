@@ -15,6 +15,8 @@ class WireguardGo < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
+
     system "make", "PREFIX=#{prefix}", "install"
   end
 
