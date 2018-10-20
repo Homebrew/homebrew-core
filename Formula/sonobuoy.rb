@@ -1,8 +1,8 @@
 class Sonobuoy < Formula
   desc "Kubernetes component that generates reports on cluster conformance"
   homepage "https://github.com/heptio/sonobuoy"
-  url "https://github.com/heptio/sonobuoy/archive/v0.12.0.tar.gz"
-  sha256 "068def4fedb8d9a951444a83759a9c3eafef7b968a3d8b1135f63ff982571fdf"
+  url "https://github.com/heptio/sonobuoy/archive/v0.12.1.tar.gz"
+  sha256 "dca43d4cdf1ecfbb67da129c3759f72beeae07a24710fb6d10eb98411325f373"
 
   depends_on "go" => :build
 
