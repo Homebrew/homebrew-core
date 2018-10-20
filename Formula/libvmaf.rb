@@ -13,6 +13,9 @@ class Libvmaf < Formula
   end
 
   test do
-    system "#{pkgshare}/testlib", "yuv420p", "576", "324", "#{pkgshare}/src01_hrc00_576x324.yuv", "#{pkgshare}/src01_hrc00_576x324.yuv", "#{share}/model/vmaf_v0.6.1.pkl"
+    yuv = "#{pkgshare}/src01_hrc00_576x324.yuv"
+    pkl = "#{share}/model/vmaf_v0.6.1.pkl"
+    output = shell_output("#{pkgshare}/testlib yuv420p 576 324 #{yuv} #{yuv} #{pkl}")
+    assert_match "VMAF score = ", output
   end
 end
