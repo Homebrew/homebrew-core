@@ -4,6 +4,13 @@ class Sonobuoy < Formula
   url "https://github.com/heptio/sonobuoy/archive/v0.12.1.tar.gz"
   sha256 "dca43d4cdf1ecfbb67da129c3759f72beeae07a24710fb6d10eb98411325f373"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "12afd800d1591922dc6ac4bc549eadd166929a589e1dadc3610ee92123b936cf" => :mojave
+    sha256 "cc32d51e186cb3b4c51c880d3f9a80935a74de7fa7f41206b66bd59335b1497d" => :high_sierra
+    sha256 "d3f6af7bfa97ee6e7c31bc419b3691da1ba6f9e7cdcf697780482802534aff1d" => :sierra
+  end
+
   depends_on "go" => :build
 
   resource "sonobuoyresults" do
