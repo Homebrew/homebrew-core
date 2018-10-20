@@ -14,14 +14,6 @@ class Abook < Formula
     sha256 "2f3a8d37fd17ecdda801f8de53e4048f19d824748e11a34c6f9abca0aae06c3b" => :yosemite
   end
 
-  devel do
-    url "https://abook.sourceforge.io/devel/abook-0.6.0pre2.tar.gz"
-    sha256 "59d444504109dd96816e003b3023175981ae179af479349c34fa70bc12f6d385"
-
-    # Remove `inline` from function implementation for clang compatibility
-    patch :DATA
-  end
-
   depends_on "readline"
 
   def install
@@ -36,18 +28,3 @@ class Abook < Formula
     system "#{bin}/abook", "--formats"
   end
 end
-
-__END__
-diff --git a/database.c b/database.c
-index 7c47ab6..53bdb9f 100644
---- a/database.c
-+++ b/database.c
-@@ -762,7 +762,7 @@ item_duplicate(list_item dest, list_item src)
-  */
- 
- /* quick lookup by "standard" field number */
--inline int
-+int
- field_id(int i)
- {
- 	assert((i >= 0) && (i < ITEM_FIELDS));
