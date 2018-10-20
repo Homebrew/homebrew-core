@@ -1,3 +1,4 @@
+# coding: utf-8
 require "language/haskell"
 
 class Agda < Formula
@@ -12,7 +13,7 @@ class Agda < Formula
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "a1a10b39d35b8fc40e87723a89f5682252d46380"
+          :revision => "5819a4dd9c965296224944f05b1481805649bdc2" #v0.17
     end
   end
 
