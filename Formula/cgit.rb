@@ -4,6 +4,12 @@ class Cgit < Formula
   url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.tar.xz"
   sha256 "d5622ba7c3eb87de402da6fe3a092219546a917ff627966e99c9f18ba32a4832"
 
+  bottle do
+    sha256 "0ff0cd64c7a3ac693e4f675af69deb2bb246a2c24c99fe56c12c74532fa9b428" => :mojave
+    sha256 "edb9cbce45815c17a565d1553f142eea8fb8a04cb81610bcba211877c6c62906" => :high_sierra
+    sha256 "52a8467512ecb63eb159f1d37eeaa073ea089a613d42a92c050965e32309bef9" => :sierra
+  end
+
   depends_on "gettext"
   depends_on "openssl"
 
