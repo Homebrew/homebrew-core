@@ -48,6 +48,6 @@ class ChocolateDoom < Formula
   end
 
   test do
-    assert_match /Chocolate Doom 3.0.0/, shell_output("#{bin}/chocolate-doom -nogui", 255)
+    assert_match "Chocolate Doom #{version}", shell_output("#{bin}/chocolate-doom -nogui", 255)
   end
 end
