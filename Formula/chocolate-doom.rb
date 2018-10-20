@@ -48,6 +48,6 @@ class ChocolateDoom < Formula
   end
 
   test do
-    system "chocolate-doom; if [ $? -ne 255 ]; then exit -1; else exit 0; fi"
+    assert_match /Chocolate Doom 3.0.0/, shell_output("#{bin}/chocolate-doom -nogui", 255)
   end
 end
