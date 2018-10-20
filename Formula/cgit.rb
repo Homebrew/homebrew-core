@@ -7,6 +7,8 @@ class Cgit < Formula
   depends_on "gettext"
   depends_on "openssl"
 
+  # git version is mandated by cgit: see GIT_VER variable in Makefile
+  # https://git.zx2c4.com/cgit/tree/Makefile?h=v1.2#n17
   resource "git" do
     url "https://www.kernel.org/pub/software/scm/git/git-2.18.0.tar.gz"
     sha256 "94faf2c0b02a7920b0b46f4961d8e9cad08e81418614102898a55f980fa3e7e4"
@@ -29,6 +31,7 @@ class Cgit < Formula
       repo.desc=the master foo repository
       repo.owner=fooman@example.com
     EOS
+
     ENV["CGIT_CONFIG"] = testpath/"cgitrc"
     # no "Status" line means 200
     assert_no_match /Status: .+/, shell_output("#{pkgshare}/cgit.cgi")
