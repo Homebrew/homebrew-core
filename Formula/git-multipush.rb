@@ -15,18 +15,10 @@ class GitMultipush < Formula
     sha256 "cc6bb7672b79860ae50c06633c28913b5fadb25e2815c5b3e432d4039746f16c" => :mavericks
   end
 
-  devel do
-    url "https://github.com/gavinbeatty/git-multipush/archive/git-multipush-v2.4.rc2.tar.gz"
-    sha256 "999d9304f322c1b97d150c96be64ecde30980f97eaaa9d66f365b8b11894c46d"
-  end
-
   depends_on "asciidoc" => :build
 
   def install
     system "make" if build.head?
-    # Devel tarballs don't have versions marked, maybe due to GitHub release process
-    # https://github.com/gavinbeatty/git-multipush/issues/1
-    (buildpath/"release").write "VERSION = #{version}" if build.devel?
     system "make", "prefix=#{prefix}", "install"
   end
 
