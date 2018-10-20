@@ -1,8 +1,8 @@
 class Cmdshelf < Formula
   desc "Better scripting life with cmdshelf"
   homepage "https://github.com/toshi0383/cmdshelf"
-  url "https://github.com/toshi0383/cmdshelf/archive/2.0.1.tar.gz"
-  sha256 "e3f3934ce4d90183b3caac1e35eb584848588450694c494a89d6585685842407"
+  url "https://github.com/toshi0383/cmdshelf/archive/2.0.2.tar.gz"
+  sha256 "dea2ea567cfa67196664629ceda5bc775040b472c25e96944c19c74892d69539"
 
   bottle do
     sha256 "89d91fc1b52b9eba5d184713d1b9d7e732e7514be8255263a1b04fdaa064a3e6" => :mojave
