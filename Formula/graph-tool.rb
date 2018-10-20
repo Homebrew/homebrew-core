@@ -79,8 +79,10 @@ class GraphTool < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV.delete("SDKROOT")
 
+    xy = Language::Python.major_minor_version "python3"
     venv = virtualenv_create(libexec, "python3")
 
     resources.each do |r|
