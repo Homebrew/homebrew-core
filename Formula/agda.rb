@@ -1,4 +1,3 @@
-# coding: utf-8
 require "language/haskell"
 
 class Agda < Formula
