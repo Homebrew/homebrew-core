@@ -3,6 +3,7 @@ class Clamav < Formula
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.100.2.tar.gz"
   sha256 "4a2e4f0cd41e62adb5a713b4a1857c49145cd09a69957e6d946ecad575206dd6"
+  revision 1
 
   bottle do
     sha256 "3c3cf0708c41acea618c1fa44514860e2f628525fff24b32bf7d9b889b0eae6d" => :mojave
@@ -27,6 +28,9 @@ class Clamav < Formula
   skip_clean "share/clamav"
 
   def install
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for libxml2
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
