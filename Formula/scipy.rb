@@ -3,7 +3,7 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://files.pythonhosted.org/packages/07/76/7e844757b9f3bf5ab9f951ccd3e4a8eed91ab8720b0aac8c2adcc2fdae9f/scipy-1.1.0.tar.gz"
   sha256 "878352408424dffaa695ffedf2f9f92844e116686923ed9aa8626fc30d32cfd1"
-  revision 1
+  revision 2
   head "https://github.com/scipy/scipy.git"
 
   bottle do
@@ -18,6 +18,7 @@ class Scipy < Formula
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
   depends_on "numpy"
+  depends_on "openblas"
   depends_on "python" => :recommended
   depends_on "python@2" => :recommended
 
@@ -28,10 +29,18 @@ class Scipy < Formula
   fails_with :gcc_4_2
 
   def install
+    openblas = Formula["openblas"].opt_prefix
+    ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
+    ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"
+
     config = <<~EOS
       [DEFAULT]
       library_dirs = #{HOMEBREW_PREFIX}/lib
       include_dirs = #{HOMEBREW_PREFIX}/include
+      [openblas]
+      libraries = openblas
+      library_dirs = #{openblas}/lib
+      include_dirs = #{openblas}/include
     EOS
 
     Pathname("site.cfg").write config
