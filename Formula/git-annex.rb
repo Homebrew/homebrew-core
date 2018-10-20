@@ -10,9 +10,9 @@ class GitAnnex < Formula
   head "git://git-annex.branchable.com/"
 
   bottle do
-    sha256 "bf4d1c2787b44a8724ae1c5a402b1bab043399cb78c7bc1256a0c5ea5befb180" => :mojave
-    sha256 "3bb20d613b13cec529f74769de9214d8e9556266be272a0a51f316430c21458c" => :high_sierra
-    sha256 "3c51fa068af0798623d4e23ee763fe0503d4b880c4822c053b4a7381dec0ac3b" => :sierra
+    sha256 "3de536085890f16136d8f95ca8328b07d9d8e1a64e31c51ea64c4866887b96eb" => :mojave
+    sha256 "0dec2e07b446289426b35e90d288fb50ceb305ef6fb37221df4255e4a69d4280" => :high_sierra
+    sha256 "e14e425f71603482458acc3a98ba4031d81ef7a37276e8bdcc22c28bd468e0af" => :sierra
   end
 
   depends_on "cabal-install" => :build
