@@ -15,23 +15,7 @@ class EgExamples < Formula
   test do
     assert_equal version, shell_output("#{bin}/eg --version")
 
-    expected = <<~EOS
-      [30m[1m#[0m[31m[1m whatis[0m
-
-      search for entries containing a command
-
-          [36m[1m[0m[32m[1mwhatis ls[0m
-
-
-
-      [30m[1m#[0m[31m[1m Basic Usage[0m
-
-      Search a database for entries matching the word or command:
-
-          [36m[1m[0m[32m[1mwhatis <command>[0m
-
-
-    EOS
-    assert_equal expected, shell_output("#{bin}/eg whatis")
+    output = shell_output("#{bin}/eg whatis")
+    assert_match "search for entries containing a command", output 
   end
 end
