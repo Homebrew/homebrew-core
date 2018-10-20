@@ -16,11 +16,6 @@ class RdiffBackup < Formula
     sha256 "5b0eab2335afe2d298cd51737c744d052536cb0bdbee780819496e1000a3b179" => :mavericks
   end
 
-  devel do
-    url "https://savannah.nongnu.org/download/rdiff-backup/rdiff-backup-1.3.3.tar.gz"
-    sha256 "ee030ce638df0eb1047cf72578e0de15d9a3ee9ab24da2dc0023e2978be30c06"
-  end
-
   depends_on "librsync"
 
   # librsync 1.x support
