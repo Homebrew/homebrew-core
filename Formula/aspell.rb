@@ -14,12 +14,6 @@ class Aspell < Formula
     sha256 "4a50a1b26bcbaa10dc4968332d03ce3e24772a60ec7b1561ab23102d0f46052a" => :yosemite
   end
 
-  devel do
-    url "https://alpha.gnu.org/gnu/aspell/aspell-0.60.7-rc1.tar.gz"
-    sha256 "86b5662f24316142f70c5890787bdc5596625ca3604dfe85926ee61f27f2365e"
-    version "0.60.7-20170129"
-  end
-
   # Dictionaries installed by default: en, de, es, fr
   option "without-lang-en", "Do not install en dictionary"
   resource "en" do
