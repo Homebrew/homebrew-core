@@ -15,11 +15,6 @@ class Libquantum < Formula
     sha256 "a7df989c22406155638d24ac755e851208d4cb7f72a8f1f17a985d172270006f" => :mountain_lion
   end
 
-  devel do
-    url "http://www.libquantum.de/files/libquantum-1.1.1.tar.gz"
-    sha256 "d8e3c4407076558f87640f1e618501ec85bc5f4c5a84db4117ceaec7105046e5"
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
