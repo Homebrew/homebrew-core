@@ -10,12 +10,6 @@ class Ruby < Formula
     sha256 "df8aabed70a29a81ca6f1d5e6a4fcbc0de999cab09b6377b1f61b9dde29b5b21" => :sierra
   end
 
-  devel do
-    url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.0-preview2.tar.xz"
-    version "2.6.0-preview2"
-    sha256 "00ddfb5e33dee24469dd0b203597f7ecee66522ebb496f620f5815372ea2d3ec"
-  end
-
   head do
     url "https://github.com/ruby/ruby.git"
     depends_on "autoconf" => :build
