@@ -14,11 +14,6 @@ class Unravel < Formula
     sha256 "34d1aca980ed2894b743656b271aa42a36b69a4828763c1c1c5ded1638110570" => :el_capitan
   end
 
-  devel do
-    url "https://github.com/Unrepl/unravel/archive/v0.3.0-beta.2.tar.gz"
-    sha256 "786acffe0a2b0dc7fb2675215764739fee39a5da1b9ac72d7c8c49afab785408"
-  end
-
   depends_on "lumo"
   depends_on "node"
 
