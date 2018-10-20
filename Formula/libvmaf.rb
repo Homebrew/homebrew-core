@@ -4,6 +4,13 @@ class Libvmaf < Formula
   url "https://github.com/Netflix/vmaf/archive/v1.3.9.tar.gz"
   sha256 "c9e4fc850f66cf959a36c9603cef26c4298eec20d6c26f9482a355c5753c092d"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "22c854b26878ca4ce557b8c0e97e0ef35b721aeb85420aca7b2ee60683f6ee99" => :mojave
+    sha256 "21616392bea5365658832fbe54a31dd64931222427929df813289d4f523cc882" => :high_sierra
+    sha256 "90409c1f0c72ed32fdf2b1a33c09ee987bd0400c034084f155951ff1336ada83" => :sierra
+  end
+
   def install
     system "make"
     system "make", "install", "INSTALL_PREFIX=#{prefix}"
