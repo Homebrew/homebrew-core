@@ -2,13 +2,13 @@ class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
 
-  head "https://github.com/mac-cain13/R.swift.git"
-
   stable do
     url "https://github.com/mac-cain13/R.swift.git",
         :tag => "v4.0.0",
         :revision => "0306ec185ad0f7753e9ea44fefdbf268d9e62184"
+
     depends_on :xcode => "9.0"
+
     patch do
       url "https://github.com/mac-cain13/R.swift/commit/082adb3a4fb3835507e61de15dabd2e9e1b547fb.diff?full_index=1"
       sha256 "6ebaeaeb0ad29ad94f1919683cc064455837a9d0e7b2cad83bc9011d60e6cf2f"
@@ -23,10 +23,9 @@ class Rswift < Formula
     sha256 "8b65c8330b314a454a8c4304d585c5c5142557ef5d98bafcc9ccb40ea3655130" => :sierra
   end
 
-  devel do
-    url "https://github.com/mac-cain13/R.swift.git",
-        :tag => "v5.0.0.alpha.2",
-        :revision => "2ba7dc0f175c824732e9fcd7aca9e152dfc34432"
+  head do
+    url "https://github.com/mac-cain13/R.swift.git"
+
     depends_on :xcode => "10.0"
   end
 
