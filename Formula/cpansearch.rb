@@ -16,15 +16,15 @@ class Cpansearch < Formula
 
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
 
   def install
     system "make"
     bin.install "cpans"
   end
 
-  def caveats; <<~EOS
-    For usage instructions:
-        more #{opt_prefix}/README.md
-  EOS
+  test do
+    output = shell_output("#{bin}/cpans -f http://cpan.nctu.edu.tw/")
+    assert_match "packages recorded", output
   end
 end
