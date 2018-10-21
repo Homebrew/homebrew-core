@@ -15,7 +15,7 @@ class Platypus < Formula
   depends_on :xcode => ["8.0", :build]
 
   def install
-    xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}",
+    xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
                "-project", "Platypus.xcodeproj",
                "-target", "platypus",
                "-target", "ScriptExec",
@@ -23,7 +23,7 @@ class Platypus < Formula
                "install"
 
     man1.install "CommandLineTool/man/platypus.1"
-    bin.install "platypus_clt" => "platypus"
+    bin.install "dst/platypus_clt" => "platypus"
 
     cd "build/UninstalledProducts/macosx/ScriptExec.app/Contents" do
       pkgshare.install "Resources/MainMenu.nib", "MacOS/ScriptExec"
