@@ -12,6 +12,7 @@ class Sngrep < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
 
   def install
