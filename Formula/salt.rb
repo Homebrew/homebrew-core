@@ -130,6 +130,8 @@ class Salt < Formula
   end
 
   def install
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+
     virtualenv_install_with_resources
     prefix.install libexec/"share" # man pages
     (etc/"saltstack").install (buildpath/"conf").children # sample config files
