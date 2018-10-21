@@ -3,6 +3,7 @@ class Gnuplot < Formula
   homepage "http://www.gnuplot.info/"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.5/gnuplot-5.2.5.tar.gz"
   sha256 "039db2cce62ddcfd31a6696fe576f4224b3bc3f919e66191dfe2cdb058475caa"
+  revision 1
 
   bottle do
     sha256 "eaf80b9ce3cf64e57e005af62067e526d57755ef26b3ee0596581f2caf070692" => :mojave
@@ -29,10 +30,10 @@ class Gnuplot < Formula
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "lua"
-  depends_on "pango"
   depends_on "readline"
   depends_on "qt" => :optional
   depends_on "wxmac" => :optional
+  depends_on "pango" if build.with?("wxmac")
   depends_on :x11 => :optional
 
   needs :cxx11 if build.with? "qt"
