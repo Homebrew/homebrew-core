@@ -1,9 +1,8 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://podofo.sourceforge.io"
-  url "https://downloads.sourceforge.net/podofo/podofo-0.9.5.tar.gz"
-  sha256 "854981cb897ebc14bac854ea0f25305372261a48a205363fe1c61659ba7b5304"
-  revision 1
+  url "https://downloads.sourceforge.net/podofo/podofo-0.9.6.tar.gz"
+  sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
 
   bottle do
     cellar :any
@@ -18,22 +17,28 @@ class Podofo < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "libidn"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openssl"
-  depends_on "libidn" => :optional
+
+  # Upstream commit, remove in next release
+  # https://sourceforge.net/p/podofo/tickets/24/
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/ae70aa7e/graphics/podofo/files/podofo-cmake-3.12.patch"
+    sha256 "877501b55bd5502dcaf048d3811b81fada2bd005e2247a2412a88b3035edd51f"
+  end
 
   def install
-    args = std_cmake_args
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_LIBIDN=ON" if build.without? "libidn"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_CppUnit=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_LUA=ON"
-
-    # Build shared to simplify linking for other programs.
-    args << "-DPODOFO_BUILD_SHARED:BOOL=ON"
-
-    args << "-DFREETYPE_INCLUDE_DIR_FT2BUILD=#{Formula["freetype"].opt_include}/freetype2"
-    args << "-DFREETYPE_INCLUDE_DIR_FTHEADER=#{Formula["freetype"].opt_include}/freetype2/config/"
+    freetype = "#{Formula["freetype"].opt_include}/freetype2"
+    args = std_cmake_args + %W[
+      -DCMAKE_DISABLE_FIND_PACKAGE_CppUnit=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_LUA=ON
+      -DFREETYPE_INCLUDE_DIR_FT2BUILD=#{freetype}
+      -DFREETYPE_INCLUDE_DIR_FTHEADER=#{freetype}/config/
+      -DPODOFO_BUILD_SHARED:BOOL=ON
+      -DCMAKE_INSTALL_NAME_DIR=#{lib}
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args
