@@ -3,8 +3,9 @@ require "language/node"
 class ResinCli < Formula
   desc "The official resin.io CLI tool"
   homepage "https://docs.resin.io/reference/cli/"
-  url "https://registry.npmjs.org/resin-cli/-/resin-cli-7.10.6.tgz"
-  sha256 "011f79bfb1a75ad077b82afdc42695ce6061a522ccb1671a4e6d47e3e39f0889"
+  # Frequent upstream releases, do not update more than once a week
+  url "https://registry.npmjs.org/resin-cli/-/resin-cli-8.0.2.tgz"
+  sha256 "4e1696d6b7f7724672ca11ee6d3d38d583869cc1ea3718fd1694bebc8d62aa3a"
 
   depends_on "node"
 
@@ -14,6 +15,6 @@ class ResinCli < Formula
   end
 
   test do
-    assert_match "Logging in to resin.io", pipe_output("#{bin}/resin login")
+    assert_match "Logging in to resin.io", shell_output("#{bin}/resin login --credentials --email johndoe@gmail.com --password secret", 1)
   end
 end
