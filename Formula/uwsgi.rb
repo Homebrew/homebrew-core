@@ -16,9 +16,10 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 "9543320e6f7ea397fca95b9d8ee770b905895f63851b51d0153e9109c8bac02c" => :high_sierra
-    sha256 "2688bef0b4de3f696e5396bcb8ed3d676a77d0605a296ffb010e2d7ceef5ae3f" => :sierra
-    sha256 "3b51757ece80a6bb790d6db1a923ca46c7cccb7ab59b13150edaffc9229c0c07" => :el_capitan
+    rebuild 1
+    sha256 "bedd428644e52332dea9c0c022e1b95572e86b82a26f00676d9041e1d3668041" => :mojave
+    sha256 "a324da423d63b2e6fa8c36680a84a19c5a2a82f33c8e819c1c3c3ca318fb48a7" => :high_sierra
+    sha256 "c46dd9c0e215063d503b275759ec1055521b124d1f8c5d378de086d186089088" => :sierra
   end
 
   deprecated_option "with-python3" => "with-python"
