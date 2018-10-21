@@ -1,8 +1,8 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v0.16.0.tar.gz"
-  sha256 "5cb12fd944a26da71581c78e19b320c056b8ad9cf0f867f4b1c352a1bc3eccc1"
+  url "https://github.com/r-darwish/topgrade/archive/v0.17.0.tar.gz"
+  sha256 "55fe437cbf0b751488654ceeaed976046e44c3ee7621350465f3941c2eb537dd"
 
   bottle do
     sha256 "b71341a085ac93dda023c1cf4eb4475950fb5da3a49ec554c3579d668ea3b029" => :mojave
