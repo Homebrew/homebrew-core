@@ -42,6 +42,8 @@ class Osc < Formula
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
 
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" || r.name == "pycurl" }
 
