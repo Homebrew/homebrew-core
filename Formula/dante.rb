@@ -12,12 +12,12 @@ class Dante < Formula
     sha256 "1ca8b2768eded56f976cd44520b20ece3285127a28fcf46736683897f3275ca8" => :el_capitan
   end
 
-  depends_on "miniupnpc" => :optional
-
   def install
     system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          # Enabling dependency tracking disables universal
+                          # build, avoiding a build error on Mojave
+                          "--enable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}/dante"
     system "make", "install"
