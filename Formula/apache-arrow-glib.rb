@@ -1,8 +1,8 @@
 class ApacheArrowGlib < Formula
   desc "GObject Introspection files of Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.10.0/apache-arrow-0.10.0.tar.gz"
-  sha256 "943207a2fcc7ba8de0e50bdb6c6ea4e9ed7f7e7bf55f6b426d7f867f559e842d"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.11.0/apache-arrow-0.11.0.tar.gz"
+  sha256 "1838faa3775e082062ad832942ebc03aaf95386c0284288346ddae0632be855d"
   head "https://github.com/apache/arrow.git"
 
   bottle do
