@@ -35,6 +35,7 @@ class OpenOcd < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-buspirate",
+                          "--enable-stlink",
                           "--enable-dummy",
                           "--enable-jtag_vpi",
                           "--enable-remote-bitbang"
