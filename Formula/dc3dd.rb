@@ -21,41 +21,41 @@ class Dc3dd < Formula
 
   def install
     # Regular zip files created by 7-zip can upset /usr/bin/unzip by reporting a
-    # non-zero size for dirs; the workaround below avoids a p7zip dependency
+    # non-zero size for dirs. Work around this.
     # Reported 32 Oct 2016 https://sourceforge.net/p/dc3dd/bugs/14/
-    zip_file = cached_download.basename(".zip")
-    Utils.popen_read("unzip #{zip_file}.zip")
-    buildpath.install (buildpath/zip_file).children
+    system "unzip dc3dd-#{version}.zip ; true"
 
-    ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
-    resource("gettext-pm").stage do
-      inreplace "Makefile.PL", "$libs = \"-lintl\"",
-                               "$libs = \"-L/usr/local/opt/gettext/lib -lintl\""
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
+    cd "dc3dd-#{version}" do
+      ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
+      resource("gettext-pm").stage do
+        inreplace "Makefile.PL", "$libs = \"-lintl\"",
+                                 "$libs = \"-L/usr/local/opt/gettext/lib -lintl\""
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
+        system "make"
+        system "make", "install"
+      end
+
+      # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
+      # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
+      inreplace "lib/vasnprintf.c",
+                "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) || ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
+                "# if !(defined __APPLE__ && defined __MACH__)"
+
+      chmod 0555, ["build-aux/install-sh", "configure"]
+
+      args = %W[--disable-debug
+                --disable-dependency-tracking
+                --prefix=#{prefix}
+                --infodir=#{info}]
+
+      # Check for stpncpy is broken, and the replacement fails to compile
+      # on Lion and newer; see https://github.com/Homebrew/homebrew/issues/21510
+      args << "gl_cv_func_stpncpy=yes" if MacOS.version >= :lion
+      system "./configure", *args
       system "make"
       system "make", "install"
+      prefix.install %w[Options_Reference.txt Sample_Commands.txt]
     end
-
-    # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
-    # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
-    inreplace "lib/vasnprintf.c",
-              "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) || ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
-              "# if !(defined __APPLE__ && defined __MACH__)"
-
-    chmod 0555, ["build-aux/install-sh", "configure"]
-
-    args = %W[--disable-debug
-              --disable-dependency-tracking
-              --prefix=#{prefix}
-              --infodir=#{info}]
-
-    # Check for stpncpy is broken, and the replacement fails to compile
-    # on Lion and newer; see https://github.com/Homebrew/homebrew/issues/21510
-    args << "gl_cv_func_stpncpy=yes" if MacOS.version >= :lion
-    system "./configure", *args
-    system "make"
-    system "make", "install"
-    prefix.install %w[Options_Reference.txt Sample_Commands.txt]
   end
 
   test do
