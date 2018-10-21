@@ -4,15 +4,15 @@ class Codemod < Formula
   url "https://files.pythonhosted.org/packages/9b/e3/cb31bfcf14f976060ea7b7f34135ebc796cde65eba923f6a0c4b71f15cc2/codemod-1.0.0.tar.gz"
   sha256 "06e8c75f2b45210dd8270e30a6a88ae464b39abd6d0cab58a3d7bfd1c094e588"
   revision 1
+  version_scheme 1
+  head "https://github.com/facebook/codemod.git"
+
   bottle do
     cellar :any_skip_relocation
     sha256 "46a429f995bc5491ef76d75c3fd850aae40e5414ead2080361f06e69a39c79ec" => :mojave
     sha256 "cbf4fa912e1a717b55992756b44d10e7eb8640cc541d255625cecb0e65c41377" => :high_sierra
     sha256 "cbf4fa912e1a717b55992756b44d10e7eb8640cc541d255625cecb0e65c41377" => :sierra
   end
-
-  version_scheme 1
-  head "https://github.com/facebook/codemod.git"
 
   depends_on "python"
 
