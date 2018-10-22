@@ -35,6 +35,7 @@
   "pebble-sdk": "pebble/pebble-sdk",
   "phantomjs": "homebrew/cask",
   "quassel": "homebrew/cask",
+  "safe": "starkandwayne/cf",
   "transmission-remote-gtk": "homebrew/cask/transmission-remote-gui",
   "tuntap": "homebrew/cask"
 }
