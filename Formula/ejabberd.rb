@@ -39,7 +39,10 @@ class Ejabberd < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
-    system "make"
+
+    # Set CPP to work around cpp shim issue:
+    # https://github.com/Homebrew/brew/issues/5153
+    system "make", "CPP=clang -E"
 
     ENV.deparallelize
     system "make", "install"
