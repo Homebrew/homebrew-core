@@ -14,6 +14,11 @@ class Chuck < Formula
   depends_on :xcode => :build
 
   def install
+    # Support for newer macOS versions
+    inreplace "src/core/makefile.x/makefile.osx",
+              "10\\.(6|7|8|9|10|11|12|13)",
+              "10\\.(6|7|8|9|10|11|12|1[0-9])"
+
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
     pkgshare.install "examples"
