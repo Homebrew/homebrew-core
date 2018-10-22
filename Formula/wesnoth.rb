@@ -1,9 +1,8 @@
 class Wesnoth < Formula
   desc "Single- and multi-player turn-based strategy game"
   homepage "https://www.wesnoth.org/"
-  url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
-  sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
-  revision 7
+  url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.14/wesnoth-1.14.5/wesnoth-1.14.5.tar.bz2"
+  sha256 "05317594b1072b6cf9f955e3a7951a28096f8b1e3afed07825dd5a219c90f7cd"
   head "https://github.com/wesnoth/wesnoth.git"
 
   bottle do
