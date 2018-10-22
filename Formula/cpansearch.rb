@@ -23,7 +23,7 @@ class Cpansearch < Formula
   end
 
   test do
-    output = shell_output("#{bin}/cpans -f http://cpan.nctu.edu.tw/")
+    output = shell_output("#{bin}/cpans --fetch https://cpan.metacpan.org/")
     assert_match "packages recorded", output
   end
 end
