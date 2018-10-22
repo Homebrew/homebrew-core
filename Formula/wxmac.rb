@@ -16,6 +16,12 @@ class Wxmac < Formula
 
   option "with-stl", "use standard C++ classes for everything"
   option "with-static", "build static libraries"
+  option "with-v3.1.1", "use WxWidgets Release 3.1.1"
+
+  if build.with? "v3.1.1"
+    url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.1/wxWidgets-3.1.1.tar.bz2"
+    sha256 "c925dfe17e8f8b09eb7ea9bfdcfcc13696a3e14e92750effd839f5e10726159e"
+  end
 
   depends_on "jpeg"
   depends_on "libpng"
