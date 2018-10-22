@@ -15,9 +15,11 @@ class Freeipmi < Formula
   depends_on "libgcrypt"
 
   def install
+    # Hardcode CPP_FOR_BUILD to work around cpp shim issue:
+    # https://github.com/Homebrew/brew/issues/5153
     inreplace "man/Makefile.in",
       "$(CPP_FOR_BUILD) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre $@",
-      "$(CPP_FOR_BUILD) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
+      "clang -E -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
