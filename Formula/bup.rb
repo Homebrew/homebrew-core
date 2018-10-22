@@ -14,7 +14,7 @@ class Bup < Formula
   end
 
   depends_on "pandoc" => :build
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "backports_abc" do
     url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
