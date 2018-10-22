@@ -16,7 +16,6 @@ class ErlangAT17 < Formula
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
-  option "without-docs", "Do not install documentation"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -96,10 +95,8 @@ class ErlangAT17 < Formula
     ENV.deparallelize # Install is not thread-safe; can try to create folder twice and fail
     system "make", "install"
 
-    if build.with? "docs"
-      (lib/"erlang").install resource("man").files("man")
-      doc.install resource("html")
-    end
+    (lib/"erlang").install resource("man").files("man")
+    doc.install resource("html")
   end
 
   def caveats; <<~EOS
