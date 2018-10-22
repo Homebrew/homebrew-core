@@ -12,16 +12,12 @@ class RegexOpt < Formula
   end
 
   def install
-    # regex-opt uses _Find_first() in std::bitset, which is a
-    # nonstandard extension supported in libstdc++ but not libc++
-    # See: https://lists.w3.org/Archives/Public/www-archive/2006Jan/0002.html
-    ENV.libstdcxx if ENV.compiler == :clang
-
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
     bin.install "regex-opt"
   end
 
   test do
-    system "#{bin}/regex-opt"
+    output = shell_output("#{bin}/regex-opt foo...*..*bar")
+    assert_equal "foo.{3,}bar", output
   end
 end
