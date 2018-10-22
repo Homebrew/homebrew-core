@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.3887",
-      :revision => "798c362df79cd608f4090fe9190be1a9ef859f0e"
+      :tag      => "v0.1.3923",
+      :revision => "6fecf9d611e14f99bdf7fb668ddc87bab190ea25"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,6 +24,8 @@ class Circleci < Formula
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
+        -X github.com/CircleCI-Public/circleci-cli/cmd.AutoUpdate=false
+        -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
         -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
@@ -40,5 +42,8 @@ class Circleci < Formula
     (testpath/".circleci.yml").write("{version: 2.1}")
     output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
     assert_match "Local builds do not support that version at this time", output
+    # assert update is not included in output of help meaning it was not included in the build
+    assert_match "update      This command is unavailable on your platform", shell_output("#{bin}/circleci help")
+    assert_match "`update` is not available because this tool was installed using `homebrew`.", shell_output("#{bin}/circleci update")
   end
 end
