@@ -3,8 +3,8 @@ class ApmServer < Formula
   homepage "https://www.elastic.co/"
   # Pinned at 6.2.x because of a licencing issue
   # See: https://github.com/Homebrew/homebrew-core/pull/28995
-  url "https://github.com/elastic/apm-server/archive/v6.2.4.tar.gz"
-  sha256 "b0d85f62851dd0cc7cb7a54c8549d36fb7c29bdb8f83c91b3a6487a8e9acba39"
+  url "https://github.com/elastic/apm-server/archive/v6.4.2.tar.gz"
+  sha256 "c76bb9fd9b79fb1c0339a85de4e7ccd5cb06bc7686343c2c864f273d165bcb42"
   head "https://github.com/elastic/apm-server.git"
 
   bottle do
