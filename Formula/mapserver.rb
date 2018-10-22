@@ -1,9 +1,8 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.0.7.tar.gz"
-  sha256 "37a8c3008328bae0fea05109d6d544a3284f756a23956e8a2f5ec10a6b5fef67"
-  revision 2
+  url "https://download.osgeo.org/mapserver/mapserver-7.2.1.tar.gz"
+  sha256 "9459a7057d5a85be66a41096a5d804f74665381186c37077c94b56e784db6102"
 
   bottle do
     cellar :any
@@ -27,6 +26,7 @@ class Mapserver < Formula
   depends_on "giflib"
   depends_on "libpng"
   depends_on "proj"
+  depends_on "protobuf-c"
   depends_on "cairo" => :optional
   depends_on "geos" => :optional
   depends_on "postgresql" => :optional unless MacOS.version >= :lion
