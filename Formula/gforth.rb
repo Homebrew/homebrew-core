@@ -17,6 +17,7 @@ class Gforth < Formula
   depends_on "pcre"
 
   def install
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
