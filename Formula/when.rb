@@ -7,10 +7,9 @@ class When < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "654603a2d0ab3dc849a4221a9d1c4d8638ebf56b41d539efde05e04c6791a5be" => :mojave
-    sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :high_sierra
-    sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :sierra
-    sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :el_capitan
+    sha256 "652f84f91cbb5bd61f34b0b90124fc17beb94654150b548348aaee28951b1510" => :mojave
+    sha256 "7645dbb878781cae6f691fd4b0888f85a37ce55eebb7871276aad1bc0c8b6707" => :high_sierra
+    sha256 "7645dbb878781cae6f691fd4b0888f85a37ce55eebb7871276aad1bc0c8b6707" => :sierra
   end
 
   def install
