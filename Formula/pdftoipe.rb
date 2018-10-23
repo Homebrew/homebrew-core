@@ -3,6 +3,7 @@ class Pdftoipe < Formula
   homepage "https://github.com/otfried/ipe-tools"
   url "https://github.com/otfried/ipe-tools/archive/v7.2.7.1.tar.gz"
   sha256 "b45a7d6bec339e878717bd273c32c7957e2d4d87c57e117e772ee3dd3231d7aa"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,6 +14,13 @@ class Pdftoipe < Formula
 
   depends_on "pkg-config" => :build
   depends_on "poppler"
+
+  # https://github.com/otfried/ipe-tools/pull/30
+  # Should be safe to remove on next release but check if merged.
+  patch do
+    url "https://github.com/otfried/ipe-tools/pull/30.patch?full_index=1"
+    sha256 "ac7f9945f12ff11a3ae41e368cb439aeac1e9ff3e81907568b39c3752959288c"
+  end
 
   needs :cxx11
 
