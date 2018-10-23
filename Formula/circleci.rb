@@ -25,6 +25,7 @@ class Circleci < Formula
       ldflags = %W[
         -s -w
         -X github.com/CircleCI-Public/circleci-cli/cmd.AutoUpdate=false
+        -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
         -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
@@ -42,6 +43,7 @@ class Circleci < Formula
     output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
     assert_match "Local builds do not support that version at this time", output
     # assert update is not included in output of help meaning it was not included in the build
-    assert_no_match /update      Update the tool to the latest version/, shell_output("#{bin}/circleci help")
+    assert_match "update      This command is unavailable on your platform", shell_output("#{bin}/circleci help")
+    assert_match "`update` is not available because this tool was installed using `homebrew`.", shell_output("#{bin}/circleci update")
   end
 end
