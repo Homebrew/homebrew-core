@@ -12,9 +12,9 @@ class Cmake < Formula
     sha256 "a940f8d8e9818512c466ffd205612cb1b477d936e87ab3d6c7dac888f6d03b92" => :sierra
   end
 
-  option "with-completion", "Install Bash completion (Has potential problems with system bash)"
-
   depends_on "sphinx-doc" => :build
+
+  # The completions were removed because of problems with system bash
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
@@ -50,12 +50,6 @@ class Cmake < Formula
     system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
     system "make"
     system "make", "install"
-
-    if build.with? "completion"
-      cd "Auxiliary/bash-completion/" do
-        bash_completion.install "ctest", "cmake", "cpack"
-      end
-    end
 
     elisp.install "Auxiliary/cmake-mode.el"
   end
