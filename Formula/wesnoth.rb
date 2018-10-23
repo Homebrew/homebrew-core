@@ -18,6 +18,7 @@ class Wesnoth < Formula
   depends_on "fontconfig"
   depends_on "fribidi"
   depends_on "libpng"
+  depends_on "openssl"
   depends_on "pango"
   depends_on "sdl"
   depends_on "sdl_image" # Must have png support
@@ -26,9 +27,6 @@ class Wesnoth < Formula
   depends_on "sdl_ttf"
 
   def install
-    mv "scons/gettext.py", "scons/gettext_tool.py"
-    inreplace "SConstruct", ", \"gettext\",", ", \"gettext_tool\","
-
     args = %W[prefix=#{prefix} docdir=#{doc} mandir=#{man} fifodir=#{var}/run/wesnothd gettextdir=#{Formula["gettext"].opt_prefix}]
     args << "OS_ENV=true"
     args << "install"
