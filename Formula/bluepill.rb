@@ -1,8 +1,8 @@
 class Bluepill < Formula
   desc "iOS testing tool that runs UI tests using multiple simulators"
   homepage "https://github.com/linkedin/bluepill"
-  url "https://github.com/linkedin/bluepill/archive/2.4.0.tar.gz"
-  sha256 "fe021b742e04ace637fe2795848644842ab049e2e2c6d861a088785ef6821461"
+  url "https://github.com/linkedin/bluepill/archive/3.1.0.tar.gz"
+  sha256 "9fe609d15cb6329df9cb02f1360b895e873f70816b13c2cb4c0ca6dd7641a9c5"
   head "https://github.com/linkedin/bluepill.git"
 
   bottle do
