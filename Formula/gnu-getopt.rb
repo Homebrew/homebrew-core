@@ -1,6 +1,6 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing library"
-  homepage "http://software.frodo.looijaard.name/getopt/"
+  homepage "http://frodo.looijaard.name/project/getopt"
   url "http://frodo.looijaard.name/system/files/software/getopt/getopt-1.1.6.tar.gz"
   mirror "https://distfiles.macports.org/getopt/getopt-1.1.6.tar.gz"
   mirror "https://fossies.org/linux/misc/getopt-1.1.6.tar.gz"
