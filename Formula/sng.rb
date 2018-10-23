@@ -12,6 +12,6 @@ class Sng < Formula
 
   test do
     system("curl -o $HOME/test.png 'https://upload.wikimedia.org/wikipedia/en/2/2c/WikiPNGRenderingTestB_Thumb_RGB.png'")
-    system("sng $HOME/test.png")
+    system("$bin/sng $HOME/test.png")
   end
 end
