@@ -11,6 +11,7 @@ class Sng < Formula
   end
 
   test do
-    system "curl", "-o", "test.png", "https://upload.wikimedia.org/wikipedia/en/2/2c/WikiPNGRenderingTestB_Thumb_RGB.png", "&&", "sng", "test.png", "&&", "true"
+    system("curl -o $HOME/test.png 'https://upload.wikimedia.org/wikipedia/en/2/2c/WikiPNGRenderingTestB_Thumb_RGB.png'")
+    system("sng $HOME/test.png")
   end
 end
