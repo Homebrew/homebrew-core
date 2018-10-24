@@ -11,7 +11,7 @@ class Bluepill < Formula
     sha256 "a5fb40247ab03c018bf249dc9ec665f57e328c28afb1fbcda6cff9d739888968" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["10.0", :build]
 
   def install
     xcodebuild "-workspace", "Bluepill.xcworkspace",
