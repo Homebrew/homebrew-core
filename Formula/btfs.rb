@@ -3,7 +3,7 @@ class Btfs < Formula
   homepage "https://github.com/johang/btfs"
   url "https://github.com/johang/btfs/archive/v2.18.tar.gz"
   sha256 "bb9679045540554232eff303fc4f615d28eb4023461eae3f65f08f2427ec9ef2"
-  revision 1
+  revision 2
   head "https://github.com/johang/btfs.git"
 
   bottle do
