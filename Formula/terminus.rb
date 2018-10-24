@@ -10,10 +10,10 @@ class Terminus < Formula
     system "composer", "install"
     bin.install "bin/terminus" => "terminus"
     prefix.install Dir["composer.*"]
-    prefix.install Dir["assets"]
-    prefix.install Dir["src"]
-    prefix.install Dir["vendor"]
-    prefix.install Dir["config"]
+    prefix.install "assets"
+    prefix.install "src"
+    prefix.install "vendor"
+    prefix.install "config"
   end
 
   test do
