@@ -3,7 +3,7 @@ class Wesnoth < Formula
   homepage "https://www.wesnoth.org/"
   url "https://downloads.sourceforge.net/project/wesnoth/wesnoth-1.12/wesnoth-1.12.6/wesnoth-1.12.6.tar.bz2"
   sha256 "a50f384cead15f68f31cfa1a311e76a12098428702cb674d3521eb169eb92e4e"
-  revision 7
+  revision 8
   head "https://github.com/wesnoth/wesnoth.git"
 
   bottle do
