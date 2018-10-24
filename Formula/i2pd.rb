@@ -3,6 +3,7 @@ class I2pd < Formula
   homepage "https://i2pd.website/"
   url "https://github.com/PurpleI2P/i2pd/archive/2.21.1.tar.gz"
   sha256 "617e014fe5b16274f1fa38a5b409b2305c8bc0ec23a27fb20508f6fea7d44fcc"
+  revision 1
 
   bottle do
     sha256 "ed848f673380acf9e1a31ad801f0f348f723ebe2e4cddafe56ddbc9ebd7404f3" => :mojave
