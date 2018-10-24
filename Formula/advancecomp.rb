@@ -31,6 +31,6 @@ class Advancecomp < Formula
     system bin/"advpng", "--recompress", "--shrink-fast", "test.png"
 
     version_string = shell_output("#{bin}/advpng --version")
-    assert_includes version_string, "advancecomp v2.1"
+    assert_includes version_string, "advancecomp v#{version}"
   end
 end
