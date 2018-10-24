@@ -1,22 +1,9 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
+  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
   head "https://github.com/boostorg/boost.git"
-
-  stable do
-    url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
-    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
-
-    # Remove for > 1.67.0
-    # Fix "error: no member named 'next' in namespace 'boost'"
-    # Upstream commit from 1 Dec 2017 "Add #include <boost/next_prior.hpp>; no
-    # longer in utility.hpp"
-    patch :p2 do
-      url "https://github.com/boostorg/lockfree/commit/12726cd.patch?full_index=1"
-      sha256 "f165823d961a588b622b20520668b08819eb5fdc08be7894c06edce78026ce0a"
-    end
-  end
 
   bottle do
     cellar :any
@@ -34,7 +21,7 @@ class Boost < Formula
 
   depends_on "icu4c" => :optional
 
-  needs :cxx11
+  needs :cxx14
 
   def install
     # Force boost to compile with the desired compiler
@@ -83,9 +70,9 @@ class Boost < Formula
       args << "link=shared"
     end
 
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    args << "cxxflags=-std=c++11"
+    # Boost is using "clang++ -x c" to select C compiler which breaks C++14
+    # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
+    args << "cxxflags=-std=c++14"
     if ENV.compiler == :clang
       args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end
