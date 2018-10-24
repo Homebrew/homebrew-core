@@ -13,6 +13,6 @@ class Terminus < Formula
   end
 
   test do
-    assert_match "/\w+\b:[\w\-]+/", shell_output("#{bin}/terminus list")
+    assert_match "commands", shell_output("#{bin}/terminus list")
   end
 end
