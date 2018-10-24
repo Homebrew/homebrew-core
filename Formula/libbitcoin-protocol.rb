@@ -3,6 +3,7 @@ class LibbitcoinProtocol < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-protocol"
   url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.5.0.tar.gz"
   sha256 "9deac6908489e2d59fb9f89c895c49b00e01902d5fdb661f67d4dbe45b22af76"
+  revision 1
 
   bottle do
     cellar :any
