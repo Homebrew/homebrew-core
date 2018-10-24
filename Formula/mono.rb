@@ -31,15 +31,15 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag      => "10.0.2",
-        :revision => "0020622135540ad8ef835d19175902fd8a2dd31e"
+        :tag => "10.2.1",
+        :revision => "3de387432de8d11a89f99d1af87aa9ce194fe21b"
   end
 
   # When upgrading Mono, make sure to use the revision from
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        :revision => "8af44c5b9e727c096833a88fae05c3ddb76716d0"
+        :revision => "e6c3a1f9e4d3ee4b88ef7bd98b7a48a998c199e6"
   end
 
   def install
