@@ -9,6 +9,9 @@ class Terminus < Formula
   def install
     system "composer", "install"
     bin.install "bin/terminus" => "terminus"
+    prefix.install Dir["composer.*"]
+    prefix.install Dir["assets"]
+    prefix.install Dir["src"]
     prefix.install Dir["vendor"]
     prefix.install Dir["config"]
   end
