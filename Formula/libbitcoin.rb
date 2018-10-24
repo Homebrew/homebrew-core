@@ -3,7 +3,7 @@ class Libbitcoin < Formula
   homepage "https://libbitcoin.org/"
   url "https://github.com/libbitcoin/libbitcoin/archive/v3.5.0.tar.gz"
   sha256 "214d9cd6581330b0e1f6fd8f0c634c46b75ae5515806ecac189f21c0291ae2d9"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -61,8 +61,9 @@ class Libbitcoin < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}",
-                    "-lbitcoin", "-lboost_system", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lbitcoin",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+                    "-o", "test"
     system "./test"
   end
 end
