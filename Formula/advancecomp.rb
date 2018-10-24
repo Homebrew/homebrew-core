@@ -27,5 +27,8 @@ class Advancecomp < Formula
   test do
     system bin/"advdef", "--version"
     system bin/"advpng", "--version"
+
+    cp test_fixtures("test.png"), "test.png"
+    system bin/"advpng", "--recompress", "--shrink-fast", "test.png"
   end
 end
