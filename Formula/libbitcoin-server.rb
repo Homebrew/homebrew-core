@@ -3,7 +3,7 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
   sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "65098e41b6adaa69a3ccb7f176d1296eabe86dabc2b5a21c438a1eb1416bf200" => :mojave
