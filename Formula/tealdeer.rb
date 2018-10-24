@@ -1,8 +1,8 @@
 class Tealdeer < Formula
   desc "Very fast implementation of tldr in Rust"
   homepage "https://github.com/dbrgn/tealdeer"
-  url "https://github.com/dbrgn/tealdeer/archive/v1.0.0.tar.gz"
-  sha256 "9d9712e1b1a17c23793e81691ca6f8e4d45b7fd77efa300261e066c2d254705b"
+  url "https://github.com/dbrgn/tealdeer/archive/v1.1.0.tar.gz"
+  sha256 "647990936af527e9738e8befb432fdf8dd40e7b2ab0066afc652330fddd3dd0e"
 
   bottle do
     sha256 "6527b431ae61c93de802a0d2908f0602fe18dc938aae8e04c550a7c139fae814" => :mojave
