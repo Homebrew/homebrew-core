@@ -1,20 +1,19 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://github.com/bup/bup"
-  url "https://github.com/bup/bup/archive/0.29.1.tar.gz"
-  sha256 "d24b53c842d1edc907870aa69facbd45f68d778cc013b1c311b655d10d017250"
+  url "https://github.com/bup/bup/archive/0.29.2.tar.gz"
+  sha256 "7f54503f305eab5db5db41e1825477b8804870ca251f65bcfb4d89ad2598574f"
   head "https://github.com/bup/bup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "364b59cc6d16740e56d5295636670f1084f541027c72f0f4ba18e3a12dba8959" => :high_sierra
-    sha256 "ffe848617a641266d6915ce1c0fa6713dd02d978f47da33ffb9b91b15adbbe05" => :sierra
-    sha256 "d17a4b3cfa4233179a4828b23fdae5bf19a8bb605080c697b52d548354e797cb" => :el_capitan
-    sha256 "462b39a188a6fd32d9df4812a629b3bf8692f38439125d98e58e306261277903" => :yosemite
+    sha256 "3ca4593db392b93bad33bd522b2fd5c37bae9966b606e4c62a0fd8997901f1f0" => :mojave
+    sha256 "3a1eb0bb1d6f5e4da3e1afe9565d19d1be8eb455ceb20ef404b8c042ce416aa1" => :high_sierra
+    sha256 "81d72623d910ba47d6960b4bbc65e214aa9fdb41639d800dc850a5ad8981a5d7" => :sierra
   end
 
   depends_on "pandoc" => :build
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "backports_abc" do
     url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
@@ -22,8 +21,8 @@ class Bup < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/b6/fa/ca682d5ace0700008d246664e50db8d095d23750bb212c0086305450c276/certifi-2017.1.23.tar.gz"
-    sha256 "81877fb7ac126e9215dfb15bfef7115fdc30e798e0013065158eed0707fd99ce"
+    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
+    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
   end
 
   resource "singledispatch" do
@@ -32,27 +31,16 @@ class Bup < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/5c/0b/2e5cef0d30811532b27ece726fb66a41f63344af8b693c90cec9474d9022/tornado-4.4.3.tar.gz"
-    sha256 "f267acc96d5cf3df0fd8a7bfb5a91c2eb4ec81d5962d1a7386ceb34c655634a8"
+    url "https://files.pythonhosted.org/packages/e6/78/6e7b5af12c12bdf38ca9bfe863fcaf53dc10430a312d0324e76c1e5ca426/tornado-5.1.1.tar.gz"
+    sha256 "4e5158d97583502a7e2739951553cbd88a72076f152b4b11b64b9a10c4c49409"
   end
 
   def install
-    # `make test` gets stuck unless the Python Tornado module is installed
-    # Fix provided 12 Jun 2016 by upstream in #bup channel on IRC freenode
-    inreplace "t/test-web.sh", "if test -n \"$run_test\"; then", <<~EOS
-      if ! python -c 'import tornado'; then
-          WVSTART 'unable to import tornado; skipping test'
-          run_test=''
-      fi
-
-      if test -n \"$run_test\"; then
-    EOS
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resources.each do |r|
       r.stage do
@@ -60,7 +48,8 @@ class Bup < Formula
       end
     end
 
-    system "make"
+    # set AC_CPP_PROG due to Mojave issue, see https://github.com/Homebrew/brew/issues/5153
+    system "make", "AC_CPP_PROG=xcrun cpp"
     system "make", "install", "DESTDIR=#{prefix}", "PREFIX="
 
     mv bin/"bup", libexec/"bup.py"

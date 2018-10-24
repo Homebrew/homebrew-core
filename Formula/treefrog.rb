@@ -18,7 +18,7 @@ class Treefrog < Formula
 
   deprecated_option "with-qt5" => "with-qt"
 
-  depends_on :xcode => [:build, "8.0"]
+  depends_on :xcode => ["8.0", :build]
   depends_on :macos => :el_capitan
 
   qt_build_options = []

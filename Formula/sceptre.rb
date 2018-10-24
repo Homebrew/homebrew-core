@@ -5,16 +5,16 @@ class Sceptre < Formula
   homepage "https://sceptre.cloudreach.com"
   url "https://github.com/cloudreach/sceptre/archive/v1.4.1.tar.gz"
   sha256 "98afb02780cc63a32d2c02eb7bf0fb4b8a74d148da6c5ad3efb6f071e02dffe2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1cf9af381c7cdcc3efebd9e570b2931aa26019802a0212676b6ab98615507a6b" => :mojave
-    sha256 "314210447c718ef04836ad43162af39f607d2bc956101e8be888146a8896bfa0" => :high_sierra
-    sha256 "bead4efc6aad30d0e3cbb15eb96dc235118da5dd1b2f8c4836419e4cf42f296b" => :sierra
-    sha256 "054cd91f322d08a265ca42f8ad1ba9fa12014b461ff276edb4464499faae3401" => :el_capitan
+    sha256 "d21e3624daa400166638d25509bb197114e4eb71c8f127ebec4c8b0bf91ebc06" => :mojave
+    sha256 "ee02b85ef2aa9159478d9b1882cc75fbe30ed92b11229a111b6ac8a051ce18a9" => :high_sierra
+    sha256 "ea0c72fdcb3be72af0dca27aef8b3d3a56ba31be463a93b10660cc84aadc59cb" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/2f/2b/7010a5189859eec725c36081b1d1c8e721000ebdf81a1682ec6b64e1c373/boto3-1.7.84.tar.gz"
@@ -39,11 +39,6 @@ class Sceptre < Formula
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
     sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
-  end
-
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
-    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "Jinja2" do

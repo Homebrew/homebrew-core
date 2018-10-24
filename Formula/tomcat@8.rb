@@ -9,15 +9,7 @@ class TomcatAT8 < Formula
 
   keg_only :versioned_formula
 
-  option "with-fulldocs", "Install full documentation locally"
-
   depends_on :java => "1.7+"
-
-  resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34-fulldocs.tar.gz"
-    mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.34/bin/apache-tomcat-8.5.34-fulldocs.tar.gz"
-    sha256 "e3f188f3bf9980f766b0c8af3ccd999d060530e251073aeb25e00a0aecf08dec"
-  end
 
   def install
     # Remove Windows scripts
@@ -27,8 +19,6 @@ class TomcatAT8 < Formula
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
-
-    (pkgshare/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
   end
 
   plist_options :manual => "catalina run"

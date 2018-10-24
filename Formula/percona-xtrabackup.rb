@@ -5,9 +5,10 @@ class PerconaXtrabackup < Formula
   sha256 "de02cfd5bde96ddbf50339ef3a4646004dde52239698df45c19ed3e8ee40738e"
 
   bottle do
-    sha256 "7f69dd77c9d2fa2f7d2b3634eca30bcbd083f426b033a049394c7c804bf788df" => :high_sierra
-    sha256 "afe400789cd164fc668d888f8c0e0e7ca5a861aad7df9291648bf932a2ac8225" => :sierra
-    sha256 "39b82780d9716d07186228027a09feb53ded26e25e671abcf463273687d45750" => :el_capitan
+    rebuild 1
+    sha256 "ef5bf99911e8cd49c218154b34ab0f66f257b518888ec5b8bb21104b3f761422" => :mojave
+    sha256 "0d78f86e1768a845f703b4fd5a2cef722f382c6f7bfef2725933d5af02ed19ba" => :high_sierra
+    sha256 "fd664421defce224cee2753357b80521aaa6db4aaf5769fd026037db9b767104" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -16,6 +17,11 @@ class PerconaXtrabackup < Formula
   depends_on "libgcrypt"
   depends_on "mysql-client"
   depends_on "openssl"
+
+  resource "DBI" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
+    sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
+  end
 
   resource "DBD::mysql" do
     url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
@@ -57,6 +63,15 @@ class PerconaXtrabackup < Formula
     rm lib/"plugin/keyring_file.so"
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    # In Mojave, this is not part of the system Perl anymore
+    if MacOS.version >= :mojave
+      resource("DBI").stage do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        system "make", "install"
+      end
+    end
+
     resource("DBD::mysql").stage do
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "install"

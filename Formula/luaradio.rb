@@ -14,8 +14,8 @@ class Luaradio < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "fftw"
   depends_on "luajit"
-  depends_on "fftw" => :recommended
 
   def install
     cd "embed" do

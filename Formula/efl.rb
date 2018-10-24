@@ -5,15 +5,12 @@ class Efl < Formula
   sha256 "7e65be78a537aa67e447b945f01f4ecf9ddfa14d509bf6bbf53a60253ecbae4b"
 
   bottle do
-    sha256 "46b40afaea0994eea79a05e464361339d9fd4b1c03fc03368e5ea449f7f2f234" => :mojave
-    sha256 "dbc8f35200613ced92cd39217955de3370259c3f158ff35603f9bf5de65fbd73" => :high_sierra
-    sha256 "33002e4aef9bccaa09d7412c045277966fd2093bf76e7cc8c66d27a37b15d1ed" => :sierra
-    sha256 "04ee0cab98b1c770ecca86ee6e5935d8e23b5732d1afd663f09d5bb9a7da10d1" => :el_capitan
+    rebuild 1
+    sha256 "402615004f916c4bce4ea9c861f591fe31975fe894c56e00840adf74c726cb21" => :mojave
+    sha256 "983569d3063cdbe45059c119bcd7f82bbc4a73412f2600435420191ce6b218ad" => :high_sierra
+    sha256 "035342390bc34cec44f89cd056618ffad4212152f3d23d20d074b8bb1f9ea0d4" => :sierra
   end
 
-  option "with-docs", "Install development libraries/headers and HTML docs"
-
-  depends_on "doxygen" => :build if build.with? "docs"
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "bullet"
@@ -36,8 +33,6 @@ class Efl < Formula
   depends_on "poppler"
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
-  depends_on "glib" => :optional
-  depends_on "webp" => :optional
 
   needs :cxx11
 
@@ -51,7 +46,6 @@ class Efl < Formula
 
     system "./configure", *args
     system "make", "install"
-    system "make", "install-doc" if build.with? "docs"
   end
 
   def post_install

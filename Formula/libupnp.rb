@@ -12,15 +12,13 @@ class Libupnp < Formula
     sha256 "9b660881232e6ce94a375962c1df55f179f69335c7d11907b9a9c5dd81693360" => :el_capitan
   end
 
-  option "without-ipv6", "Disable IPv6 support"
-
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-ipv6
     ]
-    args << "--enable-ipv6" if build.with? "ipv6"
 
     system "./configure", *args
     system "make", "install"

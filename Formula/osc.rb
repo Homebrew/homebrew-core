@@ -9,9 +9,10 @@ class Osc < Formula
 
   bottle do
     cellar :any
-    sha256 "2fa943a2d22421c43b0207f3539bf2a67429a14c3863b41693d4fecd84ee42a0" => :high_sierra
-    sha256 "154342969ef438ae7a1df6eff5a143671c1fce676671bb9fca23baa1296d1dc2" => :sierra
-    sha256 "b1c225feb5c2a64f28499633f34c749189fee435232b7aa68b18bf623e136fa6" => :el_capitan
+    rebuild 1
+    sha256 "88449403387fb548cb64c1f1c5c10e7ba1b241f1b65f97aad22254dab4454fc9" => :mojave
+    sha256 "66accc3b1b095b51ac09cea6f07a0fc74908afc664085c1905dae3617c22313b" => :high_sierra
+    sha256 "0c71a651c136e1e6ec9763e453c2c7a841062269de67cc985df119ca9eb1ead7" => :sierra
   end
 
   depends_on "swig" => :build
@@ -41,6 +42,8 @@ class Osc < Formula
   def install
     # avoid pycurl error about compile-time and link-time curl version mismatch
     ENV.delete "SDKROOT"
+
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
 
     venv = virtualenv_create(libexec)
     venv.pip_install resources.reject { |r| r.name == "M2Crypto" || r.name == "pycurl" }

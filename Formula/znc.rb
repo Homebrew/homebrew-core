@@ -19,11 +19,9 @@ class Znc < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-debug", "Compile ZNC with debug support"
   option "with-icu4c", "Build with icu4c for charset support"
   option "with-python3", "Build with mod_python support, allowing Python ZNC modules"
 
-  deprecated_option "enable-debug" => "with-debug"
   deprecated_option "with-python3" => "with-python"
 
   depends_on "pkg-config" => :build
@@ -42,7 +40,6 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
     args = ["--prefix=#{prefix}"]
-    args << "--enable-debug" if build.with? "debug"
     args << "--enable-python" if build.with? "python"
 
     system "./autogen.sh" if build.head?

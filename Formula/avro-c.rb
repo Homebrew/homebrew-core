@@ -3,23 +3,20 @@ class AvroC < Formula
   homepage "https://avro.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.8.2/c/avro-c-1.8.2.tar.gz"
   sha256 "4639982b2b8fbd91fc7128fef672207129c959bb7900dd64b077ce4206edf10e"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "7f7098067243213f259c937131f4ffd8456ba8086b6e5af77b4889f6861ff182" => :mojave
-    sha256 "6f4d948dcf0e1700b7a770f9bb8612f5495ff0c5c01c9f0ee3a73f3d3c58165e" => :high_sierra
-    sha256 "b1340938b27551d73c1343d5323b9aa1a42a173fa10e4a7db9445e11e84fdc54" => :sierra
-    sha256 "8358b34088a77ba07d32505350e5b119274ed69f3adf1016cd1fbf0b15034227" => :el_capitan
+    sha256 "072eff37263bbd6dfa941cb350ffd2ea7ee6e23e948547f8c9c6f3b58e162211" => :mojave
+    sha256 "845eb5220229a26d3acd435beb093301207850787827a84db0d55455357f18dd" => :high_sierra
+    sha256 "442b64624539b8454693b961ac9b455f2ad956c1119cb16e49c65498caeb1e81" => :sierra
+    sha256 "6282882c11af83fe568776fa45c11c5140dec413a6cd4efff9e28b2ffc35713c" => :el_capitan
   end
-
-  option "with-snappy", "Build with Snappy codec support"
-  option "with-xz", "Build with LZMA codec support"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "jansson"
-  depends_on "snappy" => :optional
-  depends_on "xz" => :optional
+  depends_on "snappy"
+  depends_on "xz"
 
   def install
     system "cmake", ".", *std_cmake_args

@@ -1,14 +1,13 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.30/evince-3.30.0.tar.xz"
-  sha256 "cbd02d1c515fd7f17af1c96935e456d6ccba4d612d2d972a12079cc6b24e8cb9"
+  url "https://download.gnome.org/sources/evince/3.30/evince-3.30.2.tar.xz"
+  sha256 "a95bbdeb452c9cc910bba751e7c782ce60ffe7972c461bccbe8bbcdb8ca5f24c"
 
   bottle do
-    sha256 "535311ae119d82bd286af496be7f791a9bfc5f13e17c2d8ff2a67703ce161011" => :mojave
-    sha256 "56bd311b5b76ac27e0ec8928dc377a59c8691e5eb3a93dd921305afbedb479fd" => :high_sierra
-    sha256 "7244f3eab755a9a4b393b975a20866af26906cc9c995212834cf9547519472a8" => :sierra
-    sha256 "447f3f7d244a9d05a16e79b53e2e619aeb9c59701cf55875c25f7bc8966eb45d" => :el_capitan
+    sha256 "79376de9e7e365c98d51ec709de00966aed241ea33eeb2996284849b05361dd6" => :mojave
+    sha256 "00e766f45adca27bb77a032eb7e51d5e0aaafe11e1ad0356f88e1c273611ceb8" => :high_sierra
+    sha256 "8b260fa7c0da0fbd2ff4585689049b90fe3cb88260099bf4fc5742ac01dcf32e" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -25,7 +24,6 @@ class Evince < Formula
   depends_on "libxml2"
   depends_on "poppler"
   depends_on "python@2"
-  depends_on "shared-mime-info"
 
   def install
     # Fix build failure "ar: illegal option -- D"
@@ -53,7 +51,6 @@ class Evince < Formula
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    system "#{Formula["shared-mime-info"].opt_bin}/update-mime-database", "#{HOMEBREW_PREFIX}/share/mime"
   end
 
   test do

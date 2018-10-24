@@ -1,14 +1,13 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.54/vte-0.54.0.tar.xz"
-  sha256 "ae09697006300d61a8de0c7ecebe0b36959179e5329a124f5ba2f45684dfa523"
+  url "https://download.gnome.org/sources/vte/0.54/vte-0.54.2.tar.xz"
+  sha256 "527d48b5131af1a0835006b7538fd3b243847bebc76b66bafa84457a98153834"
 
   bottle do
-    sha256 "3249c3eeed411baee1fcc1f31ce9b58f34638d31c2fc6a5a2cf37a69d764661a" => :mojave
-    sha256 "2da621f34087496d386ccd870a9b25a20ab22462a39221991667bcbc03bc3a8a" => :high_sierra
-    sha256 "634251c2ae5f92a4862dc8f6a3adf8252b5a4009fedf4f1e714dcc31a793e839" => :sierra
-    sha256 "2049ee65cdae10b8b1bd75985323bf1aad0ffb01d85bdb0db971a068c1d7c190" => :el_capitan
+    sha256 "2f4eac43d1583543cf7d0e0b5b1ca96557b81c439e12e6a7c82f6977c6837016" => :mojave
+    sha256 "20d378d7c366487841b0f2127eabf1630c9198be7530cbc4ade5aab75ee6b1ce" => :high_sierra
+    sha256 "e6c954aff55c71d428352cabd1bd7d7853aa1d134dbf2d38cdb1070850307fe4" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

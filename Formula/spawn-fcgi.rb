@@ -15,13 +15,9 @@ class SpawnFcgi < Formula
     sha256 "a19a14cae6fbacdc5aa1a8132f5d290743ba7385c2d76903dbd172ca07b38680" => :mavericks
   end
 
-  option "without-ipv6", "Build without ipv6 support"
-
   def install
-    args = []
-    args << "--disable-ipv6" if build.without? "ipv6"
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", *args
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 

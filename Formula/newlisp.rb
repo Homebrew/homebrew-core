@@ -12,7 +12,7 @@ class Newlisp < Formula
     sha256 "4993d9b9cb6b081d9b0790fbd9095af3f68f82afbaccc09d187399585bebd1b5" => :yosemite
   end
 
-  depends_on "readline" => :recommended
+  depends_on "readline"
 
   def install
     # Required to use our configuration

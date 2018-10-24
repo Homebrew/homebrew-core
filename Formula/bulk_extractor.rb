@@ -6,17 +6,15 @@ class BulkExtractor < Formula
   revision 2
 
   bottle do
-    sha256 "968df238e7bd0e1738215310de5362bcc3fe146f9bc3930118c2331f723004da" => :mojave
-    sha256 "bd8be8ebe8f00ce1b0d2a1d52d1c8eec1390337e78cf415414c42548558032bc" => :high_sierra
-    sha256 "e2773083f3813a2ed5ecde53ff965a13ca9a995b4c9f3b2abee42162c0492f2c" => :sierra
-    sha256 "cb2049ff2cd30733ec9a2456a4aefdabfa97511849d4c9b2f93de1526ee1f5ba" => :el_capitan
+    rebuild 1
+    sha256 "a5ed0825ed227f6c7dafba8f65e7de56dd14994e80e4164dfee1cc52f49a5a34" => :mojave
+    sha256 "7666ded8016f96f93fcd4f8da586237b04651f518c58f467a2934a1672e3d04a" => :high_sierra
+    sha256 "2de4444284b48e482818bcfe9ab0002b2d15a3bcf94ca553e086dbf9833c6dc2" => :sierra
+    sha256 "d23689372ca9fff1fb214bd449c9adf6bf29a8876069a9a688bd8867af01f7a6" => :el_capitan
   end
 
   depends_on "boost"
   depends_on "openssl"
-  depends_on "afflib" => :optional
-  depends_on "exiv2" => :optional
-  depends_on "libewf" => :optional
 
   def install
     system "./configure", "--disable-dependency-tracking",

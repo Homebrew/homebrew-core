@@ -16,7 +16,7 @@ class Mikutter < Formula
   depends_on "gtk+"
   depends_on "libidn"
   depends_on "ruby"
-  depends_on "terminal-notifier" => :recommended
+  depends_on "terminal-notifier"
 
   resource "addressable" do
     url "https://rubygems.org/gems/addressable-2.5.2.gem"

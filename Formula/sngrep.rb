@@ -5,13 +5,15 @@ class Sngrep < Formula
   sha256 "16f1566f4507ba560c7461cc7ff1c1653beb14b8baf7846269bbb4880564e57f"
 
   bottle do
-    sha256 "c922408522d0a44e37d24a6e76d9ad50ec78cdae2e4bdcac157eccf2f0bc1ee1" => :high_sierra
-    sha256 "84e4895d9674dde107d145b618e064923e2e473cdfc2b6258cddf7c982a014d5" => :sierra
-    sha256 "8a23ddb8172c6e882e525262aba6f1074dd67d2fd8a051adc27db843b1c3ca35" => :el_capitan
+    rebuild 1
+    sha256 "f54b59619034b13fbb2335ac87bfd530d2fd757ea12fc9e7c680c04957a83ac5" => :mojave
+    sha256 "60ef7a7f63a10751d57000321b84a24e37e491f55ffa942b177ee31a9a79275c" => :high_sierra
+    sha256 "b19e1624c118d3fa101aec7298ce707bb8fcef10376b85adaf80ab248df2b511" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
 
   def install

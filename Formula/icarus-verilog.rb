@@ -2,6 +2,7 @@ class IcarusVerilog < Formula
   desc "Verilog simulation and synthesis tool"
   homepage "http://iverilog.icarus.com/"
   url "ftp://icarus.com/pub/eda/verilog/v10/verilog-10.2.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/iverilog/iverilog_10.2.orig.tar.gz"
   sha256 "96dedbddb12d375edb45a144a926a3ba1e3e138d6598b18e7d79f2ae6de9e500"
   revision 1
 

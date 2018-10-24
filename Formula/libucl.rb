@@ -6,18 +6,17 @@ class Libucl < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "5f845b8255109ef447e502ae4e409272c0a20c77b46f53ef717db33c9fb02a8d" => :mojave
-    sha256 "77547a51a2e038ab2f26123fb39ecd12e1ba248aa857dc01c75892554c404330" => :high_sierra
-    sha256 "20f8f84cdefc801f89531a97ef9d6964f84199040e9c7affda48848171c6f096" => :sierra
-    sha256 "ca86c64fe729bae95050208ef904752473da24592e9221c774e65206df3d8567" => :el_capitan
+    rebuild 3
+    sha256 "1ffddb657d95f504ba3b7331f5dbbd995c5d237cda3f736e99182a16a8e8181d" => :mojave
+    sha256 "dd5dbb4eb7e3d37816acc4f3bc2842c8e91caeb4a6f058eed75cab9d72192315" => :high_sierra
+    sha256 "5c477e0feb163dc955e89eabf97cae445fefc9c920fe46073c85af348535d7cd" => :sierra
+    sha256 "93e7d66507c386c9fe720b5f4c77d3b719574b7c311319cddc09bcbda659bce7" => :el_capitan
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "lua" => :optional
 
   def install
     system "./autogen.sh"
@@ -29,7 +28,6 @@ class Libucl < Formula
       --enable-utils
       --prefix=#{prefix}
     ]
-    args << "--enable-lua" if build.with? "lua"
 
     system "./configure", *args
     system "make", "install"

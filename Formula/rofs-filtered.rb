@@ -5,6 +5,7 @@ class RofsFiltered < Formula
   sha256 "d66066dfd0274a2fb7b71dd929445377dd23100b9fa43e3888dbe3fc7e8228e8"
 
   bottle do
+    sha256 "74a12ef9a8b0767ca7803f274c78b004a3b5b1006bc8e30e1f3ea195a02cabfa" => :mojave
     sha256 "2662076d6c938fd260ee304e80999db5e22a1c516fdc5139c7e477892a5cc927" => :high_sierra
     sha256 "c6f0661d382c415db63caf4512b18b526e5e75c25a5fa54de792d4365db4dfa1" => :sierra
     sha256 "5c29bf0f477b23c3e3291549cffe632d3222899a34483cd8c23fe25f4d9b30ca" => :el_capitan

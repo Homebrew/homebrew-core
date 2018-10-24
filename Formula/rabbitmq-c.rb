@@ -13,26 +13,15 @@ class RabbitmqC < Formula
     sha256 "892c266e4c6086c65b3e4cee8cf5116f59d682b178540ee3f78efeff1e9d912a" => :el_capitan
   end
 
-  option "without-tools", "Build without command-line tools"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "popt" if build.with? "tools"
+  depends_on "popt"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_EXAMPLES=OFF"
-    args << "-DBUILD_TESTS=OFF"
-    args << "-DBUILD_API_DOCS=OFF"
-
-    if build.with? "tools"
-      args << "-DBUILD_TOOLS=ON"
-    else
-      args << "-DBUILD_TOOLS=OFF"
-    end
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DBUILD_EXAMPLES=OFF",
+                         "-DBUILD_TESTS=OFF", "-DBUILD_API_DOCS=OFF",
+                         "-DBUILD_TOOLS=ON"
     system "make", "install"
   end
 

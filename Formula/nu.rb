@@ -1,7 +1,7 @@
 class Nu < Formula
   desc "Object-oriented, Lisp-like programming language"
-  homepage "http://programming.nu"
-  url "https://github.com/timburks/nu/archive/v2.2.2.tar.gz"
+  homepage "https://github.com/nulang/nu"
+  url "https://github.com/nulang/nu/archive/v2.2.2.tar.gz"
   sha256 "7b1de5062ba2a87ee4cbf458f5f851a3c43473eec8aae3e17704e0dd4ff56b39"
 
   bottle do

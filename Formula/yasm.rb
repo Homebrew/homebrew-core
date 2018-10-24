@@ -4,15 +4,13 @@ class Yasm < Formula
   url "https://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
   mirror "https://ftp.openbsd.org/pub/OpenBSD/distfiles/yasm-1.3.0.tar.gz"
   sha256 "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4d1a316d2c7ace32e619843e530911037d9b118e6ad454b2b939e70cf1dbac30" => :mojave
-    sha256 "ddb536410f898cba342c9c2d01696a690a28a4f1e9e30c67a3e352a41791fc85" => :high_sierra
-    sha256 "2ca19bb3f563569aa4eac4fd3398a7eb14a7fb1268b4ffe86ad7980f9701d1b7" => :sierra
-    sha256 "0dd9ef773dfbf9c59ab13c1fb7ec616d1ffba1c240357497d75482e0743c4119" => :el_capitan
-    sha256 "fc205e75319ba9e63a2e5fa6beccc66a163325a3a4a51807a2cf1844512f2c24" => :yosemite
+    sha256 "a3b57d242cdd13967472fbb5badd774d677428b6f730438d18fd153920dd3620" => :mojave
+    sha256 "aa12e2f4b22a402405553706681d5c6bde592a1958a7c1e2594a365c29834625" => :high_sierra
+    sha256 "49aa187cc261f03269c7036f1c39d6ff58d6748a25b247a0c51f8f3ecbf032cd" => :sierra
   end
 
   head do
@@ -23,17 +21,12 @@ class Yasm < Formula
     depends_on "gettext"
   end
 
-  depends_on "cython" => :build
-
   def install
     args = %W[
       --disable-debug
       --prefix=#{prefix}
+      --disable-python
     ]
-
-    ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
-    args << "--enable-python"
-    args << "--enable-python-bindings"
 
     # https://github.com/Homebrew/legacy-homebrew/pull/19593
     ENV.deparallelize

@@ -7,9 +7,10 @@ class Wrk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8167375044c6ff20f33e2d94f92fe2977bb25f19f561f1d5f2eb241b0feda62c" => :high_sierra
-    sha256 "1ace345f489c0fc589b619e96a748bf841ff9134a70016b76cde5ae06795369f" => :sierra
-    sha256 "23f7c0c7b86691a810238679dee61662781a70b13db95c6dfee4d469845867c1" => :el_capitan
+    rebuild 1
+    sha256 "bf22b23f21ae787e2a114f0138519710f5f1e3069ba7480c5c1c0217cac62873" => :mojave
+    sha256 "1366e8330c9013002d43984b4a80dfc16e73fa23b91b72eb0c8ee2df512628e1" => :high_sierra
+    sha256 "8aece2b0e05cfce8f9e1bc408bc043c8340e999cb175c2396ec94d9a8ead2221" => :sierra
   end
 
   depends_on "openssl"
@@ -18,6 +19,7 @@ class Wrk < Formula
 
   def install
     ENV.deparallelize
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     system "make"
     bin.install "wrk"
   end

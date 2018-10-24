@@ -6,19 +6,15 @@ class Libzzip < Formula
 
   bottle do
     cellar :any
-    sha256 "e881e410df23c25784b37ca6c9a2a3b440a7592a239db29826f82b8dd530cc77" => :mojave
-    sha256 "51a753ced0f53de1cf59412783261620f8238eb2a5aa2de9db4e1970a7fdabc6" => :high_sierra
-    sha256 "dde8ad2f566db63cddc63cead06e776c3d91f71a00c28a6f3813f75ba5b6c102" => :sierra
-    sha256 "0cd5457528cadfb83a31b83b16e16089816f991c290cfbe5446372a3291c676c" => :el_capitan
+    rebuild 1
+    sha256 "2e293f90e2ebee0734ff9bb6a23cdcd562383d87e801de996f57296aef3a15b4" => :mojave
+    sha256 "7ae8222e9b3f3d56639d19de2666eb1dffb6399d5985a64f52a24cdbe3763b58" => :high_sierra
+    sha256 "72c6927e722159e240f313b0bbc5dfd7648b340fd7a9c732d99e9eeaac6d4945" => :sierra
+    sha256 "2ed4dd48a0e3ae9b528164456652b0d5e8730153c398b6441a1ffb7d44e45f4d" => :el_capitan
   end
-
-  option "with-sdl", "Enable SDL usage and create SDL_rwops_zzip.pc"
-
-  deprecated_option "sdl" => "with-sdl"
 
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on "sdl" => :optional
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
@@ -28,7 +24,6 @@ class Libzzip < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
-    args << "--enable-sdl" if build.with? "sdl"
     system "./configure", *args
     system "make", "install"
   end

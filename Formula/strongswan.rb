@@ -1,14 +1,13 @@
 class Strongswan < Formula
   desc "VPN based on IPsec"
   homepage "https://www.strongswan.org"
-  url "https://download.strongswan.org/strongswan-5.6.3.tar.bz2"
-  sha256 "c3c7dc8201f40625bba92ffd32eb602a8909210d8b3fac4d214c737ce079bf24"
+  url "https://download.strongswan.org/strongswan-5.7.1.tar.bz2"
+  sha256 "006f9c9126e2a2f4e7a874b5e1bd2abec1bbbb193c8b3b3a4c6ccd8c2d454bec"
 
   bottle do
-    sha256 "42a97ee1056200cba159bfd23c90b5b3f81c9d51acead0de2191f2eadb758867" => :mojave
-    sha256 "c333663d47d78e2d798f5c4781a9a03cb2d1ce12fede69e9e7d3480956b34e49" => :high_sierra
-    sha256 "dd82c36ea4e2b80af822ecc84600906a95cf37ada8323fb13578bcfd2b81e2b7" => :sierra
-    sha256 "52f314ba14ecae1761c57bf1fe6f261118de02f2c1075bbc6ad12ef31afb90d6" => :el_capitan
+    sha256 "1cbb4ac83e832978cce224ddde5e92e940484486fe22969166a10230193e32df" => :mojave
+    sha256 "40cda2362e638287bf61ec0058c61c1b9d193c680aa0c8279ab6c86ef9da8114" => :high_sierra
+    sha256 "4f829167204e004acb44aa813f5b0d7e2e6271d4cb91e6e0c580cefc1dddb8ab" => :sierra
   end
 
   head do
@@ -22,11 +21,7 @@ class Strongswan < Formula
     depends_on "pkg-config" => :build
   end
 
-  option "with-curl", "Build with libcurl based fetcher"
-  option "with-suite-b", "Build with Suite B support (does not use the IPsec implementation provided by the kernel)"
-
   depends_on "openssl"
-  depends_on "curl" => :optional
 
   def install
     args = %W[
@@ -45,6 +40,7 @@ class Strongswan < Formula
       --enable-eap-mschapv2
       --enable-ikev1
       --enable-ikev2
+      --enable-kernel-pfkey
       --enable-kernel-pfroute
       --enable-nonce
       --enable-openssl
@@ -66,13 +62,6 @@ class Strongswan < Formula
       --enable-x509
       --enable-xauth-generic
     ]
-    args << "--enable-curl" if build.with? "curl"
-
-    if build.with? "suite-b"
-      args << "--enable-kernel-libipsec"
-    else
-      args << "--enable-kernel-pfkey"
-    end
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
@@ -80,22 +69,9 @@ class Strongswan < Formula
     system "make", "install"
   end
 
-  def caveats
-    msg = <<~EOS
-      strongSwan's configuration files are placed in:
-        #{etc}
-
-      You will have to run both "ipsec" and "charon-cmd" with "sudo".
-    EOS
-    if build.with? "suite-b"
-      msg += <<~EOS
-
-        If you previously ran strongSwan without Suite B support it might be
-        required to execute "sudo sysctl -w net.inet.ipsec.esp_port=0" in order
-        to receive packets.
-      EOS
-    end
-    msg
+  def caveats; <<~EOS
+    You will have to run both "ipsec" and "charon-cmd" with "sudo".
+  EOS
   end
 
   test do

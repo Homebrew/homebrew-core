@@ -13,7 +13,6 @@ class Perl < Formula
   end
 
   option "with-dtrace", "Build with DTrace probes"
-  option "with-test", "Run build-time tests"
 
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"
@@ -48,7 +47,7 @@ class Perl < Formula
     (lib/"perl5/#{version}/darwin-thread-multi-2level/CORE").install_symlink buildpath/"libperl.dylib"
 
     system "make"
-    system "make", "test" if build.with?("test") || build.bottle?
+    system "make", "test" if build.bottle?
 
     # Remove the symlink so the library actually gets installed.
     rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib"

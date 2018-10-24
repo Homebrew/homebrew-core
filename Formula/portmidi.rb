@@ -3,20 +3,16 @@ class Portmidi < Formula
   homepage "https://sourceforge.net/projects/portmedia/"
   url "https://downloads.sourceforge.net/project/portmedia/portmidi/217/portmidi-src-217.zip"
   sha256 "08e9a892bd80bdb1115213fb72dc29a7bf2ff108b378180586aa65f3cfd42e0f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "679386bff180a6765cc6b72d7ef79bcb66151722b59cc05535bc623fed682b3b" => :mojave
-    sha256 "c8f2755fd775064c282da84d666336d9125c6e70082975ffdc0867dee60b5802" => :high_sierra
-    sha256 "3ab40020a258be907f829205952a3336f424c0de4588fe41c5859e8c16ebaf72" => :sierra
-    sha256 "0d699de535a558e1bc72811f0b0ac7ccc158ee224564ff8e4d0b959c5872a9dc" => :el_capitan
-    sha256 "c36b7219ff6d838884d8fbe13a1d159b5375e5868b9a9c0d84de332952549e36" => :yosemite
+    sha256 "0dfe3a9b8ba85cf769c54a66fef958bfc0579700c3b8a3b494597a931e78db00" => :mojave
+    sha256 "746ef0d9f4013333e18b65160559ad578f2e491d5252ea22434cf8718885eb1e" => :high_sierra
+    sha256 "fba5058ec32b4f448c35104824f503a687bca51201e47c9e27020c08dd21fc41" => :sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "cython" => :build
-  depends_on "python@2"
 
   def install
     if MacOS.version == :sierra || MacOS.version == :el_capitan
@@ -37,19 +33,5 @@ class Portmidi < Formula
 
     system "make", "-f", "pm_mac/Makefile.osx"
     system "make", "-f", "pm_mac/Makefile.osx", "install"
-
-    cd "pm_python" do
-      # There is no longer a CHANGES.txt or TODO.txt.
-      inreplace "setup.py" do |s|
-        s.gsub! "CHANGES = open('CHANGES.txt').read()", 'CHANGES = ""'
-        s.gsub! "TODO = open('TODO.txt').read()", 'TODO = ""'
-      end
-      # Provide correct dirs (that point into the Cellar)
-      ENV.append "CFLAGS", "-I#{include}"
-      ENV.append "LDFLAGS", "-L#{lib}"
-
-      ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python2.7/site-packages"
-      system "python", *Language::Python.setup_install_args(prefix)
-    end
   end
 end

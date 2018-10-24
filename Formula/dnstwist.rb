@@ -5,18 +5,17 @@ class Dnstwist < Formula
   homepage "https://github.com/elceef/dnstwist"
   url "https://github.com/elceef/dnstwist/archive/v1.02.tar.gz"
   sha256 "f53bc7e8676c2e89f26ef76faefcdd2a7de1c4b18601a5db1710f37e63d856d7"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "cf4a5057220657f45260be438795243acc4101f93cf7a36149257d13a01e574a" => :mojave
-    sha256 "6184f0f31777c11e6384390a6ba3715dc92293c8a58dfdc81d5d83bd1a15962c" => :high_sierra
-    sha256 "ad0f9359efd7ed2ea15f51e538480a0b49ffd39f05078489141da1a42d417009" => :sierra
-    sha256 "230e8045cf7cc1e644dcf8f960da522bf60d85ad8ec60f6ab1494f4da66a06ea" => :el_capitan
+    sha256 "68a86862a97a36e6a026a2385feb3dbe4d6e1017ca2b708f5daecff737ee6cc3" => :mojave
+    sha256 "cabc35adfb683ae451a7a9ed450366e7e354c88062cca90532b36dc8135fe8d0" => :high_sierra
+    sha256 "8437c5f78ab040bf9ec4bd2235de7ce923422ca28677172830b61ada75d810b3" => :sierra
   end
 
   depends_on "geoip"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "ssdeep"
 
   resource "GeoIP" do
@@ -82,11 +81,11 @@ class Dnstwist < Formula
   def install
     ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
 
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
 
     # Replace shebang with virtualenv python
-    inreplace "dnstwist.py", "#!/usr/bin/env python", "#!#{libexec}/bin/python"
+    inreplace "dnstwist.py", "#!/usr/bin/env python", "#!#{libexec}/bin/python3"
 
     (libexec/"bin").install "dnstwist.py" => "dnstwist"
     (libexec/"bin/database").install "database/GeoIP.dat", "database/effective_tld_names.dat"

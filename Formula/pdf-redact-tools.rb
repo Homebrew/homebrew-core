@@ -17,7 +17,7 @@ class PdfRedactTools < Formula
   depends_on "exiftool"
   depends_on "ghostscript"
   depends_on "imagemagick"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"

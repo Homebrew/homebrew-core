@@ -46,7 +46,7 @@ class Nlopt < Formula
   end
 
   test do
-    # Based on http://ab-initio.mit.edu/wiki/index.php/NLopt_Tutorial#Example_in_C.2FC.2B.2B
+    # Based on https://nlopt.readthedocs.io/en/latest/NLopt_Tutorial/#Example_in_C.2FC.2B.2B
     (testpath/"test.c").write <<~EOS
       #include <math.h>
       #include <nlopt.h>
@@ -88,7 +88,7 @@ class Nlopt < Formula
         nlopt_destroy(opt);
       }
     EOS
-    system ENV.cc, "test.c", "-o", "test", "-lnlopt", "-lm"
+    system ENV.cc, "test.c", "-o", "test", "-L#{opt_lib}", "-lnlopt", "-lm"
     assert_match "found minimum", shell_output("./test")
   end
 end

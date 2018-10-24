@@ -15,9 +15,7 @@ class HttpLoad < Formula
     sha256 "f4702e82a17b0c972164f2bc8ba985edccf0f3dc840627d37d5307d9b914ba25" => :yosemite
   end
 
-  option "without-openssl", "Build without OpenSSL / HTTPS support"
-
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
 
   def install
     bin.mkpath
@@ -28,13 +26,10 @@ class HttpLoad < Formula
       LIBDIR=#{lib}
       MANDIR=#{man1}
       CC=#{ENV.cc}
+      SSL_TREE=#{Formula["openssl"].opt_prefix}
     ]
 
-    if build.with? "openssl"
-      inreplace "Makefile", "#SSL_", "SSL_"
-      args << "SSL_TREE=#{Formula["openssl"].opt_prefix}"
-    end
-
+    inreplace "Makefile", "#SSL_", "SSL_"
     system "make", "install", *args
   end
 

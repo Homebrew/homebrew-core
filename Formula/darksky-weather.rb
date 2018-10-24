@@ -1,21 +1,20 @@
 class DarkskyWeather < Formula
   desc "Command-line weather from the darksky.net API"
   homepage "https://github.com/genuinetools/weather"
-  url "https://github.com/genuinetools/weather/archive/v0.15.5.tar.gz"
-  sha256 "89ac1b9e767db0818da8fcf981a27371ebc18b542a47de65713425fed6da53e3"
+  url "https://github.com/genuinetools/weather/archive/v0.15.6.tar.gz"
+  sha256 "a10edddd0e1157dbb95b3c31170806d3789f00939e4192ad90bb23a87a70e48c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e5b8a2e578208d488a6b9f51e0f9f11b9b01b59f19a7ff0baaa1d4d2d6ae04a7" => :mojave
-    sha256 "74a814416ebe84e3999e5c465f9d4794402fce9f9f4e8a4552f2a50faf2f10da" => :high_sierra
-    sha256 "f4d070ead432f8e052c0e1e77cf2cef24898082ac84bc1a1acbfa8dd71790115" => :sierra
-    sha256 "50c07862d0c5a7e7ff4e75963c8af97622f3072b300cdebe4ccb7a9905153d3a" => :el_capitan
+    sha256 "65017d8799925fab8fe8533fb385fb56dc6a22114ec0092f624031c926e550e1" => :mojave
+    sha256 "2b385bbbc7310dc75466acc8bba635ffceb523788f66040933a201f476d0b9a0" => :high_sierra
+    sha256 "5ba56cd686eb287578ddfc1ae25d5896ffd699b902852b1d68a0caaac4148f6e" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/genuinetools/weather").install buildpath.children
 
     cd "src/github.com/genuinetools/weather" do

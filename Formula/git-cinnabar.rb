@@ -31,13 +31,6 @@ class GitCinnabar < Formula
     sha256 "8549a043b40628b7141ed2d58cd8d473bb49345b52e4f6586554d5990770ddd3" => :el_capitan
   end
 
-  devel do
-    url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.5.0b4",
-        :revision => "125ae46f06383fd69c6b9febac9a33317d12b368"
-    version "0.5.0b4"
-  end
-
   depends_on "mercurial"
 
   conflicts_with "git-remote-hg", :because => "both install `git-remote-hg` binaries"

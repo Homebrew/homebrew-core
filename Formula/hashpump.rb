@@ -3,24 +3,17 @@ class Hashpump < Formula
   homepage "https://github.com/bwall/HashPump"
   url "https://github.com/bwall/HashPump/archive/v1.2.0.tar.gz"
   sha256 "d002e24541c6604e5243e5325ef152e65f9fcd00168a9fa7a06ad130e28b811b"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "01755a1227fb876736e267b3d269ecc673141cbc88cdaf74abbb65461a125d05" => :mojave
-    sha256 "479a1f7187b1d126ada855c3368179a97d4cddd5bcd6e869a6418e6f1349d586" => :high_sierra
-    sha256 "53dd1f981a635e415dc0459f410a8854b90e04ffc034b87e6abed97bab5027d8" => :sierra
-    sha256 "981c229f983ad5b42e4b975e21112ecb0d3715b61b5b278037ceba5a03f82fe8" => :el_capitan
+    sha256 "7d66b2aeb0e9cd16362173d78d4291e5b4095a00f56b6a41fb67ba4fb6ee9e78" => :mojave
+    sha256 "880a577b7b664a653797e8be8d3dacde7050786c9bdda08758f43e62b5f4cc82" => :high_sierra
+    sha256 "ca23c693b5c3d7786cbbe385b540e5e0aec7267c7e378d4b7e3ca88d6b3847b4" => :sierra
   end
 
-  option "without-python@2", "Build without python 2 support"
-
-  deprecated_option "with-python3" => "with-python"
-  deprecated_option "without-python" => "without-python@2"
-
   depends_on "openssl"
-  depends_on "python@2" => :recommended
-  depends_on "python" => :optional
+  depends_on "python"
 
   # Remove on next release
   patch do
@@ -34,9 +27,7 @@ class Hashpump < Formula
                    "CXX=#{ENV.cxx}",
                    "install"
 
-    Language::Python.each_python(build) do |python, _version|
-      system python, *Language::Python.setup_install_args(prefix)
-    end
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do

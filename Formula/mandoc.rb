@@ -13,8 +13,6 @@ class Mandoc < Formula
     sha256 "dd4131a36901d8650f896c90bd6e9cc08bfe6d146db5c7461e63e0e6e2b3d49a" => :yosemite
   end
 
-  option "without-cgi", "Don't build man.cgi (and extra CSS files)."
-
   def install
     localconfig = [
 
@@ -52,11 +50,11 @@ class Mandoc < Formula
       "HAVE_MANPATH=0",   # Our `manpath` is a symlink to system `man`.
       "STATIC=",          # No static linking on Darwin.
 
-      "HOMEBREWDIR=#{HOMEBREW_CELLAR}" # ? See configure.local.example, NEWS.
+      "HOMEBREWDIR=#{HOMEBREW_CELLAR}", # ? See configure.local.example, NEWS.
+      "BUILD_CGI=1",
     ]
 
-    localconfig << "BUILD_CGI=1" if build.with? "cgi"
-    File.rename("cgi.h.example", "cgi.h") # For man.cgi, harmless in any case.
+    File.rename("cgi.h.example", "cgi.h") # For man.cgi
 
     (buildpath/"configure.local").write localconfig.join("\n")
     system "./configure"

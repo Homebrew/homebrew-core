@@ -13,11 +13,6 @@ class Dbus < Formula
     sha256 "0abbf97ba40e314370f5c7d325f770a27820ad73672109b818032241a8b45172" => :el_capitan
   end
 
-  devel do
-    url "https://dbus.freedesktop.org/releases/dbus/dbus-1.13.6.tar.gz"
-    sha256 "b533693232d36d608a09f70c15440c1816319bac3055433300d88019166c1ae4"
-  end
-
   head do
     url "https://anongit.freedesktop.org/git/dbus/dbus.git"
 

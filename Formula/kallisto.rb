@@ -3,14 +3,13 @@ class Kallisto < Formula
   homepage "https://pachterlab.github.io/kallisto/"
   url "https://github.com/pachterlab/kallisto/archive/v0.44.0.tar.gz"
   sha256 "35a81201a56f4557697e6fe693dc6b701bbbd0a7b2b6e1c6c845ef816d67ca29"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "ba3dcb0b8d87ed3a63d2b214f6c19d3075096ca9426ef4c74ad2acdfc7e1d9a6" => :mojave
-    sha256 "f10b20c023f318b785d3e2b78e6b18a520a4362890d5357cf19b31bc5f7dd7c3" => :high_sierra
-    sha256 "be0496a68404a00011e0081c07b27fbc99ab22eb7a6c5ed29ad46d186a36821d" => :sierra
-    sha256 "f3ef4d856d3279ff8a891fe7ae1d443b66b1755388f52bf388c1779098b71639" => :el_capitan
+    sha256 "c3a61f791c9ebc848223f80c2da725db4842586437f53a0c721cefcf408c7dca" => :mojave
+    sha256 "cc9ba346ad40d40bb06a9fd090d8831b8af565c5a260030f9925a3eb7bcbea56" => :high_sierra
+    sha256 "f459b12833816a79fc35ab3336ad60de232c8531ad7f266403b1817ae2a9a245" => :sierra
   end
 
   depends_on "autoconf" => :build

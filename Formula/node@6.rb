@@ -13,7 +13,6 @@ class NodeAT6 < Formula
 
   keg_only :versioned_formula
 
-  option "with-debug", "Build with debugger hooks"
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
@@ -26,7 +25,7 @@ class NodeAT6 < Formula
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
   fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.7").each do |n|
     fails_with :gcc => n
   end
@@ -40,7 +39,6 @@ class NodeAT6 < Formula
   def install
     args = ["--prefix=#{prefix}"]
     args << "--without-npm" if build.without? "npm"
-    args << "--debug" if build.with? "debug"
     args << "--shared-openssl" << "--openssl-use-def-ca-store" if build.with? "openssl"
 
     if build.with? "full-icu"

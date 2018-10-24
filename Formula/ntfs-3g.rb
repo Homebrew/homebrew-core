@@ -5,6 +5,7 @@ class Ntfs3g < Formula
   sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
 
   bottle do
+    sha256 "7fca129fd960c9b8ea4459232ddbd7041b427825feb724903775b386000fb5ad" => :mojave
     sha256 "f5fdf264ba84f10204564e7e33bac6cb2e657052bbf141ca735682f9d7842003" => :high_sierra
     sha256 "66662baf5f187c4784ff9c4236d9595205c01c6c7141699b8afcdb4337304a0c" => :sierra
     sha256 "dc2dc22afe3376cccb2a7d62f3faf4455a2422ebe4c96eaebd6d9249a00e3c2d" => :el_capitan

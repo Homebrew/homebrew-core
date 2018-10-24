@@ -19,12 +19,8 @@ class Mosh < Formula
     depends_on "automake" => :build
   end
 
-  option "with-test", "Run build-time tests"
-
-  deprecated_option "without-check" => "without-test"
-
   depends_on "pkg-config" => :build
-  depends_on "tmux" => :build if build.with?("test") || build.bottle?
+  depends_on "tmux" => :build if build.bottle?
   depends_on "protobuf"
 
   needs :cxx11
@@ -38,7 +34,7 @@ class Mosh < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
-    system "make", "check" if build.with?("test") || build.bottle?
+    system "make", "check" if build.bottle?
     system "make", "install"
   end
 

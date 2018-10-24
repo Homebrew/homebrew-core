@@ -12,12 +12,10 @@ class Libxmlsec1 < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gnutls" # Yes, it wants both ssl/tls variations
+  depends_on "libgcrypt"
   depends_on "libxml2" if MacOS.version <= :lion
-
-  # Yes, it wants both ssl/tls variations.
-  depends_on "gnutls" => :recommended
-  depends_on "libgcrypt" if build.with? "gnutls"
-  depends_on "openssl" => :recommended
+  depends_on "openssl"
 
   # Add HOMEBREW_PREFIX/lib to dl load path
   patch :DATA
@@ -26,9 +24,9 @@ class Libxmlsec1 < Formula
     args = ["--disable-dependency-tracking",
             "--prefix=#{prefix}",
             "--disable-crypto-dl",
-            "--disable-apps-crypto-dl"]
+            "--disable-apps-crypto-dl",
+            "--with-openssl=#{Formula["openssl"].opt_prefix}"]
 
-    args << "--with-openssl=#{Formula["openssl"].opt_prefix}" if build.with? "openssl"
     args << "--with-libxml=#{Formula["libxml2"].opt_prefix}" if build.with? "libxml2"
 
     system "./configure", *args

@@ -7,6 +7,7 @@ class Avfs < Formula
 
   bottle do
     rebuild 1
+    sha256 "f30091e80fde67155307d3f21e591790672fa0a54d4ef232a0d961cd1c5409c2" => :mojave
     sha256 "c3f6275c1c03ae70e19c5159d1ccf08b428bdc18f7f524ca3bf05b1a150e0d65" => :high_sierra
     sha256 "ac6d33a32baed847feb08181e9c9758de7f9bfdabc52bf3b4e3607c3f85682f5" => :sierra
   end

@@ -1,15 +1,14 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.0.7.tar.gz"
-  sha256 "37a8c3008328bae0fea05109d6d544a3284f756a23956e8a2f5ec10a6b5fef67"
-  revision 2
+  url "https://download.osgeo.org/mapserver/mapserver-7.2.1.tar.gz"
+  sha256 "9459a7057d5a85be66a41096a5d804f74665381186c37077c94b56e784db6102"
 
   bottle do
     cellar :any
-    sha256 "861890728eb6d3fb016b9b820f301da7f79136f454820ef8d3eb1387711f8df3" => :high_sierra
-    sha256 "00e9069aba52817cbd8e27ee77113bdfd4f4ac3f0fc6fb89f16b8ae451e53fda" => :sierra
-    sha256 "e1c69d346d18201436a8afdbc40e7ef0b0e6ed80ec8ac47eba6ac5e04f65af8e" => :el_capitan
+    sha256 "283f73045165ca1674b10a9e2b9b48aec93c5d097a2fe01c547464cd6213f36f" => :mojave
+    sha256 "0dfd0efc69c78bc629dca2afe0f891a2ea0a0835c3c6c3e08449f9ec76defb8d" => :high_sierra
+    sha256 "8efdeb9599cbde78e4202c26e8d450a176f46fda7d21ba9806824633a70dbe71" => :sierra
   end
 
   option "with-fastcgi", "Build with fastcgi support"
@@ -27,6 +26,7 @@ class Mapserver < Formula
   depends_on "giflib"
   depends_on "libpng"
   depends_on "proj"
+  depends_on "protobuf-c"
   depends_on "cairo" => :optional
   depends_on "geos" => :optional
   depends_on "postgresql" => :optional unless MacOS.version >= :lion

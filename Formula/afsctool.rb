@@ -1,7 +1,8 @@
 class Afsctool < Formula
   desc "Utility for manipulating HFS+ compressed files"
   homepage "https://brkirch.wordpress.com/afsctool/"
-  url "https://docs.google.com/uc?export=download&id=0BwQlnXqL939ZQjBQNEhRQUo0aUk"
+  url "https://bintray.com/homebrew/mirror/afsctool-1.6.4.zip"
+  mirror "https://docs.google.com/uc?export=download&id=0BwQlnXqL939ZQjBQNEhRQUo0aUk"
   version "1.6.4"
   sha256 "bb6a84370526af6ec1cee2c1a7199134806e691d1093f4aef060df080cd3866d"
   revision 2

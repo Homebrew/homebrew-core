@@ -1,15 +1,3 @@
-class Camlp5TransitionalModeRequirement < Requirement
-  fatal true
-
-  satisfy(:build_env => false) { !Tab.for_name("camlp5").with?("strict") }
-
-  def message; <<~EOS
-    camlp5 must be compiled in transitional mode (instead of --strict mode):
-      brew install camlp5
-  EOS
-  end
-end
-
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
@@ -26,7 +14,6 @@ class Coq < Formula
 
   depends_on "ocaml-findlib" => :build
   depends_on "camlp5"
-  depends_on Camlp5TransitionalModeRequirement
   depends_on "ocaml"
   depends_on "ocaml-num"
 

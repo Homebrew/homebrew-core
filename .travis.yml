@@ -18,6 +18,8 @@ deploy:
 before_install:
   - HOMEBREW_REPOSITORY="$HOME/Homebrew"
   - export PATH="$HOMEBREW_REPOSITORY/bin:$PATH"
+  - export HOMEBREW_FORCE_HOMEBREW_ORG=1
+  - export HOMEBREW_BOTTLE_DOMAIN=https://homebrew.bintray.com
   # umask 022 fixes Linux `brew tests` failures
   - umask 022
   - chmod 644 Formula/*.rb

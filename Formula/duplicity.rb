@@ -17,7 +17,8 @@ class Duplicity < Formula
   depends_on "gnupg"
   depends_on "librsync"
   depends_on "openssl"
-  depends_on "python@2"
+  # Dependency pycryptopp only supports Python 2
+  depends_on "python@2" # does not support Python 3
   depends_on "par2" => :optional
 
   # Generated with homebrew-pypi-poet from

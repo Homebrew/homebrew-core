@@ -6,6 +6,7 @@ class Sshfs < Formula
 
   bottle do
     cellar :any
+    sha256 "e4c05b69dfe45387aa294ca3fa675cf487db6c99b795859730ec6900fa61ec46" => :mojave
     sha256 "283859a4868df7d91fc4a6fcef6ddc590957a661f833fbf81da25f6f2c72a585" => :high_sierra
     sha256 "534fc64f25ee6757e4fd802988deee9d2df8f1c38604d36c525a12a67b1d23fa" => :sierra
     sha256 "27c5e0d7f9bed4219c12267bd459fbd25a143abf0a9e3f5fa12fd0b587f10007" => :el_capitan

@@ -6,6 +6,7 @@ class MariadbConnectorOdbc < Formula
 
   bottle do
     cellar :any
+    sha256 "f5717e6cf61988ee81b6c148c455bbb9b772c5bbcac72955a9fe694f87f60a50" => :mojave
     sha256 "c7ab8dfb656eb5918ea5b5844ff27a04e6ed62cb336ea193311e89830791f4b2" => :high_sierra
     sha256 "00f033011f0d2c7d2921178d2e111709e6031d80cf8010710a1db2a054d076bf" => :sierra
     sha256 "c9ad0e034c618baa79b40287a109cf6a9ac060106b1f64d1618f270ce2492134" => :el_capitan

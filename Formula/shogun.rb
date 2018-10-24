@@ -3,14 +3,12 @@ class Shogun < Formula
   homepage "http://www.shogun-toolbox.org/"
   url "http://shogun-toolbox.org/archives/shogun/releases/6.1/sources/shogun-6.1.3.tar.bz2"
   sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "63a2ac799dc302da4fa23cf042c7d7195ef226533feba6b83b09b8ecebe06371" => :mojave
-    sha256 "fed5e4edc265b1b7dbee4000c7972bbb19b428a9939ebfba14b8404c8f27ac61" => :high_sierra
-    sha256 "cc8ae55e009ed40250df44fb1a9f3e7297104a77f3680c485c30c3708bb4e2df" => :sierra
-    sha256 "f6783d7ee05413b27b300470fb866731bd1a34398e99598a4d4d7b1b6e61fa6e" => :el_capitan
+    sha256 "7f46d34b9fb84e45da8010cd796d28860a16dfa8ec3b4e3bae234cf5c9f3db4e" => :mojave
+    sha256 "e432dbe32889e4dc9bc2501a61934fe6f1ed5c13b613d79cb22c34a1d8543e99" => :high_sierra
+    sha256 "f9c0b2fdec633139f4187c3acf571a9e56ef627d417ff385583bc1c214d64647" => :sierra
   end
 
   depends_on "cmake" => :build
