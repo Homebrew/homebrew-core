@@ -3,6 +3,7 @@ class OsrmBackend < Formula
   homepage "http://project-osrm.org/"
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.18.0.tar.gz"
   sha256 "db9b795dea5d74ca64d71b16e657df02987a90e15014a79994eba0bb14466e61"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
