@@ -5,6 +5,7 @@ class Joplin < Formula
   homepage "https://joplin.cozic.net/"
   url "https://registry.npmjs.org/joplin/-/joplin-1.0.116.tgz"
   sha256 "ddb4cd6246c5396064506cc23ab5773ec6d8c6075bba3ff338f68797ea2665e6"
+  revision 1
 
   bottle do
     sha256 "ced478c8bfc3448980df08256530c020ce75f7e3a58ffbc49555b61fc7c675f6" => :mojave
