@@ -3,6 +3,7 @@ class LibtorrentRasterbar < Formula
   homepage "https://www.libtorrent.org/"
   url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_10/libtorrent-rasterbar-1.1.10.tar.gz"
   sha256 "07b2b391e0d16bc693d793e352338488a0e41f3130b70884bb2e0270ea00b8c2"
+  revision 1
 
   bottle do
     cellar :any
