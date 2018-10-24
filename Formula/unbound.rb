@@ -1,9 +1,9 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.7.3.tar.gz"
-  sha256 "c11de115d928a6b48b2165e0214402a7a7da313cd479203a7ce7a8b62cba602d"
-  head "https://nlnetlabs.nl/svn/unbound/trunk/", :using => :svn
+  url "https://www.unbound.net/downloads/unbound-1.8.1.tar.gz"
+  sha256 "c362b3b9c35d1b8c1918da02cdd5528d729206c14c767add89ae95acae363c5d"
+  head "https://github.com/NLnetLabs/unbound"
 
   bottle do
     rebuild 2
