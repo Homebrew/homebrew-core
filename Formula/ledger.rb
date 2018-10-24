@@ -3,7 +3,7 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
   sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
-  revision 10
+  revision 11
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -19,6 +19,12 @@ class Ledger < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "python@2"
+
+  # Upstream fix for boost 1.68, remove with next version
+  patch do
+    url "https://github.com/ledger/ledger/commit/c18a55f9.diff?full_index=1"
+    sha256 "2e652fc4b247b9c7cd482bd07aa57a66fc86597d7a564e6ccf93232700a6c8d8"
+  end
 
   needs :cxx11
 
