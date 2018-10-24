@@ -26,9 +26,11 @@ class Advancecomp < Formula
 
   test do
     system bin/"advdef", "--version"
-    system bin/"advpng", "--version"
 
     cp test_fixtures("test.png"), "test.png"
     system bin/"advpng", "--recompress", "--shrink-fast", "test.png"
+
+    version_string = shell_output("#{bin}/advpng --version")
+    assert_includes version_string, "advancecomp v2.1"
   end
 end
