@@ -7,8 +7,8 @@ class Bluepill < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "af2886f24850d692c16da75dff3d59034b46bc0b455ec61ca031155f215600db" => :high_sierra
-    sha256 "a5fb40247ab03c018bf249dc9ec665f57e328c28afb1fbcda6cff9d739888968" => :sierra
+    sha256 "7b460d5f0820a12ffea15e816fd607314bd1f8120e388310a2cc433a79a1e629" => :mojave
+    sha256 "2b0bad7f6565101df2d6fcc21acb7c744187b15466f86e5ca3d71f92bc3ec12e" => :high_sierra
   end
 
   depends_on :xcode => ["10.0", :build]
