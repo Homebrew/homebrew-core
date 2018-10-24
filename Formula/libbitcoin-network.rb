@@ -3,6 +3,7 @@ class LibbitcoinNetwork < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-network"
   url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.5.0.tar.gz"
   sha256 "e065bd95f64ad5d7b0f882e8759f6b0f81a5fb08f7e971d80f3592a1b5aa8db4"
+  revision 1
 
   bottle do
     sha256 "57181b12da719b610445c4533f20868bc0272e65476dd4c944658455e88038fc" => :mojave
