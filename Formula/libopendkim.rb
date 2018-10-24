@@ -6,13 +6,9 @@ class Libopendkim < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "8687f17f6e258b645c44d745751bca3e2b83243e98ca323fd3419c562b98b07a" => :mojave
-    sha256 "8b274bc67f331b0407b8eed78d63f39233676abb22f95429f33c9c1342e092eb" => :high_sierra
-    sha256 "1c97cec7533c8974c4699854f8463ee309277e246b8bf8e9b66e490f54013007" => :sierra
-    sha256 "6b5052b456871186bc251a2e9551c87ca53c501bf162f104c4841fa07b4f2458" => :el_capitan
-    sha256 "cf601de122898a144b1c42c72980f1a19688c718638df2ab49735c65a9beb1ce" => :yosemite
-    sha256 "d1399f0f0bf8f13aee75557d516b7e09cc31155c3b72da6159e13f25ff94cbd8" => :mavericks
+    sha256 "b144ac9d9fe9a2ba8a298001df5beacde4ed6461dbcdda089d462ddf8314c35a" => :mojave
+    sha256 "c44483297476334acbfa979c81902b01528fd5c7a429e699764899512e687fbc" => :high_sierra
+    sha256 "5d2163990816a1af9420fc096d3579febb819582053faf133424d689ad5e190c" => :sierra
   end
 
   depends_on "openssl"
