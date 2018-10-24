@@ -17,6 +17,6 @@ class Terminus < Formula
   end
 
   test do
-    system bin/"terminus", "self:info", "--field=terminus_version"
+    assert_match "/\w+\b:[\w\-]+/", shell_output("#{bin}/terminus list")
   end
 end
