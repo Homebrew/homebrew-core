@@ -3,6 +3,7 @@ class C10t < Formula
   homepage "https://github.com/udoprog/c10t"
   url "https://github.com/udoprog/c10t/archive/1.7.tar.gz"
   sha256 "0e5779d517105bfdd14944c849a395e1a8670bedba5bdab281a0165c3eb077dc"
+  revision 1
 
   bottle do
     cellar :any
