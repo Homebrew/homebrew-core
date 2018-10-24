@@ -1,8 +1,8 @@
 class Opam < Formula
   desc "The OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.0.0/opam-full-2.0.0.tar.gz"
-  sha256 "9dad4fcb4f53878c9daa6285d8456ccc671e21bfa71544d1f926fb8a63bfed25"
+  url "https://github.com/ocaml/opam/releases/download/2.0.1/opam-full-2.0.1.tar.gz"
+  sha256 "81f7f1b661a0c1e04642fe02d0bea5524b32aa2cbed0ecf9b18d7145324ed97c"
   head "https://github.com/ocaml/opam.git"
 
   bottle do
@@ -32,7 +32,7 @@ class Opam < Formula
     OPAM uses ~/.opam by default for its package database, so you need to
     initialize it first by running:
 
-    $  opam init
+    $ opam init
   EOS
   end
 
