@@ -3,6 +3,7 @@ class Libopendkim < Formula
   homepage "http://opendkim.org"
   url "https://downloads.sourceforge.net/project/opendkim/opendkim-2.10.3.tar.gz"
   sha256 "43a0ba57bf942095fe159d0748d8933c6b1dd1117caf0273fa9a0003215e681b"
+  revision 1
 
   bottle do
     rebuild 1
