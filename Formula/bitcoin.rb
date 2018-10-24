@@ -3,6 +3,7 @@ class Bitcoin < Formula
   homepage "https://bitcoin.org/"
   url "https://bitcoin.org/bin/bitcoin-core-0.17.0/bitcoin-0.17.0.tar.gz"
   sha256 "98ef39e851644bba1ac51edaa53c7c47c20a3980333def7bc642c8261a12785e"
+  revision 1
 
   bottle do
     cellar :any
