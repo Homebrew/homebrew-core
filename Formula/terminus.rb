@@ -10,6 +10,7 @@ class Terminus < Formula
     system "composer", "install"
     bin.install "bin/terminus" => "terminus"
     prefix.install Dir["vendor"]
+    prefix.install Dir["config"]
   end
 
   test do
