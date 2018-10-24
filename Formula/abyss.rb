@@ -1,8 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.1.1/abyss-2.1.1.tar.gz"
-  sha256 "aca9e5ad984282ced81038dfc20205ba0bb59ff4edf427419451b632aa567e9f"
+  url "https://github.com/bcgsc/abyss/releases/download/2.1.2/abyss-2.1.2.tar.gz"
+  sha256 "15823fbfcdadf61f93b07a7d040106e51a7cbd091d4d71fd29809475ca0f4e71"
 
   bottle do
     sha256 "80ab108b5ce547a63be711284367e2a29c7657eeee4f23ac0da1ec621113fe5f" => :mojave
