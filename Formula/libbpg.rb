@@ -12,23 +12,14 @@ class Libbpg < Formula
     sha256 "49027f81f126e8bdc24587d43b127815e3a53fafa92b6326c857526678932bef" => :el_capitan
   end
 
-  option "with-jctvc", "Enable built-in JCTVC encoder - Mono threaded, slower but produce smaller file"
-  option "without-x265", "Disable built-in x265 encoder - Multi threaded, faster but produce bigger file"
-
   depends_on "cmake" => :build
-  depends_on "yasm" => :build if build.with? "x265"
+  depends_on "yasm" => :build
   depends_on "jpeg"
   depends_on "libpng"
 
   def install
     bin.mkpath
-
-    args = []
-    args << "USE_JCTVC=y" if build.with? "jctvc"
-    args << "USE_X265=" if build.without? "x265"
-
-    system "make", "install", "prefix=#{prefix}", "CONFIG_APPLE=y", *args
-
+    system "make", "install", "prefix=#{prefix}", "CONFIG_APPLE=y"
     pkgshare.install Dir["html/bpgdec*.js"]
   end
 

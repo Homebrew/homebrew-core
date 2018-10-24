@@ -1,21 +1,3 @@
-class CodesignRequirement < Requirement
-  fatal true
-
-  satisfy(:build_env => false) do
-    mktemp do
-      FileUtils.cp "/usr/bin/false", "llvm_check"
-      quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
-    end
-  end
-
-  def message
-    <<~EOS
-      lldb_codesign identity must be available to build with LLDB.
-      See: https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt
-    EOS
-  end
-end
-
 class LlvmAT6 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
@@ -57,12 +39,16 @@ class LlvmAT6 < Formula
 
   if build.with? "lldb"
     depends_on "swig" if MacOS.version >= :lion
-    depends_on CodesignRequirement
+    depends_on :codesign => [{
+      :identity => "lldb_codesign",
+      :with => "LLDB",
+      :url => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
+    }]
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
   end

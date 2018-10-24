@@ -14,8 +14,8 @@ class Bro < Formula
 
   depends_on "cmake" => :build
   depends_on "swig" => :build
+  depends_on "geoip"
   depends_on "openssl"
-  depends_on "geoip" => :recommended
 
   def install
     system "./configure", "--prefix=#{prefix}",

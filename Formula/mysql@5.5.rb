@@ -1,30 +1,25 @@
 class MysqlAT55 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.61.tar.gz"
-  sha256 "62a7f8aeb9c6c4d5a127f7254500878d9d172b70ad9639b098f3c01731f1fbf0"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.62.tar.gz"
+  sha256 "b1e7853bc1f04aabf6771e0ad947f35ac8d237f4b35d0706d1095c9526ff99d7"
 
   bottle do
-    sha256 "dbf782c3467edebbbb49d71d37e019c5f1d759ce77232898d922c1f572adb935" => :mojave
-    sha256 "34989af26f90153946aa5df913fab80fcb715203f66feb1915acf17c6f5624db" => :high_sierra
-    sha256 "aa32e2bc58954a27a59ea001436f3a9641ee1b7a0588aeebd77bfe793406c011" => :sierra
-    sha256 "56be14277230c80d37d60fed292d8a558ce4f451f04c0036b3cbc5c07cb5aaa3" => :el_capitan
+    sha256 "57dd41d4774c5af3d9cdaed1da54bc1345264757f2ed72bc4f0cda8538fd05b3" => :mojave
+    sha256 "c29aae5efdf9e1c0769d92b3625c142777daf7a720b71bb2d4735ef9af8a4d8d" => :high_sierra
+    sha256 "a2411ac400eab800f60e19bb70875c0912f18e038557201324310a7dc79a42dd" => :sierra
   end
 
   keg_only :versioned_formula
 
-  option "with-test", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
   option "with-blackhole-storage-engine", "Compile with the BLACKHOLE storage engine enabled"
   option "with-local-infile", "Build with local infile loading support"
   option "with-memcached", "Enable innodb-memcached support"
-  option "with-debug", "Build with debug support"
 
   deprecated_option "enable-local-infile" => "with-local-infile"
   deprecated_option "enable-memcached" => "with-memcached"
-  deprecated_option "enable-debug" => "with-debug"
-  deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
@@ -55,14 +50,8 @@ class MysqlAT55 < Formula
       -DSYSCONFDIR=#{etc}
       -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
+      -DWITH_UNIT_TESTS=OFF
     ]
-
-    # To enable unit testing at build, we need to download the unit testing suite
-    if build.with? "tests"
-      args << "-DENABLE_DOWNLOADS=ON"
-    else
-      args << "-DWITH_UNIT_TESTS=OFF"
-    end
 
     # Build the embedded server
     args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
@@ -78,9 +67,6 @@ class MysqlAT55 < Formula
 
     # Build with memcached support
     args << "-DWITH_INNODB_MEMCACHED=1" if build.with? "memcached"
-
-    # Build with debug support
-    args << "-DWITH_DEBUG=1" if build.with? "debug"
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"

@@ -20,11 +20,11 @@ class ChocolateDoom < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libpng"
+  depends_on "libsamplerate"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sdl2_net"
-  depends_on "libpng" => :recommended
-  depends_on "libsamplerate" => :recommended
 
   def install
     system "./autogen.sh" if build.head?
@@ -45,5 +45,9 @@ class ChocolateDoom < Formula
     Try starting here:
       #{homepage}
   EOS
+  end
+
+  test do
+    assert_match "Chocolate Doom #{version}", shell_output("#{bin}/chocolate-doom -nogui", 255)
   end
 end

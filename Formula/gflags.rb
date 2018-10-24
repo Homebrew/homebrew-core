@@ -13,7 +13,6 @@ class Gflags < Formula
     sha256 "5e6fcff184b2d6caf333a74cb24222da11bc1721eb6ab12a31bda7802cf8dfd9" => :yosemite
   end
 
-  option "with-debug", "Build debug version"
   option "with-static", "Build gflags as a static (instead of shared) library."
 
   depends_on "cmake" => :build

@@ -14,14 +14,12 @@ class Leveldb < Formula
     sha256 "5743bd58aa63406f6405d690fad63fff92169de51331ef6918310dcb70ad6383" => :yosemite
   end
 
-  option "with-test", "Verify the build with make check"
-
   depends_on "gperftools"
   depends_on "snappy"
 
   def install
     system "make"
-    system "make", "check" if build.bottle? || build.with?("test")
+    system "make", "check" if build.bottle?
 
     include.install "include/leveldb"
     bin.install "out-static/leveldbutil"

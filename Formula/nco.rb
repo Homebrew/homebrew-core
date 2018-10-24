@@ -3,14 +3,13 @@ class Nco < Formula
   homepage "https://nco.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/nco/nco-4.7.6.tar.gz"
   sha256 "c7926163b204573b7bf7b6e3c9bcfa15b2cc04c0f494dbc0c6829ee8c2f015b3"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "aa704f50a32cf2c275b3a34f16a7f36febf75f6b47e88fdecf67541eea182d82" => :mojave
-    sha256 "514242182db426c922bd80a99981e25002bf4d477d4efcb590d10ac012800e58" => :high_sierra
-    sha256 "05fb5f98c1cffb831c745a9505dcc1e15f0251c85779218dffceb22e1276ecc2" => :sierra
-    sha256 "be404bc8cdcd9f38bfaf9251479e8f94c1c548bc901732d19767f14b3349fb44" => :el_capitan
+    sha256 "32ed25d57c795ffb7a56eac923c4b2e908e80cc72cab884524ba242474443be8" => :mojave
+    sha256 "dbc34488e46c857ff3ee4e8a805a085b82fb331aa6f502d1c69303a07525307c" => :high_sierra
+    sha256 "7e6e460c005e785a0673fe910d455518010d0ae72ead58ff1bf6d972d2887b65" => :sierra
   end
 
   head do
@@ -32,11 +31,6 @@ class Nco < Formula
 
   def install
     system "./autogen.sh" if build.head?
-
-    inreplace "configure" do |s|
-      # The Antlr 2.x program installed by Homebrew is called antlr2
-      s.gsub! "for ac_prog in runantlr antlr", "for ac_prog in runantlr antlr2"
-    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

@@ -24,6 +24,7 @@ class Grc < Formula
     etc.install "grc.bashrc"
     etc.install "grc.zsh"
     etc.install "grc.fish"
+    zsh_completion.install "_grc"
   end
 
   # Apply the upstream fix from garabik/grc@ddc789bf to preexisting config files

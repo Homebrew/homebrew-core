@@ -1,30 +1,22 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-4.0.11.tar.gz"
-  sha256 "fc53e73ae7586bcdacb4b63875d1ff04f68c5474c1ddeda78f00e5ae2eed1bbb"
+  url "http://download.redis.io/releases/redis-5.0.0.tar.gz"
+  sha256 "70c98b2d0640b2b73c9d8adb4df63bcb62bad34b788fe46d1634b6cf87dc99a4"
   head "https://github.com/antirez/redis.git", :branch => "unstable"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82a4e9157e338f0bf22a4228d2ad215326476b9d05dad30e29ea459becbf23e3" => :mojave
-    sha256 "85edd8937aa7098e44234601132e63f364c32e1cefecc9c10cdc1f8643672eb8" => :high_sierra
-    sha256 "4d05f789a713f44b73b6b6b3515fd511b8e78d623dde12768e0a9c71660a8314" => :sierra
-    sha256 "edf1102538a71e541afca92ab0e44eecfbcc05f430d903bf07dcd5aa50181597" => :el_capitan
+    sha256 "b79403fea97e29da103f63931f45faa2bce8f6df4a085bce0d181f45bfad60f6" => :mojave
+    sha256 "da58d76e280c52c8de972af181ded39424fa880833f3bc6090c2a8ac52547d44" => :high_sierra
+    sha256 "d5c7feba4092bbc98fe768e9208c1a9a22ee8ba8f5ea953f69d470853744ee01" => :sierra
   end
-
-  option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
 
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
 
-    args = %W[
-      PREFIX=#{prefix}
-      CC=#{ENV.cc}
-    ]
-    args << "MALLOC=jemalloc" if build.with? "jemalloc"
-    system "make", "install", *args
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 

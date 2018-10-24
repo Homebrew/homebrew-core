@@ -17,8 +17,6 @@ class Sourcekitten < Formula
   depends_on :xcode => "6.0"
 
   def install
-    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
-
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
   end
 

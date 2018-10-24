@@ -6,14 +6,20 @@ class Chuck < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c1fe255bad84264c62b99d114877389b8c25e8ec6f9726e5b501db10a1b9f4b1" => :high_sierra
-    sha256 "f4ec8ddda3e8c533cf8402184d22dd3451ad9130284552b6f746a4bbb1249fd0" => :sierra
-    sha256 "4c27808b3b8755a856bdc49e9a97569a6bfb3ebc90991f8d3112b4debfd28bdf" => :el_capitan
+    rebuild 1
+    sha256 "3dea1fba4982d2770ccfb10c90363a1a1342281900814dc9d617a41b758bc479" => :mojave
+    sha256 "8b3feed2d5a3773ee2479a05af8628e83a5fb8e355f3e269202c72fa7ff80258" => :high_sierra
+    sha256 "17e8770cd31f86a3cb890bca8c648a2e7321511130016b47b67b08eaceeab2b9" => :sierra
   end
 
   depends_on :xcode => :build
 
   def install
+    # Support for newer macOS versions
+    inreplace "src/core/makefile.x/makefile.osx",
+              "10\\.(6|7|8|9|10|11|12|13)",
+              "10\\.(6|7|8|9|10|11|12|1[0-9])"
+
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
     pkgshare.install "examples"

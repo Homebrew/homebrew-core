@@ -1,8 +1,8 @@
 class Nodebrew < Formula
   desc "Node.js version manager"
   homepage "https://github.com/hokaccha/nodebrew"
-  url "https://github.com/hokaccha/nodebrew/archive/v1.0.0.tar.gz"
-  sha256 "e7ee65488d65ccb60ae638c2858759d70c34be8f51af499de07e430d82d6b58e"
+  url "https://github.com/hokaccha/nodebrew/archive/v1.0.1.tar.gz"
+  sha256 "c34e7186d4fd493c5417ad5563ad39fd493a42695bd9a7758c3df10380e43399"
   head "https://github.com/hokaccha/nodebrew.git"
 
   bottle :unneeded

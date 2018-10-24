@@ -1,7 +1,7 @@
 class Libmodbus < Formula
   desc "Portable modbus library"
-  homepage "http://libmodbus.org"
-  url "http://libmodbus.org/releases/libmodbus-3.1.4.tar.gz"
+  homepage "https://libmodbus.org/"
+  url "https://libmodbus.org/releases/libmodbus-3.1.4.tar.gz"
   mirror "https://librecmc.org/librecmc/downloads/sources/v1.3.4/libmodbus-3.1.4.tar.gz"
   sha256 "c8c862b0e9a7ba699a49bc98f62bdffdfafd53a5716c0e162696b4bf108d3637"
 

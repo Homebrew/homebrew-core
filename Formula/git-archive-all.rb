@@ -1,16 +1,15 @@
 class GitArchiveAll < Formula
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
-  url "https://github.com/Kentzo/git-archive-all/archive/1.18.2.tar.gz"
-  sha256 "a0a969eb12ddf9ebcb39e458a5971c47d15c01483c9f60775deb68426ad1597e"
+  url "https://github.com/Kentzo/git-archive-all/archive/1.18.3.tar.gz"
+  sha256 "2f01b94dbcf3e100370e97a4dee8b25fa60a41df207a192a8c58af37ab2a0f3b"
   head "https://github.com/Kentzo/git-archive-all.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5b25a67a61e409324ca34e329bc22a794a5ad909594cae59474d03ee25267f78" => :mojave
-    sha256 "b20ce0b2f45e23040f4a73a2da9801609e918ece696825d422fb51ed2f2a771a" => :high_sierra
-    sha256 "b20ce0b2f45e23040f4a73a2da9801609e918ece696825d422fb51ed2f2a771a" => :sierra
-    sha256 "b20ce0b2f45e23040f4a73a2da9801609e918ece696825d422fb51ed2f2a771a" => :el_capitan
+    sha256 "7af14d3bbca008cc4ad58746d4cce4a8c1f027e06471607194eb465e374486bf" => :mojave
+    sha256 "35c871caa01a78a32aba10062f5b859f77331d9e1cce58d87dac86f6699abda0" => :high_sierra
+    sha256 "35c871caa01a78a32aba10062f5b859f77331d9e1cce58d87dac86f6699abda0" => :sierra
   end
 
   def install

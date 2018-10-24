@@ -29,10 +29,10 @@ class Qwtpolar < Formula
     rm_r "doc"
 
     inreplace "qwtpolarconfig.pri" do |s|
-      s.gsub! /^(\s*)QWT_POLAR_INSTALL_PREFIX\s*=\s*(.*)$/,
-              "\\1QWT_POLAR_INSTALL_PREFIX=#{prefix}"
+      s.gsub!(/^(\s*)QWT_POLAR_INSTALL_PREFIX\s*=\s*(.*)$/,
+              "\\1QWT_POLAR_INSTALL_PREFIX=#{prefix}")
       # Don't build examples now, since linking flawed until qwtpolar installed
-      s.sub! /\+(=\s*QwtPolarExamples)/, "-\\1"
+      s.sub!(/\+(=\s*QwtPolarExamples)/, "-\\1")
 
       # Install Qt plugin in `lib/qt/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_POLAR_INSTALL_PREFIX\})/(plugins/designer)$},
@@ -63,8 +63,12 @@ class Qwtpolar < Formula
       system Formula["qt"].opt_bin/"qmake"
       rm_rf "bin" # just in case
       system "make"
-      assert_predicate Pathname.pwd/"bin/polardemo.app/Contents/MacOS/polardemo", :exist?, "Failed to build polardemo"
-      assert_predicate Pathname.pwd/"bin/spectrogram.app/Contents/MacOS/spectrogram", :exist?, "Failed to build spectrogram"
+      assert_predicate Pathname.pwd/"bin/polardemo.app/Contents/MacOS/polardemo",
+                       :exist?,
+                       "Failed to build polardemo"
+      assert_predicate Pathname.pwd/"bin/spectrogram.app/Contents/MacOS/spectrogram",
+                       :exist?,
+                       "Failed to build spectrogram"
     end
   end
 end

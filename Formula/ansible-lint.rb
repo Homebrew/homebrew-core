@@ -8,16 +8,16 @@ class AnsibleLint < Formula
 
   bottle do
     cellar :any
-    sha256 "0fd23dc0c1bd238fabc44542526fc23b039a0fc51098cc070d21c0b62b1f5c45" => :mojave
-    sha256 "494790e006d6976bda7e7d2887a9edd5533b188218f4e33c95f392a31dd5e7a1" => :high_sierra
-    sha256 "cfac21a2999fd81328589d5180aea8730314c252b7f48066e931d929002863fc" => :sierra
-    sha256 "ecccace7e301d03b6e979a42cfe0d5c210ef5baebb10a7e683a5e7cd02dc6751" => :el_capitan
+    rebuild 1
+    sha256 "411202c6284aafa6daecf6a368dbddcf0060c61ddf7b23c5c5f5ceb48382db1d" => :mojave
+    sha256 "5da7c7a3a06275e07a093d127ede7152f75fd1e04111faf7af3cedeec622e484" => :high_sierra
+    sha256 "42aa37985dface62e4146dcace6ab3ded1c9cc87c6a2d1dab4635fede9b509ba" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "ansible" do
     url "https://files.pythonhosted.org/packages/93/53/925881db1049134679908698115752ad0b0fe95c82b3055a632476cd3687/ansible-2.5.5.tar.gz"
@@ -42,11 +42,6 @@ class AnsibleLint < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
     sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do
@@ -90,8 +85,8 @@ class AnsibleLint < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "six" do

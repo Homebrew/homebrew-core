@@ -1,21 +1,3 @@
-class CodesignRequirement < Requirement
-  fatal true
-
-  satisfy(:build_env => false) do
-    mktemp do
-      FileUtils.cp "/usr/bin/false", "radare2_check"
-      quiet_system "/usr/bin/codesign", "-f", "-s", "org.radare.radare2", "--dryrun", "radare2_check"
-    end
-  end
-
-  def message
-    <<~EOS
-      org.radare.radare2 identity must be available to build with automated signing.
-      See: https://github.com/radare/radare2/blob/master/doc/macos.md
-    EOS
-  end
-end
-
 class Radare2 < Formula
   desc "Reverse engineering framework"
   homepage "https://radare.org"
@@ -60,7 +42,14 @@ class Radare2 < Formula
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "valabind" => :build
-  depends_on CodesignRequirement if build.with? "code-signing"
+
+  if build.with? "code-signing"
+    depends_on :codesign => [{
+      :identity => "org.radare.radare2",
+      :url => "https://github.com/radare/radare2/blob/master/doc/macos.md",
+    }]
+  end
+
   depends_on "gmp"
   depends_on "jansson"
   depends_on "libewf"

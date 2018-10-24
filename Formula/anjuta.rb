@@ -3,20 +3,22 @@ class Anjuta < Formula
   homepage "http://anjuta.org"
   url "https://download.gnome.org/sources/anjuta/3.28/anjuta-3.28.0.tar.xz"
   sha256 "b087b0a5857952d0edd24dae458616eb166a3257bc647d5279a9e71495544779"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "3a7427832904f3e1de9884ef7bc770b83440f5252d3d30eb2aa77691e0b12de5" => :mojave
-    sha256 "fda24ffc6e28c9ec6ff0110f2c22f688947f08291f5c59522e0597658baa8815" => :high_sierra
-    sha256 "f0ee5bba46be9a314b2454e789e97bba477d1044dd7fac957bda39366286a870" => :sierra
-    sha256 "cf198c5bada78c4b4e0d71cc1c1f52b9af4e069ddbcfa678672b66a40aa1b41d" => :el_capitan
+    sha256 "3111ff1e5198e4505b17527924a1956f65162f673c88e02ee96e230530d1fc99" => :mojave
+    sha256 "8713e98f2ceedb8d4070c7d4f10cd2fd6f68103fdf7299cffb5b6aca8cfbcf5d" => :high_sierra
+    sha256 "899a5d1ef2499ed5ef9601d43f9bc4bcdf67ecee763473e00c849cd1d6a24c03" => :sierra
+    sha256 "b6ff526b0b5adf18ac42b77d880286b4f3602d361dae8531c158e118943c0b67" => :el_capitan
   end
 
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "autogen"
   depends_on "gdl"
+  depends_on "gnome-themes-standard"
   depends_on "gnutls"
   depends_on "gtksourceview3"
   depends_on "hicolor-icon-theme"
@@ -24,10 +26,8 @@ class Anjuta < Formula
   depends_on "libxml2"
   depends_on "python@2"
   depends_on "shared-mime-info"
+  depends_on "vala"
   depends_on "vte3"
-  depends_on "autogen" => :recommended
-  depends_on "vala" => :recommended
-  depends_on "gnome-themes-standard" => :optional
 
   def install
     system "./configure", "--disable-debug",

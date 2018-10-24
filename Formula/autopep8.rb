@@ -3,21 +3,20 @@ class Autopep8 < Formula
 
   desc "Automatically formats Python code to conform to the PEP 8 style guide"
   homepage "https://github.com/hhatto/autopep8"
-  url "https://files.pythonhosted.org/packages/cf/30/9efc988f92f41e2ba51211e3d317ee82260d563ae84dceb53f7021a1bdfe/autopep8-1.4.tar.gz"
-  sha256 "655e3ee8b4545be6cfed18985f581ee9ecc74a232550ee46e9797b6fbf4f336d"
+  url "https://files.pythonhosted.org/packages/d7/33/86a857db9c5081b0e8241568e64c1cb1acc03a869448729fbb6d9822bbee/autopep8-1.4.1.tar.gz"
+  sha256 "096426ef4b489784c08395d7fc7f8cbf38a107b806984513e4c2d9070b0dc1d8"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ba4c3f07286967e8aa49c3df38ecd0e9c0260795f15159e0dd4e26693f4f8c92" => :mojave
-    sha256 "f6e77ee274686216dbff20c6d50dc5b45e7788ea044b2cd03f560c2047066956" => :high_sierra
-    sha256 "ec9a39c287040efb7a7266c98839eb4c02ac7ab3a99a44cd453121a3e4164288" => :sierra
-    sha256 "b05bdbcfacaff3c7ac70958cc4056cb8504c5d7a97fb9765d6c8b234e857c6c6" => :el_capitan
+    sha256 "b374259188e69e0b91d1f0576d9bd4b75ff638f3f7241e691b6ee69a18651b80" => :mojave
+    sha256 "99bc0ceee1c917403eccfd5a22f3925d5b8838d54c84f62525d05719bd973957" => :high_sierra
+    sha256 "39b08655edbfa69c7ef47a472bfd013fbccf6eb7ee03f5bccc1fb7b3e751d19f" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name

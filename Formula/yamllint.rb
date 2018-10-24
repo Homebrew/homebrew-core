@@ -3,17 +3,14 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://github.com/adrienverge/yamllint/archive/v1.11.1.tar.gz"
-  sha256 "56221b7c0a50b1619e491eb157624a5d1b160c1a4f019d64f117268f42fe4ca4"
-  revision 1
+  url "https://github.com/adrienverge/yamllint/archive/v1.12.1.tar.gz"
+  sha256 "63549d4b34bab8dc6b44edb256faac23a21c8ea3644fa6400e7f846f86b50b62"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "c20c73fe3d322eb529b94a05a795d4f890c87a28e7d884c301f1e85c0ef13940" => :mojave
-    sha256 "3ffaafca879769be72b0a8a98be07f8ffe746f8488f4430863fb8380544ab01c" => :high_sierra
-    sha256 "921109aebc30770d96997b33565faf1d21f5821d4bf9e19d18fc6e0f5908712a" => :sierra
-    sha256 "17ec47b0462e157f33a61fa95462c1b6f7bdd329fd687a870317c4eb4aeeaf9c" => :el_capitan
+    sha256 "837180371393f00d0b5ede38763f09584d92d752544e48b4d2fdd96d2e04308f" => :mojave
+    sha256 "4bf5ea9e562ee2033d1d6c919f11d49d00c788556715b61aa4e46242e6738c7a" => :high_sierra
+    sha256 "4d45b67f7fabf823b836ed80b065196a3ce3e5def59759b7b2fff43acf10cc74" => :sierra
   end
 
   depends_on "libyaml"
@@ -25,8 +22,8 @@ class Yamllint < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/5e/59/d40bf36fda6cc9ec0e2d2d843986fa7d91f7144ad83e909bcb126b45ea88/pathspec-0.5.6.tar.gz"
-    sha256 "be664567cf96a718a68b33329862d1e6f6803ef9c48a6e2636265806cfceb29d"
+    url "https://files.pythonhosted.org/packages/84/2a/bfee636b1e2f7d6e30dd74f49201ccfa5c3cf322d44929ecc6c137c486c5/pathspec-0.5.9.tar.gz"
+    sha256 "54a5eab895d89f342b52ba2bffe70930ef9f8d96e398cccf530d21fa0516a873"
   end
 
   def install

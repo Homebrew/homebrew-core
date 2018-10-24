@@ -7,16 +7,16 @@ class Libuvc < Formula
 
   bottle do
     cellar :any
-    sha256 "e140501b9e4ce540e79ebfed9a461cd471a68b88e06af08575f669e874229aae" => :mojave
-    sha256 "7aad3af5a7a5f2936d2fde1a208a6efcc6dbf7e80a2b61202b0a208c45abb7df" => :high_sierra
-    sha256 "0e2f8e177ecefcf0cd2a2c2be399d3e45fe18956642363b6f0e9b6632a7019da" => :sierra
-    sha256 "2223e66660b7c600b71cb13cc9921c687bcc33e9e85fee7ab351c383e1533657" => :el_capitan
+    rebuild 1
+    sha256 "1ff736e2499c4da037ff74ea31ebe2be23defd7e316ad974ff57cd9a712c7445" => :mojave
+    sha256 "c0ec2076095af1c5154bc43d18a5869b5678f026f1b3c76964f136e4ada07717" => :high_sierra
+    sha256 "1888941024fe1b8ca44f15b98e51390872286c0145806fbd0a61999bab225905" => :sierra
+    sha256 "4defbab7e171c20da065eb5e4f2b11b5b27165efbd850e742674be281f3a0fcd" => :el_capitan
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
-  depends_on "jpeg" => :optional
 
   def install
     system "cmake", ".", *std_cmake_args

@@ -1,14 +1,14 @@
 class Llnode < Formula
   desc "LLDB plugin for live/post-mortem debugging of node.js apps"
   homepage "https://github.com/nodejs/llnode"
-  url "https://github.com/nodejs/llnode/archive/v1.7.1.tar.gz"
-  sha256 "1b26c1c65b8f7770d8bbc6f7f0af44ccecf26d1a4258bb21cbd92f37d258c68a"
+  url "https://github.com/nodejs/llnode/archive/v2.0.0.tar.gz"
+  sha256 "e35eaca06491161b12c8b974c2a15172e99cd95df4885809e575a5e942c2ed44"
 
   bottle do
     cellar :any
-    sha256 "474ab1256a6f0d2be9fd4261c0994b57adbd7778fc80a8b07777cf440e06fbc4" => :high_sierra
-    sha256 "ac19446ef4e5e64c17751e81a0fe1b54e9c2a085fdb48487e36519e0ad34a6f0" => :sierra
-    sha256 "8f883f7482f21c9c061a363e62c2ef86c2f7b84ba9c19dc4041c3c0803a34a8e" => :el_capitan
+    sha256 "77b994bc37d651f5a865ab0403cce168fa5814ce843d711fa0032b7b9fb6b2be" => :mojave
+    sha256 "45e6c787c26197a328af2e20cc61ce09129c0c6dc2b37564379ffdce44660218" => :high_sierra
+    sha256 "5e300fbc65de1abca63e912fdb70cc747ba7305aabfa6922b9f162dbaaa3403a" => :sierra
   end
 
   depends_on "node" => :build
@@ -16,7 +16,11 @@ class Llnode < Formula
   depends_on :macos => :yosemite
 
   resource "lldb" do
-    if DevelopmentTools.clang_build_version >= 900
+    if DevelopmentTools.clang_build_version >= 1000
+      # lldb release_60 branch tip of tree commit from 10 Apr 2018
+      url "https://github.com/llvm-mirror/lldb.git",
+          :revision => "b6df24ff1b258b18041161b8f32ac316a3b5d8d9"
+    elsif DevelopmentTools.clang_build_version >= 900
       # lldb release_40 branch tip of tree commit from 12 Jan 2017
       url "https://github.com/llvm-mirror/lldb.git",
           :revision => "fcd2aac9f179b968a20cf0231c3386dcef8a6659"

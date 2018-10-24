@@ -10,16 +10,12 @@ class Mysql < Formula
     sha256 "44e56ac21c0258735e906b6d01c18a562131b35e2e9d1b5d8f09677562b8b411" => :sierra
   end
 
-  option "with-debug", "Build with debug support"
   option "with-embedded", "Build the embedded server"
   option "with-local-infile", "Build with local infile loading support"
   option "with-memcached", "Build with InnoDB Memcached plugin"
-  option "with-test", "Build with unit tests"
 
-  deprecated_option "enable-debug" => "with-debug"
   deprecated_option "enable-local-infile" => "with-local-infile"
   deprecated_option "enable-memcached" => "with-memcached"
-  deprecated_option "with-tests" => "with-test"
 
   depends_on "cmake" => :build
 
@@ -68,17 +64,8 @@ class Mysql < Formula
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
       -DWITH_SSL=yes
+      -DWITH_UNIT_TESTS=OFF
     ]
-
-    # To enable unit testing at build, we need to download the unit testing suite
-    if build.with? "test"
-      args << "-DENABLE_DOWNLOADS=ON"
-    else
-      args << "-DWITH_UNIT_TESTS=OFF"
-    end
-
-    # Build with debug support
-    args << "-DWITH_DEBUG=1" if build.with? "debug"
 
     # Build the embedded server
     args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
@@ -97,8 +84,8 @@ class Mysql < Formula
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
     end
 
-    # Remove the tests directory if they are not built.
-    rm_rf prefix/"mysql-test" if build.without? "test"
+    # Remove the tests directory
+    rm_rf prefix/"mysql-test"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975

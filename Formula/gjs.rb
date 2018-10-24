@@ -1,22 +1,21 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.54/gjs-1.54.0.tar.xz"
-  sha256 "e22c63f4dbf243d7a5a6660f6443ca3e5768695a48fc9fdf078bce7cf7aa657d"
+  url "https://download.gnome.org/sources/gjs/1.54/gjs-1.54.2.tar.xz"
+  sha256 "6f2ddbff4557879b1ea8b0ee710d27201c3a5ae12dc19b88238a6eaaa1ad865f"
 
   bottle do
-    sha256 "daf905d8a4f887615ad7c94bbcd2d1fb20e4ebe972b4723a11c35df209b3786f" => :mojave
-    sha256 "c489021983a56fe446820a8b8cf60c512f2403b832adf2dc128af3bc77dfd143" => :high_sierra
-    sha256 "f4f93c38137fde79938a5a751ff259752a2464a5c61ff1deb1d5e5b8a8be906c" => :sierra
-    sha256 "a61878736e0d935d053ac6eea9f92cf32a1e172c6ac5fd24bbfec4c768fd8097" => :el_capitan
+    sha256 "4d37fb6fcab1ac204139554c77abde10c848a7736f3051967d1bd703e4f5ee0b" => :mojave
+    sha256 "bd3e0fe2cb22aa27b03b731930f25aa823580fdff72f1143ce3c022e87556c7e" => :high_sierra
+    sha256 "dbdabc17bcd3031e423a8c69313a193fcb030c1cace3e08c82c85f260c6a0f65" => :sierra
   end
 
   depends_on "autoconf@2.13" => :build
   depends_on "pkg-config" => :build
   depends_on "gobject-introspection"
+  depends_on "gtk+3"
   depends_on "nspr"
   depends_on "readline"
-  depends_on "gtk+3" => :recommended
 
   resource "mozjs60" do
     url "https://archive.mozilla.org/pub/firefox/releases/60.1.0esr/source/firefox-60.1.0esr.source.tar.xz"
@@ -30,7 +29,9 @@ class Gjs < Formula
     ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
 
     resource("mozjs60").stage do
-      inreplace "config/rules.mk", "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ", "-install_name #{lib}/$(SHARED_LIBRARY) "
+      inreplace "config/rules.mk",
+                "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ",
+                "-install_name #{lib}/$(SHARED_LIBRARY) "
       inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
       mkdir("build") do
         ENV["PYTHON"] = "python"

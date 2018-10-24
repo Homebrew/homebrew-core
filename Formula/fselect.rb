@@ -1,14 +1,13 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
-  url "https://github.com/jhspetersson/fselect/archive/0.4.4.tar.gz"
-  sha256 "ab28cda96a43712e27322464010925caece4d231fa15bbd0926e284116b03a99"
+  url "https://github.com/jhspetersson/fselect/archive/0.4.5.tar.gz"
+  sha256 "d08e6f34b52f87604b575daba7a48a8803181f5605fa689e4f4ebec0c4e96f2c"
 
   bottle do
-    sha256 "327f8af8f01eda68ae637b94558af520f0dbf29582fc6b6b03d1a1dc74afda3d" => :mojave
-    sha256 "88f6ac2a81d1c8844344047bbeede00103164d5b464eddf9fcd980bc55f42eed" => :high_sierra
-    sha256 "28e42220ce7a4256b85076d90be380c1bec72093c4888b3ab731eb2b7dc9b426" => :sierra
-    sha256 "80029282e5727b5fe532f5da101699a010b3f4759d9ebfbd473ebf84bd350e1e" => :el_capitan
+    sha256 "a2ffc67b732c117931798264751a7197c231cdf171c8898f9d2fceeeaabb475f" => :mojave
+    sha256 "7452c206252774dfd5f6f7fb6ae49b98b5a9424738c6c51dbbdcb2ca6f1bd91e" => :high_sierra
+    sha256 "7ef9def834fa368a8039d42441a22b5fcd5b2dac2f2871a1c649e7ef662accbf" => :sierra
   end
 
   depends_on "rust" => :build

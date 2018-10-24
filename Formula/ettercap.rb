@@ -16,15 +16,16 @@ class Ettercap < Formula
   end
 
   bottle do
-    sha256 "798d0963ad9188e73850d3a4d88fa67ec597a6b0ba9fc6fc70436918cb16c6d3" => :high_sierra
-    sha256 "f85423bcf1ce3e7ce82ad5e715b41ea3caeee57a3d09831bf571c9b962e2c5a0" => :sierra
-    sha256 "098a75f317b974e46155b1c03661478606a9e83ea95aba948063eb0987fab703" => :el_capitan
-    sha256 "5d9ce456cf6d6cab416fdae7c935501ab607020a94bd73cdfa41536f6751dbf1" => :yosemite
+    rebuild 1
+    sha256 "8e248cd983f18f1bb5c8efe25f67b94b928121cc0bc1aecaad30a2b495895a54" => :mojave
+    sha256 "0176b4a57909fc8c448df8b0e88b6063267ec80c6de740d597cfffc531ac98c6" => :high_sierra
+    sha256 "84b9f55fd615340f552685901bc93f7c9c1a5412f82342a692684aa26b0441d0" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "curl" if MacOS.version <= :mountain_lion # requires >= 7.26.0.
   depends_on "libnet"
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "pcre"
   depends_on "gtk+" => :optional

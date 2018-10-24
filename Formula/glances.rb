@@ -1,18 +1,18 @@
 class Glances < Formula
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://github.com/nicolargo/glances/archive/v3.0.1.tar.gz"
-  sha256 "e88107f3e89711f372a283f871f9f00e3f6b75fade79ba3b9b37eb5fad686b4a"
+  url "https://github.com/nicolargo/glances/archive/v3.0.2.tar.gz"
+  sha256 "76a793a8e0fbdce11ad7fb35000695fdb70750f937db41f820881692d5b0a29c"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d5a054a7712b632f9430cd0f8d2f0474fd299c6b43b72f2046bb3dd4f1748fa" => :mojave
-    sha256 "e5691fd25f0b6e6bfc7c4a43ee9b31423ea42ecf79eef51b4b8864566a6b7994" => :high_sierra
-    sha256 "3737a153762ad7b9b36d146fbfcb8c2ad024175867a6b79906b6215485dd5870" => :sierra
-    sha256 "6f7cb326667e1854eb8f9e3ed9774b7292bb291a4f0378cac01f884075bc671c" => :el_capitan
+    rebuild 1
+    sha256 "11d86d403e42adfb03e86ee8ad4ea526590309e6f685f699ee6382c292dbdf48" => :mojave
+    sha256 "b8b2b0c5ed5697b37b7891405fdd4af2cf04aa14dafb284620d846fe805dc564" => :high_sierra
+    sha256 "cb288ba5bcf489c4e2eac0e26a67ac2d7546f13b4e245eb032961df9f66e5b2c" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/7d/9a/1e93d41708f8ed2b564395edfa3389f0fd6d567597401c2e5e2775118d8b/psutil-5.4.7.tar.gz"
@@ -20,13 +20,14 @@ class Glances < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resource("psutil").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])

@@ -7,18 +7,15 @@ class Shairport < Formula
 
   bottle do
     cellar :any
-    sha256 "df914977b8e572b172ce0014be583c6f9364a74c7fb1fc439ef22f2af9ac5519" => :mojave
-    sha256 "b49617080692e6dfeb67dd790db849d8672f545f96f80a26861028f74d1c5e28" => :high_sierra
-    sha256 "877331a20e06d9028d4330cbc90772881b60b872aa3191b0b03c8b93f4423123" => :sierra
-    sha256 "802bbe38bc98c8fc8174eae3e41c6d00914d551626c051cb9dc7ba6af4edcf18" => :el_capitan
-    sha256 "b3d9925e0335227f0ac5efc0f5d32d59cc41ea4af08a9db1658f68992e89f30f" => :yosemite
-    sha256 "589f12f2a0b495dafc3536f04c3901aff75da0ec1e99ac8ec5e9916b629c17fd" => :mavericks
+    rebuild 1
+    sha256 "75a04ae35accc05373f970e293114567b3c6459cd3a22c4e5370f1031da2c42f" => :mojave
+    sha256 "1fe3430874b5895dd8452ce4e688b6476ecfa3e61e2da66ee7edd7bd1c6b6df8" => :high_sierra
+    sha256 "813a45b8e0dbc38efa55577f752a076169d0ff24a8d24a1c29426af78a47a591" => :sierra
+    sha256 "506a28dff863f2a8e17058fead36c037e580f448faa68a459d2b739a756e1c13" => :el_capitan
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "libao" => :optional
-  depends_on "pulseaudio" => :optional
 
   def install
     system "./configure"

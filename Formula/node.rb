@@ -1,15 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.11.0/node-v10.11.0.tar.xz"
-  sha256 "b91242c2599db23db9261673500969510fdc7e74426e8d80f1a679b12c7f8e9b"
+  url "https://nodejs.org/dist/v11.0.0/node-v11.0.0.tar.gz"
+  sha256 "1f7e67f8d713e6a0c3b786d3b3d2eb03b7825cfbed395a5a9565e3c606caea3d"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "ae349c966a1710ecfa16bf6e4261e49d328cf0e5fcf76a75dcc81c7f9752511f" => :mojave
-    sha256 "6f1c350e623963b2fa3356d08dc0450555da66dcdcf63d824c9b4d99e40f8231" => :high_sierra
-    sha256 "de6aad6f1f1a9c2c8112bf79f8004939b2211a61eccd91c087a1398178055ed4" => :sierra
-    sha256 "11129da02ab2a6f0750c4b9d1d545c4a03dfebd8a4ca109437bff3857710b630" => :el_capitan
+    sha256 "fc45e7c5fc4c028c645e3e2a6f3a21206edb053bbec663019290a8315a0e799f" => :mojave
+    sha256 "20030495b048e3ba05f081928cdf02851f8af34781d9f0b177d592da5d16dd1a" => :high_sierra
+    sha256 "7d26bd6a172b94062082867a127305f0730aeaeebcfd4252dabd84ec942880ca" => :sierra
   end
 
   option "with-openssl@1.1", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
@@ -26,7 +25,7 @@ class Node < Formula
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
   fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.7").each do |n|
     fails_with :gcc => n
   end

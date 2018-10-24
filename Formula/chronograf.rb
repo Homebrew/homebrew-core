@@ -18,8 +18,8 @@ class Chronograf < Formula
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on "influxdb" => :recommended
-  depends_on "kapacitor" => :recommended
+  depends_on "influxdb"
+  depends_on "kapacitor"
 
   def install
     ENV["GOPATH"] = buildpath

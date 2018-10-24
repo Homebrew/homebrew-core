@@ -1,15 +1,15 @@
 class NodeBuild < Formula
   desc "Install NodeJS versions"
   homepage "https://github.com/nodenv/node-build"
-  url "https://github.com/nodenv/node-build/archive/v3.0.18.tar.gz"
-  sha256 "c13c30969c5cb73fe7fbc449b17a6f69ce485335caf6da30303cac12960699e4"
+  url "https://github.com/nodenv/node-build/archive/v3.0.21.tar.gz"
+  sha256 "9ec86e3805e89b9c9a5ac75e7e69fcec0d3f700bea21fd314bacf71ce3e508a1"
   head "https://github.com/nodenv/node-build.git"
 
   bottle :unneeded
 
-  depends_on "autoconf" => :recommended
-  depends_on "openssl" => :recommended
-  depends_on "pkg-config" => :recommended
+  depends_on "autoconf"
+  depends_on "openssl"
+  depends_on "pkg-config"
 
   def install
     ENV["PREFIX"] = prefix

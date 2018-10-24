@@ -3,14 +3,13 @@ class Pdal < Formula
   homepage "https://www.pdal.io/"
   url "https://github.com/PDAL/PDAL/archive/1.7.2.tar.gz"
   sha256 "cedfefbe54ca61cbb33d100d619c53873d84f480ff53deec2cf6dd91580f6a61"
-  revision 1
+  revision 2
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
-    sha256 "0a894193d9d2fa7444bb046a9938ee030a0fffe6ab368bab986e3cc0e5d673a8" => :mojave
-    sha256 "82d6a2f732c0157da27f0f08714e13d93ca44170492f92bb3d5beeccc3258e8c" => :high_sierra
-    sha256 "b4dcdc14e28ef98f6d11efc93216e0d6038e2edadabbe15c7d0377d04bbfd890" => :sierra
-    sha256 "ed28bdbe2fddbc1995dbb1248cd7c21b4bbd2f2a34e0929662be9f6fb1bd5be9" => :el_capitan
+    sha256 "06bed1a1dda903df81d12c393f346a7aac4159e63ef0e678ac3de3ad6ae214b5" => :mojave
+    sha256 "406e104871bd025e62e71d241d49e1604cb3d8d478243c9bac2b8605f0b0949f" => :high_sierra
+    sha256 "0b0d11adbbf27034504c1273e5a95323a461782ec872900fbc716fbeddf57e88" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,33 +1,31 @@
 class Aubio < Formula
   desc "Extract annotations from audio signals"
   homepage "https://aubio.org/"
-  url "https://aubio.org/pub/aubio-0.4.6.tar.bz2"
-  sha256 "bdc73be1f007218d3ea6d2a503b38a217815a0e2ccc4ed441f6e850ed5d47cfb"
-  revision 1
+  url "https://aubio.org/pub/aubio-0.4.7.tar.bz2"
+  sha256 "cbed4afec5ab3a1a6300c7e3af0a1369379aa94259f5e701a8ca905cdd9fa041"
 
   bottle do
     cellar :any
-    sha256 "2c395da96fbf17a3c8d5dc876a5e227b7a2b7a32cd09835b04f30aa19058b682" => :mojave
-    sha256 "aa38cdd6191590eed102eb940da4e8e21daf5fc3628a747360d09b269c18cbf2" => :high_sierra
-    sha256 "cbca234f689b0f8daae34c15df6234b5477fac3723fe2bb140f693746b1d86f3" => :sierra
-    sha256 "ad6cdea7d6a62f5b6d4101f4b4225e4d4fe4f940d5ab0eae8cdf1b1cf3a60d01" => :el_capitan
+    sha256 "36711680d58975f60c38d2ad9775afe4897f1b8328257cc3089a25617765ed15" => :mojave
+    sha256 "99017df7e892a6c7ef892d882c730201c89a2c34d0603533b4d31dede77f5ead" => :high_sierra
+    sha256 "cc3bef276f2980e2cfd44abb9cf45ffa68da6ef47001a9a526d484d7993be142" => :sierra
   end
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on :macos => :lion
   depends_on "numpy"
-  depends_on "python@2"
+  depends_on "python"
 
   def install
-    # Needed due to issue with recent cland (-fno-fused-madd))
+    # Needed due to issue with recent clang (-fno-fused-madd))
     ENV.refurbish_args
 
-    system "./waf", "configure", "--prefix=#{prefix}"
-    system "./waf", "build"
-    system "./waf", "install"
+    system "python3", "./waf", "configure", "--prefix=#{prefix}"
+    system "python3", "./waf", "build"
+    system "python3", "./waf", "install"
 
-    system "python", *Language::Python.setup_install_args(prefix)
+    system "python3", *Language::Python.setup_install_args(prefix)
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 

@@ -3,22 +3,15 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
   sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
+  revision 1
 
   bottle do
-    sha256 "95179f517090dd0fbdca100668ca9baea81b6d4bb9ebd3b1888f5f49970abbf2" => :mojave
-    sha256 "77714c2ed74758ffca2e0852c7784022a06903be46a4094b5813cdcd3a3f7caf" => :high_sierra
-    sha256 "e5c3822571957ffa442a96f4287c591b4943bf03c89d8fe3dafbf3efc7e98013" => :sierra
-    sha256 "aaa810b670d9d60e1f81d8bd7f0cd6bebba3732b48f42749af59b1839a4c5727" => :el_capitan
+    sha256 "cb15250afcb6770003f52fe503513bc54ad513cc96aaa1d5a4591ea2875c3652" => :mojave
+    sha256 "18a2e5804df50bb5a359be87a6e9144b1e449de9a95e580a7d4ac1a654ae8f30" => :high_sierra
+    sha256 "0b7853a335b8f0a91e5b51cb19c8acc76838c5c796b44d181ba93aca97606482" => :sierra
   end
 
   keg_only :versioned_formula
-
-  option "without-x264", "Disable H.264 encoder"
-  option "without-lame", "Disable MP3 encoder"
-  option "without-libvo-aacenc", "Disable VisualOn AAC encoder"
-  option "without-xvid", "Disable Xvid MPEG-4 video encoder"
-  option "without-qtkit", "Disable deprecated QuickTime framework"
-  option "without-securetransport", "Disable use of SecureTransport"
 
   option "with-rtmpdump", "Enable RTMP protocol"
   option "with-libass", "Enable ASS/SSA subtitle format"
@@ -27,29 +20,28 @@ class FfmpegAT28 < Formula
   option "with-openssl", "Enable SSL support"
   option "with-libssh", "Enable SFTP protocol via libssh"
   option "with-schroedinger", "Enable Dirac video format"
-  option "with-ffplay", "Enable FFplay media player"
-  option "with-tools", "Enable additional FFmpeg tools"
   option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
   option "with-libvidstab", "Enable vid.stab support for video stabilization"
-  option "with-x265", "Enable x265 encoder"
   option "with-libsoxr", "Enable the soxr resample library"
   option "with-webp", "Enable using libwebp to encode WEBP images"
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
-  option "with-snappy", "Enable Snappy library"
   option "with-dcadec", "Enable dcadec library"
 
   depends_on "pkg-config" => :build
-
-  # manpages won't be built without texi2html
   depends_on "texi2html" => :build
   depends_on "yasm" => :build
 
-  depends_on "sdl" if build.with? "ffplay"
-
-  depends_on "lame" => :recommended
-  depends_on "libvo-aacenc" => :recommended
-  depends_on "x264" => :recommended
-  depends_on "xvid" => :recommended
+  depends_on "lame"
+  depends_on "libvo-aacenc"
+  depends_on "libvorbis"
+  depends_on "libvpx"
+  depends_on "opus"
+  depends_on "sdl"
+  depends_on "snappy"
+  depends_on "theora"
+  depends_on "x264"
+  depends_on "x265"
+  depends_on "xvid"
 
   depends_on "dcadec" => :optional
   depends_on "faac" => :optional
@@ -65,19 +57,13 @@ class FfmpegAT28 < Formula
   depends_on "libsoxr" => :optional
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
-  depends_on "libvorbis" => :optional
-  depends_on "libvpx" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openjpeg" => :optional
   depends_on "openssl" => :optional
-  depends_on "opus" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
-  depends_on "snappy" => :optional
   depends_on "speex" => :optional
-  depends_on "theora" => :optional
   depends_on "webp" => :optional
-  depends_on "x265" => :optional
   depends_on "zeromq" => :optional
 
   def install
@@ -87,53 +73,51 @@ class FfmpegAT28 < Formula
                                                          "UNDEFINED_GIBBERISH"
     end
 
-    args = ["--prefix=#{prefix}",
-            "--enable-shared",
-            "--enable-pthreads",
-            "--enable-gpl",
-            "--enable-version3",
-            "--enable-hardcoded-tables",
-            "--enable-avresample",
-            "--cc=#{ENV.cc}",
-            "--host-cflags=#{ENV.cflags}",
-            "--host-ldflags=#{ENV.ldflags}"]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-shared
+      --enable-pthreads
+      --enable-gpl
+      --enable-version3
+      --enable-hardcoded-tables
+      --enable-avresample
+      --cc=#{ENV.cc}
+      --host-cflags=#{ENV.cflags}
+      --host-ldflags=#{ENV.ldflags}
+      --enable-ffplay
+      --enable-libmp3lame
+      --enable-libopus
+      --enable-libsnappy
+      --enable-libtheora
+      --enable-libvo-aacenc
+      --enable-libvorbis
+      --enable-libvpx
+      --enable-libx264
+      --enable-libx265
+      --enable-libxvid
+    ]
 
     args << "--enable-opencl" if MacOS.version > :lion
-
-    args << "--enable-libx264" if build.with? "x264"
-    args << "--enable-libmp3lame" if build.with? "lame"
-    args << "--enable-libvo-aacenc" if build.with? "libvo-aacenc"
-    args << "--enable-libxvid" if build.with? "xvid"
-    args << "--enable-libsnappy" if build.with? "snappy"
-
     args << "--enable-libfontconfig" if build.with? "fontconfig"
     args << "--enable-libfreetype" if build.with? "freetype"
-    args << "--enable-libtheora" if build.with? "theora"
-    args << "--enable-libvorbis" if build.with? "libvorbis"
-    args << "--enable-libvpx" if build.with? "libvpx"
     args << "--enable-librtmp" if build.with? "rtmpdump"
     args << "--enable-libopencore-amrnb" << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
     args << "--enable-libfaac" if build.with? "faac"
     args << "--enable-libass" if build.with? "libass"
-    args << "--enable-ffplay" if build.with? "ffplay"
     args << "--enable-libssh" if build.with? "libssh"
     args << "--enable-libspeex" if build.with? "speex"
     args << "--enable-libschroedinger" if build.with? "schroedinger"
     args << "--enable-libfdk-aac" if build.with? "fdk-aac"
     args << "--enable-openssl" if build.with? "openssl"
-    args << "--enable-libopus" if build.with? "opus"
     args << "--enable-frei0r" if build.with? "frei0r"
     args << "--enable-libcaca" if build.with? "libcaca"
     args << "--enable-libsoxr" if build.with? "libsoxr"
     args << "--enable-libquvi" if build.with? "libquvi"
     args << "--enable-libvidstab" if build.with? "libvidstab"
-    args << "--enable-libx265" if build.with? "x265"
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libzmq" if build.with? "zeromq"
     args << "--enable-libbs2b" if build.with? "libbs2b"
     args << "--enable-libdcadec" if build.with? "dcadec"
-    args << "--disable-indev=qtkit" if build.without? "qtkit"
-    args << "--disable-securetransport" if build.without? "securetransport"
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
@@ -174,27 +158,9 @@ class FfmpegAT28 < Formula
 
     system "make", "install"
 
-    if build.with? "tools"
-      system "make", "alltools"
-      bin.install Dir["tools/*"].select { |f| File.executable? f }
-    end
-  end
-
-  def caveats
-    if build.without? "faac" then <<~EOS
-      FFmpeg has been built without libfaac for licensing reasons;
-      libvo-aacenc is used by default.
-      To install with libfaac, you can:
-        brew reinstall ffmpeg28 --with-faac
-
-      You can also use the experimental FFmpeg encoder, libfdk-aac, or
-      libvo_aacenc to encode AAC audio:
-        ffmpeg -i input.wav -c:a aac -strict experimental output.m4a
-      Or:
-        brew reinstall ffmpeg28 --with-fdk-aac
-        ffmpeg -i input.wav -c:a libfdk_aac output.m4a
-    EOS
-    end
+    # Build and install additional FFmpeg tools
+    system "make", "alltools"
+    bin.install Dir["tools/*"].select { |f| File.executable? f }
   end
 
   test do

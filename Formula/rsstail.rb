@@ -33,7 +33,7 @@ class Rsstail < Formula
   end
 
   test do
-    assert_match(/^Title: \d+: "[A-Za-z0-9 ]+"$/,
-                 shell_output("#{bin}/rsstail -1u http://feed.nashownotes.com/rss.xml"))
+    assert_match(/^Title: /,
+                 shell_output("#{bin}/rsstail -1u https://developer.apple.com/news/rss/news.rss"))
   end
 end

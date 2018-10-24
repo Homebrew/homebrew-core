@@ -16,8 +16,8 @@ class Ry < Formula
     sha256 "c94e0176f99aaefcdc84ef95c081aa348177662e1b7f20d429a5c56a5b98ef40" => :mavericks
   end
 
-  depends_on "bash-completion" => :recommended
-  depends_on "ruby-build" => :recommended
+  depends_on "bash-completion"
+  depends_on "ruby-build"
 
   def install
     ENV["PREFIX"] = prefix

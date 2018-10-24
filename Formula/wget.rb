@@ -21,10 +21,6 @@ class Wget < Formula
     depends_on "gettext"
   end
 
-  option "with-debug", "Build with debug support"
-
-  deprecated_option "enable-debug" => "with-debug"
-
   depends_on "pkg-config" => :build
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
@@ -39,9 +35,9 @@ class Wget < Formula
       --sysconfdir=#{etc}
       --with-ssl=openssl
       --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
+      --disable-debug
     ]
 
-    args << "--disable-debug" if build.without? "debug"
     args << "--disable-pcre" if build.without? "pcre"
     args << "--with-metalink" if build.with? "libmetalink"
     args << "--with-gpgme-prefix=#{Formula["gpgme"].opt_prefix}" if build.with? "gpgme"

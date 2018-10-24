@@ -13,9 +13,9 @@ class GetIplayer < Formula
     sha256 "fa56ddecbfe51c9763840b83b7dfa9a1138edb41baa21cf91aa28df955583818" => :el_capitan
   end
 
+  depends_on "atomicparsley"
+  depends_on "ffmpeg"
   depends_on :macos => :yosemite
-  depends_on "atomicparsley" => :recommended
-  depends_on "ffmpeg" => :recommended
 
   resource "IO::Socket::IP" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz"

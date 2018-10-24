@@ -1,7 +1,8 @@
 class GnuProlog < Formula
   desc "Prolog compiler with constraint solving"
   homepage "http://www.gprolog.org/"
-  url "http://gprolog.univ-paris1.fr/gprolog-1.4.5.tar.gz"
+  url "http://www.gprolog.org/gprolog-1.4.5.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/g/gprolog/gprolog_1.4.5.orig.tar.gz"
   sha256 "bfdcf00e051e0628b4f9af9d6638d4fde6ad793401e58a5619d1cc6105618c7c"
 
   bottle do

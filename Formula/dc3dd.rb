@@ -7,9 +7,10 @@ class Dc3dd < Formula
   revision 1
 
   bottle do
-    sha256 "1b509e74c2a309676eefcd37fd82de1f4646395123e0cbdb38715598e2ea6fef" => :high_sierra
-    sha256 "2f7f30890920cddd8b35c5b0f0c0c27fd3f4d3528e18156f8ae86ed9b144b9aa" => :sierra
-    sha256 "9455b48212360afa374b22a5387604d310abb5dbfa90818d8745753b22d8a367" => :el_capitan
+    rebuild 1
+    sha256 "91be6d42e350b7af3ae449044fd7ab6d5a78253e8e217578b90065c99a5b15f4" => :mojave
+    sha256 "42eadd524bba6cd7f4d4898f209aafd3aca03522d2dad45af7ede5262dbbb009" => :high_sierra
+    sha256 "bf191ae1f00552deaf5c966367cfca182d98ab6e84e284d06be62da8f517f2eb" => :sierra
   end
 
   depends_on "gettext"
@@ -21,41 +22,41 @@ class Dc3dd < Formula
 
   def install
     # Regular zip files created by 7-zip can upset /usr/bin/unzip by reporting a
-    # non-zero size for dirs; the workaround below avoids a p7zip dependency
+    # non-zero size for dirs. Work around this.
     # Reported 32 Oct 2016 https://sourceforge.net/p/dc3dd/bugs/14/
-    zip_file = cached_download.basename(".zip")
-    Utils.popen_read("unzip #{zip_file}.zip")
-    buildpath.install (buildpath/zip_file).children
+    system "unzip dc3dd-#{version}.zip ; true"
 
-    ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
-    resource("gettext-pm").stage do
-      inreplace "Makefile.PL", "$libs = \"-lintl\"",
-                               "$libs = \"-L/usr/local/opt/gettext/lib -lintl\""
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
+    cd "dc3dd-#{version}" do
+      ENV.prepend_create_path "PERL5LIB", buildpath/"gettext-pm/lib/perl5"
+      resource("gettext-pm").stage do
+        inreplace "Makefile.PL", "$libs = \"-lintl\"",
+                                 "$libs = \"-L/usr/local/opt/gettext/lib -lintl\""
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/gettext-pm"
+        system "make"
+        system "make", "install"
+      end
+
+      # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
+      # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
+      inreplace "lib/vasnprintf.c",
+                "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) || ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
+                "# if !(defined __APPLE__ && defined __MACH__)"
+
+      chmod 0555, ["build-aux/install-sh", "configure"]
+
+      args = %W[--disable-debug
+                --disable-dependency-tracking
+                --prefix=#{prefix}
+                --infodir=#{info}]
+
+      # Check for stpncpy is broken, and the replacement fails to compile
+      # on Lion and newer; see https://github.com/Homebrew/homebrew/issues/21510
+      args << "gl_cv_func_stpncpy=yes" if MacOS.version >= :lion
+      system "./configure", *args
       system "make"
       system "make", "install"
+      prefix.install %w[Options_Reference.txt Sample_Commands.txt]
     end
-
-    # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
-    # Patch comes from gnulib upstream (see https://sourceforge.net/p/dc3dd/bugs/17/)
-    inreplace "lib/vasnprintf.c",
-              "# if !(__GLIBC__ > 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ >= 3) || ((defined _WIN32 || defined __WIN32__) && ! defined __CYGWIN__))",
-              "# if !(defined __APPLE__ && defined __MACH__)"
-
-    chmod 0555, ["build-aux/install-sh", "configure"]
-
-    args = %W[--disable-debug
-              --disable-dependency-tracking
-              --prefix=#{prefix}
-              --infodir=#{info}]
-
-    # Check for stpncpy is broken, and the replacement fails to compile
-    # on Lion and newer; see https://github.com/Homebrew/homebrew/issues/21510
-    args << "gl_cv_func_stpncpy=yes" if MacOS.version >= :lion
-    system "./configure", *args
-    system "make"
-    system "make", "install"
-    prefix.install %w[Options_Reference.txt Sample_Commands.txt]
   end
 
   test do

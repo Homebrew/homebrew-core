@@ -14,7 +14,7 @@ class Fabio < Formula
   end
 
   depends_on "go" => :build
-  depends_on "consul" => :recommended
+  depends_on "consul"
 
   def install
     mkdir_p buildpath/"src/github.com/fabiolb"

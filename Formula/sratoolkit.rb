@@ -3,15 +3,14 @@ class Sratoolkit < Formula
   homepage "https://github.com/ncbi/sra-tools"
   url "https://github.com/ncbi/sra-tools/archive/2.9.2.tar.gz"
   sha256 "e055091ee1c0b8163c6e470d24e11575884a3c7e829759be38d2239366c3cf3b"
-  revision 1
+  revision 2
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dc3b015ccc3997858f2c70b9dbdda6d2e40801706743d2ffde778c6483093173" => :mojave
-    sha256 "506e6115cfb2cf9404b9db86525d6a4393ad1f530e1b0404c9f4a8b7e723615b" => :high_sierra
-    sha256 "197a1f8040d8aa1fe968e96abb895be04e75174aab5eae45dad7a74070b5f8db" => :sierra
-    sha256 "abd6309f2f03e81b67b6d27ef25bdf5cb506bdad19aa2895f86ee77674dfd5eb" => :el_capitan
+    cellar :any
+    sha256 "fff1344bef86ad07532b7b9f0c9178a635de6e058f01c42639832ea5af1c009e" => :mojave
+    sha256 "3cfaf2f6059ae2195cd62221df0196c6d15b781f8650a5d871f8bde249ede08a" => :high_sierra
+    sha256 "d91cf9462326a3145a52ba2c14e3f8c092fe1efdb776e6f5f0627a15fe93e0a2" => :sierra
   end
 
   depends_on "hdf5"

@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.29.0-src.tar.gz"
-    sha256 "a4eb34ffd47f76afe2abd813f398512d5a19ef00989d37306217c9c9ec2f61e9"
+    url "https://static.rust-lang.org/dist/rustc-1.29.2-src.tar.gz"
+    sha256 "5088e796aa2e47478cdf41e7243fc5443fafab0a7c70a11423e57c80c04167c9"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -21,11 +21,9 @@ class Rust < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "1e8b9a74d6ba4d82bcba47669253ba18f92ed39b89628249e4266d2c28d94a59" => :mojave
-    sha256 "a0fb6f77ab533a354ee9b9419ab1a0e46ebf85e8a949521fa475439fa75ce4a5" => :high_sierra
-    sha256 "50852a66264b8b541307d8a56703402c530fcea38180189d27c9a8540935ab5a" => :sierra
-    sha256 "cbafaa69d06bc479e8cf8a0067a7e9f62e6a3b0a7ac7f2c8f65ccbd2def8afe6" => :el_capitan
+    sha256 "187562ab7645dfd7dce1bef9e43c5c4a82a82d75a43754b68aa38fdf7912a1c6" => :mojave
+    sha256 "e08c15d3e95f7833b13bda40e5e6c0defb60745399c29786abc68db1ba042a7c" => :high_sierra
+    sha256 "5002aa07724246f712c3cb0f143f1a850398da15a2ce38c8a258a304c29accae" => :sierra
   end
 
   head do
@@ -50,7 +48,7 @@ class Rust < Formula
 
   # According to the official readme, GCC 4.7+ is required
   fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
   end

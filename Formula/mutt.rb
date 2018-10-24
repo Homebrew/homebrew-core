@@ -28,7 +28,6 @@ class Mutt < Formula
     end
   end
 
-  option "with-debug", "Build with debug option enabled"
   option "with-s-lang", "Build against slang instead of ncurses"
 
   depends_on "autoconf" => :build
@@ -50,15 +49,16 @@ class Mutt < Formula
       --disable-dependency-tracking
       --disable-warnings
       --prefix=#{prefix}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
-      --with-sasl
-      --with-gss
-      --enable-imap
-      --enable-smtp
-      --enable-pop
+      --enable-debug
       --enable-hcache
-      --with-tokyocabinet
+      --enable-imap
+      --enable-pop
       --enable-sidebar
+      --enable-smtp
+      --with-gss
+      --with-sasl
+      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-tokyocabinet
     ]
 
     # This is just a trick to keep 'make install' from trying
@@ -69,12 +69,6 @@ class Mutt < Formula
     args << "--disable-nls" if build.without? "gettext"
     args << "--enable-gpgme" if build.with? "gpgme"
     args << "--with-slang" if build.with? "s-lang"
-
-    if build.with? "debug"
-      args << "--enable-debug"
-    else
-      args << "--disable-debug"
-    end
 
     system "./prepare", *args
     system "make"

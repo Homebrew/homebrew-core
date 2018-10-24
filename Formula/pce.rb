@@ -14,12 +14,6 @@ class Pce < Formula
     sha256 "5166b5f8b91d05e8d45f8683326e865cb75e2f574dff790d423ac4f4215d51f5" => :yosemite
   end
 
-  devel do
-    url "http://www.hampa.ch/pub/pce/pre/pce-20170208-df19414/pce-20170208-df19414.tgz"
-    version "20170208"
-    sha256 "aaad3db24b5fabbd308afbb8d2f242236b8abf7d48b010f726a4367f16ec2681"
-  end
-
   depends_on "readline"
   depends_on "sdl"
 

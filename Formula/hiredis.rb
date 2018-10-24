@@ -1,18 +1,15 @@
 class Hiredis < Formula
   desc "Minimalistic client for Redis"
   homepage "https://github.com/redis/hiredis"
-  url "https://github.com/redis/hiredis/archive/v0.13.3.tar.gz"
-  sha256 "717e6fc8dc2819bef522deaca516de9e51b9dfa68fe393b7db5c3b6079196f78"
+  url "https://github.com/redis/hiredis/archive/v0.14.0.tar.gz"
+  sha256 "042f965e182b80693015839a9d0278ae73fae5d5d09d8bf6d0e6a39a8c4393bd"
   head "https://github.com/redis/hiredis.git"
 
   bottle do
     cellar :any
-    sha256 "00bb6068241b8ebd326d6f1e4ebdb97e2441a25b0b63175d4f87962a3f6b5200" => :mojave
-    sha256 "de253e88983ee372b611e7c9343987cd486dd19d5878a07935b265e7b651634f" => :high_sierra
-    sha256 "93ea600964980acca0d01e7bcf34630280ce88edb01e2cd385e19e8a4e9d33cd" => :sierra
-    sha256 "9c5dd3b595179560b3a22c685b87b32466edbfaea059659c72399e6b8c86b181" => :el_capitan
-    sha256 "f038cdff672abde1099b34daac067172cf9545e04b49248f6a580732d242183d" => :yosemite
-    sha256 "70fed127330cd583478cef89d89d34af112b60e5341cc7f42aa5d06f4b9575ce" => :mavericks
+    sha256 "b4ad73060273cc312df323beb4657426ed554b6fa436381e68c5b37fc64dd471" => :mojave
+    sha256 "f4ac0116806f6a754175e1ceadca0ddafaf1d70fdd5bc0af0604cb82483040e3" => :high_sierra
+    sha256 "df1316285bbf8325a8e9dcc2f8cd472905354cba2b1562cf0dd75e268b596f5c" => :sierra
   end
 
   def install

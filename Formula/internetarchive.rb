@@ -5,16 +5,16 @@ class Internetarchive < Formula
   homepage "https://github.com/jjjake/internetarchive"
   url "https://files.pythonhosted.org/packages/a6/11/461f00d057a39f987c293cd9122ae3c1e13eb000a317d59c4cd00b84446d/internetarchive-1.7.7.tar.gz"
   sha256 "4497c9a2e49373ab8a987efb544f881b102f0a11dac2a0685fb5f75f07072c41"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b87388abb8962723ba2f6ac009ff49b8e91405db27eca0cd0990412f9d0f3d73" => :mojave
-    sha256 "35098a6977bed08d6de52226f7c6a631016dcd9a79230c517a9f0ab4fc4e1f47" => :high_sierra
-    sha256 "b97169838678e7237bf8988db9730ee17837e3c6e54f509b86fd6557550e2dbb" => :sierra
-    sha256 "b34a467a732d82a8de7bbda8fc45d416d4ee1294909fbbc216e9b18c04127ab7" => :el_capitan
+    sha256 "eace6f1af2d97e958c153ca528e145eaab2a021ffa7dab944275265e31c628ff" => :mojave
+    sha256 "6136f0347bc3f61c25efe9370d079ece6a6779264f4e90ea000ce7cba353ada2" => :high_sierra
+    sha256 "13a5f3f6d44baa59f6dc147c43f79e867004e11f2577816fa1eaaa0f2e11770f" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
@@ -22,8 +22,8 @@ class Internetarchive < Formula
   end
 
   resource "backports.csv" do
-    url "https://files.pythonhosted.org/packages/6a/0b/2071ad285e87dd26f5c02147ba13abf7ec777ff20416a60eb15ea204ca76/backports.csv-1.0.5.tar.gz"
-    sha256 "8c421385cbc6042ba90c68c871c5afc13672acaf91e1508546d6cda6725ebfc6"
+    url "https://files.pythonhosted.org/packages/c5/d2/6adc8e81e57a847fbe63b7967223aa13e340875a273be218ef15f162037d/backports.csv-1.0.6.tar.gz"
+    sha256 "bed884eeb967c8d6f517dfcf672914324180f1e9ceeb0376fde2c4c32fd7008d"
   end
 
   resource "certifi" do

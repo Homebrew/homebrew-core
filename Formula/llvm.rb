@@ -1,21 +1,3 @@
-class CodesignRequirement < Requirement
-  fatal true
-
-  satisfy(:build_env => false) do
-    mktemp do
-      FileUtils.cp "/usr/bin/false", "llvm_check"
-      quiet_system "/usr/bin/codesign", "-f", "-s", "lldb_codesign", "--dryrun", "llvm_check"
-    end
-  end
-
-  def message
-    <<~EOS
-      lldb_codesign identity must be available to build with LLDB.
-      See: https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt
-    EOS
-  end
-end
-
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
@@ -86,42 +68,42 @@ class Llvm < Formula
   end
 
   head do
-    url "https://llvm.org/git/llvm.git"
+    url "https://git.llvm.org/git/llvm.git"
 
     resource "clang" do
-      url "https://llvm.org/git/clang.git"
+      url "https://git.llvm.org/git/clang.git"
     end
 
     resource "clang-extra-tools" do
-      url "https://llvm.org/git/clang-tools-extra.git"
+      url "https://git.llvm.org/git/clang-tools-extra.git"
     end
 
     resource "compiler-rt" do
-      url "https://llvm.org/git/compiler-rt.git"
+      url "https://git.llvm.org/git/compiler-rt.git"
     end
 
     resource "libcxx" do
-      url "https://llvm.org/git/libcxx.git"
+      url "https://git.llvm.org/git/libcxx.git"
     end
 
     resource "libunwind" do
-      url "https://llvm.org/git/libunwind.git"
+      url "https://git.llvm.org/git/libunwind.git"
     end
 
     resource "lld" do
-      url "https://llvm.org/git/lld.git"
+      url "https://git.llvm.org/git/lld.git"
     end
 
     resource "lldb" do
-      url "https://llvm.org/git/lldb.git"
+      url "https://git.llvm.org/git/lldb.git"
     end
 
     resource "openmp" do
-      url "https://llvm.org/git/openmp.git"
+      url "https://git.llvm.org/git/openmp.git"
     end
 
     resource "polly" do
-      url "https://llvm.org/git/polly.git"
+      url "https://git.llvm.org/git/polly.git"
     end
   end
 
@@ -145,12 +127,16 @@ class Llvm < Formula
 
   if build.with? "lldb"
     depends_on "swig" if MacOS.version >= :lion
-    depends_on CodesignRequirement
+    depends_on :codesign => [{
+      :identity => "lldb_codesign",
+      :with => "LLDB",
+      :url => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
+    }]
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_0
-  fails_with :gcc
+  fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
   end

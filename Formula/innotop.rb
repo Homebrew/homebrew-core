@@ -8,22 +8,23 @@ class Innotop < Formula
 
   bottle do
     cellar :any
-    sha256 "c75626fc32e689ae59e8cdd751210e0feedcf57ca4dfc242e529dfd9eea01bb1" => :high_sierra
-    sha256 "9ba6ef9a0c2b556473f6e9b468b09232a6773cca59bac90df3f6a4d62b5f1291" => :sierra
-    sha256 "3d8a90f394fecdfc23d90e3e5698840d8d628361979e01a763303e9e594d2d41" => :el_capitan
+    rebuild 1
+    sha256 "af139f615eec93504df201d6e6fc8f927b1a7ae2866bad879183363153debd4c" => :mojave
+    sha256 "6a3d4a991c111036fafbfd41fb78aa8e1f2babc1624f8e098d60df774159fbbe" => :high_sierra
+    sha256 "262ec93868b11c069258438217e80ec7c892c0c8c368c4b0818495d40747782c" => :sierra
   end
 
   depends_on "mysql-client"
   depends_on "openssl"
 
-  resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
-    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
-  end
-
   resource "DBI" do
     url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.636.tar.gz"
     sha256 "8f7ddce97c04b4b7a000e65e5d05f679c964d62c8b02c94c1a7d815bb2dd676c"
+  end
+
+  resource "DBD::mysql" do
+    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
   end
 
   resource "TermReadKey" do

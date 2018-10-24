@@ -17,20 +17,13 @@ class TheSilverSearcher < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
-  depends_on "xz" => :recommended
+  depends_on "xz"
 
   def install
     # Stable tarball does not include pre-generated configure script
     system "autoreconf", "-fiv"
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--disable-lzma" if build.without?("xz")
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make"
     system "make", "install"
 

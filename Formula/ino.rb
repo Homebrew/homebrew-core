@@ -15,7 +15,7 @@ class Ino < Formula
   end
 
   depends_on "picocom"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/source/a/argparse/argparse-1.2.1.tar.gz"

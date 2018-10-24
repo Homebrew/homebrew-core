@@ -5,16 +5,16 @@ class GandiCli < Formula
   homepage "https://cli.gandi.net/"
   url "https://files.pythonhosted.org/packages/68/fd/1e2d6711a2cb3293288caa732057f97e9e5e529bebcb2692d7e3bb50d7f3/gandi.cli-1.2.tar.gz"
   sha256 "51b5287a285bf665446d7ff47ed9cb447caa79ab8504d29e4212ae825e27086e"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8d82c0af191de7d277f514c4c4f9efaa3ca93fbb1d4fd3e67973ae94cb872b16" => :mojave
-    sha256 "21191c85f68d45a9005f94dd6a09c0ce54c86e3107773f6783db401f38ac4a8a" => :high_sierra
-    sha256 "99efe8cf38d29c24f3a17ec07e1f8f7ccf31efa68775d637ee75041bf3d0dec3" => :sierra
-    sha256 "6adbf5ec8e25c411e3f9514600de37d679083e19b0eed789a6f24775f87ac22e" => :el_capitan
+    sha256 "12e04d36fa72f2ad02055873d7cdedbb43c7c37b6677a3c4945a5fe7fbb8b47e" => :mojave
+    sha256 "abce0e51ea6a5fb0b070c1e27d8138aaf5ce0905e962f8063b129d355e624112" => :high_sierra
+    sha256 "ca9023ed0da5297ede6b0d4e90e7d081382decce9cd6c20c1466605d65918830" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/4d/9c/46e950a6f4d6b4be571ddcae21e7bc846fcbb88f1de3eff0f6dd0a6be55d/certifi-2018.4.16.tar.gz"

@@ -1,13 +1,13 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.7.1.tar.gz"
-  sha256 "5863895e6ac95f5349da95ff74e196c4b365af3fc3f4a1376cab797df493b7a4"
+  url "https://github.com/sharkdp/bat/archive/v0.8.0.tar.gz"
+  sha256 "577664399cf24695f51b702350c1a3fe460cd296a6a12ed0938bb937a4b3b00d"
 
   bottle do
-    sha256 "62e42c268d73f27f0eada988ddaf5a2f841b72af3cbc8c85d716183788608448" => :mojave
-    sha256 "0ab5a742c1fadeb7749caf7d96bc7005518df5d939c4482396d539aaceb0bd9d" => :high_sierra
-    sha256 "b556a914588cc041a14493fe735d39d1fab438cfde09b79f9f834404c8516ddd" => :sierra
+    sha256 "f7c03e20e2e2174dbfbd459bbc9e682566ca2c2d95981e6e7a0bb16f6029376c" => :mojave
+    sha256 "7eae56919890dbde0df25e05cc9c8ebc5fb7200538c16fb1499d55f6c9486063" => :high_sierra
+    sha256 "646d4b06070a71bfa915703cfb9f57df7eafb674316decf8688dc2152f10bb70" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -15,6 +15,7 @@ class Bat < Formula
 
   def install
     system "cargo", "install", "--root", prefix, "--path", "."
+    man1.install "doc/bat.1"
   end
 
   test do
