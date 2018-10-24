@@ -4,6 +4,12 @@ class NodeAT10 < Formula
   url "https://nodejs.org/dist/v10.12.0/node-v10.12.0.tar.gz"
   sha256 "c6552b95062f5e9f3a27da6fdb57914ab4b27a9aa2e783fb050791166554d059"
 
+  bottle do
+    sha256 "72ea1acbc62c79d65d054b4f8b3154d216b4619e2e6607d478e6beac017a6359" => :mojave
+    sha256 "e78df890254094099fa1f40977d0974b5bda8e8ac4aa2b6b2a4da95921e46a7d" => :high_sierra
+    sha256 "267dc5ebf11ca667aadfb05058323f756ffc84911aa574bd39b58fb3644c4021" => :sierra
+  end
+
   keg_only :versioned_formula
 
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
