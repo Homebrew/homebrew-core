@@ -1,8 +1,8 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://github.com/ucloud/ucloud-cli/archive/0.1.3.tar.gz"
-  sha256 "897976649717b9e19b7337f0f621321d69a52b679295092a70c072a73b57e51c"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.4.tar.gz"
+  sha256 "594f8004cc688a857c87ac835b4896c29085d32f139f04aaedc4544eedf8650e"
 
   bottle do
     cellar :any_skip_relocation
@@ -24,10 +24,8 @@ class Ucloud < Formula
   end
 
   test do
-    system "#{bin}/ucloud", "config", "--region", "cn-bj2"
     system "#{bin}/ucloud", "config", "--project-id", "org-test"
     config_json = (testpath/".ucloud/config.json").read
-    assert_match '"region":"cn-bj2"', config_json
     assert_match '"project_id":"org-test"', config_json
     assert_match version.to_s, shell_output("#{bin}/ucloud --version")
   end
