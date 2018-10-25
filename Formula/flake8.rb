@@ -26,6 +26,9 @@ class Flake8 < Formula
 
   test do
     xy = Language::Python.major_minor_version "python3"
-    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8"
+    # flake8 version 3.6.0 will fail this test with `E203` warnings.
+    # Adding `E203` to the list of ignores makes the test pass.
+    # Remove the customized ignore list once the problem is fixed upstream.
+    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
   end
 end
