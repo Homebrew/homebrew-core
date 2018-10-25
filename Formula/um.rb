@@ -31,8 +31,9 @@ class Um < Formula
   end
 
   test do
-    shell_output("#{bin}/um topic -d") # Set default topic
-    assert_match shell_output("#{bin}/um config default_topic"),
-      shell_output("#{bin}/um topic")
+    system bin/"um", "topic", "-d" # Set default topic
+
+    output = shell_output("#{bin}/um topic")
+    assert_match shell_output("#{bin}/um config default_topic"), output
   end
 end
