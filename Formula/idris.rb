@@ -10,10 +10,9 @@ class Idris < Formula
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
-    sha256 "19ff83f8e1bebf3bd2d3be5bac98903bc26b2f964e5ae1349b9df6ddaf72c7fa" => :mojave
-    sha256 "c40c05247f24827d330cf56e5bdb7d1c4e6359e1b7a7d413b069947332464792" => :high_sierra
-    sha256 "b050ef7399b75ce62c3894017d8db251f815180dea1a9081a18dfa9a29e883e6" => :sierra
-    sha256 "1a44245d15fe570ac53fa8ec18cd4bce345ee8c5539dd18fd09376fb90402c12" => :el_capitan
+    sha256 "c7962cb3e053d2c7a076c1f2634ad3fc6fd2f81d48d2cca89271dddb962079f0" => :mojave
+    sha256 "9824714173014b0f72a7e6446277805db9b89ea6c404a895ab4ce6ff3477fad0" => :high_sierra
+    sha256 "dd3bfe19b49e43c06faad25eb55c233fadc5f16c73df137858c6f7dbd4dccbfc" => :sierra
   end
 
   depends_on "cabal-install" => :build
