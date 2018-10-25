@@ -5,8 +5,8 @@ class Idris < Formula
 
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris-dev/archive/v1.3.0.tar.gz"
-  sha256 "8cce6c8bd24daf18b18f2f270354c711529bef6231b3c9016c3dcb98de6bca99"
+  url "https://github.com/idris-lang/Idris-dev/archive/v1.3.1.tar.gz"
+  sha256 "c0de229736e920a87f5d6453a9673a3dd4562e1d529ed04ddd305c6a8b5c8941"
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
