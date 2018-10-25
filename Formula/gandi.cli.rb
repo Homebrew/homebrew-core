@@ -3,9 +3,8 @@ class GandiCli < Formula
 
   desc "Command-line interface to Gandi.net products using the public API"
   homepage "https://cli.gandi.net/"
-  url "https://files.pythonhosted.org/packages/68/fd/1e2d6711a2cb3293288caa732057f97e9e5e529bebcb2692d7e3bb50d7f3/gandi.cli-1.2.tar.gz"
-  sha256 "51b5287a285bf665446d7ff47ed9cb447caa79ab8504d29e4212ae825e27086e"
-  revision 1
+  url "https://files.pythonhosted.org/packages/b6/62/2c40c1f3dd9507cf3bc8e5b0c97ec8db268934c9b95d7a49ca0de99d8431/gandi.cli-1.3.tar.gz"
+  sha256 "2d785ae006a07fd0e470c2c83a27068c7c39492dee62ee8c9b72f9ad029fdf6d"
 
   bottle do
     cellar :any_skip_relocation
