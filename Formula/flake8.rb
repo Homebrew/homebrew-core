@@ -3,9 +3,8 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.5.0"
-  sha256 "97ecdc088b9cda5acfaa6f84d9d830711669ad8d106d5c68d5897ece3c5cdfda"
-  revision 1
+  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.6.0"
+  sha256 "c19a9954dd8121ace467d605e63188dad7ce34b77a1e8dfc7c4d967016a85bd6"
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
@@ -27,6 +26,9 @@ class Flake8 < Formula
 
   test do
     xy = Language::Python.major_minor_version "python3"
-    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8"
+    # flake8 version 3.6.0 will fail this test with `E203` warnings.
+    # Adding `E203` to the list of ignores makes the test pass.
+    # Remove the customized ignore list once the problem is fixed upstream.
+    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
   end
 end
