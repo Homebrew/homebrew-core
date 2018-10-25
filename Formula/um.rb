@@ -4,6 +4,13 @@ class Um < Formula
   url "https://github.com/sinclairtarget/um/archive/4.1.0.tar.gz"
   sha256 "0606cd8da69618d508d06dee859dd1147a4d8846cdff57fb8958c71fe906523f"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "1d1db24a30203c2439682f6cc2a5426aab764187ee7586f23baf1e7c8a866cf1" => :mojave
+    sha256 "292928bc6148b5a43c6247602fae927be0b06c8e6d0ec2b60d25432ed77e74d7" => :high_sierra
+    sha256 "985f610f0669af71b2d24cf8489d15967f1ea30b650372165ea41aabd93cfc33" => :sierra
+  end
+
   depends_on "ruby" if MacOS.version <= :sierra
 
   resource "kramdown" do
