@@ -6,11 +6,9 @@ class GccAT6 < Formula
   sha256 "7ef1796ce497e89479183702635b14bb7a46b53249209a5e0f999bebf4740945"
 
   bottle do
-    rebuild 2
-    sha256 "ddcbc0f556c7a9489a161186ec12f3cb745d8fe996c2530cb199f21c32305c0e" => :mojave
-    sha256 "976bbd556683514b2495eccd2bab36d984f26c795aa580dcf361e9bae4d29511" => :high_sierra
-    sha256 "341c3917417ac6cfe1712f3005ce89cd1d94db8e0876bfcc36ecd34ed6b21d16" => :sierra
-    sha256 "e40695e1d6b66eb170469798844a4757ca9b1ac8e48bab6e37039bd1cbfec52b" => :el_capitan
+    sha256 "c4547a5c70b310be136aa3ae73a2dda4f0ef8a63b0759edd3849fbddb0770eb6" => :mojave
+    sha256 "accf373b135a7706229b43ebd4700fb624b97e808b1e5a89ad909c09bf665bac" => :high_sierra
+    sha256 "48ddb4694880979a3ba4b5850eae61a072df5caf6caa1944da43662697b43edc" => :sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
