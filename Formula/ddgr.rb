@@ -1,8 +1,8 @@
 class Ddgr < Formula
   desc "DuckDuckGo from the terminal"
   homepage "https://github.com/jarun/ddgr"
-  url "https://github.com/jarun/ddgr/archive/v1.4.tar.gz"
-  sha256 "045063b4d7262992a7ea3cd9fe9715a199318828de82073f54c42631d3ef41b7"
+  url "https://github.com/jarun/ddgr/archive/v1.5.tar.gz"
+  sha256 "b442f707a2c2ead42233d3bf3a9bf919e32ab9860e20d9d39f860840c13c0392"
 
   bottle do
     cellar :any_skip_relocation
