@@ -6,9 +6,9 @@ class Safe < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b57ef80510129dd2b85449ed5ebe1cf9c2e17d5685fbf319541d7797b78353f3" => :mojave
-    sha256 "f52376ec32aa15af052b0ba84728d1d083c568e05a8628d848a2f009699236d2" => :high_sierra
-    sha256 "b31d864d829f4228797e27e0c9569d9d704e3be022cbc094a22076ed528afe0e" => :sierra
+    sha256 "12d909578b737de009be9c5613ef50c9e4282162a5fc46a1f63bffebbfdc621f" => :mojave
+    sha256 "264ca7e9c4351e2c445d1baceeca6f0f8792990e845746c3a83ebe46a4e89d9d" => :high_sierra
+    sha256 "1e75ecfa450f8f76b87af4ae8b77acf4ad4dfc8a4f5da10fd779083d918e6e30" => :sierra
   end
 
   depends_on "go" => :build
