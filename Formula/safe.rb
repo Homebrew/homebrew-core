@@ -1,8 +1,8 @@
 class Safe < Formula
   desc "Command-line interface for Vault"
   homepage "https://github.com/starkandwayne/safe"
-  url "https://github.com/starkandwayne/safe/archive/v0.9.8.tar.gz"
-  sha256 "c02797d21782d48c41e926bc88c0273046806e14a483e115462dc0d471a6d022"
+  url "https://github.com/starkandwayne/safe/archive/v0.9.9.tar.gz"
+  sha256 "bd13e711b384930249ba93a5df1269019d69ccbd5add832bd538cd7bb8e545f4"
 
   bottle do
     cellar :any_skip_relocation
