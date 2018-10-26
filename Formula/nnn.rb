@@ -6,11 +6,10 @@ class Nnn < Formula
   head "https://github.com/jarun/nnn.git"
 
   bottle do
-    cellar :any
-    sha256 "7d8829e7ec6eacc571c3ca7b0acfb2b67b1313ea1e1419f9ce700267290cf08e" => :mojave
-    sha256 "1a5307183b08ea9a51b604c099748063a28c038e2eb4967a8294f031a4fe5721" => :high_sierra
-    sha256 "549480ce88b7051f40251198c671333b33f0ee0ca43fa93d686bef8501673f8b" => :sierra
-    sha256 "269fc2640b01a4f21f6f4387cffe9a52b7483f1ffcc94e54070185cf27038ade" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "c1ae5c6f48f974ccfef60fe93fed0fff4936265829af53d5be73066264e47e34" => :mojave
+    sha256 "e5c8b7b318a275246e9d474f8d7f00a5872723b7553794a4378c34956fa0fdfb" => :high_sierra
+    sha256 "c4015691bb15f3a8de565d4ea5b4be48a0bed779d9b5ea40380d1898b90ba707" => :sierra
   end
 
   depends_on "readline"
