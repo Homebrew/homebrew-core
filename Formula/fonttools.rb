@@ -15,10 +15,7 @@ class Fonttools < Formula
     sha256 "b44296025ff97aa5ae3852bd70be5e682c1e767d55fa5a8d5654f29b81eb2499" => :el_capitan
   end
 
-  option "with-pygtk", "Build with pygtk support for pyftinspect"
-
   depends_on "python@2"
-  depends_on "pygtk" => :optional
 
   def install
     virtualenv_install_with_resources
