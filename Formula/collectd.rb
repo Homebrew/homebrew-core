@@ -1,9 +1,8 @@
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
-  url "https://collectd.org/files/collectd-5.8.0.tar.bz2"
-  sha256 "b06ff476bbf05533cb97ae6749262cc3c76c9969f032bd8496690084ddeb15c9"
-  revision 3
+  url "https://collectd.org/files/collectd-5.8.1.tar.bz2"
+  sha256 "e796fda27ce06377f491ad91aa286962a68c2b54076aa77a29673d53204453da"
 
   bottle do
     sha256 "4c34b8bd58b65b573a54f88e9cf362cef892708479e6ab9a3ed8173c86be198c" => :mojave
