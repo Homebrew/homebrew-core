@@ -5,10 +5,9 @@ class Mdcat < Formula
   sha256 "0b197d66c98a78ceff7a7ee557695d823dab2254f125d1bcbc21da12b366bfbc"
 
   bottle do
-    sha256 "d92f8e0c406d0d47d007a1833c01cb67c9e85dd1d01cd66e8c8c5bb68f210ce5" => :mojave
-    sha256 "1e3e24803ce9ca7e40e1792660bfee461b9d3ebbe2db563e44c234c6829545ee" => :high_sierra
-    sha256 "540c23e2f8a341adeae5dc8965ce36861ab870316b69ea6eb5eb41268df37ac6" => :sierra
-    sha256 "db8fb3a05f299557b0fbe95330ed2f04f64dd6065c8b8a13d7723555ddf30021" => :el_capitan
+    sha256 "9f5e1a3b8d45d4a039af703b8fc2cdaa08f8548e03d13a7089db98a6debf1f32" => :mojave
+    sha256 "0d18d43a77df89848b34a3b8b524d6c439f77a1ffaacc1a96f580ec907729aef" => :high_sierra
+    sha256 "e7c7d8356e72c60d869da954001a45ff0b06fa017af1b1d77266c6d09ac91750" => :sierra
   end
 
   depends_on "cmake" => :build
