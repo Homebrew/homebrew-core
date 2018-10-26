@@ -6,9 +6,9 @@ class Gpa < Formula
   sha256 "95dbabe75fa5c8dc47e3acf2df7a51cee096051e5a842b4c9b6d61e40a6177b1"
 
   bottle do
-    sha256 "9fb1dcb581733874ee4b46aa91ac4ed8cd001e2c10c8e5cfb2341dcacff4f4c5" => :high_sierra
-    sha256 "89232c9cfa56944493c01cbfd7a1998dedc3c502b656202efddbb6100b9ace3a" => :sierra
-    sha256 "a1828dc36ed112f757f6f6b17917addd9e6356d475747765f58f363ba60bde29" => :el_capitan
+    sha256 "fa40434b7e39fb6fd15f67ea757c9b18f3e3c0cdb0eb533940517d51793e3cfd" => :mojave
+    sha256 "ba20aa21492d9b334cbf4f1dc2ea072d0302f8a97fcd2537fc38f2539e4a19b8" => :high_sierra
+    sha256 "5ef7f508f0b6a8bb688b417abd865e53da69dea0d5e048ba0da0686bd2a67043" => :sierra
   end
 
   depends_on "pkg-config" => :build
