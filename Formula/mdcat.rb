@@ -1,8 +1,8 @@
 class Mdcat < Formula
   desc "Show markdown documents on text terminals"
   homepage "https://github.com/lunaryorn/mdcat"
-  url "https://github.com/lunaryorn/mdcat/archive/mdcat-0.10.1.tar.gz"
-  sha256 "c946a6115e903675f8ebc786c7a628d982f2c490c68f9eb7d9986726477465d1"
+  url "https://github.com/lunaryorn/mdcat/archive/mdcat-0.11.0.tar.gz"
+  sha256 "0b197d66c98a78ceff7a7ee557695d823dab2254f125d1bcbc21da12b366bfbc"
 
   bottle do
     sha256 "d92f8e0c406d0d47d007a1833c01cb67c9e85dd1d01cd66e8c8c5bb68f210ce5" => :mojave
@@ -22,7 +22,7 @@ class Mdcat < Formula
     (testpath/"test.md").write <<~EOS
       _lorem_ **ipsum** dolor **sit** _amet_
     EOS
-    output = shell_output("#{bin}/mdcat #{testpath}/test.md")
+    output = shell_output("#{bin}/mdcat --no-colour test.md")
     assert_match "lorem ipsum dolor sit amet", output
   end
 end
