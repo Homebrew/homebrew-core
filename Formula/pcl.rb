@@ -1,7 +1,7 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  revision 5
+  revision 6
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   stable do
@@ -33,6 +33,12 @@ class Pcl < Formula
   depends_on "libusb"
   depends_on "qhull"
   depends_on "vtk"
+
+  # Upstream fix for boost 1.68, remove in next version
+  patch do
+    url "https://github.com/PointCloudLibrary/pcl/commit/491b7c7e.diff?full_index=1"
+    sha256 "3665d0a6c110faf1976b8a05a2c7081c8878417b6c03370005c844efa6f52af6"
+  end
 
   def install
     # Fix "error: no matching constructor for initialization of
