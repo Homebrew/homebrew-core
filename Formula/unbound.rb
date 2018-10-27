@@ -3,7 +3,7 @@ class Unbound < Formula
   homepage "https://www.unbound.net"
   url "https://www.unbound.net/downloads/unbound-1.8.1.tar.gz"
   sha256 "c362b3b9c35d1b8c1918da02cdd5528d729206c14c767add89ae95acae363c5d"
-  head "https://github.com/NLnetLabs/unbound"
+  head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
     sha256 "30f001903153859ba2e755086320d037163d925965e77aefd5e9675e7c5eaa9d" => :mojave
