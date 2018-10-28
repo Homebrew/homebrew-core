@@ -26,4 +26,10 @@ class Contacts < Formula
     bin.install "build/Deployment/contacts"
     man1.install gzip("contacts.1")
   end
+
+  test do
+    output = pipe_output("#{bin}/contacts -h 2>&1")
+
+    assert_match /displays contacts from the AddressBook database/, output
+  end
 end
