@@ -17,12 +17,13 @@ class JsonrpcGlib < Formula
   depends_on "python" => :build
   depends_on "glib"
   depends_on "json-glib"
+  depends_on "vala"
 
   def install
     ENV.refurbish_args
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=false", ".."
+      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=true", ".."
       system "ninja"
       system "ninja", "install"
     end
