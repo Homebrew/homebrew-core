@@ -1,8 +1,8 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.community/"
-  url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.2.tar.gz"
-  sha256 "7f0d82b15293fcb2778ea39b85c99a973be03566b8ae2deb8d6fc6a58683ffd5"
+  url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.3.tar.gz"
+  sha256 "16dbccbc5d88e8a66b87ded34cf6370139b60b998f48bd603869e84ea79794ec"
   head "https://github.com/beast-dev/beast-mcmc.git"
 
   bottle do
