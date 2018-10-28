@@ -15,6 +15,7 @@ class JsonrpcGlib < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "json-glib"
 
@@ -22,7 +23,7 @@ class JsonrpcGlib < Formula
     ENV.refurbish_args
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=false", ".."
+      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=true", ".."
       system "ninja"
       system "ninja", "install"
     end
