@@ -1,8 +1,8 @@
 class Advancemame < Formula
   desc "MAME with advanced video support"
   homepage "https://www.advancemame.it/"
-  url "https://github.com/amadvance/advancemame/releases/download/v3.8/advancemame-3.8.tar.gz"
-  sha256 "f0a5d20f8d512e3bf54078c85fcab209718c172cf7d795391edaa29612e96015"
+  url "https://github.com/amadvance/advancemame/releases/download/v3.9/advancemame-3.9.tar.gz"
+  sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
 
   bottle do
     sha256 "7c0d8622e79774fe6d3e5fb419e7b16667884059b96bec29d43233d4bff94dff" => :mojave
