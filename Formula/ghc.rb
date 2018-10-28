@@ -62,6 +62,8 @@ class Ghc < Formula
     sha256 "ff43a015f803005dd9d9248ea9ffa92f9ebe79e146cfd044c3f48e0a7e58a5fc"
   end
 
+  patch :DATA
+
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
@@ -138,6 +140,7 @@ class Ghc < Formula
 
       system "./boot"
     end
+
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
@@ -162,3 +165,42 @@ class Ghc < Formula
     system "#{bin}/runghc", testpath/"hello.hs"
   end
 end
+
+__END__
+
+diff --git a/docs/users_guide/flags.py b/docs/users_guide/flags.py
+index cc30b8c066..21c7ae3a16 100644
+--- a/docs/users_guide/flags.py
++++ b/docs/users_guide/flags.py
+@@ -46,9 +46,11 @@
+
+ from docutils import nodes
+ from docutils.parsers.rst import Directive, directives
++import sphinx
+ from sphinx import addnodes
+ from sphinx.domains.std import GenericObject
+ from sphinx.errors import SphinxError
++from distutils.version import LooseVersion
+ from utils import build_table_from_list
+
+ ### Settings
+@@ -597,14 +599,18 @@ def purge_flags(app, env, docname):
+ ### Initialization
+
+ def setup(app):
++    # The override argument to add_directive_to_domain is only supported by >= 1.8
++    sphinx_version = LooseVersion(sphinx.__version__)
++    override_arg = {'override': True} if sphinx_version >= LooseVersion('1.8') else {}
+
+     # Add ghc-flag directive, and override the class with our own
+     app.add_object_type('ghc-flag', 'ghc-flag')
+-    app.add_directive_to_domain('std', 'ghc-flag', Flag)
++    app.add_directive_to_domain('std', 'ghc-flag', Flag, **override_arg)
+
+     # Add extension directive, and override the class with our own
+     app.add_object_type('extension', 'extension')
+-    app.add_directive_to_domain('std', 'extension', LanguageExtension)
++    app.add_directive_to_domain('std', 'extension', LanguageExtension,
++                                **override_arg)
+     # NB: language-extension would be misinterpreted by sphinx, and produce
+     # lang="extensions" XML attributes
