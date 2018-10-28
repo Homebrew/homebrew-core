@@ -1,8 +1,10 @@
+require "language/node"
+
 class Autorest < Formula
   desc "Swagger (OpenAPI) Specification code generator"
   homepage "https://github.com/Azure/autorest"
-  url "https://api.nuget.org/packages/autorest.0.17.3.nupkg"
-  sha256 "b3f5b67ae1a8aa4f0fd6cf1e51df27ea1867f0c845dbb13c1c608b148bd86296"
+  url "https://registry.npmjs.org/autorest/-/autorest-2.0.4283.tgz"
+  sha256 "a655719fa6dd20b11db4a3d9c5853e9ed0454429bd6371f0bc6a5a9014b1bb8d"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +16,7 @@ class Autorest < Formula
   end
 
   depends_on "mono"
+  depends_on "node"
 
   resource "swagger" do
     url "https://raw.githubusercontent.com/Azure/autorest/764d308b3b75ba83cb716708f5cef98e63dde1f7/Samples/petstore/petstore.json"
@@ -21,17 +24,13 @@ class Autorest < Formula
   end
 
   def install
-    libexec.install Dir["tools/*"]
-    (bin/"autorest").write <<~EOS
-      #!/bin/bash
-      mono #{libexec}/AutoRest.exe "$@"
-    EOS
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     resource("swagger").stage do
-      assert_match "Finished generating CSharp code for petstore.json.",
-        shell_output("#{bin}/autorest -n test -i petstore.json")
+      system bin/"autorest", "--input-file=petstore.json"
     end
   end
 end
