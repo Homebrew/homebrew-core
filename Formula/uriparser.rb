@@ -1,8 +1,8 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
   homepage "https://uriparser.github.io/"
-  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.8.6/uriparser-0.8.6.tar.bz2"
-  sha256 "0709a7e572417db763f0356250d91686c19a64ab48e9da9f5a1e8055dc2a4a54"
+  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.0/uriparser-0.9.0.tar.bz2"
+  sha256 "ec67eb34feda8eac166f281799f03ed48387694fca44f6f5852f61f8fb535e2c"
 
   bottle do
     cellar :any
@@ -21,7 +21,6 @@ class Uriparser < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "cpptest"
 
   conflicts_with "libkml", :because => "both install `liburiparser.dylib`"
 
@@ -30,7 +29,6 @@ class Uriparser < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-doc"
-    system "make", "check"
     system "make", "install"
   end
 
