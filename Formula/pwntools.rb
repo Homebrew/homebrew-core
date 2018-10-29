@@ -13,7 +13,6 @@ class Pwntools < Formula
     sha256 "3b4d273279f53627c5125be3bbb498d11339502565dc631e5dc6c7fe9badaf4f" => :sierra
   end
 
-  depends_on "binutils"
   depends_on "openssl"
   depends_on "python@2" # does not support Python 3
 
