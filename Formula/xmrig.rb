@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v2.6.4.tar.gz"
-  sha256 "94640ba6d3971a6ba91113ce24a5afec95189cf007f8146011f9a3b367011a69"
+  url "https://github.com/xmrig/xmrig/archive/v2.8.3.tar.gz"
+  sha256 "ddf0c273fcf71889989c971c2a27b81a05aa2352a4bc03481730576583de4696"
 
   bottle do
     cellar :any
@@ -15,6 +15,7 @@ class Xmrig < Formula
   depends_on "cmake" => :build
   depends_on "libmicrohttpd"
   depends_on "libuv"
+  depends_on "openssl"
 
   def install
     mkdir "build" do
