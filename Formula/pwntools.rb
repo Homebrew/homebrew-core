@@ -2,9 +2,9 @@ class Pwntools < Formula
   include Language::Python::Virtualenv
 
   desc "CTF framework used by Gallopsled in every CTF"
-  homepage "https://pwntools.com/"
-  url "https://github.com/Gallopsled/pwntools/archive/3.12.0.tar.gz"
-  sha256 "e743daa158a3ac1e958b52e61de47f3db6cec701379712eeda4f4a977ca32309"
+  homepage "https://github.com/Gallopsled/pwntools"
+  url "https://github.com/Gallopsled/pwntools/archive/3.12.1.tar.gz"
+  sha256 "dfea4140d345f2749086e07ed9c08d5625e50e0f969e2894509e69f9d4755c3d"
 
   bottle do
     cellar :any
