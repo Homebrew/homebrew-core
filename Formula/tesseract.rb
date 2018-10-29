@@ -1,21 +1,14 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/3.05.02.tar.gz"
-  sha256 "494d64ffa7069498a97b909a0e65a35a213989e0184f1ea15332933a90d43445"
+  url "https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz"
+  sha256 "a1f5422ca49a32e5f35c54dee5112b11b99928fc9f4ee6695cdc6768d69f61dd"
 
   bottle do
     sha256 "bb4b2eb8d8636c3f73bb692de94e833351ce505249f37e45a296ea633ffa9630" => :mojave
     sha256 "9fd259800c2c9b7c56f2f5b64be234c93019a0c00f8578cf82d45c28726e04ea" => :high_sierra
     sha256 "03335e88190bd7995f4ec721f84c54fa624733fde5af1086825292d287e8e7d6" => :sierra
     sha256 "421fa571e97ff211fb465eca39c4c289b57411867ebc1907818a0c8eac82d7dd" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/tesseract-ocr/tesseract.git"
-    resource "tessdata-head" do
-      url "https://github.com/tesseract-ocr/tessdata_fast.git"
-    end
   end
 
   option "with-all-languages", "Install recognition data for all languages"
@@ -43,17 +36,17 @@ class Tesseract < Formula
   end
 
   resource "tessdata" do
-    url "https://github.com/tesseract-ocr/tessdata/archive/3.04.00.tar.gz"
-    sha256 "5dcb37198336b6953843b461ee535df1401b41008d550fc9e43d0edabca7adb1"
+    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0-beta.1.tar.gz"
+    sha256 "cfae2d9e15887a719c995baad70c01ad8f68c0361f5f0a4f46e4aa9ed8a47120"
   end
 
   resource "eng" do
-    url "https://github.com/tesseract-ocr/tessdata/raw/3.04.00/eng.traineddata"
-    sha256 "c0515c9f1e0c79e1069fcc05c2b2f6a6841fb5e1082d695db160333c1154f06d"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0-beta.1/eng.traineddata"
+    sha256 "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
   end
 
   resource "osd" do
-    url "https://github.com/tesseract-ocr/tessdata/raw/3.04.00/osd.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0-beta.1/osd.traineddata"
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
   end
 
@@ -88,9 +81,7 @@ class Tesseract < Formula
       system "make", "training"
       system "make", "training-install"
     end
-    if build.head?
-      resource("tessdata-head").stage { mv Dir["*"], share/"tessdata" }
-    elsif build.with? "all-languages"
+    if build.with? "all-languages"
       resource("tessdata").stage { mv Dir["*"], share/"tessdata" }
     else
       resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
