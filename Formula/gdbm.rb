@@ -7,10 +7,9 @@ class Gdbm < Formula
 
   bottle do
     cellar :any
-    sha256 "170273e1f15c2072f3ecd0fdd07c401780e839a9b52467aae7566dcfbd05a1d9" => :mojave
-    sha256 "8fff772638744417c4ff4794915f040d329f0406fbb807fa1320025deb3236f5" => :high_sierra
-    sha256 "114bf9b606f3801a8d6e553185503031342c803d92b423c4dcc94f6a973930d7" => :sierra
-    sha256 "115eabe29f9a47c93808e8670f0a5d8209bad4926947596d5c587a4db7cce0a0" => :el_capitan
+    sha256 "4c2f6db42c5972e7061ace3c1fb0a41f2c0db92a7a3d29cc806f097794dbd898" => :mojave
+    sha256 "7fdad0257e967b63f63b82d6ef48c718d26ead7b38376ed56609bacefa4a252b" => :high_sierra
+    sha256 "9d0b8affbced6c6fb759a077cf5fac4fca0d4b69dd2f4a82ca2f38b20e0f0ece" => :sierra
   end
 
   option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
