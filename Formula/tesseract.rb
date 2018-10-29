@@ -5,10 +5,9 @@ class Tesseract < Formula
   sha256 "a1f5422ca49a32e5f35c54dee5112b11b99928fc9f4ee6695cdc6768d69f61dd"
 
   bottle do
-    sha256 "bb4b2eb8d8636c3f73bb692de94e833351ce505249f37e45a296ea633ffa9630" => :mojave
-    sha256 "9fd259800c2c9b7c56f2f5b64be234c93019a0c00f8578cf82d45c28726e04ea" => :high_sierra
-    sha256 "03335e88190bd7995f4ec721f84c54fa624733fde5af1086825292d287e8e7d6" => :sierra
-    sha256 "421fa571e97ff211fb465eca39c4c289b57411867ebc1907818a0c8eac82d7dd" => :el_capitan
+    sha256 "e4eaf45b39ff29548aafb2dc32fe9834e1e8ee8d63b6b5e760ac823a25beec37" => :mojave
+    sha256 "1a9a686a74d2acccb7c6b1da208916de91f5466fa78441ec32524bcd9cb827b3" => :high_sierra
+    sha256 "56f223e7ff045d5639a8d447791c8ad9876abe997d393f9e3d918dc098a0a467" => :sierra
   end
 
   option "with-all-languages", "Install recognition data for all languages"
