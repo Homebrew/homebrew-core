@@ -5,10 +5,9 @@ class Advancemame < Formula
   sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
 
   bottle do
-    sha256 "7c0d8622e79774fe6d3e5fb419e7b16667884059b96bec29d43233d4bff94dff" => :mojave
-    sha256 "6874ef4519e20fd5aad80571a73092a183ba23eae319f0079251f6b7039a7f41" => :high_sierra
-    sha256 "d5ebe4757331c258d9d0366aa3f382ebb2dad5efcfb4e2e2de70e99eaf8e7e04" => :sierra
-    sha256 "b4bd5176614953e8e385f7ceaac8fc27d5f23843a510a822d9f062b49df5a2eb" => :el_capitan
+    sha256 "95f2cdff91ff98c3c9f65a0751d7948cefb3829d96e1977b5b8869163eba0790" => :mojave
+    sha256 "9c5e0a9f81f43ec02eb951b82b4930639dafcdbacbeadf7bcc5e74f2e2ec7c45" => :high_sierra
+    sha256 "6ba2c02db07a9ef7ddf561dbc2cde3904abe0b1b0ab9c9469020fdeced72e011" => :sierra
   end
 
   depends_on "pkg-config" => :build
