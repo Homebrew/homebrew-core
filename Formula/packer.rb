@@ -2,8 +2,8 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag => "v1.3.1",
-      :revision => "fb1be8be30880cebb8dd15f2287fa929753bd8d1"
+      :tag => "v1.3.2",
+      :revision => "6881d841a1a8374d696d79f156cbc462efe17984"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
@@ -67,6 +67,6 @@ class Packer < Formula
         }]
       }
     EOS
-    system "#{bin}/packer", "validate", minimal
+    system "#{bin}/packer", "validate", "-syntax-only", minimal
   end
 end
