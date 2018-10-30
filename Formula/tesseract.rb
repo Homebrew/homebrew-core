@@ -3,6 +3,7 @@ class Tesseract < Formula
   homepage "https://github.com/tesseract-ocr/"
   url "https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz"
   sha256 "a1f5422ca49a32e5f35c54dee5112b11b99928fc9f4ee6695cdc6768d69f61dd"
+  head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
     sha256 "e4eaf45b39ff29548aafb2dc32fe9834e1e8ee8d63b6b5e760ac823a25beec37" => :mojave
@@ -35,17 +36,17 @@ class Tesseract < Formula
   end
 
   resource "tessdata" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0-beta.1.tar.gz"
-    sha256 "cfae2d9e15887a719c995baad70c01ad8f68c0361f5f0a4f46e4aa9ed8a47120"
+    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
+    sha256 "f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe"
   end
 
   resource "eng" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0-beta.1/eng.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/eng.traineddata"
     sha256 "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
   end
 
   resource "osd" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0-beta.1/osd.traineddata"
+    url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/osd.traineddata"
     sha256 "9cf5d576fcc47564f11265841e5ca839001e7e6f38ff7f7aacf46d15a96b00ff"
   end
 
