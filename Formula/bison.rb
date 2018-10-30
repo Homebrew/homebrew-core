@@ -1,9 +1,9 @@
 class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
-  url "https://ftp.gnu.org/gnu/bison/bison-3.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/bison/bison-3.1.tar.gz"
-  sha256 "a7cb36b55316eeec626865c03d2a44210617a17c7d393ee63d8553e0649ee946"
+  url "https://ftp.gnu.org/gnu/bison/bison-3.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.2.tar.gz"
+  sha256 "d1a42d81cd708fedf943d4d8b2f9d22871526ba0d781563231045fc6edb2617d"
 
   bottle do
     sha256 "d12f195dfc10e7ddbe3ad79e646f43da607d1b57068b6c728e01c2029445743b" => :mojave
