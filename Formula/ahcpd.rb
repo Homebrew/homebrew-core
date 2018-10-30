@@ -38,6 +38,7 @@ class Ahcpd < Formula
     EOS
 
     system "#{bin}/ahcpd", "-c", "ahcpd.conf", "-I", pid_file, "-L", log_file, "-D", "lo0"
+    sleep(2)
 
     assert_predicate pid_file, :exist?, "The file containing the PID of the child process was not created."
     assert_predicate log_file, :exist?, "The file containing the log was not created."
