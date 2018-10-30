@@ -39,17 +39,7 @@ class Blahtexml < Formula
 
   test do
     input = '\sqrt{x^2+\alpha}'
-
     output = pipe_output("#{bin}/blahtex --mathml", input)
-
-    assert_equal output, <<~EOS
-      <blahtex>
-      <mathml>
-      <markup>
-      <msqrt><msup><mi>x</mi><mn>2</mn></msup><mo lspace="0.222em" rspace="0.222em">+</mo><mi>&#x3b1;</mi></msqrt>
-      </markup>
-      </mathml>
-      </blahtex>
-    EOS
+    assert_match "<msqrt><msup><mi>x</mi><mn>2</mn></msup><mo ", output
   end
 end
