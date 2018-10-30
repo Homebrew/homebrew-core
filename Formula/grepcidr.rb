@@ -28,8 +28,7 @@ class Grepcidr < Formula
       192.168.0.1 duck
     EOS
 
-    output = pipe_output("#{bin}/grepcidr 66.249.64.0/19 #{testpath}/access.log").strip
-
-    assert_equal "66.249.64.123 goose", output
+    output = shell_output("#{bin}/grepcidr 66.249.64.0/19 access.log")
+    assert_equal "66.249.64.123 goose", output.strip
   end
 end
