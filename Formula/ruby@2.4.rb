@@ -1,8 +1,8 @@
 class RubyAT24 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.4.tar.xz"
-  sha256 "1d0034071d675193ca769f64c91827e5f54cb3a7962316a41d5217c7bc6949f0"
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.5.tar.xz"
+  sha256 "2f0cdcce9989f63ef7c2939bdb17b1ef244c4f384d85b8531d60e73d8cc31eeb"
 
   keg_only :versioned_formula
 
