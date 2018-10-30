@@ -8,9 +8,10 @@ class Pwntools < Formula
 
   bottle do
     cellar :any
-    sha256 "92677bd9b28d1dddae37d5bdc617902eccf57c1172c03e3a79ae9299d755015d" => :mojave
-    sha256 "2a0422a573677cc55657a696c678db4bda9c79498f9bbbd4b01e542f4105975b" => :high_sierra
-    sha256 "3b4d273279f53627c5125be3bbb498d11339502565dc631e5dc6c7fe9badaf4f" => :sierra
+    rebuild 1
+    sha256 "6c7c1dafcec78ddf24109f89afba154bb459217c8d9759a7277c2903b80fc6cf" => :mojave
+    sha256 "48e83940f7b360d563c42ec38fa80584f24acbd6264bd02b9dd0bf28d98a1466" => :high_sierra
+    sha256 "bba26510ada47ee822ad552d0b0b4febfbb0f5435af53302c50f8655f85093cf" => :sierra
   end
 
   depends_on "openssl"
