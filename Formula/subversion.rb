@@ -1,9 +1,9 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.10.2.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.10.2.tar.bz2"
-  sha256 "5b35e3a858d948de9e8892bf494893c9f7886782f6abbe166c0487c19cf6ed88"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.11.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2"
+  sha256 "87c44344b074ac2e9ed7ca9675fb1e5b197051c3deecfe5934e5f6aefbf83e56"
 
   bottle do
     sha256 "2115c4455e243a34fe537da1f901779d1fd2668937e2da48ccb5f7bad484249f" => :mojave
@@ -62,6 +62,8 @@ class Subversion < Formula
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    # Fix #33530 by ensuring the system Ruby can build test programs.
+    ENV.delete "SDKROOT"
 
     serf_prefix = libexec/"serf"
 
@@ -93,13 +95,14 @@ class Subversion < Formula
       --enable-optimize
       --disable-mod-activation
       --disable-nls
+      --disable-plaintext-password-storage
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apxs=no
       --with-ruby-sitedir=#{lib}/ruby
       --with-serf=#{serf_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
-      --with-zlib=/usr
+      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
