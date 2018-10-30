@@ -15,6 +15,8 @@ class Ruby < Formula
     depends_on "autoconf" => :build
   end
 
+  keg_only :provided_by_macos
+
   depends_on "pkg-config" => :build
   depends_on "libyaml"
   depends_on "openssl"
@@ -33,7 +35,7 @@ class Ruby < Formula
   end
 
   def rubygems_bindir
-    HOMEBREW_PREFIX/"bin"
+    HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
   end
 
   def install
@@ -181,6 +183,14 @@ class Ruby < Formula
         "#{opt_bin}/ruby"
       end
     end
+  EOS
+  end
+
+  def caveats; <<~EOS
+    By default, binaries installed by gem will be placed into:
+      #{rubygems_bindir}
+
+    You may want to add this to your PATH.
   EOS
   end
 
