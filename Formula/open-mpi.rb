@@ -18,10 +18,7 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
-
-  deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
   depends_on "gcc"
   depends_on "libevent"
@@ -45,7 +42,6 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-    args << "--enable-mpi-thread-multiple" if build.with? "mpi-thread-multiple"
     args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
 
     system "./autogen.pl" if build.head?
