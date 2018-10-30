@@ -28,7 +28,7 @@ class Contacts < Formula
   end
 
   test do
-    output = shell_output("#{bin}/contacts -h 2>&1")
+    output = shell_output("#{bin}/contacts -h 2>&1", 2)
     assert_match "displays contacts from the AddressBook database", output
   end
 end
