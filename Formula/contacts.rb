@@ -28,8 +28,7 @@ class Contacts < Formula
   end
 
   test do
-    output = pipe_output("#{bin}/contacts -h 2>&1")
-
-    assert_match /displays contacts from the AddressBook database/, output
+    output = shell_output("#{bin}/contacts -h 2>&1")
+    assert_match "displays contacts from the AddressBook database", output
   end
 end
