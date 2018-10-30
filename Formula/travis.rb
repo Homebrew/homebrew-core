@@ -3,7 +3,7 @@ class Travis < Formula
   homepage "https://github.com/travis-ci/travis.rb/"
   url "https://github.com/travis-ci/travis.rb/archive/v1.8.9.tar.gz"
   sha256 "7a143bd0eb90e825370c808d38b70cca8c399c68bea8138442f40f09b6bbafc4"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
