@@ -11,22 +11,12 @@ class Memcached < Formula
     sha256 "6aa47a846338476f4234055e14135a880e8f5d2ddfd62a07f3a1cb0f1ca3d47d" => :sierra
   end
 
-  option "with-sasl", "Enable SASL support -- disables ASCII protocol!"
-  option "with-sasl-pwdb", "Enable SASL with memcached's own plain text password db support -- disables ASCII protocol!"
-
-  deprecated_option "enable-sasl" => "with-sasl"
-  deprecated_option "enable-sasl-pwdb" => "with-sasl-pwdb"
-
   depends_on "libevent"
 
   conflicts_with "mysql-cluster", :because => "both install `bin/memcached`"
 
   def install
-    args = ["--prefix=#{prefix}", "--disable-coverage"]
-    args << "--enable-sasl" if build.with? "sasl"
-    args << "--enable-sasl-pwdb" if build.with? "sasl-pwdb"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-coverage"
     system "make", "install"
   end
 
