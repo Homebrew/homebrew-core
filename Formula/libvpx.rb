@@ -12,14 +12,6 @@ class Libvpx < Formula
     sha256 "853cfd3f79bfa0c8006ea37644a8ccf1674a2e24abf03521c12457ee99d8242d" => :el_capitan
   end
 
-  option "with-gcov", "Enable code coverage"
-  option "with-visualizer", "Enable post processing visualizer"
-  option "with-examples", "Build examples (vpxdec/vpxenc)"
-  option "with-highbitdepth", "Enable high bit depth support for VP9"
-
-  deprecated_option "gcov" => "with-gcov"
-  deprecated_option "visualizer" => "with-visualizer"
-
   depends_on "yasm" => :build
 
   # configure misdetects 32-bit 10.6
@@ -30,17 +22,13 @@ class Libvpx < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --enable-pic
+      --disable-examples
       --disable-unit-tests
+      --enable-pic
     ]
 
     # https://bugs.chromium.org/p/webm/issues/detail?id=1475
     args << "--disable-avx512" if MacOS.version <= :el_capitan
-
-    args << (build.with?("examples") ? "--enable-examples" : "--disable-examples")
-    args << "--enable-gcov" if !ENV.compiler == :clang && build.with?("gcov")
-    args << "--enable-postproc" << "--enable-postproc-visualizer" if build.with? "visualizer"
-    args << "--enable-vp9-highbitdepth" if build.with? "highbitdepth"
 
     mkdir "macbuild" do
       system "../configure", *args
