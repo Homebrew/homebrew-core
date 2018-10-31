@@ -21,17 +21,9 @@ class Ncmpcpp < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-outputs", "Compile with mpd outputs control"
-  option "with-visualizer", "Compile with built-in visualizer"
-  option "with-clock", "Compile with optional clock tab"
-
-  deprecated_option "outputs" => "with-outputs"
-  deprecated_option "visualizer" => "with-visualizer"
-  deprecated_option "clock" => "with-clock"
-
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "fftw" if build.with? "visualizer"
+  depends_on "fftw"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"
@@ -45,17 +37,16 @@ class Ncmpcpp < Formula
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--with-taglib",
-      "--with-curl",
-      "--enable-unicode",
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-clock
+      --enable-outputs
+      --enable-unicode
+      --enable-visualizer
+      --with-curl
+      --with-taglib
     ]
-
-    args << "--enable-outputs" if build.with? "outputs"
-    args << "--enable-visualizer" if build.with? "visualizer"
-    args << "--enable-clock" if build.with? "clock"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
