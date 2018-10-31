@@ -15,7 +15,6 @@ class NodeAT6 < Formula
 
   option "with-openssl", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
   option "without-npm", "npm will not be installed"
-  option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
 
   depends_on "pkg-config" => :build
