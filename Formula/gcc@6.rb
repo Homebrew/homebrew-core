@@ -1,8 +1,8 @@
 class GccAT6 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/6.5.0/gcc-6.5.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/6.5.0/gcc-6.5.0.tar.xz"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-6.5.0/gcc-6.5.0.tar.xz"
   sha256 "7ef1796ce497e89479183702635b14bb7a46b53249209a5e0f999bebf4740945"
 
   bottle do
