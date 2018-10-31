@@ -25,4 +25,8 @@ class Yydecode < Formula
                           "--mandir=#{man}"
     system "make", "install"
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/yydecode --version 2>&1")
+  end
 end
