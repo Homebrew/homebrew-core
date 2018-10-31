@@ -19,10 +19,6 @@ class Ola < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-libftdi", "Install FTDI USB plugin for OLA."
-  option "with-rdm-tests", "Install RDM Tests for OLA."
-  deprecated_option "with-ftdi" => "with-libftdi"
-
   depends_on "pkg-config" => :build
   depends_on "liblo"
   depends_on "libmicrohttpd"
@@ -30,8 +26,6 @@ class Ola < Formula
   depends_on "ossp-uuid"
   depends_on "protobuf@3.1"
   depends_on "python@2"
-  depends_on "libftdi" => :optional
-  depends_on "libftdi0" if build.with? "libftdi"
 
   resource "protobuf-c" do
     url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.2.1/protobuf-c-1.2.1.tar.gz"
@@ -54,11 +48,10 @@ class Ola < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --enable-python-libs
       --disable-unittests
+      --enable-python-libs
+      --enable-rdm-tests
     ]
-
-    args << "--enable-rdm-tests" if build.with? "rdm-tests"
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args
