@@ -14,13 +14,7 @@ class ThriftAT09 < Formula
 
   keg_only :versioned_formula
 
-  option "with-haskell", "Install Haskell binding"
-  option "with-erlang", "Install Erlang binding"
   option "with-java", "Install Java binding"
-  option "with-perl", "Install Perl binding"
-  option "with-php", "Install Php binding"
-
-  deprecated_option "with-python" => "with-python@2"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -29,7 +23,6 @@ class ThriftAT09 < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "openssl"
-  depends_on "python@2" => :optional
 
   if build.with? "java"
     depends_on "ant" => :build
@@ -37,20 +30,22 @@ class ThriftAT09 < Formula
   end
 
   def install
-    args = ["--without-ruby", "--without-tests", "--without-php_extension"]
+    args = %w[
+      --without-erlang
+      --without-haskell
+      --without-perl
+      --without-php
+      --without-php_extension
+      --without-python
+      --without-ruby
+      --without-tests
+    ]
 
-    args << "--without-python" if build.without? "python@2"
-    args << "--without-haskell" if build.without? "haskell"
     args << "--without-java" if build.without? "java"
-    args << "--without-perl" if build.without? "perl"
-    args << "--without-php" if build.without? "php"
-    args << "--without-erlang" if build.without? "erlang"
 
     ENV.cxx11 if MacOS.version >= :mavericks && ENV.compiler == :clang
 
     # Don't install extensions to /usr
-    ENV["PY_PREFIX"] = prefix
-    ENV["PHP_PREFIX"] = prefix
     ENV["JAVA_PREFIX"] = pkgshare/"java"
 
     # configure's version check breaks on ant >1.10 so just override it. This
