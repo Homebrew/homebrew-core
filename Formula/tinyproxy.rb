@@ -5,11 +5,10 @@ class Tinyproxy < Formula
   sha256 "a41f4ddf0243fc517469cf444c8400e1d2edc909794acda7839f1d644e8a5000"
 
   bottle do
-    rebuild 1
-    sha256 "a2163705958c1475b4c044ac3e1e8f0a46f3e4a9e300fbaeaa78421bdc9dee10" => :mojave
-    sha256 "7e7250cfbda60dcf40e291ce777842953bdfa573023ca28d2b09eefe41c0e523" => :high_sierra
-    sha256 "f04c44c7119f0eac9c0ec0a9a48044808d9e2fc2f1a8c0ddf197206fa0683e4a" => :sierra
-    sha256 "2ccb9fb5ba5dd782407fa1c6d261d57eaa4189c902e674cbed839c903e39c177" => :el_capitan
+    rebuild 2
+    sha256 "8441582a64edc6c8a8c048b5a430631bba42adba9b59af52d5e27c3ade369f83" => :mojave
+    sha256 "aed9559849395b90fc0fea4b1ff045418ffd108d83bb94474c1e1d31e738b9b4" => :high_sierra
+    sha256 "c2ee54093bf8f4c6fb9a1dddaf878332f3827988df18e4a203fa45a88139a8a7" => :sierra
   end
 
   depends_on "asciidoc" => :build
