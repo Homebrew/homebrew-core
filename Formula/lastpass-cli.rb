@@ -22,17 +22,13 @@ class LastpassCli < Formula
   # Avoid crashes on Mojave's version of libcurl (https://github.com/lastpass/lastpass-cli/issues/427)
   depends_on "curl" if MacOS.version >= :mojave
   depends_on "openssl"
-  depends_on "pinentry" => :optional
+  depends_on "pinentry"
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
-    args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_MANDIR:PATH=#{man}
-    ]
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_MANDIR:PATH=#{man}"
       system "make", "all", "lpass-test", "test", "install", "install-doc"
     end
 
