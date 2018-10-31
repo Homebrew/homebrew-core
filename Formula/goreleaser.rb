@@ -1,8 +1,8 @@
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
-  url "https://github.com/goreleaser/goreleaser/archive/v0.85.2.tar.gz"
-  sha256 "9414bebd31b82fc7ef78115379e31af3de233c9e34de231c5b72879d4b811c3a"
+  url "https://github.com/goreleaser/goreleaser/archive/v0.92.1.tar.gz"
+  sha256 "4d854d582dff254ac2477153801f2d5b436e3a147e6d9068ea7c0f68ad416223"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,14 +12,12 @@ class Goreleaser < Formula
     sha256 "4e3ae6c84016b38b784de65ebcb3a7691b2b7064c831f781529ddb69a0220b8d" => :el_capitan
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/goreleaser/goreleaser").install buildpath.children
     cd "src/github.com/goreleaser/goreleaser" do
-      system "dep", "ensure", "-vendor-only"
       system "go", "build", "-ldflags", "-X main.version=#{version}", "-o",
              bin/"goreleaser"
       prefix.install_metafiles
