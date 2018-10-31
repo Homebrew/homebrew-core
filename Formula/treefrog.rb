@@ -12,25 +12,12 @@ class Treefrog < Formula
     sha256 "6ea31d04a301bee2b365c5affaea54286814718636386e2e0c9a2bfa9472c1f3" => :el_capitan
   end
 
-  option "with-mysql", "enable --with-mysql option for Qt build"
-  option "with-postgresql", "enable --with-postgresql option for Qt build"
-  option "with-qt", "build and link with QtGui module"
-
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on :xcode => ["8.0", :build]
   depends_on :macos => :el_capitan
-
-  qt_build_options = []
-  qt_build_options << "with-mysql" if build.with?("mysql")
-  qt_build_options << "with-postgresql" if build.with?("postgresql")
-  depends_on "qt" => qt_build_options
+  depends_on "qt"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--enable-gui-mod" if build.with? "qt"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
 
     cd "src" do
       system "make"
