@@ -13,17 +13,7 @@ class Logtalk < Formula
     sha256 "dba02ef1ea3cfbe61cf2dee60595649066bc4fd56d14879c726a8d7f0167b2a5" => :el_capitan
   end
 
-  option "with-swi-prolog", "Build using SWI Prolog as backend"
-  option "with-gnu-prolog", "Build using GNU Prolog as backend (Default)"
-
-  deprecated_option "swi-prolog" => "with-swi-prolog"
-  deprecated_option "gnu-prolog" => "with-gnu-prolog"
-
-  if build.with? "swi-prolog"
-    depends_on "swi-prolog"
-  else
-    depends_on "gnu-prolog"
-  end
+  depends_on "gnu-prolog"
 
   def install
     cd("scripts") { system "./install.sh", "-p", prefix }
