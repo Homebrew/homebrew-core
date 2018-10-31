@@ -8,9 +8,9 @@ class GitlabRunner < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c27418cbe8e374baf61ee4ed2434bc8217e290a3e80c3678850d43bdb9a3447" => :mojave
-    sha256 "70d818c7750fd43e625a26451f39ae04b0fa9acc2386c6e521f8c84c420289f5" => :high_sierra
-    sha256 "a1765e2d3c1e9a0c9143cc9fdaadf8ea78d9e27ddac64acc7fc68940fb82b819" => :sierra
+    sha256 "160da4e3ba4afbee39a7d55582d81f4b679de4b436d8854ec3f99b39fea92b4a" => :mojave
+    sha256 "fceb731ad4117d6dcb95af86c0a7de8497f50592797b3c4bd84a0b2a5011e74c" => :high_sierra
+    sha256 "e93c8993dd4ff270eff15ab9eb0508c87570821b8469b0e6cbbe9a39610562e1" => :sierra
   end
 
   depends_on "go" => :build
