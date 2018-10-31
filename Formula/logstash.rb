@@ -30,13 +30,21 @@ class Logstash < Formula
               "LOGSTASH_HOME=#{libexec}"
 
     libexec.install Dir["*"]
+
+    # Move config files into etc
+    (etc/"logstash").install Dir[libexec/"config/*"]
+    (libexec/"config").rmtree
+
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
+  def post_install
+    ln_s etc/"logstash", libexec/"config"
+  end
+
   def caveats; <<~EOS
-    Please read the getting started guide located at:
-      https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
+    Configuration files are located in #{etc}/logstash/
   EOS
   end
 
