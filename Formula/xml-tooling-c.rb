@@ -3,7 +3,7 @@ class XmlToolingC < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
   url "https://shibboleth.net/downloads/c++-opensaml/3.0.0/xmltooling-3.0.2.tar.bz2"
   sha256 "5709cf30c9d7cfc786599ac2433653fac8cc64d425781068af86019c8ce8d689"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "f9abea4ed4e7ecebb332288f4341f817c3fbd57853938ef9a115c5abd16e164c" => :mojave
@@ -20,9 +20,9 @@ class XmlToolingC < Formula
   depends_on "xml-security-c"
 
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.61.1.tar.bz2"
-    mirror "https://curl.askapache.com/download/curl-7.61.1.tar.bz2"
-    sha256 "a308377dbc9a16b2e994abd55455e5f9edca4e31666f8f8fcfe7a1a4aea419b9"
+    url "https://curl.haxx.se/download/curl-7.62.0.tar.bz2"
+    mirror "https://curl.askapache.com/download/curl-7.62.0.tar.bz2"
+    sha256 "7802c54076500be500b171fde786258579d60547a3a35b8c5a23d8c88e8f9620"
   end
 
   needs :cxx11
