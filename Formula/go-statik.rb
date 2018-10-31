@@ -1,8 +1,8 @@
 class GoStatik < Formula
   desc "Embed files into a Go executable"
   homepage "https://github.com/rakyll/statik"
-  url "https://github.com/rakyll/statik/archive/v0.1.4.tar.gz"
-  sha256 "3f547d8d2033b1b16a3549f48b69e8671a64fd6b18aea2322007f54c837d1dde"
+  url "https://github.com/rakyll/statik/archive/v0.1.5.tar.gz"
+  sha256 "9a60519aea5da23ec6cde9d47932491ca1e14fca316820f63c1e2b9ada0fdc30"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,7 +17,7 @@ class GoStatik < Formula
   conflicts_with "statik", :because => "both install `statik` binaries"
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/rakyll/statik").install buildpath.children
 
     cd "src/github.com/rakyll/statik" do
