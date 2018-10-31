@@ -1,9 +1,8 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.56/glibmm-2.56.0.tar.xz"
-  sha256 "6e74fcba0d245451c58fc8a196e9d103789bc510e1eee1a9b1e816c5209e79a9"
-  revision 1
+  url "https://download.gnome.org/sources/glibmm/2.58/glibmm-2.58.0.tar.xz"
+  sha256 "d34189237b99e88228e6f557f7d6e62f767fe356f395a244f5ad0e486254b645"
 
   bottle do
     cellar :any
@@ -16,14 +15,6 @@ class Glibmm < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libsigc++"
-
-  # Remove for > 2.56.0
-  # Upstream commit from 26 Apr 2018 "ustring: Fix wchar conversion on macOS with libc++"
-  # See https://bugzilla.gnome.org/show_bug.cgi?id=795338
-  patch do
-    url "https://github.com/GNOME/glibmm/commit/f1530eca.patch?full_index=1"
-    sha256 "ae8990b93e29b47903da7eed8676cf806b34fd3b45d6bd5fb3d7a4f040b9f4c9"
-  end
 
   needs :cxx11
 
