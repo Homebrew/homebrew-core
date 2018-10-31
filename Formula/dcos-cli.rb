@@ -3,8 +3,8 @@ class DcosCli < Formula
 
   desc "Cross-platform command-line utility to manage DC/OS clusters"
   homepage "https://dcos.io/docs/latest/cli/"
-  url "https://github.com/dcos/dcos-cli/archive/0.6.3.tar.gz"
-  sha256 "4cb59674eb0191bb6471749a8352a1d7611173d6357f318fc69678416c040cfe"
+  url "https://github.com/dcos/dcos-cli/archive/0.7.1.tar.gz"
+  sha256 "aaac46ff3db61d706a985f7d1176c7c0e4947e9fdf0fdd18a9475804ebbb9cc8"
   head "https://github.com/dcos/dcos-cli.git"
 
   bottle do
