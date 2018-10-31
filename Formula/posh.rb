@@ -1,8 +1,8 @@
 class Posh < Formula
   desc "Policy-compliant ordinary shell"
   homepage "https://salsa.debian.org/clint/posh"
-  url "https://salsa.debian.org/clint/posh/repository/debian/0.13.1/archive.tar.gz"
-  sha256 "c2c10db047294309a109f09e0c76a0cdc33af39563c847b84149b9ac5210f115"
+  url "https://salsa.debian.org/clint/posh/repository/debian/0.13.2/archive.tar.gz"
+  sha256 "d4ea1e08b4e2916a6a43f50f7892ab4152e9438b19f7a008e5b2a46e4f5ac774"
 
   bottle do
     cellar :any_skip_relocation
