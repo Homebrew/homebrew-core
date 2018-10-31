@@ -8,40 +8,28 @@ class Libpulsar < Formula
   head "https://github.com/apache/pulsar.git"
 
   option "with-python3", "Use Boost with Python-3.x"
-  option "with-log4cxx", "Enable Log4cxx logger"
 
   depends_on "cmake" => :build
-  depends_on "openssl" => :build
+
   depends_on "boost" => :build
   depends_on "jsoncpp" => :build
+  depends_on "openssl" => :build
   depends_on "protobuf@2.6" => :build
   depends_on "pkg-config" => :build
 
   if build.with? "python3"
-      depends_on "boost-python3" => :build
+    depends_on "boost-python3" => :build
   else
-      depends_on "python@2" => :build
-      depends_on "boost-python" => :build
-  end
-
-  if build.with? "log4cxx"
-      depends_on "log4cxx" => :build
+    depends_on "python@2" => :build
+    depends_on "boost-python" => :build
   end
 
   def install
     Dir.chdir('pulsar-client-cpp')
 
-    if build.with? "python3"
-        python_include_dir = '/usr/local/Frameworks/Python.framework/Versions/3.7/include/python3.7m'
-    else
-        python_include_dir = '/usr/local/Frameworks/Python.framework/Versions/2.7/include/python2.7/'
-    end
-
-    if build.with? "log4cxx"
-      system "cmake", ".", "-DBUILD_TESTS=OFF", "-DLINK_STATIC=ON", "-DUSE_LOG4CXX", "-DPYTHON_INCLUDE_DIR=" + python_include_dir
-    else
-      system "cmake", ".", "-DBUILD_TESTS=OFF", "-DLINK_STATIC=ON", "-DPYTHON_INCLUDE_DIR=" + python_include_dir
-    end
+    system "cmake", ".", "-DBUILD_TESTS=OFF", "-DLINK_STATIC=ON",
+      "-DPYTHON_INCLUDE_DIR=#{Formula["python"].include}",
+      "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}"
     system "make", "pulsarShared", "pulsarStatic"
 
     include.install "include/pulsar"
