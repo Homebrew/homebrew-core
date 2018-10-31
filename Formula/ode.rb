@@ -15,24 +15,18 @@ class Ode < Formula
   end
 
   option "with-double-precision", "Compile ODE with double precision"
-  option "with-shared", "Compile ODE with shared library support"
-  option "with-x11", "Build the drawstuff library and demos"
 
   deprecated_option "enable-double-precision" => "with-double-precision"
-  deprecated_option "enable-shared" => "with-shared"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libccd"
-  depends_on :x11 => :optional
 
   def install
     args = ["--prefix=#{prefix}", "--enable-libccd"]
     args << "--enable-double-precision" if build.with? "double-precision"
-    args << "--enable-shared" if build.with? "shared"
-    args << "--with-demos" if build.with? "x11"
 
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "./bootstrap"
@@ -51,7 +45,8 @@ class Ode < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lccd",
+    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode",
+                   "-L#{Formula["libccd"].opt_lib}", "-lccd",
                    "-lc++", "-o", "test"
     system "./test"
   end
