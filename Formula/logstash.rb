@@ -44,9 +44,7 @@ class Logstash < Formula
   end
 
   def caveats; <<~EOS
-    Config: #{etc}/logstash/
-    Please read the getting started guide located at:
-      https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
+    Configuration files are located in #{etc}/logstash/
   EOS
   end
 
