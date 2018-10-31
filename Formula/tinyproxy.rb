@@ -12,12 +12,6 @@ class Tinyproxy < Formula
     sha256 "2ccb9fb5ba5dd782407fa1c6d261d57eaa4189c902e674cbed839c903e39c177" => :el_capitan
   end
 
-  option "with-reverse", "Enable reverse proxying"
-  option "with-transparent", "Enable transparent proxying"
-  option "with-filter", "Enable url filtering"
-
-  deprecated_option "reverse" => "with-reverse"
-
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
 
@@ -32,11 +26,10 @@ class Tinyproxy < Formula
       --localstatedir=#{var}
       --sysconfdir=#{etc}
       --disable-regexcheck
+      --enable-filter
+      --enable-reverse
+      --enable-transparent
     ]
-
-    args << "--enable-reverse" if build.with? "reverse"
-    args << "--enable-transparent" if build.with? "transparent"
-    args << "--enable-filter" if build.with? "filter"
 
     system "./configure", *args
 
