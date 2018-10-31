@@ -15,25 +15,15 @@ class Solid < Formula
     sha256 "db9bd9a409bc447657f759852aa02feb0bc19cd84c552b9c16dfed130c2a3829" => :mountain_lion
   end
 
-  option "with-doubles", "Use internal double precision floats"
-  option "with-tracer", "Use rounding error tracer"
-
-  deprecated_option "enable-doubles" => "with-doubles"
-  deprecated_option "enable-tracer" => "with-tracer"
-
   # This patch fixes a broken build on clang-600.0.56.
   # Was reported to bugs@dtecta.com (since it also applies to solid-3.5.6)
   patch :DATA
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--disable-debug",
-            "--prefix=#{prefix}",
-            "--infodir=#{info}"]
-    args << "--enable-doubles" if build.with? "doubles"
-    args << "--enable-tracer" if build.with? "tracer"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-debug",
+                          "--prefix=#{prefix}",
+                          "--infodir=#{info}"
 
     # exclude the examples from compiling!
     # the examples do not compile because the include statements
