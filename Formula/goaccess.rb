@@ -3,6 +3,7 @@ class Goaccess < Formula
   homepage "https://goaccess.io/"
   url "https://tar.goaccess.io/goaccess-1.2.tar.gz"
   sha256 "6ba9f66540ea58fc2c17f175265f9ed76d74a8432eeac1182b74ebf4f2cd3414"
+  revision 1
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
@@ -14,15 +15,10 @@ class Goaccess < Formula
     sha256 "af9801407d647456b2421673aeefdc5d1bd00446d912126c8bc662cfad437937" => :yosemite
   end
 
-  option "with-libmaxminddb", "Enable IP location information using enhanced GeoIP2 databases"
-
-  deprecated_option "enable-geoip" => "with-libmaxminddb"
-  deprecated_option "with-geoip" => "with-libmaxminddb"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libmaxminddb"
   depends_on "tokyo-cabinet"
-  depends_on "libmaxminddb" => :optional
 
   def install
     system "autoreconf", "-vfi"
@@ -33,9 +29,8 @@ class Goaccess < Formula
       --prefix=#{prefix}
       --enable-utf8
       --enable-tcb=btree
+      --enable-geoip=mmdb
     ]
-
-    args << "--enable-geoip=mmdb" if build.with? "libmaxminddb"
 
     system "./configure", *args
     system "make", "install"
