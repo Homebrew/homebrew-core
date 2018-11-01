@@ -108,6 +108,10 @@ class Emacs < Formula
       (bin/"ctags").unlink
       (man1/"ctags.1.gz").unlink
     end
+
+    if build.with? "modules"
+      include.install "src/emacs-module.h"
+    end
   end
 
   def caveats
