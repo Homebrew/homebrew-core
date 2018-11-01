@@ -12,13 +12,10 @@ class Pugixml < Formula
     sha256 "a8fe6aafdb9826497121f3b616f382a7447a04dc252770b0828de1e4b4c99b99" => :el_capitan
   end
 
-  option "with-shared", "Build shared instead of static library"
-
   depends_on "cmake" => :build
 
   def install
-    shared = build.with?("shared") ? "ON" : "OFF"
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=#{shared}",
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF",
                          "-DBUILD_PKGCONFIG=ON", *std_cmake_args
     system "make", "install"
   end
