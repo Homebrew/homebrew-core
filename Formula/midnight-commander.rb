@@ -12,8 +12,6 @@ class MidnightCommander < Formula
     sha256 "cf9e47ee1b5a3efbdc88f787496d0baaee65690f27e7cfafa031da2d51658792" => :el_capitan
   end
 
-  option "without-nls", "Build without Native Language Support"
-
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libssh2"
@@ -36,8 +34,6 @@ class MidnightCommander < Formula
     # Fix compilation bug on macOS 10.13 by pretending we don't have utimensat()
     # https://github.com/MidnightCommander/mc/pull/130
     ENV["ac_cv_func_utimensat"] = "no" if MacOS.version >= :high_sierra
-
-    args << "--disable-nls" if build.without? "nls"
 
     system "./configure", *args
     system "make", "install"
