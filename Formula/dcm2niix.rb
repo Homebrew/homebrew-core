@@ -13,8 +13,6 @@ class Dcm2niix < Formula
     sha256 "d0d9024e298b58e40d35ed147ec1a057f40d755751fe0c1494709903d5bef04c" => :el_capitan
   end
 
-  option "with-batch"
-
   depends_on "cmake" => :build
 
   resource "sample.dcm" do
@@ -23,9 +21,7 @@ class Dcm2niix < Formula
   end
 
   def install
-    args = std_cmake_args
-    args << "-DBATCH_VERSION=ON" if build.with? "batch"
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
