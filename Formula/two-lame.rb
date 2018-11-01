@@ -16,12 +16,6 @@ class TwoLame < Formula
     sha256 "b03ee3602cad74094fc1141c3fd9aac92f2e298bf0f98a3281a6ba3f547511cd" => :mavericks
   end
 
-  option "with-libsndfile", "Build the twolame frontend"
-
-  deprecated_option "frontend" => "with-libsndfile"
-
-  depends_on "libsndfile" => :optional
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
