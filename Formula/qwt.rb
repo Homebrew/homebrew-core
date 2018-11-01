@@ -13,8 +13,6 @@ class Qwt < Formula
     sha256 "81fcb45fea416bc89e99b213d991c08ccb3ed34ef7da67346a273f8a1f203293" => :yosemite
   end
 
-  option "with-qwtmathml", "Build the qwtmathml library"
-
   depends_on "qt"
 
   # Update designer plugin linking back to qwt framework/lib after install
@@ -38,28 +36,9 @@ class Qwt < Formula
       args << "macx-g++"
     end
 
-    if build.with? "qwtmathml"
-      args << "QWT_CONFIG+=QwtMathML"
-      prefix.install "textengines/mathml/qtmmlwidget-license"
-    end
-
     system "qmake", *args
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    s = ""
-
-    if build.with? "qwtmathml"
-      s += <<~EOS
-        The qwtmathml library contains code of the MML Widget from the Qt solutions package.
-        Beside the Qwt license you also have to take care of its license:
-        #{opt_prefix}/qtmmlwidget-license
-      EOS
-    end
-
-    s
   end
 
   test do
