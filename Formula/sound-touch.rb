@@ -12,8 +12,6 @@ class SoundTouch < Formula
     sha256 "7572fff0564f78a49641ed7c5eb9ed062ff557d452d4515e07544a622eaa17e6" => :el_capitan
   end
 
-  option "with-integer-samples", "Build using integer samples? (default is float)"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -25,7 +23,6 @@ class SoundTouch < Formula
       --disable-silent-rules
       --prefix=#{prefix}
     ]
-    args << "--enable-integer-samples" if build.with? "integer-samples"
 
     system "./configure", *args
     system "make", "install"
