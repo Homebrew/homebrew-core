@@ -12,24 +12,19 @@ class Pdsh < Formula
     sha256 "73f9503afaf38dfbdb91ad6ac18098fc3676396c2d5a16a8a1dbba0dda2e415e" => :el_capitan
   end
 
-  option "without-dshgroups", "This option should be specified to load genders module first"
-
   depends_on "readline"
-  depends_on "genders" => :optional
 
   def install
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
-      --with-ssh
-      --without-rsh
       --with-nodeupdown
       --with-readline
+      --with-ssh
+      --without-dshgroups
+      --without-rsh
       --without-xcpu
     ]
-
-    args << "--with-genders" if build.with? "genders"
-    args << (build.without?("dshgroups") ? "--without-dshgroups" : "--with-dshgroups")
 
     system "./configure", *args
     system "make", "install"
