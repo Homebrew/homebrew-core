@@ -15,18 +15,18 @@ class Polipo < Formula
     sha256 "74930c6406c860315088f3bde52332fb3708a60f5aabeeff1497a3cbbdf10a73" => :mavericks
   end
 
-  option "with-large-chunks", "Set chunk size to 16k (more RAM, but more performance)"
-
   def install
     cache_root = (var + "cache/polipo")
     cache_root.mkpath
-    args = %W[PREFIX=#{prefix}
-              LOCAL_ROOT=#{pkgshare}/www
-              DISK_CACHE_ROOT=#{cache_root}
-              MANDIR=#{man}
-              INFODIR=#{info}
-              PLATFORM_DEFINES=-DHAVE_IPv6]
-    args << 'EXTRA_DEFINES="-DCHUNK_SIZE=16384"' if build.with? "large-chunks"
+
+    args = %W[
+      PREFIX=#{prefix}
+      LOCAL_ROOT=#{pkgshare}/www
+      DISK_CACHE_ROOT=#{cache_root}
+      MANDIR=#{man}
+      INFODIR=#{info}
+      PLATFORM_DEFINES=-DHAVE_IPv6
+    ]
 
     system "make", "all", *args
     system "make", "install", *args
