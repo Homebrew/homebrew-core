@@ -14,21 +14,15 @@ class Mdbtools < Formula
     sha256 "7e43a2716347e3f89782134b53ca5bf240fd1ebd91025393737fc17b9e09aa21" => :yosemite
   end
 
-  option "with-man-pages", "Build manual pages"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "txt2man" => :build if build.with? "man-pages"
   depends_on "glib"
   depends_on "readline"
 
   def install
     ENV.deparallelize
-
-    args = ["--prefix=#{prefix}"]
-    args << "--disable-man" if build.without? "man-pages"
 
     if MacOS.version == :snow_leopard
       mkdir "build-aux"
@@ -36,7 +30,7 @@ class Mdbtools < Formula
     end
 
     system "autoreconf", "-i", "-f"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-man"
     system "make", "install"
   end
 end
