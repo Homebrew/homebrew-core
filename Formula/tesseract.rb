@@ -6,9 +6,10 @@ class Tesseract < Formula
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
-    sha256 "e4eaf45b39ff29548aafb2dc32fe9834e1e8ee8d63b6b5e760ac823a25beec37" => :mojave
-    sha256 "1a9a686a74d2acccb7c6b1da208916de91f5466fa78441ec32524bcd9cb827b3" => :high_sierra
-    sha256 "56f223e7ff045d5639a8d447791c8ad9876abe997d393f9e3d918dc098a0a467" => :sierra
+    rebuild 1
+    sha256 "76f2053063b398c6b73a9a34cc94e3624aef5f4ea4df75841860d68a7791b6b5" => :mojave
+    sha256 "4586623a6e94cc9ff80a814a1c7be0be9b952f8776b333a81297b1443a0b0b04" => :high_sierra
+    sha256 "ca1d2d2c38cc2f3054bf3b9692977b217dc060dcfe77af5f84f767d0dbac5150" => :sierra
   end
 
   option "with-all-languages", "Install recognition data for all languages"
