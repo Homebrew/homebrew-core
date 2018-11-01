@@ -14,6 +14,7 @@ class Sqlcipher < Formula
   end
 
   option "with-fts", "Build with full-text search enabled"
+  option "with-static-linking", "Build SQLCipher with OpenSSL statically linked instead of dynamically linked"
 
   depends_on "openssl"
 
@@ -21,10 +22,18 @@ class Sqlcipher < Formula
     args = %W[
       --prefix=#{prefix}
       --enable-tempstore=yes
-      --with-crypto-lib=#{Formula["openssl"].opt_prefix}
+      --with-crypto-lib=openssl
       --enable-load-extension
       --disable-tcl
     ]
+
+    # Static vs. dynamic linking of libcrypto is documented here:
+    # https://www.zetetic.net/sqlcipher/introduction/
+    if build.with?("static-linking")
+      args << %Q(LDFLAGS=#{Formula["openssl"].opt_prefix}/lib/libcrypto.a)
+    else
+      args << %Q(LDFLAGS=-L#{Formula["openssl"].opt_prefix}/lib -lcrypto)
+    end
 
     if build.with?("fts")
       args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
