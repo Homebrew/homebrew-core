@@ -22,18 +22,14 @@ class Dosfstools < Formula
     sha256 "dbd0957d4593c54d62046d3f4546a0a3bfbd3b00ee254011dc5a7051eafa0945" => :yosemite
   end
 
-  option "with-compat-symlinks",
-    "Symlink older names of the tools to the current ones on installation"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
 
   def install
     system "autoreconf", "-f", "-i"
-    args = %W[--without-udev --prefix=#{prefix}]
-    args << "--enable-compat-symlinks" if build.with? "compat-symlinks"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--without-udev",
+                          "--enable-compat-symlinks"
     system "make", "install"
   end
 
