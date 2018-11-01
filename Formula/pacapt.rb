@@ -1,8 +1,8 @@
 class Pacapt < Formula
   desc "Package manager in the style of Arch's pacman"
   homepage "https://github.com/icy/pacapt"
-  url "https://github.com/icy/pacapt/archive/v2.3.15.tar.gz"
-  sha256 "766f10320082c542fba2a5db1e0dab46e51dc45be07ade53c99a1ce3b1591245"
+  url "https://github.com/icy/pacapt/archive/v2.4.0.tar.gz"
+  sha256 "9f43d727ae25750661c155126479f00d9742ef5623a05b98da11561cd402534e"
 
   bottle do
     cellar :any_skip_relocation
