@@ -12,21 +12,12 @@ class YamlCpp < Formula
     sha256 "5ad764dbd25373bc0bd68b213c611650694fe69f36c90fcd746aa90bc876e8f3" => :el_capitan
   end
 
-  option "with-static-lib", "Build a static library"
-
   depends_on "cmake" => :build
 
   needs :cxx11
 
   def install
-    args = std_cmake_args
-    if build.with? "static-lib"
-      args << "-DBUILD_SHARED_LIBS=OFF"
-    else
-      args << "-DBUILD_SHARED_LIBS=ON"
-    end
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"
   end
 
