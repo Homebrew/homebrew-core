@@ -1,6 +1,6 @@
 class Ne < Formula
   desc "The nice editor"
-  homepage "http://ne.di.unimi.it/"
+  homepage "https://web.archive.org/web/20180517214802/ne.di.unimi.it/"
   url "https://github.com/vigna/ne/archive/3.1.2.tar.gz"
   sha256 "bdf09a377660527857bd25217fc91505ae2b19c41590f8a25efc91aef785a3e2"
   head "https://github.com/vigna/ne.git"
