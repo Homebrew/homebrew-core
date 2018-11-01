@@ -3,7 +3,7 @@ class Pdftoipe < Formula
   homepage "https://github.com/otfried/ipe-tools"
   url "https://github.com/otfried/ipe-tools/archive/v7.2.7.1.tar.gz"
   sha256 "b45a7d6bec339e878717bd273c32c7957e2d4d87c57e117e772ee3dd3231d7aa"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -15,11 +15,17 @@ class Pdftoipe < Formula
   depends_on "pkg-config" => :build
   depends_on "poppler"
 
-  # https://github.com/otfried/ipe-tools/pull/30
+  # no release was published after PR 30 so apply commit as patch
+  patch do
+    url "https://github.com/otfried/ipe-tools/commit/fe6cfdb6.diff?full_index=1"
+    sha256 "b6f74b1e491c1d7290bc448ebf8ed30f4734eb290231182ecacb7896692080d5"
+  end
+
+  # https://github.com/otfried/ipe-tools/pull/31
   # Should be safe to remove on next release but check if merged.
   patch do
-    url "https://github.com/otfried/ipe-tools/pull/30.patch?full_index=1"
-    sha256 "ac7f9945f12ff11a3ae41e368cb439aeac1e9ff3e81907568b39c3752959288c"
+    url "https://github.com/otfried/ipe-tools/pull/31.patch?full_index=1"
+    sha256 "2becf3ebd7078abe4947486f90cbf36b42e8c9676bd46c7707084a53df23e47b"
   end
 
   needs :cxx11
