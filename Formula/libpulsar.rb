@@ -6,12 +6,12 @@ class Libpulsar < Formula
   sha256 "a3b1940a803043bb2c365ce9df657d15bf9aacb3c9ff5db86a79dc4374033f08"
 
   depends_on "boost" => :build
+  depends_on "boost-python" => :build
   depends_on "cmake" => :build
   depends_on "jsoncpp" => :build
   depends_on "openssl" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf@2.6" => :build
-  depends_on "boost-python3" => :build
 
   def install
     cd "pulsar-client-cpp" do
