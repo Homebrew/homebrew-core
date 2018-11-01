@@ -4,6 +4,7 @@ class Rdesktop < Formula
   url "https://downloads.sourceforge.net/project/rdesktop/rdesktop/1.8.3/rdesktop-1.8.3.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/r/rdesktop/rdesktop_1.8.3.orig.tar.gz"
   sha256 "88b20156b34eff5f1b453f7c724e0a3ff9370a599e69c01dc2bf0b5e650eece4"
+  revision 1
 
   bottle do
     sha256 "f9594ed7f111a6422773469b9ed7e6b3bf31d1f5cab6eff297f4a8be739427fc" => :mojave
@@ -13,15 +14,11 @@ class Rdesktop < Formula
     sha256 "923ab34a5daaab70f97aa23c8cebc91cba3a776584d35444eadf123050471d5f" => :yosemite
   end
 
-  option "with-smartcard", "Build with Smart Card Support"
-
   depends_on "openssl"
   depends_on :x11
 
   # Note: The patch below is meant to remove the reference to the
-  # undefined symbol SCARD_CTL_CODE. Since we are compiling with
-  # --disable-smartcard (by default), we don't need it anyway (and it should
-  # probably have been #ifdefed in the original code).
+  # undefined symbol SCARD_CTL_CODE.
   # upstream bug report: https://sourceforge.net/p/rdesktop/bugs/352/
   patch :DATA
 
@@ -29,16 +26,11 @@ class Rdesktop < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-credssp
+      --enable-smartcard
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --x-includes=#{MacOS::X11.include}
       --x-libraries=#{MacOS::X11.lib}
     ]
-
-    if build.with? "smartcard"
-      args << "--enable-smartcard"
-    else
-      args << "--disable-smartcard"
-    end
 
     system "./configure", *args
     system "make", "install"
