@@ -11,26 +11,20 @@ class Transmission < Formula
     sha256 "e31b76dc003d69cfeb5f67478a95dd8e824e26606b585270b15bfffe79cae59c" => :el_capitan
   end
 
-  option "with-nls", "Build with native language support"
-
   depends_on "pkg-config" => :build
   depends_on "libevent"
-
-  if build.with? "nls"
-    depends_on "intltool" => :build
-    depends_on "gettext"
-  end
 
   def install
     ENV.append "LDFLAGS", "-framework Foundation -prebind"
     ENV.append "LDFLAGS", "-liconv"
 
-    args = %W[--disable-dependency-tracking
-              --prefix=#{prefix}
-              --disable-mac
-              --without-gtk]
-
-    args << "--disable-nls" if build.without? "nls"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-mac
+      --disable-nls
+      --without-gtk
+    ]
 
     system "./configure", *args
     system "make", "install"
