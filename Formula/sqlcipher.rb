@@ -13,8 +13,6 @@ class Sqlcipher < Formula
     sha256 "6370ce68ccb2f598f42bee2f799f7e97d7f1bac75ec71aeb446ee57761436642" => :el_capitan
   end
 
-  option "with-fts", "Build with full-text search enabled"
-
   depends_on "openssl"
 
   def install
@@ -26,11 +24,8 @@ class Sqlcipher < Formula
       --disable-tcl
     ]
 
-    if build.with?("fts")
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
-    else
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1"
-    end
+    # Build with full-text search enabled
+    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
 
     system "./configure", *args
     system "make"
