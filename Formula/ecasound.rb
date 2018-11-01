@@ -13,15 +13,13 @@ class Ecasound < Formula
     sha256 "e1230a9513d1011c60a51569fa8cee5671dc79867c75c8b548005b5949984a7f" => :mavericks
   end
 
-  option "with-ruby", "Compile with ruby support"
-
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-rubyecasound=no
     ]
-    args << "--enable-rubyecasound=" + (build.with?("ruby") ? "yes" : "no")
     system "./configure", *args
     system "make", "install"
   end
