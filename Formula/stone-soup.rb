@@ -11,19 +11,9 @@ class StoneSoup < Formula
     sha256 "3690a7a849debe2f941a948ab4fbeb017985bdd163eb973841e201fb21532f0c" => :el_capitan
   end
 
-  option "with-tiles", "Enable graphic tiles and sound"
-
   depends_on "pkg-config" => :build
   depends_on "lua@5.1"
   depends_on "pcre"
-
-  if build.with? "tiles"
-    depends_on "sdl2"
-    depends_on "sdl2_mixer"
-    depends_on "sdl2_image"
-    depends_on "libpng"
-    depends_on "freetype"
-  end
 
   needs :cxx11
 
@@ -46,11 +36,6 @@ class StoneSoup < Formula
         BUILD_PCRE=
         USE_PCRE=y
       ]
-      if build.with? "tiles"
-        inreplace "Makefile", "contrib/install/$(ARCH)/lib/libSDL2main.a", ""
-        args << "TILES=y"
-        args << "SOUND=y"
-      end
 
       # FSF GCC doesn't support the -rdynamic flag
       args << "NO_RDYNAMIC=y" unless ENV.compiler == :clang
