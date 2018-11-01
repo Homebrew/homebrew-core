@@ -12,9 +12,6 @@ class Discount < Formula
     sha256 "80228f78ed111492fcad89a4739944cc43334b71d68b9550cc67f29ad894b560" => :el_capitan
   end
 
-  option "with-fenced-code", "Enable Pandoc-style fenced code blocks."
-  option "with-shared", "Install shared library"
-
   conflicts_with "markdown", :because => "both install `markdown` binaries"
   conflicts_with "multimarkdown", :because => "both install `markdown` binaries"
 
@@ -27,8 +24,6 @@ class Discount < Formula
       --enable-pandoc-header
       --enable-superscript
     ]
-    args << "--with-fenced-code" if build.with? "fenced-code"
-    args << "--shared" if build.with? "shared"
     system "./configure.sh", *args
     bin.mkpath
     lib.mkpath
