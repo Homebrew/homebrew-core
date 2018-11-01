@@ -15,12 +15,6 @@ class Netcat6 < Formula
     sha256 "361c72d301addec6d417b52535da84dd924fdcdf9794889dc5ac0f240bb31b02" => :mountain_lion
   end
 
-  option "with-silence-patch", "Use silence patch from Debian"
-
-  deprecated_option "silence-patch" => "with-silence-patch"
-
-  patch :p0, :DATA if build.with? "silence-patch"
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -33,43 +27,3 @@ class Netcat6 < Formula
     assert_equal "HTTP/1.0 200 OK", out.lines.first.chomp
   end
 end
-
-__END__
-# wrap socket-type warnings in very_verbose_mode()
---- src/network.c	2006-01-19 14:46:23.000000000 -0800
-+++ src/network.c.new	2014-01-17 11:02:10.000000000 -0800
-@@ -21,10 +21,11 @@
-  */
- #include "system.h"
- #include "network.h"
- #include "connection.h"
- #include "afindep.h"
-+#include "parser.h"
- #ifdef ENABLE_BLUEZ
- #include "bluez.h"
- #endif/*ENABLE_BLUEZ*/
-
- #include <assert.h>
-@@ -290,17 +291,20 @@
-	assert(sock >= 0);
-
-	/* announce the socket in very verbose mode */
-	switch (socktype) {
-	case SOCK_STREAM:
--		warning(_("using stream socket"));
-+		if (very_verbose_mode())
-+			warning(_("using stream socket"));
-		break;
-	case SOCK_DGRAM:
--		warning(_("using datagram socket"));
-+		if (very_verbose_mode())
-+			warning(_("using datagram socket"));
-		break;
-	case SOCK_SEQPACKET:
--		warning(_("using seqpacket socket"));
-+		if (very_verbose_mode())
-+			warning(_("using seqpacket socket"));
-		break;
-	default:
-		fatal_internal("unsupported socket type %d", socktype);
-	}
