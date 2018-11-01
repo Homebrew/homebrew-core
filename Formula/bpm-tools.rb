@@ -15,22 +15,8 @@ class BpmTools < Formula
     sha256 "702aa6266adb11c4aada4711f32a45e93cd2bff67e62c9d420ecd748d7d80ead" => :mavericks
   end
 
-  option "with-bpm-graph", "Install plot generation script"
-  option "with-bpm-tag", "Install audio file tagging script"
-
-  depends_on "gnuplot" if build.with? "bpm-graph"
-
-  if build.with? "bpm-tag"
-    depends_on "sox"
-    depends_on "id3v2"
-    depends_on "flac"
-    depends_on "vorbis-tools"
-  end
-
   def install
     system "make"
     bin.install "bpm"
-    bin.install "bpm-graph" if build.with? "bpm-graph"
-    bin.install "bpm-tag" if build.with? "bpm-tag"
   end
 end
