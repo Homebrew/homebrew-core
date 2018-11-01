@@ -12,18 +12,15 @@ class JsonFortran < Formula
     sha256 "27eeca7326c6348a816d0804cc720da5c3ed15e611a23e6666059e175f09af37" => :sierra
   end
 
-  option "with-unicode-support", "Build json-fortran to support unicode text in json objects and files"
-
   depends_on "cmake" => :build
   depends_on "ford" => :build
   depends_on "gcc" # for gfortran
 
   def install
     mkdir "build" do
-      args = std_cmake_args
-      args << "-DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE" # Use more GNU/Homebrew-like install layout
-      args << "-DENABLE_UNICODE:BOOL=TRUE" if build.with? "unicode-support"
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args,
+                            "-DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE",
+                            "-DENABLE_UNICODE:BOOL=TRUE"
       system "make", "install"
     end
   end
