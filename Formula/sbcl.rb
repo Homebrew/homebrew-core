@@ -10,8 +10,6 @@ class Sbcl < Formula
     sha256 "dec7a1e8a3b692215544f4451e5586939a05765d7a306a77ec48de9b75491410" => :sierra
   end
 
-  option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
-
   # Current binary versions are listed at https://sbcl.sourceforge.io/platform-table.html
   resource "bootstrap64" do
     url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"
@@ -46,7 +44,6 @@ class Sbcl < Formula
       "--with-sb-ldb",
       "--with-sb-thread",
     ]
-    args << "--with-sb-xref-internal" if build.with? "internal-xref"
 
     ENV["SBCL_MACOSX_VERSION_MIN"] = MacOS.version
     system "./make.sh", *args
