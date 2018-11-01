@@ -3,7 +3,7 @@ class Openvdb < Formula
   homepage "http://www.openvdb.org/"
   url "https://github.com/dreamworksanimation/openvdb/archive/v5.2.0.tar.gz"
   sha256 "86b3bc51002bc25ae8d69991228228c79b040cb1a5803d87543b407645f6ab20"
-  revision 1
+  revision 2
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
@@ -12,18 +12,14 @@ class Openvdb < Formula
     sha256 "021270661f0d57dd6b5dac9660cedf5f239b12b55b9781a8e2c952b6a3dd854d" => :sierra
   end
 
-  option "with-glfw", "Installs the command-line tool to view OpenVDB files"
-
-  deprecated_option "with-viewer" => "with-glfw"
-
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "c-blosc"
+  depends_on "glfw"
   depends_on "ilmbase"
   depends_on "jemalloc"
   depends_on "openexr"
   depends_on "tbb"
-  depends_on "glfw" => :optional
 
   resource "test_file" do
     url "http://www.openvdb.org/download/models/cube.vdb.zip"
@@ -54,17 +50,10 @@ class Openvdb < Formula
       "PYTHON_VERSION=",
       "TBB_INCL_DIR=#{Formula["tbb"].opt_include}",
       "TBB_LIB_DIR=#{Formula["tbb"].opt_lib}",
+      "GLFW_INCL_DIR=#{Formula["glfw"].opt_include}",
+      "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}",
+      "GLFW_LIB=-lglfw",
     ]
-
-    if build.with? "glfw"
-      args << "GLFW_INCL_DIR=#{Formula["glfw"].opt_include}"
-      args << "GLFW_LIB_DIR=#{Formula["glfw"].opt_lib}"
-      args << "GLFW_LIB=-lglfw"
-    else
-      args << "GLFW_INCL_DIR="
-      args << "GLFW_LIB_DIR="
-      args << "GLFW_LIB="
-    end
 
     ENV.append_to_cflags "-I #{buildpath}"
 
