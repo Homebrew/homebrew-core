@@ -13,9 +13,6 @@ class Pkcs11Helper < Formula
     sha256 "2cf6979b8f750c8e58005c4150171a547b6b4a06bdd758fcf77bc52a05d48ac2" => :el_capitan
   end
 
-  option "without-threading", "Build without threading support"
-  option "without-slotevent", "Build without slotevent support"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -28,9 +25,6 @@ class Pkcs11Helper < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
-
-    args << "--disable-threading" if build.without? "threading"
-    args << "--disable-slotevent" if build.without? "slotevent"
 
     system "autoreconf", "--verbose", "--install", "--force"
     system "./configure", *args
