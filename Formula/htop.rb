@@ -19,10 +19,7 @@ class Htop < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-ncurses", "Build using homebrew ncurses (enables mouse scroll)"
-
   depends_on "pkg-config" => :build
-  depends_on "ncurses" => :optional
 
   def install
     system "./autogen.sh" if build.head?
