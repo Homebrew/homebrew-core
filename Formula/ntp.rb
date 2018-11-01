@@ -12,25 +12,18 @@ class Ntp < Formula
     sha256 "bd59b6a069f159a7a226f12ac254e41702fb992b2c6763adb9af25e659dd18f3" => :el_capitan
   end
 
-  option "with-net-snmp", "Build ntpsnmpd, the SNMP MIB agent for ntpd"
-
   depends_on "openssl"
-  depends_on "net-snmp" => :optional
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--with-openssl-libdir=#{Formula["openssl"].lib}",
-      "--with-openssl-incdir=#{Formula["openssl"].include}",
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --with-openssl-libdir=#{Formula["openssl"].lib}
+      --with-openssl-incdir=#{Formula["openssl"].include}
+      --with-net-snmp-config=no
     ]
-    if build.with?("net-snmp")
-      args << "--with-net-snmp-config"
-    else
-      args << "--with-net-snmp-config=no"
-    end
 
     system "./configure", *args
     system "make", "install", "LDADD_LIBNTP=-lresolv -undefined dynamic_lookup"
