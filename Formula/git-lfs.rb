@@ -1,8 +1,8 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/archive/v2.5.2.tar.gz"
-  sha256 "0ab21f0f9b6c40acd9748a1669f1023ef38f913d8be83bbf7b7c7d983bd3c4d1"
+  url "https://github.com/git-lfs/git-lfs/archive/v2.6.0.tar.gz"
+  sha256 "e75b361d828d7b6e9ba537137d5243fa1e000a20686cddec2775b533a6b08f01"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +18,6 @@ class GitLfs < Formula
   depends_on "ruby" => :build if MacOS.version <= :sierra
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["GIT_LFS_SHA"] = ""
     ENV["VERSION"] = version
 
@@ -27,6 +26,10 @@ class GitLfs < Formula
       ENV["GEM_HOME"] = ".gem_home"
       system "gem", "install", "ronn"
 
+      # Git LFS v2.6.0 removes dependencies that are necessary in order to
+      # install it. Set RM=true for now to make removing those dependencies a
+      # no-op.
+      system "make", "vendor", "RM=true"
       system "make"
       system "make", "man", "RONN=.gem_home/bin/ronn"
 
