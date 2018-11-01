@@ -14,20 +14,15 @@ class Poco < Formula
     sha256 "291e90aa5a585355a5464cf4383d01a79072e25ff6f62e38e96f65da725fcf88" => :el_capitan
   end
 
-  option "with-static", "Build static libraries (instead of shared)"
-
   depends_on "cmake" => :build
   depends_on "openssl"
 
   def install
     ENV.cxx11
 
-    args = std_cmake_args
-    args << "-DENABLE_DATA_MYSQL=OFF" << "-DENABLE_DATA_ODBC=OFF"
-    args << "-DPOCO_STATIC=ON" if build.with? "static"
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DENABLE_DATA_MYSQL=OFF",
+                            "-DENABLE_DATA_ODBC=OFF"
       system "make", "install"
     end
   end
