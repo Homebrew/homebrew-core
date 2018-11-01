@@ -12,9 +12,6 @@ class Fossil < Formula
     sha256 "11dcf61299269e0befe82fd0e58337713b9492b4aafc89e6b91e032867b5d94c" => :sierra
   end
 
-  option "without-json", "Build without 'json' command support"
-  option "without-tcl", "Build without the tcl-th1 command bridge"
-
   depends_on "openssl"
   depends_on :osxfuse => :optional
 
@@ -23,12 +20,11 @@ class Fossil < Formula
       # fix a build issue, recommended by upstream on the mailing-list:
       # https://permalink.gmane.org/gmane.comp.version-control.fossil-scm.user/22444
       "--with-tcl-private-stubs=1",
+      "--json",
     ]
-    args << "--json" if build.with? "json"
 
-    if MacOS::CLT.installed? && build.with?("tcl")
-      sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
-      args << "--with-tcl=#{sdk}/System/Library/Frameworks/Tcl.framework"
+    if MacOS.sdk_path_if_needed
+      args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     else
       args << "--with-tcl-stubs"
     end
