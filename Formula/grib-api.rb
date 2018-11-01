@@ -4,6 +4,7 @@ class GribApi < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/grib-api/grib-api_1.27.0.orig.tar.xz"
   mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/g/grib-api/grib-api_1.27.0.orig.tar.xz"
   sha256 "81078fb9946c38cd292c4eaa50f0acf0093f709a247e83493b3181955177ba09"
+  revision 1
 
   bottle do
     sha256 "cd972852461b2d0fd723e47bcef574a6701f71177d1aaa5f7b66844c9f86b602" => :mojave
@@ -12,13 +13,11 @@ class GribApi < Formula
     sha256 "923b9062ff3f34b4517c52def1831b0bd0b4debd555f12655fdf6776be965521" => :el_capitan
   end
 
-  option "with-static", "Build static instead of shared library."
-
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
+  depends_on "jasper"
+  depends_on "libpng"
   depends_on "numpy"
-  depends_on "jasper" => :recommended
-  depends_on "libpng" => :optional
 
   conflicts_with "eccodes",
     :because => "grib-api and eccodes install the same binaries."
@@ -30,15 +29,9 @@ class GribApi < Formula
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
 
     mkdir "build" do
-      args = std_cmake_args
-      args << "-DBUILD_SHARED_LIBS=OFF" if build.with? "static"
-
-      if build.with? "libpng"
-        args << "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}"
-        args << "-DENABLE_PNG=ON"
-      end
-
-      system "cmake", "..", "-DENABLE_NETCDF=OFF", *args
+      system "cmake", "..", *std_cmake_args, "-DENABLE_NETCDF=OFF",
+                            "-DENABLE_PNG=ON",
+                            "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}"
       system "make", "install"
     end
   end
