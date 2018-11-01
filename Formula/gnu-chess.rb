@@ -21,8 +21,6 @@ class GnuChess < Formula
     depends_on "gettext"
   end
 
-  option "with-book", "Download the opening book (~25MB)"
-
   depends_on "readline"
 
   resource "book" do
@@ -40,20 +38,16 @@ class GnuChess < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    if build.with? "book"
-      resource("book").stage do
-        doc.install "book_1.02.pgn"
-      end
+    resource("book").stage do
+      doc.install "book_1.02.pgn"
     end
   end
 
-  if build.with? "book"
-    def caveats; <<~EOS
-      This formula also downloads the additional opening book.  The
-      opening book is a PGN file located in #{doc} that can be added
-      using gnuchess commands.
-    EOS
-    end
+  def caveats; <<~EOS
+    This formula also downloads the additional opening book.  The
+    opening book is a PGN file located in #{doc} that can be added
+    using gnuchess commands.
+  EOS
   end
 
   test do
