@@ -14,16 +14,11 @@ class AwsSdkCpp < Formula
     sha256 "1a7b7a2ed0aaee7d51ba0168a44d50076459e8e84dbc8fd370010bc30f010870" => :el_capitan
   end
 
-  option "with-static", "Build with static linking"
-
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DSTATIC_LINKING=1" if build.with? "static"
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make"
       system "make", "install"
     end
