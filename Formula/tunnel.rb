@@ -2,7 +2,7 @@ class Tunnel < Formula
   desc "Expose local servers to internet securely"
   homepage "https://labstack.com/docs/tunnel"
   url "https://github.com/labstack/tunnel-client/archive/0.2.10.tar.gz"
-  sha256 "508eeae920e4f70b68ba6921f5e46b4d8a1061710adb52b5f95570547d61699e"
+  sha256 "ee3f7eea65bf42a655c5029d7c049db2f823a6e66ddfc62b208f250c41d13989"
 
   bottle do
     cellar :any_skip_relocation
