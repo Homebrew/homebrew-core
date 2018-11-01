@@ -1,8 +1,8 @@
 class Ccextractor < Formula
   desc "Free, GPL licensed closed caption tool"
   homepage "https://www.ccextractor.org/"
-  url "https://github.com/CCExtractor/ccextractor/archive/v0.86.tar.gz"
-  sha256 "0c24b00384244a2e58d63ad2ef1cb69b2e0824c7461f707d40e926d49136330a"
+  url "https://github.com/CCExtractor/ccextractor/archive/v0.87.tar.gz"
+  sha256 "10c3d88fba531aa6f5f6937e8eccc4df2ac96abaa4d77cb4a1b1349a8b94346f"
   head "https://github.com/ccextractor/ccextractor.git"
 
   bottle do
