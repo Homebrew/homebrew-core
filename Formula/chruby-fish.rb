@@ -1,8 +1,8 @@
 class ChrubyFish < Formula
   desc "Thin wrapper around chruby to make it work with the Fish shell"
   homepage "https://github.com/JeanMertz/chruby-fish#readme"
-  url "https://github.com/JeanMertz/chruby-fish/archive/v0.8.1.tar.gz"
-  sha256 "1a0fa95d6be5958edca31a80de3594a563de6f7d09213418db895dda6724c271"
+  url "https://github.com/JeanMertz/chruby-fish/archive/v0.8.2.tar.gz"
+  sha256 "e3726d39da219f5339f86302f7b5d7b62ca96570ddfcc3976595f1d62e3b34e1"
   head "https://github.com/JeanMertz/chruby-fish.git"
 
   bottle do
