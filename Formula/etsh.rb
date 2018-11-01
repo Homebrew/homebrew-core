@@ -13,35 +13,16 @@ class Etsh < Formula
     sha256 "1cd1038356285388b1cc258188fd04ac4d643713b888192a83f7bb89d2247010" => :el_capitan
   end
 
-  option "with-examples", "Build with shell examples"
-
   conflicts_with "teleport", :because => "both install `tsh` binaries"
-
-  resource "examples" do
-    url "https://etsh.io/v6scripts/v6scripts-20160128.tar.gz"
-    sha256 "c23251137de67b042067b68f71cd85c3993c566831952af305f1fde93edcaf4d"
-  end
 
   def install
     system "./configure"
     system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}", "MANDIR=#{man1}"
     bin.install_symlink "etsh" => "osh"
     bin.install_symlink "tsh" => "sh6"
-
-    if build.with? "examples"
-      resource("examples").stage do
-        ENV.prepend_path "PATH", bin
-        system "./INSTALL", libexec
-      end
-    end
   end
 
   test do
     assert_match "brew!", shell_output("#{bin}/etsh -c 'echo brew!'").strip
-
-    if build.with? "examples"
-      ENV.prepend_path "PATH", libexec
-      assert_match "1 3 5 7 9 11 13 15 17 19", shell_output("#{libexec}/counts").strip
-    end
   end
 end
