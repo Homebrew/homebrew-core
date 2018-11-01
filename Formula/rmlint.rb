@@ -3,6 +3,7 @@ class Rmlint < Formula
   homepage "https://github.com/sahib/rmlint"
   url "https://github.com/sahib/rmlint/archive/v2.7.0.tar.gz"
   sha256 "174aaf4a3fd4c2911b7ddffd2804c6b940e38bedbb5cf2a6ec51b552cf919c33"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,16 +13,13 @@ class Rmlint < Formula
     sha256 "3e6f33d9e64a95fb88ed0a53397c2b2e0eb15fe73b33d6bea79cd2071826943a" => :el_capitan
   end
 
-  option "with-json-glib", "Add support for reading json caches"
-  option "with-libelf", "Add support for finding non-stripped binaries"
-
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "sphinx-doc" => :build
   depends_on "glib"
-  depends_on "json-glib" => :optional
-  depends_on "libelf" => :optional
+  depends_on "json-glib"
+  depends_on "libelf"
 
   def install
     scons "config"
