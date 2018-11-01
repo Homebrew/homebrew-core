@@ -12,20 +12,10 @@ class Dwarfutils < Formula
     sha256 "5a9553cc6bccfcd519a04b7fe05c9bb6150553893cef274b11c1acf16ea5d555" => :el_capitan
   end
 
-  option "with-sanitize", "Use -fsanitize"
-
   depends_on "libelf" => :build
-  depends_on "gcc" if build.with? "sanitize"
 
   def install
-    args = ""
-
-    if build.with? "sanitize"
-      ENV["CC"] = "#{Formula["gcc"].bin}/gcc-6"
-      args << "--enable-sanitize"
-    end
-
-    system "./configure", args
+    system "./configure"
     system "make"
 
     bin.install "dwarfdump/dwarfdump"
