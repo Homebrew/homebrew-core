@@ -15,10 +15,6 @@ class Fortune < Formula
     sha256 "61792a39fce2c81cf7a47a9230884d0bc19ff7c5f84bc7264f2bc0aa705f8eb1" => :mavericks
   end
 
-  option "without-offensive", "Don't install potentially offensive fortune files"
-
-  deprecated_option "no-offensive" => "without-offensive"
-
   def install
     ENV.deparallelize
 
@@ -34,8 +30,6 @@ class Fortune < Formula
 
       # macOS only supports POSIX regexes
       s.change_make_var! "REGEXDEFS", "-DHAVE_REGEX_H -DPOSIX_REGEX"
-      # Don't install offensive fortunes
-      s.change_make_var! "OFFENSIVE", "0" if build.without? "offensive"
     end
 
     system "make", "install"
