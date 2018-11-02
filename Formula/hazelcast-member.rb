@@ -1,5 +1,5 @@
 class HazelcastMember < Formula
-  desc "Command-line tool to run and control Hazelcast member instances"
+  desc "Tool to run Hazelcast IMDG member instances locally"
   homepage "https://github.com/hazelcast/hazelcast-member-tool"
   url "https://github.com/hazelcast/hazelcast-member-tool/releases/download/v3.11.0/hazelcast-member-3.11.0.tar.gz"
   sha256 "13d9d8f9c608ea8f672e58dba87500ff38c2c70d1f69e1f3cf30532a9be67056"
