@@ -2,7 +2,7 @@ class Terraforming < Formula
   desc "Export existing AWS resources to Terraform style (tf, tfstate)"
   homepage "https://terraforming.dtan4.net/"
   url "https://github.com/dtan4/terraforming.git",
-      :tag => "v0.16.0",
+      :tag      => "v0.16.0",
       :revision => "a38e73739ff7ed5261abebabe08aced770bcd84c"
 
   bottle do
