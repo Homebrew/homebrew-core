@@ -15,11 +15,10 @@ class Dosfstools < Formula
   end
   bottle do
     cellar :any_skip_relocation
-    sha256 "b140937d11ed09bd9d57ea4d956c23765365bb72134aaeeb018bb905c73b668f" => :mojave
-    sha256 "feec334349faf7eecdea9526a90c9504db8cc5e3488a71deb50c6aa0c31af2f5" => :high_sierra
-    sha256 "d0241bbd6538c79b56d67ba986f527df1bf0afa844121b13d1fe2a5120f01192" => :sierra
-    sha256 "c413f4e02ff6b4de101a330c619816dd16ae898a02d69a9c85eb60884045f898" => :el_capitan
-    sha256 "dbd0957d4593c54d62046d3f4546a0a3bfbd3b00ee254011dc5a7051eafa0945" => :yosemite
+    rebuild 1
+    sha256 "a12605487c15e462c7ae652bb3f1587d254fc0001bfbae9261903c9f85542c2e" => :mojave
+    sha256 "44d8a1baa92d553ec9c24c1152c875b0f7d3730146d3decf4cdfa8f7b1516434" => :high_sierra
+    sha256 "b14dc5d79955f0ee586a33c7e265df2def55b1c64b7eb123539fce827cdeb6ec" => :sierra
   end
 
   depends_on "autoconf" => :build
