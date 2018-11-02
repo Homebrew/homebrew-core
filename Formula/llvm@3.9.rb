@@ -35,8 +35,8 @@ class LlvmAT39 < Formula
     depends_on "swig" if MacOS.version >= :lion
     depends_on :codesign => [{
       :identity => "lldb_codesign",
-      :with => "LLDB",
-      :url => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
+      :with     => "LLDB",
+      :url      => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
     }]
   end
 
