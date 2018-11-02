@@ -12,29 +12,25 @@ class Wesnoth < Formula
   end
 
   depends_on "gettext" => :build
+  depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "boost"
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "fribidi"
-  depends_on "libpng"
   depends_on "openssl"
   depends_on "pango"
-  depends_on "sdl"
-  depends_on "sdl_image" # Must have png support
-  depends_on "sdl_mixer" # The music is in .ogg format
-  depends_on "sdl_net"
-  depends_on "sdl_ttf"
+  depends_on "sdl2"
+  depends_on "sdl2_image" # Must have png support
+  depends_on "sdl2_mixer" # The music is in .ogg format
+  depends_on "sdl2_ttf"
 
   def install
-    args = %W[prefix=#{prefix} docdir=#{doc} mandir=#{man} fifodir=#{var}/run/wesnothd gettextdir=#{Formula["gettext"].opt_prefix}]
-    args << "OS_ENV=true"
-    args << "install"
-    args << "wesnoth"
-    args << "wesnothd"
-    args << "-j#{ENV.make_jobs}"
-
-    scons *args
+    scons "prefix=#{prefix}", "docdir=#{doc}", "mandir=#{man}",
+      "fifodir=#{var}/run/wesnothd",
+      "gettextdir=#{Formula["gettext"].opt_prefix}",
+      "extra_flags_config=-I#{Formula["openssl"].opt_include} -L#{Formula["openssl"].opt_lib}",
+      "OS_ENV=true", "install", "wesnoth", "wesnothd", "-j#{ENV.make_jobs}"
   end
 
   test do
