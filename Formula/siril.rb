@@ -25,6 +25,7 @@ class Siril < Formula
   depends_on "gnuplot"
   depends_on "gsl"
   depends_on "gtk-mac-integration"
+  depends_on "jpeg"
   depends_on "libconfig"
   depends_on "libraw"
   depends_on "librsvg"
@@ -39,6 +40,10 @@ class Siril < Formula
 
   def install
     ENV.cxx11
+
+    # siril uses pkg-config but it has wrong include paths for several
+    # headers. Work around that by letting it find all includes.
+    ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include"
 
     system "./autogen.sh", "--prefix=#{prefix}", "--enable-openmp"
     system "make", "install"
