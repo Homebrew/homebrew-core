@@ -7,10 +7,9 @@ class GribApi < Formula
   revision 1
 
   bottle do
-    sha256 "cd972852461b2d0fd723e47bcef574a6701f71177d1aaa5f7b66844c9f86b602" => :mojave
-    sha256 "158fccf39188a5abd7281866f1d89f8c91c2b0885d85e92d207dfa40678d57c9" => :high_sierra
-    sha256 "79a6e75196027e6d8310f12dac756776ed8f422268aa0623b6f28b400feeba93" => :sierra
-    sha256 "923b9062ff3f34b4517c52def1831b0bd0b4debd555f12655fdf6776be965521" => :el_capitan
+    sha256 "437fe07006a50a5111d757ce44441d1b1c2a0f26399c7a0bd6e1842d9ebc624e" => :mojave
+    sha256 "f67e6242e60d5359dc5d05705c00b95df89f8783fe8704b0d59e4f5118664981" => :high_sierra
+    sha256 "0b950cbf4e4fbc91e1c034a6fc6aacdebe57caa3b79ece787e4e93105e7b8959" => :sierra
   end
 
   depends_on "cmake" => :build
