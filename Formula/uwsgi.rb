@@ -94,8 +94,8 @@ class Uwsgi < Formula
     end
 
     python_versions = {
-      "python"=>"python2.7",
-      "python2"=>"python2.7",
+      "python"  => "python2.7",
+      "python2" => "python2.7",
     }
     python_versions["python3"] = "python3" if build.with? "python"
     python_versions.each do |k, v|
