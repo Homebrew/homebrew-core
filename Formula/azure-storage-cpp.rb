@@ -4,6 +4,13 @@ class AzureStorageCpp < Formula
   url "https://github.com/Azure/azure-storage-cpp/archive/v5.1.1.tar.gz"
   sha256 "29b4b0c47784ae541b0ef1b3693acba54e0d06bac78d139105a379ab1fd20333"
 
+  bottle do
+    cellar :any
+    sha256 "4484c83222736e6d4b3572a585766557aab5afe11f1ce8f454f76bba2a83d5a5" => :mojave
+    sha256 "bd4d979c9291c0c37284fc870e4b987686e738782aed9c167a6c27e3b56f7d27" => :high_sierra
+    sha256 "f5a3ccb959b0d3ad2874e46ec73496b4ac7d04a6eab5b1e388c3a7a999d424b3" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "cpprestsdk"
