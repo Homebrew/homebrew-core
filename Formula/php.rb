@@ -186,9 +186,9 @@ class Php < Formula
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {
-      "php.ini-development" => "php.ini",
+      "php.ini-development"   => "php.ini",
       "sapi/fpm/php-fpm.conf" => "php-fpm.conf",
-      "sapi/fpm/www.conf" => "php-fpm.d/www.conf",
+      "sapi/fpm/www.conf"     => "php-fpm.d/www.conf",
     }
     config_files.each_value do |dst|
       dst_default = config_path/"#{dst}.default"
@@ -232,17 +232,17 @@ class Php < Formula
     pear_path = HOMEBREW_PREFIX/"share/pear"
     cp_r pkgshare/"pear/.", pear_path
     {
-      "php_ini" => etc/"php/#{php_version}/php.ini",
-      "php_dir" => pear_path,
-      "doc_dir" => pear_path/"doc",
-      "ext_dir" => pecl_path/php_basename,
-      "bin_dir" => opt_bin,
+      "php_ini"  => etc/"php/#{php_version}/php.ini",
+      "php_dir"  => pear_path,
+      "doc_dir"  => pear_path/"doc",
+      "ext_dir"  => pecl_path/php_basename,
+      "bin_dir"  => opt_bin,
       "data_dir" => pear_path/"data",
-      "cfg_dir" => pear_path/"cfg",
-      "www_dir" => pear_path/"htdocs",
-      "man_dir" => HOMEBREW_PREFIX/"share/man",
+      "cfg_dir"  => pear_path/"cfg",
+      "www_dir"  => pear_path/"htdocs",
+      "man_dir"  => HOMEBREW_PREFIX/"share/man",
       "test_dir" => pear_path/"test",
-      "php_bin" => opt_bin/"php",
+      "php_bin"  => opt_bin/"php",
     }.each do |key, value|
       value.mkpath if key =~ /(?<!bin|man)_dir$/
       system bin/"pear", "config-set", key, value, "system"
