@@ -1,9 +1,8 @@
 class Pdftoipe < Formula
   desc "Reads arbitrary PDF files and generates an XML file readable by Ipe"
   homepage "https://github.com/otfried/ipe-tools"
-  url "https://github.com/otfried/ipe-tools/archive/v7.2.7.1.tar.gz"
-  sha256 "b45a7d6bec339e878717bd273c32c7957e2d4d87c57e117e772ee3dd3231d7aa"
-  revision 2
+  url "https://github.com/otfried/ipe-tools/archive/v7.2.7.2.tar.gz"
+  sha256 "c56d86a0aafec490db250555bb795dd5d0f8b3db59a259da4f7d229f15f85c6e"
 
   bottle do
     cellar :any
@@ -14,19 +13,6 @@ class Pdftoipe < Formula
 
   depends_on "pkg-config" => :build
   depends_on "poppler"
-
-  # no release was published after PR 30 so apply commit as patch
-  patch do
-    url "https://github.com/otfried/ipe-tools/commit/fe6cfdb6.diff?full_index=1"
-    sha256 "b6f74b1e491c1d7290bc448ebf8ed30f4734eb290231182ecacb7896692080d5"
-  end
-
-  # https://github.com/otfried/ipe-tools/pull/31
-  # Should be safe to remove on next release but check if merged.
-  patch do
-    url "https://github.com/otfried/ipe-tools/pull/31.patch?full_index=1"
-    sha256 "2becf3ebd7078abe4947486f90cbf36b42e8c9676bd46c7707084a53df23e47b"
-  end
 
   needs :cxx11
 
