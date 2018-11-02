@@ -14,6 +14,11 @@ class Libmonome < Formula
   depends_on "liblo"
 
   def install
+    # Fix build on Mojave
+    # https://github.com/monome/libmonome/issues/62
+    inreplace "wscript", /conf.env.append_unique.*-mmacosx-version-min=10.5.*/,
+                         "pass"
+
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf", "build"
     system "./waf", "install"
