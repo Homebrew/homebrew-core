@@ -223,7 +223,7 @@ class Mikutter < Formula
       export GEM_HOME="#{HOMEBREW_PREFIX}/lib/mikutter/vendor"
       export GTK_PATH="#{HOMEBREW_PREFIX}/lib/gtk-2.0"
 
-      exec ruby "#{libexec}/mikutter.rb" "$@"
+      exec #{which("ruby")} "#{libexec}/mikutter.rb" "$@"
     EOS
   end
 
