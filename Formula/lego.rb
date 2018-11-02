@@ -1,8 +1,8 @@
 class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://github.com/xenolf/lego"
-  url "https://github.com/xenolf/lego/archive/v1.0.1.tar.gz"
-  sha256 "2ff71e9d67c9b49a1a0c4e2244241af69e4d42b09d7c41bae582a0dc555e33de"
+  url "https://github.com/xenolf/lego/archive/v1.1.0.tar.gz"
+  sha256 "65af2e455bfabfdede3ebe66162280120462d100d5e647be41b1a30ddffc4044"
 
   bottle do
     cellar :any_skip_relocation
