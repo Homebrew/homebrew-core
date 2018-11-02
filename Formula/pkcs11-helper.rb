@@ -7,10 +7,10 @@ class Pkcs11Helper < Formula
 
   bottle do
     cellar :any
-    sha256 "f3691f198461a3454a23d28ad1654300fab2a06f0f552bb40120f30ace2a310c" => :mojave
-    sha256 "8ef9dab823d0d222506ad95b9501797230e8ff6a79ac1bc45137de708f0862e8" => :high_sierra
-    sha256 "98e6529b783c275380faa8282d2d0bd17be5c3d65d41db184d652ea85978ed98" => :sierra
-    sha256 "2cf6979b8f750c8e58005c4150171a547b6b4a06bdd758fcf77bc52a05d48ac2" => :el_capitan
+    rebuild 1
+    sha256 "4bf7e16dffead843a4158c7d5d17faaa2e4bcc1c7cde292e8faffff4cec8de47" => :mojave
+    sha256 "321866c8bf6dc4ba2cd670971e71b87e49b6c6f5d039b3c765b1af3cf1b4926c" => :high_sierra
+    sha256 "87e74dd0bff5614912c69b8c071096b804ebe82003dcc9e92c15cc73bdce86cb" => :sierra
   end
 
   depends_on "autoconf" => :build
