@@ -6,9 +6,9 @@ class Ark < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c59a68cbc791509eab786e8715e79d4838db50cdff98fcb4ef69de5636d0163" => :mojave
-    sha256 "5f1ade122477300ea64ea7e76397012a7476d55729912ebb9d036858d3e5b75f" => :high_sierra
-    sha256 "e609964945d4cc62502e9115cb6555e3ba00172fedaea3d005dac5c88fbb65c9" => :sierra
+    sha256 "c5397071cfb76145c99f79f64bc6be312bc75bb3e1502a2b9a1df342c222ca76" => :mojave
+    sha256 "22a6d85e8815d0b1b2761a00cd37bc107aca7642a5185a5d9e07faabef79b114" => :high_sierra
+    sha256 "b0e139e96fbffb46b12cad5f84156cc75e05b060388f69a8ea9365e6070411df" => :sierra
   end
 
   depends_on "go" => :build
