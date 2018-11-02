@@ -14,48 +14,56 @@ class SwiProlog < Formula
   head do
     url "https://github.com/SWI-Prolog/swipl-devel.git"
 
-    depends_on "autoconf" => :build
+    depends_on "cmake" => :build
   end
 
-  option "with-jpl", "Enable JPL (Java Prolog Bridge)"
-  option "with-xpce", "Enable XPCE (Prolog Native GUI Library)"
+  option "with-jpl",     "Enable JPL (Java Prolog Bridge)"
+  option "without-xpce", "Disable XPCE (Prolog Native GUI Library)"
 
-  depends_on "pkg-config" => :build
-  depends_on "gmp"
-  depends_on "openssl"
+  depends_on "ossp-uuid"
   depends_on "readline"
-  depends_on "libarchive" => :optional
+  depends_on "gmp" => :recommended
+  depends_on "libarchive" => :recommended
+  depends_on "openssl" => :recommended
+  depends_on "pcre" => :recommended
+  depends_on "berkeley-db" => :optional
+  depends_on "unixodbc" => :optional
 
-  if build.with? "xpce"
+  unless build.without? "xpce"
     depends_on :x11
     depends_on "jpeg"
   end
 
   def install
-    if build.with? "libarchive"
-      ENV["ARPREFIX"] = Formula["libarchive"].opt_prefix
+    if build.head?
+      swi_options = []
+
+      swi_options.push("-DSWIPL_PACKAGES_X=OFF")    if build.without? "xpce"
+      swi_options.push("-DSWIPL_PACKAGES_JAVA=OFF") if build.without? "jpl"
+
+      system "cmake", ".", *std_cmake_args, *swi_options
     else
-      ENV.append "DISABLE_PKGS", "archive"
+      if build.with? "libarchive"
+        ENV["ARPREFIX"] = Formula["libarchive"].opt_prefix
+      else
+        ENV.append "DISABLE_PKGS", "archive"
+      end
+
+      args = ["--prefix=#{libexec}", "--mandir=#{man}"]
+      ENV.append "DISABLE_PKGS", "jpl" if build.without? "jpl"
+      ENV.append "DISABLE_PKGS", "xpce" if build.without? "xpce"
+
+      # SWI-Prolog's Makefiles don't add CPPFLAGS to the compile command, but do
+      # include CIFLAGS. Setting it here. Also, they clobber CFLAGS, so including
+      # the Homebrew-generated CFLAGS into COFLAGS here.
+      ENV["CIFLAGS"] = ENV.cppflags
+      ENV["COFLAGS"] = ENV.cflags
+
+      system "./configure", *args
     end
 
-    args = ["--prefix=#{libexec}", "--mandir=#{man}"]
-    ENV.append "DISABLE_PKGS", "jpl" if build.without? "jpl"
-    ENV.append "DISABLE_PKGS", "xpce" if build.without? "xpce"
-
-    # SWI-Prolog's Makefiles don't add CPPFLAGS to the compile command, but do
-    # include CIFLAGS. Setting it here. Also, they clobber CFLAGS, so including
-    # the Homebrew-generated CFLAGS into COFLAGS here.
-    ENV["CIFLAGS"] = ENV.cppflags
-    ENV["COFLAGS"] = ENV.cflags
-
-    # './prepare' prompts the user to build documentation
-    # (which requires other modules). '3' is the option
-    # to ignore documentation.
-    system "echo 3 | ./prepare" if build.head?
-    system "./configure", *args
     system "make"
     system "make", "install"
-
     bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
 
