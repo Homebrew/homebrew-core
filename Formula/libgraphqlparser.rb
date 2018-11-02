@@ -26,34 +26,34 @@ class Libgraphqlparser < Formula
       { user }
     EOS
 
-    sample_ast = { "kind"=>"Document",
-                   "loc"=>{ "start"=>{ "line"=>1, "column"=>1 },
-                            "end"=>{ "line"=>1, "column"=>9 } },
-                   "definitions"=>
-        [{ "kind"=>"OperationDefinition",
-           "loc"=>{ "start"=>{ "line"=>1, "column"=>1 },
-                    "end"=>{ "line"=>1, "column"=>9 } },
-           "operation"=>"query",
-           "name"=>nil,
-           "variableDefinitions"=>nil,
-           "directives"=>nil,
-           "selectionSet"=>
-           { "kind"=>"SelectionSet",
-             "loc"=>{ "start"=>{ "line"=>1, "column"=>1 },
-                      "end"=>{ "line"=>1, "column"=>9 } },
-             "selections"=>
-             [{ "kind"=>"Field",
-                "loc"=>{ "start"=>{ "line"=>1, "column"=>3 },
-                         "end"=>{ "line"=>1, "column"=>7 } },
-                "alias"=>nil,
-                "name"=>
-                { "kind"=>"Name",
-                  "loc"=>{ "start"=>{ "line"=>1, "column"=>3 },
-                           "end"=>{ "line"=>1, "column"=>7 } },
-                  "value"=>"user" },
-                "arguments"=>nil,
-                "directives"=>nil,
-                "selectionSet"=>nil }] } }] }
+    sample_ast = { "kind"        => "Document",
+                   "loc"         => { "start" => { "line"=>1, "column"=>1 },
+                                      "end"   => { "line"=>1, "column"=>9 } },
+                   "definitions" =>
+                                    [{ "kind"                => "OperationDefinition",
+                                       "loc"                 => { "start" => { "line"=>1, "column"=>1 },
+                                                                  "end"   => { "line"=>1, "column"=>9 } },
+                                       "operation"           => "query",
+                                       "name"                => nil,
+                                       "variableDefinitions" => nil,
+                                       "directives"          => nil,
+                                       "selectionSet"        =>
+                                                                { "kind"       => "SelectionSet",
+                                                                  "loc"        => { "start" => { "line"=>1, "column"=>1 },
+                                                                                    "end"   => { "line"=>1, "column"=>9 } },
+                                                                  "selections" =>
+                                                                                  [{ "kind"         => "Field",
+                                                                                     "loc"          => { "start" => { "line"=>1, "column"=>3 },
+                                                                                                         "end"   => { "line"=>1, "column"=>7 } },
+                                                                                     "alias"        => nil,
+                                                                                     "name"         =>
+                                                                                                       { "kind"  => "Name",
+                                                                                                         "loc"   => { "start" => { "line"=>1, "column"=>3 },
+                                                                                                                      "end"   => { "line"=>1, "column"=>7 } },
+                                                                                                         "value" => "user" },
+                                                                                     "arguments"    => nil,
+                                                                                     "directives"   => nil,
+                                                                                     "selectionSet" => nil }] } }] }
 
     test_ast = JSON.parse pipe_output("#{libexec}/dump_json_ast", sample_query)
     assert_equal sample_ast, test_ast
