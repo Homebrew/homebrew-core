@@ -6,10 +6,10 @@ class Discount < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b0f5e9e6922a6bf89d1c62709016adb16009378041cba27697def862e44f5f14" => :mojave
-    sha256 "d992c08149b8fc5ee583bfb78c3fa8dc16a6e036890353e6fb3ec18dcfdc25a0" => :high_sierra
-    sha256 "727610146b825e993f7e03690394b9e6678afeefa25e16780e63a4522b43a3d6" => :sierra
-    sha256 "80228f78ed111492fcad89a4739944cc43334b71d68b9550cc67f29ad894b560" => :el_capitan
+    rebuild 1
+    sha256 "717446676d0861c18c2cc4f7eb968eb8abec3c91bb623df176d1735d71ed58c3" => :mojave
+    sha256 "fdcd1162af5608087a3520333760fb68a467866cf02ee059a876b38c0e684d5b" => :high_sierra
+    sha256 "4798e5e4fb0dbcbcfe92babf8c0a9eb7d0739197a636f1daa34fd52715bba05d" => :sierra
   end
 
   conflicts_with "markdown", :because => "both install `markdown` binaries"
