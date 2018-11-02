@@ -15,7 +15,7 @@ class Fuseki < Formula
                                  :FUSEKI_BASE => var/"fuseki",
                                  :FUSEKI_HOME => libexec,
                                  :FUSEKI_LOGS => var/"log/fuseki",
-                                 :FUSEKI_RUN => var/"run")
+                                 :FUSEKI_RUN  => var/"run")
     end
 
     # Non-symlinked binaries and application files
