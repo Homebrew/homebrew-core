@@ -1,9 +1,8 @@
 class Jq < Formula
   desc "Lightweight and flexible command-line JSON processor"
   homepage "https://stedolan.github.io/jq/"
-  url "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-1.5.tar.gz"
-  sha256 "c4d2bfec6436341113419debf479d833692cc5cdab7eb0326b5a4d4fbe9f493c"
-  revision 3
+  url "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz"
+  sha256 "9625784cf2e4fd9842f1d407681ce4878b5b0dcddbcd31c6135114a30c71e6a8"
 
   bottle do
     cellar :any
