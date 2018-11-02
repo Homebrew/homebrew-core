@@ -46,7 +46,7 @@ class Radare2 < Formula
   if build.with? "code-signing"
     depends_on :codesign => [{
       :identity => "org.radare.radare2",
-      :url => "https://github.com/radare/radare2/blob/master/doc/macos.md",
+      :url      => "https://github.com/radare/radare2/blob/master/doc/macos.md",
     }]
   end
 
