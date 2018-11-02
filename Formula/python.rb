@@ -205,9 +205,9 @@ class Python < Formula
 
     # Install unversioned symlinks in libexec/bin.
     {
-      "idle" => "idle3",
-      "pydoc" => "pydoc3",
-      "python" => "python3",
+      "idle"          => "idle3",
+      "pydoc"         => "pydoc3",
+      "python"        => "python3",
       "python-config" => "python3-config",
     }.each do |unversioned_name, versioned_name|
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
@@ -259,8 +259,8 @@ class Python < Formula
     # Install unversioned symlinks in libexec/bin.
     {
       "easy_install" => "easy_install-#{xy}",
-      "pip" => "pip3",
-      "wheel" => "wheel3",
+      "pip"          => "pip3",
+      "wheel"        => "wheel3",
     }.each do |unversioned_name, versioned_name|
       (libexec/"bin").install_symlink (bin/versioned_name).realpath => unversioned_name
     end
