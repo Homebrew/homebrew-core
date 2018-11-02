@@ -7,10 +7,9 @@ class Megacmd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "82031c2c21578c6355de9c2ee58aa27b22f0864a7312fe77f10f4fde879be5e2" => :mojave
-    sha256 "73adefeb74c5ca7c7207ed2b8dda70e74c95dcdac1cff4f6fdada49f4edf65a1" => :high_sierra
-    sha256 "cc492608bbfbf2f12a6ad424de9927e8d25038fb9b40d1058383656c09f38f60" => :sierra
-    sha256 "9e1449cd025d40e6669cfc0941f81c857de87b436fe48138b3b2c7db33754162" => :el_capitan
+    sha256 "a0e79f8dac4fdd9501fe421db7062fa0079a97cd2772a55a64ac5539b1b64d17" => :mojave
+    sha256 "ced96a75c37a3f1676ddff1ed47b66c4d76e9200c656e18585ab83d0b3c9ef57" => :high_sierra
+    sha256 "88cc0a307b4e6dc9ead44158859c647d3459f39cf841571f88c251a77ec57d10" => :sierra
   end
 
   depends_on "go" => :build
