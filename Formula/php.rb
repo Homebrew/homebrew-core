@@ -10,6 +10,9 @@ class Php < Formula
     sha256 "5c16b674951b548d1b11fe77d172b99bfca57ce90122c315e86ef53a0530ee9b" => :sierra
   end
 
+  option "with-tidy", "Compile tidy extension"
+  option "with-homebrew-tidy-html5", "Compile tidy extension with html5 support"
+  
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "apr"
@@ -34,6 +37,7 @@ class Php < Formula
   depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
+  depends_on "tidy-html5" if build.with?("homebrew-tidy-html5")
   depends_on "unixodbc"
   depends_on "webp"
 
@@ -174,6 +178,12 @@ class Php < Formula
       args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
     end
 
+    if build.with?("homebrew-tidy-html5")
+      args << "--with-tidy=#{Formula["tidy-html5"].opt_prefix}"
+    else if build.with?("tidy")
+      args << "--with-tidy"
+    end
+    
     system "./configure", *args
     system "make"
     system "make", "install"
