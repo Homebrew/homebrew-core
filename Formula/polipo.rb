@@ -6,13 +6,10 @@ class Polipo < Formula
   head "https://github.com/jech/polipo.git"
 
   bottle do
-    rebuild 1
-    sha256 "70e70a925aaec5778998507c53f713ffecbb99f9cf1ae044c23b16e1176b1cdd" => :mojave
-    sha256 "a778da0bb114b5c5496be43cdb9ebce244d9ccb3faacda464e9621999e40ff21" => :high_sierra
-    sha256 "d30101dd7753f59f84a8962f07772a1e18ec8007096b815c3cae117a59fbb2e0" => :sierra
-    sha256 "54142753c1ad2f0bbb0b7d3acd62c12dd6f5e33f059f27432a739e01a351f1a7" => :el_capitan
-    sha256 "ce6453203feafa737212242a0ea9d2faa118e5880775e115682901e59fad5891" => :yosemite
-    sha256 "74930c6406c860315088f3bde52332fb3708a60f5aabeeff1497a3cbbdf10a73" => :mavericks
+    rebuild 2
+    sha256 "2653a1ffd719d82318a04fd94b8a2573714c03e974b43ae7b3df6ad4b9e410f3" => :mojave
+    sha256 "6fe78288ca28698ac07fd96d99fbbf311a6b410eb7150dfac5388564b76d4195" => :high_sierra
+    sha256 "7a943f9e9952d78c692d5ec155b407319181a6a66ee1367801f77da8f7bb8459" => :sierra
   end
 
   def install
