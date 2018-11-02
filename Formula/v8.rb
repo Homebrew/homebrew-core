@@ -56,10 +56,10 @@ class V8 < Formula
       output_path = "out.gn/x64.release"
 
       gn_args = {
-        :is_debug => false,
-        :is_component_build => true,
+        :is_debug                     => false,
+        :is_component_build           => true,
         :v8_use_external_startup_data => false,
-        :v8_enable_i18n_support => true,
+        :v8_enable_i18n_support       => true,
       }
 
       # Transform to args string
