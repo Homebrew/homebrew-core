@@ -9,9 +9,8 @@ class Afsctool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dae94371d947e9ddf0da4efd50425652753944da5f96c6aaa835b5ad1c361596" => :high_sierra
-    sha256 "ad17b0f173670e0e7909de0086dbfc8e3db2fef0a6a576875d199d6c14b8f212" => :sierra
-    sha256 "28e53f9426f88d7aaa41ef956a41aec8a68f5363d9e570a6be70e61e583e6b8f" => :el_capitan
+    rebuild 1
+    sha256 "205e59613827596ada9c7980b002813e1303222df4d71533c47e3d27b1b5978d" => :high_sierra
   end
 
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
