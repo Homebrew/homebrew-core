@@ -15,7 +15,7 @@ class Afsctool < Formula
   end
 
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
-  patch do
+  patch :p2 do
     url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.diff?full_index=1"
     sha256 "a541526679eb5d2471b3f257dab6103300d950f7b2f9d49bbfeb9f27dfc48542"
   end
@@ -23,14 +23,12 @@ class Afsctool < Formula
   # Fixes High Sierra "Expecting f_type of 17 or 23. f_type is 24" issue
   # Acknowledged by upstream 12 Apr 2018:
   # https://github.com/Homebrew/homebrew-core/pull/20898#issuecomment-380727547
-  patch :DATA
+  patch :p2, :DATA
 
   def install
-    cd "afsctool_34" do
-      system ENV.cc, ENV.cflags, "-lz", "afsctool.c",
-                     "-framework", "CoreServices", "-o", "afsctool"
-      bin.install "afsctool"
-    end
+    system ENV.cc, ENV.cflags, "-lz", "afsctool.c",
+                   "-framework", "CoreServices", "-o", "afsctool"
+    bin.install "afsctool"
   end
 
   test do
