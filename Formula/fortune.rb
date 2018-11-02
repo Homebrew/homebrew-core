@@ -6,13 +6,10 @@ class Fortune < Formula
   sha256 "1a98a6fd42ef23c8aec9e4a368afb40b6b0ddfb67b5b383ad82a7b78d8e0602a"
 
   bottle do
-    rebuild 2
-    sha256 "d85c1636ea7ca0345d390e63e32f8cccb5f10c881a88477ecc4b8ad99cbb8be2" => :mojave
-    sha256 "6f8a87247d72ed1d9197370b1df307bdb9d949d868ae210b7dc32dc43eaba8ab" => :high_sierra
-    sha256 "ac140349dc3a0ce55d2299e90651492df8ccf7839f57d8b1fa6ca221a665efc7" => :sierra
-    sha256 "fe681ea371ce058faeebbd459ac9b5f492b7b523652da937ed8cb7d9bbf0eaf8" => :el_capitan
-    sha256 "97c35357e5becf525ddaede462e40283872d0b5d2cebfeeb7d509cb0ef06fc7c" => :yosemite
-    sha256 "61792a39fce2c81cf7a47a9230884d0bc19ff7c5f84bc7264f2bc0aa705f8eb1" => :mavericks
+    rebuild 3
+    sha256 "f635d0fc0504922ba1bfae451f17b874ea96cffb85dead0913adb9da0669738e" => :mojave
+    sha256 "b650a61e6b39e9f12179140e0d2b23c0c606e7f29e64851aac5df4e376d77130" => :high_sierra
+    sha256 "c6fe1b893c31bc71b2c24de5bcc0a84fbd5025091d796250a7ef4ff6e406eea7" => :sierra
   end
 
   def install
