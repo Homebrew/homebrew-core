@@ -7,9 +7,9 @@ class Openvdb < Formula
   head "https://github.com/dreamworksanimation/openvdb.git"
 
   bottle do
-    sha256 "8a4a4c65328e9d303e174c89a89cd7a838fe51eb30376a76523f95c1b3275918" => :mojave
-    sha256 "05deec4062038c7274fbf9f4bb7565818fa4d8a922ff7e2af5dc6f7639004342" => :high_sierra
-    sha256 "021270661f0d57dd6b5dac9660cedf5f239b12b55b9781a8e2c952b6a3dd854d" => :sierra
+    sha256 "00211fc05a2115a68dc0313494976e5bec61ada1c90a768d595293e8275791b5" => :mojave
+    sha256 "6685baa769a463f33b79d522d1dd4cc74507e6c71b34cf4e70820a84ae0e6628" => :high_sierra
+    sha256 "44c17a11b7f0859bd7738400e793a129d57964281ad1a69b836c8b6dbd97d3bd" => :sierra
   end
 
   depends_on "doxygen" => :build
