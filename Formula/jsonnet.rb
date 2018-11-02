@@ -36,11 +36,11 @@ class Jsonnet < Formula
 
     expected_output = {
       "person1" => {
-        "name" => "Alice",
+        "name"    => "Alice",
         "welcome" => "Hello Alice!",
       },
       "person2" => {
-        "name" => "Bob",
+        "name"    => "Bob",
         "welcome" => "Hello Bob!",
       },
     }
