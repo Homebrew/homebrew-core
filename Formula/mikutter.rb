@@ -16,7 +16,7 @@ class Mikutter < Formula
   depends_on "gobject-introspection"
   depends_on "gtk+"
   depends_on "libidn"
-  depends_on "ruby"
+  depends_on "ruby" if MacOS.version <= :high_sierra
   depends_on "terminal-notifier"
 
   resource "addressable" do
