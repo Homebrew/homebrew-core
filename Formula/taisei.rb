@@ -2,7 +2,7 @@ class Taisei < Formula
   desc "Clone of Touhou Project shoot-em-up games"
   homepage "https://taisei-project.org/"
   url "https://github.com/taisei-project/taisei.git",
-      :tag => "v1.2",
+      :tag      => "v1.2",
       :revision => "46fb0f894ad269528ac7fda533c7994eddd9b758"
   revision 1
 
