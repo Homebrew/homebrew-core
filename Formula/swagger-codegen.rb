@@ -1,8 +1,8 @@
 class SwaggerCodegen < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.3.1.tar.gz"
-  sha256 "0f86c36a5961b0212f3f3b28650d6c6545b281ce1405411edee8505dfbb4073e"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v3.0.2.tar.gz"
+  sha256 "895e88b72d30048ce9cd00e2de4a6bf59db312e13b3498505b5a84b1a0cc18ae"
   head "https://github.com/swagger-api/swagger-codegen.git"
 
   bottle do
@@ -29,7 +29,7 @@ class SwaggerCodegen < Formula
   test do
     (testpath/"minimal.yaml").write <<~EOS
       ---
-      swagger: '2.0'
+      openapi: 3.0.0
       info:
         version: 0.0.0
         title: Simple API
@@ -40,6 +40,7 @@ class SwaggerCodegen < Formula
               200:
                 description: OK
     EOS
-    system "#{bin}/swagger-codegen", "generate", "-i", "minimal.yaml", "-l", "swagger"
+    system "#{bin}/swagger-codegen", "generate", "-i", "minimal.yaml", "-l", "html"
+    assert_includes File.read(testpath/"index.html"), "<h1>Simple API</h1>"
   end
 end
