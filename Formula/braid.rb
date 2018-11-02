@@ -26,6 +26,13 @@ class Braid < Formula
     sha256 "766f2fcce6ac3cc152249ed0f2b827770d3e517e2e87c5fba7ed74f4889d2dc3"
   end
 
+  if MacOS.version <= :sierra
+    resource "json" do
+      url "https://rubygems.org/gems/json-2.1.0.gem"
+      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+    end
+  end
+
   resource "fattr" do
     url "https://rubygems.org/gems/fattr-2.3.0.gem"
     sha256 "0430a798270a7097c8c14b56387331808b8d9bb83904ba643b196c895bdf5993"
