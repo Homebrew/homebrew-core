@@ -2,7 +2,7 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      :tag => "v1.6.4",
+      :tag      => "v1.6.4",
       :revision => "a2ba6e7654fb078f8a3f5add1f8d935df38161bd"
   head "https://github.com/influxdata/influxdb.git"
 
