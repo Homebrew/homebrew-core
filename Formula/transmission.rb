@@ -5,10 +5,10 @@ class Transmission < Formula
   sha256 "35442cc849f91f8df982c3d0d479d650c6ca19310a994eccdaa79a4af3916b7d"
 
   bottle do
-    sha256 "69526246bba21ede8f14975da19ca64a185a5e58af78432bf013aacf7711297d" => :mojave
-    sha256 "f9d035ba6b2e2fe96080f368b9b396c05a643680bb1e6714b6eb4d2161ca63e0" => :high_sierra
-    sha256 "cf4f5ccc5069e03addf77882152e6358f2aeb514ffab78d7ed20e54b22d42936" => :sierra
-    sha256 "e31b76dc003d69cfeb5f67478a95dd8e824e26606b585270b15bfffe79cae59c" => :el_capitan
+    rebuild 1
+    sha256 "2a7d6cb307a817eed5a02bab0dcfbb2d024d626bd768116d5107ef74a79282a5" => :mojave
+    sha256 "6aa06621a0754c3a2f76572f68f0992747b4b2240e7424795f63071bfab5475b" => :high_sierra
+    sha256 "57ec396481d8107933552649d46de6ec78aaaa6c3a80ab27d1ba2a9465925471" => :sierra
   end
 
   depends_on "pkg-config" => :build
