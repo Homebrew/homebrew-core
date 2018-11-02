@@ -34,6 +34,10 @@ class Trafficserver < Formula
   def install
     ENV.cxx11 if build.stable?
 
+    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
+    # is not set then it's forced to 10.4, which breaks compile on Mojave.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
     # Needed for OpenSSL headers
     if MacOS.version <= :lion
       ENV.append_to_cflags "-Wno-deprecated-declarations"
