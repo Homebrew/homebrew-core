@@ -2,7 +2,7 @@ class Servus < Formula
   desc "Library and Utilities for zeroconf networking"
   homepage "https://github.com/HBPVIS/Servus"
   url "https://github.com/HBPVIS/Servus.git",
-      :tag => "1.5.1",
+      :tag      => "1.5.1",
       :revision => "eee576548a05292179f4892d48b97108d8ed07c0"
 
   bottle do
