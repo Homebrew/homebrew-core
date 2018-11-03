@@ -6,9 +6,9 @@ class Node < Formula
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "fc45e7c5fc4c028c645e3e2a6f3a21206edb053bbec663019290a8315a0e799f" => :mojave
-    sha256 "20030495b048e3ba05f081928cdf02851f8af34781d9f0b177d592da5d16dd1a" => :high_sierra
-    sha256 "7d26bd6a172b94062082867a127305f0730aeaeebcfd4252dabd84ec942880ca" => :sierra
+    sha256 "a8b4308380198603f68cedd03bd76ff4e11aa6f80c628a23430e323b5841de9d" => :mojave
+    sha256 "fe56eea71f6ce71212b5ca75003da31833d713fa64743cf07335c0390b82765f" => :high_sierra
+    sha256 "ccab2bdbc60c2e626228eadc2ee8c6f9ae4c4c793a6957f542630b7f37b1e17a" => :sierra
   end
 
   option "with-openssl@1.1", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"
