@@ -8,9 +8,9 @@ class Caf < Formula
 
   bottle do
     cellar :any
-    sha256 "366a8b02c11a1b85982f997a444f3746fe357621ba4f30318cd0ea80a10a13f5" => :mojave
-    sha256 "dfb5544b6ed9e4dd1adea288059f09f41556322ca4367b061c1d8b1130bf0cf4" => :high_sierra
-    sha256 "bb76ebe67503d8d456811f0b2fea1c28cad7a8226e8a860fbaac2bec5455c2cd" => :sierra
+    sha256 "ada965dae932a57c2ac048dc7de4f7bfe4f7f891c85f1eb13bdccb7950247e18" => :mojave
+    sha256 "31905277c00333e688d7a16e0e947496599b1d642e6dd2041aab94949490e251" => :high_sierra
+    sha256 "cac351fa54d253d253aec01142e3b52c4dd6a827266c283c6fdf543f50848f75" => :sierra
   end
 
   depends_on "cmake" => :build
