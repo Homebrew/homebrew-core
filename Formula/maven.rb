@@ -3,7 +3,7 @@ class Maven < Formula
   homepage "https://maven.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz"
-  sha512 "fae9c12b570c3ba18116a4e26ea524b29f7279c17cbaadc3326ca72927368924d9131d11b9e851b8dc9162228b6fdea955446be41207a5cfc61283dd8a561d2f"
+  sha256 "6a1b346af36a1f1a491c1c1a141667c5de69b42e6611d3687df26868bc0f4637"
 
   bottle :unneeded
 
