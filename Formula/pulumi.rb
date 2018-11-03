@@ -25,6 +25,14 @@ class Pulumi < Formula
       system "make", "dist"
       bin.install Dir["#{buildpath}/bin/*"]
       prefix.install_metafiles
+
+      # Install bash completion
+      output = Utils.popen_read("#{bin}/pulumi gen-completion bash")
+      (bash_completion/"pulumi").write output
+
+      # Install zsh completion
+      output = Utils.popen_read("#{bin}/pulumi gen-completion zsh")
+      (zsh_completion/"_pulumi").write output
     end
   end
 
