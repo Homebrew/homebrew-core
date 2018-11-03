@@ -3,8 +3,8 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/bb/be/1306d71f18f5734b3ea5d0fe17492b42f81ae5d0d19682a05741b7858459/svtplay-dl-2.0.tar.gz"
-  sha256 "3234ba78c86f5049d59435931ba2e21d4195a46eb68e4cafc9750fc223c85a27"
+  url "https://files.pythonhosted.org/packages/1f/95/5ef43ad627206dbfbca43e377a855a37aa8d005f136ff43974ba6b30fd3e/svtplay-dl-2.1.tar.gz"
+  sha256 "acac0cb6435e3243b98b154958d799cbb65b64335cd0e2bfb1ae0a81b640c17c"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,13 +19,13 @@ class SvtplayDl < Formula
   depends_on "rtmpdump"
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/94/7f/33b748dd22ea889fcb1a6c6f1f30ad1e5a70066cd7615dbce7d9a6392106/pycryptodome-3.6.6.tar.gz"
-    sha256 "b3cb4af317d9b84f6df50f0cfa6840ba69556af637a83fd971537823e13d601a"
+    url "https://files.pythonhosted.org/packages/46/57/3901d4d3c03c3a7cefc570c01dfca3ec5eb086fc6e918b4aa451cb63fcdf/pycryptodome-3.7.0.tar.gz"
+    sha256 "4444a26fc3830c0d438bca6975ff10d1eb9c0b88f747fdc25b5ab81fb46713d7"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e1/0f/f8d5e939184547b3bdc6128551b831a62832713aa98c2ccdf8c47ecc7f17/certifi-2018.8.24.tar.gz"
-    sha256 "376690d6f16d32f9d1fe8932551d80b23e9d393a8578c5633a2ed39a64861638"
+    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
+    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
   end
 
   resource "chardet" do
@@ -44,13 +44,13 @@ class SvtplayDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/54/1f/782a5734931ddf2e1494e4cd615a51ff98e1879cbe9eecbdfeaf09aa75e9/requests-2.19.1.tar.gz"
-    sha256 "ec22d826a36ed72a7358ff3fe56cbd4ba69dd7a6718ffd450ff0e9df7a47ce6a"
+    url "https://files.pythonhosted.org/packages/97/10/92d25b93e9c266c94b76a5548f020f3f1dd0eb40649cb1993532c0af8f4c/requests-2.20.0.tar.gz"
+    sha256 "99dcfdaaeb17caf6e526f32b6a7b780461512ab3f1d992187801694cba42770c"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/3c/d2/dc5471622bd200db1cd9319e02e71bc655e9ea27b8e0ce65fc69de0dac15/urllib3-1.23.tar.gz"
-    sha256 "a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf"
+    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
+    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
   end
 
   resource "pyyaml" do
