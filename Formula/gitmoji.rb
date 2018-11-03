@@ -13,6 +13,6 @@ class Gitmoji < Formula
   end
 
   test do
-    assert_equal "Gitmojis updated successfully!", shell_output("#{bin}/gitmoji -u").chomp
+    assert_match ":bug:", shell_output("#{bin}/gitmoji --search bug")
   end
 end
