@@ -5,10 +5,9 @@ class Tectonic < Formula
   sha256 "4b7c65692e97704dd3ffee3f4b3aaa57f3e478a2a5c6689dc9347be23ab65897"
 
   bottle do
-    sha256 "6fcddff4f23ae86a90e1c374b5c4f2aea0ff4684ef2d98dc4186b8ea24e4e8f2" => :mojave
-    sha256 "3b3cd8477c1a706e05908a4a4131741fa69fd6e9a6f9acc4b91b66fff1d51e23" => :high_sierra
-    sha256 "49b3824f125845d9ecb6f1d7ff35878af459efb135ca9b180fc672f00c0ec02d" => :sierra
-    sha256 "57df3cd7e38a5e6d7777af8e3aa5b6da6515b00e8bd7c6ddbecc201b9c2e3ef6" => :el_capitan
+    sha256 "99ffb0b1c4c5c962b223980fe69c028407e07986108ec4eae84e3c68faee6de6" => :mojave
+    sha256 "013cd38e6835aaf9565519bbee59c7eb13e4837e0fc3cb122589417bf42673f4" => :high_sierra
+    sha256 "21abd1ad30c0e98ae61d323325312508e4a683ab82db0275f15ffe2235babfa5" => :sierra
   end
 
   depends_on "pkg-config" => :build
