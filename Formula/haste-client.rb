@@ -17,11 +17,10 @@ class HasteClient < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "18cb87e89cbb1d141394d055b295377bf70f808901763d2b0fa38acf12e72204" => :mojave
-    sha256 "e11fbbf6bab06ef1bda10174f263bf16fe7de2c3b8969b36bdaf178b171f8abf" => :high_sierra
-    sha256 "85c7c24c6cb14d5cb948481aeac65928339dec7ff2ecc4220ccd5fb3bebfba79" => :sierra
-    sha256 "2d6cee84eee9e2a0fc75a03ca6fbdb970dfa9ac6ecdeea6a4e32537ee1869fbf" => :el_capitan
+    cellar :any
+    sha256 "a5605502dfd72b22841550fef044eebddf2f2116138a3610e01ae09ca4e24d72" => :mojave
+    sha256 "568dda1e5ae9b24b906e688f190f60c17588ae194f191107b6a8f0edd7de951b" => :high_sierra
+    sha256 "875bd8989b57cf3f6c5e034e3c900fee06a4d5e162e1e27576fb0b315a81e684" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
