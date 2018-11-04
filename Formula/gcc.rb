@@ -60,6 +60,8 @@ class Gcc < Formula
     # JIT compiler is off by default, enabling it has performance cost
     languages << "jit" if build.with? "jit"
 
+    languages << "d" if build.head?
+
     osmajor = `uname -r`.chomp
 
     args = [
