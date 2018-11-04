@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0202.tar.gz"
-  version "0.202"
-  sha256 "a5cef3e7e606e2a36d25b559a5410c1c3105acd24ddbff03352cacb1f1ca7053"
+  url "https://github.com/mamedev/mame/archive/mame0203.tar.gz"
+  version "0.203"
+  sha256 "e17aa95f8897217d433e44e2f4b75ac7b5e13184549b7d14098d52652b7eb49a"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
@@ -24,12 +24,6 @@ class Mame < Formula
   depends_on "sdl2"
   depends_on "sqlite"
   depends_on "utf8proc"
-
-  # jpeg 9 compatibility
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b7053a/mame/jpeg9.patch"
-    sha256 "be8095e1b519f17ac4b9e6208f2d434e47346d8b4a8faf001b68749aac3efd20"
-  end
 
   # Need C++ compiler and standard library support C++14.
   needs :cxx14
