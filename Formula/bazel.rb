@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-dist.zip"
-  sha256 "d0e86d2f7881ec8742a9823a986017452d2da0dfe4e989111da787cb89257155"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.18.1/bazel-0.18.1-dist.zip"
+  sha256 "baed9f28c317000a4ec1ad2571b3939356d22746ca945ac2109148d7abb860d4"
 
   bottle do
     cellar :any_skip_relocation
