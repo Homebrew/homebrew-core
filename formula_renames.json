@@ -86,6 +86,7 @@
   "gutenberg": "zola",
   "hamsterdb": "upscaledb",
   "heroku-toolbelt": "heroku",
+  "hh": "hstr",
   "htop-osx": "htop",
   "httpd24": "httpd",
   "influxdb08": "influxdb@0.8",
