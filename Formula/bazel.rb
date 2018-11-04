@@ -3,6 +3,7 @@ class Bazel < Formula
   homepage "https://bazel.build/"
   url "https://github.com/bazelbuild/bazel/releases/download/0.18.1/bazel-0.18.1-dist.zip"
   sha256 "baed9f28c317000a4ec1ad2571b3939356d22746ca945ac2109148d7abb860d4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
