@@ -5,10 +5,9 @@ class Snapraid < Formula
   sha256 "d35ad92157936db3411e2cf7325665fc59e2d159204f9424895cfa9f33122af1"
 
   bottle do
-    sha256 "f76d78e93603e753551db7f3460c36d8bcbfb17a70dbf213f50c1b037d8d1add" => :mojave
-    sha256 "a3cdc8a3975bf5f3073e21d089d5e3c067fb809ccf758724f25fc092bebf7b71" => :high_sierra
-    sha256 "eba431c9a6d92f379e0063c3c40cf6a655fa2a29256da707f851569046e7d7c9" => :sierra
-    sha256 "e6be5ae4ae3aa3bffbd4f57c4dab84602d3883673ce9f2b74189a0f39c82b4b2" => :el_capitan
+    sha256 "48610c70ee6cfa3ceb3724e19b0d6ca3f88bd552a57aa4a1b15b4c5da4170e7a" => :mojave
+    sha256 "a37ca63751fbe401c7239e4adff594d051e4eb9ceb11c4db594a927fc652e680" => :high_sierra
+    sha256 "e2ffd2c3da613bed66b2a14d682c90703b561b19101ff7f4dbf2864d2107e995" => :sierra
   end
 
   head do
