@@ -29,7 +29,8 @@ class Netcat6 < Formula
   end
 
   test do
-    assert_match "HTTP/1.0", pipe_output("#{bin}/nc6 www.google.com 80", "GET / HTTP/1.0\r\n\r\n")
+    out = pipe_output("#{bin}/nc6 www.google.com 80", "GET / HTTP/1.0\r\n\r\n")
+    assert_equal "HTTP/1.0 200 OK", out.lines.first.chomp
   end
 end
 
