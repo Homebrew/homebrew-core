@@ -1,8 +1,8 @@
 class Dateutils < Formula
   desc "Tools to manipulate dates with a focus on financial data"
   homepage "https://www.fresse.org/dateutils/"
-  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.4/dateutils-0.4.4.tar.xz"
-  sha256 "a9cc2efbb10681130ac725946984e12330e94f43877d865d7f5c131dcf09c84f"
+  url "https://github.com/hroptatyr/dateutils/releases/download/v0.4.5/dateutils-0.4.5.tar.xz"
+  sha256 "16d6a0fe7b7d49ddbb303f33538dd7304a0d4af5a0369bcbf275db6a5060cbde"
 
   bottle do
     sha256 "3e06c17b40904a6827276ce7263a2b809583d6c7357ccf674f10c86decdab47d" => :mojave
