@@ -2,8 +2,8 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway"
   url "https://github.com/couchbase/sync_gateway.git",
-      :tag      => "1.3.1",
-      :revision => "660b1c92fadce1a9c7e692dfe7c5b741772d1dd2"
+      :tag      => "2.1.0",
+      :revision => "a036bd817d35ff1c354c644804dc588fb7c41476"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
@@ -26,11 +26,6 @@ class SyncGateway < Formula
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
     repo_cache = HOMEBREW_CACHE/"repo_cache/#{name}/.repo"
     repo_cache.mkpath
-
-    # Remove for > 1.3.1
-    # Backports from HEAD the upgrade from Git protocol to https
-    # See https://github.com/couchbase/sync_gateway/commit/1cf0399
-    inreplace "manifest/default.xml", "git://", "https://" unless build.head?
 
     (buildpath/"depot_tools").install resource("depot_tools")
     ENV.prepend_path "PATH", buildpath/"depot_tools"
