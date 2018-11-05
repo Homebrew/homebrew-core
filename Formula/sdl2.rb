@@ -1,8 +1,8 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://libsdl.org/release/SDL2-2.0.8.tar.gz"
-  sha256 "edc77c57308661d576e843344d8638e025a7818bff73f8fbfab09c3c5fd092ec"
+  url "https://libsdl.org/release/SDL2-2.0.9.tar.gz"
+  sha256 "255186dc676ecd0c1dbf10ec8a2cc5d6869b5079d8a38194c2aecdff54b324b1"
 
   bottle do
     cellar :any
@@ -18,6 +18,13 @@ class Sdl2 < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  # Upstream commit to fix issue with library version numbers
+  # https://hg.libsdl.org/SDL/rev/d274fa9731b1
+  patch do
+    url "https://hg.libsdl.org/SDL/raw-diff/d274fa9731b1/build-scripts/ltmain.sh"
+    sha256 "9845d8f947dd5b809c1dedba711c878cf2a4644a570cd21a81b574e609eb986b"
   end
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
