@@ -1,8 +1,8 @@
 class DockerComposeCompletion < Formula
   desc "Docker-compose completion script"
   homepage "https://docs.docker.com/compose/completion/"
-  url "https://github.com/docker/compose/archive/1.23.0.tar.gz"
-  sha256 "7feb501d4e33d3c5771a68e49f6823901a414ad43514c60afa9eae43fe93e12f"
+  url "https://github.com/docker/compose/archive/1.23.1.tar.gz"
+  sha256 "843a458d366ca1d41ceec08b3387ba55c6953eba3a171d6af90db0b01f494312"
   head "https://github.com/docker/compose.git"
 
   bottle :unneeded
