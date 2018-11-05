@@ -1,8 +1,8 @@
 class Unshield < Formula
   desc "Extract files from InstallShield cabinet files"
   homepage "https://github.com/twogood/unshield"
-  url "https://github.com/twogood/unshield/archive/1.4.2.tar.gz"
-  sha256 "5dd4ea0c7e97ad8e3677ff3a254b116df08a5d041c2df8859aad5c4f88d1f774"
+  url "https://github.com/twogood/unshield/archive/1.4.3.tar.gz"
+  sha256 "aa8c978dc0eb1158d266eaddcd1852d6d71620ddfc82807fe4bf2e19022b7bab"
   head "https://github.com/twogood/unshield.git"
 
   bottle do
