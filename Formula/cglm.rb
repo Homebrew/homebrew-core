@@ -1,8 +1,8 @@
 class Cglm < Formula
   desc "Optimized OpenGL/Graphics Math (glm) for C"
   homepage "https://github.com/recp/cglm"
-  url "https://github.com/recp/cglm/archive/v0.4.8.tar.gz"
-  sha256 "1372dbfccca3df1cb6f9996ef9a5de898a8796160a50700f235ba98dda405327"
+  url "https://github.com/recp/cglm/archive/v0.4.9.tar.gz"
+  sha256 "5a0b486042e4e898ac326f96f6680c23a8872ae8ae9446d1b22cf2ced613ebc2"
 
   bottle do
     cellar :any
