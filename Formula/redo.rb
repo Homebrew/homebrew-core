@@ -1,8 +1,8 @@
 class Redo < Formula
   desc "Implements djb's redo: an alternative to make(1)"
   homepage "https://github.com/apenwarr/redo"
-  url "https://github.com/apenwarr/redo/archive/redo-0.11.tar.gz"
-  sha256 "2d7743e1389b538e2bd06117779204058fc0fcc0e05fd5ae14791d7f3fc3bcfa"
+  url "https://github.com/apenwarr/redo/archive/redo-0.21.tar.gz"
+  sha256 "79a077092bd8085d6bd98226960590e0fe04ada5a4e1ee6adee3856cf0167b25"
 
   bottle do
     cellar :any_skip_relocation
