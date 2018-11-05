@@ -15,25 +15,18 @@ class Calcurse < Formula
   depends_on "gettext"
 
   if build.head?
-    # For documentation
     depends_on "asciidoc" => :build
-
-    # For general building
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
   def install
-    if build.head?
-      system "./autogen.sh"
-    end
+    system "./autogen.sh" if build.head?
 
-    system "./configure",
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
 
-    # NOTE: Must specify the XML_CATALOG_FILES env so AsciiDoc files
-    #       being processed through an XML stage (via a2x) can work
+    # Specify XML_CATALOG_FILES for asciidoc
     system "make", "XML_CATALOG_FILES=/usr/local/etc/xml/catalog"
     system "make", "install"
   end
