@@ -3,6 +3,7 @@ class Calcurse < Formula
   homepage "https://calcurse.org/"
   url "https://calcurse.org/files/calcurse-4.3.0.tar.gz"
   sha256 "31ecc3dc09e1e561502b4c94f965ed6b167c03e9418438c4a7ad5bad2c785f9a"
+  head "git://git.calcurse.org/calcurse.git"
 
   bottle do
     sha256 "c3f0fc356930d24114a2ef1c16679f1184ba60a4f5bb888b822f6a343f7ae5b5" => :mojave
@@ -13,9 +14,20 @@ class Calcurse < Formula
 
   depends_on "gettext"
 
+  if build.head?
+    depends_on "asciidoc" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make"
+    system "./autogen.sh" if build.head?
+
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
+
+    # Specify XML_CATALOG_FILES for asciidoc
+    system "make", "XML_CATALOG_FILES=/usr/local/etc/xml/catalog"
     system "make", "install"
   end
 
