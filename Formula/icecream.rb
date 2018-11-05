@@ -1,8 +1,8 @@
 class Icecream < Formula
   desc "Distributed compiler with a central scheduler to share build load"
   homepage "https://en.opensuse.org/Icecream"
-  url "https://github.com/icecc/icecream/archive/1.1.tar.gz"
-  sha256 "92532791221d7ec041b7c5cf9998d9c3ee8f57cbd2da1819c203a4c6799ffc18"
+  url "https://github.com/icecc/icecream/archive/1.2.tar.gz"
+  sha256 "12d4132e5aacf6907877b691a8ac09e3e2f704ca016c49bc5eb566fc9185f544"
 
   bottle do
     sha256 "2c2ecc4a39aa00a2b28b69b608fe98ae55e50f4364f8eec3908bad172450a95d" => :mojave
