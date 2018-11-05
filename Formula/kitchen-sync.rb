@@ -7,10 +7,9 @@ class KitchenSync < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f2be7a9ccba914e89ef7b798e18b0a17493522daf3a07172e30b1c8d39002f55" => :mojave
-    sha256 "8e70fee2dbfc450bfc614c2248227642378537c1b04c915e2c9f7c2b1f187c48" => :high_sierra
-    sha256 "8af29ed55e0208c32d20ede87d2d50a70cb719731c2f864e0f5eb5d5ab993c7b" => :sierra
-    sha256 "65066a29bde3ea01ec5e38b1631f8eca2f3e1f7e1ac3ff1ce24f06e8b00a136e" => :el_capitan
+    sha256 "1536494b29c6521a170a535b689207cd4dc9cd8783ea7c52148a53ad08314f44" => :mojave
+    sha256 "8b67fe069f2a1f9ef38625023cc17a19609bd50a75dd90f6d1b39d77504ea563" => :high_sierra
+    sha256 "8aab23fcc57e32a13becc71748eebdb95278228ed436b0b2e7b063274c19092e" => :sierra
   end
 
   deprecated_option "without-mysql" => "without-mysql-client"
