@@ -180,7 +180,7 @@ class Php < Formula
 
     if build.with?("homebrew-tidy-html5")
       args << "--with-tidy=#{Formula["tidy-html5"].opt_prefix}"
-    else if build.with?("tidy")
+    elsif build.with?("tidy")
       args << "--with-tidy"
     end
     
