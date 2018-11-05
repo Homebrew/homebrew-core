@@ -2,9 +2,9 @@ class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
   homepage "https://dmc.web.cern.ch/projects/davix/home"
   url "https://github.com/cern-it-sdc-id/davix.git",
-      :tag      => "R_0_6_8",
-      :revision => "7d9ae02fd29256399e72a400fc0a1f9af7c233d9"
-  version "0.6.8"
+      :tag      => "R_0_7_1",
+      :revision => "414d90721a729c6d1bc6866feebddfc4e2fd4caa"
+  version "0.7.1"
   head "https://github.com/cern-it-sdc-id/davix.git"
 
   bottle do
@@ -17,6 +17,7 @@ class Davix < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "python@2" => :build
   depends_on "openssl"
   depends_on "ossp-uuid"
 
