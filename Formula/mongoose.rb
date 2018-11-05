@@ -1,8 +1,8 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/6.12.tar.gz"
-  sha256 "cde4f61bf541c0df7507c5f138d0068fc643aea19ab3241414db2e659b71ddb3"
+  url "https://github.com/cesanta/mongoose/archive/6.13.tar.gz"
+  sha256 "ec7956b8f2845f6c22e19ab38a0c32c9b379087f0038c7db661b34812f225911"
 
   bottle do
     cellar :any
