@@ -12,7 +12,7 @@ class Php < Formula
 
   option "with-tidy", "Compile tidy extension"
   option "with-homebrew-tidy-html5", "Compile tidy extension with html5 support"
-  
+
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "apr"
@@ -183,7 +183,7 @@ class Php < Formula
     elsif build.with?("tidy")
       args << "--with-tidy"
     end
-    
+
     system "./configure", *args
     system "make"
     system "make", "install"
