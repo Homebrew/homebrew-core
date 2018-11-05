@@ -19,6 +19,7 @@ class Pass < Formula
 
   def install
     system "make", "PREFIX=#{prefix}", "WITH_ALLCOMP=yes", "BASHCOMPDIR=#{bash_completion}", "ZSHCOMPDIR=#{zsh_completion}", "FISHCOMPDIR=#{fish_completion}", "install"
+    system "sed", "-e", "s:^SYSTEM_EXTENSION_DIR=.*:SYSTEM_EXTENSION_DIR=\"#{HOMEBREW_PREFIX}/lib/password-store/extensions\":", "-i", "", "#{bin}/pass"
     elisp.install "contrib/emacs/password-store.el"
     pkgshare.install "contrib"
   end
