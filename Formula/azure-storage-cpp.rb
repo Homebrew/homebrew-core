@@ -3,6 +3,7 @@ class AzureStorageCpp < Formula
   homepage "https://azure.github.io/azure-storage-cpp"
   url "https://github.com/Azure/azure-storage-cpp/archive/v5.1.1.tar.gz"
   sha256 "29b4b0c47784ae541b0ef1b3693acba54e0d06bac78d139105a379ab1fd20333"
+  revision 1
 
   bottle do
     cellar :any
