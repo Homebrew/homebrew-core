@@ -1,8 +1,8 @@
 class GolangMigrate < Formula
   desc "Database migrations CLI tool"
   homepage "https://github.com/golang-migrate/migrate"
-  url "https://github.com/golang-migrate/migrate/archive/v4.0.0.tar.gz"
-  sha256 "b6552d1450990fcbece1253b988e1a5ea8390d8686ce3bdfd52a0f7fbc1ad779"
+  url "https://github.com/golang-migrate/migrate/archive/v4.0.2.tar.gz"
+  sha256 "8cf4a1bd8686f07ef9941a8c5bffc2378d04bc3597879b8f7881a9384d72f420"
 
   bottle do
     cellar :any_skip_relocation
