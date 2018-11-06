@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2018/sqlite-autoconf-3250200.tar.gz"
-  version "3.25.2"
-  sha256 "da9a1484423d524d3ac793af518cdf870c8255d209e369bd6a193e9f9d0e3181"
+  url "https://sqlite.org/2018/sqlite-autoconf-3250300.tar.gz"
+  version "3.25.3"
+  sha256 "00ebf97be13928941940cc71de3d67e9f852698233cd98ce2d178fd08092f3dd"
 
   bottle do
     cellar :any
