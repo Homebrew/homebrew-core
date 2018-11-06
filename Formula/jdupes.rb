@@ -6,10 +6,9 @@ class Jdupes < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "60e466d0262393caadaeb822fb9f006a6018df9ca6851cb95485412dbfa1c435" => :mojave
-    sha256 "22083be28c6a7d610b2c04f766710f2f07367a3f1a571eeac1b287267ffba44c" => :high_sierra
-    sha256 "0467bdff1e91566ec56ada84240068ca882500a3aecd33fd98b5901df9496ae9" => :sierra
-    sha256 "080393ee6408d004a629c2427455eae484bb7f2edeaf993e2528a16e1c0055c0" => :el_capitan
+    sha256 "a9ee8f7fb66b024c8cec3685a640e89f46a5278b9ad8fde1a927b4e30bcc1b0e" => :mojave
+    sha256 "6844a3f7f308b8d39da723552aa9cbddd6f9a3bd13b0f9e72020c57f6edeba35" => :high_sierra
+    sha256 "20e44eecc7a8066022338e0932163d1fcdc5b833fefde045406f5314609e2ee2" => :sierra
   end
 
   # Fix for build issue, remove in next version
