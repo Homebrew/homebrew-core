@@ -7,12 +7,9 @@ class Gowsdl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "49413c57dd30c9e3ed145a33c7f9287a5c6e87e53f53bf30a99b924eb9172315" => :mojave
-    sha256 "d1682261b80ff423ed523303a1b96ead590f396d08569b68233daa4a4918bb24" => :high_sierra
-    sha256 "9423cc4a3a0ff5a786f38fe49f8cd01873d0fd29208028b3857bf791f78970df" => :sierra
-    sha256 "c8ca657c1c298726fed20e337c289721f8f357bc68fda4e225b73b8197da7a28" => :el_capitan
-    sha256 "b0af34a9c397fda92fc535830388724bb3371e10fe7ed91e8cc72849bf9356b2" => :yosemite
-    sha256 "00f1906326025dffe89200c430314cff2e0f9c1b8ca42357d7c2ec5469ce23cd" => :mavericks
+    sha256 "60124759822dfa9cbb182818488f70f7dff36d68b1936b9a457844812f2034bf" => :mojave
+    sha256 "631f836ce7d3f08f8becbd915ef2634b456e256c6cbb4f0450657cc6d1a13468" => :high_sierra
+    sha256 "4395ff37e13fd146e3114beac5e8faa6a6a03819253760f5ef493c834374b905" => :sierra
   end
 
   depends_on "go" => :build
