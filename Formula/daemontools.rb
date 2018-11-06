@@ -22,6 +22,36 @@ class Daemontools < Formula
     end
   end
 
+  def caveats; <<~EOS
+    You must create /service directory as root before starting svscan.
+    So, you can start svscan with following commands.
+      sudo mkdir /service
+      sudo brew services start daemontools
+  EOS
+  end
+
+  plist_options :startup => true
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_bin}/svscanboot</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>KeepAlive</key>
+      <true/>
+    </dict>
+    </plist>
+  EOS
+  end
+
   test do
     assert_match /Homebrew/, shell_output("#{bin}/softlimit -t 1 echo 'Homebrew'")
   end
