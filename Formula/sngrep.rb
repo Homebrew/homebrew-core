@@ -5,10 +5,9 @@ class Sngrep < Formula
   sha256 "638d6557dc68db401b07d73b2e7f8276800281f021fe0c942992566d6b59a48a"
 
   bottle do
-    rebuild 1
-    sha256 "f54b59619034b13fbb2335ac87bfd530d2fd757ea12fc9e7c680c04957a83ac5" => :mojave
-    sha256 "60ef7a7f63a10751d57000321b84a24e37e491f55ffa942b177ee31a9a79275c" => :high_sierra
-    sha256 "b19e1624c118d3fa101aec7298ce707bb8fcef10376b85adaf80ab248df2b511" => :sierra
+    sha256 "3715ca732df699b3165f4410cc4939e7d13502204b76ae31e6d31acd29efcd91" => :mojave
+    sha256 "23e8dcccf8484a80a81090041559dd4c327d85e6e9ade7d15aa375e613741a4d" => :high_sierra
+    sha256 "30c2e61accbce75df643a13be8ac64dabf6cbe5a9edcb48d932dee339afbae19" => :sierra
   end
 
   depends_on "autoconf" => :build
