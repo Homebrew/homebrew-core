@@ -5,10 +5,9 @@ class Calc < Formula
   sha256 "eb1dc5dd680019e30264109167e20539fe9ac869049d8b1639781a51d1dea84c"
 
   bottle do
-    sha256 "e06340c0f32c6bf12904b7268aa423fc7384b8d5dc3c510fef5044fbb30beb78" => :mojave
-    sha256 "0adef80aadb860be5fd0e01d6b843364df9f4fb38665715bf2428773c28f8385" => :high_sierra
-    sha256 "c5af5a309327a041326026af0b2c56bee4f823bb016fb592d9d47ce3593bdf38" => :sierra
-    sha256 "0fdea569d70f771ed02cae8ac4b175cb5810db6acfabb14b1f0e3031bf375822" => :el_capitan
+    sha256 "4e766215d68c33ce4eccf7856549aa179a44b76008230cf8560057798262e3e7" => :mojave
+    sha256 "cdd8b3cb08bc725934ad4ae10c691325a97ee7a1e441d30469729fa98222827a" => :high_sierra
+    sha256 "4af7c47ad39d8992203f12e7d8085e0c83735bff0b3c2e4df4e64e31edfe6ddf" => :sierra
   end
 
   depends_on "readline"
