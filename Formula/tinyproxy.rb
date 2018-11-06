@@ -3,6 +3,7 @@ class Tinyproxy < Formula
   homepage "https://www.banu.com/tinyproxy/"
   url "https://github.com/tinyproxy/tinyproxy/releases/download/1.10.0/tinyproxy-1.10.0.tar.xz"
   sha256 "59be87689c415ba0d9c9bc6babbdd3df3b372d60b21e526b118d722dbc995682"
+  revision 1
 
   bottle do
     sha256 "019c8a6afd4789cebd3682409699acb906b94948420364435d25efaccc4c0257" => :mojave
@@ -30,12 +31,6 @@ class Tinyproxy < Formula
     ]
 
     system "./configure", *args
-
-    # Fix broken XML lint
-    # See: https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=154624
-    inreplace %w[docs/man5/Makefile docs/man8/Makefile], "-f manpage",
-                                                         "-f manpage \\\n  -L"
-
     system "make", "install"
   end
 
@@ -71,7 +66,7 @@ class Tinyproxy < Formula
 
   test do
     pid = fork do
-      exec "#{sbin}/tinyproxy"
+      exec "#{bin}/tinyproxy"
     end
     sleep 2
 
