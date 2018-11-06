@@ -17,7 +17,7 @@ class Dnsdist < Formula
 
   def install
     # error: unknown type name 'mach_port_t'
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra || MacOS.version == :high_sierra
 
     if MacOS.version >= :high_sierra
       sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
