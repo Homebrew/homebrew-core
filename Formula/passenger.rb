@@ -1,9 +1,9 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.3.5.tar.gz"
-  sha256 "2a257b1902691736dcee5d193784f45d44c8709ee2ed039d89eb3fedfe07cca1"
-  head "https://github.com/phusion/passenger.git", :branch => "stable-5.1"
+  url "https://github.com/phusion/passenger/releases/download/release-5.3.6/passenger-5.3.6.tar.gz"
+  sha256 "028b55d3943ad39247a164ad7f746fdc042cf5f52f1e89242f9d52c51aa24efa"
+  head "https://github.com/phusion/passenger.git", :branch => "stable-5.3"
 
   bottle do
     sha256 "3ed453683e1a90b9375e91ca398292f6e41ed91ea227949ebd7ec8547b123b49" => :mojave
@@ -36,10 +36,10 @@ class Passenger < Formula
     rm_rf "buildout/libuv"
     rm_rf "buildout/cache"
 
-    necessary_files = %w[.editorconfig configure Rakefile README.md CONTRIBUTORS
-                         CONTRIBUTING.md LICENSE CHANGELOG INSTALL.md
-                         passenger.gemspec build bin doc man dev src resources
-                         buildout]
+    necessary_files = %w[configure Rakefile README.md CONTRIBUTORS
+                         CONTRIBUTING.md LICENSE CHANGELOG package.json
+                         passenger.gemspec build bin doc images man dev src
+                         resources buildout]
     libexec.mkpath
     cp_r necessary_files, libexec, :preserve => true
 
