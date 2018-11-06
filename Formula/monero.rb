@@ -2,9 +2,8 @@ class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      :tag      => "v0.13.0.2",
-      :revision => "77ef8c1839e1984471605e072a20e04d1e7eb6f8"
-  revision 1
+      :tag      => "v0.13.0.4",
+      :revision => "29073f65e8816d4c32b6ffef514943a5650b8d3b"
 
   bottle do
     cellar :any
@@ -24,8 +23,8 @@ class Monero < Formula
   depends_on "zeromq"
 
   resource "cppzmq" do
-    url "https://github.com/zeromq/cppzmq/archive/v4.2.3.tar.gz"
-    sha256 "3e6b57bf49115f4ae893b1ff7848ead7267013087dc7be1ab27636a97144d373"
+    url "https://github.com/zeromq/cppzmq/archive/v4.3.0.tar.gz"
+    sha256 "27d1f56406ba94ee779e639203218820975cf68174f92fbeae0f645df0fcada4"
   end
 
   def install
