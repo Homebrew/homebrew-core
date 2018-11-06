@@ -6,10 +6,9 @@ class Liberasurecode < Formula
 
   bottle do
     cellar :any
-    sha256 "cad7b5e32a52be64a750a828a4bfee02b1a36b7c30de3f2b714d0dfffa5233cd" => :mojave
-    sha256 "f70d7dd6bbada77684cce1346b36c22b2784839326c4d5a2406e9f6b78d23502" => :high_sierra
-    sha256 "0d9e4bb728b35cbd6694b7756b961a2c22d716a1fa5eeb31fec86aeb323c8420" => :sierra
-    sha256 "879c7118175fdd3e23700137fb249b89362b957ec1c47cf25723bac32eeb305f" => :el_capitan
+    sha256 "8d5dacaeb9bd0cbbb8fbdb73349e48dec6bd2ff4adcdf908a0cc7eb4f9ec0ea2" => :mojave
+    sha256 "2a634bd0e0e2e48044804e977525d256cd4c649f143256aa6b9804cc72014dc4" => :high_sierra
+    sha256 "ceda0bdef7f84490a8b9afa435150e1b11e67d896d70463d605095b042d52dc7" => :sierra
   end
 
   depends_on "autoconf" => :build
