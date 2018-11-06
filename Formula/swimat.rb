@@ -1,8 +1,8 @@
 class Swimat < Formula
   desc "Command-line tool to help format Swift code"
   homepage "https://github.com/Jintin/Swimat"
-  url "https://github.com/Jintin/Swimat/archive/v1.5.1.tar.gz"
-  sha256 "ff4e816d15fea74556d3b55d38c73e3f7b121433c27541aa37f2fc683372d6b6"
+  url "https://github.com/Jintin/Swimat/archive/v1.6.tar.gz"
+  sha256 "44ff6d7642b36ec8e784c1ce1801ad8e9915cda65728e6684f4ca272aee8acbf"
   head "https://github.com/Jintin/Swimat.git"
 
   bottle do
