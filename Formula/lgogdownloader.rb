@@ -7,10 +7,9 @@ class Lgogdownloader < Formula
 
   bottle do
     cellar :any
-    sha256 "4cc1eaa425aaff13aa77be6be1370d41fafce047f8578c6f160412b2a51b4f43" => :mojave
-    sha256 "1951f964ade47905f12ea91fd479ae8a32925b1319438ee6539d33d726aeebd4" => :high_sierra
-    sha256 "8a1dbf21474f6d9957f6e43db1bb2b3023a773ae8d197a28a56bbc405190384d" => :sierra
-    sha256 "faad3335e0a60363fa890c823700fb934e323226aee405587042d1fb61a55dc3" => :el_capitan
+    sha256 "945f00e28f4e3112dd6b70e3293059e00c31a8b23dbbc900f4b54b405519ab2a" => :mojave
+    sha256 "637ec4a70e27d7e1f3a0a2d81623dc77a805a7a356444a8101ac47a2afed0543" => :high_sierra
+    sha256 "1cdce4d683962f19fdd7e0f7186fd6b1c8e7648562f591294dbd0c4dbdc01963" => :sierra
   end
 
   depends_on "cmake" => :build
