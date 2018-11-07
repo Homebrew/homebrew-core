@@ -8,10 +8,9 @@ class Sslscan < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7273ca4f3108b1765d168d1581d0bc026c9b586163da697bcf54cbddfb52abf4" => :mojave
-    sha256 "b45535639610fd506cad8ff708810d2ef033fb2eb23a887705191a34c8505bc9" => :high_sierra
-    sha256 "7b608acf33d2cbb2e5dd66f99a5c2ca731304ad01f3f5e55e0daadcf2efe69f9" => :sierra
-    sha256 "25b58dc0d59e2da5c85fefc128965e882a10b659e63a1f719d89eca5f6fdb25c" => :el_capitan
+    sha256 "3275b8b444a9da183e2145ec02d4ae0fb1d0da084323fa80bd04808310cde002" => :mojave
+    sha256 "596285eb6b6ffaa57d41f00d03d9d1447e2e559d33f8db8c66eefc665e5d7e98" => :high_sierra
+    sha256 "c71304b18d68a5f61a1d484a2e0588468b992a0e651ab7393bac7a5cc2b2bbb1" => :sierra
   end
 
   resource "insecure-openssl" do
