@@ -1,8 +1,8 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/6.2.2596.tar.gz"
-  sha256 "fce7ec22e66043fb59e4a3c369445ea8c57f2631a04b6a0015f19a7bc954567e"
+  url "https://github.com/KhronosGroup/glslang/archive/7.9.2888.tar.gz"
+  sha256 "cb66779d0e6b5f07f0445bd58289a24e56e12693e71d75c8fae3db31ffacaf8c"
   head "https://github.com/KhronosGroup/glslang.git"
 
   bottle do
