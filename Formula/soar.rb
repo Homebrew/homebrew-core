@@ -10,6 +10,7 @@ class Soar < Formula
   end
 
   test do
+    assert_equal "\n", pipe_output("#{bin}/soar -query 'select 1'", '-report-type lint')
     system "#{bin}/soar", "-version"
   end
 end
