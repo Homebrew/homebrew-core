@@ -24,7 +24,6 @@ class Healpix < Formula
 
     ENV.append_to_cflags "-DENABLE_FITSIO"
     cd "src/cxx/autotools" do
-      system "echo", "\"AUTOMAKE_OPTIONS = subdir-objects\" >> Makefile.am"
       system "autoreconf", "--install"
       system "./configure", *configure_args
       system "make", "install"
@@ -46,7 +45,7 @@ class Healpix < Formula
         }
       };
     EOS
-    # Build step
+
     system ENV.cxx, "-o", "test", "test.cxx", "-L#{lib}", "-lchealpix"
     system "./test"
   end
