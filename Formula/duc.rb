@@ -1,9 +1,8 @@
 class Duc < Formula
   desc "Suite of tools for inspecting disk usage"
   homepage "https://duc.zevv.nl/"
-  url "https://github.com/zevv/duc/releases/download/1.4.3/duc-1.4.3.tar.gz"
-  sha256 "504810a1ac1939fb1a70bd25e492f91ea38bcd58ae0a962ce5d35559d7775e74"
-  revision 1
+  url "https://github.com/zevv/duc/releases/download/1.4.4/duc-1.4.4.tar.gz"
+  sha256 "f4e7483dbeca4e26b003548f9f850b84ce8859bba90da89c55a7a147636ba922"
   head "https://github.com/zevv/duc.git"
 
   bottle do
