@@ -12,6 +12,7 @@ class Postgresql < Formula
   end
 
   option "with-python", "Enable PL/Python3"
+  option "with-llvm", "Enable JIT support"
 
   deprecated_option "with-python3" => "with-python"
 
@@ -19,7 +20,9 @@ class Postgresql < Formula
   depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
+  depends_on "perl"
   depends_on "python" => :optional
+  depends_on "llvm" => :optional
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
@@ -56,6 +59,10 @@ class Postgresql < Formula
       ENV["PYTHON"] = which("python3")
     end
 
+    if build.with? "llvm"
+      args << "--with-llvm"
+      ENV["LLVM_CONFIG"] = "#{Formula["llvm"].opt_bin}/llvm-config"
+    end
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
     if MacOS.version >= :mavericks || MacOS::CLT.installed?
