@@ -12,9 +12,11 @@ class Healpix < Formula
   depends_on "cfitsio"
 
   def install
-    configure_args = %W[  --disable-dependency-tracking
-                          --disable-silent-rules
-                          --prefix=#{prefix}  ]
+    configure_args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
 
     cd "src/C/autotools" do
       system "autoreconf", "--install"
@@ -35,7 +37,7 @@ class Healpix < Formula
       #include <stdio.h>
       #include "chealpix.h"
       int main(void) {
-        long   nside, npix, pp, ns1;
+        long nside, npix, pp, ns1;
         nside = 1024;
         for (pp = 0; pp < 14; pp++) {
           nside = pow(2, pp);
