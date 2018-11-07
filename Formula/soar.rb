@@ -6,10 +6,10 @@ class Soar < Formula
 
   def install
     bin.install "soar.darwin-amd64"
-    system "mv", bin/"soar.darwin-amd64", bin/"soar"
+    mv bin/"soar.darwin-amd64", bin/"soar"
   end
 
   test do
-    system "soar", "-version"
+    system "#{bin}/soar", "-version"
   end
 end
