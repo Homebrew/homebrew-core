@@ -22,7 +22,6 @@ class Healpix < Formula
       system "make", "install"
     end
 
-    ENV.append_to_cflags "-DENABLE_FITSIO"
     cd "src/cxx/autotools" do
       system "autoreconf", "--install"
       system "./configure", *configure_args
