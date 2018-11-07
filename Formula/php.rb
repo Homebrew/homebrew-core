@@ -1,21 +1,13 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.2.10.tar.xz/from/this/mirror"
-  sha256 "01c2154a3a8e3c0818acbdbc1a956832c828a0380ce6d1d14fea495ea21804f0"
+  url "https://php.net/get/php-7.2.11.tar.xz/from/this/mirror"
+  sha256 "da1a705c0bc46410e330fc6baa967666c8cd2985378fb9707c01a8e33b01d985"
 
   bottle do
-    sha256 "f6267ba38a514ce87e979942a381e4a453df2a4c0ab543911e201c72eb5cb4c4" => :mojave
-    sha256 "3fc056f4c970bf2590fa26552d74dec8e67393cdf831704d66bb8ee1510cbc6b" => :high_sierra
-    sha256 "ccf3c9f1d496d7f1d60a22d6b2ac95f6a1263726bd07eb5a1be070d15f85e518" => :sierra
-    sha256 "97df44572785772091aaaedd038a10bc481ed7a04c341653f0ecb930b5eb8035" => :el_capitan
-  end
-
-  devel do
-    url "https://downloads.php.net/~cmb/php-7.3.0RC1.tar.xz"
-    sha256 "f6af9e4e2376f1aadee8d1b4b7a60c5080bf53fe8816e141c78d4f72c93c5075"
-
-    depends_on "openldap"
+    sha256 "ba2c23403337af1e54f12009cef9c855b0d5915e86b18ca3ae28e901e9646c69" => :mojave
+    sha256 "a20145121cb17f9a6a6679d4e3e1310e136744aee0667af44bb24b355c77b267" => :high_sierra
+    sha256 "5c16b674951b548d1b11fe77d172b99bfca57ce90122c315e86ef53a0530ee9b" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -172,7 +164,7 @@ class Php < Formula
       args << "--with-curl#{headers_path}"
     end
 
-    if build.devel? || MacOS.sdk_path_if_needed
+    if MacOS.sdk_path_if_needed
       args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
     else
       args << "--with-ldap"
@@ -194,9 +186,9 @@ class Php < Formula
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {
-      "php.ini-development" => "php.ini",
+      "php.ini-development"   => "php.ini",
       "sapi/fpm/php-fpm.conf" => "php-fpm.conf",
-      "sapi/fpm/www.conf" => "php-fpm.d/www.conf",
+      "sapi/fpm/www.conf"     => "php-fpm.d/www.conf",
     }
     config_files.each_value do |dst|
       dst_default = config_path/"#{dst}.default"
@@ -240,17 +232,17 @@ class Php < Formula
     pear_path = HOMEBREW_PREFIX/"share/pear"
     cp_r pkgshare/"pear/.", pear_path
     {
-      "php_ini" => etc/"php/#{php_version}/php.ini",
-      "php_dir" => pear_path,
-      "doc_dir" => pear_path/"doc",
-      "ext_dir" => pecl_path/php_basename,
-      "bin_dir" => opt_bin,
+      "php_ini"  => etc/"php/#{php_version}/php.ini",
+      "php_dir"  => pear_path,
+      "doc_dir"  => pear_path/"doc",
+      "ext_dir"  => pecl_path/php_basename,
+      "bin_dir"  => opt_bin,
       "data_dir" => pear_path/"data",
-      "cfg_dir" => pear_path/"cfg",
-      "www_dir" => pear_path/"htdocs",
-      "man_dir" => HOMEBREW_PREFIX/"share/man",
+      "cfg_dir"  => pear_path/"cfg",
+      "www_dir"  => pear_path/"htdocs",
+      "man_dir"  => HOMEBREW_PREFIX/"share/man",
       "test_dir" => pear_path/"test",
-      "php_bin" => opt_bin/"php",
+      "php_bin"  => opt_bin/"php",
     }.each do |key, value|
       value.mkpath if key =~ /(?<!bin|man)_dir$/
       system bin/"pear", "config-set", key, value, "system"

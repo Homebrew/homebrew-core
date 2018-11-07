@@ -1,15 +1,14 @@
 class Safe < Formula
   desc "Command-line interface for Vault"
   homepage "https://github.com/starkandwayne/safe"
-  url "https://github.com/starkandwayne/safe/archive/v0.9.4.tar.gz"
-  sha256 "40bfdf686b925824680ab336031f0679ac2da5674c9b76b2f3414f66b75d1dee"
+  url "https://github.com/starkandwayne/safe/archive/v0.9.9.tar.gz"
+  sha256 "bd13e711b384930249ba93a5df1269019d69ccbd5add832bd538cd7bb8e545f4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e1d24c5e4fff23b059b01d2db0d0751990746f7d6bf059ebdd6addf6c094136b" => :mojave
-    sha256 "0ea87154eb0e27459437405ffc69f0808cba26260d90b058578e4a4560e1b4d6" => :high_sierra
-    sha256 "2c8f4aa792bebf2b3d2fb7640c434b0753c31f5a135ad7171f9cea3f90df6991" => :sierra
-    sha256 "5dc57faafb0a65cf222223edf2d3dc3cc4cc21fe022863934c1fe984d7eef794" => :el_capitan
+    sha256 "12d909578b737de009be9c5613ef50c9e4282162a5fc46a1f63bffebbfdc621f" => :mojave
+    sha256 "264ca7e9c4351e2c445d1baceeca6f0f8792990e845746c3a83ebe46a4e89d9d" => :high_sierra
+    sha256 "1e75ecfa450f8f76b87af4ae8b77acf4ad4dfc8a4f5da10fd779083d918e6e30" => :sierra
   end
 
   depends_on "go" => :build

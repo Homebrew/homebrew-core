@@ -5,17 +5,17 @@ class Watson < Formula
   homepage "https://tailordev.github.io/Watson/"
   url "https://files.pythonhosted.org/packages/a6/c4/bb84f25803a8f03388e4ce68fc635beb6be8735a27397c00cf14ff26d948/td-watson-1.6.0.tar.gz"
   sha256 "3315586da2c4c77ea4af94ad2812d780a11eacada84e37ab32c2688beba89451"
+  revision 1
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bbc385feb5a28d4035202eb8fe4bbc72a080ff841f581f426b3c52f682998bf0" => :mojave
-    sha256 "a0ab0e1bceba58b01c3ba8ebacb9b384d71dbf962b24c0e3ecc2e3c1159e5c6f" => :high_sierra
-    sha256 "63b0641db2c164d9138c55eb3d8bf7cd2e99eab1074707f1b655939e7c54a684" => :sierra
-    sha256 "cf030d29e2b46acc9bb52ac6d360089acad55373fcc45a77172719e0d43653d1" => :el_capitan
+    sha256 "cbb14dc96d673da36be260e9e2b88fd1c94b675da9e24cb7ad7f314711c99b63" => :mojave
+    sha256 "d465f6398a9f3b052273fed8a0045b71c45673f1ea1870b38225df18d701b48b" => :high_sierra
+    sha256 "580cc616ca27a1f338027a7951fe054ecf3388527a329700210ca0e311ee3307" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/e0/86/4eb5228a43042e9a80fe8c84093a8a36f5db34a3767ebd5e1e7729864e7b/arrow-0.12.1.tar.gz"

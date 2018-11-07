@@ -1,28 +1,28 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/65/ab/4dfcc20234fae12ee40c714b98077d6e3a10652496bd1488fa4828529b22/numpy-1.15.1.zip"
-  sha256 "7b9e37f194f8bcdca8e9e6af92e2cbad79e360542effc2dd6b98d63955d8d8a3"
+  url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
+  sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
 
   bottle do
-    sha256 "a0a68036a0af543beb3c5cd206675ea1b7942c360b661d350572d1ccdb32621e" => :mojave
-    sha256 "e26fdc4e56f65f5afd875156556c8975ddeda418e5b37727ab535f4b2dba088e" => :high_sierra
-    sha256 "a15fc000cd2d90c579efaff1b5c7fe4f1377651dd8cf2712466619748c63d315" => :sierra
-    sha256 "7d1c17824da21bf5c0555751e0721d4be9f3281b4791dcdd8f9c8f3aa83db818" => :el_capitan
+    sha256 "5b718dd8e7b82c90212e5bb7f8c19abde83aba114a3ccce7c12af857a4841978" => :mojave
+    sha256 "84ae5941c9d952657ea49708f2e705fac035c410dc991790edd6779432e357f2" => :high_sierra
+    sha256 "d4267f45ef17ecc2827960f4c063bf0cd2b99f2eeb99e2ec24d4f335595ea268" => :sierra
   end
 
   head do
     url "https://github.com/numpy/numpy.git"
 
     resource "Cython" do
-      url "https://files.pythonhosted.org/packages/21/89/ca320e5b45d381ae0df74c4b5694f1471c1b2453c5eb4bac3449f5970481/Cython-0.28.5.tar.gz"
-      sha256 "b64575241f64f6ec005a4d4137339fb0ba5e156e826db2fdb5f458060d9979e0"
+      url "https://files.pythonhosted.org/packages/f0/66/6309291b19b498b672817bd237caec787d1b18013ee659f17b1ec5844887/Cython-0.29.tar.gz"
+      sha256 "94916d1ede67682638d3cc0feb10648ff14dc51fb7a7f147f4fedce78eaaea97"
     end
   end
 
   option "without-python@2", "Build without python2 support"
 
   depends_on "gcc" => :build # for gfortran
+  depends_on "openblas"
   depends_on "python" => :recommended
   depends_on "python@2" => :recommended
 
@@ -32,6 +32,19 @@ class Numpy < Formula
   end
 
   def install
+    openblas = Formula["openblas"].opt_prefix
+    ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
+    ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"
+
+    config = <<~EOS
+      [openblas]
+      libraries = openblas
+      library_dirs = #{openblas}/lib
+      include_dirs = #{openblas}/include
+    EOS
+
+    Pathname("site.cfg").write config
+
     Language::Python.each_python(build) do |python, version|
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath

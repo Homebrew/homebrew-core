@@ -21,7 +21,7 @@ class SourceHighlight < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-boost=#{HOMEBREW_PREFIX}"
+                          "--with-boost=#{Formula["boost"].opt_prefix}"
     system "make", "install"
 
     bash_completion.install "completion/source-highlight"

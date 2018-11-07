@@ -1,7 +1,7 @@
 class Angband < Formula
   desc "Dungeon exploration game"
-  homepage "http://rephial.org/"
-  url "http://rephial.org/downloads/4.1/angband-4.1.3.tar.gz"
+  homepage "https://rephial.org/"
+  url "https://rephial.org/downloads/4.1/angband-4.1.3.tar.gz"
   sha256 "9402c4f8da691edbd4567a948c5663e1066bee3fcb4a62fbcf86b5454918406f"
   head "https://github.com/angband/angband.git"
 

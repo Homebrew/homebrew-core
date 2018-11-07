@@ -4,13 +4,12 @@ class Netcdf < Formula
   url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-4.6.1.tar.gz"
   mirror "https://www.gfd-dennou.org/library/netcdf/unidata-mirror/netcdf-4.6.1.tar.gz"
   sha256 "89c7957458740b763ae828c345240b8a1d29c2c1fed0f065f99b73181b0b2642"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "a3a1ca395fa37e0038e4c65c2f17feb256f456c0f1339e3383b3a3a0ef224a68" => :mojave
-    sha256 "b2664c9bc67a255c809daed9c618dbf9ed09145c3be8567d22509a97c7aef20e" => :high_sierra
-    sha256 "d69ae7f3b53834ff7d3e05ba44cafd2e7d4019d51045c390015f88bdcc80aa07" => :sierra
-    sha256 "2a6555bfb8b699afe5ca234afbdecd028630e0be668c7ded37ac5246063c4c8c" => :el_capitan
+    sha256 "0793b0144a96f4bf868e128ab067a05bdf6179d3ec583c6fc13f91907094bc3a" => :mojave
+    sha256 "cdf8f97173cd694b475b94c27087a9f0e091ddb93e97663f399238096c146a77" => :high_sierra
+    sha256 "f7440c79e7717507181e624d89c2d4a10ec3c41c315130b9a21ae1cd382d5385" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,23 +1,20 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.69.0.tar.xz"
-  sha256 "637ff943f805f304ff1da77ba2e7f1cbd675f474941fd8ae1e0fc01a5b45a3f9"
+  url "https://poppler.freedesktop.org/poppler-0.71.0.tar.xz"
+  sha256 "badbecd2dddf63352fd85ec08a9c2ed122fdadacf2a34fcb4cc227c4d01f2cf9"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "4f647af7720600fcb75f55f638f9a520bf84136d8f1fe5452f156fb17d164a81" => :mojave
-    sha256 "2de6e8601083b7098b0b8c1e5c691f2aef23173231bd6a5072cd9143be4a4a08" => :high_sierra
-    sha256 "60389d6a5c03c554863da13e16011d29e024fcc9634e85cf5961255eda80dc3d" => :sierra
+    sha256 "0af1d6237430046dddad77c909805e5509a3478b148b2e25f8d56e4f39cac616" => :mojave
+    sha256 "6247be8458aea7d9be59526406b3de0da9423dd2146e3bf53d5b92ad3abce8a8" => :high_sierra
+    sha256 "f3a4677b615b2aeef34c6706fe9c1db6d442f2b465d7559f8a8bff11c1f50057" => :sierra
   end
 
   option "with-qt", "Build Qt5 backend"
-  option "with-little-cms2", "Use color management system"
-  option "with-nss", "Use NSS library for PDF signature validation"
 
   deprecated_option "with-qt4" => "with-qt"
   deprecated_option "with-qt5" => "with-qt"
-  deprecated_option "with-lcms2" => "with-little-cms2"
 
   depends_on "cmake" => :build
   depends_on "gobject-introspection" => :build
@@ -30,9 +27,9 @@ class Poppler < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "little-cms2"
+  depends_on "nss"
   depends_on "openjpeg"
-  depends_on "little-cms2" => :optional
-  depends_on "nss" => :optional
   depends_on "qt" => :optional
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
@@ -49,23 +46,18 @@ class Poppler < Formula
     ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
 
     args = std_cmake_args + %w[
-      -DENABLE_XPDF_HEADERS=ON
-      -DENABLE_GLIB=ON
       -DBUILD_GTK_TESTS=OFF
-      -DWITH_GObjectIntrospection=ON
+      -DENABLE_CMS=lcms2
+      -DENABLE_GLIB=ON
       -DENABLE_QT4=OFF
+      -DENABLE_XPDF_HEADERS=ON
+      -DWITH_GObjectIntrospection=ON
     ]
 
     if build.with? "qt"
       args << "-DENABLE_QT5=ON"
     else
       args << "-DENABLE_QT5=OFF"
-    end
-
-    if build.with? "little-cms2"
-      args << "-DENABLE_CMS=lcms2"
-    else
-      args << "-DENABLE_CMS=none"
     end
 
     system "cmake", ".", *args

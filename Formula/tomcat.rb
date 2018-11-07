@@ -6,14 +6,7 @@ class Tomcat < Formula
 
   bottle :unneeded
 
-  option "with-fulldocs", "Install full documentation locally"
-
   depends_on :java => "1.8+"
-
-  resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.12/bin/apache-tomcat-9.0.12-fulldocs.tar.gz"
-    sha256 "3331252fefc6f768bdd0bd23d1e092d4f9883d4d8b01f3b15a8a873dd5821b83"
-  end
 
   def install
     # Remove Windows scripts
@@ -23,8 +16,6 @@ class Tomcat < Formula
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
-
-    (pkgshare/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
   end
 
   plist_options :manual => "catalina run"

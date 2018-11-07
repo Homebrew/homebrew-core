@@ -4,28 +4,23 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick--7.0.8-12.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-12.tar.xz"
-  sha256 "48df5877fe85603940310fe5c811a89af416882b60379918a95dcd4de6582b55"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick--7.0.8-14.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-14.tar.xz"
+  sha256 "70c3d8c800cfd0282c0e0d9930b83f472f9593a882adc77532aa82c0d7ca0bb1"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "23b2c045087eac2c8f0535c8f469f5f2f48f0a16c2e0fb83b1dc783d7dfcc80e" => :mojave
-    sha256 "a2c78ec559ff121868b854da28fe58b68155a6fdde11c8ee24b1e48d6273a69e" => :high_sierra
-    sha256 "baf6c3ec3eac5bbd571a077ab0c509d6d5f4f8f83010e5db9c6dc76bdfcb6f7f" => :sierra
+    sha256 "f220e51f8a5c457dcfe0cbfa6fa198276b750576043fee3de8286a7e36f46d02" => :mojave
+    sha256 "8c1b666aca1e4ff4ee8ed21e9da3e5271c23debd4a1c4dfcdd7f476055894a0e" => :high_sierra
+    sha256 "d418d9665ef0f7761a27384cd98d660701b5fe05e0a9a9ee91c11b72eac126c3" => :sierra
   end
 
   option "with-fftw", "Compile with FFTW support"
   option "with-hdri", "Compile with HDRI support"
   option "with-libheif", "Compile with HEIF support"
-  option "with-opencl", "Compile with OpenCL support"
-  option "with-openmp", "Compile with OpenMP support"
   option "with-perl", "Compile with PerlMagick"
-  option "with-zero-configuration", "Disables depending on XML configuration files"
 
   deprecated_option "enable-hdri" => "with-hdri"
-  deprecated_option "with-gcc" => "with-openmp"
-  deprecated_option "with-jp2" => "with-openjpeg"
   deprecated_option "with-libde265" => "with-libheif"
 
   depends_on "pkg-config" => :build
@@ -35,6 +30,9 @@ class Imagemagick < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
+  depends_on "little-cms2"
+  depends_on "openjpeg"
+  depends_on "webp"
   depends_on "xz"
 
   depends_on "fftw" => :optional
@@ -45,18 +43,10 @@ class Imagemagick < Formula
   depends_on "librsvg" => :optional
   depends_on "libwmf" => :optional
   depends_on "little-cms" => :optional
-  depends_on "little-cms2" => :optional
   depends_on "openexr" => :optional
-  depends_on "openjpeg" => :optional
   depends_on "pango" => :optional
   depends_on "perl" => :optional
-  depends_on "webp" => :optional
   depends_on :x11 => :optional
-
-  if build.with? "openmp"
-    depends_on "gcc"
-    fails_with :clang
-  end
 
   skip_clean :la
 
@@ -66,35 +56,15 @@ class Imagemagick < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-opencl
+      --disable-openmp
       --enable-shared
       --enable-static
       --with-freetype=yes
       --with-modules
+      --with-openjp2
+      --with-webp=yes
     ]
-
-    if build.with? "opencl"
-      args << "--enable-opencl"
-    else
-      args << "--disable-opencl"
-    end
-
-    if build.with? "openmp"
-      args << "--enable-openmp"
-    else
-      args << "--disable-openmp"
-    end
-
-    if build.with? "webp"
-      args << "--with-webp=yes"
-    else
-      args << "--without-webp"
-    end
-
-    if build.with? "openjpeg"
-      args << "--with-openjp2"
-    else
-      args << "--without-openjp2"
-    end
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
@@ -105,7 +75,6 @@ class Imagemagick < Formula
     args << "--with-rsvg" if build.with? "librsvg"
     args << "--without-x" if build.without? "x11"
     args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--enable-zero-configuration" if build.with? "zero-configuration"
     args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us

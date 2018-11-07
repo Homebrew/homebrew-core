@@ -3,14 +3,13 @@ class Vtk < Formula
   homepage "https://www.vtk.org/"
   url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
   sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
-  revision 1
+  revision 2
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "e1811a8c6a7c19187795dce58c4a41d002e8562be917a4a2fb472d81df2a454e" => :mojave
-    sha256 "a3e2898884b2b0f7901bb94cae76fc43cc578ad48eb1a214eb4bfb585c32f4b4" => :high_sierra
-    sha256 "b3c1352797f5a0c7eca2b84710797161156730930bcdd67af3aa984644a48602" => :sierra
-    sha256 "f56d03fcbb8d26afa1e0ed7f92f80de0306cb39f9c2c377e48dabea918e257ab" => :el_capitan
+    sha256 "9ebecbab78563a12b4a55f62d7c15afeab7b288891ba2b71d8f461b1d77b8b33" => :mojave
+    sha256 "f17ccc19e0183f06c07e6d7b2ac23f21a5056bb8b8bcb57f5411f656639d168a" => :high_sierra
+    sha256 "b0cce7d37ebea9901e98519412b7d8078499ca03ee4cc6ec283525ba9dd2f121" => :sierra
   end
 
   option "without-python@2", "Build without python2 support"
@@ -51,15 +50,7 @@ class Vtk < Formula
       -DVTK_USE_SYSTEM_PNG=ON
       -DVTK_USE_SYSTEM_TIFF=ON
       -DVTK_USE_SYSTEM_ZLIB=ON
-      -DVTK_WRAP_TCL=ON
     ]
-
-    unless MacOS::CLT.installed?
-      # We are facing an Xcode-only installation, and we have to keep
-      # vtk from using its internal Tk headers (that differ from OSX's).
-      args << "-DTK_INCLUDE_PATH:PATH=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Headers"
-      args << "-DTK_INTERNAL_PATH:PATH=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Headers/tk-private"
-    end
 
     mkdir "build" do
       if build.with?("python") && build.with?("python@2")
@@ -120,7 +111,7 @@ class Vtk < Formula
   def caveats; <<~EOS
     Even without the --with-qt option, you can display native VTK render windows
     from python. Alternatively, you can integrate the RenderWindowInteractor
-    in PyQt5, Tk or Wx at runtime. Read more:
+    in PyQt5 or Wx at runtime. Read more:
       import vtk.qt5; help(vtk.qt5) or import vtk.wx; help(vtk.wx)
   EOS
   end

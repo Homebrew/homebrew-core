@@ -1,7 +1,7 @@
 class Reop < Formula
   desc "Encrypted keypair management"
-  homepage "http://www.tedunangst.com/flak/post/reop"
-  url "http://www.tedunangst.com/flak/files/reop-2.1.0.tgz"
+  homepage "https://web.archive.org/web/20170706070539/www.tedunangst.com/flak/post/reop"
+  url "https://web.archive.org/web/20170706070539/www.tedunangst.com/flak/files/reop-2.1.0.tgz"
   mirror "https://bo.mirror.garr.it/OpenBSD/distfiles/reop-2.1.0.tgz"
   sha256 "e429c7ff47f130bd465eaa0c23a1783b476bc484d32793592b54a568b55e49af"
   revision 3

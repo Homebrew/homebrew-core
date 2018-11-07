@@ -1,6 +1,6 @@
 class Libxmlxx < Formula
   desc "C++ wrapper for libxml"
-  homepage "https://libxmlplusplus.sourceforge.io"
+  homepage "https://libxmlplusplus.sourceforge.io/"
   url "https://download.gnome.org/sources/libxml++/2.40/libxml++-2.40.1.tar.xz"
   sha256 "4ad4abdd3258874f61c2e2a41d08e9930677976d303653cd1670d3e9f35463e9"
 
@@ -32,7 +32,7 @@ class Libxmlxx < Formula
       int main(int argc, char *argv[])
       {
          xmlpp::Document document;
-         document.set_internal_subset("homebrew", "", "http://www.brew.sh/xml/test.dtd");
+         document.set_internal_subset("homebrew", "", "https://www.brew.sh/xml/test.dtd");
          xmlpp::Element *rootnode = document.create_root_node("homebrew");
          return 0;
       }

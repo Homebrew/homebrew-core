@@ -1,6 +1,6 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
-  homepage "http://site.icu-project.org/"
+  homepage "https://ssl.icu-project.org/"
   url "https://ssl.icu-project.org/files/icu4c/62.1/icu4c-62_1-src.tgz"
   mirror "https://downloads.sourceforge.net/project/icu/ICU4C/62.1/icu4c-62_1-src.tgz"
   version "62.1"

@@ -5,23 +5,23 @@ class Termius < Formula
   homepage "https://termius.com"
   url "https://github.com/Crystalnix/termius-cli/archive/v1.2.11.tar.gz"
   sha256 "cc8553c9786274de828fc2fc71509e525ef1d8befebb0c74728de59f721912d6"
+  revision 1
   head "https://github.com/Crystalnix/termius-cli.git", :branch => "master"
 
   bottle do
     cellar :any
-    sha256 "eb200d96d10cae1c8b12a2db9bfe558d0f0edbab3c7a94253092782f5321d193" => :mojave
-    sha256 "37eafd317b786ecf5e640c83e638b40aca67a2c6aa6d096245df1582b3578726" => :high_sierra
-    sha256 "4d68f73ba10c090b285cd0051708a0baa4f20d85f524473069853aa05d0a2eb6" => :sierra
-    sha256 "46d51f5c8e0e0c23bab503d2c60fcd051688b20d8e835f8ed747e92993517949" => :el_capitan
+    sha256 "282eda73f7577b057f5e02594370262155b6bc2e8415831ad6db0e5bd3a85df1" => :mojave
+    sha256 "11caefdfa58dc01f65251fbb8d2d7158bfa88f294d84fb0a7f16af829426f009" => :high_sierra
+    sha256 "495c0c709c331514900d5f0805da1f25a28353808fc4e6634ba3f5aacfc4256c" => :sierra
   end
 
   depends_on "bash-completion"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "zsh-completions"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "termius"

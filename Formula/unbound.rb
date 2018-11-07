@@ -1,24 +1,18 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.7.3.tar.gz"
-  sha256 "c11de115d928a6b48b2165e0214402a7a7da313cd479203a7ce7a8b62cba602d"
-  head "https://nlnetlabs.nl/svn/unbound/trunk/", :using => :svn
+  url "https://www.unbound.net/downloads/unbound-1.8.1.tar.gz"
+  sha256 "c362b3b9c35d1b8c1918da02cdd5528d729206c14c767add89ae95acae363c5d"
+  head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
-    rebuild 1
-    sha256 "f47192f79b85a6d21f7837aa85d0061cdd97a4976e41b5fbf49cf215b0482959" => :mojave
-    sha256 "c6a5ac9d52f141bcf0e2d8c3625a95a125c7868663e3145cb4cdccbcacaa7bbd" => :high_sierra
-    sha256 "388a28ae2b7f4cb03fc7e1461115671799f0e356aa375d35313c29f1e0448f9b" => :sierra
-    sha256 "457aefbc06c993b8c8712d7686f8542b59fc993d49f2efe4493543404be95ace" => :el_capitan
+    sha256 "30f001903153859ba2e755086320d037163d925965e77aefd5e9675e7c5eaa9d" => :mojave
+    sha256 "59ccc8d8381ba9cc6eb89640e99f0378879d55b2c0aa07c029c0f64ecc80b65e" => :high_sierra
+    sha256 "fcc55406d9a0c2ac95df9914629456510b73948bd62c6042fc22720ed3e4a85f" => :sierra
   end
-
-  deprecated_option "with-python" => "with-python@2"
 
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "python@2" => :optional
-  depends_on "swig" if build.with? "python@2"
 
   def install
     args = %W[
@@ -27,15 +21,6 @@ class Unbound < Formula
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
-
-    if build.with? "python@2"
-      ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
-      ENV.prepend "PYTHON_VERSION", "2.7"
-
-      args << "--with-pyunbound"
-      args << "--with-pythonmodule"
-      args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
-    end
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
     system "./configure", *args

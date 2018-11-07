@@ -2,7 +2,7 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      :tag => "0.27.0",
+      :tag      => "0.27.0",
       :revision => "12996ef1f54002e5daa45148944ad9219dacef8a"
   head "https://github.com/realm/SwiftLint.git"
 
@@ -17,8 +17,6 @@ class Swiftlint < Formula
   depends_on :xcode => "8.0"
 
   def install
-    ENV["CC"] = Utils.popen_read("xcrun -find clang").chomp # rdar://40724445
-
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SwiftLint.dst"
   end
 

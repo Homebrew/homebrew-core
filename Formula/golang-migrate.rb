@@ -1,27 +1,24 @@
 class GolangMigrate < Formula
   desc "Database migrations CLI tool"
   homepage "https://github.com/golang-migrate/migrate"
-  url "https://github.com/golang-migrate/migrate/archive/v3.4.0.tar.gz"
-  sha256 "7a0789bf611d1efda95528cc581495fd9590cfa25d1dfc0be9e33eaf4c62e33e"
+  url "https://github.com/golang-migrate/migrate/archive/v4.0.2.tar.gz"
+  sha256 "8cf4a1bd8686f07ef9941a8c5bffc2378d04bc3597879b8f7881a9384d72f420"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a81861642c48b40945e8ffa6164496b49a9e92252add038d9dc0cf1e1082f20a" => :mojave
-    sha256 "9b788b6efe7e4d550c1b990603c3dd52f3a6d200e29196958bf6aa92e41e041e" => :high_sierra
-    sha256 "2cef73447b937c71fb1acc194cd10e25c2b44f84fc92ab134945ce86cdcb5a60" => :sierra
-    sha256 "c48936e00e5c263d71c9c2bd4fc0ce295bc8191334e6862632e104e1fa79f73a" => :el_capitan
+    sha256 "3eaa8aed9d4a5a2adef82f74f9098bc4a6f74392ad43a001162baa5088655e64" => :mojave
+    sha256 "ff9a64ae6bddcc6e133989ee342c1dd7add806a9464dbd1ec0714cab58ac3b0f" => :high_sierra
+    sha256 "18dc965e30fc9a880f23ff04ef7690f0916859bfd327532a8fc6bbd766d1703b" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/golang-migrate/migrate").install buildpath.children
 
     # Build and install CLI as "migrate"
     cd "src/github.com/golang-migrate/migrate" do
-      system "dep", "ensure", "-vendor-only"
       system "make", "build-cli", "VERSION=v#{version}"
       bin.install "cli/build/migrate.darwin-amd64" => "migrate"
       prefix.install_metafiles

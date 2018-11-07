@@ -1,8 +1,8 @@
 class PgTop < Formula
   desc "Monitor PostgreSQL processes"
   homepage "https://git.postgresql.org/gitweb/?p=pg_top.git"
-  url "https://mirrorservice.org/sites/ftp.postgresql.org/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
-  mirror "http://pgfoundry.org/frs/download.php/3504/pg_top-3.7.0.tar.bz2"
+  url "https://ftp.postgresql.org/pub/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
+  mirror "https://mirrorservice.org/sites/ftp.postgresql.org/projects/pgFoundry/ptop/pg_top/3.7.0/pg_top-3.7.0.tar.bz2"
   sha256 "c48d726e8cd778712e712373a428086d95e2b29932e545ff2a948d043de5a6a2"
   revision 3
 

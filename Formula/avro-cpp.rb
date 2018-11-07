@@ -21,4 +21,28 @@ class AvroCpp < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
+
+  test do
+    (testpath/"cpx.json").write <<~EOS
+      {
+          "type": "record",
+          "name": "cpx",
+          "fields" : [
+              {"name": "re", "type": "double"},
+              {"name": "im", "type" : "double"}
+          ]
+      }
+    EOS
+    (testpath/"test.cpp").write <<~EOS
+      #include "cpx.hh"
+
+      int main() {
+        cpx::cpx number;
+        return 0;
+      }
+    EOS
+    system "#{bin}/avrogencpp", "-i", "cpx.json", "-o", "cpx.hh", "-n", "cpx"
+    system ENV.cxx, "test.cpp", "-o", "test"
+    system "./test"
+  end
 end

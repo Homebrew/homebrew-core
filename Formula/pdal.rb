@@ -1,16 +1,14 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/archive/1.7.2.tar.gz"
-  sha256 "cedfefbe54ca61cbb33d100d619c53873d84f480ff53deec2cf6dd91580f6a61"
-  revision 1
+  url "https://github.com/PDAL/PDAL/archive/1.8.0.tar.gz"
+  sha256 "ef3a32c06865383feac46fd7eb7491f034cad6b0b246b3c917271ae0c8f25b69"
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
-    sha256 "0a894193d9d2fa7444bb046a9938ee030a0fffe6ab368bab986e3cc0e5d673a8" => :mojave
-    sha256 "82d6a2f732c0157da27f0f08714e13d93ca44170492f92bb3d5beeccc3258e8c" => :high_sierra
-    sha256 "b4dcdc14e28ef98f6d11efc93216e0d6038e2edadabbe15c7d0377d04bbfd890" => :sierra
-    sha256 "ed28bdbe2fddbc1995dbb1248cd7c21b4bbd2f2a34e0929662be9f6fb1bd5be9" => :el_capitan
+    sha256 "c211158a9c99b6ab8a9878abf9fe10d6dc99b42f3f6245f7e593c0969c692484" => :mojave
+    sha256 "5028bf4fb5ccdbbcaf3b09894749130dc7f78232376c61cb7bb6bcf2887d68d8" => :high_sierra
+    sha256 "6d050bb1dcc847ec9daf0b5084b09f3a4f29b946378eae6145c5d95f6eb99213" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -17,7 +17,8 @@ class Afflib < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "python@2"
+  # Python 3 error filed upstream: https://github.com/sshock/AFFLIBv3/issues/35
+  depends_on "python@2" # does not support Python 3
   depends_on :osxfuse => :optional
 
   def install

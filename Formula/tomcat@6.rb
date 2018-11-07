@@ -9,14 +9,7 @@ class TomcatAT6 < Formula
 
   keg_only :versioned_formula
 
-  option "with-fulldocs", "Install full documentation locally"
-
   depends_on :java
-
-  resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.53/bin/apache-tomcat-6.0.53-fulldocs.tar.gz"
-    sha256 "3465db40f8b6f048e0733444668e4a40e9814855e5112762f3bb14e45eb9724a"
-  end
 
   def install
     rm_rf Dir["bin/*.{cmd,bat]}"]
@@ -24,7 +17,6 @@ class TomcatAT6 < Formula
     (libexec+"logs").mkpath
     bin.mkpath
     Dir["#{libexec}/bin/*.sh"].each { |f| ln_s f, bin }
-    (share/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
   end
 
   def caveats; <<~EOS

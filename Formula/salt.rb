@@ -2,16 +2,17 @@ class Salt < Formula
   include Language::Python::Virtualenv
 
   desc "Dynamic infrastructure communication bus"
-  homepage "http://www.saltstack.org"
+  homepage "https://s.saltstack.com/community/"
   url "https://files.pythonhosted.org/packages/9b/84/48b46bad5fa13b47c10a71b4f58cf0f3a30fcb32b6a6599fca454b8c6256/salt-2018.3.2.tar.gz"
   sha256 "d86eeea2e5387f4a64bbf0a11d103bfc8aac1122e19d39cc0945d33efdc797bd"
   head "https://github.com/saltstack/salt.git", :branch => "develop", :shallow => false
 
   bottle do
     cellar :any
-    sha256 "a06f73400e3c9b9be050f13ad8ba604dd4a3bd1ac26c23960827ca601e357572" => :high_sierra
-    sha256 "6282eae0267a80e0e4c37be16226c52608c939a4f44d65cc22cdfc2b9fa43b6e" => :sierra
-    sha256 "6f64006f765ab9677059ba15856a19cb6dbf7fa9e7f51f373fdcf9bcea0bc405" => :el_capitan
+    rebuild 1
+    sha256 "cc567c62a20dde9b87d57b922b6a5b9f46c000b11f36fe2bec0e746458d5f9bd" => :mojave
+    sha256 "b034cbf7bff9d1170413314e8fc7bc019056cd6143b9310ae9b08c7be74ebf79" => :high_sierra
+    sha256 "fb934f06a2a238f3077089a7ce9cc63a2f2c64e197ddd52e40e088a325db1027" => :sierra
   end
 
   depends_on "swig" => :build
@@ -130,6 +131,8 @@ class Salt < Formula
   end
 
   def install
+    ENV["SWIG_FEATURES"]="-I#{Formula["openssl"].opt_include}"
+
     virtualenv_install_with_resources
     prefix.install libexec/"share" # man pages
     (etc/"saltstack").install (buildpath/"conf").children # sample config files

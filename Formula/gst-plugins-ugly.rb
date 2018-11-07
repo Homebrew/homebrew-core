@@ -1,14 +1,14 @@
 class GstPluginsUgly < Formula
   desc "Library for constructing graphs of media-handling components"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.14.3.tar.xz"
-  sha256 "43847fc4d1eae26dd48a6a93d0460146f5f0802582a7e8a9cc66f09dcb0b2306"
+  url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.14.4.tar.xz"
+  sha256 "ac02d837f166c35ff6ce0738e281680d0b90052cfb1f0255dcf6aaca5f0f6d23"
+  revision 1
 
   bottle do
-    sha256 "acb01386f990f7ce43d347bab6c459c67e962321e91c283e4777b5585a8896d8" => :mojave
-    sha256 "b565f2ac356d633f4a9c61edceb8d2078196014cdf9ce83b3899a7694afe60a0" => :high_sierra
-    sha256 "29cb14cb0522b5cc1c217c648bafbd16d3280301b092186e26ab13809f98833d" => :sierra
-    sha256 "79c66d8c348d7a184b94e42b2414decc1e3f6e0ad212d9457ebeaf878823990c" => :el_capitan
+    sha256 "c4fc899a52bf7ec12b6865bc2f4c9c305c8c3008b9e9528b57df508661133bf8" => :mojave
+    sha256 "d5713e7f82c2e57bdb2a59599ce830213221b385088a0cb50e688f013eef80ab" => :high_sierra
+    sha256 "b762bf517f6fb89f2524224b0b20c51bab7c96762f7d28ad7692546382e2efc4" => :sierra
   end
 
   head do
@@ -20,32 +20,32 @@ class GstPluginsUgly < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "flac"
   depends_on "gettext"
   depends_on "gst-plugins-base"
+  depends_on "jpeg"
+  depends_on "lame"
+  depends_on "libmms"
+  depends_on "libshout"
+  depends_on "libvorbis"
+  depends_on "pango"
+  depends_on "theora"
+  depends_on "x264"
 
   # The set of optional dependencies is based on the intersection of
   # gst-plugins-ugly-0.10.17/REQUIREMENTS and Homebrew formulae
-  depends_on "jpeg" => :recommended
   depends_on "a52dec" => :optional
   depends_on "aalib" => :optional
   depends_on "cdparanoia" => :optional
   depends_on "dirac" => :optional
-  depends_on "flac" => :optional
   depends_on "gtk+" => :optional
-  depends_on "lame" => :optional
   depends_on "libcaca" => :optional
   depends_on "libdvdread" => :optional
-  depends_on "libmms" => :optional
   depends_on "libmpeg2" => :optional
   depends_on "liboil" => :optional
-  depends_on "libshout" => :optional
-  depends_on "libvorbis" => :optional
   depends_on "mad" => :optional
   depends_on "opencore-amr" => :optional
-  depends_on "pango" => :optional
-  depends_on "theora" => :optional
   depends_on "two-lame" => :optional
-  depends_on "x264" => :optional
   # Does not work with libcdio 0.9
 
   def install

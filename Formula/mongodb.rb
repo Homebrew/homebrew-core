@@ -1,13 +1,13 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.2.tar.gz"
-  sha256 "adadf5c7f71bee774eb316f64e96c02690fa3ef53b9b5480a97e44cf4df09b86"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.3.tar.gz"
+  sha256 "fbbe840e62376fe850775e98eb10fdf40594a023ecf308abec6dcec44d2bce0c"
 
   bottle do
-    sha256 "1f125f14f9c648d90fd801d6eb47cd27c3af53210eab19e14f933813ab06fd7d" => :mojave
-    sha256 "79d1c7436a276d587b3b6b1a4da1387681d32c9f96e964853c1c030acad63f49" => :high_sierra
-    sha256 "f9ac22d0c18f6d592176b3b6d022bfe9107dbe83dfd236d04caa02c6db5e2ce7" => :sierra
+    sha256 "e69d3b476cae2c11cc133e0ef14a6449738fa4adbaa47feacdccab5f3ec3d506" => :mojave
+    sha256 "3036bebd4570b76b12d6418ef70984e65310506add560345b8acafda1dd8298c" => :high_sierra
+    sha256 "a48d12fa04c7f3bb80d2d0c7febd653cc081b9a19d7e4431b0ed189f8e311e4f" => :sierra
   end
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
@@ -33,8 +33,8 @@ class Mongodb < Formula
   end
 
   resource "typing" do
-    url "https://files.pythonhosted.org/packages/ec/cc/28444132a25c113149cec54618abc909596f0b272a74c55bab9593f8876c/typing-3.6.4.tar.gz"
-    sha256 "d400a9344254803a2368533e4533a4200d21eb7b6b729c173bc38201a74db3f2"
+    url "https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz"
+    sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
   needs :cxx11

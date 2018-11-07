@@ -3,15 +3,16 @@ class AntlrAT2 < Formula
   homepage "https://www.antlr2.org/"
   url "https://www.antlr2.org/download/antlr-2.7.7.tar.gz"
   sha256 "853aeb021aef7586bda29e74a6b03006bcb565a755c86b66032d8ec31b67dbb9"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2152c1d52dc1835617998ffbfb5adccd1309dedd6bcf20233d3ebf7d699d880c" => :mojave
-    sha256 "98b9371fac8dee3fdd61d7691549d8689e2c2ef7f911977fe1ec32227d2d8300" => :high_sierra
-    sha256 "ec2e5dacbcbc0463cec0876b164de6f40b75443f51070b5c31755acf2ad6ffd4" => :sierra
-    sha256 "3c340537a171cdf7c87788cd6e507a403decaf864dc81249a2da01e4bac5b3f7" => :el_capitan
-    sha256 "90b75cee100dd1f98e50d3c858b5a54c5c676dca7fd22c81863be76504777180" => :yosemite
+    sha256 "9be9c82eba1b6b803c75114ed55947692693785566c59dca392b8bbae6b8aa19" => :mojave
+    sha256 "8befbeeb644d45a1a8edfebc99035b965dfc95a9d5adfa7227428905168062d4" => :high_sierra
+    sha256 "76d763e8d8097435e98239935255d6679e174245b5443f4f87decf4198793444" => :sierra
   end
+
+  keg_only :versioned_formula
 
   depends_on :java
 
@@ -27,7 +28,7 @@ class AntlrAT2 < Formula
     include.install "lib/cpp/antlr"
     lib.install "lib/cpp/src/libantlr.a"
 
-    (bin/"antlr2").write <<~EOS
+    (bin/"antlr").write <<~EOS
       #!/bin/sh
       java -classpath #{libexec}/antlr.jar antlr.Tool "$@"
     EOS
@@ -35,6 +36,6 @@ class AntlrAT2 < Formula
 
   test do
     assert_match "ANTLR Parser Generator   Version #{version}",
-      shell_output("#{bin}/antlr2 --help 2>&1")
+      shell_output("#{bin}/antlr --help 2>&1")
   end
 end

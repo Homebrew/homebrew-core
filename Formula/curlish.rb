@@ -16,8 +16,7 @@ class Curlish < Formula
     sha256 "b01c4e78526de36f3b4e0fcac7ec049e2a4dd9366c8d32eae5692a3e626f99a4" => :mountain_lion
   end
 
-  # curlish needs argparse (2.7+)
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     bin.install "curlish.py" => "curlish"

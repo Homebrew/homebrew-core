@@ -74,6 +74,7 @@ class XalanC < Formula
       </xsl:stylesheet>
     EOS
 
-    assert_match "Article: An XSLT test-case\nAuthors: \n* Roger Leigh\n* Open Microscopy Environment", shell_output("#{bin}/Xalan #{testpath}/input.xml #{testpath}/transform.xsl")
+    assert_match "Article: An XSLT test-case\nAuthors: \n* Roger Leigh\n* Open Microscopy Environment",
+                 shell_output("#{bin}/Xalan #{testpath}/input.xml #{testpath}/transform.xsl")
   end
 end

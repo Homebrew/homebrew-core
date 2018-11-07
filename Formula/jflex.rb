@@ -1,8 +1,8 @@
 class Jflex < Formula
   desc "Lexical analyzer generator for Java, written in Java"
   homepage "http://jflex.de/"
-  url "http://jflex.de/release/jflex-1.6.1.zip"
-  sha256 "6da3c573db065f535c9b544e46ab4d49caa629b0354f8340df027f35e3368a51"
+  url "http://jflex.de/release/jflex-1.7.0.zip"
+  sha256 "833ea6371a4b5ee16023f328fbf7babd41a71e93155cf869c53f3ff670508107"
 
   bottle :unneeded
 
@@ -10,7 +10,7 @@ class Jflex < Formula
 
   def install
     pkgshare.install "examples"
-    libexec.install "lib/jflex-#{version}.jar"
+    libexec.install "lib/jflex-full-#{version}.jar" => "jflex-#{version}.jar"
     bin.write_jar_script libexec/"jflex-#{version}.jar", "jflex"
   end
 

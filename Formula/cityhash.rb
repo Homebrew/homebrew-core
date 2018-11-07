@@ -18,4 +18,20 @@ class Cityhash < Formula
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <stdio.h>
+      #include <city.h>
+
+      int main() {
+        const char* a = "This is my test string";
+        uint64_t result = CityHash64(a, sizeof(a));
+        printf("result: %llx\\n", result);
+        return result != 0xab7a556ed7598b04LL;
+      }
+    EOS
+    system ENV.cxx, "-L#{lib}", "-lcityhash", "test.cpp", "-o", "test"
+    system "./test"
+  end
 end

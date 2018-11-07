@@ -8,19 +8,19 @@ class GitFtp < Formula
 
   bottle do
     cellar :any
-    sha256 "ad2bc34727cc42e6cd7bbb82f95bbcfe4fa715efe8e090bcd1d9c71ddbe31b89" => :mojave
-    sha256 "fea10bb50037716d6b50933119e8c496f74cb188e94811114516ad1f579c7e4e" => :high_sierra
-    sha256 "a07c7e4ae57c95f718de94600a270f0d4377f7b0476ebc59d59e895abf55cdd8" => :sierra
-    sha256 "ceb3c1d012fd3d196d72a45c131eea5edb0013757830700011d4228d0c25174d" => :el_capitan
+    rebuild 1
+    sha256 "05d8eaa07ce02ca49b84b11452e0532e75ce32d7b8925ab25e942dedf22ca417" => :mojave
+    sha256 "dec17745a52217c32716095cae029e9bfdc33767f05244d6376c1e31a0e3206f" => :high_sierra
+    sha256 "68a9a026483d20a5dd9bf9e17200e4e9b91fdf1349618217fb43ee59648d5be6" => :sierra
   end
 
   depends_on "pandoc" => :build
   depends_on "libssh2"
 
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.61.1.tar.bz2"
-    mirror "https://curl.askapache.com/download/curl-7.61.1.tar.bz2"
-    sha256 "a308377dbc9a16b2e994abd55455e5f9edca4e31666f8f8fcfe7a1a4aea419b9"
+    url "https://curl.haxx.se/download/curl-7.62.0.tar.bz2"
+    mirror "https://curl.askapache.com/download/curl-7.62.0.tar.bz2"
+    sha256 "7802c54076500be500b171fde786258579d60547a3a35b8c5a23d8c88e8f9620"
   end
 
   def install

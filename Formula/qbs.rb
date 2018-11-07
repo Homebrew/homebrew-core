@@ -3,6 +3,7 @@ class Qbs < Formula
   homepage "https://wiki.qt.io/Qbs"
   url "https://download.qt.io/official_releases/qbs/1.12.0/qbs-src-1.12.0.tar.gz"
   sha256 "5efeb2492f8ccf0e7a5ea106f748e1c536f964674025aecb22c1ee948e3e35d1"
+  head "https://code.qt.io/qbs/qbs.git"
 
   bottle do
     cellar :any

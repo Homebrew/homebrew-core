@@ -5,13 +5,12 @@ class GmtAT4 < Formula
   mirror "https://fossies.org/linux/misc/GMT/gmt-4.5.18-src.tar.bz2"
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-4.5.18-src.tar.bz2"
   sha256 "27c30b516c317fed8e44efa84a0262f866521d80cfe76a61bf12952efb522b63"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "bf936092777345ea6977e2e7c2856bee1226d7a1a29f17c9ad1a9d47e87d27c7" => :mojave
-    sha256 "ed486f18b1de6cbf1470cbe9a3a3800628ed8ee02fd1e773afdd4d6e48664e27" => :high_sierra
-    sha256 "00131f50e07e8d62408b4a5deeb15f01f8f4d58227f59092cc00fe3aa64c31c7" => :sierra
-    sha256 "2365d6c8e21218609bcd0dbd9974b314f777f2214fb5d67df3a075929964f2ae" => :el_capitan
+    sha256 "cfe7635ebe3de9922754db606838acc57dbd0ad68c7dfad55dd275beb34b7e17" => :mojave
+    sha256 "4e10a4b50cfff977e5968c81856ab9e0529681ab7e70fbd44230a8296d3975da" => :high_sierra
+    sha256 "66b5bd0f94d0aa36d6760bfe6672e213bf0c2b665d073cc8c77074535fb27f27" => :sierra
   end
 
   keg_only :versioned_formula

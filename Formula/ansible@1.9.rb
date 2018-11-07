@@ -18,7 +18,7 @@ class AnsibleAT19 < Formula
 
   depends_on "libyaml"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   #
   # ansible (core dependencies)

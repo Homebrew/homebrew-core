@@ -1,15 +1,13 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://spruce.sourceforge.io/gmime/"
-  url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.0.tar.xz"
-  sha256 "75ec6033f9192488ff37745792c107b3d0ab0a36c2d3e4f732901a771755d7e0"
-  revision 1
+  url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.2.tar.xz"
+  sha256 "613014ffcd327b3f6b06aa45cf4bf3adc25cd831f14537c4132880022dda7209"
 
   bottle do
-    sha256 "be7c56035c82619abe2b97de729cf8d0f5b96134343e19625554a6e09927b915" => :mojave
-    sha256 "4cefcf587984cfb905ec956527479f3b081bfb750ebec54a5ca074edc26333cc" => :high_sierra
-    sha256 "910361d5b4bc083a5365a366a3d9f39fe96ca6e9e78bd88bc4a6fdaeac634d14" => :sierra
-    sha256 "a2a9001ff723c5766ae4761c5b0553d7d6d5fb54c09cdb4154d659c3bbb614f8" => :el_capitan
+    sha256 "88b7886e681bb4edb54934c770947b330d88dd7d0803b2e3475cc34d37d9fa07" => :mojave
+    sha256 "857eecf0b18c2e57665537cb77b962629aa2a65930c0c6080f800d667d269488" => :high_sierra
+    sha256 "38d0f41048f6cd93bc1f3b86d1507c504b387f97f5d6ba91d27d90cc9b7a4ca6" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

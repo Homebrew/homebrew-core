@@ -41,11 +41,11 @@ class LibbitcoinBlockchain < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp",
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-I#{libexec}/include",
-                    "-L#{lib}", "-L#{libexec}/lib",
-                    "-lbitcoin", "-lbitcoin-blockchain", "-lboost_system",
-                    "-o", "test"
+                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
+                    "-L#{lib}", "-L#{libexec}/lib", "-lbitcoin-blockchain",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
     system "./test"
   end
 end

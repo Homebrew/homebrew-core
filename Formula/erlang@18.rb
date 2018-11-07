@@ -1,15 +1,14 @@
 class ErlangAT18 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
-  url "https://github.com/erlang/otp/archive/OTP-18.3.4.9.tar.gz"
-  sha256 "25ef8ba3824cb726c4830abf32c2a2967925b1e33a8e8851dba596e933e2689a"
+  url "https://github.com/erlang/otp/archive/OTP-18.3.4.10.tar.gz"
+  sha256 "994c8aa2931d4d7ad473c68d1be31ec9e7faa96a2859f253225c3b33226dfcba"
 
   bottle do
     cellar :any
-    sha256 "35ca0e0acbecd171e586bcebb53b2313ca02fc756b390d750cc73ee86f8f6702" => :mojave
-    sha256 "2a379d09b405738143d3f05a719738e2cac285107e1c5115ae6bceb301ef1c44" => :high_sierra
-    sha256 "3d70eb44b2d7e4038d85c946973b57fd1bc0ddfb638e4f84b001393d3bcbc699" => :sierra
-    sha256 "66f38b4af3fc08e302d421d1bd4bd5e40125d920968a46c1aed7d4056ec7a033" => :el_capitan
+    sha256 "fbd8cee1bec3a5e5489818af3eda83b5fbb6f1d2c43dfd8918e0cb20eafd5ddd" => :mojave
+    sha256 "494e7da2604522f1e3ce247712bfc760211914afd34521d61eed6138c2461b7f" => :high_sierra
+    sha256 "c4da61545ccaa6b5bde74ce57b36be02383634430e7b0b69e3ef0e31737f5b2f" => :sierra
   end
 
   keg_only :versioned_formula
@@ -18,7 +17,6 @@ class ErlangAT18 < Formula
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
   option "with-java", "Build jinterface application"
-  option "without-docs", "Do not install documentation"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -111,10 +109,8 @@ class ErlangAT18 < Formula
     ENV.deparallelize # Install is not thread-safe; can try to create folder twice and fail
     system "make", "install"
 
-    if build.with? "docs"
-      (lib/"erlang").install resource("man").files("man")
-      doc.install resource("html")
-    end
+    (lib/"erlang").install resource("man").files("man")
+    doc.install resource("html")
   end
 
   def caveats; <<~EOS

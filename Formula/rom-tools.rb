@@ -1,20 +1,19 @@
 class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0202.tar.gz"
-  version "0.202"
-  sha256 "a5cef3e7e606e2a36d25b559a5410c1c3105acd24ddbff03352cacb1f1ca7053"
+  url "https://github.com/mamedev/mame/archive/mame0203.tar.gz"
+  version "0.203"
+  sha256 "e17aa95f8897217d433e44e2f4b75ac7b5e13184549b7d14098d52652b7eb49a"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "93a95e2c87d2d9605bfa19722ced6f05d8cf11936f0c850b8fc6350fa395e7d2" => :mojave
-    sha256 "b565029f6ba16c604870c37281727c8f4d37f77647da32fad2183e99ebf065fe" => :high_sierra
-    sha256 "0407c619bdc8e660c11c6accfe376ef0f56723bb8b591b58b4d511dec2bb815c" => :sierra
+    sha256 "0a195bad4d3a90e3a08c0c7f792be290fd686e0c2ce779198291dd794e7384b6" => :mojave
+    sha256 "3c684205d93622db28f84dfa3549ab807fe58eecd1ac35a275d43157b4b1c7ac" => :high_sierra
+    sha256 "73147639d76a566c071cd901af0e8591b8202c14cf8dc0d3548932f1655168f5" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
   depends_on "flac"
   depends_on "portmidi"
   depends_on "sdl2"

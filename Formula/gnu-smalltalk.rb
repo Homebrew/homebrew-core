@@ -14,12 +14,6 @@ class GnuSmalltalk < Formula
     sha256 "a2a098e2fd4e07d87b705fc8aaabb6603df62ac437b5af68f610ff5b4797c0d5" => :el_capitan
   end
 
-  devel do
-    url "https://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
-    sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
-  end
-
   option "with-tcltk", "Build the Tcl/Tk module that requires X11"
 
   deprecated_option "tcltk" => "with-tcltk"

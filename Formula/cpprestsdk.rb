@@ -1,16 +1,17 @@
 class Cpprestsdk < Formula
   desc "C++ libraries for cloud-based client-server communication"
   homepage "https://github.com/Microsoft/cpprestsdk"
-  url "https://github.com/Microsoft/cpprestsdk/archive/v2.10.2.tar.gz"
-  sha256 "fb0b611007732d8de9528bc37bd67468e7ef371672f89c88f225f73cdc4ffcf1"
+  # pull from git tag to get submodules
+  url "https://github.com/Microsoft/cpprestsdk.git",
+      :tag      => "v2.10.7",
+      :revision => "c4cef129e880a3f9c23a480e8c983793963173bb"
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
     cellar :any
-    sha256 "7a07bbeb8e65fcea88390712f7c5f2e3e39dcf8752727dbd410c5f464cd967a9" => :mojave
-    sha256 "d14bed2a2b49d91649d9fc8aa9708b1dc37b3c5b2b8bffcbdda79c2df8542319" => :high_sierra
-    sha256 "f72554353c248a4f479be76e8382fef549c9abb2690445adb6bcb49d8f867bd1" => :sierra
-    sha256 "53b4cdfd9b0b964a1803920d02ae066a4ddb2be58e68477d34906ba44048e52a" => :el_capitan
+    sha256 "b16e8f7394c60b072e83b2d926edefb87fba016895b7937f35714d459378d390" => :mojave
+    sha256 "eaa86feed491d58e54d5cf41fe8544a469a4893f0857384b74fc462531b33d49" => :high_sierra
+    sha256 "62a5e080f65be69341b14f41d92a68aa61d1aaaa913a4c5464d152264248ae9e" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,16 +1,15 @@
 class LibjsonRpcCpp < Formula
   desc "C++ framework for json-rpc"
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
-  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.1.0.tar.gz"
-  sha256 "8e699cad9f64e5db5c855ddfb6900dc55e673cc960cb9158818d652b74cb9183"
+  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.1.1.tar.gz"
+  sha256 "ecfad0b5ac775f771471b5f22140fd8bbf273ab1cfa405d18d6683aba098562b"
   head "https://github.com/cinemast/libjson-rpc-cpp.git"
 
   bottle do
     cellar :any
-    sha256 "9cc2bf0ebbcb49c80dbbaa380af6f8c3611bf19ac485d5e49000f8ee8290f5dc" => :mojave
-    sha256 "a0bf45eab53c074d1a7db06b07d208a25eb1f004732fc331854b016af491d757" => :high_sierra
-    sha256 "4202093dd4d26177adf295ec6c7e81df4a32be060f5599de80cbeb24b45640e5" => :sierra
-    sha256 "cfb154a79679e34ec52c03eebf077ebb9d6d81c6bddd4a21d43fb49fee8f812d" => :el_capitan
+    sha256 "94278cc62c0e7a0c49d9fbe0125a5d3f6b354d317540bd65a7b39606c686ca68" => :mojave
+    sha256 "be1196fb4ae8d9ec49a1be7432bf319537e3dd40497771b6144d32d6f7bfe49a" => :high_sierra
+    sha256 "91e9b7ec9e5aa10f007c4ae15e9debedc9a2105a8e67153d38fcd19afb5dd597" => :sierra
   end
 
   depends_on "cmake" => :build

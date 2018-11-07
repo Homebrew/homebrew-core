@@ -22,4 +22,13 @@ class Atf < Formula
     ENV.deparallelize
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.sh").write <<~EOS
+      #!/usr/bin/env atf-sh
+      echo test
+      exit 0
+    EOS
+    system "bash", "test.sh"
+  end
 end

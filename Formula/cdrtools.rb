@@ -1,18 +1,10 @@
 class Cdrtools < Formula
   desc "CD/DVD/Blu-ray premastering and recording software"
   homepage "http://cdrecord.org/"
+  url "https://downloads.sourceforge.net/project/cdrtools/cdrtools-3.01.tar.bz2"
+  mirror "https://fossies.org/linux/misc/cdrtools-3.01.tar.bz2"
+  sha256 "ed282eb6276c4154ce6a0b5dee0bdb81940d0cbbfc7d03f769c4735ef5f5860f"
   revision 1
-
-  stable do
-    url "https://downloads.sourceforge.net/project/cdrtools/cdrtools-3.01.tar.bz2"
-    mirror "https://fossies.org/linux/misc/cdrtools-3.01.tar.bz2"
-    sha256 "ed282eb6276c4154ce6a0b5dee0bdb81940d0cbbfc7d03f769c4735ef5f5860f"
-
-    patch do
-      url "https://downloads.sourceforge.net/project/cdrtools/cdrtools-3.01-fix-20151126-mkisofs-isoinfo.patch"
-      sha256 "4e07a2be599c0b910ab3401744cec417dbdabf30ea867ee59030a7ad1906498b"
-    end
-  end
 
   bottle do
     rebuild 1
@@ -24,16 +16,15 @@ class Cdrtools < Formula
     sha256 "1b3f3ab5baf44ad31f8d09e36de6df59901ce036cc681c54187fe5f41dc8bb94" => :mavericks
   end
 
-  devel do
-    url "https://downloads.sourceforge.net/project/cdrtools/alpha/cdrtools-3.02a09.tar.bz2"
-    mirror "https://fossies.org/linux/misc/cdrtools-3.02a09.tar.bz2"
-    sha256 "aa28438f458ef3f314b79f2029db27679dae1d5ffe1569b6de57742511915e81"
-  end
-
   depends_on "smake" => :build
 
   conflicts_with "dvdrtools",
     :because => "both dvdrtools and cdrtools install binaries by the same name"
+
+  patch do
+    url "https://downloads.sourceforge.net/project/cdrtools/cdrtools-3.01-fix-20151126-mkisofs-isoinfo.patch"
+    sha256 "4e07a2be599c0b910ab3401744cec417dbdabf30ea867ee59030a7ad1906498b"
+  end
 
   def install
     # Speed-up the build by skipping the compilation of the profiled libraries.
@@ -42,7 +33,6 @@ class Cdrtools < Formula
     # lib*/*_p.mk files. The latter method produces warnings but works fine.
     rm_f Dir["lib*/*_p.mk"]
     system "smake", "INS_BASE=#{prefix}", "INS_RBASE=#{prefix}", "install"
-    system "smake", "tests" if build.devel?
     # cdrtools tries to install some generic smake headers, libraries and
     # manpages, which conflict with the copies installed by smake itself
     (include/"schily").rmtree

@@ -3,15 +3,14 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/2b/c1/d734ed25a1c60a43096d74e15f2f2ee4ff5e0447d40a058e0d8c7c12c9e5/ocrmypdf-7.0.4.tar.gz"
-  sha256 "65f0df062b25cad3fe1c8e46c45705c7db48df37a54dd202109a50f15b89987a"
+  url "https://files.pythonhosted.org/packages/c1/32/06c0381653284bab21b26612dee0c923440f35143e59a43a744e4cf1bd12/ocrmypdf-7.2.1.tar.gz"
+  sha256 "e56902d370f3d4766432e7b7f300fd4b0ed51bd98dedadc3923b8af20471b528"
 
   bottle do
     cellar :any
-    sha256 "40b8377d6592bce4d03c53c46c18ca3c6986a83ab302959115f833d8623cd42b" => :mojave
-    sha256 "b8c8f1ec0a1a29468c3ec79b0b78d87a01177dedc1a6e9a803f336efe8c4d0a8" => :high_sierra
-    sha256 "c108e86acd637c12918606071e693125b03f0d256864a87a68ec0112671f3d47" => :sierra
-    sha256 "d75eb10b453382b296797241bc10df51cad06bc72e69b51ce345eb966e7b034c" => :el_capitan
+    sha256 "b1773b6a2657a167042cbd03c04e4051187dff8d2cb1f656863b8220a03de426" => :mojave
+    sha256 "54f466af800ce1ef583e2a8b3f5e8a1170777179021d8c7bedce6bb7ce0ba236" => :high_sierra
+    sha256 "af698a28872bebdcbc8123f22a43f7ae9176796b746ee46283df15a433fabb7c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -23,6 +22,7 @@ class Ocrmypdf < Formula
   depends_on "leptonica"
   depends_on "libpng"
   depends_on "pngquant"
+  depends_on "pybind11"
   depends_on "python"
   depends_on "qpdf"
   depends_on "tesseract"
@@ -39,8 +39,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/30/bd/7afb368ea0872e64208e9940c729afde2c27eff7ffe1bbb28a64b1bb5340/pikepdf-0.3.2.tar.gz"
-    sha256 "574ab287d326ef80ed5fe042ac3493831f1feba6c6deff552ef4a101da4a5d3c"
+    url "https://files.pythonhosted.org/packages/09/ef/db0bc644097f52382f8040633ca8bc49b04a54dfbf76147c495398e2949b/pikepdf-0.3.5.tar.gz"
+    sha256 "661d38fd54bf419549bb162b9dab6699395896a52e10ca5d0b52610806122d69"
   end
 
   resource "Pillow" do

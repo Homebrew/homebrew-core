@@ -46,4 +46,8 @@ class ChocolateDoom < Formula
       #{homepage}
   EOS
   end
+
+  test do
+    assert_match "Chocolate Doom #{version}", shell_output("#{bin}/chocolate-doom -nogui", 255)
+  end
 end

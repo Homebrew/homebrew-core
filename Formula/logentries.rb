@@ -16,7 +16,7 @@ class Logentries < Formula
     sha256 "708c87deba34989966325243046ed26daa1c3a085d7940e6266ae28b8574bee1" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   conflicts_with "le", :because => "both install a le binary"
 

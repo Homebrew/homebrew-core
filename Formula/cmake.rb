@@ -1,21 +1,20 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://cmake.org/files/v3.12/cmake-3.12.2.tar.gz"
-  sha256 "0f97485799e51a7070cc11494f3e02349b0fc3a24cc12b082e737bf67a0581a4"
+  url "https://cmake.org/files/v3.12/cmake-3.12.4.tar.gz"
+  sha256 "5255584bfd043eb717562cff8942d472f1c0e4679c4941d84baadaa9b28e3194"
   head "https://cmake.org/cmake.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "467775398419045ade07ae6f406fcc41299094f1c2d94eeda1b192eda2cb7e90" => :mojave
-    sha256 "852ff3e17fd4b18dad1b321043a2e89020bed0e8b1cabcaf1ca93f454c38e182" => :high_sierra
-    sha256 "10dd90b3aedb656af4ef26f53ff62a6f3b34391fc4774f5704959f643535cb09" => :sierra
-    sha256 "14ad6305d2b795cabe082779eea3875591ddb3b3c881a6056f9c792243fe7135" => :el_capitan
+    sha256 "7bcd5ae043d2a6fd5983b026ccdc70b7594e0dbe9de4d367cfcead7edf3c8596" => :mojave
+    sha256 "11eab1d25ca73bbc2099058af7a434af465e61d028c4114627069fdb999df9ba" => :high_sierra
+    sha256 "ef818ca63a0a2836aa881c9333bec61738261d0dc0e975cd82e4cacb1fc8fa3d" => :sierra
   end
 
-  option "with-completion", "Install Bash completion (Has potential problems with system bash)"
-
   depends_on "sphinx-doc" => :build
+
+  # The completions were removed because of problems with system bash
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
@@ -51,12 +50,6 @@ class Cmake < Formula
     system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
     system "make"
     system "make", "install"
-
-    if build.with? "completion"
-      cd "Auxiliary/bash-completion/" do
-        bash_completion.install "ctest", "cmake", "cpack"
-      end
-    end
 
     elisp.install "Auxiliary/cmake-mode.el"
   end

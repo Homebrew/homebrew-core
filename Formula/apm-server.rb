@@ -106,11 +106,12 @@ class ApmServer < Formula
     begin
       system "curl", "-H", "Content-Type: application/json", "-XPOST", "localhost:#{port}/v1/transactions", "-d",
              '{"service":{"name":"app1","agent":{"name":"python","version":"1.0"}},' \
-             '"transactions":[{"id":"945254c5-67a5-417e-8a4e-aa29efcbfb79","name":"GET /api/types","type":"request","duration":32.592981,"timestamp":"2017-05-09T15:04:05.999999Z"}]}'
+             '"transactions":[{"id":"945254c5-67a5-417e-8a4e-aa29efcbfb79","name":"GET /api/types", ' \
+             '"type":"request","duration":32.592981,"timestamp":"2017-05-09T15:04:05.999999Z"}]}'
       sleep 1
       s = (testpath/"apm-server/apm-server").read
-      assert_match "\"id\":\"945254c5-67a5-417e-8a4e-aa29efcbfb79\"", s
-      assert_match "\"name\":\"GET /api/types\"", s
+      assert_match '"id":"945254c5-67a5-417e-8a4e-aa29efcbfb79"', s
+      assert_match '"name":"GET /api/types"', s
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid

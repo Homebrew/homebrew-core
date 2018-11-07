@@ -1,13 +1,13 @@
 class Gedit < Formula
   desc "The GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.30/gedit-3.30.1.tar.xz"
-  sha256 "5c16d82b5fb93b10dc81a1bc8daa509b498779ae1db5381600a4765c99826d3f"
+  url "https://download.gnome.org/sources/gedit/3.30/gedit-3.30.2.tar.xz"
+  sha256 "eaf3b17856a0fb7c6f363c2ebbf4f26c5be6eb6552a49e58c44aee0fcb789163"
 
   bottle do
-    sha256 "037e59e85c222531f5f4440d74c0773b91695cb847f058bc8d4616d19b4311bd" => :mojave
-    sha256 "95519332e22f2c53cc413d283716a22807f0d0ac279897038ca5ed666cd07b23" => :high_sierra
-    sha256 "081f111eb2cd22c0089e5b576278dd15582bd4d7a375f72a67b009aed82c5858" => :sierra
+    sha256 "14c51fd7413b03c98f4f44d22c5218266a27c662f4df9e74b3206aa4a6f72e1a" => :mojave
+    sha256 "a4d83117fd6c3b2b5a2d240fd3aa774c3ce830df09143b14f2b2dda566565d3a" => :high_sierra
+    sha256 "fde3d49600a69e62507ed9b6fc49771fcbf431eb6ee348c43be12847fc067669" => :sierra
   end
 
   depends_on "intltool" => :build

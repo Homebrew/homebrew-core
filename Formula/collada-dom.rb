@@ -22,11 +22,6 @@ class ColladaDom < Formula
     sha256 "5ddb31dec3a705e99ca17ec2c6ef1bafb101eac16167d451c3e6eda2dc9c0761" => :mavericks
   end
 
-  devel do
-    url "https://github.com/rdiankov/collada-dom/archive/v2.4.4.tar.gz"
-    sha256 "0dfa494827faa971310c871535b319cadbd0c2d6958ee11b303c61a55a5a437a"
-  end
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "pcre"

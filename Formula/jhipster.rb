@@ -3,15 +3,14 @@ require "language/node"
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-5.3.4.tgz"
-  sha256 "91dba6dec5fb2c39bf2fbcc19f3979574e9bca3c2944cd051162d7587f217a2e"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-5.6.1.tgz"
+  sha256 "cb697517793d22aafc515fc8fcea256b59319e242325ccf38e52e35418d9d807"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c528d539237c8d706b4567ebefcd435608b723be255034e966e2c4f05b89833b" => :mojave
-    sha256 "ef719df22e4140a910f1c9dff30d8c8013d69eeedb2b42cb0158d2983319edd4" => :high_sierra
-    sha256 "9d6e6f68aeddee91780049efccc1fcab6a7258306dcddb512a849122d7a428ec" => :sierra
-    sha256 "d50b220d338cdd1412a4ff0aea1d89bed027f7fdb82e93892f4f8bec605fa600" => :el_capitan
+    sha256 "5e4a497695131c9163778f3f4b019600798eabf273d886470022b5633a666844" => :mojave
+    sha256 "62c0c012634267b3f46ffe97e2e238a4223090af572699b24550d287c9dbc493" => :high_sierra
+    sha256 "d8eeeb617c8eaead5c4924650d268b00bfc03ffb5178d86658e6d3934af169a1" => :sierra
   end
 
   depends_on :java => "1.8+"

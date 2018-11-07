@@ -2,25 +2,23 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.1.tar.gz"
-  sha256 "7212f895ae317fa7a086fa2946070de5b910df5d41263e357d44b0f1f410af0f"
+  url "https://github.com/erlang/otp/archive/OTP-21.1.1.tar.gz"
+  sha256 "a6588243e9659960e184083f49b15ea37890e4cd9bb8aef84ba4180db68befc3"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "9e07a25952570cebc493fa3c035164699400d4e43f6a8c9c1fc600a7791e77ff" => :mojave
-    sha256 "e39482fbde0da129308cb3b107fd80d6e1f8887add3f08f43b5b4527672598c0" => :high_sierra
-    sha256 "6152df61c9e6c90b2439942aa96beb608b76a8fdd47651da215dd2fe79b4c0f4" => :sierra
+    sha256 "b0b554155bc73bc2df80ce9f4e9199bb2566b48d22dc530c80918ff304b02100" => :mojave
+    sha256 "a64a56a302a7f34041bf8f7d1261dc22bd6d4c9a1da64a7eaaef008250c5d431" => :high_sierra
+    sha256 "8ccabeeadad800fbcc2f36da40ad68fedaf738158065b26bc0320fc8272448e3" => :sierra
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
   option "with-java", "Build jinterface application"
-  option "without-docs", "Do not install documentation"
 
   deprecated_option "disable-hipe" => "without-hipe"
-  deprecated_option "no-docs" => "without-docs"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -90,10 +88,8 @@ class Erlang < Formula
     system "make"
     system "make", "install"
 
-    if build.with? "docs"
-      (lib/"erlang").install resource("man").files("man")
-      doc.install resource("html")
-    end
+    (lib/"erlang").install resource("man").files("man")
+    doc.install resource("html")
   end
 
   def caveats; <<~EOS

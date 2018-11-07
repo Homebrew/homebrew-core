@@ -7,10 +7,10 @@ class Ncmpcpp < Formula
 
   bottle do
     cellar :any
-    sha256 "bdda3cff6eee0d982d5a9b3a8fbac647d333a36dab2471c5af502b1c0482be2c" => :mojave
-    sha256 "0d0f6753db53a1244b735d337511549feb336a1d616b11dec253cfffa80d060d" => :high_sierra
-    sha256 "862b17bef067d8ad9467aff89e1fddd18f2128daed8b8ac4cf53bb7ded9d85bb" => :sierra
-    sha256 "f55716214e49a713a0a9c5c341750d34ad8f3f47b16cc76e235c8d7dc8a72c01" => :el_capitan
+    rebuild 1
+    sha256 "2283014a19d12395048466e4a222e4b688e59ebe94db2117d0bc344f9690ef0a" => :mojave
+    sha256 "1768d6341533d816f7e20407491c1b5a82744840d7a7a69bda0456264ead54d7" => :high_sierra
+    sha256 "994a94ccb36db2588eb74226fe26c8047cc7e61c854068d67045f946b5af40ce" => :sierra
   end
 
   head do
@@ -21,17 +21,9 @@ class Ncmpcpp < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-outputs", "Compile with mpd outputs control"
-  option "with-visualizer", "Compile with built-in visualizer"
-  option "with-clock", "Compile with optional clock tab"
-
-  deprecated_option "outputs" => "with-outputs"
-  deprecated_option "visualizer" => "with-visualizer"
-  deprecated_option "clock" => "with-clock"
-
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "fftw" if build.with? "visualizer"
+  depends_on "fftw"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"
@@ -45,17 +37,16 @@ class Ncmpcpp < Formula
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--with-taglib",
-      "--with-curl",
-      "--enable-unicode",
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-clock
+      --enable-outputs
+      --enable-unicode
+      --enable-visualizer
+      --with-curl
+      --with-taglib
     ]
-
-    args << "--enable-outputs" if build.with? "outputs"
-    args << "--enable-visualizer" if build.with? "visualizer"
-    args << "--enable-clock" if build.with? "clock"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

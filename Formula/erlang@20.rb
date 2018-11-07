@@ -2,15 +2,14 @@ class ErlangAT20 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.3.8.9.tar.gz"
-  sha256 "897dd8b66c901bfbce09ed64e0245256aca9e6e9bdf78c36954b9b7117192519"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.8.11.tar.gz"
+  sha256 "76fdb88a693e406efb5a484f87cfad50c5cabab932151e4f2e5ff59d2405ee40"
 
   bottle do
     cellar :any
-    sha256 "397550a32b59dfc22d8301040edb8b113b3b0792ec0affb723d161f09d6a5d83" => :mojave
-    sha256 "826579e58d33e72c81f57ba0ed7353ec5c5963bc90e04ee87ddcffdc520d637e" => :high_sierra
-    sha256 "84574b53dfc6b5c7b240c20d1b44aa710d52fd51325d4d1ab8c7eb84adb14513" => :sierra
-    sha256 "59b3422f384f596aed6612f35c715d5e38002de16ca404f3ce366ec9bef634a6" => :el_capitan
+    sha256 "c3dc7db40925a93e5bbc1a8d08def370e473a9e38ad0920ae2b3756df1a5a924" => :mojave
+    sha256 "31dbd780a1ae54b64838bbbc19b171093ec3710ad65e1f1dd0f3d18395800c95" => :high_sierra
+    sha256 "46078a6aa5884b77cca95018735230a3a5eb9068f4a135b6c8542852834ac717" => :sierra
   end
 
   keg_only :versioned_formula
@@ -19,10 +18,8 @@ class ErlangAT20 < Formula
   option "with-native-libs", "Enable native library compilation"
   option "with-dirty-schedulers", "Enable experimental dirty schedulers"
   option "with-java", "Build jinterface application"
-  option "without-docs", "Do not install documentation"
 
   deprecated_option "disable-hipe" => "without-hipe"
-  deprecated_option "no-docs" => "without-docs"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -92,10 +89,8 @@ class ErlangAT20 < Formula
     system "make"
     system "make", "install"
 
-    if build.with? "docs"
-      (lib/"erlang").install resource("man").files("man")
-      doc.install resource("html")
-    end
+    (lib/"erlang").install resource("man").files("man")
+    doc.install resource("html")
   end
 
   def caveats; <<~EOS

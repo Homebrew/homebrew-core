@@ -1,30 +1,21 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel706.tar.gz"
-  version "7.06"
-  sha256 "bea3fba40305b6299a4a65a26f8e1f1caf844abec61588ff1c500e9c05047922"
-  revision 1
+  url "https://github.com/camlp5/camlp5/archive/rel707.tar.gz"
+  version "7.07"
+  sha256 "a2c493b833b217adf94d2000eb19015b990c4e441beb35cf36b1d33ed2351991"
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "0266c5d227110ebd1a11b996839b091d60782ba774dcd18c4f4fc4c876e6f060" => :mojave
-    sha256 "044c01c3f34815c6543ccb36c83a6b6cf6cc84295a481917f8223572642a14c4" => :high_sierra
-    sha256 "e6fc58025ad5da8c8bce65ec5d3ab274e932a905c60043796de97c9dde4f7135" => :sierra
-    sha256 "f8561228e8b21eeaf36d56b56550c26cc8ddfe84b87489b5855f38d8902e3d08" => :el_capitan
+    sha256 "0cdb0b94b785a28f1043e8c40faeb2b9be5ba667efcb4fbe20323b988800780a" => :mojave
+    sha256 "532e7fb56feb3c13f4d9a37cffd7e3d5e2539ff3e5d081055c7d704fdbd99801" => :high_sierra
+    sha256 "726a57e231f5baa986089594895442dd1edf807352c797edd24d40da69a9c4d0" => :sierra
   end
-
-  option "with-strict", "Compile in strict mode (not recommended)"
-
-  deprecated_option "strict" => "with-strict"
 
   depends_on "ocaml"
 
   def install
-    args = ["--prefix", prefix, "--mandir", man]
-    args << "--transitional" if build.without? "strict"
-
-    system "./configure", *args
+    system "./configure", "--prefix", prefix, "--mandir", man
     system "make", "world.opt"
     system "make", "install"
     (lib/"ocaml/camlp5").install "etc/META"
@@ -32,6 +23,7 @@ class Camlp5 < Formula
 
   test do
     (testpath/"hi.ml").write "print_endline \"Hi!\";;"
-    assert_equal "let _ = print_endline \"Hi!\"", shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo hi.ml")
+    assert_equal "let _ = print_endline \"Hi!\"",
+      shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo hi.ml")
   end
 end

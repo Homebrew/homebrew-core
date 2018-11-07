@@ -6,18 +6,21 @@ class Freeipmi < Formula
   sha256 "31513324591bf8d79d7cdeb39ecfac45e0ea7f6a5905a625a4a906fb8270124a"
 
   bottle do
-    sha256 "8207aeb80d22ca0541c0349c35fcdff37fe3869c00d7fcf7123701e05b472740" => :high_sierra
-    sha256 "5f227003a4400e64fe8ead0c81ac88e978dbe54e3af8c31f54e9a4aa2500391f" => :sierra
-    sha256 "5cb26ba42f5d9b5219299408ee38562cf6e146a36c2c7351965442eaa6336f2a" => :el_capitan
+    rebuild 1
+    sha256 "42ca141ab5fb961136002472908906705058a28c06c4cbdea0e6d0651e3ea01e" => :mojave
+    sha256 "a9258577e88aff64e554a211e85f94d7a5fe5019730140c909b18288b6c11ae8" => :high_sierra
+    sha256 "682e841bdf1312ef6ed1ce6f32fe69b85808fb33ee1738cbf421f5433172aa50" => :sierra
   end
 
   depends_on "argp-standalone"
   depends_on "libgcrypt"
 
   def install
+    # Hardcode CPP_FOR_BUILD to work around cpp shim issue:
+    # https://github.com/Homebrew/brew/issues/5153
     inreplace "man/Makefile.in",
       "$(CPP_FOR_BUILD) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre $@",
-      "$(CPP_FOR_BUILD) -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
+      "clang -E -nostdinc -w -C -P -I$(top_srcdir)/man $@.pre > $@"
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"

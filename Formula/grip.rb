@@ -3,16 +3,16 @@ class Grip < Formula
   homepage "https://github.com/joeyespo/grip"
   url "https://files.pythonhosted.org/packages/3c/ea/2a475ed37e1b6476182e71223c98667f51704bdbc919608372b203c7ea04/grip-4.5.2.tar.gz"
   sha256 "048b7e5c738ed80bee345bd10840f27eb31687eb67132b40f2473dc1cf67aa0f"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2fd19601f6861beafe9eb35a32566fd72c3e988f6cb5366d8ad4bb3f3fba540d" => :mojave
-    sha256 "c17fefc54b9d615a020aedf5919745d636ece4aaf79395ea644161b79cfdb51b" => :high_sierra
-    sha256 "c908a5b5762f89f1933ee3bc05418636821c616eaf4776d6d495ebb072bf2bcb" => :sierra
-    sha256 "ca87bb2d1714f71754f6d62636fb7086961e4ca1ce9f8d0e031890746cf1e91b" => :el_capitan
+    sha256 "789196e42a63b6da3660861a2f3ad1e57abd1fab02e07b8ce41160446ed13bba" => :mojave
+    sha256 "4269fb38b9f5d7d3eb550f51ded954118fe1ae276b88c3c29dee3a19f323fe53" => :high_sierra
+    sha256 "6b550a35bb5f7a52b6dec78db465ecfec3db63f052a394d16c4ebb860e5749b0" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/15/d4/2f888fc463d516ff7bf2379a4e9a552fef7f22a94147655d9b1097108248/certifi-2018.1.18.tar.gz"
@@ -90,15 +90,16 @@ class Grip < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])

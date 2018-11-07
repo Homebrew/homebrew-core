@@ -13,11 +13,6 @@ class Luajit < Formula
     sha256 "c6090283a2708cf2fb818d2f33845d80d6b01d236ce1306b6f56d7c6879b0b34" => :el_capitan
   end
 
-  devel do
-    url "https://luajit.org/download/LuaJIT-2.1.0-beta3.tar.gz"
-    sha256 "1ad2e34b111c802f9d0cdf019e986909123237a28c746b21295b63c9e785d9c3"
-  end
-
   def install
     # 1 - Override the hardcoded gcc.
     # 2 - Remove the "-march=i686" so we can set the march in cflags.
@@ -36,10 +31,7 @@ class Luajit < Formula
     args = %W[PREFIX=#{prefix}]
 
     # Build with 64-bit support
-    args << "XCFLAGS=-DLUAJIT_ENABLE_GC64" unless build.stable?
-
-    # The development branch of LuaJIT normally does not install "luajit".
-    args << "INSTALL_TNAME=luajit" if build.devel?
+    args << "XCFLAGS=-DLUAJIT_ENABLE_GC64" if build.head?
 
     system "make", "amalg", *args
     system "make", "install", *args
@@ -56,7 +48,7 @@ class Luajit < Formula
               "INSTALL_LMOD=#{HOMEBREW_PREFIX}/share/lua/${abiver}"
       s.gsub! "INSTALL_CMOD=${prefix}/${multilib}/lua/${abiver}",
               "INSTALL_CMOD=#{HOMEBREW_PREFIX}/${multilib}/lua/${abiver}"
-      if build.stable?
+      unless build.head?
         s.gsub! "Libs:",
                 "Libs: -pagezero_size 10000 -image_base 100000000"
       end

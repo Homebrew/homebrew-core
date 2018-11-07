@@ -29,6 +29,7 @@ class Libfaketime < Formula
 
   test do
     cp "/bin/date", testpath/"date" # Work around SIP.
-    assert_match "1230106542", shell_output(%Q(TZ=UTC #{bin}/faketime -f "2008-12-24 08:15:42" #{testpath}/date +%s)).strip
+    assert_match "1230106542",
+      shell_output(%Q(TZ=UTC #{bin}/faketime -f "2008-12-24 08:15:42" #{testpath}/date +%s)).strip
   end
 end

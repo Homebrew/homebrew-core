@@ -13,7 +13,7 @@ class Headphones < Formula
     sha256 "a17c424aac1d91fb570d3e63db548c37b4c64f92ed988bb935cb4fa02c12fc5a" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "Markdown" do
     url "https://files.pythonhosted.org/packages/b3/73/fc5c850f44af5889192dff783b7b0d8f3fe8d30b65c8e3f78f8f0265fecf/Markdown-2.6.11.tar.gz"

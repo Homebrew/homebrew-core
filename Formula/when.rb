@@ -1,16 +1,15 @@
 class When < Formula
   desc "Tiny personal calendar"
   homepage "http://www.lightandmatter.com/when/when.html"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/when/when_1.1.37.orig.tar.gz"
-  sha256 "475e4b5070b383d2ad610e6610f8d2ff7995feab96e5d4de8d676063ad204733"
+  url "https:/deb.debian.org/debian/pool/main/w/when/when_1.1.38.orig.tar.gz"
+  sha256 "139834945142f5e3ea6b20f43ba740d30b4a87b42ce5767026094e633dca999f"
   head "https://github.com/bcrowell/when.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "654603a2d0ab3dc849a4221a9d1c4d8638ebf56b41d539efde05e04c6791a5be" => :mojave
-    sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :high_sierra
-    sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :sierra
-    sha256 "5f1858e4c42591c1c30c54f4bf1fecd1961b1fc2a6990f45289720ebc1ad4892" => :el_capitan
+    sha256 "652f84f91cbb5bd61f34b0b90124fc17beb94654150b548348aaee28951b1510" => :mojave
+    sha256 "7645dbb878781cae6f691fd4b0888f85a37ce55eebb7871276aad1bc0c8b6707" => :high_sierra
+    sha256 "7645dbb878781cae6f691fd4b0888f85a37ce55eebb7871276aad1bc0c8b6707" => :sierra
   end
 
   def install

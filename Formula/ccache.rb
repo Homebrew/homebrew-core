@@ -1,14 +1,13 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.samba.org/"
-  url "https://www.samba.org/ftp/ccache/ccache-3.4.3.tar.xz"
-  sha256 "297e55a7622578395c1d5cfa163cc61e345ed69c52aaf94a9583634046c15f4a"
+  url "https://www.samba.org/ftp/ccache/ccache-3.5.tar.xz"
+  sha256 "bdd44b72ae4506a2e2deef9fefb15c606a474bbca7658cd2be26105155eec012"
 
   bottle do
-    sha256 "f45cac85de62e43832892ff640b15013ef80d856542685cf411e870979ab1b50" => :mojave
-    sha256 "82dad86b047849d5f6429c531e8818e9d6145061fb0c46e3f3498615340491c6" => :high_sierra
-    sha256 "8c3e1826de75956c9dd9d5a9a848dec82a37506af4e38d29e72bc085ed2a0f53" => :sierra
-    sha256 "1c17963f848a72d7d43e3c995d062e8a5ccae935d4dd36a734471e77159537d7" => :el_capitan
+    sha256 "b244a2503467746f01416f745f4cfce9b975943c17c490be0e1b6b9ec4a388a0" => :mojave
+    sha256 "80f1c0d8a93e7ca12ab3a368d4f92cb00455c7562e35505d5a5a0555c3f98c67" => :high_sierra
+    sha256 "3e7e577c26ae4c80cf98a93570f4f32a81fa07f1559e32211f1fd0bce01e2158" => :sierra
   end
 
   head do

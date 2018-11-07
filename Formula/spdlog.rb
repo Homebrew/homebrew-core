@@ -1,16 +1,15 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v1.1.0.tar.gz"
-  sha256 "3dbcbfd8c07e25f5e0d662b194d3a7772ef214358c49ada23c044c4747ce8b19"
+  url "https://github.com/gabime/spdlog/archive/v1.2.1.tar.gz"
+  sha256 "867a4b7cedf9805e6f76d3ca41889679054f7e5a3b67722fe6d0eae41852a767"
   head "https://github.com/gabime/spdlog.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "727a543cc70521b2001d46c8d0ff809b5471a80877a17389107f4fd475058e69" => :mojave
-    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :high_sierra
-    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :sierra
-    sha256 "fac46636becf90fdf7cbe169422b7a11934ac7656a3e601f462947197e6a24a3" => :el_capitan
+    sha256 "e94a8414b9acff01d5d80a99993402724f76190f6e070f8c4b8e3b7311089f4c" => :mojave
+    sha256 "074eabca74ff4274589e5eea0d9f39394126201b73468650c3958786110fc5ec" => :high_sierra
+    sha256 "074eabca74ff4274589e5eea0d9f39394126201b73468650c3958786110fc5ec" => :sierra
   end
 
   depends_on "cmake" => :build

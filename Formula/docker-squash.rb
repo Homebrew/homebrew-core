@@ -3,17 +3,16 @@ class DockerSquash < Formula
   homepage "https://github.com/goldmann/docker-squash"
   url "https://github.com/goldmann/docker-squash/archive/1.0.7.tar.gz"
   sha256 "0c9d3be78c4d0ce478a6e1358ba07fc3a22f6d68eb426533d503bb7e9f3ba829"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "07e9ba30b27562a60d33be4a6ee85a330d2ed5d3e4e41d045953a56eae837094" => :mojave
-    sha256 "1ef756a3498a2fab26e94bc87eb6767eb707e51b17ef8ab58045eeb80c127ed1" => :high_sierra
-    sha256 "1ef756a3498a2fab26e94bc87eb6767eb707e51b17ef8ab58045eeb80c127ed1" => :sierra
-    sha256 "1ef756a3498a2fab26e94bc87eb6767eb707e51b17ef8ab58045eeb80c127ed1" => :el_capitan
+    sha256 "8384bb06ba05792ed9ff44d22a5b73ac9da70a9d45b8084b3f567b9a12b1523c" => :mojave
+    sha256 "d1b564c6770c2c369fdc6f9210ea433d784b0363ca38580f901e5add6ac94cc8" => :high_sierra
+    sha256 "6f1372515fa1a32b99948a2743c6d1cf99b3f3d60ace87716f915b192e6a5d92" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "backports.ssl_match_hostname" do
     url "https://files.pythonhosted.org/packages/76/21/2dc61178a2038a5cb35d14b61467c6ac632791ed05131dda72c20e7b9e23/backports.ssl_match_hostname-3.5.0.1.tar.gz"
@@ -71,15 +70,16 @@ class DockerSquash < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])

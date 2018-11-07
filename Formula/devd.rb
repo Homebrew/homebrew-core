@@ -28,13 +28,13 @@ class Devd < Formula
 
   test do
     begin
-      io = IO.popen("#{bin}/devd #{testpath}")
+      io = IO.popen("#{bin}/devd -s #{testpath}")
       sleep 2
     ensure
       Process.kill("SIGINT", io.pid)
       Process.wait(io.pid)
     end
 
-    assert_match "Listening on http://devd.io", io.read
+    assert_match "Listening on https://devd.io", io.read
   end
 end

@@ -1,25 +1,14 @@
 class Jq < Formula
   desc "Lightweight and flexible command-line JSON processor"
   homepage "https://stedolan.github.io/jq/"
-  url "https://github.com/stedolan/jq/releases/download/jq-1.5/jq-1.5.tar.gz"
-  sha256 "c4d2bfec6436341113419debf479d833692cc5cdab7eb0326b5a4d4fbe9f493c"
-  revision 3
+  url "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz"
+  sha256 "9625784cf2e4fd9842f1d407681ce4878b5b0dcddbcd31c6135114a30c71e6a8"
 
   bottle do
     cellar :any
-    sha256 "e76e19d5bcf1a6eebae188846f5656b5f615771beed5748897f4eb0fabd3151b" => :mojave
-    sha256 "25be689b9bca3cef2ee0cb647388200d25f045f651679ef8871b8a86100f9e43" => :high_sierra
-    sha256 "11e169f340dc1f93fbb3c21a87c3aaa7d1242967ed11672663e6e827e622ef0d" => :sierra
-    sha256 "b3f95569c5d67db9c9c1e9eeff670e8769bd5b40ebf1e170bd64be7e62b8e576" => :el_capitan
-  end
-
-  devel do
-    url "https://github.com/stedolan/jq.git", :tag => "jq-1.6rc1"
-    version "1.6rc1"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+    sha256 "d1c2b64ac27e4826a7b1104082d092cd67df8b76a9df2697035e7e2efe494559" => :mojave
+    sha256 "d560b85d7854c50fbf32c921a438e222da877239af960aedf739997577fabb38" => :high_sierra
+    sha256 "b59d708875afac979ae7a16456cf2715dabe1cb14decc1064faf0bfb8cbef4de" => :sierra
   end
 
   head do
@@ -33,7 +22,7 @@ class Jq < Formula
   depends_on "oniguruma" # jq depends > 1.5
 
   def install
-    system "autoreconf", "-iv" unless build.stable?
+    system "autoreconf", "-iv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-maintainer-mode",

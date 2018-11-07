@@ -1,16 +1,14 @@
 class GnuUnits < Formula
   desc "GNU unit conversion tool"
   homepage "https://www.gnu.org/software/units/"
-  url "https://ftp.gnu.org/gnu/units/units-2.17.tar.gz"
-  mirror "https://ftpmirror.gnu.org/units/units-2.17.tar.gz"
-  sha256 "1f03c9f9aef1fb0ccddc6fb545f2925f7754de2bfa67d4e62f8758d7edfd5dd8"
+  url "https://ftp.gnu.org/gnu/units/units-2.18.tar.gz"
+  mirror "https://ftpmirror.gnu.org/units/units-2.18.tar.gz"
+  sha256 "64959c231c280ceb4f3e6ae6a19b918247b6174833f7f1894704c444869c4678"
 
   bottle do
-    rebuild 1
-    sha256 "2241945394f3434a78b46121da5039146a6c46308f9caf4fd962f23639d309b0" => :mojave
-    sha256 "587ee2567c3c1b987d477460fb93b34e5f41ee89c5ce8f6e9dbf2aa141826fc5" => :high_sierra
-    sha256 "9a2143c85ac0dc3b51654ece73c907b5a8a395fe221eaeef054708ae9459579a" => :sierra
-    sha256 "5763af73624526f5859c4b1058cba6020ab49f582027197d2610bec9df52028e" => :el_capitan
+    sha256 "1aa452c7a4984005145a7900c5f44e899efacffa307cee4014f472cb939ff789" => :mojave
+    sha256 "1c3aacea01deab09ec709f91539fe43839846d7be5f3e0a130ea1e8ae7606fff" => :high_sierra
+    sha256 "3ed2c600cbc2af885b6c3d660b2a707e74cec265d94e141a62e40bb9517348c6" => :sierra
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"

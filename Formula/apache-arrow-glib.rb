@@ -1,15 +1,14 @@
 class ApacheArrowGlib < Formula
   desc "GObject Introspection files of Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.10.0/apache-arrow-0.10.0.tar.gz"
-  sha256 "943207a2fcc7ba8de0e50bdb6c6ea4e9ed7f7e7bf55f6b426d7f867f559e842d"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.11.0/apache-arrow-0.11.0.tar.gz"
+  sha256 "1838faa3775e082062ad832942ebc03aaf95386c0284288346ddae0632be855d"
   head "https://github.com/apache/arrow.git"
 
   bottle do
-    sha256 "48589b2b5bcd5f93f51b766ce87543f1c62db04258607ab3f24c8ba2df6c7ea1" => :mojave
-    sha256 "f1333c883d0f576ff7c817399bd78b945450ef2100427bc862b63cdc51413a8c" => :high_sierra
-    sha256 "76066c57519cf7e5ad5a1cb6d7dfd5b08fa8c792f512297ac9563773ba7d18cb" => :sierra
-    sha256 "14bc9da622db582d5525d7268fb0769a7eccee19bc747cf2901cd166da1b1bea" => :el_capitan
+    sha256 "9d58dfee64715bec7d6ea0a4e317e4928677e8520490ef43e1e7d99cda32151e" => :mojave
+    sha256 "6934d5beb0ac0676f791dfdde2ad29bd8a68e55a1d38f736a91f6c0f4fa76ea0" => :high_sierra
+    sha256 "e5f0675b346a403710a168bba522a1d5652652e9fffadeefb3e09c7f7ab44787" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

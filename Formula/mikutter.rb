@@ -3,19 +3,19 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.7.4.tar.gz"
   sha256 "7695a76a809555b2688b56f5335834fd876f82ce1b645815ec2020aedbdff55c"
+  revision 1
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "afffa002061122c1df05703cce9c70bb89dda788f73adc12b9dadb4ba6094681" => :mojave
-    sha256 "7442f4d12dd47710da2850344ad7018b11eddd70a0de67464ee50d26441e240e" => :high_sierra
-    sha256 "47fba2f490337125a30444cd12b6a45225da657e37229935db6d68925914a395" => :sierra
-    sha256 "0eac4501f4250559c29d49417e277f9e365fe485019cd893ce2c0dc056007adb" => :el_capitan
+    sha256 "de88e0c4a6d27768777366da0951616a87da66f443d71495fbb3592a48e7586d" => :mojave
+    sha256 "9b070d5a37ad0c2d828236af63d38edf651542a5871c141c6c2e9539030a1f17" => :high_sierra
+    sha256 "9a5c2066294f9d59f8e45df1f3273b82ac43997c9fcc08583b5d889f7f4bbf97" => :sierra
   end
 
   depends_on "gobject-introspection"
   depends_on "gtk+"
   depends_on "libidn"
-  depends_on "ruby"
+  depends_on "ruby" if MacOS.version <= :high_sierra
   depends_on "terminal-notifier"
 
   resource "addressable" do
@@ -222,7 +222,7 @@ class Mikutter < Formula
       export GEM_HOME="#{HOMEBREW_PREFIX}/lib/mikutter/vendor"
       export GTK_PATH="#{HOMEBREW_PREFIX}/lib/gtk-2.0"
 
-      exec ruby "#{libexec}/mikutter.rb" "$@"
+      exec #{which("ruby")} "#{libexec}/mikutter.rb" "$@"
     EOS
   end
 

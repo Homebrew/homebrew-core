@@ -1,15 +1,14 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.2.tar.gz"
-  sha256 "762c6601f32a761c7a0556766097558f453f23b983dd75bcf90f922e2d077a34"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.3.tar.gz"
+  sha256 "51bbc79aa73ca602cd1518e4e25bd71d41a10abd296e18093a8acfebd3c62696"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "69c14f0963ad16a36001a96d3ab1b0b9319f175492ddaa64ab449581d3354a03" => :mojave
-    sha256 "dd7194908f34e8479a276f578701b52f539d1b93c29bafd8ddf92537669bcade" => :high_sierra
-    sha256 "282763d2d6c9845dc71385c083ef91317e1eae857fce72a1480a7d9bc4caba6a" => :sierra
-    sha256 "53f1f0213c088c02506e66dbf6af11c6837e672e10ef8c4521773676e4045d4a" => :el_capitan
+    sha256 "153c47045ba21b94581aed7375218a38534077fc8920090dc541627d09ef36c5" => :mojave
+    sha256 "adabb1b668bdfec8e6ccc1e05a91577bbe0c58487d345b662c3acaae2298e8a9" => :high_sierra
+    sha256 "8f69c72133ca7100385f49d104f33517c66aefe7c76bb22e08b28c8aaa4c6385" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -20,9 +19,6 @@ class OpenSceneGraph < Formula
   depends_on "gtkglext"
   depends_on "jpeg"
   depends_on "sdl"
-  depends_on "collada-dom" => :optional
-  depends_on "ffmpeg" => :optional
-  depends_on "gdal" => :optional
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/osg/issues/34
@@ -37,6 +33,8 @@ class OpenSceneGraph < Formula
 
     args = std_cmake_args
     args << "-DBUILD_DOCUMENTATION=ON"
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON"
+    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON"
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON"
     args << "-DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON"
     args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
@@ -44,20 +42,12 @@ class OpenSceneGraph < Formula
     args << "-DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio"
     args << "-DOSG_WINDOWING_SYSTEM=Cocoa"
 
-    if build.with? "collada-dom"
-      args << "-DCMAKE_DISABLE_FIND_PACKAGE_COLLADA=ON"
-      args << "-DCOLLADA_INCLUDE_DIR=#{Formula["collada-dom"].opt_include}/collada-dom2.4"
-    end
-
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON" if build.without? "ffmpeg"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON" if build.without? "gdal"
-
     mkdir "build" do
       system "cmake", "..", *args
       system "make"
-      system "make", "doc_openscenegraph" if build.with? "docs"
+      system "make", "doc_openscenegraph"
       system "make", "install"
-      doc.install Dir["#{prefix}/doc/OpenSceneGraphReferenceDocs/*"] if build.with? "docs"
+      doc.install Dir["#{prefix}/doc/OpenSceneGraphReferenceDocs/*"]
     end
   end
 

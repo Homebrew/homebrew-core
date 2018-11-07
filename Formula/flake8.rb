@@ -3,22 +3,21 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.5.0"
-  sha256 "97ecdc088b9cda5acfaa6f84d9d830711669ad8d106d5c68d5897ece3c5cdfda"
+  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.6.0"
+  sha256 "c19a9954dd8121ace467d605e63188dad7ce34b77a1e8dfc7c4d967016a85bd6"
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9c2e250e128db3d11091d13acb762aa0cb66d0f924243231df423b08a561c56b" => :mojave
-    sha256 "929140b14958e23321f395143c3ef31166f344058fdbaac843deca1a94b48782" => :high_sierra
-    sha256 "825dd5873edf54a9acbf35daa908559b4323f27e6800401d097217d9db28128c" => :sierra
-    sha256 "cfbc382496c31b5c57e31ac2487d022a07673d9efd2d64cbc956d3e05c8d9afe" => :el_capitan
+    sha256 "c920e57f095a6a1e068e2092850fe8e55cf5e0c5f91bd6891f23718e584ebe09" => :mojave
+    sha256 "24b99c8d674b9cdd6da35e580fc989aeb02f5ef646d2555665f688f3e57df334" => :high_sierra
+    sha256 "878f83596f0c3d781b2ab9f6f2f1c94a3b77984b3ac78bf4e704b8af0bb59220" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", name
@@ -26,6 +25,10 @@ class Flake8 < Formula
   end
 
   test do
-    system "#{bin}/flake8", "#{libexec}/lib/python2.7/site-packages/flake8"
+    xy = Language::Python.major_minor_version "python3"
+    # flake8 version 3.6.0 will fail this test with `E203` warnings.
+    # Adding `E203` to the list of ignores makes the test pass.
+    # Remove the customized ignore list once the problem is fixed upstream.
+    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
   end
 end

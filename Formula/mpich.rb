@@ -13,11 +13,6 @@ class Mpich < Formula
     sha256 "38ceb721bb800c6a375646c186646c0de4e34a270604bf58e87ad6896643a0c4" => :el_capitan
   end
 
-  devel do
-    url "https://www.mpich.org/static/downloads/3.3b3/mpich-3.3b3.tar.gz"
-    sha256 "73a881c065f798a47a7db1e0ad34ad16c4cb73bf7ebf34c97618aac152c416bf"
-  end
-
   head do
     url "http://git.mpich.org/mpich.git"
 

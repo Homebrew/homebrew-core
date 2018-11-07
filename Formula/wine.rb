@@ -7,12 +7,11 @@
 class Wine < Formula
   desc "Run Windows applications without a copy of Microsoft Windows"
   homepage "https://www.winehq.org/"
-  revision 1
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.2.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.2.tar.xz"
-    sha256 "cad771375409e24244eab252da044306158af8a8bea4432e7ca81c1dc6b463ff"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.3.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.3.tar.xz"
+    sha256 "eb645999ea6f6455a5275bf267e19a32497c8f5aac818ea40afe7c8c396a4da1"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -28,24 +27,7 @@ class Wine < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "8f214b6291164461664d6b48af8db303a94293ee85ce6de9eb8d4b3d959a5775" => :high_sierra_or_later
-    sha256 "682e3be7ce2094501b00bb8835fd7fd6c72273554aa22ad2de8d21a522aeed26" => :sierra
-    sha256 "8263513cedd9086122996f4233ff3449bbe2b0c8e759392843cc18d83a44f070" => :el_capitan
-  end
-
-  devel do
-    url "https://dl.winehq.org/wine/source/3.x/wine-3.17.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.17.tar.xz"
-    sha256 "4cede2e1de426af2430abee84afd77379a1f4f05c3ec9cd4280110de54fccc21"
-
-    resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
-      sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
-    end
-
-    # Does not build with Xcode 10, used on High Sierra and Mojave
-    depends_on MaximumMacOSRequirement => :sierra
+    sha256 "aa34f0a67a92a8bae72b08035c0ef43991b96c0109a4a91a909fbdaf685b0c4d" => :sierra
   end
 
   head do
@@ -57,18 +39,18 @@ class Wine < Formula
     end
 
     # Does not build with Xcode 10, used on High Sierra and Mojave
-    depends_on MaximumMacOSRequirement => :sierra
+    depends_on :maximum_macos => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
+
+  # High Sierra doesn't support 32-bit builds, and thus wine fails to compile.
+  # This will only be safe to remove when upstream support 64-bit builds.
+  depends_on :maximum_macos => [:sierra, :build]
+
   depends_on "pkg-config" => :build
   depends_on :macos => :el_capitan
-
-  fails_with :clang do
-    build 425
-    cause "Clang prior to Xcode 5 miscompiles some parts of wine"
-  end
 
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi"
@@ -151,9 +133,9 @@ class Wine < Formula
   end
 
   resource "fontconfig" do
-    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.0.tar.bz2"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.0.tar.bz2"
-    sha256 "91dde8492155b7f34bb95079e79be92f1df353fcc682c19be90762fd3e12eeb9"
+    url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fontconfig/fontconfig-2.13.1.tar.bz2"
+    sha256 "f655dd2a986d7aa97e052261b36aa67b0a64989496361eca8d604e6414006741"
   end
 
   resource "gd" do
@@ -187,7 +169,7 @@ class Wine < Formula
   def openssl_arch_args
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386 => %w[darwin-i386-cc],
+      :i386   => %w[darwin-i386-cc],
     }
   end
 
@@ -369,23 +351,15 @@ class Wine < Formula
       end
 
       resource("fontconfig").stage do
-        # Remove for fontconfig > 2.13.0
-        # Upstream issue from 6 Mar 2018 "2.13.0 erroneously requires libuuid on macOS"
-        # See https://bugs.freedesktop.org/show_bug.cgi?id=105366
-        ENV["UUID_CFLAGS"] = " "
-        ENV["UUID_LIBS"] = " "
-
-        # Remove for fontconfig > 2.13.0
-        # Same effect as upstream commit from 10 Mar 2018 "Add uuid to
-        # Requires.private in .pc only when pkgconfig macro found it"
-        inreplace "configure",
-          'PKGCONFIG_REQUIRES_PRIVATELY="$PKGCONFIG_REQUIRES_PRIVATELY uuid"',
-          ""
+        font_dirs = %w[/System/Library/Fonts /Library/Fonts ~/Library/Fonts]
+        if MacOS.version >= :sierra
+          font_dirs << Dir["/System/Library/Assets/com_apple_MobileAsset_Font*"].max
+        end
 
         system "./configure", "--disable-dependency-tracking",
                               "--prefix=#{libexec}",
                               "--disable-static",
-                              "--with-add-fonts=/System/Library/Fonts,/Library/Fonts,~/Library/Fonts",
+                              "--with-add-fonts=#{font_dirs.join(",")}",
                               "--localstatedir=#{var}/vendored_wine_fontconfig",
                               "--sysconfdir=#{prefix}",
                               *depflags

@@ -6,18 +6,18 @@ class Dante < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "aa2c32873a7be7b932e74fa4b4674a620f59000a517f4dd7e385a9ab459008bc" => :high_sierra
-    sha256 "97db236452fcf5f0292af13c84a97d8ae886202a6134c2259bddb4e6d7e526d9" => :sierra
-    sha256 "1ca8b2768eded56f976cd44520b20ece3285127a28fcf46736683897f3275ca8" => :el_capitan
+    rebuild 2
+    sha256 "26eb48c9eda005d8486f2dddee23420047a326f82638b71c5aa2f7d28f3ce402" => :mojave
+    sha256 "6a234a72eb6a8bc9439a9a45129ca2214151dee7b63c1ab76c7b5831bda8d1ea" => :high_sierra
+    sha256 "5d4fb552b729372afc0b5450af162d9b49984c64e28d7f1825fd879b4cf3bdf7" => :sierra
   end
-
-  depends_on "miniupnpc" => :optional
 
   def install
     system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          # Enabling dependency tracking disables universal
+                          # build, avoiding a build error on Mojave
+                          "--enable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}/dante"
     system "make", "install"
