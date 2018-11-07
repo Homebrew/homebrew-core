@@ -1,9 +1,9 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
-  url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.7.tar.gz"
-  sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
+  url "http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.8.tar.gz"
+  sha256 "0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732"
 
   bottle do
     cellar :any
