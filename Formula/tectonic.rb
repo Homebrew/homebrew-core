@@ -1,8 +1,8 @@
 class Tectonic < Formula
   desc "Modernized, complete, self-contained TeX/LaTeX engine"
   homepage "https://tectonic-typesetting.github.io/"
-  url "https://github.com/tectonic-typesetting/tectonic/archive/v0.1.10.tar.gz"
-  sha256 "4b7c65692e97704dd3ffee3f4b3aaa57f3e478a2a5c6689dc9347be23ab65897"
+  url "https://github.com/tectonic-typesetting/tectonic/archive/v0.1.11.tar.gz"
+  sha256 "e700dc691dfd092adfe098b716992136343ddfac5eaabb1e8cfae4e63f8454c7"
 
   bottle do
     sha256 "99ffb0b1c4c5c962b223980fe69c028407e07986108ec4eae84e3c68faee6de6" => :mojave
