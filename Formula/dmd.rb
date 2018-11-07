@@ -3,22 +3,22 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.081.2.tar.gz"
-    sha256 "390b51ff994da52fb02fd95ce71282540caa2e8ffd38945b37ee700559b4a3ec"
+    url "https://github.com/dlang/dmd/archive/v2.083.0.tar.gz"
+    sha256 "29a983f3019a1c2be450e2086ed8216805848ecbb2a8aba683a13cf78413f8bc"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.081.0.tar.gz"
-      sha256 "ab8a7b5c99a94a8e58b6761309997f5b54b317269769a8fe3b4a994aa65a4946"
+      url "https://github.com/dlang/druntime/archive/v2.083.0.tar.gz"
+      sha256 "33e357e709e582ec7356bc15ce8714959d2293a0e98d66b884441acf98756938"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.081.0.tar.gz"
-      sha256 "cd5785ebd83a5edc11cb31732042582c4a741c4aca491e538dc4ee382a60881f"
+      url "https://github.com/dlang/phobos/archive/v2.083.0.tar.gz"
+      sha256 "4a1d9fb88f46bd4db54addbf47443786cb2576071376e40c3a695a39e4f6c77e"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.081.0.tar.gz"
-      sha256 "452ba1709dc6aa50a0a4363916119d9ed7bd261c421483c2b187f55f8c774d17"
+      url "https://github.com/dlang/tools/archive/v2.083.0.tar.gz"
+      sha256 "070d66c25d10cab58bdb744abfe4d4aeb2d3e4a425f94ccdd30d628f9498105a"
     end
   end
 
