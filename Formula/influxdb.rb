@@ -13,7 +13,7 @@ class Influxdb < Formula
     sha256 "8228d47879736125ec0a32863e424b9a5070196cd917d1e22042292d1a0e62e5" => :sierra
   end
 
-  depends_on "gdm" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
@@ -24,7 +24,7 @@ class Influxdb < Formula
     version = `git describe --tags`.strip
 
     cd influxdb_path do
-      system "gdm", "restore"
+      system "dep", "ensure", "-vendor-only"
       system "go", "install",
              "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master",
              "./..."
