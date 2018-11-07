@@ -10,9 +10,6 @@ class Php < Formula
     sha256 "5c16b674951b548d1b11fe77d172b99bfca57ce90122c315e86ef53a0530ee9b" => :sierra
   end
 
-  option "with-tidy", "Compile tidy extension"
-  option "with-homebrew-tidy-html5", "Compile tidy extension with html5 support"
-
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
   depends_on "apr"
@@ -37,7 +34,7 @@ class Php < Formula
   depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
-  depends_on "tidy-html5" if build.with?("homebrew-tidy-html5")
+  depends_on "tidy-html5"
   depends_on "unixodbc"
   depends_on "webp"
 
@@ -155,6 +152,7 @@ class Php < Formula
       --with-pspell=#{Formula["aspell"].opt_prefix}
       --with-sodium=#{Formula["libsodium"].opt_prefix}
       --with-sqlite3=#{Formula["sqlite"].opt_prefix}
+      --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
@@ -176,12 +174,6 @@ class Php < Formula
 
     if MacOS.sdk_path_if_needed
       args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
-    end
-
-    if build.with?("homebrew-tidy-html5")
-      args << "--with-tidy=#{Formula["tidy-html5"].opt_prefix}"
-    elsif build.with?("tidy")
-      args << "--with-tidy"
     end
 
     system "./configure", *args
