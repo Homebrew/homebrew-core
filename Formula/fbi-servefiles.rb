@@ -3,8 +3,8 @@ class FbiServefiles < Formula
 
   desc "Serve local files to Nintendo 3DS via FBI remote installer"
   homepage "https://github.com/Steveice10/FBI"
-  url "https://github.com/Steveice10/FBI/archive/2.5.2.tar.gz"
-  sha256 "c4b568f1410859c2567c44c3af66c880210294d75f2dfe09deac04351997a904"
+  url "https://github.com/Steveice10/FBI/archive/2.5.3.tar.gz"
+  sha256 "88ab87c31e9fc70c5ef31fb2217b43e638447b0fd1e26d5652cc554630bce264"
 
   bottle do
     cellar :any_skip_relocation
