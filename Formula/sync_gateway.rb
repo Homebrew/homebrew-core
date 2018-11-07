@@ -2,16 +2,15 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway"
   url "https://github.com/couchbase/sync_gateway.git",
-      :tag      => "1.3.1",
-      :revision => "660b1c92fadce1a9c7e692dfe7c5b741772d1dd2"
+      :tag      => "2.1.0",
+      :revision => "a036bd817d35ff1c354c644804dc588fb7c41476"
   head "https://github.com/couchbase/sync_gateway.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 2
-    sha256 "471f3244cffbe05f2ee8a6f190b498970677b801273cbf67cbdd5eb0bf8c85da" => :mojave
-    sha256 "b4aab1726d93e48be305c6cc7c06a743377d1165c2622a9cbd96a262a3535c19" => :high_sierra
-    sha256 "38828a19ef81effee0b3d9214cff45ef59ff069624caedf2ff87a982f03f0c30" => :sierra
+    sha256 "9960ef9eb77e0e98e136cbb90de2704c533f6238373a0acc0aaf11c9d66e7454" => :mojave
+    sha256 "e1500abaed4f0db1aae20b00766eb1634bcaea6a2c0c0c8ee9860f95799e89c1" => :high_sierra
+    sha256 "460dd8e306588c106283b108cddcc9097095e12ef6f53808515d7b0255a9b8fe" => :sierra
   end
 
   depends_on "gnupg" => :build
@@ -26,11 +25,6 @@ class SyncGateway < Formula
     # Cache the vendored Go dependencies gathered by depot_tools' `repo` command
     repo_cache = HOMEBREW_CACHE/"repo_cache/#{name}/.repo"
     repo_cache.mkpath
-
-    # Remove for > 1.3.1
-    # Backports from HEAD the upgrade from Git protocol to https
-    # See https://github.com/couchbase/sync_gateway/commit/1cf0399
-    inreplace "manifest/default.xml", "git://", "https://" unless build.head?
 
     (buildpath/"depot_tools").install resource("depot_tools")
     ENV.prepend_path "PATH", buildpath/"depot_tools"

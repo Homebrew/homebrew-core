@@ -114,7 +114,10 @@ class Servus < Formula
           BOOST_CHECK_THROW( obj.toJSON(), std::runtime_error );
       }
     EOS
-    system ENV.cxx, "-lServus", "-DBOOST_TEST_DYN_LINK", "-lboost_unit_test_framework-mt", "-std=gnu++11", "test.cpp", "-o", "test"
+    system ENV.cxx, "-L#{lib}", "-lServus", "-DBOOST_TEST_DYN_LINK",
+                    "-L#{Formula["boost"].opt_lib}",
+                    "-lboost_unit_test_framework-mt",
+                    "-std=gnu++11", "test.cpp", "-o", "test"
     system "./test"
   end
 end
