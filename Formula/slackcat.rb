@@ -1,8 +1,9 @@
 class Slackcat < Formula
   desc "Command-line utility for posting snippets to Slack"
-  homepage "https://github.com/vektorlab/slackcat"
-  url "https://github.com/vektorlab/slackcat/archive/v1.4.tar.gz"
-  sha256 "43c80b7d546bca51af47b3df8b79a2e5ce021042ea91d877e2feb33a7ca81305"
+  homepage "https://github.com/bcicen/slackcat"
+  url "https://github.com/bcicen/slackcat.git",
+      :tag      => "v1.5",
+      :revision => "e32ee1d132ddf09b0689f7705981c57db975dfcd"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,8 +19,9 @@ class Slackcat < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/vektorlab/slackcat").install buildpath.children
-    cd "src/github.com/vektorlab/slackcat" do
+    src = (buildpath/"src/github.com/bcicen/slackcat")
+    src.install buildpath.children
+    cd src do
       system "dep", "ensure", "-vendor-only"
       system "go", "build", "-o", bin/"slackcat",
            "-ldflags", "-X main.version=#{version}"
