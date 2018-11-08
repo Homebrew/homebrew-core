@@ -7,10 +7,9 @@ class Lumo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "bfcb83afc1be4e03da673003e70a80ee87994f88fb31b1a8aa667188815b4cde" => :mojave
-    sha256 "a6fd1d1bbcf42f4f59ba2b94b0c44326fad9847d786be7a7ca6cfcfd06d0d723" => :high_sierra
-    sha256 "6b89ef087a38b26840b41a2d6c8046d5fa4f8f2e895693cce8acc9b57d73e161" => :sierra
-    sha256 "df519f90ebaef9a163ea6816695a3868d205530eec4809162c661458cd2004dc" => :el_capitan
+    sha256 "9fdf5253f8f960d9236e5b72f9cf775f44279896126426230919ec7eff3a5224" => :mojave
+    sha256 "acb9ce4ce5002b0dfb0d1eeedeb15603275dff753c1d5258c5e3ceaedaf863fb" => :high_sierra
+    sha256 "3a007b6223ba916352efd2a7e207899e4807b504650e8d5eeeeb35fb401d51fc" => :sierra
   end
 
   depends_on "boot-clj" => :build
