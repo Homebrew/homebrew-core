@@ -20,20 +20,14 @@ class Openjfx < Formula
   version "11"
   sha256 "2a63a4e3b8c22fcbc72d74c2a70548ef14a4f50bec0ba3aa83b5a5bb269b845a"
 
-  # I'm not sure if this is actually the case, but better safe than sorry:
-  pour_bottle? do
-    reason "The bottle needs the Xcode CLT installed in order to run.  "
-    satisfy { MacOS::CLT.installed? }
-  end
-
   depends_on "ant"
   depends_on "cmake" # For `javafx.web`.
   depends_on "gperf" # Also for `javafx.web`.
   depends_on "gradle"
 
   depends_on :java => "11"
-  depends_on :xcode
-  depends_on XcodeCLTRequirement
+  depends_on :xcode => :build
+  depends_on XcodeCLTRequirement => :build
 
   def install
     system "gradle"
