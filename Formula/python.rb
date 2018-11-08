@@ -327,9 +327,6 @@ class Python < Formula
       If you need Homebrew's Python 2.7 run
         brew install python@2
 
-      Pip, setuptools, and wheel have been installed. To update them run
-        pip3 install --upgrade pip setuptools wheel
-
       You can install Python packages with
         pip3 install <package>
       They will install into the site-package directory
