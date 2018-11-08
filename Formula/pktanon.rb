@@ -7,10 +7,9 @@ class Pktanon < Formula
 
   bottle do
     cellar :any
-    sha256 "693a899ccb1b6eba26f9b22facabb5034b6c08036e1f7935bd9143937b01d40b" => :mojave
-    sha256 "74c7283cd64710b5afeaf545ccefc2ce291bea7cc6ad1dba565aaa676b76a3f0" => :high_sierra
-    sha256 "150d2153a24d03d7f46aa8b82587c055c0ac9605b83efc5e44f90216c2888b48" => :sierra
-    sha256 "2699dcad19aa003e10fc32651e1a0a6f93f38812393221a762793e27eafa2c5f" => :el_capitan
+    sha256 "8d5bb1d5ac9f2cc9bcf73d45b22a0c724e42da26ac0dccc6c66c2e2a4e8a024d" => :mojave
+    sha256 "5a3c101ebf3a3bb948c6005977367da0f72fa17fe2ffc3c410b8428325a140f8" => :high_sierra
+    sha256 "20773e51330880065df3de1c5e80107f1f20cfe53c4735be80b39d9e1d0cca41" => :sierra
   end
 
   depends_on "boost"
