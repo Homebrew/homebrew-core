@@ -75,8 +75,8 @@ class Libtiff < Formula
 
   # This patch for CVE-2018-18557 is not yet in Fedora
   patch do
-    url "https://gitlab.com/libtiff/libtiff/commit/681748ec2f5ce88da5f9fa6831e1653e46af8a66.diff"
-    sha256 "f1474be6e3d6331d4fe84e21e1ed3065ec046234d570cc7c78ebb13cb3e0252d"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/998152d397a12f284485777f42e9f492f99baabc/libtiff/libtiff-CVE-2018-18557.patch"
+    sha256 "5ebc14638b3beebc377a7ff616e608f6a6938b28fb78b107ad790c124ad99d26"
   end
 
   def install
