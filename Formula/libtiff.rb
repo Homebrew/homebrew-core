@@ -4,7 +4,7 @@ class Libtiff < Formula
   url "https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
   mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
   sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -19,21 +19,64 @@ class Libtiff < Formula
   depends_on "jpeg"
   depends_on "xz" => :optional
 
-  # All of these have been reported upstream & should
-  # be fixed in the next release, but please check.
+  # Patches are taken from latest Fedora package, which is currently
+  # libtiff-4.0.9-13.fc30.src.rpm and whose changelog is available at
+  # https://apps.fedoraproject.org/packages/libtiff/changelog/
+
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
-    sha256 "4e145dcde596e0c406a9f482680f9ddd09bed61a0dc6d3ac7e4c77c8ae2dd383"
-    apply "patches/CVE-2017-9935.patch",
-          "patches/CVE-2017-18013.patch",
-          "patches/CVE-2018-5784.patch",
-          "patches/CVE-2017-11613_part1.patch",
-          "patches/CVE-2017-11613_part2.patch",
-          "patches/CVE-2018-7456.patch",
-          "patches/CVE-2017-17095.patch",
-          "patches/CVE-2018-8905.patch",
-          "patches/CVE-2018-10963.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2017-11613.patch"
+    sha256 "8979704198096f7bfb0a48c3be451a83f6bad6667afdc214adcd15c2b5a8f1be"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2017-18013.patch"
+    sha256 "abd91c9ae48be346eb4f9fae927dc3d1fdbb8cdf210de00f79642f5630671e65"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2017-9935.patch"
+    sha256 "b9c3045cc00d0d1b62ec28971dde51b4a7074d014f7ec0bc56fd1814e01e34e8"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2018-10779.patch"
+    sha256 "ba90566a38518d8802aa65a664f4a0d63feba7f9b6d10482f3dd5eb9ccd59747"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2018-10963.patch"
+    sha256 "4926e7b28b3e7bffeefb45b12da9d42abb7e39cbde97e1321c368438423db23d"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2018-17100.patch"
+    sha256 "8ce12fca9564730a3b3daa9da8804e8797c1e5ab4a362d290da1ea25aca0ebb0"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2018-17101.patch"
+    sha256 "73b5934518e754c18e0de8f114796a0821549dd7bd712078d6c89e95f5efe6a4"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2018-5784.patch"
+    sha256 "f71f249002498ff66f422bf297aeaf56ae6980a90156386da31b29bf25b196cd"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2018-7456.patch"
+    sha256 "6d85a740bfab67159d0f63b3b56f9d6fc8ef3540db4c04df90fdf65b07bcb8cd"
+  end
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/899be6424defc28747be318e28d57a4bf9bcc7c6/libtiff/libtiff-CVE-2018-8905.patch"
+    sha256 "de9630eb6ee7cfff4643c6de3d1c47a7ced5aef4c4ac4f74dc40b5211e814e5d"
+  end
+
+  # This patch for CVE-2018-18557 is not yet in Fedora
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/998152d397a12f284485777f42e9f492f99baabc/libtiff/libtiff-CVE-2018-18557.patch"
+    sha256 "5ebc14638b3beebc377a7ff616e608f6a6938b28fb78b107ad790c124ad99d26"
   end
 
   def install
