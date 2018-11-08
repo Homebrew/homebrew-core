@@ -1,9 +1,8 @@
 class Nasm < Formula
   desc "Netwide Assembler (NASM) is an 80x86 assembler"
   homepage "https://www.nasm.us/"
-  url "https://www.nasm.us/pub/nasm/releasebuilds/2.13.03/nasm-2.13.03.tar.xz"
-  mirror "https://dl.bintray.com/homebrew/mirror/nasm-2.13.03.tar.xz"
-  sha256 "812ecfb0dcbc5bd409aaa8f61c7de94c5b8752a7b00c632883d15b2ed6452573"
+  url "https://www.nasm.us/pub/nasm/releasebuilds/2.14/nasm-2.14.tar.xz"
+  sha256 "97c615dbf02ef80e4e2b6c385f7e28368d51efc214daa98e600ca4572500eec0"
 
   bottle do
     cellar :any_skip_relocation
