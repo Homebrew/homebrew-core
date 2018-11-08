@@ -39,8 +39,6 @@ class Httpd < Formula
       s.gsub! "${datadir}/icons",   "#{pkgshare}/icons"
     end
 
-    headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
-
     system "./configure", "--enable-layout=Slackware-FHS",
                           "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
@@ -61,12 +59,12 @@ class Httpd < Formula
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-apr-util=#{Formula["apr-util"].opt_prefix}",
                           "--with-brotli=#{Formula["brotli"].opt_prefix}",
-                          "--with-libxml2#{headers_path}",
+                          "--with-libxml2=#{MacOS.sdk_path_if_needed}/usr",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
-                          "--with-z#{headers_path}",
+                          "--with-z=#{MacOS.sdk_path_if_needed}/usr",
                           "--disable-lua",
                           "--disable-luajit"
     system "make"
@@ -143,6 +141,7 @@ class Httpd < Formula
   end
 
   test do
+    # Ensure modules depending on zlib and xml2 have been compiled
     assert_predicate lib/"httpd/modules/mod_deflate.so", :exist?
     assert_predicate lib/"httpd/modules/mod_proxy_html.so", :exist?
     assert_predicate lib/"httpd/modules/mod_xml2enc.so", :exist?
