@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker-ce.git",
-      :tag      => "v18.06.1-ce",
-      :revision => "e68fc7a215d7133c34aa18e3b72b4a21fd0c6136"
+      :tag      => "v18.09.0",
+      :revision => "4d60db472b2bde6931072ca6467f2667c2590dff"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,18 +13,9 @@ class Docker < Formula
     sha256 "90f9c41d4a57ab52cf606629d8875d5d2b602a377e30b76aa7b5d341ef444c85" => :el_capitan
   end
 
-  option "with-experimental", "Enable experimental features"
-  option "without-completions", "Disable bash/zsh completions"
-
   depends_on "go" => :build
 
-  if build.with? "experimental"
-    depends_on "libtool"
-    depends_on "yubico-piv-tool" => :recommended
-  end
-
   def install
-    ENV["DOCKER_EXPERIMENTAL"] = "1" if build.with? "experimental"
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/docker/cli"
     dir.install (buildpath/"components/cli").children
@@ -35,11 +26,9 @@ class Docker < Formula
       system "go", "build", "-o", bin/"docker", "-ldflags", ldflags.join(" "),
              "github.com/docker/cli/cmd/docker"
 
-      if build.with? "completions"
-        bash_completion.install "contrib/completion/bash/docker"
-        fish_completion.install "contrib/completion/fish/docker.fish"
-        zsh_completion.install "contrib/completion/zsh/_docker"
-      end
+      bash_completion.install "contrib/completion/bash/docker"
+      fish_completion.install "contrib/completion/fish/docker.fish"
+      zsh_completion.install "contrib/completion/zsh/_docker"
     end
   end
 
