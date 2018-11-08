@@ -6,9 +6,9 @@ class I2pd < Formula
   revision 1
 
   bottle do
-    sha256 "ed848f673380acf9e1a31ad801f0f348f723ebe2e4cddafe56ddbc9ebd7404f3" => :mojave
-    sha256 "8df40c54f00713649abf63389bce1bc9ddfe68603db559f74485523a30f6f39f" => :high_sierra
-    sha256 "eb47b294c96f8ef685586c9d73d0873391eebed580887f87c86e4285cc86f124" => :sierra
+    sha256 "5887532fd2477d0a749be04de49a4d44dc2d986b5f72a300abe5ec90fce54fbf" => :mojave
+    sha256 "0b70b942d5f740261b6d91b88be46576aa9e43305097f3ddb85aabf0bfebc9aa" => :high_sierra
+    sha256 "98c42332d33d5336a04be2a30fb2aefc96b1af9fb8230b1aba68814fdbcc84d8" => :sierra
   end
 
   depends_on "boost"
