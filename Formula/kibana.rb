@@ -2,8 +2,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.4.2",
-      :revision => "33b5de37d73763319101b4ed11a6bd44f6ea03b5"
+      :tag      => "v6.4.3",
+      :revision => "968768f01f873fec244749abc3c6e939d0e3eda0"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -18,8 +18,8 @@ class Kibana < Formula
   end
 
   resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.9.4/yarn-v1.9.4.tar.gz"
-    sha256 "7667eb715077b4bad8e2a832e7084e0e6f1ba54d7280dc573c8f7031a7fb093e"
+    url "https://yarnpkg.com/downloads/1.12.3/yarn-v1.12.3.tar.gz"
+    sha256 "02cd4b589ec22c4bdbd2bc5ebbfd99c5e99b07242ad68a539cb37896b93a24f2"
   end
 
   def install
