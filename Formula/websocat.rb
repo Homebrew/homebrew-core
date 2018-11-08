@@ -9,8 +9,6 @@ class Websocat < Formula
 
   # This formula is based on ripgrep.rb
   def install
-    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
-
     system "cargo", "install", "--root", prefix,
                                "--path", ".",
                                "--features", "ssl"
