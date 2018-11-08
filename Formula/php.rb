@@ -3,6 +3,7 @@ class Php < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.2.12.tar.xz/from/this/mirror"
   sha256 "989c04cc879ee71a5e1131db867f3c5102f1f7565f805e2bb8bde33f93147fe1"
+  revision 1
 
   bottle do
     sha256 "1f9e923929ff5131498c885444ccb07cad685d04a07129fecfb32703dbda2f0f" => :mojave
@@ -17,7 +18,7 @@ class Php < Formula
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl" if MacOS.version < :lion
+  depends_on "curl-openssl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -25,12 +26,11 @@ class Php < Formula
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
-  depends_on "libiconv" if DevelopmentTools.clang_build_version >= 1000
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libsodium"
   depends_on "libzip"
-  depends_on "openldap" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "openldap"
   depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
@@ -121,16 +121,19 @@ class Php < Formula
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
       --with-bz2#{headers_path}
+      --with-curl=#{Formula["curl-openssl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
       --with-gd
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-iconv#{headers_path}
       --with-icu-dir=#{Formula["icu4c"].opt_prefix}
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
+      --with-ldap=#{Formula["openldap"].opt_prefix}
       --with-ldap-sasl#{headers_path}
       --with-libxml-dir#{headers_path}
       --with-libedit#{headers_path}
@@ -159,22 +162,6 @@ class Php < Formula
       --with-xsl#{headers_path}
       --with-zlib#{headers_path}
     ]
-
-    if MacOS.version < :lion
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
-    else
-      args << "--with-curl#{headers_path}"
-    end
-
-    if MacOS.sdk_path_if_needed
-      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
-    else
-      args << "--with-ldap"
-    end
-
-    if MacOS.sdk_path_if_needed
-      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
-    end
 
     system "./configure", *args
     system "make"
@@ -343,11 +330,8 @@ class Php < Formula
       expected_output = /^Hello world!$/
       (testpath/"index.php").write <<~EOS
         <?php
-        echo 'Hello world!';
-      EOS
-      (testpath/"missingdotphp").write <<~EOS
-        <?php
-        echo 'Hello world!';
+        echo 'Hello world!' . PHP_EOL;
+        var_dump(ldap_connect());
       EOS
       main_config = <<~EOS
         Listen #{port}
@@ -427,7 +411,7 @@ end
 
 __END__
 diff --git a/acinclude.m4 b/acinclude.m4
-index 1deb50d2983c..d0e66c8b6344 100644
+index 168c465f8d..6c087d152f 100644
 --- a/acinclude.m4
 +++ b/acinclude.m4
 @@ -441,7 +441,11 @@ dnl
@@ -454,3 +438,37 @@ index 1deb50d2983c..d0e66c8b6344 100644
  ])
 
  dnl
+@@ -487,7 +491,11 @@ dnl add an include path.
+ dnl if before is 1, add in the beginning of INCLUDES.
+ dnl
+ AC_DEFUN([PHP_ADD_INCLUDE],[
+-  if test "$1" != "/usr/include"; then
++  case "$1" in
++  "/usr/include"[)] ;;
++  /Library/Developer/CommandLineTools/SDKs/*/usr/include[)] ;;
++  /Applications/Xcode*.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/*/usr/include[)] ;;
++  *[)]
+     PHP_EXPAND_PATH($1, ai_p)
+     PHP_RUN_ONCE(INCLUDEPATH, $ai_p, [
+       if test "$2"; then
+@@ -495,8 +503,8 @@ AC_DEFUN([PHP_ADD_INCLUDE],[
+       else
+         INCLUDES="$INCLUDES -I$ai_p"
+       fi
+-    ])
+-  fi
++    ]) ;;
++  esac
+ ])
+
+ dnl internal, don't use
+@@ -2411,7 +2419,8 @@ AC_DEFUN([PHP_SETUP_ICONV], [
+     fi
+
+     if test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.a ||
+-       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME ||
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.tbd
+     then
+       PHP_CHECK_LIBRARY($iconv_lib_name, libiconv, [
+         found_iconv=yes
