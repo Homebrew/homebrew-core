@@ -16,9 +16,9 @@ end
 class Openjfx < Formula
   desc "Open-source, next-generation Java client application platform"
   homepage "https://openjfx.io/"
-  url "https://github.com/javafxports/openjdk-jfx/archive/11+26.tar.gz"
-  version "11"
-  sha256 "2a63a4e3b8c22fcbc72d74c2a70548ef14a4f50bec0ba3aa83b5a5bb269b845a"
+  url "https://github.com/javafxports/openjdk-jfx/archive/11.0.1+1.tar.gz"
+  version "11.0.1"
+  sha256 "423c31aa5c25496748198937923c9651f98d1e9b87c2cb4fc643363b31c7a3c9"
 
   depends_on "ant"
   depends_on "cmake" # For `javafx.web`.
