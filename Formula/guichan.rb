@@ -14,7 +14,6 @@ class Guichan < Formula
   end
 
   depends_on "sdl_image"
-  # "with-allegro" requires allegero-config. But that is no longer supplied from ver. 4.9.
 
   resource "fixedfont.bmp" do
     url "https://guichan.sourceforge.io/oldsite/images/fixedfont.bmp"
@@ -158,9 +157,16 @@ class Guichan < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "helloworld.cpp", ENV.cppflags, "-I#{HOMEBREW_PREFIX}/include/SDL",
-        "-L#{Formula["SDL"].opt_lib}", "-framework", "Foundation", "-framework", "CoreGraphics", "-framework", "Cocoa",
-        "-lSDL", "-lSDLmain", "-lSDL_image", "-L#{lib}", "-lguichan", "-lguichan_sdl", "-lobjc", "-lc++", "-o", "helloworld"
+    system ENV.cc, "helloworld.cpp", ENV.cppflags,
+                   "-I#{HOMEBREW_PREFIX}/include/SDL",
+                   "-L#{Formula["sdl"].opt_lib}",
+                   "-L#{Formula["sdl_image"].opt_lib}",
+                   "-framework", "Foundation",
+                   "-framework", "CoreGraphics",
+                   "-framework", "Cocoa",
+                   "-lSDL", "-lSDLmain", "-lSDL_image",
+                   "-L#{lib}", "-lguichan", "-lguichan_sdl",
+                   "-lobjc", "-lc++", "-o", "helloworld"
     helloworld = fork do
       system testpath/"helloworld"
     end
