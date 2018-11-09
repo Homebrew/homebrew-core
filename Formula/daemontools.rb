@@ -22,22 +22,6 @@ class Daemontools < Formula
     end
   end
 
-  def caveats; <<~EOS
-    svscan requires root privileges so you will need to run
-    `sudo svscanboot`
-    You should be certain that you trust any software you grant root privileges.
-
-    You must create /service directory as root before starting svscan.
-    Then you can start svscan with following.
-    `sudo brew services start daemontools`
-
-    In other words, you need to execute the commands in the following order.
-
-    1. `sudo mkdir /service`
-    2. `sudo brew services start daemontools`
-  EOS
-  end
-
   plist_options :startup => true
 
   def plist; <<~EOS
@@ -49,7 +33,9 @@ class Daemontools < Formula
       <string>#{plist_name}</string>
       <key>ProgramArguments</key>
       <array>
-        <string>#{opt_bin}/svscanboot</string>
+        <string>sh</string>
+        <string>-c</string>
+        <string>mkdir -p /service &amp;&amp; exec #{opt_bin}/svscanboot</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
