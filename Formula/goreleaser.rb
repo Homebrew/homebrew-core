@@ -18,7 +18,7 @@ class Goreleaser < Formula
     (buildpath/"src/github.com/goreleaser/goreleaser").install buildpath.children
     cd "src/github.com/goreleaser/goreleaser" do
       system "go", "build", 
-             "-ldflags", "-s", "-w", "-X main.version=#{version}", 
+             "-ldflags", "-X main.version=#{version}", 
              "-o", bin/"goreleaser"
       prefix.install_metafiles
     end
