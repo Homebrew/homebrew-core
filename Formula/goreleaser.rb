@@ -17,8 +17,8 @@ class Goreleaser < Formula
     ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     (buildpath/"src/github.com/goreleaser/goreleaser").install buildpath.children
     cd "src/github.com/goreleaser/goreleaser" do
-      system "go", "build", 
-             "-ldflags", "-X main.version=#{version}", 
+      system "go", "build",
+             "-ldflags", "-X main.version=#{version}",
              "-o", bin/"goreleaser"
       prefix.install_metafiles
     end
