@@ -5,7 +5,7 @@ class MpsYoutube < Formula
   homepage "https://github.com/mps-youtube/mps-youtube"
   url "https://github.com/mps-youtube/mps-youtube/archive/v0.2.8.tar.gz"
   sha256 "d5f2c4bc1f57f0566242c4a0a721a5ceaa6d6d407f9d6dd29009a714a0abec74"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any_skip_relocation
@@ -15,9 +15,8 @@ class MpsYoutube < Formula
     sha256 "9761dff9eb00b7d03ae4e45eb2c1285e3f9f7e139bed5f98bce1523bffe4039d" => :el_capitan
   end
 
+  depends_on "mpv"
   depends_on "python"
-  depends_on "mpv" => :recommended
-  depends_on "mplayer" => :optional
 
   resource "pafy" do
     url "https://files.pythonhosted.org/packages/41/cb/ec840c79942fb0788982963b61a361ecd10e4e58ad3dcaef4f0e809ce2fe/pafy-0.5.4.tar.gz"
@@ -25,8 +24,8 @@ class MpsYoutube < Formula
   end
 
   resource "youtube_dl" do
-    url "https://files.pythonhosted.org/packages/97/b2/4848a0e67c29dcda416b018ac83883e8c0dc478de432d9043b86abcfd6f2/youtube_dl-2018.9.8.tar.gz"
-    sha256 "42c2e82280c943ce618969c3ceeea56666554f311e86a8082c72ec91a63885a9"
+    url "https://files.pythonhosted.org/packages/6a/e0/68e3701ca58ea54aab4abb018ab9fe76807598d45d46a787a3d3c986ec1c/youtube_dl-2018.11.7.tar.gz"
+    sha256 "f9b4a65e544b4a2b958ef693cd4b71ab5a5709ab1c7a9fc47c1a967dcca46f4a"
   end
 
   def install
