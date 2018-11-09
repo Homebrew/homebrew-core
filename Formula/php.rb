@@ -34,6 +34,7 @@ class Php < Formula
   depends_on "openssl"
   depends_on "pcre"
   depends_on "sqlite"
+  depends_on "tidy-html5"
   depends_on "unixodbc"
   depends_on "webp"
 
@@ -151,6 +152,7 @@ class Php < Formula
       --with-pspell=#{Formula["aspell"].opt_prefix}
       --with-sodium=#{Formula["libsodium"].opt_prefix}
       --with-sqlite3=#{Formula["sqlite"].opt_prefix}
+      --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
