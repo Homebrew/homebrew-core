@@ -4,7 +4,7 @@ class Cling < Formula
   url "https://github.com/root-project/cling.git",
       :tag      => "v0.5",
       :revision => "0f1d6d24d4417fc02b73589c8b1d813e92de1c3f"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "b6e842db192bc4ebbf88d5f6cffa8acfb1967d959ddf823cca0a6e522900f410" => :mojave
@@ -32,7 +32,9 @@ class Cling < Formula
     (buildpath/"src/tools/cling").install buildpath.children - [buildpath/"src"]
     (buildpath/"src/tools/clang").install resource("clang")
     mkdir "build" do
-      system "cmake", *std_cmake_args, "-DCMAKE_INSTALL_PREFIX=#{libexec}", "../src"
+      system "cmake", *std_cmake_args, "../src",
+                      "-DCMAKE_INSTALL_PREFIX=#{libexec}",
+                      "-DCLING_CXX_PATH=clang++"
       system "make", "install"
     end
     bin.install_symlink libexec/"bin/cling"
