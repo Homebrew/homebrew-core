@@ -1,8 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.1.3/abyss-2.1.3.tar.gz"
-  sha256 "23a3e6562b2fa6f0e970d2c452ef98a799ac9892c86a7207f42c7a6ae6df09ab"
+  url "https://github.com/bcgsc/abyss/releases/download/2.1.4/abyss-2.1.4.tar.gz"
+  sha256 "2145a1727556104d6a14db06a9c06f47b96c31cc5ac595ae9c92224349bdbcfc"
 
   bottle do
     sha256 "610e245c999a566af5d3d552d8729bdb95e05792b381bbb0a0dbb459bbb3a6af" => :mojave
@@ -31,6 +31,12 @@ class Abyss < Formula
   end
 
   def install
+    # Fix a compiler error. Remove with the next release of abyss.
+    # See https://github.com/bcgsc/abyss/commit/195f19bba03fec18d86cd931b34275222ba667fc
+    inreplace "lib/bloomfilter/BloomFilter.hpp",
+              'strncpy(header.magic, "BlOOMFXX", 8);',
+              'memcpy(header.magic, "BlOOMFXX", 8);'
+
     system "./autogen.sh" if build.head?
     system "./configure", "--enable-maxk=128",
                           "--prefix=#{prefix}",
