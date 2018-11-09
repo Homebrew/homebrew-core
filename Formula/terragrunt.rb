@@ -1,8 +1,8 @@
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
   homepage "https://github.com/gruntwork-io/terragrunt"
-  url "https://github.com/gruntwork-io/terragrunt/archive/v0.17.1.tar.gz"
-  sha256 "4503d2d0bf39af6c2c0c326612d1073d1b79668abe4090a2416a0cf7f325eff0"
+  url "https://github.com/gruntwork-io/terragrunt/archive/v0.17.2.tar.gz"
+  sha256 "8c4280293f7b6cb002dcadfdbdf619117a9176b8041a528eb97510ca3843d33f"
   head "https://github.com/gruntwork-io/terragrunt.git"
 
   bottle do
@@ -12,17 +12,17 @@ class Terragrunt < Formula
     sha256 "bb4933a1d4cd6930d590239fe5ea816309df23296d8611cb34ab4d629acb5d1a" => :sierra
   end
 
-  depends_on "glide" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "terraform"
 
   def install
     ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    mkdir_p buildpath/"src/github.com/gruntwork-io/"
-    ln_s buildpath, buildpath/"src/github.com/gruntwork-io/terragrunt"
-    system "glide", "install"
-    system "go", "build", "-o", bin/"terragrunt", "-ldflags", "-X main.VERSION=v#{version}"
+    (buildpath/"src/github.com/gruntwork-io/terragrunt").install buildpath.children
+    cd "src/github.com/gruntwork-io/terragrunt" do
+      system "dep", "ensure", "-vendor-only"
+      system "go", "build", "-o", bin/"terragrunt", "-ldflags", "-X main.VERSION=v#{version}"
+    end
   end
 
   test do
