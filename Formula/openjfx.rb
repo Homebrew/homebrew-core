@@ -30,7 +30,7 @@ class Openjfx < Formula
   depends_on XcodeCLTRequirement => :build
 
   def install
-    system "gradle"
+    system "gradle", "-PCOMPILE_MEDIA=true", "-PCOMPILE_WEBKIT=true"
     prefix.install Dir["#{buildpath}/build/modular-sdk/*"]
   end
 
