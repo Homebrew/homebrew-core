@@ -10,6 +10,11 @@ class Mariadb < Formula
     sha256 "e946558c449fdb9686df3f82fdb5ce7ab192f2ccf0d88f18ece27a51932a2000" => :sierra
   end
 
+  devel do
+    url "https://downloads.mariadb.org/f/mariadb-10.4.0/source/mariadb-10.4.0.tar.gz"
+    sha256 "ff3ec1aa59073c2789369d54e1dc106d4d178f5e770065fbf3ec2631e6b3e861"
+  end
+
   depends_on "cmake" => :build
   depends_on "openssl"
 
