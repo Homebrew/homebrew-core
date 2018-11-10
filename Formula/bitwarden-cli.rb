@@ -1,7 +1,7 @@
 require "language/node"
 
 class BitwardenCli < Formula
-  desc "Powerful, full-featured command-line interface (CLI) tool to access and manage your Bitwarden vault."
+  desc "Command-line (CLI) tool to access and manage your Bitwarden vault"
   homepage "https://bitwarden.com/"
   url "https://github.com/bitwarden/cli/releases/download/v1.5.0/bw-macos-1.5.0.zip"
   sha256 "1eaf77029d51e1647f19d5f1666423b97aaa1401cef5e3e1b4e2d714946b107e"
