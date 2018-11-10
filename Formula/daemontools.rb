@@ -41,8 +41,6 @@ class Daemontools < Formula
       <true/>
       <key>KeepAlive</key>
       <true/>
-      <key>UserName</key>
-      <string>root</string>
     </dict>
     </plist>
   EOS
