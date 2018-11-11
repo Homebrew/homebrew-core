@@ -22,7 +22,7 @@ class Fabio < Formula
 
     ENV["GOPATH"] = buildpath.to_s
 
-	system "rm", "go.mod", "go.sum"
+	rm "go.mod", "go.sum"
     system "go", "install", "github.com/fabiolb/fabio"
     bin.install "#{buildpath}/bin/fabio"
   end
