@@ -21,9 +21,8 @@ class Fabio < Formula
     ln_s buildpath, buildpath/"src/github.com/fabiolb/fabio"
 
     ENV["GOPATH"] = buildpath.to_s
+    ENV["GO111MODULE"] = "off"
 
-    rm "go.mod"
-    rm "go.sum"
     system "go", "install", "github.com/fabiolb/fabio"
     bin.install "#{buildpath}/bin/fabio"
   end
