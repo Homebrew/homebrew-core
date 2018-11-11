@@ -15,13 +15,15 @@ class Sphinx < Formula
   end
 
   option "with-mysql", "Force compiling against MySQL"
+  option "with-mysql@5.7", "Force compiling against MySQL 5.7"
   option "with-postgresql", "Force compiling against PostgreSQL"
 
   deprecated_option "mysql" => "with-mysql"
   deprecated_option "pgsql" => "with-postgresql"
 
   depends_on "mysql" => :optional
-  depends_on "openssl" if build.with? "mysql"
+  depends_on "mysql@5.7" => :optional
+  depends_on "openssl" if build.with?("mysql") || build.with?("mysql@5.7")
   depends_on "postgresql" => :optional
 
   fails_with :clang do
@@ -47,7 +49,7 @@ class Sphinx < Formula
       --with-libstemmer
     ]
 
-    if build.with? "mysql"
+    if build.with?("mysql") || build.with?("mysql@5.7")
       args << "--with-mysql"
     else
       args << "--without-mysql"
