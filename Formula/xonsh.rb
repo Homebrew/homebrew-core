@@ -3,8 +3,8 @@ class Xonsh < Formula
 
   desc "Python-ish, BASHwards-compatible shell language and command prompt"
   homepage "https://xon.sh/"
-  url "https://github.com/xonsh/xonsh/archive/0.7.9.tar.gz"
-  sha256 "69cfd3aebf5995ab208cec76748f20a99f82159d59eca25d1484790d7de690c2"
+  url "https://github.com/xonsh/xonsh/archive/0.8.3.tar.gz"
+  sha256 "f91a9b5a71a82a6450e5a3dbeacc11ff0a9faceea4fbb241aaa3a18f7a6e6437"
   head "https://github.com/xonsh/xonsh.git"
 
   bottle do
@@ -20,8 +20,8 @@ class Xonsh < Formula
   # See https://xon.sh/osx.html#dependencies
 
   resource "prompt_toolkit" do
-    url "https://files.pythonhosted.org/packages/77/bf/5d7664605c91db8f39a3e49abb57a3c933731a90b7a58cdcafd4a9bcbe97/prompt_toolkit-2.0.4.tar.gz"
-    sha256 "ff58ce8bb82c11c43416dd3eec7701dcbe8c576e2d7649f1d2b9d21a2fd93808"
+    url "https://files.pythonhosted.org/packages/d9/a5/4b2dd1a05403e34c3ba0d9c00f237c01967c0a4f59a427c9b241129cdfe4/prompt_toolkit-2.0.7.tar.gz"
+    sha256 "fd17048d8335c1e6d5ee403c3569953ba3eb8555d710bfc548faf0712666ea39"
   end
 
   resource "Pygments" do
