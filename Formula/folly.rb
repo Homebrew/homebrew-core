@@ -3,7 +3,7 @@ class Folly < Formula
   homepage "https://github.com/facebook/folly"
   url "https://github.com/facebook/folly/archive/v2018.09.24.00.tar.gz"
   sha256 "99b6ddb92ee9cf3db262b372ee7dc6a29fe3e2de14511ecc50458bf77fc29c6e"
-  revision 1
+  revision 2
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -28,6 +28,7 @@ class Folly < Formula
   depends_on "openssl"
   depends_on "snappy"
   depends_on "xz"
+  depends_on "zstd"
 
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
