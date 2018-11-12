@@ -6,11 +6,9 @@ class Gflags < Formula
 
   bottle do
     cellar :any
-    sha256 "a00d8dd8f4674384e722f0f07b0eaeaac201c0fcea789e6fe3232686993dc747" => :mojave
-    sha256 "db36aa60a2c383dddad4774a0e0129c5cf2183f6ae813afffa9b0311ed81d8a3" => :high_sierra
-    sha256 "519562ecebe66cf89803786d0b0ba9ac02cfa2376c822c8726fa274c1e380d0a" => :sierra
-    sha256 "9e9c1a067b324ccd372ac00cd0ac00545415cb4407ea90b15c181cbfb67a4260" => :el_capitan
-    sha256 "5e6fcff184b2d6caf333a74cb24222da11bc1721eb6ab12a31bda7802cf8dfd9" => :yosemite
+    sha256 "82fe53e7e195d7a2c72243c357c8f3120eb8fa79b06e9a1c0928849b7cf60260" => :mojave
+    sha256 "51a508dc83e6213a1726509c0fc1761e5b7a79b220f4c86f8ace660799caaec8" => :high_sierra
+    sha256 "44b0ad9e8d8ce61431d959b1c6197e121f8369acc777a8010aabce2adb8eb4db" => :sierra
   end
 
   option "with-static", "Build gflags as a static (instead of shared) library."
