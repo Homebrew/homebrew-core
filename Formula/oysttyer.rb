@@ -1,8 +1,8 @@
 class Oysttyer < Formula
   desc "Command-line Twitter client"
   homepage "https://github.com/oysttyer/oysttyer"
-  url "https://github.com/oysttyer/oysttyer/archive/2.9.1.tar.gz"
-  sha256 "2539e993f72bc4c4547dc8c93ae385d06f285a136bc3e9192f4ce0182f6619e3"
+  url "https://github.com/oysttyer/oysttyer/archive/2.10.0.tar.gz"
+  sha256 "3c0ce1c7b112f2db496cc75a6e76c67f1cad956f9e7812819c6ae7a979b2baea"
   head "https://github.com/oysttyer/oysttyer.git"
 
   bottle :unneeded

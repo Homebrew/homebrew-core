@@ -39,11 +39,16 @@ class Wine < Formula
     end
 
     # Does not build with Xcode 10, used on High Sierra and Mojave
-    depends_on MaximumMacOSRequirement => :sierra
+    depends_on :maximum_macos => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "makedepend" => :build
+
+  # High Sierra doesn't support 32-bit builds, and thus wine fails to compile.
+  # This will only be safe to remove when upstream support 64-bit builds.
+  depends_on :maximum_macos => [:sierra, :build]
+
   depends_on "pkg-config" => :build
   depends_on :macos => :el_capitan
 
@@ -164,7 +169,7 @@ class Wine < Formula
   def openssl_arch_args
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386 => %w[darwin-i386-cc],
+      :i386   => %w[darwin-i386-cc],
     }
   end
 

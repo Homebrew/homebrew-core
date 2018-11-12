@@ -1,13 +1,13 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.1.23.tar.xz/from/this/mirror"
-  sha256 "227a3c76133c3dc1cec937989456cbd89ed00e68e7260c651900dbe1f5b798bc"
+  url "https://php.net/get/php-7.1.24.tar.xz/from/this/mirror"
+  sha256 "e70dcec0ae28b6bc308b78972ec15aa850808819cc765f505aa51e5a7e2fa5d7"
 
   bottle do
-    sha256 "8dea259d4385dfe55d267960ba365e740621570e5ef5640676ab4d18f525d24c" => :mojave
-    sha256 "dff17cd72dedd47109253e02fc86f1a4367f2a10f3332ead6d2fdf0e6d8fd249" => :high_sierra
-    sha256 "e62722f349143442619fd51a9ef58f9d3262c770354b98246fd3225fb648a6e2" => :sierra
+    sha256 "f6001414add2d26b5880d65e5b65de2990093e5663ef13443c2ccb77af3a3feb" => :mojave
+    sha256 "2f2323d97daefb0e1668350de9bb3dc9265be4a1d2a65e475099bdc38527003c" => :high_sierra
+    sha256 "157e64df8dc93a900ed91b8911c71a204cce7c6f69eff314a8a35f191bb436a6" => :sierra
   end
 
   keg_only :versioned_formula
@@ -184,9 +184,9 @@ class PhpAT71 < Formula
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {
-      "php.ini-development" => "php.ini",
+      "php.ini-development"   => "php.ini",
       "sapi/fpm/php-fpm.conf" => "php-fpm.conf",
-      "sapi/fpm/www.conf" => "php-fpm.d/www.conf",
+      "sapi/fpm/www.conf"     => "php-fpm.d/www.conf",
     }
     config_files.each_value do |dst|
       dst_default = config_path/"#{dst}.default"
@@ -230,17 +230,17 @@ class PhpAT71 < Formula
     pear_path = HOMEBREW_PREFIX/"share/pear@#{php_version}"
     cp_r pkgshare/"pear/.", pear_path
     {
-      "php_ini" => etc/"php/#{php_version}/php.ini",
-      "php_dir" => pear_path,
-      "doc_dir" => pear_path/"doc",
-      "ext_dir" => pecl_path/php_basename,
-      "bin_dir" => opt_bin,
+      "php_ini"  => etc/"php/#{php_version}/php.ini",
+      "php_dir"  => pear_path,
+      "doc_dir"  => pear_path/"doc",
+      "ext_dir"  => pecl_path/php_basename,
+      "bin_dir"  => opt_bin,
       "data_dir" => pear_path/"data",
-      "cfg_dir" => pear_path/"cfg",
-      "www_dir" => pear_path/"htdocs",
-      "man_dir" => HOMEBREW_PREFIX/"share/man",
+      "cfg_dir"  => pear_path/"cfg",
+      "www_dir"  => pear_path/"htdocs",
+      "man_dir"  => HOMEBREW_PREFIX/"share/man",
       "test_dir" => pear_path/"test",
-      "php_bin" => opt_bin/"php",
+      "php_bin"  => opt_bin/"php",
     }.each do |key, value|
       value.mkpath if key =~ /(?<!bin|man)_dir$/
       system bin/"pear", "config-set", key, value, "system"

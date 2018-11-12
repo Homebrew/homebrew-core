@@ -1,15 +1,15 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2018/sqlite-autoconf-3250200.tar.gz"
-  version "3.25.2"
-  sha256 "da9a1484423d524d3ac793af518cdf870c8255d209e369bd6a193e9f9d0e3181"
+  url "https://sqlite.org/2018/sqlite-autoconf-3250300.tar.gz"
+  version "3.25.3"
+  sha256 "00ebf97be13928941940cc71de3d67e9f852698233cd98ce2d178fd08092f3dd"
 
   bottle do
     cellar :any
-    sha256 "59e23f50f8a87b151578dbd38334b49df6488ea835d3b99c0bcbe50726032b1f" => :mojave
-    sha256 "fad1ca79fa7b40075724127e26e06c46719651c4e6abba4bb88e173167efe186" => :high_sierra
-    sha256 "bd7a32d5ebd5a7dd74b5606d7bb9828d8ca706253991f68c3281a41d5aed0ec8" => :sierra
+    sha256 "6e6e8e439db5458beba5ed5eedd45650f1db85709df6902e8be8a3853077eb65" => :mojave
+    sha256 "65f6ee576aa77e2743919cb1a073b4a08b34c5c064951e9824964fb39e383c48" => :high_sierra
+    sha256 "f5357dc428b3f622c15ac54a28564e93a474c91717b58b912df07ab639aadb93" => :sierra
   end
 
   keg_only :provided_by_macos, "macOS provides an older sqlite3"

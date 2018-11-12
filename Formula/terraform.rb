@@ -1,17 +1,16 @@
-require "language/go"
-
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.11.9.tar.gz"
-  sha256 "cf2ecbdc9ea7c5294942f1c633b2871bf2bc620661148bf08546da2d32543784"
+  url "https://github.com/hashicorp/terraform/archive/v0.11.10.tar.gz"
+  sha256 "3cdf16618f7291ac70793f680d859223907039bdf559ca5b5e49fae7df2e736d"
   head "https://github.com/hashicorp/terraform.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7847fc5b062dd20ee87bd1f7b327964428c8ec1d055ab01706841c174ad10b91" => :mojave
-    sha256 "2a6661129b8be249ec346ea0bbc88f576ed96afad017786e46a9aa0217c4bc3d" => :high_sierra
-    sha256 "8cc08e99a8692b4e6a6c25dce236529a583a6b62e99afb5066a12610d405fd58" => :sierra
+    rebuild 1
+    sha256 "23def7afb065ed8cfed4d933f260516089603353ce87fc25f2ac87bee63a86c5" => :mojave
+    sha256 "51904d661cfe27d9dbcb0e5c04d07692f08f5524ef5a3aeee915c7b5becb30b4" => :high_sierra
+    sha256 "b6d95e097001c82821c2fdede75d122764f6cbc51a350ef526c00c35527b3cfb" => :sierra
   end
 
   depends_on "go" => :build
@@ -19,23 +18,12 @@ class Terraform < Formula
 
   conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
 
-  # stringer is a build tool dependency
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.11"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
     ENV.prepend_create_path "PATH", buildpath/"bin"
 
     dir = buildpath/"src/github.com/hashicorp/terraform"
     dir.install buildpath.children - [buildpath/".brew_home"]
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/golang.org/x/tools/cmd/stringer" do
-      system "go", "install"
-    end
 
     cd dir do
       # v0.6.12 - source contains tests which fail if these environment variables are set locally.
@@ -45,7 +33,7 @@ class Terraform < Formula
       arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
       ENV["XC_ARCH"] = arch
-      system "make", "test", "bin"
+      system "make", "tools", "test", "bin"
 
       bin.install "pkg/darwin_#{arch}/terraform"
       prefix.install_metafiles

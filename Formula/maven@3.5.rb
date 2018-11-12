@@ -1,9 +1,9 @@
-class MavenAT30 < Formula
+class MavenAT35 < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz"
-  sha256 "d98d766be9254222920c1d541efd466ae6502b82a39166c90d65ffd7ea357dd9"
+  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz"
+  sha256 "ce50b1c91364cb77efe3776f756a6d92b76d9038b0a0782f7d53acf1e997a14d"
 
   bottle :unneeded
 
@@ -13,12 +13,11 @@ class MavenAT30 < Formula
 
   def install
     # Remove windows files
-    rm_f Dir["bin/*.bat"]
+    rm_f Dir["bin/*.cmd"]
 
     # Fix the permissions on the global settings file.
     chmod 0644, "conf/settings.xml"
 
-    prefix.install_metafiles
     libexec.install Dir["*"]
 
     # Leave conf file in libexec. The mvn symlink will be resolved and the conf

@@ -10,7 +10,7 @@ class Smlnj < Formula
 
   # Mojave doesn't support 32-bit builds, and thus smlnj fails to compile.
   # This will only be safe to remove when upstream support 64-bit builds.
-  depends_on MaximumMacOSRequirement => :high_sierra
+  depends_on :maximum_macos => [:high_sierra, :build]
 
   resource "cm" do
     url "https://www.smlnj.org/dist/working/110.84/cm.tgz"

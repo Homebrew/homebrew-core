@@ -45,9 +45,10 @@ class GccAT5 < Formula
   option "with-jit", "Build the jit compiler"
   option "without-fortran", "Build without the gfortran compiler"
 
+  depends_on :maximum_macos => [:high_sierra, :build]
+
   depends_on "gmp"
   depends_on "libmpc"
-  depends_on MaximumMacOSRequirement => :high_sierra
   depends_on "mpfr"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
@@ -136,6 +137,11 @@ class GccAT5 < Formula
     ]
 
     args << "--disable-nls" if build.without? "nls"
+
+    # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
+    # format to avoid failure during the stage 3 comparison of object files.
+    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
+    args << "--with-dwarf2" if MacOS.version <= :mountain_lion
 
     if MacOS.prefer_64_bit?
       args << "--enable-multilib"

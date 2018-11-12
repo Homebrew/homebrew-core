@@ -1,13 +1,14 @@
 class Httpd < Formula
   desc "Apache HTTP server"
   homepage "https://httpd.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.35.tar.bz2"
-  sha256 "2607c6fdd4d12ac3f583127629291e9432b247b782396a563bec5678aae69b56"
+  url "https://www.apache.org/dyn/closer.cgi?path=httpd/httpd-2.4.37.tar.bz2"
+  sha256 "3498dc5c6772fac2eb7307dc7963122ffe243b5e806e0be4fb51974ff759d726"
+  revision 1
 
   bottle do
-    sha256 "9056baef0b95a004147020b23099102d88bf477ce0eac8ea6f28734213000f71" => :mojave
-    sha256 "c4799839ef633e76339b9a595d7bafcc83a5747affec314ee921d1987d07297c" => :high_sierra
-    sha256 "98a4c47ff83d3992d7b832bac17d67350130ebc1b293c8d632e6aa14dbd82fb8" => :sierra
+    sha256 "a87d9e50fc2685fac96a452d0b717d25a0ca498af1824992e40c2eb634c162e4" => :mojave
+    sha256 "135f8207e6f84f887ad6a0e663fdb379a137e12473b495734c78107af94e7f03" => :high_sierra
+    sha256 "2a590a6481db784637da8d6b0f82b927819ec5f29d70829079bd4e06d8c68a23" => :sierra
   end
 
   depends_on "apr"
@@ -58,10 +59,12 @@ class Httpd < Formula
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-apr-util=#{Formula["apr-util"].opt_prefix}",
                           "--with-brotli=#{Formula["brotli"].opt_prefix}",
+                          "--with-libxml2=#{MacOS.sdk_path_if_needed}/usr",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
+                          "--with-z=#{MacOS.sdk_path_if_needed}/usr",
                           "--disable-lua",
                           "--disable-luajit"
     system "make"
@@ -138,6 +141,11 @@ class Httpd < Formula
   end
 
   test do
+    # Ensure modules depending on zlib and xml2 have been compiled
+    assert_predicate lib/"httpd/modules/mod_deflate.so", :exist?
+    assert_predicate lib/"httpd/modules/mod_proxy_html.so", :exist?
+    assert_predicate lib/"httpd/modules/mod_xml2enc.so", :exist?
+
     begin
       require "socket"
 

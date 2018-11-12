@@ -3,14 +3,14 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag => "v0.1.3139",
-      :revision => "2743216fe2fb5cfedc28373aa8df8851c715d1eb"
+      :tag      => "v0.1.3923",
+      :revision => "6fecf9d611e14f99bdf7fb668ddc87bab190ea25"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77dc5e2d312307d54cfd527846bf73ece9c819cc6365b1842cf53d6ac41810f7" => :mojave
-    sha256 "3599f36846f7f17aeafe5c6ab14a0766fea309e7e421fa628f2b8adb2f3e301b" => :high_sierra
-    sha256 "eef16e5c259faf3b63e2488be3d33305d64ef75c93123d58c9b0cbbbb27fc812" => :sierra
+    sha256 "bf3ed91535923cec6afb2def53656f384d95e046567c719442a71230e6cc4cff" => :mojave
+    sha256 "1a9e74f74dae17d2bd9b008e3ab1d6d5fa20e21fdf733faf131a0f29fc399326" => :high_sierra
+    sha256 "0924d11f832e28c5aed1f6c71e37ffd8aebab78d44d4eb01dc0f87e7feaaa5e8" => :sierra
   end
 
   depends_on "go" => :build
@@ -24,6 +24,8 @@ class Circleci < Formula
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
+        -X github.com/CircleCI-Public/circleci-cli/cmd.AutoUpdate=false
+        -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
         -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
@@ -40,5 +42,8 @@ class Circleci < Formula
     (testpath/".circleci.yml").write("{version: 2.1}")
     output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
     assert_match "Local builds do not support that version at this time", output
+    # assert update is not included in output of help meaning it was not included in the build
+    assert_match "update      This command is unavailable on your platform", shell_output("#{bin}/circleci help")
+    assert_match "`update` is not available because this tool was installed using `homebrew`.", shell_output("#{bin}/circleci update")
   end
 end

@@ -2,14 +2,14 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v6.4.2",
-      :revision => "33b5de37d73763319101b4ed11a6bd44f6ea03b5"
+      :tag      => "v6.4.3",
+      :revision => "968768f01f873fec244749abc3c6e939d0e3eda0"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "41dd827f2533381d056a116ae85dacba36654651739304d7b9af4d44840e4034" => :mojave
-    sha256 "32b066460d9edaac0b4c2c1b8efe911c960c5ef81444643d025da6da0a567d81" => :high_sierra
-    sha256 "b6a1fd07e6d5db71491e2a37ee402b86990198acb78718865594c795c04895a1" => :sierra
+    sha256 "3b91db530854a2c34c836509b6fa560e39701c1f574d8b106f6b6b45aebdd2aa" => :mojave
+    sha256 "685eea61b8e35c4db25f8aceddbe78414ac8222fe2202b89f84bc4b5cb8724cd" => :high_sierra
+    sha256 "447229bf2a8d941ab907851adb95bb759fb78a28dded3f6122a2fa2ee7c0e414" => :sierra
   end
 
   resource "node" do
@@ -18,8 +18,8 @@ class Kibana < Formula
   end
 
   resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.9.4/yarn-v1.9.4.tar.gz"
-    sha256 "7667eb715077b4bad8e2a832e7084e0e6f1ba54d7280dc573c8f7031a7fb093e"
+    url "https://yarnpkg.com/downloads/1.12.3/yarn-v1.12.3.tar.gz"
+    sha256 "02cd4b589ec22c4bdbd2bc5ebbfd99c5e99b07242ad68a539cb37896b93a24f2"
   end
 
   def install
