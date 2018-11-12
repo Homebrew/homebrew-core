@@ -6,9 +6,9 @@ class Tbb < Formula
   sha256 "1245aa394a92099e23ce2f60cdd50c90eb3ddcd61d86cae010ef2f1de61f32d9"
 
   bottle do
-    sha256 "a92867be6b1ee35021ffc422f66619120b5845fb88ce81b85ddac05103eefc95" => :mojave
-    sha256 "7c7380d72361572d1f0029600d848f2a3e3bd30350f8ebb0b0e376b1e9de2e48" => :high_sierra
-    sha256 "1b4fb31cf94be94a8dc4745445eda05a629d4b6b0e773f9415f3c40cd7258a14" => :sierra
+    sha256 "bf9b867475f7b7adacc2d89971ebbbe80f6a8f7fe14848d2e15e344a394bd5f8" => :mojave
+    sha256 "85f1d40fbada90d8ff49efdd59b07400794c921ced3810bdba102f5557727335" => :high_sierra
+    sha256 "486a7c358369dc96adb03f30ad931aaf091145e135f0098ca6677cd68fef9c1e" => :sierra
   end
 
   depends_on "cmake" => :build
