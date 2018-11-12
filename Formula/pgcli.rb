@@ -1,4 +1,6 @@
 class Pgcli < Formula
+  include Language::Python::Virtualenv
+
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
   url "https://files.pythonhosted.org/packages/bd/e0/766c0c379b79674f6e8e3bd3c48ca4aa760ee118473fd49538e22fe38605/pgcli-2.0.0.tar.gz"
@@ -14,7 +16,7 @@ class Pgcli < Formula
 
   depends_on "libpq"
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "backports.csv" do
     url "https://files.pythonhosted.org/packages/c5/d2/6adc8e81e57a847fbe63b7967223aa13e340875a273be218ef15f162037d/backports.csv-1.0.6.tar.gz"
@@ -92,21 +94,7 @@ class Pgcli < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    # backports is a namespace package
-    touch libexec/"vendor/lib/python2.7/site-packages/backports/__init__.py"
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
