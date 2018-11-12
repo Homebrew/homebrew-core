@@ -51,7 +51,8 @@ class Glog < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}",
-                    "-lglog", "-I#{Formula["gflags"].opt_lib}", "-lgflags",
+                    "-lglog", "-I#{Formula["gflags"].opt_lib}",
+                    "-L#{Formula["gflags"].opt_lib}", "-lgflags",
                     "-o", "test"
     system "./test"
   end
