@@ -196,16 +196,15 @@ class VstsCli < Formula
     sha256 "65d309336e994d2824f732e1c32ae044ff8670f1fda5eb947fa42e2c79254b69"
   end
 
-
   def install
     virtualenv_install_with_resources
   end
 
   test do
-    system "#{bin}/vsts", "configure", "--help"
-    output = shell_output("#{bin}/vsts logout 2>&1", 1)
+    system "#{libexec}/bin/vsts configure --help"
+    output = shell_output("#{libexec}/bin/vsts logout 2>&1", 1)
     assert_equal "ERROR: The credential was not found", output.chomp
-    output = shell_output("#{bin}/vsts work 2>&1", 2)
+    output = shell_output("#{libexec}/bin/vsts work 2>&1", 2)
     assert_match "vsts work: error: the following arguments are required", output
   end
 end
