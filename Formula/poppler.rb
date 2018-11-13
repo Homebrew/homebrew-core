@@ -3,6 +3,7 @@ class Poppler < Formula
   homepage "https://poppler.freedesktop.org/"
   url "https://poppler.freedesktop.org/poppler-0.71.0.tar.xz"
   sha256 "badbecd2dddf63352fd85ec08a9c2ed122fdadacf2a34fcb4cc227c4d01f2cf9"
+  revision 1
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
@@ -81,6 +82,12 @@ class Poppler < Formula
       macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
       macho.write!
     end
+
+    # fix gobject-introspection support
+    # issue reported upstream as https://gitlab.freedesktop.org/poppler/poppler/issues/18
+    # patch attached there does not work though...
+    inreplace share/"gir-1.0/Poppler-0.18.gir", "@rpath", lib.to_s
+    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Poppler-0.18.typelib", share/"gir-1.0/Poppler-0.18.gir"
   end
 
   test do
