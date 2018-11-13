@@ -88,8 +88,7 @@ class Wine < Formula
     # All of these have been reported upstream & should
     # be fixed in the next release, but please check.
     patch do
-      url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
-      mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
+      url "https://snapshot.debian.org/archive/debian/20180702T023653Z/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
       sha256 "4e145dcde596e0c406a9f482680f9ddd09bed61a0dc6d3ac7e4c77c8ae2dd383"
       apply "patches/CVE-2017-9935.patch",
             "patches/CVE-2017-18013.patch",
@@ -105,7 +104,7 @@ class Wine < Formula
 
   resource "little-cms2" do
     url "https://downloads.sourceforge.net/project/lcms/lcms/2.9/lcms2-2.9.tar.gz"
-    mirror "https://mirrors.kernel.org/debian/pool/main/l/lcms2/lcms2_2.9.orig.tar.gz"
+    mirror "https://deb.debian.org/debian/pool/main/l/lcms2/lcms2_2.9.orig.tar.gz"
     sha256 "48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20"
   end
 
@@ -155,7 +154,7 @@ class Wine < Formula
   end
 
   resource "sane-backends" do
-    url "https://mirrors.kernel.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
+    url "https://deb.debian.org/debian/pool/main/s/sane-backends/sane-backends_1.0.27.orig.tar.gz"
     mirror "https://fossies.org/linux/misc/sane-backends-1.0.27.tar.gz"
     sha256 "293747bf37275c424ebb2c833f8588601a60b2f9653945d5a3194875355e36c9"
   end
