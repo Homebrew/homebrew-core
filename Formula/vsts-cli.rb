@@ -3,8 +3,8 @@ class VstsCli < Formula
 
   desc "Manage and work with VSTS/TFS resources from the command-line"
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
-  url "https://files.pythonhosted.org/packages/79/b2/ad3e32b9eb3c86fa26710e4fa260941f1635058f5203d6172512cf40aa2b/vsts-cli-0.1.2.tar.gz"
-  sha256 "a116949e7afe1a0164d19671b79f2b72eca3f4d893180c1a83aa9a4885e3a568"
+  url "https://files.pythonhosted.org/packages/4f/6d/9289eef4bf97702b2538745cd5ff89ea6c5af7b2694acb34db94c0c9f340/vsts-cli-0.1.3.tar.gz"
+  sha256 "49a02db989b1e311379c397bdd3572fd243b8d5068bbba5963ca56602a6f72e0"
 
   bottle do
     cellar :any_skip_relocation
