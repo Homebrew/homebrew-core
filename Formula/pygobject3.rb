@@ -5,10 +5,9 @@ class Pygobject3 < Formula
   sha256 "a4fc3523c4c1bb3d59e01d182fa50d9fb17db9896d86e68e470468390827ed97"
 
   bottle do
-    sha256 "d2f915f9926b904ca20f3976c003be9f777403f4f0ac76646c6c410990a34285" => :mojave
-    sha256 "4d929370081936dfebf95767696c62be500c1e3197ee38d1b6cc6468f432daca" => :high_sierra
-    sha256 "9c9c97adeff1513f3f14f84dc6d1f17aea83dc322efea5c3733603e18b246947" => :sierra
-    sha256 "61a4cb205453ebb9c2e9bc1c9c92d7a93fb26b7886c94a7e03406c7f1541a72a" => :el_capitan
+    sha256 "24705830cc11cc4c18f848a537073503087e9ddd0a205ee1a766838140339cbc" => :mojave
+    sha256 "06710883fbed3b9f82ec13f063cc3cc4d44cdc6a7bd5096d9e7f29c6d704127b" => :high_sierra
+    sha256 "fa2dc4dd4255291ba7a423bdc358b2697bfa847ec248ccea08d8faf1db64ee36" => :sierra
   end
 
   option "without-python", "Build without python3 support"
