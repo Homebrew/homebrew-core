@@ -201,7 +201,7 @@ class VstsCli < Formula
   end
 
   test do
-    system "#{libexec}/bin/vsts configure --help"
+    system "#{libexec}/bin/vsts", "configure", "--help"
     output = shell_output("#{libexec}/bin/vsts logout 2>&1", 1)
     assert_equal "ERROR: The credential was not found", output.chomp
     output = shell_output("#{libexec}/bin/vsts work 2>&1", 2)
