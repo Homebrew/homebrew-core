@@ -3,6 +3,7 @@ class Mongodb < Formula
   homepage "https://www.mongodb.com/"
   url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.4.tar.gz"
   sha256 "02baada1c5665c77c58e068ac6e9d0b11371bcd89e1467896765a5e452e6cce3"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -59,7 +60,9 @@ class Mongodb < Formula
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
 
-      system "./build.sh"
+      ENV["CPATH"] = Formula["openssl"].opt_include
+      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      system "./build.sh", "ssl"
     end
 
     (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
@@ -74,6 +77,9 @@ class Mongodb < Formula
       --build-mongoreplay=true
       --disable-warnings-as-errors
       --use-new-tools
+      --ssl
+      CCFLAGS=-I#{Formula["openssl"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
     scons "install", *args
