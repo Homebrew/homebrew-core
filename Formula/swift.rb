@@ -71,7 +71,7 @@ class Swift < Formula
         swift-remote-mirror-headers
       ]
 
-      system "#{buildpath}/utils/build-script",
+      system "#{workspace}/swift/utils/build-script",
         "--release", "--assertions",
         "--no-swift-stdlib-assertions",
         "--build-subdir=#{build}",
