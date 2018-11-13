@@ -114,6 +114,7 @@
   "lua@5.3": "lua",
   "mapnik2": "mapnik@2",
   "mariadb100": "mariadb@10.0",
+  "mat": "mat2",
   "maven31": "maven@3.1",
   "maven32": "maven@3.2",
   "mobile-shell": "mosh",
