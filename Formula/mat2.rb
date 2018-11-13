@@ -4,6 +4,13 @@ class Mat2 < Formula
   url "https://0xacab.org/jvoisin/mat2/uploads/e958dde527c7255e94ae2b347086ba9f/mat-0.6.0.tar.xz"
   sha256 "96c55c455a5d556bed41487476ae98866ebe8e7ef01a75325c9e274c7e1ce842"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "f107565490f9660d6e3f1e53a041e0137408d836dfd168aa99787470848d009b" => :mojave
+    sha256 "71dd41639831930449ea90b29655e9388014af0f50a216bd9efcbc1f5c88d8c9" => :high_sierra
+    sha256 "71dd41639831930449ea90b29655e9388014af0f50a216bd9efcbc1f5c88d8c9" => :sierra
+  end
+
   depends_on "exiftool"
   depends_on "ffmpeg"
   depends_on "poppler"
