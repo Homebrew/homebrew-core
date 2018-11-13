@@ -74,6 +74,9 @@ class Mongodb < Formula
       --build-mongoreplay=true
       --disable-warnings-as-errors
       --use-new-tools
+      --ssl
+      CCFLAGS=-I#{Formula["openssl"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
     scons "install", *args
