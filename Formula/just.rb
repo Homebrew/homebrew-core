@@ -1,8 +1,8 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/v0.3.12.tar.gz"
-  sha256 "e5ca71efd19db8f157131cddb14d75ba161851e79e1cc9fc709e2c674d2c943b"
+  url "https://github.com/casey/just/archive/v0.3.13.tar.gz"
+  sha256 "802241f8ab0b5f12ec84bf736c165fb1f81a108675223eddbea21834169a05e7"
 
   bottle do
     sha256 "b47d8d2d3702f5d98e5537f393893594818bdaceb4e42ef093e55ddf530c098e" => :mojave
