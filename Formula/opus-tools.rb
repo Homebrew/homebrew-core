@@ -1,8 +1,8 @@
 class OpusTools < Formula
   desc "Utilities to encode, inspect, and decode .opus files"
   homepage "https://www.opus-codec.org"
-  url "https://archive.mozilla.org/pub/opus/opus-tools-0.1.10.tar.gz"
-  sha256 "a2357532d19471b70666e0e0ec17d514246d8b3cb2eb168f68bb0f6fd372b28c"
+  url "https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz"
+  sha256 "b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86"
 
   bottle do
     cellar :any
@@ -24,7 +24,9 @@ class OpusTools < Formula
   depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "libogg"
+  depends_on "libopusenc"
   depends_on "opus"
+  depends_on "opusfile"
 
   def install
     system "./autogen.sh" if build.head?
