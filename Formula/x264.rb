@@ -6,12 +6,8 @@ class X264 < Formula
   stable do
     # the latest commit on the stable branch
     url "https://git.videolan.org/git/x264.git",
-        :revision => "e9a5903edf8ca59ef20e6f4894c196f135af735e"
-    version "r2854"
-
-    # This should probably be removed with the next stable release
-    # since HEAD now produces multiple bitdepths at once by default.
-    option "with-10-bit", "Build a 10-bit x264 (default: 8-bit)"
+        :revision => "0a84d986e7020f8344f00752e3600b9769cc1e85"
+    version "r2917"
   end
 
   bottle do
@@ -33,7 +29,6 @@ class X264 < Formula
       --enable-static
       --enable-strip
     ]
-    args << "--bit-depth=10" if build.stable? && build.with?("10-bit")
 
     system "./configure", *args
     system "make", "install"
