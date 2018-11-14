@@ -1,9 +1,8 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.51/gwyddion-2.51.tar.gz"
-  sha256 "67c1319b3a3e5682a37390b34d2580208a624c7d56dae8b5a3389fa5856508ee"
-  revision 1
+  url "http://gwyddion.net/download/2.52/gwyddion-2.52.tar.gz"
+  sha256 "40fc91eeb36c339ce52cae9deeafb47dfdd64a1e27d258ad6f216008aa31e137"
 
   bottle do
     sha256 "a0cdc1c579926f9f9e8bc42c98d287b4312257b8bad06570d64e90cf97fa7068" => :mojave
@@ -21,6 +20,10 @@ class Gwyddion < Formula
   depends_on "minizip"
   depends_on "pygtk"
   depends_on "python@2"
+
+  # Fix include in mac_integration.c, required for version 2.52.
+  # <https://sourceforge.net/p/gwyddion/mailman/message/36467388/>
+  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -118,3 +121,18 @@ class Gwyddion < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/gwyddion/mac_integration.c b/gwyddion/mac_integration.c
+index 740184b..2476004 100644
+--- a/gwyddion/mac_integration.c
++++ b/gwyddion/mac_integration.c
+@@ -22,7 +22,7 @@
+ #ifdef __APPLE__
+ #include <AppKit/AppKit.h>
+ #include <CoreFoundation/CoreFoundation.h>
+-#include <file.h>
++#include <app/file.h>
+ #include "config.h"
+
+ #ifdef HAVE_GTK_MAC_INTEGRATION
