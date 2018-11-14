@@ -37,6 +37,11 @@ class Ocrmypdf < Formula
     url "https://files.pythonhosted.org/packages/3e/40/aa7b63857908566b76d1849065a700248b088bf502c244e839fa2548d99e/img2pdf-0.3.1.tar.gz"
     sha256 "4409c12293eca94fdcd8e0da1ad2392b6ee3adfcedf438bb8b685924dc1b3a1c"
   end
+  
+  resource "pdfminer.six" do
+    url "https://files.pythonhosted.org/packages/8a/fd/6e8746e6965d1a7ea8e97253e3d79e625da5547e8f376f88de5d024bacb9/pdfminer.six-20181108-py2.py3-none-any.whl"
+    sha256 "f04d029d1d3e58c87da51bdefef2e9a1dbf2d7b63f727dd2a3e36054f5ae96ea"
+  end
 
   resource "pikepdf" do
     url "https://files.pythonhosted.org/packages/ea/8d/01f66685772025ac82c63c759b032d5df2a0714a7f59292c393a084cb42e/pikepdf-0.3.7.tar.gz"
@@ -67,7 +72,7 @@ class Ocrmypdf < Formula
     url "https://files.pythonhosted.org/packages/6d/40/e0230c95234a16accad10bb50228b3b274c92797c92bcc423db70e0396c0/reportlab-3.5.9.tar.gz"
     sha256 "f92f81314807cd860f29fe07a1a4100b03910ae6bbfca20a07e02c3b460f4f20"
   end
-
+  
   resource "ruffus" do
     url "https://files.pythonhosted.org/packages/ac/c7/5652e44a3644dfdf8cdfa17c2bb7933896dddec99888f57bf2adbbcca226/ruffus-2.8.0.tar.gz"
     sha256 "609e76e88de2d11362ed2a312917508f14daf56413fd1b3c7d5a96aaa14bb5e9"
