@@ -1,7 +1,7 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  revision 5
+  revision 6
   head "https://github.com/PointCloudLibrary/pcl.git"
 
   stable do
@@ -18,9 +18,9 @@ class Pcl < Formula
   end
 
   bottle do
-    sha256 "87563c9da4148e806caf9d025952869746b671f2d10b934d8c159c143a3b3be7" => :mojave
-    sha256 "6abf9e8c4c08e470bbc43e17f39b71e2707acd01584005c3edf3e16e6ea47d95" => :high_sierra
-    sha256 "b1199ce9933bad8ec258c2212617c403f5f6c9669fd77fdffa1d627388b043f4" => :sierra
+    sha256 "7f1f32c0e548d03c7c421cdc3dc015d1e016f418171bfec6097bf7da6704c6f4" => :mojave
+    sha256 "482a01e09f28dc35be15d6253476caee2ffdf7d30d06ff24e9f0c1562086dd55" => :high_sierra
+    sha256 "5866836a327cef53471489407db1880ea59d362c6e5aa856cb85def1119321a7" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -33,6 +33,12 @@ class Pcl < Formula
   depends_on "libusb"
   depends_on "qhull"
   depends_on "vtk"
+
+  # Upstream fix for boost 1.68, remove in next version
+  patch do
+    url "https://github.com/PointCloudLibrary/pcl/commit/491b7c7e.diff?full_index=1"
+    sha256 "3665d0a6c110faf1976b8a05a2c7081c8878417b6c03370005c844efa6f52af6"
+  end
 
   def install
     # Fix "error: no matching constructor for initialization of

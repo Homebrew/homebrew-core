@@ -2,7 +2,7 @@ class Lolcat < Formula
   desc "Rainbows and unicorns in your console!"
   homepage "https://github.com/busyloop/lolcat"
   url "https://github.com/busyloop/lolcat.git",
-      :tag => "v99.9.19",
+      :tag      => "v99.9.19",
       :revision => "40692d01733c5d360022a14f08a4415668544f37"
 
   bottle do

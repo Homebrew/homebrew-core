@@ -1,14 +1,14 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.12.0/node-v10.12.0.tar.gz"
-  sha256 "c6552b95062f5e9f3a27da6fdb57914ab4b27a9aa2e783fb050791166554d059"
+  url "https://nodejs.org/dist/v11.1.0/node-v11.1.0.tar.gz"
+  sha256 "3f53b5ac25b2d36ad538267083c0e603d9236867a936c22a9116d95fa10c60d5"
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "3e7f1ac18b4a85516c39aab2868f8a76f7bc69702ba699bdaf70241c9e7545fa" => :mojave
-    sha256 "62e1d5f41d409a30f79e60a59361af7be2f0b5f0be72deb50f8e93301cbd5855" => :high_sierra
-    sha256 "7585bb55f736b2aa166b3f35607c9bef9752004c2782fe1103233fbe89986f5d" => :sierra
+    sha256 "a8b4308380198603f68cedd03bd76ff4e11aa6f80c628a23430e323b5841de9d" => :mojave
+    sha256 "fe56eea71f6ce71212b5ca75003da31833d713fa64743cf07335c0390b82765f" => :high_sierra
+    sha256 "ccab2bdbc60c2e626228eadc2ee8c6f9ae4c4c793a6957f542630b7f37b1e17a" => :sierra
   end
 
   option "with-openssl@1.1", "Build against Homebrew's OpenSSL instead of the bundled OpenSSL"

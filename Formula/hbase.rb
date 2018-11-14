@@ -1,14 +1,13 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6.1/hbase-1.2.6.1-bin.tar.gz"
-  sha256 "3bfa55c0b2b1327cb4382c1a51dddd21a536ccbbfdbcc31e9b6f403fe21230ad"
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/hbase-1.2.8/hbase-1.2.8-bin.tar.gz"
+  sha256 "3286c67b847c2185ed046143eb8212db454c4aa83e9efbaf2a0032f18ce1ebfd"
 
   bottle do
-    sha256 "ad2f8a6edee755254654904724c08c05bc9f05f82432b0b69022723624b13de8" => :mojave
-    sha256 "3c4084898091f6b811062aff85f2d5dcef422d720b21e60b0554a24ac611e0d9" => :high_sierra
-    sha256 "e2102bd08b2d94f5ac4d33938cdc76166bd085c9657f6f2ebcff47bbf3d3fd85" => :sierra
-    sha256 "72240c500dda738b40241eba7c157bdcb4e1a5cdec79b85fb74cbccebb02bef3" => :el_capitan
+    sha256 "e5f6e0622f678f298531ef3fa7e91647a7ceda2b23475fcd89548112f3f57085" => :mojave
+    sha256 "7dab0c1a2cbe939ac251a4020f551990224ffb771bc27df04720627035df76b7" => :high_sierra
+    sha256 "608f15b4b563292d84d44a97f09ca8c6863c5150ec7e47ad79422ac89b07117e" => :sierra
   end
 
   depends_on "ant" => :build

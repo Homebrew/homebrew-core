@@ -5,35 +5,32 @@ class Lldpd < Formula
   sha256 "450b622aac7ae1758f1ef82f3b7b94ec47f2ff33abfb0e6ac82555b9ee55f151"
 
   bottle do
-    sha256 "1c66fc798da96bf31629f986bb396e91a81541087b833b6adb59a98919b4819d" => :mojave
-    sha256 "d770ef1c3507d3d2373f8706acf4f8d3c41ae07f594192db02483184e497c510" => :high_sierra
-    sha256 "fd38d0022374f5960183ec7afde1a5c9ffc85047c017a667f09b92cda25b1c7a" => :sierra
-    sha256 "1158b121a76df10a688d9907ab0843886ce7798f6d54ad8eaf9d21b17cb7b01f" => :el_capitan
+    rebuild 1
+    sha256 "8222ab9826ddcdad598d354c001d064fe92aa386b8088464c29fdc2cb0a08757" => :mojave
+    sha256 "c5ba1d60ebad77d94fd21fe743bd62f99e08ef364ab0ca3b9c852d4be531ff51" => :high_sierra
+    sha256 "0bcede6bdf6809586f730d2938f9e17a508c43baac194fc36e24fb9b7d54f9aa" => :sierra
   end
-
-  option "with-snmp", "Build SNMP subagent support"
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "net-snmp" if build.with? "snmp"
   depends_on "readline"
 
   def install
     readline = Formula["readline"]
-    args = [
-      "--prefix=#{prefix}",
-      "--sysconfdir=#{etc}",
-      "--localstatedir=#{var}",
-      "--with-xml",
-      "--with-readline",
-      "--with-privsep-chroot=/var/empty",
-      "--with-privsep-user=nobody",
-      "--with-privsep-group=nogroup",
-      "--with-launchddaemonsdir=no",
-      "CPPFLAGS=-I#{readline.include} -DRONLY=1",
-      "LDFLAGS=-L#{readline.lib}",
+    args = %W[
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+      --with-launchddaemonsdir=no
+      --with-privsep-chroot=/var/empty
+      --with-privsep-group=nogroup
+      --with-privsep-user=nobody
+      --with-readline
+      --with-xml
+      --without-snmp
+      CPPFLAGS=-I#{readline.include}\ -DRONLY=1
+      LDFLAGS=-L#{readline.lib}
     ]
-    args << (build.with?("snmp") ? "--with-snmp" : "--without-snmp")
 
     system "./configure", *args
     system "make"

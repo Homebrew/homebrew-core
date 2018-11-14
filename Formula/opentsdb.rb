@@ -30,7 +30,7 @@ class Opentsdb < Formula
     system "make", "install"
 
     env = {
-      :HBASE_HOME => Formula["hbase"].opt_libexec,
+      :HBASE_HOME  => Formula["hbase"].opt_libexec,
       :COMPRESSION => "LZO",
     }
     env = Language::Java.java_home_env("1.8").merge(env)

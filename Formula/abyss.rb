@@ -1,14 +1,13 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "http://www.bcgsc.ca/platform/bioinfo/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.1.1/abyss-2.1.1.tar.gz"
-  sha256 "aca9e5ad984282ced81038dfc20205ba0bb59ff4edf427419451b632aa567e9f"
+  url "https://github.com/bcgsc/abyss/releases/download/2.1.3/abyss-2.1.3.tar.gz"
+  sha256 "23a3e6562b2fa6f0e970d2c452ef98a799ac9892c86a7207f42c7a6ae6df09ab"
 
   bottle do
-    sha256 "80ab108b5ce547a63be711284367e2a29c7657eeee4f23ac0da1ec621113fe5f" => :mojave
-    sha256 "47829fcb41eca26386d6c5db4b2d3d7ff999205ddea5db86059911cbd426fa3f" => :high_sierra
-    sha256 "48729e38eecf5f49df1f05654a80e0539f5b44732f6ec43856e68b108dd96bce" => :sierra
-    sha256 "e82ef97ceb8f9e93afd70c435fbf5798b15a96d7dd9c86e6cd79713c0064cc15" => :el_capitan
+    sha256 "610e245c999a566af5d3d552d8729bdb95e05792b381bbb0a0dbb459bbb3a6af" => :mojave
+    sha256 "28761a5c8f15f43c0d23bcecf3d18e9264be0aa531e3538b9131f08d350164d2" => :high_sierra
+    sha256 "5b7a30aa0a90d9224e780ac8023a67a49eba773cd3f083475a87571c8a3bc804" => :sierra
   end
 
   head do

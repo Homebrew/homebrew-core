@@ -26,9 +26,9 @@ class MongodbAT32 < Formula
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
-        :tag => "r3.2.21",
+        :tag      => "r3.2.21",
         :revision => "f207093c46939fd42f12980a058370c013c26338",
-        :shallow => false
+        :shallow  => false
   end
 
   needs :cxx11

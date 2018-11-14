@@ -1,15 +1,14 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.69.0.tar.xz"
-  sha256 "637ff943f805f304ff1da77ba2e7f1cbd675f474941fd8ae1e0fc01a5b45a3f9"
-  revision 1
+  url "https://poppler.freedesktop.org/poppler-0.71.0.tar.xz"
+  sha256 "badbecd2dddf63352fd85ec08a9c2ed122fdadacf2a34fcb4cc227c4d01f2cf9"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "975b11cbafebf19b275438d153a37ac45808ac6756f3d00ba6a5522f69da48ee" => :mojave
-    sha256 "8b8fcb486a81ec85c429d8747f0cb59629ffe1b63da54042b48e063a2344e872" => :high_sierra
-    sha256 "ae42f96291d9149173137b1174f06efa7e89760ba2ed2cfb46176686c32ef7a9" => :sierra
+    sha256 "0af1d6237430046dddad77c909805e5509a3478b148b2e25f8d56e4f39cac616" => :mojave
+    sha256 "6247be8458aea7d9be59526406b3de0da9423dd2146e3bf53d5b92ad3abce8a8" => :high_sierra
+    sha256 "f3a4677b615b2aeef34c6706fe9c1db6d442f2b465d7559f8a8bff11c1f50057" => :sierra
   end
 
   option "with-qt", "Build Qt5 backend"

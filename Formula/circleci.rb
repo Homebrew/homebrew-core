@@ -3,14 +3,14 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag => "v0.1.3139",
-      :revision => "2743216fe2fb5cfedc28373aa8df8851c715d1eb"
+      :tag      => "v0.1.4005",
+      :revision => "6011639b61b5434a12ba87e18e09708ba9356303"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "77dc5e2d312307d54cfd527846bf73ece9c819cc6365b1842cf53d6ac41810f7" => :mojave
-    sha256 "3599f36846f7f17aeafe5c6ab14a0766fea309e7e421fa628f2b8adb2f3e301b" => :high_sierra
-    sha256 "eef16e5c259faf3b63e2488be3d33305d64ef75c93123d58c9b0cbbbb27fc812" => :sierra
+    sha256 "1bff1e7d5af0f5699bdc7200fcb551985e3f04da496a58fb7ceab6cbe0d46495" => :mojave
+    sha256 "49a56d0fd2eb89ffd461faa5ca10cadcbb103178b5c8dadb37cdc855c0771861" => :high_sierra
+    sha256 "23e9eea8afc2249ced339a9dbe6ebc58ae9bec6444459b776ec482ed5f8c07bd" => :sierra
   end
 
   depends_on "go" => :build
@@ -24,6 +24,7 @@ class Circleci < Formula
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
+        -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
         -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
@@ -40,5 +41,8 @@ class Circleci < Formula
     (testpath/".circleci.yml").write("{version: 2.1}")
     output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
     assert_match "Local builds do not support that version at this time", output
+    # assert update is not included in output of help meaning it was not included in the build
+    assert_match "update      This command is unavailable on your platform", shell_output("#{bin}/circleci help")
+    assert_match "`update` is not available because this tool was installed using `homebrew`.", shell_output("#{bin}/circleci update")
   end
 end

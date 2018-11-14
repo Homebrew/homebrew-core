@@ -1,16 +1,15 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast protein sequence search and clustering"
   homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/5-9375b.tar.gz"
-  version "5-9375b"
-  sha256 "3f2905b01ab61d2ce0c30acbf53ed7eb3b36171da748d327da5edcbf1472bf59"
+  url "https://github.com/soedinglab/MMseqs2/archive/6-f5a1c.tar.gz"
+  version "6-f5a1c"
+  sha256 "41a7b3114a2f54796e0d4e423045ee1bc3372834f75c72956e5c9eda520db586"
 
   bottle do
     cellar :any
-    sha256 "463770152ed8e5e899b7c42b132812c48b759bd3442c3bb255c1bf4f14f6ab53" => :mojave
-    sha256 "6e07b5c3e7022c01849a81a6f93099e801298cb3a8ad422b16f607775f3e181f" => :high_sierra
-    sha256 "626935c11f55e65feb18b9ae0dd8cd51ce66a990d9dacd4de38625c31506068e" => :sierra
-    sha256 "8c59649bdd215283fae0ea307241b359aaf17634fb5c255b88f6fb86432f01c3" => :el_capitan
+    sha256 "8db02bf960227746276cf0011fc40b9105b30ec05dcf2fb9a2507e5ca3419f83" => :mojave
+    sha256 "08498f8a25d75e3d5b739cb880e4ad43e871485d8b510adb2840ffb27f0266b4" => :high_sierra
+    sha256 "d0dccfee074cfee58e7e4f0995d10592ee130f68d59ae15ec507a0a853829db6" => :sierra
   end
 
   depends_on "cmake" => :build

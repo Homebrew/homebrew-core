@@ -1,14 +1,13 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.41.tar.gz"
-  sha256 "4a223c3daed88f8450fa2fc8fd0e7afe2b1a122dd58b74c4ea6526d6a72563ce"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.42.tar.gz"
+  sha256 "fc6d4aa9c2ed1a751163d0ec3d35bf800fc6b7c9bd2f890e376b6810c9393dba"
 
   bottle do
-    sha256 "d40cfd2b1c4a9676e7e054ac02aa3c100e098c681837793c6a9a80f60cda9f78" => :mojave
-    sha256 "f38c2f721f15779682345a364ed5adf2550163986a1dd50e7bfc945ddc3b68cf" => :high_sierra
-    sha256 "a85b38c407bd23ed63683c5e66c0cc2bb3e4727c737c94a43956b3fd442f91a4" => :sierra
-    sha256 "7f668566960c8671fdc237eb3af7cdce546a51445b5933288e4b6ed196296396" => :el_capitan
+    sha256 "57fb848e314ef0c217cfb2367e312e8a25fb87441567cf90f5d8b066e5653a75" => :mojave
+    sha256 "07ba36fedde472b8a5b80c23e638b1d90948c97bf5021551b134d976ff9d21a0" => :high_sierra
+    sha256 "fd586a556d260ced9d5f84f01f338407f6aad00124e21f8c44ef26e5dba16f48" => :sierra
   end
 
   keg_only :versioned_formula

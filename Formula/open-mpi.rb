@@ -1,14 +1,13 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.2.tar.bz2"
-  sha256 "c654ed847f34a278c52a15c98add40402b4a90f0c540779f1ae6c489af8a76c5"
+  url "https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.3.tar.bz2"
+  sha256 "8be04307c00f51401d3fb9d837321781ea7c79f2a5a4a2e5d4eaedc874087ab6"
 
   bottle do
-    sha256 "09dd9c512eaa10461506dc9485253e2c202cf1a63ece9a8c0732ea33a3cbdfbb" => :mojave
-    sha256 "98887a827636d5611624a0b62cf444815481e893b6ab60b7c1372f18b1c97303" => :high_sierra
-    sha256 "32f6346af5d336a1509ec79b84894ea9ed1a898c1a9b013f38c649b1f1da97d5" => :sierra
-    sha256 "30a4804d11cc46e96aa0a625a0c70fc5a7d6905d9a3b7cb5e36b6d4cbe9aca80" => :el_capitan
+    sha256 "ba17c7e6a3ca1e6776e7d3049f0e75d5f3393bb4322885f9b1464717c4ceb012" => :mojave
+    sha256 "8bdfd640afbc48f13f1f3621e809edb139dd69309b5dfa3dd68274b6f7626864" => :high_sierra
+    sha256 "e399bdf2f73bde3257979938db92d3bc9229746a29f7957ef9a11d0588e5b4f3" => :sierra
   end
 
   head do
@@ -18,10 +17,7 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
   option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
-
-  deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
 
   depends_on "gcc"
   depends_on "libevent"
@@ -45,7 +41,6 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-    args << "--enable-mpi-thread-multiple" if build.with? "mpi-thread-multiple"
     args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
 
     system "./autogen.pl" if build.head?

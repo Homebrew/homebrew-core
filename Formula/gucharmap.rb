@@ -1,14 +1,13 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/11.0/gucharmap-11.0.2.tar.xz"
-  sha256 "17e76eacd7c9e72fda21afc2da19d8c3f892814e36ae6f6f561a67bcf9bc9819"
+  url "https://download.gnome.org/sources/gucharmap/11.0/gucharmap-11.0.3.tar.xz"
+  sha256 "6fe4405aa4d2edeedf412befa3cdf423211c80f8836085c4c8c56679658e37fa"
 
   bottle do
-    sha256 "9d7f11d212f14124235cd57c9170551a7ff1f965333448e5bb49594b8bf2ea1d" => :mojave
-    sha256 "350a714b5b085203bb43049adb8c2f4b50c9692557c91e25c9b3e071d6a7235a" => :high_sierra
-    sha256 "de608586f7faf216b532f88d644448ad9fa714ba3302a576a379ad88847eae81" => :sierra
-    sha256 "7c84a8518219abc1e1e96aa365391fcb738c8bef2c07b24ad772acdcc7665b27" => :el_capitan
+    sha256 "9c378f03cd0812959ea940e8014acfc38aa21dbebc47b443badb53fc7fe2020a" => :mojave
+    sha256 "5b26d5e330593770c86ddc82183224d05cb78ce36cd89c71e9be5eb48ce63910" => :high_sierra
+    sha256 "d902d39d58d1cdb90365d23dada129747b6a5ac3e494c24897ab70d306cf4ba8" => :sierra
   end
 
   depends_on "coreutils" => :build

@@ -7,20 +7,20 @@ class Agda < Formula
   homepage "http://wiki.portal.chalmers.se/agda/"
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.5.4.1/Agda-2.5.4.1.tar.gz"
-    sha256 "7759aa76936e6a35325c2e186a7546553921775155a426c8edc9a234f58ab72f"
+    url "https://hackage.haskell.org/package/Agda-2.5.4.2/Agda-2.5.4.2.tar.gz"
+    sha256 "f645add8a47a35da3f37757204fa9c80aeb0993d628fc2057fa343e92e579b1f"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git",
-          :revision => "a1a10b39d35b8fc40e87723a89f5682252d46380"
+          :tag      => "v0.17",
+          :revision => "5819a4dd9c965296224944f05b1481805649bdc2"
     end
   end
 
   bottle do
-    sha256 "ff07f75efd1934c0b729a2130bf55ce2c3a50eb8462998a4e905852f9215dca8" => :mojave
-    sha256 "a040cb1a273037a0ed2983be3c7ccddf8c606e762e976f22da5b7c89a7c5ae8a" => :high_sierra
-    sha256 "b097269cfd028fae6bf73db2eccb41e253d4962340ae962e104196e36868985b" => :sierra
-    sha256 "8b189b0fa2e7c2332d9ca1239c21f0dca0df714f59eb2fd5dd5e0483f33bd90a" => :el_capitan
+    sha256 "c663b789d6441cd487295b819fec34741cb742e428305a1253ac8649afde973f" => :mojave
+    sha256 "8c5277d95907ab1ba2825c910cf5b3310d5a34fe3152cdefd1144c55440b780e" => :high_sierra
+    sha256 "ee42b8e6a1a0b739f4240e23e0f37c6833c6df6a1008ad4bd731dc4a22091ad9" => :sierra
   end
 
   head do

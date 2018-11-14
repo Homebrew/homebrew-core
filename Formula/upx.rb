@@ -1,7 +1,7 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  head "https://github.com/upx/upx.git", :branch => :devel
+  head "https://github.com/upx/upx.git", :branch => "devel"
 
   stable do
     url "https://github.com/upx/upx/archive/v3.95.tar.gz"

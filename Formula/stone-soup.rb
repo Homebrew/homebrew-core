@@ -5,25 +5,15 @@ class StoneSoup < Formula
   sha256 "02e36ccc458747e89ab84835f6dd7df554e8e40537397797c5bb61a4d376597d"
 
   bottle do
-    sha256 "098f4c729890622a1f75e144a2ea87b3ad44c4f148ced01e224b93edfc52101f" => :mojave
-    sha256 "1f2fd929557b2eb7f8b9a8091479210c94b360d9a69aa1cc79f3712daad9a4d8" => :high_sierra
-    sha256 "90d1d10bfb4fd49ec62fd40aebeb622312d603ffd20553f18e5473725767dde3" => :sierra
-    sha256 "3690a7a849debe2f941a948ab4fbeb017985bdd163eb973841e201fb21532f0c" => :el_capitan
+    rebuild 1
+    sha256 "42e9d8799c1bc5c7fb8fe1e173cada66ea4cca54eaa94401d3a271c49dcf1fef" => :mojave
+    sha256 "a6c1c2fcefb3f5e7da4afb8bf44f90c655944faedc48ea49c48b02dff6228512" => :high_sierra
+    sha256 "ad88cc136ebe523cb58c818b41041a69587b041b2b8e325f42855478933ffd31" => :sierra
   end
-
-  option "with-tiles", "Enable graphic tiles and sound"
 
   depends_on "pkg-config" => :build
   depends_on "lua@5.1"
   depends_on "pcre"
-
-  if build.with? "tiles"
-    depends_on "sdl2"
-    depends_on "sdl2_mixer"
-    depends_on "sdl2_image"
-    depends_on "libpng"
-    depends_on "freetype"
-  end
 
   needs :cxx11
 
@@ -46,11 +36,6 @@ class StoneSoup < Formula
         BUILD_PCRE=
         USE_PCRE=y
       ]
-      if build.with? "tiles"
-        inreplace "Makefile", "contrib/install/$(ARCH)/lib/libSDL2main.a", ""
-        args << "TILES=y"
-        args << "SOUND=y"
-      end
 
       # FSF GCC doesn't support the -rdynamic flag
       args << "NO_RDYNAMIC=y" unless ENV.compiler == :clang

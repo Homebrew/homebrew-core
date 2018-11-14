@@ -3,12 +3,13 @@ class LibtorrentRasterbar < Formula
   homepage "https://www.libtorrent.org/"
   url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_10/libtorrent-rasterbar-1.1.10.tar.gz"
   sha256 "07b2b391e0d16bc693d793e352338488a0e41f3130b70884bb2e0270ea00b8c2"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "c9d318a90481b9563cc4242ff347dfc0c8740ae126e839a3aa68e06eff669e05" => :mojave
-    sha256 "a962771be1c8be8f58caee767b91f99641a2a22197a023b8248d9b325342b7c4" => :high_sierra
-    sha256 "1f5445cf2679669f90d9f7c604ba8cc4adea252303c660d48d877f3374a6aff8" => :sierra
+    sha256 "9039792f182a56f9c92f5ba39d3ed2538bb03635c74cc4c838d55d4c29ee7f5c" => :mojave
+    sha256 "6ac5e534203c06bd113b61a302f64b9d02c065b967a2ac30276406f44973972d" => :high_sierra
+    sha256 "5cc3e874d0543efd80b12b9f769263508d5380b11a25324d5236f68caa8620c4" => :sierra
   end
 
   head do

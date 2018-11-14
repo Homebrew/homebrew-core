@@ -3,16 +3,15 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.5.0"
-  sha256 "97ecdc088b9cda5acfaa6f84d9d830711669ad8d106d5c68d5897ece3c5cdfda"
-  revision 1
+  url "https://gitlab.com/pycqa/flake8/repository/archive.tar.gz?ref=3.6.0"
+  sha256 "c19a9954dd8121ace467d605e63188dad7ce34b77a1e8dfc7c4d967016a85bd6"
   head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7dfcf70ad656073cd15198c441148de0ebb50c27912398d03853dda243f69597" => :mojave
-    sha256 "75c0b3b214915fea67ac8633d5daafe404e1775a0a46b27bc2fc4e9878ae8490" => :high_sierra
-    sha256 "854cb1e3303bbd1e90ece8e512c21ca872fd1d2f6038ca1a4ba27e109991554f" => :sierra
+    sha256 "c920e57f095a6a1e068e2092850fe8e55cf5e0c5f91bd6891f23718e584ebe09" => :mojave
+    sha256 "24b99c8d674b9cdd6da35e580fc989aeb02f5ef646d2555665f688f3e57df334" => :high_sierra
+    sha256 "878f83596f0c3d781b2ab9f6f2f1c94a3b77984b3ac78bf4e704b8af0bb59220" => :sierra
   end
 
   depends_on "python"
@@ -27,6 +26,9 @@ class Flake8 < Formula
 
   test do
     xy = Language::Python.major_minor_version "python3"
-    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8"
+    # flake8 version 3.6.0 will fail this test with `E203` warnings.
+    # Adding `E203` to the list of ignores makes the test pass.
+    # Remove the customized ignore list once the problem is fixed upstream.
+    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
   end
 end
