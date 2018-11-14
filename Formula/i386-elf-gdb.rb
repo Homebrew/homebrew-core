@@ -8,9 +8,7 @@ class I386ElfGdb < Formula
     mkdir "i386-elf-gdb-build" do
       system "../configure", "--target=i386-elf",
                              "--prefix=#{prefix}",
-                             "--with-gmp=#{prefix}",
-                             "--with-libelf=#{prefix}",
-                             "--with-build-libsubdir=#{prefix}"
+                             "--disable-werror"
       system "make"
       system "make", "install"
     end
