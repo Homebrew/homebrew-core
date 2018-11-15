@@ -13,7 +13,7 @@ class Ballerina < Formula
     rm Dir["bin/*.bat"]
 
     chmod 0755, "bin/ballerina"
-    
+
     inreplace ["bin/ballerina"] do |s|
       s.gsub! /^BALLERINA_HOME=.*$/, "BALLERINA_HOME=#{libexec}"
       s.gsub! /\r?/, ""
