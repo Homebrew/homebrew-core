@@ -1,8 +1,8 @@
 class JfrogCliGo < Formula
   desc "Command-line interface for Jfrog Artifactory and Bintray"
   homepage "https://github.com/jfrog/jfrog-cli-go"
-  url "https://github.com/jfrog/jfrog-cli-go/archive/1.20.2.tar.gz"
-  sha256 "167c04a56e580c818c1e1cd829926a5b0641f8b0b06a92dcb8d085f956e21138"
+  url "https://github.com/jfrog/jfrog-cli-go/archive/1.21.1.tar.gz"
+  sha256 "28a7556a6393bfaebf333283bda59038d54df673f7f0b86ca05f6e9ea40d9f30"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,6 +14,7 @@ class JfrogCliGo < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/jfrog/jfrog-cli-go").install Dir["*"]
     cd "src/github.com/jfrog/jfrog-cli-go" do
