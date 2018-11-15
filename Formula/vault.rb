@@ -16,6 +16,8 @@ class Vault < Formula
     sha256 "85b3d358852de5414a6432fb4bac1c9d10705e9b960789c2a9b525fe4080a763" => :sierra
   end
 
+  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
+
   depends_on "go" => :build
   depends_on "gox" => :build
 
@@ -28,7 +30,8 @@ class Vault < Formula
     (buildpath/"bin").mkpath
 
     cd "src/github.com/hashicorp/vault" do
-      system "make", "dev"
+      target = build.with?("dynamic") ? "dev-dynamic" : "dev"
+      system "make", target
       bin.install "bin/vault"
       prefix.install_metafiles
     end
