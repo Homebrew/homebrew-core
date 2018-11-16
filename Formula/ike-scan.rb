@@ -1,9 +1,10 @@
 class IkeScan < Formula
   desc "Discover and fingerprint IKE hosts"
   homepage "https://github.com/royhills/ike-scan"
-  url "https://github.com/royhills/ike-scan/releases/download/1.9/ike-scan-1.9.tar.gz"
-  sha256 "05d15c7172034935d1e46b01dacf1101a293ae0d06c0e14025a4507656f1a7b6"
-  revision 1
+  url "https://github.com/royhills/ike-scan/archive/1.9.4.tar.gz"
+  sha256 "2865014185c129ac443beb7bf80f3c5eb93adb504cd307c5b6709199abf7c121"
+
+  head "https://github.com/royhills/ike-scan.git"
 
   bottle do
     sha256 "7e6dde3a63dd30648a77deb4caf5ef6c85d102604a94f0a1db6f7f00e2d7c171" => :mojave
@@ -15,18 +16,13 @@ class IkeScan < Formula
     sha256 "2281b3d5f1f590e69e435a39c1032872db80439411ea74410a58243096645668" => :mountain_lion
   end
 
-  head do
-    url "https://github.com/royhills/ike-scan.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "openssl"
 
   def install
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
