@@ -1,8 +1,8 @@
 class Libplctag < Formula
   desc "Portable and simple API for accessing AB PLC data over Ethernet"
   homepage "https://github.com/kyle-github/libplctag"
-  url "https://github.com/kyle-github/libplctag/archive/v1.5.10.tar.gz"
-  sha256 "dd6cb16baf6c71108588b9a8ce98933d816ae04090175efa93d03d1c11ae6dee"
+  url "https://github.com/kyle-github/libplctag/archive/v1.6.3.tar.gz"
+  sha256 "cad1d497d479ccfdfd92147a42b3fd431cadfe246a3c7cac63e2c7b6bcb67e2f"
 
   bottle do
     cellar :any
@@ -31,7 +31,7 @@ class Libplctag < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lplctag", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lplctag", "-o", "test"
     system "./test"
   end
 end
