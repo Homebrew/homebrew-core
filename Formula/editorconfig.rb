@@ -14,7 +14,7 @@ class Editorconfig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
     system "cmake", ".", "-DCMAKE_INSTALL_PREFIX:PATH=#{prefix}"
