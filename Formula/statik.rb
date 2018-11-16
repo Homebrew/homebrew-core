@@ -8,11 +8,10 @@ class Statik < Formula
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2ed6a6bb627324266fea054896a52ec9e2486a4300f5f81c1a27bb73bf63cece" => :mojave
-    sha256 "1e06fe468903f6e079711016b117c9710acc5b8515d31281516180359056885c" => :high_sierra
-    sha256 "17f94e0fe1ff71273675d4140e34230970387b3733ba4d7e96de7d8d4a8d955d" => :sierra
-    sha256 "9854b3a59217e9f747890fdad3cba25245bb264dcd72350a8b805701e8b46870" => :el_capitan
+    cellar :any
+    sha256 "f63ddd46d7506175ff040aa6ae60d080f996fc6dd92394c8e7820837c924ab92" => :mojave
+    sha256 "c8ca1b31f4252495627088c1b8622b4d47e06de8e526ec7a4c52ee2dd2da74c7" => :high_sierra
+    sha256 "c8e963506f9f837f5c29ad79872d03eae07d1f318b284e816403f345d6acb4ad" => :sierra
   end
 
   depends_on "python@2"
