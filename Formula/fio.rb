@@ -1,8 +1,8 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "https://github.com/axboe/fio"
-  url "https://github.com/axboe/fio/archive/fio-3.8.tar.gz"
-  sha256 "3eccc9eb2ccf9d910ab391c5d639565e0f6bb4050620d161f26c36c6ff83454f"
+  url "https://github.com/axboe/fio/archive/fio-3.12.tar.gz"
+  sha256 "c9fb079e24bb02413b106a80a20e43b2166ba8681e371a5fb9002b8c9d79bd36"
 
   bottle do
     cellar :any_skip_relocation
