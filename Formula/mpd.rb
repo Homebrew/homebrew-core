@@ -1,9 +1,9 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.21.tar.xz"
-  sha256 "8322764dc265c20f05c8c8fdfdd578b0722e74626bef56fcd8eebfb01acc58dc"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.3.tar.xz"
+  sha256 "6cf60e644870c6063a008d833a6c876272b7679a400b83012ed209c15ce06e2a"
+  head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
     rebuild 1
@@ -13,13 +13,9 @@ class Mpd < Formula
     sha256 "619fe3fae8f6b7ea37cd2e2388c8990387db2b0025a825bf8d1e136c11d6ce2f" => :el_capitan
   end
 
-  head do
-    url "https://github.com/MusicPlayerDaemon/MPD.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
   depends_on "boost" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "expat"
   depends_on "faad2"
@@ -46,31 +42,26 @@ class Mpd < Formula
     # The build is fine with G++.
     ENV.libcxx
 
-    system "./autogen.sh" if build.head?
-
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}
-      --disable-libwrap
-      --disable-mad
-      --disable-mpc
-      --disable-soundcloud
-      --enable-ao
-      --enable-bzip2
-      --enable-expat
-      --enable-ffmpeg
-      --enable-fluidsynth
-      --enable-osx
-      --enable-upnp
-      --enable-vorbis-encoder
+      -Dlibwrap=disabled
+      -Dmad=disabled
+      -Dmpcdec=disabled
+      -Dsoundcloud=disabled
+      -Dao=enabled
+      -Dbzip2=enabled
+      -Dexpat=enabled
+      -Dffmpeg=enabled
+      -Dfluidsynth=enabled
+      -Dupnp=enabled
+      -Dvorbisenc=enabled
     ]
 
-    system "./configure", *args
-    system "make"
+    system "meson", *args, "output/release", "."
+    system "ninja", "-C", "output/release"
     ENV.deparallelize # Directories are created in parallel, so let's not do that
-    system "make", "install"
+    system "ninja", "-C", "output/release", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
