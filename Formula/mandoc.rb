@@ -6,11 +6,9 @@ class Mandoc < Formula
   head "anoncvs@mandoc.bsd.lv:/cvs", :using => :cvs
 
   bottle do
-    sha256 "f2cf0e8ab46a43d456ef1afa89309bc3a1c2da1bf4cbbd757ab8f907e2d3b1f7" => :mojave
-    sha256 "c16d34b3c6c0e22ede164139f6fdb0268a440e39ca94ce791d5f580b4c2c01f1" => :high_sierra
-    sha256 "59709d56bff5dedfe3f544b4da3d6791f32dbf4e4299a242719b39a21dc0c050" => :sierra
-    sha256 "2e23fd7255dc440233289f138edc9dada06eab91ff3570329fa5ebce425f5714" => :el_capitan
-    sha256 "dd4131a36901d8650f896c90bd6e9cc08bfe6d146db5c7461e63e0e6e2b3d49a" => :yosemite
+    sha256 "07c72a5db5a90a5938cc9b414c029039ff4c324fcf92ba0810c6620dc4ff74e1" => :mojave
+    sha256 "70cd5bfb631edc249861ee1fcda31e8a33735cb78ce7e715d5ec9a855d421ac3" => :high_sierra
+    sha256 "3542d7c75f848bc0f8eadbdf35290a72a9b1d44d53fe9abaeafdb11575ad7b15" => :sierra
   end
 
   def install
