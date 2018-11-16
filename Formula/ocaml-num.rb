@@ -3,7 +3,7 @@ class OcamlNum < Formula
   homepage "https://github.com/ocaml/num"
   url "https://github.com/ocaml/num/archive/v1.1.tar.gz"
   sha256 "04ac85f6465b9b2bf99e814ddc798a25bcadb3cca2667b74c1af02b6356893f6"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
