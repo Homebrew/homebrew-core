@@ -5,8 +5,8 @@ class Arx < Formula
 
   desc "Bundles files and programs for easy transfer and repeatable execution"
   homepage "https://github.com/solidsnack/arx"
-  url "https://github.com/solidsnack/arx/archive/0.2.3.tar.gz"
-  sha256 "3becc8cd5404b0b9651ccc0ec9a3cb2d58ca84194153aa7530a424cc9a55c0fa"
+  url "https://github.com/solidsnack/arx/archive/0.3.2.tar.gz"
+  sha256 "81fc7e8de484e865c04fda1bf4619030621e261102aa79490a18ab4e4275105f"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,13 +18,6 @@ class Arx < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-
-  # Remove for > 0.2.3; GHC 8.4.1 compat
-  # Upstream commit from 25 Mar 2018 "Updates for new Cabal, GHC and base libraries"
-  patch do
-    url "https://github.com/solidsnack/arx/commit/8ec85a7.patch?full_index=1"
-    sha256 "fc40c128c7aeee75e3ddd10b3df8a81e35b6092ad61efdfa968fd84d50355cf8"
-  end
 
   def install
     cabal_sandbox do
