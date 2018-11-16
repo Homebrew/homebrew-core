@@ -5,10 +5,9 @@ class GupnpAv < Formula
   sha256 "689dcf1492ab8991daea291365a32548a77d1a2294d85b33622b55cca9ce6fdc"
 
   bottle do
-    sha256 "ed327db58bf2e4ab852c749b2de61ed441f1c20bc80c0656f9ee9304850a4d6e" => :mojave
-    sha256 "022dbc5e4b3f60c9e32d55315ae2191a49f574172f550b74ad18625ebf326467" => :high_sierra
-    sha256 "f65e6ee6a9d7e68bd261ccc56501db503088e3e63c9b42277bb07e30ab8cda1f" => :sierra
-    sha256 "d5adf2d8f3eeb96a9910b2c41e0cc732226d5beeb4ad8a3edf091036feb3399d" => :el_capitan
+    sha256 "42b45028bd4f1fdc042c02f3c5087924f940a925dd62e6e397cbeb0331bd80ab" => :mojave
+    sha256 "ac4c7a4be3cd9d0b59c9a601ab44e8b3246a659bb97a1813c46a9925b36ded66" => :high_sierra
+    sha256 "05a98ecd787aa47ec3a4f8396890c8727dae8f404db2a928fbd7519973c849f9" => :sierra
   end
 
   depends_on "intltool" => :build
