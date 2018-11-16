@@ -1,9 +1,8 @@
 class Tree < Formula
   desc "Display directories as trees (with optional color/HTML output)"
   homepage "http://mama.indstate.edu/users/ice/tree/"
-  url "http://mama.indstate.edu/users/ice/tree/src/tree-1.7.0.tgz"
-  mirror "https://fossies.org/linux/misc/tree-1.7.0.tgz"
-  sha256 "6957c20e82561ac4231638996e74f4cfa4e6faabc5a2f511f0b4e3940e8f7b12"
+  url "http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz"
+  sha256 "715d5d4b434321ce74706d0dd067505bb60c5ea83b5f0b3655dae40aa6f9b7c2"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,7 +18,7 @@ class Tree < Formula
 
   def install
     ENV.append "CFLAGS", "-fomit-frame-pointer"
-    objs = "tree.o unix.o html.o xml.o hash.o color.o strverscmp.o json.o"
+    objs = "tree.o unix.o html.o xml.o json.o hash.o color.o file.o strverscmp.o"
 
     system "make", "prefix=#{prefix}",
                    "MANDIR=#{man1}",
