@@ -1,8 +1,8 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
-  homepage "https://github.com/projectatomic/skopeo"
-  url "https://github.com/projectatomic/skopeo/archive/v0.1.31.tar.gz"
-  sha256 "f41121044ddca07afa63788302caf3582a653269c9601f7528003693d9807726"
+  homepage "https://github.com/containers/skopeo"
+  url "https://github.com/containers/skopeo/archive/v0.1.32.tar.gz"
+  sha256 "fcb593d4fa4cb6cf8f1817d21f43a8051c1d8c759b857633d4b932361dbd93a7"
 
   bottle do
     cellar :any
@@ -17,8 +17,8 @@ class Skopeo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/projectatomic/skopeo").install buildpath.children
-    cd "src/github.com/projectatomic/skopeo" do
+    (buildpath/"src/github.com/containers/skopeo").install buildpath.children
+    cd "src/github.com/containers/skopeo" do
       system "make", "binary-local"
       bin.install "skopeo"
       prefix.install_metafiles
