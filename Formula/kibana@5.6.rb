@@ -8,10 +8,9 @@ class KibanaAT56 < Formula
       :revision => "689427c076a5a45dc59d113df04bd4522c105391"
 
   bottle do
-    sha256 "25b60e1afd2cbdbd01a61f46ec620af7c94280eeae677da6283575f067a3b9ce" => :mojave
-    sha256 "cd12bca1bb794724a50dfa60122b63883c3b043dfb24eed3004b979daaa6ca3a" => :high_sierra
-    sha256 "6f44dc9fb908caa817d5266bb4c4c4b2a67e197597056fab2c38b02474fae0bc" => :sierra
-    sha256 "1a8bc314a1fcf867c63ab700ffda0b3593f524c3038d684445d603b8204fbab0" => :el_capitan
+    sha256 "18deeaa1b8dad4a91b2ad3ab7986ec69fbf9328e57409a10986f93b00db50d63" => :mojave
+    sha256 "bcaa16ba671d40a45051bef8ffd56b07ae3e5643e6bd1be4a423ab535ae604a6" => :high_sierra
+    sha256 "9497dba02685d1d4cc88c7aed2b79cc6a10cddfc24d76fd2c8d6722f2e44f189" => :sierra
   end
 
   keg_only :versioned_formula
