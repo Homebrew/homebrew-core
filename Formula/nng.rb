@@ -1,8 +1,8 @@
 class Nng < Formula
   desc "Nanomsg-next-generation -- light-weight brokerless messaging"
   homepage "https://nanomsg.github.io/nng/"
-  url "https://github.com/nanomsg/nng/archive/v1.0.1.tar.gz"
-  sha256 "c08ef670d472eb6fd50a2f863c6a4432b2963addd47f35d54cfb9fd7c543895b"
+  url "https://github.com/nanomsg/nng/archive/v1.1.1.tar.gz"
+  sha256 "cec54ed40c8feb5c0c66f81cfd200e9b243639a75d1b6093c95ee55885273205"
 
   bottle do
     sha256 "a83f86c54b322fce731e110ad4e18a2b75ca80ec90ec9e421b0b2bbfb5c277f6" => :mojave
@@ -33,7 +33,7 @@ class Nng < Formula
 
     begin
       output = shell_output("#{bin}/nngcat --req --connect #{bind} --format ascii --data brew")
-      assert_match /home/, output
+      assert_match(/home/, output)
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
