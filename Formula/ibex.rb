@@ -1,8 +1,8 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.5.tar.gz"
-  sha256 "667b1f57a4c83fbef915ad13e8d0a5847b4cc4df42810330da758bd9ca637ad7"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.7.4.tar.gz"
+  sha256 "2b32a1e51766476c9baab4017001e3e9ce2b6b102e2ac7492002305483607036"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
@@ -15,7 +15,7 @@ class Ibex < Formula
 
   depends_on "bison" => :build
   depends_on "flex" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
 
   needs :cxx11
 
@@ -40,14 +40,16 @@ class Ibex < Formula
   end
 
   test do
+    ENV.cxx11
+
     cp_r (pkgshare/"examples").children, testpath
 
     # so that pkg-config can remain a build-time only dependency
     inreplace %w[makefile slam/makefile] do |s|
-      s.gsub! /CXXFLAGS.*pkg-config --cflags ibex./,
+      s.gsub!(/CXXFLAGS.*pkg-config --cflags ibex./,
               "CXXFLAGS := -I#{include} -I#{include}/ibex "\
-                          "-I#{include}/ibex/3rd"
-      s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
+                          "-I#{include}/ibex/3rd")
+      s.gsub!(/LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex")
     end
 
     (1..8).each do |n|
