@@ -14,6 +14,7 @@ class Libqalculate < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnuplot"
+  depends_on "gmp"
   depends_on "mpfr"
   depends_on "readline"
 
