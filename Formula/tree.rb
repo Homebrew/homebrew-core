@@ -18,7 +18,7 @@ class Tree < Formula
 
   def install
     ENV.append "CFLAGS", "-fomit-frame-pointer"
-    objs = "tree.o unix.o html.o xml.o hash.o color.o strverscmp.o json.o"
+    objs = "tree.o unix.o html.o xml.o json.o hash.o color.o file.o strverscmp.o"
 
     system "make", "prefix=#{prefix}",
                    "MANDIR=#{man1}",
