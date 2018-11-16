@@ -6,9 +6,9 @@ class Convox < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e4687367158639fbe3022ba1cfc26846c3b67ef56caf9002b5b6960a9f36de36" => :mojave
-    sha256 "1e6200a2c94fd20cc6f03cea315ff786d255926bc72a754dbf7f0742f2b9520c" => :high_sierra
-    sha256 "d6c68cdbef59d073831065a377a1073aa54c2ce12947a3a019a3c25b33ea7355" => :sierra
+    sha256 "755c8d9d88fb3ecf6ae90b7620d09711cd019c7712f3e7d33add1d07dfaa31c1" => :mojave
+    sha256 "19f0c44393f7dd257e4db63576ab2a02458e8cd51811cc7b7564535454587565" => :high_sierra
+    sha256 "85ea26a95e9d07c6a436ec3d2a53837955c6b8dd9864ec29c21a4a05605ba1f0" => :sierra
   end
 
   depends_on "go" => :build
