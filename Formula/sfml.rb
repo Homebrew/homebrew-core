@@ -2,9 +2,8 @@ class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
   homepage "https://www.sfml-dev.org/"
-  url "https://www.sfml-dev.org/files/SFML-2.4.2-sources.zip"
-  sha256 "8ba04f6fde6a7b42527d69742c49da2ac529354f71f553409f9f821d618de4b6"
-  revision 1
+  url "https://www.sfml-dev.org/files/SFML-2.5.1-macOS-clang.tar.gz"
+  sha256 "6af0f14fbd41dc038a00d7709f26fb66bb7ccdfe6187657ef0ef8cba578dcf14"
   head "https://github.com/SFML/SFML.git"
 
   bottle do
