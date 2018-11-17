@@ -8,9 +8,10 @@ class EulerPy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6bec5937c08632e5ea3073d9b948f89539939c19ba26844c739b18d3b8c79066" => :mojave
-    sha256 "6f002b7c103b9cc799e559355d83228bf462079cff7f0cb6db9e041880e06c17" => :high_sierra
-    sha256 "6f002b7c103b9cc799e559355d83228bf462079cff7f0cb6db9e041880e06c17" => :sierra
+    rebuild 1
+    sha256 "c057672da8bc304a9483e353103cab54c50ec149269d0f597b28c0ded5121362" => :mojave
+    sha256 "474ce35d2bd7beca1a7d63c0bec4cb162f9f2144d20695a6a58436433955492f" => :high_sierra
+    sha256 "474ce35d2bd7beca1a7d63c0bec4cb162f9f2144d20695a6a58436433955492f" => :sierra
   end
 
   depends_on "python"
