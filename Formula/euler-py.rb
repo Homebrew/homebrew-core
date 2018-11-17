@@ -30,7 +30,7 @@ class EulerPy < Formula
     end
 
     ENV.prepend_create_path "PYTHONPATH", "#{lib}/python#{xy}/site-packages"
-    system "python", "setup.py", "install", "--prefix=#{prefix}",
+    system "python3", "setup.py", "install", "--prefix=#{prefix}",
                      "--single-version-externally-managed",
                      "--record=installed.txt"
 
