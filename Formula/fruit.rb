@@ -1,8 +1,8 @@
 class Fruit < Formula
   desc "Dependency injection framework for C++"
   homepage "https://github.com/google/fruit/wiki"
-  url "https://github.com/google/fruit/archive/v3.2.0.tar.gz"
-  sha256 "78596be1c1c17d65ad3fe50c30fc817717ffb7dfc3b03d701106598a13b9ff32"
+  url "https://github.com/google/fruit/archive/v3.4.0.tar.gz"
+  sha256 "0f3793ee5e437437c3d6360a037866429a7f1975451fd60d740f9d2023e92034"
 
   bottle do
     cellar :any
