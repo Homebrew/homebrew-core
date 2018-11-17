@@ -5,11 +5,9 @@ class Instead < Formula
   sha256 "796d796101561a452ac409f46ba4a53ecb3b4ef19694b573def7d3fc09a1a865"
 
   bottle do
-    rebuild 1
-    sha256 "04bb5aa8a156e7d0283aa3358d0af17f77d93db023f909e1db33c7d09872be38" => :mojave
-    sha256 "e34be5357b1fc1991909eb42be7375051751377b84fd2b7d8466012d925dec8a" => :high_sierra
-    sha256 "88a1e5c494bd2266afe16353f992c5143e59cb0acfd85e80d2cc5cea03f4065e" => :sierra
-    sha256 "b665c852c5c0fd894e0a9d84e99a5cc8e1a21699e8dfe48dd2d5110d6f3d201b" => :el_capitan
+    sha256 "add19bed963319edd7d9f0aca6067d3d4abe426799ab6c961fb5201ea04a544d" => :mojave
+    sha256 "79b9e11c1749ab06bc53edc9a928bb69221faf1b25a8b5c27c7894233d5aaf65" => :high_sierra
+    sha256 "52e9c04ec3c20811f17ccccfab3bf43713385f63934943da4439d23cfbb4d8c5" => :sierra
   end
 
   depends_on "cmake" => :build
