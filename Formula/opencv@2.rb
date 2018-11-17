@@ -1,9 +1,8 @@
 class OpencvAT2 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz"
-  sha256 "6ecbeea11f68356b748e35f758f4406067d3a2f6339e4582c63373fa6c3f5a72"
-  revision 2
+  url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
+  sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
 
   bottle do
     sha256 "5781c0a672d879e15a23b38a08322662afb805abbe25452ebfbe0f20c2f73733" => :mojave
@@ -28,14 +27,6 @@ class OpencvAT2 < Formula
   depends_on "openexr"
   depends_on "python@2" => :recommended
   depends_on "numpy" if build.with? "python@2"
-
-  # Remove for > 2.4.13.6
-  # Backport of https://github.com/opencv/opencv/pull/10011
-  # Upstream PR from 21 Apr 2018 "Fix build with FFmpeg 4.0"
-  patch do
-    url "https://github.com/opencv/opencv/commit/99091a62463.patch?full_index=1"
-    sha256 "c60be5bc53bc8964550c0a2467a41e391c730fb090219954a2cd8d9a54a1a5a7"
-  end
 
   def install
     jpeg = Formula["jpeg"]
