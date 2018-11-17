@@ -5,10 +5,9 @@ class GobjectIntrospection < Formula
   sha256 "4954681fa5c5ed95451d914de89de1263a5b35158b1ded1a8b870042c0d0df89"
 
   bottle do
-    sha256 "28c6ae776ec71fb8990660229cb171ecf6e6792873a6fb9f87e9882d6c96dffe" => :mojave
-    sha256 "24a45803b455d938c7f2918ba1fd7fec50cb0fbc6af27289a27e0743171251ae" => :high_sierra
-    sha256 "d2dbab8c078919411b6c6d8b495a6839634b09bbd41e723157d2a7947cc76d85" => :sierra
-    sha256 "dc2f4b80a9239b2b077b59e36f1bf8137200f9133f0714925f3791179cf42edc" => :el_capitan
+    sha256 "270d0f673e7a2cad2af015ce18d93df877344b3a4b786c8e53e649585fb9b065" => :mojave
+    sha256 "8fd867527473c06c65cee9e4152cbcf58c6028ccdd04f40db8f21fbd472709b3" => :high_sierra
+    sha256 "6cbfa48bdd280a5bd97304f10efe23d84accebfec64fb2ab71f0caf694f3ab7d" => :sierra
   end
 
   depends_on "cairo"
