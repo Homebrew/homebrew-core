@@ -1,8 +1,8 @@
 class Armor < Formula
   desc "Uncomplicated, modern HTTP server"
   homepage "https://github.com/labstack/armor"
-  url "https://github.com/labstack/armor/archive/0.4.11.tar.gz"
-  sha256 "dd6e968d67625e9180bab0e20773ec142eb870550b8a5eaef2a7846fb55b86db"
+  url "https://github.com/labstack/armor/archive/v0.4.12.tar.gz"
+  sha256 "3c3c51539c2df1973e9a0fece88435ccf0bf1bd7d76c5a7905f6a446535bb5ce"
   head "https://github.com/labstack/armor.git"
 
   bottle do
@@ -16,6 +16,7 @@ class Armor < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
     armorpath = buildpath/"src/github.com/labstack/armor"
     armorpath.install buildpath.children
@@ -33,7 +34,7 @@ class Armor < Formula
       end
       sleep 1
       output = shell_output("curl -sI http://localhost:8080")
-      assert_match /200 OK/m, output
+      assert_match(/200 OK/m, output)
     ensure
       Process.kill("HUP", pid)
     end
