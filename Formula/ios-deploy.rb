@@ -1,8 +1,8 @@
 class IosDeploy < Formula
   desc "Install and debug iPhone apps from the command-line"
   homepage "https://github.com/phonegap/ios-deploy"
-  url "https://github.com/ios-control/ios-deploy/archive/1.9.3.tar.gz"
-  sha256 "9ef7430d20a777cd2916ab9d6aac849de11b349e85cf80048c95eca47d026e6c"
+  url "https://github.com/ios-control/ios-deploy/archive/1.9.4.tar.gz"
+  sha256 "60ca03270b449a14639ff137ee7af47349809e5f8a5ee765186539f8fb0ebde5"
   head "https://github.com/phonegap/ios-deploy.git"
 
   bottle do
@@ -15,13 +15,6 @@ class IosDeploy < Formula
 
   depends_on :xcode => :build
   depends_on :macos => :yosemite
-
-  # Fix upstream bug https://github.com/ios-control/ios-deploy/issues/349
-  # Remove with next version
-  patch do
-    url "https://github.com/ios-control/ios-deploy/commit/9b23447e.diff?full_index=1"
-    sha256 "9c676388e84e20d3032156ea6dc81ba29dee4b4ffb99d78a81b34aa0b81c12e3"
-  end
 
   def install
     xcodebuild "-configuration", "Release", "SYMROOT=build"
