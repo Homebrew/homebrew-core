@@ -1,8 +1,8 @@
 class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://www.sysdig.org/"
-  url "https://github.com/draios/sysdig/archive/0.23.1.tar.gz"
-  sha256 "57d5b713b875eba35546a1408bf3f20c2703904a17d956be115ee55272db4cfa"
+  url "https://github.com/draios/sysdig/archive/0.24.1.tar.gz"
+  sha256 "828f99338e9912bde68aa0d6ae3dffe8c20bca999cfcc2b81f45b79cb97dffa9"
 
   bottle do
     sha256 "a318f6cd56995ca43c6c0e8dacdb3ca52f0187a5f6fc3cf5150c2070cfb0a881" => :mojave
