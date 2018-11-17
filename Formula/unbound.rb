@@ -12,14 +12,14 @@ class Unbound < Formula
   end
 
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-libevent=#{Formula["libevent"].opt_prefix}
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
