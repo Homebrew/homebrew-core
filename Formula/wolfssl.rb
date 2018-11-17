@@ -1,9 +1,10 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
-  url "https://github.com/wolfSSL/wolfssl/archive/v3.15.3-stable.tar.gz"
-  version "3.15.3"
-  sha256 "2b98d9ddac2a3188210de720051bed58f91910ee028a4b0a6dd6fd3c9ddb6fec"
+  url "https://github.com/wolfSSL/wolfssl.git",
+      :tag      => "v3.15.5-stable",
+      :revision => "39506e61d16ef40583f251cafcb63302d22fd7f3"
+  sha256 "4e15f494604e41725499f8b708798f8ddc2fcaa8f39b4369bcd000b3cab482d8"
   head "https://github.com/wolfSSL/wolfssl.git"
 
   bottle do
@@ -76,6 +77,7 @@ class Wolfssl < Formula
       --enable-sni
       --enable-supportedcurves
       --enable-tls13
+      --enable-sp
     ]
 
     if MacOS.prefer_64_bit?
