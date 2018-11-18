@@ -19,6 +19,13 @@ class Openblas < Formula
 
   depends_on "gcc" # for gfortran
 
+  # Upstream fix for issue https://github.com/xianyi/OpenBLAS/issues/1735
+  # "OpenBLAS : Program will terminate because you tried to start too many threads"
+  patch do
+    url "https://github.com/xianyi/OpenBLAS/commit/4d183e5567346f80f2ef97eb98f8601c47f8cb56.patch?full_index=1"
+    sha256 "9b02860bd78252ed9f09abb65a62fff22c0aeca002757d503f5b643a11b744bf"
+  end
+
   fails_with :clang if build.with? "openmp"
 
   def install
