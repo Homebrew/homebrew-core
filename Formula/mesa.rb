@@ -4,11 +4,15 @@ class Mesa < Formula
   homepage "https://www.mesa3d.org/"
   url "https://mesa.freedesktop.org/archive/mesa-18.2.3.tar.xz"
   sha256 "e2bf83c17e1abdecb1ee81af22652e27e9aa38f963e95e60f34275cc0376304f"
-
   bottle do
     sha256 "80348f778a9e90548084f7970a633fa26d25eb1b4ca3b298b741ae6c6203bd1a" => :mojave
     sha256 "f050183c77597d5561bbc663d8f0124769005bc6f879e80f7ffcfad8c5f2ad38" => :high_sierra
     sha256 "cafd1cfeced20001aa26800bcb2bbb58339f81ba5744aff52eca6ddf74de5d45" => :sierra
+  end
+
+  head do
+    depends_on "gettext"
+    url "https://gitlab.freedesktop.org/mesa/mesa.git"
   end
 
   depends_on "meson-internal" => :build
