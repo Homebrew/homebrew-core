@@ -7,9 +7,9 @@ class Tinyxml2 < Formula
 
   bottle do
     cellar :any
-    sha256 "31be8d20de0c0fd6f6806633f925b03571e9ce84cacd864c7d97b6369e170960" => :mojave
-    sha256 "a48f8e237ad1c5792f1fff69c14c8c0958a949a0f87da90d914da39a01a3482a" => :high_sierra
-    sha256 "a6335f77b1a0a8fc1f98a028e446c09848f7df45816f6ead363e9c7cc4c85e92" => :sierra
+    sha256 "233eac209902fba3aebf51fa81d15a5b472064eec22bc5364b8685453166a08a" => :mojave
+    sha256 "cc447f7fcf805805c97e4d9aedacd5638b103177de32fb30986bcaec37698c18" => :high_sierra
+    sha256 "90fda15a1ce430ed1e77891a23c65a53092deca1b585330aa86fbde8ea3b80b5" => :sierra
   end
 
   depends_on "cmake" => :build
