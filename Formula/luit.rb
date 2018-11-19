@@ -13,11 +13,15 @@ class Luit < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--without-x"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/luit", "-list"
+    require "pty"
+    (testpath/"input").write("#end {bye}\n")
+    PTY.spawn(bin/"luit", "-encoding", "GBK", "echo", "foobar") do |r, _w, _pid|
+      assert_match "foobar", r.read
+    end
   end
 end
