@@ -1,8 +1,8 @@
 class Digitemp < Formula
   desc "Read temperature sensors in a 1-Wire net"
   homepage "https://www.digitemp.com/"
-  url "https://github.com/bcl/digitemp/archive/v3.7.1.tar.gz"
-  sha256 "6fa4d965350d5501b6ca73ee8a09276ca4f65b6d85dae62f0a796239bae5000e"
+  url "https://github.com/bcl/digitemp/archive/v3.7.2.tar.gz"
+  sha256 "683df4ab5cc53a45fe4f860c698f148d34bcca91b3e0568a342f32d64d12ba24"
   head "https://github.com/bcl/digitemp.git"
 
   bottle do
