@@ -7,10 +7,9 @@ class Crc32c < Formula
 
   bottle do
     cellar :any
-    sha256 "e1ab3c185b52a211e7c19d00c2698514b29cb0250565718c50d8e8b309d21fe1" => :mojave
-    sha256 "b700bbade7a8f06565f8e19cb724ccdf485bccc9a1dbd56acd7a0bb80670ef1f" => :high_sierra
-    sha256 "35d06b0001644f7b697ba3df4b6a4d4f92d27277e311cb1438e348ca8f6a9ff2" => :sierra
-    sha256 "6cff4648b0ac7455335437fe1b36b246f8d547dfbde77e32bf81494d47e6af6b" => :el_capitan
+    sha256 "5d65f03fb8cd7aa5349daa78ac5d8a13a87dcd0e58edfdab98510be8d9569888" => :mojave
+    sha256 "5a27559831f37f190ffef95e05fa093230c0ac3e46a17f33d18a775358edfd33" => :high_sierra
+    sha256 "6c43bab5aed9edb9963dd6a92704291884d06472ac72550cdf4dcd9b49e6177e" => :sierra
   end
 
   depends_on "cmake" => :build
