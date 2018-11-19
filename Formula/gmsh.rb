@@ -7,9 +7,9 @@ class Gmsh < Formula
 
   bottle do
     cellar :any
-    sha256 "35fbb6b2e313c3772219c3d7414878759523a289d4e71f10449480b156271dfc" => :mojave
-    sha256 "b218029b152574295683196a2046398f8ae0288039eb47c375c7f03e7f7d4a35" => :high_sierra
-    sha256 "6b6493cea3f0ae4ab694f7071700f3407f2d17e285198b715aa238701107f4d4" => :sierra
+    sha256 "a9f4320ca0c64b2a117514f8a7a6884413cdc27f326481d51077854ed6fb385e" => :mojave
+    sha256 "ad131603c4c31212499c1e661af46f08a57d9176c38925fe5f353ea2ee95b6c6" => :high_sierra
+    sha256 "90827adb1f047b9299ffdc97cab8bc1d87204101379a8418011f5019cb7f7458" => :sierra
   end
 
   option "with-opencascade", "Build with opencascade support"
