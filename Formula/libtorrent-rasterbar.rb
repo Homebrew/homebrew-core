@@ -6,9 +6,9 @@ class LibtorrentRasterbar < Formula
 
   bottle do
     cellar :any
-    sha256 "9039792f182a56f9c92f5ba39d3ed2538bb03635c74cc4c838d55d4c29ee7f5c" => :mojave
-    sha256 "6ac5e534203c06bd113b61a302f64b9d02c065b967a2ac30276406f44973972d" => :high_sierra
-    sha256 "5cc3e874d0543efd80b12b9f769263508d5380b11a25324d5236f68caa8620c4" => :sierra
+    sha256 "ce18f1e7cb6bc5be735c1b9388995312d92781d0f543e88d7d1c0c2bdbfcc643" => :mojave
+    sha256 "1950410d90d2e1b5342fd917ba498abbb3caeb31080a6f6908de80988a9cc06e" => :high_sierra
+    sha256 "45bdf1f92a889fb71b61213e65a61aa17245120cbd4e4e08b2fae2215bf69da4" => :sierra
   end
 
   head do
