@@ -8,9 +8,9 @@ class Ppsspp < Formula
 
   bottle do
     cellar :any
-    sha256 "b17535d5ec300b6a3951255d647c8f3ac435c8e612589f109f2b1ce87bb1f410" => :mojave
-    sha256 "3a22cadfdd18d480dfd03afec60e238b413082da2cff96fef006d6b8fda3a464" => :high_sierra
-    sha256 "a93c6d6d90d039c2de981e6ea6ccfbcd27ab3228f50bd8262df3e8837b202b65" => :sierra
+    sha256 "01811d6ffa75a454e9fc7b71b97676940c842976db4fcfa49d472ab6e3720545" => :mojave
+    sha256 "a902fa666f5472a091a5bfe5a5297da94d917f8d964e9fc90efea4d05c134051" => :high_sierra
+    sha256 "6deb010cdd86d50d60e678bed9045f3ba04129e26f40ddddd6918847fb69e729" => :sierra
   end
 
   depends_on "cmake" => :build
