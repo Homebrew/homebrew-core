@@ -31,6 +31,12 @@ class Kibana < Formula
     # remove non open source files
     rm_rf "x-pack"
 
+    # patch build to not try to read tsconfig.json's from the removed x-pack folder
+    inreplace "src/dev/typescript/projects.ts" do |s|
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/tsconfig.json')),", ""
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/test/tsconfig.json'), 'x-pack/test'),", ""
+    end
+
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/darwin-x64"
 
