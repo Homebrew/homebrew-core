@@ -5,10 +5,9 @@ class Rbspy < Formula
   sha256 "15b8c43f3071e5ae5dad4920cbd6a743b8d6c64e0bc90e1ebe86db2fd79fb3e5"
 
   bottle do
-    sha256 "8f72dc4de0f3aa3e5a8e13ebf2780e27197bebc1739f71815fc3152bcb637ad2" => :mojave
-    sha256 "ee4e97a5d5c4f504b7d515413a3d1e6cb25d9f3aa03402d8229e05ae472fd0c9" => :high_sierra
-    sha256 "14e3be1280ccdea0439be4c3ec312d343b930702de1ed7619d4c9dc39ae1baa6" => :sierra
-    sha256 "bd5d462b459c05063bfc858568af6d0f1e082e06d199d9625998208ed61964b8" => :el_capitan
+    sha256 "a1e2f114f1143a82dacccaf2e072bfd5b50d43db1420f04e3e38f9f617e07234" => :mojave
+    sha256 "0fd3bc691b0cfaa3633b4ea64394baccfe44f106de184a4547d520acf66dcd01" => :high_sierra
+    sha256 "5a474af2c4275cb7acfde17647cfc21ceb713ebe5b49f5d586e9c4d02bf3c39c" => :sierra
   end
 
   depends_on "rust" => :build
