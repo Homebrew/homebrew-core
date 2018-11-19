@@ -2,7 +2,6 @@ class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
   url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-6_5_3/ACE-6.5.3.tar.bz2"
-  version "6.5.3"
   sha256 "b1d6a716394bd15c21bb90037b8a12a4d8034cc9d8878b0ad39b3c467df19b1a"
 
   bottle do
