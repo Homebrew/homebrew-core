@@ -1,8 +1,8 @@
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
-  url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.0.tar.gz"
-  sha256 "f680bdace45dffbb175688aa8bf679710e4e60d000bbf332860de757d4e1c411"
+  url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.1.tar.gz"
+  sha256 "3ddb7f39863389816f6289f5da2fe921d0d4efe85dcf349fae3a2718cc14f0fb"
 
   bottle do
     cellar :any
