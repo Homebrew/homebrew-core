@@ -32,8 +32,8 @@ class EulerPy < Formula
 
     ENV.prepend_create_path "PYTHONPATH", "#{lib}/python#{xy}/site-packages"
     system "python3", "setup.py", "install", "--prefix=#{prefix}",
-                     "--single-version-externally-managed",
-                     "--record=installed.txt"
+                      "--single-version-externally-managed",
+                      "--record=installed.txt"
 
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
