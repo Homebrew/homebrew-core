@@ -69,6 +69,27 @@ class Vim < Formula
     opts << "--disable-nls" if build.without? "gettext"
     opts << "--enable-gui=no"
 
+    # Only allow building `--with-client-server` when also building `--with-python` or `--with-py-
+    # thon@2` when the brewed version of Python in use has not been built `--with-tcl-tk`.  If an
+    # attempt is made to build `vim` `--with-cleint-server` against a brewed Python built `--with-
+    # tcl-tk`, then `vim`'s `configure` script will fail to locate the X11 headers and libraries
+    # needed to build `vim`'s client/server mode.
+    #
+    # (See https://github.com/Homebrew/homebrew-core/issues/30949 for extensive background context.)
+    used_python_deps = recursive_dependencies.select do |dep|
+      dep.name.include? "python"
+    end
+    used_python_dep_was_built_with_tcl_tk = used_python_deps.any? do |python_dep|
+      Tab.for_formula(python_dep.to_formula).used_options.include? "--with-tcl-tk"
+    end
+    if build.with?("client-server") && used_python_dep_was_built_with_tcl_tk
+      odie <<~EOS
+        vim:
+          Cannot provide client/server mode when building against Python and it was built
+          --with-tcl-tk!
+      EOS
+    end
+
     if build.with? "client-server"
       opts << "--with-x"
     else
