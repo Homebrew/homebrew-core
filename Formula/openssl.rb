@@ -4,11 +4,11 @@
 class Openssl < Formula
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.0.2p.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2p.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2p.tar.gz"
-  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2p.tar.gz"
-  sha256 "50a98e07b1a89eb8f6a99477f262df71c6fa7bef77df4dc83025a2845c827d00"
+  url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2q.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2q.tar.gz"
+  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2q.tar.gz"
+  sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
 
   bottle do
     sha256 "cabda4ca62a0b206366658e36ce7175e7da5f8ad24846843611ed19d7759404b" => :mojave
