@@ -8,10 +8,9 @@ class ReconNg < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c97683d12457024ec25776ac3e1859879e4f5142b524da76f665d7fd3ee00e76" => :mojave
-    sha256 "1f64d3f5bbfb90e586bf9330544206b38006a4a71ce84bd96f5d9214bd39d6f1" => :high_sierra
-    sha256 "2c68dcdf33ff768dca3197e71836fdf24fc1a7078d06590c46ab1e9a64cac6ad" => :sierra
-    sha256 "6ec0a0c8e4b4340e0e53baa5e944c61e3096caa1391fce82fd4763584c67bc98" => :el_capitan
+    sha256 "18b3feb82b8eea90e49856c098ca66ea10f957eaaeae1ff7813eccbeb1265996" => :mojave
+    sha256 "d23885588e18d5b47d7175f37d03de1aaef5818fb548d42c00e922339602b182" => :high_sierra
+    sha256 "9cc593ac5d73a9b995a419bf37632ff375f206aab63a6415409f18ce151c36b9" => :sierra
   end
 
   # Dependency "mechanize" only support Python 2
