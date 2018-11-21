@@ -5,10 +5,9 @@ class Miniserve < Formula
   sha256 "9d58319ae1dcf460f85114e49939ffeae8b6161de7e9dfaf6a7a985d52e998d4"
 
   bottle do
-    sha256 "43c1b4f38c33f6550ecb944b098d4188017b550bea8820fa793170cc8858e72e" => :mojave
-    sha256 "95064e1def8c354c4401f0082ffbd6956581a8b1b0bb65a00762b560c65f21ef" => :high_sierra
-    sha256 "e5f0e8da39d4b8939a2de3662d944c3be2f86ecc51b8fb2b2ccc814684608e47" => :sierra
-    sha256 "674c1b2e298092c866168ce996633b5130f084991810d9b74d2dcc6ab9adf38f" => :el_capitan
+    sha256 "a3af5e213d0af2c5e899215f638b2b9f47ce71d5d04b15bc36160d1ac1385627" => :mojave
+    sha256 "e04be638d9a20ed8481b28a39d12c9232354931313820a612a02b72a28c61cc5" => :high_sierra
+    sha256 "a4d01bb0280ea8850b8f01e809d0e659bb971435ca5809b2b21fa26add4a23b5" => :sierra
   end
 
   depends_on "rust" => :build
