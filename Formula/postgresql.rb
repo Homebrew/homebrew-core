@@ -75,9 +75,6 @@ class Postgresql < Formula
       inreplace "configure",
                 "-I$perl_archlibexp/CORE",
                 "-iwithsysroot $perl_archlibexp/CORE"
-      inreplace "src/pl/plperl/GNUmakefile",
-                "-I$(perl_archlibexp)/CORE",
-                "-iwithsysroot $(perl_archlibexp)/CORE"
     end
 
     system "./configure", *args
