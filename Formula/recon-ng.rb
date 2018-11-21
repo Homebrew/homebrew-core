@@ -3,8 +3,8 @@ class ReconNg < Formula
 
   desc "Web Reconnaissance Framework"
   homepage "https://bitbucket.org/LaNMaSteR53/recon-ng"
-  url "https://bitbucket.org/LaNMaSteR53/recon-ng/get/v4.9.3.tar.gz"
-  sha256 "e841bc43c5097f3506d548d23a538411f9e5712ec5dbdb2be2d3fb0a863f7faf"
+  url "https://bitbucket.org/LaNMaSteR53/recon-ng/get/v4.9.4.tar.gz"
+  sha256 "f443616351fb9dd119a870b637bdf7be0fb3a9fac6eb5a640b9d5414a63d2160"
 
   bottle do
     cellar :any_skip_relocation
@@ -29,8 +29,8 @@ class ReconNg < Formula
   end
 
   resource "Flask" do
-    url "https://files.pythonhosted.org/packages/eb/12/1c7bd06fcbd08ba544f25bf2c6612e305a70ea51ca0eda8007344ec3f123/Flask-0.12.2.tar.gz"
-    sha256 "49f44461237b69ecd901cc7ce66feea0319b9158743dd27a2899962ab214dac1"
+    url "https://files.pythonhosted.org/packages/4b/12/c1fbf4971fda0e4de05565694c9f0c92646223cff53f15b6eb248a310a62/Flask-1.0.2.tar.gz"
+    sha256 "2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48"
   end
 
   resource "jsonrpclib" do
@@ -39,18 +39,18 @@ class ReconNg < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
-    sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
+    url "https://files.pythonhosted.org/packages/4b/20/ddf5eb3bd5c57582d2b4652b4bbcf8da301bdfe5d805cb94e805f4d7464d/lxml-4.2.5.tar.gz"
+    sha256 "36720698c29e7a9626a0dc802ef8885f8f0239bfd1689628ecd459a061f2807f"
   end
 
   resource "mechanize" do
-    url "https://files.pythonhosted.org/packages/a7/ac/7f54bcf39b62cd56dec461f4c5e2d7c096508ab2b283c7ee099a466e1b9f/mechanize-0.3.6.tar.gz"
-    sha256 "654e705157156c1f316601ea4f7ab27e96713a8a4dabe1604e6cc8d48e0aa1e8"
+    url "https://files.pythonhosted.org/packages/ef/be/4c433dfa7703c0fa81ca3a88afe74b2b9e2b23e664479a4913ecefe7f8ca/mechanize-0.3.7.tar.gz"
+    sha256 "ee66e1a6af790898894dd0318914ced413d94f46a54f881eb337081ff9702cd2"
   end
 
   resource "olefile" do
-    url "https://files.pythonhosted.org/packages/d3/8a/e0f0e56d6a542dd987f9290ef7b5164636ee597ce8c2932c19c78292d5ec/olefile-0.45.1.zip"
-    sha256 "2b6575f5290de8ab1086f8c5490591f7e0885af682c7c1793bdaf6e64078d385"
+    url "https://files.pythonhosted.org/packages/34/81/e1ac43c6b45b4c5f8d9352396a14144bba52c8fec72a80f425f6a4d653ad/olefile-0.46.zip"
+    sha256 "133b031eaf8fd2c9399b78b8bc5b8fcbe4c31e85295749bb17a87cba8f3c3964"
   end
 
   resource "PyPDF2" do
@@ -69,8 +69,8 @@ class ReconNg < Formula
   end
 
   resource "XlsxWriter" do
-    url "https://files.pythonhosted.org/packages/e4/63/e53deacc293c7fadf95b840471f4bd56573d084af993e6aeeee2d5f1bd32/XlsxWriter-1.0.2.tar.gz"
-    sha256 "a26bbbafff88abffce592ffd5dfaa4c9f08dc44ef4afbf45c70d3e270325f856"
+    url "https://files.pythonhosted.org/packages/0c/08/69581af3c4807d2b8bac47251c80343161b9f315a7f91fb703aa865302d9/XlsxWriter-1.1.2.tar.gz"
+    sha256 "ae22658a0fc5b9e875fa97c213d1ffd617d86dc49bf08be99ebdac814db7bf36"
   end
 
   def install
