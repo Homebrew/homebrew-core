@@ -3,7 +3,7 @@ class Mosh < Formula
   homepage "https://mosh.org"
   url "https://mosh.org/mosh-1.3.2.tar.gz"
   sha256 "da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "5e05a95d972b509c0469ca933de7a522b74b049cc0dccfe5cb1aa6db34b54fc4" => :mojave
@@ -21,7 +21,7 @@ class Mosh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "tmux" => :build if build.bottle?
-  depends_on "protobuf"
+  depends_on "protobuf" => ['without-python@2']
 
   needs :cxx11
 
