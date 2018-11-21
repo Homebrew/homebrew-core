@@ -5,12 +5,6 @@ class Vtk < Formula
   sha256 "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
   head "https://github.com/Kitware/VTK.git"
 
-  bottle do
-    sha256 "9ebecbab78563a12b4a55f62d7c15afeab7b288891ba2b71d8f461b1d77b8b33" => :mojave
-    sha256 "f17ccc19e0183f06c07e6d7b2ac23f21a5056bb8b8bcb57f5411f656639d168a" => :high_sierra
-    sha256 "b0cce7d37ebea9901e98519412b7d8078499ca03ee4cc6ec283525ba9dd2f121" => :sierra
-  end
-
   option "without-python@2", "Build without python2 support"
 
   deprecated_option "without-python" => "without-python@2"
