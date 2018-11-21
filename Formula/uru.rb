@@ -6,12 +6,9 @@ class Uru < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "de2f402198ecf4ccba8b6c585f74cd67b1d29eca00357be1ba71b0700c41b361" => :mojave
-    sha256 "095e47012069ab3116fb5d014367a3407c1fbadc3711bb0e063109924a54943c" => :high_sierra
-    sha256 "123829f2ee276cde74be11222b7ae9aed54ba3c3708bdb0ec94c2b5cf32b5577" => :sierra
-    sha256 "c510cfeea72b21ce8928095a53bdc8176fda8210507ac12ac1c04cd55d7f4f43" => :el_capitan
-    sha256 "505c30f4109b6436c8b27a6118de6fb122e79d24dffe8f6213829a9c307c25a9" => :yosemite
-    sha256 "16b0fee7939e8d14d200ca565f5a977caf17c0c2444f1131320572c6ec7a359f" => :mavericks
+    sha256 "25c90f23ff4d5225d439f8783d25d440ee2b7fc6e8afdc5772914deab0ae3184" => :mojave
+    sha256 "d6da062bd8e0d7134a9d98285344064a82329b138bd7e0ed14fbc01a27530079" => :high_sierra
+    sha256 "fb1b6ac6bd09955f072e9b65e92cc992b6da4a14640694d8a830aaacad944518" => :sierra
   end
 
   depends_on "go" => :build
