@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "http://roguecentral.org/doryen/libtcod/"
-  url "https://bitbucket.org/libtcod/libtcod/get/1.6.4.tar.bz2"
-  sha256 "f40855d48e89b34cd9c0091fbe8d7bdb59e58b9f574445824abbb3e9a29a06b7"
+  url "https://bitbucket.org/libtcod/libtcod/get/1.8.2.tar.bz2"
+  sha256 "a33aa463e78b6df327d2aceae875edad8dba7a9e5ea0f1299c486b99f4bed31c"
 
   bottle do
     cellar :any
