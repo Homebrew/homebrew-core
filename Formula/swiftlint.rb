@@ -3,7 +3,7 @@ class Swiftlint < Formula
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
       :tag      => "0.28.1",
-      :revision => "4955c173a097b6b0dc49c495b462112da09ed099"
+      :revision => "b458e20f2720a52f69a1d45ffebf45ac264ed20e"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
