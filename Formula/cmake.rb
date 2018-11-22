@@ -12,6 +12,8 @@ class Cmake < Formula
     sha256 "d13ad4c2b41c027d9b06154ef40ff2cd1fbff8f6595a6712a88b4e0edfc81c1b" => :sierra
   end
 
+  option "with-html-docs", "build HTML help in addition to the man pages"
+
   depends_on "sphinx-doc" => :build
 
   # The completions were removed because of problems with system bash
@@ -42,6 +44,7 @@ class Cmake < Formula
       --system-bzip2
       --system-curl
     ]
+    args << "--sphinx-html" if build.with? "html-docs"
 
     # There is an existing issue around macOS & Python locale setting
     # See https://bugs.python.org/issue18378#msg215215 for explanation
