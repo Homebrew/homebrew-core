@@ -4,6 +4,12 @@ class Zola < Formula
   url "https://github.com/getzola/zola/archive/v0.5.0.tar.gz"
   sha256 "718aaec6e0db6c0e6fb310d8a1ef3978f41a173e39b1c2515ca7365690b09cff"
 
+  bottle do
+    sha256 "40725be4950469abd15b986fbc77b20306771ab2e011e578a6d55b7d56190bd0" => :mojave
+    sha256 "545e31eadf477836206d1d69b7d024cfe9e3f3fd3a74d0653549d486559dd708" => :high_sierra
+    sha256 "812ace288dd7dfdbf637eebdd0a1256fa5e9e9dba1233862f80935f14fda7d53" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
