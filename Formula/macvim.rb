@@ -14,6 +14,7 @@ class Macvim < Formula
     sha256 "029365cfcc11097d216e12e431cc779c805bff5592a35bc337144e72c093e02f" => :el_capitan
   end
 
+  option "without-interpreters", "Build without embedded perl, ruby, tcl interpreters"
   option "with-override-system-vim", "Override system vim"
 
   deprecated_option "override-system-vim" => "with-override-system-vim"
@@ -37,13 +38,19 @@ class Macvim < Formula
     # If building for OS X 10.7 or up, make sure that CC is set to "clang"
     ENV.clang if MacOS.version >= :lion
 
+    if build.without? "interpreters"
+      want_interp = "disable"
+    else
+      want_interp = "enable"
+    end
+
     args = %W[
       --with-features=huge
       --enable-multibyte
       --with-macarchs=#{MacOS.preferred_arch}
-      --enable-perlinterp
-      --enable-rubyinterp
-      --enable-tclinterp
+      --#{want_interp}-perlinterp
+      --#{want_interp}-rubyinterp
+      --#{want_interp}-tclinterp
       --enable-terminal
       --with-tlib=ncurses
       --with-compiledby=Homebrew
@@ -109,7 +116,11 @@ class Macvim < Formula
 
   test do
     output = shell_output("#{bin}/mvim --version")
-    assert_match "+ruby", output
+    if build.without? "interpreters"
+      assert_match "-ruby", output
+    else
+      assert_match "+ruby", output
+    end
 
     # Simple test to check if MacVim was linked to Homebrew's Python 3
     if build.with? "python"
