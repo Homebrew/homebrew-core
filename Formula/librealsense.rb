@@ -7,9 +7,9 @@ class Librealsense < Formula
 
   bottle do
     cellar :any
-    sha256 "e12a1e091ea120fa10673e1bb80ecfdba7aa6b30d9e8cf266480f36106aeb1e6" => :mojave
-    sha256 "f3a99629a6fb667ae6c7cb43cbbbe446032e986319fe722192940ad5b0c02dc2" => :high_sierra
-    sha256 "eda9dcf15c94ebd8c11b0f92a9f95dd20854a32e12ea897edb18f8f0c5e6791c" => :sierra
+    sha256 "76a41f0e2e8c2e3e482cc9312beb4a226c51ca402a8642cc6cb02ca69ac3822e" => :mojave
+    sha256 "e95f607498c4d96544645f99ff0e3824f56ae9a22cc20c597c5d5a5669e2479c" => :high_sierra
+    sha256 "2e1b3372a730674cd2fad2bc06db35f33888bb7905cc70ec2ee99d8a28d794d7" => :sierra
   end
 
   depends_on "cmake" => :build
