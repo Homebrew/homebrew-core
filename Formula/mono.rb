@@ -31,7 +31,7 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag => "10.2.1",
+        :tag      => "10.2.1",
         :revision => "3de387432de8d11a89f99d1af87aa9ce194fe21b"
   end
 
