@@ -1,8 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.3.tar.gz"
-  sha256 "4eef85759d5450b183459ff216b4c0fa43e87a4f6aa92c8af649f89336f002ec"
+  url "https://github.com/opencv/opencv_contrib/archive/3.4.4.tar.gz"
+  sha256 "a35b00a71d77b484f73ec485c65fe56c7a6fa48acd5ce55c197aef2e13c78746"
 
   bottle do
     sha256 "51a8a66a237ced772a7cd4ce73e2e777b92be15dd40291461b8f27cdf278ddcd" => :mojave
