@@ -1,17 +1,8 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-
-  stable do
-    url "https://github.com/nghttp2/nghttp2/releases/download/v1.34.0/nghttp2-1.34.0.tar.xz"
-    sha256 "ecb0c013141495e24bd6deca022b5a92097a7848a0c17c4e5af1243a97fa622e"
-
-    # apply upstream patch to fix compilation on macOS, remove in next release
-    patch do
-      url "https://github.com/nghttp2/nghttp2/commit/153531d4d0ebe00ac95047dbf1fec1d9d694f29f.patch?full_index=1"
-      sha256 "7b520ff66699dd41a84cbd287c06ed474ef21ce2b2fab34152267ac1d8ec07da"
-    end
-  end
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.35.0/nghttp2-1.35.0.tar.xz"
+  sha256 "23610ddd446bf1a9ae12905b0e7f283afd46249794868b7acd581e693900544c"
 
   bottle do
     sha256 "a882c48e3d738c192cdd535ff785a96e9d77d87d894e53a75e2533742277fdba" => :mojave
