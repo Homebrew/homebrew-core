@@ -5,6 +5,7 @@ class VstsCli < Formula
   homepage "https://docs.microsoft.com/en-us/cli/vsts"
   url "https://files.pythonhosted.org/packages/4f/6d/9289eef4bf97702b2538745cd5ff89ea6c5af7b2694acb34db94c0c9f340/vsts-cli-0.1.3.tar.gz"
   sha256 "49a02db989b1e311379c397bdd3572fd243b8d5068bbba5963ca56602a6f72e0"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
