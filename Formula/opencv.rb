@@ -1,7 +1,7 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv_contrib/archive/3.4.4.tar.gz"
+  url "https://github.com/opencv/opencv/archive/3.4.4.tar.gz"
   sha256 "a35b00a71d77b484f73ec485c65fe56c7a6fa48acd5ce55c197aef2e13c78746"
 
   bottle do
