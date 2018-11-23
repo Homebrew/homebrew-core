@@ -17,8 +17,8 @@ class ClozureCl < Formula
   conflicts_with "cclive", :because => "both install a ccl binary"
 
   resource "bootstrap" do
-    url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-darwinx86.tar.gz"
-    sha256 "5adbea3d8b4a2e29af30d141f781c6613844f468c0ccfa11bae908c3e9641939"
+    url "https://github.com/Clozure/ccl/releases/download/v1.12-dev.1/darwinx86.tar.gz"
+    sha256 "c4dda85210a6d09301d0e4691c65a41824126096eb36b9c9fa40a16d72ae22ce"
   end
 
   def install
