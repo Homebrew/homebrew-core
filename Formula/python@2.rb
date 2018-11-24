@@ -24,19 +24,12 @@ class PythonAT2 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  # Please don't add a wide/ucs4 option as it won't be accepted.
-  # More details in: https://github.com/Homebrew/homebrew/pull/32368
-  option "with-tcl-tk", "Use Homebrew's Tk instead of macOS Tk (has optional Cocoa and threads support)"
-
-  deprecated_option "with-brewed-tk" => "with-tcl-tk"
-
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build if MacOS.version > :snow_leopard
   depends_on "gdbm"
   depends_on "openssl"
   depends_on "readline"
   depends_on "sqlite"
-  depends_on "tcl-tk" => :optional
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/6e/9c/6a003320b00ef237f94aa74e4ad66c57a7618f6c79d67527136e2544b728/setuptools-40.4.3.zip"
@@ -51,15 +44,6 @@ class PythonAT2 < Formula
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/68/f0/545cbeae75f248c4ad7c2d062672cd7e046dd325a81b74fc02c62450d133/wheel-0.32.0.tar.gz"
     sha256 "a26bc27230baaec9039972b7cb43db94b17c13e4d66a9ff6a4d46a0344c55c9a"
-  end
-
-  # Patch to disable the search for Tk.framework, since Homebrew's Tk is
-  # a plain unix build. Remove `-lX11`, too because our Tk is "AquaTk".
-  if build.with? "tcl-tk"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/patches/42fcf22/python/brewed-tk-patch.diff"
-      sha256 "15c153bdfe51a98efe48f8e8379f5d9b5c6c4015e53d3f9364d23c8689857f09"
-    end
   end
 
   def lib_cellar
@@ -113,12 +97,6 @@ class PythonAT2 < Formula
       if DevelopmentTools.clang_build_version < 1000
         cflags  << "-I/usr/include" # find zlib
       end
-      # For the Xlib.h, Python needs this header dir with the system Tk
-      if build.without? "tcl-tk"
-        # Yep, this needs the absolute path where zlib needed
-        # a path relative to the SDK.
-        cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
-      end
     end
 
     # Avoid linking to libgcc https://code.activestate.com/lists/python-dev/112195/
@@ -148,12 +126,6 @@ class PythonAT2 < Formula
     inreplace "./Lib/ctypes/macholib/dyld.py" do |f|
       f.gsub! "DEFAULT_LIBRARY_FALLBACK = [", "DEFAULT_LIBRARY_FALLBACK = [ '#{HOMEBREW_PREFIX}/lib',"
       f.gsub! "DEFAULT_FRAMEWORK_FALLBACK = [", "DEFAULT_FRAMEWORK_FALLBACK = [ '#{HOMEBREW_PREFIX}/Frameworks',"
-    end
-
-    if build.with? "tcl-tk"
-      tcl_tk = Formula["tcl-tk"].opt_prefix
-      cppflags << "-I#{tcl_tk}/include"
-      ldflags  << "-L#{tcl_tk}/lib"
     end
 
     args << "CFLAGS=#{cflags.join(" ")}" unless cflags.empty?
@@ -256,11 +228,6 @@ class PythonAT2 < Formula
                     Formula["sqlite"].opt_include]
     library_dirs = [HOMEBREW_PREFIX/"lib", Formula["openssl"].opt_lib,
                     Formula["sqlite"].opt_lib]
-
-    if build.with? "tcl-tk"
-      include_dirs << Formula["tcl-tk"].opt_include
-      library_dirs << Formula["tcl-tk"].opt_lib
-    end
 
     cfg = lib_cellar/"distutils/distutils.cfg"
     cfg.atomic_write <<~EOS
