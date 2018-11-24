@@ -33,10 +33,9 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 "8c77b5762267b127cc31346ac4da805bbfd59e0180d90e1e8b77fb463e929d60" => :mojave
-    sha256 "096d8894b25b0fdec9b77150704491993872a7848397a04870627534fb95c9e3" => :high_sierra
-    sha256 "0464be51d0eb0a45de4a1d1c6200e1d9768eec5e9737050755497a4f4de66a08" => :sierra
-    sha256 "22e9abc0b47541bb03b2da7f6a19c5d7640ea2314322564551adc3d22305806e" => :el_capitan
+    sha256 "84a1a758d7881f9a446fd76fe4360ce7c5508c48761a74032a361996df1f79ec" => :mojave
+    sha256 "ad85f42e73648dc47c8c903e0045e6b8cf62c99888144c73893a0226f2a5b51e" => :high_sierra
+    sha256 "cd58fa592235c48ae050861eb3fca82ecfe54ddf103e5962b2bf9621f815f640" => :sierra
   end
 
   keg_only "Qt 5 has CMake issues when linked"
