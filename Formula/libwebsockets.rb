@@ -1,20 +1,9 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  revision 2
+  url "https://github.com/warmcat/libwebsockets/archive/v3.1.0.tar.gz"
+  sha256 "db948be74c78fc13f1f1a55e76707d7baae3a1c8f62b625f639e8f2736298324"
   head "https://github.com/warmcat/libwebsockets.git"
-
-  stable do
-    url "https://github.com/warmcat/libwebsockets/archive/v2.4.2.tar.gz"
-    sha256 "73012d7fcf428dedccc816e83a63a01462e27819d5537b8e0d0c7264bfacfad6"
-
-    # Fix compatibility with libuv 1.21.0.
-    # Not in the 3.0.0 release but should be safe to remove on >= 3.0.1.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4d337833/libwebsockets/libwebsockets_libuv_1.21.0_compat.diff"
-      sha256 "d2ef574b7c356573fc4ade2b95f7717e1eac192d8e56748b03588c89b12fdabd"
-    end
-  end
 
   bottle do
     cellar :any
@@ -25,7 +14,6 @@ class Libwebsockets < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libev"
   depends_on "libevent"
   depends_on "libuv"
   depends_on "openssl"
@@ -34,7 +22,6 @@ class Libwebsockets < Formula
     system "cmake", ".", *std_cmake_args,
                     "-DLWS_IPV6=ON",
                     "-DLWS_WITH_HTTP2=ON",
-                    "-DLWS_WITH_LIBEV=ON",
                     "-DLWS_WITH_LIBEVENT=ON",
                     "-DLWS_WITH_LIBUV=ON",
                     "-DLWS_WITH_PLUGINS=ON",
