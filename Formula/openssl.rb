@@ -20,10 +20,6 @@ class Openssl < Formula
   keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
-  option "without-test", "Skip build-time tests (not recommended)"
-
-  deprecated_option "without-check" => "without-test"
-
   depends_on "makedepend" => :build
 
   def arch_args
@@ -61,7 +57,7 @@ class Openssl < Formula
     system "perl", "./Configure", *(configure_args + arch_args[arch])
     system "make", "depend"
     system "make"
-    system "make", "test" if build.with?("test")
+    system "make", "test"
 
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
   end
