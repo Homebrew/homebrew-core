@@ -5,6 +5,12 @@ class CurlOpenssl < Formula
   mirror "http://curl.mirror.anstey.ca/curl-7.62.0.tar.bz2"
   sha256 "7802c54076500be500b171fde786258579d60547a3a35b8c5a23d8c88e8f9620"
 
+  bottle do
+    sha256 "112be7d63c2abdcd39ba9f9ddf240a8bb2960ab52b5393d7e3e01ad6df17b7c8" => :mojave
+    sha256 "4e259d94c1772d30bfd0cd5941e53b4fcf065995437366d3354b1deae323c3bb" => :high_sierra
+    sha256 "f4b877589a4882431bc9394e876472e96cab07815654e880648fc74b3ed54685" => :sierra
+  end
+
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
