@@ -16,12 +16,10 @@ class OpensslAT11 < Formula
 
   keg_only :versioned_formula
 
-  option "without-test", "Skip build-time tests (not recommended)"
-
   # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
   # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
   # The MacOS ML tag is same hack as the way we handle most :python deps.
-  depends_on "perl" if build.with?("test") && MacOS.version <= :mountain_lion
+  depends_on "perl" if MacOS.version <= :mountain_lion
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
@@ -56,7 +54,7 @@ class OpensslAT11 < Formula
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)
     system "make"
-    system "make", "test" if build.with?("test")
+    system "make", "test"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
   end
 
