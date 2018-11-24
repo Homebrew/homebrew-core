@@ -197,13 +197,14 @@ class VstsCli < Formula
 
   def install
     virtualenv_install_with_resources
+    bin.install_symlink "#{libexec}/bin/vsts" => "vsts"
   end
 
   test do
-    system "#{libexec}/bin/vsts", "configure", "--help"
-    output = shell_output("#{libexec}/bin/vsts logout 2>&1", 1)
+    system "#{bin}/vsts", "configure", "--help"
+    output = shell_output("#{bin}/vsts logout 2>&1", 1)
     assert_equal "ERROR: The credential was not found", output.chomp
-    output = shell_output("#{libexec}/bin/vsts work 2>&1", 2)
+    output = shell_output("#{bin}/vsts work 2>&1", 2)
     assert_match "vsts work: error: the following arguments are required", output
   end
 end
