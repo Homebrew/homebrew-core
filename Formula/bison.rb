@@ -6,9 +6,9 @@ class Bison < Formula
   sha256 "3ffd2201041c6c56064b4bdad4dfb8959751efbefa823775242b4f32aa37786c"
 
   bottle do
-    sha256 "a5513ebde48dd4a88239b7645aa9da70c2275d622790edf1ce4cfbd04321e7ce" => :mojave
-    sha256 "b28a1d436ba721ac21a18a78b58bc5e24fa7741ad879cde4a33f849773d03a35" => :high_sierra
-    sha256 "5718deca6a4f62302ec970d4964935f99f34f058cceae571c552bcf44c9f47e6" => :sierra
+    sha256 "26e06cc3df3a85706ed99e75c4e8e404cf8e69977c3b749cd24286c3e023feae" => :mojave
+    sha256 "6ca37bd5539ec8420d047e31ac5cdf48b441ed97b3862f03b32808d1bb96ebdb" => :high_sierra
+    sha256 "efb28bf1d0514aa17efce0effa2fb082da4384a2bd87f0f4f6c5b17746e2ebd0" => :sierra
   end
 
   keg_only :provided_by_macos, "some formulae require a newer version of bison"
