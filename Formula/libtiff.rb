@@ -7,9 +7,9 @@ class Libtiff < Formula
 
   bottle do
     cellar :any
-    sha256 "c5612fcd5e15ca183583acaa5d0bd669a2f925e605b752ecf14cbfa1c84734b9" => :mojave
-    sha256 "948a1f8f1d24d0dabbbc073a3052d0bb7648a6ed44898b40e1eab441d0bc8fb0" => :high_sierra
-    sha256 "92311bfb3858958c40c494dda8da45c4937c5a792636e2f741c0394d4e31e7c5" => :sierra
+    sha256 "9fc324e360e2b5fe46ce13bd97bc1a338cf08c8d60dca4241bcc8c2efcadb99a" => :mojave
+    sha256 "59a22ff44e382d59b062a0cd03336f0ec4b8846a3eb8b1ca777150ca703dd0cd" => :high_sierra
+    sha256 "57c7e27e610ed62652678ccc9162dc27c5cc197aab4d16e0ea425acf8f33bb17" => :sierra
   end
 
   option "with-xz", "Include support for LZMA compression"
