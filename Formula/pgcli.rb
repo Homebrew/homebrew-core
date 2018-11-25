@@ -43,8 +43,8 @@ class Pgcli < Formula
   end
 
   resource "pgspecial" do
-    url "https://files.pythonhosted.org/packages/96/11/55e1e2fb15032ade24a7e20cb8f90c8024bd75e11b806504fbf75bae6525/pgspecial-1.11.2.tar.gz"
-    sha256 "60e81ed02c3a2d43a4eb70d5bbdeea7b0c5244580d3017edf89a6fd66e6503fb"
+    url "https://files.pythonhosted.org/packages/57/d4/40d3672f8162aa39f2ef6fd2b508b9eb68ec0345e15066208b112efe77a8/pgspecial-1.11.3.tar.gz"
+    sha256 "f183da55c37128f7a74fe5b28e997991156f19961e59a1ad0f400ffc9535faba"
   end
 
   resource "prompt_toolkit" do
@@ -58,8 +58,8 @@ class Pgcli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
+    url "https://files.pythonhosted.org/packages/63/a2/91c31c4831853dedca2a08a0f94d788fc26a48f7281c99a303769ad2721b/Pygments-2.3.0.tar.gz"
+    sha256 "82666aac15622bd7bb685a4ee7f6625dd716da3ef7473620c192c0168aae64fc"
   end
 
   resource "setproctitle" do
