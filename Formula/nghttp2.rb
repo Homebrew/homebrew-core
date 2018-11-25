@@ -3,6 +3,7 @@ class Nghttp2 < Formula
   homepage "https://nghttp2.org/"
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.35.0/nghttp2-1.35.0.tar.xz"
   sha256 "23610ddd446bf1a9ae12905b0e7f283afd46249794868b7acd581e693900544c"
+  revision 1
 
   bottle do
     sha256 "a0a459024177bc6ca8b511b89265c081043b2ac5ad48cab31a44e57f92a78ab0" => :mojave
@@ -25,7 +26,6 @@ class Nghttp2 < Formula
   depends_on "cunit" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "boost"
   depends_on "c-ares"
   depends_on "jansson"
   depends_on "jemalloc"
@@ -52,8 +52,6 @@ class Nghttp2 < Formula
       --prefix=#{prefix}
       --disable-silent-rules
       --enable-app
-      --with-boost=#{Formula["boost"].opt_prefix}
-      --enable-asio-lib
       --disable-python-bindings
     ]
 
