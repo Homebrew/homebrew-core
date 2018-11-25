@@ -26,7 +26,6 @@ class Libcaption < Formula
     "-f", "lavfi", "-i", "smptebars=duration=2:size=640x360:rate=30",
     "-c:v", "libx264", "-crf", "23", "-preset", "ultrafast",
     "-f", "flv", INPUT_VIDEO
-    # system "ffprobe", "-i", INPUT_VIDEO
 
     INPUT_CAPTION_FILE = testpath/"input_caption.srt"
     INPUT_CAPTION_FILE.write <<~EOS
