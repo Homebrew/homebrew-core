@@ -5,7 +5,6 @@ class Libcaption < Formula
   url "https://github.com/szatmary/libcaption/archive/0.7.tar.gz"
   # version "0.7"
   sha256 "125c9c55e1d5f0dc37ef151fa9583dd2fcfaefe7699d348c7292e634859e527e"
-  revision 0
 
   # --HEAD version
   head "https://github.com/szatmary/libcaption.git"
