@@ -9,10 +9,9 @@ class Wolfssl < Formula
 
   bottle do
     cellar :any
-    sha256 "b67f341e8bd3fac6564a569d6bdf2e6b73addd505710c180d5dcb9653704ef93" => :mojave
-    sha256 "7238f8d6ee25019ca14b6d7ad0b7ff640c4417ed80915380194b8e6a10042590" => :high_sierra
-    sha256 "5592c1ac094abe44a735cd678d1f67f1c0883a3294495ac6958b5c43c6b770a5" => :sierra
-    sha256 "f01b977e6e6a6c64468d11251045ff03abf01a4daf5db45757afeeeb1a7a7d4e" => :el_capitan
+    sha256 "beb57fb2808a63073b9df4b8e263a04b61940da8b044892c390b16bec249cdc5" => :mojave
+    sha256 "c57645d93606b126e25c5b028499903efd524dd85fd7fe08560c338eb891f93a" => :high_sierra
+    sha256 "13f656f75a2f877910803de4a55b15ea449c8093c0a2e69e1baa8c440ecdf9a8" => :sierra
   end
 
   option "without-test", "Skip compile-time tests"
