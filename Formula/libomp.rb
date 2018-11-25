@@ -6,10 +6,9 @@ class Libomp < Formula
 
   bottle do
     cellar :any
-    sha256 "dbaecca3bef86692ab838e66ab605ee75b5d1cd08350b06a28177c17b2859762" => :mojave
-    sha256 "046f659ad8a2cc336049a1e7f7be0dac2f2e28ce322409f10396f9582b94b660" => :high_sierra
-    sha256 "ba1b9a78326c671fb864a95d93f2fcf47f3af2ef8f12f6c7ee54a7c0cf7802b4" => :sierra
-    sha256 "0ea5b6ae3e9e0b32a2b49a7430fb0f653430107164089b067a7b0039e91ce527" => :el_capitan
+    sha256 "c8788028105e9ec32e29bcdba8c7b550c2afd96b3f0a7bd0d6b6136a8729174a" => :mojave
+    sha256 "24072de1910b63d6047685bafc3e44e5d65686d04555a5239fc6d0410fb4eed2" => :high_sierra
+    sha256 "2aad5e93e8c4548fd66a70782f1a9e1dbdb662a6497a267d317f297f73ea22aa" => :sierra
   end
 
   depends_on "cmake" => :build
