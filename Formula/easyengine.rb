@@ -18,7 +18,7 @@ class Easyengine < Formula
     assert_match "hi_IN", output
 
     output = shell_output("#{bin}/ee cli version")
-    assert_match "EE 4.0.1", output
+    assert_match "EE #{version}", output
 
     output = shell_output("#{bin}/ee cli info")
     assert_match "Darwin", output
