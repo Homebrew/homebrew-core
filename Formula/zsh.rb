@@ -17,14 +17,7 @@ class Zsh < Formula
     depends_on "autoconf" => :build
   end
 
-  option "without-etcdir", "Disable the reading of Zsh rc files in /etc"
-  option "with-unicode9", "Build with Unicode 9 character width support"
-
-  deprecated_option "disable-etcdir" => "without-etcdir"
-
   depends_on "ncurses"
-  depends_on "gdbm" => :optional
-  depends_on "pcre" => :optional
 
   resource "htmldoc" do
     url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2-doc.tar.xz"
@@ -35,32 +28,20 @@ class Zsh < Formula
   def install
     system "Util/preconfig" if build.head?
 
-    args = %W[
-      --prefix=#{prefix}
-      --enable-fndir=#{pkgshare}/functions
-      --enable-scriptdir=#{pkgshare}/scripts
-      --enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions
-      --enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts
-      --enable-runhelpdir=#{pkgshare}/help
-      --enable-cap
-      --enable-maildir-support
-      --enable-multibyte
-      --enable-zsh-secure-free
-      --with-tcsetpgrp
-      DL_EXT=bundle
-    ]
-
-    args << "--disable-gdbm" if build.without? "gdbm"
-    args << "--enable-pcre" if build.with? "pcre"
-    args << "--enable-unicode9" if build.with? "unicode9"
-
-    if build.without? "etcdir"
-      args << "--disable-etcdir"
-    else
-      args << "--enable-etcdir=/etc"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-fndir=#{pkgshare}/functions",
+                          "--enable-scriptdir=#{pkgshare}/scripts",
+                          "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
+                          "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
+                          "--enable-runhelpdir=#{pkgshare}/help",
+                          "--enable-cap",
+                          "--enable-maildir-support",
+                          "--enable-multibyte",
+                          "--enable-zsh-secure-free",
+                          "--enable-unicode9",
+                          "--enable-etcdir=/etc",
+                          "--with-tcsetpgrp",
+                          "DL_EXT=bundle"
 
     # Do not version installation directories.
     inreplace ["Makefile", "Src/Makefile"],
