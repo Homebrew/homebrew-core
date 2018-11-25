@@ -6,9 +6,6 @@ class Libcaption < Formula
   # version "0.7"
   sha256 "125c9c55e1d5f0dc37ef151fa9583dd2fcfaefe7699d348c7292e634859e527e"
 
-  # --HEAD version
-  head "https://github.com/szatmary/libcaption.git"
-
   depends_on "cmake" => :build
   depends_on "ffmpeg" => [:build, :test]
   depends_on "re2c" => :build
