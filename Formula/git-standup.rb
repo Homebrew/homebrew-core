@@ -7,9 +7,9 @@ class GitStandup < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9d23b28bbf40354adf65cc45ff43ace00835010d170dccf63ddf5efac1b389a1" => :mojave
-    sha256 "449ab8eca7847b30c96abcae0f9f857cd4d2fdb8590bb7150840cef6e8dd4832" => :high_sierra
-    sha256 "449ab8eca7847b30c96abcae0f9f857cd4d2fdb8590bb7150840cef6e8dd4832" => :sierra
+    sha256 "bd18e5625605805f45473083ac6bf5c83009495575c09966884c00661d7a2682" => :mojave
+    sha256 "c3a46d5566ecaa3af2acb0872e1f82a8063e4f3c0e23a2b2ff1604e676a478b5" => :high_sierra
+    sha256 "c3a46d5566ecaa3af2acb0872e1f82a8063e4f3c0e23a2b2ff1604e676a478b5" => :sierra
   end
 
   def install
