@@ -20,7 +20,16 @@ class Openssl < Formula
   keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
 
-  depends_on "makedepend" => :build
+  # An updated list of CA certificates for use by Leopard, whose built-in certificates
+  # are outdated, and Snow Leopard, whose `security` command returns no output.
+  resource "ca-bundle" do
+    url "https://curl.haxx.se/ca/cacert-2018-10-17.pem"
+    mirror "http://gitcdn.xyz/cdn/paragonie/certainty/d3e2777e1ca2b1401329a49c7d56d112e6414f23/data/cacert-2018-10-17.pem"
+    sha256 "86695b1be9225c3cf882d283f05c944e3aabbc1df6428a4424269a93e997dc65"
+  end
+
+  # Use standard env on Snow Leopard to allow compilation fix below to work.
+  env :std if MacOS.version == :snow_leopard
 
   def arch_args
     {
@@ -53,12 +62,22 @@ class Openssl < Formula
       arch = Hardware::CPU.arch_32_bit
     end
 
+    # Keep Leopard/Snow Leopard support alive for things like building portable Ruby by
+    # avoiding a makedepend issue introduced in recent versions of OpenSSL 1.0.2.
+    # https://github.com/Homebrew/homebrew-core/pull/34326
+    depend_args = []
+    depend_args << "MAKEDEPPROG=cc" if MacOS.version <= :snow_leopard
+
+    # Build with GCC on Snow Leopard, which errors during tests if built with its clang.
+    # https://github.com/Homebrew/homebrew-core/issues/2766
+    args = []
+    args << "CC=cc" if MacOS.version == :snow_leopard
+
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args[arch])
-    system "make", "depend"
-    system "make"
+    system "make", "depend", *depend_args
+    system "make", *args
     system "make", "test"
-
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
   end
 
@@ -86,7 +105,13 @@ class Openssl < Formula
     end
 
     openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
+    if MacOS.version <= :snow_leopard
+      resource("ca-bundle").stage do
+        openssldir.install "cacert-#{resource("ca-bundle").version}.pem" => "cert.pem"
+      end
+    else
+      (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
+    end
   end
 
   def caveats; <<~EOS
