@@ -8,9 +8,9 @@ class Pgcli < Formula
 
   bottle do
     cellar :any
-    sha256 "c13f5645e681549662613188bb767697ca1fd8dfb139b64fe5905fe11e1f74f4" => :mojave
-    sha256 "39837c897623fcc5c49eff8fbab16cd31f8414bf7f8110424161d0c3f3c8b8bb" => :high_sierra
-    sha256 "e14943815fee7b35bcb48b57b9c6c023c690ecd8b84d7b5861ed8f431d08d668" => :sierra
+    sha256 "7ef0e993e976c3d68bb8c10c5f752d91c57a696ebd76b0a181bc68063fa3a618" => :mojave
+    sha256 "45a85309ecf2abaac4010547ef9c2d515c6eb69704f48cc5856ca7f10f56cff2" => :high_sierra
+    sha256 "29278a5b69290a787eff971019b9f2734c24e2cbe45c33875de818be0b05633c" => :sierra
   end
 
   depends_on "libpq"
