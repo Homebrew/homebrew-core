@@ -10,7 +10,7 @@ class Libcaption < Formula
   head "https://github.com/szatmary/libcaption.git"
 
   depends_on "cmake" => :build
-  depends_on "ffmpeg" => :build
+  depends_on "ffmpeg" => [:build, :test]
   depends_on "re2c" => :build
 
   def install
