@@ -9,9 +9,9 @@ class Httpie < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8e0c0bf7a9484dbca1c6ed32a3ab4ca1c1ebb9c31362fa74ba2fc64185c41627" => :mojave
-    sha256 "d3c1ae735d83fab3d8d949bdf09449ddb58237f5755e805dde8227e5a5984628" => :high_sierra
-    sha256 "8a0c8064cda778621caf24da67744dce822f47d78324cdfc9fb57c795ec22e68" => :sierra
+    sha256 "158258be68ac93de13860be2bef02da6fd8b68aa24b2e6609bcff1ec3f93e7a0" => :mojave
+    sha256 "54352116b6fa2c3bd65f26136fdcb57986dbff8a52de5febf7aea59c126d29e1" => :high_sierra
+    sha256 "9cce71768fe388808e11b26d651b44a6b54219f5406845b4273b5099f5c1f76f" => :sierra
   end
 
   depends_on "python"
