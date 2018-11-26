@@ -1,9 +1,9 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v2.1.0.src.tgz"
-  version "2.1.0"
-  sha256 "1026531d984332d05c75ac86fc4c97e3c857e0c0a0937096a1a7a9dd38f14de9"
+  url "https://binaries.cockroachdb.com/cockroach-v2.1.1.src.tgz"
+  version "2.1.1"
+  sha256 "87a01e6665319b05210c13895f97f4ccd77af839c5fa1cd87a9440fb39fd64fc"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
@@ -20,10 +20,12 @@ class Cockroach < Formula
   depends_on "xz" => :build
 
   def install
-    # The make that ships with macOS (v3.81 at the time of writing) has a bug
+    # The GNU Make that ships with macOS Mojave (v3.81 at the time of writing) has a bug
     # that causes it to loop infinitely when trying to build cockroach. Use
     # the more up-to-date make that Homebrew provides.
     ENV.prepend_path "PATH", Formula["make"].opt_libexec/"gnubin"
+    # Build only the OSS components
+    system "make", "buildoss"
     system "make", "install", "prefix=#{prefix}", "BUILDTYPE=release"
   end
 
