@@ -82,11 +82,12 @@ class Python < Formula
     if MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags  << "-isysroot #{MacOS.sdk_path}"
+      cflags  << "-isysroot #{MacOS.sdk_path}" << "-I#{MacOS.sdk_path}/usr/include"
       ldflags << "-isysroot #{MacOS.sdk_path}"
-      if DevelopmentTools.clang_build_version < 1000
-        cflags  << "-I/usr/include" # find zlib
-      end
+      # For the Xlib.h, Python needs this header dir with the system Tk
+      # Yep, this needs the absolute path where zlib needed a path relative
+      # to the SDK.
+      cflags << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
     # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
     args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
@@ -290,7 +291,7 @@ class Python < Formula
     else
       xy = version.to_s.slice(/(3\.\d)/) || "3.7"
     end
-    text = <<~EOS
+    <<~EOS
       Python has been installed as
         #{HOMEBREW_PREFIX}/bin/python3
 
@@ -308,16 +309,6 @@ class Python < Formula
 
       See: https://docs.brew.sh/Homebrew-and-Python
     EOS
-
-    # Tk warning only for 10.6
-    tk_caveats = <<~EOS
-
-      Apple's Tcl/Tk is not recommended for use with Python on Mac OS X 10.6.
-      For more information see: https://www.python.org/download/mac/tcltk/
-    EOS
-
-    text += tk_caveats unless MacOS.version >= :lion
-    text
   end
 
   test do
@@ -328,6 +319,7 @@ class Python < Formula
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()"
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
+    system "#{bin}/python#{xy}", "-c", "import zlib"
     system bin/"pip3", "list", "--format=columns"
   end
 end
