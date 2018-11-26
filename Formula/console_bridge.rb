@@ -1,8 +1,8 @@
 class ConsoleBridge < Formula
   desc "Robot Operating System-independent package for logging"
   homepage "https://wiki.ros.org/console_bridge/"
-  url "https://github.com/ros/console_bridge/archive/0.4.1.tar.gz"
-  sha256 "9016f538784cb762c48bb96d9ef2215f9d057ca9e13134565396fddbcde6b937"
+  url "https://github.com/ros/console_bridge/archive/0.4.2.tar.gz"
+  sha256 "f44641bed7268d72354476c8c5ff936f0e600e4170e1ff7f61a4b6e1f3fc20ff"
 
   bottle do
     cellar :any
