@@ -3,7 +3,7 @@ class Pqiv < Formula
   homepage "https://github.com/phillipberndt/pqiv"
   url "https://github.com/phillipberndt/pqiv/archive/2.10.4.tar.gz"
   sha256 "58ddd18748e0b597aa126b7715f54f10b4ef54e7cd02cf64f7b83a23a6f5a14b"
-  revision 3
+  revision 4
   head "https://github.com/phillipberndt/pqiv.git"
 
   bottle do
