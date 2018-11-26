@@ -11,14 +11,10 @@ class Pict < Formula
   end
 
   test do
-    system "test", "#{bin}/pict"
-    system "test", "#{HOMEBREW_PREFIX}/bin/pict"
-    output = `#{bin}/pict`
+    system "curl", "https://gist.githubusercontent.com/glsorre/9f67891c69c21cbf477c6cedff8ee910/raw/84ec65cf37e0a8df5428c6c607dbf397c2297e06/pict.txt", "-o", "prova.txt"
+    output = `#{bin}/pict prova.txt`
     output = output.split("\n")
-    if output[0] == "Pairwise Independent Combinatorial Testing"
-      return true
-    else
-      return false
-    end
+    assert_equal output[0], "LANGUAGES\tCURRIENCIES"
+    assert_equal output[4], "en_US\tGBP"
   end
 end
