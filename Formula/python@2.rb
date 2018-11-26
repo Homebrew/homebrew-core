@@ -92,11 +92,12 @@ class PythonAT2 < Formula
     if MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags  << "-isysroot #{MacOS.sdk_path}"
+      cflags  << "-isysroot #{MacOS.sdk_path}" << "-I#{MacOS.sdk_path}/usr/include"
       ldflags << "-isysroot #{MacOS.sdk_path}"
-      if DevelopmentTools.clang_build_version < 1000
-        cflags  << "-I/usr/include" # find zlib
-      end
+      # For the Xlib.h, Python needs this header dir with the system Tk
+      # Yep, this needs the absolute path where zlib needed a path relative
+      # to the SDK.
+      cflags  << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
 
     # Avoid linking to libgcc https://code.activestate.com/lists/python-dev/112195/
@@ -311,6 +312,7 @@ class PythonAT2 < Formula
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
     system "#{bin}/python", "-c", "import gdbm"
+    system "#{bin}/python", "-c", "import zlib"
     system bin/"pip", "list", "--format=columns"
   end
 end
