@@ -3,6 +3,7 @@ class PhpAT56 < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-5.6.38.tar.xz/from/this/mirror"
   sha256 "c2fac47dc6316bd230f0ea91d8a5498af122fb6a3eb43f796c9ea5f59b04aa1e"
+  revision 1
 
   bottle do
     sha256 "23b269d96aad130be31c631a318c2e2bceb06b26b3b79dc0a1ab4c795fb360b5" => :mojave
@@ -19,7 +20,7 @@ class PhpAT56 < Formula
   depends_on "apr-util"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl" if MacOS.version < :lion
+  depends_on "curl-openssl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -27,16 +28,17 @@ class PhpAT56 < Formula
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
-  depends_on "libiconv" if DevelopmentTools.clang_build_version >= 1000
   depends_on "libpng"
   depends_on "libpq"
+  depends_on "libtool"
   depends_on "libzip"
   depends_on "mcrypt"
-  depends_on "openldap" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "openldap"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "sqlite"
+  depends_on "tidy-html5"
   depends_on "unixodbc"
-  depends_on "webp"
 
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
@@ -78,6 +80,9 @@ class PhpAT56 < Formula
 
     inreplace "sapi/fpm/php-fpm.conf.in", ";daemonize = yes", "daemonize = no"
 
+    # API compatibility with tidy-html5 v5.0.0 - https://github.com/htacg/tidy-html5/issues/224
+    inreplace "ext/tidy/tidy.c", "buffio.h", "tidybuffio.h"
+
     # Required due to icu4c dependency
     ENV.cxx11
 
@@ -112,10 +117,8 @@ class PhpAT56 < Formula
       --enable-mbregex
       --enable-mbstring
       --enable-mysqlnd
-      --enable-opcache-file
       --enable-pcntl
       --enable-phpdbg
-      --enable-phpdbg-webhelper
       --enable-shmop
       --enable-soap
       --enable-sockets
@@ -126,16 +129,19 @@ class PhpAT56 < Formula
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
       --with-bz2#{headers_path}
+      --with-curl=#{Formula["curl-openssl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
       --with-gd
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-iconv#{headers_path}
       --with-icu-dir=#{Formula["icu4c"].opt_prefix}
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
+      --with-ldap=#{Formula["openldap"].opt_prefix}
       --with-ldap-sasl#{headers_path}
       --with-libedit#{headers_path}
       --with-libxml-dir#{headers_path}
@@ -151,29 +157,18 @@ class PhpAT56 < Formula
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
       --with-pdo-pgsql=#{Formula["libpq"].opt_prefix}
+      --with-pdo-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-pgsql=#{Formula["libpq"].opt_prefix}
       --with-pic
       --with-png-dir=#{Formula["libpng"].opt_prefix}
       --with-pspell=#{Formula["aspell"].opt_prefix}
+      --with-sqlite3=#{Formula["sqlite"].opt_prefix}
+      --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
-      --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
       --with-xsl#{headers_path}
       --with-zlib#{headers_path}
     ]
-
-    if MacOS.version < :lion
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
-    else
-      args << "--with-curl#{headers_path}"
-    end
-
-    if MacOS.sdk_path_if_needed
-      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
-      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
-    else
-      args << "--with-ldap"
-    end
 
     system "./configure", *args
     system "make"
@@ -183,7 +178,7 @@ class PhpAT56 < Formula
     extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
-    inreplace "php.ini-development", "; extension_dir = \"./\"",
+    inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {
@@ -326,7 +321,8 @@ class PhpAT56 < Formula
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
     # Prevent SNMP extension to be added
-    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"), "SNMP extension doesn't work reliably with Homebrew on High Sierra"
+    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"),
+      "SNMP extension doesn't work reliably with Homebrew on High Sierra"
     begin
       require "socket"
 
@@ -340,7 +336,8 @@ class PhpAT56 < Formula
       expected_output = /^Hello world!$/
       (testpath/"index.php").write <<~EOS
         <?php
-        echo 'Hello world!';
+        echo 'Hello world!' . PHP_EOL;
+        var_dump(ldap_connect());
       EOS
       main_config = <<~EOS
         Listen #{port}
@@ -420,7 +417,7 @@ end
 
 __END__
 diff --git a/acinclude.m4 b/acinclude.m4
-index 1deb50d2983c..d0e66c8b6344 100644
+index 168c465f8d..6c087d152f 100644
 --- a/acinclude.m4
 +++ b/acinclude.m4
 @@ -441,7 +441,11 @@ dnl
@@ -447,3 +444,71 @@ index 1deb50d2983c..d0e66c8b6344 100644
  ])
 
  dnl
+@@ -487,7 +491,11 @@ dnl add an include path.
+ dnl if before is 1, add in the beginning of INCLUDES.
+ dnl
+ AC_DEFUN([PHP_ADD_INCLUDE],[
+-  if test "$1" != "/usr/include"; then
++  case "$1" in
++  "/usr/include"[)] ;;
++  /Library/Developer/CommandLineTools/SDKs/*/usr/include[)] ;;
++  /Applications/Xcode*.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/*/usr/include[)] ;;
++  *[)]
+     PHP_EXPAND_PATH($1, ai_p)
+     PHP_RUN_ONCE(INCLUDEPATH, $ai_p, [
+       if test "$2"; then
+@@ -495,8 +503,8 @@ AC_DEFUN([PHP_ADD_INCLUDE],[
+       else
+         INCLUDES="$INCLUDES -I$ai_p"
+       fi
+-    ])
+-  fi
++    ]) ;;
++  esac
+ ])
+
+ dnl internal, don't use
+@@ -2411,7 +2419,8 @@ AC_DEFUN([PHP_SETUP_ICONV], [
+     fi
+
+     if test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.a ||
+-       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME ||
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.tbd
+     then
+       PHP_CHECK_LIBRARY($iconv_lib_name, libiconv, [
+         found_iconv=yes
+diff --git a/Zend/zend_compile.h b/Zend/zend_compile.h
+index a0955e34fe..09b4984f90 100644
+--- a/Zend/zend_compile.h
++++ b/Zend/zend_compile.h
+@@ -414,9 +414,6 @@ struct _zend_execute_data {
+
+ #define EX(element) execute_data.element
+
+-#define EX_TMP_VAR(ex, n)	   ((temp_variable*)(((char*)(ex)) + ((int)(n))))
+-#define EX_TMP_VAR_NUM(ex, n)  (EX_TMP_VAR(ex, 0) - (1 + (n)))
+-
+ #define EX_CV_NUM(ex, n)       (((zval***)(((char*)(ex))+ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data))))+(n))
+
+
+diff --git a/Zend/zend_execute.h b/Zend/zend_execute.h
+index a7af67bc13..ae71a5c73f 100644
+--- a/Zend/zend_execute.h
++++ b/Zend/zend_execute.h
+@@ -71,6 +71,15 @@ ZEND_API int zend_eval_stringl_ex(char *str, int str_len, zval *retval_ptr, char
+ ZEND_API char * zend_verify_arg_class_kind(const zend_arg_info *cur_arg_info, ulong fetch_type, const char **class_name, zend_class_entry **pce TSRMLS_DC);
+ ZEND_API int zend_verify_arg_error(int error_type, const zend_function *zf, zend_uint arg_num, const char *need_msg, const char *need_kind, const char *given_msg, const char *given_kind TSRMLS_DC);
+
++static zend_always_inline temp_variable *EX_TMP_VAR(void *ex, int n)
++{
++	return (temp_variable *)((zend_uintptr_t)ex + n);
++}
++static inline temp_variable *EX_TMP_VAR_NUM(void *ex, int n)
++{
++	return (temp_variable *)((zend_uintptr_t)ex - (1 + n) * sizeof(temp_variable));
++}
++
+ static zend_always_inline void i_zval_ptr_dtor(zval *zval_ptr ZEND_FILE_LINE_DC TSRMLS_DC)
+ {
+	if (!Z_DELREF_P(zval_ptr)) {
