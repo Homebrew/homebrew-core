@@ -6,10 +6,9 @@ class Sdcc < Formula
   head "http://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
   bottle do
-    sha256 "2efd0fd48bf2e2355b43955b64367169256b462cb5195fd2268b424c03c043de" => :mojave
-    sha256 "b80bbd646be2fe3f66a46e616537b385211b03b3f22b16fdf85ab92d64dba88e" => :high_sierra
-    sha256 "c9b31ad24400562817d0ec03fd88051e62d1ba434f0f4750388cd1143afb1547" => :sierra
-    sha256 "560804d50e214be12ce4417fd5edc5137d2d987c3d1617d4659284d8b614a1bf" => :el_capitan
+    sha256 "f4ab0af5aedcbcc75312e82ac1bf771fb4a9b1763d5b591b390a7e1dec523f32" => :mojave
+    sha256 "bd962ac68c84d91e7768ba664369e94608fc39fca0085a6c7c696b96f0b3d7b6" => :high_sierra
+    sha256 "cba250c36a04f486e966a0305420f67bf1c6005e60812d181c5894fd83991f45" => :sierra
   end
 
   depends_on "boost"
