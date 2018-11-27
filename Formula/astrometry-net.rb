@@ -6,6 +6,13 @@ class AstrometryNet < Formula
   url "https://github.com/dstndstn/astrometry.net/releases/download/0.76/astrometry.net-0.76.tar.gz"
   sha256 "244355ef9716a9e062eb19e8547e8b50434c7df52a8b96f9d0a254bc646d1f0d"
 
+  bottle do
+    cellar :any
+    sha256 "37236180ad089ade3b761b79c0a50040364e50923223f7182e283b0be2e27188" => :mojave
+    sha256 "0284285b4b9b4f19b4ae3fdac47e6aacd3257b7f146703866fefaf7909bc24cb" => :high_sierra
+    sha256 "73e62726495c331badc1bf13811f789a90c8260050539c971ae9255d8b8e5fae" => :sierra
+  end
+
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "cairo"
