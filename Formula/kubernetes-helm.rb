@@ -33,7 +33,13 @@ class KubernetesHelm < Formula
       bin.install "bin/helm"
       bin.install "bin/tiller"
       man1.install Dir["docs/man/man1/*"]
-      bash_completion.install "scripts/completions.bash" => "helm"
+
+      output = Utils.popen_read("SHELL=bash #{bin}/helm completion bash")
+      (bash_completion/"helm").write output
+
+      output = Utils.popen_read("SHELL=zsh #{bin}/helm completion zsh")
+      (zsh_completion/"_helm").write output
+
       prefix.install_metafiles
     end
   end
