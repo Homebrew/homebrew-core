@@ -49,15 +49,16 @@ class AstrometryNet < Formula
 
   test do
     system "#{bin}/build-astrometry-index", "-d", "3", "-o", "index-9918.fits",
-           "-P", "18", "-S", "mag", "-B", "0.1", "-s", "0", "-r", "1", "-I",
-           "9918", "-M", "-i", "#{prefix}/examples/tycho2-mag6.fits"
+                                            "-P", "18", "-S", "mag", "-B", "0.1",
+                                            "-s", "0", "-r", "1", "-I", "9918", "-M",
+                                            "-i", "#{prefix}/examples/tycho2-mag6.fits"
     (testpath/"99.cfg").write <<~EOS
       add_path .
       inparallel
       index index-9918.fits
     EOS
-    system "#{bin}/solve-field", "--config", "99.cfg",
-           "#{prefix}/examples/apod4.jpg", "--continue", "--dir", "."
+    system "#{bin}/solve-field", "--config", "99.cfg", "#{prefix}/examples/apod4.jpg",
+                                 "--continue", "--dir", "."
     assert_predicate testpath/"apod4.solved", :exist?
     assert_predicate testpath/"apod4.wcs", :exist?
   end
