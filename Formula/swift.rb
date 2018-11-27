@@ -68,7 +68,7 @@ class Swift < Formula
         compiler clang-resource-dir-symlink
         clang-builtin-headers-in-clang-resource-dir stdlib sdk-overlay tools
         editor-integration testsuite-tools toolchain-dev-tools license
-        sourcekit-inproc sourcekit-xpc-service swift-remote-mirror
+        sourcekit-xpc-service swift-remote-mirror
         swift-remote-mirror-headers
       ]
 
