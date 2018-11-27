@@ -6,10 +6,9 @@ class AwsEsProxy < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ecb3a4d1681fc07853cd343fa6ed584897109ecfaee3355ab237e71051097808" => :mojave
-    sha256 "5a9753d4f211e7781c6d84160be263b57ab74f2efd5155f3edc70dd84e94f57e" => :high_sierra
-    sha256 "d8d3782b6e2a6bbe52b0a4d435e0376f23279e841696cd3a9e62b6a6d2edb26f" => :sierra
-    sha256 "873743453d14d675276a5a541dad73c7d75157d6da5e63d5aa374def5894c18b" => :el_capitan
+    sha256 "35421935cd1cdb758564d9fb6328aea304d2d1850539e5e407e2496f3963842c" => :mojave
+    sha256 "f8f4c0fc627d3a2319b4ddd51c692040f97fae904a3c4840890740a0a3a0d3ff" => :high_sierra
+    sha256 "a7909d452eae3f5f34f982f98af35be8c814d9b9476c3c7a2f479fa6f5e9f631" => :sierra
   end
 
   depends_on "glide" => :build
