@@ -30,6 +30,7 @@ class Ffmpeg < Formula
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
+  option "with-aom", "Enable AV1 video codec"
 
   deprecated_option "with-libtesseract" => "with-tesseract"
 
@@ -49,6 +50,7 @@ class Ffmpeg < Formula
   depends_on "xvid"
   depends_on "xz"
 
+  depends_on "aom" => :optional
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "fontconfig" => :optional
@@ -108,6 +110,7 @@ class Ffmpeg < Formula
 
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-frei0r" if build.with? "frei0r"
+    args << "--enable-libaom" if build.with? "aom"
     args << "--enable-libass" if build.with? "libass"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"

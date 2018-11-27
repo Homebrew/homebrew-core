@@ -27,6 +27,10 @@ class Libxml2 < Formula
 
   def install
     system "autoreconf", "-fiv" if build.head?
+
+    # Fix build on OS X 10.5 and 10.6 with Xcode 3.2.6
+    inreplace "configure", "-Wno-array-bounds", "" if ENV.compiler == :gcc_4_2
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-python",

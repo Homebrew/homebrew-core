@@ -83,6 +83,7 @@
   "gstreamer010": "gstreamer@0.10",
   "gtef": "tepl",
   "gtksourceview@4": "gtksourceview4",
+  "gutenberg": "zola",
   "hamsterdb": "upscaledb",
   "heroku-toolbelt": "heroku",
   "htop-osx": "htop",

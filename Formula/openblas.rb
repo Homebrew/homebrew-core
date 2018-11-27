@@ -6,10 +6,10 @@ class Openblas < Formula
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
-    sha256 "a69c9f5d1ac315f4a23f1495d7d3323ea68a51ebfca64d9670fcb7bacb211afc" => :mojave
-    sha256 "83a1dd7228cb8040ecf1efadfdb43fe3ae4a983f1711269a2285dcb1bc8f66d6" => :high_sierra
-    sha256 "3742ffcd8ffb8634e3b6e872ede06ac9c329cc32e26ddc915d6adc0c39f47ad5" => :sierra
-    sha256 "4b556ca46fc1b8acdb8735f5ee488ee7421fd40c1483940570e77675159f1837" => :el_capitan
+    rebuild 1
+    sha256 "27a016e4f304469322480bf63ca22858aeb552a5c32996676251c741115f3fd5" => :mojave
+    sha256 "9d83d7ffa579907aba6e8ee168670d7cad2a23091cefe34a9cf9d3690915f6c5" => :high_sierra
+    sha256 "eaa3fe7a25a94152c79bc40244aa87ae585081a268669e5c6489656277f22fe1" => :sierra
   end
 
   keg_only :provided_by_macos,
@@ -18,6 +18,13 @@ class Openblas < Formula
   option "with-openmp", "Enable parallel computations with OpenMP"
 
   depends_on "gcc" # for gfortran
+
+  # Upstream fix for issue https://github.com/xianyi/OpenBLAS/issues/1735
+  # "OpenBLAS : Program will terminate because you tried to start too many threads"
+  patch do
+    url "https://github.com/xianyi/OpenBLAS/commit/4d183e5567346f80f2ef97eb98f8601c47f8cb56.patch?full_index=1"
+    sha256 "9b02860bd78252ed9f09abb65a62fff22c0aeca002757d503f5b643a11b744bf"
+  end
 
   fails_with :clang if build.with? "openmp"
 

@@ -2,15 +2,14 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.6.1",
-      :revision => "48cb18e5c419ddd23d9badcfe4e9df7bde1979b2"
+      :tag      => "v3.6.1.1",
+      :revision => "046e8fb7483df4e4fba028b8e85f68241a08f7f4"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    sha256 "47bfed73e275684cd1b74d0817239661bdeab555744ac7345467abba4fa58216" => :mojave
-    sha256 "0f5f2cf5d166e083f7456e08f3dca248625b1c385e91fd1fd7c8bf9f46162092" => :high_sierra
-    sha256 "a667c98b9cf7d81bd81436d50bc8ad4dea8e8e063ab1ed1be7f95625cddf4eb2" => :sierra
-    sha256 "ef87974beb704c499ee6233211358e900372c89b09c3438d8933f18af70b1750" => :el_capitan
+    sha256 "4911058695a87895088011bfa5e552233696106bffa819fa004c8646d29a557d" => :mojave
+    sha256 "443091acba910e4baa043e4bf3296e7390655f8ddb3a07bd6805393d2c2e7823" => :high_sierra
+    sha256 "d378bb15cb022247851efa2f0409feb9d73dd1030869736bbd72e9dba8d3aa96" => :sierra
   end
 
   option "without-python@2", "Build without python2 support"

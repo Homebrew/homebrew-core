@@ -1,6 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  revision 1
 
   stable do
     url "https://releases.llvm.org/7.0.0/llvm-7.0.0.src.tar.xz"
@@ -54,11 +55,9 @@ class Llvm < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "17a4de5a32411a11bc449fdf7cef73c1de6c9936085df73e840ad1dadfbe907b" => :mojave
-    sha256 "c595bdab01a4fdbdf7c86c61737b2d3bf0b529ecf7a98298827b7edc9e723335" => :high_sierra
-    sha256 "b3835b962a53e522634ac67960d5a0a6e221998539eef3158090849b786d1f6e" => :sierra
-    sha256 "b0afc0d6a628eed90274ec79fd9b2602ed1c1ca2402e539dfbdafc6907671dc8" => :el_capitan
+    sha256 "f3e2296cf7d67e916e5fb7a32f7fa7fc2583f90a88e232132e27bcb37088dbec" => :mojave
+    sha256 "137b0d312445c809c235d5fe72b1fa9bdcf88dea20bc17d473db1bdae4d7f4e7" => :high_sierra
+    sha256 "a1775e5b32aa8b07e723296df080ac7b0db025f2148b361c5efef4d2444fde41" => :sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -109,21 +108,13 @@ class Llvm < Formula
 
   keg_only :provided_by_macos
 
-  option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
-  option "with-python@2", "Build bindings against Homebrew's Python 2"
-
-  deprecated_option "with-python" => "with-python@2"
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "libffi"
 
-  if MacOS.version <= :snow_leopard
-    depends_on "python@2"
-  else
-    depends_on "python@2" => :optional
-  end
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   if build.with? "lldb"
     depends_on "swig" if MacOS.version >= :lion
@@ -145,10 +136,6 @@ class Llvm < Formula
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
-    if build.with? "python@2"
-      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
-    end
-
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
@@ -158,12 +145,6 @@ class Llvm < Formula
     (buildpath/"tools/polly").install resource("polly")
 
     if build.with? "lldb"
-      if build.with? "python@2"
-        pyhome = `python-config --prefix`.chomp
-        ENV["PYTHONHOME"] = pyhome
-        pylib = "#{pyhome}/lib/libpython2.7.dylib"
-        pyinclude = "#{pyhome}/include/python2.7"
-      end
       (buildpath/"tools/lldb").install resource("lldb")
 
       # Building lldb requires a code signing certificate.
@@ -202,20 +183,14 @@ class Llvm < Formula
       -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
+      -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
     ]
-    args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
-
-    if build.with?("lldb") && build.with?("python@2")
-      args << "-DLLDB_RELOCATABLE_PYTHON=ON"
-      args << "-DPYTHON_LIBRARY=#{pylib}"
-      args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
-    end
 
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with? "toolchain"
+      system "make", "install-xcode-toolchain"
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]

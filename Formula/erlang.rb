@@ -2,15 +2,15 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.1.2.tar.gz"
-  sha256 "3e3c893a4c025538c3508838b2f2f08842202449d161b755de7df08938e1e0d0"
+  url "https://github.com/erlang/otp/archive/OTP-21.1.3.tar.gz"
+  sha256 "9a447e1debed355ff78f5d502dc8259139d5aed2362037e7cca9dc9919245eca"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "1b06cce574066be79c4736fe14c7fa3b8b70e1ee6a015fa5d3d51251dd7804a9" => :mojave
-    sha256 "e3de2544505e80a2ddf8bb66732378f05671627cf2d28556093bdd1badd4555d" => :high_sierra
-    sha256 "096e7265739cabec74db7bff572646ecac236acca021e4609e5bdc3b3b67c8fa" => :sierra
+    sha256 "a9a7d5ae6ce49d80373da5c03fae0c405a0a875c24655373d0a7dd6991ab73c5" => :mojave
+    sha256 "005031baee791d26decc0d4b228a1ada43edef2d6e783b8db5049bf51e121519" => :high_sierra
+    sha256 "cac5c500e28e3b6920c8bedca8e0d31ab09234de8662a29ff1cadc3d7a8ac4c6" => :sierra
   end
 
   option "without-hipe", "Disable building hipe; fails on various macOS systems"
