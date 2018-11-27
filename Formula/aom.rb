@@ -31,6 +31,7 @@ class Aom < Formula
       system "#{bin}/aomenc", "--webm",
                               "--tile-columns=2",
                               "--tile-rows=2",
+                              "--cpu-used=8",
                               "--output=bus_qcif_15fps.webm",
                               "bus_qcif_15fps.y4m"
 
