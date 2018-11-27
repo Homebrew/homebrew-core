@@ -6,6 +6,8 @@ class GradleAT4 < Formula
 
   bottle :unneeded
 
+  keg_only :versioned_formula
+
   option "with-all", "Installs Javadoc, examples, and source in addition to the binaries"
 
   depends_on :java => "1.7+"
