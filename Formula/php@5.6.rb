@@ -478,3 +478,37 @@ index 168c465f8d..6c087d152f 100644
      then
        PHP_CHECK_LIBRARY($iconv_lib_name, libiconv, [
          found_iconv=yes
+diff --git a/Zend/zend_compile.h b/Zend/zend_compile.h
+index a0955e34fe..09b4984f90 100644
+--- a/Zend/zend_compile.h
++++ b/Zend/zend_compile.h
+@@ -414,9 +414,6 @@ struct _zend_execute_data {
+ 
+ #define EX(element) execute_data.element
+ 
+-#define EX_TMP_VAR(ex, n)	   ((temp_variable*)(((char*)(ex)) + ((int)(n))))
+-#define EX_TMP_VAR_NUM(ex, n)  (EX_TMP_VAR(ex, 0) - (1 + (n)))
+-
+ #define EX_CV_NUM(ex, n)       (((zval***)(((char*)(ex))+ZEND_MM_ALIGNED_SIZE(sizeof(zend_execute_data))))+(n))
+ 
+ 
+diff --git a/Zend/zend_execute.h b/Zend/zend_execute.h
+index a7af67bc13..ae71a5c73f 100644
+--- a/Zend/zend_execute.h
++++ b/Zend/zend_execute.h
+@@ -71,6 +71,15 @@ ZEND_API int zend_eval_stringl_ex(char *str, int str_len, zval *retval_ptr, char
+ ZEND_API char * zend_verify_arg_class_kind(const zend_arg_info *cur_arg_info, ulong fetch_type, const char **class_name, zend_class_entry **pce TSRMLS_DC);
+ ZEND_API int zend_verify_arg_error(int error_type, const zend_function *zf, zend_uint arg_num, const char *need_msg, const char *need_kind, const char *given_msg, const char *given_kind TSRMLS_DC);
+ 
++static zend_always_inline temp_variable *EX_TMP_VAR(void *ex, int n)
++{
++	return (temp_variable *)((zend_uintptr_t)ex + n);
++}
++static inline temp_variable *EX_TMP_VAR_NUM(void *ex, int n)
++{
++	return (temp_variable *)((zend_uintptr_t)ex - (1 + n) * sizeof(temp_variable));
++}
++
+ static zend_always_inline void i_zval_ptr_dtor(zval *zval_ptr ZEND_FILE_LINE_DC TSRMLS_DC)
+ {
+ 	if (!Z_DELREF_P(zval_ptr)) {
