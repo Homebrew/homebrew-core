@@ -26,8 +26,11 @@ class Libxml2 < Formula
   depends_on "python@2"
 
   def install
-    inreplace "configure", "-Wno-array-bounds", "" if ENV.compiler == :gcc_4_2
     system "autoreconf", "-fiv" if build.head?
+
+    # Fix build on OS X 10.5 and 10.6 with Xcode 3.2.6
+    inreplace "configure", "-Wno-array-bounds", "" if ENV.compiler == :gcc_4_2
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-python",
