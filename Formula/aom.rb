@@ -15,14 +15,12 @@ class Aom < Formula
 
   def install
     mkdir "macbuild" do
-      system "cmake",
-          "..",
-          *std_cmake_args,
-          "-DENABLE_EXAMPLES=on",
-          "-DENABLE_DOCS=off",
-          "-DENABLE_TESTDATA=off",
-          "-DENABLE_TESTS=off",
-          "-DENABLE_TOOLS=off"
+      system "cmake", "..", *std_cmake_args,
+                      "-DENABLE_DOCS=off",
+                      "-DENABLE_EXAMPLES=on",
+                      "-DENABLE_TESTDATA=off",
+                      "-DENABLE_TESTS=off",
+                      "-DENABLE_TOOLS=off"
 
       system "make", "install"
     end
@@ -30,18 +28,14 @@ class Aom < Formula
 
   test do
     resource("bus_qcif_15fps.y4m").stage do
-      system "#{bin}/aomenc",
-          "--webm",
-          "--tile-columns=2",
-          "--tile-rows=2",
-          "--threads=8",
-          "--cpu-used=8",
-          "--output=bus_qcif_15fps.webm",
-          "bus_qcif_15fps.y4m"
+      system "#{bin}/aomenc", "--webm",
+                              "--tile-columns=2",
+                              "--tile-rows=2",
+                              "--output=bus_qcif_15fps.webm",
+                              "bus_qcif_15fps.y4m"
 
-      system "#{bin}/aomdec",
-          "--output=bus_qcif_15fps_decode.y4m",
-          "bus_qcif_15fps.webm"
+      system "#{bin}/aomdec", "--output=bus_qcif_15fps_decode.y4m",
+                              "bus_qcif_15fps.webm"
     end
   end
 end
