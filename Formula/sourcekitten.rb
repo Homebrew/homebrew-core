@@ -2,8 +2,8 @@ class Sourcekitten < Formula
   desc "Framework and command-line tool for interacting with SourceKit"
   homepage "https://github.com/jpsim/SourceKitten"
   url "https://github.com/jpsim/SourceKitten.git",
-      :tag      => "0.21.3",
-      :revision => "79ca340f609adee48defa966e6a3dd0e0acbeb08"
+      :tag      => "0.22.0",
+      :revision => "176f04295a09324673245d8ec0afcce21ace8722"
   head "https://github.com/jpsim/SourceKitten.git"
 
   bottle do
@@ -13,7 +13,7 @@ class Sourcekitten < Formula
     sha256 "f3173e660f1a3d10ee8c459642ffb7fdc329f15edb2c63f069671af7831aa661" => :sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["10.0", :build]
   depends_on :xcode => "6.0"
 
   def install
