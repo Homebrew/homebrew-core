@@ -1,8 +1,8 @@
 class AwsEsProxy < Formula
   desc "Small proxy between HTTP client and AWS Elasticsearch"
   homepage "https://github.com/abutaha/aws-es-proxy"
-  url "https://github.com/abutaha/aws-es-proxy/archive/v0.8.tar.gz"
-  sha256 "f1462dcfd75aa2a8e7e370f2cfac3241bcc44de3406181fc164b9c1f90315f2c"
+  url "https://github.com/abutaha/aws-es-proxy/archive/v0.9.tar.gz"
+  sha256 "c5a2943c79737874b7fc84ee298925e33aeece58fcf0e2b8b7d2f416bc872491"
 
   bottle do
     cellar :any_skip_relocation
