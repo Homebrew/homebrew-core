@@ -1,8 +1,8 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://github.com/jhspetersson/fselect"
-  url "https://github.com/jhspetersson/fselect/archive/0.5.0.tar.gz"
-  sha256 "0bc9cf437ef4bdb7ff8abb18cae5b8e8489aa3ab66f5312acd9593a30361e6d5"
+  url "https://github.com/jhspetersson/fselect/archive/0.5.1.tar.gz"
+  sha256 "28af31ce16800d11666c0c6a1d177ab5115339fcaf6c6801b1583be1c19fae5a"
 
   bottle do
     sha256 "2f9eb65716c4000dea6ebfe7e9b3be8f79257c4a723d9751bc9b8476336a8f4a" => :mojave
