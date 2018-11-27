@@ -20,6 +20,9 @@ class Macvim < Formula
   depends_on "luajit"
   depends_on "python"
 
+  conflicts_with "vim",
+    :because => "vim and macvim both install vi* binaries"
+
   def install
     # Avoid issues finding Ruby headers
     if MacOS.version == :sierra || MacOS.version == :yosemite
