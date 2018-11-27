@@ -1,10 +1,9 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/3.2.1/mpich-3.2.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-3.2.1.tar.gz"
-  sha256 "5db53bf2edfaa2238eb6a0a5bc3d2c2ccbfbb1badd79b664a1a919d2ce2330f1"
-  revision 2
+  url "https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-3.3.tar.gz"
+  sha256 "329ee02fe6c3d101b6b30a7b6fb97ddf6e82b28844306771fa9dd8845108fa0b"
 
   bottle do
     sha256 "542cba2c9d17bdf0bb10f67180970b411b9043287b9773ba8a63f8fda2883ef3" => :mojave
