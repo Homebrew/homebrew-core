@@ -72,7 +72,7 @@ class Ocrmypdf < Formula
     url "https://files.pythonhosted.org/packages/6d/40/e0230c95234a16accad10bb50228b3b274c92797c92bcc423db70e0396c0/reportlab-3.5.9.tar.gz"
     sha256 "f92f81314807cd860f29fe07a1a4100b03910ae6bbfca20a07e02c3b460f4f20"
   end
-  
+
   resource "ruffus" do
     url "https://files.pythonhosted.org/packages/ac/c7/5652e44a3644dfdf8cdfa17c2bb7933896dddec99888f57bf2adbbcca226/ruffus-2.8.0.tar.gz"
     sha256 "609e76e88de2d11362ed2a312917508f14daf56413fd1b3c7d5a96aaa14bb5e9"
