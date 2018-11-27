@@ -3,6 +3,7 @@ class PhpAT70 < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.0.32.tar.xz/from/this/mirror"
   sha256 "ff6f62afeb32c71b3b89ecbd42950ef6c5e0c329cc6e1c58ffac47e6f1f883c4"
+  revision 1
 
   bottle do
     sha256 "aa3f649b2495c9c76ea294b40810c8ad0c4eb24496776aa2356ead2e7cb85e4d" => :mojave
@@ -19,7 +20,7 @@ class PhpAT70 < Formula
   depends_on "apr-util"
   depends_on "aspell"
   depends_on "autoconf"
-  depends_on "curl" if MacOS.version < :lion
+  depends_on "curl-openssl"
   depends_on "freetds"
   depends_on "freetype"
   depends_on "gettext"
@@ -27,15 +28,16 @@ class PhpAT70 < Formula
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "jpeg"
-  depends_on "libiconv" if DevelopmentTools.clang_build_version >= 1000
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libtool"
   depends_on "libzip"
   depends_on "mcrypt"
-  depends_on "openldap" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "openldap"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "sqlite"
+  depends_on "tidy-html5"
   depends_on "unixodbc"
   depends_on "webp"
 
@@ -78,6 +80,9 @@ class PhpAT70 < Formula
               "your httpd config to use the prefork MPM"
 
     inreplace "sapi/fpm/php-fpm.conf.in", ";daemonize = yes", "daemonize = no"
+
+    # API compatibility with tidy-html5 v5.0.0 - https://github.com/htacg/tidy-html5/issues/224
+    inreplace "ext/tidy/tidy.c", "buffio.h", "tidybuffio.h"
 
     # Required due to icu4c dependency
     ENV.cxx11
@@ -128,17 +133,19 @@ class PhpAT70 < Formula
       --enable-zip
       --with-apxs2=#{Formula["httpd"].opt_bin}/apxs
       --with-bz2#{headers_path}
+      --with-curl=#{Formula["curl-openssl"].opt_prefix}
       --with-fpm-user=_www
       --with-fpm-group=_www
       --with-freetype-dir=#{Formula["freetype"].opt_prefix}
       --with-gd
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-iconv#{headers_path}
       --with-icu-dir=#{Formula["icu4c"].opt_prefix}
       --with-jpeg-dir=#{Formula["jpeg"].opt_prefix}
       --with-kerberos#{headers_path}
       --with-layout=GNU
-      --with-ldap
+      --with-ldap=#{Formula["openldap"].opt_prefix}
       --with-ldap-sasl#{headers_path}
       --with-libedit#{headers_path}
       --with-libxml-dir#{headers_path}
@@ -153,29 +160,19 @@ class PhpAT70 < Formula
       --with-pdo-mysql=mysqlnd
       --with-pdo-odbc=unixODBC,#{Formula["unixodbc"].opt_prefix}
       --with-pdo-pgsql=#{Formula["libpq"].opt_prefix}
+      --with-pdo-sqlite=#{Formula["sqlite"].opt_prefix}
       --with-pgsql=#{Formula["libpq"].opt_prefix}
       --with-pic
       --with-png-dir=#{Formula["libpng"].opt_prefix}
       --with-pspell=#{Formula["aspell"].opt_prefix}
+      --with-sqlite3=#{Formula["sqlite"].opt_prefix}
+      --with-tidy=#{Formula["tidy-html5"].opt_prefix}
       --with-unixODBC=#{Formula["unixodbc"].opt_prefix}
       --with-webp-dir=#{Formula["webp"].opt_prefix}
       --with-xmlrpc
       --with-xsl#{headers_path}
       --with-zlib#{headers_path}
     ]
-
-    if MacOS.version < :lion
-      args << "--with-curl=#{Formula["curl"].opt_prefix}"
-    else
-      args << "--with-curl#{headers_path}"
-    end
-
-    if MacOS.sdk_path_if_needed
-      args << "--with-ldap=#{Formula["openldap"].opt_prefix}"
-      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
-    else
-      args << "--with-ldap"
-    end
 
     system "./configure", *args
     system "make"
@@ -185,7 +182,7 @@ class PhpAT70 < Formula
     extension_dir = Utils.popen_read("#{bin}/php-config --extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
-    inreplace "php.ini-development", "; extension_dir = \"./\"",
+    inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
       "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
 
     config_files = {
@@ -274,11 +271,14 @@ class PhpAT70 < Formula
     <<~EOS
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
           LoadModule php7_module #{opt_lib}/httpd/modules/libphp7.so
+
           <FilesMatch \\.php$>
               SetHandler application/x-httpd-php
           </FilesMatch>
+
       Finally, check DirectoryIndex includes index.php
           DirectoryIndex index.php index.html
+
       The php.ini and php-fpm.ini file can be found in:
           #{etc}/php/#{php_version}/
     EOS
@@ -326,7 +326,8 @@ class PhpAT70 < Formula
     system "#{bin}/phpdbg", "-V"
     system "#{bin}/php-cgi", "-m"
     # Prevent SNMP extension to be added
-    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"), "SNMP extension doesn't work reliably with Homebrew on High Sierra"
+    assert_no_match /^snmp$/, shell_output("#{bin}/php -m"),
+      "SNMP extension doesn't work reliably with Homebrew on High Sierra"
     begin
       require "socket"
 
@@ -340,7 +341,8 @@ class PhpAT70 < Formula
       expected_output = /^Hello world!$/
       (testpath/"index.php").write <<~EOS
         <?php
-        echo 'Hello world!';
+        echo 'Hello world!' . PHP_EOL;
+        var_dump(ldap_connect());
       EOS
       main_config = <<~EOS
         Listen #{port}
@@ -420,7 +422,7 @@ end
 
 __END__
 diff --git a/acinclude.m4 b/acinclude.m4
-index 1deb50d2983c..d0e66c8b6344 100644
+index 168c465f8d..6c087d152f 100644
 --- a/acinclude.m4
 +++ b/acinclude.m4
 @@ -441,7 +441,11 @@ dnl
@@ -447,3 +449,37 @@ index 1deb50d2983c..d0e66c8b6344 100644
  ])
 
  dnl
+@@ -487,7 +491,11 @@ dnl add an include path.
+ dnl if before is 1, add in the beginning of INCLUDES.
+ dnl
+ AC_DEFUN([PHP_ADD_INCLUDE],[
+-  if test "$1" != "/usr/include"; then
++  case "$1" in
++  "/usr/include"[)] ;;
++  /Library/Developer/CommandLineTools/SDKs/*/usr/include[)] ;;
++  /Applications/Xcode*.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/*/usr/include[)] ;;
++  *[)]
+     PHP_EXPAND_PATH($1, ai_p)
+     PHP_RUN_ONCE(INCLUDEPATH, $ai_p, [
+       if test "$2"; then
+@@ -495,8 +503,8 @@ AC_DEFUN([PHP_ADD_INCLUDE],[
+       else
+         INCLUDES="$INCLUDES -I$ai_p"
+       fi
+-    ])
+-  fi
++    ]) ;;
++  esac
+ ])
+
+ dnl internal, don't use
+@@ -2411,7 +2419,8 @@ AC_DEFUN([PHP_SETUP_ICONV], [
+     fi
+
+     if test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.a ||
+-       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.$SHLIB_SUFFIX_NAME ||
++       test -f $ICONV_DIR/$PHP_LIBDIR/lib$iconv_lib_name.tbd
+     then
+       PHP_CHECK_LIBRARY($iconv_lib_name, libiconv, [
+         found_iconv=yes
