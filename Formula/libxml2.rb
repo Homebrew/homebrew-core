@@ -26,6 +26,7 @@ class Libxml2 < Formula
   depends_on "python@2"
 
   def install
+    inreplace "configure", "-Wno-array-bounds", "" if ENV.compiler == :gcc_4_2
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
