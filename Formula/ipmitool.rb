@@ -2,9 +2,9 @@ class Ipmitool < Formula
   desc "Utility for IPMI control with kernel driver or LAN interface"
   homepage "https://ipmitool.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ipmitool/ipmitool/1.8.18/ipmitool-1.8.18.tar.bz2"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/i/ipmitool/ipmitool_1.8.18.orig.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/i/ipmitool/ipmitool_1.8.18.orig.tar.bz2"
   sha256 "0c1ba3b1555edefb7c32ae8cd6a3e04322056bc087918f07189eeedfc8b81e01"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -15,7 +15,12 @@ class Ipmitool < Formula
     sha256 "5e9ad832c757416534a30df441ba41f83a4634bb80c224d4e42e7395b58cb9a6" => :yosemite
   end
 
+  option "with-shell", "Enable ipmitool shell function."
+
   depends_on "openssl"
+  if build.with? "shell"
+    depends_on "readline"
+  end
 
   # https://sourceforge.net/p/ipmitool/bugs/433/#89ea and
   # https://sourceforge.net/p/ipmitool/bugs/436/ (prematurely closed):
@@ -31,12 +36,24 @@ class Ipmitool < Formula
     # Upstream issue from 8 Nov 2016 https://sourceforge.net/p/ipmitool/bugs/474/
     inreplace "lib/ipmi_cfgp.c", "#include <malloc.h>", ""
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --mandir=#{man}
-      --disable-intf-usb
-    ]
+    if build.with? "shell"
+      args = %W[
+        --disable-dependency-tracking
+        --prefix=#{prefix}
+        --mandir=#{man}
+        --disable-intf-usb
+        --enable-intf-lanplus
+        --enable-ipmishell
+      ]
+    else
+      args = %W[
+        --disable-dependency-tracking
+        --prefix=#{prefix}
+        --mandir=#{man}
+        --disable-intf-usb
+        --enable-intf-lanplus
+      ]
+    end
     system "./configure", *args
     system "make", "check"
     system "make", "install"
