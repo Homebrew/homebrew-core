@@ -7,10 +7,10 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 6
-    sha256 "208989b262f760f29f4eb0812afca031a1ae85d245759e6a2a252ca0e31a57dd" => :mojave
-    sha256 "d2bedb6e773a75ba972740260e4dadc5e7beab0c92640c8814b13bf0bafcc70d" => :high_sierra
-    sha256 "b1dc52378c83b5f1a91e27680ff889724458313b89ac72f9cd0b4d469a582ebd" => :sierra
+    rebuild 7
+    sha256 "a54499e1c8e85bb7f30f72fdb9870e77864bd45024cc738cb6f82a79dd786081" => :mojave
+    sha256 "b4c0326f997351bb5d5f5e044a2b58ff4466117bf93f002f87c137a6dc54b908" => :high_sierra
+    sha256 "d31db54e8ae8e6aaa164787be935bc3e75a6c8690c0e10507dcb3dcb3186c43f" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
