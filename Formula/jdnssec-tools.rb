@@ -1,8 +1,8 @@
 class JdnssecTools < Formula
   desc "Java command-line tools for DNSSEC"
-  homepage "https://www.verisignlabs.com/jdnssec-tools/"
-  url "https://www.verisignlabs.com/dnssec-tools/packages/jdnssec-tools-0.13.tar.gz"
-  sha256 "95b1feb4d21c8bef08bf3e591c734bb066a0878b22a1de7c3c110cf2ee52352d"
+  homepage "https://github.com/dblacka/jdnssec-tools"
+  url "https://github.com/dblacka/jdnssec-tools/releases/download/0.14/jdnssec-tools-0.14.tar.gz"
+  sha256 "96dfe5465452713c07461a8744f166e6f0e199e2236c3a5fe02f17b49438885c"
   head "https://github.com/dblacka/jdnssec-tools.git"
 
   bottle do
