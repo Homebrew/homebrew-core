@@ -8,9 +8,9 @@ class CrosstoolNg < Formula
 
   bottle do
     cellar :any
-    sha256 "71c22460f978f7fd9e7c971c05158974531a0b5a33e79d588f7cab4a8012782a" => :mojave
-    sha256 "10a64160e7a8526fc9844b3e040a2d4fcf6d8b04b1cc77cce933be1e33098caf" => :high_sierra
-    sha256 "843091f00f1759f133f07ceca406b985cf07371010c0e0b01497dd2de629d8d5" => :sierra
+    sha256 "1431c7979e1c9e9162a885644d170d17c00754d6fa1832f2f0474a5e43a015fb" => :mojave
+    sha256 "eb263584b93acaea45ee6418a5ec8a0e6d3851c2c56d2225e47d3056177ce190" => :high_sierra
+    sha256 "e997043c6f35b1ac4cc8a83a274e3fb1f684d68e7d322c76cea46594af9ce4fc" => :sierra
   end
 
   depends_on "help2man" => :build
