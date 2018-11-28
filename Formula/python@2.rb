@@ -7,10 +7,10 @@ class PythonAT2 < Formula
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 6
-    sha256 "208989b262f760f29f4eb0812afca031a1ae85d245759e6a2a252ca0e31a57dd" => :mojave
-    sha256 "d2bedb6e773a75ba972740260e4dadc5e7beab0c92640c8814b13bf0bafcc70d" => :high_sierra
-    sha256 "b1dc52378c83b5f1a91e27680ff889724458313b89ac72f9cd0b4d469a582ebd" => :sierra
+    rebuild 7
+    sha256 "a54499e1c8e85bb7f30f72fdb9870e77864bd45024cc738cb6f82a79dd786081" => :mojave
+    sha256 "b4c0326f997351bb5d5f5e044a2b58ff4466117bf93f002f87c137a6dc54b908" => :high_sierra
+    sha256 "d31db54e8ae8e6aaa164787be935bc3e75a6c8690c0e10507dcb3dcb3186c43f" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -92,11 +92,12 @@ class PythonAT2 < Formula
     if MacOS.sdk_path_if_needed
       # Help Python's build system (setuptools/pip) to build things on SDK-based systems
       # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags  << "-isysroot #{MacOS.sdk_path}"
+      cflags  << "-isysroot #{MacOS.sdk_path}" << "-I#{MacOS.sdk_path}/usr/include"
       ldflags << "-isysroot #{MacOS.sdk_path}"
-      if DevelopmentTools.clang_build_version < 1000
-        cflags  << "-I/usr/include" # find zlib
-      end
+      # For the Xlib.h, Python needs this header dir with the system Tk
+      # Yep, this needs the absolute path where zlib needed a path relative
+      # to the SDK.
+      cflags  << "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     end
 
     # Avoid linking to libgcc https://code.activestate.com/lists/python-dev/112195/
@@ -311,6 +312,7 @@ class PythonAT2 < Formula
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python", "-c", "import Tkinter; root = Tkinter.Tk()"
     system "#{bin}/python", "-c", "import gdbm"
+    system "#{bin}/python", "-c", "import zlib"
     system bin/"pip", "list", "--format=columns"
   end
 end

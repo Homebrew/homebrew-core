@@ -3,13 +3,13 @@ class Libav < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.xz"
   sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
+  revision 1
   head "https://git.libav.org/libav.git"
 
   bottle do
-    sha256 "8f3f04d727b845937602d7da62961d6bfd83155bb564786f18536af119975cee" => :mojave
-    sha256 "84c3c2aa4f5cd7086021bb7c30215e872a1c4e3005df914b240696162ce3e8f6" => :high_sierra
-    sha256 "fc68fd70481e6071b567bc186df5d39b3156f0053f98ef0bdeda020497beb11d" => :sierra
-    sha256 "d91489215ba05ef1a9c93c3c18d6c13e20fdc901fad4e9d6c47922775be77ecb" => :el_capitan
+    sha256 "9f3f6c112053901f2f418b25316bf79692931ccdc72ff7a31aebc81e9169665b" => :mojave
+    sha256 "4562bac93c0e4469712c985ac350ebce4a7e6474a528a1261c788d9fdcc0f32f" => :high_sierra
+    sha256 "b6a4e33e38c4ec8147d0ab2002bb5c9bb61c9c1273e0b0e67868b428333eda0f" => :sierra
   end
 
   option "with-openssl", "Enable SSL support"
@@ -39,6 +39,12 @@ class Libav < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/b6e917c/libav/Check-for--no_weak_imports-in-ldflags-on-macOS.patch"
     sha256 "986d748ba2c7c83319a59d76fbb0dca22dcd51f0252b3d1f3b80dbda2cf79742"
+  end
+
+  # Upstream patch to fix building with fdk-aac 2
+  patch do
+    url "https://github.com/libav/libav/commit/141c960e21d2860e354f9b90df136184dd00a9a8.patch?full_index=1"
+    sha256 "7081183fed875f71d53cce1e71f6b58fb5d5eee9f30462d35f9367ec2210507b"
   end
 
   def install

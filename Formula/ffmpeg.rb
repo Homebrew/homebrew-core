@@ -29,6 +29,8 @@ class Ffmpeg < Formula
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
+  option "with-libvmaf", "Enable libvmaf scoring library"
+  option "with-aom", "Enable AV1 video codec"
 
   deprecated_option "with-libtesseract" => "with-tesseract"
 
@@ -48,6 +50,7 @@ class Ffmpeg < Formula
   depends_on "xvid"
   depends_on "xz"
 
+  depends_on "aom" => :optional
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "fontconfig" => :optional
@@ -64,6 +67,7 @@ class Ffmpeg < Formula
   depends_on "libsoxr" => :optional
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
+  depends_on "libvmaf" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
@@ -106,6 +110,7 @@ class Ffmpeg < Formula
 
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-frei0r" if build.with? "frei0r"
+    args << "--enable-libaom" if build.with? "aom"
     args << "--enable-libass" if build.with? "libass"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
@@ -128,6 +133,7 @@ class Ffmpeg < Formula
     args << "--enable-libtesseract" if build.with? "tesseract"
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
+    args << "--enable-libvmaf" if build.with? "libvmaf"
     args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libzimg" if build.with? "zimg"

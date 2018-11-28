@@ -3,11 +3,12 @@ class Nghttp2 < Formula
   homepage "https://nghttp2.org/"
   url "https://github.com/nghttp2/nghttp2/releases/download/v1.35.0/nghttp2-1.35.0.tar.xz"
   sha256 "23610ddd446bf1a9ae12905b0e7f283afd46249794868b7acd581e693900544c"
+  revision 1
 
   bottle do
-    sha256 "a0a459024177bc6ca8b511b89265c081043b2ac5ad48cab31a44e57f92a78ab0" => :mojave
-    sha256 "7f99a66f625f834a34c9d282ea76febcb263e648c472d36004abf311ab74bf47" => :high_sierra
-    sha256 "1335888b6718889ef29ab147667cade42a095738a1b0b7857aaba083526a1b5d" => :sierra
+    sha256 "e52ffb4ae9629f1f4693c96c2e6625b446a61a376a510fc20bb96845e58b3981" => :mojave
+    sha256 "95f791e06ed5fbe0eed90941bf6b6365eed1f21c000950c0cb094a79d702cf14" => :high_sierra
+    sha256 "f95664923bc9c6a935098128e9e459cb125005f73dcb06efcd2470d95d3e6166" => :sierra
   end
 
   head do
@@ -25,7 +26,6 @@ class Nghttp2 < Formula
   depends_on "cunit" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "boost"
   depends_on "c-ares"
   depends_on "jansson"
   depends_on "jemalloc"
@@ -52,8 +52,6 @@ class Nghttp2 < Formula
       --prefix=#{prefix}
       --disable-silent-rules
       --enable-app
-      --with-boost=#{Formula["boost"].opt_prefix}
-      --enable-asio-lib
       --disable-python-bindings
     ]
 
