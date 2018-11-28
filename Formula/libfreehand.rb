@@ -3,7 +3,7 @@ class Libfreehand < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libfreehand"
   url "https://dev-www.libreoffice.org/src/libfreehand/libfreehand-0.1.2.tar.xz"
   sha256 "0e422d1564a6dbf22a9af598535425271e583514c0f7ba7d9091676420de34ac"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
