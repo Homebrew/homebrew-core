@@ -4,10 +4,8 @@ class Luit < Formula
   url "https://invisible-mirror.net/archives/luit/luit-20180628.tgz"
   sha256 "7b84f63072589e9b03bb3e99e01ef344bb37793b76ad1cbb7b11f05000d64844"
 
-  bottle :disable, "Library and clients must be built on the same microarchitecture"
-
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--without-x"
     system "make", "install"
   end
 
