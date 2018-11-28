@@ -42,6 +42,12 @@ class Libav < Formula
     sha256 "986d748ba2c7c83319a59d76fbb0dca22dcd51f0252b3d1f3b80dbda2cf79742"
   end
 
+  # Upstream patch to fix building with fdk-aac 2
+  patch do
+    url "https://github.com/libav/libav/commit/141c960e21d2860e354f9b90df136184dd00a9a8.patch?full_index=1"
+    sha256 "7081183fed875f71d53cce1e71f6b58fb5d5eee9f30462d35f9367ec2210507b"
+  end
+
   def install
     args = %W[
       --disable-debug
