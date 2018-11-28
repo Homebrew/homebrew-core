@@ -7,10 +7,9 @@ class Libav < Formula
   head "https://git.libav.org/libav.git"
 
   bottle do
-    sha256 "8f3f04d727b845937602d7da62961d6bfd83155bb564786f18536af119975cee" => :mojave
-    sha256 "84c3c2aa4f5cd7086021bb7c30215e872a1c4e3005df914b240696162ce3e8f6" => :high_sierra
-    sha256 "fc68fd70481e6071b567bc186df5d39b3156f0053f98ef0bdeda020497beb11d" => :sierra
-    sha256 "d91489215ba05ef1a9c93c3c18d6c13e20fdc901fad4e9d6c47922775be77ecb" => :el_capitan
+    sha256 "9f3f6c112053901f2f418b25316bf79692931ccdc72ff7a31aebc81e9169665b" => :mojave
+    sha256 "4562bac93c0e4469712c985ac350ebce4a7e6474a528a1261c788d9fdcc0f32f" => :high_sierra
+    sha256 "b6a4e33e38c4ec8147d0ab2002bb5c9bb61c9c1273e0b0e67868b428333eda0f" => :sierra
   end
 
   option "with-openssl", "Enable SSL support"
