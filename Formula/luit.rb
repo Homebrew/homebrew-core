@@ -10,6 +10,10 @@ class Luit < Formula
   end
 
   test do
-    system "#{bin}/luit", "-encoding", "GBK", "ls"
+    require "pty"
+    (testpath/"input").write("#end {bye}\n")
+    PTY.spawn(bin/"luit", "-encoding", "GBK", "echo" "foobar") do |r, _w, _pid|
+      assert_match "foobar", r.read
+    end
   end
 end
