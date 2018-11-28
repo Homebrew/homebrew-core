@@ -3,6 +3,7 @@ class Chakra < Formula
   homepage "https://github.com/Microsoft/ChakraCore"
   url "https://github.com/Microsoft/ChakraCore/archive/v1.11.3.tar.gz"
   sha256 "3f68b2cd4f7f4a4f343da7c2a52e6ef9ce4974a62faf3b834774a2033b3a6480"
+  revision 1
 
   bottle do
     cellar :any
