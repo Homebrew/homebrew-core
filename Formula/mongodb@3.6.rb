@@ -1,8 +1,8 @@
 class MongodbAT36 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.6.8.tar.gz"
-  sha256 "cbb6bedd8963db2abf87cdb6dcceffaa5ee86729d19f4dcbeefb6e0dba0a2d7d"
+  url "https://github.com/mongodb/mongo/archive/r3.6.9.tar.gz"
+  sha256 "76a6d5e639fb6b22ad35e82d6699f84aefc32d69fd26f88ed994d1ff350a455b"
 
   bottle do
     sha256 "6d18c5c38df9bae6332aff5e5fb791f0e48f713c2827250d54f9968f3da67ed5" => :mojave
