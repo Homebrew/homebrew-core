@@ -2,8 +2,9 @@ class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
   sha256 "91200aa6fbc6fa5e2f3d78ef40e39d8c1ec7c83ea1c2cd730d270658735b2cad"
-  revision 7
+  revision 8
 
   bottle do
     sha256 "20e1f4146f06e6f5bc723d1f2edbb62bc4a526ef39996bf0a2523575763ec492" => :mojave
