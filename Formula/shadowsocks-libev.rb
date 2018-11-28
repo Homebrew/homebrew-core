@@ -58,6 +58,10 @@ class ShadowsocksLibev < Formula
           <string>#{etc}/shadowsocks-libev.json</string>
           <string>-u</string>
         </array>
+        <key>StandardErrorPath</key>
+        <string>/usr/local/var/log/shadowsocks-libev.log</string>
+        <key>StandardOutPath</key>
+        <string>/usr/local/var/log/shadowsocks-libev.log</string>
         <key>RunAtLoad</key>
         <true/>
         <key>KeepAlive</key>
