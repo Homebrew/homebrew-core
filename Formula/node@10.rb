@@ -3,6 +3,7 @@ class NodeAT10 < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v10.13.0/node-v10.13.0.tar.gz"
   sha256 "aa06825fff375ece7c0d881ae0de5d402a857e8cabff9b4a50f2f0b7b44906be"
+  revision 1
 
   bottle do
     rebuild 1
