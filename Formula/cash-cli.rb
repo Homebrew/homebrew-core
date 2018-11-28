@@ -3,8 +3,8 @@ require "language/node"
 class CashCli < Formula
   desc "Exchange Currency Rates using your terminal"
   homepage "https://github.com/xxczaki/cash-cli"
-  url "https://registry.npmjs.org/cash-cli/-/cash-cli-2.0.8.tgz"
-  sha256 "d2c6b10d44a8b7aca356db64d5eb46a77ee754394c43fb0dd0772bdebc5a3167"
+  url "https://registry.npmjs.org/cash-cli/-/cash-cli-2.1.0.tgz"
+  sha256 "8f2d484c2966c2fb4da9b7a8b4433a923990b6d8701b5eb7787f0c81954334c5"
 
   bottle do
     cellar :any_skip_relocation
