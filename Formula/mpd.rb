@@ -4,6 +4,7 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.3.tar.xz"
   sha256 "6cf60e644870c6063a008d833a6c876272b7679a400b83012ed209c15ce06e2a"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
+  revision 1
 
   bottle do
     sha256 "15bde28e93e4e7d1d53b680dfc39e70e5c87a128077adfa4078cc7ba7a999c31" => :mojave
