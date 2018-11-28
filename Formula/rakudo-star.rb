@@ -27,6 +27,9 @@ class RakudoStar < Formula
     system "perl", "Configure.pl", "--prefix=#{prefix}",
                    "--backends=moar", "--gen-moar"
     system "make"
+    # make install runs tests that can hang on sierra
+    # set this variable to skip those tests
+    ENV["NO_NETWORK_TESTING"] = "1"
     system "make", "install"
 
     # Panda is now in share/perl6/site/bin, so we need to symlink it too.
