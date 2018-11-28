@@ -5,9 +5,9 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-18.2.6.tar.xz"
   sha256 "9ebafa4f8249df0c718e93b9ca155e3593a1239af303aa2a8b0f2056a7efdc12"
   bottle do
-    sha256 "80348f778a9e90548084f7970a633fa26d25eb1b4ca3b298b741ae6c6203bd1a" => :mojave
-    sha256 "f050183c77597d5561bbc663d8f0124769005bc6f879e80f7ffcfad8c5f2ad38" => :high_sierra
-    sha256 "cafd1cfeced20001aa26800bcb2bbb58339f81ba5744aff52eca6ddf74de5d45" => :sierra
+    sha256 "867587cf06bd217dd4d562a62b2ba8ee121762231efece5b208874ecd2b4871c" => :mojave
+    sha256 "660e183b2ae10ca9b53d943748aa7449adf9fdf0616519e80234aaa2d11998f6" => :high_sierra
+    sha256 "3e79d1a9be49903841f7ef6631894050592bb06c6a20518550594a8b4fad145c" => :sierra
   end
 
   head do
