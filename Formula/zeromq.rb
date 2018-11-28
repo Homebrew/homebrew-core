@@ -1,8 +1,8 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.2.5/zeromq-4.2.5.tar.gz"
-  sha256 "cc9090ba35713d59bb2f7d7965f877036c49c5558ea0c290b0dcc6f2a17e489f"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.3.0/zeromq-4.3.0.tar.gz"
+  sha256 "8e9c3af6dc5a8540b356697081303be392ade3f014615028b3c896d0148397fd"
 
   bottle do
     cellar :any
@@ -20,35 +20,25 @@ class Zeromq < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-libpgm", "Build with PGM extension"
-  option "with-norm", "Build with NORM extension"
-  option "with-drafts", "Build and install draft classes and methods"
-
-  deprecated_option "with-pgm" => "with-libpgm"
-
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on "libpgm" => :optional
-  depends_on "libsodium" => :optional
-  depends_on "norm" => :optional
 
   def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    if MacOS.version == :high_sierra
+      ENV.delete("HOMEBREW_SDKROOT")
+      ENV.delete("SDKROOT")
+    end
+
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-    args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-
-    args << "--with-pgm" if build.with? "libpgm"
-    args << "--with-libsodium" if build.with? "libsodium"
-    args << "--with-norm" if build.with? "norm"
-    args << "--enable-drafts" if build.with?("drafts")
 
     ENV["LIBUNWIND_LIBS"] = "-framework System"
     sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
     ENV["LIBUNWIND_CFLAGS"] = "-I#{sdk}/usr/include"
 
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
