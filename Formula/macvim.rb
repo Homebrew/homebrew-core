@@ -5,7 +5,7 @@ class Macvim < Formula
   url "https://github.com/macvim-dev/macvim/archive/snapshot-151.tar.gz"
   version "8.1-151"
   sha256 "4752e150ac509f19540c0f292eda9bf435b8986138514ad2e1970cc82a2ba4fc"
-  revision 1
+  revision 2
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -17,7 +17,6 @@ class Macvim < Formula
   depends_on :xcode => :build
   depends_on "cscope"
   depends_on "lua"
-  depends_on "luajit"
   depends_on "python"
 
   conflicts_with "vim",
@@ -49,8 +48,6 @@ class Macvim < Formula
                           "--enable-luainterp",
                           "--with-lua-prefix=#{Formula["lua"].opt_prefix}",
                           "--enable-luainterp",
-                          "--with-lua-prefix=#{Formula["luajit"].opt_prefix}",
-                          "--with-luajit",
                           "--enable-python3interp"
     system "make"
 
