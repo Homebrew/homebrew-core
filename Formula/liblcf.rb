@@ -3,6 +3,7 @@ class Liblcf < Formula
   homepage "https://easyrpg.org/"
   url "https://github.com/EasyRPG/liblcf/archive/0.5.4.tar.gz"
   sha256 "fb31eebfa0e9a06cae9bfdc77c295f5deeaf44ab4d688da4a78777c77df125e6"
+  revision 1
   head "https://github.com/EasyRPG/liblcf.git"
 
   bottle do
