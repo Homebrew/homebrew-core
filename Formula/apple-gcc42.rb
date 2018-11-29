@@ -10,9 +10,11 @@ class AppleGcc42 < Formula
 
   option "with-gfortran-symlink", "Provide gfortran symlinks"
 
+  depends_on :macos => :snow_leopard
   depends_on :maximum_macos => :mavericks
 
   def install
+    system "/usr/bin/xar", "-x", "-f", Pathname(stable.url).basename
     system "/bin/pax", "--insecure", "-rz", "-f", "usr.pkg/Payload", "-s", ",./usr,#{prefix},"
 
     if build.with? "gfortran-symlink"
@@ -65,15 +67,15 @@ class AppleGcc42 < Formula
       real::a(m), b(m)
       real::fact=0.5
 
-      do concurrent (i=1:m)
+      forall (i=1:m)
         a(i) = a(i) + fact*b(i)
-      end do
+      end forall
       print *, "done"
       end
     EOS
     (testpath/"in.f90").write(fixture)
-    system "#{bin}/gfortran", "-c", "in.f90"
-    system "#{bin}/gfortran", "-o", "test", "in.o"
+    system "#{bin}/gfortran-4.2", "-c", "in.f90"
+    system "#{bin}/gfortran-4.2", "-o", "test", "in.o"
     assert_equal "done", `./test`.strip
   end
 end
