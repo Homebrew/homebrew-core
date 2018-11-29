@@ -7,10 +7,9 @@ class Couchdb < Formula
   revision 8
 
   bottle do
-    sha256 "20e1f4146f06e6f5bc723d1f2edbb62bc4a526ef39996bf0a2523575763ec492" => :mojave
-    sha256 "803e0a8c0cc29f24f2316e7fa2e171a23c854dcbf27860ce33b1fd759b10baa1" => :high_sierra
-    sha256 "eac5e94502da04ebabca49e93dcfa655b09f2a6c206dddec05ba81d388f4a635" => :sierra
-    sha256 "9c1c036dbdbd2c4ef0c674307862a34f307a07c562d6afea8019eefbb1201c07" => :el_capitan
+    sha256 "81a9ef09e872ead7a3ae847f57f6cd01f4e7e46384c456b1cf4162cf7eecab42" => :mojave
+    sha256 "726a7e2329d938f0d64552a2b5c724fc665b5de8b1d046c9fdbd270cf941ba44" => :high_sierra
+    sha256 "3b5ed55595f163362f6a583a13fae6353c79b2cf9e66f0d35bcf7e5f13a38613" => :sierra
   end
 
   head do
