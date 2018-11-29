@@ -1,8 +1,11 @@
 class Opa < Formula
   desc "Open source, general-purpose policy engine"
   homepage "https://www.openpolicyagent.org"
-  url "https://github.com/open-policy-agent/opa/archive/v0.10.1.tar.gz"
-  sha256 "6b6121cbf7efc42b6ebc3f5ba6a2533e4e6eaf4b9eec446fb6f8fce4e6c02ae7"
+  url "https://github.com/open-policy-agent/opa.git",
+      :tag      => "v0.10.1",
+      :revision => "6c39555de1feda5b3650397b9a752bc59621c7ac"
+  revision 1
+  head "https://github.com/open-policy-agent/opa.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,9 +21,18 @@ class Opa < Formula
     (buildpath/"src/github.com/open-policy-agent/opa").install buildpath.children
 
     cd "src/github.com/open-policy-agent/opa" do
+      commit = Utils.popen_read("git rev-parse --short HEAD").chomp
+      timestamp = Utils.popen_read("date -u +\"%Y-%m-%dT%H:%M:%SZ\"").chomp
+      hostname = Utils.popen_read("hostname -f").chomp
+      ldflags = "-X github.com/open-policy-agent/opa/version.Version=#{version}"\
+                " -X github.com/open-policy-agent/opa/version.Vcs=#{commit}"\
+                " -X github.com/open-policy-agent/opa/version.Timestamp=#{timestamp}"\
+                " -X github.com/open-policy-agent/opa/version.Hostname=#{hostname}"
+
       system "go", "build", "-o", bin/"opa", "-installsuffix", "static",
                    "-ldflags",
-                   "-X github.com/open-policy-agent/opa/version.Version=#{version}"
+                   ldflags
+
       prefix.install_metafiles
     end
   end
