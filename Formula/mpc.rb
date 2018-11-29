@@ -1,8 +1,8 @@
 class Mpc < Formula
   desc "Command-line music player client for mpd"
   homepage "https://www.musicpd.org/clients/mpc/"
-  url "https://www.musicpd.org/download/mpc/0/mpc-0.30.tar.xz"
-  sha256 "65fc5b0a8430efe9acbe6e261127960682764b20ab994676371bdc797d867fce"
+  url "https://www.musicpd.org/download/mpc/0/mpc-0.31.tar.xz"
+  sha256 "62373e83a8a165b2ed43967975efecd3feee530f4557d6b861dd08aa89d52b2d"
 
   bottle do
     rebuild 1
