@@ -7,13 +7,10 @@ class Websocat < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
-  # This formula is based on ripgrep.rb
   def install
     system "cargo", "install", "--root", prefix,
                                "--path", ".",
                                "--features", "ssl"
-
-    # No man page available as of websocat version 1.2.0
   end
 
   test do
