@@ -1,8 +1,8 @@
 class Pijul < Formula
   desc "Patch-based distributed version control system"
   homepage "https://pijul.org"
-  url "https://pijul.org/releases/pijul-0.10.0.tar.gz"
-  sha256 "da3fcba4ab39a4371cda7273691364c2355c9b216bb7867d92dae5812ebb71d2"
+  url "https://pijul.org/releases/pijul-0.11.0.tar.gz"
+  sha256 "e60793ab124e9054c1d5509698acbae507ebb2fab5364d964067bc9ae8b6b5e5"
 
   bottle do
     sha256 "f3a26a1788fc22994cb3523a776f137bcb2cd40af185ac6a4a3419a4b7909354" => :mojave
