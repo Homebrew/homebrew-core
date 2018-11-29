@@ -19,8 +19,8 @@ class Opa < Formula
   end
 
   test do
-    output = shell_output("#{bin}/opa 2>&1")
-    assert_match "An open source project to policy-enable your service.", output
+    output = shell_output("#{bin}/opa eval -f pretty '[x, 2] = [1, y]' 2>&1")
+    assert_equal "+---+---+\n| x | y |\n+---+---+\n| 1 | 2 |\n+---+---+\n", output
     assert_match "Version: #{version}", shell_output("#{bin}/opa version 2>&1")
   end
 end
