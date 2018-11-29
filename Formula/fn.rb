@@ -1,8 +1,8 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.30.tar.gz"
-  sha256 "14e5beab82a031bdf6f7b203e006f01f4f957eb05dde591095cf53f58a01b8fd"
+  url "https://github.com/fnproject/cli/archive/0.5.31.tar.gz"
+  sha256 "e1ea69a76eb8c78e090531396552a22f6d5f6ab517fed9b5bc1a0a1da07096ba"
 
   bottle do
     cellar :any_skip_relocation
