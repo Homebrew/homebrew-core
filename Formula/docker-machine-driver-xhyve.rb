@@ -1,11 +1,11 @@
 class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
-  homepage "https://github.com/zchee/docker-machine-driver-xhyve"
-  url "https://github.com/zchee/docker-machine-driver-xhyve.git",
+  homepage "https://github.com/machine-drivers/docker-machine-driver-xhyve"
+  url "https://github.com/machine-drivers/docker-machine-driver-xhyve.git",
       :tag      => "v0.3.3",
       :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
   revision 1
-  head "https://github.com/zchee/docker-machine-driver-xhyve.git"
+  head "https://github.com/machine-drivers/docker-machine-driver-xhyve.git"
 
   bottle do
     cellar :any_skip_relocation
