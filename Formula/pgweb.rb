@@ -1,8 +1,8 @@
 class Pgweb < Formula
   desc "Web-based PostgreSQL database browser"
   homepage "https://sosedoff.github.io/pgweb/"
-  url "https://github.com/sosedoff/pgweb/archive/v0.9.12.tar.gz"
-  sha256 "4c625bad8312dacf9bc9d64d40c2dea1e840175db9c60667a641c62289f9f174"
+  url "https://github.com/sosedoff/pgweb/archive/v0.10.0.tar.gz"
+  sha256 "5783f3f368556226018f1388a1e971075104bfdd2286aedf5a0ca257dbdf38ff"
 
   bottle do
     cellar :any_skip_relocation
@@ -38,10 +38,12 @@ class Pgweb < Formula
 
     begin
       pid = fork do
-        exec bin/"pgweb", "--listen=#{port}", "--skip-open"
+        exec bin/"pgweb", "--listen=#{port}",
+                          "--skip-open",
+                          "--sessions"
       end
       sleep 2
-      assert_match "pgweb", shell_output("curl http://localhost:#{port}")
+      assert_match "\"version\":\"#{version}\"", shell_output("curl http://localhost:#{port}/api/info")
     ensure
       Process.kill("TERM", pid)
     end
