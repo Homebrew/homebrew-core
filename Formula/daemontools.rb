@@ -23,10 +23,6 @@ class Daemontools < Formula
   end
 
   def caveats; <<~EOS
-    svscan requires root privileges so you will need to run
-    `sudo svscanboot`
-    You should be certain that you trust any software you grant root privileges.
-
     You must create /service directory as root before starting svscan.
     Then you can start svscan with following.
     `sudo brew services start daemontools`
