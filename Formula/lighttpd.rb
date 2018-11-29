@@ -1,8 +1,8 @@
 class Lighttpd < Formula
   desc "Small memory footprint, flexible web-server"
   homepage "https://www.lighttpd.net/"
-  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.50.tar.xz"
-  sha256 "29378312d8887cbc14ffe8a7fadef2d5a08c7e7e1be942795142346ad95629eb"
+  url "https://download.lighttpd.net/lighttpd/releases-1.4.x/lighttpd-1.4.52.tar.xz"
+  sha256 "27bc0991c530b7c6335e6efff2181934d3c1a1c516f7401ea71d8302cefda764"
 
   bottle do
     sha256 "7cf8159d02248fa5ea43fbfa417806c2770257e156962ee3cf081632635ce0c6" => :mojave
