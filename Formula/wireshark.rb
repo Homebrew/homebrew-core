@@ -13,8 +13,6 @@ class Wireshark < Formula
   end
 
   option "with-qt", "Build the wireshark command with Qt"
-  option "with-headers", "Install Wireshark library headers for plug-in development"
-  option "with-nghttp2", "Enable HTTP/2 header dissection"
 
   deprecated_option "with-qt5" => "with-qt"
 
@@ -24,10 +22,10 @@ class Wireshark < Formula
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "libmaxminddb"
+  depends_on "libsmi"
+  depends_on "libssh"
   depends_on "lua@5.1"
-  depends_on "libsmi" => :optional
-  depends_on "libssh" => :optional
-  depends_on "nghttp2" => :optional
+  depends_on "nghttp2"
   depends_on "qt" => :optional
 
   def install
@@ -44,6 +42,10 @@ class Wireshark < Formula
       -DGCRYPT_INCLUDE_DIR=#{Formula["libgcrypt"].opt_include}
       -DGNUTLS_INCLUDE_DIR=#{Formula["gnutls"].opt_include}
       -DMAXMINDDB_INCLUDE_DIR=#{Formula["libmaxminddb"].opt_include}
+      -DENABLE_SMI=ON
+      -DBUILD_sshdump=ON
+      -DBUILD_ciscodump=ON
+      -DENABLE_NGHTTP2=ON
     ]
 
     if build.with? "qt"
@@ -56,24 +58,6 @@ class Wireshark < Formula
       args << "-DENABLE_QT5=OFF"
     end
 
-    if build.with? "libsmi"
-      args << "-DENABLE_SMI=ON"
-    else
-      args << "-DENABLE_SMI=OFF"
-    end
-
-    if build.with? "libssh"
-      args << "-DBUILD_sshdump=ON" << "-DBUILD_ciscodump=ON"
-    else
-      args << "-DBUILD_sshdump=OFF" << "-DBUILD_ciscodump=OFF"
-    end
-
-    if build.with? "nghttp2"
-      args << "-DENABLE_NGHTTP2=ON"
-    else
-      args << "-DENABLE_NGHTTP2=OFF"
-    end
-
     system "cmake", *args
     system "make", "install"
 
@@ -82,17 +66,16 @@ class Wireshark < Formula
       bin.install_symlink prefix/"Wireshark.app/Contents/MacOS/Wireshark" => "wireshark"
     end
 
-    if build.with? "headers"
-      (include/"wireshark").install Dir["*.h"]
-      (include/"wireshark/epan").install Dir["epan/*.h"]
-      (include/"wireshark/epan/crypt").install Dir["epan/crypt/*.h"]
-      (include/"wireshark/epan/dfilter").install Dir["epan/dfilter/*.h"]
-      (include/"wireshark/epan/dissectors").install Dir["epan/dissectors/*.h"]
-      (include/"wireshark/epan/ftypes").install Dir["epan/ftypes/*.h"]
-      (include/"wireshark/epan/wmem").install Dir["epan/wmem/*.h"]
-      (include/"wireshark/wiretap").install Dir["wiretap/*.h"]
-      (include/"wireshark/wsutil").install Dir["wsutil/*.h"]
-    end
+    # Install headers
+    (include/"wireshark").install Dir["*.h"]
+    (include/"wireshark/epan").install Dir["epan/*.h"]
+    (include/"wireshark/epan/crypt").install Dir["epan/crypt/*.h"]
+    (include/"wireshark/epan/dfilter").install Dir["epan/dfilter/*.h"]
+    (include/"wireshark/epan/dissectors").install Dir["epan/dissectors/*.h"]
+    (include/"wireshark/epan/ftypes").install Dir["epan/ftypes/*.h"]
+    (include/"wireshark/epan/wmem").install Dir["epan/wmem/*.h"]
+    (include/"wireshark/wiretap").install Dir["wiretap/*.h"]
+    (include/"wireshark/wsutil").install Dir["wsutil/*.h"]
   end
 
   def caveats; <<~EOS
