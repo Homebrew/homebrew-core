@@ -3,12 +3,12 @@ class Php < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.2.12.tar.xz/from/this/mirror"
   sha256 "989c04cc879ee71a5e1131db867f3c5102f1f7565f805e2bb8bde33f93147fe1"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "8768971b2cf298be0c1b7b25fe3673f9e678338014cb3cce701e2691f0e21037" => :mojave
-    sha256 "0c1280360926b3d2622f75481bd9514fbaaf43ebe4b76bdada83687eba8981da" => :high_sierra
-    sha256 "987917ea2c47da29f578b18612ad0818887bd4f726a13540e7ea176c07850c41" => :sierra
+    sha256 "d5f1cbc8d4fdb1e6904c086ad046a7a705b3ed5ff90875a83cef58d85acd5c33" => :mojave
+    sha256 "bfcf4d789110dc2c7530174406b4f797db5c2f5d6bf4578baff1160c0aab71ab" => :high_sierra
+    sha256 "26e0002c4cd4482e71684814173f312c63f5678d6fc80a602d1178389a8ce13a" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]

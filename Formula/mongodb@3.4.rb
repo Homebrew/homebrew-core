@@ -1,14 +1,13 @@
 class MongodbAT34 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.17.tar.gz"
-  sha256 "6044e4c811a87bffd512a96fd2a4e4af9513af12f407bf7cd7c6281ccfb46484"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.18.tar.gz"
+  sha256 "a1c17e9977307752ddac4b06bcb65be177035057c21955df5a65e2db74a20856"
 
   bottle do
-    sha256 "11173a5fea9cad93d1403d56be3e4e7ab23a74633b5d824455dd05751f2d12aa" => :mojave
-    sha256 "8594cd085d34d119a68af057286470cfc77ec788cc53f4f54bd12cf531fe09c8" => :high_sierra
-    sha256 "510ba4ba3c09de4e7c24c263331566bd2213f088f64e9cb5df3d3274c735f965" => :sierra
-    sha256 "53a845e7697c3fb54b3b663424c2ac67c8c80fd5ef925bbac5b82190e70008e7" => :el_capitan
+    sha256 "9718fd2195c3dccbb9657811860193f9208df13f102cf09fee7aee5b48e85054" => :mojave
+    sha256 "e083476b4a2a1c030e41b4a35521d8fcb5c5b433293f612a1096fbf3b5e3db01" => :high_sierra
+    sha256 "a9109b38e59d4afdd41d19f84739fc899ed32790227ad097dbfe467f001d3ec9" => :sierra
   end
 
   keg_only :versioned_formula

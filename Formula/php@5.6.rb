@@ -3,12 +3,12 @@ class PhpAT56 < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-5.6.38.tar.xz/from/this/mirror"
   sha256 "c2fac47dc6316bd230f0ea91d8a5498af122fb6a3eb43f796c9ea5f59b04aa1e"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "0c89e62cdf0d1a07e1e6a760ba3a84142c12a92f03473f48dcd6f68b4d5fde0a" => :mojave
-    sha256 "61967dd1649990abb3150347883f3b3c86a35721683657f83304995e300b097a" => :high_sierra
-    sha256 "c23eb4ec745b3253ff6e8f2c6d14eb965b6848e14d1d8651fd3569ae94799261" => :sierra
+    sha256 "a4d5ae99450c84af82dd65248d78981f34251f0759189f0adf1b3d2b76757b08" => :mojave
+    sha256 "dd5ada4d0c391a3b4136b67f3b2349cf920e6f49c41d898dfe257bf459a9972e" => :high_sierra
+    sha256 "4c72e8efc0cd575d30c8675c4641677eb3466db3acb14dc28a4ac4c7ad40de6b" => :sierra
   end
 
   keg_only :versioned_formula
