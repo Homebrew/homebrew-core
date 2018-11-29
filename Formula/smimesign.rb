@@ -6,9 +6,9 @@ class Smimesign < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca0ec74c87a2ef9d29c109152b74782c7e2e65a97a792af7672ef488a31b3c6c" => :mojave
-    sha256 "dd0cea163e60056a5e9a67ea70f75965ff1684123ff6240fe80dc4cdec6d1b7d" => :high_sierra
-    sha256 "5eb1ece221eb03c148aa4fd794e1854e90b445f923a6f4b3b955c3e7af643eda" => :sierra
+    sha256 "f0cbf13d18db1d8a4180ba64b0e8bdce2cdfe1606f5971e3279b479ce4ab25f6" => :mojave
+    sha256 "8cefaada51c04e30ed05bd05769c62c5211ace0df3bd2bb50558ce2db4bf6577" => :high_sierra
+    sha256 "22cedb6da429fb67b41f8ff952c8ceca6321403d8c7e98a8713a4ab2ca328b97" => :sierra
   end
 
   depends_on "go" => :build
