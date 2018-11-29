@@ -6,10 +6,9 @@ class Zebra < Formula
   revision 1
 
   bottle do
-    sha256 "89cf3b3212437b5b46739abc62b7fc5b36508ad64a76a285cdce6a44bdac3fd9" => :mojave
-    sha256 "ca01021446ea99a1faa53b4c3e226c2297693dfe95646decbff7e70bbb174956" => :high_sierra
-    sha256 "1ed8f30f526b4c52279dbfdd7e4fcf5f64d474f3697a3c87a81f1051a08bfe3b" => :sierra
-    sha256 "fff03bacc2fdde279fc891f1ebe8ba4a6c50285d2697eebf50634712cdad1753" => :el_capitan
+    sha256 "c2cd8d27e0426422eab75017a53a12635faa8784a9895e86596b59e8e2eb515b" => :mojave
+    sha256 "10a073b4fd6f48c197029e1bc736c3299d2a8138690389c5c94fda5a7b091601" => :high_sierra
+    sha256 "7afcb8c211cea6a86800470d3018d165a4e4b82205e788998cde061efa6f8944" => :sierra
   end
 
   depends_on "icu4c"
