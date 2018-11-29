@@ -7,9 +7,9 @@ class Node < Formula
   head "https://github.com/nodejs/node.git"
 
   bottle do
-    sha256 "b37bf7fcfd41371c225f2ad4d17910682bfd4d712b7a146aba0623c4986b2d8f" => :mojave
-    sha256 "072b65e66080637e9b0ec738f65f83e3fc0de1f43b46f3cf703ba685fb1e8ed3" => :high_sierra
-    sha256 "326504a94482d602b0b58bccf8db4e34cbb7fe5427dbfb750c38b942d8c8409f" => :sierra
+    sha256 "30c0f461be21570e1de5226008b58f6d0fa37e0e3269ae955ccaed4b83402913" => :mojave
+    sha256 "53b1ea5d9e16fff033a4e48bec9060949275cef5003f67c0919a4aad03206737" => :high_sierra
+    sha256 "3772b95d96655d15d6fd03e42b2b25b869a79f5975ba99dfd957fe816caba13b" => :sierra
   end
 
   depends_on "pkg-config" => :build
