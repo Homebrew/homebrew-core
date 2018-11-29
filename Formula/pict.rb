@@ -15,9 +15,8 @@ class Pict < Formula
   end
 
   test do
-    variables = resource("testfile").fetch
-    output = shell_output("#{bin}/pict " + variables)
-    output = output.split("\n")
+    resource("testfile").stage testpath
+    output = shell_output("#{bin}/pict pict.txt").split("\n")
     assert_equal output[0], "LANGUAGES\tCURRIENCIES"
     assert_equal output[4], "en_US\tGBP"
   end
