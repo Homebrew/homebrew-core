@@ -7,11 +7,9 @@ class Bgpq3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9fdcf8cfd850d2c304c243fcb974801c5082bac8d06a8ff781843d7a22c71357" => :mojave
-    sha256 "baf8c7084ca313d18bc307c9e1fc114a605e4950d067d91250721d7e3672a913" => :high_sierra
-    sha256 "0b7ddfe831651eac02b3e5f72a99ecb237f371c27826fff682dd21e3bb3f21a4" => :sierra
-    sha256 "f0accebad776f61fba550fad572ff7f7ace7f1d442c21c8147f8594a7f99e561" => :el_capitan
-    sha256 "80f717b72e90ed6eb6a25874e52c262f73559ec034764004af35c6df17630acf" => :yosemite
+    sha256 "a16c482aa8e1a821d6747b2871174109ccbcf407e5799794f6307303fcffafcb" => :mojave
+    sha256 "2bf730bec0bca51bd9a3db7a3cd5e4bf36199717a8190db270a5f4751bb1a5e1" => :high_sierra
+    sha256 "052fb1ae9a1546b13f865b25f4ff5879f4a7c77350d14720442fc6cd898d833d" => :sierra
   end
 
   # Makefile: upstream has been informed of the patch through email (multiple
