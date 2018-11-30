@@ -7,9 +7,9 @@ class Wireshark < Formula
   head "https://code.wireshark.org/review/wireshark", :using => :git
 
   bottle do
-    sha256 "f04ad4ab185d50b742b5d3aaabb11c9d46eda6cb2b5cd2bb2105455092b1b464" => :mojave
-    sha256 "b20ffa62f14a08770f8fcc00ac2391eeecd4a69f68ad126ae70b1d85f0e2cad0" => :high_sierra
-    sha256 "39c1b0c14a55049f3665e1304815f7cec3e33f278c5fa8a2a179c5a530b4bb9f" => :sierra
+    sha256 "14930696b3d8b186abb0d76fcc8ce2e77a81bce1974f977cb7fe72a2d57dcfb5" => :mojave
+    sha256 "f67946bde540a9373dc8cd5f5dc92cc294c7085f27815e6994470c248d39884d" => :high_sierra
+    sha256 "b8eb1a5cfa08703cd2389f3f74e3dadd6ede6c9f9fd80476c8b06f46d3a27ef0" => :sierra
   end
 
   option "with-qt", "Build the wireshark command with Qt"
