@@ -2,9 +2,9 @@ class MinioMc < Formula
   desc "ls, cp, mkdir, diff and rsync for filesystems and object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      :tag      => "RELEASE.2018-11-06T01-12-20Z",
-      :revision => "b827fac6356f80354a1cf61f43cf5e5b60bbb511"
-  version "20181106011220"
+      :tag      => "RELEASE.2018-11-30T01-52-08Z",
+      :revision => "a91204ea6fb507b62253a6b1cee4583cdfc53115"
+  version "20181130015208"
 
   bottle do
     cellar :any_skip_relocation
