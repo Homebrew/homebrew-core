@@ -1,8 +1,8 @@
 class Osm2pgrouting < Formula
   desc "Import OSM data into pgRouting database"
   homepage "https://pgrouting.org/docs/tools/osm2pgrouting.html"
-  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.5.tar.gz"
-  sha256 "1d26a92d771d83f044f481989c8c422a0e1579d53d08387c367c9efd1ae605f7"
+  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.6.tar.gz"
+  sha256 "c4b1f45ff7a9a184956182e40016fdd9455718821adb25822e2ef8182d2712a6"
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
