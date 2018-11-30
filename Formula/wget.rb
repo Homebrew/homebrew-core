@@ -25,25 +25,14 @@ class Wget < Formula
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
   depends_on "openssl"
-  depends_on "gpgme" => :optional
-  depends_on "libmetalink" => :optional
-  depends_on "pcre" => :optional
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}
-      --with-ssl=openssl
-      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
-      --disable-debug
-    ]
-
-    args << "--disable-pcre" if build.without? "pcre"
-    args << "--with-metalink" if build.with? "libmetalink"
-    args << "--with-gpgme-prefix=#{Formula["gpgme"].opt_prefix}" if build.with? "gpgme"
-
     system "./bootstrap" if build.head?
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--with-ssl=openssl",
+                          "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}",
+                          "--disable-debug"
     system "make", "install"
   end
 

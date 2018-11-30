@@ -2,13 +2,14 @@ class Jq < Formula
   desc "Lightweight and flexible command-line JSON processor"
   homepage "https://stedolan.github.io/jq/"
   url "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz"
-  sha256 "9625784cf2e4fd9842f1d407681ce4878b5b0dcddbcd31c6135114a30c71e6a8"
+  sha256 "5de8c8e29aaa3fb9cc6b47bb27299f271354ebb72514e3accadc7d38b5bbaa72"
 
   bottle do
     cellar :any
-    sha256 "d1c2b64ac27e4826a7b1104082d092cd67df8b76a9df2697035e7e2efe494559" => :mojave
-    sha256 "d560b85d7854c50fbf32c921a438e222da877239af960aedf739997577fabb38" => :high_sierra
-    sha256 "b59d708875afac979ae7a16456cf2715dabe1cb14decc1064faf0bfb8cbef4de" => :sierra
+    rebuild 1
+    sha256 "71f0e76c5b22e5088426c971d5e795fe67abee7af6c2c4ae0cf4c0eb98ed21ff" => :mojave
+    sha256 "dffcffa4ea13e8f0f2b45c5121e529077e135ae9a47254c32182231662ee9b72" => :high_sierra
+    sha256 "bb4d19dc026c2d72c53eed78eaa0ab982e9fcad2cd2acc6d13e7a12ff658e877" => :sierra
   end
 
   head do

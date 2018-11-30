@@ -1,13 +1,14 @@
 class Harfbuzz < Formula
   desc "OpenType text shaping engine"
   homepage "https://wiki.freedesktop.org/www/Software/HarfBuzz/"
-  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.1.1.tar.bz2"
-  sha256 "83bf5d552df72c52969332f294cd97d8f6b46b77b41b61346ca56ebb81884e14"
+  url "https://www.freedesktop.org/software/harfbuzz/release/harfbuzz-2.1.3.tar.bz2"
+  sha256 "613264460bb6814c3894e3953225c5357402915853a652d40b4230ce5faf0bee"
+  revision 1
 
   bottle do
-    sha256 "e3f8391baaf751e545b9757db5d76dcdbc56cece41732cd27df67b923b4886fa" => :mojave
-    sha256 "ed6773d55d43928ffefb9160f5e010b42c416122af251846d54b04714f75a108" => :high_sierra
-    sha256 "d5d5c9bb7832b6dc3866784488e4aee893de8a4c3b09e4b2b0da5689671aa2ad" => :sierra
+    sha256 "b70db6787672184b4fb7ce84c5ce73be34fb2c30144f91e5bd044d5dbc74863e" => :mojave
+    sha256 "7c128eefac25482e8d14237ae2d4d721e80812eb28a9134b42084761f4e06246" => :high_sierra
+    sha256 "cdf5cb7b51f4efc50493e286e6db3eb5d4fcd8d6aec19d125d52328c7444e5dd" => :sierra
   end
 
   head do

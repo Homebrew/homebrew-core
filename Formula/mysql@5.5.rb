@@ -5,21 +5,13 @@ class MysqlAT55 < Formula
   sha256 "b1e7853bc1f04aabf6771e0ad947f35ac8d237f4b35d0706d1095c9526ff99d7"
 
   bottle do
-    sha256 "57dd41d4774c5af3d9cdaed1da54bc1345264757f2ed72bc4f0cda8538fd05b3" => :mojave
-    sha256 "c29aae5efdf9e1c0769d92b3625c142777daf7a720b71bb2d4735ef9af8a4d8d" => :high_sierra
-    sha256 "a2411ac400eab800f60e19bb70875c0912f18e038557201324310a7dc79a42dd" => :sierra
+    rebuild 1
+    sha256 "690a31fbf4e2ee98172b9f861ca2c9dc336556267a7d64174058a9212774508f" => :mojave
+    sha256 "ae5e9df30314f452c118a81f39d536cb7c1f5cc624ea9109ddafd1c61c5d7d43" => :high_sierra
+    sha256 "be73396f962a509dfadb1903f3b9cfa32cce44df616f3996975f2469b92f9cf4" => :sierra
   end
 
   keg_only :versioned_formula
-
-  option "with-embedded", "Build the embedded server"
-  option "with-archive-storage-engine", "Compile with the ARCHIVE storage engine enabled"
-  option "with-blackhole-storage-engine", "Compile with the BLACKHOLE storage engine enabled"
-  option "with-local-infile", "Build with local infile loading support"
-  option "with-memcached", "Enable innodb-memcached support"
-
-  deprecated_option "enable-local-infile" => "with-local-infile"
-  deprecated_option "enable-memcached" => "with-memcached"
 
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
@@ -51,22 +43,12 @@ class MysqlAT55 < Formula
       -DCOMPILATION_COMMENT=Homebrew
       -DWITH_EDITLINE=system
       -DWITH_UNIT_TESTS=OFF
+      -DWITH_EMBEDDED_SERVER=ON
+      -DWITH_ARCHIVE_STORAGE_ENGINE=1
+      -DWITH_BLACKHOLE_STORAGE_ENGINE=1
+      -DENABLED_LOCAL_INFILE=1
+      -DWITH_INNODB_MEMCACHED=1
     ]
-
-    # Build the embedded server
-    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
-
-    # Compile with ARCHIVE engine enabled if chosen
-    args << "-DWITH_ARCHIVE_STORAGE_ENGINE=1" if build.with? "archive-storage-engine"
-
-    # Compile with BLACKHOLE engine enabled if chosen
-    args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.with? "blackhole-storage-engine"
-
-    # Build with local infile loading support
-    args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
-
-    # Build with memcached support
-    args << "-DWITH_INNODB_MEMCACHED=1" if build.with? "memcached"
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"

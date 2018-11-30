@@ -38,13 +38,10 @@ class Rust < Formula
     end
   end
 
-  option "with-llvm", "Build with brewed LLVM. By default, Rust's LLVM will be used."
-
   depends_on "cmake" => :build
   depends_on "libssh2"
   depends_on "openssl"
   depends_on "pkg-config"
-  depends_on "llvm" => :optional
 
   # According to the official readme, GCC 4.7+ is required
   fails_with :gcc_4_0
@@ -77,7 +74,6 @@ class Rust < Formula
 
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
-    args << "--llvm-root=#{Formula["llvm"].opt_prefix}" if build.with? "llvm"
     if build.head?
       args << "--release-channel=nightly"
     else

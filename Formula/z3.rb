@@ -1,15 +1,15 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.8.1.tar.gz"
-  sha256 "cc17e23327793defac78071acb9c68969f50e8a8ce3485f06448b65a589bcb71"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.8.3.tar.gz"
+  sha256 "21620b68c373cdea0d3b2cf24020be4ecfb22eddc6629663f6e9ce31cfdc78de"
   head "https://github.com/Z3Prover/z3.git"
 
   bottle do
     cellar :any
-    sha256 "79fd1b14363382d685f2927131885bee9e45c43bfea1da4bf8d80bd93afba126" => :mojave
-    sha256 "5ef2bfe779aeea034f72d8d91d179938e329bd02bd80ba4373c90092a6d60d3a" => :high_sierra
-    sha256 "2f0f1d4e8dd7c4a17a3837b60bde87ead9a8d32d8ea3463579ae3d2df067200c" => :sierra
+    sha256 "d5d6b5c05e279d5caa53f80143f235f9dd3dc67eed67788df5a046f354afabda" => :mojave
+    sha256 "ba793d139b46ede624b12daf90c9d754d675359dcd048707491ffddf7ffeea7b" => :high_sierra
+    sha256 "21041ebbfe6cdbd62c0c112a400be6cdf2135ba819841ad448fcea7e9c0473bb" => :sierra
   end
 
   option "without-python@2", "Build without python 2 support"

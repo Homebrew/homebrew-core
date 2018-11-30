@@ -1,15 +1,14 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/8.1/VTK-8.1.1.tar.gz"
-  sha256 "71a09b4340f0a9c58559fe946dc745ab68a866cf20636a41d97b6046cb736324"
-  revision 2
+  url "https://www.vtk.org/files/release/8.1/VTK-8.1.2.tar.gz"
+  sha256 "0995fb36857dd76ccfb8bb07350c214d9f9099e80b1e66b4a8909311f24ff0db"
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 "9ebecbab78563a12b4a55f62d7c15afeab7b288891ba2b71d8f461b1d77b8b33" => :mojave
-    sha256 "f17ccc19e0183f06c07e6d7b2ac23f21a5056bb8b8bcb57f5411f656639d168a" => :high_sierra
-    sha256 "b0cce7d37ebea9901e98519412b7d8078499ca03ee4cc6ec283525ba9dd2f121" => :sierra
+    sha256 "5b8a2aa16741db6f3fb5b4a8cf0a0e4057291457018521a06e31a88821d79828" => :mojave
+    sha256 "45c099cf78ffc78b66cf21eed6ebf704fd67b75bfa3a86648a864b07535974d3" => :high_sierra
+    sha256 "5e089bf8847eb38d2412a24dbf0c125099a5908b9412881c6611ac675379e392" => :sierra
   end
 
   option "without-python@2", "Build without python2 support"

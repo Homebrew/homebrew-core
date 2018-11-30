@@ -2,14 +2,14 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.4.3",
-      :revision => "968768f01f873fec244749abc3c6e939d0e3eda0"
+      :tag      => "v6.5.1",
+      :revision => "2ba5ab17f369e26e68edc4e35f0ece0391bdeb4c"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "3b91db530854a2c34c836509b6fa560e39701c1f574d8b106f6b6b45aebdd2aa" => :mojave
-    sha256 "685eea61b8e35c4db25f8aceddbe78414ac8222fe2202b89f84bc4b5cb8724cd" => :high_sierra
-    sha256 "447229bf2a8d941ab907851adb95bb759fb78a28dded3f6122a2fa2ee7c0e414" => :sierra
+    sha256 "2cf8f0448a5ccff72d532c98313c3f18b78f64653e7ad79458d92e3f628556da" => :mojave
+    sha256 "8cc203ca82b6af4a6e955e2c78e4a289b59e4e08efb1c07d73b695ce9d59ae2c" => :high_sierra
+    sha256 "a9463e55ce832579bfe84f973621d49ce8afc17f18759c7be222ac60cc6038bd" => :sierra
   end
 
   resource "node" do
@@ -30,6 +30,12 @@ class Kibana < Formula
 
     # remove non open source files
     rm_rf "x-pack"
+
+    # patch build to not try to read tsconfig.json's from the removed x-pack folder
+    inreplace "src/dev/typescript/projects.ts" do |s|
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/tsconfig.json')),", ""
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/test/tsconfig.json'), 'x-pack/test'),", ""
+    end
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/darwin-x64"
