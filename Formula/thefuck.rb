@@ -5,7 +5,6 @@ class Thefuck < Formula
   homepage "https://github.com/nvbn/thefuck"
   url "https://files.pythonhosted.org/packages/79/5e/a8a5ae5bfbe14f6ec01b1b9cee68383b1ff71e59be41a8923e3290c6fc21/thefuck-3.28.tar.gz"
   sha256 "cc123eb1e6962d315b777db286e6a172231f02eff00ab340fdd38c4504badc3a"
-  revision 1
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
