@@ -9,9 +9,9 @@ class Wine < Formula
   homepage "https://www.winehq.org/"
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.3.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.3.tar.xz"
-    sha256 "eb645999ea6f6455a5275bf267e19a32497c8f5aac818ea40afe7c8c396a4da1"
+    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.4.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.4.tar.xz"
+    sha256 "d45a88edbe7db363e297cacedc94e66df3464504a01c2eccf04f518066a6fb0c"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -21,8 +21,8 @@ class Wine < Formula
     end
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
-      sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
+      url "https://dl.winehq.org/wine/wine-mono/4.7.3/wine-mono-4.7.3.msi"
+      sha256 "d24a8017371c7e8224a1778bb43a113ed7ed9720efd9d0cda175d42db6106d3a"
     end
   end
 
@@ -34,8 +34,8 @@ class Wine < Formula
     url "https://source.winehq.org/git/wine.git"
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.1/wine-mono-4.7.1.msi"
-      sha256 "2c8d5db7f833c3413b2519991f5af1f433d59a927564ec6f38a3f1f8b2c629aa"
+      url "https://dl.winehq.org/wine/wine-mono/4.7.3/wine-mono-4.7.3.msi"
+      sha256 "d24a8017371c7e8224a1778bb43a113ed7ed9720efd9d0cda175d42db6106d3a"
     end
 
     # Does not build with Xcode 10, used on High Sierra and Mojave
@@ -63,9 +63,9 @@ class Wine < Formula
   end
 
   resource "openssl" do
-    url "https://www.openssl.org/source/openssl-1.0.2p.tar.gz"
+    url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
     mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2p.tar.gz"
-    sha256 "50a98e07b1a89eb8f6a99477f262df71c6fa7bef77df4dc83025a2845c827d00"
+    sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
   end
 
   resource "libtool" do
@@ -81,25 +81,9 @@ class Wine < Formula
   end
 
   resource "libtiff" do
-    url "https://download.osgeo.org/libtiff/tiff-4.0.9.tar.gz"
-    mirror "https://fossies.org/linux/misc/tiff-4.0.9.tar.gz"
-    sha256 "6e7bdeec2c310734e734d19aae3a71ebe37a4d842e0e23dbb1b8921c0026cfcd"
-
-    # All of these have been reported upstream & should
-    # be fixed in the next release, but please check.
-    patch do
-      url "https://snapshot.debian.org/archive/debian/20180702T023653Z/pool/main/t/tiff/tiff_4.0.9-6.debian.tar.xz"
-      sha256 "4e145dcde596e0c406a9f482680f9ddd09bed61a0dc6d3ac7e4c77c8ae2dd383"
-      apply "patches/CVE-2017-9935.patch",
-            "patches/CVE-2017-18013.patch",
-            "patches/CVE-2018-5784.patch",
-            "patches/CVE-2017-11613_part1.patch",
-            "patches/CVE-2017-11613_part2.patch",
-            "patches/CVE-2018-7456.patch",
-            "patches/CVE-2017-17095.patch",
-            "patches/CVE-2018-8905.patch",
-            "patches/CVE-2018-10963.patch"
-    end
+    url "https://download.osgeo.org/libtiff/tiff-4.0.10.tar.gz"
+    mirror "https://fossies.org/linux/misc/tiff-4.0.10.tar.gz"
+    sha256 "2c52d11ccaf767457db0c46795d9c7d1a8d8f76f68b0b800a3dfe45786b996e4"
   end
 
   resource "little-cms2" do
@@ -127,8 +111,8 @@ class Wine < Formula
   end
 
   resource "webp" do
-    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.0.tar.gz"
-    sha256 "84259c4388f18637af3c5a6361536d754a5394492f91be1abc2e981d4983225b"
+    url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.0.1.tar.gz"
+    sha256 "8c744a5422dbffa0d1f92e90b34186fb8ed44db93fbacb55abd751ac8808d922"
   end
 
   resource "fontconfig" do
