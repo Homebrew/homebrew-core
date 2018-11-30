@@ -1,8 +1,8 @@
 class Minica < Formula
   desc "Small, simple certificate authority"
   homepage "https://github.com/jsha/minica"
-  url "https://github.com/jsha/minica/archive/v1.0.0.tar.gz"
-  sha256 "30a5b40904ad10999f5641bbf76fcd9503e6d02a7d3b9a713a35e3fd11378f21"
+  url "https://github.com/jsha/minica/archive/v1.0.1.tar.gz"
+  sha256 "d5fd5259642dcd8ff98cb81deb4c66424a97c7bee2670622a6a057a6de5cfd03"
 
   bottle do
     cellar :any_skip_relocation
