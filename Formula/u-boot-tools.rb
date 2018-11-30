@@ -18,10 +18,12 @@ class UBootTools < Formula
     system "make", "sandbox_defconfig"
     system "make", "tools"
     bin.install "tools/mkimage"
+    bin.install "tools/dumpimage"
     man1.install "doc/mkimage.1"
   end
 
   test do
     system bin/"mkimage", "-V"
+    system bin/"dumpimage", "-V"
   end
 end
