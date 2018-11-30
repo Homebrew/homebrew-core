@@ -6,9 +6,9 @@ class Goreleaser < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f8ac12c604181a5117200b416ebc8542fdf0470fe4a12fa44309116e70d739df" => :mojave
-    sha256 "29c19f9250d5bd4ade799d73aaff348874d29d38967e80ca9962797a9c4fca57" => :high_sierra
-    sha256 "afae06694f175e880bb7636552f8058f96cc9db474b31df777fa1518796ef0ef" => :sierra
+    sha256 "515e0ee288f809a394920197ccd2a9738528b9a6c57712ee8df941a2842c6f0e" => :mojave
+    sha256 "b2351f478cd4126d9f21768f0a00fb67d776f0d34c6e11fc865f707006b7368b" => :high_sierra
+    sha256 "ad295314dc237428ac87bcaff37ff9ce039292403e32e4a9cf4beb38c9397ffc" => :sierra
   end
 
   depends_on "go" => :build
