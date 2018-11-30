@@ -7,10 +7,9 @@ class Sqlcipher < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "d55d1ac70d2d2e5ca66ae68bfd30ee5586ceb33a8fbceb24ab22a6818f4adf12" => :mojave
-    sha256 "0d2f0b708f10c458c938898e64a73dfa5ef2000505bfb0c25b257237f2612121" => :high_sierra
-    sha256 "d13b038f0b387475ac5bd34d42ed7306d72bdc2f73f4bf5b2d80da862d0d9413" => :sierra
+    sha256 "281dd3eb19548f9d1ce79943a4be4f0b4e9a885a92daa5f4a82f7c48e22967a8" => :mojave
+    sha256 "127d4b18e7b7a367d5cb0f67a01448ffd3a7658b4359797c238b08c9ce90527e" => :high_sierra
+    sha256 "961280c1ddf743b04d7f32f4b399ca8b82c1a73ce9b2e32963daaa144d2169e5" => :sierra
   end
 
   depends_on "openssl"
