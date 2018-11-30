@@ -1,8 +1,8 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v0.16.0.tar.gz"
-  sha256 "2ed1c1c199e047b1524b49a6662d5969936e81520d6613b8b68cc3effda450cf"
+  url "https://github.com/prometheus/node_exporter/archive/v0.17.0.tar.gz"
+  sha256 "763b588b9282a8aa497286f8ab1aab61d085bdd2d258cf3457f23c60752c9a27"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,12 +15,17 @@ class NodeExporter < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/prometheus").mkpath
-    ln_s buildpath, "src/github.com/prometheus/node_exporter"
-    system "go", "build", "-o", bin/"node_exporter", "-ldflags",
-           "-X github.com/prometheus/node_exporter/vendor/github.com/prometheus/common/version.Version=#{version}",
-           "github.com/prometheus/node_exporter"
+
+    srcpath = buildpath/"src/github.com/prometheus/node_exporter"
+    srcpath.install buildpath.children
+
+    cd srcpath do
+      system "go", "build", "-o", bin/"node_exporter", "-ldflags",
+             "-X github.com/prometheus/node_exporter/vendor/github.com/prometheus/common/version.Version=#{version}"
+      prefix.install_metafiles
+    end
   end
 
   def caveats; <<~EOS
