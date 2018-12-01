@@ -3,6 +3,7 @@ class Aptly < Formula
   homepage "https://www.aptly.info/"
   url "https://github.com/aptly-dev/aptly/archive/v1.3.0.tar.gz"
   sha256 "4d993dd790345e54dd963467a475ae160a7133bae7ee42844f15d5e82c1fb36e"
+  revision 1
   head "https://github.com/aptly-dev/aptly.git"
 
   bottle do
@@ -22,6 +23,8 @@ class Aptly < Formula
     cd "src/github.com/aptly-dev/aptly" do
       system "make", "VERSION=#{version}", "install"
       prefix.install_metafiles
+      bash_completion.install "completion.d/aptly"
+      zsh_completion.install "completion.d/_aptly"
     end
   end
 
