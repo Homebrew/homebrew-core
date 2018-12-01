@@ -12,7 +12,7 @@ class Ruby < Formula
   end
 
   head do
-    url "https://github.com/ruby/ruby.git"
+    url "https://github.com/ruby/ruby.git", :branch => "trunk"
     depends_on "autoconf" => :build
   end
 
