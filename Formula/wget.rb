@@ -26,7 +26,7 @@ class Wget < Formula
   depends_on "openssl"
 
   def install
-    system "./bootstrap" if build.head?
+    system "./bootstrap", "--skip-po" if build.head?
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
