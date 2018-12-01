@@ -6,10 +6,10 @@ class Luit < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1c3dacfce73760ac50146bee7befa165a4ddf7f6bddae148777dfd9425f6cc9e" => :mojave
-    sha256 "e2b66941a0cf7dfb7fe0b1c15917ca1586ccc77999a4f9e9a150fc08e4fd6f7c" => :high_sierra
-    sha256 "a365a4654be845ee683827113bff9efa96832fbbd248234f3a785fd4d1ebb2ba" => :sierra
-    sha256 "323633917450a82e0f86958f77be43d6fbfba4e262d8ea393473f72b0db9d304" => :el_capitan
+    rebuild 1
+    sha256 "fd907214b6c2fc1bda914531c8c0971c34c63aaa3478ca3f0c21ddbeca1bc0f7" => :mojave
+    sha256 "8c1e5b87146d2ea2682b473193942bc92bcd52422d391aa74fb585859da05091" => :high_sierra
+    sha256 "a71855f672f1416741873a9ff816f8d15980bb0002429937cb85fd6a21b0fd4c" => :sierra
   end
 
   def install
