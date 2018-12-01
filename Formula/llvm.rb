@@ -1,7 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  revision 1
+  revision 2
 
   stable do
     url "https://releases.llvm.org/7.0.0/llvm-7.0.0.src.tar.xz"
@@ -112,6 +112,7 @@ class Llvm < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "libffi"
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
@@ -187,10 +188,10 @@ class Llvm < Formula
     ]
 
     mkdir "build" do
-      system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
-      system "make"
-      system "make", "install"
-      system "make", "install-xcode-toolchain"
+      system "cmake", "-G", "Ninja", "..", *(std_cmake_args + args)
+      system "ninja"
+      system "ninja", "install"
+      system "ninja", "install-xcode-toolchain"
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
@@ -227,10 +228,8 @@ class Llvm < Formula
       }
     EOS
 
-    clean_version = version.to_s[/(\d+\.?)+/]
-
     system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{clean_version}/include",
+                           "-I#{lib}/clang/#{version}/include",
                            "omptest.c", "-o", "omptest"
     testresult = shell_output("./omptest")
 
