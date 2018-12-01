@@ -261,6 +261,11 @@ class Ansible < Formula
     sha256 "f039b7dd4746df56f6102097b3dc250fe0078be75130b9dc4211a85a3b1ec6a4"
   end
 
+  resource "keyring" do
+    url "https://files.pythonhosted.org/packages/d2/fc/08b607c6870b20fc2aa9ef5b7c49293c3134d57563e57d27d9a8b753816c/keyring-17.0.0.tar.gz"
+    sha256 "d3744d22e398c19405d819d3c2d3bb82dc05a96513f577411c8847bb207dc289"
+  end
+
   resource "keystoneauth1" do
     url "https://files.pythonhosted.org/packages/3b/c1/ef5904e9d1961b45c2a2cc0bfd9ac3aaeabfab8580683009fb9a94b65b78/keystoneauth1-3.11.1.tar.gz"
     sha256 "c1adb59c82c989b7c6293231da0fd46d30adfe2b7d9e35f327e3bfe7a0f99656"
