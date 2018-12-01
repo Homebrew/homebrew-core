@@ -15,7 +15,6 @@ class Aptly < Formula
   end
 
   depends_on "go" => :build
-  conflicts_with "aptly-completion", :because => "completions now in main formula"
 
   def install
     ENV["GOPATH"] = buildpath
