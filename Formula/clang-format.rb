@@ -4,10 +4,16 @@ class ClangFormat < Formula
   version "2018-10-04"
 
   stable do
+    depends_on "subversion" => :build
     url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-10-04/", :using => :svn
 
     resource "clang" do
       url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-10-04/", :using => :svn
+    end
+
+    resource "libcxx" do
+      url "https://releases.llvm.org/7.0.0/libcxx-7.0.0.src.tar.xz"
+      sha256 "9b342625ba2f4e65b52764ab2061e116c0337db2179c6bce7f9a0d70c52134f0"
     end
   end
 
@@ -19,21 +25,19 @@ class ClangFormat < Formula
   end
 
   head do
-    url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    url "https://git.llvm.org/git/llvm.git"
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      url "https://git.llvm.org/git/clang.git"
+    end
+
+    resource "libcxx" do
+      url "https://git.llvm.org/git/libcxx.git"
     end
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "subversion" => :build
-
-  resource "libcxx" do
-    url "https://releases.llvm.org/7.0.0/libcxx-7.0.0.src.tar.xz"
-    sha256 "9b342625ba2f4e65b52764ab2061e116c0337db2179c6bce7f9a0d70c52134f0"
-  end
 
   def install
     (buildpath/"projects/libcxx").install resource("libcxx")
