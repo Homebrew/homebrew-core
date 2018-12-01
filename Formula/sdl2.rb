@@ -19,6 +19,13 @@ class Sdl2 < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+  
+  # Upstream commit to fix issue with library version numbers
+  # https://hg.libsdl.org/SDL/rev/d274fa9731b1
+  patch do
+    url "https://hg.libsdl.org/SDL/raw-diff/d274fa9731b1/build-scripts/ltmain.sh"
+    sha256 "9845d8f947dd5b809c1dedba711c878cf2a4644a570cd21a81b574e609eb986b"
+  end
 
   # https://github.com/mistydemeo/tigerbrew/issues/361
   if MacOS.version <= :snow_leopard
