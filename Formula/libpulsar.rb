@@ -7,18 +7,20 @@ class Libpulsar < Formula
 
   depends_on "boost-python" => :build
   depends_on "cmake" => :build
-  depends_on "jsoncpp" => :build
-  depends_on "openssl" => :build
   depends_on "pkg-config" => :build
-  depends_on "protobuf@2.6" => :build
 
   depends_on "boost"
+  depends_on "jsoncpp"
+  depends_on "openssl"
+  depends_on "protobuf"
 
   def install
     cd "pulsar-client-cpp" do
-      system "cmake", ".", "-DBUILD_TESTS=OFF", "-DLINK_STATIC=ON",
+      system "cmake", ".", "-DBUILD_TESTS=OFF",
           "-DPYTHON_INCLUDE_DIR=#{Formula["python"].include}",
-          "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}"
+          "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
+          "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
+          "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib}/libprotobuf.dylib"
       system "make", "pulsarShared", "pulsarStatic"
 
       include.install "include/pulsar"
