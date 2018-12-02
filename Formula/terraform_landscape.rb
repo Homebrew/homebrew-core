@@ -1,8 +1,8 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.1.tar.gz"
-  sha256 "85cc53de33a9c2bcf479ad348a73b14017ad082ba41683d9726cb71af1e45ead"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.2.tar.gz"
+  sha256 "09eb14df6c5743478380e6b8eb618226773da0a0055fe4fcf955018b5c9fb668"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,8 +19,8 @@ class TerraformLandscape < Formula
   end
 
   resource "commander" do
-    url "https://rubygems.org/gems/commander-4.4.6.gem"
-    sha256 "8e73079a5a1efb5c51b604ce427485bd071563ab7e5fb2675f4db40896164d87"
+    url "https://rubygems.org/gems/commander-4.4.7.gem"
+    sha256 "8fc35d22ba7a386adecb728e68908e98b6a076340aaec6c654583a93ca9faadf"
   end
 
   resource "diffy" do
@@ -29,8 +29,13 @@ class TerraformLandscape < Formula
   end
 
   resource "highline" do
-    url "https://rubygems.org/gems/highline-1.7.10.gem"
-    sha256 "1e147d5d20f1ad5b0e23357070d1e6d0904ae9f71c3c49e0234cf682ae3c2b06"
+    url "https://rubygems.org/gems/highline-2.0.0.gem"
+    sha256 "74524686caf43dd56465ba847bd2c33b552028cf23973c4f1fbb5e5971f93a19"
+  end
+
+  resource "string_undump" do
+    url "https://rubygems.org/gems/string_undump-0.1.1.gem"
+    sha256 "7b2b70d86bfac09e774d3be3be1fbae7780ebcd5a1edfdad7bbb15be78ae1793"
   end
 
   resource "polyglot" do
