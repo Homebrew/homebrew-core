@@ -12,9 +12,9 @@ class HaskellStack < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34c031765ecec6ef8a2bf33e5d5ed4c1cf7b9d46b90d07f0c09c2bc386fa4ade" => :mojave
-    sha256 "768f405bca7def215fc50994738f8b70315f005a309024880e31f6a211bd8b91" => :high_sierra
-    sha256 "fc57b700e4954373a0f6a2f4eeca7fb566ad7c7594718d90d80a3ce4683c917b" => :sierra
+    sha256 "e77734678c0a9bb402373a53e1c67663cfd5160f8dd2be3e3a16a569ae5a9a48" => :mojave
+    sha256 "ce65fc3575740104c9a99bd8797ac10e8724d8d36c80326251343ed68ab965c0" => :high_sierra
+    sha256 "3c278a54d4e0d829ab89f018e49d1e69721034a51b56af1435738a5b20e9f5b8" => :sierra
   end
 
   depends_on "cabal-install" => :build
