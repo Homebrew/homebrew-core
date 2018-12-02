@@ -5,9 +5,9 @@ class HaskellStack < Formula
 
   desc "The Haskell Tool Stack"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/releases/download/v1.9.1/stack-1.9.1-sdist-1.tar.gz"
-  version "1.9.1"
-  sha256 "2628d0a02cb9d48a41f7b257d2619c8ba2e333cd91df03d0729029da53cf6855"
+  url "https://github.com/commercialhaskell/stack/releases/download/v1.9.3/stack-1.9.3-sdist-1.tar.gz"
+  version "1.9.3"
+  sha256 "14e06a71bf6fafbb2d468f83c70fd4e9490395207d6530ab7b9fc056f8972a46"
   head "https://github.com/commercialhaskell/stack.git"
 
   bottle do
@@ -22,9 +22,9 @@ class HaskellStack < Formula
 
   # Build using a stack config that matches the default Homebrew version of GHC
   resource "stack_lts_12_yaml" do
-    url "https://raw.githubusercontent.com/commercialhaskell/stack/v1.9.1/stack-lts-12.yaml"
-    version "1.9.1"
-    sha256 "331381740e857aac1986b0954ccf09b31e8fec8afd1ab48e394a221c09f2755d"
+    url "https://raw.githubusercontent.com/commercialhaskell/stack/v1.9.3/stack-lts-12.yaml"
+    version "1.9.3"
+    sha256 "0b4fb72f7c08c96ca853e865036e743cbdc84265dd5d5c4cf5154d305cd680de"
   end
 
   def install
