@@ -22,6 +22,6 @@ class Twvpn < Formula
   end
 
   test do
-    system "false"
+    system "#{bin}/twvpn", "-v"
   end
 end
