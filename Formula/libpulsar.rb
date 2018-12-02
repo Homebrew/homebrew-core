@@ -18,6 +18,7 @@ class Libpulsar < Formula
   def install
     cd "pulsar-client-cpp" do
       system "cmake", ".", "-DBUILD_TESTS=OFF",
+          "-DPYTHON_INCLUDE_DIR=#{Formula["python"].include}",
           "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
           "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
           "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib}/libprotobuf.dylib",
