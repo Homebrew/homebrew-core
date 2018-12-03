@@ -1,8 +1,8 @@
 class Cglm < Formula
   desc "Optimized OpenGL/Graphics Math (glm) for C"
   homepage "https://github.com/recp/cglm"
-  url "https://github.com/recp/cglm/archive/v0.4.9.tar.gz"
-  sha256 "5a0b486042e4e898ac326f96f6680c23a8872ae8ae9446d1b22cf2ced613ebc2"
+  url "https://github.com/recp/cglm/archive/v0.5.0.tar.gz"
+  sha256 "b72cdbb23ecb3cb4fe7025c1eb5293c497aea813323c89435bd2d9e8fd2fad17"
 
   bottle do
     cellar :any
@@ -35,7 +35,7 @@ class Cglm < Formula
         vec3 r;
 
         glm_cross(x, y, r);
-        assert(glm_vec_eqv_eps(r, z));
+        assert(glm_vec3_eqv_eps(r, z));
         return 0;
       }
     EOS
