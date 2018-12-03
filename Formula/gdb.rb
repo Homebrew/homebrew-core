@@ -1,9 +1,12 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.tar.xz"
-  sha256 "c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39"
+  url "https://github.com/bminor/binutils-gdb/archive/3134061ce6e33ade4cc65a36578b94983228815e.tar.gz"
+  version "8.2.1"
+  # TODO: set these once gdb 8.3 is released
+  # url "https://ftp.gnu.org/gnu/gdb/gdb-8.3.tar.xz"
+  # mirror "https://ftpmirror.gnu.org/gdb/gdb-8.3.tar.xz"
+  sha256 "c50739e9f1a88501dce37adfdbd5e2a5871d53d681d02bb0a38136771e61cf6f"
 
   bottle do
     sha256 "66aba1de069c94a7dbd24da8f29bba8a2415ba04ca55fc7e57fa33fa482885c4" => :mojave
@@ -40,11 +43,6 @@ class Gdb < Formula
       Test done on: Apple LLVM version 6.0 (clang-600.0.56) (based on LLVM 3.5svn)
     EOS
   end
-
-  # Fix compilation --with-all-targets using upstream commit:
-  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commitdiff;h=0c0a40e0
-  # Remove with next version
-  patch :p0, :DATA
 
   def install
     args = [
@@ -97,18 +95,3 @@ class Gdb < Formula
     system bin/"gdb", bin/"gdb", "-configuration"
   end
 end
-
-__END__
-
-diff -Naru /tmp/aarch64-linux-tdep.c gdb/aarch64-linux-tdep.c.new
---- gdb/aarch64-linux-tdep.c	2018-09-27 21:05:15.000000000 -0700
-+++ gdb/aarch64-linux-tdep.c.new	2018-09-27 21:05:47.000000000 -0700
-@@ -315,7 +315,7 @@
-      passed in SVE regset or a NEON fpregset.  */
-
-   /* Extract required fields from the header.  */
--  uint64_t vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
-+  ULONGEST vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
-					  SVE_HEADER_VL_LENGTH, byte_order);
-   uint16_t flags = extract_unsigned_integer (header + SVE_HEADER_FLAGS_OFFSET,
-					     SVE_HEADER_FLAGS_LENGTH,
