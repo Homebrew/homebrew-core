@@ -46,6 +46,19 @@ class Libswiften < Formula
   end
 
   test do
-    system "#{bin}/swiften-config"
+    (testpath/"test.cpp").write <<~EOS
+      #include <Swiften/Swiften.h>
+      using namespace Swift;
+      int main()
+      {
+        SimpleEventLoop eventLoop;
+        BoostNetworkFactories networkFactories(&eventLoop);
+        return 0;
+      }
+    EOS
+    cflags = `#{bin}/swiften-config --cflags`
+    ldflags = `#{bin}/swiften-config --libs`
+    system "#{ENV.cxx} -std=c++11 test.cpp #{cflags.chomp} #{ldflags.chomp} -o test"
+    system "./test"
   end
 end
