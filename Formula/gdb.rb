@@ -4,6 +4,7 @@ class Gdb < Formula
   url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.tar.xz"
   sha256 "c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39"
+  revision 1
 
   bottle do
     sha256 "66aba1de069c94a7dbd24da8f29bba8a2415ba04ca55fc7e57fa33fa482885c4" => :mojave
@@ -41,10 +42,20 @@ class Gdb < Formula
     EOS
   end
 
-  # Fix compilation --with-all-targets using upstream commit:
-  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commitdiff;h=0c0a40e0
-  # Remove with next version
-  patch :p0, :DATA
+  # Fix build with all targets. Remove if 8.2.1+
+  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commitdiff;h=0c0a40e0abb9f1a584330a1911ad06b3686e5361
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/all-targets.diff"
+    sha256 "1cb8a1b8c4b4833212e16ba8cfbe620843aba0cba0f5111c2728c3314e10d8fd"
+  end
+
+  # Fix debugging of executables of Xcode 10 and later
+  # created for 10.14 and newer versions of macOS. Remove if 8.2.1+
+  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=fc7b364aba41819a5d74ae0ac69f050af282d057
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/mojave.diff"
+    sha256 "6264c71b57a0d5d4aed11430d352b03639370b7d36a5b520e189a6a1f105e383"
+  end
 
   def install
     args = [
@@ -97,18 +108,3 @@ class Gdb < Formula
     system bin/"gdb", bin/"gdb", "-configuration"
   end
 end
-
-__END__
-
-diff -Naru /tmp/aarch64-linux-tdep.c gdb/aarch64-linux-tdep.c.new
---- gdb/aarch64-linux-tdep.c	2018-09-27 21:05:15.000000000 -0700
-+++ gdb/aarch64-linux-tdep.c.new	2018-09-27 21:05:47.000000000 -0700
-@@ -315,7 +315,7 @@
-      passed in SVE regset or a NEON fpregset.  */
-
-   /* Extract required fields from the header.  */
--  uint64_t vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
-+  ULONGEST vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
-					  SVE_HEADER_VL_LENGTH, byte_order);
-   uint16_t flags = extract_unsigned_integer (header + SVE_HEADER_FLAGS_OFFSET,
-					     SVE_HEADER_FLAGS_LENGTH,
