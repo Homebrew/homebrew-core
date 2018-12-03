@@ -6,9 +6,9 @@ class Beagle < Formula
 
   bottle do
     cellar :any
-    sha256 "01cebcb9d380b19863a55799d1d6639da3de35d7268a4f51dd60aefc26980c26" => :mojave
-    sha256 "0c4a1f1d36005c0f137a368d407c8b8d2c9d06c14753ab2f139c1891fc6bd08b" => :high_sierra
-    sha256 "40623dd49ad45063e21f3928f3efcfb16ad17c523e2cf272d489faf2e20b4062" => :sierra
+    sha256 "032c922981ee1707934cceb53318a26dab4a0ca6c392db63115f626a9f56b412" => :mojave
+    sha256 "d7834048b8aabdedcc824daf474cefe0436fdd8515da4df3f6c52a87d01395ef" => :high_sierra
+    sha256 "87e49bf8faeff280ba1211a7c0a0b1626750652b0498eef2ff01dfcff4290056" => :sierra
   end
 
   depends_on "autoconf" => :build
