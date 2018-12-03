@@ -1,8 +1,9 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.11.0/apache-arrow-0.11.0.tar.gz"
-  sha256 "1838faa3775e082062ad832942ebc03aaf95386c0284288346ddae0632be855d"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.11.1/apache-arrow-0.11.1.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-0.11.1/apache-arrow-0.11.1.tar.gz"
+  sha256 "c524f3d47f0cdb7445c0326b20e79f60485e12daeb2adc8ad6a845ad6c19c1ac"
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -15,24 +16,16 @@ class ApacheArrow < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "jemalloc"
-  depends_on "python" => :optional
-  depends_on "python@2" => :optional
+  depends_on "python"
 
   needs :cxx11
 
   def install
     ENV.cxx11
-    args = []
-
-    if build.with?("python") && build.with?("python@2")
-      odie "Cannot provide both --with-python and --with-python@2"
-    end
-    Language::Python.each_python(build) do |python, _version|
-      args << "-DARROW_PYTHON=1" << "-DPYTHON_EXECUTABLE=#{which python}"
-    end
 
     cd "cpp" do
-      system "cmake", ".", *std_cmake_args, *args
+      system "cmake", ".", *std_cmake_args, "-DARROW_PYTHON=1",
+                           "-DPYTHON_EXECUTABLE=#{which "python3"}"
       system "make", "unittest"
       system "make", "install"
     end
