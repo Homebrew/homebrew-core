@@ -1,8 +1,8 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
-  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.3.tar.gz"
-  sha256 "49d88f4494ae780e3d7fa51769c00d982d7cdb73e696054ac3baa81d42f13bab"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.4.tar.gz"
+  sha256 "4b4b4453251e9edb5f57465bf2b3cf67b19d811d50c8588cdf2ea1f201bb834f"
   head "https://github.com/xianyi/OpenBLAS.git", :branch => "develop"
 
   bottle do
@@ -18,13 +18,6 @@ class Openblas < Formula
   option "with-openmp", "Enable parallel computations with OpenMP"
 
   depends_on "gcc" # for gfortran
-
-  # Upstream fix for issue https://github.com/xianyi/OpenBLAS/issues/1735
-  # "OpenBLAS : Program will terminate because you tried to start too many threads"
-  patch do
-    url "https://github.com/xianyi/OpenBLAS/commit/4d183e5567346f80f2ef97eb98f8601c47f8cb56.patch?full_index=1"
-    sha256 "9b02860bd78252ed9f09abb65a62fff22c0aeca002757d503f5b643a11b744bf"
-  end
 
   fails_with :clang if build.with? "openmp"
 
