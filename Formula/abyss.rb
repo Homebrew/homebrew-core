@@ -6,9 +6,10 @@ class Abyss < Formula
   revision 1
 
   bottle do
-    sha256 "8e6ea5b61adf547f7fe371892bda3d3cb8d09b5a659d75cc415b7734b7e18901" => :mojave
-    sha256 "669b55b3d4b8ec60101bd17a3288a6afe54d558fc9c45cd0a73cd75e55f027aa" => :high_sierra
-    sha256 "d6a05334fffcf0d456251082b294a15583a43031a02ec3ad4942de3006786c46" => :sierra
+    cellar :any
+    sha256 "2594b278174b438b266bd33e524673ae710e9b92685643560f4662f701ed03bb" => :mojave
+    sha256 "90d14e10505c717540957ed66b5cdbe21d504c3cb915468e0035bbd2b649d704" => :high_sierra
+    sha256 "c70867415966ccf4a7c69fdd90d6f265f7613f49023463ff1c3f06c058d7c36c" => :sierra
   end
 
   head do
