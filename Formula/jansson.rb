@@ -6,10 +6,9 @@ class Jansson < Formula
 
   bottle do
     cellar :any
-    sha256 "073c0c6625eed1682fa386b2ed235bb2d62f4003060736991c5b81531f7ce319" => :mojave
-    sha256 "d25f04f7b7b68d880cb22bfd9f0c2d071419e5e90f7899337a534c4feadffbf4" => :high_sierra
-    sha256 "2136b357ac1d0df8ff75e8ff7602cbc390c58908d4394dc1a38fe1be98601347" => :sierra
-    sha256 "421a63d722386003c678c7fd18de6114b9a8ffa5d8c0994db5f117e3cb8247ec" => :el_capitan
+    sha256 "79437c250f1b9fff4eab1a15385bbc38e5a29856b0efe3e5b0d68356d24d1f7b" => :mojave
+    sha256 "aeb69f2744314df891be52ee4ff2fdb95e8991715a24f74858535063639f3491" => :high_sierra
+    sha256 "ffafd42341f4a86ab91bf46e56a2cc4436d840998a9d053bff38467f8b6f4a1b" => :sierra
   end
 
   def install
