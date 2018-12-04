@@ -6,8 +6,8 @@ class Easyengine < Formula
 
   bottle :unneeded
 
-  depends_on "php"
   depends_on "dnsmasq"
+  depends_on "php"
 
   def install
     bin.install "easyengine.phar" => "ee"
