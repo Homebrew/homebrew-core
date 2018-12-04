@@ -20,6 +20,7 @@ class Nghttp2 < Formula
   end
 
   option "with-python", "Build python3 bindings"
+  option "with-boost", "Build high level api with boost"
 
   deprecated_option "with-python3" => "with-python"
 
@@ -33,6 +34,7 @@ class Nghttp2 < Formula
   depends_on "libevent"
   depends_on "libxml2" if MacOS.version <= :lion
   depends_on "openssl"
+  depends_on "boost" => :optional
   depends_on "python" => :optional
 
   resource "Cython" do
@@ -58,6 +60,11 @@ class Nghttp2 < Formula
     # requires thread-local storage features only available in 10.11+
     args << "--disable-threads" if MacOS.version < :el_capitan
     args << "--with-xml-prefix=/usr" if MacOS.version > :lion
+
+    if build.with? "boost"
+      args << "--with-boost=#{Formula["boost"].opt_prefix}"
+      args << "--enable-asio-lib"
+    end
 
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args
