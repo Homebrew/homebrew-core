@@ -7,11 +7,10 @@ class Unicorn < Formula
 
   bottle do
     cellar :any
-    sha256 "b873f9b4fcec5aceac0cc978e75f6d82bc133f78fbe3509bab2b8674e1c58d5b" => :mojave
-    sha256 "a12e18a0a334fa19a2dc54a43fc5d56861e31cf5a9ad352cb1150bb6ec61703c" => :high_sierra
-    sha256 "81d29e7f28335317dd40976d904636ccd7d0679b71747ad13530dc991f327122" => :sierra
-    sha256 "3519d8189333c5ae43eb618e18db7b6be4cf9cc288c6a45ca3b618964d62395c" => :el_capitan
-    sha256 "f8c7cb546985c5e34dddb2c2e338314d024e266085fcbdc3f7e52e0f426e4e29" => :yosemite
+    rebuild 1
+    sha256 "78a5143347e18c673a63dc4b171f610499eb728836f20626bd77bc886374b853" => :mojave
+    sha256 "c44cbb02b8073ca0e70f13cf16272964ab52a8b19a20da07dcfd76c6f15585dd" => :high_sierra
+    sha256 "8c134f4b88d63da3908d419dd29118d6ada4489091cd53e81cc9a72f28a9760b" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -23,6 +22,10 @@ class Unicorn < Formula
     ENV["UNICORN_DEBUG"] = "no"
     system "make"
     system "make", "install"
+
+    cd "bindings/python" do
+      system "python", *Language::Python.setup_install_args(prefix)
+    end
   end
 
   test do
@@ -72,5 +75,7 @@ class Unicorn < Formula
     system ENV.cc, "-o", testpath/"test1", testpath/"test1.c",
       "-lpthread", "-lm", "-L#{lib}", "-lunicorn"
     system testpath/"test1"
+
+    system "python", "-c", "import unicorn; print(unicorn.__version__)"
   end
 end

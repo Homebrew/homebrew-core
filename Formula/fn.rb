@@ -1,14 +1,14 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.30.tar.gz"
-  sha256 "14e5beab82a031bdf6f7b203e006f01f4f957eb05dde591095cf53f58a01b8fd"
+  url "https://github.com/fnproject/cli/archive/0.5.33.tar.gz"
+  sha256 "cfb271b9723e3b2e18fe46f44775f47a437095ae27c635ad5060ea7dfbcd8679"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7595095775055960ce94196154ec5db3be6b238a6d92f3435f62f6c79ff21e7" => :mojave
-    sha256 "6c7b58582cd8cb27532c2f68153346e85cfba15c58ebf4f074552d05fcdb3a34" => :high_sierra
-    sha256 "ba8b49796bb37077541e890a2ee82593e5a90e526f2775e6ce9f1fb41d715f37" => :sierra
+    sha256 "21dc8e079a7e2306b94ee19602d20fa1860efe5637a07f1586dc4ecd26c4e32e" => :mojave
+    sha256 "37e342e5bbe604235fab7a1b8422997c6e029f0ffa82b529f3d4fdde2420d44d" => :high_sierra
+    sha256 "5d08d63a14c6a84ee9ba4617bc703a2def488a40d1afa5a928ee8feba8e74f22" => :sierra
   end
 
   depends_on "dep" => :build

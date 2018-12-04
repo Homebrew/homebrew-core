@@ -1,14 +1,13 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.1.tar.gz"
-  sha256 "85cc53de33a9c2bcf479ad348a73b14017ad082ba41683d9726cb71af1e45ead"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.2.tar.gz"
+  sha256 "09eb14df6c5743478380e6b8eb618226773da0a0055fe4fcf955018b5c9fb668"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fb0d51fd41b424d4c58074112820489959456ac12a09f3ae0abaa929c9c3301c" => :mojave
-    sha256 "83cac2d38704559ac200d05fd0cfe8c5c1421aa8535303152c424884c6ba610a" => :high_sierra
-    sha256 "0d2b365ef93dabedb031414254a9cfd797aed2fa903bd38120ab6dfbbb7a959b" => :sierra
+    sha256 "55d689c8224f57a30b2dba356eef0f1b7bbf1c7e353724b236138dc0f678406b" => :mojave
+    sha256 "ea8e016b581df875a5f2591c47698c6f75a4afea329cd2ed996bb1b0dc59d3d6" => :high_sierra
+    sha256 "25ddfefd03e21886b042060b9bf5a9060ba2ab0565ae9580a3b492323d97403b" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :mountain_lion
@@ -19,8 +18,8 @@ class TerraformLandscape < Formula
   end
 
   resource "commander" do
-    url "https://rubygems.org/gems/commander-4.4.6.gem"
-    sha256 "8e73079a5a1efb5c51b604ce427485bd071563ab7e5fb2675f4db40896164d87"
+    url "https://rubygems.org/gems/commander-4.4.7.gem"
+    sha256 "8fc35d22ba7a386adecb728e68908e98b6a076340aaec6c654583a93ca9faadf"
   end
 
   resource "diffy" do
@@ -29,8 +28,13 @@ class TerraformLandscape < Formula
   end
 
   resource "highline" do
-    url "https://rubygems.org/gems/highline-1.7.10.gem"
-    sha256 "1e147d5d20f1ad5b0e23357070d1e6d0904ae9f71c3c49e0234cf682ae3c2b06"
+    url "https://rubygems.org/gems/highline-2.0.0.gem"
+    sha256 "74524686caf43dd56465ba847bd2c33b552028cf23973c4f1fbb5e5971f93a19"
+  end
+
+  resource "string_undump" do
+    url "https://rubygems.org/gems/string_undump-0.1.1.gem"
+    sha256 "7b2b70d86bfac09e774d3be3be1fbae7780ebcd5a1edfdad7bbb15be78ae1793"
   end
 
   resource "polyglot" do

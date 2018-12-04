@@ -5,17 +5,15 @@ class Shellcheck < Formula
 
   desc "Static analysis and lint tool, for (ba)sh scripts"
   homepage "https://www.shellcheck.net/"
-  url "https://github.com/koalaman/shellcheck/archive/v0.5.0.tar.gz"
-  sha256 "348a3f7892c1f28a44f188c00ac82f1b3bf899d9f81d14ddb0e306db26c937bb"
+  url "https://github.com/koalaman/shellcheck/archive/v0.6.0.tar.gz"
+  sha256 "4e6c46751f031095f33f46ad4a4cf51c79fd2398031260132d6b57390a59d293"
   head "https://github.com/koalaman/shellcheck.git"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4170ea65045b6eb244b6f887a648853a1f92c3a95d8db2125ed41bb24becac46" => :mojave
-    sha256 "372c28d50b8cee2b31a6c63c308c7ca8ecc9db5d0bb0ec235ed3295780762d92" => :high_sierra
-    sha256 "ff3f24bc8d38042ead62820906b9907c3bd7fd3240ab5b309f579a0984a2af2d" => :sierra
-    sha256 "3e82106d209775ec04a0a85bf99961d392a4ea22bc41644122959e5ca0798a25" => :el_capitan
+    sha256 "81b8ae0765a9bdf7e90c6283bbff2254cddf3b32ed68c5f3e606c2d17cb249eb" => :mojave
+    sha256 "14e1fef7046bd4ec1732e7cd17913be2c068257a975afd871d81bb20f426bfa7" => :high_sierra
+    sha256 "5da7a525dbb81be76cceb0b326c4b524e2ec96c591075385899ab77c2f48465c" => :sierra
   end
 
   depends_on "cabal-install" => :build

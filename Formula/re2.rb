@@ -1,16 +1,16 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2018-10-01.tar.gz"
-  version "20181001"
-  sha256 "a31397714a353587413d307337d0b58f8a2e20e2b9d02f2e24e3463fa4eeda81"
+  url "https://github.com/google/re2/archive/2018-12-01.tar.gz"
+  version "20181201"
+  sha256 "715e01685719a4ed68a353ae48249612ef4a7464755c3ecccaceae91ebd34868"
   head "https://github.com/google/re2.git"
 
   bottle do
     cellar :any
-    sha256 "d366478de02ad27fde13652978894c4168598b1a63e7fb1d66c214ee0e247149" => :mojave
-    sha256 "fbdc4cf54acf99d1712437b0ec6b96fe295c54a3265994dc75da12d72bdb5027" => :high_sierra
-    sha256 "cbef8e8f1e0377e1ac0a379ff8c7a3408f7963aa1c37a94e219a86480da23737" => :sierra
+    sha256 "ce2bda9edbe124644d977cc25dfa7672b9039b05e500ed4b0583de4621138c54" => :mojave
+    sha256 "7962193156fa1acf325c9f8d0be12bfef9c6a4d7a408cd35a4eb17baed349a12" => :high_sierra
+    sha256 "88640ac51671f67ae2898cd677d32581c2af799b02fd99ef3436cf958644ece9" => :sierra
   end
 
   needs :cxx11
