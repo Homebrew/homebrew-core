@@ -3,6 +3,7 @@ class Citus < Formula
   homepage "https://www.citusdata.com"
   url "https://github.com/citusdata/citus/archive/v8.0.0.tar.gz"
   sha256 "fe3c0b5feed9c671f0da07fbfba0e5cd494e93900348dd04863e8dd96453b8da"
+  revision 1
   head "https://github.com/citusdata/citus.git"
 
   bottle do
