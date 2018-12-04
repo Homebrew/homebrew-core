@@ -15,6 +15,13 @@ class TemporalTables < Formula
 
   depends_on "postgresql"
 
+  # Fix for postgresql 11 compatibility:
+  # https://github.com/arkhipov/temporal_tables/issues/38
+  patch do
+    url "https://github.com/mlt/temporal_tables/commit/24906c44.diff?full_index=1"
+    sha256 "9c20bde0bafb9cbf0fee9a4922134069e403c728660f6b9c0d6ee3ae7e48cdfc"
+  end
+
   def install
     ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"
 
