@@ -1,12 +1,13 @@
 class Easyengine < Formula
   desc "Command-line control panel to manage WordPress sites"
   homepage "https://easyengine.io/"
-  url "https://github.com/EasyEngine/easyengine/releases/download/v4.0.3/easyengine.phar"
-  sha256 "0b5bc1b8df0b688bf45a013ebcca471dc27130eef62ca16dd8757b14efce70ee"
+  url "https://github.com/EasyEngine/easyengine/releases/download/v4.0.4/easyengine.phar"
+  sha256 "e4f4267d42935fadfe6096e5e8d51dcc1e2d21b13dfa3e6ee32b9f07a11ccd04"
 
   bottle :unneeded
 
   depends_on "php"
+  depends_on "dnsmasq"
 
   def install
     bin.install "easyengine.phar" => "ee"
