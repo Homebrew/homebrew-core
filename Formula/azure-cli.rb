@@ -1,8 +1,8 @@
 class AzureCli < Formula
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.51.tar.gz"
-  sha256 "5155e32a363b1497e3201a799114599436dc5b201ead319e1e4d2237b467ef55"
+  url "https://azurecliprod.blob.core.windows.net/releases/azure-cli-2.0.52.tar.gz"
+  sha256 "4fe43b7eff3212aace6906505e1cec7cb06b7626da757d1890c6e1c5e82218bd"
   head "https://github.com/Azure/azure-cli.git"
 
   bottle do
@@ -51,13 +51,13 @@ class AzureCli < Formula
   end
 
   resource "azure-datalake-store" do
-    url "https://files.pythonhosted.org/packages/3e/5e/fa7c25fdf3abafe65e8e0fa46528042d6423a7159eeff2d3d0ab5c818e4c/azure-datalake-store-0.0.38.tar.gz"
-    sha256 "519c1694a8deadd230050b9c6de7eb846cedb50dec09afbe3c46c8dcfe9bf14b"
+    url "https://files.pythonhosted.org/packages/7b/43/6ebe1b59732ec50255a32ac1da6c8f254767e079836b8c273aceb5ed7a6f/azure-datalake-store-0.0.39.tar.gz"
+    sha256 "fd1ca3384808ac806470c26c98bc2346c1784d5b281fac4ea468ba018269ee3a"
   end
 
   resource "azure-graphrbac" do
-    url "https://files.pythonhosted.org/packages/89/6a/e2db001e4f1716368153ea6cae3e2e84e11f8503dc840a764f6671317976/azure-graphrbac-0.52.0.zip"
-    sha256 "c401ecaceb40d3724cbe6a43758da525e4e64e6d08dd6339df51daa57baa84cc"
+    url "https://files.pythonhosted.org/packages/4a/78/cf441cf25279f2005a9b88fcdbb56f42b6362d2916e74970883165122a49/azure-graphrbac-0.53.0.zip"
+    sha256 "970c11f2cfa42c3e52d9768a92295cb0812dfbaa35401a2c5d1f5cbf6a42ae6f"
   end
 
   resource "azure-keyvault" do
@@ -311,8 +311,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-storage" do
-    url "https://files.pythonhosted.org/packages/01/99/15d513ee430b5e873e82549087ee185d8cb784674dcce4bcf6733593a70f/azure-mgmt-storage-2.0.0rc4.zip"
-    sha256 "7f4282011b4298db9c430274d9c68c50b8785f4a9dfa72863222f487ef99cbd3"
+    url "https://files.pythonhosted.org/packages/9f/5b/419caf8918a80622eb9ac06057ad898f927737a29b40b72f792b01c21723/azure-mgmt-storage-3.1.0.zip"
+    sha256 "854b7a9bbb8af0f70104d75110e21caf874369d776cb52600220718c7b8a5c7a"
   end
 
   resource "azure-mgmt-trafficmanager" do
@@ -356,8 +356,8 @@ class AzureCli < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/41/b6/4f0cefba47656583217acd6cd797bc2db1fede0d53090fdc28ad2c8e0716/certifi-2018.10.15.tar.gz"
-    sha256 "6d58c986d22b038c8c0df30d639f23a3e6d172a05c3583e766f4c0b785c0986a"
+    url "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz"
+    sha256 "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7"
   end
 
   resource "cffi" do
@@ -371,13 +371,13 @@ class AzureCli < Formula
   end
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/55/d5/c35bd3e63757ac767105f8695b055581d8b8dd8c22fef020ebefa2a3725d/colorama-0.4.0.zip"
-    sha256 "c9b54bebe91a6a803e0772c8561d53f2926bfeb17cd141fbabcb08424086595c"
+    url "https://files.pythonhosted.org/packages/76/53/e785891dce0e2f2b9f4b4ff5bc6062a53332ed28833c7afede841f46a5db/colorama-0.4.1.tar.gz"
+    sha256 "05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/d2/5f/6ed3135eb1e775187f7ecd4e7713f1415516725365e51f9786143f36e024/cryptography-2.4.1.tar.gz"
-    sha256 "e85b410885addaeb31a867eabcefc9ef4a7e904ad45eac9e60a763a54b244626"
+    url "https://files.pythonhosted.org/packages/f3/39/d3904df7c56f8654691c4ae1bdb270c1c9220d6da79bd3b1fbad91afd0e1/cryptography-2.4.2.tar.gz"
+    sha256 "05a6052c6a9f17ff78ba78f8e6eb1d777d25db3b763343a1ae89a7a8670386dd"
   end
 
   resource "entrypoints" do
@@ -411,13 +411,13 @@ class AzureCli < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/b6/e1/bf843116bb42251a78e05e2ab7edfe99721e19af8933c8b0d63a5d1fd1a2/keyring-16.1.0.tar.gz"
-    sha256 "e9d58fcb4e559f13ae7d10df301cef45ef2786ef8162a648373f8566b1761eb0"
+    url "https://files.pythonhosted.org/packages/d2/fc/08b607c6870b20fc2aa9ef5b7c49293c3134d57563e57d27d9a8b753816c/keyring-17.0.0.tar.gz"
+    sha256 "d3744d22e398c19405d819d3c2d3bb82dc05a96513f577411c8847bb207dc289"
   end
 
   resource "knack" do
-    url "https://files.pythonhosted.org/packages/eb/bc/23da2de49b20e1b5623619b9eabc7164aa0ddf29710187caa6bd3eefc0e5/knack-0.4.5.tar.gz"
-    sha256 "e4b878a5ded7c96b66041d117954a109642d639f6537367162a149428194fd60"
+    url "https://files.pythonhosted.org/packages/03/a0/80b482d0c9374e30f01d15dcf3343c5d0bf43b6ed63d8bafe959bc84137c/knack-0.5.1.tar.gz"
+    sha256 "2c3a7604260cd58e094ddb506c2d5d85cd378bce03692b1fdc1d13143271c898"
   end
 
   resource "mock" do
@@ -476,13 +476,13 @@ class AzureCli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
+    url "https://files.pythonhosted.org/packages/63/a2/91c31c4831853dedca2a08a0f94d788fc26a48f7281c99a303769ad2721b/Pygments-2.3.0.tar.gz"
+    sha256 "82666aac15622bd7bb685a4ee7f6625dd716da3ef7473620c192c0168aae64fc"
   end
 
   resource "PyJWT" do
-    url "https://files.pythonhosted.org/packages/00/5e/b358c9bb24421e6155799d995b4aa3aa3307ffc7ecae4ad9d29fd7e07a73/PyJWT-1.6.4.tar.gz"
-    sha256 "4ee413b357d53fd3fb44704577afac88e72e878716116270d722723d65b42176"
+    url "https://files.pythonhosted.org/packages/6c/91/195c34ea8ff93f1b43c5d944598b853b2e8056703aab7bc95767d233ed92/PyJWT-1.7.0.tar.gz"
+    sha256 "ddec8409c57e9d371c6006e388f91daf3b0b43bdf9fcbf99451fb7cf5ce0a86d"
   end
 
   resource "PyNaCl" do
@@ -591,7 +591,6 @@ class AzureCli < Formula
     # Get the CLI components we'll install
     components = [
       buildpath/"src/azure-cli",
-      buildpath/"src/azure-cli-telemetry",
       buildpath/"src/azure-cli-core",
       buildpath/"src/azure-cli-nspkg",
       buildpath/"src/azure-cli-command_modules-nspkg",
