@@ -3,6 +3,7 @@ class TemporalTables < Formula
   homepage "https://pgxn.org/dist/temporal_tables/"
   url "https://github.com/arkhipov/temporal_tables/archive/v1.2.0.tar.gz"
   sha256 "e6d1b31a124e8597f61b86f08b6a18168f9cd9da1db77f2a8dd1970b407b7610"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +14,13 @@ class TemporalTables < Formula
   end
 
   depends_on "postgresql"
+
+  # Fix for postgresql 11 compatibility:
+  # https://github.com/arkhipov/temporal_tables/issues/38
+  patch do
+    url "https://github.com/mlt/temporal_tables/commit/24906c44.diff?full_index=1"
+    sha256 "9c20bde0bafb9cbf0fee9a4922134069e403c728660f6b9c0d6ee3ae7e48cdfc"
+  end
 
   def install
     ENV["PG_CONFIG"] = Formula["postgresql"].opt_bin/"pg_config"
