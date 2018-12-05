@@ -2,7 +2,6 @@ class Apachetop < Formula
   desc "Top-like display of Apache log"
   homepage "https://web.archive.org/web/20170809160553/freecode.com/projects/apachetop"
   url "https://deb.debian.org/debian/pool/main/a/apachetop/apachetop_0.12.6.orig.tar.gz"
-  # url "http://debian.backend.mirrors.debian.org/debian/pool/main/a/apachetop/apachetop_0.18.4.orig.tar.gz"
   sha256 "850062414517055eab2440b788b503d45ebe9b290d4b2e027a5f887ad70f3f29"
 
   bottle do
