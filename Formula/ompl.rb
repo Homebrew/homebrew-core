@@ -1,8 +1,8 @@
 class Ompl < Formula
   desc "Open Motion Planning Library consists of many motion planning algorithms"
   homepage "https://ompl.kavrakilab.org/"
-  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.4.0-Source.tar.gz"
-  sha256 "da8c273a2ed946fbcd7b721649a4767fdc1433e257bdc9a3d6c689b81261cc4f"
+  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.4.1-Source.tar.gz"
+  sha256 "409b968b4174df347eeb77945adb5d03c093480c50c20add958664ad2a8ab29b"
 
   bottle do
     sha256 "2b2ee9ee9ffc1a953510e3a67356540752a45869d294df5a0d68d18298d1dcde" => :mojave
