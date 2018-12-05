@@ -3,7 +3,6 @@ class Aiccu < Formula
   homepage "https://www.sixxs.net/tools/aiccu/"
   # Upstream 402s when passed a non-standard User-Agent such as Homebrew's
   url "https://cdn-aws.deb.debian.org/debian/pool/main/a/aiccu/aiccu_20070115.orig.tar.gz"
-  mirror "http://ftp.nl.debian.org/debian/pool/main/a/aiccu/aiccu_20070115.orig.tar.gz"
   version "20070115"
   sha256 "d23cf50a16fa842242c97683c3c1c1089a7a4964e3eaba97ad1f17110fdfe3cc"
 
