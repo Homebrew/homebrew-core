@@ -1,8 +1,8 @@
 class Smimesign < Formula
   desc "S/MIME signing utility for use with Git"
   homepage "https://github.com/github/smimesign"
-  url "https://github.com/github/smimesign/archive/0.0.8.tar.gz"
-  sha256 "c28ba68cc95582e40819034a8b70c1c4e4de01a22b12f42c289a555eb530c788"
+  url "https://github.com/github/smimesign/archive/0.0.10.tar.gz"
+  sha256 "c2036abba5f38b42acc40f311176a7af0bef7f9cc4f6c0454ba51d2335631db3"
 
   bottle do
     cellar :any_skip_relocation
