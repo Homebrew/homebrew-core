@@ -1,10 +1,9 @@
 class Libbtbb < Formula
   desc "Bluetooth baseband decoding library"
   homepage "https://github.com/greatscottgadgets/libbtbb"
-  url "https://github.com/greatscottgadgets/libbtbb/archive/2017-03-R2.tar.gz"
-  version "2017-03-R2"
-  sha256 "2b3ea5f07b7022e862f367e8a9a217e1d10920aecdc4eba7b7309724fb229cfd"
-  revision 1
+  url "https://github.com/greatscottgadgets/libbtbb/archive/2018-12-R1.tar.gz"
+  version "2018-12-R1"
+  sha256 "0eb2b72e1c1131538206f1e3176e2cf1048751fe7dc665eef1e7429d1f2e6225"
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
   bottle do
