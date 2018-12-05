@@ -1,8 +1,9 @@
 class XmlSecurityC < Formula
   desc "Implementation of primary security standards for XML"
   homepage "https://santuario.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/santuario/c-library/xml-security-c-2.0.1.tar.bz2"
-  sha256 "e7e9ccb8fd9d67eb1b981b191c724112f0b45f5b601f5fcc64708ebd6906e791"
+  url "https://www.apache.org/dyn/closer.cgi?path=/santuario/c-library/xml-security-c-2.0.2.tar.bz2"
+  mirror "https://archive.apache.org/dist/santuario/c-library/xml-security-c-2.0.2.tar.bz2"
+  sha256 "39e963ab4da477b7bda058f06db37228664c68fe68902d86e334614dd06e046b"
 
   bottle do
     cellar :any
