@@ -4,6 +4,7 @@ class Nwchem < Formula
   url "https://github.com/nwchemgit/nwchem/releases/download/6.8.1-release/nwchem-6.8.1-release.revision-v6.8-133-ge032219-src.2018-06-14.tar.bz2"
   version "6.8.1"
   sha256 "23ce8241a5977a93d8224f66433851c81a08ad58a4c551858ae031485b095ab7"
+  revision 1
 
   bottle do
     sha256 "46f8eb78babc97687fbac76eb04e55f01959a7fab673f7a48acfbff59f53de1d" => :mojave
