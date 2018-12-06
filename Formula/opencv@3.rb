@@ -108,8 +108,11 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python2.7", "python3"].each do |python|
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
+    {
+      "python2" => Language::Python.major_minor_version("python2"),
+      "python3" => Language::Python.major_minor_version("python3")
+    }.each do |python, python_version|
+      output = shell_output("PYTHONPATH=#{lib}/python#{python_version.to_s}/site-packages #{python} -c 'import cv2; print(cv2.__version__)'")
       assert_equal version.to_s, output.chomp
     end
   end
