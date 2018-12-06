@@ -1,14 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.3.tar.gz"
-  sha256 "4eef85759d5450b183459ff216b4c0fa43e87a4f6aa92c8af649f89336f002ec"
-
-  bottle do
-    sha256 "51a8a66a237ced772a7cd4ce73e2e777b92be15dd40291461b8f27cdf278ddcd" => :mojave
-    sha256 "0719a197f00254a5924db6f771f760df306ec6761e202f68dd1f15ddb8398be3" => :high_sierra
-    sha256 "c76c436b7f97eed2b2f3cbd2cae34b07dfb7f8640d6baa72c5eab3232b7321e7" => :sierra
-  end
+  url "https://github.com/opencv/opencv/archive/4.0.0.tar.gz"
+  sha256 "3787b3cc7b21bba1441819cb00c636911a846c0392ddf6211d398040a1e4886c"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -24,8 +18,8 @@ class Opencv < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.3.tar.gz"
-    sha256 "6dfb51326f3dfeb659128df952edecd45683626a965aa4a8e1e9c970c40fb636"
+    url "https://github.com/opencv/opencv_contrib/archive/4.0.0.tar.gz"
+    sha256 "4fb0681414df4baedce6e3f4a01318d6f4fcde6ee14854d761fd4e397a397763"
   end
 
   needs :cxx11
@@ -52,7 +46,7 @@ class Opencv < Formula
       -DBUILD_JPEG=ON
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
-      -DBUILD_PNG=OFF
+      -DBUILD_PNG=ON
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
       -DBUILD_ZLIB=OFF
@@ -102,18 +96,18 @@ class Opencv < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <opencv/cv.h>
+      #include <opencv2/opencv.hpp>
       #include <iostream>
       int main() {
         std::cout << CV_VERSION << std::endl;
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
+    system ENV.cxx, "test.cpp",  "-std=c++1y", "-I#{include}/opencv4", "-L#{lib}", "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
     ["python2.7", "python3"].each do |python|
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
+      output = shell_output("PYTHONPATH=#{lib}/../python #{python} -c 'import cv2; print(cv2.__version__)'")
       assert_equal version.to_s, output.chomp
     end
   end
