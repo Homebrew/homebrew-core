@@ -18,7 +18,7 @@ class Visp < Formula
   depends_on "jpeg"
   depends_on "libdc1394"
   depends_on "libpng"
-  depends_on "opencv"
+  depends_on "opencv@3"
   depends_on "zbar"
 
   def install
