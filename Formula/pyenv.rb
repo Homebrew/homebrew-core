@@ -3,6 +3,7 @@ class Pyenv < Formula
   homepage "https://github.com/pyenv/pyenv"
   url "https://github.com/pyenv/pyenv/archive/v1.2.8.tar.gz"
   sha256 "79c0ba0fa6fce3aa71e71d666d8082badbb52bc88dc3ed05b3c4b1ceeba54991"
+  revision 1
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
@@ -28,6 +29,10 @@ class Pyenv < Formula
     %w[pyenv-install pyenv-uninstall python-build].each do |cmd|
       bin.install_symlink "#{prefix}/plugins/python-build/bin/#{cmd}"
     end
+
+    bash_completion.install "#{prefix}/completions/pyenv.bash"
+    zsh_completion.install "#{prefix}/completions/pyenv.zsh"
+    fish_completion.install "#{prefix}/completions/pyenv.fish"
   end
 
   test do
