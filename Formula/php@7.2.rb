@@ -1,14 +1,10 @@
-class Php < Formula
+class PhpAT72 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.3.0.tar.xz/from/this/mirror"
-  sha256 "7d195cad55af8b288c3919c67023a14ff870a73e3acc2165a6d17a4850a560b5"
+  url "https://php.net/get/php-7.2.13.tar.xz/from/this/mirror"
+  sha256 "14b0429abdb46b65c843e5882c9a8c46b31dfbf279c747293b8ab950c2644a4b"
 
-  bottle do
-    sha256 "d5f1cbc8d4fdb1e6904c086ad046a7a705b3ed5ff90875a83cef58d85acd5c33" => :mojave
-    sha256 "bfcf4d789110dc2c7530174406b4f797db5c2f5d6bf4578baff1160c0aab71ab" => :high_sierra
-    sha256 "26e0002c4cd4482e71684814173f312c63f5678d6fc80a602d1178389a8ce13a" => :sierra
-  end
+  keg_only :versioned_formula
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
@@ -59,6 +55,10 @@ class Php < Formula
               "APXS_LIBEXECDIR='$(INSTALL_ROOT)#{lib}/httpd/modules'"
       s.gsub! "-z `$APXS -q SYSCONFDIR`",
               "-z ''"
+
+      # apxs will interpolate the @ in the versioned prefix: https://bz.apache.org/bugzilla/show_bug.cgi?id=61944
+      s.gsub! "LIBEXECDIR='$APXS_LIBEXECDIR'",
+              "LIBEXECDIR='" + "#{lib}/httpd/modules".gsub("@", "\\@") + "'"
     end
 
     # Update error message in apache sapi to better explain the requirements
@@ -217,7 +217,7 @@ class Php < Formula
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 
     # fix pear config to install outside cellar
-    pear_path = HOMEBREW_PREFIX/"share/pear"
+    pear_path = HOMEBREW_PREFIX/"share/pear@#{php_version}"
     cp_r pkgshare/"pear/.", pear_path
     {
       "php_ini"  => etc/"php/#{php_version}/php.ini",
