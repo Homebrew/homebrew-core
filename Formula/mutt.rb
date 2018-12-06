@@ -10,8 +10,8 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.10.1.tar.gz"
-  sha256 "734a3883158ec3d180cf6538d8bd7f685ce641d2cdef657aa0038f76e79a54a0"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.11.1.tar.gz"
+  sha256 "705141013662e53b78e49ed545360281f30a09ddda908f4de733277a60b1db05"
 
   bottle do
     sha256 "389639d2cfb581fbf101df8e0c9eecb255314f1be38864acc7bf2c1c9a2c4a11" => :mojave
@@ -28,16 +28,11 @@ class Mutt < Formula
     end
   end
 
-  option "with-s-lang", "Build against slang instead of ncurses"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openssl"
   depends_on "tokyo-cabinet"
-  depends_on "gettext" => :optional
   depends_on "gpgme" => :optional
-  depends_on "libidn" => :optional
-  depends_on "s-lang" => :optional
 
   conflicts_with "tin",
     :because => "both install mmdf.5 and mbox.5 man pages"
@@ -66,9 +61,7 @@ class Mutt < Formula
     # we're running as an unprivileged user)
     args << "--with-homespool=.mbox" unless user_admin
 
-    args << "--disable-nls" if build.without? "gettext"
     args << "--enable-gpgme" if build.with? "gpgme"
-    args << "--with-slang" if build.with? "s-lang"
 
     system "./prepare", *args
     system "make"
