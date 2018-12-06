@@ -13,7 +13,8 @@ class OpensslAT11 < Formula
     sha256 "af76397790ce9cb571a8e0bd1014a90a47ed1c05b5ee6727a2f6796ebdb95365" => :sierra
   end
 
-  keg_only :versioned_formula
+  keg_only :provided_by_macos,
+    "openssl/libressl is provided by macOS so don't link an incompatible version"
 
   # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
   # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
