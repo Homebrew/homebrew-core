@@ -30,7 +30,7 @@ class Siril < Formula
   depends_on "librsvg"
   depends_on "libsvg"
   depends_on "netpbm"
-  depends_on "opencv"
+  depends_on "opencv@3"
   depends_on "openjpeg"
 
   fails_with :clang # no OpenMP support
