@@ -42,11 +42,12 @@ class Opencv < Formula
 
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
+      -DOPENCV_GENERATE_PKGCONFIG=ON
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=ON
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
-      -DBUILD_PNG=ON
+      -DBUILD_PNG=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
       -DBUILD_ZLIB=OFF
