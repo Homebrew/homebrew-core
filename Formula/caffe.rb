@@ -18,7 +18,7 @@ class Caffe < Formula
   depends_on "hdf5"
   depends_on "leveldb"
   depends_on "lmdb"
-  depends_on "opencv"
+  depends_on "opencv@3"
   depends_on "protobuf"
   depends_on "snappy"
   depends_on "szip"
