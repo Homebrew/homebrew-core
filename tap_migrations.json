@@ -10,7 +10,7 @@
   "avidemux": "homebrew/cask",
   "awsenv": "Luzifer/tools",
   "chromedriver": "homebrew/cask",
-  "cloudfoundry-cli": "pivotal/tap",
+  "cloudfoundry-cli": "cloudfoundry/tap",
   "cmucl": "homebrew/cask",
   "cockatrice": "homebrew/cask",
   "crystax-ndk": "homebrew/cask",
