@@ -3,33 +3,13 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  revision 1
   head "https://code.qt.io/qt/qt5.git", :branch => "5.12", :shallow => false
 
   stable do
-    url "https://download.qt.io/official_releases/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/5.11/5.11.2/single/qt-everywhere-src-5.11.2.tar.xz"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-src-5.11.2.tar.xz"
-    sha256 "c6104b840b6caee596fa9a35bc5f57f67ed5a99d6a36497b6fe66f990a53ca81"
-
-    # Restore `.pc` files for framework-based build of Qt 5 on macOS, partially
-    # reverting <https://codereview.qt-project.org/#/c/140954/>
-    # Core formulae known to fail without this patch (as of 2016-10-15):
-    #   * gnuplot (with `--with-qt` option)
-    #   * mkvtoolnix (with `--with-qt` option, silent build failure)
-    #   * poppler (with `--with-qt` option)
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
-      sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
-    end
-
-    # Chromium build failures with Xcode 10, fixed upstream:
-    # https://bugs.chromium.org/p/chromium/issues/detail?id=840251
-    # https://bugs.chromium.org/p/chromium/issues/detail?id=849689
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/962f0f/qt/xcode10.diff"
-      sha256 "c064398411c69f2e1c516c0cd49fcd0755bc29bb19e65c5694c6d726c43389a6"
-    end
+    url "https://download.qt.io/official_releases/qt/5.12/5.12.0/single/qt-everywhere-src-5.12.0.tar.xz"
+    mirror "http://qt.mirror.constant.com/archive/qt/5.12/5.12.0/single/qt-everywhere-src-5.12.0.tar.xz"
+    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/qt5/qt-everywhere-src-5.12.0.tar.xz"
+    sha256 "356f42d9087718f22f03d13d0c2cdfb308f91dc3cf0c6318bed33f2094cd9d6c"
   end
 
   bottle do
