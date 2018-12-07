@@ -90,7 +90,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "install", "--root", prefix, "--path", "."
+      system "cargo", "install", "--root", prefix, "--path", ".", "--features", "curl-sys/force-system-lib-on-osx"
     end
 
     resource("racer").stage do
