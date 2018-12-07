@@ -4,10 +4,10 @@ class ClangFormat < Formula
   version "2018-10-04"
 
   stable do
-    url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-10-04/", :using => :svn
+    url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-10-04/", :using => :svn
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-10-04/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-10-04/", :using => :svn
     end
   end
 
@@ -19,10 +19,10 @@ class ClangFormat < Formula
   end
 
   head do
-    url "http://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
+    url "https://llvm.org/svn/llvm-project/llvm/trunk/", :using => :svn
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/cfe/trunk/", :using => :svn
     end
   end
 
