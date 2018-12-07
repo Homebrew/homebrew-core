@@ -1,10 +1,10 @@
 class Fuego < Formula
   desc "Collection of C++ libraries for the game of Go"
   homepage "https://fuego.sourceforge.io/"
-  url "http://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
+  url "https://svn.code.sf.net/p/fuego/code/trunk", :revision => 1981
   version "1.1.SVN"
   revision 2
-  head "http://svn.code.sf.net/p/fuego/code/trunk"
+  head "https://svn.code.sf.net/p/fuego/code/trunk"
 
   bottle do
     sha256 "2e8c65ddbcbb76158ab22805982c75940ed1a6eddc033cc157a03bee1364d502" => :mojave
