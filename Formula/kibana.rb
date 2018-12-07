@@ -2,8 +2,8 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v6.5.1",
-      :revision => "2ba5ab17f369e26e68edc4e35f0ece0391bdeb4c"
+      :tag      => "v6.5.2",
+      :revision => "1faf6571dad146d1d2a16aea76ef3c2336a486e8"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -13,8 +13,8 @@ class Kibana < Formula
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
-    sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
+    url "https://nodejs.org/dist/v8.14.0/node-v8.14.0.tar.xz"
+    sha256 "8ce252913c9f6aaa9871f2d9661b6e54858dae2f0064bd3c624676edb09083c4"
   end
 
   resource "yarn" do
