@@ -5,11 +5,11 @@ class Sqliteodbc < Formula
   sha256 "8afbc9e0826d4ff07257d7881108206ce31b5f719762cbdb4f68201b60b0cb4e"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2ef4d4e9285b65e4efb94592cb10f175c95c0f050f48b5ab326aa2b804761c28" => :mojave
-    sha256 "7d825f83232825a51c8fd871368a2ff8cce3a76fe9ba1646f20e15f121ecf79e" => :high_sierra
-    sha256 "907c1b32398eb7f3276e1da956723ac27868d9bcae27fb55ef76277cf2f67cb7" => :sierra
-    sha256 "7c550f77c2db4e4927b9f23ed8a57610727b438f6a0fad98e1adecee3c8c1aa1" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "a49afbd00eb6230ecf0a0a4573c961fe697ab6326998f2a894348d8509dc1c0d" => :mojave
+    sha256 "6afd81a210f7a0f7b70e70d4d5b89a659c4cf2c9916d85ff65d89ef042bdba52" => :high_sierra
+    sha256 "73755a497df2713b8f3cc9cd0f19df24aaab01f33bf001be3718c5f8318c784c" => :sierra
   end
 
   depends_on "sqlite"
