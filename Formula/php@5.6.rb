@@ -1,9 +1,8 @@
 class PhpAT56 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-5.6.38.tar.xz/from/this/mirror"
-  sha256 "c2fac47dc6316bd230f0ea91d8a5498af122fb6a3eb43f796c9ea5f59b04aa1e"
-  revision 2
+  url "https://php.net/get/php-5.6.39.tar.xz/from/this/mirror"
+  sha256 "8147576001a832ff3d03cb2980caa2d6b584a10624f87ac459fcd3948c6e4a10"
 
   bottle do
     sha256 "a4d5ae99450c84af82dd65248d78981f34251f0759189f0adf1b3d2b76757b08" => :mojave
