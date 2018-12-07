@@ -36,7 +36,7 @@ class Llnode < Formula
       # It claims it to be lldb 350.0 for Xcode 7.3, but in fact it is based
       # of 34.
       # Xcode < 7.3 uses 340.4, so I assume we should be safe to go with this.
-      url "http://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
+      url "https://llvm.org/svn/llvm-project/lldb/tags/RELEASE_34/final/",
           :using => :svn
     end
   end
