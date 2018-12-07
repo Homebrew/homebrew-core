@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.3.20.tar.gz"
-  sha256 "8881699a3e0c84e90234823fe4913158dd1167173528b0a02c6d36d20a5a70a9"
+  url "https://download.arangodb.com/Source/ArangoDB-3.4.0.tar.gz"
+  sha256 "5e45fa2f5eff8420a2e3e083535663a21ab06bc66fa29857d6cd4e36ed4c4aff"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
@@ -19,6 +19,11 @@ class Arangodb < Formula
   fails_with :clang do
     build 600
     cause "Fails with compile errors"
+  end
+
+  fails_with :gcc do
+    build 820
+    cause "Generates incorrect code"
   end
 
   needs :cxx11
