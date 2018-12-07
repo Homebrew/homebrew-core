@@ -3,7 +3,7 @@ class XmlToolingC < Formula
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/XMLTooling-C"
   url "https://shibboleth.net/downloads/c++-opensaml/3.0.0/xmltooling-3.0.2.tar.bz2"
   sha256 "5709cf30c9d7cfc786599ac2433653fac8cc64d425781068af86019c8ce8d689"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "102b92e9c2bbaa974b28672e9059494686c6fbdff6a6200a8a81522b357b475d" => :mojave
