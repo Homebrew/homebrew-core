@@ -3,7 +3,7 @@ class Supermodel < Formula
   homepage "https://www.supermodel3.com/"
   url "https://www.supermodel3.com/Files/Supermodel_0.2a_Src.zip"
   sha256 "ecaf3e7fc466593e02cbf824b722587d295a7189654acb8206ce433dcff5497b"
-  head "http://svn.code.sf.net/p/model3emu/code/trunk"
+  head "https://svn.code.sf.net/p/model3emu/code/trunk"
 
   bottle do
     rebuild 1
