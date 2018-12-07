@@ -1,9 +1,9 @@
 class Lcs < Formula
   desc "Satirical console-based political role-playing/strategy game"
   homepage "https://sourceforge.net/projects/lcsgame/"
-  url "http://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
+  url "https://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
   version "4.07.4b"
-  head "http://svn.code.sf.net/p/lcsgame/code/trunk"
+  head "https://svn.code.sf.net/p/lcsgame/code/trunk"
 
   bottle do
     sha256 "91469578607a9f4d1ae989ee523f2b5dd97c976d32d9a822769129df828163e5" => :mojave
