@@ -21,8 +21,8 @@ class Logrotate < Formula
                           "--with-state-file-path=#{var}/lib/logrotate.status"
     system "make", "install"
 
-    inreplace "examples/logrotate-default", "/etc/logrotate.d", "#{etc}/logrotate.d"
-    etc.install "examples/logrotate-default" => "logrotate.conf"
+    inreplace "examples/logrotate.conf", "/etc/logrotate.d", "#{etc}/logrotate.d"
+    etc.install "examples/logrotate.conf"
     (etc/"logrotate.d").mkpath
   end
 
