@@ -28,16 +28,11 @@ class Mutt < Formula
     end
   end
 
-  option "with-s-lang", "Build against slang instead of ncurses"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "openssl"
   depends_on "tokyo-cabinet"
-  depends_on "gettext" => :optional
   depends_on "gpgme" => :optional
-  depends_on "libidn" => :optional
-  depends_on "s-lang" => :optional
 
   conflicts_with "tin",
     :because => "both install mmdf.5 and mbox.5 man pages"
@@ -66,9 +61,7 @@ class Mutt < Formula
     # we're running as an unprivileged user)
     args << "--with-homespool=.mbox" unless user_admin
 
-    args << "--disable-nls" if build.without? "gettext"
     args << "--enable-gpgme" if build.with? "gpgme"
-    args << "--with-slang" if build.with? "s-lang"
 
     system "./prepare", *args
     system "make"
