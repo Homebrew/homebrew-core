@@ -6,10 +6,9 @@ class Libbladerf < Formula
   head "https://github.com/Nuand/bladeRF.git"
 
   bottle do
-    sha256 "67091f5edf6c3108798b87e45d1f3a81f601037f1b5fa2fd25232ddd7e68a36b" => :mojave
-    sha256 "1aaf3355a29e6c318555afc4a4aff2c76957976c7cf00113af5cacc8a171ab75" => :high_sierra
-    sha256 "711db5a38f3a217cd3fe54c19fe8624bdb6d7b4431176a74541e819414a064d1" => :sierra
-    sha256 "9de01abf00d154167160155eb6c64e9c9f83f11f8c0ce2ba862e94db43c9cbe2" => :el_capitan
+    sha256 "b0d2d3fcdc875992153cb28bbcacfb0bdb393cd2f60e6387415393dce24942d9" => :mojave
+    sha256 "d00a1061f4265d7f96e463893402556ab44c2a350a7d9808fe9a2ada90d74e3c" => :high_sierra
+    sha256 "dda3a182c1664f4a541dbc79f50e2bcc0fdafee4d65ccbe7619722deb6afa64d" => :sierra
   end
 
   depends_on "cmake" => :build
