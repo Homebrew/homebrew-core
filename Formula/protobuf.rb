@@ -7,9 +7,10 @@ class Protobuf < Formula
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    sha256 "4911058695a87895088011bfa5e552233696106bffa819fa004c8646d29a557d" => :mojave
-    sha256 "443091acba910e4baa043e4bf3296e7390655f8ddb3a07bd6805393d2c2e7823" => :high_sierra
-    sha256 "d378bb15cb022247851efa2f0409feb9d73dd1030869736bbd72e9dba8d3aa96" => :sierra
+    cellar :any
+    sha256 "f299e4a5e34e5795eb3d89ca0aaae018e476c17d92f98dd93eeebeb47dbb17c5" => :mojave
+    sha256 "d8f2a28e7e99f5046472992f41fe59c3344f2336435f21b6cfa57c433cf20fc8" => :high_sierra
+    sha256 "52eedfd81a251dbbc72d2ddbe78e1a54c651792bed0601b57c5ef31a53a6b62d" => :sierra
   end
 
   option "without-python@2", "Build without python2 support"
