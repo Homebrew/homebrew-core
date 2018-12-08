@@ -1,7 +1,7 @@
 class Zsync < Formula
   desc "File transfer program"
-  homepage "https://web.archive.org/web/20181008083727/zsync.moria.org.uk/"
-  url "https://web.archive.org/web/20180313225635/zsync.moria.org.uk/download/zsync-0.6.2.tar.bz2"
+  homepage "http://zsync.moria.org.uk/"
+  url "http://zsync.moria.org.uk/download/zsync-0.6.2.tar.bz2"
   sha256 "0b9d53433387aa4f04634a6c63a5efa8203070f2298af72a705f9be3dda65af2"
 
   bottle do
