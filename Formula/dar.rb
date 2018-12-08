@@ -11,6 +11,9 @@ class Dar < Formula
     sha256 "0f3d68d33877c3d98b9d8fbacdbd52c54569ccc1a46130ecec244415c58c5c73" => :el_capitan
   end
 
+  depends_on "upx" => :build
+  depends_on "libgcrypt"
+  depends_on "lzo"
   depends_on :macos => :el_capitan # needs thread-local storage
 
   needs :cxx11
@@ -23,10 +26,7 @@ class Dar < Formula
                           "--disable-dar-static",
                           "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--disable-libgcrypt-linking",
-                          "--disable-liblzo2-linking",
                           "--disable-libxz-linking",
-                          "--disable-upx",
                           "--enable-mode=64"
     system "make", "install"
   end
