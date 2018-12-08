@@ -2,8 +2,8 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.6.1.1",
-      :revision => "046e8fb7483df4e4fba028b8e85f68241a08f7f4"
+      :tag      => "v3.6.1.3",
+      :revision => "66dc42d891a4fc8e9190c524fd67961688a37bbe"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
@@ -26,12 +26,6 @@ class Protobuf < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
     sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
-  end
-
-  # Upstream PR from 3 Jul 2018 "Add Python 3.7 compatibility"
-  patch do
-    url "https://github.com/protocolbuffers/protobuf/pull/4862.patch?full_index=1"
-    sha256 "4b1fe1893c40cdcef531c31746ddd18759c9ce3564c89ddcc0ec934ea5dbf377"
   end
 
   needs :cxx11
