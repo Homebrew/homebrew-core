@@ -6,9 +6,9 @@ class Poppler < Formula
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "306ad563af098497bd75f53d37ccdd2f0b8100fe1d8752310bcecf4f794760c5" => :mojave
-    sha256 "eb8f157afeb8d6d55c4ec1bcead3cc70b62d9a19d091c425c5ea9aec18847aea" => :high_sierra
-    sha256 "b8cff6d7773945250eab6a3e7174938b6d019c4907dc43b8b38a7fba343fd70c" => :sierra
+    sha256 "0ec68e256f14f005279279b5b6bbd3fa7b6127e567072eab2948a028df0d36d7" => :mojave
+    sha256 "dcac471ce08221a99ddf8aebfde60281ef170bbc5edf0ffd41f146e2de89250b" => :high_sierra
+    sha256 "1321cf5f90a60eb65e407e766b08f91307a9e579dac2ed91998fb4fdfd30bac5" => :sierra
   end
 
   option "with-qt", "Build Qt5 backend"
