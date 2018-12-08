@@ -1,6 +1,6 @@
 class Skktools < Formula
   desc "SKK dictionary maintenance tools"
-  homepage "https://web.archive.org/web/20180930043734/openlab.jp/skk/index-j.html"
+  homepage "http://openlab.jp/skk/index-j.html"
   url "https://deb.debian.org/debian/pool/main/s/skktools/skktools_1.3.4.orig.tar.gz"
   sha256 "84cc5d3344362372e0dfe93a84790a193d93730178401a96248961ef161f2168"
 
