@@ -1,8 +1,8 @@
 class GitArchiveAll < Formula
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
-  url "https://github.com/Kentzo/git-archive-all/archive/1.19.2.tar.gz"
-  sha256 "0110030eb6279be91afed9d920816b706b45bd59bd1cf61d1c1d3fff83a0bcbd"
+  url "https://github.com/Kentzo/git-archive-all/archive/1.19.4.tar.gz"
+  sha256 "00acfe0324862daaa01146d24b20337416318382d36be88c208a8f7576191d2b"
   head "https://github.com/Kentzo/git-archive-all.git"
 
   bottle do
