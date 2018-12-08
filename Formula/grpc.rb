@@ -6,9 +6,9 @@ class Grpc < Formula
   head "https://github.com/grpc/grpc.git"
 
   bottle do
-    sha256 "8a112c44bf3294a431a75da1ef4c9a0eb8a7b50163d9e21dcc4c27c5085e3274" => :mojave
-    sha256 "3e1152afd018d77c2156c0a04c813308721a7e1eaf947fab5f623ec4988dda69" => :high_sierra
-    sha256 "69454dbee692aede0900eda76570cbbc105ae3c92181f28a59c86a3c4b708805" => :sierra
+    sha256 "5f51a8c841a9a152875264e288559aa4ddd6f259fa2ddb89e6ce49639fa723c9" => :mojave
+    sha256 "41f45f7338c070e5246eb11a3b17bebef630b0f89393404cd740addc892407dc" => :high_sierra
+    sha256 "f08f78ca9559ac2a6432ddbb4341f0928ee160db61315df42ce83512282fb77d" => :sierra
   end
 
   depends_on "autoconf" => :build
