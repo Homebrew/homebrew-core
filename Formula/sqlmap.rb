@@ -1,8 +1,8 @@
 class Sqlmap < Formula
   desc "Penetration testing for SQL injection and database servers"
   homepage "http://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/1.2.11.tar.gz"
-  sha256 "a9d7bfaaf92f19c1ed60b95a08605587d7c898a4d417af93dce53aef37b14ae0"
+  url "https://github.com/sqlmapproject/sqlmap/archive/1.2.12.tar.gz"
+  sha256 "c8f4e911fa70b3b70cb22645f2433500026a2af7e254f03e7ea8c64af67c4b84"
   head "https://github.com/sqlmapproject/sqlmap.git"
 
   bottle :unneeded
@@ -19,14 +19,14 @@ class Sqlmap < Formula
 
   test do
     data = %w[Bob 14 Sue 12 Tim 13]
-    create = "create table students (name text, age integer);\n"
-    data.each_slice(2) do |n, a|
-      create << "insert into students (name, age) values ('#{n}', '#{a}');\n"
+    create = "CREATE TABLE students (name TEXT, age INTEGER);\n"
+    data.each_slice(2) do |name, age|
+      create << "INSERT INTO students (name, age) VALUES ('#{name}', '#{age}');\n"
     end
     pipe_output("sqlite3 school.sqlite", create, 0)
-    select = "select name, age from students order by age asc;"
-    args = %W[--batch -d sqlite://school.sqlite --sql-query "#{select}"]
+    select = "SELECT name, age FROM students ORDER BY age ASC;"
+    args = %W[--batch --dbms=sqlite -d sqlite://school.sqlite --sql-query "#{select}"]
     output = shell_output("#{bin}/sqlmap #{args.join(" ")}")
-    data.each_slice(2) { |n, a| assert_match "#{n}, #{a}", output }
+    data.each_slice(2) { |name, age| assert_match "#{name}, #{age}", output }
   end
 end
