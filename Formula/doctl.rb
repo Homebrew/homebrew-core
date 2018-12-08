@@ -7,9 +7,9 @@ class Doctl < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e1bd9ed6d74d4a5b78b5655afe7e0681b6c024d38d510ab7fa5530a44cbbe716" => :mojave
-    sha256 "d9174a7400823c233f4d2ebc0be79c683a53b2bbd904b99d8a166d0e4baf2ab7" => :high_sierra
-    sha256 "1cd9963ec80e2fa3e484063c4af855455874d33b14cb9c0a96de2cd0064d3a2a" => :sierra
+    sha256 "357b2494804736a7fe3da4241f3efa45e668195778103a026518075a7fec5e3d" => :mojave
+    sha256 "40d9b9c35c1257a72519e342384890bd7bfe5129968de4b4293853972e259336" => :high_sierra
+    sha256 "49af819b31dbe6989c55ff070a7a9b992047901fb96623de31a31115b5a78def" => :sierra
   end
 
   depends_on "go" => :build
