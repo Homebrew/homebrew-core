@@ -1,8 +1,8 @@
 class Gcab < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
-  url "https://download.gnome.org/sources/gcab/1.1/gcab-1.1.tar.xz"
-  sha256 "192b2272c2adfde43595e5c62388854bca8a404bc796585b638e81774dd62950"
+  url "https://download.gnome.org/sources/gcab/1.2/gcab-1.2.tar.xz"
+  sha256 "5a2d96fe7e69e42d363c31cf2370d7afa3bb69cec984d4128322ea40e62c100d"
 
   bottle do
     sha256 "2dbf8a24746e9f675c9405f496ee6f4088e51075765998d6931bd8702f748edb" => :mojave
