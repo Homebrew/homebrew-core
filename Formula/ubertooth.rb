@@ -1,9 +1,9 @@
 class Ubertooth < Formula
   desc "Host tools for Project Ubertooth"
   homepage "https://github.com/greatscottgadgets/ubertooth/wiki"
-  url "https://github.com/greatscottgadgets/ubertooth/releases/download/2018-08-R1/ubertooth-2018-08-R1.tar.xz"
-  version "2018-08-R1"
-  sha256 "6115e49aaf99bc000fbb5319d61d8be14a2b62c4617fab75ce3328af333f02a0"
+  url "https://github.com/greatscottgadgets/ubertooth/releases/download/2018-12-R1/ubertooth-2018-12-R1.tar.xz"
+  version "2018-12-R1"
+  sha256 "0042daa79db0f4148a0255cdf05aa57006e23ac36edf7024e9e99ccc4892867b"
   head "https://github.com/greatscottgadgets/ubertooth.git"
 
   bottle do
