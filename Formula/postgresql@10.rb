@@ -4,6 +4,12 @@ class PostgresqlAT10 < Formula
   url "https://ftp.postgresql.org/pub/source/v10.6/postgresql-10.6.tar.bz2"
   sha256 "68a8276f08bda8fbefe562faaf8831cb20664a7a1d3ffdbbcc5b83e08637624b"
 
+  bottle do
+    sha256 "11ef89aadb1a8446c2b5f2ab80c9e7b08be256ee83ad358b71abd687f477cf1e" => :mojave
+    sha256 "ec63d333a8363645cd5e62d6ff8486eb0875d2d9404925971544bccd3bb963a9" => :high_sierra
+    sha256 "4474f061c11832651e1fe0426396219358f8e585bd503d0b7fecb8773c9c8658" => :sierra
+  end
+
   keg_only :versioned_formula
 
   option "with-python", "Enable PL/Python3"
