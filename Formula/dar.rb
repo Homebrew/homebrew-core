@@ -5,10 +5,11 @@ class Dar < Formula
   sha256 "e957c97101a17dc91dca00078457f225d2fa375d0db0ead7a64035378d4fc33b"
 
   bottle do
-    sha256 "ade6a894717bc00148d259f5c48b19172f12a307b84d2003f9a56ee95017d0a4" => :mojave
-    sha256 "b8e79c81345db6df1b985d0b05d7fef3f0f72c3a0dfd356cd048de5e483f31ed" => :high_sierra
-    sha256 "235d95dab2ef03ef746019989ca0939602903d79505bc3767d974f411996bb6b" => :sierra
-    sha256 "0f3d68d33877c3d98b9d8fbacdbd52c54569ccc1a46130ecec244415c58c5c73" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "3009db4f526f3657c3008475df42b5e1759ad9964c513f541de3c3c05e971ffb" => :mojave
+    sha256 "b872b6741e38ea818e1836fd218733331219c15acfb84a638dc213eec8925f6e" => :high_sierra
+    sha256 "263659de5c6418cadae4d2bbe71c4b45c14d7d5e91ae1fa62a8e2c7e8b3a2fd5" => :sierra
   end
 
   depends_on "upx" => :build
