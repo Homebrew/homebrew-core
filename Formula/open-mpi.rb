@@ -1,8 +1,8 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.3.tar.bz2"
-  sha256 "8be04307c00f51401d3fb9d837321781ea7c79f2a5a4a2e5d4eaedc874087ab6"
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.bz2"
+  sha256 "2f0b8a36cfeb7354b45dda3c5425ef8393c9b04115570b615213faaa3f97366b"
 
   bottle do
     sha256 "ba17c7e6a3ca1e6776e7d3049f0e75d5f3393bb4322885f9b1464717c4ceb012" => :mojave
@@ -42,6 +42,8 @@ class OpenMpi < Formula
     ]
     args << "--with-platform-optimized" if build.head?
     args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
+    # fixes an issue in 4.0.0, should be fixed in 4.0.1
+    args << "--enable-mpi1-compatibility"
 
     system "./autogen.pl" if build.head?
     system "./configure", *args
