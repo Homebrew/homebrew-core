@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.4308",
-      :revision => "d8266a1116515cc153ca32802c52d50134b438cf"
+      :tag      => "v0.1.4427",
+      :revision => "8bee1e64d2f3eacf849bc25ca670822f9089903d"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,6 +17,8 @@ class Circleci < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
     dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
     dir.install buildpath.children
 
