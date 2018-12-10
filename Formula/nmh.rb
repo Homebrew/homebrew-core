@@ -1,8 +1,8 @@
 class Nmh < Formula
   desc "The new version of the MH mail handler"
   homepage "https://www.nongnu.org/nmh/"
-  url "https://download.savannah.gnu.org/releases/nmh/nmh-1.7.tar.gz"
-  sha256 "cd05c7ca2cae524ae99f6ba673463a5cdeff62df93e85913aa9277ae8304ce44"
+  url "https://download.savannah.gnu.org/releases/nmh/nmh-1.7.1.tar.gz"
+  sha256 "f1fb94bbf7d95fcd43277c7cfda55633a047187f57afc6c1bb9321852bd07c11"
 
   bottle do
     sha256 "bbc73237ab88dcd93b91beb374b60cd2173dbd46762ad510b785228b7d4b8323" => :mojave
@@ -11,11 +11,19 @@ class Nmh < Formula
     sha256 "0cfd2f3f5a004515700bec2ddd251ddec754f0d28e62416e7b95072543d56d04" => :el_capitan
   end
 
+  head do
+    url "https://git.savannah.nongnu.org/git/nmh.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
   depends_on "openssl"
+  depends_on "w3m"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./autogen.sh" if build.head?
+    system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}", "--libdir=#{libexec}",
                           "--with-cyrus-sasl",
