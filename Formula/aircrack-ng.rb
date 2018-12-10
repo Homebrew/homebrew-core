@@ -1,8 +1,8 @@
 class AircrackNg < Formula
   desc "Next-generation aircrack with lots of new features"
   homepage "https://aircrack-ng.org/"
-  url "https://download.aircrack-ng.org/aircrack-ng-1.4.tar.gz"
-  sha256 "96092a8af7af27cdc1923cd5167dfca4a17e9f5fd866973b7b6eb6d3b479e13b"
+  url "https://download.aircrack-ng.org/aircrack-ng-1.5.2.tar.gz"
+  sha256 "9e592fe7658046220e0ac0a6d05c4026903f3077b248893e0056ccbe4ee88241"
 
   bottle do
     sha256 "62ed831240300adfc48f02eb00d06108374d8e3b3b6ceeae32a32fe7fd267095" => :mojave
