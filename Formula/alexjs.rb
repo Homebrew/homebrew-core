@@ -8,9 +8,9 @@ class Alexjs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8e2108b653293d18ab50c95597f16cfd13029883e783b8114d2944933583f979" => :mojave
-    sha256 "6a3613906ada284c99b6a0dbbd486446ba1cb2ee07786139ef1da8d8889b1352" => :high_sierra
-    sha256 "858ac6fdcf4d13ee13580f6e9d6ba653e0809fb1ed5298e3b06a64976faabac0" => :sierra
+    sha256 "4448a72318e45cbd3e47a6763555439417f556a45d19a57692ca6c891c3fa1b8" => :mojave
+    sha256 "c7d03a223d9cae6603cbeb2dd46070cbb79c2e1a012896d9e69e313e1472fcda" => :high_sierra
+    sha256 "0636f6ec0a9788daad20bf60b341a25ca26f367f8a6e72ea05998031a7b95701" => :sierra
   end
 
   depends_on "node"
