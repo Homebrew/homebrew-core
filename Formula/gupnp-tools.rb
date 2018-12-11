@@ -1,9 +1,8 @@
 class GupnpTools < Formula
   desc "Free replacements of Intel's UPnP tools"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.14.tar.xz"
-  sha256 "682b952b3cf43818c7d27549c152ea52e43320500820ab3392cf5a29a95e7efa"
-  revision 1
+  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.15.tar.xz"
+  sha256 "336ef4a09b9fc83444a1594c8215e2bed55fbea5b6d1bf6b54c63104b4c497ab"
 
   bottle do
     sha256 "4e56b83a3164e3ffa9adae38accc5099ae421727dde982f38dbbc912566b5e90" => :mojave
@@ -12,18 +11,22 @@ class GupnpTools < Formula
     sha256 "dd76de959f08a89e5cba3c135607af53a922413f584397cd141fb6a93b52587c" => :el_capitan
   end
 
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gtk+3"
-  depends_on "gtksourceview3"
+  depends_on "gtksourceview4"
   depends_on "gupnp"
   depends_on "gupnp-av"
+  depends_on "libsoup"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
