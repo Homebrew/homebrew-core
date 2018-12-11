@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag      => "v3.1.3",
-      :revision => "231083c2ce934b7946ebed3ed96f4fc1a3ba4f69"
+      :tag      => "v3.4.0",
+      :revision => "a7e09d53d8b5146bc28dc3ace14c05edc843baa6"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,7 @@ class Calicoctl < Formula
     sha256 "f3c800eb604d967120d6b26897b25a85b2e877d05502baaa17ecd1d8dbbdb24a" => :el_capitan
   end
 
+  depends_on "docker" => :build
   depends_on "glide" => :build
   depends_on "go" => :build
 
@@ -23,7 +24,7 @@ class Calicoctl < Formula
     dir.install buildpath.children
     cd dir do
       system "glide", "install", "-strip-vendor"
-      system "make", "binary"
+      system "make", "build"
       bin.install "dist/calicoctl-darwin-amd64" => "calicoctl"
       prefix.install_metafiles
     end
