@@ -1,8 +1,8 @@
 class Libtins < Formula
   desc "C++ network packet sniffing and crafting library"
   homepage "https://libtins.github.io/"
-  url "https://github.com/mfontanini/libtins/archive/v4.0.tar.gz"
-  sha256 "2a758d1bed51760bbd57fcaa00610534e0cc3a6d55d91983724e5f46739d66b8"
+  url "https://github.com/mfontanini/libtins/archive/v4.1.tar.gz"
+  sha256 "81a0ae1e04499b25984b2833579d33c4a78ff4513e9a14176c574e855163f7a5"
   head "https://github.com/mfontanini/libtins.git"
 
   bottle do
