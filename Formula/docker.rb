@@ -20,8 +20,11 @@ class Docker < Formula
     dir.install (buildpath/"components/cli").children
     cd dir do
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
-      ldflags = ["-X github.com/docker/cli/cli.GitCommit=#{commit}",
-                 "-X github.com/docker/cli/cli.Version=#{version}-ce"]
+      build_time = Utils.popen_read("date -u +'%Y-%m-%dT%H:%M:%SZ' 2> /dev/null").chomp
+      ldflags = ["-X \"github.com/docker/cli/cli.BuildTime=#{build_time}\"",
+                 "-X github.com/docker/cli/cli.GitCommit=#{commit}",
+                 "-X github.com/docker/cli/cli.Version=#{version}",
+                 "-X \"github.com/docker/cli/cli.PlatformName=Docker Engine - Community\""]
       system "go", "build", "-o", bin/"docker", "-ldflags", ldflags.join(" "),
              "github.com/docker/cli/cmd/docker"
 
