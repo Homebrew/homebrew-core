@@ -1,8 +1,8 @@
 class Mruby < Formula
   desc "Lightweight implementation of the Ruby language"
   homepage "https://mruby.org/"
-  url "https://github.com/mruby/mruby/archive/1.4.1.tar.gz"
-  sha256 "2469b1f3e3c97a34f8c3dca1bca9795f66d6b17c7be60ddfc1f3b502cdcbb400"
+  url "https://github.com/mruby/mruby/archive/2.0.0.tar.gz"
+  sha256 "fa495898d51130c69480a13e90df5dc18cb1a9d9a31836268a895989d902048f"
   head "https://github.com/mruby/mruby.git"
 
   bottle do
