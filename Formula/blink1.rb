@@ -8,9 +8,9 @@ class Blink1 < Formula
 
   bottle do
     cellar :any
-    sha256 "ed834600464996f4c36f4846e0365b354bb45a67c8c588804945785eb669fcc1" => :mojave
-    sha256 "1a564fd8d39f13eea303f2e7f2a59fcd1332fb7b8468ad87b6f76c468cc92253" => :high_sierra
-    sha256 "071313e690a4534af8123082c28d0c15a31876c892a3ca3f243210f56b3caef2" => :sierra
+    sha256 "6a9aae3733db387dfa9e9c1bbacb9b3c7993f42486115254c8c67d9c716c455d" => :mojave
+    sha256 "0a19927c5f385f1aede59f406edc34d91cfa46b0b961d1f02bf7170e06888f4f" => :high_sierra
+    sha256 "9cc48de0d254d4e30d2ac0649d298e55ef0576b97da7b77f170261b9a913da43" => :sierra
   end
 
   def install
