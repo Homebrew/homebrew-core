@@ -3,6 +3,7 @@ class BrewPhpSwitcher < Formula
   homepage "https://github.com/philcook/php-switcher"
   url "https://github.com/philcook/brew-php-switcher/archive/v2.0.tar.gz"
   sha256 "c2303b1b1a66ee90ed900c3beabacd6aa4e921dbcad5242e399c45d86899bc88"
+  head "https://github.com/philcook/brew-php-switcher.git"
 
   bottle :unneeded
 
