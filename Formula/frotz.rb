@@ -24,4 +24,8 @@ class Frotz < Formula
     system "make", "frotz"
     system "make", "install"
   end
+
+  test do
+    system "echo", "test", "|", "frotz", "/usr/local/Cellar/frotz/2.44/test.z5"
+  end
 end
