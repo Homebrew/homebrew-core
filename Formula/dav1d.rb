@@ -8,13 +8,18 @@ class Dav1d < Formula
   depends_on "nasm" => :build
   depends_on "ninja" => :build
 
+  resource "00000000.ivf" do
+    url "https://people.xiph.org/~tterribe/av1/samples-all/00000000.ivf"
+    sha256 "52b4351f9bc8a876c8f3c9afc403d9e90f319c1882bfe44667d41c8c6f5486f3"
+  end
+
   def install
     system "meson", "--prefix=#{prefix}", "build", "--buildtype", "release"
     system "ninja", "install", "-C", "build"
   end
 
   test do
-    system "curl", "-L", "https://people.xiph.org/~tterribe/av1/samples-all/00000000.ivf", "-o", testpath/"00000000.ivf"
+    testpath.install resource("00000000.ivf")
     system bin/"dav1d", "-i", testpath/"00000000.ivf", "-o", testpath/"00000000.md5"
 
     assert_predicate (testpath/"00000000.md5"), :exist?
