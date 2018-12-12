@@ -1,8 +1,8 @@
 class Bcal < Formula
   desc "Storage conversion and expression calculator"
   homepage "https://github.com/jarun/bcal"
-  url "https://github.com/jarun/bcal/archive/v2.0.tar.gz"
-  sha256 "7120b25a74b2bec99d75238c235e440f5338d53ad64a4cfe4d05e65814ac91d2"
+  url "https://github.com/jarun/bcal/archive/v2.1.tar.gz"
+  sha256 "c0b6cb911a773abdd555e6a9e0eb8a25934ceca038156e6250e117fa451beaa6"
 
   bottle do
     cellar :any_skip_relocation
