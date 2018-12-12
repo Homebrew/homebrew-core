@@ -3,7 +3,7 @@ class CeresSolver < Formula
   homepage "http://ceres-solver.org/"
   url "http://ceres-solver.org/ceres-solver-1.14.0.tar.gz"
   sha256 "4744005fc3b902fed886ea418df70690caa8e2ff6b5a90f3dd88a3d291ef8e8e"
-  revision 3
+  revision 4
   head "https://ceres-solver.googlesource.com/ceres-solver.git"
 
   bottle do
@@ -48,6 +48,6 @@ class CeresSolver < Formula
 
     system "cmake", "-DCeres_DIR=#{share}/Ceres", "."
     system "make"
-    assert_match "CONVERGENCE", shell_output("./helloworld", 0)
+    assert_match "CONVERGENCE", shell_output("./helloworld")
   end
 end
