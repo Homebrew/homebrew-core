@@ -12,6 +12,7 @@ class Mutt < Formula
   homepage "http://www.mutt.org/"
   url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.11.1.tar.gz"
   sha256 "705141013662e53b78e49ed545360281f30a09ddda908f4de733277a60b1db05"
+  revision 1
 
   bottle do
     sha256 "cc81730a08426a73c58da6e76c91852eddc2a8a5eecfa48110959d7af0bb4ec7" => :mojave
@@ -37,7 +38,8 @@ class Mutt < Formula
     :because => "both install mmdf.5 and mbox.5 man pages"
 
   def install
-    user_admin = Etc.getgrnam("admin").mem.include?(ENV["USER"])
+    user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
+    effective_group = Etc.getgrgid(Process.egid).name
 
     args = %W[
       --disable-dependency-tracking
@@ -55,11 +57,6 @@ class Mutt < Formula
       --with-tokyocabinet
     ]
 
-    # This is just a trick to keep 'make install' from trying
-    # to chgrp the mutt_dotlock file (which we can't do if
-    # we're running as an unprivileged user)
-    args << "--with-homespool=.mbox" unless user_admin
-
     args << "--enable-gpgme" if build.with? "gpgme"
 
     system "./prepare", *args
@@ -68,15 +65,30 @@ class Mutt < Formula
     # This permits the `mutt_dotlock` file to be installed under a group
     # that isn't `mail`.
     # https://github.com/Homebrew/homebrew/issues/45400
-    if user_admin
-      inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = admin"
+    unless user_in_mail_group
+      inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = #{effective_group}"
     end
 
     system "make", "install"
     doc.install resource("html") if build.head?
   end
 
+  def caveats; <<~EOS
+    mutt_dotlock(1) has been installed, but does not have the permissions lock
+    spool files in /var/mail. To grant the necessary permissions, run
+
+      sudo chgrp mail #{bin}/mutt_dotlock
+      sudo chmod g+s #{bin}/mutt_dotlock
+
+    Alternatively, you may configure `spoolfile` in your .muttrc to a file inside
+    your home directory.
+  EOS
+  end
+
   test do
     system bin/"mutt", "-D"
+    touch "foo"
+    system bin/"mutt_dotlock", "foo"
+    system bin/"mutt_dotlock", "-u", "foo"
   end
 end
