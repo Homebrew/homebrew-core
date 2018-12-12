@@ -48,6 +48,6 @@ class CeresSolver < Formula
 
     system "cmake", "-DCeres_DIR=#{share}/Ceres", "."
     system "make"
-    assert_match "CONVERGENCE", shell_output("./helloworld", 0)
+    assert_match "CONVERGENCE", shell_output("./helloworld")
   end
 end
