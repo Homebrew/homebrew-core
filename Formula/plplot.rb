@@ -3,6 +3,7 @@ class Plplot < Formula
   homepage "https://plplot.sourceforge.io"
   url "https://downloads.sourceforge.net/project/plplot/plplot/5.14.0%20Source/plplot-5.14.0.tar.gz"
   sha256 "331009037c9cad9fcefacd7dbe9c7cfae25e766f5590f9efd739a294c649df97"
+  revision 1
 
   bottle do
     sha256 "36438c5bc345b831ea582a17e3fc3ded683015f3df45a9f77ca110fa36065359" => :mojave
@@ -41,6 +42,16 @@ class Plplot < Formula
       system "cmake", "..", *args
       system "make"
       system "make", "install"
+    end
+
+    # fix rpaths
+    cd (lib.to_s) do
+      Dir["*.dylib"].select { |f| File.ftype(f) == "file" }.each do |f|
+        MachO::Tools.dylibs(f).select { |d| d.start_with?("@rpath") }.each do |d|
+          d_new = d.sub("@rpath", opt_lib.to_s)
+          MachO::Tools.change_install_name(f, d, d_new)
+        end
+      end
     end
   end
 
