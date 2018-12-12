@@ -1,8 +1,8 @@
 class Phpmyadmin < Formula
   desc "Web interface for MySQL and MariaDB"
   homepage "https://www.phpmyadmin.net"
-  url "https://files.phpmyadmin.net/phpMyAdmin/4.8.3/phpMyAdmin-4.8.3-all-languages.tar.gz"
-  sha256 "e2c4f0a875936a476e237eb196c219e48dee0db95311c7ae3066d5663d162f2b"
+  url "https://files.phpmyadmin.net/phpMyAdmin/4.8.4/phpMyAdmin-4.8.4-all-languages.tar.gz"
+  sha256 "4716ad8d0e2fb74f01adc32b7aa0dedcadf6671346a74a521182f62ae8954880"
 
   bottle :unneeded
 
