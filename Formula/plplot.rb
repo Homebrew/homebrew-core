@@ -1,9 +1,8 @@
 class Plplot < Formula
   desc "Cross-platform software package for creating scientific plots"
   homepage "https://plplot.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/plplot/plplot/5.13.0%20Source/plplot-5.13.0.tar.gz"
-  sha256 "ec36bbee8b03d9d1c98f8fd88f7dc3415560e559b53eb1aa991c2dcf61b25d2b"
-  revision 5
+  url "https://downloads.sourceforge.net/project/plplot/plplot/5.14.0%20Source/plplot-5.14.0.tar.gz"
+  sha256 "331009037c9cad9fcefacd7dbe9c7cfae25e766f5590f9efd739a294c649df97"
 
   bottle do
     sha256 "f1a2091723c4fae1dcfe3e9d9c45c9604748db213238dba8a6f33d5186dbc751" => :mojave
