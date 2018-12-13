@@ -54,7 +54,7 @@ class Tinyproxy < Formula
         <false/>
         <key>ProgramArguments</key>
         <array>
-            <string>#{opt_sbin}/tinyproxy</string>
+            <string>#{opt_bin}/tinyproxy</string>
             <string>-d</string>
         </array>
         <key>WorkingDirectory</key>
