@@ -1,8 +1,8 @@
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
-  url "https://github.com/sharkdp/hyperfine/archive/v1.4.0.tar.gz"
-  sha256 "75a34132f674aab519f812c149b8c87b3d87720d6e530b545c798ab2a0149084"
+  url "https://github.com/sharkdp/hyperfine/archive/v1.5.0.tar.gz"
+  sha256 "d5183611348e696e579dda846cee92b7b78c8ef18c00bfb9b0a62d0a63034823"
 
   bottle do
     sha256 "79cd73ae731e8d4d663d629449726e8b580a01d442103fc75fb9f8d9e83f8560" => :mojave
