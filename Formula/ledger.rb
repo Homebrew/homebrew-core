@@ -3,6 +3,7 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/3.1.2.tar.gz"
   sha256 "3ecebe00e8135246e5437e4364bb7a38869fad7c3250b849cf8c18ca2628182e"
+  revision 1
   head "https://github.com/ledger/ledger.git"
 
   bottle do
