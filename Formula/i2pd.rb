@@ -3,6 +3,7 @@ class I2pd < Formula
   homepage "https://i2pd.website/"
   url "https://github.com/PurpleI2P/i2pd/archive/2.23.0.tar.gz"
   sha256 "19e8573b44b94ce83bd5705569934049cb1dc39db11449abcb9e4b36afe5a279"
+  revision 1
 
   bottle do
     cellar :any
