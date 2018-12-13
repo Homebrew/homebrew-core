@@ -3,6 +3,7 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   url "https://github.com/EttusResearch/uhd/archive/v3.13.1.0.tar.gz"
   sha256 "16fb265b9611ff51ea229058824661c04db935cf88fde17af9cb66a8b9299bd5"
+  revision 1
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
