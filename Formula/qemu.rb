@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "x86 and PowerPC Emulator"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-3.0.0.tar.xz"
-  sha256 "8d7af64fe8bd5ea5c3bdf17131a8b858491bcce1ee3839425a6d91fb821b5713"
+  url "https://download.qemu.org/qemu-3.1.0.tar.xz"
+  sha256 "6a0508df079a0a33c2487ca936a56c12122f105b8a96a44374704bef6c69abfc"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
