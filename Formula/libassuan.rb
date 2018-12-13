@@ -1,9 +1,9 @@
 class Libassuan < Formula
   desc "Assuan IPC Library"
   homepage "https://www.gnupg.org/related_software/libassuan/"
-  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.1.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.1.tar.bz2"
-  sha256 "47f96c37b4f2aac289f0bc1bacfa8bd8b4b209a488d3d15e2229cb6cc9b26449"
+  url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.2.tar.bz2"
+  mirror "libassuan"
+  sha256 "986b1bf277e375f7a960450fbb8ffbd45294d06598916ad4ebf79aee0cb788e7"
 
   bottle do
     cellar :any
