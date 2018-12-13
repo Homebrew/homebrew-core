@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-6.4.2.tar.gz"
-  sha256 "3f53fae9397a9aad5d2710d592c81d1ed9c0b7f6be402356f4f4f43d28164d7a"
+  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-6.5.2.tar.gz"
+  sha256 "80310938785965cde0228e7a3b091ff8282e10b222f0268c2fdd1d900fac53c0"
   head "https://github.com/elastic/logstash.git"
 
   bottle :unneeded
@@ -30,13 +30,21 @@ class Logstash < Formula
               "LOGSTASH_HOME=#{libexec}"
 
     libexec.install Dir["*"]
+
+    # Move config files into etc
+    (etc/"logstash").install Dir[libexec/"config/*"]
+    (libexec/"config").rmtree
+
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
   end
 
+  def post_install
+    ln_s etc/"logstash", libexec/"config"
+  end
+
   def caveats; <<~EOS
-    Please read the getting started guide located at:
-      https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html
+    Configuration files are located in #{etc}/logstash/
   EOS
   end
 

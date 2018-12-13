@@ -7,9 +7,10 @@ class Opencoarrays < Formula
 
   bottle do
     cellar :any
-    sha256 "da64bfe45566be340e0a998173d922d89453b0fd9c7ae3bef3629e1a7fded891" => :mojave
-    sha256 "ae71d4c445f5ed7e298dd05d82a92430f0c37ccfcded324ccbcfb74fbeb57bc0" => :high_sierra
-    sha256 "3b1ab0f8991aebde79c74bc2d859096c95a9195a3c7f40d44718e1173caa9f67" => :sierra
+    rebuild 1
+    sha256 "f9381136d912f0b101c3fae93853d374257a55b87902ffc0ba7929c610372a19" => :mojave
+    sha256 "daf826a8943012133433f240d47dea04f3debedad6dcd92e27bf322344a3ce4b" => :high_sierra
+    sha256 "96dca35e40409e14bc79bd8db5c956f389ef8b2d4969f7269ceb3649c8ebde5d" => :sierra
   end
 
   depends_on "cmake" => :build

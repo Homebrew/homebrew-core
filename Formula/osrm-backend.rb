@@ -1,16 +1,15 @@
 class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
-  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.18.0.tar.gz"
-  sha256 "db9b795dea5d74ca64d71b16e657df02987a90e15014a79994eba0bb14466e61"
+  url "https://github.com/Project-OSRM/osrm-backend/archive/v5.20.0.tar.gz"
+  sha256 "5329c12e705c03e4504f8a5cb9e09a2c1855ceb9f74c03e32930cd974fad3bbe"
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
     cellar :any
-    sha256 "3e6d5e366452759b28916ad2ef8a58bc025d494dafdcd71c44d4088df898dc89" => :mojave
-    sha256 "f5195f12aac91662e4523d7e22557e1a027d6588a69b913ba91f688160662539" => :high_sierra
-    sha256 "90d3930e7744678a686e111ed9f334eb65cb46c72b1a84faf81e4c976ba9fce7" => :sierra
-    sha256 "82c744cc45f7347ebac04b5af6528ecfe49b5715e77401ae9a39af8c03038a20" => :el_capitan
+    sha256 "b507660a1894d856df19efb161d2ae8facb35cb68e9187186e04e6dbe55a52a6" => :mojave
+    sha256 "cd1def27ec7f92d384d5bb9d7f83f066fbf7bd4e378ce1f0047a72c76af31067" => :high_sierra
+    sha256 "965e8b7de7ecf2f6b597b0e244f3e676463842b7f1451f56179e3ff73b97e501" => :sierra
   end
 
   depends_on "cmake" => :build

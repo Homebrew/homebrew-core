@@ -37,7 +37,7 @@ class OpenBabel < Formula
 
     # Point cmake towards correct python
     if build.with? "python@2"
-      ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
       pypref = `python -c 'import sys;print(sys.prefix)'`.strip
       pyinc = `python -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'`.strip
       args << "-DPYTHON_BINDINGS=ON"

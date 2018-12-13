@@ -5,13 +5,11 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.27.tar.bz2"
   sha256 "4740c69720dfbebf8fb3e77057b3e6a257ccf0432cdaf7345f873247390e4313"
-  revision 1
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "cf89561d96c920f6ec6f0185557d2f0b95ec530c956519f3a8a53f7c96d08c6e" => :high_sierra
-    sha256 "7423ab8435383694efd8b12e3260b9b39d60e1d28ac8dd475ae361ec618ccef3" => :sierra
-    sha256 "2581ddd563891c629a26ea658b4168d4687f736a6b0bc46638b51af3e8a036f1" => :el_capitan
+    sha256 "022b9cb44fa4886a90355116359451343739f09dc9d9a53fdf145b4763a5a40e" => :mojave
+    sha256 "22d56edc05fabf65cb0da4f771a8062357793fb56d8abb05330653cd2bf9feab" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -71,22 +69,36 @@ class GraphTool < Formula
     sha256 "94559544ad95753a13ee701c02af706c8b296c54af2c1706520ec96e24aa6d39"
   end
 
-  def install
-    xy = Language::Python.major_minor_version "python3"
+  # Remove for > 2.27
+  # Upstream commit from 3 Oct 2018 "Fix compilation with CGAL 4.13"
+  patch do
+    url "https://git.skewed.de/count0/graph-tool/commit/aa39e4a6.diff"
+    sha256 "5a4ea386342c2de9422da5b07dd4272d47d2cdbba99d9b258bff65a69da562c1"
+  end
 
+  def install
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :high_sierra
+
+    xy = Language::Python.major_minor_version "python3"
     venv = virtualenv_create(libexec, "python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
     end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "PYTHON=python3",
-                          "PYTHON_LIBS=-undefined dynamic_lookup",
-                          "--with-python-module-path=#{lib}/python#{xy}/site-packages",
-                          "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      PYTHON=python3
+      PYTHON_LIBS=-undefined\ dynamic_lookup
+      --with-python-module-path=#{lib}/python#{xy}/site-packages
+      --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
+    ]
+    args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+
+    system "./configure", *args
     system "make", "install"
 
     site_packages = "lib/python#{xy}/site-packages"

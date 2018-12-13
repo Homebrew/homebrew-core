@@ -1,26 +1,18 @@
 class Pdftoipe < Formula
   desc "Reads arbitrary PDF files and generates an XML file readable by Ipe"
   homepage "https://github.com/otfried/ipe-tools"
-  url "https://github.com/otfried/ipe-tools/archive/v7.2.7.1.tar.gz"
-  sha256 "b45a7d6bec339e878717bd273c32c7957e2d4d87c57e117e772ee3dd3231d7aa"
-  revision 1
+  url "https://github.com/otfried/ipe-tools/archive/v7.2.7.3.tar.gz"
+  sha256 "1ab1c9303ad2e05d07229d3879ecf52f150639deb0e3b02130cf3facc2609be1"
 
   bottle do
     cellar :any
-    sha256 "bb6c9f9614cb9d09cc3641118f627ce21dc4e4b35c22b139c3437e5e4231e917" => :mojave
-    sha256 "4b8af712c6d8bdae593f60b03dfc6abaa0205013b9470376c519b6552ebddf52" => :high_sierra
-    sha256 "89642035b0968b03bbac12d40a0b14b00caef43590e4f3f3311ca07715997a34" => :sierra
+    sha256 "07ed1775adadc3b241bb7994fece568815c173960cf5fa613f1e6aa871cf5ffe" => :mojave
+    sha256 "217fbc3e5539f5e7507ecdcf7b5def07477136903e6e9ce073c4d692ee8618b9" => :high_sierra
+    sha256 "e9179da87748c561bf55a6866eb88301c4b1f53baae4d6137fdb9b5f78c01186" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "poppler"
-
-  # https://github.com/otfried/ipe-tools/pull/30
-  # Should be safe to remove on next release but check if merged.
-  patch do
-    url "https://github.com/otfried/ipe-tools/pull/30.patch?full_index=1"
-    sha256 "ac7f9945f12ff11a3ae41e368cb439aeac1e9ff3e81907568b39c3752959288c"
-  end
 
   needs :cxx11
 

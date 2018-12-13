@@ -14,7 +14,7 @@ class Pssh < Formula
     sha256 "62595390d018a9a953928cf6adf8e9299b92f00c3846d74757a18437abbc5f27" => :mavericks
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   conflicts_with "putty", :because => "both install `pscp` binaries"
 

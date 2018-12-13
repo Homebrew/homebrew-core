@@ -43,7 +43,7 @@ class PythonYq < Formula
 
     bin.install Dir[libexec/"bin/*"]
     env = {
-      :PATH => "#{Formula["jq"].opt_bin}:$PATH",
+      :PATH       => "#{Formula["jq"].opt_bin}:$PATH",
       :PYTHONPATH => ENV["PYTHONPATH"],
     }
     bin.env_script_all_files(libexec/"bin", env)

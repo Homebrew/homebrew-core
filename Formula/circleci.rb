@@ -3,20 +3,22 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag => "v0.1.3541",
-      :revision => "215b0f9af7b3f82361ce1ba77022afa59c5d89ee"
+      :tag      => "v0.1.4427",
+      :revision => "8bee1e64d2f3eacf849bc25ca670822f9089903d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "0c9e40da0b79127997fdc2edca23c43887d2ac6914529dfb6402bd2b23d64f87" => :mojave
-    sha256 "ee796b0218bb214313e6c81dca55a8cefbe44f704b52d539893f43a9bd52eb23" => :high_sierra
-    sha256 "cc7efdac49546a0c27b3a2196a6096c896d254a0c5ab90f35ec16f6b9b450853" => :sierra
+    sha256 "fcad27fdb4648103749894ffece58df47057a17424110fd2cdf03fbe3068566e" => :mojave
+    sha256 "7065a47fcb08292e0dd2a8b551d0f99ddb0f3f656b73c6dbe18d7eed9808a0c4" => :high_sierra
+    sha256 "b4ea14c889b5e34c46c00441e2c109a1723f135da3c94dc1d3e41bf66b0be12e" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "on"
+
     dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
     dir.install buildpath.children
 
@@ -24,6 +26,7 @@ class Circleci < Formula
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
+        -X github.com/CircleCI-Public/circleci-cli/cmd.PackageManager=homebrew
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
         -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
@@ -40,5 +43,8 @@ class Circleci < Formula
     (testpath/".circleci.yml").write("{version: 2.1}")
     output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
     assert_match "Local builds do not support that version at this time", output
+    # assert update is not included in output of help meaning it was not included in the build
+    assert_match "update      This command is unavailable on your platform", shell_output("#{bin}/circleci help")
+    assert_match "`update` is not available because this tool was installed using `homebrew`.", shell_output("#{bin}/circleci update")
   end
 end

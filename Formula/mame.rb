@@ -1,16 +1,16 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0202.tar.gz"
-  version "0.202"
-  sha256 "a5cef3e7e606e2a36d25b559a5410c1c3105acd24ddbff03352cacb1f1ca7053"
+  url "https://github.com/mamedev/mame/archive/mame0204.tar.gz"
+  version "0.204"
+  sha256 "eeb6e304502dc1f1ce5a9c73d59a32865fc6e374c14ecef85d85b6de98a76e42"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "17080500430d593a3d8e42e376543ce1357d0b2297a9829e21a0ca738470c6c8" => :mojave
-    sha256 "6623613f04533261ba10f0c8b8ed7e34a080e111dfca03e06451dfa205e968df" => :high_sierra
-    sha256 "d1da5f1c110606db52b2f0e61657d5939e3a0bf7bdaa75211046bc5d791813e3" => :sierra
+    sha256 "69da0e0b7367d61a4fd071791622b1e66bd2cd6b97e7ba4268e0a8be6ee687f4" => :mojave
+    sha256 "75b03d95efb819d1cb8d1497389a1c9202df27b3f096e82f9f2d08b23b7eaa82" => :high_sierra
+    sha256 "1aec6e8076495bde8634256556f072f331ec26fb5e6e6d05450fe991ec2c253c" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -24,12 +24,6 @@ class Mame < Formula
   depends_on "sdl2"
   depends_on "sqlite"
   depends_on "utf8proc"
-
-  # jpeg 9 compatibility
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/2b7053a/mame/jpeg9.patch"
-    sha256 "be8095e1b519f17ac4b9e6208f2d434e47346d8b4a8faf001b68749aac3efd20"
-  end
 
   # Need C++ compiler and standard library support C++14.
   needs :cxx14

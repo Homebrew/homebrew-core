@@ -1,15 +1,14 @@
 class OpencvAT2 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/2.4.13.6.tar.gz"
-  sha256 "6ecbeea11f68356b748e35f758f4406067d3a2f6339e4582c63373fa6c3f5a72"
-  revision 2
+  url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
+  sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
+  revision 1
 
   bottle do
-    sha256 "5781c0a672d879e15a23b38a08322662afb805abbe25452ebfbe0f20c2f73733" => :mojave
-    sha256 "15ee653e5cdc6bb5f0a65249860fe1007a6102612f27068b8613685b09f1ea6f" => :high_sierra
-    sha256 "b50bd28d7e579757d40596a6005722570bddcae31201058195acf1ca2c86bba0" => :sierra
-    sha256 "53c00a44de3f8df943479f448a4c5156b205a93fa6857456a3130d76a31918f1" => :el_capitan
+    sha256 "af0260a1f08b7b60ca8fb918b67bf628db9c46e9a8cf5a69629c50698eb735fe" => :mojave
+    sha256 "0dc985cebec39f2b7fe7db76043964b1466be907de832490ef195cdd5c6b50e5" => :high_sierra
+    sha256 "cfe1c8ebc835aab1057bdba10d4379ecf3676480c12132aa11629b8479b5d146" => :sierra
   end
 
   keg_only :versioned_formula
@@ -28,14 +27,6 @@ class OpencvAT2 < Formula
   depends_on "openexr"
   depends_on "python@2" => :recommended
   depends_on "numpy" if build.with? "python@2"
-
-  # Remove for > 2.4.13.6
-  # Backport of https://github.com/opencv/opencv/pull/10011
-  # Upstream PR from 21 Apr 2018 "Fix build with FFmpeg 4.0"
-  patch do
-    url "https://github.com/opencv/opencv/commit/99091a62463.patch?full_index=1"
-    sha256 "c60be5bc53bc8964550c0a2467a41e391c730fb090219954a2cd8d9a54a1a5a7"
-  end
 
   def install
     jpeg = Formula["jpeg"]

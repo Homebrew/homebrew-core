@@ -1,15 +1,14 @@
 class Fd < Formula
   desc "Simple, fast and user-friendly alternative to find"
   homepage "https://github.com/sharkdp/fd"
-  url "https://github.com/sharkdp/fd/archive/v7.1.0.tar.gz"
-  sha256 "9385a55738947f69fd165781598de6c980398c6214a4927fce13a4f7f1e63d4d"
+  url "https://github.com/sharkdp/fd/archive/v7.2.0.tar.gz"
+  sha256 "153d0ac821901d9843b501dd6ba00e82aa73e3d61c27b2150af7ebc1fb6dff67"
   head "https://github.com/sharkdp/fd.git"
 
   bottle do
-    sha256 "86e01a82f879ac94a6390e6109135df413c9b0a0ba87edb302ac26aad1ae3263" => :mojave
-    sha256 "be21df7d1288190659327d2dc4329989fa5700c15a50aef6049b7b54d6ac0602" => :high_sierra
-    sha256 "b4098c7dfa787e8d44a617788f327b052b8c411ea30104fb20a841a84efe0ec8" => :sierra
-    sha256 "829fddb0560b4b0ac2e198b05134508cfa13dc370ae7bd9c870172a6bd5c65e5" => :el_capitan
+    sha256 "0c4e3e81448c0c1fe41d3ee84c7f0fd28f2fb0a57888107b400be99032d3123c" => :mojave
+    sha256 "42c3bf9ff769177c0ae456008a0b9f80c8a8851189838e3a0b74efa84d0b34db" => :high_sierra
+    sha256 "4fe626ac8a1968b05a6d85789401589040c8170916e1b8f3a70475b3473efc5b" => :sierra
   end
 
   depends_on "rust" => :build

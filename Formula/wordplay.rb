@@ -6,11 +6,10 @@ class Wordplay < Formula
   sha256 "9436a8c801144ab32e38b1e168130ef43e7494f4b4939fcd510c7c5bf7f4eb6d"
 
   bottle do
-    sha256 "9de5c7545e51050e8f06834d25597718a6d73718f888f819bc392f09acb9a7f1" => :high_sierra
-    sha256 "217fcfc1df6ae5c4dfb339fa4752a76486a4820006aac76be16a64a2d12d103d" => :sierra
-    sha256 "0f549555c287b010bd2936d355942e0b652e520a36b6a0c2b887516d08c9db36" => :el_capitan
-    sha256 "693f5920e44376dfcb1535c7dfc61c1d01a5c707756b2f05ce015486e8bd6c39" => :yosemite
-    sha256 "1255545f067e86a01a7958d212af815c155026cfc430a421555fceb1587b0931" => :mavericks
+    rebuild 1
+    sha256 "d98d89abff244c21cf2ad4eb651ed39afea5b3146bf0ec3277483b813c4e8d89" => :mojave
+    sha256 "9056fb79657b3be7ba8a97f4a13b1777e72447b717bd9fd1b7830023bda964a6" => :high_sierra
+    sha256 "5141a8f5456e5a685b65c5d9f3100029c6f42b3f0c80aa3d6a4736d3028a6a6b" => :sierra
   end
 
   # Fixes compiler warnings on Darwin, via MacPorts.

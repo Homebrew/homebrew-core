@@ -3,14 +3,14 @@ class ArcadeLearningEnvironment < Formula
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
   sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
-  revision 1
+  revision 2
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
     cellar :any
-    sha256 "7434540f6e690a09b2cb33d1865fe8e1ce7e10368f568c4322866f4d14d7b2b8" => :mojave
-    sha256 "b85f87b14e2b59b7c185cc8a002f053b3f99be0d5eda013d037f69f507976379" => :high_sierra
-    sha256 "f69fabe254f94764c1d519eb059766936920dcb187999ee9f5210f234b0da93e" => :sierra
+    sha256 "650f4b525c0ec6d8c4716b4ef4acf3bcf6fb754bc425fe02986a28b42f11ed1d" => :mojave
+    sha256 "23210afaa7fdf64dbe85d75682ef7234d9e0d84a94e3f0691015d5e0bccc9d3b" => :high_sierra
+    sha256 "ce438bce03014df33bb3354032f62427e9018fc3e5febe26748bdbb5615d3844" => :sierra
   end
 
   depends_on "cmake" => :build

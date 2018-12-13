@@ -7,17 +7,14 @@ class TclTk < Formula
   sha256 "c43cb0c1518ce42b00e7c8f6eaddd5195c53a98f94adc717234a65cbcfd3f96a"
 
   bottle do
-    sha256 "1690ca5d3ae90ab441493ba502594ae19739e10ab22385ccd5b59127b1e082d3" => :mojave
-    sha256 "cd4dec2b564dcad86b151803c852142366bc48ec1b13d48a2e495c83fc32a688" => :high_sierra
-    sha256 "96144fc3d7eaeec6125ff9f534f0aa21b61b673914dd8cb4898b10ca0530d90e" => :sierra
-    sha256 "79222749d221013eb7d1fb529ace13293a819b43d6633b964d1f8f318ac66f33" => :el_capitan
+    rebuild 1
+    sha256 "120f17e162aa5e7351d59a97dc068055b421892ebb6226734349ee759ca42754" => :mojave
+    sha256 "869c7dd3f4e4cd25dca3cda9f0ff8350af08c3ba18ebcc60b661ca8df58ba8a5" => :high_sierra
+    sha256 "d7ff69ed715709d44eaff72bca96099ad2815091fcd97358ad5aaa5239bf06b8" => :sierra
   end
 
   keg_only :provided_by_macos,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
-
-  option "without-tcllib", "Don't build tcllib (utility modules)"
-  option "without-tk", "Don't build the Tk (window toolkit)"
 
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
@@ -56,27 +53,23 @@ class TclTk < Formula
       ln_s bin/"tclsh#{version.to_f}", bin/"tclsh"
     end
 
-    if build.with? "tk"
-      ENV.prepend_path "PATH", bin # so that tk finds our new tclsh
+    # Let tk finds our new tclsh
+    ENV.prepend_path "PATH", bin
 
-      resource("tk").stage do
-        cd "unix" do
-          system "./configure", *args, "--enable-aqua=yes",
-                                "--without-x", "--with-tcl=#{lib}"
-          system "make"
-          system "make", "install"
-          system "make", "install-private-headers"
-          ln_s bin/"wish#{version.to_f}", bin/"wish"
-        end
+    resource("tk").stage do
+      cd "unix" do
+        system "./configure", *args, "--enable-aqua=yes",
+                              "--without-x", "--with-tcl=#{lib}"
+        system "make"
+        system "make", "install"
+        system "make", "install-private-headers"
+        ln_s bin/"wish#{version.to_f}", bin/"wish"
       end
     end
 
-    if build.with? "tcllib"
-      resource("tcllib").stage do
-        system "./configure", "--prefix=#{prefix}",
-                              "--mandir=#{man}"
-        system "make", "install"
-      end
+    resource("tcllib").stage do
+      system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+      system "make", "install"
     end
   end
 

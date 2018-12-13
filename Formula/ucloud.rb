@@ -1,14 +1,14 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://github.com/ucloud/ucloud-cli/archive/0.1.3.tar.gz"
-  sha256 "897976649717b9e19b7337f0f621321d69a52b679295092a70c072a73b57e51c"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.6.tar.gz"
+  sha256 "d423054ab8b47c1be46c671d43b71ed15e0191fb1dfc5a1f260ea3bdd78b46d0"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "449b424b52feca02e681025fb262b705f11641b2ab9dfeb2a5a489217333ee64" => :mojave
-    sha256 "6f28e8b6951e793c58f125a3963c7ebd732cd58e78bfa32f8ab98cc7fdc3147b" => :high_sierra
-    sha256 "f02e4c51a628f9a311dc75cb75fd0cbdebbdf3f864b6478314079758fce91d65" => :sierra
+    sha256 "72796aac9a67941312b86eb33e6c911970d9545ea1fbe132089eddfa1c90d81d" => :mojave
+    sha256 "f3e7a8de0aede8cc6b75a87bb2aa57a86f36ca442e7cb56774cdc9af6577cdc8" => :high_sierra
+    sha256 "be94be41608cda1625a387f2f5922524480cb168d3ddb236076438a334343fef" => :sierra
   end
 
   depends_on "go" => :build
@@ -24,10 +24,8 @@ class Ucloud < Formula
   end
 
   test do
-    system "#{bin}/ucloud", "config", "--region", "cn-bj2"
     system "#{bin}/ucloud", "config", "--project-id", "org-test"
     config_json = (testpath/".ucloud/config.json").read
-    assert_match '"region":"cn-bj2"', config_json
     assert_match '"project_id":"org-test"', config_json
     assert_match version.to_s, shell_output("#{bin}/ucloud --version")
   end

@@ -1,3 +1,8 @@
+# This formula should never be deleted even when it is in violation of
+# https://docs.brew.sh/Versions. This is because it is useful to test things
+# with Ruby 2.3 for reproducing Ruby issues with older versions of macOS that
+# used this version (e.g. on >=10.13 the system Ruby is 2.3).
+
 class RubyAT23 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"

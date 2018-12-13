@@ -1,7 +1,7 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
-  homepage "http://fallabs.com/kyotocabinet/"
-  url "http://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz"
+  homepage "https://fallabs.com/kyotocabinet/"
+  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz"
   sha256 "812a2d3f29c351db4c6f1ff29d94d7135f9e601d7cc1872ec1d7eed381d0d23c"
 
   bottle do

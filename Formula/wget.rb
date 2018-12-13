@@ -1,15 +1,14 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.5.tar.gz"
-  sha256 "b39212abe1a73f2b28f4c6cb223c738559caac91d6e416a6d91d4b9d55c9faee"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.20.tar.gz"
+  mirror "https://ftpmirror.gnu.org/wget/wget-1.20.tar.gz"
+  sha256 "8a057925c74c059d9e37de63a63b450da66c5c1c8cef869a6df420b3bb45a0cf"
 
   bottle do
-    sha256 "0e7d518c4c110edec0c684f2be9d44e31ec1542343392b712ef378b4e131ebd4" => :mojave
-    sha256 "af8880a424be0cde4d2891b0027ae9991ebb0e6f48ae60b369e3c9f0bdfcd04a" => :high_sierra
-    sha256 "d61954cc95b1f60b64b86afa2a71a18d6d1676dbc3d566a3f9ba2249ad028b54" => :sierra
-    sha256 "473408a17dfea7393f2c8c96264535717328c3879db679fc09fc1007bac26113" => :el_capitan
+    sha256 "cd2a2237a28814d98fb2e938ea0c99b404314a3512d87eb1ef4b69c184a06178" => :mojave
+    sha256 "bdb2f184c887cb1166bc049bcfff1b999460e9e38ba80504f41217f9dfc52178" => :high_sierra
+    sha256 "fd41c3a34906f621754f28b2ae914aaa2f539d7644e9afe2099eeb44fcea0281" => :sierra
   end
 
   head do
@@ -25,25 +24,14 @@ class Wget < Formula
   depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
   depends_on "openssl"
-  depends_on "gpgme" => :optional
-  depends_on "libmetalink" => :optional
-  depends_on "pcre" => :optional
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}
-      --with-ssl=openssl
-      --with-libssl-prefix=#{Formula["openssl"].opt_prefix}
-      --disable-debug
-    ]
-
-    args << "--disable-pcre" if build.without? "pcre"
-    args << "--with-metalink" if build.with? "libmetalink"
-    args << "--with-gpgme-prefix=#{Formula["gpgme"].opt_prefix}" if build.with? "gpgme"
-
-    system "./bootstrap" if build.head?
-    system "./configure", *args
+    system "./bootstrap", "--skip-po" if build.head?
+    system "./configure", "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--with-ssl=openssl",
+                          "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}",
+                          "--disable-debug"
     system "make", "install"
   end
 

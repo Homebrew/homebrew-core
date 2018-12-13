@@ -5,7 +5,7 @@ class GitFlow < Formula
   stable do
     # Use the tag instead of the tarball to get submodules
     url "https://github.com/nvie/gitflow.git",
-      :tag => "0.4.1",
+      :tag      => "0.4.1",
       :revision => "1ffb6b1091f05466d3cd27f2da9c532a38586ed5"
 
     resource "completion" do

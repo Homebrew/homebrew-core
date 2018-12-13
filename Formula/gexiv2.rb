@@ -1,33 +1,32 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.8.tar.xz"
-  sha256 "81c528fd1e5e03577acd80fb77798223945f043fd1d4e06920c71202eea90801"
+  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.9.tar.xz"
+  sha256 "8806234aa6fd1c345d46bf07a14e82771415071ca5ff63615b1ea62bd2fec0ed"
 
   bottle do
-    sha256 "a44a0225ab933dd6da6dadece5ed05a7dbb83b0372795a92f0bf6466c32e4535" => :mojave
-    sha256 "c6da6deffd67e16ee41a570d6b2393caa04764c077b972c8b1ab6b5bde040261" => :high_sierra
-    sha256 "ef19b3b862ba328ca17665f974355737389626e72075078a55a8bb00032bb9c9" => :sierra
-    sha256 "be2ec9b0a9a314e982626156bb1b262648332334e57a03bc6c45b4ef14e223a1" => :el_capitan
+    sha256 "4af36560dece00e6cb5d68ca743f52a9de78121fa184ef1a4add25de6b97f598" => :mojave
+    sha256 "e8acce6d1a7fdcf5b14b5e64e641c04d0ca32f5198af59bbe08b2cc91513f5c2" => :high_sierra
+    sha256 "4b74b438069c0968d08d7b75aaf1333454cd6005577f2241ac5f78460f4a847f" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python" => :build
+  depends_on "vala" => :build
   depends_on "exiv2"
   depends_on "glib"
-  depends_on "python@2"
-
-  # bug report opened on 2017/12/25, closed on 2018/01/05, reopened on 2018/02/06
-  # https://bugzilla.gnome.org/show_bug.cgi?id=791941
-  patch :DATA
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-introspection",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    pyver = Language::Python.major_minor_version "python3"
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "-Dpython3-girdir=#{lib}/python#{pyver}/site-packages/gi/overrides", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -50,19 +49,3 @@ class Gexiv2 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 8980ac9..aa0872c 100755
---- a/configure
-+++ b/configure
-@@ -18635,7 +18635,7 @@ case "$target_or_host" in
- esac
- { $as_echo "$as_me:${as_lineno-$LINENO}: result: $platform_darwin" >&5
- $as_echo "$platform_darwin" >&6; }
-- if test "$platform_win32" = "yes"; then
-+ if test "$platform_darwin" = "yes"; then
-   PLATFORM_DARWIN_TRUE=
-   PLATFORM_DARWIN_FALSE='#'
- else
-

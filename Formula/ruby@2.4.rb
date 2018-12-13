@@ -1,14 +1,13 @@
-class RubyAT22 < Formula
+class RubyAT24 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.10.tar.xz"
-  sha256 "bf77bcb7e6666ccae8d0882ea12b05f382f963f0a9a5285a328760c06a9ab650"
+  url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.5.tar.xz"
+  sha256 "2f0cdcce9989f63ef7c2939bdb17b1ef244c4f384d85b8531d60e73d8cc31eeb"
 
   bottle do
-    sha256 "0f84329a8e90ff1e48c0664e3bcfe32c0257c874e4bc0a9eb404eb65eda82739" => :mojave
-    sha256 "b31c95511243da91d1049e32fbe660447f9a6920369fff9f1fc9c854f14f7f20" => :high_sierra
-    sha256 "3391108f892cbe37ca39b5ac4e79a31eaaee321d7001f0380f8c7282b737a22b" => :sierra
-    sha256 "394e22d1904fb9f59a3b34a8a4ac71608c0c3f24b73d58dbaa3fa4f4e65785ad" => :el_capitan
+    sha256 "58264f323a4110f6ec4ffa0b49f499e3900e05888b5613f216ec196c995cd2b7" => :mojave
+    sha256 "adad9be6d47e0ccf36c7a6459ea5a65d0db7d3bacfbab7653226b606e681a344" => :high_sierra
+    sha256 "a505403cb86002722914ef0b3ce14a9bf00cdb9b9be0769caab6965688f9406e" => :sierra
   end
 
   keg_only :versioned_formula
@@ -19,7 +18,7 @@ class RubyAT22 < Formula
   depends_on "readline"
 
   def api_version
-    "2.2.0"
+    "2.4.0"
   end
 
   def rubygems_bindir
@@ -27,6 +26,9 @@ class RubyAT22 < Formula
   end
 
   def install
+    # otherwise `gem` command breaks
+    ENV.delete("SDKROOT")
+
     paths = %w[libyaml openssl readline].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
@@ -35,8 +37,6 @@ class RubyAT22 < Formula
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
       --with-opt-dir=#{paths.join(":")}
-      --with-out-ext=tk
-      --without-gmp
     ]
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

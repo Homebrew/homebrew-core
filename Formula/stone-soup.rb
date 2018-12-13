@@ -1,29 +1,18 @@
 class StoneSoup < Formula
   desc "Dungeon Crawl Stone Soup: a roguelike game"
   homepage "https://crawl.develz.org/"
-  url "https://crawl.develz.org/release/0.22/stone_soup-0.22.0.tar.xz"
-  sha256 "02e36ccc458747e89ab84835f6dd7df554e8e40537397797c5bb61a4d376597d"
+  url "https://crawl.develz.org/release/0.22/stone_soup-0.22.1.tar.xz"
+  sha256 "49834a0fbfcba4953359c649fbe52f42b983f5c0cc5e9aa95c5e4066f1453c40"
 
   bottle do
-    sha256 "098f4c729890622a1f75e144a2ea87b3ad44c4f148ced01e224b93edfc52101f" => :mojave
-    sha256 "1f2fd929557b2eb7f8b9a8091479210c94b360d9a69aa1cc79f3712daad9a4d8" => :high_sierra
-    sha256 "90d1d10bfb4fd49ec62fd40aebeb622312d603ffd20553f18e5473725767dde3" => :sierra
-    sha256 "3690a7a849debe2f941a948ab4fbeb017985bdd163eb973841e201fb21532f0c" => :el_capitan
+    sha256 "000858caed6adc83af07e58ae18ae965068467eda9bc55fa857e67b11758aaf6" => :mojave
+    sha256 "9c2728c5e7e0aa9cd005dd88be988c9ce0fd442c2fbf4dfbcd0889ddc44a77e9" => :high_sierra
+    sha256 "6ff5f2ccb4d81ee521d8fd2b86a33c8f382b9d56ac87ec8cf3b15eae69583d64" => :sierra
   end
-
-  option "with-tiles", "Enable graphic tiles and sound"
 
   depends_on "pkg-config" => :build
   depends_on "lua@5.1"
   depends_on "pcre"
-
-  if build.with? "tiles"
-    depends_on "sdl2"
-    depends_on "sdl2_mixer"
-    depends_on "sdl2_image"
-    depends_on "libpng"
-    depends_on "freetype"
-  end
 
   needs :cxx11
 
@@ -46,11 +35,6 @@ class StoneSoup < Formula
         BUILD_PCRE=
         USE_PCRE=y
       ]
-      if build.with? "tiles"
-        inreplace "Makefile", "contrib/install/$(ARCH)/lib/libSDL2main.a", ""
-        args << "TILES=y"
-        args << "SOUND=y"
-      end
 
       # FSF GCC doesn't support the -rdynamic flag
       args << "NO_RDYNAMIC=y" unless ENV.compiler == :clang

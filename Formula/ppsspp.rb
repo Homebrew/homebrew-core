@@ -2,16 +2,15 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      :tag => "v1.6.3",
-      :revision => "9a610c8a012e73b7d2c6677f48d24f3e185e61c7"
+      :tag      => "v1.7.5",
+      :revision => "74d87fa2b4a3c943c1df09cc26a8c70b1335fd30"
   head "https://github.com/hrydgard/ppsspp.git"
 
   bottle do
     cellar :any
-    sha256 "3e003edaf5ba25ab8f2c87d70673534f0d2e79ed1fbeadc7a4a80951630f7619" => :mojave
-    sha256 "1a2fc8743a9fbaa0f77836bdd874eaebeb0117af5ca61e99dd9e44a8312f17dc" => :high_sierra
-    sha256 "e91b28f7e661e07d9656d94da7fa5aa4bfb1b4c639f7ba363e8e0bfa3d3d0e13" => :sierra
-    sha256 "8a21b9cc0971f4d774b915152f487253d1bd7dca062c1f4f8376dd6fac24710f" => :el_capitan
+    sha256 "7764875931cd896e2af50763b49c435642d0343df8ff3e4a143a9a9b35d271ac" => :mojave
+    sha256 "0cfb5a660f2915328c5e43734b4b0d7509b8a12a94d488df9d5d7c14beb457f4" => :high_sierra
+    sha256 "c9b297d4396304995564a102555a15525ff863bd72ad74b50cd8765da957df4d" => :sierra
   end
 
   depends_on "cmake" => :build

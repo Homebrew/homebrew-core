@@ -6,14 +6,11 @@ class Qwt < Formula
   revision 4
 
   bottle do
-    sha256 "62822bdbe6aa248f6382c23a2540bfc4ed38a77cff8f60872568e4a430ff2d94" => :mojave
-    sha256 "d91a8d16588cd615df09fc8bdf288c1eea5be8c0ad7e0fe894ad70914eb47488" => :high_sierra
-    sha256 "5e25de79818df25e3dab96795d24c4de066a39ae9d616d77c05f528ace671f6f" => :sierra
-    sha256 "b486e9d7b4a9d15886b51d9536ea6b32a642262d3acff5a7ea6985d7fd88db1a" => :el_capitan
-    sha256 "81fcb45fea416bc89e99b213d991c08ccb3ed34ef7da67346a273f8a1f203293" => :yosemite
+    rebuild 1
+    sha256 "a0440f8bbfaa4a88a44ad02aac93cd1d96a45b59f0b4e3c6133c150dd877e100" => :mojave
+    sha256 "fefafb68b60362fb7c2f268171cf111a7676044d2586698d786bc448263cd315" => :high_sierra
+    sha256 "b333be61fb0188cdf98510566dd28ac51c677eba50c7257d7b5145d7619d7a44" => :sierra
   end
-
-  option "with-qwtmathml", "Build the qwtmathml library"
 
   depends_on "qt"
 
@@ -38,28 +35,9 @@ class Qwt < Formula
       args << "macx-g++"
     end
 
-    if build.with? "qwtmathml"
-      args << "QWT_CONFIG+=QwtMathML"
-      prefix.install "textengines/mathml/qtmmlwidget-license"
-    end
-
     system "qmake", *args
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    s = ""
-
-    if build.with? "qwtmathml"
-      s += <<~EOS
-        The qwtmathml library contains code of the MML Widget from the Qt solutions package.
-        Beside the Qwt license you also have to take care of its license:
-        #{opt_prefix}/qtmmlwidget-license
-      EOS
-    end
-
-    s
   end
 
   test do

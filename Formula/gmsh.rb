@@ -1,17 +1,15 @@
 class Gmsh < Formula
   desc "3D finite element grid generator with CAD engine"
   homepage "https://gmsh.info/"
-  url "https://gmsh.info/src/gmsh-3.0.6-source.tgz"
-  sha256 "9700bcc440d7a6b16a49cbfcdcdc31db33efe60e1f5113774316b6fa4186987b"
-  revision 2
+  url "https://gmsh.info/src/gmsh-4.0.6-source.tgz"
+  sha256 "dce0aa4154908f9be8c48ec9bb31d4425c7c28b26897d882a2bce8f72c692a04"
   head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
     cellar :any
-    sha256 "f32487ea4bb0bb69c5a919114a8a47fb4553c067b0c13b8c7c3fea02349740e8" => :mojave
-    sha256 "ee0290632bf696cb34e1a554f7c2f749a1b89b18bde9a219e95e80b944fe24f9" => :high_sierra
-    sha256 "404d8578f91b65a4fc305c0eacb24a5673e6b576ebb071b1186f2c1e86c3db21" => :sierra
-    sha256 "901558025b6a05e1982f7d93330089a3432445e5ae3d97d9815d7917f677ddf8" => :el_capitan
+    sha256 "3e839bb7045b14b4d9f1aed8928eec4464e8253ab7d89eb0b4701b9ea5a68518" => :mojave
+    sha256 "5ae7512d0763a0b092207dc40c4f8eb38062064ab2a8613e06ae02368246a5af" => :high_sierra
+    sha256 "54e76a8a8857c3a00059b4fbf3a5fb503563f13eaa9a376d2c76ea19da435df7" => :sierra
   end
 
   option "with-opencascade", "Build with opencascade support"

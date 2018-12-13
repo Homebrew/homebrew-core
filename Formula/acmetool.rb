@@ -4,7 +4,7 @@ class Acmetool < Formula
   desc "Automatic certificate acquisition tool for ACME (Let's Encrypt)"
   homepage "https://github.com/hlandau/acme"
   url "https://github.com/hlandau/acme.git",
-      :tag => "v0.0.67",
+      :tag      => "v0.0.67",
       :revision => "221ea15246f0bbcf254b350bee272d43a1820285"
 
   bottle do

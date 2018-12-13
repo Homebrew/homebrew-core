@@ -1,15 +1,15 @@
 class Advancecomp < Formula
   desc "Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files"
   homepage "https://www.advancemame.it/comp-readme.html"
-  url "https://github.com/amadvance/advancecomp/archive/v2.1.tar.gz"
-  sha256 "6113c2b6272334af710ba486e8312faa3cee5bd6dc8ca422d00437725e2b602a"
+  url "https://github.com/amadvance/advancecomp/releases/download/v2.1/advancecomp-2.1.tar.gz"
+  sha256 "3ac0875e86a8517011976f04107186d5c60d434954078bc502ee731480933eb8"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8ff93fd8bbac329ab3f0d9a2dc0434092ce448c46a0b5d9b61c211c8132712a3" => :mojave
-    sha256 "4e02eb49cfa3587545852bb5412ec4bed7a5a23bf7348798aa508fb1fe3c3840" => :high_sierra
-    sha256 "0142bd73b77ee344b76be047323dea7593a03ee08b7041f789d8e1a330c5f7ec" => :sierra
-    sha256 "adf23429f3c808c367520a4225caee3b2c7a2a8c4dea5bc8b28c8654f7e5b989" => :el_capitan
+    sha256 "798de4490c97283280259ffc1dc39159bd0ded85edb47f3212ad5ec9a174289e" => :mojave
+    sha256 "fdb2a72157445c33a462388f05580489c427f4f0d2a3d4cdc1b7867ef69e7e53" => :high_sierra
+    sha256 "4ef3590e26c5ac96d64dc985b035ec7055f215c84d31dfb09542d958f6ec4e77" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +25,11 @@ class Advancecomp < Formula
 
   test do
     system bin/"advdef", "--version"
-    system bin/"advpng", "--version"
+
+    cp test_fixtures("test.png"), "test.png"
+    system bin/"advpng", "--recompress", "--shrink-fast", "test.png"
+
+    version_string = shell_output("#{bin}/advpng --version")
+    assert_includes version_string, "advancecomp v#{version}"
   end
 end

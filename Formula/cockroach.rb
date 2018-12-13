@@ -1,25 +1,32 @@
 class Cockroach < Formula
   desc "Distributed SQL database"
   homepage "https://www.cockroachlabs.com"
-  url "https://binaries.cockroachdb.com/cockroach-v2.0.5.src.tgz"
-  version "2.0.5"
-  sha256 "2a3ba8e7a2c44f59644ad84b530930bdf09e597741033d73ee7b2e4490d2051d"
+  url "https://binaries.cockroachdb.com/cockroach-v2.1.2.src.tgz"
+  version "2.1.2"
+  sha256 "36f2dcf487d18c76471bdf7eff48c0ff4a4355026e1a06739cc388a711c99769"
   head "https://github.com/cockroachdb/cockroach.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2550f29ae74ecd8ed8c1c418f6c175f4ff5c4d8cebf8728d2bd4568abe6536e9" => :high_sierra
-    sha256 "7e6ec310898ee4b029e99041c93427c36ed52b4b948ef694c7330e6cf2a37698" => :sierra
-    sha256 "abbb38d3b4fea74fa969519c2efe0c71d1fa30dc875c83276a778f71a8f9e2e7" => :el_capitan
+    sha256 "c55cac9ee5e4b8943ad27c8a497a2833c491be9551cacf70c90a4ddd9957c1d4" => :mojave
+    sha256 "ba834f9b381294f9414fc4cec0374f27515adb89d5b019019922cebd37c758b4" => :high_sierra
+    sha256 "c48acdc1a7f6d94caf90dfc3856506e234a2bfdbb4113faca933386f7bb7a5ef" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "cmake" => :build
   depends_on "go" => :build
+  depends_on "make" => :build
   depends_on "xz" => :build
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    # The GNU Make that ships with macOS Mojave (v3.81 at the time of writing) has a bug
+    # that causes it to loop infinitely when trying to build cockroach. Use
+    # the more up-to-date make that Homebrew provides.
+    ENV.prepend_path "PATH", Formula["make"].opt_libexec/"gnubin"
+    # Build only the OSS components
+    system "make", "buildoss"
+    system "make", "install", "prefix=#{prefix}", "BUILDTYPE=release"
   end
 
   def caveats; <<~EOS

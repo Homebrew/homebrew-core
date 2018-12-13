@@ -3,12 +3,11 @@ class Osquery < Formula
   homepage "https://osquery.io"
   url "https://github.com/facebook/osquery/archive/3.3.0.tar.gz"
   sha256 "b633b41bd9ec7a8569eb03060cc22dd53a36d3ba4ca7fb66a976d7f9f800bf52"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6a72b32baee92352531bf8b2b65384affdc66217c68688859b65d094d2630621" => :mojave
-    sha256 "8aa49f8ab62b8132333ade19ae7c07fac43ea01f3e02592b64fb5caea9a695b0" => :high_sierra
-    sha256 "d1d464d11894f3dd91946aa03d0178baf6fa5b9cd2623d6544e42d1c295e0d5a" => :sierra
+    sha256 "271d3f05c7af8f27c27eccd5243c61cc655a68cbd1134cb7d8b9a8fa48c1796a" => :sierra
   end
 
   depends_on "bison" => :build
@@ -54,6 +53,13 @@ class Osquery < Formula
   resource "aws-sdk-cpp" do
     url "https://github.com/aws/aws-sdk-cpp/archive/1.3.30.tar.gz"
     sha256 "7b5f9b6d4215069fb75d31db2c8ab06081ab27f59ee33d5bb428fec3e30723f1"
+  end
+
+  # Upstream fix for boost 1.68, remove in next version
+  # https://github.com/facebook/osquery/issues/5069
+  patch do
+    url "https://github.com/facebook/osquery/commit/512f775c.diff?full_index=1"
+    sha256 "8bfafabf51c1b22dcab1a2a49d7d2a6583c49409def0876c79191839ccf23d53"
   end
 
   def install

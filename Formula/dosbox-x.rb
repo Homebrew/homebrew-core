@@ -39,15 +39,11 @@ class DosboxX < Formula
                 "setCD(clientsocket > 0)", "setCD(clientsocket != 0)"
     end
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-sdltest
-      --enable-core-inline
-    ]
-    args << "--enable-debug" if build.with? "debugger"
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-sdltest",
+                          "--enable-core-inline"
 
-    system "./configure", *args
     chmod 0755, "install-sh"
     system "make", "install"
   end

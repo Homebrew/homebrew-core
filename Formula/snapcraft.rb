@@ -3,15 +3,14 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://files.pythonhosted.org/packages/eb/46/c2cc809e56786719169240e7517e4775f4ddae4d40cacaddc2797aa1788d/snapcraft-2.43.1.tar.gz"
-  sha256 "5a4e12a0e775cf2e7255abe24f5c9104cd57ac75a0a187388827f9ace4589698"
+  url "https://files.pythonhosted.org/packages/fc/c6/d3a59d1f08c0b8bc3d166bc6e0a26a29dd61627d2e6266bd81b26fc02142/snapcraft-3.0.1.tar.gz"
+  sha256 "c9914324749502dff5588f72a93ee05d47b14f2bd400d6234a4e2db22fd6922c"
 
   bottle do
     cellar :any
-    sha256 "a1456fd1cd3cd7c7dec24929d0280a5f7176e1f3c8455bbe9f9962ca25828df7" => :mojave
-    sha256 "6519f046d9082655f592a9b7a69ada791220c7772564d0c55937fa48a476a36c" => :high_sierra
-    sha256 "5f4e1123e4affd783d7d66d5898a4d357f2d65f4cb5f8cb4548662fafea8f892" => :sierra
-    sha256 "f1677f46fc83de19a99295af80da0275899a23c2b16a4260b6303e37fc18cecb" => :el_capitan
+    sha256 "6b767bebc6a392621605477f6c6f0ef8ea8e264a4a7f3e53893c0eb9ded66a8b" => :mojave
+    sha256 "77a9f5b2fd096c878cf6e2d9de1e26cbc98603014c41640c491f48a68ca0eed0" => :high_sierra
+    sha256 "082b37eb35d4e2a00836150d1324df9eb1a55d2729febb51417bfde9352cbfe9" => :sierra
   end
 
   depends_on "libsodium"

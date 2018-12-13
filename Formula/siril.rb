@@ -7,9 +7,8 @@ class Siril < Formula
   head "https://free-astro.org/svn/siril/", :using => :svn
 
   bottle do
-    sha256 "2deeaab062cccff61daab38450128c53f79acb8acc83084b2a7b2cc59379a18d" => :high_sierra
-    sha256 "12ab1e8589486cfb1124dad33dd15656c0ac80e5b4cc7685bf2054e0c7943784" => :sierra
-    sha256 "45fbe1d7560c452438694d808b0aaddcc0d45069b3ef672a2c7fc8a0d5638880" => :el_capitan
+    rebuild 1
+    sha256 "8e5c389d053a3613098ae5fb878859eeb27e8fbda24892da9e3c15471dec8a27" => :high_sierra
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +24,7 @@ class Siril < Formula
   depends_on "gnuplot"
   depends_on "gsl"
   depends_on "gtk-mac-integration"
+  depends_on "jpeg"
   depends_on "libconfig"
   depends_on "libraw"
   depends_on "librsvg"
@@ -39,6 +39,10 @@ class Siril < Formula
 
   def install
     ENV.cxx11
+
+    # siril uses pkg-config but it has wrong include paths for several
+    # headers. Work around that by letting it find all includes.
+    ENV.append_to_cflags "-I#{HOMEBREW_PREFIX}/include"
 
     system "./autogen.sh", "--prefix=#{prefix}", "--enable-openmp"
     system "make", "install"

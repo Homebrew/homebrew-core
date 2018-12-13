@@ -1,7 +1,7 @@
 class DatetimeFortran < Formula
   desc "Fortran time and date manipulation library"
-  homepage "https://github.com/milancurcic/datetime-fortran"
-  url "https://github.com/milancurcic/datetime-fortran/releases/download/v1.6.0/datetime-fortran-1.6.0.tar.gz"
+  homepage "https://github.com/wavebitscientific/datetime-fortran"
+  url "https://github.com/wavebitscientific/datetime-fortran/releases/download/v1.6.0/datetime-fortran-1.6.0.tar.gz"
   sha256 "e46c583bca42e520a05180984315495495da4949267fc155e359524c2bf31e9a"
   revision 3
 
@@ -14,7 +14,7 @@ class DatetimeFortran < Formula
   end
 
   head do
-    url "https://github.com/milancurcic/datetime-fortran.git"
+    url "https://github.com/wavebitscientific/datetime-fortran.git"
 
     depends_on "autoconf"   => :build
     depends_on "automake"   => :build

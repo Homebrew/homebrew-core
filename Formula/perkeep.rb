@@ -2,7 +2,7 @@ class Perkeep < Formula
   desc "Lets you permanently keep your stuff, for life"
   homepage "https://perkeep.org/"
   url "https://github.com/perkeep/perkeep.git",
-      :tag => "0.10",
+      :tag      => "0.10",
       :revision => "0cbe4d5e05a40a17efe7441d75ce0ffdf9d6b9f5"
   head "https://github.com/perkeep/perkeep.git"
 

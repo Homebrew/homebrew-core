@@ -2,7 +2,7 @@ class Dep < Formula
   desc "Go dependency management tool"
   homepage "https://github.com/golang/dep"
   url "https://github.com/golang/dep.git",
-      :tag => "v0.5.0",
+      :tag      => "v0.5.0",
       :revision => "224a564abe296670b692fe08bb63a3e4c4ad7978"
   head "https://github.com/golang/dep.git"
 

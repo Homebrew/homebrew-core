@@ -1,15 +1,14 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
-  url "https://github.com/mawww/kakoune/releases/download/v2018.09.04/kakoune-2018.09.04.tar.bz2"
-  sha256 "7a31c9f08c261c5128d1753762721dd7b7fe4bb4e9a3c368c9d768c72a1472e1"
+  url "https://github.com/mawww/kakoune/releases/download/v2018.10.27/kakoune-2018.10.27.tar.bz2"
+  sha256 "687a173c8f94fb66aad899e7a3095fe8f08e1fdcab955dbc6785335427cc8a1d"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7580f7a2fd238383ce36bdc887714e7b445f0128c140387d4fccd5a3c2b6ead9" => :mojave
-    sha256 "28627f60d6207db2bf610dcd63ea9c9ed719742a321f24e942a72417d6063aea" => :high_sierra
-    sha256 "9531f7402473a184da3fe11c6b540f07eba5e2969aca02131ec9921b8f8d7049" => :sierra
-    sha256 "7b1d503559b3ebcf5a2e5a8c34db77391ebd5c47b8cf9fcf47ecb0893fbda2f3" => :el_capitan
+    sha256 "f75753c33d4e6c0061780b208bfae759900c7e981c121a46b5628ac02bd7980f" => :mojave
+    sha256 "375b52230d9e13a71ad5942f0d9beafda8472ad9fcb8452b3efbcbfcb4290ecb" => :high_sierra
+    sha256 "b23fc8390c4c16924434b32674b322bbc62e3b18887fef153f2569fe63acd22c" => :sierra
   end
 
   depends_on "asciidoc" => :build
