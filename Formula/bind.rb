@@ -1,8 +1,8 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.12.3/bind-9.12.3.tar.gz"
-  sha256 "0e80762631258e1c193552efa7c56c05ec5e8c2f98e4b2a3b91a61fd8d96b938"
+  url "https://ftp.isc.org/isc/bind9/9.13.5/bind-9.13.5.tar.gz"
+  sha256 "bbde0b81c66a7c7f5b074c8f0e714ed8aa235e4b930e28953cab0ae3cae94e4b"
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
