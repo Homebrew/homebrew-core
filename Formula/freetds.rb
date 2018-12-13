@@ -1,8 +1,8 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "http://www.freetds.org/files/stable/freetds-1.00.104.tar.gz"
-  sha256 "c4f51525f2dd722fe3651913d4ea194798211293f195c38fc3933cc6db1dae42"
+  url "http://www.freetds.org/files/stable/freetds-1.00.109.tar.gz"
+  sha256 "314cc6c22086dc2cc677aed5e0dec07845cf13f79273af7bb855eb447b45f906"
 
   bottle do
     sha256 "90914c82e7bcc6dd60a71a380e77ddd32a8d87dcbbee8de7b749fbe0eb025906" => :mojave
