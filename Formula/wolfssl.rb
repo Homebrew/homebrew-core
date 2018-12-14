@@ -2,8 +2,8 @@ class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
   homepage "https://www.wolfssl.com/wolfSSL/Home.html"
   url "https://github.com/wolfSSL/wolfssl.git",
-      :tag      => "v3.15.5-stable",
-      :revision => "39506e61d16ef40583f251cafcb63302d22fd7f3"
+      :tag      => "v3.15.6",
+      :revision => "249306f08c77943c9144a2d3abf3b513b0a0f49b"
   sha256 "4e15f494604e41725499f8b708798f8ddc2fcaa8f39b4369bcd000b3cab482d8"
   head "https://github.com/wolfSSL/wolfssl.git"
 
@@ -13,10 +13,6 @@ class Wolfssl < Formula
     sha256 "c57645d93606b126e25c5b028499903efd524dd85fd7fe08560c338eb891f93a" => :high_sierra
     sha256 "13f656f75a2f877910803de4a55b15ea449c8093c0a2e69e1baa8c440ecdf9a8" => :sierra
   end
-
-  option "without-test", "Skip compile-time tests"
-
-  deprecated_option "without-check" => "without-test"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -95,7 +91,7 @@ class Wolfssl < Formula
     system "./autogen.sh"
     system "./configure", *args
     system "make"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 
