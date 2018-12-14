@@ -7,10 +7,9 @@ class DnscryptWrapper < Formula
 
   bottle do
     cellar :any
-    sha256 "f0db8bce27646ceac4165bfce815bd0268b50543b21632bd53aad1aaffd0af94" => :mojave
-    sha256 "ea9ee8d3e27d21906fd1319ae23dcc42fd35d8b8833c558392db5b302870a24b" => :high_sierra
-    sha256 "50da00dbfaa78a699d47f8c9f80818d6ae23149af86ba1e99e493b3748b50b0e" => :sierra
-    sha256 "fd337e04cffac7af7eaf24b9a191bacd012a3b458d247d6a266274d0968702d3" => :el_capitan
+    sha256 "ae036441753501c0cee673228a38c0b54819f833c21ba82ed20f240eb741a27b" => :mojave
+    sha256 "ec1c02b9ad1cfe0fd1c4797a651dd258e8ef37d1e2cf4ff00b84c637c0f563c8" => :high_sierra
+    sha256 "6ff007984fdd69d9bee047dd1199176f79cd86be8593efcf861ef08b80cf32bd" => :sierra
   end
 
   depends_on "autoconf" => :build
