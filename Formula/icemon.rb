@@ -1,8 +1,8 @@
 class Icemon < Formula
   desc "Icecream GUI Monitor"
   homepage "https://github.com/icecc/icemon"
-  url "https://github.com/icecc/icemon/archive/v3.1.0.tar.gz"
-  sha256 "8500501d3f4968d52a1f4663491e26d861e006f843609351ec1172c983ad4464"
+  url "https://github.com/icecc/icemon/archive/v3.2.0.tar.gz"
+  sha256 "b7ed29c3638c93fbc974d56c85afbf0bfeca6c37ed0522af57415a072839b448"
 
   bottle do
     cellar :any
