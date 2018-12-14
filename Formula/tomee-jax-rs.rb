@@ -1,8 +1,8 @@
 class TomeeJaxRs < Formula
   desc "TomeEE Web Profile plus JAX-RS"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-1.7.4/apache-tomee-1.7.4-jaxrs.tar.gz"
-  sha256 "35f56e5f79dfa3ebfe220c2c45b280b204dcd265c4e905b994669391f4672e71"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-1.7.5/apache-tomee-1.7.5-jaxrs.tar.gz"
+  sha256 "5c9241ca683db85c13a23234b206fe98011d734a661383bbc9027deb756c09da"
 
   bottle :unneeded
 
