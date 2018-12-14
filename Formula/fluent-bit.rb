@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
-  homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v0.14.9.tar.gz"
-  sha256 "dad69d3b1ecb9577880b65ffc40fcaed44ab4875bd2d179641098e2778744a04"
+  homepage "https://fluentbit.io"
+  url "https://github.com/fluent/fluent-bit/archive/v1.0.0.tar.gz"
+  sha256 "d8646dafb998f91cf46755cab94d9cc64f5d597a6fae60eb20282aa418ff044b"
   head "https://github.com/fluent/fluent-bit.git"
 
   bottle do
@@ -23,8 +23,10 @@ class FluentBit < Formula
     # fluent-bit builds against a vendored Luajit.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
-    system "cmake", ".", "-DWITH_IN_MEM=OFF", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
