@@ -1,8 +1,8 @@
 class TomeePlume < Formula
   desc "Apache TomEE Plume"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-1.7.4/apache-tomee-1.7.4-plume.tar.gz"
-  sha256 "0f37dbe25c3a68a365f440cfaac01e63158e6ccce943f367203418038b5be402"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-1.7.5/apache-tomee-1.7.5-plume.tar.gz"
+  sha256 "948955232f6b1f4ecbf227e793a61fc8a467771c00980c44fb36e6e57c4691e1"
 
   bottle :unneeded
 
