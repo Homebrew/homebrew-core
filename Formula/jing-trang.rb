@@ -1,8 +1,8 @@
 class JingTrang < Formula
   desc "Schema validation and conversion based on RELAX NG"
   homepage "http://www.thaiopensource.com/relaxng/"
-  url "https://github.com/relaxng/jing-trang/archive/V20151127.tar.gz"
-  sha256 "04cdf589abc5651d40f44fbc3415cb094672cb3c977770b2d9f6ea33e6d8932b"
+  url "https://github.com/relaxng/jing-trang/archive/V20181204.tar.gz"
+  sha256 "511c4198262d58d27dc56810d9c807b70fa6c066309b96c74fc6f0a1d882fcb6"
 
   bottle :unneeded
 
