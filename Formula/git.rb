@@ -137,6 +137,11 @@ class Git < Formula
       rm "#{libexec}/git-core/git-imap-send"
     end
 
+    # git-send-email is broken without either linking to a user-installed
+    # perl at compile-time or installing modules to system perl, neither of
+    # which is supported.
+    rm "#{libexec}/git-core/git-send-email"
+
     # This is only created when building against system Perl, but it isn't
     # purged by Homebrew's post-install cleaner because that doesn't check
     # "Library" directories. It is however pointless to keep around as it
