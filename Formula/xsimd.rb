@@ -6,9 +6,9 @@ class Xsimd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1132f2aefaa703caf2ba477f3e45ae0c3a63c1ac3a5fc11eeba38553c94545a5" => :mojave
-    sha256 "4600e692dcf447175726ea9004333d02c76579ea07866f53e5852c36648b9b9c" => :high_sierra
-    sha256 "4600e692dcf447175726ea9004333d02c76579ea07866f53e5852c36648b9b9c" => :sierra
+    sha256 "8320a8b27a49022994e6aa3e232dd4eac15959e480ab53b439bc29de2479e848" => :mojave
+    sha256 "f247253fcfc8a4fdd582bb1142ca472472c0c5ebeb9c16bf738acccd830b53c3" => :high_sierra
+    sha256 "f247253fcfc8a4fdd582bb1142ca472472c0c5ebeb9c16bf738acccd830b53c3" => :sierra
   end
 
   depends_on "cmake" => :build
