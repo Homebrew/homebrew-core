@@ -3,7 +3,7 @@ class Libav < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.xz"
   sha256 "6893cdbd7bc4b62f5d8fd6593c8e0a62babb53e323fbc7124db3658d04ab443b"
-  revision 1
+  revision 2
   head "https://git.libav.org/libav.git"
 
   bottle do
@@ -39,6 +39,12 @@ class Libav < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/b6e917c/libav/Check-for--no_weak_imports-in-ldflags-on-macOS.patch"
     sha256 "986d748ba2c7c83319a59d76fbb0dca22dcd51f0252b3d1f3b80dbda2cf79742"
+  end
+
+  # Upstream patch for x264 version >= 153, should be included in libav > 12.3
+  patch do
+    url "https://github.com/libav/libav/commit/c6558e8840fbb2386bf8742e4d68dd6e067d262e.patch?full_index=1"
+    sha256 "0fcfe69274cccbca33825414f526300a1fbbf0c464ac32577e1cc137b8618820"
   end
 
   # Upstream patch to fix building with fdk-aac 2
