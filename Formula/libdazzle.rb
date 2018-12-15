@@ -1,8 +1,8 @@
 class Libdazzle < Formula
   desc "GNOME companion library to GObject and Gtk+"
   homepage "https://gitlab.gnome.org/GNOME/libdazzle"
-  url "https://download.gnome.org/sources/libdazzle/3.30/libdazzle-3.30.1.tar.xz"
-  sha256 "dcc96520e76692aa442206c2bb5971fa28f1279290b7e520e4078ba603d41fb3"
+  url "https://download.gnome.org/sources/libdazzle/3.30/libdazzle-3.30.2.tar.xz"
+  sha256 "78770eae9fa15ac5acb9c733d29459330b2540affbf72933119e36dbd90b36d5"
 
   bottle do
     sha256 "21821ca106c5ea71ef85048fd515571c290dd3e25079469589f57dc9248a9d2f" => :mojave
