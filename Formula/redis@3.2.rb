@@ -14,18 +14,11 @@ class RedisAT32 < Formula
 
   keg_only :versioned_formula
 
-  option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
-
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
 
-    args = %W[
-      PREFIX=#{prefix}
-      CC=#{ENV.cc}
-    ]
-    args << "MALLOC=jemalloc" if build.with? "jemalloc"
-    system "make", "install", *args
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
