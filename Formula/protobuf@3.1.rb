@@ -14,15 +14,10 @@ class ProtobufAT31 < Formula
 
   keg_only :versioned_formula
 
-  option "without-python@2", "Build without python support"
-  option :cxx11
-
-  deprecated_option "without-python" => "without-python@2"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python@2" => :recommended
+  depends_on "python@2"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
@@ -77,14 +72,11 @@ class ProtobufAT31 < Formula
     sha256 "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b"
   end
 
-  needs :cxx11
-
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
     # https://github.com/protocolbuffers/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
-    ENV.cxx11
 
     (buildpath/"gmock").install resource("gmock")
     system "./autogen.sh"
@@ -98,29 +90,27 @@ class ProtobufAT31 < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python@2"
-      # google-apputils is a build-time dependency
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
-      res = resources.map(&:name).to_set - ["gmock"]
-      res.each do |package|
-        resource(package).stage do
-          system "python", *Language::Python.setup_install_args(buildpath/"homebrew")
-        end
+    # google-apputils is a build-time dependency
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
+    res = resources.map(&:name).to_set - ["gmock"]
+    res.each do |package|
+      resource(package).stage do
+        system "python", *Language::Python.setup_install_args(buildpath/"homebrew")
       end
-      # google is a namespace package and .pth files aren't processed from
-      # PYTHONPATH
-      touch buildpath/"homebrew/lib/python2.7/site-packages/google/__init__.py"
-      chdir "python" do
-        ENV.append_to_cflags "-I#{include}"
-        ENV.append_to_cflags "-L#{lib}"
-        args = Language::Python.setup_install_args libexec
-        args << "--cpp_implementation"
-        system "python", *args
-      end
-      site_packages = "lib/python2.7/site-packages"
-      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-      (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
     end
+    # google is a namespace package and .pth files aren't processed from
+    # PYTHONPATH
+    touch buildpath/"homebrew/lib/python2.7/site-packages/google/__init__.py"
+    chdir "python" do
+      ENV.append_to_cflags "-I#{include}"
+      ENV.append_to_cflags "-L#{lib}"
+      args = Language::Python.setup_install_args libexec
+      args << "--cpp_implementation"
+      system "python", *args
+    end
+    site_packages = "lib/python2.7/site-packages"
+    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+    (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
   end
 
   def caveats; <<~EOS
@@ -142,10 +132,9 @@ class ProtobufAT31 < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    if build.with? "python@2"
-      protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
-      (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
-      system "python2.7", "-c", "import google.protobuf"
-    end
+
+    protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
+    (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
+    system "python2.7", "-c", "import google.protobuf"
   end
 end
