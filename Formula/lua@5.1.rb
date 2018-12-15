@@ -3,7 +3,7 @@ class LuaAT51 < Formula
   desc "Powerful, lightweight programming language (v5.1.5)"
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.1.5.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
   sha256 "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
   revision 8
 
@@ -15,30 +15,9 @@ class LuaAT51 < Formula
     sha256 "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3" => :el_capitan
   end
 
-  option "with-completion", "Enables advanced readline support"
-  option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
-
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
   patch :DATA
-
-  # sigaction provided by posix signalling power patch from
-  # http://lua-users.org/wiki/LuaPowerPatches
-  if build.with? "completion"
-    patch do
-      url "http://lua-users.org/files/wiki_insecure/power_patches/5.1/sig_catch.patch"
-      sha256 "221435dedd84a386e2d40454e6260a678286bfb7128afa18a4339e5fdda9c8f2"
-    end
-  end
-
-  # completion provided by advanced readline power patch from
-  # http://lua-users.org/wiki/LuaPowerPatches
-  if build.with? "completion"
-    patch do
-      url "https://luajit.org/patches/lua-5.1.4-advanced_readline.patch"
-      sha256 "dfd17e720d1079dcb64529af3e4fea4a4abc0115c934f365282a489d134cceb4"
-    end
-  end
 
   def install
     # Use our CC/CFLAGS to compile.
