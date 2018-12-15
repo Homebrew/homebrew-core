@@ -14,10 +14,6 @@ class Wolfssl < Formula
     sha256 "13f656f75a2f877910803de4a55b15ea449c8093c0a2e69e1baa8c440ecdf9a8" => :sierra
   end
 
-  option "without-test", "Skip compile-time tests"
-
-  deprecated_option "without-check" => "without-test"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -95,7 +91,7 @@ class Wolfssl < Formula
     system "./autogen.sh"
     system "./configure", *args
     system "make"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 
