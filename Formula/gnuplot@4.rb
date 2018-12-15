@@ -14,12 +14,6 @@ class GnuplotAT4 < Formula
 
   keg_only :versioned_formula
 
-  option "with-pdflib-lite", "Build the PDF terminal using pdflib-lite"
-  option "with-wxmac", "Build the wxWidgets terminal using pango"
-  option "with-cairo", "Build the Cairo based terminals"
-  option "with-aquaterm", "Build with AquaTerm support"
-  option "with-x11", "Build with X11 support"
-
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "gd"
@@ -27,67 +21,36 @@ class GnuplotAT4 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "lua@5.1"
+  depends_on "pdflib-lite"
   depends_on "readline"
-  depends_on "pdflib-lite" => :optional
-  depends_on "wxmac" => :optional
-  depends_on "pango" if (build.with? "cairo") || (build.with? "wxmac")
-  depends_on :x11 => :optional
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
 
-    if build.with? "aquaterm"
-      # Add "/Library/Frameworks" to the default framework search path, so that an
-      # installed AquaTerm framework can be found. Brew does not add this path
-      # when building against an SDK (Nov 2013).
-      ENV.prepend "CPPFLAGS", "-F/Library/Frameworks"
-      ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
-    else
-      inreplace "configure", "-laquaterm", ""
-    end
+    # Do not build with Aquaterm
+    inreplace "configure", "-laquaterm", ""
 
+    pdflib = Formula["pdflib-lite"].opt_prefix
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --disable-wxwidgets
+      --with-aquaterm
       --with-gd=#{Formula["gd"].opt_prefix}
       --with-lispdir=#{elisp}
+      --with-pdf=#{pdflib}
       --with-readline=#{Formula["readline"].opt_prefix}
+      --without-cairo
       --without-latex
+      --without-tutorial
+      --without-x
     ]
-
-    pdflib = Formula["pdflib-lite"].opt_prefix
-    args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
-
-    if build.without? "wxmac"
-      args << "--disable-wxwidgets"
-      args << "--without-cairo" if build.without? "cairo"
-    end
-
-    args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
-    args << (build.with?("x11") ? "--with-x" : "--without-x")
-
-    # From latest gnuplot formula on core:
-    # > The tutorial requires the deprecated subfigure TeX package installed
-    # > or it halts in the middle of the build for user-interactive resolution.
-    # > Per upstream: "--with-tutorial is horribly out of date."
-    args << "--without-tutorial"
 
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    if build.with? "aquaterm"
-      <<~EOS
-        AquaTerm support will only be built into Gnuplot if the standard AquaTerm
-        package from SourceForge has already been installed onto your system.
-        If you subsequently remove AquaTerm, you will need to uninstall and then
-        reinstall Gnuplot.
-      EOS
-    end
   end
 
   test do
