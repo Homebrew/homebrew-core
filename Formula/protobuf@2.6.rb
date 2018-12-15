@@ -13,12 +13,7 @@ class ProtobufAT26 < Formula
 
   keg_only :versioned_formula
 
-  option "without-python@2", "Build without python2 support"
-  option :cxx11
-
-  deprecated_option "without-python" => "without-python@2"
-
-  depends_on "python@2" => :recommended
+  depends_on "python@2"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/64/1dc5e5976b17466fd7d712e59cbe9fb1e18bec153109e5ba3ed6c9102f1a/six-1.9.0.tar.gz"
@@ -54,7 +49,6 @@ class ProtobufAT26 < Formula
     # https://github.com/Homebrew/homebrew/issues/9279
     # https://github.com/protocolbuffers/protobuf/blob/e9a122eb19ec54dbca15da80355ed0c17cada9b1/configure.ac#L71-L74
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
-    ENV.cxx11 if build.cxx11?
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
            "--prefix=#{prefix}",
@@ -66,28 +60,26 @@ class ProtobufAT26 < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    if build.with? "python@2"
-      # google-apputils is a build-time dependency
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
-      %w[six python-dateutil pytz python-gflags google-apputils].each do |package|
-        resource(package).stage do
-          system "python", *Language::Python.setup_install_args(buildpath/"homebrew")
-        end
+    # google-apputils is a build-time dependency
+    ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python2.7/site-packages"
+    %w[six python-dateutil pytz python-gflags google-apputils].each do |package|
+      resource(package).stage do
+        system "python", *Language::Python.setup_install_args(buildpath/"homebrew")
       end
-      # google is a namespace package and .pth files aren't processed from
-      # PYTHONPATH
-      touch buildpath/"homebrew/lib/python2.7/site-packages/google/__init__.py"
-      chdir "python" do
-        ENV.append_to_cflags "-I#{include}"
-        ENV.append_to_cflags "-L#{lib}"
-        args = Language::Python.setup_install_args libexec
-        args << "--cpp_implementation"
-        system "python", *args
-      end
-      site_packages = "lib/python2.7/site-packages"
-      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-      (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
     end
+    # google is a namespace package and .pth files aren't processed from
+    # PYTHONPATH
+    touch buildpath/"homebrew/lib/python2.7/site-packages/google/__init__.py"
+    chdir "python" do
+      ENV.append_to_cflags "-I#{include}"
+      ENV.append_to_cflags "-L#{lib}"
+      args = Language::Python.setup_install_args libexec
+      args << "--cpp_implementation"
+      system "python", *args
+    end
+    site_packages = "lib/python2.7/site-packages"
+    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+    (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
   end
 
   def caveats; <<~EOS
@@ -109,11 +101,10 @@ class ProtobufAT26 < Formula
       EOS
     (testpath/"test.proto").write(testdata)
     system bin/"protoc", "test.proto", "--cpp_out=."
-    if build.with? "python@2"
-      protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
-      (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
-      system "python2.7", "-c", "import google.protobuf"
-    end
+
+    protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
+    (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
+    system "python2.7", "-c", "import google.protobuf"
   end
 end
 
