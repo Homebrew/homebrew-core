@@ -12,15 +12,10 @@ class PostgresqlAT10 < Formula
 
   keg_only :versioned_formula
 
-  option "with-python", "Enable PL/Python3"
-
-  deprecated_option "with-python3" => "with-python"
-
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
-  depends_on "python" => :optional
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -48,11 +43,6 @@ class PostgresqlAT10 < Formula
       --with-perl
       --with-uuid=e2fs
     ]
-
-    if build.with?("python")
-      args << "--with-python"
-      ENV["PYTHON"] = which("python3")
-    end
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
