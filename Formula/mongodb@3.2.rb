@@ -15,14 +15,10 @@ class MongodbAT32 < Formula
 
   keg_only :versioned_formula
 
-  option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
-  option "with-sasl", "Compile with SASL support"
-
   depends_on "go" => :build
   depends_on "scons" => :build
   depends_on :macos => :mountain_lion
-  depends_on "openssl" => :recommended
-  depends_on "boost" => :optional
+  depends_on "openssl"
 
   go_resource "github.com/mongodb/mongo-tools" do
     url "https://github.com/mongodb/mongo-tools.git",
@@ -36,55 +32,41 @@ class MongodbAT32 < Formula
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
-    # New Go tools have their own build script but the server scons "install" target is still
-    # responsible for installing them.
+    # New Go tools have their own build script but the server scons "install"
+    # target is still responsible for installing them.
     Language::Go.stage_deps resources, buildpath/"src"
 
     cd "src/github.com/mongodb/mongo-tools" do
-      args = %w[]
+      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      ENV["CPATH"] = Formula["openssl"].opt_include
 
-      if build.with? "openssl"
-        args << "ssl"
-        ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
-        ENV["CPATH"] = Formula["openssl"].opt_include
-      end
-
-      args << "sasl" if build.with? "sasl"
-
-      system "./build.sh", *args
+      system "./build.sh", "ssl"
     end
 
     mkdir "src/mongo-tools"
     cp Dir["src/github.com/mongodb/mongo-tools/bin/*"], "src/mongo-tools/"
 
     args = %W[
-      --prefix=#{prefix}
       -j#{ENV.make_jobs}
       --osx-version-min=#{MacOS.version}
+      --prefix=#{prefix}
+      --ssl
+      --use-new-tools
+      CC=#{ENV.cc}
+      CXX=#{ENV.cxx}
+      CCFLAGS=-I#{Formula["openssl"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
-    args << "CC=#{ENV.cc}"
-    args << "CXX=#{ENV.cxx}"
-
-    args << "--use-sasl-client" if build.with? "sasl"
-    args << "--use-system-boost" if build.with? "boost"
-    args << "--use-new-tools"
     args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
-
-    if build.with? "openssl"
-      args << "--ssl"
-
-      args << "CCFLAGS=-I#{Formula["openssl"].opt_include}"
-      args << "LINKFLAGS=-L#{Formula["openssl"].opt_lib}"
-    end
 
     scons "install", *args
 
-    (buildpath+"mongod.conf").write mongodb_conf
+    (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
 
-    (var+"mongodb").mkpath
-    (var+"log/mongodb").mkpath
+    (var/"mongodb").mkpath
+    (var/"log/mongodb").mkpath
   end
 
   def mongodb_conf; <<~EOS
