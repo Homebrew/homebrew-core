@@ -14,7 +14,6 @@ class GnupgAT14 < Formula
   end
 
   depends_on "curl" if MacOS.version <= :mavericks
-  depends_on "libusb-compat" => :optional
 
   def install
     args = %W[
@@ -23,8 +22,8 @@ class GnupgAT14 < Formula
       --prefix=#{prefix}
       --disable-asm
       --program-suffix=1
+      --with-libusb=no
     ]
-    args << "--with-libusb=no" if build.without? "libusb-compat"
 
     system "./configure", *args
     system "make"
