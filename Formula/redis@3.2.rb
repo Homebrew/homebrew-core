@@ -40,7 +40,7 @@ class RedisAT32 < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
-  plist_options :manual => "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/redis@3.2/bin/redis-server"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
