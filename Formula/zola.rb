@@ -5,9 +5,10 @@ class Zola < Formula
   sha256 "d4fa5e70a8da2d2b544147508e8d44a081f19c7d6c002c32ee9661c7873d3c7c"
 
   bottle do
-    sha256 "40725be4950469abd15b986fbc77b20306771ab2e011e578a6d55b7d56190bd0" => :mojave
-    sha256 "545e31eadf477836206d1d69b7d024cfe9e3f3fd3a74d0653549d486559dd708" => :high_sierra
-    sha256 "812ace288dd7dfdbf637eebdd0a1256fa5e9e9dba1233862f80935f14fda7d53" => :sierra
+    cellar :any_skip_relocation
+    sha256 "2caa9813654f96fa12a85ef94723fb917480e9492a9ff113401591c5b9496fbf" => :mojave
+    sha256 "e8e72ad23f0e0be1d2e6834681451e244147b36bb5f98daf80365e6ecb5c7be2" => :high_sierra
+    sha256 "c46e18dc9827db9339eaf74f49d140d6ec165761ff4158a1579dbe943e32fbad" => :sierra
   end
 
   depends_on "cmake" => :build
