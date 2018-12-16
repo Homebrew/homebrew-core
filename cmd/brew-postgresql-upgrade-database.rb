@@ -25,13 +25,14 @@ if old_datadir.exist?
   EOS
 end
 
-old_bin = Pathname.glob("#{HOMEBREW_PREFIX}/Cellar/#{name}{,@#{pg_version_data}}/#{pg_version_data}.*/bin").first
+old_pg_name = "#{name}@#{pg_version_data}"
+old_pg_glob = "#{HOMEBREW_PREFIX}/Cellar/#{old_pg_name}/#{pg_version_data}.*/bin"
+old_bin = Pathname.glob(old_pg_glob).first
 old_bin ||= begin
-  old_pg_name = "#{name}@#{pg_version_data}"
   Formula[old_pg_name]
   ohai "brew install #{old_pg_name}"
   system "brew", "install", old_pg_name
-  Pathname.glob("#{HOMEBREW_PREFIX}/Cellar/#{old_pg_name}/#{pg_version_data}.*/bin").first
+  Pathname.glob(old_pg_glob).first
 rescue FormulaUnavailableError
   nil
 end
