@@ -1,8 +1,8 @@
 class Pdftoedn < Formula
   desc "Extract PDF document data and save the output in EDN format"
   homepage "https://github.com/edporras/pdftoedn"
-  url "https://github.com/edporras/pdftoedn/archive/v0.36.2.tar.gz"
-  sha256 "a9d67dc980b0d52078092201d0f00f3f0d2c066c4e0b6148590e37e2fae6012c"
+  url "https://github.com/edporras/pdftoedn/archive/v0.36.3.tar.gz"
+  sha256 "89d8cd10e960841083a4a1ab7b2266a741b47763b76818e272f7b81016e4eabb"
 
   bottle do
     cellar :any
