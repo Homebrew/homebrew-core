@@ -21,19 +21,13 @@ class Thrift < Formula
     depends_on "pkg-config" => :build
   end
 
-  option "with-haskell", "Install Haskell binding"
-  option "with-erlang", "Install Erlang binding"
   option "with-java", "Install Java binding"
-  option "with-perl", "Install Perl binding"
-  option "with-php", "Install PHP binding"
-  option "with-libevent", "Install nonblocking server libraries"
 
   deprecated_option "with-python" => "with-python@2"
 
   depends_on "bison" => :build
   depends_on "boost"
   depends_on "openssl"
-  depends_on "libevent" => :optional
   depends_on "python@2" => :optional
 
   if build.with? "java"
@@ -44,14 +38,22 @@ class Thrift < Formula
   def install
     system "./bootstrap.sh" unless build.stable?
 
-    exclusions = ["--without-ruby", "--disable-tests", "--without-php_extension"]
+    args = %W[
+      --disable-debug
+      --disable-tests
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --without-erlang
+      --without-haskell
+      --without-perl
+      --without-php
+      --without-php_extension
+      --without-ruby
+    ]
 
-    exclusions << "--without-python" if build.without? "python@2"
-    exclusions << "--without-haskell" if build.without? "haskell"
-    exclusions << "--without-java" if build.without? "java"
-    exclusions << "--without-perl" if build.without? "perl"
-    exclusions << "--without-php" if build.without? "php"
-    exclusions << "--without-erlang" if build.without? "erlang"
+    args << "--without-python" if build.without? "python@2"
+    args << "--without-java" if build.without? "java"
 
     ENV.cxx11 if MacOS.version >= :mavericks && ENV.compiler == :clang
 
@@ -60,11 +62,7 @@ class Thrift < Formula
     ENV["PHP_PREFIX"] = prefix
     ENV["JAVA_PREFIX"] = buildpath
 
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--libdir=#{lib}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
-                          *exclusions
+    system "./configure", *args
     ENV.deparallelize
     system "make"
     system "make", "install"
