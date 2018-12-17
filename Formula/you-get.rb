@@ -3,8 +3,8 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://github.com/soimort/you-get/archive/v0.4.1181.tar.gz"
-  sha256 "f879fe94d727c69eced2104a56844ae93494f891d8f8db5fec4fe05b562d0b38"
+  url "https://github.com/soimort/you-get/archive/v0.4.1193.tar.gz"
+  sha256 "74046ba4994630db7f66145f318d76c5c7bc8802a42b8c6e393909b1c86326e8"
   head "https://github.com/soimort/you-get.git", :branch => "develop"
 
   bottle do
@@ -15,8 +15,7 @@ class YouGet < Formula
   end
 
   depends_on "python"
-
-  depends_on "rtmpdump" => :optional
+  depends_on "rtmpdump"
 
   def install
     virtualenv_install_with_resources
