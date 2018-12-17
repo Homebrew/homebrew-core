@@ -7,11 +7,9 @@ class Openmsx < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "86804cbafdb16650a98598f20ff8093acf2a375a3be469504f912160301b4196" => :mojave
-    sha256 "1fe237fb4200b9f0574de19da59434ba04df35320d3cae9f285a17d7c3f73222" => :high_sierra
-    sha256 "14b2a737d35b8725ac2eff3e4ec02f1eef45542c7795e902d704cbdaf76c1857" => :sierra
-    sha256 "0789729f06a73ae5acd2a04df373f839a2ac7d14e5679a380f7a485a777124ff" => :el_capitan
+    sha256 "64145c0b205a9eeb64e12f06b63440ee7c8bbba0153a0e248a1e37486815fb21" => :mojave
+    sha256 "eb64da0eff2b09fb3046903b020becc06aa8683ad398e9cea08708567fbcf194" => :high_sierra
+    sha256 "a2396de7cce4f6a317d6f8f3e38e32afb304580f08ccc798c36b0c5a933fcf8f" => :sierra
   end
 
   depends_on "freetype"
