@@ -14,9 +14,7 @@ class Libarchive < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "xz" => :recommended
-  depends_on "lz4" => :optional
-  depends_on "lzop" => :optional
+  depends_on "xz"
 
   def install
     system "./configure",
