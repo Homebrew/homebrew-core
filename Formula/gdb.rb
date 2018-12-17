@@ -12,18 +12,7 @@ class Gdb < Formula
     sha256 "5d35ee00715d9f119d90222e57c84f9173e3d2665af947b00fe189e7c01e4429" => :sierra
   end
 
-  option "with-python", "Use the Homebrew version of Python; by default system Python is used"
-  option "with-python@2", "Use the Homebrew version of Python 2; by default system Python is used"
-  option "with-version-suffix", "Add a version suffix to program"
-  option "with-all-targets", "Build with support for all targets"
-
-  deprecated_option "with-brewed-python" => "with-python@2"
-  deprecated_option "with-guile" => "with-guile@2.0"
-
   depends_on "pkg-config" => :build
-  depends_on "guile@2.0" => :optional
-  depends_on "python" => :optional
-  depends_on "python@2" => :optional
 
   fails_with :clang do
     build 800
@@ -57,30 +46,13 @@ class Gdb < Formula
   end
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-debug",
-      "--disable-dependency-tracking",
+    args = %W[
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --enable-targets=all
+      --with-python=/usr
     ]
-
-    args << "--with-guile" if build.with? "guile@2.0"
-    args << "--enable-targets=all" if build.with? "all-targets"
-
-    if build.with?("python@2") && build.with?("python")
-      odie "Options --with-python and --with-python@2 are mutually exclusive."
-    elsif build.with?("python@2")
-      args << "--with-python=#{Formula["python@2"].opt_bin}/python2"
-      ENV.append "CPPFLAGS", "-I#{Formula["python@2"].opt_libexec}"
-    elsif build.with?("python")
-      args << "--with-python=#{Formula["python"].opt_bin}/python3"
-      ENV.append "CPPFLAGS", "-I#{Formula["python"].opt_libexec}"
-    else
-      args << "--with-python=/usr"
-    end
-
-    if build.with? "version-suffix"
-      args << "--program-suffix=-#{version.to_s.slice(/^\d/)}"
-    end
 
     system "./configure", *args
     system "make"
