@@ -6,10 +6,10 @@ class Gocryptfs < Formula
   sha256 "fcaaf59cf7b062a6e216d2fcf69f374254018a9b8f99ae3177ac985f05b6c37b"
 
   bottle do
-    sha256 "469f801ad3ce794b6d767857bc21e6222d7a29a1bd166f105533dbd376eee719" => :mojave
-    sha256 "f98594b49df6d4912f50b5c5509d9e5be845e29b81e9638489460702a68eb1b1" => :high_sierra
-    sha256 "57378b7bd53f5f5305869d0208a1787b72367bac65226794fde1385cf7841643" => :sierra
-    sha256 "a0f5dff1c83b5b6906d24b6de9dba72d4a9d3dde641987d95b0233fa86ac8c91" => :el_capitan
+    cellar :any
+    sha256 "96e71183005e7af0dfbf3efc661c4b4a4d85012021b7728ca39b6b788e38ff38" => :mojave
+    sha256 "7fd1eb2fe49336859391b3f4e737873560d883c3ad216e09a9cd881417a1fd26" => :high_sierra
+    sha256 "746cc85d6ab7a6b711c82dd4b49a578fa61186abc980dbf5a341f08252b464b7" => :sierra
   end
 
   depends_on "go" => :build
