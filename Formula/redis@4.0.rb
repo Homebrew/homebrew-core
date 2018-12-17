@@ -4,6 +4,13 @@ class RedisAT40 < Formula
   url "https://github.com/antirez/redis/archive/4.0.12.tar.gz"
   sha256 "d11767986ba90b7bad6cc8bc67419a3900d86c047a453fab1deedb71875ff65c"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "2e21e362c8d97338ed0b95bbbf80f81322601411424d32b4ab5023e93cfc9969" => :mojave
+    sha256 "a735ef4d8cf8f865bf9ab0d538e1eaedc37d18669b99381a7aa3be0e642c72d8" => :high_sierra
+    sha256 "9453b63fd6dd0230181d047cd3ec6cfa295c739a7176cfd63f510ead98abecc0" => :sierra
+  end
+
   keg_only :versioned_formula
 
   def install
