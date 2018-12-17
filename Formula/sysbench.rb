@@ -11,15 +11,12 @@ class Sysbench < Formula
     sha256 "8aae1f5f0966a4ad0915d1443cbc2dd0aeac5e919fbc094af545ad78c2686c5b" => :sierra
   end
 
-  deprecated_option "without-mysql" => "without-mysql-client"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "mysql-client" => :recommended
-  depends_on "postgresql" => :optional
+  depends_on "mysql-client"
 
   def install
     system "./autogen.sh"
@@ -29,15 +26,7 @@ class Sysbench < Formula
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
-    args = ["--prefix=#{prefix}"]
-    if build.with? "mysql-client"
-      args << "--with-mysql"
-    else
-      args << "--without-mysql"
-    end
-    args << "--with-psql" if build.with? "postgresql"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--with-mysql"
     system "make", "install"
   end
 
