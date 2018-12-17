@@ -13,56 +13,25 @@ class Bullet < Formula
     sha256 "40daef7c06fe9352e96a60b6ea5abb7177484f2fb14e0bff505bb88f73a8186d" => :el_capitan
   end
 
-  option "with-framework", "Build frameworks"
-  option "with-demo", "Build demo applications"
-  option "with-double-precision", "Use double precision"
-
-  deprecated_option "framework" => "with-framework"
-  deprecated_option "build-demo" => "with-demo"
-  deprecated_option "double-precision" => "with-double-precision"
-
   depends_on "cmake" => :build
 
   def install
     args = std_cmake_args + %W[
-      -DINSTALL_EXTRA_LIBS=ON -DBUILD_UNIT_TESTS=OFF -DBUILD_PYBULLET=OFF
+      -DBUILD_BULLET2_DEMOS=OFF
+      -DBUILD_PYBULLET=OFF
+      -DBUILD_UNIT_TESTS=OFF
       -DCMAKE_INSTALL_RPATH=#{lib}
+      -DINSTALL_EXTRA_LIBS=ON
     ]
-    args << "-DUSE_DOUBLE_PRECISION=ON" if build.with? "double-precision"
-
-    args_shared = args.dup + %w[
-      -DBUILD_BULLET2_DEMOS=OFF -DBUILD_SHARED_LIBS=ON
-    ]
-
-    args_framework = %W[
-      -DFRAMEWORK=ON
-      -DCMAKE_INSTALL_PREFIX=#{frameworks}
-      -DCMAKE_INSTALL_NAME_DIR=#{frameworks}
-    ]
-
-    args_shared += args_framework if build.with? "framework"
-
-    args_static = args.dup << "-DBUILD_SHARED_LIBS=OFF"
-    if build.without? "demo"
-      args_static << "-DBUILD_BULLET2_DEMOS=OFF"
-    else
-      args_static << "-DBUILD_BULLET2_DEMOS=ON"
-    end
 
     mkdir "build" do
-      system "cmake", "..", *args_shared
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
       system "make", "install"
 
       system "make", "clean"
 
-      system "cmake", "..", *args_static
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
       system "make", "install"
-
-      if build.with? "demo"
-        rm_rf Dir["examples/**/Makefile", "examples/**/*.cmake", "examples/**/CMakeFiles"]
-        pkgshare.install "examples"
-        (pkgshare/"examples").install "../data"
-      end
     end
   end
 
@@ -76,13 +45,6 @@ class Bullet < Formula
         return 0;
       }
     EOS
-
-    if build.with? "framework"
-      system ENV.cc, "test.cpp", "-F#{frameworks}", "-framework", "LinearMath",
-                     "-I#{frameworks}/LinearMath.framework/Headers", "-lc++",
-                     "-o", "f_test"
-      system "./f_test"
-    end
 
     system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}",
                    "-lLinearMath", "-lc++", "-o", "test"
