@@ -23,8 +23,7 @@ class Daemontools < Formula
   end
 
   def caveats; <<~EOS
-    You must create /service directory as root before starting svscan.
-    So, you can start svscan with following commands.
+    You must create the /service directory before starting svscan:
       sudo mkdir /service
       sudo brew services start daemontools
   EOS
