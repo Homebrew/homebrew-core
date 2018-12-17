@@ -6,9 +6,9 @@ class Xtensor < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "42e10cbd349bdc505da8220b81dd5c8c1551cc99b98a34f1d3d04036d68cc6a1" => :mojave
-    sha256 "3831fe7f67d4bf4e4df9bee9755da59349acce80a21eb39619155e98e3d1b7e1" => :high_sierra
-    sha256 "3831fe7f67d4bf4e4df9bee9755da59349acce80a21eb39619155e98e3d1b7e1" => :sierra
+    sha256 "69f990ca04c43227f4106ab0c05357cae57b528ca0f492e637886191d132dc7b" => :mojave
+    sha256 "421f15eda0fddfdf10c9fc762f7553353b1b40588b2d8514870d3f5c66a1fe89" => :high_sierra
+    sha256 "421f15eda0fddfdf10c9fc762f7553353b1b40588b2d8514870d3f5c66a1fe89" => :sierra
   end
 
   depends_on "cmake" => :build
