@@ -1,8 +1,8 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.03/nsis-3.03-src.tar.bz2"
-  sha256 "abae7f4488bc6de7a4dd760d5f0e7cd3aad7747d4d7cd85786697c8991695eaa"
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.04/nsis-3.04-src.tar.bz2"
+  sha256 "609536046c50f35cfd909dd7df2ab38f2e835d0da3c1048aa0d48c59c5a4f4f5"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,8 +16,8 @@ class Makensis < Formula
   depends_on "scons" => :build
 
   resource "nsis" do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.03/nsis-3.03.zip"
-    sha256 "b53a79078f2c6abf21f11d9fe68807f35b228393eb17a0cd3873614190116ba7"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.04/nsis-3.04.zip"
+    sha256 "22f3349fea453a45551745635c13e5efb7849ecbdce709daa2b2fa8e2ac55fc4"
   end
 
   def install
