@@ -29,7 +29,6 @@ class Mkvtoolnix < Formula
   depends_on "ruby" => :build if MacOS.version <= :mountain_lion
   depends_on "boost"
   depends_on "flac"
-  depends_on "fmt"
   depends_on "libebml"
   depends_on "libmagic"
   depends_on "libmatroska"
@@ -44,7 +43,7 @@ class Mkvtoolnix < Formula
   def install
     ENV.cxx11
 
-    features = %w[flac fmt libebml libmagic libmatroska libogg libvorbis]
+    features = %w[flac libebml libmagic libmatroska libogg libvorbis]
 
     extra_includes = ""
     extra_libs = ""
