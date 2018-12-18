@@ -21,8 +21,6 @@ class AescryptPacketizer < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-default-names", "Build with the binaries named as expected upstream"
-
   depends_on :xcode => :build
 
   def install
@@ -45,23 +43,14 @@ class AescryptPacketizer < Formula
     end
 
     # To prevent conflict with our other aescrypt, rename the binaries.
-    if build.without? "default-names"
-      mv "#{bin}/aescrypt", "#{bin}/paescrypt"
-      mv "#{bin}/aescrypt_keygen", "#{bin}/paescrypt_keygen"
-    end
+    mv "#{bin}/aescrypt", "#{bin}/paescrypt"
+    mv "#{bin}/aescrypt_keygen", "#{bin}/paescrypt_keygen"
   end
 
-  def caveats
-    s = ""
-
-    if build.without? "default-names"
-      s += <<~EOS
-        To avoid conflicting with our other AESCrypt package the binaries
-        have been renamed paescrypt and paescrypt_keygen.
-      EOS
-    end
-
-    s
+  def caveats; <<~EOS
+    To avoid conflicting with our other AESCrypt package the binaries
+    have been renamed paescrypt and paescrypt_keygen.
+  EOS
   end
 
   test do
