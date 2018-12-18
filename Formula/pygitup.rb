@@ -3,9 +3,8 @@ class Pygitup < Formula
 
   desc "Nicer 'git pull'"
   homepage "https://github.com/msiemens/PyGitUp"
-  url "https://files.pythonhosted.org/packages/12/e8/fd6a0f29c6b7ecb52dc1e9bec96825a1a0ff0f2ce34cd50898040cce9673/git-up-1.5.0.tar.gz"
-  sha256 "e35ebd100fae7e37745baade1190c709c2047987c9b077edb4794ea8ccbeab60"
-  revision 1
+  url "https://files.pythonhosted.org/packages/46/45/32dc0bf07c620644a8ed899e381309f4f25b50f20a91e555285522592833/git-up-1.6.1.tar.gz"
+  sha256 "ea83441e7ab05011624e2e7333ef875c263124db5eed74507acd32b07c48473f"
 
   bottle do
     cellar :any_skip_relocation
