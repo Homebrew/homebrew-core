@@ -13,17 +13,12 @@ class CAres < Formula
 
   head do
     url "https://github.com/bagder/c-ares.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./buildconf" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-debug"
+    system "cmake", "-G", "Unix Makefiles", "-DCMAKE_BUILD_TYPE=Release", *std_cmake_args
     system "make", "install"
   end
 
