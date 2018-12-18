@@ -13,7 +13,6 @@ class ExactImage < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libagg"
-  depends_on "freetype" => :optional
 
   def install
     system "./configure", "--prefix=#{prefix}"
