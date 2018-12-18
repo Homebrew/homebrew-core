@@ -15,16 +15,10 @@ class Getxbook < Formula
     sha256 "74b03216052c58cfe830e69c169342ae6eba9fb24a92b25f3fa3794a015564d2" => :mountain_lion
   end
 
-  option "with-gui", "Build the GUI"
-
   depends_on "openssl"
-  depends_on "tcl-tk" if build.with? "gui"
 
   def install
-    args = %W[CC=#{ENV.cc} PREFIX=#{prefix}]
-    args << "install" if build.with?("gui")
-
-    system "make", *args
+    system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
     bin.install "getgbook", "getabook", "getbnbook"
   end
 
