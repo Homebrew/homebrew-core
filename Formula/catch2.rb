@@ -1,9 +1,9 @@
 class Catch2 < Formula
   desc "Modern, C++-native, header-only, test framework"
-  homepage "https://discord.gg/4CWS9zD"
+  homepage "https://github.com/catchorg/Catch2"
   url "https://github.com/catchorg/Catch2/archive/v2.5.0.tar.gz"
   sha256 "720c84d18f4dc9eb23379941df2054e7bcd5ff9c215e4d620f8533a130d128ae"
-  head "https://github.com/catchorg/Catch2.git"
+
   depends_on "cmake" => :build
 
   def install
