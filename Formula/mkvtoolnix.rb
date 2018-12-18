@@ -1,8 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
-  homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-28.2.0.tar.xz"
-  sha256 "aa54b39790e619b2cfdefdd083c735503834eb05c665cd85f9b5a8383bcc5843"
+  homepage "https://mkvtoolnix.download/"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-29.0.0.tar.xz"
+  sha256 "54eb5f88fe3c9c7b5df77f80b0dfcac7695c19a8226f8ba52be8ad15ba0975d3"
 
   bottle do
     sha256 "867c24499ef7b380be139c5dae287548808892469479738d825348f582248185" => :mojave
@@ -22,11 +22,13 @@ class Mkvtoolnix < Formula
   deprecated_option "with-qt5" => "with-qt"
 
   depends_on "docbook-xsl" => :build
+  depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
   depends_on "ruby" => :build if MacOS.version <= :mountain_lion
   depends_on "boost"
   depends_on "flac"
+  depends_on "fmt"
   depends_on "libebml"
   depends_on "libmagic"
   depends_on "libmatroska"
@@ -41,7 +43,7 @@ class Mkvtoolnix < Formula
   def install
     ENV.cxx11
 
-    features = %w[flac libmagic libogg libvorbis libebml libmatroska]
+    features = %w[flac fmt libebml libmagic libmatroska libogg libvorbis]
 
     extra_includes = ""
     extra_libs = ""
