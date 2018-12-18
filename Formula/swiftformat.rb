@@ -1,8 +1,8 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/0.37.0.tar.gz"
-  sha256 "4768319047c57faa262aa53b6ae71c9877482801e30803ac461c34239e175346"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/0.37.1.tar.gz"
+  sha256 "8d2f0aef108e1ff01afbd92c7cc034c58e1d030d8a5dd790c58e19b07bf36fc9"
   head "https://github.com/nicklockwood/SwiftFormat.git", :shallow => false
 
   bottle do
