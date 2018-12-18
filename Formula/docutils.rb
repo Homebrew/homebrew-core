@@ -14,10 +14,26 @@ class Docutils < Formula
     sha256 "a91be71816c677dac34fe253695440bebaf54d634652622ca1e797f5cebecbee" => :sierra
   end
 
-  depends_on "python"
+  depends_on "python@2"
+
+  option "without-lxml", "build without XML processing support"
+  option "without-pillow", "build without Python Image Library support"
+  option "without-pygments", "build without code syntax highlighting support"
 
   def install
     virtualenv_install_with_resources
+
+    if build.with?("lxml")
+      system libexec/"bin/pip", "install", "lxml"
+    end
+
+    if build.with?("pillow")
+      system libexec/"bin/pip", "install", "Pillow"
+    end
+
+    if build.with?("pygments")
+      system libexec/"bin/pip", "install", "Pygments"
+    end
   end
 
   test do
