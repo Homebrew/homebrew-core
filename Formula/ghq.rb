@@ -15,8 +15,6 @@ class Ghq < Formula
     sha256 "d8281b077e388d55fdb8a2012c884b5195fe42be4bb67c14e0ea2a1c481f288f" => :yosemite
   end
 
-  option "without-completions", "Disable zsh completions"
-
   depends_on "go" => :build
 
   go_resource "github.com/daviddengcn/go-colortext" do
@@ -47,7 +45,7 @@ class Ghq < Formula
 
     system "go", "build", "-ldflags", "-X main.Version=#{version}",
                           "-o", bin/"ghq"
-    zsh_completion.install "zsh/_ghq" if build.with? "completions"
+    zsh_completion.install "zsh/_ghq"
   end
 
   test do
