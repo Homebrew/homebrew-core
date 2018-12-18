@@ -23,7 +23,7 @@ class Drip < Formula
   end
 
   test do
-    ENV["DRIP_HOME"] = "/tmp"
+    ENV["DRIP_HOME"] = testpath
     system "#{bin}/drip", "version"
   end
 end
