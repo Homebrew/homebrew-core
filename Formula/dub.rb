@@ -14,7 +14,7 @@ class Dub < Formula
   end
 
   depends_on "dmd" => :build
-  depends_on "pkg-config" => :recommended
+  depends_on "pkg-config"
 
   def install
     ENV["GITVER"] = version.to_s
