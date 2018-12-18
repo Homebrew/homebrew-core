@@ -32,8 +32,8 @@ class Agda < Formula
   end
 
   depends_on "cabal-install" => [:build, :test]
+  depends_on "emacs"
   depends_on "ghc"
-  depends_on "emacs" => :recommended
 
   def install
     # install Agda core
@@ -56,10 +56,8 @@ class Agda < Formula
     end
 
     # compile the included Emacs mode
-    if build.with? "emacs"
-      system bin/"agda-mode", "compile"
-      elisp.install_symlink Dir["#{share}/*/Agda-#{version}/emacs-mode/*"]
-    end
+    system bin/"agda-mode", "compile"
+    elisp.install_symlink Dir["#{share}/*/Agda-#{version}/emacs-mode/*"]
   end
 
   def caveats; <<~EOS
