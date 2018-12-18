@@ -14,7 +14,6 @@ class Fig2dev < Formula
   depends_on "ghostscript"
   depends_on "libpng"
   depends_on "netpbm"
-  depends_on :x11 => :optional
 
   def install
     args = %W[
@@ -22,13 +21,9 @@ class Fig2dev < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --enable-transfig
+      --without-xpm
+      --without-x
     ]
-
-    if build.with? "x11"
-      args << "--with-xpm" << "--with-x"
-    else
-      args << "--without-xpm" << "--without-x"
-    end
 
     system "./configure", *args
     system "make", "install"
