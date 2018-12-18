@@ -11,11 +11,10 @@ class Grpc < Formula
     sha256 "2c73ad06745f8802f7baae1fbdeaac8c7bd51920a187c481d26e1de82b58deac" => :sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
+  depends_on "gflags" => :build
+  depends_on "google-benchmark" => :build
   depends_on "c-ares"
-  depends_on "gflags"
   depends_on "openssl"
   depends_on "protobuf"
 
@@ -25,13 +24,19 @@ class Grpc < Formula
   end
 
   def install
-    system "make", "install", "prefix=#{prefix}"
-
-    system "make", "install-plugins", "prefix=#{prefix}"
-
     (buildpath/"third_party/googletest").install resource("gtest")
-    system "make", "grpc_cli", "prefix=#{prefix}"
-    bin.install "bins/opt/grpc_cli"
+    system "cmake", "-G", "Unix Makefiles",
+        # we need to build tests to get grpc_cli
+        "-DgRPC_BUILD_TESTS=ON",
+        "-DgRPC_ZLIB_PROVIDER=package",
+        "-DgRPC_CARES_PROVIDER=package",
+        "-DgRPC_SSL_PROVIDER=package",
+        "-DgRPC_PROTOBUF_PROVIDER=package",
+        "-DgRPC_GFLAGS_PROVIDER=package",
+        "-DgRPC_BENCHMARK_PROVIDER=package",
+        *std_cmake_args
+    system "make", "install"
+    bin.install "grpc_cli"
   end
 
   test do
