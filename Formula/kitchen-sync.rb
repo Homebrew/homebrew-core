@@ -6,10 +6,10 @@ class KitchenSync < Formula
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c44f936f6ad2b0801035fe95939d9f3f7a5fc2cb60ce3c190ce01cc938feffca" => :mojave
-    sha256 "113464f5021617feabe43817fc4a5d5ab0bb5e07805de00f8e8acc5b1ebe1add" => :high_sierra
-    sha256 "d74bd7054a4a9fa23610d383936aeb122986ec47af70f269e502b5215d91791f" => :sierra
+    cellar :any
+    sha256 "4227a35d5b9109bcb2d8c70e7de1b37b5411abd916346dd0492b86a164f262b7" => :mojave
+    sha256 "2f5925e2a5d1cae5b6f8f189d047c215a9eded17cc92e4b397462e500a5f49b0" => :high_sierra
+    sha256 "ce3535aa21e46e275900c08e9149742642c511cac546bfa967e3fc7afc822706" => :sierra
   end
 
   depends_on "cmake" => :build
