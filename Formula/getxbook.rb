@@ -6,13 +6,10 @@ class Getxbook < Formula
 
   bottle do
     cellar :any
-    sha256 "a7974d5b7253344ac329a998de5a06d4c0c8908a0951067d9b735582c43bd570" => :mojave
-    sha256 "fe6eb0a45995aafd518535671a6c7e17e3a8611e2c5444d0a420045d23e8006b" => :high_sierra
-    sha256 "16cdf74891b198e58f17345425ad29bc678c0164acb223872a618f0929a934f0" => :sierra
-    sha256 "36c96e48b025d7b483dab3d9bc7283d677885e1db23ad5c3c8947e49c34ccdb5" => :el_capitan
-    sha256 "b0b609d26eb1faeba89e929f6f6099297d14957d22653720adb61fbed9e492da" => :yosemite
-    sha256 "00f0f25a3d3440b0c7f98b2881c0750c9e568cfa685de2f89dbc43f58e667fce" => :mavericks
-    sha256 "74b03216052c58cfe830e69c169342ae6eba9fb24a92b25f3fa3794a015564d2" => :mountain_lion
+    rebuild 1
+    sha256 "e41dd2cae656b3dc6d0fd3b40a4f5b1a4abf3201810a4b4ede48a4b5be1c57f6" => :mojave
+    sha256 "22e0f30ddca62fe58ef3e8c85cbd9c2c0d56af80752650680fd80c6653de3cad" => :high_sierra
+    sha256 "5a3715317211d006cf7be4f0f2b86955be586790461c9d0e27f0202fa8851f65" => :sierra
   end
 
   depends_on "openssl"
