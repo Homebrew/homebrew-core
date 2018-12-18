@@ -3,6 +3,7 @@ class Envconsul < Formula
   homepage "https://github.com/hashicorp/envconsul"
   url "https://github.com/hashicorp/envconsul/archive/v0.7.3.tar.gz"
   sha256 "7152d73818c3faceac831c6ffae6e01c2f3a6372976409d9d084130ffcea35f4"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,7 +14,7 @@ class Envconsul < Formula
   end
 
   depends_on "go" => :build
-  depends_on "consul" => :recommended # only used in test
+  depends_on "consul" => :test
 
   def install
     ENV["GOPATH"] = buildpath
