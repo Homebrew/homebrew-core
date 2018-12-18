@@ -7,12 +7,10 @@ class Dwm < Formula
   head "https://git.suckless.org/dwm", :using => :git
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "86302db90a0df481a5c2b58f73844fc78019ad4e9544a5f03c96369bc57523bc" => :mojave
-    sha256 "6cc50618320a56720dd41717990c9cee08b2de731814b6b05275e9d6712cb80c" => :high_sierra
-    sha256 "ab241356f8f38fb9e1ff6bba2dfbb07b8b82a5be0eee7fe75ba128548034115a" => :sierra
-    sha256 "1f900b061eb8c36118c85c494aeb634da01d5dd7e3d6e58f9a1d8d5c53da2208" => :el_capitan
-    sha256 "0e8c7d9f991b3269569e0d990dbf9fc56e89f9a6274a1abd72d41248253afca8" => :yosemite
+    cellar :any
+    sha256 "96b24743e0a1e80f183fb9a9a6ba413c1feb78dc88bf7cf5fa5767a427bc24aa" => :mojave
+    sha256 "3f38007bc1083269deb427a95e932e9474d7ff095406e3738944b3ae2d440a8d" => :high_sierra
+    sha256 "ad026318ad2c198f997d2ffbf9724521d8ef766889a936f8ff9c4dbab8dafaf3" => :sierra
   end
 
   depends_on "dmenu"
