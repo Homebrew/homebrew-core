@@ -3,7 +3,7 @@ class Gpsbabel < Formula
   homepage "https://www.gpsbabel.org/"
   url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_5_4.tar.gz"
   sha256 "8cd740db0b92610abff71e942e8a987df58cd6ca5f25cca86e15f2b00e190704"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "a5a99af06f2099e936c6f1507bd6d7e98f805cbcf89ae1f01bf22f411f6a4b51" => :mojave
@@ -12,8 +12,8 @@ class Gpsbabel < Formula
     sha256 "b99754ca018e38fd12b8604ca9ad249590e363586b9fe48dd416b02b93d0c8be" => :el_capitan
   end
 
+  depends_on "libusb"
   depends_on "qt"
-  depends_on "libusb" => :optional
 
   # Fix build with Xcode 9, remove for next version
   patch do
@@ -29,10 +29,9 @@ class Gpsbabel < Formula
 
   def install
     ENV.cxx11
-    args = ["--disable-debug", "--disable-dependency-tracking",
-            "--prefix=#{prefix}"]
-    args << "--without-libusb" if build.without? "libusb"
-    system "./configure", *args
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 
