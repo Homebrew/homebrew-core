@@ -4,6 +4,7 @@ class Cfitsio < Formula
   url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3450.tar.gz"
   version "3.450"
   sha256 "bf6012dbe668ecb22c399c4b7b2814557ee282c74a7d5dc704eb17c30d9fb92e"
+  revision 1
 
   bottle do
     cellar :any
@@ -13,12 +14,8 @@ class Cfitsio < Formula
     sha256 "f5e9a01028f38a17ddd05488dd261eb235c34512b0ef6bade5c875525644ea54" => :el_capitan
   end
 
-  option "with-reentrant", "Build with support for concurrency"
-
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--enable-reentrant" if build.with? "reentrant"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-reentrant"
     system "make", "shared"
     system "make", "install"
     (pkgshare/"testprog").install Dir["testprog*"]
