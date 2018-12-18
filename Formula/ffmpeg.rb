@@ -31,6 +31,7 @@ class Ffmpeg < Formula
   option "with-srt", "Enable SRT library"
   option "with-libvmaf", "Enable libvmaf scoring library"
   option "with-aom", "Enable AV1 video codec"
+  option "with-libxml2", "Enable libxml2 library (enables dash demuxer)"
 
   deprecated_option "with-libtesseract" => "with-tesseract"
 
@@ -68,6 +69,7 @@ class Ffmpeg < Formula
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
   depends_on "libvmaf" => :optional
+  depends_on "libxml2" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
@@ -141,6 +143,7 @@ class Ffmpeg < Formula
     args << "--enable-opencl" if MacOS.version > :lion
     args << "--enable-openssl" if build.with? "openssl"
     args << "--enable-videotoolbox" if MacOS.version >= :mountain_lion
+    args << "--enable-libxml2" if build.with? "libxml2"
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
