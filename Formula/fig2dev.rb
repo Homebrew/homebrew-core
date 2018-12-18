@@ -5,10 +5,10 @@ class Fig2dev < Formula
   sha256 "bda219a15efcdb829e6cc913a4174f5a4ded084bf91565c783733b34a89bfb28"
 
   bottle do
-    sha256 "9313da2905ed7a0da1ef01d6af86109f5f5492d8b7796fb7ba886921a42bf6ac" => :mojave
-    sha256 "43ab38df1a59b1354326b9df617a370d865ee01e0b9924bebc7d50eaedd78504" => :high_sierra
-    sha256 "5ce54788ded402638956c57526db334c25fc4a3fbd0dca29625c97a98a065499" => :sierra
-    sha256 "e73cec0aff10bbcf4b6b940e33f7f5cfdc65a83faabd81a12b29655d70d23d17" => :el_capitan
+    rebuild 1
+    sha256 "79e3ce0deff39f9a8787014dae667668a8d585c600bb20c0a839629dfc561a14" => :mojave
+    sha256 "995e027eba6f1857d13ddfcec5c19abd126133cb4b4420beed173e197cb6b5fb" => :high_sierra
+    sha256 "2a4bf3ad00d9d2194f087e95c250dd848c1cb4734d7c020b3607ddf20cf6f3ad" => :sierra
   end
 
   depends_on "ghostscript"
