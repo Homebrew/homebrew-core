@@ -3,6 +3,7 @@ class Dwm < Formula
   homepage "https://dwm.suckless.org/"
   url "https://dl.suckless.org/dwm/dwm-6.1.tar.gz"
   sha256 "c2f6c56167f0acdbe3dc37cca9c1a19260c040f2d4800e3529a21ad7cce275fe"
+  revision 1
   head "https://git.suckless.org/dwm", :using => :git
 
   bottle do
@@ -14,8 +15,8 @@ class Dwm < Formula
     sha256 "0e8c7d9f991b3269569e0d990dbf9fc56e89f9a6274a1abd72d41248253afca8" => :yosemite
   end
 
+  depends_on "dmenu"
   depends_on :x11
-  depends_on "dmenu" => :optional
 
   def install
     # The dwm default quit keybinding Mod1-Shift-q collides with
