@@ -6,10 +6,9 @@ class Gpsbabel < Formula
   revision 2
 
   bottle do
-    sha256 "a5a99af06f2099e936c6f1507bd6d7e98f805cbcf89ae1f01bf22f411f6a4b51" => :mojave
-    sha256 "e93459121437da0a431110d2328b797e0c0f08c6ad0d8868a8fc54eacad113f8" => :high_sierra
-    sha256 "6beb905104938716330e3c08a8369844ea31a9fbdc91fca3efc2e218ea9ba9a4" => :sierra
-    sha256 "b99754ca018e38fd12b8604ca9ad249590e363586b9fe48dd416b02b93d0c8be" => :el_capitan
+    sha256 "afa69a0f0729d4ba82d1f36edee585ed6dc88be4d36d4bd93d0c8512ee13ff11" => :mojave
+    sha256 "4c3f17308d3d81e9a3ca96fd278e30a0cf927642a82cdb76a46ca649a6d9bb6f" => :high_sierra
+    sha256 "be91d28547a74b5a5e5564ee9b6bc5fe2c54dc2a62afd992ca00a4e0836e5dfb" => :sierra
   end
 
   depends_on "libusb"
