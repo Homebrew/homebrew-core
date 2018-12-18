@@ -13,8 +13,8 @@ class Frotz < Formula
     sha256 "887efd67a050038ffb15df8c713eaa40fcbfcc69d36f58373981dba3ccae422b" => :yosemite
   end
   resource "testdata" do
-    url "https://github.com/anag004/FrotzTestFile/blob/master/test.z5"
-    sha256 "c9cf74c3ae0e89c91d323cca9c77e65ae0f4b3de1f6db42f6e208094a8dfdf92"
+    url "https://github.com/anag004/FrotzTestFile/blob/master/test.z5?raw=true"
+    sha256 "40263585821ca3784afd07cf31492e23e7803aeb83d38b177a2019a95892dda8"
   end
 
   def install
