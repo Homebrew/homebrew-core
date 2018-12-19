@@ -5,9 +5,10 @@ class NodeAT8 < Formula
   sha256 "b1df87803ddffb76fc6739f025f69f6b8288514fcd2f278f0d675ac3d52a6b9b"
 
   bottle do
-    sha256 "50b1024723e2fcab7e46ff34d549defe3eea7a2cec27387f08466bd02e3840c8" => :mojave
-    sha256 "6b1edf9153635409be6f895467a247fe0c59f918f77aedf41095cd161a6c785a" => :high_sierra
-    sha256 "f68b03e36dbe1eb7016cdb67744043cd4c84b15b3e5483037b691409198689ef" => :sierra
+    cellar :any
+    sha256 "0b68af39b76906f64c6f9b1cb8ecc12577b3dd723c48f29efb26dd02ea98e935" => :mojave
+    sha256 "7fe6761d145990c34769e563126e81ac26ab813746c90f6082aa5638ba257549" => :high_sierra
+    sha256 "5bd397f2c8b861c80a8ad1fe048e6ab4f28a3e8cfd67ee75ed9c735e16385957" => :sierra
   end
 
   keg_only :versioned_formula
