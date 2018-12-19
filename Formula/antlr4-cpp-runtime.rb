@@ -1,8 +1,8 @@
 class Antlr4CppRuntime < Formula
   desc "ANother Tool for Language Recognition C++ Runtime Library"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.7.1-source.zip"
-  sha256 "23bebc0411052a260f43ae097aa1ab39869eb6b6aa558b046c367a4ea33d1ccc"
+  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.7.2-source.zip"
+  sha256 "8631a39116684638168663d295a969ad544cead3e6089605a44fea34ec01f31a"
 
   bottle do
     cellar :any
