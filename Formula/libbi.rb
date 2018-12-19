@@ -1,9 +1,9 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "https://libbi.org/"
-  url "https://github.com/libbi/LibBi/archive/1.4.3.tar.gz"
-  sha256 "914ebfe9bd71053950d9d34b5f035dd4e6c9ec0209ec6e671ffdf5fe269733cf"
-  head "https://github.com/libbi/LibBi.git"
+  url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
+  sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
+  head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
