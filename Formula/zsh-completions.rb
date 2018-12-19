@@ -1,8 +1,8 @@
 class ZshCompletions < Formula
   desc "Additional completion definitions for zsh"
   homepage "https://github.com/zsh-users/zsh-completions"
-  url "https://github.com/zsh-users/zsh-completions/archive/0.29.0.tar.gz"
-  sha256 "979604ea4e729e9bf2f19895545a7064e8d723cd93e9fa0d4402ca8a915e74d1"
+  url "https://github.com/zsh-users/zsh-completions/archive/0.30.0.tar.gz"
+  sha256 "981c386fa01f9bcb0c8a66b0db16af794ab10169d12e2242f83715967b737621"
   head "https://github.com/zsh-users/zsh-completions.git"
 
   bottle :unneeded
