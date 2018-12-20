@@ -34,6 +34,17 @@ class Qmmp < Formula
   def install
     system "cmake", "./", "-USE_SKINNED", "-USE_ENCA", "-USE_QMMP_DIALOG", *std_cmake_args
     system "make", "install"
+
+    # fix linkage
+    cd (lib.to_s) do
+      Dir["*.dylib", "qmmp/*/*.so"].select { |f| File.ftype(f) == "file" }.each do |f|
+        MachO::Tools.dylibs(f).select { |d| d.start_with?("/tmp") }.each do |d|
+          bname = File.dirname(d)
+          d_new = d.sub(bname, opt_lib.to_s)
+          MachO::Tools.change_install_name(f, d, d_new)
+        end
+      end
+    end
   end
 
   test do
