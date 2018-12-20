@@ -7,7 +7,7 @@ class Catch2 < Formula
   depends_on "cmake" => :build
 
   def install
-    inreplace "CMakeLists.txt", "{CMAKE_INSTALL_LIBDIR}/cmake", "{CMAKE_INSTALL_DATAROOTDIR}/cmake"
+    inreplace "CMakeLists.txt", "{CMAKE_INSTALL_LIBDIR}/cmake/Catch2", "{CMAKE_INSTALL_DATADIR}/cmake/Catch2"
     system "cmake", "-Bbuild", ".", "-DBUILD_TESTING=OFF", *std_cmake_args
     system "cmake", "--build", "build", "--target", "install"
   end
