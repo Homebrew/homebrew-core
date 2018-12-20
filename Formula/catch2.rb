@@ -8,7 +8,7 @@ class Catch2 < Formula
 
   def install
     inreplace "CMakeLists.txt", "{CMAKE_INSTALL_LIBDIR}/cmake", "{CMAKE_INSTALL_DATAROOTDIR}/cmake"
-    system "cmake", "-Bbuild", "-H.", "-DBUILD_TESTING=OFF", *std_cmake_args
+    system "cmake", "-Bbuild", ".", "-DBUILD_TESTING=OFF", *std_cmake_args
     system "cmake", "--build", "build", "--target", "install"
   end
 
