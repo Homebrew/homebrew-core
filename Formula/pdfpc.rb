@@ -1,8 +1,8 @@
 class Pdfpc < Formula
   desc "Presenter console with multi-monitor support for PDF files"
   homepage "https://pdfpc.github.io/"
-  url "https://github.com/pdfpc/pdfpc/archive/v4.2.1.tar.gz"
-  sha256 "f67eedf092a9bc275dde312f3166063a2e88569f030839efc211127245be6df8"
+  url "https://github.com/pdfpc/pdfpc/archive/v4.3.0.tar.gz"
+  sha256 "15bb8f202988a978635f9b569f57be6dfe6e29e8ed3fc4929781cf8ef553ea2a"
   head "https://github.com/pdfpc/pdfpc.git"
 
   bottle do
