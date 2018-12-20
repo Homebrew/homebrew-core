@@ -3,8 +3,8 @@ class Filebeat < Formula
   homepage "https://www.elastic.co/products/beats/filebeat"
   # Pinned at 6.2.x because of a licencing issue
   # See: https://github.com/Homebrew/homebrew-core/pull/28995
-  url "https://github.com/elastic/beats/archive/v6.2.4.tar.gz"
-  sha256 "87d863cf55863329ca80e76c3d813af2960492f4834d4fea919f1d4b49aaf699"
+  url "https://github.com/elastic/beats/archive/v6.5.4.tar.gz"
+  sha256 "4f16f09bc1904cd6c8d864addb3694a041adddb8bd7fa767d6ea8dbd570385d9"
   head "https://github.com/elastic/beats.git"
 
   bottle do
