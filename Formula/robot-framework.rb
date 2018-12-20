@@ -2,7 +2,7 @@ class RobotFramework < Formula
   include Language::Python::Virtualenv
 
   desc "Open source test framework for acceptance testing"
-  homepage "http://robotframework.org/"
+  homepage "https://robotframework.org/"
   url "https://github.com/robotframework/robotframework/archive/v3.0.4.tar.gz"
   sha256 "1557c83f456ae90645f9c88f1e3366571cc3fe0843bea20330601b9d00c47ece"
   head "https://github.com/robotframework/robotframework.git"
