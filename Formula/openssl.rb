@@ -27,6 +27,13 @@ class Openssl < Formula
     sha256 "86695b1be9225c3cf882d283f05c944e3aabbc1df6428a4424269a93e997dc65"
   end
 
+  resource "openssl-fips" do
+    url "https://www.openssl.org/source/openssl-fips-2.0.16.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-fips-2.0.16.tar.gz"
+    mirror "http://artfiles.org/openssl.org/source/openssl-fips-2.0.16.tar.gz"
+    sha256 "a3cd13d0521d22dd939063d3b4a0d4ce24494374b91408a05bdaca8b681c63d4"
+  end
+
   # Use standard env on Snow Leopard to allow compilation fix below to work.
   env :std if MacOS.version == :snow_leopard
 
@@ -40,11 +47,12 @@ class Openssl < Formula
   def configure_args; %W[
     --prefix=#{prefix}
     --openssldir=#{openssldir}
+    --with-fipsdir=#{prefix}
     no-ssl2
-    no-ssl3
     no-zlib
     shared
     enable-cms
+    fips
   ]
   end
 
@@ -73,6 +81,13 @@ class Openssl < Formula
     args << "CC=cc" if MacOS.version == :snow_leopard
 
     ENV.deparallelize
+
+    resource("openssl-fips").stage do
+      system "perl", "./Configure", arch_args[arch].first, "--prefix=#{prefix}", "--openssldir=#{openssldir}"
+      system "make"
+      system "make", "install"
+    end
+
     system "perl", "./Configure", *(configure_args + arch_args[arch])
     system "make", "depend", *depend_args
     system "make", *args
@@ -137,5 +152,7 @@ class Openssl < Formula
       checksum = f.read(100).split("=").last.strip
       assert_equal checksum, expected_checksum
     end
+
+    assert_match /^Error setting digest md5/, shell_output("OPENSSL_FIPS=1 #{bin}/openssl md5 testfile.txt 2>&1", 1)
   end
 end
