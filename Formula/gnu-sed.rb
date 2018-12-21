@@ -1,9 +1,9 @@
 class GnuSed < Formula
   desc "GNU implementation of the famous stream editor"
   homepage "https://www.gnu.org/software/sed/"
-  url "https://ftp.gnu.org/gnu/sed/sed-4.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/sed/sed-4.6.tar.xz"
-  sha256 "beff6acf1c7838cc722714d143a64e706e2fd3bd1e00d3cd75152f596b09bb9e"
+  url "https://ftp.gnu.org/gnu/sed/sed-4.7.tar.xz"
+  mirror "https://ftpmirror.gnu.org/sed/sed-4.7.tar.xz"
+  sha256 "2885768cd0a29ff8d58a6280a270ff161f6a3deb5690b2be6c49f46d4c67bd6a"
 
   bottle do
     cellar :any_skip_relocation
