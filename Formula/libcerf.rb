@@ -1,8 +1,8 @@
 class Libcerf < Formula
   desc "Numeric library for complex error functions"
   homepage "http://apps.jcns.fz-juelich.de/doku/sc/libcerf"
-  url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.9.tgz"
-  sha256 "ee0f5a58764fa5445b916d8838086bfa2bf5bb368f8f665a35bd71dbdbedaea9"
+  url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.10.tgz"
+  sha256 "6a412c13e404411d77105c731a756384970424d6f65d1c4c63758c28183d4b61"
 
   bottle do
     cellar :any
@@ -17,8 +17,6 @@ class Libcerf < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
-
-      mv prefix/"man", share
     end
   end
 
