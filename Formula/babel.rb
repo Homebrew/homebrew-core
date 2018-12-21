@@ -16,8 +16,8 @@ class Babel < Formula
   depends_on "node"
 
   resource "babel-core" do
-    url "https://registry.npmjs.org/@babel/core/-/core-7.2.0.tgz"
-    sha256 "7f60c1a95f03c86b0e9329989045f460c3fb86ce6d4f545327b6091f1ca37eae"
+    url "https://registry.npmjs.org/@babel/core/-/core-7.2.2.tgz"
+    sha256 "b632e5a565b000645d7bc0010331773481cc5dee7d4360360dccaa9e51c4785e"
   end
 
   def install
