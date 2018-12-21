@@ -7,11 +7,9 @@ class Grep < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "151b6433e22f799b0a3b4bcd68e98d96333a46fd1e0a4c7be2cf90c443207ff5" => :mojave
-    sha256 "17972d85803a24a567b92b1b25df46c5510684fe7ca64f29e277d27f9ca134b2" => :high_sierra
-    sha256 "65cb0f628d3678c4dd7bf6af1c736d717c1eb8975e203619123379447063fec1" => :sierra
-    sha256 "1556c6afb5cbc430e647e70fcd521ce42e203a0c5833cb6a2c6be4413b200c3b" => :el_capitan
+    sha256 "9605eb41929a11ec6e330c65b0a0ccef8c052607c9fde52061063fbfb90ad32a" => :mojave
+    sha256 "9c21150901667bd9f65a9b894abf076781580e60560d2f610da325b89f96dd96" => :high_sierra
+    sha256 "82abc832186859552a9ca620b0f0ddc28474988847338793e0fabcd2ac9ca130" => :sierra
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"
