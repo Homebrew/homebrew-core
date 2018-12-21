@@ -12,6 +12,7 @@ class Frotz < Formula
     sha256 "6506ec53859a859eb71ab33511a11e9c957e0749cb25efa06d63d6c80d000b4a" => :el_capitan
     sha256 "887efd67a050038ffb15df8c713eaa40fcbfcc69d36f58373981dba3ccae422b" => :yosemite
   end
+
   resource "testdata" do
     url "https://github.com/anag004/FrotzTestFile/blob/master/test.z5?raw=true"
     sha256 "40263585821ca3784afd07cf31492e23e7803aeb83d38b177a2019a95892dda8"
@@ -24,9 +25,11 @@ class Frotz < Formula
       s.change_make_var! "CONFIG_DIR", etc
       s.change_make_var! "MAN_PREFIX", share
     end
+
     system "make", "frotz"
     system "make", "install"
   end
+
   test do
     resource("testdata").stage testpath
     system "echo", "test", "|", "frotz", "testpath/testdata"
