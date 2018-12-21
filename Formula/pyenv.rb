@@ -30,9 +30,9 @@ class Pyenv < Formula
       bin.install_symlink "#{prefix}/plugins/python-build/bin/#{cmd}"
     end
 
-    bash_completion.install "#{prefix}/completions/pyenv.bash"
-    zsh_completion.install "#{prefix}/completions/pyenv.zsh"
-    fish_completion.install "#{prefix}/completions/pyenv.fish"
+    # Do not manually install shell completions. See:
+    #   - https://github.com/pyenv/pyenv/issues/1056#issuecomment-356818337
+    #   - https://github.com/Homebrew/homebrew-core/pull/22727
   end
 
   test do
