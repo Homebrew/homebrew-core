@@ -41,6 +41,8 @@ class Babel < Formula
     system bin/"babel", "script.js", "--out-file", "script-compiled.js"
     assert_predicate testpath/"script-compiled.js", :exist?, "script-compiled.js was not generated"
 
-    assert_equal version, resource("babel-core").version
+    # Uncomment this for the next release,
+    # see https://github.com/Homebrew/homebrew-core/pull/35304#issuecomment-449335627.
+    # assert_equal version, resource("babel-core").version
   end
 end
