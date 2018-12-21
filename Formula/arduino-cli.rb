@@ -18,7 +18,12 @@ class ArduinoCli < Formula
   end
 
   test do
-    assert_equal "arduino-cli version #{version}.preview", shell_output("#{bin}/arduino-cli version").strip
-    system "#{bin}/arduino-cli", "core", "search", "arduino"
+    system "#{bin}/arduino-cli", "sketch", "new", "TestSketch"
+    assert_equal "void setup() {
+}
+
+void loop() {
+}
+", shell_output("cat TestSketch")
   end
 end
