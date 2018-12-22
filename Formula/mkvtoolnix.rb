@@ -71,6 +71,7 @@ class Mkvtoolnix < Formula
       args << "--with-uic=#{qt.opt_bin}/uic"
       args << "--with-rcc=#{qt.opt_bin}/rcc"
       args << "--enable-qt"
+      args << "LDFLAGS=-framework CoreFoundation"
     else
       args << "--disable-qt"
     end
