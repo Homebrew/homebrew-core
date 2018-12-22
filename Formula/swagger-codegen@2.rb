@@ -4,6 +4,13 @@ class SwaggerCodegenAT2 < Formula
   url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.0.tar.gz"
   sha256 "76940646d8cb9e65876a6c0829361ff99ded97126b97d9e954eca03682b287aa"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "3a5955496aed7849141c5bf10e9fc5a2e9964b6f3f299d10ac0156a76d5e7a39" => :mojave
+    sha256 "76ad53fa55c9f441dfebfaa3179fcb5e1a0e6cc5c2bd45ad1a9fce46abccae85" => :high_sierra
+    sha256 "e832af1f7e633801a232b345c15bd5f5426429c8d5d3438591548c33b7659af3" => :sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "maven" => :build
