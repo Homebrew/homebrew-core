@@ -1,8 +1,9 @@
 class Gowsdl < Formula
   desc "WSDL2Go code generation as well as its SOAP proxy"
   homepage "https://github.com/hooklift/gowsdl"
-  url "https://github.com/hooklift/gowsdl/archive/v0.3.0.tar.gz"
-  sha256 "24110596c7c658262ba83a4c0f7f568f3f17c4e657bc82a00c800507dfd65c5b"
+  url "https://github.com/hooklift/gowsdl.git",
+      :tag      => "v0.3.1",
+      :revision => "2375731131398bde30666dc45b48cd92f937de98"
   head "https://github.com/hooklift/gowsdl.git"
 
   bottle do
@@ -15,13 +16,14 @@ class Gowsdl < Formula
   depends_on "go" => :build
 
   def install
-    mkdir_p buildpath/"src/github.com/hooklift"
-    ln_s buildpath, buildpath/"src/github.com/hooklift/gowsdl"
-
     ENV["GOPATH"] = buildpath
 
-    system "make", "build"
-    bin.install "build/gowsdl"
+    srcpath = buildpath/"src/github.com/hooklift/gowsdl"
+    srcpath.install buildpath.children
+    srcpath.cd do
+      system "make", "build"
+      bin.install "build/gowsdl"
+    end
   end
 
   test do
