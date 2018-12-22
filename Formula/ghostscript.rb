@@ -21,7 +21,6 @@ class Ghostscript < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtiff"
-  depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
@@ -40,8 +39,8 @@ class Ghostscript < Formula
       --disable-fontconfig
       --without-libidn
       --with-system-libtiff
+      --without-x
     ]
-    args << "--without-x" if build.without? "x11"
 
     if build.head?
       system "./autogen.sh", *args
