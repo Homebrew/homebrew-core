@@ -13,7 +13,7 @@ class Rbenv < Formula
     sha256 "687c347463aac118d1b8bc01892cfb7df54f03be3bf8cc2017abc93b16c878e8" => :el_capitan
   end
 
-  depends_on "ruby-build" => :recommended
+  depends_on "ruby-build"
 
   def install
     inreplace "libexec/rbenv" do |s|
