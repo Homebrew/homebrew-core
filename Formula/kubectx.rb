@@ -7,13 +7,10 @@ class Kubectx < Formula
 
   bottle :unneeded
 
-  option "with-short-names", "link as \"kctx\" and \"kns\" instead"
-
-  depends_on "kubernetes-cli" => :recommended
+  depends_on "kubernetes-cli"
 
   def install
-    bin.install "kubectx" => build.with?("short-names") ? "kctx" : "kubectx"
-    bin.install "kubens" => build.with?("short-names") ? "kns" : "kubens"
+    bin.install "kubectx", "kubens"
 
     bash_completion.install "completion/kubectx.bash" => "kubectx"
     bash_completion.install "completion/kubens.bash" => "kubens"
