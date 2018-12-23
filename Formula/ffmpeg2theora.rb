@@ -8,9 +8,9 @@ class Ffmpeg2theora < Formula
 
   bottle do
     cellar :any
-    sha256 "b151520e1a7c211f7e488564a9293f4c1e80de0913ec2bac633d688b14ecf6f0" => :mojave
-    sha256 "a0caf912922e2a78d18af10724df81befd8f7e672dc5173cee4d0b29cd482257" => :high_sierra
-    sha256 "8759af5194f13281394af44330ef522186f6d68fc12e2036c235df4894be376c" => :sierra
+    sha256 "110c82493cedbf7b5c1ba0840eb5a01d33ace587db01fc1ed4e9707073a21322" => :mojave
+    sha256 "5fb50e2d8436ef85aa47efca7494e0d25f43e46a1f66895d1457771a65b08f6b" => :high_sierra
+    sha256 "5bd541db8f60a4f6a432794c800c8a6fc68cd74e5a96ca6547bdfc5cc64e4b1f" => :sierra
   end
 
   depends_on "pkg-config" => :build
