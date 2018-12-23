@@ -16,7 +16,7 @@ class TomcatNative < Formula
   depends_on "apr"
   depends_on :java => "1.7+"
   depends_on "openssl"
-  depends_on "tomcat" => :recommended
+  depends_on "tomcat"
 
   def install
     cd "native" do
