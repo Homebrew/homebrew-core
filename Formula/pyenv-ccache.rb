@@ -7,8 +7,8 @@ class PyenvCcache < Formula
 
   bottle :unneeded
 
+  depends_on "ccache"
   depends_on "pyenv"
-  depends_on "ccache" => :recommended
 
   def install
     ENV["PREFIX"] = prefix
@@ -16,6 +16,7 @@ class PyenvCcache < Formula
   end
 
   test do
-    assert_match(/ccache.bash/, shell_output("eval \"$(pyenv init -)\" && pyenv hooks install && ls"))
+    output = shell_output("eval \"$(pyenv init -)\" && pyenv hooks install && ls")
+    assert_match /ccache.bash/, output
   end
 end
