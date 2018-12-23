@@ -11,15 +11,11 @@ class PerconaServerMongodb < Formula
     sha256 "62478907290b11c522b15b06ceb4038a0244f90d2ac2da2587534f3fcb476707" => :sierra
   end
 
-  option "with-boost", "Compile using installed boost, not the version shipped with this formula"
-  option "with-sasl", "Compile with SASL support"
-
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :macos => :sierra
-  depends_on "openssl" => :recommended
-  depends_on "boost" => :optional
+  depends_on "openssl"
 
   conflicts_with "mongodb",
     :because => "percona-server-mongodb and mongodb install the same binaries."
@@ -59,40 +55,26 @@ class PerconaServerMongodb < Formula
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
 
-      args = %w[]
+      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      ENV["CPATH"] = Formula["openssl"].opt_include
 
-      if build.with? "openssl"
-        args << "ssl"
-        ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
-        ENV["CPATH"] = Formula["openssl"].opt_include
-      end
-
-      args << "sasl" if build.with? "sasl"
-
-      system "./build.sh", *args
+      system "./build.sh", "ssl"
     end
 
     (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
 
     args = %W[
       --prefix=#{prefix}
+      --ssl
+      --use-new-tools
       -j#{ENV.make_jobs}
+      CC=#{ENV.cc}
+      CXX=#{ENV.cxx}
+      CCFLAGS=-I#{Formula["openssl"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
-    args << "CC=#{ENV.cc}"
-    args << "CXX=#{ENV.cxx}"
-
-    args << "--use-sasl-client" if build.with? "sasl"
-    args << "--use-system-boost" if build.with? "boost"
-    args << "--use-new-tools"
     args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
-
-    if build.with? "openssl"
-      args << "--ssl"
-
-      args << "CCFLAGS=-I#{Formula["openssl"].opt_include}"
-      args << "LINKFLAGS=-L#{Formula["openssl"].opt_lib}"
-    end
 
     scons "install", *args
 
