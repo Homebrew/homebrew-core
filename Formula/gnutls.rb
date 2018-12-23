@@ -12,13 +12,15 @@ class Gnutls < Formula
     sha256 "e7e08cf6a0cb9a3ccb14442eb47e63de97c55aa36971c05707a0c96a38bb6b70" => :sierra
   end
 
+  deprecated_option "with-guile" => "with-guile@2.0"
+
   depends_on "pkg-config" => :build
   depends_on "gmp"
   depends_on "libtasn1"
   depends_on "libunistring"
   depends_on "nettle"
   depends_on "p11-kit" => :recommended
-  depends_on "guile" => :optional
+  depends_on "guile@2.0" => :optional
   depends_on "unbound" => :optional
 
   def install
