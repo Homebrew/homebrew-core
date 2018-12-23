@@ -6,7 +6,7 @@ class Gitversion < Formula
 
   bottle :unneeded
 
-  depends_on "mono" => :recommended
+  depends_on "mono"
 
   def install
     libexec.install Dir["*"]
