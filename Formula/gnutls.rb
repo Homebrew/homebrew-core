@@ -18,8 +18,6 @@ class Gnutls < Formula
   depends_on "libunistring"
   depends_on "nettle"
   depends_on "p11-kit" => :recommended
-  depends_on "guile" => :optional
-  depends_on "unbound" => :optional
 
   def install
     args = %W[
@@ -29,6 +27,7 @@ class Gnutls < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-default-trust-store-file=#{etc}/openssl/cert.pem
+      --disable-guile
       --disable-heartbeat-support
     ]
 
@@ -36,12 +35,6 @@ class Gnutls < Formula
       args << "--with-p11-kit"
     else
       args << "--without-p11-kit"
-    end
-
-    if build.with? "guile"
-      args << "--enable-guile" << "--with-guile-site-dir"
-    else
-      args << "--disable-guile"
     end
 
     system "./configure", *args
