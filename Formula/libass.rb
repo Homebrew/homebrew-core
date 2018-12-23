@@ -21,27 +21,17 @@ class Libass < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-fontconfig", "Disable CoreText backend in favor of the more traditional fontconfig"
-
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-
   depends_on "freetype"
   depends_on "fribidi"
-  depends_on "harfbuzz" => :recommended
-  depends_on "fontconfig" => :optional
+  depends_on "harfbuzz"
 
   def install
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    args << "--disable-harfbuzz" if build.without? "harfbuzz"
-    if build.with? "fontconfig"
-      args << "--disable-coretext"
-    else
-      args << "--disable-fontconfig"
-    end
-
     system "autoreconf", "-i" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--disable-fontconfig"
     system "make", "install"
   end
 
