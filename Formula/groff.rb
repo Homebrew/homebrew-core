@@ -1,9 +1,9 @@
 class Groff < Formula
   desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
-  url "https://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/groff/groff-1.22.3.tar.gz"
-  sha256 "3a48a9d6c97750bfbd535feeb5be0111db6406ddb7bb79fc680809cda6d828a5"
+  url "https://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/groff/groff-1.22.4.tar.gz"
+  sha256 "e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293"
 
   bottle do
     rebuild 1
@@ -11,8 +11,6 @@ class Groff < Formula
     sha256 "cbcd60c91851bfeb7d32d292bc2f1838ee130b1e9b87c4bac535142b7c8dc4de" => :high_sierra
     sha256 "39945f37f43ad6ad93d87469847dff4d75f720a9209c0e4c5596c61eb611b6ae" => :sierra
   end
-
-  patch :DATA # fix parallel build, https://savannah.gnu.org/bugs/index.php?43581
 
   def install
     system "./configure", "--prefix=#{prefix}", "--without-x"
@@ -25,18 +23,3 @@ class Groff < Formula
       pipe_output("#{bin}/groff -a", "homebrew\n")
   end
 end
-
-__END__
-diff --git a/Makefile.in b/Makefile.in
-index bc156ce..70c6f85 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -896,6 +896,8 @@ $(GNULIBDIRS): FORCE
-	  $(MAKE) ACLOCAL=: AUTOCONF=: AUTOHEADER=: AUTOMAKE=: $(do) ;; \
-	esac
-
-+$(SHPROGDIRS): $(PROGDEPDIRS)
-+
- $(OTHERDIRS): $(PROGDEPDIRS) $(CCPROGDIRS) $(CPROGDIRS) $(SHPROGDIRS)
-
- $(INCDIRS) $(PROGDEPDIRS) $(SHPROGDIRS) $(OTHERDIRS): FORCE
