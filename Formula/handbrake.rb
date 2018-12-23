@@ -22,19 +22,6 @@ class Handbrake < Formula
   depends_on "yasm" => :build
 
   def install
-    # Upstream issue 8 Jun 2018 "libvpx fails to build"
-    # See https://github.com/HandBrake/HandBrake/issues/1401
-    if MacOS.version <= :el_capitan
-      inreplace "contrib/libvpx/module.defs", /--disable-unit-tests/,
-                                              "\\0 --disable-avx512"
-    end
-
-    if MacOS.version >= :mojave
-      # Upstream issue 8 Sep 2018 "HandBrake 1.1.2: libvpx failed to be configured on macOS 10.14 Mojave"
-      # See https://github.com/HandBrake/HandBrake/issues/1578
-      inreplace "contrib/libvpx/module.defs", "--target=x86_64-darwin11-gcc", "--target=x86_64-darwin14-gcc"
-    end
-
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",
                           "--disable-gtk"
