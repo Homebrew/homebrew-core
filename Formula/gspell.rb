@@ -20,7 +20,7 @@ class Gspell < Formula
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
   depends_on "iso-codes"
-  depends_on "vala" => :recommended
+  depends_on "vala"
 
   patch :DATA
 
