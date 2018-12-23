@@ -12,11 +12,8 @@ class Bochs < Formula
     sha256 "d7c0d5ee817ba9f3c596ab6364c62b0160c74aefce2db1033438cb17978a8291" => :el_capitan
   end
 
-  option "with-gdb-stub", "Enable GDB Stub"
-  option "without-sdl2", "Disable graphical support"
-
   depends_on "pkg-config" => :build
-  depends_on "sdl2" => :recommended
+  depends_on "sdl2"
 
   # Fix pointer cast issue
   # https://sourceforge.net/p/bochs/patches/537/
@@ -30,40 +27,34 @@ class Bochs < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-nogui
-      --enable-disasm
       --disable-docbook
-      --enable-x86-64
-      --enable-pci
-      --enable-all-optimizations
-      --enable-plugins
-      --enable-cdrom
       --enable-a20-pin
-      --enable-fpu
       --enable-alignment-check
-      --enable-large-ramfile
-      --enable-debugger-gui
-      --enable-readline
-      --enable-iodebug
-      --enable-show-ips
-      --enable-logging
-      --enable-usb
-      --enable-cpu-level=6
-      --enable-clgd54xx
+      --enable-all-optimizations
       --enable-avx
-      --enable-vmx=2
+      --enable-cdrom
+      --enable-clgd54xx
+      --enable-cpu-level=6
+      --enable-debugger
+      --enable-debugger-gui
+      --enable-disasm
+      --enable-fpu
+      --enable-iodebug
+      --enable-large-ramfile
+      --enable-logging
       --enable-long-phy-address
+      --enable-pci
+      --enable-plugins
+      --enable-readline
+      --enable-show-ips
+      --enable-smp
+      --enable-usb
+      --enable-vmx=2
+      --enable-x86-64
+      --with-nogui
+      --with-sdl2
       --with-term
     ]
-
-    args << "--with-sdl2" if build.with? "sdl2"
-
-    if build.with? "gdb-stub"
-      args << "--enable-gdb-stub"
-    else
-      args << "--enable-debugger"
-      args << "--enable-smp"
-    end
 
     system "./configure", *args
 
@@ -88,12 +79,11 @@ class Bochs < Formula
     EOS
 
     command = "#{bin}/bochs -qf bochsrc.txt"
-    if build.without? "gdb-stub"
-      # When the debugger is enabled, bochs will stop on a breakpoint early
-      # during boot. We can pass in a command file to continue when it is hit.
-      (testpath/"debugger.txt").write("c\n")
-      command << " -rc debugger.txt"
-    end
+
+    # When the debugger is enabled, bochs will stop on a breakpoint early
+    # during boot. We can pass in a command file to continue when it is hit.
+    (testpath/"debugger.txt").write("c\n")
+    command << " -rc debugger.txt"
 
     _, stderr, = Open3.capture3(command)
     assert_match(expected, stderr)
