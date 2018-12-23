@@ -3,7 +3,7 @@ class Pyexiv2 < Formula
   homepage "https://launchpad.net/pyexiv2"
   url "https://launchpad.net/pyexiv2/0.3.x/0.3.2/+download/pyexiv2-0.3.2.tar.bz2"
   sha256 "0abc117c6afa71f54266cb91979a5227f60361db1fcfdb68ae9615398d7a2127"
-  revision 5
+  revision 6
 
   bottle do
     sha256 "c54c8221f94715c9226e26f5d050bec8619c66d5e553f090ab58b720b135887a" => :mojave
