@@ -11,15 +11,13 @@ class Imlib2 < Formula
     sha256 "90bd1801b3f7c1ada18b6a2982770453893c3f71b2fa07621e6a5c051e1776a9" => :el_capitan
   end
 
-  deprecated_option "without-x" => "without-x11"
-
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "giflib"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on :x11 => :recommended
+  depends_on :x11
 
   def install
     args = %W[
@@ -28,7 +26,6 @@ class Imlib2 < Formula
       --enable-amd64=no
       --without-id3
     ]
-    args << "--without-x" if build.without? "x11"
 
     system "./configure", *args
     system "make", "install"
