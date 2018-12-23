@@ -36,11 +36,10 @@ class Root < Formula
   depends_on "lz4"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "python"
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # for LZMA
-  depends_on "python" => :recommended
-  depends_on "python@2" => :optional
 
   skip_clean "bin"
 
@@ -58,60 +57,35 @@ class Root < Formula
               "http://lcgpackages",
               "https://lcgpackages"
 
+    py_exe = Utils.popen_read("which python3").strip
+    py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
+    py_inc = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+
     args = std_cmake_args + %W[
-      -Dgnuinstall=ON
-      -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DCLING_CXX_PATH=clang++
-      -Dbuiltin_freetype=ON
+      -DCMAKE_INSTALL_ELISPDIR=#{elisp}
+      -DPYTHON_EXECUTABLE=#{py_exe}
+      -DPYTHON_INCLUDE_DIR=#{py_inc}
+      -DPYTHON_LIBRARY=#{py_prefix}/Python
       -Dbuiltin_cfitsio=OFF
+      -Dbuiltin_freetype=ON
       -Ddavix=ON
-      -Dfitsio=OFF
       -Dfftw3=ON
+      -Dfitsio=OFF
       -Dfortran=ON
       -Dgdml=ON
+      -Dgnuinstall=ON
+      -Dimt=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Dmysql=OFF
       -Dpgsql=OFF
+      -Dpython=ON
       -Droofit=ON
       -Dssl=ON
-      -Dimt=ON
-      -Dxrootd=ON
       -Dtmva=ON
+      -Dxrootd=ON
     ]
-
-    if build.with?("python") && build.with?("python@2")
-      odie "Root: Does not support building both python 2 and 3 wrappers"
-    elsif build.with?("python") || build.with?("python@2")
-      if build.with? "python@2"
-        ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
-        python_executable = Utils.popen_read("which python").strip
-        python_version = Language::Python.major_minor_version("python")
-      elsif build.with? "python"
-        python_executable = Utils.popen_read("which python3").strip
-        python_version = Language::Python.major_minor_version("python3")
-      end
-
-      python_prefix = Utils.popen_read("#{python_executable} -c 'import sys;print(sys.prefix)'").chomp
-      python_include = Utils.popen_read("#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
-      args << "-Dpython=ON"
-
-      # cmake picks up the system's python dylib, even if we have a brewed one
-      if File.exist? "#{python_prefix}/Python"
-        python_library = "#{python_prefix}/Python"
-      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
-        python_library = "#{python_prefix}/lib/lib#{python_version}.a"
-      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-        python_library = "#{python_prefix}/lib/lib#{python_version}.dylib"
-      else
-        odie "No libpythonX.Y.{a,dylib} file found!"
-      end
-      args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
-      args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
-      args << "-DPYTHON_LIBRARY='#{python_library}'"
-    else
-      args << "-Dpython=OFF"
-    end
 
     mkdir "builddir" do
       system "cmake", "..", *args
@@ -159,9 +133,8 @@ class Root < Formula
     assert_equal "\nProcessing test.C...\nHello, world!\n",
                  shell_output("/bin/bash test.bash")
 
-    if build.with? "python"
-      ENV["PYTHONPATH"] = lib/"root"
-      system "python3", "-c", "import ROOT"
-    end
+    # Test Python module
+    ENV["PYTHONPATH"] = lib/"root"
+    system "python3", "-c", "import ROOT"
   end
 end
