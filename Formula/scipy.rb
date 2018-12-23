@@ -12,14 +12,12 @@ class Scipy < Formula
     sha256 "b0678887da4c5547004001986684c3a5588ad31d457258f060591cd9ce0de7bb" => :sierra
   end
 
-  option "without-python", "Build without python2 support"
-
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "openblas"
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
+  depends_on "python"
+  depends_on "python@2"
 
   cxxstdlib_check :skip
 
@@ -44,8 +42,8 @@ class Scipy < Formula
 
     Pathname("site.cfg").write config
 
-    # gfortran is gnu95
-    Language::Python.each_python(build) do |python, version|
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
       ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
       system python, "setup.py", "build", "--fcompiler=gnu95"
@@ -56,27 +54,23 @@ class Scipy < Formula
   # cleanup leftover .pyc files from previous installs which can cause problems
   # see https://github.com/Homebrew/homebrew-python/issues/185#issuecomment-67534979
   def post_install
-    Language::Python.each_python(build) do |_python, version|
-      rm_f Dir["#{HOMEBREW_PREFIX}/lib/python#{version}/site-packages/scipy/**/*.pyc"]
-    end
+    rm_f Dir["#{HOMEBREW_PREFIX}/lib/python*.*/site-packages/scipy/**/*.pyc"]
   end
 
   def caveats
-    if (build.with? "python@2") && !Formula["python@2"].installed?
-      homebrew_site_packages = Language::Python.homebrew_site_packages
-      user_site_packages = Language::Python.user_site_packages "python"
-      <<~EOS
-        If you use system python (that comes - depending on the OS X version -
-        with older versions of numpy, scipy and matplotlib), you may need to
-        ensure that the brewed packages come earlier in Python's sys.path with:
-          mkdir -p #{user_site_packages}
-          echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
-      EOS
-    end
+    homebrew_site_packages = Language::Python.homebrew_site_packages
+    user_site_packages = Language::Python.user_site_packages "python"
+    <<~EOS
+      If you use system python (that comes - depending on the OS X version -
+      with older versions of numpy, scipy and matplotlib), you may need to
+      ensure that the brewed packages come earlier in Python's sys.path with:
+        mkdir -p #{user_site_packages}
+        echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
+    EOS
   end
 
   test do
-    Language::Python.each_python(build) do |python, _version|
+    ["python2", "python3"].each do |python|
       system python, "-c", "import scipy"
     end
   end
