@@ -21,12 +21,10 @@ class Numpy < Formula
     end
   end
 
-  option "without-python@2", "Build without python2 support"
-
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
+  depends_on "python"
+  depends_on "python@2"
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -47,7 +45,8 @@ class Numpy < Formula
 
     Pathname("site.cfg").write config
 
-    Language::Python.each_python(build) do |python, version|
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath
 
@@ -72,21 +71,19 @@ class Numpy < Formula
   end
 
   def caveats
-    if build.with?("python@2") && !Formula["python@2"].installed?
-      homebrew_site_packages = Language::Python.homebrew_site_packages
-      user_site_packages = Language::Python.user_site_packages "python"
-      <<~EOS
-        If you use system python (that comes - depending on the OS X version -
-        with older versions of numpy, scipy and matplotlib), you may need to
-        ensure that the brewed packages come earlier in Python's sys.path with:
-          mkdir -p #{user_site_packages}
-          echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
-      EOS
-    end
+    homebrew_site_packages = Language::Python.homebrew_site_packages
+    user_site_packages = Language::Python.user_site_packages "python"
+    <<~EOS
+      If you use system python (that comes - depending on the OS X version -
+      with older versions of numpy, scipy and matplotlib), you may need to
+      ensure that the brewed packages come earlier in Python's sys.path with:
+        mkdir -p #{user_site_packages}
+        echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
+    EOS
   end
 
   test do
-    Language::Python.each_python(build) do |python, _version|
+    ["python2", "python3"].each do |python|
       system python, "-c", <<~EOS
         import numpy as np
         t = np.ones((3,3), int)
