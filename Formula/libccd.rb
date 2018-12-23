@@ -1,9 +1,8 @@
 class Libccd < Formula
   desc "Collision detection between two convex shapes"
   homepage "http://libccd.danfis.cz/"
-  url "https://github.com/danfis/libccd/archive/v2.0.tar.gz"
-  sha256 "1b4997e361c79262cf1fe5e1a3bf0789c9447d60b8ae2c1f945693ad574f9471"
-  revision 3
+  url "https://github.com/danfis/libccd/archive/v2.1.tar.gz"
+  sha256 "542b6c47f522d581fbf39e51df32c7d1256ac0c626e7c2b41f1040d4b9d50d1e"
 
   bottle do
     cellar :any
