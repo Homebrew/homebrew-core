@@ -6,9 +6,10 @@ class GstPython < Formula
   revision 1
 
   bottle do
-    sha256 "4412a3a8077e55aa5b1899ff7a89d726afad1f2142e61e93f91d9d54a0b87fe5" => :mojave
-    sha256 "4fe5e40b6897c575602ff3d668bf9408fde1f9fcfea855fcf08067d06401f5ad" => :high_sierra
-    sha256 "c6aa1db5ddb24672448b36d1cbf979cfc826fe57b382015bf35b5a5da646c506" => :sierra
+    cellar :any
+    sha256 "56c0b40edc95e09d9dd1c57d27a45267a9f86a1e3623eb94137c3b78bc226a5b" => :mojave
+    sha256 "89f662099926f9fa540f3d8a89469589bf354dbaf0410adc83a19e9553ede19b" => :high_sierra
+    sha256 "99d9576a745ff5fc7818a21bb0ca22232c8cc2a481693105921dd1d9292f30eb" => :sierra
   end
 
   depends_on "gst-plugins-base"
