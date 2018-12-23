@@ -15,9 +15,9 @@ class TigerVnc < Formula
   depends_on "cmake" => :build
   depends_on "fltk"
   depends_on "gettext"
+  depends_on "gnutls"
   depends_on "jpeg-turbo"
   depends_on :x11
-  depends_on "gnutls" => :recommended
 
   def install
     turbo = Formula["jpeg-turbo"]
