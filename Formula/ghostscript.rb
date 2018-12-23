@@ -5,9 +5,10 @@ class Ghostscript < Formula
   sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
 
   bottle do
-    sha256 "86c29a6fa41790503302ff07f4d8c5dc92b029f37974c0007943fc69c5f0ddbb" => :mojave
-    sha256 "223907f7e42d7c1525a40550590c9f4a46ccb6a06bee087593df3dc4789b3565" => :high_sierra
-    sha256 "6e0d98a2b7889213ac2dd8feee5a3557e0c4f9e49b815066864b073798c7870f" => :sierra
+    rebuild 1
+    sha256 "eb150bdd252ba213f1c2d21d142687629fda59ad09e6f0f55cfa5c720ac70916" => :mojave
+    sha256 "702cfc3cdb53866a180349d5dccac9784560d2faf534e486cac88a0f1cab6b94" => :high_sierra
+    sha256 "a58d63fb626806dcc039553e734bc0ade6571c8ce913c100fcee81775b0f9d6e" => :sierra
   end
 
   head do
