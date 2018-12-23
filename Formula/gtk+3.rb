@@ -15,10 +15,10 @@ class Gtkx3 < Formula
   depends_on "atk"
   depends_on "gdk-pixbuf"
   depends_on "glib"
+  depends_on "gsettings-desktop-schemas"
   depends_on "hicolor-icon-theme"
   depends_on "libepoxy"
   depends_on "pango"
-  depends_on "gsettings-desktop-schemas" => :recommended
 
   # see https://gitlab.gnome.org/GNOME/gtk/issues/1517
   patch :DATA
