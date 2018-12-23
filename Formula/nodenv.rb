@@ -7,9 +7,7 @@ class Nodenv < Formula
 
   bottle :unneeded
 
-  option "without-bash-extension", "Skip compilation of the dynamic bash extension to speed up nodenv."
-
-  depends_on "node-build" => :recommended
+  depends_on "node-build"
 
   def install
     inreplace "libexec/nodenv" do |s|
@@ -21,11 +19,9 @@ class Nodenv < Formula
       inreplace "libexec/nodenv-#{cmd}", "${BASH_SOURCE%/*}", libexec
     end
 
-    if build.with? "bash-extension"
-      # Compile optional bash extension.
-      system "src/configure"
-      system "make", "-C", "src"
-    end
+    # Compile bash extension
+    system "src/configure"
+    system "make", "-C", "src"
 
     if build.head?
       # Record exact git revision for `nodenv --version` output
