@@ -3,6 +3,7 @@ class Leptonica < Formula
   homepage "http://www.leptonica.org/"
   url "https://github.com/DanBloomberg/leptonica/releases/download/1.77.0/leptonica-1.77.0.tar.gz"
   sha256 "161d0b368091986b6c60990edf257460bdc7da8dd18d48d4179e297bcdca5eb7"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,26 +13,20 @@ class Leptonica < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "giflib" => :optional
-  depends_on "openjpeg" => :optional
-  depends_on "webp" => :optional
+  depends_on "giflib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "openjpeg"
+  depends_on "webp"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --with-libwebp
+      --with-libopenjpeg
     ]
-
-    %w[libpng jpeg libtiff giflib].each do |dep|
-      args << "--without-#{dep}" if build.without?(dep)
-    end
-    %w[openjpeg webp].each do |dep|
-      args << "--with-lib#{dep}" if build.with?(dep)
-      args << "--without-lib#{dep}" if build.without?(dep)
-    end
 
     system "./configure", *args
     system "make", "install"
