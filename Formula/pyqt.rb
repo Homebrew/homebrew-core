@@ -13,10 +13,10 @@ class Pyqt < Formula
     sha256 "efef45925e917682ccba19acc4ccc62b5945c9619d7104c2c721e31b7f7efc8b" => :sierra
   end
 
+  depends_on "python"
+  depends_on "python@2"
   depends_on "qt"
   depends_on "sip"
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
 
   # Patch from openSUSE for compatibility with Qt 5.11.0
   # https://build.opensuse.org/package/show/home:cgiboudeaux:branches:KDE:Qt5/python-qt5
@@ -26,7 +26,8 @@ class Pyqt < Formula
   end
 
   def install
-    Language::Python.each_python(build) do |python, version|
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       args = ["--confirm-license",
               "--bindir=#{bin}",
               "--destdir=#{lib}/python#{version}/site-packages",
@@ -50,7 +51,8 @@ class Pyqt < Formula
   test do
     system "#{bin}/pyuic5", "--version"
     system "#{bin}/pylupdate5", "-version"
-    Language::Python.each_python(build) do |python, _version|
+
+    ["python2", "python3"].each do |python|
       system python, "-c", "import PyQt5"
       %w[
         Gui
