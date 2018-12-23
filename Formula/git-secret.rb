@@ -25,7 +25,7 @@ class GitSecret < Formula
   end
 
   depends_on "gawk"
-  depends_on "gnupg" => :recommended
+  depends_on "gnupg"
 
   def install
     system "make", "build"
