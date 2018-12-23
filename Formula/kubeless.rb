@@ -12,7 +12,7 @@ class Kubeless < Formula
   end
 
   depends_on "go" => :build
-  depends_on "kubernetes-cli" => :recommended
+  depends_on "kubernetes-cli"
 
   def install
     ENV["GOPATH"] = buildpath
