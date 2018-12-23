@@ -3,8 +3,8 @@ class Diceware < Formula
 
   desc "Passphrases to remember"
   homepage "https://github.com/ulif/diceware"
-  url "https://github.com/ulif/diceware/archive/v0.9.5.tar.gz"
-  sha256 "70c5884eed7f9d55204075cc8816ef7259000a0548f930a98d51132eef5c90ad"
+  url "https://github.com/ulif/diceware/archive/v0.9.6.tar.gz"
+  sha256 "ff55832e725abff212dec1a2cb6e1c3545ae782b5f49ec91ec870a2b50e1f0e8"
 
   bottle do
     cellar :any_skip_relocation
