@@ -1,9 +1,8 @@
 class Supertux < Formula
   desc "Classic 2D jump'n run sidescroller game"
   homepage "https://www.supertux.org/"
-  url "https://github.com/SuperTux/supertux/releases/download/v0.5.1/SuperTux-v0.5.1-Source.tar.gz"
-  sha256 "c9dc3b42991ce5c5d0d0cb94e44c4ec2373ad09029940f0e92331e7e9ada0ac5"
-  revision 3
+  url "https://github.com/SuperTux/supertux/releases/download/v0.6.0/SuperTux-v0.6.0-Source.tar.gz"
+  sha256 "c4c3e5fa6f90e87b8c5ad6b22a179e9a9839bf997e7f219e22bbcd1c97223ac0"
   head "https://github.com/SuperTux/supertux.git"
 
   bottle do
