@@ -1,16 +1,15 @@
 class GnuSed < Formula
   desc "GNU implementation of the famous stream editor"
   homepage "https://www.gnu.org/software/sed/"
-  url "https://ftp.gnu.org/gnu/sed/sed-4.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/sed/sed-4.5.tar.xz"
-  sha256 "7aad73c8839c2bdadca9476f884d2953cdace9567ecd0d90f9959f229d146b40"
+  url "https://ftp.gnu.org/gnu/sed/sed-4.7.tar.xz"
+  mirror "https://ftpmirror.gnu.org/sed/sed-4.7.tar.xz"
+  sha256 "2885768cd0a29ff8d58a6280a270ff161f6a3deb5690b2be6c49f46d4c67bd6a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "16bb9d9e40f9be04ec58a032adae5253587b44baa9f52f2f01ae639a783ff35c" => :mojave
-    sha256 "c90da39dbe361289afdee0ae58c4051fefb1b06be98fe45706def032dd845a9e" => :high_sierra
-    sha256 "d72b58ec90566fdc5504b0de2d63cf0963eecd5e1d9cfe1f35408ac5ab5df79d" => :sierra
-    sha256 "adc343fd5375908e69fe8c770588128f3e8459b8997aaf62933e0a2229c626d4" => :el_capitan
+    sha256 "f253301f0bce1c470b77a4230b173a9e6cd70c21c94ff83ae148aa2b8e315b0a" => :mojave
+    sha256 "29288f1d0da2301218a31f2efb219f9bd627c2b52a646fd570273a4f38cc580c" => :high_sierra
+    sha256 "5c090deefc2dd3769191d97378b981b2dfdd64f1e0259de22682d434ad07e427" => :sierra
   end
 
   option "with-default-names", "Do not prepend 'g' to the binary"

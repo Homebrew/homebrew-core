@@ -1,14 +1,14 @@
 class Dnscontrol < Formula
   desc "It is system for maintaining DNS zones"
   homepage "https://github.com/StackExchange/dnscontrol"
-  url "https://github.com/StackExchange/dnscontrol/archive/v0.2.7.tar.gz"
-  sha256 "2889c6bec5c4b77a21bda82a1a3760ad64667f8a30ed009b4750f605c9827598"
+  url "https://github.com/StackExchange/dnscontrol/archive/v0.2.8.tar.gz"
+  sha256 "87018f5d05f407ab30db782f26d0b42cf80b340de1e695467c193ca9446d6c5e"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f73c7d1bfb445b7cb48471889130e59403c9d65de23f6856b0bf996b598e0a7a" => :mojave
-    sha256 "6b6f2ab020128b43a82a51ce7358756657dd7440b0b42daa30be63520501f5e8" => :high_sierra
-    sha256 "b43bbcea38da57e4007d4db52ab62b390d680f0979b9c9163fe32cf768d44a8a" => :sierra
+    sha256 "0e07fa584fa217a7287ea9064e75a1136d6b934337ad555fe17ed203f62ad000" => :mojave
+    sha256 "49263f73ae4af1ca1063c275d730bf8727dd7f9f2b2dce870e59c9868e584c16" => :high_sierra
+    sha256 "17e7da48182cae21c5a55afc172d33f8c9662553cc3ff84b48b5a09333fd18da" => :sierra
   end
 
   depends_on "go" => :build

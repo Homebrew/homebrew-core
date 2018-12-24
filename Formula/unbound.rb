@@ -1,14 +1,14 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.8.1.tar.gz"
-  sha256 "c362b3b9c35d1b8c1918da02cdd5528d729206c14c767add89ae95acae363c5d"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.8.3.tar.gz"
+  sha256 "2b692b8311edfad41e7d0380aac34576060d4176add81dc5db419c79b2a4cecc"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
-    sha256 "30f001903153859ba2e755086320d037163d925965e77aefd5e9675e7c5eaa9d" => :mojave
-    sha256 "59ccc8d8381ba9cc6eb89640e99f0378879d55b2c0aa07c029c0f64ecc80b65e" => :high_sierra
-    sha256 "fcc55406d9a0c2ac95df9914629456510b73948bd62c6042fc22720ed3e4a85f" => :sierra
+    sha256 "e21cbf4085644f6fc3b226a3ef03de317834624a45400054b17c7a18799d721d" => :mojave
+    sha256 "72bd8b7806b868eb355effd760632b7d81b21c31b8b727b4a37b054235aa94ae" => :high_sierra
+    sha256 "0af6432dd3cab953a253da55ec32e49b05141d27b3c3fedcb522e84d74ca8f9b" => :sierra
   end
 
   depends_on "libevent"

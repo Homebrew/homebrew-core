@@ -1,26 +1,21 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.3.1/gdal-2.3.1.tar.xz"
-  sha256 "9c4625c45a3ee7e49a604ef221778983dd9fd8104922a87f20b99d9bedb7725a"
-  revision 2
+  url "https://download.osgeo.org/gdal/2.3.2/gdal-2.3.2.tar.xz"
+  sha256 "3f6d78fe8807d1d6afb7bed27394f19467840a82bc36d65e66316fa0aa9d32a4"
 
   bottle do
-    sha256 "99c3dbc427938fc3a18bbeb29710e1706f2a38b13511fe5bf0d6f183f5592503" => :mojave
-    sha256 "06161267b5ac59e36157a768898c3a857be36828e68137a1c1c23826cfb17f51" => :high_sierra
-    sha256 "ab995b6e30c31c93915a647a43fa8e15517e9f0650259fabb988e0ca0bc1db99" => :sierra
-    sha256 "0b6e992dc1c4e04c31dac54dd77498956603341abe791db3d6e042155d1345e1" => :el_capitan
+    sha256 "97c2b47f65141cc67949dc49fc7fdd0972e34d9ac9b21b7c14b27816220facc3" => :mojave
+    sha256 "c5d1c451b34740f1759a66d6b1af4a159ded520309d6613c73e7d9d4040e392d" => :sierra
   end
 
   head do
-    url "https://svn.osgeo.org/gdal/trunk/gdal"
+    url "https://github.com/OSGeo/gdal.git"
     depends_on "doxygen" => :build
   end
 
-  option "with-complete", "Use additional Homebrew libraries to provide more drivers."
-  option "with-unsupported", "Allow configure to drag in any library it can find. Invoke this at your own risk."
+  option "with-complete", "Compile support for more drivers."
 
-  deprecated_option "enable-unsupported" => "with-unsupported"
   deprecated_option "complete" => "with-complete"
 
   depends_on "freexl"
@@ -42,16 +37,12 @@ class Gdal < Formula
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "zstd"
 
-  depends_on "mysql" => :optional
-
   if build.with? "complete"
     depends_on "cfitsio"
     depends_on "epsilon"
     depends_on "hdf5"
     depends_on "jasper"
-    depends_on "json-c"
     depends_on "libdap"
-    depends_on "libxml2"
     depends_on "netcdf"
     depends_on "podofo"
     depends_on "poppler"
@@ -96,31 +87,25 @@ class Gdal < Formula
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
 
       # Explicitly disable some features
+      "--with-armadillo=no",
+      "--with-qhull=no",
       "--without-grass",
       "--without-jpeg12",
       "--without-libgrass",
+      "--without-mysql",
       "--without-perl",
       "--without-php",
       "--without-python",
       "--without-ruby",
-      "--with-armadillo=no",
-      "--with-qhull=no",
     ]
 
-    if build.with?("mysql")
-      args << "--with-mysql=#{Formula["mysql"].opt_prefix}/bin/mysql_config"
-    else
-      args << "--without-mysql"
-    end
-
     # Optional Homebrew packages supporting additional formats
-    supported_backends = %w[liblzma cfitsio hdf5 netcdf jasper xerces odbc
+    supported_backends = %w[cfitsio hdf5 netcdf jasper xerces odbc
                             dods-root epsilon webp podofo]
     if build.with? "complete"
-      supported_backends.delete "liblzma"
       args << "--with-liblzma=yes"
       args.concat supported_backends.map { |b| "--with-" + b + "=" + HOMEBREW_PREFIX }
-    elsif build.without? "unsupported"
+    else
       args.concat supported_backends.map { |b| "--without-" + b }
     end
 
@@ -130,9 +115,10 @@ class Gdal < Formula
     unsupported_backends = %w[gta ogdi fme hdf4 openjpeg fgdb ecw kakadu mrsid
                               jp2mrsid mrsid_lidar msg oci ingres dwgdirect
                               idb sde podofo rasdaman sosi]
-    if build.without? "unsupported"
-      args.concat unsupported_backends.map { |b| "--without-" + b }
-    end
+    args.concat unsupported_backends.map { |b| "--without-" + b }
+
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
 
     system "./configure", *args
     system "make"

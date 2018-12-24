@@ -5,13 +5,11 @@ class Lighttpd < Formula
   sha256 "27bc0991c530b7c6335e6efff2181934d3c1a1c516f7401ea71d8302cefda764"
 
   bottle do
-    sha256 "1b197e528b8796813ac936e6aac04deb7135109aab3bc86032d274e10fae6b46" => :mojave
-    sha256 "ef7f151c1cb17d9d49b9973d1eeaa889525a93efb6b860d630c86571e836320b" => :high_sierra
-    sha256 "7b4c767ee72d46a040ecbe7817b1de342cc5541698c05aafd43dcdf21686de6d" => :sierra
+    rebuild 1
+    sha256 "9cecf0bf55f1a4baa8fc2dcb782022deea8dcbc72c0b6f0ed9fd596e5e649725" => :mojave
+    sha256 "ed456dc5b555648933cca4887e28aa68c8948459ef5dc700a263657c790c8759" => :high_sierra
+    sha256 "76e442c4eded65a9f2d3576eed4db47003115addf67893f8380b375865e31636" => :sierra
   end
-
-  option "with-lua@5.1", "Include Lua scripting support for mod_magnet"
-  deprecated_option "with-lua51" => "with-lua@5.1"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -20,8 +18,6 @@ class Lighttpd < Formula
   depends_on "openldap"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "libev" => :optional
-  depends_on "lua@5.1" => :optional
 
   # default max. file descriptors; this option will be ignored if the server is not started as root
   MAX_FDS = 512
@@ -53,9 +49,6 @@ class Lighttpd < Formula
       --with-zlib
       --with-bzip2
     ]
-
-    args << "--with-lua" if build.with? "lua@5.1"
-    args << "--with-libev" if build.with? "libev"
 
     # autogen must be run, otherwise prebuilt configure may complain
     # about a version mismatch between included automake and Homebrew's

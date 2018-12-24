@@ -109,7 +109,7 @@ class Openssl < Formula
         openssldir.install "cacert-#{resource("ca-bundle").version}.pem" => "cert.pem"
       end
     else
-      (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
+      (openssldir/"cert.pem").atomic_write(valid_certs.join("\n") << "\n")
     end
   end
 

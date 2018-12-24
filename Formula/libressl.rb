@@ -2,14 +2,13 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.8.2.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.8.2.tar.gz"
-  sha256 "b8cb31e59f1294557bfc80f2a662969bc064e83006ceef0574e2553a1c254fd5"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.8.3.tar.gz"
+  sha256 "9b640b13047182761a99ce3e4f000be9687566e0828b4a72709e9e6a3ef98477"
 
   bottle do
-    sha256 "ed7c0498b55495bc3b78e1ac9c47ead7df50040f9127041ad3931191a21de9da" => :mojave
-    sha256 "dac521a8b9ab310e260c1670bf25c4b42ddd7c98e31247128ad68dac6762b6ae" => :high_sierra
-    sha256 "2d939472fc8a5c810dbe47d90db878eb34e728a30fc9cf8fdd7b1781db8da8cb" => :sierra
+    sha256 "22a1e62d3f3b2cb9ac8d0e77b68c6b351a6fb4cfe72cb6909188a2afbe6ea646" => :mojave
+    sha256 "d007c42158c0f9d80bec1f0d0c8b338943e4f2dd6eccec11ccfda5fcb383d0e6" => :high_sierra
+    sha256 "449c59968c4cfd6f0cf9795c8cb878acc11e9374d1bff92f45652fa0fc190931" => :sierra
   end
 
   head do

@@ -3,12 +3,12 @@ class Znc < Formula
   homepage "https://wiki.znc.in/ZNC"
   url "https://znc.in/releases/archive/znc-1.7.1.tar.gz"
   sha256 "44cfea7158ea05dc2547c7c6bc22371e66c869def90351de0ab90a9c200d39c4"
+  revision 1
 
   bottle do
-    sha256 "6e0e342f1ad9e82d60324026d9e96b25e3b23e3c5ab4407c19d76cc5bba77e08" => :mojave
-    sha256 "b5479f556dbf81da0072d6d3687ece4de9eb44646ba2d12d291f365ece7645a2" => :high_sierra
-    sha256 "9c6a0c69290b5413baadaff4322e28866c7faae43716b162a509d45194230004" => :sierra
-    sha256 "6e69785ddb3031400dc95fc860387fdc312f0db4be8d74d192cdeb5b4227670a" => :el_capitan
+    sha256 "29762087ad3267dd6b7164aad34e6cbe6316efe0d5d858b6bb20405b89f37e05" => :mojave
+    sha256 "3fbeaad6f7f86d78aee001eb16f1093fa40a88cc9ccd4da4f29a35b06912d1e1" => :high_sierra
+    sha256 "b3bd651781f249b40cced788e3322a9ae09fd78d31ebd3bbfba073dd35666793" => :sierra
   end
 
   head do
@@ -19,15 +19,10 @@ class Znc < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-icu4c", "Build with icu4c for charset support"
-  option "with-python3", "Build with mod_python support, allowing Python ZNC modules"
-
-  deprecated_option "with-python3" => "with-python"
-
   depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "openssl"
-  depends_on "icu4c" => :optional
-  depends_on "python" => :optional
+  depends_on "python"
 
   needs :cxx11
 
@@ -39,11 +34,8 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
-    args = ["--prefix=#{prefix}"]
-    args << "--enable-python" if build.with? "python"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-python"
     system "make", "install"
   end
 

@@ -1,15 +1,15 @@
 class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
-  url "https://github.com/shyiko/jabba/archive/0.11.0.tar.gz"
-  sha256 "1eee1ac5a8bf74918b95e933f91037bffa320c28da2013d876888fcf19bc94f8"
+  url "https://github.com/shyiko/jabba/archive/0.11.1.tar.gz"
+  sha256 "dfdfeace9dfc0d6f6d7d719c76a3b8b6e90bcdbc9d7cec41856fac84395b5f94"
   head "https://github.com/shyiko/jabba.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "86c773bc4a97e432bc6491087189918e5e1abde371e4339d2241f816ce833d55" => :mojave
-    sha256 "cfd5d350cac91a435cb70921b5ebb69dd8705b40a48b195becea6035a6e110ed" => :high_sierra
-    sha256 "8b5667589047a75e48b28b3d2721980294652e71bae47ccd5f4ec61ec62da8cb" => :sierra
+    sha256 "799e49b05be61ad06b14ee0a8837242075e6eef8b7c8e045e94fde66894ce498" => :mojave
+    sha256 "65ff5c790dcb3d072da11b5a550c15fc4baff76073187301d4d36e0278b32768" => :high_sierra
+    sha256 "ea906d160c1214d58854b92c26c17ae761f2f308cb51090c94bbcb6b600263ca" => :sierra
   end
 
   depends_on "glide" => :build

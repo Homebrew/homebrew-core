@@ -7,21 +7,21 @@ class Libgit2 < Formula
 
   bottle do
     cellar :any
-    sha256 "640ab236291c600299d1a59545fa4087d5f29672d2687d7e797755e69058edc8" => :mojave
-    sha256 "3ec4d61485eb4e46976aaed7fd1d2cd7f842f8b2c649c870ec3a2ba79517fdd0" => :high_sierra
-    sha256 "9946b33af89f683497ba8a2ac7b992b12d25792ae6b28b6995282c748bfb4c79" => :sierra
+    rebuild 1
+    sha256 "d9c0bb9fc757af21ca690e0262edb2fdfac710cfd4897399fa4a8f52debacbcd" => :mojave
+    sha256 "15fe42707016a29881b1093ef9f6e6bebf4388ad0395d63ba4dd2da73cef6d4f" => :high_sierra
+    sha256 "feb602bd610351dc95ed7532f74a3ca5fb5946159bd4e2f81d2df03752128398" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "libssh2"
   depends_on "openssl" if MacOS.version <= :lion # Uses SecureTransport on >10.7
-  depends_on "libssh2" => :recommended
 
   def install
     args = std_cmake_args
     args << "-DBUILD_EXAMPLES=YES"
     args << "-DBUILD_CLAR=NO" # Don't build tests.
-    args << "-DUSE_SSH=NO" if build.without? "libssh2"
 
     mkdir "build" do
       system "cmake", "..", *args

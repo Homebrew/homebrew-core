@@ -15,17 +15,10 @@ class ProtobufAT25 < Formula
 
   keg_only :versioned_formula
 
-  option :cxx11
-
-  deprecated_option "with-python" => "with-python@2"
-
-  depends_on "python@2" => :optional
-
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
-    ENV.cxx11 if build.cxx11?
 
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -37,19 +30,6 @@ class ProtobufAT25 < Formula
 
     # Install editor support and examples
     doc.install "editors", "examples"
-
-    if build.with? "python@2"
-      chdir "python" do
-        ENV["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "cpp"
-        ENV.append_to_cflags "-I#{include}"
-        ENV.append_to_cflags "-L#{lib}"
-        args = Language::Python.setup_install_args libexec
-        system "python", *args
-      end
-      site_packages = "lib/python2.7/site-packages"
-      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-      (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
-    end
   end
 
   def caveats; <<~EOS
@@ -69,10 +49,5 @@ class ProtobufAT25 < Formula
       }
     EOS
     system bin/"protoc", "test.proto", "--cpp_out=."
-    if build.with? "python@2"
-      protobuf_pth = lib/"python2.7/site-packages/homebrew-protobuf.pth"
-      (testpath.realpath/"Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
-      system "python", "-c", "import google.protobuf"
-    end
   end
 end

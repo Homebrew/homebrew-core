@@ -8,8 +8,9 @@ class GraphTool < Formula
   revision 3
 
   bottle do
-    sha256 "022b9cb44fa4886a90355116359451343739f09dc9d9a53fdf145b4763a5a40e" => :mojave
-    sha256 "22d56edc05fabf65cb0da4f771a8062357793fb56d8abb05330653cd2bf9feab" => :sierra
+    rebuild 1
+    sha256 "1a7e26f4c91d7782266c88ec1e1616062bba9fb2789df6e68c15a52268a6e4f4" => :mojave
+    sha256 "87e0078b52af3802b7f9ea32fb190171edce278b0ca2b977806c8c2abe8fdc84" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -108,7 +109,7 @@ class GraphTool < Formula
 
   test do
     (testpath/"test.py").write <<~EOS
-      import graph_tool.all as gt
+      import graph_tool as gt
       g = gt.Graph()
       v1 = g.add_vertex()
       v2 = g.add_vertex()

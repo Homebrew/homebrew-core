@@ -15,8 +15,6 @@ class BoostAT155 < Formula
 
   keg_only :versioned_formula
 
-  option :cxx11
-
   # Patches boost::atomic for LLVM 3.4 as it is used on OS X 10.9 with Xcode 5.1
   # https://github.com/Homebrew/homebrew/issues/27396
   # https://github.com/Homebrew/homebrew/pull/27436
@@ -74,15 +72,6 @@ class BoostAT155 < Formula
       threading=multi,single
       link=shared,static
     ]
-
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    end
 
     system "./bootstrap.sh", *bargs
     system "./b2", *args

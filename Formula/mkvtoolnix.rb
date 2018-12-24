@@ -1,13 +1,15 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
-  homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-28.2.0.tar.xz"
-  sha256 "aa54b39790e619b2cfdefdd083c735503834eb05c665cd85f9b5a8383bcc5843"
+  homepage "https://mkvtoolnix.download/"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-29.0.0.tar.xz"
+  sha256 "54eb5f88fe3c9c7b5df77f80b0dfcac7695c19a8226f8ba52be8ad15ba0975d3"
+  revision 1
 
   bottle do
-    sha256 "867c24499ef7b380be139c5dae287548808892469479738d825348f582248185" => :mojave
-    sha256 "9d8c46126e6643a5f15400dd7988d1b881a9471fa4f705d58f6b608ccba8d36c" => :high_sierra
-    sha256 "1fba15cc9878269d10c4f2a529a5840ba2388c2ff7d39b64e67401b2f7ba454e" => :sierra
+    cellar :any
+    sha256 "09e29dd31108d98403b040e0111325bfcbc0ce3c769f4f6c2cced937c7dca351" => :mojave
+    sha256 "2474e21291e00e02e36664646b3d82fd5ee9353201a7c923f719d7027ce42a44" => :high_sierra
+    sha256 "0734d811efd73a8934e2b1ef26ca4cee9a219cc038b218637927c15ee2fabcc1" => :sierra
   end
 
   head do
@@ -22,6 +24,7 @@ class Mkvtoolnix < Formula
   deprecated_option "with-qt5" => "with-qt"
 
   depends_on "docbook-xsl" => :build
+  depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
   depends_on "ruby" => :build if MacOS.version <= :mountain_lion
@@ -41,7 +44,7 @@ class Mkvtoolnix < Formula
   def install
     ENV.cxx11
 
-    features = %w[flac libmagic libogg libvorbis libebml libmatroska]
+    features = %w[flac libebml libmagic libmatroska libogg libvorbis]
 
     extra_includes = ""
     extra_libs = ""

@@ -13,17 +13,12 @@ class ErlangAT17 < Formula
 
   keg_only :versioned_formula
 
-  option "without-hipe", "Disable building hipe; fails on various macOS systems"
-  option "with-native-libs", "Enable native library compilation"
-  option "with-dirty-schedulers", "Enable experimental dirty schedulers"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
   depends_on "unixodbc" if MacOS.version >= :mavericks
-  depends_on "wxmac" => :recommended # for GUI apps like observer
-  depends_on "fop" => :optional # enables building PDF docs
+  depends_on "wxmac"
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_17.5.tar.gz"
@@ -57,8 +52,6 @@ class ErlangAT17 < Formula
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
 
-    ENV["FOP"] = "#{HOMEBREW_PREFIX}/bin/fop" if build.with? "fop"
-
     # Do this if building from a checkout to generate configure
     system "./otp_build", "autoconf" if File.exist? "otp_build"
 
@@ -71,24 +64,14 @@ class ErlangAT17 < Formula
       --enable-sctp
       --enable-dynamic-ssl-lib
       --with-ssl=#{Formula["openssl"].opt_prefix}
+      --enable-hipe
       --enable-shared-zlib
       --enable-smp-support
+      --enable-wx
     ]
 
     args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
-    args << "--enable-native-libs" if build.with? "native-libs"
-    args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
-    args << "--enable-wx" if build.with? "wxmac"
     args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
-
-    if build.without? "hipe"
-      # HIPE doesn't strike me as that reliable on macOS
-      # https://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
-      # https://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
-      args << "--disable-hipe"
-    else
-      args << "--enable-hipe"
-    end
 
     system "./configure", *args
     system "make"

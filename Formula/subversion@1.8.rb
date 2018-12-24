@@ -14,38 +14,12 @@ class SubversionAT18 < Formula
 
   keg_only :versioned_formula
 
-  option "with-java", "Build Java bindings"
-  option "with-perl", "Build Perl bindings"
-  option "with-ruby", "Build Ruby bindings"
-
-  deprecated_option "java" => "with-java"
-  deprecated_option "perl" => "with-perl"
-  deprecated_option "ruby" => "with-ruby"
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
   depends_on "apr"
   depends_on "apr-util"
   depends_on "openssl" # For Serf
   depends_on "sqlite" # build against Homebrew version for consistency
-
-  # Other optional dependencies
-  depends_on :java => :optional
-  depends_on "python@2" => :optional
-
-  # Bindings require swig
-  depends_on "swig" if build.with?("perl") || build.with?("python@2") || build.with?("ruby")
-
-  if build.with?("perl") || build.with?("ruby")
-    # When building Perl or Ruby bindings, need to use a compiler that
-    # recognizes GCC-style switches, since that's what the system languages
-    # were compiled against.
-    fails_with :clang do
-      build 318
-      cause "core.c:1: error: bad value (native) for -march= switch"
-    end
-  end
 
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
@@ -98,9 +72,6 @@ class SubversionAT18 < Formula
       EOS
     end
 
-    # Java support doesn't build correctly in parallel: https://github.com/Homebrew/homebrew/issues/20415
-    ENV.deparallelize if build.with? "java"
-
     # Use existing system zlib
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
@@ -114,8 +85,6 @@ class SubversionAT18 < Formula
             "--without-apache-libexecdir",
             "--without-berkeley-db"]
 
-    args << "--enable-javahl" << "--without-jikes" if build.with? "java"
-
     if MacOS::CLT.installed? && MacOS.version < :sierra
       args << "--with-apr=/usr"
       args << "--with-apr-util=/usr"
@@ -124,16 +93,6 @@ class SubversionAT18 < Formula
       args << "--with-apr-util=#{Formula["apr-util"].opt_prefix}"
       args << "--with-apxs=no"
     end
-
-    if build.with? "ruby"
-      args << "--with-ruby-sitedir=#{lib}/ruby"
-      # Peg to system Ruby
-      args << "RUBY=/usr/bin/ruby"
-    end
-
-    # The system Python is built with llvm-gcc, so we override this
-    # variable to prevent failures due to incompatible CFLAGS
-    ENV["ac_cv_python_compile"] = ENV.cc
 
     inreplace "Makefile.in",
               "toolsdir = @bindir@/svn-tools",
@@ -146,78 +105,12 @@ class SubversionAT18 < Formula
 
     system "make", "tools"
     system "make", "install-tools"
-
-    if build.with? "python@2"
-      system "make", "swig-py"
-      system "make", "install-swig-py"
-      (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
-    end
-
-    if build.with? "perl"
-      # In theory SWIG can be built in parallel, in practice...
-      ENV.deparallelize
-      perl_core = Pathname.new(`perl -MConfig -e 'print $Config{archlib}'`)+"CORE"
-      unless perl_core.exist?
-        onoe "perl CORE directory does not exist in '#{perl_core}'"
-      end
-
-      inreplace "Makefile" do |s|
-        s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) -arch #{MacOS.preferred_arch} -g -pipe -fno-common -DPERL_DARWIN -fno-strict-aliasing -I/usr/local/include -I#{perl_core}"
-      end
-      system "make", "swig-pl"
-      system "make", "install-swig-pl", "DESTDIR=#{prefix}"
-
-      # Some of the libraries get installed into the wrong place, they end up having the
-      # prefix in the directory name twice.
-
-      lib.install Dir["#{prefix}/#{lib}/*"]
-    end
-
-    if build.with? "java"
-      system "make", "javahl"
-      system "make", "install-javahl"
-    end
-
-    if build.with? "ruby"
-      # Peg to system Ruby
-      system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
-      system "make", "install-swig-rb"
-    end
   end
 
-  def caveats
-    s = <<~EOS
-      svntools have been installed to:
-        #{opt_libexec}
-    EOS
-
-    if build.with? "perl"
-      s += "\n"
-      s += <<~EOS
-        The perl bindings are located in various subdirectories of:
-          #{prefix}/Library/Perl
-      EOS
-    end
-
-    if build.with? "ruby"
-      s += "\n"
-      s += <<~EOS
-        You may need to add the Ruby bindings to your RUBYLIB from:
-          #{HOMEBREW_PREFIX}/lib/ruby
-      EOS
-    end
-
-    if build.with? "java"
-      s += "\n"
-      s += <<~EOS
-        You may need to link the Java bindings into the Java Extensions folder:
-          sudo mkdir -p /Library/Java/Extensions
-          sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib
-      EOS
-    end
-
-    s
+  def caveats; <<~EOS
+    svntools have been installed to:
+      #{opt_libexec}
+  EOS
   end
 
   test do

@@ -39,12 +39,6 @@ class GccAT49 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  option "with-nls", "Build with native language support (localization)"
-  option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
-
-  deprecated_option "enable-nls" => "with-nls"
-  deprecated_option "enable-profiled-build" => "with-profiled-build"
-
   depends_on :maximum_macos => [:high_sierra, :build]
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
@@ -136,9 +130,8 @@ class GccAT49 < Formula
       # Even when suffixes are appended, the info pages conflict when
       # install-info is run.
       "MAKEINFO=missing",
+      "--disable-nls",
     ]
-
-    args << "--disable-nls" if build.without? "nls"
 
     if MacOS.prefer_64_bit?
       args << "--enable-multilib"
@@ -159,14 +152,7 @@ class GccAT49 < Formula
       end
 
       system "../configure", *args
-
-      if build.with? "profiled-build"
-        # Takes longer to build, may bug out. Provided for those who want to
-        # optimise all the way to 11.
-        system "make", "profiledbootstrap"
-      else
-        system "make", "bootstrap"
-      end
+      system "make", "bootstrap"
 
       # At this point `make check` could be invoked to run the testsuite. The
       # deja-gnu and autogen formulae must be installed in order to do this.

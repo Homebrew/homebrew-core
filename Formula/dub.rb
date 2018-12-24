@@ -8,13 +8,14 @@ class Dub < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ccbef4fd6b1c6cd48a3f6e980f7b8b11aaca3cd8ba36f523a7cf9dd876742bad" => :mojave
-    sha256 "58e31ca999a79568f3339bbc532bd546268d2046dc914e0a417f5e4b473d1833" => :high_sierra
-    sha256 "87412d065b17d450e52759c86603f971a70907f80afd843ec81fe871281afccf" => :sierra
+    rebuild 1
+    sha256 "2bbb5032bc156864cc2615133e64ffc7fd80536a78bb4572838ed27c3a9c5f7c" => :mojave
+    sha256 "08b95360548270ac11188ee6057cebcd70b8944ee49f2bdf2a2c96aaca881d7d" => :high_sierra
+    sha256 "e5e8d469945a8358742657ebb32e16e2b560718d9b20cf6e85dbe943cd838c3e" => :sierra
   end
 
   depends_on "dmd" => :build
-  depends_on "pkg-config" => :recommended
+  depends_on "pkg-config"
 
   def install
     ENV["GITVER"] = version.to_s

@@ -6,7 +6,7 @@ class TmuxXpanes < Formula
 
   bottle :unneeded
 
-  depends_on "tmux" => :recommended
+  depends_on "tmux"
 
   def install
     system "./install.sh", prefix
