@@ -6,11 +6,11 @@ class Rbenv < Formula
   head "https://github.com/rbenv/rbenv.git"
 
   bottle do
-    rebuild 1
-    sha256 "eef94cfa2b0dedc53e13f0f9f73946bcea8824dabcfdc06f86a62ea638ae65cc" => :mojave
-    sha256 "dcde9bce89f83d313c5ad527bebda2fd931a88c18023d0ccccbf33f0d48f4c4d" => :high_sierra
-    sha256 "5aa32d4c24d32be9d80deac4fe02fa672519374251c9fc2e3c4982c6d11b063a" => :sierra
-    sha256 "687c347463aac118d1b8bc01892cfb7df54f03be3bf8cc2017abc93b16c878e8" => :el_capitan
+    cellar :any
+    rebuild 2
+    sha256 "67f0becc3ef010f3b4f489d9ff852ff28988b18b968281c73a84892c7e26ec8f" => :mojave
+    sha256 "faaede99c2b74417be708883586777c4b0747cdfc691aec10776682e31585083" => :high_sierra
+    sha256 "39825fd08255d27551e9154d16691477cfecb3be52acf627d29986b4c8c0b87f" => :sierra
   end
 
   depends_on "ruby-build"
