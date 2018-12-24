@@ -4,8 +4,8 @@ class Rswift < Formula
 
   stable do
     url "https://github.com/mac-cain13/R.swift.git",
-        :tag      => "v4.0.0",
-        :revision => "0306ec185ad0f7753e9ea44fefdbf268d9e62184"
+        :tag      => "v5.0.0",
+        :revision => "a5822fdea505b76e8defb78878fde17afac52e38"
 
     depends_on :xcode => "9.0"
 
