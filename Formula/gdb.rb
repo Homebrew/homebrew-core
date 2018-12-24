@@ -1,10 +1,9 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.tar.xz"
-  sha256 "c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.1.tar.xz"
+  sha256 "0a6a432907a03c5c8eaad3c3cffd50c00a40c3a5e3c4039440624bae703f2202"
 
   bottle do
     rebuild 1
@@ -31,7 +30,7 @@ class Gdb < Formula
     EOS
   end
 
-  # Fix build with all targets. Remove if 8.2.1+
+  # Fix build with all targets. Remove for 8.3
   # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commitdiff;h=0c0a40e0abb9f1a584330a1911ad06b3686e5361
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/all-targets.diff"
@@ -39,7 +38,7 @@ class Gdb < Formula
   end
 
   # Fix debugging of executables of Xcode 10 and later
-  # created for 10.14 and newer versions of macOS. Remove if 8.2.1+
+  # created for 10.14 and newer versions of macOS. Remove for 8.3
   # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=fc7b364aba41819a5d74ae0ac69f050af282d057
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/mojave.diff"
