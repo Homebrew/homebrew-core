@@ -6,9 +6,11 @@ class PerconaServerMongodb < Formula
   sha256 "a30d3932c449b61df049807a51d7fbaf6c3534b68116e82829f63049dff69d2a"
 
   bottle do
-    sha256 "c496e0f350cdceb2c82a14f206cf4210c44faf4b01033c6d31d6240a7cf4d665" => :mojave
-    sha256 "a6649a385a19ab31d07d50c45779aea87bbd8ea149b099d57975859a6cb546ce" => :high_sierra
-    sha256 "62478907290b11c522b15b06ceb4038a0244f90d2ac2da2587534f3fcb476707" => :sierra
+    cellar :any
+    rebuild 1
+    sha256 "65e23fd9b4e0a03964950fa1d0323e3730c41d47c511e3f7ef8c08352538e2de" => :mojave
+    sha256 "2908790361d2e6248f0505c6e7997f6fb45f33e436a6eb8c35e42fc49625486d" => :high_sierra
+    sha256 "f43cd51a2678db2ca1a1ef80076bd029681c91cc8ccb176dc9931b1638b1db82" => :sierra
   end
 
   depends_on "go" => :build
