@@ -7,10 +7,11 @@ class Pyqt < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "75eb3512285c77fd8c3a65a2a4e19b9ea5debbcd039fa377b19e97dcc7cf8604" => :mojave
-    sha256 "34bc0231cb08e1943d1fd0afc13eb13bcedddd402b1a0f66b3bc267d8da40938" => :high_sierra
-    sha256 "efef45925e917682ccba19acc4ccc62b5945c9619d7104c2c721e31b7f7efc8b" => :sierra
+    cellar :any
+    rebuild 2
+    sha256 "c941b19b803f11da31ec2cd93550a7b70b1ef919868890abf37b8d6d8e9dc089" => :mojave
+    sha256 "cdbf71cc3b3c6b372787dc402f3c5ce48e17167d69349af7f8fd7fbd08b5286b" => :high_sierra
+    sha256 "7f300676f7d52223129dc4e5080db09aa639ab5b92ca27a3424655ca438a0bf4" => :sierra
   end
 
   depends_on "python"
