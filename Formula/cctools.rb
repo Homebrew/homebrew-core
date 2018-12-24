@@ -29,9 +29,6 @@ class Cctools < Formula
   cxxstdlib_check :skip
 
   if MacOS.version >= :snow_leopard
-    option "with-llvm", "Build with LTO support"
-    depends_on "llvm" => :optional
-
     # These patches apply to cctools 855, for newer OSes
     patch :p0 do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/db27850/cctools/cctools-829-lto.patch"
@@ -100,17 +97,13 @@ class Cctools < Formula
   def install
     ENV.deparallelize # see https://github.com/mistydemeo/tigerbrew/issues/102
 
-    if build.with? "llvm"
-      inreplace "libstuff/lto.c", "@@LLVM_LIBDIR@@", Formula["llvm"].opt_lib
-    end
-
     args = %W[
       RC_ProjectSourceVersion=#{version}
       USE_DEPENDENCY_FILE=NO
       BUILD_DYLIBS=NO
       CC=#{ENV.cc}
       CXX=#{ENV.cxx}
-      LTO=#{"-DLTO_SUPPORT" if build.with? "llvm"}
+      LTO=
       RC_CFLAGS=#{ENV.cflags}
       TRIE=
       RC_OS="macos"
