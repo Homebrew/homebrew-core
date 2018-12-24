@@ -1,19 +1,10 @@
 class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
-
-  stable do
-    url "https://github.com/mac-cain13/R.swift.git",
-        :tag      => "v5.0.0",
-        :revision => "a5822fdea505b76e8defb78878fde17afac52e38"
-
-    depends_on :xcode => "9.0"
-
-    patch do
-      url "https://github.com/mac-cain13/R.swift/commit/082adb3a4fb3835507e61de15dabd2e9e1b547fb.diff?full_index=1"
-      sha256 "6ebaeaeb0ad29ad94f1919683cc064455837a9d0e7b2cad83bc9011d60e6cf2f"
-    end
-  end
+  url "https://github.com/mac-cain13/R.swift.git",
+      :tag      => "v5.0.0",
+      :revision => "a5822fdea505b76e8defb78878fde17afac52e38"
+  head "https://github.com/mac-cain13/R.swift.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,11 +14,7 @@ class Rswift < Formula
     sha256 "8b65c8330b314a454a8c4304d585c5c5142557ef5d98bafcc9ccb40ea3655130" => :sierra
   end
 
-  head do
-    url "https://github.com/mac-cain13/R.swift.git"
-
-    depends_on :xcode => "10.0"
-  end
+  depends_on :xcode => "10.0"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
