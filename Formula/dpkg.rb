@@ -9,10 +9,9 @@ class Dpkg < Formula
   sha256 "f8f2ae2cf8065b81239db960b3794099ec607c94a125cec61c986f68f9861b71"
 
   bottle do
-    sha256 "3a6ebd1764ca6c912b556ea1b61915877f3ca2a908a817319919be35000e9c41" => :mojave
-    sha256 "2625583e8129fb3959591f6d7d430c9451eab4038683dcfa0fc7ae4a25959416" => :high_sierra
-    sha256 "1b4c89505755fcbeef7ac38c11bfdbc15edc4575b3d26bb9e4bfede8b080c3bc" => :sierra
-    sha256 "635a73cdaa0752fe4eb653d4c183286701e6218cac4beba160eb363752fb995e" => :el_capitan
+    sha256 "74943c7f943cdebd482064dcb3a1e1015c3c12c0dbc278bb154b0dcaf6a693cf" => :mojave
+    sha256 "bb7c36470baff8a906a9a73b57b7e2c01502e559ab2ec56a983052b68692ba06" => :high_sierra
+    sha256 "c2976a3a08cd491521d3eddb4ad9713a4e4ad0bcf7fa37dc2fadd4fed6b90683" => :sierra
   end
 
   depends_on "pkg-config" => :build
