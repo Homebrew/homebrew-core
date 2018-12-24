@@ -14,10 +14,6 @@ class GnuSmalltalk < Formula
     sha256 "a2a098e2fd4e07d87b705fc8aaabb6603df62ac437b5af68f610ff5b4797c0d5" => :el_capitan
   end
 
-  option "with-tcltk", "Build the Tcl/Tk module that requires X11"
-
-  deprecated_option "tcltk" => "with-tcltk"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gawk" => :build
@@ -28,8 +24,6 @@ class GnuSmalltalk < Formula
   depends_on "libsigsegv"
   depends_on "libtool"
   depends_on "readline"
-  depends_on :x11 if build.with? "tcltk"
-  depends_on "glew" => :optional
 
   def install
     ENV.m32 unless MacOS.prefer_64_bit?
@@ -46,11 +40,10 @@ class GnuSmalltalk < Formula
       --with-lispdir=#{elisp}
       --disable-gtk
       --with-readline=#{Formula["readline"].opt_lib}
+      --without-tcl
+      --without-tk
+      --without-x
     ]
-
-    if build.without? "tcltk"
-      args << "--without-tcl" << "--without-tk" << "--without-x"
-    end
 
     # Disable generational gc in 32-bit
     args << "--disable-generational-gc" unless MacOS.prefer_64_bit?
