@@ -3,6 +3,7 @@ class Gtkx3 < Formula
   homepage "https://gtk.org/"
   url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.2.tar.xz"
   sha256 "5b3b05e427cc928d103561ed2e91b2b2881fe88b1f167b0b1c9990da6aac8892"
+  revision 1
 
   bottle do
     rebuild 1
@@ -28,6 +29,12 @@ class Gtkx3 < Formula
   patch do
     url "https://gitlab.gnome.org/jralls/gtk/commit/efb3888af770937c6c2c184d9beea19fbc24bb4a.patch"
     sha256 "d847d1b4659153f0d815189039776054bccc73f85cfb967c5cc2cf0e0061d0d7"
+  end
+
+  # Follow-up of issue #1518
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk/commit/e105fefc4923ebd035747daa7d453243eba4a836.patch"
+    sha256 "4efd9bc0c68942a8b4f3a39f683aa0d0ee5f6836012b004e9ea083894780ed91"
   end
 
   def install
