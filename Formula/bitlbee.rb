@@ -27,16 +27,11 @@ class Bitlbee < Formula
     sha256 "85eebf3ba9ee2e986ef1c54b99a8df958cf48a1d5112f765e5498d9be23b9426" => :yosemite
   end
 
-  option "with-pidgin", "Use finch/libpurple for all communication with instant messaging networks"
-
-  deprecated_option "with-finch" => "with-pidgin"
-
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "libgcrypt"
-  depends_on "pidgin" => :optional
 
   def install
     args = %W[
@@ -49,8 +44,6 @@ class Bitlbee < Formula
       --config=#{var}/bitlbee/lib/
       --ipsocket=#{var}/bitlbee/run/bitlbee.sock
     ]
-
-    args << "--purple=1" if build.with? "pidgin"
 
     system "./configure", *args
 
