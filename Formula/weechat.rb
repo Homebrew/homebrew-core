@@ -3,6 +3,7 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-2.3.tar.xz"
   sha256 "ef8654313bfb0ca92e27cf579efb2d9b17e53505e615bf3d71a51aef44e56a5f"
+  revision 1
   head "https://github.com/weechat/weechat.git"
 
   bottle do
@@ -21,6 +22,7 @@ class Weechat < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "ncurses"
   depends_on "aspell" => :optional
   depends_on "curl" => :optional
   depends_on "lua" => :optional
