@@ -12,10 +12,7 @@ class Openldap < Formula
 
   keg_only :provided_by_macos
 
-  option "with-sssvlv", "Enable server side sorting and virtual list view"
-
   depends_on "openssl"
-  depends_on "berkeley-db@4" => :optional
 
   def install
     args = %W[
@@ -25,11 +22,13 @@ class Openldap < Formula
       --localstatedir=#{var}
       --enable-accesslog
       --enable-auditlog
+      --enable-bdb=no
       --enable-constraint
       --enable-dds
       --enable-deref
       --enable-dyngroup
       --enable-dynlist
+      --enable-hdb=no
       --enable-memberof
       --enable-ppolicy
       --enable-proxycache
@@ -41,12 +40,9 @@ class Openldap < Formula
       --enable-valsort
     ]
 
-    args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db@4"
-    args << "--enable-sssvlv=yes" if build.with? "sssvlv"
-
     system "./configure", *args
     system "make", "install"
-    (var+"run").mkpath
+    (var/"run").mkpath
 
     # https://github.com/Homebrew/homebrew-dupes/pull/452
     chmod 0755, Dir[etc/"openldap/*"]
