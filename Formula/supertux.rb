@@ -17,6 +17,7 @@ class Supertux < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "freetype"
   depends_on "glew"
   depends_on "libogg"
   depends_on "libvorbis"
