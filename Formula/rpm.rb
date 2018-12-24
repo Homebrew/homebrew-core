@@ -1,9 +1,8 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "http://www.rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.1.tar.bz2"
-  sha256 "43f40e2ccc3ca65bd3238f8c9f8399d4957be0878c2e83cba2746d2d0d96793b"
-  revision 1
+  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.2.1.tar.bz2"
+  sha256 "1139c24b7372f89c0a697096bf9809be70ba55e006c23ff47305c1849d98acda"
   version_scheme 1
 
   bottle do
