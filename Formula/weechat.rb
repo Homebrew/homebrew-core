@@ -21,6 +21,7 @@ class Weechat < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "ncurses"
   depends_on "aspell" => :optional
   depends_on "curl" => :optional
   depends_on "lua" => :optional
