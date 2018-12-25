@@ -1,6 +1,7 @@
 class Kontena < Formula
   desc "Command-line client for Kontena container orchestration platform"
   homepage "https://kontena.io/"
+  revision 1
   head "https://github.com/kontena/kontena.git"
 
   stable do
