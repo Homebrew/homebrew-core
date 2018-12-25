@@ -1,8 +1,8 @@
 class OrcTools < Formula
   desc "ORC java command-line tools and utilities"
   homepage "https://orc.apache.org/"
-  url "https://search.maven.org/remotecontent?filepath=org/apache/orc/orc-tools/1.5.3/orc-tools-1.5.3-uber.jar"
-  sha256 "1b8f170d72049bdb1e424dd46c744d924dd7643970410f2a32ac89d51b23c00a"
+  url "https://search.maven.org/remotecontent?filepath=org/apache/orc/orc-tools/1.5.4/orc-tools-1.5.4-uber.jar"
+  sha256 "f798969900a9baa845570d16e3022fe0884c9788c48e70c0c242fbfa353f2652"
 
   bottle :unneeded
 
