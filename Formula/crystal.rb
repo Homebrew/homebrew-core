@@ -27,7 +27,7 @@ class Crystal < Formula
   end
 
   depends_on "libatomic_ops" => :build # for building bdw-gc
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config"
   depends_on "bdw-gc"
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
