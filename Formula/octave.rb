@@ -65,7 +65,25 @@ class Octave < Formula
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
     args = []
-    args << "--without-qt" if build.without? "qt"
+    if build.with? "qt"
+      args << "--with-qt"
+      qcollection = "#{Formula["qt"].bin}/qcollectiongenerator"
+      unless File.exist?(qcollection)
+        odie "octave configure script checks for qcollectiongenerator " \
+        "bin to use qt gui feature, but it is not bundled with qt5 formula, " \
+        "so we can fake it by make a symbol link for it, for example, " \
+        "ln -s {Cellar}/qt/5.12.0/bin/qhelpgenerator {Cellar}/qt/5.12.0/bin/qcollectiongenerator"
+      end
+
+      # to fix by making a symbol link is prohibited by macOS (https://github.com/Homebrew/brew/issues/3002)
+      # qhelp = "#{Formula["qt"].bin}/qhelpgenerator"
+      # if File.exist?(qhelp)
+      #   qcollection = "#{Formula["qt"].bin}/qcollectiongenerator"
+      #   if not File.exist?(qcollection)
+      #     ln_s "#{qhelp}","#{qcollection}", :force=>true
+      #   end
+      # end
+    end
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
