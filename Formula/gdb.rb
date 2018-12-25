@@ -30,6 +30,10 @@ class Gdb < Formula
     EOS
   end
 
+  # Remove if 8.3+ Taken from
+  # https://patches-gcc.linaro.org/patch/10133/
+  patch :DATA
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -64,3 +68,17 @@ class Gdb < Formula
     system bin/"gdb", bin/"gdb", "-configuration"
   end
 end
+__END__
+diff --git a/gdb/aarch64-linux-tdep.c b/gdb/aarch64-linux-tdep.c
+index 99e6a15..3d80568 100644
+--- a/gdb/aarch64-linux-tdep.c
++++ b/gdb/aarch64-linux-tdep.c
+@@ -315,7 +315,7 @@ aarch64_linux_supply_sve_regset (const struct regset *regset,
+      passed in SVE regset or a NEON fpregset.  */
+
+   /* Extract required fields from the header.  */
+-  uint64_t vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
++  ULONGEST vl = extract_unsigned_integer (header + SVE_HEADER_VL_OFFSET,
+ 					  SVE_HEADER_VL_LENGTH, byte_order);
+   uint16_t flags = extract_unsigned_integer (header + SVE_HEADER_FLAGS_OFFSET,
+ 					     SVE_HEADER_FLAGS_LENGTH,
