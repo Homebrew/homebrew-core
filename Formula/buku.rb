@@ -151,6 +151,6 @@ class Buku < Formula
     # Test database content and search
     result = shell_output("#{bin}/buku --np --sany Homebrew")
     assert_match "https://github.com/Homebrew/brew", result
-    assert_match "The missing package manager for macOS", result
+    assert_match "The Homebrew package manager", result
   end
 end
