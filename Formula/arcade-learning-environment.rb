@@ -8,9 +8,9 @@ class ArcadeLearningEnvironment < Formula
 
   bottle do
     cellar :any
-    sha256 "650f4b525c0ec6d8c4716b4ef4acf3bcf6fb754bc425fe02986a28b42f11ed1d" => :mojave
-    sha256 "23210afaa7fdf64dbe85d75682ef7234d9e0d84a94e3f0691015d5e0bccc9d3b" => :high_sierra
-    sha256 "ce438bce03014df33bb3354032f62427e9018fc3e5febe26748bdbb5615d3844" => :sierra
+    sha256 "c79e9774e032cadea98b221ba56686d6389430952549bb617551cb6955d03900" => :mojave
+    sha256 "873ad323d8cc12f7af3fa9c1476bfe61454c9d1d161e9e5db70a90a7a5fab3e2" => :high_sierra
+    sha256 "fc3cbad386c70e97b16bd48b19f3d86bc73c1de3d24e396861e645884309a7ab" => :sierra
   end
 
   depends_on "cmake" => :build
