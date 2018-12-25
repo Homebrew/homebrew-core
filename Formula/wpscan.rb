@@ -3,6 +3,7 @@ class Wpscan < Formula
   homepage "https://wpscan.org"
   url "https://github.com/wpscanteam/wpscan/archive/2.9.4.tar.gz"
   sha256 "ad066b48565e82208d5e0451891366f6a9b9a3648d149d14c83d00f4712094d3"
+  revision 1
   head "https://github.com/wpscanteam/wpscan.git"
 
   bottle do
