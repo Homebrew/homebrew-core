@@ -3,7 +3,7 @@ class ArcadeLearningEnvironment < Formula
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
   sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
-  revision 2
+  revision 3
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
@@ -19,7 +19,11 @@ class ArcadeLearningEnvironment < Formula
   depends_on "sdl"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
+      -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
+    ]
+    system "cmake", ".", *args
     system "make", "install"
     system "python3", *Language::Python.setup_install_args(prefix)
   end
