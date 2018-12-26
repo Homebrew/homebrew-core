@@ -1,15 +1,13 @@
 class Tass64 < Formula
   desc "Multi pass optimizing macro assembler for the 65xx series of processors"
-  homepage "https://tass64.sourceforge.io"
+  homepage "https://tass64.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/tass64/source/64tass-1.53.1515-src.zip"
   sha256 "f18e5d3f7f27231c1f8ce781eee8b585fe5aaec186eccdbdb820c1b8c323eb6c"
 
   def install
     system "make", "install", "CPPFLAGS=-D_XOPEN_SOURCE", "prefix=#{prefix}"
 
-    # `make install` doesn't install the bundled syntax highlighting
-    # defintions. $prefix/share/tass64/syntax seems a reasonable place to put
-    # them
+    # `make install` does not install syntax highlighting defintions
     pkgshare.install "syntax"
   end
 
@@ -32,6 +30,6 @@ class Tass64 < Formula
     EOS
 
     system "#{bin}/64tass", "-a", "hello.asm", "-o", "hello.prg"
-    File.exist?("hello.prg")
+    assert_predicate testpath/"hello.prg", :exist?
   end
 end
