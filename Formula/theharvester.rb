@@ -9,9 +9,9 @@ class Theharvester < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dea5bd671b9024d0668cb6c29e69f9cc75fdbe98d706959891fc2a1097ea800b" => :mojave
-    sha256 "834e9cc62f3ac842c9ee7ddefe26930d406eb6c7b45dc121378575b624e4af9c" => :high_sierra
-    sha256 "834e9cc62f3ac842c9ee7ddefe26930d406eb6c7b45dc121378575b624e4af9c" => :sierra
+    sha256 "1dbace026e1efa3ff81ec7466918f9be6a1611ff6f2096e6b61c2e24d17ab21c" => :mojave
+    sha256 "95ad2239029134599857dafec1c1a6cfd4aaf4a4179b116daf1f667d644a815e" => :high_sierra
+    sha256 "4ad92a36c760ec2195fce390512467e48f8fad0e507fc9b2c94a720edebd102f" => :sierra
   end
 
   depends_on "python"
