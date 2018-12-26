@@ -1,8 +1,8 @@
 class Cgit < Formula
   desc "Hyperfast web frontend for Git repositories written in C"
   homepage "https://git.zx2c4.com/cgit/"
-  url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.tar.xz"
-  sha256 "d5622ba7c3eb87de402da6fe3a092219546a917ff627966e99c9f18ba32a4832"
+  url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.1.tar.xz"
+  sha256 "3c547c146340fb16d4134326e7524bfb28ffa681284f1e3914bde1c27a9182bf"
 
   bottle do
     sha256 "0ff0cd64c7a3ac693e4f675af69deb2bb246a2c24c99fe56c12c74532fa9b428" => :mojave
