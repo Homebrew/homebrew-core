@@ -6,9 +6,9 @@ class NodeAT10 < Formula
 
   bottle do
     cellar :any
-    sha256 "e48301f20c478a2c0df87413a403028f0b00e74444896db96851dda585963d80" => :mojave
-    sha256 "d490487b0bc28d473b86b05137da5aaae5ae66cf804ca2c4f622c5a0e5cf1625" => :high_sierra
-    sha256 "2ac73cb77308889a6571c47c8b808ddab928ba410eca67fa03e6b190c028dfcf" => :sierra
+    sha256 "5a411a2295f6040438ad96a572bcaeb587b168bd5b5414b298965293ec73be34" => :mojave
+    sha256 "b80b682c346c4bb9b398ed4a085d6d8ec5eac0755ba2a6714b6df448e46a0277" => :high_sierra
+    sha256 "555b29c365df7c2903e5f98d1802826194bfa48b0607299a3d70cb657578cb50" => :sierra
   end
 
   keg_only :versioned_formula
