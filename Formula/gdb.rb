@@ -30,6 +30,21 @@ class Gdb < Formula
     EOS
   end
 
+  # Fix build with all targets. Remove for 8.3
+  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commitdiff;h=0c0a40e0abb9f1a584330a1911ad06b3686e5361
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/all-targets.diff"
+    sha256 "1cb8a1b8c4b4833212e16ba8cfbe620843aba0cba0f5111c2728c3314e10d8fd"
+  end
+
+  # Fix debugging of executables of Xcode 10 and later
+  # created for 10.14 and newer versions of macOS. Remove for 8.3
+  # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=fc7b364aba41819a5d74ae0ac69f050af282d057
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/mojave.diff"
+    sha256 "6264c71b57a0d5d4aed11430d352b03639370b7d36a5b520e189a6a1f105e383"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
