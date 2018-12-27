@@ -5,6 +5,7 @@ class Statik < Formula
   homepage "https://getstatik.com"
   url "https://github.com/thanethomson/statik/archive/v0.22.2.tar.gz"
   sha256 "27aeda86c40ba2a489d2d8e85b7b38200e8f5763310003294c135ab2cf09975b"
+  revision 1
   head "https://github.com/thanethomson/statik.git"
 
   bottle do
@@ -14,12 +15,12 @@ class Statik < Formula
     sha256 "c8e963506f9f837f5c29ad79872d03eae07d1f318b284e816403f345d6acb4ad" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   conflicts_with "go-statik", :because => "both install `statik` binaries"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "statik"
