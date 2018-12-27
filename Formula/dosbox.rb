@@ -26,8 +26,6 @@ class Dosbox < Formula
   depends_on "sdl_net"
   depends_on "sdl_sound"
 
-  conflicts_with "dosbox-x", :because => "both install `dosbox` binaries"
-
   def install
     args = %W[
       --prefix=#{prefix}
