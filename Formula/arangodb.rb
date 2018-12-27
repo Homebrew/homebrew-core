@@ -1,8 +1,10 @@
+require "open3"
+
 class Arangodb < Formula
   desc "The Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.4.0.tar.gz"
-  sha256 "5e45fa2f5eff8420a2e3e083535663a21ab06bc66fa29857d6cd4e36ed4c4aff"
+  url "https://download.arangodb.com/Source/ArangoDB-3.4.1.tar.gz"
+  sha256 "8087d46078ecc38a9fadd1c8300e54e0a9f29ce157be1227fdc0db8533d1731d"
   head "https://github.com/arangodb/arangodb.git", :branch => "unstable"
 
   bottle do
@@ -21,15 +23,37 @@ class Arangodb < Formula
     cause "Fails with compile errors"
   end
 
+  # see https://gcc.gnu.org/bugzilla/show_bug.cgi?id=87665
   fails_with :gcc do
     build 820
     cause "Generates incorrect code"
+  end
+
+  # the ArangoStarter is in a separate github repository;
+  # it is used to easily start single server and clusters
+  # with a unified CLI
+  # Version: 0.13.10
+  # SHA256:  5ee32f8071cfe5ec4b06d6cd146f72bdda2933fd6e890c57cfa2fae3bfad8707
+  # Commit:  38953b049a38c844ffdbf667e55e60c6cfa22e70
+
+  resource "starter" do
+    url "https://github.com/arangodb-helper/arangodb/archive/0.13.10.tar.gz"
+    sha256 "5ee32f8071cfe5ec4b06d6cd146f72bdda2933fd6e890c57cfa2fae3bfad8707"
   end
 
   needs :cxx11
 
   def install
     ENV.cxx11
+
+    resource("starter").stage do
+      ENV.append "GOPATH", Dir.pwd + "/.gobuild"
+      system "make", "deps"
+      system "go", "build", "-ldflags", "-X main.projectVersion=0.13.10 -X main.projectBuild=38953b049a38c844ffdbf667e55e60c6cfa22e70",
+                            "-o", "arangodb",
+                            "github.com/arangodb-helper/arangodb"
+      bin.install "arangodb"
+    end
 
     mkdir "build" do
       args = std_cmake_args + %W[
@@ -90,8 +114,28 @@ class Arangodb < Formula
   end
 
   test do
+    require "pty"
+
     testcase = "require('@arangodb').print('it works!')"
     output = shell_output("#{bin}/arangosh --server.password \"\" --javascript.execute-string \"#{testcase}\"")
     assert_equal "it works!", output.chomp
+
+    ohai "#{bin}/arangodb --starter.instance-up-timeout 1m --starter.mode single"
+    PTY.spawn("#{bin}/arangodb", "--starter.instance-up-timeout", "1m", "--starter.mode", "single") do |r, _, pid|
+      begin
+        loop do
+          available = IO.select([r], [], [], 60)
+          assert_not_equal available, nil
+
+          line = r.readline.strip
+          ohai line
+
+          break if line.include?("Your single server can now be accessed")
+        end
+      ensure
+        Process.kill "SIGINT", pid
+        ohai "shuting down #{pid}"
+      end
+    end
   end
 end
