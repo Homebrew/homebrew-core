@@ -2,8 +2,8 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.16.2.tar.gz"
-  sha256 "4c1e74dc2b45d14504c6a676dcd6fe168f6b5a5c605cbdb0588e55e58412d29c"
+  url "https://github.com/actor-framework/actor-framework/archive/0.16.3.tar.gz"
+  sha256 "8596923b42dba6363d06bd053f179416ac96cdf3864e98a2ea78723a0a95a46f"
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
@@ -20,9 +20,9 @@ class Caf < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--no-examples",
                           "--build-static", "--no-opencl"
-    system "make"
-    system "make", "test"
-    system "make", "install"
+    system "make", "--directory=build"
+    system "make", "--directory=build", "test"
+    system "make", "--directory=build", "install"
   end
 
   test do
