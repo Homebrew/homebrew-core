@@ -3,6 +3,7 @@ class SpoofMac < Formula
   homepage "https://github.com/feross/SpoofMAC"
   url "https://files.pythonhosted.org/packages/9c/59/cc52a4c5d97b01fac7ff048353f8dc96f217eadc79022f78455e85144028/SpoofMAC-2.1.1.tar.gz"
   sha256 "48426efe033a148534e1d4dc224c4f1b1d22299c286df963c0b56ade4c7dc297"
+  revision 1
   head "https://github.com/feross/SpoofMAC.git"
 
   bottle do
@@ -15,7 +16,7 @@ class SpoofMac < Formula
     sha256 "f7dc1529dd2c83d8bf8667d170299aa592910bb4918174b23f6a9b7d3555084e" => :mavericks
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/source/d/docopt/docopt-0.6.2.tar.gz"
@@ -23,14 +24,15 @@ class SpoofMac < Formula
   end
 
   def install
-    ENV["PYTHONPATH"] = libexec/"lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = libexec/"lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resources.each do |r|
-      r.stage { system "python", *Language::Python.setup_install_args(libexec/"vendor") }
+      r.stage { system "python3", *Language::Python.setup_install_args(libexec/"vendor") }
     end
 
-    system "python", *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
