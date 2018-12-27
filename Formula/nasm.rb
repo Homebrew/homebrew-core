@@ -6,9 +6,9 @@ class Nasm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "616fdab3c5f856c051bc2cd50556082c1a575533f76913e9623dffa0ab4887bb" => :mojave
-    sha256 "316dc210d7bb769c034a9373c4dd084a6accca8ef42e3139d6df5abf5cb57d0c" => :high_sierra
-    sha256 "1e17ae47d141be6b57cdbb6f9638dba8f0ef30f6499b27a31d82c50bc1577983" => :sierra
+    sha256 "77a183895137e0f95d897d33399235a58f1f23c99bac7f041d58baeb6f32e3b9" => :mojave
+    sha256 "b8d720e9008f58bbeddee14a8fa4841a8913c3d61d46872b37f7736d03a06218" => :high_sierra
+    sha256 "1d5283c366d958a1b7efdc22983fe313e0bd2a26268e585ced9f284f50ed270b" => :sierra
   end
 
   head do
