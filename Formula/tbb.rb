@@ -4,6 +4,7 @@ class Tbb < Formula
   url "https://github.com/01org/tbb/archive/2019_U3.tar.gz"
   version "2019_U3"
   sha256 "b2244147bc8159cdd8f06a38afeb42f3237d3fc822555499d7ccfbd4b86f8ece"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,7 +18,7 @@ class Tbb < Formula
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -32,7 +33,7 @@ class Tbb < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
-      system "python", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
 
     system "cmake", "-DTBB_ROOT=#{prefix}",
