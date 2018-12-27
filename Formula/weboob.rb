@@ -2,11 +2,11 @@ class Weboob < Formula
   include Language::Python::Virtualenv
 
   desc "Web Outside of Browsers"
-  homepage "http://weboob.org/"
+  homepage "https://weboob.org/"
   url "https://symlink.me/attachments/download/356/weboob-1.3.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/w/weboob/weboob_1.3.orig.tar.gz"
   sha256 "c991785c889877c76f18d19e372ed4ae0c3f8b819fd1e8da296bd34b1381be54"
-  revision 1
-  head "https://git.symlink.me/pub/weboob/stable.git"
+  revision 2
 
   bottle do
     cellar :any
@@ -21,7 +21,7 @@ class Weboob < Formula
   depends_on "gnupg"
   depends_on "jpeg"
   depends_on "libyaml"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "Pillow" do
     url "https://files.pythonhosted.org/packages/e0/82/ec499c78bfe4ecaa91c2f3000040451d187ed0a816d58b8543e29c48827f/Pillow-4.3.0.tar.gz"
@@ -29,8 +29,8 @@ class Weboob < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "certifi" do
@@ -46,11 +46,6 @@ class Weboob < Formula
   resource "cssselect" do
     url "https://files.pythonhosted.org/packages/77/ff/9c865275cd19290feba56344eba570e719efb7ca5b34d67ed12b22ebbb0d/cssselect-1.0.1.tar.gz"
     sha256 "73db1c054b9348409e2862fc6c0dde5c4e4fbe4da64c5c5a9e05fbea45744077"
-  end
-
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/1f/9e/7b2ff7e965fc654592269f2906ade1c7d705f1bf25b7d469fa153f7d19eb/futures-3.2.0.tar.gz"
-    sha256 "9ec02aa7d674acb8618afb127e27fde7fc68994c0437ad759fa094a574adb265"
   end
 
   resource "html2text" do
@@ -71,11 +66,6 @@ class Weboob < Formula
   resource "lxml" do
     url "https://files.pythonhosted.org/packages/e1/4c/d83979fbc66a2154850f472e69405572d89d2e6a6daee30d18e83e39ef3a/lxml-4.1.1.tar.gz"
     sha256 "940caef1ec7c78e0c34b0f6b94fe42d0f2022915ffc78643d28538a5cfd0f40e"
-  end
-
-  resource "mechanize" do
-    url "https://files.pythonhosted.org/packages/a7/ac/7f54bcf39b62cd56dec461f4c5e2d7c096508ab2b283c7ee099a466e1b9f/mechanize-0.3.6.tar.gz"
-    sha256 "654e705157156c1f316601ea4f7ab27e96713a8a4dabe1604e6cc8d48e0aa1e8"
   end
 
   resource "olefile" do
@@ -109,7 +99,7 @@ class Weboob < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
