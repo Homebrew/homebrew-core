@@ -3,6 +3,7 @@ class GtkDoc < Formula
   homepage "https://www.gtk.org/gtk-doc/"
   url "https://download.gnome.org/sources/gtk-doc/1.28/gtk-doc-1.28.tar.xz"
   sha256 "911e29e302252c96128965ee1f4067d5431a88e00ad1023a8bc1d6b922af5715"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -18,7 +19,7 @@ class GtkDoc < Formula
   depends_on "docbook-xsl"
   depends_on "gettext"
   depends_on "libxml2"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "source-highlight"
 
   resource "six" do
@@ -27,9 +28,10 @@ class GtkDoc < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resource("six").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     system "./configure", "--disable-debug",
