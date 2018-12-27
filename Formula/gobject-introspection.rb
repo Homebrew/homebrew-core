@@ -3,6 +3,7 @@ class GobjectIntrospection < Formula
   homepage "https://wiki.gnome.org/Projects/GObjectIntrospection"
   url "https://download.gnome.org/sources/gobject-introspection/1.58/gobject-introspection-1.58.2.tar.xz"
   sha256 "2a5e0f69459af7ca4c41b8f4e19d9c80ddf877834bb0e7fdd420e2495ae2eda8"
+  revision 1
 
   bottle do
     sha256 "857e1859bb7d22ffd0df3beb43adda587e3a393d8e632a3550b9282d27e103da" => :mojave
@@ -14,7 +15,7 @@ class GobjectIntrospection < Formula
   depends_on "glib"
   depends_on "libffi"
   depends_on "pkg-config"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
@@ -30,7 +31,7 @@ class GobjectIntrospection < Formula
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-python=#{Formula["python@2"].opt_bin}/python2"
+                          "--with-python=#{Formula["python"].opt_bin}/python3"
     system "make"
     system "make", "install"
   end
