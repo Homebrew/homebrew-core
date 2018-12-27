@@ -100,7 +100,7 @@ class Subversion < Formula
       --with-ruby-sitedir=#{lib}/ruby
       --with-serf=#{serf_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
-      --with-zlib=/usr
+      --with-zlib=#{MacOS.sdk_path}/usr
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
