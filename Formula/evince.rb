@@ -3,6 +3,7 @@ class Evince < Formula
   homepage "https://wiki.gnome.org/Apps/Evince"
   url "https://download.gnome.org/sources/evince/3.30/evince-3.30.2.tar.xz"
   sha256 "a95bbdeb452c9cc910bba751e7c782ce60ffe7972c461bccbe8bbcdb8ca5f24c"
+  revision 1
 
   bottle do
     sha256 "79376de9e7e365c98d51ec709de00966aed241ea33eeb2996284849b05361dd6" => :mojave
@@ -23,7 +24,7 @@ class Evince < Formula
   depends_on "libspectre"
   depends_on "libxml2"
   depends_on "poppler"
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     # Fix build failure "ar: illegal option -- D"
@@ -35,6 +36,9 @@ class Evince < Formula
     # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
 
+    xy = Language::Python.major_minor_version "python3"
+    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -44,7 +48,6 @@ class Evince < Formula
                           "--enable-introspection",
                           "--enable-djvu",
                           "--disable-browser-plugin"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
     system "make", "install"
   end
 
