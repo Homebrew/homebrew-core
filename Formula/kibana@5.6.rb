@@ -4,8 +4,8 @@ class KibanaAT56 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v5.6.13",
-      :revision => "689427c076a5a45dc59d113df04bd4522c105391"
+      :tag      => "v5.6.14",
+      :revision => "f909937e01a4b1a9e6b3d48d281fd3fe6a819510"
 
   bottle do
     sha256 "18deeaa1b8dad4a91b2ad3ab7986ec69fbf9328e57409a10986f93b00db50d63" => :mojave
@@ -16,8 +16,8 @@ class KibanaAT56 < Formula
   keg_only :versioned_formula
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.14.4/node-v6.14.4.tar.xz"
-    sha256 "9a4bfc99787f8bdb07d5ae8b1f00ec3757e7b09c99d11f0e8a5e9a16a134ec0f"
+    url "https://nodejs.org/dist/v6.15.1/node-v6.15.1.tar.xz"
+    sha256 "c3bde58a904b5000a88fbad3de630d432693bc6d9d6fec60a5a19e68498129c2"
   end
 
   def install
@@ -26,11 +26,19 @@ class KibanaAT56 < Formula
       system "make", "install"
     end
 
+    # remove with next release: revert incorrect package.json version number
+    inreplace buildpath/"package.json", "\"version\": \"5.6.15\",", "\"version\": \"5.6.14\","
+
     # do not build packages for other platforms
     inreplace buildpath/"tasks/config/platforms.js", /('(linux-x64|windows-x64)',?(?!;))/, "// \\1"
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/darwin-x64"
+
+    # set MACOSX_DEPLOYMENT_TARGET to compile native addons against libc++
+    inreplace libexec/"node/include/node/common.gypi", "'MACOSX_DEPLOYMENT_TARGET': '10.7',",
+                                                       "'MACOSX_DEPLOYMENT_TARGET': '#{MacOS.version}',"
+    ENV["npm_config_nodedir"] = libexec/"node"
 
     # set npm env and fix cache edge case (https://github.com/Homebrew/brew/pull/37#issuecomment-208840366)
     ENV.prepend_path "PATH", prefix/"libexec/node/bin"
