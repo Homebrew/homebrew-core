@@ -22,7 +22,7 @@ class OpencvAT2 < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "openexr"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     jpeg = Formula["jpeg"]
