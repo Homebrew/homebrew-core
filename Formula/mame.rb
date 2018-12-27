@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0204.tar.gz"
-  version "0.204"
-  sha256 "eeb6e304502dc1f1ce5a9c73d59a32865fc6e374c14ecef85d85b6de98a76e42"
+  url "https://github.com/mamedev/mame/archive/mame0205.tar.gz"
+  version "0.205"
+  sha256 "80b7f9feb3a4da34c5c452de13d4f7db12381b8a17a90f41884ea2ca797d92ff"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
