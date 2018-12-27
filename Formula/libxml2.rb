@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.8.tar.gz"
   sha256 "0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732"
+  revision 1
 
   bottle do
     cellar :any
@@ -23,7 +24,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "autoreconf", "-fiv" if build.head?
@@ -39,8 +40,9 @@ class Libxml2 < Formula
 
     cd "python" do
       # We need to insert our include dir first
-      inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-      system "python", "setup.py", "install", "--prefix=#{prefix}"
+      inreplace "setup.py", "includes_dir = [",
+                            "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
+      system "python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -62,7 +64,8 @@ class Libxml2 < Formula
     system ENV.cc, *args
     system "./test"
 
-    ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python2.7", "-c", "import libxml2"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system "python3", "-c", "import libxml2"
   end
 end
