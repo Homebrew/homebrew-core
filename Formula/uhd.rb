@@ -3,6 +3,7 @@ class Uhd < Formula
   homepage "https://files.ettus.com/manual/"
   url "https://github.com/EttusResearch/uhd/archive/v3.13.0.2.tar.gz"
   sha256 "e18d0524cbf571be4847fd7f971dc30c37efd9e7a333761b74e1266a07cbd35b"
+  revision 1
   head "https://github.com/EttusResearch/uhd.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Uhd < Formula
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
@@ -23,14 +24,15 @@ class Uhd < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resource("Mako").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DENABLE_PYTHON3=ON"
       system "make"
       system "make", "test"
       system "make", "install"
