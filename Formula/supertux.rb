@@ -39,7 +39,6 @@ class Supertux < Formula
     system "make", "install"
 
     # Remove unnecessary files
-    (share/"appdata").rmtree
     (share/"applications").rmtree
     (share/"pixmaps").rmtree
     (prefix/"MacOS").rmtree
