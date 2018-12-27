@@ -14,9 +14,9 @@ class Supertux < Formula
     sha256 "c66b6e14fc23160f5024ad7790286ec0bcb7f8ed262ce6c400dc8757c1c16ba8" => :el_capitan
   end
 
-  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "boost"
   depends_on "freetype"
   depends_on "glew"
   depends_on "libogg"
