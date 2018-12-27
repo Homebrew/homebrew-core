@@ -1,9 +1,8 @@
 class NodeAT6 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v6.14.4/node-v6.14.4.tar.xz"
-  sha256 "9a4bfc99787f8bdb07d5ae8b1f00ec3757e7b09c99d11f0e8a5e9a16a134ec0f"
-  revision 1
+  url "https://nodejs.org/dist/v6.16.0/node-v6.16.0.tar.xz"
+  sha256 "0d0882a9da1ccc217518d3d1a60dd238da9f52bed0c7daac42b8dc3d83bd7546"
 
   bottle do
     sha256 "5c493aa31e3950ef73fc825c60a152a2653d89ae6a2cad8e4632502ed4738a5d" => :mojave
@@ -31,13 +30,21 @@ class NodeAT6 < Formula
   end
 
   def install
+    # Switches standard libary for native addons from libstdc++ to libc++ to
+    # match the superenv enforced one for the node binary itself. This fixes
+    # incompatibilities between native addons built with our node-gyp and our
+    # node binary and makes building native addons with XCode 10.1+ possible.
+    inreplace "common.gypi", "'MACOSX_DEPLOYMENT_TARGET': '10.7',",
+                             "'MACOSX_DEPLOYMENT_TARGET': '#{MacOS.version}',"
     resource("icu4c").stage buildpath/"deps/icu"
     system "./configure", "--prefix=#{prefix}", "--with-intl=full-icu"
     system "make", "install"
   end
 
   def post_install
-    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\n")
+    # sets global prefix and prevents our patched common.gypi to be overriden
+    # with the one downloaded by node-gyp with the header tarball otherwise
+    (lib/"node_modules/npm/npmrc").atomic_write("prefix = #{HOMEBREW_PREFIX}\nnodedir = #{opt_prefix}\n")
   end
 
   test do
