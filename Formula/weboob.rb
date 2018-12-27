@@ -10,11 +10,9 @@ class Weboob < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "66b2b85c84e5486301021e38cdaa2b3a45c198f0001d13468f96857743486e4b" => :mojave
-    sha256 "450f1bc2dc6fdaab185749f79051f7fdb4d3510690a35d46ca2877954e659784" => :high_sierra
-    sha256 "b155a23cd0c2562ea2e3a68f8ae31502b92b187f0d017622822d9e589dbc1f56" => :sierra
-    sha256 "1438d5ef99fed1262698b71e24d31d63e2c8b27413e1f46d1b70c1b07a191951" => :el_capitan
+    sha256 "6f50d281d1b2a53ffce3ce422dfb01e3320e8b2ec290da2f3d8d52367fb6a776" => :mojave
+    sha256 "3cc293034da6fe1174369bb1edada48ab28e85a36de7f775a9733fdb56bd27b1" => :high_sierra
+    sha256 "6f31cee27f68613ef44d669439da689895ee4d72829b1095989bd64852a9da40" => :sierra
   end
 
   depends_on "freetype"
