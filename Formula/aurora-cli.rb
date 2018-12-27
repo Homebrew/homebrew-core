@@ -12,7 +12,7 @@ class AuroraCli < Formula
     sha256 "0aa81ba9c237f213417b5c3c60409d2f754953a98ff3f6eb5c41ec991b90f2d0" => :el_capitan
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     # No pants yet for Mojave, so we force High Sierra binaries there
