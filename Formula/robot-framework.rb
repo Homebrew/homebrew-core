@@ -5,6 +5,7 @@ class RobotFramework < Formula
   homepage "https://robotframework.org/"
   url "https://github.com/robotframework/robotframework/archive/v3.0.4.tar.gz"
   sha256 "1557c83f456ae90645f9c88f1e3366571cc3fe0843bea20330601b9d00c47ece"
+  revision 1
   head "https://github.com/robotframework/robotframework.git"
 
   bottle do
@@ -16,7 +17,7 @@ class RobotFramework < Formula
   end
 
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
   depends_on :x11
 
   resource "asn1crypto" do
@@ -37,11 +38,6 @@ class RobotFramework < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
     sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do
@@ -90,8 +86,8 @@ class RobotFramework < Formula
   end
 
   resource "robotframework-sshlibrary" do
-    url "https://files.pythonhosted.org/packages/6e/6c/137995fe4bf8e4bd55f2712923d0acdb07eab6cdc2758d06e01b08345f77/robotframework-sshlibrary-2.1.3.tar.gz"
-    sha256 "ab1daa49d38934ad57433500c1e177b4f3b3a16f5218a687a6061014343dabcb"
+    url "https://files.pythonhosted.org/packages/33/fb/e7d9ff0f773a01480f015be49f0b22f92b54b5beabec7ac61bf075d50bae/robotframework-sshlibrary-3.2.1.tar.gz"
+    sha256 "55b9c5a13e803f6fa2cb316ce9c33c503690556a88fb991eb70ae1d2d554ca33"
   end
 
   resource "selenium" do
@@ -120,7 +116,7 @@ class RobotFramework < Formula
 
     (testpath/"HelloWorld.py").write <<~EOS
       def hello_world():
-          print "HELLO WORLD!"
+          print("HELLO WORLD!")
     EOS
     system bin/"pybot", testpath/"HelloWorld.txt"
   end
