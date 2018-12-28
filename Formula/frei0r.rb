@@ -15,11 +15,8 @@ class Frei0r < Formula
 
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
-  depends_on "cairo" => :optional
-  depends_on "opencv@2" => :optional
 
   def install
-    ENV["CAIRO_CFLAGS"] = "-I#{Formula["cairo"].opt_include}/cairo" if build.with? "cairo"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
