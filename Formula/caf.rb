@@ -20,9 +20,9 @@ class Caf < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--no-examples",
                           "--build-static", "--no-opencl"
-    system "make"
-    system "make", "test"
-    system "make", "install"
+    system "make", "--directory=build"
+    system "make", "--directory=build", "test"
+    system "make", "--directory=build", "install"
   end
 
   test do
