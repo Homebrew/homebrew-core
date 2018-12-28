@@ -1,9 +1,8 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.3.tar.gz"
-  sha256 "4eef85759d5450b183459ff216b4c0fa43e87a4f6aa92c8af649f89336f002ec"
-  revision 2
+  url "https://github.com/opencv/opencv/archive/3.4.5.tar.gz"
+  sha256 "0c57d9dd6d30cbffe68a09b03f4bebe773ee44dc8ff5cd6eaeb7f4d5ef3b428e"
 
   bottle do
     sha256 "97835bb2d4880df3b5c373dd2c8bde62fed17801414f411c38a628a71e283bfc" => :mojave
@@ -25,8 +24,8 @@ class Opencv < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.3.tar.gz"
-    sha256 "6dfb51326f3dfeb659128df952edecd45683626a965aa4a8e1e9c970c40fb636"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.5.tar.gz"
+    sha256 "8f73d029887c726fed89c69a2b0fcb1d098099fcd81c1070e1af3b452669fbe2"
   end
 
   needs :cxx11
