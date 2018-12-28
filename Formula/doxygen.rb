@@ -2,7 +2,7 @@ class Doxygen < Formula
   desc "Generate documentation for several programming languages"
   homepage "http://www.doxygen.org/"
   url "http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz"
-  mirror "https://downloads.sourceforge.net/projects/doxygen/rel-1.8.15/doxygen-1.8.15.src.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.15/doxygen-1.8.15.src.tar.gz"
   sha256 "bd9c0ec462b6a9b5b41ede97bede5458e0d7bb40d4cfa27f6f622eb33c59245d"
   head "https://github.com/doxygen/doxygen.git"
 
