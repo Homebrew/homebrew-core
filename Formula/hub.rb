@@ -1,8 +1,8 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.6.1.tar.gz"
-  sha256 "3a78f7fc8a024cc232463c664fecf0b49574f5205a49f2320886763c136ac000"
+  url "https://github.com/github/hub/archive/v2.7.0.tar.gz"
+  sha256 "58d131c32404c963b06bcc067bda14317bc22be26187026a91960aecda324bf4"
   head "https://github.com/github/hub.git"
 
   bottle do
