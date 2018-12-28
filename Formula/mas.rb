@@ -40,6 +40,6 @@ class Mas < Formula
   end
 
   test do
-    assert_equal version.to_s, shell_output("#{bin}/mas version").chomp
+    assert_include shell_output("#{bin}/mas info 497799835"), "By: Apple Inc."
   end
 end
