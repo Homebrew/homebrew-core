@@ -5,10 +5,9 @@ class Mono < Formula
   sha256 "f420867232b426c062fa182256a66b29efa92992c119847359cdd1ab75af8de3"
 
   bottle do
-    sha256 "f31bcdbf40da4f3160c6257e62532e82fda34f00e8170424d85b3737cc166c74" => :mojave
-    sha256 "32a208795022a8aa55c86c4f77aca63725d9fe957998c160e43b9048898ce2fa" => :high_sierra
-    sha256 "5b881b5ed9b9fdcef2003dc6f525887f27df2278349644dc8ba446ea4a1b62e5" => :sierra
-    sha256 "22551363ddcd90271af6bac89055ea7bfdf0647455b9ea0be355649dfc6e6e9a" => :el_capitan
+    sha256 "e2c506837b797737e2732862755a22412dcc7c4c41b3ac21c191df3e34ab2995" => :mojave
+    sha256 "40b5e454e6223d86e087094d1e8b1e29c88a0d9853f7d251b0d4bcc4c6454012" => :high_sierra
+    sha256 "3a549d0fd21060bf50a312ca134212e76c35eac1fe1266db6903a62e48f82218" => :sierra
   end
 
   option "without-fsharp", "Build without support for the F# language."
