@@ -37,7 +37,6 @@ class GstPluginsBad < Formula
   depends_on "libexif" => :optional
   depends_on "libnice" => :optional
   depends_on "libvo-aacenc" => :optional
-  depends_on "opencv@2" => :optional
   depends_on "rtmpdump" => :optional
   depends_on "schroedinger" => :optional
   depends_on "sound-touch" => :optional
