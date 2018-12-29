@@ -1,8 +1,8 @@
 class Libcerf < Formula
   desc "Numeric library for complex error functions"
   homepage "http://apps.jcns.fz-juelich.de/doku/sc/libcerf"
-  url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.10.tgz"
-  sha256 "6a412c13e404411d77105c731a756384970424d6f65d1c4c63758c28183d4b61"
+  url "http://apps.jcns.fz-juelich.de/src/libcerf/libcerf-1.11.tgz"
+  sha256 "70101cac4a0d7863322d4d06cf95c507a9cfd64fc99ad1b31a8425204cfd9672"
 
   bottle do
     cellar :any
