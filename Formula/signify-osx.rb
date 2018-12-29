@@ -7,11 +7,9 @@ class SignifyOsx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7d93c571899b86e2ba05ea896f8146e787186543aa85c1131132dcf66d047293" => :mojave
-    sha256 "1ddb3ee41740dfbca30a16b995c6cff1fc6e05c5eb78639c5a22ec5a33719aa1" => :high_sierra
-    sha256 "523e702b06aca5635673ab05bbd65ac65533112a9395d5c33079ec53aeb8dda4" => :sierra
-    sha256 "afb0b2d64d3cf49d5e39a56f1d35245dd9f059845bab6c4872b6119985d6f801" => :el_capitan
-    sha256 "026e3a3c729fcaf41bd70041edec504c59981abb9b1b9018025ecd3467d12639" => :yosemite
+    sha256 "842a6fb535ce56db38ca545fd229f184850e34211c7817879f707f71fe6b31d0" => :mojave
+    sha256 "cdb1896e5e480edfb6ad7f179d9a2b217cda774039fcf5922bc3eba9b6d3d1bb" => :high_sierra
+    sha256 "fdac23b07368d6c8ebad06c2b8451f0c8228f71f5c65b48d672cfd581b222509" => :sierra
   end
 
   def install
