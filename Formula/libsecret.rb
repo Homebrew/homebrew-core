@@ -1,9 +1,8 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.6.tar.xz"
-  sha256 "5efbc890ba41a323ffe0599cd260fd12bd8eb62a04aa1bd1b2762575d253d66f"
-  revision 1
+  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.7.tar.xz"
+  sha256 "0d66fe1fc4561b3e046ee281d7c5a703a9baac88a8c4fb42ebc739d31dabd487"
 
   bottle do
     sha256 "583473cf026c29c42884e9b14339bdec9f6b4eb447e0cdbb14761dda998a9489" => :mojave
@@ -13,9 +12,7 @@ class Libsecret < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
-  depends_on "gnu-sed" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
@@ -34,10 +31,6 @@ class Libsecret < Formula
     ]
 
     system "./configure", *args
-
-    # https://bugzilla.gnome.org/show_bug.cgi?id=734630
-    inreplace "Makefile", "sed", "gsed"
-
     system "make", "install"
   end
 
