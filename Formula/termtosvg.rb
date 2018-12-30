@@ -6,8 +6,6 @@ class Termtosvg < Formula
   url "https://github.com/nbedos/termtosvg/archive/0.7.0.tar.gz"
   sha256 "a90cbd2ea29e1bdf4059aa8feb8f19e9f32da5620b447289ac78cde38682c7c2"
 
-  head "https://github.com/nbedos/termtosvg.git"
-
   depends_on "python"
 
   def install
