@@ -3,6 +3,8 @@ class Libetpan < Formula
   homepage "https://www.etpan.org/libetpan.html"
   url "https://github.com/dinhviethoa/libetpan/archive/1.9.2.tar.gz"
   sha256 "45a3bef81ae1818b8feb67cd1f016e774247d7b03804d162196e5071c82304ab"
+  revision 1
+  head "https://github.com/dinhviethoa/libetpan.git", :branch => "master"
 
   bottle do
     cellar :any
@@ -11,16 +13,25 @@ class Libetpan < Formula
     sha256 "30eafeadf05274390a3416fe11d852410907b3d61c4d0fe171e03fa5f86df136" => :sierra
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on :xcode => :build
 
   def install
-    system "./autogen.sh", "--disable-debug",
-                           "--disable-dependency-tracking",
-                           "--disable-silent-rules",
-                           "--prefix=#{prefix}"
-    system "make", "install"
+    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+               "-scheme", "static libetpan",
+               "-configuration", "Release",
+               "SYMROOT=build/libetpan",
+               "build"
+
+    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+               "-scheme", "libetpan",
+               "-configuration", "Release",
+               "SYMROOT=build/libetpan",
+               "build"
+
+    lib.install "build-mac/build/libetpan/Release/libetpan.a"
+    frameworks.install "build-mac/build/libetpan/Release/libetpan.framework"
+    include.install Dir["build-mac/build/libetpan/Release/include/**"]
+    bin.install "libetpan-config"
   end
 
   test do
