@@ -1,9 +1,9 @@
 class Gzip < Formula
   desc "Popular GNU data compression program"
   homepage "https://www.gnu.org/software/gzip"
-  url "https://ftp.gnu.org/gnu/gzip/gzip-1.9.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.9.tar.gz"
-  sha256 "5d2d3a3432ef32f24cdb060d278834507b481a75adeca18850c73592f778f6ad"
+  url "https://ftp.gnu.org/gnu/gzip/gzip-1.10.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gzip/gzip-1.10.tar.gz"
+  sha256 "c91f74430bf7bc20402e1f657d0b252cb80aa66ba333a25704512af346633c68"
 
   bottle do
     cellar :any_skip_relocation
