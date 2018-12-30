@@ -1,8 +1,8 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.17.tar.gz"
-  sha256 "12d8780311d73bb4f573f4c019f88332c97ee1d7a676b5dc7989cd8c37562566"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.18.tar.gz"
+  sha256 "e26ed3bd6db36263dddfefa1c000b541c97cd2338f3376d6952cccab2de71cd7"
   head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
 
   bottle do
