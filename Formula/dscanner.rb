@@ -1,10 +1,10 @@
 class Dscanner < Formula
   desc "Analyses e.g. the style and syntax of D code"
-  homepage "https://github.com/dlang-community/Dscanner"
-  url "https://github.com/dlang-community/Dscanner.git",
-      :tag      => "v0.5.11",
-      :revision => "150eb41bc5060368e4595d446bed08598707e63b"
-  head "https://github.com/dlang-community/Dscanner.git"
+  homepage "https://github.com/dlang-community/D-Scanner"
+  url "https://github.com/dlang-community/D-Scanner.git",
+      :tag      => "v0.6.0",
+      :revision => "3759479d9cee8ac322aeb22f95957333e8383e34"
+  head "https://github.com/dlang-community/D-Scanner.git"
 
   bottle do
     sha256 "9c635a147c9936534c8bcf1df2ef92a2073170622153ea84c8c0b86494c9acc8" => :mojave
