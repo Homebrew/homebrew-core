@@ -10,7 +10,7 @@ class Tika < Formula
 
   resource "server" do
     url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-server-1.20.jar"
-    sha256 "bfa4c1d7e86e7a576aebd9f0cec7c912d0ef7b5eec2ac5c6aa8170b95bcb1b99"
+    sha256 "d80ad0f5f3b8d1b58a9ff9c43c6ad7c1c736ef0d9c63ee7e8d83e948aff2d274"
   end
 
   def install
