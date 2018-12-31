@@ -1,8 +1,8 @@
 class Tika < Formula
   desc "Content analysis toolkit"
   homepage "https://tika.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-app-1.19.1.jar"
-  sha256 "7b2c6a8baf14e4974b4ba26c01e162ec78fb9fea1fc625ee4d7ca054d9778c89"
+  url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-app-1.20.jar"
+  sha256 "0101e805555efd65bf1878276a8790fa51e9c7e89d979daa137b9fc8bf8cbd58"
 
   bottle :unneeded
 
