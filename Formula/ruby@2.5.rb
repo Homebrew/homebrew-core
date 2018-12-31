@@ -4,6 +4,12 @@ class RubyAT25 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz"
   sha256 "1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f"
 
+  bottle do
+    sha256 "eda6486437a20a37dd86bda4589e3ef0010b4f131ea3d81f906a0a7321bb99c6" => :mojave
+    sha256 "e6fe89e349196eceb179cbe60a26f2da4848dcbc63ba30097a411a4f342f39c1" => :high_sierra
+    sha256 "8005a0e0bdf193b7b781091e995cc503d5802382916d0fb7b440fdada9f6ed10" => :sierra
+  end
+
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
