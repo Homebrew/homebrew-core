@@ -9,8 +9,8 @@ class Tika < Formula
   depends_on :java => "1.7+"
 
   resource "server" do
-    url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-server-1.19.1.jar"
-    sha256 "76d607df16cd85af35d40d6a2098ed1523b6c0b9f7dad885e289121e6207c11b"
+    url "https://www.apache.org/dyn/closer.cgi?path=tika/tika-server-1.20.jar"
+    sha256 "bfa4c1d7e86e7a576aebd9f0cec7c912d0ef7b5eec2ac5c6aa8170b95bcb1b99"
   end
 
   def install
