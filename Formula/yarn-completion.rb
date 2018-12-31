@@ -6,6 +6,8 @@ class YarnCompletion < Formula
 
   bottle :unneeded
 
+  depends_on "yarn"
+
   def install
     bash_completion.install "yarn-completion.bash" => "yarn"
   end
