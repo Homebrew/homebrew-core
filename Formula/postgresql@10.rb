@@ -87,7 +87,7 @@ class PostgresqlAT10 < Formula
     (var/"log").mkpath
     (var/"postgres").mkpath
     unless File.exist? "#{var}/postgres/PG_VERSION"
-      system "#{bin}/initdb", "#{var}/postgres"
+      system "#{bin}/initdb", "#{var}/#{name}"
     end
   end
 
