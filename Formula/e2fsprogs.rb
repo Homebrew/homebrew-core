@@ -18,7 +18,11 @@ class E2fsprogs < Formula
   depends_on "gettext"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-e2initrd-helper"
+    # Enforce MKDIR_P to work around a configure bug
+    # see https://github.com/Homebrew/homebrew-core/pull/35339
+    system "./configure", "--prefix=#{prefix}", "--disable-e2initrd-helper",
+                          "MKDIR_P=mkdir -p"
+
     system "make"
     system "make", "install"
     system "make", "install-libs"
