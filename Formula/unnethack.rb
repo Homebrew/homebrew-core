@@ -6,10 +6,9 @@ class Unnethack < Formula
   head "https://github.com/UnNetHack/UnNetHack.git"
 
   bottle do
-    rebuild 1
-    sha256 "49f11fd0bf05d04c18826206e98dda97cf9cb0702ffa38f97b6062a4f29c356b" => :mojave
-    sha256 "2a81f9eaedd5ec9d058e458eade6d84d4186e46887af68e45ea85aded10528f3" => :high_sierra
-    sha256 "0ef61a7b3cf7d0b167ea3db9464cc10855d5131383b2cec1d87ac8f0afeae6f8" => :sierra
+    sha256 "c95ffced18c9be00207e55c4d592f477cd5975fd04412115de66629d74e66088" => :mojave
+    sha256 "4648259b51fa627ee3ad0ef01b5040e573741f9528385d8c04d8b6354ec745c8" => :high_sierra
+    sha256 "4ccafeafee0cd1e9cc7705ee312101229748100ea32b5cb1c7c63b29ed1d7742" => :sierra
   end
 
   # directory for temporary level data of running games
