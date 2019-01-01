@@ -111,7 +111,6 @@ class Llvm < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on "ninja" => :build
   depends_on "libffi"
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
@@ -187,10 +186,10 @@ class Llvm < Formula
     ]
 
     mkdir "build" do
-      system "cmake", "-G", "Ninja", "..", *(std_cmake_args + args)
-      system "ninja"
-      system "ninja", "install"
-      system "ninja", "install-xcode-toolchain"
+      system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
+      system "make"
+      system "make", "install"
+      system "make", "install-xcode-toolchain"
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
