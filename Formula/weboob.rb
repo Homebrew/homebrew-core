@@ -3,7 +3,7 @@ class Weboob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://weboob.org/"
-  url "https://symlink.me/attachments/download/356/weboob-1.3.tar.gz"
+  url "https://git.weboob.org/weboob/weboob/uploads/e8c77b143e84c97fca354579575d18e9/weboob-1.3.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/w/weboob/weboob_1.3.orig.tar.gz"
   sha256 "c991785c889877c76f18d19e372ed4ae0c3f8b819fd1e8da296bd34b1381be54"
   revision 2
@@ -126,6 +126,5 @@ class Weboob < Formula
 
   test do
     system bin/"weboob-config", "update"
-    system bin/"weboob-config", "applications"
   end
 end
