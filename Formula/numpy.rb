@@ -7,9 +7,10 @@ class Numpy < Formula
 
   bottle do
     cellar :any
-    sha256 "a3b8540e1d529354ffd8a6ddc9a931e22258f06488f9bf104cea6c5b8e00ecde" => :mojave
-    sha256 "4d4b469f66db66247d51580464845e30f59a6ba285427f7f833e1a3f6acaa1c0" => :high_sierra
-    sha256 "100fd310cd3133fc998b473aabfd7d82e55db3d74d739ceb5f144271fa255390" => :sierra
+    rebuild 1
+    sha256 "a88ce3c4db443a71487c554f60460e4de47109a4fe7e7893f9d2fc1d21e6ee38" => :mojave
+    sha256 "603ffe080f688b37c17960d721ffe1449a7b58147ad4d516422f7156c092b545" => :high_sierra
+    sha256 "e6e77c177c547d5b078481572a1884339ba6b5f68e1b760a9f5fe02c36ac2ae4" => :sierra
   end
 
   head do
@@ -21,12 +22,10 @@ class Numpy < Formula
     end
   end
 
-  option "without-python@2", "Build without python2 support"
-
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
+  depends_on "python"
+  depends_on "python@2"
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -47,7 +46,8 @@ class Numpy < Formula
 
     Pathname("site.cfg").write config
 
-    Language::Python.each_python(build) do |python, version|
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       dest_path = lib/"python#{version}/site-packages"
       dest_path.mkpath
 
@@ -72,21 +72,19 @@ class Numpy < Formula
   end
 
   def caveats
-    if build.with?("python@2") && !Formula["python@2"].installed?
-      homebrew_site_packages = Language::Python.homebrew_site_packages
-      user_site_packages = Language::Python.user_site_packages "python"
-      <<~EOS
-        If you use system python (that comes - depending on the OS X version -
-        with older versions of numpy, scipy and matplotlib), you may need to
-        ensure that the brewed packages come earlier in Python's sys.path with:
-          mkdir -p #{user_site_packages}
-          echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
-      EOS
-    end
+    homebrew_site_packages = Language::Python.homebrew_site_packages
+    user_site_packages = Language::Python.user_site_packages "python"
+    <<~EOS
+      If you use system python (that comes - depending on the OS X version -
+      with older versions of numpy, scipy and matplotlib), you may need to
+      ensure that the brewed packages come earlier in Python's sys.path with:
+        mkdir -p #{user_site_packages}
+        echo 'import sys; sys.path.insert(1, "#{homebrew_site_packages}")' >> #{user_site_packages}/homebrew.pth
+    EOS
   end
 
   test do
-    Language::Python.each_python(build) do |python, _version|
+    ["python2", "python3"].each do |python|
       system python, "-c", <<~EOS
         import numpy as np
         t = np.ones((3,3), int)

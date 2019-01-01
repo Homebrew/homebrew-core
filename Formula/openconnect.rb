@@ -1,7 +1,7 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "https://www.infradead.org/openconnect/"
-  url "http://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz"
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz"
   mirror "https://fossies.org/linux/privat/openconnect-7.08.tar.gz"
   sha256 "1c44ec1f37a6a025d1ca726b9555649417f1d31a46f747922b84099ace628a03"
   revision 1
@@ -24,8 +24,6 @@ class Openconnect < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
-  depends_on "oath-toolkit" => :optional
-  depends_on "stoken" => :optional
 
   resource "vpnc-script" do
     url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/6e04e0bbb66c0bf0ae055c0f4e58bea81dbb5c3c:/vpnc-script"

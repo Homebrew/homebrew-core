@@ -1,15 +1,15 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.10.2.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.10.2.tar.bz2"
-  sha256 "5b35e3a858d948de9e8892bf494893c9f7886782f6abbe166c0487c19cf6ed88"
+  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.11.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.11.0.tar.bz2"
+  sha256 "87c44344b074ac2e9ed7ca9675fb1e5b197051c3deecfe5934e5f6aefbf83e56"
+  revision 2
 
   bottle do
-    sha256 "2115c4455e243a34fe537da1f901779d1fd2668937e2da48ccb5f7bad484249f" => :mojave
-    sha256 "b40f591a44176f1e7f7f1c0aaebe8772657687b13e672286f3ab45b69f22db0b" => :high_sierra
-    sha256 "274b5e82027f90b8d707c859cf143808672b55e243b4070c4d18f0f6e914d6f3" => :sierra
-    sha256 "c5fee4ce6dae3f2c7398dd01a5c6df56f0227ec2323b4be107a2d26196339b6c" => :el_capitan
+    sha256 "e7bbcad66645e19497f86fc53ffbc6ab8565b9c00b27ded3ce768a7c8d5a37d2" => :mojave
+    sha256 "dccecc8c5673437a8b7001f31ef22af3e95915fd11d7fd63ecccbdd6ba321a25" => :high_sierra
+    sha256 "bd36436ffe7bc83dd96b4c44802413c838e04d80430df735fe7462a78e5ca0e2" => :sierra
   end
 
   head do
@@ -31,7 +31,8 @@ class Subversion < Formula
   depends_on "apr-util"
 
   # build against Homebrew versions of
-  # lz4, perl, sqlite and utf8proc for consistency
+  # gettext, lz4, perl, sqlite and utf8proc for consistency
+  depends_on "gettext"
   depends_on "lz4"
   depends_on "openssl" # For Serf
   depends_on "perl"
@@ -39,7 +40,7 @@ class Subversion < Formula
   depends_on "utf8proc"
 
   # Other optional dependencies
-  depends_on :java => ["1.8", :optional]
+  depends_on :java => ["1.8+", :optional]
 
   # When building Perl or Ruby bindings, need to use a compiler that
   # recognizes GCC-style switches, since that's what the system languages
@@ -62,6 +63,8 @@ class Subversion < Formula
 
   def install
     ENV.prepend_path "PATH", "/System/Library/Frameworks/Python.framework/Versions/2.7/bin"
+    # Fix #33530 by ensuring the system Ruby can build test programs.
+    ENV.delete "SDKROOT"
 
     serf_prefix = libexec/"serf"
 
@@ -92,14 +95,14 @@ class Subversion < Formula
       --disable-debug
       --enable-optimize
       --disable-mod-activation
-      --disable-nls
+      --disable-plaintext-password-storage
       --with-apr-util=#{Formula["apr-util"].opt_prefix}
       --with-apr=#{Formula["apr"].opt_prefix}
       --with-apxs=no
       --with-ruby-sitedir=#{lib}/ruby
       --with-serf=#{serf_prefix}
       --with-sqlite=#{Formula["sqlite"].opt_prefix}
-      --with-zlib=/usr
+      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent

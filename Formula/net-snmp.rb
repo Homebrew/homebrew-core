@@ -13,10 +13,7 @@ class NetSnmp < Formula
 
   keg_only :provided_by_macos
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "openssl"
-  depends_on "python@2" => :optional
 
   def install
     # https://sourceforge.net/p/net-snmp/bugs/2504/
@@ -40,11 +37,6 @@ class NetSnmp < Formula
       --without-perl-modules
       --with-openssl=#{Formula["openssl"].opt_prefix}
     ]
-
-    if build.with? "python@2"
-      args << "--with-python-modules"
-      ENV["PYTHONPROG"] = which("python2.7")
-    end
 
     system "./configure", *args
     system "make"

@@ -6,10 +6,10 @@ class Git < Formula
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    rebuild 1
-    sha256 "b8703d4d220d64509ce419132d4a2fd838a18a489ce6068e42d76dce56c9b162" => :mojave
-    sha256 "df0d1f462f7a1a8a9c155e8ef9aaaf186c929156d0b4092b919c5f4c72ca3f3b" => :high_sierra
-    sha256 "b9c7567cdc7e1d4d3baed617ad18cab18a1ca00fc9d9b830d6e87aee9c340d18" => :sierra
+    rebuild 2
+    sha256 "c41bba2442a795c6d94b24565865811826becd7e3dba0226fe0cab0990ee4bef" => :mojave
+    sha256 "ecf0d2a4663634c7d29c068040a4ded253d8b5e042a2eb4db005c16d221d8275" => :high_sierra
+    sha256 "04b5b0d7bed4a7d2a952f7afbd7df4d93805dd9957047d31344c8bb12d614cc7" => :sierra
   end
 
   depends_on "gettext"
@@ -37,6 +37,11 @@ class Git < Formula
   resource "man" do
     url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.1.tar.xz"
     sha256 "060acce347cfb712d0c7dfe7578c5291fde2d3d807917b2828c8aae3c90876ba"
+  end
+
+  resource "Net::SMTP::SSL" do
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
+    sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
   end
 
   def install
@@ -138,10 +143,10 @@ class Git < Formula
       rm "#{libexec}/git-core/git-imap-send"
     end
 
-    # git-send-email is broken without either linking to a user-installed
-    # perl at compile-time or installing modules to system perl, neither of
-    # which is supported.
-    rm "#{libexec}/git-core/git-send-email"
+    # git-send-email needs Net::SMTP::SSL
+    resource("Net::SMTP::SSL").stage do
+      (share/"perl5").install "lib/Net"
+    end
 
     # This is only created when building against system Perl, but it isn't
     # purged by Homebrew's post-install cleaner because that doesn't check
@@ -164,5 +169,14 @@ class Git < Formula
     system bin/"git", "add", "haunted", "house"
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
+
+    # Check Net::SMTP::SSL was installed correctly.
+    %w[foo bar].each { |f| touch testpath/f }
+    system bin/"git", "add", "foo", "bar"
+    system bin/"git", "commit", "-a", "-m", "Second Commit"
+    assert_match "Authentication Required", shell_output(
+      "#{bin}/git send-email --to=dev@null.com --smtp-server=smtp.gmail.com " \
+      "--smtp-encryption=tls --confirm=never HEAD^ 2>&1", 255
+    )
   end
 end

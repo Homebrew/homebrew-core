@@ -7,16 +7,17 @@ class TomcatNative < Formula
 
   bottle do
     cellar :any
-    sha256 "63bdd1f64650a33d7d5b998fc129241f6863bea39567e4ce88f11a7edcc3ea0d" => :mojave
-    sha256 "3b9968bb97b935dfe7e24a30c3708df538533aa7023896c9976dd7b60b7ad429" => :high_sierra
-    sha256 "b91fb46f30c9b1867cea34d60277422daf1f38808823dd4938132c74ea25090f" => :sierra
+    rebuild 1
+    sha256 "f33bee57406b4046e6b8ab8c4d214c7c2c03edeb797440570646e4c4bd1c2346" => :mojave
+    sha256 "ad856715f0f03622f10df6b090069d5ea2dd7472056133d00b4c74bf6be62ea2" => :high_sierra
+    sha256 "87c67f203543576408082aa94f9abde64372bff2bcf635610eda83e4801b2939" => :sierra
   end
 
   depends_on "libtool" => :build
   depends_on "apr"
   depends_on :java => "1.7+"
   depends_on "openssl"
-  depends_on "tomcat" => :recommended
+  depends_on "tomcat"
 
   def install
     cd "native" do

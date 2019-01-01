@@ -4,12 +4,13 @@ class Tbb < Formula
   url "https://github.com/01org/tbb/archive/2019_U3.tar.gz"
   version "2019_U3"
   sha256 "b2244147bc8159cdd8f06a38afeb42f3237d3fc822555499d7ccfbd4b86f8ece"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "e71225b00b1600e1f5d6fb863b7e4ed2331d2f003966f7360cb2ceb5a5c62ca2" => :mojave
-    sha256 "65ab527434fae8d12d0945065ecf41ba37a5a6ebff179adceb60744a524816e1" => :high_sierra
-    sha256 "3df673cbf9c0d3b44866b5154e528e8f1a6d941a112bdccaa0b4951ae10077a1" => :sierra
+    sha256 "3b5ac43b2280ebbebc39541a95a63e287b08eceb8ba75912cd8b89f731ffe663" => :mojave
+    sha256 "fc57daae5222af5ba8178f810113ac37066b40d268d3e30da78e1aeaa40cfd0f" => :high_sierra
+    sha256 "77e4f8db4f7bc6c1327567a8944d5eb3ba5a6503cc1404e65f18284e1f7aabfd" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -17,7 +18,7 @@ class Tbb < Formula
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
   depends_on :macos => :lion
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
@@ -32,7 +33,7 @@ class Tbb < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
-      system "python", *Language::Python.setup_install_args(prefix)
+      system "python3", *Language::Python.setup_install_args(prefix)
     end
 
     system "cmake", "-DTBB_ROOT=#{prefix}",

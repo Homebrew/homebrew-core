@@ -3,14 +3,14 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.15.7.tar.gz"
-  sha256 "8f22ea2f6c0e0a221b6ddc02b6428a3ff708e2ad55f9361102b1c9f4142bdf93"
+  url "https://nginx.org/download/nginx-1.15.8.tar.gz"
+  sha256 "a8bdafbca87eb99813ae4fcac1ad0875bf725ce19eb265d28268c309b2b40787"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "4b1fbbd533d58e2c755bc419612eada94ffb094694dfd226dc68d84f8d9cc383" => :mojave
-    sha256 "4818e2fd38d7dd1587d0a9eb8532e43015593a1afb29ad16f784e2792ea9311f" => :high_sierra
-    sha256 "eb7fefcf9073857048275449a1e148f7a69d862b107278e7005361762c383701" => :sierra
+    sha256 "f279b6653396ab2a186ea374a672ddba343b6ae76286b7a11bf3a54ec72193f2" => :mojave
+    sha256 "b1a1956d46ba244f5a37ef6c870e32035d072415dd1cd8afc1434a866c7869c0" => :high_sierra
+    sha256 "9917a1d8b968e966a0bbdbec3a792c902c5cd7731013b36a1c1e524e03f738fa" => :sierra
   end
 
   option "with-passenger", "Compile with support for Phusion Passenger module"

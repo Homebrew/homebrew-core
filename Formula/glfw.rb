@@ -14,18 +14,14 @@ class Glfw < Formula
     sha256 "ecfc037c61cedd936d230880dd052691e8c07c4f10c3c95ccde4d8bc4e3f5e35" => :yosemite
   end
 
-  option "without-shared-library", "Build static library only (defaults to building dylib only)"
-
-  deprecated_option "static" => "without-shared-library"
-
   depends_on "cmake" => :build
 
   def install
     args = std_cmake_args + %w[
       -DGLFW_USE_CHDIR=TRUE
       -DGLFW_USE_MENUBAR=TRUE
+      -DBUILD_SHARED_LIBS=TRUE
     ]
-    args << "-DBUILD_SHARED_LIBS=TRUE" if build.with? "shared-library"
 
     system "cmake", *args, "."
     system "make", "install"
@@ -45,16 +41,8 @@ class Glfw < Formula
       }
     EOS
 
-    if build.with? "shared-library"
-      system ENV.cc, "test.c", "-o", "test",
-             "-I#{include}", "-L#{lib}", "-lglfw"
-    else
-      system ENV.cc, "test.c", "-o", "test",
-             "-I#{include}", "-L#{lib}", "-lglfw3",
-             "-framework", "IOKit",
-             "-framework", "CoreVideo",
-             "-framework", "AppKit"
-    end
+    system ENV.cc, "test.c", "-o", "test",
+                   "-I#{include}", "-L#{lib}", "-lglfw"
     system "./test"
   end
 end

@@ -7,9 +7,10 @@ class Mkvtoolnix < Formula
 
   bottle do
     cellar :any
-    sha256 "09e29dd31108d98403b040e0111325bfcbc0ce3c769f4f6c2cced937c7dca351" => :mojave
-    sha256 "2474e21291e00e02e36664646b3d82fd5ee9353201a7c923f719d7027ce42a44" => :high_sierra
-    sha256 "0734d811efd73a8934e2b1ef26ca4cee9a219cc038b218637927c15ee2fabcc1" => :sierra
+    rebuild 1
+    sha256 "9ac0635c95dcc403b2cb18dc7a4c227aaed4893ad11f880a4f35f86f8d9f3ab6" => :mojave
+    sha256 "2436b35d66ec28c9986b8941ade7a9850956886ae8354ec44aa98c443a3fd553" => :high_sierra
+    sha256 "8ccce38e25d1c6cde7045f80ed4b131d3130491658874c2e96275e5a9b5f90ae" => :sierra
   end
 
   head do
@@ -19,10 +20,6 @@ class Mkvtoolnix < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-qt", "Build with Qt GUI"
-
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "docbook-xsl" => :build
   depends_on "fmt" => :build
   depends_on "pkg-config" => :build
@@ -30,14 +27,12 @@ class Mkvtoolnix < Formula
   depends_on "ruby" => :build if MacOS.version <= :mountain_lion
   depends_on "boost"
   depends_on "flac"
+  depends_on "gettext"
   depends_on "libebml"
   depends_on "libmagic"
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "gettext" => :optional
-  depends_on "qt" => :optional
-  depends_on "cmark" if build.with? "qt"
 
   needs :cxx11
 
@@ -45,7 +40,6 @@ class Mkvtoolnix < Formula
     ENV.cxx11
 
     features = %w[flac libebml libmagic libmatroska libogg libvorbis]
-
     extra_includes = ""
     extra_libs = ""
     features.each do |feature|
@@ -55,30 +49,14 @@ class Mkvtoolnix < Formula
     extra_includes.chop!
     extra_libs.chop!
 
-    args = %W[
-      --disable-debug
-      --prefix=#{prefix}
-      --with-boost=#{Formula["boost"].opt_prefix}
-      --with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
-      --with-extra-includes=#{extra_includes}
-      --with-extra-libs=#{extra_libs}
-    ]
-
-    if build.with?("qt")
-      qt = Formula["qt"]
-
-      args << "--with-moc=#{qt.opt_bin}/moc"
-      args << "--with-uic=#{qt.opt_bin}/uic"
-      args << "--with-rcc=#{qt.opt_bin}/rcc"
-      args << "--enable-qt"
-    else
-      args << "--disable-qt"
-    end
-
     system "./autogen.sh" if build.head?
-
-    system "./configure", *args
-
+    system "./configure", "--disable-debug",
+                          "--prefix=#{prefix}",
+                          "--with-boost=#{Formula["boost"].opt_prefix}",
+                          "--with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
+                          "--with-extra-includes=#{extra_includes}",
+                          "--with-extra-libs=#{extra_libs}",
+                          "--disable-qt"
     system "rake", "-j#{ENV.make_jobs}"
     system "rake", "install"
   end

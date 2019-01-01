@@ -3,13 +3,12 @@ class Travis < Formula
   homepage "https://github.com/travis-ci/travis.rb/"
   url "https://github.com/travis-ci/travis.rb/archive/v1.8.9.tar.gz"
   sha256 "7a143bd0eb90e825370c808d38b70cca8c399c68bea8138442f40f09b6bbafc4"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "f81ad6903a2c924f100f5a745a69c9ce4b48be202c01c41b65a96cceb28bea13" => :mojave
-    sha256 "8b0c39a8ef1eaf1ff3d2662fa649cd296cdd2b7991653c143b2586415e765d3a" => :high_sierra
-    sha256 "bef2b3095ad01ac92c24b1085de1a1df9e3800a50d18134f56f10854888bf66c" => :sierra
+    sha256 "d695085c0886f6db8d5a1afeb6cae27e61d7fcc41d2e069c16ce0909048dba64" => :mojave
+    sha256 "32634e86fdc04e7ca0df1834cf1ee6e8cdd3bfb0f89c0e4ed36a0d55b08483b3" => :high_sierra
+    sha256 "1d21554de55885fd08e4433772663410044f088cf346b63533142019a2d865f5" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

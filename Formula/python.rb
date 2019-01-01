@@ -1,15 +1,14 @@
 class Python < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz"
-  sha256 "fa7e2b8e8c9402f192ad56dc4f814089d1c4466c97d780f5e5acc02c04243d6d"
+  url "https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tgz"
+  sha256 "f09d83c773b9cc72421abba2c317e4e6e05d919f9bcf34468e192b6a6c8e328d"
   head "https://github.com/python/cpython.git"
 
   bottle do
-    rebuild 8
-    sha256 "228963b3d8808f30e1db12865e930b594a2914ec523aa9c631fdb0be72d2d25c" => :mojave
-    sha256 "60b3d38c389b2812c7eebdf92902d08bd79eb99f8c89a7ef15e1f2ce71d3d42c" => :high_sierra
-    sha256 "aff85d2b182cfdc18d76a1b6712cd3ec8bbd4fba1fd55034ce6fe6622010c01b" => :sierra
+    sha256 "ea3a8b291cfcf494788dc5bd7cde446d2de49ed2d252ba721a25dea0dc177ebb" => :mojave
+    sha256 "00d1d9e326cff16943a226956a851c47069631ea6a352aac0735e2959e0379dd" => :high_sierra
+    sha256 "35c7dd45474e864137514e54526ce5530e506bdcbd376a03b4a5d8cfdaa11d5a" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -39,8 +38,8 @@ class Python < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/26/e5/9897eee1100b166a61f91b68528cb692e8887300d9cbdaa1a349f6304b79/setuptools-40.5.0.zip"
-    sha256 "2a2a200f4a760adbded23a091a00be2eca4e28efed65c6120ea275f7e89a1eab"
+    url "https://files.pythonhosted.org/packages/37/1b/b25507861991beeade31473868463dad0e58b1978c209de27384ae541b0b/setuptools-40.6.3.zip"
+    sha256 "3b474dad69c49f0d2d86696b68105f3a6f195f7ab655af12ef9a9c326d2b08f8"
   end
 
   resource "pip" do
@@ -49,8 +48,8 @@ class Python < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/c2/00/21e3ecc8a9d484f9de995471c061aa3d8f02ae54bdfd9cbdddb59138c809/wheel-0.32.2.tar.gz"
-    sha256 "196c9842d79262bb66fcf59faa4bd0deb27da911dbc7c6cdca931080eb1f0783"
+    url "https://files.pythonhosted.org/packages/d8/55/221a530d66bf78e72996453d1e2dedef526063546e131d70bed548d80588/wheel-0.32.3.tar.gz"
+    sha256 "029703bf514e16c8271c3821806a1c171220cc5bdd325cbf4e7da1e056a01db6"
   end
 
   def install

@@ -4,15 +4,14 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.0.5.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dpkg/dpkg_1.19.0.5.tar.xz"
-  sha256 "818046927a7f77c1bcbbad7d8dbc04cdf0f3e6ec4e1a4f9d313378ecc69d85b5"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.2.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.2.tar.xz"
+  sha256 "f8f2ae2cf8065b81239db960b3794099ec607c94a125cec61c986f68f9861b71"
 
   bottle do
-    sha256 "3a6ebd1764ca6c912b556ea1b61915877f3ca2a908a817319919be35000e9c41" => :mojave
-    sha256 "2625583e8129fb3959591f6d7d430c9451eab4038683dcfa0fc7ae4a25959416" => :high_sierra
-    sha256 "1b4c89505755fcbeef7ac38c11bfdbc15edc4575b3d26bb9e4bfede8b080c3bc" => :sierra
-    sha256 "635a73cdaa0752fe4eb653d4c183286701e6218cac4beba160eb363752fb995e" => :el_capitan
+    sha256 "74943c7f943cdebd482064dcb3a1e1015c3c12c0dbc278bb154b0dcaf6a693cf" => :mojave
+    sha256 "bb7c36470baff8a906a9a73b57b7e2c01502e559ab2ec56a983052b68692ba06" => :high_sierra
+    sha256 "c2976a3a08cd491521d3eddb4ad9713a4e4ad0bcf7fa37dc2fadd4fed6b90683" => :sierra
   end
 
   depends_on "pkg-config" => :build

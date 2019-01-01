@@ -3,12 +3,13 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-2.3.tar.xz"
   sha256 "ef8654313bfb0ca92e27cf579efb2d9b17e53505e615bf3d71a51aef44e56a5f"
+  revision 1
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "bf93d6e00db1081d7f9fce3e2cdee516b5a34340ed1fb33f32696d53819794df" => :mojave
-    sha256 "d0d75c8d3af7726a95a49934cfb0f72d1966428f412322d4bbbfa5dc79b52903" => :high_sierra
-    sha256 "808d434339c87b6211d171729f5715ae6261a76575b11d6a7ba86e02b8faf333" => :sierra
+    sha256 "bd6340bac1555785aeff6584ab61d104402297b78a67d424517c4e6c613074d8" => :mojave
+    sha256 "e97739b3e529fce08adb86b86cc4b2c660528ee9b2929ba783ab2ecf4b7acf42" => :high_sierra
+    sha256 "630b354c0f7dc8c814a3d1d7c5c369c61f8111763e339d878ce5ebf0a2b7ad40" => :sierra
   end
 
   option "with-perl", "Build the perl module"
@@ -21,6 +22,7 @@ class Weechat < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "ncurses"
   depends_on "aspell" => :optional
   depends_on "curl" => :optional
   depends_on "lua" => :optional

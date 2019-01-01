@@ -5,9 +5,10 @@ class PostgresqlAT10 < Formula
   sha256 "68a8276f08bda8fbefe562faaf8831cb20664a7a1d3ffdbbcc5b83e08637624b"
 
   bottle do
-    sha256 "11ef89aadb1a8446c2b5f2ab80c9e7b08be256ee83ad358b71abd687f477cf1e" => :mojave
-    sha256 "ec63d333a8363645cd5e62d6ff8486eb0875d2d9404925971544bccd3bb963a9" => :high_sierra
-    sha256 "4474f061c11832651e1fe0426396219358f8e585bd503d0b7fecb8773c9c8658" => :sierra
+    rebuild 1
+    sha256 "16a3c8380446f2e3b4356acd47217afbdb5b1dc8c6acede4e7834dfff897d4f8" => :mojave
+    sha256 "cd4719c624150c163a6b52d5135742088d608e31c7b668531e91516bbbfcf100" => :high_sierra
+    sha256 "e5565c3fe490a6f5fb703b2aaca8228a23fd97d94585169667a61dc9b1780ff9" => :sierra
   end
 
   keg_only :versioned_formula
@@ -96,7 +97,7 @@ class PostgresqlAT10 < Formula
   EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres@10 start"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@10 start"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -111,16 +112,16 @@ class PostgresqlAT10 < Formula
       <array>
         <string>#{opt_bin}/postgres</string>
         <string>-D</string>
-        <string>#{var}/postgres</string>
+        <string>#{var}/#{name}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardOutPath</key>
-      <string>#{var}/log/postgres.log</string>
+      <string>#{var}/log/#{name}.log</string>
       <key>StandardErrorPath</key>
-      <string>#{var}/log/postgres.log</string>
+      <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
   EOS

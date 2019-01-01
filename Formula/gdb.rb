@@ -1,16 +1,14 @@
 class Gdb < Formula
   desc "GNU debugger"
   homepage "https://www.gnu.org/software/gdb/"
-  url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.tar.xz"
-  sha256 "c3a441a29c7c89720b734e5a9c6289c0a06be7e0c76ef538f7bbcef389347c39"
-  revision 1
+  url "https://ftp.gnu.org/gnu/gdb/gdb-8.2.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gdb/gdb-8.2.1.tar.xz"
+  sha256 "0a6a432907a03c5c8eaad3c3cffd50c00a40c3a5e3c4039440624bae703f2202"
 
   bottle do
-    rebuild 1
-    sha256 "2ff3361e32ecceb497d4e8d88063152317ddc6f74b5720ab90942c360a24939d" => :mojave
-    sha256 "b6cc9d077d71cf364221f17fc1c88de3f7a87dfda371d5a28f28042ccaed6484" => :high_sierra
-    sha256 "874e1c4873a315ff27660a1f63b430653f292488207053c6f97c35d942602756" => :sierra
+    sha256 "01b06c2983503c78bc346b5f5e2c2bdccbc41d6f5ca759542eef712bf123ca30" => :mojave
+    sha256 "9824d06b8d0d44e725a1d29f6631828b3b43abb1952c883e9fad559b6a816c04" => :high_sierra
+    sha256 "cf7371e9f6257d1a7dee80239d05917e424e5bb3e7577bd93f0e139fe5174198" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -31,7 +29,7 @@ class Gdb < Formula
     EOS
   end
 
-  # Fix build with all targets. Remove if 8.2.1+
+  # Fix build with all targets. Remove for 8.3
   # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;a=commitdiff;h=0c0a40e0abb9f1a584330a1911ad06b3686e5361
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/all-targets.diff"
@@ -39,7 +37,7 @@ class Gdb < Formula
   end
 
   # Fix debugging of executables of Xcode 10 and later
-  # created for 10.14 and newer versions of macOS. Remove if 8.2.1+
+  # created for 10.14 and newer versions of macOS. Remove for 8.3
   # https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git;h=fc7b364aba41819a5d74ae0ac69f050af282d057
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/d457e55/gdb/mojave.diff"

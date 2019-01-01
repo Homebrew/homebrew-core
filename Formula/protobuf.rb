@@ -4,25 +4,21 @@ class Protobuf < Formula
   url "https://github.com/protocolbuffers/protobuf.git",
       :tag      => "v3.6.1.3",
       :revision => "66dc42d891a4fc8e9190c524fd67961688a37bbe"
+  revision 1
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
     cellar :any
-    sha256 "f299e4a5e34e5795eb3d89ca0aaae018e476c17d92f98dd93eeebeb47dbb17c5" => :mojave
-    sha256 "d8f2a28e7e99f5046472992f41fe59c3344f2336435f21b6cfa57c433cf20fc8" => :high_sierra
-    sha256 "52eedfd81a251dbbc72d2ddbe78e1a54c651792bed0601b57c5ef31a53a6b62d" => :sierra
+    sha256 "587c01fb41ef890636c73751035b94fbff711b4176f0629c78484b4beb752211" => :mojave
+    sha256 "a110365419ed380141d06fae861ddfb76b3dfda47984c30ba999c3820b2e7278" => :high_sierra
+    sha256 "87abe0838ac015768cb6f4577332bfaf8ae4031254a63350461280ff2f62303c" => :sierra
   end
-
-  option "without-python@2", "Build without python2 support"
-
-  deprecated_option "without-python" => "with-python@2"
-  deprecated_option "with-python3" => "with-python"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python@2" => :recommended
-  depends_on "python" => :optional
+  depends_on "python"
+  depends_on "python@2"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
@@ -48,17 +44,19 @@ class Protobuf < Formula
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    Language::Python.each_python(build) do |python, version|
+    ENV.append_to_cflags "-I#{include}"
+    ENV.append_to_cflags "-L#{lib}"
+
+    ["python2", "python3"].each do |python|
       resource("six").stage do
         system python, *Language::Python.setup_install_args(libexec)
       end
       chdir "python" do
-        ENV.append_to_cflags "-I#{include}"
-        ENV.append_to_cflags "-L#{lib}"
-        args = Language::Python.setup_install_args libexec
-        args << "--cpp_implementation"
-        system python, *args
+        system python, *Language::Python.setup_install_args(libexec),
+                       "--cpp_implementation"
       end
+
+      version = Language::Python.major_minor_version python
       site_packages = "lib/python#{version}/site-packages"
       pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
       (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
@@ -84,7 +82,7 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python2.7", "-c", "import google.protobuf" if build.with? "python@2"
-    system "python3", "-c", "import google.protobuf" if build.with? "python"
+    system "python2.7", "-c", "import google.protobuf"
+    system "python3", "-c", "import google.protobuf"
   end
 end

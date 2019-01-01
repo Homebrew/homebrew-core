@@ -5,18 +5,18 @@ class RobotFramework < Formula
   homepage "https://robotframework.org/"
   url "https://github.com/robotframework/robotframework/archive/v3.0.4.tar.gz"
   sha256 "1557c83f456ae90645f9c88f1e3366571cc3fe0843bea20330601b9d00c47ece"
+  revision 1
   head "https://github.com/robotframework/robotframework.git"
 
   bottle do
     cellar :any
-    sha256 "c3da5bd979215a6043160ac821d91a62bb278a8cc98bb42ebf14ae1aefb5d353" => :mojave
-    sha256 "4ba23cd77588a92f77606f3d2682414036267a30ec0020d212cab0b78f66a584" => :high_sierra
-    sha256 "bc307ba65c8df63d4e26ee888afb59aafdcf8c493a7337f17a12d96056b9d3b9" => :sierra
-    sha256 "fe9630b653c9e4a74afb0d71f68dc6201356f4da81b89ea05acd3b4cb00f44e9" => :el_capitan
+    sha256 "65f6401c6e602e5bddd6a6c92e5c2fc152ed207eb1b86aae4e8c99064f3df2d6" => :mojave
+    sha256 "d502e8678b01dd6e947fe1260ecc36e1e9edb9f9b7f5c6c1296b93ac9b7bd9d1" => :high_sierra
+    sha256 "ba925cb302cbe1de3a6ad12c270a433c3de3e4cc81083a384337135c91e629fb" => :sierra
   end
 
   depends_on "openssl"
-  depends_on "python@2"
+  depends_on "python"
   depends_on :x11
 
   resource "asn1crypto" do
@@ -37,11 +37,6 @@ class RobotFramework < Formula
   resource "cryptography" do
     url "https://files.pythonhosted.org/packages/ec/b2/faa78c1ab928d2b2c634c8b41ff1181f0abdd9adf9193211bd606ffa57e2/cryptography-2.2.2.tar.gz"
     sha256 "9fc295bf69130a342e7a19a39d7bbeb15c0bcaabc7382ec33ef3b2b7d18d2f63"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
   end
 
   resource "idna" do
@@ -90,8 +85,8 @@ class RobotFramework < Formula
   end
 
   resource "robotframework-sshlibrary" do
-    url "https://files.pythonhosted.org/packages/6e/6c/137995fe4bf8e4bd55f2712923d0acdb07eab6cdc2758d06e01b08345f77/robotframework-sshlibrary-2.1.3.tar.gz"
-    sha256 "ab1daa49d38934ad57433500c1e177b4f3b3a16f5218a687a6061014343dabcb"
+    url "https://files.pythonhosted.org/packages/33/fb/e7d9ff0f773a01480f015be49f0b22f92b54b5beabec7ac61bf075d50bae/robotframework-sshlibrary-3.2.1.tar.gz"
+    sha256 "55b9c5a13e803f6fa2cb316ce9c33c503690556a88fb991eb70ae1d2d554ca33"
   end
 
   resource "selenium" do
@@ -120,7 +115,7 @@ class RobotFramework < Formula
 
     (testpath/"HelloWorld.py").write <<~EOS
       def hello_world():
-          print "HELLO WORLD!"
+          print("HELLO WORLD!")
     EOS
     system bin/"pybot", testpath/"HelloWorld.txt"
   end

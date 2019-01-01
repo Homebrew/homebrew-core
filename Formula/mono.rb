@@ -1,14 +1,13 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.14.0.177.tar.bz2"
-  sha256 "d4f5fa2e8188d66fbc8054f4145711e45c1faa6d070e63600efab93d1d189498"
+  url "https://download.mono-project.com/sources/mono/mono-5.16.0.220.tar.bz2"
+  sha256 "f420867232b426c062fa182256a66b29efa92992c119847359cdd1ab75af8de3"
 
   bottle do
-    sha256 "f31bcdbf40da4f3160c6257e62532e82fda34f00e8170424d85b3737cc166c74" => :mojave
-    sha256 "32a208795022a8aa55c86c4f77aca63725d9fe957998c160e43b9048898ce2fa" => :high_sierra
-    sha256 "5b881b5ed9b9fdcef2003dc6f525887f27df2278349644dc8ba446ea4a1b62e5" => :sierra
-    sha256 "22551363ddcd90271af6bac89055ea7bfdf0647455b9ea0be355649dfc6e6e9a" => :el_capitan
+    sha256 "e2c506837b797737e2732862755a22412dcc7c4c41b3ac21c191df3e34ab2995" => :mojave
+    sha256 "40b5e454e6223d86e087094d1e8b1e29c88a0d9853f7d251b0d4bcc4c6454012" => :high_sierra
+    sha256 "3a549d0fd21060bf50a312ca134212e76c35eac1fe1266db6903a62e48f82218" => :sierra
   end
 
   option "without-fsharp", "Build without support for the F# language."
@@ -31,15 +30,15 @@ class Mono < Formula
 
   resource "fsharp" do
     url "https://github.com/fsharp/fsharp.git",
-        :tag      => "10.0.2",
-        :revision => "0020622135540ad8ef835d19175902fd8a2dd31e"
+        :tag      => "10.2.1",
+        :revision => "3de387432de8d11a89f99d1af87aa9ce194fe21b"
   end
 
   # When upgrading Mono, make sure to use the revision from
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        :revision => "8af44c5b9e727c096833a88fae05c3ddb76716d0"
+        :revision => "e6c3a1f9e4d3ee4b88ef7bd98b7a48a998c199e6"
   end
 
   def install

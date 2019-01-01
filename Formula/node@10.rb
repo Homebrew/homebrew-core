@@ -1,14 +1,14 @@
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.14.2/node-v10.14.2.tar.gz"
-  sha256 "5b8a55d829d951d2a5ccefd4ffe4f9154673ebc621fd6c676bea09bba95cf96b"
+  url "https://nodejs.org/dist/v10.15.0/node-v10.15.0.tar.gz"
+  sha256 "dbe467e3dabb6854fcb0cd96e04082268cb1e313ce97a4b7100b2ed152b0a0ab"
 
   bottle do
     cellar :any
-    sha256 "e48301f20c478a2c0df87413a403028f0b00e74444896db96851dda585963d80" => :mojave
-    sha256 "d490487b0bc28d473b86b05137da5aaae5ae66cf804ca2c4f622c5a0e5cf1625" => :high_sierra
-    sha256 "2ac73cb77308889a6571c47c8b808ddab928ba410eca67fa03e6b190c028dfcf" => :sierra
+    sha256 "5a411a2295f6040438ad96a572bcaeb587b168bd5b5414b298965293ec73be34" => :mojave
+    sha256 "b80b682c346c4bb9b398ed4a085d6d8ec5eac0755ba2a6714b6df448e46a0277" => :high_sierra
+    sha256 "555b29c365df7c2903e5f98d1802826194bfa48b0607299a3d70cb657578cb50" => :sierra
   end
 
   keg_only :versioned_formula

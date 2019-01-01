@@ -3,34 +3,30 @@ class Gdcm < Formula
   homepage "https://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.7/gdcm-2.8.7.tar.gz"
   sha256 "7a08baa93e90bce17d9999d59b95876808801a287812348e27a23decb1ebc58c"
+  revision 1
 
   bottle do
-    sha256 "9f3d3a1de707e4184bc62fa7070fccb39c9fd1864966e49dc58e93c0616ec012" => :mojave
-    sha256 "ad87ce2f85f16278131b692b12c33cbf1f02af7263c04a9b3dc1cb8188bcdf53" => :high_sierra
-    sha256 "ba985660d7000a4f8b054a63269c60cab9c542e46e81864d8ef8621c2a246cbf" => :sierra
-    sha256 "66d1542a14b6c6e75946853944662d4a934101ceb9c865a9c1da527884133bd6" => :el_capitan
+    sha256 "111837bb50a109600314eb44ad9466423ca13cd44ad4f4746e7ea3f63f7de5bd" => :mojave
+    sha256 "8d34a2328e6eb7f9e526a28f19e6c0e1a6075a3ccd84b21be580fba1113cdb9d" => :high_sierra
+    sha256 "11143aac6b756235ebf7d55daf6821e1621e195c6e1b4b142fc18e541bcf8708" => :sierra
   end
-
-  option "without-python@2", "Build without python2 support"
-
-  deprecated_option "with-python3" => "with-python"
-  deprecated_option "without-python" => "without-python@2"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "swig" => :build
   depends_on "openjpeg"
   depends_on "openssl"
-
-  depends_on "python@2" => :recommended
-  depends_on "python" => :optional
-  depends_on "swig" => :build if build.with?("python") || build.with?("python@2")
+  depends_on "python"
 
   needs :cxx11
 
   def install
     ENV.cxx11
 
-    common_args = std_cmake_args + %w[
+    xy = Language::Python.major_minor_version "python3"
+    python_include = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+
+    args = std_cmake_args + %W[
       -DGDCM_BUILD_APPLICATIONS=ON
       -DGDCM_BUILD_SHARED_LIBS=ON
       -DGDCM_BUILD_TESTING=OFF
@@ -39,30 +35,19 @@ class Gdcm < Formula
       -DGDCM_USE_VTK=OFF
       -DGDCM_USE_SYSTEM_OPENJPEG=ON
       -DGDCM_USE_SYSTEM_OPENSSL=ON
+      -DGDCM_WRAP_PYTHON=ON
+      -DPYTHON_EXECUTABLE=python3
+      -DPYTHON_INCLUDE_DIR=#{python_include}
+      -DGDCM_INSTALL_PYTHONMODULE_DIR=#{lib}/python#{xy}/site-packages
+      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DGDCM_NO_PYTHON_LIBS_LINKING=ON
     ]
 
     mkdir "build" do
-      if build.without?("python") && build.without?("python@2")
-        system "cmake", "..", *common_args
-        system "make", "install"
-      else
-        ENV.append "LDFLAGS", "-undefined dynamic_lookup"
+      ENV.append "LDFLAGS", "-undefined dynamic_lookup"
 
-        Language::Python.each_python(build) do |python, py_version|
-          python_include = Utils.popen_read("#{python} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
-          args = common_args + %W[
-            -DGDCM_WRAP_PYTHON=ON
-            -DPYTHON_EXECUTABLE=#{python}
-            -DPYTHON_INCLUDE_DIR=#{python_include}
-            -DGDCM_INSTALL_PYTHONMODULE_DIR=#{lib}/python#{py_version}/site-packages
-            -DCMAKE_INSTALL_RPATH=#{lib}
-            -DGDCM_NO_PYTHON_LIBS_LINKING=ON
-          ]
-
-          system "cmake", "..", *args
-          system "make", "install"
-        end
-      end
+      system "cmake", "..", *args
+      system "make", "install"
     end
   end
 
@@ -80,8 +65,6 @@ class Gdcm < Formula
     system ENV.cxx, "test.cxx.o", "-o", "test", "-L#{lib}", "-lgdcmDSED"
     system "./test"
 
-    Language::Python.each_python(build) do |python, _py_version|
-      system python, "-c", "import gdcm"
-    end
+    system "python3", "-c", "import gdcm"
   end
 end

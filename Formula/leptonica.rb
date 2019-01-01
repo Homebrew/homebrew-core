@@ -3,35 +3,30 @@ class Leptonica < Formula
   homepage "http://www.leptonica.org/"
   url "https://github.com/DanBloomberg/leptonica/releases/download/1.77.0/leptonica-1.77.0.tar.gz"
   sha256 "161d0b368091986b6c60990edf257460bdc7da8dd18d48d4179e297bcdca5eb7"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "43edf41dc303d9aa89e6b03663a81eab3a28c4cd5a319d064b6dae4c841a0553" => :mojave
-    sha256 "06ef285a85c0797f177faaddc4f727526afb7757d6c673fb1a8eb29fc9b9ff23" => :high_sierra
-    sha256 "d730eb3b285fb88fba5496157a5d26ee4d3460f5414b0aee811ea715d09e550f" => :sierra
+    sha256 "b57475fe16858c93395c7bc20dbd0494cf768c3e73713987990c9a51106d4db0" => :mojave
+    sha256 "c7b6ba6ecfeed9ed6e42c6e83069be0aeea12e0afc5162950f154887d5297ba1" => :high_sierra
+    sha256 "cebb1952b28481e8d8c31df505d9e342321819fec4e9c2690c37e1efa1063bbb" => :sierra
   end
 
   depends_on "pkg-config" => :build
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "giflib" => :optional
-  depends_on "openjpeg" => :optional
-  depends_on "webp" => :optional
+  depends_on "giflib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "openjpeg"
+  depends_on "webp"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --with-libwebp
+      --with-libopenjpeg
     ]
-
-    %w[libpng jpeg libtiff giflib].each do |dep|
-      args << "--without-#{dep}" if build.without?(dep)
-    end
-    %w[openjpeg webp].each do |dep|
-      args << "--with-lib#{dep}" if build.with?(dep)
-      args << "--without-lib#{dep}" if build.without?(dep)
-    end
 
     system "./configure", *args
     system "make", "install"
