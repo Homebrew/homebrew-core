@@ -1,8 +1,8 @@
 class Unnethack < Formula
   desc "Fork of Nethack"
   homepage "https://sourceforge.net/projects/unnethack/"
-  url "https://downloads.sourceforge.net/project/unnethack/unnethack/5.1.0/unnethack-5.1.0-20131208.tar.gz"
-  sha256 "d92886a02fd8f5a427d1acf628e12ee03852fdebd3af0e7d0d1279dc41c75762"
+  url "https://downloads.sourceforge.net/project/unnethack/unnethack/5.2.0/unnethack-5.2.0.tar.gz"
+  sha256 "1dc6a47e79229265b14ccb224ef151b2b04b327ab1865ae770078b5e8c724119"
   head "https://github.com/UnNetHack/UnNetHack.git"
 
   bottle do
