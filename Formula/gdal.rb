@@ -18,6 +18,7 @@ class Gdal < Formula
 
   deprecated_option "complete" => "with-complete"
 
+  depends_on "expat"
   depends_on "freexl"
   depends_on "geos"
   depends_on "giflib"
@@ -72,6 +73,7 @@ class Gdal < Formula
 
       # Homebrew backends
       "--with-curl=/usr/bin/curl-config",
+      "--with-expat=#{Formula["expat"].prefix}",
       "--with-freexl=#{Formula["freexl"].opt_prefix}",
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
       "--with-geotiff=#{Formula["libgeotiff"].opt_prefix}",
