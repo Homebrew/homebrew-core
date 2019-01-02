@@ -1,9 +1,8 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  url "https://github.com/bulletphysics/bullet3/archive/2.87.tar.gz"
-  sha256 "438c151c48840fe3f902ec260d9496f8beb26dba4b17769a4a53212903935f95"
-  revision 1
+  url "https://github.com/bulletphysics/bullet3/archive/2.88.tar.gz"
+  sha256 "21c135775527754fc2929db1db5144e92ad0218ae72840a9f162acb467a7bbf9"
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
