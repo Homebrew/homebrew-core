@@ -13,6 +13,7 @@ class Kakoune < Formula
 
   depends_on "asciidoc" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "ncurses"
 
   if MacOS.version <= :el_capitan
     depends_on "gcc"
