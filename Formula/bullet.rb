@@ -6,10 +6,9 @@ class Bullet < Formula
   head "https://github.com/bulletphysics/bullet3.git"
 
   bottle do
-    rebuild 1
-    sha256 "5284036f39c7469ba84bbee409fc2b82de37073649c3d872c192731b216a9df0" => :mojave
-    sha256 "e7cdf082554cd6e320f756c051a418816799d52a920c9192068ac6637bb6f5d5" => :high_sierra
-    sha256 "bfea29b63b6eadaf0181fa3a1baee1e9513a2b43b9603fcf996201164ebec049" => :sierra
+    sha256 "441f12cab157a05a69e5a7de426296b096fef0b88d0ebf386ce15503e114814d" => :mojave
+    sha256 "febfaa699309bb100f9614fce6bdcbdf9f8521be10d2885bf5ad42073c351c4f" => :high_sierra
+    sha256 "cfcaf1990cc8f2fd8ebc8ecf93b10a448c51e6991eca5fab599c9c913e1d94e0" => :sierra
   end
 
   depends_on "cmake" => :build
