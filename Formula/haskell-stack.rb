@@ -33,8 +33,7 @@ class HaskellStack < Formula
     cabal_sandbox do
       cabal_install "happy"
 
-      # The flag works around https://github.com/commercialhaskell/stack/issues/4363
-      cabal_install "--flags=disable-git-info"
+      cabal_install
 
       # Let `stack` handle its own parallelization
       # Prevents "install: mkdir ... ghc-7.10.3/lib: File exists"
@@ -45,7 +44,7 @@ class HaskellStack < Formula
              "--system-ghc", "--no-install-ghc", "setup"
       system "stack", "-j#{jobs}", "--stack-yaml=stack-lts-12.yaml",
              "--system-ghc", "--no-install-ghc", "--local-bin-path=#{bin}",
-             "install", "--flag", "stack:disable-git-info"
+             "install"
     end
   end
 
