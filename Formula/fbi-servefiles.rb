@@ -3,8 +3,8 @@ class FbiServefiles < Formula
 
   desc "Serve local files to Nintendo 3DS via FBI remote installer"
   homepage "https://github.com/Steveice10/FBI"
-  url "https://github.com/Steveice10/FBI/archive/2.5.3.tar.gz"
-  sha256 "88ab87c31e9fc70c5ef31fb2217b43e638447b0fd1e26d5652cc554630bce264"
+  url "https://github.com/Steveice10/FBI/archive/2.6.0.tar.gz"
+  sha256 "4948d4c53d754cc411b51edbf35c609ba514ae21d9d0e8f4b66a26d5c666be68"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,7 +16,7 @@ class FbiServefiles < Formula
   depends_on "python"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install_and_link buildpath/"servefiles"
   end
 
