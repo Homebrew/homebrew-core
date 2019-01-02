@@ -6,10 +6,9 @@ class Pagmo < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dbafe3f25a46bc9393034034e3c4ec0d646e0f05156d0c40f9e18dfca4cbb36b" => :mojave
-    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :high_sierra
-    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :sierra
-    sha256 "1dc34d7efa473a43c7edb99a2bd2c2cc827eb2562ff9ffc28cc66043e9f91680" => :el_capitan
+    sha256 "11a158a55b100b182c49807d68d5400ca55d98011535b4d923f1ee232f58a9b0" => :mojave
+    sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :high_sierra
+    sha256 "2c8e09c8e42c16f36f4c5b4fa82b465402fd6b50e5c55e9b4befdae04636a5fc" => :sierra
   end
 
   depends_on "cmake" => :build
