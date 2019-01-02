@@ -6,10 +6,9 @@ class Efl < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "402615004f916c4bce4ea9c861f591fe31975fe894c56e00840adf74c726cb21" => :mojave
-    sha256 "983569d3063cdbe45059c119bcd7f82bbc4a73412f2600435420191ce6b218ad" => :high_sierra
-    sha256 "035342390bc34cec44f89cd056618ffad4212152f3d23d20d074b8bb1f9ea0d4" => :sierra
+    sha256 "4eb301261e8368605e3f920168426ce51a989508b6992c85e136390d5ecf1d1e" => :mojave
+    sha256 "1633ed5eb89bfab9ee883dc411bde78d50b02171d1b9e3eb885ba3d0881bc9ca" => :high_sierra
+    sha256 "d8318b4ece6e3f3f1cea4aead66b2e219be181c6ea8016e1b149d0d695be896a" => :sierra
   end
 
   depends_on "gettext" => :build
