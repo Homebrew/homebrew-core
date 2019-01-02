@@ -3,7 +3,7 @@ class ArcadeLearningEnvironment < Formula
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
   sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
-  revision 3
+  revision 4
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
