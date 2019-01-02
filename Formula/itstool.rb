@@ -7,10 +7,9 @@ class Itstool < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c902eb9a16def09fbec97acf49178f7f048c27e1e6f25c8e8f6506d3b8ba9bd8" => :mojave
-    sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :high_sierra
-    sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :sierra
-    sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :el_capitan
+    sha256 "efedec3984116c3e50e6bf3c7a30b6ccb392e0223934cd1e4081056191c619f5" => :mojave
+    sha256 "7dc6c74dcdeb516071721537ec8b19ab3be9c44c6c77e86d6d841388a9dc95d1" => :high_sierra
+    sha256 "7dc6c74dcdeb516071721537ec8b19ab3be9c44c6c77e86d6d841388a9dc95d1" => :sierra
   end
 
   depends_on "autoconf" => :build
