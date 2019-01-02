@@ -7,6 +7,7 @@ class Imagemagick < Formula
   url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.8-23.tar.xz"
   mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-23.tar.xz"
   sha256 "e535ef9c0e7e5961a9907a13475ffc4c0d7b84a2788484910337bcdb30498656"
+  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
@@ -16,17 +17,16 @@ class Imagemagick < Formula
   end
 
   option "with-fftw", "Compile with FFTW support"
-  option "with-hdri", "Compile with HDRI support"
   option "with-libheif", "Compile with HEIF support"
   option "with-perl", "Compile with PerlMagick"
 
-  deprecated_option "enable-hdri" => "with-hdri"
   deprecated_option "with-libde265" => "with-libheif"
 
   depends_on "pkg-config" => :build
 
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
@@ -57,19 +57,21 @@ class Imagemagick < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --disable-opencl
-      --disable-openmp
       --enable-shared
       --enable-static
       --with-freetype=yes
       --with-modules
       --with-openjp2
       --with-webp=yes
+      --enable-openmp
+      ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
+      ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp
+      LDFLAGS=-lomp
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--enable-hdri=yes" if build.with? "hdri"
     args << "--without-fftw" if build.without? "fftw"
     args << "--without-pango" if build.without? "pango"
     args << "--with-rsvg" if build.with? "librsvg"
