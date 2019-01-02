@@ -156,13 +156,11 @@ class S3ql < Formula
       venv.pip_install resource(r)
     end
 
-    # The patch changes the name of the (fsck|mkfs|mount|umount).s3ql to
-    # use underscore (_) as a seperator, which is consistent with other
-    # tools on macOS.
+    # The inreplace changes the name of the (fsck|mkfs|mount|umount).s3ql
+    # utilities to use underscore (_) as a seperator, which is consistent
+    # with other tools on macOS.
     # Final names: fsck_s3ql, mkfs_s3ql, mount_s3ql, umount_s3ql
-    inreplace "setup.py" do |s|
-      s.gsub! /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="
-    end
+    inreplace "setup.py", /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="
     system libexec/"bin/python3", "setup.py", "build_ext", "--inplace"
     venv.pip_install_and_link buildpath
   end
