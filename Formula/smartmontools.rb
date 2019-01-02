@@ -1,8 +1,8 @@
 class Smartmontools < Formula
   desc "SMART hard drive monitoring"
   homepage "https://www.smartmontools.org/"
-  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/6.6/smartmontools-6.6.tar.gz"
-  sha256 "51f43d0fb064fccaf823bbe68cf0d317d0895ff895aa353b3339a3b316a53054"
+  url "https://downloads.sourceforge.net/project/smartmontools/smartmontools/7.0/smartmontools-7.0.tar.gz"
+  sha256 "e5e1ac2786bc87fdbd6f92d0ee751b799fbb3e1a09c0a6a379f9eb64b3e8f61c"
 
   bottle do
     sha256 "abc4564708c21e53dfd57d668665e42624bc9e740befe72b6b20bb9039e29ef4" => :mojave
