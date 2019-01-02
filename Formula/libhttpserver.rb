@@ -1,8 +1,8 @@
 class Libhttpserver < Formula
   desc "C++ library of embedded Rest HTTP server"
   homepage "https://github.com/etr/libhttpserver"
-  url "https://github.com/etr/libhttpserver/archive/0.16.0.tar.gz"
-  sha256 "a3b8609b84e09e436d590ac113caa901baea9f9712b0a46c2030cfdf38decbc5"
+  url "https://github.com/etr/libhttpserver/archive/0.17.0.tar.gz"
+  sha256 "5268bd0702fefe0523623a01b68d9335f40f34eeafa014e8258e5f18d924c83f"
   head "https://github.com/etr/libhttpserver.git"
 
   bottle do
