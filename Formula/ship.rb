@@ -4,6 +4,13 @@ class Ship < Formula
   url "https://github.com/replicatedhq/ship/archive/v0.29.0.tar.gz"
   sha256 "5a82fde0ecec241f404536573937e8123a79f40aa6ca78c79b8d89f75a5e78d0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7c782e56057733e36f5066351b7cefccf03a30113b560de8a28186385badf051" => :mojave
+    sha256 "440ed034dff71465c0ef8d2c7f7aad4391e2672fa00bb3736fb4a9c3734ed4a2" => :high_sierra
+    sha256 "8c16e2ba902ea22cff0de5c9e68856432f8fab2b2d0a1accb54b0094f66a55a2" => :sierra
+  end
+
   depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
