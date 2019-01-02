@@ -20,6 +20,7 @@ class E2fsprogs < Formula
   def install
     # Enforce MKDIR_P to work around a configure bug
     # see https://github.com/Homebrew/homebrew-core/pull/35339
+    # and https://sourceforge.net/p/e2fsprogs/discussion/7053/thread/edec6de279/
     system "./configure", "--prefix=#{prefix}", "--disable-e2initrd-helper",
                           "MKDIR_P=mkdir -p"
 
