@@ -6,10 +6,9 @@ class Dvm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ae193a836bb35d9bb483949c700cd724b604a7f6e4364479b238b368484785aa" => :mojave
-    sha256 "18b508c00e7e82028b7a4bea6e739c77130299dd38fb3e4c98a9518429be6457" => :high_sierra
-    sha256 "91e37e60f6badef7c4c9e8a81f5fd6f600e3da247b57c1b461c55ff4ecad0ff8" => :sierra
-    sha256 "d3e7e6e70d7f1b3bfb6b5e7bc5eca122d353f62f9e468d34f9498ce2fc0d1f44" => :el_capitan
+    sha256 "752070abac2550367a3ed11d341a0293de98eaca192d2503ed7166a598d305c9" => :mojave
+    sha256 "08e39384ed59d4cbfb38dad2f692589b686bf1bc77e582aaa1889a8e81efb10b" => :high_sierra
+    sha256 "c04c4e008a79c5ccb20943ce6da908028b36f8f9973a3c748d1beeec0a64269b" => :sierra
   end
 
   depends_on "go" => :build
