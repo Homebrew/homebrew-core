@@ -6,10 +6,11 @@ class Ghex < Formula
   revision 1
 
   bottle do
-    sha256 "baf68c9b93101d0fdb9e90336836d0e206137c59b52e8026d4522d5589a9a0dc" => :mojave
-    sha256 "0080cac6bcc11dc849c24bd22a1dda1db0747f523efca1041af9f1e42f029898" => :high_sierra
-    sha256 "6f9deaf2bac3fb375bddffe04e43d6eab04c2337aaa7ca08153d97b55208eeaa" => :sierra
-    sha256 "7e8089a2904c7864315d8b7eca37dd7df04460d7703a084a0924856fa52383be" => :el_capitan
+    cellar :any
+    rebuild 1
+    sha256 "15cfe34d49bf84016e783add666298473e546af509589b689af65bd866e294a5" => :mojave
+    sha256 "cd309a461d6e472c27709919220cac62bdddbf8f8efc767e7924df205006b64b" => :high_sierra
+    sha256 "95015010fd216769d84c5651a8c58fc80fd799d3ad35a9178022dece741def31" => :sierra
   end
 
   depends_on "intltool" => :build
