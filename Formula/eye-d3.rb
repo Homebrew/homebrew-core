@@ -1,9 +1,8 @@
 class EyeD3 < Formula
   desc "Work with ID3 metadata in .mp3 files"
   homepage "http://eyed3.nicfit.net/"
-  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.7.tar.gz"
-  sha256 "ef924eb2e8fffd7c7e3bd4c94dafad4a3b9047fe2dcb76d5dd7d9c37a1f1f8bb"
-  revision 1
+  url "http://eyed3.nicfit.net/releases/eyeD3-0.8.8.tar.gz"
+  sha256 "58d18f4313c906c4f88831138fbaf440fca89dcf5a835caa3f67d4efe7d7f4a4"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,6 +17,11 @@ class EyeD3 < Formula
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
 
+  resource "grako" do
+    url "https://files.pythonhosted.org/packages/33/0d/6db911c7f6458974745c91c1e71841e347364798a5cc01e8149e84352c77/grako-3.99.9.zip"
+    sha256 "fcc37309eab7cd0cbbb26cfd6a54303fbb80a00a58ab295d1e665bc69189c364"
+  end
+
   resource "pathlib" do
     url "https://files.pythonhosted.org/packages/ac/aa/9b065a76b9af472437a0059f77e8f962fe350438b927cb80184c32f075eb/pathlib-1.0.1.tar.gz"
     sha256 "6940718dfc3eff4258203ad5021090933e5c04707d5ca8cc9e73c94a7894ea9f"
@@ -29,8 +33,8 @@ class EyeD3 < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   def install
