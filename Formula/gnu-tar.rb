@@ -1,9 +1,9 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftp.gnu.org/gnu/tar/tar-1.30.tar.gz"
-  mirror "https://ftpmirror.gnu.org/tar/tar-1.30.tar.gz"
-  sha256 "4725cc2c2f5a274b12b39d1f78b3545ec9ebb06a6e48e8845e1995ac8513b088"
+  url "https://ftp.gnu.org/gnu/tar/tar-1.31.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.31.tar.gz"
+  sha256 "b471be6cb68fd13c4878297d856aebd50551646f4e3074906b1a74549c40d5a2"
 
   bottle do
     sha256 "2a112e5b1a9c895ef51cb85d5ae0f02c9804ada9e9f55cbd8f698ec63b51c69b" => :mojave
