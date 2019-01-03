@@ -32,6 +32,6 @@ class Frotz < Formula
 
   test do
     resource("testdata").stage testpath
-    system "echo", "test", "|", "frotz", "testpath/testdata"
+    system "echo test | frotz #{testpath}/testdata"
   end
 end
