@@ -6,14 +6,11 @@ class Gradle < Formula
 
   bottle :unneeded
 
-  option "with-all", "Installs Javadoc, examples, and source in addition to the binaries"
-
   depends_on :java => "1.7+"
 
   def install
     rm_f Dir["bin/*.bat"]
-    libexec.install %w[bin lib]
-    libexec.install %w[docs media samples src] if build.with? "all"
+    libexec.install %w[bin docs lib media samples src]
     (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
   end
 
