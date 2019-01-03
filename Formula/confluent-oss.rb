@@ -3,8 +3,8 @@ class ConfluentOss < Formula
   homepage "https://www.confluent.io/product/confluent-open-source/"
   url "https://packages.confluent.io/archive/5.1/confluent-5.1.0-2.11.tar.gz"
   version "5.1.0"
-  
   sha256 "2b65f4ca70ffa155991530d6ea1f27b9a043b38ecf81ced85a22b527d60b0ea3"
+
   bottle :unneeded
 
   depends_on :java => "1.8"
