@@ -10,7 +10,6 @@ class Bat < Formula
     sha256 "c7ccfa8aeda9b8d2a4e2f8dd6cdc6af2667c0bf036708a7c676fe915e9929ef5" => :sierra
   end
 
-  depends_on "cmake" => :build
   depends_on "rust" => :build
 
   def install
