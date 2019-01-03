@@ -21,17 +21,17 @@ class Vte3 < Formula
   depends_on "vala"
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     args = [
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
       "--disable-Bsymbolic",
       "--enable-introspection=yes",
-      "--enable-gnome-pty-helper",
       "--enable-gtk-doc",
     ]
-
     system "./configure", *args
-    system "XML_CATALOG_FILES=/usr/local/etc/xml/catalog", "make", "install"
+    system "make", "install"
   end
 
   test do
