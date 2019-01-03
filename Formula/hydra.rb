@@ -1,9 +1,8 @@
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://github.com/vanhauser-thc/thc-hydra"
-  url "https://github.com/vanhauser-thc/thc-hydra/archive/8.6.tar.gz"
-  sha256 "05a87eb018507b24afca970081f067e64441460319fb75ca1e64c4a1f322b80b"
-  revision 2
+  url "https://github.com/vanhauser-thc/thc-hydra/archive/v8.8.tar.gz"
+  sha256 "bc895a7aebdf0279186d40140f0dc1546ac6f3a5c5bc9d13b13766bffea3e966"
   head "https://github.com/vanhauser-thc/thc-hydra.git"
 
   bottle do
@@ -15,10 +14,9 @@ class Hydra < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libssh"
   depends_on "mysql-client"
   depends_on "openssl"
-  depends_on "gtk+" => :optional
-  depends_on "libssh" => :optional
 
   def install
     inreplace "configure" do |s|
@@ -29,8 +27,6 @@ class Hydra < Formula
       s.gsub! "/opt/*ssl/include", Formula["openssl"].opt_include
       # Avoid opportunistic linking of subversion
       s.gsub! "libsvn", "oh_no_you_dont"
-      # Avoid opportunistic linking of libssh
-      s.gsub! "libssh", "certainly_not" if build.without? "libssh"
     end
 
     # Having our gcc in the PATH first can cause issues. Monitor this.
