@@ -11,6 +11,7 @@ class Vte3 < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "gtk-doc" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
@@ -26,10 +27,11 @@ class Vte3 < Formula
       "--disable-Bsymbolic",
       "--enable-introspection=yes",
       "--enable-gnome-pty-helper",
+      "--enable-gtk-doc",
     ]
 
     system "./configure", *args
-    system "make", "install"
+    system "XML_CATALOG_FILES=/usr/local/etc/xml/catalog", "make", "install"
   end
 
   test do
