@@ -3,8 +3,8 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.29.1.tar.gz"
-  sha256 "2d3f0c7ab296592916e3164d58ed5843c28af4206fa31326ad063159234cca82"
+  url "https://github.com/certbot/certbot/archive/v0.30.0.tar.gz"
+  sha256 "c3473681662c7b47136d550c1fb253e3d7c29629e106b3665732abfa9fb12ced"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
