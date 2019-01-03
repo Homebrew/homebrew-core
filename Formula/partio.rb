@@ -24,7 +24,7 @@ class Partio < Formula
   end
 
   def install
-    ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
+    ENV.append "LDFLAGS", "-undefined dynamic_lookup"
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
