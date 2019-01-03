@@ -1,8 +1,8 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.21.tar.xz"
-  sha256 "8f37e546ac7c31c9c203a03b1c1d6cb2d2f623a300b86badfd367e5559fe148c"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.22.tar.xz"
+  sha256 "ee7868d7ba0498cf2cccefe107d7efee7f2571098806bba2aed5a159db801318"
   head "https://github.com/MidnightCommander/mc.git"
 
   bottle do
