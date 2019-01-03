@@ -6,9 +6,9 @@ class EyeD3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "da1e736195f54ffe70e4eb391b719f74ceeaa746b6474764b1bf52f5efc3c9f0" => :mojave
-    sha256 "bad8fee12d6f6a06e4f44db27deb6a044004680e55f1f996a97801eba417959a" => :high_sierra
-    sha256 "bad8fee12d6f6a06e4f44db27deb6a044004680e55f1f996a97801eba417959a" => :sierra
+    sha256 "1f5fe81fb312a31392f4a38d9fc37075cbc3e236f8c33cf0621c19ba8e6cfd65" => :mojave
+    sha256 "ee8efa76add34083d40443de8ddbac779ab60e8ad82dc4a5153455e5ebd04b82" => :high_sierra
+    sha256 "c57e39a95cd88bb866297a430bd5e043dbbb4162f797aa1aee1d692cdf2b0215" => :sierra
   end
 
   depends_on "libmagic"
