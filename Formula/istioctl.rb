@@ -16,6 +16,7 @@ class Istioctl < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["TAG"] = version.to_s
+    ENV["ISTIO_VERSION"] = version.to_s
 
     srcpath = buildpath/"src/istio.io/istio"
     outpath = buildpath/"out/darwin_amd64/release"
