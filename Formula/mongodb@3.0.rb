@@ -53,7 +53,7 @@ class MongodbAT30 < Formula
 
     args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
 
-    scons "install", *args
+    system "scons", "install", *args
 
     (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
