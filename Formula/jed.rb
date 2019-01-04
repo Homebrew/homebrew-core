@@ -2,7 +2,7 @@ class Jed < Formula
   desc "Powerful editor for programmers"
   homepage "https://www.jedsoft.org/jed/"
   url "https://www.jedsoft.org/releases/jed/jed-0.99-19.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/j/jed/jed_0.99.19.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/j/jed/jed_0.99.19.orig.tar.gz"
   sha256 "5eed5fede7a95f18b33b7b32cb71be9d509c6babc1483dd5c58b1a169f2bdf52"
 
   bottle do
@@ -22,7 +22,6 @@ class Jed < Formula
   end
 
   depends_on "s-lang"
-  depends_on :x11 => :optional
 
   def install
     if build.head?
@@ -33,7 +32,6 @@ class Jed < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--with-slang=#{Formula["s-lang"].opt_prefix}"
     system "make"
-    system "make", "xjed" if build.with? "x11"
     ENV.deparallelize
     system "make", "install"
   end
