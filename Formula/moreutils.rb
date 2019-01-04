@@ -14,15 +14,11 @@ class Moreutils < Formula
     sha256 "9f2e15ade4e996988704728fa9d3b9263a1337b33847ba68afb8863a3293162d" => :el_capitan
   end
 
-  option "without-parallel", "Build without the 'parallel' tool."
-  option "without-errno", "Build without the 'errno' tool, for compatibility with 'pwntools'."
-  option "without-ts", "Build without the 'ts' tool, for compatibility with 'task-spooler'."
-
   depends_on "docbook-xsl" => :build
 
-  conflicts_with "parallel", :because => "Both install a `parallel` executable." if build.with? "parallel"
-  conflicts_with "pwntools", :because => "Both install an `errno` executable." if build.with? "errno"
-  conflicts_with "task-spooler", :because => "Both install a `ts` executable." if build.with? "ts"
+  conflicts_with "parallel", :because => "Both install a `parallel` executable."
+  conflicts_with "pwntools", :because => "Both install an `errno` executable."
+  conflicts_with "task-spooler", :because => "Both install a `ts` executable."
 
   resource "Time::Duration" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Time-Duration-1.20.tar.gz"
@@ -50,12 +46,6 @@ class Moreutils < Formula
     inreplace "Makefile" do |s|
       s.gsub! "/usr/share/xml/docbook/stylesheet/docbook-xsl",
               "#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl"
-      %w[parallel errno ts].each do |util|
-        next if build.with? util
-        s.gsub! /^BINS=.*\K#{util}/, "", false
-        s.gsub! /^MANS=.*\K#{util}\.1/, ""
-        s.gsub! /^PERLSCRIPTS=.*\K#{util}/, "", false
-      end
     end
     system "make", "all"
     system "make", "check"
