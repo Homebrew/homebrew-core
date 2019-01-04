@@ -4,6 +4,12 @@ class Moarvm < Formula
   url "https://moarvm.org/releases/MoarVM-2018.12.tar.gz"
   sha256 "e433a2a56953fca16ed8eaf9a597f25a7e1556436888609429f38529c241693b"
 
+  bottle do
+    sha256 "f4a1e65148f4f0f32713a3090b9c12db01133844bac50dd42641183561242cb9" => :mojave
+    sha256 "fe1d3d362c2b503601b6ef697c869fe2e19846ae454948ca05ea69155c866c27" => :high_sierra
+    sha256 "ed173e56ec8c4fd58708a0618ef9efcf074e467ca2934185cf16b03065ee068e" => :sierra
+  end
+
   depends_on "libatomic_ops"
   depends_on "libffi"
   depends_on "libtommath"
