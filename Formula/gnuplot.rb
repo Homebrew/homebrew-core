@@ -28,6 +28,7 @@ class Gnuplot < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gd"
+  depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"
@@ -36,11 +37,6 @@ class Gnuplot < Formula
   depends_on :x11 => :optional
 
   needs :cxx11 if build.with? "qt"
-
-  resource "libcerf" do
-    url "https://www.mirrorservice.org/sites/distfiles.macports.org/libcerf/libcerf-1.5.tgz"
-    sha256 "e36dc147e7fff81143074a21550c259b5aac1b99fc314fc0ae33294231ca5c86"
-  end
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
@@ -53,15 +49,6 @@ class Gnuplot < Formula
       ENV.prepend "CPPFLAGS", "-F/Library/Frameworks"
       ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
     end
-
-    # gnuplot is not yet compatible with More recent libcerf:
-    # https://sourceforge.net/p/gnuplot/bugs/2077/
-    # In next release, we can remove this and depend on the libcerf formula.
-    resource("libcerf").stage do
-      system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
-      system "make", "install"
-    end
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
 
     args = %W[
       --disable-dependency-tracking
