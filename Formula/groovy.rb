@@ -6,10 +6,6 @@ class Groovy < Formula
 
   bottle :unneeded
 
-  option "with-invokedynamic", "Install the InvokeDynamic version of Groovy"
-
-  deprecated_option "invokedynamic" => "with-invokedynamic"
-
   # Groovy 2.5 requires JDK8+ to build and JDK7 is the minimum version of the JRE that we support.
   depends_on :java => "1.7+"
 
@@ -18,14 +14,6 @@ class Groovy < Formula
   def install
     # Don't need Windows files.
     rm_f Dir["bin/*.bat"]
-
-    if build.with? "invokedynamic"
-      Dir.glob("indy/*.jar") do |src_path|
-        dst_file = File.basename(src_path, "-indy.jar") + ".jar"
-        dst_path = File.join("lib", dst_file)
-        mv src_path, dst_path
-      end
-    end
 
     libexec.install "bin", "conf", "lib"
     bin.install_symlink Dir["#{libexec}/bin/*"] - ["#{libexec}/bin/groovy.ico"]
