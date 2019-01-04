@@ -21,8 +21,6 @@ class Ejabberd < Formula
   depends_on "gd"
   depends_on "libyaml"
   depends_on "openssl"
-  # for CAPTCHA challenges
-  depends_on "imagemagick" => :optional
 
   def install
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"
