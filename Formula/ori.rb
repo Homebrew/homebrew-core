@@ -22,8 +22,8 @@ class Ori < Formula
   depends_on :osxfuse
 
   def install
-    scons "BUILDTYPE=RELEASE"
-    scons "install", "PREFIX=#{prefix}"
+    system "scons", "BUILDTYPE=RELEASE"
+    system "scons", "install", "PREFIX=#{prefix}"
   end
 
   test do
