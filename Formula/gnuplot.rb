@@ -1,8 +1,8 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.5/gnuplot-5.2.5.tar.gz"
-  sha256 "039db2cce62ddcfd31a6696fe576f4224b3bc3f919e66191dfe2cdb058475caa"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.2.6/gnuplot-5.2.6.tar.gz"
+  sha256 "35dd8f013139e31b3028fac280ee12d4b1346d9bb5c501586d1b5a04ae7a94ee"
 
   bottle do
     sha256 "eaf80b9ce3cf64e57e005af62067e526d57755ef26b3ee0596581f2caf070692" => :mojave
@@ -28,6 +28,7 @@ class Gnuplot < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gd"
+  depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
   depends_on "readline"
@@ -36,11 +37,6 @@ class Gnuplot < Formula
   depends_on :x11 => :optional
 
   needs :cxx11 if build.with? "qt"
-
-  resource "libcerf" do
-    url "https://www.mirrorservice.org/sites/distfiles.macports.org/libcerf/libcerf-1.5.tgz"
-    sha256 "e36dc147e7fff81143074a21550c259b5aac1b99fc314fc0ae33294231ca5c86"
-  end
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
@@ -53,15 +49,6 @@ class Gnuplot < Formula
       ENV.prepend "CPPFLAGS", "-F/Library/Frameworks"
       ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
     end
-
-    # gnuplot is not yet compatible with More recent libcerf:
-    # https://sourceforge.net/p/gnuplot/bugs/2077/
-    # In next release, we can remove this and depend on the libcerf formula.
-    resource("libcerf").stage do
-      system "./configure", "--prefix=#{buildpath}/libcerf", "--enable-static", "--disable-shared"
-      system "make", "install"
-    end
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"libcerf/lib/pkgconfig"
 
     args = %W[
       --disable-dependency-tracking
