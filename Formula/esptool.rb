@@ -6,6 +6,13 @@ class Esptool < Formula
   url "https://github.com/espressif/esptool/archive/v2.5.1.tar.gz"
   sha256 "6730b69d8ba09ff09f845873eaeef352bd18a4ee24b31b0898fd8fc5f178c037"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "c5c0f0622515e9969ee8102d5b884f8b8e918dd892deea2292a3ad6f70fc297f" => :mojave
+    sha256 "4603bacc0f295533f8dde969a4512ccfa2b1e55b3b18a3fd57b4633386033de2" => :high_sierra
+    sha256 "46fd1318d852fd5c573bee52675a647ed4cb524fa7a5eb3b4bc58b86f6a18f6d" => :sierra
+  end
+
   depends_on "python"
 
   resource "ecdsa" do
