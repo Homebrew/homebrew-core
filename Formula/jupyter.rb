@@ -14,11 +14,8 @@ class Jupyter < Formula
     sha256 "b19e7cf53f7d2802cf8feca141aaef74e98d2e7bc1cc06a36f5a6f237e29848a" => :el_capitan
   end
 
-  option "with-qtconsole", "Install with Qtconsole"
-
   depends_on "ipython"
   depends_on "pandoc"
-  depends_on "pyqt" if build.with? "qtconsole"
   depends_on "python"
   depends_on "zeromq"
 
@@ -197,11 +194,6 @@ class Jupyter < Formula
     sha256 "0145ae59139b41f65e047a3a9ed11bbc36e37d5e96c64382fcdff911c4d8c3f0"
   end
 
-  resource "qtconsole" do
-    url "https://files.pythonhosted.org/packages/68/48/ed0e8989b7376704ecb8faa782384de98cc108de522ad8d21f449484de9a/qtconsole-4.3.1.tar.gz"
-    sha256 "eff8c2faeda567a0bef5781f419a64e9977988db101652b312b9d74ec0a5109c"
-  end
-
   resource "scandir" do
     url "https://files.pythonhosted.org/packages/13/bb/e541b74230bbf7a20a3949a2ee6631be299378a784f5445aa5d0047c192b/scandir-1.7.tar.gz"
     sha256 "b2d55be869c4f716084a19b1e16932f0769711316ba62de941320bf2be84763d"
@@ -269,10 +261,8 @@ class Jupyter < Formula
 
     # gather packages to link based on options
     linked = %w[jupyter_core jupyter_client nbformat ipykernel jupyter_console
-                nbconvert notebook qtconsole]
+                nbconvert notebook]
     dependencies = resources.map(&:name).to_set - linked
-
-    linked.delete "qtconsole" if build.without? "qtconsole"
 
     # install dependent packages
     dependencies.each do |r|
@@ -325,12 +315,5 @@ class Jupyter < Formula
     EOS
     system bin/"jupyter-nbconvert", "nbconvert.ipynb"
     assert_predicate testpath/"nbconvert.html", :exist?, "Failed to export HTML"
-
-    if build.with? "qtconsole"
-      (testpath/"qtconsole.exp").write <<~EOS
-        spawn #{bin}/jupyter-qtconsole
-      EOS
-      system "expect", "-f", "qtconsole.exp"
-    end
   end
 end
