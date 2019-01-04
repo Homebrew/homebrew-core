@@ -11,19 +11,11 @@ class Gflags < Formula
     sha256 "44b0ad9e8d8ce61431d959b1c6197e121f8369acc777a8010aabce2adb8eb4db" => :sierra
   end
 
-  option "with-static", "Build gflags as a static (instead of shared) library."
-
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args
-    if build.with? "static"
-      args << "-DBUILD_SHARED_LIBS=OFF"
-    else
-      args << "-DBUILD_SHARED_LIBS=ON"
-    end
     mkdir "buildroot" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
       system "make", "install"
     end
   end
