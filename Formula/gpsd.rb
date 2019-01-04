@@ -16,8 +16,8 @@ class Gpsd < Formula
   depends_on "libusb" => :optional
 
   def install
-    scons "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
-    scons "install"
+    system "scons", "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
+    system "scons", "install"
   end
 
   def caveats; <<~EOS
