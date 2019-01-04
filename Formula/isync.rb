@@ -3,6 +3,7 @@ class Isync < Formula
   homepage "https://isync.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/isync/isync/1.3.0/isync-1.3.0.tar.gz"
   sha256 "8d5f583976e3119705bdba27fa4fc962e807ff5996f24f354957178ffa697c9c"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,8 +21,8 @@ class Isync < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "berkeley-db"
   depends_on "openssl"
-  depends_on "berkeley-db" => :optional
 
   def install
     system "./autogen.sh" if build.head?
@@ -31,7 +32,6 @@ class Isync < Formula
       --prefix=#{prefix}
       --disable-silent-rules
     ]
-    args << "ac_cv_berkdb4=no" if build.without? "berkeley-db"
 
     system "./configure", *args
     system "make", "install"
