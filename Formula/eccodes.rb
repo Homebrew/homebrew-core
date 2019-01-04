@@ -15,7 +15,6 @@ class Eccodes < Formula
   depends_on "gcc" # for gfortran
   depends_on "jasper"
   depends_on "libpng"
-  depends_on "numpy"
 
   conflicts_with "grib-api",
     :because => "eccodes and obsolete grib-api install the same binaries."
