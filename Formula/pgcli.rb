@@ -3,8 +3,8 @@ class Pgcli < Formula
 
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/29/fd/f4a8e2ffa43e0729af52ba5232bc84e5b4f01520d44a8238deeba2ca3885/pgcli-2.0.1.tar.gz"
-  sha256 "822272be3c38b03fc90467d755d75d24840681ee719fa7b610c986fb06563691"
+  url "https://files.pythonhosted.org/packages/a6/23/c3b9a86116b6d5d248a794fd2d874ae0e7f0efb6b3c8175c1e41cb7bde12/pgcli-2.0.2.tar.gz"
+  sha256 "04f4d3f4dd61d2d165eb2fd8d77879357489a74ca1446cd09fa375c7561392dc"
 
   bottle do
     cellar :any
