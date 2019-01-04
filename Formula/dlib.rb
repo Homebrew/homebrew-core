@@ -3,6 +3,7 @@ class Dlib < Formula
   homepage "http://dlib.net/"
   url "http://dlib.net/files/dlib-19.16.tar.bz2"
   sha256 "37308406c2b1459a70f21ec2fd7bdc922277659534c708323cb28d6e8e4764a8"
+  revision 1
   head "https://github.com/davisking/dlib.git"
 
   bottle do
@@ -16,29 +17,25 @@ class Dlib < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on :macos => :el_capitan # needs thread-local storage
-  depends_on "openblas" => :optional
-  depends_on :x11 => :optional
+  depends_on "openblas"
 
   needs :cxx11
 
   def install
     ENV.cxx11
 
-    args = std_cmake_args + %w[-DDLIB_USE_BLAS=ON -DDLIB_USE_LAPACK=ON]
-    args << "-DDLIB_NO_GUI_SUPPORT=ON" if build.without? "x11"
-    args << "-DUSE_SSE2_INSTRUCTIONS=ON" # SSE2 is present on all modern macOS hardware
+    args = std_cmake_args + %W[
+      -DDLIB_USE_BLAS=ON
+      -DDLIB_USE_LAPACK=ON
+      -Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -DDLIB_NO_GUI_SUPPORT=ON
+      -DUSE_SSE2_INSTRUCTIONS=ON
+    ]
 
     unless build.bottle?
       args << "-DUSE_AVX_INSTRUCTIONS=ON" if Hardware::CPU.avx?
       args << "-DUSE_SSE4_INSTRUCTIONS=ON" if Hardware::CPU.sse4?
-    end
-
-    if build.with? "openblas"
-      args << "-Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-      args << "-Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-    else
-      args << "-Dcblas_lib=/usr/lib/libcblas.dylib"
-      args << "-Dlapack_lib=/usr/lib/liblapack.dylib"
     end
 
     mkdir "dlib/build" do
