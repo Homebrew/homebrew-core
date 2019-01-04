@@ -12,15 +12,10 @@ class FcitxRemoteForOsx < Formula
     sha256 "8e54fa21fce7e9e363dba2a47f462d1b415d55e9687322d251e2e5995442599a" => :el_capitan
   end
 
-  option "with-input-method=",
-    "Select input method: general(default), baidu-pinyin, baidu-wubi, " \
-    "sogou-pinyin, qq-wubi, squirrel-rime, squirrel-rime-upstream, osx-pinyin"
-
   def install
-    input_method = ARGV.value("with-input-method") || "general"
-    system "./build.py", "build", input_method
-    bin.install "fcitx-remote-#{input_method}"
-    bin.install_symlink "fcitx-remote-#{input_method}" => "fcitx-remote"
+    system "./build.py", "build", "general"
+    bin.install "fcitx-remote-general"
+    bin.install_symlink "fcitx-remote-general" => "fcitx-remote"
   end
 
   test do
