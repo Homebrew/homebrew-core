@@ -17,7 +17,6 @@ class Ekg2 < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "readline"
-  depends_on "libgadu" => :optional
 
   # Fix the build on OS X 10.9+
   # http://bugs.ekg2.org/issues/152
@@ -30,14 +29,13 @@ class Ekg2 < Formula
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --without-python
-      --without-perl
+      --enable-unicode
       --with-readline=#{readline}
       --without-gtk
-      --enable-unicode
+      --without-libgadu
+      --without-perl
+      --without-python
     ]
-
-    args << (build.with?("libgadu") ? "--with-libgadu" : "--without-libgadu")
 
     system "./configure", *args
     system "make", "install"
