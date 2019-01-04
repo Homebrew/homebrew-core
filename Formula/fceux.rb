@@ -33,7 +33,7 @@ class Fceux < Formula
 
     # gdlib required for logo insertion, but headers are not detected
     # https://sourceforge.net/p/fceultra/bugs/756/
-    scons "RELEASE=1", "GTK=0", "GTK3=1", "LOGO=0"
+    system "scons", "RELEASE=1", "GTK=0", "GTK3=1", "LOGO=0"
     libexec.install "src/fceux"
     pkgshare.install ["output/luaScripts", "output/palettes", "output/tools"]
     (bin/"fceux").write <<~EOS
