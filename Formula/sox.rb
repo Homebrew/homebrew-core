@@ -3,7 +3,7 @@ class Sox < Formula
   homepage "https://sox.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2.tar.gz"
   sha256 "b45f598643ffbd8e363ff24d61166ccec4836fea6d3888881b8df53e3bb55f6c"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -19,10 +19,7 @@ class Sox < Formula
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "libao" => :optional
-  depends_on "libsndfile" => :optional
-  depends_on "opencore-amr" => :optional
-  depends_on "opusfile" => :optional
+  depends_on "opusfile"
 
   def install
     system "./configure", "--disable-debug",
