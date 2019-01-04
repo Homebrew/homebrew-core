@@ -13,7 +13,6 @@ class Hevea < Formula
 
   depends_on "ocamlbuild" => :build
   depends_on "ocaml"
-  depends_on "ghostscript" => :optional
 
   def install
     ENV["PREFIX"] = prefix
