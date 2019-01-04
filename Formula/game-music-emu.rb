@@ -14,25 +14,10 @@ class GameMusicEmu < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sdl" => :optional
 
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-
-    if build.with? "sdl"
-      cd "player" do
-        system "make"
-
-        # gme_player will have linked against the version of libgme in the buildpath,
-        # and we haven't yet fixed its dylib ID. Do that manually here because this
-        # won't be automatically fixable later.
-        dylib_id = MachO::MachOFile.new("#{buildpath}/gme/libgme.0.dylib").dylib_id
-        MachO::Tools.change_install_name("gme_player", dylib_id, "#{lib}/libgme.0.dylib")
-
-        bin.install "gme_player"
-      end
-    end
   end
 
   test do
