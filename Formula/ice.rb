@@ -12,12 +12,9 @@ class Ice < Formula
     sha256 "1c1f3181f3e8b82cda5810b4317edd4a40b4185700c2f7b095d1be970d4c539b" => :sierra
   end
 
-  option "with-java", "Build Ice for Java and the IceGrid GUI app"
-
   depends_on "lmdb"
   depends_on :macos => :mavericks
   depends_on "mcpp"
-  depends_on :java => ["1.8+", :optional]
 
   patch do
     url "https://github.com/zeroc-ice/ice/compare/v3.7.1..v3.7.1-xcode10.patch?full_index=1"
@@ -39,7 +36,7 @@ class Ice < Formula
       # We don't build slice2py, slice2js, slice2rb to prevent clashes with
       # the translators installed by the PyPI/GEM/npm packages.
       "SKIP=slice2confluence slice2py slice2rb slice2js",
-      "LANGUAGES=cpp objective-c #{build.with?("java") ? "java java-compat" : ""}",
+      "LANGUAGES=cpp objective-c",
     ]
     system "make", "install", *args
   end
