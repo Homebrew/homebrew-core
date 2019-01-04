@@ -81,7 +81,7 @@ class Mongodb < Formula
       LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
-    scons "install", *args
+    system "scons", "install", *args
 
     (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
