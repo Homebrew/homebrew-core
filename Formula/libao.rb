@@ -17,7 +17,6 @@ class Libao < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "pulseaudio" => :optional
 
   def install
     ENV["AUTOMAKE_FLAGS"] = "--include-deps"
@@ -28,8 +27,6 @@ class Libao < Formula
       --prefix=#{prefix}
       --enable-static
     ]
-
-    args << "--enable-pulse" if build.with? "pulseaudio"
 
     system "./configure", *args
     system "make", "install"
