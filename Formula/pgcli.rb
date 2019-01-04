@@ -3,8 +3,8 @@ class Pgcli < Formula
 
   desc "CLI for Postgres with auto-completion and syntax highlighting"
   homepage "https://pgcli.com/"
-  url "https://files.pythonhosted.org/packages/29/fd/f4a8e2ffa43e0729af52ba5232bc84e5b4f01520d44a8238deeba2ca3885/pgcli-2.0.1.tar.gz"
-  sha256 "822272be3c38b03fc90467d755d75d24840681ee719fa7b610c986fb06563691"
+  url "https://files.pythonhosted.org/packages/a6/23/c3b9a86116b6d5d248a794fd2d874ae0e7f0efb6b3c8175c1e41cb7bde12/pgcli-2.0.2.tar.gz"
+  sha256 "04f4d3f4dd61d2d165eb2fd8d77879357489a74ca1446cd09fa375c7561392dc"
 
   bottle do
     cellar :any
@@ -43,8 +43,8 @@ class Pgcli < Formula
   end
 
   resource "pgspecial" do
-    url "https://files.pythonhosted.org/packages/57/d4/40d3672f8162aa39f2ef6fd2b508b9eb68ec0345e15066208b112efe77a8/pgspecial-1.11.3.tar.gz"
-    sha256 "f183da55c37128f7a74fe5b28e997991156f19961e59a1ad0f400ffc9535faba"
+    url "https://files.pythonhosted.org/packages/08/2e/4faf028a873f5592a701082b6082e364e649a2c8c736ee41785929b5f036/pgspecial-1.11.5.tar.gz"
+    sha256 "f44dd48db53fd93dc78d61ebac0ca2cc3c58203f94b30edc730b02bfd3ee747b"
   end
 
   resource "prompt_toolkit" do
@@ -58,8 +58,8 @@ class Pgcli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/63/a2/91c31c4831853dedca2a08a0f94d788fc26a48f7281c99a303769ad2721b/Pygments-2.3.0.tar.gz"
-    sha256 "82666aac15622bd7bb685a4ee7f6625dd716da3ef7473620c192c0168aae64fc"
+    url "https://files.pythonhosted.org/packages/64/69/413708eaf3a64a6abb8972644e0f20891a55e621c6759e2c3f3891e05d63/Pygments-2.3.1.tar.gz"
+    sha256 "5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a"
   end
 
   resource "setproctitle" do
@@ -68,8 +68,8 @@ class Pgcli < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
 
   resource "sqlparse" do
