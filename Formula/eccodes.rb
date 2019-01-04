@@ -1,8 +1,8 @@
 class Eccodes < Formula
-  desc "Decode and encode messages in the GRIB 1/2 and  BUFR 3/4 formats"
-  homepage "https://software.ecmwf.int/wiki/display/ECC/ecCodes+Home"
-  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.8.2-Source.tar.gz"
-  sha256 "36e6e73d654027b31c323b0eddd15e4d1f011ad81e79e9c71146ba96293d712a"
+  desc "Decode and encode messages in the GRIB 1/2 and BUFR 3/4 formats"
+  homepage "https://confluence.ecmwf.int/display/ECC"
+  url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.10.0-Source.tar.gz"
+  sha256 "bea3cb4caafca368538bc457075bbe848215085f3574cfcdf106d32e954d82d8"
 
   bottle do
     sha256 "c4f8455e0c83cbbeb780eacdd6bd11589a8acc98b655a9e1d46bb00aac654588" => :mojave
@@ -18,7 +18,7 @@ class Eccodes < Formula
   depends_on "numpy"
 
   conflicts_with "grib-api",
-    :because => "eccodes and grib-api install the same binaries."
+    :because => "eccodes and obsolete grib-api install the same binaries."
 
   def install
     inreplace "CMakeLists.txt", "find_package( OpenJPEG )", ""
