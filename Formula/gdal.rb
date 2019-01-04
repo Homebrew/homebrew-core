@@ -122,7 +122,10 @@ class Gdal < Formula
     args.concat unsupported_backends.map { |b| "--without-" + b }
 
     # Work around "error: no member named 'signbit' in the global namespace"
-    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+    if DevelopmentTools.clang_build_version >= 900
+      ENV.delete "SDKROOT"
+      ENV.delete "HOMEBREW_SDKROOT"
+    end
 
     system "./configure", *args
     system "make"
