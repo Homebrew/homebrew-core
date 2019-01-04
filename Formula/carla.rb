@@ -3,6 +3,7 @@ class Carla < Formula
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
   url "https://github.com/falkTX/Carla/archive/v1.9.12.tar.gz"
   sha256 "f4711cb857ea5c409b4602ab2254956d4f24311ed292048f9013163c953e0f30"
+  head "https://github.com/falkTX/Carla.git"
 
   bottle do
     sha256 "b58bb67d7296dde12f72e1acd0b577974629ca1181b8598cddd8dc1febb38706" => :mojave
