@@ -24,11 +24,10 @@ class Harbour < Formula
   end
 
   depends_on "pcre"
-  depends_on :x11 => :optional
 
   def install
     ENV["HB_INSTALL_PREFIX"] = prefix
-    ENV["HB_WITH_X11"] = "no" if build.without? "x11"
+    ENV["HB_WITH_X11"] = "no"
 
     ENV.deparallelize
 
