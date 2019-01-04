@@ -3,6 +3,7 @@ class Libsamplerate < Formula
   homepage "http://www.mega-nerd.com/SRC"
   url "http://www.mega-nerd.com/SRC/libsamplerate-0.1.9.tar.gz"
   sha256 "0a7eb168e2f21353fb6d84da152e4512126f7dc48ccb0be80578c565413444c1"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,8 +15,7 @@ class Libsamplerate < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "fftw" => :optional
-  depends_on "libsndfile" => :optional
+  depends_on "libsndfile"
 
   # configure adds `/Developer/Headers/FlatCarbon` to the include, but this is
   # very deprecated. Correct the use of Carbon.h to the non-flat location.
@@ -26,21 +26,6 @@ class Libsamplerate < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
-
-    # https://github.com/Homebrew/homebrew/issues/47133
-    # Unless formula is built with libsndfile, the example program is broken.
-    rm_f "#{bin}/sndfile-resample" if build.without? "libsndfile"
-  end
-
-  def caveats
-    s = ""
-    if build.without? "libsndfile"
-      s += <<~EOS
-        Unless this formula is built with libsndfile, the example program,
-        "sndfile-resample", is broken and hence, removed from installation.
-      EOS
-    end
-    s
   end
 end
 
