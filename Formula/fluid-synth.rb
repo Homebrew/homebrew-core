@@ -3,6 +3,8 @@ class FluidSynth < Formula
   homepage "http://www.fluidsynth.org"
   url "https://github.com/FluidSynth/fluidsynth/archive/v1.1.11.tar.gz"
   sha256 "da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8"
+  revision 1
+  head "https://github.com/FluidSynth/fluidsynth.git"
 
   bottle do
     sha256 "7ddf078779748766cdf075e72bc5c9c4bd3df2abe93b3886fd804cb0490fa0d3" => :mojave
@@ -14,14 +16,21 @@ class FluidSynth < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "libsndfile" => :optional
-  depends_on "portaudio" => :optional
+  depends_on "libsndfile"
+  depends_on "portaudio"
 
   def install
-    args = std_cmake_args
-    args << "-Denable-framework=OFF" << "-DLIB_SUFFIX="
-    args << "-Denable-portaudio=ON" if build.with? "portaudio"
-    args << "-Denable-libsndfile=OFF" if build.without? "libsndfile"
+    args = std_cmake_args + %w[
+      -Denable-framework=OFF
+      -Denable-portaudio=ON
+      -DLIB_SUFFIX=
+    ]
+    if build.head?
+      args += %w[
+        -Denable-dbus=OFF
+        -Denable-sdl2=OFF
+      ]
+    end
 
     mkdir "build" do
       system "cmake", "..", *args
