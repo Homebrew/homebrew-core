@@ -1,10 +1,9 @@
 class Recutils < Formula
   desc "Tools to work with human-editable, plain text data files"
   homepage "https://www.gnu.org/software/recutils/"
-  url "https://ftp.gnu.org/gnu/recutils/recutils-1.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/recutils/recutils-1.7.tar.gz"
-  sha256 "233dc6dedb1916b887de293454da7e36a74bed9ebea364f7e97e74920051bc31"
-  revision 1
+  url "https://ftp.gnu.org/gnu/recutils/recutils-1.8.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/recutils/recutils-1.8.tar.gz"
+  sha256 "df8eae69593fdba53e264cbf4b2307dfb82120c09b6fab23e2dad51a89a5b193"
 
   bottle do
     cellar :any
