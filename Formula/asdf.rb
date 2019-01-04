@@ -29,10 +29,16 @@ class Asdf < Formula
 
   def caveats; <<~EOS
     Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
-         source #{opt_prefix}/asdf.sh
+    If you are using a framework, such as oh-my-zsh, place them at the end of your .zshrc
+        . $HOME/.asdf/asdf.sh
+        . $HOME/.asdf/completions/asdf.bash
 
     If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
          source #{opt_prefix}/asdf.fish
+
+    You will also need to update the fish completions by running the following:
+      mkdir -p ~/.config/fish/completions
+      cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
   EOS
   end
 
