@@ -18,8 +18,6 @@ class Libftdi < Formula
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "libusb"
-  depends_on "boost" => :optional
-  depends_on "confuse" => :optional
 
   def install
     mkdir "libftdi-build" do
