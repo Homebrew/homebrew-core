@@ -10,8 +10,6 @@ class Mono < Formula
     sha256 "9b5c5dfae0a67c324ff9cfaf9723f52d913006116f26dc1b88459d8da82f82f0" => :sierra
   end
 
-  option "without-fsharp", "Build without support for the F# language."
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
@@ -70,20 +68,16 @@ class Mono < Formula
     end
 
     # Finally build and install fsharp as well
-    if build.with? "fsharp"
-      resource("fsharp").stage do
-        ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
-        system "make"
-        system "make", "install"
-      end
+    resource("fsharp").stage do
+      ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
+      system "make"
+      system "make", "install"
     end
   end
 
   def caveats; <<~EOS
     To use the assemblies from other formulae you need to set:
       export MONO_GAC_PREFIX="#{HOMEBREW_PREFIX}"
-    Note that the 'mono' formula now includes F#. If you have
-    the 'fsharp' formula installed, remove it with 'brew uninstall fsharp'.
   EOS
   end
 
@@ -119,42 +113,40 @@ class Mono < Formula
     EOS
     system bin/"xbuild", "test.csproj"
 
-    if build.with? "fsharp"
-      # Test that fsharpi is working
-      ENV.prepend_path "PATH", bin
-      (testpath/"test.fsx").write <<~EOS
-        printfn "#{test_str}"; 0
-      EOS
-      output = pipe_output("#{bin}/fsharpi test.fsx")
-      assert_match test_str, output
+    # Test that fsharpi is working
+    ENV.prepend_path "PATH", bin
+    (testpath/"test.fsx").write <<~EOS
+      printfn "#{test_str}"; 0
+    EOS
+    output = pipe_output("#{bin}/fsharpi test.fsx")
+    assert_match test_str, output
 
-      # Tests that xbuild is able to execute fsc.exe
-      (testpath/"test.fsproj").write <<~EOS
-        <?xml version="1.0" encoding="utf-8"?>
-        <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-          <PropertyGroup>
-            <ProductVersion>8.0.30703</ProductVersion>
-            <SchemaVersion>2.0</SchemaVersion>
-            <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
-            <OutputType>Exe</OutputType>
-            <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
-          </PropertyGroup>
-          <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
-          <ItemGroup>
-            <Compile Include="Main.fs" />
-          </ItemGroup>
-          <ItemGroup>
-            <Reference Include="mscorlib" />
-            <Reference Include="System" />
-            <Reference Include="FSharp.Core" />
-          </ItemGroup>
-        </Project>
-      EOS
-      (testpath/"Main.fs").write <<~EOS
-        [<EntryPoint>]
-        let main _ = printfn "#{test_str}"; 0
-      EOS
-      system bin/"xbuild", "test.fsproj"
-    end
+    # Tests that xbuild is able to execute fsc.exe
+    (testpath/"test.fsproj").write <<~EOS
+      <?xml version="1.0" encoding="utf-8"?>
+      <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+        <PropertyGroup>
+          <ProductVersion>8.0.30703</ProductVersion>
+          <SchemaVersion>2.0</SchemaVersion>
+          <ProjectGuid>{B6AB4EF3-8F60-41A1-AB0C-851A6DEB169E}</ProjectGuid>
+          <OutputType>Exe</OutputType>
+          <FSharpTargetsPath>$(MSBuildExtensionsPath32)\\Microsoft\\VisualStudio\\v$(VisualStudioVersion)\\FSharp\\Microsoft.FSharp.Targets</FSharpTargetsPath>
+        </PropertyGroup>
+        <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
+        <ItemGroup>
+          <Compile Include="Main.fs" />
+        </ItemGroup>
+        <ItemGroup>
+          <Reference Include="mscorlib" />
+          <Reference Include="System" />
+          <Reference Include="FSharp.Core" />
+        </ItemGroup>
+      </Project>
+    EOS
+    (testpath/"Main.fs").write <<~EOS
+      [<EntryPoint>]
+      let main _ = printfn "#{test_str}"; 0
+    EOS
+    system bin/"xbuild", "test.fsproj"
   end
 end
