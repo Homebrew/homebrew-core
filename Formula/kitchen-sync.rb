@@ -3,6 +3,7 @@ class KitchenSync < Formula
   homepage "https://github.com/willbryant/kitchen_sync"
   url "https://github.com/willbryant/kitchen_sync/archive/1.9.tar.gz"
   sha256 "9e2dd1200a8bc0711bb69b9f0aa1e4aa6a3c0f7661f418f2b0db02fee0ec1059"
+  revision 1
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
@@ -13,17 +14,17 @@ class KitchenSync < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "boost"
+  depends_on "libpq"
   depends_on "mysql-client"
-  depends_on "yaml-cpp"
 
-  needs :cxx11
+  needs :cxx14
 
   def install
-    ENV.cxx11
     system "cmake", ".",
                     "-DMySQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",
+                    "-DMySQL_LIBRARY_DIR=#{Formula["mysql-client"].opt_lib}",
+                    "-DPostgreSQL_INCLUDE_DIR=#{Formula["libpq"].opt_include}",
+                    "-DPostgreSQL_LIBRARY_DIR=#{Formula["libpq"].opt_lib}",
                     *std_cmake_args
 
     system "make", "install"
