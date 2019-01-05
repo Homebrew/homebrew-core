@@ -17,8 +17,6 @@ class Gsasl < Formula
     sha256 "5585b8bddf849b2b4b3f67da253c97556bfa526b8345006595cdefddf3385dd5" => :mountain_lion
   end
 
-  depends_on "libntlm" => :optional
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--with-gssapi-impl=mit",
