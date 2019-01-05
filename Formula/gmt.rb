@@ -1,11 +1,8 @@
 class Gmt < Formula
   desc "Tools for processing and displaying xy and xyz datasets"
   homepage "https://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.4-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.4-src.tar.xz"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.4-src.tar.xz"
-  sha256 "30fe868c91df30c51a637d54cb9ac52a64fe57e15daa9e08a73a4d1f0847e69f"
-  revision 2
+  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.5-src.tar.gz"
+  sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
 
   bottle do
     sha256 "835d1c8950943dba95e09db387bf8e495079e1797ffb1669a216229edd427e89" => :mojave
