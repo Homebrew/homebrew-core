@@ -6,6 +6,7 @@ class Mu < Formula
   homepage "https://www.djcbsoftware.nl/code/mu/"
   url "https://github.com/djcb/mu/releases/download/v1.0/mu-1.0.tar.xz"
   sha256 "966adc4db108f8ddf162891f9c3c24ba27f78c31f86575a0e05fbf14e857a513"
+  revision 1
 
   bottle do
     sha256 "c17d20c6deebf4f75da2f7fa028114f48176714c46d1f204d469880121e9b6d0" => :mojave
@@ -25,10 +26,10 @@ class Mu < Formula
   depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "emacs"
   depends_on "gettext"
   depends_on "glib"
   depends_on "xapian"
-  depends_on "emacs" => :optional
 
   # Currently requires gmime 2.6.x
   resource "gmime" do
@@ -42,10 +43,6 @@ class Mu < Formula
       system "make", "install"
       ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
     end
-
-    # Explicitly tell the build not to include emacs support as the version
-    # shipped by default with macOS is too old.
-    ENV["EMACS"] = "no" if build.without? "emacs"
 
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
