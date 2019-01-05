@@ -18,7 +18,6 @@ class Vcs < Formula
   depends_on "ghostscript"
   depends_on "gnu-getopt"
   depends_on "imagemagick"
-  depends_on "mplayer" => :optional
 
   def install
     inreplace "vcs", "declare GETOPT=getopt", "declare GETOPT=#{Formula["gnu-getopt"].opt_bin}/getopt"
