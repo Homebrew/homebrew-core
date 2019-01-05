@@ -13,8 +13,6 @@ class Zmap < Formula
     sha256 "517ccb75b370f3deee62725a9e74b53a7d3949f3ef214a8769983c7eab72f83e" => :el_capitan
   end
 
-  deprecated_option "with-mongo-c" => "with-mongo-c-driver"
-
   depends_on "byacc" => :build
   depends_on "cmake" => :build
   depends_on "gengetopt" => :build
@@ -22,26 +20,17 @@ class Zmap < Formula
   depends_on "gmp"
   depends_on "json-c"
   depends_on "libdnet"
-  depends_on "hiredis" => :optional
-  depends_on "mongo-c-driver" => :optional
 
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
 
-    args = std_cmake_args
-    args << "-DENABLE_DEVELOPMENT=OFF"
-    args << "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
-    args << "-DWITH_REDIS=ON" if build.with? "hiredis"
-    args << "-DWITH_MONGO=ON" if build.with? "mongo-c-driver"
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DENABLE_DEVELOPMENT=OFF",
+                         "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
     system "make"
     system "make", "install"
   end
 
   test do
     system "#{sbin}/zmap", "--version"
-    assert_match /redis-csv/, `#{sbin}/zmap --list-output-modules` if build.with? "hiredis"
-    assert_match /mongo/, `#{sbin}/zmap --list-output-modules` if build.with? "mongo-c-driver"
   end
 end
