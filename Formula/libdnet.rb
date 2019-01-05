@@ -16,12 +16,10 @@ class Libdnet < Formula
     sha256 "c8fda878e8ff2a87a3b521ca26a5ebb0d4b9eb82868a92149c723c4bf21f5b79" => :mountain_lion
   end
 
-  option "without-python", "Build without python support"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     # autoreconf to get '.dylib' extension on shared lib
