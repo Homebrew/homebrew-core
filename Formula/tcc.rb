@@ -3,6 +3,7 @@ class Tcc < Formula
   homepage "https://bellard.org/tcc/"
   url "https://download.savannah.nongnu.org/releases/tinycc/tcc-0.9.27.tar.bz2"
   sha256 "de23af78fca90ce32dff2dd45b3432b2334740bb9bb7b05bf60fdbfc396ceb9c"
+  revision 1
 
   bottle do
     rebuild 1
@@ -11,16 +12,13 @@ class Tcc < Formula
     sha256 "f5ce8a5801502da6c214ad9f5e9df024109bbe0c4e5380de35112f0596a373fe" => :sierra
   end
 
-  option "with-cross", "Build all cross compilers"
-
   def install
     args = %W[
       --prefix=#{prefix}
       --source-path=#{buildpath}
       --sysincludepaths=/usr/local/include:#{MacOS.sdk_path}/usr/include:{B}/include
+      --enable-cross"
     ]
-
-    args << "--enable-cross" if build.with? "cross"
 
     ENV.deparallelize
     system "./configure", *args
