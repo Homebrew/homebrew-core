@@ -19,14 +19,10 @@ class Opus < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-custom-modes", "Enable custom-modes for opus see https://www.opus-codec.org/docs/opus_api-1.1.3/group__opus__custom.html"
-
   def install
-    args = ["--disable-dependency-tracking", "--disable-doc", "--prefix=#{prefix}"]
-    args << "--enable-custom-modes" if build.with? "custom-modes"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-doc", "--prefix=#{prefix}"
     system "make", "install"
   end
 
