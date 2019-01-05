@@ -1,7 +1,7 @@
 class EmacsClangCompleteAsync < Formula
   desc "Emacs plugin using libclang to complete C/C++ code"
   homepage "https://github.com/Golevka/emacs-clang-complete-async"
-  revision 4
+  revision 5
   head "https://github.com/Golevka/emacs-clang-complete-async.git"
 
   stable do
@@ -19,8 +19,6 @@ class EmacsClangCompleteAsync < Formula
     sha256 "9501489cb080eef8a51eb5d3891df8d75f1ccb2211b5d1e95e4ac52c031ab191" => :el_capitan
   end
 
-  option "with-elisp", "Include Emacs lisp package"
-
   depends_on "llvm"
 
   # https://github.com/Golevka/emacs-clang-complete-async/pull/59
@@ -32,7 +30,7 @@ class EmacsClangCompleteAsync < Formula
   def install
     system "make"
     bin.install "clang-complete"
-    share.install "auto-complete-clang-async.el" if build.with? "elisp"
+    share.install "auto-complete-clang-async.el"
   end
 end
 
