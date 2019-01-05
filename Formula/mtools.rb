@@ -13,8 +13,6 @@ class Mtools < Formula
     sha256 "29b49f7ac62634261b8e9de9ecd1459d0a9d298a525dbe09091aa8e015b72e7a" => :el_capitan
   end
 
-  depends_on :x11 => :optional
-
   conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
 
   def install
@@ -31,13 +29,8 @@ class Mtools < Formula
       --disable-debug
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --without-x
     ]
-
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--without-x"
-    end
 
     system "./configure", *args
     system "make"
