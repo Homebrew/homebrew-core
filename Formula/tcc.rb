@@ -6,10 +6,9 @@ class Tcc < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "697164b3427d1993923e2e4c446b4ea87b55916d59cfe5ba64ad04ca3d54bddc" => :mojave
-    sha256 "45a2646746c8a9766aa106ba6aaac155e8b963c2c5ea3afac0b398b0b5501430" => :high_sierra
-    sha256 "f5ce8a5801502da6c214ad9f5e9df024109bbe0c4e5380de35112f0596a373fe" => :sierra
+    sha256 "ca8cd4827e72201cd5f368b5b74b9dead8554e0188b7ea63f81926d775d704e9" => :mojave
+    sha256 "1ad7de1b974ca3e16668dec9cbef2accb29ecedb8f3f5819c06a2f77c8f3f2d1" => :high_sierra
+    sha256 "c2949f3a99d1efb600137e4bb617ebd8a385697038f9cb8136c681033a7a636e" => :sierra
   end
 
   def install
