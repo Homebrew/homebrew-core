@@ -13,14 +13,10 @@ class Harbour < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "feb82703d6fbf9d406f32b825d44bcf2fd40867a262a20df52f1b732863bc702" => :mojave
-    sha256 "3b7edfe9c3878bbfe632cca9abc40a4b109b420b7ab856b90ce44fbc05624f85" => :high_sierra
-    sha256 "815dacae2d2ac3d7e9c16d158a42e3bc500758f6d30fc5d0eedec8ae88b1bf26" => :sierra
-    sha256 "21c3269b41d9b8ea334949334febed047c7ffd4fc9ca7e0686ba6a472929a2b8" => :el_capitan
-    sha256 "5677878ce808eb51cf130212724d1959def64d45c6812cb99ec0ceef100ea4f8" => :yosemite
-    sha256 "ed55f20628aa2c34adccb0530a9b8f477572bc8acc0d9ff3d5374fe68384c753" => :mavericks
-    sha256 "8b6384af586eeec66714a8c55e5e6efb26909053958897b64c7cdad2459965e0" => :mountain_lion
+    rebuild 2
+    sha256 "38063770c90226c48e9d73c6789a015141ac0db6478d075fe18f5d8718e2472d" => :mojave
+    sha256 "efcb46128115bea60eab289f581c4bed82fa846af095055feee116cbf90ed9ac" => :high_sierra
+    sha256 "ddf71a29c41a874b1d6e787d07f8f66d284ac2bbc24c7a77c1dedfe8d243c76a" => :sierra
   end
 
   depends_on "pcre"
