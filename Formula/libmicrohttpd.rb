@@ -4,6 +4,7 @@ class Libmicrohttpd < Formula
   url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.62.tar.gz"
   mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.62.tar.gz"
   sha256 "bd3e097d703f5091a6a01b56c0464a90fdd17f5d50478cea50a346b25c88db49"
+  revision 1
 
   bottle do
     cellar :any
@@ -12,12 +13,8 @@ class Libmicrohttpd < Formula
     sha256 "e98e530fc45a8b3db33798216c4c30c151083320522a817fab3984790a82a5e5" => :sierra
   end
 
-  option "with-ssl", "Enable SSL support"
-
-  if build.with? "ssl"
-    depends_on "libgcrypt"
-    depends_on "gnutls"
-  end
+  depends_on "gnutls"
+  depends_on "libgcrypt"
 
   def install
     system "./configure", "--disable-dependency-tracking",
