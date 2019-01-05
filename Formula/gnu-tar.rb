@@ -20,8 +20,6 @@ class GnuTar < Formula
     depends_on "gettext" => :build
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
-
   def install
     # Work around unremovable, nested dirs bug that affects lots of
     # GNU projects. See:
@@ -31,42 +29,40 @@ class GnuTar < Formula
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
-    args = ["--prefix=#{prefix}", "--mandir=#{man}"]
-    args << "--program-prefix=g" if build.without? "default-names"
+    args = %W[
+      --prefix=#{prefix}
+      --mandir=#{man}
+      --program-prefix=g
+    ]
 
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
     # Symlink the executable into libexec/gnubin as "tar"
-    if build.without? "default-names"
-      (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
-      (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
-    end
+    (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
+    (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
   end
 
-  def caveats
-    if build.without? "default-names" then <<~EOS
-      gnu-tar has been installed as "gtar".
+  def caveats; <<~EOS
+    GNU "tar" has been installed as "gtar".
+    If you need to use it as "tar", you can add a "gnubin" directory
+    to your PATH from your bashrc like:
 
-      If you really need to use it as "tar", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
+    Additionally, you can access its man page with normal name if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
 
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
-
-          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-
-    EOS
-    end
+        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
   end
 
   test do
-    tar = build.with?("default-names") ? bin/"tar" : bin/"gtar"
     (testpath/"test").write("test")
-    system tar, "-czvf", "test.tar.gz", "test"
-    assert_match /test/, shell_output("#{tar} -xOzf test.tar.gz")
+    system bin/"gtar", "-czvf", "test.tar.gz", "test"
+    assert_match /test/, shell_output("#{bin}/gtar -xOzf test.tar.gz")
+
+    assert_match /test/, shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
   end
 end
