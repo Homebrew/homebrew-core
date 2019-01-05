@@ -18,13 +18,10 @@ class Dosbox < Formula
     depends_on "automake" => :build
   end
 
-  option "with-debugger", "Enable internal debugger"
-
   depends_on "libpng"
   depends_on "sdl"
   depends_on "sdl_net"
   depends_on "sdl_sound"
-  depends_on "ncurses" => :optional
 
   def install
     args = %W[
@@ -33,7 +30,6 @@ class Dosbox < Formula
       --disable-sdltest
       --enable-core-inline
     ]
-    args << "--enable-debug" if build.with? "debugger"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
