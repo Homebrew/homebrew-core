@@ -7,11 +7,9 @@ class Libsamplerate < Formula
 
   bottle do
     cellar :any
-    sha256 "9889af1465dd3eccbed2f532a94ce85543ec0e79984f879bdc60ad9e89478fc2" => :mojave
-    sha256 "b7e0343483287deebebd335de03c5c3a4597334440cc01dc1dbd5d14cc6505d8" => :high_sierra
-    sha256 "69443b5047dc7e71b74ec29359b1d05e3e6c659751b73a3c2e8e0ad4dd63a6f1" => :sierra
-    sha256 "97e0ba8a07df0684580bfec1a7fc5760d1f90e9102330ced19cdb7c37c4ae0ca" => :el_capitan
-    sha256 "5f3623588a4fb9b2d886547719d0a3b68df725882d329152ee1de7c4841404ed" => :yosemite
+    sha256 "4230f5c4bc95c882164799c28d1e8e0fd58e24649aacd585a8d9fa03e7b54395" => :mojave
+    sha256 "e8eeb394697f34f294ca67b4ed296fcee986aabc152ffc7d27360f67e30038f5" => :high_sierra
+    sha256 "5dfce39eab407ae04dbe0704b5f76123da2703260f4fac12c76437bb02415fc1" => :sierra
   end
 
   depends_on "pkg-config" => :build
