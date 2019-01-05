@@ -14,26 +14,30 @@ class GnuTime < Formula
     sha256 "a6ae05233326897ed622ab5c6ee63081e1c445b5e7496c68efa00dd5718b589c" => :el_capitan
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
-
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--mandir=#{man}",
-      "--info=#{info}",
+    args = %W[
+      --prefix=#{prefix}
+      --info=#{info}
+      --program-prefix=g
     ]
-
-    args << "--program-prefix=g" if build.without? "default-names"
 
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
-      (libexec/"gnubin").install_symlink bin/"gtime" => "time"
-    end
+    (libexec/"gnubin").install_symlink bin/"gtime" => "time"
+  end
+
+  def caveats; <<~EOS
+    GNU "time" has been installed as "gtime".
+    If you need to use it as "time", you can add a "gnubin" directory
+    to your PATH from your bashrc like:
+
+        PATH="#{opt_libexec}/gnubin:$PATH"
+  EOS
   end
 
   test do
     system bin/"gtime", "ruby", "--version"
+    system opt_libexec/"gnubin/time", "ruby", "--version"
   end
 end
