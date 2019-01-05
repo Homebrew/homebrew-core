@@ -43,8 +43,10 @@ class SdlMixer < Formula
   test do
     testpath.install resource("playwave")
     system ENV.cc, "-o", "playwave", "playwave.c", "-I#{include}/SDL",
-                   "-I#{Formula["sdl"].opt_include}/SDL", "-lSDL_mixer",
-                   "-lSDLmain", "-lSDL", "-Wl,-framework,Cocoa"
+                   "-I#{Formula["sdl"].opt_include}/SDL",
+                   "-L#{lib}", "-lSDL_mixer",
+                   "-L#{Formula["sdl"].lib}", "-lSDLmain", "-lSDL",
+                   "-Wl,-framework,Cocoa"
     system "SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=disk ./playwave #{test_fixtures("test.wav")}"
     assert_predicate testpath/"sdlaudio.raw", :exist?
   end
