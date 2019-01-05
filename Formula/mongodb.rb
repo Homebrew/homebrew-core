@@ -1,9 +1,8 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.com/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.4.tar.gz"
-  sha256 "02baada1c5665c77c58e068ac6e9d0b11371bcd89e1467896765a5e452e6cce3"
-  revision 1
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.5.tar.gz"
+  sha256 "d967098fc91d105cdb0f400c8b837e5c2795c3638d7720392bc47afb1efe1c10"
 
   bottle do
     sha256 "22fcbb5b68564be444fa816f540e481628d9eb883d15a1188b0cb308e6e84bff" => :mojave
@@ -53,18 +52,14 @@ class Mongodb < Formula
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
 
-    cd "src/mongo/gotools" do
-      inreplace "build.sh" do |s|
-        s.gsub! "$(git describe)", version.to_s
-        s.gsub! "$(git rev-parse HEAD)", "homebrew"
-      end
-
+    cd "src/mongo/gotools/src/github.com/mongodb/mongo-tools" do
       ENV["CPATH"] = Formula["openssl"].opt_include
       ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      ENV["GOROOT"] = Formula["go"].opt_libexec
       system "./build.sh", "ssl"
     end
 
-    (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
+    (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/src/github.com/mongodb/mongo-tools/bin/*"]
 
     args = %W[
       --prefix=#{prefix}
