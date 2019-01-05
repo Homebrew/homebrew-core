@@ -170,8 +170,8 @@ class S3ql < Formula
 
     # create a local filesystem, and run an fsck on it
     assert_equal "Library\n", shell_output("ls")
-    assert_match "Creating metadata", shell_output(bin/"mkfs_s3ql --plain local://$PWD 2>&1")
+    assert_match "Creating metadata", shell_output(bin/"mkfs_s3ql --plain local://#{testpath} 2>&1")
     assert_match "s3ql_metadata", shell_output("ls s3ql_metadata")
-    system "fsck_s3ql local://$PWD"
+    system bin/"fsck_s3ql", "local://#{testpath}"
   end
 end
