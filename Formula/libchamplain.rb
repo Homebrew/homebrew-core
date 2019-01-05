@@ -18,7 +18,6 @@ class Libchamplain < Formula
   depends_on "clutter-gtk"
   depends_on "gtk+3"
   depends_on "libsoup"
-  depends_on "vala" => :optional
 
   def install
     system "./configure", "--disable-debug",
