@@ -12,8 +12,6 @@ class Gdbm < Formula
     sha256 "9d0b8affbced6c6fb759a077cf5fac4fca0d4b69dd2f4a82ca2f38b20e0f0ece" => :sierra
   end
 
-  option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
-
   # Use --without-readline because readline detection is broken in 1.13
   # https://github.com/Homebrew/homebrew-core/pull/10903
   def install
@@ -23,8 +21,6 @@ class Gdbm < Formula
       --without-readline
       --prefix=#{prefix}
     ]
-
-    args << "--enable-libgdbm-compat" if build.with? "libgdbm-compat"
 
     system "./configure", *args
     system "make", "install"
