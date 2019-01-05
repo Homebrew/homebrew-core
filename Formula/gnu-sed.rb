@@ -7,9 +7,10 @@ class GnuSed < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f253301f0bce1c470b77a4230b173a9e6cd70c21c94ff83ae148aa2b8e315b0a" => :mojave
-    sha256 "29288f1d0da2301218a31f2efb219f9bd627c2b52a646fd570273a4f38cc580c" => :high_sierra
-    sha256 "5c090deefc2dd3769191d97378b981b2dfdd64f1e0259de22682d434ad07e427" => :sierra
+    rebuild 1
+    sha256 "a1d45377723857fe063e64d19023cce633c8abd2a40b96e1331ebac93d07e08f" => :mojave
+    sha256 "9a8f2e31cb6ab729429ba4bf5c7fb0f9333cda7a78d7e6f052cf3534ab4cbddc" => :high_sierra
+    sha256 "2f5d798d3157939f1c2edab1fb1f519018fc8eb78181d9f669df68197c517b45" => :sierra
   end
 
   conflicts_with "ssed", :because => "both install share/info/sed.info"
