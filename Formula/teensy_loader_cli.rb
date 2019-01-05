@@ -15,16 +15,9 @@ class TeensyLoaderCli < Formula
     sha256 "760b87b4455a716d5fd57a3a4d3e45ce7f4a67743a2364ecbd7ef791a456abcc" => :yosemite
   end
 
-  depends_on "libusb-compat" => :optional
-
   def install
     ENV["OS"] = "MACOSX"
-
-    if build.with? "libusb-compat"
-      ENV["USE_LIBUSB"] = "YES"
-    else
-      ENV["SDK"] = MacOS.sdk_path || "/"
-    end
+    ENV["SDK"] = MacOS.sdk_path || "/"
 
     system "make"
     bin.install "teensy_loader_cli"
