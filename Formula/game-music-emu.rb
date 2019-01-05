@@ -7,10 +7,10 @@ class GameMusicEmu < Formula
 
   bottle do
     cellar :any
-    sha256 "69d5f7bf77f715adde6f957f3cc381f62cc1df1d320bf9c5b539f32f5ba4bdaf" => :mojave
-    sha256 "fa5d01d37320f200b61257cabe024ff4e51b801f37fcf217b455ba06abeca197" => :high_sierra
-    sha256 "11069c82318a509cefef8132816ecac1e84d857fcc317532fbfd73b040c1e225" => :sierra
-    sha256 "df8297b2e54ef3a24291d03006a4b0b9e2c7c004e3f9abe1f278a204a0efd031" => :el_capitan
+    rebuild 1
+    sha256 "e1fe807091f485642c81c4289c153ca402c8b2729eee12f1f3394662ad8b89b4" => :mojave
+    sha256 "0a47b9636e687252c399a7c8820cb168fa2f5fb00281c6c7808c5df767b320a9" => :high_sierra
+    sha256 "1ff25b427da3158fb382efb6a8f0b03015c789f9fb56e1e5c2bf4311b51c5c24" => :sierra
   end
 
   depends_on "cmake" => :build
