@@ -13,7 +13,6 @@ class Gpsd < Formula
   end
 
   depends_on "scons" => :build
-  depends_on "libusb" => :optional
 
   def install
     scons "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
