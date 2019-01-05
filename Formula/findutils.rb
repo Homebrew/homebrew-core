@@ -6,11 +6,11 @@ class Findutils < Formula
   sha256 "ded4c9f73731cd48fec3b6bdaccce896473b6d8e337e9612e16cf1431bb1169d"
 
   bottle do
-    rebuild 2
-    sha256 "f7c4ad2d9948296b0b5af9e3dd7e02015fe20d64af9b7a479af76d07fb5c6059" => :mojave
-    sha256 "8411fd3a9a42a2be0c52b4ae8cad2dd60add473a4cf882620200ab43442fb5c2" => :high_sierra
-    sha256 "c1ecad1c780cb569d268ca5648570dcc753cca720ead2783943aea0363af728e" => :sierra
-    sha256 "bc20b7e2a97c3277ea13fd91b44fbc0015628e8684a2bba203c38a4c7357f6c7" => :el_capitan
+    cellar :any_skip_relocation
+    rebuild 3
+    sha256 "d0f28626392b25451b03772cce4fa33a8b087982a99640f56aa666db5fce250a" => :mojave
+    sha256 "9f3953da6f5e1ad0d21d12e557061dfdddb45424fa7ca6495772c781048bc6bc" => :high_sierra
+    sha256 "7c54d099f7ddf872fe22b6fa155ed31d80ab6c4e93735dfe25d4051a4abd1d30" => :sierra
   end
 
   def install
