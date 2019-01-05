@@ -20,8 +20,6 @@ class Libmaxminddb < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "geoipupdate" => :optional
-
   def install
     system "./bootstrap" if build.head?
 
