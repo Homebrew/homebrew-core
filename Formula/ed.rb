@@ -14,34 +14,39 @@ class Ed < Formula
     sha256 "d8d925d35a5e3a08353960f029423b4f6e7427b2ecc916407ae7e541b0ba3cfa" => :yosemite
   end
 
-  option "with-default-names", "Don't prepend 'g' to the binaries"
-
-  deprecated_option "default-names" => "with-default-names"
-
   def install
     ENV.deparallelize
 
-    args = ["--prefix=#{prefix}"]
-    args << "--program-prefix=g" if build.without? "default-names"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--program-prefix=g"
     system "make"
     system "make", "install"
+
+    %w[ed red].each do |prog|
+      (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
+      (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+    end
   end
 
-  def caveats
-    if build.without? "default-names" then <<~EOS
-      The command has been installed with the prefix "g".
-      If you do not want the prefix, reinstall using the "with-default-names" option.
-    EOS
-    end
+  def caveats; <<~EOS
+    All commands have been installed with the prefix "g".
+    If you need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
+      PATH="#{opt_libexec}/gnubin:$PATH"
+
+    Additionally, you can access their man pages with normal names if you add
+    the "gnuman" directory to your MANPATH from your bashrc as well:
+      MANPATH="#{opt_libexec}/gnuman:$MANPATH"
+  EOS
   end
 
   test do
     testfile = testpath/"test"
     testfile.write "Hello world\n"
-    cmd = build.with?("default-names") ? "ed" : "ged"
-    pipe_output("#{bin}/#{cmd} -s #{testfile}", ",s/o//\nw\n", 0)
+
+    pipe_output("#{bin}/ged -s #{testfile}", ",s/o//\nw\n", 0)
     assert_equal "Hell world\n", testfile.read
+
+    pipe_output("#{opt_libexec}/gnubin/ed -s #{testfile}", ",s/l//g\nw\n", 0)
+    assert_equal "He word\n", testfile.read
   end
 end
