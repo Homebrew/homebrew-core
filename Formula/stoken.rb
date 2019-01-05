@@ -14,12 +14,6 @@ class Stoken < Formula
 
   depends_on "pkg-config" => :build
   depends_on "nettle"
-  depends_on "gtk+3" => :optional
-
-  if build.with? "gtk+3"
-    depends_on "adwaita-icon-theme"
-    depends_on "hicolor-icon-theme"
-  end
 
   def install
     args = %W[
