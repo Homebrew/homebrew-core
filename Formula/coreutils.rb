@@ -71,18 +71,14 @@ class Coreutils < Formula
   end
 
   def caveats; <<~EOS
-    All commands have been installed with the prefix 'g'.
-
-    If you really need to use these commands with their normal names, you
+    All commands have been installed with the prefix "g".
+    If you need to use these commands with their normal names, you
     can add a "gnubin" directory to your PATH from your bashrc like:
-
-        PATH="#{opt_libexec}/gnubin:$PATH"
+      PATH="#{opt_libexec}/gnubin:$PATH"
 
     Additionally, you can access their man pages with normal names if you add
     the "gnuman" directory to your MANPATH from your bashrc as well:
-
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-
+      MANPATH="#{opt_libexec}/gnuman:$MANPATH"
   EOS
   end
 
