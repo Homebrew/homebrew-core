@@ -28,7 +28,6 @@ class Gource < Formula
   depends_on "pcre"
   depends_on "sdl2"
   depends_on "sdl2_image"
-  depends_on :x11 => :optional
 
   needs :cxx11
 
