@@ -7,9 +7,10 @@ class Mscgen < Formula
 
   bottle do
     cellar :any
-    sha256 "7c8d0297e12d8f8fe310803f60ccc2df5a53a44a2dcb859e8db3fc9772532ae8" => :mojave
-    sha256 "eef016c2ae4578d56e945ce6aa84b217db47dfd3165f04a9a406f5a07b6c9bed" => :high_sierra
-    sha256 "a81b0ee37f11f69e72fdde3e30bb789c738027b9e0c82be1ab21467623f66b66" => :sierra
+    rebuild 1
+    sha256 "1f194eb67147772b362ae5446b2e369b35ee9ffa935c8e22d37cdb4c1364349b" => :mojave
+    sha256 "0f125ab1fbaf04c670f252f05358771f1663b3fc59857bcfd855bbb52e01f88b" => :high_sierra
+    sha256 "08345683137541d79b6422afd2e269b1ab8c195722e5e71cffa6298a3986d563" => :sierra
   end
 
   depends_on "pkg-config" => :build
