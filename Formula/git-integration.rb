@@ -15,13 +15,9 @@ class GitIntegration < Formula
     sha256 "2bae67c0933f3e0e990a12f1f90dd319cd788736a0cb50ad9f57e01195639331" => :mavericks
   end
 
-  depends_on "asciidoc" => [:build, :optional]
-
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     (buildpath/"config.mak").write "prefix = #{prefix}"
     system "make", "install"
-    system "make", "install-doc" if build.with? "asciidoc"
     system "make", "install-completion"
   end
 
