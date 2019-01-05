@@ -4,6 +4,7 @@ class Tor < Formula
   url "https://www.torproject.org/dist/tor-0.3.5.7.tar.gz"
   mirror "https://www.torservers.net/mirrors/torproject.org/dist/tor-0.3.5.7.tar.gz"
   sha256 "1b0887fc21ac535befea7243c5d5f1e31394d7458d64b30807a3e98cca0d839e"
+  revision 1
 
   bottle do
     sha256 "1d66f0083cd6e556ffbb7e1d7a5fc6fb042e3f02e458c2e9f5010f3588ff8236" => :mojave
@@ -13,8 +14,8 @@ class Tor < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "libscrypt"
   depends_on "openssl"
-  depends_on "libscrypt" => :optional
 
   def install
     args = %W[
@@ -25,8 +26,6 @@ class Tor < Formula
       --localstatedir=#{var}
       --with-openssl-dir=#{Formula["openssl"].opt_prefix}
     ]
-
-    args << "--disable-libscrypt" if build.without? "libscrypt"
 
     system "./configure", *args
     system "make", "install"
