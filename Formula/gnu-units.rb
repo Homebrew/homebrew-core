@@ -6,9 +6,10 @@ class GnuUnits < Formula
   sha256 "64959c231c280ceb4f3e6ae6a19b918247b6174833f7f1894704c444869c4678"
 
   bottle do
-    sha256 "1aa452c7a4984005145a7900c5f44e899efacffa307cee4014f472cb939ff789" => :mojave
-    sha256 "1c3aacea01deab09ec709f91539fe43839846d7be5f3e0a130ea1e8ae7606fff" => :high_sierra
-    sha256 "3ed2c600cbc2af885b6c3d660b2a707e74cec265d94e141a62e40bb9517348c6" => :sierra
+    rebuild 1
+    sha256 "0e53b24aacb7f43b04827b8aa8b2f2b7dc5a8e8e983cfe0aff96a4a7188be6bb" => :mojave
+    sha256 "103a1b009704edce77f545c8d88d87247f9d3f17c819bc8dad2c0eb80e12dce5" => :high_sierra
+    sha256 "8f3c81dedbd869e5cd946e6ad9545872acf8c8c51cb49389eb5f729eefde8ccf" => :sierra
   end
 
   depends_on "readline"
