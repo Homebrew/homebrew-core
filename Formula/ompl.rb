@@ -13,7 +13,6 @@ class Ompl < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
-  depends_on "ode" => :optional
 
   needs :cxx11
 
