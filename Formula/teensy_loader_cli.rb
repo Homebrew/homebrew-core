@@ -8,11 +8,10 @@ class TeensyLoaderCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "10bbf33a4f45de567e5d1af5fef10568005ec1763225bac8d21a2a336599e2e6" => :mojave
-    sha256 "006db48c98aa23a5694588169a2732bc21413f117e7082597168831e01edc20b" => :high_sierra
-    sha256 "297e5ae2cebf5f5c52809e671ef5b9d224dd7c184695dde5cbb94c085f616669" => :sierra
-    sha256 "b422db39f01dfd49b77d9be2aade4d769b00c3068cce6da5250e9948a21cbf3b" => :el_capitan
-    sha256 "760b87b4455a716d5fd57a3a4d3e45ce7f4a67743a2364ecbd7ef791a456abcc" => :yosemite
+    rebuild 1
+    sha256 "29f39b8c7638729e3217e102c3c1baae55e77446cd98f4eb98bd9a03a1af2dcf" => :mojave
+    sha256 "27403d4218ade972073291cf3a7c0550bf624fa7ad5ad60d63786ca87303d518" => :high_sierra
+    sha256 "8e4375b7d7fef1ed28bb48cef480c347ef488137956a61ec8b146946fd25e324" => :sierra
   end
 
   def install
