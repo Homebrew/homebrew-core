@@ -18,7 +18,6 @@ class Duplicity < Formula
   depends_on "openssl"
   # Dependency pycryptopp only supports Python 2
   depends_on "python@2" # does not support Python 3
-  depends_on "par2" => :optional
 
   # Generated with homebrew-pypi-poet from
   # for i in azure-storage boto dropbox fasteners kerberos mega.py
