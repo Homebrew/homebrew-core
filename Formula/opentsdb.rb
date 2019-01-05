@@ -3,6 +3,7 @@ class Opentsdb < Formula
   homepage "http://opentsdb.net/"
   url "https://github.com/OpenTSDB/opentsdb/releases/download/v2.3.1/opentsdb-2.3.1.tar.gz"
   sha256 "4dba914a19cf0a56b1d0cc22b4748ebd0d0136e633eb4514a5518790ad7fc1d1"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -12,10 +13,10 @@ class Opentsdb < Formula
     sha256 "440446c0474ce94a7c4724de2971cef50786285c636d32f1dea9f2164dccbb5d" => :el_capitan
   end
 
+  depends_on "gnuplot"
   depends_on "hbase"
   depends_on :java => "1.8"
   depends_on "lzo"
-  depends_on "gnuplot" => :optional
 
   def install
     system "./configure",
