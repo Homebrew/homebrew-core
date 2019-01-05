@@ -1,8 +1,8 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/hbase-1.2.8/hbase-1.2.8-bin.tar.gz"
-  sha256 "3286c67b847c2185ed046143eb8212db454c4aa83e9efbaf2a0032f18ce1ebfd"
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/hbase-1.2.9/hbase-1.2.9-bin.tar.gz"
+  sha256 "d883801cd58ed97cd860b0a092d86af0ba591f9b5cca39ba9f5c4e2e71619ba0"
 
   bottle do
     sha256 "e5f6e0622f678f298531ef3fa7e91647a7ceda2b23475fcd89548112f3f57085" => :mojave
@@ -18,7 +18,6 @@ class Hbase < Formula
   depends_on :arch => :x86_64
   depends_on :java => "1.8"
   depends_on "lzo"
-  depends_on "hadoop" => :optional
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
@@ -75,7 +74,7 @@ class Hbase < Formula
         <configuration>
           <property>
             <name>hbase.rootdir</name>
-            <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
+            <value>file://#{var}/hbase</value>
           </property>
           <property>
             <name>hbase.zookeeper.property.clientPort</name>
@@ -113,7 +112,7 @@ class Hbase < Formula
     <plist version="1.0">
     <dict>
       <key>KeepAlive</key>
-      #{build.without?("hadoop") ? "<true/>" : "<dict>\n        <key>OtherJobEnabled</key>\n        <string>"+Formula["hadoop"].plist_name+"</string>\n      </dict>"}
+      <true/>
       <key>Label</key>
       <string>#{plist_name}</string>
       <key>EnvironmentVariables</key>
