@@ -14,7 +14,6 @@ class Kore < Formula
   depends_on :macos => :sierra # needs clock_gettime
 
   depends_on "openssl"
-  depends_on "postgresql" => :optional
 
   def install
     # Ensure make finds our OpenSSL when Homebrew isn't in /usr/local.
@@ -25,11 +24,7 @@ class Kore < Formula
     inreplace "src/cli.c", "/usr/local/opt/openssl/include",
                             Formula["openssl"].opt_include
 
-    args = []
-
-    args << "PGSQL=1" if build.with? "postgresql"
-
-    system "make", "PREFIX=#{prefix}", "TASKS=1", *args
+    system "make", "PREFIX=#{prefix}", "TASKS=1"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
