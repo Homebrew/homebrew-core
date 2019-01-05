@@ -24,30 +24,25 @@ class Ettercap < Formula
 
   depends_on "cmake" => :build
   depends_on "curl" if MacOS.version <= :mountain_lion # requires >= 7.26.0.
+  depends_on "gtk+3"
   depends_on "libnet"
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "gtk+" => :optional
-  depends_on "gtk+3" => :optional
 
   def install
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
       -DENABLE_CURSES=ON
+      -DENABLE_GTK=ON
       -DENABLE_IPV6=ON
       -DENABLE_LUA=OFF
       -DENABLE_PDF_DOCS=OFF
       -DENABLE_PLUGINS=ON
+      -DGTK_BUILD_TYPE=GTK3
+      -DINSTALL_DESKTOP=ON
       -DINSTALL_SYSCONFDIR=#{etc}
     ]
-
-    if build.with?("gtk+") || build.with?("gtk+3")
-      args << "-DENABLE_GTK=ON" << "-DINSTALL_DESKTOP=ON"
-      args << "-DGTK_BUILD_TYPE=GTK3" if build.with? "gtk+3"
-    else
-      args << "-DENABLE_GTK=OFF" << "-DINSTALL_DESKTOP=OFF"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args
