@@ -7,10 +7,10 @@ class Make < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "3920fcf871d3ae443cac36fb1b83cdaddb4abb3b37c47a8808a9295571d27d20" => :mojave
-    sha256 "03431f1d344a6f474224d2a99f1d2c36ea1ff8b60ae0af3bcfbd73a3b53d6688" => :high_sierra
-    sha256 "98d5e65561d42e737713bd745110bf808800819a393e2ddb7743896203f92b56" => :sierra
+    rebuild 2
+    sha256 "77c4ba8e8b6d7ff0b8ea9b4cac2026882888196c2f39cdbdd004b92757a07ccf" => :mojave
+    sha256 "9486542a6ad3207c3f7e00c80f99a562014d6fc8aa833036c3927d11a6cee0ee" => :high_sierra
+    sha256 "8641015924620134cfa26c18eb665503950291d1110d72f876354242136cfa77" => :sierra
   end
 
   def install
