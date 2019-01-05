@@ -6,9 +6,9 @@ class Gexiv2 < Formula
   revision 1
 
   bottle do
-    sha256 "fe84ae4a9d7b25bc6581afc84b05e2c240f37447918cd0c2de1aecd2df9cd62a" => :mojave
-    sha256 "9184a5da5d2ecc05237f285f9d8b0b20e3b3627b70015623cfdd936cc7db1b26" => :high_sierra
-    sha256 "704e8fa9a03a6cb7ab6a1a8f15ae9d8041af1f5f5f86c024391a3d8d254964a9" => :sierra
+    sha256 "9d493db238b17a55c2715d6d76bf6ce5aff790e2c4367952ea752d507e04407d" => :mojave
+    sha256 "76a1cb2441e51f9e5d05290bb29075706776f7bdc0174155adf2575fb75b76b7" => :high_sierra
+    sha256 "132d5fac5817a9b1acddd6e9355ae2515168c9af9907293e673aee03c0aac63f" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
