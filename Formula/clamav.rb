@@ -3,6 +3,7 @@ class Clamav < Formula
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.100.2.tar.gz"
   sha256 "4a2e4f0cd41e62adb5a713b4a1857c49145cd09a69957e6d946ecad575206dd6"
+  revision 1
 
   bottle do
     sha256 "3c3cf0708c41acea618c1fa44514860e2f628525fff24b32bf7d9b889b0eae6d" => :mojave
@@ -19,10 +20,10 @@ class Clamav < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "json-c"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "json-c" => :optional
-  depends_on "yara" => :optional
+  depends_on "yara"
 
   skip_clean "share/clamav"
 
@@ -33,14 +34,13 @@ class Clamav < Formula
       --prefix=#{prefix}
       --libdir=#{lib}
       --sysconfdir=#{etc}/clamav
-      --with-openssl=#{Formula["openssl"].opt_prefix}
-      --with-pcre=#{Formula["pcre"].opt_prefix}
       --disable-zlib-vcheck
       --enable-llvm=no
+      --with-libjson=#{Formula["json-c"].opt_prefix}
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-pcre=#{Formula["pcre"].opt_prefix}
     ]
 
-    args << (build.with?("json-c") ? "--with-libjson=#{Formula["json-c"].opt_prefix}" : "--without-libjson")
-    args << "--disable-yara" if build.without? "yara"
     args << "--with-zlib=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
 
     pkgshare.mkpath
