@@ -1,7 +1,7 @@
 class Tree < Formula
   desc "Display directories as trees (with optional color/HTML output)"
   homepage "http://mama.indstate.edu/users/ice/tree/"
-  url "http://mama.indstate.edu/users/ice/tree/src/tree-1.8.0.tgz"
+  url "http://deb.debian.org/debian/pool/main/t/tree/tree_1.8.0.orig.tar.gz"
   sha256 "715d5d4b434321ce74706d0dd067505bb60c5ea83b5f0b3655dae40aa6f9b7c2"
 
   bottle do
