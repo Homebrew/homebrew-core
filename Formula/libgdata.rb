@@ -19,7 +19,6 @@ class Libgdata < Formula
   depends_on "json-glib"
   depends_on "liboauth"
   depends_on "libsoup"
-  depends_on "vala" => :optional
 
   # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=754821
   patch :DATA
