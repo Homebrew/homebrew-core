@@ -11,10 +11,6 @@ class Exim < Formula
     sha256 "df47c95efa6bcfe75fb26898845b341be2d9fbc26e1f0ba82d12dc6463ffbcaf" => :el_capitan
   end
 
-  option "with-maildir", "Support delivery in Maildir format"
-
-  deprecated_option "support-maildir" => "with-maildir"
-
   depends_on "berkeley-db@4"
   depends_on "openssl"
   depends_on "pcre"
@@ -30,7 +26,6 @@ class Exim < Formula
       s.gsub! "/var/spool/exim", var/"spool/exim"
       # https://trac.macports.org/ticket/38654
       s.gsub! 'TMPDIR="/tmp"', "TMPDIR=/tmp"
-      s << "SUPPORT_MAILDIR=yes\n" if build.with? "maildir"
       s << "AUTH_PLAINTEXT=yes\n"
       s << "SUPPORT_TLS=yes\n"
       s << "TLS_LIBS=-lssl -lcrypto\n"
