@@ -22,7 +22,6 @@ class Rrdtool < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "pango"
-  depends_on "lua" => :optional
 
   # Ha-ha, but sleeping is annoying when running configure a lot
   patch :DATA
