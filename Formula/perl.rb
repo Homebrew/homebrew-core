@@ -11,8 +11,6 @@ class Perl < Formula
     sha256 "3c6172271e054af71da670399a0947acd82a648af10b943742ecae7c0986e28b" => :sierra
   end
 
-  option "with-dtrace", "Build with DTrace probes"
-
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"
 
@@ -32,7 +30,6 @@ class Perl < Formula
       -Dusethreads
     ]
 
-    args << "-Dusedtrace" if build.with? "dtrace"
     args << "-Dusedevel" if build.head?
 
     system "./Configure", *args
