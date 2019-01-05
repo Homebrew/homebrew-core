@@ -14,6 +14,11 @@ class Geoip < Formula
 
   depends_on "geoipupdate" => :optional
 
+  resource "database" do
+    url "https://src.fedoraproject.org/lookaside/pkgs/GeoIP/GeoIP.dat.gz/4bc1e8280fe2db0adc3fe48663b8926e/GeoIP.dat.gz"
+    sha256 "7fd7e4829aaaae2677a7975eeecd170134195e5b7e6fc7d30bf3caf34db41bcd"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -38,8 +43,9 @@ class Geoip < Formula
   end
 
   test do
-    system "curl", "-O", "https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz"
-    system "gunzip", "GeoIP.dat.gz"
-    system "#{bin}/geoiplookup", "-f", "GeoIP.dat", "8.8.8.8"
+    resource("database").stage do
+      output = shell_output("#{bin}/geoiplookup -f GeoIP.dat 8.8.8.8")
+      assert_match "GeoIP Country Edition: US, United States", output
+    end
   end
 end
