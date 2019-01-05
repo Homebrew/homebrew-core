@@ -23,7 +23,6 @@ class Osslsigncode < Formula
   depends_on "autoconf" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "libgsf" => :optional
 
   def install
     system "autoreconf", "-ivf" if build.head?
