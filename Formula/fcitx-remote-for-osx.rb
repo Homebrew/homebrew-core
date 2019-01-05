@@ -6,10 +6,10 @@ class FcitxRemoteForOsx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e2fea3fccdb10411448b49a188eadf5684e5c36d34a64025a215ea1e2554dac" => :mojave
-    sha256 "d0d5e296210ad94fb80bdc8e8058a2ad32ba293f3a1d9bb54ab2dd2de573e5f8" => :high_sierra
-    sha256 "91611184e35f77a587eb1c36042660809564ff3fbae553d492b036a8b64b4f56" => :sierra
-    sha256 "8e54fa21fce7e9e363dba2a47f462d1b415d55e9687322d251e2e5995442599a" => :el_capitan
+    rebuild 1
+    sha256 "63e285ce25dfefd7220ed07bb0c85f0b2f6e74997b0eb94117619cfdc04a5002" => :mojave
+    sha256 "6c88cbd0c4ca46c2b0d809adc3e93c4be3178c014b55d377f95b7e0740cfab99" => :high_sierra
+    sha256 "16efcc3f2a5ac6fd63bfea3d85286fac823cc7b21520d85f46d0b3c066668671" => :sierra
   end
 
   def install
