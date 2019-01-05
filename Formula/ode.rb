@@ -14,10 +14,6 @@ class Ode < Formula
     sha256 "2a01fcc4ae6ff0e197dfb66a15fe068873297c8063f5552bb80d0c10fe5383bf" => :sierra
   end
 
-  option "with-double-precision", "Compile ODE with double precision"
-
-  deprecated_option "enable-double-precision" => "with-double-precision"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
@@ -25,13 +21,10 @@ class Ode < Formula
   depends_on "libccd"
 
   def install
-    args = ["--prefix=#{prefix}", "--enable-libccd"]
-    args << "--enable-double-precision" if build.with? "double-precision"
-
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "./bootstrap"
 
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-libccd"
     system "make"
     system "make", "install"
   end
