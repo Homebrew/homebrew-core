@@ -3,6 +3,7 @@ class Boost < Formula
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
   sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
+  revision 1
   head "https://github.com/boostorg/boost.git"
 
   bottle do
@@ -12,13 +13,7 @@ class Boost < Formula
     sha256 "40f3b92d543b9ffe437f1724c26ab55f9873e59fdc7afd46d82c83239a03fa9b" => :sierra
   end
 
-  option "with-icu4c", "Build regexp engine with icu support"
-  option "without-single", "Disable building single-threading variant"
-  option "without-static", "Disable building static library variant"
-
-  deprecated_option "with-icu" => "with-icu4c"
-
-  depends_on "icu4c" => :optional
+  depends_on "icu4c"
 
   needs :cxx14
 
@@ -29,14 +24,12 @@ class Boost < Formula
     end
 
     # libdir should be set by --prefix but isn't
-    bootstrap_args = ["--prefix=#{prefix}", "--libdir=#{lib}"]
-
-    if build.with? "icu4c"
-      icu4c_prefix = Formula["icu4c"].opt_prefix
-      bootstrap_args << "--with-icu=#{icu4c_prefix}"
-    else
-      bootstrap_args << "--without-icu"
-    end
+    icu4c_prefix = Formula["icu4c"].opt_prefix
+    bootstrap_args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      --with-icu=#{icu4c_prefix}
+    ]
 
     # Handle libraries that will not be built.
     without_libraries = ["python", "mpi"]
@@ -48,26 +41,18 @@ class Boost < Formula
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
 
     # layout should be synchronized with boost-python and boost-mpi
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged",
-            "--user-config=user-config.jam",
-            "-sNO_LZMA=1",
-            "install"]
-
-    if build.with? "single"
-      args << "threading=multi,single"
-    else
-      args << "threading=multi"
-    end
-
-    if build.with? "static"
-      args << "link=shared,static"
-    else
-      args << "link=shared"
-    end
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged
+      --user-config=user-config.jam
+      -sNO_LZMA=1
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
