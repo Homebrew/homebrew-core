@@ -7,11 +7,10 @@ class Jupyter < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "0759ea7082a96207c7160199016bd723d235d0b549daf0e36237a9ffc2ae1982" => :mojave
-    sha256 "357e40d51326385dda5eed4cef3fbb3640d3955ba8010145ca45459529231114" => :high_sierra
-    sha256 "8d6e8044647e0d10f26d6476a4887719fb948eed7223d4e42a5898b247335228" => :sierra
-    sha256 "b19e7cf53f7d2802cf8feca141aaef74e98d2e7bc1cc06a36f5a6f237e29848a" => :el_capitan
+    rebuild 2
+    sha256 "165cb6a71907dd5bd6751484446e43bef573aea2f7708b5f6fc76b3b5ab06b1e" => :mojave
+    sha256 "b2eac9cff21bf33732ea6d00c442763a81b6fbdda6bc641b62e862741a444fd1" => :high_sierra
+    sha256 "cf524856cb610f7c83f0f230bd06489d04c540d3d8e712a43aa573d2161c117e" => :sierra
   end
 
   depends_on "ipython"
