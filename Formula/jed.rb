@@ -6,13 +6,10 @@ class Jed < Formula
   sha256 "5eed5fede7a95f18b33b7b32cb71be9d509c6babc1483dd5c58b1a169f2bdf52"
 
   bottle do
-    sha256 "941724406131fe66ca70a76684651b60e8aa3d1e80d3671c200bef831da5c1b1" => :mojave
-    sha256 "c1e26f1498c5b47b04cde3bfaa7788acb72a52b54c50eb277368990ad2f27330" => :high_sierra
-    sha256 "e99d46b4cea705e44633346466d725842b13ead13a1f9e2d08bfeb5f9edc41a7" => :sierra
-    sha256 "a437b8f62da67b6c5177ee34df0a0f0906e94336454ec81f915cbbe90536cb07" => :el_capitan
-    sha256 "3b316c792feabf9622a70a8ccdf2d2e985e7f991dbcd49a104b2ee6b8ea078cb" => :yosemite
-    sha256 "f0e02951e534d96baad147970e51b2f5c09155ad0e51114cfc72b3f49301dff3" => :mavericks
-    sha256 "595aff2e43b8ec8c31626831dcab83ffe4ffc129ea85efa61bc2e35877137a29" => :mountain_lion
+    rebuild 1
+    sha256 "74df74658f783e6de97ed841b1e2532ead3681c7816d55c52e56d4d5056050b9" => :mojave
+    sha256 "b8e8f13a1936067960fd2040019d30fc3cedabba4f5c3c22712990f64e09c752" => :high_sierra
+    sha256 "caa1269eeac2bd84b2287426c77d501956632f01f92c44605bf8b5d76ab7550a" => :sierra
   end
 
   head do
