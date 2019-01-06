@@ -7,10 +7,10 @@ class Less < Formula
   revision 1
 
   bottle do
-    sha256 "6e0881558623d909107e5ebfab32772d164a772863b54cebec8144352ce66ccf" => :mojave
-    sha256 "edec3486e523a601dfe978a8a9524c8cef7a161c8e892d3154cd578623e866a7" => :high_sierra
-    sha256 "10c47d26e0f2e1f9c2e46a6bd61b2d07e1104caaa58c188b4b81b7fe0cd948d1" => :sierra
-    sha256 "0e98c6e82ecf7adb2d5288f3f4913ffa238469438b325211adf56eff9b260876" => :el_capitan
+    cellar :any
+    sha256 "f005662a0d661c28540163078807f4b518a6e6a2e8c86a5a0a0993eb6c4c4ad5" => :mojave
+    sha256 "f9896f9b0e0fb82dcbafd312a93d05061a2aa6f451592b30ca833dbdfb2b38c0" => :high_sierra
+    sha256 "a123eef24eeb7839ed0b7a3b0d53d17402c72576554fecaad81743e550b49107" => :sierra
   end
 
   depends_on "pcre"
