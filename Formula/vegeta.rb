@@ -2,8 +2,8 @@ class Vegeta < Formula
   desc "HTTP load testing tool and library"
   homepage "https://github.com/tsenart/vegeta"
   url "https://github.com/tsenart/vegeta.git",
-      :tag      => "cli/v12.1.0",
-      :revision => "c120b942b43950d4237e41f31152706fbc3d4c0d"
+      :tag      => "cli/v12.2.0",
+      :revision => "65db074680f5a0860d495e5fd037074296a4c425"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,9 +17,9 @@ class Vegeta < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/tsenart/vegeta").install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    cd "src/github.com/tsenart/vegeta" do
+    src = buildpath/"src/github.com/tsenart/vegeta"
+    src.install buildpath.children
+    src.cd do
       system "make", "vegeta"
       bin.install "vegeta"
       prefix.install_metafiles
@@ -30,6 +30,6 @@ class Vegeta < Formula
     input = "GET https://google.com"
     output = pipe_output("#{bin}/vegeta attack -duration=1s -rate=1", input, 0)
     report = pipe_output("#{bin}/vegeta report", output, 0)
-    assert_match /Success +\[ratio\] +100.00%/, report
+    assert_match(/Success +\[ratio\] +100.00%/, report)
   end
 end
