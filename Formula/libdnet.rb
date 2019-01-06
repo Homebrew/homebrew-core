@@ -6,14 +6,10 @@ class Libdnet < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "6655cb89eb5baf7598058283f004556c898c365e3dc1857b052c95b84c2662a6" => :mojave
-    sha256 "668c5bef84573868ed3510e414b2d3d8cc092e2776f97e0a0d559e4568ff1db2" => :high_sierra
-    sha256 "bfd53f9a4303380ecab6902b181f82a4f229650663443889e1183f4b865d8761" => :sierra
-    sha256 "dc34f5bfbe3385420d7fd482029a3acc3c8328ee145a4fe2fc806f6de22e77f4" => :el_capitan
-    sha256 "09996ef2a4fce855bd5302996000f5ab49fd28d3e6bf6f0d82d3f11d495baef1" => :yosemite
-    sha256 "1b425f04354f60b2c9de0b6e031d50f626d3cda0dc50c892b163107a6eecacb9" => :mavericks
-    sha256 "c8fda878e8ff2a87a3b521ca26a5ebb0d4b9eb82868a92149c723c4bf21f5b79" => :mountain_lion
+    rebuild 3
+    sha256 "5b9ce1110f17d6191bbb917e7bcecca734fc741d3534e67a10326314e15ecccb" => :mojave
+    sha256 "a9747616e12b57f7d3bd14e070d2054c2f3bfd836be6328005b964ccbe85a3f9" => :high_sierra
+    sha256 "c9c71fab92a207e7a9bceef1d4102a545c36c5f23aae9d4774d46de4c8b22890" => :sierra
   end
 
   depends_on "autoconf" => :build
