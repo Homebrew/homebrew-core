@@ -6,9 +6,10 @@ class Libmagic < Formula
   sha256 "30c45e817440779be7aac523a905b123cba2a6ed0bf4f5439e1e99ba940b5546"
 
   bottle do
-    sha256 "c3fe0254292ede89316f4f51c4e603065439e9d090d0d7a32d95ce9b10697fca" => :mojave
-    sha256 "c8ff7d4f1248f71c8486290fa67539d4a011bb14e2e361dc610a5e914e7db2a0" => :high_sierra
-    sha256 "cfd626e5f31452b0e482141f06b3bc56244c4e6298e752ea25196236d94ebc98" => :sierra
+    rebuild 1
+    sha256 "0fd1814daaab8aaef0f6c9bbfac4eb3d251def6778e6d59bd4e3df3dd5def9bb" => :mojave
+    sha256 "ba9b9ee461f6a5de3618f462a13e1c2aa83185bd0cf8cc759788577f2d2b39fe" => :high_sierra
+    sha256 "0df405f6459085824e349764bbb324da02b6bac817a2d307317e713045c7972b" => :sierra
   end
 
   def install
