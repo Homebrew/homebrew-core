@@ -1,9 +1,8 @@
 class Stubby < Formula
   desc "DNS privacy enabled stub resolver service based on getdns"
   homepage "https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby"
-  url "https://github.com/getdnsapi/stubby/archive/v0.2.3.tar.gz"
-  sha256 "5fbe10f421f1313b5e2259b0eec96785af0c5b460431cf86bb6450a11cb3f473"
-  revision 1
+  url "https://github.com/getdnsapi/stubby/archive/v0.2.4.tar.gz"
+  sha256 "40816d403584aaa8ce72d6276b47e9d91b96294418af7a031dc48a3515398540"
   head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
 
   bottle do
