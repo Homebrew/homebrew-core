@@ -30,7 +30,7 @@ class Clisp < Formula
 
     # Clisp requires to select word size explicitly this way,
     # set it in CFLAGS won't work.
-    ENV["CC"] = "#{ENV.cc} -m#{MacOS.prefer_64_bit? ? 64 : 32}"
+    ENV["CC"] = "#{ENV.cc} -m64"
 
     # Work around "configure: error: unrecognized option: `--elispdir"
     # Upstream issue 16 Aug 2016 https://sourceforge.net/p/clisp/bugs/680/
