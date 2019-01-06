@@ -1,9 +1,8 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
   homepage "https://wiki.gnome.org/Projects/libgxps"
-  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
-  sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
-  revision 2
+  url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz"
+  sha256 "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
 
   bottle do
     cellar :any
@@ -15,40 +14,24 @@ class Libgxps < Formula
   end
 
   head do
-    url "https://github.com/GNOME/libgxps.git"
-
-    depends_on "gnome-common" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
+    url "https://gitlab.gnome.org/GNOME/libgxps.git"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "cairo"
-  depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "glib"
+  depends_on "gtk+3"
   depends_on "libarchive"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "little-cms2"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-man
-    ]
-
-    if build.head?
-      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-    system "make", "install"
   end
 
   test do
