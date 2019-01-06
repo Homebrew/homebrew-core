@@ -54,9 +54,9 @@ class ErlangAT20 < Formula
       --enable-wx
       --with-ssl=#{Formula["openssl"].opt_prefix}
       --without-javac
+      --enable-darwin-64bit
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
     args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
 
     system "./configure", *args
