@@ -7,9 +7,10 @@ class Gdbm < Formula
 
   bottle do
     cellar :any
-    sha256 "4c2f6db42c5972e7061ace3c1fb0a41f2c0db92a7a3d29cc806f097794dbd898" => :mojave
-    sha256 "7fdad0257e967b63f63b82d6ef48c718d26ead7b38376ed56609bacefa4a252b" => :high_sierra
-    sha256 "9d0b8affbced6c6fb759a077cf5fac4fca0d4b69dd2f4a82ca2f38b20e0f0ece" => :sierra
+    rebuild 1
+    sha256 "2168d58856917ca996d12dedaa930643529c66046103fe55018afc51f2bc1fcb" => :mojave
+    sha256 "ac688d571f9c00e09670440d67d2869a34dab0fb897ba0b183ed84fceffdbc9c" => :high_sierra
+    sha256 "89d6db4fbffbe2184b4531faaebf0432a4b01e1ed92678ce6bd2f95c69dc9803" => :sierra
   end
 
   # Use --without-readline because readline detection is broken in 1.13
