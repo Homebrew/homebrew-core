@@ -24,10 +24,6 @@ class Ld64 < Formula
   depends_on :maximum_macos => :snow_leopard
   depends_on "openssl"
 
-  fails_with :gcc_4_0 do
-    build 5370
-  end
-
   resource "makefile" do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/3b073fca/ld64/Makefile-97"
     sha256 "48e3475bd73f9501d17b7d334d3bf319f5664f2d5ab9d13378e37c2519ae2a3a"
