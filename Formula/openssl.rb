@@ -31,10 +31,10 @@ class Openssl < Formula
   env :std if MacOS.version == :snow_leopard
 
   def arch_args
-    {
-      :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386   => %w[darwin-i386-cc],
-    }
+    %w[
+      darwin64-x86_64-cc
+      enable-ec_nistp_64_gcc_128
+    ]
   end
 
   def configure_args; %W[
@@ -55,12 +55,6 @@ class Openssl < Formula
     ENV.delete("PERL")
     ENV.delete("PERL5LIB")
 
-    if MacOS.prefer_64_bit?
-      arch = Hardware::CPU.arch_64_bit
-    else
-      arch = Hardware::CPU.arch_32_bit
-    end
-
     # Keep Leopard/Snow Leopard support alive for things like building portable Ruby by
     # avoiding a makedepend issue introduced in recent versions of OpenSSL 1.0.2.
     # https://github.com/Homebrew/homebrew-core/pull/34326
@@ -73,7 +67,7 @@ class Openssl < Formula
     args << "CC=cc" if MacOS.version == :snow_leopard
 
     ENV.deparallelize
-    system "perl", "./Configure", *(configure_args + arch_args[arch])
+    system "perl", "./Configure", *(configure_args + arch_args)
     system "make", "depend", *depend_args
     system "make", *args
     system "make", "test"
