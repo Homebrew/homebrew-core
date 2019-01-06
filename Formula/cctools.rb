@@ -113,12 +113,7 @@ class Cctools < Formula
     # Fixes build with gcc-4.2: https://trac.macports.org/ticket/43745
     args << "SDK=-std=gnu99"
 
-    if Hardware::CPU.intel?
-      archs = "i386 x86_64"
-    else
-      archs = "ppc i386 x86_64"
-    end
-    args << "RC_ARCHS=#{archs}"
+    args << "RC_ARCHS=i386 x86_64"
 
     system "make", "install_tools", *args
 
