@@ -19,7 +19,6 @@ class NodeAT8 < Formula
 
   # Per upstream - "Need g++ 4.8 or clang++ 3.4".
   fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :gcc_4_0
   fails_with :gcc_4_2
   ("4.3".."4.7").each do |n|
     fails_with :gcc => n
