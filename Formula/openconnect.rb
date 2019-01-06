@@ -50,6 +50,6 @@ class Openconnect < Formula
   end
 
   test do
-    assert_match "AnyConnect VPN", pipe_output("#{bin}/openconnect 2>&1")
+    assert_match "Open client for multiple VPN protocols", pipe_output("#{bin}/openconnect 2>&1")
   end
 end
