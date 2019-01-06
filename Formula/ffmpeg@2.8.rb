@@ -141,18 +141,12 @@ class FfmpegAT28 < Formula
       args << "--disable-vda"
     end
 
-    # For 32-bit compilation under gcc 4.2, see:
-    # https://trac.macports.org/ticket/20938#comment:22
-    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware::CPU.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
-
     system "./configure", *args
 
-    if MacOS.prefer_64_bit?
-      inreplace "config.mak" do |s|
-        shflags = s.get_make_var "SHFLAGS"
-        if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
-          s.change_make_var! "SHFLAGS", shflags
-        end
+    inreplace "config.mak" do |s|
+      shflags = s.get_make_var "SHFLAGS"
+      if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
+        s.change_make_var! "SHFLAGS", shflags
       end
     end
 
