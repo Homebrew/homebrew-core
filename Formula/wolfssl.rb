@@ -73,20 +73,16 @@ class Wolfssl < Formula
       --enable-supportedcurves
       --enable-tls13
       --enable-sp
+      --enable-fastmath
+      --enable-fasthugemath
     ]
-
-    if MacOS.prefer_64_bit?
-      args << "--enable-fastmath" << "--enable-fasthugemath"
-    else
-      args << "--disable-fastmath" << "--disable-fasthugemath"
-    end
 
     args << "--enable-aesni" if Hardware::CPU.aes? && !build.bottle?
 
     # Extra flag is stated as a needed for the Mac platform.
     # https://wolfssl.com/wolfSSL/Docs-wolfssl-manual-2-building-wolfssl.html
     # Also, only applies if fastmath is enabled.
-    ENV.append_to_cflags "-mdynamic-no-pic" if MacOS.prefer_64_bit?
+    ENV.append_to_cflags "-mdynamic-no-pic"
 
     system "./autogen.sh"
     system "./configure", *args
