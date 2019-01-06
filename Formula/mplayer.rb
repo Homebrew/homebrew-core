@@ -27,13 +27,6 @@ class Mplayer < Formula
   depends_on "pkg-config" => :build if build.with? "libdvdnav"
   depends_on "libdvdread" => :optional
 
-  unless MacOS.prefer_64_bit?
-    fails_with :clang do
-      build 211
-      cause "Inline asm errors during compile on 32bit Snow Leopard."
-    end
-  end
-
   def install
     # we disable cdparanoia because homebrew's version is hacked to work on macOS
     # and mplayer doesn't expect the hacks we apply. So it chokes. Only relevant
