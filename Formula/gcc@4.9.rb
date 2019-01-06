@@ -1,20 +1,4 @@
 class GccAT49 < Formula
-  def arch
-    if Hardware::CPU.type == :intel
-      if MacOS.prefer_64_bit?
-        "x86_64"
-      else
-        "i686"
-      end
-    elsif Hardware::CPU.type == :ppc
-      if MacOS.prefer_64_bit?
-        "powerpc64"
-      else
-        "powerpc"
-      end
-    end
-  end
-
   def osmajor
     `uname -r`.chomp
   end
@@ -107,7 +91,7 @@ class GccAT49 < Formula
     version_suffix = version.to_s.slice(/\d\.\d/)
 
     args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
+      "--build=x86_64-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=c,c++,fortran,objc,obj-c++",
@@ -131,13 +115,8 @@ class GccAT49 < Formula
       # install-info is run.
       "MAKEINFO=missing",
       "--disable-nls",
+      "--enable-multilib",
     ]
-
-    if MacOS.prefer_64_bit?
-      args << "--enable-multilib"
-    else
-      args << "--disable-multilib"
-    end
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
