@@ -70,9 +70,9 @@ class ErlangAT19 < Formula
       --enable-wx
       --enable-hipe
       --without-javac
+      --enable-darwin-64bit
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
     args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
 
     system "./configure", *args
