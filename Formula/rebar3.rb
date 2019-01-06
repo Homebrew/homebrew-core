@@ -6,9 +6,9 @@ class Rebar3 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1ade58b33f27e1ef6b594321dd7c8db53f162afc51505fded481ab0fac1419ef" => :mojave
-    sha256 "90fa4319b8e52c177f5c5332a606e92a838bf075e03cac7d4b5af41367665049" => :high_sierra
-    sha256 "f9de452c6d3af305955c2ea87a4dfa61b267538074b6e29782e78ca12cc10794" => :sierra
+    sha256 "542fcbd0cbd88f776c01fb78ada4ef6444b58a3607e48acc27c6c2a7c99352ad" => :mojave
+    sha256 "abca552b00a655e68a5aaa833d9e9fddc002a8c2fe720346b9edacd58e4617dd" => :high_sierra
+    sha256 "76fc5c46356cd2824bca3599dfef8b8edfb2351d2a466c9e8ea5527d69620fa2" => :sierra
   end
 
   depends_on "erlang"
