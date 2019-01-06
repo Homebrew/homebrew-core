@@ -30,10 +30,6 @@ class Qemu < Formula
   depends_on "gtk+3" => :optional
   depends_on "sdl2" => :optional
 
-  fails_with :gcc_4_0 do
-    cause "qemu requires a compiler with support for the __thread specifier"
-  end
-
   fails_with :gcc do
     cause "qemu requires a compiler with support for the __thread specifier"
   end
