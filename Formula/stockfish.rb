@@ -13,11 +13,10 @@ class Stockfish < Formula
   end
 
   def install
-    if Hardware::CPU.features.include? :popcnt
-      arch = "x86-64-modern"
+    arch = if Hardware::CPU.features.include? :popcnt
+      "x86-64-modern"
     else
-      arch = Hardware::CPU.ppc? ? "ppc" : "x86"
-      arch += "-" + (MacOS.prefer_64_bit? ? "64" : "32")
+      "x86-64"
     end
 
     system "make", "-C", "src", "build", "ARCH=#{arch}"
