@@ -19,8 +19,8 @@ class Libantlr3c < Formula
   def install
     args = ["--disable-dependency-tracking",
             "--disable-antlrdebug",
-            "--prefix=#{prefix}"]
-    args << "--enable-64bit" if MacOS.prefer_64_bit?
+            "--prefix=#{prefix}",
+            "--enable-64bit"]
     system "./configure", *args
 
     inreplace "Makefile" do |s|
