@@ -1,10 +1,9 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
   homepage "https://www.infradead.org/openconnect/"
-  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz"
-  mirror "https://fossies.org/linux/privat/openconnect-7.08.tar.gz"
-  sha256 "1c44ec1f37a6a025d1ca726b9555649417f1d31a46f747922b84099ace628a03"
-  revision 1
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.01.tar.gz"
+  mirror "https://fossies.org/linux/privat/openconnect-8.01.tar.gz"
+  sha256 "48868a4f99c81a7474d87fbabb41b8eaa7d32b54771c9f23a7aea72d9cd626fd"
 
   bottle do
     sha256 "81def078c335023993b56eb6879bbac860675069d23f6e75fd85e33276e439b2" => :mojave
@@ -51,6 +50,6 @@ class Openconnect < Formula
   end
 
   test do
-    assert_match "AnyConnect VPN", pipe_output("#{bin}/openconnect 2>&1")
+    assert_match "Open client for multiple VPN protocols", pipe_output("#{bin}/openconnect 2>&1")
   end
 end
