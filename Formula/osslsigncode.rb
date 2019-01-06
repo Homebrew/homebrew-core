@@ -6,13 +6,10 @@ class Osslsigncode < Formula
 
   bottle do
     cellar :any
-    sha256 "54f30bcedde90a5186e31cde5585e1a4ed16391ef77ca903a05350896732ef16" => :mojave
-    sha256 "4e079298b889a8ff8b629bc97323852b7f9e342de55ab74e601c995e6ad585f1" => :high_sierra
-    sha256 "898333a70f9700c159c8a29b7452c210f61004b23f39b0637131f7257f9250ec" => :sierra
-    sha256 "ed69f3ff0b8144a10a66cbe0a1986717a5564415768530110ae66749777f3490" => :el_capitan
-    sha256 "5f3799537630936f8d7954e9ec28f191fff6e1713f6b209aa94b2b665e5eaf88" => :yosemite
-    sha256 "59da5261972c8d26f0238c6ea42f5b247489d41e7ce6525c703675a22e260cfa" => :mavericks
-    sha256 "49a6dd76e78c82062041e5025ed1e7d71f1c53b51ef0e314a5e6938a07b6e49d" => :mountain_lion
+    rebuild 1
+    sha256 "83deaed9d81ecacfdf2674b63eb090fd4781a46bdd92d97b911ab88e0eb97ec1" => :mojave
+    sha256 "2106c87e481d094c2151b5da4152aea665114fda9233c1a09f437bed53ac2374" => :high_sierra
+    sha256 "141c40e42eb70da814daa2bb893e31c7158f74f99cdf607dcba62426aa049a5a" => :sierra
   end
 
   head do
