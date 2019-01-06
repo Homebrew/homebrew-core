@@ -17,11 +17,6 @@ class Zile < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
 
-  # https://github.com/mistydemeo/tigerbrew/issues/215
-  fails_with :gcc_4_0 do
-    cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
-  end
-
   fails_with :gcc do
     cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
   end
