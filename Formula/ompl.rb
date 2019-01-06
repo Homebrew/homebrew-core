@@ -5,9 +5,10 @@ class Ompl < Formula
   sha256 "409b968b4174df347eeb77945adb5d03c093480c50c20add958664ad2a8ab29b"
 
   bottle do
-    sha256 "7c24a4217f117907a8a709c6c07712612357c45b184fe2e1af58316679cb6d4a" => :mojave
-    sha256 "802ac697fd52664ed73225122a5cf9e1df38911df8d695c6fbf87d453bfae5a8" => :high_sierra
-    sha256 "5d72b5722d23b3493118974ca35d93c9d694fa73474f6aba97a26a74f38bcd8d" => :sierra
+    rebuild 1
+    sha256 "c637602fadf8d0c60f53ae052685bc968cfcd1da71573fc2de55fe44b3fc4629" => :mojave
+    sha256 "8ff68e8b4aef7262577918ed7b2b832f7127d2206a9314a411a25e12b333d8c4" => :high_sierra
+    sha256 "57302b37d93b99a173dca146b9ca5f20eb63a9686372b3dc39d5a014224bf32f" => :sierra
   end
 
   depends_on "cmake" => :build
