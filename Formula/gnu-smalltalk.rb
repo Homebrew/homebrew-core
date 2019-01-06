@@ -26,8 +26,6 @@ class GnuSmalltalk < Formula
   depends_on "readline"
 
   def install
-    ENV.m32 unless MacOS.prefer_64_bit?
-
     # Fix build failure "Symbol not found: _clock_gettime"
     if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
       ENV["ac_cv_search_clock_gettime"] = "no"
@@ -44,9 +42,6 @@ class GnuSmalltalk < Formula
       --without-tk
       --without-x
     ]
-
-    # Disable generational gc in 32-bit
-    args << "--disable-generational-gc" unless MacOS.prefer_64_bit?
 
     system "autoreconf", "-ivf"
     system "./configure", *args
