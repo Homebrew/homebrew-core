@@ -26,8 +26,6 @@ class GccAT6 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  fails_with :gcc_4_0
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
