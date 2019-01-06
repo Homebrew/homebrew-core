@@ -41,13 +41,11 @@ class Bigloo < Formula
       --disable-alsa
       --disable-mpg123
       --disable-flac
+      --disable-srfi27
     ]
 
     args << "--jvm=yes" if build.with? "jvm"
     args << "--no-gmp" if build.without? "gmp"
-
-    # SRFI 27 is 32-bit only
-    args << "--disable-srfi27" if MacOS.prefer_64_bit?
 
     system "./configure", *args
 
