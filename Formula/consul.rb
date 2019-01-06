@@ -22,7 +22,7 @@ class Consul < Formula
     inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
 
     ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/hashicorp/consul").install contents
