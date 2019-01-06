@@ -8,10 +8,10 @@ class Libewf < Formula
 
   bottle do
     cellar :any
-    sha256 "2a93f99c3ff1dea02ea18505644e57aa688248c19dcf410bb0073b07c80d6e0c" => :mojave
-    sha256 "10efe12416e50457d968107669bfd2b1bb6e79865301950eb4335ffd6ed43c59" => :high_sierra
-    sha256 "c77f644a80bf109f62a9b410917954a79e03ed47fff73b3d0da4f25de6afdf95" => :sierra
-    sha256 "5a9c6ce83af6069f84aaf30a5a6ae42eff2e98078835af1c06555852c696b5b4" => :el_capitan
+    rebuild 1
+    sha256 "7fe79d5c0cbbc77727528df3effaeb9e6cb85f041f3183aed7e288c572142bd4" => :mojave
+    sha256 "a8598eb679b9a0abfb4ced4845cc21835101bcb47f909c0bf217a7211dc8d67a" => :high_sierra
+    sha256 "9070532ca601a8d020a1de5ccca0e7613788afb696b4ffd7efcad652c7b77d7c" => :sierra
   end
 
   head do
