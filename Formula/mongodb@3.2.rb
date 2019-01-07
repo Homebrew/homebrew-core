@@ -81,7 +81,7 @@ class MongodbAT32 < Formula
   EOS
   end
 
-  plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mongodb@3.2/bin/mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
