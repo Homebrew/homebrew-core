@@ -5,8 +5,8 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-src.tar.xz"
-  sha256 "11117735a58e507c481c09f3f39ae5a314e9fbf49fc3109528f99ea7959004b2"
+  url "https://downloads.haskell.org/~ghc/8.6.3/ghc-8.6.3-src.tar.xz"
+  sha256 "9f9e37b7971935d88ba80426c36af14b1e0b3ec1d9c860f44a4391771bc07f23"
 
   bottle do
     sha256 "93d708bb5757fdfae246d64ae7923af03d1e9bfa0ecb421ef9a4aee83e977f1b" => :mojave
