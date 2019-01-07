@@ -1,8 +1,8 @@
 class Primesieve < Formula
   desc "Fast C/C++ prime number generator"
   homepage "https://primesieve.org/"
-  url "https://github.com/kimwalisch/primesieve/archive/v7.2.tar.gz"
-  sha256 "2bc7df5ad7fca4587dc5375d13627e1ef5501faafe579ee82b1e720baa02ad7b"
+  url "https://github.com/kimwalisch/primesieve/archive/v7.3.tar.gz"
+  sha256 "bbf4a068ba220a479f3b6895513a85ab25f6b1dcbd690b188032c2c3482ef050"
 
   bottle do
     cellar :any
