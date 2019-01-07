@@ -3,6 +3,7 @@ class Libetpan < Formula
   homepage "https://www.etpan.org/libetpan.html"
   url "https://github.com/dinhviethoa/libetpan/archive/1.9.2.tar.gz"
   sha256 "45a3bef81ae1818b8feb67cd1f016e774247d7b03804d162196e5071c82304ab"
+  revision 1
   head "https://github.com/dinhviethoa/libetpan.git", :branch => "master"
 
   bottle do
