@@ -3,6 +3,7 @@ class Libpsl < Formula
   homepage "https://rockdaboot.github.io/libpsl"
   url "https://github.com/rockdaboot/libpsl/releases/download/libpsl-0.20.2/libpsl-0.20.2.tar.gz"
   sha256 "f8fd0aeb66252dfcc638f14d9be1e2362fdaf2ca86bde0444ff4d5cc961b560f"
+  revision 1
 
   bottle do
     cellar :any
