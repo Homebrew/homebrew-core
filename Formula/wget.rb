@@ -7,10 +7,9 @@ class Wget < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "5743f63d80b19c1d12daec5a79ae19677565ae136355d0557f95c8b98ad30ff4" => :mojave
-    sha256 "e2e1bf06fff7ca843aa962c36905887bc0007c0bf09ed3fedc4d91c19fe2e138" => :high_sierra
-    sha256 "c00609513975abdf6aa24bb41c5a6aea08296b898a81479bdbf264d46a107e5e" => :sierra
+    sha256 "cf0015a7ddf079f83c5938b8724cb1a45472be5eddffd917fbb9d398f2c33873" => :mojave
+    sha256 "bec2cf88b421a1d2759111054f98df21caa6602282897f81473c18b9c14ed0e4" => :high_sierra
+    sha256 "39383f48327c93865b7f199e306f8f9e0e3051235a2f432e1e65493780df58df" => :sierra
   end
 
   head do
