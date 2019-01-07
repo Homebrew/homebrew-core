@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.11/source/mariadb-10.3.11.tar.gz"
-  sha256 "211655b794c9d5397ba3be6c90737eac02e882f296268299239db47ba328f1b2"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.12/source/mariadb-10.3.12.tar.gz"
+  sha256 "f7449a34c25e0455928d7983dae83fd2069fe1f16c4c5f4aeed9ed9d3f081ff6"
 
   bottle do
     sha256 "9ab440bc27d3e85e0bf2d86685ccb3dccc827956a3e3daecc7c721c70c3ea0d2" => :mojave
@@ -83,8 +83,7 @@ class Mariadb < Formula
     %w[
       wsrep_sst_mysqldump
       wsrep_sst_rsync
-      wsrep_sst_xtrabackup
-      wsrep_sst_xtrabackup-v2
+      wsrep_sst_mariabackup
     ].each do |f|
       inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
