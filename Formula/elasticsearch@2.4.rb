@@ -72,7 +72,7 @@ class ElasticsearchAT24 < Formula
   EOS
   end
 
-  plist_options :manual => "elasticsearch"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/elasticsearch@2.4/bin/elasticsearch"
 
   def plist
     <<~EOS
