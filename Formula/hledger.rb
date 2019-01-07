@@ -14,7 +14,6 @@ class Hledger < Formula
     sha256 "7a6c1d2174b681f495ecfefa6a6c357d7e76d31d6fd0e254bdb2e5236b3e7d7b" => :high_sierra
     sha256 "e550e642af13f16b2131830a61e807fafa57e6c8dfcd33c74fe23c9594e80346" => :sierra
   end
-  
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
 
