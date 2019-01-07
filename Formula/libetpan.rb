@@ -28,7 +28,7 @@ class Libetpan < Formula
                "build"
 
     lib.install "build-mac/build/libetpan/Release/libetpan.a"
-    lib.install "build-mac/build/libetpan/Release/libetpan.framework"
+    frameworks.install "build-mac/build/libetpan/Release/libetpan.framework"
     include.install Dir["build-mac/build/libetpan/Release/include/**"]
     bin.install "libetpan-config"
   end
