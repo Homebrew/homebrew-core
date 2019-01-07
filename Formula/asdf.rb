@@ -11,6 +11,7 @@ class Asdf < Formula
   depends_on "automake"
   depends_on "coreutils"
   depends_on "libtool"
+  depends_on "libxslt"
   depends_on "libyaml"
   depends_on "openssl"
   depends_on "readline"
@@ -19,21 +20,13 @@ class Asdf < Formula
   def install
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
+    zsh_completion.install "completions/asdf.bash"
     libexec.install "bin/private"
     prefix.install Dir["*"]
 
     inreplace "#{lib}/commands/reshim.sh",
               "exec $(asdf_dir)/bin/private/asdf-exec ",
               "exec $(asdf_dir)/libexec/private/asdf-exec "
-  end
-
-  def caveats; <<~EOS
-    Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
-         source #{opt_prefix}/asdf.sh
-
-    If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
-         source #{opt_prefix}/asdf.fish
-  EOS
   end
 
   test do
