@@ -3,7 +3,7 @@ class Profanity < Formula
   homepage "http://www.profanity.im/"
   url "http://www.profanity.im/profanity-0.5.1.tar.gz"
   sha256 "e3513713e74ec3363fbdbac2919bdc17e249988780cc5a4589d1425807a7feb8"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "51cfcfe6bd1cbada4749999ae0dd26a9285b8f8c7e756dc7e38ca879394792b4" => :mojave
