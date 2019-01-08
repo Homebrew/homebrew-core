@@ -4,7 +4,7 @@ class TelegramCli < Formula
   url "https://github.com/vysheng/tg.git",
       :tag      => "1.3.1",
       :revision => "5935c97ed05b90015418b5208b7beeca15a6043c"
-  revision 1
+  revision 2
   head "https://github.com/vysheng/tg.git"
 
   bottle do
