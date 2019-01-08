@@ -5,7 +5,7 @@ class Cadaver < Formula
   mirror "https://src.fedoraproject.org/repo/pkgs/cadaver/cadaver-0.23.3.tar.gz/502ecd601e467f8b16056d2acca39a6f/cadaver-0.23.3.tar.gz"
   mirror "https://web.archive.org/web/20170629224036/www.webdav.org/cadaver/cadaver-0.23.3.tar.gz"
   sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "91c567ec5f2d8b2ce2c0b78868a07ef9fa3340c8bdd651a59d21ee208d6bb49c" => :mojave
