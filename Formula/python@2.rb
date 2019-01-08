@@ -3,7 +3,7 @@ class PythonAT2 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
   sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
-  revision 1
+  revision 2
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
