@@ -1,8 +1,8 @@
 class Drafter < Formula
   desc "Native C/C++ API Blueprint Parser"
   homepage "https://apiblueprint.org/"
-  url "https://github.com/apiaryio/drafter/releases/download/v3.2.7/drafter-v3.2.7.tar.gz"
-  sha256 "a2b7061e2524804f153ac2e80f6367ae65dfcd367f4ee406eddecc6303f7f7ef"
+  url "https://github.com/apiaryio/drafter/releases/download/v4.0.0-pre.2/drafter-v4.0.0-pre.2.tar.gz"
+  sha256 "70f5af31f65c4b2110d4daa3e5430484f90987ee26522920c661929454e0cf0e"
 
   bottle do
     cellar :any_skip_relocation
