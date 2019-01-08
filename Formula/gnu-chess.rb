@@ -4,6 +4,7 @@ class GnuChess < Formula
   url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.5.tar.gz"
   mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.5.tar.gz"
   sha256 "9a99e963355706cab32099d140b698eda9de164ebce40a5420b1b9772dd04802"
+  revision 1
 
   bottle do
     rebuild 1
