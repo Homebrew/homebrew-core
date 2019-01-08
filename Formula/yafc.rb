@@ -3,7 +3,7 @@ class Yafc < Formula
   homepage "https://github.com/sebastinas/yafc"
   url "https://deb.debian.org/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
   sha256 "4b3ebf62423f21bdaa2449b66d15e8d0bb04215472cb63a31d473c3c3912c1e0"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
