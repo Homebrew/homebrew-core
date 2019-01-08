@@ -3,7 +3,7 @@ class Opendbx < Formula
   homepage "https://linuxnetworks.de/doc/index.php/OpenDBX"
   url "https://linuxnetworks.de/opendbx/download/opendbx-1.4.6.tar.gz"
   sha256 "2246a03812c7d90f10194ad01c2213a7646e383000a800277c6fb8d2bf81497c"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "a98f96a0a70e29bba16f505dc13ea7638ef82ec398de40d6430eced24afbb4c9" => :mojave
