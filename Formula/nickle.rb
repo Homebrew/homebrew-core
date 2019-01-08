@@ -3,6 +3,7 @@ class Nickle < Formula
   homepage "https://www.nickle.org/"
   url "https://www.nickle.org/release/nickle-2.81.tar.gz"
   sha256 "99a9331489e290fb768bf8d88e8b03e76f25485d7636c30d9eee616ca9d358b5"
+  revision 1
 
   bottle do
     sha256 "7a0f233310b62c7b203a7e0d6e68d234412665a5a399249e15a55d4d94df59b1" => :mojave
