@@ -3,7 +3,7 @@ class Abook < Formula
   homepage "https://abook.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/abook/abook/0.5.6/abook-0.5.6.tar.gz"
   sha256 "0646f6311a94ad3341812a4de12a5a940a7a44d5cb6e9da5b0930aae9f44756e"
-  revision 1
+  revision 2
   head "https://git.code.sf.net/p/abook/git.git"
 
   bottle do
