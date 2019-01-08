@@ -36,9 +36,11 @@ class Thrift < Formula
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --without-erlang
       --without-haskell
+      --without-java
       --without-perl
       --without-php
       --without-php_extension
+      --without-python
       --without-ruby
       --without-java
       --without-python
