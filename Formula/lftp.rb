@@ -3,6 +3,7 @@ class Lftp < Formula
   homepage "https://lftp.yar.ru/"
   url "https://lftp.yar.ru/ftp/lftp-4.8.4.tar.xz"
   sha256 "4ebc271e9e5cea84a683375a0f7e91086e5dac90c5d51bb3f169f75386107a62"
+  revision 1
 
   bottle do
     sha256 "7758a9fae5106d3e7f43ae84f34ae0801b73430907afbc3526a6b49a4bccef88" => :mojave
