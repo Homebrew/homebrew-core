@@ -3,6 +3,7 @@ class Newlisp < Formula
   homepage "http://www.newlisp.org/"
   url "http://www.newlisp.org/downloads/newlisp-10.7.1.tgz"
   sha256 "2e300c8bed365a564d284bf3ad6c49e036256e7fc3f469ebda0b45e6e196a7cc"
+  revision 1
 
   bottle do
     sha256 "2b05f3886282f344830370be7e8e127850c058779e17c3cf932df9f31437c716" => :mojave
