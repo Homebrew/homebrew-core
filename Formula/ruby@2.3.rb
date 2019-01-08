@@ -8,6 +8,7 @@ class RubyAT23 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.xz"
   sha256 "910f635d84fd0d81ac9bdee0731279e6026cb4cd1315bbbb5dfb22e09c5c1dfe"
+  revision 1
 
   bottle do
     sha256 "5564363575b3a728513de1b7aab928c9335c367c07919ebdeaf1390ea56e47d5" => :mojave
