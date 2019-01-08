@@ -42,4 +42,3 @@ class LibtorrentRakshasa < Formula
     system "./sample"
   end
 end
-

@@ -36,4 +36,3 @@ class Rtorrent < Formula
     system "#{bin}/rtorrent", "-h"
   end
 end
-
