@@ -3,6 +3,7 @@ class Ginac < Formula
   homepage "https://www.ginac.de/"
   url "https://www.ginac.de/ginac-1.7.4.tar.bz2"
   sha256 "d60413a2dc4e65b3832491fdcdb03897e673f8ff69885f015e74a6e9c7d978ef"
+  revision 1
 
   bottle do
     sha256 "9d1ac5fac877c621ece3f0d0e4173c4b764a73b4cf0d6a08db260d1a6a29d1f9" => :mojave
