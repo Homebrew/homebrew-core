@@ -27,15 +27,6 @@ class Asdf < Formula
               "exec $(asdf_dir)/libexec/private/asdf-exec "
   end
 
-  def caveats; <<~EOS
-    Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
-         source #{opt_prefix}/asdf.sh
-
-    If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
-         source #{opt_prefix}/asdf.fish
-  EOS
-  end
-
   test do
     output = shell_output("#{bin}/asdf plugin-list 2>&1", 1)
     assert_match "Oohes nooes ~! No plugins installed", output
