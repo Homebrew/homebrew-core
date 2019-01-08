@@ -3,7 +3,7 @@ class GnuplotAT4 < Formula
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.7/gnuplot-4.6.7.tar.gz"
   sha256 "26d4d17a00e9dcf77a4e64a28a3b2922645b8bbfe114c0afd2b701ac91235980"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "3037a97469725cc72728cecbbdbf8c415258b58f67faac8cb9bc511750ebbfa4" => :mojave
