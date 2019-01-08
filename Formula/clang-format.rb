@@ -1,14 +1,14 @@
 class ClangFormat < Formula
   desc "Formatting tools for C, C++, Obj-C, Java, JavaScript, TypeScript"
   homepage "https://clang.llvm.org/docs/ClangFormat.html"
-  version "2018-10-04"
+  version "2018-12-18"
 
   stable do
     depends_on "subversion" => :build
-    url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-10-04/", :using => :svn
+    url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-12-18/", :using => :svn
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-10-04/", :using => :svn
+      url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-12-18/", :using => :svn
     end
 
     resource "libcxx" do
