@@ -3,6 +3,7 @@ class Monetdb < Formula
   homepage "https://www.monetdb.org/"
   url "https://www.monetdb.org/downloads/sources/Aug2018-SP1/MonetDB-11.31.11.tar.xz"
   sha256 "169f78f6509241e63028adec3f5082fdcf9f8a1ae9d87a59dddf423f8e9f81d5"
+  revision 1
 
   bottle do
     sha256 "df8bdde8ed02b9bd3e7e0aff359824ce363092332ae99c0991eb4a66e942fb22" => :mojave
