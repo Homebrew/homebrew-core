@@ -1,8 +1,8 @@
 class Pdftoipe < Formula
   desc "Reads arbitrary PDF files and generates an XML file readable by Ipe"
   homepage "https://github.com/otfried/ipe-tools"
-  url "https://github.com/otfried/ipe-tools/archive/v7.2.7.3.tar.gz"
-  sha256 "1ab1c9303ad2e05d07229d3879ecf52f150639deb0e3b02130cf3facc2609be1"
+  url "https://github.com/otfried/ipe-tools/archive/v7.2.8.1.tar.gz"
+  sha256 "a6174aae72f93b56c6652c2c27d5203e0f867e11a5e1c7d89c4aa3b4bcb67eb3"
 
   bottle do
     cellar :any
