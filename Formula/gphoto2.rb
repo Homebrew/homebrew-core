@@ -3,6 +3,7 @@ class Gphoto2 < Formula
   homepage "http://www.gphoto.org/"
   url "https://downloads.sourceforge.net/project/gphoto/gphoto/2.5.20/gphoto2-2.5.20.tar.bz2"
   sha256 "a36f03b50a8f040f185cbc757f957f03dc05a9210907199e6919ef3f970248f6"
+  revision 1
 
   bottle do
     cellar :any
