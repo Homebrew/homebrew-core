@@ -8,7 +8,7 @@ class RubyAT20 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p648.tar.bz2"
   sha256 "087ad4dec748cfe665c856dbfbabdee5520268e94bb81a1d8565d76c3cc62166"
-  revision 6
+  revision 7
 
   bottle do
     sha256 "19eeccaaff442801eb475401ba7b5260a67934b06ccd3c974e0a7343061067ca" => :mojave
