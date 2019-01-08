@@ -3,6 +3,7 @@ class Tig < Formula
   homepage "https://jonas.github.io/tig/"
   url "https://github.com/jonas/tig/releases/download/tig-2.4.1/tig-2.4.1.tar.gz"
   sha256 "b6b6aa183e571224d0e1fab3ec482542c1a97fa7a85b26352dc31dbafe8558b8"
+  revision 1
 
   bottle do
     sha256 "ee892fc9cf84e4d71b0353f0be2ec4b30be58d843975111d605cb4cb1dfc1f2f" => :mojave
