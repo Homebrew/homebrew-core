@@ -4,6 +4,7 @@ class Mailutils < Formula
   url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.4.tar.gz"
   mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.4.tar.gz"
   sha256 "a3e83b1450222ffdbc7fa42e7171d530fcd568b6871158a489d86840ae130df7"
+  revision 1
 
   bottle do
     sha256 "e83aeb8ac4b27c735b135684a50f39e675752968369bca3754c7fcca1c55e848" => :mojave
