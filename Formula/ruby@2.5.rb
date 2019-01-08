@@ -3,6 +3,7 @@ class RubyAT25 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz"
   sha256 "1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f"
+  revision 1
 
   bottle do
     sha256 "eda6486437a20a37dd86bda4589e3ef0010b4f131ea3d81f906a0a7321bb99c6" => :mojave
