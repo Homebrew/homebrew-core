@@ -3,6 +3,7 @@ class Rlwrap < Formula
   homepage "https://github.com/hanslub42/rlwrap"
   url "https://github.com/hanslub42/rlwrap/archive/v0.43.tar.gz"
   sha256 "29e5a850fbe4753f353b0734e46ec0da043621bdcf7b52a89b77517f3941aade"
+  revision 1
   head "https://github.com/hanslub42/rlwrap.git"
 
   bottle do
