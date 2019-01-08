@@ -3,7 +3,7 @@ class Gjs < Formula
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
   url "https://download.gnome.org/sources/gjs/1.54/gjs-1.54.3.tar.xz"
   sha256 "76b30dcc3ce9836c053aee531aa9f1d9d3f94b8503adf0a5a7bd176c492ba6b1"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "24aa07e4f1b1cb95a484900443d84e67a0658ac0b7a26ddb57423bfc7e230c21" => :mojave
