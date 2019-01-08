@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.72.0.tar.xz"
-  sha256 "c1747eb8f26e9e753c4001ed951db2896edc1021b6d0f547a0bd2a27c30ada51"
+  url "https://poppler.freedesktop.org/poppler-0.73.0.tar.xz"
+  sha256 "e44b5543903128884ba4538c2a97d3bcc8889e97ffacc4636112101f0238db03"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
@@ -49,8 +49,8 @@ class Poppler < Formula
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_CMS=lcms2
       -DENABLE_GLIB=ON
-      -DENABLE_QT4=OFF
-      -DENABLE_XPDF_HEADERS=ON
+      -DENABLE_QT5=OFF
+      -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
       -DWITH_GObjectIntrospection=ON
     ]
 
