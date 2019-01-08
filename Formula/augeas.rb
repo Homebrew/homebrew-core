@@ -3,6 +3,7 @@ class Augeas < Formula
   homepage "http://augeas.net"
   url "http://download.augeas.net/augeas-1.11.0.tar.gz"
   sha256 "393ce8f4055af89cd4c20bf903eacbbd909cf427891f41b56dc2ba66243ea0b0"
+  revision 1
 
   bottle do
     sha256 "cebc1b3db31952c0d347586576b983a7f0585f0791e6ed9cab40bbd7485eeca8" => :mojave
