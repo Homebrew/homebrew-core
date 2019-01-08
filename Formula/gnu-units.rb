@@ -4,6 +4,7 @@ class GnuUnits < Formula
   url "https://ftp.gnu.org/gnu/units/units-2.18.tar.gz"
   mirror "https://ftpmirror.gnu.org/units/units-2.18.tar.gz"
   sha256 "64959c231c280ceb4f3e6ae6a19b918247b6174833f7f1894704c444869c4678"
+  revision 1
 
   bottle do
     rebuild 2
