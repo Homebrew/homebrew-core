@@ -9,7 +9,7 @@ class RubyAT18 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p374.tar.bz2"
   sha256 "b4e34703137f7bfb8761c4ea474f7438d6ccf440b3d35f39cc5e4d4e239c07e3"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "34ac66b428a1fd4da537d73c9b05217e9bcddd61f1a9f2de313c737eca86d49c" => :mojave
