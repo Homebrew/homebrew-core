@@ -3,7 +3,7 @@ class Devtodo < Formula
   homepage "https://swapoff.org/devtodo.html"
   url "https://swapoff.org/files/devtodo/devtodo-0.1.20.tar.gz"
   sha256 "379c6ac4499fc97e9676075188f7217e324e7ece3fb6daeda7bf7969c7093e09"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "2cd6096b0434977f6006ca20bdc1e31df8774deb430303b66513eb38edc4365f" => :mojave
