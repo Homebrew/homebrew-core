@@ -3,6 +3,7 @@ class Yosys < Formula
   homepage "http://www.clifford.at/yosys/"
   url "https://github.com/cliffordwolf/yosys/archive/yosys-0.8.tar.gz"
   sha256 "07760fe732003585b26d97f9e02bcddf242ff7fc33dbd415446ac7c70e85c66f"
+  revision 1
 
   bottle do
     sha256 "cf9c8664f16f9dcca779337065b667d1bac5a8787810a3bb354c9fe477ed9629" => :mojave
