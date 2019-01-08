@@ -3,6 +3,7 @@ class Kpcli < Formula
   homepage "https://kpcli.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/kpcli/kpcli-3.2.pl"
   sha256 "615a1bae19ed0c132076a809b162a66ea0dc22c1d992a8c6e1f2e1aaedfae687"
+  revision 1
 
   bottle do
     cellar :any
