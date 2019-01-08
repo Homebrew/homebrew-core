@@ -3,6 +3,7 @@ class Pdsh < Formula
   homepage "https://github.com/chaos/pdsh"
   url "https://github.com/chaos/pdsh/releases/download/pdsh-2.33/pdsh-2.33.tar.gz"
   sha256 "7368087429d6269f0a6313c406ef38c6a6a947bc003ca7368fc6481b139d942f"
+  revision 1
   head "https://github.com/chaos/pdsh.git"
 
   bottle do
