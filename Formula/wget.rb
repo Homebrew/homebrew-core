@@ -4,7 +4,7 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.20.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/wget/wget-1.20.1.tar.gz"
   sha256 "b783b390cb571c837b392857945f5a1f00ec6b043177cc42abb8ee1b542ee1b3"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "cf0015a7ddf079f83c5938b8724cb1a45472be5eddffd917fbb9d398f2c33873" => :mojave
@@ -32,7 +32,9 @@ class Wget < Formula
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["openssl"].opt_prefix}",
-                          "--disable-debug"
+                          "--disable-debug",
+                          "--disable-pcre",
+                          "--disable-pcre2"
     system "make", "install"
   end
 
