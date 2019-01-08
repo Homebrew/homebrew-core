@@ -3,7 +3,7 @@ class Xdot < Formula
   homepage "https://github.com/jrfonseca/xdot.py"
   url "https://files.pythonhosted.org/packages/75/d3/89151e5c24f59ac5577368651f9d2a5db3cdd870e8f96896e505cb876187/xdot-0.9.tar.gz"
   sha256 "a33701664ecfefe7c7313a120a587e87334f3a566409bc451538fcde5edd6907"
-  revision 3
+  revision 4
   head "https://github.com/jrfonseca/xdot.py.git"
 
   bottle do
