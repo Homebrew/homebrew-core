@@ -2,8 +2,8 @@ class ErlangAT20 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.3.8.16.tar.gz"
-  sha256 "47af65b7a217e7ce45836c0ad440dfffe931a978ed3ac67e27dc10ffb014b454"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.8.17.tar.gz"
+  sha256 "767a3e59aa64ffc811881c6b624ac6dc004be885b973884c4506a00d7693285c"
 
   bottle do
     cellar :any
