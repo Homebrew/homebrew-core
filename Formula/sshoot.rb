@@ -6,7 +6,6 @@ class Sshoot < Formula
   url "https://github.com/albertodonato/sshoot.git",
       :tag      => "v1.4.1"
   revision 1
-  head "https://github.com/albertodonato/sshoot.git"
 
   depends_on "python"
   depends_on "sshuttle"
