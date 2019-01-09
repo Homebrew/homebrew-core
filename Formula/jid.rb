@@ -6,11 +6,9 @@ class Jid < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "049d37984ecbeba231d96f23caf3dda6ef50dd8a55b91a4e0d62f7975a244c1c" => :mojave
-    sha256 "b6de24c980241a14be660440dc9aba403841f5cae50c5aa973bce92ebd1c2081" => :high_sierra
-    sha256 "59624c107014497a6596ce33a6344c1456731a2784ffb4e92bf0075ddda16ffa" => :sierra
-    sha256 "a77b38789f565878c3dd89b031693fcb35ed60404172a4fb3702b6e0f69f76e5" => :el_capitan
-    sha256 "baf231928a3d2c899f3c7ebdfae167cca4b00623def455fb4eca4b0c6ecc7f71" => :yosemite
+    sha256 "fe863d058029cd05bfbab6e4cb4c047bacf083e384107bae392cd19f98fa838f" => :mojave
+    sha256 "b56ab5691802bef1c9208bceb5033c7c0189039d51cbba8d76340bc6201a0a5c" => :high_sierra
+    sha256 "26f30466774f05ac96a24d8a3210d36bbf2c17fbce36734beca7a6e91afa7e34" => :sierra
   end
 
   depends_on "go" => :build
