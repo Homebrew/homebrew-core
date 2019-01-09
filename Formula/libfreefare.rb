@@ -33,4 +33,16 @@ class Libfreefare < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <freefare.h>
+      int main() {
+        mifare_desfire_aid_new(0);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lfreefare", "-o", "test"
+    system "./test"
+  end
 end
