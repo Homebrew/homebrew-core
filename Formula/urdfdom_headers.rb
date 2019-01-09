@@ -1,8 +1,8 @@
 class UrdfdomHeaders < Formula
   desc "Headers for Unified Robot Description Format (URDF) parsers"
   homepage "https://wiki.ros.org/urdfdom_headers/"
-  url "https://github.com/ros/urdfdom_headers/archive/1.0.2.tar.gz"
-  sha256 "28d488d4a1542c427f09df23d443655db50405406f7b8e313eb0de499ce6b163"
+  url "https://github.com/ros/urdfdom_headers/archive/1.0.3.tar.gz"
+  sha256 "b58989cba5ba413cba4caa5f0aa64dfcd724feca0309ab059761f2bfa3759edb"
 
   bottle do
     cellar :any_skip_relocation
