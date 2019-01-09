@@ -15,9 +15,8 @@ class Buildifier < Formula
   depends_on "bazel" => :build
 
   def install
-    system "bazel", "build", "--workspace_status_command=`pwd`/status.sh", "buildifier:buildifier"
-    mkdir_p bin
-    cp "bazel-bin/buildifier/darwin_amd64_stripped/buildifier", bin/"buildifier"
+    system "bazel", "build", "--workspace_status_command=#{buildpath}/status.sh", "buildifier:buildifier"
+    bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
   end
 
   test do
