@@ -8,9 +8,9 @@ class AwsSdkCpp < Formula
 
   bottle do
     cellar :any
-    sha256 "abff5c371e8b584c09cbff8e74e3bc3be3efa5abd8634537c3f0947cf1b96e1f" => :mojave
-    sha256 "b39e86931af791de2b2eab0be253c5c06ec5f58bb2bc09b46c7daf674dd18692" => :high_sierra
-    sha256 "a7480c19a2a850c5a3b105fd82b745b04b86244cec74ef96804e7bb5324c7272" => :sierra
+    sha256 "e2a54d8263b6f0d6116ddb635e019a3a4fd71f146a0f6985dbde4e62b37bd983" => :mojave
+    sha256 "e70fe618101f779247370eebe7c87e0038668ae89e9c7770ce8b393de9c64439" => :high_sierra
+    sha256 "47feb770e42592d67aba961bfa95e8bc984a6ff48321785c1004a0019443e598" => :sierra
   end
 
   depends_on "cmake" => :build
