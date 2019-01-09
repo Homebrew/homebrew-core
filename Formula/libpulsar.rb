@@ -20,6 +20,7 @@ class Libpulsar < Formula
           "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
           "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib}/libprotobuf.dylib",
           "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+      system "make", "pulsarShared", "pulsarStatic"
       system "make", "install"
     end
   end
