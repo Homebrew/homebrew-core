@@ -1,8 +1,8 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.1.1/irssi-1.1.1.tar.xz"
-  sha256 "784807e7a1ba25212347f03e4287cff9d0659f076edfb2c6b20928021d75a1bf"
+  url "https://github.com/irssi/irssi/releases/download/1.1.2/irssi-1.1.2.tar.xz"
+  sha256 "5ccc2b89a394e91bea0aa83a951c3b1d471c76da87b4169ec435530a31bf9732"
 
   bottle do
     rebuild 1
@@ -45,9 +45,6 @@ class Irssi < Formula
       ENV["NOCONFIGURE"] = "yes"
       system "./autogen.sh", *args
     end
-
-    # https://github.com/irssi/irssi/pull/927
-    inreplace "configure", "^DUIfm", "^DUIifm"
 
     system "./configure", *args
     # "make" and "make install" must be done separately on some systems
