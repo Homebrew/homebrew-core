@@ -7,9 +7,9 @@ class Capstone < Formula
 
   bottle do
     cellar :any
-    sha256 "288c67f6ebc09c9d3ad06eaa3d55fae6205085930a418747d92b36ff3bf3d4cb" => :mojave
-    sha256 "677c4090d56e51d1066977a9718c5f1556a4de7eb840a0006c6d86d149862b2d" => :high_sierra
-    sha256 "9f3886107e2bf01d4bd4a4dd9f7fc9f138dd65d90ee293962a9678a934191ff2" => :sierra
+    sha256 "e792acf6f3c23be1853f8658f35766c87dc35f165b6d6728aca61596bc9de230" => :mojave
+    sha256 "2a8a4842ad2660dad079216a12efe8b6d6394b548c6e056f250aa6d6cdf3802d" => :high_sierra
+    sha256 "561639bc13e269d61af352e106b3d039a4c9b5fdadd45b04bcf9f8c9f99a53c6" => :sierra
   end
 
   def install
