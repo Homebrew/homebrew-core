@@ -6,10 +6,9 @@ class Cli53 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c110e5d1411afd1642eeccd1f10b9642f1e1b17252e5122013ae73692e30e2c0" => :mojave
-    sha256 "54a6761f3ce9942a371cbb0a946e437b91a9e85f8e2d2c883786dab17df5bbb6" => :high_sierra
-    sha256 "8905b12ce358fa01a303182323f67f84b773199c6c7e2253354969f46931ae5b" => :sierra
-    sha256 "80a40487ecd7a8d71531e01a95a4063909ee02bbf5d36f5992314b7a300ecd06" => :el_capitan
+    sha256 "6638c669af3f120a6b641706702dc529f34836e2a7776b724ad4acead6aaeed9" => :mojave
+    sha256 "e39a63d966ad1e667711f5d4ae7e344785d9aedf659dea7fb8460b737c07a60a" => :high_sierra
+    sha256 "04b4f7c4b3e8c55230e358cdb32ea3844652946769cc81121e3688cd2f1c3918" => :sierra
   end
 
   depends_on "go" => :build
