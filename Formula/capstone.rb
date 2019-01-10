@@ -1,8 +1,8 @@
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
-  url "https://github.com/aquynh/capstone/archive/4.0.tar.gz"
-  sha256 "26c6461618670d59215635602ef5fb6f90bf6724006983af88e4983d6af1e67a"
+  url "https://github.com/aquynh/capstone/archive/4.0.1.tar.gz"
+  sha256 "79bbea8dbe466bd7d051e037db5961fdb34f67c9fac5c3471dd105cfb1e05dc7"
   head "https://github.com/aquynh/capstone.git"
 
   bottle do
