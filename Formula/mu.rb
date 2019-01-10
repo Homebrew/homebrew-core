@@ -9,10 +9,10 @@ class Mu < Formula
   revision 1
 
   bottle do
-    sha256 "c17d20c6deebf4f75da2f7fa028114f48176714c46d1f204d469880121e9b6d0" => :mojave
-    sha256 "d6d58dc0b9fc5d5454c0bf68230f6f8fb8cb973821de3e41ec267ce2614d8ec3" => :high_sierra
-    sha256 "0a818cbcfa365710bd48a97092218042dc8d00afd73b3f781c0982f8668a8410" => :sierra
-    sha256 "588ebfb6e7d577e8efd4a38ca1ae598998c8e015dd1101db8785641bdea17f6a" => :el_capitan
+    cellar :any
+    sha256 "0e4a61daf8d93a9aa866da1891d69f34024344910c98b3efae13f83fd850cb2f" => :mojave
+    sha256 "8ee77a30b4b54367394b3a37b419d3d183950762728b118154e0bacf91e4f059" => :high_sierra
+    sha256 "d6ecd32c774b34ab93ac9aefd16d8a703976a3bee23b581f803153b19f42772e" => :sierra
   end
 
   head do
