@@ -17,9 +17,13 @@ class Fltk < Formula
   depends_on "jpeg"
   depends_on "libpng"
 
-  # Fix for #35682 by pulling upstream patch.  Can remove after next upstream release.
-  # patch is modfied version of https://github.com/fltk/fltk/commit/f76d2a2bf8c35c0c313f05bbd6deda49dd344efc
-  patch :p0, :DATA
+  # Fix for Mojave issue https://github.com/Homebrew/homebrew-core/issues/33342
+  # Modified version of upstream commit https://github.com/fltk/fltk/commit/f76d2a2bf8c35c0c313f05bbd6deda49dd344efc
+  # Remove after next release
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/70738a/fltk/mojave.patch"
+    sha256 "81b7e59659fb71ab31462b3c06a196db783184cf93ee5dc67e817cb5f94cc51a"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -48,27 +52,3 @@ class Fltk < Formula
     system "./test"
   end
 end
-
-__END__
---- src/Fl_cocoa.mm.orig	2017-09-14 12:42:23.000000000 -0700
-+++ src/Fl_cocoa.mm	2018-10-10 23:04:17.000000000 -0700
-@@ -3301,14 +3301,11 @@
-   fl_window = i->xid;
-   Fl_X::set_high_resolution( i->mapped_to_retina() );
-   current_ = this;
--  
--  NSGraphicsContext *nsgc;
--#if MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_4
--  if (fl_mac_os_version >= 100400)
--    nsgc = [fl_window graphicsContext]; // 10.4
--  else
--#endif
--    nsgc = through_Fl_X_flush ? [NSGraphicsContext currentContext] : [NSGraphicsContext graphicsContextWithWindow:fl_window];
-+  NSGraphicsContext *nsgc = through_Fl_X_flush ? [NSGraphicsContext currentContext] : [NSGraphicsContext graphicsContextWithWindow:fl_window];
-+  if (!nsgc) { // this occurs on 10.14 when through_Fl_X_flush==0
-+      [[fl_window contentView] lockFocus];
-+      nsgc = [NSGraphicsContext currentContext];
-+  }
-   i->gc = (CGContextRef)[nsgc graphicsPort];
-   fl_gc = i->gc;
-   CGContextSaveGState(fl_gc); // native context
