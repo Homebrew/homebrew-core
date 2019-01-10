@@ -7,10 +7,9 @@ class Opentsdb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1d531453d09dc0b70dd1f803d117f26a09c4ab6990845aa40bf082d2c3a0eef" => :mojave
-    sha256 "a6b9311bccbf95f6117413ef081f3eb6d52f50fec4f9b1829cf4440e119cafc7" => :high_sierra
-    sha256 "4933e90ddc979787f2e477ecefcd36e5075c33cc91a5a88f5d4ddec49dfc3b8f" => :sierra
-    sha256 "440446c0474ce94a7c4724de2971cef50786285c636d32f1dea9f2164dccbb5d" => :el_capitan
+    sha256 "77dafdce7c2266014bb30a23305ed8398105b817709f75b366f526f6d0a7ae29" => :mojave
+    sha256 "2acf457946206c1e66ca10f4da7dc1befd08876190031b66c9543652e03eda83" => :high_sierra
+    sha256 "0fd255aa6371bdfbf074e775dcba6191a8e38cea2d8eec265401919df576da2b" => :sierra
   end
 
   depends_on "gnuplot"
