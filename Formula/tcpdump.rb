@@ -8,11 +8,9 @@ class Tcpdump < Formula
 
   bottle do
     cellar :any
-    sha256 "8fdb5a59a18ca1ae658fa29e258f6760343da172c96977a15d13b2309874939c" => :mojave
-    sha256 "321254c4ef9c9d005b59bd6ecc2511a6c8444eda92c93f836db4ffecaf4c36c9" => :high_sierra
-    sha256 "f383f086f232e06e01c9d206c98f65d9df5109366f13ba684910b8e249e35a6e" => :sierra
-    sha256 "10486fd04e4b4df5f7fbd2b9aba3d48c903730c53df3ee9b7f57887db0347df8" => :el_capitan
-    sha256 "97fc8337c3808fa208b72f1eea5eea6d53bf67c083ca6b1b3ddf751b8342c574" => :yosemite
+    sha256 "20cff571e2451cfb42455f57bfea31826908b292de526cf81f48186f3a8b61c8" => :mojave
+    sha256 "83d5be5d91524f71b9c9c82e38881546397007e6fed48d5524765a59ac91917e" => :high_sierra
+    sha256 "5369f6103ea0a3ad291cbc1ee695f0ad0922cf83a709543daad41ef7fda6e01b" => :sierra
   end
 
   depends_on "libpcap"
