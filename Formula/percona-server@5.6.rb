@@ -121,7 +121,7 @@ class PerconaServerAT56 < Formula
   EOS
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/percona-server@5.6/bin/mysql.server start"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
