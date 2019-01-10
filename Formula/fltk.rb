@@ -21,8 +21,8 @@ class Fltk < Formula
   # Modified version of upstream commit https://github.com/fltk/fltk/commit/f76d2a2bf8c35c0c313f05bbd6deda49dd344efc
   # Remove after next release
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/70738a/fltk/mojave.patch"
-    sha256 "81b7e59659fb71ab31462b3c06a196db783184cf93ee5dc67e817cb5f94cc51a"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a68bce/fltk/mojave.patch"
+    sha256 "9483adfc70c25bd560c4400972d8d12d288ee78c27b1c03c965aa59818e59152"
   end
 
   def install
