@@ -8,10 +8,10 @@ class Ode < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "dc84a857363f79acf047a85ce46a3e371a478d92adbd84407bc30ca0e7658ef5" => :mojave
-    sha256 "d00577ab819d9e29a3c4712aa6a5bb19ebba8db82e534552d33b3d102c9cdebb" => :high_sierra
-    sha256 "2a01fcc4ae6ff0e197dfb66a15fe068873297c8063f5552bb80d0c10fe5383bf" => :sierra
+    rebuild 2
+    sha256 "bd5d10cb589e3c503282ea5a2b23a6becca27e1f80c8b62a1c67e237b204cd82" => :mojave
+    sha256 "e03793b4cc735b3da02ee8301b006761f057bf67daa4fcfdc21bd3f0004dbbb9" => :high_sierra
+    sha256 "db9f21ec8ac905541de59c2559736ef41674a3d238248c537e92cfd6f9f77ad2" => :sierra
   end
 
   depends_on "autoconf" => :build
