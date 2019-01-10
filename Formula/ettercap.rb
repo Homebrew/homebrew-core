@@ -16,10 +16,10 @@ class Ettercap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "8e248cd983f18f1bb5c8efe25f67b94b928121cc0bc1aecaad30a2b495895a54" => :mojave
-    sha256 "0176b4a57909fc8c448df8b0e88b6063267ec80c6de740d597cfffc531ac98c6" => :high_sierra
-    sha256 "84b9f55fd615340f552685901bc93f7c9c1a5412f82342a692684aa26b0441d0" => :sierra
+    rebuild 2
+    sha256 "107e746f7ced82f3af46914005e6f4043d9e03d85d08c79512cd7f3833a99cc2" => :mojave
+    sha256 "5006d29356b76d963228389bc9e04e8f15c8851130208ac32d987554308e7aa1" => :high_sierra
+    sha256 "a81409380c3025a5eea3a52fb5c6a7de0d865f4477b47ebe3c8cfd580195fcac" => :sierra
   end
 
   depends_on "cmake" => :build
