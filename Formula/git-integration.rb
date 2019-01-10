@@ -7,12 +7,10 @@ class GitIntegration < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "28a8ee3e850ef67bef47e6de8e59b2d631f6a5e1357647bf7a910dcf4ffb675b" => :mojave
-    sha256 "483d5e5411d0a197e8e1e123f88fb2559745506115e3884064616b5118f1c5c3" => :high_sierra
-    sha256 "c4679cfcf05245017bf840a67eeecf0fde1b52862d46d00e9f80d267c33aedbe" => :sierra
-    sha256 "f91de5bf8a16b8b54db99566b81862c7d1e898dd332fd2d4d4bd457694443d62" => :el_capitan
-    sha256 "149a1f6f3cc6a413795893c6d63d48e82264a383aa901bee796c4d6a217b0c9b" => :yosemite
-    sha256 "2bae67c0933f3e0e990a12f1f90dd319cd788736a0cb50ad9f57e01195639331" => :mavericks
+    rebuild 1
+    sha256 "96f0e7501667f2951628535f307efe672aa51daeb8af2509e0f04d06eb22b0e6" => :mojave
+    sha256 "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698" => :high_sierra
+    sha256 "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698" => :sierra
   end
 
   def install
