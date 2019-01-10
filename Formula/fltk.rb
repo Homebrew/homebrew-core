@@ -5,6 +5,7 @@ class Fltk < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.4-2.tar.gz"
   version "1.3.4-2"
   sha256 "25d349c18c99508737d48f225a2eb26a43338f9247551cab72a317fa42cda910"
+  revision 1
 
   bottle do
     sha256 "fbf193393bb8d95b303e3e9bdda7b7808c8211b06ec76017ef386f3dac3ca8aa" => :mojave
