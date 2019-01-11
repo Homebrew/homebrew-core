@@ -51,7 +51,7 @@ class Sile < Formula
 
   resource "luasocket" do
     url "https://github.com/diegonehab/luasocket/archive/v3.0-rc1.tar.gz"
-    sha256 "1ed0bc56d2dccd92644e8df79c4e52af60a57efdc7c57fe75b1e81c70e780e74"
+    sha256 "8b67d9b5b545e1b694753dab7bd6cdbc24c290f2b21ba1e14c77b32817ea1249"
   end
 
   resource "luasec" do
