@@ -7,10 +7,10 @@ class Findutils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 3
-    sha256 "d0f28626392b25451b03772cce4fa33a8b087982a99640f56aa666db5fce250a" => :mojave
-    sha256 "9f3953da6f5e1ad0d21d12e557061dfdddb45424fa7ca6495772c781048bc6bc" => :high_sierra
-    sha256 "7c54d099f7ddf872fe22b6fa155ed31d80ab6c4e93735dfe25d4051a4abd1d30" => :sierra
+    rebuild 4
+    sha256 "ec4451f43d744c9f9a891f5de2be83c88cfec2f3decb944e58cc6fada7f9f9cf" => :mojave
+    sha256 "a9ed3201327c741029789bab2c1fa6e1f1407ec47011b70afaf0f048620d8ea1" => :high_sierra
+    sha256 "af9bf8127ffd522fa0d5ed7f4d39b312c1a97b75d57ffe831bfcc805bab45880" => :sierra
   end
 
   def install
