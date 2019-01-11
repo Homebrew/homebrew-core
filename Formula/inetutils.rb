@@ -48,6 +48,8 @@ class Inetutils < Formula
       (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
       (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
     end
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats; <<~EOS
@@ -59,11 +61,6 @@ class Inetutils < Formula
     can add a "gnubin" directory to your PATH from your bashrc like:
 
         PATH="#{opt_libexec}/gnubin:$PATH"
-
-    Additionally, you can access their man pages with normal names if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
-
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
   EOS
   end
 
