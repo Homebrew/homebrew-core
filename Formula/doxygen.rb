@@ -27,6 +27,13 @@ class Doxygen < Formula
   depends_on "llvm" => :optional
   depends_on "qt" => :optional
 
+  # Fix build breakage for 1.8.15 and CMake 3.13
+  # https://github.com/Homebrew/homebrew-core/issues/35815
+  patch do
+    url "https://github.com/doxygen/doxygen/commit/889eab308b564c4deba4ef58a3f134a309e3e9d1.patch?full_index=1"
+    sha256 "0a5bc1c52972c65d0e61009b356d23e0f4780c76ef9aa4c71ff3e786bc7540e7"
+  end
+
   def install
     args = std_cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}"
     args << "-Dbuild_wizard=ON" if build.with? "qt"
