@@ -21,9 +21,11 @@ class Camlp5 < Formula
     (lib/"ocaml/camlp5").install "etc/META"
   end
 
+  ocaml = Formula["ocaml"]
+
   test do
     (testpath/"hi.ml").write "print_endline \"Hi!\";;"
     assert_equal "let _ = print_endline \"Hi!\"",
-      shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo hi.ml")
+      shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo #{ocaml.opt_lib}/ocaml/bigarray.cma hi.ml")
   end
 end
