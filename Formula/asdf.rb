@@ -16,6 +16,9 @@ class Asdf < Formula
   depends_on "readline"
   depends_on "unixodbc"
 
+  conflicts_with "homeshick",
+    :because => "asdf and homeshick both install files in lib/commands"
+
   def install
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
