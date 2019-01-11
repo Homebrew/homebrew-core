@@ -5,8 +5,6 @@ class Drafter < Formula
   sha256 "a2b7061e2524804f153ac2e80f6367ae65dfcd367f4ee406eddecc6303f7f7ef"
   head "https://github.com/apiaryio/drafter.git"
 
-  depends_on "cmake" => :build
-
   bottle do
     cellar :any_skip_relocation
     sha256 "886a7b2595eebd07cee223f5d5a53a4748e91719c7f4f3a37c236c8476b3c532" => :mojave
@@ -14,6 +12,8 @@ class Drafter < Formula
     sha256 "a90e9d4493f252d29d69e186dcc49eb116f6bc506d07769f03864f56d5840f08" => :sierra
     sha256 "dc86d4e8dc44c2dead52e57c3bf6403d691926b9abf274f16b94c9649dd562fd" => :el_capitan
   end
+
+  depends_on "cmake" => :build
 
   def install
     if build.head?
