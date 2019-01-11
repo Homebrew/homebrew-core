@@ -35,6 +35,8 @@ class Grep < Formula
       (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
       (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
     end
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats; <<~EOS
@@ -42,10 +44,6 @@ class Grep < Formula
     If you need to use these commands with their normal names, you
     can add a "gnubin" directory to your PATH from your bashrc like:
       PATH="#{opt_libexec}/gnubin:$PATH"
-
-    Additionally, you can access their man pages with normal names if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
-      MANPATH="#{opt_libexec}/gnuman:$MANPATH"
   EOS
   end
 
