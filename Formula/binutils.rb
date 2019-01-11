@@ -1,5 +1,5 @@
 class Binutils < Formula
-  desc "Most GNU utilies for native development, notably missing ld, as, and gdb."
+  desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.1.tar.gz"
