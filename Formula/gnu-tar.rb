@@ -43,6 +43,8 @@ class GnuTar < Formula
     # Symlink the executable into libexec/gnubin as "tar"
     (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
     (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats; <<~EOS
@@ -51,11 +53,6 @@ class GnuTar < Formula
     to your PATH from your bashrc like:
 
         PATH="#{opt_libexec}/gnubin:$PATH"
-
-    Additionally, you can access its man page with normal name if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
-
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
   EOS
   end
 
