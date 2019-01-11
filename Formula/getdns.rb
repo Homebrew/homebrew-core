@@ -5,9 +5,10 @@ class Getdns < Formula
   sha256 "5686e61100599c309ce03535f9899a5a3d94a82cc08d10718e2cd73ad3dc28af"
 
   bottle do
-    sha256 "a85a2629ebc943460859ac6751e3ca76f476ab0b2f4710ebaa303146e00724b2" => :mojave
-    sha256 "1669b3d80b3c4f5560b61e7bcf73d211980060f0ab895cd626ea7f6f06d8537b" => :high_sierra
-    sha256 "fa2b076bbc0ff746e699f7f734d0a909f468dc939b497ceaf5450d554749665a" => :sierra
+    cellar :any
+    sha256 "cd82c6893f6ffddff97633386d9c11b119dfc9af710b824614f3e4c2fd112a2d" => :mojave
+    sha256 "9725f66c91e85bfc751414212a6b554db02129902db9c3bc33f53c9e47d001a1" => :high_sierra
+    sha256 "5c338b509bd578da7149338ea382dfbd12fcbcfd3b36819436dc09cc3cd67492" => :sierra
   end
 
   head do
