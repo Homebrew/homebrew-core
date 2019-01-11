@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "http://www.sile-typesetter.org/"
-  url "https://github.com/simoncozens/sile/archive/v0.9.5.tar.gz"
-  sha256 "89f28ee77a1eb928ca30060864b57007b4f447f08dc021dd0d013e363ccb9407"
+  url "https://github.com/simoncozens/sile/releases/download/v0.9.5/sile-0.9.5.tar.bz2"
+  sha256 "b7211a314f4edb455739ac664d593ab344de6ac135af75b2ee21a83ad7cc0055"
 
   head "https://github.com/simoncozens/sile.git"
 
