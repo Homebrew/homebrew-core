@@ -7,13 +7,10 @@ class Libfreefare < Formula
 
   bottle do
     cellar :any
-    sha256 "3a645119486107a89e8654559680673476b926c82988e00aa9b15157092639bc" => :mojave
-    sha256 "6c2de11e9321e8ed3bb09dd15ab5f383c9d0208e5902545c5e69f18071b78b58" => :high_sierra
-    sha256 "03d3fffd9c4cf59b2a5a735e2b32262a7bbe1dde56e7ebf6d0e9f71eff8def87" => :sierra
-    sha256 "3314a682b1c0443f3e924bdc4a3294de0d3d979860224f72b74531701915f914" => :el_capitan
-    sha256 "673490a072b9154050596a7f189c9f49f4c4b314fecfc2acf8c851716fbd6de7" => :yosemite
-    sha256 "d4e5f965c145948da6a9dd8edb7e6475b3fa0504ac06a0885ce391f94a3edffa" => :mavericks
-    sha256 "83eb9ce57c62b8c08c912452642ea75cfb5377ded85073cd3c7d709d38ccc5f5" => :mountain_lion
+    rebuild 1
+    sha256 "953fe3418c5992478db9870f2b8dbf40d47e232ac893b914abf0ed22d5b2e135" => :mojave
+    sha256 "745df5e971fa587181aedac8a82a534b7a7a882db37214f41a11abcfb7f346ea" => :high_sierra
+    sha256 "db7b9483be4a65d146fdba8211c8280c65eacb1d7537b1f149a2ef10433598ae" => :sierra
   end
 
   depends_on "pkg-config" => :build
