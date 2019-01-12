@@ -2,8 +2,8 @@ class Moreutils < Formula
   desc "Collection of tools that nobody wrote when UNIX was young"
   homepage "https://joeyh.name/code/moreutils/"
   url "https://git.joeyh.name/git/moreutils.git",
-      :tag      => "0.62",
-      :revision => "06b5970631ffbf151893bd3e1e7f03fb76aad4c0"
+      :tag      => "0.63",
+      :revision => "aeddd0f4caa9d10aaa691040773fa4764e12ff46"
   head "https://git.joeyh.name/git/moreutils.git"
 
   bottle do
