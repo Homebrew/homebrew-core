@@ -1,8 +1,7 @@
 class Yafc < Formula
   desc "Command-line FTP client"
   homepage "https://github.com/sebastinas/yafc"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
+  url "https://deb.debian.org/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
   sha256 "4b3ebf62423f21bdaa2449b66d15e8d0bb04215472cb63a31d473c3c3912c1e0"
   revision 2
 
