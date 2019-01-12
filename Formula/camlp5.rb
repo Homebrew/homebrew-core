@@ -8,9 +8,9 @@ class Camlp5 < Formula
   head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
 
   bottle do
-    sha256 "0cdb0b94b785a28f1043e8c40faeb2b9be5ba667efcb4fbe20323b988800780a" => :mojave
-    sha256 "532e7fb56feb3c13f4d9a37cffd7e3d5e2539ff3e5d081055c7d704fdbd99801" => :high_sierra
-    sha256 "726a57e231f5baa986089594895442dd1edf807352c797edd24d40da69a9c4d0" => :sierra
+    sha256 "bc41d8d05b58ea18887f802e63037dc77aacb77014fbd37f375459cf198b1a02" => :mojave
+    sha256 "46b26065975d0d1e8769ca94425792146c142d1f92658ac33ce14840e56c55d1" => :high_sierra
+    sha256 "048042a01ab67acb0aad31a5d8c9647b497a13fa3299f8cd85e3bcb664f52566" => :sierra
   end
 
   depends_on "ocaml"
