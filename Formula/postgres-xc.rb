@@ -1,6 +1,6 @@
 class PostgresXc < Formula
   desc "PostgreSQL cluster based on shared-nothing architecture"
-  homepage "https://postgres-xc.sourceforge.io/"
+  homepage "https://sourceforge.net/p/postgres-xc/xc-wiki/Main_Page/"
   url "https://downloads.sourceforge.net/project/postgres-xc/Version_1.0/pgxc-v1.0.4.tar.gz"
   sha256 "b467cbb7d562a8545645182958efd1608799ed4e04a9c3906211878d477b29c1"
   revision 1
