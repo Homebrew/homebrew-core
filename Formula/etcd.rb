@@ -1,8 +1,8 @@
 class Etcd < Formula
   desc "Key value store for shared configuration and service discovery"
   homepage "https://github.com/etcd-io/etcd"
-  url "https://github.com/etcd-io/etcd/releases/download/v3.3.10/v3.3.10.tar.gz"
-  sha256 "bc8a8afdbb85734e38e089de21302e50d240983425694d5ed9d5823b1de35b60"
+  url "https://github.com/etcd-io/etcd/archive/v3.3.11.tar.gz"
+  sha256 "5cb6d9000d74860a193047363dcfd302d07f2bc44e3c537e3b4914c00fa1a46e"
   head "https://github.com/etcd-io/etcd.git"
 
   bottle do
