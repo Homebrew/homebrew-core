@@ -54,13 +54,6 @@ class Osquery < Formula
     sha256 "7b5f9b6d4215069fb75d31db2c8ab06081ab27f59ee33d5bb428fec3e30723f1"
   end
 
-  # Upstream fix for boost 1.68, remove in next version
-  # https://github.com/facebook/osquery/issues/5069
-  patch do
-    url "https://github.com/facebook/osquery/commit/512f775c.diff?full_index=1"
-    sha256 "8bfafabf51c1b22dcab1a2a49d7d2a6583c49409def0876c79191839ccf23d53"
-  end
-
   def install
     ENV.cxx11
 
