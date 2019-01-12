@@ -2,7 +2,7 @@ class Ldapvi < Formula
   desc "Update LDAP entries with a text editor"
   homepage "http://www.lichteblau.com/ldapvi/"
   url "http://www.lichteblau.com/download/ldapvi-1.7.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
   revision 3
 
@@ -27,8 +27,7 @@ class Ldapvi < Formula
   # http://www.lichteblau.com/git/?p=ldapvi.git;a=commit;h=256ced029c235687bfafdffd07be7d47bf7af39b
   # http://www.lichteblau.com/git/?p=ldapvi.git;a=commit;h=a2717927f297ff9bc6752f281d4eecab8bd34aad
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/ldapvi/ldapvi_1.7-10.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7-10.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7-10.debian.tar.xz"
     sha256 "93be20cf717228d01272eab5940337399b344bb262dc8bc9a59428ca604eb6cb"
     apply "patches/05_getline-conflict",
           "patches/06_fix-vim-modeline"
