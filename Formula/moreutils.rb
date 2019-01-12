@@ -8,10 +8,9 @@ class Moreutils < Formula
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "060544e89b1434167caed439b54c0851ed72358bcdeb71ab69202ada4ddc9240" => :mojave
-    sha256 "9ddae132c36dec3a9d9e30181dfe7e63ca860d80d9136f99927fdae05f1af5c7" => :high_sierra
-    sha256 "3efc2f2f6e9783e48a0da1aad20b47943f25e5447ec1b16b3f135a1c0b74cea6" => :sierra
+    sha256 "a3d5a342bf079998b52d172f0f5e8b066b256145e2eb3ded393a0e6e2680b573" => :mojave
+    sha256 "3731c1304a72a7a0486891bf592cd82b7422d0c37cadeb00b6f633e62f20aa35" => :high_sierra
+    sha256 "fac2ba67a62889ff07edb8257e0d13aa96143a7421521ffdf3e0cf685a1cdc1e" => :sierra
   end
 
   depends_on "docbook-xsl" => :build
