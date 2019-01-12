@@ -14,7 +14,7 @@ class Bear < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "cmake", ".", *std_cmake_args
