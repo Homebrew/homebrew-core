@@ -26,8 +26,8 @@ class Tox < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/65/25/81d0de17cd00f8ca994a4e74e3c4baf7cd25072c0b831dad5c7d9d6138f8/pluggy-0.8.0.tar.gz"
-    sha256 "447ba94990e8014ee25ec853339faf7b0fc8050cdc3289d4d71f7f410fb90095"
+    url "https://files.pythonhosted.org/packages/38/e1/83b10c17688af7b2998fa5342fec58ecbd2a5a7499f31e606ae6640b71ac/pluggy-0.8.1.tar.gz"
+    sha256 "8ddc32f03971bfdf900a81961a48ccf2fb677cf7715108f85295c67405798616"
   end
 
   resource "py" do
@@ -51,8 +51,8 @@ class Tox < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/4e/8b/75469c270ac544265f0020aa7c4ea925c5284b23e445cf3aa8b99f662690/virtualenv-16.1.0.tar.gz"
-    sha256 "f899fafcd92e1150f40c8215328be38ff24b519cd95357fa6e78e006c7638208"
+    url "https://files.pythonhosted.org/packages/59/38/55dd25a965990bd93f77eb765b189e72cf581ce1c2de651cb7b1dea74ed1/virtualenv-16.2.0.tar.gz"
+    sha256 "fa736831a7b18bd2bfeef746beb622a92509e9733d645952da136b0639cd40cd"
   end
 
   def install
