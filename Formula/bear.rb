@@ -3,6 +3,7 @@ class Bear < Formula
   homepage "https://github.com/rizsotto/Bear"
   url "https://github.com/rizsotto/Bear/archive/2.3.13.tar.gz"
   sha256 "dc14c28bfbe0beef5ec93b4614a00bd419d5a793c8a678ba3b5544bd1dd580b6"
+  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Bear < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "cmake", ".", *std_cmake_args
