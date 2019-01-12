@@ -14,6 +14,7 @@ class Pce < Formula
     sha256 "5166b5f8b91d05e8d45f8683326e865cb75e2f574dff790d423ac4f4215d51f5" => :yosemite
   end
 
+  depends_on "nasm" => :build if MacOS.version >= :high_sierra
   depends_on "readline"
   depends_on "sdl"
 
