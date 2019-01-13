@@ -8,9 +8,9 @@ class Z3 < Formula
 
   bottle do
     cellar :any
-    sha256 "120adbe521a09623f9f13357a42eaf50113aafeb8154650cb434287fd18b5c50" => :mojave
-    sha256 "2e3ca6c8ce76e9e5022f95f83bc30e7251fc55758a3ec7bb973f9887fc219822" => :high_sierra
-    sha256 "aa69aae9bef9513b46ba964dbeb69104584ec5ab515c4e7a622e4476672187fd" => :sierra
+    sha256 "af966034f75cc9216e051b87471c7e3201bf7498bc0922efe56bf50aec83344e" => :mojave
+    sha256 "ff491bde03d10b1d517c8fec2814354fe34e47f8165a827b2942706586c24b1f" => :high_sierra
+    sha256 "dcf3613255d1f4bb7c5f1a24a7786043eeb4801ba936f60c03a428e8254f3417" => :sierra
   end
 
   depends_on "python"
