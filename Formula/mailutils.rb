@@ -7,10 +7,9 @@ class Mailutils < Formula
   revision 1
 
   bottle do
-    sha256 "e83aeb8ac4b27c735b135684a50f39e675752968369bca3754c7fcca1c55e848" => :mojave
-    sha256 "bbd0305336adc02ee5da9d5cd84d267212fad59e6aa67e7d8564531eeaaabad7" => :high_sierra
-    sha256 "241d546b7d97fc8cc8150b61d3a7c1770868f235ffe76634a08e98ae9b6daefc" => :sierra
-    sha256 "752f777cafe9eb7434c900882bdb7eda9cf100d5f3a177a05ae4e164aa98c2a4" => :el_capitan
+    sha256 "4534b7279eebc00daa33748b5dd13ca515f85027c7179620395d7f29245f03ee" => :mojave
+    sha256 "fb9d692e4cca9b19fc8a58f3db09d1f69b52876209b20a678bf8a82405b81456" => :high_sierra
+    sha256 "7f55d036e19237423f2a1d2cbf5e9415d10a97f10d462ed00ecfb157248a31a8" => :sierra
   end
 
   depends_on "gnutls"
