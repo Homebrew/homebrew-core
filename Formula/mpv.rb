@@ -38,7 +38,6 @@ class Mpv < Formula
   depends_on "rubberband" => :optional
   depends_on "uchardet" => :optional
   depends_on "vapoursynth" => :optional
-  depends_on :x11 => :optional
 
   resource "docutils" do
     url "https://files.pythonhosted.org/packages/84/f4/5771e41fdf52aabebbadecc9381d11dea0fa34e4759b4071244fa094804c/docutils-0.14.tar.gz"
