@@ -6,11 +6,9 @@ class Opendbx < Formula
   revision 2
 
   bottle do
-    sha256 "a98f96a0a70e29bba16f505dc13ea7638ef82ec398de40d6430eced24afbb4c9" => :mojave
-    sha256 "42ed70ef4eb93be7351b5d66ff131ad13cb92290d9dee6a721d9050ae3a187cd" => :high_sierra
-    sha256 "275e19f854b29f8d1d0560a4cca55395854312d678c5c64ad3c2597df7569aef" => :sierra
-    sha256 "84a0f694107dd4d15b949dd68474e5a270da583058b7eff29688370ef3a8e18f" => :el_capitan
-    sha256 "874a8b0ef941eec827bd85e59b7773269bb6b3632e38b9d192a003c4134b3227" => :yosemite
+    sha256 "9f4ed6175131681d7aa68a5cc62a3fab535f428f05982873c756d534ce4a71f9" => :mojave
+    sha256 "8acc7893f16018ca7946d5a087459f7defbaa3fa3a17759d9eec5eaaffd27458" => :high_sierra
+    sha256 "4adab552ad5d1fca471ba71734b784de2d6005717cef6908c0e8366b217c4dd1" => :sierra
   end
 
   depends_on "readline"
