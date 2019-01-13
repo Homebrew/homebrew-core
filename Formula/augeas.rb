@@ -6,10 +6,9 @@ class Augeas < Formula
   revision 1
 
   bottle do
-    sha256 "cebc1b3db31952c0d347586576b983a7f0585f0791e6ed9cab40bbd7485eeca8" => :mojave
-    sha256 "589af77e50225882c0f052379ffdcf935bba550f01190074395f6b5e195cb332" => :high_sierra
-    sha256 "1fbc0ab4f4537d59730fc84829cac47eb98362178423fed6f3e3241ec0c306d2" => :sierra
-    sha256 "afd1ca94038dfcccb49b2d5c36ebbc45ca95d749d847a25e26c39c080edf5f64" => :el_capitan
+    sha256 "7069fa64198cacc1df2240840e214e3071ef09298feb5f8d4f215ff7eb6751a0" => :mojave
+    sha256 "e5c5c1548077ab50027b0079bec99b9bd7ad75c872b4e0d6d9a3f431af500765" => :high_sierra
+    sha256 "1be7a367767198aedebd736f14ce80b9314d7dc216575d678b9a32a905fd5b79" => :sierra
   end
 
   head do
