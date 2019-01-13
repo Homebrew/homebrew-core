@@ -38,7 +38,6 @@ class Zbar < Formula
   depends_on "libtool"
   depends_on "ufraw"
   depends_on "xz"
-  depends_on :x11 => :optional
 
   def install
     if build.head?
@@ -60,13 +59,8 @@ class Zbar < Formula
       --without-qt
       --disable-video
       --without-gtk
+      --without-x
     ]
-
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--without-x"
-    end
 
     system "./configure", *args
     system "make", "install"
