@@ -5,6 +5,7 @@ class Bzt < Formula
   homepage "https://gettaurus.org"
   url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.13.2.tar.gz"
   sha256 "939d8c51f9eeffe35813f3370e2a88b06fdfa0238b3201c43fbe178d444e1504"
+  revision 1
   head "https://github.com/greyfenrir/taurus.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Bzt < Formula
     sha256 "666543689012d3c0875d31942818ae36e3bce7b1a2e59aa5c1530021568ba1d2" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "apiritif" do
     url "https://files.pythonhosted.org/packages/3e/4d/cc49edec3128c558e6476da68d165f1614b9250bca538aa86af2476d842e/apiritif-0.6.7.tar.gz"
@@ -82,8 +83,8 @@ class Bzt < Formula
   end
 
   resource "fuzzyset" do
-    url "https://files.pythonhosted.org/packages/92/21/4939957d219ff9f88b3b120061282199eda0ddd7393732a8c15cfcf51253/fuzzyset-0.0.15.tar.gz"
-    sha256 "861f156d69bfe22096047b8c07c8cbc78291022f4dabe55b81d2bd8235eb4402"
+    url "https://files.pythonhosted.org/packages/80/b4/c202f15029f497539bfb57f641acba5ca63a81d77e69afa767a0111483e5/fuzzyset-0.0.16.tar.gz"
+    sha256 "dce505e52dfd6a791214728b9b6b43f8f58e8f88fcf783c80d759d1c4349a160"
   end
 
   resource "gevent" do
