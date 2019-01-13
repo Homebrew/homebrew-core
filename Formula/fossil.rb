@@ -14,7 +14,6 @@ class Fossil < Formula
   end
 
   depends_on "openssl"
-  depends_on :osxfuse => :optional
 
   def install
     args = [
@@ -22,18 +21,13 @@ class Fossil < Formula
       # https://permalink.gmane.org/gmane.comp.version-control.fossil-scm.user/22444
       "--with-tcl-private-stubs=1",
       "--json",
+      "--disable-fusefs",
     ]
 
     if MacOS.sdk_path_if_needed
       args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     else
       args << "--with-tcl-stubs"
-    end
-
-    if build.with? "osxfuse"
-      ENV.prepend "CFLAGS", "-I/usr/local/include/osxfuse"
-    else
-      args << "--disable-fusefs"
     end
 
     system "./configure", *args
