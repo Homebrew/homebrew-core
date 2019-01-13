@@ -7,11 +7,9 @@ class Renameutils < Formula
 
   bottle do
     cellar :any
-    sha256 "51ad6b4a1f1af47401ac72df0acb00eacbdbcbf9dc02b0dfe41dcae76e253bf3" => :mojave
-    sha256 "231874956b8d016cf8c8e9c70b889d61f849b718b5ed291231d8d3b1d425b071" => :high_sierra
-    sha256 "56f37984343df2fc7a632a447c8c008dbd1d775c71a1b190b9c2bd2296862b77" => :sierra
-    sha256 "69c7381af949af84d3e7cd61cbec789e3d790c154fb3cb9916b1e74730a5fbce" => :el_capitan
-    sha256 "3854a97491ab39937687fd00623e4786205163f87522e901bbd7cca6e054b574" => :yosemite
+    sha256 "9f13f1f0096e9875dfa28466cf6689203c7018a8b38cf32def6567f63fd1d3e0" => :mojave
+    sha256 "69dacfc5145602d3310aac38122aa7385956fbfb56c9af97adee0f77c2c01453" => :high_sierra
+    sha256 "89d596e819476c80807653aaf8a20f7cef7976f53570e4242d87ccebea4cb92f" => :sierra
   end
 
   depends_on "coreutils"
