@@ -12,8 +12,6 @@ class Fontforge < Formula
     sha256 "8537403a86247c52d300b55a24a0528ad79abf9a07eccd16fdcbd84a7361e9f6" => :sierra
   end
 
-  option "with-extra-tools", "Build with additional font tools"
-
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
@@ -29,7 +27,7 @@ class Fontforge < Formula
   depends_on "python@2"
 
   # Remove for > 20170731
-  # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
+  # Fix "fatal error: 'mem.h' file not found"
   # Upstream PR from 22 Sep 2017 https://github.com/fontforge/fontforge/pull/3156
   patch do
     url "https://github.com/fontforge/fontforge/commit/9f69bd0f9.patch?full_index=1"
