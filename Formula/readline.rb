@@ -8,10 +8,9 @@ class Readline < Formula
 
   bottle do
     cellar :any
-    sha256 "5976a79f0dbd5ccb2a261f692763319d612309caa2b8cf703f209270764c657c" => :mojave
-    sha256 "0cc8fcf8ee733e41c40b859a09eb00f723222a40398fdd15d32891df1eca2eef" => :high_sierra
-    sha256 "962ae47be894e6d3a354b24953fc6b456c42dc054bcd44092cabf65e734a152b" => :sierra
-    sha256 "a7f92cf74dfd299b0c368a983c6f83fc50395b0392b8465316133c625744bcc5" => :el_capitan
+    sha256 "9b698b215a371ae394a4fa9137b019472c649c77ea389b6bdf2d9104cfe4a56c" => :mojave
+    sha256 "9f5c4da065626612770b0176f5eca537b4443cfb004c12e08a5b421f755e3c64" => :high_sierra
+    sha256 "8cd1c5d78f8731f935f38b15c95ab714c3ef9c1c2268239743e406230fd73d0e" => :sierra
   end
 
   keg_only :shadowed_by_macos, <<~EOS
