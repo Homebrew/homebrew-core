@@ -19,18 +19,13 @@ class Afflib < Formula
   depends_on "openssl"
   # Python 3 error filed upstream: https://github.com/sshock/AFFLIBv3/issues/35
   depends_on "python@2" # does not support Python 3
-  depends_on :osxfuse => :optional
 
   def install
-    args = ["--enable-s3", "--enable-python"]
-
-    if build.with? "osxfuse"
-      ENV.append "CPPFLAGS", "-I/usr/local/include/osxfuse"
-      ENV.append "LDFLAGS", "-L/usr/local/lib"
-      args << "--enable-fuse"
-    else
-      args << "--disable-fuse"
-    end
+    args = %w[
+      --enable-s3
+      --enable-python
+      --disable-fuse
+    ]
 
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
