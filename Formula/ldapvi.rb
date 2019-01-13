@@ -8,10 +8,9 @@ class Ldapvi < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "030f8092a8359596f16727d9955cd6ea2048f47290b77d30c5c24d887d0f3555" => :mojave
-    sha256 "6a08240ff27db3509d745f7f0479313137e556bf1e5a59587b7742d8ad812fec" => :high_sierra
-    sha256 "14af6046cb1d0ebcef5a3eb834e5ab0599342039ffcb67f6bbd4b34e798e1a29" => :sierra
+    sha256 "773739d7f165e94b515f02cb4e77f65e5965936e65c7f1a8ff9544abbe6c918e" => :mojave
+    sha256 "16c5ca7a7483936c291c61c774fb7f6f403916593e3ef62010e4e4c36f50a738" => :high_sierra
+    sha256 "3c342ccb18d3f3ca489d895d055314804f07768089b539333bac1e5ee34d41c1" => :sierra
   end
 
   depends_on "pkg-config" => :build
