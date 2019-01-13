@@ -8,8 +8,8 @@ class Mas < Formula
 
   bottle do
     cellar :any
-    sha256 "64ecec172ad61356756cd5e57a0b762d209475b5c2ac0b98ee878213e0944e41" => :mojave
-    sha256 "6308bcd96847857d1a491dab79a22dcc964d0442fbe36bdd22d64ceb7813e664" => :high_sierra
+    sha256 "c66233398bd402e91714a74678261b97fd22f2d5cee20bd62a350c2183efcba8" => :mojave
+    sha256 "a9bf625303328572bf0d28c7f6e940a7aa7ad559ea6b1b5fc9fc3a3a0619409f" => :high_sierra
   end
 
   depends_on "carthage" => :build
