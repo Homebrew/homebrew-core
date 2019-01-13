@@ -6,9 +6,9 @@ class RubyAT24 < Formula
   revision 1
 
   bottle do
-    sha256 "58264f323a4110f6ec4ffa0b49f499e3900e05888b5613f216ec196c995cd2b7" => :mojave
-    sha256 "adad9be6d47e0ccf36c7a6459ea5a65d0db7d3bacfbab7653226b606e681a344" => :high_sierra
-    sha256 "a505403cb86002722914ef0b3ce14a9bf00cdb9b9be0769caab6965688f9406e" => :sierra
+    sha256 "f12140e2606482d2484a76dce1e9e2eea5a3adf8e0b94b8f181d2101af8c5c73" => :mojave
+    sha256 "b18cc2f287f1eebf8c0f83eb559ebb694133b713c18b1201b54e685e22f9c674" => :high_sierra
+    sha256 "c44d2bd1245367f21e2e2d97679212ac74f28ab0e9365a4ec692908666041c7d" => :sierra
   end
 
   keg_only :versioned_formula
