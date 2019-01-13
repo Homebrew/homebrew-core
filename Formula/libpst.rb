@@ -7,9 +7,9 @@ class Libpst < Formula
 
   bottle do
     cellar :any
-    sha256 "0e97a5313eb5bb39daf62fca974333b69a0cb03ee6602820b5bfa0702c44a7c2" => :mojave
-    sha256 "e7b74eccf8c9929f6f6673a3064dadcfc4eb7b63d43776920c9733ebc01af7a5" => :high_sierra
-    sha256 "bfa351efefe41b8a3726c616fe6d9f1e8d920902cccb36d23f530ae28d2a9522" => :sierra
+    sha256 "382d2a508b95f2b391141c778ef6a9629efa85bf4bed34d843b550b3b2729db0" => :mojave
+    sha256 "3d8f0a101e022d7061e7765c7a07033e84d4685648bd3256a832db0937fe7333" => :high_sierra
+    sha256 "8b65a4b37e63351f5991a8a6582aaaf93d26c81b820096da06a98da2b7a43394" => :sierra
   end
 
   depends_on "pkg-config" => :build
