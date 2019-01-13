@@ -3,11 +3,12 @@ class Ruby < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.0.tar.xz"
   sha256 "acb00f04374899ba8ee74bbbcb9b35c5c6b1fd229f1876554ee76f0f1710ff5f"
+  revision 1
 
   bottle do
-    sha256 "0b4a40fd6a1f64c997680f2867273c1011dff95dea30fa7caa36705e2f09a8d7" => :mojave
-    sha256 "ecb0c8837aeaded7a19caa279cfe97303caabc1374c42445a30fcb8030285991" => :high_sierra
-    sha256 "b7bd3b9250929028d41ef7c8d4fe291ce02d28165ec5094056c6e86102d48741" => :sierra
+    sha256 "7e946442f71281d0b37c5d3d31a9c83b3f483f4cd65dd461de5931462b222b10" => :mojave
+    sha256 "50ba7088c5c1b9a90c3eaa3fa4f3deb2effca0ba0ec2c955d88ca33eed3c8b14" => :high_sierra
+    sha256 "e9c1fde3b6305384637aa866c486364c3c4dbc564db657a01f7f5c770b332e38" => :sierra
   end
 
   head do

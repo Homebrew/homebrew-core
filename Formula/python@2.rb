@@ -3,14 +3,13 @@ class PythonAT2 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
   sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
-  revision 1
+  revision 2
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    rebuild 8
-    sha256 "8ef28a14c27cfc43b554ba7c9d89269a6db4362da637aea14b9de2e8cdcf5ffd" => :mojave
-    sha256 "35a654d96ac4bf0a890b54e2a40643d93279ef753eec95dec5ad295cb3e0284f" => :high_sierra
-    sha256 "82a48b730979c7b30e0850e45467ea2016e2678da259c6503ae493994d70f889" => :sierra
+    sha256 "4461576d1be699f9dad4751e0c986f5d42484f230bbbe30a27532471ffdb98a6" => :mojave
+    sha256 "9e89dd40be444c2446a24f8d10fbbda8ae858c180c4620ce597639308dcb43cb" => :high_sierra
+    sha256 "1474f6903ec29c717c3b70f7b26f3067ecc08577a696821042b04cd6799a3a67" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to

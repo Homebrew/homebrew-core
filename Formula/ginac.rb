@@ -3,12 +3,13 @@ class Ginac < Formula
   homepage "https://www.ginac.de/"
   url "https://www.ginac.de/ginac-1.7.4.tar.bz2"
   sha256 "d60413a2dc4e65b3832491fdcdb03897e673f8ff69885f015e74a6e9c7d978ef"
+  revision 1
 
   bottle do
-    sha256 "9d1ac5fac877c621ece3f0d0e4173c4b764a73b4cf0d6a08db260d1a6a29d1f9" => :mojave
-    sha256 "34b12f8c03cc21a11302f1c59b3852cd23563a071dda751b1004986801c0462e" => :high_sierra
-    sha256 "cd530a6c9656240a5afd12b03b30a7fc4a3724646150e78e86868206c2d816ac" => :sierra
-    sha256 "5ea2a6631c79b96a700f0706bd7a8cc2983a37f368040df029f0621aee1bdd82" => :el_capitan
+    cellar :any
+    sha256 "bd77d833166418f2d43ba4425bb78c739307f5112d442a5bce4804eb8bdd18fe" => :mojave
+    sha256 "65e1cc9d7a9af229d7f2b26323823fe7eb0540cb9c7f24f9fd65f0a55bec9fe4" => :high_sierra
+    sha256 "fd1070f14cd58bb0121d335b9bbc71334e83a4cecb61eab8736c96064ce55f12" => :sierra
   end
 
   depends_on "pkg-config" => :build
