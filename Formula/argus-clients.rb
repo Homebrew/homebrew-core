@@ -7,10 +7,9 @@ class ArgusClients < Formula
 
   bottle do
     cellar :any
-    sha256 "36e51aaa7622a2da108c7ad863b52de41c3e0682dfb65b09d1a6e45b3c82db10" => :mojave
-    sha256 "c1e2461ae53031164d50a775b5c3f83b0f4155be54fac037b55934d940a631d4" => :high_sierra
-    sha256 "e1449092f7f8d2645de4339be67f9c84705f84b6d9fee8277277dbb5c3cd6625" => :sierra
-    sha256 "1f9efb0c9ed77f8c546595cfda46c60dcaec81e3c0d01e5a4d7a31595a24f88c" => :el_capitan
+    sha256 "bc1e31b61274fd4fcd6f5e70e2963e21636b510892ce6e88294fea3fecba3edb" => :mojave
+    sha256 "b98135c7226010cecbbe7ccd23b1eb9a05cc0d517c531a0189b1659fa3d44d2e" => :high_sierra
+    sha256 "52964969252de58e4561866a362ff62456c7da129bd56a8c4a270adb4c16682d" => :sierra
   end
 
   depends_on "readline"
