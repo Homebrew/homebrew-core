@@ -19,7 +19,6 @@ class Tarsnap < Formula
   end
 
   depends_on "openssl"
-  depends_on "xz" => :optional
 
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
@@ -37,8 +36,9 @@ class Tarsnap < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-bash-completion-dir=#{bash_completion}
+      --without-lzma
+      --without-lzmadec
     ]
-    args << "--without-lzma" << "--without-lzmadec" if build.without? "xz"
 
     system "./configure", *args
     system "make", "install"
