@@ -3,6 +3,7 @@ class Gearman < Formula
   homepage "http://gearman.org/"
   url "https://github.com/gearman/gearmand/releases/download/1.1.18/gearmand-1.1.18.tar.gz"
   sha256 "d789fa24996075a64c5af5fd2adef10b13f77d71f7d44edd68db482b349c962c"
+  revision 1
 
   bottle do
     sha256 "df5a14dc5c29d07d373d42888d589f6d1ec053b8965d939b6647052aa694ebf5" => :mojave
@@ -11,21 +12,11 @@ class Gearman < Formula
     sha256 "b2d1ba15ccdf0688decb8ecb0503ffa9fe507dccb5828de1007f130266ef98b1" => :el_capitan
   end
 
-  option "with-mysql", "Compile with MySQL persistent queue enabled"
-  option "with-postgresql", "Compile with Postgresql persistent queue enabled"
-
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "boost"
   depends_on "libevent"
-  depends_on "hiredis" => :optional
-  depends_on "libmemcached" => :optional
-  depends_on "mysql" => :optional
-  depends_on "openssl" => :optional
-  depends_on "postgresql" => :optional
-  depends_on "libpqxx" if build.with? "postgresql"
-  depends_on "tokyo-cabinet" => :optional
-  depends_on "wolfssl" => :optional
+  depends_on "libmemcached"
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
@@ -38,40 +29,24 @@ class Gearman < Formula
       inreplace test_file, "std::unique_ptr", "std::auto_ptr"
     end
 
-    args = [
-      "--prefix=#{prefix}",
-      "--localstatedir=#{var}",
-      "--disable-silent-rules",
-      "--disable-dependency-tracking",
-      "--disable-libdrizzle",
-      "--with-boost=#{Formula["boost"].opt_prefix}",
-      "--with-sqlite3",
+    args = %W[
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --disable-silent-rules
+      --disable-dependency-tracking
+      --disable-cyassl
+      --disable-hiredis
+      --disable-libdrizzle
+      --disable-libpq
+      --disable-libtokyocabinet
+      --disable-ssl
+      --enable-libmemcached
+      --with-boost=#{Formula["boost"].opt_prefix}
+      --with-memcached=#{Formula["memcached"].opt_bin}/memcached
+      --with-sqlite3
+      --without-mysql
+      --without-postgresql
     ]
-
-    if build.with? "cyassl"
-      args << "--enable-ssl" << "--enable-cyassl"
-    elsif build.with? "openssl"
-      args << "--enable-ssl" << "--with-openssl=#{Formula["openssl"].opt_prefix}" << "--disable-cyassl"
-    else
-      args << "--disable-ssl" << "--disable-cyassl"
-    end
-
-    if build.with? "postgresql"
-      args << "--enable-libpq" << "--with-postgresql=#{Formula["postgresql"].opt_bin}/pg_config"
-    else
-      args << "--disable-libpq" << "--without-postgresql"
-    end
-
-    if build.with? "libmemcached"
-      args << "--enable-libmemcached" << "--with-memcached=#{Formula["memcached"].opt_bin}/memcached"
-    else
-      args << "--disable-libmemcached" << "--without-memcached"
-    end
-
-    args << "--disable-libtokyocabinet" if build.without? "tokyo-cabinet"
-
-    args << (build.with?("mysql") ? "--with-mysql=#{Formula["mysql"].opt_bin}/mysql_config" : "--without-mysql")
-    args << (build.with?("hiredis") ? "--enable-hiredis" : "--disable-hiredis")
 
     ENV.append_to_cflags "-DHAVE_HTONLL"
 
