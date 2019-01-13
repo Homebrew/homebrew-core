@@ -7,9 +7,9 @@ class Gphoto2 < Formula
 
   bottle do
     cellar :any
-    sha256 "46bd976102f39a2b2a343eb5ec44db288d5f5bcb1a66caff9d64e56487d43642" => :mojave
-    sha256 "c36a0a358efba0432699ecc445cf7585ed66410599d9bf4d22b05a2d515c4274" => :high_sierra
-    sha256 "7bacc5db7d78e283d6d1a68d7b9fc0c5345c1047abe36f2ee89e06b7cf9260e8" => :sierra
+    sha256 "37fb8edbd5544c29cedcca1d5993edd79f864e0e48d2881a594967e220b9d011" => :mojave
+    sha256 "5a806c3bab79874be998d3a47b0d0345cbedf17e3cc18ae0cd01cb881769155d" => :high_sierra
+    sha256 "e9c413a70ddfac524438a2e8f59638483f8b2dfd975921e4cbdca35a0cdf0803" => :sierra
   end
 
   depends_on "pkg-config" => :build
