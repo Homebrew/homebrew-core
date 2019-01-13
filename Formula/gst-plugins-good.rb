@@ -6,8 +6,6 @@ class GstPluginsGood < Formula
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz"
     sha256 "5f8b553260cb0aac56890053d8511db1528d53cae10f0287cfce2cb2acc70979"
-
-    depends_on "check" => :optional
   end
 
   bottle do
@@ -39,17 +37,6 @@ class GstPluginsGood < Formula
   depends_on "speex"
   depends_on "taglib"
 
-  # Dependencies based on the intersection of
-  # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
-  # and Homebrew formulae.
-  depends_on "aalib" => :optional
-  depends_on "gdk-pixbuf" => :optional
-  depends_on "gtk+3" => :optional
-  depends_on "jack" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libdv" => :optional
-  depends_on "pulseaudio" => :optional
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -61,8 +48,6 @@ class GstPluginsGood < Formula
       --disable-silent-rules
       --disable-x
     ]
-
-    args << "--enable-gtk3" if build.with? "gtk+3"
 
     # This plugin causes hangs on Snow Leopard (and possibly other versions?)
     # Upstream says it hasn't "been actively tested in a long time";
