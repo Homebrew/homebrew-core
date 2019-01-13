@@ -12,10 +12,9 @@ class RubyAT18 < Formula
   revision 5
 
   bottle do
-    sha256 "34ac66b428a1fd4da537d73c9b05217e9bcddd61f1a9f2de313c737eca86d49c" => :mojave
-    sha256 "028a474aad330d68cb05970f5587e30d98a6442dc847d30371c9dc4dfac3a9f8" => :high_sierra
-    sha256 "cde0dd03d2eeaa2d9e98f7b0ca88c1f362049f3de5b631ff9ca87d64360fe641" => :sierra
-    sha256 "d8993792dd522fe5977604d704337bf9845447db9d0274a173b16b7290d24ebf" => :el_capitan
+    sha256 "7c6d46159711bc9024aac359d3bf1434bc190939d44573c3084c68b4060c9f36" => :mojave
+    sha256 "1a4f800a8db04522cefca4019d9100d7745e66db6caf253641a82bfe7cf9422c" => :high_sierra
+    sha256 "491e3b677ebb4fc688f6453457c3f540f7854c5fc13f34f42a8c25fb278b7d79" => :sierra
   end
 
   keg_only :versioned_formula
