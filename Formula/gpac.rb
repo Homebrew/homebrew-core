@@ -58,16 +58,17 @@ class Gpac < Formula
   depends_on "mad" => :optional
   depends_on "sdl" => :optional
   depends_on "theora" => :optional
-  depends_on :x11 => :optional
 
   conflicts_with "bento4", :because => "both install `mp42ts` binaries"
 
   def install
-    args = ["--disable-wx",
-            "--disable-pulseaudio",
-            "--prefix=#{prefix}",
-            "--mandir=#{man}"]
-    args << "--disable-x11" if build.without? "x11"
+    args = %W[
+      --disable-wx
+      --disable-pulseaudio
+      --prefix=#{prefix}
+      --mandir=#{man}
+      --disable-x11
+    ]
 
     system "./configure", *args
     system "make"
