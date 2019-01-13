@@ -7,9 +7,9 @@ class Hstr < Formula
 
   bottle do
     cellar :any
-    sha256 "318da53b6a2415308236b2de23c3233984463bdde6ba3e534ec51ea1337615d3" => :mojave
-    sha256 "129664d7ed61d770c4257cb6c62ce374494dd7c11bb0ce5ff23540cb999b7329" => :high_sierra
-    sha256 "96ad8bad0cb4913cee6ef44442363d98f36e358adaec18d560f193f9ccad117c" => :sierra
+    sha256 "6bc65753efae0a89c2b9828e37928a879cd56884a03b0b1bbf34e8056590efc0" => :mojave
+    sha256 "8674fdfe45a193a76a7c67ef4e7df70c08ccca8ab60194acc67be2622bfeed15" => :high_sierra
+    sha256 "855047dba9374bce6e7d880aa7847a77a4429d86ad611992c4f94ad207d0d11b" => :sierra
   end
 
   depends_on "autoconf" => :build
