@@ -22,18 +22,11 @@ class Uwsgi < Formula
     sha256 "c46dd9c0e215063d503b275759ec1055521b124d1f8c5d378de086d186089088" => :sierra
   end
 
-  deprecated_option "with-python3" => "with-python"
-
-  depends_on "go" => [:build, :optional]
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "pcre"
   depends_on "python@2"
   depends_on "yajl"
-
-  depends_on "libyaml" => :optional
-  depends_on "python" => :optional
-  depends_on "zeromq" => :optional
 
   # "no such file or directory: '... libpython2.7.a'"
   # Reported 23 Jun 2016: https://github.com/unbit/uwsgi/issues/1299
@@ -54,14 +47,12 @@ class Uwsgi < Formula
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
     ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
-    yaml = build.with?("libyaml") ? "libyaml" : "embedded"
-
     (buildpath/"buildconf/brew.ini").write <<~EOS
       [uwsgi]
       ssl = true
       json = yajl
       xml = libxml2
-      yaml = #{yaml}
+      yaml = embedded
       inherit = base
       plugin_dir = #{libexec}/uwsgi
       embedded_plugins = null
@@ -86,8 +77,6 @@ class Uwsgi < Formula
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
 
-    plugins << "gccgo" if build.with? "go"
-
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|
       system "python", "uwsgiconfig.py", "--verbose", "--plugin", "plugins/#{plugin}", "brew"
@@ -97,7 +86,6 @@ class Uwsgi < Formula
       "python"  => "python2.7",
       "python2" => "python2.7",
     }
-    python_versions["python3"] = "python3" if build.with? "python"
     python_versions.each do |k, v|
       system v, "uwsgiconfig.py", "--verbose", "--plugin", "plugins/python", "brew", k
     end
