@@ -1,8 +1,8 @@
 class Cryfs < Formula
   desc "Encrypts your files so you can safely store them in Dropbox, iCloud, etc."
   homepage "https://www.cryfs.org"
-  url "https://github.com/cryfs/cryfs/releases/download/0.9.9/cryfs-0.9.9.tar.xz"
-  sha256 "aa8d90bb4c821cf8347f0f4cbc5f68a1e0f4eb461ffd8f1ee093c4d37eac2908"
+  url "https://github.com/cryfs/cryfs/releases/download/0.9.10/cryfs-0.9.10.tar.xz"
+  sha256 "a2b3b401c0d709fd7c2fc2c35e9decda204dfe7e7ac6b84044d7698780599d24"
 
   bottle do
     cellar :any
@@ -45,6 +45,17 @@ class Cryfs < Formula
 
   test do
     ENV["CRYFS_FRONTEND"] = "noninteractive"
-    assert_match "CryFS", shell_output("#{bin}/cryfs", 10)
+
+    # Test showing help page
+    assert_match "CryFS", shell_output("#{bin}/cryfs 2>&1", 10)
+
+    # Test mounting a filesystem. This command will ultimately fail because homebrew tests
+    # don't have the required permissions to mount fuse filesystems, but before that
+    # it should display "Mounting filesystem". If that doesn't happen, there's something
+    # wrong. For example there was an ABI incompatibility issue between the crypto++ version
+    # the cryfs bottle was compiled with and the crypto++ library installed by homebrew to.
+    Dir.mkdir("basedir")
+    Dir.mkdir("mountdir")
+    assert_match "Mounting filesystem", pipe_output("#{bin}/cryfs -f basedir mountdir 2>&1", "password")
   end
 end
