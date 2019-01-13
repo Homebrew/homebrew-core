@@ -7,9 +7,9 @@ class Hunspell < Formula
 
   bottle do
     cellar :any
-    sha256 "6a668c4d0e9092b3d8f96bcef0c5cc89ad25843352e039368c549c984b2e8533" => :mojave
-    sha256 "2c3e356883f40351dcb401f7622a477f6b9997545b2a4411f2eff197b77f6d16" => :high_sierra
-    sha256 "a513f0f462fc874dceeeb2a57a38c2e7a477021094a08e0ee5428cf75b07e0bf" => :sierra
+    sha256 "4424ad936c0d45d85afa0e0fbe610346cf0e3bddc96c88ff7efbef0f01528ffa" => :mojave
+    sha256 "aa31c8817d44d1b5842837bdaeb3daa48c2cee384a683590c51577c080dc08b4" => :high_sierra
+    sha256 "8e0b13ca0558d71f0edb45cc68560eec84873743b8697da739ee6119a3d9fcae" => :sierra
   end
 
   depends_on "autoconf" => :build
