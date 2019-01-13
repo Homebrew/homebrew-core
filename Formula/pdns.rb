@@ -20,18 +20,11 @@ class Pdns < Formula
     depends_on "ragel"
   end
 
-  option "with-postgresql", "Enable the PostgreSQL backend"
-  option "with-remote", "enable the Remote backend"
-
-  deprecated_option "pgsql" => "with-postgresql"
-  deprecated_option "with-pgsql" => "with-postgresql"
-
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "lua"
   depends_on "openssl"
   depends_on "sqlite"
-  depends_on "postgresql" => :optional
 
   def install
     # Fix "configure: error: cannot find boost/program_options.hpp"
@@ -43,21 +36,11 @@ class Pdns < Formula
       --with-lua
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-sqlite3
+      --with-modules=gsqlite3
     ]
-
-    # Include the PostgreSQL backend if requested
-    if build.with? "postgresql"
-      args << "--with-modules=gsqlite3 gpgsql"
-    elsif build.with? "remote"
-      args << "--with-modules=gsqlite3 remote"
-    else
-      # SQLite3 backend only is the default
-      args << "--with-modules=gsqlite3"
-    end
 
     system "./bootstrap" if build.head?
     system "./configure", *args
-
     system "make", "install"
   end
 
