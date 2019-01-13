@@ -12,8 +12,6 @@ class Passenger < Formula
     sha256 "d094cecf62e66a527482b681bdfa01cc7fa956a16ad9e4d2fea520ffc63cac6f" => :sierra
   end
 
-  option "without-apache2-module", "Disable Apache2 module"
-
   depends_on :macos => :lion
   depends_on "openssl"
   depends_on "pcre"
@@ -27,7 +25,7 @@ class Passenger < Formula
       s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
     end
 
-    system "rake", "apache2" if build.with? "apache2-module"
+    system "rake", "apache2"
     system "rake", "nginx"
 
     (libexec/"download_cache").mkpath
@@ -70,21 +68,15 @@ class Passenger < Formula
     mv libexec/"man", share
   end
 
-  def caveats
-    s = <<~EOS
-      To activate Phusion Passenger for Nginx, run:
-        brew install nginx --with-passenger
+  def caveats; <<~EOS
+    To activate Phusion Passenger for Nginx, run:
+      brew install nginx --with-passenger
 
-    EOS
-
-    s += <<~EOS if build.with? "apache2-module"
-      To activate Phusion Passenger for Apache, create /etc/apache2/other/passenger.conf:
-        LoadModule passenger_module #{opt_libexec}/buildout/apache2/mod_passenger.so
-        PassengerRoot #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini
-        PassengerDefaultRuby /usr/bin/ruby
-
-    EOS
-    s
+    To activate Phusion Passenger for Apache, create /etc/apache2/other/passenger.conf:
+      LoadModule passenger_module #{opt_libexec}/buildout/apache2/mod_passenger.so
+      PassengerRoot #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini
+      PassengerDefaultRuby /usr/bin/ruby
+  EOS
   end
 
   test do
