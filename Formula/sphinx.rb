@@ -3,6 +3,7 @@ class Sphinx < Formula
   homepage "https://sphinxsearch.com/"
   url "https://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
+  revision 1
   head "https://github.com/sphinxsearch/sphinx.git"
 
   bottle do
@@ -14,15 +15,8 @@ class Sphinx < Formula
     sha256 "4ec1f1ea71e17b9e924e9f36747d7184114463640f100022cdbb46202e46261f" => :mavericks
   end
 
-  option "with-mysql", "Force compiling against MySQL"
-  option "with-postgresql", "Force compiling against PostgreSQL"
-
-  deprecated_option "mysql" => "with-mysql"
-  deprecated_option "pgsql" => "with-postgresql"
-
-  depends_on "mysql" => :optional
-  depends_on "openssl" if build.with? "mysql"
-  depends_on "postgresql" => :optional
+  depends_on "mysql"
+  depends_on "openssl"
 
   fails_with :clang do
     build 421
@@ -45,45 +39,12 @@ class Sphinx < Formula
       --disable-dependency-tracking
       --localstatedir=#{var}
       --with-libstemmer
+      --with-mysql
+      --without-pgsql
     ]
-
-    if build.with? "mysql"
-      args << "--with-mysql"
-    else
-      args << "--without-mysql"
-    end
-
-    if build.with? "postgresql"
-      args << "--with-pgsql"
-    else
-      args << "--without-pgsql"
-    end
 
     system "./configure", *args
     system "make", "install"
-  end
-
-  def caveats; <<~EOS
-    This is not sphinx - the Python Documentation Generator.
-    To install sphinx-python use pip.
-
-    Sphinx has been compiled with libstemmer support.
-
-    Sphinx depends on either MySQL or PostreSQL as a datasource.
-
-    You can install these with Homebrew with:
-      brew install mysql
-        For MySQL server.
-
-      brew install mysql-connector-c
-        For MySQL client libraries only.
-
-      brew install postgresql
-        For PostgreSQL server.
-
-    We don't install these for you when you install this formula, as
-    we don't know which datasource you intend to use.
-  EOS
   end
 
   test do
