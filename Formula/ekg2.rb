@@ -7,10 +7,9 @@ class Ekg2 < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 "343184ec3133f319a4c9315ec29b7e445f2be985c14e556322355166a27cd669" => :mojave
-    sha256 "6cc71c4565698812504abe1e506f22f4e9f8da6cb74ffab1a977419cddbcae2b" => :high_sierra
-    sha256 "56e591f560a647114962226aadfad4a7d7068920033e7c199081c22e699066cb" => :sierra
+    sha256 "0743656772367528b12696d599be81d46a0f2dffd8599b7331da7dc2c46fa404" => :mojave
+    sha256 "4415b63628ac3a3f2e43419bbbdacd17184e3e23913b26bcc87152fc0a91a4ae" => :high_sierra
+    sha256 "bb1c5ca15114cdd1b9f93cf1db9fc544cfdd1edc4f9fc31e0891627d738ad027" => :sierra
   end
 
   depends_on "pkg-config" => :build
