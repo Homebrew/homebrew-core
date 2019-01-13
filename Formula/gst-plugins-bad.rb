@@ -30,18 +30,6 @@ class GstPluginsBad < Formula
   depends_on "openssl"
   depends_on "opus"
   depends_on "orc"
-  depends_on "dirac" => :optional
-  depends_on "fdk-aac" => :optional
-  depends_on "gnutls" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "libexif" => :optional
-  depends_on "libnice" => :optional
-  depends_on "libvo-aacenc" => :optional
-  depends_on "rtmpdump" => :optional
-  depends_on "schroedinger" => :optional
-  depends_on "sound-touch" => :optional
-  depends_on "srt" => :optional
-  depends_on "srtp" => :optional
 
   def install
     args = %W[
