@@ -7,10 +7,9 @@ class GnuUnits < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 "2570ac9d62c68482b03f6697c773f829347049763ad36ff68c9d0cfcad9eaba8" => :mojave
-    sha256 "54f54a751537e3810a5d89874d6929f08f1e78c66962c1a7ebe107ecf4a814a0" => :high_sierra
-    sha256 "a02b9fd8e8c8701b8026808eb6fd4cfbc3e4b6be7c3476948ac1e7b784166c8b" => :sierra
+    sha256 "d851d3123b6d3c7aa070bd54e7c93afdc4c489c9ee5e40dc181173eafe3e64ef" => :mojave
+    sha256 "5c3cd6c3c935208569b90f5747870d550337b447a155c651258c1eea91729978" => :high_sierra
+    sha256 "0479216ddee013129a2d365d7f8167acf54be841299d7c0b57c0f76d48500992" => :sierra
   end
 
   depends_on "readline"
