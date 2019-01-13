@@ -18,15 +18,6 @@ class Git < Formula
   if MacOS.version < :yosemite
     depends_on "openssl"
     depends_on "curl"
-  else
-    deprecated_option "with-brewed-openssl" => "with-openssl"
-    deprecated_option "with-brewed-curl" => "with-curl"
-
-    option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
-    option "with-curl", "Use Homebrew's version of cURL library"
-
-    depends_on "openssl" => :optional
-    depends_on "curl" => :optional
   end
 
   resource "html" do
@@ -80,7 +71,7 @@ class Git < Formula
       LDFLAGS=#{ENV.ldflags}
     ]
 
-    if build.with?("openssl") || MacOS.version < :yosemite
+    if MacOS.version < :yosemite
       openssl_prefix = Formula["openssl"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
@@ -137,9 +128,8 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # To avoid this feature hooking into the system OpenSSL, remove it.
-    # If you need it, install git --with-openssl.
-    if MacOS.version >= :yosemite && build.without?("openssl")
+    # To avoid this feature hooking into the system OpenSSL, remove it
+    if MacOS.version >= :yosemite
       rm "#{libexec}/git-core/git-imap-send"
     end
 
