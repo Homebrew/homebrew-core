@@ -6,11 +6,9 @@ class Cgdb < Formula
   revision 1
 
   bottle do
-    sha256 "c2da299ad0559c7c6cd8a4782bef9856ad84d09c2333d9e7c0f7342aab2ccb35" => :mojave
-    sha256 "03ab0851b336b8f22b310f13774bd4737af6576f6732d116e4b8c7d1cf15ed0f" => :high_sierra
-    sha256 "a81736f1e3b84ef7de58710b815bc90d845e4b5a0330146aca1fea31a75be81f" => :sierra
-    sha256 "b2b8787372078b3d6568b232497a18da791c3197708f6814a69ced881d5c9055" => :el_capitan
-    sha256 "4957746e9d5b84d9a39b07031ae1249d244bca262caf4ce84d744ddef8956c95" => :yosemite
+    sha256 "61bf2feb99d9f787ca7f31054732161fbce069e7bb2d586bc498021890de625e" => :mojave
+    sha256 "5d7640abe0c061f425b299202885c1540352efacf7a0be63dda9047965ec1cb1" => :high_sierra
+    sha256 "ae319df2221718b4b69238cc8b73e201350b4a8260d0c4b6ac7e1608cb4669d6" => :sierra
   end
 
   head do
