@@ -8,10 +8,9 @@ class Pce < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "3f23396673ac4fb9df4110cbd9c209a2654527cdfb7464b4700c2db73cee8d76" => :mojave
-    sha256 "3fc7f1e16fcd4a351cbb99a1ae73d10de642a145455705d870d176b70c204b32" => :high_sierra
-    sha256 "3666d2904f71cdf027dc6c28cb15d269fc1dfed617769d9e4b950d122726f432" => :sierra
+    sha256 "8c0364c490a9b01875ab9c05c7bc5a6cba190e27d941c72bbbb3e17af71ab88a" => :mojave
+    sha256 "6c67f811c813423d7380894d6de77aeeeba20d9f18fd36a71653c23b97c433f6" => :high_sierra
+    sha256 "ae09a42321608dfa10291d2a2a1afed87a137c9612a54e513360022de8e908b3" => :sierra
   end
 
   depends_on "nasm" => :build if MacOS.version >= :high_sierra
