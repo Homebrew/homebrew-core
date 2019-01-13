@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag      => "v1.13.1",
-      :revision => "eec55b9ba98609a46fee712359c7b5b365bdd920"
+      :tag      => "v1.13.2",
+      :revision => "cff46ab41ff0bb44d8584413b598ad8360ec1def"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
