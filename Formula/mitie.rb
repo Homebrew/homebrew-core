@@ -3,6 +3,7 @@ class Mitie < Formula
   homepage "https://github.com/mit-nlp/MITIE/"
   url "https://github.com/mit-nlp/MITIE/archive/v0.6.tar.gz"
   sha256 "bcfa6aab057206a2f5eeacbefa27a3205fe3bd906a54e0e790df3448b1c73243"
+  revision 1
   head "https://github.com/mit-nlp/MITIE.git"
 
   bottle do
@@ -12,7 +13,7 @@ class Mitie < Formula
     sha256 "b2813c1046c67800ff73f187d22c1d7d63aa9d6c8736606e69f2be5d3102ccee" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "models-english" do
     url "https://downloads.sourceforge.net/project/mitie/binaries/MITIE-models-v0.2.tar.bz2"
@@ -28,9 +29,12 @@ class Mitie < Formula
 
     include.install Dir["mitielib/include/*"]
     lib.install "mitielib/libmitie.dylib", "mitielib/libmitie.a"
-    (lib/"python2.7/site-packages").install "mitielib/mitie.py"
+
+    xy = Language::Python.major_minor_version "python3"
+    (lib/"python#{xy}/site-packages").install "mitielib/mitie.py"
     pkgshare.install "examples", "sample_text.txt",
-      "sample_text.reference-output", "sample_text.reference-output-relations"
+                     "sample_text.reference-output",
+                     "sample_text.reference-output-relations"
     bin.install "ner_example", "ner_stream", "relation_extraction_example"
   end
 
