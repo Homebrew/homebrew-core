@@ -6,10 +6,9 @@ class Lldpd < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 "8222ab9826ddcdad598d354c001d064fe92aa386b8088464c29fdc2cb0a08757" => :mojave
-    sha256 "c5ba1d60ebad77d94fd21fe743bd62f99e08ef364ab0ca3b9c852d4be531ff51" => :high_sierra
-    sha256 "0bcede6bdf6809586f730d2938f9e17a508c43baac194fc36e24fb9b7d54f9aa" => :sierra
+    sha256 "a5c99570bc5b5ec7e454348418e98e44e2e8a3d1749273c9874ec5089f75a33b" => :mojave
+    sha256 "07c52379bfa4f6aff982127f86c9350126bac9b1da7dadd41a718ac6f76404d9" => :high_sierra
+    sha256 "99a86ccaadefd3b90434cabc2f94a5ec1978e70db4d1f548e98566146db600ea" => :sierra
   end
 
   depends_on "pkg-config" => :build
