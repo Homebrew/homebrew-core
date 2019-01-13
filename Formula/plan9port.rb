@@ -15,13 +15,8 @@ class Plan9port < Formula
     sha256 "ef0059997655128f6b41faa1023b37a071ff9976f4c94d3b3bd706be65177aa1" => :mavericks
   end
 
-  depends_on :x11 => :optional
-
   def install
     ENV["PLAN9_TARGET"] = libexec
-
-    # Make macOS system fonts available to Plan 9
-    (buildpath/"LOCAL.config").write "FONTSRV=fontsrv" if build.with? "x11"
 
     system "./INSTALL"
     libexec.install Dir["*"]
@@ -30,7 +25,7 @@ class Plan9port < Formula
   end
 
   def caveats; <<~EOS
-    In order not to collide with OSX system binaries, the Plan 9 binaries have
+    In order not to collide with macOS system binaries, the Plan 9 binaries have
     been installed to #{opt_libexec}/bin.
     To run the Plan 9 version of a command simply call it through the command
     "9", which has been installed into the Homebrew prefix bin.  For example,
