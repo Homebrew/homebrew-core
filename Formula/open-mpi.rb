@@ -17,8 +17,6 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
-
   depends_on "gcc"
   depends_on "libevent"
 
@@ -41,8 +39,8 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-    args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
-    # fixes an issue in 4.0.0, should be fixed in 4.0.1
+
+    # Fixes an issue in 4.0.0, should be fixed in 4.0.1
     args << "--enable-mpi1-compatibility"
 
     system "./autogen.pl" if build.head?
