@@ -7,10 +7,9 @@ class Socat < Formula
 
   bottle do
     cellar :any
-    sha256 "492cd9ef5b2f6bc959a8c5618a627f40b8e386d337ed4f5c4fc534d4daeb8c8b" => :mojave
-    sha256 "8440c4f765cf7c068461e33088e80057fbfa6be598107666714ba7cd0bb8c97d" => :high_sierra
-    sha256 "c630c4273615556c167da5875a67e28d79e51bc7493eb07ba73b7f7fead14372" => :sierra
-    sha256 "78787f35cdbc55bc5bce5f12c253eace7db1ae39767d55ad1e032eadc4f33ad3" => :el_capitan
+    sha256 "d6ad29176f723fe1d80f243cf4ff7d359b42f9d29d70db44f621077a291c71d4" => :mojave
+    sha256 "952d712f32b1a634ae941b924e912a01814bf0c62fc8a1756a641ac2540e36de" => :high_sierra
+    sha256 "c7276a30037b10f781498c0eacebfa00adc217a3606756439d86c65cef4ccae7" => :sierra
   end
 
   depends_on "openssl"
