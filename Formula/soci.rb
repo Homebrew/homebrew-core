@@ -12,13 +12,6 @@ class Soci < Formula
     sha256 "b802ee253ceb25ebfd2b5a90ef4dc8b229a90c7b1cae1a33533c9bd2ff9e7d50" => :yosemite
   end
 
-  option "with-oracle", "Enable Oracle support."
-  option "with-boost", "Enable boost support."
-  option "with-mysql", "Enable MySQL support."
-  option "with-odbc", "Enable ODBC support."
-  option "with-pg", "Enable PostgreSQL support."
-
-  depends_on "boost" => [:build, :optional]
   depends_on "cmake" => :build
   depends_on "sqlite" if MacOS.version <= :snow_leopard
 
@@ -28,16 +21,17 @@ class Soci < Formula
   end
 
   def install
-    args = std_cmake_args + %w[.. -DWITH_SQLITE3:BOOL=ON]
-
-    %w[boost mysql oracle odbc pg].each do |arg|
-      arg_var = (arg == "pg") ? "postgresql" : arg
-      bool = build.with?(arg) ? "ON" : "OFF"
-      args << "-DWITH_#{arg_var.upcase}:BOOL=#{bool}"
-    end
+    args = std_cmake_args + %w[
+      -DWITH_SQLITE3:BOOL=ON
+      -DWITH_BOOST:BOOL=OFF
+      -DWITH_MYSQL:BOOL=OFF
+      -DWITH_ODBC:BOOL=OFF
+      -DWITH_ORACLE:BOOL=OFF
+      -DWITH_POSTGRESQL:BOOL=OFF
+    ]
 
     mkdir "build" do
-      system "cmake", *args
+      system "cmake", "..", *args
       system "make", "install"
     end
   end
