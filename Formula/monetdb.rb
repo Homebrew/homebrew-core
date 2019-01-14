@@ -1,9 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Aug2018-SP1/MonetDB-11.31.11.tar.xz"
-  sha256 "169f78f6509241e63028adec3f5082fdcf9f8a1ae9d87a59dddf423f8e9f81d5"
-  revision 1
+  url "https://www.monetdb.org/downloads/sources/Aug2018-SP2/MonetDB-11.31.13.tar.xz"
+  sha256 "f9fbf63ed7e6c306868b289c3fda8c3a8b6d3fc6bef589418940b2a21fd7c283"
 
   bottle do
     sha256 "47e2a900b158e95ec44580c381e5bb74798859e1171e60e980e7ca05bbeb5173" => :mojave
