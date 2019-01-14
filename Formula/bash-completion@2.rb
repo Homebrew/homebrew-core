@@ -27,16 +27,14 @@ class BashCompletionAT2 < Formula
     inreplace "bash_completion", "readlink -f", "readlink"
 
     system "autoreconf", "-i" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
+    system "./configure", "--prefix=#{prefix}"
     ENV.deparallelize
     system "make", "install"
   end
 
   def caveats; <<~EOS
     Add the following to your ~/.bash_profile:
-      if [ -f #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion ]; then
-        . #{HOMEBREW_PREFIX}/share/bash-completion/bash_completion
-      fi
+      [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
   EOS
   end
 
