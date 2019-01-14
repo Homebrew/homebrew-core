@@ -7,9 +7,9 @@ class Wxmaxima < Formula
 
   bottle do
     cellar :any
-    sha256 "cdf9cc0a4b71f763fdacf3cddafc52e70258cc855c86dad4144f0bf2523b027d" => :mojave
-    sha256 "1d1809d0f19180e1c7f1eb55c54a0b09c859589a20fd72591f2437d0a1802437" => :high_sierra
-    sha256 "3cdeacd53880490bce5f9d7c4498c1fdf778ddef7d21f4fa3905c317202b6985" => :sierra
+    sha256 "f5a15066c3fd57ca50ded8ffd4cfa12a3682b4b10ac91a662335db7393984b34" => :mojave
+    sha256 "18a9745082353eb1d965c6b8bf7d05933dda1003e9c0bd20271c6308e00d0ea0" => :high_sierra
+    sha256 "254b2260c87f83859b8f50469fa0ae657fbb310985382c2f0db708901620648f" => :sierra
   end
 
   depends_on "cmake" => :build
