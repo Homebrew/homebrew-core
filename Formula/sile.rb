@@ -8,8 +8,9 @@ class Sile < Formula
 
   bottle do
     cellar :any
-    sha256 "b61fe2666c3f6ee368fd65961a87b39e8a4b8933f409b1e7f702df7c41dee727" => :high_sierra
-    sha256 "b1af4d23ced07f8cd03ea77bffd65637fcc0f3105e1364d872cf976d05417ffa" => :sierra
+    sha256 "f966c2b80512713a9713f7ed16a6ae4e22d23d6f5844fd6cb279e7630a407f39" => :mojave
+    sha256 "f058ac6422c8461beb8a5f6ba84c8413e8f0cbc51d6d31706ea9888f4465124e" => :high_sierra
+    sha256 "3e4c53dd7d45b1846014a14d5f6e9e85c4753b0a8da934e1827fdb0a3e8426ed" => :sierra
   end
 
   if build.head?
