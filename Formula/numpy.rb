@@ -61,6 +61,7 @@ class Numpy < Formula
         "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}",
         "install", "--prefix=#{prefix}",
         "--single-version-externally-managed", "--record=installed.txt"
+      end
     end
   end
 
