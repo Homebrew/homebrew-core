@@ -2,8 +2,8 @@ class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
   url "https://github.com/mac-cain13/R.swift.git",
-      :tag      => "v5.0.0",
-      :revision => "a5822fdea505b76e8defb78878fde17afac52e38"
+      :tag      => "v5.0.2",
+      :revision => "7d79ec7ffe6b5c42aad1960e8f31623f68ebedbf"
   head "https://github.com/mac-cain13/R.swift.git"
 
   bottle do
@@ -15,8 +15,15 @@ class Rswift < Formula
   depends_on :xcode => "10.0"
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
-           "-static-stdlib"
+    system "swift", "build", "--disable-sandbox",
+                             "-c",
+                             "release",
+                             "-Xswiftc",
+                             "-static-stdlib",
+                             "-Xswiftc",
+                             "-target",
+                             "-Xswiftc",
+                             "x86_64-apple-macosx10.11"
     bin.install ".build/release/rswift"
   end
 
