@@ -1,8 +1,8 @@
-class PerconaServer < Formula
+class PerconaServerAT57 < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.13-3/source/tarball/percona-server-8.0.13-3.tar.gz"
-  sha256 "ab00626775b85ea506c1d992d66acee50f0bfbde54b830731f61652e87ff93da"
+  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.24-27/source/tarball/percona-server-5.7.24-27.tar.gz"
+  sha256 "999593afa241660bc7860264b46a826faf97d80d411966fade24084f47b249a0"
 
   bottle do
     sha256 "79938125efb509b03ae247a23198c65fb6684eb49be9336860b5a92b56931b5b" => :mojave
@@ -15,12 +15,13 @@ class PerconaServer < Formula
     satisfy { datadir == var/"mysql" }
   end
 
-  depends_on "cmake" => :build
+  keg_only :versioned_formula
 
+  depends_on "cmake" => :build
   # https://github.com/Homebrew/homebrew-core/issues/1475
   # Needs at least Clang 3.3, which shipped alongside Lion.
-  # Note: MySQL themselves don't support anything below Sierra.
-  depends_on :macos => :yosemite
+  # Note: MySQL themselves don't support anything below El Capitan.
+  depends_on :macos => :lion
   depends_on "openssl"
 
   conflicts_with "mariadb", "mysql", "mysql-cluster",
@@ -30,16 +31,9 @@ class PerconaServer < Formula
   conflicts_with "mariadb-connector-c",
     :because => "both install plugins"
 
-  # https://bugs.mysql.com/bug.php?id=86711
-  # https://github.com/Homebrew/homebrew-core/pull/20538
-  fails_with :clang do
-    build 800
-    cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
-  end
-
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.67.0/boost_1_67_0.tar.bz2"
-    sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+    url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
+    sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
   end
 
   # Where the database files should be located. Existing installs have them
@@ -50,11 +44,16 @@ class PerconaServer < Formula
   end
 
   def install
+    # Set HAVE_MEMSET_S flag to fix compilation
+    # https://bugs.launchpad.net/percona-server/+bug/1741647
+    ENV.prepend "CPPFLAGS", "-DHAVE_MEMSET_S=1"
+
+    # https://dev.mysql.com/doc/refman/5.7/en/source-configuration-options.html
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
-      -DDEFAULT_CHARSET=utf8mb4
-      -DDEFAULT_COLLATION=utf8mb4_0900_ai_ci
+      -DDEFAULT_CHARSET=utf8
+      -DDEFAULT_COLLATION=utf8_general_ci
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INCLUDEDIR=include/mysql
       -DINSTALL_INFODIR=share/info
@@ -63,12 +62,8 @@ class PerconaServer < Formula
       -DINSTALL_PLUGINDIR=lib/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
-      -DWITH_SSL=yes
-      -DWITH_UNIT_TESTS=OFF
-      -DWITH_EMBEDDED_SERVER=ON
-      -DENABLED_LOCAL_INFILE=1
-      -DWITH_INNODB_MEMCACHED=ON
       -DWITH_EDITLINE=system
+      -DWITH_SSL=yes
     ]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
@@ -84,6 +79,8 @@ class PerconaServer < Formula
     # TokuDB does not compile on macOS
     # https://bugs.launchpad.net/percona-server/+bug/1531446
     args.concat %w[-DWITHOUT_TOKUDB=1]
+
+    args << "-DWITH_UNIT_TESTS=OFF"
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"
