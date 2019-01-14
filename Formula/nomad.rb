@@ -1,8 +1,8 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v0.8.6.tar.gz"
-  sha256 "e69b447dcc2caeb3d5ecf904cf3c8f327a5185a84442ee4241a796d89f96e143"
+  url "https://github.com/hashicorp/nomad/archive/v0.8.7.tar.gz"
+  sha256 "f74eac627de69190e586358b1956573a0ae1a40d0755ecdee163016949f9c7fe"
   head "https://github.com/hashicorp/nomad.git"
 
   bottle do
@@ -16,8 +16,9 @@ class Nomad < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/hashicorp/nomad").install buildpath.children
-    cd "src/github.com/hashicorp/nomad" do
+    src = buildpath/"src/github.com/hashicorp/nomad"
+    src.install buildpath.children
+    src.cd do
       system "go", "build", "-tags", "ui", "-o", bin/"nomad"
       prefix.install_metafiles
     end
