@@ -1,14 +1,16 @@
 class TerraformLandscape < Formula
   desc "Improve Terraform's plan output"
   homepage "https://github.com/coinbase/terraform-landscape"
-  url "https://github.com/coinbase/terraform-landscape/archive/v0.2.2.tar.gz"
-  sha256 "09eb14df6c5743478380e6b8eb618226773da0a0055fe4fcf955018b5c9fb668"
+  url "https://github.com/coinbase/terraform-landscape/archive/v0.3.1.tar.gz"
+  sha256 "0bdfa852240214d413e510437abb9a3f58ac7bc04262dc2ff4e9efaa1945f89d"
 
   bottle do
     sha256 "55d689c8224f57a30b2dba356eef0f1b7bbf1c7e353724b236138dc0f678406b" => :mojave
     sha256 "ea8e016b581df875a5f2591c47698c6f75a4afea329cd2ed996bb1b0dc59d3d6" => :high_sierra
     sha256 "25ddfefd03e21886b042060b9bf5a9060ba2ab0565ae9580a3b492323d97403b" => :sierra
   end
+
+  depends_on "ruby"
 
   resource "colorize" do
     url "https://rubygems.org/gems/colorize-0.8.1.gem"
@@ -21,18 +23,13 @@ class TerraformLandscape < Formula
   end
 
   resource "diffy" do
-    url "https://rubygems.org/gems/diffy-3.2.1.gem"
-    sha256 "4ffe1a7b01c958053407f9a8e6492c3e8c11b59db0ab5c3ae44f056067ae3185"
+    url "https://rubygems.org/gems/diffy-3.3.0.gem"
+    sha256 "909af322005817dfd848afb85ba5a30c65c38299b288349ac8c1744607391d62"
   end
 
   resource "highline" do
-    url "https://rubygems.org/gems/highline-2.0.0.gem"
-    sha256 "74524686caf43dd56465ba847bd2c33b552028cf23973c4f1fbb5e5971f93a19"
-  end
-
-  resource "string_undump" do
-    url "https://rubygems.org/gems/string_undump-0.1.1.gem"
-    sha256 "7b2b70d86bfac09e774d3be3be1fbae7780ebcd5a1edfdad7bbb15be78ae1793"
+    url "https://rubygems.org/gems/highline-2.0.1.gem"
+    sha256 "ec0bab47f397b32d09b599629cf32f4fc922470a09bef602ef5e492127bb263f"
   end
 
   resource "polyglot" do
