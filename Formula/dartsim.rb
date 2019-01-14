@@ -34,12 +34,6 @@ class Dartsim < Formula
     system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
                          *std_cmake_args
     system "make", "install"
-
-    # Avoid revision bumps whenever urdfdom's or urdfdom_headers's Cellar paths change
-    inreplace share/"dart/cmake/dart_utils-urdfTargets.cmake" do |s|
-      s.gsub! Formula["urdfdom"].prefix.realpath, Formula["urdfdom"].opt_prefix
-      s.gsub! Formula["urdfdom_headers"].prefix.realpath, Formula["urdfdom_headers"].opt_prefix
-    end
   end
 
   test do
