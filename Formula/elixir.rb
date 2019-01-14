@@ -6,9 +6,10 @@ class Elixir < Formula
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "bf12a711bafb1376ef61747a8b630f3dc17db104a2067ce2d7681db4e84b7dc9" => :mojave
-    sha256 "571a686fc769e8c6d83040d8eba361b888842a3f9699284e9585e1c76c15352a" => :high_sierra
-    sha256 "481aefb8f5dd96e32bf38bba04019f4951c2b62cc16293ec98d329844e7c62f0" => :sierra
+    cellar :any_skip_relocation
+    sha256 "500c7eaf16cd95da4ee4fc34bdd24ef79c9b9977e2b207a50ce6b155433b4b00" => :mojave
+    sha256 "5b5631a49467e4c1e571892439e55528a819b692700106bd88982734491bb389" => :high_sierra
+    sha256 "313682784edc7959a339ca8b08bd0e2c3975978e6e80d0c2fd737b5be67b7e82" => :sierra
   end
 
   depends_on "erlang"
