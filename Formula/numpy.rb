@@ -3,6 +3,7 @@ class Numpy < Formula
   homepage "https://www.numpy.org/"
   url "https://files.pythonhosted.org/packages/04/b6/d7faa70a3e3eac39f943cc6a6a64ce378259677de516bd899dd9eb8f9b32/numpy-1.16.0.zip"
   sha256 "cb189bd98b2e7ac02df389b6212846ab20661f4bafe16b5a70a6f1728c1cc7cb"
+  head "https://github.com/numpy/numpy.git"
 
   bottle do
     cellar :any
@@ -11,19 +12,15 @@ class Numpy < Formula
     sha256 "3e31a959f7d0bc0ce31c642390b97aba708f1e6f83771a7b66915f44cd5a788f" => :sierra
   end
 
-  head do
-    url "https://github.com/numpy/numpy.git"
-
-    resource "Cython" do
-      url "https://files.pythonhosted.org/packages/f0/66/6309291b19b498b672817bd237caec787d1b18013ee659f17b1ec5844887/Cython-0.29.tar.gz"
-      sha256 "94916d1ede67682638d3cc0feb10648ff14dc51fb7a7f147f4fedce78eaaea97"
-    end
-  end
-
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
   depends_on "python"
   depends_on "python@2"
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/c1/f2/d1207fd0dfe5cb4dbb06a035eb127653821510d896ce952b5c66ca3dafa4/Cython-0.29.2.tar.gz"
+    sha256 "2ac187ff998a95abb7fae452b5178f91e1a713698c9ced89836c94e6b1d3f41e"
+  end
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -55,11 +52,9 @@ class Numpy < Formula
         (dest_path/"homebrew-numpy-nose.pth").write "#{nose_path}\n"
       end
 
-      if build.head?
-        ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
-        resource("Cython").stage do
-          system python, *Language::Python.setup_install_args(buildpath/"tools")
-        end
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
+      resource("Cython").stage do
+        system python, *Language::Python.setup_install_args(buildpath/"tools")
       end
 
       system python, "setup.py",
