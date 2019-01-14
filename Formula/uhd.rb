@@ -23,6 +23,12 @@ class Uhd < Formula
     sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
   end
 
+  # fix build for boost 1.69
+  patch do
+    url "https://github.com/EttusResearch/uhd/commit/5c012cad7858cadcaa85ec295080f3c8b21fdee0.patch?full_index=1"
+    sha256 "30192c65d63a45bc1510cf65d0538da5e3d2e74fe247588eda18058196da3863"
+  end
+
   def install
     xy = Language::Python.major_minor_version "python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
