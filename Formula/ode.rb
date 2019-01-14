@@ -8,36 +8,23 @@ class Ode < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "db6d5149c20d30e8ce3492ea197f27c2d0506b8c290576ffb08b82e8b64839ce" => :mojave
-    sha256 "d392aba8c14119ee6072c2677835e928d9a9cca95d4b3c0ef0b82aedf1bc0147" => :high_sierra
-    sha256 "34670979e3b841475cbbef0038203bae036baa753a6c03af179a0aff7b27d168" => :sierra
-    sha256 "4f2986f5867bd16da6836dc9a580f1ca2a01f4d7177fd3308b4fcea41443ac7e" => :el_capitan
+    rebuild 2
+    sha256 "bd5d10cb589e3c503282ea5a2b23a6becca27e1f80c8b62a1c67e237b204cd82" => :mojave
+    sha256 "e03793b4cc735b3da02ee8301b006761f057bf67daa4fcfdc21bd3f0004dbbb9" => :high_sierra
+    sha256 "db9f21ec8ac905541de59c2559736ef41674a3d238248c537e92cfd6f9f77ad2" => :sierra
   end
-
-  option "with-double-precision", "Compile ODE with double precision"
-  option "with-shared", "Compile ODE with shared library support"
-  option "with-x11", "Build the drawstuff library and demos"
-
-  deprecated_option "enable-double-precision" => "with-double-precision"
-  deprecated_option "enable-shared" => "with-shared"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libccd"
-  depends_on :x11 => :optional
 
   def install
-    args = ["--prefix=#{prefix}", "--enable-libccd"]
-    args << "--enable-double-precision" if build.with? "double-precision"
-    args << "--enable-shared" if build.with? "shared"
-    args << "--with-demos" if build.with? "x11"
-
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "./bootstrap"
 
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-libccd"
     system "make"
     system "make", "install"
   end
@@ -51,7 +38,8 @@ class Ode < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode", "-lccd",
+    system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode",
+                   "-L#{Formula["libccd"].opt_lib}", "-lccd",
                    "-lc++", "-o", "test"
     system "./test"
   end

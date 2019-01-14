@@ -1,8 +1,9 @@
 class Flume < Formula
   desc "Hadoop-based distributed log collection and aggregation"
   homepage "https://flume.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=flume/1.6.0/apache-flume-1.6.0-bin.tar.gz"
-  sha256 "0f7cef2f0128249893498a23401a0c8cb261e4516bc60f1885f8a3ae4475ed80"
+  url "https://www.apache.org/dyn/closer.cgi?path=flume/1.8.0/apache-flume-1.8.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/flume/1.8.0/apache-flume-1.8.0-bin.tar.gz"
+  sha256 "be1b554a5e23340ecc5e0b044215bf7828ff841f6eabe647b526d31add1ab5fa"
 
   bottle :unneeded
 

@@ -1,13 +1,13 @@
 class Xcodegen < Formula
   desc "Generate your Xcode project from a spec file and your folder structure"
   homepage "https://github.com/yonaskolb/XcodeGen"
-  url "https://github.com/yonaskolb/XcodeGen/archive/1.11.2.tar.gz"
-  sha256 "053566379c3037e47297a210cdb2a34a2156c3f7e7872c991dd7d32817ebf865"
+  url "https://github.com/yonaskolb/XcodeGen/archive/2.1.0.tar.gz"
+  sha256 "b7895b8daacb7cef19e8dd3518ac060e9d9ba99479aff4a5b6ca44f7326099da"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1126967db861e6161f156bbf08da2619040b2ad85ab8c23040caeebb6a0b2fb7" => :mojave
-    sha256 "d8458307465bceeb947b714f865783e2c1268fa8ac704fe50e551a8866fba735" => :high_sierra
+    sha256 "54f33196d44130372f813b734afa3a9a124be465b513a53aab21f0d97784e366" => :mojave
+    sha256 "f96423eaaf0d3ccf5cc8a779fc98e6090339d751cc23e1e3b3c5f4e6ec4417bb" => :high_sierra
   end
 
   depends_on :xcode => ["9.3", :build]

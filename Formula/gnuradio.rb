@@ -3,13 +3,14 @@ class Gnuradio < Formula
   homepage "https://gnuradio.org/"
   url "https://gnuradio.org/releases/gnuradio/gnuradio-3.7.13.4.tar.gz"
   sha256 "c536c268b1e9c24f1206bbc881a5819ac46e662f4e8beaded6f3f441d3502f0d"
+  revision 3
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 "776bf89ad97f91a5dfde51675515b59dc40715130a09039c713a291bc11e4708" => :mojave
-    sha256 "bd03698a2b1a89f865eceb8d22eb335ec0b80cc5afb6a03c4c96f71560390e6c" => :high_sierra
-    sha256 "8967e3a4fb54a2f0a191d42fefa74066ffc3384290792c325b5d6ce72e1819d5" => :sierra
-    sha256 "dc19d373b871c7cf3325e5ff041a5a46aa3fe75cee2c8efa36b33b70bb492b73" => :el_capitan
+    rebuild 1
+    sha256 "7f31dabdf244bc511e7e017a7f1635e7dd0ef55c2de78e640d43eaab6671fa5c" => :mojave
+    sha256 "7e676ada15b6e34885e2a2ea502c0c21e62921d71663fde876f543d0a1dd5dce" => :high_sierra
+    sha256 "673ec7199f8dfb2b59660bdb82d8a3b985a02115e541db1e1ba1ff4a06e07b83" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -25,10 +26,6 @@ class Gnuradio < Formula
   depends_on "python@2"
   depends_on "uhd"
   depends_on "zeromq"
-  depends_on "jack" => :optional
-  depends_on "pygtk" => :optional
-  depends_on "sdl" => :optional
-  depends_on "wxpython" => :optional
 
   # cheetah starts here
   resource "Markdown" do
@@ -93,20 +90,17 @@ class Gnuradio < Formula
 
     resource("cppzmq").stage include.to_s
 
-    args = std_cmake_args
-    args << "-DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d"
-    args << "-DGR_PREFSDIR=#{etc}/gnuradio/conf.d"
-    args << "-DENABLE_DEFAULT=OFF"
+    args = std_cmake_args + %W[
+      -DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d
+      -DGR_PREFSDIR=#{etc}/gnuradio/conf.d
+      -DENABLE_DEFAULT=OFF
+    ]
 
     enabled = %w[GR_ANALOG GR_FFT VOLK GR_FILTER GNURADIO_RUNTIME
                  GR_BLOCKS GR_PAGER GR_NOAA GR_CHANNELS GR_AUDIO
                  GR_FCD GR_VOCODER GR_FEC GR_DIGITAL GR_DTV GR_ATSC
                  GR_TRELLIS GR_ZEROMQ GR_WAVELET GR_UHD DOXYGEN SPHINX
                  PYTHON GR_UTILS]
-    enabled << "GRC" if build.with? "pygtk"
-    enabled << "GR_WXGUI" if build.with? "wxpython"
-    enabled << "GR_VIDEO_SDL" if build.with? "sdl"
-
     enabled.each do |c|
       args << "-DENABLE_#{c}=ON"
     end

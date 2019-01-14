@@ -1,10 +1,10 @@
 class Binwalk < Formula
   desc "Searches a binary image for embedded files and executable code"
-  homepage "https://github.com/devttys0/binwalk"
-  url "https://github.com/devttys0/binwalk/archive/v2.1.1.tar.gz"
+  homepage "https://github.com/ReFirmLabs/binwalk"
+  url "https://github.com/ReFirmLabs/binwalk/archive/v2.1.1.tar.gz"
   sha256 "1b70a5b03489d29f60fef18008a2164974234874faab48a4f47ec53d461d284a"
   revision 6
-  head "https://github.com/devttys0/binwalk.git"
+  head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
     sha256 "17b4cc76bf3e112f76d41bef4e87fba61fffc978f62e252a17f609a3fe9c006f" => :mojave

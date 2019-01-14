@@ -2,19 +2,17 @@ class Pwntools < Formula
   include Language::Python::Virtualenv
 
   desc "CTF framework used by Gallopsled in every CTF"
-  homepage "https://pwntools.com/"
-  url "https://github.com/Gallopsled/pwntools/archive/3.12.0.tar.gz"
-  sha256 "e743daa158a3ac1e958b52e61de47f3db6cec701379712eeda4f4a977ca32309"
+  homepage "https://github.com/Gallopsled/pwntools"
+  url "https://github.com/Gallopsled/pwntools/archive/3.12.2.tar.gz"
+  sha256 "8e048b514ee449b4c76f4eba1b4fcd48fdefd1bf04ae4c62b44e984923d2e979"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "cbae139d1ee708f9cd64da8c4dec4b085d30c7de631377b71e6ba235081862f0" => :mojave
-    sha256 "7f14e0eb3b4432b3f83e9e9ec111ece13074554fc3c2639b1b498bf446ad9955" => :high_sierra
-    sha256 "eeb5624205ad19b86908e51e32f8c3cd5faf3c5c75c8e3e29cbcc58597eaf022" => :sierra
+    sha256 "d234861d32454d58b82d6c3d8ea20b35baf24538bed05d9d0778894d39bd6405" => :mojave
+    sha256 "eac26ad4ddb18db83e848852e09a4559959a1f5ddbc00bb8d6711d8842173ae2" => :high_sierra
+    sha256 "91d82535a5683cc31032453f0a7214b1c2ff8580be30286bea2344709b99a8e0" => :sierra
   end
 
-  depends_on "binutils"
   depends_on "openssl"
   depends_on "python@2" # does not support Python 3
 

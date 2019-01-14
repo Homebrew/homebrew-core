@@ -5,10 +5,10 @@ class Gspell < Formula
   sha256 "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
 
   bottle do
-    sha256 "073769b3815f1f8228242aa2aca8f5f0dd59f5b20e3c03e989985232b2398ef8" => :mojave
-    sha256 "9b0d29afd1b3811c0c976879641f318504798b519bccc7c6eb8bcee93fd281a1" => :high_sierra
-    sha256 "20df1e6769419c13b1743bec961676477fc42e1341f3d5e9cfaf4e30f372f9d6" => :sierra
-    sha256 "4051d5ce5656be42be8b3d53db5282936157ca0b6320f2a782240b7f2f29d341" => :el_capitan
+    rebuild 1
+    sha256 "1f063da6321075d5a1a6b6b8c1d95e8bada17c8b2283056c7573eb87334ff94c" => :mojave
+    sha256 "de5d8ea293cfd6b10246d3c0638f6a5a6d30887db15ea1f4adaf59475905cbc3" => :high_sierra
+    sha256 "0e65a8c50356edc3e8ef787bea47ea2f87294e042c9be3d9659700c0d7e17c75" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -20,7 +20,7 @@ class Gspell < Formula
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
   depends_on "iso-codes"
-  depends_on "vala" => :recommended
+  depends_on "vala"
 
   patch :DATA
 

@@ -1,13 +1,14 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
-  homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.54/gjs-1.54.2.tar.xz"
-  sha256 "6f2ddbff4557879b1ea8b0ee710d27201c3a5ae12dc19b88238a6eaaa1ad865f"
+  homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
+  url "https://download.gnome.org/sources/gjs/1.54/gjs-1.54.3.tar.xz"
+  sha256 "76b30dcc3ce9836c053aee531aa9f1d9d3f94b8503adf0a5a7bd176c492ba6b1"
+  revision 2
 
   bottle do
-    sha256 "4d37fb6fcab1ac204139554c77abde10c848a7736f3051967d1bd703e4f5ee0b" => :mojave
-    sha256 "bd3e0fe2cb22aa27b03b731930f25aa823580fdff72f1143ce3c022e87556c7e" => :high_sierra
-    sha256 "dbdabc17bcd3031e423a8c69313a193fcb030c1cace3e08c82c85f260c6a0f65" => :sierra
+    sha256 "23b2762673e5f83051e8a2068cf136ff9a1698aa9fee5cb35565ae370c150f93" => :mojave
+    sha256 "6987d52efadc332e12de273a20e6d8969b1c18698dc1eb0c826497cfe01aa5d5" => :high_sierra
+    sha256 "841b2d24d47d305432b6246a1944b2a6ebd93cd00956459bb124fb2c23a9bae6" => :sierra
   end
 
   depends_on "autoconf@2.13" => :build

@@ -1,14 +1,13 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.6.1.tar.gz"
-  sha256 "86cc3249938602754f773e0843f415c290bd2608729ab3e219de78f90bdd4d6b"
-  revision 3
+  url "https://github.com/dartsim/dart/archive/v6.7.0.tar.gz"
+  sha256 "fb64e38d613f49165ed49e9f2f5166beefa294f3cdc032a45452950b94e35939"
 
   bottle do
-    sha256 "bedb7e92c31072d53812c75ca7498df4b27a2f2572a4d4f85481c11f6e677e37" => :mojave
-    sha256 "05515707088aa3e45aa28ac8c3198c5e7c7f5ea5dfa1b10e2fd523d968f51ad9" => :high_sierra
-    sha256 "1d3d2ef6b93cfc1a229d22a009796e403ea4214a97d90e3edb586aaa0a4e874a" => :sierra
+    sha256 "0a53cad95feb601d54d4a7735e0ae5106c1e0f73aa0665997f3634648177b994" => :mojave
+    sha256 "039216269abc4ac413b71583cc1bb438c3c0bbc6685d5e38e984b4ecc7c85ab3" => :high_sierra
+    sha256 "f062060e4a3e7e31c1e53c16659e851aa0189e88b583a525ab23446c6d4da83f" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -35,18 +34,6 @@ class Dartsim < Formula
     system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
                          *std_cmake_args
     system "make", "install"
-
-    # Avoid revision bumps whenever fcl's or libccd's Cellar paths change
-    inreplace share/"dart/cmake/dart_dartTargets.cmake" do |s|
-      s.gsub! Formula["fcl"].prefix.realpath, Formula["fcl"].opt_prefix
-      s.gsub! Formula["libccd"].prefix.realpath, Formula["libccd"].opt_prefix
-    end
-
-    # Avoid revision bumps whenever urdfdom's or urdfdom_headers's Cellar paths change
-    inreplace share/"dart/cmake/dart_utils-urdfTargets.cmake" do |s|
-      s.gsub! Formula["urdfdom"].prefix.realpath, Formula["urdfdom"].opt_prefix
-      s.gsub! Formula["urdfdom_headers"].prefix.realpath, Formula["urdfdom_headers"].opt_prefix
-    end
   end
 
   test do

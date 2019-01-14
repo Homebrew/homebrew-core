@@ -1,15 +1,14 @@
 class Cp2k < Formula
   desc "Quantum chemistry and solid state physics software package"
   homepage "https://www.cp2k.org/"
-  url "https://downloads.sourceforge.net/project/cp2k/cp2k-5.1.tar.bz2"
+  url "https://github.com/cp2k/cp2k/releases/download/v5.1.0/cp2k-5.1.tar.bz2"
   sha256 "e23613b593354fa82e0b8410e17d94c607a0b8c6d9b5d843528403ab09904412"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "ad145bfd6e2388fcb2d9570b6470573290980fe849342b9366ffc812c042656b" => :mojave
-    sha256 "203473746541add0010fb52680c36cd541b1ace79e90de200a980fe772c44b46" => :high_sierra
-    sha256 "754a13384f62a38e102f2661e71cd3fe37c8e8c21b45812e72ba4daa994130c8" => :sierra
-    sha256 "4e5abf5bafe177b02507a4275802bdaf3ae0a2b7b88edd59b8d423af6bdb3b79" => :el_capitan
+    sha256 "e6661ebbbe0fc750e0ac29b5af3c446ddf9cada8f591e4213a92062ff6712143" => :mojave
+    sha256 "17cdb9a1f81822af9d6c1c38a5b5039048d6eac2872e21cbd7b180e10d5661f7" => :high_sierra
+    sha256 "dbf6ab8c96d9b9e6e8042af33d82fd709712987044620ef10cd4b8cf7be6b8f4" => :sierra
   end
 
   depends_on "fftw"

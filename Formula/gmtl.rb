@@ -34,7 +34,7 @@ class Gmtl < Formula
   end
 
   def install
-    scons "install", "prefix=#{prefix}"
+    system "scons", "install", "prefix=#{prefix}"
   end
 end
 

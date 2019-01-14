@@ -9,9 +9,11 @@ class Archey < Formula
   bottle :unneeded
 
   # Fix double percent sign in battery output, remove in next release
-  patch do
-    url "https://github.com/obihann/archey-osx/commit/cd125547d0936f066b64616553269bf647348e53.diff?full_index=1"
-    sha256 "c03b80e4d5aa114b81ac04bfa77c46055fe01764ae877a8a061f3d43c9de8a72"
+  unless build.head?
+    patch do
+      url "https://github.com/obihann/archey-osx/commit/cd125547d0936f066b64616553269bf647348e53.diff?full_index=1"
+      sha256 "c03b80e4d5aa114b81ac04bfa77c46055fe01764ae877a8a061f3d43c9de8a72"
+    end
   end
 
   def install

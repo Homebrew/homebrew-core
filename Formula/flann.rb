@@ -12,12 +12,8 @@ class Flann < Formula
     sha256 "9c825c76c662f0743adad10544fd7572a6d2449a59cc92da674da244ea2e209b" => :sierra
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "cmake" => :build
   depends_on "hdf5"
-  depends_on "python@2" => :optional
-  depends_on "numpy" if build.with? "python@2"
 
   resource("dataset.dat") do
     url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.dat"
@@ -35,13 +31,7 @@ class Flann < Formula
   end
 
   def install
-    if build.with? "python@2"
-      pyarg = "-DBUILD_PYTHON_BINDINGS:BOOL=ON"
-    else
-      pyarg = "-DBUILD_PYTHON_BINDINGS:BOOL=OFF"
-    end
-
-    system "cmake", ".", *std_cmake_args, pyarg
+    system "cmake", ".", *std_cmake_args, "-DBUILD_PYTHON_BINDINGS:BOOL=OFF"
     system "make", "install"
   end
 

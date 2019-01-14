@@ -18,9 +18,6 @@ class SdlMixer < Formula
   depends_on "libogg"
   depends_on "libvorbis"
   depends_on "sdl"
-  depends_on "flac" => :optional
-  depends_on "fluid-synth" => :optional
-  depends_on "smpeg" => :optional
 
   # Source file for sdl_mixer example
   resource "playwave" do
@@ -39,10 +36,6 @@ class SdlMixer < Formula
       --disable-music-mod-shared
     ]
 
-    args << "--disable-music-fluidsynth-shared" if build.with? "fluid-synth"
-    args << "--disable-music-flac-shared" if build.with? "flac"
-    args << "--disable-music-mp3-shared" if build.with? "smpeg"
-
     system "./configure", *args
     system "make", "install"
   end
@@ -50,8 +43,10 @@ class SdlMixer < Formula
   test do
     testpath.install resource("playwave")
     system ENV.cc, "-o", "playwave", "playwave.c", "-I#{include}/SDL",
-                   "-I#{Formula["sdl"].opt_include}/SDL", "-lSDL_mixer",
-                   "-lSDLmain", "-lSDL", "-Wl,-framework,Cocoa"
+                   "-I#{Formula["sdl"].opt_include}/SDL",
+                   "-L#{lib}", "-lSDL_mixer",
+                   "-L#{Formula["sdl"].lib}", "-lSDLmain", "-lSDL",
+                   "-Wl,-framework,Cocoa"
     system "SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=disk ./playwave #{test_fixtures("test.wav")}"
     assert_predicate testpath/"sdlaudio.raw", :exist?
   end

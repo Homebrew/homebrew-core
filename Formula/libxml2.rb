@@ -1,16 +1,16 @@
 class Libxml2 < Formula
   desc "GNOME XML library"
   homepage "http://xmlsoft.org/"
-  url "http://xmlsoft.org/sources/libxml2-2.9.7.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.7.tar.gz"
-  sha256 "f63c5e7d30362ed28b38bfa1ac6313f9a80230720b7fb6c80575eeab3ff5900c"
+  url "http://xmlsoft.org/sources/libxml2-2.9.8.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.8.tar.gz"
+  sha256 "0b74e51595654f958148759cfef0993114ddccccbb6f31aee018f3558e8e2732"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "ca9b29ed2907efd2f9cd8b65e8f5c5683bfb8c92aede1d3fbda9325f4d25c59c" => :mojave
-    sha256 "ff9bf7d946d5413fb1f2837a187bd026f469a67b78ba6589f5b565f0133b58f2" => :high_sierra
-    sha256 "0b9bc0fe308a22b557822d0bc254f209e33bd7b4948d7d08a14d620e1f8b6a3b" => :sierra
-    sha256 "cdcc13eab3436e1c44dcae42396e519e4a5119552818b656a2c7a5d878b9a912" => :el_capitan
+    sha256 "eca15b7e4bc1f27f5519ffaa55c1af18185e466025ba494452337ce9e9c87332" => :mojave
+    sha256 "4460ecfc312b9aa9ddb2c870695c0d7aa0173ef86d8155b6f6dab4949c7d785a" => :high_sierra
+    sha256 "121ad4f9b13372fcf9e1e1ce0f806545266db04151fcd1cd12179365d4430dcb" => :sierra
   end
 
   head do
@@ -24,10 +24,14 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "autoreconf", "-fiv" if build.head?
+
+    # Fix build on OS X 10.5 and 10.6 with Xcode 3.2.6
+    inreplace "configure", "-Wno-array-bounds", "" if ENV.compiler == :gcc_4_2
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-python",
@@ -36,8 +40,9 @@ class Libxml2 < Formula
 
     cd "python" do
       # We need to insert our include dir first
-      inreplace "setup.py", "includes_dir = [", "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
-      system "python", "setup.py", "install", "--prefix=#{prefix}"
+      inreplace "setup.py", "includes_dir = [",
+                            "includes_dir = ['#{include}', '#{MacOS.sdk_path}/usr/include',"
+      system "python3", "setup.py", "install", "--prefix=#{prefix}"
     end
   end
 
@@ -59,7 +64,8 @@ class Libxml2 < Formula
     system ENV.cc, *args
     system "./test"
 
-    ENV.prepend_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python2.7", "-c", "import libxml2"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system "python3", "-c", "import libxml2"
   end
 end

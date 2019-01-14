@@ -6,31 +6,18 @@ class Treefrog < Formula
   head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
-    sha256 "c556be38f614f516c43ccf411d1c6002349b4931b2e32015e162087231dc5649" => :mojave
-    sha256 "246236215fdb5e23dd57a58b53c2c4c41ea802468c614c8a7075c576e24644bc" => :high_sierra
-    sha256 "451ff0b20b9ca36b1eb6eaf6af9c13a56e74031d6c15586fa8920f1189d67262" => :sierra
-    sha256 "6ea31d04a301bee2b365c5affaea54286814718636386e2e0c9a2bfa9472c1f3" => :el_capitan
+    rebuild 1
+    sha256 "48c4597ce3646a2481946824dcb6aee5b1bcec9f7449c1054c265b70f66800d9" => :mojave
+    sha256 "5c271befbf580381e9676937716a4c215b09b83ea75416cf6229d495956ce5d3" => :high_sierra
+    sha256 "04a85f1d383d87e7d37be11b91360341c0686c758a4eda6b0185121f88824684" => :sierra
   end
-
-  option "with-mysql", "enable --with-mysql option for Qt build"
-  option "with-postgresql", "enable --with-postgresql option for Qt build"
-  option "with-qt", "build and link with QtGui module"
-
-  deprecated_option "with-qt5" => "with-qt"
 
   depends_on :xcode => ["8.0", :build]
   depends_on :macos => :el_capitan
-
-  qt_build_options = []
-  qt_build_options << "with-mysql" if build.with?("mysql")
-  qt_build_options << "with-postgresql" if build.with?("postgresql")
-  depends_on "qt" => qt_build_options
+  depends_on "qt"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--enable-gui-mod" if build.with? "qt"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}"
 
     cd "src" do
       system "make"

@@ -15,7 +15,7 @@ class Testssl < Formula
     man1.install "doc/testssl.1"
     prefix.install "etc"
     env = {
-      :PATH => "#{Formula["openssl"].opt_bin}:$PATH",
+      :PATH                => "#{Formula["openssl"].opt_bin}:$PATH",
       :TESTSSL_INSTALL_DIR => prefix,
     }
     bin.env_script_all_files(libexec/"bin", env)

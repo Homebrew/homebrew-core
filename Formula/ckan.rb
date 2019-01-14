@@ -1,8 +1,8 @@
 class Ckan < Formula
   desc "The Comprehensive Kerbal Archive Network"
   homepage "https://github.com/KSP-CKAN/CKAN/"
-  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.25.3/ckan.exe"
-  sha256 "7c33293809f5d04028053ae405fb7b328d161e2855eeb95fe2f6e66570727575"
+  url "https://github.com/KSP-CKAN/CKAN/releases/download/v1.25.4/ckan.exe"
+  sha256 "e992982615c6afcfe5f52d9872df22f4a2fadb3bf97c37931393ea767e7c3ffc"
 
   bottle :unneeded
 

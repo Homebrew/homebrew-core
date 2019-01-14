@@ -1,15 +1,14 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.12/zookeeper-3.4.12.tar.gz"
-  sha256 "c686f9319050565b58e642149cb9e4c9cc8c7207aacc2cb70c5c0672849594b9"
+  url "https://www.apache.org/dyn/closer.cgi?path=zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz"
+  sha256 "7ced798e41d2027784b8fd55c908605ad5bd94a742d5dab2506be8f94770594d"
 
   bottle do
     cellar :any
-    sha256 "ea103724c24f044e7cbe93c1718ab92da96949c497b63e7034a4c3d77c77de34" => :mojave
-    sha256 "55170e3c70f9ccfe0f8a7a4f34c11d9ed96122adfb6946e223dab0ab31f129d5" => :high_sierra
-    sha256 "7f9b53a4c01bf1b7af68d7b609ded5dec3c9ae91a3f0ef86a6fbe3f978d9160c" => :sierra
-    sha256 "b8cb0059b877aa10a8da94bdbc01ea958b67115e085bf741b0c293b849ac4955" => :el_capitan
+    sha256 "d1e4e7738cd147dceb3d91b32480c20ac5da27d129905f336ba51c0c01b8a476" => :mojave
+    sha256 "806ec4f5c3c63387ffa3d1934764b3ebedcacdeffaa26661ae203c71be7d707b" => :high_sierra
+    sha256 "ea14de526563c5a1d5edd84c40383c75bef5dcf135b80dbc54af14f8b70cc68f" => :sierra
   end
 
   head do
@@ -49,12 +48,7 @@ class Zookeeper < Formula
   end
 
   def install
-    # Don't try to build extensions for PPC
-    if Hardware::CPU.is_32_bit?
-      ENV["ARCHFLAGS"] = "-arch #{Hardware::CPU.arch_32_bit}"
-    else
-      ENV["ARCHFLAGS"] = Hardware::CPU.universal_archs.as_arch_flags
-    end
+    ENV["ARCHFLAGS"] = Hardware::CPU.universal_archs.as_arch_flags
 
     if build.head?
       system "ant", "compile_jute"

@@ -19,7 +19,6 @@ class Plotutils < Formula
   end
 
   depends_on "libpng"
-  depends_on :x11 => :optional
 
   def install
     # Fix usage of libpng to be 1.5 compatible
@@ -32,8 +31,6 @@ class Plotutils < Formula
       --prefix=#{prefix}
       --enable-libplotter
     ]
-
-    args << "--with-x" if build.with? "x11"
 
     system "./configure", *args
     system "make"

@@ -3,15 +3,14 @@ class RstLint < Formula
 
   desc "ReStructuredText linter"
   homepage "https://github.com/twolfson/restructuredtext-lint"
-  url "https://github.com/twolfson/restructuredtext-lint/archive/1.1.3.tar.gz"
-  sha256 "eb75dda827c656a33be6e60f18b3943c4dd4252205e557ec95d1cf44df8e3a35"
-  revision 1
+  url "https://github.com/twolfson/restructuredtext-lint/archive/1.2.1.tar.gz"
+  sha256 "a6a37cc1f06a7347d53ec39e41e101d9d26e8118e4ac2f602985990960a51b25"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b10a17bb1122b6c4643111d191cb0bfb43e9db860fa6210a0067964909896a5d" => :mojave
-    sha256 "5c13d9a749419b30333975c240947f824c6e13f1e5ea2dcf076c6745d6ec82bf" => :high_sierra
-    sha256 "3518edf1fcd6dd3bef0db46246266167070f4936219685f448fa9fcf5ac6fb41" => :sierra
+    sha256 "fda6b9e208ae80012c883a159e9bc9322b6d12b8c9b3a5f54f8a2cb37a137a1d" => :mojave
+    sha256 "ce1b1d7179d16f81917d85a72dd84488dc32c8323f1ecbb5029cc6f4095bbc2e" => :high_sierra
+    sha256 "36e4a419033b0dedb26121fed365cea8f882d93645d95f433cc879188f00570f" => :sierra
   end
 
   depends_on "python"

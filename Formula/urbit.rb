@@ -2,7 +2,7 @@ class Urbit < Formula
   desc "Personal cloud computer"
   homepage "https://urbit.org"
   url "https://github.com/urbit/urbit.git",
-      :tag => "urbit-0.6.0",
+      :tag      => "urbit-0.6.0",
       :revision => "7633b5cc9cf249d873f16f08c09a1ee10a4f24d2"
 
   bottle do

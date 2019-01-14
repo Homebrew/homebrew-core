@@ -1,15 +1,14 @@
 class Chakra < Formula
   desc "The core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.1.tar.gz"
-  sha256 "569e6843748253d5c7c8082ad5cd49815c5b224cd845d5715bfe4d59a74f8113"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.5.tar.gz"
+  sha256 "19c56dd55271919a66afcd56de94da3ed0e4b35ab9cd992ca57f4229148b0b88"
 
   bottle do
     cellar :any
-    sha256 "234a9df9ddd7268fd71d0c99659f1322888d8d823d4502b2b96600b65119e09a" => :mojave
-    sha256 "72dd19efae550c952c87a6c3ff3e707eca6c9653525d6d7968deb692fe55ef7e" => :high_sierra
-    sha256 "dc1f855f6c602663c8ccaab1d5a59469f92c3648c8dd7043168a4309bd48494a" => :sierra
-    sha256 "9d6bc1e1af76bf9752e6953b99b8bc16273fad6271f091aa80b8a18ae0181cb6" => :el_capitan
+    sha256 "e91827363894161af817c6c5c8b9b0d9ae6893e73663551e4422513a2e973bc3" => :mojave
+    sha256 "b3bb191c53b88fc5b60f59a4f6707752e5547119040dfe0cf24b9f78d5fc88fb" => :high_sierra
+    sha256 "cc90599c589f9336be7de3650cc5b08f66a2df8572eac48e30141ba15c2f0e59" => :sierra
   end
 
   depends_on "cmake" => :build

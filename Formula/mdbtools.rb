@@ -3,32 +3,24 @@ class Mdbtools < Formula
   homepage "https://github.com/brianb/mdbtools/"
   url "https://github.com/brianb/mdbtools/archive/0.7.1.tar.gz"
   sha256 "dcf310dc7b07e7ad2f9f6be16047dc81312cfe1ab1bd94d0fa739c8059af0b16"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "4471ec5a9fb953ace2cd014722d2e79d0ab5fb579811c5a9ebe32f715ae5ef89" => :mojave
-    sha256 "240f62a34e523be1f0348b399660592c411437bec0de2655168bbc97713d3799" => :high_sierra
-    sha256 "e161be6807c2bda9ad9fd70549e3f94b5f953d5c8ef70a1261f6b09ec6ac9e45" => :sierra
-    sha256 "2cb35611ad74402c45bb691d5c37943552b7494ebcdfdc31fd3a68a16c2a2b0c" => :el_capitan
-    sha256 "7e43a2716347e3f89782134b53ca5bf240fd1ebd91025393737fc17b9e09aa21" => :yosemite
+    sha256 "8949564dd437320e1b5bc81a54c21f03ac8847cd4fb466c242bb94d28be8569a" => :mojave
+    sha256 "e25f5c22dec759fb6e4d1f9ec448f2bfe162d619a11d16ffcd132f7a20f813de" => :high_sierra
+    sha256 "61056fac90d6b15e9298ccd12afa4f4fbb8906abe7dfd32df84342c01da787be" => :sierra
   end
-
-  option "with-man-pages", "Build manual pages"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "txt2man" => :build if build.with? "man-pages"
   depends_on "glib"
   depends_on "readline"
 
   def install
     ENV.deparallelize
-
-    args = ["--prefix=#{prefix}"]
-    args << "--disable-man" if build.without? "man-pages"
 
     if MacOS.version == :snow_leopard
       mkdir "build-aux"
@@ -36,7 +28,7 @@ class Mdbtools < Formula
     end
 
     system "autoreconf", "-i", "-f"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-man"
     system "make", "install"
   end
 end

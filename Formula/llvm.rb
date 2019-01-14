@@ -3,62 +3,60 @@ class Llvm < Formula
   homepage "https://llvm.org/"
 
   stable do
-    url "https://releases.llvm.org/7.0.0/llvm-7.0.0.src.tar.xz"
-    sha256 "8bc1f844e6cbde1b652c19c1edebc1864456fd9c78b8c1bea038e51b363fe222"
+    url "https://releases.llvm.org/7.0.1/llvm-7.0.1.src.tar.xz"
+    sha256 "a38dfc4db47102ec79dcc2aa61e93722c5f6f06f0a961073bd84b78fb949419b"
 
     resource "clang" do
-      url "https://releases.llvm.org/7.0.0/cfe-7.0.0.src.tar.xz"
-      sha256 "550212711c752697d2f82c648714a7221b1207fd9441543ff4aa9e3be45bba55"
+      url "https://releases.llvm.org/7.0.1/cfe-7.0.1.src.tar.xz"
+      sha256 "a45b62dde5d7d5fdcdfa876b0af92f164d434b06e9e89b5d0b1cbc65dfe3f418"
     end
 
     resource "clang-extra-tools" do
-      url "https://releases.llvm.org/7.0.0/clang-tools-extra-7.0.0.src.tar.xz"
-      sha256 "937c5a8c8c43bc185e4805144744799e524059cac877a44d9063926cd7a19dbe"
+      url "https://releases.llvm.org/7.0.1/clang-tools-extra-7.0.1.src.tar.xz"
+      sha256 "4c93c7d2bb07923a8b272da3ef7914438080aeb693725f4fc5c19cd0e2613bed"
     end
 
     resource "compiler-rt" do
-      url "https://releases.llvm.org/7.0.0/compiler-rt-7.0.0.src.tar.xz"
-      sha256 "bdec7fe3cf2c85f55656c07dfb0bd93ae46f2b3dd8f33ff3ad6e7586f4c670d6"
+      url "https://releases.llvm.org/7.0.1/compiler-rt-7.0.1.src.tar.xz"
+      sha256 "782edfc119ee172f169c91dd79f2c964fb6b248bd9b73523149030ed505bbe18"
     end
 
     resource "libcxx" do
-      url "https://releases.llvm.org/7.0.0/libcxx-7.0.0.src.tar.xz"
-      sha256 "9b342625ba2f4e65b52764ab2061e116c0337db2179c6bce7f9a0d70c52134f0"
+      url "https://releases.llvm.org/7.0.1/libcxx-7.0.1.src.tar.xz"
+      sha256 "020002618b319dc2a8ba1f2cba88b8cc6a209005ed8ad29f9de0c562c6ebb9f1"
     end
 
     resource "libunwind" do
-      url "https://releases.llvm.org/7.0.0/libunwind-7.0.0.src.tar.xz"
-      sha256 "50aee87717421e70450f1e093c6cd9a27f2b111025e1e08d64d5ace36e338a9c"
+      url "https://releases.llvm.org/7.0.1/libunwind-7.0.1.src.tar.xz"
+      sha256 "89c852991dfd9279dbca9d5ac10b53c67ad7d0f54bbab7156e9f057a978b5912"
     end
 
     resource "lld" do
-      url "https://releases.llvm.org/7.0.0/lld-7.0.0.src.tar.xz"
-      sha256 "fbcf47c5e543f4cdac6bb9bbbc6327ff24217cd7eafc5571549ad6d237287f9c"
+      url "https://releases.llvm.org/7.0.1/lld-7.0.1.src.tar.xz"
+      sha256 "8869aab2dd2d8e00d69943352d3166d159d7eae2615f66a684f4a0999fc74031"
     end
 
     resource "lldb" do
-      url "https://releases.llvm.org/7.0.0/lldb-7.0.0.src.tar.xz"
-      sha256 "7ff6d8fee49977d25b3b69be7d22937b92592c7609cf283ed0dcf9e5cd80aa32"
+      url "https://releases.llvm.org/7.0.1/lldb-7.0.1.src.tar.xz"
+      sha256 "76b46be75b412a3d22f0d26279306ae7e274fe4d7988a2184c529c38a6a76982"
     end
 
     resource "openmp" do
-      url "https://releases.llvm.org/7.0.0/openmp-7.0.0.src.tar.xz"
-      sha256 "30662b632f5556c59ee9215c1309f61de50b3ea8e89dcc28ba9a9494bba238ff"
+      url "https://releases.llvm.org/7.0.1/openmp-7.0.1.src.tar.xz"
+      sha256 "bf16b78a678da67d68405214ec7ee59d86a15f599855806192a75dcfca9b0d0c"
     end
 
     resource "polly" do
-      url "https://releases.llvm.org/7.0.0/polly-7.0.0.src.tar.xz"
-      sha256 "919810d3249f4ae79d084746b9527367df18412f30fe039addbf941861c8534b"
+      url "https://releases.llvm.org/7.0.1/polly-7.0.1.src.tar.xz"
+      sha256 "1bf146842a09336b9c88d2d76c2d117484e5fad78786821718653d1a9d57fb71"
     end
   end
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "17a4de5a32411a11bc449fdf7cef73c1de6c9936085df73e840ad1dadfbe907b" => :mojave
-    sha256 "c595bdab01a4fdbdf7c86c61737b2d3bf0b529ecf7a98298827b7edc9e723335" => :high_sierra
-    sha256 "b3835b962a53e522634ac67960d5a0a6e221998539eef3158090849b786d1f6e" => :sierra
-    sha256 "b0afc0d6a628eed90274ec79fd9b2602ed1c1ca2402e539dfbdafc6907671dc8" => :el_capitan
+    sha256 "e3e64458543bfe1d74820523d5878d55bef3aaad4f06a05464ea910ea9420864" => :mojave
+    sha256 "5eb7a6eebe9ebfa25a3a0d4365e0dc04fb72ed65be4bbc867c7a92d968de3e21" => :high_sierra
+    sha256 "d00b3cb887d22294ee85abec309ad4c2dec2763a3cf06cb22a7866d9415433ac" => :sierra
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -109,33 +107,24 @@ class Llvm < Formula
 
   keg_only :provided_by_macos
 
-  option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
   option "with-lldb", "Build LLDB debugger"
-  option "with-python@2", "Build bindings against Homebrew's Python 2"
-
-  deprecated_option "with-python" => "with-python@2"
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "libffi"
 
-  if MacOS.version <= :snow_leopard
-    depends_on "python@2"
-  else
-    depends_on "python@2" => :optional
-  end
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   if build.with? "lldb"
     depends_on "swig" if MacOS.version >= :lion
     depends_on :codesign => [{
       :identity => "lldb_codesign",
-      :with => "LLDB",
-      :url => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
+      :with     => "LLDB",
+      :url      => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
     }]
   end
 
   # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_0
   fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
@@ -144,10 +133,6 @@ class Llvm < Formula
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
-
-    if build.with? "python@2"
-      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
-    end
 
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
@@ -158,12 +143,6 @@ class Llvm < Formula
     (buildpath/"tools/polly").install resource("polly")
 
     if build.with? "lldb"
-      if build.with? "python@2"
-        pyhome = `python-config --prefix`.chomp
-        ENV["PYTHONHOME"] = pyhome
-        pylib = "#{pyhome}/lib/libpython2.7.dylib"
-        pyinclude = "#{pyhome}/include/python2.7"
-      end
       (buildpath/"tools/lldb").install resource("lldb")
 
       # Building lldb requires a code signing certificate.
@@ -202,20 +181,14 @@ class Llvm < Formula
       -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
+      -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
     ]
-    args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
-
-    if build.with?("lldb") && build.with?("python@2")
-      args << "-DLLDB_RELOCATABLE_PYTHON=ON"
-      args << "-DPYTHON_LIBRARY=#{pylib}"
-      args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
-    end
 
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with? "toolchain"
+      system "make", "install-xcode-toolchain"
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]

@@ -2,16 +2,15 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag => "v1.3.1",
-      :revision => "fb1be8be30880cebb8dd15f2287fa929753bd8d1"
+      :tag      => "v1.3.3",
+      :revision => "508b6efb4ababd3efa3614033f9529a30970899d"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ef83a301a7d45cea23c11e5def7ecd84fa9de0242ae955f2380af68921fac64" => :mojave
-    sha256 "be39aeb515c11d0563848d6103bf1e6aa7e6f923ff6b2661fde8e18a9b19a03f" => :high_sierra
-    sha256 "8928c35cb52427ff77749a9b027ea50800bf33ff4c6f5a577731ad719abef225" => :sierra
-    sha256 "e2b6911a46ea9fd65a21d22edb9803290f4bcbab65abe5a3d0050f3fabe908a2" => :el_capitan
+    sha256 "e64d9e9f418f07a310e952edcf7c697a76e189c94f3432404c45d4ef54aff60f" => :mojave
+    sha256 "1e73d0a14a5ec13e9ddf28f143828524ee9dd740224355d710be8ecab8e31dac" => :high_sierra
+    sha256 "2333c971f8f0cb7ebbf693af8b0d2c3918d65b57e4fb3ac7fc30cc1c19c68755" => :sierra
   end
 
   depends_on "go" => :build
@@ -67,6 +66,6 @@ class Packer < Formula
         }]
       }
     EOS
-    system "#{bin}/packer", "validate", minimal
+    system "#{bin}/packer", "validate", "-syntax-only", minimal
   end
 end

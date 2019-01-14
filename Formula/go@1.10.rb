@@ -1,21 +1,17 @@
 class GoAT110 < Formula
   desc "Go programming environment (1.10)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.10.4.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.10.4.src.tar.gz"
-  sha256 "6fe44965ed453cd968a81988523e9b0e794d3a478f91fd7983c28763d52d5781"
+  url "https://dl.google.com/go/go1.10.7.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.10.7.src.tar.gz"
+  sha256 "b84a0d7c90789f3a2ec5349dbe7419efb81f1fac9289b6f60df86bd919bd4447"
 
   bottle do
-    sha256 "708d7da25f16bc496d2031d18e3364cd27307cc81b350efd70cf0129f12d7f3e" => :mojave
-    sha256 "8f61daebea1012743280f2aab830db7d812b6064dffa786a1514dc06550facc0" => :high_sierra
-    sha256 "c198d33774a788840143677bd396fd9f9601c1e568b01f6c41afe1b292a94796" => :sierra
-    sha256 "f8ae863158b47ddbc82df4dcfdd3248d1c55c5f2bbce291a855053850819044b" => :el_capitan
+    sha256 "69e7e40e04726319c86533c8b4f40ddd5b0936289a7afe9904e0e624db34596e" => :mojave
+    sha256 "bdaf4e4ad53f1a5cf414db65d107c0ee462a1727a857bcd5158fd53396ad9760" => :high_sierra
+    sha256 "664d9c72ccfb469e7765dead0039d2db9f8b861fc1a7da01f38968fd87d60c93" => :sierra
   end
 
   keg_only :versioned_formula
-
-  option "without-cgo", "Build without cgo (also disables race detector)"
-  option "without-race", "Build without race detector"
 
   depends_on :macos => :mountain_lion
 
@@ -38,7 +34,6 @@ class GoAT110 < Formula
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
-      ENV["CGO_ENABLED"]  = "0" if build.without?("cgo")
       system "./make.bash", "--no-clean"
     end
 
@@ -47,11 +42,7 @@ class GoAT110 < Formula
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
-    # Race detector only supported on amd64 platforms.
-    # https://golang.org/doc/articles/race_detector.html
-    if build.with?("cgo") && build.with?("race") && MacOS.prefer_64_bit?
-      system bin/"go", "install", "-race", "std"
-    end
+    system bin/"go", "install", "-race", "std"
 
     # Build and install godoc
     ENV.prepend_path "PATH", bin
@@ -93,9 +84,7 @@ class GoAT110 < Formula
     assert_predicate libexec/"bin/godoc", :exist?
     assert_predicate libexec/"bin/godoc", :executable?
 
-    if build.with? "cgo"
-      ENV["GOOS"] = "freebsd"
-      system bin/"go", "build", "hello.go"
-    end
+    ENV["GOOS"] = "freebsd"
+    system bin/"go", "build", "hello.go"
   end
 end

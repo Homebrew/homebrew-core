@@ -11,12 +11,8 @@ class PureFtpd < Formula
     sha256 "db8752838fcba745378a65f79c40ee8e573f50cd648d48b23b47b813dfb5cba1" => :el_capitan
   end
 
-  option "with-virtualchroot", "Follow symbolic links even for chrooted accounts"
-
   depends_on "libsodium"
   depends_on "openssl"
-  depends_on "mysql" => :optional
-  depends_on "postgresql" => :optional
 
   def install
     args = %W[
@@ -29,10 +25,6 @@ class PureFtpd < Formula
       --with-tls
       --with-bonjour
     ]
-
-    args << "--with-pgsql" if build.with? "postgresql"
-    args << "--with-mysql" if build.with? "mysql"
-    args << "--with-virtualchroot" if build.with? "virtualchroot"
 
     system "./configure", *args
     system "make", "install"

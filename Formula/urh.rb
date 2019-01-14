@@ -3,14 +3,13 @@ class Urh < Formula
   homepage "https://github.com/jopohl/urh"
   url "https://files.pythonhosted.org/packages/81/29/8ffecf5a0d99bef5a4463fd9dbea537e119562737aaac10b1997da135d5d/urh-2.2.3.tar.gz"
   sha256 "9867398e94b1c05a227fa2a5765cfbf7fda6327600a2e50f612988063d05ee1d"
-  revision 1
+  revision 3
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 "31e1196e53213644c17bc3df1c2af4ba5159dd2b8312150a56a3ea37d8c660ca" => :mojave
-    sha256 "c77f3080e796ed94595a9de1743491aed7396214070163d9e4cf11571f5b95d1" => :high_sierra
-    sha256 "696d51839952863780505a3ff51bb5c0cce60498241a73cfe88203fbc3440b39" => :sierra
-    sha256 "d390fd9273b25cfd8b8211bde9b1d1f39bd63d0eb6898a2c67103a18cbdc9a58" => :el_capitan
+    sha256 "fec9b7d41d20bd4ba98e28ffb78c9113cfaf31fd592f478aa98c8d4082b53371" => :mojave
+    sha256 "aaacecdabc58fdd199c2259935010d065d10bb913d659747168758ca02eddfaf" => :high_sierra
+    sha256 "6af1143085602e2abe23491d08b5ab85482c09b3f40d07f97926499b3b73f2ab" => :sierra
   end
 
   depends_on "pkg-config" => :build

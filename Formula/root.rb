@@ -1,16 +1,16 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.14.04.source.tar.gz"
-  version "6.14.04"
-  sha256 "463ec20692332a422cfb5f38c78bedab1c40ab4d81be18e99b50cf9f53f596cf"
-  revision 2
+  url "https://root.cern.ch/download/root_v6.14.06.source.tar.gz"
+  version "6.14.06"
+  sha256 "0fb943b61396f282b289e35c455a9ab60126229be1bd3f04a8f00b37c13ab432"
   head "https://github.com/root-project/root.git"
 
   bottle do
-    sha256 "ca72af676d7c91ce31dcc96d475f3fc5d7653b8412f6e02bdc5e1df58d85ff24" => :mojave
-    sha256 "3ae6464e7850068f4b86bad5abaa521bb5f681c3eb7218bcc3adc43796a72618" => :high_sierra
-    sha256 "d3ef8ca60ceeaf453006b137740274979548b1443ff0d1383450ece038194330" => :sierra
+    rebuild 1
+    sha256 "cbfda6bd45040e1136700a795fd2e515d66ab2d2f50781da35c0891e05c7e381" => :mojave
+    sha256 "0b96e958a4cde5d0f09b3b967f0af0932c0e09589fc2ef85d1d898241728ee38" => :high_sierra
+    sha256 "62868ac73e1a8b8be1d8261ef5133ca0dc67e008381c7ee28291aed542579ef3" => :sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
@@ -37,11 +37,10 @@ class Root < Formula
   depends_on "lz4"
   depends_on "openssl"
   depends_on "pcre"
+  depends_on "python"
   depends_on "tbb"
   depends_on "xrootd"
   depends_on "xz" # for LZMA
-  depends_on "python" => :recommended
-  depends_on "python@2" => :optional
 
   skip_clean "bin"
 
@@ -59,60 +58,35 @@ class Root < Formula
               "http://lcgpackages",
               "https://lcgpackages"
 
+    py_exe = Utils.popen_read("which python3").strip
+    py_prefix = Utils.popen_read("python3 -c 'import sys;print(sys.prefix)'").chomp
+    py_inc = Utils.popen_read("python3 -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
+
     args = std_cmake_args + %W[
-      -Dgnuinstall=ON
-      -DCMAKE_INSTALL_ELISPDIR=#{elisp}
       -DCLING_CXX_PATH=clang++
-      -Dbuiltin_freetype=ON
+      -DCMAKE_INSTALL_ELISPDIR=#{elisp}
+      -DPYTHON_EXECUTABLE=#{py_exe}
+      -DPYTHON_INCLUDE_DIR=#{py_inc}
+      -DPYTHON_LIBRARY=#{py_prefix}/Python
       -Dbuiltin_cfitsio=OFF
+      -Dbuiltin_freetype=ON
       -Ddavix=ON
-      -Dfitsio=OFF
       -Dfftw3=ON
+      -Dfitsio=OFF
       -Dfortran=ON
       -Dgdml=ON
+      -Dgnuinstall=ON
+      -Dimt=ON
       -Dmathmore=ON
       -Dminuit2=ON
       -Dmysql=OFF
       -Dpgsql=OFF
+      -Dpython=ON
       -Droofit=ON
       -Dssl=ON
-      -Dimt=ON
-      -Dxrootd=ON
       -Dtmva=ON
+      -Dxrootd=ON
     ]
-
-    if build.with?("python") && build.with?("python@2")
-      odie "Root: Does not support building both python 2 and 3 wrappers"
-    elsif build.with?("python") || build.with?("python@2")
-      if build.with? "python@2"
-        ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
-        python_executable = Utils.popen_read("which python").strip
-        python_version = Language::Python.major_minor_version("python")
-      elsif build.with? "python"
-        python_executable = Utils.popen_read("which python3").strip
-        python_version = Language::Python.major_minor_version("python3")
-      end
-
-      python_prefix = Utils.popen_read("#{python_executable} -c 'import sys;print(sys.prefix)'").chomp
-      python_include = Utils.popen_read("#{python_executable} -c 'from distutils import sysconfig;print(sysconfig.get_python_inc(True))'").chomp
-      args << "-Dpython=ON"
-
-      # cmake picks up the system's python dylib, even if we have a brewed one
-      if File.exist? "#{python_prefix}/Python"
-        python_library = "#{python_prefix}/Python"
-      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.a"
-        python_library = "#{python_prefix}/lib/lib#{python_version}.a"
-      elsif File.exist? "#{python_prefix}/lib/lib#{python_version}.dylib"
-        python_library = "#{python_prefix}/lib/lib#{python_version}.dylib"
-      else
-        odie "No libpythonX.Y.{a,dylib} file found!"
-      end
-      args << "-DPYTHON_EXECUTABLE='#{python_executable}'"
-      args << "-DPYTHON_INCLUDE_DIR='#{python_include}'"
-      args << "-DPYTHON_LIBRARY='#{python_library}'"
-    else
-      args << "-Dpython=OFF"
-    end
 
     mkdir "builddir" do
       system "cmake", "..", *args
@@ -160,9 +134,8 @@ class Root < Formula
     assert_equal "\nProcessing test.C...\nHello, world!\n",
                  shell_output("/bin/bash test.bash")
 
-    if build.with? "python"
-      ENV["PYTHONPATH"] = lib/"root"
-      system "python3", "-c", "import ROOT"
-    end
+    # Test Python module
+    ENV["PYTHONPATH"] = lib/"root"
+    system "python3", "-c", "import ROOT"
   end
 end

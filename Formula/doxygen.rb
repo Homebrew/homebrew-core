@@ -1,17 +1,17 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
   homepage "http://www.doxygen.org/"
-  url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.src.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.14/doxygen-1.8.14.src.tar.gz"
-  sha256 "d1757e02755ef6f56fd45f1f4398598b920381948d6fcfa58f5ca6aa56f59d4d"
+  url "http://doxygen.nl/files/doxygen-1.8.15.src.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.15/doxygen-1.8.15.src.tar.gz"
+  sha256 "bd9c0ec462b6a9b5b41ede97bede5458e0d7bb40d4cfa27f6f622eb33c59245d"
   head "https://github.com/doxygen/doxygen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "df47755b88e08c978e06714ac8fb3422fc2bfb1c82c57aa66ae88680f65455b5" => :mojave
-    sha256 "a241e29223f4004e69c81be8e01476602866103e1467cbe631b3e4ef0aa3a4af" => :high_sierra
-    sha256 "c7bda918635189eee83c0716503d43f530b4366deb60639f842a7904debc09e3" => :sierra
-    sha256 "c5c177bb4a290f1e35327b03317dcf3034397db46ae544bebec9fadb9241c86f" => :el_capitan
+    rebuild 1
+    sha256 "e5d8d60c9304b0146866fbe1edc0096d54fbd979fadf2fb8eed352548a3875f4" => :mojave
+    sha256 "eee7e8c42fff656c3b335f5f8393a9ce7113eff535eff05e8f876ae7b40d083c" => :high_sierra
+    sha256 "a086e334ee3b24456e87a2806cadc35e42d1dcb10ee94c5a1c091b4f5c9d434c" => :sierra
   end
 
   option "with-graphviz", "Build with dot command support from Graphviz."
@@ -27,6 +27,13 @@ class Doxygen < Formula
   depends_on "graphviz" => :optional
   depends_on "llvm" => :optional
   depends_on "qt" => :optional
+
+  # Fix build breakage for 1.8.15 and CMake 3.13
+  # https://github.com/Homebrew/homebrew-core/issues/35815
+  patch do
+    url "https://github.com/doxygen/doxygen/commit/889eab308b564c4deba4ef58a3f134a309e3e9d1.diff?full_index=1"
+    sha256 "ba4f9251e2057aa4da3ae025f8c5f97ea11bf26065a3f0e3b313b9acdad0b938"
+  end
 
   def install
     args = std_cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}"

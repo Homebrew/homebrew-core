@@ -1,14 +1,14 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/1.85.tar.gz"
-  sha256 "dc17ecf2f6bacbee32141fe7713747de9026bbb36207bfad2d73a5185c6b14a3"
+  url "https://github.com/danmar/cppcheck/archive/1.86.tar.gz"
+  sha256 "86ea85c2ee5ec31a7410bfc7c206b87e600d284089428750d66d1ce1ffa0c9a6"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 "e0e32d3e4f6e08b8bff28613e568ff61542deb401cb836c3e9b1b4cdc66f25b1" => :mojave
-    sha256 "33404712b64582e6528444c1108a4ae8ff22472b8cbac74cef314c8452892d55" => :high_sierra
-    sha256 "ee54883a0ef9b46f3eff472e1a5d7b45c7e48428a3c658165a53dea33c82d47d" => :sierra
+    sha256 "62bc7a5de5fcd3ab3bed91c3e845496553bd4ec1d7dccf043e724e4bfdf36083" => :mojave
+    sha256 "f284c2e2b62b1a341c7c0c65d70e1c8e89e260e8a3c6346d0a2f40fe27e381de" => :high_sierra
+    sha256 "b67435545ca439c8cba2656ce28f71f8b66c01c2c42f7c6ad650eeeaff0aa655" => :sierra
   end
 
   depends_on "pcre"

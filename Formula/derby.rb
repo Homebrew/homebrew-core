@@ -15,7 +15,7 @@ class Derby < Formula
     bin.install Dir["bin/*"]
     bin.env_script_all_files(libexec/"bin",
       Language::Java.overridable_java_home_env.merge(:DERBY_INSTALL => libexec.to_s,
-                                                     :DERBY_HOME => libexec.to_s))
+                                                     :DERBY_HOME    => libexec.to_s))
   end
 
   def post_install

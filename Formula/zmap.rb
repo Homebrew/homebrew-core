@@ -7,13 +7,11 @@ class Zmap < Formula
   head "https://github.com/zmap/zmap.git"
 
   bottle do
-    sha256 "47d8698c87325c5b3c546d42da897fb093b58e5cc872f47bb968008e05da9d70" => :mojave
-    sha256 "5bf98e6e2fea460c2b456f7017aff0064590994b47058ae5296738445cc37999" => :high_sierra
-    sha256 "0f02a61d2563ec4359b90eaa3d637d53e2a5aa8bbbfbc78a8ba76780e3f565d1" => :sierra
-    sha256 "517ccb75b370f3deee62725a9e74b53a7d3949f3ef214a8769983c7eab72f83e" => :el_capitan
+    rebuild 1
+    sha256 "af12dfa471443be095ccbbb1d0fb8f706e966786d8526b2190f2cfe78f28550c" => :mojave
+    sha256 "d64ac689f0e80bc125a5e4899cc044395b0ba5c75ad365f65a3f6f8a62520137" => :high_sierra
+    sha256 "233f9e5e6964477295c0e9edbf607cd71571155510704124f374934f97eff55c" => :sierra
   end
-
-  deprecated_option "with-mongo-c" => "with-mongo-c-driver"
 
   depends_on "byacc" => :build
   depends_on "cmake" => :build
@@ -22,26 +20,17 @@ class Zmap < Formula
   depends_on "gmp"
   depends_on "json-c"
   depends_on "libdnet"
-  depends_on "hiredis" => :optional
-  depends_on "mongo-c-driver" => :optional
 
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
 
-    args = std_cmake_args
-    args << "-DENABLE_DEVELOPMENT=OFF"
-    args << "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
-    args << "-DWITH_REDIS=ON" if build.with? "hiredis"
-    args << "-DWITH_MONGO=ON" if build.with? "mongo-c-driver"
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DENABLE_DEVELOPMENT=OFF",
+                         "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
     system "make"
     system "make", "install"
   end
 
   test do
     system "#{sbin}/zmap", "--version"
-    assert_match /redis-csv/, `#{sbin}/zmap --list-output-modules` if build.with? "hiredis"
-    assert_match /mongo/, `#{sbin}/zmap --list-output-modules` if build.with? "mongo-c-driver"
   end
 end

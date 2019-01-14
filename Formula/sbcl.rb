@@ -1,16 +1,14 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.4.12/sbcl-1.4.12-source.tar.bz2"
-  sha256 "eaf889e6d4070de1487330e391d79986c2464ee365e206410178faf60b244a55"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.4.14/sbcl-1.4.14-source.tar.bz2"
+  sha256 "4df26ed44d45580ceecbf9e1a6e9e4095de73c7699c6b945bbe8cc8710301c2c"
 
   bottle do
-    sha256 "70395dda09ddd31a173c94177151829b094d295562cb46fbac72930b688422fc" => :mojave
-    sha256 "23fbfc80888b66e34734d0d2e5d1e1a70cadb688ce6237184ac93e7b68d40aef" => :high_sierra
-    sha256 "dec7a1e8a3b692215544f4451e5586939a05765d7a306a77ec48de9b75491410" => :sierra
+    sha256 "46072f66a5228d68493b7fc99b9ec82fd0f8ab5780cae8c879337a8f259d23cd" => :mojave
+    sha256 "939d870b615ac3ccd38bd3947c3b2c8f0ef0926624b96be36ec2d1dde23367d3" => :high_sierra
+    sha256 "9863dd8a15e97381e071e9a5a68c78d38e8b4db7bff77d5063ffe4639a32ae30" => :sierra
   end
-
-  option "with-internal-xref", "Include XREF information for SBCL internals (increases core size by 5-6MB)"
 
   # Current binary versions are listed at https://sbcl.sourceforge.io/platform-table.html
   resource "bootstrap64" do
@@ -46,7 +44,6 @@ class Sbcl < Formula
       "--with-sb-ldb",
       "--with-sb-thread",
     ]
-    args << "--with-sb-xref-internal" if build.with? "internal-xref"
 
     ENV["SBCL_MACOSX_VERSION_MIN"] = MacOS.version
     system "./make.sh", *args

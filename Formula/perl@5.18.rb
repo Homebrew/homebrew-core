@@ -12,12 +12,6 @@ class PerlAT518 < Formula
 
   keg_only :versioned_formula
 
-  option "with-dtrace", "Build with DTrace probes"
-  option "with-test", "Build and run the test suite"
-
-  deprecated_option "use-dtrace" => "with-dtrace"
-  deprecated_option "with-tests" => "with-test"
-
   def install
     args = [
       "-des",
@@ -29,11 +23,8 @@ class PerlAT518 < Formula
       "-Dusethreads",
     ]
 
-    args << "-Dusedtrace" if build.with? "dtrace"
-
     system "./Configure", *args
     system "make"
-    system "make", "test" if build.with? "tests"
     system "make", "install"
   end
 

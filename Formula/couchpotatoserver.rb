@@ -1,9 +1,9 @@
 class Couchpotatoserver < Formula
   desc "Download movies automatically"
   homepage "https://couchpota.to"
-  url "https://github.com/RuudBurger/CouchPotatoServer/archive/build/3.0.1.tar.gz"
+  url "https://github.com/CouchPotato/CouchPotatoServer/archive/build/3.0.1.tar.gz"
   sha256 "f08f9c6ac02f66c6667f17ded1eea4c051a62bbcbadd2a8673394019878e92f7"
-  head "https://github.com/RuudBurger/CouchPotatoServer.git"
+  head "https://github.com/CouchPotato/CouchPotatoServer.git"
 
   bottle :unneeded
 

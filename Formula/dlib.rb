@@ -1,45 +1,41 @@
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.15.tar.bz2"
-  sha256 "5340eeaaea7dd6d93d55e7a7d2fdb1f854a77b75f66049354db53671a202c11d"
+  url "http://dlib.net/files/dlib-19.16.tar.bz2"
+  sha256 "37308406c2b1459a70f21ec2fd7bdc922277659534c708323cb28d6e8e4764a8"
+  revision 1
   head "https://github.com/davisking/dlib.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c349d2eed8144a3b0faacc7d5bf461034f5ff0217da080cd72c852475f049fb5" => :mojave
-    sha256 "b46587048748fd3612b11ad947af43da6fa5a56b3b7b49795eba6473d52093a2" => :high_sierra
-    sha256 "f41623ee7575269bb09123a23b46795979a5b2b1e74cdca37c24341dd5858a3a" => :sierra
-    sha256 "828d6e762e3c39c4efff6d7b5f32da406bac2d8bc710ebef791b728e3d27f06f" => :el_capitan
+    sha256 "7793a79b6d155fce278f2d4aef97b248bbad453776f07798f2344deb4a1243cd" => :mojave
+    sha256 "e7c5d7b023879adb58be981d34041b3b5037292c180b711edd7c0b4eca7e61fe" => :high_sierra
+    sha256 "c20e7bcd027a030f32ab473a400ea39b1971e1e006465494a93bb333f12a6e91" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
   depends_on :macos => :el_capitan # needs thread-local storage
-  depends_on "openblas" => :optional
-  depends_on :x11 => :optional
+  depends_on "openblas"
 
   needs :cxx11
 
   def install
     ENV.cxx11
 
-    args = std_cmake_args + %w[-DDLIB_USE_BLAS=ON -DDLIB_USE_LAPACK=ON]
-    args << "-DDLIB_NO_GUI_SUPPORT=ON" if build.without? "x11"
-    args << "-DUSE_SSE2_INSTRUCTIONS=ON" # SSE2 is present on all modern macOS hardware
+    args = std_cmake_args + %W[
+      -DDLIB_USE_BLAS=ON
+      -DDLIB_USE_LAPACK=ON
+      -Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -DDLIB_NO_GUI_SUPPORT=ON
+      -DUSE_SSE2_INSTRUCTIONS=ON
+    ]
 
     unless build.bottle?
       args << "-DUSE_AVX_INSTRUCTIONS=ON" if Hardware::CPU.avx?
       args << "-DUSE_SSE4_INSTRUCTIONS=ON" if Hardware::CPU.sse4?
-    end
-
-    if build.with? "openblas"
-      args << "-Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-      args << "-Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-    else
-      args << "-Dcblas_lib=/usr/lib/libcblas.dylib"
-      args << "-Dlapack_lib=/usr/lib/liblapack.dylib"
     end
 
     mkdir "dlib/build" do

@@ -14,9 +14,6 @@ class GoAT14 < Formula
 
   keg_only :versioned_formula
 
-  option "with-cc-all", "Build with cross-compilers and runtime support for all supported platforms"
-  option "with-cc-common", "Build with cross-compilers and runtime support for darwin, linux and windows"
-
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go1.4"
@@ -25,40 +22,11 @@ class GoAT14 < Formula
   def install
     ENV.refurbish_args
 
-    # host platform (darwin) must come last in the targets list
-    if build.with? "cc-all"
-      targets = [
-        ["linux",   ["386", "amd64", "arm"]],
-        ["freebsd", ["386", "amd64", "arm"]],
-        ["netbsd",  ["386", "amd64", "arm"]],
-        ["openbsd", ["386", "amd64"]],
-        ["windows", ["386", "amd64"]],
-        ["dragonfly", ["386", "amd64"]],
-        ["plan9",   ["386", "amd64"]],
-        ["solaris", ["amd64"]],
-        ["darwin",  ["386", "amd64"]],
-      ]
-    elsif build.with? "cc-common"
-      targets = [
-        ["linux",   ["386", "amd64", "arm"]],
-        ["windows", ["386", "amd64"]],
-        ["darwin",  ["386", "amd64"]],
-      ]
-    else
-      targets = [["darwin", [""]]]
-    end
-
     cd "src" do
-      targets.each do |os, archs|
-        archs.each do |arch|
-          ENV["GOROOT_FINAL"] = libexec
-          ENV["GOOS"]         = os
-          ENV["GOARCH"]       = arch
-          ENV["CGO_ENABLED"]  = "0"
-          ohai "Building go for #{arch}-#{os}"
-          system "./make.bash", "--no-clean"
-        end
-      end
+      ENV["GOROOT_FINAL"] = libexec
+      ENV["GOOS"]         = "darwin"
+      ENV["CGO_ENABLED"]  = "0"
+      system "./make.bash", "--no-clean"
     end
 
     (buildpath/"pkg/obj").rmtree

@@ -5,14 +5,13 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-src.tar.xz"
-  sha256 "ae47afda985830de8811243255aa3744dfb9207cb980af74393298b2b62160d6"
+  url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-src.tar.xz"
+  sha256 "11117735a58e507c481c09f3f39ae5a314e9fbf49fc3109528f99ea7959004b2"
 
   bottle do
-    sha256 "02efe429ad3b258784afb6c4313f71ff6b9b6210d4ee86594349fb7ecdc6faeb" => :mojave
-    sha256 "fcf4fd3d4a75b5b71f6f047cb652820d290ceb55856ee62d63c23746dcfb66ee" => :high_sierra
-    sha256 "b488193dbf9877a9a3195d0ada5883b07adc8e537d6576678c096014567d8673" => :sierra
-    sha256 "8efdc2390e8379da21a4212730d29d12d168903f945918c5f226783ba4dd3c37" => :el_capitan
+    sha256 "93d708bb5757fdfae246d64ae7923af03d1e9bfa0ecb421ef9a4aee83e977f1b" => :mojave
+    sha256 "915296edcf4e259b9e499173b8a6eec61690e91d9fce74529b432e3cf3d911a3" => :high_sierra
+    sha256 "402849ba1792133beac944d7af71e59ce0113c9b44d8aa52e35c4d01e078031f" => :sierra
   end
 
   head do
@@ -23,8 +22,8 @@ class Ghc < Formula
     depends_on "libtool" => :build
 
     resource "cabal" do
-      url "https://hackage.haskell.org/package/cabal-install-2.2.0.0/cabal-install-2.2.0.0.tar.gz"
-      sha256 "c856a2dd93c5a7b909597c066b9f9ca27fbda1a502b3f96077b7918c0f64a3d9"
+      url "https://hackage.haskell.org/package/cabal-install-2.4.0.0/cabal-install-2.4.0.0.tar.gz"
+      sha256 "1329e9564b736b0cfba76d396204d95569f080e7c54fe355b6d9618e3aa0bef6"
     end
   end
 
@@ -53,14 +52,16 @@ class Ghc < Formula
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   resource "binary" do
-    url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-x86_64-apple-darwin.tar.xz"
-    sha256 "af0b455f6c46b9802b4b48dad996619cfa27cc6e2bf2ce5532387b4a8c00aa64"
+    url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-x86_64-apple-darwin.tar.xz"
+    sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
   end
 
   resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-testsuite.tar.xz"
-    sha256 "ff43a015f803005dd9d9248ea9ffa92f9ebe79e146cfd044c3f48e0a7e58a5fc"
+    url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-testsuite.tar.xz"
+    sha256 "46babc7629c9bce58204d6425e3726e35aa8dc58a8c4a7e44dc81ed975721469"
   end
+
+  patch :DATA
 
   def install
     ENV["CC"] = ENV.cc
@@ -138,6 +139,7 @@ class Ghc < Formula
 
       system "./boot"
     end
+
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
@@ -162,3 +164,42 @@ class Ghc < Formula
     system "#{bin}/runghc", testpath/"hello.hs"
   end
 end
+
+__END__
+
+diff --git a/docs/users_guide/flags.py b/docs/users_guide/flags.py
+index cc30b8c066..21c7ae3a16 100644
+--- a/docs/users_guide/flags.py
++++ b/docs/users_guide/flags.py
+@@ -46,9 +46,11 @@
+
+ from docutils import nodes
+ from docutils.parsers.rst import Directive, directives
++import sphinx
+ from sphinx import addnodes
+ from sphinx.domains.std import GenericObject
+ from sphinx.errors import SphinxError
++from distutils.version import LooseVersion
+ from utils import build_table_from_list
+
+ ### Settings
+@@ -597,14 +599,18 @@ def purge_flags(app, env, docname):
+ ### Initialization
+
+ def setup(app):
++    # The override argument to add_directive_to_domain is only supported by >= 1.8
++    sphinx_version = LooseVersion(sphinx.__version__)
++    override_arg = {'override': True} if sphinx_version >= LooseVersion('1.8') else {}
+
+     # Add ghc-flag directive, and override the class with our own
+     app.add_object_type('ghc-flag', 'ghc-flag')
+-    app.add_directive_to_domain('std', 'ghc-flag', Flag)
++    app.add_directive_to_domain('std', 'ghc-flag', Flag, **override_arg)
+
+     # Add extension directive, and override the class with our own
+     app.add_object_type('extension', 'extension')
+-    app.add_directive_to_domain('std', 'extension', LanguageExtension)
++    app.add_directive_to_domain('std', 'extension', LanguageExtension,
++                                **override_arg)
+     # NB: language-extension would be misinterpreted by sphinx, and produce
+     # lang="extensions" XML attributes

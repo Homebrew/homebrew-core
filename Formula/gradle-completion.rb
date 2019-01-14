@@ -7,7 +7,7 @@ class GradleCompletion < Formula
 
   bottle :unneeded
 
-  depends_on "bash-completion" => :recommended
+  depends_on "bash-completion"
 
   def install
     bash_completion.install "gradle-completion.bash" => "gradle"

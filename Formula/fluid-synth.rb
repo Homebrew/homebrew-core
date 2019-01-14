@@ -3,25 +3,34 @@ class FluidSynth < Formula
   homepage "http://www.fluidsynth.org"
   url "https://github.com/FluidSynth/fluidsynth/archive/v1.1.11.tar.gz"
   sha256 "da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8"
+  revision 1
+  head "https://github.com/FluidSynth/fluidsynth.git"
 
   bottle do
-    sha256 "7ddf078779748766cdf075e72bc5c9c4bd3df2abe93b3886fd804cb0490fa0d3" => :mojave
-    sha256 "6c2210c1599c19c1fa1a8ceb5a043cd6a8b598475cc3f500c9cb0b341d0a0288" => :high_sierra
-    sha256 "b4b6a73a0c1eaf23df645973f4d951eca4ef4921b59af02d9fa986d0a4a27089" => :sierra
-    sha256 "d86f4c855c358ebf7d8fb766774e698e78af1022b90edb930bb9657a41d1481a" => :el_capitan
+    cellar :any
+    sha256 "ca4ff3361765e4b25b16d621b96a7abb87ada037d0f309f34bc05d4edb9b76a8" => :mojave
+    sha256 "65d6ea5d48f04308d046b83b201dc9eb177c1f36287873d182d3cbe16e374263" => :high_sierra
+    sha256 "c00727a551aaa9e5029a985cb6b30bf20d9d5440e73859b662f91be149ebb5c1" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "libsndfile" => :optional
-  depends_on "portaudio" => :optional
+  depends_on "libsndfile"
+  depends_on "portaudio"
 
   def install
-    args = std_cmake_args
-    args << "-Denable-framework=OFF" << "-DLIB_SUFFIX="
-    args << "-Denable-portaudio=ON" if build.with? "portaudio"
-    args << "-Denable-libsndfile=OFF" if build.without? "libsndfile"
+    args = std_cmake_args + %w[
+      -Denable-framework=OFF
+      -Denable-portaudio=ON
+      -DLIB_SUFFIX=
+    ]
+    if build.head?
+      args += %w[
+        -Denable-dbus=OFF
+        -Denable-sdl2=OFF
+      ]
+    end
 
     mkdir "build" do
       system "cmake", "..", *args

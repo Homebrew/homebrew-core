@@ -1,8 +1,8 @@
 class Parallelstl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://github.com/intel/parallelstl"
-  url "https://github.com/intel/parallelstl/archive/20180619.tar.gz"
-  sha256 "84429d4d08276a635d31eeff7b68c8a40e681832cc0bb4fb3662a570c6e1dbd4"
+  url "https://github.com/intel/parallelstl/archive/20181204.tar.gz"
+  sha256 "e706db273ada1e5d971ebac2775faacf0d1f7e02aa15a754217a6566c4f2b4f8"
 
   bottle :unneeded
 

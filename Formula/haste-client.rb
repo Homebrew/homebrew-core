@@ -1,7 +1,7 @@
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
-  revision 3
+  revision 5
   head "https://github.com/seejohnrun/haste-client.git"
 
   stable do
@@ -18,10 +18,9 @@ class HasteClient < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18cb87e89cbb1d141394d055b295377bf70f808901763d2b0fa38acf12e72204" => :mojave
-    sha256 "e11fbbf6bab06ef1bda10174f263bf16fe7de2c3b8969b36bdaf178b171f8abf" => :high_sierra
-    sha256 "85c7c24c6cb14d5cb948481aeac65928339dec7ff2ecc4220ccd5fb3bebfba79" => :sierra
-    sha256 "2d6cee84eee9e2a0fc75a03ca6fbdb970dfa9ac6ecdeea6a4e32537ee1869fbf" => :el_capitan
+    sha256 "c38551ce841f7a3cd825e1ae20b774836aba13fe6e129c1539eadde9b9e64a02" => :mojave
+    sha256 "a97b7aaf38ec730bffa45ffc073ccf4921b4e5714069a21bf63e682a9d21527e" => :high_sierra
+    sha256 "746af59be7c010e6e13b67d1f98766c0237061eabca601e5f0cad935e1c648bf" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
@@ -29,6 +28,13 @@ class HasteClient < Formula
   resource "faraday" do
     url "https://rubygems.org/gems/faraday-0.12.2.gem"
     sha256 "6299046a78613ce330b67060e648a132ba7cca4f0ea769bc1d2bbcb22a23ec94"
+  end
+
+  if MacOS.version <= :sierra
+    resource "json" do
+      url "https://rubygems.org/gems/json-2.1.0.gem"
+      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+    end
   end
 
   resource "multipart-post" do

@@ -1,7 +1,7 @@
 class NordugridArc < Formula
   desc "Grid computing middleware"
   homepage "http://www.nordugrid.org/"
-  url "http://download.nordugrid.org/packages/nordugrid-arc/releases/5.0.2/src/nordugrid-arc-5.0.2.tar.gz"
+  url "https://download.nordugrid.org/packages/nordugrid-arc/releases/5.0.2/src/nordugrid-arc-5.0.2.tar.gz"
   sha256 "d7306d91b544eeba571ede341e43760997c46d4ccdacc8b785c64f594780a9d1"
 
   bottle do

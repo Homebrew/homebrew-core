@@ -4,12 +4,12 @@ class Octave < Formula
   url "https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-4.4.1.tar.xz"
   sha256 "7e4e9ac67ed809bd56768fb69807abae0d229f4e169db63a37c11c9f08215f90"
-  revision 2
+  revision 5
 
   bottle do
-    sha256 "2e63f1cb21581a5d90a04f0415dbad4602235ec95b2762541dda745a449611d2" => :mojave
-    sha256 "5e5aee2f8c6fafdf2c2c1c90a6810f6934e715a3ee5d2e020ab727af7dc4d96f" => :high_sierra
-    sha256 "7bf23ed7346f85ae895bb8627f4432479741f16977e2f597f13b07671ccfe4b3" => :sierra
+    sha256 "759d5548d0fbb6e83f37affd74c70f8c85f683baa190dfb1c3c2f69f6a355efa" => :mojave
+    sha256 "053f08c583e5fb75a1a86712a4b716c511b53e66d90a60df16e301658a7f8507" => :high_sierra
+    sha256 "278e13c04b70b4aee3d396fc0ea020d7f87285418484cbd6eca50a6a0f475dea" => :sierra
   end
 
   head do
@@ -65,7 +65,13 @@ class Octave < Formula
     inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
 
     args = []
-    args << "--without-qt" if build.without? "qt"
+    if build.with? "qt"
+      # Stuff for Qt 5.12 compatibility
+      # https://savannah.gnu.org/bugs/?55187
+      ENV["QCOLLECTIONGENERATOR"]="qhelpgenerator"
+    else
+      args << "--without-qt"
+    end
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
@@ -74,7 +80,6 @@ class Octave < Formula
                           "--enable-link-all-dependencies",
                           "--enable-shared",
                           "--disable-static",
-                          "--without-osmesa",
                           "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
                           "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
                           "--with-x=no",

@@ -31,13 +31,9 @@ class Valgrind < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-only64bit
+      --build=amd64-darwin
     ]
-    if MacOS.prefer_64_bit?
-      args << "--enable-only64bit" << "--build=amd64-darwin"
-    else
-      args << "--enable-only32bit"
-    end
-
     system "./autogen.sh" if build.head?
 
     # Look for headers in the SDK on Xcode-only systems: https://bugs.kde.org/show_bug.cgi?id=295084

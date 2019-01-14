@@ -3,7 +3,7 @@ class Cquery < Formula
   homepage "https://github.com/cquery-project/cquery"
   # pull from git tag to get submodules
   url "https://github.com/cquery-project/cquery.git",
-      :tag => "v20180718",
+      :tag      => "v20180718",
       :revision => "b523aa928acf8ffb3de6b22c79db7366a9672489"
   head "https://github.com/cquery-project/cquery.git"
 

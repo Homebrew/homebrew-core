@@ -4,29 +4,29 @@ class Imagemagick < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick--7.0.8-13.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-13.tar.xz"
-  sha256 "1543ad705ef45cf490de8e8db913e13b1e7baea057036db69feb475467d66873"
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.8-23.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.8-23.tar.xz"
+  sha256 "e535ef9c0e7e5961a9907a13475ffc4c0d7b84a2788484910337bcdb30498656"
+  revision 1
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   bottle do
-    sha256 "6d77a4c67bef2198aaefddc23b15e61d00c8c0412e3b16e7e10a9e66ab611071" => :mojave
-    sha256 "454a2c1107d449af12d856c7149b865f4cae2096e37313fe2151b846c2cfd606" => :high_sierra
-    sha256 "e5cad6d9898c68728eb68260fb1ac19d86002dc0e987ecbf1f5da9a698dfe4d4" => :sierra
+    sha256 "3f334e7564b68fc577815d27e7b9ed680de156f0fa2f0b7349df84df3db93f65" => :mojave
+    sha256 "0c4cde95593eb9280fcbfb2469e641ec7ed79b0ac7f9add6316a316a49218010" => :high_sierra
+    sha256 "268d7a5ba387992a19500b5b30aa21dd52415a1d0ee9584f37e78f315243a1cd" => :sierra
   end
 
   option "with-fftw", "Compile with FFTW support"
-  option "with-hdri", "Compile with HDRI support"
   option "with-libheif", "Compile with HEIF support"
   option "with-perl", "Compile with PerlMagick"
 
-  deprecated_option "enable-hdri" => "with-hdri"
   deprecated_option "with-libde265" => "with-libheif"
 
   depends_on "pkg-config" => :build
 
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "libomp"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
@@ -57,19 +57,21 @@ class Imagemagick < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --disable-opencl
-      --disable-openmp
       --enable-shared
       --enable-static
       --with-freetype=yes
       --with-modules
       --with-openjp2
       --with-webp=yes
+      --enable-openmp
+      ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
+      ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp
+      LDFLAGS=-lomp
     ]
 
     args << "--without-gslib" if build.without? "ghostscript"
     args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
     args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--enable-hdri=yes" if build.with? "hdri"
     args << "--without-fftw" if build.without? "fftw"
     args << "--without-pango" if build.without? "pango"
     args << "--with-rsvg" if build.with? "librsvg"

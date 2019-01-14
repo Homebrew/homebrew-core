@@ -16,38 +16,33 @@ class Ettercap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 "8e248cd983f18f1bb5c8efe25f67b94b928121cc0bc1aecaad30a2b495895a54" => :mojave
-    sha256 "0176b4a57909fc8c448df8b0e88b6063267ec80c6de740d597cfffc531ac98c6" => :high_sierra
-    sha256 "84b9f55fd615340f552685901bc93f7c9c1a5412f82342a692684aa26b0441d0" => :sierra
+    rebuild 2
+    sha256 "107e746f7ced82f3af46914005e6f4043d9e03d85d08c79512cd7f3833a99cc2" => :mojave
+    sha256 "5006d29356b76d963228389bc9e04e8f15c8851130208ac32d987554308e7aa1" => :high_sierra
+    sha256 "a81409380c3025a5eea3a52fb5c6a7de0d865f4477b47ebe3c8cfd580195fcac" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "curl" if MacOS.version <= :mountain_lion # requires >= 7.26.0.
+  depends_on "gtk+3"
   depends_on "libnet"
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "gtk+" => :optional
-  depends_on "gtk+3" => :optional
 
   def install
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
       -DENABLE_CURSES=ON
+      -DENABLE_GTK=ON
       -DENABLE_IPV6=ON
       -DENABLE_LUA=OFF
       -DENABLE_PDF_DOCS=OFF
       -DENABLE_PLUGINS=ON
+      -DGTK_BUILD_TYPE=GTK3
+      -DINSTALL_DESKTOP=ON
       -DINSTALL_SYSCONFDIR=#{etc}
     ]
-
-    if build.with?("gtk+") || build.with?("gtk+3")
-      args << "-DENABLE_GTK=ON" << "-DINSTALL_DESKTOP=ON"
-      args << "-DGTK_BUILD_TYPE=GTK3" if build.with? "gtk+3"
-    else
-      args << "-DENABLE_GTK=OFF" << "-DINSTALL_DESKTOP=OFF"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args

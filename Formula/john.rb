@@ -20,10 +20,8 @@ class John < Formula
 
   def install
     ENV.deparallelize
-    arch = MacOS.prefer_64_bit? ? "64" : "sse2"
-    target = "macosx-x86-#{arch}"
 
-    system "make", "-C", "src", "clean", "CC=#{ENV.cc}", target
+    system "make", "-C", "src", "clean", "CC=#{ENV.cc}", "macosx-x86-64"
 
     # Remove the README symlink and install the real file
     rm "README"

@@ -2,7 +2,7 @@ class Xmount < Formula
   desc "Convert between multiple input & output disk image types"
   homepage "https://www.pinguin.lu/xmount/"
   url "https://code.pinguin.lu/diffusion/XMOUNT/xmount.git",
-      :tag => "v0.7.6",
+      :tag      => "v0.7.6",
       :revision => "d0f67c46632a69ff1b608e90ed2fba8344ab7f3d"
   revision 1
 

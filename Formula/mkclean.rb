@@ -14,7 +14,7 @@ class Mkclean < Formula
 
   # Fixes compile error with Xcode-4.3+, a hardcoded /Developer.  Reported as:
   # https://sourceforge.net/p/matroska/bugs/9/
-  patch :DATA if MacOS.prefer_64_bit?
+  patch :DATA
 
   def install
     system "./mkclean/configure"

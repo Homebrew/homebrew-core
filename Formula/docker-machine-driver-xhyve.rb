@@ -1,22 +1,23 @@
 class DockerMachineDriverXhyve < Formula
   desc "Docker Machine driver for xhyve"
-  homepage "https://github.com/zchee/docker-machine-driver-xhyve"
-  url "https://github.com/zchee/docker-machine-driver-xhyve.git",
-      :tag => "v0.3.3",
+  homepage "https://github.com/machine-drivers/docker-machine-driver-xhyve"
+  url "https://github.com/machine-drivers/docker-machine-driver-xhyve.git",
+      :tag      => "v0.3.3",
       :revision => "7d92f74a8b9825e55ee5088b8bfa93b042badc47"
   revision 1
-  head "https://github.com/zchee/docker-machine-driver-xhyve.git"
+  head "https://github.com/machine-drivers/docker-machine-driver-xhyve.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2dd1c4c4e723dddd4707a15ae1b82e689dea0754a1ee1c02b090e0cd7230a794" => :mojave
-    sha256 "bac6844c0bb62f1663b694496c49cf67104375efcdfef452c07efd8f30c37d39" => :high_sierra
-    sha256 "263f1beca8cbefe901fbf2d8ce47e71c0a19ba3ea1cf258b6b04ff52784f0354" => :sierra
+    rebuild 2
+    sha256 "7eeb3489a188327643e61883a01ff2c45d07dd03ce63c64ccc74e1254816fc53" => :mojave
+    sha256 "0564764571c40c98bfc1a487d14c6c9c1306f9ce989fdb02ec03a4c192dc72b7" => :high_sierra
+    sha256 "6aeca9446ca593ba8d1b417f71174937c71c0341f1d9427d7b5b6e4147dd0c62" => :sierra
   end
 
   depends_on "go" => :build
+  depends_on "docker-machine"
   depends_on :macos => :yosemite
-  depends_on "docker-machine" => :recommended
 
   def install
     (buildpath/"gopath/src/github.com/zchee/docker-machine-driver-xhyve").install Dir["{*,.git,.gitignore,.gitmodules}"]

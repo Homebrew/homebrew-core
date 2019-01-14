@@ -1,14 +1,14 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.70.1.tar.xz"
-  sha256 "66972047d9ef8162cc8c389d7e7698291dfc9f2b3e4ea9a9f08ae604107451bd"
+  url "https://poppler.freedesktop.org/poppler-0.73.0.tar.xz"
+  sha256 "e44b5543903128884ba4538c2a97d3bcc8889e97ffacc4636112101f0238db03"
   head "https://anongit.freedesktop.org/git/poppler/poppler.git"
 
   bottle do
-    sha256 "b51232749ae49bb477e111173205a46f1d512dad19b151c7858323dfc9649e7e" => :mojave
-    sha256 "f789f1bf9de71eb048b4b3fadc6b0193770bbb2847365f66de343e8e35335a78" => :high_sierra
-    sha256 "c5cbefd4d56e775a00b83420b480a72968272d26186c84df7daf48821be43cae" => :sierra
+    sha256 "7fb3082debf032a8135fbddc92981d4d567bc985e11bc0e851067ee14d1dc13f" => :mojave
+    sha256 "9d64015e4649ac29686e7cceb7e6c1f6b451cb9f350ead17072073c938c4f719" => :high_sierra
+    sha256 "28e080e386859d243af1cbefb31d1f8ced36a2676b5609748ee901172882046a" => :sierra
   end
 
   option "with-qt", "Build Qt5 backend"
@@ -49,8 +49,8 @@ class Poppler < Formula
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_CMS=lcms2
       -DENABLE_GLIB=ON
-      -DENABLE_QT4=OFF
-      -DENABLE_XPDF_HEADERS=ON
+      -DENABLE_QT5=OFF
+      -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
       -DWITH_GObjectIntrospection=ON
     ]
 
@@ -81,6 +81,12 @@ class Poppler < Formula
       macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
       macho.write!
     end
+
+    # fix gobject-introspection support
+    # issue reported upstream as https://gitlab.freedesktop.org/poppler/poppler/issues/18
+    # patch attached there does not work though...
+    inreplace share/"gir-1.0/Poppler-0.18.gir", "@rpath", lib.to_s
+    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Poppler-0.18.typelib", share/"gir-1.0/Poppler-0.18.gir"
   end
 
   test do

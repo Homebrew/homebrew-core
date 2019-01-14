@@ -6,16 +6,11 @@ class GnuIndent < Formula
   sha256 "e77d68c0211515459b8812118d606812e300097cfac0b4e9fb3472664263bb8b"
 
   bottle do
-    rebuild 1
-    sha256 "af195d9c6363843cee1a9ec8707cdcedb193fd74dbcd1abcb34781baac0231ed" => :mojave
-    sha256 "7402c4707255b5d9d80208dcb922b37a8d0753c6143d291c53fc2774d6b23088" => :high_sierra
-    sha256 "059d45ddc36600a53e52afd810123570e0bd277fc11f6c1b6b7c594919ab84db" => :sierra
-    sha256 "d31ad8b842092150f18dd706d369a0fa6db7fbb41302247eac601c97785218af" => :el_capitan
+    rebuild 3
+    sha256 "424a7f469abb096382488440e00d55021d97405d8e72948cff93fb7826f71285" => :mojave
+    sha256 "ef3e9fa08a9cf100dcd9d5e85a17c88791b78fee201eba5ce8935da5072e4670" => :high_sierra
+    sha256 "73fb630f7391e4598bfeb823637f67ba8741926133813f00bde91dfd8a4f2972" => :sierra
   end
-
-  option "with-default-names", "Do not prepend 'g' to the binary"
-
-  deprecated_option "default-names" => "with-default-names"
 
   depends_on "gettext"
 
@@ -25,17 +20,25 @@ class GnuIndent < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
+      --program-prefix=g
     ]
-
-    args << "--program-prefix=g" if build.without? "default-names"
 
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
-      (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
-      (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
-    end
+    (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
+    (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
+
+    libexec.install_symlink "gnuman" => "man"
+  end
+
+  def caveats; <<~EOS
+    GNU "indent" has been installed as "gindent".
+    If you need to use it as "indent", you can add a "gnubin" directory
+    to your PATH from your bashrc like:
+
+        PATH="#{opt_libexec}/gnubin:$PATH"
+  EOS
   end
 
   test do

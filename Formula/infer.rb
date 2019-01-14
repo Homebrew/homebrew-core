@@ -3,7 +3,7 @@ class Infer < Formula
   homepage "https://fbinfer.com/"
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
-      :tag => "v0.15.0",
+      :tag      => "v0.15.0",
       :revision => "8bda23fadcc51c6ed38a4c3a75be25a266e8f7b4"
 
   bottle do

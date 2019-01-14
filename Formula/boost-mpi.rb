@@ -1,15 +1,14 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
-  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
+  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "1231c02cf9ece283f044b67f9dfc5a41916c777f7f60a88aa407b8ab64737d1f" => :mojave
-    sha256 "d260e77cba427df4b1b296d94f06217cc6a412f98c04f4d82662edbb873fb951" => :high_sierra
-    sha256 "0672956e6f0656e610060554c2cc52a4312de6a2dbd44de7e3e4ce3674eb9948" => :sierra
-    sha256 "d3f89547cb9b48326d1ad72c699694b7f59453887425ce7aa51683da08080d4a" => :el_capitan
+    sha256 "f3530194eb7aa995cb9d02fbbd2bbc31ac8f6d985a2930e6a255af356933c4e8" => :mojave
+    sha256 "7b7870cdfd90c9bd3fbe165ed6b8a7b9c0d201df12e6b9e1a46ec96eff7a37b7" => :high_sierra
+    sha256 "78c183f2594864fdf99c7780c00323a667fb54e6ca10421951bb9cac498ed9bc" => :sierra
   end
 
   depends_on "boost"

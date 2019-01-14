@@ -2,24 +2,25 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag => "v6.4.2",
-      :revision => "33b5de37d73763319101b4ed11a6bd44f6ea03b5"
+      :tag      => "v6.5.4",
+      :revision => "2d4c9c3fd9afd81ded3ac2e686bc1f7204078f14"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    sha256 "41dd827f2533381d056a116ae85dacba36654651739304d7b9af4d44840e4034" => :mojave
-    sha256 "32b066460d9edaac0b4c2c1b8efe911c960c5ef81444643d025da6da0a567d81" => :high_sierra
-    sha256 "b6a1fd07e6d5db71491e2a37ee402b86990198acb78718865594c795c04895a1" => :sierra
+    cellar :any_skip_relocation
+    sha256 "b3831c6f6f2ecb5208d5b09290c38fae4ef265f39f459d225233eff9ecfc340e" => :mojave
+    sha256 "b574c3450a1eabf0ea1e5f225b562386753eb74a9c04296d41b51ecdbaf86419" => :high_sierra
+    sha256 "101bb42677e25f8e9a998036034317c1cb5658d4b72db2de2e757caaf68c3b87" => :sierra
   end
 
   resource "node" do
-    url "https://nodejs.org/dist/v8.11.4/node-v8.11.4.tar.xz"
-    sha256 "fbce7de6d96b0bcb0db0bf77f0e6ea999b6755e6930568aedaab06847552a609"
+    url "https://nodejs.org/dist/v8.14.0/node-v8.14.0.tar.xz"
+    sha256 "8ce252913c9f6aaa9871f2d9661b6e54858dae2f0064bd3c624676edb09083c4"
   end
 
   resource "yarn" do
-    url "https://yarnpkg.com/downloads/1.9.4/yarn-v1.9.4.tar.gz"
-    sha256 "7667eb715077b4bad8e2a832e7084e0e6f1ba54d7280dc573c8f7031a7fb093e"
+    url "https://yarnpkg.com/downloads/1.12.3/yarn-v1.12.3.tar.gz"
+    sha256 "02cd4b589ec22c4bdbd2bc5ebbfd99c5e99b07242ad68a539cb37896b93a24f2"
   end
 
   def install
@@ -30,6 +31,12 @@ class Kibana < Formula
 
     # remove non open source files
     rm_rf "x-pack"
+
+    # patch build to not try to read tsconfig.json's from the removed x-pack folder
+    inreplace "src/dev/typescript/projects.ts" do |s|
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/tsconfig.json')),", ""
+      s.gsub! "new Project(resolve(REPO_ROOT, 'x-pack/test/tsconfig.json'), 'x-pack/test'),", ""
+    end
 
     # trick the build into thinking we've already downloaded the Node.js binary
     mkdir_p buildpath/".node_binaries/#{resource("node").version}/darwin-x64"

@@ -1,26 +1,14 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "http://www.pointclouds.org/"
-  revision 5
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.9.1.tar.gz"
+  sha256 "0add34d53cd27f8c468a59b8e931a636ad3174b60581c0387abb98a9fc9cddb6"
   head "https://github.com/PointCloudLibrary/pcl.git"
 
-  stable do
-    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.8.1.tar.gz"
-    sha256 "5a102a2fbe2ba77c775bf92c4a5d2e3d8170be53a68c3a76cfc72434ff7b9783"
-
-    # VTK 8.1 compat
-    # Upstream commit from 10 Nov 2017 "VTK function change since version 7.1 (#2063)"
-    # See https://github.com/PointCloudLibrary/pcl/pull/2063
-    patch do
-      url "https://github.com/PointCloudLibrary/pcl/commit/6555b9a91f.patch?full_index=1"
-      sha256 "860a7b8e7964725b2d11a4237d6a6b65a42f049bc855ecbfcdc406b8e505b478"
-    end
-  end
-
   bottle do
-    sha256 "87563c9da4148e806caf9d025952869746b671f2d10b934d8c159c143a3b3be7" => :mojave
-    sha256 "6abf9e8c4c08e470bbc43e17f39b71e2707acd01584005c3edf3e16e6ea47d95" => :high_sierra
-    sha256 "b1199ce9933bad8ec258c2212617c403f5f6c9669fd77fdffa1d627388b043f4" => :sierra
+    sha256 "8b50d4bbe3e47293621368c684a34e337ba1bad2fa94099bd99a95eaf6503453" => :mojave
+    sha256 "6cf8f5d0b5c108deb68a88130210a00876a2a78213e513cd34a42e6c14fdc4b1" => :high_sierra
+    sha256 "b5f8c7d7220a6bc68a9938ee9554bfc7070e592fd2f8918a57a2435a43e433d2" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -35,12 +23,6 @@ class Pcl < Formula
   depends_on "vtk"
 
   def install
-    # Fix "error: no matching constructor for initialization of
-    # 'boost::uuids::random_generator' (aka 'boost::uuids::random_generator_pure')"
-    # Upstream issue 18 Apr 2018 "Fails to build against Boost 1.67"
-    # See https://github.com/PointCloudLibrary/pcl/issues/2284
-    ENV.append "CXXFLAGS", "-DBOOST_UUID_RANDOM_GENERATOR_COMPAT"
-
     args = std_cmake_args + %w[
       -DBUILD_SHARED_LIBS:BOOL=ON
       -DBUILD_apps=AUTO_OFF

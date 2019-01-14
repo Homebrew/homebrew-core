@@ -1,15 +1,14 @@
 class Nailgun < Formula
   desc "Command-line client, protocol and server for Java programs"
   homepage "http://www.martiansoftware.com/nailgun/"
-  url "https://github.com/facebook/nailgun/archive/nailgun-all-0.9.3.tar.gz"
-  sha256 "3c1567c8633cdf1a942fbcd13eb07564800866cb4d80680b3fbe8ee07c53e7a3"
+  url "https://github.com/facebook/nailgun/archive/nailgun-all-v1.0.0.tar.gz"
+  sha256 "a982c7399cde2b0a795f4ef36ca607fc5d8150395a9680b5c0a49ff9ca81a8c6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "13d0672b7d57132399865686e5b1c88db7fa3e8a3a6495ba8efc1191417fb0e4" => :mojave
-    sha256 "7fd2830001fb4033007cba9bdb515076e4d7397c381a3335d2515e055f834075" => :high_sierra
-    sha256 "b7e959ca2b996cb7c13409693840d0454fe8a646a64813e9c7d3ac21aa1555df" => :sierra
-    sha256 "ccbf9b5b95cbf1b59e1a5698abd13fc9597624e4acafb2f58c840dad444e8cd9" => :el_capitan
+    sha256 "2e76286672ac4dfa511e5b86c60d6dbd7a16aad954f47eea49d41d371e15a0f9" => :mojave
+    sha256 "f72b282a08c6ceb67af42f4f759eb875d283985a614f528a4d7b11a9de722d18" => :high_sierra
+    sha256 "b5a6c2a6c5ae333033b822f89a3b2d242d79179a415452f8561317677205fd1e" => :sierra
   end
 
   head do

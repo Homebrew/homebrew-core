@@ -1,16 +1,14 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
-  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
+  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "3a3159573d928cdfcb02aae4071ddcb3010ab971c2d47215e72482082d1c268d" => :mojave
-    sha256 "bae03c8db2771e0c2e6ede980f63709933b9aeff3a6c2caa455eddbf0720d7a4" => :high_sierra
-    sha256 "f40cf6faac668e9bb6fe21997b71b3ad323e7c6a63320450f2fbaee4cf254e0a" => :sierra
-    sha256 "4a021ea3b65eadb5fd799d5a45a837e18981ef12d622f1eaf841d51b95230a7f" => :el_capitan
+    sha256 "df9783e900573cefa4eb6f454e2c96af5ba25faf0840c01c0f137b82575c580b" => :mojave
+    sha256 "0783713245f6341b55dd0e4bafb2a4783972ed05e4bbd03db0d821c10903aef3" => :high_sierra
+    sha256 "064d14b4acde429e7d8713236ebb60f72ae1419cbd84401c7428999118d5d3b5" => :sierra
   end
 
   depends_on "boost"

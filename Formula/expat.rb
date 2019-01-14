@@ -3,7 +3,6 @@ class Expat < Formula
   homepage "https://libexpat.github.io/"
   url "https://github.com/libexpat/libexpat/releases/download/R_2_2_6/expat-2.2.6.tar.bz2"
   sha256 "17b43c2716d521369f82fc2dc70f359860e90fa440bea65b3b85f0b246ea81f2"
-  head "https://github.com/libexpat/libexpat.git"
 
   bottle do
     cellar :any
@@ -13,11 +12,22 @@ class Expat < Formula
     sha256 "ca9ef3c3c89d70794872e6b7dd2eed560008db47efa16c6c8fad3258940e3263" => :el_capitan
   end
 
+  head do
+    url "https://github.com/libexpat/libexpat.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docbook2x" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_by_macos
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    cd "expat" if build.head?
+    system "autoreconf", "-fiv" if build.head?
+    args = ["--prefix=#{prefix}", "--mandir=#{man}"]
+    args << "--with-docbook" if build.head?
+    system "./configure", *args
     system "make", "install"
   end
 

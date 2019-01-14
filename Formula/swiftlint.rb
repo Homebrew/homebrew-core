@@ -2,18 +2,17 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      :tag => "0.27.0",
-      :revision => "12996ef1f54002e5daa45148944ad9219dacef8a"
+      :tag      => "0.29.3",
+      :revision => "bd0f78a501c17bfcceddb2c7cc3db4c72ee0cd01"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "69de36cfca7bd7a753661a33217fac434b621e889ce77527cb91f34cf0de5d36" => :mojave
-    sha256 "ab239a665b7546749a38ceb9f7ac1f7199efebc1a015d22f36f467fc9d0c69ea" => :high_sierra
-    sha256 "fd36f14e08a2ec39fcd9ed0eca050a204ee29d58141f9fcbce555331af9138e8" => :sierra
+    sha256 "b8dabb2f4407e3692fc63d288a7002d9abea5234c4427a32b47ba821ef60f28b" => :mojave
+    sha256 "dd5634f0c26d29a7ee9be372f6f1a9ea2dbf5a3fc86a1f7ed51bbd5086fc4d24" => :high_sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["10.0", :build]
   depends_on :xcode => "8.0"
 
   def install
@@ -22,8 +21,8 @@ class Swiftlint < Formula
 
   test do
     (testpath/"Test.swift").write "import Foundation"
-    assert_match "Test.swift:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)",
-                 shell_output("SWIFTLINT_SWIFT_VERSION=3 #{bin}/swiftlint --no-cache").chomp
+    assert_match "Test.swift:1:1: warning: Trailing Newline Violation: Files should have a single trailing newline. (trailing_newline)",
+                 shell_output("SWIFTLINT_SWIFT_VERSION=3 SWIFTLINT_DISABLE_SOURCEKIT=1 #{bin}/swiftlint lint --no-cache").chomp
     assert_match version.to_s,
                  shell_output("#{bin}/swiftlint version").chomp
   end

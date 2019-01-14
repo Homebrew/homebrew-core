@@ -6,10 +6,10 @@ class Coreutils < Formula
   sha256 "e831b3a86091496cdba720411f9748de81507798f6130adeaef872d206e1b057"
 
   bottle do
-    sha256 "45157fb067a46c953bdfcba90de688903b7b3c8fcb39afa1e0b2fef2819eedc5" => :mojave
-    sha256 "77b09dbe66f3d5098998da6babf953e01e828742b8a740a831cc3f3a1f713df7" => :high_sierra
-    sha256 "94844581b7e08ae2d1dc6c77acfd6e95021283cc8b7c1228fed32a423ae826cc" => :sierra
-    sha256 "a5145f88de2525d168ef998f8310d5c0abcead9efee9108fb61c30de91a4869c" => :el_capitan
+    rebuild 2
+    sha256 "7ae7e78a769306a603165a04b9af47fad86af275cc748ce669e557dc0cae3cce" => :mojave
+    sha256 "7baed00bd79f22c733d6a1ba11d130dbc4bb87177ed5fddb234f335dd9776c62" => :high_sierra
+    sha256 "d9473848f0c916ad5994eaa5f9ed9efca533ced6aab095687272e782202884bb" => :sierra
   end
 
   head do
@@ -23,8 +23,6 @@ class Coreutils < Formula
     depends_on "wget" => :build
     depends_on "xz" => :build
   end
-
-  depends_on "gmp" => :optional
 
   conflicts_with "ganglia", :because => "both install `gstat` binaries"
   conflicts_with "gegl", :because => "both install `gcut` binaries"
@@ -51,8 +49,8 @@ class Coreutils < Formula
     args = %W[
       --prefix=#{prefix}
       --program-prefix=g
+      --without-gmp
     ]
-    args << "--without-gmp" if build.without? "gmp"
     system "./configure", *args
     system "make", "install"
 
@@ -68,21 +66,15 @@ class Coreutils < Formula
     # Symlink non-conflicting binaries
     bin.install_symlink "grealpath" => "realpath"
     man1.install_symlink "grealpath.1" => "realpath.1"
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats; <<~EOS
-    All commands have been installed with the prefix 'g'.
-
-    If you really need to use these commands with their normal names, you
+    All commands have been installed with the prefix "g".
+    If you need to use these commands with their normal names, you
     can add a "gnubin" directory to your PATH from your bashrc like:
-
-        PATH="#{opt_libexec}/gnubin:$PATH"
-
-    Additionally, you can access their man pages with normal names if you add
-    the "gnuman" directory to your MANPATH from your bashrc as well:
-
-        MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-
+      PATH="#{opt_libexec}/gnubin:$PATH"
   EOS
   end
 

@@ -1,15 +1,15 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.0.2.tar.xz"
-  sha256 "a95c0cc9eb990e94031d2183f2e6e444cc61c99f6f182d1575c433d62afb2f97"
+  url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
+  sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
   revision 1
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "44faa020328c270b43feabc3ce6a09bd23b05f48b38545a2a1d8c162920f16a1" => :mojave
-    sha256 "c86b4a86a4545c22350a4c2d00d7e064e05d0e5e3a50d8fb28690ecc7b0379a4" => :high_sierra
-    sha256 "4f0d796d07dd195ac73138c9631d1011f9a477665729a8afb9191785dd5d447b" => :sierra
+    sha256 "b5768a085fcbd0515e0be2b08896780b060ade54e4f2472dfa5ef234b180c7f6" => :mojave
+    sha256 "7259051adf56ca05922881b1189863f1f2c6ccce3c61a59b1d8f1336a598c75d" => :high_sierra
+    sha256 "2e48a23ff807683a78b1792101e39a39cf6ace0e525afefe7109beb421c19034" => :sierra
   end
 
   option "with-chromaprint", "Enable the Chromaprint audio fingerprinting library"
@@ -30,6 +30,8 @@ class Ffmpeg < Formula
   option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
   option "with-zimg", "Enable z.lib zimg library"
   option "with-srt", "Enable SRT library"
+  option "with-libvmaf", "Enable libvmaf scoring library"
+  option "with-aom", "Enable AV1 video codec"
 
   deprecated_option "with-libtesseract" => "with-tesseract"
 
@@ -49,6 +51,7 @@ class Ffmpeg < Formula
   depends_on "xvid"
   depends_on "xz"
 
+  depends_on "aom" => :optional
   depends_on "chromaprint" => :optional
   depends_on "fdk-aac" => :optional
   depends_on "fontconfig" => :optional
@@ -65,6 +68,7 @@ class Ffmpeg < Formula
   depends_on "libsoxr" => :optional
   depends_on "libssh" => :optional
   depends_on "libvidstab" => :optional
+  depends_on "libvmaf" => :optional
   depends_on "opencore-amr" => :optional
   depends_on "openh264" => :optional
   depends_on "openjpeg" => :optional
@@ -107,6 +111,7 @@ class Ffmpeg < Formula
 
     args << "--enable-chromaprint" if build.with? "chromaprint"
     args << "--enable-frei0r" if build.with? "frei0r"
+    args << "--enable-libaom" if build.with? "aom"
     args << "--enable-libass" if build.with? "libass"
     args << "--enable-libbluray" if build.with? "libbluray"
     args << "--enable-libbs2b" if build.with? "libbs2b"
@@ -129,6 +134,7 @@ class Ffmpeg < Formula
     args << "--enable-libtesseract" if build.with? "tesseract"
     args << "--enable-libtwolame" if build.with? "two-lame"
     args << "--enable-libvidstab" if build.with? "libvidstab"
+    args << "--enable-libvmaf" if build.with? "libvmaf"
     args << "--enable-libwavpack" if build.with? "wavpack"
     args << "--enable-libwebp" if build.with? "webp"
     args << "--enable-libzimg" if build.with? "zimg"

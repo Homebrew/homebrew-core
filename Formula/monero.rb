@@ -2,14 +2,15 @@ class Monero < Formula
   desc "Official monero wallet and cpu miner"
   homepage "https://getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      :tag => "v0.13.0.2",
-      :revision => "77ef8c1839e1984471605e072a20e04d1e7eb6f8"
+      :tag      => "v0.13.0.4",
+      :revision => "29073f65e8816d4c32b6ffef514943a5650b8d3b"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "2c2fec630f12b92dd1690805c679e995a1a3c1d47647882896b0498e26e35fc8" => :mojave
-    sha256 "3cbd5dc098bf626882f7bdb6d33f7d07946d52f8f23f50b245cdf1bff01091e5" => :high_sierra
-    sha256 "6f11faae72beb73cdfdbb0904b1130bee48c4b733d049f83fda514bcaff21e9d" => :sierra
+    sha256 "017be64fb446c12e7557f10a2d66ca0d3d4d2544c85b8676c4a7ab3daffedcc0" => :mojave
+    sha256 "05f246b77fd16d59370bee2a593055c7c7b42c4f74c1ce4c7bc108d72de10707" => :high_sierra
+    sha256 "5c79cfc23b570cb98b8c34df1bc4fabbc51716e8cc0c7f6aa25f8aeb37e3cd14" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -22,8 +23,8 @@ class Monero < Formula
   depends_on "zeromq"
 
   resource "cppzmq" do
-    url "https://github.com/zeromq/cppzmq/archive/v4.2.3.tar.gz"
-    sha256 "3e6b57bf49115f4ae893b1ff7848ead7267013087dc7be1ab27636a97144d373"
+    url "https://github.com/zeromq/cppzmq/archive/v4.3.0.tar.gz"
+    sha256 "27d1f56406ba94ee779e639203218820975cf68174f92fbeae0f645df0fcada4"
   end
 
   def install

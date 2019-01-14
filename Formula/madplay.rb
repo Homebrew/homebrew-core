@@ -27,10 +27,9 @@ class Madplay < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
+      --build=#{Hardware::CPU.arch_64_bit}
     ]
 
-    # Avoid "error: CPU you selected does not support x86-64 instruction set"
-    args << "--build=#{Hardware::CPU.arch_64_bit}" if MacOS.prefer_64_bit?
     system "./configure", *args
     system "make", "install"
   end

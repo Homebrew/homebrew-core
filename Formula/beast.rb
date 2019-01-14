@@ -1,15 +1,15 @@
 class Beast < Formula
   desc "Bayesian Evolutionary Analysis Sampling Trees"
   homepage "http://beast.community/"
-  url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.2.tar.gz"
-  sha256 "7f0d82b15293fcb2778ea39b85c99a973be03566b8ae2deb8d6fc6a58683ffd5"
+  url "https://github.com/beast-dev/beast-mcmc/archive/v1.10.4.tar.gz"
+  sha256 "e2f8a30e4f695bf0e58ac3e94778459a1db6cd0d476556d86c563e4b6a1181f7"
   head "https://github.com/beast-dev/beast-mcmc.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "504311880a8043a22daf1ce8e19310ad7539038c3088b34799908ba40e92eba9" => :mojave
-    sha256 "ae61a244730f723a4b4c16ac472fc5f384df4771aedce81f899bd9c99ac3faf3" => :high_sierra
-    sha256 "91964c4713e727d24578b55e092ff669820efd7bd74ef397f0b457be82e930db" => :sierra
+    sha256 "3c894f422a0ee8e3a60a4fc4383b7c92e3373bcddf913034ef92541a346c5d8c" => :mojave
+    sha256 "a5c4138c07edad9c5fe6cb2a24c50c3b7e77abfa206f31e0b6d2f6ac62f2fa5b" => :high_sierra
+    sha256 "c3b2d7c0e17ee1072e0278ff8cfc4d27cee98450e3b23c29a2e0724c6278def8" => :sierra
   end
 
   depends_on "ant" => :build

@@ -3,11 +3,11 @@ class Clamav < Formula
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.100.2.tar.gz"
   sha256 "4a2e4f0cd41e62adb5a713b4a1857c49145cd09a69957e6d946ecad575206dd6"
+  revision 1
 
   bottle do
-    sha256 "3c3cf0708c41acea618c1fa44514860e2f628525fff24b32bf7d9b889b0eae6d" => :mojave
-    sha256 "b32daa605ce566aeee7f8f6f69bc4b38f4ee5500284f74111eedefb22bfffc02" => :high_sierra
-    sha256 "23f15b3fd6bb54d16ca0d12c070160d42d7683a619045a1488049e410f279e8c" => :sierra
+    sha256 "7005fda00690d3201019fdd68e69223e3b3213ebc10674508b4277a5d7d261a9" => :high_sierra
+    sha256 "c19f80b6a8fd410fff792bd6e059594672c559dc713e761184b6c07fa354e71a" => :sierra
   end
 
   head do
@@ -19,10 +19,10 @@ class Clamav < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "json-c"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "json-c" => :optional
-  depends_on "yara" => :optional
+  depends_on "yara"
 
   skip_clean "share/clamav"
 
@@ -33,14 +33,13 @@ class Clamav < Formula
       --prefix=#{prefix}
       --libdir=#{lib}
       --sysconfdir=#{etc}/clamav
-      --with-openssl=#{Formula["openssl"].opt_prefix}
-      --with-pcre=#{Formula["pcre"].opt_prefix}
       --disable-zlib-vcheck
       --enable-llvm=no
+      --with-libjson=#{Formula["json-c"].opt_prefix}
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-pcre=#{Formula["pcre"].opt_prefix}
     ]
 
-    args << (build.with?("json-c") ? "--with-libjson=#{Formula["json-c"].opt_prefix}" : "--without-libjson")
-    args << "--disable-yara" if build.without? "yara"
     args << "--with-zlib=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
 
     pkgshare.mkpath

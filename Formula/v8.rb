@@ -3,14 +3,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-      :revision => "74b702466046e0a59366cea26290af6590007675"
-  version "7.0.276.28" # the version of the v8 checkout, not a depot_tools version
+      :revision => "f28ef9887ee23597d4a0b89d068f7b8e377fc876"
+  version "7.1.302.28" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
-    sha256 "978bc140095713e37bea53af31e5982fb8fca27490f27b2e14e878f316319cb1" => :mojave
-    sha256 "0b5eda550e00496b69864bf14bfeb724be8c79a3110a0ecd2f45153490c697b1" => :high_sierra
-    sha256 "c0e330167697558693980f6502a589afc2efd0b8b680a0e0426755f69b1e09b2" => :sierra
+    sha256 "cd882e5011ef37e84c957b1aaa8717618aae34204df08325f85ab11dd8d31409" => :mojave
+    sha256 "2a7ec6035b6d93fa17984de397a72900ff003dd53b1f788008ea45556fe9296a" => :high_sierra
+    sha256 "31e9d7558d573186a536d99b41fe001a63e6fdb06c4113a17afebc9dcdc9fc07" => :sierra
   end
 
   # depot_tools/GN require Python 2.7+
@@ -56,10 +56,10 @@ class V8 < Formula
       output_path = "out.gn/x64.release"
 
       gn_args = {
-        :is_debug => false,
-        :is_component_build => true,
+        :is_debug                     => false,
+        :is_component_build           => true,
         :v8_use_external_startup_data => false,
-        :v8_enable_i18n_support => true,
+        :v8_enable_i18n_support       => true,
       }
 
       # Transform to args string

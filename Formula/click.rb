@@ -3,6 +3,7 @@ class Click < Formula
   homepage "https://github.com/databricks/click"
   url "https://github.com/databricks/click/archive/v0.3.2.tar.gz"
   sha256 "eed648409bf78a05658a9d097e5099ca17bf19df70122e2067859ae94c5575d5"
+  head "https://github.com/databricks/click.git"
 
   bottle do
     sha256 "20757fac7b6ce08e1bd3df5275988cbaff40319c1c990428ada624ae313a0aed" => :mojave

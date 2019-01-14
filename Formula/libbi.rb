@@ -1,16 +1,15 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "https://libbi.org/"
-  url "https://github.com/libbi/LibBi/archive/1.4.2.tar.gz"
-  sha256 "17824f6b466777a02d6bc6bb4704749fb64ce56ec4468b936086bc9901b5bf78"
-  revision 2
-  head "https://github.com/libbi/LibBi.git"
+  url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
+  sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
+  head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f41e59dcedb80e736d51fcbd7046a969d7d673e343ce067a481abfcabd18a177" => :mojave
-    sha256 "f95535ce37790f404fd5942a3aa1422f4a6557e179b7395d159fdc05d0a0f155" => :high_sierra
-    sha256 "73a677ced1a8ba4b9f7783bfcb63c469118c341cc5ca5db994f085b953a154c0" => :sierra
+    sha256 "21ed964ffbdc1c418cbba82b9c44648dc23c2412a08d42dc66fb4386d8729699" => :mojave
+    sha256 "de5361ea6cb18dad23c95c184524c7bfd86037f4ebdf3e659e359b5bbf627b0a" => :high_sierra
+    sha256 "ab59d6da979895c37197afbe8fcf9d7ac7c317842e348e1156675694f6bd3fc4" => :sierra
   end
 
   depends_on "automake"

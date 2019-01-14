@@ -31,9 +31,9 @@ class Expect < Formula
       --exec-prefix=#{prefix}
       --mandir=#{man}
       --enable-shared
+      --enable-64bit
     ]
     args << "--enable-threads" if build.with? "threads"
-    args << "--enable-64bit" if MacOS.prefer_64_bit?
 
     if build.with? "brewed-tk"
       args << "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib"

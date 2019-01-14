@@ -7,13 +7,11 @@ class Inetutils < Formula
   revision 1
 
   bottle do
-    sha256 "7516d588827d17639de90dbec68a726763880500d1423773390e55b5ef97c8d9" => :mojave
-    sha256 "83a83d549780840164b9b3da28d3aef47e41378415d6cdb6c6aee48d04623340" => :high_sierra
-    sha256 "538f028274c5afbc0d4eb397b142f724d48c68a85acc6e1c5c30e00e652d5afb" => :sierra
-    sha256 "08419e32bd90cdc6c6b4715e64b2facae634a3cd45ecc7e54da87cab7b112458" => :el_capitan
+    rebuild 2
+    sha256 "bf7f5033d2e9d0767fa1791b9e50660893a18e227cfa55a74157ffa06b562293" => :mojave
+    sha256 "3bbc3492fbb8a3aa76a9e8945b7b4e8b57cfe4f505e85892b1243e0301a5838d" => :high_sierra
+    sha256 "826fac0f766be80594dead976e8acb5038391cadf3faee6e0b505247c30ccd1f" => :sierra
   end
-
-  option "with-default-names", "Do not prepend 'g' to the binary"
 
   depends_on "libidn"
 
@@ -29,48 +27,41 @@ class Inetutils < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --program-prefix=g
       --with-idn
     ]
-    args << "--program-prefix=g" if build.without? "default-names"
 
     system "./configure", *args
     system "make", "install"
 
-    if build.without? "default-names"
-      # Binaries not shadowing macOS utils symlinked without 'g' prefix
-      noshadow.each do |cmd|
-        bin.install_symlink "g#{cmd}" => cmd
-        man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
-      end
-
-      # Symlink commands without 'g' prefix into libexec/gnubin and
-      # man pages into libexec/gnuman
-      bin.find.each do |path|
-        next unless File.executable?(path) && !File.directory?(path)
-        cmd = path.basename.to_s.sub(/^g/, "")
-        (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
-        (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
-      end
+    # Binaries not shadowing macOS utils symlinked without 'g' prefix
+    noshadow.each do |cmd|
+      bin.install_symlink "g#{cmd}" => cmd
+      man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
     end
+
+    # Symlink commands without 'g' prefix into libexec/gnubin and
+    # man pages into libexec/gnuman
+    bin.find.each do |path|
+      next unless File.executable?(path) && !File.directory?(path)
+      cmd = path.basename.to_s.sub(/^g/, "")
+      (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
+      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
+    end
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats
-    if build.without? "default-names" then <<~EOS
-      The following commands have been installed with the prefix 'g'.
+  def caveats; <<~EOS
+    The following commands have been installed with the prefix 'g'.
 
-          #{noshadow.sort.join("\n    ")}
+        #{noshadow.sort.join("\n    ")}
 
-      If you really need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
+    If you really need to use these commands with their normal names, you
+    can add a "gnubin" directory to your PATH from your bashrc like:
 
-          PATH="#{opt_libexec}/gnubin:$PATH"
-
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
-
-          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-    EOS
-    end
+        PATH="#{opt_libexec}/gnubin:$PATH"
+  EOS
   end
 
   test do

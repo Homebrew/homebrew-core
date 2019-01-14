@@ -1,15 +1,15 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://s3.amazonaws.com/phusion-passenger/releases/passenger-5.3.4.tar.gz"
-  sha256 "516a9f6d8df1cdb3b1beb6b5463c9454c5816ef732d1948c4482315664cfc944"
-  head "https://github.com/phusion/passenger.git", :branch => "stable-5.1"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.1/passenger-6.0.1.tar.gz"
+  sha256 "038be424e30a850f340285371419a9bbf236d103f81c79d50e2807bb335502e5"
+  head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
-    sha256 "5c86a39bffaa900fa96f0b0be935749ba808de2326d15b2b77ef31e7885944ee" => :mojave
-    sha256 "5c11bdf0ff526294d0b85be7a19a9bc53ca8be20c56341edea4e2de786b891b8" => :high_sierra
-    sha256 "81af8455cab5108cedceeadf408c38333fb59e1cc483284330f7fb15307095b2" => :sierra
-    sha256 "da74a0f998fc0b38c866aa4e51287b51c43a98f841e6c218ef224a33fef1ba39" => :el_capitan
+    cellar :any
+    sha256 "c8df29e4977d5e7495ac2bca1a5299a38a361955014e2ccb200f6495b2dee464" => :mojave
+    sha256 "4cd91a1f49d517eb4752bfe0c328f97c040a6bde02200863009c3e61bd329eb6" => :high_sierra
+    sha256 "d094cecf62e66a527482b681bdfa01cc7fa956a16ad9e4d2fea520ffc63cac6f" => :sierra
   end
 
   option "without-apache2-module", "Disable Apache2 module"
@@ -37,10 +37,10 @@ class Passenger < Formula
     rm_rf "buildout/libuv"
     rm_rf "buildout/cache"
 
-    necessary_files = %w[.editorconfig configure Rakefile README.md CONTRIBUTORS
-                         CONTRIBUTING.md LICENSE CHANGELOG INSTALL.md
-                         passenger.gemspec build bin doc man dev src resources
-                         buildout]
+    necessary_files = %w[configure Rakefile README.md CONTRIBUTORS
+                         CONTRIBUTING.md LICENSE CHANGELOG package.json
+                         passenger.gemspec build bin doc images man dev src
+                         resources buildout]
     libexec.mkpath
     cp_r necessary_files, libexec, :preserve => true
 

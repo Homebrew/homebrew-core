@@ -4,13 +4,12 @@ class GnuChess < Formula
   url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.5.tar.gz"
   mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.5.tar.gz"
   sha256 "9a99e963355706cab32099d140b698eda9de164ebce40a5420b1b9772dd04802"
+  revision 1
 
   bottle do
-    sha256 "959a8572f13e8ee41b20ae8dcfbd13671bf6a369f9d52e36c6070708659a6720" => :mojave
-    sha256 "86d69dd816e2c3f4955c7f2af73df5a086c15879cde479f7657b9d2503c9c2b5" => :high_sierra
-    sha256 "1a741b2a6de01917968ed8074bd6f52153589d3269f833feebba819df80379ef" => :sierra
-    sha256 "f2e4587d4a42dbe78a4f7ec70fe5cfa54d46f93bad4a275c4759caa36cdc6688" => :el_capitan
-    sha256 "328ac0deafb88bcfaf23c8ef54d483f3f00ebd2f2e3dbe44f3205636a5f8db1e" => :yosemite
+    sha256 "38957b9b332c27f5952ff0f5cc38d08c58a6578ef358974fb1f7860a13d12f60" => :mojave
+    sha256 "f66f7a33aa5d6901cdaa888ab0a5e8b6e0f49649dbbf86c7c3ff48568c0e0a89" => :high_sierra
+    sha256 "17d6cd58b1c4157c70bb1417824ec96a161bae4f5ff1544f4d1044f03f0e95a0" => :sierra
   end
 
   head do
@@ -20,8 +19,6 @@ class GnuChess < Formula
     depends_on "help2man" => :build
     depends_on "gettext"
   end
-
-  option "with-book", "Download the opening book (~25MB)"
 
   depends_on "readline"
 
@@ -40,20 +37,16 @@ class GnuChess < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    if build.with? "book"
-      resource("book").stage do
-        doc.install "book_1.02.pgn"
-      end
+    resource("book").stage do
+      doc.install "book_1.02.pgn"
     end
   end
 
-  if build.with? "book"
-    def caveats; <<~EOS
-      This formula also downloads the additional opening book.  The
-      opening book is a PGN file located in #{doc} that can be added
-      using gnuchess commands.
-    EOS
-    end
+  def caveats; <<~EOS
+    This formula also downloads the additional opening book.  The
+    opening book is a PGN file located in #{doc} that can be added
+    using gnuchess commands.
+  EOS
   end
 
   test do

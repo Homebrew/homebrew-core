@@ -1,7 +1,7 @@
 class Sphinx < Formula
   desc "Full-text search engine"
-  homepage "http://www.sphinxsearch.com"
-  url "http://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
+  homepage "https://sphinxsearch.com/"
+  url "https://sphinxsearch.com/files/sphinx-2.2.11-release.tar.gz"
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
   head "https://github.com/sphinxsearch/sphinx.git"
 

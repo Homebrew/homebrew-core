@@ -2,31 +2,22 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-21.1.1.tar.gz"
-  sha256 "a6588243e9659960e184083f49b15ea37890e4cd9bb8aef84ba4180db68befc3"
+  url "https://github.com/erlang/otp/archive/OTP-21.2.2.tar.gz"
+  sha256 "41b1c3a8343218157a683776e71d80a05ac4eb4019a90a760846608d78817690"
   head "https://github.com/erlang/otp.git"
 
   bottle do
     cellar :any
-    sha256 "b0b554155bc73bc2df80ce9f4e9199bb2566b48d22dc530c80918ff304b02100" => :mojave
-    sha256 "a64a56a302a7f34041bf8f7d1261dc22bd6d4c9a1da64a7eaaef008250c5d431" => :high_sierra
-    sha256 "8ccabeeadad800fbcc2f36da40ad68fedaf738158065b26bc0320fc8272448e3" => :sierra
+    sha256 "6269059ae2aec40be2e5f650fcdc0979709e04e977a0ae6c40dffdbafd8d2d14" => :mojave
+    sha256 "2928dfa397a5c1088e2391c1c555234ddbc0874624e20f066d343fc5533a0788" => :high_sierra
+    sha256 "e672ebeb2b471d1fddc424f0e2767c7a9303bbff9bc32bb3e767f44e88dc7703" => :sierra
   end
-
-  option "without-hipe", "Disable building hipe; fails on various macOS systems"
-  option "with-native-libs", "Enable native library compilation"
-  option "with-dirty-schedulers", "Enable experimental dirty schedulers"
-  option "with-java", "Build jinterface application"
-
-  deprecated_option "disable-hipe" => "without-hipe"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "wxmac" => :recommended # for GUI apps like observer
-  depends_on "fop" => :optional # enables building PDF docs
-  depends_on :java => :optional
+  depends_on "wxmac" # for GUI apps like observer
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_21.1.tar.gz"
@@ -45,8 +36,6 @@ class Erlang < Formula
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
 
-    ENV["FOP"] = "#{HOMEBREW_PREFIX}/bin/fop" if build.with? "fop"
-
     # Do this if building from a checkout to generate configure
     system "./otp_build", "autoconf" if File.exist? "otp_build"
 
@@ -54,35 +43,20 @@ class Erlang < Formula
       --disable-debug
       --disable-silent-rules
       --prefix=#{prefix}
-      --enable-threads
-      --enable-sctp
       --enable-dynamic-ssl-lib
-      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --enable-hipe
+      --enable-sctp
       --enable-shared-zlib
       --enable-smp-support
+      --enable-threads
+      --enable-wx
+      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --without-javac
+      --enable-darwin-64bit
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
-    args << "--enable-native-libs" if build.with? "native-libs"
-    args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
-    args << "--enable-wx" if build.with? "wxmac"
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
     args << "--enable-kernel-poll" if MacOS.version > :el_capitan
-
-    if build.without? "hipe"
-      # HIPE doesn't strike me as that reliable on macOS
-      # https://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
-      # https://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
-      args << "--disable-hipe"
-    else
-      args << "--enable-hipe"
-    end
-
-    if build.with? "java"
-      args << "--with-javac"
-    else
-      args << "--without-javac"
-    end
+    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
 
     system "./configure", *args
     system "make"

@@ -1,22 +1,23 @@
 class TomcatNative < Formula
   desc "Lets Tomcat use some native resources for performance"
   homepage "https://tomcat.apache.org/native-doc/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.17/source/tomcat-native-1.2.17-src.tar.gz"
-  sha256 "e16858e6ad91c26c17491a26f3ed4a53ab441c44fb3490caf09075ef4dda857e"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-connectors/native/1.2.19/source/tomcat-native-1.2.19-src.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.19/source/tomcat-native-1.2.19-src.tar.gz"
+  sha256 "95c91d17907b321f3abe8799bd73bf32b544dd12ff59bcb3eb7db584bbf65f63"
 
   bottle do
     cellar :any
-    sha256 "91d644803c75d85a149c17ef213e80b7c81e867f7e226e70bc346ffc731a70bc" => :mojave
-    sha256 "137532c6913d0cde5b0bd4ef6ce317cbc276774e2bebfea7deb56f9b851fcc8b" => :high_sierra
-    sha256 "87df7d63fe779e9a703064a5257278f36ff125564a450862406cf27837f19d69" => :sierra
-    sha256 "a6d4ba16ee959ddfd2c5b0430d3e812898893bd5b6fbc54828a5d84544e4fa1b" => :el_capitan
+    rebuild 1
+    sha256 "f33bee57406b4046e6b8ab8c4d214c7c2c03edeb797440570646e4c4bd1c2346" => :mojave
+    sha256 "ad856715f0f03622f10df6b090069d5ea2dd7472056133d00b4c74bf6be62ea2" => :high_sierra
+    sha256 "87c67f203543576408082aa94f9abde64372bff2bcf635610eda83e4801b2939" => :sierra
   end
 
   depends_on "libtool" => :build
   depends_on "apr"
   depends_on :java => "1.7+"
   depends_on "openssl"
-  depends_on "tomcat" => :recommended
+  depends_on "tomcat"
 
   def install
     cd "native" do

@@ -7,9 +7,10 @@ class GitReview < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2f73ab5bf100915a3df63c43c33990c4f80525760432d7823b22f38cc9cd1a52" => :mojave
-    sha256 "4b8a4140d010eda40ba87bb4758a3f7bc4f720f2ccc6a96ce162f06604228c9d" => :high_sierra
-    sha256 "7fcf58eeb89e646c95b6f11450b4e042d1b5a21c4075d1efe33900037281e6c6" => :sierra
+    rebuild 1
+    sha256 "c33e1f4874cab16140b3ba63dd1342f94e8da8aba2896812f631bf940cc350c9" => :mojave
+    sha256 "f83ed8708389cf83b000d906b185f7e7570cb488c4a0321d5f19ac64a0e5da9b" => :high_sierra
+    sha256 "1c5e52734db126e988157463ef77aa6b176c0bb1242829b94d23d466ab2c0049" => :sierra
   end
 
   depends_on "python"
@@ -30,8 +31,8 @@ class GitReview < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/54/1f/782a5734931ddf2e1494e4cd615a51ff98e1879cbe9eecbdfeaf09aa75e9/requests-2.19.1.tar.gz"
-    sha256 "ec22d826a36ed72a7358ff3fe56cbd4ba69dd7a6718ffd450ff0e9df7a47ce6a"
+    url "https://files.pythonhosted.org/packages/97/10/92d25b93e9c266c94b76a5548f020f3f1dd0eb40649cb1993532c0af8f4c/requests-2.20.0.tar.gz"
+    sha256 "99dcfdaaeb17caf6e526f32b6a7b780461512ab3f1d992187801694cba42770c"
   end
 
   resource "urllib3" do

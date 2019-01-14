@@ -1,16 +1,15 @@
 class Yafc < Formula
   desc "Command-line FTP client"
   homepage "https://github.com/sebastinas/yafc"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
+  url "https://deb.debian.org/debian/pool/main/y/yafc/yafc_1.3.7.orig.tar.xz"
   sha256 "4b3ebf62423f21bdaa2449b66d15e8d0bb04215472cb63a31d473c3c3912c1e0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "0f008ef8835a41818a9134d5acf03e0832feb7d52a463f005279c10e745a4d15" => :mojave
-    sha256 "a94fb7d29a96a322dad97aa8370c54036e792a593043b3ddf2e3536e59433af7" => :high_sierra
-    sha256 "4a53da30ad16393321ca6e7b23afe335190b798045e9fa78a0ba8fe116e99718" => :sierra
-    sha256 "ab8dc2d5aa90802d38bbc27344803a84bcce37df8854f7fe19035d3de77b12a2" => :el_capitan
+    cellar :any
+    sha256 "3d78256e0dba7627da06cdcc45b6d4a070d7d1b533457d3af439840150e68aa2" => :mojave
+    sha256 "882e689f69c445379a242d5591b286c7ec53fc0eca5402ed758038427404d8f7" => :high_sierra
+    sha256 "ebb0f01446ebacf7f72930afd99393fa24efe2eb604405d377b8feca63472c6f" => :sierra
   end
 
   depends_on "pkg-config" => :build

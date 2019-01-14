@@ -3,13 +3,12 @@ class LibbitcoinServer < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-server"
   url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.5.0.tar.gz"
   sha256 "37ef8d572fb7400565655501ffdea5d07a1de10f3d9fa823d33e2bf68ef8c3ce"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "65098e41b6adaa69a3ccb7f176d1296eabe86dabc2b5a21c438a1eb1416bf200" => :mojave
-    sha256 "1cd2e90b8a568f03396914465302706d02fc4a15a6e33f6b617c85128a47ef0a" => :high_sierra
-    sha256 "5c28e1ca65f5416c9dd9e67fab4b5e6668c6338daf052f9d6e43ce26e87169a6" => :sierra
-    sha256 "5ea6f31229523702baafa30778d362aee56fbbac4bb251118089f4a859a51bd3" => :el_capitan
+    sha256 "2890cde785c48f5ce32ddfa80d820b8ff4f33b15fbfbfc1edaed1b2f273ebbe4" => :mojave
+    sha256 "88ae4e496aac860ed64b1e0284b92df9bfc9a865fa8cd1d50387764e66caf3be" => :high_sierra
+    sha256 "f54c1c09d92ed6f4f5e4bfb8782625a987f4258599f83a62888216d64e9cdd09" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -40,9 +39,10 @@ class LibbitcoinServer < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp",
-                    "-lbitcoin", "-lbitcoin-server", "-lboost_system",
-                    "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
+                    "-L#{lib}", "-lbitcoin-server",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
     system "./test"
   end
 end

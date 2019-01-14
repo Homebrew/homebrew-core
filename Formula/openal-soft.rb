@@ -1,7 +1,7 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
-  homepage "http://openal-soft.org/"
-  url "http://openal-soft.org/openal-releases/openal-soft-1.18.2.tar.bz2"
+  homepage "https://openal-soft.org/"
+  url "https://openal-soft.org/openal-releases/openal-soft-1.18.2.tar.bz2"
   sha256 "9f8ac1e27fba15a59758a13f0c7f6540a0605b6c3a691def9d420570506d7e82"
   head "https://github.com/kcat/openal-soft.git"
 
@@ -17,9 +17,6 @@ class OpenalSoft < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "fluid-synth" => :optional
-  depends_on "portaudio" => :optional
-  depends_on "pulseaudio" => :optional
 
   # clang 4.2's support for alignas is incomplete
   fails_with(:clang) { build 425 }
@@ -27,12 +24,12 @@ class OpenalSoft < Formula
   def install
     # Please don't reenable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
-    args = std_cmake_args
-    args << "-DALSOFT_EXAMPLES=OFF"
-
-    args << "-DALSOFT_BACKEND_PORTAUDIO=OFF" if build.without? "portaudio"
-    args << "-DALSOFT_BACKEND_PULSEAUDIO=OFF" if build.without? "pulseaudio"
-    args << "-DALSOFT_MIDI_FLUIDSYNTH=OFF" if build.without? "fluid-synth"
+    args = std_cmake_args + %w[
+      -DALSOFT_BACKEND_PORTAUDIO=OFF
+      -DALSOFT_BACKEND_PULSEAUDIO=OFF
+      -DALSOFT_EXAMPLES=OFF
+      -DALSOFT_MIDI_FLUIDSYNTH=OFF
+    ]
 
     system "cmake", ".", *args
     system "make", "install"

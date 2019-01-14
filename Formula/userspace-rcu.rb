@@ -18,8 +18,7 @@ class UserspaceRcu < Formula
             "--prefix=#{prefix}"]
     # workaround broken upstream detection of build platform
     # marked as wontfix: https://bugs.lttng.org/issues/578#note-1
-    args << "--build=#{Hardware::CPU.arch_64_bit}" if MacOS.prefer_64_bit?
-
+    args << "--build=#{Hardware::CPU.arch_64_bit}"
     system "./configure", *args
     system "make"
     system "make", "install"

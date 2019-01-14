@@ -29,14 +29,14 @@ class Emp < Formula
     server = WEBrick::HTTPServer.new :Port => 8035
     server.mount_proc "/apps/foo/releases" do |_req, res|
       resp = {
-        "created_at" => "2015-10-12T0:00:00.00000000-00:00",
+        "created_at"  => "2015-10-12T0:00:00.00000000-00:00",
         "description" => "my awesome release",
-        "id" => "v1",
-        "user" => {
-          "id" => "zab",
+        "id"          => "v1",
+        "user"        => {
+          "id"    => "zab",
           "email" => "zab@waba.com",
         },
-        "version" => 1,
+        "version"     => 1,
       }
       res.body = JSON.generate([resp])
     end

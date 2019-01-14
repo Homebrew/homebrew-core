@@ -1,8 +1,7 @@
 class Apachetop < Formula
   desc "Top-like display of Apache log"
   homepage "https://web.archive.org/web/20170809160553/freecode.com/projects/apachetop"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/apachetop/apachetop_0.12.6.orig.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/a/apachetop/apachetop_0.12.6.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/a/apachetop/apachetop_0.12.6.orig.tar.gz"
   sha256 "850062414517055eab2440b788b503d45ebe9b290d4b2e027a5f887ad70f3f29"
 
   bottle do
@@ -38,7 +37,7 @@ end
 
 __END__
 --- src/resolver.h    2005-10-15 18:10:01.000000000 +0200
-+++ src/resolver.h        2007-02-17 11:24:37.000000000 
++++ src/resolver.h        2007-02-17 11:24:37.000000000
 0100
 @@ -10,8 +10,8 @@
  class Resolver
@@ -49,5 +48,3 @@ __END__
 +	Resolver(void);
 +	~Resolver(void);
  	int add_request(char *request, enum resolver_action act);
- 
- 

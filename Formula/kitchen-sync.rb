@@ -1,32 +1,31 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/1.1.tar.gz"
-  sha256 "fe50ef8ba9900e1267186b4611afef57ed33a4bce1d79676e8136d9978a162d0"
+  url "https://github.com/willbryant/kitchen_sync/archive/v1.10.tar.gz"
+  sha256 "9382642c3f120acd53c8b76c9fc91d1dfc3f4820ee77b1180f27f7d5111f152a"
   head "https://github.com/willbryant/kitchen_sync.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f2be7a9ccba914e89ef7b798e18b0a17493522daf3a07172e30b1c8d39002f55" => :mojave
-    sha256 "8e70fee2dbfc450bfc614c2248227642378537c1b04c915e2c9f7c2b1f187c48" => :high_sierra
-    sha256 "8af29ed55e0208c32d20ede87d2d50a70cb719731c2f864e0f5eb5d5ab993c7b" => :sierra
-    sha256 "65066a29bde3ea01ec5e38b1631f8eca2f3e1f7e1ac3ff1ce24f06e8b00a136e" => :el_capitan
+    cellar :any
+    sha256 "14d647e7686a1f99e60af426e6b4a94418d5dbae27e2cad2c1cd44381dc1b5ad" => :mojave
+    sha256 "d5ea7d77da94e04b08c42db905b737bd50f845576200f82166d2ad3d6eb5be24" => :high_sierra
+    sha256 "5e9eabbb0cf4d5ca14923eaaed0d7dd0280a43041e676ea04872efe48f4b683f" => :sierra
   end
 
-  deprecated_option "without-mysql" => "without-mysql-client"
-
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "boost"
-  depends_on "yaml-cpp"
-  depends_on "mysql-client" => :recommended
-  depends_on "postgresql" => :optional
+  depends_on "libpq"
+  depends_on "mysql-client"
 
-  needs :cxx11
+  needs :cxx14
 
   def install
-    ENV.cxx11
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".",
+                    "-DMySQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",
+                    "-DMySQL_LIBRARY_DIR=#{Formula["mysql-client"].opt_lib}",
+                    "-DPostgreSQL_INCLUDE_DIR=#{Formula["libpq"].opt_include}",
+                    "-DPostgreSQL_LIBRARY_DIR=#{Formula["libpq"].opt_lib}",
+                    *std_cmake_args
+
     system "make", "install"
   end
 

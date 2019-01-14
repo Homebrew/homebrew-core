@@ -13,15 +13,7 @@ class Lesspipe < Formula
     sha256 "f22864d81a8eb648fc4501665af743d285fcf0fa7c81edb21fd71f2593addedd" => :yosemite
   end
 
-  option "with-syntax-highlighting", "Build with syntax highlighting"
-
-  deprecated_option "syntax-highlighting" => "with-syntax-highlighting"
-
   def install
-    if build.with? "syntax-highlighting"
-      inreplace "configure", '$ifsyntax = "\L$ifsyntax";', '$ifsyntax = "\Ly";'
-    end
-
     system "./configure", "--prefix=#{prefix}", "--yes"
     man1.mkpath
     system "make", "install"

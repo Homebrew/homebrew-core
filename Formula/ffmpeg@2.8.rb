@@ -3,12 +3,13 @@ class FfmpegAT28 < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-2.8.15.tar.bz2"
   sha256 "35647f6c1f6d4a1719bc20b76bf4c26e4ccd665f46b5676c0e91c5a04622ee21"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "cb15250afcb6770003f52fe503513bc54ad513cc96aaa1d5a4591ea2875c3652" => :mojave
-    sha256 "18a2e5804df50bb5a359be87a6e9144b1e449de9a95e580a7d4ac1a654ae8f30" => :high_sierra
-    sha256 "0b7853a335b8f0a91e5b51cb19c8acc76838c5c796b44d181ba93aca97606482" => :sierra
+    rebuild 1
+    sha256 "eeafc82f573e2478f80982dd696e1de6b3e0d6efdb8c3e922833582f5095b58c" => :mojave
+    sha256 "864f2b52d3e9139140540513655650647e35d4436b7f55fc98fbfa56957f208f" => :high_sierra
+    sha256 "79a95fbeac7108dcaa79884b4e9faa59dd5a662e1d9c3aa1a2028bd98bb2ff33" => :sierra
   end
 
   keg_only :versioned_formula
@@ -141,18 +142,12 @@ class FfmpegAT28 < Formula
       args << "--disable-vda"
     end
 
-    # For 32-bit compilation under gcc 4.2, see:
-    # https://trac.macports.org/ticket/20938#comment:22
-    ENV.append_to_cflags "-mdynamic-no-pic" if Hardware::CPU.is_32_bit? && Hardware::CPU.intel? && ENV.compiler == :clang
-
     system "./configure", *args
 
-    if MacOS.prefer_64_bit?
-      inreplace "config.mak" do |s|
-        shflags = s.get_make_var "SHFLAGS"
-        if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
-          s.change_make_var! "SHFLAGS", shflags
-        end
+    inreplace "config.mak" do |s|
+      shflags = s.get_make_var "SHFLAGS"
+      if shflags.gsub!(" -Wl,-read_only_relocs,suppress", "")
+        s.change_make_var! "SHFLAGS", shflags
       end
     end
 

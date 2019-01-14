@@ -2,7 +2,7 @@ class Makepkg < Formula
   desc "Compile and build packages suitable for installation with pacman"
   homepage "https://wiki.archlinux.org/index.php/makepkg"
   url "https://projects.archlinux.org/git/pacman.git",
-      :tag => "v5.0.2",
+      :tag      => "v5.0.2",
       :revision => "0c633c27eaeab2a9d30efb01199579896ccf63c9"
   head "https://projects.archlinux.org/git/pacman.git"
 

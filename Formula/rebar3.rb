@@ -1,15 +1,14 @@
 class Rebar3 < Formula
   desc "Erlang build tool"
   homepage "https://github.com/erlang/rebar3"
-  url "https://github.com/erlang/rebar3/archive/3.6.2.tar.gz"
-  sha256 "7f358170025b54301bce9a10ec7ad07d4e88a80eaa7b977b73b32b45ea0b626e"
+  url "https://github.com/erlang/rebar3/archive/3.8.0.tar.gz"
+  sha256 "fc4d08037d39bcc651a4a749f8a5b1a10b2205527df834c2aee8f60725c3f431"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1014079676fddd5a169739d3ce467983a0fae80a79eac44a8d8b37977d69e703" => :mojave
-    sha256 "acb91ee6e196c7965402b2906240c4dfa1855a419a5d1c29a54e24c86342f5d1" => :high_sierra
-    sha256 "dd76bca2bf61bd2ce0324dba7504a56dd090899b4c31998efa0c273d3b8ddf87" => :sierra
-    sha256 "5f8cb011087b823463a7008754f7fcbc74753e9e9a9176cb1251c73fc89fbe8d" => :el_capitan
+    sha256 "542fcbd0cbd88f776c01fb78ada4ef6444b58a3607e48acc27c6c2a7c99352ad" => :mojave
+    sha256 "abca552b00a655e68a5aaa833d9e9fddc002a8c2fe720346b9edacd58e4617dd" => :high_sierra
+    sha256 "76fc5c46356cd2824bca3599dfef8b8edfb2351d2a466c9e8ea5527d69620fa2" => :sierra
   end
 
   depends_on "erlang"

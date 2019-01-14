@@ -1,19 +1,16 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
   homepage "https://www.zetetic.net/sqlcipher/"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v3.4.2.tar.gz"
-  sha256 "69897a5167f34e8a84c7069f1b283aba88cdfa8ec183165c4a5da2c816cfaadb"
+  url "https://github.com/sqlcipher/sqlcipher/archive/v4.0.1.tar.gz"
+  sha256 "2f803017378c7479cb791be59b7bad8392a15acddbcc094e4433581fe421f4ca"
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
     cellar :any
-    sha256 "d3d7e77c5013fc8d31520f4d415c2c3bc4b045ef1b7016006826d9fcec078a4f" => :mojave
-    sha256 "5b8aaeb3f3f41a57f171a3f1175887ea9d98511982354479d4171ebae24377c6" => :high_sierra
-    sha256 "9462222059285b70d3a301812a38516ce0337e7dddb064ab052549124b9aca3f" => :sierra
-    sha256 "6370ce68ccb2f598f42bee2f799f7e97d7f1bac75ec71aeb446ee57761436642" => :el_capitan
+    sha256 "8ba2fd076a260e4ac32148ca6920afde9866a46396d9ce55a71f7053ce87a9fb" => :mojave
+    sha256 "48860256ecb6db7e072e6fca8db450c20323cd9c0874349c4317e1f29418127e" => :high_sierra
+    sha256 "8fcdf53d01a09aeec89caecaf3e4dd6fbc4b8c91058db7eb29d328788a286b3f" => :sierra
   end
-
-  option "with-fts", "Build with full-text search enabled"
 
   depends_on "openssl"
 
@@ -26,11 +23,8 @@ class Sqlcipher < Formula
       --disable-tcl
     ]
 
-    if build.with?("fts")
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
-    else
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1"
-    end
+    # Build with full-text search enabled
+    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
 
     system "./configure", *args
     system "make"

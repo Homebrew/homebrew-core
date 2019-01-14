@@ -3,21 +3,20 @@ class FbiServefiles < Formula
 
   desc "Serve local files to Nintendo 3DS via FBI remote installer"
   homepage "https://github.com/Steveice10/FBI"
-  url "https://github.com/Steveice10/FBI/archive/2.5.2.tar.gz"
-  sha256 "c4b568f1410859c2567c44c3af66c880210294d75f2dfe09deac04351997a904"
+  url "https://github.com/Steveice10/FBI/archive/2.6.0.tar.gz"
+  sha256 "4948d4c53d754cc411b51edbf35c609ba514ae21d9d0e8f4b66a26d5c666be68"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e6d1df54cf7a26852bb41e2126e7b28198f468d9d3e09125ebfd758e029a1151" => :mojave
-    sha256 "37f2e02c88c68efdc6d5d4afdb4758c2b353c59b24e32a4b5a29ae64c0860a96" => :high_sierra
-    sha256 "1cd570e03e53dafc15394c6a6ae2214d53f3c2c30ac7fe9bae82cf31c1545982" => :sierra
+    sha256 "307d14a7e492771758ddb6e059eb78c2fb65bbc818b48ebb34c5941e4493e7bd" => :mojave
+    sha256 "d92c88a5682ff03bc5221f8c2bab82a5eaad593377f31a21ccb196c444012396" => :high_sierra
+    sha256 "b9b755ced8b5387e70181598347ecb790ec4df4454fed8c63d85816864ed1976" => :sierra
   end
 
   depends_on "python"
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install_and_link buildpath/"servefiles"
   end
 

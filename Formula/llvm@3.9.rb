@@ -3,45 +3,22 @@ class LlvmAT39 < Formula
   homepage "https://llvm.org/"
   url "https://releases.llvm.org/3.9.1/llvm-3.9.1.src.tar.xz"
   sha256 "1fd90354b9cf19232e8f168faf2220e79be555df3aa743242700879e8fd329ee"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "d87ec841beb7b3600ece192d3c4418c0246137130c55154e9bfac7c1e62d3a1f" => :mojave
-    sha256 "82fcabcbc4e8594bba74a511c0f127f7b8187e5452e0cd77d6e6fc2f008f1b1c" => :high_sierra
-    sha256 "6349b9f0e6202230c159a3b08ca835931b922589e328b5f7fc850ac651c3eff6" => :sierra
-    sha256 "227667c28cb291529dba440a43cc19504ef621ffd1990303f0d7f2b4a9978e67" => :el_capitan
-    sha256 "aed4411921127ddfc377c4203dc2a4f313d56103a79126be83a9b954d1cb8223" => :yosemite
+    sha256 "3948911a5db9401e8d2f82b2a30c11709a6fe281018f207cad98b657aeab108e" => :mojave
+    sha256 "8c56062d501cb59782b016be75be14702d565498bbe8d0b7f3e26fd08265850f" => :high_sierra
+    sha256 "d3b1d7c45c60869be95666a4675551e330889c0dda24f9e4c2968034cf6862e9" => :sierra
   end
 
   keg_only :versioned_formula
 
-  option "with-toolchain", "Build with Toolchain to facilitate overriding system compiler"
-  option "with-lldb", "Build LLDB debugger"
-  option "with-python@2", "Build bindings against Homebrew's Python 2"
-
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "cmake" => :build
   depends_on "libffi"
-
-  if MacOS.version <= :snow_leopard
-    depends_on "python@2"
-  else
-    depends_on "python@2" => :optional
-  end
-
-  if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
-    depends_on :codesign => [{
-      :identity => "lldb_codesign",
-      :with => "LLDB",
-      :url => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
-    }]
-  end
+  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_0
   fails_with :gcc_4_2
   ("4.3".."4.6").each do |n|
     fails_with :gcc => n
@@ -96,10 +73,6 @@ class LlvmAT39 < Formula
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
-    if build.with? "python@2"
-      ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
-    end
-
     (buildpath/"tools/clang").install resource("clang")
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
@@ -107,27 +80,6 @@ class LlvmAT39 < Formula
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
-
-    if build.with? "lldb"
-      if build.with? "python@2"
-        pyhome = `python-config --prefix`.chomp
-        ENV["PYTHONHOME"] = pyhome
-        pylib = "#{pyhome}/lib/libpython2.7.dylib"
-        pyinclude = "#{pyhome}/include/python2.7"
-      end
-      (buildpath/"tools/lldb").install resource("lldb")
-
-      # Building lldb requires a code signing certificate.
-      # The instructions provided by llvm creates this certificate in the
-      # user's login keychain. Unfortunately, the login keychain is not in
-      # the search path in a superenv build. The following three lines add
-      # the login keychain to ~/Library/Preferences/com.apple.security.plist,
-      # which adds it to the superenv keychain search path.
-      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
-      username = ENV["USER"]
-      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
-    end
-
     (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
     # compiler-rt has some iOS simulator features that require i386 symbols
@@ -153,20 +105,14 @@ class LlvmAT39 < Formula
       -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
+      -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
     ]
-    args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON" if build.with? "toolchain"
-
-    if build.with?("lldb") && build.with?("python@2")
-      args << "-DLLDB_RELOCATABLE_PYTHON=ON"
-      args << "-DPYTHON_LIBRARY=#{pylib}"
-      args << "-DPYTHON_INCLUDE_DIR=#{pyinclude}"
-    end
 
     mkdir "build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain" if build.with? "toolchain"
+      system "make", "install-xcode-toolchain"
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]

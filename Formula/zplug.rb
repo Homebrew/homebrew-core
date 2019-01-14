@@ -7,8 +7,6 @@ class Zplug < Formula
 
   bottle :unneeded
 
-  depends_on "zsh" => :optional
-
   def install
     bin.install Dir["bin/*"]
     man1.install "doc/man/man1/zplug.1"

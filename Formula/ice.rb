@@ -7,17 +7,15 @@ class Ice < Formula
 
   bottle do
     cellar :any
-    sha256 "6078f948a29465feb24209e56ab6e2a98cdf81200c362c391492fe2f0a89e734" => :mojave
-    sha256 "5e82eaebcc364dda7720231d272636d799d3287869d7f56be68141427641efdf" => :high_sierra
-    sha256 "1c1f3181f3e8b82cda5810b4317edd4a40b4185700c2f7b095d1be970d4c539b" => :sierra
+    rebuild 1
+    sha256 "9bf581e4293f72ccc5c40c22372d54aecd983ec27d3b77b2613b06f7dd11d31b" => :mojave
+    sha256 "49e29d8901d39a2520ba488fe5802b777d7f48327a5d56490185f15509febb2e" => :high_sierra
+    sha256 "d84b0f6c2f91f784660ce096a5220b32d4f3a1d53af0ed7bdf26d7cbaf6cb698" => :sierra
   end
-
-  option "with-java", "Build Ice for Java and the IceGrid GUI app"
 
   depends_on "lmdb"
   depends_on :macos => :mavericks
   depends_on "mcpp"
-  depends_on :java => ["1.8+", :optional]
 
   patch do
     url "https://github.com/zeroc-ice/ice/compare/v3.7.1..v3.7.1-xcode10.patch?full_index=1"
@@ -39,7 +37,7 @@ class Ice < Formula
       # We don't build slice2py, slice2js, slice2rb to prevent clashes with
       # the translators installed by the PyPI/GEM/npm packages.
       "SKIP=slice2confluence slice2py slice2rb slice2js",
-      "LANGUAGES=cpp objective-c #{build.with?("java") ? "java java-compat" : ""}",
+      "LANGUAGES=cpp objective-c",
     ]
     system "make", "install", *args
   end

@@ -2,7 +2,7 @@ class Dockviz < Formula
   desc "Visualizing docker data"
   homepage "https://github.com/justone/dockviz"
   url "https://github.com/justone/dockviz.git",
-      :tag => "v0.6.3",
+      :tag      => "v0.6.3",
       :revision => "15f77275c4f7e459eb7d9f824b5908c165cd0ba4"
   head "https://github.com/justone/dockviz.git"
 

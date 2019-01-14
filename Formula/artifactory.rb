@@ -6,8 +6,6 @@ class Artifactory < Formula
 
   bottle :unneeded
 
-  option "with-low-heap", "Run artifactory with low Java memory options. Useful for development machines. Do not use in production."
-
   depends_on :java => "1.8+"
 
   def install
@@ -19,13 +17,6 @@ class Artifactory < Formula
     inreplace "bin/artifactory.sh",
       'export ARTIFACTORY_HOME="$(cd "$(dirname "${artBinDir}")" && pwd)"',
       "export ARTIFACTORY_HOME=#{libexec}"
-
-    if build.with? "low-heap"
-      # Reduce memory consumption for non production use
-      inreplace "bin/artifactory.default",
-        "-server -Xms512m -Xmx2g",
-        "-Xms128m -Xmx768m"
-    end
 
     libexec.install Dir["*"]
 

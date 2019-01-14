@@ -1,14 +1,14 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-dist.zip"
-  sha256 "d0e86d2f7881ec8742a9823a986017452d2da0dfe4e989111da787cb89257155"
+  url "https://github.com/bazelbuild/bazel/releases/download/0.20.0/bazel-0.20.0-dist.zip"
+  sha256 "1945afa84fd8858b0a3c68c09915a4bc81065c61df2591387b2985e2297d30bd"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7360b538438b92a875b46470b3f0a677917252e3b4e070b5cc7a0d6a7a05ff17" => :mojave
-    sha256 "0b1f98a379e433b88ee3270d9e62614137cf9bed4ab51122dd5271ad24644e2f" => :high_sierra
-    sha256 "2d0d0b81b801212fddc912f934c8f1327306021786231f9a80e4ae42589f3f76" => :sierra
+    sha256 "bead7d81f991084001c949b14443d2f10bd2bd4b89b189e15a451b4948bb412e" => :mojave
+    sha256 "fdbde21abf58899fb8c3bb7a5c24662946c92961fa23876429c2334354eb4377" => :high_sierra
+    sha256 "ce311e966933eac82e2d718dee42d29a6e9b3efbbb1bf508622ca27132c40f4c" => :sierra
   end
 
   depends_on :java => "1.8"
@@ -23,8 +23,13 @@ class Bazel < Formula
 
     cd "sources" do
       system "./compile.sh"
-      system "./output/bazel", "--output_user_root",
-             buildpath/"output_user_root", "build", "scripts:bash_completion"
+      system "./output/bazel",
+             "--output_user_root",
+             buildpath/"output_user_root",
+             "build",
+             "--host_java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8",
+             "--java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8",
+             "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
       bin.install "output/bazel" => "bazel-real"
@@ -56,7 +61,11 @@ class Bazel < Formula
       )
     EOS
 
-    system bin/"bazel", "build", "//:bazel-test"
-    system "bazel-bin/bazel-test"
+    system bin/"bazel",
+           "build",
+           "--host_java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8",
+           "--java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8",
+           "//:bazel-test"
+    assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
   end
 end

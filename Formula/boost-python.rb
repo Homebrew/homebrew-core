@@ -1,16 +1,15 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.67.0/source/boost_1_67_0.tar.bz2"
-  sha256 "2684c972994ee57fc5632e03bf044746f6eb45d4920c343937a465fd67a5adba"
+  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
+  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "40bfb8c3ee486fdc142847c4717ac5a748cec0e7ebb34b52913669d6ede702f1" => :mojave
-    sha256 "af466a98257575e4f0e39c7bdc449fd83cd61f4ff93693ea749b84940f4bf918" => :high_sierra
-    sha256 "b5c3bcb8c612b597cd2a26158a5a17eca681d9e4356cd2f72c8f2e4154ce55c4" => :sierra
-    sha256 "5dbe82c61533303630269f2e07591ad572829ec7f3af800af7553bc359baf07a" => :el_capitan
+    sha256 "48b97ffce588620bfcb088feab4f8fb66672193e1f2e26202667ad0a7ca21880" => :mojave
+    sha256 "7df8a449456e24d5b54f52756effdcd2e7c21137df5c9c6a4ad0d58053b625b9" => :high_sierra
+    sha256 "d99c58b8b43289bee78a20fa8accc4b67077ee2c5d9c0b941502ed25e8690eb9" => :sierra
   end
 
   depends_on "boost"
@@ -58,11 +57,13 @@ class BoostPython < Formula
       }
     EOS
 
+    pyprefix = `python-config --prefix`.chomp
     pyincludes = Utils.popen_read("python-config --includes").chomp.split(" ")
     pylib = Utils.popen_read("python-config --ldflags").chomp.split(" ")
 
-    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27", "-o",
-           "hello.so", *pyincludes, *pylib
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
+                    "-o", "hello.so", "-I#{pyprefix}/include/python2.7",
+                    *pyincludes, *pylib
 
     output = <<~EOS
       from __future__ import print_function

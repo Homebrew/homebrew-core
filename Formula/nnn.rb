@@ -1,16 +1,15 @@
 class Nnn < Formula
   desc "Free, fast, friendly file browser"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v1.9.tar.gz"
-  sha256 "7ba298a55a579640fe0ae37f553be739957da0c826f532beac46acfb56e2d726"
+  url "https://github.com/jarun/nnn/archive/v2.2.tar.gz"
+  sha256 "88dd08d624ae7a61ef749b1e258e4b29ed61ba9fcc5a18813f291ce80efc5e74"
   head "https://github.com/jarun/nnn.git"
 
   bottle do
-    cellar :any
-    sha256 "7d8829e7ec6eacc571c3ca7b0acfb2b67b1313ea1e1419f9ce700267290cf08e" => :mojave
-    sha256 "1a5307183b08ea9a51b604c099748063a28c038e2eb4967a8294f031a4fe5721" => :high_sierra
-    sha256 "549480ce88b7051f40251198c671333b33f0ee0ca43fa93d686bef8501673f8b" => :sierra
-    sha256 "269fc2640b01a4f21f6f4387cffe9a52b7483f1ffcc94e54070185cf27038ade" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "f678ffcf42043c17dd4aaf4857d5d6cb738ae50e35485b81eca6382b2c1562a0" => :mojave
+    sha256 "4337e0b9968a516f0518eb722f0757d34330d5967fec6a69840ce91b0592d6ac" => :high_sierra
+    sha256 "f4d378f77db6f6b0cfaf65b530e6e0ed6cf39b58ce1924981ae60fc7f2d5f548" => :sierra
   end
 
   depends_on "readline"

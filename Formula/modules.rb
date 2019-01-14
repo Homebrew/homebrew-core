@@ -12,7 +12,6 @@ class Modules < Formula
   end
 
   depends_on "grep" => :build # configure checks for ggrep
-  depends_on :x11 => :optional
 
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].opt_libexec/"gnubin"
@@ -22,12 +21,12 @@ class Modules < Formula
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --datarootdir=#{share}
       --disable-versioning
+      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
+      --without-x
       CPPFLAGS=-DUSE_INTERP_ERRORLINE
     ]
-    args << "--without-x" if build.without? "x11"
     system "./configure", *args
     system "make", "install"
   end

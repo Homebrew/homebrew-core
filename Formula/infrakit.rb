@@ -2,7 +2,7 @@ class Infrakit < Formula
   desc "Toolkit for creating and managing declarative infrastructure"
   homepage "https://github.com/docker/infrakit"
   url "https://github.com/docker/infrakit.git",
-      :tag => "v0.5",
+      :tag      => "v0.5",
       :revision => "3d2670e484176ce474d4b3d171994ceea7054c02"
 
   bottle do

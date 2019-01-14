@@ -22,6 +22,10 @@ class Jshon < Formula
   end
 
   test do
-    assert_equal "3", pipe_output("#{bin}/jshon -l", "[true,false,null]").strip
+    (testpath/"test.json").write <<~EOS
+      {"a":1,"b":2}
+    EOS
+
+    assert_equal "2", pipe_output("#{bin}/jshon -l < test.json").strip
   end
 end

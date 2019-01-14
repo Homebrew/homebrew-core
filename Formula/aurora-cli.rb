@@ -6,13 +6,13 @@ class AuroraCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4bdec41534eb705691db0fd301dc2e76349ba458971c5d699a3dc8b6ec12f494" => :mojave
-    sha256 "8e8b1b203a68dd13016f16ce393819ee0cbaaa4e46c923e17c3774bfaf32656e" => :high_sierra
-    sha256 "3e5af36a5af5ab82b48efeed7134cab6736719994831e49a760f63ed6ae1b7fe" => :sierra
-    sha256 "0aa81ba9c237f213417b5c3c60409d2f754953a98ff3f6eb5c41ec991b90f2d0" => :el_capitan
+    rebuild 1
+    sha256 "f2945196eccad73b84c7d5c3e23b0dea0d09b0aad3d0bde1d4db8c3481546635" => :mojave
+    sha256 "dcb6e76159d6d41b2e7dd3eb83ab9c64fee3ea36cf4efa78f2a5019b30d3da19" => :high_sierra
+    sha256 "aec69c7cb0a23373f583fa124add6cb68b6fe4af7faa32e4c8167b8d3e886f74" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     # No pants yet for Mojave, so we force High Sierra binaries there
