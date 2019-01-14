@@ -20,10 +20,8 @@ class Ry < Formula
   depends_on "ruby-build"
 
   def install
-    ENV["PREFIX"] = prefix
-    ENV["BASH_COMPLETIONS_DIR"] = etc/"bash_completion.d"
-    ENV["ZSH_COMPLETIONS_DIR"] = share/"zsh/site-functions"
-    system "make", "install"
+    ENV["BASH_COMPLETIONS_DIR"] = prefix/"etc/bash_completion.d"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   def caveats; <<~EOS
