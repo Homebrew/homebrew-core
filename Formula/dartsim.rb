@@ -35,12 +35,6 @@ class Dartsim < Formula
                          *std_cmake_args
     system "make", "install"
 
-    # Avoid revision bumps whenever fcl's or libccd's Cellar paths change
-    inreplace share/"dart/cmake/dart_dartTargets.cmake" do |s|
-      s.gsub! Formula["fcl"].prefix.realpath, Formula["fcl"].opt_prefix
-      s.gsub! Formula["libccd"].prefix.realpath, Formula["libccd"].opt_prefix
-    end
-
     # Avoid revision bumps whenever urdfdom's or urdfdom_headers's Cellar paths change
     inreplace share/"dart/cmake/dart_utils-urdfTargets.cmake" do |s|
       s.gsub! Formula["urdfdom"].prefix.realpath, Formula["urdfdom"].opt_prefix
