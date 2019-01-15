@@ -31,6 +31,10 @@ class Php < Formula
   depends_on "libzip"
   depends_on "openldap"
   depends_on "openssl"
+<<<<<<< HEAD
+=======
+  depends_on "pcre"
+>>>>>>> switch back to pcre
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
