@@ -3,7 +3,7 @@ class ArgusClients < Formula
   homepage "https://qosient.com/argus/"
   url "https://qosient.com/argus/src/argus-clients-3.0.8.2.tar.gz"
   sha256 "32073a60ddd56ea8407a4d1b134448ff4bcdba0ee7399160c2f801a0aa913bb1"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
@@ -12,6 +12,7 @@ class ArgusClients < Formula
     sha256 "52964969252de58e4561866a362ff62456c7da129bd56a8c4a270adb4c16682d" => :sierra
   end
 
+  depends_on "geoip"
   depends_on "readline"
   depends_on "rrdtool"
 
