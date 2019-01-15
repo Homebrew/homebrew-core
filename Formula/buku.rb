@@ -3,8 +3,8 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/Buku"
-  url "https://github.com/jarun/Buku/archive/v4.0.tar.gz"
-  sha256 "35a3ebeeb715ec1170360570c3e43cb1308b67a75979ae264aac9961c778d2af"
+  url "https://github.com/jarun/Buku/archive/v4.1.tar.gz"
+  sha256 "a66a423f837c4daed1b4a4084fc58ee6e37ec58f42b9edd2d61c7af0e3d4f343"
 
   bottle do
     cellar :any
