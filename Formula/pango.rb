@@ -3,6 +3,7 @@ class Pango < Formula
   homepage "https://www.pango.org/"
   url "https://download.gnome.org/sources/pango/1.42/pango-1.42.4.tar.xz"
   sha256 "1d2b74cd63e8bd41961f2f8d952355aa0f9be6002b52c8aa7699d9f5da597c9d"
+  revision 1
 
   bottle do
     sha256 "2e0b04d458fc0c856d41d14642af4cde2da7e98c241c40ed5188a803710d3921" => :mojave
@@ -27,13 +28,6 @@ class Pango < Formula
   depends_on "fribidi"
   depends_on "glib"
   depends_on "harfbuzz"
-
-  # This fixes a font-size problem in gtk
-  # For discussion, see https://bugzilla.gnome.org/show_bug.cgi?id=787867
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e0aa10/pango/pango_font_size.patch"
-    sha256 "d5ece753cf393ef507dd2b0415721b4381159da5e2f40793c6d85741b1b163bc"
-  end
 
   def install
     system "./autogen.sh" if build.head?
