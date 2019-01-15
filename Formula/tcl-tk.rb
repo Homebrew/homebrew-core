@@ -5,6 +5,7 @@ class TclTk < Formula
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.8-src.tar.gz"
   version "8.6.8"
   sha256 "c43cb0c1518ce42b00e7c8f6eaddd5195c53a98f94adc717234a65cbcfd3f96a"
+  revision 1
 
   bottle do
     rebuild 1
