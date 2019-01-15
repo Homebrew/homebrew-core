@@ -6,8 +6,6 @@ class TclTk < Formula
   version "8.6.8"
   sha256 "c43cb0c1518ce42b00e7c8f6eaddd5195c53a98f94adc717234a65cbcfd3f96a"
 
-  depends_on "openssl"
-
   bottle do
     rebuild 1
     sha256 "120f17e162aa5e7351d59a97dc068055b421892ebb6226734349ee759ca42754" => :mojave
@@ -17,6 +15,8 @@ class TclTk < Formula
 
   keg_only :provided_by_macos,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
+
+  depends_on "openssl"
 
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
@@ -83,7 +83,6 @@ class TclTk < Formula
       system "./configure", "--with-ssl=openssl", "--with-openssl-dir=#{Formula["openssl"].opt_prefix}", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
     end
-
   end
 
   test do
