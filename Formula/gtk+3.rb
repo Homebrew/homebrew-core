@@ -1,9 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.2.tar.xz"
-  sha256 "5b3b05e427cc928d103561ed2e91b2b2881fe88b1f167b0b1c9990da6aac8892"
-  revision 1
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.3.tar.xz"
+  sha256 "5708fa534d964b1fb9a69d15758729d51b9a438471d4612dc153f595904803bd"
 
   bottle do
     sha256 "d51ec8dc45a2765a58cca5683ebbf38ef19af9d502a0b53e18535a78348899e5" => :mojave
@@ -20,21 +19,6 @@ class Gtkx3 < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libepoxy"
   depends_on "pango"
-
-  # see https://gitlab.gnome.org/GNOME/gtk/issues/1517
-  patch :DATA
-
-  # see https://gitlab.gnome.org/GNOME/gtk/issues/1518
-  patch do
-    url "https://gitlab.gnome.org/jralls/gtk/commit/efb3888af770937c6c2c184d9beea19fbc24bb4a.patch"
-    sha256 "d847d1b4659153f0d815189039776054bccc73f85cfb967c5cc2cf0e0061d0d7"
-  end
-
-  # Upstream fix, remove in next version
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gtk/commit/e105fefc4923ebd035747daa7d453243eba4a836.patch"
-    sha256 "4efd9bc0c68942a8b4f3a39f683aa0d0ee5f6836012b004e9ea083894780ed91"
-  end
 
   def install
     args = %W[
@@ -122,21 +106,3 @@ class Gtkx3 < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gdk/quartz/gdkevents-quartz.c b/gdk/quartz/gdkevents-quartz.c
-index 952d4a8189..642fe7f1ee 100644
---- a/gdk/quartz/gdkevents-quartz.c
-+++ b/gdk/quartz/gdkevents-quartz.c
-@@ -1551,8 +1551,10 @@ gdk_event_translate (GdkEvent *event,
-           grab = _gdk_display_get_last_device_grab (_gdk_display,
-                                                     gdk_seat_get_pointer (seat));
-         }
--      return_val = TRUE;
-     }
-+
-+  return_val = TRUE;
-+
-   switch (event_type)
-     {
-     case GDK_QUARTZ_LEFT_MOUSE_DOWN:
