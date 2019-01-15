@@ -1,11 +1,8 @@
 class Fff < Formula
-  desc ":rocket: fucking fast file-manager"
+  desc "fucking fast file-manager (written in bash)"
   homepage "https://github.com/dylanaraps/fff"
-  url "https://github.com/dylanaraps/fff/archive/1.0.tar.gz"
-  sha256 "6e5eed18b50b3e1a2497092e618665ff00b71b27b4f7653f9693ee40517d1a8a"
-
-  depends_on "bash"
-  depends_on "coreutils"
+  url "https://github.com/dylanaraps/fff/archive/1.2.tar.gz"
+  sha256 "a77095950c2fe1eca82c12c41273ed987e295e522c7e85365192f9056e4f80d8"
 
   def install
     bin.install "fff"
