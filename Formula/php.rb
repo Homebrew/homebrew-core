@@ -3,6 +3,7 @@ class Php < Formula
   homepage "https://secure.php.net/"
   url "https://php.net/get/php-7.3.1.tar.xz/from/this/mirror"
   sha256 "cfe93e40be0350cd53c4a579f52fe5d8faf9c6db047f650a4566a2276bf33362"
+  revision 1
 
   bottle do
     sha256 "3e410bff96c584ce269314737c027b8919700fcf1d63e74d21206637fa341a09" => :mojave
@@ -31,7 +32,7 @@ class Php < Formula
   depends_on "libzip"
   depends_on "openldap"
   depends_on "openssl"
-  depends_on "pcre2"
+  depends_on "pcre"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
