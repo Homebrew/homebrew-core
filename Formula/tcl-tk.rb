@@ -6,6 +6,8 @@ class TclTk < Formula
   version "8.6.8"
   sha256 "c43cb0c1518ce42b00e7c8f6eaddd5195c53a98f94adc717234a65cbcfd3f96a"
 
+  depends_on "openssl"
+
   bottle do
     rebuild 1
     sha256 "120f17e162aa5e7351d59a97dc068055b421892ebb6226734349ee759ca42754" => :mojave
@@ -19,6 +21,11 @@ class TclTk < Formula
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
     sha256 "72667ecbbd41af740157ee346db77734d1245b41dffc13ac80ca678dd3ccb515"
+  end
+
+  resource "tcltls" do
+    url "https://core.tcl.tk/tcltls/uv/tcltls-1.7.16.tar.gz"
+    sha256 "6845000732bedf764e78c234cee646f95bb68df34e590c39434ab8edd6f5b9af"
   end
 
   resource "tk" do
@@ -71,6 +78,12 @@ class TclTk < Formula
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
     end
+
+    resource("tcltls").stage do
+      system "./configure", "--with-ssl=openssl", "--with-openssl-dir=#{Formula["openssl"].opt_prefix}", "--prefix=#{prefix}", "--mandir=#{man}"
+      system "make", "install"
+    end
+
   end
 
   test do
