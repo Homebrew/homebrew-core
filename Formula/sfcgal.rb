@@ -3,6 +3,7 @@ class Sfcgal < Formula
   homepage "http://sfcgal.org/"
   url "https://github.com/Oslandia/SFCGAL/archive/v1.3.6.tar.gz"
   sha256 "5840192eb4a1a4e500f65eedfebacd4bc4b9192c696ea51d719732dc2c75530a"
+  revision 1
 
   bottle do
     sha256 "a93d0c08573d27ec212da50cbdc64bdfed404808f8cbe0a300719c10fec07618" => :mojave
