@@ -2,8 +2,8 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      :tag      => "0.29.3",
-      :revision => "bd0f78a501c17bfcceddb2c7cc3db4c72ee0cd01"
+      :tag      => "0.29.4",
+      :revision => "0328f83db1ccc9529736517a9ab8e250e744ef74"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
