@@ -21,24 +21,8 @@ class Emacs < Formula
     depends_on "texinfo" => :build
   end
 
-  option "with-cocoa", "Build a Cocoa version of emacs"
-  option "with-ctags", "Don't remove the ctags executable that emacs provides"
-  option "without-libxml2", "Don't build with libxml2 support"
-  option "with-modules", "Compile with dynamic modules support"
-
-  deprecated_option "cocoa" => "with-cocoa"
-  deprecated_option "keep-ctags" => "with-ctags"
-  deprecated_option "with-d-bus" => "with-dbus"
-  deprecated_option "imagemagick" => "imagemagick@6"
-
   depends_on "pkg-config" => :build
   depends_on "gnutls"
-  depends_on "dbus" => :optional
-  # Emacs does not support ImageMagick 7:
-  # Reported on 2017-03-04: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=25967
-  depends_on "imagemagick@6" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "mailutils" => :optional
 
   def install
     args = %W[
@@ -49,73 +33,26 @@ class Emacs < Formula
       --prefix=#{prefix}
       --with-gnutls
       --without-x
+      --with-xml2
+      --without-dbus
+      --with-modules
+      --without-ns
+      --without-imagemagick
     ]
-
-    if build.with? "libxml2"
-      args << "--with-xml2"
-    else
-      args << "--without-xml2"
-    end
-
-    if build.with? "dbus"
-      args << "--with-dbus"
-    else
-      args << "--without-dbus"
-    end
-
-    # Note that if ./configure is passed --with-imagemagick but can't find the
-    # library it does not fail but imagemagick support will not be available.
-    # See: https://debbugs.gnu.org/cgi/bugreport.cgi?bug=24455
-    if build.with? "imagemagick@6"
-      args << "--with-imagemagick"
-    else
-      args << "--without-imagemagick"
-    end
-
-    args << "--with-modules" if build.with? "modules"
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-pop" if build.with? "mailutils"
 
     if build.head?
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
       system "./autogen.sh"
     end
 
-    if build.with? "cocoa"
-      args << "--with-ns" << "--disable-ns-self-contained"
-    else
-      args << "--without-ns"
-    end
-
     system "./configure", *args
     system "make"
     system "make", "install"
 
-    if build.with? "cocoa"
-      prefix.install "nextstep/Emacs.app"
-
-      # Replace the symlink with one that avoids starting Cocoa.
-      (bin/"emacs").unlink # Kill the existing symlink
-      (bin/"emacs").write <<~EOS
-        #!/bin/bash
-        exec #{prefix}/Emacs.app/Contents/MacOS/Emacs "$@"
-      EOS
-    end
-
     # Follow MacPorts and don't install ctags from Emacs. This allows Vim
     # and Emacs and ctags to play together without violence.
-    if build.without? "ctags"
-      (bin/"ctags").unlink
-      (man1/"ctags.1.gz").unlink
-    end
-  end
-
-  def caveats
-    if build.with? "cocoa" then <<~EOS
-      Please try the Cask for a better-supported Cocoa version:
-        brew cask install emacs
-    EOS
-    end
+    (bin/"ctags").unlink
+    (man1/"ctags.1.gz").unlink
   end
 
   plist_options :manual => "emacs"
