@@ -24,12 +24,6 @@ class Launchdns < Formula
     (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
-  def caveats; <<~EOS
-    To have *.localhost resolved to 127.0.0.1:
-      sudo ln -s #{HOMEBREW_PREFIX}/etc/resolver /etc
-  EOS
-  end
-
   plist_options :manual => "launchdns"
 
   def plist; <<~EOS
