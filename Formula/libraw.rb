@@ -13,6 +13,7 @@ class Libraw < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libomp"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "little-cms2"
@@ -24,7 +25,10 @@ class Libraw < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking"
+                          "--disable-dependency-tracking",
+                          "ac_cv_prog_c_openmp=-Xpreprocessor\\ -fopenmp",
+                          "ac_cv_prog_cxx_openmp=-Xpreprocessor\\ -fopenmp",
+                          "LDFLAGS=-lomp"
     system "make"
     system "make", "install"
     doc.install Dir["doc/*"]
