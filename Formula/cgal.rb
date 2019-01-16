@@ -11,18 +11,11 @@ class Cgal < Formula
     sha256 "349890c9c6f40272b3173c15412701f6588003047e5ebc3e0cd2a03c870ba83d" => :sierra
   end
 
-  option "with-qt", "Build ImageIO and Qt components of CGAL"
-
-  deprecated_option "imaging" => "with-qt"
-  deprecated_option "with-imaging" => "with-qt"
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "qt" => :optional
 
   def install
     args = std_cmake_args + %W[
@@ -30,14 +23,9 @@ class Cgal < Formula
       -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
       -DWITH_Eigen3=ON
       -DWITH_LAPACK=ON
+      -DWITH_CGAL_Qt5=OFF
+      -DWITH_CGAL_ImageIO=OFF"
     ]
-
-    if build.without? "qt"
-      args << "-DWITH_CGAL_Qt5=OFF" << "-DWITH_CGAL_ImageIO=OFF"
-    else
-      args << "-DWITH_CGAL_Qt5=ON" << "-DWITH_CGAL_ImageIO=ON"
-    end
-
     system "cmake", ".", *args
     system "make", "install"
   end
