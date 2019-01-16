@@ -3,6 +3,8 @@ require "language/go"
 class MongodbAT30 < Formula
   desc "High-performance document-oriented database"
   homepage "https://www.mongodb.org/"
+  # do not upgrade to versions >3.0.15 as they are under the SSPL which is not
+  # an open-source license.
   url "https://fastdl.mongodb.org/src/mongodb-src-r3.0.15.tar.gz"
   sha256 "09ad76e06df007085520025c94a5e5840d65f37660c2b359f4962e135e4ae259"
 
