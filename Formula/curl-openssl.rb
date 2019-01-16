@@ -14,9 +14,15 @@ class CurlOpenssl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "brotli"
+  depends_on "c-ares"
+  depends_on "libidn"
+  depends_on "libmetalink"
+  depends_on "libssh2"
+  depends_on "nghttp2"
   depends_on "nghttp2"
   depends_on "openldap"
   depends_on "openssl"
+  depends_on "rtmpdump"
 
   def install
     # Allow to build on Lion, lowering from the upstream setting of 10.8
@@ -27,15 +33,17 @@ class CurlOpenssl < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --disable-ares
+      --enable-ares=#{Formula["c-ares"].opt_prefix}
       --with-ca-bundle=#{etc}/openssl/cert.pem
       --with-ca-path=#{etc}/openssl/certs
       --with-gssapi
-      --without-libidn2
-      --without-libmetalink
-      --without-librtmp
-      --without-libssh2
+      --with-libidn2
+      --with-libmetalink
+      --with-librtmp
+      --with-libssh2
       --with-ssl=#{Formula["openssl"].opt_prefix}
+      --with-libmetalink
+      --with-libssh2
     ]
 
     system "./configure", *args
