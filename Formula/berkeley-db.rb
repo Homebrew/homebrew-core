@@ -13,12 +13,12 @@ class BerkeleyDb < Formula
     sha256 "12b3dcf8c9549ee7a6afdafbc0ff7235fe069af06a28d26525e57b8f8ae37a61" => :el_capitan
   end
 
-  depends_on :java => [:optional, :build]
   depends_on "openssl"
 
   def install
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
+
     # --enable-compat185 is necessary because our build shadows
     # the system berkeley db 1.x
     args = %W[
@@ -32,7 +32,6 @@ class BerkeleyDb < Formula
       --enable-dbm
       --enable-stl
     ]
-    args << "--enable-java" if build.with? "java"
 
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
