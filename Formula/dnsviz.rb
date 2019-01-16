@@ -18,7 +18,6 @@ class Dnsviz < Formula
   depends_on "graphviz"
   depends_on "openssl"
   depends_on "python@2"
-  depends_on "bind" => :optional
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"
