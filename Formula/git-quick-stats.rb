@@ -8,6 +8,7 @@ class GitQuickStats < Formula
 
   def install
     bin.install "git-quick-stats"
+    man1.install "git-quick-stats.1"
   end
 
   test do
