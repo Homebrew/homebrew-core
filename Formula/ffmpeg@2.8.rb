@@ -14,58 +14,27 @@ class FfmpegAT28 < Formula
 
   keg_only :versioned_formula
 
-  option "with-rtmpdump", "Enable RTMP protocol"
-  option "with-libass", "Enable ASS/SSA subtitle format"
-  option "with-opencore-amr", "Enable Opencore AMR NR/WB audio format"
-  option "with-openjpeg", "Enable JPEG 2000 image format"
-  option "with-openssl", "Enable SSL support"
-  option "with-libssh", "Enable SFTP protocol via libssh"
-  option "with-schroedinger", "Enable Dirac video format"
-  option "with-fdk-aac", "Enable the Fraunhofer FDK AAC library"
-  option "with-libvidstab", "Enable vid.stab support for video stabilization"
-  option "with-libsoxr", "Enable the soxr resample library"
-  option "with-webp", "Enable using libwebp to encode WEBP images"
-  option "with-zeromq", "Enable using libzeromq to receive commands sent through a libzeromq client"
-  option "with-dcadec", "Enable dcadec library"
-
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
   depends_on "yasm" => :build
 
+  depends_on "freetype"
+  depends_on "frei0r"
   depends_on "lame"
+  depends_on "libass"
   depends_on "libvo-aacenc"
   depends_on "libvorbis"
   depends_on "libvpx"
+  depends_on "opencore-amr"
   depends_on "opus"
+  depends_on "rtmpdump"
   depends_on "sdl"
   depends_on "snappy"
+  depends_on "speex"
   depends_on "theora"
   depends_on "x264"
   depends_on "x265"
   depends_on "xvid"
-
-  depends_on "dcadec" => :optional
-  depends_on "faac" => :optional
-  depends_on "fdk-aac" => :optional
-  depends_on "fontconfig" => :optional
-  depends_on "freetype" => :optional
-  depends_on "frei0r" => :optional
-  depends_on "libass" => :optional
-  depends_on "libbluray" => :optional
-  depends_on "libbs2b" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libquvi" => :optional
-  depends_on "libsoxr" => :optional
-  depends_on "libssh" => :optional
-  depends_on "libvidstab" => :optional
-  depends_on "opencore-amr" => :optional
-  depends_on "openjpeg" => :optional
-  depends_on "openssl" => :optional
-  depends_on "rtmpdump" => :optional
-  depends_on "schroedinger" => :optional
-  depends_on "speex" => :optional
-  depends_on "webp" => :optional
-  depends_on "zeromq" => :optional
 
   def install
     # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
@@ -96,40 +65,20 @@ class FfmpegAT28 < Formula
       --enable-libx264
       --enable-libx265
       --enable-libxvid
+      --enable-libfreetype
+      --enable-frei0r
+      --enable-libass
+      --enable-libopencore-amrnb
+      --enable-libopencore-amrwb
+      --enable-librtmp
+      --enable-libspeex
     ]
-
     args << "--enable-opencl" if MacOS.version > :lion
-    args << "--enable-libfontconfig" if build.with? "fontconfig"
-    args << "--enable-libfreetype" if build.with? "freetype"
-    args << "--enable-librtmp" if build.with? "rtmpdump"
-    args << "--enable-libopencore-amrnb" << "--enable-libopencore-amrwb" if build.with? "opencore-amr"
-    args << "--enable-libfaac" if build.with? "faac"
-    args << "--enable-libass" if build.with? "libass"
-    args << "--enable-libssh" if build.with? "libssh"
-    args << "--enable-libspeex" if build.with? "speex"
-    args << "--enable-libschroedinger" if build.with? "schroedinger"
-    args << "--enable-libfdk-aac" if build.with? "fdk-aac"
-    args << "--enable-openssl" if build.with? "openssl"
-    args << "--enable-frei0r" if build.with? "frei0r"
-    args << "--enable-libcaca" if build.with? "libcaca"
-    args << "--enable-libsoxr" if build.with? "libsoxr"
-    args << "--enable-libquvi" if build.with? "libquvi"
-    args << "--enable-libvidstab" if build.with? "libvidstab"
-    args << "--enable-libwebp" if build.with? "webp"
-    args << "--enable-libzmq" if build.with? "zeromq"
-    args << "--enable-libbs2b" if build.with? "libbs2b"
-    args << "--enable-libdcadec" if build.with? "dcadec"
 
     if build.with? "openjpeg"
       args << "--enable-libopenjpeg"
       args << "--disable-decoder=jpeg2000"
       args << "--extra-cflags=" + `pkg-config --cflags libopenjpeg`.chomp
-    end
-
-    # These librares are GPL-incompatible, and require ffmpeg be built with
-    # the "--enable-nonfree" flag, which produces unredistributable libraries
-    if %w[faac fdk-aac openssl].any? { |f| build.with? f }
-      args << "--enable-nonfree"
     end
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
