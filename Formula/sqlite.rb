@@ -24,6 +24,8 @@ class Sqlite < Formula
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
     ENV.append "CPPFLAGS", "-DSQLITE_MAX_VARIABLE_NUMBER=250000"
     ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_RTREE=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS3_PARENTHESIS=1"
+    ENV.append "CPPFLAGS", "-DSQLITE_ENABLE_JSON1=1"
 
     args = %W[
       --prefix=#{prefix}
@@ -35,26 +37,6 @@ class Sqlite < Formula
 
     system "./configure", *args
     system "make", "install"
-  end
-
-  def caveats
-    s = ""
-    user_history = "~/.sqlite_history"
-    user_history_path = File.expand_path(user_history)
-    if File.exist?(user_history_path) && File.read(user_history_path).include?("\\040")
-      s += <<~EOS
-        Homebrew has detected an existing SQLite history file that was created
-        with the editline library. The current version of this formula is
-        built with Readline. To back up and convert your history file so that
-        it can be used with Readline, run:
-
-          sed -i~ 's/\\\\040/ /g' #{user_history}
-
-        before using the `sqlite` command-line tool again. Otherwise, your
-        history will be lost.
-      EOS
-    end
-    s
   end
 
   test do
