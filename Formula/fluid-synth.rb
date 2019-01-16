@@ -1,9 +1,8 @@
 class FluidSynth < Formula
   desc "Real-time software synthesizer based on the SoundFont 2 specs"
   homepage "http://www.fluidsynth.org"
-  url "https://github.com/FluidSynth/fluidsynth/archive/v1.1.11.tar.gz"
-  sha256 "da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8"
-  revision 1
+  url "https://github.com/FluidSynth/fluidsynth/archive/v2.0.3.tar.gz"
+  sha256 "12c7ede220f54a6e52a7e7b0b1729c04a4282685569adf18d932a7dd3c10e759"
   head "https://github.com/FluidSynth/fluidsynth.git"
 
   bottle do
@@ -24,13 +23,9 @@ class FluidSynth < Formula
       -Denable-framework=OFF
       -Denable-portaudio=ON
       -DLIB_SUFFIX=
+      -Denable-dbus=OFF
+      -Denable-sdl2=OFF
     ]
-    if build.head?
-      args += %w[
-        -Denable-dbus=OFF
-        -Denable-sdl2=OFF
-      ]
-    end
 
     mkdir "build" do
       system "cmake", "..", *args
