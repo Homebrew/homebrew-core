@@ -21,8 +21,6 @@ class BashCompletionAT2 < Formula
 
   depends_on "bash"
 
-  conflicts_with "bash-completion", :because => "Differing version of same formula"
-
   def install
     inreplace "bash_completion", "readlink -f", "readlink"
 
@@ -30,11 +28,12 @@ class BashCompletionAT2 < Formula
     system "./configure", "--prefix=#{prefix}"
     ENV.deparallelize
     system "make", "install"
+    mv prefix/"etc/profile.d/bash_completion.sh", prefix/"etc/profile.d/bash_completion@2.sh"
   end
 
   def caveats; <<~EOS
     Add the following to your ~/.bash_profile:
-      [[ -r "#{etc}/profile.d/bash_completion.sh" ]] && . "#{etc}/profile.d/bash_completion.sh"
+      [[ -r "#{etc}/profile.d/bash_completion@2.sh" ]] && . "#{etc}/profile.d/bash_completion@2.sh"
   EOS
   end
 

@@ -16,8 +16,6 @@ class BashCompletion < Formula
     sha256 "58be92ef01d5068f37b1c00af8e9b202bdb409c93121bb0e07dcbb5e55dc3be2" => :yosemite
   end
 
-  conflicts_with "bash-completion@2", :because => "Differing version of same formula"
-
   # Backports the following upstream patch from 2.x:
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=740971
   patch do
