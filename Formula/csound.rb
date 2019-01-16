@@ -45,7 +45,6 @@ class Csound < Formula
       0dbfs = 1
       FLrun
       giFluidEngineNumber fluidEngine
-      giHandle OSCinit 7770
       pyinit
       instr 1
           pyruni "from __future__ import print_function; print('hello, world')"
