@@ -8,9 +8,10 @@ class Nginx < Formula
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    sha256 "f279b6653396ab2a186ea374a672ddba343b6ae76286b7a11bf3a54ec72193f2" => :mojave
-    sha256 "b1a1956d46ba244f5a37ef6c870e32035d072415dd1cd8afc1434a866c7869c0" => :high_sierra
-    sha256 "9917a1d8b968e966a0bbdbec3a792c902c5cd7731013b36a1c1e524e03f738fa" => :sierra
+    rebuild 1
+    sha256 "7ea37bf70745ef33d48e5dcc978c7595c8113bfe513b3e594ea0321c9332ff88" => :mojave
+    sha256 "435ac2d570973cb1b41e90ce4f75e9f87c841a8aae7f5f314a4922cde2a73c9c" => :high_sierra
+    sha256 "18b69c75e157380d380aadb053a1074b3101cdb97a1d2b2f097ff4b3ecd2f79f" => :sierra
   end
 
   depends_on "openssl"
