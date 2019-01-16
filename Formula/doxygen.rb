@@ -14,19 +14,7 @@ class Doxygen < Formula
     sha256 "a086e334ee3b24456e87a2806cadc35e42d1dcb10ee94c5a1c091b4f5c9d434c" => :sierra
   end
 
-  option "with-graphviz", "Build with dot command support from Graphviz."
-  option "with-qt", "Build GUI frontend with Qt support."
-  option "with-llvm", "Build with libclang support."
-
-  deprecated_option "with-dot" => "with-graphviz"
-  deprecated_option "with-doxywizard" => "with-qt"
-  deprecated_option "with-libclang" => "with-llvm"
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "cmake" => :build
-  depends_on "graphviz" => :optional
-  depends_on "llvm" => :optional
-  depends_on "qt" => :optional
 
   # Fix build breakage for 1.8.15 and CMake 3.13
   # https://github.com/Homebrew/homebrew-core/issues/35815
@@ -36,9 +24,9 @@ class Doxygen < Formula
   end
 
   def install
-    args = std_cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}"
-    args << "-Dbuild_wizard=ON" if build.with? "qt"
-    args << "-Duse_libclang=ON -DLLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config" if build.with? "llvm"
+    args = std_cmake_args + %W[
+      -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args
