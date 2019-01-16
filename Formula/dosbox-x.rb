@@ -3,6 +3,7 @@ class DosboxX < Formula
   homepage "http://dosbox-x.com/"
   url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.82.13.tar.gz"
   sha256 "e2721125b650ef995fc66f95766a995844f52aab0cf4261ff7aa998eb60e6f4c"
+  revision 1
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
