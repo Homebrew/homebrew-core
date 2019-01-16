@@ -7,10 +7,10 @@ class BerkeleyDb < Formula
 
   bottle do
     cellar :any
-    sha256 "033c836af359a4169a73b7778b837814d0df74fa514e5dd01efdc0b2272e830f" => :mojave
-    sha256 "b3ee1f3ef01f18bb4c958cac6b84b593718d9fb8e43cf480abd44dad2c6a1c8a" => :high_sierra
-    sha256 "95ffd72a00ed6faa8131b13482dd4592311410f8d4010934949b43b7a273c03e" => :sierra
-    sha256 "12b3dcf8c9549ee7a6afdafbc0ff7235fe069af06a28d26525e57b8f8ae37a61" => :el_capitan
+    rebuild 1
+    sha256 "cbaa8655a8a17e46c385b9d81a610ad5f50a9a04018c6f7f3642ef1337276b22" => :mojave
+    sha256 "b08ec41ebbd72ae0428f32406a412b6172fc3a6ca6e72290da68d4e6df03c3a5" => :high_sierra
+    sha256 "6132986c6b08b8143b776f80f29ba02dfb5502e48cc0689a5c924c5e6de5c488" => :sierra
   end
 
   depends_on "openssl"
