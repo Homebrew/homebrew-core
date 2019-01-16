@@ -1,6 +1,8 @@
 class MongodbAT34 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
+  # do not upgrade to versions >3.4.18 as they are under the SSPL which is not
+  # an open-source license.
   url "https://fastdl.mongodb.org/src/mongodb-src-r3.4.18.tar.gz"
   sha256 "a1c17e9977307752ddac4b06bcb65be177035057c21955df5a65e2db74a20856"
 
