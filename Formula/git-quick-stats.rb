@@ -1,8 +1,8 @@
 class GitQuickStats < Formula
   desc "Simple and efficient way to access statistics in git"
   homepage "https://github.com/arzzen/git-quick-stats"
-  url "https://github.com/arzzen/git-quick-stats/archive/1.0.18.tar.gz"
-  sha256 "683eb431de03cbfd7efe2e467a487ddc074972bc258e81544c9b56e435d4299e"
+  url "https://github.com/arzzen/git-quick-stats/archive/2.0.1.tar.gz"
+  sha256 "01597179ef098629ae4d3d8016adedfd269835ebef51e57db76a48154c2a74b6"
 
   bottle :unneeded
 
