@@ -32,12 +32,6 @@ class ProtobufAT25 < Formula
     doc.install "editors", "examples"
   end
 
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-  EOS
-  end
-
   test do
     (testpath/"test.proto").write <<~EOS
       package test;
