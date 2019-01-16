@@ -26,7 +26,7 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 
 If you are already well versed in the use of `git`, then you can find the local
 copy of the `homebrew-core` repository in this directory
-(`Homebrew/Library/Taps/homebrew/homebrew-core/`), modify the formula there
+(`$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/`), modify the formula there
 leaving the section `bottle do ... end` unchanged, and prepare a pull request
 as you usually do.  Before submitting your pull request, be sure to test it
 with these commands:
@@ -38,7 +38,7 @@ brew test foo
 brew audit --strict foo
 ```
 
-After testing, if you would like to force the corresponding bottles to be
+After testing, if you think it is needed to force the corresponding bottles to be
 rebuilt and redistributed, add a line of the form `revision 1` to the formula,
 or add 1 to the revision number already present.
 
@@ -50,7 +50,7 @@ follows:
 * run `brew edit foo` and make edits
 * leave the section `bottle do ... end` unchanged
 * test your changes using the commands listed above
-* run `git commit` with message formatted `foo: <insert details>`
+* run `git commit` with message formatted `foo <insert details>`
 * open a pull request as described in the introduction linked to above, wait for the automated test results, and fix any failing tests
 
 Thanks!
