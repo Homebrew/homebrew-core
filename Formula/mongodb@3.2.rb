@@ -3,6 +3,8 @@ require "language/go"
 class MongodbAT32 < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.org/"
+  # do not upgrade to versions >3.2.21 as they are under the SSPL which is not
+  # an open-source license.
   url "https://fastdl.mongodb.org/src/mongodb-src-r3.2.21.tar.gz"
   sha256 "8263befc10319809ea14e5cbf230c55113de7b38510b42a6ad27125dfa674371"
 
