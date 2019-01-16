@@ -24,7 +24,7 @@ class Cgal < Formula
       -DWITH_Eigen3=ON
       -DWITH_LAPACK=ON
       -DWITH_CGAL_Qt5=OFF
-      -DWITH_CGAL_ImageIO=OFF"
+      -DWITH_CGAL_ImageIO=OFF
     ]
     system "cmake", ".", *args
     system "make", "install"
