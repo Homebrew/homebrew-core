@@ -21,22 +21,6 @@ class Libomp < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    On Apple Clang, you need to add several options to use OpenMP's front end
-    instead of the standard driver option. This usually looks like
-      -Xpreprocessor -fopenmp -lomp
-
-    You might need to make sure the lib and include directories are discoverable
-    if #{HOMEBREW_PREFIX} is not searched:
-
-      -L#{opt_lib} -I#{opt_include}
-
-    For CMake, the following flags will cause the OpenMP::OpenMP_CXX target to
-    be set up correctly:
-      -DOpenMP_CXX_FLAGS="-Xpreprocessor -fopenmp -I#{opt_include}" -DOpenMP_CXX_LIB_NAMES="omp" -DOpenMP_omp_LIBRARY=#{opt_lib}/libomp.dylib
-  EOS
-  end
-
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <omp.h>
