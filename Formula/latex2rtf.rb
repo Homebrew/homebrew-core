@@ -21,4 +21,12 @@ class Latex2rtf < Formula
                    "CFGDIR=#{pkgshare}/cfg",
                    "install"
   end
+  test do
+    (testpath/"test.tex").write <<~EOS
+      \documentclass[12pt,twoside,a4paper]{article}
+      \begin{document}
+      a small \LaTeX document
+      \end{document}
+    EOS
+  end
 end
