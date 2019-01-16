@@ -17,12 +17,6 @@ class ImagemagickAT6 < Formula
 
   keg_only :versioned_formula
 
-  option "with-fftw", "Compile with FFTW support"
-  option "with-hdri", "Compile with HDRI support"
-  option "with-perl", "Compile with PerlMagick"
-
-  deprecated_option "enable-hdri" => "with-hdri"
-
   depends_on "pkg-config" => :build
 
   depends_on "freetype"
@@ -34,17 +28,6 @@ class ImagemagickAT6 < Formula
   depends_on "openjpeg"
   depends_on "webp"
   depends_on "xz"
-
-  depends_on "fftw" => :optional
-  depends_on "fontconfig" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "liblqr" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "little-cms" => :optional
-  depends_on "openexr" => :optional
-  depends_on "pango" => :optional
-  depends_on "perl" => :optional
 
   skip_clean :la
 
@@ -62,18 +45,13 @@ class ImagemagickAT6 < Formula
       --with-modules
       --with-webp=yes
       --with-openjp2
+      --without-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-fftw
+      --without-pango
+      --without-x
+      --without-wmf
     ]
-
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--enable-hdri=yes" if build.with? "hdri"
-    args << "--without-fftw" if build.without? "fftw"
-    args << "--without-pango" if build.without? "pango"
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
-    args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
