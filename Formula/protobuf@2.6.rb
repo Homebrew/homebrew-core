@@ -82,12 +82,6 @@ class ProtobufAT26 < Formula
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
   end
 
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-  EOS
-  end
-
   test do
     testdata =
       <<~EOS
