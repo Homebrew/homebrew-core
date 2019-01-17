@@ -15,8 +15,8 @@ class Yara < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "jansson" => :build
   depends_on "libtool" => :build
+  depends_on "jansson"
   depends_on "libmagic"
   depends_on "openssl"
 
