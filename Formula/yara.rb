@@ -3,7 +3,7 @@ class Yara < Formula
   homepage "https://github.com/VirusTotal/yara/"
   url "https://github.com/VirusTotal/yara/archive/v3.8.1.tar.gz"
   sha256 "283527711269354d3c60e2705f7f74b1f769d2d35ddba8f7f9ce97d0fd5cb1ca"
-  revision 1
+  revision 2
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
@@ -16,6 +16,8 @@ class Yara < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "jansson"
+  depends_on "libmagic"
   depends_on "openssl"
 
   def install
@@ -23,7 +25,12 @@ class Yara < Formula
     system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-dotnet"
+                          "--enable-dotnet",
+                          "--enable-cuckoo",
+                          "--enable-magic",
+                          "--enable-macho",
+                          "--enable-dex",
+                          "--with-crpyto"
     system "make", "install"
   end
 
