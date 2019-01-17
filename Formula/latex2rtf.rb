@@ -28,5 +28,8 @@ class Latex2rtf < Formula
       a small \LaTeX document
       \end{document}
     EOS
+    
+    system bin/"latex2rtf", "test.tex"
+    assert_predicate testpath/"test.rtf", :exist?
   end
 end
