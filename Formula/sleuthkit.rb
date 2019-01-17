@@ -6,9 +6,9 @@ class Sleuthkit < Formula
 
   bottle do
     cellar :any
-    sha256 "ce1663cad76dedba6e23c936d5cf7e460242b7788b3d0c2398609aface6a0111" => :mojave
-    sha256 "b2fbd5d22f83160c6f6625f8586ac22a53b479b4f728ca66e37128dcb4302c20" => :high_sierra
-    sha256 "e10adcac8cd1e11875cbc44cf9a390a1a494820ba50183b6459c702b1f369a67" => :sierra
+    sha256 "01a7a2766ade79e43d163c03f2c580cdc463221d90f000178ea6a82cdee92134" => :mojave
+    sha256 "66d9be8a0042223bea0db051e5a9412a485e8ef800411d160caba7eb57d073f0" => :high_sierra
+    sha256 "4cfb4188da9952d9f25c8aaed5170b82904e8eb4f4bec748adb4b64502b05ac8" => :sierra
   end
 
   depends_on "ant" => :build
