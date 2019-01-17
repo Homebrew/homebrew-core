@@ -20,6 +20,18 @@ class Opendetex < Formula
     bin.install "delatex"
     man1.install "detex.1l" => "detex.1"
   end
+
+  test do
+    (testpath/"test.tex").write <<~EOS
+      \\documentclass{article}
+      \\begin{document}
+      Simple \\emph{text}.
+      \\end{document}
+    EOS
+
+    output = shell_output("#{bin}/detex test.tex")
+    assert_equal "Simple text.\n", output
+  end
 end
 
 __END__
