@@ -6,10 +6,9 @@ class Zabbix < Formula
   revision 1
 
   bottle do
-    sha256 "54c269bc1fcf897d9e31666d29ca67dc8deef7a8d0c9215eba14b157e1f44f2e" => :mojave
-    sha256 "b27f4d5e4d86e4d39c295e04ec27ba3c128c7315a1f30ba54ff444f23e61654b" => :high_sierra
-    sha256 "6e5e5950eb72dae5ed3755ec216e088884f9b6bb843300ceeeabff629386f955" => :sierra
-    sha256 "93c611153ab56ca7f9bb0b18bbd92eee94e08a26c1f555c2cedb6c94271cdf4f" => :el_capitan
+    sha256 "d11ee560372330e53fc3118da1a8a7213f2cdb7afa75f75fa17e4fd287497c75" => :mojave
+    sha256 "de98c4192b2c9366affdcfe4c0d8016e53abd5e9ec387bdd9789c81c1f85c292" => :high_sierra
+    sha256 "dcd33eb99ad59b69d9bacd7972d96ae58af368589edbb30a6d9562d2976a5031" => :sierra
   end
 
   depends_on "openssl"
