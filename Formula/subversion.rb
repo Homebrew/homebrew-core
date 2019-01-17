@@ -76,7 +76,7 @@ class Subversion < Formula
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]
-      scons(*args)
+      system "scons", *args
       system "scons", "install"
     end
 
