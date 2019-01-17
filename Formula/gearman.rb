@@ -6,10 +6,9 @@ class Gearman < Formula
   revision 1
 
   bottle do
-    sha256 "df5a14dc5c29d07d373d42888d589f6d1ec053b8965d939b6647052aa694ebf5" => :mojave
-    sha256 "ecabdc718b87f1c8772a86c5cdcbfb69c538891c842132ab2a88b92fb7ebe176" => :high_sierra
-    sha256 "1c1de51b9c2445c05df372a9e0f5c7d8595b4160df0515b96d014925e3e85ac8" => :sierra
-    sha256 "b2d1ba15ccdf0688decb8ecb0503ffa9fe507dccb5828de1007f130266ef98b1" => :el_capitan
+    cellar :any
+    sha256 "a29334389cd7ca1245ee0a914959bd3472ae3562b2e4b2f92e44f0ec70d02022" => :mojave
+    sha256 "1d069b8eca915e388207d735c45f143b139f801eedd302b6c690d1f8e4aaee30" => :sierra
   end
 
   depends_on "pkg-config" => :build
