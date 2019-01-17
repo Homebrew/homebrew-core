@@ -88,13 +88,13 @@ class Ghc < Formula
     # corresponding to Yonah and Merom. Obviates --disable-assembly.
     ENV["MPN_PATH"] = "x86_64/fastsse x86_64/core2 x86_64 generic" if build.bottle?
 
-    # GMP *does not* use PIC by default without shared libs  so --with-pic
+    # GMP *does not* use PIC by default without shared libs so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared"
       system "make"
       system "make", "check"
-      ENV.deparallelize { system "make", "install" }
+      system "make", "install"
     end
 
     args = ["--with-gmp-includes=#{gmp}/include",
@@ -147,7 +147,9 @@ class Ghc < Formula
       resource("testsuite").stage { buildpath.install Dir["*"] }
       cd "testsuite" do
         system "make", "clean"
-        system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
+        ENV.deparallelize do
+          system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
+        end
       end
     end
 
