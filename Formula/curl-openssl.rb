@@ -3,6 +3,7 @@ class CurlOpenssl < Formula
   homepage "https://curl.haxx.se/"
   url "https://curl.haxx.se/download/curl-7.63.0.tar.bz2"
   sha256 "9bab7ed4ecff77020a312d84cc5fb7eb02d58419d218f267477a724a17fd8dd8"
+  revision 1
 
   bottle do
     sha256 "84c070944750b1ab555478769569326a5af985de9242b64a4f59041cd51b4a3b" => :mojave
@@ -18,7 +19,6 @@ class CurlOpenssl < Formula
   depends_on "libidn"
   depends_on "libmetalink"
   depends_on "libssh2"
-  depends_on "nghttp2"
   depends_on "nghttp2"
   depends_on "openldap"
   depends_on "openssl"
@@ -42,8 +42,6 @@ class CurlOpenssl < Formula
       --with-librtmp
       --with-libssh2
       --with-ssl=#{Formula["openssl"].opt_prefix}
-      --with-libmetalink
-      --with-libssh2
     ]
 
     system "./configure", *args
