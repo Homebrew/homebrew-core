@@ -8,10 +8,10 @@ class Mongodb < Formula
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "818967509c594d1214a822115db6e2ff00a06772d5aee7296603e51526f6bbd1" => :mojave
-    sha256 "3f2a93e91ce14ce7dd7699cb486466c37de47b6a3066c00b9e913629ad419ae7" => :high_sierra
-    sha256 "67c32659f6ac1fb5cc7e79de8a95a34a946e115a0bf7354b1e0d15edd0fd125c" => :sierra
+    cellar :any
+    sha256 "ab08fc6748bc37d0e2ec209126db3236bd80a2ae4edee2f6fc34d96481fe34c7" => :mojave
+    sha256 "482cafb558d39fd6cae4d5d1abe07c7329a94b961fca00dc3ae71dc3be34deb9" => :high_sierra
+    sha256 "0b98be90831544f051d8244c253f61dd98a5d6f421663c3353b34feef562eae7" => :sierra
   end
 
   depends_on "go" => :build
