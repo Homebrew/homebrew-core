@@ -3,6 +3,7 @@ class Zeromq < Formula
   homepage "http://www.zeromq.org/"
   url "https://github.com/zeromq/libzmq/releases/download/v4.3.1/zeromq-4.3.1.tar.gz"
   sha256 "bcbabe1e2c7d0eec4ed612e10b94b112dd5f06fcefa994a0c79a45d835cd21eb"
+  revision 1
 
   bottle do
     cellar :any
@@ -20,7 +21,7 @@ class Zeromq < Formula
   end
 
   depends_on "asciidoc" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "xmlto" => :build
 
   def install
@@ -32,9 +33,11 @@ class Zeromq < Formula
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    ENV["LIBUNWIND_LIBS"] = "-framework System"
-    sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
-    ENV["LIBUNWIND_CFLAGS"] = "-I#{sdk}/usr/include"
+    # Disable libunwind support due to pkg-config problem
+    # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
+    # ENV["LIBUNWIND_LIBS"] = "-framework System"
+    # sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+    # ENV["LIBUNWIND_CFLAGS"] = "-I#{sdk}/usr/include"
 
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
@@ -56,5 +59,7 @@ class Zeromq < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lzmq", "-o", "test"
     system "./test"
+    system "pkg-config", "libzmq", "--cflags"
+    system "pkg-config", "libzmq", "--libs"
   end
 end
