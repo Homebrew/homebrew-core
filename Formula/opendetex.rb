@@ -20,6 +20,17 @@ class Opendetex < Formula
     bin.install "delatex"
     man1.install "detex.1l" => "detex.1"
   end
+
+  test do
+    (testpath/"test.txt").write <<~EOS
+      \documentclass{article}
+      \begin{document}
+      Text
+      \end{document}
+    EOS
+
+    assert_match "Text", shell_output("#{opt_bin}/detex test.txt")
+  end
 end
 
 __END__
