@@ -3,8 +3,8 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.31.1-src.tar.gz"
-    sha256 "91d2fc22f08d986adab7a54eb3a6a9b99e490f677d2d092e5b9e4e069c23686a"
+    url "https://static.rust-lang.org/dist/rustc-1.32.0-src.tar.gz"
+    sha256 "4c594c7712a0e7e8eae6526c464bf6ea1d82f77b4f61717c3fc28fb27ba2224a"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
