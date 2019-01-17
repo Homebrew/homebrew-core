@@ -19,7 +19,6 @@ class CurlOpenssl < Formula
   depends_on "libmetalink"
   depends_on "libssh2"
   depends_on "nghttp2"
-  depends_on "nghttp2"
   depends_on "openldap"
   depends_on "openssl"
   depends_on "rtmpdump"
@@ -42,8 +41,6 @@ class CurlOpenssl < Formula
       --with-librtmp
       --with-libssh2
       --with-ssl=#{Formula["openssl"].opt_prefix}
-      --with-libmetalink
-      --with-libssh2
     ]
 
     system "./configure", *args
