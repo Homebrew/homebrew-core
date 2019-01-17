@@ -15,7 +15,9 @@ class Yara < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "jansson" => :build
   depends_on "libtool" => :build
+  depends_on "libmagic"
   depends_on "openssl"
 
   def install
@@ -23,7 +25,12 @@ class Yara < Formula
     system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--enable-dotnet"
+                          "--enable-dotnet",
+                          "--enable-cuckoo",
+                          "--enable-magic",
+                          "--enable-macho",
+                          "--enable-dex",
+                          "--with-crpyto"
     system "make", "install"
   end
 
