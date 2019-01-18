@@ -4,8 +4,8 @@ class Bower < Formula
   desc "Package manager for the web"
   homepage "https://bower.io/"
   # Use Github tarball to avoid bowers npm 4+ incompatible bundled dep usage
-  url "https://github.com/bower/bower/archive/v1.8.4.tar.gz"
-  sha256 "62a6f019638e2a1628d2434a3c62cb62f8d88528fee9abaf6199d203e68cffbc"
+  url "https://github.com/bower/bower/archive/v1.8.7.tar.gz"
+  sha256 "1935db25df5796c5ea8b71bf1a0e740c3c71397a5eb9d1d7e07bb24dba3e9e0f"
 
   bottle do
     cellar :any_skip_relocation
