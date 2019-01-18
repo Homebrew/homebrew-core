@@ -1,5 +1,5 @@
 class Binutils < Formula
-  desc "FSF/GNU ld, ar, readelf, etc. for native development"
+  desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
   url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.1.tar.gz"
