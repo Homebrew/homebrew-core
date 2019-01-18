@@ -19,7 +19,9 @@ class Bat < Formula
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "doc/bat.1"
     bash_completion.install "bat.bash"
-    fish_completion.install "bat.fish"
+    # Temporary disable fish completions due to upstream issues. The completions might not work on
+    # some systems. See https://github.com/sharkdp/bat/issues/372
+    # fish_completion.install "bat.fish"
     zsh_completion.install "_bat"
   end
 
