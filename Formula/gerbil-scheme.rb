@@ -4,6 +4,12 @@ class GerbilScheme < Formula
   url "https://github.com/vyzo/gerbil/archive/v0.14.tar.gz"
   sha256 "8525877960ba7a6122d6dfd2bae34ed1437d5231f9e31de97bbe6106c4dfa03a"
 
+  bottle do
+    sha256 "a331ddcc97bf8d41ee701cbd42f8832e513501836bb3b386e1f09530b9d5522b" => :mojave
+    sha256 "4039f9cd484154ee87df82400f267650cb068145b2134342c8d143b7ae95b036" => :high_sierra
+    sha256 "18f6929712d4237c3ffb4cadb74c4f7abd50211a6002e8cec5bc882917d0549b" => :sierra
+  end
+
   depends_on "gambit-scheme"
   depends_on "leveldb"
   depends_on "libyaml"
