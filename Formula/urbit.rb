@@ -1,6 +1,7 @@
 class Urbit < Formula
   desc "Personal cloud computer"
   homepage "https://urbit.org"
+  # pull from git tag to get submodules
   url "https://github.com/urbit/urbit.git",
       :tag      => "v0.7.0",
       :revision => "a42f2cbe5ccc591c148464444264c8f6c92776e3"
