@@ -7,7 +7,6 @@ class Csound < Formula
   depends_on "cmake" => :build
 
   depends_on "fltk"
-  depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libsndfile"
   depends_on "stk"
@@ -17,7 +16,11 @@ class Csound < Formula
       %r{^set\(CS_FRAMEWORK_DEST\s+"~/Library/Frameworks"\)$},
       "set(CS_FRAMEWORK_DEST \"#{frameworks}\")"
 
+    # Csound is not compatible with FluidSynth 2
+    # (https://github.com/csound/csound/issues/1078), which was added in
+    # https://github.com/Homebrew/homebrew-core/commit/85bb1f4c28c5412f97c718db6415077c35481acc.
     args = std_cmake_args + %W[
+      -DBUILD_FLUID_OPCODES=OFF
       -DBUILD_JAVA_INTERFACE=OFF
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
@@ -43,7 +46,6 @@ class Csound < Formula
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
       FLrun
-      giFluidEngineNumber fluidEngine
       pyinit
       instr 1
           pyruni "from __future__ import print_function; print('hello, world')"
