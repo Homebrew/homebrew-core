@@ -21,6 +21,7 @@ class Openconnect < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
+  depends_on "stoken"
 
   resource "vpnc-script" do
     url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/6e04e0bbb66c0bf0ae055c0f4e58bea81dbb5c3c:/vpnc-script"
