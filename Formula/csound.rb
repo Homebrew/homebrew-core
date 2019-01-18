@@ -35,8 +35,8 @@ class Csound < Formula
 
   def caveats; <<~EOS
     You should add to your .bash_profile:
-      export OPCODE6DIR64=#{HOMEBREW_PREFIX}/Frameworks/CsoundLib64.framework/Resources/Opcodes64
-      export RAWWAVE_PATH=#{HOMEBREW_PREFIX}/share/stk/rawwaves
+      export OPCODE6DIR64='#{HOMEBREW_PREFIX}/Frameworks/CsoundLib64.framework/Resources/Opcodes64'
+      export RAWWAVE_PATH='#{HOMEBREW_PREFIX}/share/stk/rawwaves'
   EOS
   end
 
