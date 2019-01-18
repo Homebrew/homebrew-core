@@ -28,8 +28,7 @@ class Csound < Formula
       system "cmake", "..", *args
       system "make", "install"
 
-      mkdir include
-      ln_s "#{frameworks}/CsoundLib64.framework/Headers", "#{include}/csound"
+      include.install_symlink "#{frameworks}/CsoundLib64.framework/Headers" => "csound"
     end
   end
 
