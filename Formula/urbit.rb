@@ -2,8 +2,8 @@ class Urbit < Formula
   desc "Personal cloud computer"
   homepage "https://urbit.org"
   url "https://github.com/urbit/urbit.git",
-      :tag      => "urbit-0.6.0",
-      :revision => "7633b5cc9cf249d873f16f08c09a1ee10a4f24d2"
+      :tag      => "v0.7.0",
+      :revision => "a42f2cbe5ccc591c148464444264c8f6c92776e3"
 
   bottle do
     rebuild 1
@@ -20,7 +20,6 @@ class Urbit < Formula
   depends_on "libsigsegv"
   depends_on "libuv"
   depends_on "openssl"
-  depends_on "re2c"
 
   def install
     system "./scripts/build"
