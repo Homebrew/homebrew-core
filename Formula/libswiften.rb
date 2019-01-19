@@ -41,7 +41,7 @@ class Libswiften < Formula
       #{prefix}
     ]
 
-    scons *args
+    system "scons", *args
   end
 
   test do
