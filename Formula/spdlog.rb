@@ -1,9 +1,9 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v1.2.1.tar.gz"
-  sha256 "867a4b7cedf9805e6f76d3ca41889679054f7e5a3b67722fe6d0eae41852a767"
-  head "https://github.com/gabime/spdlog.git"
+  url "https://github.com/gabime/spdlog/archive/v1.3.1.tar.gz"
+  sha256 "160845266e94db1d4922ef755637f6901266731c4cb3b30b45bf41efa0e6ab70"
+  head "https://github.com/gabime/spdlog.git", :branch => "v1.x"
 
   bottle do
     cellar :any_skip_relocation
@@ -21,7 +21,7 @@ class Spdlog < Formula
 
     mkdir "spdlog-build" do
       args = std_cmake_args
-      args << "-Dpkg_config_libdir=#{lib}" << ".."
+      args << "-Dpkg_config_libdir=#{lib}" << "-DSPDLOG_BUILD_BENCH=OFF" << "-DSPDLOG_BUILD_TESTS=OFF" << ".."
       system "cmake", *args
       system "make", "install"
     end
