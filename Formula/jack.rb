@@ -25,6 +25,8 @@ class Jack < Formula
   depends_on "libsamplerate"
   depends_on "libsndfile"
 
+  conflicts_with "jack2", :because => "both install `jackd` binaries and libraries"
+
   def install
     sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
 
