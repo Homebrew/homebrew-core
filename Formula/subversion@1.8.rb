@@ -56,7 +56,7 @@ class SubversionAT18 < Formula
         args << "APU=#{Formula["apr-util"].opt_prefix}"
       end
 
-      scons(*args)
+      system "scons", *args
       system "scons", "install"
     end
 
