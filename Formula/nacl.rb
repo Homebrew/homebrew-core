@@ -2,7 +2,7 @@ class Nacl < Formula
   desc "Network communication, encryption, decryption, signatures library"
   homepage "https://nacl.cr.yp.to/"
   url "https://hyperelliptic.org/nacl/nacl-20110221.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/n/nacl/nacl_20110221.orig.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/n/nacl/nacl_20110221.orig.tar.bz2"
   sha256 "4f277f89735c8b0b8a6bbd043b3efb3fa1cc68a9a5da6a076507d067fc3b3bf8"
 
   bottle do
@@ -36,7 +36,7 @@ class Nacl < Formula
     #
     # It also builds both x86 and x86_64 copies if your compiler can
     # handle it, but we install only one.
-    archstr = Hardware::CPU.is_64_bit? ? "amd64" : "x86"
+    archstr = "amd64"
 
     # Don't include cpucycles.h
     include.install Dir["build/brew/include/#{archstr}/crypto_*.h"]
