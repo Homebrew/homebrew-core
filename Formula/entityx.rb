@@ -24,7 +24,7 @@ class Entityx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "#{lib}/libentityx.dylib", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-lentityx", "-o", "test"
     system "./test"
   end
 end
