@@ -4,6 +4,13 @@ class Tmx < Formula
   url "https://github.com/baylej/tmx/archive/tmx_1.0.0.tar.gz"
   sha256 "ba184b722a838a97f514fb7822c1243dbb7be8535b006ef1c5b9f928e295519b"
 
+  bottle do
+    cellar :any
+    sha256 "e84b8ed8574cbd3c67fca475d1172fc7e51a7a6707ea0d5e109f79479b655c27" => :mojave
+    sha256 "a0583aec000dcda5738acc799591da7a8495c81bfffa0ee988428191f6840d47" => :high_sierra
+    sha256 "591bf5f7712d4406b505c52dc62949b793961a944f0e38b1336a3333d16b0161" => :sierra
+  end
+
   depends_on "cmake" => :build
 
   def install
