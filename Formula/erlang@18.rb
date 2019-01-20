@@ -3,6 +3,7 @@ class ErlangAT18 < Formula
   homepage "https://www.erlang.org/"
   url "https://github.com/erlang/otp/archive/OTP-18.3.4.11.tar.gz"
   sha256 "94f84e8ca0db0dcadd3411fa7a05dd937142b6ae830255dc341c30b45261b01a"
+  revision 1
 
   bottle do
     cellar :any
