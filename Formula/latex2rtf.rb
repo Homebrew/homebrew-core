@@ -21,4 +21,17 @@ class Latex2rtf < Formula
                    "CFGDIR=#{pkgshare}/cfg",
                    "install"
   end
+
+  test do
+    (testpath/"test.tex").write <<~EOS
+      \\documentclass{article}
+      \\title{LaTeX to RTF}
+      \\begin{document}
+      \\maketitle
+      \\end{document}
+    EOS
+    system bin/"latex2rtf", "test.tex"
+    assert_predicate testpath/"test.rtf", :exist?
+    assert_match "LaTeX to RTF", File.read(testpath/"test.rtf")
+  end
 end
