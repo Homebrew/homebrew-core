@@ -3,6 +3,7 @@ class Wxmaxima < Formula
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
   url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-19.01.0.tar.gz"
   sha256 "f28dfc9a717e4a91446cddba0e010c4383a3e973a11889948bd65ea311df28fc"
+  revision 1
   head "https://github.com/wxMaxima-developers/wxmaxima.git"
 
   bottle do
