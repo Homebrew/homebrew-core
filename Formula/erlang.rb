@@ -4,6 +4,7 @@ class Erlang < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-21.2.2.tar.gz"
   sha256 "41b1c3a8343218157a683776e71d80a05ac4eb4019a90a760846608d78817690"
+  revision 1
   head "https://github.com/erlang/otp.git"
 
   bottle do
