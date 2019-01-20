@@ -19,7 +19,7 @@ class Packer < Formula
 
   def install
     ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
 
     packerpath = buildpath/"src/github.com/hashicorp/packer"
