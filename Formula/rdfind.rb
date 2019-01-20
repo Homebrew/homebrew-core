@@ -1,8 +1,8 @@
 class Rdfind < Formula
   desc "Find duplicate files based on content (NOT file names)"
   homepage "https://rdfind.pauldreik.se/"
-  url "https://rdfind.pauldreik.se/rdfind-1.3.5.tar.gz"
-  sha256 "c36e0a1ea35b06ddf1d3d499de4c2e4287984ae47c44a8512d384ecea970c344"
+  url "https://rdfind.pauldreik.se/rdfind-1.4.1.tar.gz"
+  sha256 "30c613ec26eba48b188d2520cfbe64244f3b1a541e60909ce9ed2efb381f5e8c"
 
   bottle do
     cellar :any
@@ -23,10 +23,12 @@ class Rdfind < Formula
 
   test do
     mkdir "folder"
-    touch "folder/file1"
-    touch "folder/file2"
-    system "#{bin}/rdfind", "-deleteduplicates", "true", "-ignoreempty", "false", "folder"
+    (testpath/"folder/file1").write("foo")
+    (testpath/"folder/file2").write("bar")
+    (testpath/"folder/file3").write("foo")
+    system "#{bin}/rdfind", "-deleteduplicates", "true", "folder"
     assert_predicate testpath/"folder/file1", :exist?
-    refute_predicate testpath/"folder/file2", :exist?
+    assert_predicate testpath/"folder/file2", :exist?
+    refute_predicate testpath/"folder/file3", :exist?
   end
 end
