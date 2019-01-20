@@ -22,14 +22,15 @@ class Opendetex < Formula
   end
 
   test do
-    (testpath/"test.txt").write <<~EOS
-      \documentclass{article}
-      \begin{document}
-      Text
-      \end{document}
+    (testpath/"test.tex").write <<~EOS
+      \\documentclass{article}
+      \\begin{document}
+      Simple \\emph{text}.
+      \\end{document}
     EOS
 
-    assert_match "Text", shell_output("#{opt_bin}/detex test.txt")
+    output = shell_output("#{bin}/detex test.tex")
+    assert_equal "Simple text.\n", output
   end
 end
 
