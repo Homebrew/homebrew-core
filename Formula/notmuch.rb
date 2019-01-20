@@ -38,11 +38,6 @@ class Notmuch < Formula
   patch :DATA
 
   def install
-    # configure runs `python -m sphinx.writers.manpage` to detect if
-    # `sphinx-build` will work
-    ENV.prepend_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"vendor/lib/python2.7/site-packages"
-    ENV.prepend_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python2.7/site-packages"
-
     args = %W[--prefix=#{prefix} --mandir=#{man}]
 
     if build.with? "emacs"
