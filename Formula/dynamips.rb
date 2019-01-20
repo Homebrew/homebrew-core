@@ -18,12 +18,10 @@ class Dynamips < Formula
   def install
     ENV.append "CFLAGS", "-I#{Formula["libelf"].include}/libelf"
 
-    arch = Hardware::CPU.is_64_bit? ? "amd64" : "x86"
-
     ENV.deparallelize
     system "cmake", ".", "-DANY_COMPILER=1", *std_cmake_args
     system "make", "DYNAMIPS_CODE=stable",
-                   "DYNAMIPS_ARCH=#{arch}",
+                   "DYNAMIPS_ARCH=amd64",
                    "install"
   end
 
