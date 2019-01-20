@@ -6,10 +6,9 @@ class Rdfind < Formula
 
   bottle do
     cellar :any
-    sha256 "ca83f17309001b90efbfbf1680d01632def8b5c6827b81f60f1bd64941af37d4" => :mojave
-    sha256 "f9cf95ddb7039e4e1a9afcf84e92cb3abdcdcd8e95d9db1862a363b4399f5ea2" => :high_sierra
-    sha256 "6e47f48f21af1db473c225fa8bb48682b865fd150fcc4794b0cc5e463cbbd73a" => :sierra
-    sha256 "bd9e2a6f1c907f7032df5929b2d5b8ac8394cd3f54c6f0b0d72b753c212b519d" => :el_capitan
+    sha256 "a0958b206cea28100f3aa0f08dc3d1be3de2eba641a44b293a44f42f9e43e261" => :mojave
+    sha256 "1d504b757728f9f704884de3d347ebd22536e2cb86b4badafaec9aa3e9e915d8" => :high_sierra
+    sha256 "894d7aaf7a86a7df034c773c9b62e1a8525cbbebf56870280a886ca0b80d5ae9" => :sierra
   end
 
   depends_on "nettle"
