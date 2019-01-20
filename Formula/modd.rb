@@ -17,7 +17,7 @@ class Modd < Formula
 
   def install
     ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["GOARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
     (buildpath/"src/github.com/cortesi/modd").install buildpath.children
