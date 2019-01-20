@@ -8,9 +8,9 @@ class Eslint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74c2e5a6b80fb52bf292fe12935ac1cafd10799fc364e066d1872355ae02bf68" => :mojave
-    sha256 "32524352364966cc59f0c22be6ed72b114188cebe235baba1779ece212e16802" => :high_sierra
-    sha256 "43df2e062f0463099568760a2d29482fe261fc5ad900455ec4dd2635adfcb376" => :sierra
+    sha256 "041f885262859ebd6c49270e700619c58acf062ec9c76ab353b23cebc2e4b2aa" => :mojave
+    sha256 "493cb14ede50f54bea0e73767e091b40673a175fb0e9e32e76b768a29bc9973b" => :high_sierra
+    sha256 "6ddf629a67dffcb1b625c003197193b113ad50913a662587d4c700d74151ef37" => :sierra
   end
 
   depends_on "node"
