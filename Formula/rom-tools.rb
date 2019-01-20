@@ -22,7 +22,7 @@ class RomTools < Formula
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
     system "make", "TOOLS=1",
-                   "PTR64=#{MacOS.prefer_64_bit? ? 1 : 0}", # for old Macs
+                   "PTR64=1",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
