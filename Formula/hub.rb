@@ -24,7 +24,7 @@ class Hub < Formula
       begin
         deleted = ENV.delete "SDKROOT"
         ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundler"
+        system "gem", "install", "bundler:1.16.0"
         ENV.prepend_path "PATH", buildpath/"gem_home/bin"
         system "make", "man-pages"
       ensure
