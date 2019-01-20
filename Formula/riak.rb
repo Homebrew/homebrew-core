@@ -4,6 +4,7 @@ class Riak < Formula
   url "https://github.com/basho/riak.git",
       :tag      => "riak-2.2.3",
       :revision => "d96b67eeb5f934c673ee8e5c75c00a3861f388aa"
+  revision 1
 
   bottle do
     sha256 "163efe4af2492bd3885aebeafb894c2ec5f6c3cbc08cdfaf78de07deaf645336" => :high_sierra
