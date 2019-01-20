@@ -6,8 +6,9 @@ class Webp < Formula
 
   bottle do
     cellar :any
-    sha256 "2c4121390441467ced55577aa10552ac3a5fbfe8deff280d487a61ff7bb2d3f8" => :mojave
-    sha256 "516715778a85358459a7214b2d1bd64185642d8a3e974cdfbc2f122e24459b73" => :sierra
+    sha256 "e481c511582d5e23078c6a19fb224afe625422a457eaaeea8183c229947a9ced" => :mojave
+    sha256 "d045f6c3963381fb509c8f752e89a5d48c623d6622bff8c68c8f4327924796ff" => :high_sierra
+    sha256 "95e05535e7701de8ced6c4a98ecc9af78e87c06a0c69c4bcdb00fdc9c566d531" => :sierra
   end
 
   head do
