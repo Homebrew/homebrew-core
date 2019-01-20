@@ -21,19 +21,17 @@ class Latex2rtf < Formula
                    "CFGDIR=#{pkgshare}/cfg",
                    "install"
   end
+
   test do
     (testpath/"test.tex").write <<~EOS
-      \documentclass[12pt,twoside,a4paper]{article}
-      \begin{document}
-      a small \LaTeX document
-      \end{document}
       \\documentclass{article}
-      \\title{Latex to RTF}
+      \\title{LaTeX to RTF}
       \\begin{document}
       \\maketitle
       \\end{document}
     EOS
     system bin/"latex2rtf", "test.tex"
     assert_predicate testpath/"test.rtf", :exist?
+    assert_match "LaTeX to RTF", File.read(testpath/"test.rtf")
   end
 end
