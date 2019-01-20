@@ -16,10 +16,7 @@ class Xapian < Formula
   option "with-ruby", "Ruby bindings"
 
   deprecated_option "ruby" => "with-ruby"
-  deprecated_option "with-python" => "with-python@2"
 
-  depends_on "python@2" => :optional
-  depends_on "sphinx-doc" => :build if build.with? "python@2"
   depends_on "ruby" => :optional if MacOS.version <= :sierra
 
   skip_clean :la
@@ -35,7 +32,7 @@ class Xapian < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    if build.with?("ruby") || build.with?("python@2")
+    if build.with?("ruby")
       resource("bindings").stage do
         ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
 
@@ -48,21 +45,6 @@ class Xapian < Formula
           ruby_site = lib/"ruby/site_ruby"
           ENV["RUBY_LIB"] = ENV["RUBY_LIB_ARCH"] = ruby_site
           args << "--with-ruby"
-        end
-
-        if build.with? "python@2"
-          # https://github.com/Homebrew/homebrew-core/issues/2422
-          ENV.delete("PYTHONDONTWRITEBYTECODE")
-
-          (lib/"python2.7/site-packages").mkpath
-          ENV["PYTHON_LIB"] = lib/"python2.7/site-packages"
-
-          ENV.append_path "PYTHONPATH",
-                          Formula["sphinx-doc"].opt_libexec/"lib/python2.7/site-packages"
-          ENV.append_path "PYTHONPATH",
-                          Formula["sphinx-doc"].opt_libexec/"vendor/lib/python2.7/site-packages"
-
-          args << "--with-python"
         end
 
         system "./configure", *args
