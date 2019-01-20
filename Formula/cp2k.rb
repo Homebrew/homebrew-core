@@ -5,9 +5,9 @@ class Cp2k < Formula
   sha256 "af803558e0a6b9e9d9ce8a3ab955ba32bacd179922455424e061c82c9fefa34b"
 
   bottle do
-    sha256 "e6661ebbbe0fc750e0ac29b5af3c446ddf9cada8f591e4213a92062ff6712143" => :mojave
-    sha256 "17cdb9a1f81822af9d6c1c38a5b5039048d6eac2872e21cbd7b180e10d5661f7" => :high_sierra
-    sha256 "dbf6ab8c96d9b9e6e8042af33d82fd709712987044620ef10cd4b8cf7be6b8f4" => :sierra
+    sha256 "e42f801db8413f396167a2c4c71bb1d4e0ab5352bf176ea835a6d894b5740fc9" => :mojave
+    sha256 "886f8dd477a34f861724a52b62bf519dd945dd1c7e5f4f3bbed0785493ebf6ec" => :high_sierra
+    sha256 "1feda0f7944c4a7e9e5832657665495ab0330230acc0ddcf4197600408eec1f5" => :sierra
   end
 
   depends_on "fftw"
