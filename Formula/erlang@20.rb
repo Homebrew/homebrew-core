@@ -4,6 +4,7 @@ class ErlangAT20 < Formula
   # Download tarball from GitHub; it is served faster than the official tarball.
   url "https://github.com/erlang/otp/archive/OTP-20.3.8.18.tar.gz"
   sha256 "b3f4a353b633d4267a23a9b3d77c74b19b100545207e6b6bd065cde265395024"
+  revision 1
 
   bottle do
     cellar :any
