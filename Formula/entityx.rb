@@ -4,6 +4,13 @@ class Entityx < Formula
   url "https://github.com/alecthomas/entityx/archive/1.3.0.tar.gz"
   sha256 "2cd56d4fc5c553b786b8caf0b5bd9231434f21d43ca0e963d3bc5ee503a06222"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "5d2b3d80d9be39b08b61003fe0f8c30bf8aec792636b78e475fbbbb55d3e01a7" => :mojave
+    sha256 "b015609cd7e4ad7154e846a34e91627a605983ab3e3f1767df5ccf7e46cc9d10" => :high_sierra
+    sha256 "d0ecde656ac88f1f312d69894a32330827cd52ac64a7e20d1357a0a9bbe8d596" => :sierra
+  end
+
   depends_on "cmake" => :build
 
   def install
