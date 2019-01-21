@@ -47,13 +47,13 @@ class Octave < Formula
   depends_on "pstoedit"
   depends_on "qhull"
   depends_on "qrupdate"
+  depends_on "qt"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
   depends_on "texinfo"
   depends_on "veclibfort"
 
-  depends_on "qt" => :optional
 
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
@@ -62,16 +62,13 @@ class Octave < Formula
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
     # cause linking problems.
-    inreplace "src/mkoctfile.in.cc", /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/, '""'
+    inreplace "src/mkoctfile.in.cc",
+              /%OCTAVE_CONF_OCT(AVE)?_LINK_(DEPS|OPTS)%/,
+              '""'
 
-    args = []
-    if build.with? "qt"
-      # Stuff for Qt 5.12 compatibility
-      # https://savannah.gnu.org/bugs/?55187
-      ENV["QCOLLECTIONGENERATOR"]="qhelpgenerator"
-    else
-      args << "--without-qt"
-    end
+    # Qt 5.12 compatibility
+    # https://savannah.gnu.org/bugs/?55187
+    ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
@@ -85,8 +82,7 @@ class Octave < Formula
                           "--with-x=no",
                           "--with-blas=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort",
                           "--with-portaudio",
-                          "--with-sndfile",
-                          *args
+                          "--with-sndfile"
     system "make", "all"
 
     # Avoid revision bumps whenever fftw's or gcc's Cellar paths change
