@@ -8,6 +8,7 @@ class GitFresh < Formula
 
   def install
     system "./install.sh", bin
+    man1.install "git-fresh.1"
   end
 
   test do
