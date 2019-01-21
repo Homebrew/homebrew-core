@@ -4,9 +4,9 @@ class Coreutils < Formula
   url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.30.tar.xz"
   mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.30.tar.xz"
   sha256 "e831b3a86091496cdba720411f9748de81507798f6130adeaef872d206e1b057"
+  revision 1
 
   bottle do
-    rebuild 2
     sha256 "7ae7e78a769306a603165a04b9af47fad86af275cc748ce669e557dc0cae3cce" => :mojave
     sha256 "7baed00bd79f22c733d6a1ba11d130dbc4bb87177ed5fddb234f335dd9776c62" => :high_sierra
     sha256 "d9473848f0c916ad5994eaa5f9ed9efca533ced6aab095687272e782202884bb" => :sierra
@@ -24,10 +24,13 @@ class Coreutils < Formula
     depends_on "xz" => :build
   end
 
+  conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
+  conflicts_with "b2sum", :because => "both install `b2sum` binaries"
   conflicts_with "ganglia", :because => "both install `gstat` binaries"
   conflicts_with "gegl", :because => "both install `gcut` binaries"
   conflicts_with "idutils", :because => "both install `gid` and `gid.1`"
-  conflicts_with "aardvark_shell_utils", :because => "both install `realpath` binaries"
+  conflicts_with "md5sha1sum", :because => "both install `md5sum` and `sha1sum` binaries"
+  conflicts_with "truncate", :because => "both install `truncate` binaries"
 
   def install
     if MacOS.version == :el_capitan
@@ -62,12 +65,17 @@ class Coreutils < Formula
     coreutils_filenames(man1).each do |cmd|
       (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
     end
+    libexec.install_symlink "gnuman" => "man"
 
     # Symlink non-conflicting binaries
-    bin.install_symlink "grealpath" => "realpath"
-    man1.install_symlink "grealpath.1" => "realpath.1"
-
-    libexec.install_symlink "gnuman" => "man"
+    no_conflict = %w[
+      b2sum base32 chcon dir dircolors hostid md5sum nproc numfmt pinky ptx realpath runcon
+      sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf stdbuf tac timeout truncate vdir
+    ]
+    no_conflict.each do |cmd|
+      bin.install_symlink "g#{cmd}" => cmd
+      man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"
+    end
   end
 
   def caveats; <<~EOS
