@@ -5,9 +5,11 @@ class Pygobject3 < Formula
   sha256 "2dc1a1a444b82955e65b81c2a2511ecf8032404beba4ef1d48144168f2f64c43"
 
   bottle do
-    sha256 "c4004732688326f968423751c18861a21297e36bd628bd19e0c410747d60f07a" => :mojave
-    sha256 "342769a9ab3cbb29bd30368cb4ef7024821f45032f185c952dfdc9b32ccb4b39" => :high_sierra
-    sha256 "34cb3f702e580475d18bb44652fdcfb02041a1a7153246e2b710df17576b93e4" => :sierra
+    cellar :any
+    rebuild 1
+    sha256 "b2e5a251c6d41ad8b039ea1637c39aabbfa3e055366124c7461f65711e210b68" => :mojave
+    sha256 "4ac894ae8761c85bceade1626bd4c7afd1850ad8fceb32cbe2a6a852121a2661" => :high_sierra
+    sha256 "b5494a628c4b090acc17a6f7510672ed8e1c9487261bffd386368d1c93f23012" => :sierra
   end
 
   depends_on "meson" => :build
