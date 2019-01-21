@@ -27,7 +27,7 @@ class Apcupsd < Formula
 
     cd "platforms/darwin" do
       # Install launch daemon and kernel extension to subdirectories of `prefix`.
-      inreplace "Makefile", "/Library/LaunchDaemons", "#{prefix}/Library/LaunchDaemons"
+      inreplace "Makefile", "/Library/LaunchDaemons", "#{lib}/Library/LaunchDaemons"
       inreplace "Makefile", "/System/Library/Extensions", kext_prefix
 
       # Use appropriate paths for launch daemon and launch script.
