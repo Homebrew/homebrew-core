@@ -11,14 +11,12 @@ class Bigloo < Formula
     sha256 "f3db359b927e3ac6175aac63ca06515738358d9509a137adf4cf8dbbc4ead0ce" => :sierra
   end
 
-  option "with-jvm", "Enable JVM support"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  depends_on "gmp"
   depends_on "openssl"
-  depends_on "gmp" => :recommended
 
   fails_with :clang do
     build 500
@@ -42,10 +40,8 @@ class Bigloo < Formula
       --disable-mpg123
       --disable-flac
       --disable-srfi27
+      --jvm=yes
     ]
-
-    args << "--jvm=yes" if build.with? "jvm"
-    args << "--no-gmp" if build.without? "gmp"
 
     system "./configure", *args
 
