@@ -10,28 +10,32 @@ class Pygobject3 < Formula
     sha256 "34cb3f702e580475d18bb44652fdcfb02041a1a7153246e2b710df17576b93e4" => :sierra
   end
 
-  option "without-python", "Build without python3 support"
-  option "with-python@2", "Build with python2 support"
-
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => [:build, :recommended]
   depends_on "gobject-introspection"
-  depends_on "py3cairo" if build.with? "python"
-  depends_on "python@2" => :optional
-  depends_on "py2cairo" if build.with? "python@2"
+  depends_on "py2cairo"
+  depends_on "py3cairo"
+  depends_on "python"
+  depends_on "python@2"
 
   def install
-    Language::Python.each_python(build) do |python, version|
-      mkdir "build#{version}" do
-        system "meson", "--prefix=#{prefix}",
-                        "-Dpycairo=true",
-                        "-Dpython=#{python}",
-                        ".."
-        system "ninja", "-v"
-        system "ninja", "install"
-      end
+    mkdir "buildpy2" do
+      system "meson", "--prefix=#{prefix}",
+                      "-Dpycairo=true",
+                      "-Dpython=python2.7",
+                      ".."
+      system "ninja", "-v"
+      system "ninja", "install"
+    end
+
+    mkdir "buildpy3" do
+      system "meson", "--prefix=#{prefix}",
+                      "-Dpycairo=true",
+                      "-Dpython=python3",
+                      ".."
+      system "ninja", "-v"
+      system "ninja", "install"
     end
   end
 
