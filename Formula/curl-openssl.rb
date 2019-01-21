@@ -11,6 +11,14 @@ class CurlOpenssl < Formula
     sha256 "db12566c19bcc3a96dbbb45a244f09dc8c5b2056f758250d8bbbda7e3dacb588" => :sierra
   end
 
+  head do
+    url "https://github.com/curl/curl.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
@@ -25,6 +33,8 @@ class CurlOpenssl < Formula
   depends_on "rtmpdump"
 
   def install
+    system "./buildconf" if build.head?
+
     # Allow to build on Lion, lowering from the upstream setting of 10.8
     ENV.append_to_cflags "-mmacosx-version-min=10.7" if MacOS.version <= :lion
 
