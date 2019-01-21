@@ -5,11 +5,6 @@ class Ungit < Formula
   homepage "https://github.com/FredrikNoren/ungit"
   url "https://registry.npmjs.org/ungit/-/ungit-1.4.36.tgz"
   sha256 "3bb07b99e2616afd3059809768036eaefd92d1a62cfab9dc087b9405933ec7f4"
-  head "https://github.com/FredrikNoren/ungit.git"
-
-  bottle do
-    cellar :any_skip_relocation
-  end
 
   depends_on "node"
 
@@ -19,6 +14,8 @@ class Ungit < Formula
   end
 
   test do
+    # this app launches a web server but does not provide any command-line to test;
+    # so just run the version number display to make sure that works at least:
     system bin/"ungit", "--version"
   end
 end
