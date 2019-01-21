@@ -13,20 +13,14 @@ class Opencolorio < Formula
     sha256 "9eac0c648be323730035b3885b376db665408f02290efa9dd1263655029a914f" => :el_capitan
   end
 
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python@2" => :optional
+  depends_on "python@2"
 
   def install
     args = std_cmake_args
     args << "-DCMAKE_VERBOSE_MAKEFILE=OFF"
-
-    # OCIO's PyOpenColorIO.so doubles as a shared library. So it lives in lib, rather
-    # than the usual HOMEBREW_PREFIX/lib/python2.7/site-packages per developer choice.
-    args << "-DOCIO_BUILD_PYGLUE=OFF" if build.without? "python@2"
 
     mkdir "macbuild" do
       system "cmake", *args, ".."
@@ -39,17 +33,14 @@ class Opencolorio < Formula
     <<~EOS
       OpenColorIO requires several environment variables to be set.
       You can source the following script in your shell-startup to do that:
-
-          #{HOMEBREW_PREFIX}/share/ocio/setup_ocio.sh
+        #{HOMEBREW_PREFIX}/share/ocio/setup_ocio.sh
 
       Alternatively the documentation describes what env-variables need set:
-
-          http://opencolorio.org/installation.html#environment-variables
+        http://opencolorio.org/installation.html#environment-variables
 
       You will require a config for OCIO to be useful. Sample configuration files
       and reference images can be found at:
-
-          http://opencolorio.org/downloads.html
+        http://opencolorio.org/downloads.html
     EOS
   end
 
