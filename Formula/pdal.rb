@@ -3,7 +3,7 @@ class Pdal < Formula
   homepage "https://www.pdal.io/"
   url "https://github.com/PDAL/PDAL/archive/1.8.0.tar.gz"
   sha256 "ef3a32c06865383feac46fd7eb7491f034cad6b0b246b3c917271ae0c8f25b69"
-  revision 1
+  revision 2
   head "https://github.com/PDAL/PDAL.git"
 
   bottle do
