@@ -7,10 +7,10 @@ class Xapian < Formula
 
   bottle do
     cellar :any
-    sha256 "72404e4891d872f5e80d4af61f6692c62457673ae888c89190c0c13de022ead6" => :mojave
-    sha256 "088f14bc829dbafed8e02666e7f6a276c7013c6b04d0e3eb0a9602c2605aaec8" => :high_sierra
-    sha256 "95e3a0b7950ef9b51ed0c385f9431f1f99a883fef3790de851fca3ea741e051b" => :sierra
-    sha256 "1ee62f239e87de8a4ba26c7f74eaefff7ec4841e83a01dbcf14d4a2c712781c0" => :el_capitan
+    rebuild 1
+    sha256 "424ac432e892cfc455f6fcd8ae7608b44d76d39a73361b3b56d143ac30921b8c" => :mojave
+    sha256 "32e3b96b619d8f39e6f2d5a32fb0f9b9fb0e1378fcfdbb2a163eb549798e10e1" => :high_sierra
+    sha256 "adfbefe2380111b93f1ebce01311bf8a1d07f91715e90b33134457604772d41d" => :sierra
   end
 
   option "with-ruby", "Ruby bindings"
