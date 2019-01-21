@@ -27,6 +27,11 @@ class Couchdb < Formula
   depends_on "icu4c"
   depends_on "spidermonkey"
 
+  # Allow overwriting old configuration with new symlinks.
+  link_overwrite "etc/couchdb/default.ini"
+  link_overwrite "etc/couchdb/local.ini"
+  link_overwrite "etc/logrotate.d/couchdb"
+
   def install
     # CouchDB >=1.3.0 supports vendor names and versioning
     # in the welcome message
@@ -44,7 +49,7 @@ class Couchdb < Formula
 
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}",
+                          "--sysconfdir=#{prefix}/etc",
                           "--disable-init",
                           "--with-erlang=#{Formula["erlang@19"].opt_lib}/erlang/usr/include",
                           "--with-js-include=#{HOMEBREW_PREFIX}/include/js",
@@ -61,21 +66,6 @@ class Couchdb < Formula
     (var/"lib/couchdb").mkpath
     (var/"log/couchdb").mkpath
     (var/"run/couchdb").mkpath
-    # default.ini is owned by CouchDB and marked not user-editable
-    # and must be overwritten to ensure correct operation.
-    if (etc/"couchdb/default.ini.default").exist?
-      # but take a backup just in case the user didn't read the warning.
-      mv etc/"couchdb/default.ini", etc/"couchdb/default.ini.old"
-      mv etc/"couchdb/default.ini.default", etc/"couchdb/default.ini"
-    end
-  end
-
-  def caveats; <<~EOS
-    To test CouchDB run:
-        curl http://127.0.0.1:5984/
-    The reply should look like:
-        {"couchdb":"Welcome","uuid":"....","version":"#{version}","vendor":{"version":"#{version}-1","name":"Homebrew"}}
-  EOS
   end
 
   plist_options :manual => "couchdb"
@@ -107,7 +97,7 @@ class Couchdb < Formula
     (testpath/"var/lib/couchdb").mkpath
     (testpath/"var/log/couchdb").mkpath
     (testpath/"var/run/couchdb").mkpath
-    cp_r etc/"couchdb", testpath
+    cp_r prefix/"etc/couchdb", testpath
     inreplace "#{testpath}/couchdb/default.ini", "/usr/local/var", testpath/"var"
 
     pid = fork do
