@@ -38,9 +38,6 @@ class Subversion < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
 
-  # Other optional dependencies
-  depends_on :java => ["1.8+", :optional]
-
   # When building Perl or Ruby bindings, need to use a compiler that
   # recognizes GCC-style switches, since that's what the system languages
   # were compiled against.
@@ -80,12 +77,6 @@ class Subversion < Formula
       system "scons", "install"
     end
 
-    if build.with? "java"
-      # Java support doesn't build correctly in parallel:
-      # https://github.com/Homebrew/homebrew/issues/20415
-      ENV.deparallelize
-    end
-
     # Use existing system zlib
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
@@ -107,8 +98,6 @@ class Subversion < Formula
       --without-gpg-agent
       RUBY=/usr/bin/ruby
     ]
-
-    args << "--enable-javahl" << "--without-jikes" if build.with? "java"
 
     # The system Python is built with llvm-gcc, so we override this
     # variable to prevent failures due to incompatible CFLAGS
@@ -151,18 +140,13 @@ class Subversion < Formula
     # only contains the perllocal.pod installation file.
     rm_rf prefix/"Library/Perl"
 
-    if build.with? "java"
-      system "make", "javahl"
-      system "make", "install-javahl"
-    end
-
     # Peg to system Ruby
     system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
     system "make", "install-swig-rb"
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       svntools have been installed to:
         #{opt_libexec}
 
@@ -173,17 +157,6 @@ class Subversion < Formula
         #{HOMEBREW_PREFIX}/lib/ruby
       to your RUBYLIB.
     EOS
-
-    if build.with? "java"
-      s += "\n"
-      s += <<~EOS
-        You may need to link the Java bindings into the Java Extensions folder:
-          sudo mkdir -p /Library/Java/Extensions
-          sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib
-      EOS
-    end
-
-    s
   end
 
   test do
@@ -199,9 +172,9 @@ index a60430b..bd9b017 100644
 --- a/subversion/bindings/swig/perl/native/Makefile.PL.in
 +++ b/subversion/bindings/swig/perl/native/Makefile.PL.in
 @@ -76,10 +76,13 @@ my $apr_ldflags = '@SVN_APR_LIBS@'
- 
+
  chomp $apr_shlib_path_var;
- 
+
 +my $config_ccflags = $Config{ccflags};
 +$config_ccflags =~ s/-arch\s+\S+//g;
 +
