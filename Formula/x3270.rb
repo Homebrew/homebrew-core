@@ -11,10 +11,7 @@ class X3270 < Formula
     sha256 "c82c4f5ceb379a44acab4592f3d1d9cd05d499541b806397bd656e2152474815" => :el_capitan
   end
 
-  option "with-x11", "Include x3270 (X11-based version)"
-
   depends_on "openssl"
-  depends_on :x11 => :optional
 
   def install
     args = %W[
