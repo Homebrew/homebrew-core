@@ -111,6 +111,7 @@ class Llvm < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
+  depends_on :xcode => :build
   depends_on "libffi"
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
