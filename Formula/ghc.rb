@@ -61,8 +61,6 @@ class Ghc < Formula
     sha256 "d254cb0982a27a21c97bd50337d34ff8c5ce229cca7b237e672b1e4b67845c6e"
   end
 
-  patch :DATA
-
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
@@ -85,7 +83,7 @@ class Ghc < Formula
     gmp = libexec/"integer-gmp"
 
     # MPN_PATH: The lowest common denominator asm paths that work on Darwin,
-    # corresponding to Yonah and Merom. Obviates --disable-assembly.
+    # corresponding to Yonah and Merom.
     ENV["MPN_PATH"] = "x86_64/fastsse x86_64/core2 x86_64 generic" if build.bottle?
 
     # GMP *does not* use PIC by default without shared libs so --with-pic
