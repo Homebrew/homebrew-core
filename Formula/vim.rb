@@ -5,6 +5,7 @@ class Vim < Formula
   url "https://github.com/vim/vim/archive/v8.1.0750.tar.gz"
   sha256 "3ae7deca957d48a61b72bd34c6ee9869583a4978bc27367b023a1cae506899be"
   head "https://github.com/vim/vim.git"
+  revision 1
 
   bottle do
     cellar :any
