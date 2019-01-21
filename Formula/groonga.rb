@@ -19,11 +19,11 @@ class Groonga < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "mecab"
+  depends_on "mecab-ipadic"
   depends_on "msgpack"
   depends_on "openssl"
   depends_on "pcre"
-  depends_on "mecab" => :optional
-  depends_on "mecab-ipadic" if build.with? "mecab"
 
   link_overwrite "lib/groonga/plugins/normalizers/"
   link_overwrite "share/doc/groonga-normalizer-mysql/"
@@ -42,9 +42,8 @@ class Groonga < Formula
       --with-ssl
       --with-zlib
       --without-libstemmer
+      --with-mecab
     ]
-
-    args << "--with-mecab" if build.with? "mecab"
 
     if build.head?
       args << "--with-ruby"
