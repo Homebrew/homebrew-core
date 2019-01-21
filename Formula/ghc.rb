@@ -56,11 +56,6 @@ class Ghc < Formula
     sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
   end
 
-  resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.6.3/ghc-8.6.3-testsuite.tar.xz"
-    sha256 "d254cb0982a27a21c97bd50337d34ff8c5ce229cca7b237e672b1e4b67845c6e"
-  end
-
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
@@ -140,18 +135,8 @@ class Ghc < Formula
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
-
-    if build.bottle?
-      resource("testsuite").stage { buildpath.install Dir["*"] }
-      cd "testsuite" do
-        system "make", "clean"
-        ENV.deparallelize do
-          system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
-        end
-      end
-    end
-
     ENV.deparallelize { system "make", "install" }
+
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
   end
 
