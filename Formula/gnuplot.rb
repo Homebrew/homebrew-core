@@ -19,37 +19,19 @@ class Gnuplot < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-aquaterm", "Build with AquaTerm support"
-  option "with-wxmac", "Build with wxmac support"
-
-  deprecated_option "qt" => "with-qt"
-  deprecated_option "with-qt5" => "with-qt"
-  deprecated_option "with-x" => "with-x11"
-  deprecated_option "wx" => "with-wxmac"
-
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
+  depends_on "qt"
   depends_on "readline"
-  depends_on "qt" => :optional
-  depends_on "wxmac" => :optional
-  depends_on :x11 => :optional
 
-  needs :cxx11 if build.with? "qt"
+  needs :cxx11
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11 if build.with? "qt"
-
-    if build.with? "aquaterm"
-      # Add "/Library/Frameworks" to the default framework search path, so that an
-      # installed AquaTerm framework can be found. Brew does not add this path
-      # when building against an SDK (Nov 2013).
-      ENV.prepend "CPPFLAGS", "-F/Library/Frameworks"
-      ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
-    end
+    ENV.cxx11
 
     args = %W[
       --disable-dependency-tracking
@@ -57,29 +39,16 @@ class Gnuplot < Formula
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
       --without-tutorial
+      --disable-wxwidgets
+      --with-qt
+      --without-x
     ]
-
-    args << "--disable-wxwidgets" if build.without? "wxmac"
-    args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
-    args << (build.with?("qt") ? "--with-qt" : "--with-qt=no")
-    args << (build.with?("x11") ? "--with-x" : "--without-x")
 
     system "./prepare" if build.head?
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    if build.with? "aquaterm"
-      <<~EOS
-        AquaTerm support will only be built into Gnuplot if the standard AquaTerm
-        package from SourceForge has already been installed onto your system.
-        If you subsequently remove AquaTerm, you will need to uninstall and then
-        reinstall Gnuplot.
-      EOS
-    end
   end
 
   test do
