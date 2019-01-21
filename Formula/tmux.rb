@@ -20,7 +20,6 @@ class Tmux < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "utf8proc" => :optional
 
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
@@ -35,8 +34,6 @@ class Tmux < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}
     ]
-
-    args << "--enable-utf8proc" if build.with?("utf8proc")
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args
