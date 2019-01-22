@@ -7,9 +7,10 @@ class VimAT74 < Formula
 
   bottle do
     cellar :any
-    sha256 "18867439556347ed829fc7bef2865f957bd8785b0ac44629e687cdedb6b624ba" => :mojave
-    sha256 "d6b2ef5343bb627902044c1b7308247313a01c4423e66218748bd33d836ceda0" => :high_sierra
-    sha256 "4f7321b2f4a244b305c78666aefe4c45a3cb832f75b67d60b26f180f4e5391f6" => :sierra
+    rebuild 1
+    sha256 "07e17ac1f0297aa4687246f4be0bdfe2bb2519d572bb241e2b140144c5d83c00" => :mojave
+    sha256 "3ed0f2eba1e8c9b93772de5fb8d605e1a532d0452c69fb2209ded1c81fd66762" => :high_sierra
+    sha256 "88c7c348586082d8ab79fbd20332d9dc652a181c74e16957333eaacac2f7ab73" => :sierra
   end
 
   keg_only :versioned_formula
