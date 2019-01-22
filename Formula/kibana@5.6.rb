@@ -72,7 +72,7 @@ class KibanaAT56 < Formula
   EOS
   end
 
-  plist_options :manual => "kibana"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/kibana@5.6/bin/kibana"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
