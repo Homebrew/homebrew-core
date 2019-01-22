@@ -24,20 +24,11 @@ class Graphviz < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-app", "Build GraphViz.app (requires full XCode install)"
-  option "with-gts", "Build with GNU GTS support (required by prism)"
-  option "with-pango", "Build with Pango/Cairo for alternate PDF output"
-
-  deprecated_option "with-pangocairo" => "with-pango"
-
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build if build.with? "app"
   depends_on "gd"
+  depends_on "gts"
   depends_on "libpng"
   depends_on "libtool"
-  depends_on "gts" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "pango" => :optional
 
   def install
     # Only needed when using superenv, which causes qfrexp and qldexp to be
@@ -59,10 +50,8 @@ class Graphviz < Formula
       --without-freetype2
       --without-qt
       --without-x
+      --with-gts
     ]
-    args << "--with-gts" if build.with? "gts"
-    args << "--without-pangocairo" if build.without? "pango"
-    args << "--without-rsvg" if build.without? "librsvg"
 
     if build.head?
       system "./autogen.sh", *args
@@ -70,14 +59,6 @@ class Graphviz < Formula
       system "./configure", *args
     end
     system "make", "install"
-
-    if build.with? "app"
-      cd "macosx" do
-        xcodebuild "SDKROOT=#{MacOS.sdk_path}", "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}",
-                   "ONLY_ACTIVE_ARCH=YES", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
-      end
-      prefix.install "macosx/build/Release/Graphviz.app"
-    end
 
     (bin/"gvmap.sh").unlink
   end
