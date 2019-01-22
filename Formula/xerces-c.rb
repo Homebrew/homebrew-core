@@ -24,6 +24,10 @@ class XercesC < Formula
       system "make"
       system "ctest", "-V"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
+      system "make"
+      lib.install Dir["src/*.a"]
     end
     # Remove a sample program that conflicts with libmemcached
     # on case-insensitive file systems
