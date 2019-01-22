@@ -23,6 +23,10 @@ class Jasper < Formula
       system "make"
       system "make", "test"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DGLUT_glut_LIBRARY=#{glut_lib}", "-DJAS_ENABLE_SHARED=OFF", *std_cmake_args
+      system "make"
+      lib.install "src/libjasper/libjasper.a"
     end
   end
 
