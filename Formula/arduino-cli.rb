@@ -18,13 +18,13 @@ class ArduinoCli < Formula
   end
 
   test do
-    config = File.open(".cli-config.yml", "w")
+    config = File.open("#{bin}/.cli-config.yml", "w")
     config.write <<~EOS
     - paths:
-    - sketchbook_path: #{buildpath}
+      - sketchbook_path: #{testpath}
     EOS
-    system "#{bin}/arduino-cli", "sketch", "new", "TestSketch"
-    code = File.open("TestSketch/TestSketch.ino", "r")
+    system "#{bin}/arduino-cli sketch new --debug TestSketch"
+    code = File.open(testpath"/TestSketch/TestSketch.ino", "rb")
     assert_equal "void setup() {
 }
 
