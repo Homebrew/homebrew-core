@@ -75,12 +75,6 @@ class FfmpegAT28 < Formula
     ]
     args << "--enable-opencl" if MacOS.version > :lion
 
-    if build.with? "openjpeg"
-      args << "--enable-libopenjpeg"
-      args << "--disable-decoder=jpeg2000"
-      args << "--extra-cflags=" + `pkg-config --cflags libopenjpeg`.chomp
-    end
-
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
     # prevents GCC from building VDA support. GCC has no problems on
     # 10.9 and earlier.
