@@ -19,10 +19,6 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
-  option "with-java", "Build Java bindings"
-
-  deprecated_option "java" => "with-java"
-
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
