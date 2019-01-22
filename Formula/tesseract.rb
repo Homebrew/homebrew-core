@@ -12,12 +12,6 @@ class Tesseract < Formula
     sha256 "ca1d2d2c38cc2f3054bf3b9692977b217dc060dcfe77af5f84f767d0dbac5150" => :sierra
   end
 
-  option "with-all-languages", "Install recognition data for all languages"
-  option "with-training-tools", "Install OCR training tools"
-  option "with-serial-num-pack", "Install serial number recognition pack"
-
-  deprecated_option "all-languages" => "with-all-languages"
-
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
@@ -26,15 +20,6 @@ class Tesseract < Formula
 
   depends_on "leptonica"
   depends_on "libtiff"
-
-  if build.with? "training-tools"
-    depends_on "libtool" => :build
-    depends_on "icu4c"
-    depends_on "glib"
-    depends_on "cairo"
-    depends_on "pango"
-    depends_on :x11
-  end
 
   resource "tessdata" do
     url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
@@ -59,12 +44,6 @@ class Tesseract < Formula
   needs :cxx11
 
   def install
-    if build.with? "training-tools"
-      icu4c = Formula["icu4c"]
-      ENV.append "CFLAGS", "-I#{icu4c.opt_include}"
-      ENV.append "LDFLAGS", "-L#{icu4c.opt_lib}"
-    end
-
     # explicitly state leptonica header location, as the makefile defaults to /usr/local/include,
     # which doesn't work for non-default homebrew location
     ENV["LIBLEPT_HEADERSDIR"] = HOMEBREW_PREFIX/"include"
@@ -75,19 +54,9 @@ class Tesseract < Formula
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
 
     system "make", "install"
-    if build.with? "serial-num-pack"
-      resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
-    end
-    if build.with? "training-tools"
-      system "make", "training"
-      system "make", "training-install"
-    end
-    if build.with? "all-languages"
-      resource("tessdata").stage { mv Dir["*"], share/"tessdata" }
-    else
-      resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
-      resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
-    end
+
+    resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
+    resource("tessdata").stage { mv Dir["*"], share/"tessdata" }
   end
 
   test do
