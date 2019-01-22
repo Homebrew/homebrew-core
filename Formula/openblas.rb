@@ -15,15 +15,12 @@ class Openblas < Formula
   keg_only :provided_by_macos,
            "macOS provides BLAS and LAPACK in the Accelerate framework"
 
-  option "with-openmp", "Enable parallel computations with OpenMP"
-
   depends_on "gcc" # for gfortran
-
-  fails_with :clang if build.with? "openmp"
+  fails_with :clang
 
   def install
-    ENV["DYNAMIC_ARCH"] = "1" if build.bottle?
-    ENV["USE_OPENMP"] = "1" if build.with? "openmp"
+    ENV["DYNAMIC_ARCH"] = "1"
+    ENV["USE_OPENMP"] = "1"
 
     # Must call in two steps
     system "make", "CC=#{ENV.cc}", "FC=gfortran", "libs", "netlib", "shared"
