@@ -43,7 +43,7 @@ class Couchdb < Formula
 
     unless build.stable?
       # workaround for the auto-generation of THANKS file which assumes
-      # a developer build environment incl access to git sha
+      # aw developer build environment incl access to git sha
       touch "THANKS"
       system "./bootstrap"
     end
