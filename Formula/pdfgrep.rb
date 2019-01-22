@@ -21,8 +21,8 @@ class Pdfgrep < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
+  depends_on "pcre"
   depends_on "poppler"
-  depends_on "pcre" => :optional
 
   needs :cxx11
 
@@ -30,9 +30,7 @@ class Pdfgrep < Formula
     ENV.cxx11
     system "./autogen.sh" if build.head?
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    args << "--without-libpcre" if build.without? "pcre"
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "install"
