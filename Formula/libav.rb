@@ -13,10 +13,6 @@ class Libav < Formula
     sha256 "97188f142c5d4c358f191697c1d9b306594c7e8e0fa8f528e7cd398d9053fa6a" => :sierra
   end
 
-  option "with-openssl", "Enable SSL support"
-  option "with-sdl", "Enable avplay"
-  option "with-theora", "Enable Theora encoding via libtheora"
-
   depends_on "pkg-config" => :build
   # manpages won't be built without texi2html
   depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
@@ -29,12 +25,10 @@ class Libav < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opus"
+  depends_on "sdl"
+  depends_on "theora"
   depends_on "x264"
   depends_on "xvid"
-
-  depends_on "openssl" => :optional
-  depends_on "sdl" => :optional
-  depends_on "theora" => :optional
 
   # https://bugzilla.libav.org/show_bug.cgi?id=1033
   patch do
@@ -76,21 +70,14 @@ class Libav < Formula
       --enable-nonfree
       --enable-vda
       --enable-version3
+      --enable-libtheora
     ]
 
-    args << "--enable-libtheora" if build.with? "theora"
-    args << "--enable-openssl" if build.with? "openssl"
-
     system "./configure", *args
-
     system "make"
 
-    bin.install "avconv", "avprobe"
-    man1.install "doc/avconv.1", "doc/avprobe.1"
-    if build.with? "sdl"
-      bin.install "avplay"
-      man1.install "doc/avplay.1"
-    end
+    bin.install "avconv", "avprobe", "avplay"
+    man1.install "doc/avconv.1", "doc/avprobe.1", "doc/avplay.1"
   end
 
   test do
