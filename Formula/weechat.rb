@@ -12,23 +12,19 @@ class Weechat < Formula
     sha256 "630b354c0f7dc8c814a3d1d7c5c369c61f8111763e339d878ce5ebf0a2b7ad40" => :sierra
   end
 
-  option "with-perl", "Build the perl module"
-  option "with-ruby", "Build the ruby module"
-  option "with-curl", "Build with brewed curl"
-
   depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "aspell"
+  depends_on "curl"
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
+  depends_on "lua"
   depends_on "ncurses"
-  depends_on "aspell" => :optional
-  depends_on "curl" => :optional
-  depends_on "lua" => :optional
-  depends_on "perl" => :optional
-  depends_on "python@2" => :optional
-  depends_on "ruby" => :optional if MacOS.version <= :sierra
+  depends_on "perl"
+  depends_on "python@2"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   def install
     args = std_cmake_args + %W[
@@ -38,31 +34,15 @@ class Weechat < Formula
       -DENABLE_JAVASCRIPT=OFF
     ]
 
-    if build.without? "ruby"
-      args << "-DENABLE_RUBY=OFF"
-    elsif build.with?("ruby") && MacOS.version >= :sierra
+    if MacOS.version >= :sierra
       args << "-DRUBY_EXECUTABLE=/usr/bin/ruby"
       args << "-DRUBY_LIB=/usr/lib/libruby.dylib"
     end
-
-    args << "-DENABLE_LUA=OFF" if build.without? "lua"
-    args << "-DENABLE_PERL=OFF" if build.without? "perl"
-    args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
-    args << "-DENABLE_PYTHON=OFF" if build.without? "python@2"
 
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install", "VERBOSE=1"
     end
-  end
-
-  def caveats
-    <<~EOS
-      Weechat can depend on Aspell if you choose the --with-aspell option, but
-      Aspell should be installed manually before installing Weechat so that
-      you can choose the dictionaries you want.  If Aspell was installed
-      automatically as part of weechat, there won't be any dictionaries.
-    EOS
   end
 
   test do
