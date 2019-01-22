@@ -32,9 +32,6 @@ class Ocaml < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
-  option "with-x11", "Install with the Graphics module"
-  option "with-flambda", "Install with flambda support"
-
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
 
