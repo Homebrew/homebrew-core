@@ -49,15 +49,6 @@ class Gpac < Formula
 
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "a52dec" => :optional
-  depends_on "faad2" => :optional
-  depends_on "ffmpeg" => :optional
-  depends_on "jpeg" => :optional
-  depends_on "libogg" => :optional
-  depends_on "libvorbis" => :optional
-  depends_on "mad" => :optional
-  depends_on "sdl" => :optional
-  depends_on "theora" => :optional
 
   conflicts_with "bento4", :because => "both install `mp42ts` binaries"
 
