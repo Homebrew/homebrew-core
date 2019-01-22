@@ -2,8 +2,8 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      :tag      => "v1.6.1",
-      :revision => "153c40868b7e1a4f5c587f998209f60740ecc26c"
+      :tag      => "v1.6.2",
+      :revision => "b3197cf3caa797aa8689cd15da3518cc7149d2ad"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
@@ -14,7 +14,6 @@ class Mas < Formula
 
   depends_on "carthage" => :build
   depends_on :xcode => ["10.1", :build]
-  depends_on "trash"
 
   def install
     # Working around build issues in dependencies
