@@ -62,7 +62,7 @@ class S3ql < Formula
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    %w[certifi urllib3 idna chardet pycrypto defusedxml requests apsw dugong llfuse].each do |r|
+    resources.each do |r|
       venv.pip_install resource(r)
     end
 
@@ -71,6 +71,7 @@ class S3ql < Formula
     # with other tools on macOS.
     # Final names: fsck_s3ql, mkfs_s3ql, mount_s3ql, umount_s3ql
     inreplace "setup.py", /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="
+
     system libexec/"bin/python3", "setup.py", "build_ext", "--inplace"
     venv.pip_install_and_link buildpath
   end
