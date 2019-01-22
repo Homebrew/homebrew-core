@@ -1,5 +1,5 @@
 class Xapian < Formula
-  desc "C++ search engine library with many bindings"
+  desc "C++ search engine library"
   homepage "https://xapian.org/"
   url "https://oligarchy.co.uk/xapian/1.4.7/xapian-core-1.4.7.tar.xz"
   mirror "https://fossies.org/linux/www/xapian-core-1.4.7.tar.xz"
@@ -13,12 +13,6 @@ class Xapian < Formula
     sha256 "adfbefe2380111b93f1ebce01311bf8a1d07f91715e90b33134457604772d41d" => :sierra
   end
 
-  option "with-ruby", "Ruby bindings"
-
-  deprecated_option "ruby" => "with-ruby"
-
-  depends_on "ruby" => :optional if MacOS.version <= :sierra
-
   skip_clean :la
 
   resource "bindings" do
@@ -31,36 +25,6 @@ class Xapian < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
-
-    if build.with?("ruby")
-      resource("bindings").stage do
-        ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
-
-        args = %W[
-          --disable-dependency-tracking
-          --prefix=#{prefix}
-        ]
-
-        if build.with? "ruby"
-          ruby_site = lib/"ruby/site_ruby"
-          ENV["RUBY_LIB"] = ENV["RUBY_LIB_ARCH"] = ruby_site
-          args << "--with-ruby"
-        end
-
-        system "./configure", *args
-        system "make", "install"
-      end
-    end
-  end
-
-  def caveats
-    if build.with? "ruby"
-      <<~EOS
-        You may need to add the Ruby bindings to your RUBYLIB from:
-          #{HOMEBREW_PREFIX}/lib/ruby/site_ruby
-
-      EOS
-    end
   end
 
   test do
