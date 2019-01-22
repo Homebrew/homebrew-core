@@ -1,9 +1,9 @@
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
-  url "https://github.com/arduino/arduino-cli/archive/0.3.3-alpha.preview.tar.gz"
-  version "0.3.3-alpha"
-  sha256 "bd47c46efa9e3c72e1fa915f96e3aa9742fbf220e75ef254b44b3e6be8332d0e"
+  url "https://github.com/arduino/arduino-cli/archive/0.3.4-alpha.preview.tar.gz"
+  version "0.3.4-alpha"
+  sha256 "5ef20b59f27dc8ebeb6e3c6cd854ce3dd79fe2900189ea9bd8b4272ef83defb4"
 
   depends_on "go" => :build
 
@@ -18,12 +18,18 @@ class ArduinoCli < Formula
   end
 
   test do
+    config = File.open(".cli-config.yml", "w")
+    config.write <<~EOS
+    - paths:
+    - sketchbook_path: #{buildpath}
+    EOS
     system "#{bin}/arduino-cli", "sketch", "new", "TestSketch"
+    code = File.open("TestSketch/TestSketch.ino", "r")
     assert_equal "void setup() {
 }
 
 void loop() {
 }
-", shell_output("cat TestSketch")
+", code
   end
 end
