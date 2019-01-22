@@ -32,7 +32,6 @@ class Nghttp2 < Formula
   depends_on "libevent"
   depends_on "libxml2" if MacOS.version <= :lion
   depends_on "openssl"
-  depends_on "python" => :optional
 
   resource "Cython" do
     url "https://files.pythonhosted.org/packages/f0/f8/7f406aac4c6919d5a4ce16509bbe059cd256e9ad94bae5ccac14094b7c51/Cython-0.29.1.tar.gz"
@@ -63,22 +62,6 @@ class Nghttp2 < Formula
     system "make"
     system "make", "check"
     system "make", "install"
-
-    if build.with? "python"
-      pyver = Language::Python.major_minor_version "python3"
-      ENV["PYTHONPATH"] = cythonpath = buildpath/"cython/lib/python#{pyver}/site-packages"
-      cythonpath.mkpath
-      ENV.prepend_create_path "PYTHONPATH", lib/"python#{pyver}/site-packages"
-
-      resource("Cython").stage do
-        system "python3", *Language::Python.setup_install_args(buildpath/"cython")
-      end
-
-      cd "python" do
-        system buildpath/"cython/bin/cython", "nghttp2.pyx"
-        system "python3", *Language::Python.setup_install_args(prefix)
-      end
-    end
   end
 
   test do
