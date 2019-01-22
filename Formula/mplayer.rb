@@ -3,6 +3,7 @@ class Mplayer < Formula
   homepage "https://mplayerhq.hu/"
   url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz"
   sha256 "3ad0846c92d89ab2e4e6fb83bf991ea677e7aa2ea775845814cbceb608b09843"
+  revision 1
 
   bottle do
     sha256 "a58510833836fc243210b2c3be7ea688697fff59e7ae0c57074c8dcb11544981" => :mojave
@@ -22,10 +23,7 @@ class Mplayer < Formula
   end
 
   depends_on "yasm" => :build
-  depends_on "libcaca" => :optional
-  depends_on "libdvdnav" => :optional
-  depends_on "pkg-config" => :build if build.with? "libdvdnav"
-  depends_on "libdvdread" => :optional
+  depends_on "libcaca"
 
   def install
     # we disable cdparanoia because homebrew's version is hacked to work on macOS
@@ -38,16 +36,8 @@ class Mplayer < Formula
       --disable-cdparanoia
       --prefix=#{prefix}
       --disable-x11
+      --enable-caca
     ]
-
-    args << "--enable-caca" if build.with? "libcaca"
-    args << "--enable-dvdnav" if build.with? "libdvdnav"
-
-    if build.with? "libdvdread"
-      ENV["LDFLAGS"] = "-L#{Formula["libdvdread"].opt_lib} -ldvdread"
-      args << "--enable-dvdread"
-    end
-
     system "./configure", *args
     system "make"
     system "make", "install"
