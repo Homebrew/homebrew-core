@@ -15,15 +15,6 @@ class Swftools < Formula
     sha256 "900f2dd522f48c9ea72a3bf8dba53a8f0f35a4867dc68fab5dc85921a769c206" => :mountain_lion
   end
 
-  option "with-xpdf", "Build with PDF support"
-
-  depends_on :x11 if build.with? "xpdf"
-
-  resource "xpdf" do
-    url "https://src.fedoraproject.org/repo/pkgs/xpdf/xpdf-3.04.tar.gz/3bc86c69c8ff444db52461270bef3f44/xpdf-3.04.tar.gz", :using => :nounzip
-    sha256 "11390c74733abcb262aaca4db68710f13ffffd42bfe2a0861a5dfc912b2977e5"
-  end
-
   # Fixes a conftest for libfftwf.dylib that mistakenly calls fftw_malloc()
   # rather than fftwf_malloc().  Reported upstream to their mailing list:
   # https://lists.nongnu.org/archive/html/swftools-common/2012-04/msg00014.html
@@ -31,7 +22,6 @@ class Swftools < Formula
   patch :DATA
 
   def install
-    (buildpath/"lib/pdf").install resource("xpdf") if build.with? "xpdf"
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
@@ -46,7 +36,7 @@ __END__
 --- a/configure	2012-04-08 10:25:35.000000000 -0700
 +++ b/configure	2012-04-09 17:42:10.000000000 -0700
 @@ -6243,7 +6243,7 @@
- 
+
      int main()
      {
 -	char*data = fftw_malloc(sizeof(fftwf_complex)*600*800);
