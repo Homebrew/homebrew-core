@@ -9,9 +9,6 @@ class Ant < Formula
 
   keg_only :provided_by_macos if MacOS.version < :mavericks
 
-  option "with-ivy", "Install ivy dependency manager"
-  option "with-bcel", "Install Byte Code Engineering Library"
-
   depends_on :java => "1.8+"
 
   resource "ivy" do
@@ -33,15 +30,13 @@ class Ant < Formula
       #!/bin/sh
       #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
-    if build.with? "ivy"
-      resource("ivy").stage do
-        (libexec/"lib").install Dir["ivy-*.jar"]
-      end
+
+    resource("ivy").stage do
+      (libexec/"lib").install Dir["ivy-*.jar"]
     end
-    if build.with? "bcel"
-      resource("bcel").stage do
-        (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
-      end
+
+    resource("bcel").stage do
+      (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
     end
   end
 
