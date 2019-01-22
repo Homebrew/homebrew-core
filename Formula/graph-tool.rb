@@ -5,7 +5,7 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.27.tar.bz2"
   sha256 "4740c69720dfbebf8fb3e77057b3e6a257ccf0432cdaf7345f873247390e4313"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "7345b19af16c2bd6e75e2c4bc1a3b5d5f6edc3809c4500ab339d6f42c3bb6f73" => :mojave
