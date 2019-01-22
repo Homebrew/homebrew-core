@@ -9,7 +9,7 @@ class Swagger2markupCli < Formula
   sha256 "93ff10990f8279eca35b7ac30099460e557b073d48b52d16046ab1aeab248a0a"
 
   bottle :unneeded
-  depends_on :java => "1.8"
+  depends_on :java => "1.8+"
 
   def install
     libexec.install "swagger2markup-cli-#{version}.jar"
