@@ -11,8 +11,6 @@ class Graphicsmagick < Formula
     sha256 "2a55a11637c14270380f5ea6a614603fdf7f27455569ffe85eab6cbcf5ff0e6e" => :sierra
   end
 
-  option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
-
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "jasper"
@@ -20,10 +18,8 @@ class Graphicsmagick < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "libtool"
-  depends_on "ghostscript" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "little-cms2" => :optional
-  depends_on "webp" => :optional
+  depends_on "little-cms2"
+  depends_on "webp"
 
   skip_clean :la
 
@@ -38,38 +34,15 @@ class Graphicsmagick < Formula
       --with-quantum-depth=16
       --without-lzma
       --without-x
+      --without-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-wmf
     ]
-
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--with-perl" if build.with? "perl"
-    args << "--with-webp=no" if build.without? "webp"
-    args << "--without-lcms2" if build.without? "little-cms2"
-    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
-    if build.with? "perl"
-      cd "PerlMagick" do
-        # Install the module under the GraphicsMagick prefix
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
-        system "make"
-        system "make", "install"
-      end
-    end
-  end
-
-  def caveats
-    if build.with? "perl"
-      <<~EOS
-        The Graphics::Magick perl module has been installed under:
-
-          #{lib}
-
-      EOS
-    end
   end
 
   test do
