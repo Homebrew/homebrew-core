@@ -22,18 +22,18 @@ class Tass64 < Formula
     (testpath/"hello.asm").write <<~'EOS'
       ;; Simple "Hello World" program for C64
       *=$c000
-	LDY #$00
+        LDY #$00
       L0
-	LDA L1,Y
-	CMP #0
-	BEQ L2
-	JSR $FFD2
-	INY
-	JMP L0
+        LDA L1,Y
+        CMP #0
+        BEQ L2
+        JSR $FFD2
+        INY
+        JMP L0
       L1
-	.text "HELLO WORLD",0
+        .text "HELLO WORLD",0
       L2
-	RTS
+        RTS
     EOS
 
     system "#{bin}/64tass", "-a", "hello.asm", "-o", "hello.prg"
