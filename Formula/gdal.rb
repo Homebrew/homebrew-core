@@ -17,44 +17,37 @@ class Gdal < Formula
     depends_on "doxygen" => :build
   end
 
-  option "with-complete", "Compile support for more drivers."
-
-  deprecated_option "complete" => "with-complete"
-
+  depends_on "cfitsio"
+  depends_on "epsilon"
   depends_on "expat"
   depends_on "freexl"
   depends_on "geos"
   depends_on "giflib"
+  depends_on "hdf5"
+  depends_on "jasper"
   depends_on "jpeg"
   depends_on "json-c"
+  depends_on "libdap"
   depends_on "libgeotiff"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libspatialite"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "netcdf"
   depends_on "numpy"
   depends_on "pcre"
+  depends_on "podofo"
+  depends_on "poppler"
   depends_on "proj"
   depends_on "python"
   depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
+  depends_on "unixodbc" # macOS version is not complete enough
+  depends_on "webp"
+  depends_on "xerces-c"
+  depends_on "xz" # get liblzma compression algorithm library from XZutils
   depends_on "zstd"
-
-  if build.with? "complete"
-    depends_on "cfitsio"
-    depends_on "epsilon"
-    depends_on "hdf5"
-    depends_on "jasper"
-    depends_on "libdap"
-    depends_on "netcdf"
-    depends_on "podofo"
-    depends_on "poppler"
-    depends_on "unixodbc" # macOS version is not complete enough
-    depends_on "webp"
-    depends_on "xerces-c"
-    depends_on "xz" # get liblzma compression algorithm library from XZutils
-  end
 
   def install
     args = [
@@ -90,6 +83,17 @@ class Gdal < Formula
       "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
       "--with-static-proj4=#{Formula["proj"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
+      "--with-liblzma=yes",
+      "--with-cfitsio=/usr/local",
+      "--with-hdf5=/usr/local",
+      "--with-netcdf=/usr/local",
+      "--with-jasper=/usr/local",
+      "--with-xerces=/usr/local",
+      "--with-odbc=/usr/local",
+      "--with-dods-root=/usr/local",
+      "--with-epsilon=/usr/local",
+      "--with-webp=/usr/local",
+      "--with-podofo=/usr/local",
 
       # Explicitly disable some features
       "--with-armadillo=no",
@@ -102,25 +106,31 @@ class Gdal < Formula
       "--without-php",
       "--without-python",
       "--without-ruby",
+
+      # Unsupported backends are either proprietary or have no compatible version
+      # in Homebrew. Podofo is disabled because Poppler provides the same
+      # functionality and then some.
+      "--without-gta",
+      "--without-ogdi",
+      "--without-fme",
+      "--without-hdf4",
+      "--without-openjpeg",
+      "--without-fgdb",
+      "--without-ecw",
+      "--without-kakadu",
+      "--without-mrsid",
+      "--without-jp2mrsid",
+      "--without-mrsid_lidar",
+      "--without-msg",
+      "--without-oci",
+      "--without-ingres",
+      "--without-dwgdirect",
+      "--without-idb",
+      "--without-sde",
+      "--without-podofo",
+      "--without-rasdaman",
+      "--without-sosi",
     ]
-
-    # Optional Homebrew packages supporting additional formats
-    supported_backends = %w[cfitsio hdf5 netcdf jasper xerces odbc
-                            dods-root epsilon webp podofo]
-    if build.with? "complete"
-      args << "--with-liblzma=yes"
-      args.concat supported_backends.map { |b| "--with-" + b + "=" + HOMEBREW_PREFIX }
-    else
-      args.concat supported_backends.map { |b| "--without-" + b }
-    end
-
-    # Unsupported backends are either proprietary or have no compatible version
-    # in Homebrew. Podofo is disabled because Poppler provides the same
-    # functionality and then some.
-    unsupported_backends = %w[gta ogdi fme hdf4 openjpeg fgdb ecw kakadu mrsid
-                              jp2mrsid mrsid_lidar msg oci ingres dwgdirect
-                              idb sde podofo rasdaman sosi]
-    args.concat unsupported_backends.map { |b| "--without-" + b }
 
     # Work around "error: no member named 'signbit' in the global namespace"
     if DevelopmentTools.clang_build_version >= 900
