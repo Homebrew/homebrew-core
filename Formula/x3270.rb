@@ -22,8 +22,6 @@ class X3270 < Formula
       --enable-tcl3270
     ]
 
-    args << "--enable-x3270" if build.with? "x11"
-
     system "./configure", *args
     system "make", "install"
     system "make", "install.man"
