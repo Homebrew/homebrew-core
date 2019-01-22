@@ -12,22 +12,22 @@ class Arpack < Formula
     sha256 "6db44ed19be3e9fc92fac97a35965156af0351b03e8f0fdba3e19529d854a0af" => :el_capitan
   end
 
-  option "with-mpi", "Enable parallel support"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
   depends_on "gcc" # for gfortran
-  depends_on "open-mpi" if build.with? "mpi"
+  depends_on "open-mpi"
   depends_on "veclibfort"
 
   def install
-    args = %W[ --disable-dependency-tracking
-               --prefix=#{libexec}
-               --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort ]
-
-    args << "F77=mpif77" << "--enable-mpi" if build.with? "mpi"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{libexec}
+      --with-blas=-L#{Formula["veclibfort"].opt_lib}\ -lvecLibFort
+      F77=mpif77
+      -enable-mpi
+    ]
 
     system "./bootstrap"
     system "./configure", *args
@@ -38,10 +38,7 @@ class Arpack < Formula
     (lib/"pkgconfig").install_symlink Dir["#{libexec}/lib/pkgconfig/*"]
     pkgshare.install "TESTS/testA.mtx", "TESTS/dnsimp.f",
                      "TESTS/mmio.f", "TESTS/debug.h"
-
-    if build.with? "mpi"
-      (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
-    end
+    (libexec/"bin").install (buildpath/"PARPACK/EXAMPLES/MPI").children
   end
 
   test do
@@ -50,13 +47,5 @@ class Arpack < Formula
                        "-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"
     cp_r pkgshare/"testA.mtx", testpath
     assert_match "reached", shell_output("./test")
-
-    if build.with? "mpi"
-      cp_r (libexec/"bin").children, testpath
-      %w[pcndrv1 pdndrv1 pdndrv3 pdsdrv1
-         psndrv1 psndrv3 pssdrv1 pzndrv1].each do |slv|
-        system "mpirun", "-np", "4", slv
-      end
-    end
   end
 end
