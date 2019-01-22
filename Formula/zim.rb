@@ -13,12 +13,12 @@ class Zim < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "graphviz"
   depends_on "gtk+"
   depends_on "pygobject"
   depends_on "pygtk"
+  depends_on "pygtksourceview"
   depends_on "python@2"
-  depends_on "graphviz" => :optional
-  depends_on "pygtksourceview" => :optional
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/source/p/pyxdg/pyxdg-0.25.tar.gz"
