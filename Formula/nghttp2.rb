@@ -18,10 +18,6 @@ class Nghttp2 < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-python", "Build python3 bindings"
-
-  deprecated_option "with-python3" => "with-python"
-
   depends_on "cunit" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
