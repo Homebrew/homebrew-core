@@ -27,7 +27,7 @@ class Libxmlsec1 < Formula
             "--disable-apps-crypto-dl",
             "--with-openssl=#{Formula["openssl"].opt_prefix}"]
 
-    args << "--with-libxml=#{Formula["libxml2"].opt_prefix}" if build.with? "libxml2"
+    args << "--with-libxml=#{Formula["libxml2"].opt_prefix}" if MacOS.version <= :lion
 
     system "./configure", *args
     system "make", "install"
