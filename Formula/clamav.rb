@@ -1,9 +1,8 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.100.2.tar.gz"
-  sha256 "4a2e4f0cd41e62adb5a713b4a1857c49145cd09a69957e6d946ecad575206dd6"
-  revision 1
+  url "https://www.clamav.net/downloads/production/clamav-0.101.1.tar.gz"
+  sha256 "fa368fa9b2f57638696150c7d108b06dec284e8d8e3b8e702c784947c01fb806"
 
   bottle do
     sha256 "7005fda00690d3201019fdd68e69223e3b3213ebc10674508b4277a5d7d261a9" => :high_sierra
@@ -38,9 +37,8 @@ class Clamav < Formula
       --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --with-pcre=#{Formula["pcre"].opt_prefix}
+      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
     ]
-
-    args << "--with-zlib=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
 
     pkgshare.mkpath
     system "autoreconf", "-fvi" if build.head?
