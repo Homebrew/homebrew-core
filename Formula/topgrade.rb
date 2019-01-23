@@ -6,9 +6,9 @@ class Topgrade < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "46a0142c7c50ca1a66278c2273b7146bf3256bf49c27f35ebad5cd82fe3494f1" => :mojave
-    sha256 "15735e275ec3da0b6c7ecb637dbfc20623ec8b9e35999cf83ce86e72bb62f133" => :high_sierra
-    sha256 "a971770d8af0c12ce5a53a34cb707520a9226af356ccfe17bf3854a5ccc2d3c3" => :sierra
+    sha256 "08374985c3f7a27882bc393d23f2332a5e10a3df63879c7dea7433993244de27" => :mojave
+    sha256 "8517ac3584efd73e178cf9cc5eb51b84c5d483ba8289b6f5ff5b1b399c1f4319" => :high_sierra
+    sha256 "5910f307bf9d1d1d19871e6226757f4a7483f73f48e95b4591a0015d0ec5218a" => :sierra
   end
 
   depends_on "rust" => :build
