@@ -36,11 +36,6 @@ class Llvm < Formula
       sha256 "8869aab2dd2d8e00d69943352d3166d159d7eae2615f66a684f4a0999fc74031"
     end
 
-    resource "lldb" do
-      url "https://releases.llvm.org/7.0.1/lldb-7.0.1.src.tar.xz"
-      sha256 "76b46be75b412a3d22f0d26279306ae7e274fe4d7988a2184c529c38a6a76982"
-    end
-
     resource "openmp" do
       url "https://releases.llvm.org/7.0.1/openmp-7.0.1.src.tar.xz"
       sha256 "bf16b78a678da67d68405214ec7ee59d86a15f599855806192a75dcfca9b0d0c"
@@ -92,10 +87,6 @@ class Llvm < Formula
       url "https://git.llvm.org/git/lld.git"
     end
 
-    resource "lldb" do
-      url "https://git.llvm.org/git/lldb.git"
-    end
-
     resource "openmp" do
       url "https://git.llvm.org/git/openmp.git"
     end
@@ -107,23 +98,12 @@ class Llvm < Formula
 
   keg_only :provided_by_macos
 
-  option "with-lldb", "Build LLDB debugger"
-
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "libffi"
 
   depends_on "python@2" if MacOS.version <= :snow_leopard
-
-  if build.with? "lldb"
-    depends_on "swig" if MacOS.version >= :lion
-    depends_on :codesign => [{
-      :identity => "lldb_codesign",
-      :with     => "LLDB",
-      :url      => "https://llvm.org/svn/llvm-project/lldb/trunk/docs/code-signing.txt",
-    }]
-  end
 
   # According to the official llvm readme, GCC 4.7+ is required
   fails_with :gcc_4_2
@@ -142,21 +122,6 @@ class Llvm < Formula
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
-
-    if build.with? "lldb"
-      (buildpath/"tools/lldb").install resource("lldb")
-
-      # Building lldb requires a code signing certificate.
-      # The instructions provided by llvm creates this certificate in the
-      # user's login keychain. Unfortunately, the login keychain is not in
-      # the search path in a superenv build. The following three lines add
-      # the login keychain to ~/Library/Preferences/com.apple.security.plist,
-      # which adds it to the superenv keychain search path.
-      mkdir_p "#{ENV["HOME"]}/Library/Preferences"
-      username = ENV["USER"]
-      system "security", "list-keychains", "-d", "user", "-s", "/Users/#{username}/Library/Keychains/login.keychain"
-    end
-
     (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
     # compiler-rt has some iOS simulator features that require i386 symbols
