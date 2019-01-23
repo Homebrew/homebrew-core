@@ -21,19 +21,9 @@ class Thrift < Formula
     depends_on "pkg-config" => :build
   end
 
-  option "with-java", "Install Java binding"
-
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "bison" => :build
   depends_on "boost"
   depends_on "openssl"
-  depends_on "python@2" => :optional
-
-  if build.with? "java"
-    depends_on "ant" => :build
-    depends_on :java => "1.8"
-  end
 
   def install
     system "./bootstrap.sh" unless build.stable?
@@ -50,10 +40,9 @@ class Thrift < Formula
       --without-php
       --without-php_extension
       --without-ruby
+      --without-java
+      --without-python
     ]
-
-    args << "--without-python" if build.without? "python@2"
-    args << "--without-java" if build.without? "java"
 
     ENV.cxx11 if MacOS.version >= :mavericks && ENV.compiler == :clang
 
@@ -66,16 +55,6 @@ class Thrift < Formula
     ENV.deparallelize
     system "make"
     system "make", "install"
-
-    # Even when given a prefix to use it creates /usr/local/lib inside
-    # that dir & places the jars there, so we need to work around that.
-    (pkgshare/"java").install Dir["usr/local/lib/*.jar"] if build.with? "java"
-  end
-
-  def caveats; <<~EOS
-    To install Ruby binding:
-      gem install thrift
-  EOS
   end
 
   test do
