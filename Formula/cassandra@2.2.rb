@@ -96,7 +96,7 @@ class CassandraAT22 < Formula
     (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", :PYTHONPATH => pypath
   end
 
-  plist_options :manual => "cassandra -f"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/cassandra@2.2/bin/cassandra -f"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
