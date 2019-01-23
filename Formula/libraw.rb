@@ -26,8 +26,8 @@ class Libraw < Formula
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
-                          "ac_cv_prog_c_openmp=-Xpreprocessor\\ -fopenmp",
-                          "ac_cv_prog_cxx_openmp=-Xpreprocessor\\ -fopenmp",
+                          "ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp",
+                          "ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp",
                           "LDFLAGS=-lomp"
     system "make"
     system "make", "install"
