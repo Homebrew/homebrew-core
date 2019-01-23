@@ -5,10 +5,10 @@ class ClangFormat < Formula
 
   stable do
     depends_on "subversion" => :build
-    url "http://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-12-18/", :using => :svn
+    url "https://llvm.org/svn/llvm-project/llvm/tags/google/stable/2018-12-18/", :using => :svn
 
     resource "clang" do
-      url "http://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-12-18/", :using => :svn
+      url "https://llvm.org/svn/llvm-project/cfe/tags/google/stable/2018-12-18/", :using => :svn
     end
 
     resource "libcxx" do
