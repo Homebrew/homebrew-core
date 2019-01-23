@@ -10,22 +10,20 @@ class Hdf5 < Formula
     sha256 "34af9edb3db5e46887106f70a7f6c7c3e4988c135e739089f5f13e0960edee3a" => :sierra
   end
 
-  option "with-mpi", "Enable parallel support"
-
-  deprecated_option "enable-parallel" => "with-mpi"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "gcc" # for gfortran
-  depends_on "open-mpi" if build.with? "mpi"
   depends_on "szip"
 
   def install
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
-      "${libdir}/libhdf5.settings", "#{pkgshare}/libhdf5.settings"
+      "${libdir}/libhdf5.settings",
+      "#{pkgshare}/libhdf5.settings"
 
-    inreplace "src/Makefile.am", "settingsdir=$(libdir)", "settingsdir=#{pkgshare}"
+    inreplace "src/Makefile.am",
+              "settingsdir=$(libdir)",
+              "settingsdir=#{pkgshare}"
 
     system "autoreconf", "-fiv"
 
@@ -36,21 +34,8 @@ class Hdf5 < Formula
       --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-build-mode=production
       --enable-fortran
+      --enable-cxx
     ]
-
-    if build.without?("mpi")
-      args << "--enable-cxx"
-    else
-      args << "--disable-cxx"
-    end
-
-    if build.with? "mpi"
-      ENV["CC"] = "mpicc"
-      ENV["CXX"] = "mpicxx"
-      ENV["FC"] = "mpif90"
-
-      args << "--enable-parallel"
-    end
 
     system "./configure", *args
     system "make", "install"
