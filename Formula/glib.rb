@@ -5,9 +5,9 @@ class Glib < Formula
   sha256 "8f43c31767e88a25da72b52a40f3301fefc49a665b56dc10ee7cc9565cbe7481"
 
   bottle do
-    sha256 "317626e1668e76b9c3f7a2bfbd8df1b96f70f19e38d57b2107d1b0ea249c1a85" => :mojave
-    sha256 "b8f1b5ed3db3f2d9c2a88c564bda76e14cc7b7ccb2011e9445f6b32ab831d562" => :high_sierra
-    sha256 "c10b5982f0a56cf9dd8e4ac23ce6dc51a7c84b94bf0729fb85c3d0f2ef0043fb" => :sierra
+    sha256 "0d156d04fb77e31e3679e82c19ae55aafdceb075be81e01cda08dec89fdce6a9" => :mojave
+    sha256 "b321b6dd3b7a6285f65ef38493c96a7e23e9e400f996a3a0ac9aadbf2434eff1" => :high_sierra
+    sha256 "c57f11747bbc0248f069e727e948cbc306f53e8312803ce6bcb087e89f7f701b" => :sierra
   end
 
   # autoconf, automake and libtool can be removed when
