@@ -63,7 +63,7 @@ class S3ql < Formula
   def install
     venv = virtualenv_create(libexec, "python3")
     resources.each do |r|
-      venv.pip_install resource(r)
+      venv.pip_install r
     end
 
     # The inreplace changes the name of the (fsck|mkfs|mount|umount).s3ql
