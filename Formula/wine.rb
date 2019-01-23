@@ -19,11 +19,6 @@ class Wine < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/74c2566/wine/2.14.patch"
       sha256 "6907471d18996ada60cc0cbc8462a1698e90720c0882846dfbfb163e5d3899b8"
     end
-
-    resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.5/wine-mono-4.7.5.msi"
-      sha256 "154d68d476cdedef56f159d837fbb5eef9358a9f85de89f86c189ec4da004b3f"
-    end
   end
 
   bottle do
@@ -32,11 +27,6 @@ class Wine < Formula
 
   head do
     url "https://source.winehq.org/git/wine.git"
-
-    resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.5/wine-mono-4.7.5.msi"
-      sha256 "154d68d476cdedef56f159d837fbb5eef9358a9f85de89f86c189ec4da004b3f"
-    end
 
     # Does not build with Xcode 10, used on High Sierra and Mojave
     depends_on :maximum_macos => :sierra
@@ -51,6 +41,11 @@ class Wine < Formula
 
   depends_on "pkg-config" => :build
   depends_on :macos => :el_capitan
+
+  resource "mono" do
+    url "https://dl.winehq.org/wine/wine-mono/4.7.5/wine-mono-4.7.5.msi"
+    sha256 "154d68d476cdedef56f159d837fbb5eef9358a9f85de89f86c189ec4da004b3f"
+  end
 
   resource "gecko-x86" do
     url "https://dl.winehq.org/wine/wine-gecko/2.47/wine_gecko-2.47-x86.msi"
