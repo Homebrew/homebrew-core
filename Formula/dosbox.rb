@@ -13,7 +13,7 @@ class Dosbox < Formula
   end
 
   head do
-    url "http://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk"
+    url "https://svn.code.sf.net/p/dosbox/code-0/dosbox/trunk"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
