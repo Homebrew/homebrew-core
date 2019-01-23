@@ -12,7 +12,7 @@ class Zookeeper < Formula
   end
 
   head do
-    url "http://svn.apache.org/repos/asf/zookeeper/trunk"
+    url "https://svn.apache.org/repos/asf/zookeeper/trunk"
 
     depends_on "ant" => :build
     depends_on "autoconf" => :build
