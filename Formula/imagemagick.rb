@@ -19,6 +19,7 @@ class Imagemagick < Formula
 
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "libheif"
   depends_on "libomp"
   depends_on "libpng"
   depends_on "libtiff"
@@ -43,6 +44,7 @@ class Imagemagick < Formula
       --with-modules
       --with-openjp2
       --with-webp=yes
+      --with-heic=yes
       --without-gslib
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-fftw
