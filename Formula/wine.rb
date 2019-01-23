@@ -9,9 +9,9 @@ class Wine < Formula
   homepage "https://www.winehq.org/"
 
   stable do
-    url "https://dl.winehq.org/wine/source/3.0/wine-3.0.4.tar.xz"
-    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-3.0.4.tar.xz"
-    sha256 "d45a88edbe7db363e297cacedc94e66df3464504a01c2eccf04f518066a6fb0c"
+    url "https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz"
+    mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.tar.xz"
+    sha256 "6736cdee95b2b8bb021ec0c19497ed8cad5ae2c8bfdb7ab5dc687ff92a480d4d"
 
     # Patch to fix screen-flickering issues. Still relevant on 3.0.
     # https://bugs.winehq.org/show_bug.cgi?id=34166
@@ -21,8 +21,8 @@ class Wine < Formula
     end
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.3/wine-mono-4.7.3.msi"
-      sha256 "d24a8017371c7e8224a1778bb43a113ed7ed9720efd9d0cda175d42db6106d3a"
+      url "https://dl.winehq.org/wine/wine-mono/4.7.5/wine-mono-4.7.5.msi"
+      sha256 "154d68d476cdedef56f159d837fbb5eef9358a9f85de89f86c189ec4da004b3f"
     end
   end
 
@@ -34,8 +34,8 @@ class Wine < Formula
     url "https://source.winehq.org/git/wine.git"
 
     resource "mono" do
-      url "https://dl.winehq.org/wine/wine-mono/4.7.3/wine-mono-4.7.3.msi"
-      sha256 "d24a8017371c7e8224a1778bb43a113ed7ed9720efd9d0cda175d42db6106d3a"
+      url "https://dl.winehq.org/wine/wine-mono/4.7.5/wine-mono-4.7.5.msi"
+      sha256 "154d68d476cdedef56f159d837fbb5eef9358a9f85de89f86c189ec4da004b3f"
     end
 
     # Does not build with Xcode 10, used on High Sierra and Mojave
