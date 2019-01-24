@@ -23,11 +23,6 @@ class MysqlCluster < Formula
   conflicts_with "mysql-connector-c",
     :because => "both install `bin/my_print_defaults`"
 
-  fails_with :clang do
-    build 500
-    cause "https://article.gmane.org/gmane.comp.db.mysql.cluster/2085"
-  end
-
   resource "boost" do
     url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
     sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
