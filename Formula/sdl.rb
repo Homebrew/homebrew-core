@@ -44,8 +44,6 @@ class Sdl < Formula
     system "./autogen.sh" if build.head?
 
     args = %W[--prefix=#{prefix} --without-x]
-    args << "--disable-nasm" unless MacOS.version >= :mountain_lion # might work with earlier, might only work with new clang
-
     system "./configure", *args
     system "make", "install"
 
