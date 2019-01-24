@@ -24,8 +24,6 @@ class Pdfgrep < Formula
   depends_on "pcre"
   depends_on "poppler"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./autogen.sh" if build.head?
