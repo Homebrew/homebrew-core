@@ -7,8 +7,6 @@ class Ant < Formula
 
   bottle :unneeded
 
-  keg_only :provided_by_macos if MacOS.version < :mavericks
-
   depends_on :java => "1.8+"
 
   resource "ivy" do
