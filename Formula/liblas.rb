@@ -32,8 +32,6 @@ class Liblas < Formula
     sha256 "3f5cc283d3e908d991b05b4dcf5cc0440824441ec270396e11738f96a0a23a9f"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
