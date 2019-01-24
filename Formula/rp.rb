@@ -17,7 +17,6 @@ class Rp < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on :macos => :lion
 
   # In order to have the same binary name in 32 and 64 bits.
   patch :DATA
