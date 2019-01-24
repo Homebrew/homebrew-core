@@ -25,10 +25,6 @@ class Qemu < Formula
   depends_on "pixman"
   depends_on "vde"
 
-  fails_with :gcc do
-    cause "qemu requires a compiler with support for the __thread specifier"
-  end
-
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
   resource "test-image" do
     url "https://dl.bintray.com/homebrew/mirror/FD12FLOPPY.zip"
