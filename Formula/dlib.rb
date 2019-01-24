@@ -19,8 +19,6 @@ class Dlib < Formula
   depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "openblas"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
