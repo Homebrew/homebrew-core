@@ -34,11 +34,6 @@ class Nghttp2 < Formula
     sha256 "18ab7646985a97e02cee72e1ddba2e732d4931d4e1732494ff30c5aa084bfb97"
   end
 
-  # https://github.com/tatsuhiro-t/nghttp2/issues/125
-  # Upstream requested the issue closed and for users to use gcc instead.
-  # Given this will actually build with Clang with cxx11, just use that.
-  needs :cxx11
-
   def install
     ENV.cxx11
 
