@@ -64,8 +64,8 @@ class Ffmpeg < Formula
       --enable-libopencore-amrwb
       --enable-librtmp
       --enable-libspeex
+      --enable-videotoolbox
     ]
-    args << "--enable-videotoolbox" if MacOS.version >= :mountain_lion
 
     system "./configure", *args
     system "make", "install"
