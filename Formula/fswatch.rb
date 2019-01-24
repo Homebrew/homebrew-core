@@ -11,8 +11,6 @@ class Fswatch < Formula
     sha256 "9362bc3b3321bf0238fa70d2f2825e4118e18deb2207af3a2633b6772bb33666" => :sierra
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--prefix=#{prefix}",
