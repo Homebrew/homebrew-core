@@ -44,7 +44,7 @@ class Perl < Formula
     (lib/"perl5/#{version}/darwin-thread-multi-2level/CORE").install_symlink buildpath/"libperl.dylib"
 
     system "make"
-    system "make", "test" if build.bottle?
+    system "make", "test"
 
     # Remove the symlink so the library actually gets installed.
     rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib"
