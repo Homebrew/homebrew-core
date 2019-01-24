@@ -12,7 +12,7 @@ class Soci < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "sqlite" if MacOS.version <= :snow_leopard
+  depends_on "sqlite"
 
   def install
     args = std_cmake_args + %w[
