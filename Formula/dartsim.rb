@@ -25,8 +25,6 @@ class Dartsim < Formula
   depends_on "tinyxml2"
   depends_on "urdfdom"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
