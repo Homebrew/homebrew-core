@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.9.tar.gz"
   sha256 "94fb70890143e3c6549f265cee93ec064c80a84c42ad0f23e85ee1fd6540a871"
+  revision 1
 
   bottle do
     cellar :any
@@ -24,6 +25,15 @@ class Libxml2 < Formula
   keg_only :provided_by_macos
 
   depends_on "python"
+
+  # Fix crash when using Python 3 using Fedora's patch.
+  # Reported upstream:
+  # https://bugzilla.gnome.org/show_bug.cgi?id=789714
+  # https://gitlab.gnome.org/GNOME/libxml2/issues/12
+  patch do
+    url "https://bugzilla.opensuse.org/attachment.cgi?id=746044"
+    sha256 "37eb81a8ec6929eed1514e891bff2dd05b450bcf0c712153880c485b7366c17c"
+  end
 
   def install
     system "autoreconf", "-fiv" if build.head?
