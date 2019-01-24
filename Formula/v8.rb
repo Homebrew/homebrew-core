@@ -19,8 +19,6 @@ class V8 < Formula
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
   depends_on :macos => :el_capitan
 
-  needs :cxx11
-
   def install
     # Add depot_tools in PATH
     ENV.prepend_path "PATH", buildpath
