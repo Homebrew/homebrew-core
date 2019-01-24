@@ -103,8 +103,6 @@ class Llvm < Formula
   depends_on :xcode => :build
   depends_on "libffi"
 
-  depends_on "python@2" if MacOS.version <= :snow_leopard
-
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
