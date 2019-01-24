@@ -19,24 +19,12 @@ class GhcAT82 < Formula
 
   depends_on "python" => :build if build.bottle?
   depends_on "sphinx-doc" => :build
-  depends_on :macos => :lion
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
     mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
-  end
-
-  if MacOS.version <= :lion
-    fails_with :clang do
-      cause <<~EOS
-        Fails to bootstrap ghc-cabal. Error is:
-          libraries/Cabal/Cabal/Distribution/Compat/Binary/Class.hs:398:14:
-              The last statement in a 'do' block must be an expression
-                n <- get :: Get Int getMany n
-      EOS
-    end
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
