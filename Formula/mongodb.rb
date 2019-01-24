@@ -18,7 +18,7 @@ class Mongodb < Formula
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build]
-  depends_on :macos => :mountain_lion
+
   depends_on "openssl"
   depends_on "python@2"
 
@@ -38,8 +38,6 @@ class Mongodb < Formula
   end
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     ENV.libcxx
 
     ["Cheetah", "PyYAML", "typing"].each do |r|
