@@ -17,13 +17,6 @@ class NodeAT8 < Formula
   depends_on "python@2" => :build
   depends_on "icu4c"
 
-  # Per upstream - "Need g++ 4.8 or clang++ 3.4".
-  fails_with :clang if MacOS.version <= :snow_leopard
-  fails_with :gcc_4_2
-  ("4.3".."4.7").each do |n|
-    fails_with :gcc => n
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"
