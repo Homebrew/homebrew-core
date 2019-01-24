@@ -19,7 +19,7 @@ class Leveldb < Formula
 
   def install
     system "make"
-    system "make", "check" if build.bottle?
+    system "make", "check"
 
     include.install "include/leveldb"
     bin.install "out-static/leveldbutil"
