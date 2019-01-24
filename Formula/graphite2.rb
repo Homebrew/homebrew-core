@@ -19,8 +19,6 @@ class Graphite2 < Formula
     sha256 "7e573896bbb40088b3a8490f83d6828fb0fd0920ac4ccdfdd7edb804e852186a"
   end
 
-  needs :cxx11
-
   def install
     system "cmake", *std_cmake_args
     system "make", "install"
