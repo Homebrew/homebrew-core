@@ -18,8 +18,6 @@ class Xtensor < Formula
     sha256 "6f9d2f849e4dd8a36db1e62648ed1855a691991739119b0a73cd55084c6d28b2"
   end
 
-  needs :cxx14
-
   def install
     resource("xtl").stage do
       system "cmake", ".", *std_cmake_args
