@@ -26,8 +26,6 @@ class Blahtexml < Formula
     sha256 "d696d10931f2c2ded1cef50842b78887dba36679fbb2e0abc373e7b6405b8468"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
