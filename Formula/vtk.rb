@@ -24,8 +24,6 @@ class Vtk < Formula
   depends_on "python"
   depends_on "qt"
 
-  needs :cxx11
-
   def install
     python_executable = `which python3`.strip
     python_prefix = `#{python_executable} -c 'import sys;print(sys.prefix)'`.chomp
