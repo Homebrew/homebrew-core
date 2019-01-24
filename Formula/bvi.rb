@@ -11,7 +11,6 @@ class Bvi < Formula
     sha256 "47c35b91db7052ee938daa6ddd95e96d49982e8767a48a0821f054b543fedb7f" => :el_capitan
     sha256 "4b5a3bdfa1bf083bde13338fc8fc5a8027880b3e79611ad064e44fd2f4d7a4a0" => :yosemite
     sha256 "7ec90f6665011faa3f1715cf6cc855270a536993633d8a4600cdb0492db16686" => :mavericks
-    sha256 "75d2461715e5afacd35efcb188d580191db6ebe02607bc66ea52a813be21e29c" => :mountain_lion
   end
 
   def install
