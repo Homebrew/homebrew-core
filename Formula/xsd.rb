@@ -30,8 +30,6 @@ class Xsd < Formula
   #    received no response (yet).
   patch :DATA
 
-  needs :cxx11
-
   def install
     ENV.append "LDFLAGS", `pkg-config --libs --static xerces-c`.chomp
     ENV.cxx11
