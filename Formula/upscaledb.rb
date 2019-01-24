@@ -37,11 +37,6 @@ class Upscaledb < Formula
   depends_on "openssl"
   depends_on "protobuf"
 
-  fails_with :clang do
-    build 503
-    cause "error: member access into incomplete type 'const std::type_info"
-  end
-
   resource "libuv" do
     url "https://github.com/libuv/libuv/archive/v0.10.37.tar.gz"
     sha256 "4c12bed4936dc16a20117adfc5bc18889fa73be8b6b083993862628469a1e931"
