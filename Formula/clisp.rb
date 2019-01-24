@@ -48,16 +48,7 @@ class Clisp < Formula
       # The ulimit must be set, otherwise `make` will fail and tell you to do so
       system "ulimit -s 16384 && make"
 
-      if MacOS.version >= :lion
-        opoo <<~EOS
-          `make check` fails so we are skipping it.
-          However, there will likely be other issues present.
-          Please take them upstream to the clisp project itself.
-        EOS
-      else
-        # Considering the complexity of this package, a self-check is highly recommended.
-        system "make", "check"
-      end
+      system "make", "check"
 
       system "make", "install"
     end
@@ -75,7 +66,7 @@ index 5345ed6..cf14e29 100644
 +++ b/src/stream.d
 @@ -3994,7 +3994,7 @@ global object iconv_range (object encoding, uintL start, uintL end, uintL maxint
  nonreturning_function(extern, error_unencodable, (object encoding, chart ch));
- 
+
  /* Avoid annoying warning caused by a wrongly standardized iconv() prototype. */
 -#ifdef GNU_LIBICONV
 +#if defined(GNU_LIBICONV) && !defined(__APPLE_CC__)
