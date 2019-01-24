@@ -16,7 +16,6 @@ class LlvmAT39 < Formula
 
   depends_on "cmake" => :build
   depends_on "libffi"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "clang" do
     url "https://releases.llvm.org/3.9.1/cfe-3.9.1.src.tar.xz"
