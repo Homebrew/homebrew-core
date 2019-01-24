@@ -27,7 +27,7 @@ class FsUae < Formula
   depends_on "glib"
   depends_on "libmpeg2"
   depends_on "libpng"
-  depends_on "openal-soft" if MacOS.version <= :mavericks
+  depends_on "openal-soft" if MacOS.version == :mavericks
   depends_on "sdl2"
 
   def install
