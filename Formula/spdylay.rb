@@ -19,7 +19,6 @@ class Spdylay < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "libxml2" if MacOS.version <= :lion
   depends_on "openssl"
 
   def install
@@ -27,9 +26,7 @@ class Spdylay < Formula
       ENV["ac_cv_search_clock_gettime"] = "no"
     end
 
-    if MacOS.version > :lion
-      Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
-    end
+    Formula["libxml2"].stable.stage { (buildpath/"m4").install "libxml.m4" }
 
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
