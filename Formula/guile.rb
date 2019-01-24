@@ -29,11 +29,6 @@ class Guile < Formula
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
-  fails_with :clang do
-    build 211
-    cause "Segfaults during compilation"
-  end
-
   def install
     system "./autogen.sh" unless build.stable?
     system "./configure", "--disable-dependency-tracking",
