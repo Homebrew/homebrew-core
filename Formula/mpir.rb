@@ -16,10 +16,7 @@ class Mpir < Formula
 
   def install
     args = %W[--disable-silent-rules --prefix=#{prefix} --enable-cxx]
-
-    # Prevent bottles from being optimized for specific CPU model
-    args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-
+    args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
     system "./configure", *args
     system "make", "install"
   end
