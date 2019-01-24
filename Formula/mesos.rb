@@ -67,8 +67,6 @@ class Mesos < Formula
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
-  needs :cxx11
-
   def install
     # Disable optimizing as libc++ does not play well with optimized clang
     # builds (see https://llvm.org/bugs/show_bug.cgi?id=28469 and
