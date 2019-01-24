@@ -12,7 +12,6 @@ class Libspnav < Formula
     sha256 "48685db33ebe4acb821b33dbd609f95d03c47bd6c316b08f1bc1110d86271643" => :el_capitan
     sha256 "87bf93469bb14eef1a24de81cd521f6a62363a6aa7c04a319f3f18905de039b1" => :yosemite
     sha256 "f425659deb611eacb94f2245f0c8f8235aa0169a422874f2aa2c32f8d207b84a" => :mavericks
-    sha256 "0d0a4943d1eee96936b7ccf0a200d353a3fd35bbf67d46695e0e4e41d498df16" => :mountain_lion
   end
 
   def install
