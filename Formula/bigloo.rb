@@ -18,14 +18,6 @@ class Bigloo < Formula
   depends_on "gmp"
   depends_on "openssl"
 
-  fails_with :clang do
-    build 500
-    cause <<~EOS
-      objs/obj_u/Ieee/dtoa.c:262:79504: fatal error: parser
-      recursion limit reached, program too complex
-    EOS
-  end
-
   def install
     args = %W[
       --disable-debug
