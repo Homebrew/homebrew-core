@@ -15,7 +15,7 @@ class Mesos < Formula
   depends_on "maven" => :build
   depends_on "apr-util"
   depends_on :java => "1.8"
-  depends_on :macos => :mountain_lion
+
   depends_on "python@2"
   depends_on "subversion"
 
