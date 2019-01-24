@@ -14,8 +14,6 @@ class Pdftoipe < Formula
   depends_on "pkg-config" => :build
   depends_on "poppler"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
