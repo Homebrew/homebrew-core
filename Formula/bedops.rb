@@ -12,8 +12,6 @@ class Bedops < Formula
     sha256 "a860bbe9e2aa2d5289aa0d960bb01212841f71732eb1e913c8364de46f62708c" => :el_capitan
   end
 
-  needs :cxx11
-
   def install
     system "make"
     system "make", "install", "BINDIR=#{bin}"
