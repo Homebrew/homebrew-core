@@ -90,9 +90,9 @@ class Opencv < Formula
       args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX"
     end
 
-    if build.bottle?
-      args += %w[-DENABLE_SSE41=OFF -DENABLE_SSE42=OFF -DENABLE_AVX=OFF
-                 -DENABLE_AVX2=OFF]
+    args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
+    unless MacOS.version.requires_sse42?
+      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
     end
 
     mkdir "build" do
