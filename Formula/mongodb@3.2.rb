@@ -30,8 +30,6 @@ class MongodbAT32 < Formula
         :shallow  => false
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
