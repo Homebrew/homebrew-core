@@ -15,8 +15,6 @@ class Caf < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx11
-
   def install
     system "./configure", "--prefix=#{prefix}", "--no-examples",
                           "--build-static", "--no-opencl"
