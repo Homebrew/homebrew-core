@@ -19,8 +19,6 @@ class Zorba < Formula
 
   conflicts_with "xqilla", :because => "Both supply xqc.h"
 
-  needs :cxx11
-
   def install
     # icu4c 61.1 compatability
     ENV.append "CXXFLAGS", "-DU_USING_ICU_NAMESPACE=1"
