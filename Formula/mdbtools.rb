@@ -22,11 +22,6 @@ class Mdbtools < Formula
   def install
     ENV.deparallelize
 
-    if MacOS.version == :snow_leopard
-      mkdir "build-aux"
-      touch "build-aux/config.rpath"
-    end
-
     system "autoreconf", "-i", "-f"
     system "./configure", "--prefix=#{prefix}", "--disable-man"
     system "make", "install"
