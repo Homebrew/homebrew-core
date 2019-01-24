@@ -44,12 +44,6 @@ class Rust < Formula
   depends_on "openssl"
   depends_on "pkg-config"
 
-  # According to the official readme, GCC 4.7+ is required
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
     url "https://static.rust-lang.org/dist/2018-12-20/cargo-0.32.0-x86_64-apple-darwin.tar.gz"
