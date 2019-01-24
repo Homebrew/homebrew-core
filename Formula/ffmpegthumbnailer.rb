@@ -20,8 +20,6 @@ class Ffmpegthumbnailer < Formula
   depends_on "libpng"
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     args = std_cmake_args
     args << "-DENABLE_GIO=ON"
     args << "-DENABLE_THUMBNAILER=ON"
