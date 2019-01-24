@@ -16,8 +16,6 @@ class Ibex < Formula
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
