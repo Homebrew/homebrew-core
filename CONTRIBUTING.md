@@ -50,7 +50,7 @@ follows:
 * run `brew edit foo` and make edits
 * leave the section `bottle do ... end` unchanged
 * test your changes using the commands listed above
-* run `git commit` with message formatted `foo <insert details>`
+* run `git commit` with message formatted `foo: <insert details>`
 * open a pull request as described in the introduction linked to above, wait for the automated test results, and fix any failing tests
 
 Thanks!
