@@ -33,7 +33,7 @@ class MysqlCluster < Formula
     (var/"mysql-cluster").mkpath
 
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       inreplace "configure.cmake", "(clock_gettime", "(everything_is_terrible"
     end
 

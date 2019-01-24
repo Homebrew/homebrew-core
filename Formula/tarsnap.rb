@@ -23,7 +23,7 @@ class Tarsnap < Formula
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     # Reported 20 Aug 2017 https://github.com/Tarsnap/tarsnap/issues/286
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       inreplace "libcperciva/util/monoclock.c", "CLOCK_MONOTONIC",
                                                 "UNDEFINED_GIBBERISH"
     end

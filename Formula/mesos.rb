@@ -79,7 +79,7 @@ class Mesos < Formula
     ENV.O0 unless DevelopmentTools.clang_build_version >= 900
 
     # work around to avoid `_clock_gettime` symbol not found error.
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       ENV["ac_have_clock_syscall"] = "no"
     end
 
