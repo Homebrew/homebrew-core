@@ -15,8 +15,6 @@ class I2pd < Formula
   depends_on "miniupnpc"
   depends_on "openssl@1.1"
 
-  needs :cxx11
-
   def install
     system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes", "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"
 
