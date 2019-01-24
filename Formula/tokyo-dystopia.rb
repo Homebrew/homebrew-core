@@ -12,7 +12,6 @@ class TokyoDystopia < Formula
     sha256 "2a9e21b6f57781adb9e3dc673f2e466b817d4a00860b45fa49ded534d4cb0ed4" => :el_capitan
     sha256 "6fa4ed94aace1e4c3b2a9962f31055883325255f8175c63aa08f079a4974eb6e" => :yosemite
     sha256 "231960b2f9d41cc1ee48a66812b1f0fa5977613e39ddd1a62c22a46e21b3feaf" => :mavericks
-    sha256 "a79ed3369dae255bff5344e0aa38039f65a8a25d9ef9f86c0068d49c3a4de009" => :mountain_lion
   end
 
   depends_on "tokyo-cabinet"
