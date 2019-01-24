@@ -23,8 +23,6 @@ class Cryfs < Formula
   depends_on "openssl"
   depends_on :osxfuse
 
-  needs :cxx11
-
   def install
     configure_args = [
       "-DBUILD_TESTING=off",
