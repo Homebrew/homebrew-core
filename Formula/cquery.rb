@@ -19,8 +19,6 @@ class Cquery < Formula
   # error: 'shared_timed_mutex' is unavailable: introduced in macOS 10.12
   depends_on :macos => :sierra
 
-  needs :cxx14
-
   def install
     system "cmake", ".", "-DSYSTEM_CLANG=ON", *std_cmake_args
     system "make", "install"
