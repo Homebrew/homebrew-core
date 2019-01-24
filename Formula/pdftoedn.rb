@@ -22,8 +22,6 @@ class Pdftoedn < Formula
   depends_on "poppler"
   depends_on "rapidjson"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
