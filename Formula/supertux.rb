@@ -41,8 +41,6 @@ class Supertux < Formula
     sha256 "1830dcb88f635f611aa3236abdaee75b53293df407ebc8214f31635a75876831"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
