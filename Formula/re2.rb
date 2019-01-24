@@ -13,8 +13,6 @@ class Re2 < Formula
     sha256 "06a90d1d8bfcab9a86323fc00034057cef39c66077f06664009f6eeb57cef44c" => :sierra
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
