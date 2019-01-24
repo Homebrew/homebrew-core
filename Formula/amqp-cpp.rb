@@ -15,8 +15,6 @@ class AmqpCpp < Formula
   depends_on "cmake" => :build
   depends_on "openssl"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
