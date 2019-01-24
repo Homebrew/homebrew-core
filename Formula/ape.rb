@@ -14,11 +14,6 @@ class Ape < Formula
     sha256 "136d65f58cb956b95a6ccb9517a5affe69c3491d283478708ca88091abb3103f" => :mountain_lion
   end
 
-  fails_with :clang do
-    build 500
-    cause "multiple configure and compile errors"
-  end
-
   def install
     system "./build.sh"
     # The Makefile installs a configuration file in the bindir which our bot red-flags
