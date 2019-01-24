@@ -17,7 +17,7 @@ class Tbb < Formula
   depends_on "swig" => :build
   # requires malloc features first introduced in Lion
   # https://github.com/Homebrew/homebrew/issues/32274
-  depends_on :macos => :lion
+
   depends_on "python"
 
   def install
