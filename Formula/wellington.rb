@@ -24,8 +24,6 @@ class Wellington < Formula
   end
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     ENV["GOPATH"] = buildpath
 
     dir = buildpath/"src/github.com/wellington/wellington"
