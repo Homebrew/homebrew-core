@@ -16,10 +16,10 @@ class GnuComplexity < Formula
   end
 
   depends_on "autogen"
-  depends_on "gcc" if MacOS.version <= :mavericks
+  depends_on "gcc" if MacOS.version == :mavericks
 
   # error: use of undeclared identifier '__noreturn__'
-  fails_with :clang if MacOS.version <= :mavericks
+  fails_with :clang if MacOS.version == :mavericks
 
   def install
     system "./configure", "--disable-dependency-tracking",
