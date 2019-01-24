@@ -25,8 +25,6 @@ class Openvdb < Formula
     sha256 "05476e84e91c0214ad7593850e6e7c28f777aa4ff0a1d88d91168a7dd050f922"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     # Adjust hard coded paths in Makefile
