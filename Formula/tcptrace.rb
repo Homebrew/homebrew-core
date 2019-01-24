@@ -13,7 +13,6 @@ class Tcptrace < Formula
     sha256 "e46775d7cc808b5b52a0a36a33142b824a9b2d8bce5b0557bc1041c2e55c5ffb" => :el_capitan
     sha256 "f9de7ef41a2b9dc8daee1fddef1035ddf6a08cf473b6edafcf4bb069ab5f0052" => :yosemite
     sha256 "03ecc0ca3c3be27ccf8bcf88be26fb03addecbd14cc1283cab7947d39f9da6ae" => :mavericks
-    sha256 "a76f62f4da583260948fb22f69d123c2c6d64e92236fb67c40a37bbe492d08e0" => :mountain_lion
   end
 
   def install
