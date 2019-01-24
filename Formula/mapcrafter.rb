@@ -18,8 +18,6 @@ class Mapcrafter < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
