@@ -24,8 +24,6 @@ class Libdap < Formula
   depends_on "libxml2"
   depends_on "openssl"
 
-  needs :cxx11 if MacOS.version < :mavericks
-
   def install
     # Otherwise, "make check" fails
     ENV.cxx11 if MacOS.version < :mavericks
