@@ -16,7 +16,6 @@ class LlvmAT5 < Formula
 
   depends_on "cmake" => :build
   depends_on "libffi"
-  depends_on "python@2" if MacOS.version <= :snow_leopard
 
   resource "clang" do
     url "https://releases.llvm.org/5.0.2/cfe-5.0.2.src.tar.xz"
