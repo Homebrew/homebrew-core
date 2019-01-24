@@ -34,14 +34,6 @@ class Subversion < Formula
   depends_on "sqlite"
   depends_on "utf8proc"
 
-  # When building Perl or Ruby bindings, need to use a compiler that
-  # recognizes GCC-style switches, since that's what the system languages
-  # were compiled against.
-  fails_with :clang do
-    build 318
-    cause "core.c:1: error: bad value (native) for -march= switch"
-  end
-
   resource "serf" do
     url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
     mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
