@@ -18,12 +18,6 @@ class LlvmAT5 < Formula
   depends_on "libffi"
   depends_on "python@2" if MacOS.version <= :snow_leopard
 
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
   resource "clang" do
     url "https://releases.llvm.org/5.0.2/cfe-5.0.2.src.tar.xz"
     sha256 "fa9ce9724abdb68f166deea0af1f71ca0dfa9af8f7e1261f2cae63c280282800"
