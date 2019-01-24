@@ -15,10 +15,6 @@ class Sl < Formula
     sha256 "c7d4432bfc169f7338eeb0c8300a975495b229d6e85bfff4fdd6bbd11eb8da17" => :mavericks
   end
 
-  fails_with :clang do
-    build 318
-  end
-
   def install
     system "make", "-e"
     bin.install "sl"
