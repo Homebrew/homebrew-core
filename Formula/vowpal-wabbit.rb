@@ -17,8 +17,6 @@ class VowpalWabbit < Formula
   depends_on "libtool" => :build
   depends_on "boost"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV["AC_PATH"] = "#{HOMEBREW_PREFIX}/share"
