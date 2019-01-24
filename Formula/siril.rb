@@ -40,8 +40,6 @@ class Siril < Formula
     sha256 "22e179e832c7f6a28d5f2bfb3953be477b15450df41ceeb353b77376bec7e048"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
