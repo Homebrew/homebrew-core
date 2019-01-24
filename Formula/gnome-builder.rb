@@ -34,8 +34,6 @@ class GnomeBuilder < Formula
   # fix sandbox violation and remove unavailable linker option
   patch :DATA
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV["DESTDIR"] = ""
