@@ -36,7 +36,7 @@ class TclTk < Formula
 
     # Upstream issue 7 Jan 2018 "Build failure with Aqua support on OS X 10.8 and 10.9"
     # See https://core.tcl.tk/tcl/tktview/95a8293a2936e34cc8d0658c21e5214f1ca9b435
-    if MacOS.version == :mavericks || MacOS.version == :mountain_lion
+    if MacOS.version == :mavericks
       patch :p0 do
         url "https://raw.githubusercontent.com/macports/macports-ports/0a883ad388b/x11/tk/files/patch-macosx-tkMacOSXXStubs.c.diff"
         sha256 "2cdba6bbf2503307fe4f4d7200ad57c9926ebf0ff6ed3e65bf551067a30a04a9"
