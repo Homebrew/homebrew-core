@@ -34,8 +34,6 @@ class Efl < Formula
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
