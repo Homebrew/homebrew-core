@@ -25,8 +25,6 @@ class Visp < Formula
   # https://github.com/lagadic/visp/commit/547041b8
   patch :DATA
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
