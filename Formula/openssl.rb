@@ -27,27 +27,6 @@ class Openssl < Formula
     sha256 "86695b1be9225c3cf882d283f05c944e3aabbc1df6428a4424269a93e997dc65"
   end
 
-  # Use standard env on Snow Leopard to allow compilation fix below to work.
-  env :std if MacOS.version == :snow_leopard
-
-  def arch_args
-    %w[
-      darwin64-x86_64-cc
-      enable-ec_nistp_64_gcc_128
-    ]
-  end
-
-  def configure_args; %W[
-    --prefix=#{prefix}
-    --openssldir=#{openssldir}
-    no-ssl2
-    no-ssl3
-    no-zlib
-    shared
-    enable-cms
-  ]
-  end
-
   def install
     # OpenSSL will prefer the PERL environment variable if set over $PATH
     # which can cause some odd edge cases & isn't intended. Unset for safety,
@@ -55,21 +34,21 @@ class Openssl < Formula
     ENV.delete("PERL")
     ENV.delete("PERL5LIB")
 
-    # Keep Leopard/Snow Leopard support alive for things like building portable Ruby by
-    # avoiding a makedepend issue introduced in recent versions of OpenSSL 1.0.2.
-    # https://github.com/Homebrew/homebrew-core/pull/34326
-    depend_args = []
-    depend_args << "MAKEDEPPROG=cc" if MacOS.version <= :snow_leopard
-
-    # Build with GCC on Snow Leopard, which errors during tests if built with its clang.
-    # https://github.com/Homebrew/homebrew-core/issues/2766
-    args = []
-    args << "CC=cc" if MacOS.version == :snow_leopard
-
     ENV.deparallelize
-    system "perl", "./Configure", *(configure_args + arch_args)
-    system "make", "depend", *depend_args
-    system "make", *args
+    args = %W[
+      --prefix=#{prefix}
+      --openssldir=#{openssldir}
+      no-ssl2
+      no-ssl3
+      no-zlib
+      shared
+      enable-cms
+      darwin64-x86_64-cc
+      enable-ec_nistp_64_gcc_128
+    ]
+    system "perl", "./Configure", *args
+    system "make", "depend"
+    system "make"
     system "make", "test"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
   end
@@ -98,13 +77,7 @@ class Openssl < Formula
     end
 
     openssldir.mkpath
-    if MacOS.version <= :snow_leopard
-      resource("ca-bundle").stage do
-        openssldir.install "cacert-#{resource("ca-bundle").version}.pem" => "cert.pem"
-      end
-    else
-      (openssldir/"cert.pem").atomic_write(valid_certs.join("\n") << "\n")
-    end
+    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n") << "\n")
   end
 
   def caveats; <<~EOS
