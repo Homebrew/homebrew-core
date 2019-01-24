@@ -34,8 +34,6 @@ class Mpd < Formula
   depends_on "opus"
   depends_on "sqlite"
 
-  needs :cxx11
-
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
