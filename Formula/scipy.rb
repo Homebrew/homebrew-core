@@ -22,10 +22,6 @@ class Scipy < Formula
 
   cxxstdlib_check :skip
 
-  # https://github.com/Homebrew/homebrew-python/issues/110
-  # There are ongoing problems with gcc+accelerate.
-  fails_with :gcc_4_2
-
   def install
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
