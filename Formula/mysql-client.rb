@@ -18,7 +18,7 @@ class MysqlClient < Formula
   # https://github.com/Homebrew/homebrew-core/issues/1475
   # Needs at least Clang 3.3, which shipped alongside Lion.
   # Note: MySQL themselves don't support anything below El Capitan.
-  depends_on :macos => :lion
+
   depends_on "openssl"
 
   def install
