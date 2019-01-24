@@ -19,12 +19,10 @@ class MongodbAT34 < Formula
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
-  depends_on :macos => :mountain_lion
+
   depends_on "openssl"
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     (buildpath/".brew_home/Library/Python/2.7/lib/python/site-packages/vendor.pth").write <<~EOS
       import site; site.addsitedir("#{buildpath}/vendor/lib/python2.7/site-packages")
     EOS
