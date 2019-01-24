@@ -22,8 +22,6 @@ class Dbxml < Formula
     sha256 "98d518934072d86c15780f10ceee493ca34bba5bc788fd9db1981a78234b0dc4"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
