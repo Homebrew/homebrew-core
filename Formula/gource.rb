@@ -29,8 +29,6 @@ class Gource < Formula
   depends_on "sdl2"
   depends_on "sdl2_image"
 
-  needs :cxx11
-
   def install
     # clang on Mt. Lion will try to build against libstdc++,
     # despite -std=gnu++0x
