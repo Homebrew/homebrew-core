@@ -16,6 +16,16 @@ class Serve < Formula
   end
 
   test do
+    begin
+      pid = fork do
+        exec "#{bin}/serve"
+      end
+      sleep 1
+      output = shell_output("curl -sI http://localhost:8080")
+      assert_match /200 OK/m, output
+    ensure
+      Process.kill("HUP", pid)
+    end
     assert_match version.to_s, shell_output("#{bin}/serve version 2>&1")
   end
 end
