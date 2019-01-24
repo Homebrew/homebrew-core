@@ -3,7 +3,6 @@ class Clamav < Formula
   homepage "https://www.clamav.net/"
   url "https://www.clamav.net/downloads/production/clamav-0.101.1.tar.gz"
   sha256 "fa368fa9b2f57638696150c7d108b06dec284e8d8e3b8e702c784947c01fb806"
-  revision 1
 
   bottle do
     sha256 "7005fda00690d3201019fdd68e69223e3b3213ebc10674508b4277a5d7d261a9" => :high_sierra
