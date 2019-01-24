@@ -23,7 +23,7 @@ class Xhyve < Formula
     system "make", *args
     bin.install "build/xhyve"
     pkgshare.install "test/"
-    pkgshare.install "xhyverun.sh"
+    pkgshare.install Dir["xhyverun*.sh"]
     man1.install "xhyve.1" if build.head?
   end
 
