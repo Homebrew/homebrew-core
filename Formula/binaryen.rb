@@ -15,8 +15,6 @@ class Binaryen < Formula
   depends_on "cmake" => :build
   depends_on :macos => :el_capitan # needs thread-local storage
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
