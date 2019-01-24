@@ -23,8 +23,6 @@ class DosboxX < Formula
   depends_on "sdl_net"
   depends_on "sdl_sound"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
