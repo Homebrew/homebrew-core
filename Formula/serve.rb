@@ -1,5 +1,5 @@
 class Serve < Formula
-    desc "A static http server anywhere you need one"
+    desc "serve is a static http server anywhere you need one."
     homepage "https://github.com/syntaqx/serve"
     url "https://github.com/syntaqx/serve/releases/download/v0.2.0/serve_0.2.0_macos_x86_64.tar.gz"
     version "0.2.0"
@@ -10,6 +10,6 @@ class Serve < Formula
     end
 
     test do
-      system "#{bin}/serve", "  version"
+      system "#{bin}/serve version"
     end
   end
