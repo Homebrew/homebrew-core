@@ -22,7 +22,6 @@ class Wget < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
   depends_on "libidn2"
   depends_on "openssl"
 
