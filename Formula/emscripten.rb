@@ -41,8 +41,6 @@ class Emscripten < Formula
   depends_on "python@2"
   depends_on "yuicompressor"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     # rewrite hardcoded paths from system python to homebrew python
