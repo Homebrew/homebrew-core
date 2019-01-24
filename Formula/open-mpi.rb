@@ -23,8 +23,6 @@ class OpenMpi < Formula
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
 
-  needs :cxx11
-
   def install
     # otherwise libmpi_usempi_ignore_tkr gets built as a static library
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
