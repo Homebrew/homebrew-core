@@ -17,10 +17,6 @@ class Zile < Formula
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
 
-  fails_with :gcc do
-    cause "src/funcs.c:1128: error: #pragma GCC diagnostic not allowed inside functions"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
