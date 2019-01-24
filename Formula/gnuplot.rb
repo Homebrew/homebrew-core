@@ -28,8 +28,6 @@ class Gnuplot < Formula
   depends_on "qt"
   depends_on "readline"
 
-  needs :cxx11
-
   def install
     # Qt5 requires c++11 (and the other backends do not care)
     ENV.cxx11
