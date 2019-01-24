@@ -21,12 +21,6 @@ class Cmake < Formula
   # For the GUI application please instead use `brew cask install cmake`.
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
-    # Avoid the following compiler error:
-    # SecKeychain.h:102:46: error: shift expression '(1853123693 << 8)' overflows
-    ENV.append_to_cflags "-fpermissive" if MacOS.version <= :lion
-
     args = %W[
       --prefix=#{prefix}
       --no-system-libs
