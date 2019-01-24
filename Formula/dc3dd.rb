@@ -44,14 +44,13 @@ class Dc3dd < Formula
 
       chmod 0555, ["build-aux/install-sh", "configure"]
 
-      args = %W[--disable-debug
-                --disable-dependency-tracking
-                --prefix=#{prefix}
-                --infodir=#{info}]
-
-      # Check for stpncpy is broken, and the replacement fails to compile
-      # on Lion and newer; see https://github.com/Homebrew/homebrew/issues/21510
-      args << "gl_cv_func_stpncpy=yes" if MacOS.version >= :lion
+      args = %W[
+        --disable-debug
+        --disable-dependency-tracking
+        --prefix=#{prefix}
+        --infodir=#{info}
+        gl_cv_func_stpncpy=yes
+      ]
       system "./configure", *args
       system "make"
       system "make", "install"
