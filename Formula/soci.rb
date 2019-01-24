@@ -14,11 +14,6 @@ class Soci < Formula
   depends_on "cmake" => :build
   depends_on "sqlite" if MacOS.version <= :snow_leopard
 
-  fails_with :clang do
-    build 421
-    cause "Template oddities"
-  end
-
   def install
     args = std_cmake_args + %w[
       -DWITH_SQLITE3:BOOL=ON
