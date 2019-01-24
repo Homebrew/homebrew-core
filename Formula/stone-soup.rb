@@ -14,8 +14,6 @@ class StoneSoup < Formula
   depends_on "lua@5.1"
   depends_on "pcre"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
