@@ -18,11 +18,6 @@ class PostgresXc < Formula
   conflicts_with "postgresql",
     :because => "postgres-xc and postgresql install the same binaries."
 
-  fails_with :clang do
-    build 211
-    cause "Miscompilation resulting in segfault on queries"
-  end
-
   # Fix PL/Python build: https://github.com/Homebrew/homebrew/issues/11162
   patch :DATA
 
