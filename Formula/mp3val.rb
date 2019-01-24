@@ -12,7 +12,6 @@ class Mp3val < Formula
     sha256 "d13a9b31c885d1704a0cc5e1ff6b995acd616248abcf5276fc068b78f7be785f" => :el_capitan
     sha256 "298b6b2835de5f1aa3cef2f9435da3935ffbcfa49468511676661e8eaff8ca70" => :yosemite
     sha256 "0828eb9f4e02af5014e1b8d82be9ad54797b0de6a299b05a1ef0daa86bc5dbe2" => :mavericks
-    sha256 "d90878cb83b0154dabc0cc03e61c3c972dec3ca66b63272716299f3b6dd791f7" => :mountain_lion
   end
 
   def install
