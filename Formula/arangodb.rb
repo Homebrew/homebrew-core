@@ -16,17 +16,10 @@ class Arangodb < Formula
   depends_on :macos => :yosemite
   depends_on "openssl"
 
-  fails_with :clang do
-    build 600
-    cause "Fails with compile errors"
-  end
-
   fails_with :gcc do
     build 820
     cause "Generates incorrect code"
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11
