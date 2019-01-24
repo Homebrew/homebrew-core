@@ -26,6 +26,5 @@ class Serve < Formula
     ensure
       Process.kill("HUP", pid)
     end
-    assert_match version.to_s, shell_output("#{bin}/serve version 2>&1")
   end
 end
