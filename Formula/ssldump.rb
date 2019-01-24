@@ -12,7 +12,6 @@ class Ssldump < Formula
     sha256 "a468350638d8d0e66e8fe137b1473a25e300b967cadae1652e062f9cd92f2dbb" => :el_capitan
     sha256 "714f3e5283285dea18ba6bfc27f3dda2fc9d1317c6fe269fd4ba84aba44fe44c" => :yosemite
     sha256 "61b20e42893e904872f075064323366aa29e05fc3bab4a2d09265e6e05189532" => :mavericks
-    sha256 "835adb0d5cdf60701acfa0a760653149cc03eff2759e7c1c4766737ee1f64ac7" => :mountain_lion
   end
 
   depends_on "openssl"
@@ -48,9 +47,9 @@ __END__
 --- a/base/pcap-snoop.c	2010-03-18 22:59:13.000000000 -0700
 +++ b/base/pcap-snoop.c	2010-03-18 22:59:30.000000000 -0700
 @@ -46,10 +46,9 @@
- 
+
  static char *RCSSTRING="$Id: pcap-snoop.c,v 1.14 2002/09/09 21:02:58 ekr Exp $";
- 
+
 -
 +#include <net/bpf.h>
  #include <pcap.h>
