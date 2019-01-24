@@ -4,14 +4,16 @@ class Visp < Formula
   url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.2.0.tar.gz"
   sha256 "072237ed5c6fcbc6a87300fa036014ec574fd081724907e41ae2d6fb5a222fbc"
 
-  # Introduce pkg-config and glew dependencies to avoid cmake issues when checking for pcl
+  bottle do
+    sha256 "ed11d41df8e68b67795cdde1cc9dc2761bd66b6cb406e0cbc955db90ff066a9e" => :mojave
+    sha256 "a2b5b96e25a69762a1a6d07ab66bf9790adc9fc436a5a57c29d82f9ca13c426f" => :high_sierra
+    sha256 "b157bf06ff32d11195abafc2e82b7277e08b76bddeff95690f7a7277735ca118" => :sierra
+  end
+
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
   depends_on "eigen"
-  depends_on "glew"
   depends_on "gsl"
   depends_on "jpeg"
-  depends_on "lapack"
   depends_on "libdc1394"
   depends_on "libpng"
   depends_on "opencv"
@@ -41,16 +43,12 @@ class Visp < Formula
                          "-DJPEG_INCLUDE_DIR=#{Formula["jpeg"].opt_include}",
                          "-DJPEG_LIBRARY=#{Formula["jpeg"].opt_lib}/libjpeg.dylib",
                          "-DUSE_LAPACK=ON",
-                         "-DLAPACK_INCLUDE_DIR=#{Formula["lapack"].opt_include}",
-                         "-DLAPACK_LIBRARY=#{Formula["lapack"].opt_lib}/liblapack.dylib",
                          "-DUSE_LIBUSB_1=OFF",
                          "-DUSE_OPENCV=ON",
                          "-DOpenCV_DIR=#{Formula["opencv"].opt_share}/OpenCV",
-                         "-DUSE_PCL=OFF",
                          "-DUSE_PNG=ON",
                          "-DPNG_PNG_INCLUDE_DIR=#{Formula["libpng"].opt_include}",
                          "-DPNG_LIBRARY_RELEASE=#{Formula["libpng"].opt_lib}/libpng.dylib",
-                         "-DUSE_PCL=OFF",
                          "-DUSE_PTHREAD=ON",
                          "-DPTHREAD_INCLUDE_DIR=#{sdk}/usr/include",
                          "-DPTHREAD_LIBRARY=/usr/lib/libpthread.dylib",
@@ -67,7 +65,6 @@ class Visp < Formula
                          "-DUSE_ZLIB=ON",
                          "-DZLIB_INCLUDE_DIR=#{sdk}/usr/include",
                          "-DZLIB_LIBRARY_RELEASE=/usr/lib/libz.dylib",
-                         "-DWITH_LAPACK=OFF",
                          *std_cmake_args
     system "make", "install"
   end
