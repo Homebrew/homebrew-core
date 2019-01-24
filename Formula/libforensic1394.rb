@@ -13,7 +13,6 @@ class Libforensic1394 < Formula
     sha256 "d850e7c3a04b206c6219c75ba0a00723e9a25d0c97831de289320ef0cc076aae" => :el_capitan
     sha256 "b64837090b557e25444999bfc41e2023f8fc2ced465ef7ccc067938fe0ec2f2c" => :yosemite
     sha256 "a2039bd1c161253eac9ac123414f660fbb6059f709b6499ec6a92c73bfba4f42" => :mavericks
-    sha256 "2e47c1998b61152dd2ce086c78cf53d0d35781861921aafb1149589d7a312acb" => :mountain_lion
   end
 
   depends_on "cmake" => :build
