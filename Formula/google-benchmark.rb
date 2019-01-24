@@ -15,8 +15,6 @@ class GoogleBenchmark < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "cmake", "-DBENCHMARK_ENABLE_GTEST_TESTS=OFF", *std_cmake_args
