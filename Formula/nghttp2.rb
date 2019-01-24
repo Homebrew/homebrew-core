@@ -26,7 +26,6 @@ class Nghttp2 < Formula
   depends_on "jemalloc"
   depends_on "libev"
   depends_on "libevent"
-  depends_on "libxml2" if MacOS.version <= :lion
   depends_on "openssl"
 
   resource "Cython" do
@@ -42,11 +41,11 @@ class Nghttp2 < Formula
       --disable-silent-rules
       --enable-app
       --disable-python-bindings
+      --with-xml-prefix=/usr
     ]
 
     # requires thread-local storage features only available in 10.11+
     args << "--disable-threads" if MacOS.version < :el_capitan
-    args << "--with-xml-prefix=/usr" if MacOS.version > :lion
 
     system "autoreconf", "-ivf" if build.head?
     system "./configure", *args
