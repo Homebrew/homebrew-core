@@ -18,7 +18,7 @@ class GtkGnutella < Formula
   def install
     ENV.deparallelize
 
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       inreplace "Configure", "ret = clock_gettime(CLOCK_REALTIME, &tp);",
                              "ret = undefinedgibberish(CLOCK_REALTIME, &tp);"
     end
