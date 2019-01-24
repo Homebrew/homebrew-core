@@ -15,7 +15,6 @@ class IosSim < Formula
     sha256 "3285f588ff7aa51200a44b4a69497653b0bbef1df3399315a015f690bdd5c2df" => :el_capitan
   end
 
-  depends_on :macos => :mountain_lion
   depends_on "node"
 
   def install
