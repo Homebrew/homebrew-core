@@ -12,7 +12,6 @@ class Mdr < Formula
     sha256 "0b522120151f1116ae7e681ff2fb129ecd26486202ca753d6b1de902f6f29334" => :el_capitan
     sha256 "7048e71ef8f9a1d5c1712dce6cb33df08029038d771789021a1b8bc1e5f4ad10" => :yosemite
     sha256 "b80b64d56e7e77e9b53dd8c308dd50450552b782a72204cb710adf2de28c4f9e" => :mavericks
-    sha256 "6280aee9902aabfcfdf6fb6ae094badc94ee1ad83d6caac4ca9b23f94803ec49" => :mountain_lion
   end
 
   def install
