@@ -32,8 +32,6 @@ class Mkvtoolnix < Formula
   depends_on "libogg"
   depends_on "libvorbis"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
