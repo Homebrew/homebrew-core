@@ -14,8 +14,6 @@ class CabalInstall < Formula
 
   depends_on "ghc"
 
-  fails_with :clang if MacOS.version <= :lion # Same as ghc.rb
-
   def install
     cd "cabal-install" if build.head?
 
