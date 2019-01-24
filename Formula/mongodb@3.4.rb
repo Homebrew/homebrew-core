@@ -22,8 +22,6 @@ class MongodbAT34 < Formula
   depends_on :macos => :mountain_lion
   depends_on "openssl"
 
-  needs :cxx11
-
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
