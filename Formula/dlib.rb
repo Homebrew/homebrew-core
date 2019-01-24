@@ -31,9 +31,8 @@ class Dlib < Formula
       -DUSE_SSE2_INSTRUCTIONS=ON
     ]
 
-    unless build.bottle?
-      args << "-DUSE_AVX_INSTRUCTIONS=ON" if Hardware::CPU.avx?
-      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if Hardware::CPU.sse4?
+    if MacOS.version.requires_sse4?
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON"
     end
 
     mkdir "dlib/build" do
