@@ -12,7 +12,6 @@ class Raptor < Formula
     sha256 "cc2feb9cd1d6f9eb0f511853f19c43bc96d143de6a73edfd3cdb854647d1d14a" => :el_capitan
     sha256 "c23392012fb5edffbe800771eaee6ae81d288e62c477c27332474f2ed342d1b3" => :yosemite
     sha256 "5e640e01d5cdd6899ca00704ba581358d254f7cfb9b81d62c901c825bb347681" => :mavericks
-    sha256 "940e3bdae54c820097a92bf9fded4761c9d0b070c2caae1bfbd051d33494e0f3" => :mountain_lion
   end
 
   def install
