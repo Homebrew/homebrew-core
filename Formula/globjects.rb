@@ -16,8 +16,6 @@ class Globjects < Formula
   depends_on "glbinding"
   depends_on "glm"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "cmake", ".", "-Dglbinding_DIR=#{Formula["glbinding"].opt_prefix}", *std_cmake_args
