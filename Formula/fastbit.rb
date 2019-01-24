@@ -22,8 +22,6 @@ class Fastbit < Formula
     sha256 "e1198caf262a125d2216d70cfec80ebe98d122760ffa5d99d34fc33646445390"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-debug",
