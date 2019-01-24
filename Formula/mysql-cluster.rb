@@ -14,7 +14,6 @@ class MysqlCluster < Formula
 
   depends_on "cmake" => :build
   depends_on :java => "1.8"
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
 
   conflicts_with "memcached", :because => "both install `bin/memcached`"
