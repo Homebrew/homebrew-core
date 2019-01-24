@@ -14,10 +14,6 @@ class Libvpx < Formula
 
   depends_on "yasm" => :build
 
-  # configure misdetects 32-bit 10.6
-  # https://code.google.com/p/webm/issues/detail?id=401
-  depends_on :macos => :lion
-
   def install
     args = %W[
       --prefix=#{prefix}
