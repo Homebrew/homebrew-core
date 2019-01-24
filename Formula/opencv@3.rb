@@ -83,9 +83,9 @@ class OpencvAT3 < Formula
       -DPYTHON3_INCLUDE_DIR=#{py3_include}
     ]
 
-    if build.bottle?
-      args += %w[-DENABLE_SSE41=OFF -DENABLE_SSE42=OFF -DENABLE_AVX=OFF
-                 -DENABLE_AVX2=OFF]
+    args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
+    unless MacOS.version.requires_sse42?
+      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
     end
 
     mkdir "build" do
