@@ -22,7 +22,7 @@ class Mpv < Formula
   depends_on "libass"
   depends_on "little-cms2"
   depends_on "lua@5.1"
-  depends_on :macos => :mountain_lion
+
   depends_on "mujs"
   depends_on "vapoursynth"
   depends_on "youtube-dl"
