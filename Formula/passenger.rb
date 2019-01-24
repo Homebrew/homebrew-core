@@ -12,7 +12,6 @@ class Passenger < Formula
     sha256 "d094cecf62e66a527482b681bdfa01cc7fa956a16ad9e4d2fea520ffc63cac6f" => :sierra
   end
 
-  depends_on :macos => :lion
   depends_on "openssl"
   depends_on "pcre"
 
