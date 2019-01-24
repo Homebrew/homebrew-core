@@ -13,7 +13,6 @@ class Webfs < Formula
     sha256 "63755af9ac88711d4eb2e80016ef541ed40a1422f2fb2de3ded5c72b362cb39e" => :el_capitan
     sha256 "51985bfb7ca68d15261a296886cf0c6b317d870bc79aadf881429101b9a11e09" => :yosemite
     sha256 "79c670478aeb8f97d702a5112fde2dab07c92145ea836c12bfdf9a1acfca4232" => :mavericks
-    sha256 "bced78e19fe50e4b1191fb41cd7aeecf50b1a5d946a13c89d211159553cbd637" => :mountain_lion
   end
 
   depends_on "openssl"
