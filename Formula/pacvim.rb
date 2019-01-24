@@ -15,8 +15,6 @@ class Pacvim < Formula
     sha256 "13f43d00b08183febdc7afcba0553cd512dd9ae23a7fd770b09e3eedb4f8ea37" => :mountain_lion
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "make", "install", "PREFIX=#{prefix}"
