@@ -15,11 +15,6 @@ class Sphinx < Formula
   depends_on "mysql"
   depends_on "openssl"
 
-  fails_with :clang do
-    build 421
-    cause "sphinxexpr.cpp:1802:11: error: use of undeclared identifier 'ExprEval'"
-  end
-
   resource "stemmer" do
     url "https://github.com/snowballstem/snowball.git",
         :revision => "9b58e92c965cd7e3208247ace3cc00d173397f3c"
