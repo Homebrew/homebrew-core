@@ -12,7 +12,6 @@ class Unarj < Formula
     sha256 "7bdcd771f852f59915623dae370c8f807cbf20f242dad60d62afa1dc683cdf4a" => :el_capitan
     sha256 "95794638930505f1d4a23553571d62de07dd3f62da7687ef571c6f7e893bba42" => :yosemite
     sha256 "d81c8d0e7799847d65e8059eee61bb29f9e33ea3ea501465dee0cc7c68f425ff" => :mavericks
-    sha256 "ec371113bda90ac0f08a58822a6131934f358a10c9bf2a7e09b066827bbe9c62" => :mountain_lion
   end
 
   resource "testfile" do
