@@ -25,8 +25,6 @@ class Hfstospell < Formula
     sha256 "0a3146e871ac0e3c71248b8671d09f6d8a8a69713b6f4857eab7bdb684709083"
   end
 
-  needs :cxx11
-
   def install
     # icu4c 61.1 compatability
     ENV.append "CPPFLAGS", "-DU_USING_ICU_NAMESPACE=1"
