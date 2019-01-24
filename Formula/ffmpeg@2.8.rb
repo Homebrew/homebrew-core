@@ -71,8 +71,8 @@ class FfmpegAT28 < Formula
       --enable-libopencore-amrwb
       --enable-librtmp
       --enable-libspeex
+      --enable-opencl
     ]
-    args << "--enable-opencl" if MacOS.version > :lion
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
     # prevents GCC from building VDA support. GCC has no problems on
