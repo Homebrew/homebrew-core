@@ -25,8 +25,6 @@ class Widelands < Formula
   depends_on "sdl2_net"
   depends_on "sdl2_ttf"
 
-  needs :cxx11
-
   def install
     # icu4c 61.1 compatability
     ENV.append "CXXFLAGS", "-DU_USING_ICU_NAMESPACE=1"
