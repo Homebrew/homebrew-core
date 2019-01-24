@@ -34,7 +34,7 @@ class Libopkele < Formula
 
   # It rejects the tr1/memory that ships on 10.9 & above
   # and refuses to compile. It can use Boost, per configure.
-  depends_on "boost" if MacOS.version > :mountain_lion
+  depends_on "boost"
 
   depends_on "openssl"
 
