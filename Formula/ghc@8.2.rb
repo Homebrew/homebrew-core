@@ -17,7 +17,7 @@ class GhcAT82 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python" => :build if build.bottle?
+  depends_on "python" => :build
   depends_on "sphinx-doc" => :build
 
   resource "gmp" do
@@ -43,30 +43,14 @@ class GhcAT82 < Formula
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
 
-    # Setting -march=native, which is what --build-from-source does, fails
-    # on Skylake (and possibly other architectures as well) with the error
-    # "Segmentation fault: 11" for at least the following files:
-    #   utils/haddock/dist/build/Haddock/Backends/Hyperlinker/Types.dyn_o
-    #   utils/haddock/dist/build/Documentation/Haddock/Types.dyn_o
-    #   utils/haddock/dist/build/Haddock/GhcUtils.dyn_o
-    #   utils/haddock/dist/build/Paths_haddock.dyn_o
-    #   utils/haddock/dist/build/ResponseFile.dyn_o
-    # Setting -march=core2 works around the bug.
-    # Reported 22 May 2016: https://ghc.haskell.org/trac/ghc/ticket/12100
-    # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
-    ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
-
     # Build a static gmp rather than in-tree gmp, otherwise it links to brew's.
     gmp = libexec/"integer-gmp"
-
-    # MPN_PATH: The lowest common denominator asm paths that work on Darwin,
-    # corresponding to Yonah and Merom. Obviates --disable-assembly.
-    ENV["MPN_PATH"] = "x86_64/fastsse x86_64/core2 x86_64 generic" if build.bottle?
 
     # GMP *does not* use PIC by default without shared libs  so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
-      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared"
+      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
+                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
       system "make"
       system "make", "check"
       ENV.deparallelize { system "make", "install" }
@@ -102,12 +86,10 @@ class GhcAT82 < Formula
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
-    if build.bottle?
-      resource("testsuite").stage { buildpath.install Dir["*"] }
-      cd "testsuite" do
-        system "make", "clean"
-        system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
-      end
+    resource("testsuite").stage { buildpath.install Dir["*"] }
+    cd "testsuite" do
+      system "make", "clean"
+      system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
     end
 
     ENV.deparallelize { system "make", "install" }
