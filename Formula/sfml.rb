@@ -26,7 +26,6 @@ class Sfml < Formula
   depends_on "libvorbis"
 
   # https://github.com/Homebrew/homebrew/issues/40301
-  depends_on :macos => :lion
 
   def install
     # Install pkg-config files, adding the CMake flag below isn't enough, as
