@@ -22,7 +22,7 @@ class Knot < Formula
   depends_on "sphinx-doc" => :build
   depends_on "fstrm"
   depends_on "gnutls"
-  depends_on "libidn"
+  depends_on "libidn2"
   depends_on :macos => :yosemite # due to AT_REMOVEDIR
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
