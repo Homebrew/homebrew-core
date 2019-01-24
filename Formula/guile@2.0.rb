@@ -22,11 +22,6 @@ class GuileAT20 < Formula
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
-  fails_with :clang do
-    build 211
-    cause "Segfaults during compilation"
-  end
-
   if MacOS.version >= :sierra
     # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870
     # https://git.net/ml/bug-guile-gnu/2016-06/msg00180.html
