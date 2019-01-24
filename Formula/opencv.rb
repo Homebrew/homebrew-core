@@ -28,8 +28,6 @@ class Opencv < Formula
     sha256 "0d8acbad4b7074cfaafd906a7419c23629179d5e98894714402090b192ef8237"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
