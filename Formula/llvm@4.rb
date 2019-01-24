@@ -18,12 +18,6 @@ class LlvmAT4 < Formula
   depends_on "libffi"
   depends_on "python@2" if MacOS.version <= :snow_leopard
 
-  # According to the official llvm readme, GCC 4.7+ is required
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
-
   resource "clang" do
     url "https://releases.llvm.org/4.0.1/cfe-4.0.1.src.tar.xz"
     sha256 "61738a735852c23c3bdbe52d035488cdb2083013f384d67c1ba36fabebd8769b"
