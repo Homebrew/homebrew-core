@@ -1,8 +1,8 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.13.tar.gz"
-  sha256 "61f97906050c2a0cc008be347f70c2c6612425c85342466f549088c570b35ff4"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.14.tar.gz"
+  sha256 "afc608989a120c204524dcf107af23a41b3665e900fd0f17080705bbf2c13de0"
 
   bottle do
     sha256 "aaf5322a68c54d31ef2322023238da09529c11eaad75b69cdaa99aeb0fab44bf" => :mojave
@@ -43,6 +43,7 @@ class Mysql < Formula
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
+      -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
