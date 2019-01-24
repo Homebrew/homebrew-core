@@ -15,7 +15,7 @@ class Simutrans < Formula
   end
 
   depends_on "libpng"
-  depends_on :macos => :lion
+
   depends_on "sdl2"
 
   resource "pak64" do
