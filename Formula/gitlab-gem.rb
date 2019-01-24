@@ -11,8 +11,6 @@ class GitlabGem < Formula
     sha256 "6bef103c75ff1161642f6932ae1086d4b375c4aee773c3734fe50da1eb05a1d0" => :sierra
   end
 
-  depends_on "ruby" if MacOS.version <= :mountain_lion
-
   resource "httparty" do
     url "https://rubygems.org/gems/httparty-0.16.2.gem"
     sha256 "fc67e5ba443b5ca822c2babccd3c6ed8bcc75fb67432b99652cb95972d204cff"
