@@ -23,8 +23,6 @@ class Wellington < Formula
         :revision => "f09c4662a0bd6bd8943ac7b4931e185df9471da4"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
