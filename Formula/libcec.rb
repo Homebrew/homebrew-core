@@ -18,8 +18,6 @@ class Libcec < Formula
     sha256 "064f8d2c358895c7e0bea9ae956f8d46f3f057772cb97f2743a11d478a0f68a0"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
