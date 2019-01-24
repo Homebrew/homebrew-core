@@ -16,8 +16,6 @@ class Aria2 < Formula
   depends_on "pkg-config" => :build
   depends_on "libssh2"
 
-  needs :cxx14
-
   def install
     # Fix "error: use of undeclared identifier 'make_unique'"
     # Reported upstream 15 May 2018 https://github.com/aria2/aria2/issues/1198
