@@ -21,8 +21,6 @@ class Gtkmm < Formula
   depends_on "libsigc++"
   depends_on "pangomm"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
