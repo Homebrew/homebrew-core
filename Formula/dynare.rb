@@ -38,8 +38,6 @@ class Dynare < Formula
     sha256 "fa80f7c75dab6bfaca93c3b374c774fd87876f34fba969af9133eeaea5f39a3d"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
