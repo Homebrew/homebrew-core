@@ -6,14 +6,15 @@ class Vcpkg < Formula
 
   bottle :unneeded
 
-  depends_on "gcc" => :build
-  depends_on "cmake" => :build
-  depends_on "ninja" => :build
+  depends_on "ninja"
+  depends_on "cmake"
+  depends_on "gcc"
 
   def install
-  	ENV.append "VCPKG_ALLOW_APPLE_CLANG", true
+  	ENV["CC"] = "/usr/local/bin/gcc-8"
+  	ENV["CXX"] = "/usr/local/bin/g++-8"
     system "./bootstrap-vcpkg.sh", "-useSystemBinaries"
-    # bin.install "./vcpkg"
+    bin.install "./vcpkg"
   end
 
   test do
