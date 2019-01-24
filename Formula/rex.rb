@@ -13,8 +13,6 @@ class Rex < Formula
     sha256 "abb8c9c4549b4c73bfa84de1d5472ee89fb4203ff2abbdba7b98208b349b3bab" => :el_capitan
   end
 
-  depends_on "perl" if MacOS.version <= :mountain_lion
-
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
     # MacOS Perl installation has 0.4003
