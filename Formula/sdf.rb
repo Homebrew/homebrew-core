@@ -18,14 +18,6 @@ class Sdf < Formula
   depends_on "pkg-config" => :build
   depends_on "aterm"
 
-  fails_with :clang do
-    build 425
-    cause <<~EOS
-      ParsedError.c:15434:611: fatal error: parser recursion
-      limit reached, program too complex
-    EOS
-  end
-
   resource "c-library" do
     url "http://www.meta-environment.org/releases/c-library-1.2.tar.gz"
     sha256 "08fdec0faf3c941203ff3decaf518117f49f62a42b111bac39d88e62c453b066"
