@@ -14,8 +14,6 @@ class BoostPython < Formula
 
   depends_on "boost"
 
-  needs :cxx11
-
   def install
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
