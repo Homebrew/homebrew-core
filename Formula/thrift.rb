@@ -1,8 +1,8 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.11.0/thrift-0.11.0.tar.gz"
-  sha256 "c4ad38b6cb4a3498310d405a91fef37b9a8e79a50cd0968148ee2524d2fa60c2"
+  url "https://www.apache.org/dist/thrift/0.12.0/thrift-0.12.0.tar.gz"
+  sha256 "c336099532b765a6815173f62df0ed897528a9d551837d627c1f87fadad90428"
 
   bottle do
     cellar :any
