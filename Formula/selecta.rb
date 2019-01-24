@@ -6,8 +6,6 @@ class Selecta < Formula
 
   bottle :unneeded
 
-  depends_on "ruby" if MacOS.version <= :mountain_lion
-
   def install
     bin.install "selecta"
   end
