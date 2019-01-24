@@ -31,8 +31,8 @@ class Macvim < Formula
     # MacVim doesn't have or require any Python package, so unset PYTHONPATH
     ENV.delete("PYTHONPATH")
 
-    # If building for OS X 10.7 or up, make sure that CC is set to "clang"
-    ENV.clang if MacOS.version >= :lion
+    # make sure that CC is set to "clang"
+    ENV.clang
 
     system "./configure", "--with-features=huge",
                           "--enable-multibyte",
