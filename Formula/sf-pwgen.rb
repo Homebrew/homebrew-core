@@ -14,8 +14,6 @@ class SfPwgen < Formula
     sha256 "2c6d133b3c9b079dc8c81407107a3c1fb4d5cb3d654afa7acef6f23b9f9df9a6" => :yosemite
   end
 
-  depends_on :macos => :mountain_lion
-
   def install
     system "make"
     bin.install "sf-pwgen"
