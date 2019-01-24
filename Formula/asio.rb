@@ -18,8 +18,6 @@ class Asio < Formula
 
   depends_on "openssl"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
