@@ -28,8 +28,6 @@ class MongodbAT30 < Formula
       :revision => "86d15daf966ce58f5ce01985db07a7a5a3641ecb"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
