@@ -13,7 +13,7 @@ class Nzbget < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gcc" if MacOS.version <= :mavericks
+  depends_on "gcc" if MacOS.version == :mavericks
   depends_on "openssl"
 
   def install
