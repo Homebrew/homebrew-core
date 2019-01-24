@@ -13,8 +13,6 @@ class GoAT110 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :macos => :mountain_lion
-
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go1.10"
