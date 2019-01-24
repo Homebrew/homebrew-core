@@ -18,9 +18,6 @@ class OpenalSoft < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
-  # clang 4.2's support for alignas is incomplete
-  fails_with(:clang) { build 425 }
-
   def install
     # Please don't reenable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
