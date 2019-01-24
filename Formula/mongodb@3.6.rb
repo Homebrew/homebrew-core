@@ -39,8 +39,6 @@ class MongodbAT36 < Formula
     sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11 if MacOS.version < :mavericks
 
