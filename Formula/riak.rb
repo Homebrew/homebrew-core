@@ -14,7 +14,6 @@ class Riak < Formula
 
   depends_on :arch => :x86_64
   depends_on "erlang@17"
-  depends_on :macos => :mountain_lion
 
   # rebar tries to fetch fuse using git over ssh
   resource "fuse" do
