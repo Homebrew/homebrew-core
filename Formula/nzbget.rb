@@ -16,21 +16,6 @@ class Nzbget < Formula
   depends_on "gcc" if MacOS.version <= :mavericks
   depends_on "openssl"
 
-  fails_with :clang do
-    build 600
-    cause "No compiler with C++14 support was found"
-  end
-
-  fails_with :clang do
-    build 500
-    cause <<~EOS
-      Clang older than 5.1 requires flexible array members to be POD types.
-      More recent versions require only that they be trivially destructible.
-    EOS
-  end
-
-  needs :cxx11
-
   def install
     ENV.cxx11
 
