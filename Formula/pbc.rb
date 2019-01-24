@@ -13,7 +13,6 @@ class Pbc < Formula
     sha256 "5295bb2d5b2698685ff7ff8b64e0578a5b8c9b9f9602fc51583cae058ee24b81" => :el_capitan
     sha256 "5ec07e1b5752aa02b6a479665ca8a57b85ed55d5cd3b05a34cf403d7b47ea142" => :yosemite
     sha256 "3be60cf755e2d568867c2d5c53a46774627afe1fe7439b7f86437e718ba52ed8" => :mavericks
-    sha256 "f9f7455441a38df308bd433f1a13a208ef65a2081a1884f45156f3b63072c832" => :mountain_lion
   end
 
   depends_on "gmp"
