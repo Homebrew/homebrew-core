@@ -18,7 +18,7 @@ class Lsd < Formula
   end
 
   test do
-    output = shell_output("#{bin}/lsd #{prefix}")
+    output = shell_output("#{bin}/lsd -l #{prefix}")
     assert_match "README.md", output
   end
 end
