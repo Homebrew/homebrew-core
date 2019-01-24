@@ -27,8 +27,6 @@ class Bitcoin < Formula
   depends_on "openssl"
   depends_on "zeromq"
 
-  needs :cxx11
-
   def install
     if MacOS.version == :el_capitan && MacOS::Xcode.installed? &&
        MacOS::Xcode.version >= "8.0"
