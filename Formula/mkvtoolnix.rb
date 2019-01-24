@@ -22,7 +22,6 @@ class Mkvtoolnix < Formula
   depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
-  depends_on "ruby" => :build if MacOS.version <= :mountain_lion
   depends_on "boost"
   depends_on "flac"
   depends_on "gettext"
