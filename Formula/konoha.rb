@@ -19,7 +19,7 @@ class Konoha < Formula
 
   depends_on "cmake" => :build
   depends_on "json-c"
-  depends_on "mecab" if MacOS.version >= :mountain_lion
+  depends_on "mecab"
   depends_on "open-mpi"
   depends_on "pcre"
   depends_on "python"
