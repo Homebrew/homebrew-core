@@ -16,8 +16,6 @@ class Gammaray < Formula
   depends_on "graphviz"
   depends_on "qt"
 
-  needs :cxx11
-
   def install
     # For Mountain Lion
     ENV.libcxx
