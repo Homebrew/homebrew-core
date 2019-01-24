@@ -13,7 +13,7 @@ class Stockfish < Formula
   end
 
   def install
-    arch = if Hardware::CPU.features.include? :popcnt
+    arch = if MacOS.version.requires_popcnt?
       "x86-64-modern"
     else
       "x86-64"
