@@ -30,8 +30,6 @@ class OpencvAT3 < Formula
     sha256 "8f73d029887c726fed89c69a2b0fcb1d098099fcd81c1070e1af3b452669fbe2"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
