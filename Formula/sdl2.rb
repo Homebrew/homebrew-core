@@ -45,9 +45,6 @@ class Sdl2 < Formula
     args = %W[--prefix=#{prefix} --without-x]
 
     # LLVM-based compilers choke on the assembly code packaged with SDL.
-    if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
-      args << "--disable-assembly"
-    end
     args << "--disable-haptic" << "--disable-joystick" if MacOS.version <= :snow_leopard
 
     system "./configure", *args
