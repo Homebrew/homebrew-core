@@ -4,6 +4,7 @@ class Kustomize < Formula
   url "https://github.com/kubernetes-sigs/kustomize.git",
       :tag      => "v1.0.11",
       :revision => "8f701a00417a812558a7b785e8354957afa469ae"
+  head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
     cellar :any_skip_relocation
