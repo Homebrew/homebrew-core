@@ -1,8 +1,8 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/1.1.1.tar.gz"
-  sha256 "fd29fb3639f0c6d0d3c0b9d19ffebb935d8d9ea693533d1255c42f55a3860a00"
+  url "https://github.com/akamai/cli/archive/1.1.2.tar.gz"
+  sha256 "99ccc7e107507b6898869fd763d794726360ff331ecc6dd18dfb4a2a8f76e73f"
 
   bottle do
     cellar :any_skip_relocation
