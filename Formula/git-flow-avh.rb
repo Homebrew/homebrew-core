@@ -1,11 +1,10 @@
 class GitFlowAvh < Formula
   desc "AVH edition of git-flow"
   homepage "https://github.com/petervanderdoes/gitflow-avh"
-  revision 1
 
   stable do
-    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.11.0.tar.gz"
-    sha256 "06ad2110088e46e3712f799a43bf6cc5c3720fc25c69dbb3bbf4cf486cf2f330"
+    url "https://github.com/petervanderdoes/gitflow-avh/archive/1.12.0.tar.gz"
+    sha256 "3de0d33376fbbfa11d0a0f7d49e2d743f322ff89920c070593b2bbb4187f2af5"
 
     resource "completion" do
       url "https://github.com/petervanderdoes/git-flow-completion/archive/0.6.0.tar.gz"
