@@ -14,6 +14,7 @@ class Sphinx < Formula
 
   depends_on "mysql"
   depends_on "openssl"
+  depends_on "unixodbc"
 
   fails_with :clang do
     build 421
