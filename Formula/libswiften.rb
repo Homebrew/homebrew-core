@@ -16,6 +16,18 @@ class Libswiften < Formula
   depends_on "libidn"
   depends_on "lua@5.1"
 
+  # fix build for boost 1.69
+  patch do
+    url "https://swift.im/git/swift/patch/?id=3666cbbe30e4d4e25401a5902ae359bc2c24248b"
+    sha256 "483ace97ee0d0c17a96f8feb7820611fdb1eca1cbb95777c36ca4fad0fdef7f9"
+  end
+
+  # fix build for boost 1.69
+  patch do
+    url "https://swift.im/git/swift/patch/?id=a2dc74cd0e4891037b97b6a782de80458675e4f0"
+    sha256 "28fa8bfdd5b3ec45c00cab8a968ac1528846bbc5a2e3eeeaaaef83785b42bb7f"
+  end
+
   def install
     boost = Formula["boost"]
     libidn = Formula["libidn"]
