@@ -27,7 +27,7 @@ class BashCompletionAT2 < Formula
     inreplace "bash_completion", "readlink -f", "readlink"
 
     system "autoreconf", "-i" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     ENV.deparallelize
     system "make", "install"
   end
