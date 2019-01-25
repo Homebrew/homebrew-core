@@ -3,6 +3,7 @@ class Pgrouting < Formula
   homepage "https://pgrouting.org/"
   url "https://github.com/pgRouting/pgrouting/archive/v2.6.2.tar.gz"
   sha256 "328fb46fbb865aecad9771b2892b06602fa796949a985b8973ce8bb09b469295"
+  revision 1
   head "https://github.com/pgRouting/pgrouting.git"
 
   bottle do
