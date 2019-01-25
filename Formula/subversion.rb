@@ -19,6 +19,7 @@ class Subversion < Formula
     depends_on "gettext" => :build
   end
 
+  depends_on :java => ["1.8+", :build]
   depends_on "pkg-config" => :build
   depends_on "scons" => :build # For Serf
   depends_on "swig" => :build
@@ -84,6 +85,8 @@ class Subversion < Formula
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
+      --enable-javahl
+      --without-jikes
       RUBY=/usr/bin/ruby
     ]
 
@@ -108,8 +111,15 @@ class Subversion < Formula
     system "make", "install-swig-py"
     (lib/"python2.7/site-packages").install_symlink Dir["#{lib}/svn-python/*"]
 
-    # In theory SWIG can be built in parallel, in practice...
+    # Peg to system Ruby
+    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
+    system "make", "install-swig-rb"
+
+    # Java and Perl support don't build correctly in parallel:
+    # https://github.com/Homebrew/homebrew/issues/20415
     ENV.deparallelize
+    system "make", "javahl"
+    system "make", "install-javahl"
 
     archlib = Utils.popen_read("perl -MConfig -e 'print $Config{archlib}'")
     perl_core = Pathname.new(archlib)/"CORE"
@@ -127,10 +137,6 @@ class Subversion < Formula
     # "Library" directories. It is however pointless to keep around as it
     # only contains the perllocal.pod installation file.
     rm_rf prefix/"Library/Perl"
-
-    # Peg to system Ruby
-    system "make", "swig-rb", "EXTRA_SWIG_LDFLAGS=-L/usr/lib"
-    system "make", "install-swig-rb"
   end
 
   def caveats
@@ -144,6 +150,10 @@ class Subversion < Formula
       If you wish to use the Ruby bindings you may need to add:
         #{HOMEBREW_PREFIX}/lib/ruby
       to your RUBYLIB.
+
+      You may need to link the Java bindings into the Java Extensions folder:
+        sudo mkdir -p /Library/Java/Extensions
+        sudo ln -s #{HOMEBREW_PREFIX}/lib/libsvnjavahl-1.dylib /Library/Java/Extensions/libsvnjavahl-1.dylib
     EOS
   end
 
