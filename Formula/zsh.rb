@@ -20,9 +20,9 @@ class Zsh < Formula
   depends_on "ncurses"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.6.2-doc.tar.xz"
-    sha256 "98973267547cbdd8471b52e3a2bbe415be2c2c473246536ed8914f685e260114"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7/zsh-5.7-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.7-doc.tar.xz"
+    sha256 "f0a94db78ef8914743da49970c00fe867e0e5377fbccd099afe55d81a2d7f15d"
   end
 
   def install
