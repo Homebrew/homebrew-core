@@ -1,8 +1,8 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.7.1.tar.gz"
-  sha256 "83fac8b47b2f56da1e7366688df4bd0eeb5fa20bde5d3de39792ea1cc1d15cd4"
+  url "https://github.com/github/hub/archive/v2.8.3.tar.gz"
+  sha256 "26bc1bc6fd8b6af379445728450d9c1e26a6d1861fdff5c2b552562eb7487a96"
   head "https://github.com/github/hub.git"
 
   bottle do
@@ -14,22 +14,10 @@ class Hub < Formula
 
   depends_on "go" => :build
 
-  # System Ruby uses old TLS versions no longer supported by RubyGems.
-  depends_on "ruby" => :build if MacOS.version <= :sierra
-
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/github/hub").install buildpath.children
     cd "src/github.com/github/hub" do
-      begin
-        deleted = ENV.delete "SDKROOT"
-        ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundler:1.16.0"
-        ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-        system "make", "man-pages"
-      ensure
-        ENV["SDKROOT"] = deleted
-      end
       system "make", "install", "prefix=#{prefix}"
 
       prefix.install_metafiles
