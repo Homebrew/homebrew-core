@@ -7,9 +7,9 @@ class Blueutil < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "16cdef80b486f0ea1688383e182761e296b4666108acd7786033139260844f31" => :mojave
-    sha256 "8f373fa0ddda43ed43c883789c00b4e88ec597e0dc625195cb8b5d889a5a1239" => :high_sierra
-    sha256 "f763a5f16cce873c8f2e6e355dac000f039a7866e0632c79805ddbdfa4b5ffec" => :sierra
+    sha256 "aaa5f3d72a8abd32e6e19465a0d1b1061dcb694ca5552dd3fd44384f4be3707e" => :mojave
+    sha256 "00ac1b7cfb54b05a27c4ef31cad443a7c7ad00bc56adc77acde00d14c0e0a566" => :high_sierra
+    sha256 "68094b894edbcade821591c699cd5349ff42995db389694ac7c6c22af0d4182e" => :sierra
   end
 
   depends_on :xcode => :build
