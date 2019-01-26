@@ -1,8 +1,8 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/archive/V8.8.2.tar.gz"
-  sha256 "f9f843b21fda18195fbf80c706bce8ac70ccb43cbd82f6916747dc6c22d05044"
+  url "https://github.com/coq/coq/archive/V8.9.0.tar.gz"
+  sha256 "8bd6e2bc8d79f96df19b8888ebfbdfdbe50fa9cd3fb969c13b610f7d05070ff0"
   head "https://github.com/coq/coq.git"
 
   bottle do
@@ -19,7 +19,6 @@ class Coq < Formula
   def install
     system "./configure", "-prefix", prefix,
                           "-mandir", man,
-                          "-emacslib", elisp,
                           "-coqdocdir", "#{pkgshare}/latex",
                           "-coqide", "no",
                           "-with-doc", "no"
