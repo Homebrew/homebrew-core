@@ -1,9 +1,9 @@
 class Geant4 < Formula
   desc "Simulation toolkit for particle transport through matter"
   homepage "https://geant4.web.cern.ch"
-  url "https://geant4-data.web.cern.ch/geant4-data/releases/source/geant4.10.04.p02.tar.gz"
-  version "10.4.2"
-  sha256 "2cac09e799f2eb609a7f1e4082d3d9d3d4d9e1930a8c4f9ecdad72aad35cdf10"
+  url "https://geant4-data.web.cern.ch/geant4-data/releases/source/geant4.10.05.tar.gz"
+  version "10.5.0"
+  sha256 "4b05b4f7d50945459f8dbe287333b9efb772bd23d50920630d5454ec570b782d"
 
   bottle do
     cellar :any
@@ -22,33 +22,38 @@ class Geant4 < Formula
   end
 
   resource "G4EMLOW" do
-    url "https://cern.ch/geant4-data/datasets/G4EMLOW.7.3.tar.gz"
-    sha256 "583aa7f34f67b09db7d566f904c54b21e95a9ac05b60e2bfb794efb569dba14e"
+    url "https://cern.ch/geant4-data/datasets/G4EMLOW.7.7.tar.gz"
+    sha256 "16dec6adda6477a97424d749688d73e9bd7d0b84d0137a67cf341f1960984663"
   end
 
   resource "PhotonEvaporation" do
-    url "https://cern.ch/geant4-data/datasets/G4PhotonEvaporation.5.2.tar.gz"
-    sha256 "83607f8d36827b2a7fca19c9c336caffbebf61a359d0ef7cee44a8bcf3fc2d1f"
+    url "https://cern.ch/geant4-data/datasets/G4PhotonEvaporation.5.3.tar.gz"
+    sha256 "d47ababc8cbe548065ef644e9bd88266869e75e2f9e577ebc36bc55bf7a92ec8"
   end
 
   resource "RadioactiveDecay" do
-    url "https://cern.ch/geant4-data/datasets/G4RadioactiveDecay.5.2.tar.gz"
-    sha256 "99c038d89d70281316be15c3c98a66c5d0ca01ef575127b6a094063003e2af5d"
+    url "https://cern.ch/geant4-data/datasets/G4RadioactiveDecay.5.3.tar.gz"
+    sha256 "5c8992ac57ae56e66b064d3f5cdfe7c2fee76567520ad34a625bfb187119f8c1"
   end
 
   resource "G4SAIDDATA" do
-    url "https://cern.ch/geant4-data/datasets/G4SAIDDATA.1.1.tar.gz"
-    sha256 "a38cd9a83db62311922850fe609ecd250d36adf264a88e88c82ba82b7da0ed7f"
+    url "https://cern.ch/geant4-data/datasets/G4SAIDDATA.2.0.tar.gz"
+    sha256 "1d26a8e79baa71e44d5759b9f55a67e8b7ede31751316a9e9037d80090c72e91"
   end
 
-  resource "G4NEUTRONXS" do
-    url "https://cern.ch/geant4-data/datasets/G4NEUTRONXS.1.4.tar.gz"
-    sha256 "57b38868d7eb060ddd65b26283402d4f161db76ed2169437c266105cca73a8fd"
+  resource "G4PARTICLEXS" do
+    url "https://cern.ch/geant4-data/datasets/G4PARTICLEXS.1.1.tar.gz"
+    sha256 "100a11c9ed961152acfadcc9b583a9f649dda4e48ab314fcd4f333412ade9d62"
   end
 
   resource "G4ABLA" do
     url "https://cern.ch/geant4-data/datasets/G4ABLA.3.1.tar.gz"
     sha256 "7698b052b58bf1b9886beacdbd6af607adc1e099fc730ab6b21cf7f090c027ed"
+  end
+
+  resource "G4INCL" do
+    url "https://cern.ch/geant4-data/datasets/G4INCL.1.0.tar.gz"
+    sha256 "716161821ae9f3d0565fbf3c2cf34f4e02e3e519eb419a82236eef22c2c4367d"
   end
 
   resource "G4PII" do
@@ -59,6 +64,11 @@ class Geant4 < Formula
   resource "G4ENSDFSTATE" do
     url "https://cern.ch/geant4-data/datasets/G4ENSDFSTATE.2.2.tar.gz"
     sha256 "dd7e27ef62070734a4a709601f5b3bada6641b111eb7069344e4f99a01d6e0a6"
+  end
+
+  resource "RealSurface" do
+    url "https://cern.ch/geant4-data/datasets/G4RealSurface.2.1.1.tar.gz"
+    sha256 "90481ff97a7c3fa792b7a2a21c9ed80a40e6be386e581a39950c844b2dd06f50"
   end
 
   def install
