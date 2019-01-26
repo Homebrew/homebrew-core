@@ -4,7 +4,7 @@ class Libxml2 < Formula
   url "http://xmlsoft.org/sources/libxml2-2.9.9.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/libxml2/libxml2-2.9.9.tar.gz"
   sha256 "94fb70890143e3c6549f265cee93ec064c80a84c42ad0f23e85ee1fd6540a871"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -33,6 +33,16 @@ class Libxml2 < Formula
   patch do
     url "https://bugzilla.opensuse.org/attachment.cgi?id=746044"
     sha256 "37eb81a8ec6929eed1514e891bff2dd05b450bcf0c712153880c485b7366c17c"
+  end
+
+  # Resolves CVE-2018-8048, CVE-2018-3740, CVE-2018-3741
+  # Upstream hasn't patched this bug, but Nokogiri distributes
+  # libxml2 with this patch to fixe this issue
+  # https://bugzilla.gnome.org/show_bug.cgi?id=769760
+  # https://github.com/sparklemotion/nokogiri/pull/1746
+  patch do
+    url "https://raw.githubusercontent.com/sparklemotion/nokogiri/38721829c1df30e93bdfbc88095cc36838e497f3/patches/libxml2/0001-Revert-Do-not-URI-escape-in-server-side-includes.patch"
+    sha256 "c755e6e17c02584bfbfc8889ffc652384b010c0bd71879d7ff121ca60a218fcd"
   end
 
   def install
