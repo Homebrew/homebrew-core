@@ -1,8 +1,19 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostpdl-9.26.tar.xz"
-  sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
+  revision 1
+
+  stable do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostpdl-9.26.tar.xz"
+    sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
+
+    # CVE-2019-6116 https://bugs.chromium.org/p/project-zero/issues/detail?id=1729
+    patch do
+      url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/0001-Bug700317-Address-.force-operators-exposure.tgz"
+      sha256 "54ab7d8f8007259c27fd4f11fd12f5ef0dbf6fe570da30b9335edec7deb3fa25"
+      apply "0001-Bug700317-Address-.force-operators-exposure.patch"
+    end
+  end
 
   bottle do
     rebuild 1
