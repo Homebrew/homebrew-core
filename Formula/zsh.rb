@@ -1,10 +1,9 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.6.2.tar.xz"
-  sha256 "a50bd66c0557e8eca3b8fa24e85d0de533e775d7a22df042da90488623752e9e"
-  revision 1
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.7/zsh-5.7.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.7.tar.xz"
+  sha256 "7807b290b361d9fa1e4c2dfafc78cb7e976e7015652e235889c6eff7468bd613"
 
   bottle do
     rebuild 1
@@ -21,9 +20,9 @@ class Zsh < Formula
   depends_on "ncurses"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh/5.6.2/zsh-5.6.2-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.6.2-doc.tar.xz"
-    sha256 "98973267547cbdd8471b52e3a2bbe415be2c2c473246536ed8914f685e260114"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7/zsh-5.7-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.7-doc.tar.xz"
+    sha256 "f0a94db78ef8914743da49970c00fe867e0e5377fbccd099afe55d81a2d7f15d"
   end
 
   def install
