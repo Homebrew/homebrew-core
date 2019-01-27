@@ -1,8 +1,9 @@
 class Bluetoothconnector < Formula
   desc "Connect and disconnect Bluetooth devices"
   homepage "https://github.com/lapfelix/BluetoothConnector"
-  url "https://github.com/lapfelix/BluetoothConnector/archive/1.1.1.tar.gz"
-  sha256 "8ea61b26ebab18b6ee8b8960d016d41f514d26ef9a7b4452c467017ab1859056"
+  url "https://github.com/lapfelix/BluetoothConnector"
+  version "1.2.0"
+  sha256 "5c90f2c10f6da848235f73e072808925eb5f1f74145f9ecd7f9f469dba6faae4"
 
   bottle do
     cellar :any_skip_relocation
