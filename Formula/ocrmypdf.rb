@@ -105,6 +105,9 @@ class Ocrmypdf < Formula
       venv.pip_install Pathname.pwd
     end
 
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml 
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra 
+
     res = resources.map(&:name).to_set - ["Pillow"]
     res.each do |r|
       venv.pip_install resource(r)
