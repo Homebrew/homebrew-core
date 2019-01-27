@@ -16,6 +16,7 @@ class Ffmpeg < Formula
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
 
+  depends_on "aom"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
@@ -48,6 +49,7 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
       --enable-gpl
+      --enable-libaom
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
