@@ -3,6 +3,7 @@ class Perl < Formula
   homepage "https://www.perl.org/"
   url "https://www.cpan.org/src/5.0/perl-5.28.1.tar.gz"
   sha256 "3ebf85fe65df2ee165b22596540b7d5d42f84d4b72d84834f74e2e0b8956c347"
+  revision 1
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
