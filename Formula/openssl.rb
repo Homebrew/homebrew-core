@@ -7,7 +7,6 @@ class Openssl < Formula
   url "https://www.openssl.org/source/openssl-1.0.2q.tar.gz"
   mirror "https://dl.bintray.com/homebrew/mirror/openssl--1.0.2q.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.2q.tar.gz"
-  mirror "http://artfiles.org/openssl.org/source/openssl-1.0.2q.tar.gz"
   sha256 "5744cfcbcec2b1b48629f7354203bc1e5e9b5466998bbccc5b5fcde3b18eb684"
 
   bottle do
@@ -18,14 +17,6 @@ class Openssl < Formula
 
   keg_only :provided_by_macos,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
-
-  # An updated list of CA certificates for use by Leopard, whose built-in certificates
-  # are outdated, and Snow Leopard, whose `security` command returns no output.
-  resource "ca-bundle" do
-    url "https://curl.haxx.se/ca/cacert-2018-10-17.pem"
-    mirror "http://gitcdn.xyz/cdn/paragonie/certainty/d3e2777e1ca2b1401329a49c7d56d112e6414f23/data/cacert-2018-10-17.pem"
-    sha256 "86695b1be9225c3cf882d283f05c944e3aabbc1df6428a4424269a93e997dc65"
-  end
 
   def install
     # OpenSSL will prefer the PERL environment variable if set over $PATH
