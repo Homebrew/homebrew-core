@@ -1,8 +1,8 @@
 class IosCi < Formula
   desc "Build, Archive & Export iOS/MacOS app via command-line"
   homepage "https://tungdev1209.github.io/ios-ci/"
-  url "https://github.com/tungdev1209/ios-ci/archive/v1.1.2.tar.gz"
-  sha256 "31d8c7313d7f49fe99df0fa390a4496aa9a178e1ad8c12657951e38063796547"
+  url "https://github.com/tungdev1209/ios-ci/archive/v1.1.3.tar.gz"
+  sha256 "cdd4696b707d035190ff306d0c5ea5467cf920873d8281531d03ebe4bd7ed897"
 
   def install
     bin.install "ios-ci"
@@ -14,6 +14,6 @@ class IosCi < Formula
   end
 
   test do
-    system "#{bin}/ios-ci", "__test_cmd"
+    assert_match "1.1.3", ` #{bin}/ios-ci -v `
   end
 end
