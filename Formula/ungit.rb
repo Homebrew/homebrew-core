@@ -14,8 +14,17 @@ class Ungit < Formula
   end
 
   test do
-    # this app launches a web server but does not provide any command-line to test;
-    # so just run the version number display to make sure that works at least:
-    system bin/"ungit", "--version"
+    begin
+      require 'nokogiri'
+      
+      pid = fork do
+        exec bin/"ungit", "--no-launchBrowser", "--autoShutdownTimeout", "5000"  # give it an idle timeout to make it exit
+      end
+      sleep 3
+      assert_match 'ungit', Nokogiri::HTML(shell_output("curl -s 127.0.0.1:8448/")).at_css('title').text
+    ensure
+      Process.kill("TERM", pid)
+      Process.wait(pid)
+    end
   end
 end
