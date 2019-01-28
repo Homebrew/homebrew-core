@@ -16,6 +16,7 @@ class Ffmpeg < Formula
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
 
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
   depends_on "lame"
@@ -57,6 +58,7 @@ class Ffmpeg < Formula
       --enable-libx265
       --enable-libxvid
       --enable-lzma
+      --enable-libfontconfig
       --enable-libfreetype
       --enable-frei0r
       --enable-libass

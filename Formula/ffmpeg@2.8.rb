@@ -17,6 +17,7 @@ class FfmpegAT28 < Formula
   depends_on "texi2html" => :build
   depends_on "yasm" => :build
 
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
   depends_on "lame"
@@ -64,6 +65,7 @@ class FfmpegAT28 < Formula
       --enable-libx264
       --enable-libx265
       --enable-libxvid
+      --enable-libfontconfig
       --enable-libfreetype
       --enable-frei0r
       --enable-libass
