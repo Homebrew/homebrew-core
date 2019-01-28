@@ -12,8 +12,6 @@ class Jsonnet < Formula
     sha256 "5389ab6d3c9fea659e544058e04ec9cf215c0ad6dca1ed56a6188c3becfbb53c" => :sierra
   end
 
-  depends_on :macos => :mavericks
-
   def install
     ENV.cxx11
     system "make"
