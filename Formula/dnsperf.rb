@@ -1,9 +1,8 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
-  homepage "https://www.akamai.com/us/en/products/network-operator/measurement-tools.jsp"
-  url "http://wwwns.akamai.com/dnsperf-src-2.1.0.0-1.tar.gz"
-  version "2.1.0.0"
-  sha256 "64b5f0a680e1ad60bca5fd709f1a9a8404ac2fd85af6138bd22ca9a28b616e0e"
+  homepage "https://www.dns-oarc.net/tools/dnsperf"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.2.1.tar.gz"
+  sha256 "c073e391e681625eb8c7f308a5940435f8e2ec53f615b4e259625024e270dc5c"
 
   bottle do
     cellar :any
@@ -18,6 +17,9 @@ class Dnsperf < Formula
   depends_on "libxml2"
 
   def install
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
