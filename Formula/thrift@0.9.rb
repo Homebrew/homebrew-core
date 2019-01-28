@@ -35,7 +35,7 @@ class ThriftAT09 < Formula
       --without-tests
     ]
 
-    ENV.cxx11 if MacOS.version >= :mavericks && ENV.compiler == :clang
+    ENV.cxx11 if ENV.compiler == :clang
 
     # Don't install extensions to /usr
     ENV["JAVA_PREFIX"] = pkgshare/"java"
