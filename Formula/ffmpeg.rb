@@ -3,7 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 2
+  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -16,6 +16,7 @@ class Ffmpeg < Formula
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
 
+  depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
   depends_on "lame"
@@ -57,6 +58,7 @@ class Ffmpeg < Formula
       --enable-libx265
       --enable-libxvid
       --enable-lzma
+      --enable-libfontconfig
       --enable-libfreetype
       --enable-frei0r
       --enable-libass
