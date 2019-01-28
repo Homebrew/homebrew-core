@@ -21,9 +21,7 @@ class GnuApl < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on :macos => :mavericks
-  # GNU Readline is required; libedit won't work.
-  depends_on "readline"
+  depends_on "readline" # GNU Readline is required, libedit won't work
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
