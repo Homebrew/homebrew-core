@@ -14,7 +14,6 @@ class Zorba < Formula
   depends_on "cmake" => :build
   depends_on "flex"
   depends_on "icu4c"
-  depends_on :macos => :mavericks
   depends_on "xerces-c"
 
   conflicts_with "xqilla", :because => "Both supply xqc.h"
