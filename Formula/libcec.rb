@@ -19,8 +19,6 @@ class Libcec < Formula
   end
 
   def install
-    ENV.cxx11
-
     resource("p8-platform").stage do
       mkdir "build" do
         system "cmake", "..", *std_cmake_args
