@@ -19,8 +19,6 @@ class Creduce < Formula
   depends_on "delta"
   depends_on "llvm"
 
-  depends_on :macos => :mavericks
-
   resource "Exporter::Lite" do
     url "https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Lite-0.08.tar.gz"
     sha256 "c05b3909af4cb86f36495e94a599d23ebab42be7a18efd0d141fc1586309dac2"
