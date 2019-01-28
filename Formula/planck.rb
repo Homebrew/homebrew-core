@@ -19,7 +19,6 @@ class Planck < Formula
   depends_on :xcode => :build
   depends_on "icu4c"
   depends_on "libzip"
-  depends_on :macos => :mavericks
 
   def install
     system "./script/build-sandbox"
