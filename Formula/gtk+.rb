@@ -46,6 +46,7 @@ class Gtkx < Formula
     args = ["--disable-dependency-tracking",
             "--disable-silent-rules",
             "--prefix=#{prefix}",
+            "--enable-static",
             "--disable-glibtest",
             "--enable-introspection=yes",
             "--with-gdktarget=quartz",
