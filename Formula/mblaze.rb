@@ -5,6 +5,8 @@ class Mblaze < Formula
   sha256 "83dffd7fe74fa871642e97db94e27c04506f746fa4d6ba2f95c1a880638d6e0c"
 
   def install
+    ENV.deparallelize
+
     system "make"
     system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"
