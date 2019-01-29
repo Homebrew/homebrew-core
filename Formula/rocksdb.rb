@@ -16,6 +16,8 @@ class Rocksdb < Formula
   depends_on "lz4"
   depends_on "snappy"
 
+  patch :DATA
+
   def install
     ENV.cxx11
     ENV["PORTABLE"] = "1"
@@ -78,3 +80,21 @@ class Rocksdb < Formula
     assert_match "rocksdb_undump:", shell_output("#{bin}/rocksdb_undump --help 2>&1", 1)
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+--- a/Makefile
++++ b/Makefile
+@@ -102,9 +102,9 @@
+ endif
+ endif
+
+-ifeq (,$(shell $(CXX) -fsyntax-only -faligned-new -xc++ /dev/null 2>&1))
+-CXXFLAGS += -faligned-new -DHAVE_ALIGNED_NEW
+-endif
++# ifeq (,$(shell $(CXX) -fsyntax-only -faligned-new -xc++ /dev/null 2>&1))
++# CXXFLAGS += -faligned-new -DHAVE_ALIGNED_NEW
++# endif
+
+ ifeq (,$(shell $(CXX) -fsyntax-only -maltivec -xc /dev/null 2>&1))
+ CXXFLAGS += -DHAS_ALTIVEC
