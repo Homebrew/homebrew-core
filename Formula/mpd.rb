@@ -1,9 +1,8 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.3.tar.xz"
-  sha256 "6cf60e644870c6063a008d833a6c876272b7679a400b83012ed209c15ce06e2a"
-  revision 2
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.4.tar.xz"
+  sha256 "247112eabf1b818a4052db7f0f5917ab00831ebc60a1ec3bf1154da4dc16a5c7"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
@@ -28,6 +27,7 @@ class Mpd < Formula
   depends_on "libao"
   depends_on "libid3tag"
   depends_on "libmpdclient"
+  depends_on "libnfs"
   depends_on "libsamplerate"
   depends_on "libupnp"
   depends_on "libvorbis"
@@ -52,6 +52,7 @@ class Mpd < Formula
       -Dexpat=enabled
       -Dffmpeg=enabled
       -Dfluidsynth=enabled
+      -Dnfs=enabled
       -Dupnp=enabled
       -Dvorbisenc=enabled
     ]
