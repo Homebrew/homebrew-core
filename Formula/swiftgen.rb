@@ -2,8 +2,8 @@ class Swiftgen < Formula
   desc "Swift code generator for assets, storyboards, Localizable.strings, …"
   homepage "https://github.com/SwiftGen/SwiftGen"
   url "https://github.com/SwiftGen/SwiftGen.git",
-      :tag      => "6.0.2",
-      :revision => "b34e66fbeb75f9f625f31cb8a096866dba1ad321"
+      :tag      => "6.1.0",
+      :revision => "c6477a6950d313c94c964c6c8ec960e3aeccb8f6"
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
@@ -28,6 +28,7 @@ class Swiftgen < Formula
 
     fixtures = {
       "Tests/Fixtures/Resources/Colors/colors.xml"                                   => "colors.xml",
+      "Tests/Fixtures/Resources/CoreData/Model.xcdatamodeld"                         => "Model.xcdatamodeld",
       "Tests/Fixtures/Resources/Fonts"                                               => "Fonts",
       "Tests/Fixtures/Resources/IB-iOS"                                              => "IB-iOS",
       "Tests/Fixtures/Resources/Plist/good"                                          => "Plist",
@@ -35,6 +36,7 @@ class Swiftgen < Formula
       "Tests/Fixtures/Resources/XCAssets"                                            => "XCAssets",
       "Tests/Fixtures/Resources/YAML/good"                                           => "YAML",
       "Tests/Fixtures/Generated/Colors/swift4-context-defaults.swift"                => "colors.swift",
+      "Tests/Fixtures/Generated/CoreData/swift4-context-defaults.swift"              => "coredata.swift",
       "Tests/Fixtures/Generated/Fonts/swift4-context-defaults.swift"                 => "fonts.swift",
       "Tests/Fixtures/Generated/IB-iOS/scenes-swift4-context-all.swift"              => "ib-scenes.swift",
       "Tests/Fixtures/Generated/Plist/runtime-swift4-context-all.swift"              => "plists.swift",
@@ -53,6 +55,9 @@ class Swiftgen < Formula
     output = shell_output("#{bin}/swiftgen colors --templatePath #{pkgshare/"templates/colors/swift4.stencil"} #{fixtures}/colors.xml").strip
     assert_equal output, (fixtures/"colors.swift").read.strip, "swiftgen colors failed"
 
+    output = shell_output("#{bin}/swiftgen coredata --templatePath #{pkgshare/"templates/coredata/swift4.stencil"} #{fixtures}/Model.xcdatamodeld").strip
+    assert_equal output, (fixtures/"coredata.swift").read.strip, "swiftgen coredata failed"
+
     output = shell_output("#{bin}/swiftgen fonts --templatePath #{pkgshare/"templates/fonts/swift4.stencil"} #{fixtures}/Fonts").strip
     assert_equal output, (fixtures/"fonts.swift").read.strip, "swiftgen fonts failed"
 
@@ -68,7 +73,7 @@ class Swiftgen < Formula
     output = shell_output("#{bin}/swiftgen xcassets --templatePath #{pkgshare/"templates/xcassets/swift4.stencil"} #{fixtures}/XCAssets/*.xcassets").strip
     assert_equal output, (fixtures/"xcassets.swift").read.strip, "swiftgen xcassets failed"
 
-    output = shell_output("#{bin}/swiftgen yaml --templatePath #{pkgshare/"templates/yaml/inline-swift4.stencil"} #{fixtures}/YAML").strip
+    output = shell_output("#{bin}/swiftgen yaml --templatePath #{pkgshare/"templates/yaml/inline-swift4.stencil"} --filter '.(json|ya?ml)$' #{fixtures}/YAML").strip
     assert_equal output, (fixtures/"yaml.swift").read.strip, "swiftgen yaml failed"
   end
 end
