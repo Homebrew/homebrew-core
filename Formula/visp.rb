@@ -5,9 +5,9 @@ class Visp < Formula
   sha256 "072237ed5c6fcbc6a87300fa036014ec574fd081724907e41ae2d6fb5a222fbc"
 
   bottle do
-    sha256 "ed11d41df8e68b67795cdde1cc9dc2761bd66b6cb406e0cbc955db90ff066a9e" => :mojave
-    sha256 "a2b5b96e25a69762a1a6d07ab66bf9790adc9fc436a5a57c29d82f9ca13c426f" => :high_sierra
-    sha256 "b157bf06ff32d11195abafc2e82b7277e08b76bddeff95690f7a7277735ca118" => :sierra
+    sha256 "7f4ea998988f9cbf17b0525986b7167f5a03e34c17a31710272d98e17cc1a45c" => :mojave
+    sha256 "7cd7a3232812115a000fd65ac92839233a32b8c76af606da5f0e36252eb4a315" => :high_sierra
+    sha256 "c92e90a5252f4ba4fcfcf04fac9166e059b0f09ac4d6a2c3791f15cdc2ce4b95" => :sierra
   end
 
   depends_on "cmake" => :build
