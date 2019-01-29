@@ -49,6 +49,13 @@ begin
   # https://www.postgresql.org/docs/10/static/pgupgrade.html
   ohai "Upgrading #{name} data from #{pg_version_data} to #{pg_version_installed}..."
 
+  # get 'lc_collate' from old DB"
+  unless system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status", out: File::NULL
+    safe_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "start", out: File::NULL
+  end
+  lc_collate = `#{old_bin}/psql postgres -qtAc "SELECT setting FROM pg_settings WHERE name LIKE 'lc_collate'";`.strip
+  lc_collate = 'en_US.UTF-8' if lc_collate.empty?
+
   if /#{name}\s+started/ =~ Utils.popen_read("brew", "services", "list")
     system "brew", "services", "stop", name
     service_stopped = true
@@ -62,7 +69,7 @@ begin
   moved_data = true
 
   (var/"postgres").mkpath
-  system "#{bin}/initdb", "#{var}/postgres"
+  system "#{bin}/initdb", "--lc-collate", lc_collate, "#{var}/postgres"
   initdb_run = true
 
   (var/"log").cd do
