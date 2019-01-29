@@ -6,9 +6,9 @@ class FfmpegAT28 < Formula
   revision 4
 
   bottle do
-    sha256 "5dc8f7042e9a58edb6a8f046f1dfa461fb1cab0f586f57128a748dd4b2428e6d" => :mojave
-    sha256 "09fe638f1528ef9a3f94d7266ce2d344d4f80582076f0df77ed4028fb3566a12" => :high_sierra
-    sha256 "8f450a8121ea310777c4277688ef7e5f11ea078fc7feeb86f6a0f5cd42c3af0d" => :sierra
+    sha256 "ee874c0dffbb296b2acf84602c287dc78d04239ac83fd44f64cafe17a3aeaabb" => :mojave
+    sha256 "8625a73ae25533654834dc2b298d0a277fdb8eca9671ded7cf671a55cae5263b" => :high_sierra
+    sha256 "f6a8d49c34d7aa9bf098c07715747dc9869bbfb39a16a1a9562f32c27b973223" => :sierra
   end
 
   keg_only :versioned_formula
