@@ -1,8 +1,8 @@
 class Nim < Formula
   desc "Statically typed, imperative programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-0.19.0.tar.xz"
-  sha256 "a1996347253c590de42f6e36e33bd1d5ec7479c0aa013769b92deef802df3c2e"
+  url "https://nim-lang.org/download/nim-0.19.2.tar.xz"
+  sha256 "44c3f579c75cc799fc0bff5163b3cc649a200758aa1d6485ab939fc28295238a"
 
   bottle do
     cellar :any_skip_relocation
