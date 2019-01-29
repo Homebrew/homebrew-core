@@ -6,6 +6,13 @@ class S3ql < Formula
   url "https://github.com/s3ql/s3ql/releases/download/release-2.33/s3ql-2.33.tar.bz2"
   sha256 "4eb12360ae8927a6e65538a7b48237561585a5775e5d8c67d023be1dd9a857ce"
 
+  bottle do
+    cellar :any
+    sha256 "87cf6b82ddf9dc624cf2125799ba4e5785ab1dd11e35e230d4409e1d6f50895b" => :mojave
+    sha256 "806cf92e21445ab141ee1058669e7ed3c0ef7863d4669ea9a1847f49f908754b" => :high_sierra
+    sha256 "b5bc607e509f508163e3291cf44d0db38d1c69a01601e6ffede5c24b53ad8642" => :sierra
+  end
+
   depends_on "pkg-config" => :build
   depends_on :osxfuse
   depends_on "python"
