@@ -1,8 +1,8 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.27.7.tar.gz"
-  sha256 "1a5435a483759b1cd96feb12b11abb5231b0688016db506ce5947178f6ba2531"
+  url "https://github.com/libgit2/libgit2/archive/v0.27.8.tar.gz"
+  sha256 "8313873d49dc01e8b880ec334d7430ae67496a89aaa8c6e7bbd3affb47a00c76"
   head "https://github.com/libgit2/libgit2.git"
 
   bottle do
