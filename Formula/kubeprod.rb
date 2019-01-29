@@ -4,6 +4,13 @@ class Kubeprod < Formula
   url "https://github.com/bitnami/kube-prod-runtime/archive/v1.1.0.tar.gz"
   sha256 "fb238bd46fe5177c976640746b3ff51c3961388a4e10edd9581880e0ab670e22"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "888880eb0ef0109505f70d30a119f4fa2dfd34ca3f5dc573c5406c1c19468924" => :mojave
+    sha256 "0c94e3f9662cd0c09c2ee6d313b418b9f72413c2cfd1de882ecb986638779830" => :high_sierra
+    sha256 "fb13f33ebb96beab64d91e9fe455c65f77cfb8540b90bce000c720b5eb203e8d" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
