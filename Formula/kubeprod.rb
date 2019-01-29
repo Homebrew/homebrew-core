@@ -51,20 +51,20 @@ class Kubeprod < Formula
 
     ENV["KUBECONFIG"] = testpath/"kube-config"
     system "#{bin}/kubeprod", "install", "gke",
-              "--authz-domain", authz_domain.to_s,
-              "--project", project.to_s,
-              "--oauth-client-id", oauth_client_id.to_s,
-              "--oauth-client-secret", oauth_client_secret.to_s,
-              "--email", contact_email.to_s,
-              "--only-generate"
+                              "--authz-domain", authz_domain,
+                              "--project", project,
+                              "--oauth-client-id", oauth_client_id,
+                              "--oauth-client-secret", oauth_client_secret,
+                              "--email", contact_email,
+                              "--only-generate"
 
-    assert File.file? "kubeprod-autogen.json"
-    assert_match "\"authz_domain\": \"#{authz_domain}\"", File.read("kubeprod-autogen.json")
-    assert_match "\"client_id\": \"#{oauth_client_id}\"", File.read("kubeprod-autogen.json")
-    assert_match "\"client_secret\": \"#{oauth_client_secret}\"", File.read("kubeprod-autogen.json")
-    assert_match "\"contactEmail\": \"#{contact_email}\"", File.read("kubeprod-autogen.json")
+    json = File.read("kubeprod-autogen.json")
+    assert_match "\"authz_domain\": \"#{authz_domain}\"", json
+    assert_match "\"client_id\": \"#{oauth_client_id}\"", json
+    assert_match "\"client_secret\": \"#{oauth_client_secret}\"", json
+    assert_match "\"contactEmail\": \"#{contact_email}\"", json
 
-    assert File.file? "kubeprod-manifest.jsonnet"
-    assert_match "https://releases.kubeprod.io/files/v#{version}/manifests/platforms/gke.jsonnet", File.read("kubeprod-manifest.jsonnet")
+    jsonnet = File.read("kubeprod-manifest.jsonnet")
+    assert_match "https://releases.kubeprod.io/files/v#{version}/manifests/platforms/gke.jsonnet", jsonnet
   end
 end
