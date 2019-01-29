@@ -4,7 +4,7 @@ class Coreutils < Formula
   url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.30.tar.xz"
   mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.30.tar.xz"
   sha256 "e831b3a86091496cdba720411f9748de81507798f6130adeaef872d206e1b057"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "1e28c4b94c10933a6711717a5632112d3284b926b7082d15eca5bd4f042b4e50" => :mojave
@@ -69,8 +69,8 @@ class Coreutils < Formula
 
     # Symlink non-conflicting binaries
     no_conflict = %w[
-      b2sum base32 chcon dir dircolors hostid md5sum nproc numfmt pinky ptx realpath runcon
-      sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf stdbuf tac timeout truncate vdir
+      b2sum base32 chcon hostid md5sum nproc numfmt pinky ptx realpath runcon
+      sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf stdbuf tac timeout truncate
     ]
     no_conflict.each do |cmd|
       bin.install_symlink "g#{cmd}" => cmd
@@ -79,7 +79,7 @@ class Coreutils < Formula
   end
 
   def caveats; <<~EOS
-    All commands have been installed with the prefix "g".
+    Commands also provided by macOS have been installed with the prefix "g".
     If you need to use these commands with their normal names, you
     can add a "gnubin" directory to your PATH from your bashrc like:
       PATH="#{opt_libexec}/gnubin:$PATH"
