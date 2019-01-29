@@ -8,9 +8,9 @@ class Traefik < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "41b65c4f7e201330d267a2210d754c09ddae8406f8fe0ff15b3db98ff9632da0" => :mojave
-    sha256 "97b2fc8dca8cfce791b83d4d91ff1969397b601fe6f1c81c0ed68bffae1c54d0" => :high_sierra
-    sha256 "ca337dd3c61066244a6bba19d2f6220b446bddea90bc04c35b642ef9bb09aa93" => :sierra
+    sha256 "6ef93a65bf8421b944892bc0519efdc1074256af4e03bfaeeb37d07d6f241f83" => :mojave
+    sha256 "96dabca98b71946b34164f640bc460d05ad906463d8d7db167128297572a71a0" => :high_sierra
+    sha256 "af1ac64b103715ec5665b7660b8cb4ec25db8116bb9efd1998df1c32c6658c5d" => :sierra
   end
 
   depends_on "go" => :build
