@@ -4,6 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.7/zsh-5.7.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.7.tar.xz"
   sha256 "7807b290b361d9fa1e4c2dfafc78cb7e976e7015652e235889c6eff7468bd613"
+  revision 1
 
   bottle do
     sha256 "80317d78ef5f5db96f75cf2dc506e9ae8214ea6c545aa7142e1257c831273811" => :mojave
@@ -22,6 +23,12 @@ class Zsh < Formula
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7/zsh-5.7-doc.tar.xz"
     mirror "https://www.zsh.org/pub/zsh-5.7-doc.tar.xz"
     sha256 "f0a94db78ef8914743da49970c00fe867e0e5377fbccd099afe55d81a2d7f15d"
+  end
+
+  # Patch broken VCS_INFO in 5.7
+  patch do
+    url "https://github.com/zsh-users/zsh/commit/b70919e0d9dadc93893e9d18bc3ef13b88756ecf.diff?full_index=1"
+    sha256 "9025a88631a13c9eac3d66cae339833f91c015ff1c8319cd6f4f002a99f27f9c"
   end
 
   def install
