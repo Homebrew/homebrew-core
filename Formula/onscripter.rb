@@ -1,9 +1,8 @@
 class Onscripter < Formula
   desc "NScripter-compatible visual novel engine"
   homepage "https://onscripter.osdn.jp/"
-  url "https://onscripter.osdn.jp/onscripter-20170814.tar.gz"
-  sha256 "07010e633e490f24f4c5a57dd8c7979f519d0a10a2bfbba8e04828753f1ba97a"
-  revision 1
+  url "https://onscripter.osdn.jp/onscripter-20181218.tar.gz"
+  sha256 "724bd96c3687f2848292f5308d0a39d702957be22f0fe790f404522efcce113f"
 
   bottle do
     cellar :any
@@ -21,12 +20,6 @@ class Onscripter < Formula
   depends_on "sdl_mixer"
   depends_on "sdl_ttf"
   depends_on "smpeg"
-
-  # jpeg 9 compatibility
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/eeb2de3/onscripter/jpeg9.patch"
-    sha256 "08695ddcbc6b874b903694ac783f7c21c61b5ba385572463d17fbf6ed75f60a1"
-  end
 
   def install
     incs = [
