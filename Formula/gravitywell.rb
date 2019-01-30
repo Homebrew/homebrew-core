@@ -10,6 +10,6 @@ class Gravitywell < Formula
   end
 
   test do
-    `system "#{bin}/gravitywell", "-h"`
+     system "#{bin}/gravitywell", "-h"
   end
 end
