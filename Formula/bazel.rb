@@ -67,6 +67,8 @@ class Bazel < Formula
            "build",
            "--host_java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8",
            "--java_toolchain=@bazel_tools//tools/jdk:toolchain_hostjdk8",
+           "--host_javabase=@bazel_tools//tools/jdk:jdk",
+           "--javabase=@bazel_tools//tools/jdk:jdk",
            "//:bazel-test"
     assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
   end
