@@ -1,8 +1,8 @@
 class Opam < Formula
   desc "The OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.0.2/opam-full-2.0.2.tar.gz"
-  sha256 "eeb99fdda4b10ad3467a700fa4d1dfedb30714837d18d2faf1ef9c87d94cf0bc"
+  url "https://github.com/ocaml/opam/releases/download/2.0.3/opam-full-2.0.3.tar.gz"
+  sha256 "0589da4da184584a5445d59385009536534f60bc0e27772245b2f49e5fa8f0e2"
   head "https://github.com/ocaml/opam.git"
 
   bottle do
