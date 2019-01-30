@@ -6,10 +6,9 @@ class Onscripter < Formula
 
   bottle do
     cellar :any
-    sha256 "d9d3934ce14353ab4527ab02c9f8fe4e562d78e6c707fa5eb2520f2dad1d5b54" => :mojave
-    sha256 "c7843b57d4404e6a7ac61d521bc60e9b572dff73d916c6a95c3ba2a5f5527125" => :high_sierra
-    sha256 "d32055f6e69f36da381320ffffb898b4a94e5d29e7a7ae1a00c60a4766439e8c" => :sierra
-    sha256 "dab8de0970901e7c63b32ad3d2071895c4259c5eb20a7abf8701b328d55bb8cf" => :el_capitan
+    sha256 "b6abab7894db68812623cbdc53658979f7315fcac7ca5348fcc109112abbd7f6" => :mojave
+    sha256 "fb948f3d991f248a3ff0186088ecd2f72e935f254c025a991ee74e84857e0662" => :high_sierra
+    sha256 "5b113d4313b15493f4b8ab05911bc8c5ec7a9d6d0c81246139205a0d7ee9b222" => :sierra
   end
 
   depends_on "pkg-config" => :build
