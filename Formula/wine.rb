@@ -444,7 +444,8 @@ class Wine < Formula
   end
 
   test do
-    assert_match shell_output("hostname").chomp, shell_output("#{bin}/wine hostname.exe 2>/dev/null").chomp
-    assert_match shell_output("hostname").chomp, shell_output("#{bin}/wine64 hostname.exe 2>/dev/null").chomp
+    hostname = shell_output("hostname -s").chomp
+    assert_match shell_output("#{bin}/wine hostname.exe 2>/dev/null").chomp, hostname
+    assert_match shell_output("#{bin}/wine64 hostname.exe 2>/dev/null").chomp, hostname
   end
 end
