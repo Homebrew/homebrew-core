@@ -77,8 +77,6 @@ class Wolfssl < Formula
       --enable-fasthugemath
     ]
 
-    args << "--enable-aesni" if Hardware::CPU.aes? && !build.bottle?
-
     # Extra flag is stated as a needed for the Mac platform.
     # https://wolfssl.com/wolfSSL/Docs-wolfssl-manual-2-building-wolfssl.html
     # Also, only applies if fastmath is enabled.

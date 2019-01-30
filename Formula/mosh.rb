@@ -20,7 +20,7 @@ class Mosh < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "tmux" => :build if build.bottle?
+  depends_on "tmux" => :build
   depends_on "protobuf"
 
   def install
@@ -32,7 +32,7 @@ class Mosh < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
-    system "make", "check" if build.bottle?
+    system "make", "check"
     system "make", "install"
   end
 

@@ -46,7 +46,7 @@ class Liblas < Formula
                             "-DWITH_GDAL=ON",
                             "-DWITH_GEOTIFF=ON"
       system "make"
-      system "make", "test" if build.bottle?
+      system "make", "test"
       system "make", "install"
     end
   end

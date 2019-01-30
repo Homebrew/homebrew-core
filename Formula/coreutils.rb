@@ -4,12 +4,12 @@ class Coreutils < Formula
   url "https://ftp.gnu.org/gnu/coreutils/coreutils-8.30.tar.xz"
   mirror "https://ftpmirror.gnu.org/coreutils/coreutils-8.30.tar.xz"
   sha256 "e831b3a86091496cdba720411f9748de81507798f6130adeaef872d206e1b057"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "1e28c4b94c10933a6711717a5632112d3284b926b7082d15eca5bd4f042b4e50" => :mojave
-    sha256 "5866b7f1d78a3b1d5e32483d8d50dc3eebaafd0aae8a04ab07616c17d034d7ca" => :high_sierra
-    sha256 "f9665cf214650a1c4cdc316671b37605e3c63a68b67bfd12b58ed4b6422f0aad" => :sierra
+    sha256 "92161dab4f1411cbf973797c88c11e80373a46073fbad9ae9969a6701b562f2b" => :mojave
+    sha256 "efdf04fdbc358a3381937f8b2603f3d5dfaaf5432530dacbae8f42a0ee768cc1" => :high_sierra
+    sha256 "7a487b6b88c33e7ff55677d2609c08bbce80079e7fefd5dcc825440c3bbd4ee1" => :sierra
   end
 
   head do
@@ -69,8 +69,8 @@ class Coreutils < Formula
 
     # Symlink non-conflicting binaries
     no_conflict = %w[
-      b2sum base32 chcon dir dircolors hostid md5sum nproc numfmt pinky ptx realpath runcon
-      sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf stdbuf tac timeout truncate vdir
+      b2sum base32 chcon hostid md5sum nproc numfmt pinky ptx realpath runcon
+      sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf stdbuf tac timeout truncate
     ]
     no_conflict.each do |cmd|
       bin.install_symlink "g#{cmd}" => cmd
@@ -79,7 +79,7 @@ class Coreutils < Formula
   end
 
   def caveats; <<~EOS
-    All commands have been installed with the prefix "g".
+    Commands also provided by macOS have been installed with the prefix "g".
     If you need to use these commands with their normal names, you
     can add a "gnubin" directory to your PATH from your bashrc like:
       PATH="#{opt_libexec}/gnubin:$PATH"

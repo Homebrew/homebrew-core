@@ -13,7 +13,7 @@ class KyotoCabinet < Formula
     sha256 "bfed1b4b4aa5e742c89f9aa0ba83375ad4ff1d5daaf0e060260d16df4024582d" => :mavericks
   end
 
-  patch :DATA if MacOS.version >= :mavericks
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"

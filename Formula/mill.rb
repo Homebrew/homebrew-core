@@ -1,8 +1,8 @@
 class Mill < Formula
   desc "Scala build tool"
   homepage "https://www.lihaoyi.com/mill/"
-  url "https://github.com/lihaoyi/mill/releases/download/0.3.5/0.3.5"
-  sha256 "c869f584eeadd3a9a7a37a6ad1af6e0c8308b603b62986da2b28cb6d5c406aa6"
+  url "https://github.com/lihaoyi/mill/releases/download/0.3.6/0.3.6"
+  sha256 "8112a29395c9039bd0c41bf77c89b2cb5dc6d7f4faf67dc443bc2893280254b5"
 
   bottle :unneeded
 
@@ -19,7 +19,7 @@ class Mill < Formula
       import mill._
       import mill.scalalib._
       object foo extends ScalaModule {
-        def scalaVersion = "2.12.4"
+        def scalaVersion = "2.12.8"
       }
     EOS
     output = shell_output("#{bin}/mill resolve __.compile")

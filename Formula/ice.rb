@@ -14,7 +14,6 @@ class Ice < Formula
   end
 
   depends_on "lmdb"
-  depends_on :macos => :mavericks
   depends_on "mcpp"
 
   patch do
