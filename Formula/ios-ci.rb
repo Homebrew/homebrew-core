@@ -14,6 +14,6 @@ class IosCi < Formula
   end
 
   test do
-    assert_match "1.1.3", ` #{bin}/ios-ci -v `
+    assert_match "ok", ` #{bin}/ios-ci __test_cmd `
   end
 end
