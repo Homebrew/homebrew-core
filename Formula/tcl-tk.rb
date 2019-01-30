@@ -5,7 +5,6 @@ class TclTk < Formula
   mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.9-src.tar.gz"
   version "8.6.9"
   sha256 "ad0cd2de2c87b9ba8086b43957a0de3eb2eb565c7159d5f53ccbba3feb915f4e"
-  revision 1
 
   bottle do
     sha256 "9b698ba74f8d97ea25123df88775fa486a05bbe18b1744ff7a6bf7f1cd30aaa3" => :mojave
