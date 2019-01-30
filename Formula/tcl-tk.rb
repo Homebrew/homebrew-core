@@ -2,7 +2,7 @@ class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl.tk/"
   url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.9/tcl8.6.9-src.tar.gz"
-  mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tcl8.6.9-src.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.9-src.tar.gz"
   version "8.6.9"
   sha256 "ad0cd2de2c87b9ba8086b43957a0de3eb2eb565c7159d5f53ccbba3feb915f4e"
 
@@ -29,7 +29,7 @@ class TclTk < Formula
 
   resource "tk" do
     url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.9/tk8.6.9.1-src.tar.gz"
-    mirror "ftp://ftp.tcl.tk/pub/tcl/tcl8_6/tk8.6.9.1-src.tar.gz"
+    mirror "https://fossies.org/linux/misc/tk8.6.9.1-src.tar.gz"
     version "8.6.9.1"
     sha256 "8fcbcd958a8fd727e279f4cac00971eee2ce271dc741650b1fc33375fb74ebb4"
 
