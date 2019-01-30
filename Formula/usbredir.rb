@@ -9,13 +9,13 @@ class Usbredir < Formula
 
   depends_on "libusb"
 
-  def install
-    # https://stackoverflow.com/questions/15860127/how-to-configure-tcp-keepalive-under-mac-os-x
-    inreplace "usbredirserver/usbredirserver.c" do |s|
-      s.gsub! "SOL_TCP", "IPPROTO_TCP"
-      s.gsub! "TCP_KEEPIDLE", "TCP_KEEPALIVE"
-    end
+  # https://gitlab.freedesktop.org/spice/usbredir/issues/9
+  patch do
+    url "https://gitlab.freedesktop.org/spice/usbredir/commit/985e79d5f98d5586d87204317462549332c1dd46.diff"
+    sha256 "21c0da8f6be94764e1e3363f5ed76ed070b5087034420cb17a81da06e4b73f83"
+  end
 
+  def install
     system "./configure", "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
