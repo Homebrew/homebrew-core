@@ -1,7 +1,7 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.sourceforge.io/"
-  url "http://downloads.sourceforge.net/tintin/tintin-2.01.6.tar.gz"
+  url "https://downloads.sourceforge.net/tintin/tintin-2.01.6.tar.gz"
   sha256 "522b3ca3ef2aadc0c3c3fd4a2cb9b779c977c9db5ea5e18309bf120cd11d153e"
 
   bottle do
