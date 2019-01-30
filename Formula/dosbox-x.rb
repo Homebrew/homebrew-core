@@ -1,9 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "http://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.82.13.tar.gz"
-  sha256 "e2721125b650ef995fc66f95766a995844f52aab0cf4261ff7aa998eb60e6f4c"
-  revision 1
+  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.82.14.tar.gz"
+  sha256 "eda33f10a369fe81d5a4bc6250ca97d3b707cc45e79be66ccfa410174ba77aef"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
@@ -16,12 +15,7 @@ class DosboxX < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "ffmpeg"
   depends_on "fluid-synth"
-  depends_on "libpng"
-  depends_on "sdl"
-  depends_on "sdl_net"
-  depends_on "sdl_sound"
 
   def install
     ENV.cxx11
@@ -30,14 +24,7 @@ class DosboxX < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-sdltest
-      --enable-core-inline
     ]
-
-    # Upstream fix for parallel build issue, remove in next version
-    # https://github.com/joncampbell123/dosbox-x/commit/15aec75c
-    inreplace "vs2015/sdl/build-dosbox.sh",
-              "make -j || exit 1", "make || exit 1"
-
     system "./build-macosx", *args
     system "make", "install"
   end
