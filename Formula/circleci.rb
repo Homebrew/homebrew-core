@@ -19,10 +19,13 @@ class Circleci < Formula
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
 
+    system "go get -u github.com/gobuffalo/packr/v2/packr2"
+
     dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
     dir.install buildpath.children
 
     cd dir do
+      system "packr2", "build"
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
