@@ -10,6 +10,7 @@ class Pack < Formula
     version = "0.0.9"
     ldflags = ["-X main.Version=#{version}"]
     system "go", "build", "-o", bin/"pack", "-ldflags", ldflags
+    bin.install "pack"
   end
 
   test do
