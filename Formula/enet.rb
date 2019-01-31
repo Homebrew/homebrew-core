@@ -6,12 +6,9 @@ class Enet < Formula
 
   bottle do
     cellar :any
-    sha256 "3bc91e18a67855cfe022b4dc587bfcac90a942331ef72dcc4f00d38fcb82b12e" => :mojave
-    sha256 "e7a004695c99ab8564886887536ec2536fc4375f053f26db6f6253d866c876b3" => :high_sierra
-    sha256 "0f17698e0206e19f1ab693131f91f8f3267366a9ca9646463323880d459cf7a1" => :sierra
-    sha256 "4efff251b59d56ebc5368cf8cbdc6e59f48a52d97e8fd73e1900869cb3a634bb" => :el_capitan
-    sha256 "14a3e5aebe4adb9a76c643a85a91e15c4815fec76697709a3d56f68c3921666e" => :yosemite
-    sha256 "927255e6afb287eb95c6c7a53b275084229d3c11ad58066b824628e30a89dcea" => :mavericks
+    sha256 "3813772ea57875407a2f949e2aaa3d9330a25e443efc231bd6aeb6b6af213001" => :mojave
+    sha256 "25754aa22b0d3862dc2b0d355452c040022af50a99af5f98b39e46151aca43e1" => :high_sierra
+    sha256 "d7a0e4e8189f600db8f657aa46622b20ec5dd67facf06dd370d8185ff4714b27" => :sierra
   end
 
   def install
