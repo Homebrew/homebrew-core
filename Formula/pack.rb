@@ -9,7 +9,7 @@ class Pack < Formula
   def install
     version = "0.0.9"
     ldflags = ["-X main.Version=#{version}"]
-    system "go", "build", "-o", bin/"pack", "-ldflags", ldflags
+    system "go", "build", "-o", "pack", "-ldflags", ldflags
     bin.install "pack"
   end
 
