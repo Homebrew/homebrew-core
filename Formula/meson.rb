@@ -1,20 +1,9 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  revision 1
+  url "https://github.com/mesonbuild/meson/releases/download/0.49.1/meson-0.49.1.tar.gz"
+  sha256 "e90c8ee46109d3b9d9a12c76c65811d4a7f7e18503f780eb301866e43d9052cb"
   head "https://github.com/mesonbuild/meson.git"
-
-  stable do
-    url "https://github.com/mesonbuild/meson/releases/download/0.49.0/meson-0.49.0.tar.gz"
-    sha256 "fb0395c4ac208eab381cd1a20571584bdbba176eb562a7efa9cb17cace0e1551"
-
-    # Fix issues with Qt, remove in 0.49.1
-    # https://github.com/mesonbuild/meson/pull/4652
-    patch do
-      url "https://github.com/mesonbuild/meson/commit/c1e416ff.patch?full_index=1"
-      sha256 "3be708cc65d2b6e54d01e64031c83b06abad2eca1c658b97b2230d1aa7d1062b"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
