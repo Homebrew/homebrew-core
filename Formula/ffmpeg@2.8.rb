@@ -74,6 +74,7 @@ class FfmpegAT28 < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-opencl
+      --disable-indev=jack
     ]
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,
