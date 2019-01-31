@@ -7,9 +7,9 @@ class Zsh < Formula
   revision 1
 
   bottle do
-    sha256 "80317d78ef5f5db96f75cf2dc506e9ae8214ea6c545aa7142e1257c831273811" => :mojave
-    sha256 "8539448e170469a41aa9572ebb4cd8004fa7e6cc682b74381caf44b00cdec09f" => :high_sierra
-    sha256 "bd40b7935341874fc00c290981b309e9f83e513c1955e7fff1abe32c283ae21a" => :sierra
+    sha256 "704757d9e92b55847dfc1442461121ff03efeeeb80a1ac3e81ed60cf04a20444" => :mojave
+    sha256 "a2b87d988cdb6cc1459c8e1886c2d33ce9f5c17acd6198b5752574fee7b9ea1b" => :high_sierra
+    sha256 "4497077b11c9ff6499f8b6104f688520cda11adcf4fd36f170e39cdde5919979" => :sierra
   end
 
   head do
