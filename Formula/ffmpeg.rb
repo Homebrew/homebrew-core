@@ -70,6 +70,8 @@ class Ffmpeg < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-videotoolbox
+      --disable-libjack
+      --disable-indev=jack
     ]
 
     system "./configure", *args
