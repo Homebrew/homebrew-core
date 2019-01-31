@@ -4,14 +4,6 @@ class Rocksdb < Formula
   url "https://github.com/facebook/rocksdb/archive/v5.17.2.tar.gz"
   sha256 "101f05858650a810c90e4872338222a1a3bf3b24de7b7d74466814e6a95c2d28"
 
-  bottle do
-    cellar :any
-    sha256 "df69fa36b2b025f62cc0d30da46e072512d424cc66c242834fcfba7a60cb913c" => :mojave
-    sha256 "b4dd4f1c3324876dcf7a9524d6440a0891f162db3c19b97284100aa4b13cabbe" => :high_sierra
-    sha256 "8d3515c91f5eecb1828af7825ddadb0169720b47b2cd76411ad7ca3792699e20" => :sierra
-    sha256 "e07d5748ec17ea316d7b669bf22e69db5b5c12c488030abbc164d17f004ace44" => :el_capitan
-  end
-
   depends_on "gflags"
   depends_on "lz4"
   depends_on "snappy"
