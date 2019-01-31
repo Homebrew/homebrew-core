@@ -3,8 +3,8 @@ class Urbit < Formula
   homepage "https://urbit.org"
   # pull from git tag to get submodules
   url "https://github.com/urbit/urbit.git",
-      :tag      => "v0.7.0",
-      :revision => "a42f2cbe5ccc591c148464444264c8f6c92776e3"
+      :tag      => "v0.7.1",
+      :revision => "51d8b6889ab0de7712819a5bed17a9dda9d3de3a"
 
   bottle do
     sha256 "07e5fe7f6ceb476f9743b31c0892d4f0058d240c560409fa2746fa1d7d9fd7ac" => :mojave
