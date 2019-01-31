@@ -7,11 +7,9 @@ class Mogenerator < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c9beea63b98941e36f8beae4afb36fda4ca8efe3e4d74d0142efbeaab4273b86" => :mojave
-    sha256 "b5313f7dd8eeb5b379f6c64615104c23250b97c7c05de779427a29c573464f32" => :high_sierra
-    sha256 "19c0ec0b7f39deec9c99f4ede5ae1538acad0b3768db7b0557e15660efb41789" => :sierra
-    sha256 "eb94c192bb659183c72f970f1230948ce875ed49b53f0e7bb540660e7dae2353" => :el_capitan
-    sha256 "ceedcaabd71b51758c0b03e4b14be0f228e030af83651ad6f774c08d5910123b" => :yosemite
+    sha256 "634c78c86eef97f5d9feb531b3864469806b672e0ca5dff6cd00762b76f3084c" => :mojave
+    sha256 "5e477fee1c770d7b4b676c1627017727a925aafd81fd38c30037691a4b624ebf" => :high_sierra
+    sha256 "aadafc4a282f98739d296f105f24c94666c90417f92c05644fd965dbb42aa37d" => :sierra
   end
 
   depends_on :xcode => :build
