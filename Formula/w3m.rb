@@ -11,7 +11,7 @@ class W3m < Formula
     # Upstream is effectively Debian https://github.com/tats/w3m at this point.
     # The patches fix a pile of CVEs
     patch do
-      url "http://deb.debian.org/debian/pool/main/w/w3m/w3m_0.5.3-37.debian.tar.xz"
+      url "https://deb.debian.org/debian/pool/main/w/w3m/w3m_0.5.3-37.debian.tar.xz"
       sha256 "625f5b0cb71bf29b67ad3bb9c316420922877473a6e94e6c7bcc337cb22ce1eb"
       apply "patches/010_upstream.patch",
             "patches/020_debian.patch"
