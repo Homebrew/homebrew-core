@@ -15,11 +15,6 @@ class Xapian < Formula
 
   skip_clean :la
 
-  resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.7/xapian-bindings-1.4.7.tar.xz"
-    sha256 "4519751376dc5b59893b812495e6004fd80eb4a10970829aede71a35264b4e6a"
-  end
-
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",

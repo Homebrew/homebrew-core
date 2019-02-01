@@ -3,21 +3,19 @@ class Weechat < Formula
   homepage "https://www.weechat.org"
   url "https://weechat.org/files/src/weechat-2.3.tar.xz"
   sha256 "ef8654313bfb0ca92e27cf579efb2d9b17e53505e615bf3d71a51aef44e56a5f"
-  revision 1
+  revision 2
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    rebuild 1
-    sha256 "ee048586abb72f35c7f091e205d4a09039ef886671e098dc7f9d0cdd7261327f" => :mojave
-    sha256 "11024e9ad3f7bb9e5c544d6c9a3d1fe4d57993ac919ee6cc0bf8dc522bb2d53b" => :high_sierra
-    sha256 "bfc4321d59755a47b281c288ac5f290593839144a0471c835aa48c72c6fb3334" => :sierra
+    sha256 "e0c017500f05ddc06b17aa49d238cd6f476bb09b6750f2149e6104ed6f5b9683" => :mojave
+    sha256 "d2d39e4694dd13069a667eb097745ed6cc5deed3698cd9f33542119c7d1deb11" => :high_sierra
+    sha256 "3e9da856ced905785daa74a4d779160eecabb35ea4741b3c0a0ebf310e9fde57" => :sierra
   end
 
   depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "aspell"
-  depends_on "curl"
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"

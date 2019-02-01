@@ -1,16 +1,15 @@
 class TclTk < Formula
   desc "Tool Command Language"
   homepage "https://www.tcl.tk/"
-  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.8/tcl8.6.8-src.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.8-src.tar.gz"
-  version "8.6.8"
-  sha256 "c43cb0c1518ce42b00e7c8f6eaddd5195c53a98f94adc717234a65cbcfd3f96a"
-  revision 1
+  url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.9/tcl8.6.9-src.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcl/tcl8.6.9-src.tar.gz"
+  version "8.6.9"
+  sha256 "ad0cd2de2c87b9ba8086b43957a0de3eb2eb565c7159d5f53ccbba3feb915f4e"
 
   bottle do
-    sha256 "9b698ba74f8d97ea25123df88775fa486a05bbe18b1744ff7a6bf7f1cd30aaa3" => :mojave
-    sha256 "c591a13ec04ad772639d28f3090aa76b9f410c67189c31abcbdbe9ae29472d65" => :high_sierra
-    sha256 "166f4816291851777a321e27b5d8f19322e218f682ca0881dbdfec15e7af7980" => :sierra
+    sha256 "50cb502bdc8d69a1c19407164aab0aaf3ec7f33a46a098c85972ad6a26285e43" => :mojave
+    sha256 "1f97a3b5ceb9419d8410c85cd29bb54a91d9fa3a075d62f47fece3e68078952c" => :high_sierra
+    sha256 "4a0b8bfd43f0ef29e8c1f4c1e8d56dd3ebf81cc9d6848675418df8a8dfe73f0d" => :sierra
   end
 
   keg_only :provided_by_macos,
@@ -19,8 +18,8 @@ class TclTk < Formula
   depends_on "openssl"
 
   resource "tcllib" do
-    url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.18/tcllib-1.18.tar.gz"
-    sha256 "72667ecbbd41af740157ee346db77734d1245b41dffc13ac80ca678dd3ccb515"
+    url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.19/tcllib-1.19.tar.gz"
+    sha256 "01fe87cf1855b96866cf5394b6a786fd40b314022714b34110aeb6af545f6a9c"
   end
 
   resource "tcltls" do
@@ -29,10 +28,10 @@ class TclTk < Formula
   end
 
   resource "tk" do
-    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.8/tk8.6.8-src.tar.gz"
-    mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tk/tk8.6.8-src.tar.gz"
-    version "8.6.8"
-    sha256 "49e7bca08dde95195a27f594f7c850b088be357a7c7096e44e1158c7a5fd7b33"
+    url "https://downloads.sourceforge.net/project/tcl/Tcl/8.6.9/tk8.6.9.1-src.tar.gz"
+    mirror "https://fossies.org/linux/misc/tk8.6.9.1-src.tar.gz"
+    version "8.6.9.1"
+    sha256 "8fcbcd958a8fd727e279f4cac00971eee2ce271dc741650b1fc33375fb74ebb4"
 
     # Upstream issue 7 Jan 2018 "Build failure with Aqua support on OS X 10.8 and 10.9"
     # See https://core.tcl.tk/tcl/tktview/95a8293a2936e34cc8d0658c21e5214f1ca9b435

@@ -6,9 +6,10 @@ class FfmpegAT28 < Formula
   revision 4
 
   bottle do
-    sha256 "ee874c0dffbb296b2acf84602c287dc78d04239ac83fd44f64cafe17a3aeaabb" => :mojave
-    sha256 "8625a73ae25533654834dc2b298d0a277fdb8eca9671ded7cf671a55cae5263b" => :high_sierra
-    sha256 "f6a8d49c34d7aa9bf098c07715747dc9869bbfb39a16a1a9562f32c27b973223" => :sierra
+    rebuild 1
+    sha256 "5d98294c8ba9abc1050279d483cd5732322eea149b55bb91cc5ea1004315c39e" => :mojave
+    sha256 "37b37ddee29f08d13d01d0f22a595897848be7f3910ec98f10e273e73bd816e1" => :high_sierra
+    sha256 "770fb7817b355d58757e899413ad5f0f24cf255a69e707959225a4ffb52b8b7f" => :sierra
   end
 
   keg_only :versioned_formula
@@ -74,6 +75,7 @@ class FfmpegAT28 < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-opencl
+      --disable-indev=jack
     ]
 
     # A bug in a dispatch header on 10.10, included via CoreFoundation,

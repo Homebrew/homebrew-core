@@ -3,13 +3,13 @@ class Urbit < Formula
   homepage "https://urbit.org"
   # pull from git tag to get submodules
   url "https://github.com/urbit/urbit.git",
-      :tag      => "v0.7.0",
-      :revision => "a42f2cbe5ccc591c148464444264c8f6c92776e3"
+      :tag      => "v0.7.1",
+      :revision => "51d8b6889ab0de7712819a5bed17a9dda9d3de3a"
 
   bottle do
-    sha256 "07e5fe7f6ceb476f9743b31c0892d4f0058d240c560409fa2746fa1d7d9fd7ac" => :mojave
-    sha256 "fa1d6c586c0caa327a7aee101093a9aa5e5e8d6e9ae16969e566395502ec2dab" => :high_sierra
-    sha256 "ce3d5193c9f28b63a345e578de5cf7bbebbbf220b7fa230db390bf56ceac4b6b" => :sierra
+    sha256 "4ff75863ac7fe81c8fb01f62dce55c0932e2b2dd3ca4cc6151dc24e2e66d81a3" => :mojave
+    sha256 "d8d1f0f33e5c827577dee17db652218962608647732820038e486dd65711444a" => :high_sierra
+    sha256 "d6a807213bfe59f811428538fb27aa54657f956756dc190a81182ed306e6ab0f" => :sierra
   end
 
   depends_on "meson" => :build

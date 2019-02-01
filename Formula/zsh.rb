@@ -4,11 +4,12 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.7/zsh-5.7.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.7.tar.xz"
   sha256 "7807b290b361d9fa1e4c2dfafc78cb7e976e7015652e235889c6eff7468bd613"
+  revision 1
 
   bottle do
-    sha256 "80317d78ef5f5db96f75cf2dc506e9ae8214ea6c545aa7142e1257c831273811" => :mojave
-    sha256 "8539448e170469a41aa9572ebb4cd8004fa7e6cc682b74381caf44b00cdec09f" => :high_sierra
-    sha256 "bd40b7935341874fc00c290981b309e9f83e513c1955e7fff1abe32c283ae21a" => :sierra
+    sha256 "704757d9e92b55847dfc1442461121ff03efeeeb80a1ac3e81ed60cf04a20444" => :mojave
+    sha256 "a2b87d988cdb6cc1459c8e1886c2d33ce9f5c17acd6198b5752574fee7b9ea1b" => :high_sierra
+    sha256 "4497077b11c9ff6499f8b6104f688520cda11adcf4fd36f170e39cdde5919979" => :sierra
   end
 
   head do
@@ -22,6 +23,13 @@ class Zsh < Formula
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7/zsh-5.7-doc.tar.xz"
     mirror "https://www.zsh.org/pub/zsh-5.7-doc.tar.xz"
     sha256 "f0a94db78ef8914743da49970c00fe867e0e5377fbccd099afe55d81a2d7f15d"
+  end
+
+  # Upstream patch to fix broken VCS_INFO, remove when next release is out
+  # See https://www.zsh.org/mla/workers/2019/msg00058.html
+  patch do
+    url "https://github.com/zsh-users/zsh/commit/b70919e0d9dadc93893e9d18bc3ef13b88756ecf.diff?full_index=1"
+    sha256 "9025a88631a13c9eac3d66cae339833f91c015ff1c8319cd6f4f002a99f27f9c"
   end
 
   def install

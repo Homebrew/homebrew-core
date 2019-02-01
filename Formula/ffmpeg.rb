@@ -7,15 +7,17 @@ class Ffmpeg < Formula
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    sha256 "1cf19cb4fa4fdda6d0fb544a478503757349f80bb7aa168577775d1e4c032440" => :mojave
-    sha256 "e64dc548650654d8c5a649b7291ddd506664241700f4f27cda07870f4f4374d0" => :high_sierra
-    sha256 "2742a36409bd6d61bc396b6b6e6a74d060179192b7f47a7950fd8379ee73f934" => :sierra
+    rebuild 2
+    sha256 "2dbbbc057c3d447510bf739e6822d03765b3d55669f74e96dd7258cc1976cbf1" => :mojave
+    sha256 "440bf019cdf9739d3d13bd32b0a96d15a34a50ae7ead31b41180ff66eee1b316" => :high_sierra
+    sha256 "261e0b798358f83f14f1ab7168f8ce1e50a8da28307485315aea0e4a94235197" => :sierra
   end
 
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
   depends_on "texi2html" => :build
 
+  depends_on "aom"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
@@ -48,6 +50,7 @@ class Ffmpeg < Formula
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
       --enable-gpl
+      --enable-libaom
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
@@ -67,6 +70,8 @@ class Ffmpeg < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-videotoolbox
+      --disable-libjack
+      --disable-indev=jack
     ]
 
     system "./configure", *args
