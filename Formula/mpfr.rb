@@ -1,9 +1,9 @@
 class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "https://www.mpfr.org/"
-  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.0.1.tar.xz"
-  sha256 "67874a60826303ee2fb6affc6dc0ddd3e749e9bfcb4c8655e3953d0458a6e16e"
+  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.0.2.tar.xz"
+  sha256 "1d3be708604eae0e42d578ba93b390c2a145f17743a744d8f3f8c2ad5855a38a"
 
   bottle do
     cellar :any
