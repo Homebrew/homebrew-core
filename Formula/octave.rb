@@ -25,7 +25,7 @@ class Octave < Formula
 
   # Complete list of dependencies at https://wiki.octave.org/Building
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on :java => ["1.6+", :build, :test]
+  depends_on :java => ["1.6+", :build]
   depends_on "pkg-config" => :build
   depends_on "arpack"
   depends_on "epstool"
@@ -102,7 +102,5 @@ class Octave < Formula
     system bin/"octave", "--eval", "(22/7 - pi)/pi"
     # This is supposed to crash octave if there is a problem with veclibfort
     system bin/"octave", "--eval", "single ([1+i 2+i 3+i]) * single ([ 4+i ; 5+i ; 6+i])"
-    # Test java bindings: check if javaclasspath is working, return error if not
-    system bin/"octave", "--eval", "try; javaclasspath; catch; quit(1); end;"
   end
 end
