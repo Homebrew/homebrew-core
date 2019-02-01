@@ -1,8 +1,8 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.11.0.tar.gz"
-  sha256 "3835caccaa3e0c64764521032d89efeb8773cce841f6655fec6d58e790f4c9a1"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.11.1.tar.gz"
+  sha256 "24a9b324a6e9fb161f49dd93aa4dc3f8bb8996c96050ee0468b2f92b45eacac9"
   revision 1
 
   bottle do
@@ -13,7 +13,6 @@ class Pari < Formula
 
   depends_on "gmp"
   depends_on "readline"
-  depends_on :x11
 
   def install
     readline = Formula["readline"].opt_prefix
