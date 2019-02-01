@@ -12,14 +12,14 @@ class Cpplocate < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS.undent
+    (testpath/"test.cpp").write <<-EOS
       #include <cpplocate/cpplocate.h>
       int main(void)
       {
         const std::string executablePath = cpplocate::getExecutablePath();
       }
       EOS
-    system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
+    system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11",
                     "-I#{include}/cpplocate", "-I#{lib}/cpplocate",
                     "-lcpplocate", *ENV.cflags.to_s.split
     system "./test"
