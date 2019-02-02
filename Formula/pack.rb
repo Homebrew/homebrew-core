@@ -7,9 +7,10 @@ class Pack < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = ["-X main.Version=#{version}"]
+    ldflags = ["\"-X main.Version=#{version}\""]
     system "go", "build", "-o", "pack", "-ldflags", ldflags, "./cmd/pack"
     bin.install "pack"
+    prefix.install_metafiles
   end
 
   test do
@@ -23,6 +24,7 @@ class Pack < Formula
       id = ["io.buildpacks.stacks.bionic"]
     TOML
     (testpath/"buildpack.toml").write testdata
-    system bin/"pack", "create-builder", "homebrew-test", "--builder-config", testpath/"buildpack.toml"
+    output = shell_output("#{bin}/pack create-builder homebrew-test --builder-config #{testpath}/buildpack.toml")
+    assert_match /Successfully created builder image/, output
   end
 end
