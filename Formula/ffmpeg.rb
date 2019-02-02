@@ -21,6 +21,7 @@ class Ffmpeg < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
+  depends_on "gnutls"
   depends_on "lame"
   depends_on "libass"
   depends_on "libvorbis"
@@ -49,6 +50,7 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
+      --enable-gnutls
       --enable-gpl
       --enable-libaom
       --enable-libmp3lame
@@ -69,10 +71,14 @@ class Ffmpeg < Formula
       --enable-libopencore-amrwb
       --enable-librtmp
       --enable-libspeex
-      --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
     ]
+    if OS.mac?
+      args << "--enable-videotoolbox"
+    elsif OS.linux?
+      args << "--disable-videotoolbox"
+    end
 
     system "./configure", *args
     system "make", "install"
