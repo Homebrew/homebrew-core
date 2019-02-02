@@ -7,9 +7,8 @@ class Pack < Formula
   depends_on "go" => :build
 
   def install
-    version = "0.0.9"
     ldflags = ["-X main.Version=#{version}"]
-    system "go", "build", "-o", "pack", "-ldflags", ldflags
+    system "go", "build", "-o", "pack", "-ldflags", ldflags, "./cmd/pack"
     bin.install "pack"
   end
 
