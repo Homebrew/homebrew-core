@@ -1,9 +1,9 @@
 class Ngircd < Formula
-  desc "Next generation IRC daemon"
+  desc "Lightweight Internet Relay Chat server"
   homepage "https://ngircd.barton.de/"
-  url "https://ngircd.barton.de/pub/ngircd/ngircd-24.tar.gz"
-  mirror "https://ngircd.mirror.3rz.org/pub/ngircd/ngircd-24.tar.gz"
-  sha256 "3e00a7da52c81fc1e02bb996a27bf43da905ba7037bf8c6bb3bd13321e0c85ab"
+  url "https://ngircd.barton.de/pub/ngircd/ngircd-25.tar.gz"
+  mirror "http://ngircd.sourceforge.net/pub/ngircd/ngircd-25.tar.gz"
+  sha256 "51915780519bae43da3798807e3bed60d887e4eaa728354aa6bb61cdbcda49ba"
 
   bottle do
     sha256 "f7bd9059bc934e317cda8491cc6ed08c1a86da0da8e52a1424842892ce03a45b" => :mojave
