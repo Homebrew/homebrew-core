@@ -17,27 +17,39 @@ class Pyside < Formula
   depends_on "qt"
 
   def install
+    homebrew_args = %W[
+      --no-user-cfg
+      install
+      --prefix=#{prefix}
+      --install-scripts=#{bin}
+      --single-version-externally-managed
+      --record=installed.txt
+    ]
+
     args = %W[
       --ignore-git
-      --no-examples
-      --macos-use-libc++
-      --jobs=#{ENV.make_jobs}
-      --install-scripts #{bin}
+      --parallel=#{ENV.make_jobs}
     ]
 
     xy = Language::Python.major_minor_version "python3"
 
-    system "python3", *Language::Python.setup_install_args(prefix),
+    system "python3", "setup.py", *homebrew_args,
            "--install-lib", lib/"python#{xy}/site-packages", *args
 
-    system "python2", *Language::Python.setup_install_args(prefix),
+    lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/PySide2/*.dylib")
+    lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/shiboken2/*.dylib")
+
+    system "python2", "setup.py", *homebrew_args,
            "--install-lib", lib/"python2.7/site-packages", *args
+
+    lib.install_symlink Dir.glob(lib/"python2.7/site-packages/PySide2/*.dylib")
+    lib.install_symlink Dir.glob(lib/"python2.7/site-packages/shiboken2/*.dylib")
 
     pkgshare.install "examples/samplebinding", "examples/utils"
   end
 
   test do
-    ["python2", "python3"].each do |python|
+    ["python3", "python2"].each do |python|
       system python, "-c", "import PySide2"
       %w[
         Core
@@ -52,7 +64,7 @@ class Pyside < Formula
         Xml
       ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
     end
-    ["python@2", "python"].each do |python|
+    ["python", "python@2"].each do |python|
       if python == "python"
         ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
       end
