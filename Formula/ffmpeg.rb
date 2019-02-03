@@ -3,7 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 3
+  revision 4
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -28,9 +28,11 @@ class Ffmpeg < Formula
   depends_on "opencore-amr"
   depends_on "opus"
   depends_on "rtmpdump"
+  depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
+  depends_on "tesseract"
   depends_on "theora"
   depends_on "x264"
   depends_on "x265"
@@ -73,6 +75,11 @@ class Ffmpeg < Formula
       --disable-libjack
       --disable-indev=jack
     ]
+
+    # Force the use of OpenJPEG
+    args << "--enable-libopenjpeg"
+    args << "--disable-decoder=jpeg2000"
+    args << "--extra-cflags=" + `pkg-config --cflags libopenjp2`.chomp
 
     system "./configure", *args
     system "make", "install"
