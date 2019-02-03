@@ -31,6 +31,7 @@ class Kibana < Formula
 
     # remove non open source files
     rm_rf "x-pack"
+    inreplace "package.json", /"x-pack":.*/, ""
 
     # patch build to not try to read tsconfig.json's from the removed x-pack folder
     inreplace "src/dev/typescript/projects.ts" do |s|
