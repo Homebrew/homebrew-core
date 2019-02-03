@@ -74,7 +74,6 @@ class Ffmpeg < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-videotoolbox
-      --disable-decoder=jpeg2000
       --disable-libjack
       --disable-indev=jack
     ]
