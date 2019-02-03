@@ -5,6 +5,7 @@ class Vapoursynth < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R45.1.tar.gz"
   sha256 "4f43e5bb8c4817fdebe572d82febe4abac892918c54e1cb71aa6f6eb3677a877"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -19,6 +20,8 @@ class Vapoursynth < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
 
+  depends_on "ffmpeg"
+  depends_on "ffms2"
   depends_on "libass"
   depends_on :macos => :el_capitan # due to zimg dependency
   depends_on "python"
@@ -37,6 +40,10 @@ class Vapoursynth < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--with-cython=#{buildpath}/cython/bin/cython"
     system "make", "install"
+
+    # Add FFMS2 to system-wide autoload search path
+    ffms2 = Formula["ffms2"]
+    ln_s "#{ffms2.lib}/libffms2.dylib", "#{lib}/vapoursynth/libffms2.dylib"
   end
 
   test do
