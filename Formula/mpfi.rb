@@ -3,6 +3,7 @@ class Mpfi < Formula
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
   url "https://gforge.inria.fr/frs/download.php/file/37331/mpfi-1.5.3.tar.bz2"
   sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
+  revision 1
 
   bottle do
     cellar :any
