@@ -69,17 +69,14 @@ class Ffmpeg < Formula
       --enable-libass
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
+      --enable-libopenjpeg
       --enable-librtmp
       --enable-libspeex
       --enable-videotoolbox
+      --disable-decoder=jpeg2000
       --disable-libjack
       --disable-indev=jack
     ]
-
-    # Force the use of OpenJPEG
-    args << "--enable-libopenjpeg"
-    args << "--disable-decoder=jpeg2000"
-    args << "--extra-cflags=" + `pkg-config --cflags libopenjp2`.chomp
 
     system "./configure", *args
     system "make", "install"
