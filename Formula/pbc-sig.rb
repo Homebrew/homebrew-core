@@ -3,6 +3,7 @@ class PbcSig < Formula
   homepage "https://crypto.stanford.edu/pbc/sig/"
   url "https://crypto.stanford.edu/pbc/sig/files/pbc_sig-0.0.8.tar.gz"
   sha256 "7a343bf342e709ea41beb7090c78078a9e57b833454c695f7bcad2475de9c4bb"
+  revision 1
 
   bottle do
     cellar :any
