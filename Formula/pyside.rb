@@ -17,30 +17,27 @@ class Pyside < Formula
   depends_on "qt"
 
   def install
-    homebrew_args = %W[
+    args = %W[
       --no-user-cfg
       install
       --prefix=#{prefix}
       --install-scripts=#{bin}
       --single-version-externally-managed
       --record=installed.txt
-    ]
-
-    args = %W[
       --ignore-git
       --parallel=#{ENV.make_jobs}
     ]
 
     xy = Language::Python.major_minor_version "python3"
 
-    system "python3", "setup.py", *homebrew_args,
-           "--install-lib", lib/"python#{xy}/site-packages", *args
+    system "python3", "setup.py", *args,
+           "--install-lib", lib/"python#{xy}/site-packages"
 
     lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/PySide2/*.dylib")
     lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/shiboken2/*.dylib")
 
-    system "python2", "setup.py", *homebrew_args,
-           "--install-lib", lib/"python2.7/site-packages", *args
+    system "python2", "setup.py", *args,
+           "--install-lib", lib/"python2.7/site-packages"
 
     lib.install_symlink Dir.glob(lib/"python2.7/site-packages/PySide2/*.dylib")
     lib.install_symlink Dir.glob(lib/"python2.7/site-packages/shiboken2/*.dylib")
@@ -74,6 +71,7 @@ class Pyside < Formula
                       "Unix Makefiles",
                       "-DCMAKE_BUILD_TYPE=Release"
       system "make"
+      system "make", "clean"
     end
   end
 end
