@@ -23,6 +23,7 @@ class Ffmpeg < Formula
   depends_on "frei0r"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libbluray"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
@@ -51,6 +52,7 @@ class Ffmpeg < Formula
       --enable-ffplay
       --enable-gpl
       --enable-libaom
+      --enable-libbluray
       --enable-libmp3lame
       --enable-libopus
       --enable-libsnappy
