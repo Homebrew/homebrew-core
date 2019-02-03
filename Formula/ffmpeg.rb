@@ -26,6 +26,7 @@ class Ffmpeg < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
+  depends_on "openjpeg"
   depends_on "opus"
   depends_on "rtmpdump"
   depends_on "rubberband"
