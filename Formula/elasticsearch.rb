@@ -1,8 +1,9 @@
 class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.6.0.tar.gz"
-  sha256 "4993a17b88268a053042510404bcb808f86d6438fec458be4e0ef1c412681655"
+  url "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-6.6.0.tar.gz"
+  sha256 "5f302eecfa73c717401c016cb58bd1445b9b5b833724e0fbe627c515d54df0a4"
+  revision 1
 
   head do
     url "https://github.com/elasticsearch/elasticsearch.git"
@@ -114,6 +115,7 @@ class Elasticsearch < Formula
   end
 
   test do
+    assert_includes(stable.url, "-oss-")
     require "socket"
 
     server = TCPServer.new(0)
