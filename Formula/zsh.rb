@@ -4,7 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.7/zsh-5.7.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.7.tar.xz"
   sha256 "7807b290b361d9fa1e4c2dfafc78cb7e976e7015652e235889c6eff7468bd613"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "704757d9e92b55847dfc1442461121ff03efeeeb80a1ac3e81ed60cf04a20444" => :mojave
@@ -18,6 +18,7 @@ class Zsh < Formula
   end
 
   depends_on "ncurses"
+  depends_on "pcre"
 
   resource "htmldoc" do
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7/zsh-5.7-doc.tar.xz"
@@ -44,6 +45,7 @@ class Zsh < Formula
                           "--enable-cap",
                           "--enable-maildir-support",
                           "--enable-multibyte",
+                          "--enable-pcre",
                           "--enable-zsh-secure-free",
                           "--enable-unicode9",
                           "--enable-etcdir=/etc",
