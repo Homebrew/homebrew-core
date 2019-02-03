@@ -13,6 +13,7 @@ class Xdot < Formula
     sha256 "d6712e41657d53116ad6eb9e18607e937372b2565259f4357d0ee302c9e535cc" => :sierra
   end
 
+  depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "py3cairo"
   depends_on "pygobject3"
