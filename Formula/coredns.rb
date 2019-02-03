@@ -21,6 +21,7 @@ class Coredns < Formula
   end
 
   test do
-    system bin/"coredns", "-dns.port=1053"
+    output = shell_output("#{bin}/coredns -version")
+    assert_match \CoreDNS-1.3.1\, output
   end
 end
