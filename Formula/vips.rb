@@ -3,6 +3,7 @@ class Vips < Formula
   homepage "https://github.com/libvips/libvips"
   url "https://github.com/libvips/libvips/releases/download/v8.7.4/vips-8.7.4.tar.gz"
   sha256 "ce7518a8f31b1d29a09b3d7c88e9852a5a2dcb3ee1501524ab477e433383f205"
+  revision 1
 
   bottle do
     sha256 "b0f5e9de2c412d6f188fe36371d7c828c735f8b873bc68d9058a0d6145751476" => :mojave
@@ -17,7 +18,7 @@ class Vips < Formula
   depends_on "gettext"
   depends_on "giflib"
   depends_on "glib"
-  depends_on "graphicsmagick"
+  depends_on "imagemagick"
   depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
@@ -37,7 +38,6 @@ class Vips < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-magick
-      --with-magickpackage=GraphicsMagick
     ]
 
     system "./configure", *args
