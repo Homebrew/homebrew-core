@@ -1,8 +1,8 @@
 class Libhttpserver < Formula
   desc "C++ library of embedded Rest HTTP server"
   homepage "https://github.com/etr/libhttpserver"
-  url "https://github.com/etr/libhttpserver/archive/0.17.0.tar.gz"
-  sha256 "5268bd0702fefe0523623a01b68d9335f40f34eeafa014e8258e5f18d924c83f"
+  url "https://github.com/etr/libhttpserver/archive/0.17.5.tar.gz"
+  sha256 "778fa0aec199bf8737b2d540c2563a694c18957329f9885e372f7aaafb838351"
   head "https://github.com/etr/libhttpserver.git"
 
   bottle do
@@ -35,7 +35,7 @@ class Libhttpserver < Formula
 
   test do
     system ENV.cxx, pkgshare/"examples/hello_world.cpp",
-      "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
+      "-std=c++11", "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
     pid = fork { exec "./hello_world" }
     sleep 1 # grace time for server start
     begin
