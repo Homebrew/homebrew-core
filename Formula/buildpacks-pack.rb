@@ -1,4 +1,4 @@
-class Pack < Formula
+class BuildpacksPack < Formula
   desc "Command-line tool for building applications with Cloud Native Buildpacks"
   homepage "https://buildpacks.io"
   url "https://github.com/buildpack/pack/archive/v0.0.9.tar.gz"
