@@ -1,9 +1,9 @@
 class GoAT110 < Formula
   desc "Go programming environment (1.10)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.10.7.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.10.7.src.tar.gz"
-  sha256 "b84a0d7c90789f3a2ec5349dbe7419efb81f1fac9289b6f60df86bd919bd4447"
+  url "https://dl.google.com/go/go1.10.8.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.10.8.src.tar.gz"
+  sha256 "6faf74046b5e24c2c0b46e78571cca4d65e1b89819da1089e53ea57539c63491"
 
   bottle do
     sha256 "69e7e40e04726319c86533c8b4f40ddd5b0936289a7afe9904e0e624db34596e" => :mojave
@@ -29,24 +29,24 @@ class GoAT110 < Formula
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
-    cd "src" do
+    cd "go/src" do
       ENV["GOROOT_FINAL"] = libexec
       ENV["GOOS"]         = "darwin"
       system "./make.bash", "--no-clean"
     end
 
-    (buildpath/"pkg/obj").rmtree
+    (buildpath/"go/pkg/obj").rmtree
     rm_rf "gobootstrap" # Bootstrap not required beyond compile.
     libexec.install Dir["*"]
-    bin.install_symlink Dir[libexec/"bin/go*"]
+    bin.install_symlink Dir[libexec/"go/bin/go*"]
 
     system bin/"go", "install", "-race", "std"
 
     # Build and install godoc
     ENV.prepend_path "PATH", bin
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/golang.org/x/tools").install resource("gotools")
-    cd "src/golang.org/x/tools/cmd/godoc/" do
+    ENV["GOPATH"] = buildpath/"go"
+    (buildpath/"go/src/golang.org/x/tools").install resource("gotools")
+    cd "go/src/golang.org/x/tools/cmd/godoc/" do
       system "go", "build"
       (libexec/"bin").install "godoc"
     end
