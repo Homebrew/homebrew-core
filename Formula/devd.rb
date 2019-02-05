@@ -1,8 +1,8 @@
 class Devd < Formula
   desc "Local webserver for developers"
   homepage "https://github.com/cortesi/devd"
-  url "https://github.com/cortesi/devd/archive/v0.8.tar.gz"
-  sha256 "a73bd347f0d0f452be183e365492fb8bb86954b3cd837c9dfe256926bf7feb5b"
+  url "https://github.com/cortesi/devd/archive/v0.9.tar.gz"
+  sha256 "5aee062c49ffba1e596713c0c32d88340360744f57619f95809d01c59bff071f"
   head "https://github.com/cortesi/devd.git"
 
   bottle do
