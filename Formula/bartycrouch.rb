@@ -7,10 +7,9 @@ class Bartycrouch < Formula
   head "https://github.com/Flinesoft/BartyCrouch.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a26c3afa9894c89d09350f6d233744fd104ac07b63f0d6ae3c533264957b8e05" => :mojave
-    sha256 "9fada7c618c2293819746b7802d4b71c4c3615ec342be6b8c899e4551297b159" => :high_sierra
-    sha256 "659b955035f9dbc317b7e1d74d7add56ae7cb874464545bc0ed5dd87cd144642" => :sierra
+    cellar :any
+    sha256 "7e7bb953565684390a21190e48b7b261e5fdea31fc15772c92a025f73d1c18be" => :mojave
+    sha256 "206e9bef7cf82bde25f7f8ba3380cbf0b2a094c33fca3474d5c9593d2e348bca" => :high_sierra
   end
 
   depends_on :xcode => ["10.0", :build]
