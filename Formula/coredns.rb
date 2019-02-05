@@ -10,10 +10,10 @@ class Coredns < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/coredns/coredns"
-    dir.install buildpath.children
+    build_dir = buildpath/"src/github.com/coredns/coredns"
+    build_dir.install buildpath.children
 
-    cd dir do
+    cd build_dir do
       system "make", "godeps", "all"
       bin.install "coredns"
       prefix.install_metafiles
@@ -22,6 +22,6 @@ class Coredns < Formula
 
   test do
     output = shell_output("#{bin}/coredns -version")
-    assert_match \CoreDNS-1.3.1\, output
+    assert_match /CoreDNS-1.3.1/, output
   end
 end
