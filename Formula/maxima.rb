@@ -5,10 +5,10 @@ class Maxima < Formula
   sha256 "167e11d6513a65c829a35f24d4ba539bcd0a82fc3dc7a6721e4f9f118c67b64d"
 
   bottle do
-    sha256 "252b0b5b0d355c288f85bfa403212431a7a0c7455f4f616cda5960657a676f74" => :mojave
-    sha256 "557d50c32c4af36b4e0328678e57eccb5c90a4f926d47df1e9943821c933e90a" => :high_sierra
-    sha256 "5ae7804b062b9bdaf3d8983e90f6370509558158ed5a7b5fec9e7ea9516be3bd" => :sierra
-    sha256 "3a5894e1ff75af2e3bc1a6fdbb277bc17fa90d05f23d782f4c5b879dc6c9f48c" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "94209a6b4627ca6a742139930d1b426299c3173e9cd3280ab7c1708d3df280da" => :mojave
+    sha256 "676d0d657bfef7557083b240679d747a4980c4dd2556d5dc9e6b8fd8ac82e381" => :high_sierra
+    sha256 "5487a37cc3b8354d0f29b265f2d0bb000b9fac1b43cb42c23625f638fdfecbc5" => :sierra
   end
 
   depends_on "sbcl" => :build
