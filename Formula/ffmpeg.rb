@@ -3,7 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 4
+  revision 5
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -55,7 +55,9 @@ class Ffmpeg < Formula
       --enable-libaom
       --enable-libmp3lame
       --enable-libopus
+      --enable-librubberband
       --enable-libsnappy
+      --enable-libtesseract
       --enable-libtheora
       --enable-libvorbis
       --enable-libvpx
