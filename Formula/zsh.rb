@@ -1,10 +1,9 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.7/zsh-5.7.tar.xz"
-  mirror "https://www.zsh.org/pub/zsh-5.7.tar.xz"
-  sha256 "7807b290b361d9fa1e4c2dfafc78cb7e976e7015652e235889c6eff7468bd613"
-  revision 2
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.7.1/zsh-5.7.1.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.7.1.tar.xz"
+  sha256 "7260292c2c1d483b2d50febfa5055176bd512b32a8833b116177bf5f01e77ee8"
 
   bottle do
     sha256 "2fdc2099668bbfc5391fd0218c16caf984e6b8a081e59638bd4538fa4db7e687" => :mojave
@@ -21,16 +20,9 @@ class Zsh < Formula
   depends_on "pcre"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7/zsh-5.7-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.7-doc.tar.xz"
-    sha256 "f0a94db78ef8914743da49970c00fe867e0e5377fbccd099afe55d81a2d7f15d"
-  end
-
-  # Upstream patch to fix broken VCS_INFO, remove when next release is out
-  # See https://www.zsh.org/mla/workers/2019/msg00058.html
-  patch do
-    url "https://github.com/zsh-users/zsh/commit/b70919e0d9dadc93893e9d18bc3ef13b88756ecf.diff?full_index=1"
-    sha256 "9025a88631a13c9eac3d66cae339833f91c015ff1c8319cd6f4f002a99f27f9c"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.7.1/zsh-5.7.1-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.7.1-doc.tar.xz"
+    sha256 "3053670250e23905c940592c79428d7f67495fa05b0fff49dfaab9172c4239b4"
   end
 
   def install
