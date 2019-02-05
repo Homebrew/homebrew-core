@@ -8,9 +8,9 @@ class ConjureUp < Formula
 
   bottle do
     cellar :any
-    sha256 "b954756a2d91131e29eec68786b42e9b1198a5ef59a25a8186383f750aff80a3" => :mojave
-    sha256 "08fc76a19929526299af0bab676a5960c7c63619327eae78cbe48cdd07a07d17" => :high_sierra
-    sha256 "c29d36b1b45a21243ff015a4da1a1d7b29767cc6b6da5b39e51d32d556742c31" => :sierra
+    sha256 "7a1939aa4153b22057838387e7b73b8462f4ba826d089dda8d01afe6f9d09be1" => :mojave
+    sha256 "2192577e2241d4055d7afdc15c38b208eabb4de453cbd7f5a74f5a994966b7a2" => :high_sierra
+    sha256 "ce8f9df80996e930e75bf9dbc99f8305bfec5a12bf66e99fe455e351eea9159a" => :sierra
   end
 
   depends_on "awscli"
