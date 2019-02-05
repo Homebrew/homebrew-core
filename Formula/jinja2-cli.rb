@@ -6,6 +6,13 @@ class Jinja2Cli < Formula
   url "https://files.pythonhosted.org/packages/50/24/a774867a93c19d21f132154b509ad014ab22106e1927d0241b556cf8c836/jinja2-cli-0.6.0.tar.gz"
   sha256 "4b1be17ce8a8f133df02205c3f0d3ebfc3a68e795d26987f846a2316636427b7"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "34211b3c0dd4cd265c4f48fff89af75ebeeb2c8e8af6fb0d1b7efda1dd3d5a21" => :mojave
+    sha256 "e9df149e4f974b5a54d6591332d205bc706a2115601691ae7fa6d358e7e74291" => :high_sierra
+    sha256 "cbd8c8763e194f661b58550e2d3602d21f70e8957a338d5f29982b312acbfe25" => :sierra
+  end
+
   depends_on "python"
 
   resource "jinja2" do
