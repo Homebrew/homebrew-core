@@ -12,8 +12,15 @@ class Passenger < Formula
     sha256 "d094cecf62e66a527482b681bdfa01cc7fa956a16ad9e4d2fea520ffc63cac6f" => :sierra
   end
 
+  depends_on "nginx" => :build # for configure arguments
   depends_on "openssl"
   depends_on "pcre"
+
+  # must match nginx formula
+  resource "nginx" do
+    url "https://nginx.org/download/nginx-1.15.8.tar.gz"
+    sha256 "a8bdafbca87eb99813ae4fcac1ad0875bf725ce19eb265d28268c309b2b40787"
+  end
 
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
@@ -26,6 +33,19 @@ class Passenger < Formula
 
     system "rake", "apache2"
     system "rake", "nginx"
+    nginx_addon_dir = `/usr/bin/ruby ./bin/passenger-config about nginx-addon-dir`.strip
+    resource("nginx").stage do
+      _, stderr, = Open3.capture3("nginx", "-V")
+      args = stderr.split("configure arguments:").last.split(" --").reject(&:empty?).map { |s| "--#{s.strip}" }
+      args << "--add-dynamic-module=#{nginx_addon_dir}"
+
+      system "./configure", *args
+
+      system "make"
+
+      (libexec/"buildout/nginx_dynamic/").mkpath
+      cp "objs/ngx_http_passenger_module.so", libexec/"buildout/nginx_dynamic/"
+    end
 
     (libexec/"download_cache").mkpath
 
@@ -36,9 +56,9 @@ class Passenger < Formula
 
     necessary_files = %w[configure Rakefile README.md CONTRIBUTORS
                          CONTRIBUTING.md LICENSE CHANGELOG package.json
-                         passenger.gemspec build bin doc images man dev src
+                         passenger.gemspec build bin doc images dev src
                          resources buildout]
-    libexec.mkpath
+
     cp_r necessary_files, libexec, :preserve => true
 
     # Allow Homebrew to create symlinks for the Phusion Passenger commands.
@@ -59,17 +79,22 @@ class Passenger < Formula
     system("/usr/bin/ruby ./bin/passenger-config compile-nginx-engine")
     cp Dir["buildout/support-binaries/nginx*"], libexec/"buildout/support-binaries", :preserve => true
 
-    nginx_addon_dir = `/usr/bin/ruby ./bin/passenger-config about nginx-addon-dir`.strip
     nginx_addon_dir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)
     system "/usr/bin/ruby", "./dev/install_scripts_bootstrap_code.rb",
       "--nginx-module-config", libexec/"bin", "#{nginx_addon_dir}/config"
 
-    mv libexec/"man", share
+    man1.install Dir["man/*.1"]
+    man8.install Dir["man/*.8"]
   end
 
   def caveats; <<~EOS
     To activate Phusion Passenger for Nginx, run:
-      brew install nginx --with-passenger
+      brew install nginx
+    And add the following to #{etc}/nginx/nginx.conf at the top scope (outside http{}):
+      load_module #{opt_libexec}/buildout/nginx_dynamic/ngx_http_passenger_module.so;
+    And add the following to #{etc}/nginx/nginx.conf in the http scope:
+      passenger_root #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
+      passenger_ruby /usr/bin/ruby;
 
     To activate Phusion Passenger for Apache, create /etc/apache2/other/passenger.conf:
       LoadModule passenger_module #{opt_libexec}/buildout/apache2/mod_passenger.so
