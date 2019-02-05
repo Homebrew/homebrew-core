@@ -6,6 +6,13 @@ class Bumpversion < Formula
   url "https://github.com/peritus/bumpversion/archive/v0.5.3.tar.gz"
   sha256 "97ac6efca7544853309b68efe92f113ab6bddb77ecbaefa5702a6183a30bcb33"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "d0c7bfaaa9d6b58f78cc5f33dc7a898045f4ebd13d37285c1277425a31145057" => :mojave
+    sha256 "da4953ee6935686f818d2f4f83169c6a2e93613cabba3f8a1a8d26eda0dad8c7" => :high_sierra
+    sha256 "24db5ac89df5d502f6a86a87699c66538e5e7f7e309f7897d6efd6bb73e64645" => :sierra
+  end
+
   depends_on "python"
 
   def install
