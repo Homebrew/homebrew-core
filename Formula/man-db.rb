@@ -4,6 +4,12 @@ class ManDb < Formula
   url "https://download.savannah.gnu.org/releases/man-db/man-db-2.8.5.tar.xz"
   sha256 "b64d52747534f1fe873b2876eb7f01319985309d5d7da319d2bc52ba1e73f6c1"
 
+  bottle do
+    sha256 "4d1631d07729c3bc4187b3cdd2d617719dc1c50dfb8b54c4327b31e4634064d0" => :mojave
+    sha256 "82831641ca694f5c3a50ed2a8dc5473fc620d15d5a30d715b15d240f94c28656" => :high_sierra
+    sha256 "3ec775fb15d55188d1f9ad5f35863a46d8013c9f77ac2847848980fc5f775451" => :sierra
+  end
+
   depends_on "pkg-config" => :build
 
   resource "libpipeline" do
