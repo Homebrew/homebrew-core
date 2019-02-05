@@ -8,4 +8,8 @@ class Ilogyou < Formula
   def install
     bin.install "iLogYou"
   end
+
+  test do
+    system "false"
+  end
 end
