@@ -6,10 +6,10 @@ class Libvpx < Formula
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
-    rebuild 1
-    sha256 "ea63d0340f8acb7222773e1c702caa60aa843cb7106a44880b9e49b258cc0724" => :mojave
-    sha256 "c908bf9b9438bee689162350cdf89e6a7ac612b556dfe557dd6cfee89ff043a8" => :high_sierra
-    sha256 "793fbaf38b905d1831c1264e37bd874e20d563cc4e93878b42ff42471db4679a" => :sierra
+    cellar :any_skip_relocation
+    sha256 "8acc007976c337e0ea107c07e984c7924516b1ce70fe7a862af480de0998cb96" => :mojave
+    sha256 "4afe71bb1bf3e449e9ed854f04fbed14338be71a2f60122c09f37da8faa9d1ef" => :high_sierra
+    sha256 "bc0817cc35d2437b579572842bcfdfb846a26a241986b801b86d5ec52bf2cf51" => :sierra
   end
 
   depends_on "yasm" => :build
