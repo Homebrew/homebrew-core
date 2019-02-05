@@ -6,9 +6,9 @@ class Pgweb < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a6a28fce4d70533892f95837b1796e580639e12a3d152f2e609f251aa46ee037" => :mojave
-    sha256 "f92481df4a5de9e1a4789a176b0dc6619fc9f4414319a6109ea508fd9e8c4f41" => :high_sierra
-    sha256 "6483e7a8777afb98500189de965cf80ab213f3a7ae82ecbca416980bcb7b62db" => :sierra
+    sha256 "d4327a28c76f7b0f67f1e78a2dfb9a6f42918874befafc9a39ad2f631dc80dab" => :mojave
+    sha256 "cfe2c7d43a29b4b587a0e99dd2b9642e7cc5b1f68ca714270a5f0aa28fd04dd5" => :high_sierra
+    sha256 "d69f1702642a18897ac21f4af7e4ff0e11c8698f5a612212e1e452f56b8aae25" => :sierra
   end
 
   depends_on "go" => :build
