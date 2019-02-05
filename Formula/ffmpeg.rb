@@ -55,7 +55,9 @@ class Ffmpeg < Formula
       --enable-libaom
       --enable-libmp3lame
       --enable-libopus
+      --enable-librubberband
       --enable-libsnappy
+      --enable-libtesseract
       --enable-libtheora
       --enable-libvorbis
       --enable-libvpx
