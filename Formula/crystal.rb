@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.27.1.tar.gz"
-    sha256 "c67274c149e797ca232d2ece50e906e7e3c9c66d6277ce7fa35819c022a82c1b"
+    url "https://github.com/crystal-lang/crystal/archive/0.27.2.tar.gz"
+    sha256 "d2fe8a025668b143e8ff70b3cd407765140ed10e52523dd08253139f9322171b"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -37,9 +37,9 @@ class Crystal < Formula
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.27.0/crystal-0.27.0-1-darwin-x86_64.tar.gz"
-    version "0.27.0-1"
-    sha256 "f34bb10357ce5a31ed37066750ee35443ed8cf5fc3f37d3490b984a4bfb1ee51"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.27.1/crystal-0.27.1-1-darwin-x86_64.tar.gz"
+    version "0.27.1-1"
+    sha256 "f5102f34b6801a1bae3afe66fb6da15308cc304c3a9fba5799f4379c1e3010b1"
   end
 
   def install
@@ -58,6 +58,7 @@ class Crystal < Formula
     system "bin/crystal", "build",
                           "-D", "without_openssl",
                           "-D", "without_zlib",
+                          "-D", "preview_overflow",
                           "-o", ".build/crystal",
                           "src/compiler/crystal.cr",
                           "--release", "--no-debug"
