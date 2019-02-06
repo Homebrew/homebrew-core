@@ -6,12 +6,7 @@ class ReadlineAT7 < Formula
   version "7.0.5"
   sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
 
-  keg_only :shadowed_by_macos, <<~EOS
-    macOS provides the BSD libedit library, which shadows libreadline.
-    In order to prevent conflicts when programs look for libreadline we are
-    defaulting this GNU Readline installation to keg-only.
-    This is also an alternate version of another formula
-  EOS
+  keg_only :versioned_formula
 
   %w[
     001 9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376
