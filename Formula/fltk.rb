@@ -5,16 +5,24 @@ class Fltk < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.4-2.tar.gz"
   version "1.3.4-2"
   sha256 "25d349c18c99508737d48f225a2eb26a43338f9247551cab72a317fa42cda910"
+  revision 1
 
   bottle do
-    sha256 "fbf193393bb8d95b303e3e9bdda7b7808c8211b06ec76017ef386f3dac3ca8aa" => :mojave
-    sha256 "5dd4bbb5cf10af5e0a1ff2f29c6d12657f09626fab43811b441b27c677afd0af" => :high_sierra
-    sha256 "e22929035ced94a301c1294de6d305079e34d9709d3e9551b19555ab2f06656e" => :sierra
-    sha256 "5481ffce354c2c98ed7634b036d678c7476780085e1a518af186f2e4b22d2c31" => :el_capitan
+    sha256 "d4844065f8c9fb37183d610d4c0d55d1dc3447d7348ab34930d1e6e35c7f21c7" => :mojave
+    sha256 "06b17cb9b3c89f4e5df09eacb7f735af872bdec7fb1932237c83ba72be1a680d" => :high_sierra
+    sha256 "c5b58949cc184e7af5fd44fbfc65a71a37e2fc950bb08971c6fb633d85eccabc" => :sierra
   end
 
   depends_on "jpeg"
   depends_on "libpng"
+
+  # Fix for Mojave issue https://github.com/Homebrew/homebrew-core/issues/33342
+  # Modified version of upstream commit https://github.com/fltk/fltk/commit/f76d2a2bf8c35c0c313f05bbd6deda49dd344efc
+  # Remove after next release
+  patch :p0 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a68bce/fltk/mojave.patch"
+    sha256 "9483adfc70c25bd560c4400972d8d12d288ee78c27b1c03c965aa59818e59152"
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",

@@ -3,10 +3,9 @@ class Druid < Formula
   homepage "http://druid.io"
   url "http://static.druid.io/artifacts/releases/druid-0.12.2-bin.tar.gz"
   sha256 "951fffe2026cb2c7e219add5f4be15c993f34347f8af0873d19c72ccbb606f77"
+  revision 1
 
   bottle :unneeded
-
-  option "with-mysql", "Build with mysql-metadata-storage plugin"
 
   depends_on :java => "1.8"
   depends_on "zookeeper"
@@ -37,13 +36,8 @@ class Druid < Formula
       s.gsub! ":=var/druid/pids", ":=#{var}/druid/pids"
     end
 
-    if build.with? "mysql"
-      resource("mysql-metadata-storage").stage do
-        (libexec/"extensions/mysql-metadata-storage").install Dir["*"]
-      end
-    else
-      inreplace libexec/"conf/druid/_common/common.runtime.properties",
-                ", \"mysql-metadata-storage\"", ""
+    resource("mysql-metadata-storage").stage do
+      (libexec/"extensions/mysql-metadata-storage").install Dir["*"]
     end
 
     bin.install Dir["#{libexec}/bin/*.sh"]

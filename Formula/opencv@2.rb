@@ -3,12 +3,12 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "af0260a1f08b7b60ca8fb918b67bf628db9c46e9a8cf5a69629c50698eb735fe" => :mojave
-    sha256 "0dc985cebec39f2b7fe7db76043964b1466be907de832490ef195cdd5c6b50e5" => :high_sierra
-    sha256 "cfe1c8ebc835aab1057bdba10d4379ecf3676480c12132aa11629b8479b5d146" => :sierra
+    sha256 "6580055d021fcabea83a3d2878cba7a6a7851fd2463f769e98138a099b3cc82d" => :mojave
+    sha256 "3ac9fdae51aea0627c1febfc25b7dc99b6f3832684b7c0e044a46aac771e02ac" => :high_sierra
+    sha256 "055e15f3b20df7f4db64f2d540e1a19e044edad5b33eb1f5980f747126142b5b" => :sierra
   end
 
   keg_only :versioned_formula
@@ -22,7 +22,7 @@ class OpencvAT2 < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "openexr"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     jpeg = Formula["jpeg"]
@@ -49,6 +49,7 @@ class OpencvAT2 < Formula
       -DWITH_TBB=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
+      -DENABLE_SSSE3=ON
     ]
 
     py_prefix = `python-config --prefix`.chomp
@@ -60,11 +61,8 @@ class OpencvAT2 < Formula
     # https://github.com/Homebrew/homebrew-science/issues/2302
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-    if ENV.compiler == :clang && !build.bottle?
-      args << "-DENABLE_SSSE3=ON" if Hardware::CPU.ssse3?
-      args << "-DENABLE_SSE41=ON" if Hardware::CPU.sse4?
-      args << "-DENABLE_SSE42=ON" if Hardware::CPU.sse4_2?
-      args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
+    if MacOS.version.requires_sse42?
+      args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON"
     end
 
     mkdir "build" do

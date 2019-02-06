@@ -17,7 +17,7 @@ class ProtobufAT31 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
@@ -84,7 +84,7 @@ class ProtobufAT31 < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
-    system "make", "check" if build.bottle?
+    system "make", "check"
     system "make", "install"
 
     # Install editor support and examples
@@ -111,12 +111,6 @@ class ProtobufAT31 < Formula
     site_packages = "lib/python2.7/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
-  end
-
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-  EOS
   end
 
   test do

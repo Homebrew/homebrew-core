@@ -18,14 +18,8 @@ class Mpg123 < Formula
       --prefix=#{prefix}
       --with-default-audio=coreaudio
       --with-module-suffix=.so
+      --with-cpu=x86-64
     ]
-
-    if MacOS.prefer_64_bit?
-      args << "--with-cpu=x86-64"
-    else
-      args << "--with-cpu=sse_alone"
-    end
-
     system "./configure", *args
     system "make", "install"
   end

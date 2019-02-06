@@ -6,24 +6,17 @@ class Gflags < Formula
 
   bottle do
     cellar :any
-    sha256 "82fe53e7e195d7a2c72243c357c8f3120eb8fa79b06e9a1c0928849b7cf60260" => :mojave
-    sha256 "51a508dc83e6213a1726509c0fc1761e5b7a79b220f4c86f8ace660799caaec8" => :high_sierra
-    sha256 "44b0ad9e8d8ce61431d959b1c6197e121f8369acc777a8010aabce2adb8eb4db" => :sierra
+    rebuild 1
+    sha256 "e3176e449321b1e2070a9fabc796e6820f2f0f1f4db1c3916f58e6cdd52e510e" => :mojave
+    sha256 "4beffa84f47bdfd9a1a90d9e591d9af4616db464d63046018ef0c58936d58366" => :high_sierra
+    sha256 "6f06466ca55f2174daecbc935e0bca1f2aed9bfb94a92f21d52fb4db1e07cd4a" => :sierra
   end
-
-  option "with-static", "Build gflags as a static (instead of shared) library."
 
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args
-    if build.with? "static"
-      args << "-DBUILD_SHARED_LIBS=OFF"
-    else
-      args << "-DBUILD_SHARED_LIBS=ON"
-    end
     mkdir "buildroot" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
       system "make", "install"
     end
   end

@@ -42,17 +42,6 @@ class Gnupg < Formula
     quiet_system "killall", "gpg-agent"
   end
 
-  def caveats; <<~EOS
-    Once you run this version of gpg you may find it difficult to return to using
-    a prior 1.4.x or 2.0.x. Most notably the prior versions will not automatically
-    know about new secret keys created or imported by this version. We recommend
-    creating a backup of your `~/.gnupg` prior to first use.
-
-    For full details on each change and how it could impact you please see
-      https://www.gnupg.org/faq/whats-new-in-2.1.html
-  EOS
-  end
-
   test do
     (testpath/"batch.gpg").write <<~EOS
       Key-Type: RSA

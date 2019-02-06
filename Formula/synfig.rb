@@ -33,8 +33,6 @@ class Synfig < Formula
     sha256 "0ac5b757ba3dda6a863a79e717fc239648c490eac1e643ff275b8ac232a466a3"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     boost = Formula["boost"]

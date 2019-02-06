@@ -37,7 +37,7 @@ class Wesnoth < Formula
     args << "wesnothd"
     args << "-j#{ENV.make_jobs}"
 
-    scons *args
+    system "scons", *args
   end
 
   test do

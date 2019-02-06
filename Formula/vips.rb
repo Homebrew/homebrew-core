@@ -1,14 +1,14 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.7.2/vips-8.7.2.tar.gz"
-  sha256 "66c8d1f1db1d0934091e101abe8b3de552f45fb03d120dc10aa15450058d4baa"
+  url "https://github.com/libvips/libvips/releases/download/v8.7.4/vips-8.7.4.tar.gz"
+  sha256 "ce7518a8f31b1d29a09b3d7c88e9852a5a2dcb3ee1501524ab477e433383f205"
   revision 1
 
   bottle do
-    sha256 "0af014d20d528dbdff5f7c680419ab15cd57da114d85ea1bb8ceaf066f3dd5c3" => :mojave
-    sha256 "f2c9b7f718c8bfce4be10563b4e56961f1ed172dcffa974e46773481e4d788a8" => :high_sierra
-    sha256 "6273864ad44f4f1224313eceeb9faae9e19053a23ddf31a05104608183cf6a56" => :sierra
+    sha256 "b79a1dd2a31c66ccaef76c1a80b45fed626070892170fb6b2d17fc77aae2169d" => :mojave
+    sha256 "5b0e853a2df0f58a23fc050727293b4c8a3157b6d162f5d42b1c83d0d26da21c" => :high_sierra
+    sha256 "4d3c4c02757bad0508029fb491331fb8a5217af2852e4a52811ed911326e8438" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -18,7 +18,7 @@ class Vips < Formula
   depends_on "gettext"
   depends_on "giflib"
   depends_on "glib"
-  depends_on "graphicsmagick"
+  depends_on "imagemagick"
   depends_on "jpeg"
   depends_on "libexif"
   depends_on "libgsf"
@@ -38,7 +38,6 @@ class Vips < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-magick
-      --with-magickpackage=GraphicsMagick
     ]
 
     system "./configure", *args

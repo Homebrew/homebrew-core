@@ -3,11 +3,12 @@ class Libgda < Formula
   homepage "http://www.gnome-db.org/"
   url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.8.tar.xz"
   sha256 "e2876d987c00783ac3c1358e9da52794ac26f557e262194fcba60ac88bafa445"
+  revision 2
 
   bottle do
-    sha256 "9e960408acc8636172f0d2c22d3f51849ac684bbf035efcbfd582b293854b2a4" => :mojave
-    sha256 "b5dc9c856c87a69f8322d9d5bacec286d92888ded89ae46767e501bf61f361cf" => :high_sierra
-    sha256 "e966216bc9f7f8deb555630d2606409dae1c3dfed0b6234c2f01540d0dd14551" => :sierra
+    sha256 "082aaf92e18ea5644d48a16ec18fd0d1d19efa7118ec17fdeca106cf8fd4379b" => :mojave
+    sha256 "1eced12e9536d31c56e32cf7d3734f872e7e187160ac9ba51a3a53f1b260c254" => :high_sierra
+    sha256 "4ce20eab3e051395f5717c176d6e79d00bd3ba8a2ee2e507c5559adb0245ebdd" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -20,9 +21,12 @@ class Libgda < Formula
   depends_on "libgee"
   depends_on "openssl"
   depends_on "readline"
-  depends_on "sqlite"
 
   def install
+    # this build uses the sqlite source code that comes with libgda,
+    # as opposed to using the system or brewed sqlite3, which is not supported on macOS,
+    # as mentioned in https://github.com/GNOME/libgda/blob/95eeca4b0470f347c645a27f714c62aa6e59f820/libgda/sqlite/README#L31
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -30,8 +34,13 @@ class Libgda < Formula
                           "--disable-binreloc",
                           "--disable-gtk-doc",
                           "--without-java",
-                          "--enable-introspection"
+                          "--enable-introspection",
+                          "--enable-system-sqlite=no"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/gda-sql", "-v"
   end
 end

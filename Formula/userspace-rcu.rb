@@ -1,8 +1,8 @@
 class UserspaceRcu < Formula
   desc "Library for userspace RCU (read-copy-update)"
-  homepage "https://lttng.org/urcu"
-  url "https://www.lttng.org/files/urcu/userspace-rcu-0.10.1.tar.bz2"
-  sha256 "9c09220be4435dc27fcd22d291707b94b97f159e0c442fbcd60c168f8f79eb06"
+  homepage "https://liburcu.org"
+  url "https://lttng.org/files/urcu/userspace-rcu-0.10.2.tar.bz2"
+  sha256 "b3f6888daf6fe02c1f8097f4a0898e41b5fe9975e121dc792b9ddef4b17261cc"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,12 +13,14 @@ class UserspaceRcu < Formula
   end
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--disable-silent-rules",
-            "--prefix=#{prefix}"]
-    # workaround broken upstream detection of build platform
-    # marked as wontfix: https://bugs.lttng.org/issues/578#note-1
-    args << "--build=#{Hardware::CPU.arch_64_bit}" if MacOS.prefer_64_bit?
+    # Enforce --build to work around broken upstream detection
+    # https://bugs.lttng.org/issues/578#note-1
+    args = %W[
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --build=x86_64
+    ]
 
     system "./configure", *args
     system "make"

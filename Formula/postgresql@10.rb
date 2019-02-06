@@ -3,11 +3,12 @@ class PostgresqlAT10 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v10.6/postgresql-10.6.tar.bz2"
   sha256 "68a8276f08bda8fbefe562faaf8831cb20664a7a1d3ffdbbcc5b83e08637624b"
+  revision 1
 
   bottle do
-    sha256 "11ef89aadb1a8446c2b5f2ab80c9e7b08be256ee83ad358b71abd687f477cf1e" => :mojave
-    sha256 "ec63d333a8363645cd5e62d6ff8486eb0875d2d9404925971544bccd3bb963a9" => :high_sierra
-    sha256 "4474f061c11832651e1fe0426396219358f8e585bd503d0b7fecb8773c9c8658" => :sierra
+    sha256 "b8d24fbaaabadfd304eb0195321bed65098b0ba4b8cbe2d102c92cad3ce05021" => :mojave
+    sha256 "108c9912e1ee79da33909cf32821d964a0c1aeb47e4ece030620d93429eaf6fe" => :high_sierra
+    sha256 "d1daafab980c502277b2236d917704bffe880e0cbdb427dc3668de9660f625df" => :sierra
   end
 
   keg_only :versioned_formula
@@ -46,11 +47,9 @@ class PostgresqlAT10 < Formula
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if MacOS.version >= :mavericks || MacOS::CLT.installed?
-      args << "--with-tcl"
-      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-      end
+    args << "--with-tcl"
+    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     end
 
     # As of Xcode/CLT 10.x the Perl headers were moved from /System
@@ -96,7 +95,7 @@ class PostgresqlAT10 < Formula
   EOS
   end
 
-  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres@10 start"
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@10 start"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -111,16 +110,16 @@ class PostgresqlAT10 < Formula
       <array>
         <string>#{opt_bin}/postgres</string>
         <string>-D</string>
-        <string>#{var}/postgres</string>
+        <string>#{var}/#{name}</string>
       </array>
       <key>RunAtLoad</key>
       <true/>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
       <key>StandardOutPath</key>
-      <string>#{var}/log/postgres.log</string>
+      <string>#{var}/log/#{name}.log</string>
       <key>StandardErrorPath</key>
-      <string>#{var}/log/postgres.log</string>
+      <string>#{var}/log/#{name}.log</string>
     </dict>
     </plist>
   EOS

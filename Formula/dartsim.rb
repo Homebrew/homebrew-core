@@ -1,14 +1,13 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.6.2.tar.gz"
-  sha256 "3ac648fdac0633a2ea4dac37f78e37e5ced6edc2d82c3e2e9b7d8b7793df0845"
-  revision 2
+  url "https://github.com/dartsim/dart/archive/v6.7.2.tar.gz"
+  sha256 "ddbad97af41730ac084ab87153614a13bd6f17ae98e192a994eee0a466746ed7"
 
   bottle do
-    sha256 "83f2ebcce524c618f43c405bd2510320101cd70024181b3abe8f4840fcc119a0" => :mojave
-    sha256 "f85e3a4f32ef05e0209baa9d8c17de918718430891afe48cc41033270f99dd83" => :high_sierra
-    sha256 "042184ad7aeb294016ca89cb7e606c44c6e2bc10111e36a52242cd146b394e33" => :sierra
+    sha256 "170fdec69d1d6e217cab43d1fca384453b9d34daca6fe072a073553406e95fd1" => :mojave
+    sha256 "0b10cb797219b5d137f9489b5622da70a87c90d67e490d93bb625476e49428c4" => :high_sierra
+    sha256 "e220c3dfdb7b3dcc546d77050efa862050e3986237be2349237feafc20cf5831" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -26,8 +25,6 @@ class Dartsim < Formula
   depends_on "tinyxml2"
   depends_on "urdfdom"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
@@ -35,18 +32,6 @@ class Dartsim < Formula
     system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
                          *std_cmake_args
     system "make", "install"
-
-    # Avoid revision bumps whenever fcl's or libccd's Cellar paths change
-    inreplace share/"dart/cmake/dart_dartTargets.cmake" do |s|
-      s.gsub! Formula["fcl"].prefix.realpath, Formula["fcl"].opt_prefix
-      s.gsub! Formula["libccd"].prefix.realpath, Formula["libccd"].opt_prefix
-    end
-
-    # Avoid revision bumps whenever urdfdom's or urdfdom_headers's Cellar paths change
-    inreplace share/"dart/cmake/dart_utils-urdfTargets.cmake" do |s|
-      s.gsub! Formula["urdfdom"].prefix.realpath, Formula["urdfdom"].opt_prefix
-      s.gsub! Formula["urdfdom_headers"].prefix.realpath, Formula["urdfdom_headers"].opt_prefix
-    end
   end
 
   test do

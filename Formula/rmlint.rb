@@ -20,7 +20,7 @@ class Rmlint < Formula
   depends_on "libelf"
 
   def install
-    scons "config"
+    system "scons", "config"
     scons
     bin.install "rmlint"
     man1.install "docs/rmlint.1.gz"

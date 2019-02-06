@@ -3,29 +3,23 @@ class Scalapack < Formula
   homepage "https://www.netlib.org/scalapack/"
   url "https://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
   sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
-  revision 12
+  revision 13
 
   bottle do
     cellar :any
-    sha256 "2f758d08efb4025326b8908867b6c3f42a9d3d3426f118644e83e9b4c36ea575" => :mojave
-    sha256 "0bd7641eb570fc90d013b0d2e080af8f08e3907d80accafd1d95840e4121929e" => :high_sierra
-    sha256 "30e6eb038aa6c5d31b0cb19bcbeb184e6a8aea2d4a1a51c5e202aea1fd53560c" => :sierra
+    sha256 "808ad91d5ebad9b0ef33c942dbecd99902caf6bdbf9cedecfb947d8212c22004" => :mojave
+    sha256 "af10eb763f1cf74164160a3f03d32409bbe84945622782e1f66197ce14eb0495" => :high_sierra
+    sha256 "caa0f69399167c1f684b4074a53a8338c8a896563e17326e7655536850f42f6b" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "veclibfort" if build.without?("openblas")
-  depends_on "openblas" => :optional
+  depends_on "openblas"
 
   def install
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-    else
-      blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
-    end
-
     mkdir "build" do
+      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON",
                       "-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{blas}"
       system "make", "all"

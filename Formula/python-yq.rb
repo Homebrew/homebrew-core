@@ -1,15 +1,14 @@
 class PythonYq < Formula
   desc "Command-line YAML and XML processor that wraps jq"
   homepage "https://yq.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/56/5f/d60ffaba376257b60304a8ee9fafdc0be4852a4bcdeece48d931e6b36487/yq-2.6.0.tar.gz"
-  sha256 "c64f763e8409ed55eb055793c26fc347b5a6666b303d49e9d2f8d7cea979df73"
+  url "https://files.pythonhosted.org/packages/0c/23/aa30f88c916128aa60de9d4f53dd40c8f6c31cb7ebb808aab1b0501a701f/yq-2.7.2.tar.gz"
+  sha256 "f7dafd1e53d1f806ffe11de6da814e231d866595e2faae0dfc38135b8ee79bbb"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ca6ade4e6bdf9cc0897ea3c58bd5460fbf010b2bfed250aff40d9543ea04cac2" => :mojave
-    sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :high_sierra
-    sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :sierra
-    sha256 "7365858d49340df37abf5fb5236ebef2516effacfdb748f89890121250786f38" => :el_capitan
+    sha256 "d3d388e9e69167f57f2b8f4e87322aeda5a940a1ce4227a43a671aeb19c06b04" => :mojave
+    sha256 "ec55df02a3aaf3aca5d43e01047474bd83c5bea8bce6c469e81df8dcd7c73024" => :high_sierra
+    sha256 "ec55df02a3aaf3aca5d43e01047474bd83c5bea8bce6c469e81df8dcd7c73024" => :sierra
   end
 
   depends_on "jq"

@@ -1,18 +1,16 @@
 class Perl < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.28.0.tar.xz"
-  sha256 "059b3cb69970d8c8c5964caced0335b4af34ac990c8e61f7e3f90cd1c2d11e49"
+  url "https://www.cpan.org/src/5.0/perl-5.28.1.tar.gz"
+  sha256 "3ebf85fe65df2ee165b22596540b7d5d42f84d4b72d84834f74e2e0b8956c347"
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    sha256 "c5357179155c25061e34b2c7e6a1abbc5f5516cfe53641ccf8e5dcf7732b38ce" => :mojave
-    sha256 "c8e7f61c69fcbd16146f85dde1bf90996bd2d9c182b449fbd466d24ebb55333d" => :high_sierra
-    sha256 "7fc5042a68f4e4b68f0d9abd025c3a5d4629868222cabbef30f6e860b6c294c0" => :sierra
-    sha256 "e755049a030476dd12fcdbc22488392dcb0ee92be80edbf74ec3d19008ce789c" => :el_capitan
+    rebuild 2
+    sha256 "6f9c6519a6c95eb3212abde423688fa01d3d56be0c424f9e6e8bed7b59dfe014" => :mojave
+    sha256 "b04e2b8a5158c6405558e8408d901c7c1899eda8950202f1dfddd6efd7cfa043" => :high_sierra
+    sha256 "8099f37b2521864a095eb06dc5cde02805421a78ddda95fafe3fc538a3ef3553" => :sierra
   end
-
-  option "with-dtrace", "Build with DTrace probes"
 
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"
@@ -33,7 +31,6 @@ class Perl < Formula
       -Dusethreads
     ]
 
-    args << "-Dusedtrace" if build.with? "dtrace"
     args << "-Dusedevel" if build.head?
 
     system "./Configure", *args
@@ -47,7 +44,7 @@ class Perl < Formula
     (lib/"perl5/#{version}/darwin-thread-multi-2level/CORE").install_symlink buildpath/"libperl.dylib"
 
     system "make"
-    system "make", "test" if build.bottle?
+    system "make", "test"
 
     # Remove the symlink so the library actually gets installed.
     rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib"

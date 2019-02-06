@@ -3,6 +3,7 @@ class Drafter < Formula
   homepage "https://apiblueprint.org/"
   url "https://github.com/apiaryio/drafter/releases/download/v3.2.7/drafter-v3.2.7.tar.gz"
   sha256 "a2b7061e2524804f153ac2e80f6367ae65dfcd367f4ee406eddecc6303f7f7ef"
+  head "https://github.com/apiaryio/drafter.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,8 +13,15 @@ class Drafter < Formula
     sha256 "dc86d4e8dc44c2dead52e57c3bf6403d691926b9abf274f16b94c9649dd562fd" => :el_capitan
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure"
+    if build.head?
+      system "cmake", ".", *std_cmake_args
+      system "make"
+    else
+      system "./configure"
+    end
     system "make", "install", "DESTDIR=#{prefix}"
   end
 

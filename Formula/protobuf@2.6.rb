@@ -13,7 +13,7 @@ class ProtobufAT26 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/16/64/1dc5e5976b17466fd7d712e59cbe9fb1e18bec153109e5ba3ed6c9102f1a/six-1.9.0.tar.gz"
@@ -54,7 +54,7 @@ class ProtobufAT26 < Formula
            "--prefix=#{prefix}",
            "--with-zlib"
     system "make"
-    system "make", "check" if build.bottle?
+    system "make", "check"
     system "make", "install"
 
     # Install editor support and examples
@@ -80,12 +80,6 @@ class ProtobufAT26 < Formula
     site_packages = "lib/python2.7/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
-  end
-
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-  EOS
   end
 
   test do

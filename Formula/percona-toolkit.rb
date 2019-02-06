@@ -1,15 +1,15 @@
 class PerconaToolkit < Formula
   desc "Percona Toolkit for MySQL"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.0.12/source/tarball/percona-toolkit-3.0.12.tar.gz"
-  sha256 "7d15d6b186a0fa6e45a1f9c390fab210b1d18f66d24d58b1bea30d2f59b35e20"
+  url "https://www.percona.com/downloads/percona-toolkit/3.0.13/source/tarball/percona-toolkit-3.0.13.tar.gz"
+  sha256 "21f68d1c5204a9cad7be716fd1e53f0fe6ff7d995292b56dbc7c55e3979432b1"
   head "lp:percona-toolkit", :using => :bzr
 
   bottle do
     cellar :any
-    sha256 "41f11cadd02f6de1c0a0f92ec9d09d6a8031b29a50a0155098005024aba0434c" => :mojave
-    sha256 "e7790d1db85e264098b9be5a8e94846f7ee77c3aac8dcca60304c1efd09f94d0" => :high_sierra
-    sha256 "10ccc762d3af04cf387469b305afed1ebbc712ef5176b5ef35a4f03173a22c00" => :sierra
+    sha256 "d45ec073ce122e1907529323e0d1efb01b76a1dc8bbdf6d8cf9b9cb59afd8761" => :mojave
+    sha256 "c92ffd9b05232537d22150850394abd52cd349f5ee7240afa7a001b7aed421c4" => :high_sierra
+    sha256 "aa6bc63cdd8caa0c11aca6034aaf3e013432715923258cd4252d8794a03be951" => :sierra
   end
 
   depends_on "mysql-client"
@@ -18,8 +18,8 @@ class PerconaToolkit < Formula
   # In Mojave, this is not part of the system Perl anymore
   if MacOS.version >= :mojave
     resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
-      sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.642.tar.gz"
+      sha256 "3f2025023a56286cebd15cb495e36ccd9b456c3cc229bf2ce1f69e9ebfc27f5d"
     end
   end
 
@@ -29,8 +29,8 @@ class PerconaToolkit < Formula
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-2.97001.tar.gz"
-    sha256 "e277d9385633574923f48c297e1b8acad3170c69fa590e31fa466040fc6f8f5a"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.00.tar.gz"
+    sha256 "c4da1f1075878604b7b1f085ff3963e1073ed1c603c3bc9f0b0591e3831a1068"
   end
 
   def install

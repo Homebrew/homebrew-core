@@ -1,16 +1,15 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.14.06.source.tar.gz"
-  version "6.14.06"
-  sha256 "0fb943b61396f282b289e35c455a9ab60126229be1bd3f04a8f00b37c13ab432"
+  url "https://root.cern.ch/download/root_v6.16.00.source.tar.gz"
+  version "6.16.00"
+  sha256 "2a45055c6091adaa72b977c512f84da8ef92723c30837c7e2643eecc9c5ce4d8"
   head "https://github.com/root-project/root.git"
 
   bottle do
-    rebuild 1
-    sha256 "cbfda6bd45040e1136700a795fd2e515d66ab2d2f50781da35c0891e05c7e381" => :mojave
-    sha256 "0b96e958a4cde5d0f09b3b967f0af0932c0e09589fc2ef85d1d898241728ee38" => :high_sierra
-    sha256 "62868ac73e1a8b8be1d8261ef5133ca0dc67e008381c7ee28291aed542579ef3" => :sierra
+    sha256 "b4654cd7f0f7e0190d311e6b3b7734a1cd247b01c5a6f233c8916929ad151bdc" => :mojave
+    sha256 "fa4c773cdcdf4f4705fd2f0f5009e2dc4e89f8927dd0ebba9c356e0e53f83d8b" => :high_sierra
+    sha256 "91142b7de7f49991589cb6f2ca1a0f55857fc11314ccaf8f70c0fea1b26709e8" => :sierra
   end
 
   # https://github.com/Homebrew/homebrew-core/issues/30726
@@ -43,8 +42,6 @@ class Root < Formula
   depends_on "xz" # for LZMA
 
   skip_clean "bin"
-
-  needs :cxx11
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"

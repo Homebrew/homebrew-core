@@ -10,8 +10,6 @@ class TerraformLandscape < Formula
     sha256 "25ddfefd03e21886b042060b9bf5a9060ba2ab0565ae9580a3b492323d97403b" => :sierra
   end
 
-  depends_on "ruby" if MacOS.version <= :mountain_lion
-
   resource "colorize" do
     url "https://rubygems.org/gems/colorize-0.8.1.gem"
     sha256 "0ba0c2a58232f9b706dc30621ea6aa6468eeea120eb6f1ccc400105b90c4798c"

@@ -30,8 +30,6 @@ class Zbackup < Formula
     sha256 "060491c216a145d34a8fd3385b138630718579404e1a2ec2adea284a52699672"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

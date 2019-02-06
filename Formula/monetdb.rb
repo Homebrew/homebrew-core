@@ -1,13 +1,13 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Aug2018-SP1/MonetDB-11.31.11.tar.xz"
-  sha256 "169f78f6509241e63028adec3f5082fdcf9f8a1ae9d87a59dddf423f8e9f81d5"
+  url "https://www.monetdb.org/downloads/sources/Aug2018-SP2/MonetDB-11.31.13.tar.xz"
+  sha256 "f9fbf63ed7e6c306868b289c3fda8c3a8b6d3fc6bef589418940b2a21fd7c283"
 
   bottle do
-    sha256 "df8bdde8ed02b9bd3e7e0aff359824ce363092332ae99c0991eb4a66e942fb22" => :mojave
-    sha256 "81fe91062a42037bb497c033e59c1256bffb68e4f3be4c081a9b026b6c3f7162" => :high_sierra
-    sha256 "35983a31e38ab40e3bbf9b2f0c557a1b9902842a373ca224e33c805402209b95" => :sierra
+    sha256 "c289a7faa889c3adf228d183a5310ef7187d679f93fde340d263f4ce3fb835d6" => :mojave
+    sha256 "16557092c3c437c8b2cb316c692a1e52b21db6370caf03af060a364b6550184b" => :high_sierra
+    sha256 "309eadb339243a3c262115df347685a4111fac62963fea437676db78d4f4d978" => :sierra
   end
 
   head do

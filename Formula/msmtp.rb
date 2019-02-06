@@ -12,11 +12,8 @@ class Msmtp < Formula
     sha256 "6f5227576bf8ac42fed7190c22f2e62b0fb2a3af59fa085e783426661c606758" => :yosemite
   end
 
-  option "with-gsasl", "Use GNU SASL authentication library"
-
   depends_on "pkg-config" => :build
   depends_on "openssl"
-  depends_on "gsasl" => :optional
 
   def install
     args = %W[
@@ -25,8 +22,6 @@ class Msmtp < Formula
       --prefix=#{prefix}
       --with-tls=openssl
     ]
-
-    args << "--with-libsasl" if build.with? "gsasl"
 
     system "./configure", *args
     system "make", "install"

@@ -1,15 +1,15 @@
 class Caddy < Formula
   desc "Alternative general-purpose HTTP/2 web server"
   homepage "https://caddyserver.com/"
-  url "https://github.com/mholt/caddy/archive/v0.11.1.tar.gz"
-  sha256 "e24ddb1690a265fb3c40efa5bc720964b85b9d2cad8d994ee4ed6271761984bf"
+  url "https://github.com/mholt/caddy/archive/v0.11.2.tar.gz"
+  sha256 "61779a09959bf6a0e7007e8ff5c2a94811dd12b7628166cb31e9648a97c0e75b"
   head "https://github.com/mholt/caddy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "6774dca72da13a2966185fb1f0d869dee16ef4186630b9e9143c49420cca84fa" => :mojave
-    sha256 "72a1f55a34741b3d3b437e4fa6d04b4cdf21eb15e233c0b3d73a5e03324b7387" => :high_sierra
-    sha256 "23238e3befc4e2c79d35edd743cce9c9946f12495d3b0c470df800f9160a1b18" => :sierra
+    sha256 "4de5dbb38d2966a6861ca8071a7e4ee465b0b5b5dd6d48f37fe58cad2b14e341" => :mojave
+    sha256 "092c02c2b69119aedb9de0ac83f4a2205ea2e77cbcca061f5a89a4e3689c3a37" => :high_sierra
+    sha256 "eff947aafbf28f6b3b473397c5da5e344f371dd0d9c4f4e23c64b60ad5097c90" => :sierra
   end
 
   depends_on "go" => :build
@@ -17,7 +17,7 @@ class Caddy < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["GOARCH"] = "amd64"
 
     (buildpath/"src/github.com/mholt").mkpath
     ln_s buildpath, "src/github.com/mholt/caddy"

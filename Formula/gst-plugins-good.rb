@@ -6,14 +6,13 @@ class GstPluginsGood < Formula
   stable do
     url "https://gstreamer.freedesktop.org/src/gst-plugins-good/gst-plugins-good-1.14.4.tar.xz"
     sha256 "5f8b553260cb0aac56890053d8511db1528d53cae10f0287cfce2cb2acc70979"
-
-    depends_on "check" => :optional
   end
 
   bottle do
-    sha256 "b064a88166dde9a0728e2b4931265c36331fe04763cd86a374f7e871970154b7" => :mojave
-    sha256 "4690c041a027f7f8a4d50a50b704bf4474c457bf6d5587d4f6d00b02e0ae9770" => :high_sierra
-    sha256 "a992fea0e10e1227d9747bfac9a8df892a63e1e23efe753e65a8e9a93f363c34" => :sierra
+    rebuild 2
+    sha256 "71ba7288f1c504275d4486c2c97150d1cb226a9a4caefa268976baa5d2bb9eb6" => :mojave
+    sha256 "acefb0ecf6f01e71accadce7862ca9b6ce4ea113a02595590e8fb1dd66428d0c" => :high_sierra
+    sha256 "ba3f0791537c202a067641193c58480c9b3f1e74026bc5915d9806227bc74e66" => :sierra
   end
 
   head do
@@ -39,18 +38,6 @@ class GstPluginsGood < Formula
   depends_on "speex"
   depends_on "taglib"
 
-  # Dependencies based on the intersection of
-  # https://cgit.freedesktop.org/gstreamer/gst-plugins-good/tree/REQUIREMENTS
-  # and Homebrew formulae.
-  depends_on "aalib" => :optional
-  depends_on "gdk-pixbuf" => :optional
-  depends_on "gtk+3" => :optional
-  depends_on "jack" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libdv" => :optional
-  depends_on "pulseaudio" => :optional
-  depends_on :x11 => :optional
-
   def install
     args = %W[
       --prefix=#{prefix}
@@ -60,21 +47,8 @@ class GstPluginsGood < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-x
     ]
-
-    args << "--enable-gtk3" if build.with? "gtk+3"
-
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--disable-x"
-    end
-
-    # This plugin causes hangs on Snow Leopard (and possibly other versions?)
-    # Upstream says it hasn't "been actively tested in a long time";
-    # successor is glimagesink (in gst-plugins-bad).
-    # https://bugzilla.gnome.org/show_bug.cgi?id=756918
-    args << "--disable-osx_video" if MacOS.version == :snow_leopard
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"

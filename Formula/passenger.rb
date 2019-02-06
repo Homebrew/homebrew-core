@@ -1,19 +1,17 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.0/passenger-6.0.0.tar.gz"
-  sha256 "3f826e55065bb69ff5cc945b7b8ab5eb69f957e108053d15401c2ea059321b83"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.1/passenger-6.0.1.tar.gz"
+  sha256 "038be424e30a850f340285371419a9bbf236d103f81c79d50e2807bb335502e5"
   head "https://github.com/phusion/passenger.git", :branch => "stable-6.0"
 
   bottle do
-    sha256 "215b84b960021443f48c9425299dacce7532140e0c4b560a012354116ff6a996" => :mojave
-    sha256 "9d7dc31d44f43c9f09da7aba58c07ee0a9dd97c49655f917c443a6f1e8a2fd32" => :high_sierra
-    sha256 "3c0ec433a8b3158c39cc1c56753a16af3011fb3ae4f2d496be968c4e3991064a" => :sierra
+    cellar :any
+    sha256 "c8df29e4977d5e7495ac2bca1a5299a38a361955014e2ccb200f6495b2dee464" => :mojave
+    sha256 "4cd91a1f49d517eb4752bfe0c328f97c040a6bde02200863009c3e61bd329eb6" => :high_sierra
+    sha256 "d094cecf62e66a527482b681bdfa01cc7fa956a16ad9e4d2fea520ffc63cac6f" => :sierra
   end
 
-  option "without-apache2-module", "Disable Apache2 module"
-
-  depends_on :macos => :lion
   depends_on "openssl"
   depends_on "pcre"
 
@@ -26,7 +24,7 @@ class Passenger < Formula
       s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{Formula["openssl"].opt_lib}"
     end
 
-    system "rake", "apache2" if build.with? "apache2-module"
+    system "rake", "apache2"
     system "rake", "nginx"
 
     (libexec/"download_cache").mkpath
@@ -69,21 +67,15 @@ class Passenger < Formula
     mv libexec/"man", share
   end
 
-  def caveats
-    s = <<~EOS
-      To activate Phusion Passenger for Nginx, run:
-        brew install nginx --with-passenger
+  def caveats; <<~EOS
+    To activate Phusion Passenger for Nginx, run:
+      brew install nginx --with-passenger
 
-    EOS
-
-    s += <<~EOS if build.with? "apache2-module"
-      To activate Phusion Passenger for Apache, create /etc/apache2/other/passenger.conf:
-        LoadModule passenger_module #{opt_libexec}/buildout/apache2/mod_passenger.so
-        PassengerRoot #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini
-        PassengerDefaultRuby /usr/bin/ruby
-
-    EOS
-    s
+    To activate Phusion Passenger for Apache, create /etc/apache2/other/passenger.conf:
+      LoadModule passenger_module #{opt_libexec}/buildout/apache2/mod_passenger.so
+      PassengerRoot #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini
+      PassengerDefaultRuby /usr/bin/ruby
+  EOS
   end
 
   test do

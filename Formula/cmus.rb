@@ -23,9 +23,6 @@ class Cmus < Formula
   depends_on "libvorbis"
   depends_on "mad"
   depends_on "mp4v2"
-  depends_on "ffmpeg" => :optional
-  depends_on "jack" => :optional
-  depends_on "opusfile" => :optional
 
   def install
     system "./configure", "prefix=#{prefix}", "mandir=#{man}"

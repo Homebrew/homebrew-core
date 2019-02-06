@@ -3,12 +3,14 @@ class Tarantool < Formula
   homepage "https://tarantool.org/"
   url "https://download.tarantool.org/tarantool/1.10/src/tarantool-1.10.2.1.tar.gz"
   sha256 "2d077978a65e785349883ef3c98c46d35af26bcc10dae58eabfca27cfbcc6c6b"
-  revision 1
-  head "https://github.com/tarantool/tarantool.git", :branch => "2.0", :shallow => false
+  revision 2
+  head "https://github.com/tarantool/tarantool.git", :branch => "2.1", :shallow => false
 
   bottle do
-    sha256 "16e54418400f8cd7aa62c00c409d8b21e8effba0692c238e3eec942644bcd11f" => :mojave
-    sha256 "0ba1fc8552f04842eb5e19947a4d2f052572316345838cbe6193c96aa45579b0" => :sierra
+    cellar :any
+    sha256 "43c4b7bf9ca4c6f0a4d3f7c04a2080d416cfea4c06f90743bc8429776425c256" => :mojave
+    sha256 "ae13eb556d4805cac33578221daa3684d6e099cc219f1508a86cd635193f5b36" => :high_sierra
+    sha256 "226f292eff0874e0431a07c7ba6a367622ca11f0b10382384b986e1d6ea4a062" => :sierra
   end
 
   depends_on "cmake" => :build

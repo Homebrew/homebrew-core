@@ -6,10 +6,10 @@ class Git < Formula
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    rebuild 1
-    sha256 "b8703d4d220d64509ce419132d4a2fd838a18a489ce6068e42d76dce56c9b162" => :mojave
-    sha256 "df0d1f462f7a1a8a9c155e8ef9aaaf186c929156d0b4092b919c5f4c72ca3f3b" => :high_sierra
-    sha256 "b9c7567cdc7e1d4d3baed617ad18cab18a1ca00fc9d9b830d6e87aee9c340d18" => :sierra
+    rebuild 3
+    sha256 "97c33eddaf0610cbe3e9f51efe2fc5ed063bfae4fb149f6e334384788dacbfc5" => :mojave
+    sha256 "fe41138cd986cf1abc2c5253d49eda7a4a6a7a0448c79c882e9eaab4efd7a732" => :high_sierra
+    sha256 "0214ea4c216830d32cb0756a197661f050bcdb332dcf9a809cd0e883f0d99c6b" => :sierra
   end
 
   depends_on "gettext"
@@ -18,15 +18,6 @@ class Git < Formula
   if MacOS.version < :yosemite
     depends_on "openssl"
     depends_on "curl"
-  else
-    deprecated_option "with-brewed-openssl" => "with-openssl"
-    deprecated_option "with-brewed-curl" => "with-curl"
-
-    option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
-    option "with-curl", "Use Homebrew's version of cURL library"
-
-    depends_on "openssl" => :optional
-    depends_on "curl" => :optional
   end
 
   resource "html" do
@@ -37,6 +28,11 @@ class Git < Formula
   resource "man" do
     url "https://www.kernel.org/pub/software/scm/git/git-manpages-2.20.1.tar.xz"
     sha256 "060acce347cfb712d0c7dfe7578c5291fde2d3d807917b2828c8aae3c90876ba"
+  end
+
+  resource "Net::SMTP::SSL" do
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
+    sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
   end
 
   def install
@@ -53,15 +49,13 @@ class Git < Formula
 
     perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
-    if MacOS.version >= :mavericks
-      ENV["PERLLIB_EXTRA"] = %W[
-        #{MacOS.active_developer_dir}
-        /Library/Developer/CommandLineTools
-        /Applications/Xcode.app/Contents/Developer
-      ].uniq.map do |p|
-        "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
-      end.join(":")
-    end
+    ENV["PERLLIB_EXTRA"] = %W[
+      #{MacOS.active_developer_dir}
+      /Library/Developer/CommandLineTools
+      /Applications/Xcode.app/Contents/Developer
+    ].uniq.map do |p|
+      "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
+    end.join(":")
 
     unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
       ENV["NO_PERL_MAKEMAKER"] = "1"
@@ -75,7 +69,7 @@ class Git < Formula
       LDFLAGS=#{ENV.ldflags}
     ]
 
-    if build.with?("openssl") || MacOS.version < :yosemite
+    if MacOS.version < :yosemite
       openssl_prefix = Formula["openssl"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
@@ -132,16 +126,15 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # To avoid this feature hooking into the system OpenSSL, remove it.
-    # If you need it, install git --with-openssl.
-    if MacOS.version >= :yosemite && build.without?("openssl")
+    # To avoid this feature hooking into the system OpenSSL, remove it
+    if MacOS.version >= :yosemite
       rm "#{libexec}/git-core/git-imap-send"
     end
 
-    # git-send-email is broken without either linking to a user-installed
-    # perl at compile-time or installing modules to system perl, neither of
-    # which is supported.
-    rm "#{libexec}/git-core/git-send-email"
+    # git-send-email needs Net::SMTP::SSL
+    resource("Net::SMTP::SSL").stage do
+      (share/"perl5").install "lib/Net"
+    end
 
     # This is only created when building against system Perl, but it isn't
     # purged by Homebrew's post-install cleaner because that doesn't check
@@ -164,5 +157,14 @@ class Git < Formula
     system bin/"git", "add", "haunted", "house"
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
+
+    # Check Net::SMTP::SSL was installed correctly.
+    %w[foo bar].each { |f| touch testpath/f }
+    system bin/"git", "add", "foo", "bar"
+    system bin/"git", "commit", "-a", "-m", "Second Commit"
+    assert_match "Authentication Required", shell_output(
+      "#{bin}/git send-email --to=dev@null.com --smtp-server=smtp.gmail.com " \
+      "--smtp-encryption=tls --confirm=never HEAD^ 2>&1", 255
+    )
   end
 end

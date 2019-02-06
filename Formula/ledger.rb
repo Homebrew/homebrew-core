@@ -25,8 +25,6 @@ class Ledger < Formula
     sha256 "2e652fc4b247b9c7cd482bd07aa57a66fc86597d7a564e6ccf93232700a6c8d8"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

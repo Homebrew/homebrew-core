@@ -3,14 +3,14 @@ class Tox < Formula
 
   desc "Generic Python virtualenv management and test command-line tool"
   homepage "https://tox.readthedocs.org/"
-  url "https://files.pythonhosted.org/packages/1a/4a/e8e8b54a904aefdff5cf6a08117e543ff5ff0f49c84c14861bd2869c89d7/tox-3.6.0.tar.gz"
-  sha256 "304177defdcb403d84aeb0400b1625b1e65a7fff19f0441329f9f76ebf67882f"
+  url "https://files.pythonhosted.org/packages/d7/42/82308785b76b374456218b4f1f9f69075d081cb5b4f287766d21a30565dc/tox-3.7.0.tar.gz"
+  sha256 "25ef928babe88c71e3ed3af0c464d1160b01fca2dd1870a5bb26c2dea61a17fc"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "d777383a972693eb21c3fa37c47ad352796d20bab87b89e348034dcbae68521f" => :mojave
-    sha256 "3811dae6a7620b6472e43ad4fa23f5a4b611d90867f3863b8eb5eca081ce8168" => :high_sierra
-    sha256 "1cede34350519a387b10a952e501ff38d548451640f08436f36d539274960cfa" => :sierra
+    sha256 "87d6038f40348c3d8be02ff61e463065dc470cec2e4ffed6d34844bf1071fe15" => :mojave
+    sha256 "04a5c101cf680f8e10cc33b96db11ccf58c7c5346033499a8eda1e790a2131a7" => :high_sierra
+    sha256 "971b4a9c7e80e919832cdd42fd0d63fcfa9ab838f6c0a9b207f33cbdec69e219" => :sierra
   end
 
   depends_on "python"
@@ -26,8 +26,8 @@ class Tox < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/65/25/81d0de17cd00f8ca994a4e74e3c4baf7cd25072c0b831dad5c7d9d6138f8/pluggy-0.8.0.tar.gz"
-    sha256 "447ba94990e8014ee25ec853339faf7b0fc8050cdc3289d4d71f7f410fb90095"
+    url "https://files.pythonhosted.org/packages/38/e1/83b10c17688af7b2998fa5342fec58ecbd2a5a7499f31e606ae6640b71ac/pluggy-0.8.1.tar.gz"
+    sha256 "8ddc32f03971bfdf900a81961a48ccf2fb677cf7715108f85295c67405798616"
   end
 
   resource "py" do
@@ -51,8 +51,8 @@ class Tox < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/4e/8b/75469c270ac544265f0020aa7c4ea925c5284b23e445cf3aa8b99f662690/virtualenv-16.1.0.tar.gz"
-    sha256 "f899fafcd92e1150f40c8215328be38ff24b519cd95357fa6e78e006c7638208"
+    url "https://files.pythonhosted.org/packages/59/38/55dd25a965990bd93f77eb765b189e72cf581ce1c2de651cb7b1dea74ed1/virtualenv-16.2.0.tar.gz"
+    sha256 "fa736831a7b18bd2bfeef746beb622a92509e9733d645952da136b0639cd40cd"
   end
 
   def install

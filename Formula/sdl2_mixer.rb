@@ -16,30 +16,27 @@ class Sdl2Mixer < Formula
   depends_on "libmodplug"
   depends_on "libvorbis"
   depends_on "sdl2"
-  depends_on "flac" => :optional
-  depends_on "fluid-synth" => :optional
-  depends_on "libmikmod" => :optional
-  depends_on "mpg123" => :optional
 
   def install
     inreplace "SDL2_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
 
     args = %W[
-      --prefix=#{prefix} --disable-dependency-tracking
-      --enable-music-ogg --disable-music-ogg-shared
+      --prefix=#{prefix}
+      --disable-dependency-tracking
+      --disable-music-flac
       --disable-music-flac-shared
+      --disable-music-midi-fluidsynth
       --disable-music-midi-fluidsynth-shared
       --disable-music-mod-mikmod-shared
-      --enable-music-mod-modplug
       --disable-music-mod-modplug-shared
-      --disable-music-mp3-smpeg
+      --disable-music-mp3-mpg123
       --disable-music-mp3-mpg123-shared
+      --disable-music-mp3-smpeg
+      --disable-music-ogg-shared
+      --enable-music-mod-mikmod
+      --enable-music-mod-modplug
+      --enable-music-ogg
     ]
-
-    args << "--disable-music-flac" if build.without? "flac"
-    args << "--disable-music-midi-fluidsynth" if build.without? "fluid-synth"
-    args << "--enable-music-mod-mikmod" if build.with? "libmikmod"
-    args << "--disable-music-mp3-mpg123" if build.without? "mpg123"
 
     system "./configure", *args
     system "make", "install"

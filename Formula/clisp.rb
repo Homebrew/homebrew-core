@@ -4,14 +4,13 @@ class Clisp < Formula
   url "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
   mirror "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
   sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "3cc305f1620b8235b6b96b417470a8581fcd6d454a8f2a1e2e87335e8ee69be0" => :mojave
-    sha256 "8c545b817e493f5edfb1928ac8fa1d06571cfb3da135094bd701b22e99c6e423" => :high_sierra
-    sha256 "dd77ffe7a77e9bdb8cc57a11d923108c4967229feb214e511a5a1866a1f7ec50" => :sierra
-    sha256 "c4503ba2f9fcc24cb8415179db6a7437bfa8e1cab25b619fcb7be8e2770e9fe6" => :el_capitan
-    sha256 "7335dec5039d4bf0f56cf75521834d93caca2f36fcf45e42fe489964fa7d0c49" => :yosemite
+    cellar :any
+    sha256 "d71cf96b9d303ec2de1cb091043a0ad1befa590bbe3ee027f7f94c03daf9f6a1" => :mojave
+    sha256 "5bf6cb7c640be9841f8a433f2bdbbd872aaf01352355d8765266d19a699e23c1" => :high_sierra
+    sha256 "a34dc97249cc2e5001dff9561137c8a4ebc010e6da3be23735d711566e4d7312" => :sierra
   end
 
   depends_on "libsigsegv"
@@ -30,7 +29,7 @@ class Clisp < Formula
 
     # Clisp requires to select word size explicitly this way,
     # set it in CFLAGS won't work.
-    ENV["CC"] = "#{ENV.cc} -m#{MacOS.prefer_64_bit? ? 64 : 32}"
+    ENV["CC"] = "#{ENV.cc} -m64"
 
     # Work around "configure: error: unrecognized option: `--elispdir"
     # Upstream issue 16 Aug 2016 https://sourceforge.net/p/clisp/bugs/680/
@@ -49,16 +48,7 @@ class Clisp < Formula
       # The ulimit must be set, otherwise `make` will fail and tell you to do so
       system "ulimit -s 16384 && make"
 
-      if MacOS.version >= :lion
-        opoo <<~EOS
-          `make check` fails so we are skipping it.
-          However, there will likely be other issues present.
-          Please take them upstream to the clisp project itself.
-        EOS
-      else
-        # Considering the complexity of this package, a self-check is highly recommended.
-        system "make", "check"
-      end
+      system "make", "check"
 
       system "make", "install"
     end
@@ -76,7 +66,7 @@ index 5345ed6..cf14e29 100644
 +++ b/src/stream.d
 @@ -3994,7 +3994,7 @@ global object iconv_range (object encoding, uintL start, uintL end, uintL maxint
  nonreturning_function(extern, error_unencodable, (object encoding, chart ch));
- 
+
  /* Avoid annoying warning caused by a wrongly standardized iconv() prototype. */
 -#ifdef GNU_LIBICONV
 +#if defined(GNU_LIBICONV) && !defined(__APPLE_CC__)

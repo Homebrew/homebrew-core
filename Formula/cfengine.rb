@@ -11,7 +11,6 @@ class Cfengine < Formula
     sha256 "468f1d8fc3726456fe25f14af8795e0410aa7bc558f7e841ce99082e738de149" => :el_capitan
   end
 
-  depends_on "libxml2" if MacOS.version < :mountain_lion
   depends_on "lmdb"
   depends_on "openssl"
   depends_on "pcre"

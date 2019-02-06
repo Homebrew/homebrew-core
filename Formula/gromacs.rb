@@ -11,26 +11,16 @@ class Gromacs < Formula
     sha256 "9096c516ac4cb6cb3e21cf07d1ddbe1e2647ae92c031f2c8d2330ee72a6bfbc0" => :el_capitan
   end
 
-  option "with-double", "Enables double precision"
-  option "with-mpi", "Enable parallel support"
-
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gsl"
-  depends_on "open-mpi" if build.with? "mpi"
-  depends_on :x11 => :optional
 
   def install
-    args = std_cmake_args + %w[-DGMX_GSL=ON]
-    args << "-DGMX_DOUBLE=ON" if build.include? "enable-double"
-    args << "-DGMX_MPI=ON" if build.with? "mpi"
-    args << "-DGMX_X11=ON" if build.with? "x11"
-
     inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
                                         "CMAKE_INSTALL_DATADIR"
 
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DGMX_GSL=ON"
       system "make"
       ENV.deparallelize { system "make", "install" }
     end

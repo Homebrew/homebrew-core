@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-6.5.2.tar.gz"
-  sha256 "80310938785965cde0228e7a3b091ff8282e10b222f0268c2fdd1d900fac53c0"
+  url "https://artifacts.elastic.co/downloads/logstash/logstash-oss-6.6.0.tar.gz"
+  sha256 "89a8e574d36e0f8d47b68045f7c3b47589431c23befa1dc732c1dd698e16ba0c"
   head "https://github.com/elastic/logstash.git"
 
   bottle :unneeded
@@ -81,6 +81,7 @@ class Logstash < Formula
   end
 
   test do
+    assert_includes(stable.url, "-oss-")
     # workaround https://github.com/elastic/logstash/issues/6378
     (testpath/"config").mkpath
     ["jvm.options", "log4j2.properties", "startup.options"].each do |f|

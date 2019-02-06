@@ -1,13 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.11/source/mariadb-10.3.11.tar.gz"
-  sha256 "211655b794c9d5397ba3be6c90737eac02e882f296268299239db47ba328f1b2"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.12/source/mariadb-10.3.12.tar.gz"
+  sha256 "f7449a34c25e0455928d7983dae83fd2069fe1f16c4c5f4aeed9ed9d3f081ff6"
 
   bottle do
-    sha256 "9ab440bc27d3e85e0bf2d86685ccb3dccc827956a3e3daecc7c721c70c3ea0d2" => :mojave
-    sha256 "7d30a6689bc684ff649e7ff7c6a0f87b2a9177c59561ab2a548f61353fb23a49" => :high_sierra
-    sha256 "f8f9659bf90a4d91c3d81ab96d32426705ebcdcb75dfde28442fc6e715b7b0cc" => :sierra
+    sha256 "ca6ad19ec39f03fec8bb8afab5aab156b3f95a8f1804cfd633db3985b80555cd" => :mojave
+    sha256 "8858d4186cd52a63b8a20a29a679a9967db9be318d57c11be6fe84b2624eeda1" => :high_sierra
+    sha256 "782ad2a2b393510418af3a77f4be80ede14866151c150bc5a068c041b256f8d4" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -83,8 +83,7 @@ class Mariadb < Formula
     %w[
       wsrep_sst_mysqldump
       wsrep_sst_rsync
-      wsrep_sst_xtrabackup
-      wsrep_sst_xtrabackup-v2
+      wsrep_sst_mariabackup
     ].each do |f|
       inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"

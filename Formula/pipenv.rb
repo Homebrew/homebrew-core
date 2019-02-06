@@ -5,12 +5,13 @@ class Pipenv < Formula
   homepage "https://docs.pipenv.org/"
   url "https://files.pythonhosted.org/packages/fd/e9/01822318551caa0d62a181ba3b10f0f3757bb1e270da97165bd52db92776/pipenv-2018.11.26.tar.gz"
   sha256 "a673e606e8452185e9817a987572b55360f4d28b50831ef3b42ac3cab3fee846"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c50a41d34326330157b17971819a2731f3a96bd7a81144e6dd72bd3770ff4e33" => :mojave
-    sha256 "cc7d1a8abef1e4061611011f2096ef459c09215ea67d78f3c67891a7c6fe717c" => :high_sierra
-    sha256 "b9b4b4f7ddbeed6ba270eb400810e11c1903494747a9acfb8dba5e56f9fe1557" => :sierra
+    sha256 "37bddb4230c4b6729e8935ec6939c37cc79d77bf38a764489a98e3eefe68239b" => :mojave
+    sha256 "2c3675b4f73c8ec5eff8febef9556fbee2a0cb871e2b2a76d34a8cf82c49759a" => :high_sierra
+    sha256 "ec2713cdf45504563fba1c6d4ba4fd74d36bcda71a9d9d7f499c5487dfa00273" => :sierra
   end
 
   depends_on "python"
@@ -21,8 +22,8 @@ class Pipenv < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/4e/8b/75469c270ac544265f0020aa7c4ea925c5284b23e445cf3aa8b99f662690/virtualenv-16.1.0.tar.gz"
-    sha256 "f899fafcd92e1150f40c8215328be38ff24b519cd95357fa6e78e006c7638208"
+    url "https://files.pythonhosted.org/packages/8b/f4/360aa656ddb0f4168aeaa1057d8784b95d1ce12f34332c1cf52420b6db4e/virtualenv-16.3.0.tar.gz"
+    sha256 "729f0bcab430e4ef137646805b5b1d8efbb43fe53d4a0f33328624a84a5121f7"
   end
 
   resource "virtualenv-clone" do

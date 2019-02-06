@@ -1,13 +1,13 @@
 class Cgit < Formula
   desc "Hyperfast web frontend for Git repositories written in C"
   homepage "https://git.zx2c4.com/cgit/"
-  url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.tar.xz"
-  sha256 "d5622ba7c3eb87de402da6fe3a092219546a917ff627966e99c9f18ba32a4832"
+  url "https://git.zx2c4.com/cgit/snapshot/cgit-1.2.1.tar.xz"
+  sha256 "3c547c146340fb16d4134326e7524bfb28ffa681284f1e3914bde1c27a9182bf"
 
   bottle do
-    sha256 "0ff0cd64c7a3ac693e4f675af69deb2bb246a2c24c99fe56c12c74532fa9b428" => :mojave
-    sha256 "edb9cbce45815c17a565d1553f142eea8fb8a04cb81610bcba211877c6c62906" => :high_sierra
-    sha256 "52a8467512ecb63eb159f1d37eeaa073ea089a613d42a92c050965e32309bef9" => :sierra
+    sha256 "fd47d6d609f90119f930c5b63efcba5c47efc6be390459576751d558f82f3d32" => :mojave
+    sha256 "99191e176752e4f4d2069ed941c0efdd0927463b011ebc1c6f0cd9d6cac26331" => :high_sierra
+    sha256 "f60bf2a6028c022202ae9df8053a89e67be606a07a7ce630b89dbeddb2c6022d" => :sierra
   end
 
   depends_on "gettext"

@@ -15,7 +15,6 @@ class Points2grid < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gdal"
-  depends_on :macos => :mavericks
 
   def install
     args = std_cmake_args + ["-DWITH_GDAL=ON"]

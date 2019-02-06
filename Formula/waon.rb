@@ -12,7 +12,6 @@ class Waon < Formula
     sha256 "6f09559eaf287022f280991b44b5f4e86435fafda167c97a78239602183a3758" => :el_capitan
     sha256 "a16c4df918f59a71396d7c4a5806bafe4bda4a89d3aeb2a52d8dfd41ce6c0432" => :yosemite
     sha256 "7469ec9aa8f549c1294ddb362f8ec2473466c5b027007f3c14fb49984353d813" => :mavericks
-    sha256 "bccba5b437852618f1d67fb521dfc2684bb4d70461c61966e97cdd286be40842" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

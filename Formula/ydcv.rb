@@ -1,9 +1,8 @@
 class Ydcv < Formula
   desc "YouDao Console Version"
   homepage "https://github.com/felixonmars/ydcv"
-  url "https://github.com/felixonmars/ydcv/archive/0.5.tar.gz"
-  sha256 "8f030c15d241ff317381cf97bacf3140080e34c1a4c4c685265dfdb05c8b8a10"
-  revision 1
+  url "https://github.com/felixonmars/ydcv/archive/0.6.1.tar.gz"
+  sha256 "0a01fed567a1045cf6c81da9532ed07852f99dc93c862f59255fda74aab05714"
 
   bottle :unneeded
 

@@ -14,12 +14,9 @@ class Zorba < Formula
   depends_on "cmake" => :build
   depends_on "flex"
   depends_on "icu4c"
-  depends_on :macos => :mavericks
   depends_on "xerces-c"
 
   conflicts_with "xqilla", :because => "Both supply xqc.h"
-
-  needs :cxx11
 
   def install
     # icu4c 61.1 compatability
@@ -31,7 +28,7 @@ class Zorba < Formula
 
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     # usual superenv fix doesn't work since zorba doesn't use HAVE_CLOCK_GETTIME
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       args << "-DZORBA_HAVE_CLOCKGETTIME=OFF"
     end
 

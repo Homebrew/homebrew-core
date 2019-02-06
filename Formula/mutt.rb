@@ -10,14 +10,13 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.11.1.tar.gz"
-  sha256 "705141013662e53b78e49ed545360281f30a09ddda908f4de733277a60b1db05"
-  revision 1
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.11.3.tar.gz"
+  sha256 "a542f4c02faecd171b4215ddbd368910faee4a634cca7aea5337586118ab1941"
 
   bottle do
-    sha256 "fbbfffe3341a5b0ab81a52275f675b27587024c1f72b998ebed8dbaf41b515ec" => :mojave
-    sha256 "1eb123e659cb6515bb933c51d4a95705f3e9a9f21eac9b681cfb13af95bd2653" => :high_sierra
-    sha256 "492f164d98be2b2c32a762bebc5a12214e2aebb375ae1435a06328bda19fdbe8" => :sierra
+    sha256 "0d81b59a5d679762f93de2a02d9e3256228a5c07fe0f76bb01b66599e4c5032c" => :mojave
+    sha256 "57ad5a0eb6e0b8757c59b4c80305d88196340782e51ce5727554766febe91817" => :high_sierra
+    sha256 "453a9ff522a957e89b7d816766827b6fa4584c41811d191558b43829e962155d" => :sierra
   end
 
   head do
@@ -30,9 +29,9 @@ class Mutt < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gpgme"
   depends_on "openssl"
   depends_on "tokyo-cabinet"
-  depends_on "gpgme" => :optional
 
   conflicts_with "tin",
     :because => "both install mmdf.5 and mbox.5 man pages"
@@ -55,9 +54,8 @@ class Mutt < Formula
       --with-sasl
       --with-ssl=#{Formula["openssl"].opt_prefix}
       --with-tokyocabinet
+      --enable-gpgme
     ]
-
-    args << "--enable-gpgme" if build.with? "gpgme"
 
     system "./prepare", *args
     system "make"

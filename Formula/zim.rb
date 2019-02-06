@@ -7,18 +7,19 @@ class Zim < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "40371c83122357897c923c61ce784a8bc14d08ee5cbfa025caca43ce8ff6b515" => :mojave
-    sha256 "434beb268dd464539454cf3f523e49628b8b3f6a128ab1a9f1eb9ea373c64fd4" => :high_sierra
-    sha256 "434beb268dd464539454cf3f523e49628b8b3f6a128ab1a9f1eb9ea373c64fd4" => :sierra
+    rebuild 1
+    sha256 "7bfda6cf67fadbe225b2172db307035b6e9e4ac8aad27ea19d2034135e9b60d9" => :mojave
+    sha256 "fa9cebd29083953555ea47a23e75d27f6e110041475524f316f29c156067e502" => :high_sierra
+    sha256 "fa9cebd29083953555ea47a23e75d27f6e110041475524f316f29c156067e502" => :sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "graphviz"
   depends_on "gtk+"
   depends_on "pygobject"
   depends_on "pygtk"
+  depends_on "pygtksourceview"
   depends_on "python@2"
-  depends_on "graphviz" => :optional
-  depends_on "pygtksourceview" => :optional
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/source/p/pyxdg/pyxdg-0.25.tar.gz"

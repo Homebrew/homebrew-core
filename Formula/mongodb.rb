@@ -1,21 +1,24 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.com/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.4.tar.gz"
-  sha256 "02baada1c5665c77c58e068ac6e9d0b11371bcd89e1467896765a5e452e6cce3"
+  # do not upgrade to versions >4.0.3 as they are under the SSPL which is not
+  # an open-source license.
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.3.tar.gz"
+  sha256 "fbbe840e62376fe850775e98eb10fdf40594a023ecf308abec6dcec44d2bce0c"
   revision 1
 
   bottle do
-    sha256 "22fcbb5b68564be444fa816f540e481628d9eb883d15a1188b0cb308e6e84bff" => :mojave
-    sha256 "6a51bebf11f6e299c4f3353ccd8aa67b1d6dca120439fd110eb9fdf77528ff27" => :high_sierra
-    sha256 "5ae653a0cac4197fd8e9f92259f0375ab5b6d8a4470bd7857f2f8c853fc3a375" => :sierra
+    cellar :any
+    sha256 "ab08fc6748bc37d0e2ec209126db3236bd80a2ae4edee2f6fc34d96481fe34c7" => :mojave
+    sha256 "482cafb558d39fd6cae4d5d1abe07c7329a94b961fca00dc3ae71dc3be34deb9" => :high_sierra
+    sha256 "0b98be90831544f051d8244c253f61dd98a5d6f421663c3353b34feef562eae7" => :sierra
   end
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build]
-  depends_on :macos => :mountain_lion
+
   depends_on "openssl"
   depends_on "python@2"
 
@@ -34,11 +37,7 @@ class Mongodb < Formula
     sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
-  needs :cxx11
-
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     ENV.libcxx
 
     ["Cheetah", "PyYAML", "typing"].each do |r|
@@ -52,15 +51,14 @@ class Mongodb < Formula
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
-
     cd "src/mongo/gotools" do
       inreplace "build.sh" do |s|
         s.gsub! "$(git describe)", version.to_s
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
-
       ENV["CPATH"] = Formula["openssl"].opt_include
       ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      ENV["GOROOT"] = Formula["go"].opt_libexec
       system "./build.sh", "ssl"
     end
 
@@ -81,7 +79,7 @@ class Mongodb < Formula
       LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
-    scons "install", *args
+    system "scons", "install", *args
 
     (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"

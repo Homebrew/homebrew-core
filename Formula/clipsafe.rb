@@ -14,8 +14,6 @@ class Clipsafe < Formula
     sha256 "01dbb7b4cf71ae2b174cfec45cdf4a69e211a5154bc6541fb19e1b5aa20f8389" => :yosemite
   end
 
-  depends_on :macos => :mountain_lion
-
   resource "Crypt::Twofish" do
     url "https://cpan.metacpan.org/authors/id/A/AM/AMS/Crypt-Twofish-2.17.tar.gz"
     sha256 "eed502012f0c63927a1a32e3154071cc81175d1992a893ec41f183b6e3e5d758"

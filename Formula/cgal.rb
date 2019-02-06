@@ -6,23 +6,17 @@ class Cgal < Formula
 
   bottle do
     cellar :any
-    sha256 "d969597f4c3fb993bf19363e4e92f0f74427e25f6f855fa28d1f9792084aea9b" => :mojave
-    sha256 "e6978f966bdd5a050f80185d8e506a38016a8adad6010b039b9ef42558ed14eb" => :high_sierra
-    sha256 "349890c9c6f40272b3173c15412701f6588003047e5ebc3e0cd2a03c870ba83d" => :sierra
+    rebuild 1
+    sha256 "10d0ab35e7ce05e43212ece94de295f0e9e65697f4487850d23b3a1872946e02" => :mojave
+    sha256 "71758829c6fe7cde95dddef2832a9dd1eda51bc3b5a2cc60b8f3b330f629efb2" => :high_sierra
+    sha256 "0a368594840007d0a433b702ef5392f332d38e7bc68a83ffc4771f8ca5fa5877" => :sierra
   end
-
-  option "with-qt", "Build ImageIO and Qt components of CGAL"
-
-  deprecated_option "imaging" => "with-qt"
-  deprecated_option "with-imaging" => "with-qt"
-  deprecated_option "with-qt5" => "with-qt"
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "eigen"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "qt" => :optional
 
   def install
     args = std_cmake_args + %W[
@@ -30,14 +24,9 @@ class Cgal < Formula
       -DCMAKE_INSTALL_NAME_DIR=#{HOMEBREW_PREFIX}/lib
       -DWITH_Eigen3=ON
       -DWITH_LAPACK=ON
+      -DWITH_CGAL_Qt5=OFF
+      -DWITH_CGAL_ImageIO=OFF
     ]
-
-    if build.without? "qt"
-      args << "-DWITH_CGAL_Qt5=OFF" << "-DWITH_CGAL_ImageIO=OFF"
-    else
-      args << "-DWITH_CGAL_Qt5=ON" << "-DWITH_CGAL_ImageIO=ON"
-    end
-
     system "cmake", ".", *args
     system "make", "install"
   end

@@ -15,7 +15,6 @@ class Uni2ascii < Formula
     sha256 "3cc5e96fa9c49edb0b06d60af238f4a4803feefe22bbf5924698649e8c4db5fb" => :el_capitan
     sha256 "0200efd85e37c8c6e2582f82ff8fbb050bba07d31a1bf3720837f5d30da6a54b" => :yosemite
     sha256 "b58b9d744048c9e2cc81e75d46c94926d14b2c25a613a05cd0835882221ade7c" => :mavericks
-    sha256 "fe16b41d049b9dada88474ace55d1155b70afe7b679d323772743a86ec24cb64" => :mountain_lion
   end
 
   def install

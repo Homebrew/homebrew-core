@@ -3,14 +3,14 @@ class Scipy < Formula
   homepage "https://www.scipy.org"
   url "https://files.pythonhosted.org/packages/ea/c8/c296904f2c852c5c129962e6ca4ba467116b08cd5b54b7180b2e77fe06b2/scipy-1.2.0.tar.gz"
   sha256 "51a2424c8ed80e60bdb9a896806e7adaf24a58253b326fbad10f80a6d06f2214"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ce12aaccd1d83c7e3921124978947707b164507766c055049c249348435ede6c" => :mojave
-    sha256 "a1629e0a1c63fadafdc724e645cd4b7e7733a187e57eedbe6533ddbb94f22168" => :high_sierra
-    sha256 "90813d90bb2820a5dd1833ba375f012796a0bb81fd09f9ed303622910e34e8db" => :sierra
+    sha256 "5da6db4ee52c220da1294131e53a03db23f35c10d9447248aa2748618b361267" => :mojave
+    sha256 "9bcab7ed5a3928022bf32253abfe4faf2c94da900d279a3ad949d629d432a444" => :high_sierra
+    sha256 "fda76c72ded4879fcf65f1402dc59675d0bdc9a769ea9c0bd681771a52101aeb" => :sierra
   end
 
   depends_on "swig" => :build
@@ -21,10 +21,6 @@ class Scipy < Formula
   depends_on "python@2"
 
   cxxstdlib_check :skip
-
-  # https://github.com/Homebrew/homebrew-python/issues/110
-  # There are ongoing problems with gcc+accelerate.
-  fails_with :gcc_4_2
 
   def install
     openblas = Formula["openblas"].opt_prefix

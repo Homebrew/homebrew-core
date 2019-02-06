@@ -16,7 +16,6 @@ class X11vnc < Formula
 
   depends_on "jpeg"
   depends_on "openssl"
-  depends_on :x11 => :optional
 
   # Patch solid.c so a non-void function returns a NULL instead of a void.
   # An email has been sent to the maintainers about this issue.
@@ -28,13 +27,8 @@ class X11vnc < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
+      --without-x
     ]
-
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--without-x"
-    end
 
     system "./configure", *args
     system "make"

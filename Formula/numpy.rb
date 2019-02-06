@@ -1,31 +1,26 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
-  sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
-  revision 1
+  url "https://files.pythonhosted.org/packages/2b/26/07472b0de91851b6656cbc86e2f0d5d3a3128e7580f23295ef58b6862d6c/numpy-1.16.1.zip"
+  sha256 "31d3fe5b673e99d33d70cfee2ea8fe8dccd60f265c3ed990873a88647e3dd288"
+  head "https://github.com/numpy/numpy.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "a88ce3c4db443a71487c554f60460e4de47109a4fe7e7893f9d2fc1d21e6ee38" => :mojave
-    sha256 "603ffe080f688b37c17960d721ffe1449a7b58147ad4d516422f7156c092b545" => :high_sierra
-    sha256 "e6e77c177c547d5b078481572a1884339ba6b5f68e1b760a9f5fe02c36ac2ae4" => :sierra
-  end
-
-  head do
-    url "https://github.com/numpy/numpy.git"
-
-    resource "Cython" do
-      url "https://files.pythonhosted.org/packages/f0/66/6309291b19b498b672817bd237caec787d1b18013ee659f17b1ec5844887/Cython-0.29.tar.gz"
-      sha256 "94916d1ede67682638d3cc0feb10648ff14dc51fb7a7f147f4fedce78eaaea97"
-    end
+    sha256 "806337a307c32fc7ea674fd8a1d8aeee785e67e938d998c90d7dc19b4712737c" => :mojave
+    sha256 "fb6572f9250e9de38eb3967a222180a9d07bc6895f1cf6d7945f5277038ddc65" => :high_sierra
+    sha256 "fe82e8ced1bb0e86b98f472ea077dc5e5196e9cf6b10bad1c5a42a8a3547de50" => :sierra
   end
 
   depends_on "gcc" => :build # for gfortran
   depends_on "openblas"
   depends_on "python"
   depends_on "python@2"
+
+  resource "Cython" do
+    url "https://files.pythonhosted.org/packages/02/24/f73045afb049295b34ac55aaf6ea1592604cda3749632a22e563e66604a3/Cython-0.29.3.tar.gz"
+    sha256 "d687fb1cd9df28c1515666174c62e54bd894a6a6d0862f89705063cd47739f83"
+  end
 
   resource "nose" do
     url "https://files.pythonhosted.org/packages/58/a5/0dc93c3ec33f4e281849523a5a913fa1eea9a3068acfa754d44d88107a44/nose-1.3.7.tar.gz"
@@ -57,11 +52,9 @@ class Numpy < Formula
         (dest_path/"homebrew-numpy-nose.pth").write "#{nose_path}\n"
       end
 
-      if build.head?
-        ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
-        resource("Cython").stage do
-          system python, *Language::Python.setup_install_args(buildpath/"tools")
-        end
+      ENV.prepend_create_path "PYTHONPATH", buildpath/"tools/lib/python#{version}/site-packages"
+      resource("Cython").stage do
+        system python, *Language::Python.setup_install_args(buildpath/"tools")
       end
 
       system python, "setup.py",

@@ -3,13 +3,14 @@ class Mikutter < Formula
   homepage "https://mikutter.hachune.net/"
   url "https://mikutter.hachune.net/bin/mikutter.3.7.4.tar.gz"
   sha256 "7695a76a809555b2688b56f5335834fd876f82ce1b645815ec2020aedbdff55c"
-  revision 1
+  revision 2
   head "git://toshia.dip.jp/mikutter.git", :branch => "develop"
 
   bottle do
-    sha256 "de88e0c4a6d27768777366da0951616a87da66f443d71495fbb3592a48e7586d" => :mojave
-    sha256 "9b070d5a37ad0c2d828236af63d38edf651542a5871c141c6c2e9539030a1f17" => :high_sierra
-    sha256 "9a5c2066294f9d59f8e45df1f3273b82ac43997c9fcc08583b5d889f7f4bbf97" => :sierra
+    cellar :any
+    sha256 "14f2a2d9288a3bbc453864f707266373f546d27fecb4e95678f089c0d5a8f699" => :mojave
+    sha256 "8f5f8620e2dd2fbc12b15e886d0034640fcc82ac36b2a46f1761378ff4b12655" => :high_sierra
+    sha256 "6594762c87b71a9f8f7589cb390f2791b18200ea1a7f364de8040a4c9ed7406e" => :sierra
   end
 
   depends_on "gobject-introspection"

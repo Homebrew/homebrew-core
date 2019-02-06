@@ -1,8 +1,8 @@
 class Ballerina < Formula
   desc "The flexible, powerful and beautiful programming language"
   homepage "https://ballerina.io/"
-  url "https://product-dist.ballerina.io/downloads/0.990.0/ballerina-0.990.0.zip"
-  sha256 "a693c5a22fef9829d10027b0f9f1a33d032cb8a5ab15d0a1079d1181f2a873be"
+  url "https://product-dist.ballerina.io/downloads/0.990.2/ballerina-0.990.2.zip"
+  sha256 "612ecebfb1c68908cb2ec25ed3d4f13ad35a6fb137aea49909fe40992f682642"
 
   bottle :unneeded
 

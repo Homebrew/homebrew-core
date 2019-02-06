@@ -17,8 +17,6 @@ class Gstreamermm < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",

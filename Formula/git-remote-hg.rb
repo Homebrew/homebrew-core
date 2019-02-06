@@ -18,7 +18,7 @@ class GitRemoteHg < Formula
   end
 
   depends_on "mercurial"
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   conflicts_with "git-cinnabar", :because => "both install `git-remote-hg` binaries"
 

@@ -1,13 +1,13 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.3.0.tar.xz/from/this/mirror"
-  sha256 "7d195cad55af8b288c3919c67023a14ff870a73e3acc2165a6d17a4850a560b5"
+  url "https://php.net/get/php-7.3.1.tar.xz/from/this/mirror"
+  sha256 "cfe93e40be0350cd53c4a579f52fe5d8faf9c6db047f650a4566a2276bf33362"
 
   bottle do
-    sha256 "e0f95f6185738260568098b8573d0d0986326e02c4db7074387403fb224359c1" => :mojave
-    sha256 "c5e7239be04c726f64f3f0b89ae9359eb6f18db9463d868c321ebae50561027c" => :high_sierra
-    sha256 "7ff5b4ef3bdee2550837b611cd84d7fd0ef811e0d1fbb5cb88e5bc7bd897bc14" => :sierra
+    sha256 "3e410bff96c584ce269314737c027b8919700fcf1d63e74d21206637fa341a09" => :mojave
+    sha256 "f43dfdad1645b5dc208653a83c9d319dbd74ac6176e01a95fdb9baf1b55dbd0c" => :high_sierra
+    sha256 "78a8ea2ac8efa7b16cfd707884af7686300cb3378d7a5a869e19e859d2129c47" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -31,7 +31,7 @@ class Php < Formula
   depends_on "libzip"
   depends_on "openldap"
   depends_on "openssl"
-  depends_on "pcre"
+  depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"
@@ -40,8 +40,6 @@ class Php < Formula
   # PHP build system incorrectly links system libraries
   # see https://github.com/php/php-src/pull/3472
   patch :DATA
-
-  needs :cxx11
 
   def install
     # Ensure that libxml2 will be detected correctly in older MacOS
