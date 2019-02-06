@@ -23,6 +23,7 @@ class Imagemagick < Formula
   depends_on "libheif"
   depends_on "libomp"
   depends_on "libpng"
+  depends_on "librsvg"
   depends_on "libtiff"
   depends_on "libtool"
   depends_on "little-cms2"
@@ -50,6 +51,7 @@ class Imagemagick < Formula
       --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
       --without-fftw
       --without-pango
+      --with-rsvg
       --without-x
       --without-wmf
       --enable-openmp
