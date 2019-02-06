@@ -3,7 +3,7 @@ class Mpv < Formula
   homepage "https://mpv.io"
   url "https://github.com/mpv-player/mpv/archive/v0.29.1.tar.gz"
   sha256 "f9f9d461d1990f9728660b4ccb0e8cb5dce29ccaa6af567bec481b79291ca623"
-  revision 2
+  revision 3
   head "https://github.com/mpv-player/mpv.git"
 
   bottle do
@@ -19,11 +19,13 @@ class Mpv < Formula
 
   depends_on "ffmpeg"
   depends_on "jpeg"
+  depends_on "libarchive"
   depends_on "libass"
   depends_on "little-cms2"
   depends_on "lua@5.1"
 
   depends_on "mujs"
+  depends_on "uchardet"
   depends_on "vapoursynth"
   depends_on "youtube-dl"
 
@@ -39,6 +41,8 @@ class Mpv < Formula
       --enable-javascript
       --enable-libmpv-shared
       --enable-lua
+      --enable-libarchive
+      --enable-uchardet
       --confdir=#{etc}/mpv
       --datadir=#{pkgshare}
       --mandir=#{man}
