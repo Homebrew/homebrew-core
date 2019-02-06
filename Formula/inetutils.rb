@@ -7,10 +7,9 @@ class Inetutils < Formula
   revision 2
 
   bottle do
-    rebuild 2
-    sha256 "bf7f5033d2e9d0767fa1791b9e50660893a18e227cfa55a74157ffa06b562293" => :mojave
-    sha256 "3bbc3492fbb8a3aa76a9e8945b7b4e8b57cfe4f505e85892b1243e0301a5838d" => :high_sierra
-    sha256 "826fac0f766be80594dead976e8acb5038391cadf3faee6e0b505247c30ccd1f" => :sierra
+    sha256 "cd8d9c2d67518442b03bd4c6573a22408136fbfa54822db89db9236dca9d31bb" => :mojave
+    sha256 "52c3e2f7e4d62cf0e0c742e81c026f591b9c331a338d110619b285d02a9d8b2f" => :high_sierra
+    sha256 "40fc6bf3589516e420a3452c7effc46cb9463150680ab08ceed27206ddfe0b2a" => :sierra
   end
 
   depends_on "libidn"
