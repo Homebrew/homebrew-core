@@ -3,7 +3,7 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 5
+  revision 6
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
@@ -24,6 +24,7 @@ class Ffmpeg < Formula
   depends_on "lame"
   depends_on "libass"
   depends_on "libbluray"
+  depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
@@ -80,6 +81,8 @@ class Ffmpeg < Formula
       --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
+      --enable-libaom
+      --enable-libsoxr
     ]
 
     system "./configure", *args
