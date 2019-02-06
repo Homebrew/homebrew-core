@@ -157,6 +157,7 @@
   "racket": "minimal-racket",
   "rebar@3": "rebar3",
   "recipes": "gnome-recipes",
+  "resin-cli": "balena-cli",
   "root6": "root",
   "ruby187": "ruby@1.8",
   "ruby20": "ruby@2.0",
