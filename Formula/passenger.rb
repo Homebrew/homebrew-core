@@ -16,12 +16,6 @@ class Passenger < Formula
   depends_on "openssl"
   depends_on "pcre"
 
-  # must match nginx formula
-  resource "nginx" do
-    url "https://nginx.org/download/nginx-1.15.8.tar.gz"
-    sha256 "a8bdafbca87eb99813ae4fcac1ad0875bf725ce19eb265d28268c309b2b40787"
-  end
-
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
@@ -34,7 +28,9 @@ class Passenger < Formula
     system "rake", "apache2"
     system "rake", "nginx"
     nginx_addon_dir = `/usr/bin/ruby ./bin/passenger-config about nginx-addon-dir`.strip
-    resource("nginx").stage do
+
+    system "tar", "-xf", Dir["#{Formula["nginx"].opt_share}/src/*nginx*.tar.gz"].first
+    Dir.chdir("nginx-#{Formula["nginx"].installed_version}") do
       _, stderr, = Open3.capture3("nginx", "-V")
       args = stderr.split("configure arguments:").last.split(" --").reject(&:empty?).map { |s| "--#{s.strip}" }
       args << "--add-dynamic-module=#{nginx_addon_dir}"

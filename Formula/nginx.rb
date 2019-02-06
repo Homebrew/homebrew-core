@@ -18,6 +18,10 @@ class Nginx < Formula
   depends_on "pcre"
 
   def install
+    # keep clean copy of source for compiling dynamic modules
+    (share/"src").mkpath
+    (share/"src").install cached_download
+
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
       s.gsub! "listen       80;", "listen       8080;"
