@@ -1,8 +1,8 @@
 class Rebar3 < Formula
   desc "Erlang build tool"
   homepage "https://github.com/erlang/rebar3"
-  url "https://github.com/erlang/rebar3/archive/3.8.0.tar.gz"
-  sha256 "fc4d08037d39bcc651a4a749f8a5b1a10b2205527df834c2aee8f60725c3f431"
+  url "https://github.com/erlang/rebar3/archive/3.9.0.tar.gz"
+  sha256 "9ea73ce4e60ad4b3108641eae73b4098fadb510142e672ad8e3a793f57e9f992"
 
   bottle do
     cellar :any_skip_relocation
