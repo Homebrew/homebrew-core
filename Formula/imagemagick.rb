@@ -26,6 +26,7 @@ class Imagemagick < Formula
   depends_on "libtiff"
   depends_on "libtool"
   depends_on "little-cms2"
+  depends_on "openexr"
   depends_on "openjpeg"
   depends_on "webp"
   depends_on "xz"
@@ -44,6 +45,7 @@ class Imagemagick < Formula
       --with-freetype=yes
       --with-modules
       --with-openjp2
+      --with-openexr
       --with-webp=yes
       --with-heic=yes
       --without-gslib
