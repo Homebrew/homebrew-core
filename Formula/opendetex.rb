@@ -6,10 +6,9 @@ class Opendetex < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "995070391cee23f402d6e067985230d467e48b5a20b5122e05474bec73cfeb24" => :mojave
-    sha256 "c668bd3fd940b6f27ce4162b5625ff28e45df24e34f7f66b6a2158546a47e6d9" => :high_sierra
-    sha256 "4ce5d750a06de0c96682042e88aea55707e5c0b28cbea66396ec1020df130420" => :sierra
-    sha256 "79e56e9e50f90d6b534f29c556a648743ee10ab494d5f7cd049031eb4833f122" => :el_capitan
+    sha256 "1d1398816b57a57132dc12b27cd35c44dd15568a5d46ada1dedc808a603bdcca" => :mojave
+    sha256 "41c7aa616e4770b69db95fe490a23ebbc1009b44bbe265a426059326534b06c1" => :high_sierra
+    sha256 "ed5ae661b1244d2d3b6c300176ba9cf797c50df7ae7e116cd077b1e1ff3f2bc3" => :sierra
   end
 
   def install
