@@ -1,8 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.1.tar.gz"
-  sha256 "b1526ab9ba80a3d5f314dacf22674dff005efb9866774903d0efca5a0fab326d"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.2.tar.gz"
+  sha256 "e329a24abf94a4772a58a0fe61af4e707743a272c854552eef3d7833099f40f9"
   revision 1
 
   bottle do
@@ -16,15 +16,8 @@ class Ice < Formula
   depends_on "lmdb"
   depends_on "mcpp"
 
-  patch do
-    url "https://github.com/zeroc-ice/ice/compare/v3.7.1..v3.7.1-xcode10.patch?full_index=1"
-    sha256 "28eff5dd6cb6065716a7664f3973213a2e5186ddbdccb1c1c1d832be25490f1b"
-  end
-
   def install
     ENV.O2 # Os causes performance issues
-    # Ensure Gradle uses a writable directory even in sandbox mode
-    ENV["GRADLE_USER_HOME"] = "#{buildpath}/.gradle"
 
     args = [
       "prefix=#{prefix}",
@@ -33,12 +26,24 @@ class Ice < Formula
       "LMDB_HOME=#{Formula["lmdb"].opt_prefix}",
       "CONFIGS=shared cpp11-shared xcodesdk cpp11-xcodesdk",
       "PLATFORMS=all",
-      # We don't build slice2py, slice2js, slice2rb to prevent clashes with
-      # the translators installed by the PyPI/GEM/npm packages.
-      "SKIP=slice2confluence slice2py slice2rb slice2js",
+      "SKIP=slice2confluence",
       "LANGUAGES=cpp objective-c",
     ]
     system "make", "install", *args
+
+    (libexec/"bin").mkpath
+    %w[slice2py slice2rb slice2js].each do |r|
+      mv bin/r, libexec/"bin"
+    end
+  end
+
+  def caveats; <<~EOS
+    slice2py, slice2js and slice2rb were installed in:
+
+      #{opt_libexec}/bin
+
+    You may wish to add this directory to your PATH.
+  EOS
   end
 
   test do
