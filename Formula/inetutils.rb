@@ -4,7 +4,7 @@ class Inetutils < Formula
   url "https://ftp.gnu.org/gnu/inetutils/inetutils-1.9.4.tar.xz"
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-1.9.4.tar.xz"
   sha256 "849d96f136effdef69548a940e3e0ec0624fc0c81265296987986a0dd36ded37"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 2
@@ -46,7 +46,7 @@ class Inetutils < Formula
       next unless File.executable?(path) && !File.directory?(path)
       cmd = path.basename.to_s.sub(/^g/, "")
       (libexec/"gnubin").install_symlink bin/"g#{cmd}" => cmd
-      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}" => cmd
+      (libexec/"gnuman"/"man1").install_symlink man1/"g#{cmd}.1" => "#{cmd}.1"
     end
 
     libexec.install_symlink "gnuman" => "man"
