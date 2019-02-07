@@ -54,7 +54,8 @@ class Tesseract < Formula
     system "make", "install"
 
     resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
-    resource("tessdata").stage { mv Dir["*"], share/"tessdata" }
+    resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
+    resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
   end
 
   test do
