@@ -17,6 +17,11 @@ class TclTk < Formula
 
   depends_on "openssl"
 
+  resource "critcl" do
+    url "https://github.com/andreas-kupries/critcl/archive/3.1.17.tar.gz"
+    sha256 "fff83b341fc07b8ff23bf1f645133bb4bffe4741da2e6f31155e522a74c228e4"
+  end
+
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.19/tcllib-1.19.tar.gz"
     sha256 "01fe87cf1855b96866cf5394b6a786fd40b314022714b34110aeb6af545f6a9c"
@@ -73,9 +78,18 @@ class TclTk < Formula
       end
     end
 
+    resource("critcl").stage do
+      sdk_root = `xcrun --sdk macosx --show-sdk-path`.strip
+      system "SDKROOT=#{sdk_root} #{prefix}/bin/tclsh build.tcl install"
+    end
+
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
+      sdk_root = `xcrun --sdk macosx --show-sdk-path`.strip
+      system "SDKROOT=#{sdk_root} make critcl"
+      cp_r "modules/tcllibc", "#{lib}/"
+      ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
     end
 
     resource("tcltls").stage do
