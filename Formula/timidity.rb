@@ -5,12 +5,9 @@ class Timidity < Formula
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
 
   bottle do
-    sha256 "04f54d77441e16992c34443e4e6b39a2f03c83e450edb4fa05ec9d9c87972bc0" => :mojave
-    sha256 "5db392f0e53371e29fdca1ebeee3fdad24043f038c943314e991a06765d102a5" => :high_sierra
-    sha256 "b45b1df69ab87563a77e1163114160f66679fde5548bac0ae81acb7fae86ab80" => :sierra
-    sha256 "0b26a98c3e8e3706f8ff1fb2e21c014ac7245c01510799172e7f3ebdc71602ac" => :el_capitan
-    sha256 "2bfaec5aaaacf7ed13148f437cbeba6bb793f9eacdab739b7202d151031253b4" => :yosemite
-    sha256 "9e56e31b91c1cab53ebd7830114520233b02f7766f69f2e761d005b8bcd2fb58" => :mavericks
+    sha256 "9fbf48450ffbdc5920914f0b1ba2b845504b0621b9bf76f3e21ec4cd0fe97da8" => :mojave
+    sha256 "f8ce899eb5c5d67e78e713ec18bdc385ce388b43b425bd05bc9ebedf86be36ef" => :high_sierra
+    sha256 "53406bf74847960d1c1871975a76175638e906225c28e40e0b930a557ceabb52" => :sierra
   end
 
   depends_on "flac"
