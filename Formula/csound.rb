@@ -16,9 +16,6 @@ class Csound < Formula
       %r{^set\(CS_FRAMEWORK_DEST\s+"~/Library/Frameworks"\)$},
       "set(CS_FRAMEWORK_DEST \"#{frameworks}\")"
 
-    # Csound is not compatible with FluidSynth 2
-    # (https://github.com/csound/csound/issues/1078), which was added in
-    # https://github.com/Homebrew/homebrew-core/commit/85bb1f4c28c5412f97c718db6415077c35481acc.
     args = std_cmake_args + %W[
       -DBUILD_FLUID_OPCODES=OFF
       -DBUILD_JAVA_INTERFACE=OFF
