@@ -6,7 +6,6 @@ class ApacheArrow < Formula
 
   depends_on "autoconf" => :build
   depends_on "cmake" => :build
-
   depends_on "boost"
   depends_on "flatbuffers"
   depends_on "lz4"
@@ -19,19 +18,19 @@ class ApacheArrow < Formula
 
   def install
     ENV.cxx11
-    args = [
-      "-DARROW_ORC=ON",
-      "-DARROW_PARQUET=ON",
-      "-DARROW_PLASMA=ON",
-      "-DARROW_PROTOBUF_USE_SHARED=ON",
-      "-DARROW_PYTHON=ON",
-      "-DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}",
-      "-DLZ4_HOME=#{Formula["lz4"].prefix}",
-      "-DPROTOBUF_HOME=#{Formula["protobuf"].prefix}",
-      "-DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}",
-      "-DSNAPPY_HOME=#{Formula["snappy"].prefix}",
-      "-DTHRIFT_HOME=#{Formula["thrift"].prefix}",
-      "-DZSTD_HOME=#{Formula["zstd"].prefix}",
+    args = %W[
+      -DARROW_ORC=ON
+      -DARROW_PARQUET=ON
+      -DARROW_PLASMA=ON
+      -DARROW_PROTOBUF_USE_SHARED=ON
+      -DARROW_PYTHON=ON
+      -DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}
+      -DLZ4_HOME=#{Formula["lz4"].prefix}
+      -DPROTOBUF_HOME=#{Formula["protobuf"].prefix}
+      -DPYTHON_EXECUTABLE=#{Formula["python"].bin/"python3"}
+      -DSNAPPY_HOME=#{Formula["snappy"].prefix}
+      -DTHRIFT_HOME=#{Formula["thrift"].prefix}
+      -DZSTD_HOME=#{Formula["zstd"].prefix}
     ]
 
     mkdir "build"
@@ -45,8 +44,7 @@ class ApacheArrow < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include "arrow/api.h"
-      int main(void)
-      {
+      int main(void) {
         arrow::int64();
         return 0;
       }
