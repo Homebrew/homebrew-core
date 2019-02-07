@@ -1,8 +1,8 @@
 class Timidity < Formula
   desc "Software synthesizer"
   homepage "https://timidity.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.14.0/TiMidity++-2.14.0.tar.bz2"
-  sha256 "f97fb643f049e9c2e5ef5b034ea9eeb582f0175dce37bc5df843cc85090f6476"
+  url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.15.0/TiMidity++-2.15.0.tar.bz2"
+  sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
 
   bottle do
     sha256 "04f54d77441e16992c34443e4e6b39a2f03c83e450edb4fa05ec9d9c87972bc0" => :mojave
