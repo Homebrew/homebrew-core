@@ -17,6 +17,24 @@ class Swagger2markupCli < Formula
   end
 
   test do
-    system bin/"swagger2markup"
+    # write generic minimal swagger spec to file
+    (testpath/"test.yaml").write <<~EOS
+      swagger: "2.0"
+      info:
+        version: "1.0.0"
+        title: TestSpec
+        description: Example Swagger spec
+      host: localhost:3000
+      paths:
+        /test:
+          get:
+            responses:
+              "200":
+                description: Describe the test resource
+    EOS
+    # convert swagger spec to asciidoc
+    system bin/"swagger2markup convert -i test.yaml -f test"
+    # sanity check: first line should be title line with specified name
+    `head -n 1 test.adoc`.strip == "= TestSpec"
   end
 end
