@@ -3,7 +3,6 @@ class Ice < Formula
   homepage "https://zeroc.com"
   url "https://github.com/zeroc-ice/ice/archive/v3.7.2.tar.gz"
   sha256 "e329a24abf94a4772a58a0fe61af4e707743a272c854552eef3d7833099f40f9"
-  revision 1
 
   bottle do
     cellar :any
