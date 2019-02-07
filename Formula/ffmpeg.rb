@@ -3,14 +3,14 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 3
+  revision 7
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    rebuild 2
-    sha256 "2dbbbc057c3d447510bf739e6822d03765b3d55669f74e96dd7258cc1976cbf1" => :mojave
-    sha256 "440bf019cdf9739d3d13bd32b0a96d15a34a50ae7ead31b41180ff66eee1b316" => :high_sierra
-    sha256 "261e0b798358f83f14f1ab7168f8ce1e50a8da28307485315aea0e4a94235197" => :sierra
+    rebuild 1
+    sha256 "2ddcdf6d1a06694eaf262c8a06a2d919eeb3047984e77449761a9c7834b7135b" => :mojave
+    sha256 "6d04eca21b46264566102aaeae2d030776f71bc75a2587c8a5b9600e7b9c711b" => :high_sierra
+    sha256 "bacf852c966847ef0a54e6c4a8e5e78920f898c6e734b68be07f3f6815fa1a3d" => :sierra
   end
 
   depends_on "nasm" => :build
@@ -24,14 +24,19 @@ class Ffmpeg < Formula
   depends_on "gnutls"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libbluray"
+  depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
+  depends_on "openjpeg"
   depends_on "opus"
   depends_on "rtmpdump"
+  depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
+  depends_on "tesseract"
   depends_on "theora"
   depends_on "x264"
   depends_on "x265"
@@ -53,9 +58,12 @@ class Ffmpeg < Formula
       --enable-gnutls
       --enable-gpl
       --enable-libaom
+      --enable-libbluray
       --enable-libmp3lame
       --enable-libopus
+      --enable-librubberband
       --enable-libsnappy
+      --enable-libtesseract
       --enable-libtheora
       --enable-libvorbis
       --enable-libvpx
@@ -69,16 +77,15 @@ class Ffmpeg < Formula
       --enable-libass
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
+      --enable-libopenjpeg
       --enable-librtmp
       --enable-libspeex
+      --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
+      --enable-libaom
+      --enable-libsoxr
     ]
-    if OS.mac?
-      args << "--enable-videotoolbox"
-    elsif OS.linux?
-      args << "--disable-videotoolbox"
-    end
 
     system "./configure", *args
     system "make", "install"
