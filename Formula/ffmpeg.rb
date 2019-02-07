@@ -3,10 +3,10 @@ class Ffmpeg < Formula
   homepage "https://ffmpeg.org/"
   url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
   sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 6
+  revision 7
   head "https://github.com/FFmpeg/FFmpeg.git"
 
-  bottle do
+ bottle do
     sha256 "e6b29531887a2aa5ce2f3c62b174fce3feab6d0cdead3f89dd50e7d899f5c3b4" => :mojave
     sha256 "5196fe1120f78cb700a879dccc3141f9d22796b8e85c791276a4f3f457b02e88" => :high_sierra
     sha256 "2751c716de041e7e3606d791a797ef7edd8e6e435a5d631648a41b83f54470a0" => :sierra
@@ -20,6 +20,7 @@ class Ffmpeg < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
+  depends_on "gnutls"
   depends_on "lame"
   depends_on "libass"
   depends_on "libbluray"
@@ -53,6 +54,7 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
+      --enable-gnutls
       --enable-gpl
       --enable-libaom
       --enable-libbluray
