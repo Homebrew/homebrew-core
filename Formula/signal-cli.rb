@@ -4,12 +4,12 @@ class SignalCli < Formula
   url "https://github.com/AsamK/signal-cli/releases/download/v0.6.2/signal-cli-0.6.2.tar.gz"
   sha256 "d917507211b3419e271674df7f03c8189921e2e78a389479a612847ddc8f1614"
 
-  depends_on :java => "1.6+"
+  depends_on :java => "1.7+"
   bottle :unneeded
 
   def install
     libexec.install Dir["lib", "bin"]
-    (bin/"signal-cli").write_env_script libexec/"bin/signal-cli", Language::Java.java_home_env("1.6+")
+    (bin/"signal-cli").write_env_script libexec/"bin/signal-cli", Language::Java.java_home_env("1.7+")
   end
 
   test do
