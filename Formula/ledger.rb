@@ -1,9 +1,9 @@
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
-  url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
-  sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
-  revision 11
+  url "https://github.com/ledger/ledger/archive/3.1.2.tar.gz"
+  sha256 "3ecebe00e8135246e5437e4364bb7a38869fad7c3250b849cf8c18ca2628182e"
+  revision 1
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -19,18 +19,11 @@ class Ledger < Formula
   depends_on "mpfr"
   depends_on "python@2"
 
-  # Upstream fix for boost 1.68, remove with next version
-  patch do
-    url "https://github.com/ledger/ledger/commit/c18a55f9.diff?full_index=1"
-    sha256 "2e652fc4b247b9c7cd482bd07aa57a66fc86597d7a564e6ccf93232700a6c8d8"
-  end
-
   def install
     ENV.cxx11
 
-    # Boost >= 1.67 Python components require a Python version suffix
-    inreplace "CMakeLists.txt", "set(BOOST_PYTHON python)",
-                                "set(BOOST_PYTHON python27)"
+    inreplace "doc/ledger3.texi", "Getting help, ,",
+                                "Getting help, Third-Party Ledger Tutorials,"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
@@ -41,6 +34,7 @@ class Ledger < Formula
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
+      -DUSE_PYTHON27_COMPONENT=1
     ]
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args
