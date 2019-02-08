@@ -6,9 +6,9 @@ class Ledger < Formula
   head "https://github.com/ledger/ledger.git"
 
   bottle do
-    sha256 "f96d919957452f536cc0787171945dcdd2be0a17dd5eb3c6abe28e4acd2d3856" => :mojave
-    sha256 "d38d1eb6a038d8c2bd5c63d65ce680cf0c60bffdb1e31d47850f54fe721d89f0" => :high_sierra
-    sha256 "2e5bf5a4325dc7dee5f845bd8cc5df5641a23439f4a0b4302451951e341e7760" => :sierra
+    sha256 "2e259026690cdf4544bb0d6df7e859c90aeece1986dcb76aca898fa8e88ebd00" => :mojave
+    sha256 "9072550d68b9030dbcd0908e954f6fe80a30df0c6e7533fd57ec0cc621593080" => :high_sierra
+    sha256 "f19813e2e6b1c942487322c8522c1d8abb17ec77145dbf6cc09d3e1196fc7be0" => :sierra
   end
 
   depends_on "cmake" => :build
