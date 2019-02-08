@@ -17,11 +17,11 @@ class Bat < Formula
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "doc/bat.1"
-    bash_completion.install "bat.bash"
+    # bash_completion.install "bat.bash"
     # Temporary disable fish completions due to upstream issues. The completions might not work on
     # some systems. See https://github.com/sharkdp/bat/issues/372
     # fish_completion.install "bat.fish"
-    zsh_completion.install "_bat"
+    # zsh_completion.install "_bat"
   end
 
   test do
