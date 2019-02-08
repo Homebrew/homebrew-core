@@ -3,7 +3,7 @@ class Kustomize < Formula
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
       :tag      => "v2.0.1",
-      :revision => "ce7e5ee"
+      :revision => "ce7e5ee2c30cc5856fea01fe423cf167f2a2d0c3"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
   bottle do
