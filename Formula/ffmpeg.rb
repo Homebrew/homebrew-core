@@ -20,6 +20,7 @@ class Ffmpeg < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
+  depends_on "gnutls"
   depends_on "lame"
   depends_on "libass"
   depends_on "libbluray"
@@ -53,6 +54,7 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
+      --enable-gnutls
       --enable-gpl
       --enable-libaom
       --enable-libbluray
