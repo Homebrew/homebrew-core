@@ -3,7 +3,6 @@ class Ledger < Formula
   homepage "https://ledger-cli.org/"
   url "https://github.com/ledger/ledger/archive/3.1.2.tar.gz"
   sha256 "3ecebe00e8135246e5437e4364bb7a38869fad7c3250b849cf8c18ca2628182e"
-  revision 1
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -22,6 +21,8 @@ class Ledger < Formula
   def install
     ENV.cxx11
 
+    # Fix for https://github.com/ledger/ledger/pull/1760
+    # Remove in next version
     inreplace "doc/ledger3.texi", "Getting help, ,",
                                 "Getting help, Third-Party Ledger Tutorials,"
 
