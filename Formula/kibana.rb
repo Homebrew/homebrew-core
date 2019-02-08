@@ -50,7 +50,7 @@ class Kibana < Formula
     system "yarn", "kbn", "bootstrap"
     system "yarn", "build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
-    prefix.install Dir["build/oss/kibana-#{version}-darwin-x86_64/{bin,config,node_modules,optimize,package.json,src,ui_framework,webpackShims}"]
+    prefix.install Dir["build/oss/kibana-#{version}-darwin-x86_64/{[!node,!data,!plugins]**/*}"]
     mv "licenses/APACHE-LICENSE-2.0.txt", "LICENSE.txt" # install OSS license
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
