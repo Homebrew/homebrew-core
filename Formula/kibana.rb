@@ -5,6 +5,7 @@ class Kibana < Formula
       :tag      => "v6.6.0",
       :revision => "bbbacb03feb9f0de46be449c431bc03dcd15c002"
   head "https://github.com/elastic/kibana.git"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
