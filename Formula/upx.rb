@@ -1,6 +1,7 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
+  revision 1
   head "https://github.com/upx/upx.git", :branch => "devel"
 
   stable do
@@ -26,6 +27,18 @@ class Upx < Formula
     patch do
       url "https://github.com/upx/upx/commit/9bb6854e642a2505102b9d3f9ec8535ec8ab6d9c.patch?full_index=1"
       sha256 "f525a574b65e6484f0eb29e2a37d5df58da85b121adec06271b19ed5f4cc49b4"
+    end
+
+    # The following two patches fix an issue where UPX 3.95 produces broken go binaries - will be fixed in 3.96
+    # See https://github.com/upx/upx/issues/222 for details
+    patch do
+      url "https://github.com/upx/upx/commit/4d1c754af943f4640062884f38742fd97a6bda0d.patch?full_index=1"
+      sha256 "64c1cbfd2127172bab973be5cdfba3ad05b0ee506c9076eb6bf0e2d8b4d205b0"
+    end
+
+    patch do
+      url "https://github.com/upx/upx/commit/bb1f9cdecd02130e468b9bed680a9bb6122f8a0c.patch?full_index=1"
+      sha256 "2712240751a0b5c6cb3e4d562fc79b125d612f1f185cd84766fcee12900dea61"
     end
   end
 
