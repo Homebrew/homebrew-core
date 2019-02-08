@@ -79,15 +79,13 @@ class TclTk < Formula
     end
 
     resource("critcl").stage do
-      sdk_root = `xcrun --sdk macosx --show-sdk-path`.strip
-      system "SDKROOT=#{sdk_root} #{prefix}/bin/tclsh build.tcl install"
+      system "SDKROOT=#{MacOS.sdk_path} #{prefix}/bin/tclsh build.tcl install"
     end
 
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      sdk_root = `xcrun --sdk macosx --show-sdk-path`.strip
-      system "SDKROOT=#{sdk_root} make critcl"
+      system "SDKROOT=#{MacOS.sdk_path} make critcl"
       cp_r "modules/tcllibc", "#{lib}/"
       ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
     end
