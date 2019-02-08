@@ -52,8 +52,8 @@ class Kibana < Formula
     system "yarn", "build", "--oss", "--release", "--skip-os-packages", "--skip-archives"
 
     prefix.install Dir
-                    .glob("build/oss/kibana-#{version}-darwin-x86_64/**")
-                    .reject{ |f| File.fnmatch("build/oss/kibana-#{version}-darwin-x86_64/{node, data, plugins}", f) }
+      .glob("build/oss/kibana-#{version}-darwin-x86_64/**")
+      .reject { |f| File.fnmatch("build/oss/kibana-#{version}-darwin-x86_64/{node, data, plugins}", f) }
     mv "licenses/APACHE-LICENSE-2.0.txt", "LICENSE.txt" # install OSS license
 
     inreplace "#{bin}/kibana", %r{/node/bin/node}, "/libexec/node/bin/node"
