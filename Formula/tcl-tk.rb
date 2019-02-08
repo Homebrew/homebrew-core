@@ -79,13 +79,14 @@ class TclTk < Formula
     end
 
     resource("critcl").stage do
-      system "SDKROOT=#{MacOS.sdk_path} #{prefix}/bin/tclsh build.tcl install"
+      system bin/"tclsh", "build.tcl", "install"
     end
 
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      system "SDKROOT=#{MacOS.sdk_path} make critcl"
+      ENV["SDKROOT"] = MacOS.sdk_path
+      system "make", "critcl"
       cp_r "modules/tcllibc", "#{lib}/"
       ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
     end
