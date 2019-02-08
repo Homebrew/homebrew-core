@@ -81,13 +81,6 @@ class MysqlCluster < Formula
     bin.install_symlink prefix/"support-files/mysql.server"
 
     libexec.install bin/"mcc_config.py"
-
-    plist_path("ndb_mgmd").write ndb_mgmd_startup_plist("ndb_mgmd")
-    plist_path("ndb_mgmd").chmod 0644
-    plist_path("ndbd").write ndbd_startup_plist("ndbd")
-    plist_path("ndbd").chmod 0644
-    plist_path("mysqld").write mysqld_startup_plist("mysqld")
-    plist_path("mysqld").chmod 0644
   end
 
   def post_install
@@ -168,95 +161,38 @@ class MysqlCluster < Formula
   EOS
   end
 
-  # Override Formula#plist_name
-  def plist_name(extra = nil)
-    extra ? super()+"-"+extra : super()+"-ndb_mgmd"
-  end
-
-  # Override Formula#plist_path
-  def plist_path(extra = nil)
-    extra ? super().dirname+(plist_name(extra)+".plist") : super()
-  end
-
   plist_options :manual => "mysql.server start"
 
-  def mysqld_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/mysqld</string>
-        <string>--defaults-file=#{var}/mysql-cluster/conf/my.cnf</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
-  EOS
+  plist do
+    {
+      :KeepAlive        => true,
+      :Label            => "#{plist_name}-mysqld",
+      :ProgramArguments => ["#{opt_bin}/mysqld", "--defaults-file=#{var}/mysql-cluster/conf/my.cnf"],
+      :RunAtLoad        => true,
+      :WorkingDirectory => var,
+    }
   end
 
-  def ndb_mgmd_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/ndb_mgmd</string>
-        <string>--nodaemon</string>
-        <string>-f</string>
-        <string>#{var}/mysql-cluster/conf/config.ini</string>
-        <string>--initial</string>
-        <string>--configdir=#{var}/mysql-cluster/conf/</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/mysql-cluster/#{name}.log</string>
-    </dict>
-    </plist>
-  EOS
+  plist do
+    {
+      :KeepAlive        => true,
+      :Label            => "#{plist_name}-ndb_mgmd",
+      :ProgramArguments => ["#{opt_bin}/ndb_mgmd", "--nodaemon", "-f", "#{var}/mysql-cluster/conf/config.ini", "--initial", "--configdir=#{var}/mysql-cluster/conf/"],
+      :RunAtLoad        => true,
+      :WorkingDirectory => var,
+      :StandardOutPath  => "#{var}/mysql-cluster/#{name}.log",
+    }
   end
 
-  def ndbd_startup_plist(name); <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name(name)}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/ndbd</string>
-        <string>--nodaemon</string>
-        <string>-c</string>
-        <string>localhost:1186</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/mysql-cluster/#{name}.log</string>
-    </dict>
-    </plist>
-  EOS
+  plist do
+    {
+      :KeepAlive        => true,
+      :Label            => "#{plist_name}-ndbd",
+      :ProgramArguments => ["#{opt_bin}/ndbd", "--nodaemon", "-c", "localhost:1186"],
+      :RunAtLoad        => true,
+      :WorkingDirectory => var,
+      :StandardOutPath  => "#{var}/mysql-cluster/#{name}.log",
+    }
   end
 
   test do
