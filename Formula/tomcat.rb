@@ -1,8 +1,8 @@
 class Tomcat < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz"
-  sha256 "5bdb23aaccb12c2bf087c2aa2193813c597b8f7443a614fdd78d971fb6a63c16"
+  url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-9/v9.0.16/bin/apache-tomcat-9.0.16.tar.gz"
+  sha256 "1f45dd960c6cbc044e75ce0ed5ae5d3af62aff0152fa56b8160d2e3dc23f417a"
 
   bottle :unneeded
 
