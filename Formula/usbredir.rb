@@ -6,9 +6,9 @@ class Usbredir < Formula
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-
   depends_on "libusb"
 
+  # Upstream patch, remove for next release
   # https://gitlab.freedesktop.org/spice/usbredir/issues/9
   patch do
     url "https://gitlab.freedesktop.org/spice/usbredir/commit/985e79d5f98d5586d87204317462549332c1dd46.diff"
