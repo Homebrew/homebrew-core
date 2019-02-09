@@ -6,9 +6,9 @@ class Libidn2 < Formula
   sha256 "95416080329298a13269e13175041b530cec3d98b54cafae9424b8dfd22078b1"
 
   bottle do
-    sha256 "5cd79173915c82157cfda0749859b3bc7030579fce4f4312c09e65e70b1eb4ec" => :mojave
-    sha256 "a75148810411495af4852311faad566c7b0a9ae815866d1dc287909f00888e33" => :high_sierra
-    sha256 "e4ccd2e935f8fa8e37d46e075d92388b9847c362218e597ea2b5409aaf5eee33" => :sierra
+    sha256 "55c28ef52807f483fb4907528478c6f9ecb9e9b2fb0da7fcfc41b82e6521a5ac" => :mojave
+    sha256 "40e078a0b5164cdddede2de59accd4ab807a118479f9bbe5452a6be61c993be1" => :high_sierra
+    sha256 "e64e20552e7ed8d1fb53bd408ba33221e5b5962d738048479de3a9e5bda11024" => :sierra
   end
 
   head do
