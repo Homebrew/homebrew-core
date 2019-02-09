@@ -4,7 +4,7 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.20.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/wget/wget-1.20.1.tar.gz"
   sha256 "b783b390cb571c837b392857945f5a1f00ec6b043177cc42abb8ee1b542ee1b3"
-  revision 3
+  revision 4
 
   bottle do
     sha256 "3666a430c06662d9f472d00b8b3a4ed7482d7c2a2d8a562675ddfba7ebf79f3b" => :mojave
