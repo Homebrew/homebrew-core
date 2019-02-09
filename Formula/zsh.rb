@@ -37,6 +37,7 @@ class Zsh < Formula
                           "--enable-cap",
                           "--enable-maildir-support",
                           "--enable-multibyte",
+                          "--enable-regex",
                           "--enable-pcre",
                           "--enable-zsh-secure-free",
                           "--enable-unicode9",
