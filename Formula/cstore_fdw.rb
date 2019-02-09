@@ -4,6 +4,13 @@ class CstoreFdw < Formula
   url "https://github.com/citusdata/cstore_fdw/archive/v1.6.2.tar.gz"
   sha256 "35aabbc5a1608024e6aa038d06035e90d587e805eb706eb80652eb8547783491"
 
+  bottle do
+    cellar :any
+    sha256 "b6bc6b6fa4ee33cc7feb99c3048ef9111720bff5a4d9aafd46269dfe886e84a7" => :mojave
+    sha256 "634bbe8703dec700f01becc6a83fce3aeb741cfcb6e3cc40527cc334b67f4bdf" => :high_sierra
+    sha256 "947cd3c688305996b7b3a4159c0feab29efd5adaa0ae5548250ffdb3b8095bee" => :sierra
+  end
+
   depends_on "postgresql"
   depends_on "protobuf-c"
 
