@@ -5,9 +5,10 @@ class TerraformLandscape < Formula
   sha256 "0bdfa852240214d413e510437abb9a3f58ac7bc04262dc2ff4e9efaa1945f89d"
 
   bottle do
-    sha256 "55d689c8224f57a30b2dba356eef0f1b7bbf1c7e353724b236138dc0f678406b" => :mojave
-    sha256 "ea8e016b581df875a5f2591c47698c6f75a4afea329cd2ed996bb1b0dc59d3d6" => :high_sierra
-    sha256 "25ddfefd03e21886b042060b9bf5a9060ba2ab0565ae9580a3b492323d97403b" => :sierra
+    cellar :any_skip_relocation
+    sha256 "c064b916a316445484ee9d87adb0b63015560c437182c19c053128e98c3b2edc" => :mojave
+    sha256 "115f67f424ce6254f2b2dfe26d024dc176855b72c1856b7690045b6c01bb30db" => :high_sierra
+    sha256 "b2a9e278063dd2018c0d552927c0341870ab6260172771be8e3c48a717fd3158" => :sierra
   end
 
   depends_on "ruby"
