@@ -3,6 +3,7 @@ class Whois < Formula
   homepage "https://packages.debian.org/sid/whois"
   url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.4.1.tar.xz"
   sha256 "3ee6591fb14c103791430a8e6eb3d4c38a9f52aad799ea58c94250bd6985ec50"
+  revision 1
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
