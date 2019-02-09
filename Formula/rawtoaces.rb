@@ -6,10 +6,9 @@ class Rawtoaces < Formula
   revision 4
 
   bottle do
-    sha256 "35b1c3038fc3ac5f2afa237a02b0de3215fd0b5fd6ddc98e4efda984e2f8cf31" => :mojave
-    sha256 "2dc85c4d307896a2db9e4ed9458f4f9c002d75d1799969c9b81f1d6ccfb8eb99" => :high_sierra
-    sha256 "59cc3b6b51f62226c3de9329a336789401ab060126d5bc7d11aebc666acdeb1d" => :sierra
-    sha256 "a6f274bcb805bca7ba760d7c194d82bca3b900f4b4196e317f240737ce59f015" => :el_capitan
+    sha256 "5679390ca59f7e952775caf73786cfe8cd9f77cfa72c997d4f6a5e2b970a14f3" => :mojave
+    sha256 "564c0e6348c28412f775e509be984366ec1d47f24db264bbdcba836fbdba2d4e" => :high_sierra
+    sha256 "b91eb2cd2c4c2bfde337fc595a6e47069838a6abe67c4b8f8a633528bd74de3e" => :sierra
   end
 
   depends_on "cmake" => :build
