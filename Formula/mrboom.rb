@@ -6,10 +6,9 @@ class Mrboom < Formula
 
   bottle do
     cellar :any
-    sha256 "fc10a261927a560776acad38740577b232f87470dc2a225cd973e9c85ee91a17" => :mojave
-    sha256 "6b6fc5f88179c60f448e240744d5759410ad986c1bbae54fa180b187d88086ac" => :high_sierra
-    sha256 "1e0f68ba7b12bc2bb879f99d90ec990c6d493c623a7fc787671e80dd8bac6884" => :sierra
-    sha256 "d8169f04a040dee4151b850c0bf087146f3401110ac10e7651f2b0986ea6a504" => :el_capitan
+    sha256 "06483d8f9be743f76eddcf26c222831fc082996539e2e5e6a6add33fc55af11b" => :mojave
+    sha256 "b68760e7638ce0b3d0fc342a9f6a85d07935ab000bd3c11a7dde71067f3c8c68" => :high_sierra
+    sha256 "214a0f035befd1973788023b52ea8a21d7df076b2c50bf7c5445ac418e930d8e" => :sierra
   end
 
   depends_on "cmake" => :build
