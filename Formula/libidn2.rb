@@ -1,9 +1,9 @@
 class Libidn2 < Formula
   desc "International domain name library (IDNA2008, Punycode and TR46)"
   homepage "https://www.gnu.org/software/libidn/#libidn2"
-  url "https://ftp.gnu.org/gnu/libidn/libidn2-2.1.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.1.0.tar.gz"
-  sha256 "032398dbaa9537af43f51a8d94e967e3718848547b1b2a4eb3138b20cad11d32"
+  url "https://ftp.gnu.org/gnu/libidn/libidn2-2.1.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.1.1.tar.gz"
+  sha256 "95416080329298a13269e13175041b530cec3d98b54cafae9424b8dfd22078b1"
 
   bottle do
     sha256 "5cd79173915c82157cfda0749859b3bc7030579fce4f4312c09e65e70b1eb4ec" => :mojave
