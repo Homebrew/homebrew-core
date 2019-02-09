@@ -4,6 +4,13 @@ class Usbredir < Formula
   url "https://www.spice-space.org/download/usbredir/usbredir-0.8.0.tar.bz2"
   sha256 "87bc9c5a81c982517a1bec70dc8d22e15ae197847643d58f20c0ced3c38c5e00"
 
+  bottle do
+    cellar :any
+    sha256 "579f1db366d50c027cfd6ea92149878b358d86bb6a9d491320e5f7fd62dfd2e8" => :mojave
+    sha256 "0d83ca33451b2c382dcf4b70be515549db139b0960712dc7f213e993ba7973d7" => :high_sierra
+    sha256 "7feac9566048e308877ef3f3d1b93660433dc8f1611e3daf031eaa4dd90c7238" => :sierra
+  end
+
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
