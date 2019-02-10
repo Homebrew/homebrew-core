@@ -14,8 +14,18 @@ class SignalCli < Formula
   end
 
   test do
-    # checks class loading is working and version is correct
+    # test 1: checks class loading is working and version is correct
     output = shell_output("#{bin}/signal-cli --version")
     assert_match "signal-cli #{version}", output
+
+    # test 2: ensure crypto is working
+    begin
+      io = IO.popen("#{bin}/signal-cli link", :err => [:child, :out])
+      sleep 2
+    ensure
+      Process.kill("SIGINT", io.pid)
+      Process.wait(io.pid)
+    end
+    assert_match "tsdevice:/?uuid=", io.read
   end
 end
