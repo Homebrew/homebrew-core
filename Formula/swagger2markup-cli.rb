@@ -1,8 +1,4 @@
 class Swagger2markupCli < Formula
-  # Original description from GitHub (too long for HomeBrew):
-  # "A Swagger to AsciiDoc or Markdown converter to simplify the generation of
-  # an up-to-date RESTful API documentation by combining documentation that's
-  # been hand-written with auto-generated API documentation."
   desc "Swagger to AsciiDoc or Markdown converter"
   homepage "https://github.com/Swagger2Markup/swagger2markup"
   url "https://jcenter.bintray.com/io/github/swagger2markup/swagger2markup-cli/1.3.3/swagger2markup-cli-1.3.3.jar"
@@ -17,7 +13,6 @@ class Swagger2markupCli < Formula
   end
 
   test do
-    # write generic minimal swagger spec to file
     (testpath/"test.yaml").write <<~EOS
       swagger: "2.0"
       info:
@@ -32,9 +27,7 @@ class Swagger2markupCli < Formula
               "200":
                 description: Describe the test resource
     EOS
-    # convert swagger spec to asciidoc
-    system bin/"swagger2markup convert -i test.yaml -f test"
-    # sanity check: first line should be title line with specified name
-    `head -n 1 test.adoc`.strip == "= TestSpec"
+    shell_output(bin/"swagger2markup convert -i test.yaml -f test")
+    assert_match "= TestSpec", shell_output("head -n 1 test.adoc").strip
   end
 end
