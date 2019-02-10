@@ -1,9 +1,8 @@
 class DiffPdf < Formula
   desc "Visually compare two PDF files"
   homepage "https://vslavik.github.io/diff-pdf/"
-  url "https://github.com/vslavik/diff-pdf/archive/v0.2.tar.gz"
-  sha256 "cb90f2e0fd4bc3fe235111f982bc20455a1d6bc13f4219babcba6bd60c1fe466"
-  revision 39
+  url "https://github.com/vslavik/diff-pdf/releases/download/v0.3/diff-pdf-0.3.tar.gz"
+  sha256 "8f1beb45d48fecfb09c802e95154ad9b8d4b73e90796eaf7ab835f107b495da0"
 
   bottle do
     cellar :any
@@ -21,7 +20,6 @@ class DiffPdf < Formula
   depends_on :x11
 
   def install
-    system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
