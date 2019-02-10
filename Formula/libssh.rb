@@ -1,8 +1,8 @@
 class Libssh < Formula
   desc "C library SSHv1/SSHv2 client and server protocols"
   homepage "https://www.libssh.org/"
-  url "https://www.libssh.org/files/0.8/libssh-0.8.5.tar.xz"
-  sha256 "07d2c431240fc88f6b06bcb36ae267f9afeedce2e32f6c42f8844b205ab5a335"
+  url "https://www.libssh.org/files/0.8/libssh-0.8.6.tar.xz"
+  sha256 "1046b95632a07fc00b1ea70ee683072d0c8a23f544f4535440b727812002fd01"
   head "https://git.libssh.org/projects/libssh.git"
 
   bottle do
