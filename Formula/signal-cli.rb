@@ -21,7 +21,7 @@ class SignalCli < Formula
     # test 2: ensure crypto is working
     begin
       io = IO.popen("#{bin}/signal-cli link", :err => [:child, :out])
-      sleep 2
+      sleep 8
     ensure
       Process.kill("SIGINT", io.pid)
       Process.wait(io.pid)
