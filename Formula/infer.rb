@@ -46,7 +46,7 @@ class Infer < Formula
       -DLLVM_BUILD_LLVM_DYLIB=ON
     ]
 
-    system "opam", "init", "--no-setup"
+    system "opam", "init", "--no-setup", "--disable-sandboxing"
     ocaml_version = File.read("build-infer.sh").match(/OCAML_VERSION_DEFAULT=\"([^\"]+)\"/)[1]
     ocaml_version_number = ocaml_version.split("+", 2)[0]
     inreplace "#{opamroot}/compilers/#{ocaml_version_number}/#{ocaml_version}/#{ocaml_version}.comp",
