@@ -6,9 +6,9 @@ class Coq < Formula
   head "https://github.com/coq/coq.git"
 
   bottle do
-    sha256 "45d2d54d36f617c14ba51b947b1b018d53c035d03adfc0025e69972560301136" => :mojave
-    sha256 "07db19453e504dcc0ec4ea96e54c4b7bcbee6fd9126dd2da0c0ad179ede6237e" => :high_sierra
-    sha256 "5598f52047139121c42cea869f01ed54b6f66e787918664f173e36bae5963e43" => :sierra
+    sha256 "0b56d57a006cabfcba72986ee8e4d7154ea8d764bf2ca2921c9ee894e166d033" => :mojave
+    sha256 "fc3c71b442caa68b3a40a5143ebd272eb93ded575fcee2a72c81ebd791f42906" => :high_sierra
+    sha256 "8506c6f6304ae35782dda12751c4ff2b22474dbcd6f9e41eb390801314eb6f68" => :sierra
   end
 
   depends_on "ocaml-findlib" => :build
