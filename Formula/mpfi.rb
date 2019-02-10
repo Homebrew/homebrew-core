@@ -34,8 +34,11 @@ class Mpfi < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lgmp", "-lmpfr", "-L#{lib}", "-lmpfi",
-                   "-o", "test"
+
+    system ENV.cc, "test.c", "-o", "test",
+                   "-L#{lib}", "-lmpfi",
+                   "-L#{Formula["mpfr"].lib}", "-lmpfr",
+                   "-L#{Formula["gmp"].lib}", "-lgmp"
     system "./test"
   end
 end
