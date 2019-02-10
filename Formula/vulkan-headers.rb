@@ -12,6 +12,16 @@ class VulkanHeaders < Formula
   end
 
   test do
-    assert_predicate "#{include}/vulkan/vulkan.h", :exist?
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include <vulkan/vulkan_core.h>
+
+      int main() {
+        printf("vulkan version %d", VK_VERSION_1_0);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-o", "test"
+    system "./test"
   end
 end
