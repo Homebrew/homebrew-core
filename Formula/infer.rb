@@ -4,7 +4,7 @@ class Infer < Formula
   # pull from git tag to get submodules
   url "https://github.com/facebook/infer.git",
       :tag      => "v0.16.0",
-      :revision => "8bda23fadcc51c6ed38a4c3a75be25a266e8f7b4"
+      :revision => "168e9099f7e7566bfbc0dbd48b103f33b165aa15"
 
   bottle do
     cellar :any
