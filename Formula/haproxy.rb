@@ -1,8 +1,8 @@
 class Haproxy < Formula
   desc "Reliable, high performance TCP/HTTP load balancer"
   homepage "https://www.haproxy.org/"
-  url "https://www.haproxy.org/download/1.8/src/haproxy-1.8.17.tar.gz"
-  sha256 "7b789b177875afdd5ddeff058e7efde73aa895dc2dcf728b464358635ae3948e"
+  url "https://www.haproxy.org/download/1.9/src/haproxy-1.9.4.tar.gz"
+  sha256 "8483fe12b30256f83d542b3f699e165d8f71bf2dfac8b16bb53716abce4ba74f"
 
   bottle do
     cellar :any
@@ -13,6 +13,13 @@ class Haproxy < Formula
 
   depends_on "openssl"
   depends_on "pcre"
+
+  # Patch for BUILD/MEDIUM: initcall: Fix build on MacOS. See haproxy/haproxy#42
+  # Should be safe to remove on > 1.9.4 release as upstream intend to backport
+  patch do
+    url "https://github.com/haproxy/haproxy/commit/9efa7b8.patch?full_index=1"
+    sha256 "756b26d3518cbf9a84f5957719beb764ac4d25bdb783f839d5b05c5283ac2f62"
+  end
 
   def install
     args = %w[
