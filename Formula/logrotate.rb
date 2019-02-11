@@ -1,8 +1,8 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.14.0/logrotate-3.14.0.tar.gz"
-  sha256 "9bb62355ecf26997d994498658781a40fcd117b3e9d2872362db504b98df5c47"
+  url "https://github.com/logrotate/logrotate/releases/download/3.15.0/logrotate-3.15.0.tar.xz"
+  sha256 "313612c4776a305393454c874ef590d8acf84c9ffa648717731dfe902284ff8f"
 
   bottle do
     sha256 "f9635a875c53e1ccfda813a788aa9bdd0c85c0dd3b73b940be468bc375ed14cb" => :mojave
@@ -13,6 +13,13 @@ class Logrotate < Formula
 
   depends_on "popt"
 
+  # https://github.com/logrotate/logrotate/issues/241 "macOS timer functions"
+  # Should be safe to remove on > 3.15.0 release
+  patch do
+    url "https://github.com/logrotate/logrotate/commit/0d805ce.patch?full_index=1"
+    sha256 "a374fb6354c517da9a229373241db4802c549c05d7822462b905f0262a316be0"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -21,8 +28,8 @@ class Logrotate < Formula
                           "--with-state-file-path=#{var}/lib/logrotate.status"
     system "make", "install"
 
-    inreplace "examples/logrotate-default", "/etc/logrotate.d", "#{etc}/logrotate.d"
-    etc.install "examples/logrotate-default" => "logrotate.conf"
+    inreplace "examples/logrotate.conf", "/etc/logrotate.d", "#{etc}/logrotate.d"
+    etc.install "examples/logrotate.conf" => "logrotate.conf"
     (etc/"logrotate.d").mkpath
   end
 
