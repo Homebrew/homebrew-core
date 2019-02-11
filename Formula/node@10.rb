@@ -1,8 +1,8 @@
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.15.0/node-v10.15.0.tar.gz"
-  sha256 "dbe467e3dabb6854fcb0cd96e04082268cb1e313ce97a4b7100b2ed152b0a0ab"
+  url "https://nodejs.org/dist/v10.15.1/node-v10.15.1.tar.gz"
+  sha256 "5202f6f6bfda16554c8121ea78e4cffee52e2707e1136c88f3c40b0c2af8100f"
 
   bottle do
     cellar :any
