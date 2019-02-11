@@ -6,9 +6,9 @@ class GnomeRecipes < Formula
   revision 8
 
   bottle do
-    sha256 "0b95e5b45482b9cda700494617983c6967d0c594d678f9518e7c4a9ba35695e2" => :mojave
-    sha256 "80f673587fc514be5b775a22d7c64a6c232d641662640520a914feaca4fbedce" => :high_sierra
-    sha256 "ca0183c9eb21cf043aaa05f7faee5dbb35e20f86691b4ed8cc98b693f732606c" => :sierra
+    sha256 "d4b76cbd04850877a91f733dcf1039ade2abf71b4bbf46cf55dcded08cd5b823" => :mojave
+    sha256 "7a3248e3ba15d91ed5ce28520c7e384bdf1f5f05f4fcc6f8d6deb425a40b0447" => :high_sierra
+    sha256 "7c84b25efe430c5a8436e144c45243ff588177aba5ed63b2ba42ab8214196ddb" => :sierra
   end
 
   depends_on "itstool" => :build
