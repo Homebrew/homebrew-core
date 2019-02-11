@@ -3,7 +3,7 @@ class RubyAT24 < Formula
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.5.tar.xz"
   sha256 "2f0cdcce9989f63ef7c2939bdb17b1ef244c4f384d85b8531d60e73d8cc31eeb"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "f12140e2606482d2484a76dce1e9e2eea5a3adf8e0b94b8f181d2101af8c5c73" => :mojave
