@@ -1,9 +1,8 @@
 class PostgresqlAT95 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.5.14/postgresql-9.5.14.tar.bz2"
-  sha256 "3e2cd5ea0117431f72c9917c1bbad578ea68732cb284d1691f37356ca0301a4d"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v9.5.15/postgresql-9.5.15.tar.bz2"
+  sha256 "dbda3fdefd7f9fd5359a7989085aaef25c9f9d08816eda6378c2575d1ff55444"
 
   bottle do
     sha256 "c2ab2bf1d231f5220ce2caec5d74ea2062fa839310f31dc2f5b5a7e8a23eebb2" => :mojave
@@ -58,10 +57,10 @@ class PostgresqlAT95 < Formula
                 "-I$perl_archlibexp/CORE",
                 "-iwithsysroot $perl_archlibexp/CORE"
       inreplace "contrib/hstore_plperl/Makefile",
-                "-I$(perl_archlibexp)/CORE",
+                "$(perl_archlibexp)/CORE",
                 "-iwithsysroot $(perl_archlibexp)/CORE"
       inreplace "src/pl/plperl/GNUmakefile",
-                "-I$(perl_archlibexp)/CORE",
+                "$(perl_archlibexp)/CORE",
                 "-iwithsysroot $(perl_archlibexp)/CORE"
     end
 
