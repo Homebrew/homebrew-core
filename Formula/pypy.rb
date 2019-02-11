@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2-v6.0.0-src.tar.bz2"
-  sha256 "6097ec5ee23d0d34d8cd27a1072bed041c8a080ad48731190a03a2223029212d"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.0.0-src.tar.bz2"
+  sha256 "f51d8bbfc4e73a8a01820b7871a45d13c59f1399822cdf8a19388c69eb20c18c"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
@@ -39,6 +39,7 @@ class Pypy < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
     # Having PYTHONPATH set can cause the build to fail if another
     # Python is present, e.g. a Homebrew-provided Python 2.x
     # See https://github.com/Homebrew/homebrew/issues/24364
