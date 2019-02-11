@@ -1,8 +1,8 @@
 class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy3-v6.0.0-src.tar.bz2"
-  sha256 "ed8005202b46d6fc6831df1d13a4613bc40084bfa42f275068edadf8954034a3"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.0.0-src.tar.bz2"
+  sha256 "7ccbf81db5c647fa0c27636c7d18d059d2570fff7eaffc03857c67bee84b8a26"
 
   bottle do
     cellar :any
@@ -58,6 +58,8 @@ class Pypy3 < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+
     # Work around "dyld: Symbol not found: _utimensat"
     if MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
       ENV.delete("SDKROOT")
