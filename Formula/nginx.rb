@@ -18,9 +18,13 @@ class Nginx < Formula
   depends_on "pcre"
 
   def install
-    # keep clean copy of source for compiling dynamic modules
+    # keep clean copy of source for compiling dynamic modules e.g. passenger
     (share/"src").mkpath
-    (share/"src").install cached_download
+    mkdir "src_rebuild" do
+      system "tar", "-xf", cached_download, "--strip-components", "1", "--exclude='conf contrib LICENSE README html man CHANGES.ru CHANGES'"
+      system "tar", "-cJf", "src.txz", "--options", "compression-level=9", "--exclude", "src.txz", "."
+      (share/"src").install "src.txz"
+    end
 
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
@@ -76,6 +80,8 @@ class Nginx < Formula
       --with-stream_ssl_module
       --with-stream_ssl_preread_module
     ]
+
+    File.write(share/"src/args.txt", args.join("\n"))
 
     if build.head?
       system "./auto/configure", *args

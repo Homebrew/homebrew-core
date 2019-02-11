@@ -27,12 +27,11 @@ class Passenger < Formula
 
     system "rake", "apache2"
     system "rake", "nginx"
-    nginx_addon_dir = `/usr/bin/ruby ./bin/passenger-config about nginx-addon-dir`.strip
+    nginx_addon_dir = `./bin/passenger-config about nginx-addon-dir`.strip
 
-    system "tar", "-xf", Dir["#{Formula["nginx"].opt_share}/src/*nginx*.tar.gz"].first
-    Dir.chdir("nginx-#{Formula["nginx"].installed_version}") do
-      _, stderr, = Open3.capture3("nginx", "-V")
-      args = stderr.split("configure arguments:").last.split(" --").reject(&:empty?).map { |s| "--#{s.strip}" }
+    mkdir "nginx" do
+      system "tar", "-xf", "#{Formula["nginx"].opt_share}/src/src.txz", "--strip-components", "1"
+      args = File.read("#{Formula["nginx"].opt_share}/src/args.txt").split("\n")
       args << "--add-dynamic-module=#{nginx_addon_dir}"
 
       system "./configure", *args
@@ -63,20 +62,20 @@ class Passenger < Formula
     # Ensure that the Phusion Passenger commands can always find their library
     # files.
 
-    locations_ini = `/usr/bin/ruby ./bin/passenger-config --make-locations-ini --for-native-packaging-method=homebrew`
+    locations_ini = `./bin/passenger-config --make-locations-ini --for-native-packaging-method=homebrew`
     locations_ini.gsub!(/=#{Regexp.escape Dir.pwd}/, "=#{libexec}")
     (libexec/"src/ruby_supportlib/phusion_passenger/locations.ini").write(locations_ini)
 
-    ruby_libdir = `/usr/bin/ruby ./bin/passenger-config about ruby-libdir`.strip
+    ruby_libdir = `./bin/passenger-config about ruby-libdir`.strip
     ruby_libdir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)
-    system "/usr/bin/ruby", "./dev/install_scripts_bootstrap_code.rb",
+    system "./dev/install_scripts_bootstrap_code.rb",
       "--ruby", ruby_libdir, *Dir[libexec/"bin/*"]
 
-    system("/usr/bin/ruby ./bin/passenger-config compile-nginx-engine")
+    system "./bin/passenger-config", "compile-nginx-engine"
     cp Dir["buildout/support-binaries/nginx*"], libexec/"buildout/support-binaries", :preserve => true
 
     nginx_addon_dir.gsub!(/^#{Regexp.escape Dir.pwd}/, libexec)
-    system "/usr/bin/ruby", "./dev/install_scripts_bootstrap_code.rb",
+    system "./dev/install_scripts_bootstrap_code.rb",
       "--nginx-module-config", libexec/"bin", "#{nginx_addon_dir}/config"
 
     man1.install Dir["man/*.1"]
@@ -102,5 +101,35 @@ class Passenger < Formula
   test do
     ruby_libdir = `#{HOMEBREW_PREFIX}/bin/passenger-config --ruby-libdir`.strip
     assert_equal "#{libexec}/src/ruby_supportlib", ruby_libdir
+
+    (testpath/"nginx.conf").write <<~EOS
+      load_module #{opt_libexec}/buildout/nginx_dynamic/ngx_http_passenger_module.so;
+      worker_processes 4;
+      error_log #{testpath}/error.log;
+      pid #{testpath}/nginx.pid;
+
+      events {
+        worker_connections 1024;
+      }
+
+      http {
+        passenger_root #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
+        passenger_ruby /usr/bin/ruby;
+        client_body_temp_path #{testpath}/client_body_temp;
+        fastcgi_temp_path #{testpath}/fastcgi_temp;
+        proxy_temp_path #{testpath}/proxy_temp;
+        scgi_temp_path #{testpath}/scgi_temp;
+        uwsgi_temp_path #{testpath}/uwsgi_temp;
+
+        server {
+          passenger_enabled on;
+          listen 8080;
+          root #{testpath};
+          access_log #{testpath}/access.log;
+          error_log #{testpath}/error.log;
+        }
+      }
+    EOS
+    system "nginx", "-t", "-c", testpath/"nginx.conf"
   end
 end
