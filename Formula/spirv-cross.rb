@@ -7,6 +7,7 @@ class SpirvCross < Formula
 
   depends_on "cmake" => :build
   depends_on "glm" => :test
+  depends_on "glslang" => :test
 
   def install
     mkdir "build" do
@@ -15,13 +16,13 @@ class SpirvCross < Formula
     end
     # required for tests
     prefix.install "samples"
-    prefix.install "include"
+    (include/"spirv_cross").install Dir["include/spirv_cross/*"]
   end
 
   test do
     cp_r "#{prefix}/samples/cpp", testpath.to_s
     cd "cpp"
-    inreplace "Makefile", "-I../../include", "-I#{include}/include"
+    inreplace "Makefile", "-I../../include", "-I#{include}"
     inreplace "Makefile", "../../spirv-cross", "spirv-cross"
 
     system "make"
