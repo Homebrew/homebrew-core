@@ -4,6 +4,12 @@ class Gtranslator < Formula
   url "https://download.gnome.org/sources/gtranslator/3.30/gtranslator-3.30.1.tar.xz"
   sha256 "c77afffa588c453fcf2241acc6d68a636975b69cc4aab8057a3382cb218cf42c"
 
+  bottle do
+    sha256 "9abc09ece4d2f3cecb23ae250cd629944635cf99a383a9c6fa2d586aa752397d" => :mojave
+    sha256 "09420392739bef69c8ac566c6e67da633063e08bae0d8bc12891049e55cdccb8" => :high_sierra
+    sha256 "255b8d81b662bc86f416c07a9ba5267759fc29e59b33c9c61d02aee527a0b534" => :sierra
+  end
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
