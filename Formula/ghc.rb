@@ -9,10 +9,9 @@ class Ghc < Formula
   sha256 "9f9e37b7971935d88ba80426c36af14b1e0b3ec1d9c860f44a4391771bc07f23"
 
   bottle do
-    rebuild 1
-    sha256 "42af18814f008af8c538a6aa0f5b7b3d7c7415e6e77f64ecb859bba5390b9c2b" => :mojave
-    sha256 "4e08ed70dd9358c2a1d84ac5f386932870dc2b0c517a4524f1e96d03f5ee5352" => :high_sierra
-    sha256 "c37b6d8488718d8d90bb38cec05f1926223c102d6ba0ac7ffa8d528409b002e6" => :sierra
+    sha256 "9415b057d996a9d4d27f61edf2e31b3f11fb511661313d9f266fa029254c9088" => :mojave
+    sha256 "b16adbcf90f33bf12162855bd2f2308d5f4656cbb2f533a8cb6a0ed48519be83" => :high_sierra
+    sha256 "c469d291be7683a759ac950c11226d080994b9e4d44f9f784ab81d0f0483b498" => :sierra
   end
 
   head do
