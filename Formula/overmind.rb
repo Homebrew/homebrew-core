@@ -1,8 +1,8 @@
 class Overmind < Formula
   desc "Process manager for Procfile-based applications and tmux"
   homepage "https://github.com/DarthSim/overmind"
-  url "https://github.com/DarthSim/overmind/archive/v1.2.1.tar.gz"
-  sha256 "114a51b45fe02205d28db1fb1b6e23e501c3935f7d3b8862e7db70c41153542f"
+  url "https://github.com/DarthSim/overmind/archive/v2.0.0.tar.gz"
+  sha256 "bb0e38a9369b9a7043e5d368a464ee7a549411a25f60884c4dd37ed7de601e7f"
   head "https://github.com/DarthSim/overmind.git"
 
   bottle do
@@ -26,7 +26,7 @@ class Overmind < Formula
     expected_message = "overmind: open ./Procfile: no such file or directory"
     assert_match expected_message, shell_output("#{bin}/overmind start 2>&1", 1)
     (testpath/"Procfile").write("test: echo 'test message'")
-    expected_message = "inappropriate ioctl for device"
+    expected_message = "test message"
     assert_match expected_message, shell_output("#{bin}/overmind start")
   end
 end
