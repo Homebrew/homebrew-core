@@ -1,5 +1,5 @@
 class Ultralist < Formula
-  desc "Simple GTD-style task management for the command line."
+  desc "Simple GTD-style task management for the command-line"
   homepage "https://ultralist.io"
   url "https://github.com/ultralist/ultralist/archive/0.9.2.1.tar.gz"
   sha256 "6662174315a4551ccd395f271c1a456ff982e56c653f8ef4cbbaa6649b4d7475"
