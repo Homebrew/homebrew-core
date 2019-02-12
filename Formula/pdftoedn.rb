@@ -3,6 +3,7 @@ class Pdftoedn < Formula
   homepage "https://github.com/edporras/pdftoedn"
   url "https://github.com/edporras/pdftoedn/archive/v0.36.7.tar.gz"
   sha256 "6e3d54d2bd39184c37167783805558c4ebf37dbc6e5acbe9d516bd5a4d1b37dc"
+  revision 1
 
   bottle do
     cellar :any
