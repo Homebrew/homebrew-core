@@ -3,6 +3,7 @@ class Bazel < Formula
   homepage "https://bazel.build/"
   url "https://github.com/bazelbuild/bazel/releases/download/0.22.0/bazel-0.22.0-dist.zip"
   sha256 "6860a226c8123770b122189636fb0c156c6e5c9027b5b245ac3b2315b7b55641"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -34,7 +35,7 @@ class Bazel < Formula
              "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
-      bin.install "output/bazel" => "bazel-real"
+      (libexec/"bin").install "output/bazel" => "bazel-real"
       bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
