@@ -1,8 +1,8 @@
 class Hivemind < Formula
   desc "The mind to rule processes of your development environment"
   homepage "https://github.com/DarthSim/hivemind"
-  url "https://github.com/DarthSim/hivemind/archive/v1.0.4.tar.gz"
-  sha256 "0c8b6bc8e3aef70bc8f5dd1b29db04a48f8f874ee269d3155670e70263d73cbd"
+  url "https://github.com/DarthSim/hivemind/archive/v1.0.5.tar.gz"
+  sha256 "75352721e835f87c575b8c259886604cb80dd209f69a06948e1c97a26312a046"
   head "https://github.com/DarthSim/hivemind.git"
 
   bottle do
