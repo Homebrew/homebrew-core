@@ -3,8 +3,8 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://github.com/adrienverge/yamllint/archive/v1.14.0.tar.gz"
-  sha256 "17fff12fe15d1df799d8c8766fad76d3b7501d6a7f496190bd654340db5254e2"
+  url "https://github.com/adrienverge/yamllint/archive/v1.15.0.tar.gz"
+  sha256 "9c27608ec61777f83c2cb29158b247a02079ad2aebb86522dd941397e3e78f6a"
 
   bottle do
     cellar :any
