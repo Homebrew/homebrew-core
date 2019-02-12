@@ -6,9 +6,9 @@ class Libextractor < Formula
   sha256 "f08f257d26c5e9b503f068d6753c8e55cb76f47f73a81da6ed2bba3de3fee2ff"
 
   bottle do
-    sha256 "8a22082540795474049e3d2b8b8fd499c387de698c50be6a11da8cd1ca21ebd7" => :mojave
-    sha256 "8042fd0b6753e11aa8d7391e45cec1514c0a9275dce0a5db9ced50b7be326103" => :high_sierra
-    sha256 "f2b1bc7a199d77481aa81100f15fabddf4b3f460f139b089ff5910723c8ed4da" => :sierra
+    sha256 "7e0ed720f6c76d148affdccfdffd70285114e03063ef10711ab207ba52d753f7" => :mojave
+    sha256 "3feba61ae58271eb373e0f215e5e857e1709b7ae6cfeb222d7be8bf302b8a219" => :high_sierra
+    sha256 "5ae5f5a6335e1bc2f2c9d5a9d6206cadd99de6da11594eb87e52ca148bedd1b0" => :sierra
   end
 
   depends_on "pkg-config" => :build
