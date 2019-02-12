@@ -182,6 +182,7 @@
   "tensorflow": "libtensorflow",
   "thrift@0.90": "thrift@0.9",
   "thrift090": "thrift@0.90",
+  "todolist": "ultralist",
   "tomcat6": "tomcat@6",
   "tomcat7": "tomcat@7",
   "transfig": "fig2dev",
