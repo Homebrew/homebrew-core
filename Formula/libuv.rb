@@ -1,8 +1,8 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.25.0.tar.gz"
-  sha256 "ce3036d444c3fb4f9a9e2994bec1f4fa07872b01456998b422ce918fdc55c254"
+  url "https://github.com/libuv/libuv/archive/v1.26.0.tar.gz"
+  sha256 "e414cf74615b7dae768f0f5667092f1d4975f5067c087bcbe0641e241ebe4693"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
