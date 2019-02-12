@@ -7,9 +7,9 @@ class Doitlive < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8114d8a94ff27a6b3a6e31fa648c937939757813ab3320ded80e22e571c0d67a" => :mojave
-    sha256 "bb3c0d97bcd5354e2f2beac935ac108f1acd6795c26fcb5bbae9ded28785b91b" => :high_sierra
-    sha256 "400dfb6ed43ada478a3bcc481e033ed374f4d7f042e122eb6925de3ba8d796f8" => :sierra
+    sha256 "ce2dfad4d9a18daa5144de9b9463fec2ba258971f55b4bc019702f00886beab1" => :mojave
+    sha256 "a1972aab087a2ce19517b1d2f359af56f5e8ff28b9febba56bfa6c3843c070aa" => :high_sierra
+    sha256 "aa7a2349ebf41826a3fc89ad663e3586a94c4691b734d3b56510c24290337014" => :sierra
   end
 
   depends_on "python"
