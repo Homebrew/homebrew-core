@@ -3,8 +3,8 @@ require "language/node"
 class Ungit < Formula
   desc "The easiest way to use git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.4.40.tgz"
-  sha256 "ef4067b13d8cbc596734e66445c08bd03ec59577734c741bf4a943d853f452da"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.4.41.tgz"
+  sha256 "d1940e8987ddd8bce93d2af8bb9d1a90c7ac450f0c06c08f672e93ba02d7d84a"
 
   bottle do
     cellar :any_skip_relocation
