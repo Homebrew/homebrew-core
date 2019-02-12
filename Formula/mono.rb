@@ -1,8 +1,8 @@
 class Mono < Formula
   desc "Cross platform, open source .NET development framework"
   homepage "https://www.mono-project.com/"
-  url "https://download.mono-project.com/sources/mono/mono-5.18.0.225.tar.bz2"
-  sha256 "91aa3e8a12aaf94760a092866abc5c5f1f437ecd0a97bedfff857c439aa7a87f"
+  url "https://download.mono-project.com/sources/mono/mono-5.18.0.240.tar.bz2"
+  sha256 "143e80eb00519ff496742e78ee07403a3c3629437f3a498eee539de8108da895"
 
   bottle do
     rebuild 1
@@ -37,7 +37,7 @@ class Mono < Formula
   # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
   resource "msbuild" do
     url "https://github.com/mono/msbuild.git",
-        :revision => "e6c3a1f9e4d3ee4b88ef7bd98b7a48a998c199e6"
+        :revision => "804bde742bdf9d65c7ceb672a3d5400c0c22e628"
   end
 
   def install
