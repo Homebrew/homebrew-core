@@ -12,7 +12,8 @@ class Passenger < Formula
     sha256 "d094cecf62e66a527482b681bdfa01cc7fa956a16ad9e4d2fea520ffc63cac6f" => :sierra
   end
 
-  depends_on "nginx" => :build # for configure arguments
+  # to build nginx module
+  depends_on "nginx" => [:build, :test]
   depends_on "openssl"
   depends_on "pcre"
 
@@ -30,8 +31,8 @@ class Passenger < Formula
     nginx_addon_dir = `./bin/passenger-config about nginx-addon-dir`.strip
 
     mkdir "nginx" do
-      system "tar", "-xf", "#{Formula["nginx"].opt_share}/src/src.txz", "--strip-components", "1"
-      args = File.read("#{Formula["nginx"].opt_share}/src/args.txt").split("\n")
+      system "tar", "-xf", "#{Formula["nginx"].opt_share}/src/src.tar.xz", "--strip-components", "1"
+      args = (Formula["nginx"].opt_share/"src/configure_args.txt").read.split("\n")
       args << "--add-dynamic-module=#{nginx_addon_dir}"
 
       system "./configure", *args

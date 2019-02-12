@@ -20,11 +20,7 @@ class Nginx < Formula
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger
     (share/"src").mkpath
-    mkdir "src_rebuild" do
-      system "tar", "-xf", cached_download, "--strip-components", "1", "--exclude='conf contrib LICENSE README html man CHANGES.ru CHANGES'"
-      system "tar", "-cJf", "src.txz", "--options", "compression-level=9", "--exclude", "src.txz", "."
-      (share/"src").install "src.txz"
-    end
+    system "tar", "-cJf", (share/"src/src.tar.xz"), "--options", "compression-level=9", "."
 
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
@@ -81,7 +77,7 @@ class Nginx < Formula
       --with-stream_ssl_preread_module
     ]
 
-    File.write(share/"src/args.txt", args.join("\n"))
+    (share/"src/configure_args.txt").write args.join("\n")
 
     if build.head?
       system "./auto/configure", *args
