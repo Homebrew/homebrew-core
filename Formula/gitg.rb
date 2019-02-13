@@ -3,6 +3,7 @@ class Gitg < Formula
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/3.30/gitg-3.30.0.tar.xz"
   sha256 "a710ae86fbd62124560ebeae0299f158662f7b31ab646c4dd09d8a03c8570a97"
+  revision 1
 
   bottle do
     sha256 "0dba644784645a1a977233da73d97a4299ff08fed57e9745e74f6e5fa27e5617" => :mojave
