@@ -1,8 +1,8 @@
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
   homepage "https://libspatialindex.github.io/"
-  url "https://download.osgeo.org/libspatialindex/spatialindex-src-1.8.5.tar.gz"
-  sha256 "7caa46a2cb9b40960f7bc82c3de60fa14f8f3e000b02561b36cbf2cfe6a9bfef"
+  url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.0/spatialindex-src-1.9.0.tar.gz"
+  sha256 "52d6875deea12f88e6918d192cbfd38d6e78d13f84e1fd10cca66132fa063941"
 
   bottle do
     cellar :any
@@ -15,6 +15,10 @@ class Spatialindex < Formula
   end
 
   def install
+    ENV.cxx11
+
+    ENV.append "CXXFLAGS", "-std=c++11"
+
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -69,7 +73,7 @@ class Spatialindex < Formula
           return (q_vis.matches.size() == 1) ? 0 : 1;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
     system "./test"
   end
 end
