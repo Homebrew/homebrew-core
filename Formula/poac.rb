@@ -12,7 +12,7 @@ class Poac < Formula
   depends_on "yaml-cpp"
 
   def install
-    mkdir "bulid" do
+    mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
@@ -25,5 +25,10 @@ class Poac < Formula
 
   test do
     assert_match /Usage/, shell_output("#{bin}/poac --help")
+
+    system "#{bin}/poac", "new", "testpj"
+    cd "testpj" do
+      assert_match /Hello, world!/, shell_output("#{bin}/poac run")
+    end
   end
 end
