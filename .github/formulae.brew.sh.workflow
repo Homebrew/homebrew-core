@@ -1,15 +1,18 @@
-workflow "formulae.brew.sh generation" {
+workflow "Push" {
   on = "push"
-  resolves = ["Filters for GitHub Actions"]
+  resolves = ["Deploy formulae.brew.sh"]
 }
 
-action "Master" {
-  uses = "actions/bin/filter@master"
-  args = "branch master"
+action "Clone formulae.brew.sh" {
+  uses = "docker://linuxbrew/brew"
+  runs = "git"
+  args = ["clone", "https://$GITHUB_TOKEN@github.com/Homebrew/formulae.brew.sh", "formulae.brew.sh"]
+  secrets = ["GITHUB_TOKEN"]
 }
 
-action "Shell" {
-  needs = "Master"
-  uses = "actions/bin/sh@master"
-  args = ["git clone --depth=1 https://github.com/Homebrew/brew "$HOMEBREW_REPOSITORY""]
+action "Generate formula.json" {
+  needs = "Clone formulae.brew.sh"
+  uses = "docker://linuxbrew/brew"
+  runs = "rake"
+  secrets = ["GITHUB_TOKEN"]
 }
