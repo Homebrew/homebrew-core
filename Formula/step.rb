@@ -4,6 +4,13 @@ class Step < Formula
   url "https://github.com/smallstep/cli/archive/v0.8.5.tar.gz"
   sha256 "b809c4638ffd6d0c3e1bff66d87d9fbea186783735544492c34f35fe1e9f9d79"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "a5976c545ee6fa5f12fdecc780b8103efff45f609e10a9b661cb2e7dc92b05a4" => :mojave
+    sha256 "b872743868eff23841652da84122397d7f62917e61df68acd12431c75ff60a86" => :high_sierra
+    sha256 "ff3738f3f91a3b376a38a01f4408769e9717ada11d19b1bde876836d5117eae3" => :sierra
+  end
+
   depends_on "dep" => :build
   depends_on "go" => :build
 
