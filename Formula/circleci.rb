@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.5294",
-      :revision => "212398359008684b4788ff9e297303f7d7408368"
+      :tag      => "v0.1.5389",
+      :revision => "4379bab5169f609898214b717c313f9943fdbe41"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,13 +19,12 @@ class Circleci < Formula
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
 
-    system "go get -u github.com/gobuffalo/packr/v2/packr2"
-
     dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
     dir.install buildpath.children
 
     cd dir do
-      system "packr2", "build"
+      system "make", "dev"
+      system "make", "pack"
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
