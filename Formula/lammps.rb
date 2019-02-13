@@ -1,12 +1,12 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://lammps.sandia.gov/tars/lammps-11Aug17.tar.gz"
+  url "https://lammps.sandia.gov/tars/lammps-12Dec18.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2017-08-11"
-  sha256 "33431329fc735fb12d22ed33399235ef9506ba759a281a24028de538822af104"
+  version "2018-12-12"
+  sha256 "ab3a10e57d25a712e66552784dc6c36c8bafedb994bcacbbe98836573c90f6c1"
   revision 4
 
   bottle do
