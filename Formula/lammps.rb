@@ -7,7 +7,7 @@ class Lammps < Formula
   # We only track stable releases as announced on the LAMMPS homepage.
   version "2018-12-12"
   sha256 "8bcb3bf757e76ed80e0659edb4aa0adee1a80522372d9a817597ac693c074abb"
-  revision 4
+  revision 1
 
   bottle do
     cellar :any
@@ -31,7 +31,7 @@ class Lammps < Formula
 
         # Disable some packages for which we do not have dependencies, that are
         # deprecated or require too much configuration.
-        %w[gpu kim kokkos mscg meam mpiio poems reax voronoi].each do |package|
+        %w[gpu kim kokkos latte mscg meam message mpiio poems reax voronoi].each do |package|
           system "make", "no-#{package}"
         end
 
