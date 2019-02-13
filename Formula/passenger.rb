@@ -17,6 +17,11 @@ class Passenger < Formula
   depends_on "openssl"
   depends_on "pcre"
 
+  patch do
+    url "https://github.com/phusion/passenger/commit/20ca9e52.patch?full_index=1"
+    sha256 "e18966542571ce906b6fd9bdb7959418fba20da3669a2c7442a17f4e53179892"
+  end
+
   def install
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
@@ -131,6 +136,6 @@ class Passenger < Formula
         }
       }
     EOS
-    system "nginx", "-t", "-c", testpath/"nginx.conf"
+    system "#{Formula["nginx"].opt_bin}/nginx", "-t", "-c", testpath/"nginx.conf"
   end
 end
