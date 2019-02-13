@@ -3,6 +3,7 @@ class Xcodegen < Formula
   homepage "https://github.com/yonaskolb/XcodeGen"
   url "https://github.com/yonaskolb/XcodeGen/archive/2.2.0.tar.gz"
   sha256 "04fcc6b77a354c03b5ce7fff96ea2b55580f79a4dde43132fd9d992436ed01cf"
+  head "https://github.com/yonaskolb/XcodeGen.git"
 
   bottle do
     cellar :any_skip_relocation
