@@ -7,9 +7,9 @@ class Hub < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7efd9e739cb8706d68d15040333813b9240a0b667135d5f11adc7ac4528c112c" => :mojave
-    sha256 "1eff062950b6c79267bb857cffa5220ead3aef8fd6bbe5bb676d752d61ebda7b" => :high_sierra
-    sha256 "3fc73ef3c073fbbc43c59552799abc87c81a65594a6ee922f2078581432b2b34" => :sierra
+    sha256 "7d9c176f0d0403de37e8163bcb70b124a33087d073a150f74cdb06f14d7a989b" => :mojave
+    sha256 "bd033644c86186e01c9fe00f840dd01d5258c4ffca3522fb6115052f4022879a" => :high_sierra
+    sha256 "f187d6811693f665d747c14f9aeaecab31d7243691c4070640eaa1ea58f6ef98" => :sierra
   end
 
   depends_on "go" => :build
