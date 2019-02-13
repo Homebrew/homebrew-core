@@ -6,7 +6,7 @@ class Lammps < Formula
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
   version "2018-12-12"
-  sha256 "ab3a10e57d25a712e66552784dc6c36c8bafedb994bcacbbe98836573c90f6c1"
+  sha256 "8bcb3bf757e76ed80e0659edb4aa0adee1a80522372d9a817597ac693c074abb"
   revision 4
 
   bottle do
