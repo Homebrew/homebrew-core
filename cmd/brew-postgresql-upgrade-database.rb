@@ -63,7 +63,9 @@ begin
   end
 
   sql_for_lc_collate = "SELECT setting FROM pg_settings WHERE name LIKE 'lc_collate';"
+  sql_for_lc_ctype = "SELECT setting FROM pg_settings WHERE name LIKE 'lc_ctype';"
   lc_collate = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAc", sql_for_lc_collate).strip
+  lc_ctype = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAc", sql_for_lc_ctype).strip
 
   if quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
     system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "stop"
@@ -74,10 +76,10 @@ begin
   moved_data = true
 
   (var/"postgres").mkpath
-  if lc_collate.empty?
+  if lc_collate.empty? || lc_ctype.empty?
     system "#{bin}/initdb", "#{var}/postgres"
   else
-    system "#{bin}/initdb", "--lc-collate", lc_collate, "#{var}/postgres"
+    system "#{bin}/initdb", "--lc-collate", lc_collate, "--lc-ctype", lc_ctype, "#{var}/postgres"
   end
   initdb_run = true
 
