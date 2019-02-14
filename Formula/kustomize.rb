@@ -36,7 +36,7 @@ class Kustomize < Formula
   end
 
   test do
-    assert_match "KustomizeVersion:", shell_output("#{bin}/kustomize version")
+    assert_match "KustomizeVersion:v#{version}", shell_output("#{bin}/kustomize version")
 
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
