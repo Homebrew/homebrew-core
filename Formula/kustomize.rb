@@ -25,8 +25,9 @@ class Kustomize < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
     cd dir do
       ldflags = %W[
-        -s -X sigs.k8s.io/kustomize/pkg/commands.kustomizeVersion=#{tag}
-        -X sigs.k8s.io/kustomize/pkg/commands.gitCommit=#{revision}
+        -s -X sigs.k8s.io/kustomize/pkg/commands/misc.kustomizeVersion=#{tag}
+        -X sigs.k8s.io/kustomize/pkg/commands/misc.gitCommit=#{revision}
+        -X sigs.k8s.io/kustomize/pkg/commands/misc.buildDate=#{Time.now.iso8601}
       ]
       system "go", "install", "-ldflags", ldflags.join(" ")
       bin.install buildpath/"bin/kustomize"
@@ -35,7 +36,7 @@ class Kustomize < Formula
   end
 
   test do
-    assert_match "KustomizeVersion:", shell_output("#{bin}/kustomize version")
+    assert_match "KustomizeVersion:v#{version}", shell_output("#{bin}/kustomize version")
 
     (testpath/"kustomization.yaml").write <<~EOS
       resources:
