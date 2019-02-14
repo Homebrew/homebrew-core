@@ -27,7 +27,7 @@ class Madplay < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man}
-      --build=#{Hardware::CPU.arch_64_bit}
+      --build=x86_64
     ]
 
     system "./configure", *args

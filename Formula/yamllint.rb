@@ -3,14 +3,14 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://github.com/adrienverge/yamllint/archive/v1.13.0.tar.gz"
-  sha256 "9ead13bb88146703d7856a14ebb3bcd25ef95eacded865236f407f0cbb298c22"
+  url "https://github.com/adrienverge/yamllint/archive/v1.15.0.tar.gz"
+  sha256 "9c27608ec61777f83c2cb29158b247a02079ad2aebb86522dd941397e3e78f6a"
 
   bottle do
     cellar :any
-    sha256 "4e9977192ece0a101c444370bdcfe3b64c63537fb9eb047ee24725da7b14f693" => :mojave
-    sha256 "8411e05f14a1027ae18f1ae7eaeddd6b1a8c06225e79b0be51f7230d79c6f614" => :high_sierra
-    sha256 "1b90ff33ba25db6d6e0a5252df65cda70f12d1e0d183b32c83d941559e9583e3" => :sierra
+    sha256 "cf993cf8190a16158926cea30f5bc2fab59c7508b68c501c4b63e21a0bb31e4e" => :mojave
+    sha256 "6ebf1c84cc29bd391e1b858396e315d5b5192b68ea78009ff07e57913b988e67" => :high_sierra
+    sha256 "304309a0a66e87fc594525580903416e7c9e776d486a4f2417ac59a6bf6eaa7b" => :sierra
   end
 
   depends_on "libyaml"

@@ -23,8 +23,6 @@ class Gjs < Formula
     sha256 "a4e7bb80e7ebab19769b2b8940966349136a99aabd497034662cffa54ea30e40"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]

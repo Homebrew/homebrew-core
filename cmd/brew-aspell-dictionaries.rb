@@ -30,7 +30,6 @@ languages.each do |lang, path|
   r.mirror "#{dict_mirror}/#{path}"
   r.fetch
   puts <<-EOS
-    option "with-lang-#{r.name}", "Install #{r.name} dictionary"
     resource "#{r.name}" do
       url "#{r.url}"
       mirror "#{r.mirrors.first}"

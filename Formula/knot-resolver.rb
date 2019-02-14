@@ -67,6 +67,8 @@ class KnotResolver < Formula
         <string>#{sbin}/kresd</string>
         <string>-c</string>
         <string>#{etc}/kresd/config</string>
+        <string>-f</string>
+        <string>1</string>
       </array>
       <key>StandardInPath</key>
       <string>/dev/null</string>

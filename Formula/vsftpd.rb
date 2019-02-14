@@ -14,17 +14,11 @@ class Vsftpd < Formula
     sha256 "25a9d2e92ca7e3efda6c9882a62ad5927c0c5e450eca4d62d7829c467dd086d9" => :yosemite
   end
 
-  depends_on "openssl" => :optional
-
   # Patch to remove UTMPX dependency, locate macOS's PAM library, and
   # remove incompatible LDFLAGS. (reported to developer via email)
   patch :DATA
 
   def install
-    if build.with? "openssl"
-      inreplace "builddefs.h", "#undef VSF_BUILD_SSL", "#define VSF_BUILD_SSL"
-    end
-
     inreplace "defs.h", "/etc/vsftpd.conf", "#{etc}/vsftpd.conf"
     inreplace "tunables.c", "/etc", etc
     inreplace "tunables.c", "/var", var
@@ -37,26 +31,14 @@ class Vsftpd < Formula
     man8.install "vsftpd.8"
   end
 
-  def caveats
-    s = ""
+  def caveats; <<~EOS
+    To use chroot, vsftpd requires root privileges, so you will need to run
+    `sudo vsftpd`.
+    You should be certain that you trust any software you grant root privileges.
 
-    if build.with? "openssl"
-      s += <<~EOS
-        vsftpd was compiled with SSL support. To use it you must generate a SSL
-        certificate and set 'enable_ssl=YES' in your config file.
-
-      EOS
-    end
-
-    s += <<~EOS
-      To use chroot, vsftpd requires root privileges, so you will need to run
-      `sudo vsftpd`.
-      You should be certain that you trust any software you grant root privileges.
-
-      The vsftpd.conf file must be owned by root or vsftpd will refuse to start:
-        sudo chown root #{HOMEBREW_PREFIX}/etc/vsftpd.conf
-    EOS
-    s
+    The vsftpd.conf file must be owned by root or vsftpd will refuse to start:
+      sudo chown root #{HOMEBREW_PREFIX}/etc/vsftpd.conf
+  EOS
   end
 
   plist_options :startup => true, :manual => "sudo vsftpd"

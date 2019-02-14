@@ -48,8 +48,6 @@ class Zookeeper < Formula
   end
 
   def install
-    ENV["ARCHFLAGS"] = Hardware::CPU.universal_archs.as_arch_flags
-
     if build.head?
       system "ant", "compile_jute"
       system "autoreconf", "-fvi", "src/c"

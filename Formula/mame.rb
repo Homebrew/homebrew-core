@@ -26,7 +26,6 @@ class Mame < Formula
   depends_on "utf8proc"
 
   # Need C++ compiler and standard library support C++14.
-  needs :cxx14
 
   def install
     inreplace "scripts/src/osd/sdl.lua", "--static", ""

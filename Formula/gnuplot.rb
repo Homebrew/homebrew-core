@@ -6,9 +6,10 @@ class Gnuplot < Formula
   revision 1
 
   bottle do
-    sha256 "cb12fb041098c279de4935df173d133897d8ddf570d54e97dfd63b63e0e66875" => :mojave
-    sha256 "63792153e87a8ecddf624ce0a636cc7f74c305099d30a9ba16ba964e047c7d8d" => :high_sierra
-    sha256 "f0349b50e29572991c77aef9be3516c554cdf24bf653c496188a1a774913fb8e" => :sierra
+    rebuild 1
+    sha256 "47903eca8637b8de9b803932795fe9dec4a45df4ea8ab61c51e2692501edce03" => :mojave
+    sha256 "24a6c735fb69f8f7f016cf4ecadbe8d11022523c9d7160ef03160f41bf117aa7" => :high_sierra
+    sha256 "5ef8fe2bebfcc2232f8ee414f0ce0c6b13482e212938d041dc55db7ea139eb10" => :sierra
   end
 
   head do
@@ -19,37 +20,17 @@ class Gnuplot < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-aquaterm", "Build with AquaTerm support"
-  option "with-wxmac", "Build with wxmac support"
-
-  deprecated_option "qt" => "with-qt"
-  deprecated_option "with-qt5" => "with-qt"
-  deprecated_option "with-x" => "with-x11"
-  deprecated_option "wx" => "with-wxmac"
-
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
+  depends_on "qt"
   depends_on "readline"
-  depends_on "qt" => :optional
-  depends_on "wxmac" => :optional
-  depends_on :x11 => :optional
-
-  needs :cxx11 if build.with? "qt"
 
   def install
     # Qt5 requires c++11 (and the other backends do not care)
-    ENV.cxx11 if build.with? "qt"
-
-    if build.with? "aquaterm"
-      # Add "/Library/Frameworks" to the default framework search path, so that an
-      # installed AquaTerm framework can be found. Brew does not add this path
-      # when building against an SDK (Nov 2013).
-      ENV.prepend "CPPFLAGS", "-F/Library/Frameworks"
-      ENV.prepend "LDFLAGS", "-F/Library/Frameworks"
-    end
+    ENV.cxx11
 
     args = %W[
       --disable-dependency-tracking
@@ -57,29 +38,16 @@ class Gnuplot < Formula
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
       --without-tutorial
+      --disable-wxwidgets
+      --with-qt
+      --without-x
     ]
-
-    args << "--disable-wxwidgets" if build.without? "wxmac"
-    args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
-    args << (build.with?("qt") ? "--with-qt" : "--with-qt=no")
-    args << (build.with?("x11") ? "--with-x" : "--without-x")
 
     system "./prepare" if build.head?
     system "./configure", *args
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    if build.with? "aquaterm"
-      <<~EOS
-        AquaTerm support will only be built into Gnuplot if the standard AquaTerm
-        package from SourceForge has already been installed onto your system.
-        If you subsequently remove AquaTerm, you will need to uninstall and then
-        reinstall Gnuplot.
-      EOS
-    end
   end
 
   test do

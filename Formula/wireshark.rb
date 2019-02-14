@@ -12,10 +12,6 @@ class Wireshark < Formula
     sha256 "b188a3081dcf5bd3b9dbf21d4bfe68d3e4815038a458a4bd4dcf4b14e24784bb" => :sierra
   end
 
-  option "with-qt", "Build the wireshark command with Qt"
-
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "cmake" => :build
   depends_on "c-ares"
   depends_on "glib"
@@ -26,7 +22,6 @@ class Wireshark < Formula
   depends_on "libssh"
   depends_on "lua@5.1"
   depends_on "nghttp2"
-  depends_on "qt" => :optional
 
   def install
     args = std_cmake_args + %W[
@@ -45,26 +40,15 @@ class Wireshark < Formula
       -DENABLE_SMI=ON
       -DBUILD_sshdump=ON
       -DBUILD_ciscodump=ON
+
       -DENABLE_NGHTTP2=ON
+      -DBUILD_wireshark=OFF
+      -DENABLE_APPLICATION_BUNDLE=OFF
+      -DENABLE_QT5=OFF
     ]
 
-    if build.with? "qt"
-      args << "-DBUILD_wireshark=ON"
-      args << "-DENABLE_APPLICATION_BUNDLE=ON"
-      args << "-DENABLE_QT5=ON"
-    else
-      args << "-DBUILD_wireshark=OFF"
-      args << "-DENABLE_APPLICATION_BUNDLE=OFF"
-      args << "-DENABLE_QT5=OFF"
-    end
-
-    system "cmake", *args
+    system "cmake", *args, "."
     system "make", "install"
-
-    if build.with? "qt"
-      prefix.install bin/"Wireshark.app"
-      bin.install_symlink prefix/"Wireshark.app/Contents/MacOS/Wireshark" => "wireshark"
-    end
 
     # Install headers
     (include/"wireshark").install Dir["*.h"]
@@ -81,15 +65,11 @@ class Wireshark < Formula
   def caveats; <<~EOS
     This formula only installs the command-line utilities by default.
 
-    Wireshark.app can be downloaded directly from the website:
-      https://www.wireshark.org/
-
-    Alternatively, install with Homebrew Cask:
+    Install Wireshark.app with Homebrew Cask:
       brew cask install wireshark
 
     If your list of available capture interfaces is empty
     (default macOS behavior), install ChmodBPF:
-
       brew cask install wireshark-chmodbpf
   EOS
   end

@@ -1,28 +1,21 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "http://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.82.13.tar.gz"
-  sha256 "e2721125b650ef995fc66f95766a995844f52aab0cf4261ff7aa998eb60e6f4c"
+  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.82.14.tar.gz"
+  sha256 "eda33f10a369fe81d5a4bc6250ca97d3b707cc45e79be66ccfa410174ba77aef"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
   bottle do
     cellar :any
-    sha256 "244edf71defb57e0153f4fd598600de280a9ddd0797951c573a0ded123a62fb3" => :mojave
-    sha256 "7f4167a2d651ef24554671e0b91c5645f551929cb8922f33e7e40e0861ad9da5" => :high_sierra
-    sha256 "b1d6dc51c759cd666e58e808b022c2a374f5daa6ebadfbc796b19f1d2dccdf36" => :sierra
+    sha256 "3082c131a38cc73d4ed8a5e06d9251bbb23a3b4bbad16da4653b5927f83c256f" => :mojave
+    sha256 "9fc51a3c234fdc91214ddc29ebccc38560304bcae869db8d4fe884a2af5e3f2a" => :high_sierra
+    sha256 "d9957978778bc92cee3693f813b8f03f5a12f33ee6f80912fa0cce759e4f5023" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "ffmpeg"
   depends_on "fluid-synth"
-  depends_on "libpng"
-  depends_on "sdl"
-  depends_on "sdl_net"
-  depends_on "sdl_sound"
-
-  needs :cxx11
 
   def install
     ENV.cxx11
@@ -31,14 +24,7 @@ class DosboxX < Formula
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-sdltest
-      --enable-core-inline
     ]
-
-    # Upstream fix for parallel build issue, remove in next version
-    # https://github.com/joncampbell123/dosbox-x/commit/15aec75c
-    inreplace "vs2015/sdl/build-dosbox.sh",
-              "make -j || exit 1", "make || exit 1"
-
     system "./build-macosx", *args
     system "make", "install"
   end

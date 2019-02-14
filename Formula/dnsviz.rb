@@ -8,17 +8,16 @@ class Dnsviz < Formula
 
   bottle do
     cellar :any
-    sha256 "a8616dd78b6f1c08fd8f22d836223d55c40122de093c9c5e804dc5707365bfb4" => :mojave
-    sha256 "af19e811f005a5fde01489c7364fe8cd9d98467466ccb4d215e2aac9799ce967" => :high_sierra
-    sha256 "b5e94daf80161fc321668a9f63062a0e4b994fec5e020a60e133686dde81fadd" => :sierra
-    sha256 "fabdeb85ef8745e3c1fb3a56efb44b0d583c3833a9c20200da193a0055b335b8" => :el_capitan
+    rebuild 1
+    sha256 "aad7a8e4c5908badd46f5450efbf420c2270ff2455f2d8e440e65ea67064e73e" => :mojave
+    sha256 "f4ac015b79e1329a97501daa011570de89cf10ccfaff6c711336515efc11b406" => :high_sierra
+    sha256 "33cb4ee29142ae28d442e37dc4df4cb0c659a1734ad83777682b909d008151ca" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "graphviz"
   depends_on "openssl"
   depends_on "python@2"
-  depends_on "bind" => :optional
 
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/e4/96/a598fa35f8a625bc39fed50cdbe3fd8a52ef215ef8475c17cabade6656cb/dnspython-1.15.0.zip"

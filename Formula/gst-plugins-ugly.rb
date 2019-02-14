@@ -6,9 +6,10 @@ class GstPluginsUgly < Formula
   revision 2
 
   bottle do
-    sha256 "4296e8e550376d8aaf70dc57ccd942820f6fbff917b4234c87ec58047930e0dd" => :mojave
-    sha256 "e70c3fc52c5d7130fb0e47beec61fb80c01e20a40063b4cd6eecb157bfa00897" => :high_sierra
-    sha256 "eb5d9ae08b635bb727de937b069b92751f4ac4f175bc0ee252871ee486ffba2b" => :sierra
+    rebuild 1
+    sha256 "621b63833b6f427f43d10a23479633c41be26cea3b0c010e16edb8dac6952cdc" => :mojave
+    sha256 "84aa90609c55698ae1e4074c5b55a67d1a8f23f0ee1635bdbd3323a04c129804" => :high_sierra
+    sha256 "6c9a0035be9cfd26a24b6ec167ade6a2c5f7d5c9054dfec4703b1efdd79e669d" => :sierra
   end
 
   head do
@@ -32,44 +33,19 @@ class GstPluginsUgly < Formula
   depends_on "theora"
   depends_on "x264"
 
-  # The set of optional dependencies is based on the intersection of
-  # gst-plugins-ugly-0.10.17/REQUIREMENTS and Homebrew formulae
-  depends_on "a52dec" => :optional
-  depends_on "aalib" => :optional
-  depends_on "cdparanoia" => :optional
-  depends_on "dirac" => :optional
-  depends_on "gtk+" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "libmpeg2" => :optional
-  depends_on "liboil" => :optional
-  depends_on "mad" => :optional
-  depends_on "opencore-amr" => :optional
-  depends_on "two-lame" => :optional
-  # Does not work with libcdio 0.9
-
   def install
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
       --disable-debug
       --disable-dependency-tracking
+      --disable-amrnb
+      --disable-amrwb
     ]
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"
       system "./autogen.sh"
-    end
-
-    if build.with? "opencore-amr"
-      # Fixes build error, missing includes.
-      # https://github.com/Homebrew/homebrew/issues/14078
-      nbcflags = `pkg-config --cflags opencore-amrnb`.chomp
-      wbcflags = `pkg-config --cflags opencore-amrwb`.chomp
-      ENV["AMRNB_CFLAGS"] = nbcflags + "-I#{HOMEBREW_PREFIX}/include/opencore-amrnb"
-      ENV["AMRWB_CFLAGS"] = wbcflags + "-I#{HOMEBREW_PREFIX}/include/opencore-amrwb"
-    else
-      args << "--disable-amrnb" << "--disable-amrwb"
     end
 
     system "./configure", *args

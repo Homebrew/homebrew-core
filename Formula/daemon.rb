@@ -14,12 +14,10 @@ class Daemon < Formula
     sha256 "09a420b59d2e5cbaf3073b2daf81d57d01c733b79a928bb58da6418de7f5bd3a" => :mavericks
   end
 
-  # fixes for mavericks strlcpy/strlcat: https://trac.macports.org/ticket/42845
-  if MacOS.version >= :mavericks
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3323958/daemon/daemon-0.6.4-ignore-strlcpy-strlcat.patch"
-      sha256 "a56e16b0801a13045d388ce7e755b2b4e40288c3731ce0f92ea879d0871782c0"
-    end
+  # fixes for strlcpy/strlcat: https://trac.macports.org/ticket/42845
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3323958/daemon/daemon-0.6.4-ignore-strlcpy-strlcat.patch"
+    sha256 "a56e16b0801a13045d388ce7e755b2b4e40288c3731ce0f92ea879d0871782c0"
   end
 
   def install

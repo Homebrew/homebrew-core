@@ -7,7 +7,7 @@ class Yarn < Formula
 
   bottle :unneeded
 
-  depends_on "node" => :recommended
+  depends_on "node"
 
   conflicts_with "hadoop", :because => "both install `yarn` binaries"
 

@@ -24,8 +24,6 @@ class XmlToolingC < Formula
     sha256 "7802c54076500be500b171fde786258579d60547a3a35b8c5a23d8c88e8f9620"
   end
 
-  needs :cxx11
-
   def install
     ENV.O2 # Os breaks the build
     ENV.cxx11

@@ -14,7 +14,6 @@ class Mdds < Formula
 
   depends_on "autoconf" => :build
   depends_on "boost"
-  needs :cxx11
 
   def install
     # Gets it to work when the CLT is installed

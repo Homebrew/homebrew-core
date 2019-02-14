@@ -29,12 +29,11 @@ class Terraform < Formula
       ENV.delete "AWS_ACCESS_KEY"
       ENV.delete "AWS_SECRET_KEY"
 
-      arch = MacOS.prefer_64_bit? ? "amd64" : "386"
       ENV["XC_OS"] = "darwin"
-      ENV["XC_ARCH"] = arch
+      ENV["XC_ARCH"] = "amd64"
       system "make", "tools", "test", "bin"
 
-      bin.install "pkg/darwin_#{arch}/terraform"
+      bin.install "pkg/darwin_amd64/terraform"
       prefix.install_metafiles
     end
   end

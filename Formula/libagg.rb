@@ -13,7 +13,6 @@ class Libagg < Formula
     sha256 "5b9ab7a9ef2f4075bd55561f0fda99c7203a70020288747ebf90cfc1b2ee626b" => :el_capitan
     sha256 "9d3da78ab9824db755cbfeb9e6596527db1ace71525cb079465b1a9fb1c00417" => :yosemite
     sha256 "9704ec5652775cbab7af51e48eb42b19cb55f7cdb5894e6e1abac3e478581e2a" => :mavericks
-    sha256 "a8519e34820cb112ca057020eda27574bec5fff386fc738d7d867a4296e8b117" => :mountain_lion
   end
 
   depends_on "autoconf" => :build
@@ -53,6 +52,6 @@ index ce25a2e..9a12d35 100644
          const line_profile_aa& profile() const { return *m_profile; }
 -        line_profile_aa& profile() { return *m_profile; }
 +        const line_profile_aa& profile() { return *m_profile; }
- 
+
          //---------------------------------------------------------------------
          int subpixel_width() const { return m_profile->subpixel_width(); }

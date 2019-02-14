@@ -11,18 +11,11 @@ class Gifski < Formula
     sha256 "b93399bf691af7d49c3f84930435c6bc516dc43aeebee1381615b9f032ffad78" => :el_capitan
   end
 
-  option "with-openmp", "Enable OpenMP multithreading"
-
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "gcc" if build.with? "openmp"
-
-  fails_with :clang if build.with? "openmp"
 
   def install
-    args = []
-    args << "--features=openmp" if build.with? "openmp"
-    system "cargo", "install", "--root", prefix, "--path", ".", *args
+    system "cargo", "install", "--root", prefix, "--path", "."
   end
 
   test do

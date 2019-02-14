@@ -8,18 +8,15 @@ class Libav < Formula
 
   bottle do
     cellar :any
-    sha256 "2ba7f645ee21d7cf659e22d1088b5811b0fb94c5352c12f74bdf76e1b28ea4ae" => :mojave
-    sha256 "2ed7f49968fc0dbfd20e2cc176438303ea4440486cb9160719ee8fa582e23a01" => :high_sierra
-    sha256 "97188f142c5d4c358f191697c1d9b306594c7e8e0fa8f528e7cd398d9053fa6a" => :sierra
+    rebuild 1
+    sha256 "7cdb84c6fc90873040d71b19dbe1eb618d0f8dcec9a886500f983b7faaa163d0" => :mojave
+    sha256 "a366d17a48d20315e20dc391357f4936c9f5ec80c3dba94da417b64d8d7e7d0d" => :high_sierra
+    sha256 "7625aeaf88043a02112a90c26a0813fc3e3104aa29862fddb2e52caadf97046b" => :sierra
   end
-
-  option "with-openssl", "Enable SSL support"
-  option "with-sdl", "Enable avplay"
-  option "with-theora", "Enable Theora encoding via libtheora"
 
   depends_on "pkg-config" => :build
   # manpages won't be built without texi2html
-  depends_on "texi2html" => :build if MacOS.version >= :mountain_lion
+  depends_on "texi2html" => :build
   depends_on "yasm" => :build
 
   depends_on "faac"
@@ -29,12 +26,10 @@ class Libav < Formula
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opus"
+  depends_on "sdl"
+  depends_on "theora"
   depends_on "x264"
   depends_on "xvid"
-
-  depends_on "openssl" => :optional
-  depends_on "sdl" => :optional
-  depends_on "theora" => :optional
 
   # https://bugzilla.libav.org/show_bug.cgi?id=1033
   patch do
@@ -76,21 +71,14 @@ class Libav < Formula
       --enable-nonfree
       --enable-vda
       --enable-version3
+      --enable-libtheora
     ]
 
-    args << "--enable-libtheora" if build.with? "theora"
-    args << "--enable-openssl" if build.with? "openssl"
-
     system "./configure", *args
-
     system "make"
 
-    bin.install "avconv", "avprobe"
-    man1.install "doc/avconv.1", "doc/avprobe.1"
-    if build.with? "sdl"
-      bin.install "avplay"
-      man1.install "doc/avplay.1"
-    end
+    bin.install "avconv", "avprobe", "avplay"
+    man1.install "doc/avconv.1", "doc/avprobe.1", "doc/avplay.1"
   end
 
   test do

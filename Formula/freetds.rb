@@ -19,8 +19,6 @@ class Freetds < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-msdblib", "Enable Microsoft behavior in the DB-Library API where it diverges from Sybase's"
-
   depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "unixodbc"
@@ -37,10 +35,6 @@ class Freetds < Formula
       --enable-krb5
       --enable-odbc-wide
     ]
-
-    if build.with? "msdblib"
-      args << "--enable-msdblib"
-    end
 
     if build.head?
       system "./autogen.sh", *args

@@ -20,10 +20,7 @@ class Ngspice < Formula
     depends_on "libtool" => :build
   end
 
-  deprecated_option "with-x" => "with-x11"
-
   depends_on "readline"
-  depends_on :x11 => :optional
 
   def install
     system "./autogen.sh" if build.head?
@@ -33,12 +30,8 @@ class Ngspice < Formula
       --prefix=#{prefix}
       --with-readline=yes
       --enable-xspice
+      --without-x
     ]
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--without-x"
-    end
 
     system "./configure", *args
     system "make", "install"

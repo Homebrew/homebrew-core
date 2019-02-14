@@ -5,11 +5,11 @@ class GraphTool < Formula
   homepage "https://graph-tool.skewed.de/"
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.27.tar.bz2"
   sha256 "4740c69720dfbebf8fb3e77057b3e6a257ccf0432cdaf7345f873247390e4313"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 "7345b19af16c2bd6e75e2c4bc1a3b5d5f6edc3809c4500ab339d6f42c3bb6f73" => :mojave
-    sha256 "06bdf17e8bc4bcca3a184f4f857ef2f75808b170e416aa4365a5f045ad731534" => :sierra
+    sha256 "fd6dec6e0fe1b4992600c37dfc2c3ef01faf7a5ba69a877bd6d442a14f4da8ce" => :mojave
+    sha256 "a7e35d2fc82540ee670f601079de6eeb52f95f16386eb67dff725d07f166dac6" => :sierra
   end
 
   depends_on "pkg-config" => :build

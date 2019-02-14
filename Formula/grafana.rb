@@ -26,10 +26,7 @@ class Grafana < Formula
 
       system "yarn", "install", "--ignore-engines"
 
-      args = ["build"]
-      # Avoid PhantomJS error "unrecognized selector sent to instance"
-      args << "--force" unless build.bottle?
-      system "node_modules/grunt-cli/bin/grunt", *args
+      system "node_modules/grunt-cli/bin/grunt", "build"
 
       bin.install "bin/darwin-amd64/grafana-cli"
       bin.install "bin/darwin-amd64/grafana-server"

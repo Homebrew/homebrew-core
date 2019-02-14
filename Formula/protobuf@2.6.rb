@@ -54,7 +54,7 @@ class ProtobufAT26 < Formula
            "--prefix=#{prefix}",
            "--with-zlib"
     system "make"
-    system "make", "check" if build.bottle?
+    system "make", "check"
     system "make", "install"
 
     # Install editor support and examples
@@ -80,12 +80,6 @@ class ProtobufAT26 < Formula
     site_packages = "lib/python2.7/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
-  end
-
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-  EOS
   end
 
   test do

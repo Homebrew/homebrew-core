@@ -17,7 +17,6 @@ class Avian < Formula
   end
 
   depends_on :java => "1.8"
-  depends_on :macos => :lion
 
   def install
     system "make", "use-clang=true"

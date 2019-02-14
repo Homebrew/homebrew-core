@@ -26,7 +26,7 @@ class GnuSmalltalk < Formula
 
   def install
     # Fix build failure "Symbol not found: _clock_gettime"
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       ENV["ac_cv_search_clock_gettime"] = "no"
     end
 

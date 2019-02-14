@@ -22,8 +22,6 @@ class YamlCpp < Formula
     sha256 "52da989f0dcaca68ae9ee6334155954639506e16cbe3b9bd007dace9e171e4bd"
   end
 
-  needs :cxx11
-
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"

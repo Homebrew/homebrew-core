@@ -27,12 +27,6 @@ class Pulseaudio < Formula
   depends_on "libtool"
   depends_on "openssl"
   depends_on "speexdsp"
-  depends_on "glib" => :optional
-
-  fails_with :clang do
-    build 421
-    cause "error: thread-local storage is unsupported for the current target"
-  end
 
   def install
     args = %W[

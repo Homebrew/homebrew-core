@@ -1,7 +1,7 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/mirrors/mirrors.cgi?action=download&filename=pulsar/pulsar-2.2.1/apache-pulsar-2.2.1-src.tar.gz"
+  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.2.1/apache-pulsar-2.2.1-src.tar.gz"
   sha256 "3a365368f0d7beba091ba3a6d0f703dcc77545c8b454e5e33b72c1a29905232e"
 
   bottle do

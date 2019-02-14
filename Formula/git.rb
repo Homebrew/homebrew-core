@@ -6,10 +6,10 @@ class Git < Formula
   head "https://github.com/git/git.git", :shallow => false
 
   bottle do
-    rebuild 2
-    sha256 "c41bba2442a795c6d94b24565865811826becd7e3dba0226fe0cab0990ee4bef" => :mojave
-    sha256 "ecf0d2a4663634c7d29c068040a4ded253d8b5e042a2eb4db005c16d221d8275" => :high_sierra
-    sha256 "04b5b0d7bed4a7d2a952f7afbd7df4d93805dd9957047d31344c8bb12d614cc7" => :sierra
+    rebuild 3
+    sha256 "97c33eddaf0610cbe3e9f51efe2fc5ed063bfae4fb149f6e334384788dacbfc5" => :mojave
+    sha256 "fe41138cd986cf1abc2c5253d49eda7a4a6a7a0448c79c882e9eaab4efd7a732" => :high_sierra
+    sha256 "0214ea4c216830d32cb0756a197661f050bcdb332dcf9a809cd0e883f0d99c6b" => :sierra
   end
 
   depends_on "gettext"
@@ -18,15 +18,6 @@ class Git < Formula
   if MacOS.version < :yosemite
     depends_on "openssl"
     depends_on "curl"
-  else
-    deprecated_option "with-brewed-openssl" => "with-openssl"
-    deprecated_option "with-brewed-curl" => "with-curl"
-
-    option "with-openssl", "Build with Homebrew's OpenSSL instead of using CommonCrypto"
-    option "with-curl", "Use Homebrew's version of cURL library"
-
-    depends_on "openssl" => :optional
-    depends_on "curl" => :optional
   end
 
   resource "html" do
@@ -58,15 +49,13 @@ class Git < Formula
 
     perl_version = Utils.popen_read("perl --version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
-    if MacOS.version >= :mavericks
-      ENV["PERLLIB_EXTRA"] = %W[
-        #{MacOS.active_developer_dir}
-        /Library/Developer/CommandLineTools
-        /Applications/Xcode.app/Contents/Developer
-      ].uniq.map do |p|
-        "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
-      end.join(":")
-    end
+    ENV["PERLLIB_EXTRA"] = %W[
+      #{MacOS.active_developer_dir}
+      /Library/Developer/CommandLineTools
+      /Applications/Xcode.app/Contents/Developer
+    ].uniq.map do |p|
+      "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
+    end.join(":")
 
     unless quiet_system ENV["PERL_PATH"], "-e", "use ExtUtils::MakeMaker"
       ENV["NO_PERL_MAKEMAKER"] = "1"
@@ -80,7 +69,7 @@ class Git < Formula
       LDFLAGS=#{ENV.ldflags}
     ]
 
-    if build.with?("openssl") || MacOS.version < :yosemite
+    if MacOS.version < :yosemite
       openssl_prefix = Formula["openssl"].opt_prefix
       args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     else
@@ -137,9 +126,8 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # To avoid this feature hooking into the system OpenSSL, remove it.
-    # If you need it, install git --with-openssl.
-    if MacOS.version >= :yosemite && build.without?("openssl")
+    # To avoid this feature hooking into the system OpenSSL, remove it
+    if MacOS.version >= :yosemite
       rm "#{libexec}/git-core/git-imap-send"
     end
 

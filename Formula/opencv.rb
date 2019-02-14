@@ -28,8 +28,6 @@ class Opencv < Formula
     sha256 "0d8acbad4b7074cfaafd906a7419c23629179d5e98894714402090b192ef8237"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
@@ -92,9 +90,9 @@ class Opencv < Formula
       args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX"
     end
 
-    if build.bottle?
-      args += %w[-DENABLE_SSE41=OFF -DENABLE_SSE42=OFF -DENABLE_AVX=OFF
-                 -DENABLE_AVX2=OFF]
+    args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
+    unless MacOS.version.requires_sse42?
+      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
     end
 
     mkdir "build" do

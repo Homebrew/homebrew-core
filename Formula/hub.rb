@@ -1,35 +1,23 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.7.0.tar.gz"
-  sha256 "58d131c32404c963b06bcc067bda14317bc22be26187026a91960aecda324bf4"
+  url "https://github.com/github/hub/archive/v2.9.0.tar.gz"
+  sha256 "48aa49cd6eb14a4ea243019323bb0b8b193fc8c3fbdcc3597f87cca11ae0394c"
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fb550899ba3aa031b74e3bb98fd1ed6e05592bc6af107923e4de9a2904d6f9bf" => :mojave
-    sha256 "3e1ae8c16f7155704ec84b948e3ea3ec77eda9cb8042829e991bcc1397f7bed2" => :high_sierra
-    sha256 "cfd054beb1f03e0ead7f0bf5f6f2d3cc583a0c773f664b07f443f2575ac4dbb9" => :sierra
+    sha256 "7d9c176f0d0403de37e8163bcb70b124a33087d073a150f74cdb06f14d7a989b" => :mojave
+    sha256 "bd033644c86186e01c9fe00f840dd01d5258c4ffca3522fb6115052f4022879a" => :high_sierra
+    sha256 "f187d6811693f665d747c14f9aeaecab31d7243691c4070640eaa1ea58f6ef98" => :sierra
   end
 
   depends_on "go" => :build
-
-  # System Ruby uses old TLS versions no longer supported by RubyGems.
-  depends_on "ruby" => :build if MacOS.version <= :sierra
 
   def install
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/github/hub").install buildpath.children
     cd "src/github.com/github/hub" do
-      begin
-        deleted = ENV.delete "SDKROOT"
-        ENV["GEM_HOME"] = buildpath/"gem_home"
-        system "gem", "install", "bundler"
-        ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-        system "make", "man-pages"
-      ensure
-        ENV["SDKROOT"] = deleted
-      end
       system "make", "install", "prefix=#{prefix}"
 
       prefix.install_metafiles

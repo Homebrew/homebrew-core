@@ -1,20 +1,19 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.22.0.tar.gz"
-  sha256 "6547d7a560482c5eda9106ae19267bc8afbb6af48fed3bebf423ade28103e173"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.23.0.tar.gz"
+  sha256 "19e8573b44b94ce83bd5705569934049cb1dc39db11449abcb9e4b36afe5a279"
 
   bottle do
-    sha256 "013c0471942d4f7220403eb98eb25a7a10d45f0ee7d69a5eb5068eae3032f921" => :mojave
-    sha256 "481b33ba39601164f274efbe6b3304f158a2add4d55aa50686c784dce4281f57" => :high_sierra
-    sha256 "c7ccfb8466974bb2b5d5497bdfa68029088cca29212de96cd90569d08d396801" => :sierra
+    cellar :any
+    sha256 "6d99a7181e72a1f84911f6fb1b61bd9dd91232c7bb68935d2294ef7f55d8c93e" => :mojave
+    sha256 "a543f853c751f38696bdf8ad099ed72a08b306da9e4467126f7316966e542333" => :high_sierra
+    sha256 "f28e7f55d8594e8e27ebad5455243b0a2cb3252547d07bfd96e120f5566ebf4c" => :sierra
   end
 
   depends_on "boost"
   depends_on "miniupnpc"
   depends_on "openssl@1.1"
-
-  needs :cxx11
 
   def install
     system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes", "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"

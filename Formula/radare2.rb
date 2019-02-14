@@ -36,19 +36,10 @@ class Radare2 < Formula
     end
   end
 
-  option "with-code-signing", "Codesign executables to provide unprivileged process attachment"
-
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "valabind" => :build
-
-  if build.with? "code-signing"
-    depends_on :codesign => [{
-      :identity => "org.radare.radare2",
-      :url      => "https://github.com/radare/radare2/blob/master/doc/macos.md",
-    }]
-  end
 
   depends_on "gmp"
   depends_on "jansson"
@@ -62,12 +53,6 @@ class Radare2 < Formula
     # Build Radare2 before bindings, otherwise compile = nope.
     system "./configure", "--prefix=#{prefix}", "--with-openssl"
     system "make", "CS_PATCHES=0"
-    if build.with? "code-signing"
-      # Brew changes the HOME directory which breaks codesign
-      home = `eval printf "~$USER"`
-      system "make", "HOME=#{home}", "-C", "binr/radare2", "macossign"
-      system "make", "HOME=#{home}", "-C", "binr/radare2", "macos-sign-libs"
-    end
     ENV.deparallelize { system "make", "install" }
 
     # remove leftover symlinks

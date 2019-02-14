@@ -1,15 +1,15 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.5.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.5.tar.xz"
-  sha256 "073eced3acef49a3883e69ffd5f0f0b5f46e2760ad86eddc6c0866df4e7abb35"
+  url "https://gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.6.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.6.tar.xz"
+  sha256 "bb9acab8af2ac430edf45faaaa4ed2c51f86e57cb57689be6701aceef4732ca7"
 
   bottle do
     cellar :any
-    sha256 "b294c2d78f9eff321e6469d77e365bdb03c1611e04678879ec4337584432cb0a" => :mojave
-    sha256 "b4d6c287ca7512397d2f06c7ad5fed7868b74fb8bd32a65bc2e87d3fea8586e4" => :high_sierra
-    sha256 "e7e08cf6a0cb9a3ccb14442eb47e63de97c55aa36971c05707a0c96a38bb6b70" => :sierra
+    sha256 "7507da89370f72be8fb22d1932524295231904a2a180ff0bfc4a14d3bd496e31" => :mojave
+    sha256 "3bdf1fbe152231ba3a9cd19445c242cfb14140fa942a1df03af5c69754e09225" => :high_sierra
+    sha256 "6dec32c6b29e69d051edd1220bc040cb01911cd20220687dd09bf6e76317b42a" => :sierra
   end
 
   depends_on "pkg-config" => :build

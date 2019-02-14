@@ -15,8 +15,6 @@ class Ompl < Formula
   depends_on "boost"
   depends_on "eigen"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "cmake", ".", *std_cmake_args

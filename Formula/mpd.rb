@@ -1,15 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.3.tar.xz"
-  sha256 "6cf60e644870c6063a008d833a6c876272b7679a400b83012ed209c15ce06e2a"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.4.tar.xz"
+  sha256 "247112eabf1b818a4052db7f0f5917ab00831ebc60a1ec3bf1154da4dc16a5c7"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    sha256 "0e8b637524e77052e1b8b35ded89033cfa5ea351509474804296506c32d2cbd3" => :mojave
-    sha256 "ec55a408fc1f1c8a90df41488c782eb77e53db92b4766632e008905f12e3decc" => :high_sierra
-    sha256 "9fe5ee4e9126630e02600df8e1a4eb6cebef72bda40ba5cacf0cb452b19bc434" => :sierra
+    cellar :any
+    sha256 "e1c8df6ad80b1b673376e47b28038a290f76fd67b475fd5695fdc41f23c64f36" => :mojave
+    sha256 "919372d5dfc05f0ea9394cc377925b069b95c36d090fffbfa90a3406738e4a0a" => :high_sierra
+    sha256 "224b1f066773cac8b135b7fb6f079b6f851b731b300d8162be336cd3213d4153" => :sierra
   end
 
   depends_on "boost" => :build
@@ -27,13 +27,12 @@ class Mpd < Formula
   depends_on "libao"
   depends_on "libid3tag"
   depends_on "libmpdclient"
+  depends_on "libnfs"
   depends_on "libsamplerate"
   depends_on "libupnp"
   depends_on "libvorbis"
   depends_on "opus"
   depends_on "sqlite"
-
-  needs :cxx11
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -53,6 +52,7 @@ class Mpd < Formula
       -Dexpat=enabled
       -Dffmpeg=enabled
       -Dfluidsynth=enabled
+      -Dnfs=enabled
       -Dupnp=enabled
       -Dvorbisenc=enabled
     ]

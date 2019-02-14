@@ -1,15 +1,13 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/2.3.2/gdal-2.3.2.tar.xz"
-  sha256 "3f6d78fe8807d1d6afb7bed27394f19467840a82bc36d65e66316fa0aa9d32a4"
-  revision 1
+  url "https://download.osgeo.org/gdal/2.4.0/gdal-2.4.0.tar.xz"
+  sha256 "c3791dcc6d37e59f6efa86e2df2a55a4485237b0a48e330ae08949f0cdf00f27"
 
   bottle do
-    rebuild 1
-    sha256 "a07e5c0ff0a9d2d75490269029feabab919018c7cf2c527eddf834f36f31fcf4" => :mojave
-    sha256 "e1a6fb897ede3776f168552728ec297e9f9b8bf4170586e45e0cddddc79d3698" => :high_sierra
-    sha256 "564db405f18507cc51f13e16e8079400285dc9db0a63e70d57aee371a95b7e27" => :sierra
+    sha256 "bf8806097e67cac0d23b861e29b2da167414aec7790384fb561c90bbcbb8d9e9" => :mojave
+    sha256 "d2767e30e1bd7fc96b976a269517850fc376571d6e2a93fe8dccbb72ecd99cd8" => :high_sierra
+    sha256 "8f9ad2a03d342c366b03107e250da3610e2bc97c50613acf6fbdc355fc942041" => :sierra
   end
 
   head do
@@ -17,44 +15,37 @@ class Gdal < Formula
     depends_on "doxygen" => :build
   end
 
-  option "with-complete", "Compile support for more drivers."
-
-  deprecated_option "complete" => "with-complete"
-
+  depends_on "cfitsio"
+  depends_on "epsilon"
   depends_on "expat"
   depends_on "freexl"
   depends_on "geos"
   depends_on "giflib"
+  depends_on "hdf5"
+  depends_on "jasper"
   depends_on "jpeg"
   depends_on "json-c"
+  depends_on "libdap"
   depends_on "libgeotiff"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libspatialite"
   depends_on "libtiff"
   depends_on "libxml2"
+  depends_on "netcdf"
   depends_on "numpy"
   depends_on "pcre"
+  depends_on "podofo"
+  depends_on "poppler"
   depends_on "proj"
   depends_on "python"
   depends_on "python@2"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
+  depends_on "unixodbc" # macOS version is not complete enough
+  depends_on "webp"
+  depends_on "xerces-c"
+  depends_on "xz" # get liblzma compression algorithm library from XZutils
   depends_on "zstd"
-
-  if build.with? "complete"
-    depends_on "cfitsio"
-    depends_on "epsilon"
-    depends_on "hdf5"
-    depends_on "jasper"
-    depends_on "libdap"
-    depends_on "netcdf"
-    depends_on "podofo"
-    depends_on "poppler"
-    depends_on "unixodbc" # macOS version is not complete enough
-    depends_on "webp"
-    depends_on "xerces-c"
-    depends_on "xz" # get liblzma compression algorithm library from XZutils
-  end
 
   def install
     args = [
@@ -88,8 +79,19 @@ class Gdal < Formula
       "--with-png=#{Formula["libpng"].opt_prefix}",
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
       "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-      "--with-static-proj4=#{Formula["proj"].opt_prefix}",
+      "--with-proj=#{Formula["proj"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
+      "--with-liblzma=yes",
+      "--with-cfitsio=/usr/local",
+      "--with-hdf5=/usr/local",
+      "--with-netcdf=/usr/local",
+      "--with-jasper=/usr/local",
+      "--with-xerces=/usr/local",
+      "--with-odbc=/usr/local",
+      "--with-dods-root=/usr/local",
+      "--with-epsilon=/usr/local",
+      "--with-webp=/usr/local",
+      "--with-podofo=/usr/local",
 
       # Explicitly disable some features
       "--with-armadillo=no",
@@ -102,25 +104,31 @@ class Gdal < Formula
       "--without-php",
       "--without-python",
       "--without-ruby",
+
+      # Unsupported backends are either proprietary or have no compatible version
+      # in Homebrew. Podofo is disabled because Poppler provides the same
+      # functionality and then some.
+      "--without-gta",
+      "--without-ogdi",
+      "--without-fme",
+      "--without-hdf4",
+      "--without-openjpeg",
+      "--without-fgdb",
+      "--without-ecw",
+      "--without-kakadu",
+      "--without-mrsid",
+      "--without-jp2mrsid",
+      "--without-mrsid_lidar",
+      "--without-msg",
+      "--without-oci",
+      "--without-ingres",
+      "--without-dwgdirect",
+      "--without-idb",
+      "--without-sde",
+      "--without-podofo",
+      "--without-rasdaman",
+      "--without-sosi",
     ]
-
-    # Optional Homebrew packages supporting additional formats
-    supported_backends = %w[cfitsio hdf5 netcdf jasper xerces odbc
-                            dods-root epsilon webp podofo]
-    if build.with? "complete"
-      args << "--with-liblzma=yes"
-      args.concat supported_backends.map { |b| "--with-" + b + "=" + HOMEBREW_PREFIX }
-    else
-      args.concat supported_backends.map { |b| "--without-" + b }
-    end
-
-    # Unsupported backends are either proprietary or have no compatible version
-    # in Homebrew. Podofo is disabled because Poppler provides the same
-    # functionality and then some.
-    unsupported_backends = %w[gta ogdi fme hdf4 openjpeg fgdb ecw kakadu mrsid
-                              jp2mrsid mrsid_lidar msg oci ingres dwgdirect
-                              idb sde podofo rasdaman sosi]
-    args.concat unsupported_backends.map { |b| "--without-" + b }
 
     # Work around "error: no member named 'signbit' in the global namespace"
     if DevelopmentTools.clang_build_version >= 900

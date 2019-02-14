@@ -49,6 +49,7 @@ class OpencvAT2 < Formula
       -DWITH_TBB=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
+      -DENABLE_SSSE3=ON
     ]
 
     py_prefix = `python-config --prefix`.chomp
@@ -60,11 +61,8 @@ class OpencvAT2 < Formula
     # https://github.com/Homebrew/homebrew-science/issues/2302
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-    if ENV.compiler == :clang && !build.bottle?
-      args << "-DENABLE_SSSE3=ON" if Hardware::CPU.ssse3?
-      args << "-DENABLE_SSE41=ON" if Hardware::CPU.sse4?
-      args << "-DENABLE_SSE42=ON" if Hardware::CPU.sse4_2?
-      args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
+    if MacOS.version.requires_sse42?
+      args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON"
     end
 
     mkdir "build" do

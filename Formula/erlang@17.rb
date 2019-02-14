@@ -17,7 +17,7 @@ class ErlangAT17 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "unixodbc" if MacOS.version >= :mavericks
+  depends_on "unixodbc"
   depends_on "wxmac"
 
   resource "man" do

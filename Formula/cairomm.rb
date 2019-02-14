@@ -18,8 +18,6 @@ class Cairomm < Formula
   depends_on "libpng"
   depends_on "libsigc++"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",

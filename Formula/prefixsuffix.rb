@@ -16,8 +16,6 @@ class Prefixsuffix < Formula
   depends_on "pkg-config" => :build
   depends_on "gtkmm3"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",

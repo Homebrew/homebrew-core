@@ -17,7 +17,7 @@ class Libcddb < Formula
   depends_on "libcdio"
 
   def install
-    if MacOS.version == :yosemite && MacOS::Xcode.installed? && MacOS::Xcode.version >= "7.0"
+    if MacOS.version == :yosemite && MacOS::Xcode.version >= "7.0"
       ENV.delete("SDKROOT")
     end
 

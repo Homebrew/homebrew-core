@@ -1,14 +1,24 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostpdl-9.26.tar.xz"
-  sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
+  revision 1
+
+  stable do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostpdl-9.26.tar.xz"
+    sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
+
+    # CVE-2019-6116 https://bugs.chromium.org/p/project-zero/issues/detail?id=1729
+    patch do
+      url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/0001-Bug700317-Address-.force-operators-exposure.tgz"
+      sha256 "54ab7d8f8007259c27fd4f11fd12f5ef0dbf6fe570da30b9335edec7deb3fa25"
+      apply "0001-Bug700317-Address-.force-operators-exposure.patch"
+    end
+  end
 
   bottle do
-    rebuild 1
-    sha256 "eb150bdd252ba213f1c2d21d142687629fda59ad09e6f0f55cfa5c720ac70916" => :mojave
-    sha256 "702cfc3cdb53866a180349d5dccac9784560d2faf534e486cac88a0f1cab6b94" => :high_sierra
-    sha256 "a58d63fb626806dcc039553e734bc0ade6571c8ce913c100fcee81775b0f9d6e" => :sierra
+    sha256 "746bbd395ce189a451c237893042f06737fa0d5fc19ba4ea631722d7ac00aa37" => :mojave
+    sha256 "6300074457a9e86e463aabeea75e95ff22ca15c94e7796a9520f8efbf125b1db" => :high_sierra
+    sha256 "319173da1daa8d383d7eb6922d9a131df8d407ea7ca239d03daa2054bf7f245b" => :sierra
   end
 
   head do

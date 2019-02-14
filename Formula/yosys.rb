@@ -4,6 +4,7 @@ class Yosys < Formula
   url "https://github.com/cliffordwolf/yosys/archive/yosys-0.8.tar.gz"
   sha256 "07760fe732003585b26d97f9e02bcddf242ff7fc33dbd415446ac7c70e85c66f"
   revision 1
+  head "https://github.com/cliffordwolf/yosys.git"
 
   bottle do
     sha256 "e856f06c564a5689254e50572f09d0326c7273221060cce6649b3383a9c3daa2" => :mojave

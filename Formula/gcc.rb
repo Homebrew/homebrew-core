@@ -53,9 +53,6 @@ class Gcc < Formula
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
 
-    # D will be included in GCC 9
-    languages << "d" if build.head?
-
     osmajor = `uname -r`.chomp
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
@@ -96,15 +93,10 @@ class Gcc < Formula
 
       system "../configure", *args
 
-      make_args = []
       # Use -headerpad_max_install_names in the build,
       # otherwise updated load commands won't fit in the Mach-O header.
       # This is needed because `gcc` avoids the superenv shim.
-      if build.bottle?
-        make_args << "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
-      end
-
-      system "make", *make_args
+      system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
       system "make", "install"
 
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"

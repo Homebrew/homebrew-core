@@ -1,21 +1,24 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
   homepage "https://www.mongodb.com/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.5.tar.gz"
-  sha256 "d967098fc91d105cdb0f400c8b837e5c2795c3638d7720392bc47afb1efe1c10"
+  # do not upgrade to versions >4.0.3 as they are under the SSPL which is not
+  # an open-source license.
+  url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.3.tar.gz"
+  sha256 "fbbe840e62376fe850775e98eb10fdf40594a023ecf308abec6dcec44d2bce0c"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "818967509c594d1214a822115db6e2ff00a06772d5aee7296603e51526f6bbd1" => :mojave
-    sha256 "3f2a93e91ce14ce7dd7699cb486466c37de47b6a3066c00b9e913629ad419ae7" => :high_sierra
-    sha256 "67c32659f6ac1fb5cc7e79de8a95a34a946e115a0bf7354b1e0d15edd0fd125c" => :sierra
+    cellar :any
+    sha256 "ab08fc6748bc37d0e2ec209126db3236bd80a2ae4edee2f6fc34d96481fe34c7" => :mojave
+    sha256 "482cafb558d39fd6cae4d5d1abe07c7329a94b961fca00dc3ae71dc3be34deb9" => :high_sierra
+    sha256 "0b98be90831544f051d8244c253f61dd98a5d6f421663c3353b34feef562eae7" => :sierra
   end
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build]
-  depends_on :macos => :mountain_lion
+
   depends_on "openssl"
   depends_on "python@2"
 
@@ -34,11 +37,7 @@ class Mongodb < Formula
     sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
-  needs :cxx11
-
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     ENV.libcxx
 
     ["Cheetah", "PyYAML", "typing"].each do |r|
@@ -52,15 +51,18 @@ class Mongodb < Formula
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
-
-    cd "src/mongo/gotools/src/github.com/mongodb/mongo-tools" do
+    cd "src/mongo/gotools" do
+      inreplace "build.sh" do |s|
+        s.gsub! "$(git describe)", version.to_s
+        s.gsub! "$(git rev-parse HEAD)", "homebrew"
+      end
       ENV["CPATH"] = Formula["openssl"].opt_include
       ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
       ENV["GOROOT"] = Formula["go"].opt_libexec
       system "./build.sh", "ssl"
     end
 
-    (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/src/github.com/mongodb/mongo-tools/bin/*"]
+    (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
 
     args = %W[
       --prefix=#{prefix}

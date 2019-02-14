@@ -1,26 +1,15 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  revision 1
+  url "https://github.com/mesonbuild/meson/releases/download/0.49.2/meson-0.49.2.tar.gz"
+  sha256 "ef9f14326ec1e30d3ba1a26df0f92826ede5a79255ad723af78a2691c37109fd"
   head "https://github.com/mesonbuild/meson.git"
-
-  stable do
-    url "https://github.com/mesonbuild/meson/releases/download/0.49.0/meson-0.49.0.tar.gz"
-    sha256 "fb0395c4ac208eab381cd1a20571584bdbba176eb562a7efa9cb17cace0e1551"
-
-    # Fix issues with Qt, remove in 0.49.1
-    # https://github.com/mesonbuild/meson/pull/4652
-    patch do
-      url "https://github.com/mesonbuild/meson/commit/c1e416ff.patch?full_index=1"
-      sha256 "3be708cc65d2b6e54d01e64031c83b06abad2eca1c658b97b2230d1aa7d1062b"
-    end
-  end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c8015e3f47873ed46e930e3819a059b7b1624951bae2fcc0ba58de05d25966fe" => :mojave
-    sha256 "602c437f746f1eab0705836647d2cb6d09d004743945b92db69f87a52c50caac" => :high_sierra
-    sha256 "602c437f746f1eab0705836647d2cb6d09d004743945b92db69f87a52c50caac" => :sierra
+    sha256 "c88c187b083768e2be90f86415706f7d7d9f18ad517b08dfbf7263c2df2e9fe0" => :mojave
+    sha256 "c88c187b083768e2be90f86415706f7d7d9f18ad517b08dfbf7263c2df2e9fe0" => :high_sierra
+    sha256 "2b6cc4e4a70bb1a048fd5fb742ba429222ef4c0292b5978fac2b8d0ff38e3f4e" => :sierra
   end
 
   depends_on "ninja"

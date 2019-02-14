@@ -8,9 +8,10 @@ class CeresSolver < Formula
 
   bottle do
     cellar :any
-    sha256 "184378b425aa3279412a018696a3048cc238cfad865a00890cd89f59956bbdd8" => :mojave
-    sha256 "1b9002dd288c3022ebf285032499019f4eb1a72bbc6b89814e5cdb08ad7ef4c3" => :high_sierra
-    sha256 "0c273ca28ec78baed86d81b890bbc3fba76af2bb5c5fdbc9e1d97a490f6a4d40" => :sierra
+    rebuild 1
+    sha256 "22d9bd11518a6b65a17b67938d7b50620627a688ccdd4e5f7d6b8d1fd1e4b6b1" => :mojave
+    sha256 "a52c961c30acd20982a89b13ee2d0d7a03950a559deba9393eed13eaaefdf2d3" => :high_sierra
+    sha256 "726c9034dca2514b2bce5d5545c028782b0c535c822ae376fb03a26c38820a8d" => :sierra
   end
 
   depends_on "cmake"

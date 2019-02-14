@@ -25,17 +25,11 @@ class ProtobufAT25 < Formula
                           "--prefix=#{prefix}",
                           "--with-zlib"
     system "make"
-    system "make", "check" if build.bottle?
+    system "make", "check"
     system "make", "install"
 
     # Install editor support and examples
     doc.install "editors", "examples"
-  end
-
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-  EOS
   end
 
   test do

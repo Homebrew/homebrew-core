@@ -6,9 +6,10 @@ class Lldpd < Formula
   revision 1
 
   bottle do
-    sha256 "a5c99570bc5b5ec7e454348418e98e44e2e8a3d1749273c9874ec5089f75a33b" => :mojave
-    sha256 "07c52379bfa4f6aff982127f86c9350126bac9b1da7dadd41a718ac6f76404d9" => :high_sierra
-    sha256 "99a86ccaadefd3b90434cabc2f94a5ec1978e70db4d1f548e98566146db600ea" => :sierra
+    rebuild 1
+    sha256 "dcff67a2e7aa697e4f97687d4d7ac77368c016440f024546fa7463fbd761217b" => :mojave
+    sha256 "11bd5a892abee1e927dae693a8d2fca41a3b9eb0ab0ceb4704f0deb8176b769a" => :high_sierra
+    sha256 "fe49dbc4543693c4c3745b342f8874a3a4a63f562383c80cb5cacf30a57ee037" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -44,8 +45,6 @@ class Lldpd < Formula
   plist_options :startup => true
 
   def plist
-    additional_args = ""
-    additional_args += "<string>-x</string>" if build.with? "snmp"
     <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -56,7 +55,6 @@ class Lldpd < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_sbin}/lldpd</string>
-          #{additional_args}
         </array>
         <key>RunAtLoad</key><true/>
         <key>KeepAlive</key><true/>

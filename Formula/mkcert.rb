@@ -1,14 +1,14 @@
 class Mkcert < Formula
   desc "Simple tool to make locally trusted development certificates"
   homepage "https://github.com/FiloSottile/mkcert"
-  url "https://github.com/FiloSottile/mkcert/archive/v1.2.0.tar.gz"
-  sha256 "5889775924122e196235ced42434c8c58d101188b725154a3424d1c8a4d10d14"
+  url "https://github.com/FiloSottile/mkcert/archive/v1.3.0.tar.gz"
+  sha256 "2ac56e023a6f5a7d4bf949897338c333da0ce551cd45a50c01054987dd7e257b"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2e14996949666a8c815fc940fdb95541fa84550679703441354f4a9571171ab6" => :mojave
-    sha256 "0ce37a72789919e61bf9ab86a39008a9e4bf44e06e57ec53068276e61689f19b" => :high_sierra
-    sha256 "08d3fd46f1fd1610c41be55a7d9582e6d58e9e99e3fff257854072cb97022c1f" => :sierra
+    sha256 "a75af73ec6914b3a57a9f9e63a1b20af3cfe9fd6129da87e29adbf76d9efeb6a" => :mojave
+    sha256 "54ef43d3e7846cce0fa5dc70b54236a29847f4b400216dec9f383d01e583bdd0" => :high_sierra
+    sha256 "951c4300cad59315176e100cd347125d18dbeef2100b2c884a1b348bfdd3990a" => :sierra
   end
 
   depends_on "go" => :build

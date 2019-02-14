@@ -15,7 +15,7 @@ class Pigz < Formula
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _deflatePending
     # Reported 8 Dec 2016 to madler at alumni.caltech.edu
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       inreplace "pigz.c", "ZLIB_VERNUM >= 0x1260", "ZLIB_VERNUM >= 0x9999"
     end
 

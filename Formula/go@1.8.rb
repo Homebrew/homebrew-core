@@ -13,8 +13,6 @@ class GoAT18 < Formula
 
   keg_only :versioned_formula
 
-  depends_on :macos => :mountain_lion
-
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go1.8"
@@ -60,16 +58,6 @@ class GoAT18 < Formula
       (libexec/"bin").install "godoc"
     end
     bin.install_symlink libexec/"bin/godoc"
-  end
-
-  def caveats; <<~EOS
-    A valid GOPATH is required to use the `go get` command.
-    If $GOPATH is not specified, $HOME/go will be used by default:
-      https://golang.org/doc/code.html#GOPATH
-
-    You may wish to add the GOROOT-based install location to your PATH:
-      export PATH=$PATH:#{opt_libexec}/bin
-  EOS
   end
 
   test do

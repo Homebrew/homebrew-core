@@ -14,8 +14,6 @@ class Botan < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

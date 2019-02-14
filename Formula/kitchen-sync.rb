@@ -16,8 +16,6 @@ class KitchenSync < Formula
   depends_on "libpq"
   depends_on "mysql-client"
 
-  needs :cxx14
-
   def install
     system "cmake", ".",
                     "-DMySQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",

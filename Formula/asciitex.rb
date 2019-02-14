@@ -12,7 +12,6 @@ class Asciitex < Formula
     sha256 "0ae267d7ffcf17769da97275af047dc2a4ba9e5086acdb53dd11ca41f3d40ddb" => :el_capitan
     sha256 "e9eadc960e449db67f305c3e1cc8d4f025288967bb8b6a37f5ba4bf5ad58493d" => :yosemite
     sha256 "31518a63d9b06f8e47ff57c5d6d22ca838abc2c1366d59db2bb8967971134d52" => :mavericks
-    sha256 "cfcef4a17d2194a111da39891f06694d2056082915858d3cf938d3659b2d1a64" => :mountain_lion
   end
 
   def install

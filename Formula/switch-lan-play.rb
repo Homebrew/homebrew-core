@@ -1,22 +1,24 @@
 class SwitchLanPlay < Formula
   desc "Make you and your friends play games like in a LAN"
   homepage "https://github.com/spacemeowx2/switch-lan-play"
-  url "https://github.com/spacemeowx2/switch-lan-play/archive/v0.0.7.tar.gz"
-  sha256 "0b645fa8bbff18b4b2d1dfd8d975790c6597bc0520c0ab1368387d08f8c2c900"
+  url "https://github.com/spacemeowx2/switch-lan-play.git",
+    :tag      => "v0.1.0",
+    :revision => "eda2c4dcb1db7948fcc0ae5d129fc4b8f4369ca2"
 
   bottle do
-    cellar :any
-    sha256 "378a55da07264e83e58925d3205a0cdb0916e2afd4e8b4c387dd46de3748a897" => :mojave
-    sha256 "c4a6f2655ec51819c5ea197c3d30899e4c0208dd836e09c912e012dd275f8d2e" => :high_sierra
-    sha256 "3f20bf2ec6ce400d56b4bcffe1c7a362ea50cb7ef9c2a55bffd04864254d071f" => :sierra
+    cellar :any_skip_relocation
+    sha256 "be0f9d8661c0c8ce72abcc42dcd67a2e34bcd23fdd3cee01bf2a7f60690d2146" => :mojave
+    sha256 "aed551064a4fca5c96d1059020d0cde04c49f72d5b90ee29280137e8f26f93a7" => :high_sierra
+    sha256 "fa6f336a8bd322bfb4bfe9bf47f0705fdf37658719eb3c03252e5532ed71c554" => :sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "libuv"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do

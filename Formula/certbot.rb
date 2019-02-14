@@ -3,15 +3,15 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v0.30.0.tar.gz"
-  sha256 "c3473681662c7b47136d550c1fb253e3d7c29629e106b3665732abfa9fb12ced"
+  url "https://github.com/certbot/certbot/archive/v0.31.0.tar.gz"
+  sha256 "8452c78ea42b1ca9bff5c7addb37bbb538a0c6d963482cd26cf3d289f4478576"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
     cellar :any
-    sha256 "4fd7278f266e4f6327563db2043f35d0b6858c0765b2100fe4f0117104e09bc1" => :mojave
-    sha256 "4d91b61ed27ffc08f24ee1c79740ce8333ea0cbf07918e11c8d57ec506a174ed" => :high_sierra
-    sha256 "4948e067d225ebb689e08f02c1f01628d31150411dbbd6fb7cd32b01584b8f14" => :sierra
+    sha256 "c9326ba49fe256ee86d32b3effba0a63415d7154b44482961ccda8542df713ac" => :mojave
+    sha256 "55994678e60b0baa99e52c320f3a3a251eca725dbfa4eb63057346966413c7e1" => :high_sierra
+    sha256 "e899254dda5123e6c4557c1dfddb7c35acfd84120abc65c71d064a5f00877dfb" => :sierra
   end
 
   depends_on "augeas"
