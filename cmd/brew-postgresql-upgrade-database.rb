@@ -54,7 +54,6 @@ begin
     safe_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "start", out: File::NULL
   end
   lc_collate = `#{old_bin}/psql postgres -qtAc "SELECT setting FROM pg_settings WHERE name LIKE 'lc_collate'";`.strip
-  lc_collate = 'en_US.UTF-8' if lc_collate.empty?
 
   if /#{name}\s+started/ =~ Utils.popen_read("brew", "services", "list")
     system "brew", "services", "stop", name
@@ -69,7 +68,11 @@ begin
   moved_data = true
 
   (var/"postgres").mkpath
-  system "#{bin}/initdb", "--lc-collate", lc_collate, "#{var}/postgres"
+  if lc_collate.empty?
+    system "#{bin}/initdb", "#{var}/postgres"
+  else
+    system "#{bin}/initdb", "--lc-collate", lc_collate, "#{var}/postgres"
+  end
   initdb_run = true
 
   (var/"log").cd do
