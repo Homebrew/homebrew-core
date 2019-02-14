@@ -21,11 +21,6 @@ class Tesseract < Formula
   depends_on "leptonica"
   depends_on "libtiff"
 
-  resource "tessdata" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
-    sha256 "f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe"
-  end
-
   resource "eng" do
     url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/eng.traineddata"
     sha256 "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
@@ -49,15 +44,29 @@ class Tesseract < Formula
     ENV.cxx11
 
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--datarootdir=#{HOMEBREW_PREFIX}/share"
+
+    system "make"
+
+    inreplace "tessdata/Makefile", "datarootdir = #{HOMEBREW_PREFIX}/share", "datarootdir = #{share}"
+    inreplace "tessdata/configs/Makefile", "datarootdir = #{HOMEBREW_PREFIX}/share", "datarootdir = #{share}"
+    inreplace "tessdata/tessconfigs/Makefile", "datarootdir = #{HOMEBREW_PREFIX}/share", "datarootdir = #{share}"
 
     system "make", "install"
 
     resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
-    resource("tessdata").stage { mv Dir["*"], share/"tessdata" }
+    resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
+    resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/tesseract -v 2>&1")
+    resource "tests" do
+      url "https://github.com/tesseract-ocr/test.git"
+    end
+
+    resource("tests").stage do
+      system "#{bin}/tesseract", "./testing/eurotext.tif", "./output", "-l", "eng"
+      assert_equal "The (quick) [brown] {fox} jumps!\n", shell_output("sed -n 1p ./output.txt")
+    end
   end
 end
