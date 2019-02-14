@@ -2,7 +2,7 @@ class Ngircd < Formula
   desc "Lightweight Internet Relay Chat server"
   homepage "https://ngircd.barton.de/"
   url "https://ngircd.barton.de/pub/ngircd/ngircd-25.tar.gz"
-  mirror "http://ngircd.sourceforge.net/pub/ngircd/ngircd-25.tar.gz"
+  mirror "https://ngircd.sourceforge.io/pub/ngircd/ngircd-25.tar.gz"
   sha256 "51915780519bae43da3798807e3bed60d887e4eaa728354aa6bb61cdbcda49ba"
 
   bottle do
