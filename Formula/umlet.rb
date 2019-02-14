@@ -1,8 +1,8 @@
 class Umlet < Formula
   desc "This UML tool aimed at providing a fast way of creating UML diagrams"
   homepage "https://www.umlet.com/"
-  url "https://www.umlet.com/umlet_14_2/umlet-standalone-14.2.zip"
-  sha256 "dc09538d04cb899218f3bdfdb5205f60359cff68cb1428d1228c6d91743d8cb9"
+  url "https://www.umlet.com/download/umlet_14_3/umlet-standalone-14.3.0.zip"
+  sha256 "f4b064ed57ac0640daa31f5d59649a95596fc9290e503734ec4974a9bbecde49"
 
   bottle :unneeded
 
