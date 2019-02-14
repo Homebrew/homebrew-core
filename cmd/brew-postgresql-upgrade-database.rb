@@ -53,7 +53,9 @@ begin
   unless system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status", out: File::NULL
     safe_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "start", out: File::NULL
   end
-  lc_collate = `#{old_bin}/psql postgres -qtAc "SELECT setting FROM pg_settings WHERE name LIKE 'lc_collate'";`.strip
+
+  sql_for_lc_collate = "SELECT setting FROM pg_settings WHERE name LIKE 'lc_collate';"
+  lc_collate = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAc", sql_for_lc_collate).strip
 
   if /#{name}\s+started/ =~ Utils.popen_read("brew", "services", "list")
     system "brew", "services", "stop", name
