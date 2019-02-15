@@ -3,7 +3,8 @@
 set -e
 
 # take ownership as current user (in case it's linuxbrew)
-sudo chown -R $USER .
+sudo mkdir ~/.cache
+sudo chown -R $USER . ~/.cache
 
 # create stubs so build dependencies aren't incorrectly flagged as missing
 for i in python svn unzip xz
