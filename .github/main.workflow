@@ -5,6 +5,6 @@ workflow "Push" {
 
 action "Generate formulae.brew.sh" {
   uses = "docker://linuxbrew/brew"
-  runs = ".github/main.workflow.sh"
+  runs = "pwd; whoami; ls; ls .github; bash .github/main.workflow.sh"
   secrets = ["GITHUB_TOKEN"]
 }
