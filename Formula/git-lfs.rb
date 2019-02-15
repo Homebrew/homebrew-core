@@ -6,9 +6,9 @@ class GitLfs < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e73e7554c4b45bc1ba95fb64e597457c97f90179fe02ca5dd34e0f22112ac19e" => :mojave
-    sha256 "0daf04ca0a32e208be0e6df07c42a1ab049a3e50c962b04ea650a626a97920bb" => :high_sierra
-    sha256 "9eba8835ba9803e37f4f8e9215f98bd8cd1fc903baa47563d5ff195bc8d0060e" => :sierra
+    sha256 "527998277c96a0074ccd2fe56f372804450bf1b3cb0771b923096316d95b0924" => :mojave
+    sha256 "e39cbb3628b9b750a5a14405a2dcaadd09a95b52f72a1f6aa47f93fd53562d14" => :high_sierra
+    sha256 "4224f5244cc9c665d07596790b6fbe27462db03cbf6e00b2435f47400ae9258c" => :sierra
   end
 
   depends_on "go" => :build
