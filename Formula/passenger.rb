@@ -37,8 +37,8 @@ class Passenger < Formula
     nginx_addon_dir = `./bin/passenger-config about nginx-addon-dir`.strip
 
     mkdir "nginx" do
-      system "tar", "-xf", "#{Formula["nginx"].opt_share}/src/src.tar.xz", "--strip-components", "1"
-      args = (Formula["nginx"].opt_share/"src/configure_args.txt").read.split("\n")
+      system "tar", "-xf", "#{Formula["nginx"].opt_pkgshare}/src/src.tar.xz", "--strip-components", "1"
+      args = (Formula["nginx"].opt_pkgshare/"src/configure_args.txt").read.split("\n")
       args << "--add-dynamic-module=#{nginx_addon_dir}"
 
       system "./configure", *args
