@@ -42,11 +42,8 @@ class Passenger < Formula
       args << "--add-dynamic-module=#{nginx_addon_dir}"
 
       system "./configure", *args
-
       system "make"
-
-      (libexec/"buildout/nginx_dynamic/").mkpath
-      cp "objs/ngx_http_passenger_module.so", libexec/"buildout/nginx_dynamic/"
+      (libexec/"modules").install "objs/ngx_http_passenger_module.so"
     end
 
     (libexec/"download_cache").mkpath
@@ -93,7 +90,7 @@ class Passenger < Formula
     To activate Phusion Passenger for Nginx, run:
       brew install nginx
     And add the following to #{etc}/nginx/nginx.conf at the top scope (outside http{}):
-      load_module #{opt_libexec}/buildout/nginx_dynamic/ngx_http_passenger_module.so;
+      load_module #{opt_libexec}/modules/ngx_http_passenger_module.so;
     And add the following to #{etc}/nginx/nginx.conf in the http scope:
       passenger_root #{opt_libexec}/src/ruby_supportlib/phusion_passenger/locations.ini;
       passenger_ruby /usr/bin/ruby;
@@ -110,7 +107,7 @@ class Passenger < Formula
     assert_equal "#{libexec}/src/ruby_supportlib", ruby_libdir
 
     (testpath/"nginx.conf").write <<~EOS
-      load_module #{opt_libexec}/buildout/nginx_dynamic/ngx_http_passenger_module.so;
+      load_module #{opt_libexec}/modules/ngx_http_passenger_module.so;
       worker_processes 4;
       error_log #{testpath}/error.log;
       pid #{testpath}/nginx.pid;
