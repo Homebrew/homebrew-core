@@ -3,6 +3,7 @@ class Tesseract < Formula
   homepage "https://github.com/tesseract-ocr/"
   url "https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz"
   sha256 "a1f5422ca49a32e5f35c54dee5112b11b99928fc9f4ee6695cdc6768d69f61dd"
+  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
@@ -36,6 +37,11 @@ class Tesseract < Formula
     sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
   end
 
+  resource "testfile" do
+    url "https://raw.githubusercontent.com/tesseract-ocr/test/6dd816cdaf3e76153271daf773e562e24c928bf5/testing/eurotext.tif"
+    sha256 "7b9bd14aba7d5e30df686fbb6f71782a97f48f81b32dc201a1b75afe6de747d6"
+  end
+
   def install
     # explicitly state leptonica header location, as the makefile defaults to /usr/local/include,
     # which doesn't work for non-default homebrew location
@@ -48,25 +54,24 @@ class Tesseract < Formula
 
     system "make"
 
-    inreplace "tessdata/Makefile", "datarootdir = #{HOMEBREW_PREFIX}/share", "datarootdir = #{share}"
-    inreplace "tessdata/configs/Makefile", "datarootdir = #{HOMEBREW_PREFIX}/share", "datarootdir = #{share}"
-    inreplace "tessdata/tessconfigs/Makefile", "datarootdir = #{HOMEBREW_PREFIX}/share", "datarootdir = #{share}"
-
-    system "make", "install"
+    # make install in the local share folder to avoid permission errors
+    system "make", "install", "datarootdir=#{share}"
 
     resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
     resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
     resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
   end
 
-  test do
-    resource "tests" do
-      url "https://github.com/tesseract-ocr/test.git"
-    end
+  def caveats; <<~EOS
+    This formula containes only the "eng", "osd", and "snum" language data files.
+    If you need all the other supported languages, `brew install tesseract-lang`.
+  EOS
+  end
 
-    resource("tests").stage do
-      system "#{bin}/tesseract", "./testing/eurotext.tif", "./output", "-l", "eng"
-      assert_equal "The (quick) [brown] {fox} jumps!\n", shell_output("sed -n 1p ./output.txt")
+  test do
+    resource("testfile").stage do
+      system bin/"tesseract", "./eurotext.tif", "./output", "-l", "eng"
+      assert_match "The (quick) [brown] {fox} jumps!\n", File.read("output.txt")
     end
   end
 end
