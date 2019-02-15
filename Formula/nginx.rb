@@ -19,8 +19,8 @@ class Nginx < Formula
 
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger
-    (share/"src").mkpath
-    system "tar", "-cJf", (share/"src/src.tar.xz"), "--options", "compression-level=9", "."
+    (pkgshare/"src").mkpath
+    system "tar", "-cJf", (pkgshare/"src/src.tar.xz"), "--options", "compression-level=9", "."
 
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
@@ -77,7 +77,7 @@ class Nginx < Formula
       --with-stream_ssl_preread_module
     ]
 
-    (share/"src/configure_args.txt").write args.join("\n")
+    (pkgshare/"src/configure_args.txt").write args.join("\n")
 
     if build.head?
       system "./auto/configure", *args
