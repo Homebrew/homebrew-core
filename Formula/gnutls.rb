@@ -18,6 +18,7 @@ class Gnutls < Formula
   depends_on "libunistring"
   depends_on "nettle"
   depends_on "p11-kit"
+  depends_on "unbound"
 
   def install
     args = %W[
@@ -31,7 +32,8 @@ class Gnutls < Formula
       --disable-heartbeat-support
       --with-p11-kit
     ]
-
+    ENV["CFLAGS"] = "-I/usr/local/Cellar/unbound/1.9.0/include"
+    ENV["LDFLAGS"] = "-L/usr/local/Cellar/unbound/1.9.0/lib"
     system "./configure", *args
     system "make", "install"
 
