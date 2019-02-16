@@ -20,8 +20,7 @@ class SpirvCross < Formula
   end
 
   test do
-    cp_r "#{prefix}/samples/cpp", testpath.to_s
-    cd "cpp"
+    cp_r Dir[prefix/"samples/cpp/*"], testpath
     inreplace "Makefile", "-I../../include", "-I#{include}"
     inreplace "Makefile", "../../spirv-cross", "spirv-cross"
 
