@@ -109,7 +109,11 @@ class LlvmAT39 < Formula
     end
 
     (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+
+    # scan-build is in Perl, so the @ in our path needs to be escaped
+    inreplace "#{share}/clang/tools/scan-build/bin/scan-build",
+              "$RealBin/bin/clang", "#{bin}/clang".gsub("@", "\\@")
+
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
