@@ -70,7 +70,7 @@ class Pypy < Formula
     # (like /opt) and symlinking in binaries as needed. Specifically,
     # we want to avoid putting PyPy's Python.h somewhere that configure
     # scripts will find it.
-    system "./configure", "--disable-x11"
+    system "./configure", "--with-tk=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework"
     bin.install_symlink libexec/"bin/pypy"
     lib.install_symlink libexec/"lib/libpypy-c.dylib"
   end
