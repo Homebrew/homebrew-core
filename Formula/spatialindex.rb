@@ -22,53 +22,82 @@ class Spatialindex < Formula
   end
 
   test do
-    # write out a small program which inserts a fixed box into an rtree
-    # and verifies that it can query it
     (testpath/"test.cpp").write <<~EOS
       #include <spatialindex/SpatialIndex.h>
 
-      using namespace std;
       using namespace SpatialIndex;
+      using namespace std;
 
-      class MyVisitor : public IVisitor {
-      public:
-          vector<id_type> matches;
-
-          void visitNode(const INode& n) {}
-          void visitData(const IData& d) {
-              matches.push_back(d.getIdentifier());
-          }
-          void visitData(std::vector<const IData*>& v) {}
-      };
-
+      /*
+      * Test the Geometry
+      * Nowhere near complete, but it's something
+      */
       int main(int argc, char** argv) {
-          IStorageManager* memory = StorageManager::createNewMemoryStorageManager();
-          id_type indexIdentifier;
-          RTree::RTreeVariant variant = RTree::RV_RSTAR;
-          ISpatialIndex* tree = RTree::createNewRTree(
-              *memory, 0.5, 100, 10, 2,
-              variant, indexIdentifier
-          );
-          /* insert a box from (0, 5) to (0, 10) */
-          double plow[2] = { 0.0, 0.0 };
-          double phigh[2] = { 5.0, 10.0 };
-          Region r = Region(plow, phigh, 2);
+        //define points
+        double c1[2] = {1.0, 0.0};
+        double c2[2] = {3.0, 2.0};
+        double c3[2] = {2.0, 0.0};
+        double c4[2] = {2.0, 4.0};
+        double c5[2] = {1.0, 1.0};
+        double c6[2] = {2.5, 3.0};
+        double c7[2] = {1.0, 2.0};
+        double c8[2] = {0.0, -1.0};
+        double c9[2] = {4.0, 3.0};
+        Point p1 = Point(&c1[0], 2);
+        Point p2 = Point(&c2[0], 2);
+        Point p3 = Point(&c3[0], 2);
+        Point p4 = Point(&c4[0], 2);
+        Point p5 = Point(&c5[0], 2);
+        Point p6 = Point(&c6[0], 2);
+        Point p7 = Point(&c7[0], 2);
+        Point p8 = Point(&c8[0], 2);
+        Point p9 = Point(&c9[0], 2);
 
-          std::string data = "a value";
+        double c3a[2] = {2.0, 3.0};
+        Point p3a = Point(&c3a[0], 2);
 
-          id_type id = 1;
+        //Now Test LineSegment intersection
+        LineSegment ls1 = LineSegment(p1, p2);
+        LineSegment ls2 = LineSegment(p3, p4);
+        LineSegment ls3 = LineSegment(p3a, p4);
 
-          tree->insertData(data.size() + 1, reinterpret_cast<const byte*>(data.c_str()), r, id);
+        if (!ls1.intersectsShape(ls2)) {
+            cerr << "Test failed:  intersectsShape returned false, but should be true." << endl;
+            cerr << ls1 << ", " << ls2 << endl;
+            return -1;
+        }
 
-          /* ensure that (2, 2) is in that box */
-          double qplow[2] = { 2.0, 2.0 };
-          double qphigh[2] = { 2.0, 2.0 };
-          Region qr = Region(qplow, qphigh, 2);
-          MyVisitor q_vis;
+        if (ls1.intersectsShape(ls3)) {
+            cerr << "Test failed:  intersectsShape returned true, but should be false." << endl;
+            cerr << ls1 << ", " << ls3 << endl;
+            return -1;
+        }
 
-          tree->intersectsWithQuery(qr, q_vis);
+        //Now LineSegment Region intersection
+        Region r1 = Region(p5, p6);
+        Region r2 = Region(p7, p6);
+        Region r3 = Region(p8, p9);
 
-          return (q_vis.matches.size() == 1) ? 0 : 1;
+        if (!r1.intersectsShape(ls1) || !ls1.intersectsShape(r1)) {
+            cerr << "Test failed:  intersectsShape returned false, but should be true." << endl;
+            cerr << r1 << ", " << ls1 << endl;
+            return -1;
+        }
+
+        if (r2.intersectsShape(ls1) || ls1.intersectsShape(r2)) {
+            cerr << "Test failed:  intersectsShape returned true, but should be false." << endl;
+            cerr << r2 << ", " << ls1 << endl;
+            return -1;
+        }
+
+        // This is the contains test
+        if (!r3.intersectsShape(ls1) || !ls1.intersectsShape(r3)) {
+            cerr << "Test failed:  intersectsShape returned false, but should be true." << endl;
+            cerr << r3 << ", " << ls1 << endl;
+            return -1;
+        }
+
+        return 0;
       }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
