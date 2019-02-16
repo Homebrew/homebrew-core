@@ -15,6 +15,8 @@ class Spatialindex < Formula
   end
 
   def install
+    ENV.cxx11
+
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
   end
