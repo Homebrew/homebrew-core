@@ -4,6 +4,7 @@ class Skaffold < Formula
   url "https://github.com/GoogleContainerTools/skaffold.git",
       :tag      => "v0.23.0",
       :revision => "2590e9d480ffb63e9d954fd1e317b93d5b3d3b9b"
+  revision 1
   head "https://github.com/GoogleContainerTools/skaffold.git"
 
   bottle do
@@ -22,6 +23,13 @@ class Skaffold < Formula
     cd dir do
       system "make"
       bin.install "out/skaffold"
+
+      output = Utils.popen_read("#{bin}/skaffold completion bash")
+      (bash_completion/"skaffold").write output
+
+      output = Utils.popen_read("#{bin}/skaffold completion zsh")
+      (zsh_completion/"_skaffold").write output
+
       prefix.install_metafiles
     end
   end
