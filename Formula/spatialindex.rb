@@ -17,6 +17,8 @@ class Spatialindex < Formula
   def install
     ENV.cxx11
 
+    ENV.append "CXXFLAGS", "-std=c++11"
+
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -24,6 +26,7 @@ class Spatialindex < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <spatialindex/SpatialIndex.h>
+      #include <map>
 
       using namespace SpatialIndex;
       using namespace std;
