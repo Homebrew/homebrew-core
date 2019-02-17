@@ -5,8 +5,8 @@ class Hledger < Formula
 
   desc "Command-line accounting tool"
   homepage "http://hledger.org"
-  url "https://hackage.haskell.org/package/hledger-1.11.1/hledger-1.11.1.tar.gz"
-  sha256 "e916a6c898f0dc16a8b0bae3b7872a57eea94faab2ca673a54e0355fb507c633"
+  url "https://hackage.haskell.org/package/hledger-1.13.2/hledger-1.13.2.tar.gz"
+  sha256 "9b57e78c9c51f06c0fbc8dd499baad8fe2f323635c95159f55b041ebe12fbc37"
 
   bottle do
     cellar :any_skip_relocation
@@ -19,18 +19,18 @@ class Hledger < Formula
   depends_on "ghc" => :build
 
   resource "hledger_web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.11.1/hledger-web-1.11.1.tar.gz"
-    sha256 "da9de30f06a6547240bfeb98a0de8f496df98619130a7dd8968f42f4678c70af"
+    url "https://hackage.haskell.org/package/hledger-web-1.13/hledger-web-1.13.tar.gz"
+    sha256 "d7621eccc151841458b7a2b6b1ce86585d98d88d4aa50e4dca22e9be2985ab10"
   end
 
   resource "hledger_ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.11.1/hledger-ui-1.11.1.tar.gz"
-    sha256 "924988e477b968ca6c17e57431614f6032c114265a7d3ab03d4d4c2ff516660e"
+    url "https://hackage.haskell.org/package/hledger-ui-1.13.1/hledger-ui-1.13.1.tar.gz"
+    sha256 "d7f773cf626e0d67df505e2f1f10111e49097690324eb4d4272223c4ec7e4e49"
   end
 
   resource "hledger_api" do
-    url "https://hackage.haskell.org/package/hledger-api-1.11.1/hledger-api-1.11.1.tar.gz"
-    sha256 "0cd34629e2ad4ebf140dea3c24ff401fe61bfda198f105eb228eb7159b964bf3"
+    url "https://hackage.haskell.org/package/hledger-api-1.13/hledger-api-1.13.tar.gz"
+    sha256 "e3f2387fe4be671fcbef10184e4b0a4d895d29a40470aaedb36baad731a871de"
   end
 
   def install
