@@ -1,6 +1,7 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
+  revision 1
   head "https://github.com/upx/upx.git", :branch => "devel"
 
   stable do
@@ -27,14 +28,25 @@ class Upx < Formula
       url "https://github.com/upx/upx/commit/9bb6854e642a2505102b9d3f9ec8535ec8ab6d9c.patch?full_index=1"
       sha256 "f525a574b65e6484f0eb29e2a37d5df58da85b121adec06271b19ed5f4cc49b4"
     end
+
+    # The following two patches fix an issue where UPX 3.95 produces broken go binaries - will be fixed in 3.96
+    # See https://github.com/upx/upx/issues/222 for details
+    patch do
+      url "https://github.com/upx/upx/commit/4d1c754af943f4640062884f38742fd97a6bda0d.patch?full_index=1"
+      sha256 "64c1cbfd2127172bab973be5cdfba3ad05b0ee506c9076eb6bf0e2d8b4d205b0"
+    end
+
+    patch do
+      url "https://github.com/upx/upx/commit/bb1f9cdecd02130e468b9bed680a9bb6122f8a0c.patch?full_index=1"
+      sha256 "2712240751a0b5c6cb3e4d562fc79b125d612f1f185cd84766fcee12900dea61"
+    end
   end
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b54c2ee46e440481f780d3e6abb7cb3c1b8fe1e19de5b34dec4964d5a3c9f444" => :mojave
-    sha256 "9c9c64af53571828b5315dc247885f6f14dc250088d24d2e22c8ec431102b1c4" => :high_sierra
-    sha256 "21086139ffa7f4d7012f046182a04baebb7afc0bb434f5a59f5636875389afbb" => :sierra
-    sha256 "7410cdbfca2b1d0fa0fe58abd4b0aa22c158d77667b7aa9b04ff6c58f02d1cab" => :el_capitan
+    sha256 "29c7ae82e1fda0f801c388d874d02d9371ca5c7842ae9a8355a16eb2daa8035f" => :mojave
+    sha256 "bd7b838097f139055c99a692f9e74f62582d020203d649a190d74c9e9ccab584" => :high_sierra
+    sha256 "209bff5e1c4622c2e8f19ef8855e006ad5fb2fde93f937717b39c9aebc4de07e" => :sierra
   end
 
   depends_on "ucl"

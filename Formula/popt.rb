@@ -13,7 +13,6 @@ class Popt < Formula
     sha256 "60a7f19e8fecafd92a5beb7d6438efac915e8f3afe3d83575fb64bb4a6190aab" => :el_capitan
     sha256 "56d1104516e23bb314a248904b8ec85afe2fdbf71555417eb8f91edc1286e6da" => :yosemite
     sha256 "ba122e7f34b9b03ab5a32ab01124b61eb608c29e0c0d023462953ed03782dd2a" => :mavericks
-    sha256 "6d95c3530a7bd4d7099d91f448669b53bb51a071c5e9a8b9915cdc750bd72aec" => :mountain_lion
   end
 
   def install

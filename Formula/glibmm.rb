@@ -15,8 +15,6 @@ class Glibmm < Formula
   depends_on "glib"
   depends_on "libsigc++"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

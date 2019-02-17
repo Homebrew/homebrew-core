@@ -12,7 +12,6 @@ class Vavrdiasm < Formula
     sha256 "0671b1062a86e8d596a9f404fd843cb37d6d2d1bb28ebb2b8a8f6cbdd763c97c" => :el_capitan
     sha256 "ce57062586ca9cb91290141376f1da1f5de3c6efb6fe4687585a3e64cc29c014" => :yosemite
     sha256 "f881c5a6d94581c4fc9efb13118c84c40700f13d130302f6ee4cb16968d1f6b0" => :mavericks
-    sha256 "d3866a89762e6d98987128b3e961788d1f997b1851b8b35213a9bb7ce3f53f39" => :mountain_lion
   end
 
   # Patch:

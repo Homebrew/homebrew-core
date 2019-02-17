@@ -11,7 +11,6 @@ class Libmp3splt < Formula
     sha256 "587226a840b162aeef70cc8022bdbcd61218e1be6dd1b98418774f3f48405072" => :el_capitan
     sha256 "47d3aaeee6d237273e8457666cd2717e1264742ae776d541c40a203e1b82003f" => :yosemite
     sha256 "0bac13f95cb16925fe28cd1d662bec10a66c93bf9b27c2c9533ab38b7a1f38a2" => :mavericks
-    sha256 "a6100bee5fe14afed4702b474360078b75bddaa0328290b2fcf902c3f808c78c" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

@@ -4,14 +4,13 @@ class GnuSmalltalk < Formula
   url "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 7
+  revision 8
   head "https://github.com/gnu-smalltalk/smalltalk.git"
 
   bottle do
-    sha256 "94385e9ceb6dac590be88af2d0de7a196d3491747f3772c2aa2f92620ea111db" => :mojave
-    sha256 "9d086ae46e600651c937a8602fbb3a2c1fbe44be15517fe210dd46d21d7a391c" => :high_sierra
-    sha256 "593a5202fc714257dc5ffb0fcad4faa553d63727f74d87a3106eaf6dcae46464" => :sierra
-    sha256 "a2a098e2fd4e07d87b705fc8aaabb6603df62ac437b5af68f610ff5b4797c0d5" => :el_capitan
+    sha256 "15f6824f01f91295ba8d35b3020cae12134bb948dc9fde573ac178ce4fda62c4" => :mojave
+    sha256 "612a100c68c820fd67e05c39f5574589a7fb8803d93fc15ae50f1f343ca577a5" => :high_sierra
+    sha256 "ce5e9408786fee4e48bc2b7413de7e62c0c6f192f754a1403044687c1767f89d" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -26,10 +25,8 @@ class GnuSmalltalk < Formula
   depends_on "readline"
 
   def install
-    ENV.m32 unless MacOS.prefer_64_bit?
-
     # Fix build failure "Symbol not found: _clock_gettime"
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       ENV["ac_cv_search_clock_gettime"] = "no"
     end
 
@@ -44,9 +41,6 @@ class GnuSmalltalk < Formula
       --without-tk
       --without-x
     ]
-
-    # Disable generational gc in 32-bit
-    args << "--disable-generational-gc" unless MacOS.prefer_64_bit?
 
     system "autoreconf", "-ivf"
     system "./configure", *args

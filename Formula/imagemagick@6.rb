@@ -4,24 +4,18 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406--6.9.10-14.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.10-14.tar.xz"
-  sha256 "d123d4ad4e5bf72c51a6f528a2dbbbd4bf4249f25b36045017c9c634db968e6d"
+  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406--6.9.10-27.tar.xz"
+  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.10-27.tar.xz"
+  sha256 "98c944233e6b6ffa7be60b22d138b5c719ebe1ee12e6c49816ea4e8a0a7c76ea"
   head "https://github.com/imagemagick/imagemagick6.git"
 
   bottle do
-    sha256 "a799750f749c0f83b9184c221ea83f5df5f7cb4069c794ba253fa2d08a7d6d40" => :mojave
-    sha256 "6fa26af3ead8d875cdec5081d1b21936ef91a9c44dd5ef724a337b2aa1508407" => :high_sierra
-    sha256 "fd1e3b5eff2cbcdb8109abab9e8705438998bfb6c41d300bbd4b16b1c504cfc1" => :sierra
+    sha256 "5640bf5ead64a2b7e5bd0501cf6743803f580ce159157dbf7547d08e4f897469" => :mojave
+    sha256 "bd4d29599418d3ccbe54b96d4d8cc884e54d9f4123bbd1ff6b6353bc3c0474d2" => :high_sierra
+    sha256 "3e3e9af787a495db523b75f10663eecfca9cd08f1af427f608b162e58e62d1cf" => :sierra
   end
 
   keg_only :versioned_formula
-
-  option "with-fftw", "Compile with FFTW support"
-  option "with-hdri", "Compile with HDRI support"
-  option "with-perl", "Compile with PerlMagick"
-
-  deprecated_option "enable-hdri" => "with-hdri"
 
   depends_on "pkg-config" => :build
 
@@ -34,17 +28,6 @@ class ImagemagickAT6 < Formula
   depends_on "openjpeg"
   depends_on "webp"
   depends_on "xz"
-
-  depends_on "fftw" => :optional
-  depends_on "fontconfig" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "liblqr" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "little-cms" => :optional
-  depends_on "openexr" => :optional
-  depends_on "pango" => :optional
-  depends_on "perl" => :optional
 
   skip_clean :la
 
@@ -62,18 +45,13 @@ class ImagemagickAT6 < Formula
       --with-modules
       --with-webp=yes
       --with-openjp2
+      --without-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-fftw
+      --without-pango
+      --without-x
+      --without-wmf
     ]
-
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--enable-hdri=yes" if build.with? "hdri"
-    args << "--without-fftw" if build.without? "fftw"
-    args << "--without-pango" if build.without? "pango"
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
-    args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"

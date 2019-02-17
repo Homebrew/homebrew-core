@@ -15,7 +15,6 @@ class Bashdb < Formula
   end
 
   depends_on "bash"
-  depends_on :macos => :mountain_lion
 
   def install
     system "./configure", "--with-bash=#{HOMEBREW_PREFIX}/bin/bash",

@@ -1,15 +1,14 @@
 class Stubby < Formula
   desc "DNS privacy enabled stub resolver service based on getdns"
   homepage "https://dnsprivacy.org/wiki/display/DP/DNS+Privacy+Daemon+-+Stubby"
-  url "https://github.com/getdnsapi/stubby/archive/v0.2.3.tar.gz"
-  sha256 "5fbe10f421f1313b5e2259b0eec96785af0c5b460431cf86bb6450a11cb3f473"
-  revision 1
+  url "https://github.com/getdnsapi/stubby/archive/v0.2.5.tar.gz"
+  sha256 "56ee63f4b9ee00476a168e6ba5614f6830f93e89baa305c2d38577b2e39eae5b"
   head "https://github.com/getdnsapi/stubby.git", :branch => "develop"
 
   bottle do
-    sha256 "e40466bb416aa54ad666c666776054e9377110a2840c32bb4a8f440dfd47085f" => :mojave
-    sha256 "b277d4481f2c96b9216263e2cd097aa9c474142b400fd4da5bd54dcc425de51e" => :high_sierra
-    sha256 "fbc6353984eb3fe1b9e6175b2dd450542f888fc8ac71047fec0e50f8a228eceb" => :sierra
+    sha256 "b4865e26e583345914fde67a883816a45aa5e41ad3aa57ca593a9aa127c21def" => :mojave
+    sha256 "2bf0b1276231e0528dc0cacd7efb4145c719a4f01d14a9ad2a841c558d889ed5" => :high_sierra
+    sha256 "69ff4ee005474914a7b3cd1dd5cda0d26c20cdd6c7bcdaa624411e2511ea620e" => :sierra
   end
 
   depends_on "autoconf" => :build

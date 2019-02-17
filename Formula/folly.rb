@@ -34,8 +34,6 @@ class Folly < Formula
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

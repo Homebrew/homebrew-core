@@ -1,13 +1,14 @@
 class Gexiv2 < Formula
   desc "GObject wrapper around the Exiv2 photo metadata library"
   homepage "https://wiki.gnome.org/Projects/gexiv2"
-  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.9.tar.xz"
-  sha256 "8806234aa6fd1c345d46bf07a14e82771415071ca5ff63615b1ea62bd2fec0ed"
+  url "https://download.gnome.org/sources/gexiv2/0.10/gexiv2-0.10.10.tar.xz"
+  sha256 "7d9ad7147ab51ab691edf043c44a0a44de4088c48a12d9c23c26939710e66ce1"
+  revision 1
 
   bottle do
-    sha256 "4af36560dece00e6cb5d68ca743f52a9de78121fa184ef1a4add25de6b97f598" => :mojave
-    sha256 "e8acce6d1a7fdcf5b14b5e64e641c04d0ca32f5198af59bbe08b2cc91513f5c2" => :high_sierra
-    sha256 "4b74b438069c0968d08d7b75aaf1333454cd6005577f2241ac5f78460f4a847f" => :sierra
+    sha256 "9d493db238b17a55c2715d6d76bf6ce5aff790e2c4367952ea752d507e04407d" => :mojave
+    sha256 "76a1cb2441e51f9e5d05290bb29075706776f7bdc0174155adf2575fb75b76b7" => :high_sierra
+    sha256 "132d5fac5817a9b1acddd6e9355ae2515168c9af9907293e673aee03c0aac63f" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

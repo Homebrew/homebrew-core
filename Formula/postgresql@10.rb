@@ -3,12 +3,13 @@ class PostgresqlAT10 < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v10.6/postgresql-10.6.tar.bz2"
   sha256 "68a8276f08bda8fbefe562faaf8831cb20664a7a1d3ffdbbcc5b83e08637624b"
+  revision 1
 
   bottle do
     rebuild 1
-    sha256 "16a3c8380446f2e3b4356acd47217afbdb5b1dc8c6acede4e7834dfff897d4f8" => :mojave
-    sha256 "cd4719c624150c163a6b52d5135742088d608e31c7b668531e91516bbbfcf100" => :high_sierra
-    sha256 "e5565c3fe490a6f5fb703b2aaca8228a23fd97d94585169667a61dc9b1780ff9" => :sierra
+    sha256 "c26c1e26c423cbf94c7bee92236c4187a9167951df214fdb4dbf9123f64b4ddb" => :mojave
+    sha256 "0472f28907f74f9375c351ab9781959988140ad3cd13c5d63b21b4d3fc28e9a4" => :high_sierra
+    sha256 "488f2f10d6e6d83286ac87d2d27e2c4fc26d292e767ff0788be38d23533236d8" => :sierra
   end
 
   keg_only :versioned_formula
@@ -47,11 +48,9 @@ class PostgresqlAT10 < Formula
 
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if MacOS.version >= :mavericks || MacOS::CLT.installed?
-      args << "--with-tcl"
-      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-      end
+    args << "--with-tcl"
+    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     end
 
     # As of Xcode/CLT 10.x the Perl headers were moved from /System
@@ -85,9 +84,9 @@ class PostgresqlAT10 < Formula
 
   def post_install
     (var/"log").mkpath
-    (var/"postgres").mkpath
-    unless File.exist? "#{var}/postgres/PG_VERSION"
-      system "#{bin}/initdb", "#{var}/postgres"
+    (var/name).mkpath
+    unless File.exist? "#{var}/#{name}/PG_VERSION"
+      system "#{bin}/initdb", "#{var}/#{name}"
     end
   end
 

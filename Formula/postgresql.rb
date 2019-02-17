@@ -3,23 +3,20 @@ class Postgresql < Formula
   homepage "https://www.postgresql.org/"
   url "https://ftp.postgresql.org/pub/source/v11.1/postgresql-11.1.tar.bz2"
   sha256 "90815e812874831e9a4bf6e1136bf73bc2c5a0464ef142e2dfea40cda206db08"
+  revision 1
   head "https://github.com/postgres/postgres.git"
 
   bottle do
-    sha256 "d82e5ff0b8996cd40daba78d9279c94def44e653899084bda9f218c4bafc7253" => :mojave
-    sha256 "9c9f814e08bc7a28105e326a04271031c38dd8e0e5da3781434dcca9ceb364a5" => :high_sierra
-    sha256 "eacc5bd8eac9c6f77831346095393f6ed0361d1697f0fe071927e7c556ff1a86" => :sierra
+    rebuild 1
+    sha256 "2fbb3a06211b1ca2587920b032a89d7ee759ea536d68ee73f3ad5563038ca843" => :mojave
+    sha256 "5fbe8a446bed7532b1517f5f92356166e4a219b516086364094f00e86cbd1fd3" => :high_sierra
+    sha256 "007ae1c315ec0c01345a9cc754ec927909667697cf35ddd675e7778af39ceebc" => :sierra
   end
-
-  option "with-python", "Enable PL/Python3"
-
-  deprecated_option "with-python3" => "with-python"
 
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl"
   depends_on "readline"
-  depends_on "python" => :optional
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
@@ -51,18 +48,11 @@ class Postgresql < Formula
       --with-uuid=e2fs
     ]
 
-    if build.with?("python")
-      args << "--with-python"
-      ENV["PYTHON"] = which("python3")
-    end
-
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if MacOS.version >= :mavericks || MacOS::CLT.installed?
-      args << "--with-tcl"
-      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-      end
+    args << "--with-tcl"
+    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     end
 
     system "./configure", *args

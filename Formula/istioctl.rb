@@ -1,14 +1,15 @@
 class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://github.com/istio/istio"
-  url "https://github.com/istio/istio/archive/1.0.5.tar.gz"
-  sha256 "48418c5f27ef61403aea79ea57c502cec426117a5de4db713cd3691e2bf91204"
+  url "https://github.com/istio/istio.git",
+      :tag      => "1.0.6",
+      :revision => "98598f88f6ee9c1e6b3f03b652d8e0e3cd114fa2"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "60f54ee59267e538d21fe4d27e92f5483762e562233d362c1b97b65fa6560848" => :mojave
-    sha256 "e01e92dfc83e193f1580b908a3fb923382d331f9631c619247638e3e3510a164" => :high_sierra
-    sha256 "1e25ee825d4e23fd07d08e8809ff73b0d4346c0b6f12552c544a5fbcae206fdd" => :sierra
+    sha256 "21b5b057c1d5b8a024f7330199155ae06dcf47021ab51a974d37624f15d3f531" => :mojave
+    sha256 "1bfa5a5801a65e404cfd5b70e8584e275000b39d5383db98b064bb51c0048a12" => :high_sierra
+    sha256 "c7586d1827616da703e2c808a3b1a012ad3377df55f59f204b35b7ea5f756b1a" => :sierra
   end
 
   depends_on "go" => :build
@@ -16,6 +17,7 @@ class Istioctl < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["TAG"] = version.to_s
+    ENV["ISTIO_VERSION"] = version.to_s
 
     srcpath = buildpath/"src/istio.io/istio"
     outpath = buildpath/"out/darwin_amd64/release"

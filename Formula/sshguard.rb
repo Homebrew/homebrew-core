@@ -32,26 +32,18 @@ class Sshguard < Formula
     inreplace man8/"sshguard.8", "%PREFIX%/etc/", "#{etc}/"
     cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
     inreplace "examples/sshguard.conf" do |s|
-      s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-#{firewall}\""
+      s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-pf\""
       if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
       else
-        s.gsub! /^#FILES.*$/, "FILES=#{log_path}"
+        s.gsub! /^#FILES.*$/, "FILES=/var/log/system.log"
       end
     end
     etc.install "examples/sshguard.conf"
   end
 
-  def firewall
-    (MacOS.version >= :lion) ? "pf" : "ipfw"
-  end
-
-  def log_path
-    (MacOS.version >= :lion) ? "/var/log/system.log" : "/var/log/secure.log"
-  end
-
   def caveats
-    if MacOS.version >= :lion then <<~EOS
+    <<~EOS
       Add the following lines to /etc/pf.conf to block entries in the sshguard
       table (replace $ext_if with your WAN interface):
 
@@ -60,7 +52,6 @@ class Sshguard < Formula
 
       Then run sudo pfctl -f /etc/pf.conf to reload the rules.
     EOS
-    end
   end
 
   plist_options :startup => true

@@ -19,8 +19,6 @@ class Supersonic < Formula
   depends_on "glog"
   depends_on "protobuf"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

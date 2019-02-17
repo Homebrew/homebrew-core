@@ -18,8 +18,6 @@ class Gdcm < Formula
   depends_on "openssl"
   depends_on "python"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

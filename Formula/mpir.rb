@@ -6,20 +6,17 @@ class Mpir < Formula
 
   bottle do
     cellar :any
-    sha256 "27d15169e20fb4530a6875f7658ab713bbefd5044728edccc20187cf2e36342b" => :mojave
-    sha256 "5b283d794cac85bbc6524dd2ee29b9e1a82a895b535c4e4231726058e195b7af" => :high_sierra
-    sha256 "643176aa1607f254fcae6227ebebf3a73e2edbbece37f3c749b240dfd33274f7" => :sierra
-    sha256 "4a30f968fa364983e3b9cad81e52bd8f6976ed5f479a23efc02ead1a4b1638c1" => :el_capitan
+    rebuild 1
+    sha256 "5fd2ec4df58a2c8a1dd74729c90dd6928893f9c87c8ee06af8519dfb7ea9d71f" => :mojave
+    sha256 "e9786b8cd2ee485e34b6e63c95bb7f71289c038dc9be0fdf583279853056302a" => :high_sierra
+    sha256 "006955801271b94f2e412ac056450000785965ed631d134554d7190deaf675d1" => :sierra
   end
 
   depends_on "yasm" => :build
 
   def install
     args = %W[--disable-silent-rules --prefix=#{prefix} --enable-cxx]
-
-    # Prevent bottles from being optimized for specific CPU model
-    args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-
+    args << "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
     system "./configure", *args
     system "make", "install"
   end

@@ -30,8 +30,6 @@ class Mapnik < Formula
     sha256 "e00e8475f04e9010dbb1724e5ae10403d2e7f1da8a83e67dfb54a7a969d81669"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

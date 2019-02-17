@@ -15,8 +15,6 @@ class Zmqpp < Formula
   depends_on "doxygen" => :build
   depends_on "zeromq"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

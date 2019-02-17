@@ -1,19 +1,20 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.9.0.tar.gz"
-  sha256 "4ce9c118cf5da1159a882dea389f3c5737b5d98192e9a619b0fe8c1730341cc6"
+  url "https://github.com/sharkdp/bat/archive/v0.10.0.tar.gz"
+  sha256 "54dd396e8f20d44c6032a32339f45eab46a69b6134e74a704f8d4a27c18ddc3e"
 
   bottle do
-    sha256 "feb7b5af916d972b796c19cae512445b55072b22d6306df646b2c073b37ed081" => :mojave
-    sha256 "35447bd7311bdb54056cbd470dd9449b88ccecc4c62f45d237d51445f1a2a88e" => :high_sierra
-    sha256 "c7ccfa8aeda9b8d2a4e2f8dd6cdc6af2667c0bf036708a7c676fe915e9929ef5" => :sierra
+    cellar :any_skip_relocation
+    sha256 "36855c4b2616e0ef2fda032a1afc71f6be5abb6dee6c38376072cab1fd2b7e4f" => :mojave
+    sha256 "8a661ac036f0419b2959386eda537decb58b6bd614bd95bf7baeabed2287263d" => :high_sierra
+    sha256 "4a64a65453b1301cb01a784d8f5f1857f6904b7963032756a948ba79efc2bf51" => :sierra
   end
 
-  depends_on "cmake" => :build
   depends_on "rust" => :build
 
   def install
+    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "doc/bat.1"
   end

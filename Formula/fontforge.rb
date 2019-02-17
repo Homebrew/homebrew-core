@@ -3,16 +3,14 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
   sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 1
-    sha256 "7917392b435917468ce7f8e4c31822ba376d901cc9303ab354c44ef8155fad49" => :mojave
-    sha256 "5a04540e69d56213fb104a968ad9ce2bc5c2ca152d5c3e0ecfccbd93981f80dc" => :high_sierra
-    sha256 "7c4e3def1ac5f5b374e773d6dd7bda60b09eb304a19c6b231a292125d4d14915" => :sierra
+    cellar :any
+    sha256 "e7fa8b8ce7845a1638d9fcb4c48ac515ee6981a2306b9d2c6d54c699f45e9b57" => :mojave
+    sha256 "035977f787460dfd0f0fbe748b62bfaf6b3ea1289e62508a1e1348e40a0126d9" => :high_sierra
+    sha256 "8537403a86247c52d300b55a24a0528ad79abf9a07eccd16fdcbd84a7361e9f6" => :sierra
   end
-
-  option "with-extra-tools", "Build with additional font tools"
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
@@ -29,7 +27,7 @@ class Fontforge < Formula
   depends_on "python@2"
 
   # Remove for > 20170731
-  # Fix "fatal error: 'mem.h' file not found" for --with-extra-tools
+  # Fix "fatal error: 'mem.h' file not found"
   # Upstream PR from 22 Sep 2017 https://github.com/fontforge/fontforge/pull/3156
   patch do
     url "https://github.com/fontforge/fontforge/commit/9f69bd0f9.patch?full_index=1"

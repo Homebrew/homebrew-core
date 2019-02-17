@@ -2,22 +2,21 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag      => "v1.13.1",
-      :revision => "eec55b9ba98609a46fee712359c7b5b365bdd920"
+      :tag      => "v1.13.3",
+      :revision => "721bfa751924da8d1680787490c54b9179b1fed0"
   head "https://github.com/kubernetes/kubernetes.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c904b9f983fc87c86fb7ebda649cf0e4f400831072a57e2c89a8b8b397d22f6b" => :mojave
-    sha256 "14cca6aacaae2e57812e65d362d8684c95d60372aab479f33aad73c504039ae0" => :high_sierra
-    sha256 "5acd4fc09b6fc8e00fbf854fc766e1b35ae1880e18cea7057ce1fb97d975c0ed" => :sierra
+    sha256 "114783b3abc9a0a0292d24f7d6196bef46fcbdd452a27d1871c9202cdbfa27a4" => :mojave
+    sha256 "12ed2e4506e9269ad802a634936376130351de45998eaf2b4fb52a3c997b4a3b" => :high_sierra
+    sha256 "204f22c9cfe97375d112c64c77c071ba0703030f633eeb6aacce8c714db5859f" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
     dir = buildpath/"src/k8s.io/kubernetes"
     dir.install buildpath.children - [buildpath/".brew_home"]
 
@@ -28,7 +27,7 @@ class KubernetesCli < Formula
 
       # Make binary
       system "make", "kubectl"
-      bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+      bin.install "_output/local/bin/darwin/amd64/kubectl"
 
       # Install bash completion
       output = Utils.popen_read("#{bin}/kubectl completion bash")

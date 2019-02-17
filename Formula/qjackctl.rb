@@ -16,8 +16,6 @@ class Qjackctl < Formula
   depends_on "jack"
   depends_on "qt"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-debug",

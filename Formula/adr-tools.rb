@@ -19,6 +19,7 @@ class AdrTools < Formula
 
     prefix.install Dir["src/*.md"]
     bin.install Dir["src/*"]
+    bash_completion.install "autocomplete/adr" => "adr-tools"
   end
 
   test do

@@ -1,6 +1,6 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
-  homepage "http://www.openvdb.org/"
+  homepage "https://www.openvdb.org/"
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.0.0.tar.gz"
   sha256 "dbdf3048336444c402e5d3727c9bfb2e84454b8d0fd468ba92a8c7225e24b7b4"
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
@@ -21,11 +21,9 @@ class Openvdb < Formula
   depends_on "tbb"
 
   resource "test_file" do
-    url "http://www.openvdb.org/download/models/cube.vdb.zip"
+    url "https://nexus.aswf.io/content/repositories/releases/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
     sha256 "05476e84e91c0214ad7593850e6e7c28f777aa4ff0a1d88d91168a7dd050f922"
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11

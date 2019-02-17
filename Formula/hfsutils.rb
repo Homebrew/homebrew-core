@@ -14,7 +14,6 @@ class Hfsutils < Formula
     sha256 "61847361f9dac3c719ae8fb464fb9e45d7b64054c7d3c2ff23b37a698546f63d" => :el_capitan
     sha256 "2d0997b77b2bc7b3a0454c552c6ebd3b24c6efc01bc9e4814781f7971c8802f9" => :yosemite
     sha256 "06dddcb4d540a24b63b389213724b828f99bfc7c32272be1a9e4ca4472409c93" => :mavericks
-    sha256 "251b45cb10a8c3ea4d543cd0a843acd266e4acd01637f7f999e8221324835e19" => :mountain_lion
   end
 
   def install

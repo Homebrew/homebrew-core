@@ -36,17 +36,15 @@ class Idris < Formula
     system bin/"idris", "hello.idr", "-o", "hello"
     assert_equal "Hello, Homebrew!", shell_output("./hello").chomp
 
-    if build.with? "libffi"
-      (testpath/"ffi.idr").write <<~EOS
-        module Main
-        puts: String -> IO ()
-        puts x = foreign FFI_C "puts" (String -> IO ()) x
-        main : IO ()
-        main = puts "Hello, interpreter!"
-      EOS
+    (testpath/"ffi.idr").write <<~EOS
+      module Main
+      puts: String -> IO ()
+      puts x = foreign FFI_C "puts" (String -> IO ()) x
+      main : IO ()
+      main = puts "Hello, interpreter!"
+    EOS
 
-      system bin/"idris", "ffi.idr", "-o", "ffi"
-      assert_equal "Hello, interpreter!", shell_output("./ffi").chomp
-    end
+    system bin/"idris", "ffi.idr", "-o", "ffi"
+    assert_equal "Hello, interpreter!", shell_output("./ffi").chomp
   end
 end

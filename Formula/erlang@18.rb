@@ -48,7 +48,7 @@ class ErlangAT18 < Formula
   def install
     # Fixes "dyld: Symbol not found: _clock_gettime"
     # Reported 17 Sep 2016 https://bugs.erlang.org/browse/ERL-256
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       ENV["erl_cv_clock_gettime_monotonic_default_resolution"] = "no"
       ENV["erl_cv_clock_gettime_monotonic_try_find_pthread_compatible"] = "no"
       ENV["erl_cv_clock_gettime_wall_default_resolution"] = "no"
@@ -75,9 +75,9 @@ class ErlangAT18 < Formula
       --enable-hipe
       --enable-wx
       --without-javac
+      --enable-darwin-64bit
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
     args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
 
     system "./configure", *args

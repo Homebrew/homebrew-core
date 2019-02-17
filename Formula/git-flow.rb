@@ -22,7 +22,6 @@ class GitFlow < Formula
     sha256 "56826b30d91ffb54829f4792f88c673b1c3e748aa662bef5806e4a6f5d0ee015" => :el_capitan
     sha256 "a5e97d4d5c082194b36c18e7b051c43b2d5b37366b2ac56c5ea9407f6315685b" => :yosemite
     sha256 "8e931605a0d12cffa282db7244e0041cc14f8a7692e184a6bc1975800be2dac0" => :mavericks
-    sha256 "1ed5c8b915583801fb955e890b758c6d619f8403801dd61c2976a1da314ce5f5" => :mountain_lion
   end
 
   head do

@@ -62,8 +62,6 @@ class Shogun < Formula
     sha256 "0a1c3e2e16b2ce70855c1f15876bddd5e5de35ab29290afceacdf7179c4558cb"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

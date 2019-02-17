@@ -12,7 +12,6 @@ class Memtester < Formula
     sha256 "e9acbfc46d698da87473227fe344e9999642212289f8365dd4485bc52ce55238" => :el_capitan
     sha256 "fc38d748b19b83c69547ab95bae6adce7009d14b6b21668e20417e7596691c6e" => :yosemite
     sha256 "e2690d42f2744e37e9f0e119736653a92d0d1be2d10aed7ebc7364dad0eeb640" => :mavericks
-    sha256 "41a55e47f94006bd7b8a1876b3788811b98d383738dd7153f9c1f1e527322cec" => :mountain_lion
   end
 
   def install

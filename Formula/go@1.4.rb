@@ -51,15 +51,6 @@ class GoAT14 < Formula
     end
   end
 
-  def caveats; <<~EOS
-    As of go 1.2, a valid GOPATH is required to use the `go get` command:
-      https://golang.org/doc/code.html#GOPATH
-
-    You may wish to add the GOROOT-based install location to your PATH:
-      export PATH=$PATH:#{opt_libexec}/bin
-  EOS
-  end
-
   test do
     (testpath/"hello.go").write <<~EOS
       package main

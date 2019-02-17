@@ -3,12 +3,12 @@ class Efl < Formula
   homepage "https://www.enlightenment.org"
   url "https://download.enlightenment.org/rel/libs/efl/efl-1.21.0.tar.xz"
   sha256 "7e65be78a537aa67e447b945f01f4ecf9ddfa14d509bf6bbf53a60253ecbae4b"
+  revision 2
 
   bottle do
-    rebuild 1
-    sha256 "402615004f916c4bce4ea9c861f591fe31975fe894c56e00840adf74c726cb21" => :mojave
-    sha256 "983569d3063cdbe45059c119bcd7f82bbc4a73412f2600435420191ce6b218ad" => :high_sierra
-    sha256 "035342390bc34cec44f89cd056618ffad4212152f3d23d20d074b8bb1f9ea0d4" => :sierra
+    sha256 "c375e6393bae92eec424b04a75e4489138631f7d471d2ab9d5be6985ea71930a" => :mojave
+    sha256 "b8a43e0d6f257cf0b0b8a75f4ef74754278f4a676f361ca962fcf83d44cdb3bf" => :high_sierra
+    sha256 "7f08d6c68ee94bb493aad13cff217f3cd3ca2e29384826146737cfa7b4b6a727" => :sierra
   end
 
   depends_on "gettext" => :build
@@ -33,8 +33,6 @@ class Efl < Formula
   depends_on "poppler"
   depends_on "pulseaudio"
   depends_on "shared-mime-info"
-
-  needs :cxx11
 
   def install
     ENV.cxx11

@@ -6,12 +6,11 @@ class Perl < Formula
   head "https://perl5.git.perl.org/perl.git", :branch => "blead"
 
   bottle do
-    sha256 "f5865e090930cb57cdb33b571dfcb4ab927d31d5b750cf4ea349c5fe8e0496ff" => :mojave
-    sha256 "93dde29e3b480d98b09bedc0b7613763dfadb77f105509ad5c2fbc6a795dde5f" => :high_sierra
-    sha256 "3c6172271e054af71da670399a0947acd82a648af10b943742ecae7c0986e28b" => :sierra
+    rebuild 2
+    sha256 "6f9c6519a6c95eb3212abde423688fa01d3d56be0c424f9e6e8bed7b59dfe014" => :mojave
+    sha256 "b04e2b8a5158c6405558e8408d901c7c1899eda8950202f1dfddd6efd7cfa043" => :high_sierra
+    sha256 "8099f37b2521864a095eb06dc5cde02805421a78ddda95fafe3fc538a3ef3553" => :sierra
   end
-
-  option "with-dtrace", "Build with DTrace probes"
 
   # Prevent site_perl directories from being removed
   skip_clean "lib/perl5/site_perl"
@@ -32,7 +31,6 @@ class Perl < Formula
       -Dusethreads
     ]
 
-    args << "-Dusedtrace" if build.with? "dtrace"
     args << "-Dusedevel" if build.head?
 
     system "./Configure", *args
@@ -46,7 +44,7 @@ class Perl < Formula
     (lib/"perl5/#{version}/darwin-thread-multi-2level/CORE").install_symlink buildpath/"libperl.dylib"
 
     system "make"
-    system "make", "test" if build.bottle?
+    system "make", "test"
 
     # Remove the symlink so the library actually gets installed.
     rm lib/"perl5/#{version}/darwin-thread-multi-2level/CORE/libperl.dylib"

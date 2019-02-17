@@ -3,13 +3,14 @@ class Libbi < Formula
   homepage "https://libbi.org/"
   url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
   sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
+  revision 2
   head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "21ed964ffbdc1c418cbba82b9c44648dc23c2412a08d42dc66fb4386d8729699" => :mojave
-    sha256 "de5361ea6cb18dad23c95c184524c7bfd86037f4ebdf3e659e359b5bbf627b0a" => :high_sierra
-    sha256 "ab59d6da979895c37197afbe8fcf9d7ac7c317842e348e1156675694f6bd3fc4" => :sierra
+    sha256 "4021160fbebeabdd0cc74bb93fcc974496f97d70d391e65dd53e55f6c636f697" => :mojave
+    sha256 "2dcea74c906d7beef3f3c16f362a89b5972c63d58631f753c64580e34bdbdb98" => :high_sierra
+    sha256 "17351c606436ac0bb5ae291735186a7ce6ab5927b8e7f48d2b62c45ebbfb4f60" => :sierra
   end
 
   depends_on "automake"

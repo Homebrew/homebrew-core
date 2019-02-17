@@ -8,29 +8,25 @@ class Doxygen < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2ca215c26200d5e12735c306dead7fef458613d94857b28f7e425929f8dd65dd" => :mojave
-    sha256 "11c0ec6f8ad45c65904f085aea930f4ddc7c6d6a507610e63fed8ceb0c81735b" => :high_sierra
-    sha256 "ef99a58a814f6d022b19d34e4f1498ca9a12682ba8a7938147813888f4bbec45" => :sierra
+    rebuild 2
+    sha256 "e3144ca8ebdb1abd668cb4eee36feb3bb5d545bc3d056f207109d2ae57013f5c" => :mojave
+    sha256 "b6b7234f2644de37a48d7459f3b360127c4e92df8bb56d48b9a4128f58eaf90b" => :high_sierra
+    sha256 "305156f3d060deeee197759c5ce6ea8a1da36ad52f8104b42cd7ccbb2b20c0e7" => :sierra
   end
 
-  option "with-graphviz", "Build with dot command support from Graphviz."
-  option "with-qt", "Build GUI frontend with Qt support."
-  option "with-llvm", "Build with libclang support."
-
-  deprecated_option "with-dot" => "with-graphviz"
-  deprecated_option "with-doxywizard" => "with-qt"
-  deprecated_option "with-libclang" => "with-llvm"
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "cmake" => :build
-  depends_on "graphviz" => :optional
-  depends_on "llvm" => :optional
-  depends_on "qt" => :optional
+
+  # Fix build breakage for 1.8.15 and CMake 3.13
+  # https://github.com/Homebrew/homebrew-core/issues/35815
+  patch do
+    url "https://github.com/doxygen/doxygen/commit/889eab308b564c4deba4ef58a3f134a309e3e9d1.diff?full_index=1"
+    sha256 "ba4f9251e2057aa4da3ae025f8c5f97ea11bf26065a3f0e3b313b9acdad0b938"
+  end
 
   def install
-    args = std_cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}"
-    args << "-Dbuild_wizard=ON" if build.with? "qt"
-    args << "-Duse_libclang=ON -DLLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config" if build.with? "llvm"
+    args = std_cmake_args + %W[
+      -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args

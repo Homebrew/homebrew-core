@@ -1,14 +1,14 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.3.2.tar.gz"
-  sha256 "e34e56127c251112c07f5a9b10636ea27685ed468a66e4158ea0a0dda71ea5a3"
+  url "https://github.com/neovim/neovim/archive/v0.3.4.tar.gz"
+  sha256 "a641108bdebfaf319844ed46b1bf35d6f7c30ef5aeadeb29ba06e19c3274bc0e"
   head "https://github.com/neovim/neovim.git"
 
   bottle do
-    sha256 "644a57613919724c94007adc28ed74f2fc2c5126497e7eeea5ba148e20789b0d" => :mojave
-    sha256 "9826efa3522ce3b68f1944fc5da7d1cc3df30b219f4584a5c2eb6fd701841203" => :high_sierra
-    sha256 "1e716173c8219e34ecc3d74f971f15d0c78f05421e94d8ec170346625d63a080" => :sierra
+    sha256 "7bb939377f5438ca9147f57bbcabaf9695f7b8aa6f88394f29462936c830b5ed" => :mojave
+    sha256 "f31dbf1ac5d69a44e14ba1ae71d9d3f806408b9006f9fd77cef346fc83c0019c" => :high_sierra
+    sha256 "ff0888eb750258eb907cf8982c114a11b63a5ae7adade5e517013f40faf9054d" => :sierra
   end
 
   depends_on "cmake" => :build

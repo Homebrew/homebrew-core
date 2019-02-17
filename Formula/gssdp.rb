@@ -1,16 +1,14 @@
 class Gssdp < Formula
   desc "GUPnP library for resource discovery and announcement over SSDP"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gssdp/1.0/gssdp-1.0.2.tar.xz"
-  sha256 "a1e17c09c7e1a185b0bd84fd6ff3794045a3cd729b707c23e422ff66471535dc"
-  revision 1
+  url "https://download.gnome.org/sources/gssdp/1.0/gssdp-1.0.3.tar.xz"
+  sha256 "211387a62bc1d99821dd0333d873a781320287f5436f91e58b2ca145b378be41"
 
   bottle do
     cellar :any
-    sha256 "0ecc3cbb1b4f765a6057dcc1b4a295116dd809be648f4a476e7d2d98c3348f1c" => :mojave
-    sha256 "c8ac9c7c755749b7a6ea9790efab2311c9fc3d62a1af62b719968f14a7c25b62" => :high_sierra
-    sha256 "3786f067d3b19ce3021618aaf434fd325862f90d03b7fd5ac12f6f37f8715e42" => :sierra
-    sha256 "7927b712f8f9570c0a7e21593786bd41edf0daf2e14b7998886af9a00a8c2ab0" => :el_capitan
+    sha256 "0b33c442e3ac602474980603f72ae51cd003e338d89aaedebbdc858dda2a6b93" => :mojave
+    sha256 "7c745644a57ff5a9d80d7422830770aad3c80aabef6009a4db107612b97d2536" => :high_sierra
+    sha256 "fd8130caac892fab33a2abf2db7f7089455d700fa5454d36820d54781adae7be" => :sierra
   end
 
   depends_on "intltool" => :build

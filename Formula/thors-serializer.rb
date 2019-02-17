@@ -2,19 +2,17 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      :tag      => "1.9.1",
-      :revision => "0f60ae61e1e37dd6343c9afe28898125a77ecc2d"
+      :tag      => "1.10.1",
+      :revision => "34edb4eec2e51b1eb9772276a69674c003622fef"
 
   bottle do
     cellar :any
-    sha256 "736892141ba33ef4425361d797a1c088a58668a6bf6005239c5c9d7d770898eb" => :mojave
-    sha256 "8883c664e953a4567ca1c158ce4dc02af834009b0df32eb095c67e1c3d66126d" => :high_sierra
-    sha256 "1eb242a70936dfaf6947cb1ce3f6467e772e9e4f409d2fad30ab9ccbf0254b4a" => :sierra
+    sha256 "daafaa62ae50a8ce3d64b95f8dde040882f7d3d7c76331b3882eb7fd10b1f288" => :mojave
+    sha256 "ab1470be44df2fc1f3797565247789ca3a9f061027a71709e948637d6f0c9d35" => :high_sierra
+    sha256 "fa1a7d0a3d609e9b8d33fe61df17e9476cf7677c4724921ef8e999ecfc3acba7" => :sierra
   end
 
   depends_on "libyaml"
-
-  needs :cxx14
 
   def install
     ENV["COV"] = "gcov"

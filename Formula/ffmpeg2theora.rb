@@ -27,7 +27,7 @@ class Ffmpeg2theora < Formula
       "mandir=PREFIX/share/man",
       "APPEND_LINKFLAGS=-headerpad_max_install_names",
     ]
-    scons "install", *args
+    system "scons", "install", *args
   end
 
   test do

@@ -4,7 +4,7 @@ class Synfig < Formula
   url "https://downloads.sourceforge.net/project/synfig/releases/1.0.2/source/synfig-1.0.2.tar.gz"
   sha256 "34cdf9eac90aadea29fb2997e82da1c32713ab02940f7c8873330f894e167fb4"
   revision 5
-  head "http://svn.code.sf.net/p/synfig/code/"
+  head "https://svn.code.sf.net/p/synfig/code/"
 
   bottle do
     sha256 "7051446f2836f7de2f71508639cd7e82de5b71013e55801124f6e5ecf426cca4" => :mojave
@@ -32,8 +32,6 @@ class Synfig < Formula
     url "https://gist.githubusercontent.com/tschoonj/06d5de3cdc5d063f8612/raw/26fe46b6eedeecdc686b9fd5aac01de9f2756424/synfig.diff"
     sha256 "0ac5b757ba3dda6a863a79e717fc239648c490eac1e643ff275b8ac232a466a3"
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11

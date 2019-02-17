@@ -31,16 +31,17 @@ class OpenSceneGraph < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
     end
 
-    args = std_cmake_args
-    args << "-DBUILD_DOCUMENTATION=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON"
-    args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
-    args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_64_bit}"
-    args << "-DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio"
-    args << "-DOSG_WINDOWING_SYSTEM=Cocoa"
+    args = std_cmake_args + %w[
+      -DBUILD_DOCUMENTATION=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON
+      -DCMAKE_CXX_FLAGS=-Wno-error=narrowing
+      -DCMAKE_OSX_ARCHITECTURES=x86_64
+      -DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio
+      -DOSG_WINDOWING_SYSTEM=Cocoa
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args

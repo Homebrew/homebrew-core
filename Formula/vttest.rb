@@ -12,7 +12,6 @@ class Vttest < Formula
     sha256 "e758b4d59d1322b736f247c9ebbabe3c73ad06b324120997c6af784b8a3ab3f7" => :el_capitan
     sha256 "2584fb77678acad877286416b79db38673320ec028e6a6add37b987b150af648" => :yosemite
     sha256 "e2faf045a9a09d49e64f104bf65ca7a8fabf4552a50621bd22206e80ef579844" => :mavericks
-    sha256 "acb979d3b90f828d2b504b9f0872ad4eb3c421d30872ad291df91123038433d4" => :mountain_lion
   end
 
   def install

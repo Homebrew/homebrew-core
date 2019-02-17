@@ -2,17 +2,15 @@ class Ldapvi < Formula
   desc "Update LDAP entries with a text editor"
   homepage "http://www.lichteblau.com/ldapvi/"
   url "http://www.lichteblau.com/download/ldapvi-1.7.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7.orig.tar.gz"
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
-  revision 3
+  revision 4
 
   bottle do
     cellar :any
-    sha256 "757050948ca19e7d2cd1e13a425c273fd0573a1d10ce638b194c14662e5348cc" => :mojave
-    sha256 "266886333e3e96868249fb5ea6117f95e262884b12c87999ce10839e7b54840a" => :high_sierra
-    sha256 "715fa62d9a31e3d64eb7be63847bfcb6430baf14513374afeb3861a9c736c27e" => :sierra
-    sha256 "bc0b47872ac179d5797a0431e268708b0fa5e6a444cfbcbefb9c5b565d44c6a6" => :el_capitan
-    sha256 "0226ff922a186c3ea5b7342b0caad554316332006db0b797f2ac0eb3cda2c5e8" => :yosemite
+    sha256 "773739d7f165e94b515f02cb4e77f65e5965936e65c7f1a8ff9544abbe6c918e" => :mojave
+    sha256 "16c5ca7a7483936c291c61c774fb7f6f403916593e3ef62010e4e4c36f50a738" => :high_sierra
+    sha256 "3c342ccb18d3f3ca489d895d055314804f07768089b539333bac1e5ee34d41c1" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -27,8 +25,7 @@ class Ldapvi < Formula
   # http://www.lichteblau.com/git/?p=ldapvi.git;a=commit;h=256ced029c235687bfafdffd07be7d47bf7af39b
   # http://www.lichteblau.com/git/?p=ldapvi.git;a=commit;h=a2717927f297ff9bc6752f281d4eecab8bd34aad
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/ldapvi/ldapvi_1.7-10.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7-10.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/l/ldapvi/ldapvi_1.7-10.debian.tar.xz"
     sha256 "93be20cf717228d01272eab5940337399b344bb262dc8bc9a59428ca604eb6cb"
     apply "patches/05_getline-conflict",
           "patches/06_fix-vim-modeline"

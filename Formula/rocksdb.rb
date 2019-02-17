@@ -16,11 +16,9 @@ class Rocksdb < Formula
   depends_on "lz4"
   depends_on "snappy"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
-    ENV["PORTABLE"] = "1" if build.bottle?
+    ENV["PORTABLE"] = "1"
     ENV["DEBUG_LEVEL"] = "0"
     ENV["USE_RTTI"] = "1"
     ENV["DISABLE_JEMALLOC"] = "1" # prevent opportunistic linkage

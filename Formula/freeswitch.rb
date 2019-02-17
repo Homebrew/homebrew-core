@@ -7,16 +7,11 @@ class Freeswitch < Formula
   head "https://freeswitch.org/stash/scm/fs/freeswitch.git"
 
   bottle do
-    sha256 "52f44a6e3713c7c5d47f4fc6a78416c7ddddfdf69ee23e7c2caef02f1e47733e" => :mojave
-    sha256 "a44ff9765d3a79e6caf363f94c144ee62139320b274f70c56000d839dec618ad" => :high_sierra
-    sha256 "52aa9f65dbcff17203256154422092c74195c795f50cb10b4c7182e4dcc1361b" => :sierra
-    sha256 "f2d73136027050dc82f3ce4d9e6f131f07a6cf15fba1d2b02c2012eacd1cb525" => :el_capitan
+    rebuild 1
+    sha256 "58a7bdb234edccfcd4d6ec0058d4170aec5051e3540b5b3047ae3e90fdd26f47" => :mojave
+    sha256 "01903ecd5069961415c1493a1bf09b3bce19bb9fe7155883fc34d0cbb146384f" => :high_sierra
+    sha256 "e9c57548ee83a2dd1e48611395c3b9d0b7e07d3389c80bfe7ed795f8b11138c6" => :sierra
   end
-
-  option "without-moh", "Do not install music-on-hold"
-  option "without-sounds-en", "Do not install English (Callie) sounds"
-  option "with-sounds-fr", "Install French (June) sounds"
-  option "with-sounds-ru", "Install Russian (Elena) sounds"
 
   depends_on "apr-util" => :build
   depends_on "autoconf" => :build
@@ -35,7 +30,6 @@ class Freeswitch < Formula
   depends_on "sqlite"
 
   # https://github.com/Homebrew/homebrew/issues/42865
-  fails_with :gcc_4_2
 
   #----------------------- Begin sound file resources -------------------------
   sounds_url_base = "https://files.freeswitch.org/releases/sounds"
@@ -90,56 +84,6 @@ class Freeswitch < Formula
     sha256 "cfc50f1d9b5d43cb87a9a2c0ce136c37ee85ac3b0e5be930d8dc2c913c4495aa"
   end
 
-  #-----------
-  # sounds-fr
-  #-----------
-  sounds_fr_version = "1.0.51" # from build/sounds_version.txt
-  resource "sounds-fr-ca-june-8000" do
-    url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-8000-#{sounds_fr_version}.tar.gz"
-    version sounds_fr_version
-    sha256 "eada67c61bd62ec420eb017df7524d10de286fba0c2da4800516b9f62c00e78c"
-  end
-  resource "sounds-fr-ca-june-16000" do
-    url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-16000-#{sounds_fr_version}.tar.gz"
-    version sounds_fr_version
-    sha256 "f942980ad359951ef3f69a324a3299ef86cdb4f8d2c62adaf73a1b95fb39fcc6"
-  end
-  resource "sounds-fr-ca-june-32000" do
-    url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-32000-#{sounds_fr_version}.tar.gz"
-    version sounds_fr_version
-    sha256 "8966a0c4daf666018cca6d8ba0f7708e251bed952b015d0ca6a0792341fe531b"
-  end
-  resource "sounds-fr-ca-june-48000" do
-    url "#{sounds_url_base}/freeswitch-sounds-fr-ca-june-48000-#{sounds_fr_version}.tar.gz"
-    version sounds_fr_version
-    sha256 "abaea558fb5485abdd01d0b1186e03cf508f96ac90492814cc7ed4475e99a1e0"
-  end
-
-  #-----------
-  # sounds-ru
-  #-----------
-  sounds_ru_version = "1.0.51" # from build/sounds_version.txt
-  resource "sounds-ru-RU-elena-8000" do
-    url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-8000-#{sounds_ru_version}.tar.gz"
-    version sounds_ru_version
-    sha256 "d2679503eb1f4dc1716df5f8c4b5a7b721f087b17e96a02b1a92480311074c66"
-  end
-  resource "sounds-ru-RU-elena-16000" do
-    url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-16000-#{sounds_ru_version}.tar.gz"
-    version sounds_ru_version
-    sha256 "e5a354cd10401208291f1d0e668a8cf8215d3cdcb93f2cbd4b83dd134425e60b"
-  end
-  resource "sounds-ru-RU-elena-32000" do
-    url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-32000-#{sounds_ru_version}.tar.gz"
-    version sounds_ru_version
-    sha256 "a2b43f20246f376d55dd73d269eb238cbeb6a961a40716d2f79a5835344aabfc"
-  end
-  resource "sounds-ru-RU-elena-48000" do
-    url "#{sounds_url_base}/freeswitch-sounds-ru-RU-elena-48000-#{sounds_ru_version}.tar.gz"
-    version sounds_ru_version
-    sha256 "ffd7d34907f6b6ac861e7898d2237ad763f242a17cd23811da28fd7745d3350d"
-  end
-
   #------------------------ End sound file resources --------------------------
 
   def install
@@ -163,43 +107,19 @@ class Freeswitch < Formula
     system "make"
     system "make", "install", "all"
 
-    if build.with?("moh")
-      # Should be equivalent to: system "make", "cd-moh-install"
-      mkdir_p prefix/"sounds/music"
-      [8, 16, 32, 48].each do |n|
-        resource("sounds-music-#{n}000").stage do
-          cp_r ".", prefix/"sounds/music"
-        end
+    # Should be equivalent to: system "make", "cd-moh-install"
+    mkdir_p prefix/"sounds/music"
+    [8, 16, 32, 48].each do |n|
+      resource("sounds-music-#{n}000").stage do
+        cp_r ".", prefix/"sounds/music"
       end
     end
 
-    if build.with?("sounds-en")
-      # Should be equivalent to: system "make", "cd-sounds-install"
-      mkdir_p prefix/"sounds/en"
-      [8, 16, 32, 48].each do |n|
-        resource("sounds-en-us-callie-#{n}000").stage do
-          cp_r ".", prefix/"sounds/en"
-        end
-      end
-    end
-
-    if build.with?("sounds-fr")
-      # Should be equivalent to: system "make", "cd-sounds-fr-install"
-      mkdir_p prefix/"sounds/fr"
-      [8, 16, 32, 48].each do |n|
-        resource("sounds-fr-ca-june-#{n}000").stage do
-          cp_r ".", prefix/"sounds/fr"
-        end
-      end
-    end
-
-    if build.with?("sounds-ru")
-      # Should be equivalent to: system "make", "cd-sounds-ru-install"
-      mkdir_p prefix/"sounds/ru"
-      [8, 16, 32, 48].each do |n|
-        resource("sounds-ru-RU-elena-#{n}000").stage do
-          cp_r ".", prefix/"sounds/ru"
-        end
+    # Should be equivalent to: system "make", "cd-sounds-install"
+    mkdir_p prefix/"sounds/en"
+    [8, 16, 32, 48].each do |n|
+      resource("sounds-en-us-callie-#{n}000").stage do
+        cp_r ".", prefix/"sounds/en"
       end
     end
   end

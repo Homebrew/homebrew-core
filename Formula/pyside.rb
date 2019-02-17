@@ -1,13 +1,13 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.11.2-src/pyside-setup-everywhere-src-5.11.2.tar.xz"
-  sha256 "18f572f1f832e476083d30fccabab167450f2a8cbe5cd9c6e6e4fa078ccb86c2"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.12.1-src/pyside-setup-everywhere-src-5.12.1.tar.xz"
+  sha256 "6e26b6240b97558b8bf3c97810e950ef4121a03a1ebdecfb649992a505f18059"
 
   bottle do
-    sha256 "4d0afc4ec29bb5038b9200401533617c726dfcdf9734ce6d0d7946ccf6448ade" => :mojave
-    sha256 "282a171f80a2f6eadd354e868077759a702595396e5f2e0bfdd638509c4d5e6b" => :high_sierra
-    sha256 "1a9e043fb1993fb2673f4aeb947fac0d87fe862e922a387f268249d2bdcaf7d1" => :sierra
+    sha256 "e7fe88572d06f3466c7292847c31ba8597b2708d5785c63e18353bd9143a7738" => :mojave
+    sha256 "6a26cc11e5ac8fdad247545ca6da90f0aed371480647c84de0332085f2d4734f" => :high_sierra
+    sha256 "f597396d4f95f91c9262c8dc0a7e7f4d01ec6912db8bdff1af5e6b2baa91394b" => :sierra
   end
 
   depends_on "cmake" => [:build, :test]
@@ -18,26 +18,35 @@ class Pyside < Formula
 
   def install
     args = %W[
+      --no-user-cfg
+      install
+      --prefix=#{prefix}
+      --install-scripts=#{bin}
+      --single-version-externally-managed
+      --record=installed.txt
       --ignore-git
-      --no-examples
-      --macos-use-libc++
-      --jobs=#{ENV.make_jobs}
-      --install-scripts #{bin}
+      --parallel=#{ENV.make_jobs}
     ]
 
     xy = Language::Python.major_minor_version "python3"
 
-    system "python3", *Language::Python.setup_install_args(prefix),
-           "--install-lib", lib/"python#{xy}/site-packages", *args
+    system "python3", "setup.py", *args,
+           "--install-lib", lib/"python#{xy}/site-packages"
 
-    system "python2", *Language::Python.setup_install_args(prefix),
-           "--install-lib", lib/"python2.7/site-packages", *args
+    lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/PySide2/*.dylib")
+    lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/shiboken2/*.dylib")
+
+    system "python2", "setup.py", *args,
+           "--install-lib", lib/"python2.7/site-packages"
+
+    lib.install_symlink Dir.glob(lib/"python2.7/site-packages/PySide2/*.dylib")
+    lib.install_symlink Dir.glob(lib/"python2.7/site-packages/shiboken2/*.dylib")
 
     pkgshare.install "examples/samplebinding", "examples/utils"
   end
 
   test do
-    ["python2", "python3"].each do |python|
+    ["python3", "python2"].each do |python|
       system python, "-c", "import PySide2"
       %w[
         Core
@@ -52,9 +61,9 @@ class Pyside < Formula
         Xml
       ].each { |mod| system python, "-c", "import PySide2.Qt#{mod}" }
     end
-    ["python@2", "python"].each do |python|
-      if python == "python"
-        ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ["python", "python@2"].each do |python|
+      if python == "python@2"
+        ENV.prepend_path "PATH", Formula["python@2"].opt_libexec/"bin"
       end
       system "cmake", "-H#{pkgshare}/samplebinding",
                       "-B.",
@@ -62,6 +71,8 @@ class Pyside < Formula
                       "Unix Makefiles",
                       "-DCMAKE_BUILD_TYPE=Release"
       system "make"
+      system "make", "clean"
+      rm "CMakeCache.txt"
     end
   end
 end

@@ -32,20 +32,19 @@ class Ocaml < Formula
     satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
   end
 
-  option "with-x11", "Install with the Graphics module"
-  option "with-flambda", "Install with flambda support"
-
-  depends_on :x11 => :optional
-
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
 
     # the ./configure in this package is NOT a GNU autoconf script!
-    args = ["-prefix", HOMEBREW_PREFIX.to_s, "-with-debug-runtime", "-mandir", man]
-    args << "-no-graph" if build.without? "x11"
-    args << "-flambda" if build.with? "flambda"
+    args = [
+      "-prefix",
+      HOMEBREW_PREFIX.to_s,
+      "-with-debug-runtime",
+      "-mandir",
+      man.to_s,
+      "-no-graph",
+    ]
     system "./configure", *args
-
     system "make", "world.opt"
     system "make", "install", "PREFIX=#{prefix}"
   end

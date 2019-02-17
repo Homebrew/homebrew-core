@@ -14,8 +14,6 @@ class StoneSoup < Formula
   depends_on "lua@5.1"
   depends_on "pcre"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
@@ -46,7 +44,7 @@ class StoneSoup < Formula
       # On 10.9, stone-soup will try to use xcrun and fail due to an empty
       # DEVELOPER_DIR
       devdir = MacOS::Xcode.prefix.to_s
-      devdir += "/" if MacOS.version >= :mavericks && !MacOS::Xcode.installed?
+      devdir += "/" if !MacOS::Xcode.installed?
 
       system "make", "install",
         "DEVELOPER_DIR=#{devdir}", "SDKROOT=#{MacOS.sdk_path}",

@@ -13,7 +13,6 @@ class Sqtop < Formula
     sha256 "6d838378cae0971561da60dff1e887bf03b60d1a0ff198a5d468654ef790d9e9" => :el_capitan
     sha256 "29291fedaa06b7b680e44e1b82f643f7ddffc67435312b7c2f3654df0728cb8b" => :yosemite
     sha256 "f1ab5347b698d2e1221a5111fec52022159afc898e5ad7a5318becb23cd35543" => :mavericks
-    sha256 "39b62e9a679009e6dc0106a6e63d229b6c310d222966a0f69b90ec388926102e" => :mountain_lion
   end
 
   def install

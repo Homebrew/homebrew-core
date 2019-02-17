@@ -3,29 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.083.1.tar.gz"
-    sha256 "dc378ce068d72371fece540b4278a52ff02fdd15700eb0530fb5b68a123db47f"
+    url "https://github.com/dlang/dmd/archive/v2.084.1.tar.gz"
+    sha256 "95de47ca49db64553e454c28f9037b1132a0587b8ee184facf0575031ee15524"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.083.1.tar.gz"
-      sha256 "4c81bb2e9397d9615887037354d1a7efbe1eed2721d48771cdd8970dda5f6c98"
+      url "https://github.com/dlang/druntime/archive/v2.084.1.tar.gz"
+      sha256 "fde74b40f62892e09eb338a89d0c108ae01a15748c84c4e8cf4894a161697b8d"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.083.1.tar.gz"
-      sha256 "4a5f89c6911f8d208ed6a4b941d6ff9cc8ef708dab3e65c1d978dc372a999936"
+      url "https://github.com/dlang/phobos/archive/v2.084.1.tar.gz"
+      sha256 "1bf230ee27acb04da0614031ce783ddaa4a4b06da3a75b8b279e6a5b1788ca27"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.083.1.tar.gz"
-      sha256 "78d90dcda6b82d3eda69c30fa2308a8c8f1a3bce574d637806ca1af3c7f65888"
+      url "https://github.com/dlang/tools/archive/v2.084.1.tar.gz"
+      sha256 "58f12a51e29f97f5a75ec83d2867c4511e80ed6be0ae71ed78b4a23745f8ca2b"
     end
   end
 
   bottle do
-    sha256 "863e17c209fc76743e91213eb0568ed32e996a3c489f15ebf856d203308dbfd7" => :mojave
-    sha256 "5675ba828166d04cf663c2aebbfb9059055c6cd58533e022b709ebdfb5eb75a3" => :high_sierra
-    sha256 "f2add4eb9517c974a9f51d0371291d2ff8e3b2c8cdbff8d610d7febd2dfee3bc" => :sierra
+    sha256 "316092a9a666807ee556e5a7bb875b5513781839230660c6ee5db8ec64a11875" => :mojave
+    sha256 "418371f9db99797409094c09fd23559a58f3ee5a9e152eb5bfc22a3a55a5d45f" => :high_sierra
+    sha256 "579e87a7ab5ce58a870f3f5e311124414f185e0f307bac278bd999221ed1660c" => :sierra
   end
 
   head do
@@ -45,9 +45,19 @@ class Dmd < Formula
   end
 
   def install
-    make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "BUILD=release", "-f", "posix.mak"]
+    make_args = %W[
+      INSTALL_DIR=#{prefix}
+      MODEL=64
+      BUILD=release
+      -f posix.mak
+    ]
 
-    dmd_make_args = ["SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "ENABLE_RELEASE=1"]
+    dmd_make_args = %W[
+      SYSCONFDIR=#{etc}
+      TARGET_CPU=X86
+      AUTO_BOOTSTRAP=1
+      ENABLE_RELEASE=1
+    ]
 
     system "make", *dmd_make_args, *make_args
 

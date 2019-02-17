@@ -16,8 +16,6 @@ class Gtkmm3 < Formula
   depends_on "gtk+3"
   depends_on "pangomm"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

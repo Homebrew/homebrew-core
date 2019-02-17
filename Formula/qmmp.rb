@@ -4,7 +4,7 @@ class Qmmp < Formula
   url "http://qmmp.ylsoftware.com/files/qmmp-1.2.4.tar.bz2"
   sha256 "224904f073e3921a080dca008e6c99e3d606f5442d1df08835cba000a069ae66"
   revision 1
-  head "http://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
+  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
 
   bottle do
     rebuild 1

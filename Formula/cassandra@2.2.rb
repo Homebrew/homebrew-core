@@ -1,16 +1,15 @@
 class CassandraAT22 < Formula
   desc "Eventually consistent, distributed key-value db"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/2.2.11/apache-cassandra-2.2.11-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/2.2.11/apache-cassandra-2.2.11-bin.tar.gz"
-  sha256 "866e1acd88e6e2ec0c3d201bea4c3e4494c5f6189dd810366ec9b6154bad6964"
+  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/2.2.13/apache-cassandra-2.2.13-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/2.2.13/apache-cassandra-2.2.13-bin.tar.gz"
+  sha256 "58a97b4830d45e27f4d81aea7a22d2b395ca37125b7c2acd7d5a163825f459a6"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "686148484fd214ef747ca608490003c4c146e01dd9a088132eaf53e0fb46daa6" => :mojave
-    sha256 "966571457ede3a2376f92f3837eaa16276b267c93bcb3a660cdf721cb5315493" => :high_sierra
-    sha256 "fca0ff60134260f53cec82c02c7c338ea0f978aa2f7ae2d451fe465d7c0966b6" => :sierra
+    sha256 "e8bc94706f66b556ada3089a3bc2918b92e06ca8828060fd84f0abaa07d6e0cf" => :mojave
+    sha256 "184f745b8089be7b3d3743978592ed29d4fe09ebfcfdf737f713ffd713df2e79" => :high_sierra
+    sha256 "f8c12498058b8835f9dd348df8abf7fee6343b1d41ba7fafee46b9d43090b8c5" => :sierra
   end
 
   keg_only :versioned_formula
@@ -96,7 +95,7 @@ class CassandraAT22 < Formula
     (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", :PYTHONPATH => pypath
   end
 
-  plist_options :manual => "cassandra -f"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/cassandra@2.2/bin/cassandra -f"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>

@@ -17,7 +17,7 @@ class ErlangAT17 < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "unixodbc" if MacOS.version >= :mavericks
+  depends_on "unixodbc"
   depends_on "wxmac"
 
   resource "man" do
@@ -68,9 +68,9 @@ class ErlangAT17 < Formula
       --enable-shared-zlib
       --enable-smp-support
       --enable-wx
+      --enable-darwin-64bit
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
     args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
 
     system "./configure", *args

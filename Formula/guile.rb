@@ -4,12 +4,12 @@ class Guile < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-2.2.4.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-2.2.4.tar.xz"
   sha256 "d9e8b94af7b206fcf52bec6501b921bd7d0bd7a31fb7e896a35ba8253678e31e"
+  revision 1
 
   bottle do
-    sha256 "8eb39acfde1c0c82c462e737f9e577ceacedf0e4ad8b23e4aaf9c7044be25b2c" => :mojave
-    sha256 "1a0b7b04830b2a0b3012b71573a1d297a7bcb2ae40d072c8c0f7aff854e19f55" => :high_sierra
-    sha256 "02f9d024e545abf7fb1dfd328d33cd0f33870eec5df964adf9469c5e11715a77" => :sierra
-    sha256 "035fb8fddf3768a35d74a9003b26fe864184d2f5ce7b53f876e57ec28b667cf8" => :el_capitan
+    sha256 "a5916710ddddf9ab79f368008fddfc708fd50ae86fc5b894a7d70cb3cebfb326" => :mojave
+    sha256 "fe1d3822f7bb1a18b3fa73907db89ba7654a85c3cae4f572eb3257a4b2e148d0" => :high_sierra
+    sha256 "a1bf9796750403fc459f8393144ac7589474f97ba4ce3a0d732fdab7aa3f3df1" => :sierra
   end
 
   head do
@@ -28,11 +28,6 @@ class Guile < Formula
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
-
-  fails_with :clang do
-    build 211
-    cause "Segfaults during compilation"
-  end
 
   def install
     system "./autogen.sh" unless build.stable?

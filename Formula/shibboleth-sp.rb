@@ -25,8 +25,6 @@ class ShibbolethSp < Formula
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
 
-  needs :cxx11
-
   def install
     ENV.O2 # Os breaks the build
     ENV.cxx11
@@ -54,18 +52,6 @@ class ShibbolethSp < Formula
   def post_install
     (var/"run/shibboleth/").mkpath
     (var/"cache/shibboleth").mkpath
-  end
-
-  def caveats
-    mod = build.with?("apache-22") ? "mod_shib_22.so" : "mod_shib_24.so"
-    <<~EOS
-      You must manually edit httpd.conf to include
-      LoadModule mod_shib #{opt_lib}/shibboleth/#{mod}
-      You must also manually configure
-        #{etc}/shibboleth/shibboleth2.xml
-      as per your own requirements. For more information please see
-        https://wiki.shibboleth.net/confluence/display/EDS10/3.1+Configuring+the+Service+Provider
-    EOS
   end
 
   plist_options :startup => true, :manual => "shibd"

@@ -1,8 +1,8 @@
 class Autossh < Formula
   desc "Automatically restart SSH sessions and tunnels"
-  homepage "http://www.harding.motd.ca/autossh/"
-  url "http://www.harding.motd.ca/autossh/autossh-1.4f.tgz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/a/autossh/autossh_1.4f.orig.tar.gz"
+  homepage "https://www.harding.motd.ca/autossh/"
+  url "https://www.harding.motd.ca/autossh/autossh-1.4f.tgz"
+  mirror "https://deb.debian.org/debian/pool/main/a/autossh/autossh_1.4f.orig.tar.gz"
   sha256 "0172e5e1bea40c642e0ef025334be3aadd4ff3b4d62c0b177ed88a8384e2f8f2"
 
   bottle do

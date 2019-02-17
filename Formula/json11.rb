@@ -14,8 +14,6 @@ class Json11 < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx11
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"

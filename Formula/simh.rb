@@ -16,15 +16,6 @@ class Simh < Formula
     sha256 "e9043ec0dc68a5660a20fe270488dbfbf8741a77aae8dace61441fc348e74234" => :mavericks
   end
 
-  # After 3.9-0 the project moves to https://github.com/simh/simh
-  # It doesn't actually fail, but the makefile queries llvm-gcc -v --help a lot
-  # to determine what flags to throw.  It is simply not designed for clang.
-  # Remove at the next revision that will support clang (see github site).
-  fails_with :clang do
-    build 421
-    cause "The program is closely tied to gcc & llvm-gcc in this revision."
-  end
-
   def install
     ENV.deparallelize unless build.head?
     inreplace "makefile", "GCC = gcc", "GCC = #{ENV.cc}"

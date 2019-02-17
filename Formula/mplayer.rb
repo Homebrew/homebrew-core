@@ -3,14 +3,13 @@ class Mplayer < Formula
   homepage "https://mplayerhq.hu/"
   url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.3.0.tar.xz"
   sha256 "3ad0846c92d89ab2e4e6fb83bf991ea677e7aa2ea775845814cbceb608b09843"
+  revision 1
 
   bottle do
-    sha256 "a58510833836fc243210b2c3be7ea688697fff59e7ae0c57074c8dcb11544981" => :mojave
-    sha256 "26285311d46556224a46a14367dac8c813c3959712c267d591950ae9fb703f38" => :high_sierra
-    sha256 "52b4e6e55808d69ff34210337e86359e766c6065da3e43117357d378970cffcf" => :sierra
-    sha256 "6cee95b050e52a0f09e2807d6feda1f798d3f43166fbad1e3fb2ec5fe2c11f99" => :el_capitan
-    sha256 "8bb05f0875afca69802634411d8e67af5f42e4461b66c640de3c152e049c7843" => :yosemite
-    sha256 "d3833fa49709d2857337eebcbd956002f20309cbd676b27070940f84888ebb65" => :mavericks
+    cellar :any
+    sha256 "431d83725fe2589d7e7622e3247b9eaf011741d0725577d83b865dc2e618b5b3" => :mojave
+    sha256 "b339ca86990026c8205bacf4fdb9f70778852d6eb053f2b923c39c4b24eb90b9" => :high_sierra
+    sha256 "81eea942e3ac67665125890cef18ae27610ec59bd3aa257c984f562f100167ad" => :sierra
   end
 
   head do
@@ -22,17 +21,7 @@ class Mplayer < Formula
   end
 
   depends_on "yasm" => :build
-  depends_on "libcaca" => :optional
-  depends_on "libdvdnav" => :optional
-  depends_on "pkg-config" => :build if build.with? "libdvdnav"
-  depends_on "libdvdread" => :optional
-
-  unless MacOS.prefer_64_bit?
-    fails_with :clang do
-      build 211
-      cause "Inline asm errors during compile on 32bit Snow Leopard."
-    end
-  end
+  depends_on "libcaca"
 
   def install
     # we disable cdparanoia because homebrew's version is hacked to work on macOS
@@ -45,16 +34,8 @@ class Mplayer < Formula
       --disable-cdparanoia
       --prefix=#{prefix}
       --disable-x11
+      --enable-caca
     ]
-
-    args << "--enable-caca" if build.with? "libcaca"
-    args << "--enable-dvdnav" if build.with? "libdvdnav"
-
-    if build.with? "libdvdread"
-      ENV["LDFLAGS"] = "-L#{Formula["libdvdread"].opt_lib} -ldvdread"
-      args << "--enable-dvdread"
-    end
-
     system "./configure", *args
     system "make"
     system "make", "install"

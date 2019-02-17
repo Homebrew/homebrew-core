@@ -15,7 +15,7 @@ class Mesos < Formula
   depends_on "maven" => :build
   depends_on "apr-util"
   depends_on :java => "1.8"
-  depends_on :macos => :mountain_lion
+
   depends_on "python@2"
   depends_on "subversion"
 
@@ -67,8 +67,6 @@ class Mesos < Formula
     sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
   end
 
-  needs :cxx11
-
   def install
     # Disable optimizing as libc++ does not play well with optimized clang
     # builds (see https://llvm.org/bugs/show_bug.cgi?id=28469 and
@@ -81,7 +79,7 @@ class Mesos < Formula
     ENV.O0 unless DevelopmentTools.clang_build_version >= 900
 
     # work around to avoid `_clock_gettime` symbol not found error.
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       ENV["ac_have_clock_syscall"] = "no"
     end
 

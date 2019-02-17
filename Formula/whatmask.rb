@@ -12,7 +12,6 @@ class Whatmask < Formula
     sha256 "acf751e4893268ccbee1e48e9f7a147cc38f64a9d178fc50c810d65c0466a648" => :el_capitan
     sha256 "428a92b2ba5a3f6f39009a7d3a7fc503b4308fadaeddc287b39fd6b5bdddef74" => :yosemite
     sha256 "c07eb39e586dbc2b78b4c8cf8173c701ac654e4db0fd5fe12b3c7f80ee3ef577" => :mavericks
-    sha256 "1af978f489425defa0d2c700a50fb140a6ce62274f4ab76530f553b2fba2f6a5" => :mountain_lion
   end
 
   def install

@@ -17,8 +17,6 @@ class Atkmm < Formula
   depends_on "atk"
   depends_on "glibmm"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

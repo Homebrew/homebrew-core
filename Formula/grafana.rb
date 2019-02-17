@@ -1,15 +1,15 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.4.2.tar.gz"
-  sha256 "3c6887cd9ccb8eccc621976b644956d3422f286fd857eb4a6a80689120a81b9e"
+  url "https://github.com/grafana/grafana/archive/v5.4.3.tar.gz"
+  sha256 "c4d2a4723cfd7e5943e42786548ea2ccbc08cd1be80b5f447ef7309d9bd91527"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4c8512442272aa6784321b9cf0f4b237b27c40e1a266e08e3398275fea26ccb3" => :mojave
-    sha256 "f1a3de3467337ccbfee50f5ece9a58f0a84645951250e2dcf7735210ad0368f3" => :high_sierra
-    sha256 "4200109a7f6594b36f613b63895787b6265639196c01341104534f768870f164" => :sierra
+    sha256 "9c021c1dc01bbe5ff2950a5ba26a611a8333710f282775e6f422d210d8dc5907" => :mojave
+    sha256 "2dce4c8198575880eb62b5b3974222cb43b8bbf4dacecda1099ace202994ab52" => :high_sierra
+    sha256 "3b88406a381d145ec3324aadd4b20b1ce76b8a3e1798a4accd85d6b88dc41d1f" => :sierra
   end
 
   depends_on "go" => :build
@@ -26,10 +26,7 @@ class Grafana < Formula
 
       system "yarn", "install", "--ignore-engines"
 
-      args = ["build"]
-      # Avoid PhantomJS error "unrecognized selector sent to instance"
-      args << "--force" unless build.bottle?
-      system "node_modules/grunt-cli/bin/grunt", *args
+      system "node_modules/grunt-cli/bin/grunt", "build"
 
       bin.install "bin/darwin-amd64/grafana-cli"
       bin.install "bin/darwin-amd64/grafana-server"

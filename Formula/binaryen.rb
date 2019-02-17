@@ -1,21 +1,19 @@
 class Binaryen < Formula
   desc "Compiler infrastructure and toolchain library for WebAssembly"
   homepage "https://webassembly.org/"
-  url "https://github.com/WebAssembly/binaryen/archive/version_62.tar.gz"
-  sha256 "b9f693932c813f564e830319d4169ab2d91f62bd764a21aefccbf10925bea0fd"
+  url "https://github.com/WebAssembly/binaryen/archive/version_66.tar.gz"
+  sha256 "36db3a61e76896b6e2ffd63bf5b18903dffb3d28acffa4f2ea0acfa5686005d9"
   head "https://github.com/WebAssembly/binaryen.git"
 
   bottle do
     cellar :any
-    sha256 "31083e310d7ec4e1773efefe587088a01ebd6e54bf48fbcd14a3738407bc2dec" => :mojave
-    sha256 "8a87b2ce233e32371d2795f436b3cc3b9321e89cba0a9c45bb1ff156a760d1c0" => :high_sierra
-    sha256 "ae4406dd7c0e0c7e6889ab462b01a33b8e85563aa33ddc7d7d067a8a0e6f6eb6" => :sierra
+    sha256 "4add472ffbcbb9a8505098f3764ae745061f1059dabee83363b49fc09f00032e" => :mojave
+    sha256 "145793b7b11e4c382a397b2100c27662809f8028112a3c3da27847907238d0eb" => :high_sierra
+    sha256 "bb9bc4dcd2b1253bcf842f0844c655e5d3cafbed3f85bc51ccff6c8492feacea" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on :macos => :el_capitan # needs thread-local storage
-
-  needs :cxx11
 
   def install
     ENV.cxx11

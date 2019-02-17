@@ -18,11 +18,6 @@ class Pioneers < Formula
   depends_on "gtk+3"
   depends_on "librsvg" # svg images for gdk-pixbuf
 
-  fails_with :clang do
-    build 318
-    cause "'#line directive requires a positive integer' argument in generated file"
-  end
-
   def install
     # fix usage of echo options not supported by sh
     inreplace "Makefile.in", /\becho/, "/bin/echo"

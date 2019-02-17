@@ -4,13 +4,12 @@ class GuileAT20 < Formula
   url "https://ftp.gnu.org/gnu/guile/guile-2.0.14.tar.xz"
   mirror "https://ftpmirror.gnu.org/guile/guile-2.0.14.tar.xz"
   sha256 "e8442566256e1be14e51fc18839cd799b966bc5b16c6a1d7a7c35155a8619d82"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 "d01c7d48a4cce82507e6d333802567e8277d72229c1a793184450db51c71db44" => :mojave
-    sha256 "3fca39f27f821031d9c60f1a2bc6ccb083013d3b7cf205096524dd64620d428c" => :high_sierra
-    sha256 "5c9d28f80fa92deb7d958460cf37a3f93428f0ccb614e81afdfe6bfdc252052e" => :sierra
-    sha256 "ff173311b57975634fbf11d7c552ccc08e0214d01cf1a359b116588db5b3b28a" => :el_capitan
+    sha256 "871d523de16db59e222f8c2ca3fd7332513b610770d1bd86993de85da229698b" => :mojave
+    sha256 "c76528368c8a5524dc6bed1f3cfbef2794b6b8ed4e5f3479b6aa44d0c93c41e3" => :high_sierra
+    sha256 "e54a26ab3aba908dfd70dd6c92c24a93a2ee1145ed83684804155889ef18dee6" => :sierra
   end
 
   keg_only :versioned_formula
@@ -22,11 +21,6 @@ class GuileAT20 < Formula
   depends_on "libunistring"
   depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
-
-  fails_with :clang do
-    build 211
-    cause "Segfaults during compilation"
-  end
 
   if MacOS.version >= :sierra
     # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=23870

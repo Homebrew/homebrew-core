@@ -21,8 +21,6 @@ class Ldc < Formula
     sha256 "a946e658aaff1eed80bffeb4d69b572f259368fac44673731781f6d487dea3cd"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")

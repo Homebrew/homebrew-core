@@ -12,8 +12,6 @@ class Angband < Formula
     sha256 "48e336d2c27873aa53c976460346f7523f0b12dbf1939e89c428af4ee95dfa73" => :el_capitan
   end
 
-  option "with-cocoa", "Install Cocoa app"
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
@@ -30,13 +28,6 @@ class Angband < Formula
                           "--with-ncurses-prefix=#{MacOS.sdk_path}/usr"
     system "make"
     system "make", "install"
-
-    if build.with? "cocoa"
-      cd "src" do
-        system "make", "-f", "Makefile.osx"
-      end
-      prefix.install "Angband.app"
-    end
   end
 
   test do

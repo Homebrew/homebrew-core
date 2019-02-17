@@ -30,7 +30,7 @@ class TomcatNative < Formula
       args = ["LIBTOOL=glibtool --tag=CC"]
       # fixes a broken link in mountain lion's apr-1-config (it should be /XcodeDefault.xctoolchain/):
       # usr/local/opt/libtool/bin/glibtool: line 1125: /Applications/Xcode.app/Contents/Developer/Toolchains/OSX10.8.xctoolchain/usr/bin/cc: No such file or directory
-      args << "CC=#{ENV.cc}" if MacOS.version >= :mountain_lion
+      args << "CC=#{ENV.cc}"
       system "make", *args
       system "make", "install"
     end

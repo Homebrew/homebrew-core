@@ -16,8 +16,6 @@ class ProtobufC < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

@@ -1,7 +1,7 @@
 class Wordnet < Formula
   desc "Lexical database for the English language"
   homepage "https://wordnet.princeton.edu/"
-  url "http://wordnetcode.princeton.edu/3.0/WordNet-3.0.tar.bz2"
+  url "https://wordnetcode.princeton.edu/3.0/WordNet-3.0.tar.bz2"
   # Version 3.1 is version 3.0 with the 3.1 dictionary.
   version "3.1"
   sha256 "6c492d0c7b4a40e7674d088191d3aa11f373bb1da60762e098b8ee2dda96ef22"
@@ -18,7 +18,7 @@ class Wordnet < Formula
   depends_on :x11
 
   resource "dict" do
-    url "http://wordnetcode.princeton.edu/wn3.1.dict.tar.gz"
+    url "https://wordnetcode.princeton.edu/wn3.1.dict.tar.gz"
     sha256 "3f7d8be8ef6ecc7167d39b10d66954ec734280b5bdcd57f7d9eafe429d11c22a"
   end
 

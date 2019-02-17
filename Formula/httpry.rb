@@ -14,7 +14,6 @@ class Httpry < Formula
     sha256 "56d6a77e429bf9dde3d5e5edb9959fc7ed913430236cf628e0aec6445c07c85a" => :el_capitan
     sha256 "af0deb9d79e72df6369f57ed1050abeb70c62f77ab481232b556ba6da5ace66c" => :yosemite
     sha256 "ec016612be65aa5761213134d211f9bee121d8904dae9b9d73ebfc37d4de3cea" => :mavericks
-    sha256 "a554f7789ce0d685a837fa2b795f7936a97603a7c2b915ee6923c0527e8bc1de" => :mountain_lion
   end
 
   def install

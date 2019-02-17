@@ -36,12 +36,6 @@ class Grc < Formula
     end
   end
 
-  def caveats; <<~EOS
-    New shell sessions will use GRC if you add the relevant file to your profile e.g.:
-      . #{etc}/grc.bashrc
-  EOS
-  end
-
   test do
     actual = pipe_output("#{bin}/grcat #{pkgshare}/conf.ls", "hello root")
     assert_equal "\e[0mhello \e[0m\e[1m\e[37m\e[41mroot\e[0m", actual.chomp

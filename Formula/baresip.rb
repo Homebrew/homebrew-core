@@ -16,7 +16,7 @@ class Baresip < Formula
 
   def install
     # baresip doesn't like the 10.11 SDK when on Yosemite
-    if MacOS::Xcode.installed? && MacOS::Xcode.version.to_i >= 7
+    if MacOS::Xcode.version.to_i >= 7
       ENV.delete("SDKROOT")
       ENV.delete("HOMEBREW_SDKROOT") if MacOS::Xcode.without_clt?
     end
