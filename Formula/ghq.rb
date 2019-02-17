@@ -3,8 +3,8 @@ require "language/go"
 class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/motemen/ghq"
-  url "https://github.com/motemen/ghq/archive/v0.8.0.tar.gz"
-  sha256 "e3df98794a423000676987812ded7dab30367dfbc82a2b7a8d2ebbea12fa81b2"
+  url "https://github.com/motemen/ghq/archive/v0.9.0.tar.gz"
+  sha256 "c5b9ff71ab533a2789da27368603852a3969c5cf8137b12b95e1bcbdaa816cf6"
 
   bottle do
     cellar :any_skip_relocation
