@@ -2,8 +2,8 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      :tag      => "1.10.0",
-      :revision => "2af7e76d20c4bf71580de544d8703596a5b636e7"
+      :tag      => "1.10.1",
+      :revision => "34edb4eec2e51b1eb9772276a69674c003622fef"
 
   bottle do
     cellar :any
