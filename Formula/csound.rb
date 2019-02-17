@@ -5,7 +5,6 @@ class Csound < Formula
   sha256 "39f4872b896eb1cbbf596fcacc0f2122fd3e5ebbb5cec14a81b4207d6b8630ff"
 
   depends_on "cmake" => :build
-
   depends_on "fltk"
   depends_on "liblo"
   depends_on "libsndfile"
