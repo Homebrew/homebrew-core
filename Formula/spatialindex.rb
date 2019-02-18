@@ -73,7 +73,7 @@ class Spatialindex < Formula
           return (q_vis.matches.size() == 1) ? 0 : 1;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
+    system ENV.cxx11, "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
     system "./test"
   end
 end
