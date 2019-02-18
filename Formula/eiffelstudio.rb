@@ -21,7 +21,7 @@ class Eiffelstudio < Formula
     system "./make_images", "macosx-x86-64"
     prefix.install Dir["Eiffel_17.01/*"]
     bin.mkpath
-    env = { :ISE_EIFFEL => prefix, :"macosx-x86-64" => "macosx-x86-64" }
+    env = { :ISE_EIFFEL => prefix, :ISE_PLATFORM => "macosx-x86-64" }
     (bin/"ec").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/ec", env)
     (bin/"ecb").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/ecb", env)
     (bin/"estudio").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/estudio", env)
@@ -35,6 +35,6 @@ class Eiffelstudio < Formula
   test do
     # More extensive testing requires the full test suite
     # which is not part of this package.
-    system prefix/"studio/spec/macosx-x86-64/bin/ec", "-version"
+    system bin/"ec", "-version"
   end
 end
