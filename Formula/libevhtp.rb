@@ -18,9 +18,6 @@ class Libevhtp < Formula
   end
 
   test do
-    libevent = Formula["libevent"]
-    openssl = Formula["openssl"]
-
     (testpath/"test.c").write <<~EOS
       #include <evhtp.h>
       int main() {
@@ -34,8 +31,8 @@ class Libevhtp < Formula
       }
     EOS
     system ENV.cc, "test.c",
-      "-L#{lib}", "-L#{libevent.lib}", "-L#{openssl.opt_lib}",
-      "-I#{openssl.opt_include}",
+      "-L#{lib}", "-L#{Formula["libevent"].opt_lib}", "-L#{Formula["openssl"].opt_lib}",
+      "-I#{Formula["openssl"].opt_include}",
       "-levent", "-levent_openssl", "-levhtp", "-lssl", "-lcrypto",
       "-o", "test"
     system "./test"
