@@ -58,6 +58,8 @@ class Pypy3 < Formula
   end
 
   def install
+    ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+
     # Work around "dyld: Symbol not found: _utimensat"
     if MacOS.version == :sierra && MacOS::Xcode.version >= "9.0"
       ENV.delete("SDKROOT")
