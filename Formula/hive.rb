@@ -15,6 +15,7 @@ class Hive < Formula
 
     Pathname.glob("#{libexec}/bin/*") do |file|
       next if file.directory?
+
       (bin/file.basename).write_env_script file,
         Language::Java.java_home_env("1.7+").merge(:HIVE_HOME => libexec)
     end
