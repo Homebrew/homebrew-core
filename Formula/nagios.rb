@@ -70,6 +70,7 @@ class Nagios < Formula
     config = etc/"nagios/nagios.cfg"
     return unless File.exist?(config)
     return if File.read(config).include?(ENV["USER"])
+
     inreplace config, "brew", ENV["USER"]
   end
 
