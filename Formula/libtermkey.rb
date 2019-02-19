@@ -1,8 +1,8 @@
 class Libtermkey < Formula
   desc "Library for processing keyboard entry from the terminal"
   homepage "http://www.leonerd.org.uk/code/libtermkey/"
-  url "http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.20.tar.gz"
-  sha256 "6c0d87c94ab9915e76ecd313baec08dedf3bd56de83743d9aa923a081935d2f5"
+  url "http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.21.tar.gz"
+  sha256 "79ebd5cf965e7eb127bd33109d83d5b34226d5f0d039a505882d8d20f72deb3b"
 
   bottle do
     cellar :any
