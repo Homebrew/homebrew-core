@@ -16,8 +16,10 @@ class ElbTools < Formula
     libexec.install Dir["*"]
     Pathname.glob("#{libexec}/bin/*") do |file|
       next if file.directory?
+
       basename = file.basename
       next if basename.to_s == "service"
+
       (bin/basename).write_env_script file, env
     end
   end
