@@ -16,6 +16,10 @@ class Nnn < Formula
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
+
+    bash_completion.install "scripts/auto-completion/bash/nnn-completion.bash"
+    zsh_completion.install "scripts/auto-completion/zsh/_nnn"
+    fish_completion.install "scripts/auto-completion/fish/nnn.fish"
   end
 
   test do
