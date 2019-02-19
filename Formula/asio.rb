@@ -40,6 +40,7 @@ class Asio < Formula
     found = [pkgshare/"examples/cpp11/http/server/http_server",
              pkgshare/"examples/cpp03/http/server/http_server"].select(&:exist?)
     raise "no http_server example file found" if found.empty?
+
     pid = fork do
       exec found.first, "127.0.0.1", "8080", "."
     end
