@@ -16,11 +16,12 @@ class AskCli < Formula
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.write_exec_script libexec/"bin/ask"
   end
 
   test do
     output = shell_output("#{bin}/ask deploy 2>&1", 1)
     assert_match %r{\AInvalid json: [^ ]+\/.ask\/cli_config\Z}, output
+    system "#{bin}/ask", "lambda", "--help"
   end
 end
