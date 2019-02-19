@@ -1,5 +1,5 @@
 class Frpc < Formula
-  desc "Fast reverse proxy to expose a local server behind a NAT or firewall"
+  desc "This is the client of frp (https://github.com/fatedier/frp)"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
       :tag      => "v0.24.1",
@@ -54,5 +54,14 @@ class Frpc < Formula
 
   test do
     system bin/"frpc", "-v"
+    assert_match "Commands", shell_output("#{bin}/frpc help")
+    assert_match "local_port", shell_output("#{bin}/frpc http", 1)
+    assert_match "local_port", shell_output("#{bin}/frpc https", 1)
+    assert_match "local_port", shell_output("#{bin}/frpc stcp", 1)
+    assert_match "local_port", shell_output("#{bin}/frpc tcp", 1)
+    assert_match "local_port", shell_output("#{bin}/frpc udp", 1)
+    assert_match "local_port", shell_output("#{bin}/frpc xtcp", 1)
+    assert_match "admin_port", shell_output("#{bin}/frpc status -c #{etc}/frp/frpc.ini", 1)
+    assert_match "admin_port", shell_output("#{bin}/frpc reload -c #{etc}/frp/frpc.ini", 1)
   end
 end
