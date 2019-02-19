@@ -19,6 +19,7 @@ class Fail2ban < Formula
     rm "setup.cfg"
     Dir["config/paths-*.conf"].each do |r|
       next if File.basename(r) =~ /paths-common\.conf|paths-osx\.conf/
+
       rm r
     end
 
