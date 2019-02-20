@@ -2,6 +2,14 @@
 
 set -e
 
+# silence bundler complaining about being root
+mkdir ~/.bundle
+echo 'BUNDLE_SILENCE_ROOT_WARNING: "1"' > ~/.bundle/config
+
+# configure git
+git config --global user.name "BrewTestBot"
+git config --global user.email "homebrew-test-bot@lists.sfconservancy.org"
+
 # create stubs so build dependencies aren't incorrectly flagged as missing
 for i in python svn unzip xz
 do
@@ -19,16 +27,15 @@ brew tap homebrew/core
 
 # clone formulae.brew.sh with token so we can push back
 git clone https://$GITHUB_TOKEN@github.com/Homebrew/formulae.brew.sh
-
-echo "$HOMEBREW_ANALYTICS_JSON" > ~/.homebrew_analytics.json
-
 cd formulae.brew.sh
 
-mkdir ~/.bundle
-echo 'BUNDLE_SILENCE_ROOT_WARNING: "1"' > ~/.bundle/config
-
+# re-enable analytics to generate them
+echo "$HOMEBREW_ANALYTICS_JSON" > ~/.homebrew_analytics.json
 unset HOMEBREW_NO_ANALYTICS
-rm _data/analytics/build-error/30d.json
+
 # run rake (without a rake binary)
 ruby -e "load Gem.bin_path('rake', 'rake')"
-git status
+
+# commit and push generated files
+git commit -m '_data: update from Homebrew/core push' _data/
+git push
