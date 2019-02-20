@@ -24,10 +24,11 @@ brew tap homebrew/core
 # clone formulae.brew.sh with token so we can push back
 git clone https://$GITHUB_TOKEN@github.com/Homebrew/formulae.brew.sh
 
-# TODO: setup/decrypt analytics JSON
-#openssl aes-256-cbc -K $encrypted_973277d8afbb_key -iv $encrypted_973277d8afbb_iv -in formulae.brew.sh/.homebrew_analytics.json.enc -out formulae.brew.sh/.homebrew_analytics.json -d
+echo "$HOMEBREW_ANALYTICS_JSON" > ~/.homebrew_analytics.json
 
 cd formulae.brew.sh
 
+unset HOMEBREW_NO_ANALYTICS
+rm _data/analytics/build-error/30d.json
 # run rake (without a rake binary)
 ruby -e "load Gem.bin_path('rake', 'rake')"
