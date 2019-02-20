@@ -2,15 +2,11 @@
 
 set -e
 
-# take ownership as current user (in case it's linuxbrew)
-sudo mkdir ~/.cache
-sudo chown -R $USER . ~/.cache
-
 # create stubs so build dependencies aren't incorrectly flagged as missing
 for i in python svn unzip xz
 do
-  sudo touch /usr/bin/$i
-  sudo chmod +x /usr/bin/$i
+  touch /usr/bin/$i
+  chmod +x /usr/bin/$i
 done
 
 # tap Homebrew/homebrew-core instead of Linuxbrew's
@@ -28,7 +24,8 @@ echo "$HOMEBREW_ANALYTICS_JSON" > ~/.homebrew_analytics.json
 
 cd formulae.brew.sh
 
-bundle config --global silence_root_warning 1
+mkdir ~/.bundle
+echo 'BUNDLE_SILENCE_ROOT_WARNING: "1"' > ~/.bundle/config
 
 unset HOMEBREW_NO_ANALYTICS
 rm _data/analytics/build-error/30d.json
