@@ -18,7 +18,6 @@ rm -rf "$(brew --repo homebrew/core)"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1
-export BUNDLE_SILENCE_ROOT_WARNING=1
 export PATH="$(brew --repo)/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH"
 brew tap homebrew/core
 
@@ -29,8 +28,10 @@ echo "$HOMEBREW_ANALYTICS_JSON" > ~/.homebrew_analytics.json
 
 cd formulae.brew.sh
 
+bundle config --global silence_root_warning 1
+
 unset HOMEBREW_NO_ANALYTICS
 rm _data/analytics/build-error/30d.json
 # run rake (without a rake binary)
 ruby -e "load Gem.bin_path('rake', 'rake')"
-git diff --stat
+git status
