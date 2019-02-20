@@ -6,6 +6,7 @@
   "apache-spark15": "apache-spark@15",
   "apache-spark16": "apache-spark@16",
   "app-engine-java-sdk": "app-engine-java",
+  "ark": "velero",
   "arm": "nyx",
   "artifactory-cli-go": "jfrog-cli-go",
   "autoconf213": "autoconf@213",
