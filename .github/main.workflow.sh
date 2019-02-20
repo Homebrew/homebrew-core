@@ -29,12 +29,11 @@ brew tap homebrew/core
 mkdir ~/.ssh
 echo "$HOMEBREW_FORMULAE_DEPLOY_KEY" > ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519
-ls -lha ~/.ssh
 git config --global core.sshCommand "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 set -x
 
-ssh -vvvvvvvvv git@github.com
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -vvvvvvvvv git@github.com
 
 # clone formulae.brew.sh with SSH so we can push back
 git clone git@github.com:Homebrew/formulae.brew.sh
