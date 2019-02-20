@@ -1,4 +1,6 @@
 class Ydcv < Formula
+  include Language::Python::Virtualenv
+
   desc "YouDao Console Version"
   homepage "https://github.com/felixonmars/ydcv"
   url "https://github.com/felixonmars/ydcv/archive/0.6.2.tar.gz"
@@ -6,9 +8,11 @@ class Ydcv < Formula
 
   bottle :unneeded
 
+  depends_on "python"
+
   def install
-    bin.install "src/ydcv.py" => "ydcv"
     zsh_completion.install "contrib/zsh_completion" => "_ydcv"
+    virtualenv_install_with_resources
   end
 
   test do
