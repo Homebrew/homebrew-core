@@ -38,4 +38,4 @@ ruby -e "load Gem.bin_path('rake', 'rake')"
 
 # commit and push generated files
 git commit -m '_data: update from Homebrew/core push' _data/
-git push
+git push https://$GITHUB_TOKEN@github.com/Homebrew/formulae.brew.sh
