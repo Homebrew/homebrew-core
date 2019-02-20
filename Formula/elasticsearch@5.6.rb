@@ -60,8 +60,8 @@ class ElasticsearchAT56 < Formula
     # Make sure runtime directories exist
     (var/"elasticsearch/#{cluster_name}").mkpath
     (var/"log/elasticsearch").mkpath
-    ln_s etc/"elasticsearch", libexec/"config"
-    (libexec/"plugins").mkdir
+    ln_s etc/"elasticsearch", libexec/"config" unless (libexec/"config").exist?
+    (libexec/"plugins").mkpath
   end
 
   def caveats
