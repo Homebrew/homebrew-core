@@ -25,8 +25,12 @@ export HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1
 export PATH="$(brew --repo)/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH"
 brew tap homebrew/core
 
-# clone formulae.brew.sh with token so we can push back
-git clone https://$GITHUB_TOKEN@github.com/Homebrew/formulae.brew.sh
+# configure SSH
+mkdir ~/.ssh
+echo "$HOMEBREW_FORMULAE_DEPLOY_KEY" > ~/.ssh/id_ed25519
+
+# clone formulae.brew.sh with SSH so we can push back
+git clone git@github.com:Homebrew/formulae.brew.sh
 cd formulae.brew.sh
 
 # re-enable analytics to generate them
