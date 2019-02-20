@@ -1,8 +1,8 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.14.3.tar.gz"
-  sha256 "ef3cbbb764344e5778db8f3f54d080f02783c3c94deff42d5822dfeb9b014c65"
+  url "https://github.com/facebook/rocksdb/archive/v5.18.3.tar.gz"
+  sha256 "7fb6738263d3f2b360d7468cf2ebe333f3109f3ba1ff80115abd145d75287254"
 
   bottle do
     cellar :any
@@ -15,6 +15,8 @@ class Rocksdb < Formula
   depends_on "gflags"
   depends_on "lz4"
   depends_on "snappy"
+
+  patch :DATA
 
   def install
     ENV.cxx11
@@ -78,3 +80,21 @@ class Rocksdb < Formula
     assert_match "rocksdb_undump:", shell_output("#{bin}/rocksdb_undump --help 2>&1", 1)
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+--- a/Makefile
++++ b/Makefile
+@@ -102,9 +102,9 @@
+ endif
+ endif
+
+-ifeq (,$(shell $(CXX) -fsyntax-only -faligned-new -xc++ /dev/null 2>&1))
+-CXXFLAGS += -faligned-new -DHAVE_ALIGNED_NEW
+-endif
++# ifeq (,$(shell $(CXX) -fsyntax-only -faligned-new -xc++ /dev/null 2>&1))
++# CXXFLAGS += -faligned-new -DHAVE_ALIGNED_NEW
++# endif
+
+ ifeq (,$(shell $(CXX) -fsyntax-only -maltivec -xc /dev/null 2>&1))
+ CXXFLAGS += -DHAS_ALTIVEC
