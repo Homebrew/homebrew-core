@@ -30,9 +30,8 @@ class S2geometry < Formula
       args << "-DWITH_GLOG=1"
       args << "-DCMAKE_OSX_SYSROOT=/" unless MacOS::Xcode.installed?
       args << ".."
-      system "cmake", "-G", "Ninja", *args
-      system "ninja", "s2testing"
-      system "ninja", "install"
+      system "cmake", "-G", "Unix Makefiles", *args
+      system "make", "install"
     end
   end
 
