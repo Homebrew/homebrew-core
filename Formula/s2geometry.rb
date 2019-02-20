@@ -8,7 +8,7 @@ class S2geometry < Formula
   depends_on "cmake" => :build
   depends_on "glog" => :build
   depends_on "ninja" => :build
-  depends_on "openssl" => :build
+  depends_on "openssl" => [:build, :run]
 
   resource "gtest" do
     url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
