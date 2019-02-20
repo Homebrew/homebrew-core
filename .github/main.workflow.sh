@@ -28,6 +28,8 @@ brew tap homebrew/core
 # configure SSH
 mkdir ~/.ssh
 echo "$HOMEBREW_FORMULAE_DEPLOY_KEY" > ~/.ssh/id_ed25519
+chmod 600 ~/.ssh/id_ed25519
+ls -lha ~/.ssh
 git config --global core.sshCommand "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
 set -x
