@@ -35,8 +35,6 @@ ls -lha ~/.ssh
 
 set -x
 
-ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -vvvvvvvvv git@github.com
-
 # clone formulae.brew.sh with SSH so we can push back
 git clone git@github.com:Homebrew/formulae.brew.sh
 cd formulae.brew.sh
