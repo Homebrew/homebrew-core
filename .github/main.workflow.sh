@@ -32,6 +32,8 @@ git config --global core.sshCommand "ssh -o UserKnownHostsFile=/dev/null -o Stri
 
 set -x
 
+ssh -vvvvvvvvv git@github.com
+
 # clone formulae.brew.sh with SSH so we can push back
 git clone git@github.com:Homebrew/formulae.brew.sh
 cd formulae.brew.sh
