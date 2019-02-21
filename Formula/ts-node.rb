@@ -35,6 +35,6 @@ class TsNode < Formula
       const user = 'World';
       console.log(sayHello(user));
     EOS
-    assert_equal "Hello, World", shell_output("#{bin}/ts-node", "test.ts")
+    assert_equal "Hello, World\n", shell_output("#{bin}/ts-node test.ts")
   end
 end
