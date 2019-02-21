@@ -5,6 +5,13 @@ class Libopenmpt < Formula
   version "0.4.3"
   sha256 "d77443a279003921d6f0c4edb30d1e9dda387983f44113a6d58f623c1e6942ae"
 
+  bottle do
+    cellar :any
+    sha256 "0945d13776fee096b7ff45f577110b899e26474d7236b91262be04104a925ac7" => :mojave
+    sha256 "f770b94077d494f48f76f5276eaabd02782611694e9e6e7adc991386a7688248" => :high_sierra
+    sha256 "24e277a45135b8309b0a095dccddd2a8e88e10718b79d3c65e9c97ef0942a7e0" => :sierra
+  end
+
   depends_on "pkg-config" => :build
 
   depends_on "flac"
