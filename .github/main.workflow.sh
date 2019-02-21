@@ -17,18 +17,22 @@ do
   chmod +x /usr/bin/$i
 done
 
-# tap Homebrew/homebrew-core instead of Linuxbrew's
-rm -rf "$(brew --repo homebrew/core)"
+# setup Homebrew/homebrew-core instead of Linuxbrew's
+CORE_DIR="$(brew --repo homebrew/core)"
+mkdir -p "$CORE_DIR"
+rm -rf "$CORE_DIR"
+ln -s "$PWD" "$CORE_DIR"
+
+# setup Homebrew environment
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1
 export PATH="$(brew --repo)/Library/Homebrew/vendor/portable-ruby/current/bin:$PATH"
-brew tap homebrew/core
 
-# configure SSH
+# setup SSH
 mkdir ~/.ssh
 chmod 700 ~/.ssh
-echo "$HOMEBREW_FORMULAE_DEPLOY_KEY" > ~/.ssh/id_ed25519
+echo "$FORMULAE_DEPLOY_KEY" > ~/.ssh/id_ed25519
 chmod 600 ~/.ssh/id_ed25519
 git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
@@ -36,8 +40,8 @@ git config --global core.sshCommand "ssh -i ~/.ssh/id_ed25519 -o UserKnownHostsF
 git clone git@github.com:Homebrew/formulae.brew.sh
 cd formulae.brew.sh
 
-# re-enable analytics to generate them
-echo "$HOMEBREW_ANALYTICS_JSON" > ~/.homebrew_analytics.json
+# setup analytics
+echo "$ANALYTICS_JSON_KEY" > ~/.homebrew_analytics.json
 unset HOMEBREW_NO_ANALYTICS
 
 # run rake (without a rake binary)
