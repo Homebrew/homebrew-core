@@ -1,4 +1,5 @@
 require "language/node"
+require "json"
 
 class TsNode < Formula
   desc "TypeScript execution and REPL for node.js"
@@ -8,12 +9,22 @@ class TsNode < Formula
 
   depends_on "node"
 
+  resource "typescript" do
+    url "https://registry.npmjs.org/typescript/-/typescript-3.3.1.tgz"
+    sha256 "5693094bc766af02ec381114cb933c1f6ffc78c1395a4c42b55b3ccf48aa4f50"
+  end
+
   def install
+    (buildpath/"node_modules/typescript").install resource("typescript")
+
+    # declare typescript as a bundledDependency of ts-node
+    pkg_json = JSON.parse(IO.read("package.json"))
+    pkg_json["dependencies"]["typescript"] = resource("typescript").version
+    pkg_json["bundledDependencies"] = ["typescript"]
+    IO.write("package.json", JSON.pretty_generate(pkg_json))
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-    # Adding typescript to library's libexec
-    # https://www.rubydoc.info/github/Homebrew/brew/Language%2FNode.std_npm_install_args
-    system "npm", "install", "-ddd", "--global", "--prefix=#{libexec}", "typescript"
   end
 
   test do
