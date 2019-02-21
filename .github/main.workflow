@@ -6,5 +6,5 @@ workflow "Push" {
 action "Generate formulae.brew.sh" {
   uses = "docker://linuxbrew/brew"
   runs = ".github/main.workflow.sh"
-  secrets = ["HOMEBREW_ANALYTICS_JSON", "HOMEBREW_FORMULAE_DEPLOY_KEY"]
+  secrets = ["ANALYTICS_JSON_KEY", "FORMULAE_DEPLOY_KEY"]
 }
