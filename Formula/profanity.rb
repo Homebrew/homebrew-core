@@ -1,9 +1,8 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "http://www.profanity.im/"
-  url "http://www.profanity.im/profanity-0.5.1.tar.gz"
-  sha256 "e3513713e74ec3363fbdbac2919bdc17e249988780cc5a4589d1425807a7feb8"
-  revision 2
+  url "http://www.profanity.im/profanity-0.6.0.tar.gz"
+  sha256 "51b0932924a391656423af0d85f14dde049ac1e94214f948849d37df1c2759c4"
 
   bottle do
     sha256 "dd2ab5d3289b608ad571a52fa3fc97b8f5d667d26b77401990dee17c79d59e0e" => :mojave
