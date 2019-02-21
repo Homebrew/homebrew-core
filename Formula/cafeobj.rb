@@ -7,7 +7,7 @@ class Cafeobj < Formula
   depends_on "sbcl"
 
   def install
-    system "./configure", "--with-lisp=sbcl", "--prefix=#{prefix}", "--with-lispdir=#{prefix}/share/emacs/site-lisp/cafeobj'"
+    system "./configure", "--with-lisp=sbcl", "--prefix=#{prefix}", "--with-lispdir=#{share}/emacs/site-lisp/cafeobj"
     system "make", "install"
   end
 
