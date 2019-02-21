@@ -32,7 +32,8 @@ class Libopenmpt < Formula
 
   test do
     resource("mystique.s3m").stage do
-      system "#{bin}/openmpt123", "--probe", "mystique.s3m"
+      output = shell_output("#{bin}/openmpt123 --probe mystique.s3m")
+      assert_match "Success", output
     end
   end
 end
