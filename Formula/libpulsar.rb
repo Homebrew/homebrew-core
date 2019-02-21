@@ -1,8 +1,8 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.2.1/apache-pulsar-2.2.1-src.tar.gz"
-  sha256 "3a365368f0d7beba091ba3a6d0f703dcc77545c8b454e5e33b72c1a29905232e"
+  url "https://www.apache.org/dyn/closer.cgi?path=pulsar/pulsar-2.3.0/apache-pulsar-2.3.0-src.tar.gz"
+  sha256 "ac182c83f2fff03e8242cb9f9540d5ae2a32e3b9b382a2340f139dfa0bfb0a28"
 
   bottle do
     cellar :any
@@ -14,9 +14,9 @@ class Libpulsar < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "jsoncpp"
   depends_on "openssl"
   depends_on "protobuf"
+  depends_on "zstd"
 
   def install
     cd "pulsar-client-cpp" do
@@ -40,7 +40,7 @@ class Libpulsar < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cc", "-I#{Formula["boost"].include}", "-L#{lib}", "-lpulsar", "-o", "test"
+    system ENV.cxx, "test.cc", "-L#{lib}", "-lpulsar", "-o", "test"
     system "./test"
   end
 end
