@@ -1,9 +1,10 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/"
-  url "https://sqlite.org/2019/sqlite-autoconf-3270100.tar.gz"
+  url "https://www.sqlite.org/2019/sqlite-src-3270100.zip"
   version "3.27.1"
-  sha256 "54a92b8ff73ff6181f89b9b0c08949119b99e8cccef93dbef90e852a8b10f4f8"
+  sha256 "f0fcc4da31e61a9c516f7c1ff21ec71ad6a05b1fe88f7f0b4d9aa54649c85986"
+  revision 1
 
   bottle do
     cellar :any
@@ -35,6 +36,31 @@ class Sqlite < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    system ENV.cc, "-g", "-fPIC", "-dynamiclib", "ext/misc/regexp.c",
+      "-o", "regexp.dylib"
+    system "/usr/bin/install", "-d", "#{lib}/sqlite3"
+    system "/usr/bin/install", "regexp.dylib", "#{lib}/sqlite3"
+  end
+
+  def caveats; <<~EOS
+    This sqlite has been built with the regexp extension, which enables use of
+    SQLite's non-standard REGEXP operator. This implementation of the REGEXP
+    operator supports a subset of PCRE syntax documented in the regexp.c source
+    file, which can be easily viewed here:
+      https://www.sqlite.org/src/artifact/79345bf03496155a
+
+    The extension is not loaded automatically. To load it interactively within the
+    sqlite3 program, use:
+      .load #{lib}/sqlite3/regexp
+
+    You can put the above command in your ~/.sqliterc file to have the extension
+    loaded every time you start sqlite3.
+
+    Note that the sqlite3 program supplied with macOS does not support loading
+    extensions. You must be using the sqlite3 program located here:
+      #{bin}/sqlite3
+  EOS
   end
 
   test do
@@ -49,5 +75,8 @@ class Sqlite < Formula
 
     names = shell_output("#{bin}/sqlite3 < #{path}").strip.split("\n")
     assert_equal %w[Sue Tim Bob], names
+
+    system "#{bin}/sqlite3", "-cmd", ".load #{lib}/sqlite3/regexp",
+      "dummy.db", "SELECT 'abba' REGEXP 'ab*a';"
   end
 end
