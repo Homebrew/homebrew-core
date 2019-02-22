@@ -3,7 +3,6 @@ class Yara < Formula
   homepage "https://github.com/VirusTotal/yara/"
   url "https://github.com/VirusTotal/yara/archive/v3.9.0.tar.gz"
   sha256 "ebe7fab0abadb90449a62afbd24e196e18b177efe71ffd8bf22df95c5386f64d"
-  revision 2
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
