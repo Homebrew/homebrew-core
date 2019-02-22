@@ -6,8 +6,6 @@ class Ydcv < Formula
   url "https://github.com/felixonmars/ydcv/archive/0.6.2.tar.gz"
   sha256 "45a237fba401771c5ad8455938e6cf360beab24655a4961db368eb2fbbbfb546"
 
-  bottle :unneeded
-
   depends_on "python"
 
   def install
