@@ -9,9 +9,9 @@ class Typescript < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b2e723de5d77811cc922e93101a56b32bb374ae03b575eb68732cd82220f86a3" => :mojave
-    sha256 "8a313e3bda35fed1d6312c051b0fe173a216c464a6c76cfbe579630dcf4fb45a" => :high_sierra
-    sha256 "03f3a59ac0039fef2a308f718238c62ff4e2076cab6cb6da26331c65e7a8d99f" => :sierra
+    sha256 "f2c09a9a9c4bebc578c0dafedf91b3482cce735bf7fdb724cbc5768f863480af" => :mojave
+    sha256 "0ce52e238c3c5bf995da96537d02dae42e357d937cf9e60ef172c640a50e5ca4" => :high_sierra
+    sha256 "4327456d253f909703f656d6d444a887ab181983bfb18516b2c8351047c89eae" => :sierra
   end
 
   depends_on "node"
