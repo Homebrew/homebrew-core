@@ -6,9 +6,9 @@ class Shellz < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "494dc447302a25f84d9a5164f92138ce9ae8b366cf33dd00b71e3e6429e60dd4" => :mojave
-    sha256 "e346665aad2c792f1e4f95ee5c35837c86dd43d433da8b475def3174357934e9" => :high_sierra
-    sha256 "9dcc0ebb77ba4c79f48158f86584db1b5d00b13ee40bd1d49f3601d1a9d5c2e4" => :sierra
+    sha256 "aa5043471c26fba80ba9db128f5ff3e8b60051bd76a8d26c3ad114b59b24c8b3" => :mojave
+    sha256 "83b7e5e52243efe75e302853574243667a8e9cf9899d480c12c27886e77a9788" => :high_sierra
+    sha256 "b659a90bd79e516d71679e68d36a35038937f23ee9d1de1dfee313fd11b0169e" => :sierra
   end
 
   depends_on "dep" => :build
