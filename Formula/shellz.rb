@@ -1,8 +1,8 @@
 class Shellz < Formula
   desc "Small utility to track and control custom shellz"
   homepage "https://github.com/evilsocket/shellz"
-  url "https://github.com/evilsocket/shellz/archive/v1.4.0.tar.gz"
-  sha256 "d5d2d33cf5c6898be97eb20c08ea7053cc5ee7449542afe9d1a06b14a57c0312"
+  url "https://github.com/evilsocket/shellz/archive/v1.5.0.tar.gz"
+  sha256 "870bcc2d6e4fd20913556f95325bc3e1876f3243ef67295c33e2bcc990126e97"
 
   bottle do
     cellar :any_skip_relocation
