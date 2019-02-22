@@ -15,7 +15,7 @@ class Circleci < Formula
 
   depends_on "go" => :build
 
-  resource "packr" do
+  resource "packr2" do
     "https://github.com/gobuffalo/packr/releases/download/v2.0.1/packr_2.0.1_darwin_amd64.tar.gz"
     # Source: https://github.com/gobuffalo/packr/releases/download/v2.0.1/checksums.txt
     "0347a77997471535ea5cddaabc962aba16a374582ec75af7c901c8d0877aef69"
@@ -29,8 +29,7 @@ class Circleci < Formula
     dir.install buildpath.children
 
     cd dir do
-      # TODO: figure out the right syntax for this (change pycrypto to packr)
-      # resource("pycrypto").stage { system "python", *Language::Python.setup_install_args(libexec/"vendor") }
+      resource("packr2").stage buildpath/"bin"/resource.name
       system "make", "pack"
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
