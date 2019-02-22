@@ -3,8 +3,8 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      :tag      => "v0.1.4786",
-      :revision => "bad101fb126ffbb15669b67f441d9848a6798b4f"
+      :tag      => "v0.1.5389",
+      :revision => "4379bab5169f609898214b717c313f9943fdbe41"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +15,12 @@ class Circleci < Formula
 
   depends_on "go" => :build
 
+  resource "packr" do
+    "https://github.com/gobuffalo/packr/releases/download/v2.0.1/packr_2.0.1_darwin_amd64.tar.gz"
+    # Source: https://github.com/gobuffalo/packr/releases/download/v2.0.1/checksums.txt
+    "0347a77997471535ea5cddaabc962aba16a374582ec75af7c901c8d0877aef69"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
@@ -23,6 +29,9 @@ class Circleci < Formula
     dir.install buildpath.children
 
     cd dir do
+      # TODO: figure out the right syntax for this (change pycrypto to packr)
+      # resource("pycrypto").stage { system "python", *Language::Python.setup_install_args(libexec/"vendor") }
+      system "make", "pack"
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
