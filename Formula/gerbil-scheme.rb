@@ -1,8 +1,8 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil/archive/v0.14.tar.gz"
-  sha256 "8525877960ba7a6122d6dfd2bae34ed1437d5231f9e31de97bbe6106c4dfa03a"
+  url "https://github.com/vyzo/gerbil/archive/v0.15.1.tar.gz"
+  sha256 "3d29eecdaa845b073bf8413cd54e420b3f48c79c25e43fab5a379dde029d0cde"
 
   bottle do
     sha256 "a331ddcc97bf8d41ee701cbd42f8832e513501836bb3b386e1f09530b9d5522b" => :mojave
