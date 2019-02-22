@@ -3,6 +3,7 @@ class Convox < Formula
   homepage "https://convox.com/"
   url "https://github.com/convox/rack/archive/20190219181019.tar.gz"
   sha256 "55a96bc9a0c3fa07e717b33b32b8c3bc1eb61bfa31fb656d0763932ec9225fed"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -13,9 +14,21 @@ class Convox < Formula
 
   depends_on "go" => :build
 
+  resource "packr" do
+    url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
+    sha256 "cc0488e99faeda4cf56631666175335e1cce021746972ce84b8a3083aa88622f"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
+
     (buildpath/"src/github.com/convox/rack").install Dir["*"]
+
+    resource("packr").stage { system "go", "install", "./packr" }
+    cd buildpath/"src/github.com/convox/rack" do
+      system buildpath/"bin/packr"
+    end
+
     system "go", "build", "-ldflags=-X main.version=#{version}",
            "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
     prefix.install_metafiles
