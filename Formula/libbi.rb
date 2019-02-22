@@ -3,7 +3,7 @@ class Libbi < Formula
   homepage "https://libbi.org/"
   url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
   sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
-  revision 2
+  revision 3
   head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
