@@ -7,9 +7,9 @@ class Bind < Formula
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "ac2ef54c475b05a9bcef553ff787260dd45b19111f67e92438f11f2c75b2bc56" => :mojave
-    sha256 "3f7376faca8e9e09b06e6eaf0758fae56474849d983c9bbf9c4a65b7cab1827e" => :high_sierra
-    sha256 "669c75f4ff17882d115d33f252dae41f73e9a535c7c16c40357da97a63eb03b0" => :sierra
+    sha256 "abc9f41d387cd83be3b26534fc95b0dc0faa01a6fad2210a3d1d139f7e1a64a7" => :mojave
+    sha256 "de0d68d306776ce03d9ee1ffd3cd4a014ff2301f8a2787da6b0343d89a85c3eb" => :high_sierra
+    sha256 "92d2c30c4b1725223074f23e801285db72254a271b887325921f1b24eac30579" => :sierra
   end
 
   depends_on "json-c"
