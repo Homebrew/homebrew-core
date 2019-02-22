@@ -137,7 +137,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf"
+    system "#{bin}/libbi", "sample", "@test.conf", "--disable-openmp"
     assert_predicate testpath/"test.nc", :exist?
   end
 end
