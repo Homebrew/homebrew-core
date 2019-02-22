@@ -24,7 +24,7 @@ class TsNode < Formula
     IO.write("package.json", JSON.pretty_generate(pkg_json))
 
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    (bin/"ts-node").write_env_script libexec/"bin/ts-node", :NODE_PATH => libexec/"lib/node_modules/ts-node/node_modules/"
   end
 
   test do
