@@ -5,10 +5,9 @@ class GeocodeGlib < Formula
   sha256 "ea4086b127050250c158beff28dbcdf81a797b3938bb79bbaaecc75e746fbeee"
 
   bottle do
-    sha256 "1d31652721465573282224be5d8221fe96eccd107ed511bcc0d23a2d8604b0a6" => :mojave
-    sha256 "780bb3b6c0a4254b86b7ea19aaa38b7aefd64d3e426bb0ecffd1bec2ca0e48ff" => :high_sierra
-    sha256 "46f57b5d17d403eac2ac15a9d855cc97419c657d6956d41893f9f9ac02809354" => :sierra
-    sha256 "58a18aaf640e1b4788876082272dee570c7b8c3bf459463ec72f14d10a8bfc59" => :el_capitan
+    sha256 "e5de1d30642132756a9232712a49e4fb3f33ff69c48a010972e199962304e6ac" => :mojave
+    sha256 "c8891ae560d3fe57484495de4f23c2176916b706aa3ba06374fdbe055615ae23" => :high_sierra
+    sha256 "c990bec6c31df35bb6abed2bd5f0fbdf6101144a37461b4c0143b93bdf00ff36" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
