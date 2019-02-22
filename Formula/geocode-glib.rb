@@ -1,9 +1,8 @@
 class GeocodeGlib < Formula
   desc "GNOME library for gecoding and reverse geocoding"
   homepage "https://developer.gnome.org/geocode-glib"
-  url "https://download.gnome.org/sources/geocode-glib/3.24/geocode-glib-3.24.0.tar.xz"
-  sha256 "19c1fef4fd89eb4bfe6decca45ac45a2eca9bb7933be560ce6c172194840c35e"
-  revision 1
+  url "https://download.gnome.org/sources/geocode-glib/3.26/geocode-glib-3.26.0.tar.xz"
+  sha256 "ea4086b127050250c158beff28dbcdf81a797b3938bb79bbaaecc75e746fbeee"
 
   bottle do
     sha256 "1d31652721465573282224be5d8221fe96eccd107ed511bcc0d23a2d8604b0a6" => :mojave
@@ -13,24 +12,23 @@ class GeocodeGlib < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "libsoup"
 
-  def install
-    # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
-    # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
-    # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
-    inreplace "icons/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+  # macOS linker does not support --version-script
+  # see https://gitlab.gnome.org/GNOME/geocode-glib/issues/4
+  patch :DATA
 
-    # delete icon cache file -> create it post_install
-    rm share/"icons/gnome/icon-theme.cache"
+  def install
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", "-Denable-installed-tests=false", "-Denable-gtk-doc=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   def post_install
@@ -67,3 +65,17 @@ class GeocodeGlib < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/geocode-glib/meson.build b/geocode-glib/meson.build
+index 8bc2bfc..fdb94bc 100644
+--- a/geocode-glib/meson.build
++++ b/geocode-glib/meson.build
+@@ -49,7 +49,6 @@ libgcglib = shared_library('geocode-glib',
+                            dependencies: deps,
+                            include_directories: include,
+                            link_depends: gclib_map,
+-                           link_args: [ '-Wl,--version-script,' + gclib_map ],
+                            soversion: '0',
+                            version: '0.0.0',
+                            install: true)
