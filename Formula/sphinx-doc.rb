@@ -141,11 +141,6 @@ class SphinxDoc < Formula
     sha256 "c0efb33f8052c04fd7a26c0a07f1678e8512e0faec19f4aa8f2473a8b81d5227"
   end
 
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/bf/9b/2bf84e841575b633d8d91ad923e198a415e3901f228715524689495b4317/typing-3.6.6.tar.gz"
-    sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
-  end
-
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/4c/13/2386233f7ee40aa8444b47f7463338f3cbdf00c316627558784e3f542f07/urllib3-1.25.3.tar.gz"
     sha256 "dbe59173209418ae49d485b87d1681aefa36252ee85884c31346debd19463232"
