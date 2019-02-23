@@ -20,6 +20,16 @@ class Go < Formula
     sha256 "6b3c580ad568f04cbaf3eb2dca9f4ce3bb11e071f7340b172a8a2ade2555ded4" => :sierra
   end
 
+  devel do
+    url "https://dl.google.com/go/go1.12rc1.src.tar.gz"
+    sha256 "ed1d4f8e8a33f0d4a59a2f642584c7c6375fce2f8a4edaece73309cf2c89b8ee"
+
+    resource "gotools" do
+      url "https://go.googlesource.com/tools.git",
+          :branch => "release-branch.go1.12"
+    end
+  end
+
   head do
     url "https://go.googlesource.com/go.git"
 
