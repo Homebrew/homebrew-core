@@ -7,9 +7,9 @@ class AmqpCpp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1f48312343a7d8d6386056de74a8250e259bdd96e5291974e09cfa081e405180" => :mojave
-    sha256 "0e9468a9112929ad2e5af74d7b32a5097d88eebc6984712d7804da11d1ee7ebc" => :high_sierra
-    sha256 "bd73276cc219acec4917433e2cfc1e423eaab910b8fa4365511e0ed86707fe64" => :sierra
+    sha256 "e85df9f4ba93296155f037f551e2d77141c9630cd14eed3a3c151fd2bc7df9d6" => :mojave
+    sha256 "b9975e464e1116233e2d2dcdf97971a53e5d117f06e910b133ef59205f6e5ed6" => :high_sierra
+    sha256 "1f217794de557f20327a6b819965f9e5215adb41665c6d2caf4c0f8df90d9a76" => :sierra
   end
 
   depends_on "cmake" => :build
