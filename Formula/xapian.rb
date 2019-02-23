@@ -12,16 +12,41 @@ class Xapian < Formula
     sha256 "a1a49718ad026797c150e012c712ad69a9d6e5a278a4750d0bddd1656a41014a" => :sierra
   end
 
+  # Sphinx greater than 1.8 has breaking API changes and is incompatible
+  depends_on "sphinx-doc@1.8" => :build
+  depends_on "python"
+
   skip_clean :la
+
+  resource "bindings" do
+    url "https://oligarchy.co.uk/xapian/1.4.11/xapian-bindings-1.4.11.tar.xz"
+    mirror "https://fossies.org/linux/www/xapian-bindings-1.4.11.tar.xz"
+    sha256 "9da356c8b20a66ea3d44002e24fee4ed961989d9ba726a13d13e8d56f216718d"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    resource("bindings").stage do
+      ENV["XAPIAN_CONFIG"] = bin/"xapian-config"
+      ENV.append_path "PYTHONPATH", Formula["sphinx-doc@1.8"].libexec/"lib/python3.7/site-packages"
+      ENV.append_path "PATH", Formula["sphinx-doc@1.8"].bin
+      ENV.append_path "PATH", Formula["sphinx-doc@1.8"].libexec/"bin"
+      ENV.prepend_create_path "PYTHON3_LIB", lib/"python3.7/site-packages"
+
+      system "./configure", "--disable-dependency-tracking",
+                            "--prefix=#{prefix}",
+                            "--with-python3"
+
+      system "make", "install"
+    end
   end
 
   test do
     system bin/"xapian-config", "--libs"
+    system "python3.7 -c 'import xapian'"
   end
 end
