@@ -6,10 +6,9 @@ class Atkmm < Formula
 
   bottle do
     cellar :any
-    sha256 "c3a1e1fe87f1f53c7a272381a56257b7ddbddfbfc0790215b1a3b8e7b1792e4f" => :mojave
-    sha256 "b6b2da1cde33893f1c499a6df77de45568b20afcfc87e2bfc911a25631b9a1af" => :high_sierra
-    sha256 "09bfd213a8eb8c7b3ab8b8858593cd9c715b3f2baf00bdeb207dabf35e9d024e" => :sierra
-    sha256 "010e3d1649ba47570df271456ba83c28ca23fbbceddee8cad0644ef91ba96eca" => :el_capitan
+    sha256 "f332838475850cc497c531395162d2e37582448e15f04c86a05f27f582e0cf96" => :mojave
+    sha256 "cc71c5e0c4ee2ba05c2ae7be9746599ce194eadbe48a039fc784eaa9895b2ede" => :high_sierra
+    sha256 "d273495ffec79f6f3353edffddce8ef0e14ff57afa1d561d6bde9cce20fed18b" => :sierra
   end
 
   depends_on "pkg-config" => :build
