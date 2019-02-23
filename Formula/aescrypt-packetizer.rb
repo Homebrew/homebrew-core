@@ -1,8 +1,8 @@
 class AescryptPacketizer < Formula
   desc "Encrypt and decrypt using 256-bit AES encryption"
   homepage "https://www.aescrypt.com"
-  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.13.tgz"
-  sha256 "87cd6f6e15828a93637aa44f6ee4f01bea372ccd02ecf1702903f655fbd139a8"
+  url "https://www.aescrypt.com/download/v3/linux/aescrypt-3.14.tgz"
+  sha256 "5051394529bf3f99c42b57f755b2269e6abaae8b0e3fd90869c4b0bb58f5f1c7"
 
   bottle do
     cellar :any_skip_relocation
@@ -31,8 +31,6 @@ class AescryptPacketizer < Formula
       system "make", "install"
     else
       cd "src" do
-        # https://www.aescrypt.com/mac_aes_crypt.html
-        inreplace "Makefile", "#LIBS=-liconv", "LIBS=-liconv"
         system "make"
 
         bin.install "aescrypt"
