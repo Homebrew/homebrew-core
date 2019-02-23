@@ -1,9 +1,9 @@
 class Simutrans < Formula
   desc "Transport simulator"
   homepage "https://www.simutrans.com/"
-  url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-4/simutrans-src-120-4.zip"
-  version "120.4"
-  sha256 "cf0f364a26d178d9fbee8ec59196b308c811f1c1c69f45c05cdb554e58b61898"
+  url "https://downloads.sourceforge.net/project/simutrans/simutrans/120-4-1/simutrans-src-120-4-1.zip"
+  version "120.4.1"
+  sha256 "2cee0d067b3b72fa3a8b4ff31ad2bf5fc77521e7ba8cf9aa10e07e56b7dc877b"
   head "https://github.com/aburch/simutrans.git"
 
   bottle do
@@ -19,13 +19,13 @@ class Simutrans < Formula
   depends_on "sdl2"
 
   resource "pak64" do
-    url "https://downloads.sourceforge.net/project/simutrans/pak64/120-4/simupak64-120-4.zip"
-    sha256 "b1dba2876838fcda6fb1b90c9b981e2aa490c1b0a81bab7c53b8bd50f59c0ffd"
+    url "https://downloads.sourceforge.net/project/simutrans/pak64/120-4-1/simupak64-120-4-1.zip"
+    sha256 "fb46cde683ee1c0d10fb18bb2efc767583f1e9e76776a5f93d46a17d699aa69f"
   end
 
   resource "text" do
     url "https://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip"
-    sha256 "44caa98599089f55d5cfef34d24f9b8ae362d0b41c784ca1b649270436cdea02"
+    sha256 "2a3cee3ef7cfbed31236c920502369446100c10c9304a476b2a885b4daae426a"
   end
 
   def install
