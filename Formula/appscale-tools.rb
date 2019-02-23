@@ -1,8 +1,8 @@
 class AppscaleTools < Formula
   desc "Command-line tools for working with AppScale"
   homepage "https://github.com/AppScale/appscale-tools"
-  url "https://github.com/AppScale/appscale-tools/archive/3.5.3.tar.gz"
-  sha256 "ae3f373626d5d88d38cf17fef8bd5faaf92234bc6421d5f5c49cf5788acbe93a"
+  url "https://github.com/AppScale/appscale-tools/archive/3.6.1.tar.gz"
+  sha256 "8f1bcdc5bcb72917ee262ddd50e6cab20a716879dc1d6cf2d7356bc1088f4af8"
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
