@@ -3,12 +3,12 @@ class Burp < Formula
   homepage "https://burp.grke.org/"
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.32/burp-2.1.32.tar.bz2"
-    sha256 "56f8a13ae96e50f2274857a08c9f3d9f06ed6dee306d49fd189e3ff9f93c74fd"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.2.18/burp-2.2.18.tar.bz2"
+    sha256 "9c0c5298d8c2995d30d4e1a63d2882662e7056ce2b0cee1f65d7d0a6775c0f81"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
-          :revision => "1048ed82f22fe57f1e139821ae3a3ce6a52f1002"
+          :revision => "8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02"
     end
   end
 
@@ -92,6 +92,6 @@ class Burp < Formula
   end
 
   test do
-    system bin/"burp", "-v"
+    system bin/"burp", "-V"
   end
 end
