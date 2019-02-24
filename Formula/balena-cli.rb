@@ -8,9 +8,9 @@ class BalenaCli < Formula
   sha256 "1d69484035e848c10f99c24b2353654d65dcd67c5f4ff949b08c99ce2aff267c"
 
   bottle do
-    sha256 "9379790cb913eca38cf205834b823c835a9a9976f00eae4fd658dd93168d1fc2" => :mojave
-    sha256 "619649fcfcbb98022f7051536302077de0194c461800b3d3418bd12855d4d63e" => :high_sierra
-    sha256 "e948338c99b7b7664b9dedc9128c2cb0e64d6c06327f53bf94783d8ab5245a4e" => :sierra
+    sha256 "79445b13bc6acfae8befab94d7051856f5819a340f0e0380cc3e2cf493953c32" => :mojave
+    sha256 "25aa1754c7bd5360d8d071ca17e063a560d6d8280403920718f866618c52ca3b" => :high_sierra
+    sha256 "f15e3681c8db2bbdd96508182e3b3dae0feb87c8c20f56bb1ea38ec37c0a9092" => :sierra
   end
 
   depends_on "node"
