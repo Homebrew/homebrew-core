@@ -1,9 +1,8 @@
 class Bgpstream < Formula
   desc "For live and historical BGP data analysis"
   homepage "https://bgpstream.caida.org/"
-  url "https://bgpstream.caida.org/bundles/caidabgpstreamwebhomepage/dists/bgpstream-1.1.0.tar.gz"
-  sha256 "b89cef45bcc5ae4011aa3c42f689ae9fd7b5c8fd25e06ab18589577b5e077f89"
-  revision 1
+  url "https://bgpstream.caida.org/bundles/caidabgpstreamwebhomepage/dists/bgpstream-1.2.2.tar.gz"
+  sha256 "cda1ff8773701572830e3a3a890778c09047a5fece8c7f2dbb95a4fb03bbac80"
 
   bottle do
     cellar :any
