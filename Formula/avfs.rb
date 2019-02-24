@@ -1,9 +1,8 @@
 class Avfs < Formula
   desc "Virtual file system that facilitates looking inside archives"
   homepage "https://avf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/avf/avfs/1.0.5/avfs-1.0.5.tar.bz2"
-  sha256 "e5ce6b1f4193c37148b1b8a021f4f3d05e88f725cf11b16b95a58e8fdae50176"
-  revision 1
+  url "https://downloads.sourceforge.net/project/avf/avfs/1.0.6/avfs-1.0.6.tar.bz2"
+  sha256 "4c1a3a776a01ce7a5b74d66c955269162304edd8c18489fb2186ef728f4be3c3"
 
   bottle do
     rebuild 1
