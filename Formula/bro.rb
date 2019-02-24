@@ -6,10 +6,9 @@ class Bro < Formula
   head "https://github.com/bro/bro.git"
 
   bottle do
-    sha256 "93bc629294d559b5ef2b4a68ef07aa9b27332c850f70b23a9ea58a18fef00029" => :mojave
-    sha256 "e8c73068493bcfcdb6ee42569acf1472c936cc88b9947549728987b98d0678d7" => :high_sierra
-    sha256 "45e7f85b63de0658c6fd67b2bc032c73e7e1b41d0dd7fc5252ff400c56071747" => :sierra
-    sha256 "d1a8841214d9cf4d4fcb0916c568ed763a8c385a01f28fd394025aafebbcd971" => :el_capitan
+    sha256 "4eaec5d1fc2855bde91148877cfe88a96301cfbae32b7b725d6eb0f01b85cde5" => :mojave
+    sha256 "55e8c800317bef47a7e703872e91f0a34e87607b7c9f9f31857770b9530f44b3" => :high_sierra
+    sha256 "82cf612f0d7b63fc2a348ccb4f69005e1608db298a592abe7245ec0999bd7a6c" => :sierra
   end
 
   depends_on "bison" => :build
