@@ -6,11 +6,9 @@ class Boxes < Formula
   head "https://github.com/ascii-boxes/boxes.git"
 
   bottle do
-    sha256 "167012f25ea394f6fb7a907219701234d0611be994c0f6caa7ccb13b453e3a17" => :mojave
-    sha256 "6823ac1ae744b9c1c39dedd056674b39200990de61d3035962a7da5221a57ec2" => :high_sierra
-    sha256 "ebb5d353fb518ceb79ad3f52c0e53e867c5fc7bef1577cdca712ce91e522af56" => :sierra
-    sha256 "6f0a27e8bad4e4294bf4b4f82d1774eaf987cc7e8e6486f3204619ab84f01b13" => :el_capitan
-    sha256 "ae79b8cff43636d551a7f3e34dd74c5d6c15c526c79b6a9ad6b0fb2d3b60c0e0" => :yosemite
+    sha256 "84b135ad528536233546dbf8d36e0be4a21a89050910e45a4f8e2796c99b7c3f" => :mojave
+    sha256 "ca1c4e0e76f03ee4a60789f30093d2eee3794ff54b989da1a8a3ae555228f081" => :high_sierra
+    sha256 "d31462128d1f55cd3014ae942b4620f1ec4d06e72e8a47cae5ef56afcf65e791" => :sierra
   end
 
   def install
