@@ -1,8 +1,8 @@
 class Babl < Formula
   desc "Dynamic, any-to-any, pixel format translation library"
   homepage "http://www.gegl.org/babl/"
-  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.60.tar.bz2"
-  sha256 "a3d1eeccb6057ccbc189dc926ebaca96cd4896f3391f857b86334d2245f0604f"
+  url "https://download.gimp.org/pub/babl/0.1/babl-0.1.62.tar.bz2"
+  sha256 "dc279f174edbcb08821cf37e4ab0bc02e6949369b00b150c759a6c24bfd3f510"
 
   bottle do
     sha256 "efb6b0840251a3ea273d8676b519140ddfe06532236012cf64c64d55d9dbfa98" => :mojave
