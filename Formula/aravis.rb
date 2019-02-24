@@ -1,8 +1,8 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://github.com/AravisProject/aravis/archive/ARAVIS_0_6_0.tar.gz"
-  sha256 "d7c047af9c845a3e036557b6e5d715da0c21eeb314f704a257f8636fcb634af6"
+  url "https://github.com/AravisProject/aravis/archive/ARAVIS_0_6_1.tar.gz"
+  sha256 "d9795d36bfb1af230bda21d93bc81390f49d936c6c9b7b3043a5c09bd0f0f8d3"
 
   bottle do
     sha256 "535b46c36a805622b39db2f1eb0ee30b9a16a3b1cccc99af0fea4253f58a2b76" => :mojave
