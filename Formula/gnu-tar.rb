@@ -1,9 +1,9 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftp.gnu.org/gnu/tar/tar-1.31.tar.gz"
-  mirror "https://ftpmirror.gnu.org/tar/tar-1.31.tar.gz"
-  sha256 "b471be6cb68fd13c4878297d856aebd50551646f4e3074906b1a74549c40d5a2"
+  url "https://ftp.gnu.org/gnu/tar/tar-1.32.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.32.tar.gz"
+  sha256 "b59549594d91d84ee00c99cf2541a3330fed3a42c440503326dab767f2fbb96c"
 
   bottle do
     cellar :any_skip_relocation
