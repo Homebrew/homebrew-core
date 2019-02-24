@@ -1,8 +1,8 @@
 class CBlosc < Formula
   desc "Blocking, shuffling and loss-less compression library"
   homepage "http://blosc.org/"
-  url "https://github.com/Blosc/c-blosc/archive/v1.15.0.tar.gz"
-  sha256 "dbbb01f9fedcdf2c2ff73296353a9253f44ce9de89c081cbd8146170dce2ba8f"
+  url "https://github.com/Blosc/c-blosc/archive/v1.16.2.tar.gz"
+  sha256 "3a45689a425b740f7d4afb27ec53b0df480dd330419cc9c971c81da638155e96"
 
   bottle do
     cellar :any
