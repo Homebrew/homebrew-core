@@ -1,9 +1,9 @@
 class BwmNg < Formula
   desc "Console-based live network and disk I/O bandwidth monitor"
   homepage "https://www.gropp.org/?id=projects&sub=bwm-ng"
-  url "https://github.com/vgropp/bwm-ng/releases/download/v0.6.1/bwm-ng-0.6.1.tar.gz"
-  mirror "https://www.gropp.org/bwm-ng/bwm-ng-0.6.1.tar.gz"
-  sha256 "027cf3c960cd96fc9ffacdf7713df62d0fc55eeef4a1388289f8a62ae5e50df0"
+  url "https://github.com/vgropp/bwm-ng/archive/v0.6.2.tar.gz"
+  sha256 "906a2d561f2ec9e0dd68b7f51b302908e99515ea1216d0ecaf14d873ef54ae70"
+  head "https://github.com/vgropp/bwm-ng.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,16 +15,13 @@ class BwmNg < Formula
     sha256 "d68545d5c597faccc236df30879008b2902623e6c60d35474f3e9559d8f91d35" => :mavericks
   end
 
-  head do
-    url "https://github.com/vgropp/bwm-ng.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
