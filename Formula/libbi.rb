@@ -3,7 +3,7 @@ class Libbi < Formula
   homepage "https://libbi.org/"
   url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
   sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
-  revision 3
+  revision 2
   head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
@@ -137,7 +137,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf"
+    system "#{bin}/libbi", "sample", "@test.conf", "--disable-openmp"
     assert_predicate testpath/"test.nc", :exist?
   end
 end
