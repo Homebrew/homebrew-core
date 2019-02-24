@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag      => "v3.1.3",
-      :revision => "231083c2ce934b7946ebed3ed96f4fc1a3ba4f69"
+      :tag      => "v3.5.2",
+      :revision => "0f3d4af3c263371ed405099b8ebc6dd418822214"
 
   bottle do
     cellar :any_skip_relocation
@@ -23,7 +23,9 @@ class Calicoctl < Formula
     dir.install buildpath.children
     cd dir do
       system "glide", "install", "-strip-vendor"
-      system "make", "binary"
+      commands = "github.com/projectcalico/calicoctl/calicoctl/commands"
+      ldflags = "-X #{commands}.VERSION=#{stable.specs[:tag]} -X #{commands}.GIT_REVISION=#{stable.specs[:revision][0, 8]} -s -w"
+      system "go", "build", "-v", "-o", "dist/calicoctl-darwin-amd64", "-ldflags", ldflags, "./calicoctl/calicoctl.go"
       bin.install "dist/calicoctl-darwin-amd64" => "calicoctl"
       prefix.install_metafiles
     end
