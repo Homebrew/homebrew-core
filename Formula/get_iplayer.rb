@@ -7,9 +7,9 @@ class GetIplayer < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02ea2ac638c368a3481b0d1a329c093dd3033c28451ac9042c1c50902f0d5825" => :mojave
-    sha256 "61a148a03e05ca6e8139a495632eec70299c89c117677364cf3d0a35d3a6520a" => :high_sierra
-    sha256 "bdbdcc3d392f25007dccfcd8222008924da110d7cac95f02bc6e56652e21dab6" => :sierra
+    sha256 "f7e986f05a5f019b8b02633ddb08d074f96117ab63b580f74e0a93e9def57409" => :mojave
+    sha256 "1d57e85d0b77693301564970c08fd7c8adcbb34881a93042c26c48b515222503" => :high_sierra
+    sha256 "5e13cf470e8fe3d22236871841068293bed6cb6da43183838b6b696da325ce3b" => :sierra
   end
 
   depends_on "atomicparsley"
