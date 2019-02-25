@@ -1,9 +1,9 @@
 class Cdk < Formula
   desc "Curses development kit provides predefined curses widget for apps"
   homepage "https://invisible-island.net/cdk/"
-  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20180306.tgz"
-  version "5.0.20180306"
-  sha256 "cca9e345c6728c235eb3188af9266327c09c01da124a30b0cbd692ac08c6ebd0"
+  url "https://invisible-mirror.net/archives/cdk/cdk-5.0-20190220.tgz"
+  version "5.0.20190220"
+  sha256 "378f9111c10933fc36bb29f52f565184daed1daf412ac17c630d1e851a830b28"
 
   bottle do
     cellar :any_skip_relocation
