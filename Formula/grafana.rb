@@ -1,8 +1,8 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v5.4.3.tar.gz"
-  sha256 "c4d2a4723cfd7e5943e42786548ea2ccbc08cd1be80b5f447ef7309d9bd91527"
+  url "https://github.com/grafana/grafana/archive/v6.0.0.tar.gz"
+  sha256 "3c98b8236b51ec93d5678b11c7de9cd76c3134bd47b17c22bec51bfa7edf37cd"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
@@ -44,7 +44,7 @@ class Grafana < Formula
     (var/"lib/grafana/plugins").mkpath
   end
 
-  plist_options :manual => "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
+  plist_options :manual => "grafana-server --config=#{HOMEBREW_PREFIX}/etc/grafana/grafana.ini --homepath #{HOMEBREW_PREFIX}/share/grafana --packaging=brew cfg:default.paths.logs=#{HOMEBREW_PREFIX}/var/log/grafana cfg:default.paths.data=#{HOMEBREW_PREFIX}/var/lib/grafana cfg:default.paths.plugins=#{HOMEBREW_PREFIX}/var/lib/grafana/plugins"
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -65,6 +65,7 @@ class Grafana < Formula
           <string>#{etc}/grafana/grafana.ini</string>
           <string>--homepath</string>
           <string>#{opt_pkgshare}</string>
+          <string>--packaging=brew</string>
           <string>cfg:default.paths.logs=#{var}/log/grafana</string>
           <string>cfg:default.paths.data=#{var}/lib/grafana</string>
           <string>cfg:default.paths.plugins=#{var}/lib/grafana/plugins</string>
