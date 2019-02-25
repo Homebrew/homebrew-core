@@ -12,6 +12,7 @@ class Siege < Formula
   end
 
   depends_on "openssl"
+  depends_on "zlib"
 
   def install
     # To avoid unnecessary warning due to hardcoded path, create the folder first
@@ -20,7 +21,8 @@ class Siege < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-zlib=#{Formula["zlib"].opt_prefix}"
     system "make", "install"
   end
 
