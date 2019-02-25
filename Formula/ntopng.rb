@@ -3,12 +3,12 @@ class Ntopng < Formula
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.6.1.tar.gz"
-    sha256 "3b2949d04d2b9a625f8ddfee24f5b0345fa648e135e8f947a389b599eb7117d0"
+    url "https://github.com/ntop/ntopng/archive/3.8.tar.gz"
+    sha256 "683d28aece3bf3f17c3d53d7a76fbd2a24719767477f5dce55268683fd87f821"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/2.4.tar.gz"
-      sha256 "5243e16b1c4a2728e9487466b2b496d8ffef18a44ff7ee6dfdc21e72008c6d29"
+      url "https://github.com/ntop/nDPI/archive/2.6.tar.gz"
+      sha256 "efdfb68940385b18079920330528978765dc2a90c8163d10f63301bddadbf91e"
     end
   end
 
