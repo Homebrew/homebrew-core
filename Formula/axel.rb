@@ -1,8 +1,8 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/archive/v2.15.tar.gz"
-  sha256 "0e223f18954e4c6c34b882a474c526b9c7d107168220c2f3892598248236a172"
+  url "https://github.com/axel-download-accelerator/axel/archive/v2.16.1.tar.gz"
+  sha256 "64529add74df3db828f704b42d4ec3fcdacb8142c84f051f9213637c337e706c"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
@@ -14,10 +14,16 @@ class Axel < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "openssl"
 
   def install
+    # Fixes the macOS build by esuring some _POSIX_C_SOURCE
+    # features are available:
+    # https://github.com/axel-download-accelerator/axel/pull/196
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
+
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
