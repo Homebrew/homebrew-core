@@ -3,8 +3,8 @@ class Cpprestsdk < Formula
   homepage "https://github.com/Microsoft/cpprestsdk"
   # pull from git tag to get submodules
   url "https://github.com/Microsoft/cpprestsdk.git",
-      :tag      => "v2.10.8",
-      :revision => "204a52610234ac5180e80a6883b62c0ad085f51e"
+      :tag      => "v2.10.10",
+      :revision => "91f66c625b6361d2edabf76eae30887b326b2447"
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
