@@ -1,9 +1,9 @@
 class Cflow < Formula
   desc "Generate call graphs from C code"
   homepage "https://www.gnu.org/software/cflow/"
-  url "https://ftp.gnu.org/gnu/cflow/cflow-1.5.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/cflow/cflow-1.5.tar.bz2"
-  sha256 "6fe40a106a9ffd6a5489938b939d4301c04fa28a09596294b4f787abca1c037b"
+  url "https://ftp.gnu.org/gnu/cflow/cflow-1.6.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/cflow/cflow-1.6.tar.bz2"
+  sha256 "34487b4116e9b7ecde142b24480ce036887921ed5defb2958068bb069c1fedd7"
 
   bottle do
     cellar :any_skip_relocation
