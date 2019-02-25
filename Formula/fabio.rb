@@ -7,9 +7,9 @@ class Fabio < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e9e27a699f09e25dcd5c1dc403eda6c8e533f8fe96b328277898ecfa31b5c4e1" => :mojave
-    sha256 "3c954b8625010295436faf57ceca390fa7a8947f838fe0c7ed5ddb5e04a4122b" => :high_sierra
-    sha256 "97157de3fe8eca2a6162f08364ad0ae692093d3fc78c6e1551d415416089bda0" => :sierra
+    sha256 "67487a58775ce639924c4cdd51907b23d61d10c23667efca9b9d9e5752b3f363" => :mojave
+    sha256 "aec5deb6a536a861abc132e787336c990a6a5635ab55454171877e2541e3543a" => :high_sierra
+    sha256 "4cd2e56d77e3ea61a8689f69a9b73a5b9184b7224ed56e5c6e0b406de1873dab" => :sierra
   end
 
   depends_on "go" => :build
