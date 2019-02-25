@@ -30,9 +30,13 @@ class Circleci < Formula
     cd dir do
       resource("packr").stage do
         system "go", "install", "./packr"
+
+        # TODO: Debug why this isn't compiling data files correctly
+        #
+        # Refer to packr by its absolute path, in case GOPATH isn't in the user's path
+        system buildpath/"bin/packr"
+        system buildpath/"bin/packr", "build"
       end
-      # Refer to packr by its absolute path, in case GOPATH isn't in the user's path
-      system buildpath/"bin/packr build"
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
@@ -40,15 +44,20 @@ class Circleci < Formula
         -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
         -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{commit}
       ]
-      system "go", "build", "-ldflags", ldflags.join(" "),
+      system buildpath/"bin/packr", "build", "-ldflags", ldflags.join(" "),
              "-o", bin/"circleci"
       prefix.install_metafiles
     end
   end
 
   test do
+    puts "pre-test"
+    puts shell_output("whoami")
+    shell_output("#{bin}/circleci version")
+    puts "test 1"
     # assert basic script execution
     assert_match /#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip
+    puts "test 2"
     # assert script fails because 2.1 config is not supported for local builds
     (testpath/".circleci.yml").write("{version: 2.1}")
     output = shell_output("#{bin}/circleci build -c #{testpath}/.circleci.yml 2>&1", 255)
