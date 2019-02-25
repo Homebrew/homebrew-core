@@ -8,9 +8,9 @@ class Fx < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4163364b0bcaf765f82bb3fff8cab256af4baaab0ef8fc14c7396dacc362e43b" => :mojave
-    sha256 "ae1d66ad8f33c2fde8af1bbe915401aa86a80977ef8c11cdf41e95e4ced5cdc1" => :high_sierra
-    sha256 "3b29c04c8fb84e3f6077c18bee47ab82d525554527d3d8ca3329de176fda6b39" => :sierra
+    sha256 "9803ce4be6a5c89ed0c0c04aa5728389aecf58624a572da98daf7153d3675c5a" => :mojave
+    sha256 "665ca558394b6803651a48d0036dd5e85a36c32612677645da61eb33be682661" => :high_sierra
+    sha256 "6cfcc6ef71fb6d81fbcdd0ee318524f02ee60a6e5ec978255afc0b3672bd5904" => :sierra
   end
 
   depends_on "node"
