@@ -7,12 +7,9 @@ class Cflow < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5f5ef480f430e4b9ecec48f82dd057667c19b567de02a7eaf60eb56cb82969a1" => :mojave
-    sha256 "d97871418bd311cd914ac0b7dbcf900d599ea706c8bb91d20cf9c63406c3d066" => :high_sierra
-    sha256 "40efaa5c5298d6aa3ca2bce884ede21d21cb59df94eee0bc121a588dcb58257b" => :sierra
-    sha256 "4bde642d869a9ea7347ad91bdb87a0de3c93f3766e8b74bb6e74a763278724c3" => :el_capitan
-    sha256 "ae1fcbcfbf28417dfcc4836f32446ece545e9fceee61f34617d6364a2dd106e0" => :yosemite
-    sha256 "b50f226680f8b0e3acaea2e09781cd6d7b03bdf1191fe338658d9aacef448a9f" => :mavericks
+    sha256 "a96f9cf3cb35851c27ed602f6a05489da2d64e75ab6daccecc3e23156d9fe968" => :mojave
+    sha256 "50a816924cb91e1c4055923285ea3ceb0d815b4641477906ae5f6abdae337d52" => :high_sierra
+    sha256 "5e88f5310c34255947032f24227cf779aa8a42fe595f585605e814f001f4a151" => :sierra
   end
 
   def install
