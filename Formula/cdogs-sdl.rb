@@ -1,8 +1,8 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/0.6.2.tar.gz"
-  sha256 "d6f421c760b15b706bdfc79ed8d18802dc2e8efeefabb69a31679c9b51f328ab"
+  url "https://github.com/cxong/cdogs-sdl/archive/0.6.9.tar.gz"
+  sha256 "6f81f528cb6fcc6f72ad67627dc22baeac05d7acec512fee5830224cd06cf9ba"
   head "https://github.com/cxong/cdogs-sdl.git"
 
   bottle do
@@ -24,8 +24,7 @@ class CdogsSdl < Formula
     args << "-DCDOGS_DATA_DIR=#{pkgshare}/"
     system "cmake", ".", *args
     system "make"
-    prefix.install "src/cdogs-sdl.app"
-    bin.write_exec_script "#{prefix}/cdogs-sdl.app/Contents/MacOS/cdogs-sdl"
+    bin.install %w[src/cdogs-sdl src/cdogs-sdl-editor]
     pkgshare.install %w[data dogfights graphics missions music sounds]
     doc.install Dir["doc/*"]
   end
