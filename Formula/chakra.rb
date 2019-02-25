@@ -1,8 +1,8 @@
 class Chakra < Formula
   desc "The core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.5.tar.gz"
-  sha256 "19c56dd55271919a66afcd56de94da3ed0e4b35ab9cd992ca57f4229148b0b88"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.6.tar.gz"
+  sha256 "14a6adc9b14cf383e636c8a63f94590cc0fc4ab233e82110fe63039d8acb41b8"
 
   bottle do
     cellar :any
