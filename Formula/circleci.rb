@@ -15,10 +15,9 @@ class Circleci < Formula
 
   depends_on "go" => :build
 
-  resource "packr2" do
-    "https://github.com/gobuffalo/packr/releases/download/v2.0.1/packr_2.0.1_darwin_amd64.tar.gz"
-    # Source: https://github.com/gobuffalo/packr/releases/download/v2.0.1/checksums.txt
-    "0347a77997471535ea5cddaabc962aba16a374582ec75af7c901c8d0877aef69"
+  resource "packr" do
+    url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
+    sha256 "cc0488e99faeda4cf56631666175335e1cce021746972ce84b8a3083aa88622f"
   end
 
   def install
@@ -29,8 +28,11 @@ class Circleci < Formula
     dir.install buildpath.children
 
     cd dir do
-      resource("packr2").stage buildpath/"bin"/resource.name
-      system "make", "pack"
+      resource("packr").stage do
+        system "go", "install", "./packr"
+      end
+      # Refer to packr by its absolute path, in case GOPATH isn't in the user's path
+      system buildpath/"bin/packr build"
       commit = Utils.popen_read("git rev-parse --short HEAD").chomp
       ldflags = %W[
         -s -w
