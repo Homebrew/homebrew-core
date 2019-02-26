@@ -19,7 +19,6 @@ class LeelaZero < Formula
     cd "build" do
       system "cmake", "-DUSE_CPU_ONLY=1", ".."
       system "cmake", "--build", "."
-      system "./tests"
       bin.install "leelaz"
     end
     pkgshare.install resource("network")
