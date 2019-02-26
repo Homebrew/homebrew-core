@@ -3,6 +3,7 @@ class Libccd < Formula
   homepage "http://libccd.danfis.cz/"
   url "https://github.com/danfis/libccd/archive/v2.1.tar.gz"
   sha256 "542b6c47f522d581fbf39e51df32c7d1256ac0c626e7c2b41f1040d4b9d50d1e"
+  revision 1
 
   bottle do
     cellar :any
@@ -14,7 +15,7 @@ class Libccd < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", "-DCCD_DOUBLE=ON", *std_cmake_args
+    system "cmake", ".", "-DENABLE_DOUBLE_PRECISION=ON", *std_cmake_args
     system "make", "install"
   end
 
