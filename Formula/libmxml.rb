@@ -2,7 +2,7 @@ class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
   url "https://github.com/michaelrsweet/mxml/releases/download/v2.12/mxml-2.12.tar.gz"
-  sha256 "afd6b75a120dc422c7b45dca19254f535d51c37b73f6783962b1e14b54c716fd"
+  sha256 "6bfb53baa1176e916855bd3b6d592fd5b962c3c259aacdb5670d90c57ce4034f"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
