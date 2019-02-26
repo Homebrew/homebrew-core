@@ -20,6 +20,9 @@ class Mu < Formula
     url "https://github.com/djcb/mu.git"
 
     depends_on "autoconf-archive" => :build
+
+    # recent versions of mu rely on gmime3
+    depends_on "gmime"
   end
 
   depends_on "autoconf" => :build
@@ -39,10 +42,12 @@ class Mu < Formula
   end
 
   def install
-    resource("gmime").stage do
-      system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
-      system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
+    unless build.head?
+      resource("gmime").stage do
+        system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
+        system "make", "install"
+        ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
+      end
     end
 
     system "autoreconf", "-ivf"
