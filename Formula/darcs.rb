@@ -5,8 +5,8 @@ class Darcs < Formula
 
   desc "Distributed version control system that tracks changes, via Haskell"
   homepage "http://darcs.net/"
-  url "https://hackage.haskell.org/package/darcs-2.14.1/darcs-2.14.1.tar.gz"
-  sha256 "61ddbc99acaf06df3a114437064e9241e0da467c23d1d3fb520a782eee32cd35"
+  url "https://hackage.haskell.org/package/darcs-2.14.2/darcs-2.14.2.tar.gz"
+  sha256 "65d160a43874960dcba114c0b74d9c7b25d098486f515655502f42ff0c22a27e"
 
   bottle do
     cellar :any_skip_relocation
