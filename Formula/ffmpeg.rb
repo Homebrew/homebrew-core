@@ -4,6 +4,7 @@ class Ffmpeg < Formula
   url "https://ffmpeg.org/releases/ffmpeg-4.1.1.tar.xz"
   sha256 "373749824dfd334d84e55dff406729edfd1606575ee44dd485d97d45ea4d2d86"
   head "https://github.com/FFmpeg/FFmpeg.git"
+  revision 1
 
   bottle do
     sha256 "468153bac4b90b445fa5c6adfb70ec3213ebc0f63c7a97a6b2a1649d9c32a786" => :mojave
@@ -16,6 +17,7 @@ class Ffmpeg < Formula
   depends_on "texi2html" => :build
 
   depends_on "aom"
+  depends_on "fdk-aac"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
@@ -83,6 +85,9 @@ class Ffmpeg < Formula
       --disable-indev=jack
       --enable-libaom
       --enable-libsoxr
+
+      --enable-nonfree
+      --enable-libfdk-aac
     ]
 
     system "./configure", *args
