@@ -1,10 +1,8 @@
 class Rdesktop < Formula
   desc "UNIX client for connecting to Windows Remote Desktop Services"
   homepage "https://www.rdesktop.org/"
-  url "https://downloads.sourceforge.net/project/rdesktop/rdesktop/1.8.3/rdesktop-1.8.3.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/r/rdesktop/rdesktop_1.8.3.orig.tar.gz"
-  sha256 "88b20156b34eff5f1b453f7c724e0a3ff9370a599e69c01dc2bf0b5e650eece4"
-  revision 1
+  url "https://github.com/rdesktop/rdesktop/releases/download/v1.8.4/rdesktop-1.8.4.tar.gz"
+  sha256 "9b98b8e73aa83e93aa1d9ae82ce38c08395f64b67799edc24821bb26a84dcd2d"
 
   bottle do
     sha256 "9a0d85e617805161eb6f06359a8c72af0d6b45d6316986307ad036022d8ff8d8" => :mojave
