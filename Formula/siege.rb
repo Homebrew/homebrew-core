@@ -3,6 +3,7 @@ class Siege < Formula
   homepage "https://www.joedog.org/siege-home/"
   url "http://download.joedog.org/siege/siege-4.0.4.tar.gz"
   sha256 "8f7dcf18bd722bb9cc92bc3ea4b59836b4a2f8d8f01d4a94c8d181f56d91ea6f"
+  revision 1
 
   bottle do
     sha256 "975fa6c60a27b9462d55ef7b4e9faeec0569de3b48bd10dab89c88a001350459" => :mojave
@@ -20,7 +21,8 @@ class Siege < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
     system "make", "install"
   end
 
