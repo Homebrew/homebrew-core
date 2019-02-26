@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.11.5.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.11.5.src.tar.gz"
-    sha256 "bc1ef02bb1668835db1390a2e478dcbccb5dd16911691af9d75184bbe5aa943e"
+    url "https://dl.google.com/go/go1.12.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.12.src.tar.gz"
+    sha256 "09c43d3336743866f2985f566db0520b36f4992aea2b4b2fd9f52f17049e88f2"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
@@ -38,12 +38,6 @@ class Go < Formula
   end
 
   def install
-    # Temporary workaround for garbage folders which were included in the 1.11.5 release tarball
-    mv Dir.glob("go/*"), "./"
-    rm_rf "go"
-    rm_rf "gocache"
-    rm_rf "tmp"
-
     (buildpath/"gobootstrap").install resource("gobootstrap")
     ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
 
