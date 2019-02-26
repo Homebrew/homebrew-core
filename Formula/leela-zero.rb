@@ -1,11 +1,10 @@
 class LeelaZero < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
-  homepage "http://zero.sjeng.org/"
+  homepage "https://zero.sjeng.org/"
   # pull from git tag to get submodules
   url "https://github.com/leela-zero/leela-zero.git",
       :tag      => "v0.16",
       :revision => "4fd6e694ead45b7cbb14ea76c5bdfcbfa662304b"
-  head "https://github.com/leela-zero/leela-zero.git", :branch => "next"
 
   depends_on "cmake" => :build
   depends_on "boost"
