@@ -6,6 +6,13 @@ class HomeassistantCli < Formula
   url "https://files.pythonhosted.org/packages/0d/7b/7db8b4061d6afa763cdd538127a13c22c419b937dea3df146590c3c5f33a/homeassistant-cli-0.5.0.tar.gz"
   sha256 "4ad137d336508ab74840a34b3cc488ad884cc75285f5d7842544df1c3adacf8d"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "200e58ea227dfc825fb36e1d33c471a916335ae8e5dc0575186a20442bffab6a" => :mojave
+    sha256 "eeeccfe32479e998296c66d523080ce2e303bdb9cc4b8a3b7110fe1e93563ee9" => :high_sierra
+    sha256 "54721d3fbb53da09da403cc6415f03d495b851050b278d51ca4f269ae0288c93" => :sierra
+  end
+
   depends_on "python"
 
   resource "aiohttp" do
