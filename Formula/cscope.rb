@@ -1,8 +1,8 @@
 class Cscope < Formula
   desc "Tool for browsing source code"
   homepage "https://cscope.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
-  sha256 "4889d091f05aa0845384b1e4965aa31d2b20911fb2c001b2cdcffbcb7212d3af"
+  url "https://downloads.sourceforge.net/project/cscope/cscope/v15.9/cscope-15.9.tar.gz"
+  sha256 "c5505ae075a871a9cd8d9801859b0ff1c09782075df281c72c23e72115d9f159"
 
   bottle do
     cellar :any_skip_relocation
