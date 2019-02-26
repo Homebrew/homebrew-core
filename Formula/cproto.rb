@@ -1,9 +1,9 @@
 class Cproto < Formula
   desc "Generate function prototypes for functions in input files"
   homepage "https://invisible-island.net/cproto/"
-  url "https://invisible-mirror.net/archives/cproto/cproto-4.7m.tgz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/c/cproto/cproto_4.7m.orig.tar.gz"
-  sha256 "4b482e80f1b492e94f8dcda74d25a7bd0381c870eb500c18e7970ceacdc07c89"
+  url "https://invisible-mirror.net/archives/cproto/cproto-4.7o.tgz"
+  mirror "https://deb.debian.org/debian/pool/main/c/cproto/cproto_4.7o.orig.tar.gz"
+  sha256 "c76b0b72064e59709459bb7d75d6ec929f77ce5ae7f2610d169ba0fa20ccb44f"
 
   bottle do
     cellar :any_skip_relocation
