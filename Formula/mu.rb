@@ -20,6 +20,7 @@ class Mu < Formula
     url "https://github.com/djcb/mu.git"
 
     depends_on "autoconf-archive" => :build
+    depends_on "gmime"
   end
 
   depends_on "autoconf" => :build
@@ -32,17 +33,19 @@ class Mu < Formula
   depends_on "glib"
   depends_on "xapian"
 
-  # Currently requires gmime 2.6.x
+  # Stable requires gmime 2.6.x, future versions will depend on gmime like head does
   resource "gmime" do
     url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
     sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
   end
 
   def install
-    resource("gmime").stage do
-      system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
-      system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
+    unless build.head?
+      resource("gmime").stage do
+        system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
+        system "make", "install"
+        ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
+      end
     end
 
     system "autoreconf", "-ivf"
