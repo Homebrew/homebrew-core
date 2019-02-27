@@ -31,7 +31,7 @@ class Pcre < Formula
                           "--enable-unicode-properties",
                           "--enable-pcregrep-libz",
                           "--enable-pcregrep-libbz2",
-                          "--enable-jit"
+                          "--disable-jit"
     system "make"
     ENV.deparallelize
     system "make", "test"
