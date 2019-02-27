@@ -1,8 +1,8 @@
 class RedisAT40 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://github.com/antirez/redis/archive/4.0.12.tar.gz"
-  sha256 "d11767986ba90b7bad6cc8bc67419a3900d86c047a453fab1deedb71875ff65c"
+  url "https://github.com/antirez/redis/archive/4.0.13.tar.gz"
+  sha256 "ef66f2c2b6c88424edadc541d3a7e43b8b066bd430da61180c56f598997b5506"
 
   bottle do
     cellar :any_skip_relocation
