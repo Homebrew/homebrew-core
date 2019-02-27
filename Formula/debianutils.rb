@@ -1,9 +1,8 @@
 class Debianutils < Formula
   desc "Miscellaneous utilities specific to Debian"
   homepage "https://packages.debian.org/sid/debianutils"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/debianutils/debianutils_4.8.6.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/debianutils/debianutils_4.8.6.tar.xz"
-  sha256 "db09047144dadf6a35d0f28977fbef83b0dd60ca32e6c8512cce2444a6423f73"
+  url "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_4.8.6.1.tar.xz"
+  sha256 "099f1e8a7278b26145a2ba2dda84c4118403bfab38c8d7070a6235a7ffcb55ed"
 
   bottle do
     cellar :any_skip_relocation
