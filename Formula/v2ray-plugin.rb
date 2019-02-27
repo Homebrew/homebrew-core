@@ -4,6 +4,13 @@ class V2rayPlugin < Formula
   url "https://github.com/shadowsocks/v2ray-plugin/archive/v1.0.tar.gz"
   sha256 "5320eff71d99edcfa1e5e883debb42c50ccdebc2b43eb30c6c1b16baa632cda2"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "89202ce48d55907a50d47bedd73f14eb869fec36c1777ae9a5f207dafa33809a" => :mojave
+    sha256 "3ae2a7b892bb639201569144ccac8f00992cd07b858c9ddf0ff61768a6db3ff3" => :high_sierra
+    sha256 "e688d94954a982e397a22241755fd25591bd1ae6fbffa46328289458376ef309" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
