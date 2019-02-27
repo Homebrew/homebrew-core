@@ -20,8 +20,6 @@ class Mu < Formula
     url "https://github.com/djcb/mu.git"
 
     depends_on "autoconf-archive" => :build
-
-    # recent versions of mu rely on gmime3
     depends_on "gmime"
   end
 
@@ -35,7 +33,7 @@ class Mu < Formula
   depends_on "glib"
   depends_on "xapian"
 
-  # Currently requires gmime 2.6.x
+  # Stable requires gmime 2.6.x, future versions will depend on gmime like head does
   resource "gmime" do
     url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
     sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
