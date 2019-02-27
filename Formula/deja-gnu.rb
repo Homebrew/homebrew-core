@@ -1,9 +1,9 @@
 class DejaGnu < Formula
   desc "Framework for testing other programs"
   homepage "https://www.gnu.org/software/dejagnu/"
-  url "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.1.tar.gz"
-  sha256 "bf5b28bb797e0ace4cfc0766a996339c795d8223bef54158be7887046bc01692"
+  url "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.2.tar.gz"
+  sha256 "0d0671e1b45189c5fc8ade4b3b01635fb9eeab45cf54f57db23e4c4c1a17d261"
 
   bottle do
     cellar :any_skip_relocation
