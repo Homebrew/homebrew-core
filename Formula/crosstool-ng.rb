@@ -23,6 +23,7 @@ class CrosstoolNg < Formula
   depends_on "gnu-sed"
   depends_on "grep"
   depends_on "libtool"
+  depends_on "lzip"
   depends_on "m4"
   depends_on "make"
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
