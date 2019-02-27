@@ -1,8 +1,8 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/golang/protobuf"
-  url "https://github.com/golang/protobuf/archive/v1.2.0.tar.gz"
-  sha256 "157a148ae4e132eb169ec794b6cb43f1002780eeacaea8b0694811d1948fb1ec"
+  url "https://github.com/golang/protobuf/archive/v1.3.0.tar.gz"
+  sha256 "f44cfe140cdaf0031dac7d7376eee4d5b07084cce400d7ecfac4c46d33f18a52"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,6 +16,7 @@ class ProtocGenGo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "off"
     (buildpath/"src/github.com/golang").mkpath
     ln_s buildpath, buildpath/"src/github.com/golang/protobuf"
     system "go", "build", "-o", bin/"protoc-gen-go", "protoc-gen-go/main.go"
