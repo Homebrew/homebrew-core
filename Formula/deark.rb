@@ -3,8 +3,8 @@ require "base64"
 class Deark < Formula
   desc "File conversion utility for older formats"
   homepage "https://entropymine.com/deark/"
-  url "https://entropymine.com/deark/releases/deark-1.4.7.tar.gz"
-  sha256 "f26441f7f361e9f4bf584866d46995e35441ea88f269cb6c024881a5d17c11ff"
+  url "https://entropymine.com/deark/releases/deark-1.5.0.tar.gz"
+  sha256 "2243e98f9b75f7c8c9ab2881259221ba8d719a6903dd1fb013e6957411c9d6c7"
 
   bottle do
     cellar :any_skip_relocation
