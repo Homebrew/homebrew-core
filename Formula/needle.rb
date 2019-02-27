@@ -19,6 +19,6 @@ class Needle < Formula
   end
 
   test do
-    system "#{bin}/needle", "version"
+    assert_match #{version}, shell_output("#{bin}/needle version")
   end
 end
