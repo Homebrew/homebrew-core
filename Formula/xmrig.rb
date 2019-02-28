@@ -1,8 +1,8 @@
 class Xmrig < Formula
   desc "Monero (XMR) CPU miner"
   homepage "https://github.com/xmrig/xmrig"
-  url "https://github.com/xmrig/xmrig/archive/v2.8.3.tar.gz"
-  sha256 "ddf0c273fcf71889989c971c2a27b81a05aa2352a4bc03481730576583de4696"
+  url "https://github.com/xmrig/xmrig/archive/v2.13.1.tar.gz"
+  sha256 "ac71836e0320ca73ca7645216b0ed0a2c04497fcfd693225b1da1d29112e30be"
 
   bottle do
     cellar :any
@@ -27,7 +27,7 @@ class Xmrig < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/xmrig -V", 2)
+    assert_match version.to_s, shell_output("#{bin}/xmrig -V")
     test_server="donotexist.localhost:65535"
     timeout=10
     begin
