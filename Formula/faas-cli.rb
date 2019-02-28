@@ -2,8 +2,8 @@ class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
   homepage "https://docs.get-faas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag      => "0.8.3",
-      :revision => "a141dedf94ffeed84412365fd591bdc8999c5a1b"
+      :tag      => "0.8.4",
+      :revision => "0df6d3fd2eba8fea989c65405080dd5ee6ff33c5"
 
   bottle do
     cellar :any_skip_relocation
@@ -61,14 +61,6 @@ class FaasCli < Formula
           image: dummy_image
     EOS
 
-    expected = <<~EOS
-      Deploying: dummy_function.
-      Function dummy_function already exists, attempting rolling-update.
-
-      Deployed. 200 OK.
-      URL: http://localhost:#{port}/function/dummy_function
-    EOS
-
     begin
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml 2>&1", 1)
       assert_match "stat ./template/python/template.yml", output
@@ -77,7 +69,8 @@ class FaasCli < Formula
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
 
       output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output.chomp
+      assert_match "Function dummy_function already exists, attempting rolling-update", output
+      assert_match "Deployed. 200 OK", output
 
       stable_resource = stable.instance_variable_get(:@resource)
       commit = stable_resource.instance_variable_get(:@specs)[:revision]
