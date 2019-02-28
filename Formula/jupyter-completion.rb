@@ -7,12 +7,12 @@ class JupyterCompletion < Formula
   bottle :unneeded
 
   def install
-    bash_completion.install "examples/jupyter-completion.bash"
-    zsh_completion.install "examples/completions-zsh"
+    bash_completion.install "examples/jupyter-completion.bash" => "jupyter"
+    zsh_completion.install "examples/completions-zsh" => "_jupyter"
   end
 
   test do
     assert_match "-F _jupyter",
-      shell_output("source #{bash_completion}/jupyter-completion.bash && complete -p jupyter")
+      shell_output("source #{bash_completion}/jupyter && complete -p jupyter")
   end
 end
