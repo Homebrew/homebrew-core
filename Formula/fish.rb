@@ -14,7 +14,7 @@ class Fish < Formula
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
-    depends_on "doxygen" => :build
+    depends_on "sphinx-doc" => :build
   end
 
   depends_on "cmake" => :build
