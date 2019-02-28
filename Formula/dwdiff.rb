@@ -1,9 +1,8 @@
 class Dwdiff < Formula
   desc "Diff that operates at the word level"
   homepage "https://os.ghalkes.nl/dwdiff.html"
-  url "https://os.ghalkes.nl/dist/dwdiff-2.1.1.tar.bz2"
-  sha256 "9745860faad6cb58744c7c45d16c0c7e222896c80d0cd7208dd36126d1a98c8b"
-  revision 5
+  url "https://os.ghalkes.nl/dist/dwdiff-2.1.2.tar.bz2"
+  sha256 "3201fd459164ebbb538a0b21ce17d955f2fa3babe37367b2e92f7f912cfac692"
 
   bottle do
     sha256 "a6119a2a78646ea1ddb39ab180e349da730328e92873498c32bac2055b01192d" => :mojave
@@ -11,6 +10,7 @@ class Dwdiff < Formula
     sha256 "e270df201036894a6e734c86eb48a0990542330bfe9fd11de3bd8314751729eb" => :sierra
   end
 
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "icu4c"
 
