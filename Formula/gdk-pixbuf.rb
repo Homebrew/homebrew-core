@@ -1,8 +1,8 @@
 class GdkPixbuf < Formula
   desc "Toolkit for image loading and pixel buffer manipulation"
   homepage "https://gtk.org"
-  url "https://download.gnome.org/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.0.tar.xz"
-  sha256 "dd50973c7757bcde15de6bcd3a6d462a445efd552604ae6435a0532fbbadae47"
+  url "https://download.gnome.org/sources/gdk-pixbuf/2.38/gdk-pixbuf-2.38.1.tar.xz"
+  sha256 "f19ff836ba991031610dcc53774e8ca436160f7d981867c8c3a37acfe493ab3a"
 
   bottle do
     sha256 "f49a95e28e72c80d2376a0028cfe8ea77b8343c1aadb71fbe5ccb5c31100674f" => :mojave
@@ -12,7 +12,7 @@ class GdkPixbuf < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
@@ -20,11 +20,6 @@ class GdkPixbuf < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3d39ffd/gdk-pixbuf/meson-patches.diff"
-    sha256 "eb78bdfd5452c617ea0873629a5ec8f502a986357aa2d1a462dc9f2551b37c38"
-  end
 
   # gdk-pixbuf has an internal version number separate from the overall
   # version number that specifies the location of its module and cache
@@ -67,6 +62,13 @@ class GdkPixbuf < Formula
       libv = s.get_make_var "gdk_pixbuf_binary_version"
       s.change_make_var! "gdk_pixbuf_binarydir",
         HOMEBREW_PREFIX/"lib/gdk-pixbuf-#{gdk_so_ver}"/libv
+    end
+
+    # fix gobject-introspection support
+    # will not be necessary after next release of gobject-introspection
+    %w[GdkPixbuf-2.0 GdkPixdata-2.0].each do |gir|
+      inreplace share/"gir-1.0/#{gir}.gir", "@rpath", lib.to_s
+      system "g-ir-compiler", "--includedir=#{share}/gir-1.0", "--output=#{lib}/girepository-1.0/#{gir}.typelib", share/"gir-1.0/#{gir}.gir"
     end
   end
 
