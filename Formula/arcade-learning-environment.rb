@@ -3,14 +3,14 @@ class ArcadeLearningEnvironment < Formula
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
   sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
-  revision 1
+  revision 4
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
     cellar :any
-    sha256 "7434540f6e690a09b2cb33d1865fe8e1ce7e10368f568c4322866f4d14d7b2b8" => :mojave
-    sha256 "b85f87b14e2b59b7c185cc8a002f053b3f99be0d5eda013d037f69f507976379" => :high_sierra
-    sha256 "f69fabe254f94764c1d519eb059766936920dcb187999ee9f5210f234b0da93e" => :sierra
+    sha256 "c1df5b72ac9f1048c11b51133b3c703cab7ff5f184e5a3ac80df559ea7332f66" => :mojave
+    sha256 "4347e69ed56c1798240b6c160d7ddaedf5ecc2fb56b8d235c644ef44103f3dc9" => :high_sierra
+    sha256 "327944c55b6c2b917bfdc04c8cdfaffe59ecea5851f326369901949c0657a5ed" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -19,7 +19,11 @@ class ArcadeLearningEnvironment < Formula
   depends_on "sdl"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
+      -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
+    ]
+    system "cmake", ".", *args
     system "make", "install"
     system "python3", *Language::Python.setup_install_args(prefix)
   end

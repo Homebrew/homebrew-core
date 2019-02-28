@@ -1,26 +1,19 @@
 class PostgresqlAT96 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.10/postgresql-9.6.10.tar.bz2"
-  sha256 "8615acc56646401f0ede97a767dfd27ce07a8ae9c952afdb57163b7234fe8426"
+  url "https://ftp.postgresql.org/pub/source/v9.6.11/postgresql-9.6.11.tar.bz2"
+  sha256 "38250adc69a1e8613fb926c894cda1d01031391a03648894b9a6e13ff354a530"
 
   bottle do
-    rebuild 1
-    sha256 "50f7b551e865c43c91507073c44bf454c22f52889326a161b033888dfaba190f" => :mojave
-    sha256 "da0d71fb4913b6ad4fc959a770295416b69c7d04ceb3995b5d46006949fc1c46" => :high_sierra
-    sha256 "ab319da939279bf3409c03ea44885dc96fff01b973c3c20c250b5a52478abc3a" => :sierra
-    sha256 "eb38e039d8390e99f13deb51be32ec9543437f9804bcd9fe391698d8d2ce37df" => :el_capitan
+    sha256 "5745eb61597faf400d2fff86eb70a7c18cbacb5ca05d751558a7e4f16618ec76" => :mojave
+    sha256 "9bc81bcb60c55d694670d373513b6d53145b05e42d76641b51969ce9e8e3e1b9" => :high_sierra
+    sha256 "acc37cd6b58fffbe829b88d08b6c7cbb5502bab397e35b11e0bfa087112d6805" => :sierra
   end
 
   keg_only :versioned_formula
 
-  option "with-python", "Enable PL/Python3"
-
-  deprecated_option "with-python3" => "with-python"
-
   depends_on "openssl"
   depends_on "readline"
-  depends_on "python" => :optional
 
   def install
     # avoid adding the SDK library directory to the linker search path
@@ -48,18 +41,11 @@ class PostgresqlAT96 < Formula
       --with-uuid=e2fs
     ]
 
-    if build.with?("python")
-      args << "--with-python"
-      ENV["PYTHON"] = which("python3")
-    end
-
     # The CLT is required to build Tcl support on 10.7 and 10.8 because
     # tclConfig.sh is not part of the SDK
-    if MacOS.version >= :mavericks || MacOS::CLT.installed?
-      args << "--with-tcl"
-      if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
-        args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-      end
+    args << "--with-tcl"
+    if File.exist?("#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/tclConfig.sh")
+      args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     end
 
     # As of Xcode/CLT 10.x the Perl headers were moved from /System
@@ -71,10 +57,10 @@ class PostgresqlAT96 < Formula
                 "-I$perl_archlibexp/CORE",
                 "-iwithsysroot $perl_archlibexp/CORE"
       inreplace "contrib/hstore_plperl/Makefile",
-                "-I$(perl_archlibexp)/CORE",
+                "$(perl_archlibexp)/CORE",
                 "-iwithsysroot $(perl_archlibexp)/CORE"
       inreplace "src/pl/plperl/GNUmakefile",
-                "-I$(perl_archlibexp)/CORE",
+                "$(perl_archlibexp)/CORE",
                 "-iwithsysroot $(perl_archlibexp)/CORE"
     end
 

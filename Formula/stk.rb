@@ -15,11 +15,6 @@ class Stk < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
-  fails_with :clang do
-    build 421
-    cause "due to configure file this application will not properly compile with clang"
-  end
-
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}", "--disable-debug"

@@ -2,7 +2,7 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      :tag => "v0.8.1",
+      :tag      => "v0.8.1",
       :revision => "d6574a5bb1226678d7010325fb6c985db20ee458"
   head "https://github.com/hashicorp/serf.git"
 
@@ -25,8 +25,7 @@ class Serf < Formula
     (gopath/"src/github.com/hashicorp/serf").install contents
 
     ENV["GOPATH"] = gopath
-    arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-    ENV["XC_ARCH"] = arch
+    ENV["XC_ARCH"] = "amd64"
     ENV["XC_OS"] = "darwin"
 
     (gopath/"bin").mkpath

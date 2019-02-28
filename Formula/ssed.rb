@@ -11,7 +11,6 @@ class Ssed < Formula
     sha256 "6c8c5a5547c7c97e59f1f7284083f46d5e61e7ab80ac08ebdfeec4a4b4e95fbb" => :el_capitan
     sha256 "7e313ca41f3a8e37bc91ab4a9d8c7acbf508cd7a89ac605df7cee3adcf108510" => :yosemite
     sha256 "448b2fdfee6f84c3d72fdf29d5ccd042027a9850ea16d75b5f4ee576d8cbadcc" => :mavericks
-    sha256 "793435451341ea1e475bde0d46745ba233df28c5ed4bd86f7761a2fad3568fba" => :mountain_lion
   end
 
   conflicts_with "gnu-sed", :because => "both install share/info/sed.info"

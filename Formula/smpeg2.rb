@@ -12,7 +12,6 @@ class Smpeg2 < Formula
     sha256 "52aba7403eee04f66c9184a741354b747dfcd0994fa3bd7de9058b65a30fcf19" => :el_capitan
     sha256 "6031bf704fd0508bb90322dbe77f62580708e3fe77362e3dea6b0691360b686b" => :yosemite
     sha256 "fa5760a0f8ff18f596b0044a0da7562a361904f2520a7406c3681ace8a705950" => :mavericks
-    sha256 "fe631e594d91ffa786d7023d7eb2b8b8a25d747a2e227458da26aaf9b935dfc8" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

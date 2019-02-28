@@ -3,13 +3,13 @@ class Rust < Formula
   homepage "https://www.rust-lang.org/"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.30.0-src.tar.gz"
-    sha256 "cd0ba83fcca55b64c0c9f23130fe731dfc1882b73ae21bef96be8f2362c108ee"
+    url "https://static.rust-lang.org/dist/rustc-1.32.0-src.tar.gz"
+    sha256 "4c594c7712a0e7e8eae6526c464bf6ea1d82f77b4f61717c3fc28fb27ba2224a"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          :tag => "0.31.0",
-          :revision => "36d96825d0f288c6d1bb2219919a277968bd365f"
+          :tag      => "0.33.0",
+          :revision => "8610973aaf48615ba7dc9a38a9a2795ba6f36a31"
     end
 
     resource "racer" do
@@ -21,10 +21,11 @@ class Rust < Formula
   end
 
   bottle do
+    cellar :any
     rebuild 1
-    sha256 "c4043e11a5d0219a355e3444dd956a247ba330729d19bfe438ac5eaa39dd4d3b" => :mojave
-    sha256 "56f26ad6b7c78f0fcb2990ea66c14d28f7bc5bc8bae015a35cd76687efaaded2" => :high_sierra
-    sha256 "b6de1fa8e7727c619898140eb9277f72d54e453ea88b84f140c9d5bc376a87c8" => :sierra
+    sha256 "45f65397d37790f9359595eb10e38c12ffd2032c7b961d5aeee2b38ea4e21ca1" => :mojave
+    sha256 "742649151ddd435184927a69cbc4a59b06bc40bd2b85206737efc16cca3eb229" => :high_sierra
+    sha256 "6a37b5828827a1ae6307e702f7ea558bff187e15f682ff471766056f5735acfd" => :sierra
   end
 
   head do
@@ -39,25 +40,15 @@ class Rust < Formula
     end
   end
 
-  option "with-llvm", "Build with brewed LLVM. By default, Rust's LLVM will be used."
-
   depends_on "cmake" => :build
   depends_on "libssh2"
   depends_on "openssl"
   depends_on "pkg-config"
-  depends_on "llvm" => :optional
-
-  # According to the official readme, GCC 4.7+ is required
-  fails_with :gcc_4_0
-  fails_with :gcc_4_2
-  ("4.3".."4.6").each do |n|
-    fails_with :gcc => n
-  end
 
   resource "cargobootstrap" do
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-    url "https://static.rust-lang.org/dist/2018-10-12/cargo-0.30.0-x86_64-apple-darwin.tar.gz"
-    sha256 "defc1ba047f09219a50ff39032b5d7aaf26563f6bed528b93055622eedfddabf"
+    url "https://static.rust-lang.org/dist/2018-12-20/cargo-0.32.0-x86_64-apple-darwin.tar.gz"
+    sha256 "1b4859322e731d90209a4f30cc63df10525ae77d7b7d964c09e3f7e6f0ae3b95"
   end
 
   def install
@@ -78,7 +69,6 @@ class Rust < Formula
 
     args = ["--prefix=#{prefix}"]
     args << "--disable-rpath" if build.head?
-    args << "--llvm-root=#{Formula["llvm"].opt_prefix}" if build.with? "llvm"
     if build.head?
       args << "--release-channel=nightly"
     else
@@ -95,7 +85,7 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      system "cargo", "install", "--root", prefix, "--path", "."
+      system "cargo", "install", "--root", prefix, "--path", ".", "--features", "curl-sys/force-system-lib-on-osx"
     end
 
     resource("racer").stage do

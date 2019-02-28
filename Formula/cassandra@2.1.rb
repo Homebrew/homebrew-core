@@ -1,15 +1,14 @@
 class CassandraAT21 < Formula
   desc "Distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/2.1.13/apache-cassandra-2.1.13-bin.tar.gz"
-  sha256 "102fffe21b1641696cbdaef0fb5a2fecf01f28da60c81a1dede06c2d8bdb6325"
+  url "https://archive.apache.org/dist/cassandra/2.1.20/apache-cassandra-2.1.20-bin.tar.gz"
+  sha256 "ca50ffae388a2d6b363b5400217cd8ce1800d7ce40e920b3b77de8f124516746"
 
   bottle do
     cellar :any_skip_relocation
-    rebuild 1
-    sha256 "06a230958e519d62cef3f7bd5ac2461c1973bb729041418e538a33b20c6ff8aa" => :mojave
-    sha256 "e59fc6d1b1fe38a291fd7c14f4f0cecdb2362baea74523f288447e70c9cd563c" => :high_sierra
-    sha256 "4e1891d12596d4cf47b715b6d0110702d74b572da05e7453a5454251964bcaba" => :sierra
+    sha256 "f706d3600a9f1d966430273390df6ad45a2517dac5bea89acf05da6938e807e3" => :mojave
+    sha256 "9acf725e21fdc97c94e6b9e355d663ba1c1a3bf0879715fba6f467689e0d3f11" => :high_sierra
+    sha256 "7785fa645724976a1d5fa13cea9dbd07c77bf54f4e0d92c5093571c1fe619ddc" => :sierra
   end
 
   keg_only :versioned_formula

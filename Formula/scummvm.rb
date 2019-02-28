@@ -3,13 +3,13 @@ class Scummvm < Formula
   homepage "https://www.scummvm.org/"
   url "https://www.scummvm.org/frs/scummvm/2.0.0/scummvm-2.0.0.tar.xz"
   sha256 "9784418d555ba75822d229514a05cf226b8ce1a751eec425432e6b7e128fca60"
+  revision 1
   head "https://github.com/scummvm/scummvm.git"
 
   bottle do
-    sha256 "2248018926e2f50dcb66d7162215362ced94733b4ed88bce08a9ca4310223c3c" => :mojave
-    sha256 "1de93783f408c2cfc634d8f13c8cb7db1e2544d021f15e0484e64a92af2ed3db" => :high_sierra
-    sha256 "bd2da4d91eb4e0f8fcf69ad9383a89979c73e539f1b1a5df8d7d99dc01fb67c5" => :sierra
-    sha256 "26dce34185c67fe8034effb99e248b9b68344063194ccb20c8c166b2f6c58dfb" => :el_capitan
+    sha256 "7e19e7f58daa0e46c2343871804967fe915c27af7b92bc9d4c1007a3b2d609f3" => :mojave
+    sha256 "83b2bfb31084378352b3a0056d28c23101615bc3fd871e53c25671cdc32ff360" => :high_sierra
+    sha256 "3269c1ce9326d70f62471b4e11a70f513621864c8983013d21129bf54f68e297" => :sierra
   end
 
   depends_on "faad2"

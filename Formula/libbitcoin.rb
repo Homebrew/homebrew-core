@@ -1,16 +1,16 @@
 class Libbitcoin < Formula
   desc "Bitcoin Cross-Platform C++ Development Toolkit"
   homepage "https://libbitcoin.org/"
-  url "https://github.com/libbitcoin/libbitcoin/archive/v3.5.0.tar.gz"
-  sha256 "214d9cd6581330b0e1f6fd8f0c634c46b75ae5515806ecac189f21c0291ae2d9"
-  revision 1
+  url "https://github.com/libbitcoin/libbitcoin-system/archive/v3.5.0.tar.gz"
+  sha256 "44ecd8b0de0dff2296f03e9c7f42a0afb9ac4f916aeaf6de2bffd0ccc05790b5"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "17ea27f4b1427f7ba621b7a821d7749dc522b3a8b6819973073a3762680edb90" => :mojave
-    sha256 "45fc36aa8d143455d4aeca84faea198711256bafc33429aaef9ebae9babbe3d5" => :high_sierra
-    sha256 "525d2589227cb234853720d5d47b8b6d454849bb0398663bcfdf735115602e39" => :sierra
-    sha256 "5c14adb5b6f2abc5b02e4126cd86087ea78ef040829f721a55633f49c9350c9f" => :el_capitan
+    rebuild 1
+    sha256 "c067b304ad7e0c7044b6d7d7cf007cad236f48e0fafa1c56a62f8cf8c4d27b33" => :mojave
+    sha256 "1a6ac051450d8008f8a9fc233ab34ab2be3e8f7dad36037b82fb004e9636d335" => :high_sierra
+    sha256 "b3fa4e3085d1b38333cd9df107d9765cbbd1651f6f247ef95c55d31c88dcf7f2" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -61,8 +61,9 @@ class Libbitcoin < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}",
-                    "-lbitcoin", "-lboost_system", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lbitcoin",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+                    "-o", "test"
     system "./test"
   end
 end

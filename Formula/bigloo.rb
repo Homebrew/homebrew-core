@@ -1,32 +1,22 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3b.tar.gz"
-  version "4.3b"
-  sha256 "5c6c864ebc9bce6d6f768da912e3cd099256ebb08c38c69f3181f71a7d424b55"
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
+  version "4.3e"
+  sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
 
   bottle do
-    sha256 "1b6fce918e35cc37fb6e2c9d10f36b48866cdeaa577026114ff533efc72fb361" => :high_sierra
-    sha256 "5aef2cf4b59096ddc38cf12698543f18a68b784aa0b12beefb646334c3a89ef4" => :sierra
-    sha256 "41947394e3272672e20f2980e4bfbad317fcdaced331d9478322550cc8cd9024" => :el_capitan
+    sha256 "d034117c6d060275241be0e0e1043782a04f8dd30f14bea3c7d26a6a7e6feb35" => :mojave
+    sha256 "3945eb3bc733cb230df566c7649aaeb06e8e79e287c5d233d1623a75e9d482c4" => :high_sierra
+    sha256 "de439ab15ec2e1854e9c2596438ca395f6678176fe7a9062afdf86afb40f1bee" => :sierra
   end
-
-  option "with-jvm", "Enable JVM support"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  depends_on "gmp"
   depends_on "openssl"
-  depends_on "gmp" => :recommended
-
-  fails_with :clang do
-    build 500
-    cause <<~EOS
-      objs/obj_u/Ieee/dtoa.c:262:79504: fatal error: parser
-      recursion limit reached, program too complex
-    EOS
-  end
 
   def install
     args = %W[
@@ -41,13 +31,9 @@ class Bigloo < Formula
       --disable-alsa
       --disable-mpg123
       --disable-flac
+      --disable-srfi27
+      --jvm=yes
     ]
-
-    args << "--jvm=yes" if build.with? "jvm"
-    args << "--no-gmp" if build.without? "gmp"
-
-    # SRFI 27 is 32-bit only
-    args << "--disable-srfi27" if MacOS.prefer_64_bit?
 
     system "./configure", *args
 

@@ -25,8 +25,6 @@ class Cataclysm < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

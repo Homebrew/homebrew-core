@@ -18,9 +18,6 @@ class GccAT6 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  option "with-nls", "Build with native language support (localization)"
-  option "with-jit", "Build the jit compiler"
-
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
@@ -29,24 +26,12 @@ class GccAT6 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  fails_with :gcc_4_0
-
-  # Fix for libgccjit.so linkage on Darwin
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
-  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
-  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
-    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
-  end
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
     # C, C++, ObjC, Fortran compilers are always built
     languages = %w[c c++ objc obj-c++ fortran]
-    languages << "jit" if build.with? "jit"
 
     version_suffix = version.to_s.slice(/\d/)
 
@@ -78,15 +63,8 @@ class GccAT6 < Formula
       "--disable-werror",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
       "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
+      "--disable-nls",
     ]
-
-    # The pre-Mavericks toolchain requires the older DWARF-2 debugging data
-    # format to avoid failure during the stage 3 comparison of object files.
-    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
-    args << "--with-dwarf2" if MacOS.version <= :mountain_lion
-
-    args << "--disable-nls" if build.without? "nls"
-    args << "--enable-host-shared" if build.with?("jit")
 
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000

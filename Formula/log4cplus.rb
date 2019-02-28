@@ -12,8 +12,6 @@ class Log4cplus < Formula
     sha256 "3a3f4952bf0064e0cd81b0e8c538ca7f49434cfb387a4f9e8441f7dbddeb6d33" => :el_capitan
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking",

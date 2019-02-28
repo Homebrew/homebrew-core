@@ -4,13 +4,13 @@ class Gawk < Formula
   url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.1.tar.xz"
   mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.1.tar.xz"
   sha256 "d1119785e746d46a8209d28b2de404a57f983aa48670f4e225531d3bdc175551"
+  revision 1
 
   bottle do
     rebuild 1
-    sha256 "bf7cdce224032a58bfaadc3a87024ae7cb6490a5fef6c5f1d4631a1e41585716" => :mojave
-    sha256 "3e915ae4989aaba561315c95923bd70ab2a5eaf661b6003359a50c2add2ee758" => :high_sierra
-    sha256 "df69c7a625a6bf308841a603c80211ed8cb67d57e3d2d13cdc07da50c879de4f" => :sierra
-    sha256 "00053f97981327326623a8adc914b5431e3f8797aaec15342a3c0ebb4bf1eb9d" => :el_capitan
+    sha256 "7c75090bc176f309855c5eaf4a7b11c184b7619971fa9cff88272cd79952ab7d" => :mojave
+    sha256 "f1c8e8d852bfd156056b3dea4b80704b707adfd742795ccfd47ca33e5ab9a1dd" => :high_sierra
+    sha256 "ca8c762e95dcd6733fd49d20be8733cf179d4b3c4e0ec9bc9ffb3c54cfdea9c0" => :sierra
   end
 
   depends_on "gettext"

@@ -82,6 +82,7 @@ class Imapsync < Formula
     resources.each do |r|
       r.stage do
         next if build_pl.include? r.name
+
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make"
         system "make", "install"
@@ -108,6 +109,7 @@ class Imapsync < Formula
     assert_match version.to_s, output
     resources.each do |r|
       next if ["Module::Build::Tiny", "Readonly", "Sys::MemInfo"].include? r.name
+
       assert_match /#{r.name}\s+#{r.version}/, output
     end
   end

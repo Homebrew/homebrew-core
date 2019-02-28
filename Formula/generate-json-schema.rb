@@ -23,7 +23,7 @@ class GenerateJsonSchema < Formula
   end
 
   test do
-    input = <<~EOS
+    (testpath/"test.json").write <<~EOS
       {
           "id": 2,
           "name": "An ice sculpture",
@@ -40,6 +40,6 @@ class GenerateJsonSchema < Formula
           }
       }
     EOS
-    assert_match "schema.org", pipe_output("#{bin}/generate-schema", input, 0)
+    assert_match "schema.org", shell_output("#{bin}/generate-schema test.json", 1)
   end
 end

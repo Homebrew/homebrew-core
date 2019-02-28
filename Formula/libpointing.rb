@@ -13,8 +13,6 @@ class Libpointing < Formula
     sha256 "7120c106e54576154687dd63cdedb72633644e27213c7dbc1aa515a1227a8f3c" => :yosemite
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "make"

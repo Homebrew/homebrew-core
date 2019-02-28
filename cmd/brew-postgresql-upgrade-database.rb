@@ -25,13 +25,14 @@ if old_datadir.exist?
   EOS
 end
 
-old_bin = Pathname.glob("#{HOMEBREW_PREFIX}/Cellar/#{name}{,@#{pg_version_data}}/#{pg_version_data}.*/bin").first
+old_pg_name = "#{name}@#{pg_version_data}"
+old_pg_glob = "#{HOMEBREW_PREFIX}/Cellar/#{old_pg_name}/#{pg_version_data}.*/bin"
+old_bin = Pathname.glob(old_pg_glob).first
 old_bin ||= begin
-  old_pg_name = "#{name}@#{pg_version_data}"
   Formula[old_pg_name]
   ohai "brew install #{old_pg_name}"
   system "brew", "install", old_pg_name
-  Pathname.glob("#{HOMEBREW_PREFIX}/Cellar/#{old_pg_name}/#{pg_version_data}.*/bin").first
+  Pathname.glob(old_pg_glob).first
 rescue FormulaUnavailableError
   nil
 end
@@ -56,12 +57,29 @@ begin
     server_stopped = true
   end
 
+  # get 'lc_collate' from old DB"
+  unless quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
+    system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "start"
+  end
+
+  sql_for_lc_collate = "SELECT setting FROM pg_settings WHERE name LIKE 'lc_collate';"
+  sql_for_lc_ctype = "SELECT setting FROM pg_settings WHERE name LIKE 'lc_ctype';"
+  lc_collate = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAc", sql_for_lc_collate).strip
+  lc_ctype = Utils.popen_read("#{old_bin}/psql", "postgres", "-qtAc", sql_for_lc_ctype).strip
+  initdb_args = []
+  initdb_args += ["--lc-collate", lc_collate] unless lc_collate.empty?
+  initdb_args += ["--lc-ctype", lc_ctype] unless lc_ctype.empty?
+
+  if quiet_system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "status"
+    system "#{old_bin}/pg_ctl", "-w", "-D", datadir, "stop"
+  end
+
   ohai "Moving #{name} data from #{datadir} to #{old_datadir}..."
   FileUtils.mv datadir, old_datadir
   moved_data = true
 
   (var/"postgres").mkpath
-  system "#{bin}/initdb", "#{var}/postgres"
+  system "#{bin}/initdb", *initdb_args, "#{var}/postgres"
   initdb_run = true
 
   (var/"log").cd do

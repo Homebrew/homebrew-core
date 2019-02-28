@@ -1,15 +1,13 @@
 class Visp < Formula
   desc "Visual Servoing Platform library"
   homepage "https://visp.inria.fr/"
-  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.1.0.tar.gz"
-  sha256 "2a1df8195b06f9a057bd4c7d987697be2fdcc9d169e8d550fcf68e5d7f129d96"
-  revision 1
+  url "https://gforge.inria.fr/frs/download.php/latestfile/475/visp-3.2.0.tar.gz"
+  sha256 "072237ed5c6fcbc6a87300fa036014ec574fd081724907e41ae2d6fb5a222fbc"
 
   bottle do
-    sha256 "86af46cedc6f6240d1e4f58f89909433936639989d3d6b35799524ddb654ff7b" => :mojave
-    sha256 "2d916fcddfe30085b591e9a0e343bc2d14de281eb907c20279c054d64bf30305" => :high_sierra
-    sha256 "8e3ef1fde35fccc12e4c3bfb2e8615ce0150bd19c2c5bc4251a991d125392e6b" => :sierra
-    sha256 "c3476bb04f41c009a86afaa24c5f7943627b5696d8613b323afaaf7894b9e257" => :el_capitan
+    sha256 "7f4ea998988f9cbf17b0525986b7167f5a03e34c17a31710272d98e17cc1a45c" => :mojave
+    sha256 "7cd7a3232812115a000fd65ac92839233a32b8c76af606da5f0e36252eb4a315" => :high_sierra
+    sha256 "c92e90a5252f4ba4fcfcf04fac9166e059b0f09ac4d6a2c3791f15cdc2ce4b95" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -22,6 +20,8 @@ class Visp < Formula
   depends_on "zbar"
 
   def install
+    ENV.cxx11
+
     sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
 
     system "cmake", ".", "-DBUILD_DEMOS=OFF",
@@ -40,7 +40,7 @@ class Visp < Formula
                          "-DUSE_JPEG=ON",
                          "-DJPEG_INCLUDE_DIR=#{Formula["jpeg"].opt_include}",
                          "-DJPEG_LIBRARY=#{Formula["jpeg"].opt_lib}/libjpeg.dylib",
-                         "-DUSE_LAPACK=OFF",
+                         "-DUSE_LAPACK=ON",
                          "-DUSE_LIBUSB_1=OFF",
                          "-DUSE_OPENCV=ON",
                          "-DOpenCV_DIR=#{Formula["opencv"].opt_share}/OpenCV",
@@ -64,7 +64,6 @@ class Visp < Formula
                          "-DUSE_ZLIB=ON",
                          "-DZLIB_INCLUDE_DIR=#{sdk}/usr/include",
                          "-DZLIB_LIBRARY_RELEASE=/usr/lib/libz.dylib",
-                         "-DWITH_LAPACK=OFF",
                          *std_cmake_args
     system "make", "install"
   end

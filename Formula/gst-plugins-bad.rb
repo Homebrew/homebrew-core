@@ -5,10 +5,10 @@ class GstPluginsBad < Formula
   sha256 "910b4e0e2e897e8b6d06767af1779d70057c309f67292f485ff988d087aa0de5"
 
   bottle do
-    rebuild 1
-    sha256 "e57833f732a4ad1c279dfa6f0f0df404b8bd7528d1740c39db56bf20f0835941" => :mojave
-    sha256 "96eb2f6435c7084db9810de2ac4f0e8ff401e2c29eb8198b7faf09b618867c00" => :high_sierra
-    sha256 "341523cffd36560c364af0f2eceb0faf649657cdc886f09f85ba0efbcb52fa0e" => :sierra
+    rebuild 3
+    sha256 "20a22729d937fa2609c8327a83f94a0870877cf8a5e90e827fe4cc2930d366d2" => :mojave
+    sha256 "c3963a1dd84baf45a4d5de9a7880a12b130651301e49f701295127ad684c367c" => :high_sierra
+    sha256 "3c774ef811e97cbd5a619e3e9aa9db3522747d687c1aa4acc4ea778c3e4fd9a8" => :sierra
   end
 
   head do
@@ -30,18 +30,6 @@ class GstPluginsBad < Formula
   depends_on "openssl"
   depends_on "opus"
   depends_on "orc"
-  depends_on "dirac" => :optional
-  depends_on "fdk-aac" => :optional
-  depends_on "gnutls" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "libexif" => :optional
-  depends_on "libnice" => :optional
-  depends_on "libvo-aacenc" => :optional
-  depends_on "opencv@2" => :optional
-  depends_on "rtmpdump" => :optional
-  depends_on "schroedinger" => :optional
-  depends_on "sound-touch" => :optional
-  depends_on "srt" => :optional
 
   def install
     args = %W[

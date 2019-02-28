@@ -48,13 +48,6 @@ class Zookeeper < Formula
   end
 
   def install
-    # Don't try to build extensions for PPC
-    if Hardware::CPU.is_32_bit?
-      ENV["ARCHFLAGS"] = "-arch #{Hardware::CPU.arch_32_bit}"
-    else
-      ENV["ARCHFLAGS"] = Hardware::CPU.universal_archs.as_arch_flags
-    end
-
     if build.head?
       system "ant", "compile_jute"
       system "autoreconf", "-fvi", "src/c"
@@ -85,6 +78,7 @@ class Zookeeper < Formula
 
     Pathname.glob("#{libexec}/bin/*.sh") do |path|
       next if path == libexec+"bin/zkEnv.sh"
+
       script_name = path.basename
       bin_name    = path.basename ".sh"
       (bin+bin_name).write shim_script(script_name)

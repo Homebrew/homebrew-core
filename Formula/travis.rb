@@ -3,14 +3,12 @@ class Travis < Formula
   homepage "https://github.com/travis-ci/travis.rb/"
   url "https://github.com/travis-ci/travis.rb/archive/v1.8.9.tar.gz"
   sha256 "7a143bd0eb90e825370c808d38b70cca8c399c68bea8138442f40f09b6bbafc4"
-  revision 1
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "6338b2e199cb6ae30c29c02384f8269602d11842685c007ecd7d47932c02d2e5" => :mojave
-    sha256 "a85b312df0e6d91c3cf3ce5a935b53b193e3e60dfbfcf0592427d5f976b4220b" => :high_sierra
-    sha256 "5244d9146eb622169744fb10f7e3e3e529b1d2bb9aab13f98dc97de6b564315c" => :sierra
-    sha256 "fce097e64f335bd69ea49b3025aebb904db15bcb7f2599b8e0e5beb0de427e9e" => :el_capitan
+    sha256 "d695085c0886f6db8d5a1afeb6cae27e61d7fcc41d2e069c16ce0909048dba64" => :mojave
+    sha256 "32634e86fdc04e7ca0df1834cf1ee6e8cdd3bfb0f89c0e4ed36a0d55b08483b3" => :high_sierra
+    sha256 "1d21554de55885fd08e4433772663410044f088cf346b63533142019a2d865f5" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
@@ -53,6 +51,13 @@ class Travis < Formula
   resource "highline" do
     url "https://rubygems.org/gems/highline-1.7.10.gem"
     sha256 "1e147d5d20f1ad5b0e23357070d1e6d0904ae9f71c3c49e0234cf682ae3c2b06"
+  end
+
+  if MacOS.version <= :sierra
+    resource "json" do
+      url "https://rubygems.org/gems/json-2.1.0.gem"
+      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+    end
   end
 
   resource "launchy" do

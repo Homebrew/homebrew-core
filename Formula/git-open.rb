@@ -1,8 +1,8 @@
 class GitOpen < Formula
   desc "Open GitHub webpages from a terminal"
   homepage "https://github.com/jeffreyiacono/git-open"
-  url "https://github.com/jeffreyiacono/git-open/archive/v1.2.tar.gz"
-  sha256 "4bc50a5fa019e8306c93deb46b284f1883ab4fc5de88770d7d89755dcf8e0a5d"
+  url "https://github.com/jeffreyiacono/git-open/archive/v1.3.tar.gz"
+  sha256 "a1217e9b0a76382a96afd33ecbacad723528ec1116381c22a17cc7458de23701"
 
   bottle :unneeded
 

@@ -13,7 +13,6 @@ class Shntool < Formula
     sha256 "910da256436f55ebf40c487ebd0e74da2979f01bf0adac83272b353c66ba99a8" => :el_capitan
     sha256 "46d99776bb02d9721f30a6cb9b2c44293d3fbc6b4e3f522df869a7106b09a448" => :yosemite
     sha256 "fa745e31b3c2aadb20d5c87f7175f00b3c5a39b6664ea0a9aa9d88d5767781c5" => :mavericks
-    sha256 "10fb74d16244a21c15676ec9fce007167ef7784b83a0d10afb3d0f87b86ab292" => :mountain_lion
   end
 
   def install

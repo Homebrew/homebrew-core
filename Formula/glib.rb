@@ -1,14 +1,13 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.1.tar.xz"
-  sha256 "97d6a9d926b6aa3dfaadad3077cfb43eec74432ab455dff14250c769d526d7d6"
+  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.3.tar.xz"
+  sha256 "8f43c31767e88a25da72b52a40f3301fefc49a665b56dc10ee7cc9565cbe7481"
 
   bottle do
-    sha256 "4521831e8fa3b11426f0192fe5f9159d3840f01225c6002ce4ee56d83d5da6d2" => :mojave
-    sha256 "6f4b16f4146bfa8ca324a2e066b60e18ca9c45e1bc0d9ec51ac4970129e7072e" => :high_sierra
-    sha256 "38021da8a98c8d86672b4bdf7fb92568f0599fa202110d23f4b318f1491b0e70" => :sierra
-    sha256 "b79c2f30d938327006a2716bb26bb667f09783c3b258cc4be7e12760fd28ff44" => :el_capitan
+    sha256 "0d156d04fb77e31e3679e82c19ae55aafdceb075be81e01cda08dec89fdce6a9" => :mojave
+    sha256 "b321b6dd3b7a6285f65ef38493c96a7e23e9e400f996a3a0ac9aadbf2434eff1" => :high_sierra
+    sha256 "c57f11747bbc0248f069e727e948cbc306f53e8312803ce6bcb087e89f7f701b" => :sierra
   end
 
   # autoconf, automake and libtool can be removed when

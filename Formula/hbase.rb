@@ -1,13 +1,13 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/hbase-1.2.8/hbase-1.2.8-bin.tar.gz"
-  sha256 "3286c67b847c2185ed046143eb8212db454c4aa83e9efbaf2a0032f18ce1ebfd"
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/hbase-1.2.9/hbase-1.2.9-bin.tar.gz"
+  sha256 "d883801cd58ed97cd860b0a092d86af0ba591f9b5cca39ba9f5c4e2e71619ba0"
 
   bottle do
-    sha256 "e5f6e0622f678f298531ef3fa7e91647a7ceda2b23475fcd89548112f3f57085" => :mojave
-    sha256 "7dab0c1a2cbe939ac251a4020f551990224ffb771bc27df04720627035df76b7" => :high_sierra
-    sha256 "608f15b4b563292d84d44a97f09ca8c6863c5150ec7e47ad79422ac89b07117e" => :sierra
+    sha256 "49d69b13d8bdde4dc242d7ae677c8d7f86cbfd7db643ec2ade68b21f75f325bb" => :mojave
+    sha256 "d0c7283fe4a7cb5e7befe3947dd73113e2fa0edbac3db03d0676f1f9371df93e" => :high_sierra
+    sha256 "0299edd2d7788719339a4e4dff802316f262abca02ad65a7cde5a62c28ded5a2" => :sierra
   end
 
   depends_on "ant" => :build
@@ -18,7 +18,6 @@ class Hbase < Formula
   depends_on :arch => :x86_64
   depends_on :java => "1.8"
   depends_on "lzo"
-  depends_on "hadoop" => :optional
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
@@ -75,7 +74,7 @@ class Hbase < Formula
         <configuration>
           <property>
             <name>hbase.rootdir</name>
-            <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
+            <value>file://#{var}/hbase</value>
           </property>
           <property>
             <name>hbase.zookeeper.property.clientPort</name>
@@ -113,7 +112,7 @@ class Hbase < Formula
     <plist version="1.0">
     <dict>
       <key>KeepAlive</key>
-      #{build.without?("hadoop") ? "<true/>" : "<dict>\n        <key>OtherJobEnabled</key>\n        <string>"+Formula["hadoop"].plist_name+"</string>\n      </dict>"}
+      <true/>
       <key>Label</key>
       <string>#{plist_name}</string>
       <key>EnvironmentVariables</key>

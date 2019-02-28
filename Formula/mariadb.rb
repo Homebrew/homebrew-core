@@ -1,13 +1,13 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.10/source/mariadb-10.3.10.tar.gz"
-  sha256 "57767c048982811c7ab21d8527f6f36aa897386e8c7235f11b5505a924d68eda"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.13/source/mariadb-10.3.13.tar.gz"
+  sha256 "b2aa857ef5b84f85a7ea60a1eac7b34c0ca5151c71a0d44ce2d7fb028d71459a"
 
   bottle do
-    sha256 "eec1102078f2ed74ee9e4f4fdba5a2b1c41d883b4499309034690b1aa7ea303a" => :mojave
-    sha256 "936859611a5206ff3f13cb99ec69eb1344bab3734a14ad8a35ff276dac6f83a4" => :high_sierra
-    sha256 "e946558c449fdb9686df3f82fdb5ce7ab192f2ccf0d88f18ece27a51932a2000" => :sierra
+    sha256 "fa9e8188f3ccede84c889e60adb0bf113c7ba1998e6e858a6c8d5f3a47d2881a" => :mojave
+    sha256 "4831441cce22c1c0f3eb96036d2dca8cc07c1ae3418fc6520f97da661646b1db" => :high_sierra
+    sha256 "914732f57b3f7c9bcdd5c4bc3fc44fe0d1e64db77a6b96df85caf3803ccb502c" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -83,8 +83,7 @@ class Mariadb < Formula
     %w[
       wsrep_sst_mysqldump
       wsrep_sst_rsync
-      wsrep_sst_xtrabackup
-      wsrep_sst_xtrabackup-v2
+      wsrep_sst_mariabackup
     ].each do |f|
       inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
@@ -148,5 +147,7 @@ class Mariadb < Formula
 
   test do
     system bin/"mysqld", "--version"
+    prune_file = etc/"my.cnf.d/.homebrew_dont_prune_me"
+    assert_predicate prune_file, :exist?, "Failed to find #{prune_file}!"
   end
 end

@@ -1,26 +1,26 @@
 class Mongodb < Formula
   desc "High-performance, schema-free, document-oriented database"
-  homepage "https://www.mongodb.org/"
+  homepage "https://www.mongodb.com/"
+  # do not upgrade to versions >4.0.3 as they are under the SSPL which is not
+  # an open-source license.
   url "https://fastdl.mongodb.org/src/mongodb-src-r4.0.3.tar.gz"
   sha256 "fbbe840e62376fe850775e98eb10fdf40594a023ecf308abec6dcec44d2bce0c"
+  revision 1
 
   bottle do
-    sha256 "e69d3b476cae2c11cc133e0ef14a6449738fa4adbaa47feacdccab5f3ec3d506" => :mojave
-    sha256 "3036bebd4570b76b12d6418ef70984e65310506add560345b8acafda1dd8298c" => :high_sierra
-    sha256 "a48d12fa04c7f3bb80d2d0c7febd653cc081b9a19d7e4431b0ed189f8e311e4f" => :sierra
+    cellar :any
+    sha256 "ab08fc6748bc37d0e2ec209126db3236bd80a2ae4edee2f6fc34d96481fe34c7" => :mojave
+    sha256 "482cafb558d39fd6cae4d5d1abe07c7329a94b961fca00dc3ae71dc3be34deb9" => :high_sierra
+    sha256 "0b98be90831544f051d8244c253f61dd98a5d6f421663c3353b34feef562eae7" => :sierra
   end
-
-  option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
-  option "with-sasl", "Compile with SASL support"
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on :xcode => ["8.3.2", :build]
-  depends_on :macos => :mountain_lion
+
+  depends_on "openssl"
   depends_on "python@2"
-  depends_on "openssl" => :recommended
-  depends_on "boost" => :optional
 
   resource "Cheetah" do
     url "https://files.pythonhosted.org/packages/cd/b0/c2d700252fc251e91c08639ff41a8a5203b627f4e0a2ae18a6b662ab32ea/Cheetah-2.4.4.tar.gz"
@@ -37,11 +37,7 @@ class Mongodb < Formula
     sha256 "4027c5f6127a6267a435201981ba156de91ad0d1d98e9ddc2aa173453453492d"
   end
 
-  needs :cxx11
-
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     ENV.libcxx
 
     ["Cheetah", "PyYAML", "typing"].each do |r|
@@ -55,24 +51,15 @@ class Mongodb < Formula
 
     # New Go tools have their own build script but the server scons "install" target is still
     # responsible for installing them.
-
     cd "src/mongo/gotools" do
       inreplace "build.sh" do |s|
         s.gsub! "$(git describe)", version.to_s
         s.gsub! "$(git rev-parse HEAD)", "homebrew"
       end
-
-      args = %w[]
-
-      if build.with? "openssl"
-        args << "ssl"
-        ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
-        ENV["CPATH"] = Formula["openssl"].opt_include
-      end
-
-      args << "sasl" if build.with? "sasl"
-
-      system "./build.sh", *args
+      ENV["CPATH"] = Formula["openssl"].opt_include
+      ENV["LIBRARY_PATH"] = Formula["openssl"].opt_lib
+      ENV["GOROOT"] = Formula["go"].opt_libexec
+      system "./build.sh", "ssl"
     end
 
     (buildpath/"src/mongo-tools").install Dir["src/mongo/gotools/bin/*"]
@@ -80,28 +67,19 @@ class Mongodb < Formula
     args = %W[
       --prefix=#{prefix}
       -j#{ENV.make_jobs}
+      CC=#{ENV.cc}
+      CXX=#{ENV.cxx}
+      CCFLAGS=-mmacosx-version-min=#{MacOS.version}
+      LINKFLAGS=-mmacosx-version-min=#{MacOS.version}
+      --build-mongoreplay=true
+      --disable-warnings-as-errors
+      --use-new-tools
+      --ssl
+      CCFLAGS=-I#{Formula["openssl"].opt_include}
+      LINKFLAGS=-L#{Formula["openssl"].opt_lib}
     ]
 
-    args << "CC=#{ENV.cc}"
-    args << "CXX=#{ENV.cxx}"
-
-    args << "CCFLAGS=-mmacosx-version-min=#{MacOS.version}"
-    args << "LINKFLAGS=-mmacosx-version-min=#{MacOS.version}"
-
-    args << "--use-sasl-client" if build.with? "sasl"
-    args << "--use-system-boost" if build.with? "boost"
-    args << "--use-new-tools"
-    args << "--build-mongoreplay=true"
-    args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
-
-    if build.with? "openssl"
-      args << "--ssl"
-
-      args << "CCFLAGS=-I#{Formula["openssl"].opt_include}"
-      args << "LINKFLAGS=-L#{Formula["openssl"].opt_lib}"
-    end
-
-    scons "install", *args
+    system "scons", "install", *args
 
     (buildpath/"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"

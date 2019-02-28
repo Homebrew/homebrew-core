@@ -2,16 +2,15 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-      :tag => "v0.15.0",
-      :revision => "b48dc28d9139c93d166f07d8b3a049b59bceef9c"
+      :tag      => "v0.16.1",
+      :revision => "cce350d75c529cf6e77328d9dd0477357e04a776"
   head "https://github.com/docker/machine.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fef874f4dbb3cfad0cb30d79e67f63d3481880f0e18dd0a67d20cb6810fd52a4" => :mojave
-    sha256 "c168f9646b98d662ec91251aeeabe3332e11085088fecbae688cf0b0973ced22" => :high_sierra
-    sha256 "f0aeffd502d844aa8aae19fdfe8b4db1ce46dc43890b8a5ddeab4dc4606cfacb" => :sierra
-    sha256 "5bf5fcfbf8931b1a07fb8a21dda2e3dc3f73cfe0cc8aee85f25eee0ecabd8ac4" => :el_capitan
+    sha256 "a039c02209a33f24fe08eb19a9a1b62050094ffbefac4d14f503256bdd563239" => :mojave
+    sha256 "c96f4ce5a408afabbe1fb7d9ab5fa103a3dffbae5b4f6253a8e328b817a068a2" => :high_sierra
+    sha256 "03243f9afedc25d7e3f519749639bd873bc27ef109e05aa8d86785b196d8dcc4" => :sierra
   end
 
   depends_on "automake" => :build

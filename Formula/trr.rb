@@ -13,7 +13,6 @@ class Trr < Formula
     sha256 "2b5abc44babd72072cd9303e305d7586574ae65df2c350ca474764dede329035" => :el_capitan
     sha256 "b965ca412e2a97b20bda8afb03fb042fe05f162c6391ea5460e05473c9260ced" => :yosemite
     sha256 "1b24783f3b7060b6c1ac0a9edac5a990fc2bcefcccef9746897a627c912a931f" => :mavericks
-    sha256 "2373aaab80559228b2d5510494ba23f22fa6527d6e906ce4c7c6dbc6ff8a9ce4" => :mountain_lion
   end
 
   depends_on "nkf" => :build

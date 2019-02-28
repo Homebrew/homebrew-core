@@ -1,17 +1,16 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/containous/traefik/releases/download/v1.6.5/traefik-v1.6.5.src.tar.gz"
-  version "1.6.5"
-  sha256 "f1c421276155be4b5989312ae22960684df1d2a5e738bf55efda211cd22d5782"
+  url "https://github.com/containous/traefik/releases/download/v1.7.9/traefik-v1.7.9.src.tar.gz"
+  version "1.7.9"
+  sha256 "d9256a718da66b249fe26b4b603012afe9da18709185348eaeaa627579245503"
   head "https://github.com/containous/traefik.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "71aed9e1a81aad49de4be1b06ddf4e01420beb22501c7f1c356bc3230cf31275" => :mojave
-    sha256 "ee37d2fed9ea55a94c5f06a3fc4af3f64993b6efa2d8cd03764731e605e0391d" => :high_sierra
-    sha256 "49d15e73f4ab56ca96edc312be1a8413b96ea669362747150ac6f5f64d54408b" => :sierra
-    sha256 "7998339d54a85fb94ef97dfcd2a364a1941dfa9a08a8c0ba0c4794d18119f293" => :el_capitan
+    sha256 "9c785d32508263eddea75b92bde5060d4d5c0d39ddd651661084de9471179d26" => :mojave
+    sha256 "bc6a39ce9304c4a7381f67c8b167e56682266d6faf1a719387d4ae41e7f0f088" => :high_sierra
+    sha256 "06c96240a79200d70ca6241564414d9addc07291635ee878c196ca129f66b057" => :sierra
   end
 
   depends_on "go" => :build
@@ -35,6 +34,39 @@ class Traefik < Formula
       system "go", "build", "-o", bin/"traefik", "./cmd/traefik"
       prefix.install_metafiles
     end
+  end
+
+  plist_options :manual => "traefik"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/traefik</string>
+            <string>--configfile=#{etc/"traefik/traefik.toml"}</string>
+          </array>
+          <key>EnvironmentVariables</key>
+          <dict>
+          </dict>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/traefik.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/traefik.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

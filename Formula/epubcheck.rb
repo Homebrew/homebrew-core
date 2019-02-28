@@ -1,8 +1,8 @@
 class Epubcheck < Formula
-  desc "Validate IDPF EPUB files, version 2.0 and later"
-  homepage "https://github.com/IDPF/epubcheck"
-  url "https://github.com/IDPF/epubcheck/releases/download/v4.0.2/epubcheck-4.0.2.zip"
-  sha256 "f3752b5c9140e1aa359d8fea96e46d40e3500544f101628802151ed71f744df8"
+  desc "Validate EPUB files, version 2.0 and later"
+  homepage "https://github.com/w3c/epubcheck"
+  url "https://github.com/w3c/epubcheck/releases/download/v4.1.1/epubcheck-4.1.1.zip"
+  sha256 "0d07de09644d40a373bd7b6a35ab08bbf5537095c4f58a667ab98421e703b16a"
 
   bottle :unneeded
 

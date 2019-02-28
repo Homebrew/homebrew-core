@@ -1,29 +1,26 @@
 class Autogen < Formula
   desc "Automated text file generator"
   homepage "https://autogen.sourceforge.io"
-  url "https://ftp.gnu.org/gnu/autogen/rel5.18.12/autogen-5.18.12.tar.xz"
-  mirror "https://ftpmirror.gnu.org/autogen/rel5.18.12/autogen-5.18.12.tar.xz"
-  sha256 "be3ba62e883185b6ee8475edae97d7197d701d6b9ad9c3d2df53697110c1bfd8"
-  revision 1
+  url "https://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.xz"
+  mirror "https://ftpmirror.gnu.org/autogen/rel5.18.16/autogen-5.18.16.tar.xz"
+  sha256 "f8a13466b48faa3ba99fe17a069e71c9ab006d9b1cfabe699f8c60a47d5bb49a"
 
   bottle do
-    sha256 "bf05048f02504d4dd73f5204abcfd7b880dca3ef65ed6c1a11a2836fed1efd80" => :mojave
-    sha256 "c9835af12e309b7992918e64fc766f59ca50ff3f4e846434d74141859d638cd8" => :high_sierra
-    sha256 "c80dbb65f3afee35378aadaf766cd3d772d39256ec6d48b9864ecab018a931e9" => :sierra
-    sha256 "ff8c66ca7d86c309e884dad0fcc49aadf65a830768a0551c5711cba2f6d6a046" => :el_capitan
+    sha256 "693b555483cf3f1e67516e45b31ad7718f041c97349ef655e28d55b1918b4e3f" => :mojave
+    sha256 "7b79a5aa968c4d95660efb7a30bfb2c747dde2eefb1cf95efdc9fea7847b9151" => :high_sierra
+    sha256 "19891a89ee7465e2690d34494e2ee41afee0dfda661a0c1c7407d283438e911e" => :sierra
   end
 
+  depends_on "coreutils" => :build
   depends_on "pkg-config" => :build
   depends_on "guile"
 
-  # Allow guile 2.2 to be used
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0de886b/autogen/allow-guile-2.2.diff"
-    sha256 "438fe673432c96d5da449b84daa4d1c6ad238ea0b4ccd13491872df8c51fa978"
-  end
-
   def install
-    system "./configure", "--disable-debug",
+    # Uses GNU-specific mktemp syntax: https://sourceforge.net/p/autogen/bugs/189/
+    inreplace %w[agen5/mk-stamps.sh build-aux/run-ag.sh config/mk-shdefs.in], "mktemp", "gmktemp"
+    # Upstream bug regarding "stat" struct: https://sourceforge.net/p/autogen/bugs/187/
+    system "./configure", "ac_cv_func_utimensat=no",
+                          "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"

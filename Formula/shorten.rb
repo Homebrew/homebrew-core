@@ -12,7 +12,6 @@ class Shorten < Formula
     sha256 "66cf7cabae065035e9c3c4a8c139439384fb9f26ea0ee433e336c18ba2f8383e" => :el_capitan
     sha256 "5f48b61ce709915830f433dd381fe531c1354b56619bbdb441dc19f985df7467" => :yosemite
     sha256 "a802da618fffa3eb292705140c882fcedbffae09017f0efdf69085004952a148" => :mavericks
-    sha256 "ca55e37b24202c500a03dfe36a41dd06ebaa02b19ddf65c26cc440376149c5da" => :mountain_lion
   end
 
   def install

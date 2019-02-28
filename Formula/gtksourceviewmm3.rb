@@ -17,8 +17,6 @@ class Gtksourceviewmm3 < Formula
   depends_on "gtkmm3"
   depends_on "gtksourceview3"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

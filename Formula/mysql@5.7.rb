@@ -1,29 +1,19 @@
 class MysqlAT57 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.7/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.24.tar.gz"
-  sha256 "b980dced9c9eb3385cca44870facc220504ca011196c5a19c2bfe43d3f5d6212"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.7/mysql-boost-5.7.25.tar.gz"
+  sha256 "354c427c8679c6a4774f60723ea211e54b4383307764d240940f960d110bf5cf"
 
   bottle do
-    sha256 "d6c18012386c37ad26a611a256e47c75c70ce4be87d1507d40b9be287e3339c0" => :mojave
-    sha256 "affa466c948c5b8ad9de81d4e679e129df007e02bf79d0970844876e493209ba" => :high_sierra
-    sha256 "2d1d1612674f4f52c5b95774fab77e2319f23826af6ab3b4aecfc1b1b5b4b0f0" => :sierra
+    sha256 "408e41e6b7db830398597db177df21ea28b55d37921e8a6a16d23e6f5e2333f7" => :mojave
+    sha256 "beb1712b9abc67079edec5bea5e3bcc93feb0fbee145d2f6b9a64d68de8f1187" => :high_sierra
+    sha256 "8f871039263343d57926723c8f593f52f741b39fe24230dce1d33a5afb0714d5" => :sierra
   end
 
   keg_only :versioned_formula
 
-  option "with-embedded", "Build the embedded server"
-  option "with-local-infile", "Build with local infile loading support"
-  option "with-memcached", "Build with InnoDB Memcached plugin"
-
-  deprecated_option "enable-local-infile" => "with-local-infile"
-  deprecated_option "enable-memcached" => "with-memcached"
-
   depends_on "cmake" => :build
-  # https://github.com/Homebrew/homebrew-core/issues/1475
-  # Needs at least Clang 3.3, which shipped alongside Lion.
-  # Note: MySQL themselves don't support anything below El Capitan.
-  depends_on :macos => :lion
+
   depends_on "openssl"
 
   def datadir
@@ -48,16 +38,10 @@ class MysqlAT57 < Formula
       -DWITH_EDITLINE=system
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
+      -DWITH_EMBEDDED_SERVER=ON
+      -DENABLED_LOCAL_INFILE=1
+      -DWITH_INNODB_MEMCACHED=ON
     ]
-
-    # Build the embedded server
-    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
-
-    # Build with local infile loading support
-    args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
-
-    # Build with InnoDB Memcached plugin
-    args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
 
     system "cmake", ".", *std_cmake_args, *args
     system "make"

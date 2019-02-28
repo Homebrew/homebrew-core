@@ -3,13 +3,14 @@ class Opencoarrays < Formula
   homepage "http://opencoarrays.org"
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.3.1/OpenCoarrays-2.3.1.tar.gz"
   sha256 "2b87cc8c31874ecb01e0300bc99b30e4017714fc0d17690f637d8fa4d48560f3"
+  revision 1
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
     cellar :any
-    sha256 "da64bfe45566be340e0a998173d922d89453b0fd9c7ae3bef3629e1a7fded891" => :mojave
-    sha256 "ae71d4c445f5ed7e298dd05d82a92430f0c37ccfcded324ccbcfb74fbeb57bc0" => :high_sierra
-    sha256 "3b1ab0f8991aebde79c74bc2d859096c95a9195a3c7f40d44718e1173caa9f67" => :sierra
+    sha256 "a827f29f1872e8dd6c144cfb1d42dacc30018ccef3940b56b9857153fc06a638" => :mojave
+    sha256 "377ee03f5ce15076516e6c7c141076f78693e4b4e81648ed4b445281bafb976b" => :high_sierra
+    sha256 "7d688179cb4e5ddeb1de8eda2c367b371f7b28ff6b2c6897b1a9274606112a35" => :sierra
   end
 
   depends_on "cmake" => :build

@@ -1,49 +1,31 @@
 class Lcm < Formula
   desc "Libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
-  url "https://github.com/lcm-proj/lcm/releases/download/v1.3.1/lcm-1.3.1.zip"
-  sha256 "3fd7c736cf218549dfc1bff1830000ad96f3d8a8d78d166904323b1df573ade1"
-  revision 1
+  url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
+  sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
+
+  head "https://github.com/lcm-proj/lcm.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "8223454e139a3efd0972f0885b9d624377bed55496ff5bb0d3c9a5f6265a67c7" => :mojave
-    sha256 "efd68dbb5defc150bc7be3d8ab2e9d5b5faa1d751fb49cb21eb0c9997b0617e8" => :high_sierra
-    sha256 "73d7b08663a9f318a5804476f29f55d08c733aebc2037405b4147f52942b09a0" => :sierra
+    sha256 "581550e90083da755a152c94e58ecec5da4fe688376426619614a35756acf41f" => :mojave
+    sha256 "295aa49f70201ca48b4e27e3da5342e616f429293cce7f31a06d8075471417b5" => :high_sierra
+    sha256 "3fc46725af663bc19f0e8625bb8ab0a4d699a324d7f7f1a01aabb5c3bd7518e3" => :sierra
   end
 
-  head do
-    url "https://github.com/lcm-proj/lcm.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "xz" => :build
-  end
-
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on :java => "1.8"
 
   def install
-    if build.head?
-      system "./bootstrap.sh"
-    else
-      # This deparallelize setting can be removed after an upstream release
-      # that includes the revised makefile for the java part of LCM.
-      #
-      # (see https://github.com/lcm-proj/lcm/pull/48)
-      #
-      # Note that the pull request has been merged with the upstream master,
-      # so it will be included in the next release of LCM.
-      ENV.deparallelize
+    mkdir "build" do
+      system "cmake", "..", "-DCMAKE_CXX_FLAGS=-I/System/Library/Frameworks/Python.framework/Headers",
+                            "-DLCM_ENABLE_TESTS=OFF",
+                            *std_cmake_args
+      system "make"
+      system "make", "install"
     end
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
   end
 
   test do

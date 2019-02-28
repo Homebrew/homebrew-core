@@ -1,8 +1,8 @@
 class Cryptopp < Formula
   desc "Free C++ class library of cryptographic schemes"
   homepage "https://www.cryptopp.com/"
-  url "https://github.com/weidai11/cryptopp/archive/CRYPTOPP_7_0_0.tar.gz"
-  sha256 "3ee97903882b5f58c88b6f9d2ce50fd1000be95479180c7b4681cd3f4c1c7629"
+  url "https://github.com/weidai11/cryptopp/archive/CRYPTOPP_8_0_0.tar.gz"
+  sha256 "65e8b7ab068a91427f9ebbdd14ffee2ccfed34defd1902325c87a3eb16efbe6d"
 
   # https://cryptopp.com/wiki/Config.h#Options_and_Defines
   bottle :disable, "Library and clients must be built on the same microarchitecture"

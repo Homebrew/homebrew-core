@@ -24,26 +24,13 @@ class Libdap < Formula
   depends_on "libxml2"
   depends_on "openssl"
 
-  needs :cxx11 if MacOS.version < :mavericks
-
   def install
-    # Otherwise, "make check" fails
-    ENV.cxx11 if MacOS.version < :mavericks
-
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-debug
       --with-included-regex
     ]
-
-    # Let's try removing this for OS X > 10.6; old note follows:
-    # __Always pass the curl prefix!__
-    # Otherwise, configure will fall back to pkg-config and on Leopard
-    # and Snow Leopard, the libcurl.pc file that ships with the system
-    # is seriously broken---too many arch flags. This will be carried
-    # over to `dap-config` and from there the contamination will spread.
-    args << "--with-curl=/usr" if MacOS.version <= :snow_leopard
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args

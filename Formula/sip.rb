@@ -4,22 +4,22 @@ class Sip < Formula
   url "https://dl.bintray.com/homebrew/mirror/sip-4.19.8.tar.gz"
   mirror "https://downloads.sourceforge.net/project/pyqt/sip/sip-4.19.8/sip-4.19.8.tar.gz"
   sha256 "7eaf7a2ea7d4d38a56dd6d2506574464bddf7cf284c960801679942377c297bc"
-  revision 5
+  revision 9
   head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "74695f37d3a916221bdefeee16f9c8e4d653fba493a2c02a2d358da1c5b8baff" => :mojave
-    sha256 "ec4c53082f161ffce908cdb2d5ed6abf46e0ebeee25d202c2fb6ea6f7c6eb8f7" => :high_sierra
-    sha256 "e79829d883081c92c94a95323e233319f877740caa0825e13b15ef35a729f4a9" => :sierra
-    sha256 "ad58acf490fa260cedd239270502cac93d36e9dd7dac4c6cf934de414e399b5a" => :el_capitan
+    sha256 "fb96ef1019657561fcfc29e63418b6b51356cef8720796a7c61075e4d881b8c1" => :mojave
+    sha256 "506161ee39e00e5247b158064afb488b549e114e3ed6b29562a08cb4d8fad0f9" => :high_sierra
+    sha256 "ec616d237ecbbf6a733f551fd1c504995af9999fb2bfcc30a3828a714a6a7b71" => :sierra
   end
 
-  depends_on "python" => :recommended
-  depends_on "python@2" => :recommended
+  depends_on "python"
+  depends_on "python@2"
 
   def install
     ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
 
     if build.head?
       # Link the Mercurial repository into the download directory so
@@ -29,8 +29,8 @@ class Sip < Formula
       system "python", "build.py", "prepare"
     end
 
-    Language::Python.each_python(build) do |python, version|
-      ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       system python, "configure.py",
                      "--deployment-target=#{MacOS.version}",
                      "--destdir=#{lib}/python#{version}/site-packages",
@@ -96,7 +96,9 @@ class Sip < Formula
     system ENV.cxx, "-shared", "-Wl,-install_name,#{testpath}/libtest.dylib",
                     "-o", "libtest.dylib", "test.cpp"
     system bin/"sip", "-b", "test.build", "-c", ".", "test.sip"
-    Language::Python.each_python(build) do |python, version|
+
+    ["python2", "python3"].each do |python|
+      version = Language::Python.major_minor_version python
       ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
       system python, "generate.py"
       system "make", "-j1", "clean", "all"

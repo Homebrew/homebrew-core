@@ -3,12 +3,12 @@ class Gspell < Formula
   homepage "https://wiki.gnome.org/Projects/gspell"
   url "https://download.gnome.org/sources/gspell/1.8/gspell-1.8.1.tar.xz"
   sha256 "819a1d23c7603000e73f5e738bdd284342e0cd345fb0c7650999c31ec741bbe5"
+  revision 1
 
   bottle do
-    sha256 "073769b3815f1f8228242aa2aca8f5f0dd59f5b20e3c03e989985232b2398ef8" => :mojave
-    sha256 "9b0d29afd1b3811c0c976879641f318504798b519bccc7c6eb8bcee93fd281a1" => :high_sierra
-    sha256 "20df1e6769419c13b1743bec961676477fc42e1341f3d5e9cfaf4e30f372f9d6" => :sierra
-    sha256 "4051d5ce5656be42be8b3d53db5282936157ca0b6320f2a782240b7f2f29d341" => :el_capitan
+    sha256 "3807df806f279b1112bc7c35bd03b6673cf76248d20bbbaf756c4e621f4a1598" => :mojave
+    sha256 "aaa321fda6fb18ddeeab3a46b3848d729056e180d6d138b4bcf85e6cc1e381cd" => :high_sierra
+    sha256 "b8f272bc9e78648ba3f9bc6e0087969fe5b10befd6f306feb15561aa47f746e7" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -20,7 +20,7 @@ class Gspell < Formula
   depends_on "gtk+3"
   depends_on "gtk-mac-integration"
   depends_on "iso-codes"
-  depends_on "vala" => :recommended
+  depends_on "vala"
 
   patch :DATA
 
@@ -100,7 +100,8 @@ class Gspell < Formula
       -lpangocairo-1.0
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
-    system "./test"
+    ENV["G_DEBUG"] = "fatal-warnings"
+    system "./test" # This test will fail intentionally when iso-codes gets updated. Resolve by revbumping this formula.
   end
 end
 

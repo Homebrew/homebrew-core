@@ -2,14 +2,16 @@ class Rtags < Formula
   desc "Source code cross-referencer like ctags with a clang frontend"
   homepage "https://github.com/Andersbakken/rtags"
   url "https://github.com/Andersbakken/rtags.git",
-      :tag => "v2.20",
-      :revision => "baf121831ab5b1a40f6e0b3c2771a6238a94414c"
+      :tag      => "v2.21",
+      :revision => "1249950963e494fbd66a4138cef639ffe6e05cd2"
+  revision 1
   head "https://github.com/Andersbakken/rtags.git"
 
   bottle do
-    sha256 "e728729cbc054d5c5457962b47b22d68cf02d54763f070387e1a72c58be3db25" => :mojave
-    sha256 "bbb37348cf155114f9a13733cc6b1be9aad610b5fdc4f655d3f445578452653d" => :high_sierra
-    sha256 "ae35d6315f617c5f03dcfdbe8848625f2c2a6b6879884ffa267cf4efcf7cec58" => :sierra
+    cellar :any
+    sha256 "a6cfdd43fb22fab24d10f7882fb9219d9617fce141cb162c503a6bfd9485fad9" => :mojave
+    sha256 "7abaee104be0a7bb4565795703ac9004f988ddbaf580caf8152c0fee22ed17a9" => :high_sierra
+    sha256 "b80aa423a5c6fad2f6e4537456a59b7ad7d4979b3929607791f845f4a27745e2" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -23,7 +25,7 @@ class Rtags < Formula
 
     args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
 
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       args << "-DHAVE_CLOCK_MONOTONIC_RAW:INTERNAL=0"
       args << "-DHAVE_CLOCK_MONOTONIC:INTERNAL=0"
     end

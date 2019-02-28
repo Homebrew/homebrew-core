@@ -1,14 +1,13 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.28/libgweather-3.28.2.tar.xz"
-  sha256 "081ce81653afc614e12641c97a8dd9577c524528c63772407ae2dbcde12bde75"
+  url "https://download.gnome.org/sources/libgweather/3.28/libgweather-3.28.3.tar.xz"
+  sha256 "45d30e0111bfc504f3e9609f878c89e26c856907f5732e7c30d3bf9f0a04e6f7"
 
   bottle do
-    sha256 "c05c1a3b582b0910587d135d29c8ebfb731ba11cca9ec99e05b1ecc8f0f0e9e3" => :mojave
-    sha256 "2eb44ffb03a8d0ef04e3f60249136acb7ae5d6581b7eb2b3354f4e33dfae9b92" => :high_sierra
-    sha256 "9fc3c60b4f111e74e9d508ca95f85f16c347880cc3dd689a9b73ac772f316992" => :sierra
-    sha256 "d47872fbe5c9325b3a40cc922c75728651665b25585c9bf9610d98bd6e60ac0a" => :el_capitan
+    sha256 "137f07c2a0bdf653569594a0146ed8abd6753dfb03aa30b5ee90bc021e0d8385" => :mojave
+    sha256 "e3b603ae019c321c67ecc90e49888c0d1587a4846ccb0c7a558b2b42d3f678cc" => :high_sierra
+    sha256 "2dd576463b258ad2c9a40abd6dae3ab8100e0a4794b2827e65a2fbcc7d78b48a" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,7 +18,6 @@ class Libgweather < Formula
   depends_on "geocode-glib"
   depends_on "gtk+3"
   depends_on "libsoup"
-  depends_on "vala" => :optional
 
   def install
     ENV.refurbish_args

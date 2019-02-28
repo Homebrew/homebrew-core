@@ -3,30 +3,29 @@ class Dmd < Formula
   homepage "https://dlang.org/"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.081.2.tar.gz"
-    sha256 "390b51ff994da52fb02fd95ce71282540caa2e8ffd38945b37ee700559b4a3ec"
+    url "https://github.com/dlang/dmd/archive/v2.084.1.tar.gz"
+    sha256 "95de47ca49db64553e454c28f9037b1132a0587b8ee184facf0575031ee15524"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.081.0.tar.gz"
-      sha256 "ab8a7b5c99a94a8e58b6761309997f5b54b317269769a8fe3b4a994aa65a4946"
+      url "https://github.com/dlang/druntime/archive/v2.084.1.tar.gz"
+      sha256 "fde74b40f62892e09eb338a89d0c108ae01a15748c84c4e8cf4894a161697b8d"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.081.0.tar.gz"
-      sha256 "cd5785ebd83a5edc11cb31732042582c4a741c4aca491e538dc4ee382a60881f"
+      url "https://github.com/dlang/phobos/archive/v2.084.1.tar.gz"
+      sha256 "1bf230ee27acb04da0614031ce783ddaa4a4b06da3a75b8b279e6a5b1788ca27"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.081.0.tar.gz"
-      sha256 "452ba1709dc6aa50a0a4363916119d9ed7bd261c421483c2b187f55f8c774d17"
+      url "https://github.com/dlang/tools/archive/v2.084.1.tar.gz"
+      sha256 "58f12a51e29f97f5a75ec83d2867c4511e80ed6be0ae71ed78b4a23745f8ca2b"
     end
   end
 
   bottle do
-    sha256 "8b2428199cef0f5d3eadd0e7f947d24c530597ae21d2b544afae54bb8f9509cc" => :mojave
-    sha256 "cd78f901eae3971a0bc6967ebf7da89d58f86a0a23a59b1c7afc95179b0a2b4d" => :high_sierra
-    sha256 "0916214f85d530de232bf969209a9326e5b5cd83421b581025c142f0a745b4fe" => :sierra
-    sha256 "2e0357261b2b1d3ece749d287c6496790831c9aa343499ff5b4b8384ba5b5423" => :el_capitan
+    sha256 "316092a9a666807ee556e5a7bb875b5513781839230660c6ee5db8ec64a11875" => :mojave
+    sha256 "418371f9db99797409094c09fd23559a58f3ee5a9e152eb5bfc22a3a55a5d45f" => :high_sierra
+    sha256 "579e87a7ab5ce58a870f3f5e311124414f185e0f307bac278bd999221ed1660c" => :sierra
   end
 
   head do
@@ -46,9 +45,19 @@ class Dmd < Formula
   end
 
   def install
-    make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "BUILD=release", "-f", "posix.mak"]
+    make_args = %W[
+      INSTALL_DIR=#{prefix}
+      MODEL=64
+      BUILD=release
+      -f posix.mak
+    ]
 
-    dmd_make_args = ["SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "ENABLE_RELEASE=1"]
+    dmd_make_args = %W[
+      SYSCONFDIR=#{etc}
+      TARGET_CPU=X86
+      AUTO_BOOTSTRAP=1
+      ENABLE_RELEASE=1
+    ]
 
     system "make", *dmd_make_args, *make_args
 

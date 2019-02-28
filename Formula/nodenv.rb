@@ -1,15 +1,13 @@
 class Nodenv < Formula
   desc "Manage multiple NodeJS versions"
   homepage "https://github.com/nodenv/nodenv"
-  url "https://github.com/nodenv/nodenv/archive/v1.1.2.tar.gz"
-  sha256 "e8cfc0816f75b8c31dfd31089c442d7aafbffe26adb3078587c9ea2048df3519"
+  url "https://github.com/nodenv/nodenv/archive/v1.2.0.tar.gz"
+  sha256 "a922ddaa9b3d7b3190a46c4db2c4550d608f752cf7a701a15957cef976508ab7"
   head "https://github.com/nodenv/nodenv.git"
 
   bottle :unneeded
 
-  option "without-bash-extension", "Skip compilation of the dynamic bash extension to speed up nodenv."
-
-  depends_on "node-build" => :recommended
+  depends_on "node-build"
 
   def install
     inreplace "libexec/nodenv" do |s|
@@ -21,11 +19,9 @@ class Nodenv < Formula
       inreplace "libexec/nodenv-#{cmd}", "${BASH_SOURCE%/*}", libexec
     end
 
-    if build.with? "bash-extension"
-      # Compile optional bash extension.
-      system "src/configure"
-      system "make", "-C", "src"
-    end
+    # Compile bash extension
+    system "src/configure"
+    system "make", "-C", "src"
 
     if build.head?
       # Record exact git revision for `nodenv --version` output

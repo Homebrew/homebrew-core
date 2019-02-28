@@ -1,30 +1,23 @@
 class ErlangAT18 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
-  url "https://github.com/erlang/otp/archive/OTP-18.3.4.10.tar.gz"
-  sha256 "994c8aa2931d4d7ad473c68d1be31ec9e7faa96a2859f253225c3b33226dfcba"
+  url "https://github.com/erlang/otp/archive/OTP-18.3.4.11.tar.gz"
+  sha256 "94f84e8ca0db0dcadd3411fa7a05dd937142b6ae830255dc341c30b45261b01a"
 
   bottle do
     cellar :any
-    sha256 "fbd8cee1bec3a5e5489818af3eda83b5fbb6f1d2c43dfd8918e0cb20eafd5ddd" => :mojave
-    sha256 "494e7da2604522f1e3ce247712bfc760211914afd34521d61eed6138c2461b7f" => :high_sierra
-    sha256 "c4da61545ccaa6b5bde74ce57b36be02383634430e7b0b69e3ef0e31737f5b2f" => :sierra
+    sha256 "7e6f5e8fe280552b8bdb2b53df8156d9ee1f744403602a08cf1acf4dddb85126" => :mojave
+    sha256 "130462ab312debb1d2dcf33ad5c27f715ebaeef11bce01b15bcc7c25866d971e" => :high_sierra
+    sha256 "d597234bc64ffdf054e9064c1399a2e77b45e9f346831e28567dfde04d1857be" => :sierra
   end
 
   keg_only :versioned_formula
-
-  option "without-hipe", "Disable building hipe; fails on various macOS systems"
-  option "with-native-libs", "Enable native library compilation"
-  option "with-dirty-schedulers", "Enable experimental dirty schedulers"
-  option "with-java", "Build jinterface application"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "openssl"
-  depends_on "wxmac" => :recommended # for GUI apps like observer
-  depends_on "fop" => :optional # enables building PDF docs
-  depends_on :java => :optional
+  depends_on "wxmac"
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_18.3.tar.gz"
@@ -55,7 +48,7 @@ class ErlangAT18 < Formula
   def install
     # Fixes "dyld: Symbol not found: _clock_gettime"
     # Reported 17 Sep 2016 https://bugs.erlang.org/browse/ERL-256
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       ENV["erl_cv_clock_gettime_monotonic_default_resolution"] = "no"
       ENV["erl_cv_clock_gettime_monotonic_try_find_pthread_compatible"] = "no"
       ENV["erl_cv_clock_gettime_wall_default_resolution"] = "no"
@@ -64,8 +57,6 @@ class ErlangAT18 < Formula
     # Unset these so that building wx, kernel, compiler and
     # other modules doesn't fail with an unintelligable error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
-
-    ENV["FOP"] = "#{HOMEBREW_PREFIX}/bin/fop" if build.with? "fop"
 
     # Do this if building from a checkout to generate configure
     system "./otp_build", "autoconf" if File.exist? "otp_build"
@@ -81,28 +72,13 @@ class ErlangAT18 < Formula
       --with-ssl=#{Formula["openssl"].opt_prefix}
       --enable-shared-zlib
       --enable-smp-support
+      --enable-hipe
+      --enable-wx
+      --without-javac
+      --enable-darwin-64bit
     ]
 
-    args << "--enable-darwin-64bit" if MacOS.prefer_64_bit?
-    args << "--enable-native-libs" if build.with? "native-libs"
-    args << "--enable-dirty-schedulers" if build.with? "dirty-schedulers"
-    args << "--enable-wx" if build.with? "wxmac"
     args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
-
-    if build.without? "hipe"
-      # HIPE doesn't strike me as that reliable on macOS
-      # https://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
-      # https://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
-      args << "--disable-hipe"
-    else
-      args << "--enable-hipe"
-    end
-
-    if build.with? "java"
-      args << "--with-javac"
-    else
-      args << "--without-javac"
-    end
 
     system "./configure", *args
     system "make"

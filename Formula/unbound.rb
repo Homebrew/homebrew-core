@@ -1,14 +1,14 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.8.1.tar.gz"
-  sha256 "c362b3b9c35d1b8c1918da02cdd5528d729206c14c767add89ae95acae363c5d"
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.0.tar.gz"
+  sha256 "415af94b8392bc6b2c52e44ac8f17935cc6ddf2cc81edfb47c5be4ad205ab917"
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
-    sha256 "30f001903153859ba2e755086320d037163d925965e77aefd5e9675e7c5eaa9d" => :mojave
-    sha256 "59ccc8d8381ba9cc6eb89640e99f0378879d55b2c0aa07c029c0f64ecc80b65e" => :high_sierra
-    sha256 "fcc55406d9a0c2ac95df9914629456510b73948bd62c6042fc22720ed3e4a85f" => :sierra
+    sha256 "358f94628cb248e77af0da37aefd40347ad1b98a62295719dd5adefa64ef9589" => :mojave
+    sha256 "e56d630384831b87e3e584e9ffc4aefe76e4103db668a8b42520684a69abd60d" => :high_sierra
+    sha256 "69f8132f8c55fc5c2a920a45711d82d88d96aecd1c766a42de0f2c2b82d4e658" => :sierra
   end
 
   depends_on "libevent"
@@ -35,6 +35,7 @@ class Unbound < Formula
     conf = etc/"unbound/unbound.conf"
     return unless conf.exist?
     return unless conf.read.include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
+
     inreplace conf, 'username: "@@HOMEBREW-UNBOUND-USER@@"',
                     "username: \"#{ENV["USER"]}\""
   end

@@ -12,7 +12,6 @@ class MecabKoDic < Formula
     sha256 "51c5a40a0aad7906cbd83265fbecbc4de3a4f116abceebf9fdb02d17c75f5f69" => :el_capitan
     sha256 "92be006bcc8552fdaddf82d21b9f8f528af010128febc721a5a5ba262eca99ce" => :yosemite
     sha256 "0c958bf826cd358431f144dfb3d2d3da08c67cda59efe1d2998b54a401678515" => :mavericks
-    sha256 "b932747391e494b10a0fd8cd6002eb857f7a4ccb8e0ea2ea2a3a7b675bf6c237" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

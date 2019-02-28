@@ -3,42 +3,36 @@ class Dlib < Formula
   homepage "http://dlib.net/"
   url "http://dlib.net/files/dlib-19.16.tar.bz2"
   sha256 "37308406c2b1459a70f21ec2fd7bdc922277659534c708323cb28d6e8e4764a8"
+  revision 1
   head "https://github.com/davisking/dlib.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fea59bd6ec83be1bece0a71a691caa565403f33979aaa10dd2d84f3ff817caac" => :mojave
-    sha256 "0f87f8f25d8b27daa2bc02094402b120f4a7aa3aa3610a66c2cc9760eadb081f" => :high_sierra
-    sha256 "c748860e5d6ad042afbaacb07749d32f0a287ae2fe4097cf13f29fd8ea65cdeb" => :sierra
+    sha256 "7793a79b6d155fce278f2d4aef97b248bbad453776f07798f2344deb4a1243cd" => :mojave
+    sha256 "e7c5d7b023879adb58be981d34041b3b5037292c180b711edd7c0b4eca7e61fe" => :high_sierra
+    sha256 "c20e7bcd027a030f32ab473a400ea39b1971e1e006465494a93bb333f12a6e91" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
   depends_on :macos => :el_capitan # needs thread-local storage
-  depends_on "openblas" => :optional
-  depends_on :x11 => :optional
-
-  needs :cxx11
+  depends_on "openblas"
 
   def install
     ENV.cxx11
 
-    args = std_cmake_args + %w[-DDLIB_USE_BLAS=ON -DDLIB_USE_LAPACK=ON]
-    args << "-DDLIB_NO_GUI_SUPPORT=ON" if build.without? "x11"
-    args << "-DUSE_SSE2_INSTRUCTIONS=ON" # SSE2 is present on all modern macOS hardware
+    args = std_cmake_args + %W[
+      -DDLIB_USE_BLAS=ON
+      -DDLIB_USE_LAPACK=ON
+      -Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -DDLIB_NO_GUI_SUPPORT=ON
+      -DUSE_SSE2_INSTRUCTIONS=ON
+    ]
 
-    unless build.bottle?
-      args << "-DUSE_AVX_INSTRUCTIONS=ON" if Hardware::CPU.avx?
-      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if Hardware::CPU.sse4?
-    end
-
-    if build.with? "openblas"
-      args << "-Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-      args << "-Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-    else
-      args << "-Dcblas_lib=/usr/lib/libcblas.dylib"
-      args << "-Dlapack_lib=/usr/lib/liblapack.dylib"
+    if MacOS.version.requires_sse4?
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON"
     end
 
     mkdir "dlib/build" do

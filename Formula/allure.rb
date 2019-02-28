@@ -1,8 +1,8 @@
 class Allure < Formula
   desc "Flexible lightweight test report tool"
   homepage "https://github.com/allure-framework/allure2"
-  url "https://dl.bintray.com/qameta/generic/io/qameta/allure/allure/2.7.0/allure-2.7.0.zip"
-  sha256 "9408ff5c11abda7491431539b38a724689b2172a1fdd1b1dacca5f4ab77a402b"
+  url "https://dl.bintray.com/qameta/maven/io/qameta/allure/allure-commandline/2.10.0/allure-commandline-2.10.0.zip"
+  sha256 "c29957411c5ea34b693fb7c67774f87336d1b88c345f261076cc8c6ea95b62c2"
 
   bottle :unneeded
 

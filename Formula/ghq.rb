@@ -8,14 +8,11 @@ class Ghq < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "9a5d83540ee47d24478c689f4bb2d525942d0f35272a7a71fb569cdf90c492c6" => :mojave
-    sha256 "84dc071749a4a22165a58a48de193b9165cc08c02a0e817e097b662cb4ad5d41" => :high_sierra
-    sha256 "ad05a023f52f11867a400d0109c98258ddce536728d4218e3694c836033a0c7b" => :sierra
-    sha256 "fab4b2d64cd2b40e3b6045b145525e2a23fdfbad5b22ba37a28a85c909ee625d" => :el_capitan
-    sha256 "d8281b077e388d55fdb8a2012c884b5195fe42be4bb67c14e0ea2a1c481f288f" => :yosemite
+    rebuild 1
+    sha256 "f3b7bcd4d98836a3f67be418ec2a6edf2c8c772095180e0f1fb40a069383e435" => :mojave
+    sha256 "fc0268e02a7317756f6460d449abd37001f647d7ac0ced3689100a6d81d52605" => :high_sierra
+    sha256 "49b5d6f977404242bd93df665bcd45488017ae14f4ebaef47bc03da3bc62c765" => :sierra
   end
-
-  option "without-completions", "Disable zsh completions"
 
   depends_on "go" => :build
 
@@ -47,7 +44,7 @@ class Ghq < Formula
 
     system "go", "build", "-ldflags", "-X main.Version=#{version}",
                           "-o", bin/"ghq"
-    zsh_completion.install "zsh/_ghq" if build.with? "completions"
+    zsh_completion.install "zsh/_ghq"
   end
 
   test do

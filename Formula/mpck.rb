@@ -12,7 +12,6 @@ class Mpck < Formula
     sha256 "06b69481ecd910bf2c1daff65dd7d952a8759dd90e3d76f646f82ac79812d216" => :el_capitan
     sha256 "e158ae142375591d361c6204ccc08072a29b52cee927726f9c30b063b51a0664" => :yosemite
     sha256 "fcbf3745544824e2569004626c6a307800ef55aa2fcd667d278eaa5c34340452" => :mavericks
-    sha256 "09d7c03fdd0149b7efc7ecd36dab1e38de7af870484ad676d11e0ca78c7543ea" => :mountain_lion
   end
 
   def install

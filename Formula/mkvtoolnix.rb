@@ -1,13 +1,14 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
-  homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-28.1.0.tar.xz"
-  sha256 "26b949871afcfcc0bf6b4ccfa170de73d34d25c83f2ead69327025194f54d615"
+  homepage "https://mkvtoolnix.download/"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-30.1.0.tar.xz"
+  sha256 "4628f40d62d359edb1441c52381b1f3a61aa227279133d7e01257f91e0d92591"
 
   bottle do
-    sha256 "169dd41f8c299b979ca9bed8463fcca821a46f8a97b14cf2115d262c0c8c7b05" => :mojave
-    sha256 "aeabe0ca32622c768819c45f9622a6850e01ab40885d2ca76e10a5850300a90f" => :high_sierra
-    sha256 "a7547b00a7099ea5605276292f54e6c4098afe452645b77f3a88b185afe4d40b" => :sierra
+    cellar :any
+    sha256 "0709bb1a2c0fe4f897a6dfdc20a14e3b98dbe324d83d04b0aaf7a41f0e995dff" => :mojave
+    sha256 "4a3e05604e716d16a638ad9afd0733c35b29dcd4fc6f3aa13f60877e55a6dc36" => :high_sierra
+    sha256 "d9df1172b5b51eaf1dffcc82eae86245777acb3fd195cb5fea943c12640ad56b" => :sierra
   end
 
   head do
@@ -17,32 +18,23 @@ class Mkvtoolnix < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-qt", "Build with Qt GUI"
-
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "docbook-xsl" => :build
+  depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "pugixml" => :build
-  depends_on "ruby" => :build if MacOS.version <= :mountain_lion
   depends_on "boost"
   depends_on "flac"
+  depends_on "gettext"
   depends_on "libebml"
   depends_on "libmagic"
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "gettext" => :optional
-  depends_on "qt" => :optional
-  depends_on "cmark" if build.with? "qt"
-
-  needs :cxx11
 
   def install
     ENV.cxx11
 
-    features = %w[flac libmagic libogg libvorbis libebml libmatroska]
-
+    features = %w[flac libebml libmagic libmatroska libogg libvorbis]
     extra_includes = ""
     extra_libs = ""
     features.each do |feature|
@@ -52,30 +44,14 @@ class Mkvtoolnix < Formula
     extra_includes.chop!
     extra_libs.chop!
 
-    args = %W[
-      --disable-debug
-      --prefix=#{prefix}
-      --with-boost=#{Formula["boost"].opt_prefix}
-      --with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
-      --with-extra-includes=#{extra_includes}
-      --with-extra-libs=#{extra_libs}
-    ]
-
-    if build.with?("qt")
-      qt = Formula["qt"]
-
-      args << "--with-moc=#{qt.opt_bin}/moc"
-      args << "--with-uic=#{qt.opt_bin}/uic"
-      args << "--with-rcc=#{qt.opt_bin}/rcc"
-      args << "--enable-qt"
-    else
-      args << "--disable-qt"
-    end
-
     system "./autogen.sh" if build.head?
-
-    system "./configure", *args
-
+    system "./configure", "--disable-debug",
+                          "--prefix=#{prefix}",
+                          "--with-boost=#{Formula["boost"].opt_prefix}",
+                          "--with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
+                          "--with-extra-includes=#{extra_includes}",
+                          "--with-extra-libs=#{extra_libs}",
+                          "--disable-qt"
     system "rake", "-j#{ENV.make_jobs}"
     system "rake", "install"
   end

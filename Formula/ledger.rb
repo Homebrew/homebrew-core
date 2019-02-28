@@ -1,16 +1,14 @@
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
-  url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
-  sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
-  revision 10
+  url "https://github.com/ledger/ledger/archive/3.1.2.tar.gz"
+  sha256 "3ecebe00e8135246e5437e4364bb7a38869fad7c3250b849cf8c18ca2628182e"
   head "https://github.com/ledger/ledger.git"
 
   bottle do
-    rebuild 1
-    sha256 "d2c238504e5005df224cd9b4f08c83b9b40d6afe36bf227989b41fc7ecdd909b" => :mojave
-    sha256 "5fc114039587b7ae79924097ab60cd8b8e7166b4d4154ebbec3223c9baf4fbc8" => :high_sierra
-    sha256 "bdb1698d718fc58741f052504d8c3fe6dcb87b857a8c8322c82ad6dbd54aa48d" => :sierra
+    sha256 "2e259026690cdf4544bb0d6df7e859c90aeece1986dcb76aca898fa8e88ebd00" => :mojave
+    sha256 "9072550d68b9030dbcd0908e954f6fe80a30df0c6e7533fd57ec0cc621593080" => :high_sierra
+    sha256 "f19813e2e6b1c942487322c8522c1d8abb17ec77145dbf6cc09d3e1196fc7be0" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -20,14 +18,13 @@ class Ledger < Formula
   depends_on "mpfr"
   depends_on "python@2"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
-    # Boost >= 1.67 Python components require a Python version suffix
-    inreplace "CMakeLists.txt", "set(BOOST_PYTHON python)",
-                                "set(BOOST_PYTHON python27)"
+    # Fix for https://github.com/ledger/ledger/pull/1760
+    # Remove in next version
+    inreplace "doc/ledger3.texi", "Getting help, ,",
+                                "Getting help, Third-Party Ledger Tutorials,"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
@@ -38,6 +35,7 @@ class Ledger < Formula
       --
       -DBUILD_DOCS=1
       -DBUILD_WEB_DOCS=1
+      -DUSE_PYTHON27_COMPONENT=1
     ]
     system "./acprep", "opt", "make", *args
     system "./acprep", "opt", "make", "doc", *args

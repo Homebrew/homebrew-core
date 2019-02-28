@@ -1,13 +1,13 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.42/vala-0.42.2.tar.xz"
-  sha256 "9e89aa42152b1cef551568f827aa2deea2a9b5487d78c91474c8617b618e5f07"
+  url "https://download.gnome.org/sources/vala/0.42/vala-0.42.5.tar.xz"
+  sha256 "8c33b4abc0573d364781bbfe54a1668ed34956902e471191a31cf05dc87c6e12"
 
   bottle do
-    sha256 "e901a77a3ae7ec135562e57ddcaba96d41572487ee405009ebbb969ec07ede62" => :mojave
-    sha256 "c534ae2bf694890851ac84eab6256b6239f89f9c41ba190f059449d28376b92d" => :high_sierra
-    sha256 "66e977ba42959cac5921a1a8a75af1afaacb69340e2e35b713b6d0b38899112b" => :sierra
+    sha256 "51c9fe61fe3b1b680c8208cc0bbc83fa0f0ea8f7ee4c4ddabad3cbb4bcf953fb" => :mojave
+    sha256 "e531087ef3b3b1c7c28a7560cbe5b92f1b547b9a049c01e46b990c15c4afc495" => :high_sierra
+    sha256 "f623af0de13794641e85ad057b9955f8dac56da2445a0df41ea364de2baa6f6f" => :sierra
   end
 
   depends_on "gettext"

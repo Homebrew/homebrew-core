@@ -1,13 +1,14 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.3.tar.bz2"
-  sha256 "8be04307c00f51401d3fb9d837321781ea7c79f2a5a4a2e5d4eaedc874087ab6"
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.bz2"
+  sha256 "2f0b8a36cfeb7354b45dda3c5425ef8393c9b04115570b615213faaa3f97366b"
 
   bottle do
-    sha256 "ba17c7e6a3ca1e6776e7d3049f0e75d5f3393bb4322885f9b1464717c4ceb012" => :mojave
-    sha256 "8bdfd640afbc48f13f1f3621e809edb139dd69309b5dfa3dd68274b6f7626864" => :high_sierra
-    sha256 "e399bdf2f73bde3257979938db92d3bc9229746a29f7957ef9a11d0588e5b4f3" => :sierra
+    rebuild 1
+    sha256 "bc3079464eb727d8ae283c81e6ec6189eb749db8ee5254cbf132ee1233dc3508" => :mojave
+    sha256 "ed4e5a8d080142914e4e4142207b8fdc1740aadcc0a4e1a8f5b89a3bb4984008" => :high_sierra
+    sha256 "2e7b97df336f4151eda50bebde5c329b2ab50d79d463fe55ecc68210537910b2" => :sierra
   end
 
   head do
@@ -17,14 +18,10 @@ class OpenMpi < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
-
   depends_on "gcc"
   depends_on "libevent"
 
   conflicts_with "mpich", :because => "both install MPI compiler wrappers"
-
-  needs :cxx11
 
   def install
     # otherwise libmpi_usempi_ignore_tkr gets built as a static library
@@ -41,7 +38,9 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-    args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
+
+    # Fixes an issue in 4.0.0, should be fixed in 4.0.1
+    args << "--enable-mpi1-compatibility"
 
     system "./autogen.pl" if build.head?
     system "./configure", *args

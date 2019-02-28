@@ -1,49 +1,37 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://jbig2dec.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922/jbig2dec-0.14.tar.gz"
-  sha256 "21b498c3ba566f283d02946f7e78e12abbad89f12fe4958974e50882c185014c"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs924/jbig2dec-0.15.tar.gz"
+  sha256 "6bfa1af72de37c7929315933a1ba696540d860936ad98f9de02fc725d7e53854"
 
   bottle do
     cellar :any
-    sha256 "85fc216faf078a49753c6cd65fd1bd2ce84d137f79e40af83de29d03e7794bd1" => :mojave
-    sha256 "197656bee979449ea283d855f0332afa414a31f7114123f477f3f9f2cc192763" => :high_sierra
-    sha256 "a98bac77f5b916d67c1c7742ee3462af053c2ff0726dacaf5b0bcb2e9aef7e74" => :sierra
-    sha256 "beb6ea36ce8edffa4ff8569231413fab5f3de7338379b35b49d208e16243577d" => :el_capitan
+    sha256 "9b13b7bdd2a907bad49d5e71d8b97604afdc8581fa37a73304b0d147e11cbb3e" => :mojave
+    sha256 "880df1d4364a329a3a4f78d32360f3bba01fe422877ea10e0170db06d57f8637" => :high_sierra
+    sha256 "53ef474b4a04148edd1c7b2bdb5529c674a72316ecda7d46410c8e8ae0368542" => :sierra
   end
 
-  depends_on "libpng" => :optional
+  resource("test") do
+    url "https://github.com/apache/tika/raw/master/tika-parsers/src/test/resources/test-documents/testJBIG2.jb2"
+    sha256 "40764aed6c185f1f82123f9e09de8e4d61120e35d2b5c6ede082123749c22d91"
+  end
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --disable-silent-rules
+      --without-libpng
     ]
-    args << "--without-libpng" if build.without? "libpng"
 
     system "./configure", *args
     system "make", "install"
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
-      #include <stdint.h>
-      #include <stdlib.h>
-      #include <jbig2.h>
-
-      int main()
-      {
-        Jbig2Ctx *ctx;
-        Jbig2Image *image;
-        ctx = jbig2_ctx_new(NULL, 0, NULL, NULL, NULL);
-        image = jbig2_image_new(ctx, 10, 10);
-        jbig2_image_release(ctx, image);
-        jbig2_ctx_free(ctx);
-        return 0;
-      }
-    EOS
-    system ENV.cc, "test.c", "-DJBIG_NO_MEMENTO", "-L#{lib}", "-ljbig2dec", "-o", "test"
-    system "./test"
+    resource("test").stage testpath
+    output = shell_output("#{bin}/jbig2dec -t pbm --hash testJBIG2.jb2")
+    assert_match "aa35470724c946c7e953ddd49ff5aab9f8289aaf", output
+    assert_predicate testpath/"testJBIG2.pbm", :exist?
   end
 end

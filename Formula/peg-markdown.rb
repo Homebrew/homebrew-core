@@ -13,7 +13,6 @@ class PegMarkdown < Formula
     sha256 "75fc993aa8e861092785f6e235adf55eaf49af419f721ed983e633b9afb96bba" => :el_capitan
     sha256 "8b73ccf611b6639935b1fe7b42d5bab2518703f81b182769c537f7224ac1e803" => :yosemite
     sha256 "67d5b05f4cb166d398f352cfa2a1d9ce97ae6ed1a7da5f8012c1d3544ec496d6" => :mavericks
-    sha256 "81b615979242abe96da6a8657c9357ad6f59d585a2533db1469b2e9ead567d9b" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

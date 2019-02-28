@@ -40,11 +40,9 @@ class Luabind < Formula
 
   # include C header that is not pulled in automatically on OS X 10.9 anymore
   # submitted https://github.com/luabind/luabind/pull/20
-  if MacOS.version >= :mavericks
-    patch do
-      url "https://gist.githubusercontent.com/DennisOSRM/a246514bf7d01631dda8/raw/0e83503dbf862ebfb6ac063338a6d7bca793f94d/object_rep.diff"
-      sha256 "2fef524ac5e319d7092fbb28f6d4e3d3eccd6a570e7789a9b5b0c9a25e714523"
-    end
+  patch do
+    url "https://gist.githubusercontent.com/DennisOSRM/a246514bf7d01631dda8/raw/0e83503dbf862ebfb6ac063338a6d7bca793f94d/object_rep.diff"
+    sha256 "2fef524ac5e319d7092fbb28f6d4e3d3eccd6a570e7789a9b5b0c9a25e714523"
   end
 
   def install
@@ -95,8 +93,11 @@ class Luabind < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-shared", "-o", "hello.dylib", "-I#{HOMEBREW_PREFIX}/include/lua-5.1",
-           testpath/"hello.cpp", "-L#{lib}", "-lluabind", "-llua5.1"
-    assert_match /hello world!/, `lua5.1 -e "package.loadlib('#{testpath}/hello.dylib', 'init')(); greet()"`
+    system ENV.cxx, "-shared", "hello.cpp", "-o", "hello.dylib",
+                    "-I#{Formula["lua@5.1"].include}/lua-5.1",
+                    "-L#{lib}", "-lluabind",
+                    "-L#{Formula["lua@5.1"].lib}", "-llua5.1"
+    output = `lua5.1 -e "package.loadlib('#{testpath}/hello.dylib', 'init')(); greet()"`
+    assert_match "hello world!", output
   end
 end

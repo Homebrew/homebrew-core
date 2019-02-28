@@ -44,12 +44,6 @@ class Sdl < Formula
     system "./autogen.sh" if build.head?
 
     args = %W[--prefix=#{prefix} --without-x]
-    args << "--disable-nasm" unless MacOS.version >= :mountain_lion # might work with earlier, might only work with new clang
-    # LLVM-based compilers choke on the assembly code packaged with SDL.
-    if ENV.compiler == :clang && DevelopmentTools.clang_build_version < 421
-      args << "--disable-assembly"
-    end
-
     system "./configure", *args
     system "make", "install"
 

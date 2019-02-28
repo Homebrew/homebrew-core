@@ -1,19 +1,21 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz"
-  sha256 "1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.1.tar.xz"
+  sha256 "47b629808e9fd44ce1f760cdf3ed14875fc9b19d4f334e82e2cf25cb2898f2f2"
 
   bottle do
-    sha256 "6c620464fee701978124bdb9ef12179fb55ba62e73222ed42d59e6c07d25a04a" => :mojave
-    sha256 "4973d5cabcb8b53ab892a331e6c02b8230e9c8ef7a69f6a96d0aec69d3099831" => :high_sierra
-    sha256 "df8aabed70a29a81ca6f1d5e6a4fcbc0de999cab09b6377b1f61b9dde29b5b21" => :sierra
+    sha256 "d0f3d2993d815655b335fd17134885879149e5d80c6b81ea67febd93adff0bd5" => :mojave
+    sha256 "b1254bd5bf215e84bb7b104f7498ebb0b652558deeb28c58af8d76aba3665d09" => :high_sierra
+    sha256 "02eaf8a3dd3062fa4875810358bc4504168d8e0ec0b73215067ce23e83f0645b" => :sierra
   end
 
   head do
-    url "https://github.com/ruby/ruby.git"
+    url "https://github.com/ruby/ruby.git", :branch => "trunk"
     depends_on "autoconf" => :build
   end
+
+  keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
   depends_on "libyaml"
@@ -24,8 +26,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-2.7.7.tgz"
-    sha256 "4cb2c9a36c0e4a3d5c20eb6795638632858fd72236d281963140221946ab55cb"
+    url "https://rubygems.org/rubygems/rubygems-3.0.2.tgz"
+    sha256 "ad7433a46617d4d96e4c39c38602068c6a4715b3b3ef638600e4302c5bb84de0"
   end
 
   def api_version
@@ -33,7 +35,7 @@ class Ruby < Formula
   end
 
   def rubygems_bindir
-    HOMEBREW_PREFIX/"bin"
+    HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
   end
 
   def install
@@ -181,6 +183,14 @@ class Ruby < Formula
         "#{opt_bin}/ruby"
       end
     end
+  EOS
+  end
+
+  def caveats; <<~EOS
+    By default, binaries installed by gem will be placed into:
+      #{rubygems_bindir}
+
+    You may want to add this to your PATH.
   EOS
   end
 

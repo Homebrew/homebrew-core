@@ -1,21 +1,18 @@
 class Libsecret < Formula
   desc "Library for storing/retrieving passwords and other secrets"
   homepage "https://wiki.gnome.org/Projects/Libsecret"
-  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.6.tar.xz"
-  sha256 "5efbc890ba41a323ffe0599cd260fd12bd8eb62a04aa1bd1b2762575d253d66f"
-  revision 1
+  url "https://download.gnome.org/sources/libsecret/0.18/libsecret-0.18.7.tar.xz"
+  sha256 "0d66fe1fc4561b3e046ee281d7c5a703a9baac88a8c4fb42ebc739d31dabd487"
 
   bottle do
-    sha256 "583473cf026c29c42884e9b14339bdec9f6b4eb447e0cdbb14761dda998a9489" => :mojave
-    sha256 "a8326840251e2661e1c598a268a418dd62f382f8e2c60718581c71441e3740d8" => :high_sierra
-    sha256 "0466f97c31fc994382b8944c0ad1b72b55d09b82d2584996bfe801a6bc0c5109" => :sierra
+    sha256 "6e9eba382588ebbc0a4f92ab9de6d0d941b4f10d34834a08dc62fdee49a8954b" => :mojave
+    sha256 "8c08c88184cf9283d8e79d97d0607eaf7f479f84bf5eaa23df3d28ecee8eb187" => :high_sierra
+    sha256 "38153a44f8c3a530faa57287153a396b07738cd70dc10bb7ef53096d8d44d506" => :sierra
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
-  depends_on "gnu-sed" => :build
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
@@ -34,10 +31,6 @@ class Libsecret < Formula
     ]
 
     system "./configure", *args
-
-    # https://bugzilla.gnome.org/show_bug.cgi?id=734630
-    inreplace "Makefile", "sed", "gsed"
-
     system "make", "install"
   end
 

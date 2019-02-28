@@ -112,7 +112,7 @@ class AwsShell < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
     bin.install Dir[libexec/"bin/*"]
     env = {
-      :PATH => "#{libexec}/vendor/bin:$PATH",
+      :PATH       => "#{libexec}/vendor/bin:$PATH",
       :PYTHONPATH => ENV["PYTHONPATH"],
     }
     bin.env_script_all_files(libexec/"bin", env)

@@ -1,21 +1,21 @@
 class Afsctool < Formula
   desc "Utility for manipulating HFS+ compressed files"
   homepage "https://brkirch.wordpress.com/afsctool/"
-  url "https://bintray.com/homebrew/mirror/afsctool-1.6.4.zip"
+  url "https://dl.bintray.com/homebrew/mirror/afsctool-1.6.4.zip"
   mirror "https://docs.google.com/uc?export=download&id=0BwQlnXqL939ZQjBQNEhRQUo0aUk"
-  version "1.6.4"
   sha256 "bb6a84370526af6ec1cee2c1a7199134806e691d1093f4aef060df080cd3866d"
   revision 2
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "dae94371d947e9ddf0da4efd50425652753944da5f96c6aaa835b5ad1c361596" => :high_sierra
-    sha256 "ad17b0f173670e0e7909de0086dbfc8e3db2fef0a6a576875d199d6c14b8f212" => :sierra
-    sha256 "28e53f9426f88d7aaa41ef956a41aec8a68f5363d9e570a6be70e61e583e6b8f" => :el_capitan
+    rebuild 2
+    sha256 "15c264a828ed98a42cc5ac68869c16b8306f73effe108e50bb1f731574311c51" => :mojave
+    sha256 "72e92414d524b82ec1d8381ad50f55bd330f1109a5e10bca4235300fee557caf" => :high_sierra
+    sha256 "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee" => :sierra
   end
 
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
-  patch do
+  patch :p2 do
     url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.diff?full_index=1"
     sha256 "a541526679eb5d2471b3f257dab6103300d950f7b2f9d49bbfeb9f27dfc48542"
   end
@@ -23,14 +23,12 @@ class Afsctool < Formula
   # Fixes High Sierra "Expecting f_type of 17 or 23. f_type is 24" issue
   # Acknowledged by upstream 12 Apr 2018:
   # https://github.com/Homebrew/homebrew-core/pull/20898#issuecomment-380727547
-  patch :DATA
+  patch :p2, :DATA
 
   def install
-    cd "afsctool_34" do
-      system ENV.cc, ENV.cflags, "-lz", "afsctool.c",
-                     "-framework", "CoreServices", "-o", "afsctool"
-      bin.install "afsctool"
-    end
+    system ENV.cc, ENV.cflags, "-lz", "afsctool.c",
+                   "-framework", "CoreServices", "-o", "afsctool"
+    bin.install "afsctool"
   end
 
   test do

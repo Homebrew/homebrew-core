@@ -16,7 +16,7 @@ class Chezscheme < Formula
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     # Reported 20 Feb 2017 https://github.com/cisco/ChezScheme/issues/146
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == "10.11" && MacOS::Xcode.version >= "8.0"
       inreplace "c/stats.c" do |s|
         s.gsub! "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH"
         s.gsub! "CLOCK_PROCESS_CPUTIME_ID", "UNDEFINED_GIBBERISH"

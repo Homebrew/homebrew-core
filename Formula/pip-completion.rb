@@ -2,8 +2,8 @@ class PipCompletion < Formula
   desc "Bash completion for Pip"
   homepage "https://github.com/ekalinin/pip-bash-completion"
   url "https://github.com/ekalinin/pip-bash-completion.git",
-    :revision => "92faa3e4504428ea658a1e83e54caf08cdbb555a"
-  version "20150819"
+    :revision => "87983a927dc372b66952a6ef84ade70dd86450f9"
+  version "20161126"
   head "https://github.com/ekalinin/pip-bash-completion.git"
 
   bottle :unneeded

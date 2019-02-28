@@ -13,7 +13,6 @@ class Libghthash < Formula
     sha256 "e889f34ca4f1978869eff48334f1f55248628fbc586abdeb151fe017479d220e" => :el_capitan
     sha256 "0487e2e14b14ae288428c474fe9ce3e9baf814d4d73de8b0113ca9cc502ffd63" => :yosemite
     sha256 "207d07d59447e098c1987286324866ef8b26e0c4c191e4c1c0268ba8d95c5fac" => :mavericks
-    sha256 "67fa9f1cda39b827ecd318a9f08980e322be034f00f198c0b7c83c2cf9a3d6a8" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

@@ -1,8 +1,8 @@
 class OpenapiGenerator < Formula
   desc "Generate clients, server & docs from an OpenAPI spec (v2, v3)"
   homepage "https://openapi-generator.tech/"
-  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/3.3.2/openapi-generator-cli-3.3.2.jar"
-  sha256 "5097f9ca7e966d95bdeed644e4d8a7ae77034edb63091fc3d195763e5f69f9d6"
+  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/3.3.4/openapi-generator-cli-3.3.4.jar"
+  sha256 "24cb04939110cffcdd7062d2f50c6f61159dc3e0ca3b8aecbae6ade53ad3dc8c"
 
   head do
     url "https://github.com/OpenAPITools/openapi-generator.git"
@@ -21,10 +21,10 @@ class OpenapiGenerator < Formula
     if build.head?
       system "mvn", "clean", "package", "-Dmaven.javadoc.skip=true"
       libexec.install "modules/openapi-generator-cli/target/openapi-generator-cli.jar"
-      bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator"
+      bin.write_jar_script libexec/"openapi-generator-cli.jar", "openapi-generator", "$JAVA_OPTS"
     else
       libexec.install "openapi-generator-cli-#{version}.jar"
-      bin.write_jar_script libexec/"openapi-generator-cli-#{version}.jar", "openapi-generator"
+      bin.write_jar_script libexec/"openapi-generator-cli-#{version}.jar", "openapi-generator", "$JAVA_OPTS"
     end
   end
 

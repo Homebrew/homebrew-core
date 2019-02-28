@@ -1,14 +1,14 @@
 class CreateDmg < Formula
   desc "Shell script to build fancy DMGs"
   homepage "https://github.com/andreyvit/create-dmg"
-  url "https://github.com/andreyvit/create-dmg/archive/v1.0.0.4.tar.gz"
-  sha256 "4106eaccae7822db69870e6d36bad47d9d67e2fb690fbcb10ef488e3af061810"
+  url "https://github.com/andreyvit/create-dmg/archive/v1.0.0.5.tar.gz"
+  sha256 "de76c8a7a1f4705720d61d39de7c87b7bc2acc7c35f6ec8d6d2dbdafcedc21b6"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ac67784b7d07464213212fcccaa143fc680b2f4feb082d5f949c9557c1a5e118" => :mojave
-    sha256 "768037ca1bd0d6d6fa3191ab7bb50a0d8ceb07aa5e5a76ccd0333d32dd1e93f4" => :high_sierra
-    sha256 "768037ca1bd0d6d6fa3191ab7bb50a0d8ceb07aa5e5a76ccd0333d32dd1e93f4" => :sierra
+    sha256 "f79816fe786969d0c2bbf6c025d1616b04add290a20def2492f73295b36bc76c" => :mojave
+    sha256 "d99f697bf1d22dba54a87890b30f383bf4aec7ca5b54f180646041f9d046c243" => :high_sierra
+    sha256 "d99f697bf1d22dba54a87890b30f383bf4aec7ca5b54f180646041f9d046c243" => :sierra
   end
 
   def install

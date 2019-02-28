@@ -21,36 +21,22 @@ class Ttfautohint < Formula
     depends_on "pkg-config" => :build
   end
 
-  option "with-qt", "Build ttfautohintGUI also"
-
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "harfbuzz"
   depends_on "libpng"
-  depends_on "qt" => :optional
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --without-doc
-    ]
-
-    args << "--without-qt" if build.without? "qt"
-
     system "./bootstrap" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--without-doc",
+                          "--without-qt"
     system "make", "install"
   end
 
   test do
-    if build.with? "qt"
-      system "#{bin}/ttfautohintGUI", "-V"
-    else
-      system "#{bin}/ttfautohint", "-V"
-    end
+    system "#{bin}/ttfautohint", "-V"
   end
 end

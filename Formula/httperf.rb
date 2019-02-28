@@ -13,7 +13,6 @@ class Httperf < Formula
     sha256 "42d9ecb49274565dd969ceb5c2c9135caf1011a2f1636f22401a30189298613a" => :el_capitan
     sha256 "d23d569b210c93d798f319e01ddeb9cca1dd11e5c5330a0df0eef59497dbb12d" => :yosemite
     sha256 "e6a03dce9f3679d23449b9fed857324d570b8fb6b94a3d31b5e172253eaa99dd" => :mavericks
-    sha256 "e52a0a55a440ba301d8ca469a5a1ef3d6ec5e51fa8df0662674d25f3c9c96b77" => :mountain_lion
   end
 
   # Upstream actually recommend using head over stable now.

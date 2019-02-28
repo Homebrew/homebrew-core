@@ -1,15 +1,15 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.23.2.tar.gz"
-  sha256 "30af979c4f4b8d1b895ae6d115f7400c751542ccb9e656350fc89fda08d4eabd"
+  url "https://github.com/libuv/libuv/archive/v1.26.0.tar.gz"
+  sha256 "e414cf74615b7dae768f0f5667092f1d4975f5067c087bcbe0641e241ebe4693"
   head "https://github.com/libuv/libuv.git", :branch => "v1.x"
 
   bottle do
     cellar :any
-    sha256 "19ed34b82d30328c701ed5f2afc11891d57143bb44d6de7349a3195d700f66ec" => :mojave
-    sha256 "08024add9002d59139982c9d2c8ce8a0bf6bbbb3b9cd604850f4da964490dd30" => :high_sierra
-    sha256 "4c0eb3b89b786e290c6dbc2281c698d848554979cd6957ebe15513751cffcfc6" => :sierra
+    sha256 "03c85cc0bf74bbe423d69f54ceddb076d892da6f6124171d4afe332a2dd6f543" => :mojave
+    sha256 "73585642837684c0604a51714c9290dcebb7bddd71c9e909a0c6423f16a35b0d" => :high_sierra
+    sha256 "6d1e7a80887edb23fa0f02e3171fa7c6fbb46e22f07a2f20c59c79711e0042fb" => :sierra
   end
 
   depends_on "autoconf" => :build

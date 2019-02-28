@@ -3,26 +3,23 @@ class Sox < Formula
   homepage "https://sox.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2.tar.gz"
   sha256 "b45f598643ffbd8e363ff24d61166ccec4836fea6d3888881b8df53e3bb55f6c"
-  revision 1
+  revision 3
 
   bottle do
     cellar :any
-    sha256 "850cd95c4baea2d91467637582f120ab9eff066c7414847512ea9cf49ba218f1" => :mojave
-    sha256 "f1ba26233464499f58cc0cab34c5472d8b9e30a83cbc6e185b451a9476d560f4" => :high_sierra
-    sha256 "de9126013c1bbd7ec728197cc471231cf17c51e7620e995590b8a6ade6c07521" => :sierra
-    sha256 "f3b3ac24d351edb82fcd30119f13f6b86848c62b9130b6d20c8538e8b2b17d89" => :el_capitan
+    sha256 "4906207f83bd0f4ea1a67d040891711e9a9e8830216e451072f2957ca566b83d" => :mojave
+    sha256 "c0bb4ba7ec922d9a8c71c2ba84e28c66c67e4fdeae970011ea45e937f43c18bd" => :high_sierra
+    sha256 "dc8c294bb96c0b7ebc3ade73476c6031664bb8e81a32ece87ce84f815deeced5" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "lame"
   depends_on "libpng"
+  depends_on "libsndfile"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "libao" => :optional
-  depends_on "libsndfile" => :optional
-  depends_on "opencore-amr" => :optional
-  depends_on "opusfile" => :optional
+  depends_on "opusfile"
 
   def install
     system "./configure", "--disable-debug",

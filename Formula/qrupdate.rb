@@ -38,7 +38,8 @@ class Qrupdate < Formula
 
   test do
     system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
-                       "-L#{lib}", "-lqrupdate", "-lvecLibFort"
+                       "-L#{lib}", "-lqrupdate",
+                       "-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"
     assert_match "PASSED   4     FAILED   0", shell_output("./test")
   end
 end

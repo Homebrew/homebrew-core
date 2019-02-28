@@ -3,12 +3,13 @@ class GstPluginsUgly < Formula
   homepage "https://gstreamer.freedesktop.org/"
   url "https://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-1.14.4.tar.xz"
   sha256 "ac02d837f166c35ff6ce0738e281680d0b90052cfb1f0255dcf6aaca5f0f6d23"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "c4fc899a52bf7ec12b6865bc2f4c9c305c8c3008b9e9528b57df508661133bf8" => :mojave
-    sha256 "d5713e7f82c2e57bdb2a59599ce830213221b385088a0cb50e688f013eef80ab" => :high_sierra
-    sha256 "b762bf517f6fb89f2524224b0b20c51bab7c96762f7d28ad7692546382e2efc4" => :sierra
+    rebuild 1
+    sha256 "621b63833b6f427f43d10a23479633c41be26cea3b0c010e16edb8dac6952cdc" => :mojave
+    sha256 "84aa90609c55698ae1e4074c5b55a67d1a8f23f0ee1635bdbd3323a04c129804" => :high_sierra
+    sha256 "6c9a0035be9cfd26a24b6ec167ade6a2c5f7d5c9054dfec4703b1efdd79e669d" => :sierra
   end
 
   head do
@@ -32,44 +33,19 @@ class GstPluginsUgly < Formula
   depends_on "theora"
   depends_on "x264"
 
-  # The set of optional dependencies is based on the intersection of
-  # gst-plugins-ugly-0.10.17/REQUIREMENTS and Homebrew formulae
-  depends_on "a52dec" => :optional
-  depends_on "aalib" => :optional
-  depends_on "cdparanoia" => :optional
-  depends_on "dirac" => :optional
-  depends_on "gtk+" => :optional
-  depends_on "libcaca" => :optional
-  depends_on "libdvdread" => :optional
-  depends_on "libmpeg2" => :optional
-  depends_on "liboil" => :optional
-  depends_on "mad" => :optional
-  depends_on "opencore-amr" => :optional
-  depends_on "two-lame" => :optional
-  # Does not work with libcdio 0.9
-
   def install
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
       --disable-debug
       --disable-dependency-tracking
+      --disable-amrnb
+      --disable-amrwb
     ]
 
     if build.head?
       ENV["NOCONFIGURE"] = "yes"
       system "./autogen.sh"
-    end
-
-    if build.with? "opencore-amr"
-      # Fixes build error, missing includes.
-      # https://github.com/Homebrew/homebrew/issues/14078
-      nbcflags = `pkg-config --cflags opencore-amrnb`.chomp
-      wbcflags = `pkg-config --cflags opencore-amrwb`.chomp
-      ENV["AMRNB_CFLAGS"] = nbcflags + "-I#{HOMEBREW_PREFIX}/include/opencore-amrnb"
-      ENV["AMRWB_CFLAGS"] = wbcflags + "-I#{HOMEBREW_PREFIX}/include/opencore-amrwb"
-    else
-      args << "--disable-amrnb" << "--disable-amrwb"
     end
 
     system "./configure", *args

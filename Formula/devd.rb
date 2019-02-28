@@ -1,23 +1,22 @@
 class Devd < Formula
   desc "Local webserver for developers"
   homepage "https://github.com/cortesi/devd"
-  url "https://github.com/cortesi/devd/archive/v0.8.tar.gz"
-  sha256 "a73bd347f0d0f452be183e365492fb8bb86954b3cd837c9dfe256926bf7feb5b"
+  url "https://github.com/cortesi/devd/archive/v0.9.tar.gz"
+  sha256 "5aee062c49ffba1e596713c0c32d88340360744f57619f95809d01c59bff071f"
   head "https://github.com/cortesi/devd.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ef6dc8dbc417a9fb4fb8f243914fa56e3e3fadd67cb87d0c2b33c5ba214d77ef" => :mojave
-    sha256 "9878d5e45b60321b29c33fd638465341ef05fcd4debec02c3fafe8c1d7d7c3f7" => :high_sierra
-    sha256 "d2f4d38612065cc367a539aa19d8630c5e4650631eed767740313819d0556dbc" => :sierra
-    sha256 "d6ff3c9d3cc56571cba4ba8a6131ce124877d73275f9e0f41514fec1bfa8bed0" => :el_capitan
+    sha256 "14f2c29b4bd17afe84568daa6800e9500438c28b02b7bc83f2a76252bb79099b" => :mojave
+    sha256 "64faee99fcec04c2d603610f169900a1379bd5961be352745078c38dfc5cdb17" => :high_sierra
+    sha256 "3023d0d25dbca5e3790fbf42c6f093d8241970700bbb4d6ca7b516c23ff25d77" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["GOARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/cortesi/devd").install buildpath.children
     cd "src/github.com/cortesi/devd" do

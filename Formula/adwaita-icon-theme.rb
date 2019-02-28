@@ -1,15 +1,14 @@
 class AdwaitaIconTheme < Formula
   desc "Icons for the GNOME project"
   homepage "https://developer.gnome.org"
-  url "https://download.gnome.org/sources/adwaita-icon-theme/3.30/adwaita-icon-theme-3.30.0.tar.xz"
-  sha256 "9106729174a3e6cc183d14f74454987f5378b46f213e698a6ab2702f70e4e64b"
+  url "https://download.gnome.org/sources/adwaita-icon-theme/3.30/adwaita-icon-theme-3.30.1.tar.xz"
+  sha256 "6d752a2b1bc668483956d4485c39cad1642d9358e133ff689526e43674a4e1ce"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f83ab9e3d605ad4f8598f1321318a95120887481fdabd5ec0a543fb265c4fdf9" => :mojave
-    sha256 "15085020944f26d8572772fc1f28566e2f85b0bb81b99dd688a8200b2ef5c758" => :high_sierra
-    sha256 "15085020944f26d8572772fc1f28566e2f85b0bb81b99dd688a8200b2ef5c758" => :sierra
-    sha256 "15085020944f26d8572772fc1f28566e2f85b0bb81b99dd688a8200b2ef5c758" => :el_capitan
+    sha256 "50a30cbc9017985d9ca2ff7285a0da47563dd3be313ee6fd406c172305bf0d7c" => :mojave
+    sha256 "11a39582ae7f7e34f0d9d3557e01553d967546b6cbb6c9913799352437c0dbbe" => :high_sierra
+    sha256 "11a39582ae7f7e34f0d9d3557e01553d967546b6cbb6c9913799352437c0dbbe" => :sierra
   end
 
   depends_on "gettext" => :build

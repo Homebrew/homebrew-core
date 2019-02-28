@@ -5,7 +5,6 @@ class TerraformInventory < Formula
   homepage "https://github.com/adammck/terraform-inventory"
   url "https://github.com/adammck/terraform-inventory/archive/v0.6.1.tar.gz"
   sha256 "9cdcbc5ce4247b72bb72923d01246f51252a88908d760d766daeac51dd8feed9"
-  head "https://github.com/adammck/terraform-inventory.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -15,6 +14,20 @@ class TerraformInventory < Formula
     sha256 "d876b7acee1bfaaeaaf284bfd8518195b10005f7de504c8aaf39be3164b93dac" => :el_capitan
     sha256 "77b4cfd96088f6019ad5bd0f0faf6757d1fb8c34ea3b327490ff33fde03538c1" => :yosemite
     sha256 "19fed440ba3c95ef85fcd529f151131136fa684c9a091d17177ac8f74426e7d5" => :mavericks
+  end
+
+  head do
+    url "https://github.com/adammck/terraform-inventory.git"
+
+    go_resource "github.com/adammck/venv" do
+      url "https://github.com/adammck/venv.git",
+          :revision => "8a9c907a37d36a8f34fa1c5b81aaf80c2554a306"
+    end
+
+    go_resource "github.com/blang/vfs" do
+      url "https://github.com/blang/vfs.git",
+          :revision => "2c3e2278e174a74f31ff8bf6f47b43ecb358a870"
+    end
   end
 
   depends_on "go" => :build

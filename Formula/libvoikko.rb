@@ -21,8 +21,6 @@ class Libvoikko < Formula
     sha256 "71a823120a35ade6f20eaa7d00db27ec7355aa46a45a5b1a4a1f687a42134496"
   end
 
-  needs :cxx11
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

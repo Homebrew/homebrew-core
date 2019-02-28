@@ -13,7 +13,6 @@ class Nu < Formula
     sha256 "ba5bd173433144dbf6141cfced1c04f17f81c1cb014ea2f794090e6c5a5f8f4b" => :yosemite
   end
 
-  depends_on :macos => :lion
   depends_on "pcre"
 
   fails_with :gcc do

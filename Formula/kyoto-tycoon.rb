@@ -15,7 +15,7 @@ class KyotoTycoon < Formula
   depends_on "kyoto-cabinet"
   depends_on "lua"
 
-  patch :DATA if MacOS.version >= :mavericks
+  patch :DATA
 
   def install
     system "./configure", "--prefix=#{prefix}",

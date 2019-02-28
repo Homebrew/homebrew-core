@@ -1,8 +1,8 @@
 class GitRecent < Formula
   desc "See your latest local git branches, formatted real fancy"
   homepage "https://github.com/paulirish/git-recent"
-  url "https://github.com/paulirish/git-recent/archive/v1.0.4.tar.gz"
-  sha256 "5dcf4a6b4e947b9d9174be58223d14565ad4ddf00b2b00b5830eaa891a8ed868"
+  url "https://github.com/paulirish/git-recent/archive/v1.1.0.tar.gz"
+  sha256 "71c9b28a5d6e24803e1e6252390265739cfe583d224723da1f067b6d1cc2416b"
 
   bottle :unneeded
 

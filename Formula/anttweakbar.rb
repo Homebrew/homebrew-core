@@ -29,8 +29,7 @@ class Anttweakbar < Formula
     # namespace" and Xcode 8 issue on El Capitan "error: missing ',' between
     # enumerators"
     if DevelopmentTools.clang_build_version >= 900 ||
-       (MacOS.version == :el_capitan && MacOS::Xcode.installed? &&
-       MacOS::Xcode.version >= "8.0")
+       (MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0")
       ENV.delete("SDKROOT")
     end
 

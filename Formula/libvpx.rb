@@ -1,22 +1,18 @@
 class Libvpx < Formula
   desc "VP8/VP9 video codec"
   homepage "https://www.webmproject.org/code/"
-  url "https://github.com/webmproject/libvpx/archive/v1.7.0.tar.gz"
-  sha256 "1fec931eb5c94279ad219a5b6e0202358e94a93a90cfb1603578c326abfc1238"
+  url "https://github.com/webmproject/libvpx/archive/v1.8.0.tar.gz"
+  sha256 "86df18c694e1c06cc8f83d2d816e9270747a0ce6abe316e93a4f4095689373f6"
   head "https://chromium.googlesource.com/webm/libvpx", :using => :git
 
   bottle do
-    rebuild 1
-    sha256 "ea63d0340f8acb7222773e1c702caa60aa843cb7106a44880b9e49b258cc0724" => :mojave
-    sha256 "c908bf9b9438bee689162350cdf89e6a7ac612b556dfe557dd6cfee89ff043a8" => :high_sierra
-    sha256 "793fbaf38b905d1831c1264e37bd874e20d563cc4e93878b42ff42471db4679a" => :sierra
+    cellar :any_skip_relocation
+    sha256 "8acc007976c337e0ea107c07e984c7924516b1ce70fe7a862af480de0998cb96" => :mojave
+    sha256 "4afe71bb1bf3e449e9ed854f04fbed14338be71a2f60122c09f37da8faa9d1ef" => :high_sierra
+    sha256 "bc0817cc35d2437b579572842bcfdfb846a26a241986b801b86d5ec52bf2cf51" => :sierra
   end
 
   depends_on "yasm" => :build
-
-  # configure misdetects 32-bit 10.6
-  # https://code.google.com/p/webm/issues/detail?id=401
-  depends_on :macos => :lion
 
   def install
     args = %W[

@@ -2,15 +2,15 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag => "v1.3.2",
-      :revision => "6881d841a1a8374d696d79f156cbc462efe17984"
+      :tag      => "v1.3.4",
+      :revision => "6e4899c018a34a84593d6abace621cfa93a95d84"
   head "https://github.com/hashicorp/packer.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e6ea7c912bf76cc1e5bcc6043365c75f59a4fbc80df80f8e7f98faea5f237a15" => :mojave
-    sha256 "4d6422b0c1c3b52904967f2fc6a48e76002ad2bdd3d4370ae6a358ab8ec90c7f" => :high_sierra
-    sha256 "05bdc1a8ce1c79769ed156dffad8c40fe30c62a12f38108afafa145385cc2464" => :sierra
+    sha256 "0154f9a02e522198b3c984886b47c5debc68fbd10d8f8cf51229444fe39d54fa" => :mojave
+    sha256 "b4e5bf3d96465d0c096bacf9ce627082b778659664c405ee4a151ae5d5c796c5" => :high_sierra
+    sha256 "669cbb9b854bca1959713de76993e4fd8aa22b8348fd781ec3fa46dcc1c07c16" => :sierra
   end
 
   depends_on "go" => :build
@@ -19,7 +19,7 @@ class Packer < Formula
 
   def install
     ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
 
     packerpath = buildpath/"src/github.com/hashicorp/packer"

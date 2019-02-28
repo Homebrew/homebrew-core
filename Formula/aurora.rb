@@ -3,16 +3,14 @@ require "language/go"
 class Aurora < Formula
   desc "Beanstalkd queue server console"
   homepage "https://xuri.me/aurora"
-  url "https://github.com/xuri/aurora/archive/2.1.tar.gz"
-  sha256 "921f137e269c3abc4c352822cb73cc6edff69434d4685c8aabc24978e951e800"
+  url "https://github.com/xuri/aurora/archive/2.2.tar.gz"
+  sha256 "90ac08b7c960aa24ee0c8e60759e398ef205f5b48c2293dd81d9c2f17b24ca42"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "93366557dd7e5e34c081fc3c26630208b88339f36bf9e5d33f7bd634b5d6d39f" => :mojave
-    sha256 "64a70dcfd939245ccd64cee3f91c26374616eede20583e0a7e43314188d6e648" => :high_sierra
-    sha256 "d2af9495df0060035181a1991a9e29a8723336b312ac794e4b9a716cc38ce58e" => :sierra
-    sha256 "f0361aa58cf382e6daafb4cfd13dad45d398e4d6edff5cccd813efc165df199b" => :el_capitan
-    sha256 "150614c06c473e101d34f65f0e4114581df8d9808a3ec36df9425c9fd5246c4d" => :yosemite
+    sha256 "71f54ab698f0164d6e1c2385591969da6056130db87a83283623a630ecb41fb0" => :mojave
+    sha256 "8ed6f1aee6ea5c74e39dd26969c355df0c43651b5b16d6f49d45b00331696fb0" => :high_sierra
+    sha256 "4d59e71f583edb221cb1b85102612778fdc186cefbcdb4ff3df9619d7082eae1" => :sierra
   end
 
   depends_on "go" => :build
@@ -29,7 +27,7 @@ class Aurora < Formula
 
   go_resource "github.com/xuri/aurora" do
     url "https://github.com/xuri/aurora.git",
-        :revision => "ba6eea49d8e2ba665613b570b1532ac9fbfcfbbb"
+        :revision => "9e064410954b74d18192cbd5b5ed09ef68da3b8e"
   end
 
   def install
@@ -37,6 +35,7 @@ class Aurora < Formula
     Language::Go.stage_deps resources, buildpath/"src"
     (buildpath/"src/github.com/xuri").mkpath
     ln_s buildpath, "src/github.com/xuri/aurora"
+    rm buildpath/"go.mod"
     system "go", "build", "-o", bin/"aurora"
   end
 

@@ -27,32 +27,26 @@ class Libcaca < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "imlib2" => :optional
-  depends_on :x11 if build.with? "imlib2"
 
   def install
     system "./bootstrap" if build.head?
 
-    # Some people can't compile when Java is enabled. See:
-    # https://github.com/Homebrew/homebrew/issues/issue/2049
-
-    # Don't build csharp bindings
-    # Don't build ruby bindings; fails for adamv w/ Homebrew Ruby 1.9.2
-
     # Fix --destdir issue.
     #   ../.auto/py-compile: Missing argument to --destdir.
-    inreplace "python/Makefile.in", '$(am__py_compile) --destdir "$(DESTDIR)"', "$(am__py_compile) --destdir \"$(cacadir)\""
+    inreplace "python/Makefile.in",
+              '$(am__py_compile) --destdir "$(DESTDIR)"',
+              "$(am__py_compile) --destdir \"$(cacadir)\""
 
-    args = ["--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--disable-doc",
-            "--disable-slang",
-            "--disable-java",
-            "--disable-csharp",
-            "--disable-ruby"]
-
-    # fix missing x11 header check: https://github.com/Homebrew/homebrew/issues/28291
-    args << "--disable-x11" if build.without? "imlib2"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-doc
+      --disable-slang
+      --disable-java
+      --disable-csharp
+      --disable-ruby
+      --disable-x11
+    ]
 
     system "./configure", *args
     system "make"

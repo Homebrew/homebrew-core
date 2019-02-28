@@ -1,14 +1,13 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.32.tar.bz2"
-  sha256 "c345c5e73cc2332f8d50db84a2280abfb1d8f6d4f1858b9daa30404db44540ca"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.35.tar.bz2"
+  sha256 "cbd5ee62a8a8c88d48c158fff4fc9ead4132aacd1b4a56eb791f9f997d07e067"
 
   bottle do
-    sha256 "fba8de71f2dd273a65e13f4f840c664c448443f14a88e3532c74f89ffa5d997f" => :mojave
-    sha256 "2e6fd2335afa3af8ce25f337f80d38ba3447e5a054c729711e60b0d107b21bb7" => :high_sierra
-    sha256 "32b74e2a574575de2bdbd26e55732169702de45f872a35790e371aa1fe15d4b0" => :sierra
-    sha256 "5554d7a582da3a4e196bd688d083bf4fe385aab7754c6c7ebe0a033db29eed19" => :el_capitan
+    sha256 "1a96796605d2d7dc8a558848965a09678b13e50d52a971729bdf9a96b6f824c7" => :mojave
+    sha256 "168ef933ffd337d5a7ead3417b3bedec4e09982de3ed067f1b7302022c7fec00" => :high_sierra
+    sha256 "6566112d47fe7d6914158d530072d9feb1dae6262289ffb7eca4d16b54851d05" => :sierra
   end
 
   def install

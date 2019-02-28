@@ -1,26 +1,25 @@
 class Zim < Formula
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "http://zim-wiki.org/"
-  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.68.tar.gz"
-  sha256 "b0bb060d1daf697eb67b76367ce4252202830297792093fd60527b3662ed934b"
-  revision 1
+  url "https://github.com/jaap-karssenberg/zim-desktop-wiki/archive/0.69.tar.gz"
+  sha256 "48205c533f1df4d8b143d5bc5adc09a6cd979c53a5d6b504922d8ac28b57e532"
   head "https://github.com/jaap-karssenberg/zim-desktop-wiki.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c6e51863966a8dfb7a8cfc5d5b3b37d0de8b257ff0de0e5b9f9bd34f647bc88" => :mojave
-    sha256 "642d8fc5164980908585d73897eea6130ea6708e2859559e8d9f4df1b4392dee" => :high_sierra
-    sha256 "642d8fc5164980908585d73897eea6130ea6708e2859559e8d9f4df1b4392dee" => :sierra
-    sha256 "642d8fc5164980908585d73897eea6130ea6708e2859559e8d9f4df1b4392dee" => :el_capitan
+    rebuild 1
+    sha256 "7bfda6cf67fadbe225b2172db307035b6e9e4ac8aad27ea19d2034135e9b60d9" => :mojave
+    sha256 "fa9cebd29083953555ea47a23e75d27f6e110041475524f316f29c156067e502" => :high_sierra
+    sha256 "fa9cebd29083953555ea47a23e75d27f6e110041475524f316f29c156067e502" => :sierra
   end
 
   depends_on "pkg-config" => :build
+  depends_on "graphviz"
   depends_on "gtk+"
   depends_on "pygobject"
   depends_on "pygtk"
+  depends_on "pygtksourceview"
   depends_on "python@2"
-  depends_on "graphviz" => :optional
-  depends_on "pygtksourceview" => :optional
 
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/source/p/pyxdg/pyxdg-0.25.tar.gz"

@@ -12,7 +12,6 @@ class Libmusicbrainz < Formula
     sha256 "6a63410ca9eae84b263d7165d05701801f4e05de26a9e95a7396f95a602cedd7" => :el_capitan
     sha256 "0851c7889df9dc2971b60fe9fd8ad891afd8d5dae08877393e2f69e3cc33f589" => :yosemite
     sha256 "44fa04315d5bbda3e6b9e6ce20a6140c93d535d8c58e8816c574a7e6d4b90429" => :mavericks
-    sha256 "e187188a465f4464c2d294cf10e3058c4e3fdbe76c49a346b996f3c108e68ead" => :mountain_lion
   end
 
   depends_on "cmake" => :build

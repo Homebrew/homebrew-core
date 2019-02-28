@@ -19,8 +19,6 @@ class Opensaml < Formula
   depends_on "xml-security-c"
   depends_on "xml-tooling-c"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

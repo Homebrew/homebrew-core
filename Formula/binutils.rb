@@ -1,15 +1,14 @@
 class Binutils < Formula
-  desc "FSF/GNU ld, ar, readelf, etc. for native development"
+  desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.31.1.tar.gz"
-  sha256 "e88f8d36bd0a75d3765a4ad088d819e35f8d7ac6288049780e2fefcad18dde88"
-  revision 1
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.32.tar.gz"
+  sha256 "9b0d97b3d30df184d302bced12f976aa1e5fbf4b0be696cdebc6cca30411a46e"
 
   bottle do
-    sha256 "b4ed7c31d6738e2f084e801cb747f98cb63a4857ab5044c757ae361e3a68d32b" => :mojave
-    sha256 "35253f02238a83fcfc243a79b1fb445d6bec93b2a602789e063896d03f0012f5" => :high_sierra
-    sha256 "3fa0ed58f41b068c5c6e81e2ae99879f0f36f9588814f52be8806e09a3b7bca5" => :sierra
+    sha256 "101c47b5ba0dd14c33ae6252f0f732f2c9e3db9bb5bf03c880533b62e9f18dc2" => :mojave
+    sha256 "b82cf83f50a4822652022612c4f51052a56741e281ee509c8f18e1485b29cdaa" => :high_sierra
+    sha256 "7fabb9b6e95bbc156469a765189e153917adb9b8fbdc24a7662f42b4995ba825" => :sierra
   end
 
   keg_only :provided_by_macos,

@@ -1,30 +1,22 @@
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
-  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.8.24.tar.gz"
-  sha256 "454763dd00e95e774a907b26eb59b139cfc59e733692b3cfe37735486d6c4d1d"
+  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.8.25.tar.gz"
+  sha256 "37829256e102e967fe3d58613a036d9fb9b8f9658e20c23fa787eac0bfbb8a79"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
   bottle do
-    sha256 "12873d0d52af242cc27c7a97d11c0c67436f22aae1d30fb1ca8a7555bbde9f7c" => :mojave
-    sha256 "f547a7e7adb757772d85a1fdc7de5854191605e2d116c87948da982fb4e35194" => :high_sierra
-    sha256 "651713da404920c213be01e9495b7696e4183dfdc8cf5324d2152746d9b37013" => :sierra
-    sha256 "f4646cbfc24e57040d68e1de12d92bad49c91886fb3a4318a43f7f3d47ba460b" => :el_capitan
+    sha256 "0e237b881bfd86eaeb4aff21cc7c077e2951ad7388e9b2ab1a078f39acd4abac" => :mojave
+    sha256 "c6d60cf7da3fb2c3b9c92dc7a256ba531b134f05965d1fb7dca192f0233305cb" => :high_sierra
+    sha256 "2f710c6230a61223bdf0060ebf7808725b5779a1aaedb23e3344c3d996587afd" => :sierra
   end
-
-  option "with-qt", "Build GUI frontend"
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "qt" => :optional
-  depends_on "discount" if build.with? "qt"
 
   def install
-    tools = "kdb;"
-    tools << "qt-gui;" if build.with? "qt"
-
     mkdir "build" do
-      system "cmake", "..", "-DBINDINGS=cpp", "-DTOOLS=#{tools}",
+      system "cmake", "..", "-DBINDINGS=cpp", "-DTOOLS=kdb;",
                             "-DPLUGINS=NODEP", *std_cmake_args
       system "make", "install"
     end

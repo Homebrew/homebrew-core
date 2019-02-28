@@ -1,15 +1,15 @@
 class Configen < Formula
   desc "Configuration file code generator for use in Xcode projects"
   homepage "https://github.com/theappbusiness/ConfigGenerator"
-  url "https://github.com/theappbusiness/ConfigGenerator/archive/v1.0.1.tar.gz"
-  sha256 "ade2c4296643cbc0c21d989d4506eef9d797a0349300ff46590a6b47979cdf64"
+  url "https://github.com/theappbusiness/ConfigGenerator/archive/v1.0.3.tar.gz"
+  sha256 "aebf6f519b6b399c0cf2e1a5f27bf0fda0f68c71b336f432a4780479604cddcc"
   head "https://github.com/theappbusiness/ConfigGenerator.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c2145552f30acb850a59e1e3c6f3efc98bd05bd77ac3d3efeabdddf8123975ca" => :mojave
-    sha256 "46e883171ac5cf880ae7a8f58ece9d7d0e33d3d1d5ca3414626a4c067df5da6b" => :high_sierra
-    sha256 "3b445fd66dc371d20cd561f2ceb13b61c9814d02f759e458708cf5355077fb25" => :sierra
+    sha256 "6e24d78837317e8e116d9389d3fddc3eac12d4eab8ab35f7b34a7a187a68fbe0" => :mojave
+    sha256 "7c646347aa05959b8177bc2bb3e4353069e0c6e974c8c4b8720bb96ac02f047a" => :high_sierra
+    sha256 "5b131b852ac49d25f9d6d59880b3d92323ae918a9136d26e05506a8835613b2f" => :sierra
   end
 
   depends_on :xcode => ["9.0", :build]

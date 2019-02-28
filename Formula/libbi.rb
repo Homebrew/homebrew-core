@@ -1,16 +1,17 @@
 class Libbi < Formula
   desc "Bayesian state-space modelling on parallel computer hardware"
   homepage "https://libbi.org/"
-  url "https://github.com/libbi/LibBi/archive/1.4.2.tar.gz"
-  sha256 "17824f6b466777a02d6bc6bb4704749fb64ce56ec4468b936086bc9901b5bf78"
+  url "https://github.com/lawmurray/LibBi/archive/1.4.4.tar.gz"
+  sha256 "37bf4d3a9686000442494204972d09504f27a8a840174c0f116b0cf2ff7713fd"
   revision 2
-  head "https://github.com/libbi/LibBi.git"
+  head "https://github.com/lawmurray/LibBi.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f41e59dcedb80e736d51fcbd7046a969d7d673e343ce067a481abfcabd18a177" => :mojave
-    sha256 "f95535ce37790f404fd5942a3aa1422f4a6557e179b7395d159fdc05d0a0f155" => :high_sierra
-    sha256 "73a677ced1a8ba4b9f7783bfcb63c469118c341cc5ca5db994f085b953a154c0" => :sierra
+    rebuild 1
+    sha256 "3b70a3d6ce42a82bf68567425b0a9e839d623956ac9a495c4debefe0d127a5c5" => :mojave
+    sha256 "546c97c135b08d9a77a1a3b39bbc9ddab40b635cbcf5de226a5c5203a66c6427" => :high_sierra
+    sha256 "98ad35f8825b08c238df855a994b0cca86542a184c994cf51f86a60dad664261" => :sierra
   end
 
   depends_on "automake"
@@ -110,6 +111,7 @@ class Libbi < Formula
     resources.each do |r|
       r.stage do
         next if r.name == "thrust"
+
         # need to set TT_ACCEPT=y for Template library for non-interactive install
         perl_flags = "TT_ACCEPT=y" if r.name == "Template"
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", perl_flags
@@ -136,7 +138,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf"
+    system "#{bin}/libbi", "sample", "@test.conf", "--disable-openmp"
     assert_predicate testpath/"test.nc", :exist?
   end
 end

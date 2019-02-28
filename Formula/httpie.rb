@@ -3,34 +3,53 @@ class Httpie < Formula
 
   desc "User-friendly cURL replacement (command-line HTTP client)"
   homepage "https://httpie.org/"
-  url "https://files.pythonhosted.org/packages/28/93/4ebf2de4bc74bd517a27a600b2b23a5254a20f28e6e36fc876fd98f7a51b/httpie-0.9.9.tar.gz"
-  sha256 "f1202e6fa60367e2265284a53f35bfa5917119592c2ab08277efc7fffd744fcb"
-  revision 4
-  head "https://github.com/jkbrzt/httpie.git"
+  url "https://files.pythonhosted.org/packages/09/8d/581ef7bd9a09dc30b621638a4fa805a2073bbfb45fa06ed37f998f172419/httpie-1.0.2.tar.gz"
+  sha256 "fc676c85febdf3d80abc1ef6fa71ec3764d8b838806a7ae4e55e5e5aa014a2ab"
+  head "https://github.com/jakubroztocil/httpie.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e9db255e324dd63b66106ca62ed7e4e81f6634c624dec3ff49c293aba1072a6" => :mojave
-    sha256 "437504a11416284b17d3a801c267d0fd5e15416f38cff3abf7ed99b096b4828a" => :high_sierra
-    sha256 "10b25fc787076719b1f1f9c242c5e9d872ebd1c7a6d83e6f1af983a17cd8ca55" => :sierra
-    sha256 "1bd35480d1ef401bdad9c322e7c1624aefc9b5056530ab990e327d0bc397e4fb" => :el_capitan
+    rebuild 1
+    sha256 "4b93be77eb04fbdd3af064849b182520383676b7b03728d94f6867f250d2e35e" => :mojave
+    sha256 "b118744f58bc9ab50db597d31b1ea28cc51829e59c5f220ec3b36abc8851a64e" => :high_sierra
+    sha256 "0449f6b560979c637858cee06bc714465f2d8794633f363951ab445ec4680bac" => :sierra
   end
 
   depends_on "python"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
-    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
+    url "https://files.pythonhosted.org/packages/64/69/413708eaf3a64a6abb8972644e0f20891a55e621c6759e2c3f3891e05d63/Pygments-2.3.1.tar.gz"
+    sha256 "5ffada19f6203563680669ee7f53b64dabbeb100eb51b61996085e99c03b284a"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/d9/03/155b3e67fe35fe5b6f4227a8d9e96a14fda828b18199800d161bcefc1359/requests-2.12.3.tar.gz"
-    sha256 "de5d266953875e9647e37ef7bfe6ef1a46ff8ddfe61b5b3652edf7ea717ee2b2"
+    url "https://files.pythonhosted.org/packages/52/2c/514e4ac25da2b08ca5a464c50463682126385c4272c18193876e91f4bc38/requests-2.21.0.tar.gz"
+    sha256 "502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e"
+  end
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/55/54/3ce77783acba5979ce16674fc98b1920d00b01d337cfaaf5db22543505ed/certifi-2018.11.29.tar.gz"
+    sha256 "47f9c83ef4c0c621eaef743f133f09fa8a74a9b75f037e8624f83bd1b6626cb7"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/b1/53/37d82ab391393565f2f831b8eedbffd57db5a718216f82f1a8b4d381a1c1/urllib3-1.24.1.tar.gz"
+    sha256 "de9529817c93f27c8ccbfead6985011db27bd0ddfcdb2d86f3f663385c6a9c22"
+  end
+
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
+    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+  end
+
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
+    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
   resource "PySocks" do
-    url "https://files.pythonhosted.org/packages/fd/70/ba9982cedc9b3ed3c06934f1f46a609e0f23c7bfdf567c52a09f1296b8cb/PySocks-1.6.6.tar.gz"
-    sha256 "02419a225ff5dcfc3c9695ef8fc9b4d8cc99658e650c6d4718d4c8f451e63f41"
+    url "https://files.pythonhosted.org/packages/53/12/6bf1d764f128636cef7408e8156b7235b150ea31650d0260969215bb8e7d/PySocks-1.6.8.tar.gz"
+    sha256 "3fe52c55890a248676fd69dc9e3c4e811718b777834bcaab7a8125cf9deac672"
   end
 
   def install

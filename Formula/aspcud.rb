@@ -17,8 +17,6 @@ class Aspcud < Formula
   depends_on "re2c" => :build
   depends_on "clingo"
 
-  needs :cxx14
-
   def install
     args = std_cmake_args
     args << "-DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo"

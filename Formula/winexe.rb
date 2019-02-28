@@ -31,13 +31,11 @@ class Winexe < Formula
   patch :DATA
 
   def install
-    if MacOS.version >= :mavericks
-      ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
-      resource("Perl4::CoreLibs").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make"
-        system "make", "install"
-      end
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+    resource("Perl4::CoreLibs").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make"
+      system "make", "install"
     end
 
     cd "source4" do

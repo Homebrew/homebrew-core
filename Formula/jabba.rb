@@ -1,16 +1,15 @@
 class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
-  url "https://github.com/shyiko/jabba/archive/0.10.1.tar.gz"
-  sha256 "059d5f14a23eba8f3cedf047c99489173fe52fe9bda6484e4000afc9cb7dfb0a"
+  url "https://github.com/shyiko/jabba/archive/0.11.2.tar.gz"
+  sha256 "33874c81387f03fe1a27c64cb6fb585a458c1a2c1548b4b86694da5f81164355"
   head "https://github.com/shyiko/jabba.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7dde26490ae0f3d828c413bb2149abcf52f8c020cb0df33fb95b4bcf96842389" => :mojave
-    sha256 "9da8b51ef97517e7f9db495a650bb8b41a330130e3a989221d00bbb4a81d30b5" => :high_sierra
-    sha256 "e257449c7740e1fa33bd30f005804cda89b50a8df4401887eed3b4abcd98783d" => :sierra
-    sha256 "3a8fbb3a2ac28a91ad50c1391b9f637a8877d89acc2eeabaa0ec79eb6a2bda2b" => :el_capitan
+    sha256 "4214658f6ce8d3e2f364ba5859278e6f32ed1dee5afe9f692103dd0d430e3205" => :mojave
+    sha256 "fa50cc2c872c5e8241c986f1ee0237e549a51340d3896901076e5baee77ae6b7" => :high_sierra
+    sha256 "65736798d127fbad2f048dada9e46399454e784bc009e266be55a328ea526010" => :sierra
   end
 
   depends_on "glide" => :build
@@ -31,9 +30,9 @@ class Jabba < Formula
 
   test do
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-    system bin/"jabba", "install", "1.10"
-    jdk_path = Utils.popen_read("#{bin}/jabba which 1.10").strip
-    assert_match 'java version "10.0',
+    system bin/"jabba", "install", "1.11.0"
+    jdk_path = Utils.popen_read("#{bin}/jabba which 1.11.0").strip
+    assert_match 'java version "11.0',
                  shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
   end
 end

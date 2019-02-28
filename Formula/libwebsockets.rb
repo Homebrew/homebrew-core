@@ -1,31 +1,17 @@
 class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
-  revision 2
+  url "https://github.com/warmcat/libwebsockets/archive/v3.1.0.tar.gz"
+  sha256 "db948be74c78fc13f1f1a55e76707d7baae3a1c8f62b625f639e8f2736298324"
   head "https://github.com/warmcat/libwebsockets.git"
 
-  stable do
-    url "https://github.com/warmcat/libwebsockets/archive/v2.4.2.tar.gz"
-    sha256 "73012d7fcf428dedccc816e83a63a01462e27819d5537b8e0d0c7264bfacfad6"
-
-    # Fix compatibility with libuv 1.21.0.
-    # Not in the 3.0.0 release but should be safe to remove on >= 3.0.1.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/4d337833/libwebsockets/libwebsockets_libuv_1.21.0_compat.diff"
-      sha256 "d2ef574b7c356573fc4ade2b95f7717e1eac192d8e56748b03588c89b12fdabd"
-    end
-  end
-
   bottle do
-    cellar :any
-    sha256 "420509f7b0e0fa39784b097d74c1d03a3ef1497cca3969b9090011c09e14d3a9" => :mojave
-    sha256 "3f33d8419f44d82d4e926d35a13411991593708495d01bb3a7a6cdfcf7557f32" => :high_sierra
-    sha256 "4e57715db563c9b82a013f9c1adec77a7fb1801c2dc5c696c5269438447cbc9e" => :sierra
-    sha256 "9b031e7948664364f4ab3f31991bcd8d3f528f8c5f5d7ebda9a17b2f344497c7" => :el_capitan
+    sha256 "c3dee13c27c98c87853ec9d1cbd3db27473c3fee1b0870260dc6c47294dd95e4" => :mojave
+    sha256 "fce83552c866222ad1386145cdd9745b82efc0c0a97b89b9069b98928241e893" => :high_sierra
+    sha256 "a57218f16bde1f484648fd7893d99d3dafc5c0ade4902c7ce442019b9782dc66" => :sierra
   end
 
   depends_on "cmake" => :build
-  depends_on "libev"
   depends_on "libevent"
   depends_on "libuv"
   depends_on "openssl"
@@ -34,7 +20,6 @@ class Libwebsockets < Formula
     system "cmake", ".", *std_cmake_args,
                     "-DLWS_IPV6=ON",
                     "-DLWS_WITH_HTTP2=ON",
-                    "-DLWS_WITH_LIBEV=ON",
                     "-DLWS_WITH_LIBEVENT=ON",
                     "-DLWS_WITH_LIBUV=ON",
                     "-DLWS_WITH_PLUGINS=ON",

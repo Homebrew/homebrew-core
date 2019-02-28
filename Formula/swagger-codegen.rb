@@ -1,16 +1,15 @@
 class SwaggerCodegen < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.3.1.tar.gz"
-  sha256 "0f86c36a5961b0212f3f3b28650d6c6545b281ce1405411edee8505dfbb4073e"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v3.0.4.tar.gz"
+  sha256 "8a839a810a4e399a36ae8b5914c9aab449a9f9433ae4ae362c7fd2439309ca30"
   head "https://github.com/swagger-api/swagger-codegen.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "1a7bb5dfb68ce65cc8dee855f0bc7042124fcb928f563d76c238cc6e12b10297" => :mojave
-    sha256 "81b19c10e0cb6e02ae83ecd1a572f72e06ba78dfa8c086f061e81d50b88c3153" => :high_sierra
-    sha256 "b1796894e7d5ebed8e78ab6919c34c8cee32c7076d3b17e0f172cae9c08cfc87" => :sierra
-    sha256 "4bf5f529fad00809762b99a5fb93e52560f7509cdb7b074c2d02a5081f8bbbd5" => :el_capitan
+    sha256 "720f9f6534bec26070d6489630d2f3d973974f16e5407ed8b1f3d0a3b42c70b2" => :mojave
+    sha256 "a543f94a5e5a5313d24c2c59e1d1869ab678aed04deb476d6891da73d3654e0c" => :high_sierra
+    sha256 "94e8ec9840c0cefde5393bdcd8bf7c16fb288eb6208c78b32b08f565e35425e4" => :sierra
   end
 
   depends_on "maven" => :build
@@ -29,7 +28,7 @@ class SwaggerCodegen < Formula
   test do
     (testpath/"minimal.yaml").write <<~EOS
       ---
-      swagger: '2.0'
+      openapi: 3.0.0
       info:
         version: 0.0.0
         title: Simple API
@@ -40,6 +39,7 @@ class SwaggerCodegen < Formula
               200:
                 description: OK
     EOS
-    system "#{bin}/swagger-codegen", "generate", "-i", "minimal.yaml", "-l", "swagger"
+    system "#{bin}/swagger-codegen", "generate", "-i", "minimal.yaml", "-l", "html"
+    assert_includes File.read(testpath/"index.html"), "<h1>Simple API</h1>"
   end
 end

@@ -1,16 +1,15 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/6.2.2596.tar.gz"
-  sha256 "fce7ec22e66043fb59e4a3c369445ea8c57f2631a04b6a0015f19a7bc954567e"
+  url "https://github.com/KhronosGroup/glslang/archive/7.10.2984.tar.gz"
+  sha256 "d0afe88034577ecf06a825db1a5e8222d949a38d3b19c5ce002b90b66c403f67"
   head "https://github.com/KhronosGroup/glslang.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4e116b2ee03031de4d586f4c828284d4122640e8cf5a4650a1e58f4e8cfc2a89" => :mojave
-    sha256 "6c630e225baf6a7db411b206dd1de58fb8c71e58cd77ba399245fad3f451db76" => :high_sierra
-    sha256 "75d77271b5ad6ddbbe7579173eef4af2960610179897783bab4b9cb59573b56d" => :sierra
-    sha256 "23844f7700b35bd8fe85a1f1559a16250f5be8042ac89c77003a0e0082c08782" => :el_capitan
+    sha256 "7d244d25da149e9b3cd3a84d8a7ba1885dc59ea44968eb819ce7a0fe2ad94bc9" => :mojave
+    sha256 "92209d6ec593c1ce0faf4e9d50365e020ac3bc8fc27ab74d698623877c9edf7b" => :high_sierra
+    sha256 "ad520087b809004564b0b6f9e336856b5b68d6008db3b56e28da961ef9e9ee86" => :sierra
   end
 
   depends_on "cmake" => :build

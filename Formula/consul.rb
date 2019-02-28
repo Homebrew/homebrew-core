@@ -2,16 +2,16 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag => "v1.3.0",
-      :revision => "e8757838a49feeb682c7e6ad6b78694a78b2096b"
+      :tag      => "v1.4.2",
+      :revision => "c97c712e96e0e53308054d5e1180289fe02dce38"
   head "https://github.com/hashicorp/consul.git",
        :shallow => false
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "18dc2391601686f20676c9a9854742bb7c89e68938a3eef5dfd158ca975bc965" => :mojave
-    sha256 "d12d090366468728837d2ec1c545fe42f509beb69d56c2e9880e3817dd41181a" => :high_sierra
-    sha256 "323306f94f14ebdba020ac30f107dfb217055ca3cc53417453db97be0613000e" => :sierra
+    sha256 "be4070b81e97cb72ef9f330faf50038f88a9db7b7933ef031ff69d75db83f33d" => :mojave
+    sha256 "b3f6e8198d660cbca3e0df226fcefaf7e3997c2d76db346618f0628edb323897" => :high_sierra
+    sha256 "c09034d202dfb62957e2ee976cc8ffaeb832956c852dc7ae6c6eca293c4a63b3" => :sierra
   end
 
   depends_on "go" => :build
@@ -22,7 +22,7 @@ class Consul < Formula
     inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
 
     ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
+    ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/hashicorp/consul").install contents

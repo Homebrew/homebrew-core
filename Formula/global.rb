@@ -1,15 +1,14 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.2.tar.gz"
-  sha256 "43c64711301c2caf40dc56d7b91dd03d2b882a31fa31812bf20de0c8fb2e717f"
-  revision 2
+  url "https://ftp.gnu.org/gnu/global/global-6.6.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.3.tar.gz"
+  sha256 "cbee98ef6c1b064bc5b062d14a6d94dca67289e8374860817057db7688bc651c"
 
   bottle do
-    sha256 "fdfaa65482f1433005ca4f3e295c28f1c7b3aea22e89f43930e6c59c007b63ff" => :mojave
-    sha256 "c99b703c42d068d74c2671142edbf4edf977274f53f021e7986edc66b2556d95" => :high_sierra
-    sha256 "9ada0d7fadc16f38cc579cabe9ee0bac2bd7b5d51cf6eeb60d700cd6dc328d9b" => :sierra
+    sha256 "a7c38baeddffcd462c81d75f880a883e197256b942157e26850223b9cad2494b" => :mojave
+    sha256 "437111cf310d59b8834b4ed82455a88177ea53c23bf34eb92ffd31c40d77f62f" => :high_sierra
+    sha256 "1239020a37f617c1f128a54d2be7b25bbc328772113e77d9d0522f4d4e07a86a" => :sierra
   end
 
   head do

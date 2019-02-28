@@ -14,8 +14,6 @@ class Metashell < Formula
 
   depends_on "cmake" => :build
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

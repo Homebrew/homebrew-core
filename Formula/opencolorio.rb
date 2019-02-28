@@ -7,26 +7,20 @@ class Opencolorio < Formula
 
   bottle do
     cellar :any
-    sha256 "4058e3194f1d1667165af7af8592ac008768a82a7aea905a01db468daf83ccac" => :mojave
-    sha256 "4025f926a9061c72ebbecf1b5bbcb23d27c0ba6d8e2f578deb4cea45c60f409c" => :high_sierra
-    sha256 "18bf9288a4103a8f57f1869a884d3d1b697305e952eb977bd46f608d7d0695b3" => :sierra
-    sha256 "9eac0c648be323730035b3885b376db665408f02290efa9dd1263655029a914f" => :el_capitan
+    rebuild 1
+    sha256 "32fcad955accfc44df863e8ac4cbaba9e5f50efc49647c697d80bd8fcac8d598" => :mojave
+    sha256 "d4fa4ba36acdb1b7de46d55f41d4882409178819fbcf090a01e500db417c07b4" => :high_sierra
+    sha256 "81c5011ac096c99112229d1ca5a905dda9340dc0612ac45d412fc92d0213fda3" => :sierra
   end
-
-  deprecated_option "with-python" => "with-python@2"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "little-cms2"
-  depends_on "python@2" => :optional
+  depends_on "python@2"
 
   def install
     args = std_cmake_args
     args << "-DCMAKE_VERBOSE_MAKEFILE=OFF"
-
-    # OCIO's PyOpenColorIO.so doubles as a shared library. So it lives in lib, rather
-    # than the usual HOMEBREW_PREFIX/lib/python2.7/site-packages per developer choice.
-    args << "-DOCIO_BUILD_PYGLUE=OFF" if build.without? "python@2"
 
     mkdir "macbuild" do
       system "cmake", *args, ".."
@@ -39,17 +33,14 @@ class Opencolorio < Formula
     <<~EOS
       OpenColorIO requires several environment variables to be set.
       You can source the following script in your shell-startup to do that:
-
-          #{HOMEBREW_PREFIX}/share/ocio/setup_ocio.sh
+        #{HOMEBREW_PREFIX}/share/ocio/setup_ocio.sh
 
       Alternatively the documentation describes what env-variables need set:
-
-          http://opencolorio.org/installation.html#environment-variables
+        http://opencolorio.org/installation.html#environment-variables
 
       You will require a config for OCIO to be useful. Sample configuration files
       and reference images can be found at:
-
-          http://opencolorio.org/downloads.html
+        http://opencolorio.org/downloads.html
     EOS
   end
 

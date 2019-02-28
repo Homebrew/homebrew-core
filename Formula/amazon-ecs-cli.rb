@@ -1,14 +1,14 @@
 class AmazonEcsCli < Formula
   desc "CLI for Amazon ECS to manage clusters and tasks for development"
   homepage "https://aws.amazon.com/ecs"
-  url "https://github.com/aws/amazon-ecs-cli/archive/v1.10.0.tar.gz"
-  sha256 "16599fa6d18223f56922d342cbee7f9ebc33398158ef8e9896417195464d5416"
+  url "https://github.com/aws/amazon-ecs-cli/archive/v1.12.1.tar.gz"
+  sha256 "ee04b8442353a01d2ce2e5107f8e996b5c90d3a873aae89f33d0aebe1fc48adf"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "7e6f3fd11a8836ba05a24097bb376ef836c1ad2c674750ebceaa8244105a2292" => :mojave
-    sha256 "e03f1a39dc0a8aa36620c58c4762fdce338c5e30bd174652b370e7a53d6900ab" => :high_sierra
-    sha256 "9e43c9af76e7957391feee843ed6534cd477387ac01a9fcb8c6f4daa047595c6" => :sierra
+    sha256 "4544f0ad6675d3bf7b1ec1c0f94c0f3e3728346a8ae4a2ed806b7c47b703c05e" => :mojave
+    sha256 "86241125a9d774a945545140022d9259160edd6f34cb24f0b05af392d3c0052d" => :high_sierra
+    sha256 "25eaba806f9d118cf1e5e1f0df4a4f63c605072c15597976467565f65b4c790d" => :sierra
   end
 
   depends_on "go" => :build

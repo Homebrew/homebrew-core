@@ -1,54 +1,34 @@
 class Libgxps < Formula
   desc "GObject based library for handling and rendering XPS documents"
   homepage "https://wiki.gnome.org/Projects/libgxps"
-  url "https://download.gnome.org/sources/libgxps/0.2/libgxps-0.2.5.tar.xz"
-  sha256 "3e7594c5c9b077171ec9ccd3ff2b4f4c4b29884d26d4f35e740c8887b40199a0"
-  revision 2
+  url "https://download.gnome.org/sources/libgxps/0.3/libgxps-0.3.1.tar.xz"
+  sha256 "1a939fc8fcea9471b7eca46b1ac90cff89a30d26f65c7c9a375a4bf91223fa94"
 
   bottle do
-    cellar :any
-    sha256 "b1980e4de0e2d17d0232472ba8d1591d81196514461d89ea1b32a20d469ad4ad" => :mojave
-    sha256 "c3e944367cacd85f4a7d2baa0c2d6174d80b586591b9664ef4b36f758ae597f9" => :high_sierra
-    sha256 "4cfffe7346052e0b1e58d90c121a3f5019a5dbc84ba615f2b61d12489b6f83a6" => :sierra
-    sha256 "98487c22daa05bf49ae4975759c71f568b574a55f96cdbdd9834c4d05293155c" => :el_capitan
-    sha256 "234ce5d81d10db1eac54601306fb9889a549559c4e2a87e972782971103ae399" => :yosemite
+    sha256 "f2a0b5d1e9d85ad84ab041381c3c0bdd8f6f98d2be8586cdf48958e4a85aab27" => :mojave
+    sha256 "ef0b670a2dcbbbc2e42e6dd9ada96353fad1d039c42d8a41ef5271b8370bdd25" => :high_sierra
+    sha256 "949980a659fa2c301992af86c54a91e47a9721e372348bb1e5b49891d55b5285" => :sierra
   end
 
   head do
-    url "https://github.com/GNOME/libgxps.git"
-
-    depends_on "gnome-common" => :build
-    depends_on "gtk-doc" => :build
-    depends_on "libtool" => :build
+    url "https://gitlab.gnome.org/GNOME/libgxps.git"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson-internal" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "cairo"
-  depends_on "freetype"
-  depends_on "jpeg"
+  depends_on "glib"
+  depends_on "gtk+3"
   depends_on "libarchive"
-  depends_on "libpng"
-  depends_on "libtiff"
   depends_on "little-cms2"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-man
-    ]
-
-    if build.head?
-      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-    system "make", "install"
   end
 
   test do
