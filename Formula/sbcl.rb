@@ -5,9 +5,9 @@ class Sbcl < Formula
   sha256 "1ff98f17f6ba40c0d987efc907161f729cc9bd8516fe1f28e124626c16418ca8"
 
   bottle do
-    sha256 "31066966985cbccd5d0590c42f5ce64fafda3651c48f858f0c8e2d743b61a132" => :mojave
-    sha256 "14502b4f8e3e8ddd092a224e02ee5f861426bbe565a70ae6d7adcb34f024dac1" => :high_sierra
-    sha256 "c134554d9cd9890861133cc4605c88007d0bcffa881ca8900d81710e86261533" => :sierra
+    sha256 "7a8ae3dbed9595ae14b4008abd1fc78e5edb319f8030f8c7de14a2bb37c01cbb" => :mojave
+    sha256 "fcd581866af74e6e6f1241ebf2145570e6e490cd14b49c093736840d6cade3a6" => :high_sierra
+    sha256 "4d94d79ee3d651c9b77201adc765061d4c62df6552540421a283bc672afd1e35" => :sierra
   end
 
   # Current binary versions are listed at https://sbcl.sourceforge.io/platform-table.html
