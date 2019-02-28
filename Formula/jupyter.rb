@@ -283,6 +283,12 @@ class Jupyter < Formula
 
     # remove bundled kernel
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
+
+    # install completion
+    resource("jupyter_core").stage do
+      bash_completion.install "examples/jupyter-completion.bash" => "jupyter"
+      zsh_completion.install "examples/completions-zsh" => "_jupyter"
+    end
   end
 
   def caveats; <<~EOS
@@ -314,5 +320,8 @@ class Jupyter < Formula
     EOS
     system bin/"jupyter-nbconvert", "nbconvert.ipynb"
     assert_predicate testpath/"nbconvert.html", :exist?, "Failed to export HTML"
+
+    assert_match "-F _jupyter",
+      shell_output("source #{bash_completion}/jupyter && complete -p jupyter")
   end
 end
