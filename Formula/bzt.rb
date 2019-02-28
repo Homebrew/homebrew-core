@@ -2,7 +2,7 @@ class Bzt < Formula
   include Language::Python::Virtualenv
 
   desc "BlazeMeter Taurus"
-  homepage "http://gettaurus.org"
+  homepage "https://gettaurus.org/"
   url "https://files.pythonhosted.org/packages/source/b/bzt/bzt-1.13.3.tar.gz"
   sha256 "14bb9af81b725ae84c9f211ccae3e7d39911fefb11ccdec5c144a83852384f76"
   head "https://github.com/Blazemeter/taurus.git"
@@ -244,7 +244,7 @@ class Bzt < Formula
   end
 
   test do
-    cmd = "#{bin}/bzt -o execution.executor=nose -o execution.iterations=1 -o execution.scenario.requests.0=http://gettaurus.org/"
+    cmd = "#{bin}/bzt -o execution.executor=nose -o execution.iterations=1 -o execution.scenario.requests.0=https://gettaurus.org/"
     assert_match "INFO: Samples count: 1, 0.00% failures", shell_output(cmd)
   end
 end
