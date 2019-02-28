@@ -4,7 +4,7 @@ class Hledger < Formula
   include Language::Haskell::Cabal
 
   desc "Command-line accounting tool"
-  homepage "http://hledger.org"
+  homepage "https://hledger.org/"
   url "https://hackage.haskell.org/package/hledger-1.13.2/hledger-1.13.2.tar.gz"
   sha256 "9b57e78c9c51f06c0fbc8dd499baad8fe2f323635c95159f55b041ebe12fbc37"
 
