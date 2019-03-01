@@ -1,8 +1,8 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.17.tar.gz"
-  sha256 "a4303eca6e7ed2aabe23638a2f2eb61b0786911e6ddb5153500b3d1ffe7af252"
+  url "https://github.com/bettercap/bettercap/archive/v2.18.tar.gz"
+  sha256 "fa7192ce330a4c6f7e37974a26826f61be4407d1ee8994f5d732cfed4dab5b74"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,6 +13,8 @@ class Bettercap < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libusb"
 
   def install
     ENV["GOPATH"] = buildpath
