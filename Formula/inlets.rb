@@ -14,10 +14,7 @@ class Inlets < Formula
     cd "src/github.com/alexellis/inlets" do
       commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-ldflags",
-             "-s",
-             "-w",
-             "-X main.GitCommit=#{commit}",
-             "-X main.Version=#{version}",
+             "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}",
              "-a",
              "-installsuffix", "cgo", "-o", bin/"inlets"
       prefix.install_metafiles
