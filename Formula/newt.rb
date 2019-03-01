@@ -20,6 +20,8 @@ class Newt < Formula
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
 
+    inreplace "configure", "ls /usr/include/python*/Python.h", "find /System/Library/Frameworks/Python.framework/Versions/ -name 'Python.h'"
+
     inreplace "Makefile.in" do |s|
       # name libraries correctly
       # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
