@@ -1,8 +1,8 @@
 class CassandraAT21 < Formula
   desc "Distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/2.1.20/apache-cassandra-2.1.20-bin.tar.gz"
-  sha256 "ca50ffae388a2d6b363b5400217cd8ce1800d7ce40e920b3b77de8f124516746"
+  url "https://archive.apache.org/dist/cassandra/2.1.21/apache-cassandra-2.1.21-bin.tar.gz"
+  sha256 "992080ce42bb90173b1a910edffadc7f917b5a6e598db5154ff32ae8e2d00ad3"
 
   bottle do
     cellar :any_skip_relocation
