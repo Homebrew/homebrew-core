@@ -1,8 +1,8 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.26.0.tar.gz"
-  sha256 "e65631dbf5418abd465cbd5912794feb61c0db9b76b916b39772ad2f623ad16e"
+  url "https://github.com/ponylang/ponyc/archive/0.27.0.tar.gz"
+  sha256 "52afc7b2fa03e97b1e6535ccf78c2811df15fe8e37247f32c4b8cabd1b638448"
   head "https://github.com/ponylang/ponyc.git"
 
   bottle do
@@ -22,13 +22,13 @@ class Ponyc < Formula
   end
 
   depends_on "libressl"
-  depends_on "llvm@3.9"
+  depends_on "llvm"
   depends_on :macos => :yosemite
   depends_on "pcre2"
 
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"] = "#{Formula["llvm@3.9"].opt_bin}/llvm-config"
+    ENV["LLVM_CONFIG"] = "#{Formula["llvm"].opt_bin}/llvm-config"
     system "make", "install", "verbose=1", "config=release",
            "ponydir=#{prefix}", "prefix="
   end
