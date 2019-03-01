@@ -15,7 +15,6 @@ class DockerMachineDriverVultr < Formula
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
   depends_on "docker-machine"
 
   def install
