@@ -11,7 +11,6 @@ class Pilosa < Formula
     sha256 "ae71b47cc9f21ffbfd250cd40dcad8f312200dfa44852e54b9b517778d1e2de2" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
