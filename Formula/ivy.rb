@@ -1,8 +1,8 @@
 class Ivy < Formula
   desc "Agile dependency manager"
   homepage "https://ant.apache.org/ivy/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
-  sha256 "7a3d13a80b69d71608191463dfc2a74fff8ef638ce0208e70d54d28ba9785ee9"
+  url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.5.0-rc1/apache-ivy-2.5.0-rc1-bin.tar.gz"
+  sha256 "7fe2a21c5208c8db23698eb06bd5c681e7c0f208d96879df2317e94262931362"
 
   bottle :unneeded
 
