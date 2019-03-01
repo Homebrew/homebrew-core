@@ -8,17 +8,18 @@ class Inlets < Formula
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/alexellis/inlets").install buildpath.children
     cd "src/github.com/alexellis/inlets" do
-      project = "github.com/alexellis/inlets"
       commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
       system "go", "build", "-ldflags",
-             "-s -w -X main.GitCommit=#{commit} -X main.Version=#{version}", "-a",
+             "-s",
+             "-w",
+             "-X main.GitCommit=#{commit}",
+             "-X main.Version=#{version}",
+             "-a",
              "-installsuffix", "cgo", "-o", bin/"inlets"
-
       prefix.install_metafiles
     end
   end
@@ -32,6 +33,5 @@ class Inlets < Formula
       assert_match /\s#{version}$/, inlets_version
     end
   end
-
 end
 
