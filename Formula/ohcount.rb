@@ -13,6 +13,7 @@ class Ohcount < Formula
     sha256 "2227295bd7e77ef3881186a3835718e8018738f8b443314ec16c2c7a5ceadea8" => :el_capitan
   end
 
+  depends_on "gperf" => :build
   depends_on "libmagic"
   depends_on "pcre"
   depends_on "ragel"
