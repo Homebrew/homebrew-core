@@ -1,8 +1,8 @@
 class Ohcount < Formula
   desc "Source code line counter"
   homepage "https://github.com/blackducksw/ohcount"
-  url "https://github.com/blackducksw/ohcount/archive/v3.1.1.tar.gz"
-  sha256 "4be27e54ac0fb5016fe2f09c2f54ec0139e67d9e2d9ee2e8569f8dfb4e56f59f"
+  url "https://github.com/blackducksoftware/ohcount/archive/4.0.0.tar.gz"
+  sha256 "d71f69fd025f5bae58040988108f0d8d84f7204edda1247013cae555bfdae1b9"
   head "https://github.com/blackducksw/ohcount.git"
 
   bottle do
