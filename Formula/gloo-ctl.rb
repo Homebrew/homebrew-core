@@ -27,5 +27,9 @@ class GlooCtl < Formula
 
     version_output = shell_output("#{bin}/glooctl --version 2>&1")
     assert_match "glooctl version 0.8.3", version_output
+
+    # Should error out as it needs access to a Kubernetes cluster to operate correctly
+    status_output = shell_output("#{bin}/glooctl get proxy 2>&1", 1)
+    assert_match /failed to create proxy client/, status_output
   end
 end
