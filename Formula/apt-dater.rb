@@ -6,9 +6,10 @@ class AptDater < Formula
   version_scheme 1
 
   bottle do
-    sha256 "4f78cd39056de845ee6d6b98ecb5f2466cb6b143a862caa9d31612058e4ad15b" => :mojave
-    sha256 "4f93025106f9d8d800a2b894a3a8c06146838396d3059f345ee07a75b966ca78" => :high_sierra
-    sha256 "86cd9b4621f247fa65ccc760f9090e997450d9ad618c5140a9abf4eb0f8e1c6b" => :sierra
+    rebuild 1
+    sha256 "c0511a22aa94d42d26e1d314e13f87375bf57d4fbe1fb8ca3532ab250e751d4d" => :mojave
+    sha256 "b8766c0ad1bf2a0fbb50a9bf062c53aacb98855307732e9df866651f13be3aa9" => :high_sierra
+    sha256 "7c90d33ef6d7c577506997b998fa286f9f54fb0acf47a3590e653fcecc840a14" => :sierra
   end
 
   depends_on "autoconf" => :build
