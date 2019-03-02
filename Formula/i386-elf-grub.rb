@@ -4,6 +4,12 @@ class I386ElfGrub < Formula
   url "https://ftp.gnu.org/gnu/grub/grub-2.02.tar.xz"
   sha256 "810b3798d316394f94096ec2797909dbf23c858e48f7b3830826b8daa06b7b0f"
 
+  bottle do
+    sha256 "e83a6a8d1db4953ef70948e357b46570cddfb4158e82428faa0824946a539be0" => :mojave
+    sha256 "1f8657576755199211411b28e9c8ccba6cdb51fa02ab63479a33561c9e26d195" => :high_sierra
+    sha256 "9bbce3ac0fc16ed8bcdd1e57190483eb70d81e308d8d4e95733b81bef62319ba" => :sierra
+  end
+
   depends_on "i386-elf-binutils" => :build
   depends_on "i386-elf-gcc" => :build
 
