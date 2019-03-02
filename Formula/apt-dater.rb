@@ -23,7 +23,10 @@ class AptDater < Formula
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "AM_LDFLAGS=", "install"
+    system "make", "install"
+    # Global config overrides local config, so delete global config to prioritize the
+    # config in $HOME/.config/apt-dater
+    (prefix/"etc").rmtree
   end
 
   test do
