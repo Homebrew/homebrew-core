@@ -3,8 +3,8 @@ require "language/node"
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://cli.angular.io/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-7.3.3.tgz"
-  sha256 "08cba4d3fa1aff10450ae7d3542b5e517c8dec6f4e941448a1b4ebb92baff727"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-7.3.4.tgz"
+  sha256 "96c4f0f9a2741f03a6f405e20241e4d9c15d87d9069287d4897358b3f7e986e6"
 
   bottle do
     sha256 "9bd319a660fd6ca8f3facc3c5f6e098ae380b51055899f3282c21b3fe53478a5" => :mojave
