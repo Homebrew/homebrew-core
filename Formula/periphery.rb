@@ -3,7 +3,6 @@ class Periphery < Formula
   homepage "https://github.com/peripheryapp/periphery"
   url "https://github.com/peripheryapp/periphery/archive/1.4.0.tar.gz"
   sha256 "a47920cde9584547d46c8b1b9207ba06577ecb2cb25b21dceaeb5cad8d55a82d"
-  head "https://github.com/peripheryapp/periphery.git"
 
   bottle do
   end
