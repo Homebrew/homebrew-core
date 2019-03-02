@@ -14,9 +14,8 @@ class GlooCtl < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      # Make binary
       system "dep", "ensure", "-vendor-only"
-      system "make", "glooctl", "TAGGED_VERSION=v0.8.3", "RELEASE=false"
+      system "make", "glooctl", "TAGGED_VERSION=v#{version}", "RELEASE=false"
       bin.install "_output/glooctl"
     end
   end
@@ -26,7 +25,7 @@ class GlooCtl < Formula
     assert_match "glooctl is the unified CLI for Gloo.", run_output
 
     version_output = shell_output("#{bin}/glooctl --version 2>&1")
-    assert_match "glooctl version 0.8.3", version_output
+    assert_match "glooctl version #{version}", version_output
 
     # Should error out as it needs access to a Kubernetes cluster to operate correctly
     status_output = shell_output("#{bin}/glooctl get proxy 2>&1", 1)
