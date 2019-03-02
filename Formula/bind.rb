@@ -1,9 +1,8 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.12.3-P4/bind-9.12.3-P4.tar.gz"
-  version "9.12.3-P4"
-  sha256 "d1014453c62623e42323fd83fc89444c12ae6b707fd586466959a052fe21f206"
+  url "https://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz"
+  sha256 "81bf24b2b86f7288ccf727aff59f1d752cc3e9de30a7480d24d67736256a0d53"
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
@@ -14,8 +13,22 @@ class Bind < Formula
 
   depends_on "json-c"
   depends_on "openssl"
+  depends_on "python"
+
+  resource "ply" do
+    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
+    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
+  end
 
   def install
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
     # Fix "configure: error: xml2-config returns badness"
     if MacOS.version == :sierra || MacOS.version == :el_capitan
       ENV["SDKROOT"] = MacOS.sdk_path
