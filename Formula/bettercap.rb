@@ -13,6 +13,8 @@ class Bettercap < Formula
 
   depends_on "dep" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libusb"
 
   def install
     ENV["GOPATH"] = buildpath
