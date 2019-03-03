@@ -1,8 +1,9 @@
 class V2rayPlugin < Formula
   desc "SIP003 plugin based on v2ray for shadowsocks"
   homepage "https://github.com/shadowsocks/v2ray-plugin"
-  url "https://github.com/shadowsocks/v2ray-plugin/archive/v1.0.tar.gz"
-  sha256 "5320eff71d99edcfa1e5e883debb42c50ccdebc2b43eb30c6c1b16baa632cda2"
+  url "https://github.com/shadowsocks/v2ray-plugin/archive/v1.1.0.tar.gz"
+  sha256 "87e708f54f46bf5c29ea257303037f1c22b4b5750bc5ef94e9d4630a4ba3df1a"
+  head "https://github.com/shadowsocks/v2ray-plugin.git"
 
   bottle do
     cellar :any_skip_relocation
