@@ -3,7 +3,7 @@ class Supersonic < Formula
   homepage "https://code.google.com/archive/p/supersonic/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/supersonic/supersonic-0.9.4.tar.gz"
   sha256 "1592dfd2dc73f0b97298e0d25e51528dc9a94e9e7f4ab525569f63db0442d769"
-  revision 9
+  revision 10
 
   bottle do
     cellar :any
@@ -17,7 +17,7 @@ class Supersonic < Formula
   depends_on "boost"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "protobuf"
+  depends_on "protobuf@3.1"
 
   def install
     ENV.cxx11
@@ -107,7 +107,8 @@ class Supersonic < Formula
     EOS
     system ENV.cxx, "test.cpp", "-std=c++1y", "-stdlib=libc++", "-L#{lib}", "-lsupersonic",
                     "-L#{Formula["glog"].opt_lib}", "-lglog",
-                    "-L#{Formula["protobuf"].opt_lib}", "-lprotobuf",
+                    "-I#{Formula["protobuf@3.1"].opt_include}",
+                    "-L#{Formula["protobuf@3.1"].opt_lib}", "-lprotobuf",
                     "-L#{Formula["boost"].opt_lib}", "-lboost_system", "-o", "test"
     system "./test"
   end
