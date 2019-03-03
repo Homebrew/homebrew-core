@@ -1,8 +1,8 @@
 class Lzlib < Formula
   desc "Data compression library"
   homepage "https://www.nongnu.org/lzip/lzlib.html"
-  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.10.tar.gz"
-  sha256 "1d6ab7800a5b43e56fd20607fd2cfda9e550350dc95f5beb6a4ce14f85b41043"
+  url "https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.11.tar.gz"
+  sha256 "6c5c5f8759d1ab7c4c3c53788ea2d9daad04aeddcf338226893f8ff134914d36"
 
   bottle do
     cellar :any_skip_relocation
