@@ -6,10 +6,9 @@ class Lzlib < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3639281cb395e26811025ffdf00cd566eacd79ad757b3673ee6d2774f8f25c2e" => :mojave
-    sha256 "1b9d3e525a8823275e39404117fcd0f28fe2279db0856811d84e3ea49ed08a55" => :high_sierra
-    sha256 "8cac78b70d001bdda26c268c42022482af48ba6ffae0231a1f404827336b208a" => :sierra
-    sha256 "73730cde2726e217793b2724e2e15ec1b0e21d10eccd769706010a56c379a6d3" => :el_capitan
+    sha256 "3c28dea3721b03227d660c7c453673d3cb40f00f41e2e4ba3f163a7171926da0" => :mojave
+    sha256 "a49b8dfcf257d31c46841a733f1925020dd49493554d049a479467e602e3e796" => :high_sierra
+    sha256 "3c6df94a873fc2268478e10c23d1aa631c6b29e1afff38de63e2839ad0f1968c" => :sierra
   end
 
   def install
