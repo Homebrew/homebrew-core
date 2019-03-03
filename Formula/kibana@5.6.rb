@@ -4,8 +4,8 @@ class KibanaAT56 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v5.6.14",
-      :revision => "f909937e01a4b1a9e6b3d48d281fd3fe6a819510"
+      :tag      => "v5.6.15",
+      :revision => "e4f1e8f824c4cdc70bfa09a5ec734d7108366456"
 
   bottle do
     cellar :any_skip_relocation
@@ -17,8 +17,8 @@ class KibanaAT56 < Formula
   keg_only :versioned_formula
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.15.1/node-v6.15.1.tar.xz"
-    sha256 "c3bde58a904b5000a88fbad3de630d432693bc6d9d6fec60a5a19e68498129c2"
+    url "https://nodejs.org/dist/v6.16.0/node-v6.16.0.tar.xz"
+    sha256 "0d0882a9da1ccc217518d3d1a60dd238da9f52bed0c7daac42b8dc3d83bd7546"
   end
 
   def install
@@ -26,9 +26,6 @@ class KibanaAT56 < Formula
       system "./configure", "--prefix=#{libexec}/node"
       system "make", "install"
     end
-
-    # remove with next release: revert incorrect package.json version number
-    inreplace buildpath/"package.json", "\"version\": \"5.6.15\",", "\"version\": \"5.6.14\","
 
     # do not build packages for other platforms
     inreplace buildpath/"tasks/config/platforms.js", /('(linux-x64|windows-x64)',?(?!;))/, "// \\1"
