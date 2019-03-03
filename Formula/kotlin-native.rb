@@ -1,8 +1,8 @@
 class KotlinNative < Formula
   desc "Technology for compiling Kotlin code to native binaries"
   homepage "https://kotlinlang.org/docs/reference/native-overview.html"
-  url "https://github.com/JetBrains/kotlin/releases/download/v1.3.0/kotlin-native-macos-1.3.0.tar.gz"
-  sha256 "0621a7c32db37b695b95f75c9085f2d20ba46c74934973cc47fbf09b7e265401"
+  url "https://github.com/JetBrains/kotlin/releases/download/v1.3.11/kotlin-native-macos-1.3.11.tar.gz"
+  sha256 "0813985e9cabf2393cf3396e5eb08a4b4bb21ed14e838a8b9e56b2809e89d284"
 
   bottle :unneeded
 
