@@ -3,9 +3,9 @@ class Weboob < Formula
 
   desc "Web Outside of Browsers"
   homepage "https://weboob.org/"
-  url "https://git.weboob.org/weboob/weboob/uploads/08dad6b2a68fd618ba8c87c627393d06/weboob-1.4.tar.gz"
-  mirror "https://files.pythonhosted.org/packages/34/e7/230d679030e6970be3c98339811264999c5484ad657feb9a95e3f9ce5035/weboob-1.4+1.tar.gz"
-  sha256 "d377027a7c1cb7c43903cce15757e4eff3ced5ab0542dfc2752abe9e6d498b71"
+  url "https://git.weboob.org/weboob/weboob/uploads/007b56516cfeeea4d5c7e97fd3a1ba1f/weboob-1.5.tar.gz"
+  mirror "https://files.pythonhosted.org/packages/a7/46/4f9c9786706ecc1c115fe7c94d8b5d121c5105ce964b65bae0b741742ba8/weboob-1.5.tar.gz"
+  sha256 "7ac1851281a127182f8e8630853c8ab2e635a534928b35150b75d5d0e24b3fb1"
 
   bottle do
     cellar :any
@@ -65,6 +65,11 @@ class Weboob < Formula
     sha256 "133b031eaf8fd2c9399b78b8bc5b8fcbe4c31e85295749bb17a87cba8f3c3964"
   end
 
+  resource "prettytable" do
+    url "https://files.pythonhosted.org/packages/e0/a1/36203205f77ccf98f3c6cf17cf068c972e6458d7e58509ca66da949ca347/prettytable-0.7.2.tar.gz"
+    sha256 "2d5460dc9db74a32bcc8f9f67de68b2c4f4d2f01fa3bd518764c69156d9cacd9"
+  end
+
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/0e/01/68747933e8d12263d41ce08119620d9a7e5eb72c876a3442257f74490da0/python-dateutil-2.7.5.tar.gz"
     sha256 "88f9287c0174266bb0d8cedd395cfba9c58e87e5ad86b2ce58859bc11be3cf02"
@@ -78,6 +83,11 @@ class Weboob < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
     sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+  end
+
+  resource "unidecode" do
+    url "https://files.pythonhosted.org/packages/9b/d8/c1b658ed7ff6e63a745eda483d7d917eb63a79c59fcb422469b85ff47e94/Unidecode-1.0.23.tar.gz"
+    sha256 "8b85354be8fd0c0e10adbf0675f6dc2310e56fda43fa8fe049123b6c475e52fb"
   end
 
   resource "urllib3" do
