@@ -21,17 +21,21 @@ class Pcre < Formula
   end
 
   def install
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-utf8
+      --enable-pcre8
+      --enable-pcre16
+      --enable-pcre32
+      --enable-unicode-properties
+      --enable-pcregrep-libz
+      --enable-pcregrep-libbz2
+    ]
+    args << "--enable-jit" if MacOS.version >= :sierra
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-utf8",
-                          "--enable-pcre8",
-                          "--enable-pcre16",
-                          "--enable-pcre32",
-                          "--enable-unicode-properties",
-                          "--enable-pcregrep-libz",
-                          "--enable-pcregrep-libbz2",
-                          "--enable-jit"
+    system "./configure", *args
     system "make"
     ENV.deparallelize
     system "make", "test"
