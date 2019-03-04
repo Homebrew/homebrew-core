@@ -13,8 +13,6 @@ class Zydis < Formula
       system "make", "install"
       bin.install "ZydisDisasm"
       bin.install "ZydisInfo"
-      bin.install "ZydisFuzzIn"
-      bin.install "ZydisPerfTest"
     end
   end
 
