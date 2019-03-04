@@ -3,6 +3,13 @@ class Stolon < Formula
   homepage "https://github.com/sorintlab/stolon"
   url "https://github.com/sorintlab/stolon.git", :tag => "v0.13.0"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "e8ef622f0b90477eaf3231563a82738c28e59f7b4ff3e82cb24923552f8b5dce" => :mojave
+    sha256 "5ce46f6fa94f1cb1e9605f4a3aa3fbb17debb2658ca465a1edb469c79caf34a3" => :high_sierra
+    sha256 "c51cd775f84ea6a00dd7fde28bb6c917c25f8c909e57faa838e4e7b0b541fb30" => :sierra
+  end
+
   depends_on "go" => :build
   depends_on "consul" => :test
   depends_on "postgresql"
