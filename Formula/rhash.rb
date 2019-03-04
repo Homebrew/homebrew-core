@@ -18,7 +18,7 @@ class Rhash < Formula
     system "make"
     system "make", "install"
     lib.install "librhash/librhash.dylib"
-    system "make", "-C", "librhash", "install-headers"
+    system "make", "-C", "librhash", "install-lib-headers"
   end
 
   test do
