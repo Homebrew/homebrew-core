@@ -17,7 +17,6 @@ class Rdesktop < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-credssp
-      --enable-smartcard
       --with-openssl=#{Formula["openssl"].opt_prefix}
       --x-includes=#{MacOS::X11.include}
       --x-libraries=#{MacOS::X11.lib}
