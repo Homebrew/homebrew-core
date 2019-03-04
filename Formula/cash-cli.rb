@@ -8,10 +8,9 @@ class CashCli < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "98fee94b992b289ab84a08b9ea43e9587e8fa86e75c294a8c8b7717b20bdd9da" => :mojave
-    sha256 "3ac61cd27c3c40573c5bb1fa23dbdba5fec078d2db6d98ce3a43db6dd9f50f80" => :high_sierra
-    sha256 "37ce72e5a5f1af96b3f72cda091ddca5612ff9e0049583319e696d518123adcc" => :sierra
-    sha256 "a68ed7c9a690f7baa19e944644f88712731be10027b9526d535d507456628010" => :el_capitan
+    sha256 "f36142488dbc8a3a192d695b8f64e8772740c44fec4660dc8d655e62d269cb97" => :mojave
+    sha256 "fa9e3e47fa5b8422b2293c45ac616e4da32e6fcd879127651562a44301f06a47" => :high_sierra
+    sha256 "6a30fe3214d0241ff1f8a65582077cc7d6132987e839cd4028494b3b83a4f520" => :sierra
   end
 
   depends_on "node"
