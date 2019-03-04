@@ -1,9 +1,8 @@
 class PythonAT2 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
-  sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
-  revision 3
+  url "https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz"
+  sha256 "f222ef602647eecb6853681156d32de4450a2c39f4de93bd5b20235f2e660ed7"
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
@@ -36,13 +35,13 @@ class PythonAT2 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/4c/4d/88bc9413da11702cbbace3ccc51350ae099bb351febae8acc85fec34f9af/pip-19.0.2.tar.gz"
-    sha256 "f851133f8b58283fa50d8c78675eb88d4ff4cde29b6c41205cd938b06338e0e5"
+    url "https://files.pythonhosted.org/packages/36/fa/51ca4d57392e2f69397cd6e5af23da2a8d37884a605f9e3f2d3bfdc48397/pip-19.0.3.tar.gz"
+    sha256 "6e6f197a1abfb45118dbb878b5c859a0edbdd33fd250100bc015b67fded4b9f2"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/d9/7d/86df15e317027f6e87aa68ea854abf8437e796b4c0fadd3ae5ee67b77cb2/wheel-0.33.0.tar.gz"
-    sha256 "12363e6df5678ecf9daf8429f06f97e7106e701405898f24318ce7f0b79c611a"
+    url "https://files.pythonhosted.org/packages/b7/cf/1ea0f5b3ce55cacde1e84cdde6cee1ebaff51bd9a3e6c7ba4082199af6f6/wheel-0.33.1.tar.gz"
+    sha256 "66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d"
   end
 
   def lib_cellar
