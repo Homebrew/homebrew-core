@@ -8,9 +8,9 @@ class Dwm < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "daf214e1176326bb756c9cd0af9bb48b00e06828247b524fae662bf9a7b601af" => :mojave
-    sha256 "c6bd9f78eddcd7e02889f429364a08c0293d57b0c06246e021d102747c193ab2" => :high_sierra
-    sha256 "4f9e0554b3b3f77c0e9fb3da05812e3424625ad63b271ef322f407027f4ac73b" => :sierra
+    sha256 "a749a913684983c05a9998ca73d55bd8f05197fcf6d7573336eacf7e168a5120" => :mojave
+    sha256 "0c5e0fd48f4d52ab748d5301add02b7ca39d773c604e108d2eb81705cf80c315" => :high_sierra
+    sha256 "20707f7d694eef615c63c98c055db728a6922e68ccf287ca63933715781311e6" => :sierra
   end
 
   depends_on "dmenu"
