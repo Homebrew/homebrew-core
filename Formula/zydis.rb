@@ -19,6 +19,6 @@ class Zydis < Formula
   end
 
   test do
-    system "#{bin}/ZydisInfo"
+    assert_match("xrelease lock add qword ptr gs:[rax+rbx*4+0x12C], rsp",  shell_output("#{bin}/ZydisInfo -64 66 3E 65 2E F0 F2 F3 48 01 A4 98 2C 01 00 00"))
   end
 end
