@@ -1,4 +1,4 @@
-class GlooCtl < Formula
+class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://gloo.solo.io"
   url "https://github.com/solo-io/gloo.git",
