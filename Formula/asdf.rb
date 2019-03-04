@@ -24,10 +24,6 @@ class Asdf < Formula
     fish_completion.install "completions/asdf.fish"
     libexec.install "bin/private"
     prefix.install Dir["*"]
-
-    inreplace "#{lib}/commands/reshim.sh",
-              "exec $(asdf_dir)/bin/private/asdf-exec ",
-              "exec $(asdf_dir)/libexec/private/asdf-exec "
   end
 
   test do
