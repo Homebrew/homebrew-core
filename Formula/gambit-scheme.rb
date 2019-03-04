@@ -5,9 +5,9 @@ class GambitScheme < Formula
   sha256 "a5e4e5c66a99b6039fa7ee3741ac80f3f6c4cff47dc9e0ff1692ae73e13751ca"
 
   bottle do
-    sha256 "61c261221bd5f04afff4c3c5a88d0dd34674f58052c6a958f97179cd060a46cd" => :mojave
-    sha256 "667d14dc806cccc5170dbba686dea5b8042fe940edd372696296d06e3ba88b52" => :high_sierra
-    sha256 "8b77b5315032fce450b7e6b39e05533817fdb9995351f083f358a1ec1e5f6e06" => :sierra
+    sha256 "2a2592928fe3f2fdf5def2c02ba9556ef54568de08ea243f559cb08b32d2c010" => :mojave
+    sha256 "50cc16d8db324fe12f46a7d8b7038c859fafd60ca7e0e1d806903b267281fa1d" => :high_sierra
+    sha256 "c7932e439c932992c2ca48c929b50ca2540b633155c7000ab72d1b9b143c4fac" => :sierra
   end
 
   depends_on "openssl"
