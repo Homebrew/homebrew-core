@@ -6,9 +6,10 @@ class Aurora < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "71f54ab698f0164d6e1c2385591969da6056130db87a83283623a630ecb41fb0" => :mojave
-    sha256 "8ed6f1aee6ea5c74e39dd26969c355df0c43651b5b16d6f49d45b00331696fb0" => :high_sierra
-    sha256 "4d59e71f583edb221cb1b85102612778fdc186cefbcdb4ff3df9619d7082eae1" => :sierra
+    rebuild 1
+    sha256 "3d0f318def46f1bed3f7e16af66c2d1eddb6fdb305dd68d797d3c6cdbf99c13f" => :mojave
+    sha256 "a72311fee8cf640e75bc319da7eb7c11f686620d23353d90b64852f28154d664" => :high_sierra
+    sha256 "3d29b1168384d9ecf88333ea6bd25e00091904d039cf980c23d77de342350054" => :sierra
   end
 
   depends_on "go" => :build
