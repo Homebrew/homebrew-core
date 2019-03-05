@@ -17,7 +17,8 @@ class Precomp < Formula
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "make"
+    bin.install "precomp"
   end
 
   test do
