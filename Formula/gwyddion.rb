@@ -3,6 +3,7 @@ class Gwyddion < Formula
   homepage "http://gwyddion.net/"
   url "http://gwyddion.net/download/2.53/gwyddion-2.53.tar.gz"
   sha256 "d142569adc4d523e51ca53cbff19414576facb774e5f4dad88b6ec475972f081"
+  revision 1
 
   bottle do
     sha256 "39db3a4a1092c64a06402814a3317e9bda5d932c6c409ba742b67203df6075df" => :mojave
@@ -20,6 +21,13 @@ class Gwyddion < Formula
   depends_on "minizip"
   depends_on "pygtk"
   depends_on "python@2"
+
+  # Fixes problem with finding resource files in version 2.53.
+  # <https://sourceforge.net/p/gwyddion/mailman/message/36604431/>
+  patch do
+    url "http://gwyddion.net/download/2.53/gwyddion-2.53-ensure-osx-basedir.patch"
+    sha256 "17e5282d7add1e1af0d530885dbe501e29869340ba6d77879bf67e7a9f860990"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
