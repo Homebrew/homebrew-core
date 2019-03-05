@@ -1,8 +1,8 @@
 class Precomp < Formula
   desc "Command-line precompressor to achieve better compression"
   homepage "http://schnaader.info/precomp.php"
-  url "https://github.com/schnaader/precomp-cpp/archive/v0.4.6.tar.gz"
-  sha256 "673b9ceb0df62abb5ef12ab0600a18fc3b82003cc9af5e1cc2f196237ed350d3"
+  url "https://github.com/schnaader/precomp-cpp/archive/v0.4.7.tar.gz"
+  sha256 "b4064f9a18b9885e574c274f93d73d8a4e7f2bbd9e959beaa773f2e61292fb2b"
   head "https://github.com/schnaader/precomp-cpp.git"
 
   bottle do
