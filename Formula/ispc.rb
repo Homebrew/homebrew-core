@@ -1,9 +1,8 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/v1.9.2.tar.gz"
-  sha256 "76a14e22f05a52fb0b30142686a6cb144b0415b39be6c9fcd3f17ac23447f0b2"
-  revision 1
+  url "https://github.com/ispc/ispc/archive/v1.10.0.tar.gz"
+  sha256 "0aa30e989f8d446b2680c9078d5c5db70634f40b9aa07db387aa35aa08dd0b81"
 
   bottle do
     cellar :any
@@ -14,11 +13,22 @@ class Ispc < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "llvm@4" => :build
+  depends_on "cmake" => :build
+  depends_on "flex" => :build
+  depends_on "llvm@4"
 
   def install
-    system "make"
-    bin.install "ispc"
+    args = std_cmake_args + %W[
+      -DISPC_INCLUDE_EXAMPLES=OFF
+      -DISPC_INCLUDE_TESTS=OFF
+      -DLLVM_TOOLS_BINARY_DIR='#{Formula["llvm@4"]}'
+    ]
+
+    mkdir "build" do
+      system "cmake", *args, ".."
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
