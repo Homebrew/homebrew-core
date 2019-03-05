@@ -13,6 +13,7 @@ class Packer < Formula
     sha256 "669cbb9b854bca1959713de76993e4fd8aa22b8348fd781ec3fa46dcc1c07c16" => :sierra
   end
 
+  depends_on "coreutils" => :build
   depends_on "go" => :build
   depends_on "govendor" => :build
   depends_on "gox" => :build
