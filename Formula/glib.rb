@@ -1,8 +1,8 @@
 class Glib < Formula
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.58/glib-2.58.3.tar.xz"
-  sha256 "8f43c31767e88a25da72b52a40f3301fefc49a665b56dc10ee7cc9565cbe7481"
+  url "https://download.gnome.org/sources/glib/2.60/glib-2.60.0.tar.xz"
+  sha256 "20865d8b96840d89d9340fc485b4b1131c1bb24d16a258a22d642c3bb1b44353"
 
   bottle do
     sha256 "0d156d04fb77e31e3679e82c19ae55aafdceb075be81e01cda08dec89fdce6a9" => :mojave
@@ -10,30 +10,20 @@ class Glib < Formula
     sha256 "c57f11747bbc0248f069e727e948cbc306f53e8312803ce6bcb087e89f7f701b" => :sierra
   end
 
-  # autoconf, automake and libtool can be removed when
-  # bug 780271 is fixed and gio.patch is modified accordingly
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "gtk-doc" => :build
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libffi"
   depends_on "pcre"
+  depends_on "python"
 
   # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
   # but needed to fix an assumption about the location of the d-bus machine
   # id file.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/59e4d32/glib/hardcoded-paths.diff"
-    sha256 "a4cb96b5861672ec0750cb30ecebe1d417d38052cac12fbb8a77dbf04a886fcb"
-  end
-
-  # Revert some bad macOS specific commits
-  # https://bugzilla.gnome.org/show_bug.cgi?id=780271
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/5857984/glib/revert-appinfo-contenttype.patch"
-    sha256 "88bfc2a69aaeda07c5f057d11e106a97837ff319f8be1f553b8537f3c136f48c"
+    url "https://raw.githubusercontent.com/tschoonj/formula-patches/1669c6f9/glib/hardcoded-paths.diff"
+    sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
   end
 
   def install
@@ -42,45 +32,29 @@ class Glib < Formula
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = %W[
-      --disable-maintainer-mode
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --disable-dtrace
-      --disable-libelf
-      --enable-static
-      --prefix=#{prefix}
-      --localstatedir=#{var}
-      --with-gio-module-dir=#{HOMEBREW_PREFIX}/lib/gio/modules
+      -Diconv=native
+      -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
+      -Dbsymbolic_functions=false
     ]
 
-    # next two lines can be removed when bug 780271 is fixed and gio.patch
-    # is modified accordingly
-    ENV["NOCONFIGURE"] = "1"
-    system "./autogen.sh"
-
-    system "./configure", *args
-
-    # disable creating directory for GIO_MODULE_DIR, we will do
-    # this manually in post_install
-    inreplace "gio/Makefile",
-              "$(mkinstalldirs) $(DESTDIR)$(GIO_MODULE_DIR)",
-              ""
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
 
     # ensure giomoduledir contains prefix, as this pkgconfig variable will be
     # used by glib-networking and glib-openssl to determine where to install
     # their modules
-    inreplace "gio-2.0.pc",
+    inreplace lib/"pkgconfig/gio-2.0.pc",
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
               "giomoduledir=${prefix}/lib/gio/modules"
-
-    system "make"
-    system "make", "install"
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
     # have a pkgconfig file, so we add gettext lib and include paths here.
     gettext = Formula["gettext"].opt_prefix
     inreplace lib+"pkgconfig/glib-2.0.pc" do |s|
-      s.gsub! "Libs: -L${libdir} -lglib-2.0 -lintl",
+      s.gsub! "Libs: -lintl -L${libdir} -lglib-2.0",
               "Libs: -L${libdir} -lglib-2.0 -L#{gettext}/lib -lintl"
       s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
               "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
