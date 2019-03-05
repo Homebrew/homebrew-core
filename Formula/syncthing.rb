@@ -2,8 +2,8 @@ class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-      :tag      => "v1.0.1",
-      :revision => "1e69997ecdbf87ceaad76bd0149d98f560f4fdb5"
+      :tag      => "v1.1.0",
+      :revision => "f0f79a3e3e861b79da2b09f563e9d373255419f0"
   head "https://github.com/syncthing/syncthing.git"
 
   bottle do
@@ -16,10 +16,12 @@ class Syncthing < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/syncthing/syncthing").install buildpath.children
-    ENV.append_path "PATH", buildpath/"bin"
-    cd "src/github.com/syncthing/syncthing" do
+
+    src = buildpath/"src/github.com/syncthing/syncthing"
+    src.install buildpath.children
+    src.cd do
       system "./build.sh", "noupgrade"
       bin.install "syncthing"
       man1.install Dir["man/*.1"]
