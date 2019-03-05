@@ -1,5 +1,3 @@
-require "language/go"
-
 class Cig < Formula
   desc "CLI app for checking the state of your git repositories"
   homepage "https://github.com/stevenjack/cig"
@@ -21,24 +19,12 @@ class Cig < Formula
   depends_on "go" => :build
   depends_on "godep" => :build
 
-  go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git",
-        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://github.com/golang/tools.git",
-        :revision => "473fd854f8276c0b22f17fb458aa8f1a0e2cf5f5"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/stevenjack/"
-    ln_sf buildpath, buildpath/"src/github.com/stevenjack/cig"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "godep", "go", "build", "-o", "cig", "."
-    bin.install "cig"
+    (buildpath/"src/github.com/stevenjack").mkpath
+    ln_s buildpath, "src/github.com/stevenjack/cig"
+    system "godep", "restore"
+    system "go", "build", "-o", bin/"cig"
   end
 
   test do
