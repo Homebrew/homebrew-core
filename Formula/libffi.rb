@@ -3,7 +3,6 @@ class Libffi < Formula
   homepage "https://sourceware.org/libffi/"
   url "https://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
   sha256 "d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37"
 
   bottle do
