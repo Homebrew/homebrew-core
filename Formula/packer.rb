@@ -29,9 +29,11 @@ class Packer < Formula
     cd packerpath do
       # Avoid running `go get`
       inreplace "Makefile" do |s|
-        s.gsub! "go get github.com/mitchellh/gox", ""
-        s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
         s.gsub! "go get github.com/kardianos/govendor", ""
+        s.gsub! "go get github.com/mitchellh/gox", ""
+        s.gsub! "go get -u github.com/mna/pigeon", ""
+        s.gsub! "go get golang.org/x/tools/cmd/goimports", ""
+        s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
       end
 
       (buildpath/"bin").mkpath
