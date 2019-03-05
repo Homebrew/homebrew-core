@@ -1,5 +1,3 @@
-require "language/go"
-
 class Aurora < Formula
   desc "Beanstalkd queue server console"
   homepage "https://xuri.me/aurora"
@@ -15,28 +13,16 @@ class Aurora < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/BurntSushi/toml" do
-    url "https://github.com/BurntSushi/toml.git",
-        :revision => "a368813c5e648fee92e5f6c30e3944ff9d5e8895"
-  end
-
-  go_resource "github.com/rakyll/statik" do
-    url "https://github.com/rakyll/statik.git",
-        :revision => "89fe3459b5c829c32e89bdff9c43f18aad728f2f"
-  end
-
-  go_resource "github.com/xuri/aurora" do
-    url "https://github.com/xuri/aurora.git",
-        :revision => "9e064410954b74d18192cbd5b5ed09ef68da3b8e"
-  end
-
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-    (buildpath/"src/github.com/xuri").mkpath
-    ln_s buildpath, "src/github.com/xuri/aurora"
-    rm buildpath/"go.mod"
-    system "go", "build", "-o", bin/"aurora"
+    aurorapath = buildpath/"src/github.com/xuri/aurora"
+    aurorapath.install buildpath.children
+
+    cd aurorapath do
+      system "go", "build", "-o", bin/"aurora"
+      prefix.install_metafiles
+    end
   end
 
   test do
