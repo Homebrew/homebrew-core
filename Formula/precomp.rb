@@ -5,6 +5,8 @@ class Precomp < Formula
   sha256 "b4064f9a18b9885e574c274f93d73d8a4e7f2bbd9e959beaa773f2e61292fb2b"
   head "https://github.com/schnaader/precomp-cpp.git"
 
+  depends_on "cmake" => :build
+
   bottle do
     cellar :any_skip_relocation
     sha256 "007ecd8dbf6db55a52ca49765d1aafd9e4f72c6a6f377e8eec8b28641fd486ed" => :mojave
@@ -14,11 +16,8 @@ class Precomp < Formula
   end
 
   def install
-    # Seems like Yosemite does not like the -s flag
-    inreplace "Makefile", " -s ", " "
-
-    system "make"
-    bin.install "precomp"
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
