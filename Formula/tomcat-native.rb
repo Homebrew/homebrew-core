@@ -7,10 +7,9 @@ class TomcatNative < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "f33bee57406b4046e6b8ab8c4d214c7c2c03edeb797440570646e4c4bd1c2346" => :mojave
-    sha256 "ad856715f0f03622f10df6b090069d5ea2dd7472056133d00b4c74bf6be62ea2" => :high_sierra
-    sha256 "87c67f203543576408082aa94f9abde64372bff2bcf635610eda83e4801b2939" => :sierra
+    sha256 "3d37f4f0edaa55674c3f4a0df9592d9dbf397ee21347fe7a09d53ee765a8fa36" => :mojave
+    sha256 "6df50a56e9c18cf7d25e3a16e2206d1b535ee53ce4c5574c8bcde75a0e5ed822" => :high_sierra
+    sha256 "883a53d75d7e4f7a2de85304cc72d0b1fe0d8fd58d5fa126fde4e65049f10f8f" => :sierra
   end
 
   depends_on "libtool" => :build
