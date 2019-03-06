@@ -48,5 +48,5 @@ unset HOMEBREW_NO_ANALYTICS
 ruby -e "load Gem.bin_path('rake', 'rake')"
 
 # commit and push generated files
-git commit -m '_data: update from Homebrew/core push' _data/
+git commit -m '_data, api: update from Homebrew/core push' _data/ api/
 git push
