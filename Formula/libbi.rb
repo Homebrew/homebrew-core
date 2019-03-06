@@ -101,8 +101,8 @@ class Libbi < Formula
   end
 
   resource "thrust" do
-    url "https://github.com/thrust/thrust/releases/download/1.8.2/thrust-1.8.2.zip"
-    sha256 "00925daee4d9505b7f33d0ed42ab0de0f9c68c4ffbe2a41e6d04452cdee77b2d"
+    url "https://github.com/thrust/thrust/archive/1.8.2.tar.gz"
+    sha256 "83bc9e7b769daa04324c986eeaf48fcb53c2dda26bcc77cb3c07f4b1c359feb8"
   end
 
   def install
@@ -120,7 +120,7 @@ class Libbi < Formula
       end
     end
 
-    (include/"thrust").install resource("thrust")
+    resource("thrust").stage { (include/"thrust").install Dir["thrust/*"] }
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INSTALLSITESCRIPT=#{bin}"
 
