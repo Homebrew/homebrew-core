@@ -6,9 +6,9 @@ class Libcerf < Formula
 
   bottle do
     cellar :any
-    sha256 "032478d9411816ebf4c6facbadcf75609fa3763ac277f4b1ab5ceadfc0f25355" => :mojave
-    sha256 "df95404c20f92cfe57cd83e7bc1d29e1545ebfc13e923a56979c2acd0a5dc64e" => :high_sierra
-    sha256 "ec375835ffe7b858f2a5b7fa99a4e76dcbc64453b342a60107413fb40af22e5c" => :sierra
+    sha256 "a181d4bf63f5ad9a5f00268a8551e7d62c52e81a88b9e9a29dba148d1a16412f" => :mojave
+    sha256 "48ac5501edc4e90465af39ae8ff57234993f5b9b9f4b08fd8ba00443fd5d977b" => :high_sierra
+    sha256 "401e716456c99bb123252b2f256e6fc70d6a741a23c8bd16d1a2ae0998641387" => :sierra
   end
 
   depends_on "cmake" => :build
