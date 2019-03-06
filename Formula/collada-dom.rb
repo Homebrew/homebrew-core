@@ -6,12 +6,9 @@ class ColladaDom < Formula
   head "https://github.com/rdiankov/collada-dom.git"
 
   bottle do
-    sha256 "59315cc7de779a0111beba6d3d7144c47827815f3b394de90fbfcf086e6b28d2" => :mojave
-    sha256 "21de8eab55b0011919fff439eeabc87f7dc1fe6a886ef0c2c3205fd21532d338" => :high_sierra
-    sha256 "100e69e1bc65b07f00dcb9d9baf290a727e39ecbf01d27b9a62d26ac14abb59b" => :sierra
-    sha256 "98e726f47020580acc1a10be5366394fb137fc4729e3446e5e0130a69b2d38da" => :el_capitan
-    sha256 "2be8761c8bd277b4cc720c900fff84cedbc2736a55329a9d107ded2712e97d75" => :yosemite
-    sha256 "5ddb31dec3a705e99ca17ec2c6ef1bafb101eac16167d451c3e6eda2dc9c0761" => :mavericks
+    sha256 "67da6177f67deeba4a08cc0648766856f647eb54ca9cfdf8fd61a2e665330614" => :mojave
+    sha256 "a88714bbcd001a475d4222407031997af3cb34fe6214352a562021770a09a560" => :high_sierra
+    sha256 "69a6c5f038f7d622130b272ac2c3b35beffb11b5ab0c4b080de422b68ebd7466" => :sierra
   end
 
   depends_on "cmake" => :build
