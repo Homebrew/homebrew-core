@@ -1,10 +1,8 @@
 class GnuGetopt < Formula
-  desc "Command-line option parsing library"
-  homepage "http://frodo.looijaard.name/project/getopt"
-  url "http://frodo.looijaard.name/system/files/software/getopt/getopt-1.1.6.tar.gz"
-  mirror "https://distfiles.macports.org/getopt/getopt-1.1.6.tar.gz"
-  mirror "https://fossies.org/linux/misc/getopt-1.1.6.tar.gz"
-  sha256 "d0bf1dc642a993e7388a1cddfb9409bed375c21d5278056ccca3a0acd09dc5fe"
+  desc "Command-line option parsing utility"
+  homepage "https://github.com/karelzak/util-linux"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.32/util-linux-2.32.1.tar.xz"
+  sha256 "86e6707a379c7ff5489c218cfaf1e3464b0b95acf7817db0bc5f179e356a67b2"
 
   bottle do
     sha256 "e905a353b1ef1688e569ee28f5caa35bbfa6a4b99f044e255087d0a8adbe092a" => :mojave
@@ -17,15 +15,16 @@ class GnuGetopt < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "gettext"
-
   def install
-    inreplace "Makefile" do |s|
-      gettext = Formula["gettext"]
-      s.change_make_var! "CPPFLAGS", "\\1 -I#{gettext.include}"
-      s.change_make_var! "LDFLAGS", "\\1 -L#{gettext.lib} -lintl"
-    end
-    system "make", "prefix=#{prefix}", "mandir=#{man}", "install"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+
+    system "make", "getopt"
+
+    bin.install "getopt"
+    man1.install "misc-utils/getopt.1"
+    bash_completion.install "bash-completion/getopt"
   end
 
   test do
