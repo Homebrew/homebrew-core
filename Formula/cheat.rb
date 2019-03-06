@@ -32,6 +32,7 @@ class Cheat < Formula
   end
 
   def install
+    ENV["CHEAT_PATH"] = prefix
     virtualenv_install_with_resources
 
     bash_completion.install "cheat/autocompletion/cheat.bash"
