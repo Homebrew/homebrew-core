@@ -13,6 +13,7 @@ class Mat2 < Formula
 
   depends_on "exiftool"
   depends_on "ffmpeg"
+  depends_on "gdk-pixbuf"
   depends_on "poppler"
   depends_on "py3cairo"
   depends_on "pygobject3"
