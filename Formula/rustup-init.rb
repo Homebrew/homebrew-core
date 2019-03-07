@@ -1,8 +1,8 @@
 class RustupInit < Formula
   desc "The Rust toolchain installer"
   homepage "https://github.com/rust-lang/rustup.rs"
-  url "https://github.com/rust-lang/rustup.rs/archive/1.16.0.tar.gz"
-  sha256 "8c4ffeda2088dbdd5ea2eac8acef5ddd57dfcfe1f06a503e3da790f93161e1a6"
+  url "https://github.com/rust-lang/rustup.rs/archive/1.17.0.tar.gz"
+  sha256 "6db73f9684b4d93de47cd511ebd56c2821c37bb41054a4a60060b496764f1f4d"
 
   bottle do
     cellar :any_skip_relocation
@@ -12,14 +12,6 @@ class RustupInit < Formula
   end
 
   depends_on "rust" => :build
-
-  # Fixes `rustup-init` not working when it is relative symlink.
-  # https://github.com/rust-lang/rustup.rs/issues/1512
-  # https://github.com/rust-lang/rustup.rs/pull/1521
-  patch do
-    url "https://github.com/rust-lang/rustup.rs/pull/1521/commits/ebbfced7ee4aeb5be4c775f8f85e351093d5818f.diff?full_index=1"
-    sha256 "34dc006d75d747b99dd9fe49bdde396a8bf5443d1e3df1a47c4776c06ec3f3c7"
-  end
 
   def install
     cargo_home = buildpath/"cargo_home"
