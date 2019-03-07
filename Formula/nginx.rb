@@ -3,21 +3,24 @@ class Nginx < Formula
   homepage "https://nginx.org/"
   # Use "mainline" releases only (odd minor version number), not "stable"
   # See https://www.nginx.com/blog/nginx-1-12-1-13-released/ for why
-  url "https://nginx.org/download/nginx-1.15.8.tar.gz"
-  sha256 "a8bdafbca87eb99813ae4fcac1ad0875bf725ce19eb265d28268c309b2b40787"
+  url "https://nginx.org/download/nginx-1.15.9.tar.gz"
+  sha256 "e4cfba989bba614cd53f3f406ac6da9f05977d6b1296e5d20a299f10c2d7ae43"
   head "https://hg.nginx.org/nginx/", :using => :hg
 
   bottle do
-    rebuild 1
-    sha256 "7ea37bf70745ef33d48e5dcc978c7595c8113bfe513b3e594ea0321c9332ff88" => :mojave
-    sha256 "435ac2d570973cb1b41e90ce4f75e9f87c841a8aae7f5f314a4922cde2a73c9c" => :high_sierra
-    sha256 "18b69c75e157380d380aadb053a1074b3101cdb97a1d2b2f097ff4b3ecd2f79f" => :sierra
+    sha256 "01235eb30ff0d8e79f47735ee0cf527d2dbe6cab12b33ec8e0525405a1d40f34" => :mojave
+    sha256 "82dc5cb72d60737035d6c5e11cbdfe0a4cf5c17ca67856bd383083923a2ce3e2" => :high_sierra
+    sha256 "a92aaf5fd66dc3b486c2c090d01470ed415c104cc71518fd4a427da627405818" => :sierra
   end
 
   depends_on "openssl"
   depends_on "pcre"
 
   def install
+    # keep clean copy of source for compiling dynamic modules e.g. passenger
+    (pkgshare/"src").mkpath
+    system "tar", "-cJf", (pkgshare/"src/src.tar.xz"), "--options", "compression-level=9", "."
+
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|
       s.gsub! "listen       80;", "listen       8080;"
@@ -72,6 +75,8 @@ class Nginx < Formula
       --with-stream_ssl_module
       --with-stream_ssl_preread_module
     ]
+
+    (pkgshare/"src/configure_args.txt").write args.join("\n")
 
     if build.head?
       system "./auto/configure", *args

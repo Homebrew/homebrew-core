@@ -3,7 +3,7 @@ class Pdfsandwich < Formula
   homepage "http://www.tobias-elze.de/pdfsandwich/"
   url "https://downloads.sourceforge.net/project/pdfsandwich/pdfsandwich%200.1.7/pdfsandwich-0.1.7.tar.bz2"
   sha256 "9795ffea84b9b6b501f38d49a4620cf0469ddf15aac31bac6dbdc9ec1716fa39"
-  head "http://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
+  head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
   bottle do
     cellar :any_skip_relocation

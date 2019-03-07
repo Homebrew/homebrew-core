@@ -1,13 +1,14 @@
 class PhpAT71 < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.1.25.tar.xz/from/this/mirror"
-  sha256 "0fd8dad1903cd0b2d615a1fe4209f99e53b7292403c8ffa1919c0f4dd1eada88"
+  url "https://php.net/get/php-7.1.26.tar.xz/from/this/mirror"
+  sha256 "10b7ae634c12852fae52a22dc2262e5f12418ad59fd20da2d00d71a212235d31"
 
   bottle do
-    sha256 "46df1961981fe57c163921f5ac363c1bcf2063993f654c45e7f7c731683bae56" => :mojave
-    sha256 "deee221834493c7dd87c0759c9ab3916f499a9761bb036270736b240f85c50f1" => :high_sierra
-    sha256 "fb1973b3ce2b9dde48ddd330052a25e72e37be13cd601b8a326bfc508db117ee" => :sierra
+    rebuild 1
+    sha256 "98ac53f607efcfc7434353b125712069cba0f4a1064d59d71f14f140a5846992" => :mojave
+    sha256 "1cbf9e4ab19c09ed4c159f70ec6c94b6e8fb7b118b4cc5fe66ecee992dde5da1" => :high_sierra
+    sha256 "930ac107ad987bdf90c63407ee7b99d02a491bd01a2deead29889c85c39e253d" => :sierra
   end
 
   keg_only :versioned_formula
@@ -33,7 +34,6 @@ class PhpAT71 < Formula
   depends_on "mcrypt"
   depends_on "openldap"
   depends_on "openssl"
-  depends_on "pcre"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"

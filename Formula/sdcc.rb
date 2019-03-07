@@ -3,7 +3,7 @@ class Sdcc < Formula
   homepage "https://sdcc.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sdcc/sdcc/3.8.0/sdcc-src-3.8.0.tar.bz2"
   sha256 "b331668deb7bd832efd112052e5b0ed2313db641a922bd39280ba6d47adbbb21"
-  head "http://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
+  head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
   bottle do
     sha256 "f4ab0af5aedcbcc75312e82ac1bf771fb4a9b1763d5b591b390a7e1dec523f32" => :mojave

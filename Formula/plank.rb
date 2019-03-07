@@ -1,17 +1,16 @@
 class Plank < Formula
   desc "Framework for generating immutable model objects"
   homepage "https://pinterest.github.io/plank/"
-  url "https://github.com/pinterest/plank/archive/v1.4.1.tar.gz"
-  sha256 "021889470c1568364fb12e3c704ab98e74c5992749a244a1ef785dd870cad57b"
+  url "https://github.com/pinterest/plank/archive/v1.5.tar.gz"
+  sha256 "3ed458fea7987264baa9fb04f0a6c332a736e2115494432df6ee664a5d9663c3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a8ef5d8f039de6c40a87101d69a0fea96a151008fc72796be3d1eb1598d465c8" => :mojave
-    sha256 "b5731e67f8155038764e927d6363c16f04cce69edc3c25bff78d9c39beaae4f9" => :high_sierra
-    sha256 "374262fdc60398fdf217c8bb2e458641ce683eb5dc6c5979cea84f0a5a4adc82" => :sierra
+    sha256 "1a4ace8ad70fc3509c52ed67fee11d3b4d22ee3abfa0136d873f52653ea4a66e" => :mojave
+    sha256 "e676ae9da3fa8f472c0747a9fb993a6957c2cccceee34d9564e839d0eca59a06" => :high_sierra
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on :xcode => ["10.1", :build]
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

@@ -7,10 +7,10 @@ class Jupyter < Formula
 
   bottle do
     cellar :any
-    rebuild 2
-    sha256 "165cb6a71907dd5bd6751484446e43bef573aea2f7708b5f6fc76b3b5ab06b1e" => :mojave
-    sha256 "b2eac9cff21bf33732ea6d00c442763a81b6fbdda6bc641b62e862741a444fd1" => :high_sierra
-    sha256 "cf524856cb610f7c83f0f230bd06489d04c540d3d8e712a43aa573d2161c117e" => :sierra
+    rebuild 3
+    sha256 "b37596a5d6115045e04b687d6d90bb00c15ac544a3e5aa04ea66e60af099e622" => :mojave
+    sha256 "390459365be4e3007c3b8c138ecf0bd2dd7c607f487b109b2664437dfab4dde4" => :high_sierra
+    sha256 "0bea4243d77414c5b6d7bb126f1f789a81e5caac781c8e2a062918c8b835f70d" => :sierra
   end
 
   depends_on "ipython"
@@ -283,6 +283,12 @@ class Jupyter < Formula
 
     # remove bundled kernel
     rm_rf Dir["#{libexec}/share/jupyter/kernels"]
+
+    # install completion
+    resource("jupyter_core").stage do
+      bash_completion.install "examples/jupyter-completion.bash" => "jupyter"
+      zsh_completion.install "examples/completions-zsh" => "_jupyter"
+    end
   end
 
   def caveats; <<~EOS
@@ -314,5 +320,8 @@ class Jupyter < Formula
     EOS
     system bin/"jupyter-nbconvert", "nbconvert.ipynb"
     assert_predicate testpath/"nbconvert.html", :exist?, "Failed to export HTML"
+
+    assert_match "-F _jupyter",
+      shell_output("source #{bash_completion}/jupyter && complete -p jupyter")
   end
 end

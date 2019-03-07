@@ -3,12 +3,13 @@ class ProtobufSwift < Formula
   homepage "https://github.com/alexeyxo/protobuf-swift"
   url "https://github.com/alexeyxo/protobuf-swift/archive/4.0.6.tar.gz"
   sha256 "598d9e459b4ac74bfbcf22857c7e8fda8f5219c10caac0aa18aea7d8710cce22"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "64c6b817c6d228fc67069f71b02c22c417ab78c5a9af5852cbc97288a5c68359" => :mojave
-    sha256 "c6c9d9b4d5297302f46c61815f8dc312daa18038462efb3a5678406732ebbebe" => :high_sierra
-    sha256 "94a30e32d24bb183e2b27a5fb6f47204b563b579e0d1e2daecb3c615052bc072" => :sierra
+    sha256 "bae411c98ef6433579d163c3768da147faa3f467dd9c194c1de0edc57fbc1863" => :mojave
+    sha256 "ac056837e13336ab4a19148fcba9638b2598409ef81eb7fda97f8db3b4bca573" => :high_sierra
+    sha256 "810002a7d999354ec824b101a8c3fd78c7316302fb98d2ff056e577f2aafd9e7" => :sierra
   end
 
   depends_on "autoconf" => :build

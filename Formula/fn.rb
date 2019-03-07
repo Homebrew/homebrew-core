@@ -1,25 +1,25 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.44.tar.gz"
-  sha256 "ea18dcbb3e7e71a5c03d7c9d156e2164cd650373bc991b7258b58cab1564e475"
+  url "https://github.com/fnproject/cli/archive/0.5.61.tar.gz"
+  sha256 "83bcb27fe4e44de8114d2d298161d1c41fc8048ae6120adc80b90b52d085c649"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a663cf9a30c970458753f1fe0d7dc5e7d02ffa3762d6e8cc0bdae087b4a55982" => :mojave
-    sha256 "d7a68fbd671e0887d338c47803ab93cdadd0b2749ad90ee2661cfacfac92df28" => :high_sierra
-    sha256 "b57cd3a2d9550d9e8c9b5bd882a2d0bed609555a6a5240c15feac8e3c834cc90" => :sierra
+    sha256 "2aa06880d4880acb32b99dfbefb65c51c66f92876e4c60322d465a0ad03ad09e" => :mojave
+    sha256 "7c727d898e7598707ab16aaeb6eb004a37552b094dba99d5f953bad25a59d66e" => :high_sierra
+    sha256 "d37d9d30d9fbed59f389c910acbbb55ac25c21015ef51b56dfda359ec1f6ba68" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "on"
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/fnproject/cli"
-    dir.install Dir["*"]
-    cd dir do
-      system "dep", "ensure", "-vendor-only"
+
+    src = buildpath/"src/github.com/fnproject/cli"
+    src.install buildpath.children
+    src.cd do
       system "go", "build", "-o", "#{bin}/fn"
       prefix.install_metafiles
     end

@@ -8,9 +8,10 @@ class Libbi < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "4021160fbebeabdd0cc74bb93fcc974496f97d70d391e65dd53e55f6c636f697" => :mojave
-    sha256 "2dcea74c906d7beef3f3c16f362a89b5972c63d58631f753c64580e34bdbdb98" => :high_sierra
-    sha256 "17351c606436ac0bb5ae291735186a7ce6ab5927b8e7f48d2b62c45ebbfb4f60" => :sierra
+    rebuild 2
+    sha256 "cd47e492c17ef2da4918857cb62a9cd1b8b9ffc5a2663003c79d09364fa8052a" => :mojave
+    sha256 "f5d7ac76e96af062ee67e8f08cf69407881581fcef66e46938fc7596d10f1d3e" => :high_sierra
+    sha256 "ee7d57e11d25a90f2a67fc312f66b1afc57a5da5d3cb7ef25863fa30a1b8cbe9" => :sierra
   end
 
   depends_on "automake"
@@ -100,8 +101,8 @@ class Libbi < Formula
   end
 
   resource "thrust" do
-    url "https://github.com/thrust/thrust/releases/download/1.8.2/thrust-1.8.2.zip"
-    sha256 "00925daee4d9505b7f33d0ed42ab0de0f9c68c4ffbe2a41e6d04452cdee77b2d"
+    url "https://github.com/thrust/thrust/archive/1.8.2.tar.gz"
+    sha256 "83bc9e7b769daa04324c986eeaf48fcb53c2dda26bcc77cb3c07f4b1c359feb8"
   end
 
   def install
@@ -110,6 +111,7 @@ class Libbi < Formula
     resources.each do |r|
       r.stage do
         next if r.name == "thrust"
+
         # need to set TT_ACCEPT=y for Template library for non-interactive install
         perl_flags = "TT_ACCEPT=y" if r.name == "Template"
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", perl_flags
@@ -118,7 +120,7 @@ class Libbi < Formula
       end
     end
 
-    (include/"thrust").install resource("thrust")
+    resource("thrust").stage { (include/"thrust").install Dir["thrust/*"] }
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INSTALLSITESCRIPT=#{bin}"
 
@@ -136,7 +138,7 @@ class Libbi < Formula
 
   test do
     cp Dir[pkgshare/"Test.bi", pkgshare/"test.conf"], testpath
-    system "#{bin}/libbi", "sample", "@test.conf"
+    system "#{bin}/libbi", "sample", "@test.conf", "--disable-openmp"
     assert_predicate testpath/"test.nc", :exist?
   end
 end

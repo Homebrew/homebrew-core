@@ -1,14 +1,13 @@
 class MysqlAT56 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.42.tar.gz"
-  sha256 "fc6d4aa9c2ed1a751163d0ec3d35bf800fc6b7c9bd2f890e376b6810c9393dba"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.43.tar.gz"
+  sha256 "1c95800bf0e1b7a19a37d37fbc5023af85c6bc0b41532433b3a886263a1673ef"
 
   bottle do
-    rebuild 1
-    sha256 "f07e796a684ce05411e405b13a93800abe7a84c19e0dd37ca1f2dde84d814edd" => :mojave
-    sha256 "d968c270171c8196fe84449d7af015b191aa9355b9b6d9e3124d43d255345607" => :high_sierra
-    sha256 "8f58ff0f9dc5e2478d4463aeb202eccd7f88d0f16804dd2fe8ee8b04a05dfc34" => :sierra
+    sha256 "a1eb58101bd7a6897da03abf98c3ce9eb6c964f25871da6fa363f0118b1fd5bf" => :mojave
+    sha256 "690cd67c744f052a37b2a5a35131939a068b590f033ce32232c5bce862d7780a" => :high_sierra
+    sha256 "0ee74b3db712bd7fcceb3f62e3538f3bb12d8e31a9eb5398e3be7a9fd4000320" => :sierra
   end
 
   keg_only :versioned_formula

@@ -7,15 +7,21 @@ class TclTk < Formula
   sha256 "ad0cd2de2c87b9ba8086b43957a0de3eb2eb565c7159d5f53ccbba3feb915f4e"
 
   bottle do
-    sha256 "50cb502bdc8d69a1c19407164aab0aaf3ec7f33a46a098c85972ad6a26285e43" => :mojave
-    sha256 "1f97a3b5ceb9419d8410c85cd29bb54a91d9fa3a075d62f47fece3e68078952c" => :high_sierra
-    sha256 "4a0b8bfd43f0ef29e8c1f4c1e8d56dd3ebf81cc9d6848675418df8a8dfe73f0d" => :sierra
+    rebuild 1
+    sha256 "26ee537a07be3494a321daeee3a1e3fa29c3564cd7fc3f7261dfa2526be82634" => :mojave
+    sha256 "167f661c580c6e7d63157e4ba260ff656f8475f16b27b67e10817f84c56e1875" => :high_sierra
+    sha256 "8295728ef8d97edad4415fb59f00ff91381120515058650473b8f2297c67401e" => :sierra
   end
 
   keg_only :provided_by_macos,
     "tk installs some X11 headers and macOS provides an (older) Tcl/Tk"
 
   depends_on "openssl"
+
+  resource "critcl" do
+    url "https://github.com/andreas-kupries/critcl/archive/3.1.17.tar.gz"
+    sha256 "fff83b341fc07b8ff23bf1f645133bb4bffe4741da2e6f31155e522a74c228e4"
+  end
 
   resource "tcllib" do
     url "https://downloads.sourceforge.net/project/tcllib/tcllib/1.19/tcllib-1.19.tar.gz"
@@ -73,9 +79,17 @@ class TclTk < Formula
       end
     end
 
+    resource("critcl").stage do
+      system bin/"tclsh", "build.tcl", "install"
+    end
+
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
+      ENV["SDKROOT"] = MacOS.sdk_path
+      system "make", "critcl"
+      cp_r "modules/tcllibc", "#{lib}/"
+      ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
     end
 
     resource("tcltls").stage do

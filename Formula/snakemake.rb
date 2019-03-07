@@ -105,6 +105,7 @@ class Snakemake < Formula
 
     resources.each do |r|
       next if r.name == "datrie" || r.name == "Cython"
+
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end

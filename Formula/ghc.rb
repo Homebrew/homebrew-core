@@ -5,18 +5,17 @@ class Ghc < Formula
 
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-src.tar.xz"
-  sha256 "11117735a58e507c481c09f3f39ae5a314e9fbf49fc3109528f99ea7959004b2"
+  url "https://downloads.haskell.org/~ghc/8.6.4/ghc-8.6.4-src.tar.xz"
+  sha256 "5b5d07e4463203a433c3ed3df461ba6cce11b6d2b9b264db31f3429075d0303a"
 
   bottle do
-    rebuild 1
-    sha256 "42af18814f008af8c538a6aa0f5b7b3d7c7415e6e77f64ecb859bba5390b9c2b" => :mojave
-    sha256 "4e08ed70dd9358c2a1d84ac5f386932870dc2b0c517a4524f1e96d03f5ee5352" => :high_sierra
-    sha256 "c37b6d8488718d8d90bb38cec05f1926223c102d6ba0ac7ffa8d528409b002e6" => :sierra
+    sha256 "4a2c5a01f9e3ef499a30b25942e4d52ee86e2cb902b33dc11c1065948b9c4e50" => :mojave
+    sha256 "72e530954801084477803d9f37265f4c067ab23ddae13826ac357acf954bb725" => :high_sierra
+    sha256 "b115dacf7a6fee79a2c929d9406258e975eb6348e1471b877fe3122c80e6b4a5" => :sierra
   end
 
   head do
-    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.4"
+    url "https://git.haskell.org/ghc.git", :branch => "ghc-8.6"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -45,13 +44,6 @@ class Ghc < Formula
     sha256 "28dc89ebd231335337c656f4c5ead2ae2a1acc166aafe74a14f084393c5ef03a"
   end
 
-  resource "testsuite" do
-    url "https://downloads.haskell.org/~ghc/8.4.4/ghc-8.4.4-testsuite.tar.xz"
-    sha256 "46babc7629c9bce58204d6425e3726e35aa8dc58a8c4a7e44dc81ed975721469"
-  end
-
-  patch :DATA
-
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
@@ -60,14 +52,14 @@ class Ghc < Formula
     # executables link to Homebrew's GMP.
     gmp = libexec/"integer-gmp"
 
-    # GMP *does not* use PIC by default without shared libs  so --with-pic
+    # GMP *does not* use PIC by default without shared libs so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
                             "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
       system "make"
       system "make", "check"
-      ENV.deparallelize { system "make", "install" }
+      system "make", "install"
     end
 
     args = ["--with-gmp-includes=#{gmp}/include",
@@ -116,12 +108,6 @@ class Ghc < Formula
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
-    resource("testsuite").stage { buildpath.install Dir["*"] }
-    cd "testsuite" do
-      system "make", "clean"
-      system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
-    end
-
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
   end
@@ -135,42 +121,3 @@ class Ghc < Formula
     system "#{bin}/runghc", testpath/"hello.hs"
   end
 end
-
-__END__
-
-diff --git a/docs/users_guide/flags.py b/docs/users_guide/flags.py
-index cc30b8c066..21c7ae3a16 100644
---- a/docs/users_guide/flags.py
-+++ b/docs/users_guide/flags.py
-@@ -46,9 +46,11 @@
-
- from docutils import nodes
- from docutils.parsers.rst import Directive, directives
-+import sphinx
- from sphinx import addnodes
- from sphinx.domains.std import GenericObject
- from sphinx.errors import SphinxError
-+from distutils.version import LooseVersion
- from utils import build_table_from_list
-
- ### Settings
-@@ -597,14 +599,18 @@ def purge_flags(app, env, docname):
- ### Initialization
-
- def setup(app):
-+    # The override argument to add_directive_to_domain is only supported by >= 1.8
-+    sphinx_version = LooseVersion(sphinx.__version__)
-+    override_arg = {'override': True} if sphinx_version >= LooseVersion('1.8') else {}
-
-     # Add ghc-flag directive, and override the class with our own
-     app.add_object_type('ghc-flag', 'ghc-flag')
--    app.add_directive_to_domain('std', 'ghc-flag', Flag)
-+    app.add_directive_to_domain('std', 'ghc-flag', Flag, **override_arg)
-
-     # Add extension directive, and override the class with our own
-     app.add_object_type('extension', 'extension')
--    app.add_directive_to_domain('std', 'extension', LanguageExtension)
-+    app.add_directive_to_domain('std', 'extension', LanguageExtension,
-+                                **override_arg)
-     # NB: language-extension would be misinterpreted by sphinx, and produce
-     # lang="extensions" XML attributes

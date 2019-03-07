@@ -1,23 +1,15 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
+  sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
   head "https://gcc.gnu.org/git/gcc.git"
 
-  stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-8.2.0/gcc-8.2.0.tar.xz"
-    sha256 "196c3c04ba2613f893283977e6011b2345d1cd1af9abeac58e916b1aab3e0080"
-
-    # isl 0.20 compatibility
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=86724
-    patch :DATA
-  end
-
   bottle do
-    rebuild 2
-    sha256 "5d0b4c4bd26b4fe71f4a67fd25a740e9627684b01af9a87807fd5697c804e5ab" => :mojave
-    sha256 "436ea3d1fa051a99129eb8bebae429bfb7a217af871c580cdaf4099b4688151b" => :high_sierra
-    sha256 "3925eaf2b53b52d4f2a63477167519bdc58f79348500b108517e0e88e8eff0c1" => :sierra
+    sha256 "1b11086a7e1732cb6077a2e96889ab847226308a76cb5acfaacec98a5c76567f" => :mojave
+    sha256 "c0695cd4808438b1eb3c98ed2c96f8f8806c920fce739ac4acf42789c9aede67" => :high_sierra
+    sha256 "49843c479e2ac3464d9022c916d109a7c0f89e7a5a6046f934c0b18e25aa54e4" => :sierra
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -155,17 +147,3 @@ class Gcc < Formula
     assert_equal "Done\n", `./test`
   end
 end
-
-__END__
-diff --git a/gcc/graphite.h b/gcc/graphite.h
-index 4e0e58c..be0a22b 100644
---- a/gcc/graphite.h
-+++ b/gcc/graphite.h
-@@ -37,6 +37,8 @@ along with GCC; see the file COPYING3.  If not see
- #include <isl/schedule.h>
- #include <isl/ast_build.h>
- #include <isl/schedule_node.h>
-+#include <isl/id.h>
-+#include <isl/space.h>
-
- typedef struct poly_dr *poly_dr_p;

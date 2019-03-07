@@ -1,15 +1,14 @@
 class Cocoapods < Formula
   desc "Dependency manager for Cocoa projects"
   homepage "https://cocoapods.org/"
-  url "https://github.com/CocoaPods/CocoaPods/archive/1.5.3.tar.gz"
-  sha256 "04593483efe1279c93cfc2bf25866a6e1a3d0c49c0c10602b060611c1e8b5e20"
-  revision 1
+  url "https://github.com/CocoaPods/CocoaPods/archive/1.6.1.tar.gz"
+  sha256 "482fbb5c89d1c7c4456f9c1aba3b6ee41cfe74f8ea389a4d3a0b0415d30cda40"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5e0fa01f44b64e0c230fa768cd211a86d0cf28c7415128cd46b162e90616a199" => :mojave
-    sha256 "e711a156660e3580237f315c2cfa38d5fd54d4211cc471f77de75c9db3f47321" => :high_sierra
-    sha256 "2c50c930d1680af39c7a4f21d2ef3714b04074aa6c3d586d4026925d7e30b452" => :sierra
+    sha256 "17bfedd7fbc1e1846ff92bf8524a8e19a0dba884db1454323c5caf28e2ff5235" => :mojave
+    sha256 "a8bf9d17ede7e5a30a44e432c812667b806ddbb0f601cb7b411cd197caa982b5" => :high_sierra
+    sha256 "6a6cbb4bb332db759cbfffed409c1d5bc93b7edff8bd99bb308fa98350ffeba7" => :sierra
   end
 
   depends_on "ruby" if MacOS.version <= :sierra

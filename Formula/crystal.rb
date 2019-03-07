@@ -3,8 +3,8 @@ class Crystal < Formula
   homepage "https://crystal-lang.org/"
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/0.27.1.tar.gz"
-    sha256 "c67274c149e797ca232d2ece50e906e7e3c9c66d6277ce7fa35819c022a82c1b"
+    url "https://github.com/crystal-lang/crystal/archive/0.27.2.tar.gz"
+    sha256 "d2fe8a025668b143e8ff70b3cd407765140ed10e52523dd08253139f9322171b"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/v0.8.1.tar.gz"
@@ -14,9 +14,9 @@ class Crystal < Formula
 
   bottle do
     cellar :any
-    sha256 "02ffbf3bbf8c8f6b87e1df7d639e6357f34af0b2d639b85f5584a1356e942288" => :mojave
-    sha256 "5d85f9b5ca33b86583ea0d3ed9fb2b2f148f891d281772f96f4dd632e2aaca02" => :high_sierra
-    sha256 "3ca6feba06c02cdc2432dcff7618ec34a528fc89637807734d8de883ed30794d" => :sierra
+    sha256 "d2af850ac6832460a4f88d9788cd205412a73e5f0807e27b61b7bb3c39c2f0cd" => :mojave
+    sha256 "1274def6adff3b374aa5a4eeba12ac1664e3cd1405036c288834cd7ad2599071" => :high_sierra
+    sha256 "02804838a14b4c196ea615d3813cad05d912d09d85a4920a894e2e1ef9ed5bf1" => :sierra
   end
 
   head do
@@ -37,9 +37,9 @@ class Crystal < Formula
   depends_on "pkg-config" # @[Link] will use pkg-config if available
 
   resource "boot" do
-    url "https://github.com/crystal-lang/crystal/releases/download/0.27.0/crystal-0.27.0-1-darwin-x86_64.tar.gz"
-    version "0.27.0-1"
-    sha256 "f34bb10357ce5a31ed37066750ee35443ed8cf5fc3f37d3490b984a4bfb1ee51"
+    url "https://github.com/crystal-lang/crystal/releases/download/0.27.1/crystal-0.27.1-1-darwin-x86_64.tar.gz"
+    version "0.27.1-1"
+    sha256 "f5102f34b6801a1bae3afe66fb6da15308cc304c3a9fba5799f4379c1e3010b1"
   end
 
   def install
@@ -58,6 +58,7 @@ class Crystal < Formula
     system "bin/crystal", "build",
                           "-D", "without_openssl",
                           "-D", "without_zlib",
+                          "-D", "preview_overflow",
                           "-o", ".build/crystal",
                           "src/compiler/crystal.cr",
                           "--release", "--no-debug"

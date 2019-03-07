@@ -1,16 +1,15 @@
 class Pcre < Formula
   desc "Perl compatible regular expressions library"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.42.tar.bz2"
-  sha256 "2cd04b7c887808be030254e8d77de11d3fe9d4505c39d4b15d2664ffe8bf9301"
+  url "https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.exim.org/pub/pcre/pcre-8.43.tar.bz2"
+  sha256 "91e762520003013834ac1adb4a938d53b22a216341c061b0cf05603b290faf6b"
 
   bottle do
     cellar :any
-    sha256 "f848e72c9a6ddfdd4e57d25df859830187cbb8e850996b22a84270a6590f56ff" => :mojave
-    sha256 "b904c008c04003c3f40e30c6ee6a3b411aad81aa2f2684db9bf59bccd9d58b01" => :high_sierra
-    sha256 "d8f8faec67df2d86e12757cac6f076c48d0fafac8f2a88c87c64d5807dce7142" => :sierra
-    sha256 "b07b9523cbab3c86423fecc7f5e79a1eb9dd47958d915f8915c78e6faa4f4435" => :el_capitan
+    sha256 "08e7414a7641d1e184c936537ff67f72f52649374d2308b896d4146ccc2c08fe" => :mojave
+    sha256 "0389911a93a88efd4a69b52dea8ecb872fdb55bcfff45d2f7313be5f79730861" => :high_sierra
+    sha256 "02966e199e627803e700bc1905bf30a07f87f82bdd627cc7e915966af727fd21" => :sierra
   end
 
   head do
@@ -22,17 +21,21 @@ class Pcre < Formula
   end
 
   def install
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-utf8
+      --enable-pcre8
+      --enable-pcre16
+      --enable-pcre32
+      --enable-unicode-properties
+      --enable-pcregrep-libz
+      --enable-pcregrep-libbz2
+    ]
+    args << "--enable-jit" if MacOS.version >= :sierra
+
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-utf8",
-                          "--enable-pcre8",
-                          "--enable-pcre16",
-                          "--enable-pcre32",
-                          "--enable-unicode-properties",
-                          "--enable-pcregrep-libz",
-                          "--enable-pcregrep-libbz2",
-                          "--enable-jit"
+    system "./configure", *args
     system "make"
     ENV.deparallelize
     system "make", "test"

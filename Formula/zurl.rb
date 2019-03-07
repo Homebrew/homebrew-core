@@ -35,7 +35,7 @@ class Zurl < Formula
 
     resource("pyzmq").stage { system "python", *Language::Python.setup_install_args(testpath/"vendor") }
 
-    conffile.write(<<~EOS
+    conffile.write(<<~EOS,
       [General]
       in_req_spec=ipc://#{ipcfile}
       defpolicy=allow
@@ -43,7 +43,7 @@ class Zurl < Formula
     EOS
                   )
 
-    runfile.write(<<~EOS
+    runfile.write(<<~EOS,
       import json
       import threading
       from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer

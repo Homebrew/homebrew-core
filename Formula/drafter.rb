@@ -19,10 +19,11 @@ class Drafter < Formula
     if build.head?
       system "cmake", ".", *std_cmake_args
       system "make"
+      system "make", "install"
     else
       system "./configure"
+      system "make", "install", "DESTDIR=#{prefix}"
     end
-    system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/7.6.0/solr-7.6.0.tgz"
-  sha256 "2cb425a0b30ff153465d306803e514e53e41924d74f28d842cb3a07cace759d5"
+  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/7.7.1/solr-7.7.1.tgz"
+  sha256 "4fb85f12af045b28f6cb935b2f3739d59ec61ad1288ffe44c7ede64e614f28c4"
 
   bottle :unneeded
 

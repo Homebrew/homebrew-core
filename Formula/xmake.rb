@@ -1,9 +1,9 @@
 class Xmake < Formula
-  desc "Make-like build utility based on Lua"
+  desc "A cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/tboox/xmake/archive/v2.2.3.tar.gz"
+  url "https://github.com/xmake-io/xmake/archive/v2.2.3.tar.gz"
   sha256 "c73d34805ab26d214f22fee74bf033942f91ce43bfc028663ffb910ad22c2c5d"
-  head "https://github.com/waruqi/xmake.git"
+  head "https://github.com/xmake-io/xmake.git"
 
   bottle do
     cellar :any_skip_relocation

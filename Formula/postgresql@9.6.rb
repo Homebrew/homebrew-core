@@ -1,14 +1,13 @@
 class PostgresqlAT96 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.10/postgresql-9.6.10.tar.bz2"
-  sha256 "8615acc56646401f0ede97a767dfd27ce07a8ae9c952afdb57163b7234fe8426"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v9.6.11/postgresql-9.6.11.tar.bz2"
+  sha256 "38250adc69a1e8613fb926c894cda1d01031391a03648894b9a6e13ff354a530"
 
   bottle do
-    sha256 "b85d72cab8878bd0d7f2f06e697be2051cb8f1f93488a30be9e13eecb434e0cb" => :mojave
-    sha256 "a33c087c51dd02894d18f400fc6c1ab40bd74406522df7b316a4171d553916cd" => :high_sierra
-    sha256 "53894301158240b23182d2dfaf11a0346a10a03cfbb3b23b11f2f5f76b89246e" => :sierra
+    sha256 "5745eb61597faf400d2fff86eb70a7c18cbacb5ca05d751558a7e4f16618ec76" => :mojave
+    sha256 "9bc81bcb60c55d694670d373513b6d53145b05e42d76641b51969ce9e8e3e1b9" => :high_sierra
+    sha256 "acc37cd6b58fffbe829b88d08b6c7cbb5502bab397e35b11e0bfa087112d6805" => :sierra
   end
 
   keg_only :versioned_formula
@@ -58,10 +57,10 @@ class PostgresqlAT96 < Formula
                 "-I$perl_archlibexp/CORE",
                 "-iwithsysroot $perl_archlibexp/CORE"
       inreplace "contrib/hstore_plperl/Makefile",
-                "-I$(perl_archlibexp)/CORE",
+                "$(perl_archlibexp)/CORE",
                 "-iwithsysroot $(perl_archlibexp)/CORE"
       inreplace "src/pl/plperl/GNUmakefile",
-                "-I$(perl_archlibexp)/CORE",
+                "$(perl_archlibexp)/CORE",
                 "-iwithsysroot $(perl_archlibexp)/CORE"
     end
 

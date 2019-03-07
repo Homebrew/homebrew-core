@@ -1,20 +1,20 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.0.0/fish-3.0.0.tar.gz"
-  sha256 "ea9dd3614bb0346829ce7319437c6a93e3e1dfde3b7f6a469b543b0d2c68f2cf"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.0.2/fish-3.0.2.tar.gz"
+  sha256 "14728ccc6b8e053d01526ebbd0822ca4eb0235e6487e832ec1d0d22f1395430e"
 
   bottle do
     cellar :any
-    sha256 "411c04301a63eb10c0e912193ffd5b60560f184d6361768c2557a79e0ee84b93" => :mojave
-    sha256 "087eaab54dbb04f5269ef01ee7115797af291077fd2a89403dd392fbf97bc5c1" => :high_sierra
-    sha256 "973773f553ea31c91816b102aac427bfaf71774c7ac2927dfd3e5d98c90ab151" => :sierra
+    sha256 "0dda76c64b0e2b4f1bfe48b816346f54a3fd9531550439caadadc6a1641c6d6b" => :mojave
+    sha256 "aaa15fbea68f8414084124da4347aec31484a3ab6320daf5f1cd54e208bf32c1" => :high_sierra
+    sha256 "65eb56f5d3e5978051743e0e1a6616983f34922cad65cbe0964b671d9bf4437e" => :sierra
   end
 
   head do
     url "https://github.com/fish-shell/fish-shell.git", :shallow => false
 
-    depends_on "doxygen" => :build
+    depends_on "sphinx-doc" => :build
   end
 
   depends_on "cmake" => :build

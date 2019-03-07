@@ -4,21 +4,21 @@ class KibanaAT56 < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v5.6.14",
-      :revision => "f909937e01a4b1a9e6b3d48d281fd3fe6a819510"
+      :tag      => "v5.6.15",
+      :revision => "e4f1e8f824c4cdc70bfa09a5ec734d7108366456"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f6d3107b9a9e65b9d830e79797f3cab76c78ef35054087cb6773888600da85b7" => :mojave
-    sha256 "d04dcc2500ae1f9c0eca52c9c93a742b0f4edf1b6a9b5f6187d96468fe594bf5" => :high_sierra
-    sha256 "485bc105e5d9f8e2a4a45cb9be05d3261947d9ddf33e505468d616d74bfb7302" => :sierra
+    sha256 "e77a9456c5820ccf831e009f78b1525bf2404c7ec6eab48e5dc239d4af07326b" => :mojave
+    sha256 "59e514aa5812dd4b716ccf73c34dbe059b5648c44dba99dc62246ddec3f03d79" => :high_sierra
+    sha256 "a73908eab81376f25cb9b0d9b29505babba3236c4eb84fadce0e00defac9a325" => :sierra
   end
 
   keg_only :versioned_formula
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.15.1/node-v6.15.1.tar.xz"
-    sha256 "c3bde58a904b5000a88fbad3de630d432693bc6d9d6fec60a5a19e68498129c2"
+    url "https://nodejs.org/dist/v6.16.0/node-v6.16.0.tar.xz"
+    sha256 "0d0882a9da1ccc217518d3d1a60dd238da9f52bed0c7daac42b8dc3d83bd7546"
   end
 
   def install
@@ -26,9 +26,6 @@ class KibanaAT56 < Formula
       system "./configure", "--prefix=#{libexec}/node"
       system "make", "install"
     end
-
-    # remove with next release: revert incorrect package.json version number
-    inreplace buildpath/"package.json", "\"version\": \"5.6.15\",", "\"version\": \"5.6.14\","
 
     # do not build packages for other platforms
     inreplace buildpath/"tasks/config/platforms.js", /('(linux-x64|windows-x64)',?(?!;))/, "// \\1"

@@ -1,15 +1,14 @@
 class Links < Formula
   desc "Lynx-like WWW browser that supports tables, menus, etc."
   homepage "http://links.twibright.com/"
-  url "http://links.twibright.com/download/links-2.17.tar.bz2"
-  sha256 "d8389763784a531acf7f18f93dd0324563bba2f5fa3df203f27d22cefe7a0236"
-  revision 1
+  url "http://links.twibright.com/download/links-2.18.tar.bz2"
+  sha256 "678cc1ab347cc90732b1925a11db7fbe12ce883fcca631f91696453a83819057"
 
   bottle do
     cellar :any
-    sha256 "7946cea648a8453c0d4bd3ec1be3a3b0ef885691c51123dd1e5e252b95e0a06d" => :mojave
-    sha256 "4383c9c0681964915b3a3fe31d26178724e0f856725271e491dbf400dfeffa7e" => :high_sierra
-    sha256 "e6c4e0b96b72c727a01f3b35cb743215a1ab4540c509c694d5f0e5ead1293244" => :sierra
+    sha256 "eaa37994f1e8b6c4b940e2d9ef8bb54e87ad78a9abf2e2318f3b876793b18e7c" => :mojave
+    sha256 "8a2c300d607c3ded56d50d7c953ec9b574de9d734701ab4399cce3a472c95996" => :high_sierra
+    sha256 "d069f957d246521cafefeabc64104504f286a8634e97731f729ab6592acd47dd" => :sierra
   end
 
   depends_on "pkg-config" => :build

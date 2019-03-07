@@ -1,15 +1,15 @@
 class Click < Formula
   desc "The command-line interactive controller for Kubernetes"
   homepage "https://github.com/databricks/click"
-  url "https://github.com/databricks/click/archive/v0.3.2.tar.gz"
-  sha256 "eed648409bf78a05658a9d097e5099ca17bf19df70122e2067859ae94c5575d5"
+  url "https://github.com/databricks/click/archive/v0.4.0.tar.gz"
+  sha256 "69df76f57af8b0c244ef4c975a242d3fe84f8e4f4fd44e62b2ccdf24ea82b23d"
   head "https://github.com/databricks/click.git"
 
   bottle do
-    sha256 "20757fac7b6ce08e1bd3df5275988cbaff40319c1c990428ada624ae313a0aed" => :mojave
-    sha256 "998198613be6e5007df66eee76b9ba108078c58534869a03233e8fed93661b32" => :high_sierra
-    sha256 "f165b40c17fceaa2ceac1a745124008255986e1e8e6da98973aadc49095f62ea" => :sierra
-    sha256 "fcfc3052c5457fae773d76e93d680c3033f54df048f66dd4c38148c684d986aa" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "e879a6d855395353f4d6bf94c86db2581681be41be9a8d892344cc64190b72c4" => :mojave
+    sha256 "ae13dc5304de63ae3cf3af67f0919d8c5c8ac7a4ac5ce63b4d297476eff302b8" => :high_sierra
+    sha256 "d1da447c91387264409aef3256198c1863d4840bdeb9b218c8e5da2fc6fc0d34" => :sierra
   end
 
   depends_on "rust" => :build

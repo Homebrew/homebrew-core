@@ -1,13 +1,14 @@
 class I386ElfBinutils < Formula
   desc "FSF Binutils for i386-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.31.1.tar.xz"
-  sha256 "5d20086ecf5752cc7d9134246e9588fa201740d540f7eb84d795b1f7a93bca86"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.32.tar.gz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.32.tar.gz"
+  sha256 "9b0d97b3d30df184d302bced12f976aa1e5fbf4b0be696cdebc6cca30411a46e"
 
   bottle do
-    sha256 "89312270dc465d7d2c622d7253acfecc7e8b0d5a5cc7688822c1dbb10ee7166e" => :mojave
-    sha256 "1f7b4aa5dd270750954ef0a177223843affc45214cb7f19fc5e85743608fc8a6" => :high_sierra
-    sha256 "7ca42ad9603b7e336f029ae87407c789f1533af638daa54d3db3f2bde2afbf0c" => :sierra
+    sha256 "deef284fbb0b50aeafdaf9312c56bed4f3ca9571374f4174ab6f877bcfdab3e0" => :mojave
+    sha256 "f382f13d45f7d71ca9471d78aae6d03af5f1622ede5346cb27014cf36abf7b29" => :high_sierra
+    sha256 "992fa92fb007f81e25469a479730b560d84d06c6eedaac1b989b929ee6609c57" => :sierra
   end
 
   def install

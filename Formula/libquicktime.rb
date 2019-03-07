@@ -20,8 +20,7 @@ class Libquicktime < Formula
   # Also, fixes from upstream for CVE-2017-9122 through CVE-2017-9128, applied
   # by Debian since 30 Jun 2017.
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-12.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-12.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/libq/libquicktime/libquicktime_1.2.4-12.debian.tar.xz"
     sha256 "e5b5fa3ec8391b92554d04528568d04ea9eb5145835e0c246eac7961c891a91a"
     apply "patches/CVE-2016-2399.patch"
     apply "patches/CVE-2017-9122_et_al.patch"

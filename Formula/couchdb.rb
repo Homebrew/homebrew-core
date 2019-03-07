@@ -1,16 +1,14 @@
 class Couchdb < Formula
   desc "Document database server"
   homepage "https://couchdb.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
-  mirror "https://archive.apache.org/dist/couchdb/source/1.7.1/apache-couchdb-1.7.1.tar.gz"
-  sha256 "91200aa6fbc6fa5e2f3d78ef40e39d8c1ec7c83ea1c2cd730d270658735b2cad"
-  revision 8
+  url "https://www.apache.org/dyn/closer.cgi?path=/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
+  mirror "https://archive.apache.org/dist/couchdb/source/1.7.2/apache-couchdb-1.7.2.tar.gz"
+  sha256 "7b7c0db046ded544a587a8935d495610dd10f01a9cae3cd42cf88c5ae40bc431"
 
   bottle do
-    rebuild 1
-    sha256 "b07fcba0c273c81d43b6df6b96b923e14f18d2a5175aa657e699acd123bd3162" => :mojave
-    sha256 "66d4b5aa4f6e8f94a2bebb255b3d43051d3a1fa798f04356f6bb713a83c0711d" => :high_sierra
-    sha256 "c5257e44b71b803c685f855cabbd435d860b7478a89ac330b11f2d8580759f4c" => :sierra
+    sha256 "8868d7714bfdbee9c6e3b975e4d807a8a77312d020a4e9a7d93e890e4f0565e1" => :mojave
+    sha256 "cc974d6fcbc24dc639c48e4a4a2942016553a4f3a188241af835946b34328ea8" => :high_sierra
+    sha256 "f0f136585526e769370a82935cfb574392f6a25e2cf16dacf2c1cb2703c45e7f" => :sierra
   end
 
   head do

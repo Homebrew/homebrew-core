@@ -7,9 +7,10 @@ class LlvmAT5 < Formula
 
   bottle do
     cellar :any
-    sha256 "0d5c633bb1a78b80311ea320c4507044b98efddbb514b6590ab8ed39c9365a00" => :mojave
-    sha256 "48f6af7bbeafa4839a740d111dd89d769d934320a2fe0a74a52e074d01c09700" => :high_sierra
-    sha256 "cb37867fc82d648a953ac34f6d062baa3ff3905b79b37bae632854321b8c6398" => :sierra
+    rebuild 1
+    sha256 "33c32271f2094e27473b54577b6c04e89fb457a09946b8ea1fe9df3bda8f6511" => :mojave
+    sha256 "45b114bd1d3d652b679304cee5f405d1f856c8cc015a3f1c08764477c99310c2" => :high_sierra
+    sha256 "8673a94fd59e891d0e26dc535944ed52a50c8074cfe88d6307cb05119c984b81" => :sierra
   end
 
   keg_only :versioned_formula
@@ -116,9 +117,13 @@ class LlvmAT5 < Formula
       system "make", "install-xcode-toolchain"
     end
 
-    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
     (share/"cmake").install "cmake/modules"
-    inreplace "#{share}/clang/tools/scan-build/bin/scan-build", "$RealBin/bin/clang", "#{bin}/clang"
+    (share/"clang/tools").install Dir["tools/clang/tools/scan-{build,view}"]
+
+    # scan-build is in Perl, so the @ in our path needs to be escaped
+    inreplace "#{share}/clang/tools/scan-build/bin/scan-build",
+              "$RealBin/bin/clang", "#{bin}/clang".gsub("@", "\\@")
+
     bin.install_symlink share/"clang/tools/scan-build/bin/scan-build", share/"clang/tools/scan-view/bin/scan-view"
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 

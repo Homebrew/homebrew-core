@@ -222,6 +222,7 @@ class Ooniprobe < Formula
 
   def post_install
     return if (pkgshare/"decks-available").exist?
+
     ln_s pkgshare/"decks", pkgshare/"decks-available"
     ln_s pkgshare/"decks/web.yaml", pkgshare/"current.deck"
   end

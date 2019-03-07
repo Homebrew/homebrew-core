@@ -6,10 +6,10 @@ class Gnutls < Formula
   sha256 "bb9acab8af2ac430edf45faaaa4ed2c51f86e57cb57689be6701aceef4732ca7"
 
   bottle do
-    cellar :any
-    sha256 "7507da89370f72be8fb22d1932524295231904a2a180ff0bfc4a14d3bd496e31" => :mojave
-    sha256 "3bdf1fbe152231ba3a9cd19445c242cfb14140fa942a1df03af5c69754e09225" => :high_sierra
-    sha256 "6dec32c6b29e69d051edd1220bc040cb01911cd20220687dd09bf6e76317b42a" => :sierra
+    rebuild 1
+    sha256 "44b47f5f857dccb0716619a049ea10466650a0f699f804152f6697395059e2a1" => :mojave
+    sha256 "9e3ef9011a01c45d25d6624bc2165a149ee1adb646ea535fd285567115faffd2" => :high_sierra
+    sha256 "264198ced383d3ae9d947e5811fb9daf49004971e268ce045b2cc95de8ef2c53" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -18,6 +18,7 @@ class Gnutls < Formula
   depends_on "libunistring"
   depends_on "nettle"
   depends_on "p11-kit"
+  depends_on "unbound"
 
   def install
     args = %W[

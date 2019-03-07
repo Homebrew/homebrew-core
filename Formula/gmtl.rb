@@ -1,7 +1,7 @@
 class Gmtl < Formula
   desc "Lightweight math library"
   homepage "https://ggt.sourceforge.io/"
-  head "http://svn.code.sf.net/p/ggt/code/trunk"
+  head "https://svn.code.sf.net/p/ggt/code/trunk"
 
   stable do
     url "https://downloads.sourceforge.net/project/ggt/Generic%20Math%20Template%20Library/0.6.1/gmtl-0.6.1.tar.gz"

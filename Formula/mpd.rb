@@ -1,16 +1,15 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.3.tar.xz"
-  sha256 "6cf60e644870c6063a008d833a6c876272b7679a400b83012ed209c15ce06e2a"
-  revision 2
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.5.tar.xz"
+  sha256 "2ea9f0eb3a7bdae5d705adf4e8ec45ef38b5b9ddf133f32b8926dd4e205b0ef9"
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
     cellar :any
-    sha256 "915f190a60f70cc9e2e559e5e7072564cd36e677f6e2e4008562c8d566dbf214" => :mojave
-    sha256 "0afbf202aad011a14a9e4ae882e1a9d8cad89799893e5a3b0259307b23f96766" => :high_sierra
-    sha256 "fd5981830b9d9f471e677829aaaf97317407889e38ae2102fe7c0865c215f78e" => :sierra
+    sha256 "0d7097c4dc2715a22d52dfb043079af7caff6334c86f02df9a94d391e7c07a3d" => :mojave
+    sha256 "53ac967273ff331d9935747054ca99ed0f928527d1c89ffbcc8a3b0d6b46386d" => :high_sierra
+    sha256 "c4a226d7ac56d643e0a9e9cf767511b642340af52c157f7bf014fad25791e35b" => :sierra
   end
 
   depends_on "boost" => :build
@@ -28,6 +27,7 @@ class Mpd < Formula
   depends_on "libao"
   depends_on "libid3tag"
   depends_on "libmpdclient"
+  depends_on "libnfs"
   depends_on "libsamplerate"
   depends_on "libupnp"
   depends_on "libvorbis"
@@ -52,6 +52,7 @@ class Mpd < Formula
       -Dexpat=enabled
       -Dffmpeg=enabled
       -Dfluidsynth=enabled
+      -Dnfs=enabled
       -Dupnp=enabled
       -Dvorbisenc=enabled
     ]

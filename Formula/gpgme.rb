@@ -7,11 +7,13 @@ class Gpgme < Formula
 
   bottle do
     cellar :any
-    sha256 "7a606e568e5708cb6461f4988c1ccaab2eb58be8e6d4b96efbe0d5bbc64b612c" => :mojave
-    sha256 "2d69d89cb6cb2eca32dd6fc92e32251d12c946c93917d5d6e6c4cebc421d23c7" => :high_sierra
-    sha256 "bb4ac5c5bbc9f3f2c54febe2e872c780337d6c8612124778b76826371c673492" => :sierra
+    rebuild 1
+    sha256 "ea06301a5f59abbc2274e6dd26825940faa83fa1454b7ac11f23682667d7b643" => :mojave
+    sha256 "a5cb71352d5f494a8e00cb8d410a65e6300aeb5d2ed4049523fd39f3b519241c" => :high_sierra
+    sha256 "e7303c04a642d079c366943e6ed011edf90651dafd425767fe87885d8cc29025" => :sierra
   end
 
+  depends_on "python" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
@@ -32,5 +34,6 @@ class Gpgme < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gpgme-tool --lib-version")
     system "python2.7", "-c", "import gpg; print gpg.version.versionstr"
+    system "python3", "-c", "import gpg; print(gpg.version.versionstr)"
   end
 end

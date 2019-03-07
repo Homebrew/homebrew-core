@@ -1,13 +1,14 @@
 class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://secure.php.net/"
-  url "https://php.net/get/php-7.3.1.tar.xz/from/this/mirror"
-  sha256 "cfe93e40be0350cd53c4a579f52fe5d8faf9c6db047f650a4566a2276bf33362"
+  url "https://php.net/get/php-7.3.2.tar.xz/from/this/mirror"
+  sha256 "010b868b4456644ae227d05ad236c8b0a1f57dc6320e7e5ad75e86c5baf0a9a8"
 
   bottle do
-    sha256 "3e410bff96c584ce269314737c027b8919700fcf1d63e74d21206637fa341a09" => :mojave
-    sha256 "f43dfdad1645b5dc208653a83c9d319dbd74ac6176e01a95fdb9baf1b55dbd0c" => :high_sierra
-    sha256 "78a8ea2ac8efa7b16cfd707884af7686300cb3378d7a5a869e19e859d2129c47" => :sierra
+    rebuild 1
+    sha256 "b4ba1ced936d814da2d0c6cabc72accaa6471ec1c15c6c8412cf84b438e56336" => :mojave
+    sha256 "7a9dfacc52c24fb1e4ee0593c4ab85f6a87b0fc52ad90b12cff8023041c351fa" => :high_sierra
+    sha256 "9ba49c9edbf2e11a6b866441c4a1339c7cabda4f079210bbba4c959bdc0f22df" => :sierra
   end
 
   depends_on "httpd" => [:build, :test]
@@ -31,7 +32,6 @@ class Php < Formula
   depends_on "libzip"
   depends_on "openldap"
   depends_on "openssl"
-  depends_on "pcre2"
   depends_on "sqlite"
   depends_on "tidy-html5"
   depends_on "unixodbc"

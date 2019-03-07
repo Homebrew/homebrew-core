@@ -25,6 +25,7 @@ class Bento4 < Formula
       programs = Dir["build/Release/*"].select do |f|
         next if f.end_with? ".dylib"
         next if f.end_with? "Test"
+
         File.file?(f) && File.executable?(f)
       end
       bin.install programs

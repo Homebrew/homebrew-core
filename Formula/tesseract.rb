@@ -3,13 +3,14 @@ class Tesseract < Formula
   homepage "https://github.com/tesseract-ocr/"
   url "https://github.com/tesseract-ocr/tesseract/archive/4.0.0.tar.gz"
   sha256 "a1f5422ca49a32e5f35c54dee5112b11b99928fc9f4ee6695cdc6768d69f61dd"
+  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git"
 
   bottle do
-    rebuild 2
-    sha256 "cce4d46a711959e3e62bcadd7470bb5a8ead7a2ccf195b455891e51d7d13f64e" => :mojave
-    sha256 "f00c278d85fc9a42b6a7b88c994c13ddd3533e7a71a6229215fc53d02ec1d3c3" => :high_sierra
-    sha256 "05abf694ff3f7dee8c50ec255329558e7b5be0cc2ffd1661cfe2a637f6ccfeb2" => :sierra
+    cellar :any
+    sha256 "46867f03eddad20bbcc7d17580d48ab718c3658291a1e51b928c6b0c2a55100f" => :mojave
+    sha256 "9a992489da4ea09c66997fbc5c8ffbcb2dd411b4c2acbf23e24497184943aa53" => :high_sierra
+    sha256 "03209012cb8884dd4224661d47ec9d5190807ae317b04342a4c7a4f97b830895" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -20,11 +21,6 @@ class Tesseract < Formula
 
   depends_on "leptonica"
   depends_on "libtiff"
-
-  resource "tessdata" do
-    url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
-    sha256 "f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe"
-  end
 
   resource "eng" do
     url "https://github.com/tesseract-ocr/tessdata_fast/raw/4.0.0/eng.traineddata"
@@ -41,6 +37,11 @@ class Tesseract < Formula
     sha256 "36f772980ff17c66a767f584a0d80bf2302a1afa585c01a226c1863afcea1392"
   end
 
+  resource "testfile" do
+    url "https://raw.githubusercontent.com/tesseract-ocr/test/6dd816cdaf3e76153271daf773e562e24c928bf5/testing/eurotext.tif"
+    sha256 "7b9bd14aba7d5e30df686fbb6f71782a97f48f81b32dc201a1b75afe6de747d6"
+  end
+
   def install
     # explicitly state leptonica header location, as the makefile defaults to /usr/local/include,
     # which doesn't work for non-default homebrew location
@@ -49,15 +50,28 @@ class Tesseract < Formula
     ENV.cxx11
 
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking", "--datarootdir=#{HOMEBREW_PREFIX}/share"
 
-    system "make", "install"
+    system "make"
+
+    # make install in the local share folder to avoid permission errors
+    system "make", "install", "datarootdir=#{share}"
 
     resource("snum").stage { mv "snum.traineddata", share/"tessdata" }
-    resource("tessdata").stage { mv Dir["*"], share/"tessdata" }
+    resource("eng").stage { mv "eng.traineddata", share/"tessdata" }
+    resource("osd").stage { mv "osd.traineddata", share/"tessdata" }
+  end
+
+  def caveats; <<~EOS
+    This formula containes only the "eng", "osd", and "snum" language data files.
+    If you need all the other supported languages, `brew install tesseract-lang`.
+  EOS
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/tesseract -v 2>&1")
+    resource("testfile").stage do
+      system bin/"tesseract", "./eurotext.tif", "./output", "-l", "eng"
+      assert_match "The (quick) [brown] {fox} jumps!\n", File.read("output.txt")
+    end
   end
 end

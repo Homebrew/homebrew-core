@@ -25,6 +25,7 @@ class Neomutt < Formula
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "./configure", "--prefix=#{prefix}",
                           "--enable-gpgme",
+                          "--with-gpgme=#{Formula["gpgme"].opt_prefix}",
                           "--gss",
                           "--lmdb",
                           "--notmuch",

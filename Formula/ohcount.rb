@@ -1,18 +1,18 @@
 class Ohcount < Formula
   desc "Source code line counter"
-  homepage "https://github.com/blackducksw/ohcount"
-  url "https://github.com/blackducksw/ohcount/archive/v3.1.1.tar.gz"
-  sha256 "4be27e54ac0fb5016fe2f09c2f54ec0139e67d9e2d9ee2e8569f8dfb4e56f59f"
-  head "https://github.com/blackducksw/ohcount.git"
+  homepage "https://github.com/blackducksoftware/ohcount"
+  url "https://github.com/blackducksoftware/ohcount/archive/4.0.0.tar.gz"
+  sha256 "d71f69fd025f5bae58040988108f0d8d84f7204edda1247013cae555bfdae1b9"
+  head "https://github.com/blackducksoftware/ohcount.git"
 
   bottle do
     cellar :any
-    sha256 "dc7239bfaeebfb31a1a0ed7ae71dfdf178394e4f0842a74e457ec0e576e3683c" => :mojave
-    sha256 "bf00398e44c1f2c1e2b9fa22614037ce203e3e196c7675dec4273e975837d8b4" => :high_sierra
-    sha256 "15e8921a693b674c5ea24bc518a776b7b3ef80c207f9d2e1dd498248fce40f7a" => :sierra
-    sha256 "2227295bd7e77ef3881186a3835718e8018738f8b443314ec16c2c7a5ceadea8" => :el_capitan
+    sha256 "b93054a4459a246895a524de21559fc1387e8cc6436d83481c7d85afc10be9e8" => :mojave
+    sha256 "2bcddb3687af78d9317be143579afe692f8a3034c51b1e7e07ddd53491792365" => :high_sierra
+    sha256 "716a64cf45acdb062651994384e88e74e5bf258a1b70b9b29cf09c5c115084e5" => :sierra
   end
 
+  depends_on "gperf" => :build
   depends_on "libmagic"
   depends_on "pcre"
   depends_on "ragel"

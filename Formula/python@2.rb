@@ -1,15 +1,14 @@
 class PythonAT2 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/2.7.15/Python-2.7.15.tar.xz"
-  sha256 "22d9b1ac5b26135ad2b8c2901a9413537e08749a753356ee913c84dbd2df5574"
-  revision 2
+  url "https://www.python.org/ftp/python/2.7.16/Python-2.7.16.tar.xz"
+  sha256 "f222ef602647eecb6853681156d32de4450a2c39f4de93bd5b20235f2e660ed7"
   head "https://github.com/python/cpython.git", :branch => "2.7"
 
   bottle do
-    sha256 "4461576d1be699f9dad4751e0c986f5d42484f230bbbe30a27532471ffdb98a6" => :mojave
-    sha256 "9e89dd40be444c2446a24f8d10fbbda8ae858c180c4620ce597639308dcb43cb" => :high_sierra
-    sha256 "1474f6903ec29c717c3b70f7b26f3067ecc08577a696821042b04cd6799a3a67" => :sierra
+    sha256 "61f3bbffdba8360e2637eeb21cd1b054444a0b6f366446c3bda40ff06711f797" => :mojave
+    sha256 "ced71f55e00f965b7ba78c30f2867accb060b1b56025ae64765cfa57717e6e5b" => :high_sierra
+    sha256 "54bbea4ddeb037c2d87ffd953ebe38400b53758ac1097549045e07b5d0eb2ecf" => :sierra
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -31,18 +30,18 @@ class PythonAT2 < Formula
   depends_on "sqlite"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/37/1b/b25507861991beeade31473868463dad0e58b1978c209de27384ae541b0b/setuptools-40.6.3.zip"
-    sha256 "3b474dad69c49f0d2d86696b68105f3a6f195f7ab655af12ef9a9c326d2b08f8"
+    url "https://files.pythonhosted.org/packages/c2/f7/c7b501b783e5a74cf1768bc174ee4fb0a8a6ee5af6afa92274ff964703e0/setuptools-40.8.0.zip"
+    sha256 "6e4eec90337e849ade7103723b9a99631c1f0d19990d6e8412dc42f5ae8b304d"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/45/ae/8a0ad77defb7cc903f09e551d88b443304a9bd6e6f124e75c0fbbf6de8f7/pip-18.1.tar.gz"
-    sha256 "c0a292bd977ef590379a3f05d7b7f65135487b67470f6281289a94e015650ea1"
+    url "https://files.pythonhosted.org/packages/36/fa/51ca4d57392e2f69397cd6e5af23da2a8d37884a605f9e3f2d3bfdc48397/pip-19.0.3.tar.gz"
+    sha256 "6e6f197a1abfb45118dbb878b5c859a0edbdd33fd250100bc015b67fded4b9f2"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/d8/55/221a530d66bf78e72996453d1e2dedef526063546e131d70bed548d80588/wheel-0.32.3.tar.gz"
-    sha256 "029703bf514e16c8271c3821806a1c171220cc5bdd325cbf4e7da1e056a01db6"
+    url "https://files.pythonhosted.org/packages/b7/cf/1ea0f5b3ce55cacde1e84cdde6cee1ebaff51bd9a3e6c7ba4082199af6f6/wheel-0.33.1.tar.gz"
+    sha256 "66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d"
   end
 
   def lib_cellar

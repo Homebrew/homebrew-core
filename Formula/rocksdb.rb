@@ -1,15 +1,14 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/rocksdb-5.14.3.tar.gz"
-  sha256 "ef3cbbb764344e5778db8f3f54d080f02783c3c94deff42d5822dfeb9b014c65"
+  url "https://github.com/facebook/rocksdb/archive/v5.18.3.tar.gz"
+  sha256 "7fb6738263d3f2b360d7468cf2ebe333f3109f3ba1ff80115abd145d75287254"
 
   bottle do
     cellar :any
-    sha256 "df69fa36b2b025f62cc0d30da46e072512d424cc66c242834fcfba7a60cb913c" => :mojave
-    sha256 "b4dd4f1c3324876dcf7a9524d6440a0891f162db3c19b97284100aa4b13cabbe" => :high_sierra
-    sha256 "8d3515c91f5eecb1828af7825ddadb0169720b47b2cd76411ad7ca3792699e20" => :sierra
-    sha256 "e07d5748ec17ea316d7b669bf22e69db5b5c12c488030abbc164d17f004ace44" => :el_capitan
+    sha256 "5cd6d6d08b6e2d9f137984f74396bed857c88686f69496b3963703d3301a4fa9" => :mojave
+    sha256 "29b90ff030110657a824dcb76e4c71ce27af8803e1a8ab19c540d07c4f581b5e" => :high_sierra
+    sha256 "5e2bbca2e528f5ebe654d5ad9d6b1057cc5901c169e63dcb99b104ce6e468d5f" => :sierra
   end
 
   depends_on "gflags"
@@ -21,6 +20,7 @@ class Rocksdb < Formula
     ENV["PORTABLE"] = "1"
     ENV["DEBUG_LEVEL"] = "0"
     ENV["USE_RTTI"] = "1"
+    ENV["ROCKSDB_DISABLE_ALIGNED_NEW"] = "1" if MacOS.version <= :sierra
     ENV["DISABLE_JEMALLOC"] = "1" # prevent opportunistic linkage
 
     # build regular rocksdb

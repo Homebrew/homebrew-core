@@ -1,16 +1,14 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-4.1.tar.xz"
-  sha256 "a38ec4d026efb58506a99ad5cd23d5a9793b4bf415f2c4c2e9c1bb444acd1994"
-  revision 3
+  url "https://ffmpeg.org/releases/ffmpeg-4.1.1.tar.xz"
+  sha256 "373749824dfd334d84e55dff406729edfd1606575ee44dd485d97d45ea4d2d86"
   head "https://github.com/FFmpeg/FFmpeg.git"
 
   bottle do
-    rebuild 2
-    sha256 "2dbbbc057c3d447510bf739e6822d03765b3d55669f74e96dd7258cc1976cbf1" => :mojave
-    sha256 "440bf019cdf9739d3d13bd32b0a96d15a34a50ae7ead31b41180ff66eee1b316" => :high_sierra
-    sha256 "261e0b798358f83f14f1ab7168f8ce1e50a8da28307485315aea0e4a94235197" => :sierra
+    sha256 "468153bac4b90b445fa5c6adfb70ec3213ebc0f63c7a97a6b2a1649d9c32a786" => :mojave
+    sha256 "152657e2793e9105dacf8badf787f826734b6407741b1e764d91502837c84647" => :high_sierra
+    sha256 "c495601c6e1c14b00d025218a9228706723b3f13f371ec98a7a00eb72066706f" => :sierra
   end
 
   depends_on "nasm" => :build
@@ -21,16 +19,22 @@ class Ffmpeg < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
+  depends_on "gnutls"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libbluray"
+  depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
+  depends_on "openjpeg"
   depends_on "opus"
   depends_on "rtmpdump"
+  depends_on "rubberband"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "speex"
+  depends_on "tesseract"
   depends_on "theora"
   depends_on "x264"
   depends_on "x265"
@@ -49,11 +53,15 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
+      --enable-gnutls
       --enable-gpl
       --enable-libaom
+      --enable-libbluray
       --enable-libmp3lame
       --enable-libopus
+      --enable-librubberband
       --enable-libsnappy
+      --enable-libtesseract
       --enable-libtheora
       --enable-libvorbis
       --enable-libvpx
@@ -67,11 +75,14 @@ class Ffmpeg < Formula
       --enable-libass
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
+      --enable-libopenjpeg
       --enable-librtmp
       --enable-libspeex
       --enable-videotoolbox
       --disable-libjack
       --disable-indev=jack
+      --enable-libaom
+      --enable-libsoxr
     ]
 
     system "./configure", *args

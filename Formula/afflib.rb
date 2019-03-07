@@ -1,15 +1,14 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.17.tar.gz"
-  sha256 "3c5a718731c90a75a1134796ab9de9a0156f6b3a8d1dec4f532e161b94bdaff4"
-  revision 1
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.18.tar.gz"
+  sha256 "5481cd5d8dbacd39d0c531a68ae8afcca3160c808770d66dcbf5e9b5be3e8199"
 
   bottle do
     cellar :any
-    sha256 "7d170683baf0b8e3ae8044e000a3112b6106ca2a32e67ab589610554cf0271bd" => :mojave
-    sha256 "b8af707ea41b988e8955160dfac972cf734e20e691606ee9d444fbf1c710cc0e" => :high_sierra
-    sha256 "dc5f79c96328f90e9335df61ef1e82236a5ac2bc1015e327d3157b20fa03608d" => :sierra
+    sha256 "8777c09fb89f6ef70f6324fe9765a2dfc1c3d9a86fcd0b583d9c8f2465be61f1" => :mojave
+    sha256 "09d2326ac0d816477129b38f85af29b8f2ab42448b76f603ec77bf8b64aebb24" => :high_sierra
+    sha256 "771fa58a6d3470a4a40a64b6c771533e4a5705077d9ea02a006f0d71074892b0" => :sierra
   end
 
   depends_on "autoconf" => :build

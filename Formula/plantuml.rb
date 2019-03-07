@@ -1,8 +1,8 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "https://plantuml.com/"
-  url "https://downloads.sourceforge.net/project/plantuml/1.2019.0/plantuml.1.2019.0.jar"
-  sha256 "767b2a3f5512ae0636fdaea8a54a58b96ffa8fd41933f941e6fb55bafed381e1"
+  url "https://downloads.sourceforge.net/project/plantuml/1.2019.1/plantuml.1.2019.1.jar"
+  sha256 "6f1baab2a36059c3ffb926eeb7b65aa9f5f5c4559712b94f0f97108f58592bdf"
   version_scheme 1
 
   bottle :unneeded
