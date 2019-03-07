@@ -4,14 +4,14 @@ require "json"
 class TsNode < Formula
   desc "TypeScript execution and REPL for node.js"
   homepage "https://github.com/TypeStrong/ts-node"
-  url "https://registry.npmjs.org/ts-node/ts-node-8.0.2.tgz"
-  sha256 "ba6a690ddf1e441425fe47d37b06e61fe4a8d3be10430b17eb286630d9569324"
+  url "https://registry.npmjs.org/ts-node/ts-node-8.0.3.tgz"
+  sha256 "e3cb69b68d4974c456579cc48ba7d5f967e4a54e67e414ed672a30269e755054"
 
   depends_on "node"
 
   resource "typescript" do
-    url "https://registry.npmjs.org/typescript/-/typescript-3.3.1.tgz"
-    sha256 "5693094bc766af02ec381114cb933c1f6ffc78c1395a4c42b55b3ccf48aa4f50"
+    url "https://registry.npmjs.org/typescript/-/typescript-3.3.3333.tgz"
+    sha256 "4af747947089d0a25b2b3dd45f892a63c576b97039cd57eb8cfc1d5ab00df3d0"
   end
 
   def install
