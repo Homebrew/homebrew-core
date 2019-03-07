@@ -12,6 +12,8 @@ class Dtc < Formula
     sha256 "6755bc2af0a42c3bb4834c468f36db8248b983d20cb47783afded95ac1267aac" => :el_capitan
   end
 
+  depends_on "pkg-config" => :build
+
   def install
     system "make", "NO_PYTHON=1"
     system "make", "NO_PYTHON=1", "DESTDIR=#{prefix}", "PREFIX=", "install"
