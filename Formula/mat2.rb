@@ -24,8 +24,8 @@ class Mat2 < Formula
   end
 
   def install
-    inreplace "libmat2/exiftool.py", "/usr/bin/exiftool", "#{HOMEBREW_PREFIX}/bin/exiftool"
-    inreplace "libmat2/video.py", "/usr/bin/ffmpeg", "#{HOMEBREW_PREFIX}/bin/ffmpeg"
+    inreplace "libmat2/exiftool.py", "/usr/bin/exiftool", "#{Formula["exiftool"].opt_bin}/exiftool"
+    inreplace "libmat2/video.py", "/usr/bin/ffmpeg", "#{Formula["ffmpeg"].opt_bin}/ffmpeg"
 
     version = Language::Python.major_minor_version("python3")
     pygobject3 = Formula["pygobject3"]
