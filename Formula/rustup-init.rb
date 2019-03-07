@@ -13,14 +13,6 @@ class RustupInit < Formula
 
   depends_on "rust" => :build
 
-  # Fixes `rustup-init` not working when it is relative symlink.
-  # https://github.com/rust-lang/rustup.rs/issues/1512
-  # https://github.com/rust-lang/rustup.rs/pull/1521
-  patch do
-    url "https://github.com/rust-lang/rustup.rs/pull/1521/commits/ebbfced7ee4aeb5be4c775f8f85e351093d5818f.diff?full_index=1"
-    sha256 "34dc006d75d747b99dd9fe49bdde396a8bf5443d1e3df1a47c4776c06ec3f3c7"
-  end
-
   def install
     cargo_home = buildpath/"cargo_home"
     cargo_home.mkpath
