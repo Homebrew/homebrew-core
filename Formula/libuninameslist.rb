@@ -1,8 +1,8 @@
 class Libuninameslist < Formula
   desc "Library of Unicode names and annotation data"
   homepage "https://github.com/fontforge/libuninameslist"
-  url "https://github.com/fontforge/libuninameslist/releases/download/20180701/libuninameslist-dist-20180701.tar.gz"
-  sha256 "8aed97d0bc872d893d8bf642a14e49958b0613136e1bfe2a415c69599c803c90"
+  url "https://github.com/fontforge/libuninameslist/releases/download/20190305/libuninameslist-dist-20190305.tar.gz"
+  sha256 "98dbc9b4185f85c7b9f8e099c8c56341a6ecc41e594bff54b22f6ecfde128de7"
 
   bottle do
     cellar :any
