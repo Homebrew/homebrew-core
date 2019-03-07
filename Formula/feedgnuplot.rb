@@ -17,6 +17,9 @@ class Feedgnuplot < Formula
     system "perl", "Makefile.PL", "prefix=#{prefix}"
     system "make"
     system "make", "install"
+
+    bash_completion.install "completions/bash/feedgnuplot"
+    zsh_completion.install "completions/zsh/_feedgnuplot"
   end
 
   test do
