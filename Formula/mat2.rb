@@ -19,12 +19,9 @@ class Mat2 < Formula
   depends_on "python"
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/source/m/mutagen/mutagen-1.41.1.tar.gz"
-    sha256 "2ea9c900a05fa7f5f4c5bd9fc1475d7d576532e13b2f79b694452b997ff67200"
+    url "https://files.pythonhosted.org/packages/30/4c/5ad1a6e1ccbcfaf6462db727989c302d9d721beedd9b09c11e6f0c7065b0/mutagen-1.42.0.tar.gz"
+    sha256 "bb61e2456f59a9a4a259fbc08def6d01ba45a42da8eeaa97d00633b0ec5de71c"
   end
-
-  # fix list option return value
-  patch :DATA
 
   def install
     inreplace "libmat2/exiftool.py", "/usr/bin/exiftool", "#{HOMEBREW_PREFIX}/bin/exiftool"
@@ -51,18 +48,3 @@ class Mat2 < Formula
     system "#{bin}/mat2", "-l"
   end
 end
-
-__END__
-diff --git a/mat2 b/mat2
-index ff8a253..151cbf6 100755
---- a/mat2
-+++ b/mat2
-@@ -133,7 +133,7 @@ def show_parsers() -> bool:
-                 continue
-             formats.add('  - %s (%s)' % (mtype, ', '.join(extensions)))
-     print('\n'.join(sorted(formats)))
--    return True
-+    return 0
-
-
- def __get_files_recursively(files: List[str]) -> Generator[str, None, None]:
