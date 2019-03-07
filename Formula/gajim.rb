@@ -168,6 +168,8 @@ class Gajim < Formula
       venv.pip_install Pathname.pwd
     end
 
+    ENV.append "CFLAGS", "-DPyObjC_BUILD_RELEASE=#{MacOS.version.to_s.sub(".", "")}"
+
     res = resources.map(&:name).to_set - %w[Pillow plugin_installer omemo url_image_preview]
 
     res.each do |r|
