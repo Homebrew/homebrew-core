@@ -6,9 +6,9 @@ class Mat2 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f107565490f9660d6e3f1e53a041e0137408d836dfd168aa99787470848d009b" => :mojave
-    sha256 "71dd41639831930449ea90b29655e9388014af0f50a216bd9efcbc1f5c88d8c9" => :high_sierra
-    sha256 "71dd41639831930449ea90b29655e9388014af0f50a216bd9efcbc1f5c88d8c9" => :sierra
+    sha256 "632dcf019937de534b22d72b9f634a0acdcc95583a8d62f89220ce90b691ad56" => :mojave
+    sha256 "632dcf019937de534b22d72b9f634a0acdcc95583a8d62f89220ce90b691ad56" => :high_sierra
+    sha256 "328051b9d1c085ee8fafa5894d4b13a2a7c2a8cc54bf7e90fb8c8210a1cab9dd" => :sierra
   end
 
   depends_on "exiftool"
