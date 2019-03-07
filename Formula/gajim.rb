@@ -171,7 +171,6 @@ class Gajim < Formula
     res = resources.map(&:name).to_set - %w[Pillow plugin_installer omemo url_image_preview]
 
     res.each do |r|
-      ENV.append "MACOSX_DEPLOYMENT_TARGET", MacOS.version if r.include? "pyobjc"
       venv.pip_install resource(r)
     end
 
