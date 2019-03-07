@@ -4,6 +4,7 @@ class Exiftool < Formula
   # Ensure release is tagged production before submitting.
   # https://www.sno.phy.queensu.ca/~phil/exiftool/history.html
   url "https://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-11.30.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/exiftool/Image-ExifTool-11.30.tar.gz"
   sha256 "3a53733a1532bede4ce7eee763e5ab2bb87149e75e869e11a64d0e159858726e"
 
   bottle do
