@@ -11,7 +11,6 @@ class Libosinfo < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
   depends_on "gettext"
@@ -64,7 +63,6 @@ class Libosinfo < Formula
       -losinfo-1.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
