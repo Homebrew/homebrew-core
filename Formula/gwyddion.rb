@@ -9,6 +9,11 @@ class Gwyddion < Formula
     sha256 "4175983a0c6102f420f7d3ad5cb33911a865a861a519e35b49ac6f5ba4dc4a62" => :high_sierra
     sha256 "ac063542b11f42e63fad6f0311f9a6c09280b948f06de279db83ee14b6fd3bfa" => :sierra
   end
+  
+  patch do
+    url "http://gwyddion.net/download/2.53/gwyddion-2.53-ensure-osx-basedir.patch"
+    sha256 "17e5282d7add1e1af0d530885dbe501e29869340ba6d77879bf67e7a9f860990"
+  end
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
