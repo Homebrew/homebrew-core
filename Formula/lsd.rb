@@ -6,9 +6,9 @@ class Lsd < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ec46d028c3f11c33501e9aedff0604d9ab427f7da404c567ea6c89f449fe3bc4" => :mojave
-    sha256 "d94765d82109056304f649de3c3aa8978b0872f8ad9d8eb124ef94725136c7cc" => :high_sierra
-    sha256 "5c3ade533c8ef6596a33ce7a3b600ef5981aee08f9a1b22d7daa6d335a5fbcc5" => :sierra
+    sha256 "51b93f40b28c0bdf17e8309113514aae94437e83e23473dca5b586759c6850e8" => :mojave
+    sha256 "2f0cb7332fc506b96aab8cb5ec1f331843b4d52b7d9744d0dca1018c462a7418" => :high_sierra
+    sha256 "9b48d31e55961df3eb2e938b908012d24888b462a80fe7df19636932104a0117" => :sierra
   end
 
   depends_on "rust" => :build
