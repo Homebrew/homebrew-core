@@ -1,20 +1,20 @@
+require "language/node"
+
 class Snyk < Formula
   desc "CLI and build-time tool to find & fix known vulnerabilities in open-source dependencies"
   homepage "https://snyk.io"
-  url "https://github.com/snyk/snyk/releases/download/v1.136.1/snyk-macos"
-  sha256 "536f87ce96db856ec49f8cea9e2bbe66492d9799085743b511f9f86b6f76430d"
+  url "https://registry.npmjs.org/snyk/-/snyk-1.136.1.tgz"
+  version "1.136.1"
+  sha256 "05a347ae082533f50e7132fc86370b244a910f6d430d5747d63423a3a451feaa"
 
-  bottle :unneeded
-
-  depends_on :arch => :x86_64
+  depends_on "node"
 
   def install
-    libexec.install Dir["*"]
-    bin.install_symlink libexec/"bin/snyk"
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
   test do
     system bin/"snyk", "version"
   end
 end
-
