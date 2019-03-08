@@ -4,7 +4,6 @@ class Snyk < Formula
   desc "CLI and build-time tool to find & fix known vulnerabilities in open-source dependencies"
   homepage "https://snyk.io"
   url "https://registry.npmjs.org/snyk/-/snyk-1.136.1.tgz"
-  version "1.136.1"
   sha256 "05a347ae082533f50e7132fc86370b244a910f6d430d5747d63423a3a451feaa"
 
   depends_on "node"
