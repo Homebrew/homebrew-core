@@ -6,10 +6,10 @@ class Ntp < Formula
   sha256 "288772cecfcd9a53694ffab108d1825a31ba77f3a8466b0401baeca3bc232a38"
 
   bottle do
-    rebuild 1
-    sha256 "0ad5a4953a1fc2598b0fee4ed85fdb61e62d6acd1c7a80aa8ba448cfd829e908" => :mojave
-    sha256 "00a29bdce9bc82c18aa824693146f8c0674af3ca8bef3f42f63c87ab5bd4aa02" => :high_sierra
-    sha256 "a37c6e3e17a8862d770e2f27a399d85198a68f88a592234db55fd80e06ff9cee" => :sierra
+    cellar :any
+    sha256 "7f30a4c684195c6540cbc43ade3f0a96724853289cc39106d5bd86379a3d1f11" => :mojave
+    sha256 "c3f0905c8580acc1b6a8db811733ad6f87e49118c702b591591fa30555fcaa4c" => :high_sierra
+    sha256 "48c96f99d19135f055b15066a49a44a1e1560c1da0aa1cfaa8c81df782d86d77" => :sierra
   end
 
   depends_on "openssl"
