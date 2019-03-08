@@ -5,6 +5,13 @@ class Glooctl < Formula
       :tag      => "v0.8.6",
       :revision => "42a89574813b066fb096b289ebebbe412d9cf5a8"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "eccb9830426ec262b4180d2edfb2fa252130a4099f40f893dddf63b251e79869" => :mojave
+    sha256 "d3bcc7485ea82efc8301f9f9edc573b6b231e241896debe511c66d73013ffd82" => :high_sierra
+    sha256 "6096ea921583052fc5ae3a30309a10917f33c1c42a56bf8461afd8d07abb3e38" => :sierra
+  end
+
   depends_on "dep" => :build
   depends_on "go" => :build
 
