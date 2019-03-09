@@ -3,6 +3,7 @@ class Gflags < Formula
   homepage "https://gflags.github.io/gflags/"
   url "https://github.com/gflags/gflags/archive/v2.2.2.tar.gz"
   sha256 "34af2f15cf7367513b352bdcd2493ab14ce43692d2dcd9dfc499492966c64dcf"
+  revision 1
 
   bottle do
     cellar :any
@@ -17,6 +18,8 @@ class Gflags < Formula
   def install
     mkdir "buildroot" do
       system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "make", "install"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
       system "make", "install"
     end
   end
