@@ -14,6 +14,6 @@ class Snyk < Formula
   end
 
   test do
-    system bin/"snyk", "version"
+    assert_match "Try running `snyk wizard` to define a Snyk protect policy", shell_output("#{bin}/snyk policy", 1)
   end
 end
