@@ -8,9 +8,9 @@ class Rtags < Formula
 
   bottle do
     cellar :any
-    sha256 "a6cfdd43fb22fab24d10f7882fb9219d9617fce141cb162c503a6bfd9485fad9" => :mojave
-    sha256 "7abaee104be0a7bb4565795703ac9004f988ddbaf580caf8152c0fee22ed17a9" => :high_sierra
-    sha256 "b80aa423a5c6fad2f6e4537456a59b7ad7d4979b3929607791f845f4a27745e2" => :sierra
+    sha256 "55793a051e58b809971e5b8b465c4713009125360e1d1a8fc042bb21855024b5" => :mojave
+    sha256 "cee64b9f08ab8589b9962d76b2c7785b304e228dca0f02dfed5a1e54f9a5922d" => :high_sierra
+    sha256 "db3ad30dbc1a3c8f53ed1e88766a6b647204a54bac2815c35c8f289c8d6bc925" => :sierra
   end
 
   depends_on "cmake" => :build
