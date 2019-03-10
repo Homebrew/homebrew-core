@@ -27,7 +27,7 @@ class Blastem < Formula
   end
 
   resource "vasm" do
-    url "http://server.owl.de/~frank/tags/vasm1_7e.tar.gz"
+    url "https://server.owl.de/~frank/tags/vasm1_7e.tar.gz"
     sha256 "2878c9c62bd7b33379111a66649f6de7f9267568946c097ffb7c08f0acd0df92"
   end
 
