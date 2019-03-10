@@ -36,9 +36,7 @@ class ScalaAT210 < Formula
       }
     EOS
 
-    out = shell_output("#{bin}/scala #{file}").strip
-    # Shut down the compile server so as not to break Travis
-    system bin/"fsc", "-shutdown"
+    out = shell_output("#{bin}/scala -nc #{file}").strip
 
     assert_equal "4", out
   end
