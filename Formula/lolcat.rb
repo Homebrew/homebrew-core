@@ -4,6 +4,7 @@ class Lolcat < Formula
   url "https://github.com/busyloop/lolcat.git",
       :tag      => "v99.9.21",
       :revision => "58d5b5ba6d1d3f70aa72b140ee84034aaab91a9c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -20,6 +21,7 @@ class Lolcat < Formula
     system "gem", "install", "lolcat-#{version}.gem"
     bin.install libexec/"bin/lolcat"
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    man6.install "man/lolcat.6"
   end
 
   test do
