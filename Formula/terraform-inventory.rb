@@ -3,8 +3,9 @@ require "language/go"
 class TerraformInventory < Formula
   desc "Terraform State → Ansible Dynamic Inventory"
   homepage "https://github.com/adammck/terraform-inventory"
-  url "https://github.com/adammck/terraform-inventory/archive/v0.6.1.tar.gz"
-  sha256 "9cdcbc5ce4247b72bb72923d01246f51252a88908d760d766daeac51dd8feed9"
+  url "https://github.com/adammck/terraform-inventory/archive/v0.8.tar.gz"
+  sha256 "486d8338774fe60e5f950ea8e2464c693f89828708d27d1bf69d745484a1e2a5"
+  head "https://github.com/adammck/terraform-inventory.git"
 
   bottle do
     cellar :any_skip_relocation
@@ -16,25 +17,16 @@ class TerraformInventory < Formula
     sha256 "19fed440ba3c95ef85fcd529f151131136fa684c9a091d17177ac8f74426e7d5" => :mavericks
   end
 
-  head do
-    url "https://github.com/adammck/terraform-inventory.git"
-
-    go_resource "github.com/adammck/venv" do
-      url "https://github.com/adammck/venv.git",
-          :revision => "8a9c907a37d36a8f34fa1c5b81aaf80c2554a306"
-    end
-
-    go_resource "github.com/blang/vfs" do
-      url "https://github.com/blang/vfs.git",
-          :revision => "2c3e2278e174a74f31ff8bf6f47b43ecb358a870"
-    end
-  end
-
   depends_on "go" => :build
 
-  go_resource "github.com/stretchr/testify" do
-    url "https://github.com/stretchr/testify.git",
-        :revision => "f390dcf405f7b83c997eac1b06768bb9f44dec18"
+  go_resource "github.com/adammck/venv" do
+    url "https://github.com/adammck/venv.git",
+        :revision => "8a9c907a37d36a8f34fa1c5b81aaf80c2554a306"
+  end
+
+  go_resource "github.com/blang/vfs" do
+    url "https://github.com/blang/vfs.git",
+        :revision => "2c3e2278e174a74f31ff8bf6f47b43ecb358a870"
   end
 
   def install
