@@ -20,6 +20,7 @@ class Triangle < Formula
   end
 
   test do
-    false
+    system "#{bin}/triangle -in #{test_fixtures("test.png")} -out out.png"
+    assert_predicate testpath/"out.png", :exist?
   end
 end
