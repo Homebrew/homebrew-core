@@ -1,8 +1,8 @@
 class Pygobject3 < Formula
   desc "GNOME Python bindings (based on GObject Introspection)"
   homepage "https://wiki.gnome.org/Projects/PyGObject"
-  url "https://download.gnome.org/sources/pygobject/3.30/pygobject-3.30.4.tar.xz"
-  sha256 "2dc1a1a444b82955e65b81c2a2511ecf8032404beba4ef1d48144168f2f64c43"
+  url "https://download.gnome.org/sources/pygobject/3.32/pygobject-3.32.0.tar.xz"
+  sha256 "83f4d7e59fde6bc6b0d39c5e5208574802f759bc525a4cb8e7265dfcba45ef29"
 
   bottle do
     cellar :any
@@ -44,9 +44,17 @@ class Pygobject3 < Formula
   test do
     Pathname("test.py").write <<~EOS
       import gi
+      gi.require_version("GLib", "2.0")
       assert("__init__" in gi.__file__)
+      from gi.repository import GLib
+      assert(31 == GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
     EOS
-    Language::Python.each_python(build) do |python, pyversion|
+    pythons = [
+      Formula["python@2"].opt_bin/"python2",
+      Formula["python"].opt_bin/"python3",
+    ]
+    pythons.each do |python|
+      pyversion = Language::Python.major_minor_version(python)
       ENV.prepend_path "PYTHONPATH", lib/"python#{pyversion}/site-packages"
       system python, "test.py"
     end
