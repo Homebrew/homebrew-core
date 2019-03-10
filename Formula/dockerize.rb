@@ -25,6 +25,6 @@ class Dockerize < Formula
   end
 
   test do
-    system "#{bin}/dockerize", "-wait", "http://www.google.com", "-wait-retry-interval=1s", "-timeout", "5s"
+    system "#{bin}/dockerize", "-wait", "https://www.google.com/", "-wait-retry-interval=1s", "-timeout", "5s"
   end
 end
