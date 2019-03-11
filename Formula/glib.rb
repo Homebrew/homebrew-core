@@ -3,6 +3,7 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.60/glib-2.60.0.tar.xz"
   sha256 "20865d8b96840d89d9340fc485b4b1131c1bb24d16a258a22d642c3bb1b44353"
+  revision 1
 
   bottle do
     sha256 "5e1e0db9ec145055e4d84ea26fc05ad36661883a668c9cb96aa72c93913248c5" => :mojave
@@ -48,7 +49,7 @@ class Glib < Formula
     # their modules
     inreplace lib/"pkgconfig/gio-2.0.pc",
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
-              "giomoduledir=${prefix}/lib/gio/modules"
+              "giomoduledir=${libdir}/gio/modules"
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
     # have a pkgconfig file, so we add gettext lib and include paths here.
