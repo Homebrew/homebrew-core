@@ -2,7 +2,8 @@ class AtSpi2Core < Formula
   desc "Protocol definitions and daemon for D-Bus at-spi"
   homepage "https://wiki.linuxfoundation.org/accessibility/"
   url "https://download.gnome.org/sources/at-spi2-core/2.30/at-spi2-core-2.30.1.tar.xz"
-  sha256 "48d7df351e73a63062648d3c4c15f4b353e8c835be2fa772f50308533d5a9eb0"
+  sha256 "856f1f8f1bf0482a1bc275b18b9f28815d346bc4175004d37e175a1a0e50ca48"
+  revision 1
 
   bottle do
     sha256 "8b7fb852d3615978ab46bcbec799242fb5d4fb55b62490e919b27d0de3e96870" => :mojave
