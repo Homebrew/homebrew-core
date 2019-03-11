@@ -19,6 +19,6 @@ class Gitleaks < Formula
   end
 
   test do
-    system "#{bin}/gitleaks", "-v"
+    assert_includes shell_output("#{bin}/gitleaks -r https://github.com/gitleakstest/emptyrepo.git"), "0 leaks detected"
   end
 end
