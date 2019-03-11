@@ -5,10 +5,9 @@ class Libgtop < Formula
   sha256 "78f3274c0c79c434c03655c1b35edf7b95ec0421430897fb1345a98a265ed2d4"
 
   bottle do
-    sha256 "3a648a7dc340187b64384a2fb04738cd9da41773f6f8237e242d3354adcf5eca" => :mojave
-    sha256 "ebe7cd41964c94cc59a4734eac1a04a9b64038c69234f6f3fb131266450d57f7" => :high_sierra
-    sha256 "903f395ddb70fd42c184323584437e156836b8dea5e69f6e9bb54f4fd39b0987" => :sierra
-    sha256 "fe1a65675f609a65a3aa8938080472df2f84159f163de616a50683de3ab6a3f3" => :el_capitan
+    sha256 "b89c3928a514ee28b9c61b84dca3ba1e30c5a5a9139393584c586f4a588565ab" => :mojave
+    sha256 "fdb3efa795c853b46c36ebae7f973ea12300164006b65472f0074c92297ab2e7" => :high_sierra
+    sha256 "49189c9ebcfb5592992e40fb65e4caeace8bd5ac1e1860bf7cdfe24a742fd5aa" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
