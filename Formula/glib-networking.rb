@@ -1,8 +1,8 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz"
-  sha256 "bdfa0255e031b8ee003cc283002536b77ee76450105f1dc6ab066b9bf4330068"
+  url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.0.tar.xz"
+  sha256 "9085edc77eae591fa43d62878c0428eb0abc564e14a985a26c0cf9392a319fe3"
 
   bottle do
     sha256 "755fef493a32ac77d0c51b37f58059471fba1e9e709a42d22952a937c412c9c6" => :mojave
@@ -21,13 +21,21 @@ class GlibNetworking < Formula
 
   link_overwrite "lib/gio/modules"
 
+  # see https://gitlab.gnome.org/GNOME/glib-networking/merge_requests/31
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib-networking/commit/1133663788212a1b8060febf7cc0d30c7bc0ecc0.patch"
+    sha256 "7e0081138e034804cad4dacc84a7aab962ef315b21bf6c39ce67b40e9699505d"
+  end
+
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
-                      "-Dlibproxy_support=false",
+                      "-Dlibproxy=disabled",
+                      "-Dopenssl=disabled",
+                      "-Dgnome_proxy=disabled",
                       ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
