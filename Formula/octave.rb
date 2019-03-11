@@ -1,10 +1,9 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-4.4.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-4.4.1.tar.xz"
-  sha256 "7e4e9ac67ed809bd56768fb69807abae0d229f4e169db63a37c11c9f08215f90"
-  revision 5
+  url "https://ftp.gnu.org/gnu/octave/octave-5.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-5.1.0.tar.xz"
+  sha256 "87b4df6dfa28b1f8028f69659f7a1cabd50adfb81e1e02212ff22c863a29454e"
 
   bottle do
     rebuild 1
