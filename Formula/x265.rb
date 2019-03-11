@@ -1,21 +1,19 @@
 class X265 < Formula
   desc "H.265/HEVC encoder"
   homepage "http://x265.org"
-  url "https://bitbucket.org/multicoreware/x265/downloads/x265_2.8.tar.gz"
-  sha256 "6e59f9afc0c2b87a46f98e33b5159d56ffb3558a49d8e3d79cb7fdc6b7aaa863"
+  url "https://bitbucket.org/multicoreware/x265/downloads/x265_3.0.tar.gz"
+  sha256 "c5b9fc260cabbc4a81561a448f4ce9cad7218272b4011feabc3a6b751b2f0662"
   head "https://bitbucket.org/multicoreware/x265", :using => :hg
 
   bottle do
     cellar :any
-    sha256 "f2b22c0b70fea900395062d0cf116ae3bc149cc42b6b92486678fcf8be453f0c" => :mojave
-    sha256 "f3709d31e52cc5e59e691223a73655fce69ae43ec65e28e23928cdcb2d898edf" => :high_sierra
-    sha256 "dd3ec00052e814d7a70b82c96d1584f8003de61334c5adbba0b039c4322450a4" => :sierra
-    sha256 "bc6020d1f762de347021220798afd04e8bbe2cf438e78a0c4aeaa133e71a06da" => :el_capitan
+    sha256 "324e316181b0348c2362fec475d8a595828783f97a2f59593a7e04493bbcef1c" => :mojave
+    sha256 "4ec43e11f4553bbb26ee7558e03e758d1412ea149b4d57b03b4e0d8b39cb3883" => :high_sierra
+    sha256 "42583ed380b6c3b4de9f03a139a5a183eafe2e466e5583c7cb7ffd7377628b6c" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "nasm" => :build
-  depends_on :macos => :lion
 
   def install
     # Build based off the script at ./build/linux/multilib.sh

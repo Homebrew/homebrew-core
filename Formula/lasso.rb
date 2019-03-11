@@ -1,15 +1,14 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
-  homepage "https://www.entrouvert.com/"
-  url "https://dev.entrouvert.org/releases/lasso/lasso-2.5.1.tar.gz"
-  sha256 "be105c8d400ddeb798419eafa9522101d0f63dc42b79b7131b6010c4a5fc2058"
+  homepage "http://lasso.entrouvert.org/"
+  url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.0.tar.gz"
+  sha256 "146bff7a25166467d960003346cbc3291f3f29067e305cb82ebb12354c7d0acf"
 
   bottle do
-    cellar :any
-    sha256 "5a14339bc65d458ffd1b0024be815cd73b8114dcdb9955ecacb66cf79f4d1589" => :high_sierra
-    sha256 "f2e0bc889badb79e430b35c19e8aaf26d23370fb4113c1c1a96d81d0d6296480" => :sierra
-    sha256 "b36834a1ad4134e0ea4c20f93ea48eba5cbe27daa8f4f74df10bf279c34e41f5" => :el_capitan
-    sha256 "5d088dabb95573f5b018ef9338ac1cdf0263e8a6178bda2f519b2c684df6d1c1" => :yosemite
+    rebuild 1
+    sha256 "31119ff64238c34da8eb2298515d03cdb827ff18b98e390a2d0b175fdd1efc97" => :mojave
+    sha256 "17750cf628c0c32d293d94b3089c604c58911f66fb86858b6254489c90b92def" => :high_sierra
+    sha256 "0fc96b1acc751d7de14e4f390f3f5c4ef00299493f51594546858d579d503b02" => :sierra
   end
 
   depends_on "pkg-config" => :build

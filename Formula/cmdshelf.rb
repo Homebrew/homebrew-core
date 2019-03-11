@@ -1,14 +1,13 @@
 class Cmdshelf < Formula
   desc "Better scripting life with cmdshelf"
   homepage "https://github.com/toshi0383/cmdshelf"
-  url "https://github.com/toshi0383/cmdshelf/archive/2.0.1.tar.gz"
-  sha256 "e3f3934ce4d90183b3caac1e35eb584848588450694c494a89d6585685842407"
+  url "https://github.com/toshi0383/cmdshelf/archive/2.0.2.tar.gz"
+  sha256 "dea2ea567cfa67196664629ceda5bc775040b472c25e96944c19c74892d69539"
 
   bottle do
-    sha256 "89d91fc1b52b9eba5d184713d1b9d7e732e7514be8255263a1b04fdaa064a3e6" => :mojave
-    sha256 "08cc63b65230834d2a2ed4280c9245dcd0009d906d135ad91fe603fd8009e8e4" => :high_sierra
-    sha256 "816b6386a012be243dd4d987e3204444e29f4eef0bf1077ba634c53748a2afd3" => :sierra
-    sha256 "f9629700f2de22a4cc47e7fcb990de68839ce5e62bb59d7f12432836faa156fb" => :el_capitan
+    sha256 "a36461b526e0a974d0f0245b2a197e35413db272db06b819b2e5b7bbbce0200c" => :mojave
+    sha256 "3164b78efb9862ea0171b1d88e43fe96d6f01119de756b7a661191f918047b76" => :high_sierra
+    sha256 "50af031ee7ce0ae0eefd79801c30530b7fb7cdf65adf56f6c015e6fce6a2b01b" => :sierra
   end
 
   depends_on "rust" => :build

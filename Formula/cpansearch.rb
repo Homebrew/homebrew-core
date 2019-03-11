@@ -7,24 +7,23 @@ class Cpansearch < Formula
 
   bottle do
     cellar :any
-    sha256 "2e48150a0d449239bd223050d2bc3a9695c461543dc6e53d606292c8797afb1a" => :high_sierra
-    sha256 "7806b7b02a7bd6e578a7cbfc41935e854ec91c1174722bcbcd45f2716be31174" => :sierra
-    sha256 "f68927e2f114cb09d4c5f7057097f4685139dc16a58306b572b011dc11e5b27e" => :el_capitan
-    sha256 "554213c4d54b3bebfabf4eb10d274a9f86ba6271607b464a74541593cf52b8ac" => :yosemite
-    sha256 "02c985ade39c5df0aa2885022d8a1c56238975a147bda39adb0394c8acbde27a" => :mavericks
+    rebuild 1
+    sha256 "69d0e81fd62ba200820ccb848d4b10d970cf01146724653652434d36743a5356" => :mojave
+    sha256 "5d9c3bb958793897bc8933394d1a6a62df3c60a0f96bd8ac33f6486a3f62e8cd" => :high_sierra
+    sha256 "29e1acab7f1755337460172f853968b116d831b43948f6727f5565f3b9ce248e" => :sierra
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
 
   def install
     system "make"
     bin.install "cpans"
   end
 
-  def caveats; <<~EOS
-    For usage instructions:
-        more #{opt_prefix}/README.md
-  EOS
+  test do
+    output = shell_output("#{bin}/cpans --fetch https://cpan.metacpan.org/")
+    assert_match "packages recorded", output
   end
 end

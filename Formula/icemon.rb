@@ -1,15 +1,14 @@
 class Icemon < Formula
   desc "Icecream GUI Monitor"
   homepage "https://github.com/icecc/icemon"
-  url "https://github.com/icecc/icemon/archive/v3.1.0.tar.gz"
-  sha256 "8500501d3f4968d52a1f4663491e26d861e006f843609351ec1172c983ad4464"
+  url "https://github.com/icecc/icemon/archive/v3.2.0.tar.gz"
+  sha256 "b7ed29c3638c93fbc974d56c85afbf0bfeca6c37ed0522af57415a072839b448"
 
   bottle do
     cellar :any
-    sha256 "45f7516bfe7650c8241da282b864e4e8e87f1086dc73b6536a505a70483812c6" => :mojave
-    sha256 "091c0de73c69ae36a5bff744e7cf81b2321630f3499d67de139cea5782e3b0a0" => :high_sierra
-    sha256 "8f4bb166755f10d04f3a20e5792ed108c86286e4451a7e87b79864835732e78d" => :sierra
-    sha256 "7422122b9818ac86761695845bb7e4a63abfd483d9959b26570f9624569442c3" => :el_capitan
+    sha256 "176f261b4bae02fd8e2c7c682b56cd86c4f90359dc974f3f0b488576bfc34032" => :mojave
+    sha256 "6e277aace22ab9b1a621959e4814d6423370627930243ad72098341565acd836" => :high_sierra
+    sha256 "61661c9f07b2213878a9b61e3920ffc23ee8a6c918cf8b4235124a6a8d6e63a6" => :sierra
   end
 
   depends_on "cmake" => :build

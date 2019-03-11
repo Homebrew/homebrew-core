@@ -3,15 +3,14 @@ class MathComp < Formula
   homepage "https://math-comp.github.io/math-comp/"
   url "https://github.com/math-comp/math-comp/archive/mathcomp-1.7.0.tar.gz"
   sha256 "69c01e99aad618fa9a0bb4a19af00827c505b8205816eb590e51abca49f4ef17"
-  revision 2
+  revision 4
   head "https://github.com/math-comp/math-comp.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8b0e8def9d54704213388b94af187909c2d55f63c6ca8ff6185180d30193197e" => :mojave
-    sha256 "88e40a31f5283eb0294b1aa8a9eec3d65dd6bdf1063b8430db6bd88130d85ec6" => :high_sierra
-    sha256 "3549c73d20721800376ef55f291ec4ed02c7168832bf096683d8301336aa387a" => :sierra
-    sha256 "50c23dadbf291c8c82af2a2ae9a109dc4266d37e985bf1b90d766e518fa776ad" => :el_capitan
+    sha256 "5ff6c2af09955fa17c0624b83a9766c79808477e841c55234ad833e1bb9c776d" => :mojave
+    sha256 "bebb25127c5f618cd110c3dcc95b1570fee01fa4567fb77b488a7e6adbddf0b4" => :high_sierra
+    sha256 "f730702a54d8af025c86b2f1aaef8d0f949dcccb4c8982b5c7d301107469c88f" => :sierra
   end
 
   depends_on "ocaml" => :build

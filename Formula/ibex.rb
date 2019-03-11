@@ -1,23 +1,20 @@
 class Ibex < Formula
   desc "C++ library for constraint processing over real numbers"
   homepage "http://www.ibex-lib.org/"
-  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.6.5.tar.gz"
-  sha256 "667b1f57a4c83fbef915ad13e8d0a5847b4cc4df42810330da758bd9ca637ad7"
+  url "https://github.com/ibex-team/ibex-lib/archive/ibex-2.8.0.tar.gz"
+  sha256 "1c7e3ce7582e39d617666491e11794e3dc08ec3e3aedd38aaa79710f7845c919"
   head "https://github.com/ibex-team/ibex-lib.git"
 
   bottle do
     cellar :any
-    sha256 "ccb720753b1833cdac6ec449644d07bee7b341dd8c049be84d45df4af7313183" => :mojave
-    sha256 "9df6236bb522c74caf3cbde0eaf19465e2a3674588282982348b628322ca097a" => :high_sierra
-    sha256 "4b835a404ec50199fccc22c9248bccbf235d63a8f0736dad5b95df8babdea2cc" => :sierra
-    sha256 "8f4d1957bbe546215cf3d328ce06ae6aae6657c764ca2658895654358596f256" => :el_capitan
+    sha256 "165faaaac6f07a735e29a395dddcdd2ac4029538443a5587a2027efe8dbd958e" => :mojave
+    sha256 "c09babf3b0c6a8e4202caaacb3a4cdeed27ae703a0f8d48f988edb135eee6112" => :high_sierra
+    sha256 "f3ff0ac76a65dd8b2fdfd04b15fc1f134555a103ecf294a1ab7d4402c2527678" => :sierra
   end
 
   depends_on "bison" => :build
   depends_on "flex" => :build
-  depends_on "pkg-config" => :build
-
-  needs :cxx11
+  depends_on "pkg-config" => [:build, :test]
 
   def install
     ENV.cxx11
@@ -40,14 +37,16 @@ class Ibex < Formula
   end
 
   test do
+    ENV.cxx11
+
     cp_r (pkgshare/"examples").children, testpath
 
     # so that pkg-config can remain a build-time only dependency
     inreplace %w[makefile slam/makefile] do |s|
-      s.gsub! /CXXFLAGS.*pkg-config --cflags ibex./,
+      s.gsub!(/CXXFLAGS.*pkg-config --cflags ibex./,
               "CXXFLAGS := -I#{include} -I#{include}/ibex "\
-                          "-I#{include}/ibex/3rd"
-      s.gsub! /LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex"
+                          "-I#{include}/ibex/3rd")
+      s.gsub!(/LIBS.*pkg-config --libs  ibex./, "LIBS := -L#{lib} -libex")
     end
 
     (1..8).each do |n|

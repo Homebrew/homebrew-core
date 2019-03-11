@@ -11,7 +11,6 @@ class Atf < Formula
     sha256 "74493d4b4868628a7a84338eb28ecfce8afdd896962f3ba632b1e785def48737" => :el_capitan
     sha256 "e4caa0498d0caf2e99e0eea9ae9269240e4f4a49a41f712cf6a730fab8d72672" => :yosemite
     sha256 "240443a1a96ba8ed51ac7b263749f69013f05d42eb84018824791e419a6d5e81" => :mavericks
-    sha256 "be1a15d142717902889cf540f02641c34fd3241a369bf25f1c9c31197f04dccf" => :mountain_lion
   end
 
   def install
@@ -21,5 +20,14 @@ class Atf < Formula
     system "make"
     ENV.deparallelize
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.sh").write <<~EOS
+      #!/usr/bin/env atf-sh
+      echo test
+      exit 0
+    EOS
+    system "bash", "test.sh"
   end
 end

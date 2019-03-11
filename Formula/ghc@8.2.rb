@@ -9,34 +9,22 @@ class GhcAT82 < Formula
   sha256 "bb8ec3634aa132d09faa270bbd604b82dfa61f04855655af6f9d14a9eedc05fc"
 
   bottle do
-    sha256 "e7650911076879185c002c576337a642e07421618839fcc80ecf1481f2552675" => :mojave
-    sha256 "3e712f2fd81912376f95e010b6612fd7214d84c0cf6f97ca47daafb0523f4b30" => :high_sierra
-    sha256 "f079ae6408f3d27dcc407e0f6ed89e09a62d77b52e44e69d3df84494e99a37cc" => :sierra
-    sha256 "d830f4b1f555c80f6de364e2d9a9defe8e62202415419ff9a6106dfff25ad5fb" => :el_capitan
+    rebuild 1
+    sha256 "e8b7dbca371f1c62de38dd06dcd9e90d638acf2e2f6b61b087a0eb043ebbbfd7" => :mojave
+    sha256 "b1f1d079df456ce6297160e75766cd8016737bfaefee52cd29eeabddc302d4fd" => :high_sierra
+    sha256 "a3a80024bb1535107f78646d0d806efb1a794d132e52aa5a39e47fac24d5c275" => :sierra
   end
 
   keg_only :versioned_formula
 
-  depends_on "python" => :build if build.bottle?
+  depends_on "python" => :build
   depends_on "sphinx-doc" => :build
-  depends_on :macos => :lion
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
     mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
     mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
     sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
-  end
-
-  if MacOS.version <= :lion
-    fails_with :clang do
-      cause <<~EOS
-        Fails to bootstrap ghc-cabal. Error is:
-          libraries/Cabal/Cabal/Distribution/Compat/Binary/Class.hs:398:14:
-              The last statement in a 'do' block must be an expression
-                n <- get :: Get Int getMany n
-      EOS
-    end
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_0_1#macosx_x86_64
@@ -55,30 +43,14 @@ class GhcAT82 < Formula
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
 
-    # Setting -march=native, which is what --build-from-source does, fails
-    # on Skylake (and possibly other architectures as well) with the error
-    # "Segmentation fault: 11" for at least the following files:
-    #   utils/haddock/dist/build/Haddock/Backends/Hyperlinker/Types.dyn_o
-    #   utils/haddock/dist/build/Documentation/Haddock/Types.dyn_o
-    #   utils/haddock/dist/build/Haddock/GhcUtils.dyn_o
-    #   utils/haddock/dist/build/Paths_haddock.dyn_o
-    #   utils/haddock/dist/build/ResponseFile.dyn_o
-    # Setting -march=core2 works around the bug.
-    # Reported 22 May 2016: https://ghc.haskell.org/trac/ghc/ticket/12100
-    # Note that `unless build.bottle?` avoids overriding --bottle-arch=[...].
-    ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
-
     # Build a static gmp rather than in-tree gmp, otherwise it links to brew's.
     gmp = libexec/"integer-gmp"
-
-    # MPN_PATH: The lowest common denominator asm paths that work on Darwin,
-    # corresponding to Yonah and Merom. Obviates --disable-assembly.
-    ENV["MPN_PATH"] = "x86_64/fastsse x86_64/core2 x86_64 generic" if build.bottle?
 
     # GMP *does not* use PIC by default without shared libs  so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
-      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared"
+      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
+                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{`uname -r`.to_i}"
       system "make"
       system "make", "check"
       ENV.deparallelize { system "make", "install" }
@@ -114,12 +86,10 @@ class GhcAT82 < Formula
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
 
-    if build.bottle?
-      resource("testsuite").stage { buildpath.install Dir["*"] }
-      cd "testsuite" do
-        system "make", "clean"
-        system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
-      end
+    resource("testsuite").stage { buildpath.install Dir["*"] }
+    cd "testsuite" do
+      system "make", "clean"
+      system "make", "CLEANUP=1", "THREADS=#{ENV.make_jobs}", "fast"
     end
 
     ENV.deparallelize { system "make", "install" }

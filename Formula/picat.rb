@@ -1,16 +1,15 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "http://picat-lang.org/"
-  url "http://picat-lang.org/download/picat24_src.tar.gz"
-  version "2.4.8"
-  sha256 "72b452a8ba94d6187d837dcdb46aab0d7dc724651bac99a8cf2ada5c0a3543dd"
+  url "http://picat-lang.org/download/picat26_src.tar.gz"
+  version "2.6"
+  sha256 "922002ad200ce81fefdc562088b9dc308c9a3a131784c8b79246ebde0ab75642"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "2a1211162f9dc2e87211ac452d8451a3f7e75dbc7b4312463ed0caa82ccaa55c" => :mojave
-    sha256 "acbaf9e2dd1fb8b707213271a41eac2a33e2a0247f8ee3187a81f72fafdfc807" => :high_sierra
-    sha256 "15adabe5e7cb8c19cea32893da7f56d192503307458b6c8ed145e7cf6da8fa9d" => :sierra
-    sha256 "95985a5a22784c13dba594b1b3e6433c7705def3712cd97a7da99c4ce30bfd20" => :el_capitan
+    sha256 "2e0c2b2ad34996acb890fa31c5201649b2058d3995db0b2a986ef9bf187063ec" => :mojave
+    sha256 "f7eee8a92769b4390921f37493407cd3f54c0e882b3d24056f21bdc660d59c3b" => :high_sierra
+    sha256 "fac2cb3b92d58d01c522486024c6fc14f43d34ee10d9ea3c174f32e749236a6d" => :sierra
   end
 
   def install

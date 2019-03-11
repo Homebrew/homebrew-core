@@ -1,25 +1,20 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.20/mpd-0.20.21.tar.xz"
-  sha256 "8322764dc265c20f05c8c8fdfdd578b0722e74626bef56fcd8eebfb01acc58dc"
-  revision 1
+  url "https://www.musicpd.org/download/mpd/0.21/mpd-0.21.5.tar.xz"
+  sha256 "2ea9f0eb3a7bdae5d705adf4e8ec45ef38b5b9ddf133f32b8926dd4e205b0ef9"
+  head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
-    rebuild 1
-    sha256 "6d4ef128843ca263b4b15ea3b70839d1f7385cc9cac8187056012a64a53c63b2" => :mojave
-    sha256 "cfeba0309eabc75bdf6c5a6f8273d4c65f6128b248c33b8a57985bddf3a66d25" => :high_sierra
-    sha256 "972db47dcce26f700802661dd6aae2a16cfefbe5a2e5bfd23ad395db97f8b23f" => :sierra
-    sha256 "619fe3fae8f6b7ea37cd2e2388c8990387db2b0025a825bf8d1e136c11d6ce2f" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/MusicPlayerDaemon/MPD.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
+    cellar :any
+    sha256 "0d7097c4dc2715a22d52dfb043079af7caff6334c86f02df9a94d391e7c07a3d" => :mojave
+    sha256 "53ac967273ff331d9935747054ca99ed0f928527d1c89ffbcc8a3b0d6b46386d" => :high_sierra
+    sha256 "c4a226d7ac56d643e0a9e9cf767511b642340af52c157f7bf014fad25791e35b" => :sierra
   end
 
   depends_on "boost" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "expat"
   depends_on "faad2"
@@ -32,13 +27,12 @@ class Mpd < Formula
   depends_on "libao"
   depends_on "libid3tag"
   depends_on "libmpdclient"
+  depends_on "libnfs"
   depends_on "libsamplerate"
   depends_on "libupnp"
   depends_on "libvorbis"
   depends_on "opus"
   depends_on "sqlite"
-
-  needs :cxx11
 
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
@@ -46,31 +40,27 @@ class Mpd < Formula
     # The build is fine with G++.
     ENV.libcxx
 
-    system "./autogen.sh" if build.head?
-
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}
-      --disable-libwrap
-      --disable-mad
-      --disable-mpc
-      --disable-soundcloud
-      --enable-ao
-      --enable-bzip2
-      --enable-expat
-      --enable-ffmpeg
-      --enable-fluidsynth
-      --enable-osx
-      --enable-upnp
-      --enable-vorbis-encoder
+      -Dlibwrap=disabled
+      -Dmad=disabled
+      -Dmpcdec=disabled
+      -Dsoundcloud=disabled
+      -Dao=enabled
+      -Dbzip2=enabled
+      -Dexpat=enabled
+      -Dffmpeg=enabled
+      -Dfluidsynth=enabled
+      -Dnfs=enabled
+      -Dupnp=enabled
+      -Dvorbisenc=enabled
     ]
 
-    system "./configure", *args
-    system "make"
+    system "meson", *args, "output/release", "."
+    system "ninja", "-C", "output/release"
     ENV.deparallelize # Directories are created in parallel, so let's not do that
-    system "make", "install"
+    system "ninja", "-C", "output/release", "install"
 
     (etc/"mpd").install "doc/mpdconf.example" => "mpd.conf"
   end
@@ -118,8 +108,14 @@ class Mpd < Formula
     sleep 2
 
     begin
-      assert_match "OK MPD", shell_output("curl localhost:6600")
-      assert_match "ACK", shell_output("(sleep 2; echo playid foo) | nc localhost 6600")
+      ohai "Connect to MPD command (localhost:6600)"
+      TCPSocket.open("localhost", 6600) do |sock|
+        assert_match "OK MPD", sock.gets
+        ohai "Ping server"
+        sock.puts("ping")
+        assert_match "OK", sock.gets
+        sock.close
+      end
     ensure
       Process.kill "SIGINT", pid
       Process.wait pid

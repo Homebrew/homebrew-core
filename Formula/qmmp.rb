@@ -1,15 +1,16 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "http://qmmp.ylsoftware.com/"
-  url "http://qmmp.ylsoftware.com/files/qmmp-1.2.2.tar.bz2"
-  sha256 "e9dc5723f7f2a04d36167585ce1b4223c09f36c6dad1215de877dc51d1f3d606"
-  head "http://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
+  url "http://qmmp.ylsoftware.com/files/qmmp-1.2.4.tar.bz2"
+  sha256 "224904f073e3921a080dca008e6c99e3d606f5442d1df08835cba000a069ae66"
+  revision 1
+  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
 
   bottle do
-    sha256 "a04d42f4f3baa02d04cae3038de05335c283c0522f78f7272faa257d07c39d12" => :mojave
-    sha256 "02d2a232d361540ed0409a7a50a956dc21bb6f4600294d32eb470bfdb3d54706" => :high_sierra
-    sha256 "882c14825528f2b25470bf3135da753c181c5ec1b55c9273b1d037d729427aea" => :sierra
-    sha256 "afa299bffaf451023279305dce294d41a922242cc141d8c1ec8dda3200507d74" => :el_capitan
+    rebuild 1
+    sha256 "7f9ab945240bc5f263c4561bdd82b1095992908dca40f4686e7cb6b2ec3c4a48" => :mojave
+    sha256 "4d2b7beca1e024c6994e8fe7cfb822b04abff5d7f9b2e200ed7263c34955417d" => :high_sierra
+    sha256 "9ffc7e387987e788fb75c1691a3ad7586598b85f79868b616aafbd87df33fb47" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -34,6 +35,17 @@ class Qmmp < Formula
   def install
     system "cmake", "./", "-USE_SKINNED", "-USE_ENCA", "-USE_QMMP_DIALOG", *std_cmake_args
     system "make", "install"
+
+    # fix linkage
+    cd (lib.to_s) do
+      Dir["*.dylib", "qmmp/*/*.so"].select { |f| File.ftype(f) == "file" }.each do |f|
+        MachO::Tools.dylibs(f).select { |d| d.start_with?("/tmp") }.each do |d|
+          bname = File.dirname(d)
+          d_new = d.sub(bname, opt_lib.to_s)
+          MachO::Tools.change_install_name(f, d, d_new)
+        end
+      end
+    end
   end
 
   test do

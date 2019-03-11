@@ -1,19 +1,15 @@
 class Libhttpserver < Formula
   desc "C++ library of embedded Rest HTTP server"
   homepage "https://github.com/etr/libhttpserver"
-  url "https://github.com/etr/libhttpserver/archive/v0.9.0.tar.gz"
-  sha256 "fbdc0a44e92e78e8cc03b0a595e6190d2de002610a6467dc32d703e9c5486189"
-  revision 1
+  url "https://github.com/etr/libhttpserver/archive/0.17.5.tar.gz"
+  sha256 "778fa0aec199bf8737b2d540c2563a694c18957329f9885e372f7aaafb838351"
   head "https://github.com/etr/libhttpserver.git"
 
   bottle do
     cellar :any
-    sha256 "8aae09b1c7c4a8eae4c7e9ebb109c9c0fa251dea72eeaf7939c4206ef3e8b48b" => :mojave
-    sha256 "5dc4f569cf86961564e5954220d9049af40ef28796eefa350c12c6df8b32e45e" => :high_sierra
-    sha256 "aac717fe37c9fa0491185e237100288f2d8ebe8544bfc16115f20b13fd242782" => :sierra
-    sha256 "ee7c3025c9678a97f326c69a8a9faa4963eefc8f972c78096b3f237cf7368945" => :el_capitan
-    sha256 "d6ec883a992e348d69b90c37b3c0f1ab2329cc9bae3cb8d1f1db7d112ca65200" => :yosemite
-    sha256 "aec3bba3f8db0cb1e9fd99d66aafb1f2ed399197f11af43654f911205b62d5ee" => :mavericks
+    sha256 "086dcf919fa2afba8883e7d6c26bdd9823d8741b93ffe3864226534f71a218d9" => :mojave
+    sha256 "948c65b78b36e0baf3682fb94459c33ae5283b811b836b7f4abdf27a94aa8859" => :high_sierra
+    sha256 "59d96bc3f9f33c84c0700318deed666528a9ee60da8a55d45fd3450185ecfed0" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -39,7 +35,7 @@ class Libhttpserver < Formula
 
   test do
     system ENV.cxx, pkgshare/"examples/hello_world.cpp",
-      "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
+      "-std=c++11", "-o", "hello_world", "-L#{lib}", "-lhttpserver", "-lcurl"
     pid = fork { exec "./hello_world" }
     sleep 1 # grace time for server start
     begin

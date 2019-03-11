@@ -1,16 +1,18 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://developer.gnome.org/vte/"
-  url "https://download.gnome.org/sources/vte/0.54/vte-0.54.1.tar.xz"
-  sha256 "a724fa0543c689e30a3d0ff07e4195a86dc7c4fe57b469be97c7c87f27604e53"
+  url "https://download.gnome.org/sources/vte/0.54/vte-0.54.3.tar.xz"
+  sha256 "693682145025c2af72d1070afaecba111351e747b4ba8f4a9d246b139f44ebfd"
 
   bottle do
-    sha256 "ec19d7d94a28cc5c5148e04049a8c1e37843194dbed11180a1f3eea803849e26" => :mojave
-    sha256 "9970189ca3729c31932a092d89aec7d8e74e1545998570508e9d767716a951f1" => :high_sierra
-    sha256 "c50d512e53dff8489936b8c524f893a818e17f75f7b5002e4c7c19622bfdd4e7" => :sierra
+    rebuild 1
+    sha256 "8d3823ac42085a43d7a0a5a9212f130b1f9e453ada67cf20ae629d72aeae86ed" => :mojave
+    sha256 "4c9cdf1a7326a2cdc16881a2583f7afac7e2142371b0f2bec9823d4040c06496" => :high_sierra
+    sha256 "476aa29837093b16673dd2913be8d2d312f4ce68afc31d5324d7edf54bc3ecff" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "gtk-doc" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
@@ -20,14 +22,15 @@ class Vte3 < Formula
   depends_on "vala"
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
     args = [
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
       "--disable-Bsymbolic",
       "--enable-introspection=yes",
-      "--enable-gnome-pty-helper",
+      "--enable-gtk-doc",
     ]
-
     system "./configure", *args
     system "make", "install"
   end

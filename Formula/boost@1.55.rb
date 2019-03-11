@@ -7,36 +7,13 @@ class BoostAT155 < Formula
 
   bottle do
     cellar :any
-    sha256 "aff11d731c089ce2c5f7ac0757597dc6a12f03e3fb00c206541670ee80e4e1e0" => :mojave
-    sha256 "268a8123cf956c5f8e79115b4a5d5807a9125891ac5df161357f31f917bbe16f" => :high_sierra
-    sha256 "bf89ab11c1ceab224a5ece4629987b4d8d137c5c3506a4577301f70b05d0ea97" => :sierra
-    sha256 "30bb554952cdbcc445b247f570243c31ab4cafebf55bcfe96b9cabcb5ca2f716" => :el_capitan
-    sha256 "f861f79bde1988282064245c5b1080f66f6a4e034162656b627c2bb8de42ebb2" => :yosemite
+    rebuild 1
+    sha256 "655c9b514a797113af2e4199457ccb9dd8d8e0364f227390f0ca54b254439f2a" => :mojave
+    sha256 "15894f998719ef4130d2dea076accadb709a6d5d0809114452f5175585ccd454" => :high_sierra
+    sha256 "16a7e98e578adbf8c353bc868b9cd98e80b41928329743dba1b54ee53d76295c" => :sierra
   end
 
   keg_only :versioned_formula
-
-  option "with-icu", "Build regexp engine with icu support"
-  option "without-single", "Disable building single-threading variant"
-  option "without-static", "Disable building static library variant"
-  option :cxx11
-
-  deprecated_option "with-python3" => "with-python"
-
-  depends_on "python" => :optional
-  depends_on "python@2" => :optional
-
-  if build.with?("python") && build.with?("python@2")
-    odie "boost@1.55: --with-python cannot be specified when using --with-python@2"
-  end
-
-  if build.with? "icu"
-    if build.cxx11?
-      depends_on "icu4c" => "c++11"
-    else
-      depends_on "icu4c"
-    end
-  end
 
   # Patches boost::atomic for LLVM 3.4 as it is used on OS X 10.9 with Xcode 5.1
   # https://github.com/Homebrew/homebrew/issues/27396
@@ -70,71 +47,31 @@ class BoostAT155 < Formula
     # Force boost to compile using the appropriate GCC version.
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"
-
-      # Link against correct version of Python if python3 build was requested
-      if build.with? "python"
-        py3executable = `which python3`.strip
-        py3version = `python3 -c "import sys; print(sys.version[:3])"`.strip
-        py3prefix = `python3 -c "import sys; print(sys.prefix)"`.strip
-
-        file.write <<~EOS
-          using python : #{py3version}
-                       : #{py3executable}
-                       : #{py3prefix}/include/python#{py3version}m
-                       : #{py3prefix}/lib ;
-        EOS
-      end
     end
 
-    # we specify libdir too because the script is apparently broken
-    bargs = ["--prefix=#{prefix}", "--libdir=#{lib}"]
-
-    if build.with? "icu"
-      icu4c_prefix = Formula["icu4c"].opt_prefix
-      bargs << "--with-icu=#{icu4c_prefix}"
-    else
-      bargs << "--without-icu"
-    end
+    # We specify libdir too because the script is apparently broken
+    bargs = %W[--prefix=#{prefix} --libdir=#{lib} --without-icu]
 
     # Handle libraries that will not be built.
-    without_libraries = ["mpi"]
+    without_libraries = ["mpi", "python"]
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
     without_libraries << "log" if ENV.compiler == :gcc
-    without_libraries << "python" if build.without?("python") \
-                                      && build.without?("python@2")
 
     bargs << "--without-libraries=#{without_libraries.join(",")}"
 
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged",
-            "--user-config=user-config.jam",
-            "install"]
-
-    if build.with? "single"
-      args << "threading=multi,single"
-    else
-      args << "threading=multi"
-    end
-
-    if build.with? "static"
-      args << "link=shared,static"
-    else
-      args << "link=shared"
-    end
-
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    end
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged
+      --user-config=user-config.jam
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
     system "./bootstrap.sh", *bargs
     system "./b2", *args

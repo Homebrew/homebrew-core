@@ -5,18 +5,18 @@ class Ford < Formula
   homepage "https://github.com/cmacmackin/ford/"
   url "https://github.com/cmacmackin/ford/archive/v6.0.0.tar.gz"
   sha256 "45fd53c7e5263fea2e751c436de6a1513d250647e98e32668b9965677974309e"
+  revision 1
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f1b2e179ad79cfe434539569a92e9f51a691f2bd546c4e050fed835fe15c197f" => :mojave
-    sha256 "a6913b17644fd3a8cff12ad451daab2d89d54427b030184704fd30712811977d" => :high_sierra
-    sha256 "7534f2da52313fb3daa2afd4a1d545660a34bc9faefe561d2c3bf469f8431051" => :sierra
-    sha256 "4cb8478492d9abbde272fe175cc931105de3206c6d2b4ea36e8f5c349a8e8c3c" => :el_capitan
+    sha256 "3ddd7cf499d849e98639de2ffa9685e9ba99680ccec7a9b2d036c29f1d774052" => :mojave
+    sha256 "12211376646fed6327a0f00f7db6c3b6905c8edcd9e0049ed19fb304a5c6b94c" => :high_sierra
+    sha256 "58806e9e273eabbb7de882785be5af3ba464bafac263b9586822853481ad99d2" => :sierra
   end
 
   depends_on "graphviz"
-  depends_on "python@2"
+  depends_on "python"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/fa/8d/1d14391fdaed5abada4e0f63543fef49b8331a34ca60c88bd521bcf7f782/beautifulsoup4-4.6.0.tar.gz"
@@ -77,7 +77,7 @@ class Ford < Formula
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     venv.pip_install resources
     venv.pip_install_and_link buildpath
     doc.install "2008standard.pdf", "2003standard.pdf"

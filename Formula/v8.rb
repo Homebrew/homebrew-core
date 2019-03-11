@@ -3,15 +3,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-      :revision => "0425ebd2b395dd754606e3639c296c5619757451"
-  version "6.9.427.22" # the version of the v8 checkout, not a depot_tools version
+      :revision => "aec259ea62328ce39916607876956239fbce29b8"
+  version "7.2.502.25" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
-    sha256 "5fddb309d16e9186101e5513bb7ec109ff2388211da0dc078f572fa9fc19d80a" => :mojave
-    sha256 "d5a8d6ad8b7aaaf92b2fcb3d3a60d2cdaed65c91f4ecd26631f85fd51e9077d8" => :high_sierra
-    sha256 "e9d06d6783c0de8961159b3e0436e22aa83fa2a7c149de6eb339123538e47037" => :sierra
-    sha256 "d815f9bd1254c2dee18667c7c51201e6108c2cfd7de447c771300bf91784ffe9" => :el_capitan
+    sha256 "eb980d025519d7ad915be7edb6c836c3c9bd44fc4d7706a38b365836e0809ec0" => :mojave
+    sha256 "ec7e9df49fbb8e8bf15abe08ce846bef336353a9986b64be6b5c258a6d555fed" => :high_sierra
+    sha256 "d8f0dbea9eb79fdfad86bd81030e2874005a1e6767866e41ee7b67ea7e427c74" => :sierra
   end
 
   # depot_tools/GN require Python 2.7+
@@ -19,8 +18,6 @@ class V8 < Formula
 
   # https://bugs.chromium.org/p/chromium/issues/detail?id=620127
   depends_on :macos => :el_capitan
-
-  needs :cxx11
 
   def install
     # Add depot_tools in PATH
@@ -57,10 +54,10 @@ class V8 < Formula
       output_path = "out.gn/x64.release"
 
       gn_args = {
-        :is_debug => false,
-        :is_component_build => true,
+        :is_debug                     => false,
+        :is_component_build           => true,
         :v8_use_external_startup_data => false,
-        :v8_enable_i18n_support => true,
+        :v8_enable_i18n_support       => true,
       }
 
       # Transform to args string

@@ -1,16 +1,15 @@
 class GitStandup < Formula
   desc "Git extension to generate reports for standup meetings"
   homepage "https://github.com/kamranahmedse/git-standup"
-  url "https://github.com/kamranahmedse/git-standup/archive/2.1.9.tar.gz"
-  sha256 "6f6ff39e7d1cbf51783bc42fbc61ad38f84efdd441c183cef0d75187c1ea7087"
+  url "https://github.com/kamranahmedse/git-standup/archive/2.3.1.tar.gz"
+  sha256 "79c75cb3219f022c55d9df93c1292547745d28ccb62252faf52fe6023a41c60c"
   head "https://github.com/kamranahmedse/git-standup.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "31dd987e8a3e49e804fde9d67a48cbeec54cfbcbc8e7ee6ce5fc8c344519eb28" => :mojave
-    sha256 "a0eb22ac35b48f9696da523eb85270a5a0e6652d35c921a5c80b195d3e1f39c2" => :high_sierra
-    sha256 "a0eb22ac35b48f9696da523eb85270a5a0e6652d35c921a5c80b195d3e1f39c2" => :sierra
-    sha256 "a0eb22ac35b48f9696da523eb85270a5a0e6652d35c921a5c80b195d3e1f39c2" => :el_capitan
+    sha256 "110abc4176efa17c98a31c8f9d3efff8f2bdb68096fe3214bd10ae5b153f61d2" => :mojave
+    sha256 "7e1457e523902625e5bdf66248f2eaa058ee927fd5673c42773a58f18fb9badd" => :high_sierra
+    sha256 "7e1457e523902625e5bdf66248f2eaa058ee927fd5673c42773a58f18fb9badd" => :sierra
   end
 
   def install

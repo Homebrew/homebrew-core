@@ -1,16 +1,15 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.24.4.tar.gz"
-  sha256 "979e443fa27df7b65c3ac35db47fc0b130608f0745d4fa393c451734343c088d"
+  url "https://github.com/ponylang/ponyc/archive/0.27.0.tar.gz"
+  sha256 "52afc7b2fa03e97b1e6535ccf78c2811df15fe8e37247f32c4b8cabd1b638448"
   head "https://github.com/ponylang/ponyc.git"
 
   bottle do
     cellar :any
-    sha256 "775ca51df1da7362d6b1b2c4110b504f53198c61f518e969fe2c9a77d586371d" => :mojave
-    sha256 "3a33eb73400528cb3dc74f20c71cba60cef37fad91b72bf712bb53dc0d17d5f6" => :high_sierra
-    sha256 "fe4a4a66dfe058258ad91c0c23ee61c963275f332e9b6f18431ce916ac42c40e" => :sierra
-    sha256 "c511daeb62e02b7dd2ccb95ff2ca7b00849d777f5cbfe72e64674d25bf0f4fa3" => :el_capitan
+    sha256 "50d5c8622b9660725ba5d8dd00772e276f6787bb15c4d11296dafcf45f942768" => :mojave
+    sha256 "03c5889b999c33b32c29de5bad8b94f51eab4d956f5c4f133cb7cfced8c9ff1a" => :high_sierra
+    sha256 "cd44b41f87be53a1c65ab3387d889cc3a54821d00641dba90959dbaab68a0705" => :sierra
   end
 
   # https://github.com/ponylang/ponyc/issues/1274
@@ -23,15 +22,13 @@ class Ponyc < Formula
   end
 
   depends_on "libressl"
-  depends_on "llvm@3.9"
+  depends_on "llvm"
   depends_on :macos => :yosemite
   depends_on "pcre2"
 
-  needs :cxx11
-
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"] = "#{Formula["llvm@3.9"].opt_bin}/llvm-config"
+    ENV["LLVM_CONFIG"] = "#{Formula["llvm"].opt_bin}/llvm-config"
     system "make", "install", "verbose=1", "config=release",
            "ponydir=#{prefix}", "prefix="
   end

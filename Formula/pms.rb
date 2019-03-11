@@ -11,7 +11,6 @@ class Pms < Formula
     sha256 "65b6bfe7e5eca6e7f073e4f9c3fc7c46df538c91010059781369bacbc628256b" => :el_capitan
     sha256 "4093093ca7be2f6aaee5f50d3185323df4fcea2ed389f29615a1b79fb3648be4" => :yosemite
     sha256 "2f7dd91d357ac34393e55d7de6ffca2b21a64adfa084a6b6dd5c5aa43caed170" => :mavericks
-    sha256 "772bff39de0b88e164b5f14b22ed4fa22c274468d07d735318284fee5157d6c1" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build

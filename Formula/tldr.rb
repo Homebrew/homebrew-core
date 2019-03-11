@@ -17,6 +17,8 @@ class Tldr < Formula
   depends_on "pkg-config" => :build
   depends_on "libzip"
 
+  conflicts_with "tealdeer", :because => "both install `tldr` binaries"
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end

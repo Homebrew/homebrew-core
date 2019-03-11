@@ -1,21 +1,19 @@
 class CassandraAT21 < Formula
   desc "Distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/2.1.13/apache-cassandra-2.1.13-bin.tar.gz"
-  sha256 "102fffe21b1641696cbdaef0fb5a2fecf01f28da60c81a1dede06c2d8bdb6325"
+  url "https://archive.apache.org/dist/cassandra/2.1.21/apache-cassandra-2.1.21-bin.tar.gz"
+  sha256 "992080ce42bb90173b1a910edffadc7f917b5a6e598db5154ff32ae8e2d00ad3"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97a22a00e102a50914c4dbd8d88e507eee92be5202b7f8d4bea398c34219857a" => :mojave
-    sha256 "b93b53ebd5b6cfa143ddbfd1fa77680a67abb0f2bfb2e5d0d984adb40cbb1214" => :high_sierra
-    sha256 "b1906ed9835c47a76953d8d24dd20a44754098dfd4981c2f990d6b63449b3c7b" => :sierra
-    sha256 "8db1bf5929051d59f296c485d5b771efd4e5baff6c2dde1b9157c9f910f45f8f" => :el_capitan
-    sha256 "fc9857b4742b5f7263e1979a7caf37ee3bd831026c6fb7cf819f64d70edaed7b" => :yosemite
+    sha256 "47ca86c5d1cf581e53f47e51d7ca79c42b65dec999f66776c64278603f6e3def" => :mojave
+    sha256 "8c6e02cd3c1310eed4e3263df8a17ee9260482f2e5cae6ce2a440ea7a5252fdd" => :high_sierra
+    sha256 "4d3b23140d99eab938d61efcde0e7e265693fc07d95656cc5cb8e29eae239ca5" => :sierra
   end
 
   keg_only :versioned_formula
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   # Only Yosemite has new enough setuptools for successful compile of the below deps.
   resource "setuptools" do

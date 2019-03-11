@@ -12,7 +12,6 @@ class Whitedb < Formula
     sha256 "c0f4e666e9cc755bbff0711a1494c9705928a34a565701147bae31793f505163" => :el_capitan
     sha256 "0fa38dca524c08f51fa724fb49df5a3ebdde46a3251b2a282d5343b36c4c249f" => :yosemite
     sha256 "ba756975f0dbdfa4259a5a4271414765644b0abe8c771d0c091238909f0968d2" => :mavericks
-    sha256 "aa86b2acca68b9999ecb4cb9da7c64f659a97ffbd50d7aeb78c021df13866474" => :mountain_lion
   end
 
   def install

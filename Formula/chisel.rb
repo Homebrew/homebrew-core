@@ -1,15 +1,15 @@
 class Chisel < Formula
   desc "Collection of LLDB commands to assist debugging iOS apps"
   homepage "https://github.com/facebook/chisel"
-  url "https://github.com/facebook/chisel/archive/1.8.0.tar.gz"
-  sha256 "ccaafbbd06925cf08da0dd75ed82f7ddcde9273d877ba6c35b5a38fa351f439f"
+  url "https://github.com/facebook/chisel/archive/1.8.1.tar.gz"
+  sha256 "2f803ac99c20d2ae86d4485eb3d1be29010c5e3088ccf0a2b19021657022e3fb"
   head "https://github.com/facebook/chisel.git"
 
   bottle do
     cellar :any
-    sha256 "eba994a5b5d1880890bab0db0741ec7f6c65f3cc4a78957355714a84b76f2fa2" => :high_sierra
-    sha256 "0cde612e49ea07f54a455161b9371f6b662b450169947103dddba66fb2debe6c" => :sierra
-    sha256 "82f135ec7770a425e666086b7a5d6a31b086c10e11df42fbe849354592f26a3e" => :el_capitan
+    sha256 "29c17de80f280349701f53c1103e9654717c6f70d4075ae3da640bec2c04ba74" => :mojave
+    sha256 "8886d6402a50e4b920f5d55809ec9b51e934b7073f02bdf112ab98fb4466b665" => :high_sierra
+    sha256 "85d31eb6edf4a19059f7e3c019a07ad2462bb1df42cab53eac24baef3a3c703e" => :sierra
   end
 
   def install

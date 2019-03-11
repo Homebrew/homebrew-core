@@ -9,9 +9,10 @@ class Mytop < Formula
 
   bottle do
     cellar :any
-    sha256 "5b527889fdc6a68a292dd3627fc3ba22c765d8f91aabb32834d9c5334fa8a2f5" => :high_sierra
-    sha256 "2ea6e6774df1e161e6bdbc6b7d844635710b83ab3a7f4097a9b5ac579328f550" => :sierra
-    sha256 "cb6f08e0b574f59ec9e075f7445d9835b6b09d71be5f8c6879f452a63fe5d2a2" => :el_capitan
+    rebuild 1
+    sha256 "873b88c76650758b49e1749e35c765b5179ffd371ab489f146b35da1e3620029" => :mojave
+    sha256 "8d64c44dcfccde35179d48a1698f0108df3c621e68ee7f8716a6d6db35cc1448" => :high_sierra
+    sha256 "26a4812e17d0285a28176d8bd735e06a1196a794c7cefb4837f7ab9a9ed4272d" => :sierra
   end
 
   depends_on "mysql-client"
@@ -27,6 +28,14 @@ class Mytop < Formula
   resource "Config::IniFiles" do
     url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.94.tar.gz"
     sha256 "d6d38a416da79de874c5f1825221f22e972ad500b6527d190cc6e9ebc45194b4"
+  end
+
+  # In Mojave, this is not part of the system Perl anymore
+  if MacOS.version >= :mojave
+    resource "DBI" do
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
+      sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
+    end
   end
 
   resource "DBD::mysql" do

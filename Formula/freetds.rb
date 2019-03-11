@@ -1,15 +1,13 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "http://www.freetds.org/"
-  url "http://www.freetds.org/files/stable/freetds-1.00.98.tar.bz2"
-  mirror "https://fossies.org/linux/privat/freetds-1.00.98.tar.bz2"
-  sha256 "a340ad1ce0d320551686af587db1ef93fe6130a14f8e7bde0fd3b33ab4d0515a"
+  url "http://www.freetds.org/files/stable/freetds-1.00.111.tar.gz"
+  sha256 "77b8d949670d534f36d6d7509732959dffaccd7a5ea1167890cd8ee03f327fc9"
 
   bottle do
-    sha256 "bcd468f7e79650683c46172ddf35606fe36453009b54877e3bf6e941ec153312" => :mojave
-    sha256 "5ed416f2e9b2308da78bb031e69866f12343b288db3cbe08d4c892cf65a598ad" => :high_sierra
-    sha256 "b22d8d8bf72c139e56ec7d5389a6459669852e17fe2e2e84ddcc352e694995d2" => :sierra
-    sha256 "1d280805055fd549f0ad1da5d79387aa4ae18e11f486f07f619ba6f135d776fa" => :el_capitan
+    sha256 "fd9b19bd8f1706e31f8aa64f03845f9e22aeff5a94532c78fce1a067f4060b23" => :mojave
+    sha256 "669574d37d29bd6a2f6d4cdc6ffc77b98b81dbc00d867c347d6e2adb2905583b" => :high_sierra
+    sha256 "3666a4d54c227e39ec309d786da7f5c06de0ef8fa92c2e3ab767a81fc03107f3" => :sierra
   end
 
   head do
@@ -21,50 +19,22 @@ class Freetds < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-msdblib", "Enable Microsoft behavior in the DB-Library API where it diverges from Sybase's"
-  option "with-sybase-compat", "Enable close compatibility with Sybase's ABI, at the expense of other features"
-  option "with-odbc-wide", "Enable odbc wide, prevent unicode - MemoryError's"
-  option "with-krb5", "Enable Kerberos support"
-
-  deprecated_option "enable-msdblib" => "with-msdblib"
-  deprecated_option "enable-sybase-compat" => "with-sybase-compat"
-  deprecated_option "enable-odbc-wide" => "with-odbc-wide"
-  deprecated_option "enable-krb" => "with-krb5"
-
   depends_on "pkg-config" => :build
-  depends_on "openssl" => :recommended
-  depends_on "libiodbc" => :optional
-  depends_on "unixodbc" => :optional
+  depends_on "openssl"
+  depends_on "unixodbc"
 
   def install
-    if build.with?("unixodbc") && build.with?("libiodbc")
-      odie "freetds: --without-libiodbc must be specified when using --with-unixodbc"
-    end
-
     args = %W[
       --prefix=#{prefix}
       --with-tdsver=7.3
       --mandir=#{man}
       --sysconfdir=#{etc}
+      --with-unixodbc=#{Formula["unixodbc"].opt_prefix}
+      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --enable-sybase-compat
+      --enable-krb5
+      --enable-odbc-wide
     ]
-
-    if build.with? "openssl"
-      args << "--with-openssl=#{Formula["openssl"].opt_prefix}"
-    end
-
-    if build.with? "unixodbc"
-      args << "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}"
-    end
-
-    if build.with? "libiodbc"
-      args << "--with-libiodbc=#{Formula["libiodbc"].opt_prefix}"
-    end
-
-    # Translate formula's "--with" options to configuration script's "--enable"
-    # options
-    %w[msdblib sybase-compat odbc-wide krb5].each do |option|
-      args << "--enable-#{option}" if build.with? option
-    end
 
     if build.head?
       system "./autogen.sh", *args

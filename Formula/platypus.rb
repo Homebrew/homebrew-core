@@ -7,15 +7,16 @@ class Platypus < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ab371d96215d160ee7638d1dfe3d49cc5cbbf7fc03b01524f3fe18bb7c6ed767" => :high_sierra
-    sha256 "11b199eb483328298a49792055306558182807fdf993b448c2f88145b57b14e0" => :sierra
-    sha256 "edb6178b284a8701fb4e7e57ff57230269a774afc684776a557fa2572c2ac057" => :el_capitan
+    rebuild 1
+    sha256 "968362767410bc2055c0847543a95ba8a272a29015bd7c118ac47feeca12b649" => :mojave
+    sha256 "598660d8723204958b3f891597408e24ef0ee1b6914037e9759949d20491290c" => :high_sierra
+    sha256 "9b3b01e6a10711db553f8d59589701d1763f5d178a7c87496b0bc02d94a24f7b" => :sierra
   end
 
   depends_on :xcode => ["8.0", :build]
 
   def install
-    xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}",
+    xcodebuild "SYMROOT=build", "DSTROOT=#{buildpath}/dst",
                "-project", "Platypus.xcodeproj",
                "-target", "platypus",
                "-target", "ScriptExec",
@@ -23,7 +24,7 @@ class Platypus < Formula
                "install"
 
     man1.install "CommandLineTool/man/platypus.1"
-    bin.install "platypus_clt" => "platypus"
+    bin.install "dst/platypus_clt" => "platypus"
 
     cd "build/UninstalledProducts/macosx/ScriptExec.app/Contents" do
       pkgshare.install "Resources/MainMenu.nib", "MacOS/ScriptExec"

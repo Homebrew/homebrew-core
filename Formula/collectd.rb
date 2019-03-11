@@ -1,15 +1,13 @@
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
-  url "https://collectd.org/files/collectd-5.8.0.tar.bz2"
-  sha256 "b06ff476bbf05533cb97ae6749262cc3c76c9969f032bd8496690084ddeb15c9"
-  revision 2
+  url "https://collectd.org/files/collectd-5.8.1.tar.bz2"
+  sha256 "e796fda27ce06377f491ad91aa286962a68c2b54076aa77a29673d53204453da"
 
   bottle do
-    sha256 "cc40ab3b126a55310a7e0687be7ce458a5203578015f287377e6a52cbf1d2903" => :mojave
-    sha256 "c4bca62c6c0b73f7004eceb75fa218a4f8f1d9a0bea09ae8a1b38d4c14663892" => :high_sierra
-    sha256 "0e29acd0077f1ad18ee6258b1cd17c407b2ae6ce39b6c8b8c1ecb9c5d9b429c6" => :sierra
-    sha256 "0370541be09ba68caed1f335e4a961d6f889f1fc2d30741e7da1aaf5a6fd0b51" => :el_capitan
+    sha256 "ffa5b1bd3d607e47410ba26ef11b3d7132f42049a035c9b87ddadad385c3546f" => :mojave
+    sha256 "61e26ab9d8127ddf942dcd163c6c78f50890b05f309ed7e329c7b8f859205c96" => :high_sierra
+    sha256 "486dbe8acc823c12263308eddadf22e56c862161e190c7b2f1b57e6feeb99384" => :sierra
   end
 
   head do
@@ -19,28 +17,11 @@ class Collectd < Formula
     depends_on "automake" => :build
   end
 
-  option "with-java", "Enable Java support"
-  option "with-python", "Enable Python support"
-  option "with-riemann-client", "Enable write_riemann support"
-
-  deprecated_option "java" => "with-java"
-  deprecated_option "with-python" => "with-python@2"
-
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
   depends_on "libtool"
   depends_on "net-snmp"
-  depends_on :java => :optional
-  depends_on "python@2" => :optional
-  depends_on "riemann-client" => :optional
-
-  fails_with :clang do
-    build 318
-    cause <<~EOS
-      Clang interacts poorly with the collectd-bundled libltdl,
-      causing configure to fail.
-    EOS
-  end
+  depends_on "riemann-client"
 
   def install
     args = %W[
@@ -48,11 +29,9 @@ class Collectd < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --localstatedir=#{var}
+      --disable-java
+      --enable-write_riemann
     ]
-
-    args << "--disable-java" if build.without? "java"
-    args << "--enable-python" if build.with? "python@2"
-    args << "--enable-write_riemann" if build.with? "riemann-client"
 
     system "./build.sh" if build.head?
     system "./configure", *args

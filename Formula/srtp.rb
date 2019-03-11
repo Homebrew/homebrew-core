@@ -14,16 +14,9 @@ class Srtp < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl" => :optional
 
   def install
-    args = %W[
-      --disable-debug
-      --prefix=#{prefix}
-    ]
-    args << "--enable-openssl" if build.with? "openssl"
-
-    system "./configure", *args
+    system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make", "test"
     system "make", "shared_library"
     system "make", "install" # Can't go in parallel of building the dylib

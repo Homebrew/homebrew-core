@@ -2,22 +2,18 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      :tag => "v0.4.17",
-      :revision => "dfd19c470e162ef906382683fd743a8571cede95"
+      :tag      => "v0.4.19",
+      :revision => "83d3f7672b82ccb03e4c106d93e9dadc6427f246"
   head "https://github.com/ipfs/go-ipfs.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f5afb66ed65cc3feb8d4c05a3b108e41f0b8f10739aeaa53b588aa619e92053e" => :mojave
-    sha256 "5b3973c60e1c5bc3f84204941c94110ccdd3ebcfb8c67f25a11f83d1454c3e47" => :high_sierra
-    sha256 "6c536497e72cb744d729fb7a9aae9eca170ec491600996637ab44ab793ce4dee" => :sierra
-    sha256 "61a83ec128f164cac19cc3ead46edba2b2350b747a3190bee9340f8faaef5cf1" => :el_capitan
+    sha256 "76bf9fcba53fe32bf6d858e5b5d7c7d6987eaf18284d6db6ee70e88f2b052aab" => :mojave
+    sha256 "d4fd3569b3947e978a997d05c7ffec4afde680ed40905578ecbb7a96a3c511d9" => :high_sierra
+    sha256 "ab5a73f05d99d58f4748c29808cfdcb77916d85292fb57c16b0ec4e831a7fe3e" => :sierra
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
-  depends_on "gx"
-  depends_on "gx-go"
 
   def install
     ENV["GOPATH"] = buildpath
@@ -48,6 +44,6 @@ class Ipfs < Formula
   end
 
   test do
-    system bin/"ipfs", "version"
+    assert_match "initializing IPFS node", shell_output(bin/"ipfs init")
   end
 end

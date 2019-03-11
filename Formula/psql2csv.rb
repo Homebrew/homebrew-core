@@ -1,9 +1,8 @@
 class Psql2csv < Formula
   desc "Run a query in psql and output the result as CSV"
   homepage "https://github.com/fphilipe/psql2csv"
-  url "https://github.com/fphilipe/psql2csv/archive/v0.9.tar.gz"
-  sha256 "80dffcb2b41de131dd6023f5f496ff5981d86877de81f154f56c169793026022"
-  revision 2
+  url "https://github.com/fphilipe/psql2csv/archive/v0.10.tar.gz"
+  sha256 "09ab6a76c1de1fadf29558ef63afcbbfcee5483a2b9b913cb0fbc139107d8d5a"
 
   bottle :unneeded
 

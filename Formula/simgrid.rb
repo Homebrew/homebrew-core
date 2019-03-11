@@ -38,7 +38,8 @@ class Simgrid < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-lsimgrid", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lsimgrid",
+                   "-o", "test"
     system "./test"
   end
 end

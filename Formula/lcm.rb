@@ -1,53 +1,31 @@
 class Lcm < Formula
   desc "Libraries and tools for message passing and data marshalling"
   homepage "https://lcm-proj.github.io/"
-  url "https://github.com/lcm-proj/lcm/releases/download/v1.3.1/lcm-1.3.1.zip"
-  sha256 "3fd7c736cf218549dfc1bff1830000ad96f3d8a8d78d166904323b1df573ade1"
-  revision 1
+  url "https://github.com/lcm-proj/lcm/releases/download/v1.4.0/lcm-1.4.0.zip"
+  sha256 "e249d7be0b8da35df8931899c4a332231aedaeb43238741ae66dc9baf4c3d186"
+
+  head "https://github.com/lcm-proj/lcm.git"
 
   bottle do
     cellar :any
-    sha256 "560d28a5bc86d18e76d19c811e4d462a025fb6bf73cb4aa0b18fec44f7ea2213" => :mojave
-    sha256 "e14ef8beac71ba643f8794caf62b9e9b4059a3f4687dba5470af43f1983147a0" => :high_sierra
-    sha256 "9b4244f4884bcbf572f44becf98509001add67ca0117a05180cc28ca6e53acbc" => :sierra
-    sha256 "c3cf28a9d9c7d57846c17580dfb56c5516e06a728f6ec8f98edbcfcf2328ac39" => :el_capitan
+    sha256 "581550e90083da755a152c94e58ecec5da4fe688376426619614a35756acf41f" => :mojave
+    sha256 "295aa49f70201ca48b4e27e3da5342e616f429293cce7f31a06d8075471417b5" => :high_sierra
+    sha256 "3fc46725af663bc19f0e8625bb8ab0a4d699a324d7f7f1a01aabb5c3bd7518e3" => :sierra
   end
 
-  head do
-    url "https://github.com/lcm-proj/lcm.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-    depends_on "xz" => :build
-  end
-
-  deprecated_option "with-python3" => "with-python"
-
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on :java => "1.8"
-  depends_on "python" => :optional
-  depends_on "python@2" => :optional
 
   def install
-    if build.head?
-      system "./bootstrap.sh"
-    else
-      # This deparallelize setting can be removed after an upstream release
-      # that includes the revised makefile for the java part of LCM.
-      #
-      # (see https://github.com/lcm-proj/lcm/pull/48)
-      #
-      # Note that the pull request has been merged with the upstream master,
-      # so it will be included in the next release of LCM.
-      ENV.deparallelize
+    mkdir "build" do
+      system "cmake", "..", "-DCMAKE_CXX_FLAGS=-I/System/Library/Frameworks/Python.framework/Headers",
+                            "-DLCM_ENABLE_TESTS=OFF",
+                            *std_cmake_args
+      system "make"
+      system "make", "install"
     end
-
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
   end
 
   test do

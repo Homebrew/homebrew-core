@@ -38,7 +38,7 @@ class IscDhcp < Formula
     end
 
     # See discussion at: https://gist.github.com/1157223
-    ENV.append "CFLAGS", "-D__APPLE_USE_RFC_3542" if MacOS.version >= :lion
+    ENV.append "CFLAGS", "-D__APPLE_USE_RFC_3542"
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

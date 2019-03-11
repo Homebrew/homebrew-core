@@ -1,16 +1,14 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.3.1.tar.gz"
-  sha256 "bc5e392d4c076407906ccecbc283e1a44b7832c2f486cad81aa04cc29973ad22"
+  url "https://github.com/neovim/neovim/archive/v0.3.4.tar.gz"
+  sha256 "a641108bdebfaf319844ed46b1bf35d6f7c30ef5aeadeb29ba06e19c3274bc0e"
   head "https://github.com/neovim/neovim.git"
 
   bottle do
-    rebuild 1
-    sha256 "835e46667217de080cd08db9e6bd180cf9870f7759b6be31e0e0a26018da42ca" => :mojave
-    sha256 "315fe4f3aec480fb8d7c4d47b49bf505d35b8b95131190245a743b726d077836" => :high_sierra
-    sha256 "9926409ab57d24213668063e4587d3108dba111523e1aa5884370d4cb177721d" => :sierra
-    sha256 "3e344efabcf387d60ba6913490f42b53d1cf0e31ef709dec4eb5818e4f6b50d3" => :el_capitan
+    sha256 "7bb939377f5438ca9147f57bbcabaf9695f7b8aa6f88394f29462936c830b5ed" => :mojave
+    sha256 "f31dbf1ac5d69a44e14ba1ae71d9d3f806408b9006f9fd77cef346fc83c0019c" => :high_sierra
+    sha256 "ff0888eb750258eb907cf8982c114a11b63a5ae7adade5e517013f40faf9054d" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -41,9 +39,14 @@ class Neovim < Formula
     sha256 "ea1f347663cebb523e88622b1d6fe38126c79436da4dbf442674208aa14a8f4c"
   end
 
+  resource "luabitop-rockspec" do
+    url "https://luarocks.org/manifests/luarocks/luabitop-1.0.2-3.rockspec"
+    sha256 "8cc12ebd2919b08765fef9f8738d2277204e8c6a7578e8e7f1abf6054380c21f"
+  end
+
   resource "luabitop" do
-    url "https://luarocks.org/luabitop-1.0.2-1.src.rock"
-    sha256 "fc7a8065a57462ee13bed7f95b0ab13f94ecd1bf846108c61ccf2c75548af26e"
+    url "https://github.com/LuaDist/luabitop/archive/1.0.2.tar.gz"
+    sha256 "d5f2ada780397e9bf8f885b811abdb4f86b7e7e7ee827e744efcf672882f4398"
   end
 
   resource "luafilesystem" do
@@ -132,12 +135,29 @@ class Neovim < Formula
     lua_path = "--lua-dir=#{Formula["lua@5.1"].opt_prefix}"
 
     cd "deps-build" do
+      # penlight depends on luafilesystem
+      cd "build/src/luafilesystem" do
+        output = Utils.popen_read("luarocks", "unpack", lua_path, "luafilesystem-1.7.0-2.src.rock", "--tree=#{buildpath}/deps-build")
+        unpack_dir = output.split("\n")[-2]
+        cd unpack_dir do
+          system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
+        end
+      end
+
+      # busted depends on penlight
+      cd "build/src/penlight" do
+        system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
+      end
+
+      cp "build/src/luabitop-rockspec/luabitop-1.0.2-3.rockspec", "build/src/luabitop/"
+      cd "build/src/luabitop/" do
+        system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
+      end
+
       %w[
         lpeg/lpeg-1.0.1-1.src.rock
         mpack/mpack-1.0.7-0.rockspec
         inspect/inspect-3.1.1-0.src.rock
-        luabitop/luabitop-1.0.2-1.src.rock
-        luafilesystem/luafilesystem-1.7.0-2.src.rock
         lua_cliargs/lua_cliargs-3.0-1.src.rock
         lua-term/lua-term-0.7-1.rockspec
         luasystem/luasystem-0.2.1-0.src.rock
@@ -151,11 +171,14 @@ class Neovim < Formula
         coxpcall/coxpcall-1.17.0-1.src.rock
         nvim-client/nvim-client-0.1.0-1.rockspec
       ].each do |rock|
-        system "luarocks", "build", lua_path, "build/src/#{rock}", "--tree=."
-      end
-
-      cd "build/src/penlight" do
-        system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
+        dir, rock = rock.split("/")
+        cd "build/src/#{dir}" do
+          output = Utils.popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{buildpath}/deps-build")
+          unpack_dir = output.split("\n")[-2]
+          cd unpack_dir do
+            system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
+          end
+        end
       end
 
       system "cmake", "../third-party", "-DUSE_BUNDLED=OFF", *std_cmake_args

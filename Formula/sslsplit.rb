@@ -31,14 +31,23 @@ class Sslsplit < Formula
   end
 
   test do
-    pid_webrick = fork { exec "ruby", "-rwebrick", "-e", "s = WEBrick::HTTPServer.new(:Port => 8000); s.mount_proc(\"/\") { |req,res| res.body = \"sslsplit test\"} ; s.start" }
-    pid_sslsplit = fork { exec "#{bin}/sslsplit", "-P", "http", "127.0.0.1", "8080", "127.0.0.1", "8000" }
+    pid_webrick = fork do
+      exec "ruby", "-rwebrick", "-e",
+           "s = WEBrick::HTTPServer.new(:Port => 8000); " \
+           's.mount_proc("/") {|_,res| res.body = "sslsplit test"}; ' \
+           "s.start"
+    end
+    pid_sslsplit = fork do
+      exec "#{bin}/sslsplit", "-P", "http", "127.0.0.1", "8080",
+                                            "127.0.0.1", "8000"
+    end
     sleep 1
     # Workaround to kill all processes from sslsplit
     pid_sslsplit_child = `pgrep -P #{pid_sslsplit}`.to_i
 
     begin
-      assert_equal("sslsplit test", shell_output("curl -s http://localhost:8080/test"))
+      assert_equal "sslsplit test",
+                   shell_output("curl -s http://localhost:8080/test")
     ensure
       Process.kill 9, pid_sslsplit_child
       Process.kill 9, pid_webrick

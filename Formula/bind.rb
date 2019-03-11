@@ -1,23 +1,34 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
   homepage "https://www.isc.org/downloads/bind/"
-  url "https://ftp.isc.org/isc/bind9/9.12.2-P2/bind-9.12.2-P2.tar.gz"
-  version "9.12.2-P2"
-  sha256 "87027826e98bab90ead31f45ce7653cb3116ebe64ab8202a08b6b64531df693e"
-  revision 1
+  url "https://ftp.isc.org/isc/bind9/9.12.4/bind-9.12.4.tar.gz"
+  sha256 "81bf24b2b86f7288ccf727aff59f1d752cc3e9de30a7480d24d67736256a0d53"
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
-    sha256 "9adca9879b06b3dc86d9638d8bc3db5a0bde664d62bd757603be47ff22cdf082" => :mojave
-    sha256 "d0aaa678ad03eca2b92c3a8ead948fff201dd10d743e0bc69261ced550ca7780" => :high_sierra
-    sha256 "412daf9dd0176c2c489760a711e052d32523be19dac1509a7b523ca3cf84ea1c" => :sierra
-    sha256 "c4815734b9aa8c229493a47e8db7227a87be842afdee97c6183cc4be853a41c2" => :el_capitan
+    sha256 "d82db03a139392f57129bd79b1ea2539976d78474e12783672a938beb52ade6a" => :mojave
+    sha256 "a5fdca7936ef8bd8b4bc816529b9410d366c077969e4719c44044094ba5d59e0" => :high_sierra
+    sha256 "a772621d02fa39eed580232b8b769414e946168e40d096cf03853fb3f0cb79d0" => :sierra
   end
 
   depends_on "json-c"
   depends_on "openssl"
+  depends_on "python"
+
+  resource "ply" do
+    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
+    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
+  end
 
   def install
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    resources.each do |r|
+      r.stage do
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      end
+    end
+
     # Fix "configure: error: xml2-config returns badness"
     if MacOS.version == :sierra || MacOS.version == :el_capitan
       ENV["SDKROOT"] = MacOS.sdk_path
@@ -30,7 +41,7 @@ class Bind < Formula
                           "--enable-threads",
                           "--enable-ipv6",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
-                          "--with-libjson=yes"
+                          "--with-libjson=#{Formula["json-c"].opt_prefix}"
 
     # From the bind9 README: "Do not use a parallel "make"
     ENV.deparallelize

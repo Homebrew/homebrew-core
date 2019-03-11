@@ -3,14 +3,13 @@ class Isync < Formula
   homepage "https://isync.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/isync/isync/1.3.0/isync-1.3.0.tar.gz"
   sha256 "8d5f583976e3119705bdba27fa4fc962e807ff5996f24f354957178ffa697c9c"
+  revision 1
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "5ca6cc97dfcd4ddc10cd9f6425c5f917425e7c7fb2584e909974423f09b7b90b" => :mojave
-    sha256 "4804cd78586b11ba9316db5522fd7d91c171ec3c6936f74f3c8cbbd8f8b27d56" => :high_sierra
-    sha256 "01d975dae7bf0b92d9fb4bb92846b45e1d60a1c5b16421f051f9212ba6ac1959" => :sierra
-    sha256 "6a0679dee26c5534d12801897339b1d0fb8cd82f907917900ffb632a42b0c8e0" => :el_capitan
+    sha256 "31b4efc0a70abc3dd02a71c0c89256180166cecfa159f471ef509f3e032da688" => :mojave
+    sha256 "4eb1fc073f003929e0743f00b8d127b853fa9352cf15dbc2058fb1bc5e1f6b37" => :high_sierra
+    sha256 "500e23f8ba9a7aae5ef3af184c8bb7ad7b36ba17f4356305dd860fed9ae3b8e3" => :sierra
   end
 
   head do
@@ -20,8 +19,8 @@ class Isync < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "berkeley-db"
   depends_on "openssl"
-  depends_on "berkeley-db" => :optional
 
   def install
     system "./autogen.sh" if build.head?
@@ -31,7 +30,6 @@ class Isync < Formula
       --prefix=#{prefix}
       --disable-silent-rules
     ]
-    args << "ac_cv_berkdb4=no" if build.without? "berkeley-db"
 
     system "./configure", *args
     system "make", "install"

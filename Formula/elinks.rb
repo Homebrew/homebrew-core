@@ -15,11 +15,6 @@ class Elinks < Formula
     sha256 "3bb5385dd074a8963bb3fc9111ea6a318d2594380cc8eda4921cb4a910393578" => :mavericks
   end
 
-  devel do
-    url "http://elinks.cz/download/elinks-0.12pre6.tar.bz2"
-    sha256 "383646375b8a325bef5a132c8300caab90eb0b842c5f8eff68febc00e29acada"
-  end
-
   head do
     url "http://elinks.cz/elinks.git"
 

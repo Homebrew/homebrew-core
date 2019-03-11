@@ -1,14 +1,13 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=hbase/1.2.6.1/hbase-1.2.6.1-bin.tar.gz"
-  sha256 "3bfa55c0b2b1327cb4382c1a51dddd21a536ccbbfdbcc31e9b6f403fe21230ad"
+  url "https://www.apache.org/dyn/closer.cgi?path=hbase/hbase-1.2.9/hbase-1.2.9-bin.tar.gz"
+  sha256 "d883801cd58ed97cd860b0a092d86af0ba591f9b5cca39ba9f5c4e2e71619ba0"
 
   bottle do
-    sha256 "ad2f8a6edee755254654904724c08c05bc9f05f82432b0b69022723624b13de8" => :mojave
-    sha256 "3c4084898091f6b811062aff85f2d5dcef422d720b21e60b0554a24ac611e0d9" => :high_sierra
-    sha256 "e2102bd08b2d94f5ac4d33938cdc76166bd085c9657f6f2ebcff47bbf3d3fd85" => :sierra
-    sha256 "72240c500dda738b40241eba7c157bdcb4e1a5cdec79b85fb74cbccebb02bef3" => :el_capitan
+    sha256 "49d69b13d8bdde4dc242d7ae677c8d7f86cbfd7db643ec2ade68b21f75f325bb" => :mojave
+    sha256 "d0c7283fe4a7cb5e7befe3947dd73113e2fa0edbac3db03d0676f1f9371df93e" => :high_sierra
+    sha256 "0299edd2d7788719339a4e4dff802316f262abca02ad65a7cde5a62c28ded5a2" => :sierra
   end
 
   depends_on "ant" => :build
@@ -19,7 +18,6 @@ class Hbase < Formula
   depends_on :arch => :x86_64
   depends_on :java => "1.8"
   depends_on "lzo"
-  depends_on "hadoop" => :optional
 
   resource "hadoop-lzo" do
     url "https://github.com/cloudera/hadoop-lzo/archive/0.4.14.tar.gz"
@@ -76,7 +74,7 @@ class Hbase < Formula
         <configuration>
           <property>
             <name>hbase.rootdir</name>
-            <value>#{build.with?("hadoop") ? "hdfs://localhost:9000" : "file://"+var}/hbase</value>
+            <value>file://#{var}/hbase</value>
           </property>
           <property>
             <name>hbase.zookeeper.property.clientPort</name>
@@ -114,7 +112,7 @@ class Hbase < Formula
     <plist version="1.0">
     <dict>
       <key>KeepAlive</key>
-      #{build.without?("hadoop") ? "<true/>" : "<dict>\n        <key>OtherJobEnabled</key>\n        <string>"+Formula["hadoop"].plist_name+"</string>\n      </dict>"}
+      <true/>
       <key>Label</key>
       <string>#{plist_name}</string>
       <key>EnvironmentVariables</key>

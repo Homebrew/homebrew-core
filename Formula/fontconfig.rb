@@ -4,8 +4,6 @@ class Fontconfig < Formula
   url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.13.1.tar.bz2"
   sha256 "f655dd2a986d7aa97e052261b36aa67b0a64989496361eca8d604e6414006741"
 
-  # The bottle tooling is too lenient and thinks fontconfig
-  # is relocatable, but it has hardcoded paths in the executables.
   bottle do
     sha256 "1c704a5a4249252bf42dc4f2a458f911a7858a931858ad257d9ec39978ca5095" => :mojave
     sha256 "3b763143a4d6e3c74b3a8b237d2e5a383696347ea3599d07957f73a3f6521d23" => :high_sierra

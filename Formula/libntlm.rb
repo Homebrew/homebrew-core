@@ -13,7 +13,6 @@ class Libntlm < Formula
     sha256 "c8da369479c9e222ee9e89af8da7991bed067ee3a1e496220226c9adc883d4a2" => :el_capitan
     sha256 "605133351d91c2a3f0f2899deef01b6536143ffe804495fb19b6e134511e2a8c" => :yosemite
     sha256 "800b5d2108aa693a47f6559797ef1c6fb3c906ecd35607e57eb96ad10cd7c78b" => :mavericks
-    sha256 "9f44dc14df7fdcb4657bb9ccae97c2df5e23977025ee202cfe2f615ed7ee9597" => :mountain_lion
   end
 
   def install

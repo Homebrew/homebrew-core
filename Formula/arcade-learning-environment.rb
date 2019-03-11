@@ -3,26 +3,29 @@ class ArcadeLearningEnvironment < Formula
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
   url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.6.0.tar.gz"
   sha256 "da4597edf8ebef99961394daca44fa30148c778adff59ee5aec073ea94dcc175"
+  revision 4
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "1beafa718ffc4e150cf3ad410f6172488c6700f5004fe95898f5f7d20d39d154" => :mojave
-    sha256 "f89556072efec9025561b663ab9f2f5c613104e014bd28b9bd2e39b98de1aae3" => :high_sierra
-    sha256 "58daf6e1208b05e9fe09825a671c6821acc550d6f13ae4419bd47dee0c421181" => :sierra
-    sha256 "453a32af23fe2e68897267d4cd0e8ed728b50e4623d98c6b9d55612e2bdcba29" => :el_capitan
+    sha256 "c1df5b72ac9f1048c11b51133b3c703cab7ff5f184e5a3ac80df559ea7332f66" => :mojave
+    sha256 "4347e69ed56c1798240b6c160d7ddaedf5ecc2fb56b8d235c644ef44103f3dc9" => :high_sierra
+    sha256 "327944c55b6c2b917bfdc04c8cdfaffe59ecea5851f326369901949c0657a5ed" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "numpy"
-  depends_on "python@2"
+  depends_on "python"
   depends_on "sdl"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
+      -DCMAKE_BUILD_WITH_INSTALL_NAME_DIR=ON
+    ]
+    system "cmake", ".", *args
     system "make", "install"
-    system "python", *Language::Python.setup_install_args(prefix)
+    system "python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
@@ -32,6 +35,6 @@ class ArcadeLearningEnvironment < Formula
       from ale_python_interface import ALEInterface;
       ale = ALEInterface();
     EOS
-    assert_match "ale.cfg", shell_output("python test.py 2>&1")
+    assert_match "ale.cfg", shell_output("python3 test.py 2>&1")
   end
 end

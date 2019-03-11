@@ -13,7 +13,6 @@ class Liboauth < Formula
     sha256 "c6a6cfbc03d34685e1f8ac391980751726e480ba1429105e0456096f66322ac3" => :el_capitan
     sha256 "3d5b00cf3fc8ed4032b1e5e618ab0bfbc962414373ac9bf45a5ee883a4277a07" => :yosemite
     sha256 "9bbd1a6e6cb7c089f3971858b84674545f4125e088072399bace245c29562f03" => :mavericks
-    sha256 "6a022751288301f6cca5cbce0022f8bac7b225df7adfd5b1cbb11a29f01c75ad" => :mountain_lion
   end
 
   depends_on "openssl"

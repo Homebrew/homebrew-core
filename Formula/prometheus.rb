@@ -1,26 +1,63 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.4.3.tar.gz"
-  sha256 "4f84697f746a81df45e434a27b4b6b2c23c08768aa0f68b7bcf88f4ee6d1d8d6"
+  url "https://github.com/prometheus/prometheus/archive/v2.7.2.tar.gz"
+  sha256 "f958ed682d4aeefbd0355914043277cba0d7c0d0eaf6dda9c05ca6de7eea3cf7"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "23c21f308f7176c27b4c81fe9ddf53b55b2142fa10de23f895687e124f9a276d" => :mojave
-    sha256 "55b96e31045bb042e49cfaded637ce51e5ebfbc5eb26c8c360dbe4aac2bbbe65" => :high_sierra
-    sha256 "17c789fb8d0e88c5e9a56221cf9a1c01f58022f8d26f54c78339029228507730" => :sierra
+    sha256 "ceaac702569e9675120170679f227edb36c0c43826b13818c6fc9b0ead86a505" => :mojave
+    sha256 "6d540b5021c708c70efcd470241c52393c6efcb7627d463e540a7c8db67b125e" => :high_sierra
+    sha256 "b25a28c86546a7cc5a4a66a0dc737c006612d38d5b29bb2dd810c448a932333f" => :sierra
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     mkdir_p buildpath/"src/github.com/prometheus"
     ln_sf buildpath, buildpath/"src/github.com/prometheus/prometheus"
 
     system "make", "build"
     bin.install %w[promtool prometheus]
     libexec.install %w[consoles console_libraries]
+  end
+
+  def caveats; <<~EOS
+    When used with `brew services`, prometheus' configuration is stored as command line flags in
+      #{etc}/prometheus.args
+
+    Example configuration:
+      echo "--config.file ~/.config/prometheus.yml" > #{etc}/prometheus.args
+
+  EOS
+  end
+
+  plist_options :manual => "prometheus"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>sh</string>
+          <string>-c</string>
+          <string>#{opt_bin}/prometheus $(&lt; #{etc}/prometheus.args)</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <false/>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/prometheus.err.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/prometheus.log</string>
+      </dict>
+    </plist>
+  EOS
   end
 
   test do

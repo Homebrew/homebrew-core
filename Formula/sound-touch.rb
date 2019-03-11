@@ -1,18 +1,15 @@
 class SoundTouch < Formula
   desc "Audio processing library"
   homepage "https://www.surina.net/soundtouch/"
-  url "https://www.surina.net/soundtouch/soundtouch-2.0.0.tar.gz"
-  sha256 "d224f7d1421b5f8e74a74c85741345bd9802618a40ae30ce5b427a5705c89d25"
+  url "https://gitlab.com/soundtouch/soundtouch/-/archive/2.1.2/soundtouch-2.1.2.tar.gz"
+  sha256 "2826049e2f34efbc4c8a47d00c93649822b0c14e1f29f5569835704814590732"
 
   bottle do
     cellar :any
-    sha256 "9c847b734585151311bc3ac8190f43a697dd6aff403c26391eb990c2c9e347a6" => :mojave
-    sha256 "5d980f6d661a942650e8b7953e5a0710d0be708421cdf595b68f7da917cdc2be" => :high_sierra
-    sha256 "4861ccccd41fc57f2d553973ece79462e4c85897426f36c258b8fd1756416da1" => :sierra
-    sha256 "7572fff0564f78a49641ed7c5eb9ed062ff557d452d4515e07544a622eaa17e6" => :el_capitan
+    sha256 "39081044f19ddcb8982560fb86e8c9b621c94e8bfc2de6eb4e398ba0fb2a2b9e" => :mojave
+    sha256 "6d6651a6a7cc88c83279a49d2d676f8baf7731316f41dff3b0c77ac2d2fe7fb6" => :high_sierra
+    sha256 "4b55c5ffffbba6f1c16f9a82860d3a0316b1d2bc478a6f7ac59e4cb36d70342a" => :sierra
   end
-
-  option "with-integer-samples", "Build using integer samples? (default is float)"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -25,7 +22,6 @@ class SoundTouch < Formula
       --disable-silent-rules
       --prefix=#{prefix}
     ]
-    args << "--enable-integer-samples" if build.with? "integer-samples"
 
     system "./configure", *args
     system "make", "install"

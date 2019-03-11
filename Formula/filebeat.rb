@@ -99,7 +99,14 @@ class Filebeat < Formula
     (testpath/"log").mkpath
     (testpath/"data").mkpath
 
-    filebeat_pid = fork { exec "#{bin}/filebeat -c #{testpath}/filebeat.yml -path.config #{testpath}/filebeat -path.home=#{testpath} -path.logs #{testpath}/log -path.data #{testpath}" }
+    filebeat_pid = fork do
+      exec "#{bin}/filebeat", "-c", "#{testpath}/filebeat.yml",
+           "-path.config", "#{testpath}/filebeat",
+           "-path.home=#{testpath}",
+           "-path.logs", "#{testpath}/log",
+           "-path.data", testpath
+    end
+
     begin
       sleep 1
       log_file.append_lines "foo bar baz"

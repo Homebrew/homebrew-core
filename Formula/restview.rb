@@ -3,16 +3,16 @@ class Restview < Formula
   homepage "https://mg.pov.lt/restview/"
   url "https://github.com/mgedmin/restview/archive/2.9.1.tar.gz"
   sha256 "a229119f7730c85ec75e4372c4cf69f9d846381ac4bdbc8ed672302a80c116d2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "768aecdc509e902dc07861ae5ceb0c7b8c2292596e32748d254f93231303ed6c" => :mojave
-    sha256 "c8b4a13c20f3c5e741c733729c041fcb3c1cb5aa3b698a14c375d2343d96e198" => :high_sierra
-    sha256 "76f817408bb2c45f889a17b467b3943e4d9365f4e34542c9244f7ab5b4ad8cbc" => :sierra
-    sha256 "cef6432a97e728c90ef4987999d493e6ae46e5709aa92e240e9dff1a32a5fb5b" => :el_capitan
+    sha256 "f921ce885b343dae99d1e76b7d26fb1c4aaf6561040533b36389c79cf7e4c982" => :mojave
+    sha256 "f8133cfdbcbf588cf0625ab3bedcd760e27da652913139b4c163d18a002730a7" => :high_sierra
+    sha256 "de0d55f13c376469abd7f21dfdaa29d3c794673091324dc446b9334e0be884d1" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "bleach" do
     url "https://files.pythonhosted.org/packages/eb/ea/58428609442130dc31d3a59010bf6cbd263a16c589d01d23b7c1e6997e3b/bleach-2.1.3.tar.gz"
@@ -75,18 +75,19 @@ class Restview < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     res = resources.reject { |r| r.name == "sample" }
 
     res.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])

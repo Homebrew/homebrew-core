@@ -1,15 +1,14 @@
 class Lego < Formula
   desc "Let's Encrypt client"
   homepage "https://github.com/xenolf/lego"
-  url "https://github.com/xenolf/lego/archive/v1.0.1.tar.gz"
-  sha256 "2ff71e9d67c9b49a1a0c4e2244241af69e4d42b09d7c41bae582a0dc555e33de"
+  url "https://github.com/xenolf/lego/archive/v1.2.1.tar.gz"
+  sha256 "16d76140fee4013df2caf3dfc126ac4648e8872c65e2d1f069c11a5f81fce986"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "daac836746b6cfc7ba2aaa748e438b42cf725e2e946f5d59b9998f99f231662b" => :mojave
-    sha256 "f479f3752c94a3ec6592698925686fb8ed215d13b7210b66ae7b6c50565385dd" => :high_sierra
-    sha256 "29dad74958b2799553a699fe544d48c414ed02e1ebf2b67bd912740f22d59623" => :sierra
-    sha256 "06452881b46e6f9711313a5ff84429d437d83b3f1234cae370cacc9a3e4d66c7" => :el_capitan
+    sha256 "1273e6c792df6df6b7725f56ea0e12b1493d715e24f1bba34ac4109e7acfdbfa" => :mojave
+    sha256 "58c6280c68e4f8fe6cbb9d092b2c78263a37a2b8da16329653144fee0232400e" => :high_sierra
+    sha256 "45ccbb45260e3e292c1ccde71333341c309984d27e6b964f37f5974ae42af218" => :sierra
   end
 
   depends_on "go" => :build

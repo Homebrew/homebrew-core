@@ -1,16 +1,15 @@
 class Babeld < Formula
   desc "Loop-avoiding distance-vector routing protocol"
   homepage "https://www.irif.univ-paris-diderot.fr/~jch/software/babel/"
-  url "https://www.irif.univ-paris-diderot.fr/~jch/software/files/babeld-1.8.2.tar.gz"
-  sha256 "07edecb132386d5561a767482bc5200e04239b18e48c2f0f47ae1c78d60fe5dc"
+  url "https://www.irif.fr/~jch/software/files/babeld-1.8.4.tar.gz"
+  sha256 "98070dc418c190f047b8d69eb47987df30ded8f0fca353c49427d3137ad08b87"
   head "https://github.com/jech/babeld.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34f5992046489bd70733203a0c5f4583553a057989551f6ed917cd852ab3c5c4" => :mojave
-    sha256 "f0ff0f699974757e42a82a33d932bc72d0dd75a1f3f48a392594258498f9151f" => :high_sierra
-    sha256 "ff8c0a94366c55ca90190fc42c8d0856db5359f9d8f1ff2646b11b09252a17ae" => :sierra
-    sha256 "a4dd075f51dcb309632f19761340cd7bafc7fc14f69f8f6acfbcf7e360dd0f2a" => :el_capitan
+    sha256 "da7219b20803375eeee3c72bc7bbbc554c36622979637a270f172a082ab889f2" => :mojave
+    sha256 "dde61f34a3ab1e3ed0107bf2e94c0cd6d53719722a9b612aefdef514288434e8" => :high_sierra
+    sha256 "d6658a6164f3280484143d21c2e8ef46cba9f327eb86e0bf2435f879b0393e9f" => :sierra
   end
 
   def install

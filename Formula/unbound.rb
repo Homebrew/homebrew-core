@@ -1,24 +1,18 @@
 class Unbound < Formula
   desc "Validating, recursive, caching DNS resolver"
   homepage "https://www.unbound.net"
-  url "https://www.unbound.net/downloads/unbound-1.7.3.tar.gz"
-  sha256 "c11de115d928a6b48b2165e0214402a7a7da313cd479203a7ce7a8b62cba602d"
-  head "https://nlnetlabs.nl/svn/unbound/trunk/", :using => :svn
+  url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.0.tar.gz"
+  sha256 "415af94b8392bc6b2c52e44ac8f17935cc6ddf2cc81edfb47c5be4ad205ab917"
+  head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
-    rebuild 1
-    sha256 "f47192f79b85a6d21f7837aa85d0061cdd97a4976e41b5fbf49cf215b0482959" => :mojave
-    sha256 "c6a5ac9d52f141bcf0e2d8c3625a95a125c7868663e3145cb4cdccbcacaa7bbd" => :high_sierra
-    sha256 "388a28ae2b7f4cb03fc7e1461115671799f0e356aa375d35313c29f1e0448f9b" => :sierra
-    sha256 "457aefbc06c993b8c8712d7686f8542b59fc993d49f2efe4493543404be95ace" => :el_capitan
+    sha256 "358f94628cb248e77af0da37aefd40347ad1b98a62295719dd5adefa64ef9589" => :mojave
+    sha256 "e56d630384831b87e3e584e9ffc4aefe76e4103db668a8b42520684a69abd60d" => :high_sierra
+    sha256 "69f8132f8c55fc5c2a920a45711d82d88d96aecd1c766a42de0f2c2b82d4e658" => :sierra
   end
-
-  deprecated_option "with-python" => "with-python@2"
 
   depends_on "libevent"
   depends_on "openssl"
-  depends_on "python@2" => :optional
-  depends_on "swig" if build.with? "python@2"
 
   def install
     args = %W[
@@ -27,15 +21,6 @@ class Unbound < Formula
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
     ]
-
-    if build.with? "python@2"
-      ENV.prepend "LDFLAGS", `python-config --ldflags`.chomp
-      ENV.prepend "PYTHON_VERSION", "2.7"
-
-      args << "--with-pyunbound"
-      args << "--with-pythonmodule"
-      args << "PYTHON_SITE_PKG=#{lib}/python2.7/site-packages"
-    end
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
     system "./configure", *args
@@ -50,6 +35,7 @@ class Unbound < Formula
     conf = etc/"unbound/unbound.conf"
     return unless conf.exist?
     return unless conf.read.include?('username: "@@HOMEBREW-UNBOUND-USER@@"')
+
     inreplace conf, 'username: "@@HOMEBREW-UNBOUND-USER@@"',
                     "username: \"#{ENV["USER"]}\""
   end

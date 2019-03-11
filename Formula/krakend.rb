@@ -1,14 +1,14 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
-  homepage "http://www.krakend.io/"
-  url "https://github.com/devopsfaith/krakend-ce/archive/0.6.1.tar.gz"
-  sha256 "f6dd5d8dbb5a3be488516ea5c0b3b234c80a330f7981891f64aaddd356302b2d"
+  homepage "https://www.krakend.io/"
+  url "https://github.com/devopsfaith/krakend-ce/archive/0.7.1.tar.gz"
+  sha256 "c77356651812ce6b6b5624793258f49cb435d84d1eceb4468887ba1ee65e0c17"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "ea36616a60a95fd624391219b62354b13e4bed430a6aefacadbed094a56242d0" => :mojave
-    sha256 "d2f9f297f9e2b61298c84cba0f932da560c7754e0b51a53f007f15885107c6f4" => :high_sierra
-    sha256 "eb0ac15a6076f3ead96a99ca2bab0c10b334b52dfcae35081e059d3f46904c64" => :sierra
+    sha256 "857a2b98e19b481b1173772192f3ff01ff1e1ec0636fb57cd362671a5ade9692" => :mojave
+    sha256 "7c5b360c7d5f5fd5eadf0975adffaa28787a996c4df937f8f8b5a0648213fc2f" => :high_sierra
+    sha256 "e6a11cbb4f03475aee024088a9e6a2d0d128a6116ea81f261ae6342e0cbda097" => :sierra
   end
 
   depends_on "dep" => :build

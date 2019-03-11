@@ -5,17 +5,17 @@ class MongoOrchestration < Formula
   homepage "https://github.com/10gen/mongo-orchestration"
   url "https://files.pythonhosted.org/packages/6d/b5/624a02d5f6cbfa8eb3c6554f5387c4739ad283bac7efb27ee99434a4d314/mongo-orchestration-0.6.11.tar.gz"
   sha256 "7a09706d36e94ae767e90646fed98a52b426a4d14b0f4f724b185e292ac8f425"
+  revision 1
   head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "271513e272623600b25417b908f07bba8cf299660349916faa4a3900043ff37f" => :mojave
-    sha256 "6cd36a0183dc892ad08209dbd418f0e337ca5aff993adfb86e17a4a43b63352d" => :high_sierra
-    sha256 "9633282e00a2bdfa3d0ba93b5302177d6a9be34f06f645b6e78edfa8aa6e950c" => :sierra
-    sha256 "21d36a51b5f5896bfce70e39a815728939a8d875333c3dbdbb672e627b7dd3a5" => :el_capitan
+    sha256 "62a628de657e8aa22e0cb020d77cdd67c9d790e96774b5f656890373ce931c1b" => :mojave
+    sha256 "a4b022019d2017e3294cac234a396b7f6ff358eae48745191b43c4fcc115991b" => :high_sierra
+    sha256 "8a463e718a50549325ae910fa944f4fa1761cbc4050d271c16d285b22402685e" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/bd/99/04dc59ced52a8261ee0f965a8968717a255ea84a36013e527944dbf3468c/bottle-0.12.13.tar.gz"

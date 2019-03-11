@@ -6,22 +6,19 @@ class RegexOpt < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "a7f1e5b8eb46eb11388c8eed77f24d547c1448b228cf7ca35f2e5cb0145bab88" => :high_sierra
-    sha256 "110befc20e434b5d6294d9f3ad2592cae2bfaedec4e8fa1c3cff7265e83acc27" => :sierra
-    sha256 "7c3d9a1af7a3797bd556cc66402c558cfaaffce4d956094fcdd4fcd1b3a4bc3c" => :el_capitan
+    rebuild 1
+    sha256 "76b26dc9e766e7a8b0806660e966e3a49c593591b94d90439f89b7cbc797d019" => :mojave
+    sha256 "0e46dec5d46b145e32ca597c00c75fea2e7097e57c5d3131be141e5bea2b96db" => :high_sierra
+    sha256 "68b5f75c9fdb645334ae8a48a5b7e01620e19d5f103811579cb8bf96101c6ac7" => :sierra
   end
 
   def install
-    # regex-opt uses _Find_first() in std::bitset, which is a
-    # nonstandard extension supported in libstdc++ but not libc++
-    # See: https://lists.w3.org/Archives/Public/www-archive/2006Jan/0002.html
-    ENV.libstdcxx if ENV.compiler == :clang
-
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"
     bin.install "regex-opt"
   end
 
   test do
-    system "#{bin}/regex-opt"
+    output = shell_output("#{bin}/regex-opt foo...*..*bar")
+    assert_equal "foo.{3,}bar", output
   end
 end

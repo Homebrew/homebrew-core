@@ -1,6 +1,6 @@
 class Tta < Formula
   desc "Lossless audio codec"
-  homepage "http://www.true-audio.com"
+  homepage "https://web.archive.org/web/20100131140204/true-audio.com/"
   url "https://downloads.sourceforge.net/project/tta/tta/libtta/libtta-2.2.tar.gz"
   sha256 "1723424d75b3cda907ff68abf727bb9bc0c23982ea8f91ed1cc045804c1435c4"
 

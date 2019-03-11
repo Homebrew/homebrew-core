@@ -3,16 +3,16 @@ class Goolabs < Formula
   homepage "https://pypi.python.org/pypi/goolabs"
   url "https://files.pythonhosted.org/packages/ce/86/2d3b5bd85311ee3a7ae7a661b3619095431503cd0cae03048c646b700cad/goolabs-0.4.0.tar.gz"
   sha256 "4f768a5b98960c507f5ba4e1ca14d45e3139388669148a2750d415c312281527"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "97a5ab150fbdea84a745f315bfecd1e11399bca2365b543fc6198bae4b469383" => :mojave
-    sha256 "ab0b7c65238efb2edf103012ad0b13a6738dda0f0caec39d723cf39df6c2a2f7" => :high_sierra
-    sha256 "ab0b7c65238efb2edf103012ad0b13a6738dda0f0caec39d723cf39df6c2a2f7" => :sierra
-    sha256 "4f4676626f0872b4c86f3c35c0b80e2e028cf9f0f0b5fae8bbf655f55f552513" => :el_capitan
+    sha256 "56e26842d65342cb5aeb31c22a07bb64e5b04349c8ab17b7085d13bd19923305" => :mojave
+    sha256 "a3228c96960feacfa6a7f6e637261c4214600da27ce48e2fafa73d009c2401a7" => :high_sierra
+    sha256 "1e49980130952d980e63548980b6c37163e5e540d833f8d50745595d8d45eaee" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
@@ -50,16 +50,17 @@ class Goolabs < Formula
   end
 
   def install
-    ENV["PYTHONPATH"] = libexec/"vendor/lib/python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV["PYTHONPATH"] = libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     resources.each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
-    system "python", *Language::Python.setup_install_args(libexec)
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])

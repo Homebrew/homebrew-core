@@ -1,29 +1,33 @@
 class AptDater < Formula
   desc "Manage package updates on remote hosts using SSH"
   homepage "https://github.com/DE-IBH/apt-dater"
-  url "https://github.com/DE-IBH/apt-dater/archive/v0.9.0.tar.gz"
-  sha256 "1c361dd686d66473b27db4af8d241d520535c5d5a33f42a35943bf4e16c13f47"
+  url "https://github.com/DE-IBH/apt-dater/archive/v1.0.4.tar.gz"
+  sha256 "a4bd5f70a199b844a34a3b4c4677ea56780c055db7c557ff5bd8f2772378a4d6"
   version_scheme 1
 
   bottle do
-    rebuild 2
-    sha256 "ee24c55759d197401d4b4c930837c48a5343edf1ed9bb308c7fdedde2be19cd8" => :mojave
-    sha256 "2263ba095d1b5250428fd765b4c591886a4f7c117b1bb62719df1033a246de32" => :high_sierra
-    sha256 "026b29a9428c2c1d77e70001c8651f8e8ac20b20dee1ba62a89e0d69e2da570e" => :sierra
-    sha256 "a2f37094132e6f5cd8ad9b287bf299eea8acbc99b1d468002dfe875a8a14985d" => :el_capitan
-    sha256 "2ac3ba56f32d018a9af477484d8ad561871f855aca78726dbe8f43f5552f6acc" => :yosemite
+    rebuild 1
+    sha256 "c0511a22aa94d42d26e1d314e13f87375bf57d4fbe1fb8ca3532ab250e751d4d" => :mojave
+    sha256 "b8766c0ad1bf2a0fbb50a9bf062c53aacb98855307732e9df866651f13be3aa9" => :high_sierra
+    sha256 "7c90d33ef6d7c577506997b998fa286f9f54fb0acf47a3590e653fcecc840a14" => :sierra
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "popt"
 
   def install
+    system "autoreconf", "-ivf"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "AM_LDFLAGS=", "install"
+    system "make", "install"
+    # Global config overrides local config, so delete global config to prioritize the
+    # config in $HOME/.config/apt-dater
+    (prefix/"etc").rmtree
   end
 
   test do

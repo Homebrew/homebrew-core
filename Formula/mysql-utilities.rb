@@ -13,7 +13,7 @@ class MysqlUtilities < Formula
     sha256 "7166858aeafbd28075334ede9d60569a282ccd0a87dcf353cb6b56a40ae987c0" => :yosemite
   end
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   resource "mysql-connector-python" do
     url "https://github.com/mysql/mysql-connector-python/archive/2.2.2.tar.gz"

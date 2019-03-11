@@ -5,20 +5,19 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/PressLabs/gitfs/archive/0.4.5.1.tar.gz"
   sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
-  revision 2
+  revision 3
   head "https://github.com/PressLabs/gitfs.git"
 
   bottle do
     cellar :any
-    sha256 "ece314899150c4b1662c63dd8a017829d80049fcefbee30aec15e37e0eddce78" => :mojave
-    sha256 "af08101f0ee679adb39c35c4ea0440c955ae8977d6bc4515dae5a370f5ff1d27" => :high_sierra
-    sha256 "0a2ce36c53e015e646926d891bf7488dc17a495a03d5b4763cc48252f1f4e188" => :sierra
-    sha256 "4c899d61b1beb761d0da77472627bc3a0dc210fd610c6892f24d14f7315e0b17" => :el_capitan
+    sha256 "f687f98ff761c63ce29e6e95b1b59de2a7b875eed52972ebf365c97647c64b17" => :mojave
+    sha256 "3fd2dd617e55b282e12950ed3f02f22f92ec7cbda6a99d14948e0de2d1391f18" => :high_sierra
+    sha256 "d2ebbc811955fc31e22f4f8e48441c1d768200a6a3a38dead2b9c688f1b406b4" => :sierra
   end
 
   depends_on "libgit2"
   depends_on :osxfuse
-  depends_on "python@2"
+  depends_on "python"
 
   resource "atomiclong" do
     url "https://files.pythonhosted.org/packages/86/8c/70aea8215c6ab990f2d91e7ec171787a41b7fbc83df32a067ba5d7f3324f/atomiclong-0.1.1.tar.gz"
@@ -59,7 +58,8 @@ class Gitfs < Formula
   end
 
   test do
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
 
     (testpath/"test.py").write <<~EOS
       import gitfs
@@ -67,7 +67,7 @@ class Gitfs < Formula
       pygit2.init_repository('testing/.git', True)
     EOS
 
-    system "python", "test.py"
+    system "python3", "test.py"
     assert_predicate testpath/"testing/.git/config", :exist?
     cd "testing" do
       system "git", "remote", "add", "homebrew", "https://github.com/Homebrew/homebrew.git"

@@ -13,7 +13,6 @@ class Unrtf < Formula
     sha256 "2d658e54c0f66ae90764c8588fa7181c68d69d505336747b9bd5e496ba7b99d6" => :el_capitan
     sha256 "42737f31a7ea06592c2ad22a48f0e2537c0cd025129870399bd4f0fbe7362a98" => :yosemite
     sha256 "852bd896c8537489400e646ed41f2876079e124203e493cfc1e2d7f51d024726" => :mavericks
-    sha256 "7e680da7a4c4da9ed3b21f04e5125721cf506cc9579a2e95b4635078b0606cb2" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

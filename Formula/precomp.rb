@@ -1,22 +1,21 @@
 class Precomp < Formula
   desc "Command-line precompressor to achieve better compression"
   homepage "http://schnaader.info/precomp.php"
-  url "https://github.com/schnaader/precomp-cpp/archive/v0.4.6.tar.gz"
-  sha256 "673b9ceb0df62abb5ef12ab0600a18fc3b82003cc9af5e1cc2f196237ed350d3"
+  url "https://github.com/schnaader/precomp-cpp/archive/v0.4.7.tar.gz"
+  sha256 "b4064f9a18b9885e574c274f93d73d8a4e7f2bbd9e959beaa773f2e61292fb2b"
   head "https://github.com/schnaader/precomp-cpp.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "007ecd8dbf6db55a52ca49765d1aafd9e4f72c6a6f377e8eec8b28641fd486ed" => :mojave
-    sha256 "83f6d3eec9ce5b05a5cc7197e89fc6fe968c7ecb71c795343ead7ec98edcf758" => :high_sierra
-    sha256 "93eaa1f454f3af8d1c9872c263e3e67b56aac5e6772a65ccce8c9ec493c6989c" => :sierra
-    sha256 "62c8a72958b6fa8ef0208560ff0ad6abf187aae842715bb84cddb21d46a69d35" => :el_capitan
+    sha256 "7488435759867b2bb152cdd3ea78d2358659b34ff838e2cb97b54bd3a322147b" => :mojave
+    sha256 "92824cc03c547d276436e1bdf55e905d402f77eeccf61f25a720d4315e5bd4cf" => :high_sierra
+    sha256 "5d852d83cf57987a521471b74e450a65473ed20e32bb14e83b5d99e969e37458" => :sierra
   end
 
-  def install
-    # Seems like Yosemite does not like the -s flag
-    inreplace "Makefile", " -s ", " "
+  depends_on "cmake" => :build
 
+  def install
+    system "cmake", ".", *std_cmake_args
     system "make"
     bin.install "precomp"
   end

@@ -1,9 +1,8 @@
 class Noweb < Formula
   desc "WEB-like literate-programming tool"
   homepage "https://www.cs.tufts.edu/~nr/noweb/"
-  url "ftp://www.eecs.harvard.edu/pub/nr/noweb.tgz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/n/noweb/noweb_2.11b.orig.tar.gz"
-  version "2.11b"
+  # new canonical url (for newer versions): http://mirrors.ctan.org/web/noweb.zip
+  url "https://deb.debian.org/debian/pool/main/n/noweb/noweb_2.11b.orig.tar.gz"
   sha256 "c913f26c1edb37e331c747619835b4cade000b54e459bb08f4d38899ab690d82"
 
   bottle do
@@ -14,7 +13,6 @@ class Noweb < Formula
     sha256 "1a3ec7b1f7fba58e0d8064d279d518d69e50b1f813284792deb6b7db702eae38" => :el_capitan
     sha256 "34dd66401fe717e1ed384114d7037ea7a6e0aaabe6f2a98f314c8d6bb41c25be" => :yosemite
     sha256 "54bf1e45409d1c022d08dee3a43c4e2d7f038a646f00a5d5f2f6db90ff54d668" => :mavericks
-    sha256 "d422058f08a621f2d6ab78adabb887b550754cbb3c8581c31fe72f52300fc3f5" => :mountain_lion
   end
 
   depends_on "icon"
@@ -53,5 +51,44 @@ class Noweb < Formula
 
     You may need to add the directory to TEXINPUTS to run noweb properly.
   EOS
+  end
+
+  test do
+    (testpath/"test.nw").write <<~EOS
+      \section{Hello world}
+
+      Today I awoke and decided to write
+      some code, so I started to write Hello World in \textsf C.
+
+      <<hello.c>>=
+      /*
+        <<license>>
+      */
+      #include <stdio.h>
+
+      int main(int argc, char *argv[]) {
+        printf("Hello World!\n");
+        return 0;
+      }
+      @
+      \noindent \ldots then I did the same in PHP.
+
+      <<hello.php>>=
+      <?php
+        /*
+        <<license>>
+        */
+        echo "Hello world!\n";
+      ?>
+      @
+      \section{License}
+      Later the same day some lawyer reminded me about licenses.
+      So, here it is:
+
+      <<license>>=
+      This work is placed in the public domain.
+    EOS
+    assert_match "this file was generated automatically by noweave",
+                 shell_output("#{bin}/noweave -filter l2h -index -html test.nw | #{bin}/htmltoc")
   end
 end

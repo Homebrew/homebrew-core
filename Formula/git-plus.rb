@@ -7,7 +7,7 @@ class GitPlus < Formula
 
   bottle :unneeded
 
-  depends_on "python@2"
+  depends_on "python@2" # does not support Python 3
 
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"

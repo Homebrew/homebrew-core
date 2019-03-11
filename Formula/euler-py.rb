@@ -3,19 +3,18 @@ class EulerPy < Formula
   homepage "https://github.com/iKevinY/EulerPy"
   url "https://github.com/iKevinY/EulerPy/archive/v1.3.0.tar.gz"
   sha256 "ffe2d74b5a0fbde84a96dfd39f1f899fc691e3585bf0d46ada976899038452e1"
+  revision 1
   head "https://github.com/iKevinY/EulerPy.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "27cbd77cbb3ab02d7a4d52f84515c63f5dd6461cbe1f2a67978dabd56a303753" => :mojave
-    sha256 "f5ba1b2823b4d55d4ab4bb0724676496ce9d2f70e9e65fd69ba260ed57be3fe3" => :high_sierra
-    sha256 "c5ee4cdc8330f84084b0b145b9183b6c21683de758a3f052158f3dc6d0d6adb8" => :sierra
-    sha256 "4c887a4af203e4991ff844f4836663cbaf1afc835ae8c628d769e32ff0f1e4e1" => :el_capitan
-    sha256 "69ffb29dd9b1f1fdf6fa7ecf31871c5010a06a94eda99e916681aac73d9bca15" => :yosemite
-    sha256 "6006f400f9f2e010c104325f4e1903c8fe825884b54ef88bea47918b58876576" => :mavericks
+    rebuild 1
+    sha256 "c057672da8bc304a9483e353103cab54c50ec149269d0f597b28c0ded5121362" => :mojave
+    sha256 "474ce35d2bd7beca1a7d63c0bec4cb162f9f2144d20695a6a58436433955492f" => :high_sierra
+    sha256 "474ce35d2bd7beca1a7d63c0bec4cb162f9f2144d20695a6a58436433955492f" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/source/c/click/click-4.0.tar.gz"
@@ -23,17 +22,20 @@ class EulerPy < Formula
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", "#{libexec}/lib/python#{xy}/site-packages"
     resource("click").stage do
-      system "python", "setup.py", "install", "--prefix=#{libexec}",
-             "--single-version-externally-managed", "--record=installed.txt"
+      system "python3", "setup.py", "install", "--prefix=#{libexec}",
+                        "--single-version-externally-managed",
+                        "--record=installed.txt"
     end
 
-    ENV.prepend_create_path "PYTHONPATH", "#{lib}/python2.7/site-packages"
-    system "python", "setup.py", "install", "--prefix=#{prefix}",
-           "--single-version-externally-managed", "--record=installed.txt"
+    ENV.prepend_create_path "PYTHONPATH", "#{lib}/python#{xy}/site-packages"
+    system "python3", "setup.py", "install", "--prefix=#{prefix}",
+                      "--single-version-externally-managed",
+                      "--record=installed.txt"
 
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   test do

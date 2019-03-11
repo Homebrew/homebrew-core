@@ -1,16 +1,15 @@
 class Opus < Formula
   desc "Audio codec"
   homepage "https://www.opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/opus-1.2.1.tar.gz"
-  sha256 "cfafd339ccd9c5ef8d6ab15d7e1a412c054bf4cb4ecbbbcc78c12ef2def70732"
+  url "https://archive.mozilla.org/pub/opus/opus-1.3.tar.gz"
+  sha256 "4f3d69aefdf2dbaf9825408e452a8a414ffc60494c70633560700398820dc550"
 
   bottle do
     cellar :any
-    sha256 "d2bda1eddcd21c6bd970199d8817feede8f278b4d925b1f5e4ecae2d041f4fd2" => :mojave
-    sha256 "34e45eb4ca4159316fc5a10ad33758d1f2b8d44d0b7fe3032d049771b946ef16" => :high_sierra
-    sha256 "ff986676ae53fdfb7b2af18c896be5d284a3e7b51ad0a94b8fa5a651dcc74201" => :sierra
-    sha256 "9db3f7606381e0f60477f18c70cdf4bbf68c948ae9c6ead7a5bd6aa62aeab63b" => :el_capitan
-    sha256 "adf030f2d3fa1260acb54515ced82474a626d6d2ad015ea3ace404a79e09f1c4" => :yosemite
+    rebuild 1
+    sha256 "17df40ae84cb18886767abb2d2673b9afd5622512381464971e58edf08bb8c82" => :mojave
+    sha256 "5dfd8fc0bceb0bf046d65c27e478789c3bc1400979da9e0b2d99596476717494" => :high_sierra
+    sha256 "66c4e0ceb827cdec1ea7225377961f68c4910c0f4b31877b63e03dd4c25542a5" => :sierra
   end
 
   head do
@@ -21,14 +20,10 @@ class Opus < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-custom-modes", "Enable custom-modes for opus see https://www.opus-codec.org/docs/opus_api-1.1.3/group__opus__custom.html"
-
   def install
-    args = ["--disable-dependency-tracking", "--disable-doc", "--prefix=#{prefix}"]
-    args << "--enable-custom-modes" if build.with? "custom-modes"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-doc", "--prefix=#{prefix}"
     system "make", "install"
   end
 

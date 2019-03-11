@@ -1,21 +1,19 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.1-624.tar.gz"
-  version "1.5.1-624"
-  sha256 "eda725298e77df83e51793508a3a2640eabdfda1abc8aa841eca69983de83a4c"
-  revision 1
+  url "https://github.com/axiomatic-systems/Bento4/archive/v1.5.1-628.tar.gz"
+  version "1.5.1-628"
+  sha256 "e6fce0b1015698ff2f4f99e81c516ec042b351de052c885da7f82aebda56b65a"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "02e298856c60a2522c51548fb8d894d857b0f0ed0a9b0c510bfb45e4e7d80347" => :mojave
-    sha256 "65e6be377382a21bee312e8cdbcbd9ccdf1faff54014c066d9feda9041da364d" => :high_sierra
-    sha256 "fce3a39cf4350b096a0557694554e077d56d17f7ae8aaaffacf8d71469302db5" => :sierra
-    sha256 "a9f65233b8bfd756e673a09ea18cb1847610170402bd9ac6a57107370ce9a3e5" => :el_capitan
+    sha256 "70b14caee7dee4170ef309393e122f16ecb677943a3f2c9d1d40747764bea18d" => :mojave
+    sha256 "d1977eae032f7de54129952c0178bf183aa3909a89826333b185a36e43c780f0" => :high_sierra
+    sha256 "85ca3dbb13344503507d939edb90dfee89f3d8f342c1fadbb1494e983d9251cf" => :sierra
   end
 
   depends_on :xcode => :build
-  depends_on "python@2"
+  depends_on "python"
 
   conflicts_with "gpac", :because => "both install `mp42ts` binaries"
   conflicts_with "mp4v2",
@@ -27,6 +25,7 @@ class Bento4 < Formula
       programs = Dir["build/Release/*"].select do |f|
         next if f.end_with? ".dylib"
         next if f.end_with? "Test"
+
         File.file?(f) && File.executable?(f)
       end
       bin.install programs

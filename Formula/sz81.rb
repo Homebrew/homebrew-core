@@ -3,7 +3,7 @@ class Sz81 < Formula
   homepage "https://sz81.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sz81/sz81/2.1.7/sz81-2.1.7-source.tar.gz"
   sha256 "4ad530435e37c2cf7261155ec43f1fc9922e00d481cc901b4273f970754144e1"
-  head "http://svn.code.sf.net/p/sz81/code/sz81"
+  head "https://svn.code.sf.net/p/sz81/code/sz81"
 
   bottle do
     sha256 "b90dc9986a1f3f6fa93967745f331d55d4e8837e05e47b9b28d3ee9245e561d3" => :mojave

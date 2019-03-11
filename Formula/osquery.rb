@@ -1,14 +1,15 @@
 class Osquery < Formula
   desc "SQL powered operating system instrumentation and analytics"
   homepage "https://osquery.io"
-  url "https://github.com/facebook/osquery/archive/3.3.0.tar.gz"
-  sha256 "b633b41bd9ec7a8569eb03060cc22dd53a36d3ba4ca7fb66a976d7f9f800bf52"
+  url "https://github.com/facebook/osquery/archive/3.3.2.tar.gz"
+  sha256 "74280181f45046209053a3e15114d93adc80929a91570cc4497931cfb87679e4"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "6a72b32baee92352531bf8b2b65384affdc66217c68688859b65d094d2630621" => :mojave
-    sha256 "8aa49f8ab62b8132333ade19ae7c07fac43ea01f3e02592b64fb5caea9a695b0" => :high_sierra
-    sha256 "d1d464d11894f3dd91946aa03d0178baf6fa5b9cd2623d6544e42d1c295e0d5a" => :sierra
+    sha256 "aca11d5be4fd005b5c5a1685bed6465abc12ae1da038aace3a0ae47c0a791a21" => :mojave
+    sha256 "dc2cd7993b4f4c1194e3dd3060d207569c35330c79fd4f09a8cd0bbd371015e9" => :high_sierra
+    sha256 "c742d50201bcff00f650fddaa2710735e0876d17cccdade22767edbdb4d0d7b0" => :sierra
   end
 
   depends_on "bison" => :build
@@ -52,8 +53,8 @@ class Osquery < Formula
   end
 
   resource "aws-sdk-cpp" do
-    url "https://github.com/aws/aws-sdk-cpp/archive/1.3.30.tar.gz"
-    sha256 "7b5f9b6d4215069fb75d31db2c8ab06081ab27f59ee33d5bb428fec3e30723f1"
+    url "https://github.com/aws/aws-sdk-cpp/archive/1.4.55.tar.gz"
+    sha256 "0a70c2998d29cc4d8a4db08aac58eb196d404073f6586a136d074730317fe408"
   end
 
   def install

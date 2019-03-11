@@ -1,29 +1,33 @@
 class Gwyddion < Formula
   desc "Scanning Probe Microscopy visualization and analysis tool"
   homepage "http://gwyddion.net/"
-  url "http://gwyddion.net/download/2.51/gwyddion-2.51.tar.gz"
-  sha256 "67c1319b3a3e5682a37390b34d2580208a624c7d56dae8b5a3389fa5856508ee"
+  url "http://gwyddion.net/download/2.53/gwyddion-2.53.tar.gz"
+  sha256 "d142569adc4d523e51ca53cbff19414576facb774e5f4dad88b6ec475972f081"
+  revision 1
 
   bottle do
-    sha256 "fdf2a687132e224d1107e749bd627f3a257750760e606a7048eacb0f4fe31c09" => :mojave
-    sha256 "489fc3a8eb5c5601ef7848c90f848f8400cf0624859e118afb2421e754aad6ee" => :high_sierra
-    sha256 "866453f3360e2074d217dde39922ef52485a9c8572b7353f8e038bb729749798" => :sierra
-    sha256 "09c1f364d6942d1fe8b2a88f99340437005b3fc84a7b0ee0e359fcf4a8b0ed5b" => :el_capitan
+    sha256 "597581e3f8c8e43c6150827f1f0c3074f06f4d0595537757b7905b2bb26242cf" => :mojave
+    sha256 "be2d3e499b4bf6dc87f915b842ffb97d6f9e4832bdda3b8f94daa5b34893cc4f" => :high_sierra
+    sha256 "cae1d9b483784aa36d0dc945a8c5f61138738a21add614aec4ba036ffbd4a48f" => :sierra
   end
-
-  deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "gtk+"
   depends_on "gtk-mac-integration"
   depends_on "gtkglext"
+  depends_on "gtksourceview"
   depends_on "libxml2"
   depends_on "minizip"
+  depends_on "pygtk"
+  depends_on "python@2"
 
-  depends_on "python@2" => :optional
-  depends_on "pygtk" if build.with? "python@2"
-  depends_on "gtksourceview" if build.with? "python@2"
+  # Fixes problem with finding resource files in version 2.53.
+  # <https://sourceforge.net/p/gwyddion/mailman/message/36604431/>
+  patch do
+    url "http://gwyddion.net/download/2.53/gwyddion-2.53-ensure-osx-basedir.patch"
+    sha256 "17e5282d7add1e1af0d530885dbe501e29869340ba6d77879bf67e7a9f860990"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

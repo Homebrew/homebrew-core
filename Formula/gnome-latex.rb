@@ -1,14 +1,13 @@
 class GnomeLatex < Formula
   desc "LaTeX editor for the GNOME desktop"
   homepage "https://wiki.gnome.org/Apps/LaTeXila"
-  url "https://download.gnome.org/sources/gnome-latex/3.30/gnome-latex-3.30.2.tar.xz"
-  sha256 "558bbd574d3d5a71b9ecde47d7cb5e9ddf7cdbfd21f8f117f09c84c38ddfc33a"
+  url "https://download.gnome.org/sources/gnome-latex/3.32/gnome-latex-3.32.0.tar.xz"
+  sha256 "0f069c7b4c6754255a1c7e3e3b050925d8076f55458526a30ab59e0a7d52acc9"
 
   bottle do
-    sha256 "5ae76bdaf27f7a5d423a2fb05969b5eff4c91e811aaa76a28dbb5de7b375a861" => :mojave
-    sha256 "63c1df21e678e106a4d3e80ee7a58960721bb948c1746ab28dfc08aaea6bd18c" => :high_sierra
-    sha256 "62400be4daea03006548bc18aa82f7900ef8cb9462f7f9d5c0af7eb39745ebce" => :sierra
-    sha256 "8a1a0eb8af6ebcb43d4ea2e5f654d9124e7fb7ba923f9592ad6fbc40c8c47416" => :el_capitan
+    sha256 "d705dbc64afb4344d195d7c20c5a035312f2fd02b224581ecb8908c81b93e1b3" => :mojave
+    sha256 "4e837c5609bb266565c0389ebf2e3a165a479c4c6e95821b3c8c957fe38121c8" => :high_sierra
+    sha256 "c91420786faeb6ad497f5705edce6575412d6b3f9ff3628a3d5a994b95519f9f" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -17,10 +16,10 @@ class GnomeLatex < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "gnome-themes-standard"
   depends_on "gspell"
   depends_on "libgee"
   depends_on "tepl"
-  depends_on "gnome-themes-standard" => :optional
 
   def install
     system "./configure", "--disable-schemas-compile",
@@ -34,10 +33,7 @@ class GnomeLatex < Formula
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    # HighContrast is provided by gnome-themes-standard
-    if File.file?("#{HOMEBREW_PREFIX}/share/icons/HighContrast/.icon-theme.cache")
-      system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/HighContrast"
-    end
+    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/HighContrast"
   end
 
   test do

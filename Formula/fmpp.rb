@@ -1,8 +1,8 @@
 class Fmpp < Formula
   desc "Text file preprocessing tool using FreeMarker templates"
   homepage "https://fmpp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/fmpp/fmpp/0.9.15/fmpp_0.9.15.tar.gz"
-  sha256 "b893451b5450a7f35fe680e934f6903ec8143d88959dcfca5d17467fbe4142f9"
+  url "https://downloads.sourceforge.net/project/fmpp/fmpp/0.9.16/fmpp_0.9.16.tar.gz"
+  sha256 "86561e3f3a2ccb436f5f3df88d79a7dad72549a33191901f49d12a38b53759cd"
   head "https://github.com/freemarker/fmpp.git"
 
   bottle :unneeded

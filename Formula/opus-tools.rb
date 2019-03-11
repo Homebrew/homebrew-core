@@ -1,16 +1,14 @@
 class OpusTools < Formula
   desc "Utilities to encode, inspect, and decode .opus files"
   homepage "https://www.opus-codec.org"
-  url "https://archive.mozilla.org/pub/opus/opus-tools-0.1.10.tar.gz"
-  sha256 "a2357532d19471b70666e0e0ec17d514246d8b3cb2eb168f68bb0f6fd372b28c"
+  url "https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz"
+  sha256 "b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86"
 
   bottle do
     cellar :any
-    sha256 "2e29934cb76ff029a015fc9e56ee689ebbcb89e9d44b536d21fd39267fb7f7d8" => :mojave
-    sha256 "e5ec4e698f8090348b42786193c94c9571522dbf8c39e8ab6ffca677f6c5386c" => :high_sierra
-    sha256 "62d9154105f9d7be511899c04959bb76c669ee573cb4597b1a34291de613ad57" => :sierra
-    sha256 "32b77b8739b8e44eac8b3b45791291c3a1efbaf2b1c99b1f74b32d2beae5c795" => :el_capitan
-    sha256 "97a0d5affca76c00fec6d56ca3b6b2984e68f518380edd9098b6c49b0f465c46" => :yosemite
+    sha256 "68b6c2204f54060c61d47394b2bfdb3a318a124ce0a0e8ad2ab494ae4d9feee8" => :mojave
+    sha256 "30e9b3686b445c3344ba2e1ba59a813a1251a93381a367ae0cb09236fc5f7ca4" => :high_sierra
+    sha256 "4e2f1a811051ee31ec55dc10016f2c91dc097ec38a91916274ead42b5146d0c9" => :sierra
   end
 
   head do
@@ -24,7 +22,9 @@ class OpusTools < Formula
   depends_on "pkg-config" => :build
   depends_on "flac"
   depends_on "libogg"
+  depends_on "libopusenc"
   depends_on "opus"
+  depends_on "opusfile"
 
   def install
     system "./autogen.sh" if build.head?

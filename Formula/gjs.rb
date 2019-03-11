@@ -1,13 +1,14 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
-  homepage "https://wiki.gnome.org/Projects/Gjs"
-  url "https://download.gnome.org/sources/gjs/1.54/gjs-1.54.1.tar.xz"
-  sha256 "b197fe5812a0449f73f7a93ac85a4ee4941916bcf071ea39a67ddd231dc868bc"
+  homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
+  url "https://download.gnome.org/sources/gjs/1.54/gjs-1.54.3.tar.xz"
+  sha256 "76b30dcc3ce9836c053aee531aa9f1d9d3f94b8503adf0a5a7bd176c492ba6b1"
+  revision 2
 
   bottle do
-    sha256 "d17a8581b8e79f44e15af2a69acbd75b268d84dde766410c6181728c63c23aaa" => :mojave
-    sha256 "e20baa30965a75e132b45e1967752af02d310babc24c4297b77e3de496875c56" => :high_sierra
-    sha256 "b8e13232408988f346e97410332247819a0f8697dcd22049777d19faa9894157" => :sierra
+    sha256 "23b2762673e5f83051e8a2068cf136ff9a1698aa9fee5cb35565ae370c150f93" => :mojave
+    sha256 "6987d52efadc332e12de273a20e6d8969b1c18698dc1eb0c826497cfe01aa5d5" => :high_sierra
+    sha256 "841b2d24d47d305432b6246a1944b2a6ebd93cd00956459bb124fb2c23a9bae6" => :sierra
   end
 
   depends_on "autoconf@2.13" => :build
@@ -22,14 +23,14 @@ class Gjs < Formula
     sha256 "a4e7bb80e7ebab19769b2b8940966349136a99aabd497034662cffa54ea30e40"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV["_MACOSX_DEPLOYMENT_TARGET"] = ENV["MACOSX_DEPLOYMENT_TARGET"]
 
     resource("mozjs60").stage do
-      inreplace "config/rules.mk", "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ", "-install_name #{lib}/$(SHARED_LIBRARY) "
+      inreplace "config/rules.mk",
+                "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ",
+                "-install_name #{lib}/$(SHARED_LIBRARY) "
       inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
       mkdir("build") do
         ENV["PYTHON"] = "python"

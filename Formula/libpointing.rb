@@ -1,6 +1,6 @@
 class Libpointing < Formula
   desc "Provides direct access to HID pointing devices"
-  homepage "http://libpointing.org"
+  homepage "https://github.com/INRIA/libpointing"
   url "https://github.com/INRIA/libpointing/releases/download/v1.0.7/libpointing-mac-1.0.7.tar.gz"
   sha256 "29f12da75727d1b03ff952a2754ce79b88aec39b5e03a52d3b0ff7440f08f147"
 
@@ -12,8 +12,6 @@ class Libpointing < Formula
     sha256 "6ba8dbbb5a606a1e4b78512868986b80c4c3c971be04c90fbea59250dc6103ee" => :el_capitan
     sha256 "7120c106e54576154687dd63cdedb72633644e27213c7dbc1aa515a1227a8f3c" => :yosemite
   end
-
-  needs :cxx11
 
   def install
     ENV.cxx11

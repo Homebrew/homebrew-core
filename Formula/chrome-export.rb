@@ -3,10 +3,9 @@ class ChromeExport < Formula
   homepage "https://github.com/bdesham/chrome-export"
   url "https://github.com/bdesham/chrome-export/archive/v2.0.1.tar.gz"
   sha256 "9ba4b5b5c4881785bb6840a434cd3f1ce553c6e37fad0c5be1ac3533ef94f269"
+  revision 1
 
   bottle :unneeded
-
-  depends_on "python@2"
 
   def install
     bin.install "export-chrome-bookmarks"

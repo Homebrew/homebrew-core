@@ -8,8 +8,6 @@ class Serveit < Formula
 
   bottle :unneeded
 
-  depends_on "ruby" if MacOS.version <= :mountain_lion
-
   def install
     bin.install "serveit"
   end
@@ -18,7 +16,7 @@ class Serveit < Formula
     begin
       pid = fork { exec bin/"serveit" }
       sleep 2
-      assert_match /Listing for/, shell_output("curl localhost:8000")
+      assert_match(/Listing for/, shell_output("curl localhost:8000"))
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

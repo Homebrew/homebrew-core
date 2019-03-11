@@ -38,8 +38,6 @@ class Dspdfviewer < Formula
     sha256 "1f9c7e7de9ecd0db6ab287349e31bf815ca108a5a175cf906a90163bdbe32012"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 

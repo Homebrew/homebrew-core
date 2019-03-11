@@ -1,15 +1,14 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.2.tar.gz"
-  sha256 "762c6601f32a761c7a0556766097558f453f23b983dd75bcf90f922e2d077a34"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.3.tar.gz"
+  sha256 "51bbc79aa73ca602cd1518e4e25bd71d41a10abd296e18093a8acfebd3c62696"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    rebuild 1
-    sha256 "811df5828f6426af5a8be1087312aad206e854f69799b5458f93043dd8996158" => :mojave
-    sha256 "40ecbb33bfc6ff7a08e1f67ff5684d5e8ed53c72d7982fdc8a59e69df938f7cd" => :high_sierra
-    sha256 "e2a38c6ff89dad5770b5084f1cd9a8cc2972f7e473a14935dc13eade4e4b2fc3" => :sierra
+    sha256 "153c47045ba21b94581aed7375218a38534077fc8920090dc541627d09ef36c5" => :mojave
+    sha256 "adabb1b668bdfec8e6ccc1e05a91577bbe0c58487d345b662c3acaae2298e8a9" => :high_sierra
+    sha256 "8f69c72133ca7100385f49d104f33517c66aefe7c76bb22e08b28c8aaa4c6385" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -32,16 +31,17 @@ class OpenSceneGraph < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
     end
 
-    args = std_cmake_args
-    args << "-DBUILD_DOCUMENTATION=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON"
-    args << "-DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON"
-    args << "-DCMAKE_CXX_FLAGS=-Wno-error=narrowing" # or: -Wno-c++11-narrowing
-    args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.arch_64_bit}"
-    args << "-DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio"
-    args << "-DOSG_WINDOWING_SYSTEM=Cocoa"
+    args = std_cmake_args + %w[
+      -DBUILD_DOCUMENTATION=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_FFmpeg=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_cairo=ON
+      -DCMAKE_CXX_FLAGS=-Wno-error=narrowing
+      -DCMAKE_OSX_ARCHITECTURES=x86_64
+      -DOSG_DEFAULT_IMAGE_PLUGIN_FOR_OSX=imageio
+      -DOSG_WINDOWING_SYSTEM=Cocoa
+    ]
 
     mkdir "build" do
       system "cmake", "..", *args

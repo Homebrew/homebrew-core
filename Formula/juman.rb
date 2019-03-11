@@ -11,7 +11,6 @@ class Juman < Formula
     sha256 "6bd46cdc6ff4e159463f8d4fecda2b803c3054ec28305f3baa1ea4969c4da723" => :el_capitan
     sha256 "b2ccfe90011dead77ca0789cbdcdf30aa24e2ebcd3dd19c8d01b6adacbf7c816" => :yosemite
     sha256 "f959168856e884fcdadea2d19e9ebfa3ee6cdafb6e133588fce001de677fbe2a" => :mavericks
-    sha256 "098a7ddfd7cd9524e34473c286465ef63864de21c4a23c91d449b1bd5272b090" => :mountain_lion
   end
 
   def install

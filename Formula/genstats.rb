@@ -14,8 +14,6 @@ class Genstats < Formula
     sha256 "d46142a806e13029120bfb1a038805b07dc88b191aed1cd41340f5f868168f92" => :mavericks
   end
 
-  depends_on :macos => :lion # uses strndup
-
   def install
     # Tried to make this a patch.  Applying the patch hunk would
     # fail, even though I used "git diff | pbcopy". Tried messing

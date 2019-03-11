@@ -1,7 +1,7 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
-  homepage "http://fallabs.com/kyotocabinet/"
-  url "http://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz"
+  homepage "https://fallabs.com/kyotocabinet/"
+  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz"
   sha256 "812a2d3f29c351db4c6f1ff29d94d7135f9e601d7cc1872ec1d7eed381d0d23c"
 
   bottle do
@@ -13,15 +13,7 @@ class KyotoCabinet < Formula
     sha256 "bfed1b4b4aa5e742c89f9aa0ba83375ad4ff1d5daaf0e060260d16df4024582d" => :mavericks
   end
 
-  fails_with :clang do
-    build 421
-    cause <<~EOS
-      Kyoto-cabinet relies on GCC atomic intrinsics, but Clang does not
-      implement them for non-integer types.
-    EOS
-  end
-
-  patch :DATA if MacOS.version >= :mavericks
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"

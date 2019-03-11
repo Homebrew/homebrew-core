@@ -3,25 +3,26 @@ require "language/node"
 class AskCli < Formula
   desc "CLI tool for Alexa Skill Kit"
   homepage "https://www.npmjs.com/package/ask-cli"
-  url "https://registry.npmjs.org/ask-cli/-/ask-cli-1.4.1.tgz"
-  sha256 "6521100da683326ada697b0e6240c49fc02e272e702226bd84a43fc6c544ec03"
+  url "https://registry.npmjs.org/ask-cli/-/ask-cli-1.6.2.tgz"
+  sha256 "ec11c540eec91f2585d1a49b38815a18fcb25434b19d177907fac6a3eb92aef9"
 
   bottle do
-    sha256 "91c1350fcb4040ff49030583107fd8ede5762d202024549c609c9a49d706aa85" => :mojave
-    sha256 "280957dd55800a896a8315996c4e5572471aa30cc1e5bd7b8b35edf6df9532a5" => :high_sierra
-    sha256 "37e48a253231738d42b2df71689285b682013b50b32254130dbea72a4f57cd97" => :sierra
-    sha256 "fb964579b3f6a28671081bfeeb1c7d6f505f6db3a026b19f745c3f876d7054f1" => :el_capitan
+    rebuild 1
+    sha256 "3dc8c3f8e9ead7551d5dbed6237b60f7e8c50ae9578eaebec7717009ae4d141b" => :mojave
+    sha256 "f66eb3ebc4807f5454a1cf1669f5679563ad1632b31bd3f3aa50730c131c0afd" => :high_sierra
+    sha256 "fda0a21ea57deeae0b7aacd67c4c8a94519d08b916bbe5a3da63660db2a6874d" => :sierra
   end
 
   depends_on "node"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.write_exec_script libexec/"bin/ask"
   end
 
   test do
     output = shell_output("#{bin}/ask deploy 2>&1", 1)
     assert_match %r{\AInvalid json: [^ ]+\/.ask\/cli_config\Z}, output
+    system "#{bin}/ask", "lambda", "--help"
   end
 end

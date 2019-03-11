@@ -1,7 +1,7 @@
 class Vitetris < Formula
   desc "Terminal-based Tetris clone"
-  homepage "http://www.victornils.net/tetris/"
-  url "http://www.victornils.net/tetris/vitetris-0.57.tar.gz"
+  homepage "https://www.victornils.net/tetris/"
+  url "https://www.victornils.net/tetris/vitetris-0.57.tar.gz"
   sha256 "0c9fa6c8b16e2f8968f65e16a87f1bcd39b827d510c6efb0771f0400ab91cdc2"
 
   bottle do

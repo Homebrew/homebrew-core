@@ -14,8 +14,6 @@ class Tag < Formula
     sha256 "640a9ebb8fa34d93f5566e2af7e25716eaa2497165c4e7122bcae1d9cd51fb5a" => :yosemite
   end
 
-  depends_on :macos => :mavericks
-
   def install
     system "make"
     bin.install "bin/tag"

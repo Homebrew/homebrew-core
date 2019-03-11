@@ -1,8 +1,8 @@
 class Antlr < Formula
   desc "ANother Tool for Language Recognition"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr-4.7.1-complete.jar"
-  sha256 "f41dce7441d523baf9769cb7756a00f27a4b67e55aacab44525541f62d7f6688"
+  url "https://www.antlr.org/download/antlr-4.7.2-complete.jar"
+  sha256 "6852386d7975eff29171dae002cc223251510d35f291ae277948f381a7b380b4"
 
   bottle :unneeded
 
@@ -11,7 +11,7 @@ class Antlr < Formula
   def install
     prefix.install "antlr-#{version}-complete.jar"
 
-    (bin/"antlr4").write <<~EOS
+    (bin/"antlr").write <<~EOS
       #!/bin/bash
       CLASSPATH="#{prefix}/antlr-#{version}-complete.jar:." exec java -jar #{prefix}/antlr-#{version}-complete.jar "$@"
     EOS
@@ -37,7 +37,7 @@ class Antlr < Formula
     EOS
     ENV.prepend "CLASSPATH", "#{prefix}/antlr-#{version}-complete.jar", ":"
     ENV.prepend "CLASSPATH", ".", ":"
-    system "#{bin}/antlr4", "Expr.g4"
+    system "#{bin}/antlr", "Expr.g4"
     system "javac", *Dir["Expr*.java"]
     assert_match(/^$/, pipe_output("#{bin}/grun Expr prog", "22+20\n"))
   end

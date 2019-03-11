@@ -1,25 +1,26 @@
 class Doitlive < Formula
   desc "Replay stored shell commands for live presentations"
   homepage "https://doitlive.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/67/21/d97f70d6afb56b146175ee4af92ff61ee4ab98a75c36a09b4e4a83c70411/doitlive-4.0.1.tar.gz"
-  sha256 "ec1a31b203c9b274fe6f978f4560f82e9ce22d965157172e1b5114ffd99496c5"
+  url "https://files.pythonhosted.org/packages/2b/8d/e1cabf1075b44ab3708314b2abdfec660116cd8d5680ad5f9c88709eec7a/doitlive-4.2.1.tar.gz"
+  sha256 "46149d44c3327010f35f7957813c3f7be6c7048f609b57d5a5b94100d1c9ce69"
+  revision 3
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c4167f3e2faad0ec8d08546a27ea5249e600f9a740e754d3e9b8d44adb3459c0" => :mojave
-    sha256 "b6f9718db7981f84e3188bfaf9d8b1725b3d8f070cf2bb69a4a66aae4e1c33e5" => :high_sierra
-    sha256 "73a77f790b0365fdf858f67685591ab2d7fac37a28076b3a755baca7e357f94c" => :sierra
-    sha256 "66326431fffbc6858f121521297581c2e944b901f798bba6f66774bce947cc20" => :el_capitan
+    sha256 "ce2dfad4d9a18daa5144de9b9463fec2ba258971f55b4bc019702f00886beab1" => :mojave
+    sha256 "a1972aab087a2ce19517b1d2f359af56f5e8ff28b9febba56bfa6c3843c070aa" => :high_sierra
+    sha256 "aa7a2349ebf41826a3fc89ad663e3586a94c4691b734d3b56510c24290337014" => :sierra
   end
 
-  depends_on "python@2"
+  depends_on "python"
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec+"lib/python2.7/site-packages"
-    system "python", "setup.py", "install", "--prefix=#{libexec}"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", "setup.py", "install", "--prefix=#{libexec}"
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
 
     output = Utils.popen_read("SHELL=bash #{libexec}/bin/doitlive completion")
     (bash_completion/"doitlive").write output

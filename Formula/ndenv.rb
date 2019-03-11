@@ -7,7 +7,7 @@ class Ndenv < Formula
 
   bottle :unneeded
 
-  depends_on "node-build" => :recommended
+  depends_on "node-build"
 
   def install
     inreplace "libexec/ndenv" do |s|

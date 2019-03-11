@@ -1,13 +1,14 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.30/evince-3.30.1.tar.xz"
-  sha256 "abc5516848e743bd79645e9693250974ffd5235617dd746c83b67c4c671ac0b7"
+  url "https://download.gnome.org/sources/evince/3.30/evince-3.30.2.tar.xz"
+  sha256 "a95bbdeb452c9cc910bba751e7c782ce60ffe7972c461bccbe8bbcdb8ca5f24c"
+  revision 1
 
   bottle do
-    sha256 "c7bfedb128c67d2f8da4294250abefd6629c028a80cf5da57b84af8b3bd7a878" => :mojave
-    sha256 "040ca7c1f65fea9db5684ee2dd3b4ca44975b79b4b745e1513d1350e2c60aadf" => :high_sierra
-    sha256 "037304017f537005be2cb125cc6d645b2216cb3500424eb678a312cb05066e3a" => :sierra
+    sha256 "eb0917df7b07631d581e6357fb5fa6910fb3d54178088305f891c1eeb677c276" => :mojave
+    sha256 "90681c4028e94e34195a8596c156d1b4a28588af5b672c4d8b8fb5a3a0789a09" => :high_sierra
+    sha256 "83026643c16aaddaa2aa6ed2c9eeadc504efea11464229fda34f008e454b4536" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
@@ -23,8 +24,7 @@ class Evince < Formula
   depends_on "libspectre"
   depends_on "libxml2"
   depends_on "poppler"
-  depends_on "python@2"
-  depends_on "shared-mime-info"
+  depends_on "python"
 
   def install
     # Fix build failure "ar: illegal option -- D"
@@ -36,6 +36,9 @@ class Evince < Formula
     # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
     inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
 
+    xy = Language::Python.major_minor_version "python3"
+    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -45,14 +48,12 @@ class Evince < Formula
                           "--enable-introspection",
                           "--enable-djvu",
                           "--disable-browser-plugin"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
     system "make", "install"
   end
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    system "#{Formula["shared-mime-info"].opt_bin}/update-mime-database", "#{HOMEBREW_PREFIX}/share/mime"
   end
 
   test do

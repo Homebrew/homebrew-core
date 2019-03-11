@@ -1,14 +1,14 @@
 class Hyperfine < Formula
   desc "Command-line benchmarking tool"
   homepage "https://github.com/sharkdp/hyperfine"
-  url "https://github.com/sharkdp/hyperfine/archive/v1.2.0.tar.gz"
-  sha256 "324ab37890a1cc64680b0e5eae03eebda53b6005166148150a7c82f045e7015b"
+  url "https://github.com/sharkdp/hyperfine/archive/v1.5.0.tar.gz"
+  sha256 "d5183611348e696e579dda846cee92b7b78c8ef18c00bfb9b0a62d0a63034823"
 
   bottle do
-    sha256 "10594870ce0402cf651c96f235b9882c0c2d887a3666385b1abb267719b85694" => :mojave
-    sha256 "355b50d978d6ae1f8bfd5b963e84396b86023ebd96c7b2b1839981f61fb7da9a" => :high_sierra
-    sha256 "7d510caac6e35c45b1472279e82b237f3e5058d9691ced30a801ed87b35aabc1" => :sierra
-    sha256 "a82d2806e80a0e222f82bde4ea4cd74cd30b9819a4735b064f08ae40ba2e34d9" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "a120be15174ce48b26ebd55204e218bb333e5375d826d930b9f5a9bfcd69f828" => :mojave
+    sha256 "106336d918cc080a62b7217fb6e997aa37f1a4e626c5bb0d98c463d667d63ac9" => :high_sierra
+    sha256 "c10178095d445c0db49b611d0ef6b7c83fbd18ef15c8d0ef0bec8dd2104a4236" => :sierra
   end
 
   depends_on "rust" => :build

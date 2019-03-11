@@ -1,43 +1,28 @@
 class Libpst < Formula
   desc "Utilities for the PST file format"
-  homepage "http://www.five-ten-sg.com/libpst/"
-  url "http://www.five-ten-sg.com/libpst/packages/libpst-0.6.72.tar.gz"
+  homepage "https://www.five-ten-sg.com/libpst/"
+  url "https://www.five-ten-sg.com/libpst/packages/libpst-0.6.72.tar.gz"
   sha256 "8a19d891eb077091c507d98ed8e2d24b7f48b3e82743bcce2b00a12040f5d507"
+  revision 2
 
   bottle do
     cellar :any
-    sha256 "ce0dae8dfd7289abb17a6830e6996171a711f3cd852ed62c7cc0dac43e66741d" => :mojave
-    sha256 "f07260d9a5ef17c294acc30f4405d90467110fda3e824b62cc2e2a0b5cb557da" => :high_sierra
-    sha256 "bc247e859e53a24a53b99f4e088341dac9c197b96b2c58bd0953baab39b8c4f8" => :sierra
-    sha256 "154c2402a1949c8bcd7b784181b9f1d47705b035ea996506f6d142c3c92e2423" => :el_capitan
+    sha256 "382d2a508b95f2b391141c778ef6a9629efa85bf4bed34d843b550b3b2729db0" => :mojave
+    sha256 "3d8f0a101e022d7061e7765c7a07033e84d4685648bd3256a832db0937fe7333" => :high_sierra
+    sha256 "8b65a4b37e63351f5991a8a6582aaaf93d26c81b820096da06a98da2b7a43394" => :sierra
   end
-
-  option "with-pst2dii", "Build pst2dii using gd"
-
-  deprecated_option "pst2dii" => "with-pst2dii"
-  deprecated_option "with-python" => "with-python@2"
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "gd" if build.with? "pst2dii"
   depends_on "gettext"
   depends_on "libgsf"
-  depends_on "python@2" => :optional
-  depends_on "boost-python" if build.with? "python@2"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --disable-python
     ]
-
-    args << "--disable-dii" if build.with? "pst2dii"
-
-    if build.with? "python@2"
-      args << "--enable-python" << "--with-boost-python=mt"
-    else
-      args << "--disable-python"
-    end
 
     system "./configure", *args
     system "make"

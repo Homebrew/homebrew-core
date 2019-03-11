@@ -1,13 +1,14 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/r-darwish/topgrade"
-  url "https://github.com/r-darwish/topgrade/archive/v0.15.0.tar.gz"
-  sha256 "26fadd248a692ef689a6de7ebc96441a6c0e182b986c62a437886ecd5e8f7240"
+  url "https://github.com/r-darwish/topgrade/archive/v1.8.0.tar.gz"
+  sha256 "6f72962d0ccc90530f031612e9683a42d05995da6496b591e3f374505551c37a"
 
   bottle do
-    sha256 "4b1250a32e4f54a08c9f8327f2440749e504e8f76b9bd3c7eb60bceb7f264774" => :mojave
-    sha256 "0c43097bde30d85f0541ec370a2d61ada00de5485afbcc646c7b7dfcc34d9831" => :high_sierra
-    sha256 "38d5215dacc2da6d2b13870f462c8a07c73b19277b04e35562021cbaa7bf1bb7" => :sierra
+    cellar :any_skip_relocation
+    sha256 "3d40f4c24a32a61223c26bf6d707297ed4a128967715cd69522aa5afe7ef1fd1" => :mojave
+    sha256 "60d9e37c68b81dd883fd8977c54fdad4e5acc12273f304a67f7ac94198b6ee02" => :high_sierra
+    sha256 "ad3a219deebb8f92014e7f7f73650da68526a37658c20fef5098fae154525a11" => :sierra
   end
 
   depends_on "rust" => :build
@@ -19,5 +20,6 @@ class Topgrade < Formula
   test do
     output = shell_output("#{bin}/topgrade -n")
     assert_match "Dry running: #{HOMEBREW_PREFIX}/bin/brew upgrade", output
+    assert_not_match /\sSelf update\s/, output
   end
 end

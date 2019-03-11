@@ -1,36 +1,29 @@
 class Ntp < Formula
   desc "The Network Time Protocol (NTP) Distribution"
   homepage "https://www.eecis.udel.edu/~mills/ntp/html/"
-  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p12.tar.gz"
-  version "4.2.8p12"
-  sha256 "709b222b5013d77d26bfff532b5ea470a8039497ef29d09363931c036cb30454"
+  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p13.tar.gz"
+  version "4.2.8p13"
+  sha256 "288772cecfcd9a53694ffab108d1825a31ba77f3a8466b0401baeca3bc232a38"
 
   bottle do
-    sha256 "68a5e42380f38ebc941864ff5f2cf710d8b23a1ceda7b612996f7bd27fd37d51" => :mojave
-    sha256 "d0e19a944a165087388ef43010a9d5407c08a96b461574dedb13b4a0e1a4079b" => :high_sierra
-    sha256 "e177b88d4a9bb828bdae90f935fe138ca59eba94c7aafa1ab13bfc65caf0a82e" => :sierra
-    sha256 "bd59b6a069f159a7a226f12ac254e41702fb992b2c6763adb9af25e659dd18f3" => :el_capitan
+    cellar :any
+    sha256 "7f30a4c684195c6540cbc43ade3f0a96724853289cc39106d5bd86379a3d1f11" => :mojave
+    sha256 "c3f0905c8580acc1b6a8db811733ad6f87e49118c702b591591fa30555fcaa4c" => :high_sierra
+    sha256 "48c96f99d19135f055b15066a49a44a1e1560c1da0aa1cfaa8c81df782d86d77" => :sierra
   end
 
-  option "with-net-snmp", "Build ntpsnmpd, the SNMP MIB agent for ntpd"
-
   depends_on "openssl"
-  depends_on "net-snmp" => :optional
 
   def install
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--with-openssl-libdir=#{Formula["openssl"].lib}",
-      "--with-openssl-incdir=#{Formula["openssl"].include}",
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --with-openssl-libdir=#{Formula["openssl"].lib}
+      --with-openssl-incdir=#{Formula["openssl"].include}
+      --with-net-snmp-config=no
     ]
-    if build.with?("net-snmp")
-      args << "--with-net-snmp-config"
-    else
-      args << "--with-net-snmp-config=no"
-    end
 
     system "./configure", *args
     system "make", "install", "LDADD_LIBNTP=-lresolv -undefined dynamic_lookup"

@@ -1,7 +1,7 @@
 class Phplint < Formula
   desc "Validator and documentator for PHP 5 and 7 programs"
-  homepage "http://www.icosaedro.it/phplint/"
-  url "http://www.icosaedro.it/phplint/phplint-3.2_20180727.tar.gz"
+  homepage "https://www.icosaedro.it/phplint/"
+  url "https://www.icosaedro.it/phplint/phplint-3.2_20180727.tar.gz"
   version "3.2-20180727"
   sha256 "337b7a0d717ea7ff454ded7b3298d65f0cabeaf309598357b8354c96ce4e9f85"
 

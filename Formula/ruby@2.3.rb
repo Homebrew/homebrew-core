@@ -1,14 +1,19 @@
+# This formula should never be deleted even when it is in violation of
+# https://docs.brew.sh/Versions. This is because it is useful to test things
+# with Ruby 2.3 for reproducing Ruby issues with older versions of macOS that
+# used this version (e.g. on >=10.13 the system Ruby is 2.3).
+
 class RubyAT23 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.7.tar.xz"
-  sha256 "c61f8f2b9d3ffff5567e186421fa191f0d5e7c2b189b426bb84498825d548edb"
+  url "https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.8.tar.xz"
+  sha256 "910f635d84fd0d81ac9bdee0731279e6026cb4cd1315bbbb5dfb22e09c5c1dfe"
+  revision 1
 
   bottle do
-    sha256 "6ab9a512b8e20513d588800fb8604c638cda51c7a740b0c9bd0fd97afb4e5468" => :mojave
-    sha256 "278cfe1d06b0773308c8ecc24774da4a889d483143b1ebdd43a18373104a7992" => :high_sierra
-    sha256 "f577b57573e40294476496bea32214a4cd4ff11e4ff065e9ac5c162566d34c59" => :sierra
-    sha256 "fd7d9688aa54d13ab9874fdba05fb02bfb86db0eb796091bba5c087e5ce09c29" => :el_capitan
+    sha256 "f67b409db2204b078cfe7f5d41f5c01fdf8a21516a463dacb87a232970f8e0a6" => :mojave
+    sha256 "67dc2fa377749c3804d123414a16747157384b66d3b670475bb287aee10640a9" => :high_sierra
+    sha256 "5e464abed74ff2c045f76400b645dcdfe31ee7572b2478ca80a4649b6ed31578" => :sierra
   end
 
   keg_only :versioned_formula

@@ -1,15 +1,24 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs925/ghostpdl-9.25.tar.xz"
-  sha256 "9a6f382badeb86cc5474f0f8f85cde57c0b898bf236be00494754988d0aa0133"
+  revision 1
+
+  stable do
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/ghostpdl-9.26.tar.xz"
+    sha256 "9c586554c653bb92ef5d271b12ad76ac6fabc05193173cb9e2b799bb069317fe"
+
+    # CVE-2019-6116 https://bugs.chromium.org/p/project-zero/issues/detail?id=1729
+    patch do
+      url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs926/0001-Bug700317-Address-.force-operators-exposure.tgz"
+      sha256 "54ab7d8f8007259c27fd4f11fd12f5ef0dbf6fe570da30b9335edec7deb3fa25"
+      apply "0001-Bug700317-Address-.force-operators-exposure.patch"
+    end
+  end
 
   bottle do
-    rebuild 1
-    sha256 "918c31840a8265047280c72655f647aa47e448e62a3ae1ba1c602324e42c2919" => :mojave
-    sha256 "96a9ef8172962180fd20708e9251223a96de85283257cd1182efc3c89162da71" => :high_sierra
-    sha256 "d249b53a400ec9400858edf92b7a24523b19f3e6ab9f7198dbdb866100e0dd22" => :sierra
-    sha256 "f0d1d1ec82107c9a2633cbb1d33b8b819ae3b9b33ae9a9db5e74416d750b4bf1" => :el_capitan
+    sha256 "746bbd395ce189a451c237893042f06737fa0d5fc19ba4ea631722d7ac00aa37" => :mojave
+    sha256 "6300074457a9e86e463aabeea75e95ff22ca15c94e7796a9520f8efbf125b1db" => :high_sierra
+    sha256 "319173da1daa8d383d7eb6922d9a131df8d407ea7ca239d03daa2054bf7f245b" => :sierra
   end
 
   head do
@@ -23,7 +32,6 @@ class Ghostscript < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libtiff"
-  depends_on :x11 => :optional
 
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
@@ -42,8 +50,8 @@ class Ghostscript < Formula
       --disable-fontconfig
       --without-libidn
       --with-system-libtiff
+      --without-x
     ]
-    args << "--without-x" if build.without? "x11"
 
     if build.head?
       system "./autogen.sh", *args

@@ -27,8 +27,6 @@ class XalanC < Formula
     sha256 "7c317c6b99cb5fb44da700e954e6b3e8c5eda07bef667f74a42b0099d038d767"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
     ENV.deparallelize # See https://issues.apache.org/jira/browse/XALANC-696
@@ -74,6 +72,7 @@ class XalanC < Formula
       </xsl:stylesheet>
     EOS
 
-    assert_match "Article: An XSLT test-case\nAuthors: \n* Roger Leigh\n* Open Microscopy Environment", shell_output("#{bin}/Xalan #{testpath}/input.xml #{testpath}/transform.xsl")
+    assert_match "Article: An XSLT test-case\nAuthors: \n* Roger Leigh\n* Open Microscopy Environment",
+                 shell_output("#{bin}/Xalan #{testpath}/input.xml #{testpath}/transform.xsl")
   end
 end

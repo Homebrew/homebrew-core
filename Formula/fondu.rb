@@ -19,6 +19,7 @@ class Fondu < Formula
 
   resource "cminch.ttf" do
     url "http://mirrors.ctan.org/fonts/cm/ps-type1/bakoma/ttf/cminch.ttf"
+    mirror "https://ftp.gnome.org/mirror/CTAN/fonts/cm/ps-type1/bakoma/ttf/cminch.ttf"
     sha256 "03aacbe19eac7d117019b6a6bf05197086f9de1a63cb4140ff830c40efebac63"
   end
 

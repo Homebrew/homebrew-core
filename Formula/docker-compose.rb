@@ -3,25 +3,23 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/1.22.0.tar.gz"
-  sha256 "d28a2e96976dae306f480f656e4487a0334a5f95c456408f4bbe4acc5760ffa0"
-  revision 1
+  url "https://github.com/docker/compose/archive/1.23.2.tar.gz"
+  sha256 "18ff12f80e21011e76e04d2579745224316e232a5ca94c79a2865dac5c66eef6"
   head "https://github.com/docker/compose.git"
 
   bottle do
     cellar :any
-    sha256 "6f4fd0b89872112313590bbfdbda5a9724a09e5ab68f72a63e002817661c8433" => :mojave
-    sha256 "c9cb00b759ff10533bda01529bcf94167e92f3ea7adc182f0a3de42716ea87b1" => :high_sierra
-    sha256 "95141cd35a49a0c2ede5606c0a2cc37d53d47f80559467135d2b22bab7732d5f" => :sierra
-    sha256 "a626ce2379b1b9f635eb2917498452f0d50c4944ba9c9636387be121370e8f5f" => :el_capitan
+    sha256 "97986c5efca02756115ff77623da2ac6209480dceb6f00b23a03e07bbd27acdb" => :mojave
+    sha256 "a2214e1996ad9441d7dce56da57f4760146318a3c99e1f1d19f34ca1025c6c5c" => :high_sierra
+    sha256 "586d6aa7e35b08410b94bbbfc5ed8e8c9c74d2bc8f2f51a92bf4376254548c60" => :sierra
   end
 
   depends_on "libyaml"
-  depends_on "python@2"
+  depends_on "python"
 
   def install
     system "./script/build/write-git-sha" if build.head?
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "docker-compose"

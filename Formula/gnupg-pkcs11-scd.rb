@@ -1,15 +1,14 @@
 class GnupgPkcs11Scd < Formula
   desc "Enable the use of PKCS#11 tokens with GnuPG"
   homepage "https://gnupg-pkcs11.sourceforge.io"
-  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.9.1/gnupg-pkcs11-scd-0.9.1.tar.bz2"
-  sha256 "abd3d13eb889c3793da319ddedd0f9b688572abb51b050d8284d1b44dfca94a9"
+  url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.9.2/gnupg-pkcs11-scd-0.9.2.tar.bz2"
+  sha256 "fddd798f8b5f9f960d2a7f6961b00ef7b49b00e8bf069c113a4d42b5e44fd0d5"
 
   bottle do
     cellar :any
-    sha256 "ce2127047e7bb4f07cdc7702fa399d2c357eac20a8b9b2b7fa879908b836257a" => :mojave
-    sha256 "b1b94851685ebb8dc920e4e5212c2b7effa2e831f184d8b8e66e44b1c9630d93" => :high_sierra
-    sha256 "eccf8f2df5f2007142529fd3b34085ef3f81500173dc6fccd0a94dfe76c7ad19" => :sierra
-    sha256 "0b236bc743da30e0db9458d55a1e511c792d9ed85c97c726a87b5932e8a21dc7" => :el_capitan
+    sha256 "99a4910d7fc7e0a7a101b66f4634aef44d61233327b720eef13612fef9406f22" => :mojave
+    sha256 "a226b2072da2340d2acda61cfd0e4be867d90646fe4a0d5816ff0f4c593907b0" => :high_sierra
+    sha256 "28a6407547621148fcb957b4c16da177e8a346383b0102ee7352650672b44021" => :sierra
   end
 
   depends_on "autoconf" => :build

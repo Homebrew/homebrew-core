@@ -26,8 +26,6 @@ class Blahtexml < Formula
     sha256 "d696d10931f2c2ded1cef50842b78887dba36679fbb2e0abc373e7b6405b8468"
   end
 
-  needs :cxx11
-
   def install
     ENV.cxx11
 
@@ -35,5 +33,11 @@ class Blahtexml < Formula
     bin.install "blahtex"
     system "make", "blahtexml-mac"
     bin.install "blahtexml"
+  end
+
+  test do
+    input = '\sqrt{x^2+\alpha}'
+    output = pipe_output("#{bin}/blahtex --mathml", input)
+    assert_match "<msqrt><msup><mi>x</mi><mn>2</mn></msup><mo ", output
   end
 end

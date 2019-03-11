@@ -1,13 +1,10 @@
 class LincityNg < Formula
   desc "City simulation game"
   homepage "https://github.com/lincity-ng/lincity-ng/"
+  url "https://github.com/lincity-ng/lincity-ng/archive/lincity-ng-2.0.tar.gz"
+  sha256 "e05a2c1e1d682fbf289caecd0ea46ca84b0db9de43c7f1b5add08f0fdbf1456b"
   revision 2
   head "https://github.com/lincity-ng/lincity-ng.git"
-
-  stable do
-    url "https://github.com/lincity-ng/lincity-ng/archive/lincity-ng-2.0.tar.gz"
-    sha256 "e05a2c1e1d682fbf289caecd0ea46ca84b0db9de43c7f1b5add08f0fdbf1456b"
-  end
 
   bottle do
     sha256 "5909e4a6c9cfe47aafd4fb4c5dd26016cbe096945faa485d377fe2c423b3caca" => :mojave
@@ -15,11 +12,6 @@ class LincityNg < Formula
     sha256 "cae5f270842c10affb29d6f9c592a96913d9ca630c49d22afa03cba6d3a6121c" => :sierra
     sha256 "b9f326c678a9317f141ad13749cb4075ab42144855254d344de15bc22c4020e5" => :el_capitan
     sha256 "6eae33edda53f256caa2fde01d334bc19b2c9810c8cf8e039ad1094c71619691" => :yosemite
-  end
-
-  devel do
-    url "https://downloads.sourceforge.net/project/lincity-ng.berlios/lincity-ng-2.9.beta.tar.bz2"
-    sha256 "542506135e833f7fd7231c0a5b2ab532fab719d214add461227af72d97ac9d4f"
   end
 
   depends_on "autoconf" => :build

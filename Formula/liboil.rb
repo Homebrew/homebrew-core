@@ -13,7 +13,6 @@ class Liboil < Formula
     sha256 "7d76b7a220caeb8dbaef27b879f4f3ac0ad5b236b563961abd9484e8bc9e0160" => :el_capitan
     sha256 "9ea78f801296e8643f366d634449a043376e9015e9329dc1c591a9ad55a37b66" => :yosemite
     sha256 "b7f92d53730febc590a12c4812784428e947c61361354c46f2fef245c0a51bba" => :mavericks
-    sha256 "eaf6e1262d13a992443c25dd4d26acacb3c1e05851e8ec2a2e0a6cdd948885fe" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

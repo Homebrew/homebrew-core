@@ -16,11 +16,6 @@ class RdiffBackup < Formula
     sha256 "5b0eab2335afe2d298cd51737c744d052536cb0bdbee780819496e1000a3b179" => :mavericks
   end
 
-  devel do
-    url "https://savannah.nongnu.org/download/rdiff-backup/rdiff-backup-1.3.3.tar.gz"
-    sha256 "ee030ce638df0eb1047cf72578e0de15d9a3ee9ab24da2dc0023e2978be30c06"
-  end
-
   depends_on "librsync"
 
   # librsync 1.x support
@@ -31,12 +26,7 @@ class RdiffBackup < Formula
   end
 
   def install
-    # Find the arch for the Python we are building against.
-    # We remove 'ppc' support, so we can pass Intel-optimized CFLAGS.
-    archs = archs_for_command("python")
-    archs.remove_ppc!
-    archs.delete :x86_64 if Hardware::CPU.is_32_bit?
-    ENV["ARCHFLAGS"] = archs.as_arch_flags
+    ENV["ARCHFLAGS"] = "-arch x86_64 -arch i386"
     system "python", "setup.py", "--librsync-dir=#{prefix}", "build"
     libexec.install Dir["build/lib.macosx*/rdiff_backup"]
     libexec.install Dir["build/scripts-*/*"]

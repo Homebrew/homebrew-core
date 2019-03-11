@@ -15,7 +15,6 @@ class Magnetix < Formula
   end
 
   depends_on :xcode => :build
-  depends_on :macos => :lion
 
   # Port audio code from QTKit to AVFoundation
   # Required since 10.12 SDK no longer includes QTKit.

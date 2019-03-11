@@ -1,17 +1,15 @@
 class Lcov < Formula
   desc "Graphical front-end for GCC's coverage testing tool (gcov)"
   homepage "https://github.com/linux-test-project/lcov"
-  url "https://downloads.sourceforge.net/ltp/lcov-1.13.tar.gz"
-  sha256 "44972c878482cc06a05fe78eaa3645cbfcbad6634615c3309858b207965d8a23"
+  url "https://github.com/linux-test-project/lcov/releases/download/v1.14/lcov-1.14.tar.gz"
+  sha256 "14995699187440e0ae4da57fe3a64adc0a3c5cf14feab971f8db38fb7d8f071a"
   head "https://github.com/linux-test-project/lcov.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b95fce4c15aba34863f433b11bb1476b11b457f6367a84de8a871f882c19b354" => :mojave
-    sha256 "ecd3e27cbeedb34321d9ce5decd4310e3ea0c73956a20317fec3ac14dc71364c" => :high_sierra
-    sha256 "b37e8592f6cedb734dea0c35daec9b4d701b5739dbe316b094c090179ff96dd3" => :sierra
-    sha256 "5b54e7b2f4361673debf9905109c302bed2bb5b542ca093598053357bbcd9065" => :el_capitan
-    sha256 "5b54e7b2f4361673debf9905109c302bed2bb5b542ca093598053357bbcd9065" => :yosemite
+    sha256 "2ca04e6c269ebf3587be2e485e0a6be9de81963e0a59a852c3be227bcb43919e" => :mojave
+    sha256 "2ca04e6c269ebf3587be2e485e0a6be9de81963e0a59a852c3be227bcb43919e" => :high_sierra
+    sha256 "e6d2a1d121c878d81d051de0f9f7fbda37c438a620de9c99d0a0c7540b5f61d1" => :sierra
   end
 
   def install

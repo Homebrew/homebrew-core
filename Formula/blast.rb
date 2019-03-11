@@ -1,20 +1,17 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/ncbi-blast-2.7.1+-src.tar.gz"
-  mirror "http://mirrors.vbi.vt.edu/mirrors/ftp.ncbi.nih.gov/blast/executables/LATEST/ncbi-blast-2.7.1+-src.tar.gz"
-  version "2.7.1"
-  sha256 "10a78d3007413a6d4c983d2acbf03ef84b622b82bd9a59c6bd9fbdde9d0298ca"
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.8.1/ncbi-blast-2.8.1+-src.tar.gz"
+  version "2.8.1"
+  sha256 "e03dd1a30e37cb8a859d3788a452c5d70ee1f9102d1ee0f93b2fbd145925118f"
 
   bottle do
-    sha256 "1be9406bb0acaae777b61c4c85ab56bb7338cfbcc0279fc86fdb0c86c98ed8f2" => :mojave
-    sha256 "13e0286489e2b28adbe3fc6ef82a26f3e081b44a0ce99f3212a0c4d7da981b3a" => :high_sierra
-    sha256 "a868633034dc12160109ee44e5415577967e2ceabaad3246881abaf07c57a198" => :sierra
-    sha256 "110a62423f43f3618aadc5a149c238302af30399426346e571e23f252f8e6bab" => :el_capitan
+    sha256 "878c83917ebf683d6555669bdab9052eefc13c1bc7b954a3306db0a34709e862" => :mojave
+    sha256 "c16d8d858839b6fcfb8c024b3d001a3cd6deb4b1dfee3d37a4f37aabdc525651" => :high_sierra
+    sha256 "0d67fc57e7ac3fb1d208166b2795f6553c8279c57b67ce6b399e398c657a887d" => :sierra
   end
 
   depends_on "lmdb"
-  depends_on "python@2"
 
   conflicts_with "proj", :because => "both install a `libproj.a` library"
 

@@ -2,19 +2,18 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      :tag => "v1.6.3",
-      :revision => "389de31c961831de0a9f4172173337d4a6193909"
+      :tag      => "v1.7.4",
+      :revision => "ef77e72f435b71b1ad6da7d6a6a4c4a262439379"
   head "https://github.com/influxdata/influxdb.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fe3d70d99e3de21a1ccff16836df29ca6b85af9bd936442c448cca6e41bd0711" => :mojave
-    sha256 "0e799d292bd0a1709e1f52740034af5df105c5611e673ac05a6c30a82680155b" => :high_sierra
-    sha256 "afaf4f77d403e11d9fd7bd80ea93b8243d6fdc733fdf630bf3b293ff49e0a71e" => :sierra
-    sha256 "7d7dae04fb3eb96d4ef8de31cc3736a694ae42a9eb6f6e0cead4036e18f9e005" => :el_capitan
+    sha256 "51351df880be3a5342fa41c1afbfe53b078d78ab44850f0e3d7329f1b247795f" => :mojave
+    sha256 "2469eaafad910e270f197fe81f985e969c39fc1e239f39aeea4310f9bffccc65" => :high_sierra
+    sha256 "fc28aedfc61335b3dd42bd5d1dfb384a76d685381cd9aff99a7daf7fba02a7c8" => :sierra
   end
 
-  depends_on "gdm" => :build
+  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
@@ -25,7 +24,7 @@ class Influxdb < Formula
     version = `git describe --tags`.strip
 
     cd influxdb_path do
-      system "gdm", "restore"
+      system "dep", "ensure", "-vendor-only"
       system "go", "install",
              "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master",
              "./..."

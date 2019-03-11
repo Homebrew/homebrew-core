@@ -1,9 +1,9 @@
 class SolrAT55 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/5.5.4/solr-5.5.4.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/5.5.4/solr-5.5.4.tgz"
-  sha256 "c1528e4afc9a0b8e7e5be0a16f40bb4080f410d502cd63b4447d448c49e9f500"
+  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/5.5.5/solr-5.5.5.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/5.5.5/solr-5.5.5.tgz"
+  sha256 "2bbe3a55976f118c5d8c2382d4591257f6e2af779c08c6561e44afa3181a87c1"
 
   bottle :unneeded
 

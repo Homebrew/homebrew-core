@@ -1,14 +1,13 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://github.com/AravisProject/aravis/archive/ARAVIS_0_6_0.tar.gz"
-  sha256 "d7c047af9c845a3e036557b6e5d715da0c21eeb314f704a257f8636fcb634af6"
+  url "https://github.com/AravisProject/aravis/archive/ARAVIS_0_6_1.tar.gz"
+  sha256 "d9795d36bfb1af230bda21d93bc81390f49d936c6c9b7b3043a5c09bd0f0f8d3"
 
   bottle do
-    sha256 "535b46c36a805622b39db2f1eb0ee30b9a16a3b1cccc99af0fea4253f58a2b76" => :mojave
-    sha256 "e4b43a8840f5e21a9acc48faaced67a58432deb26d38c632d5b8ccda129f2dca" => :high_sierra
-    sha256 "33f2fb3607b7547ac3505c42f74743fa4cd281044bda83a3348e20e3fc5c0a79" => :sierra
-    sha256 "1594fd0d1117da017a5934b5c1444b7ff0f1642817640f33dc12bf23b3a8e5ba" => :el_capitan
+    sha256 "a8faa1da38cca132fa068c207fc36e41ec61ea9618c86ae503f6d18b9e8abfec" => :mojave
+    sha256 "814c7f8168575e730a3e299fb272050c9522773b12d5a5bbeeba31cfb5dd9b27" => :high_sierra
+    sha256 "553fe6f0343f4b4088c5634f270adb7436372f224d65a17b67b6bb4918a11f1c" => :sierra
   end
 
   depends_on "autoconf" => :build

@@ -25,11 +25,6 @@ class Flac < Formula
   depends_on "pkg-config" => :build
   depends_on "libogg"
 
-  fails_with :clang do
-    build 500
-    cause "Undefined symbols ___cpuid and ___cpuid_count"
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
@@ -37,9 +32,6 @@ class Flac < Formula
       --prefix=#{prefix}
       --enable-static
     ]
-
-    args << "--disable-asm-optimizations" if Hardware::CPU.is_32_bit?
-
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"

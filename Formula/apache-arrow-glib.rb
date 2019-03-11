@@ -1,21 +1,18 @@
 class ApacheArrowGlib < Formula
-  desc "GObject Introspection files of Apache Arrow"
+  desc "GLib bindings for Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.10.0/apache-arrow-0.10.0.tar.gz"
-  sha256 "943207a2fcc7ba8de0e50bdb6c6ea4e9ed7f7e7bf55f6b426d7f867f559e842d"
-  head "https://github.com/apache/arrow.git"
+  url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.12.1/apache-arrow-0.12.1.tar.gz"
+  sha256 "e93e43343544e344bbc912b89da01d8abf66596f029d26b2b135b102a9e39895"
 
   bottle do
-    sha256 "48589b2b5bcd5f93f51b766ce87543f1c62db04258607ab3f24c8ba2df6c7ea1" => :mojave
-    sha256 "f1333c883d0f576ff7c817399bd78b945450ef2100427bc862b63cdc51413a8c" => :high_sierra
-    sha256 "76066c57519cf7e5ad5a1cb6d7dfd5b08fa8c792f512297ac9563773ba7d18cb" => :sierra
-    sha256 "14bc9da622db582d5525d7268fb0769a7eccee19bc747cf2901cd166da1b1bea" => :el_capitan
+    sha256 "930d5249652eddc1ccae438a2353a08b5ce18231edd2e42e16982e3d84cccc66" => :mojave
+    sha256 "96a41fd90da27750a9f4abdbb0b0cd127db04807831001a4ca14751ebeb6c576" => :high_sierra
+    sha256 "56acc7a8804e5c2828ba71204001b306dd8666f7c38afd45134b00a4c00af22c" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "apache-arrow"
-  depends_on "gettext"
   depends_on "glib"
 
   def install
@@ -27,13 +24,14 @@ class ApacheArrowGlib < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
+    (testpath/"test.c").write <<~SOURCE
       #include <arrow-glib/arrow-glib.h>
-      int main(void){
+      int main(void) {
         GArrowNullArray *array = garrow_null_array_new(10);
+        g_object_unref(array);
         return 0;
       }
-    EOS
+    SOURCE
     apache_arrow = Formula["apache-arrow"]
     glib = Formula["glib"]
     flags = %W[

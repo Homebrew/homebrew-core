@@ -19,6 +19,7 @@ class Viewvc < Formula
     system "python", "./viewvc-install", "--prefix=#{libexec}", "--destdir="
     Pathname.glob(libexec/"bin/*") do |f|
       next if f.directory?
+
       bin.install_symlink f => "viewvc-#{f.basename}"
     end
   end

@@ -2,40 +2,27 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag => "v3.6.1",
-      :revision => "48cb18e5c419ddd23d9badcfe4e9df7bde1979b2"
+      :tag      => "v3.7.0",
+      :revision => "582743bf40c5d3639a70f98f183914a2c0cd0680"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
-    sha256 "47bfed73e275684cd1b74d0817239661bdeab555744ac7345467abba4fa58216" => :mojave
-    sha256 "0f5f2cf5d166e083f7456e08f3dca248625b1c385e91fd1fd7c8bf9f46162092" => :high_sierra
-    sha256 "a667c98b9cf7d81bd81436d50bc8ad4dea8e8e063ab1ed1be7f95625cddf4eb2" => :sierra
-    sha256 "ef87974beb704c499ee6233211358e900372c89b09c3438d8933f18af70b1750" => :el_capitan
+    cellar :any
+    sha256 "5ff917a16f1625e980e3089c4da5ee9909f4e3b0fc5c359a5e1b0131a7787c2f" => :mojave
+    sha256 "137739ea611d2f81669992ac2c39e24d335b687cc2cc3aad3f9e82ff8bcfd583" => :high_sierra
+    sha256 "060b641aea6ea4e89713e2c53a7d6b70340d92e84681718694fb0323f7accec1" => :sierra
   end
-
-  option "without-python@2", "Build without python2 support"
-
-  deprecated_option "without-python" => "with-python@2"
-  deprecated_option "with-python3" => "with-python"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python@2" => :recommended
-  depends_on "python" => :optional
+  depends_on "python"
+  depends_on "python@2"
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
+    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
   end
-
-  # Upstream PR from 3 Jul 2018 "Add Python 3.7 compatibility"
-  patch do
-    url "https://github.com/protocolbuffers/protobuf/pull/4862.patch?full_index=1"
-    sha256 "4b1fe1893c40cdcef531c31746ddd18759c9ce3564c89ddcc0ec934ea5dbf377"
-  end
-
-  needs :cxx11
 
   def install
     # Don't build in debug mode. See:
@@ -48,33 +35,29 @@ class Protobuf < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
-    system "make", "check" if build.bottle?
+    system "make", "check"
     system "make", "install"
 
     # Install editor support and examples
     doc.install "editors", "examples"
 
-    Language::Python.each_python(build) do |python, version|
+    ENV.append_to_cflags "-I#{include}"
+    ENV.append_to_cflags "-L#{lib}"
+
+    ["python2", "python3"].each do |python|
       resource("six").stage do
         system python, *Language::Python.setup_install_args(libexec)
       end
       chdir "python" do
-        ENV.append_to_cflags "-I#{include}"
-        ENV.append_to_cflags "-L#{lib}"
-        args = Language::Python.setup_install_args libexec
-        args << "--cpp_implementation"
-        system python, *args
+        system python, *Language::Python.setup_install_args(libexec),
+                       "--cpp_implementation"
       end
+
+      version = Language::Python.major_minor_version python
       site_packages = "lib/python#{version}/site-packages"
       pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
       (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
     end
-  end
-
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-  EOS
   end
 
   test do
@@ -90,7 +73,7 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python2.7", "-c", "import google.protobuf" if build.with? "python@2"
-    system "python3", "-c", "import google.protobuf" if build.with? "python"
+    system "python2.7", "-c", "import google.protobuf"
+    system "python3", "-c", "import google.protobuf"
   end
 end
