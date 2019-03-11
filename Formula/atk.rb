@@ -1,8 +1,8 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.30/atk-2.30.0.tar.xz"
-  sha256 "dd4d90d4217f2a0c1fee708a555596c2c19d26fef0952e1ead1938ab632c027b"
+  url "https://download.gnome.org/sources/atk/2.32/atk-2.32.0.tar.xz"
+  sha256 "cb41feda7fe4ef0daa024471438ea0219592baf7c291347e5a858bb64e4091cc"
 
   bottle do
     sha256 "ef98c860ad49b7c335854dc8a558e193353a8afad8d22d0bc1be1d82ccc716c7" => :mojave
@@ -12,21 +12,21 @@ class Atk < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
 
-  patch :DATA
-
   def install
-    ENV.refurbish_args
-
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja"
       system "ninja", "install"
     end
+
+    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
+    inreplace share/"gir-1.0/Atk-1.0.gir", "@rpath", lib.to_s
+    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/Atk-1.0.typelib", share/"gir-1.0/Atk-1.0.gir"
   end
 
   test do
@@ -57,21 +57,3 @@ class Atk < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index 59abf5e..7af4f12 100644
---- a/meson.build
-+++ b/meson.build
-@@ -73,11 +73,6 @@ if host_machine.system() == 'linux'
-   common_ldflags += cc.get_supported_link_arguments(test_ldflags)
- endif
-
--# Maintain compatibility with autotools on macOS
--if host_machine.system() == 'darwin'
--  common_ldflags += [ '-compatibility_version 1', '-current_version 1.0', ]
--endif
--
- # Functions
- checked_funcs = [
-   'bind_textdomain_codeset',
