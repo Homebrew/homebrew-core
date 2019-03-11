@@ -3,38 +3,27 @@ require "language/go"
 class TerraformInventory < Formula
   desc "Terraform State → Ansible Dynamic Inventory"
   homepage "https://github.com/adammck/terraform-inventory"
-  url "https://github.com/adammck/terraform-inventory/archive/v0.6.1.tar.gz"
-  sha256 "9cdcbc5ce4247b72bb72923d01246f51252a88908d760d766daeac51dd8feed9"
+  url "https://github.com/adammck/terraform-inventory/archive/v0.8.tar.gz"
+  sha256 "486d8338774fe60e5f950ea8e2464c693f89828708d27d1bf69d745484a1e2a5"
+  head "https://github.com/adammck/terraform-inventory.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "29b5351cf96762d28878a118d6bd30d3165985dbc6e6fa5115f44bdbad0cc776" => :mojave
-    sha256 "15e8799c163c87affb5f4a48ffbb3e1f0392f837df4fba1db174088fe8159c6b" => :high_sierra
-    sha256 "6c423700ad3cb2a27295cbbca5de08a5a47b3f42a7c9cc53abfe9c3d1061b6b3" => :sierra
-    sha256 "d876b7acee1bfaaeaaf284bfd8518195b10005f7de504c8aaf39be3164b93dac" => :el_capitan
-    sha256 "77b4cfd96088f6019ad5bd0f0faf6757d1fb8c34ea3b327490ff33fde03538c1" => :yosemite
-    sha256 "19fed440ba3c95ef85fcd529f151131136fa684c9a091d17177ac8f74426e7d5" => :mavericks
-  end
-
-  head do
-    url "https://github.com/adammck/terraform-inventory.git"
-
-    go_resource "github.com/adammck/venv" do
-      url "https://github.com/adammck/venv.git",
-          :revision => "8a9c907a37d36a8f34fa1c5b81aaf80c2554a306"
-    end
-
-    go_resource "github.com/blang/vfs" do
-      url "https://github.com/blang/vfs.git",
-          :revision => "2c3e2278e174a74f31ff8bf6f47b43ecb358a870"
-    end
+    sha256 "203c02568b64c714d4a0d3d1d4c79145c44cce26530e71873ca0ba9d9d828028" => :mojave
+    sha256 "420ed8fc7e9b153c62d269f3be50c1f5d3031bad6eadaa01075a60718cd2e105" => :high_sierra
+    sha256 "6fb9cb51d18faa3f5cdedf0986467bb5b88fd72c422f00950a76b6bb5e93a082" => :sierra
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/stretchr/testify" do
-    url "https://github.com/stretchr/testify.git",
-        :revision => "f390dcf405f7b83c997eac1b06768bb9f44dec18"
+  go_resource "github.com/adammck/venv" do
+    url "https://github.com/adammck/venv.git",
+        :revision => "8a9c907a37d36a8f34fa1c5b81aaf80c2554a306"
+  end
+
+  go_resource "github.com/blang/vfs" do
+    url "https://github.com/blang/vfs.git",
+        :revision => "2c3e2278e174a74f31ff8bf6f47b43ecb358a870"
   end
 
   def install

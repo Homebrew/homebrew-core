@@ -1,34 +1,32 @@
 class Mat2 < Formula
   desc "Metadata anonymization toolkit"
   homepage "https://0xacab.org/jvoisin/mat2"
-  url "https://0xacab.org/jvoisin/mat2/uploads/e958dde527c7255e94ae2b347086ba9f/mat-0.6.0.tar.xz"
-  sha256 "96c55c455a5d556bed41487476ae98866ebe8e7ef01a75325c9e274c7e1ce842"
+  url "https://0xacab.org/jvoisin/mat2/-/archive/0.8.0/mat2-0.8.0.tar.gz"
+  sha256 "64b627eaafa1894e7516713c589055eccb1d71b7936b21a80e29877fbd7c2c34"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "f107565490f9660d6e3f1e53a041e0137408d836dfd168aa99787470848d009b" => :mojave
-    sha256 "71dd41639831930449ea90b29655e9388014af0f50a216bd9efcbc1f5c88d8c9" => :high_sierra
-    sha256 "71dd41639831930449ea90b29655e9388014af0f50a216bd9efcbc1f5c88d8c9" => :sierra
+    sha256 "632dcf019937de534b22d72b9f634a0acdcc95583a8d62f89220ce90b691ad56" => :mojave
+    sha256 "632dcf019937de534b22d72b9f634a0acdcc95583a8d62f89220ce90b691ad56" => :high_sierra
+    sha256 "328051b9d1c085ee8fafa5894d4b13a2a7c2a8cc54bf7e90fb8c8210a1cab9dd" => :sierra
   end
 
   depends_on "exiftool"
   depends_on "ffmpeg"
+  depends_on "gdk-pixbuf"
   depends_on "poppler"
   depends_on "py3cairo"
   depends_on "pygobject3"
   depends_on "python"
 
   resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/source/m/mutagen/mutagen-1.41.1.tar.gz"
-    sha256 "2ea9c900a05fa7f5f4c5bd9fc1475d7d576532e13b2f79b694452b997ff67200"
+    url "https://files.pythonhosted.org/packages/30/4c/5ad1a6e1ccbcfaf6462db727989c302d9d721beedd9b09c11e6f0c7065b0/mutagen-1.42.0.tar.gz"
+    sha256 "bb61e2456f59a9a4a259fbc08def6d01ba45a42da8eeaa97d00633b0ec5de71c"
   end
 
-  # fix list option return value
-  patch :DATA
-
   def install
-    inreplace "libmat2/exiftool.py", "/usr/bin/exiftool", "#{HOMEBREW_PREFIX}/bin/exiftool"
-    inreplace "libmat2/video.py", "/usr/bin/ffmpeg", "#{HOMEBREW_PREFIX}/bin/ffmpeg"
+    inreplace "libmat2/exiftool.py", "/usr/bin/exiftool", "#{Formula["exiftool"].opt_bin}/exiftool"
+    inreplace "libmat2/video.py", "/usr/bin/ffmpeg", "#{Formula["ffmpeg"].opt_bin}/ffmpeg"
 
     version = Language::Python.major_minor_version("python3")
     pygobject3 = Formula["pygobject3"]
@@ -51,18 +49,3 @@ class Mat2 < Formula
     system "#{bin}/mat2", "-l"
   end
 end
-
-__END__
-diff --git a/mat2 b/mat2
-index ff8a253..151cbf6 100755
---- a/mat2
-+++ b/mat2
-@@ -133,7 +133,7 @@ def show_parsers() -> bool:
-                 continue
-             formats.add('  - %s (%s)' % (mtype, ', '.join(extensions)))
-     print('\n'.join(sorted(formats)))
--    return True
-+    return 0
-
-
- def __get_files_recursively(files: List[str]) -> Generator[str, None, None]:

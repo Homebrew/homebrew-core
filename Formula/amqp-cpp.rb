@@ -1,15 +1,15 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.1.3.tar.gz"
-  sha256 "138dae10c5c78382798b697afcfaad0f8c02898a91e1d61ece06d5bad3d69c3f"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.1.4.tar.gz"
+  sha256 "1e0d070d980e44a2293a94c416b5690ffc529e0246cc2ef079dec59773b9708b"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "e85df9f4ba93296155f037f551e2d77141c9630cd14eed3a3c151fd2bc7df9d6" => :mojave
-    sha256 "b9975e464e1116233e2d2dcdf97971a53e5d117f06e910b133ef59205f6e5ed6" => :high_sierra
-    sha256 "1f217794de557f20327a6b819965f9e5215adb41665c6d2caf4c0f8df90d9a76" => :sierra
+    sha256 "cb076c768a5191f56b8479502af030015e5873a89aa8dbe669b085b6fa117341" => :mojave
+    sha256 "999b517ddf39d4d81ae449ae284aca5e1e3c7bc5f32ee4ea4e59d5c4e1ddc649" => :high_sierra
+    sha256 "080cc16fd0a1477767b65c24aaa27ff7f4e6cd6bc60cde1ec412b1e1cd09691d" => :sierra
   end
 
   depends_on "cmake" => :build
