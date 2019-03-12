@@ -11,7 +11,6 @@ class Breezy < Formula
   end
 
   depends_on "gettext" => :build
-  depends_on "libgit2"
   depends_on "openssl"
   depends_on "python"
 
