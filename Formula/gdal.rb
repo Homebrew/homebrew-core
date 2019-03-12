@@ -37,7 +37,7 @@ class Gdal < Formula
   depends_on "numpy"
   depends_on "pcre"
   depends_on "podofo"
-  depends_on "poppler"
+  #depends_on "poppler" # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
   depends_on "proj"
   depends_on "python"
   depends_on "python@2"
@@ -92,7 +92,8 @@ class Gdal < Formula
       "--with-dods-root=#{Formula["libdap"].opt_prefix}",
       "--with-epsilon=#{Formula["epsilon"].opt_prefix}",
       "--with-webp=#{Formula["webp"].opt_prefix}",
-      "--with-poppler=#{Formula["poppler"].opt_prefix}",
+      #"--with-poppler=#{Formula["poppler"].opt_prefix}", # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
+      "--with-podofo=#{Formula["podofo"].opt_prefix}",
 
       # Explicitly disable some features
       "--with-armadillo=no",
@@ -109,6 +110,8 @@ class Gdal < Formula
       # Unsupported backends are either proprietary or have no compatible version
       # in Homebrew. Podofo is disabled because Poppler provides the same
       # functionality and then some.
+      # Note: For gdal 2.4.0, podofo is re-enabled as gdal doesn't build with
+      #       poppler 0.73+
       "--without-gta",
       "--without-ogdi",
       "--without-fme",
@@ -126,7 +129,8 @@ class Gdal < Formula
       "--without-dwgdirect",
       "--without-idb",
       "--without-sde",
-      "--without-podofo",
+      #"--without-podofo", # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
+      "--without-poppler",
       "--without-rasdaman",
       "--without-sosi",
     ]
