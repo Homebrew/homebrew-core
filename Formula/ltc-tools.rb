@@ -1,9 +1,8 @@
 class LtcTools < Formula
   desc "Tools to deal with linear-timecode (LTC)"
   homepage "https://github.com/x42/ltc-tools"
-  url "https://github.com/x42/ltc-tools/archive/v0.6.4.tar.gz"
-  sha256 "8fc9621df6f43ab24c65752a9fee67bee6625027c19c088e5498d2ea038a22ec"
-  revision 1
+  url "https://github.com/x42/ltc-tools/archive/v0.7.0.tar.gz"
+  sha256 "5b7a2ab7f98bef6c99bafbbc5605a3364e01c9c19fe81411ddea0e1a01cd6287"
   head "https://github.com/x42/ltc-tools.git"
 
   bottle do
