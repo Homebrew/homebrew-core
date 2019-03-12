@@ -1,8 +1,8 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.0.tar.xz"
-  sha256 "cdc3557a38a96d8163f81ce5bdec777bc4b652b0e069fdfa5144f5f0561b0ef9"
+  url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.1.tar.xz"
+  sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
 
   bottle do
     sha256 "624f23f65da3344f90003411bc5251f53c4088bf8f3daa3d8bfd961a13956eb0" => :mojave
@@ -17,11 +17,6 @@ class Gucharmap < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "gtk+3"
-
-  patch do
-    url "https://gitlab.gnome.org/GNOME/gucharmap/commit/f832495aeeeb6b20a598b895261a9d1853005147.patch"
-    sha256 "d86f94bc4b73503d7653ee4ac77fabc00ceca4f9063f33141848af4a335b0f95"
-  end
 
   def install
     xy = Language::Python.major_minor_version "python3"
