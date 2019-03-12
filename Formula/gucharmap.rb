@@ -5,10 +5,9 @@ class Gucharmap < Formula
   sha256 "cdc3557a38a96d8163f81ce5bdec777bc4b652b0e069fdfa5144f5f0561b0ef9"
 
   bottle do
-    rebuild 1
-    sha256 "edb90dbc1546a8df9923b4768a4731b78bb9a8fd5052873798b1c1d7a4c656e7" => :mojave
-    sha256 "18d95b0c22072ee8244e8c2bb513fedf4b745e9573e5a91aa0343f41db45f3a2" => :high_sierra
-    sha256 "c9803dfa7e26936cdf408e48f845243e184f1e09d920262cf0ca1f77879f5af1" => :sierra
+    sha256 "624f23f65da3344f90003411bc5251f53c4088bf8f3daa3d8bfd961a13956eb0" => :mojave
+    sha256 "a83feceb2027332049a949794926b9a7d4fae3f15bde8982ee427ce67c85eee5" => :high_sierra
+    sha256 "1b4ec80d055a64e9e51159532170a1996cd0ceba96307d758aed38d8f519bfb7" => :sierra
   end
 
   depends_on "coreutils" => :build
