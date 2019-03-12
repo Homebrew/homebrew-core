@@ -1,8 +1,8 @@
 class GsettingsDesktopSchemas < Formula
   desc "GSettings schemas for desktop components"
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
-  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.28/gsettings-desktop-schemas-3.28.1.tar.xz"
-  sha256 "f88ea6849ffe897c51cfeca5e45c3890010c82c58be2aee18b01349648e5502f"
+  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.32/gsettings-desktop-schemas-3.32.0.tar.xz"
+  sha256 "2d59b4b3a548859dfae46314ee4666787a00d5c82db382e97df7aa9d0e310a35"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,19 +13,19 @@ class GsettingsDesktopSchemas < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "glib"
-  depends_on "libffi"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile",
-                          "--enable-introspection=yes"
-    system "make", "install"
+    ENV["DESTDIR"] = "/"
+
+    mkdir "build" do
+      system "meson", "--prefix=#{prefix}", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   def post_install
