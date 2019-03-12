@@ -1,17 +1,17 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.28/libgweather-3.28.3.tar.xz"
-  sha256 "45d30e0111bfc504f3e9609f878c89e26c856907f5732e7c30d3bf9f0a04e6f7"
+  url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.0.tar.xz"
+  sha256 "de9a2b392a8b27e012ed80bb9c950085692cd8e898c367c092df15f964a91d13"
 
   bottle do
-    sha256 "137f07c2a0bdf653569594a0146ed8abd6753dfb03aa30b5ee90bc021e0d8385" => :mojave
-    sha256 "e3b603ae019c321c67ecc90e49888c0d1587a4846ccb0c7a558b2b42d3f678cc" => :high_sierra
-    sha256 "2dd576463b258ad2c9a40abd6dae3ab8100e0a4794b2827e65a2fbcc7d78b48a" => :sierra
+    sha256 "6472e4b182ef0326640cfbbd67e0820d0ea982633586fd4e431b8b80288246ac" => :mojave
+    sha256 "64519035c7376067321b60ec2abb5d6b198794dd7c8fadb5a90a411b34bab137" => :high_sierra
+    sha256 "06ec365c5908f20a0ec46d3435b460e48ae2d19ce6b3fb684193ac7c9c83b0a9" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
@@ -19,16 +19,21 @@ class Libgweather < Formula
   depends_on "gtk+3"
   depends_on "libsoup"
 
+  # patch submitted upstream at https://gitlab.gnome.org/GNOME/libgweather/merge_requests/23
+  patch :DATA
+
   def install
-    ENV.refurbish_args
-    ENV["DESTDIR"] = ""
-    inreplace "meson/meson_post_install.py", "if not os.environ.get('DESTDIR'):", "if 'DESTDIR' not in os.environ:"
+    ENV["DESTDIR"] = "/"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
       system "ninja"
       system "ninja", "install"
     end
+
+    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
+    inreplace share/"gir-1.0/GWeather-3.0.gir", "@rpath", lib.to_s
+    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/GWeather-3.0.typelib", share/"gir-1.0/GWeather-3.0.gir"
   end
 
   def post_install
@@ -102,3 +107,31 @@ class Libgweather < Formula
     system "./test"
   end
 end
+__END__
+diff --git a/libgweather/meson.build b/libgweather/meson.build
+index 301e7e8..6688807 100644
+--- a/libgweather/meson.build
++++ b/libgweather/meson.build
+@@ -62,6 +62,7 @@ lib_libgweather = shared_library('gweather-3',
+   include_directories: root_inc,
+   dependencies: deps_libgweather,
+   version: libgweather_so_version,
++  darwin_versions: libgweather_darwin_versions,
+   install: true,
+ )
+
+diff --git a/meson.build b/meson.build
+index eb27da4..862d705 100644
+--- a/meson.build
++++ b/meson.build
+@@ -21,6 +21,10 @@ libgweather_lt_a=0
+ libgweather_so_version = '@0@.@1@.@2@'.format((libgweather_lt_c - libgweather_lt_a),
+                                             libgweather_lt_a, libgweather_lt_r)
+
++current = libgweather_lt_c - libgweather_lt_a
++interface_age = libgweather_lt_r
++libgweather_darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, interface_age)]
++
+ pkgconfig = import('pkgconfig')
+ gnome = import('gnome')
+ i18n = import('i18n')

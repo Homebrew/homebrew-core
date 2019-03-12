@@ -1,14 +1,13 @@
 class Gucharmap < Formula
   desc "GNOME Character Map, based on the Unicode Character Database"
   homepage "https://wiki.gnome.org/Apps/Gucharmap"
-  url "https://download.gnome.org/sources/gucharmap/11.0/gucharmap-11.0.3.tar.xz"
-  sha256 "6fe4405aa4d2edeedf412befa3cdf423211c80f8836085c4c8c56679658e37fa"
+  url "https://download.gnome.org/sources/gucharmap/12.0/gucharmap-12.0.0.tar.xz"
+  sha256 "cdc3557a38a96d8163f81ce5bdec777bc4b652b0e069fdfa5144f5f0561b0ef9"
 
   bottle do
-    rebuild 1
-    sha256 "edb90dbc1546a8df9923b4768a4731b78bb9a8fd5052873798b1c1d7a4c656e7" => :mojave
-    sha256 "18d95b0c22072ee8244e8c2bb513fedf4b745e9573e5a91aa0343f41db45f3a2" => :high_sierra
-    sha256 "c9803dfa7e26936cdf408e48f845243e184f1e09d920262cf0ca1f77879f5af1" => :sierra
+    sha256 "624f23f65da3344f90003411bc5251f53c4088bf8f3daa3d8bfd961a13956eb0" => :mojave
+    sha256 "a83feceb2027332049a949794926b9a7d4fae3f15bde8982ee427ce67c85eee5" => :high_sierra
+    sha256 "1b4ec80d055a64e9e51159532170a1996cd0ceba96307d758aed38d8f519bfb7" => :sierra
   end
 
   depends_on "coreutils" => :build
@@ -18,6 +17,11 @@ class Gucharmap < Formula
   depends_on "pkg-config" => :build
   depends_on "python" => :build
   depends_on "gtk+3"
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gucharmap/commit/f832495aeeeb6b20a598b895261a9d1853005147.patch"
+    sha256 "d86f94bc4b73503d7653ee4ac77fabc00ceca4f9063f33141848af4a335b0f95"
+  end
 
   def install
     xy = Language::Python.major_minor_version "python3"

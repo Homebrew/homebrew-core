@@ -1,14 +1,14 @@
 class Kafka < Formula
   desc "Publish-subscribe messaging rethought as a distributed commit log"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/2.1.0/kafka_2.12-2.1.0.tgz"
-  sha256 "a70b44a682f5082f5c69182d4596e7ded2df38629f09b50a629070ddb1ef4f86"
+  url "https://www.apache.org/dyn/closer.cgi?path=/kafka/2.1.1/kafka_2.12-2.1.1.tgz"
+  sha256 "2053edce853c6c4f1204bf72f2760fc8cfda2cfb8ad624572d81bc3571eca7be"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c64dce4c55608665ae1885e4c741eae4450cc9baca5d19dee4e9e78841e85b6e" => :mojave
-    sha256 "445693c39bd27957bb04eb09393cfc106fedf50f7f92cc6ffe073099e17b0389" => :high_sierra
-    sha256 "445693c39bd27957bb04eb09393cfc106fedf50f7f92cc6ffe073099e17b0389" => :sierra
+    sha256 "7c56c9ee176a3ea0dcf9adcd9f01fa6f97597f5320796fb9ce8da6d8c1d0f255" => :mojave
+    sha256 "7c56c9ee176a3ea0dcf9adcd9f01fa6f97597f5320796fb9ce8da6d8c1d0f255" => :high_sierra
+    sha256 "315159da3e2bb3081b975e1258f7ebac185bda44cad845684db02c8a62214a37" => :sierra
   end
 
   # Related to https://issues.apache.org/jira/browse/KAFKA-2034

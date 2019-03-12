@@ -3,11 +3,12 @@ class Glib < Formula
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.60/glib-2.60.0.tar.xz"
   sha256 "20865d8b96840d89d9340fc485b4b1131c1bb24d16a258a22d642c3bb1b44353"
+  revision 1
 
   bottle do
-    sha256 "5e1e0db9ec145055e4d84ea26fc05ad36661883a668c9cb96aa72c93913248c5" => :mojave
-    sha256 "d830aefad89b2c64ed41c5a5b199c54f626cda1c1ec133289dce95928b876731" => :high_sierra
-    sha256 "3fb24c481dbb9ae3336225d5f3ab444110be816b4ed0b105d92a278d72157049" => :sierra
+    sha256 "7f3dda9780ca3352b170afb63175cb8ebd6d759c028a088f5f73103ad312bdc4" => :mojave
+    sha256 "2813d19cd554f197a914f40200fb1460cb9192d0ad0b19d7b224b4e13f16a2fa" => :high_sierra
+    sha256 "c141ff8a13d4df9a5b41bc5b22ff4b80b6a2ea17fc162a6ef6a29a84c86d53fa" => :sierra
   end
 
   depends_on "meson" => :build
@@ -48,7 +49,7 @@ class Glib < Formula
     # their modules
     inreplace lib/"pkgconfig/gio-2.0.pc",
               "giomoduledir=#{HOMEBREW_PREFIX}/lib/gio/modules",
-              "giomoduledir=${prefix}/lib/gio/modules"
+              "giomoduledir=${libdir}/gio/modules"
 
     # `pkg-config --libs glib-2.0` includes -lintl, and gettext itself does not
     # have a pkgconfig file, so we add gettext lib and include paths here.

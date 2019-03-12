@@ -1,14 +1,13 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.58/glib-networking-2.58.0.tar.xz"
-  sha256 "bdfa0255e031b8ee003cc283002536b77ee76450105f1dc6ab066b9bf4330068"
+  url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.0.tar.xz"
+  sha256 "9085edc77eae591fa43d62878c0428eb0abc564e14a985a26c0cf9392a319fe3"
 
   bottle do
-    sha256 "755fef493a32ac77d0c51b37f58059471fba1e9e709a42d22952a937c412c9c6" => :mojave
-    sha256 "434a7245581b3741d79b41f55fb4b1c7f0aea729e04b8e1ea838505025b6fc5d" => :high_sierra
-    sha256 "9db7d767f3a3b9f2f758e3076c77b59bd8905fccc2a97e21b085838e2ad7bafd" => :sierra
-    sha256 "c64f800a0043acaaa04693b684874547ce607d5b1babef1b054b9e27fa24465d" => :el_capitan
+    sha256 "5505deacdbf1387b122137293782d2268dfa42d25b895bd9ef2e62af04dc88c1" => :mojave
+    sha256 "8e6472219ce0ef120b9ff9a2dfbcac8d1121d229d7e4092024ee190bdf042129" => :high_sierra
+    sha256 "0750703a8b91af01014f9f1ed35b7d1a30cc38d65743517dc9dc1cd92b510901" => :sierra
   end
 
   depends_on "meson" => :build
@@ -21,13 +20,21 @@ class GlibNetworking < Formula
 
   link_overwrite "lib/gio/modules"
 
+  # see https://gitlab.gnome.org/GNOME/glib-networking/merge_requests/31
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib-networking/commit/1133663788212a1b8060febf7cc0d30c7bc0ecc0.patch"
+    sha256 "7e0081138e034804cad4dacc84a7aab962ef315b21bf6c39ce67b40e9699505d"
+  end
+
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}",
-                      "-Dlibproxy_support=false",
+                      "-Dlibproxy=disabled",
+                      "-Dopenssl=disabled",
+                      "-Dgnome_proxy=disabled",
                       ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
