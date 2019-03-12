@@ -1,8 +1,8 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.0.tar.xz"
-  sha256 "9085edc77eae591fa43d62878c0428eb0abc564e14a985a26c0cf9392a319fe3"
+  url "https://download.gnome.org/sources/glib-networking/2.60/glib-networking-2.60.0.1.tar.xz"
+  sha256 "674e8b062c0639c274848d40b8308f8fb2ecd8b82e7eb6fe805d1aca7deb983c"
 
   bottle do
     sha256 "5505deacdbf1387b122137293782d2268dfa42d25b895bd9ef2e62af04dc88c1" => :mojave
@@ -19,12 +19,6 @@ class GlibNetworking < Formula
   depends_on "gsettings-desktop-schemas"
 
   link_overwrite "lib/gio/modules"
-
-  # see https://gitlab.gnome.org/GNOME/glib-networking/merge_requests/31
-  patch do
-    url "https://gitlab.gnome.org/GNOME/glib-networking/commit/1133663788212a1b8060febf7cc0d30c7bc0ecc0.patch"
-    sha256 "7e0081138e034804cad4dacc84a7aab962ef315b21bf6c39ce67b40e9699505d"
-  end
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
