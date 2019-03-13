@@ -1,9 +1,8 @@
 class Fifechan < Formula
   desc "C++ GUI library designed for games"
   homepage "https://fifengine.github.io/fifechan/"
-  url "https://github.com/fifengine/fifechan/archive/0.1.4.tar.gz"
-  sha256 "a93b015b5852b8fe2a0a2a6891d3de2cacb196732f670e081d7b7966f9ed1b87"
-  revision 1
+  url "https://github.com/fifengine/fifechan/archive/0.1.5.tar.gz"
+  sha256 "29be5ff4b379e2fc4f88ef7d8bc172342130dd3e77a3061f64c8a75efe4eba73"
 
   bottle do
     cellar :any
