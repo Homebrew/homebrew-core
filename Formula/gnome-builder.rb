@@ -1,8 +1,8 @@
 class GnomeBuilder < Formula
   desc "IDE for GNOME"
   homepage "https://wiki.gnome.org/Apps/Builder"
-  url "https://download.gnome.org/sources/gnome-builder/3.28/gnome-builder-3.28.4.tar.xz"
-  sha256 "05281f01e66fde8fcd89af53709053583cf74d0ae4ac20b37185664f25396b45"
+  url "https://download.gnome.org/sources/gnome-builder/3.30/gnome-builder-3.30.3.tar.xz"
+  sha256 "9998f3d41d9526fdbf274cae712fafe7b79d0b9d1dd5739c6c2141e5e5550686"
 
   bottle do
     sha256 "1bde6ecb92fb4a42b3de47323b4efe1a5234aee985f40721e0bc9b59b8a7e839" => :mojave
@@ -12,7 +12,7 @@ class GnomeBuilder < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
@@ -20,7 +20,7 @@ class GnomeBuilder < Formula
   depends_on "dbus"
   depends_on "gspell"
   depends_on "gtk+3"
-  depends_on "gtksourceview3"
+  depends_on "gtksourceview4"
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
   depends_on "jsonrpc-glib"
@@ -36,7 +36,10 @@ class GnomeBuilder < Formula
 
   def install
     ENV.cxx11
-    ENV["DESTDIR"] = ""
+    ENV["DESTDIR"] = "/"
+
+    # prevent sandbox violation
+    pyver = Language::Python.major_minor_version "python3"
 
     args = %W[
       --prefix=#{prefix}
@@ -52,23 +55,15 @@ class GnomeBuilder < Formula
       -Dwith_vala_pack=false
       -Dwith_qemu=false
       -Dwith_safe_path=#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin
+      -Dwith_project_tree=false
+      -Dpython_libprefix=python#{pyver}
     ]
-
-    # prevent sandbox violation
-    pyver = Language::Python.major_minor_version "python3"
-    inreplace "src/libide/meson.build",
-              "install_dir: pygobject_override_dir",
-              "install_dir: '#{lib}/python#{pyver}/site-packages'"
 
     mkdir "build" do
       system "meson", *args, ".."
       system "ninja"
       system "ninja", "install"
     end
-
-    # meson-internal gives wrong install_names for dylibs due to their unusual installation location
-    # create softlinks to fix
-    ln_s Dir.glob("#{lib}/gnome-builder/*dylib"), lib
   end
 
   def post_install
@@ -82,81 +77,13 @@ class GnomeBuilder < Formula
 end
 
 __END__
-diff --git a/src/libide/meson.build b/src/libide/meson.build
-index 055801b..4e29f9d 100644
---- a/src/libide/meson.build
-+++ b/src/libide/meson.build
-@@ -160,37 +160,6 @@ if get_option('with_editorconfig')
-   ]
- endif
-
--# We want to find the subdirectory to install our override into:
--python3 = find_program('python3')
--
--get_overridedir = '''
--import os
--import sysconfig
--
--libdir = sysconfig.get_config_var('LIBDIR')
--if not libdir:
--  libdir = '/usr/lib'
--
--try:
--  import gi
--  overridedir = gi._overridesdir
--except ImportError:
--  purelibdir = sysconfig.get_path('purelib')
--  overridedir = os.path.join(purelibdir, 'gi', 'overrides')
--
--if overridedir.startswith(libdir): # Should always be True..
--  overridedir = overridedir[len(libdir) + 1:]
--
--print(overridedir)
--'''
--
--ret = run_command([python3, '-c', get_overridedir])
--if ret.returncode() != 0
--  error('Failed to determine pygobject overridedir')
--else
--  pygobject_override_dir = join_paths(get_option('libdir'), ret.stdout().strip())
--endif
--
- install_data('Ide.py', install_dir: pygobject_override_dir)
-
- libide_deps = [
-diff --git a/src/plugins/meson.build b/src/plugins/meson.build
-index d97d7e3..646e7f3 100644
---- a/src/plugins/meson.build
-+++ b/src/plugins/meson.build
-@@ -5,10 +5,8 @@ gnome_builder_plugins_sources = ['gnome-builder-plugins.c']
- gnome_builder_plugins_args = []
- gnome_builder_plugins_deps = [libpeas_dep, libide_plugin_dep, libide_dep]
- gnome_builder_plugins_link_with = []
--gnome_builder_plugins_link_deps = join_paths(meson.current_source_dir(), 'plugins.map')
--gnome_builder_plugins_link_args = [
--  '-Wl,--version-script,' + gnome_builder_plugins_link_deps,
--]
-+gnome_builder_plugins_link_deps = []
-+gnome_builder_plugins_link_args = []
-
- subdir('autotools')
- subdir('autotools-templates')
-@@ -76,7 +74,6 @@ gnome_builder_plugins = shared_library(
-   gnome_builder_plugins_sources,
-
-    dependencies: gnome_builder_plugins_deps,
--   link_depends: 'plugins.map',
-          c_args: gnome_builder_plugins_args,
-       link_args: gnome_builder_plugins_link_args,
-       link_with: gnome_builder_plugins_link_with,
-
 diff --git a/src/main.c b/src/main.c
-index f3bea6d..8f7eab8 100644
+index 9897203..212859a 100644
 --- a/src/main.c
 +++ b/src/main.c
-@@ -109,6 +109,9 @@ main (int   argc,
-   /* Setup our gdb fork()/exec() helper */
-   bug_buddy_init ();
+@@ -77,6 +77,9 @@ main (int   argc,
+   /* Always ignore SIGPIPE */
+   signal (SIGPIPE, SIG_IGN);
 
 +  /* macOS dbus hack */
 +  g_setenv("DBUS_SESSION_BUS_ADDRESS", "launchd:env=DBUS_LAUNCHD_SESSION_BUS_SOCKET", TRUE);
@@ -164,3 +91,24 @@ index f3bea6d..8f7eab8 100644
    /*
     * We require a desktop session that provides a properly working
     * DBus environment. Bail if for some reason that is not the case.
+diff --git a/src/plugins/meson.build b/src/plugins/meson.build
+index bd99831..8ba8819 100644
+--- a/src/plugins/meson.build
++++ b/src/plugins/meson.build
+@@ -7,7 +7,6 @@ gnome_builder_plugins_deps = [libpeas_dep, libide_plugin_dep, libide_dep]
+ gnome_builder_plugins_link_with = []
+ gnome_builder_plugins_link_deps = join_paths(meson.current_source_dir(), 'plugins.map')
+ gnome_builder_plugins_link_args = [
+-  '-Wl,--version-script,' + gnome_builder_plugins_link_deps,
+ ]
+
+ subdir('autotools')
+@@ -80,7 +79,6 @@ gnome_builder_plugins = shared_library(
+   gnome_builder_plugins_sources,
+
+    dependencies: gnome_builder_plugins_deps,
+-   link_depends: 'plugins.map',
+          c_args: gnome_builder_plugins_args + release_args,
+       link_args: gnome_builder_plugins_link_args,
+       link_with: gnome_builder_plugins_link_with,
+
