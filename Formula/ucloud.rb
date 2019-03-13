@@ -1,8 +1,8 @@
 class Ucloud < Formula
   desc "The official tool to managment your ucloud services"
   homepage "https://www.ucloud.cn"
-  url "https://github.com/ucloud/ucloud-cli/archive/0.1.10.tar.gz"
-  sha256 "931e5dd5fa74c58f955ef3c70a239b8234061c963f3dffdd32eca85dd7a540d0"
+  url "https://github.com/ucloud/ucloud-cli/archive/0.1.11.tar.gz"
+  sha256 "9335b68d5d6330e6270c5a3dae387d6ce040fa3179776988ad0d2af60cca05ba"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,7 +14,6 @@ class Ucloud < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/ucloud/ucloud-cli"
     dir.install buildpath.children
     cd dir do
