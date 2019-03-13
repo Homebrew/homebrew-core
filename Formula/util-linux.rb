@@ -15,33 +15,70 @@ class UtilLinux < Formula
 
   conflicts_with "rename", :because => "both install `rename` binaries"
 
+  def noshadow
+    list =%w[ipcmk isosize mcookie namei rename scriptreplay setsid]
+    list
+  end
+
+  def noshadow_sbin
+    list =%w[blkid findfs fsck.cramfs fsck.minix mkfs mkfs.bfs mkfs.cramfs mkfs.minix mkswap swaplabel]
+    list
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--program-prefix=l",
                           "--disable-ipcs",        # does not build on macOS
                           "--disable-ipcrm",       # does not build on macOS
                           "--disable-wall",        # already comes with macOS
-                          "--disable-libuuid",     # conflicts with ossp-uuid
-                          "--disable-libsmartcols" # macOS already ships 'column'
+                          "--disable-libuuid"      # conflicts with ossp-uuid
 
     system "make", "install"
 
-    # Remove binaries already shipped by macOS
-    %w[cal col colcrt colrm getopt hexdump logger nologin look mesg more renice rev ul whereis].each do |prog|
-      rm_f bin/prog
-      rm_f sbin/prog
-      rm_f man1/"#{prog}.1"
-      rm_f man8/"#{prog}.8"
-      rm_f share/"bash-completion/completions/#{prog}"
+    # Binaries not shadowing macOS utils symlinked without 'l' prefix
+    # install completions only for installed programs
+    noshadow.each do |cmd|
+      bin.install_symlink "l#{cmd}" => cmd
+      man1.install_symlink "l#{cmd}.1" => "#{cmd}.1"
+      bash_completion.install cmd
     end
 
+    # Binaries not shadowing macOS utils symlinked without 'l' prefix
     # install completions only for installed programs
-    Pathname.glob("bash-completion/*") do |prog|
-      if (bin/prog.basename).exist? || (sbin/prog.basename).exist?
-        bash_completion.install prog
-      end
+    noshadow_sbin.each do |cmd|
+      sbin.install_symlink "l#{cmd}" => cmd
+      man1.install_symlink "l#{cmd}.1" => "#{cmd}.1"
+      bash_completion.install cmd
     end
+
+    # Symlink commands without 'g' prefix into libexec/gnubin and
+    # man pages into libexec/gnuman
+    bin.find.each do |path|
+      next unless File.executable?(path) && !File.directory?(path)
+
+      cmd = path.basename.to_s.sub(/^l/, "")
+      (libexec/"gnubin").install_symlink bin/"l#{cmd}" => cmd
+      (libexec/"gnuman"/"man1").install_symlink man1/"l#{cmd}.1" => "#{cmd}.1"
+    end
+
+    libexec.install_symlink "gnuman" => "man"
+  end
+
+  def caveats; <<~EOS
+    The following commands have been installed without the prefix 'l'.
+
+        #{noshadow.sort.join("\n    ")}
+        #{noshadow_sbin.sort.join("\n    ")}
+
+    The rest of commands have been installed with the prefix to avoid shadowing
+    existing macOS commands. If you really need to use the rest of the commands
+    with their normal names, you can add a "gnubin" directory to your PATH from
+    your bashrc like:
+
+        PATH="#{opt_libexec}/gnubin:$PATH"
+  EOS
   end
 
   test do
