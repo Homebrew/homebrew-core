@@ -7,11 +7,9 @@ class LtcTools < Formula
 
   bottle do
     cellar :any
-    sha256 "46463c437a233a0dbfb0b364a9dc460fd690e8af3fcd35693db3f300a9a03bee" => :mojave
-    sha256 "9f0f16c105aeb4a59b421700c9bc3960eb4482aba07b0f9efa25098fcd4dc318" => :high_sierra
-    sha256 "f56c26db84aa0873f46e8431dbee7cee0f6060955cdc9f7747899d0a6fa10604" => :sierra
-    sha256 "3933abca95b5d7ec5c00222743963f3091464f4c0f577a51c35ca7cb11d57479" => :el_capitan
-    sha256 "660401226bf452b88ef65a043577a0693bcdb7518ef885e5ea9d83d33da2bfbd" => :yosemite
+    sha256 "ae65212fa593ee7015eb7bfa63b4e7e7691e56a7db0fc1a82a311aef184aae55" => :mojave
+    sha256 "15da8efd84adb9d9eb9c7b4450c75e326679b20bed258c8e7011fc6eb2cc9b20" => :high_sierra
+    sha256 "51df0ba95565d43955bbdf0cfbc216696b4002f8cc95c80d8f6b387eece034d1" => :sierra
   end
 
   depends_on "help2man" => :build
