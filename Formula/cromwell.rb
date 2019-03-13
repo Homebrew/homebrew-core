@@ -11,7 +11,6 @@ class Cromwell < Formula
 
   bottle :unneeded
 
-  depends_on "akka"
   depends_on :java => "1.8+"
 
   resource "womtool" do
@@ -22,7 +21,7 @@ class Cromwell < Formula
   def install
     if build.head?
       system "sbt", "assembly"
-      libexec.install Dir["target/scala-*/cromwell-*.jar"][0]
+      libexec.install Dir["server/target/scala-*/cromwell-*.jar"][0]
       libexec.install Dir["womtool/target/scala-2.12/womtool-*.jar"][0]
     else
       libexec.install Dir["cromwell-*.jar"][0]
