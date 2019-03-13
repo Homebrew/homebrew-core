@@ -5,10 +5,9 @@ class Jasper < Formula
   sha256 "f1d8b90f231184d99968f361884e2054a1714fdbbd9944ba1ae4ebdcc9bbfdb1"
 
   bottle do
-    rebuild 1
-    sha256 "ae619b7f71f1b8acc75cb50cb028fafd8d605cbd3f665eeafc73240a716e6e72" => :mojave
-    sha256 "ba3837db475f627b3793168dd04dab63997d74e207bfb6908d8e66913393eb5f" => :high_sierra
-    sha256 "904647ed12e708f1cfe4f318b992ba7d4545244d4dbbf7e285dcadd5412471bf" => :sierra
+    sha256 "59750e85fe924ee3c1a8e327794a741b909e4aac2b6d1446db1cbdadf039d317" => :mojave
+    sha256 "1aedb239b48d2111e75015d347126432af236243ca0b89efca136507abe0dd13" => :high_sierra
+    sha256 "dcc8d4289055c0fc3e13ab94b24cfb4fa8b0c2dd97f2642d712301d1ce03df20" => :sierra
   end
 
   depends_on "cmake" => :build
