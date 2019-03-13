@@ -6,9 +6,9 @@ class Hebcal < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "cecca73f00edd516755b430ada05ad5f640055deb09506ba2bf3db445d7f5c47" => :mojave
-    sha256 "e7aadcef74ea7d159f778e9a9c5026f7cdaa2657719b46b14ef15c9bdac48385" => :high_sierra
-    sha256 "91b330b5ce221fd20325d86130415505b5660649f787d1c7fbbb12d080c5a505" => :sierra
+    sha256 "88b3552aa73695025b19df5e10a2debc8cfeec869e514ae4900ea15d06cae695" => :mojave
+    sha256 "1e8b79908fdfaa02b7799faa44c244eacef01725f632fa287a2c3ffe665c3a0b" => :high_sierra
+    sha256 "9d037f49508775a3ebbd42e44e6bb05af4cdf169446b168a2893340994ec618e" => :sierra
   end
 
   depends_on "autoconf" => :build
