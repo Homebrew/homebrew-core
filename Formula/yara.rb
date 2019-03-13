@@ -29,7 +29,7 @@ class Yara < Formula
                           "--enable-magic",
                           "--enable-macho",
                           "--enable-dex",
-                          "--with-crpyto"
+                          "--with-crypto"
     system "make", "install"
   end
 
