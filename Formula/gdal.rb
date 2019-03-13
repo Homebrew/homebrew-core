@@ -37,7 +37,6 @@ class Gdal < Formula
   depends_on "numpy"
   depends_on "pcre"
   depends_on "podofo"
-  #depends_on "poppler" # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
   depends_on "proj"
   depends_on "python"
   depends_on "python@2"
@@ -92,7 +91,7 @@ class Gdal < Formula
       "--with-dods-root=#{Formula["libdap"].opt_prefix}",
       "--with-epsilon=#{Formula["epsilon"].opt_prefix}",
       "--with-webp=#{Formula["webp"].opt_prefix}",
-      #"--with-poppler=#{Formula["poppler"].opt_prefix}", # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
+      # "--with-poppler=#{Formula["poppler"].opt_prefix}", # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
       "--with-podofo=#{Formula["podofo"].opt_prefix}",
 
       # Explicitly disable some features
@@ -129,7 +128,7 @@ class Gdal < Formula
       "--without-dwgdirect",
       "--without-idb",
       "--without-sde",
-      #"--without-podofo", # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
+      # "--without-podofo", # Commented out as poppler 0.73+ doesn't work with gdal 2.4.0
       "--without-poppler",
       "--without-rasdaman",
       "--without-sosi",
