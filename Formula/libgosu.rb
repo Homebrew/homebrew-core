@@ -1,8 +1,8 @@
 class Libgosu < Formula
   desc "2D game development library"
   homepage "https://libgosu.org"
-  url "https://github.com/gosu/gosu/archive/v0.14.4.tar.gz"
-  sha256 "641081856459b78c854cf0ef5bfaf6514c99d6a03176020726096ae6717d181f"
+  url "https://github.com/gosu/gosu/archive/v0.14.5.tar.gz"
+  sha256 "4dbc4998e2c630ee7758544de4286c70c68e639524b6088ccdc7b5487c928695"
   head "https://github.com/gosu/gosu.git"
 
   bottle do
