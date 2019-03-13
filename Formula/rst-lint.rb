@@ -8,9 +8,9 @@ class RstLint < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "fda6b9e208ae80012c883a159e9bc9322b6d12b8c9b3a5f54f8a2cb37a137a1d" => :mojave
-    sha256 "ce1b1d7179d16f81917d85a72dd84488dc32c8323f1ecbb5029cc6f4095bbc2e" => :high_sierra
-    sha256 "36e4a419033b0dedb26121fed365cea8f882d93645d95f433cc879188f00570f" => :sierra
+    sha256 "d4f872f6ac7b155f2f7ad419192cdc9847a948f4ea9dbd59e6c41bddd0e0697f" => :mojave
+    sha256 "2257bb70af0eeffad85f346ae36cf26df6b9dcffa0673fa2d66530b8f0050760" => :high_sierra
+    sha256 "9ae21bb23126e276c651693ee5df78e9670142765c7ec1fea1ba5777cf196731" => :sierra
   end
 
   depends_on "python"
