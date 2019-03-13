@@ -1,8 +1,8 @@
 class Libyaml < Formula
   desc "YAML Parser"
   homepage "https://github.com/yaml/libyaml"
-  url "https://github.com/yaml/libyaml/archive/0.2.1.tar.gz"
-  sha256 "1d2aeb87f7d317f1496e4c39410d913840714874a354970300f375eec9303dc4"
+  url "https://github.com/yaml/libyaml/archive/0.2.2.tar.gz"
+  sha256 "46bca77dc8be954686cff21888d6ce10ca4016b360ae1f56962e6882a17aa1fe"
 
   bottle do
     cellar :any
