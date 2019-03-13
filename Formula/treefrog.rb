@@ -1,8 +1,8 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "http://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.22.0.tar.gz"
-  sha256 "0b9d79d0e17266ff603c1ff812289e8d2500d8f758d3c700ccc3aaad51e3751d"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.23.0.tar.gz"
+  sha256 "d1fad78445bc352a9b95a77b961407fbe0fab4c19da9a54ed50088b9b3a0c616"
   head "https://github.com/treefrogframework/treefrog-framework.git"
 
   bottle do
