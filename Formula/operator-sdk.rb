@@ -5,6 +5,13 @@ class OperatorSdk < Formula
   sha256 "2da85ed4d69da11344d935578cdd19ede0525804f66572081c53985e5a32c890"
   head "https://github.com/operator-framework/operator-sdk.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "7a1445110102bde59f3562eefd9f3b5203379084c442fa59a34b41e4dd50e917" => :mojave
+    sha256 "763c8c11ab0a1cddb5548630aa778a703fd2600b62870a520b195bdd82cf7ad3" => :high_sierra
+    sha256 "af60c9ec808f9050305ab760ed72489e17e7896710542271edf51eb38401546c" => :sierra
+  end
+
   depends_on "dep"
   depends_on "go"
 
