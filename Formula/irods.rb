@@ -1,9 +1,8 @@
 class Irods < Formula
   desc "Integrated data grid software solution"
   homepage "https://irods.org/"
-  url "https://github.com/irods/irods-legacy/archive/3.3.1.tar.gz"
-  sha256 "e34e7be8646317d5be1c84e680d8f59d50a223ea25a3c9717b6bf7b57df5b9f6"
-  revision 1
+  url "https://github.com/irods/irods/releases/download/4.2.5/irods-4.2.5.tar.gz"
+  sha256 "72c16c7a21664f38448d5640ddf7debdaa28b8000f8c5baa68405826f97a4756"
 
   bottle do
     cellar :any
