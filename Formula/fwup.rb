@@ -1,14 +1,14 @@
 class Fwup < Formula
   desc "Configurable embedded Linux firmware update creator and runner"
   homepage "https://github.com/fhunleth/fwup"
-  url "https://github.com/fhunleth/fwup/releases/download/v1.3.0/fwup-1.3.0.tar.gz"
-  sha256 "aa273338c4b3813c7c9ffe2397a20ff88a882db2049be70c01fd3ed0657abef6"
+  url "https://github.com/fhunleth/fwup/releases/download/v1.3.1/fwup-1.3.1.tar.gz"
+  sha256 "67afd3c21ea2e2dc806ea66ecb5def42d72fc194c74da40438c5a1edc4df3931"
 
   bottle do
     cellar :any
-    sha256 "e4ed30081aece27325565f00be9fae461bbf50b9a9ab256d0265f72afb65265a" => :mojave
-    sha256 "46e54bb9df5460b370d88cf4afb0f094b208e032b6de8a162f93696ff4e4bb9b" => :high_sierra
-    sha256 "a2ee234f6351f7ce8f6028bb2ea67c00f58fe9bf055c23b0f1aee7ffd47f82f7" => :sierra
+    sha256 "46f784f18ff96014fc8b259275495acb34161e0c703d430a9537cd52f60a0006" => :mojave
+    sha256 "408355b57d37c6811d3d263c62294072dbffa479a1e884a3db882a79a9d9622b" => :high_sierra
+    sha256 "09afa3869372eee0155d5523168b96f475de1175c2daa4b8522485583b041bcf" => :sierra
   end
 
   depends_on "pkg-config" => :build

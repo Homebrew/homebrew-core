@@ -1,14 +1,13 @@
 class RubyAT25 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz"
-  sha256 "1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f"
-  revision 1
+  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.4.tar.xz"
+  sha256 "46f6eff655a6be1939f70c7a4c1bf58f76663e7e804738bc52f4d47ca31dee3d"
 
   bottle do
-    sha256 "8b9cc7ab4d3d1d8aa1cb11c1c4c6f3c3d5b1454752886c03ee1f2e35e0aa91de" => :mojave
-    sha256 "3d615edca44c16adbe06ed28fa40006d49a70686ce07a1bf0409a7cc849d9228" => :high_sierra
-    sha256 "7f5ac99cb0874a5debf1da47e1eb232b62fc6ab4213fb9300c62b115bd4a16d5" => :sierra
+    sha256 "e2f0ede3be82ec927bc9ffcfe77d9d298b6e5a45ec1b7da4066ac2ea17369865" => :mojave
+    sha256 "b14f824b08debc2bcd5fe2ee894ae2a1a86a8383e344641bdca7ffa49ded6991" => :high_sierra
+    sha256 "410fbe0d171c4988c765b625d6f79e5fc65d8ecc9b53dfb8e73bc1aef49b15f5" => :sierra
   end
 
   keg_only :versioned_formula

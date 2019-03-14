@@ -1,16 +1,14 @@
 class Fifechan < Formula
   desc "C++ GUI library designed for games"
   homepage "https://fifengine.github.io/fifechan/"
-  url "https://github.com/fifengine/fifechan/archive/0.1.4.tar.gz"
-  sha256 "a93b015b5852b8fe2a0a2a6891d3de2cacb196732f670e081d7b7966f9ed1b87"
-  revision 1
+  url "https://github.com/fifengine/fifechan/archive/0.1.5.tar.gz"
+  sha256 "29be5ff4b379e2fc4f88ef7d8bc172342130dd3e77a3061f64c8a75efe4eba73"
 
   bottle do
     cellar :any
-    sha256 "06da9e38eb6a8d87b29a73e14073a396b650057905589a185cc8e7935197e899" => :mojave
-    sha256 "b3f6cd4d4da46b31b05065e92c0aa8159e809e4d6e9a17cb8f8a3d9abdf4a76a" => :high_sierra
-    sha256 "357c467807ac368322803f4774441a8679983715efbe7ab2b89b22bbc4c03f1c" => :sierra
-    sha256 "a12266c07e0109b9ad91c8747a25a2a0bb9469db382718f037d5a01175c8bad5" => :el_capitan
+    sha256 "5937aa4c53237b058dda1132fe52cb170edc885c553c0137c8f65cc969e34670" => :mojave
+    sha256 "212bf8bc5c6fc69aab9c0c155e6555e5e104031a60352e5890a948c40f5547af" => :high_sierra
+    sha256 "67ef643758003a8f58eaf26fe3955542d90304c5371fa634da0137b2223ca7aa" => :sierra
   end
 
   depends_on "cmake" => :build
