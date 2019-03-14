@@ -1,9 +1,8 @@
 class RubyAT25 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.3.tar.xz"
-  sha256 "1cc9d0359a8ea35fc6111ec830d12e60168f3b9b305a3c2578357d360fcf306f"
-  revision 1
+  url "https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.4.tar.xz"
+  sha256 "46f6eff655a6be1939f70c7a4c1bf58f76663e7e804738bc52f4d47ca31dee3d"
 
   bottle do
     sha256 "8b9cc7ab4d3d1d8aa1cb11c1c4c6f3c3d5b1454752886c03ee1f2e35e0aa91de" => :mojave
