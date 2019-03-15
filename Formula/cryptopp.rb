@@ -11,6 +11,21 @@ class Cryptopp < Formula
     system "make", "shared", "all", "CXX=#{ENV.cxx}"
     system "./cryptest.exe", "v"
     system "make", "install", "PREFIX=#{prefix}"
+    (lib/"pkgconfig/cryptopp.pc").write pc_file
+  end
+
+  def pc_file; <<~EOS
+    prefix=#{opt_prefix}
+    exec_prefix=${prefix}
+    libdir=${exec_prefix}/lib
+    includedir=${prefix}/include
+
+    Name: libcryptopp
+    Description: Free C++ class library of cryptographic schemes
+    Version: #{version}
+    Libs: -L${libdir} -lcryptopp
+    Cflags: -I${includedir}
+  EOS
   end
 
   test do
