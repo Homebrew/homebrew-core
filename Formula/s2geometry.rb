@@ -1,9 +1,8 @@
 class S2geometry < Formula
   desc "Computational geometry and spatial indexing on the sphere"
   homepage "https://github.com/google/s2geometry.git"
-  url "https://github.com/google/s2geometry/archive/v0.9.0-2019.02.11.00.tar.gz"
-  version "0.9.0-2019.02.11.00"
-  sha256 "226315d1b720c12e9209c21f084f0570a069a02bea624886b69816291506edff"
+  url "https://github.com/google/s2geometry/archive/v0.9.0.tar.gz"
+  sha256 "54c09b653f68929e8929bffa60ea568e26f3b4a51e1b1734f5c3c037f1d89062"
 
   depends_on "cmake" => :build
   depends_on "glog" => :build
@@ -16,7 +15,7 @@ class S2geometry < Formula
   end
 
   def install
-    ENV["OPENSSL_INCLUDE_DIR"] = Formula["openssl"].include
+    ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix
 
     (buildpath/"gtest").install resource "gtest"
     (buildpath/"gtest/googletest").cd do
@@ -28,10 +27,23 @@ class S2geometry < Formula
     mkdir "build" do
       args = std_cmake_args
       args << "-DWITH_GLOG=1"
+      args << "-DBUILD_SHARED_LIBS=OFF"
+      args << "-DOPENSSL_USE_STATIC_LIBS=TRUE"
+      args << "-DCMAKE_BUILD_TYPE=Release"
       args << "-DCMAKE_OSX_SYSROOT=/" unless MacOS::Xcode.installed?
       args << ".."
       system "cmake", "-G", "Unix Makefiles", *args
       system "make", "install"
+    end
+    mkdir "build-shared" do
+      args = std_cmake_args
+      args << "-DCMAKE_BUILD_TYPE=Release"
+      args << "-DWITH_GLOG=1"
+      args << "-DCMAKE_OSX_SYSROOT=/" unless MacOS::Xcode.installed?
+      args << ".."
+      system "cmake", "-G", "Unix Makefiles", *args
+      system "make", "s2"
+      lib.install "libs2.dylib"
     end
   end
 
