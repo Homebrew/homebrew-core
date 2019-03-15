@@ -1,9 +1,9 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://www.threadingbuildingblocks.org/"
-  url "https://github.com/01org/tbb/releases/download/2019_U4/tbb2019_20190206oss_and.tgz"
+  url "https://github.com/01org/tbb/archive/2019_U4.tar.gz"
   version "2019_U4"
-  sha256 "e2f5a953acebe8851164b0c225bbb38bf4fb9dab6c714ed50e6ac0ac6c64b551"
+  sha256 "342a0a2cd583879850658284b86e9351ea019b4f3fcd731f4c18456f0ce9f900"
 
   bottle do
     cellar :any
