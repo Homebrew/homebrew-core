@@ -18,6 +18,8 @@ class Proj < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "pkg-config" => :build
+
   conflicts_with "blast", :because => "both install a `libproj.a` library"
 
   skip_clean :la
