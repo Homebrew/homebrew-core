@@ -8,9 +8,9 @@ class Dnsviz < Formula
 
   bottle do
     cellar :any
-    sha256 "dd80c8d3dd7b5c1d7ea4582543660ec347b5ec9c5a032ffbee8b5e66ba86c55d" => :mojave
-    sha256 "4b906c5a99b284e5d3874d984952fb0422ea62246630c0632531f1712e69cbbc" => :high_sierra
-    sha256 "b3ab518a1efdd10bebd202aac28863c00e2af5ecd3b5d0b3b334b34dd212b66c" => :sierra
+    sha256 "f55b130eee33b503ea3b4c88ba34c952ae58a070c632fdac326962199c9ef5b6" => :mojave
+    sha256 "6324be158374f9b93e287ada9dfe33c2aef01b05a4bacc78fea47719f69d2db9" => :high_sierra
+    sha256 "08325b100e560aad351b72002e7828b713f3f39e003e2a3eaa2a6cc7d4797e62" => :sierra
   end
 
   depends_on "pkg-config" => :build
