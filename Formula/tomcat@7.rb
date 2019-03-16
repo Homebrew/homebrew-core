@@ -24,6 +24,29 @@ class TomcatAT7 < Formula
     bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
   end
 
+  plist_options :manual => "catalina run"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Disabled</key>
+        <false/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/catalina</string>
+          <string>run</string>
+        </array>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+    </plist>
+  EOS
+  end
+
   test do
     ENV["CATALINA_BASE"] = testpath
     cp_r Dir["#{libexec}/*"], testpath
