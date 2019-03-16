@@ -32,6 +32,7 @@ class Netdata < Formula
       s.gsub!(/web files owner = .*/, "web files owner = #{ENV["USER"]}")
       s.gsub!(/web files group = .*/, "web files group = #{Etc.getgrgid(prefix.stat.gid).name}")
     end
+    (var/"netdata").mkpath
   end
 
   plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/netdata -D"
@@ -60,6 +61,8 @@ class Netdata < Formula
   test do
     system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file",
                               "#{testpath}/netdata.unittest.unique.id",
+                              "-W", "set", "registry", "netdata management api key file",
+                              "#{testpath}/netdata.api.key",
                               "-W", "unittest"
   end
 end
