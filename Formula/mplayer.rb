@@ -20,7 +20,10 @@ class Mplayer < Formula
     patch :DATA
   end
 
+  depends_on "pkg-config" => :build
   depends_on "yasm" => :build
+  depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "libcaca"
 
   def install
@@ -35,6 +38,7 @@ class Mplayer < Formula
       --prefix=#{prefix}
       --disable-x11
       --enable-caca
+      --enable-freetype
     ]
     system "./configure", *args
     system "make"
