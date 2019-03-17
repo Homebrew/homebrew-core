@@ -1,8 +1,9 @@
 class Ctop < Formula
   desc "Top-like interface for container metrics"
   homepage "https://bcicen.github.io/ctop/"
-  url "https://github.com/bcicen/ctop/archive/v0.7.2.tar.gz"
-  sha256 "bb40939b3d420864db6abc82e885a755f6de5b2e84eef3c7b956a8508f931811"
+  url "https://github.com/bcicen/ctop.git",
+    :tag      => "v0.7.2",
+    :revision => "70bd2ae3a3476969cae3c7f921d38b130ceec648"
 
   bottle do
     cellar :any_skip_relocation
@@ -11,14 +12,14 @@ class Ctop < Formula
     sha256 "fa9113c826584235dfbe6e96092c3c0fe74dfb5ae37719b0f5f1726191f3f051" => :sierra
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "on"
-    (buildpath/"src/github.com/bcicen/ctop").install buildpath.children
-    cd "src/github.com/bcicen/ctop" do
+    src = buildpath/"src/github.com/bcicen/ctop"
+    src.install buildpath.children
+    src.cd do
       system "make", "build"
       bin.install "ctop"
       prefix.install_metafiles
