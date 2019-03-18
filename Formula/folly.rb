@@ -32,6 +32,18 @@ class Folly < Formula
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
 
+  # patch for cmake 3.14
+  patch do
+    url "https://github.com/facebook/folly/commit/1cb1ad79856285d8648def37f5339e8d9135f7d7.diff?full_index=1"
+    sha256 "e193327b8003d10c6eec3b75c3dd509480cb9dd458eee570b09feecfe1828497"
+  end
+
+  # patch for pclmul compiler flags to fix mojave build
+  patch do
+    url "https://github.com/facebook/folly/commit/964ca3c4979f72115ebfec58056e968a69d5942c.diff?full_index=1"
+    sha256 "b719dd8783f655f0d98cd0e2339ef66753a8d2503c82d334456a86763b0b889f"
+  end
+
   def install
     ENV.cxx11
 
