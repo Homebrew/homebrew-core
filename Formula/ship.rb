@@ -11,9 +11,11 @@ class Ship < Formula
     sha256 "debdb05f2b6bc5a17e014440ad3d7ddebf88887bd23a6949f3c3f22eb1bbc6d4" => :sierra
   end
 
-  depends_on "go@1.10" => :build
+  depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
+
+  depends_on :macos => :high_sierra #Ship fails to build with Golang 1.12 on Sierra
 
   def install
     ENV["GOPATH"] = buildpath
