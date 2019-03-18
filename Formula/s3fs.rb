@@ -1,8 +1,8 @@
 class S3fs < Formula
   desc "FUSE-based file system backed by Amazon S3"
   homepage "https://github.com/s3fs-fuse/s3fs-fuse/wiki"
-  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.84.tar.gz"
-  sha256 "39b844fe94b44af48ab8d57645a0a3fd9a64486bb54413ba7f928111cb4093a3"
+  url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.85.tar.gz"
+  sha256 "c4b48c0aba6565b9531c251d42a6a475a7e845909a3017b61d9c945b15cc008f"
   head "https://github.com/s3fs-fuse/s3fs-fuse.git"
 
   bottle do
