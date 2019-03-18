@@ -1,9 +1,8 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_2.1.5.tar.gz"
-  sha256 "2f3de90a09bba6d24c89258be016fd6992886bda13dbbcaf03de58c765774845"
-  revision 2
+  url "https://gmic.eu/files/source/gmic_2.5.3.tar.gz"
+  sha256 "be723f9efb1b295d1d019037c72217136be582a7af26d5d044a2009df0c4e6ec"
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
@@ -21,7 +20,6 @@ class Gmic < Formula
   depends_on "libtiff"
 
   def install
-    cp "resources/CMakeLists.txt", buildpath
     system "cmake", *std_cmake_args,
                     "-DENABLE_FFMPEG=OFF",
                     "-DENABLE_OPENCV=OFF",
