@@ -3,8 +3,8 @@ class Openvdb < Formula
   homepage "https://www.openvdb.org/"
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v6.0.0.tar.gz"
   sha256 "dbdf3048336444c402e5d3727c9bfb2e84454b8d0fd468ba92a8c7225e24b7b4"
-  head "https://github.com/AcademySoftwareFoundation/openvdb.git"
   revision 1
+  head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
     sha256 "61bae9831330a80fa016b1a4337c2629648076c60ea86f3a37a9c756c16129cc" => :mojave
