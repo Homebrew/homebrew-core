@@ -20,6 +20,8 @@ class Ship < Formula
     srcpath = buildpath/"src/github.com/replicatedhq/ship"
     srcpath.install buildpath.children
     srcpath.cd do
+      system "go", "version"
+      system "go", "env"
       system "make", "VERSION=#{version}", "build-minimal"
       bin.install "bin/ship"
     end
