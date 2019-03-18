@@ -11,7 +11,7 @@ class Ship < Formula
     sha256 "debdb05f2b6bc5a17e014440ad3d7ddebf88887bd23a6949f3c3f22eb1bbc6d4" => :sierra
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.10" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
 
@@ -20,8 +20,6 @@ class Ship < Formula
     srcpath = buildpath/"src/github.com/replicatedhq/ship"
     srcpath.install buildpath.children
     srcpath.cd do
-      system "go", "version"
-      system "go", "env"
       system "make", "VERSION=#{version}", "build-minimal"
       bin.install "bin/ship"
     end
