@@ -5,14 +5,14 @@ class GoAT111 < Formula
   mirror "https://fossies.org/linux/misc/go1.11.6.src.tar.gz"
   sha256 "a96da1425dcbec094736033a8a416316547f8100ab4b72c31d4824d761d3e133"
 
+  keg_only :versioned_formula
+
+  depends_on :macos => :yosemite
+
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
         :branch => "release-branch.go1.11"
   end
-
-  keg_only :versioned_formula
-
-  depends_on :macos => :yosemite
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
