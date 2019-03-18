@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.0.0-src.tar.bz2"
-  sha256 "f51d8bbfc4e73a8a01820b7871a45d13c59f1399822cdf8a19388c69eb20c18c"
+  url "https://bitbucket.org/pypy/pypy/downloads/pypy2.7-v7.1.0-src.tar.bz2"
+  sha256 "84ce5bc2867b224e2516ef431d78c6908d0182bc89444f7c1ef707443763754f"
   head "https://bitbucket.org/pypy/pypy", :using => :hg
 
   bottle do
