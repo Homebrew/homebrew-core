@@ -3,17 +3,12 @@ class SwiProlog < Formula
   homepage "http://www.swi-prolog.org/"
   url "http://www.swi-prolog.org/download/stable/src/swipl-8.0.2.tar.gz"
   sha256 "abb81b55ac5f2c90997c0005b1f15b74ed046638b64e784840a139fe21d0a735"
+  head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   bottle do
     sha256 "4ce8634e10c98507c9a56d69a3793194f1997918643e4d2c0b1a76c62a238e3d" => :mojave
     sha256 "6e1bbd48b46ecedbeddff4b6a23138fe5b1784c8f8152772fbe945bfb27425f2" => :high_sierra
     sha256 "503b3bf2fb95bd8914617732ac23970789b471e44211c240bab6a63d5a210513" => :sierra
-  end
-
-  head do
-    url "https://github.com/SWI-Prolog/swipl-devel.git"
-
-    depends_on "cmake" => :build
   end
 
   depends_on "cmake" => :build
