@@ -1,8 +1,8 @@
 class Openfortivpn < Formula
   desc "Open Fortinet client for PPP+SSL VPN tunnel services"
   homepage "https://github.com/adrienverge/openfortivpn"
-  url "https://github.com/adrienverge/openfortivpn/archive/v1.8.1.tar.gz"
-  sha256 "292c84265ab33a0a0cbb063d0049ac8bd78cb0309cb207c3e575ca4a6ee13659"
+  url "https://github.com/adrienverge/openfortivpn/archive/v1.9.0.tar.gz"
+  sha256 "2087e9b6d785037d1eb0cf28c889612b7774dd3bf7652da15a43fc33068581d9"
 
   bottle do
     sha256 "f90028421a138d158dbc999c801612c18439692f350a07f4212a2e52d7e2f0fd" => :mojave
