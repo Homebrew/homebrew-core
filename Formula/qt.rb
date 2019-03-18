@@ -19,9 +19,9 @@ class Qt < Formula
 
   keg_only "Qt 5 has CMake issues when linked"
 
-  depends_on :macos => :sierra
   depends_on "pkg-config" => :build
   depends_on :xcode => :build
+  depends_on :macos => :sierra
 
   def install
     args = %W[
