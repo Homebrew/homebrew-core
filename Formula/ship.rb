@@ -15,7 +15,7 @@ class Ship < Formula
   depends_on "node" => :build
   depends_on "yarn" => :build
 
-  depends_on :macos => :high_sierra #Ship fails to build with Golang 1.12 on Sierra
+  depends_on :macos => :high_sierra # Ship fails to build with Golang 1.12 on Sierra
 
   def install
     ENV["GOPATH"] = buildpath
