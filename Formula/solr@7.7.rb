@@ -6,6 +6,8 @@ class SolrAT77 < Formula
 
   bottle :unneeded
 
+  keg_only :versioned_formula
+
   depends_on :java
 
   skip_clean "example/logs"
