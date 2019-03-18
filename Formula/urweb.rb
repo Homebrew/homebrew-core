@@ -12,6 +12,7 @@ class Urweb < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "icu4c" => :build
   depends_on "libtool" => :build
   depends_on "mlton" => :build
   depends_on "gmp"
