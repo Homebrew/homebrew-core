@@ -1,9 +1,8 @@
 class Fontforge < Formula
   desc "Command-line outline and bitmap font editor/converter"
   homepage "https://fontforge.github.io"
-  url "https://github.com/fontforge/fontforge/releases/download/20170731/fontforge-dist-20170731.tar.xz"
-  sha256 "840adefbedd1717e6b70b33ad1e7f2b116678fa6a3d52d45316793b9fd808822"
-  revision 4
+  url "https://github.com/fontforge/fontforge/releases/download/20190317/fontforge-20190317.tar.gz"
+  sha256 "b711adec0da9ee490bbc2698b33e6630150931e08e826d1b63eb3131d85db8b5"
 
   bottle do
     cellar :any
@@ -26,21 +25,9 @@ class Fontforge < Formula
   depends_on "pango"
   depends_on "python@2"
 
-  # Remove for > 20170731
-  # Fix "fatal error: 'mem.h' file not found"
-  # Upstream PR from 22 Sep 2017 https://github.com/fontforge/fontforge/pull/3156
-  patch do
-    url "https://github.com/fontforge/fontforge/commit/9f69bd0f9.patch?full_index=1"
-    sha256 "f8afa9a6ab7a71650a3f013d9872881754e1ba4a265f693edd7ba70f2ec1d525"
-  end
-
   def install
     ENV["PYTHON_CFLAGS"] = `python-config --cflags`.chomp
     ENV["PYTHON_LIBS"] = `python-config --ldflags`.chomp
-
-    # Fix header includes to avoid crash at runtime:
-    # https://github.com/fontforge/fontforge/pull/3147
-    inreplace "fontforgeexe/startnoui.c", "#include \"fontforgevw.h\"", "#include \"fontforgevw.h\"\n#include \"encoding.h\""
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
@@ -73,7 +60,8 @@ class Fontforge < Formula
   test do
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
-    ENV.append_path "PYTHONPATH", lib/"python2.7/site-packages"
-    system "python2.7", "-c", "import fontforge; fontforge.font()"
+    xy = Language::Python.major_minor_version "python"
+    ENV.append_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system "python", "-c", "import fontforge; fontforge.font()"
   end
 end
