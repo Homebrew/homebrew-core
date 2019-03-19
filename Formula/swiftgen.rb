@@ -4,6 +4,7 @@ class Swiftgen < Formula
   url "https://github.com/SwiftGen/SwiftGen.git",
       :tag      => "6.1.0",
       :revision => "c6477a6950d313c94c964c6c8ec960e3aeccb8f6"
+  revision 1
   head "https://github.com/SwiftGen/SwiftGen.git"
 
   bottle do
