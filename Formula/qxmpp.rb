@@ -1,9 +1,8 @@
 class Qxmpp < Formula
   desc "Cross-platform C++ XMPP client and server library"
   homepage "https://github.com/qxmpp-project/qxmpp/"
-  url "https://github.com/qxmpp-project/qxmpp/archive/v0.9.3.tar.gz"
-  sha256 "13f5162a1df720702c6ae15a476a4cb8ea3e57d861a992c4de9147909765e6de"
-  revision 2
+  url "https://github.com/qxmpp-project/qxmpp/archive/v1.0.0.tar.gz"
+  sha256 "bf62ac8d0b5741b3cb07ea92780b279d5c34d000dc7401d6c20a9b77865a5c1e"
 
   bottle do
     cellar :any
@@ -14,12 +13,14 @@ class Qxmpp < Formula
     sha256 "6205c7bb9b62fbf5bcbce366e77c2a77992a3bcd88d5666e751a7dfee9202936" => :yosemite
   end
 
+  depends_on "cmake" => :build
   depends_on "qt"
 
   def install
-    system "qmake", "-config", "release", "PREFIX=#{prefix}"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "cmake", "--build", ".", "--target", "install"
+    end
   end
 
   test do
