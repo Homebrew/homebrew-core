@@ -14,8 +14,8 @@ class Nasm < Formula
   head do
     url "https://repo.or.cz/nasm.git"
     depends_on "asciidoc" => :build
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "xmlto" => :build
   end
 
