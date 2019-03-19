@@ -1,9 +1,8 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2018.09.24.00.tar.gz"
-  sha256 "99b6ddb92ee9cf3db262b372ee7dc6a29fe3e2de14511ecc50458bf77fc29c6e"
-  revision 3
+  url "https://github.com/facebook/folly/archive/v2019.03.18.00.tar.gz"
+  sha256 "45b47d5d0ee5652bcb87bde6b03cf5a3232b04b3750056831b9e72ea4e1871db"
   head "https://github.com/facebook/folly.git"
 
   bottle do
@@ -21,16 +20,23 @@ class Folly < Formula
   depends_on "libevent"
   depends_on "lz4"
 
-  # https://github.com/facebook/folly/issues/451
-  depends_on :macos => :el_capitan
+  # https://github.com/facebook/folly/issues/966
+  depends_on :macos => :high_sierra
 
   depends_on "openssl"
   depends_on "snappy"
   depends_on "xz"
+  depends_on "zstd"
 
   # Known issue upstream. They're working on it:
   # https://github.com/facebook/folly/pull/445
   fails_with :gcc => "6"
+
+  # patch for pclmul compiler flags to fix mojave build
+  patch do
+    url "https://github.com/facebook/folly/commit/964ca3c4979f72115ebfec58056e968a69d5942c.diff?full_index=1"
+    sha256 "b719dd8783f655f0d98cd0e2339ef66753a8d2503c82d334456a86763b0b889f"
+  end
 
   def install
     ENV.cxx11
