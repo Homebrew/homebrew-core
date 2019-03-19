@@ -5,10 +5,10 @@ class Conserver < Formula
   sha256 "764443b2798047f7429747510eeb3207240260590551700d13dbbad8a5bdee08"
 
   bottle do
-    sha256 "3332bc506c85754b3b601989941613c83932ea28b4fb8aef87e45dfa576807c2" => :mojave
-    sha256 "3fca2dc202bf6d68cc8294be8c2703bef813ad6583d51c3d9c4da12dbc975a89" => :high_sierra
-    sha256 "c3885b3a01be7c4d0a4ed943906c4cb13be485b770271ac94cf9e439fdb9ca9a" => :sierra
-    sha256 "d9f2d169e4a3adf0e46b7047991dba382147da1bd0923969bd0bec7bf7f14900" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "97403a07aac75ec35f200f6c804c55f6e011dd472146c87c53da209f130f74a6" => :mojave
+    sha256 "1a5372d2617d47faea48393dcf6dffe38d778194a7e1e7deb32f49548884b2d4" => :high_sierra
+    sha256 "b86cff5c3d9803a8840b06199065fe07b29d8361457412d7063f171a42cf6b2e" => :sierra
   end
 
   def install
