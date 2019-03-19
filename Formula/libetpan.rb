@@ -1,9 +1,8 @@
 class Libetpan < Formula
   desc "Portable mail library handling several protocols"
   homepage "https://www.etpan.org/libetpan.html"
-  url "https://github.com/dinhviethoa/libetpan/archive/1.9.2.tar.gz"
-  sha256 "45a3bef81ae1818b8feb67cd1f016e774247d7b03804d162196e5071c82304ab"
-  revision 1
+  url "https://github.com/dinhviethoa/libetpan/archive/1.9.3.tar.gz"
+  sha256 "591f97d5102f600e668502fe1dd5a341e910a840d8ea62e689a3a79d8bfbac87"
   head "https://github.com/dinhviethoa/libetpan.git", :branch => "master"
 
   bottle do
