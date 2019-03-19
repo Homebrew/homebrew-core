@@ -7,10 +7,9 @@ class Gmic < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "eaff00c94294d5127e2bda3e6337fb211bdae2e0b71d288a9ea32c2871611894" => :mojave
-    sha256 "840b556cf36d1e965cda69a690eb5abeb47dc9fd5d9ba27c49b3226ba144e12e" => :high_sierra
-    sha256 "faa35aaf650b223d121ca2aa66f395b3429695bc3800e0d31805a0e2b121dea2" => :sierra
+    sha256 "c2505ebec43442e16ded4e4e0f74b41779bb60297755f9d4b7976634ffd96b21" => :mojave
+    sha256 "0c861bb5ab69f108770ccbd9973b54980f447033db613614c1e6684a452f1eec" => :high_sierra
+    sha256 "4f8c8f6195426605e456533e1f2705a012c1fd2166d2ba14d6524357c14f2061" => :sierra
   end
 
   depends_on "cmake" => :build
