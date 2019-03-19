@@ -1,8 +1,8 @@
 class Conserver < Formula
   desc "Allows multiple users to watch a serial console at the same time"
   homepage "https://www.conserver.com/"
-  url "https://github.com/conserver/conserver/releases/download/v8.2.2/conserver-8.2.2.tar.gz"
-  sha256 "05ea1693bf92b42ad2f0a9389c60352ccd35c2ea93c8fc8e618d0153362a7d81"
+  url "https://github.com/conserver/conserver/releases/download/v8.2.3/conserver-8.2.3.tar.gz"
+  sha256 "764443b2798047f7429747510eeb3207240260590551700d13dbbad8a5bdee08"
 
   bottle do
     sha256 "3332bc506c85754b3b601989941613c83932ea28b4fb8aef87e45dfa576807c2" => :mojave
