@@ -1,8 +1,8 @@
 class Slackcat < Formula
   desc "Command-line utility for posting snippets to Slack"
   homepage "https://github.com/vektorlab/slackcat"
-  url "https://github.com/vektorlab/slackcat/archive/v1.4.tar.gz"
-  sha256 "43c80b7d546bca51af47b3df8b79a2e5ce021042ea91d877e2feb33a7ca81305"
+  url "https://github.com/vektorlab/slackcat/archive/v1.6.tar.gz"
+  sha256 "e5c8f98f3048cccc3f8e49c0449435a839a18c7f12426643ac80731b63b829a9"
 
   bottle do
     cellar :any_skip_relocation
@@ -13,16 +13,16 @@ class Slackcat < Formula
     sha256 "bd75f396807917734adec3c541faebee3789841474fdd81c343c61c6a739d293" => :el_capitan
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/vektorlab/slackcat").install buildpath.children
-    cd "src/github.com/vektorlab/slackcat" do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", bin/"slackcat",
-           "-ldflags", "-X main.version=#{version}"
+    ENV["GO111MODULE"] = "on"
+
+    src = buildpath/"src/github.com/vektorlab/slackcat"
+    src.install buildpath.children
+    src.cd do
+      system "go", "build", "-o", bin/"slackcat", "-ldflags", "-X main.version=#{version}"
       prefix.install_metafiles
     end
   end
