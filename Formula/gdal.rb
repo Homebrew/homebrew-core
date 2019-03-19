@@ -82,7 +82,7 @@ class Gdal < Formula
       "--with-proj=#{Formula["proj"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
       "--with-liblzma=yes",
-      "--with-cfitsio=#{Formula["proj"].opt_prefix}",
+      "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",
       "--with-hdf5=#{Formula["hdf5"].opt_prefix}",
       "--with-netcdf=#{Formula["netcdf"].opt_prefix}",
       "--with-jasper=#{Formula["jasper"].opt_prefix}",
