@@ -1,9 +1,8 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://podofo.sourceforge.io"
-  url "https://downloads.sourceforge.net/podofo/podofo-0.9.5.tar.gz"
-  sha256 "854981cb897ebc14bac854ea0f25305372261a48a205363fe1c61659ba7b5304"
-  revision 2
+  url "https://downloads.sourceforge.net/podofo/podofo-0.9.6.tar.gz"
+  sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
 
   bottle do
     cellar :any
