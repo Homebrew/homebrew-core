@@ -20,8 +20,8 @@ class Folly < Formula
   depends_on "libevent"
   depends_on "lz4"
 
-  # https://github.com/facebook/folly/issues/451
-  depends_on :macos => :el_capitan
+  # https://github.com/facebook/folly/issues/966
+  depends_on :macos => :high_sierra
 
   depends_on "openssl"
   depends_on "snappy"
