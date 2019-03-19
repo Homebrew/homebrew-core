@@ -10,6 +10,7 @@ class Wine < Formula
   url "https://dl.winehq.org/wine/source/4.0/wine-4.0.tar.xz"
   mirror "https://downloads.sourceforge.net/project/wine/Source/wine-4.0.tar.xz"
   sha256 "6736cdee95b2b8bb021ec0c19497ed8cad5ae2c8bfdb7ab5dc687ff92a480d4d"
+  revision 1
   head "https://source.winehq.org/git/wine.git"
 
   bottle do
