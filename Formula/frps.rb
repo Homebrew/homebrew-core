@@ -1,5 +1,5 @@
 class Frps < Formula
-  desc "This is the server of frp (https://github.com/fatedier/frp)"
+  desc "This is the server of frp"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
       :tag      => "v0.24.1",
@@ -8,7 +8,6 @@ class Frps < Formula
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
     ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
