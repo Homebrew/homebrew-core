@@ -1,8 +1,8 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.0.tar.xz"
-  sha256 "de9a2b392a8b27e012ed80bb9c950085692cd8e898c367c092df15f964a91d13"
+  url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.1.tar.xz"
+  sha256 "1c2218ed71230dd2c550ca4fd3dab53e2f2831d38982c213575f34e48d68e980"
 
   bottle do
     sha256 "6472e4b182ef0326640cfbbd67e0820d0ea982633586fd4e431b8b80288246ac" => :mojave
@@ -19,16 +19,13 @@ class Libgweather < Formula
   depends_on "gtk+3"
   depends_on "libsoup"
 
-  # patch submitted upstream at https://gitlab.gnome.org/GNOME/libgweather/merge_requests/23
-  patch :DATA
-
   def install
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
 
     # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
@@ -107,31 +104,3 @@ class Libgweather < Formula
     system "./test"
   end
 end
-__END__
-diff --git a/libgweather/meson.build b/libgweather/meson.build
-index 301e7e8..6688807 100644
---- a/libgweather/meson.build
-+++ b/libgweather/meson.build
-@@ -62,6 +62,7 @@ lib_libgweather = shared_library('gweather-3',
-   include_directories: root_inc,
-   dependencies: deps_libgweather,
-   version: libgweather_so_version,
-+  darwin_versions: libgweather_darwin_versions,
-   install: true,
- )
-
-diff --git a/meson.build b/meson.build
-index eb27da4..862d705 100644
---- a/meson.build
-+++ b/meson.build
-@@ -21,6 +21,10 @@ libgweather_lt_a=0
- libgweather_so_version = '@0@.@1@.@2@'.format((libgweather_lt_c - libgweather_lt_a),
-                                             libgweather_lt_a, libgweather_lt_r)
-
-+current = libgweather_lt_c - libgweather_lt_a
-+interface_age = libgweather_lt_r
-+libgweather_darwin_versions = [current + 1, '@0@.@1@'.format(current + 1, interface_age)]
-+
- pkgconfig = import('pkgconfig')
- gnome = import('gnome')
- i18n = import('i18n')
