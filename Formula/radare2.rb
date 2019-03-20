@@ -4,17 +4,17 @@ class Radare2 < Formula
   revision 1
 
   stable do
-    url "https://radare.mikelloc.com/get/2.8.0/radare2-2.8.0.tar.gz"
-    sha256 "015c0b54cbeab2f055ca45ea57675ac5fcddb9be788249143e20bb64554a769e"
+    url "http://radare.mikelloc.com/get/3.3.0/radare2-3.3.0.tar.gz"
+    sha256 "e3971122a88fb9e8707c5f675e96e4a300a9dd83eae833b28549a09038b2ac76"
 
     resource "bindings" do
-      url "https://radare.mikelloc.com/get/2.8.0/radare2-bindings-2.8.0.tar.gz"
-      sha256 "4a3b6e8101093033342e862b6834c92072bc6d902583dbca36b45a4684a4d40f"
+      url "http://radare.mikelloc.com/get/3.3.0/radare2-bindings-3.3.0.tar.gz"
+      sha256 "7e680cfb735ea874c03bf9e5ed97e0d3b610c64f80a8e1c0d67d04e2f0f36df2"
     end
 
     resource "extras" do
-      url "https://radare.mikelloc.com/get/2.8.0/radare2-extras-2.8.0.tar.gz"
-      sha256 "f11f16faec355eddc509e3615e42b5c9de565858d68790a5c7591b6525488f75"
+      url "http://radare.mikelloc.com/get/3.3.0/radare2-extras-3.3.0.tar.gz"
+      sha256 "2f72918c1f1d97c30037153468cd3a61b9b0418bb5e3b1c5da3a3242e749ad04"
     end
   end
 
