@@ -3,8 +3,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-      :revision => "77e5d48a085ee4fe7f6e10f5dcbb12fbc59eb4d2"
-  version "7.3.492.23" # the version of the v8 checkout, not a depot_tools version
+      :revision => "5637e87bda2811565c3e4e58bd2274aeb3a4757e"
+  version "7.3.492.25" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
@@ -51,8 +51,6 @@ class V8 < Formula
 
     # Enter the v8 checkout
     cd "v8" do
-      output_path = "out.gn/x64.release"
-
       gn_args = {
         :is_debug                     => false,
         :is_component_build           => true,
@@ -64,25 +62,13 @@ class V8 < Formula
       gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
 
       # Build with gn + ninja
-      system "gn", "gen", "--args=#{gn_args_string}", output_path
-
-      system "ninja", "-j", ENV.make_jobs, "-C", output_path,
-             "-v", "d8"
+      system "gn", "gen", "--args=#{gn_args_string}", "out.gn"
+      system "ninja", "-j", ENV.make_jobs, "-C", "out.gn", "-v", "d8"
 
       # Install all the things
-      include.install Dir["include/*"]
-
-      cd output_path do
-        lib.install Dir["lib*.dylib"]
-
-        # Install d8 and icudtl.dat in libexec and symlink
-        # because they need to be in the same directory.
-        libexec.install Dir["d8", "icudt*.dat"]
-        (bin/"d8").write <<~EOS
-          #!/bin/bash
-          exec "#{libexec}/d8" --icu-data-file="#{libexec}/icudtl.dat" "$@"
-        EOS
-      end
+      (libexec/"include").install Dir["include/*"]
+      libexec.install Dir["out.gn/lib*.dylib", "out.gn/d8", "out.gn/icudtl.dat"]
+      bin.write_exec_script libexec/"d8"
     end
   end
 
