@@ -16,6 +16,7 @@ class Aravis < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "gobject-introspection"
   depends_on "glib"
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
@@ -28,6 +29,7 @@ class Aravis < Formula
     inreplace "viewer/Makefile.am", "gtk-update-icon-cache", "gtk3-update-icon-cache"
     system "./autogen.sh", "--disable-dependency-tracking",
                            "--disable-silent-rules",
+                           "--enable-introspection",
                            "--prefix=#{prefix}"
     system "make", "install"
   end
