@@ -12,6 +12,7 @@ class Aravis < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -28,6 +29,7 @@ class Aravis < Formula
     inreplace "viewer/Makefile.am", "gtk-update-icon-cache", "gtk3-update-icon-cache"
     system "./autogen.sh", "--disable-dependency-tracking",
                            "--disable-silent-rules",
+                           "--enable-introspection",
                            "--prefix=#{prefix}"
     system "make", "install"
   end
