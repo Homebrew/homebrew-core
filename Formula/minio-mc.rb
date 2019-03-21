@@ -2,9 +2,9 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      :tag      => "RELEASE.2019-03-13T21-05-06Z",
-      :revision => "ecfd4526a3b6071330a0093c80815b59d451afd0"
-  version "20190313210506"
+      :tag      => "RELEASE.2019-03-20T21-29-03Z",
+      :revision => "3ea090fe18dd675cd65bd9a5ffb4942d0d9c7a99"
+  version "20190320212903"
 
   bottle do
     cellar :any_skip_relocation
