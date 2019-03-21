@@ -79,10 +79,9 @@ class S2geometry < Formula
         return  0;
       }
     EOS
-    system ENV.cxx, "test.cpp",
-      "-std=c++11",
-      "-L#{lib}", "-ls2", "-ls2testing",
-      "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}",
+                    "-ls2", "-ls2testing",
+                    "-o", "test"
     system "./test"
   end
 end
