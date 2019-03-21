@@ -7,9 +7,9 @@ class BoostBcp < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "8c16e424058e32535221951ee4e67cf37804814f476e421a1fd6b63c2a9faa26" => :mojave
-    sha256 "95e399c79e9b8a176ae3d9495dac2b3719d8d0a332f4aaeeb94876ec4d3b8d43" => :high_sierra
-    sha256 "6be0f07faacc2785bdcde5a830cca11fcafa1391b5d379f5672a2a9b401e566e" => :sierra
+    sha256 "e972b5ee3865693fc5950c9eaae9d26167f68c86bae9abb5a4cfb9151a2f901b" => :mojave
+    sha256 "68b45debcb736171b92b851c2e999d4f518b1f11c9c721b90127f530f7e00b26" => :high_sierra
+    sha256 "8e616d83e7a411b2737e55a4300597dcc4e1c5200bf4b82cb16e17bb4e83df92" => :sierra
   end
 
   depends_on "boost-build" => :build
