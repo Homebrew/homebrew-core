@@ -5,6 +5,7 @@ class Cpprestsdk < Formula
   url "https://github.com/Microsoft/cpprestsdk.git",
       :tag      => "v2.10.11",
       :revision => "a325079f7e1976e0485a212d8921ce9b837c1f2f"
+  revision 1
   head "https://github.com/Microsoft/cpprestsdk.git", :branch => "development"
 
   bottle do
