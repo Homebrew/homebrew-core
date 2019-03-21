@@ -23,6 +23,7 @@ class Pandoc < Formula
       install_cabal_package
     end
     (bash_completion/"pandoc").write `#{bin}/pandoc --bash-completion`
+    man1.install "man/pandoc.1"
   end
 
   test do
