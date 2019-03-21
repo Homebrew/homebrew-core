@@ -7,9 +7,9 @@ class Metaproxy < Formula
 
   bottle do
     cellar :any
-    sha256 "381c1a291c26cb0c6f762a406073fd8cf928546b807a1b07008eff445596213c" => :mojave
-    sha256 "9d8bde99c0381cb3a72e26dd41a5d6595be4a951fe72719a88a2444839a2880e" => :high_sierra
-    sha256 "f3ae9ef9ab5c6d055638f1b92b93d05b732dac62f1ecd249296644895a469314" => :sierra
+    sha256 "2c6517c647813df8178c0b84eb83dca7234ca8cf43276d37f3caacdef330a502" => :mojave
+    sha256 "f8aa17e2d7ca539ac9e490704bb3327a11f4de5b0909fcdf9bd6fb7afe5eae8a" => :high_sierra
+    sha256 "11ec2478eae4aa5a1da4a7f3cb720324ba1455402394f9a902d02ba652e88ac1" => :sierra
   end
 
   depends_on "pkg-config" => :build
