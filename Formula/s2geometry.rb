@@ -23,20 +23,19 @@ class S2geometry < Formula
     end
     ENV["CXXFLAGS"] = "-I../gtest/googletest/include"
 
-    args = %W[
+    args = std_cmake_args + %w[
       -DWITH_GLOG=1
       ..
     ]
 
     mkdir "build-shared" do
-      system "cmake", *(std_cmake_args + args)
+      system "cmake", *args
       system "make", "s2"
       lib.install "libs2.dylib"
     end
     mkdir "build" do
-      args << "-DBUILD_SHARED_LIBS=OFF"
-      args << "-DOPENSSL_USE_STATIC_LIBS=TRUE"
-      system "cmake", *(std_cmake_args + args)
+      system "cmake", *args, "-DBUILD_SHARED_LIBS=OFF",
+                             "-DOPENSSL_USE_STATIC_LIBS=TRUE"
       system "make", "install"
     end
   end
