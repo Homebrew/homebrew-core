@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Emerging programming language designed for parallel computing"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.18.0/chapel-1.18.0.tar.gz"
-  sha256 "68471e1f398b074edcc28cae0be26a481078adc3edea4df663f01c6bd3b6ae0d"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.19.0/chapel-1.19.0.tar.gz"
+  sha256 "c2b68a20d87cc382c2f73dd1ecc6a4f42fb2f590b0b10fbc577382dd35c9e9bd"
 
   bottle do
     sha256 "ec5a061a5bbb87ab2ae8914575754c21ff517438c87f34246f5407b03c05277b" => :mojave
@@ -31,8 +31,8 @@ class Chapel < Formula
     prefix.install_metafiles
 
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
-    bin.install Dir[libexec/"bin/darwin/*"]
-    bin.env_script_all_files libexec/"bin/darwin/", :CHPL_HOME => libexec
+    bin.install Dir[libexec/"bin/darwin-x86_64/*"]
+    bin.env_script_all_files libexec/"bin/darwin-x86_64/", :CHPL_HOME => libexec
     man1.install_symlink Dir["#{libexec}/man/man1/*.1"]
   end
 
