@@ -15,6 +15,9 @@ class Restund < Formula
   depends_on "libre"
 
   def install
+    # Configuration file is hardcoded
+    inreplace "src/main.c", "/etc/restund.conf", "#{etc}/restund.conf"
+
     libre = Formula["libre"]
     system "make", "install", "PREFIX=#{prefix}",
                               "LIBRE_MK=#{libre.opt_share}/re/re.mk",
