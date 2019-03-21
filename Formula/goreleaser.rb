@@ -1,8 +1,8 @@
 class Goreleaser < Formula
   desc "Deliver Go binaries as fast and easily as possible"
   homepage "https://goreleaser.com/"
-  url "https://github.com/goreleaser/goreleaser/archive/v0.103.1.tar.gz"
-  sha256 "e39a548e727e403ecbd0d90bdc8f3133f592e4f65908e75fe1efafa5a4519db6"
+  url "https://github.com/goreleaser/goreleaser/archive/v0.104.0.tar.gz"
+  sha256 "a86eb40fc9d2df187812fd765980c0b5d4a9aecd5bd0dfc827b37d85f5e5a73f"
 
   bottle do
     cellar :any_skip_relocation
