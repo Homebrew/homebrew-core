@@ -9,9 +9,9 @@ class Cpprestsdk < Formula
 
   bottle do
     cellar :any
-    sha256 "2107a84e0df1b500ab6533c53095059b08ac4e2bbab91f57f357b3c7b0976fd1" => :mojave
-    sha256 "109b73ccf5cefc2a4ff6bd414134f3748fc6d57b2066e5c206985897ac3d6f5a" => :high_sierra
-    sha256 "11ff3a7a6b516253b5c5bab9358d56cd0ef296c3e79a729a995c0d0af90c6020" => :sierra
+    sha256 "34978844867a32a49d8a8bc67a74ecde0e6701e4a3654df7483fc63d16ed06a5" => :mojave
+    sha256 "6a6fdef0fa6f0fe7bd72d483478be0d09b56beba4829dc2d9e549ccf39c4ae1b" => :high_sierra
+    sha256 "1b2f27ce343b8bddc60a1b04b52a518b486c35cc2dc614628efebb95390281a1" => :sierra
   end
 
   depends_on "cmake" => :build
