@@ -43,7 +43,7 @@ class Trojan < Formula
 
   test do
     system "git", "clone", "--branch=v#{version}", "https://github.com/trojan-gfw/trojan.git"
-    system "sh", "-c", "cd trojan/tests/LinuxSmokeTest && sed -i '' 's#openssl#/usr/local/opt/openssl/bin/openssl#g' basic.sh && ./basic.sh /usr/local/bin/trojan"
-    system "sh", "-c", "cd trojan/tests/LinuxSmokeTest && sed -i '' 's#openssl#/usr/local/opt/openssl/bin/openssl#g' fake-client.sh && ./fake-client.sh /usr/local/bin/trojan"
+    system "sh", "-c", "cd trojan/tests/LinuxSmokeTest && sed -i '' 's#openssl#/usr/local/opt/openssl/bin/openssl#g' basic.sh && ./basic.sh #{bin}/trojan"
+    system "sh", "-c", "cd trojan/tests/LinuxSmokeTest && sed -i '' 's#openssl#/usr/local/opt/openssl/bin/openssl#g' fake-client.sh && ./fake-client.sh #{bin}/trojan"
   end
 end
