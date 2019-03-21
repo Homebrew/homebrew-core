@@ -1,16 +1,16 @@
 class Presto < Formula
   desc "Distributed SQL query engine for big data"
-  homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.218/presto-server-0.218.tar.gz"
-  sha256 "ec06af1e5c2856bfba8fdb86f30ab841296556e903d175989e7bd39c33d29b18"
+  homepage "https://prestosql.io"
+  url "https://search.maven.org/remotecontent?filepath=io/prestosql/presto-server/307/presto-server-307.tar.gz"
+  sha256 "402d23dcb0927c13f9ee5bdbd383b5d87f17797df29e23796b51c9ba8e803cfd"
 
   bottle :unneeded
 
   depends_on :java => "1.8+"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.218/presto-cli-0.218-executable.jar"
-    sha256 "3bdaa697e4a695868186286d0048eb674fdd614bd975b3bd1a7b09d740fc162d"
+    url "https://search.maven.org/remotecontent?filepath=io/prestosql/presto-cli/307/presto-cli-307-executable.jar"
+    sha256 "87a54754f10d549a80734f0109e628f83d0890bc8ce1c23b4bbff87e938e381e"
   end
 
   def install
@@ -43,7 +43,7 @@ class Presto < Formula
       discovery.uri=http://localhost:8080
     EOS
 
-    (libexec/"etc/log.properties").write "com.facebook.presto=INFO"
+    (libexec/"etc/log.properties").write "io.prestosql=INFO"
 
     (libexec/"etc/catalog/jmx.properties").write "connector.name=jmx"
 
@@ -63,7 +63,7 @@ class Presto < Formula
 
   def caveats; <<~EOS
     Add connectors to #{libexec}/etc/catalog/. See:
-    https://prestodb.io/docs/current/connector.html
+    https://prestosql.io/docs/current/connector.html
   EOS
   end
 
