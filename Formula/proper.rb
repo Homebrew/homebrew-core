@@ -18,6 +18,6 @@ class Proper < Formula
   end
 
   test do
-    assert_equal "", shell_output("find #{opt_prefix}/{ebin,include} -prune -empty -type d")
+    assert_not_equal "non_existing", shell_output("erl -noshell -pa /usr/local/opt/proper/ebin -eval 'io:write(code:which(proper))' -s init stop")
   end
 end
