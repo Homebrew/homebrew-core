@@ -6,7 +6,6 @@ class S2geometry < Formula
 
   depends_on "cmake" => :build
   depends_on "glog" => :build
-  depends_on "ninja" => :build
   depends_on "openssl"
 
   resource "gtest" do
