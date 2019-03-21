@@ -8,6 +8,13 @@ class Pyinstaller < Formula
 
   head "https://github.com/pyinstaller/pyinstaller.git", :branch => "develop"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "812b3300c586b888ed5154504c435854229169e4804d4c0ff0b767a05cfb82f8" => :mojave
+    sha256 "77034c4dc8c1a15687181119713d74e4c1ac09a8c35666c322ded2e6d0a2e23a" => :high_sierra
+    sha256 "32eb622d3f35d8d0f497a4d6a6ef746d56a234d48719e8c9044b13f83e5ea65c" => :sierra
+  end
+
   depends_on "python"
 
   resource "altgraph" do
