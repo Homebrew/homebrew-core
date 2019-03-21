@@ -8,9 +8,9 @@ class V8 < Formula
 
   bottle do
     cellar :any
-    sha256 "3c5a20cfa14742c57ec0827a82a940ce926d0fb6b399211d008cdb082c9c1efb" => :mojave
-    sha256 "4e24541ca043f3ce01757833a506965c44a7b41e215e209c17d53b6305146e4a" => :high_sierra
-    sha256 "2e82dfdf851764acf2d514091ecd5cb101aa10410efa276ff2725225759cd09a" => :sierra
+    sha256 "35b386b2849ebc64a866a6bf6907cc3102060194527f434a54f6da40b5a53c43" => :mojave
+    sha256 "4a04302a9d9b2724168c0da83d3098cee5ab9537c4b1426ac6af95ca7fcca0e7" => :high_sierra
+    sha256 "56e3e88070de154b64a29281333e1ad02640ca75f65cf394ec6ad5b95b457866" => :sierra
   end
 
   # depot_tools/GN require Python 2.7+
