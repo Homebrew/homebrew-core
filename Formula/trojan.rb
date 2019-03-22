@@ -1,8 +1,7 @@
 class Trojan < Formula
   desc "Unidentifiable mechanism that helps you bypass GFW"
   homepage "https://trojan-gfw.github.io/trojan/"
-  url "https://github.com/trojan-gfw/trojan/archive/v#{version}.tar.gz"
-  version "1.10.1"
+  url "https://github.com/trojan-gfw/trojan/archive/v1.10.1.tar.gz"
   sha256 "7524fbff42013528dd19b2202cab0ea24085cbdc153d394d086e6bf8294b889e"
   depends_on "cmake" => :build
   depends_on "coreutils" => :test
