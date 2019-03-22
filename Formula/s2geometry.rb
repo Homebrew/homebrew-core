@@ -4,6 +4,13 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/v0.9.0.tar.gz"
   sha256 "54c09b653f68929e8929bffa60ea568e26f3b4a51e1b1734f5c3c037f1d89062"
 
+  bottle do
+    cellar :any
+    sha256 "8da23e65efaf589541edbc5175d660a25f77fe561638cec60aa2ac8bb060eb27" => :mojave
+    sha256 "20ddf938193fdab274d143c291d1ace3fafc9805809fb8ee94f4268b614e6c59" => :high_sierra
+    sha256 "88dab2878c97148b09b3bb611336ea1327e7c1b9cb2a98b429213a33a59160ae" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "glog" => :build
   depends_on "openssl"
