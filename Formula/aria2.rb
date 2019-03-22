@@ -40,6 +40,35 @@ class Aria2 < Formula
     bash_completion.install "doc/bash_completion/aria2c"
   end
 
+  def caveats; <<~EOS
+    aria2 requires a config file to start as daemon.
+    Please create #{etc}/aria2.conf and edit your custom configuration.
+  EOS
+  end
+
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/aria2/bin/aria2c --conf-path=#{HOMEBREW_PREFIX}/etc/aria2.conf"
+
+  def plist; <<~EOS
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/aria2c</string>
+          <string>--conf-path=#{etc}/aria2.conf</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+    </plist>
+  EOS
+  end
+
   test do
     system "#{bin}/aria2c", "https://brew.sh/"
     assert_predicate testpath/"index.html", :exist?, "Failed to create index.html!"
