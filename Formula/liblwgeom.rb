@@ -1,9 +1,8 @@
 class Liblwgeom < Formula
   desc "Allows SpatiaLite to support ST_MakeValid() like PostGIS"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-2.4.4.tar.gz"
-  sha256 "0663efb589210d5048d95c817e5cf29552ec8180e16d4c6ef56c94255faca8c2"
-  revision 1
+  url "https://download.osgeo.org/postgis/source/postgis-2.5.2.tar.gz"
+  sha256 "b6cb286c5016029d984f8c440947bf9178da72e1f6f840ed639270e1c451db5e"
   head "https://svn.osgeo.org/postgis/trunk/"
 
   bottle do
@@ -36,7 +35,7 @@ class Liblwgeom < Formula
       "--disable-dependency-tracking",
       "--disable-nls",
 
-      "--with-projdir=#{HOMEBREW_PREFIX}",
+      "--with-projdir=#{Formula["proj"].opt_prefix}",
       "--with-jsondir=#{Formula["json-c"].opt_prefix}",
 
       # Disable extraneous support
