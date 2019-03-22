@@ -4,6 +4,13 @@ class LlvmAT7 < Formula
   url "https://releases.llvm.org/7.0.1/llvm-7.0.1.src.tar.xz"
   sha256 "a38dfc4db47102ec79dcc2aa61e93722c5f6f06f0a961073bd84b78fb949419b"
 
+  bottle do
+    cellar :any
+    sha256 "60e011bf286ac6ede425b9caeb5da079d5760430d86fab9d4587772610da7199" => :mojave
+    sha256 "49d98a3e550e3ff6f9e10340d837f050e584ead9821e6794ed893345c86fe17b" => :high_sierra
+    sha256 "b95cb6fcd934d686003127f49b3208e4da901390bf5d258c2d3304e7b576e192" => :sierra
+  end
+
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
     reason "The bottle needs the Xcode CLT to be installed."
