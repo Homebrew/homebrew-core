@@ -16,8 +16,8 @@ class Aravis < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "gobject-introspection"
   depends_on "glib"
+  depends_on "gobject-introspection"
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
   depends_on "gtk+3"
