@@ -17,6 +17,7 @@ class Cataclysm < Formula
   depends_on "gettext"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "lua" unless build.head?
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
