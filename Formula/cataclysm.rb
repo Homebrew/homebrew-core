@@ -22,6 +22,10 @@ class Cataclysm < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
+  if !build.head?
+    depends_on "lua"
+  end
+
   def install
     ENV.cxx11
 
