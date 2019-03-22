@@ -1,8 +1,8 @@
 class GoStatik < Formula
   desc "Embed files into a Go executable"
   homepage "https://github.com/rakyll/statik"
-  url "https://github.com/rakyll/statik/archive/v0.1.5.tar.gz"
-  sha256 "9a60519aea5da23ec6cde9d47932491ca1e14fca316820f63c1e2b9ada0fdc30"
+  url "https://github.com/rakyll/statik/archive/v0.1.6.tar.gz"
+  sha256 "f157a1ada813eb643ddd9a60a0efe3158f1da25b1d11bc1ef6c7fa219d4b23bf"
 
   bottle do
     cellar :any_skip_relocation
