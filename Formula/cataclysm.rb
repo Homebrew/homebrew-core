@@ -23,10 +23,6 @@ class Cataclysm < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
-  if !build.head?
-    depends_on "lua"
-  end
-
   def install
     ENV.cxx11
 
@@ -40,11 +36,13 @@ class Cataclysm < Formula
     ]
 
     args << "CLANG=1" if ENV.compiler == :clang
+    args << "LUA=1" if build.stable?
 
     system "make", *args
 
     # no make install, so we have to do it ourselves
     libexec.install "cataclysm-tiles", "data", "gfx"
+    libexec.install "lua" if build.stable?
 
     inreplace "cataclysm-launcher" do |s|
       s.change_make_var! "DIR", libexec
