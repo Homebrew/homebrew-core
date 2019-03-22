@@ -6,10 +6,9 @@ class Libbluray < Formula
 
   bottle do
     cellar :any
-    sha256 "96994d9c93ce3eb746a96a158d427059ba7832a42602200290d7236a22ab8e0a" => :mojave
-    sha256 "5bca035002a063c9c99a08e3e15f0f15ebac30a94dce6e57116b7d8d44d690c2" => :high_sierra
-    sha256 "af79492225913a9b9be4653fa8f755183c8775c4be95458fd2a2f9dbb967a9c3" => :sierra
-    sha256 "d07c0b951f2a4a43e1ca3c349ecac84e7916fc7806100191fba8316b3d1973d5" => :el_capitan
+    sha256 "2a792020fb9ba1c34daff300c932f6c3f8e1d433d52d67b9bf1143f19bada252" => :mojave
+    sha256 "8b599cef00d9de78d8be6ddfe1e108a0724858d79456d9e380fefd58a1e61019" => :high_sierra
+    sha256 "c7b8ef28582e06c42e94aae97949c15bfca637a9fd3f263880831a320c002216" => :sierra
   end
 
   head do
