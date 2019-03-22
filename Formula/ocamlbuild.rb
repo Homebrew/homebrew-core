@@ -3,6 +3,7 @@ class Ocamlbuild < Formula
   homepage "https://github.com/ocaml/ocamlbuild"
   url "https://github.com/ocaml/ocamlbuild/archive/0.13.1.tar.gz"
   sha256 "79839544bcaebc8f9f0d73d029e2b67e2c898bba046c559ea53de81ea763408c"
+  revision 1
   head "https://github.com/ocaml/ocamlbuild.git"
 
   bottle do
