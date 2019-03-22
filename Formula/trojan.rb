@@ -10,8 +10,8 @@ class Trojan < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "sed", "-i", "", "s/server\\.json/client.json/", "CMakeLists.txt"
-    system "sed", "-i", "", "s/\"cert\": \"\"/\"cert\": \"\\/etc\\/ssl\\/cert.pem\"/", "examples/client.json-example"
+    inreplace "CMakeLists.txt", "server.json", "client.json"
+    inreplace "examples/client.json-example", "cert\": \"", "cert\": \"/etc/ssl/cert.pem"
     system "cmake", ".", *std_cmake_args, "-DENABLE_MYSQL=OFF"
     system "make", "install"
   end
