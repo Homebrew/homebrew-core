@@ -3,6 +3,7 @@ class Safe < Formula
   homepage "https://github.com/starkandwayne/safe"
   url "https://github.com/starkandwayne/safe/archive/v1.1.0.tar.gz"
   sha256 "fc72d88f3eac0ce2105fe99c1bdbfec211609b1bce1c032cd268617c4bd484a2"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
