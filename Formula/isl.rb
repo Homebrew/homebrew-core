@@ -1,6 +1,6 @@
 class Isl < Formula
   desc "Integer Set Library for the polyhedral model"
-  homepage "http://isl.gforge.inria.fr/"
+  homepage "https://isl.gforge.inria.fr/"
   # Note: Always use tarball instead of git tag for stable version.
   #
   # Currently isl detects its version using source code directory name
