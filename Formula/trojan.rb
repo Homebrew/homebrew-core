@@ -45,11 +45,11 @@ class Trojan < Formula
       url "https://github.com/trojan-gfw/trojan/archive/v1.10.1.tar.gz"
       sha256 "7524fbff42013528dd19b2202cab0ea24085cbdc153d394d086e6bf8294b889e"
     end
-    resource("test").stage {
+    resource("test").stage do
       inreplace "tests/LinuxSmokeTest/basic.sh", "openssl", "/usr/local/opt/openssl@1.1/bin/openssl"
       inreplace "tests/LinuxSmokeTest/fake-client.sh", "openssl", "/usr/local/opt/openssl@1.1/bin/openssl"
       system "sh", "-c", "cd tests/LinuxSmokeTest && ./basic.sh #{bin}/trojan"
       system "sh", "-c", "cd tests/LinuxSmokeTest && ./fake-client.sh #{bin}/trojan"
-    }
+    end
   end
 end
