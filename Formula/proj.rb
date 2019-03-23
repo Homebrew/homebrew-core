@@ -1,8 +1,8 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-5.2.0.tar.gz"
-  sha256 "ef919499ffbc62a4aae2659a55e2b25ff09cccbbe230656ba71c6224056c7e60"
+  url "https://download.osgeo.org/proj/proj-6.0.0.tar.gz"
+  sha256 "4510a2c1c8f9056374708a867c51b1192e8d6f9a5198dd320bf6a168e44a3657"
 
   bottle do
     sha256 "bead47d7970ed3a59ef4c9567e86cf834fcaf01a1a8b63efeb372b62e2f39b83" => :mojave
@@ -17,6 +17,8 @@ class Proj < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  depends_on "pkg-config" => :build
 
   conflicts_with "blast", :because => "both install a `libproj.a` library"
 
@@ -50,7 +52,8 @@ class Proj < Formula
       171224.94\t5415352.81 Paris, France
       -8101.66\t5707500.23 London, England
     EOS
-    assert_equal match,
-                 `#{bin}/proj +proj=poly +ellps=clrk66 -r #{testpath}/test`
+
+    output = shell_output("#{bin}/proj +proj=poly +ellps=clrk66 -r #{testpath}/test")
+    assert_equal match, output
   end
 end
