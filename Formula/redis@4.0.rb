@@ -6,9 +6,9 @@ class RedisAT40 < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "979a96d6f820c8ea1cc264a023cd5ddc0ac94b85a1d1c32db15f97250be4182a" => :mojave
-    sha256 "f56c41731447f824dcb36b623c2d8fdae20b7c5e6f8d2daa30a58de950b9a9c9" => :high_sierra
-    sha256 "6d1c52a547ee2a2ffbe7e97ea6e0277a657af28dee2eb3dc934421bd88573a96" => :sierra
+    sha256 "afe26b0f773f004d2bb0a5fa60970d6f9143fe7aab0d604a2e2e453fbdf70d3f" => :mojave
+    sha256 "0fa9ceef9985e487714b8ec356c45d77ac1856e99d8a87cef405439ef4939cde" => :high_sierra
+    sha256 "537fe6969d900f34df0e072e7f90e43ca85c665f95952b7dea196691e3955592" => :sierra
   end
 
   keg_only :versioned_formula
