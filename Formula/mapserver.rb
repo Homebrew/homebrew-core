@@ -1,9 +1,8 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.2.1.tar.gz"
-  sha256 "9459a7057d5a85be66a41096a5d804f74665381186c37077c94b56e784db6102"
-  revision 1
+  url "https://download.osgeo.org/mapserver/mapserver-7.2.2.tar.gz"
+  sha256 "287f8dfe10961bc685bb87e118b7aa81382df907b2b3961d6559169b527ba95c"
 
   bottle do
     cellar :any
@@ -62,6 +61,10 @@ class Mapserver < Formula
     # import it with an interpreter it wasn't built against.
     # 2): Library not loaded: @rpath/libmapserver.1.dylib
     args << "-DCMAKE_SKIP_RPATH=ON"
+
+    # Use Proj 6.0.0 compatibility headers
+    # https://github.com/mapserver/mapserver/issues/5766
+    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
     mkdir "build" do
       system "cmake", "..", *args
