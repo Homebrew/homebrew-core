@@ -9,9 +9,9 @@ class Ipython < Formula
 
   bottle do
     cellar :any
-    sha256 "28335840d1f490ab7035f76a051a3968f1684d863b472682af073b42f83ba2ca" => :mojave
-    sha256 "fc44245fa14d79ae30a64f3fb0f46e751cfafb322629eeb22ffe5cb658427234" => :high_sierra
-    sha256 "112df583c8b02e5d3c1afb56ee61e32cb22a66d8d3aaff8dc22c27e5744a3096" => :sierra
+    sha256 "8eeb5204d0a73e734f958701b989a09f11f3be825b91a8f167d213aead940079" => :mojave
+    sha256 "53361a81248ee821e09215f7622dfefd42f3a299cc95dbd2c3ea4d7a28cd3b6c" => :high_sierra
+    sha256 "69dcb8d7650bf4d01e876f8a0d43c3bf5ec2b4ba7648990a982bf6f90fbf62de" => :sierra
   end
 
   depends_on "python"
