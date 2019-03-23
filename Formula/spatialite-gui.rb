@@ -3,7 +3,7 @@ class SpatialiteGui < Formula
   homepage "https://www.gaia-gis.it/fossil/spatialite_gui/index"
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-1.7.1.tar.gz"
   sha256 "cb9cb1ede7f83a5fc5f52c83437e556ab9cb54d6ace3c545d31b317fd36f05e4"
-  revision 4
+  revision 5
 
   bottle do
     cellar :any
@@ -32,6 +32,10 @@ class SpatialiteGui < Formula
     sqlite = Formula["sqlite"]
     ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
     ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
+
+    # Use Proj 6.0.0 compatibility headers
+    # https://www.gaia-gis.it/fossil/spatialite_gui/tktview?name=8349866db6
+    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
     # Add aui library; reported upstream multiple times:
     # https://groups.google.com/forum/#!searchin/spatialite-users/aui/spatialite-users/wnkjK9pde2E/hVCpcndUP_wJ
