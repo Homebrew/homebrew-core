@@ -3,8 +3,8 @@ class Csvkit < Formula
 
   desc "Suite of command-line tools for converting to and working with CSV"
   homepage "https://csvkit.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/01/69/476d4e74d84bcc5196f6b6a87b419363e163bc8c31d0660166f9e447bd97/csvkit-1.0.3.tar.gz"
-  sha256 "a6c859c1321d4697dc41252877249091681297f093e08d9c1e1828a6d52c260c"
+  url "https://files.pythonhosted.org/packages/66/d8/206e4da52bcf9cc29dfa3a93837b14b37ba42f58ccbd22a42a3b3ae0381a/csvkit-1.0.4.tar.gz"
+  sha256 "1353a383531bee191820edfb88418c13dfe1cdfa9dd3dc46f431c05cd2a260a0"
 
   bottle do
     cellar :any_skip_relocation
