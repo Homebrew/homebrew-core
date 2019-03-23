@@ -1,8 +1,8 @@
 class RedisAT32 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.12.tar.gz"
-  sha256 "98c4254ae1be4e452aa7884245471501c9aa657993e0318d88f048093e7f88fd"
+  url "http://download.redis.io/releases/redis-3.2.13.tar.gz"
+  sha256 "862979c9853fdb1d275d9eb9077f34621596fec1843e3e7f2e2f09ce09a387ba"
 
   bottle do
     cellar :any_skip_relocation
