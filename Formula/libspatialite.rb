@@ -1,7 +1,7 @@
 class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
-  revision 6
+  revision 7
 
   stable do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz"
@@ -50,11 +50,16 @@ class Libspatialite < Formula
     inreplace "configure",
               "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
               "shrext_cmds='.dylib'"
+    chmod 0755, "configure"
 
     # Ensure Homebrew's libsqlite is found before the system version.
     sqlite = Formula["sqlite"]
     ENV.append "LDFLAGS", "-L#{sqlite.opt_lib}"
     ENV.append "CFLAGS", "-I#{sqlite.opt_include}"
+
+    # Use Proj 6.0.0 compatibility headers.
+    # Remove in libspatialite 5.0.0
+    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
     args = %W[
       --disable-dependency-tracking
