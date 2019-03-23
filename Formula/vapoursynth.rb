@@ -48,7 +48,7 @@ class Vapoursynth < Formula
   end
 
   def caveats; <<~EOS
-    This formula does not contain optional filters that needs extra dependencies.
+    This formula does not contain optional filters that require extra dependencies.
     To use \x1B[3m\x1B[1mvapoursynth.core.sub\x1B[0m, execute:
       brew install vapoursynth-sub
     To use \x1B[3m\x1B[1mvapoursynth.core.ocr\x1B[0m, execute:
