@@ -5,6 +5,7 @@ class Vapoursynth < Formula
   homepage "http://www.vapoursynth.com"
   url "https://github.com/vapoursynth/vapoursynth/archive/R45.1.tar.gz"
   sha256 "4f43e5bb8c4817fdebe572d82febe4abac892918c54e1cb71aa6f6eb3677a877"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
@@ -19,10 +20,8 @@ class Vapoursynth < Formula
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "libass"
   depends_on :macos => :el_capitan # due to zimg dependency
   depends_on "python"
-  depends_on "tesseract"
   depends_on "zimg"
 
   resource "Cython" do
@@ -34,9 +33,37 @@ class Vapoursynth < Formula
     venv = virtualenv_create(buildpath/"cython", "python3")
     venv.pip_install "Cython"
     system "./autogen.sh"
+    inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
     system "./configure", "--prefix=#{prefix}",
-                          "--with-cython=#{buildpath}/cython/bin/cython"
+                          "--with-cython=#{buildpath}/cython/bin/cython",
+                          "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth"
     system "make", "install"
+    %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
+      rm prefix/"vapoursynth/lib#{filter}.la"
+    end
+  end
+
+  def post_install
+    (HOMEBREW_PREFIX/"lib/vapoursynth").mkpath
+    %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
+      (HOMEBREW_PREFIX/"lib/vapoursynth").install_symlink prefix/"vapoursynth/lib#{filter}.dylib" => "lib#{filter}.dylib"
+    end
+  end
+
+  def caveats; <<~EOS
+    This formula does not contain optional filters that require extra dependencies.
+    To use \x1B[3m\x1B[1mvapoursynth.core.sub\x1B[0m, execute:
+      brew install vapoursynth-sub
+    To use \x1B[3m\x1B[1mvapoursynth.core.ocr\x1B[0m, execute:
+      brew install vapoursynth-ocr
+    To use \x1B[3m\x1B[1mvapoursynth.core.imwri\x1B[0m, execute:
+      brew install vapoursynth-imwri
+    To use \x1B[3m\x1B[1mvapoursynth.core.ffms2\x1B[0m, execute the following:
+      brew install ffms2
+      ln -s "../libffms2.dylib" "#{HOMEBREW_PREFIX}/lib/vapoursynth/libffms2.dylib"
+    For more information regarding plugins, please visit:
+      \x1B[4mhttp://www.vapoursynth.com/doc/pluginlist.html\x1B[0m
+  EOS
   end
 
   test do
