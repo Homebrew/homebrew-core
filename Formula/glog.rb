@@ -1,9 +1,8 @@
 class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
-  url "https://github.com/google/glog/archive/v0.3.5.tar.gz"
-  sha256 "7580e408a2c0b5a89ca214739978ce6ff480b5e7d8d7698a2aa92fadc484d1e0"
-  revision 3
+  url "https://github.com/google/glog/archive/v0.4.0.tar.gz"
+  sha256 "f28359aeba12f30d73d9e4711ef356dc842886968112162bc73002645139c39c"
   head "https://github.com/google/glog.git"
 
   bottle do
@@ -18,7 +17,7 @@ class Glog < Formula
   depends_on "gflags"
 
   def install
-    mkdir "build" do
+    mkdir "cmake-build" do
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "make", "install"
     end
