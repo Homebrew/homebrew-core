@@ -14,6 +14,20 @@ class Terrahub < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/terrahub --version")
+    (testpath/".terrahub.yml").write <<~EOF
+      project:
+        name: terrahub-demo
+        code: abcd1234
+      vpc_component:
+        name: vpc
+        root: ./vpc
+      subnet_component:
+        name: subnet
+        root: ./subnet
+        dependsOn:
+          - ./vpc
+    EOF
+    output = shell_output("#{bin}/terrahub graph")
+    assert_match "Project: terrahub-demo", output
   end
 end
