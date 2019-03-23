@@ -5,10 +5,9 @@ class Vifm < Formula
   sha256 "e05a699f58279f69467d75d8cd3d6c8d2f62806c467fd558eda45ae9590768b8"
 
   bottle do
-    sha256 "f390e5effa7cc533944c35e9ea4f389b0ab38780f2011c69de759e8bc7dbe784" => :mojave
-    sha256 "85ed156c78b6259286e1bbde0559efbb7d184f061f1fe6d7dfa3c9e73262cbce" => :high_sierra
-    sha256 "7123769c4a1a3ea3e59871d3150182bbf3da2d98a4036b3a06a39ebacfaf65ed" => :sierra
-    sha256 "88bda24c638a68880447a6e10dcfa06ac2e49a2b77415b6a85ac3dfd33c20114" => :el_capitan
+    sha256 "ecd4ded0553705dff6ce635bfd424671e9ce8e4c7aebb279fc4040763041e98b" => :mojave
+    sha256 "26afd08c530568c64968da378e4913e169fc478d427ebc70f1aba43dc89cc39b" => :high_sierra
+    sha256 "ebeea80fbbce5f75d6541c1ee2b1bad9d29076a84ead9b6b9d019b259d7c3566" => :sierra
   end
 
   # Upstream fix: https://github.com/vifm/vifm/commit/4ad11aca
