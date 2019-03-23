@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.4.0/allegro-5.2.4.0.tar.gz"
-  sha256 "346163d456c5281c3b70271ecf525e1d7c754172aef4bab15803e012b12f2af1"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.5.0/allegro-5.2.5.0.tar.gz"
+  sha256 "59968da34a0353913868b8299aaff9520d19a3b0960c6406be8323a6ac9bb719"
   head "https://github.com/liballeg/allegro5.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Allegro < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "dumb"
   depends_on "flac"
   depends_on "freetype"
   depends_on "libogg"
