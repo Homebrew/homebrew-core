@@ -11,9 +11,9 @@ class Vifm < Formula
     sha256 "88bda24c638a68880447a6e10dcfa06ac2e49a2b77415b6a85ac3dfd33c20114" => :el_capitan
   end
 
-  # provided by the author, not upstream yet
-  # https://q2a.vifm.info/423/cant-build-on-macos-sierra?show=430#c430
-  patch :p1, :DATA
+  # Upstream fix: https://github.com/vifm/vifm/commit/4ad11aca
+  # Remove in next version
+  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
