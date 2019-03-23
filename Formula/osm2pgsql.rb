@@ -3,6 +3,7 @@ class Osm2pgsql < Formula
   homepage "https://wiki.openstreetmap.org/wiki/Osm2pgsql"
   url "https://github.com/openstreetmap/osm2pgsql/archive/0.96.0.tar.gz"
   sha256 "b6020e77d88772989279a69ae4678e9782989b630613754e483b5192cd39c723"
+  revision 1
   head "https://github.com/openstreetmap/osm2pgsql.git"
 
   bottle do
@@ -20,16 +21,19 @@ class Osm2pgsql < Formula
   depends_on "proj"
 
   def install
-    args = std_cmake_args
-
     # This is essentially a CMake disrespects superenv problem
     # rather than an upstream issue to handle.
     lua_version = Formula["lua"].version.to_s.match(/\d\.\d/)
     inreplace "cmake/FindLua.cmake", "LUA_VERSIONS5 5.3 5.2 5.1 5.0",
                                      "LUA_VERSIONS5 #{lua_version}"
 
+    # Use Proj 6.0.0 compatibility headers
+    # https://github.com/openstreetmap/osm2pgsql/issues/922
+    # and https://github.com/osmcode/libosmium/issues/277
+    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
+
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
