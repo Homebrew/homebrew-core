@@ -3,7 +3,7 @@ class Rawtoaces < Formula
   homepage "https://github.com/ampas/rawtoaces"
   url "https://github.com/ampas/rawtoaces/archive/v1.0.tar.gz"
   sha256 "9d15e7e30c4fe97baedfdafb5fddf95534eee26392002b23e81649bbe6e501e9"
-  revision 4
+  revision 5
 
   bottle do
     sha256 "5679390ca59f7e952775caf73786cfe8cd9f77cfa72c997d4f6a5e2b970a14f3" => :mojave
