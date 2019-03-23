@@ -1,8 +1,8 @@
 class Jid < Formula
   desc "Json incremental digger"
   homepage "https://github.com/simeji/jid"
-  url "https://github.com/simeji/jid/archive/v0.7.3.tar.gz"
-  sha256 "4565030bdf22f831007ecc214fbd14205855b3dff98f7acc8dc6e1f7a2591820"
+  url "https://github.com/simeji/jid/archive/v0.7.5.tar.gz"
+  sha256 "f741dee63f90b866f695a279634b0b28e4b432f3f59229cc3f0c8b4e32d4d18b"
 
   bottle do
     cellar :any_skip_relocation
