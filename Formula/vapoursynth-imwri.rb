@@ -23,6 +23,7 @@ class VapoursynthImwri < Formula
                           "--disable-plugins",
                           "--enable-imwri"
     system "make", "install"
+    rm prefix/"vapoursynth/libimwri.la"
   end
 
   def post_install

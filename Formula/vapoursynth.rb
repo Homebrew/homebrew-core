@@ -38,6 +38,9 @@ class Vapoursynth < Formula
                           "--with-cython=#{buildpath}/cython/bin/cython",
                           "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth"
     system "make", "install"
+    %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
+      rm prefix/"vapoursynth/lib#{filter}.la"
+    end
   end
 
   def post_install

@@ -23,6 +23,7 @@ class VapoursynthSub < Formula
                           "--disable-plugins",
                           "--enable-subtext"
     system "make", "install"
+    rm prefix/"vapoursynth/libsubtext.la"
   end
 
   def post_install

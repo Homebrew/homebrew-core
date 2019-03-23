@@ -23,6 +23,7 @@ class VapoursynthOcr < Formula
                           "--disable-plugins",
                           "--enable-ocr"
     system "make", "install"
+    rm prefix/"vapoursynth/libocr.la"
   end
 
   def post_install
