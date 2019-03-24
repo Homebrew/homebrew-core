@@ -1,8 +1,8 @@
 class Dssim < Formula
   desc "RGBA Structural Similarity Rust implementation"
   homepage "https://github.com/kornelski/dssim"
-  url "https://github.com/kornelski/dssim/archive/2.9.7.tar.gz"
-  sha256 "4ee60e125efae43f49bf9c4ca849f9cef2b1f86ee1d538da84907faae853eeeb"
+  url "https://github.com/kornelski/dssim/archive/2.10.0.tar.gz"
+  sha256 "1bc9abec552fc64d3951340d95f68212d30e6473a93694db25cf16a0baa9d854"
 
   bottle do
     sha256 "1f55ff853a5eb098b10d381cc64cad2b2a79bf5b417d5fafbc7ca1ce9531a0f7" => :mojave
