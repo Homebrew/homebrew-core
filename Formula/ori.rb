@@ -1,9 +1,8 @@
 class Ori < Formula
   desc "Secure distributed file system"
   homepage "http://ori.scs.stanford.edu/"
-  url "https://bitbucket.org/orifs/ori/downloads/ori-0.8.1.tgz"
-  sha256 "a6dd5677608c81d8cda657eb330661b5f9e0957a962a5588473d556ddf49f15f"
-  revision 1
+  url "https://bitbucket.org/orifs/ori/downloads/ori-0.8.2.tar.xz"
+  sha256 "a9b12ac23beaf259aa830addea11b519d16068f38c479f916b2747644194672c"
 
   bottle do
     cellar :any
@@ -16,7 +15,6 @@ class Ori < Formula
 
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
-  depends_on "boost@1.60"
   depends_on "libevent"
   depends_on "openssl"
   depends_on :osxfuse
