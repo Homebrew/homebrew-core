@@ -144,7 +144,7 @@ class Gajim < Formula
 
   resource "omemo" do
     url "https://ftp.gajim.org/plugins_1.1_zip/omemo.zip"
-    sha256 "c9f09f4e47cd659a3c673e95d9cf017a030153169a28cdbb94386174af51c8ff"
+    sha256 "4f7bccd0f109ec685722bce6a72eb7f5f12e0cb381c8194af0d504429af7c9f7"
   end
 
   resource "url_image_preview" do
@@ -168,7 +168,9 @@ class Gajim < Formula
       venv.pip_install Pathname.pwd
     end
 
-    ENV.append "CFLAGS", "-DPyObjC_BUILD_RELEASE=#{MacOS.version.to_s.sub(".", "")}"
+    # this is required for PyObjC to detect the right macOS version
+    # https://bitbucket.org/ronaldoussoren/pyobjc/issues/263/overriding-pyobjc_build_release
+    ENV.append "CFLAGS", "-isysroot #{MacOS.sdk_path}"
 
     res = resources.map(&:name).to_set - %w[Pillow plugin_installer omemo url_image_preview]
 
