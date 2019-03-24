@@ -1,8 +1,8 @@
 class Xpa < Formula
   desc "Seamless communication between Unix programs"
   homepage "https://hea-www.harvard.edu/RD/xpa/"
-  url "https://github.com/ericmandel/xpa/archive/v2.1.18.tar.gz"
-  sha256 "a8c9055b913204babce2de4fa037bc3a5849941dcb888f57368fd04af0aa787b"
+  url "https://github.com/ericmandel/xpa/archive/v2.1.19.tar.gz"
+  sha256 "44f1059009a7afe12029b808212393e352b3fa61701615350752ecf6c802ea48"
 
   bottle do
     cellar :any_skip_relocation
