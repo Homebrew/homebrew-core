@@ -1,8 +1,10 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/v1.5.8.tar.gz"
-  sha256 "bc225145feb7876bce5188aa3ef511fad49b141ec18e1bb60e69b33b0a100da0"
+  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.6.tar.gz"
+  sha256 "203d1902d67bf659715b4667347719be6ab0dcb902fff3eea5e70ad2324b0a19"
+
+  depends_on "ruby" if MacOS.version <= :sierra
 
   bottle do
     cellar :any_skip_relocation
