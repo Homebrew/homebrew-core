@@ -13,6 +13,11 @@ class GnuSmalltalk < Formula
     sha256 "ce5e9408786fee4e48bc2b7413de7e62c0c6f192f754a1403044687c1767f89d" => :sierra
   end
 
+  devel do
+    url "https://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
+    sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "gawk" => :build
