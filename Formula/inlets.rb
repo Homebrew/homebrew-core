@@ -22,7 +22,6 @@ class Inlets < Formula
   end
 
   test do
-
     server = TCPServer.new(0)
     port = server.addr[1]
     server.close
@@ -56,16 +55,16 @@ class Inlets < Formula
         response_key = Digest::SHA1.base64digest([websocket_key, "258EAFA5-E914-47DA-95CA-C5AB0DC85B11"].join)
         puts "Responding to handshake with key: \#\{response_key\}"
 
-        socket.write <<-eos
-    HTTP/1.1 101 Switching Protocols
-    Upgrade: websocket
-    Connection: Upgrade
-    Sec-WebSocket-Accept: \#\{response_key\}
+        response = "HTTP/1.1 101 Switching Protocols\\n" +
+        "Upgrade: websocket\\n" +
+        "Connection: Upgrade\\n" +
+        "Sec-WebSocket-Accept: \#\{response_key\}\\n" +
+        "\\n"
 
-        eos
+        socket.write response
 
         puts 'Handshake completed. Starting to parse the websocket frame.'
-        
+
         count = 0
         loop do
           count += 1
@@ -111,9 +110,9 @@ class Inlets < Formula
 
       # Client websocket ping-pong test
       sleep 3 # wait for server to start
-      output = shell_output("#{bin}/inlets client -r 127.0.0.1:#{port} -u http://127.0.0.1:8080 -p 1s 2>&1", 0)
-      assert_match /\sUpstream:  => http:\/\/127.0.0.1:8080$/, output
-      assert_match /\sconnecting to ws:\/\/127\.0\.0\.1:#{port}\/tunnel with ping=1s$/, output
+      output = shell_output("#{bin}/inlets client -r 127.0.0.1:#{port} -u http://127.0.0.1:8080 -p 1s 2>&1")
+      assert_match %r{\sUpstream:  => http://127.0.0.1:8080$}, output
+      assert_match %r{\sconnecting to ws://127\.0\.0\.1:#{port}/tunnel with ping=1s$}, output
       assert_match /\sPing duration: 1.000000s$/, output
       assert_match /\sConnected to websocket: 127.0.0.1/, output
 
