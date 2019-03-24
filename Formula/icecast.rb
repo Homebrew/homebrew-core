@@ -13,7 +13,7 @@ class Icecast < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
-  depends_on "libxslt"
+  depends_on "libxslt" if MacOS.version == :sierra
   depends_on "openssl"
 
   def install
