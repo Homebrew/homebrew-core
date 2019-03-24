@@ -5,10 +5,10 @@ class Dssim < Formula
   sha256 "1bc9abec552fc64d3951340d95f68212d30e6473a93694db25cf16a0baa9d854"
 
   bottle do
-    sha256 "1f55ff853a5eb098b10d381cc64cad2b2a79bf5b417d5fafbc7ca1ce9531a0f7" => :mojave
-    sha256 "cd9660967e876f49480ae7f8f1486ebd7f752edf2a22621b03f2b6bc8bf07f73" => :high_sierra
-    sha256 "923949599d0070fbe2c6938f5847ed6df69097921897ce118d7e9cc8ef48cb40" => :sierra
-    sha256 "34f0204a20f42a08c375b831669e8fdf8b2a8e54a77298f5c35a75403b1c69c7" => :el_capitan
+    cellar :any_skip_relocation
+    sha256 "c03454b7582f988de44af524a342e016b3bf63937496450365c758809e79a224" => :mojave
+    sha256 "f1284c6d8db31ce548232d0e7c0d4204249555ee5a9c92958b2c8bea4deee832" => :high_sierra
+    sha256 "61c6019667ce76ccc145381eea2131ee3119366b1d54d2878da908eca8f85339" => :sierra
   end
 
   depends_on "rust" => :build
