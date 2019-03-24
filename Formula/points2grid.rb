@@ -7,9 +7,9 @@ class Points2grid < Formula
 
   bottle do
     cellar :any
-    sha256 "03d183ed5be6f1ecffdd3439b0ef4287ed2bcdda29bfcd3d6305f2f2e93eb244" => :high_sierra
-    sha256 "cb58d67da29769bf2481f60eb4668697699babb90ed18340a6fac217c6d3bd75" => :sierra
-    sha256 "498339350edde2ace1538bf8f361ae8a81afb5e7563859687f6309326525db1b" => :el_capitan
+    sha256 "2353397675ec9f8fe4f8cf701645e4dceedf01030ee54ff61720521ba6afa046" => :mojave
+    sha256 "4d2c91405313abf7fedda20628ce2b11b5bc3f76a42862a40e90d5252ad34e7c" => :high_sierra
+    sha256 "58d99c2471ebd555d76e36c1108d352bb4e9b7594459ea3381c5f4a6232bfca3" => :sierra
   end
 
   depends_on "cmake" => :build
