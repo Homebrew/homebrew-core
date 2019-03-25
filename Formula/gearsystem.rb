@@ -1,9 +1,8 @@
 class Gearsystem < Formula
   desc "Sega Master System / Game Gear emulator"
   homepage "https://github.com/drhelius/Gearsystem"
-  url "https://github.com/drhelius/Gearsystem/archive/gearsystem-2.2.tar.gz"
-  sha256 "bb7bf853b204c3c9a83b256696ecb0427504cd277c70e08502c29f964cf3188e"
-  revision 1
+  url "https://github.com/drhelius/Gearsystem/archive/gearsystem-2.5.1.tar.gz"
+  sha256 "bf834bddeb2a2d814229531eb302f64c0ea913af88cb7be508cac4b5e490790d"
   head "https://github.com/drhelius/Gearsystem.git"
 
   bottle do
