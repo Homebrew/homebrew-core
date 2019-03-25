@@ -1,8 +1,8 @@
 class Pumba < Formula
   desc "Chaos testing tool for Docker"
   homepage "https://github.com/alexei-led/pumba"
-  url "https://github.com/alexei-led/pumba/archive/0.6.2.tar.gz"
-  sha256 "d94be5696cde2b1c6ef409040f24b8b1260d3a34b9e40f08dd492c2aa0c5b656"
+  url "https://github.com/alexei-led/pumba/archive/0.6.3.tar.gz"
+  sha256 "51338bcfc459a31e481dcb8a6317ea09cc914c185f00f506507d7b331b6c24a9"
   head "https://github.com/alexei-led/pumba.git"
 
   bottle do
@@ -16,9 +16,11 @@ class Pumba < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/alexei-led/pumba").install buildpath.children
+    ENV["GO111MODULE"] = "on"
 
-    cd "src/github.com/alexei-led/pumba" do
+    src = buildpath/"src/github.com/alexei-led/pumba"
+    src.install buildpath.children
+    src.cd do
       system "go", "build", "-o", bin/"pumba", "-ldflags",
              "-X main.Version=#{version}", "./cmd"
       prefix.install_metafiles
