@@ -1,8 +1,8 @@
 class Rbenv < Formula
   desc "Ruby version manager"
   homepage "https://github.com/rbenv/rbenv#readme"
-  url "https://github.com/rbenv/rbenv/archive/v1.1.1.tar.gz"
-  sha256 "41f1a60714c55eceb21d692a469aee1ec4f46bba351d0dfcb0c660ff9cf1a1c9"
+  url "https://github.com/rbenv/rbenv/archive/v1.1.2.tar.gz"
+  sha256 "80ad89ffe04c0b481503bd375f05c212bbc7d44ef5f5e649e0acdf25eba86736"
   head "https://github.com/rbenv/rbenv.git"
 
   bottle do
