@@ -1,10 +1,9 @@
 class Sxiv < Formula
   desc "Simple X Image Viewer"
   homepage "https://github.com/muennich/sxiv"
-  url "https://github.com/muennich/sxiv/archive/v1.3.2.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/s/sxiv/sxiv_1.3.2.orig.tar.gz"
-  sha256 "9f5368de8f0f57e78ebe02cb531a31107a993f2769cec51bcc8d70f5c668b653"
-  revision 1
+  url "https://github.com/muennich/sxiv/archive/v25.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/s/sxiv/sxiv_25.orig.tar.gz"
+  sha256 "16d1aca1a179e1c0875844efe2e51cfa396a4403467c389f7e9221a733ae5e26"
   head "https://github.com/muennich/sxiv.git"
 
   bottle do
@@ -22,8 +21,7 @@ class Sxiv < Formula
   depends_on :x11
 
   def install
-    system "make", "config.h"
-    system "make", "PREFIX=#{prefix}", "install"
+    system "make", "PREFIX=#{prefix}", "AUTORELOAD=nop", "CPPFLAGS=-I/opt/X11/include", "LDFLAGS=-L/opt/X11/lib", "LDLIBS=-lpthread", "install"
   end
 
   test do
