@@ -3,7 +3,7 @@ class Bind < Formula
   homepage "https://www.isc.org/downloads/bind/"
   url "https://ftp.isc.org/isc/bind9/9.14.0/bind-9.14.0.tar.gz"
   sha256 "4edd459830bb97f749e25a5d42a2a4a093d7800e9962fca4300996cf7ea680af"
-  revision 1
+  revision 2
   head "https://gitlab.isc.org/isc-projects/bind9.git"
 
   bottle do
@@ -23,7 +23,8 @@ class Bind < Formula
 
   def install
     xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
+    vendor_site_packages = libexec/"vendor/lib/python#{xy}/site-packages"
+    ENV.prepend_create_path "PYTHONPATH", vendor_site_packages
     resources.each do |r|
       r.stage do
         system "python3", *Language::Python.setup_install_args(libexec/"vendor")
@@ -43,7 +44,8 @@ class Bind < Formula
                           "--enable-ipv6",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
                           "--with-libjson=#{Formula["json-c"].opt_prefix}",
-                          "--with-python=#{Formula["python"].opt_bin}/python3"
+                          "--with-python=#{Formula["python"].opt_bin}/python3",
+                          "--with-python-install-dir=#{vendor_site_packages}"
 
     # From the bind9 README: "Do not use a parallel "make"
     ENV.deparallelize
