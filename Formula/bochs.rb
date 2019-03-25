@@ -13,6 +13,7 @@ class Bochs < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libtool"
   depends_on "sdl2"
 
   # Fix pointer cast issue
