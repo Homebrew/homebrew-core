@@ -2,8 +2,8 @@ class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
   url "https://github.com/mac-cain13/R.swift.git",
-      :tag      => "v5.0.0",
-      :revision => "a5822fdea505b76e8defb78878fde17afac52e38"
+      :tag      => "v5.0.3",
+      :revision => "e04458d0de265a2e40804fe2401ad4bc711a8b16"
   head "https://github.com/mac-cain13/R.swift.git"
 
   bottle do
