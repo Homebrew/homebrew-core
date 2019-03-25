@@ -2,7 +2,7 @@ class Pypy3 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
   url "https://bitbucket.org/pypy/pypy/downloads/pypy3.6-v7.1.0-src.tar.bz2"
-  sha256 "3e3091798cff9e7b6de35f7aa7f71965e06dcbf35112eba202d4ded7675f95f4"
+  sha256 "faa81f469bb2a7cbd22c64f22d4b4ddc5a1f7c798d43b7919b629b932f9b1c6f"
 
   bottle do
     cellar :any
