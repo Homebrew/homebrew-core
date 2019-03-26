@@ -1,8 +1,8 @@
 class Cabextract < Formula
   desc "Extract files from Microsoft cabinet files"
   homepage "https://www.cabextract.org.uk/"
-  url "https://www.cabextract.org.uk/cabextract-1.9.tar.gz"
-  sha256 "1bbc793d83c73288acd7e28ce33ec04955a76c73bf6471424ff835d725fcc4c1"
+  url "https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz"
+  sha256 "afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7"
 
   bottle do
     cellar :any_skip_relocation
