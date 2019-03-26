@@ -2,8 +2,8 @@ class Bartycrouch < Formula
   desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
   url "https://github.com/Flinesoft/BartyCrouch.git",
-      :tag      => "4.0.0",
-      :revision => "3afdce4b875b6e8a573eaa30a225e709b7ee7b0a"
+      :tag      => "4.0.1",
+      :revision => "b7e940a6383c9d1f013288081dcc2a395c68448b"
   head "https://github.com/Flinesoft/BartyCrouch.git"
 
   bottle do
@@ -12,7 +12,7 @@ class Bartycrouch < Formula
     sha256 "206e9bef7cf82bde25f7f8ba3380cbf0b2a094c33fca3474d5c9593d2e348bca" => :high_sierra
   end
 
-  depends_on :xcode => ["10.0", :build]
+  depends_on :xcode => ["10.2", :build]
 
   def install
     system "make", "install", "prefix=#{prefix}"
