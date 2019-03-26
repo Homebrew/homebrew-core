@@ -7,10 +7,9 @@ class Micropython < Formula
 
   bottle do
     cellar :any
-    sha256 "be2d76d5b19e0c2cb18734141fe1b09fbb79f1a60989789cefd76aabc6963c3e" => :mojave
-    sha256 "4c4b34c14c357ac012cc5a140fb4d0e1cee912852911a8796b3815cc099e98b2" => :high_sierra
-    sha256 "e864ea4c00070477b60ed09d0406d6609e1b79fe440c8cdf84b35a0c78e82bce" => :sierra
-    sha256 "e7e84a7479414bf94fc8bd739bd97bf4c9996a757571e648b7d2ef04e70ccb04" => :el_capitan
+    sha256 "c635e90b5127a6101de370032e4ac9230f98a223d3c53d594f9122c8dfd58b01" => :mojave
+    sha256 "01611cf99b4623f5157a81ddf16f6b750d71010eead09203f8f7a72d30354fa9" => :high_sierra
+    sha256 "54b499d93100baad80a31c32d997b1c97988abdc28d7cad3400f8f811eed4979" => :sierra
   end
 
   depends_on "pkg-config" => :build
