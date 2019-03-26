@@ -5,8 +5,8 @@ class Futhark < Formula
 
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.9.1.tar.gz"
-  sha256 "9d77e04776004eff153585b27280192097f1ae54a62ca173a988c4414e88dbf1"
+  url "https://github.com/diku-dk/futhark/archive/v0.10.1.tar.gz"
+  sha256 "e0d47bf9423cbea313323ccab17d21d07c487dec78bbe38d134abe5490b6faff"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
@@ -36,7 +36,7 @@ class Futhark < Formula
     (testpath/"test.fut").write <<~EOS
       let main (n: i32) = reduce (*) 1 (1...n)
     EOS
-    system "#{bin}/futhark-c", "test.fut"
+    system "#{bin}/futhark", "c", "test.fut"
     assert_equal "3628800i32", pipe_output("./test", "10", 0).chomp
   end
 end
