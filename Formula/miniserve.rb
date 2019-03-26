@@ -1,8 +1,8 @@
 class Miniserve < Formula
   desc "High performance static file server"
   homepage "https://github.com/svenstaro/miniserve"
-  url "https://github.com/svenstaro/miniserve/archive/v0.3.0.tar.gz"
-  sha256 "80ee5d661730ddad14671f961b560467f3b3a9f0544b9b11dec65098eb4a1f7e"
+  url "https://github.com/svenstaro/miniserve/archive/v0.3.1.tar.gz"
+  sha256 "b9d89e5b22ca3b4b382abf4223b651b06fce32da5762cdca3fc3bb1600e689fb"
 
   bottle do
     cellar :any_skip_relocation
