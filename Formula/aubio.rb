@@ -1,9 +1,8 @@
 class Aubio < Formula
   desc "Extract annotations from audio signals"
   homepage "https://aubio.org/"
-  url "https://aubio.org/pub/aubio-0.4.7.tar.bz2"
-  sha256 "cbed4afec5ab3a1a6300c7e3af0a1369379aa94259f5e701a8ca905cdd9fa041"
-  revision 2
+  url "https://aubio.org/pub/aubio-0.4.9.tar.bz2"
+  sha256 "d48282ae4dab83b3dc94c16cf011bcb63835c1c02b515490e1883049c3d1f3da"
 
   bottle do
     cellar :any
