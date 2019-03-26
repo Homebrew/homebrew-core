@@ -1,8 +1,8 @@
 class Iamy < Formula
   desc "AWS IAM import and export tool"
   homepage "https://github.com/99designs/iamy"
-  url "https://github.com/99designs/iamy/archive/v2.3.0.tar.gz"
-  sha256 "0bcf294e90e83985b6cef8f635091a0df70a6751dc9436e8304f1b2135428a7c"
+  url "https://github.com/99designs/iamy/archive/v2.3.1.tar.gz"
+  sha256 "abbc3f23afb8a57d02ec939a21ccac9fe0db18f96a742e03b16d32f3a8a12e1d"
   head "https://github.com/99designs/iamy.git"
 
   bottle do
@@ -17,9 +17,10 @@ class Iamy < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/99designs/iamy"
-    dir.install buildpath.children
-    cd dir do
+    ENV["GO111MODULE"] = "on"
+    src = buildpath/"src/github.com/99designs/iamy"
+    src.install buildpath.children
+    src.cd do
       system "go", "build", "-o", bin/"iamy", "-ldflags",
              "-X main.Version=v#{version}"
       prefix.install_metafiles
