@@ -1,8 +1,8 @@
 class Aide < Formula
   desc "File and directory integrity checker"
-  homepage "https://aide.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/aide/aide/0.16/aide-0.16.tar.gz"
-  sha256 "a81c53a131c4fd130b169b3a26ac35386a2f6e1e014f12807524cc273ed97345"
+  homepage "https://aide.github.io/"
+  url "https://github.com/aide/aide/releases/download/v0.16.1/aide-0.16.1.tar.gz"
+  sha256 "0f2b7cecc70c1a27d35c06c98804fcdb9f326630de5d035afc447122186010b7"
 
   bottle do
     rebuild 1
@@ -13,7 +13,7 @@ class Aide < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/aide/code.git"
+    url "https://github.com/aide/aide.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
