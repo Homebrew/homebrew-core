@@ -1,9 +1,8 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.2.tar.gz"
-  sha256 "6ba9f66540ea58fc2c17f175265f9ed76d74a8432eeac1182b74ebf4f2cd3414"
-  revision 1
+  url "https://tar.goaccess.io/goaccess-1.3.tar.gz"
+  sha256 "8c775c5c24bf85a933fd6f1249004847342d6542aa533e4ec02aaf7be41d7b9b"
   head "https://github.com/allinurl/goaccess.git"
 
   bottle do
@@ -14,10 +13,12 @@ class Goaccess < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gettext"
   depends_on "libmaxminddb"
   depends_on "tokyo-cabinet"
 
   def install
+    ENV.append_path "PATH", Formula["gettext"].bin
     system "autoreconf", "-vfi"
 
     args = %W[
@@ -27,6 +28,7 @@ class Goaccess < Formula
       --enable-utf8
       --enable-tcb=btree
       --enable-geoip=mmdb
+      --with-libintl-prefix=#{Formula["gettext"].opt_prefix}
     ]
 
     system "./configure", *args
