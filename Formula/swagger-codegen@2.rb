@@ -1,8 +1,8 @@
 class SwaggerCodegenAT2 < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.3.tar.gz"
-  sha256 "4d9629e098d6e7a0254d5167718890713dff1d29f1f5fc06cbef1cb42a934b1f"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.4.tar.gz"
+  sha256 "7cc96656c2756f393fcf01559855d289d10832f799292755a953e7580612c9b0"
 
   bottle do
     cellar :any_skip_relocation
