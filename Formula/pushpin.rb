@@ -6,9 +6,9 @@ class Pushpin < Formula
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "4e1b9a8febda8bd228037039b0973611dffe0a218e34b650d2a401598e74f9c9" => :mojave
-    sha256 "cc18f63dff97b611710150b33e31c3cfba2378a451af83d6f287dd968969e25d" => :high_sierra
-    sha256 "230ee98e23334033e5bf1a818095b11cf4c832a845fb855b3aa9a310d9f3de3c" => :sierra
+    sha256 "94717d6f290f921b8b58345ae1cc5d912c23d19b16e18f501313dc1c67f0d90c" => :mojave
+    sha256 "632ed024d70acffa371ab579143ba7585b7efa22e15423e7d31dc54de99e8e0b" => :high_sierra
+    sha256 "1bbbde4f2d333e2b7c9a0219c25ede0ed65a6c5cad6301ea583042b5a5f6d07b" => :sierra
   end
 
   depends_on "pkg-config" => :build
