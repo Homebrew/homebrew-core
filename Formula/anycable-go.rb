@@ -1,8 +1,8 @@
 class AnycableGo < Formula
   desc "Anycable Go WebSocket Server"
   homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/v0.6.1.tar.gz"
-  sha256 "609e09d3f6f37900ee02590efe75e5792c1fda52bce4bbb4075d2523c8fbd3bf"
+  url "https://github.com/anycable/anycable-go/archive/v0.6.2.tar.gz"
+  sha256 "cfd88c1f5a1019283b0c57c2582f7060c4469875f84557a82dbd2cbf5d63888f"
 
   bottle do
     cellar :any_skip_relocation
