@@ -1,9 +1,8 @@
 class Avra < Formula
   desc "Assember for the Atmel AVR microcontroller family"
-  homepage "https://avra.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/avra/1.3.0/avra-1.3.0.tar.bz2"
-  sha256 "a62cbf8662caf9cc4e75da6c634efce402778639202a65eb2d149002c1049712"
-  revision 1
+  homepage "https://github.com/hsoft/avra"
+  url "https://github.com/hsoft/avra/archive/1.4.0.tar.gz"
+  sha256 "e343858feae0376e4bb34affc2e29ecccdb6f7c168a3925b4e95ff82549414e7"
 
   bottle do
     cellar :any_skip_relocation
@@ -25,14 +24,10 @@ class Avra < Formula
   end
 
   def install
-    # build fails if these don't exist
-    touch "NEWS"
-    touch "ChangeLog"
-    cd "src" do
-      system "./bootstrap"
-      system "./configure", "--prefix=#{prefix}"
-      system "make", "install"
-    end
+    # CDEFS is not passed when building for macOS. Fixed upstream, waiting for next release.
+    # See: https://github.com/hsoft/avra/pull/1
+    inreplace "src/makefiles/Makefile.osx", "$(CC) $(ARCH) -o avra $(SOURCE)", "$(CC) $(ARCH) $(CDEFS) -o avra $(SOURCE)"
+    system "make", "install", "PREFIX=#{prefix}", "OS=osx"
     pkgshare.install Dir["includes/*"]
   end
 
