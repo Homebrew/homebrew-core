@@ -1,9 +1,9 @@
 class Autossh < Formula
   desc "Automatically restart SSH sessions and tunnels"
   homepage "https://www.harding.motd.ca/autossh/"
-  url "https://www.harding.motd.ca/autossh/autossh-1.4f.tgz"
-  mirror "https://deb.debian.org/debian/pool/main/a/autossh/autossh_1.4f.orig.tar.gz"
-  sha256 "0172e5e1bea40c642e0ef025334be3aadd4ff3b4d62c0b177ed88a8384e2f8f2"
+  url "https://www.harding.motd.ca/autossh/autossh-1.4g.tgz"
+  mirror "https://deb.debian.org/debian/pool/main/a/autossh/autossh_1.4g.orig.tar.gz"
+  sha256 "5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277"
 
   bottle do
     cellar :any_skip_relocation
