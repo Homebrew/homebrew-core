@@ -14,6 +14,7 @@ class Libcoap < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
