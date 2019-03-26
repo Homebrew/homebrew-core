@@ -7,9 +7,9 @@ class Vim < Formula
   head "https://github.com/vim/vim.git"
 
   bottle do
-    sha256 "1b4d9c77b574cd47954a6b1af3c75a0d5e1e40488a04c4049df72bd23a1ea5de" => :mojave
-    sha256 "ea3ca2339f909a261900915e9c578cd8c8a484d4331663bdf0020fd4a73269ad" => :high_sierra
-    sha256 "ab150336591ab5758278d9d7b6b6872898cb14298ba4d8d252f8387d120da318" => :sierra
+    sha256 "239c9570dd86a14c748de01fc618a20cabeb908d51716d478e8299a7d7227096" => :mojave
+    sha256 "8a222a636eeb7b96b078833ef53c98904e2148ee903e487ebb59daebf8dc61fc" => :high_sierra
+    sha256 "69a28276528f89587273f9bf339654fcb0176025d8533e40ea59e5d9df0a9d3c" => :sierra
   end
 
   depends_on "gettext"
