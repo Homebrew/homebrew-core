@@ -86,4 +86,8 @@ class Runit < Formula
     </plist>
   EOS
   end
+
+  test do
+    assert_match "usage: #{bin}/runsvdir [-P] dir", shell_output("#{bin}/runsvdir 2>&1", 1)
+  end
 end
