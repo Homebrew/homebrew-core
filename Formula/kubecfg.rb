@@ -1,8 +1,8 @@
 class Kubecfg < Formula
   desc "Manage complex enterprise Kubernetes environments as code"
   homepage "https://github.com/ksonnet/kubecfg"
-  url "https://github.com/ksonnet/kubecfg/archive/v0.9.0.tar.gz"
-  sha256 "f7be1abb89ac830d3cd7cfb33e1ac1f861ba25133a2c66e597953dd7a20d1b77"
+  url "https://github.com/ksonnet/kubecfg/archive/v0.9.1.tar.gz"
+  sha256 "22255007b6b9fd7e30f0af0456ba49eb405e714b3236a88926c776716096f5ac"
 
   bottle do
     cellar :any_skip_relocation
