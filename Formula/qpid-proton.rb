@@ -1,8 +1,8 @@
 class QpidProton < Formula
   desc "High-performance, lightweight AMQP 1.0 messaging library"
   homepage "https://qpid.apache.org/proton/"
-  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.26.0/qpid-proton-0.26.0.tar.gz"
-  sha256 "0eddac870f0085b9aeb0c9da333bd3f53fedb7c872164171a7cc06761ddbbd75"
+  url "https://www.apache.org/dyn/closer.lua?path=qpid/proton/0.27.0/qpid-proton-0.27.0.tar.gz"
+  sha256 "c65acc1a094c0702a4e10485e1496a15a4f18d887c40dd9a6b544f48cefdf1b8"
   head "https://git.apache.org/qpid-proton.git"
 
   bottle do
