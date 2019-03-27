@@ -66,6 +66,6 @@ class Minetest < Formula
   end
     
   test do
-    system "false"
+    system “#{minetest.app}/Contents/MacOS/minetest", "--help"
   end
 end
