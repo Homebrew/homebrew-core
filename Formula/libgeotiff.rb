@@ -1,9 +1,8 @@
 class Libgeotiff < Formula
   desc "Library and tools for dealing with GeoTIFF"
   homepage "https://geotiff.osgeo.org/"
-  url "https://github.com/OSGeo/libgeotiff/releases/download/1.4.3/libgeotiff-1.4.3.tar.gz"
-  sha256 "b8510d9b968b5ee899282cdd5bef13fd02d5a4c19f664553f81e31127bc47265"
-  revision 1
+  url "https://download.osgeo.org/geotiff/libgeotiff/libgeotiff-1.5.0.tar.gz"
+  sha256 "1c0bef329c60f770ed128e8b273945100f1a4b5abd161ac61e93bc947b0624dd"
 
   bottle do
     sha256 "47115d53da7662fd9fdcb78f23b3c1e812ca4a8d61860beead5ba77c09e167a6" => :mojave
