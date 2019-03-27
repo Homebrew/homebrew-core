@@ -1,8 +1,8 @@
 class Libsoundio < Formula
   desc "Cross-platform audio input and output"
   homepage "http://libsound.io"
-  url "https://github.com/andrewrk/libsoundio/archive/1.1.0.tar.gz"
-  sha256 "ba0b21397cb3e29dc8f51ed213ae27625f05398c01aefcfbaa860fab42a84281"
+  url "https://github.com/andrewrk/libsoundio/archive/2.0.0.tar.gz"
+  sha256 "67a8fc1c9bef2b3704381bfb3fb3ce99e3952bc4fea2817729a7180fddf4a71e"
 
   bottle do
     cellar :any
