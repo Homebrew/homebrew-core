@@ -1,8 +1,8 @@
 class Cli53 < Formula
   desc "Command-line tool for Amazon Route 53"
   homepage "https://github.com/barnybug/cli53"
-  url "https://github.com/barnybug/cli53/archive/0.8.14.tar.gz"
-  sha256 "f2c7dfafada86d9e75067b6db5c8dcfb6c5d9e3edec5bf780495219b6049efc9"
+  url "https://github.com/barnybug/cli53/archive/0.8.15.tar.gz"
+  sha256 "6b9fcce93071782f9cdfe1a05f098aa08e83f317a0685c2a7f09bafb7d74d24f"
 
   bottle do
     cellar :any_skip_relocation
