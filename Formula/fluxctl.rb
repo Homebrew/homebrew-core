@@ -2,8 +2,8 @@ class Fluxctl < Formula
   desc "Command-line tool to access Weave Flux, the Kubernetes GitOps operator"
   homepage "https://github.com/weaveworks/flux"
   url "https://github.com/weaveworks/flux.git",
-      :tag      => "1.8.2",
-      :revision => "e3baeeb98fcbb7b267bf94ca5184833e75ec779c"
+      :tag      => "1.11.0",
+      :revision => "fde27d142064dac30c2f548f03ae2ca63749d5f6"
 
   bottle do
     cellar :any_skip_relocation
@@ -34,22 +34,5 @@ class Fluxctl < Formula
 
     version_output = shell_output("#{bin}/fluxctl version 2>&1")
     assert_match version.to_s, version_output
-
-    # As we can't bring up a Kubernetes cluster in this test, we simply
-    # run "fluxctl sync" and check that it 1) errors out, and 2) complains
-    # about a missing .kube/config file.
-    require "pty"
-    require "timeout"
-    r, _w, pid = PTY.spawn("#{bin}/fluxctl sync", :err=>:out)
-    begin
-      Timeout.timeout(5) do
-        assert r.gets.chomp =~ %r{Error: stat .*\/.kube\/config: no such file or directory}
-        Process.wait pid
-        assert_equal 1, $CHILD_STATUS.exitstatus
-      end
-    rescue Timeout::Error
-      puts "process not finished in time, killing it"
-      Process.kill("TERM", pid)
-    end
   end
 end
