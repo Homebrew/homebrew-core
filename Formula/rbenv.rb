@@ -36,6 +36,11 @@ class Rbenv < Formula
     prefix.install ["bin", "completions", "libexec", "rbenv.d"]
   end
 
+  def post_install
+    # Update shims, when the older version is removed things get broken
+    system "#{bin}/rbenv", "rehash"
+  end
+
   test do
     shell_output("eval \"$(#{bin}/rbenv init -)\" && rbenv versions")
   end
