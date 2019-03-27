@@ -36,17 +36,12 @@ class Bind < Formula
       ENV["SDKROOT"] = MacOS.sdk_path
     end
 
-    # enable DNSSEC signature chasing in dig
-    ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
-
     system "./configure", "--prefix=#{prefix}",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
                           "--with-libjson=#{Formula["json-c"].opt_prefix}",
                           "--with-python=#{Formula["python"].opt_bin}/python3",
                           "--with-python-install-dir=#{vendor_site_packages}"
 
-    # From the bind9 README: "Do not use a parallel "make"
-    ENV.deparallelize
     system "make"
     system "make", "install"
 
