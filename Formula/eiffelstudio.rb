@@ -1,9 +1,8 @@
 class Eiffelstudio < Formula
   desc "Development environment for the Eiffel language"
   homepage "https://www.eiffel.com"
-  url "https://ftp.eiffel.com/pub/download/17.01/eiffelstudio-17.01.9.9700.tar"
-  sha256 "610344e8e4bbb4b8ccedc22e57b6ffa6b8fd7b9ffee05edad15fc1aa2b1259a1"
-  revision 2
+  url "https://ftp.eiffel.com/pub/download/18.11/eiffelstudio-18.11.10.2592.tar"
+  sha256 "9ee3c9663e21123a84e1447e301919171c2939b117ed1ad5780ba3e8021204ef"
 
   bottle do
     cellar :any
@@ -18,7 +17,7 @@ class Eiffelstudio < Formula
   def install
     system "./compile_exes", "macosx-x86-64"
     system "./make_images", "macosx-x86-64"
-    prefix.install Dir["Eiffel_17.01/*"]
+    prefix.install Dir["Eiffel_18.11/*"]
     bin.mkpath
     env = { :ISE_EIFFEL => prefix, :ISE_PLATFORM => "macosx-x86-64" }
     (bin/"ec").write_env_script(prefix/"studio/spec/macosx-x86-64/bin/ec", env)
