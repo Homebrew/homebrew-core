@@ -7,9 +7,9 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   bottle do
-    sha256 "a895c93792a483b8e33f0f7deaf5da689e3e37dacae001e5ddf6c8e26c1fb369" => :mojave
-    sha256 "7d70ec7c0ff41caeab7d36f8c61ab11688bef2d3331a6fb00899f5dc900fd2ac" => :high_sierra
-    sha256 "bd047702d89a072847dda5ee7a7d93ca61ce5291c622e5603f9390087a4d3b61" => :sierra
+    sha256 "f49688c8eaedb386ba6eff566aff88444f715b26c02477b27a0837997abb04a9" => :mojave
+    sha256 "84f4755232903b4bf8fe44345a36f2ea151f082cfe568bac893e59c33a3c589c" => :high_sierra
+    sha256 "c66a69892dca57ff8f78c58930609f14c65f06f8e5a47e8fa36adbf373c3fbc8" => :sierra
   end
 
   depends_on "meson-internal" => :build
