@@ -3,8 +3,8 @@ class HomeassistantCli < Formula
 
   desc "Command-line utility for Home Assistant"
   homepage "https://github.com/home-assistant/home-assistant-cli"
-  url "https://files.pythonhosted.org/packages/0d/7b/7db8b4061d6afa763cdd538127a13c22c419b937dea3df146590c3c5f33a/homeassistant-cli-0.5.0.tar.gz"
-  sha256 "4ad137d336508ab74840a34b3cc488ad884cc75285f5d7842544df1c3adacf8d"
+  url "https://files.pythonhosted.org/packages/41/f4/5dd6269230d3db661c9650e78ad523009a4c123a5c3941381b166806d838/homeassistant-cli-0.6.0.tar.gz"
+  sha256 "244a2378a56fe347a93abb13fde9b8be7276d9b327965f666284bd90b193587a"
 
   bottle do
     cellar :any_skip_relocation
@@ -51,18 +51,13 @@ class HomeassistantCli < Formula
   end
 
   resource "dateparser" do
-    url "https://files.pythonhosted.org/packages/e7/87/fc2ab653e628e2e51e00115bc9cb14c31afdd03acb710f137056a1c13f7c/dateparser-0.7.0.tar.gz"
-    sha256 "940828183c937bcec530753211b70f673c0a9aab831e43273489b310538dff86"
+    url "https://files.pythonhosted.org/packages/51/6f/3bf59d1cfd7845a8614bae2c2ccd540074695015210285127aab9088ea14/dateparser-0.7.1.tar.gz"
+    sha256 "42d51be54e74a8e80a4d76d1fa6e4edd997098fce24ad2d94a2eab5ef247193e"
   end
 
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/c4/26/b48aaa231644bc875bb348e162d156edb18b994da900a10f4493ea995a2f/decorator-4.3.2.tar.gz"
     sha256 "33cd704aea07b4c28b3eb2c97d288a06918275dac0ecebdaf1bc8a48d98adb9e"
-  end
-
-  resource "homeassistant-cli" do
-    url "https://files.pythonhosted.org/packages/0d/7b/7db8b4061d6afa763cdd538127a13c22c419b937dea3df146590c3c5f33a/homeassistant-cli-0.5.0.tar.gz"
-    sha256 "4ad137d336508ab74840a34b3cc488ad884cc75285f5d7842544df1c3adacf8d"
   end
 
   resource "idna" do
@@ -116,8 +111,8 @@ class HomeassistantCli < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/aa/eb/8a56aaf3a0a2a70cf2e017a8fb1ac5b6bad64a143d3096b0c0282b17ead1/regex-2019.01.24.tar.gz"
-    sha256 "20b1601b887e1073805adda2f8a09bb4c86dc7629c46c0d7bf28444dcb32920d"
+    url "https://files.pythonhosted.org/packages/fc/ec/51a1d35e9bea5ff8eece29fa5e03ad14da29f89f9d71cc82f2a58c87f2eb/regex-2019.02.20.tar.gz"
+    sha256 "466e63d7ad7c7df7b4808e9a3bf9cdb4a1b1e734889f92a58369df2f2da02dd6"
   end
 
   resource "requests" do
@@ -126,8 +121,8 @@ class HomeassistantCli < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/77/73/d7aa12dba105a2a6d18c2dfb18e643c259dfe2b9301b95079d823f6428ba/ruamel.yaml-0.15.85.tar.gz"
-    sha256 "34af6e2f9787acd3937b55c0279f46adff43124c5d72dced84aab6c89d1a960f"
+    url "https://files.pythonhosted.org/packages/83/78/cd935d417da1e02e80c43c5bdfcd9729caf299acd60d32a92c1b53ac363a/ruamel.yaml-0.15.88.tar.gz"
+    sha256 "ac56193c47a31c9efa151064a9e921865cdad0f7a991d229e7197e12fe8e0cd7"
   end
 
   resource "six" do
