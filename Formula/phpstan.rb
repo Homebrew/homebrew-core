@@ -71,6 +71,6 @@ class Phpstan < Formula
             }
         }
     EOS
-    assert_match /^\[OK\] No errors$/, shell_output("#{bin}/phpstan analyse --level max --autoload-file src/autoload.php src/Email.php")
+    assert_match /^\n\n \[OK\] No errors/, shell_output("#{bin}/phpstan analyse --level max --autoload-file src/autoload.php src/Email.php")
   end
 end
