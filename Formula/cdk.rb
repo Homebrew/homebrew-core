@@ -7,9 +7,9 @@ class Cdk < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "5c3bf3e1869e3b2575c0cf2dec92224b80670315aa456dd095052efef2ed6ab2" => :mojave
-    sha256 "0c3fcdf9ba94de9ac1ad148956e3e9d927964891223a2a2b32317ab8f9875104" => :high_sierra
-    sha256 "c5bc4254da7f5378913c36ef878728fc865fe30fe0063317278f302247005f7b" => :sierra
+    sha256 "c786783f05f2aa98019d5142c7c8a019cf9caee471fa41aa7ba360d0b8cb6b6e" => :mojave
+    sha256 "706723393e31a2969cb8686726426e72eaee75e848d60082c67da7daa1929ac5" => :high_sierra
+    sha256 "fc9f42aad5f855408583a604ab54f8241c85464f5a7e44492452904aab55dfb4" => :sierra
   end
 
   def install
