@@ -1,12 +1,11 @@
 class Lorem < Formula
   desc "Python generator for the console"
   homepage "https://github.com/per9000/lorem"
-  revision 1
   head "https://github.com/per9000/lorem.git"
 
   stable do
-    url "https://github.com/per9000/lorem/archive/v0.7.4.tar.gz"
-    sha256 "7917f4b8ead5209ddb44c395955dcc276ea63a81d8a416b5d0a5ef8f545bf81a"
+    url "https://github.com/per9000/lorem/archive/v0.8.0.tar.gz"
+    sha256 "3eec439d616a044e61a6733730b1fc009972466f869dae358991f95abd57e8b3"
 
     # Patch to fix broken -q option in latest numbered release
     patch do
