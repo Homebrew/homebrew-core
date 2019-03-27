@@ -40,8 +40,6 @@ class Bind < Formula
     ENV["STD_CDEFINES"] = "-DDIG_SIGCHASE=1"
 
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-threads",
-                          "--enable-ipv6",
                           "--with-openssl=#{Formula["openssl"].opt_prefix}",
                           "--with-libjson=#{Formula["json-c"].opt_prefix}",
                           "--with-python=#{Formula["python"].opt_bin}/python3",
