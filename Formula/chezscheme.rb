@@ -1,8 +1,8 @@
 class Chezscheme < Formula
   desc "Chez Scheme"
   homepage "https://cisco.github.io/ChezScheme/"
-  url "https://github.com/cisco/ChezScheme/archive/v9.5.tar.gz"
-  sha256 "a1d9f93bd8a683ea3d8f2f1b4880f85ea40bf9a482ee6b84cb0fe0ab6148a98c"
+  url "https://github.com/cisco/ChezScheme/archive/v9.5.2.tar.gz"
+  sha256 "3a370fdf2ffd67d6a0ccbb993dfab1cbaf4a0a97983c869cfaab40528c33c48b"
 
   bottle do
     sha256 "7599610cda8eeda8b10921d4e8092f939b02fa32810201fea5df0bcb7b0623d4" => :mojave
