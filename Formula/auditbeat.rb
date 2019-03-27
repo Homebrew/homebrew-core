@@ -2,8 +2,8 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.6.1",
-      :revision => "928f5e3f35fe28c1bd73513ff1cc89406eb212a6"
+      :tag      => "v6.7.0",
+      :revision => "14ca49c28a6e10b84b4ea8cdebdc46bd2eab3130"
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -24,8 +24,8 @@ class Auditbeat < Formula
   # Patch required to build against go 1.11 (Can be removed with v7.0.0)
   # partially backport of https://github.com/elastic/beats/commit/8d8eaf34a6cb5f3b4565bf40ca0dc9681efea93c
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/881f5d1d/auditbeat/go1.11.diff"
-    sha256 "1747ea917ccd4c627fdc412d41b340ec96ce705f529b6e9d91e9bdf482eb792d"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a0f8cdc0/auditbeat/go1.11.diff"
+    sha256 "8a00cb0265b6e2de3bc76f14f2ee4f1a5355dad490f3db9288d968b3e95ae0eb"
   end
 
   def install
