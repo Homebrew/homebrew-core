@@ -4,13 +4,6 @@ class ProtobufAT36 < Formula
   url "https://github.com/protocolbuffers/protobuf/archive/v3.6.1.3.tar.gz"
   sha256 "73fdad358857e120fd0fa19e071a96e15c0f23bb25f85d3f7009abfd4f264a2a"
 
-  bottle do
-    cellar :any
-    sha256 "5ff917a16f1625e980e3089c4da5ee9909f4e3b0fc5c359a5e1b0131a7787c2f" => :mojave
-    sha256 "137739ea611d2f81669992ac2c39e24d335b687cc2cc3aad3f9e82ff8bcfd583" => :high_sierra
-    sha256 "060b641aea6ea4e89713e2c53a7d6b70340d92e84681718694fb0323f7accec1" => :sierra
-  end
-
   keg_only :versioned_formula
 
   depends_on "autoconf" => :build
