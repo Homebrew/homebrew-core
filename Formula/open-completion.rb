@@ -1,8 +1,8 @@
 class OpenCompletion < Formula
   desc "Bash completion for open"
   homepage "https://github.com/moshen/open-bash-completion"
-  url "https://github.com/moshen/open-bash-completion/archive/v1.0.3.tar.gz"
-  sha256 "e7ed931d49d2c9ed5bc4fcad1b60a8c4cb6d4bca86948cb54e6689f313a2029e"
+  url "https://github.com/moshen/open-bash-completion/archive/v1.0.4.tar.gz"
+  sha256 "23a8a30f9f65f5b3eb60aa6f2d1c60d7d0a858ea753a58f31ddb51d40e16b668"
   head "https://github.com/moshen/open-bash-completion.git"
 
   bottle :unneeded
