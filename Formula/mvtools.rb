@@ -7,10 +7,9 @@ class Mvtools < Formula
 
   bottle do
     cellar :any
-    sha256 "9ed185ad8294c1a18115e38d99dfbe0752849038c333b684d1e6642cc3377bc0" => :mojave
-    sha256 "6a78a79719c00934f397bf61a6fff3415fa3ca155bb22cf67b3ae899f718174b" => :high_sierra
-    sha256 "bd36ea3bb4a0e0ee16892683dbd3d5e04bd7b11174f99d5a698b6c495158f81e" => :sierra
-    sha256 "043f36d3ed835c973bbacb64aa07cb2f435fb10539f2b7cb0feecdf75a459f72" => :el_capitan
+    sha256 "38a737a0f57228a8feafd128cf5124cb563a1579396943c5f3ae28716922ddc9" => :mojave
+    sha256 "ddc7826a71b5c15138526db3857afbf16cda335c7037236bd2abe35035c9bcc9" => :high_sierra
+    sha256 "397b4e471afb5194b619dc3829bed5bb98739f11c3c188db6e3837d09159063e" => :sierra
   end
 
   depends_on "autoconf" => :build
