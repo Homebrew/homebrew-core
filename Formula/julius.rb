@@ -14,18 +14,7 @@ class Julius < Formula
 
   depends_on "libsndfile"
 
-  # Upstream PR from 9 Sep 2017 "ensure pkgconfig directory exists during
-  # installation"
-  patch do
-    url "https://github.com/julius-speech/julius/pull/73.patch?full_index=1"
-    sha256 "b1d2d233a7f04f0b8f1123e1de731afd618b996d1f458ea8f53b01c547864831"
-  end
-
   def install
-    # Upstream issue "4.4.2.1 parallelized build fails"
-    # Reported 10 Sep 2017 https://github.com/julius-speech/julius/issues/74
-    ENV.deparallelize
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
