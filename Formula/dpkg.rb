@@ -4,9 +4,9 @@ class Dpkg < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.5.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.5.tar.xz"
-  sha256 "ed327c9973610a695e1950613861c734974d9476e76ef713724558601ce63544"
+  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.19.6.tar.xz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.19.6.tar.xz"
+  sha256 "4eb1a12d1f5bd55478d2eab530dd188733e425f301e3b8c030f645f48ef43768"
 
   bottle do
     sha256 "6d8f6d049e693ebb7473080775b390492b3fa36f770a0dd50f096c44d42290b4" => :mojave
