@@ -13,12 +13,14 @@ class Qxmpp < Formula
     sha256 "6205c7bb9b62fbf5bcbce366e77c2a77992a3bcd88d5666e751a7dfee9202936" => :yosemite
   end
 
+  depends_on "cmake" => :build
   depends_on "qt"
 
   def install
-    system "qmake", "-config", "release", "PREFIX=#{prefix}"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "cmake", "--build", ".", "--target", "install"
+    end
   end
 
   test do
