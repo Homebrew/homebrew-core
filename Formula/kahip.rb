@@ -1,6 +1,6 @@
 class Kahip < Formula
   desc "Karlsruhe High Quality Partitioning"
-  homepage "http://algo2.iti.kit.edu/documents/kahip/index.html"
+  homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
   url "https://github.com/schulzchristian/KaHIP/archive/v2.11.tar.gz"
   sha256 "9351902b9e1c53b16ac7c3ba499a8f52348cae945c5cfc00e82c2c68302e1dca"
 
