@@ -1,8 +1,8 @@
 class SsllabsScan < Formula
   desc "This tool is a command-line client for the SSL Labs APIs"
   homepage "https://github.com/ssllabs/ssllabs-scan/"
-  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.4.0.tar.gz"
-  sha256 "a7d5fad92649172ca4b190f481172b602aa1ae103d14dd1f1951ee250d382eec"
+  url "https://github.com/ssllabs/ssllabs-scan/archive/v1.5.0.tar.gz"
+  sha256 "51c52e958d5da739910e9271a3abf4902892b91acb840ea74f5c052a71e3a008"
 
   bottle do
     cellar :any_skip_relocation
@@ -18,8 +18,7 @@ class SsllabsScan < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    system "make", "build"
-    bin.install "ssllabs-scan"
+    system "go", "build", "-o", bin/"ssllabs-scan", "ssllabs-scan-v3.go"
   end
 
   def caveats; <<~EOS
