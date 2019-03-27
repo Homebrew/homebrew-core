@@ -5,9 +5,9 @@ class CurlOpenssl < Formula
   sha256 "4cc7c738b35250d0680f29e93e0820c4cb40035f43514ea3ec8d60322d41a45d"
 
   bottle do
-    sha256 "97d32ac24c5a62f93c832fcb881ade6fc8a895e36bf1af0837b535216dce16f3" => :mojave
-    sha256 "bd020df28b99355990348b6f0312f5b8af65febceff0e4f4ab8ac6fff9caf3ba" => :high_sierra
-    sha256 "bbc385ef19240944c7efa57df51b9c7384cf88e2515153044b554124cd56dd7f" => :sierra
+    sha256 "44d845c366ba037c65fe913ca2bee9db03a847ba333176689fa94c6af0f935b3" => :mojave
+    sha256 "0bdb433305b927f6a0c71393c0c8c5002ff6c566440b82f93d8a2d5014cdc01d" => :high_sierra
+    sha256 "9dc946b3332439ca177c3ca0c01748955365d49fb47d7cb29c8c2178bb83223c" => :sierra
   end
 
   head do
