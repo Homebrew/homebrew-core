@@ -6,9 +6,10 @@ class BdwGc < Formula
 
   bottle do
     cellar :any
-    sha256 "456bcc98f7bfbf3450c0fe729940aae4819e8db6093799bcd00cdba1875201f4" => :mojave
-    sha256 "2f2ac45b40864ad3cc08fbbfdad80336842bc2bc950277fce147a81daebd5558" => :high_sierra
-    sha256 "43ec8fd9fc66fb60270a2380039a7af16124bb6748735d431d8add3e0d73cd7a" => :sierra
+    rebuild 1
+    sha256 "6ba8765e5828d33948dd5f75b02e99c830e3968199f612cba21b47be48c3232d" => :mojave
+    sha256 "cfb61bc256c0d0a95fb247652eced2e7744cb53e0226ba6585e5e37ab35d8613" => :high_sierra
+    sha256 "36c45709cfdd7956869513c778caaa188ea735da3b0b2448bf1787609615c125" => :sierra
   end
 
   head do
