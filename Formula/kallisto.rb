@@ -6,9 +6,9 @@ class Kallisto < Formula
 
   bottle do
     cellar :any
-    sha256 "b8cae9afc8e18cceb114b84ecd53f24e3b00b803589b125eda5f6307e364e0a8" => :mojave
-    sha256 "127c2e5aae118640a218e8141e441d649b900d4acf554cf3059e921c3dff262e" => :high_sierra
-    sha256 "f865065a6ce9703669d5af9447a681e5a248b23da4a974ff49a57ece7e6f159a" => :sierra
+    sha256 "60b4b2ac31be396caaf7a07d403be9572451fe1583f638e1e3782c99cc66973b" => :mojave
+    sha256 "265a37e38c894f343a1f245c7c0b1147788bdc294dae5c765e6e7c4edb86bccd" => :high_sierra
+    sha256 "67d589175fc046e782a761597c3a5d11623770cc9937939eadeff3f535f04dd4" => :sierra
   end
 
   depends_on "autoconf" => :build
