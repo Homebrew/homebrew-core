@@ -1,10 +1,9 @@
 class Etsh < Formula
   desc "Two ports of /bin/sh from V6 UNIX (circa 1975)"
-  homepage "https://etsh.io/"
-  url "https://etsh.io/src/etsh-5.2.0.tar.gz"
-  sha256 "af561b7fa2f9eb872e2e5a71a8f8e5479f8bb5829a8ec1534f0240475c3dfe5e"
+  homepage "https://etsh.nl/"
+  url "https://etsh.nl/src/etsh_5.3.1/etsh-5.3.1.tar.xz"
+  sha256 "83ae656da0ed39555818d3ac80841757672e55802632f6877037bc89a476ec2b"
   version_scheme 1
-  head "https://github.com/JNeitzel/v6shell.git", :branch => "current"
 
   bottle do
     rebuild 1
