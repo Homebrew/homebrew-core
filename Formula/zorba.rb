@@ -3,7 +3,7 @@ class Zorba < Formula
   homepage "http://www.zorba.io/"
   url "https://github.com/28msec/zorba/archive/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
-  revision 9
+  revision 10
 
   bottle do
     sha256 "cb24e884cb56af293bf9b10e7280aff091e72540d6d67d610674bcd0c5dfcdd9" => :mojave
