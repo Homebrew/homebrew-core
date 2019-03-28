@@ -3,7 +3,7 @@ class Freeling < Formula
   homepage "http://nlp.lsi.upc.edu/freeling/"
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.1/FreeLing-4.1.tar.gz"
   sha256 "ccb3322db6851075c9419bb5e472aa6b2e32cc7e9fa01981cff49ea3b212247e"
-  revision 2
+  revision 3
 
   bottle do
     sha256 "571a7becc49b10d599771a2803b4319e9cf2ee27bdd3ea64aa5d55174d9e8685" => :mojave
