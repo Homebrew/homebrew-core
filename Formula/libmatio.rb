@@ -42,6 +42,18 @@ class Libmatio < Formula
         if (!(matfp = Mat_Open(argv[1], MAT_ACC_RDONLY)))
           abort();
         Mat_Close(matfp);
+
+        mat = Mat_CreateVer("test_writenan.mat",NULL,mat_file_ver);
+        if ( mat != NULL ) {
+          matvar = Mat_VarCreate("foo",MAT_C_DOUBLE,MAT_T_DOUBLE,2,
+                        dims,data,MAT_F_DONT_COPY_DATA);
+          Mat_VarWrite(mat,matvar,MAT_COMPRESSION_NONE);
+          Mat_VarFree(matvar);
+          Mat_Close(mat);
+        } else {
+          abort();
+        }
+        mat_t* mat = Mat_CreateVer("foo",NULL,MAT_FT_MAT73);
         return EXIT_SUCCESS;
       }
     EOS
