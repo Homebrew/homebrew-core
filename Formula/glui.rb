@@ -1,8 +1,8 @@
 class Glui < Formula
   desc "C++ user interface library"
   homepage "https://glui.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/glui/Source/2.36/glui-2.36.tgz"
-  sha256 "c1ef5e83cf338e225ce849f948170cd681c99661a5c2158b4074515926702787"
+  url "https://github.com/libglui/glui/archive/2.37.tar.gz"
+  sha256 "f7f6983f7410fe8dfaa032b2b7b1aac2232ec6a400a142b73f680683dad795f8"
 
   bottle do
     cellar :any_skip_relocation
@@ -14,31 +14,31 @@ class Glui < Formula
     sha256 "1a5b5bc92fbb7077f11f53fcbd16d1e63b1e04850d029afa2a8e82822a5e82e4" => :mavericks
   end
 
-  # Fix compiler warnings in glui.h. Reported upstream:
-  # https://sourceforge.net/p/glui/patches/12/
-  patch :DATA
+  # Fix compiler warnings in glui.h. Merged into master on November 28, 2016.
+  patch do
+    url "https://github.com/libglui/glui/commit/fc9ad76733034605872a0d1323bb19cbc23d87bf.patch?full_index=1"
+    sha256 "b1afada854f920692ab7cb6b6292034f3488936c4332e3e996798ee494a3fdd7"
+  end
 
   def install
-    cd "src" do
-      system "make", "setup"
-      system "make", "lib/libglui.a"
-      lib.install "lib/libglui.a"
-      include.install "include/GL"
-    end
+    system "make", "setup"
+    system "make", "lib/libglui.a"
+    lib.install "lib/libglui.a"
+    include.install "include/GL"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <cassert>
+      #include <GL/glui.h>
+      int main() {
+        GLUI *glui = GLUI_Master.create_glui("GLUI");
+        assert(glui != nullptr);
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
+      "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
+    system "./a.out"
   end
 end
-
-__END__
-diff --git a/src/include/GL/glui.h b/src/include/GL/glui.h
-index 01a5c75..5784e29 100644
---- a/src/include/GL/glui.h
-+++ b/src/include/GL/glui.h
-@@ -941,7 +941,7 @@ public:
-         spacebar_mouse_click = true;    /* Does spacebar simulate a mouse click? */
-         live_type      = GLUI_LIVE_NONE;
-         text = "";
--        last_live_text == "";
-+        last_live_text = "";
-         live_inited    = false;
-         collapsible    = false;
-         is_open        = true;
