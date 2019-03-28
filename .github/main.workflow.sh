@@ -23,6 +23,11 @@ mkdir -p "$CORE_DIR"
 rm -rf "$CORE_DIR"
 ln -s "$PWD" "$CORE_DIR"
 
+# get latest Homebrew/homebrew-core
+git -C "$CORE_DIR" fetch
+git -C "$CORE_DIR" checkout -f master
+git -C "$CORE_DIR" reset --hard origin/master
+
 # setup Homebrew environment
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ANALYTICS=1
