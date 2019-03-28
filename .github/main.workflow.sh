@@ -48,5 +48,6 @@ unset HOMEBREW_NO_ANALYTICS
 ruby -e "load Gem.bin_path('rake', 'rake')"
 
 # commit and push generated files
+git add _data/formula api/formula formula
 git commit -m 'formula: update from Homebrew/core push' _data/analytics _data/formula api/formula formula
 git push
