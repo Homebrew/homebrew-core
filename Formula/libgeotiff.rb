@@ -22,6 +22,11 @@ class Libgeotiff < Formula
   depends_on "libtiff"
   depends_on "proj"
 
+  patch :p2 do
+    url "https://github.com/OSGeo/libgeotiff/commit/f4956251737b29ccc3f6366cd5b21520689f21d9.diff?full_index=1"
+    sha256 "de383f5023f34262638d6069bf8f1be2cc05342313dad33aa9ff3c82e38b5934"
+  end
+
   def install
     system "./autogen.sh" if build.head?
 
