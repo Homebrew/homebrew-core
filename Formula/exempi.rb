@@ -6,10 +6,9 @@ class Exempi < Formula
 
   bottle do
     cellar :any
-    sha256 "45836b7114756f4a43b21423aa8469526a25300c455055ad76e837bb646aa30b" => :mojave
-    sha256 "cb8963597a18110d41181ef79296a7f649330dbd21581f3bbc02209ad478d1bc" => :high_sierra
-    sha256 "61b309245e23f723bdea631694de9809cc9ff9551abc87386eb063cef351c172" => :sierra
-    sha256 "b1214df8ff8d55b48940e13e27cb7a0fcce0d423a8a791de876974622add734e" => :el_capitan
+    sha256 "f276793d07a9d9509e3d9e9267a59a22bb95b1a021468e121700d64ec8e5176d" => :mojave
+    sha256 "424eaeb7c609a08e98ba614d386d5b19deda7c808606698b398bac710637cfa4" => :high_sierra
+    sha256 "b23d8e0ef9d2cefe04a3b1c288a06b0c7cd0202aa05f768f43a499461ea68288" => :sierra
   end
 
   depends_on "boost"
