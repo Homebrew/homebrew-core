@@ -5,9 +5,9 @@ class Feh < Formula
   sha256 "9fe840fbc6ce66dcf1e99296c90eb6fc44a4c2fad9a1069dfc7e0fad88eb56ef"
 
   bottle do
-    sha256 "89f7c4eb397616415e1d3bf4e2b9e1fc101f9beae8edc4076da0e76775423398" => :mojave
-    sha256 "f69b4b8f44e56f4a4c147e11bef18c1cf8a6ee7582f72305ff1487ca10a12a06" => :high_sierra
-    sha256 "2a4581cdf48afb72a2b2f3e0c1a7f8139af065fd4051bcc89b6ce2102b6797ef" => :sierra
+    sha256 "73e85a79e9b7a8a4f07cb90a6581a124fd805f78b7206857aed3078bb90b90a8" => :mojave
+    sha256 "41593cd4180688b27f6ab883530957720570df5eb3ff0fa5086981deaa9f9b60" => :high_sierra
+    sha256 "3889ffe9662bfcbd7cffaf970874d2e49060ca6fd04ceb81b4c980c770547a08" => :sierra
   end
 
   depends_on "imlib2"
