@@ -6,9 +6,9 @@ class Fltk < Formula
   sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
 
   bottle do
-    sha256 "d4844065f8c9fb37183d610d4c0d55d1dc3447d7348ab34930d1e6e35c7f21c7" => :mojave
-    sha256 "06b17cb9b3c89f4e5df09eacb7f735af872bdec7fb1932237c83ba72be1a680d" => :high_sierra
-    sha256 "c5b58949cc184e7af5fd44fbfc65a71a37e2fc950bb08971c6fb633d85eccabc" => :sierra
+    sha256 "3ea6ccc2fec9151f3ed0f20761794b9fe0477d168dbc4e83ba88b3f3d16c530b" => :mojave
+    sha256 "6edac0b91f19783376ec95c84819405a6f029d7d2bf8ac636d421682fc064e34" => :high_sierra
+    sha256 "e2bd28a348c8fbf948f2400d3df29ba786a2ca9cc3f87b3727477fb49ebf57f0" => :sierra
   end
 
   depends_on "jpeg"
