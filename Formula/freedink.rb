@@ -1,9 +1,8 @@
 class Freedink < Formula
   desc "Portable version of the Dink Smallwood game engine"
   homepage "https://www.gnu.org/software/freedink/"
-  url "https://ftp.gnu.org/gnu/freedink/freedink-108.4.tar.gz"
-  sha256 "82cfb2e019e78b6849395dc4750662b67087d14f406d004f6d9e39e96a0c8521"
-  revision 2
+  url "https://ftp.gnu.org/gnu/freedink/freedink-109.6.tar.gz"
+  sha256 "5e0b35ac8f46d7bb87e656efd5f9c7c2ac1a6c519a908fc5b581e52657981002"
 
   bottle do
     sha256 "0e4a3d4215290acc759285fe77b9b7a43ff009af962e5bd27a1d0f2030febe36" => :mojave
@@ -12,20 +11,23 @@ class Freedink < Formula
     sha256 "69db51ab48473114449682010dfa7e03c992184a7fea6df1dd4e6c6a6e7ca72a" => :el_capitan
   end
 
+  depends_on "glm" => :build
   depends_on "pkg-config" => :build
   depends_on "check"
+  depends_on "cxxtest"
   depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gettext"
   depends_on "libzip"
+  depends_on "sdl2"
+  depends_on "sdl2_gfx"
   depends_on "sdl2_image"
-  depends_on "sdl_gfx"
-  depends_on "sdl_image"
-  depends_on "sdl_mixer"
-  depends_on "sdl_ttf"
+  depends_on "sdl2_mixer"
+  depends_on "sdl2_ttf"
 
   resource "freedink-data" do
-    url "https://ftp.gnu.org/gnu/freedink/freedink-data-1.08.20170409.tar.gz"
-    sha256 "e1f1e23c7846bc74479610a65cc0169906e844c5193f0d83ba69accc54a3bdf5"
+    url "https://ftp.gnu.org/gnu/freedink/freedink-data-1.08.20190120.tar.gz"
+    sha256 "715f44773b05b73a9ec9b62b0e152f3f281be1a1512fbaaa386176da94cffb9d"
   end
 
   def install
@@ -42,7 +44,7 @@ class Freedink < Formula
   end
 
   test do
-    assert_match "GNU FreeDink 108.4", shell_output("#{bin}/freedink -vwis")
+    assert_match "GNU FreeDink 109.6", shell_output("#{bin}/freedink -vwis")
     assert FileTest.exists?("#{share}/dink/dink/Dink.dat")
   end
 end
