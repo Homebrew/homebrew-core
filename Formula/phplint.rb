@@ -1,9 +1,9 @@
 class Phplint < Formula
   desc "Validator and documentator for PHP 5 and 7 programs"
   homepage "https://www.icosaedro.it/phplint/"
-  url "https://www.icosaedro.it/phplint/phplint-3.2_20180727.tar.gz"
-  version "3.2-20180727"
-  sha256 "337b7a0d717ea7ff454ded7b3298d65f0cabeaf309598357b8354c96ce4e9f85"
+  url "https://www.icosaedro.it/phplint/phplint-4.0_20190206.tar.gz"
+  version "4.0-20190206"
+  sha256 "8a2d4b128fff23b469e5c64847187c2550d9775602f80859475ad686f2317cc0"
 
   bottle :unneeded
 
@@ -55,6 +55,6 @@ class Phplint < Formula
         }
     EOS
     output = shell_output("#{bin}/phpl Email.php", 1)
-    assert_match "Overall test results: 15 errors, 0 warnings.", output
+    assert_match "Overall test results: 6 errors, 0 warnings.", output
   end
 end
