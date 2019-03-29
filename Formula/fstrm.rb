@@ -1,8 +1,8 @@
 class Fstrm < Formula
   desc "Frame Streams implementation in C"
   homepage "https://github.com/farsightsec/fstrm"
-  url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.4.0.tar.gz"
-  sha256 "b20564cb2ebc7783a8383fbef5bcef5726f94baf48b83843553c9e1030b738ef"
+  url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.5.0.tar.gz"
+  sha256 "10ee7792a86face1d2271dc591652ab8c7af6976883887c69fdb11f10da135fc"
 
   bottle do
     cellar :any
