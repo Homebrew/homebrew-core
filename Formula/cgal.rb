@@ -12,7 +12,7 @@ class Cgal < Formula
     sha256 "0a368594840007d0a433b702ef5392f332d38e7bc68a83ffc4771f8ca5fa5877" => :sierra
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "boost"
   depends_on "eigen"
   depends_on "gmp"
