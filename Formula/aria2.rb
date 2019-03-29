@@ -42,7 +42,7 @@ class Aria2 < Formula
 
   def caveats; <<~EOS
     aria2 requires a config file to start as daemon.
-    Please create #{etc}/aria2.conf and edit your custom configuration.
+    Please create #{etc}/aria2.conf and add a configuration.
   EOS
   end
 
