@@ -19,32 +19,6 @@ class Jenv < Formula
 
         export PATH="$HOME/.jenv/bin:$PATH"
         eval "$(jenv init -)"
-
-      To add Java Environment to jenv, List and add the Java environments as:
-
-        /usr/libexec/java_home
-
-      Output would be something like this, in multiple of depending on how
-      many JDK you have installed:
-
-        /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home
-
-      Add it to jenv as:
-
-        jenv add /Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home
-
-      Check available versions after you have added them to jenv as:
-
-        jenv versions
-
-      Activate Java version as:
-
-        jenv shell 10.0
-
-      Additionally you can create 'jenvrc' file inside the root directory of your
-      project of simple any directory with content:
-
-        java=1.10
     EOS
   end
 
