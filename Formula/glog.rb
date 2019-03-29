@@ -4,6 +4,7 @@ class Glog < Formula
   url "https://github.com/google/glog/archive/v0.4.0.tar.gz"
   sha256 "f28359aeba12f30d73d9e4711ef356dc842886968112162bc73002645139c39c"
   head "https://github.com/google/glog.git"
+  revision 4
 
   bottle do
     cellar :any
@@ -18,6 +19,8 @@ class Glog < Formula
   def install
     mkdir "cmake-build" do
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+      system "make", "install"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
       system "make", "install"
     end
 
@@ -49,9 +52,7 @@ class Glog < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}",
-                    "-lglog", "-I#{Formula["gflags"].opt_lib}",
-                    "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-                    "-o", "test"
+                    "-lglog", "-o", "test"
     system "./test"
   end
 end
