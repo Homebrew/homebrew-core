@@ -38,6 +38,7 @@ class Libmatio < Formula
       #include <stdlib.h>
       #include <matio.h>
 
+      static enum mat_ft mat_file_ver = MAT_FT_DEFAULT;
       size_t     dims[2] = {5,5};
       double     data[25]={0.0,};
       mat_t    *mat;
