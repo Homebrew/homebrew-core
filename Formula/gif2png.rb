@@ -1,8 +1,8 @@
 class Gif2png < Formula
   desc "Convert GIFs to PNGs"
   homepage "http://www.catb.org/~esr/gif2png/"
-  url "http://www.catb.org/~esr/gif2png/gif2png-2.5.11.tar.gz"
-  sha256 "40483169d2de06f632ada1de780c36f63325844ec62892b1652193f77fc508f7"
+  url "http://www.catb.org/~esr/gif2png/gif2png-2.5.13.tar.gz"
+  sha256 "997275b20338e6cfe3bd4adb084f82627c34c856bc1d67c915c397cf55146924"
 
   bottle do
     cellar :any
