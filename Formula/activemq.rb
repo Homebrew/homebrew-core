@@ -6,7 +6,7 @@ class Activemq < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   def install
     rm_rf Dir["bin/linux-x86-*"]
