@@ -6,9 +6,9 @@ class Ginac < Formula
 
   bottle do
     cellar :any
-    sha256 "bd77d833166418f2d43ba4425bb78c739307f5112d442a5bce4804eb8bdd18fe" => :mojave
-    sha256 "65e1cc9d7a9af229d7f2b26323823fe7eb0540cb9c7f24f9fd65f0a55bec9fe4" => :high_sierra
-    sha256 "fd1070f14cd58bb0121d335b9bbc71334e83a4cecb61eab8736c96064ce55f12" => :sierra
+    sha256 "9d1b29e27f00ce4e73523a225a97252918648566b729d6fcdf0b8fc12058e80c" => :mojave
+    sha256 "3aef98960da7da142e1ebcdb2c76a4a095dc3eb7665ae3982f2862f2aa386d39" => :high_sierra
+    sha256 "cd70440f6fe43ec1fae5e643ef2c5cf1bb3cb9861406b4b2718b3901deb33666" => :sierra
   end
 
   depends_on "pkg-config" => :build
