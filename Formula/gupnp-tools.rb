@@ -1,9 +1,8 @@
 class GupnpTools < Formula
   desc "Free replacements of Intel's UPnP tools"
   homepage "https://wiki.gnome.org/GUPnP/"
-  url "https://download.gnome.org/sources/gupnp-tools/0.8/gupnp-tools-0.8.15.tar.xz"
-  sha256 "336ef4a09b9fc83444a1594c8215e2bed55fbea5b6d1bf6b54c63104b4c497ab"
-  revision 1
+  url "https://download.gnome.org/sources/gupnp-tools/0.10/gupnp-tools-0.10.0.tar.xz"
+  sha256 "41da7ff5ba8e2425adcb64ca5e04c81f57ca20ec6fdb84923939fdad42c6a18d"
 
   bottle do
     sha256 "f330d39c1cd4c6420b5d0bfa9c8382c9180e8e09e07cb87cf3b4100db7b493d8" => :mojave
@@ -24,8 +23,8 @@ class GupnpTools < Formula
   def install
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 
