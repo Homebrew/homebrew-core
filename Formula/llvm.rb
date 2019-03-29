@@ -36,6 +36,11 @@ class Llvm < Formula
       sha256 "9caec8ec922e32ffa130f0fb08e4c5a242d7e68ce757631e425e9eba2e1a6e37"
     end
 
+    resource "lldb" do
+      url "https://releases.llvm.org/8.0.0/lldb-8.0.0.src.tar.xz"
+      sha256 "49918b9f09816554a20ac44c5f85a32dc0a7a00759b3259e78064d674eac0373"
+    end
+
     resource "openmp" do
       url "https://releases.llvm.org/8.0.0/openmp-8.0.0.src.tar.xz"
       sha256 "f7b1705d2f16c4fc23d6531f67d2dd6fb78a077dd346b02fed64f4b8df65c9d5"
@@ -87,6 +92,10 @@ class Llvm < Formula
       url "https://git.llvm.org/git/lld.git"
     end
 
+    resource "lldb" do
+      url "https://git.llvm.org/git/lldb.git"
+    end
+
     resource "openmp" do
       url "https://git.llvm.org/git/openmp.git"
     end
@@ -102,6 +111,7 @@ class Llvm < Formula
   depends_on "cmake" => :build
   depends_on :xcode => :build
   depends_on "libffi"
+  depends_on "swig" if MacOS.version >= :lion
 
   def install
     # Apple's libstdc++ is too old to build LLVM
@@ -113,6 +123,7 @@ class Llvm < Formula
     (buildpath/"projects/libcxx").install resource("libcxx")
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
+    (buildpath/"tools/lldb").install resource("lldb")
     (buildpath/"tools/polly").install resource("polly")
     (buildpath/"projects/compiler-rt").install resource("compiler-rt")
 
@@ -140,6 +151,8 @@ class Llvm < Formula
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
+      -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
+      -DLLDB_DISABLE_PYTHON=1
     ]
 
     mkdir "build" do
