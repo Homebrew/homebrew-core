@@ -1,8 +1,8 @@
 class Ffe < Formula
   desc "Parse flat file structures and print them in different formats"
   homepage "https://ff-extractor.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ff-extractor/ff-extractor/0.3.8/ffe-0.3.8.tar.gz"
-  sha256 "46f4e728e3f9bb73a021afc1080972356bbd6d6c883598d8fd7876ad44b60835"
+  url "https://downloads.sourceforge.net/project/ff-extractor/ff-extractor/0.3.9/ffe-0.3.9.tar.gz"
+  sha256 "78bab8fa1068a62600c3de153122b8fc9252080ddbc521f71b938b5dbd9afb0d"
 
   bottle do
     cellar :any_skip_relocation
