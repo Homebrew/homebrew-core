@@ -6,12 +6,9 @@ class Gif2png < Formula
 
   bottle do
     cellar :any
-    sha256 "fea34a3444219fe6c5a0a9929f5b5035176f792f8098e79e3ee8639baf53272b" => :mojave
-    sha256 "beb6b9105619530cad31b7204952a49aa5e1c36409f2a349398399038947afa2" => :high_sierra
-    sha256 "4aaa6b47a33b58d52ebd3635ec71198e1fbb75dc06234a4e482852c73ef83339" => :sierra
-    sha256 "6d36f52b4d4aff69ea5a4599f1e8830a7cf9487e39d169d11155f915953ae51b" => :el_capitan
-    sha256 "51e3d439570ad14778998aa06367be48a60a2d9b278ae865fa502f60307b501f" => :yosemite
-    sha256 "fefb1fb3cea89f455dd7b37ead607bdeeaf0c3a3c7c342e053f2f02bac323960" => :mavericks
+    sha256 "95c85cb74a70b1f217c3db5f4f6f6bab2b9871755435a25301bc4215015f1341" => :mojave
+    sha256 "fd15459a5000f08952b7609ef743d80c84749710e30b7bfbe02d68e7ccc27ed7" => :high_sierra
+    sha256 "25aa7ef95b5ca8e7a79bf884fa8e9c8eafb21f2887caabc3ffb40de5fda2ab26" => :sierra
   end
 
   depends_on "libpng"
