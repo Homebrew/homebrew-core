@@ -1,8 +1,8 @@
 class Librdkafka < Formula
   desc "The Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
-  url "https://github.com/edenhill/librdkafka/archive/v0.11.6.tar.gz"
-  sha256 "9c0afb8b53779d968225edf1e79da48a162895ad557900f75e7978f65e642032"
+  url "https://github.com/edenhill/librdkafka/archive/v1.0.0.tar.gz"
+  sha256 "b00a0d9f0e8c7ceb67b93b4ee67f3c68279a843a15bf4a6742eb64897519aa09"
   head "https://github.com/edenhill/librdkafka.git"
 
   bottle do
@@ -16,10 +16,10 @@ class Librdkafka < Formula
   depends_on "lz4"
   depends_on "lzlib"
   depends_on "openssl"
+  depends_on "zstd"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
@@ -31,6 +31,7 @@ class Librdkafka < Formula
       int main (int argc, char **argv)
       {
         int partition = RD_KAFKA_PARTITION_UA; /* random */
+        int version = rd_kafka_version();
         return 0;
       }
     EOS
