@@ -6,10 +6,9 @@ class Freeipmi < Formula
   sha256 "aad4e735a7ac4a1f8ade20caadb35dfefc2a352fa2ef41d3f6e589179917e1e9"
 
   bottle do
-    rebuild 1
-    sha256 "42ca141ab5fb961136002472908906705058a28c06c4cbdea0e6d0651e3ea01e" => :mojave
-    sha256 "a9258577e88aff64e554a211e85f94d7a5fe5019730140c909b18288b6c11ae8" => :high_sierra
-    sha256 "682e841bdf1312ef6ed1ce6f32fe69b85808fb33ee1738cbf421f5433172aa50" => :sierra
+    sha256 "b7a23d63dd67f2a59b0e800585ef0a37bf7f91a1c65eeb9582afbddf8f0931e4" => :mojave
+    sha256 "832094c520391475d83f243e34d2358d0d6cf06bd7504177f8bb827b7417a9b1" => :high_sierra
+    sha256 "7097c6a7836a71f18b4880ba0ec530872e2eca67276ffdb7b5e65fc646ecac88" => :sierra
   end
 
   depends_on "argp-standalone"
