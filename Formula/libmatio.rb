@@ -37,6 +37,12 @@ class Libmatio < Formula
     (testpath/"mat.c").write <<~'EOS'
       #include <stdlib.h>
       #include <matio.h>
+
+      size_t     dims[2] = {5,5};
+      double     data[25]={0.0,};
+      mat_t    *mat;
+      matvar_t *matvar;
+
       int main(int argc, char **argv) {
         mat_t *matfp;
         if (!(matfp = Mat_Open(argv[1], MAT_ACC_RDONLY)))
@@ -53,7 +59,7 @@ class Libmatio < Formula
         } else {
           abort();
         }
-        mat_t* mat = Mat_CreateVer("foo",NULL,MAT_FT_MAT73);
+        mat = Mat_CreateVer("foo", NULL, MAT_FT_MAT73);
         return EXIT_SUCCESS;
       }
     EOS
