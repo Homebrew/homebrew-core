@@ -4,6 +4,7 @@ class Glooctl < Formula
   url "https://github.com/solo-io/gloo.git",
       :tag      => "v0.13.7",
       :revision => "6f52c7c8afa0249c7887c0ed4376feb922db53aa"
+  head "https://github.com/solo-io/gloo.git"
 
   bottle do
     cellar :any_skip_relocation
