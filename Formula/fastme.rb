@@ -6,10 +6,9 @@ class Fastme < Formula
 
   bottle do
     cellar :any
-    sha256 "a00be7dee09d2fc69a2b7a63ba6178669922cd71e5ad386527948d9218270cd2" => :mojave
-    sha256 "411f3b6aaa0ee9e1946d93e06a4eb6aec7e4e2b2e7d87f0deb0288e333635203" => :high_sierra
-    sha256 "5a722e15df45cfe77a39ab5c7f226422e589aa071eabf9c98bc0b779b4980620" => :sierra
-    sha256 "d4640b1d176234cb35c25ca3d9ad5dc318db840a1c0a79fc057b08a738a6147c" => :el_capitan
+    sha256 "73408c497f0bbaaa108e017004874d6ea90a80bf55cb6ba7fc3f9f6c313c6fd8" => :mojave
+    sha256 "693c79dce4bc3ac847eac8d355c4ecfd6d5b03b9db6ab6dd2b1ce662c98f3865" => :high_sierra
+    sha256 "734cb3a22ba4926dc41a489e1d335509deef731b519b185ba188c02e2cc562cb" => :sierra
   end
 
   depends_on "gcc"
