@@ -1,8 +1,8 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.12.tar.bz2"
-  sha256 "e967293eabe89257e1d511bf68435fbfd44e6e0f9ef51b86cc50781f09eb5852"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.14.tar.bz2"
+  sha256 "4c01d58599d8ddb3714effd2675ea1863272cf2d7d9ed3d32aee80c89f859901"
 
   bottle do
     sha256 "ec5804c7cb55ed5f6a09eb4b9c45a1d24385d2e11c486025ee7dcf1ae2b459c0" => :mojave
@@ -29,6 +29,23 @@ class Gegl < Formula
   depends_on "libpng"
 
   conflicts_with "coreutils", :because => "both install `gcut` binaries"
+
+  # Build support for macOS is missing in 0.4.14, but patches have been pushed to upstream head
+  # to fix this. Remove patches in next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gegl/commit/fe756be6f0c776a45201a61f67d3e5e42f6398de.patch"
+    sha256 "70d08b442c038c67ec52954fca0ff4d9f87cbf2a24ec11fd35d050784b93bfde"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gegl/commit/ac331b5c0e3d940b64bb811b0f54e86c7d312917.patch"
+    sha256 "0bf44d701982e7f7c933b7cc6602f16f639d6ea4b6d35bdf2cfd2dfeaaa12cc2"
+  end
+
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gegl/commit/d05eb01170728f45f561ca937708a293e29e02d9.patch"
+    sha256 "0630d93cfa07620c1a9f157a9ca53a7760518088acbbe58a141160caa528e529"
+  end
 
   def install
     system "./autogen.sh" if build.head?
