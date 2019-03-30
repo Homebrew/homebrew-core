@@ -1,8 +1,8 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.21.1.tar.gz"
-  sha256 "8b38d177024f2e77b32b35682627f5889f0650c69ab6d602472bdc65a16d8b07"
+  url "https://github.com/bettercap/bettercap/archive/v2.22.tar.gz"
+  sha256 "5bcbde5785dd2983f6379f8bbc5f286fe8e53295cf1e04a8042fa467f345e7f4"
 
   bottle do
     cellar :any
