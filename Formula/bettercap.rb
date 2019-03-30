@@ -6,9 +6,9 @@ class Bettercap < Formula
 
   bottle do
     cellar :any
-    sha256 "98165640dc5801948563a211ce3c271cec737539d404a6c8ef0ce2e03cefc332" => :mojave
-    sha256 "e21cc18cc1c0bf84d1e3736bd4d8a78e28a5d98134707cee768344b9044ce0e4" => :high_sierra
-    sha256 "aef6994094164fc1aaee47eeb54f608dd4949a852fdc8a7bedf751ecaf43735d" => :sierra
+    sha256 "b4d4ab97b06f2b9f21ac42f81b365d64ea05467d89c91373841735f38388068a" => :mojave
+    sha256 "bd847ba574e13e6b76df2f083d97eec3c01df79f141b58f6a7d761f0e555a929" => :high_sierra
+    sha256 "e6950b2c923628d4cbab5ac03e1f0fd50d25378742ce0fe4e361acb5a95468fa" => :sierra
   end
 
   depends_on "dep" => :build
