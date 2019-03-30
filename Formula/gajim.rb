@@ -168,10 +168,6 @@ class Gajim < Formula
       venv.pip_install Pathname.pwd
     end
 
-    # this is required for PyObjC to detect the right macOS version
-    # https://bitbucket.org/ronaldoussoren/pyobjc/issues/263/overriding-pyobjc_build_release
-    ENV.append "CFLAGS", "-isysroot /"
-
     res = resources.map(&:name).to_set - %w[Pillow plugin_installer omemo url_image_preview]
 
     res.each do |r|
