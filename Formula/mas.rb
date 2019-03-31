@@ -2,8 +2,8 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      :tag      => "v1.6.2",
-      :revision => "b3197cf3caa797aa8689cd15da3518cc7149d2ad"
+      :tag      => "v1.6.3",
+      :revision => "3ac7e51b9e9fdd33f7caf7c77bebf09bf0cce44b"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
@@ -26,10 +26,12 @@ class Mas < Formula
     EOS
     ENV["XCODE_XCCONFIG_FILE"] = xcconfig
 
-    system "carthage", "bootstrap", "--platform", "macOS"
+    # Only build necessary dependencies (Commandant, Result)
+    system "carthage", "bootstrap", "--platform", "macOS", "Commandant", "Result"
     system "script/install", prefix
 
     bash_completion.install "contrib/completion/mas-completion.bash" => "mas"
+    fish_completion.install "contrib/completion/mas.fish"
   end
 
   test do
