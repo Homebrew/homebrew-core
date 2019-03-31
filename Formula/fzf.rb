@@ -1,8 +1,8 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.17.5.tar.gz"
-  sha256 "de3b39758e01b19bbc04ee0d5107e14052d3a32ce8f40d4a63d0ed311394f7ee"
+  url "https://github.com/junegunn/fzf/archive/0.18.0.tar.gz"
+  sha256 "5406d181785ea17b007544082b972ae004b62fb19cdb41f25e265ea3cc8c2d9d"
   head "https://github.com/junegunn/fzf.git"
 
   bottle do
@@ -12,15 +12,10 @@ class Fzf < Formula
     sha256 "490018ace4f9d99a470af3be3a409c793c1551fe72a6be2ad6e766dd594fa282" => :sierra
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GLIDE_HOME"] = buildpath/"glide_home"
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/junegunn").mkpath
-    ln_s buildpath, buildpath/"src/github.com/junegunn/fzf"
-    system "glide", "install"
+    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
     system "go", "build", "-o", bin/"fzf", "-ldflags", "-X main.revision=brew"
 
     prefix.install "install", "uninstall"
