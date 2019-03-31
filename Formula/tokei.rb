@@ -1,6 +1,6 @@
 class Tokei < Formula
   desc "Program that allows you to count code, quickly"
-  homepage "https://github.com/Aaronepower/tokei"
+  homepage "https://github.com/XAMPPRocky/tokei"
   url "https://github.com/XAMPPRocky/tokei/archive/v9.1.1.tar.gz"
   sha256 "3b03edf37795312a1781a5d0aa86fffea6b0bd2de3da7ea18399b43e0a2b9229"
 
