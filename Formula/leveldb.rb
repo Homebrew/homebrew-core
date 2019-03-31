@@ -6,11 +6,9 @@ class Leveldb < Formula
 
   bottle do
     cellar :any
-    sha256 "0878e6a22d6c0738811874a4e305620e3179361017796bda9a08ed6a4a06f7bb" => :mojave
-    sha256 "e033753dfe79996691998e974bef0cb3e468de581e5e005a06961144c47d2717" => :high_sierra
-    sha256 "8528df5b2af7fab91b1ab1a6382f1b6ccd6d62da462c6a309cb76660a7225b4b" => :sierra
-    sha256 "360b7c40470a5e3a4d4d7759983d310257be68d3e79518dbf71896a13093c6d0" => :el_capitan
-    sha256 "5743bd58aa63406f6405d690fad63fff92169de51331ef6918310dcb70ad6383" => :yosemite
+    sha256 "207163a92d342b49859dadedc6c1dd521818291021320296842b96c596b09a78" => :mojave
+    sha256 "25edbb2764d6e1fe3bd2f77abac191e94c088cda24540e218788672a88086df7" => :high_sierra
+    sha256 "0c03715dd2161d3860552d660e06cf9a276bb8b412c332bfdb0449ea34030799" => :sierra
   end
 
   depends_on "cmake" => :build
