@@ -3,7 +3,7 @@ class GerbilScheme < Formula
   homepage "https://cons.io"
   url "https://github.com/vyzo/gerbil/archive/v0.15.1.tar.gz"
   sha256 "3d29eecdaa845b073bf8413cd54e420b3f48c79c25e43fab5a379dde029d0cde"
-  revision 1
+  revision 2
 
   bottle do
     sha256 "414ab4911587eb88fea1f56935126f27e57bac9168784d3ecaaa8cfa8084c75c" => :mojave
