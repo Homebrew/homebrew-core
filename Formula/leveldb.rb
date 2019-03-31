@@ -1,9 +1,8 @@
 class Leveldb < Formula
   desc "Key-value storage library with ordered mapping"
   homepage "https://github.com/google/leveldb/"
-  url "https://github.com/google/leveldb/archive/v1.20.tar.gz"
-  sha256 "f5abe8b5b209c2f36560b75f32ce61412f39a2922f7045ae764a2c23335b6664"
-  revision 2
+  url "https://github.com/google/leveldb/archive/1.21.tar.gz"
+  sha256 "e0fbd238047b9e82ec26a2b808f826b60e12b4fcb5d1a18c7b3d6edf357b4026"
 
   bottle do
     cellar :any
@@ -14,20 +13,21 @@ class Leveldb < Formula
     sha256 "5743bd58aa63406f6405d690fad63fff92169de51331ef6918310dcb70ad6383" => :yosemite
   end
 
+  depends_on "cmake" => :build
   depends_on "gperftools"
   depends_on "snappy"
 
   def install
-    system "make"
-    system "make", "check"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "make", "install"
+      bin.install "leveldbutil"
 
-    include.install "include/leveldb"
-    bin.install "out-static/leveldbutil"
-    lib.install "out-static/libleveldb.a"
-    lib.install "out-shared/libleveldb.dylib.1.20" => "libleveldb.1.20.dylib"
-    lib.install_symlink lib/"libleveldb.1.20.dylib" => "libleveldb.dylib"
-    lib.install_symlink lib/"libleveldb.1.20.dylib" => "libleveldb.1.dylib"
-    MachO::Tools.change_dylib_id("#{lib}/libleveldb.1.dylib", "#{lib}/libleveldb.1.20.dylib")
+      system "make", "clean"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+      system "make"
+      lib.install "libleveldb.a"
+    end
   end
 
   test do
