@@ -17,7 +17,7 @@ class KibanaAT56 < Formula
   keg_only :versioned_formula
 
   resource "node" do
-    url "https://nodejs.org/dist/v6.16.0/node-v6.17.0.tar.xz"
+    url "https://nodejs.org/dist/v6.17.0/node-v6.17.0.tar.xz"
     sha256 "52588a4b7e9239ed993a14ace5c438b95caaa254fe260a2f2bdf434fc1379c64"
   end
 
