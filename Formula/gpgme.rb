@@ -7,10 +7,9 @@ class Gpgme < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "ea06301a5f59abbc2274e6dd26825940faa83fa1454b7ac11f23682667d7b643" => :mojave
-    sha256 "a5cb71352d5f494a8e00cb8d410a65e6300aeb5d2ed4049523fd39f3b519241c" => :high_sierra
-    sha256 "e7303c04a642d079c366943e6ed011edf90651dafd425767fe87885d8cc29025" => :sierra
+    sha256 "4b37f3572bba070c1062b94b5b6019dcdbb64f03780a43613e6d74620405862b" => :mojave
+    sha256 "24f3c015135a49e76a1ab12748bd7809a82443ddc21f60af30cc495df2f31b28" => :high_sierra
+    sha256 "aa37cabf40063adf1a99a2e56858144d1811d656f3448bc652d8d69a42a80398" => :sierra
   end
 
   depends_on "python" => [:build, :test]
