@@ -1,8 +1,8 @@
 class Utf8proc < Formula
   desc "Clean C library for processing UTF-8 Unicode data"
   homepage "https://juliastrings.github.io/utf8proc/"
-  url "https://github.com/JuliaStrings/utf8proc/archive/v2.2.0.tar.gz"
-  sha256 "3f8fd1dbdb057ee5ba584a539d5cd1b3952141c0338557cb0bdf8cb9cfed5dbf"
+  url "https://github.com/JuliaStrings/utf8proc/archive/v2.3.0.tar.gz"
+  sha256 "c0265a49b59bab95481cab1ae958ba034dedc47ad58676a61f5de1fa9347930e"
 
   bottle do
     cellar :any
