@@ -3,8 +3,8 @@ require "language/node"
 class AtomistCli < Formula
   desc "The Atomist CLI"
   homepage "https://github.com/atomist/cli#readme"
-  url "https://registry.npmjs.org/@atomist/cli/-/@atomist/cli-1.2.0.tgz"
-  sha256 "57476979f5b1276d126b131341764ae531d51d2b3dce742cd566a51dc44dca24"
+  url "https://registry.npmjs.org/@atomist/cli/-/@atomist/cli-1.3.0.tgz"
+  sha256 "313b5f356bee3f77b800ebda3f4225813a6b1453fe26624cacbad82ba5b5d9d7"
 
   bottle do
     sha256 "8ba312dfde4af7f2ede49949cd1315974e18dd1d5fafe4ff5afb1c4283e7e716" => :mojave
