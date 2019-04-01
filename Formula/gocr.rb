@@ -1,9 +1,8 @@
 class Gocr < Formula
   desc "Optical Character Recognition (OCR), converts images back to text"
   homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
-  url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.51.tar.gz"
-  sha256 "6eb2ae0fa4eb07cf4163081e0194ea65f605f7db9709dd30680686804dfc2692"
-  revision 1
+  url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz"
+  sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
 
   bottle do
     cellar :any
