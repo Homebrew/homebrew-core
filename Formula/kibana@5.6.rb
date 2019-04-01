@@ -18,7 +18,7 @@ class KibanaAT56 < Formula
 
   resource "node" do
     url "https://nodejs.org/dist/v6.17.0/node-v6.17.0.tar.xz"
-    sha256 "52588a4b7e9239ed993a14ace5c438b95caaa254fe260a2f2bdf434fc1379c64"
+    sha256 "c1dac78ea71c2e622cea6f94ba97a4be49329a1d36cd05945a1baf1ae8652748"
   end
 
   def install
