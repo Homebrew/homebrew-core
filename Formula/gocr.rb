@@ -6,10 +6,9 @@ class Gocr < Formula
 
   bottle do
     cellar :any
-    sha256 "8e292594bb5ae676b124f9fc8eab283c855d9f9f37ae9f4cf6c1604ebd2f1058" => :mojave
-    sha256 "b5652dd7beb78696522af201f4ce30247efbbdd9f92c949cf45da6b742ee133f" => :high_sierra
-    sha256 "a918bc515db9bae30544a958c99f76b7f1fab5889828e4c3c9efe91224c369b6" => :sierra
-    sha256 "6f7abd6d0e1d71e456bfef7320cb60f267a3b09881e3eaeada72a99c773a69f3" => :el_capitan
+    sha256 "f0af1bb6614e72f70b54eeacb2063aff9eea014965611828f2e13eb8677d636b" => :mojave
+    sha256 "8bcc15b6bef035a94d27a242f7cd40f6c71d4585a2b0c964f3e26aa800258f8a" => :high_sierra
+    sha256 "bf3b661399dd9450b81ed3c22536ebeec0931310daa57371904ee4e40f5b0413" => :sierra
   end
 
   depends_on "jpeg"
