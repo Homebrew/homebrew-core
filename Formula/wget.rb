@@ -1,10 +1,8 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.20.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.20.1.tar.gz"
-  sha256 "b783b390cb571c837b392857945f5a1f00ec6b043177cc42abb8ee1b542ee1b3"
-  revision 4
+  url "https://ftp.gnu.org/gnu/wget/wget-1.20.2.tar.gz"
+  sha256 "7e43b98cb5e10234836ebef6faf24c4d96c0ae7a480e49ff658117cc4793d166"
 
   bottle do
     sha256 "27e8cf4d5455f59447c73f3607911c5448debbd0849bf55bb73d95db2beed687" => :mojave
