@@ -9,13 +9,20 @@ class Faudio < Formula
   depends_on "sdl2"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DBUILD_TESTS=1"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
-    mkdir_p prefix/"tests"
-    mv "faudio_tests", prefix/"tests/faudio_tests"
   end
 
   test do
-    system prefix/"tests/faudio_tests"
+    (testpath/"test.c").write <<~EOS
+      #include <FAudio.h>
+      int main(int argc, char const *argv[])
+      {
+        FAudio *audio;
+        return FAudioCreate(&audio, 0, FAUDIO_DEFAULT_PROCESSOR);
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lfaudio", "-o", "test"
+    system "./test"
   end
 end
