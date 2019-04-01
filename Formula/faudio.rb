@@ -1,8 +1,8 @@
 class Faudio < Formula
   desc "Accuracy-focused XAudio reimplementation for open platforms"
   homepage "https://fna-xna.github.io/"
-  url "https://github.com/FNA-XNA/FAudio/archive/19.03.tar.gz"
-  sha256 "5ab1c2b00e0348264bd959e437d590d6240d2527964d7c5ee0d02b711e089fa8"
+  url "https://github.com/FNA-XNA/FAudio/archive/19.04.tar.gz"
+  sha256 "8d28c7a67bf67953c27173f33393ccee10f7b3ad52b9767a7e33c98387b67bdf"
   head "https://github.com/FNA-XNA/FAudio.git"
 
   depends_on "cmake" => :build
