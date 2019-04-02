@@ -2,6 +2,7 @@ class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
   url "https://ftp.gnu.org/gnu/wget/wget-1.20.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/wget/wget-1.20.2.tar.gz"
   sha256 "7e43b98cb5e10234836ebef6faf24c4d96c0ae7a480e49ff658117cc4793d166"
 
   bottle do
