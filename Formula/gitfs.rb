@@ -5,7 +5,7 @@ class Gitfs < Formula
   homepage "https://www.presslabs.com/gitfs"
   url "https://github.com/PressLabs/gitfs/archive/0.4.5.1.tar.gz"
   sha256 "6049fd81182d9172e861d922f3e2660f76366f85f47f4c2357f769d24642381c"
-  revision 3
+  revision 4
   head "https://github.com/PressLabs/gitfs.git"
 
   bottle do
