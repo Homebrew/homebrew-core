@@ -5,7 +5,7 @@ class Gitless < Formula
   homepage "https://gitless.com/"
   url "https://github.com/sdg-mit/gitless/archive/v0.8.6.tar.gz"
   sha256 "e1d009bf9d7c89428d7029394cc85a0d91bd2af73f019508ddc92c98faeed8e5"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
