@@ -1,8 +1,8 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.11.1.tar.gz"
-  sha256 "9f6b3aeac5a109f55504bd370564ac431cb1773507929dc461626898f33f46cd"
+  url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
+  sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
 
   bottle do
     cellar :any
@@ -15,12 +15,15 @@ class Snort < Formula
   depends_on "pkg-config" => :build
   depends_on "daq"
   depends_on "libdnet"
+  depends_on "libpcap"
   depends_on "luajit"
+  depends_on "nghttp2"
   depends_on "openssl"
   depends_on "pcre"
 
   def install
     openssl = Formula["openssl"]
+    libpcap = Formula["libpcap"]
 
     args = %W[
       --prefix=#{prefix}
@@ -39,6 +42,8 @@ class Snort < Formula
       --enable-targetbased
       --with-openssl-includes=#{openssl.opt_include}
       --with-openssl-libraries=#{openssl.opt_lib}
+      --with-libpcap-includes=#{libpcap.opt_include}
+      --with-libpcap-libraries=#{libpcap.opt_lib}
     ]
 
     system "./configure", *args
