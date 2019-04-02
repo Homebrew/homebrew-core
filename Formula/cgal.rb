@@ -6,10 +6,9 @@ class Cgal < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "10d0ab35e7ce05e43212ece94de295f0e9e65697f4487850d23b3a1872946e02" => :mojave
-    sha256 "71758829c6fe7cde95dddef2832a9dd1eda51bc3b5a2cc60b8f3b330f629efb2" => :high_sierra
-    sha256 "0a368594840007d0a433b702ef5392f332d38e7bc68a83ffc4771f8ca5fa5877" => :sierra
+    sha256 "8987fe56d173560be950ee0bbe77c5a7a5015b743c1111cb5136946b86af92e1" => :mojave
+    sha256 "9ebc1fcc1954264abed37bb40cff0d64f6290b03effa0d95e4b579c9710a4f59" => :high_sierra
+    sha256 "13eb7618b3f053926d6f88e4d701a12bc4792b1aabad0f822b1af9c1a51ea242" => :sierra
   end
 
   depends_on "cmake" => [:build, :test]
