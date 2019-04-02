@@ -1,9 +1,8 @@
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
-  url "https://github.com/ledger/ledger/archive/3.1.2.tar.gz"
-  sha256 "3ecebe00e8135246e5437e4364bb7a38869fad7c3250b849cf8c18ca2628182e"
-  revision 1
+  url "https://github.com/ledger/ledger/archive/v3.1.3.tar.gz"
+  sha256 "b248c91d65c7a101b9d6226025f2b4bf3dabe94c0c49ab6d51ce84a22a39622b"
   head "https://github.com/ledger/ledger.git"
 
   bottle do
@@ -21,11 +20,6 @@ class Ledger < Formula
 
   def install
     ENV.cxx11
-
-    # Fix for https://github.com/ledger/ledger/pull/1760
-    # Remove in next version
-    inreplace "doc/ledger3.texi", "Getting help, ,",
-                                "Getting help, Third-Party Ledger Tutorials,"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
