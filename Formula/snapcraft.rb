@@ -3,8 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://files.pythonhosted.org/packages/fc/c6/d3a59d1f08c0b8bc3d166bc6e0a26a29dd61627d2e6266bd81b26fc02142/snapcraft-3.0.1.tar.gz"
-  sha256 "c9914324749502dff5588f72a93ee05d47b14f2bd400d6234a4e2db22fd6922c"
+  url "https://files.pythonhosted.org/packages/ff/9c/07776f4f192a3bb454221ef00cc865fbbbd5d5285d134b36b6aa1890d91d/snapcraft-3.3.tar.gz"
+  sha256 "6a1d57ce540da099b4aea4def7ec2bc121e4e5fae6036c46ff537f491c765dfc"
 
   bottle do
     cellar :any
@@ -67,6 +67,11 @@ class Snapcraft < Formula
   resource "petname" do
     url "https://files.pythonhosted.org/packages/b8/6c/3b5c55a6632771b6a3ffc46ebb1d01bd7d2ca7ce3b44ebfd3c6ceeb9a6f6/petname-2.2.tar.gz"
     sha256 "be1da50a6aa01e39840e9a4b79b527a333b256733cb681f52669c08df7819ace"
+  end
+
+  resource "pylxd" do
+    url "https://files.pythonhosted.org/packages/42/4f/39c3614b91f0b9e8ba757d2bacb13b356b5c8d0f6be1fdebbc2b795ae831/pylxd-2.2.9.tar.gz"
+    sha256 "2bd5ce9c258d495312cf9f9e1b392ad6d1d40b7dd2a35a789e2cceb2bef184cc"
   end
 
   resource "progressbar33" do
