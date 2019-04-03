@@ -64,7 +64,7 @@ class Minetest < Formula
       "/Applications/minetest.app/Contents/MacOS/minetest --server".
     EOS
   end
-    
+
   test do
     #
     # Commands --help, --version will produce a readable output without creating a file.
