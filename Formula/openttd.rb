@@ -3,7 +3,7 @@ class Openttd < Formula
   homepage "https://www.openttd.org/"
   url "https://proxy.binaries.openttd.org/openttd-releases/1.9.0/openttd-1.9.0-source.zip"
   sha256 "d68ac83e1e62e1930d64da699e6dcfc228bd138da01bee5f1af8fdc9d50b0335"
-  head "https://git.openttd.org/openttd/trunk.git"
+  head "https://github.com/OpenTTD/OpenTTD.git"
 
   bottle do
     sha256 "5525bc99e1a325df855a27cc443b2a7ac92e618ae713be9392f52903d92530e0" => :mojave
