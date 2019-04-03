@@ -1,8 +1,8 @@
 class Openjpeg < Formula
   desc "Library for JPEG-2000 image manipulation"
   homepage "https://www.openjpeg.org/"
-  url "https://github.com/uclouvain/openjpeg/archive/v2.3.0.tar.gz"
-  sha256 "3dc787c1bb6023ba846c2a0d9b1f6e179f1cd255172bde9eb75b01f1e6c7d71a"
+  url "https://github.com/uclouvain/openjpeg/archive/v2.3.1.tar.gz"
+  sha256 "63f5a4713ecafc86de51bfad89cc07bb788e9bba24ebbf0c4ca637621aadb6a9"
   head "https://github.com/uclouvain/openjpeg.git"
 
   bottle do
