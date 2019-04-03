@@ -7,10 +7,9 @@ class Openjpeg < Formula
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "fd11438ec644bba47014568565171ec2d14926031f0976cb2b38332be900699d" => :mojave
-    sha256 "610054f41d6111a6c9bcdb87b7f41495f416c5c570fb089fe37d1687dbc7f647" => :high_sierra
-    sha256 "6fd55ac1165e6c06b0f71d0c0612c8bf0fc9ff8a4686b944e119bb9368412150" => :sierra
+    sha256 "6de317bfef3ab808ff5f3eb9c1aa47f77e7236fba8ad0d606b29b38eb47c321e" => :mojave
+    sha256 "1eb8b2f698ecf16196e06a2d9f7ba20eb7f0ba447d351e36eb3344d3ed6c5c58" => :high_sierra
+    sha256 "d2b377424ff5387892bc1af653654fdcc70702e4524f3309b3f0874ac6e2d84c" => :sierra
   end
 
   depends_on "cmake" => :build
