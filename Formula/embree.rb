@@ -5,6 +5,13 @@ class Embree < Formula
   sha256 "4635439c277d0f688f1a21ad13ad22fdadbcbca04680cce346c88179b9522741"
   head "https://github.com/embree/embree.git"
 
+  bottle do
+    cellar :any
+    sha256 "a7d16ef5e33ac78f62f9b23242ae55cbcbad67bb2c89497dfe0b642c81fea90d" => :mojave
+    sha256 "49c69c87a8edb993da30effc53aacbb5c3b65732db4e90b3d5a30faadfa257a0" => :high_sierra
+    sha256 "d88a33be1de06beaae5bdb702505f643667444f7527286373be1d04cc54c9a97" => :sierra
+  end
+
   depends_on "cmake" => :build
   depends_on "ispc" => :build
   depends_on "tbb"
