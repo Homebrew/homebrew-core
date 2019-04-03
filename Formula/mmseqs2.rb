@@ -1,9 +1,9 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast protein sequence search and clustering"
   homepage "https://mmseqs.org/"
-  url "https://github.com/soedinglab/MMseqs2/archive/7-4e23d.tar.gz"
-  version "7-4e23d"
-  sha256 "39b04ea60741ca209c37be129b852b5024fed1691817e6eb1e80e382f7261724"
+  url "https://github.com/soedinglab/MMseqs2/archive/8-fac81.tar.gz"
+  version "8-fac81"
+  sha256 "035d1c9a5fcfae50bc2d201f177722bd79d95d3ba32342972baa7b142b52aa82"
 
   bottle do
     cellar :any
@@ -21,13 +21,20 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        :revision => "d3607c7913e67c7bb553a8dff0cc66eeb3387506"
+        :revision => "a4f660d1bbf5e71438d03e09fa4ca036ceb18128"
   end
 
   def install
     args = *std_cmake_args << "-DHAVE_TESTS=0" << "-DHAVE_MPI=0"
     args << "-DVERSION_OVERRIDE=#{version}"
     args << "-DHAVE_SSE4_1=1"
+
+    # Workaround for issue introduced in macOS 10.14 SDK
+    # SDK uses _Atomic in ucred.h which current g++ does not support
+    # __APPLE_API_STRICT_CONFORMANCE makes sysctl.h not include apis like ucred.h
+    # and thus we dont fail compilation anymore
+    # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864
+    args << "-DCMAKE_CXX_FLAGS=-D__APPLE_API_STRICT_CONFORMANCE"
 
     system "cmake", ".", *args
     system "make", "install"
@@ -46,9 +53,8 @@ class Mmseqs2 < Formula
   test do
     system "#{bin}/mmseqs", "createdb", "#{pkgshare}/examples/QUERY.fasta", "q"
     system "#{bin}/mmseqs", "cluster", "q", "res", "tmp", "-s", "1"
-    assert_predicate testpath/"res", :exist?
-    assert_predicate (testpath/"res").size, :positive?
-    assert_predicate testpath/"res.index", :exist?
-    assert_predicate (testpath/"res.index").size, :positive?
+    system "#{bin}/mmseqs", "createtsv", "q", "q", "res", "res.tsv"
+    assert_predicate testpath/"res.tsv", :exist?
+    assert_predicate (testpath/"res.tsv").size, :positive?
   end
 end
