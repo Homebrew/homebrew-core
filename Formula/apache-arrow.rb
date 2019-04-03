@@ -3,6 +3,7 @@ class ApacheArrow < Formula
   homepage "https://arrow.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=arrow/arrow-0.13.0/apache-arrow-0.13.0.tar.gz"
   sha256 "ac2a77dd9168e9892e432c474611e86ded0be6dfe15f689c948751d37f81391a"
+  revision 1
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -32,6 +33,7 @@ class ApacheArrow < Formula
       -DARROW_PLASMA=ON
       -DARROW_PROTOBUF_USE_SHARED=ON
       -DARROW_PYTHON=ON
+      -DARROW_INSTALL_NAME_RPATH=OFF
       -DFLATBUFFERS_HOME=#{Formula["flatbuffers"].prefix}
       -DLZ4_HOME=#{Formula["lz4"].prefix}
       -DPROTOBUF_HOME=#{Formula["protobuf"].prefix}
