@@ -3,8 +3,8 @@ class Mackup < Formula
 
   desc "Keep your Mac's application settings in sync"
   homepage "https://github.com/lra/mackup"
-  url "https://github.com/lra/mackup/archive/0.8.22.tar.gz"
-  sha256 "277471d41b89d0cd43846c2bdb52b1fe020afcc3cb974e8639a42f29bbbf8ec0"
+  url "https://github.com/lra/mackup/archive/0.8.23.tar.gz"
+  sha256 "40dbe6e645c67ef91d094a8d2c74bd5c0d1c15931061503c57e4a8216ba50d14"
   head "https://github.com/lra/mackup.git"
 
   bottle do
