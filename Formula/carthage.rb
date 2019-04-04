@@ -8,9 +8,9 @@ class Carthage < Formula
   head "https://github.com/Carthage/Carthage.git", :shallow => false
 
   bottle do
-    cellar :any
-    sha256 "265d7c1e06f0acb8f5615b6c1d71ffc05b05844bb0fb1da931799ec18ca318a5" => :mojave
-    sha256 "576468454342dc278837901358ce2f325584307cafd457ae9ada46436b84a941" => :high_sierra
+    cellar :any_skip_relocation
+    sha256 "3e2ac935092f11a43bf2f45811a176bbb6c37a48f41eea1222a46a35b81555c6" => :mojave
+    sha256 "7f88034cfbd51439cd45467745ea3b1a21e6eec2cdd8a7eb2a8945382404b5f0" => :high_sierra
   end
 
   depends_on :xcode => ["10.0", :build]
