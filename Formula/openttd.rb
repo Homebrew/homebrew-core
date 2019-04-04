@@ -6,10 +6,10 @@ class Openttd < Formula
   head "https://github.com/OpenTTD/OpenTTD.git"
 
   bottle do
-    sha256 "5525bc99e1a325df855a27cc443b2a7ac92e618ae713be9392f52903d92530e0" => :mojave
-    sha256 "e5d194e126ec516ca84a4f9187e8415953cf64e319dfe31dedd1bdaa2a4e2339" => :high_sierra
-    sha256 "5d74a4c682236213f06a7cdeae2f62f462d59f445a66719fe86e82a872ff112e" => :sierra
-    sha256 "b2b8d6cf06c840acbf425d4b89daf146541d46f19cd3aa7f09a622d7897b3a9f" => :el_capitan
+    cellar :any
+    sha256 "0c947600e90fc2bba15f9a04a394c7ae9df6c211d51e9b2e7de380b7e8c8d8c5" => :mojave
+    sha256 "b631bb5a53e7e8b132cc81fadf25d5f451bcbf90d7086df0f7649e6ef0120cd5" => :high_sierra
+    sha256 "b68d5c01aec086999fd2a5236855046e82f9b0044589ec3d6c6ae4abfd8f8533" => :sierra
   end
 
   depends_on "pkg-config" => :build
