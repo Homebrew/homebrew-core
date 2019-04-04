@@ -3,8 +3,8 @@ require "language/node"
 class Fx < Formula
   desc "Command-line JSON processing tool"
   homepage "https://github.com/antonmedv/fx"
-  url "https://registry.npmjs.org/fx/-/fx-14.0.0.tgz"
-  sha256 "9029125844cf56dea68e3cbabe6d1e85a53b820ab8b1102496074284ee04f186"
+  url "https://registry.npmjs.org/fx/-/fx-14.0.1.tgz"
+  sha256 "d1bd4bdf821a0053a5972febd06ca8c9652d2cc0a62844e2b3bb521a73032b4b"
 
   bottle do
     cellar :any_skip_relocation
