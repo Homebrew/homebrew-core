@@ -6,10 +6,6 @@ class Breezy < Formula
   url "https://files.pythonhosted.org/packages/f6/8a/f5aab26e6769907afda49a79e19dfa187a9f84797d9147ee6e35b52d97b9/breezy-3.0.0.tar.gz"
   sha256 "d5723a7a3fcaa827bf2731c20df5240d7063c7728b2db3a5d58bc90f6257f878"
 
-  bottle do
-    cellar :any_skip_relocation
-  end
-
   depends_on "gettext" => :build
   depends_on "openssl"
   depends_on "python"
