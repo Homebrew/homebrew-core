@@ -16,15 +16,8 @@ class Carthage < Formula
   depends_on :xcode => ["10.0", :build]
 
   def install
-    if MacOS::Xcode.version >= "10.2" && (0..3).any? { |x| String(MacOS.full_version) == "10.14.#{x}" }
-      odie [
-        "If a user on sub-10.14.4-Mojave using a Swift 5 CLI app happens to remove or relocate " \
-        "`Xcode.app`, say to make room for `Xcode-beta.app`, without the additional package " \
-        "installed to `/usr/lib/swift`, an app like this will no longer run.",
-        "See <https://github.com/Homebrew/brew/pull/5940#issuecomment-477583315>.",
-        "Perhaps, try `--force-bottle` with `DEVELOPER_DIR='/var/empty' HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=true brew`?",
-        "Or, perhaps, if Xcode 10.1 is available, `xcode-select` that?",
-      ].join("\n• ")
+    if MacOS::Xcode.version >= "10.2" && MacOS.version < "10.14.4" && MacOS.version >= "10.14.4"
+      odie "Xcode >=10.2 requires macOS >=10.14.4 to build Swift formulae."
     end
 
     system "make", "prefix_install", "PREFIX=#{prefix}"
