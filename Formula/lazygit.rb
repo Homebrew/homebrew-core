@@ -4,6 +4,13 @@ class Lazygit < Formula
   url "https://github.com/jesseduffield/lazygit/archive/v0.7.2.tar.gz"
   sha256 "d0be7a4ef6b5946fc10808d17439962d914782e7b47977d79370b595eada2493"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "88e9e481164fea96aa885292f0dc64b5f6d392b660bdb3a2c8c5807daf5ccadb" => :mojave
+    sha256 "b4eb79e9501602e20e2a438650fc622d11814310be03987ca7f48fed1585f2e7" => :high_sierra
+    sha256 "48966c29484af44cbe369798b6bcff81fa8e2902c848153d9f962664150a10c4" => :sierra
+  end
+
   depends_on "go" => :build
 
   # adapted from https://kevin.burke.dev/kevin/install-homebrew-go/
