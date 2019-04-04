@@ -6,6 +6,13 @@ class Volt < Formula
     :revision => "dd1a16c77faf9887408744b146efc2d0bfdf500c"
   head "https://github.com/vim-volt/volt.git"
 
+  bottle do
+    cellar :any_skip_relocation
+    sha256 "bef81710d05a2defe04b4890f5ac9a8dd42c143994756b72e6ab7ceaa30e08e6" => :mojave
+    sha256 "cfe9f4dd24c96516de480a5d498b93f7b94740284b2ffb59219c5d632b915ad5" => :high_sierra
+    sha256 "b503cbf438b2e4ec9f72339672970fd92ead4a74965b0f5ffb6ca8120cdf71d7" => :sierra
+  end
+
   depends_on "go" => :build
 
   def install
