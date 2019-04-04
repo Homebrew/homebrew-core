@@ -5,6 +5,7 @@ class AliyunCli < Formula
   sha256 "876c4ddc8c4129054196e6420735c600556710df03265cf72291840909a0d9e1"
 
   depends_on "go"
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["PATH"] = "#{ENV["PATH"]}:#{buildpath}/bin"
