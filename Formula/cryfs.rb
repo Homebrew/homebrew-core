@@ -1,8 +1,8 @@
 class Cryfs < Formula
   desc "Encrypts your files so you can safely store them in Dropbox, iCloud, etc."
   homepage "https://www.cryfs.org"
-  url "https://github.com/cryfs/cryfs/releases/download/0.10.0/cryfs-0.10.0.tar.xz"
-  sha256 "2413b76ad73026eb166c72c2081d303eafe2357d6a981618765fc4720281e52b"
+  url "https://github.com/cryfs/cryfs/releases/download/0.10.1/cryfs-0.10.1.tar.xz"
+  sha256 "be7a9bb550e1bd5fc0f009ba61b8d0df161fbd8b2db48a746f99238a752ce69a"
 
   bottle do
     cellar :any
