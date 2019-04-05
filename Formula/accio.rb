@@ -5,6 +5,7 @@ class Accio < Formula
   head "https://github.com/JamitLabs/Accio.git"
 
   depends_on :xcode => ["10.2", :build]
+  depends_on "carthage"
 
   def install
     system "make", "install", "prefix=#{prefix}"
