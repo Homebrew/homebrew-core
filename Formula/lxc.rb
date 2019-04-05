@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-3.11.tar.gz"
-  sha256 "5d38ca401aedbba867f2b8b4cb491efe85047dd0729f22b31ae2feef21cfbf77"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-3.12.tar.gz"
+  sha256 "267869f1f2cab63684525ad070c5ec0d6f4c75b5fa1d90354b40945f03c14c54"
 
   bottle do
     cellar :any_skip_relocation
