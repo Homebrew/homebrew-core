@@ -13,8 +13,8 @@ class Pcapplusplus < Formula
   end
 
   def install
-    inreplace "mk/PcapPlusPlus.mk.macosx", "-I", "-I" + "$(xcrun --show-sdk-path)"
-    system "echo", "$(xcrun --show-sdk-path)"
+    sdk_path = "#{`xcrun --show-sdk-path`.chomp}"
+    inreplace "mk/PcapPlusPlus.mk.macosx", "-I", "-I" + sdk_path
     system "cat", "mk/PcapPlusPlus.mk.macosx"
     system "./configure-mac_os_x.sh", "--install-dir", prefix
 
