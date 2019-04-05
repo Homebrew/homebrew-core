@@ -26,6 +26,11 @@ class Gnumeric < Formula
               "GOFFICE_PLUGINS_DIR = @GOFFICE_PLUGINS_DIR@",
               "GOFFICE_PLUGINS_DIR = @libdir@/goffice/@GOFFICE_API_VER@/plugins/gnumeric"
 
+    # fixed in 1.12.45
+    inreplace "src/mathfunc.c",
+              "static const gnm_float sqrt_one_over_e = gnm_sqrt (1 / M_Egnum);",
+              "const gnm_float sqrt_one_over_e = gnm_sqrt (1 / M_Egnum);"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-schemas-compile"
