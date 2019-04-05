@@ -3,9 +3,9 @@ class Go < Formula
   homepage "https://golang.org"
 
   stable do
-    url "https://dl.google.com/go/go1.12.1.src.tar.gz"
-    mirror "https://fossies.org/linux/misc/go1.12.1.src.tar.gz"
-    sha256 "0be127684df4b842a64e58093154f9d15422f1405f1fcff4b2c36ffc6a15818a"
+    url "https://dl.google.com/go/go1.12.2.src.tar.gz"
+    mirror "https://fossies.org/linux/misc/go1.12.2.src.tar.gz"
+    sha256 "af992580a4a609309c734d46fd4374fe3095961263e609d9b017e2dffc3b7b58"
 
     go_version = version.to_s.split(".")[0..1].join(".")
     resource "gotools" do
