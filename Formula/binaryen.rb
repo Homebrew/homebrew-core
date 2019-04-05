@@ -7,9 +7,9 @@ class Binaryen < Formula
 
   bottle do
     cellar :any
-    sha256 "480c23bb220e61fcaa00a63cf00e55e6afa56662164756e4809e1582ba86f5de" => :mojave
-    sha256 "d04f408c0caab0ac34def3871cb50a5d4a659e0481566e831ca9152ea9d5f0d6" => :high_sierra
-    sha256 "d2d0895e179b437dbe7ca3b4ae91da0b0aaf67ecde896dcd68e6a790d8bcf752" => :sierra
+    sha256 "e7229710a05891da73397c2a20f3f92d004a9fe0c28abd9d75c706cd66620f04" => :mojave
+    sha256 "8b5325b365dcc804de7c5463b27ff00750c0a43eb92f9465711a9659f38b40bc" => :high_sierra
+    sha256 "5bdbc6402990416717976e33103f719170301bad57162d47fc4398020bbcffb8" => :sierra
   end
 
   depends_on "cmake" => :build
