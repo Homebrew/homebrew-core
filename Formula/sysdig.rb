@@ -13,6 +13,7 @@ class Sysdig < Formula
   depends_on "cmake" => :build
   depends_on "jsoncpp"
   depends_on "luajit"
+  depends_on "openssl"
 
   # More info on https://gist.github.com/juniorz/9986999
   resource "sample_file" do
