@@ -39,7 +39,7 @@ class Krakend < Formula
         }
       }
     EOS
-    assert_match "Unsupported version", shell_output("#{bin}/krakend check -c krakend_unsupported_version.json 2>&1")
+    assert_match "Unsupported version", shell_output("#{bin}/krakend check -c krakend_unsupported_version.json 2>&1", 1)
 
     (testpath/"krakend_bad_file.json").write <<~EOS
       {
@@ -47,7 +47,7 @@ class Krakend < Formula
         "bad": file
       }
     EOS
-    assert_match "ERROR", shell_output("#{bin}/krakend check -c krakend_bad_file.json 2>&1")
+    assert_match "ERROR", shell_output("#{bin}/krakend check -c krakend_bad_file.json 2>&1", 1)
 
     (testpath/"krakend.json").write <<~EOS
       {
