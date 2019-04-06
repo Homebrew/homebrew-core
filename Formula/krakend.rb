@@ -1,8 +1,8 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
-  url "https://github.com/devopsfaith/krakend-ce/archive/0.8.0.tar.gz"
-  sha256 "8194f5c459732a35ee05154e388f911a4ebab02e801e735c2803f4100c1e53f0"
+  url "https://github.com/devopsfaith/krakend-ce/archive/0.9.0.tar.gz"
+  sha256 "8d6938af3483c909b0762ab44998f09812632081045bebc33b707c85b3985a00"
 
   bottle do
     cellar :any_skip_relocation
