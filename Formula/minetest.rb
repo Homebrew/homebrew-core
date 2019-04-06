@@ -67,11 +67,11 @@ class Minetest < Formula
 
   test do
     #
-    # Commands --help, --version will produce a readable output without creating a file.
+    # --help and --version produce output directly.
+    # --speedtests and --videomodes need user data directory in order to work.
+    # --info and --trace need user data directory and will actually run the game.
     #
-    # Commands --info, --run-unittests, --speedtests, --trace, and
-    # --videomodes require creating user data directory for output.
-    #
-    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--version"
+    (testpath/"Library/Application Support/minetest/debug.txt").write("")
+    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--speedtests"
   end
 end
