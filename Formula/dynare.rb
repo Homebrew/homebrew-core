@@ -3,12 +3,13 @@ class Dynare < Formula
   homepage "https://www.dynare.org/"
   url "https://www.dynare.org/release/source/dynare-4.5.6.tar.xz"
   sha256 "a4ff0ee5892a044d169ead2778e96fefcf617535fab28d25b977d8d008c7fe87"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 "06897825b3293494bde1e12d782a3f7e9d5070e0610b336df308e0748495132a" => :mojave
-    sha256 "2380cf6228e06a151e5f22d3db9e298a1e2c6ba6ee059708dd7ec19742e54b73" => :high_sierra
-    sha256 "59bb86c547dd4720fd7cafa1770b123038f797a9873ad55ced7dfcd2c42db233" => :sierra
+    cellar :any
+    sha256 "1582b64c56b2072c05d56817fd4eae46cdd8af8b068ed5233c11827166b68d97" => :mojave
+    sha256 "54bb675a63274f4b43d37d9e971c5b64f8ef1b9007da9fe87ffc550e972ea34e" => :high_sierra
+    sha256 "24082892e87b29f3f068dfff6de0a268b3eee331cd1d7f6095c2c2d4c3ce61ee" => :sierra
   end
 
   head do
@@ -33,8 +34,7 @@ class Dynare < Formula
   depends_on "veclibfort"
 
   resource "slicot" do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
+    url "https://deb.debian.org/debian/pool/main/s/slicot/slicot_5.0+20101122.orig.tar.gz"
     sha256 "fa80f7c75dab6bfaca93c3b374c774fd87876f34fba969af9133eeaea5f39a3d"
   end
 

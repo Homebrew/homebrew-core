@@ -1,14 +1,14 @@
 class Gtkmm3 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.0.tar.xz"
-  sha256 "cf5fc92805e581c8303e08d54519457ba07f15b766e9b1edde4862993ac1aa43"
+  url "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.1.tar.xz"
+  sha256 "ddfe42ed2458a20a34de252854bcf4b52d3f0c671c045f56b42aa27c7542d2fd"
 
   bottle do
     cellar :any
-    sha256 "9178c7b78184d04cc42481e934e5a3b2229a1b8d7a2a43e40d486fd7a65a7b71" => :mojave
-    sha256 "afb3d0a679ad06208cd7a823efbe800751d3370b0e1ef1a79d1950e47d9e27e3" => :high_sierra
-    sha256 "d9888f7524b93be09d0f7a725a9e5637e926cac827bf67e8cb70c2b87bed081f" => :sierra
+    sha256 "acc9e0016a3d50efc9d7715252413d783e01bb7300e0aafce8311e9781bab9a2" => :mojave
+    sha256 "fb003fe557b2ed6e5e8fe45527f76ebe9f47c9bbbcb6b5cb0f1880905812f2e0" => :high_sierra
+    sha256 "77c272c6fe1fe736d9b4c905840efc80e6db5d6d4d6e9ee024689ab4082e6978" => :sierra
   end
 
   depends_on "pkg-config" => :build

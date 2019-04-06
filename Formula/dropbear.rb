@@ -1,26 +1,14 @@
 class Dropbear < Formula
   desc "Small SSH server/client for POSIX-based system"
   homepage "https://matt.ucc.asn.au/dropbear/dropbear.html"
-  revision 1
-
-  stable do
-    url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2018.76.tar.bz2"
-    sha256 "f2fb9167eca8cf93456a5fc1d4faf709902a3ab70dd44e352f3acbc3ffdaea65"
-
-    # Fixes CVE-2018-15599. Safe to remove on next release.
-    # https://lists.ucc.gu.uwa.edu.au/pipermail/dropbear/2018q3/002108.html
-    patch do
-      url "https://secure.ucc.asn.au/hg/dropbear/raw-rev/5d2d1021ca00"
-      sha256 "42b5720cf6c888638cfb84fdd862fc0d323b2e023cbe5f9ccdaa2e0c35b6873e"
-    end
-  end
+  url "https://matt.ucc.asn.au/dropbear/releases/dropbear-2019.78.tar.bz2"
+  sha256 "525965971272270995364a0eb01f35180d793182e63dd0b0c3eb0292291644a4"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "3f63323d955182c40f86c6e0c681da9628780db8803f8812e422c72af5e6ddfd" => :mojave
-    sha256 "c2440ba5427b079dc3ca2a56f84c53fed4c1cff689df0fc53d2e0c6de1f983c7" => :high_sierra
-    sha256 "5764f9837f9a8a330cba257657b93b410d76b5e184dab8971b6772594ff5182c" => :sierra
-    sha256 "51840945255b14f841843c9061448542054589284d907632c0fbd41cd38be405" => :el_capitan
+    sha256 "0d7b0c71af63164d1024f4b2b21696a32a3e830de04647bec5bd4d8b602b82a4" => :mojave
+    sha256 "e8d134ecfb0b2d07d2ec0fe45bf0196b07795d4e96e87d97eda85f67e012c185" => :high_sierra
+    sha256 "705e3d23cb78f0dcd9f7bef085d9887823133f1f1e219a6af544a09d339c8616" => :sierra
   end
 
   head do

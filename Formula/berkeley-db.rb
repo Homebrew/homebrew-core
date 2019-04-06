@@ -2,15 +2,15 @@ class BerkeleyDb < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
   # Requires registration to download so we mirror it
-  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.25.tar.gz"
-  sha256 "2ea8b8bc0611d9b4c2b9fee84a4a312dddfec007067af6e02ed46a26354181bb"
+  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.32.tar.gz"
+  mirror "https://fossies.org/linux/misc/db-18.1.32.tar.gz"
+  sha256 "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "cbaa8655a8a17e46c385b9d81a610ad5f50a9a04018c6f7f3642ef1337276b22" => :mojave
-    sha256 "b08ec41ebbd72ae0428f32406a412b6172fc3a6ca6e72290da68d4e6df03c3a5" => :high_sierra
-    sha256 "6132986c6b08b8143b776f80f29ba02dfb5502e48cc0689a5c924c5e6de5c488" => :sierra
+    sha256 "bda67250f858b348c8e537ff22b63f69b561eadbb7c04153a87b291eab7eb617" => :mojave
+    sha256 "0904c59965847bc4d02ac3bea47898a50cb7020f95cc22f58981ccd583b40419" => :high_sierra
+    sha256 "97c14eb14e088be83ea8d090b7adcb05cbdcd4c545a64fa5681dcd6ff4de017c" => :sierra
   end
 
   depends_on "openssl"

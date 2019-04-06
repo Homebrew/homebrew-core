@@ -1,15 +1,15 @@
 class Hub < Formula
   desc "Add GitHub support to git on the command-line"
   homepage "https://hub.github.com/"
-  url "https://github.com/github/hub/archive/v2.10.0.tar.gz"
-  sha256 "c1599a7387df5de6cd309094525a1f14728ca9d09cc5e168805e8fcec829e13f"
+  url "https://github.com/github/hub/archive/v2.11.1.tar.gz"
+  sha256 "dfd6531cdd31f004dcbcd2764dea4e1c040e72358ae79758a6c3060b9e743371"
   head "https://github.com/github/hub.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b23b59540c95ee7b987ff1c8bb494b57b971481a5dc92709833d17a6eb766af3" => :mojave
-    sha256 "b688a3df107cc125a8b964466793972c7392cf0af7b530ff26124f8270b959c2" => :high_sierra
-    sha256 "90f5efb667658b5982b9ae2e71af04836bcb5046c20cba5c5dd30219c2416394" => :sierra
+    sha256 "795f81c453ebfd36f45df5cd1861a1e6b2149b34749681a1d921689a784b82c8" => :mojave
+    sha256 "1ae26a75c1ecabb2b8433983928c582c6fc62a34dbc28c548c65f0423c5c4117" => :high_sierra
+    sha256 "9acc89b1e98d60874939c2f53d4c5781f1c6237ef16908b2e172c3d71dda73ef" => :sierra
   end
 
   depends_on "go" => :build

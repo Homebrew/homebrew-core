@@ -3,12 +3,13 @@ class YelpTools < Formula
   homepage "https://github.com/GNOME/yelp-tools"
   url "https://download.gnome.org/sources/yelp-tools/3.32/yelp-tools-3.32.0.tar.xz"
   sha256 "bfdd40d10d837d1a170c7fe70b3436d30e6698db809d5be459ea0f7fbb69ee0c"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "34a0331b7eead5887135e44bc34b4b20a83505479a705a19ebee9bfe8c83a29d" => :mojave
-    sha256 "34a0331b7eead5887135e44bc34b4b20a83505479a705a19ebee9bfe8c83a29d" => :high_sierra
-    sha256 "a3ae6706abdaf782d59b91a51f0040c5d02258d0c422bdb3689b67b9221ac449" => :sierra
+    sha256 "4f47c6d9828e28b9135d7b99c7d5ecab1dd44b247a05e849abd1c02edbdfa38f" => :mojave
+    sha256 "1ccfac8c04c1049d1f03c538bc43a525874c8db74298e8c67025dab2910015c8" => :high_sierra
+    sha256 "e3aa9c7a280f00c63e91c385807155b3c50ac7a6877db4d2420fd35b3acfcd8c" => :sierra
   end
 
   depends_on "gettext" => :build
@@ -20,8 +21,8 @@ class YelpTools < Formula
   depends_on "gtk+3"
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.32/yelp-xsl-3.32.0.tar.xz"
-    sha256 "9b196f713a88578375889ca1620dc5b2b5d2a40e31f1320942d423d5a588ba66"
+    url "https://download.gnome.org/sources/yelp-xsl/3.32/yelp-xsl-3.32.1.tar.xz"
+    sha256 "cac31bc150545d6aa0de15dce04560cbf591008d17a783a1d1d9cdd47b147f04"
   end
 
   def install

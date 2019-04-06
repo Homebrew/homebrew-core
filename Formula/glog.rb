@@ -1,24 +1,22 @@
 class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
-  url "https://github.com/google/glog/archive/v0.3.5.tar.gz"
-  sha256 "7580e408a2c0b5a89ca214739978ce6ff480b5e7d8d7698a2aa92fadc484d1e0"
-  revision 3
+  url "https://github.com/google/glog/archive/v0.4.0.tar.gz"
+  sha256 "f28359aeba12f30d73d9e4711ef356dc842886968112162bc73002645139c39c"
   head "https://github.com/google/glog.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "d67fbac8d23e5daac4283c005537f076051a4c98c3ef820a50209579ca6d6700" => :mojave
-    sha256 "578a8d6a064d82e66cb057d4db754965abd0101e77b2e2d9a6552e317667ad4d" => :high_sierra
-    sha256 "5b2995534c71e5cf5a73deaaf8be0578b667280a0b354145cd0743365993b475" => :sierra
+    sha256 "034a4d2272b48fd7655b467b92c78eebfb11efb33cc6cd31f7b13ee085b7169b" => :mojave
+    sha256 "bbe6c4138b5fe8cd58d269a39644176f640fa62e694ffac36337f87661cacc69" => :high_sierra
+    sha256 "08408127c37122614811eae2d925d940912c2cb29eb0fb300116ee4813d50095" => :sierra
   end
 
   depends_on "cmake" => :build
   depends_on "gflags"
 
   def install
-    mkdir "build" do
+    mkdir "cmake-build" do
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "make", "install"
     end

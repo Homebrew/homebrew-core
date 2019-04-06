@@ -1,15 +1,14 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-7.2.1.tar.gz"
-  sha256 "9459a7057d5a85be66a41096a5d804f74665381186c37077c94b56e784db6102"
-  revision 1
+  url "https://download.osgeo.org/mapserver/mapserver-7.2.2.tar.gz"
+  sha256 "287f8dfe10961bc685bb87e118b7aa81382df907b2b3961d6559169b527ba95c"
 
   bottle do
     cellar :any
-    sha256 "3dfb756ff659789cf4253595aa22d2ab0b2b4b6b7bf6cbf4cba6853237b626dc" => :mojave
-    sha256 "ce339daff8744842eb6c82bcb034fce73ec2f53dfa4c522a02ac01382766affb" => :high_sierra
-    sha256 "792a125e13694bdcba3023bf0a068d345050cbf479cb445dd01b96a9772caaf8" => :sierra
+    sha256 "3b24b6e3017545591672754741556ad53d2af3f7d9a22e4d5a884787013383ff" => :mojave
+    sha256 "5e845a5488957540ac077276509abfcb9da88b780245049fb1d78c20f011ecfa" => :high_sierra
+    sha256 "dc60f67df38a0c8fdc14f607ca1fd559fa47f1a84c672742e98612b49c909bdb" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -62,6 +61,10 @@ class Mapserver < Formula
     # import it with an interpreter it wasn't built against.
     # 2): Library not loaded: @rpath/libmapserver.1.dylib
     args << "-DCMAKE_SKIP_RPATH=ON"
+
+    # Use Proj 6.0.0 compatibility headers
+    # https://github.com/mapserver/mapserver/issues/5766
+    ENV.append_to_cflags "-DACCEPT_USE_OF_DEPRECATED_PROJ_API_H"
 
     mkdir "build" do
       system "cmake", "..", *args

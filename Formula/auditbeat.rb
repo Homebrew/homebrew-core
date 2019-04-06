@@ -2,15 +2,15 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.6.1",
-      :revision => "928f5e3f35fe28c1bd73513ff1cc89406eb212a6"
+      :tag      => "v6.7.0",
+      :revision => "14ca49c28a6e10b84b4ea8cdebdc46bd2eab3130"
   head "https://github.com/elastic/beats.git"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "510071d1030d7aeb2ef1b147d94cd2c5dc16bee13d4db6434286a8b6ed4eaab3" => :mojave
-    sha256 "b035f34cbf9b97ed1061be71e7ba4cc15614964db82219c1a385199307fe2724" => :high_sierra
-    sha256 "299d6df634d7147e816051760c42ded348f0a74962ec0b3a4af010aff2d22d34" => :sierra
+    sha256 "bbd27e1dcdb0e2cc5f2067544001665d561697878734cd5879834a787ddeb366" => :mojave
+    sha256 "4a3e05d318b4227eb210056213604143695ef2599dc691017a935b26f345851d" => :high_sierra
+    sha256 "5915bbd0d7f1ae3bbaf0a6e8ab31b9a0b591e617fdcde294348cfbdfd0117c14" => :sierra
   end
 
   depends_on "go" => :build
@@ -24,8 +24,8 @@ class Auditbeat < Formula
   # Patch required to build against go 1.11 (Can be removed with v7.0.0)
   # partially backport of https://github.com/elastic/beats/commit/8d8eaf34a6cb5f3b4565bf40ca0dc9681efea93c
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/881f5d1d/auditbeat/go1.11.diff"
-    sha256 "1747ea917ccd4c627fdc412d41b340ec96ce705f529b6e9d91e9bdf482eb792d"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a0f8cdc0/auditbeat/go1.11.diff"
+    sha256 "8a00cb0265b6e2de3bc76f14f2ee4f1a5355dad490f3db9288d968b3e95ae0eb"
   end
 
   def install

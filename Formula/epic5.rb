@@ -1,18 +1,15 @@
 class Epic5 < Formula
   desc "Enhanced, programmable IRC client"
   homepage "http://www.epicsol.org/"
-  url "http://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-2.0.1.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-2.0.1.tar.xz"
-  sha256 "55260fc832c76f7a4975bde2bd0d0805fd8012fc8908ac94ec8c6de24a1be7aa"
+  url "http://ftp.epicsol.org/pub/epic/EPIC5-PRODUCTION/epic5-2.1.1.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/epic5/epic5-2.1.1.tar.xz"
+  sha256 "81e18b5f6aa32c5c4b5d01d4cd94e3124b538e3ba42cf7dbb74a6f1f5081f9df"
   head "http://git.epicsol.org/epic5.git"
 
   bottle do
-    sha256 "3a2cb94433761c281fbdb3329bc3249b9f61eedcaa0c2585c101ae5b93a93170" => :mojave
-    sha256 "202fe91849aeafe5d8838554f4ee4a31286cae844b418402408b6e91121ddc01" => :high_sierra
-    sha256 "9aeed705e50bf7f3459d0a8d0dd086c8c2c86d8b6028c22a002d60e3a5183183" => :sierra
-    sha256 "0040885911e6bbab3b2b7b1c29e99e31363e6f24ff83d982afb54a1d11623715" => :el_capitan
-    sha256 "8617a71ad3aead7226e7a71f90f5a834341031b6195c862d64757a662cb7e8a1" => :yosemite
-    sha256 "0f17c628454c763deb0d5e20d488b0ef427ec6d5041a7f7223a0eaa9fa601e7c" => :mavericks
+    sha256 "4abdb34751cea65e816529bbda596a7dc232040290dd5fec4fdd59a6c786c991" => :mojave
+    sha256 "743f168eeb02f773f9ae7467e1d7adae9405b846db0adf8f03e23564e5275bf2" => :high_sierra
+    sha256 "db98c71f129c0d8bf7d012cc35e5627a6a623db2909153bbebca71b0c19b507e" => :sierra
   end
 
   depends_on "openssl"

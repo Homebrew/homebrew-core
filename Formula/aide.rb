@@ -1,19 +1,18 @@
 class Aide < Formula
   desc "File and directory integrity checker"
-  homepage "https://aide.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/aide/aide/0.16/aide-0.16.tar.gz"
-  sha256 "a81c53a131c4fd130b169b3a26ac35386a2f6e1e014f12807524cc273ed97345"
+  homepage "https://aide.github.io/"
+  url "https://github.com/aide/aide/releases/download/v0.16.1/aide-0.16.1.tar.gz"
+  sha256 "0f2b7cecc70c1a27d35c06c98804fcdb9f326630de5d035afc447122186010b7"
 
   bottle do
-    rebuild 1
-    sha256 "0c952b922666c241fd3fe1249b29bf88c2149378511218d76dc30de1097a04f1" => :mojave
-    sha256 "c9429f028f2627c8ae1b76737b26741cecc4c18507139b02bcc6c487bc5e15a7" => :high_sierra
-    sha256 "71d151f2f389cbbc5884eff30261d0691d020c0983411962c1ba42927d0ae052" => :sierra
-    sha256 "2860850684659f15f8d5dc01127a7a9f2bfc21f773d99c4a8897585b4542723d" => :el_capitan
+    cellar :any
+    sha256 "53b1dfabc76d6e54db56ec24f7f91b6cc9dcdd18210d17d2df92f86225fb9c9f" => :mojave
+    sha256 "79a2d4ce92526516891c844a4852161d39421f9dc31d2eba5ea0e48d79496053" => :high_sierra
+    sha256 "b626fcf7e52a0ea66fbed58bdc00cb08484f7bce8e84e61edf6740fbad7fabc5" => :sierra
   end
 
   head do
-    url "https://git.code.sf.net/p/aide/code.git"
+    url "https://github.com/aide/aide.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end

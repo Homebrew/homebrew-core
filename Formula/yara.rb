@@ -7,9 +7,10 @@ class Yara < Formula
 
   bottle do
     cellar :any
-    sha256 "ac12e1278c753e1a79cb3fdd4fad8df6c01026c0aa159089182a65dd688ca483" => :mojave
-    sha256 "ed092caa3603842d4f9daa48a36d173d79504ef6e22b7af85b8576dc75fca55f" => :high_sierra
-    sha256 "03f2077af95ec05e06bb09c704089e6c4c63fffcd06437fda01bcd2fea0d97d9" => :sierra
+    rebuild 1
+    sha256 "ba20adea60d74351b20c0afe07549a7cb52918cc93239cf06e724d8e8a62dce8" => :mojave
+    sha256 "210d673ea7da63cb9b340e178d095baa616a01761cce0050c279f0ca418bc6f7" => :high_sierra
+    sha256 "8cf2100e8c40df878daa7fa6ab8d666ecd3bf1b3fef36e0d42297047fa9d68cd" => :sierra
   end
 
   depends_on "autoconf" => :build
@@ -29,7 +30,7 @@ class Yara < Formula
                           "--enable-magic",
                           "--enable-macho",
                           "--enable-dex",
-                          "--with-crpyto"
+                          "--with-crypto"
     system "make", "install"
   end
 

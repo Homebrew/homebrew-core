@@ -2,15 +2,15 @@ class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.7.0",
-      :revision => "582743bf40c5d3639a70f98f183914a2c0cd0680"
+      :tag      => "v3.7.1",
+      :revision => "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
   head "https://github.com/protocolbuffers/protobuf.git"
 
   bottle do
     cellar :any
-    sha256 "5ff917a16f1625e980e3089c4da5ee9909f4e3b0fc5c359a5e1b0131a7787c2f" => :mojave
-    sha256 "137739ea611d2f81669992ac2c39e24d335b687cc2cc3aad3f9e82ff8bcfd583" => :high_sierra
-    sha256 "060b641aea6ea4e89713e2c53a7d6b70340d92e84681718694fb0323f7accec1" => :sierra
+    sha256 "b6a876e0bd12e30c7a51ab6ac60d2c085672e52b35a8db5ce023b05f59022abc" => :mojave
+    sha256 "abf825b2544adef9e3c9dec15faa02ca4a58116061428a420bb8edcfb67af61d" => :high_sierra
+    sha256 "0f76af3912824f2cc6c13542671d8f8ea4df497e6cd6073dcbc11f10ac3b8a04" => :sierra
   end
 
   depends_on "autoconf" => :build

@@ -1,13 +1,13 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.5.tar.xz"
-  sha256 "0be5fb0d302bc3de26ab58c32990d895831e2b7c7418d0ffea1206d6a3ddb02f"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.7.tar.xz"
+  sha256 "52121144a2df4babed75eb5f34de130a46420101fde3ae216d3142df8a481520"
 
   bottle do
-    sha256 "48b4596d4755c9ac359e26c2330775cfb3b3def44009ab88d895e5f861f80f46" => :mojave
-    sha256 "192dbd991b55e9949e16b936a692ba735ba2ea6dc4f52ce57f2edbe11f62f53e" => :high_sierra
-    sha256 "d5bd79eeb30c1ac888693e129dcc0397e40025c62d616e90f5faf2662cb159df" => :sierra
+    sha256 "06206a95bcc033def97b226ef94fc19773768ba238b114350d8add6db510e464" => :mojave
+    sha256 "79ec4fbdbd9f84c04921cebc63ab21333efe03c68f58a6809e3a6c979e352ab0" => :high_sierra
+    sha256 "83a228aa828991e4e69b2493a2ca5198d41b673f7bde45d0032e50fd127c668d" => :sierra
   end
 
   depends_on "gobject-introspection" => :build

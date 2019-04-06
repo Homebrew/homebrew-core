@@ -1,7 +1,7 @@
 class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
-  revision 10
+  revision 11
 
   stable do
     url "http://files.upscaledb.com/dl/upscaledb-2.2.0.tar.gz"
@@ -18,9 +18,9 @@ class Upscaledb < Formula
 
   bottle do
     cellar :any
-    sha256 "5795b13d05e078ccc9e8474cad0af6f4f4bdaf689b5e85142548dd0c02a79482" => :mojave
-    sha256 "ad0b6887fa34cfc4c5176bae916d93328e051e2446965889543062785569bf90" => :high_sierra
-    sha256 "3c171ea5437d86b084663145ab8ef0135d85a8032e98f94f945ee3300156f31c" => :sierra
+    sha256 "cc371a6e14c48cb0cc2a51e1a3dadcb201c3179789d742e29299e6e8cedec918" => :mojave
+    sha256 "28c6eafdac4a4ea8a90698a31298f6debfff2503ffffe6a264a4feb1b85725e7" => :high_sierra
+    sha256 "4b4f24812463d787b9f6d53e13318af49283f4a8230baa9ebfeac3083d352b7b" => :sierra
   end
 
   head do

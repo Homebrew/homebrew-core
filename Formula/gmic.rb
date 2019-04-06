@@ -1,17 +1,15 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_2.1.5.tar.gz"
-  sha256 "2f3de90a09bba6d24c89258be016fd6992886bda13dbbcaf03de58c765774845"
-  revision 2
+  url "https://gmic.eu/files/source/gmic_2.5.5.tar.gz"
+  sha256 "46246a7f37740cfba22b6ee77f509a9e874cc70b7e1169ef195dcf8bb2b98d13"
   head "https://github.com/dtschump/gmic.git"
 
   bottle do
     cellar :any
-    rebuild 1
-    sha256 "eaff00c94294d5127e2bda3e6337fb211bdae2e0b71d288a9ea32c2871611894" => :mojave
-    sha256 "840b556cf36d1e965cda69a690eb5abeb47dc9fd5d9ba27c49b3226ba144e12e" => :high_sierra
-    sha256 "faa35aaf650b223d121ca2aa66f395b3429695bc3800e0d31805a0e2b121dea2" => :sierra
+    sha256 "08253be8bf7fac333fa32ffdb056d2e003993fdab3f38aa230d23a26e0516e6c" => :mojave
+    sha256 "0eefefa535cf8155a2f2089488eda874c984f29a6121e26ebc3e739cb34bdf1b" => :high_sierra
+    sha256 "8d5de939aa98dda2ecd4f178c32f87efa83a7070c02333cdec295886477d1a05" => :sierra
   end
 
   depends_on "cmake" => :build
@@ -21,7 +19,6 @@ class Gmic < Formula
   depends_on "libtiff"
 
   def install
-    cp "resources/CMakeLists.txt", buildpath
     system "cmake", *std_cmake_args,
                     "-DENABLE_FFMPEG=OFF",
                     "-DENABLE_OPENCV=OFF",

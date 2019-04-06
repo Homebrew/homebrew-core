@@ -3,14 +3,14 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-      :revision => "aec259ea62328ce39916607876956239fbce29b8"
-  version "7.2.502.25" # the version of the v8 checkout, not a depot_tools version
+      :revision => "5637e87bda2811565c3e4e58bd2274aeb3a4757e"
+  version "7.3.492.25" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
-    sha256 "eb980d025519d7ad915be7edb6c836c3c9bd44fc4d7706a38b365836e0809ec0" => :mojave
-    sha256 "ec7e9df49fbb8e8bf15abe08ce846bef336353a9986b64be6b5c258a6d555fed" => :high_sierra
-    sha256 "d8f0dbea9eb79fdfad86bd81030e2874005a1e6767866e41ee7b67ea7e427c74" => :sierra
+    sha256 "35b386b2849ebc64a866a6bf6907cc3102060194527f434a54f6da40b5a53c43" => :mojave
+    sha256 "4a04302a9d9b2724168c0da83d3098cee5ab9537c4b1426ac6af95ca7fcca0e7" => :high_sierra
+    sha256 "56e3e88070de154b64a29281333e1ad02640ca75f65cf394ec6ad5b95b457866" => :sierra
   end
 
   # depot_tools/GN require Python 2.7+
@@ -51,8 +51,6 @@ class V8 < Formula
 
     # Enter the v8 checkout
     cd "v8" do
-      output_path = "out.gn/x64.release"
-
       gn_args = {
         :is_debug                     => false,
         :is_component_build           => true,
@@ -64,25 +62,13 @@ class V8 < Formula
       gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
 
       # Build with gn + ninja
-      system "gn", "gen", "--args=#{gn_args_string}", output_path
-
-      system "ninja", "-j", ENV.make_jobs, "-C", output_path,
-             "-v", "d8"
+      system "gn", "gen", "--args=#{gn_args_string}", "out.gn"
+      system "ninja", "-j", ENV.make_jobs, "-C", "out.gn", "-v", "d8"
 
       # Install all the things
-      include.install Dir["include/*"]
-
-      cd output_path do
-        lib.install Dir["lib*.dylib"]
-
-        # Install d8 and icudtl.dat in libexec and symlink
-        # because they need to be in the same directory.
-        libexec.install Dir["d8", "icudt*.dat"]
-        (bin/"d8").write <<~EOS
-          #!/bin/bash
-          exec "#{libexec}/d8" --icu-data-file="#{libexec}/icudtl.dat" "$@"
-        EOS
-      end
+      (libexec/"include").install Dir["include/*"]
+      libexec.install Dir["out.gn/lib*.dylib", "out.gn/d8", "out.gn/icudtl.dat"]
+      bin.write_exec_script libexec/"d8"
     end
   end
 

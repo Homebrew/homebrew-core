@@ -1,14 +1,13 @@
 class Proj < Formula
   desc "Cartographic Projections Library"
   homepage "https://proj4.org/"
-  url "https://download.osgeo.org/proj/proj-5.2.0.tar.gz"
-  sha256 "ef919499ffbc62a4aae2659a55e2b25ff09cccbbe230656ba71c6224056c7e60"
+  url "https://download.osgeo.org/proj/proj-6.0.0.tar.gz"
+  sha256 "4510a2c1c8f9056374708a867c51b1192e8d6f9a5198dd320bf6a168e44a3657"
 
   bottle do
-    sha256 "bead47d7970ed3a59ef4c9567e86cf834fcaf01a1a8b63efeb372b62e2f39b83" => :mojave
-    sha256 "80caa7d9b6ffc5cee9c397b8821b834a16b37c05cd0acd0262f825fa95eb8e08" => :high_sierra
-    sha256 "1906c694029b8a01fbd912733b3c9ba295f4b8ba9d32d0d3f8f2b549b179d04a" => :sierra
-    sha256 "9cbf5a3dfb98c5b5ee82a3e4b8d9d0f927a4d45e514d99a71ca78eb123d5cafe" => :el_capitan
+    sha256 "521abb0280f39ad8b055595d3016afeb8622f068c84f89047691d07798a85084" => :mojave
+    sha256 "96d9fffc531c4072fdca49414c4bdff47a123fb65caa948d6a4eab1bfc126c74" => :high_sierra
+    sha256 "53572ee61d1b7a7cc09c70df74c9b2243c9fe7b5778adb32c3500cd16b9485e5" => :sierra
   end
 
   head do
@@ -17,6 +16,8 @@ class Proj < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  depends_on "pkg-config" => :build
 
   conflicts_with "blast", :because => "both install a `libproj.a` library"
 
@@ -50,7 +51,8 @@ class Proj < Formula
       171224.94\t5415352.81 Paris, France
       -8101.66\t5707500.23 London, England
     EOS
-    assert_equal match,
-                 `#{bin}/proj +proj=poly +ellps=clrk66 -r #{testpath}/test`
+
+    output = shell_output("#{bin}/proj +proj=poly +ellps=clrk66 -r #{testpath}/test")
+    assert_equal match, output
   end
 end

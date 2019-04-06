@@ -1,22 +1,23 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
-  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
+  url "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2"
+  sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    sha256 "df9783e900573cefa4eb6f454e2c96af5ba25faf0840c01c0f137b82575c580b" => :mojave
-    sha256 "0783713245f6341b55dd0e4bafb2a4783972ed05e4bbd03db0d821c10903aef3" => :high_sierra
-    sha256 "064d14b4acde429e7d8713236ebb60f72ae1419cbd84401c7428999118d5d3b5" => :sierra
+    cellar :any
+    sha256 "9873bb2e521f8fe1fe741aa58f796916b482896d819bdd6ad2f95aa645f10d28" => :mojave
+    sha256 "c16717503ea007358715710d45935392faa22e2ce4bd261d2f504de6101736e0" => :high_sierra
+    sha256 "e1cda0088dd1ba4e860583ec00bd61635fbeb85b207254cc2dd231d7efbfe888" => :sierra
   end
 
   depends_on "boost"
   depends_on "python"
 
   resource "numpy" do
-    url "https://files.pythonhosted.org/packages/d5/6e/f00492653d0fdf6497a181a1c1d46bbea5a2383e7faf4c8ca6d6f3d2581d/numpy-1.14.5.zip"
-    sha256 "a4a433b3a264dbc9aa9c7c241e87c0358a503ea6394f8737df1683c7c9a102ac"
+    url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
+    sha256 "3d734559db35aa3697dadcea492a423118c5c55d176da2f3be9c98d4803fc2a7"
   end
 
   def install
@@ -25,14 +26,14 @@ class BoostPython3 < Formula
             "--libdir=#{lib}",
             "-d2",
             "-j#{ENV.make_jobs}",
-            "--layout=tagged",
+            "--layout=tagged-1.66",
             "--user-config=user-config.jam",
             "threading=multi,single",
             "link=shared,static"]
 
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    args << "cxxflags=-std=c++11"
+    # Boost is using "clang++ -x c" to select C compiler which breaks C++14
+    # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
+    args << "cxxflags=-std=c++14"
     if ENV.compiler == :clang
       args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end

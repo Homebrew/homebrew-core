@@ -3,14 +3,14 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://github.com/dnsviz/dnsviz/releases/download/v0.8.1/dnsviz-0.8.1.tar.gz"
-  sha256 "b62e6642aba46cf145f9ca23d02fcfd101752a7448d1b44537334ddc4e359eae"
+  url "https://github.com/dnsviz/dnsviz/releases/download/v0.8.2/dnsviz-0.8.2.tar.gz"
+  sha256 "a81ff254c23718cd6f364b03bf6e9c80468fa4663fd5be66043de7b0bece1cab"
 
   bottle do
     cellar :any
-    sha256 "dd80c8d3dd7b5c1d7ea4582543660ec347b5ec9c5a032ffbee8b5e66ba86c55d" => :mojave
-    sha256 "4b906c5a99b284e5d3874d984952fb0422ea62246630c0632531f1712e69cbbc" => :high_sierra
-    sha256 "b3ab518a1efdd10bebd202aac28863c00e2af5ecd3b5d0b3b334b34dd212b66c" => :sierra
+    sha256 "f55b130eee33b503ea3b4c88ba34c952ae58a070c632fdac326962199c9ef5b6" => :mojave
+    sha256 "6324be158374f9b93e287ada9dfe33c2aef01b05a4bacc78fea47719f69d2db9" => :high_sierra
+    sha256 "08325b100e560aad351b72002e7828b713f3f39e003e2a3eaa2a6cc7d4797e62" => :sierra
   end
 
   depends_on "pkg-config" => :build
@@ -31,8 +31,8 @@ class Dnsviz < Formula
   end
 
   resource "m2crypto" do
-    url "https://files.pythonhosted.org/packages/0a/d3/ecef6a0eaef77448deb6c9768af936fec71c0c4b42af983699cfa1499962/M2Crypto-0.31.0.tar.gz"
-    sha256 "fd59a9705275d609948005f4cbcaf25f28a4271308237eb166169528692ce498"
+    url "https://files.pythonhosted.org/packages/17/2b/f551dbff0f7b70746568c6546efccca128fe8651be7ad915b99e1bae15cf/M2Crypto-0.32.0.tar.gz"
+    sha256 "29c9c6fa6abdeb4156b8e0342c30028c5ee68055b60aa21c88abfb1d85fea325"
   end
 
   resource "typing" do
@@ -56,71 +56,71 @@ class Dnsviz < Formula
       ; dnssec_signzone version 9.11.4-P2-3~bpo9+1-Debian
       example.com.		3600	IN SOA	example.com. root.example.com. (
 					1          ; serial
-							3600       ; refresh (1 hour)
-							3600       ; retry (1 hour)
-							14400      ; expire (4 hours)
-							3600       ; minimum (1 hour)
-							)
-					3600	RRSIG	SOA 10 2 3600 (
-							20230110031403 20190111031403 39026 example.com.
-							D2WDMpH4Ip+yi2wQFmCq8iPWWdHo/vGig/rG
-							+509RbOLHbeFaO84PrPvw/dS6kjDupQbyG1t
-							8Hx0XzlvitBZjpYFq3bd/k0zU/S39IroeDfU
-							xR/BlI2bEaIPxgG2AulJjS6lnYigfko4AKfe
-							AqssO7P1jpiUUYtFpivK3ybl03o= )
-					3600	NS	example.com.
-					3600	RRSIG	NS 10 2 3600 (
-							20230110031403 20190111031403 39026 example.com.
-							bssTLRwAeyn0UtOjWKVbaJdq+lNbeOKBE2a4
-							QdR2lrgNDVenY8GciWarYcd5ldPfrfX5t5I9
-							QwiIsv/xAPgksVlmWcZGVDAAzzlglVhCg2Ys
-							J7YEcV2DDIMZLx2hm6gu9fKaMcqp8lhUSCBD
-							h4VTswLV1HoUDGYwEsjLEtiRin8= )
-					3600	A	127.0.0.1
-					3600	RRSIG	A 10 2 3600 (
-							20230110031403 20190111031403 39026 example.com.
-							TH+PWGhFd3XL09IkCeAd0TNrWVsj+bAcQESx
-							F27lCgMnYYebiy86QmhEGzM+lu7KX1Vn15qn
-							2KnyEKofW+kFlCaOMZDmwBcU0PznBuGJ/oQ9
-							2OWe3X2bw5kMEQdxo7tjMlDo+v975VaZgbCz
-							od9pETQxdNBHkEfKmxWpenMi9PI= )
-					3600	AAAA	::1
-					3600	RRSIG	AAAA 10 2 3600 (
-							20230110031403 20190111031403 39026 example.com.
-							qZM60MUJp95oVqQwdW03eoCe5yYu8hdpnf2y
-							Z7eyxTDg1qEgF+NUF6Spe8OKsu2SdTolT0CF
-							8X068IGTEr2rbFK/Ut1owQEyYuAnbNGBmg99
-							+yo1miPgxpHL/GbkMiSK7q6phMdF+LOmGXkQ
-							G3wbQ5LUn2R7uSPehDwXiRbD0V8= )
-					3600	NSEC	example.com. A NS SOA AAAA RRSIG NSEC DNSKEY
-					3600	RRSIG	NSEC 10 2 3600 (
-							20230110031403 20190111031403 39026 example.com.
-							Rdx/TmynYt0plItVI10plFis6PbsH29qyXBw
-							NLOEAMNLvU6IhCOlv7T8YxZWsamg3NyM0det
-							NgQqIFfJCfLEn2mzHdqfPeVqxyKgXF1mEwua
-							TZpE8nFw95buxV0cg67N8VF7PZX6zr1aZvEn
-							b022mYFpqaGMhaA6f++lGChDw80= )
-					3600	DNSKEY	256 3 10 (
-							AwEAAaqQ5dsqndLRH+9j/GbtUObxgAEvM7VH
-							/y12xjouBFnqTkAL9VvonNwYkFjnCZnIriyl
-							jOkNDgE4G8pYzYlK13EtxBDJrUoHU11ZdL95
-							ZQEpd8hWGqSG2KQiCYwAAhmG1qu+I+LtexBe
-							kNwT3jJ1BMgGB3xsCluUYHBeSlq9caU/
-							) ; ZSK; alg = RSASHA512 ; key id = 39026
-					3600	DNSKEY	257 3 10 (
-							AwEAAaLSZl7J7bJnFAcRrqWE7snJvJ1uzkS8
-							p1iq3ciHnt6rZJq47HYoP5TCnKgCpje/HtZt
-							L/7n8ixPjhgj8/GkfOwoWq5kU3JUN2uX6pBb
-							FhSsVeNe2JgEFtloZSMHhSU52yS009WcjZJV
-							O2QX2JXcLy0EMI2S4JIFLa5xtatXQ2/F
-							) ; KSK; alg = RSASHA512 ; key id = 34983
-					3600	RRSIG	DNSKEY 10 2 3600 (
-							20230110031403 20190111031403 34983 example.com.
-							g1JfHNrvVch3pAX3/qHuiivUeSawpmO7h2Pp
-							Hqt9hPbR7jpzOxbOzLAxHopMR/xxXN1avyI5
-							dh23ySy1rbRMJprz2n09nYbK7m695u7P18+F
-							sCmI8pjqtpJ0wg/ltEQBCRNaYOrHvK+8NLvt
-							PGJqJru7+7aaRr1PP+ne7Wer+gE= )
+					3600       ; refresh (1 hour)
+					3600       ; retry (1 hour)
+					14400      ; expire (4 hours)
+					3600       ; minimum (1 hour)
+					)
+			3600	RRSIG	SOA 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					D2WDMpH4Ip+yi2wQFmCq8iPWWdHo/vGig/rG
+					+509RbOLHbeFaO84PrPvw/dS6kjDupQbyG1t
+					8Hx0XzlvitBZjpYFq3bd/k0zU/S39IroeDfU
+					xR/BlI2bEaIPxgG2AulJjS6lnYigfko4AKfe
+					AqssO7P1jpiUUYtFpivK3ybl03o= )
+			3600	NS	example.com.
+			3600	RRSIG	NS 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					bssTLRwAeyn0UtOjWKVbaJdq+lNbeOKBE2a4
+					QdR2lrgNDVenY8GciWarYcd5ldPfrfX5t5I9
+					QwiIsv/xAPgksVlmWcZGVDAAzzlglVhCg2Ys
+					J7YEcV2DDIMZLx2hm6gu9fKaMcqp8lhUSCBD
+					h4VTswLV1HoUDGYwEsjLEtiRin8= )
+			3600	A	127.0.0.1
+			3600	RRSIG	A 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					TH+PWGhFd3XL09IkCeAd0TNrWVsj+bAcQESx
+					F27lCgMnYYebiy86QmhEGzM+lu7KX1Vn15qn
+					2KnyEKofW+kFlCaOMZDmwBcU0PznBuGJ/oQ9
+					2OWe3X2bw5kMEQdxo7tjMlDo+v975VaZgbCz
+					od9pETQxdNBHkEfKmxWpenMi9PI= )
+			3600	AAAA	::1
+			3600	RRSIG	AAAA 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					qZM60MUJp95oVqQwdW03eoCe5yYu8hdpnf2y
+					Z7eyxTDg1qEgF+NUF6Spe8OKsu2SdTolT0CF
+					8X068IGTEr2rbFK/Ut1owQEyYuAnbNGBmg99
+					+yo1miPgxpHL/GbkMiSK7q6phMdF+LOmGXkQ
+					G3wbQ5LUn2R7uSPehDwXiRbD0V8= )
+			3600	NSEC	example.com. A NS SOA AAAA RRSIG NSEC DNSKEY
+			3600	RRSIG	NSEC 10 2 3600 (
+					20230110031403 20190111031403 39026 example.com.
+					Rdx/TmynYt0plItVI10plFis6PbsH29qyXBw
+					NLOEAMNLvU6IhCOlv7T8YxZWsamg3NyM0det
+					NgQqIFfJCfLEn2mzHdqfPeVqxyKgXF1mEwua
+					TZpE8nFw95buxV0cg67N8VF7PZX6zr1aZvEn
+					b022mYFpqaGMhaA6f++lGChDw80= )
+			3600	DNSKEY	256 3 10 (
+					AwEAAaqQ5dsqndLRH+9j/GbtUObxgAEvM7VH
+					/y12xjouBFnqTkAL9VvonNwYkFjnCZnIriyl
+					jOkNDgE4G8pYzYlK13EtxBDJrUoHU11ZdL95
+					ZQEpd8hWGqSG2KQiCYwAAhmG1qu+I+LtexBe
+					kNwT3jJ1BMgGB3xsCluUYHBeSlq9caU/
+					) ; ZSK; alg = RSASHA512 ; key id = 39026
+			3600	DNSKEY	257 3 10 (
+					AwEAAaLSZl7J7bJnFAcRrqWE7snJvJ1uzkS8
+					p1iq3ciHnt6rZJq47HYoP5TCnKgCpje/HtZt
+					L/7n8ixPjhgj8/GkfOwoWq5kU3JUN2uX6pBb
+					FhSsVeNe2JgEFtloZSMHhSU52yS009WcjZJV
+					O2QX2JXcLy0EMI2S4JIFLa5xtatXQ2/F
+					) ; KSK; alg = RSASHA512 ; key id = 34983
+			3600	RRSIG	DNSKEY 10 2 3600 (
+					20230110031403 20190111031403 34983 example.com.
+					g1JfHNrvVch3pAX3/qHuiivUeSawpmO7h2Pp
+					Hqt9hPbR7jpzOxbOzLAxHopMR/xxXN1avyI5
+					dh23ySy1rbRMJprz2n09nYbK7m695u7P18+F
+					sCmI8pjqtpJ0wg/ltEQBCRNaYOrHvK+8NLvt
+					PGJqJru7+7aaRr1PP+ne7Wer+gE= )
     EOS
     (testpath/"example.com.zone-delegation").write <<~EOS
       example.com.	IN	NS	ns1.example.com.

@@ -1,16 +1,15 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.68.0/source/boost_1_68_0.tar.bz2"
-  sha256 "7f6130bc3cf65f56a618888ce9d5ea704fa10b462be126ad053e80e553d6d8b7"
-  revision 1
+  url "https://dl.bintray.com/boostorg/release/1.69.0/source/boost_1_69_0.tar.bz2"
+  sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
     cellar :any
-    sha256 "52d3c80972a0af00b4a5779ca192ef1d2b5792e56acce6ab670b46546ba43418" => :mojave
-    sha256 "7562a990f0393b8186564fee26cfb908cc21b45bb3bfa52b55d7e78c8d82957f" => :high_sierra
-    sha256 "0c42d1ba47651b72a761218c2e00143bea3c7771c84319a847225b95dc861aa6" => :sierra
+    sha256 "ffd50072d4f4f59c5e0d55e2bc44430bb38d2272279ce4bc944b784915138c42" => :mojave
+    sha256 "d11d9cf367df6ec274385fea0cafc9d484a2036e19437ae9a67b82da75979a6a" => :high_sierra
+    sha256 "35809d731353341b017e78dc21d396b4a05cc8c3f7cb86abbd98e22af092ffef" => :sierra
   end
 
   depends_on "icu4c"
@@ -44,7 +43,7 @@ class Boost < Formula
       --libdir=#{lib}
       -d2
       -j#{ENV.make_jobs}
-      --layout=tagged
+      --layout=tagged-1.66
       --user-config=user-config.jam
       -sNO_LZMA=1
       install
@@ -97,7 +96,7 @@ class Boost < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-lboost_system", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++14", "-stdlib=libc++", "-o", "test"
     system "./test"
   end
 end

@@ -1,16 +1,14 @@
 class Gssh < Formula
   desc "SSH automation tool based on Groovy DSL"
   homepage "https://github.com/int128/groovy-ssh"
-  url "https://github.com/int128/groovy-ssh/archive/2.9.0.tar.gz"
-  sha256 "9199c675b91041858a246eee156c6ed0d65d153efafb62820f66d3722b9d17bf"
-  revision 1
+  url "https://github.com/int128/groovy-ssh/archive/2.10.1.tar.gz"
+  sha256 "d1a6e2293e4f23f3245ede7d473a08d4fb6019bf18efbef1a74c894d5c50d6a1"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c408d17013e20ad9b24e049c860fb9e50eb174bc94d9ad6294f4d9c481c7af66" => :mojave
-    sha256 "311d623eacb369d6c207e850d74468e782a6c9c098cc25a6ca7292c3b5c9110d" => :high_sierra
-    sha256 "fa84c67a395acf4a4fca8d68f053dbc403782469ed01b21e466e897d234c03d4" => :sierra
-    sha256 "37b7c923ea68f2b7e515f9fe865b7e81f2662999c3f030a69627518ee99d611a" => :el_capitan
+    sha256 "81d9d04f30ae5f158b18a3749f4e655d25374bc069292e22b47e5c0250ccea3d" => :mojave
+    sha256 "4d9d09ec57af0639e794cbed732c12050fca8fe3d43d6e5d3e1de0e473eb5b0a" => :high_sierra
+    sha256 "ef0becf43b6bfe4a1c1a3cffc27c5c01f338348273f66c7f4e3355e05f55b508" => :sierra
   end
 
   depends_on :java => "1.8"

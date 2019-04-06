@@ -3,13 +3,13 @@ class Supersonic < Formula
   homepage "https://code.google.com/archive/p/supersonic/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/supersonic/supersonic-0.9.4.tar.gz"
   sha256 "1592dfd2dc73f0b97298e0d25e51528dc9a94e9e7f4ab525569f63db0442d769"
-  revision 10
+  revision 11
 
   bottle do
     cellar :any
-    sha256 "d358165db530bdcd2bc4e4572a81a74e5a132be557aacd4065ed35bf7d538609" => :mojave
-    sha256 "2848fe8837e5e805a260335a0f62a63a2adfd707b2f6b4e7a3ddd151a062d56b" => :high_sierra
-    sha256 "a66d3bec4a2487e25ed4827e0415b99d534ca2d386a5c532579ad12b5a6aec56" => :sierra
+    sha256 "00cc0ceaf8dd32e31f007ab2722c862d3ffb0e05fb9271af854766bb9de31a8c" => :mojave
+    sha256 "e7a73d26fc55cc2f9dde20db4fe258904cc0f1f43e07d86115f9d86a6cd32563" => :high_sierra
+    sha256 "a3bd8df521302b7f8c896c54844cb8e8bdcf5fe75948af758c11798a062eabd8" => :sierra
   end
 
   depends_on "pkg-config" => :build

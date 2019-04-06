@@ -3,13 +3,14 @@ class OsrmBackend < Formula
   homepage "http://project-osrm.org/"
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.22.0.tar.gz"
   sha256 "df0987a04bcf65d74f9c4e18f34a01982bf3bb97aa47f9d86cfb8b35f17a6a55"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   bottle do
     cellar :any
-    sha256 "949e7503d8b2ae9847d3b2f20220dddda1561d991e223870030af91016834ee5" => :mojave
-    sha256 "8baa7145775784dd311869c9dabea2abe8be1b8dce1a7c4872a6d261d1df752b" => :high_sierra
-    sha256 "bc01e672d1758ffa27ea5b9b2eb85a113e3f3ee2619f42274fbe6a6a57d99cc3" => :sierra
+    sha256 "000ff04517180dc5e17197787934d7b074b99f88969e338e6bb05ea37a0ddcd8" => :mojave
+    sha256 "11ef639828714f0b7368c7f7394512c3f1e68cbaa1e6abfeb8fd727b9ab739b5" => :high_sierra
+    sha256 "34736a8905253c0008aa41eb39615c6949a42fa60c14df87f66e126d58af4f10" => :sierra
   end
 
   depends_on "cmake" => :build

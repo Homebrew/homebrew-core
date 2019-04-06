@@ -1,16 +1,14 @@
 class Fastme < Formula
   desc "Accurate and fast distance-based phylogeny inference program"
   homepage "http://www.atgc-montpellier.fr/fastme/"
-  url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6/tarball/fastme-2.1.6.tar.gz"
-  sha256 "4945c151e15acffd64820c5e1a4c4ed57ab9fada7f3fe84e3423c5155546b1d0"
-  revision 1
+  url "https://gite.lirmm.fr/atgc/FastME/raw/v2.1.6.1/tarball/fastme-2.1.6.1.tar.gz"
+  sha256 "ac05853bc246ccb3d88b8bc075709a82cfe096331b0f4682b639f37df2b30974"
 
   bottle do
     cellar :any
-    sha256 "a00be7dee09d2fc69a2b7a63ba6178669922cd71e5ad386527948d9218270cd2" => :mojave
-    sha256 "411f3b6aaa0ee9e1946d93e06a4eb6aec7e4e2b2e7d87f0deb0288e333635203" => :high_sierra
-    sha256 "5a722e15df45cfe77a39ab5c7f226422e589aa071eabf9c98bc0b779b4980620" => :sierra
-    sha256 "d4640b1d176234cb35c25ca3d9ad5dc318db840a1c0a79fc057b08a738a6147c" => :el_capitan
+    sha256 "73408c497f0bbaaa108e017004874d6ea90a80bf55cb6ba7fc3f9f6c313c6fd8" => :mojave
+    sha256 "693c79dce4bc3ac847eac8d355c4ecfd6d5b03b9db6ab6dd2b1ce662c98f3865" => :high_sierra
+    sha256 "734cb3a22ba4926dc41a489e1d335509deef731b519b185ba188c02e2cc562cb" => :sierra
   end
 
   depends_on "gcc"

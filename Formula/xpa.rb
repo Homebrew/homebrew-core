@@ -1,16 +1,14 @@
 class Xpa < Formula
   desc "Seamless communication between Unix programs"
   homepage "https://hea-www.harvard.edu/RD/xpa/"
-  url "https://github.com/ericmandel/xpa/archive/v2.1.18.tar.gz"
-  sha256 "a8c9055b913204babce2de4fa037bc3a5849941dcb888f57368fd04af0aa787b"
+  url "https://github.com/ericmandel/xpa/archive/v2.1.19.tar.gz"
+  sha256 "44f1059009a7afe12029b808212393e352b3fa61701615350752ecf6c802ea48"
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "c73a6afbb9764d9b7d6b5199b45bc5ed39edf5778c81f01a17b7dcd6e6c2e621" => :mojave
-    sha256 "c9163ee736fde3dd56d4420121fc61a710bf88feab805e5b2c9cc31630a3be1f" => :high_sierra
-    sha256 "6aa70ab2200ded59d1bbd466b915311c52313bf07f2c398362ce8f5bbb29c597" => :sierra
-    sha256 "f8b188638f71cecd974279f07d55b932be7c657f83c7e55634c011df7cb44a63" => :el_capitan
-    sha256 "2c79a17701b6c38017eb1e02954302912d6618fc7666b46bd7f1d7019632c318" => :yosemite
+    sha256 "5472c2f6a21a42fef5af1719fcc7948277950e740c6dbabf0046218748c63387" => :mojave
+    sha256 "c0dc2dc017c17f0add29646c011602af1ce4ac208cf03b80674f2fa480f89ac9" => :high_sierra
+    sha256 "40cf0e2dc27c94926ab77537d28efad269499956a08b8a7792c05958adfe77b0" => :sierra
   end
 
   depends_on :x11

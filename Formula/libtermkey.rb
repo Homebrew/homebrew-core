@@ -1,15 +1,14 @@
 class Libtermkey < Formula
   desc "Library for processing keyboard entry from the terminal"
   homepage "http://www.leonerd.org.uk/code/libtermkey/"
-  url "http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.21.1.tar.gz"
-  sha256 "cecbf737f35d18f433c8d7864f63c0f878af41f8bd0255a3ebb16010dc044d5f"
-  revision 1
+  url "http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.22.tar.gz"
+  sha256 "6945bd3c4aaa83da83d80a045c5563da4edd7d0374c62c0d35aec09eb3014600"
 
   bottle do
     cellar :any
-    sha256 "3b603560f59e5f26a226da5640a605e9ef64922ac5aafb5e67b278052d7cbc38" => :mojave
-    sha256 "f671985c23c211f27f26dcb6808f710163b9a20db6f74e78be454ed416d8169f" => :high_sierra
-    sha256 "bd4641beb0d85c37540e6edbbec6dba3150c8a365f33f1ef065179b90eac1cb6" => :sierra
+    sha256 "efa6360ccb50275ee143410e57b4ff47b2d6bafd97d6f4feeb3cb3ee02050a2c" => :mojave
+    sha256 "e3b848de428f811c1879530c043145152bf4b0e599ed642aa2845904d13f7081" => :high_sierra
+    sha256 "3f8ce77603619d85de7127f317e276c0cd38a461c545cafeb7c875e7c89fe467" => :sierra
   end
 
   depends_on "libtool" => :build

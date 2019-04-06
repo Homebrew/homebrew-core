@@ -1,14 +1,13 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2018.3.tar.gz"
-  sha256 "4423a49224972969c52af7b1f151579cea6ab52148d8d7cbae28c183520aa291"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2019.1.tar.gz"
+  sha256 "b2c37ed2fcd0e64c4efcabdc8ee581143986527192e6e647a197c76d9c4583ec"
 
   bottle do
-    sha256 "7e7a91d9324d2eea4c6095a7b469c9b59a103d3e7a564e16f7f647f084c82433" => :mojave
-    sha256 "ecef5c12a18508f6f7a0b6273f606680121f5a2ddc9df2c792cbbbd4ff9463cf" => :high_sierra
-    sha256 "da427af1b26005972c484923bd199ee0fb642096123ed7a1ca5b00916d0353ff" => :sierra
-    sha256 "9096c516ac4cb6cb3e21cf07d1ddbe1e2647ae92c031f2c8d2330ee72a6bfbc0" => :el_capitan
+    sha256 "94d33c3b2aab69176bb9ae38225a4486f8e648e775628046cc376d6110f70c64" => :mojave
+    sha256 "f5e98222c231b867623809636fe56ec550bf533f517b7312bb554a915bdf4fe9" => :high_sierra
+    sha256 "c4479eb9a92d1615c2247c9ba3ab185de46a35cc37b55c2a6443f0f73eb7c0cb" => :sierra
   end
 
   depends_on "cmake" => :build

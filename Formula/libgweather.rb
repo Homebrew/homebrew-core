@@ -1,17 +1,17 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.28/libgweather-3.28.3.tar.xz"
-  sha256 "45d30e0111bfc504f3e9609f878c89e26c856907f5732e7c30d3bf9f0a04e6f7"
+  url "https://download.gnome.org/sources/libgweather/3.32/libgweather-3.32.1.tar.xz"
+  sha256 "1c2218ed71230dd2c550ca4fd3dab53e2f2831d38982c213575f34e48d68e980"
 
   bottle do
-    sha256 "137f07c2a0bdf653569594a0146ed8abd6753dfb03aa30b5ee90bc021e0d8385" => :mojave
-    sha256 "e3b603ae019c321c67ecc90e49888c0d1587a4846ccb0c7a558b2b42d3f678cc" => :high_sierra
-    sha256 "2dd576463b258ad2c9a40abd6dae3ab8100e0a4794b2827e65a2fbcc7d78b48a" => :sierra
+    sha256 "1f63c8bc5337d9980092cea606643de4a6eb5a83c66f42a6a4024993708f280f" => :mojave
+    sha256 "b18ba359bd311435ac620e6324c9346c7321d43845682a7f36e51727184de253" => :high_sierra
+    sha256 "dc4eb632ae023cded082d2fd53108100b2730c7eb2ff8e351de3545e0423e3d6" => :sierra
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "meson-internal" => :build
+  depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python" => :build
@@ -20,15 +20,17 @@ class Libgweather < Formula
   depends_on "libsoup"
 
   def install
-    ENV.refurbish_args
-    ENV["DESTDIR"] = ""
-    inreplace "meson/meson_post_install.py", "if not os.environ.get('DESTDIR'):", "if 'DESTDIR' not in os.environ:"
+    ENV["DESTDIR"] = "/"
 
     mkdir "build" do
       system "meson", "--prefix=#{prefix}", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
+
+    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
+    inreplace share/"gir-1.0/GWeather-3.0.gir", "@rpath", lib.to_s
+    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/GWeather-3.0.typelib", share/"gir-1.0/GWeather-3.0.gir"
   end
 
   def post_install

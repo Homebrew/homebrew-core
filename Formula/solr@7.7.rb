@@ -1,9 +1,8 @@
-class SolrAT55 < Formula
+class SolrAT77 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://lucene.apache.org/solr/"
-  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/5.5.5/solr-5.5.5.tgz"
-  mirror "https://archive.apache.org/dist/lucene/solr/5.5.5/solr-5.5.5.tgz"
-  sha256 "2bbe3a55976f118c5d8c2382d4591257f6e2af779c08c6561e44afa3181a87c1"
+  url "https://www.apache.org/dyn/closer.cgi?path=lucene/solr/7.7.1/solr-7.7.1.tgz"
+  sha256 "4fb85f12af045b28f6cb935b2f3739d59ec61ad1288ffe44c7ede64e614f28c4"
 
   bottle :unneeded
 
@@ -23,16 +22,14 @@ class SolrAT55 < Formula
     inreplace "#{bin}/post", '"$SOLR_TIP/dist"', "#{libexec}/dist"
 
     # Fix the paths in the sample solrconfig.xml files
-    Dir.glob([
-               "#{prefix}/example/**/solrconfig.xml",
-               "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
-               "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml",
-             ]) do |f|
+    Dir.glob(["#{prefix}/example/**/solrconfig.xml",
+              "#{prefix}/**/data_driven_schema_configs/**/solrconfig.xml",
+              "#{prefix}/**/sample_techproducts_configs/**/solrconfig.xml"]) do |f|
       inreplace f, ":../../../..}/", "}/libexec/"
     end
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/solr@5.5/bin/solr start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/solr@7.7/bin/solr start"
 
   def plist
     <<~EOS

@@ -5,13 +5,15 @@ class Aravis < Formula
   sha256 "d9795d36bfb1af230bda21d93bc81390f49d936c6c9b7b3043a5c09bd0f0f8d3"
 
   bottle do
-    sha256 "a8faa1da38cca132fa068c207fc36e41ec61ea9618c86ae503f6d18b9e8abfec" => :mojave
-    sha256 "814c7f8168575e730a3e299fb272050c9522773b12d5a5bbeeba31cfb5dd9b27" => :high_sierra
-    sha256 "553fe6f0343f4b4088c5634f270adb7436372f224d65a17b67b6bb4918a11f1c" => :sierra
+    rebuild 1
+    sha256 "48bd639c714321d52ae4beff4a6ee94e130b3e538bae1df9527bd48f3d9aef7f" => :mojave
+    sha256 "e13f65a8fdca765cfc842faf4481d9e0ee84b7af116f251fa21efef5e85ad068" => :high_sierra
+    sha256 "ff24dda20db8c14a54ff34b11f7da695e29afb426df7ae91c97fd341cb0b39d8" => :sierra
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "gtk-doc" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -28,6 +30,7 @@ class Aravis < Formula
     inreplace "viewer/Makefile.am", "gtk-update-icon-cache", "gtk3-update-icon-cache"
     system "./autogen.sh", "--disable-dependency-tracking",
                            "--disable-silent-rules",
+                           "--enable-introspection",
                            "--prefix=#{prefix}"
     system "make", "install"
   end
