@@ -3,6 +3,7 @@ class Unbound < Formula
   homepage "https://www.unbound.net"
   url "https://nlnetlabs.nl/downloads/unbound/unbound-1.9.1.tar.gz"
   sha256 "c3c0bf9b86ccba4ca64f93dd4fe7351308ab54293f297a67de5a8914c1dc59c5"
+  revision 1
   head "https://github.com/NLnetLabs/unbound.git"
 
   bottle do
@@ -20,6 +21,7 @@ class Unbound < Formula
       --sysconfdir=#{etc}
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-ssl=#{Formula["openssl"].opt_prefix}
+      --enable-event-api
     ]
 
     args << "--with-libexpat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
