@@ -1,8 +1,8 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.56/gjs-1.56.0.tar.xz"
-  sha256 "64a7ad5554adb0105fabb432abcfa690033c177d8e650872b469b7cbf475ec1a"
+  url "https://download.gnome.org/sources/gjs/1.56/gjs-1.56.1.tar.xz"
+  sha256 "6724f10e451eaf867e10f0badc3e1e606d823cf5b4c50c5129ee0106b2c1d473"
 
   bottle do
     sha256 "ba510b716d60d4babd4b350cae48d2bcc9d7891183f34903eb34a5ea3e9e27de" => :mojave
@@ -74,6 +74,8 @@ class Gjs < Formula
     (testpath/"test.js").write <<~EOS
       #!/usr/bin/env gjs
       const GLib = imports.gi.GLib;
+      if (31 != GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
+        imports.system.exit(1)
     EOS
     system "#{bin}/gjs", "test.js"
   end
