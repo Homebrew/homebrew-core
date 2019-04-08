@@ -1,8 +1,8 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.11.0.tar.gz"
-  sha256 "b7477a3c3b0d5e8a013685dc208cfb4ccee4145f8668faa8eb5b382af36c7e9a"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.11.3.tar.gz"
+  sha256 "2405db9232ae6ded57e7ff513abdf810c65e3861823b3985717ce990b8d87a37"
 
   bottle do
     cellar :any
@@ -26,10 +26,6 @@ class Gnunet < Formula
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
-
-    # Move non executable script away from bin
-    mv bin/"gnunet-qr.py", pkgshare
-    inreplace bin/"gnunet-qr", bin, pkgshare
   end
 
   test do
