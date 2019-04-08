@@ -2,9 +2,8 @@ class Kafkacat < Formula
   desc "Generic command-line non-JVM Apache Kafka producer and consumer"
   homepage "https://github.com/edenhill/kafkacat"
   url "https://github.com/edenhill/kafkacat.git",
-      :tag      => "1.3.1",
-      :revision => "0ab52045cde0c16f9f99dad41cee019ff88e974e"
-  revision 1
+      :tag      => "1.4.0",
+      :revision => "e685f7e05a184e06a9a1a34abffbb3676a2d6f95"
 
   bottle do
     cellar :any
@@ -19,8 +18,7 @@ class Kafkacat < Formula
   depends_on "yajl"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", "--prefix=#{prefix}",
                           "--enable-json"
     system "make"
     system "make", "install"
