@@ -3,8 +3,13 @@ class Gdcm < Formula
   homepage "https://sourceforge.net/projects/gdcm/"
   url "https://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.8.9/gdcm-2.8.9.tar.gz"
   sha256 "a2da88b7b3cbf9e76a9df3e89d06d057cca9ce54fc62fb059e04f47bf056b727"
-  revision 1
 
+  bottle do
+    sha256 "9f3d3a1de707e4184bc62fa7070fccb39c9fd1864966e49dc58e93c0616ec012" => :mojave
+    sha256 "ad87ce2f85f16278131b692b12c33cbf1f02af7263c04a9b3dc1cb8188bcdf53" => :high_sierra
+    sha256 "ba985660d7000a4f8b054a63269c60cab9c542e46e81864d8ef8621c2a246cbf" => :sierra
+    sha256 "66d1542a14b6c6e75946853944662d4a934101ceb9c865a9c1da527884133bd6" => :el_capitan
+  end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
