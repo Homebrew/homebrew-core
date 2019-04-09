@@ -14,6 +14,7 @@
   "dwarf-fortress": "homebrew/cask",
   "geany": "homebrew/cask",
   "gimp": "homebrew/cask",
+  "glooctl": "solo-io/tap",
   "grads": "homebrew/cask",
   "gtkwave": "homebrew/cask",
   "horndis": "homebrew/cask",
