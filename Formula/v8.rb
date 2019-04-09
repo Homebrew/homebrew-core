@@ -4,7 +4,7 @@ class V8 < Formula
   homepage "https://github.com/v8/v8/wiki"
   url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
       :revision => "5637e87bda2811565c3e4e58bd2274aeb3a4757e"
-  version "7.3.492.25" # the version of the v8 checkout, not a depot_tools version
+  version "7.3.492.27" # the version of the v8 checkout, not a depot_tools version
 
   bottle do
     cellar :any
@@ -56,6 +56,7 @@ class V8 < Formula
         :is_component_build           => true,
         :v8_use_external_startup_data => false,
         :v8_enable_i18n_support       => true,
+        :use_custom_libcxx            => false,
       }
 
       # Transform to args string
@@ -76,5 +77,21 @@ class V8 < Formula
     assert_equal "Hello World!", shell_output("#{bin}/d8 -e 'print(\"Hello World!\");'").chomp
     t = "#{bin}/d8 -e 'print(new Intl.DateTimeFormat(\"en-US\").format(new Date(\"2012-12-20T03:00:00\")));'"
     assert_match %r{12/\d{2}/2012}, shell_output(t).chomp
+
+    (testpath/"test.cpp").write <<~'EOS'
+      #include <libplatform/libplatform.h>
+      #include <v8.h>
+      int main(){
+        static std::unique_ptr<v8::Platform> platform = v8::platform::NewDefaultPlatform();
+        v8::V8::InitializePlatform(platform.get());
+        v8::V8::Initialize();
+        return 0;
+      }
+    EOS
+
+    # link against installed libc++
+    system ENV.cxx, "-std=c++11", "test.cpp",
+      "-I#{libexec}/include",
+      "-L#{libexec}", "-lv8", "-lv8_libplatform"
   end
 end
