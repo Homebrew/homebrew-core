@@ -5,10 +5,9 @@ class Gnumeric < Formula
   sha256 "60ea794bf3bffe54fe3d56305e487947d30c14b525fd7c8ad46d79c384498704"
 
   bottle do
-    rebuild 1
-    sha256 "915075749528bd3b0f31651fbdfac38a6e06134eea6ed99f97b7b777fba0f3ac" => :mojave
-    sha256 "9c9e678a2d3f25b34c1896d197a7cd3a6da6207fee9b3a64a5f3526ed742bf1c" => :high_sierra
-    sha256 "65ff2bf41de0d4b5665e619720cf045b00177f345ec80198d0190cf0a1c3f66b" => :sierra
+    sha256 "c4abaf0d2aefc0019c9904f07e78fb368df1c1f77c29f72d0aa2328f4644fe04" => :mojave
+    sha256 "898b856734071c0241019c21f586aceecc96ecdc902352921e87f869b8dd39b8" => :high_sierra
+    sha256 "55b1f0fdb7bf24d000ff6aa87dcf023a14bb8d2eff6452fd9a607eaf2edd81d2" => :sierra
   end
 
   depends_on "intltool" => :build
