@@ -12,7 +12,8 @@ class Sourcekitten < Formula
     sha256 "dadffd1d44d3365bdacefa3beb320f2d2fcdc832287a388068b659b3ecca2a15" => :high_sierra
   end
 
-  depends_on :xcode => "10.0"
+  depends_on :xcode => ["10.0", :build]
+  depends_on :xcode => "6.0"
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}", "TEMPORARY_FOLDER=#{buildpath}/SourceKitten.dst"
