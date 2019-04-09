@@ -33,10 +33,6 @@ class Gssdp < Formula
       system "ninja"
       system "ninja", "install"
     end
-
-    # to be removed when https://gitlab.gnome.org/GNOME/gobject-introspection/issues/222 is fixed
-    inreplace share/"gir-1.0/GSSDP-1.2.gir", "@rpath", lib.to_s
-    system "g-ir-compiler", "--output=#{lib}/girepository-1.0/GSSDP-1.2.typelib", share/"gir-1.0/GSSDP-1.2.gir"
   end
 
   test do
