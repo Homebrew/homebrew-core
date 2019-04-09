@@ -7,9 +7,9 @@ class DockerCredentialHelperEcr < Formula
 
   bottle do
     cellar :any_skip_relocation
-    sha256 "b268019fbcaf85125b3905b4b6daf7b0d9879bbc2b80b62a3c12ad8d4ef14e36" => :mojave
-    sha256 "ed67a3621f3b9428b2ddd35495333c71d9ed48e78025c9c048e605c6b75a152a" => :high_sierra
-    sha256 "10e0717849f7905bebdaf5f08c99b2b8071341bddf1d5685e7de55c74c51dfbd" => :sierra
+    sha256 "2454d0f49c6e753dda820f3e29b4b2ad342bfbe105f9593bb965ac90f0a92c4d" => :mojave
+    sha256 "d4ea8e040cf60de713a05a9ca85ba0f4ae733316f2edfc26b3693b52330ff7d6" => :high_sierra
+    sha256 "134b0228a2c77466523db446a0de5bd609564dc605290b50edc1ada7643a32cc" => :sierra
   end
 
   depends_on "go" => :build
