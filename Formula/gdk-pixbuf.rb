@@ -62,13 +62,6 @@ class GdkPixbuf < Formula
       s.change_make_var! "gdk_pixbuf_binarydir",
         HOMEBREW_PREFIX/"lib/gdk-pixbuf-#{gdk_so_ver}"/libv
     end
-
-    # fix gobject-introspection support
-    # will not be necessary after next release of gobject-introspection
-    %w[GdkPixbuf-2.0 GdkPixdata-2.0].each do |gir|
-      inreplace share/"gir-1.0/#{gir}.gir", "@rpath", lib.to_s
-      system "g-ir-compiler", "--includedir=#{share}/gir-1.0", "--output=#{lib}/girepository-1.0/#{gir}.typelib", share/"gir-1.0/#{gir}.gir"
-    end
   end
 
   # The directory that loaders.cache gets linked into, also has the "loaders"
